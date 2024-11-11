@@ -377,13 +377,13 @@ ar_basename.exit:                                 ; preds = %.tail139.thread
   store i8 %104, ptr %105, align 1
   %106 = udiv i64 %.029.i, 10
   %107 = add nsw i32 %.025.i, -1
-  %108 = icmp ugt i32 %.025.i, 1
-  %109 = icmp ugt i64 %.029.i, 9
+  %108 = icmp samesign ugt i32 %.025.i, 1
+  %109 = icmp samesign ugt i64 %.029.i, 9
   %110 = select i1 %108, i1 %109, i1 false
   br i1 %110, label %101, label %111, !llvm.loop !7
 
 111:                                              ; preds = %101
-  %112 = icmp ult i64 %.029.i, 10
+  %112 = icmp samesign ult i64 %.029.i, 10
   br i1 %112, label %113, label %.preheader32.preheader.i
 
 .preheader32.preheader.i:                         ; preds = %111
@@ -428,13 +428,13 @@ format_decimal.exit:                              ; preds = %95, %.preheader32.p
   store i8 %128, ptr %129, align 1
   %130 = udiv i64 %.029.i105, 10
   %131 = add nsw i32 %.025.i107, -1
-  %132 = icmp ugt i32 %.025.i107, 1
-  %133 = icmp ugt i64 %.029.i105, 9
+  %132 = icmp samesign ugt i32 %.025.i107, 1
+  %133 = icmp samesign ugt i64 %.029.i105, 9
   %134 = select i1 %132, i1 %133, i1 false
   br i1 %134, label %125, label %135, !llvm.loop !7
 
 135:                                              ; preds = %125
-  %136 = icmp ult i64 %.029.i105, 10
+  %136 = icmp samesign ult i64 %.029.i105, 10
   br i1 %136, label %137, label %.preheader32.preheader.i108
 
 .preheader32.preheader.i108:                      ; preds = %135
@@ -479,13 +479,13 @@ format_decimal.exit112:                           ; preds = %120, %.preheader32.
   store i8 %152, ptr %153, align 1
   %154 = udiv i64 %.029.i113, 10
   %155 = add nsw i32 %.025.i115, -1
-  %156 = icmp ugt i32 %.025.i115, 1
-  %157 = icmp ugt i64 %.029.i113, 9
+  %156 = icmp samesign ugt i32 %.025.i115, 1
+  %157 = icmp samesign ugt i64 %.029.i113, 9
   %158 = select i1 %156, i1 %157, i1 false
   br i1 %158, label %149, label %159, !llvm.loop !7
 
 159:                                              ; preds = %149
-  %160 = icmp ult i64 %.029.i113, 10
+  %160 = icmp samesign ult i64 %.029.i113, 10
   br i1 %160, label %161, label %.preheader32.preheader.i116
 
 .preheader32.preheader.i116:                      ; preds = %159
@@ -553,7 +553,7 @@ format_decimal.exit120:                           ; preds = %144, %.preheader32.
   store i8 %182, ptr %183, align 1
   %184 = udiv i64 %.029.i121, 10
   %185 = add nsw i32 %.025.i123, -1
-  %186 = icmp ugt i32 %.025.i123, 1
+  %186 = icmp samesign ugt i32 %.025.i123, 1
   %187 = icmp samesign ugt i64 %.029.i121, 9
   %188 = select i1 %186, i1 %187, i1 false
   br i1 %188, label %.preheader, label %189, !llvm.loop !7
@@ -807,13 +807,13 @@ define internal fastcc range(i32 -1, 1) i32 @format_decimal(i64 noundef %0, ptr 
   store i8 %11, ptr %12, align 1
   %13 = udiv i64 %.029, 10
   %14 = add nsw i32 %.025, -1
-  %15 = icmp ugt i32 %.025, 1
-  %16 = icmp ugt i64 %.029, 9
+  %15 = icmp samesign ugt i32 %.025, 1
+  %16 = icmp samesign ugt i64 %.029, 9
   %17 = select i1 %15, i1 %16, i1 false
   br i1 %17, label %8, label %18, !llvm.loop !7
 
 18:                                               ; preds = %8
-  %19 = icmp ult i64 %.029, 10
+  %19 = icmp samesign ult i64 %.029, 10
   br i1 %19, label %20, label %.preheader32.preheader
 
 .preheader32.preheader:                           ; preds = %18
@@ -864,7 +864,7 @@ define internal fastcc range(i32 -1, 1) i32 @format_octal(i64 noundef range(i64 
   store i8 %7, ptr %8, align 1
   %9 = lshr i64 %.029, 3
   %10 = add nsw i32 %.025, -1
-  %11 = icmp ugt i32 %.025, 1
+  %11 = icmp samesign ugt i32 %.025, 1
   %12 = icmp samesign ugt i64 %.029, 7
   %13 = select i1 %11, i1 %12, i1 false
   br i1 %13, label %4, label %14, !llvm.loop !8

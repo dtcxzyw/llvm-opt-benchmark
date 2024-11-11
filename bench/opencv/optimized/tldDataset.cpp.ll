@@ -226,7 +226,7 @@ define void @_ZN2cv6detail8tracking3tld23tld_getNextDatasetFrameB5cxx11Ev(ptr de
   br label %22
 
 13:                                               ; preds = %9
-  %14 = icmp ult i32 %10, 100
+  %14 = icmp samesign ult i32 %10, 100
   br i1 %14, label %15, label %16
 
 15:                                               ; preds = %13
@@ -236,7 +236,7 @@ define void @_ZN2cv6detail8tracking3tld23tld_getNextDatasetFrameB5cxx11Ev(ptr de
   br label %22
 
 16:                                               ; preds = %13
-  %17 = icmp ult i32 %10, 1000
+  %17 = icmp samesign ult i32 %10, 1000
   br i1 %17, label %18, label %19
 
 18:                                               ; preds = %16
@@ -246,7 +246,7 @@ define void @_ZN2cv6detail8tracking3tld23tld_getNextDatasetFrameB5cxx11Ev(ptr de
   br label %22
 
 19:                                               ; preds = %16
-  %20 = icmp ult i32 %10, 10000
+  %20 = icmp samesign ult i32 %10, 10000
   br i1 %20, label %21, label %22
 
 21:                                               ; preds = %19

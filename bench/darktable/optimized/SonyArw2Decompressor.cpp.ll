@@ -123,9 +123,9 @@ define hidden void @_ZN8rawspeed20SonyArw2DecompressorC2ENS_8RawImageENS_10ByteS
 35:                                               ; preds = %27
   %36 = and i32 %29, 31
   %37 = icmp ne i32 %36, 0
-  %38 = icmp ugt i32 %29, 9600
+  %38 = icmp samesign ugt i32 %29, 9600
   %39 = or i1 %38, %37
-  %40 = icmp ugt i32 %32, 6376
+  %40 = icmp samesign ugt i32 %32, 6376
   %41 = select i1 %39, i1 true, i1 %40
   br i1 %41, label %42, label %44
 
@@ -161,7 +161,7 @@ define hidden void @_ZN8rawspeed20SonyArw2DecompressorC2ENS_8RawImageENS_10ByteS
   %59 = icmp sgt i32 %52, -1
   tail call void @llvm.assume(i1 %59)
   %60 = add nuw nsw i32 %47, %45
-  %61 = icmp ule i32 %60, %52
+  %61 = icmp samesign ule i32 %60, %52
   tail call void @llvm.assume(i1 %61)
   %62 = icmp sgt i32 %47, -1
   tail call void @llvm.assume(i1 %62)
@@ -439,7 +439,7 @@ define hidden void @_ZNK8rawspeed20SonyArw2Decompressor13decompressRowEi(ptr noc
   %109 = and i32 %108, 2047
   %110 = lshr i64 %106, 11
   %111 = add nsw i32 %107, -11
-  %112 = icmp ult i32 %111, 11
+  %112 = icmp samesign ult i32 %111, 11
   br i1 %112, label %113, label %139
 
 113:                                              ; preds = %104
@@ -492,7 +492,7 @@ define hidden void @_ZNK8rawspeed20SonyArw2Decompressor13decompressRowEi(ptr noc
   %144 = and i32 %143, 2047
   %145 = lshr i64 %141, 11
   %146 = add nsw i32 %142, -11
-  %147 = icmp ult i32 %146, 4
+  %147 = icmp samesign ult i32 %146, 4
   br i1 %147, label %148, label %174
 
 148:                                              ; preds = %139
@@ -543,7 +543,7 @@ define hidden void @_ZNK8rawspeed20SonyArw2Decompressor13decompressRowEi(ptr noc
   %177 = phi i32 [ %170, %166 ], [ %146, %139 ]
   %178 = lshr i64 %176, 4
   %179 = add nsw i32 %177, -4
-  %180 = icmp ult i32 %179, 4
+  %180 = icmp samesign ult i32 %179, 4
   br i1 %180, label %181, label %207
 
 181:                                              ; preds = %174
@@ -609,15 +609,15 @@ define hidden void @_ZNK8rawspeed20SonyArw2Decompressor13decompressRowEi(ptr noc
   unreachable
 
 220:                                              ; preds = %216
-  %221 = icmp ult i32 %217, 256
+  %221 = icmp samesign ult i32 %217, 256
   br i1 %221, label %227, label %222
 
 222:                                              ; preds = %220
-  %223 = icmp ult i32 %217, 512
+  %223 = icmp samesign ult i32 %217, 512
   br i1 %223, label %227, label %224
 
 224:                                              ; preds = %222
-  %225 = icmp ult i32 %217, 1024
+  %225 = icmp samesign ult i32 %217, 1024
   %226 = select i1 %225, i32 3, i32 4
   br label %227
 

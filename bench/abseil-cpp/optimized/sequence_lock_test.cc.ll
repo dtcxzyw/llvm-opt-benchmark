@@ -7077,7 +7077,7 @@ invoke.cont11:                                    ; preds = %_ZNSt12_Vector_base
   %3 = load ptr, ptr %src_buf, align 8
   fence release
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %word2.i.i)
-  %cmp14.i.i = icmp ugt i32 %0, 7
+  %cmp14.i.i = icmp samesign ugt i32 %0, 7
   br i1 %cmp14.i.i, label %while.body.i.i, label %while.end.i.i
 
 while.body.i.i:                                   ; preds = %invoke.cont11, %while.body.i.i

@@ -113,7 +113,7 @@ skip.exit:                                        ; preds = %.lr.ph.i, %.lr.ph
   br i1 %22, label %23, label %.critedge
 
 23:                                               ; preds = %21
-  %24 = icmp ult i8 %19, 91
+  %24 = icmp samesign ult i8 %19, 91
   %25 = icmp samesign ult i64 %.0123, 12
   %or.cond40 = select i1 %24, i1 %25, i1 false
   br i1 %or.cond40, label %27, label %.critedge
@@ -280,7 +280,7 @@ oneortwodigit.exit20.i:                           ; preds = %86
   %93 = zext nneg i8 %90 to i32
   %94 = add nsw i32 %92, -48
   %95 = add nsw i32 %94, %93
-  %96 = icmp ult i32 %95, 60
+  %96 = icmp samesign ult i32 %95, 60
   br i1 %96, label %thread-pre-split.i, label %match_time.exit.thread
 
 thread-pre-split.i:                               ; preds = %oneortwodigit.exit20.i
@@ -317,7 +317,7 @@ oneortwodigit.exit23.i:                           ; preds = %104
   %112 = zext nneg i8 %108 to i32
   %113 = add nsw i32 %111, -48
   %114 = add nsw i32 %113, %112
-  %115 = icmp ult i32 %114, 61
+  %115 = icmp samesign ult i32 %114, 61
   br i1 %115, label %116, label %match_time.exit.thread
 
 116:                                              ; preds = %oneortwodigit.exit23.i, %104, %100, %oneortwodigit.exit20.thread.i

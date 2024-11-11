@@ -2548,7 +2548,7 @@ _ZN3tbb6detail2d014try_call_proxyIZNS0_2d211micro_queueIPN32pxrInternal_v0_24__p
   %.01.i.i.i = phi i32 [ %32, %.lr.ph.i.i.i ], [ %.sroa.0.06.i, %30 ]
   %32 = add nsw i32 %.01.i.i.i, -1
   call void @llvm.x86.sse2.pause()
-  %33 = icmp ugt i32 %.01.i.i.i, 1
+  %33 = icmp samesign ugt i32 %.01.i.i.i, 1
   br i1 %33, label %.lr.ph.i.i.i, label %_ZN3tbb6detail2d0L13machine_pauseEi.exit.i.i, !llvm.loop !25
 
 _ZN3tbb6detail2d0L13machine_pauseEi.exit.i.i:     ; preds = %.lr.ph.i.i.i, %30
@@ -2589,7 +2589,7 @@ _ZNK3tbb6detail2d211micro_queueIPN32pxrInternal_v0_24__pxrReserved__16TfDiagnost
   %.01.i.i.i.i.i = phi i32 [ %47, %.lr.ph.i.i.i.i.i ], [ %.sroa.0.02.i.i.i, %45 ]
   %47 = add nsw i32 %.01.i.i.i.i.i, -1
   call void @llvm.x86.sse2.pause()
-  %48 = icmp ugt i32 %.01.i.i.i.i.i, 1
+  %48 = icmp samesign ugt i32 %.01.i.i.i.i.i, 1
   br i1 %48, label %.lr.ph.i.i.i.i.i, label %_ZN3tbb6detail2d0L13machine_pauseEi.exit.i.i.i.i, !llvm.loop !25
 
 _ZN3tbb6detail2d0L13machine_pauseEi.exit.i.i.i.i: ; preds = %.lr.ph.i.i.i.i.i, %45
@@ -2677,7 +2677,7 @@ define linkonce_odr void @_ZN3tbb6detail2d010raii_guardIZNS0_2d211micro_queueIPN
   %.01.i.i.i.i.i.i.i = phi i32 [ %20, %.lr.ph.i.i.i.i.i.i.i ], [ %.sroa.0.02.i.i.i.i.i, %18 ]
   %20 = add nsw i32 %.01.i.i.i.i.i.i.i, -1
   tail call void @llvm.x86.sse2.pause()
-  %21 = icmp ugt i32 %.01.i.i.i.i.i.i.i, 1
+  %21 = icmp samesign ugt i32 %.01.i.i.i.i.i.i.i, 1
   br i1 %21, label %.lr.ph.i.i.i.i.i.i.i, label %_ZN3tbb6detail2d0L13machine_pauseEi.exit.i.i.i.i.i.i, !llvm.loop !25
 
 _ZN3tbb6detail2d0L13machine_pauseEi.exit.i.i.i.i.i.i: ; preds = %.lr.ph.i.i.i.i.i.i.i, %18
@@ -2754,7 +2754,7 @@ define linkonce_odr noundef zeroext i1 @_ZN3tbb6detail2d211micro_queueIPN32pxrIn
   %.01.i.i.us.i = phi i32 [ %14, %.lr.ph.i.i.us.i ], [ %.sroa.0.018.us.i, %12 ]
   %14 = add nsw i32 %.01.i.i.us.i, -1
   tail call void @llvm.x86.sse2.pause()
-  %15 = icmp ugt i32 %.01.i.i.us.i, 1
+  %15 = icmp samesign ugt i32 %.01.i.i.us.i, 1
   br i1 %15, label %.lr.ph.i.i.us.i, label %_ZN3tbb6detail2d0L13machine_pauseEi.exit.i.us.i, !llvm.loop !25
 
 _ZN3tbb6detail2d0L13machine_pauseEi.exit.i.us.i:  ; preds = %.lr.ph.i.i.us.i, %12
@@ -2790,7 +2790,7 @@ _ZN3tbb6detail2d015spin_wait_whileImZNS1_18spin_wait_until_eqImmEET_RKSt6atomicI
   %.01.i.i.us.i28 = phi i32 [ %26, %.lr.ph.i.i.us.i27 ], [ %.sroa.0.017.us.i, %24 ]
   %26 = add nsw i32 %.01.i.i.us.i28, -1
   tail call void @llvm.x86.sse2.pause()
-  %27 = icmp ugt i32 %.01.i.i.us.i28, 1
+  %27 = icmp samesign ugt i32 %.01.i.i.us.i28, 1
   br i1 %27, label %.lr.ph.i.i.us.i27, label %_ZN3tbb6detail2d0L13machine_pauseEi.exit.i.us.i26, !llvm.loop !25
 
 _ZN3tbb6detail2d0L13machine_pauseEi.exit.i.us.i26: ; preds = %.lr.ph.i.i.us.i27, %24
@@ -2857,7 +2857,7 @@ _ZN3tbb6detail2d015spin_wait_whileImZNS1_18spin_wait_while_eqImmEET_RKSt6atomicI
   %.01.i.i.i.i.i.i = phi i32 [ %57, %.lr.ph.i.i.i.i.i.i ], [ %.sroa.0.02.i.i.i.i, %55 ]
   %57 = add nsw i32 %.01.i.i.i.i.i.i, -1
   tail call void @llvm.x86.sse2.pause()
-  %58 = icmp ugt i32 %.01.i.i.i.i.i.i, 1
+  %58 = icmp samesign ugt i32 %.01.i.i.i.i.i.i, 1
   br i1 %58, label %.lr.ph.i.i.i.i.i.i, label %_ZN3tbb6detail2d0L13machine_pauseEi.exit.i.i.i.i.i, !llvm.loop !25
 
 _ZN3tbb6detail2d0L13machine_pauseEi.exit.i.i.i.i.i: ; preds = %.lr.ph.i.i.i.i.i.i, %55

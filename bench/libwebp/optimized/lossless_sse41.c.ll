@@ -124,7 +124,7 @@ define internal void @ConvertBGRAToRGB_SSE41(ptr noundef %0, i32 noundef %1, ptr
   %21 = getelementptr inbounds i8, ptr %.08790, i64 64
   %22 = getelementptr inbounds i8, ptr %.08889, i64 48
   %23 = add nsw i32 %.091, -16
-  %24 = icmp ugt i32 %.091, 31
+  %24 = icmp samesign ugt i32 %.091, 31
   br i1 %24, label %.lr.ph, label %._crit_edge, !llvm.loop !6
 
 ._crit_edge:                                      ; preds = %.lr.ph, %3
@@ -173,7 +173,7 @@ define internal void @ConvertBGRAToBGR_SSE41(ptr noundef %0, i32 noundef %1, ptr
   %21 = getelementptr inbounds i8, ptr %.08790, i64 64
   %22 = getelementptr inbounds i8, ptr %.08889, i64 48
   %23 = add nsw i32 %.091, -16
-  %24 = icmp ugt i32 %.091, 31
+  %24 = icmp samesign ugt i32 %.091, 31
   br i1 %24, label %.lr.ph, label %._crit_edge, !llvm.loop !7
 
 ._crit_edge:                                      ; preds = %.lr.ph, %3

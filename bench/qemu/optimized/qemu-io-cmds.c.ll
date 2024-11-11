@@ -1364,7 +1364,7 @@ if.then39:                                        ; preds = %if.end33
   br label %return
 
 if.else:                                          ; preds = %if.end33
-  %cmp43 = icmp ugt i64 %retval.0.i98, 2147483136
+  %cmp43 = icmp samesign ugt i64 %retval.0.i98, 2147483136
   br i1 %cmp43, label %if.then45, label %if.end50
 
 if.then45:                                        ; preds = %if.else
@@ -2151,7 +2151,7 @@ if.then:                                          ; preds = %for.body
   br label %fail
 
 if.end:                                           ; preds = %for.body
-  %cmp5 = icmp ugt i64 %retval.0.i, 2147483136
+  %cmp5 = icmp samesign ugt i64 %retval.0.i, 2147483136
   br i1 %cmp5, label %if.then7, label %if.end9
 
 if.then7:                                         ; preds = %if.end
@@ -2478,7 +2478,7 @@ if.then69:                                        ; preds = %if.end63
   br label %return
 
 if.else:                                          ; preds = %if.end63
-  %cmp73 = icmp ult i64 %call66, 2147483137
+  %cmp73 = icmp samesign ult i64 %call66, 2147483137
   %brmerge = or i1 %tobool32.not, %cmp73
   br i1 %brmerge, label %if.end83, label %if.then78
 
@@ -4399,7 +4399,7 @@ if.then14:                                        ; preds = %if.end8
   br label %return
 
 if.else:                                          ; preds = %if.end8
-  %cmp18 = icmp ugt i64 %retval.0.i27, 2147483136
+  %cmp18 = icmp samesign ugt i64 %retval.0.i27, 2147483136
   br i1 %cmp18, label %if.then20, label %if.end25
 
 if.then20:                                        ; preds = %if.else
@@ -5156,7 +5156,7 @@ if.then:                                          ; preds = %entry
   br label %return
 
 if.else:                                          ; preds = %entry
-  %cmp2 = icmp ugt i64 %retval.0.i, 65
+  %cmp2 = icmp samesign ugt i64 %retval.0.i, 65
   br i1 %cmp2, label %if.then4, label %if.end7
 
 if.then4:                                         ; preds = %if.else

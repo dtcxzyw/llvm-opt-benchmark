@@ -145,7 +145,7 @@ if.then10.i:                                      ; preds = %if.then.i
   br label %if.end123
 
 if.end14.i:                                       ; preds = %if.then48
-  %cmp17.i = icmp ult i8 %15, -32
+  %cmp17.i = icmp samesign ult i8 %15, -32
   br i1 %cmp17.i, label %if.then19.i, label %if.end24.i
 
 if.then19.i:                                      ; preds = %if.end14.i
@@ -189,7 +189,7 @@ if.then10.i69:                                    ; preds = %if.then.i67
   br label %ToUpperCase.exit70
 
 if.end14.i60:                                     ; preds = %while.body62
-  %cmp17.i61 = icmp ult i8 %22, -32
+  %cmp17.i61 = icmp samesign ult i8 %22, -32
   br i1 %cmp17.i61, label %if.then19.i65, label %if.end24.i62
 
 if.then19.i65:                                    ; preds = %if.end14.i60
@@ -321,11 +321,11 @@ if.then:                                          ; preds = %entry
   br label %return
 
 if.else:                                          ; preds = %entry
-  %cmp13 = icmp ult i8 %0, -64
+  %cmp13 = icmp samesign ult i8 %0, -64
   br i1 %cmp13, label %return, label %if.else16
 
 if.else16:                                        ; preds = %if.else
-  %cmp19 = icmp ult i8 %0, -32
+  %cmp19 = icmp samesign ult i8 %0, -32
   br i1 %cmp19, label %if.then21, label %if.else43
 
 if.then21:                                        ; preds = %if.else16
@@ -354,7 +354,7 @@ if.end:                                           ; preds = %if.then21
   br label %return
 
 if.else43:                                        ; preds = %if.else16
-  %cmp46 = icmp ult i8 %0, -16
+  %cmp46 = icmp samesign ult i8 %0, -16
   br i1 %cmp46, label %if.then48, label %if.else87
 
 if.then48:                                        ; preds = %if.else43
@@ -395,7 +395,7 @@ if.end52:                                         ; preds = %if.then48
   br label %return
 
 if.else87:                                        ; preds = %if.else43
-  %cmp90 = icmp ult i8 %0, -8
+  %cmp90 = icmp samesign ult i8 %0, -8
   br i1 %cmp90, label %if.then92, label %return
 
 if.then92:                                        ; preds = %if.else87

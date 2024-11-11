@@ -3863,7 +3863,7 @@ define internal i64 @varstr_abbrev_convert(i64 noundef %0, ptr nocapture noundef
   br label %103
 
 96:                                               ; preds = %92
-  %97 = icmp ult i32 %94, 4
+  %97 = icmp samesign ult i32 %94, 4
   %98 = shl nuw nsw i32 %94, 1
   %spec.select130 = select i1 %97, i32 8, i32 %98
   store i32 %spec.select130, ptr %93, align 4
@@ -4001,7 +4001,7 @@ define internal noundef zeroext i1 @varstr_abbrev_abort(i32 noundef %0, ptr noca
   br i1 %25, label %26, label %30
 
 26:                                               ; preds = %21
-  %27 = icmp ugt i32 %0, 10000
+  %27 = icmp samesign ugt i32 %0, 10000
   br i1 %27, label %28, label %38
 
 28:                                               ; preds = %26
@@ -7666,23 +7666,23 @@ check_collation_set.exit:                         ; preds = %49
   br i1 %89, label %100, label %90
 
 90:                                               ; preds = %87
-  %91 = icmp ult i32 %88, 64
+  %91 = icmp samesign ult i32 %88, 64
   br i1 %91, label %100, label %92
 
 92:                                               ; preds = %90
-  %93 = icmp ult i32 %88, 128
+  %93 = icmp samesign ult i32 %88, 128
   br i1 %93, label %100, label %94
 
 94:                                               ; preds = %92
-  %95 = icmp ult i32 %88, 512
+  %95 = icmp samesign ult i32 %88, 512
   br i1 %95, label %100, label %96
 
 96:                                               ; preds = %94
-  %97 = icmp ult i32 %88, 2048
+  %97 = icmp samesign ult i32 %88, 2048
   br i1 %97, label %100, label %98
 
 98:                                               ; preds = %96
-  %99 = icmp ult i32 %88, 4096
+  %99 = icmp samesign ult i32 %88, 4096
   %. = select i1 %99, i32 127, i32 255
   br label %100
 
@@ -8129,7 +8129,7 @@ check_replace_text_has_escape.exit:               ; preds = %.lr.ph.i, %82, %87,
   %131 = sext i32 %130 to i64
   %132 = getelementptr i8, ptr %.011.i, i64 %131
   %133 = add nsw i32 %.0810.i, -1
-  %134 = icmp ugt i32 %.0810.i, 1
+  %134 = icmp samesign ugt i32 %.0810.i, 1
   br i1 %134, label %.lr.ph.i105, label %._crit_edge.i, !llvm.loop !37
 
 ._crit_edge.i:                                    ; preds = %.lr.ph.i105, %.preheader.i
@@ -8292,7 +8292,7 @@ charlen_to_bytelen.exit:                          ; preds = %125, %._crit_edge.i
   %207 = sext i32 %206 to i64
   %208 = getelementptr i8, ptr %.011.i.i, i64 %207
   %209 = add nsw i32 %.0810.i.i, -1
-  %210 = icmp ugt i32 %.0810.i.i, 1
+  %210 = icmp samesign ugt i32 %.0810.i.i, 1
   br i1 %210, label %.lr.ph.i.i, label %._crit_edge.i.loopexit.i, !llvm.loop !37
 
 ._crit_edge.i.loopexit.i:                         ; preds = %.lr.ph.i.i
@@ -8325,7 +8325,7 @@ charlen_to_bytelen.exit.i:                        ; preds = %._crit_edge.i.i, %2
   %220 = sext i32 %219 to i64
   %221 = getelementptr i8, ptr %.011.i79.i, i64 %220
   %222 = add nsw i32 %.0810.i80.i, -1
-  %223 = icmp ugt i32 %.0810.i80.i, 1
+  %223 = icmp samesign ugt i32 %.0810.i80.i, 1
   br i1 %223, label %.lr.ph.i78.i, label %._crit_edge.i75.i, !llvm.loop !37
 
 ._crit_edge.i75.i:                                ; preds = %.lr.ph.i78.i, %.preheader.i74.i
@@ -8395,7 +8395,7 @@ appendStringInfoRegexpSubstr.exit:                ; preds = %.backedge.i, %184, 
   %255 = sext i32 %254 to i64
   %256 = getelementptr i8, ptr %.011.i116, i64 %255
   %257 = add nsw i32 %.0810.i117, -1
-  %258 = icmp ugt i32 %.0810.i117, 1
+  %258 = icmp samesign ugt i32 %.0810.i117, 1
   br i1 %258, label %.lr.ph.i115, label %._crit_edge.i112, !llvm.loop !37
 
 ._crit_edge.i112:                                 ; preds = %.lr.ph.i115, %.preheader.i111

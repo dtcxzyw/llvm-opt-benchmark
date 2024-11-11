@@ -5282,7 +5282,7 @@ define dso_local void @_ZN4llvm6object25WindowsResourceCOFFWriter5writeEj(ptr de
   %78 = getelementptr inbounds i8, ptr %.0910.i.i.i.i.i.i.i, i64 1
   %79 = getelementptr inbounds i8, ptr %.0811.i.i.i.i.i.i.i, i64 1
   %80 = add nsw i64 %.012.i.i.i.i.i.i.i, -1
-  %81 = icmp ugt i64 %.012.i.i.i.i.i.i.i, 1
+  %81 = icmp samesign ugt i64 %.012.i.i.i.i.i.i.i, 1
   br i1 %81, label %.lr.ph.i.i.i.i.i.i.i, label %_ZN4llvm4copyIRKSt6vectorIhSaIhEEPcEET0_OT_S7_.exit.loopexit.i, !llvm.loop !151
 
 _ZN4llvm4copyIRKSt6vectorIhSaIhEEPcEET0_OT_S7_.exit.loopexit.i: ; preds = %.lr.ph.i.i.i.i.i.i.i
@@ -5666,7 +5666,7 @@ define dso_local void @_ZN4llvm6object25WindowsResourceCOFFWriter18writeSecondSe
   %21 = getelementptr inbounds i8, ptr %.0910.i.i.i.i.i.i, i64 1
   %22 = getelementptr inbounds i8, ptr %.0811.i.i.i.i.i.i, i64 1
   %23 = add nsw i64 %.012.i.i.i.i.i.i, -1
-  %24 = icmp ugt i64 %.012.i.i.i.i.i.i, 1
+  %24 = icmp samesign ugt i64 %.012.i.i.i.i.i.i, 1
   br i1 %24, label %.lr.ph.i.i.i.i.i.i, label %_ZN4llvm4copyIRKSt6vectorIhSaIhEEPcEET0_OT_S7_.exit.loopexit, !llvm.loop !151
 
 _ZN4llvm4copyIRKSt6vectorIhSaIhEEPcEET0_OT_S7_.exit.loopexit: ; preds = %.lr.ph.i.i.i.i.i.i

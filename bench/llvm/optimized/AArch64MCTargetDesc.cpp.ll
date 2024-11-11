@@ -11794,7 +11794,7 @@ _ZNK4llvm15MCRegisterClass8containsENS_10MCRegisterE.exit.i.i.i.i.i.i.i.i: ; pre
   br i1 %.not.i.i.i.i.i.i.i.i, label %21, label %"_ZN4llvm6any_ofIRKNS_6MCInstEZNS_10AArch64_MC10isFpOrNEONES3_PKNS_11MCInstrInfoEE3$_0EEbOT_T0_.exit"
 
 21:                                               ; preds = %_ZNK4llvm15MCRegisterClass8containsENS_10MCRegisterE.exit.i.i.i.i.i.i.i.i
-  %.not.i12.i.i.i.i.i.i.i.i = icmp ult i32 %.029.val30.i.i.i.i.i.i, 80
+  %.not.i12.i.i.i.i.i.i.i.i = icmp samesign ult i32 %.029.val30.i.i.i.i.i.i, 80
   br i1 %.not.i12.i.i.i.i.i.i.i.i, label %_ZNK4llvm15MCRegisterClass8containsENS_10MCRegisterE.exit14.i.i.i.i.i.i.i.i, label %_ZNK4llvm15MCRegisterClass8containsENS_10MCRegisterE.exit17.i.i.i.i.i.i.i.i
 
 _ZNK4llvm15MCRegisterClass8containsENS_10MCRegisterE.exit14.i.i.i.i.i.i.i.i: ; preds = %21
@@ -11826,7 +11826,7 @@ _ZNK4llvm15MCRegisterClass8containsENS_10MCRegisterE.exit17.i.i.i.i.i.i.i.i: ; p
   br i1 %.not15.i.i.i.i.i.i.i.i, label %31, label %"_ZN4llvm6any_ofIRKNS_6MCInstEZNS_10AArch64_MC10isFpOrNEONES3_PKNS_11MCInstrInfoEE3$_0EEbOT_T0_.exit"
 
 31:                                               ; preds = %_ZNK4llvm15MCRegisterClass8containsENS_10MCRegisterE.exit17.i.i.i.i.i.i.i.i
-  %.not.i18.i.i.i.i.i.i.i.i = icmp ult i32 %.029.val30.i.i.i.i.i.i, 112
+  %.not.i18.i.i.i.i.i.i.i.i = icmp samesign ult i32 %.029.val30.i.i.i.i.i.i, 112
   br i1 %.not.i18.i.i.i.i.i.i.i.i, label %_ZNK4llvm15MCRegisterClass8containsENS_10MCRegisterE.exit20.i.i.i.i.i.i.i.i, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm10AArch64_MC10isFpOrNEONERKNS2_6MCInstEPKNS2_11MCInstrInfoEE3$_0EclIPKNS2_9MCOperandEEEbT_.exit.thread168.i.i.i.i.i.i"
 
 _ZNK4llvm15MCRegisterClass8containsENS_10MCRegisterE.exit20.i.i.i.i.i.i.i.i: ; preds = %31
@@ -11838,7 +11838,7 @@ _ZNK4llvm15MCRegisterClass8containsENS_10MCRegisterE.exit20.i.i.i.i.i.i.i.i: ; p
   br i1 %.not16.i.i.i.i.i.i.i.i, label %36, label %"_ZN4llvm6any_ofIRKNS_6MCInstEZNS_10AArch64_MC10isFpOrNEONES3_PKNS_11MCInstrInfoEE3$_0EEbOT_T0_.exit"
 
 36:                                               ; preds = %_ZNK4llvm15MCRegisterClass8containsENS_10MCRegisterE.exit20.i.i.i.i.i.i.i.i
-  %.not.i21.i.i.i.i.i.i.i.i = icmp ult i32 %.029.val30.i.i.i.i.i.i, 48
+  %.not.i21.i.i.i.i.i.i.i.i = icmp samesign ult i32 %.029.val30.i.i.i.i.i.i, 48
   br i1 %.not.i21.i.i.i.i.i.i.i.i, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm10AArch64_MC10isFpOrNEONERKNS2_6MCInstEPKNS2_11MCInstrInfoEE3$_0EclIPKNS2_9MCOperandEEEbT_.exit.i.i.i.i.i.i", label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm10AArch64_MC10isFpOrNEONERKNS2_6MCInstEPKNS2_11MCInstrInfoEE3$_0EclIPKNS2_9MCOperandEEEbT_.exit.thread168.i.i.i.i.i.i"
 
 "_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm10AArch64_MC10isFpOrNEONERKNS2_6MCInstEPKNS2_11MCInstrInfoEE3$_0EclIPKNS2_9MCOperandEEEbT_.exit.i.i.i.i.i.i": ; preds = %36
@@ -11874,7 +11874,7 @@ _ZNK4llvm15MCRegisterClass8containsENS_10MCRegisterE.exit.i.i55.i.i.i.i.i.i: ; p
   br i1 %.not.i.i56.i.i.i.i.i.i, label %53, label %"_ZN4llvm6any_ofIRKNS_6MCInstEZNS_10AArch64_MC10isFpOrNEONES3_PKNS_11MCInstrInfoEE3$_0EEbOT_T0_.exit.loopexit.split.loop.exit79"
 
 53:                                               ; preds = %_ZNK4llvm15MCRegisterClass8containsENS_10MCRegisterE.exit.i.i55.i.i.i.i.i.i
-  %.not.i12.i.i57.i.i.i.i.i.i = icmp ult i32 %.val31.i.i.i.i.i.i, 80
+  %.not.i12.i.i57.i.i.i.i.i.i = icmp samesign ult i32 %.val31.i.i.i.i.i.i, 80
   br i1 %.not.i12.i.i57.i.i.i.i.i.i, label %_ZNK4llvm15MCRegisterClass8containsENS_10MCRegisterE.exit14.i.i58.i.i.i.i.i.i, label %_ZNK4llvm15MCRegisterClass8containsENS_10MCRegisterE.exit17.i.i47.i.i.i.i.i.i
 
 _ZNK4llvm15MCRegisterClass8containsENS_10MCRegisterE.exit14.i.i58.i.i.i.i.i.i: ; preds = %53
@@ -11906,7 +11906,7 @@ _ZNK4llvm15MCRegisterClass8containsENS_10MCRegisterE.exit17.i.i47.i.i.i.i.i.i: ;
   br i1 %.not15.i.i50.i.i.i.i.i.i, label %63, label %"_ZN4llvm6any_ofIRKNS_6MCInstEZNS_10AArch64_MC10isFpOrNEONES3_PKNS_11MCInstrInfoEE3$_0EEbOT_T0_.exit.loopexit.split.loop.exit75"
 
 63:                                               ; preds = %_ZNK4llvm15MCRegisterClass8containsENS_10MCRegisterE.exit17.i.i47.i.i.i.i.i.i
-  %.not.i18.i.i51.i.i.i.i.i.i = icmp ult i32 %.val31.i.i.i.i.i.i, 112
+  %.not.i18.i.i51.i.i.i.i.i.i = icmp samesign ult i32 %.val31.i.i.i.i.i.i, 112
   br i1 %.not.i18.i.i51.i.i.i.i.i.i, label %_ZNK4llvm15MCRegisterClass8containsENS_10MCRegisterE.exit20.i.i52.i.i.i.i.i.i, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm10AArch64_MC10isFpOrNEONERKNS2_6MCInstEPKNS2_11MCInstrInfoEE3$_0EclIPKNS2_9MCOperandEEEbT_.exit60.thread172.i.i.i.i.i.i"
 
 _ZNK4llvm15MCRegisterClass8containsENS_10MCRegisterE.exit20.i.i52.i.i.i.i.i.i: ; preds = %63
@@ -11918,7 +11918,7 @@ _ZNK4llvm15MCRegisterClass8containsENS_10MCRegisterE.exit20.i.i52.i.i.i.i.i.i: ;
   br i1 %.not16.i.i53.i.i.i.i.i.i, label %68, label %"_ZN4llvm6any_ofIRKNS_6MCInstEZNS_10AArch64_MC10isFpOrNEONES3_PKNS_11MCInstrInfoEE3$_0EEbOT_T0_.exit.loopexit.split.loop.exit73"
 
 68:                                               ; preds = %_ZNK4llvm15MCRegisterClass8containsENS_10MCRegisterE.exit20.i.i52.i.i.i.i.i.i
-  %.not.i21.i.i54.i.i.i.i.i.i = icmp ult i32 %.val31.i.i.i.i.i.i, 48
+  %.not.i21.i.i54.i.i.i.i.i.i = icmp samesign ult i32 %.val31.i.i.i.i.i.i, 48
   br i1 %.not.i21.i.i54.i.i.i.i.i.i, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm10AArch64_MC10isFpOrNEONERKNS2_6MCInstEPKNS2_11MCInstrInfoEE3$_0EclIPKNS2_9MCOperandEEEbT_.exit60.i.i.i.i.i.i", label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm10AArch64_MC10isFpOrNEONERKNS2_6MCInstEPKNS2_11MCInstrInfoEE3$_0EclIPKNS2_9MCOperandEEEbT_.exit60.thread172.i.i.i.i.i.i"
 
 "_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm10AArch64_MC10isFpOrNEONERKNS2_6MCInstEPKNS2_11MCInstrInfoEE3$_0EclIPKNS2_9MCOperandEEEbT_.exit60.i.i.i.i.i.i": ; preds = %68
@@ -11954,7 +11954,7 @@ _ZNK4llvm15MCRegisterClass8containsENS_10MCRegisterE.exit.i.i76.i.i.i.i.i.i: ; p
   br i1 %.not.i.i77.i.i.i.i.i.i, label %85, label %"_ZN4llvm6any_ofIRKNS_6MCInstEZNS_10AArch64_MC10isFpOrNEONES3_PKNS_11MCInstrInfoEE3$_0EEbOT_T0_.exit.loopexit.split.loop.exit87"
 
 85:                                               ; preds = %_ZNK4llvm15MCRegisterClass8containsENS_10MCRegisterE.exit.i.i76.i.i.i.i.i.i
-  %.not.i12.i.i78.i.i.i.i.i.i = icmp ult i32 %.val33.i.i.i.i.i.i, 80
+  %.not.i12.i.i78.i.i.i.i.i.i = icmp samesign ult i32 %.val33.i.i.i.i.i.i, 80
   br i1 %.not.i12.i.i78.i.i.i.i.i.i, label %_ZNK4llvm15MCRegisterClass8containsENS_10MCRegisterE.exit14.i.i79.i.i.i.i.i.i, label %_ZNK4llvm15MCRegisterClass8containsENS_10MCRegisterE.exit17.i.i68.i.i.i.i.i.i
 
 _ZNK4llvm15MCRegisterClass8containsENS_10MCRegisterE.exit14.i.i79.i.i.i.i.i.i: ; preds = %85
@@ -11986,7 +11986,7 @@ _ZNK4llvm15MCRegisterClass8containsENS_10MCRegisterE.exit17.i.i68.i.i.i.i.i.i: ;
   br i1 %.not15.i.i71.i.i.i.i.i.i, label %95, label %"_ZN4llvm6any_ofIRKNS_6MCInstEZNS_10AArch64_MC10isFpOrNEONES3_PKNS_11MCInstrInfoEE3$_0EEbOT_T0_.exit.loopexit.split.loop.exit83"
 
 95:                                               ; preds = %_ZNK4llvm15MCRegisterClass8containsENS_10MCRegisterE.exit17.i.i68.i.i.i.i.i.i
-  %.not.i18.i.i72.i.i.i.i.i.i = icmp ult i32 %.val33.i.i.i.i.i.i, 112
+  %.not.i18.i.i72.i.i.i.i.i.i = icmp samesign ult i32 %.val33.i.i.i.i.i.i, 112
   br i1 %.not.i18.i.i72.i.i.i.i.i.i, label %_ZNK4llvm15MCRegisterClass8containsENS_10MCRegisterE.exit20.i.i73.i.i.i.i.i.i, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm10AArch64_MC10isFpOrNEONERKNS2_6MCInstEPKNS2_11MCInstrInfoEE3$_0EclIPKNS2_9MCOperandEEEbT_.exit81.thread176.i.i.i.i.i.i"
 
 _ZNK4llvm15MCRegisterClass8containsENS_10MCRegisterE.exit20.i.i73.i.i.i.i.i.i: ; preds = %95
@@ -11998,7 +11998,7 @@ _ZNK4llvm15MCRegisterClass8containsENS_10MCRegisterE.exit20.i.i73.i.i.i.i.i.i: ;
   br i1 %.not16.i.i74.i.i.i.i.i.i, label %100, label %"_ZN4llvm6any_ofIRKNS_6MCInstEZNS_10AArch64_MC10isFpOrNEONES3_PKNS_11MCInstrInfoEE3$_0EEbOT_T0_.exit.loopexit.split.loop.exit81"
 
 100:                                              ; preds = %_ZNK4llvm15MCRegisterClass8containsENS_10MCRegisterE.exit20.i.i73.i.i.i.i.i.i
-  %.not.i21.i.i75.i.i.i.i.i.i = icmp ult i32 %.val33.i.i.i.i.i.i, 48
+  %.not.i21.i.i75.i.i.i.i.i.i = icmp samesign ult i32 %.val33.i.i.i.i.i.i, 48
   br i1 %.not.i21.i.i75.i.i.i.i.i.i, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm10AArch64_MC10isFpOrNEONERKNS2_6MCInstEPKNS2_11MCInstrInfoEE3$_0EclIPKNS2_9MCOperandEEEbT_.exit81.i.i.i.i.i.i", label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm10AArch64_MC10isFpOrNEONERKNS2_6MCInstEPKNS2_11MCInstrInfoEE3$_0EclIPKNS2_9MCOperandEEEbT_.exit81.thread176.i.i.i.i.i.i"
 
 "_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm10AArch64_MC10isFpOrNEONERKNS2_6MCInstEPKNS2_11MCInstrInfoEE3$_0EclIPKNS2_9MCOperandEEEbT_.exit81.i.i.i.i.i.i": ; preds = %100
@@ -12034,7 +12034,7 @@ _ZNK4llvm15MCRegisterClass8containsENS_10MCRegisterE.exit.i.i97.i.i.i.i.i.i: ; p
   br i1 %.not.i.i98.i.i.i.i.i.i, label %117, label %"_ZN4llvm6any_ofIRKNS_6MCInstEZNS_10AArch64_MC10isFpOrNEONES3_PKNS_11MCInstrInfoEE3$_0EEbOT_T0_.exit.loopexit.split.loop.exit95"
 
 117:                                              ; preds = %_ZNK4llvm15MCRegisterClass8containsENS_10MCRegisterE.exit.i.i97.i.i.i.i.i.i
-  %.not.i12.i.i99.i.i.i.i.i.i = icmp ult i32 %.val35.i.i.i.i.i.i, 80
+  %.not.i12.i.i99.i.i.i.i.i.i = icmp samesign ult i32 %.val35.i.i.i.i.i.i, 80
   br i1 %.not.i12.i.i99.i.i.i.i.i.i, label %_ZNK4llvm15MCRegisterClass8containsENS_10MCRegisterE.exit14.i.i100.i.i.i.i.i.i, label %_ZNK4llvm15MCRegisterClass8containsENS_10MCRegisterE.exit17.i.i89.i.i.i.i.i.i
 
 _ZNK4llvm15MCRegisterClass8containsENS_10MCRegisterE.exit14.i.i100.i.i.i.i.i.i: ; preds = %117
@@ -12066,7 +12066,7 @@ _ZNK4llvm15MCRegisterClass8containsENS_10MCRegisterE.exit17.i.i89.i.i.i.i.i.i: ;
   br i1 %.not15.i.i92.i.i.i.i.i.i, label %127, label %"_ZN4llvm6any_ofIRKNS_6MCInstEZNS_10AArch64_MC10isFpOrNEONES3_PKNS_11MCInstrInfoEE3$_0EEbOT_T0_.exit.loopexit.split.loop.exit91"
 
 127:                                              ; preds = %_ZNK4llvm15MCRegisterClass8containsENS_10MCRegisterE.exit17.i.i89.i.i.i.i.i.i
-  %.not.i18.i.i93.i.i.i.i.i.i = icmp ult i32 %.val35.i.i.i.i.i.i, 112
+  %.not.i18.i.i93.i.i.i.i.i.i = icmp samesign ult i32 %.val35.i.i.i.i.i.i, 112
   br i1 %.not.i18.i.i93.i.i.i.i.i.i, label %_ZNK4llvm15MCRegisterClass8containsENS_10MCRegisterE.exit20.i.i94.i.i.i.i.i.i, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm10AArch64_MC10isFpOrNEONERKNS2_6MCInstEPKNS2_11MCInstrInfoEE3$_0EclIPKNS2_9MCOperandEEEbT_.exit102.thread180.i.i.i.i.i.i"
 
 _ZNK4llvm15MCRegisterClass8containsENS_10MCRegisterE.exit20.i.i94.i.i.i.i.i.i: ; preds = %127
@@ -12078,7 +12078,7 @@ _ZNK4llvm15MCRegisterClass8containsENS_10MCRegisterE.exit20.i.i94.i.i.i.i.i.i: ;
   br i1 %.not16.i.i95.i.i.i.i.i.i, label %132, label %"_ZN4llvm6any_ofIRKNS_6MCInstEZNS_10AArch64_MC10isFpOrNEONES3_PKNS_11MCInstrInfoEE3$_0EEbOT_T0_.exit.loopexit.split.loop.exit89"
 
 132:                                              ; preds = %_ZNK4llvm15MCRegisterClass8containsENS_10MCRegisterE.exit20.i.i94.i.i.i.i.i.i
-  %.not.i21.i.i96.i.i.i.i.i.i = icmp ult i32 %.val35.i.i.i.i.i.i, 48
+  %.not.i21.i.i96.i.i.i.i.i.i = icmp samesign ult i32 %.val35.i.i.i.i.i.i, 48
   br i1 %.not.i21.i.i96.i.i.i.i.i.i, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm10AArch64_MC10isFpOrNEONERKNS2_6MCInstEPKNS2_11MCInstrInfoEE3$_0EclIPKNS2_9MCOperandEEEbT_.exit102.i.i.i.i.i.i", label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm10AArch64_MC10isFpOrNEONERKNS2_6MCInstEPKNS2_11MCInstrInfoEE3$_0EclIPKNS2_9MCOperandEEEbT_.exit102.thread180.i.i.i.i.i.i"
 
 "_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm10AArch64_MC10isFpOrNEONERKNS2_6MCInstEPKNS2_11MCInstrInfoEE3$_0EclIPKNS2_9MCOperandEEEbT_.exit102.i.i.i.i.i.i": ; preds = %132
@@ -12132,7 +12132,7 @@ _ZNK4llvm15MCRegisterClass8containsENS_10MCRegisterE.exit.i.i118.i.i.i.i.i.i: ; 
   br i1 %.not.i.i119.i.i.i.i.i.i, label %153, label %"_ZN4llvm6any_ofIRKNS_6MCInstEZNS_10AArch64_MC10isFpOrNEONES3_PKNS_11MCInstrInfoEE3$_0EEbOT_T0_.exit"
 
 153:                                              ; preds = %_ZNK4llvm15MCRegisterClass8containsENS_10MCRegisterE.exit.i.i118.i.i.i.i.i.i
-  %.not.i12.i.i120.i.i.i.i.i.i = icmp ult i32 %.029.val37.i.i.i.i.i.i, 80
+  %.not.i12.i.i120.i.i.i.i.i.i = icmp samesign ult i32 %.029.val37.i.i.i.i.i.i, 80
   br i1 %.not.i12.i.i120.i.i.i.i.i.i, label %_ZNK4llvm15MCRegisterClass8containsENS_10MCRegisterE.exit14.i.i121.i.i.i.i.i.i, label %_ZNK4llvm15MCRegisterClass8containsENS_10MCRegisterE.exit17.i.i110.i.i.i.i.i.i
 
 _ZNK4llvm15MCRegisterClass8containsENS_10MCRegisterE.exit14.i.i121.i.i.i.i.i.i: ; preds = %153
@@ -12164,7 +12164,7 @@ _ZNK4llvm15MCRegisterClass8containsENS_10MCRegisterE.exit17.i.i110.i.i.i.i.i.i: 
   br i1 %.not15.i.i113.i.i.i.i.i.i, label %163, label %"_ZN4llvm6any_ofIRKNS_6MCInstEZNS_10AArch64_MC10isFpOrNEONES3_PKNS_11MCInstrInfoEE3$_0EEbOT_T0_.exit"
 
 163:                                              ; preds = %_ZNK4llvm15MCRegisterClass8containsENS_10MCRegisterE.exit17.i.i110.i.i.i.i.i.i
-  %.not.i18.i.i114.i.i.i.i.i.i = icmp ult i32 %.029.val37.i.i.i.i.i.i, 112
+  %.not.i18.i.i114.i.i.i.i.i.i = icmp samesign ult i32 %.029.val37.i.i.i.i.i.i, 112
   br i1 %.not.i18.i.i114.i.i.i.i.i.i, label %_ZNK4llvm15MCRegisterClass8containsENS_10MCRegisterE.exit20.i.i115.i.i.i.i.i.i, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm10AArch64_MC10isFpOrNEONERKNS2_6MCInstEPKNS2_11MCInstrInfoEE3$_0EclIPKNS2_9MCOperandEEEbT_.exit123.thread184.i.i.i.i.i.i"
 
 _ZNK4llvm15MCRegisterClass8containsENS_10MCRegisterE.exit20.i.i115.i.i.i.i.i.i: ; preds = %163
@@ -12176,7 +12176,7 @@ _ZNK4llvm15MCRegisterClass8containsENS_10MCRegisterE.exit20.i.i115.i.i.i.i.i.i: 
   br i1 %.not16.i.i116.i.i.i.i.i.i, label %168, label %"_ZN4llvm6any_ofIRKNS_6MCInstEZNS_10AArch64_MC10isFpOrNEONES3_PKNS_11MCInstrInfoEE3$_0EEbOT_T0_.exit"
 
 168:                                              ; preds = %_ZNK4llvm15MCRegisterClass8containsENS_10MCRegisterE.exit20.i.i115.i.i.i.i.i.i
-  %.not.i21.i.i117.i.i.i.i.i.i = icmp ult i32 %.029.val37.i.i.i.i.i.i, 48
+  %.not.i21.i.i117.i.i.i.i.i.i = icmp samesign ult i32 %.029.val37.i.i.i.i.i.i, 48
   br i1 %.not.i21.i.i117.i.i.i.i.i.i, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm10AArch64_MC10isFpOrNEONERKNS2_6MCInstEPKNS2_11MCInstrInfoEE3$_0EclIPKNS2_9MCOperandEEEbT_.exit123.i.i.i.i.i.i", label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm10AArch64_MC10isFpOrNEONERKNS2_6MCInstEPKNS2_11MCInstrInfoEE3$_0EclIPKNS2_9MCOperandEEEbT_.exit123.thread184.i.i.i.i.i.i"
 
 "_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm10AArch64_MC10isFpOrNEONERKNS2_6MCInstEPKNS2_11MCInstrInfoEE3$_0EclIPKNS2_9MCOperandEEEbT_.exit123.i.i.i.i.i.i": ; preds = %168
@@ -12216,7 +12216,7 @@ _ZNK4llvm15MCRegisterClass8containsENS_10MCRegisterE.exit.i.i139.i.i.i.i.i.i: ; 
   br i1 %.not.i.i140.i.i.i.i.i.i, label %186, label %"_ZN4llvm6any_ofIRKNS_6MCInstEZNS_10AArch64_MC10isFpOrNEONES3_PKNS_11MCInstrInfoEE3$_0EEbOT_T0_.exit"
 
 186:                                              ; preds = %_ZNK4llvm15MCRegisterClass8containsENS_10MCRegisterE.exit.i.i139.i.i.i.i.i.i
-  %.not.i12.i.i141.i.i.i.i.i.i = icmp ult i32 %.1.val38.i.i.i.i.i.i, 80
+  %.not.i12.i.i141.i.i.i.i.i.i = icmp samesign ult i32 %.1.val38.i.i.i.i.i.i, 80
   br i1 %.not.i12.i.i141.i.i.i.i.i.i, label %_ZNK4llvm15MCRegisterClass8containsENS_10MCRegisterE.exit14.i.i142.i.i.i.i.i.i, label %_ZNK4llvm15MCRegisterClass8containsENS_10MCRegisterE.exit17.i.i131.i.i.i.i.i.i
 
 _ZNK4llvm15MCRegisterClass8containsENS_10MCRegisterE.exit14.i.i142.i.i.i.i.i.i: ; preds = %186
@@ -12248,7 +12248,7 @@ _ZNK4llvm15MCRegisterClass8containsENS_10MCRegisterE.exit17.i.i131.i.i.i.i.i.i: 
   br i1 %.not15.i.i134.i.i.i.i.i.i, label %196, label %"_ZN4llvm6any_ofIRKNS_6MCInstEZNS_10AArch64_MC10isFpOrNEONES3_PKNS_11MCInstrInfoEE3$_0EEbOT_T0_.exit"
 
 196:                                              ; preds = %_ZNK4llvm15MCRegisterClass8containsENS_10MCRegisterE.exit17.i.i131.i.i.i.i.i.i
-  %.not.i18.i.i135.i.i.i.i.i.i = icmp ult i32 %.1.val38.i.i.i.i.i.i, 112
+  %.not.i18.i.i135.i.i.i.i.i.i = icmp samesign ult i32 %.1.val38.i.i.i.i.i.i, 112
   br i1 %.not.i18.i.i135.i.i.i.i.i.i, label %_ZNK4llvm15MCRegisterClass8containsENS_10MCRegisterE.exit20.i.i136.i.i.i.i.i.i, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm10AArch64_MC10isFpOrNEONERKNS2_6MCInstEPKNS2_11MCInstrInfoEE3$_0EclIPKNS2_9MCOperandEEEbT_.exit144.thread188.i.i.i.i.i.i"
 
 _ZNK4llvm15MCRegisterClass8containsENS_10MCRegisterE.exit20.i.i136.i.i.i.i.i.i: ; preds = %196
@@ -12260,7 +12260,7 @@ _ZNK4llvm15MCRegisterClass8containsENS_10MCRegisterE.exit20.i.i136.i.i.i.i.i.i: 
   br i1 %.not16.i.i137.i.i.i.i.i.i, label %201, label %"_ZN4llvm6any_ofIRKNS_6MCInstEZNS_10AArch64_MC10isFpOrNEONES3_PKNS_11MCInstrInfoEE3$_0EEbOT_T0_.exit"
 
 201:                                              ; preds = %_ZNK4llvm15MCRegisterClass8containsENS_10MCRegisterE.exit20.i.i136.i.i.i.i.i.i
-  %.not.i21.i.i138.i.i.i.i.i.i = icmp ult i32 %.1.val38.i.i.i.i.i.i, 48
+  %.not.i21.i.i138.i.i.i.i.i.i = icmp samesign ult i32 %.1.val38.i.i.i.i.i.i, 48
   br i1 %.not.i21.i.i138.i.i.i.i.i.i, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm10AArch64_MC10isFpOrNEONERKNS2_6MCInstEPKNS2_11MCInstrInfoEE3$_0EclIPKNS2_9MCOperandEEEbT_.exit144.i.i.i.i.i.i", label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm10AArch64_MC10isFpOrNEONERKNS2_6MCInstEPKNS2_11MCInstrInfoEE3$_0EclIPKNS2_9MCOperandEEEbT_.exit144.thread188.i.i.i.i.i.i"
 
 "_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm10AArch64_MC10isFpOrNEONERKNS2_6MCInstEPKNS2_11MCInstrInfoEE3$_0EclIPKNS2_9MCOperandEEEbT_.exit144.i.i.i.i.i.i": ; preds = %201
@@ -12300,7 +12300,7 @@ _ZNK4llvm15MCRegisterClass8containsENS_10MCRegisterE.exit.i.i160.i.i.i.i.i.i: ; 
   br i1 %.not.i.i161.i.i.i.i.i.i, label %219, label %"_ZN4llvm6any_ofIRKNS_6MCInstEZNS_10AArch64_MC10isFpOrNEONES3_PKNS_11MCInstrInfoEE3$_0EEbOT_T0_.exit"
 
 219:                                              ; preds = %_ZNK4llvm15MCRegisterClass8containsENS_10MCRegisterE.exit.i.i160.i.i.i.i.i.i
-  %.not.i12.i.i162.i.i.i.i.i.i = icmp ult i32 %.2.val39.i.i.i.i.i.i, 80
+  %.not.i12.i.i162.i.i.i.i.i.i = icmp samesign ult i32 %.2.val39.i.i.i.i.i.i, 80
   br i1 %.not.i12.i.i162.i.i.i.i.i.i, label %_ZNK4llvm15MCRegisterClass8containsENS_10MCRegisterE.exit14.i.i163.i.i.i.i.i.i, label %_ZNK4llvm15MCRegisterClass8containsENS_10MCRegisterE.exit17.i.i152.i.i.i.i.i.i
 
 _ZNK4llvm15MCRegisterClass8containsENS_10MCRegisterE.exit14.i.i163.i.i.i.i.i.i: ; preds = %219
@@ -12332,7 +12332,7 @@ _ZNK4llvm15MCRegisterClass8containsENS_10MCRegisterE.exit17.i.i152.i.i.i.i.i.i: 
   br i1 %.not15.i.i155.i.i.i.i.i.i, label %229, label %"_ZN4llvm6any_ofIRKNS_6MCInstEZNS_10AArch64_MC10isFpOrNEONES3_PKNS_11MCInstrInfoEE3$_0EEbOT_T0_.exit"
 
 229:                                              ; preds = %_ZNK4llvm15MCRegisterClass8containsENS_10MCRegisterE.exit17.i.i152.i.i.i.i.i.i
-  %.not.i18.i.i156.i.i.i.i.i.i = icmp ult i32 %.2.val39.i.i.i.i.i.i, 112
+  %.not.i18.i.i156.i.i.i.i.i.i = icmp samesign ult i32 %.2.val39.i.i.i.i.i.i, 112
   br i1 %.not.i18.i.i156.i.i.i.i.i.i, label %_ZNK4llvm15MCRegisterClass8containsENS_10MCRegisterE.exit20.i.i157.i.i.i.i.i.i, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm10AArch64_MC10isFpOrNEONERKNS2_6MCInstEPKNS2_11MCInstrInfoEE3$_0EclIPKNS2_9MCOperandEEEbT_.exit165.thread192.i.i.i.i.i.i"
 
 _ZNK4llvm15MCRegisterClass8containsENS_10MCRegisterE.exit20.i.i157.i.i.i.i.i.i: ; preds = %229
@@ -12344,7 +12344,7 @@ _ZNK4llvm15MCRegisterClass8containsENS_10MCRegisterE.exit20.i.i157.i.i.i.i.i.i: 
   br i1 %.not16.i.i158.i.i.i.i.i.i, label %234, label %"_ZN4llvm6any_ofIRKNS_6MCInstEZNS_10AArch64_MC10isFpOrNEONES3_PKNS_11MCInstrInfoEE3$_0EEbOT_T0_.exit"
 
 234:                                              ; preds = %_ZNK4llvm15MCRegisterClass8containsENS_10MCRegisterE.exit20.i.i157.i.i.i.i.i.i
-  %.not.i21.i.i159.i.i.i.i.i.i = icmp ult i32 %.2.val39.i.i.i.i.i.i, 48
+  %.not.i21.i.i159.i.i.i.i.i.i = icmp samesign ult i32 %.2.val39.i.i.i.i.i.i, 48
   br i1 %.not.i21.i.i159.i.i.i.i.i.i, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm10AArch64_MC10isFpOrNEONERKNS2_6MCInstEPKNS2_11MCInstrInfoEE3$_0EclIPKNS2_9MCOperandEEEbT_.exit165.i.i.i.i.i.i", label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm10AArch64_MC10isFpOrNEONERKNS2_6MCInstEPKNS2_11MCInstrInfoEE3$_0EclIPKNS2_9MCOperandEEEbT_.exit165.thread192.i.i.i.i.i.i"
 
 "_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm10AArch64_MC10isFpOrNEONERKNS2_6MCInstEPKNS2_11MCInstrInfoEE3$_0EclIPKNS2_9MCOperandEEEbT_.exit165.i.i.i.i.i.i": ; preds = %234

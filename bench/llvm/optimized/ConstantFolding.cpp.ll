@@ -13683,7 +13683,7 @@ _ZN4llvm5APIntD2Ev.exit155.i:                     ; preds = %1866, %1863, %_ZN4l
   br label %1924
 
 1913:                                             ; preds = %1906
-  %1914 = icmp ult i32 %1902, 8
+  %1914 = icmp samesign ult i32 %1902, 8
   br i1 %1914, label %1915, label %1919
 
 1915:                                             ; preds = %1913

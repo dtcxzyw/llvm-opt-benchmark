@@ -875,7 +875,7 @@ define internal fastcc void @_ZN7uu_join4Spec5parse17h90c03130d1a438f7E(ptr noal
   %29 = and i8 %27, 63
   %30 = zext nneg i8 %29 to i32
   %31 = or disjoint i32 %28, %30
-  %32 = icmp ugt i8 %21, -33
+  %32 = icmp samesign ugt i8 %21, -33
   br i1 %32, label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h55d65d191e594964E.exit15.i", label %55
 
 33:                                               ; preds = %19
@@ -893,7 +893,7 @@ define internal fastcc void @_ZN7uu_join4Spec5parse17h90c03130d1a438f7E(ptr noal
   %41 = or disjoint i32 %38, %40
   %42 = shl nuw nsw i32 %24, 12
   %43 = or disjoint i32 %41, %42
-  %44 = icmp ugt i8 %21, -17
+  %44 = icmp samesign ugt i8 %21, -17
   br i1 %44, label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h55d65d191e594964E.exit17.i", label %55
 
 "_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h55d65d191e594964E.exit17.i": ; preds = %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h55d65d191e594964E.exit15.i"
@@ -1009,7 +1009,7 @@ _ZN6uucore4mods5error12USimpleError3new17h2a1a5d43fb2dc5cbE.exit: ; preds = %.no
   %80 = and i8 %78, 63
   %81 = zext nneg i8 %80 to i32
   %82 = or disjoint i32 %79, %81
-  %83 = icmp ugt i8 %72, -33
+  %83 = icmp samesign ugt i8 %72, -33
   br i1 %83, label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h55d65d191e594964E.exit15.i50", label %_ZN5alloc3fmt6format17h7ead8f60e83381d7E.exit57
 
 84:                                               ; preds = %71
@@ -1027,7 +1027,7 @@ _ZN6uucore4mods5error12USimpleError3new17h2a1a5d43fb2dc5cbE.exit: ; preds = %.no
   %92 = or disjoint i32 %89, %91
   %93 = shl nuw nsw i32 %76, 12
   %94 = or disjoint i32 %92, %93
-  %95 = icmp ugt i8 %72, -17
+  %95 = icmp samesign ugt i8 %72, -17
   br i1 %95, label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h55d65d191e594964E.exit17.i51", label %_ZN5alloc3fmt6format17h7ead8f60e83381d7E.exit57
 
 "_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h55d65d191e594964E.exit17.i51": ; preds = %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h55d65d191e594964E.exit15.i50"
@@ -1049,7 +1049,7 @@ _ZN6uucore4mods5error12USimpleError3new17h2a1a5d43fb2dc5cbE.exit: ; preds = %.no
 
 _ZN5alloc3fmt6format17h7ead8f60e83381d7E.exit57:  ; preds = %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h55d65d191e594964E.exit13.i47", %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h55d65d191e594964E.exit15.i50", %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h55d65d191e594964E.exit17.i51", %84
   %.sroa.4.0.i48.ph = phi i32 [ %82, %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h55d65d191e594964E.exit13.i47" ], [ %94, %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h55d65d191e594964E.exit15.i50" ], [ %105, %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h55d65d191e594964E.exit17.i51" ], [ %85, %84 ]
-  %107 = icmp ult i32 %.sroa.4.0.i48.ph, 1114112
+  %107 = icmp samesign ult i32 %.sroa.4.0.i48.ph, 1114112
   tail call void @llvm.assume(i1 %107)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %16)
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %15)
@@ -1143,7 +1143,7 @@ _ZN6uucore4mods5error12USimpleError3new17h2a1a5d43fb2dc5cbE.exit60: ; preds = %.
   %135 = and i8 %133, 63
   %136 = zext nneg i8 %135 to i32
   %137 = or disjoint i32 %134, %136
-  %138 = icmp ugt i8 %127, -33
+  %138 = icmp samesign ugt i8 %127, -33
   br i1 %138, label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h55d65d191e594964E.exit15.i64", label %161
 
 139:                                              ; preds = %125
@@ -1161,7 +1161,7 @@ _ZN6uucore4mods5error12USimpleError3new17h2a1a5d43fb2dc5cbE.exit60: ; preds = %.
   %147 = or disjoint i32 %144, %146
   %148 = shl nuw nsw i32 %130, 12
   %149 = or disjoint i32 %147, %148
-  %150 = icmp ugt i8 %127, -17
+  %150 = icmp samesign ugt i8 %127, -17
   br i1 %150, label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h55d65d191e594964E.exit17.i65", label %161
 
 "_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h55d65d191e594964E.exit17.i65": ; preds = %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h55d65d191e594964E.exit15.i64"
@@ -1181,7 +1181,7 @@ _ZN6uucore4mods5error12USimpleError3new17h2a1a5d43fb2dc5cbE.exit60: ; preds = %.
 161:                                              ; preds = %139, %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h55d65d191e594964E.exit17.i65", %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h55d65d191e594964E.exit15.i64", %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h55d65d191e594964E.exit13.i61"
   %.sroa.0.1.ph = phi ptr [ %132, %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h55d65d191e594964E.exit13.i61" ], [ %142, %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h55d65d191e594964E.exit15.i64" ], [ %152, %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h55d65d191e594964E.exit17.i65" ], [ %126, %139 ]
   %.sroa.4.0.i62.ph = phi i32 [ %137, %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h55d65d191e594964E.exit13.i61" ], [ %149, %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h55d65d191e594964E.exit15.i64" ], [ %160, %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h55d65d191e594964E.exit17.i65" ], [ %140, %139 ]
-  %162 = icmp ult i32 %.sroa.4.0.i62.ph, 1114112
+  %162 = icmp samesign ult i32 %.sroa.4.0.i62.ph, 1114112
   tail call void @llvm.assume(i1 %162)
   %163 = icmp eq i32 %.sroa.4.0.i62.ph, 46
   br i1 %163, label %177, label %_ZN5alloc3fmt6format17h7ead8f60e83381d7E.exit71
@@ -3782,7 +3782,7 @@ common.resume:                                    ; preds = %147, %118
   %225 = and i8 %223, 63
   %226 = zext nneg i8 %225 to i32
   %227 = or disjoint i32 %224, %226
-  %228 = icmp ugt i8 %217, -33
+  %228 = icmp samesign ugt i8 %217, -33
   br i1 %228, label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h55d65d191e594964E.exit15.i.i.i.i.i", label %"_ZN87_$LT$core..str..iter..CharIndices$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hbf461ba4ba35c2afE.exit.thread7.i.i.i"
 
 229:                                              ; preds = %215
@@ -3800,7 +3800,7 @@ common.resume:                                    ; preds = %147, %118
   %237 = or disjoint i32 %234, %236
   %238 = shl nuw nsw i32 %220, 12
   %239 = or disjoint i32 %237, %238
-  %240 = icmp ugt i8 %217, -17
+  %240 = icmp samesign ugt i8 %217, -17
   br i1 %240, label %241, label %"_ZN87_$LT$core..str..iter..CharIndices$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hbf461ba4ba35c2afE.exit.thread7.i.i.i"
 
 241:                                              ; preds = %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h55d65d191e594964E.exit15.i.i.i.i.i"

@@ -1911,7 +1911,7 @@ define internal fastcc range(i32 -2147483648, 1) i32 @__change_page_attr_set_clr
   %277 = add i64 %273, sub (i64 ptrtoint (ptr @__start_rodata to i64), i64 -2147483648)
   %278 = lshr i64 %277, 12
   %279 = icmp uge i64 %276, %182
-  %280 = icmp ule i64 %278, %272
+  %280 = icmp samesign ule i64 %278, %272
   %281 = and i1 %280, %279
   br i1 %281, label %283, label %282
 

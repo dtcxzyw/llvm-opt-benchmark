@@ -2012,7 +2012,7 @@ yy_reduce.exit:                                   ; preds = %51, %66, %81, %84, 
   br label %12
 
 1003:                                             ; preds = %yy_find_shift_action.exit
-  %1004 = icmp ult i16 %.0.i, 436
+  %1004 = icmp samesign ult i16 %.0.i, 436
   br i1 %1004, label %1005, label %1031
 
 1005:                                             ; preds = %1003
@@ -2057,7 +2057,7 @@ yyStackOverflow.exit.i:                           ; preds = %yy_pop_parser_stack
   br label %yy_shift.exit
 
 1023:                                             ; preds = %1005
-  %1024 = icmp ugt i16 %.0.i, 182
+  %1024 = icmp samesign ugt i16 %.0.i, 182
   %1025 = add nuw nsw i16 %.0.i, 152
   %spec.select.i = select i1 %1024, i16 %1025, i16 %.0.i
   store i16 %spec.select.i, ptr %1007, align 8

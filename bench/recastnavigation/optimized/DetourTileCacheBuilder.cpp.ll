@@ -5205,11 +5205,11 @@ define noundef i32 @_Z18dtMarkCylinderAreaR16dtTileCacheLayerPKfffS2_ffh(ptr noc
 
 66:                                               ; preds = %8
   %spec.store.select = tail call i32 @llvm.smax.i32(i32 %41, i32 0)
-  %.not94 = icmp ult i32 %55, %25
+  %.not94 = icmp samesign ult i32 %55, %25
   %67 = add nsw i32 %25, -1
   %spec.select = select i1 %.not94, i32 %55, i32 %67
   %spec.store.select1 = tail call i32 @llvm.smax.i32(i32 %51, i32 0)
-  %.not95 = icmp ult i32 %63, %28
+  %.not95 = icmp samesign ult i32 %63, %28
   %68 = add nsw i32 %28, -1
   %.085 = select i1 %.not95, i32 %63, i32 %68
   %.not96109 = icmp sgt i32 %spec.store.select1, %.085
@@ -5346,11 +5346,11 @@ define noundef i32 @_Z13dtMarkBoxAreaR16dtTileCacheLayerPKfffS2_S2_h(ptr nocaptu
 
 58:                                               ; preds = %7
   %spec.store.select = tail call i32 @llvm.smax.i32(i32 %22, i32 0)
-  %.not69 = icmp ult i32 %43, %11
+  %.not69 = icmp samesign ult i32 %43, %11
   %59 = add nsw i32 %11, -1
   %spec.select = select i1 %.not69, i32 %43, i32 %59
   %spec.store.select1 = tail call i32 @llvm.smax.i32(i32 %38, i32 0)
-  %.not70 = icmp ult i32 %55, %14
+  %.not70 = icmp samesign ult i32 %55, %14
   %60 = add nsw i32 %14, -1
   %.060 = select i1 %.not70, i32 %55, i32 %60
   %.not7184 = icmp sgt i32 %spec.store.select1, %.060
@@ -5479,11 +5479,11 @@ define noundef i32 @_Z13dtMarkBoxAreaR16dtTileCacheLayerPKfffS2_S2_S2_h(ptr noca
 
 65:                                               ; preds = %8
   %spec.store.select = tail call i32 @llvm.smax.i32(i32 %37, i32 0)
-  %.not107 = icmp ult i32 %40, %12
+  %.not107 = icmp samesign ult i32 %40, %12
   %66 = add nsw i32 %12, -1
   %spec.select = select i1 %.not107, i32 %40, i32 %66
   %spec.store.select1 = tail call i32 @llvm.smax.i32(i32 %43, i32 0)
-  %.not108 = icmp ult i32 %46, %15
+  %.not108 = icmp samesign ult i32 %46, %15
   %67 = add nsw i32 %15, -1
   %.093 = select i1 %.not108, i32 %46, i32 %67
   %68 = tail call float @llvm.fmuladd.f32(float %28, float %16, float 5.000000e-01)

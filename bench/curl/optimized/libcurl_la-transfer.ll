@@ -714,7 +714,7 @@ if.then.i.i:                                      ; preds = %land.lhs.true2.i.i
   br i1 %cmp7.i.i, label %if.end26.thread.i, label %if.else.i.i
 
 if.else.i.i:                                      ; preds = %if.then.i.i
-  %cmp9.i.i = icmp ult i64 %sub.i.i, %bytestoread.0.i
+  %cmp9.i.i = icmp samesign ult i64 %sub.i.i, %bytestoread.0.i
   br i1 %cmp9.i.i, label %if.end17.i.i, label %if.end12.i.i
 
 if.end12.i.i:                                     ; preds = %if.else.i.i, %land.lhs.true2.i.i, %land.lhs.true.i.i, %if.end16.i

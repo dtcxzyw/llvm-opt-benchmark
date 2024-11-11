@@ -10494,7 +10494,7 @@ rb_num2int_inline.exit69:                         ; preds = %165, %167
   br i1 %170, label %171, label %177
 
 171:                                              ; preds = %rb_num2int_inline.exit69
-  %172 = icmp ult i32 %169, 11323
+  %172 = icmp samesign ult i32 %169, 11323
   br i1 %172, label %173, label %175
 
 173:                                              ; preds = %171
@@ -10515,7 +10515,7 @@ rb_num2int_inline.exit69:                         ; preds = %165, %167
   br i1 %182, label %183, label %190
 
 183:                                              ; preds = %177
-  %184 = icmp ult i32 %179, 11322
+  %184 = icmp samesign ult i32 %179, 11322
   br i1 %184, label %185, label %188
 
 185:                                              ; preds = %183
@@ -10537,7 +10537,7 @@ rb_num2int_inline.exit69:                         ; preds = %165, %167
   br i1 %195, label %196, label %203
 
 196:                                              ; preds = %190
-  %197 = icmp ult i32 %192, 1096
+  %197 = icmp samesign ult i32 %192, 1096
   br i1 %197, label %198, label %201
 
 198:                                              ; preds = %196
@@ -10908,7 +10908,7 @@ rb_localtime_r.exit:                              ; preds = %2, %5
   br i1 %25, label %.sink.split, label %26
 
 26:                                               ; preds = %20
-  %27 = icmp ugt i32 %24, 59
+  %27 = icmp samesign ugt i32 %24, 59
   br i1 %27, label %.sink.split, label %30
 
 .sink.split:                                      ; preds = %26, %20
@@ -10933,7 +10933,7 @@ rb_localtime_r.exit:                              ; preds = %2, %5
   br i1 %35, label %.sink.split163, label %36
 
 36:                                               ; preds = %31
-  %37 = icmp ugt i32 %34, 59
+  %37 = icmp samesign ugt i32 %34, 59
   br i1 %37, label %.sink.split163, label %40
 
 .sink.split163:                                   ; preds = %36, %31
@@ -15314,7 +15314,7 @@ update_tz.exit:                                   ; preds = %3, %14
   br i1 %15, label %46, label %16
 
 16:                                               ; preds = %update_tz.exit
-  %17 = icmp ugt i32 %.sroa.38.0.copyload, 11
+  %17 = icmp samesign ugt i32 %.sroa.38.0.copyload, 11
   br i1 %17, label %46, label %18
 
 18:                                               ; preds = %16
@@ -15356,7 +15356,7 @@ leap_year_p.exit.thread326:                       ; preds = %25, %leap_year_p.ex
   br i1 %36, label %46, label %37
 
 37:                                               ; preds = %35
-  %38 = icmp ugt i32 %.sroa.23.0.copyload, 23
+  %38 = icmp samesign ugt i32 %.sroa.23.0.copyload, 23
   br i1 %38, label %46, label %39
 
 39:                                               ; preds = %37
@@ -15364,7 +15364,7 @@ leap_year_p.exit.thread326:                       ; preds = %25, %leap_year_p.ex
   br i1 %40, label %46, label %41
 
 41:                                               ; preds = %39
-  %42 = icmp ugt i32 %.sroa.13.0.copyload, 59
+  %42 = icmp samesign ugt i32 %.sroa.13.0.copyload, 59
   br i1 %42, label %46, label %43
 
 43:                                               ; preds = %41

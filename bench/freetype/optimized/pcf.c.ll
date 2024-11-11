@@ -2326,11 +2326,11 @@ define internal fastcc i32 @pcf_get_encodings(ptr noundef %0, ptr noundef %1) un
   %52 = lshr i16 %51, 8
   %53 = and i16 %51, 255
   %54 = icmp ult i16 %52, %44
-  %55 = icmp ugt i16 %52, %46
+  %55 = icmp samesign ugt i16 %52, %46
   %or.cond99 = or i1 %54, %55
   %56 = icmp ult i16 %53, %37
   %or.cond100 = or i1 %56, %or.cond99
-  %57 = icmp ugt i16 %53, %39
+  %57 = icmp samesign ugt i16 %53, %39
   %or.cond101 = or i1 %57, %or.cond100
   br i1 %or.cond101, label %58, label %61
 

@@ -645,7 +645,7 @@ default.unreachable2189:                          ; preds = %134
   %235 = zext i16 %234 to i64
   %236 = getelementptr inbounds [320 x i16], ptr %43, i64 0, i64 %235
   store i16 0, ptr %236, align 2
-  %237 = icmp ult i32 %230, 18
+  %237 = icmp samesign ult i32 %230, 18
   br i1 %237, label %.lr.ph1352, label %._crit_edge1353.loopexit
 
 ._crit_edge1353.loopexit:                         ; preds = %.lr.ph1352

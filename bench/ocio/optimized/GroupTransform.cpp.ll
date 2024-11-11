@@ -2282,7 +2282,7 @@ if.end8.sink.split.i.i.i.i38:                     ; preds = %_ZN9__gnu_cxx27__ex
   br label %_ZNSt10shared_ptrIKN19OpenColorIO_v2_4dev9TransformEED2Ev.exit47
 
 _ZNSt10shared_ptrIKN19OpenColorIO_v2_4dev9TransformEED2Ev.exit47: ; preds = %invoke.cont28, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i25, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i35, %if.end8.sink.split.i.i.i.i38
-  %cmp22 = icmp ugt i32 %i17.051.in, 1
+  %cmp22 = icmp samesign ugt i32 %i17.051.in, 1
   br i1 %cmp22, label %for.body23, label %sw.epilog, !llvm.loop !11
 
 lpad27:                                           ; preds = %for.body23

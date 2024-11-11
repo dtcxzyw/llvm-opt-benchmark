@@ -105,7 +105,7 @@ define i32 @cs_ereach(ptr noundef readonly %0, i32 noundef %1, ptr noundef reado
   %indvars.iv.next86 = add nsw i64 %indvars.iv85, -1
   %56 = getelementptr inbounds i32, ptr %3, i64 %indvars.iv.next86
   store i32 %55, ptr %56, align 4
-  %57 = icmp ugt i64 %indvars.iv87, 1
+  %57 = icmp samesign ugt i64 %indvars.iv87, 1
   br i1 %57, label %.lr.ph75, label %.loopexit.loopexit, !llvm.loop !6
 
 .loopexit.loopexit:                               ; preds = %.lr.ph75

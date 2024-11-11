@@ -77,7 +77,7 @@ if.then28:                                        ; preds = %if.end21
   br label %if.end34
 
 if.else:                                          ; preds = %if.end21
-  %cmp29 = icmp ugt i32 %windowBits, 15
+  %cmp29 = icmp samesign ugt i32 %windowBits, 15
   %sub32 = add nsw i32 %windowBits, -16
   %spec.select = select i1 %cmp29, i32 %sub32, i32 %windowBits
   %spec.select94 = select i1 %cmp29, i32 2, i32 1
@@ -1782,7 +1782,7 @@ lor.lhs.false213:                                 ; preds = %if.else207
   br i1 %cmp215, label %if.end231, label %if.else218
 
 if.else218:                                       ; preds = %lor.lhs.false213
-  %cmp220 = icmp ult i32 %83, 6
+  %cmp220 = icmp samesign ult i32 %83, 6
   br i1 %cmp220, label %if.end231, label %if.else223
 
 if.else223:                                       ; preds = %if.else218

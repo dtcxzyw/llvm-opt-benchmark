@@ -166,7 +166,7 @@ define ptr @WebPAnimEncoderNewInternal(i32 noundef %0, i32 noundef %1, ptr nound
   %42 = lshr i32 %39, 1
   %43 = add nuw nsw i32 %42, 1
   %.not33.i = icmp sle i32 %40, %42
-  %44 = icmp ult i32 %43, %39
+  %44 = icmp samesign ult i32 %43, %39
   %or.cond.i = select i1 %.not33.i, i1 %44, i1 false
   br i1 %or.cond.i, label %45, label %49
 
@@ -1973,20 +1973,20 @@ define internal range(i32 0, 2) i32 @ComparePixelsLossy(ptr nocapture noundef re
   %33 = sub nsw i32 %17, %21
   %34 = tail call i32 @llvm.abs.i32(i32 %33, i1 true)
   %35 = mul nuw nsw i32 %34, %15
-  %.not23.i = icmp ugt i32 %35, %8
+  %.not23.i = icmp samesign ugt i32 %35, %8
   br i1 %.not23.i, label %PixelsAreSimilar.exit.thread, label %PixelsAreSimilar.exit
 
 PixelsAreSimilar.exit:                            ; preds = %32
   %36 = sub nsw i32 %18, %22
   %37 = tail call i32 @llvm.abs.i32(i32 %36, i1 true)
   %38 = mul nuw nsw i32 %37, %15
-  %.not12 = icmp ugt i32 %38, %8
+  %.not12 = icmp samesign ugt i32 %38, %8
   br i1 %.not12, label %PixelsAreSimilar.exit.thread, label %39
 
 39:                                               ; preds = %PixelsAreSimilar.exit
   %40 = getelementptr inbounds i32, ptr %.0914, i64 %9
   %41 = getelementptr inbounds i32, ptr %.01013, i64 %10
-  %42 = icmp ugt i32 %.in, 1
+  %42 = icmp samesign ugt i32 %.in, 1
   br i1 %42, label %11, label %PixelsAreSimilar.exit.thread, !llvm.loop !15
 
 PixelsAreSimilar.exit.thread:                     ; preds = %PixelsAreSimilar.exit, %39, %32, %24, %11, %6
@@ -2727,14 +2727,14 @@ CopyCurrentCanvas.exit:                           ; preds = %8, %18
   %133 = sub nsw i32 %117, %121
   %134 = tail call i32 @llvm.abs.i32(i32 %133, i1 true)
   %135 = mul nuw nsw i32 %134, %115
-  %.not23.i.us.i = icmp ugt i32 %135, %90
+  %.not23.i.us.i = icmp samesign ugt i32 %135, %90
   br i1 %.not23.i.us.i, label %.thread, label %PixelsAreSimilar.exit.us.i
 
 PixelsAreSimilar.exit.us.i:                       ; preds = %132
   %136 = sub nsw i32 %118, %122
   %137 = tail call i32 @llvm.abs.i32(i32 %136, i1 true)
   %138 = mul nuw nsw i32 %137, %115
-  %.not28.us.i = icmp ugt i32 %138, %90
+  %.not28.us.i = icmp samesign ugt i32 %138, %90
   br i1 %.not28.us.i, label %.thread, label %139
 
 139:                                              ; preds = %PixelsAreSimilar.exit.us.i, %104
@@ -3141,14 +3141,14 @@ CopyCurrentCanvas.exit87:                         ; preds = %251, %253
   %352 = sub nsw i32 %338, %341
   %353 = call i32 @llvm.abs.i32(i32 %352, i1 true)
   %354 = mul nuw nsw i32 %353, 255
-  %.not23.i.us.i92 = icmp ugt i32 %354, %293
+  %.not23.i.us.i92 = icmp samesign ugt i32 %354, %293
   br i1 %.not23.i.us.i92, label %PixelsAreSimilar.exit.thread.us.i, label %PixelsAreSimilar.exit.us.i93
 
 PixelsAreSimilar.exit.us.i93:                     ; preds = %351
   %355 = sub nsw i32 %339, %342
   %356 = call i32 @llvm.abs.i32(i32 %355, i1 true)
   %357 = mul nuw nsw i32 %356, 255
-  %.not81.us.i = icmp ugt i32 %357, %293
+  %.not81.us.i = icmp samesign ugt i32 %357, %293
   br i1 %.not81.us.i, label %PixelsAreSimilar.exit.thread.us.i, label %358
 
 358:                                              ; preds = %PixelsAreSimilar.exit.us.i93

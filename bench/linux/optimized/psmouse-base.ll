@@ -2159,7 +2159,7 @@ psmouse_do_detect.exit:                           ; preds = %100, %101
   br i1 %116, label %340, label %.thread21
 
 117:                                              ; preds = %.thread16
-  %118 = icmp ugt i32 %.pr18, 1
+  %118 = icmp samesign ugt i32 %.pr18, 1
   br i1 %118, label %.thread21, label %.thread47
 
 .thread21:                                        ; preds = %96, %psmouse_do_detect.exit, %.thread19, %117

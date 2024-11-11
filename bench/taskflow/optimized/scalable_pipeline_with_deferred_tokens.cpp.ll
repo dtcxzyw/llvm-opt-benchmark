@@ -2756,7 +2756,7 @@ invoke.cont4:                                     ; preds = %invoke.cont
   store i64 0, ptr %_M_size.i.i.i.i.i, align 16
   %_notifier = getelementptr inbounds i8, ptr %this, i64 312
   %_waiters.i = getelementptr inbounds i8, ptr %this, i64 320
-  %cmp.i.i.i = icmp ugt i64 %N, 82351536043346212
+  %cmp.i.i.i = icmp samesign ugt i64 %N, 82351536043346212
   br i1 %cmp.i.i.i, label %if.then.i.i.i, label %_ZNSt6vectorIN2tf8Notifier6WaiterESaIS2_EE17_S_check_init_lenEmRKS3_.exit.i.i
 
 if.then.i.i.i:                                    ; preds = %invoke.cont4
@@ -3299,7 +3299,7 @@ invoke.cont:                                      ; preds = %for.body.preheader.
   store ptr %add.ptr.i.i.i, ptr %0, align 8
   store ptr %scevgep.i.i.i.i.i, ptr %_M_finish.i.i7.i, align 8
   %_pipeflows = getelementptr inbounds i8, ptr %this, i64 80
-  %cmp.i.i7 = icmp ugt i64 %num_lines, 96076792050570581
+  %cmp.i.i7 = icmp samesign ugt i64 %num_lines, 96076792050570581
   br i1 %cmp.i.i7, label %if.then.i.i13, label %_ZNSt6vectorIN2tf8PipeflowESaIS1_EE17_S_check_init_lenEmRKS2_.exit.i
 
 if.then.i.i13:                                    ; preds = %invoke.cont.thread, %invoke.cont

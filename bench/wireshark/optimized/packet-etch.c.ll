@@ -764,7 +764,7 @@ read_array_type.exit:                             ; preds = %15, %32
   %50 = load i32, ptr @hf_etch_value, align 4
   %51 = tail call fastcc i32 @read_value(ptr noundef nonnull %0, ptr noundef %1, ptr noundef %2, i32 noundef %50)
   %52 = add nsw i32 %.0.i55, -1
-  %53 = icmp ugt i32 %.0.i55, 1
+  %53 = icmp samesign ugt i32 %.0.i55, 1
   br i1 %53, label %.lr.ph, label %read_array.exit, !llvm.loop !10
 
 read_array.exit:                                  ; preds = %.lr.ph, %read_array_type.exit

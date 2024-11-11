@@ -1401,7 +1401,7 @@ define ptr @CORD_from_file(ptr noundef %0) local_unnamed_addr #0 {
   unreachable
 
 11:                                               ; preds = %6
-  %12 = icmp ult i64 %4, 131073
+  %12 = icmp samesign ult i64 %4, 131073
   br i1 %12, label %13, label %15
 
 13:                                               ; preds = %11

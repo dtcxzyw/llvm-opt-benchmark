@@ -33,7 +33,7 @@ define hidden noundef i64 @_ZN11DwarfParser8read_lebEb(ptr nocapture noundef non
   %17 = icmp ugt i32 %13, 63
   %not. = xor i1 %1, true
   %or.cond = select i1 %not., i1 true, i1 %17
-  %.not = icmp ult i8 %7, 64
+  %.not = icmp samesign ult i8 %7, 64
   %or.cond15 = or i1 %or.cond, %.not
   %18 = shl nsw i64 -1, %16
   %19 = select i1 %or.cond15, i64 0, i64 %18
@@ -165,7 +165,7 @@ _ZN11DwarfParser8read_lebEb.exit:                 ; preds = %35
 _ZN11DwarfParser8read_lebEb.exit19:               ; preds = %48
   %59 = zext nneg i32 %57 to i64
   %60 = icmp ugt i32 %57, 63
-  %.not.i18 = icmp ult i8 %51, 64
+  %.not.i18 = icmp samesign ult i8 %51, 64
   %or.cond15.i = or i1 %60, %.not.i18
   %61 = shl nsw i64 -1, %59
   %62 = select i1 %or.cond15.i, i64 0, i64 %61

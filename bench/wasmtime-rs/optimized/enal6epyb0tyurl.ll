@@ -16553,7 +16553,7 @@ _ZN5gimli4read6reader6Reader11read_offset17haccfa5cfe0240852E.exit1658: ; preds 
 
 601:                                              ; preds = %148
   %602 = icmp slt i32 %155, 64
-  %603 = icmp ugt i8 %143, 63
+  %603 = icmp samesign ugt i8 %143, 63
   %or.cond.i.i1486 = and i1 %602, %603
   %604 = and i32 %155, 63
   %605 = zext nneg i32 %604 to i64
@@ -22424,7 +22424,7 @@ define hidden void @_ZN5gimli4read6reader6Reader12read_sleb12817hd7aa1c5adb4d8a5
 
 23:                                               ; preds = %13
   %24 = icmp slt i32 %20, 64
-  %25 = icmp ugt i8 %8, 63
+  %25 = icmp samesign ugt i8 %8, 63
   %or.cond.i = and i1 %24, %25
   %26 = and i32 %20, 63
   %27 = zext nneg i32 %26 to i64

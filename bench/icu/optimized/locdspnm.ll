@@ -1548,7 +1548,7 @@ sw.bb26:                                          ; preds = %while.body
   br label %sw.epilog
 
 sw.epilog:                                        ; preds = %while.body, %sw.bb26, %sw.bb24, %sw.bb22, %sw.bb
-  %cmp = icmp ugt i32 %dec26.in, 1
+  %cmp = icmp samesign ugt i32 %dec26.in, 1
   br i1 %cmp, label %while.body, label %while.end, !llvm.loop !4
 
 while.end:                                        ; preds = %sw.epilog, %invoke.cont20

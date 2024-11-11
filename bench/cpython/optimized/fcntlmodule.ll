@@ -592,7 +592,7 @@ if.end16:                                         ; preds = %if.end13
 if.end20:                                         ; preds = %if.end16
   %arrayidx21 = getelementptr i8, ptr %args, i64 24
   %4 = load ptr, ptr %arrayidx21, align 8
-  %cmp22 = icmp ult i64 %nargs, 5
+  %cmp22 = icmp samesign ult i64 %nargs, 5
   br i1 %cmp22, label %skip_optional, label %if.end24
 
 if.end24:                                         ; preds = %if.end20

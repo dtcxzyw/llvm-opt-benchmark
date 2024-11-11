@@ -5325,7 +5325,7 @@ dissect_scsi_pagecode.exit:                       ; preds = %13, %34
   %55 = add i32 %3, 2
   %56 = load i32, ptr @hf_scsi_modesel_device_specific_parameter, align 4
   %57 = tail call ptr @proto_tree_add_item(ptr noundef nonnull %2, i32 noundef %56, ptr noundef %0, i32 noundef %55, i32 noundef 1, i32 noundef 0) #10
-  %58 = icmp ult i32 %.085, 3
+  %58 = icmp samesign ult i32 %.085, 3
   br i1 %58, label %.critedge, label %59
 
 59:                                               ; preds = %54
@@ -5471,7 +5471,7 @@ dissect_scsi_pagecode.exit:                       ; preds = %12, %35
   %57 = add i32 %3, 3
   %58 = load i32, ptr @hf_scsi_modesel_device_specific_parameter, align 4
   %59 = tail call ptr @proto_tree_add_item(ptr noundef nonnull %2, i32 noundef %58, ptr noundef %0, i32 noundef %57, i32 noundef 1, i32 noundef 0) #10
-  %60 = icmp ult i32 %.095, 3
+  %60 = icmp samesign ult i32 %.095, 3
   br i1 %60, label %.critedge, label %61
 
 61:                                               ; preds = %56
@@ -5481,7 +5481,7 @@ dissect_scsi_pagecode.exit:                       ; preds = %12, %35
   %65 = zext nneg i8 %64 to i32
   %66 = load i32, ptr @hf_scsi_modesel_longlba, align 4
   %67 = tail call ptr @proto_tree_add_item(ptr noundef nonnull %2, i32 noundef %66, ptr noundef %0, i32 noundef %62, i32 noundef 1, i32 noundef 0) #10
-  %68 = icmp ult i32 %.095, 6
+  %68 = icmp samesign ult i32 %.095, 6
   br i1 %68, label %.critedge, label %69
 
 69:                                               ; preds = %61
@@ -6119,7 +6119,7 @@ define hidden void @dissect_spc_reportluns(ptr noundef %0, ptr nocapture readnon
   %59 = add i32 %.0..0..0..0.28, 8
   store volatile i32 %59, ptr %9, align 4
   %60 = add nsw i32 %.065, -8
-  %61 = icmp ugt i32 %.065, 8
+  %61 = icmp samesign ugt i32 %.065, 8
   br i1 %61, label %.lr.ph, label %.loopexit, !llvm.loop !20
 
 .loopexit:                                        ; preds = %.lr.ph, %53, %51, %48

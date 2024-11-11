@@ -3529,7 +3529,7 @@ Vec_QueIsMember.exit:                             ; preds = %159
 
 Vec_QuePrio.exit.i.i:                             ; preds = %174, %171
   %176 = phi float [ %173, %171 ], [ %175, %174 ]
-  %177 = icmp ugt i32 %167, 1
+  %177 = icmp samesign ugt i32 %167, 1
   %178 = getelementptr inbounds i8, ptr %160, i64 8
   br i1 %177, label %.lr.ph.i.i, label %Vec_QueMoveUp.exit.thread.i
 
@@ -4989,7 +4989,7 @@ Vec_QueIsMember.exit:                             ; preds = %229
 
 Vec_QuePrio.exit.i.i:                             ; preds = %244, %241
   %246 = phi float [ %243, %241 ], [ %245, %244 ]
-  %247 = icmp ugt i32 %237, 1
+  %247 = icmp samesign ugt i32 %237, 1
   %248 = getelementptr inbounds i8, ptr %230, i64 8
   br i1 %247, label %.lr.ph.i.i, label %Vec_QueMoveUp.exit.thread.i
 

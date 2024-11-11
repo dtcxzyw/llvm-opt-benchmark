@@ -2897,7 +2897,7 @@ define internal fastcc void @entryGetItem(ptr nocapture noundef readonly %0, ptr
 29:                                               ; preds = %25
   %30 = load i16, ptr %13, align 4
   %31 = zext i16 %30 to i32
-  %.not71.us = icmp ugt i32 %27, %31
+  %.not71.us = icmp samesign ugt i32 %27, %31
   br i1 %.not71.us, label %32, label %.critedge.us
 
 32:                                               ; preds = %29, %25
@@ -2930,7 +2930,7 @@ define internal fastcc void @entryGetItem(ptr nocapture noundef readonly %0, ptr
 45:                                               ; preds = %41
   %46 = load i16, ptr %13, align 4
   %47 = zext i16 %46 to i32
-  %.not71 = icmp ugt i32 %43, %47
+  %.not71 = icmp samesign ugt i32 %43, %47
   br i1 %.not71, label %48, label %.critedge
 
 48:                                               ; preds = %45, %41

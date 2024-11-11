@@ -989,11 +989,11 @@ lv_obj_get_parent.exit:                           ; preds = %2
   br i1 %or.cond40, label %lv_obj_get_parent.exit.thread, label %28
 
 28:                                               ; preds = %22
-  %29 = icmp ult i32 %spec.select, %23
+  %29 = icmp samesign ult i32 %spec.select, %23
   br i1 %29, label %.preheader, label %.preheader46
 
 .preheader46:                                     ; preds = %28
-  %30 = icmp ugt i32 %spec.select, %23
+  %30 = icmp samesign ugt i32 %spec.select, %23
   br i1 %30, label %.lr.ph.preheader, label %.loopexit
 
 .lr.ph.preheader:                                 ; preds = %.preheader46
@@ -1331,7 +1331,7 @@ define noundef ptr @lv_obj_get_child_by_type(ptr nocapture noundef readonly %0, 
 
 35:                                               ; preds = %26, %33
   %.3 = phi i32 [ %34, %33 ], [ %.234, %26 ]
-  %36 = icmp ugt i64 %indvars.iv, 1
+  %36 = icmp samesign ugt i64 %indvars.iv, 1
   br i1 %36, label %26, label %.loopexit, !llvm.loop !57
 
 .loopexit:                                        ; preds = %35, %31, %21, %17, %22, %.preheader, %3

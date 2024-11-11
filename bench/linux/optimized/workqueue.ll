@@ -8656,7 +8656,7 @@ define internal fastcc void @init_pod_type(ptr nocapture noundef %0, ptr nocaptu
   br i1 %27, label %28, label %.thread11
 
 28:                                               ; preds = %24
-  %29 = icmp ult i32 %26, %17
+  %29 = icmp samesign ult i32 %26, %17
   br i1 %29, label %34, label %30
 
 30:                                               ; preds = %28

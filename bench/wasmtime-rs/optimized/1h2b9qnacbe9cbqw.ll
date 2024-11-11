@@ -5526,7 +5526,7 @@ define hidden void @_ZN16wasmtime_runtime3mpk3sys10pkey_alloc17h2da4454ba14d7884
   br label %22
 
 20:                                               ; preds = %8
-  %21 = icmp ugt i64 %9, 4294967295
+  %21 = icmp samesign ugt i64 %9, 4294967295
   br i1 %21, label %.split4, label %.split
 
 22:                                               ; preds = %.split, %12

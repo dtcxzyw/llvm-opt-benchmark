@@ -510,7 +510,7 @@ define hidden range(i32 0, 2) i32 @ir_compute_live_ranges(ptr noundef %0) local_
 148:                                              ; preds = %144, %128, %122, %.lr.ph440.i
   %149 = getelementptr inbounds i8, ptr %.0386436.i, i64 4
   %150 = getelementptr inbounds i8, ptr %.0385437.i, i64 4
-  %151 = icmp ugt i32 %.0384438.in.i, 2
+  %151 = icmp samesign ugt i32 %.0384438.in.i, 2
   br i1 %151, label %.lr.ph440.i, label %.loopexit429.i
 
 152:                                              ; preds = %.lr.ph444.i

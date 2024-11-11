@@ -79,7 +79,7 @@ define dso_local noundef zeroext i1 @CheckServerVersionForStreaming(ptr noundef 
   br label %12
 
 7:                                                ; preds = %1
-  %8 = icmp ugt i32 %2, 170099
+  %8 = icmp samesign ugt i32 %2, 170099
   br i1 %8, label %9, label %12
 
 9:                                                ; preds = %7
@@ -128,7 +128,7 @@ define dso_local noundef zeroext i1 @ReceiveXlogStream(ptr noundef %0, ptr nocap
   br label %CheckServerVersionForStreaming.exit.thread
 
 22:                                               ; preds = %2
-  %23 = icmp ugt i32 %17, 170099
+  %23 = icmp samesign ugt i32 %17, 170099
   br i1 %23, label %24, label %CheckServerVersionForStreaming.exit
 
 24:                                               ; preds = %22

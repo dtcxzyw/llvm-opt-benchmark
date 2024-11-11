@@ -265,7 +265,7 @@ if.end15:                                         ; preds = %if.then9
 
 if.end18:                                         ; preds = %if.end15, %if.end5
   %fd.0 = phi i32 [ %call, %if.end15 ], [ %1, %if.end5 ]
-  %tobool20.not = icmp ult i32 %flags, 32
+  %tobool20.not = icmp samesign ult i32 %flags, 32
   br i1 %tobool20.not, label %if.end27, label %if.then21
 
 if.then21:                                        ; preds = %if.end18

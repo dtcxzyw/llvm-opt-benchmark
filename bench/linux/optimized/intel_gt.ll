@@ -600,7 +600,7 @@ define dso_local void @intel_gt_clear_error_registers(ptr noundef %0, i32 nounde
   br label %.thread
 
 77:                                               ; preds = %68
-  %78 = icmp ugt i8 %57, 7
+  %78 = icmp samesign ugt i8 %57, 7
   br i1 %78, label %79, label %86
 
 79:                                               ; preds = %77
@@ -614,7 +614,7 @@ define dso_local void @intel_gt_clear_error_registers(ptr noundef %0, i32 nounde
   br label %.thread
 
 86:                                               ; preds = %77
-  %87 = icmp ugt i8 %57, 5
+  %87 = icmp samesign ugt i8 %57, 5
   br i1 %87, label %88, label %.thread
 
 88:                                               ; preds = %86
@@ -822,7 +822,7 @@ define dso_local void @intel_gt_check_and_clear_faults(ptr noundef %0) local_unn
   br label %141
 
 93:                                               ; preds = %47
-  %94 = icmp ugt i8 %5, 5
+  %94 = icmp samesign ugt i8 %5, 5
   br i1 %94, label %95, label %142
 
 95:                                               ; preds = %93

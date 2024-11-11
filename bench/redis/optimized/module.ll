@@ -745,9 +745,9 @@ cond.end:                                         ; preds = %if.end, %cond.true
 
 while.cond:                                       ; preds = %cond.end, %while.cond
   %alignment.0 = phi i64 [ %div36, %while.cond ], [ 8, %cond.end ]
-  %cmp4 = icmp ult i64 %bytes, %alignment.0
+  %cmp4 = icmp samesign ult i64 %bytes, %alignment.0
   %div36 = lshr i64 %alignment.0, 1
-  %cmp6 = icmp uge i64 %div36, %bytes
+  %cmp6 = icmp samesign uge i64 %div36, %bytes
   %4 = and i1 %cmp4, %cmp6
   br i1 %4, label %while.cond, label %while.end, !llvm.loop !7
 
@@ -11505,7 +11505,7 @@ if.end17:                                         ; preds = %if.else6.thread, %s
   %tobool68 = icmp ne i32 %and67, 0
   %and19.lobit = lshr exact i32 %and19, 2
   %arrayinit.element = getelementptr inbounds i8, ptr %argv, i64 8
-  %tobool99.not = icmp ult i32 %flags, 16
+  %tobool99.not = icmp samesign ult i32 %flags, 16
   br i1 %tobool20.not.not, label %if.end17.split.us, label %if.end17.split
 
 if.end17.split.us:                                ; preds = %if.end17
@@ -19908,7 +19908,7 @@ if.then29:                                        ; preds = %if.end25
   br label %if.end30
 
 if.end30:                                         ; preds = %if.then29, %if.end25
-  %tobool32.not = icmp ult i32 %mask, 2
+  %tobool32.not = icmp samesign ult i32 %mask, 2
   br i1 %tobool32.not, label %if.end34, label %if.then33
 
 if.then33:                                        ; preds = %if.end30
@@ -20563,7 +20563,7 @@ if.then:                                          ; preds = %entry
   br label %return
 
 if.end:                                           ; preds = %entry
-  %tobool.not = icmp ult i32 %flags, 8
+  %tobool.not = icmp samesign ult i32 %flags, 8
   br i1 %tobool.not, label %if.end3, label %return
 
 if.end3:                                          ; preds = %if.end
@@ -28697,7 +28697,7 @@ if.else23:                                        ; preds = %land.lhs.true, %if.
 if.then29:                                        ; preds = %if.else23
   store ptr null, ptr %argv30, align 8
   store i32 0, ptr %argc31, align 4
-  %cmp33 = icmp ugt i32 %3, 3
+  %cmp33 = icmp samesign ugt i32 %3, 3
   br i1 %cmp33, label %if.then34, label %if.end39
 
 if.then34:                                        ; preds = %if.then29

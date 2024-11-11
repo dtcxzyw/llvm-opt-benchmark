@@ -793,7 +793,7 @@ remove_option.exit.i67.i:                         ; preds = %228, %229, %213
   br i1 %.not.i68.i, label %208, label %.loopexit.i
 
 235:                                              ; preds = %202
-  %236 = icmp ugt i64 %.031.i, 6
+  %236 = icmp samesign ugt i64 %.031.i, 6
   br i1 %236, label %237, label %.thread118.i
 
 237:                                              ; preds = %235
@@ -2102,7 +2102,7 @@ bid_entry.exit:                                   ; preds = %.loopexit71.thread1
   br i1 %161, label %.thread135, label %187
 
 162:                                              ; preds = %.critedge
-  %163 = icmp ugt i64 %.156168, 4
+  %163 = icmp samesign ugt i64 %.156168, 4
   br i1 %163, label %164, label %next_line.exit.thread
 
 164:                                              ; preds = %162
@@ -2118,7 +2118,7 @@ bid_entry.exit:                                   ; preds = %.loopexit71.thread1
   br i1 %171, label %next_line.exit.thread, label %.sink.split
 
 172:                                              ; preds = %164
-  %173 = icmp ugt i64 %.156168, 6
+  %173 = icmp samesign ugt i64 %.156168, 6
   br i1 %173, label %174, label %next_line.exit.thread
 
 174:                                              ; preds = %172

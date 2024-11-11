@@ -1423,7 +1423,7 @@ define dso_local noundef range(i32 -22, 1) i32 @acpi_power_transition(ptr nounde
   br i1 %16, label %35, label %17
 
 17:                                               ; preds = %15
-  %18 = icmp ult i32 %1, 4
+  %18 = icmp samesign ult i32 %1, 4
   br i1 %18, label %19, label %.thread
 
 19:                                               ; preds = %17

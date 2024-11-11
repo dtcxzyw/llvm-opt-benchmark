@@ -487,7 +487,7 @@ define hidden void @_ZN20G1UncommitRegionTask16report_executionE12TimeIntervalI3
   br i1 %19, label %_Z24byte_size_in_proper_unitImET_S0_.exit, label %20
 
 20:                                               ; preds = %15
-  %21 = icmp ugt i64 %18, 104857599
+  %21 = icmp samesign ugt i64 %18, 104857599
   br i1 %21, label %.thread, label %24
 
 .thread:                                          ; preds = %20
@@ -499,7 +499,7 @@ _Z24byte_size_in_proper_unitImET_S0_.exit:        ; preds = %15
   br label %_Z25proper_unit_for_byte_sizem.exit
 
 24:                                               ; preds = %20
-  %25 = icmp ugt i64 %18, 102399
+  %25 = icmp samesign ugt i64 %18, 102399
   %26 = lshr i64 %18, 10
   %spec.select.i = select i1 %25, i64 %26, i64 %18
   %.str.15..str.16.i = select i1 %25, ptr @.str.15, ptr @.str.16
@@ -542,7 +542,7 @@ define hidden void @_ZN20G1UncommitRegionTask14report_summaryEv(ptr nocapture no
   br i1 %9, label %_Z24byte_size_in_proper_unitImET_S0_.exit, label %10
 
 10:                                               ; preds = %3
-  %11 = icmp ugt i64 %8, 104857599
+  %11 = icmp samesign ugt i64 %8, 104857599
   br i1 %11, label %.thread, label %14
 
 .thread:                                          ; preds = %10
@@ -554,7 +554,7 @@ _Z24byte_size_in_proper_unitImET_S0_.exit:        ; preds = %3
   br label %_Z25proper_unit_for_byte_sizem.exit
 
 14:                                               ; preds = %10
-  %15 = icmp ugt i64 %8, 102399
+  %15 = icmp samesign ugt i64 %8, 102399
   %16 = lshr i64 %8, 10
   %spec.select.i = select i1 %15, i64 %16, i64 %8
   %.str.15..str.16.i = select i1 %15, ptr @.str.15, ptr @.str.16
@@ -652,7 +652,7 @@ define hidden void @_ZN20G1UncommitRegionTask7executeEv(ptr noundef nonnull alig
   br i1 %37, label %_Z24byte_size_in_proper_unitImET_S0_.exit.i, label %38
 
 38:                                               ; preds = %33
-  %39 = icmp ugt i64 %36, 104857599
+  %39 = icmp samesign ugt i64 %36, 104857599
   br i1 %39, label %.thread.i, label %42
 
 .thread.i:                                        ; preds = %38
@@ -664,7 +664,7 @@ _Z24byte_size_in_proper_unitImET_S0_.exit.i:      ; preds = %33
   br label %_Z25proper_unit_for_byte_sizem.exit.i
 
 42:                                               ; preds = %38
-  %43 = icmp ugt i64 %36, 102399
+  %43 = icmp samesign ugt i64 %36, 102399
   %44 = lshr i64 %36, 10
   %spec.select.i.i = select i1 %43, i64 %44, i64 %36
   %.str.15..str.16.i.i = select i1 %43, ptr @.str.15, ptr @.str.16
@@ -703,7 +703,7 @@ _ZN20G1UncommitRegionTask16report_executionE12TimeIntervalI30CompositeCounterRep
   br i1 %58, label %_Z24byte_size_in_proper_unitImET_S0_.exit.i13, label %59
 
 59:                                               ; preds = %52
-  %60 = icmp ugt i64 %57, 104857599
+  %60 = icmp samesign ugt i64 %57, 104857599
   br i1 %60, label %.thread.i12, label %63
 
 .thread.i12:                                      ; preds = %59
@@ -715,7 +715,7 @@ _Z24byte_size_in_proper_unitImET_S0_.exit.i13:    ; preds = %52
   br label %_Z25proper_unit_for_byte_sizem.exit.i10
 
 63:                                               ; preds = %59
-  %64 = icmp ugt i64 %57, 102399
+  %64 = icmp samesign ugt i64 %57, 102399
   %65 = lshr i64 %57, 10
   %spec.select.i.i8 = select i1 %64, i64 %65, i64 %57
   %.str.15..str.16.i.i9 = select i1 %64, ptr @.str.15, ptr @.str.16

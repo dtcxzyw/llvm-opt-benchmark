@@ -3674,7 +3674,7 @@ _ZN7mt199377randintEll.exit.i:                    ; preds = %_ZN7mt199377randint
   %30 = load ptr, ptr %28, align 8
   store ptr %30, ptr %26, align 8
   store ptr %29, ptr %28, align 8
-  %31 = icmp ugt i64 %indvars.iv.i, 2
+  %31 = icmp samesign ugt i64 %indvars.iv.i, 2
   br i1 %31, label %_ZN7mt199377randintEll.exit.i, label %_ZZN4pkpy6Random9_registerEPNS_2VMEPNS_8PyObjectES4_ENKUlS2_NS_8ArgsViewEE4_clES2_S5_.exit, !llvm.loop !23
 
 _ZZN4pkpy6Random9_registerEPNS_2VMEPNS_8PyObjectES4_ENKUlS2_NS_8ArgsViewEE4_clES2_S5_.exit: ; preds = %_ZN7mt199377randintEll.exit.i, %_ZN4pkpy7py_castIRNS_10pod_vectorIPNS_8PyObjectELi4EEEEET_PNS_2VMES3_.exit.i

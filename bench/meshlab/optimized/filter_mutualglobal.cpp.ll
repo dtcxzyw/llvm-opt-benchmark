@@ -10176,7 +10176,7 @@ define linkonce_odr void @_ZSt22__final_insertion_sortIN9__gnu_cxx17__normal_ite
   %16 = getelementptr inbounds i8, ptr %.069.i.i.i.i.i.i, i64 -28
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(25) %16, ptr noundef nonnull align 4 dereferenceable(25) %15, i64 25, i1 false)
   %17 = add nsw i64 %.010.i.i.i.i.i.i, -1
-  %18 = icmp ugt i64 %.010.i.i.i.i.i.i, 1
+  %18 = icmp samesign ugt i64 %.010.i.i.i.i.i.i, 1
   br i1 %18, label %.lr.ph.i.i.i.i.i.i, label %.loopexit.i, !llvm.loop !107
 
 .loopexit.i:                                      ; preds = %.lr.ph.i.i.i.i.i.i
@@ -10327,7 +10327,7 @@ _ZSt25__unguarded_linear_insertIN9__gnu_cxx17__normal_iteratorIP9AlignPairSt6vec
   %47 = getelementptr inbounds i8, ptr %.069.i.i.i.i.i.i74, i64 -28
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(25) %47, ptr noundef nonnull align 4 dereferenceable(25) %46, i64 25, i1 false)
   %48 = add nsw i64 %.010.i.i.i.i.i.i73, -1
-  %49 = icmp ugt i64 %.010.i.i.i.i.i.i73, 1
+  %49 = icmp samesign ugt i64 %.010.i.i.i.i.i.i73, 1
   br i1 %49, label %.lr.ph.i.i.i.i.i.i72, label %.loopexit.i70, !llvm.loop !107
 
 .loopexit.i70:                                    ; preds = %.lr.ph.i.i.i.i.i.i72, %40
@@ -11377,7 +11377,7 @@ define linkonce_odr void @_ZSt22__final_insertion_sortIN9__gnu_cxx17__normal_ite
   %14 = getelementptr inbounds i8, ptr %.069.i.i.i.i.i.i, i64 -28
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(25) %14, ptr noundef nonnull align 4 dereferenceable(25) %13, i64 25, i1 false)
   %15 = add nsw i64 %.010.i.i.i.i.i.i, -1
-  %16 = icmp ugt i64 %.010.i.i.i.i.i.i, 1
+  %16 = icmp samesign ugt i64 %.010.i.i.i.i.i.i, 1
   br i1 %16, label %.lr.ph.i.i.i.i.i.i, label %.loopexit.i, !llvm.loop !107
 
 .loopexit.i:                                      ; preds = %.lr.ph.i.i.i.i.i.i
@@ -11503,7 +11503,7 @@ _ZSt25__unguarded_linear_insertIN9__gnu_cxx17__normal_iteratorIP9AlignPairSt6vec
   %38 = getelementptr inbounds i8, ptr %.069.i.i.i.i.i.i58, i64 -28
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(25) %38, ptr noundef nonnull align 4 dereferenceable(25) %37, i64 25, i1 false)
   %39 = add nsw i64 %.010.i.i.i.i.i.i57, -1
-  %40 = icmp ugt i64 %.010.i.i.i.i.i.i57, 1
+  %40 = icmp samesign ugt i64 %.010.i.i.i.i.i.i57, 1
   br i1 %40, label %.lr.ph.i.i.i.i.i.i56, label %.loopexit.i54, !llvm.loop !107
 
 .loopexit.i54:                                    ; preds = %.lr.ph.i.i.i.i.i.i56, %31

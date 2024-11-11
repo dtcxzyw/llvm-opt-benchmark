@@ -230,7 +230,7 @@ define internal fastcc void @"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F
   %60 = and i8 %58, 63
   %61 = zext nneg i8 %60 to i32
   %62 = or disjoint i32 %59, %61
-  %63 = icmp ugt i8 %52, -33
+  %63 = icmp samesign ugt i8 %52, -33
   br i1 %63, label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h9c04bda1597dfa96E.llvm.6364507639633030286.exit15.i.i.i.i.i.i.i.i", label %_ZN4core3str11validations15next_code_point17hd8bbc18ea736ad00E.exit.thread.i.i.i.i.i.i.i
 
 64:                                               ; preds = %51
@@ -248,7 +248,7 @@ define internal fastcc void @"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F
   %72 = or disjoint i32 %69, %71
   %73 = shl nuw nsw i32 %56, 12
   %74 = or disjoint i32 %72, %73
-  %75 = icmp ugt i8 %52, -17
+  %75 = icmp samesign ugt i8 %52, -17
   br i1 %75, label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h9c04bda1597dfa96E.llvm.6364507639633030286.exit17.i.i.i.i.i.i.i.i", label %_ZN4core3str11validations15next_code_point17hd8bbc18ea736ad00E.exit.thread.i.i.i.i.i.i.i
 
 "_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h9c04bda1597dfa96E.llvm.6364507639633030286.exit17.i.i.i.i.i.i.i.i": ; preds = %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h9c04bda1597dfa96E.llvm.6364507639633030286.exit15.i.i.i.i.i.i.i.i"
@@ -13790,7 +13790,7 @@ define hidden { ptr, i64 } @"_ZN4core3str21_$LT$impl$u20$str$GT$12trim_matches17
   %18 = and i8 %16, 63
   %19 = zext nneg i8 %18 to i32
   %20 = or disjoint i32 %17, %19
-  %21 = icmp ugt i8 %10, -33
+  %21 = icmp samesign ugt i8 %10, -33
   br i1 %21, label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h9c04bda1597dfa96E.llvm.6364507639633030286.exit15.i.i.i", label %"_ZN81_$LT$core..str..pattern..CharSearcher$u20$as$u20$core..str..pattern..Searcher$GT$4next17h401b34a06fbdcd7eE.llvm.6364507639633030286.exit.i"
 
 22:                                               ; preds = %8
@@ -13808,7 +13808,7 @@ define hidden { ptr, i64 } @"_ZN4core3str21_$LT$impl$u20$str$GT$12trim_matches17
   %30 = or disjoint i32 %27, %29
   %31 = shl nuw nsw i32 %13, 12
   %32 = or disjoint i32 %30, %31
-  %33 = icmp ugt i8 %10, -17
+  %33 = icmp samesign ugt i8 %10, -17
   br i1 %33, label %34, label %"_ZN81_$LT$core..str..pattern..CharSearcher$u20$as$u20$core..str..pattern..Searcher$GT$4next17h401b34a06fbdcd7eE.llvm.6364507639633030286.exit.i"
 
 34:                                               ; preds = %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h9c04bda1597dfa96E.llvm.6364507639633030286.exit15.i.i.i"
@@ -14049,7 +14049,7 @@ define hidden { ptr, i64 } @"_ZN4core3str21_$LT$impl$u20$str$GT$18trim_start_mat
   %19 = and i8 %17, 63
   %20 = zext nneg i8 %19 to i32
   %21 = or disjoint i32 %18, %20
-  %22 = icmp ugt i8 %11, -33
+  %22 = icmp samesign ugt i8 %11, -33
   br i1 %22, label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h9c04bda1597dfa96E.llvm.6364507639633030286.exit15.i.i.i", label %"_ZN81_$LT$core..str..pattern..CharSearcher$u20$as$u20$core..str..pattern..Searcher$GT$4next17h401b34a06fbdcd7eE.llvm.6364507639633030286.exit.i"
 
 23:                                               ; preds = %9
@@ -14067,7 +14067,7 @@ define hidden { ptr, i64 } @"_ZN4core3str21_$LT$impl$u20$str$GT$18trim_start_mat
   %31 = or disjoint i32 %28, %30
   %32 = shl nuw nsw i32 %14, 12
   %33 = or disjoint i32 %31, %32
-  %34 = icmp ugt i8 %11, -17
+  %34 = icmp samesign ugt i8 %11, -17
   br i1 %34, label %35, label %"_ZN81_$LT$core..str..pattern..CharSearcher$u20$as$u20$core..str..pattern..Searcher$GT$4next17h401b34a06fbdcd7eE.llvm.6364507639633030286.exit.i"
 
 35:                                               ; preds = %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h9c04bda1597dfa96E.llvm.6364507639633030286.exit15.i.i.i"
@@ -14398,7 +14398,7 @@ define hidden void @_ZN4core3str7pattern8Searcher11next_reject17h416a5dd1b9009b6
   %25 = and i8 %23, 63
   %26 = zext nneg i8 %25 to i32
   %27 = or disjoint i32 %24, %26
-  %28 = icmp ugt i8 %17, -33
+  %28 = icmp samesign ugt i8 %17, -33
   br i1 %28, label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h9c04bda1597dfa96E.llvm.6364507639633030286.exit15.i.i", label %"_ZN81_$LT$core..str..pattern..CharSearcher$u20$as$u20$core..str..pattern..Searcher$GT$4next17h401b34a06fbdcd7eE.llvm.6364507639633030286.exit"
 
 29:                                               ; preds = %15
@@ -14416,7 +14416,7 @@ define hidden void @_ZN4core3str7pattern8Searcher11next_reject17h416a5dd1b9009b6
   %37 = or disjoint i32 %34, %36
   %38 = shl nuw nsw i32 %20, 12
   %39 = or disjoint i32 %37, %38
-  %40 = icmp ugt i8 %17, -17
+  %40 = icmp samesign ugt i8 %17, -17
   br i1 %40, label %41, label %"_ZN81_$LT$core..str..pattern..CharSearcher$u20$as$u20$core..str..pattern..Searcher$GT$4next17h401b34a06fbdcd7eE.llvm.6364507639633030286.exit"
 
 41:                                               ; preds = %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h9c04bda1597dfa96E.llvm.6364507639633030286.exit15.i.i"
@@ -18321,7 +18321,7 @@ define hidden void @"_ZN81_$LT$core..str..pattern..CharSearcher$u20$as$u20$core.
   %22 = and i8 %20, 63
   %23 = zext nneg i8 %22 to i32
   %24 = or disjoint i32 %21, %23
-  %25 = icmp ugt i8 %14, -33
+  %25 = icmp samesign ugt i8 %14, -33
   br i1 %25, label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h9c04bda1597dfa96E.llvm.6364507639633030286.exit15.i", label %.thread19
 
 26:                                               ; preds = %12
@@ -18339,7 +18339,7 @@ define hidden void @"_ZN81_$LT$core..str..pattern..CharSearcher$u20$as$u20$core.
   %34 = or disjoint i32 %31, %33
   %35 = shl nuw nsw i32 %17, 12
   %36 = or disjoint i32 %34, %35
-  %37 = icmp ugt i8 %14, -17
+  %37 = icmp samesign ugt i8 %14, -17
   br i1 %37, label %38, label %.thread19
 
 38:                                               ; preds = %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h9c04bda1597dfa96E.llvm.6364507639633030286.exit15.i"

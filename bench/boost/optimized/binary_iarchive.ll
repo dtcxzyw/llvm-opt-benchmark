@@ -1410,7 +1410,7 @@ _ZN5boost7archive6detail18interface_iarchiveINS0_15binary_iarchiveEErsIhEERS3_RT
   br label %_ZN5boost7archive6detail15common_iarchiveINS0_15binary_iarchiveEE13load_overrideINS0_12version_typeEEEvRT_.exit
 
 41:                                               ; preds = %26
-  %42 = icmp ugt i16 %13, 5
+  %42 = icmp samesign ugt i16 %13, 5
   br i1 %42, label %43, label %56
 
 43:                                               ; preds = %41
@@ -1449,7 +1449,7 @@ _ZN5boost7archive6detail18interface_iarchiveINS0_15binary_iarchiveEErsItEERS3_RT
   br label %_ZN5boost7archive6detail15common_iarchiveINS0_15binary_iarchiveEE13load_overrideINS0_12version_typeEEEvRT_.exit
 
 56:                                               ; preds = %41
-  %57 = icmp ugt i16 %13, 2
+  %57 = icmp samesign ugt i16 %13, 2
   %58 = getelementptr inbounds i8, ptr %0, i64 40
   br i1 %57, label %59, label %71
 
@@ -1889,7 +1889,7 @@ _ZNSt15basic_streambufIcSt11char_traitsIcEE6sbumpcEv.exit: ; preds = %26, %30
   br label %_ZNSt15basic_streambufIcSt11char_traitsIcEE6sbumpcEv.exit18
 
 51:                                               ; preds = %40
-  %52 = icmp ult i32 %.0.i, 8
+  %52 = icmp samesign ult i32 %.0.i, 8
   %53 = load ptr, ptr %9, align 8, !tbaa !20
   %54 = getelementptr inbounds nuw i8, ptr %53, i64 16
   %55 = load ptr, ptr %54, align 8, !tbaa !71

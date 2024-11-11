@@ -1086,7 +1086,7 @@ _ZN4JsonL9appendRawERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEj.exit.
   br i1 %109, label %_ZN4JsonL15utf8ToCodepointERPKcS1_.exit, label %110
 
 110:                                              ; preds = %107
-  %111 = icmp ult i8 %98, -32
+  %111 = icmp samesign ult i8 %98, -32
   br i1 %111, label %112, label %125
 
 112:                                              ; preds = %110
@@ -1107,7 +1107,7 @@ _ZN4JsonL9appendRawERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEj.exit.
   br i1 %124, label %.thread64, label %_ZN4JsonL15utf8ToCodepointERPKcS1_.exit
 
 125:                                              ; preds = %110
-  %126 = icmp ult i8 %98, -16
+  %126 = icmp samesign ult i8 %98, -16
   br i1 %126, label %127, label %149
 
 127:                                              ; preds = %125
@@ -1140,7 +1140,7 @@ _ZN4JsonL9appendRawERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEj.exit.
   br i1 %148, label %.thread64, label %_ZN4JsonL15utf8ToCodepointERPKcS1_.exit
 
 149:                                              ; preds = %125
-  %150 = icmp ugt i8 %98, -9
+  %150 = icmp samesign ugt i8 %98, -9
   %151 = ptrtoint ptr %storemerge101 to i64
   %152 = sub i64 %18, %151
   %153 = icmp slt i64 %152, 4

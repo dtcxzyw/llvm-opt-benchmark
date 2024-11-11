@@ -1346,7 +1346,7 @@ _ZN3pxr9rapidjson12GenericValueINS0_4UTF8IcEENS0_19MemoryPoolAllocatorINS0_12Crt
   %.not.i = icmp sgt i64 %160, -1
   %spec.select.i = select i1 %.not.i, i16 406, i16 278
   %.not4.i = icmp ult i64 %160, 4294967296
-  %.not5.i = icmp ult i64 %160, 2147483648
+  %.not5.i = icmp samesign ult i64 %160, 2147483648
   %spec.store.select.i = select i1 %.not5.i, i16 502, i16 470
   %storemerge.i = select i1 %.not4.i, i16 %spec.store.select.i, i16 %spec.select.i
   %161 = getelementptr inbounds nuw i8, ptr %0, i64 14
@@ -1362,14 +1362,14 @@ _ZN3pxr9rapidjson12GenericValueINS0_4UTF8IcEENS0_19MemoryPoolAllocatorINS0_12Crt
   br i1 %165, label %166, label %167
 
 166:                                              ; preds = %162
-  %.not.i13 = icmp ult i64 %163, 4294967296
+  %.not.i13 = icmp samesign ult i64 %163, 4294967296
   %spec.select.i14 = select i1 %.not.i13, i16 470, i16 406
-  %.not5.i15 = icmp ult i64 %163, 2147483648
+  %.not5.i15 = icmp samesign ult i64 %163, 2147483648
   %spec.store.select.i16 = select i1 %.not5.i15, i16 502, i16 %spec.select.i14
   br label %.sink.split.i
 
 167:                                              ; preds = %162
-  %168 = icmp ugt i64 %163, -2147483649
+  %168 = icmp samesign ugt i64 %163, -2147483649
   br i1 %168, label %.sink.split.i, label %_ZN3pxr9rapidjson12GenericValueINS0_4UTF8IcEENS0_19MemoryPoolAllocatorINS0_12CrtAllocatorEEEEC2El.exit
 
 .sink.split.i:                                    ; preds = %167, %166
@@ -3650,7 +3650,7 @@ define linkonce_odr noundef ptr @_ZN3pxr9rapidjson8internal6u32toaEjPc(i32 nound
   %6 = shl nuw nsw i16 %5, 1
   %7 = urem i16 %.lhs.trunc, 100
   %8 = shl nuw nsw i16 %7, 1
-  %9 = icmp ugt i32 %0, 999
+  %9 = icmp samesign ugt i32 %0, 999
   br i1 %9, label %.thread, label %14
 
 .thread:                                          ; preds = %4
@@ -3662,7 +3662,7 @@ define linkonce_odr noundef ptr @_ZN3pxr9rapidjson8internal6u32toaEjPc(i32 nound
   br label %.thread100
 
 14:                                               ; preds = %4
-  %15 = icmp ugt i32 %0, 99
+  %15 = icmp samesign ugt i32 %0, 99
   br i1 %15, label %.thread100, label %21
 
 .thread100:                                       ; preds = %14, %.thread
@@ -3676,7 +3676,7 @@ define linkonce_odr noundef ptr @_ZN3pxr9rapidjson8internal6u32toaEjPc(i32 nound
   br label %23
 
 21:                                               ; preds = %14
-  %22 = icmp ugt i32 %0, 9
+  %22 = icmp samesign ugt i32 %0, 9
   br i1 %22, label %23, label %28
 
 23:                                               ; preds = %.thread100, %21
@@ -3715,7 +3715,7 @@ define linkonce_odr noundef ptr @_ZN3pxr9rapidjson8internal6u32toaEjPc(i32 nound
   %44 = shl nuw nsw i16 %43, 1
   %45 = urem i16 %.lhs.trunc113, 100
   %46 = shl nuw nsw i16 %45, 1
-  %47 = icmp ugt i32 %0, 9999999
+  %47 = icmp samesign ugt i32 %0, 9999999
   br i1 %47, label %.thread103, label %52
 
 .thread103:                                       ; preds = %36
@@ -3727,7 +3727,7 @@ define linkonce_odr noundef ptr @_ZN3pxr9rapidjson8internal6u32toaEjPc(i32 nound
   br label %.thread106
 
 52:                                               ; preds = %36
-  %53 = icmp ugt i32 %0, 999999
+  %53 = icmp samesign ugt i32 %0, 999999
   br i1 %53, label %.thread106, label %59
 
 .thread106:                                       ; preds = %52, %.thread103
@@ -3741,7 +3741,7 @@ define linkonce_odr noundef ptr @_ZN3pxr9rapidjson8internal6u32toaEjPc(i32 nound
   br label %61
 
 59:                                               ; preds = %52
-  %60 = icmp ugt i32 %0, 99999
+  %60 = icmp samesign ugt i32 %0, 99999
   br i1 %60, label %61, label %66
 
 61:                                               ; preds = %.thread106, %59
@@ -4045,7 +4045,7 @@ define linkonce_odr noundef ptr @_ZN3pxr9rapidjson8internal6u64toaEmPc(i64 nound
 
 4:                                                ; preds = %2
   %5 = trunc nuw nsw i64 %0 to i32
-  %6 = icmp ult i64 %0, 10000
+  %6 = icmp samesign ult i64 %0, 10000
   br i1 %6, label %7, label %37
 
 7:                                                ; preds = %4
@@ -4053,7 +4053,7 @@ define linkonce_odr noundef ptr @_ZN3pxr9rapidjson8internal6u64toaEmPc(i64 nound
   %9 = shl nuw nsw i32 %8, 1
   %10 = urem i32 %5, 100
   %11 = shl nuw nsw i32 %10, 1
-  %12 = icmp ugt i64 %0, 999
+  %12 = icmp samesign ugt i64 %0, 999
   br i1 %12, label %.thread, label %17
 
 .thread:                                          ; preds = %7
@@ -4065,7 +4065,7 @@ define linkonce_odr noundef ptr @_ZN3pxr9rapidjson8internal6u64toaEmPc(i64 nound
   br label %.thread230
 
 17:                                               ; preds = %7
-  %18 = icmp ugt i64 %0, 99
+  %18 = icmp samesign ugt i64 %0, 99
   br i1 %18, label %.thread230, label %24
 
 .thread230:                                       ; preds = %17, %.thread
@@ -4079,7 +4079,7 @@ define linkonce_odr noundef ptr @_ZN3pxr9rapidjson8internal6u64toaEmPc(i64 nound
   br label %26
 
 24:                                               ; preds = %17
-  %25 = icmp ugt i64 %0, 9
+  %25 = icmp samesign ugt i64 %0, 9
   br i1 %25, label %26, label %31
 
 26:                                               ; preds = %.thread230, %24
@@ -4114,7 +4114,7 @@ define linkonce_odr noundef ptr @_ZN3pxr9rapidjson8internal6u64toaEmPc(i64 nound
   %45 = shl nuw nsw i16 %44, 1
   %46 = urem i16 %.lhs.trunc257, 100
   %47 = shl nuw nsw i16 %46, 1
-  %48 = icmp ugt i64 %0, 9999999
+  %48 = icmp samesign ugt i64 %0, 9999999
   br i1 %48, label %.thread233, label %53
 
 .thread233:                                       ; preds = %37
@@ -4126,7 +4126,7 @@ define linkonce_odr noundef ptr @_ZN3pxr9rapidjson8internal6u64toaEmPc(i64 nound
   br label %.thread236
 
 53:                                               ; preds = %37
-  %54 = icmp ugt i64 %0, 999999
+  %54 = icmp samesign ugt i64 %0, 999999
   br i1 %54, label %.thread236, label %60
 
 .thread236:                                       ; preds = %53, %.thread233
@@ -4140,7 +4140,7 @@ define linkonce_odr noundef ptr @_ZN3pxr9rapidjson8internal6u64toaEmPc(i64 nound
   br label %62
 
 60:                                               ; preds = %53
-  %61 = icmp ugt i64 %0, 99999
+  %61 = icmp samesign ugt i64 %0, 99999
   br i1 %61, label %62, label %67
 
 62:                                               ; preds = %.thread236, %60
@@ -4217,7 +4217,7 @@ define linkonce_odr noundef ptr @_ZN3pxr9rapidjson8internal6u64toaEmPc(i64 nound
   %115 = shl nuw nsw i16 %114, 1
   %116 = urem i16 %.lhs.trunc269, 100
   %117 = shl nuw nsw i16 %116, 1
-  %118 = icmp ugt i64 %0, 999999999999999
+  %118 = icmp samesign ugt i64 %0, 999999999999999
   br i1 %118, label %.thread239, label %123
 
 .thread239:                                       ; preds = %93
@@ -4229,7 +4229,7 @@ define linkonce_odr noundef ptr @_ZN3pxr9rapidjson8internal6u64toaEmPc(i64 nound
   br label %.thread242
 
 123:                                              ; preds = %93
-  %124 = icmp ugt i64 %0, 99999999999999
+  %124 = icmp samesign ugt i64 %0, 99999999999999
   br i1 %124, label %.thread242, label %130
 
 .thread242:                                       ; preds = %123, %.thread239
@@ -4243,7 +4243,7 @@ define linkonce_odr noundef ptr @_ZN3pxr9rapidjson8internal6u64toaEmPc(i64 nound
   br label %.thread245
 
 130:                                              ; preds = %123
-  %131 = icmp ugt i64 %0, 9999999999999
+  %131 = icmp samesign ugt i64 %0, 9999999999999
   br i1 %131, label %.thread245, label %136
 
 .thread245:                                       ; preds = %130, %.thread242
@@ -4256,7 +4256,7 @@ define linkonce_odr noundef ptr @_ZN3pxr9rapidjson8internal6u64toaEmPc(i64 nound
   br label %.thread248
 
 136:                                              ; preds = %130
-  %137 = icmp ugt i64 %0, 999999999999
+  %137 = icmp samesign ugt i64 %0, 999999999999
   br i1 %137, label %.thread248, label %143
 
 .thread248:                                       ; preds = %136, %.thread245
@@ -4270,7 +4270,7 @@ define linkonce_odr noundef ptr @_ZN3pxr9rapidjson8internal6u64toaEmPc(i64 nound
   br label %.thread251
 
 143:                                              ; preds = %136
-  %144 = icmp ugt i64 %0, 99999999999
+  %144 = icmp samesign ugt i64 %0, 99999999999
   br i1 %144, label %.thread251, label %149
 
 .thread251:                                       ; preds = %143, %.thread248
@@ -4283,7 +4283,7 @@ define linkonce_odr noundef ptr @_ZN3pxr9rapidjson8internal6u64toaEmPc(i64 nound
   br label %.thread254
 
 149:                                              ; preds = %143
-  %150 = icmp ugt i64 %0, 9999999999
+  %150 = icmp samesign ugt i64 %0, 9999999999
   br i1 %150, label %.thread254, label %156
 
 .thread254:                                       ; preds = %149, %.thread251
@@ -4297,7 +4297,7 @@ define linkonce_odr noundef ptr @_ZN3pxr9rapidjson8internal6u64toaEmPc(i64 nound
   br label %158
 
 156:                                              ; preds = %149
-  %157 = icmp ugt i64 %0, 999999999
+  %157 = icmp samesign ugt i64 %0, 999999999
   br i1 %157, label %158, label %163
 
 158:                                              ; preds = %.thread254, %156
@@ -7142,7 +7142,7 @@ _ZN3pxr9rapidjson8internal5StackINS0_12CrtAllocatorEE6ExpandIcEEvm.exit378.i: ; 
   br i1 %.not327.i, label %312, label %.loopexit681.i
 
 312:                                              ; preds = %311
-  %313 = icmp ugt i8 %309, 56
+  %313 = icmp samesign ugt i8 %309, 56
   br i1 %313, label %.loopexit681.i, label %314
 
 314:                                              ; preds = %312, %308
@@ -7243,7 +7243,7 @@ _ZN3pxr9rapidjson8internal5StackINS0_12CrtAllocatorEE6ExpandIcEEvm.exit385.i: ; 
   br i1 %.not.i27, label %362, label %.loopexit681.i
 
 362:                                              ; preds = %361
-  %363 = icmp ugt i8 %359, 53
+  %363 = icmp samesign ugt i8 %359, 53
   br i1 %363, label %.loopexit681.i, label %364
 
 364:                                              ; preds = %362, %358
@@ -7362,8 +7362,8 @@ _ZN3pxr9rapidjson8internal5StackINS0_12CrtAllocatorEE6ExpandIcEEvm.exit392.i: ; 
 
 418:                                              ; preds = %.lr.ph778.i
   %.not329.i = icmp ne i64 %.2306776.i, 922337203685477580
-  %419 = icmp ugt i8 %416, 56
-  %or.cond653.i = or i1 %419, %.not329.i
+  %419 = icmp samesign ugt i8 %416, 56
+  %or.cond653.i = select i1 %.not329.i, i1 true, i1 %419
   br i1 %or.cond653.i, label %.critedge340.i, label %420
 
 420:                                              ; preds = %418, %.lr.ph778.i
@@ -7462,8 +7462,8 @@ _ZN3pxr9rapidjson8internal5StackINS0_12CrtAllocatorEE6ExpandIcEEvm.exit399.i: ; 
 
 467:                                              ; preds = %.lr.ph766.i
   %.not328.i = icmp ne i64 %.3307764.i, 1844674407370955161
-  %468 = icmp ugt i8 %465, 53
-  %or.cond655.i = or i1 %468, %.not328.i
+  %468 = icmp samesign ugt i8 %465, 53
+  %or.cond655.i = select i1 %.not328.i, i1 true, i1 %468
   br i1 %or.cond655.i, label %.critedge340.i, label %469
 
 469:                                              ; preds = %467, %.lr.ph766.i
@@ -7697,7 +7697,7 @@ _ZN3pxr9rapidjson8internal5StackINS0_12CrtAllocatorEE6ExpandIcEEvm.exit413.i: ; 
   %.6310797.i = phi i64 [ %spec.select.i, %.lr.ph800.i ], [ %622, %613 ]
   %.sroa.85.9796.i = phi i32 [ %.sroa.85.6.i, %.lr.ph800.i ], [ %616, %613 ]
   %.sroa.0.12793.i = phi ptr [ %563, %.lr.ph800.i ], [ %617, %613 ]
-  %579 = icmp ugt i8 %578, 57
+  %579 = icmp samesign ugt i8 %578, 57
   %580 = icmp ugt i64 %.6310797.i, 9007199254740991
   %or.cond.i = select i1 %579, i1 true, i1 %580
   br i1 %or.cond.i, label %.thread.i, label %581
@@ -8570,7 +8570,7 @@ _ZN3pxr9rapidjson13GenericReaderINS0_4UTF8IcEES3_NS0_12CrtAllocatorEE9ParseHex4I
   br i1 %88, label %89, label %128
 
 89:                                               ; preds = %86
-  %90 = icmp ult i32 %82, 56320
+  %90 = icmp samesign ult i32 %82, 56320
   br i1 %90, label %91, label %125
 
 91:                                               ; preds = %89
@@ -12553,7 +12553,7 @@ define linkonce_odr noundef double @_ZN3pxr9rapidjson8internal19StrtodFullPrecis
 
 49:                                               ; preds = %.lr.ph52
   %50 = add nsw i32 %.03251, 1
-  %51 = icmp ugt i64 %indvars.iv, 1
+  %51 = icmp samesign ugt i64 %indvars.iv, 1
   br i1 %51, label %.lr.ph52, label %.critedge2.loopexit, !llvm.loop !108
 
 .critedge2.loopexit:                              ; preds = %49
@@ -12836,7 +12836,7 @@ define linkonce_odr noundef zeroext i1 @_ZN3pxr9rapidjson8internal11StrtodDiyFpI
   %112 = shl i64 %105, %106
   %113 = add nsw i32 %111, 64
   %114 = icmp sgt i32 %111, -1086
-  %115 = icmp ult i32 %113, -1073
+  %115 = icmp samesign ult i32 %113, -1073
   %116 = add nsw i32 %111, 1138
   %spec.select.i = select i1 %115, i32 0, i32 %116
   %.0.i = select i1 %114, i32 53, i32 %spec.select.i

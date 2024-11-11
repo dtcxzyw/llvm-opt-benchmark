@@ -621,7 +621,7 @@ while.body.i.i:                                   ; preds = %if.end47.i.i, %if.t
   %s.addr.034.i.i = phi ptr [ %add.ptr4.i, %if.then ], [ %incdec.ptr.i.i, %if.end47.i.i ]
   %incdec.ptr.i.i = getelementptr inbounds i8, ptr %s.addr.034.i.i, i64 1
   %10 = load i8, ptr %s.addr.034.i.i, align 1
-  %cmp2.i.i = icmp ugt i16 %length.039.i.i, 11
+  %cmp2.i.i = icmp samesign ugt i16 %length.039.i.i, 11
   br i1 %cmp2.i.i, label %if.then.i.i, label %if.else.i.i
 
 if.then.i.i:                                      ; preds = %while.body.i.i
@@ -718,13 +718,13 @@ entry:
   br i1 %cmp.i.i, label %land.lhs.true.i.i, label %if.end.i.i
 
 land.lhs.true.i.i:                                ; preds = %entry
-  %cmp1.i.i = icmp ult i32 %code, 65008
+  %cmp1.i.i = icmp samesign ult i32 %code, 65008
   br i1 %cmp1.i.i, label %if.else.i, label %lor.lhs.false.i.i
 
 lor.lhs.false.i.i:                                ; preds = %land.lhs.true.i.i
   %and.i.i = and i32 %code, 65534
   %cmp2.i.i = icmp eq i32 %and.i.i, 65534
-  %cmp4.i.i = icmp ult i32 %code, 1114112
+  %cmp4.i.i = icmp samesign ult i32 %code, 1114112
   %or.cond.i.i = and i1 %cmp4.i.i, %cmp2.i.i
   br i1 %or.cond.i.i, label %if.else.i, label %if.end.i.i
 
@@ -1511,13 +1511,13 @@ entry:
   br i1 %cmp, label %land.lhs.true, label %if.end
 
 land.lhs.true:                                    ; preds = %entry
-  %cmp1 = icmp ult i32 %cp, 65008
+  %cmp1 = icmp samesign ult i32 %cp, 65008
   br i1 %cmp1, label %return, label %lor.lhs.false
 
 lor.lhs.false:                                    ; preds = %land.lhs.true
   %and = and i32 %cp, 65534
   %cmp2 = icmp eq i32 %and, 65534
-  %cmp4 = icmp ult i32 %cp, 1114112
+  %cmp4 = icmp samesign ult i32 %cp, 1114112
   %or.cond = and i1 %cmp4, %cmp2
   br i1 %or.cond, label %return, label %if.end
 
@@ -2731,7 +2731,7 @@ while.body.i.i36:                                 ; preds = %if.end47.i.i, %whil
   %s.addr.034.i.i = phi ptr [ %add.ptr14.i35, %while.body.i33 ], [ %incdec.ptr.i.i37, %if.end47.i.i ]
   %incdec.ptr.i.i37 = getelementptr inbounds i8, ptr %s.addr.034.i.i, i64 1
   %40 = load i8, ptr %s.addr.034.i.i, align 1
-  %cmp2.i.i = icmp ugt i16 %length.039.i.i, 11
+  %cmp2.i.i = icmp samesign ugt i16 %length.039.i.i, 11
   br i1 %cmp2.i.i, label %if.then.i.i, label %if.else.i.i
 
 if.then.i.i:                                      ; preds = %while.body.i.i36
@@ -4024,7 +4024,7 @@ while.body:                                       ; preds = %entry, %if.end47
   %s.addr.034 = phi ptr [ %s, %entry ], [ %incdec.ptr, %if.end47 ]
   %incdec.ptr = getelementptr inbounds i8, ptr %s.addr.034, i64 1
   %0 = load i8, ptr %s.addr.034, align 1
-  %cmp2 = icmp ugt i16 %length.039, 11
+  %cmp2 = icmp samesign ugt i16 %length.039, 11
   br i1 %cmp2, label %if.then, label %if.else
 
 if.then:                                          ; preds = %while.body
@@ -4550,7 +4550,7 @@ while.body.i:                                     ; preds = %if.end47.i, %entry
   %s.addr.034.i = phi ptr [ %add.ptr4, %entry ], [ %incdec.ptr.i, %if.end47.i ]
   %incdec.ptr.i = getelementptr inbounds i8, ptr %s.addr.034.i, i64 1
   %1 = load i8, ptr %s.addr.034.i, align 1
-  %cmp2.i = icmp ugt i16 %length.039.i, 11
+  %cmp2.i = icmp samesign ugt i16 %length.039.i, 11
   br i1 %cmp2.i, label %if.then.i, label %if.else.i
 
 if.then.i:                                        ; preds = %while.body.i

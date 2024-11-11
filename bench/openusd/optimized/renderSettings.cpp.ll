@@ -1537,7 +1537,7 @@ _ZNSt12_Vector_baseIN32pxrInternal_v0_24__pxrReserved__16HdRenderSettings13Rende
   %40 = getelementptr inbounds i8, ptr %.0910.i.i.i.i.i, i64 120
   %41 = getelementptr inbounds i8, ptr %.0811.i.i.i.i.i, i64 120
   %42 = add nsw i64 %.012.i.i.i.i.i, -1
-  %43 = icmp ugt i64 %.012.i.i.i.i.i, 1
+  %43 = icmp samesign ugt i64 %.012.i.i.i.i.i, 1
   br i1 %43, label %.lr.ph.i.i.i.i.i, label %_ZSt4copyIN9__gnu_cxx17__normal_iteratorIPKN32pxrInternal_v0_24__pxrReserved__16HdRenderSettings13RenderProductESt6vectorIS4_SaIS4_EEEENS1_IPS4_S9_EEET0_T_SE_SD_.exit.loopexit, !llvm.loop !6
 
 _ZSt4copyIN9__gnu_cxx17__normal_iteratorIPKN32pxrInternal_v0_24__pxrReserved__16HdRenderSettings13RenderProductESt6vectorIS4_SaIS4_EEEENS1_IPS4_S9_EEET0_T_SE_SD_.exit.loopexit: ; preds = %.lr.ph.i.i.i.i.i
@@ -1580,7 +1580,7 @@ _ZSt4copyIN9__gnu_cxx17__normal_iteratorIPKN32pxrInternal_v0_24__pxrReserved__16
   %52 = getelementptr inbounds i8, ptr %.0910.i.i.i.i.i33, i64 120
   %53 = getelementptr inbounds i8, ptr %.0811.i.i.i.i.i32, i64 120
   %54 = add nsw i64 %.012.i.i.i.i.i31, -1
-  %55 = icmp ugt i64 %.012.i.i.i.i.i31, 1
+  %55 = icmp samesign ugt i64 %.012.i.i.i.i.i31, 1
   br i1 %55, label %.lr.ph.i.i.i.i.i30, label %_ZSt4copyIPN32pxrInternal_v0_24__pxrReserved__16HdRenderSettings13RenderProductES3_ET0_T_S5_S4_.exit.loopexit, !llvm.loop !8
 
 _ZSt4copyIPN32pxrInternal_v0_24__pxrReserved__16HdRenderSettings13RenderProductES3_ET0_T_S5_S4_.exit.loopexit: ; preds = %.lr.ph.i.i.i.i.i30
@@ -3631,7 +3631,7 @@ _ZNSt12_Vector_baseIN32pxrInternal_v0_24__pxrReserved__16HdRenderSettings13Rende
   %39 = getelementptr inbounds i8, ptr %.0910.i.i.i.i.i, i64 64
   %40 = getelementptr inbounds i8, ptr %.0811.i.i.i.i.i, i64 64
   %41 = add nsw i64 %.012.i.i.i.i.i, -1
-  %42 = icmp ugt i64 %.012.i.i.i.i.i, 1
+  %42 = icmp samesign ugt i64 %.012.i.i.i.i.i, 1
   br i1 %42, label %.lr.ph.i.i.i.i.i, label %_ZSt4copyIN9__gnu_cxx17__normal_iteratorIPKN32pxrInternal_v0_24__pxrReserved__16HdRenderSettings13RenderProduct9RenderVarESt6vectorIS5_SaIS5_EEEENS1_IPS5_SA_EEET0_T_SF_SE_.exit.loopexit, !llvm.loop !16
 
 _ZSt4copyIN9__gnu_cxx17__normal_iteratorIPKN32pxrInternal_v0_24__pxrReserved__16HdRenderSettings13RenderProduct9RenderVarESt6vectorIS5_SaIS5_EEEENS1_IPS5_SA_EEET0_T_SF_SE_.exit.loopexit: ; preds = %.lr.ph.i.i.i.i.i
@@ -3671,7 +3671,7 @@ _ZSt4copyIN9__gnu_cxx17__normal_iteratorIPKN32pxrInternal_v0_24__pxrReserved__16
   %51 = getelementptr inbounds i8, ptr %.0910.i.i.i.i.i32, i64 64
   %52 = getelementptr inbounds i8, ptr %.0811.i.i.i.i.i31, i64 64
   %53 = add nsw i64 %.012.i.i.i.i.i30, -1
-  %54 = icmp ugt i64 %.012.i.i.i.i.i30, 1
+  %54 = icmp samesign ugt i64 %.012.i.i.i.i.i30, 1
   br i1 %54, label %.lr.ph.i.i.i.i.i29, label %_ZSt4copyIPN32pxrInternal_v0_24__pxrReserved__16HdRenderSettings13RenderProduct9RenderVarES4_ET0_T_S6_S5_.exit.loopexit, !llvm.loop !18
 
 _ZSt4copyIPN32pxrInternal_v0_24__pxrReserved__16HdRenderSettings13RenderProduct9RenderVarES4_ET0_T_S6_S5_.exit.loopexit: ; preds = %.lr.ph.i.i.i.i.i29

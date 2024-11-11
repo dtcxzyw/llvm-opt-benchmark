@@ -17431,7 +17431,7 @@ _ZN3std2io5Write9write_all17h647641b7f24fc93bE.exit.thread145.i.i: ; preds = %16
 235:                                              ; preds = %230
   %236 = sub nsw i64 4, %226
   %237 = sub nsw i64 %233, %226
-  %238 = icmp ugt i64 %236, %237
+  %238 = icmp samesign ugt i64 %236, %237
   br i1 %238, label %239, label %.noexc78.i.i
 
 239:                                              ; preds = %235

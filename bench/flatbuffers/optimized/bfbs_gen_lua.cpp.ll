@@ -18134,17 +18134,17 @@ lpad44:                                           ; preds = %call.i.noexc87, %sw
   br label %eh.resume
 
 sw.default:                                       ; preds = %entry
-  %cmp1.i.i = icmp ugt i32 %base_type, 19
-  br i1 %cmp1.i.i, label %_ZN10reflection16EnumNameBaseTypeENS_8BaseTypeE.exit, label %if.end.i
+  %24 = icmp ugt i32 %base_type, 19
+  br i1 %24, label %_ZN10reflection16EnumNameBaseTypeENS_8BaseTypeE.exit, label %if.end.i
 
 if.end.i:                                         ; preds = %sw.default
   %conv.i = zext nneg i32 %base_type to i64
   %arrayidx.i = getelementptr inbounds ptr, ptr @_ZZN10reflection17EnumNamesBaseTypeEvE5names, i64 %conv.i
-  %24 = load ptr, ptr %arrayidx.i, align 8
+  %25 = load ptr, ptr %arrayidx.i, align 8
   br label %_ZN10reflection16EnumNameBaseTypeENS_8BaseTypeE.exit
 
 _ZN10reflection16EnumNameBaseTypeENS_8BaseTypeE.exit: ; preds = %sw.default, %if.end.i
-  %retval.0.i = phi ptr [ %24, %if.end.i ], [ @.str, %sw.default ]
+  %retval.0.i = phi ptr [ %25, %if.end.i ], [ @.str, %sw.default ]
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp46) #22
   %call.i97 = invoke noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(32) %agg.result)
           to label %call.i.noexc96 unwind label %lpad47
@@ -18165,7 +18165,7 @@ invoke.cont.i:                                    ; preds = %if.then.i
   unreachable
 
 lpad.i95:                                         ; preds = %if.end.i92, %if.then.i
-  %25 = landingpad { ptr, i32 }
+  %26 = landingpad { ptr, i32 }
           cleanup
   call void @_ZNSaIcED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %agg.result) #22
   br label %eh.resume
@@ -18177,7 +18177,7 @@ if.end.i92:                                       ; preds = %.noexc98
           to label %return unwind label %lpad.i95
 
 lpad47:                                           ; preds = %call.i.noexc96, %_ZN10reflection16EnumNameBaseTypeENS_8BaseTypeE.exit
-  %26 = landingpad { ptr, i32 }
+  %27 = landingpad { ptr, i32 }
           cleanup
   br label %eh.resume
 
@@ -18188,7 +18188,7 @@ return:                                           ; preds = %if.end.i92, %.noexc
 
 eh.resume:                                        ; preds = %lpad47, %lpad.i95, %lpad44, %lpad.i86, %lpad40, %lpad.i78, %lpad36, %lpad.i70, %lpad32, %lpad.i62, %lpad28, %lpad.i54, %lpad24, %lpad.i46, %lpad20, %lpad.i38, %lpad16, %lpad.i30, %lpad12, %lpad.i22, %lpad8, %lpad.i14, %lpad4, %lpad.i6, %lpad, %lpad.i
   %ref.tmp46.sink1 = phi ptr [ %ref.tmp, %lpad.i ], [ %ref.tmp, %lpad ], [ %ref.tmp3, %lpad.i6 ], [ %ref.tmp3, %lpad4 ], [ %ref.tmp7, %lpad.i14 ], [ %ref.tmp7, %lpad8 ], [ %ref.tmp11, %lpad.i22 ], [ %ref.tmp11, %lpad12 ], [ %ref.tmp15, %lpad.i30 ], [ %ref.tmp15, %lpad16 ], [ %ref.tmp19, %lpad.i38 ], [ %ref.tmp19, %lpad20 ], [ %ref.tmp23, %lpad.i46 ], [ %ref.tmp23, %lpad24 ], [ %ref.tmp27, %lpad.i54 ], [ %ref.tmp27, %lpad28 ], [ %ref.tmp31, %lpad.i62 ], [ %ref.tmp31, %lpad32 ], [ %ref.tmp35, %lpad.i70 ], [ %ref.tmp35, %lpad36 ], [ %ref.tmp39, %lpad.i78 ], [ %ref.tmp39, %lpad40 ], [ %ref.tmp43, %lpad.i86 ], [ %ref.tmp43, %lpad44 ], [ %ref.tmp46, %lpad.i95 ], [ %ref.tmp46, %lpad47 ]
-  %.pn = phi { ptr, i32 } [ %0, %lpad.i ], [ %1, %lpad ], [ %2, %lpad.i6 ], [ %3, %lpad4 ], [ %4, %lpad.i14 ], [ %5, %lpad8 ], [ %6, %lpad.i22 ], [ %7, %lpad12 ], [ %8, %lpad.i30 ], [ %9, %lpad16 ], [ %10, %lpad.i38 ], [ %11, %lpad20 ], [ %12, %lpad.i46 ], [ %13, %lpad24 ], [ %14, %lpad.i54 ], [ %15, %lpad28 ], [ %16, %lpad.i62 ], [ %17, %lpad32 ], [ %18, %lpad.i70 ], [ %19, %lpad36 ], [ %20, %lpad.i78 ], [ %21, %lpad40 ], [ %22, %lpad.i86 ], [ %23, %lpad44 ], [ %25, %lpad.i95 ], [ %26, %lpad47 ]
+  %.pn = phi { ptr, i32 } [ %0, %lpad.i ], [ %1, %lpad ], [ %2, %lpad.i6 ], [ %3, %lpad4 ], [ %4, %lpad.i14 ], [ %5, %lpad8 ], [ %6, %lpad.i22 ], [ %7, %lpad12 ], [ %8, %lpad.i30 ], [ %9, %lpad16 ], [ %10, %lpad.i38 ], [ %11, %lpad20 ], [ %12, %lpad.i46 ], [ %13, %lpad24 ], [ %14, %lpad.i54 ], [ %15, %lpad28 ], [ %16, %lpad.i62 ], [ %17, %lpad32 ], [ %18, %lpad.i70 ], [ %19, %lpad36 ], [ %20, %lpad.i78 ], [ %21, %lpad40 ], [ %22, %lpad.i86 ], [ %23, %lpad44 ], [ %26, %lpad.i95 ], [ %27, %lpad47 ]
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp46.sink1) #22
   resume { ptr, i32 } %.pn
 }

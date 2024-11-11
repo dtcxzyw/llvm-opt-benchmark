@@ -329,7 +329,7 @@ define internal fastcc void @layout(ptr noundef %0, i32 noundef %1) unnamed_addr
   %10 = load ptr, ptr @stderr, align 8
   %11 = tail call i64 @fwrite(ptr nonnull @.str.11, i64 2, i64 1, ptr %10) #21
   %12 = add nsw i32 %.02.i, -1
-  %13 = icmp ugt i32 %.02.i, 1
+  %13 = icmp samesign ugt i32 %.02.i, 1
   br i1 %13, label %.lr.ph.i, label %indent.exit
 
 indent.exit:                                      ; preds = %.lr.ph.i, %8
@@ -644,7 +644,7 @@ indent.exit:                                      ; preds = %.lr.ph.i, %8
   %179 = load ptr, ptr @stderr, align 8
   %180 = call i64 @fwrite(ptr nonnull @.str.11, i64 2, i64 1, ptr %179) #21
   %181 = add nsw i32 %.02.i264, -1
-  %182 = icmp ugt i32 %.02.i264, 1
+  %182 = icmp samesign ugt i32 %.02.i264, 1
   br i1 %182, label %.lr.ph.i263, label %indent.exit265
 
 indent.exit265:                                   ; preds = %.lr.ph.i263, %178
@@ -673,7 +673,7 @@ indent.exit265:                                   ; preds = %.lr.ph.i263, %178
   %194 = load ptr, ptr @stderr, align 8
   %195 = call i64 @fwrite(ptr nonnull @.str.11, i64 2, i64 1, ptr %194) #21
   %196 = add nsw i32 %.02.i267, -1
-  %197 = icmp ugt i32 %.02.i267, 1
+  %197 = icmp samesign ugt i32 %.02.i267, 1
   br i1 %197, label %.lr.ph.i266, label %indent.exit268
 
 indent.exit268:                                   ; preds = %.lr.ph.i266, %193
@@ -762,7 +762,7 @@ indent.exit268:                                   ; preds = %.lr.ph.i266, %193
   %240 = load ptr, ptr @stderr, align 8
   %241 = call i64 @fwrite(ptr nonnull @.str.11, i64 2, i64 1, ptr %240) #21
   %242 = add nsw i32 %.02.i270, -1
-  %243 = icmp ugt i32 %.02.i270, 1
+  %243 = icmp samesign ugt i32 %.02.i270, 1
   br i1 %243, label %.lr.ph.i269, label %indent.exit271
 
 indent.exit271:                                   ; preds = %.lr.ph.i269, %239
@@ -820,7 +820,7 @@ indent.exit271:                                   ; preds = %.lr.ph.i269, %239
   %266 = load ptr, ptr @stderr, align 8
   %267 = call i64 @fwrite(ptr nonnull @.str.11, i64 2, i64 1, ptr %266) #21
   %268 = add nsw i32 %.02.i277, -1
-  %269 = icmp ugt i32 %.02.i277, 1
+  %269 = icmp samesign ugt i32 %.02.i277, 1
   br i1 %269, label %.lr.ph.i276, label %indent.exit278
 
 indent.exit278:                                   ; preds = %.lr.ph.i276, %265
@@ -846,7 +846,7 @@ indent.exit278:                                   ; preds = %.lr.ph.i276, %265
   %279 = load ptr, ptr @stderr, align 8
   %280 = call i64 @fwrite(ptr nonnull @.str.11, i64 2, i64 1, ptr %279) #21
   %281 = add nsw i32 %.02.i282, -1
-  %282 = icmp ugt i32 %.02.i282, 1
+  %282 = icmp samesign ugt i32 %.02.i282, 1
   br i1 %282, label %.lr.ph.i281, label %indent.exit283
 
 indent.exit283:                                   ; preds = %.lr.ph.i281, %278
@@ -891,7 +891,7 @@ indent.exit283:                                   ; preds = %.lr.ph.i281, %278
   %301 = load ptr, ptr @stderr, align 8
   %302 = call i64 @fwrite(ptr nonnull @.str.11, i64 2, i64 1, ptr %301) #21
   %303 = add nsw i32 %.02.i289, -1
-  %304 = icmp ugt i32 %.02.i289, 1
+  %304 = icmp samesign ugt i32 %.02.i289, 1
   br i1 %304, label %.lr.ph.i288, label %indent.exit290
 
 indent.exit290:                                   ; preds = %.lr.ph.i288, %300
@@ -931,7 +931,7 @@ define internal fastcc void @reposition(ptr noundef %0, i32 noundef %1) unnamed_
   %10 = load ptr, ptr @stderr, align 8
   %11 = tail call i64 @fwrite(ptr nonnull @.str.11, i64 2, i64 1, ptr %10) #21
   %12 = add nsw i32 %.02.i, -1
-  %13 = icmp ugt i32 %.02.i, 1
+  %13 = icmp samesign ugt i32 %.02.i, 1
   br i1 %13, label %.lr.ph.i, label %indent.exit
 
 indent.exit:                                      ; preds = %.lr.ph.i, %8
@@ -981,7 +981,7 @@ indent.exit:                                      ; preds = %.lr.ph.i, %8
   %35 = load ptr, ptr @stderr, align 8
   %36 = tail call i64 @fwrite(ptr nonnull @.str.11, i64 2, i64 1, ptr %35) #21
   %37 = add nsw i32 %.02.i49.us, -1
-  %38 = icmp ugt i32 %.02.i49.us, 1
+  %38 = icmp samesign ugt i32 %.02.i49.us, 1
   br i1 %38, label %.lr.ph.i48.us, label %indent.exit50.loopexit.us
 
 39:                                               ; preds = %indent.exit50.loopexit.us, %25, %.lr.ph.split.us
@@ -1115,7 +1115,7 @@ indent.exit50:                                    ; preds = %53
   %109 = load ptr, ptr @stderr, align 8
   %110 = tail call i64 @fwrite(ptr nonnull @.str.11, i64 2, i64 1, ptr %109) #21
   %111 = add nsw i32 %.02.i52, -1
-  %112 = icmp ugt i32 %.02.i52, 1
+  %112 = icmp samesign ugt i32 %.02.i52, 1
   br i1 %112, label %.lr.ph.i51, label %indent.exit53
 
 indent.exit53:                                    ; preds = %.lr.ph.i51, %108

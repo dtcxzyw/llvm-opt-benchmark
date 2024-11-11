@@ -28026,7 +28026,7 @@ if.then.i18.cont:                                 ; preds = %if.then.i18.invoke
 
 if.end.i15:                                       ; preds = %if.end
   %_M_end_of_storage.i.i = getelementptr inbounds i8, ptr %tempUVs, i64 16
-  %cmp3.i.not = icmp ult i64 %sub.ptr.div.i, 2
+  %cmp3.i.not = icmp samesign ult i64 %sub.ptr.div.i, 2
   br i1 %cmp3.i.not, label %_ZNSt6vectorIN4pbrt6Point2IfEESaIS2_EE7reserveEm.exit, label %_ZNSt12_Vector_baseIN4pbrt6Point2IfEESaIS2_EE11_M_allocateEm.exit.i
 
 _ZNSt12_Vector_baseIN4pbrt6Point2IfEESaIS2_EE11_M_allocateEm.exit.i: ; preds = %if.end.i15

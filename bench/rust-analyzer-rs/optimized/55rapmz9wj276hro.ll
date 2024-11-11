@@ -3572,7 +3572,7 @@ define internal fastcc { i32, i32 } @_ZN4core3str11validations15next_code_point1
   %16 = and i8 %14, 63
   %17 = zext nneg i8 %16 to i32
   %18 = or disjoint i32 %15, %17
-  %19 = icmp ugt i8 %8, -33
+  %19 = icmp samesign ugt i8 %8, -33
   br i1 %19, label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hc3ce73c84d5059bbE.exit15", label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hc3ce73c84d5059bbE.exit.thread"
 
 20:                                               ; preds = %6
@@ -3591,7 +3591,7 @@ define internal fastcc { i32, i32 } @_ZN4core3str11validations15next_code_point1
   %28 = or disjoint i32 %25, %27
   %29 = shl nuw nsw i32 %11, 12
   %30 = or disjoint i32 %28, %29
-  %31 = icmp ugt i8 %8, -17
+  %31 = icmp samesign ugt i8 %8, -17
   br i1 %31, label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hc3ce73c84d5059bbE.exit17", label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hc3ce73c84d5059bbE.exit.thread"
 
 "_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hc3ce73c84d5059bbE.exit17": ; preds = %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hc3ce73c84d5059bbE.exit15"
@@ -5891,7 +5891,7 @@ define internal fastcc void @"_ZN5alloc3str21_$LT$impl$u20$str$GT$7replace17h887
   %158 = and i8 %156, 63
   %159 = zext nneg i8 %158 to i32
   %160 = or disjoint i32 %157, %159
-  %161 = icmp ugt i8 %150, -33
+  %161 = icmp samesign ugt i8 %150, -33
   br i1 %161, label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hc3ce73c84d5059bbE.exit15.i.i.i.i", label %_ZN4core3str11validations15next_code_point17h16b09d38fe9d91dfE.exit.thread.i.i.i
 
 162:                                              ; preds = %149
@@ -5909,7 +5909,7 @@ define internal fastcc void @"_ZN5alloc3str21_$LT$impl$u20$str$GT$7replace17h887
   %170 = or disjoint i32 %167, %169
   %171 = shl nuw nsw i32 %154, 12
   %172 = or disjoint i32 %170, %171
-  %173 = icmp ugt i8 %150, -17
+  %173 = icmp samesign ugt i8 %150, -17
   br i1 %173, label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hc3ce73c84d5059bbE.exit17.i.i.i.i", label %_ZN4core3str11validations15next_code_point17h16b09d38fe9d91dfE.exit.thread.i.i.i
 
 "_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hc3ce73c84d5059bbE.exit17.i.i.i.i": ; preds = %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hc3ce73c84d5059bbE.exit15.i.i.i.i"
@@ -43336,7 +43336,7 @@ define internal fastcc range(i64 17592186044416, 21990232555521) i64 @"_ZN3ide19
   %22 = and i8 %20, 63
   %23 = zext nneg i8 %22 to i32
   %24 = or disjoint i32 %21, %23
-  %25 = icmp ugt i8 %14, -33
+  %25 = icmp samesign ugt i8 %14, -33
   br i1 %25, label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hc3ce73c84d5059bbE.exit15.i", label %.thread7
 
 26:                                               ; preds = %13
@@ -43354,7 +43354,7 @@ define internal fastcc range(i64 17592186044416, 21990232555521) i64 @"_ZN3ide19
   %34 = or disjoint i32 %31, %33
   %35 = shl nuw nsw i32 %18, 12
   %36 = or disjoint i32 %34, %35
-  %37 = icmp ugt i8 %14, -17
+  %37 = icmp samesign ugt i8 %14, -17
   br i1 %37, label %38, label %.thread7
 
 38:                                               ; preds = %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hc3ce73c84d5059bbE.exit15.i"
@@ -43380,7 +43380,7 @@ define internal fastcc range(i64 17592186044416, 21990232555521) i64 @"_ZN3ide19
   br i1 %or.cond, label %.critedge, label %52
 
 52:                                               ; preds = %.thread7
-  %53 = icmp ugt i32 %50, 127
+  %53 = icmp samesign ugt i32 %50, 127
   br i1 %53, label %54, label %.critedge19
 
 54:                                               ; preds = %52

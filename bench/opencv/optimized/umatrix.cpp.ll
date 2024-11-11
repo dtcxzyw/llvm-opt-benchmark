@@ -2734,7 +2734,7 @@ define hidden void @_ZN2cv7setSizeERNS_4UMatEiPKiPKmb(ptr noundef nonnull align 
   br label %27
 
 27:                                               ; preds = %24, %20
-  %28 = icmp ugt i32 %1, 2
+  %28 = icmp samesign ugt i32 %1, 2
   br i1 %28, label %29, label %42
 
 29:                                               ; preds = %27
@@ -3481,7 +3481,7 @@ define void @_ZN2cv4UMatC2ERKS0_RKNS_5RangeES5_(ptr noundef nonnull align 8 dere
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(1088) %scevgep.i, i8 0, i64 1088, i1 false)
   store ptr %scevgep.i, ptr %7, align 8
   %37 = getelementptr inbounds i8, ptr %7, i64 8
-  %.not.i.i = icmp ugt i32 %24, 136
+  %.not.i.i = icmp samesign ugt i32 %24, 136
   store i64 %36, ptr %37, align 8
   br i1 %.not.i.i, label %38, label %.lr.ph.preheader
 
@@ -4040,8 +4040,8 @@ define void @_ZN2cv4UMatC2ERKS0_RKNS_5Rect_IiEE(ptr noundef nonnull align 8 dere
   br label %130
 
 89:                                               ; preds = %78
-  %90 = icmp ult i32 %66, %71
-  %91 = icmp ult i32 %76, %81
+  %90 = icmp samesign ult i32 %66, %71
+  %91 = icmp samesign ult i32 %76, %81
   %or.cond = or i1 %90, %91
   br i1 %or.cond, label %92, label %94
 
@@ -5528,7 +5528,7 @@ define void @_ZNK2cv4UMat7reshapeEiiPKi(ptr dead_on_unwind noalias writable sret
   br label %61
 
 51:                                               ; preds = %45
-  %52 = icmp ult i32 %2, 513
+  %52 = icmp samesign ult i32 %2, 513
   br i1 %52, label %61, label %53
 
 53:                                               ; preds = %51

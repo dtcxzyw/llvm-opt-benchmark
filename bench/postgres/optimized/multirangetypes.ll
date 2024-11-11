@@ -1164,7 +1164,7 @@ define dso_local noundef ptr @multirange_get_range(ptr nocapture noundef readonl
   %14 = add i32 %13, %.010.i
   %.not.i = icmp sgt i32 %12, -1
   %15 = add nsw i32 %.089.i, -1
-  %16 = icmp ugt i32 %.089.i, 1
+  %16 = icmp samesign ugt i32 %.089.i, 1
   %or.cond.i = and i1 %16, %.not.i
   br i1 %or.cond.i, label %.lr.ph.i, label %multirange_get_bounds_offset.exit.loopexit, !llvm.loop !22
 
@@ -1451,7 +1451,7 @@ define dso_local void @multirange_get_bounds(ptr nocapture noundef readonly %0, 
   %19 = add i32 %18, %.010.i
   %.not.i = icmp sgt i32 %17, -1
   %indvars.iv.next = add nsw i64 %indvars.iv, -1
-  %20 = icmp ugt i64 %indvars.iv, 1
+  %20 = icmp samesign ugt i64 %indvars.iv, 1
   %or.cond.i = and i1 %20, %.not.i
   br i1 %or.cond.i, label %.lr.ph.i, label %multirange_get_bounds_offset.exit.loopexit, !llvm.loop !22
 

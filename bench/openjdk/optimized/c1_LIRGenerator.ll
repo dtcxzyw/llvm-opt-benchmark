@@ -573,7 +573,7 @@ _ZNK7LIR_Opr4typeEv.exit:                         ; preds = %switch.lookup, %6
   %27 = getelementptr inbounds i8, ptr %3, i64 16
   %28 = load ptr, ptr %27, align 8
   tail call void @_ZN11Compilation7bailoutEPKc(ptr noundef nonnull align 8 dereferenceable(704) %28, ptr noundef nonnull @.str.7) #17
-  %29 = icmp ugt i32 %24, 9997
+  %29 = icmp samesign ugt i32 %24, 9997
   %.pre.i = load i32, ptr %23, align 8
   %spec.select.i = select i1 %29, i32 609, i32 %.pre.i
   %spec.select5.i = select i1 %29, i32 609, i32 %24
@@ -627,7 +627,7 @@ define hidden range(i64 -2147483648, 2147483648) i64 @_ZN12LIRGenerator12new_reg
   %7 = getelementptr inbounds i8, ptr %0, i64 16
   %8 = load ptr, ptr %7, align 8
   tail call void @_ZN11Compilation7bailoutEPKc(ptr noundef nonnull align 8 dereferenceable(704) %8, ptr noundef nonnull @.str.7) #17
-  %9 = icmp ugt i32 %4, 9997
+  %9 = icmp samesign ugt i32 %4, 9997
   %.pre = load i32, ptr %3, align 8
   %spec.select = select i1 %9, i32 609, i32 %.pre
   %spec.select5 = select i1 %9, i32 609, i32 %4
@@ -690,7 +690,7 @@ define hidden void @_ZN11PhiResolver4moveEP11ResolveNodeS1_(ptr nocapture nounde
   %15 = getelementptr inbounds ptr, ptr %14, i64 %indvars.iv.next
   %16 = load ptr, ptr %15, align 8
   tail call void @_ZN11PhiResolver4moveEP11ResolveNodeS1_(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull %2, ptr noundef %16)
-  %17 = icmp ugt i64 %indvars.iv, 1
+  %17 = icmp samesign ugt i64 %indvars.iv, 1
   br i1 %17, label %13, label %.loopexit, !llvm.loop !6
 
 18:                                               ; preds = %3
@@ -781,7 +781,7 @@ define hidden void @_ZN11PhiResolverD2Ev(ptr nocapture noundef nonnull align 8 d
   br label %19
 
 19:                                               ; preds = %8, %17
-  %20 = icmp ugt i64 %indvars.iv, 1
+  %20 = icmp samesign ugt i64 %indvars.iv, 1
   br i1 %20, label %8, label %._crit_edge.loopexit, !llvm.loop !8
 
 ._crit_edge.loopexit:                             ; preds = %19
@@ -1432,7 +1432,7 @@ define hidden void @_ZN7LIRItem9load_itemEv(ptr noundef nonnull align 8 derefere
   %23 = getelementptr inbounds i8, ptr %14, i64 16
   %24 = load ptr, ptr %23, align 8
   tail call void @_ZN11Compilation7bailoutEPKc(ptr noundef nonnull align 8 dereferenceable(704) %24, ptr noundef nonnull @.str.7) #17
-  %25 = icmp ugt i32 %20, 9997
+  %25 = icmp samesign ugt i32 %20, 9997
   %.pre.i.i = load i32, ptr %19, align 8
   %spec.select.i.i = select i1 %25, i32 609, i32 %.pre.i.i
   %spec.select5.i.i = select i1 %25, i32 609, i32 %20
@@ -1538,7 +1538,7 @@ define linkonce_odr hidden i64 @_ZN7LIRItem6resultEv(ptr noundef nonnull align 8
   %25 = getelementptr inbounds i8, ptr %16, i64 16
   %26 = load ptr, ptr %25, align 8
   tail call void @_ZN11Compilation7bailoutEPKc(ptr noundef nonnull align 8 dereferenceable(704) %26, ptr noundef nonnull @.str.7) #17
-  %27 = icmp ugt i32 %22, 9997
+  %27 = icmp samesign ugt i32 %22, 9997
   %.pre.i.i = load i32, ptr %21, align 8
   %spec.select.i.i = select i1 %27, i32 609, i32 %.pre.i.i
   %spec.select5.i.i = select i1 %27, i32 609, i32 %22
@@ -1855,7 +1855,7 @@ _ZNK7LIR_Opr4typeEv.exit:                         ; preds = %switch.lookup, %9
   %29 = getelementptr inbounds i8, ptr %0, i64 16
   %30 = load ptr, ptr %29, align 8
   tail call void @_ZN11Compilation7bailoutEPKc(ptr noundef nonnull align 8 dereferenceable(704) %30, ptr noundef nonnull @.str.7) #17
-  %31 = icmp ugt i32 %26, 9997
+  %31 = icmp samesign ugt i32 %26, 9997
   %.pre.i = load i32, ptr %25, align 8
   %spec.select.i10 = select i1 %31, i32 609, i32 %.pre.i
   %spec.select5.i = select i1 %31, i32 609, i32 %26
@@ -1905,7 +1905,7 @@ switch.lookup24:                                  ; preds = %switch.hole_check
   %47 = getelementptr inbounds i8, ptr %0, i64 16
   %48 = load ptr, ptr %47, align 8
   tail call void @_ZN11Compilation7bailoutEPKc(ptr noundef nonnull align 8 dereferenceable(704) %48, ptr noundef nonnull @.str.7) #17
-  %49 = icmp ugt i32 %44, 9997
+  %49 = icmp samesign ugt i32 %44, 9997
   %.pre.i15 = load i32, ptr %43, align 8
   %spec.select.i16 = select i1 %49, i32 609, i32 %.pre.i15
   %spec.select5.i17 = select i1 %49, i32 609, i32 %44
@@ -6111,7 +6111,7 @@ define hidden void @_ZN12LIRGenerator14profile_branchEP2IfN11Instruction9Conditi
   %23 = getelementptr inbounds i8, ptr %0, i64 16
   %24 = load ptr, ptr %23, align 8
   tail call void @_ZN11Compilation7bailoutEPKc(ptr noundef nonnull align 8 dereferenceable(704) %24, ptr noundef nonnull @.str.7) #17
-  %25 = icmp ugt i32 %20, 9997
+  %25 = icmp samesign ugt i32 %20, 9997
   %.pre.i = load i32, ptr %19, align 8
   %spec.select.i = select i1 %25, i32 609, i32 %.pre.i
   %spec.select5.i = select i1 %25, i32 609, i32 %20
@@ -6138,7 +6138,7 @@ _ZN12LIRGenerator12new_registerE9BasicType.exit:  ; preds = %7, %22
   %37 = getelementptr inbounds i8, ptr %0, i64 16
   %38 = load ptr, ptr %37, align 8
   tail call void @_ZN11Compilation7bailoutEPKc(ptr noundef nonnull align 8 dereferenceable(704) %38, ptr noundef nonnull @.str.7) #17
-  %39 = icmp ugt i32 %34, 9997
+  %39 = icmp samesign ugt i32 %34, 9997
   %.pre.i.i = load i32, ptr %19, align 8
   %spec.select.i.i = select i1 %39, i32 609, i32 %.pre.i.i
   %spec.select5.i.i = select i1 %39, i32 609, i32 %34
@@ -6264,7 +6264,7 @@ _ZN11LIR_OprFact11intptrConstEl.exit45:           ; preds = %_ZN22CompilationRes
   %104 = getelementptr inbounds i8, ptr %0, i64 16
   %105 = load ptr, ptr %104, align 8
   tail call void @_ZN11Compilation7bailoutEPKc(ptr noundef nonnull align 8 dereferenceable(704) %105, ptr noundef nonnull @.str.7) #17
-  %106 = icmp ugt i32 %101, 9997
+  %106 = icmp samesign ugt i32 %101, 9997
   %.pre.i.i48 = load i32, ptr %19, align 8
   %spec.select.i.i49 = select i1 %106, i32 609, i32 %.pre.i.i48
   %spec.select5.i.i50 = select i1 %106, i32 609, i32 %101
@@ -7005,7 +7005,7 @@ define hidden i64 @_ZN12LIRGenerator23operand_for_instructionEP11Instruction(ptr
   %23 = getelementptr inbounds i8, ptr %0, i64 16
   %24 = load ptr, ptr %23, align 8
   tail call void @_ZN11Compilation7bailoutEPKc(ptr noundef nonnull align 8 dereferenceable(704) %24, ptr noundef nonnull @.str.7) #17
-  %25 = icmp ugt i32 %20, 9997
+  %25 = icmp samesign ugt i32 %20, 9997
   %.pre.i.i.i = load i32, ptr %19, align 8
   %spec.select.i.i.i = select i1 %25, i32 609, i32 %.pre.i.i.i
   %spec.select5.i.i.i = select i1 %25, i32 609, i32 %20
@@ -7195,7 +7195,7 @@ define hidden range(i64 -2147483648, 2147483648) i64 @_ZN12LIRGenerator5rlockEP1
   %10 = getelementptr inbounds i8, ptr %0, i64 16
   %11 = load ptr, ptr %10, align 8
   tail call void @_ZN11Compilation7bailoutEPKc(ptr noundef nonnull align 8 dereferenceable(704) %11, ptr noundef nonnull @.str.7) #17
-  %12 = icmp ugt i32 %7, 9997
+  %12 = icmp samesign ugt i32 %7, 9997
   %.pre.i.i = load i32, ptr %6, align 8
   %spec.select.i.i = select i1 %12, i32 609, i32 %.pre.i.i
   %spec.select5.i.i = select i1 %12, i32 609, i32 %7
@@ -7246,7 +7246,7 @@ define hidden range(i64 -2147483648, 2147483648) i64 @_ZN12LIRGenerator12rlock_r
   %10 = getelementptr inbounds i8, ptr %0, i64 16
   %11 = load ptr, ptr %10, align 8
   tail call void @_ZN11Compilation7bailoutEPKc(ptr noundef nonnull align 8 dereferenceable(704) %11, ptr noundef nonnull @.str.7) #17
-  %12 = icmp ugt i32 %7, 9997
+  %12 = icmp samesign ugt i32 %7, 9997
   %.pre.i.i.i = load i32, ptr %6, align 8
   %spec.select.i.i.i = select i1 %12, i32 609, i32 %.pre.i.i.i
   %spec.select5.i.i.i = select i1 %12, i32 609, i32 %7
@@ -7309,7 +7309,7 @@ define hidden i64 @_ZN12LIRGenerator12rlock_resultEP11Instruction9BasicType(ptr 
   %14 = getelementptr inbounds i8, ptr %0, i64 16
   %15 = load ptr, ptr %14, align 8
   tail call void @_ZN11Compilation7bailoutEPKc(ptr noundef nonnull align 8 dereferenceable(704) %15, ptr noundef nonnull @.str.7) #17
-  %16 = icmp ugt i32 %11, 9997
+  %16 = icmp samesign ugt i32 %11, 9997
   %.pre.i.i.i = load i32, ptr %10, align 8
   %spec.select.i.i.i = select i1 %16, i32 609, i32 %.pre.i.i.i
   %spec.select5.i.i.i = select i1 %16, i32 609, i32 %11
@@ -7744,7 +7744,7 @@ _ZN22CompilationResourceObjnwEm.exit71:           ; preds = %197, %199
   %213 = getelementptr inbounds i8, ptr %0, i64 16
   %214 = load ptr, ptr %213, align 8
   tail call void @_ZN11Compilation7bailoutEPKc(ptr noundef nonnull align 8 dereferenceable(704) %214, ptr noundef nonnull @.str.7) #17
-  %215 = icmp ugt i32 %210, 9997
+  %215 = icmp samesign ugt i32 %210, 9997
   %.pre.i = load i32, ptr %209, align 8
   %spec.select.i = select i1 %215, i32 609, i32 %.pre.i
   %spec.select5.i = select i1 %215, i32 609, i32 %210
@@ -8040,7 +8040,7 @@ define hidden void @_ZN12LIRGenerator11do_ConstantEP8Constant(ptr noundef nonnul
   %13 = getelementptr inbounds i8, ptr %0, i64 16
   %14 = load ptr, ptr %13, align 8
   tail call void @_ZN11Compilation7bailoutEPKc(ptr noundef nonnull align 8 dereferenceable(704) %14, ptr noundef nonnull @.str.7) #17
-  %15 = icmp ugt i32 %10, 9997
+  %15 = icmp samesign ugt i32 %10, 9997
   %.pre.i.i.i.i = load i32, ptr %9, align 8
   %spec.select.i.i.i.i = select i1 %15, i32 609, i32 %.pre.i.i.i.i
   %spec.select5.i.i.i.i = select i1 %15, i32 609, i32 %10
@@ -8182,7 +8182,7 @@ _ZNK7LIR_Opr11is_constantEv.exit:                 ; preds = %74
   %89 = getelementptr inbounds i8, ptr %0, i64 16
   %90 = load ptr, ptr %89, align 8
   tail call void @_ZN11Compilation7bailoutEPKc(ptr noundef nonnull align 8 dereferenceable(704) %90, ptr noundef nonnull @.str.7) #17
-  %91 = icmp ugt i32 %86, 9997
+  %91 = icmp samesign ugt i32 %86, 9997
   %.pre.i.i.i.i29 = load i32, ptr %85, align 8
   %spec.select.i.i.i.i30 = select i1 %91, i32 609, i32 %.pre.i.i.i.i29
   %spec.select5.i.i.i.i31 = select i1 %91, i32 609, i32 %86
@@ -8360,7 +8360,7 @@ _ZN26GrowableArrayWithAllocatorI7LIR_Opr13GrowableArrayIS0_EE6appendERKS0_.exit:
 41:                                               ; preds = %_ZN26GrowableArrayWithAllocatorI7LIR_Opr13GrowableArrayIS0_EE6appendERKS0_.exit
   %42 = load ptr, ptr %5, align 8
   tail call void @_ZN11Compilation7bailoutEPKc(ptr noundef nonnull align 8 dereferenceable(704) %42, ptr noundef nonnull @.str.7) #17
-  %43 = icmp ugt i32 %39, 9997
+  %43 = icmp samesign ugt i32 %39, 9997
   %.pre.i20 = load i32, ptr %38, align 8
   %spec.select.i = select i1 %43, i32 609, i32 %.pre.i20
   %spec.select5.i = select i1 %43, i32 609, i32 %39
@@ -8542,7 +8542,7 @@ define hidden i64 @_ZN12LIRGenerator12call_runtimeEP13GrowableArrayI9BasicTypeEP
   %15 = getelementptr inbounds i8, ptr %0, i64 16
   %16 = load ptr, ptr %15, align 8
   tail call void @_ZN11Compilation7bailoutEPKc(ptr noundef nonnull align 8 dereferenceable(704) %16, ptr noundef nonnull @.str.7) #17
-  %17 = icmp ugt i32 %12, 9997
+  %17 = icmp samesign ugt i32 %12, 9997
   %.pre.i.i = load i32, ptr %11, align 8
   %spec.select.i.i = select i1 %17, i32 609, i32 %.pre.i.i
   %spec.select5.i.i = select i1 %17, i32 609, i32 %12
@@ -8846,7 +8846,7 @@ _ZN7LIRItemC2EP11InstructionP12LIRGenerator.exit: ; preds = %2, %_ZN12LIRGenerat
   %53 = getelementptr inbounds i8, ptr %0, i64 16
   %54 = load ptr, ptr %53, align 8
   call void @_ZN11Compilation7bailoutEPKc(ptr noundef nonnull align 8 dereferenceable(704) %54, ptr noundef nonnull @.str.7) #17
-  %55 = icmp ugt i32 %50, 9997
+  %55 = icmp samesign ugt i32 %50, 9997
   %.pre.i.i.i.i = load i32, ptr %49, align 8
   %spec.select.i.i.i.i = select i1 %55, i32 609, i32 %.pre.i.i.i.i
   %spec.select5.i.i.i.i = select i1 %55, i32 609, i32 %50
@@ -9150,7 +9150,7 @@ _ZN7LIRItemC2EP11InstructionP12LIRGenerator.exit19: ; preds = %_ZN7LIRItemC2EP11
   %73 = getelementptr inbounds i8, ptr %0, i64 16
   %74 = load ptr, ptr %73, align 8
   call void @_ZN11Compilation7bailoutEPKc(ptr noundef nonnull align 8 dereferenceable(704) %74, ptr noundef nonnull @.str.7) #17
-  %75 = icmp ugt i32 %70, 9997
+  %75 = icmp samesign ugt i32 %70, 9997
   %.pre.i.i.i.i = load i32, ptr %69, align 8
   %spec.select.i.i.i.i = select i1 %75, i32 609, i32 %.pre.i.i.i.i
   %spec.select5.i.i.i.i = select i1 %75, i32 609, i32 %70
@@ -9574,7 +9574,7 @@ _ZN7LIRItemC2EP11InstructionP12LIRGenerator.exit: ; preds = %2, %_ZN12LIRGenerat
   %41 = getelementptr inbounds i8, ptr %0, i64 16
   %42 = load ptr, ptr %41, align 8
   call void @_ZN11Compilation7bailoutEPKc(ptr noundef nonnull align 8 dereferenceable(704) %42, ptr noundef nonnull @.str.7) #17
-  %43 = icmp ugt i32 %38, 9997
+  %43 = icmp samesign ugt i32 %38, 9997
   %.pre.i = load i32, ptr %37, align 8
   %spec.select.i = select i1 %43, i32 609, i32 %.pre.i
   %spec.select5.i = select i1 %43, i32 609, i32 %38
@@ -9599,7 +9599,7 @@ _ZN12LIRGenerator12new_registerE9BasicType.exit:  ; preds = %_ZN7LIRItemC2EP11In
   %54 = getelementptr inbounds i8, ptr %0, i64 16
   %55 = load ptr, ptr %54, align 8
   call void @_ZN11Compilation7bailoutEPKc(ptr noundef nonnull align 8 dereferenceable(704) %55, ptr noundef nonnull @.str.7) #17
-  %56 = icmp ugt i32 %51, 9997
+  %56 = icmp samesign ugt i32 %51, 9997
   %.pre.i.i.i.i = load i32, ptr %37, align 8
   %spec.select.i.i.i.i = select i1 %56, i32 609, i32 %.pre.i.i.i.i
   %spec.select5.i.i.i.i = select i1 %56, i32 609, i32 %51
@@ -9657,7 +9657,7 @@ switch.lookup:                                    ; preds = %switch.hole_check
   %77 = getelementptr inbounds i8, ptr %0, i64 16
   %78 = load ptr, ptr %77, align 8
   call void @_ZN11Compilation7bailoutEPKc(ptr noundef nonnull align 8 dereferenceable(704) %78, ptr noundef nonnull @.str.7) #17
-  %79 = icmp ugt i32 %74, 9997
+  %79 = icmp samesign ugt i32 %74, 9997
   %.pre.i21 = load i32, ptr %37, align 8
   %spec.select.i22 = select i1 %79, i32 609, i32 %.pre.i21
   %spec.select5.i23 = select i1 %79, i32 609, i32 %74
@@ -9941,7 +9941,7 @@ _ZN7LIRItemC2EP11InstructionP12LIRGenerator.exit: ; preds = %2, %_ZN12LIRGenerat
   %40 = getelementptr inbounds i8, ptr %0, i64 16
   %41 = load ptr, ptr %40, align 8
   call void @_ZN11Compilation7bailoutEPKc(ptr noundef nonnull align 8 dereferenceable(704) %41, ptr noundef nonnull @.str.7) #17
-  %42 = icmp ugt i32 %37, 9997
+  %42 = icmp samesign ugt i32 %37, 9997
   %.pre.i = load i32, ptr %36, align 8
   %spec.select.i = select i1 %42, i32 609, i32 %.pre.i
   %spec.select5.i = select i1 %42, i32 609, i32 %37
@@ -9966,7 +9966,7 @@ _ZN12LIRGenerator12new_registerE9BasicType.exit:  ; preds = %_ZN7LIRItemC2EP11In
   %53 = getelementptr inbounds i8, ptr %0, i64 16
   %54 = load ptr, ptr %53, align 8
   call void @_ZN11Compilation7bailoutEPKc(ptr noundef nonnull align 8 dereferenceable(704) %54, ptr noundef nonnull @.str.7) #17
-  %55 = icmp ugt i32 %50, 9997
+  %55 = icmp samesign ugt i32 %50, 9997
   %.pre.i.i.i.i = load i32, ptr %36, align 8
   %spec.select.i.i.i.i = select i1 %55, i32 609, i32 %.pre.i.i.i.i
   %spec.select5.i.i.i.i = select i1 %55, i32 609, i32 %50
@@ -10395,7 +10395,7 @@ _ZN7LIRItemC2EP11InstructionP12LIRGenerator.exit: ; preds = %2, %_ZN12LIRGenerat
   %43 = getelementptr inbounds i8, ptr %0, i64 16
   %44 = load ptr, ptr %43, align 8
   call void @_ZN11Compilation7bailoutEPKc(ptr noundef nonnull align 8 dereferenceable(704) %44, ptr noundef nonnull @.str.7) #17
-  %45 = icmp ugt i32 %40, 9997
+  %45 = icmp samesign ugt i32 %40, 9997
   %.pre.i.i.i.i = load i32, ptr %39, align 8
   %spec.select.i.i.i.i = select i1 %45, i32 609, i32 %.pre.i.i.i.i
   %spec.select5.i.i.i.i = select i1 %45, i32 609, i32 %40
@@ -10496,7 +10496,7 @@ _ZN11LIR_OprFact13metadataConstEP8Metadata.exit:  ; preds = %_ZN22CompilationRes
   %91 = getelementptr inbounds i8, ptr %0, i64 16
   %92 = load ptr, ptr %91, align 8
   call void @_ZN11Compilation7bailoutEPKc(ptr noundef nonnull align 8 dereferenceable(704) %92, ptr noundef nonnull @.str.7) #17
-  %93 = icmp ugt i32 %88, 9997
+  %93 = icmp samesign ugt i32 %88, 9997
   %.pre.i = load i32, ptr %39, align 8
   %spec.select.i = select i1 %93, i32 609, i32 %.pre.i
   %spec.select5.i = select i1 %93, i32 609, i32 %88
@@ -10570,7 +10570,7 @@ _ZN22CompilationResourceObjnwEm.exit:             ; preds = %113, %115
   %131 = getelementptr inbounds i8, ptr %0, i64 16
   %132 = load ptr, ptr %131, align 8
   call void @_ZN11Compilation7bailoutEPKc(ptr noundef nonnull align 8 dereferenceable(704) %132, ptr noundef nonnull @.str.7) #17
-  %133 = icmp ugt i32 %128, 9997
+  %133 = icmp samesign ugt i32 %128, 9997
   %.pre.i30 = load i32, ptr %39, align 8
   %spec.select.i31 = select i1 %133, i32 609, i32 %.pre.i30
   %spec.select5.i32 = select i1 %133, i32 609, i32 %128
@@ -10695,7 +10695,7 @@ define hidden void @_ZN12LIRGenerator16do_getObjectSizeEP9Intrinsic(ptr noundef 
   %11 = getelementptr inbounds i8, ptr %0, i64 16
   %12 = load ptr, ptr %11, align 8
   tail call void @_ZN11Compilation7bailoutEPKc(ptr noundef nonnull align 8 dereferenceable(704) %12, ptr noundef nonnull @.str.7) #17
-  %13 = icmp ugt i32 %8, 9997
+  %13 = icmp samesign ugt i32 %8, 9997
   %.pre.i.i.i.i = load i32, ptr %7, align 8
   %spec.select.i.i.i.i = select i1 %13, i32 609, i32 %.pre.i.i.i.i
   %spec.select5.i.i.i.i = select i1 %13, i32 609, i32 %8
@@ -10803,7 +10803,7 @@ _ZN7LIRItemC2EP11InstructionP12LIRGenerator.exit: ; preds = %switch.lookup, %_ZN
   %59 = getelementptr inbounds i8, ptr %0, i64 16
   %60 = load ptr, ptr %59, align 8
   call void @_ZN11Compilation7bailoutEPKc(ptr noundef nonnull align 8 dereferenceable(704) %60, ptr noundef nonnull @.str.7) #17
-  %61 = icmp ugt i32 %56, 9997
+  %61 = icmp samesign ugt i32 %56, 9997
   %.pre.i = load i32, ptr %7, align 8
   %spec.select.i = select i1 %61, i32 609, i32 %.pre.i
   %spec.select5.i = select i1 %61, i32 609, i32 %56
@@ -10829,7 +10829,7 @@ _ZN12LIRGenerator12new_registerE9BasicType.exit:  ; preds = %_ZN7LIRItemC2EP11In
   %72 = getelementptr inbounds i8, ptr %0, i64 16
   %73 = load ptr, ptr %72, align 8
   call void @_ZN11Compilation7bailoutEPKc(ptr noundef nonnull align 8 dereferenceable(704) %73, ptr noundef nonnull @.str.7) #17
-  %74 = icmp ugt i32 %69, 9997
+  %74 = icmp samesign ugt i32 %69, 9997
   %.pre.i106 = load i32, ptr %7, align 8
   %spec.select.i107 = select i1 %74, i32 609, i32 %.pre.i106
   %spec.select5.i108 = select i1 %74, i32 609, i32 %69
@@ -11039,7 +11039,7 @@ _ZN8LIR_List3cmpE13LIR_Condition7LIR_OpriP12CodeEmitInfo.exit: ; preds = %_ZN22C
   %188 = getelementptr inbounds i8, ptr %0, i64 16
   %189 = load ptr, ptr %188, align 8
   call void @_ZN11Compilation7bailoutEPKc(ptr noundef nonnull align 8 dereferenceable(704) %189, ptr noundef nonnull @.str.7) #17
-  %190 = icmp ugt i32 %185, 9997
+  %190 = icmp samesign ugt i32 %185, 9997
   %.pre.i119 = load i32, ptr %7, align 8
   %spec.select.i120 = select i1 %190, i32 609, i32 %.pre.i119
   %spec.select5.i121 = select i1 %190, i32 609, i32 %185
@@ -11063,7 +11063,7 @@ _ZN12LIRGenerator12new_registerE9BasicType.exit122: ; preds = %_ZN8LIR_List3cmpE
   %199 = getelementptr inbounds i8, ptr %0, i64 16
   %200 = load ptr, ptr %199, align 8
   call void @_ZN11Compilation7bailoutEPKc(ptr noundef nonnull align 8 dereferenceable(704) %200, ptr noundef nonnull @.str.7) #17
-  %201 = icmp ugt i32 %196, 9997
+  %201 = icmp samesign ugt i32 %196, 9997
   %.pre.i125 = load i32, ptr %7, align 8
   %spec.select.i126 = select i1 %201, i32 609, i32 %.pre.i125
   %spec.select5.i127 = select i1 %201, i32 609, i32 %196
@@ -11134,7 +11134,7 @@ _ZN11LIR_OprFact8intConstEi.exit:                 ; preds = %_ZN22CompilationRes
   %236 = getelementptr inbounds i8, ptr %0, i64 16
   %237 = load ptr, ptr %236, align 8
   call void @_ZN11Compilation7bailoutEPKc(ptr noundef nonnull align 8 dereferenceable(704) %237, ptr noundef nonnull @.str.7) #17
-  %238 = icmp ugt i32 %233, 9997
+  %238 = icmp samesign ugt i32 %233, 9997
   %.pre.i132 = load i32, ptr %7, align 8
   %spec.select.i133 = select i1 %238, i32 609, i32 %.pre.i132
   %spec.select5.i134 = select i1 %238, i32 609, i32 %233
@@ -11208,7 +11208,7 @@ _ZN22CompilationResourceObjnwEm.exit138:          ; preds = %257, %259
   %276 = getelementptr inbounds i8, ptr %0, i64 16
   %277 = load ptr, ptr %276, align 8
   call void @_ZN11Compilation7bailoutEPKc(ptr noundef nonnull align 8 dereferenceable(704) %277, ptr noundef nonnull @.str.7) #17
-  %278 = icmp ugt i32 %273, 9997
+  %278 = icmp samesign ugt i32 %273, 9997
   %.pre.i143 = load i32, ptr %7, align 8
   %spec.select.i144 = select i1 %278, i32 609, i32 %.pre.i143
   %spec.select5.i145 = select i1 %278, i32 609, i32 %273
@@ -11449,7 +11449,7 @@ _ZN11LIR_OprFact8intConstEi.exit163:              ; preds = %_ZN22CompilationRes
   %406 = getelementptr inbounds i8, ptr %0, i64 16
   %407 = load ptr, ptr %406, align 8
   call void @_ZN11Compilation7bailoutEPKc(ptr noundef nonnull align 8 dereferenceable(704) %407, ptr noundef nonnull @.str.7) #17
-  %408 = icmp ugt i32 %403, 9997
+  %408 = icmp samesign ugt i32 %403, 9997
   %.pre.i166 = load i32, ptr %7, align 8
   %spec.select.i167 = select i1 %408, i32 609, i32 %.pre.i166
   %spec.select5.i168 = select i1 %408, i32 609, i32 %403
@@ -11739,7 +11739,7 @@ define hidden void @_ZN12LIRGenerator18do_JavaThreadFieldEP9Intrinsic8ByteSize(p
   %9 = getelementptr inbounds i8, ptr %0, i64 16
   %10 = load ptr, ptr %9, align 8
   tail call void @_ZN11Compilation7bailoutEPKc(ptr noundef nonnull align 8 dereferenceable(704) %10, ptr noundef nonnull @.str.7) #17
-  %11 = icmp ugt i32 %6, 9997
+  %11 = icmp samesign ugt i32 %6, 9997
   %.pre.i = load i32, ptr %5, align 8
   %spec.select.i = select i1 %11, i32 609, i32 %.pre.i
   %spec.select5.i = select i1 %11, i32 609, i32 %6
@@ -11764,7 +11764,7 @@ _ZN12LIRGenerator12new_registerE9BasicType.exit:  ; preds = %3, %8
   %22 = getelementptr inbounds i8, ptr %0, i64 16
   %23 = load ptr, ptr %22, align 8
   tail call void @_ZN11Compilation7bailoutEPKc(ptr noundef nonnull align 8 dereferenceable(704) %23, ptr noundef nonnull @.str.7) #17
-  %24 = icmp ugt i32 %19, 9997
+  %24 = icmp samesign ugt i32 %19, 9997
   %.pre.i.i.i.i = load i32, ptr %5, align 8
   %spec.select.i.i.i.i = select i1 %24, i32 609, i32 %.pre.i.i.i.i
   %spec.select5.i.i.i.i = select i1 %24, i32 609, i32 %19
@@ -12331,7 +12331,7 @@ define hidden i64 @_ZN12LIRGenerator13load_constantEP9LIR_Const(ptr noundef nonn
   %96 = getelementptr inbounds i8, ptr %0, i64 16
   %97 = load ptr, ptr %96, align 8
   tail call void @_ZN11Compilation7bailoutEPKc(ptr noundef nonnull align 8 dereferenceable(704) %97, ptr noundef nonnull @.str.7) #17
-  %98 = icmp ugt i32 %93, 9997
+  %98 = icmp samesign ugt i32 %93, 9997
   %.pre.i = load i32, ptr %92, align 8
   %spec.select.i = select i1 %98, i32 609, i32 %.pre.i
   %spec.select5.i = select i1 %98, i32 609, i32 %93
@@ -14571,7 +14571,7 @@ _ZN7LIRItemC2EP11InstructionP12LIRGenerator.exit51: ; preds = %_ZN7LIRItemC2EP11
   %108 = getelementptr inbounds i8, ptr %0, i64 16
   %109 = load ptr, ptr %108, align 8
   call void @_ZN11Compilation7bailoutEPKc(ptr noundef nonnull align 8 dereferenceable(704) %109, ptr noundef nonnull @.str.7) #17
-  %110 = icmp ugt i32 %105, 9997
+  %110 = icmp samesign ugt i32 %105, 9997
   %.pre.i.i.i.i = load i32, ptr %104, align 8
   %spec.select.i.i.i.i = select i1 %110, i32 609, i32 %.pre.i.i.i.i
   %spec.select5.i.i.i.i = select i1 %110, i32 609, i32 %105
@@ -14842,7 +14842,7 @@ _ZNK7LIR_Opr11is_constantEv.exit.thread:          ; preds = %_ZN11LIR_OprFact9lo
   %248 = getelementptr inbounds i8, ptr %0, i64 16
   %249 = load ptr, ptr %248, align 8
   call void @_ZN11Compilation7bailoutEPKc(ptr noundef nonnull align 8 dereferenceable(704) %249, ptr noundef nonnull @.str.7) #17
-  %250 = icmp ugt i32 %245, 9997
+  %250 = icmp samesign ugt i32 %245, 9997
   %.pre.i = load i32, ptr %104, align 8
   %spec.select.i = select i1 %250, i32 609, i32 %.pre.i
   %spec.select5.i = select i1 %250, i32 609, i32 %245
@@ -15430,7 +15430,7 @@ _ZN7LIRItemC2EP11InstructionP12LIRGenerator.exit: ; preds = %2, %_ZN12LIRGenerat
   %40 = getelementptr inbounds i8, ptr %0, i64 16
   %41 = load ptr, ptr %40, align 8
   call void @_ZN11Compilation7bailoutEPKc(ptr noundef nonnull align 8 dereferenceable(704) %41, ptr noundef nonnull @.str.7) #17
-  %42 = icmp ugt i32 %37, 9997
+  %42 = icmp samesign ugt i32 %37, 9997
   %.pre.i.i.i.i = load i32, ptr %36, align 8
   %spec.select.i.i.i.i = select i1 %42, i32 609, i32 %.pre.i.i.i.i
   %spec.select5.i.i.i.i = select i1 %42, i32 609, i32 %37
@@ -16636,7 +16636,7 @@ _ZN7LIRItemC2EP11InstructionP12LIRGenerator.exit: ; preds = %2, %_ZN12LIRGenerat
   %42 = getelementptr inbounds i8, ptr %0, i64 16
   %43 = load ptr, ptr %42, align 8
   call void @_ZN11Compilation7bailoutEPKc(ptr noundef nonnull align 8 dereferenceable(704) %43, ptr noundef nonnull @.str.7) #17
-  %44 = icmp ugt i32 %39, 9997
+  %44 = icmp samesign ugt i32 %39, 9997
   %.pre.i = load i32, ptr %38, align 8
   %spec.select.i = select i1 %44, i32 609, i32 %.pre.i
   %spec.select5.i = select i1 %44, i32 609, i32 %39
@@ -16990,7 +16990,7 @@ _ZN12LIRGenerator14access_load_atEm9BasicTypeR7LIRItem7LIR_OprS3_P12CodeEmitInfo
   %104 = getelementptr inbounds i8, ptr %0, i64 16
   %105 = load ptr, ptr %104, align 8
   call void @_ZN11Compilation7bailoutEPKc(ptr noundef nonnull align 8 dereferenceable(704) %105, ptr noundef nonnull @.str.7) #17
-  %106 = icmp ugt i32 %101, 9997
+  %106 = icmp samesign ugt i32 %101, 9997
   %.pre.i = load i32, ptr %100, align 8
   %spec.select.i = select i1 %106, i32 609, i32 %.pre.i
   %spec.select5.i = select i1 %106, i32 609, i32 %101
@@ -18638,7 +18638,7 @@ _ZNK6Switch6lengthEv.exit:                        ; preds = %45, %52
 80:                                               ; preds = %66
   %81 = load ptr, ptr %57, align 8
   call void @_ZN11Compilation7bailoutEPKc(ptr noundef nonnull align 8 dereferenceable(704) %81, ptr noundef nonnull @.str.7) #17
-  %82 = icmp ugt i32 %78, 9997
+  %82 = icmp samesign ugt i32 %78, 9997
   %.pre.i = load i32, ptr %77, align 8
   %spec.select.i = select i1 %82, i32 609, i32 %.pre.i
   %spec.select5.i = select i1 %82, i32 609, i32 %78
@@ -18664,7 +18664,7 @@ _ZN12LIRGenerator12new_registerE9BasicType.exit:  ; preds = %66, %80
 93:                                               ; preds = %_ZN12LIRGenerator12new_registerE9BasicType.exit
   %94 = load ptr, ptr %57, align 8
   call void @_ZN11Compilation7bailoutEPKc(ptr noundef nonnull align 8 dereferenceable(704) %94, ptr noundef nonnull @.str.7) #17
-  %95 = icmp ugt i32 %91, 9997
+  %95 = icmp samesign ugt i32 %91, 9997
   %.pre.i.i60 = load i32, ptr %77, align 8
   br i1 %95, label %_ZN12LIRGenerator20new_pointer_registerEv.exit66, label %_ZN12LIRGenerator20new_pointer_registerEv.exit
 
@@ -18681,7 +18681,7 @@ _ZN12LIRGenerator20new_pointer_registerEv.exit:   ; preds = %93, %_ZN12LIRGenera
 101:                                              ; preds = %_ZN12LIRGenerator20new_pointer_registerEv.exit
   %102 = load ptr, ptr %57, align 8
   call void @_ZN11Compilation7bailoutEPKc(ptr noundef nonnull align 8 dereferenceable(704) %102, ptr noundef nonnull @.str.7) #17
-  %103 = icmp ugt i32 %97, 9997
+  %103 = icmp samesign ugt i32 %97, 9997
   %.pre.i.i63 = load i32, ptr %77, align 8
   %spec.select.i.i64 = select i1 %103, i32 609, i32 %.pre.i.i63
   %spec.select5.i.i65 = select i1 %103, i32 609, i32 %97
@@ -18849,7 +18849,7 @@ _ZN11LIR_OprFact11intptrConstEl.exit70:           ; preds = %_ZN22CompilationRes
 189:                                              ; preds = %._crit_edge
   %190 = load ptr, ptr %57, align 8
   call void @_ZN11Compilation7bailoutEPKc(ptr noundef nonnull align 8 dereferenceable(704) %190, ptr noundef nonnull @.str.7) #17
-  %191 = icmp ugt i32 %187, 9997
+  %191 = icmp samesign ugt i32 %187, 9997
   %.pre.i.i73 = load i32, ptr %77, align 8
   %spec.select.i.i74 = select i1 %191, i32 609, i32 %.pre.i.i73
   %spec.select5.i.i75 = select i1 %191, i32 609, i32 %187
@@ -19218,7 +19218,7 @@ _ZNK6Switch6lengthEv.exit:                        ; preds = %45, %51
 78:                                               ; preds = %64
   %79 = load ptr, ptr %55, align 8
   call void @_ZN11Compilation7bailoutEPKc(ptr noundef nonnull align 8 dereferenceable(704) %79, ptr noundef nonnull @.str.7) #17
-  %80 = icmp ugt i32 %76, 9997
+  %80 = icmp samesign ugt i32 %76, 9997
   %.pre.i = load i32, ptr %75, align 8
   %spec.select.i = select i1 %80, i32 609, i32 %.pre.i
   %spec.select5.i = select i1 %80, i32 609, i32 %76
@@ -19244,7 +19244,7 @@ _ZN12LIRGenerator12new_registerE9BasicType.exit:  ; preds = %64, %78
 91:                                               ; preds = %_ZN12LIRGenerator12new_registerE9BasicType.exit
   %92 = load ptr, ptr %55, align 8
   call void @_ZN11Compilation7bailoutEPKc(ptr noundef nonnull align 8 dereferenceable(704) %92, ptr noundef nonnull @.str.7) #17
-  %93 = icmp ugt i32 %89, 9997
+  %93 = icmp samesign ugt i32 %89, 9997
   %.pre.i.i59 = load i32, ptr %75, align 8
   br i1 %93, label %_ZN12LIRGenerator20new_pointer_registerEv.exit65, label %_ZN12LIRGenerator20new_pointer_registerEv.exit
 
@@ -19261,7 +19261,7 @@ _ZN12LIRGenerator20new_pointer_registerEv.exit:   ; preds = %91, %_ZN12LIRGenera
 99:                                               ; preds = %_ZN12LIRGenerator20new_pointer_registerEv.exit
   %100 = load ptr, ptr %55, align 8
   call void @_ZN11Compilation7bailoutEPKc(ptr noundef nonnull align 8 dereferenceable(704) %100, ptr noundef nonnull @.str.7) #17
-  %101 = icmp ugt i32 %95, 9997
+  %101 = icmp samesign ugt i32 %95, 9997
   %.pre.i.i62 = load i32, ptr %75, align 8
   %spec.select.i.i63 = select i1 %101, i32 609, i32 %.pre.i.i62
   %spec.select5.i.i64 = select i1 %101, i32 609, i32 %95
@@ -19439,7 +19439,7 @@ _ZN11LIR_OprFact11intptrConstEl.exit69:           ; preds = %_ZN22CompilationRes
 192:                                              ; preds = %._crit_edge
   %193 = load ptr, ptr %55, align 8
   call void @_ZN11Compilation7bailoutEPKc(ptr noundef nonnull align 8 dereferenceable(704) %193, ptr noundef nonnull @.str.7) #17
-  %194 = icmp ugt i32 %190, 9997
+  %194 = icmp samesign ugt i32 %190, 9997
   %.pre.i.i72 = load i32, ptr %75, align 8
   %spec.select.i.i73 = select i1 %194, i32 609, i32 %.pre.i.i72
   %spec.select5.i.i74 = select i1 %194, i32 609, i32 %190
@@ -19850,7 +19850,7 @@ _ZN12LIRGenerator26increment_backedge_counterEP12CodeEmitInfoi.exit: ; preds = %
   %146 = getelementptr inbounds i8, ptr %0, i64 16
   %147 = load ptr, ptr %146, align 8
   call void @_ZN11Compilation7bailoutEPKc(ptr noundef nonnull align 8 dereferenceable(704) %147, ptr noundef nonnull @.str.7) #17
-  %148 = icmp ugt i32 %143, 9997
+  %148 = icmp samesign ugt i32 %143, 9997
   %.pre.i42 = load i32, ptr %142, align 8
   %spec.select.i = select i1 %148, i32 609, i32 %.pre.i42
   %spec.select5.i = select i1 %148, i32 609, i32 %143
@@ -20223,7 +20223,7 @@ _ZNK10ciMetadata9is_loadedEv.exit.thread:         ; preds = %.thread, %_ZNK10ciM
   %91 = getelementptr inbounds i8, ptr %0, i64 16
   %92 = load ptr, ptr %91, align 8
   tail call void @_ZN11Compilation7bailoutEPKc(ptr noundef nonnull align 8 dereferenceable(704) %92, ptr noundef nonnull @.str.7) #17
-  %93 = icmp ugt i32 %88, 9997
+  %93 = icmp samesign ugt i32 %88, 9997
   %.pre.i = load i32, ptr %87, align 8
   %spec.select.i = select i1 %93, i32 609, i32 %.pre.i
   %spec.select5.i = select i1 %93, i32 609, i32 %88
@@ -20303,7 +20303,7 @@ _ZN22CompilationResourceObjnwEm.exit:             ; preds = %116, %118
   %132 = getelementptr inbounds i8, ptr %0, i64 16
   %133 = load ptr, ptr %132, align 8
   tail call void @_ZN11Compilation7bailoutEPKc(ptr noundef nonnull align 8 dereferenceable(704) %133, ptr noundef nonnull @.str.7) #17
-  %134 = icmp ugt i32 %129, 9997
+  %134 = icmp samesign ugt i32 %129, 9997
   %.pre.i.i = load i32, ptr %87, align 8
   %spec.select.i.i = select i1 %134, i32 609, i32 %.pre.i.i
   %spec.select5.i.i = select i1 %134, i32 609, i32 %129
@@ -20441,7 +20441,7 @@ _ZN22CompilationResourceObjnwEm.exit114:          ; preds = %184, %186
   %202 = getelementptr inbounds i8, ptr %0, i64 16
   %203 = load ptr, ptr %202, align 8
   call void @_ZN11Compilation7bailoutEPKc(ptr noundef nonnull align 8 dereferenceable(704) %203, ptr noundef nonnull @.str.7) #17
-  %204 = icmp ugt i32 %199, 9997
+  %204 = icmp samesign ugt i32 %199, 9997
   %.pre.i.i118 = load i32, ptr %198, align 8
   %spec.select.i.i119 = select i1 %204, i32 609, i32 %.pre.i.i118
   %spec.select5.i.i120 = select i1 %204, i32 609, i32 %199
@@ -20845,7 +20845,7 @@ _ZNK7LIR_Opr4typeEv.exit.thread:                  ; preds = %switch.hole_check, 
 43:                                               ; preds = %_ZNK7LIR_Opr4typeEv.exit.thread
   %44 = load ptr, ptr %6, align 8
   tail call void @_ZN11Compilation7bailoutEPKc(ptr noundef nonnull align 8 dereferenceable(704) %44, ptr noundef nonnull @.str.7) #17
-  %45 = icmp ugt i32 %41, 9997
+  %45 = icmp samesign ugt i32 %41, 9997
   %.pre.i = load i32, ptr %15, align 8
   %spec.select.i = select i1 %45, i32 609, i32 %.pre.i
   %spec.select5.i = select i1 %45, i32 609, i32 %41
@@ -21178,7 +21178,7 @@ _ZN26GrowableArrayWithAllocatorI7LIR_Opr13GrowableArrayIS0_EE6appendERKS0_.exit:
 197:                                              ; preds = %_ZN26GrowableArrayWithAllocatorI7LIR_Opr13GrowableArrayIS0_EE6appendERKS0_.exit
   %198 = load ptr, ptr %6, align 8
   tail call void @_ZN11Compilation7bailoutEPKc(ptr noundef nonnull align 8 dereferenceable(704) %198, ptr noundef nonnull @.str.7) #17
-  %199 = icmp ugt i32 %195, 9997
+  %199 = icmp samesign ugt i32 %195, 9997
   %.pre.i61 = load i32, ptr %194, align 8
   %spec.select.i62 = select i1 %199, i32 609, i32 %.pre.i61
   %spec.select5.i63 = select i1 %199, i32 609, i32 %195
@@ -21275,7 +21275,7 @@ _ZN13GrowableArrayI9BasicTypeED2Ev.exit:          ; preds = %_ZN26GrowableArrayW
 243:                                              ; preds = %239
   %244 = load ptr, ptr %6, align 8
   call void @_ZN11Compilation7bailoutEPKc(ptr noundef nonnull align 8 dereferenceable(704) %244, ptr noundef nonnull @.str.7) #17
-  %245 = icmp ugt i32 %241, 9997
+  %245 = icmp samesign ugt i32 %241, 9997
   %.pre.i74 = load i32, ptr %240, align 8
   %spec.select.i75 = select i1 %245, i32 609, i32 %.pre.i74
   %spec.select5.i76 = select i1 %245, i32 609, i32 %241
@@ -21524,7 +21524,7 @@ _ZN16MonitorEnterStubC2E7LIR_OprS0_P12CodeEmitInfo.exit: ; preds = %_ZN22Compila
 393:                                              ; preds = %387
   %394 = load ptr, ptr %6, align 8
   call void @_ZN11Compilation7bailoutEPKc(ptr noundef nonnull align 8 dereferenceable(704) %394, ptr noundef nonnull @.str.7) #17
-  %395 = icmp ugt i32 %391, 9997
+  %395 = icmp samesign ugt i32 %391, 9997
   %.pre.i91 = load i32, ptr %390, align 8
   %spec.select.i92 = select i1 %395, i32 609, i32 %.pre.i91
   %spec.select5.i93 = select i1 %395, i32 609, i32 %391
@@ -21977,7 +21977,7 @@ define hidden void @_ZN12LIRGenerator11do_OsrEntryEP8OsrEntry(ptr nocapture noun
   %13 = getelementptr inbounds i8, ptr %0, i64 16
   %14 = load ptr, ptr %13, align 8
   tail call void @_ZN11Compilation7bailoutEPKc(ptr noundef nonnull align 8 dereferenceable(704) %14, ptr noundef nonnull @.str.7) #17
-  %15 = icmp ugt i32 %10, 9997
+  %15 = icmp samesign ugt i32 %10, 9997
   %.pre.i.i.i.i = load i32, ptr %9, align 8
   %spec.select.i.i.i.i = select i1 %15, i32 609, i32 %.pre.i.i.i.i
   %spec.select5.i.i.i.i = select i1 %15, i32 609, i32 %10
@@ -22788,7 +22788,7 @@ define hidden void @_ZN12LIRGenerator9do_InvokeEP6Invoke(ptr noundef nonnull ali
 107:                                              ; preds = %101
   %108 = load ptr, ptr %3, align 8
   tail call void @_ZN11Compilation7bailoutEPKc(ptr noundef nonnull align 8 dereferenceable(704) %108, ptr noundef nonnull @.str.7) #17
-  %109 = icmp ugt i32 %105, 9997
+  %109 = icmp samesign ugt i32 %105, 9997
   %.pre.i.i.i.i = load i32, ptr %104, align 8
   %spec.select.i.i.i.i = select i1 %109, i32 609, i32 %.pre.i.i.i.i
   %spec.select5.i.i.i.i = select i1 %109, i32 609, i32 %105
@@ -23361,7 +23361,7 @@ _ZN7LIRItemC2EP11InstructionP12LIRGenerator.exit: ; preds = %2, %_ZN12LIRGenerat
   %43 = getelementptr inbounds i8, ptr %0, i64 16
   %44 = load ptr, ptr %43, align 8
   tail call void @_ZN11Compilation7bailoutEPKc(ptr noundef nonnull align 8 dereferenceable(704) %44, ptr noundef nonnull @.str.7) #17
-  %45 = icmp ugt i32 %40, 9997
+  %45 = icmp samesign ugt i32 %40, 9997
   %.pre.i.i.i.i = load i32, ptr %39, align 8
   %spec.select.i.i.i.i = select i1 %45, i32 609, i32 %.pre.i.i.i.i
   %spec.select5.i.i.i.i = select i1 %45, i32 609, i32 %40
@@ -23668,7 +23668,7 @@ _ZN7LIRItemC2EP11InstructionP12LIRGenerator.exit39: ; preds = %_ZN7LIRItemC2EP11
   %132 = getelementptr inbounds i8, ptr %0, i64 16
   %133 = load ptr, ptr %132, align 8
   call void @_ZN11Compilation7bailoutEPKc(ptr noundef nonnull align 8 dereferenceable(704) %133, ptr noundef nonnull @.str.7) #17
-  %134 = icmp ugt i32 %129, 9997
+  %134 = icmp samesign ugt i32 %129, 9997
   %.pre.i.i.i.i = load i32, ptr %128, align 8
   %spec.select.i.i.i.i = select i1 %134, i32 609, i32 %.pre.i.i.i.i
   %spec.select5.i.i.i.i = select i1 %134, i32 609, i32 %129
@@ -23794,7 +23794,7 @@ define hidden void @_ZN12LIRGenerator14do_RuntimeCallEPhP9Intrinsic(ptr noundef 
 30:                                               ; preds = %3
   %31 = load ptr, ptr %9, align 8
   call void @_ZN11Compilation7bailoutEPKc(ptr noundef nonnull align 8 dereferenceable(704) %31, ptr noundef nonnull @.str.7) #17
-  %32 = icmp ugt i32 %28, 9997
+  %32 = icmp samesign ugt i32 %28, 9997
   %.pre.i.i.i.i = load i32, ptr %27, align 8
   %spec.select.i.i.i.i = select i1 %32, i32 609, i32 %.pre.i.i.i.i
   %spec.select5.i.i.i.i = select i1 %32, i32 609, i32 %28
@@ -25427,7 +25427,7 @@ define hidden void @_ZN12LIRGenerator14do_ProfileCallEP11ProfileCall(ptr noundef
   %8 = getelementptr inbounds i8, ptr %0, i64 16
   %9 = load ptr, ptr %8, align 8
   tail call void @_ZN11Compilation7bailoutEPKc(ptr noundef nonnull align 8 dereferenceable(704) %9, ptr noundef nonnull @.str.7) #17
-  %10 = icmp ugt i32 %5, 9997
+  %10 = icmp samesign ugt i32 %5, 9997
   %.pre.i = load i32, ptr %4, align 8
   br i1 %10, label %_ZN12LIRGenerator20new_pointer_registerEv.exit, label %_ZN12LIRGenerator12new_registerE9BasicType.exit
 
@@ -25442,7 +25442,7 @@ _ZN12LIRGenerator12new_registerE9BasicType.exit:  ; preds = %7, %2
   %15 = getelementptr inbounds i8, ptr %0, i64 16
   %16 = load ptr, ptr %15, align 8
   tail call void @_ZN11Compilation7bailoutEPKc(ptr noundef nonnull align 8 dereferenceable(704) %16, ptr noundef nonnull @.str.7) #17
-  %17 = icmp ugt i32 %12, 9997
+  %17 = icmp samesign ugt i32 %12, 9997
   %.pre.i.i = load i32, ptr %4, align 8
   %spec.select.i.i = select i1 %17, i32 609, i32 %.pre.i.i
   %spec.select5.i.i = select i1 %17, i32 609, i32 %12
@@ -25545,7 +25545,7 @@ _ZN7LIRItemC2EP11InstructionP12LIRGenerator.exit: ; preds = %44, %50, %53
 60:                                               ; preds = %_ZN7LIRItemC2EP11InstructionP12LIRGenerator.exit
   %61 = load ptr, ptr %38, align 8
   call void @_ZN11Compilation7bailoutEPKc(ptr noundef nonnull align 8 dereferenceable(704) %61, ptr noundef nonnull @.str.7) #17
-  %62 = icmp ugt i32 %58, 9997
+  %62 = icmp samesign ugt i32 %58, 9997
   %.pre.i26 = load i32, ptr %4, align 8
   %spec.select.i27 = select i1 %62, i32 609, i32 %.pre.i26
   %spec.select5.i28 = select i1 %62, i32 609, i32 %58
@@ -25885,7 +25885,7 @@ define hidden void @_ZN12LIRGenerator28increment_event_counter_implEP12CodeEmitI
 23:                                               ; preds = %19
   %24 = load ptr, ptr %9, align 8
   tail call void @_ZN11Compilation7bailoutEPKc(ptr noundef nonnull align 8 dereferenceable(704) %24, ptr noundef nonnull @.str.7) #17
-  %25 = icmp ugt i32 %21, 9997
+  %25 = icmp samesign ugt i32 %21, 9997
   %.pre.i.i = load i32, ptr %20, align 8
   %spec.select.i.i = select i1 %25, i32 609, i32 %.pre.i.i
   %spec.select5.i.i = select i1 %25, i32 609, i32 %21
@@ -25956,7 +25956,7 @@ _ZN11LIR_OprFact11intptrConstEPv.exit:            ; preds = %_ZN22CompilationRes
 60:                                               ; preds = %56
   %61 = load ptr, ptr %9, align 8
   tail call void @_ZN11Compilation7bailoutEPKc(ptr noundef nonnull align 8 dereferenceable(704) %61, ptr noundef nonnull @.str.7) #17
-  %62 = icmp ugt i32 %58, 9997
+  %62 = icmp samesign ugt i32 %58, 9997
   %.pre.i = load i32, ptr %57, align 8
   %spec.select.i = select i1 %62, i32 609, i32 %.pre.i
   %spec.select5.i = select i1 %62, i32 609, i32 %58
@@ -26044,7 +26044,7 @@ _ZN22CompilationResourceObjnwEm.exit:             ; preds = %88, %90
 103:                                              ; preds = %99
   %104 = load ptr, ptr %9, align 8
   tail call void @_ZN11Compilation7bailoutEPKc(ptr noundef nonnull align 8 dereferenceable(704) %104, ptr noundef nonnull @.str.7) #17
-  %105 = icmp ugt i32 %101, 9997
+  %105 = icmp samesign ugt i32 %101, 9997
   %.pre.i67 = load i32, ptr %100, align 8
   %spec.select.i68 = select i1 %105, i32 609, i32 %.pre.i67
   %spec.select5.i69 = select i1 %105, i32 609, i32 %101
@@ -26440,7 +26440,7 @@ _ZN11Compilation12is_profilingEv.exit.thread:     ; preds = %8, %_ZN11Compilatio
 23:                                               ; preds = %_ZN11Compilation12is_profilingEv.exit.thread
   %24 = load ptr, ptr %9, align 8
   tail call void @_ZN11Compilation7bailoutEPKc(ptr noundef nonnull align 8 dereferenceable(704) %24, ptr noundef nonnull @.str.7) #17
-  %25 = icmp ugt i32 %21, 9997
+  %25 = icmp samesign ugt i32 %21, 9997
   %.pre.i = load i32, ptr %20, align 8
   %spec.select.i = select i1 %25, i32 609, i32 %.pre.i
   %spec.select5.i = select i1 %25, i32 609, i32 %21
@@ -26969,7 +26969,7 @@ _ZN26GrowableArrayWithAllocatorI9BasicType13GrowableArrayIS0_EE6appendERKS0_.exi
   %176 = getelementptr inbounds i8, ptr %0, i64 16
   %177 = load ptr, ptr %176, align 8
   tail call void @_ZN11Compilation7bailoutEPKc(ptr noundef nonnull align 8 dereferenceable(704) %177, ptr noundef nonnull @.str.7) #17
-  %178 = icmp ugt i32 %173, 9997
+  %178 = icmp samesign ugt i32 %173, 9997
   %.pre.i.i.i.i = load i32, ptr %172, align 8
   %spec.select.i.i.i.i = select i1 %178, i32 609, i32 %.pre.i.i.i.i
   %spec.select5.i.i.i.i = select i1 %178, i32 609, i32 %173
@@ -27588,7 +27588,7 @@ define hidden i64 @_ZN12LIRGenerator12call_runtimeEP13GrowableArrayI9BasicTypeEP
   %15 = getelementptr inbounds i8, ptr %0, i64 16
   %16 = load ptr, ptr %15, align 8
   tail call void @_ZN11Compilation7bailoutEPKc(ptr noundef nonnull align 8 dereferenceable(704) %16, ptr noundef nonnull @.str.7) #17
-  %17 = icmp ugt i32 %12, 9997
+  %17 = icmp samesign ugt i32 %12, 9997
   %.pre.i.i = load i32, ptr %11, align 8
   %spec.select.i.i = select i1 %17, i32 609, i32 %.pre.i.i
   %spec.select5.i.i = select i1 %17, i32 609, i32 %12
@@ -28291,7 +28291,7 @@ _ZN11LIR_OprFact8intConstEi.exit:                 ; preds = %_ZN22CompilationRes
   %36 = getelementptr inbounds i8, ptr %0, i64 16
   %37 = load ptr, ptr %36, align 8
   tail call void @_ZN11Compilation7bailoutEPKc(ptr noundef nonnull align 8 dereferenceable(704) %37, ptr noundef nonnull @.str.7) #17
-  %38 = icmp ugt i32 %33, 9997
+  %38 = icmp samesign ugt i32 %33, 9997
   %.pre.i = load i32, ptr %32, align 8
   %spec.select.i = select i1 %38, i32 609, i32 %.pre.i
   %spec.select5.i = select i1 %38, i32 609, i32 %33
@@ -28317,7 +28317,7 @@ _ZN12LIRGenerator12new_registerE9BasicType.exit:  ; preds = %_ZN11LIR_OprFact8in
   %48 = getelementptr inbounds i8, ptr %0, i64 16
   %49 = load ptr, ptr %48, align 8
   tail call void @_ZN11Compilation7bailoutEPKc(ptr noundef nonnull align 8 dereferenceable(704) %49, ptr noundef nonnull @.str.7) #17
-  %50 = icmp ugt i32 %45, 9997
+  %50 = icmp samesign ugt i32 %45, 9997
   %.pre.i38 = load i32, ptr %32, align 8
   %spec.select.i39 = select i1 %50, i32 609, i32 %.pre.i38
   %spec.select5.i40 = select i1 %50, i32 609, i32 %45

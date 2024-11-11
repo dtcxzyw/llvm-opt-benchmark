@@ -488,7 +488,7 @@ _ZNK7NMTDCmd9get_scaleEPKc.exit:                  ; preds = %3
   %57 = zext nneg i8 %56 to i32
   %spec.select24 = select i1 %53, i32 %57, i32 0
   %.5 = add nuw nsw i32 %.4, %spec.select24
-  %58 = icmp ugt i32 %.5, 1
+  %58 = icmp samesign ugt i32 %.5, 1
   br i1 %58, label %59, label %62
 
 59:                                               ; preds = %16

@@ -477,7 +477,7 @@ _ZN2cv10BmpDecoder8initMaskEv.exit:               ; preds = %38
 70:                                               ; preds = %67
   %71 = load i32, ptr %64, align 4
   %72 = icmp eq i32 %71, 3
-  %73 = icmp ugt i32 %23, 55
+  %73 = icmp samesign ugt i32 %23, 55
   %or.cond3 = and i1 %73, %72
   br i1 %or.cond3, label %74, label %.invoke
 
@@ -591,7 +591,7 @@ _ZN2cv10BmpDecoder8initMaskEv.exit:               ; preds = %38
   br i1 %or.cond89, label %.thread102, label %.thread106
 
 107:                                              ; preds = %94
-  %108 = icmp ult i32 %93, 9
+  %108 = icmp samesign ult i32 %93, 9
   br i1 %108, label %.thread102, label %.thread104.thread
 
 .thread104.thread:                                ; preds = %107
@@ -743,7 +743,7 @@ _ZN2cv10BmpDecoder8initMaskEv.exit:               ; preds = %38
   ]
 
 171:                                              ; preds = %170, %170, %170, %170, %170
-  %172 = icmp ult i32 %164, 9
+  %172 = icmp samesign ult i32 %164, 9
   br i1 %172, label %173, label %.thread106
 
 173:                                              ; preds = %171

@@ -1998,7 +1998,7 @@ thread-pre-split:                                 ; preds = %24, %26
 
 242:                                              ; preds = %240
   %243 = udiv i64 9223372036854775807, %.0321
-  %244 = icmp ugt i64 %.0317, %243
+  %244 = icmp samesign ugt i64 %.0317, %243
   %245 = zext i1 %244 to i8
   br label %252
 

@@ -829,7 +829,7 @@ define hidden void @process_fusion(ptr nocapture readnone %0, ptr nocapture noun
 
 68:                                               ; preds = %50
   tail call void @dt_iop_image_fill(ptr noundef nonnull %63, float noundef 0.000000e+00, i64 noundef %57, i64 noundef %58, i64 noundef 4) #27
-  %69 = icmp ult i32 %28, 4
+  %69 = icmp samesign ult i32 %28, 4
   %70 = icmp ult <2 x i32> %16, splat (i32 13)
   %71 = extractelement <2 x i1> %70, i64 0
   %72 = or i1 %71, %69
@@ -861,7 +861,7 @@ define hidden void @process_fusion(ptr nocapture readnone %0, ptr nocapture noun
 
 91:                                               ; preds = %75
   tail call void @dt_iop_image_fill(ptr noundef nonnull %86, float noundef 0.000000e+00, i64 noundef %80, i64 noundef %81, i64 noundef 4) #27
-  %92 = icmp ult i32 %28, 8
+  %92 = icmp samesign ult i32 %28, 8
   %93 = icmp ult <2 x i32> %16, splat (i32 25)
   %94 = extractelement <2 x i1> %93, i64 0
   %95 = or i1 %94, %92
@@ -893,7 +893,7 @@ define hidden void @process_fusion(ptr nocapture readnone %0, ptr nocapture noun
 
 114:                                              ; preds = %98
   tail call void @dt_iop_image_fill(ptr noundef nonnull %109, float noundef 0.000000e+00, i64 noundef %103, i64 noundef %104, i64 noundef 4) #27
-  %115 = icmp ult i32 %28, 16
+  %115 = icmp samesign ult i32 %28, 16
   %116 = icmp ult <2 x i32> %16, splat (i32 49)
   %117 = extractelement <2 x i1> %116, i64 0
   %118 = or i1 %117, %115
@@ -925,7 +925,7 @@ define hidden void @process_fusion(ptr nocapture readnone %0, ptr nocapture noun
 
 137:                                              ; preds = %121
   tail call void @dt_iop_image_fill(ptr noundef nonnull %132, float noundef 0.000000e+00, i64 noundef %126, i64 noundef %127, i64 noundef 4) #27
-  %138 = icmp ult i32 %28, 32
+  %138 = icmp samesign ult i32 %28, 32
   %139 = icmp ult <2 x i32> %16, splat (i32 97)
   %140 = extractelement <2 x i1> %139, i64 0
   %141 = or i1 %140, %138
@@ -957,7 +957,7 @@ define hidden void @process_fusion(ptr nocapture readnone %0, ptr nocapture noun
 
 160:                                              ; preds = %144
   tail call void @dt_iop_image_fill(ptr noundef nonnull %155, float noundef 0.000000e+00, i64 noundef %149, i64 noundef %150, i64 noundef 4) #27
-  %161 = icmp ult i32 %28, 64
+  %161 = icmp samesign ult i32 %28, 64
   %162 = icmp ult <2 x i32> %16, splat (i32 193)
   %163 = extractelement <2 x i1> %162, i64 0
   %164 = or i1 %163, %161
@@ -989,7 +989,7 @@ define hidden void @process_fusion(ptr nocapture readnone %0, ptr nocapture noun
 
 183:                                              ; preds = %167
   tail call void @dt_iop_image_fill(ptr noundef nonnull %178, float noundef 0.000000e+00, i64 noundef %172, i64 noundef %173, i64 noundef 4) #27
-  %184 = icmp ult i32 %28, 128
+  %184 = icmp samesign ult i32 %28, 128
   %185 = icmp ult <2 x i32> %16, splat (i32 385)
   %186 = extractelement <2 x i1> %185, i64 0
   %187 = or i1 %186, %184
@@ -3905,7 +3905,7 @@ define void @commit_params(ptr nocapture noundef readnone %0, ptr nocapture noun
 30:                                               ; preds = %27
   %31 = getelementptr inbounds i8, ptr %29, i64 24
   %32 = zext nneg i32 %23 to i64
-  %33 = icmp ult i32 %23, 16
+  %33 = icmp samesign ult i32 %23, 16
   br i1 %33, label %.preheader22, label %34
 
 .preheader22:                                     ; preds = %47, %30
@@ -3977,7 +3977,7 @@ define void @commit_params(ptr nocapture noundef readnone %0, ptr nocapture noun
 71:                                               ; preds = %56
   %72 = getelementptr inbounds i8, ptr %58, i64 24
   %73 = zext nneg i32 %69 to i64
-  %74 = icmp ult i32 %69, 16
+  %74 = icmp samesign ult i32 %69, 16
   %75 = add nsw i64 %73, -257
   %76 = icmp ult i64 %75, -256
   %77 = select i1 %74, i1 true, i1 %76
@@ -4461,7 +4461,7 @@ define void @gui_init(ptr noundef %0) local_unnamed_addr #6 {
 26:                                               ; preds = %5
   %27 = getelementptr inbounds i8, ptr %14, i64 24
   %28 = zext nneg i32 %23 to i64
-  %29 = icmp ult i32 %23, 16
+  %29 = icmp samesign ult i32 %23, 16
   %30 = add nsw i64 %28, -257
   %31 = icmp ult i64 %30, -256
   %32 = select i1 %29, i1 true, i1 %31
@@ -4814,7 +4814,7 @@ define internal noundef i32 @dt_iop_basecurve_draw(ptr noundef %0, ptr noundef %
 25:                                               ; preds = %22
   %26 = getelementptr inbounds i8, ptr %24, i64 24
   %27 = zext nneg i32 %12 to i64
-  %28 = icmp ult i32 %12, 16
+  %28 = icmp samesign ult i32 %12, 16
   br i1 %28, label %.preheader40, label %29
 
 .preheader40:                                     ; preds = %42, %25
@@ -4877,7 +4877,7 @@ define internal noundef i32 @dt_iop_basecurve_draw(ptr noundef %0, ptr noundef %
 61:                                               ; preds = %44
   %62 = getelementptr inbounds i8, ptr %49, i64 24
   %63 = zext nneg i32 %59 to i64
-  %64 = icmp ult i32 %59, 16
+  %64 = icmp samesign ult i32 %59, 16
   %65 = add nsw i64 %63, -257
   %66 = icmp ult i64 %65, -256
   %67 = select i1 %64, i1 true, i1 %66
@@ -6103,7 +6103,7 @@ dt_draw_curve_calc_value.exit:                    ; preds = %.loopexit.i, %153
 191:                                              ; preds = %173
   %192 = fadd reassoc nsz arcp contract afn float %174, 1.000000e+00
   %193 = call reassoc nsz arcp contract afn float @llvm.log.f32(float %192)
-  %194 = icmp ult i32 %14, 9
+  %194 = icmp samesign ult i32 %14, 9
   br i1 %194, label %.loopexit25, label %195
 
 195:                                              ; preds = %191
@@ -6382,7 +6382,7 @@ dt_draw_curve_calc_value.exit:                    ; preds = %.loopexit.i, %153
 
 374:                                              ; preds = %366
   %375 = zext nneg i32 %372 to i64
-  %376 = icmp ult i32 %372, 16
+  %376 = icmp samesign ult i32 %372, 16
   br i1 %376, label %408, label %377
 
 377:                                              ; preds = %374
@@ -6715,7 +6715,7 @@ define internal noundef i32 @dt_iop_basecurve_motion_notify(ptr noundef %0, ptr 
 
 80:                                               ; preds = %78
   %81 = and i64 %79, 3
-  %82 = icmp ult i32 %10, 4
+  %82 = icmp samesign ult i32 %10, 4
   br i1 %82, label %.loopexit25, label %83
 
 83:                                               ; preds = %80

@@ -1265,7 +1265,7 @@ for.body208:                                      ; preds = %for.body208.lr.ph, 
   br i1 %cmp.i.i.i.i141, label %land.lhs.true.i.i.i.i, label %cond.false.i.i.i.i
 
 land.lhs.true.i.i.i.i:                            ; preds = %for.body208
-  %cmp2.i.i.i.i = icmp ult i64 %add.i.i.i.i, 64
+  %cmp2.i.i.i.i = icmp samesign ult i64 %add.i.i.i.i, 64
   br i1 %cmp2.i.i.i.i, label %if.then.i.i.i.i, label %cond.true.i.i.i.i
 
 if.then.i.i.i.i:                                  ; preds = %land.lhs.true.i.i.i.i
@@ -1540,7 +1540,7 @@ for.body:                                         ; preds = %for.body.lr.ph, %fo
   br i1 %cmp.i.i.i.i, label %land.lhs.true.i.i.i.i, label %_ZNSt5dequeISt10unique_ptrIN3ue28NGHolderESt14default_deleteIS2_EESaIS5_EEixEm.exit.thread67
 
 land.lhs.true.i.i.i.i:                            ; preds = %for.body
-  %cmp2.i.i.i.i = icmp ult i64 %add.i.i.i.i, 64
+  %cmp2.i.i.i.i = icmp samesign ult i64 %add.i.i.i.i, 64
   br i1 %cmp2.i.i.i.i, label %_ZNSt5dequeISt10unique_ptrIN3ue28NGHolderESt14default_deleteIS2_EESaIS5_EEixEm.exit.thread, label %_ZNSt5dequeISt10unique_ptrIN3ue28NGHolderESt14default_deleteIS2_EESaIS5_EEixEm.exit
 
 _ZNSt5dequeISt10unique_ptrIN3ue28NGHolderESt14default_deleteIS2_EESaIS5_EEixEm.exit: ; preds = %land.lhs.true.i.i.i.i
@@ -1862,7 +1862,7 @@ if.then8:                                         ; preds = %_ZN3ue2L15addCompon
   br i1 %cmp.i.i.i.i46, label %land.lhs.true.i.i.i.i56, label %cond.false.i.i.i.i47
 
 land.lhs.true.i.i.i.i56:                          ; preds = %if.then8
-  %cmp2.i.i.i.i57 = icmp ult i64 %add.i.i.i.i45, 64
+  %cmp2.i.i.i.i57 = icmp samesign ult i64 %add.i.i.i.i45, 64
   br i1 %cmp2.i.i.i.i57, label %if.then.i.i.i.i60, label %cond.true.i.i.i.i58
 
 if.then.i.i.i.i60:                                ; preds = %land.lhs.true.i.i.i.i56
@@ -3007,7 +3007,7 @@ if.then.i5:                                       ; preds = %_ZNK5boost9containe
   unreachable
 
 if.end.i4:                                        ; preds = %_ZNK5boost9container19vector_alloc_holderINS0_22small_vector_allocatorIjSaIvEvEEmNS_11move_detail17integral_constantIjLj1EEEE13next_capacityINS0_16growth_factor_60EEEmm.exit
-  %cmp.i.i.i.i.i.i = icmp ugt i64 %5, 2305843009213693951
+  %cmp.i.i.i.i.i.i = icmp samesign ugt i64 %5, 2305843009213693951
   br i1 %cmp.i.i.i.i.i.i, label %if.end.i.i.i.i.i.i, label %_ZN5boost9container19vector_alloc_holderINS0_22small_vector_allocatorIjSaIvEvEEmNS_11move_detail17integral_constantIjLj1EEEE8allocateEm.exit
 
 if.end.i.i.i.i.i.i:                               ; preds = %if.end.i4

@@ -5571,11 +5571,11 @@ entry:
   br i1 %cmp, label %if.then, label %if.end9
 
 if.then:                                          ; preds = %entry
-  %cmp1 = icmp ult i32 %retval.0.i, %onlyslot
+  %cmp1 = icmp samesign ult i32 %retval.0.i, %onlyslot
   br i1 %cmp1, label %if.then2, label %if.else
 
 if.then2:                                         ; preds = %if.then
-  %cmp3 = icmp ult i32 %onlyslot, 16384
+  %cmp3 = icmp samesign ult i32 %onlyslot, 16384
   br i1 %cmp3, label %if.end9, label %cond.false
 
 cond.false:                                       ; preds = %if.then2
@@ -5584,7 +5584,7 @@ cond.false:                                       ; preds = %if.then2
   unreachable
 
 if.else:                                          ; preds = %if.then
-  %cmp5 = icmp ugt i32 %retval.0.i, %onlyslot
+  %cmp5 = icmp samesign ugt i32 %retval.0.i, %onlyslot
   br i1 %cmp5, label %return, label %if.end9
 
 if.end9:                                          ; preds = %if.then2, %if.else, %entry

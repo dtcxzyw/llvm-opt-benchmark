@@ -262,7 +262,7 @@ define dso_local noundef range(i32 -22, 1) i32 @snd_seq_timer_set_tempo(ptr noun
 
 12:                                               ; preds = %6
   store i32 %1, ptr %9, align 4
-  %13 = icmp ult i32 %1, 1000000
+  %13 = icmp samesign ult i32 %1, 1000000
   br i1 %13, label %14, label %20
 
 14:                                               ; preds = %12
@@ -357,7 +357,7 @@ define dso_local noundef range(i32 -22, 1) i32 @snd_seq_timer_set_tempo_ppq(ptr 
   br label %29
 
 29:                                               ; preds = %27, %23
-  %30 = icmp ult i32 %1, 1000000
+  %30 = icmp samesign ult i32 %1, 1000000
   br i1 %30, label %31, label %35
 
 31:                                               ; preds = %29

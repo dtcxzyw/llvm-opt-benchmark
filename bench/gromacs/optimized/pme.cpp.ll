@@ -7514,7 +7514,7 @@ define noundef i32 @_Z10gmx_pme_doP9gmx_pme_tN3gmx8ArrayRefIKNS1_11BasicVectorIf
   %76 = select i1 %75, i32 %13, i32 %14
   %77 = getelementptr inbounds i8, ptr %73, i64 48
   store i32 %76, ptr %77, align 8
-  %78 = icmp ugt i64 %indvars.iv, 1
+  %78 = icmp samesign ugt i64 %indvars.iv, 1
   br i1 %78, label %.lr.ph, label %.loopexit415.loopexit, !llvm.loop !77
 
 79:                                               ; preds = %26
@@ -11632,7 +11632,7 @@ _ZNSt12_Vector_baseIfSaIfEE13_M_deallocateEPfm.exit: ; preds = %_ZNSt6vectorIfSa
   %31 = getelementptr inbounds i8, ptr %.sroa.05.07.i.i.i.i.i, i64 4
   %32 = getelementptr inbounds i8, ptr %.09.i.i.i.i.i, i64 4
   %33 = add nsw i64 %.048.i.i.i.i.i, -1
-  %34 = icmp ugt i64 %.048.i.i.i.i.i, 1
+  %34 = icmp samesign ugt i64 %.048.i.i.i.i.i, 1
   br i1 %34, label %.lr.ph.i.i.i.i.i, label %_ZSt4copyIN3gmx12ArrayRefIterIKfEEPfET0_T_S6_S5_.exit.loopexit, !llvm.loop !91
 
 _ZSt4copyIN3gmx12ArrayRefIterIKfEEPfET0_T_S6_S5_.exit.loopexit: ; preds = %.lr.ph.i.i.i.i.i
@@ -11665,7 +11665,7 @@ _ZSt7advanceIN3gmx12ArrayRefIterIKfEEmEvRT_T0_.exit: ; preds = %23
   %41 = getelementptr inbounds i8, ptr %.sroa.05.07.i.i.i.i.i23, i64 4
   %42 = getelementptr inbounds i8, ptr %.09.i.i.i.i.i21, i64 4
   %43 = add nsw i64 %.048.i.i.i.i.i22, -1
-  %44 = icmp ugt i64 %.048.i.i.i.i.i22, 1
+  %44 = icmp samesign ugt i64 %.048.i.i.i.i.i22, 1
   br i1 %44, label %.lr.ph.i.i.i.i.i20, label %_ZSt4copyIN3gmx12ArrayRefIterIKfEEPfET0_T_S6_S5_.exit24.loopexit, !llvm.loop !91
 
 _ZSt4copyIN3gmx12ArrayRefIterIKfEEPfET0_T_S6_S5_.exit24.loopexit: ; preds = %.lr.ph.i.i.i.i.i20
@@ -11688,7 +11688,7 @@ _ZSt4copyIN3gmx12ArrayRefIterIKfEEPfET0_T_S6_S5_.exit24: ; preds = %_ZSt4copyIN3
   %50 = getelementptr inbounds i8, ptr %.sroa.05.07.i.i.i.i.i.i.i.i, i64 4
   %51 = getelementptr inbounds i8, ptr %.09.i.i.i.i.i.i.i.i, i64 4
   %52 = add nsw i64 %.048.i.i.i.i.i.i.i.i, -1
-  %53 = icmp ugt i64 %.048.i.i.i.i.i.i.i.i, 1
+  %53 = icmp samesign ugt i64 %.048.i.i.i.i.i.i.i.i, 1
   br i1 %53, label %.lr.ph.i.i.i.i.i.i.i.i, label %_ZSt22__uninitialized_copy_aIN3gmx12ArrayRefIterIKfEEPffET0_T_S6_S5_RSaIT1_E.exit, !llvm.loop !91
 
 _ZSt22__uninitialized_copy_aIN3gmx12ArrayRefIterIKfEEPffET0_T_S6_S5_RSaIT1_E.exit: ; preds = %.lr.ph.i.i.i.i.i.i.i.i, %_ZSt4copyIN3gmx12ArrayRefIterIKfEEPfET0_T_S6_S5_.exit24

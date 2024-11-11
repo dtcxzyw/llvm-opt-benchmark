@@ -6534,7 +6534,7 @@ define internal i64 @timeout_store(ptr noundef %0, ptr noundef %1, i64 noundef %
 
 12:                                               ; preds = %9
   %13 = udiv i64 %10, 10
-  %14 = icmp ult i64 %10, 10
+  %14 = icmp samesign ult i64 %10, 10
   %15 = select i1 %14, i64 1, i64 %13
   store i64 %15, ptr %4, align 8
   %16 = getelementptr inbounds i8, ptr %0, i64 952

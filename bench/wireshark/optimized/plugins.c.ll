@@ -245,8 +245,8 @@ type_to_name.exit67:                              ; preds = %type_to_name.exit, 
 
 50:                                               ; preds = %46
   %51 = icmp sgt i32 %48, 0
-  %52 = icmp ugt i32 %48, %..i.i
-  %or.cond = and i1 %51, %52
+  %52 = icmp samesign ugt i32 %48, %..i.i
+  %or.cond = select i1 %51, i1 %52, i1 false
   br i1 %or.cond, label %53, label %55
 
 53:                                               ; preds = %50
@@ -554,7 +554,7 @@ define i32 @plugins_check_file(ptr noundef %0) local_unnamed_addr #0 {
 21:                                               ; preds = %19
   %cond.i.i = icmp eq i32 %14, 3
   %..i.i = zext i1 %cond.i.i to i32
-  %22 = icmp ugt i32 %17, %..i.i
+  %22 = icmp samesign ugt i32 %17, %..i.i
   br i1 %22, label %23, label %25
 
 23:                                               ; preds = %21

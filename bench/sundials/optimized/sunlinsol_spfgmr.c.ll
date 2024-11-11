@@ -683,7 +683,7 @@ switch.edge:
   %164 = load double, ptr %163, align 8
   %165 = fmul double %.0259337, %164
   %indvars.iv.next396 = add nsw i64 %indvars.iv395, -1
-  %166 = icmp ugt i64 %indvars.iv395, 1
+  %166 = icmp samesign ugt i64 %indvars.iv395, 1
   br i1 %166, label %.lr.ph338, label %._crit_edge339
 
 ._crit_edge339:                                   ; preds = %.lr.ph338, %.preheader306

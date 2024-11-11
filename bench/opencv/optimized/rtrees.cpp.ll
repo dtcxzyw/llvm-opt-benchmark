@@ -1988,7 +1988,7 @@ define linkonce_odr hidden void @_ZN2cv2ml10TreeParams10setCVFoldsEi(ptr noundef
   br label %27
 
 15:                                               ; preds = %2
-  %16 = icmp ugt i32 %1, 1
+  %16 = icmp samesign ugt i32 %1, 1
   br i1 %16, label %17, label %24
 
 17:                                               ; preds = %15
@@ -3976,7 +3976,7 @@ _ZNSt12_Vector_baseIiSaIiEE13_M_deallocateEPim.exit35.i: ; preds = %423, %_ZNSt6
   %445 = load i32, ptr %443, align 4
   store i32 %445, ptr %441, align 4
   store i32 %444, ptr %443, align 4
-  %446 = icmp ugt i64 %indvars.iv595, 2
+  %446 = icmp samesign ugt i64 %indvars.iv595, 2
   br i1 %446, label %.lr.ph508, label %.preheader422, !llvm.loop !18
 
 447:                                              ; preds = %.lr.ph516, %._crit_edge513

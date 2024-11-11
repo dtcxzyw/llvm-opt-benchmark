@@ -695,13 +695,13 @@ define dso_local void @_ZN4Luau7CodeGen3A6418AssemblyBuilderA643movENS1_11Regist
 
 6:                                                ; preds = %3
   tail call void @_ZN4Luau7CodeGen3A6418AssemblyBuilderA648placeI16EPKcNS1_11RegisterA64Eihi(ptr noundef nonnull align 8 dereferenceable(176) %0, ptr noundef nonnull @.str.1, i8 %1, i32 noundef %5, i8 noundef zeroext -91, i32 noundef 0)
-  %7 = icmp ugt i32 %2, 65535
+  %7 = icmp samesign ugt i32 %2, 65535
   br i1 %7, label %.sink.split, label %12
 
 8:                                                ; preds = %3
   %9 = xor i32 %5, 65535
   tail call void @_ZN4Luau7CodeGen3A6418AssemblyBuilderA648placeI16EPKcNS1_11RegisterA64Eihi(ptr noundef nonnull align 8 dereferenceable(176) %0, ptr noundef nonnull @.str.2, i8 %1, i32 noundef %9, i8 noundef zeroext 37, i32 noundef 0)
-  %10 = icmp ult i32 %2, -65536
+  %10 = icmp samesign ult i32 %2, -65536
   br i1 %10, label %.sink.split, label %12
 
 .sink.split:                                      ; preds = %8, %6

@@ -17767,7 +17767,7 @@ _ZNSt6vectorIN20cmComputeLinkDepends9LinkEntryESaIS1_EE16_Temporary_valueC2IJRS1
   %82 = getelementptr inbounds i8, ptr %.069.i.i.i.i.i.i, i64 -104
   %83 = call noundef nonnull align 8 dereferenceable(104) ptr @_ZN20cmComputeLinkDepends9LinkEntryaSEOS0_(ptr noundef nonnull align 8 dereferenceable(104) %82, ptr noundef nonnull align 8 dereferenceable(104) %81) #25
   %84 = add nsw i64 %.010.i.i.i.i.i.i, -1
-  %85 = icmp ugt i64 %.010.i.i.i.i.i.i, 1
+  %85 = icmp samesign ugt i64 %.010.i.i.i.i.i.i, 1
   br i1 %85, label %.lr.ph.i.i.i.i.i.i, label %.loopexit, !llvm.loop !323
 
 .loopexit:                                        ; preds = %.lr.ph.i.i.i.i.i.i, %_ZNSt6vectorIN20cmComputeLinkDepends9LinkEntryESaIS1_EE16_Temporary_valueC2IJRS1_EEEPS3_DpOT_.exit
@@ -18120,7 +18120,7 @@ _ZNSt6vectorIN20cmComputeLinkDepends9LinkEntryESaIS1_EE16_Temporary_valueC2IJRKS
   %80 = getelementptr inbounds i8, ptr %.069.i.i.i.i.i.i, i64 -104
   %81 = call noundef nonnull align 8 dereferenceable(104) ptr @_ZN20cmComputeLinkDepends9LinkEntryaSEOS0_(ptr noundef nonnull align 8 dereferenceable(104) %80, ptr noundef nonnull align 8 dereferenceable(104) %79) #25
   %82 = add nsw i64 %.010.i.i.i.i.i.i, -1
-  %83 = icmp ugt i64 %.010.i.i.i.i.i.i, 1
+  %83 = icmp samesign ugt i64 %.010.i.i.i.i.i.i, 1
   br i1 %83, label %.lr.ph.i.i.i.i.i.i, label %.loopexit, !llvm.loop !323
 
 .loopexit:                                        ; preds = %.lr.ph.i.i.i.i.i.i, %_ZNSt6vectorIN20cmComputeLinkDepends9LinkEntryESaIS1_EE16_Temporary_valueC2IJRKS1_EEEPS3_DpOT_.exit

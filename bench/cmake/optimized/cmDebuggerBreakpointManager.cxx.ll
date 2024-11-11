@@ -2776,7 +2776,7 @@ _ZNSt12_Vector_baseIN3dap3anyESaIS1_EE13_M_deallocateEPS1_m.exit: ; preds = %_ZS
   %49 = getelementptr inbounds i8, ptr %.0910.i.i.i.i.i, i64 56
   %50 = getelementptr inbounds i8, ptr %.0811.i.i.i.i.i, i64 56
   %51 = add nsw i64 %.012.i.i.i.i.i, -1
-  %52 = icmp ugt i64 %.012.i.i.i.i.i, 1
+  %52 = icmp samesign ugt i64 %.012.i.i.i.i.i, 1
   br i1 %52, label %.lr.ph.i.i.i.i.i, label %_ZSt4copyIN9__gnu_cxx17__normal_iteratorIPKN3dap3anyESt6vectorIS3_SaIS3_EEEENS1_IPS3_S8_EEET0_T_SD_SC_.exit.loopexit, !llvm.loop !22
 
 _ZSt4copyIN9__gnu_cxx17__normal_iteratorIPKN3dap3anyESt6vectorIS3_SaIS3_EEEENS1_IPS3_S8_EEET0_T_SD_SC_.exit.loopexit: ; preds = %.lr.ph.i.i.i.i.i
@@ -2851,7 +2851,7 @@ _ZSt8_DestroyIN3dap3anyEEvPT_.exit.i.i.i30:       ; preds = %65, %.noexc.i.i.i.i
   %74 = getelementptr inbounds i8, ptr %.0910.i.i.i.i.i37, i64 56
   %75 = getelementptr inbounds i8, ptr %.0811.i.i.i.i.i36, i64 56
   %76 = add nsw i64 %.012.i.i.i.i.i35, -1
-  %77 = icmp ugt i64 %.012.i.i.i.i.i35, 1
+  %77 = icmp samesign ugt i64 %.012.i.i.i.i.i35, 1
   br i1 %77, label %.lr.ph.i.i.i.i.i34, label %_ZSt4copyIPN3dap3anyES2_ET0_T_S4_S3_.exit.loopexit, !llvm.loop !24
 
 _ZSt4copyIPN3dap3anyES2_ET0_T_S4_S3_.exit.loopexit: ; preds = %.lr.ph.i.i.i.i.i34
@@ -6224,7 +6224,7 @@ _ZNSt12_Vector_baseIN3dap8ChecksumESaIS1_EE13_M_deallocateEPS1_m.exit: ; preds =
   %39 = getelementptr inbounds i8, ptr %.0910.i.i.i.i.i, i64 64
   %40 = getelementptr inbounds i8, ptr %.0811.i.i.i.i.i, i64 64
   %41 = add nsw i64 %.012.i.i.i.i.i, -1
-  %42 = icmp ugt i64 %.012.i.i.i.i.i, 1
+  %42 = icmp samesign ugt i64 %.012.i.i.i.i.i, 1
   br i1 %42, label %.lr.ph.i.i.i.i.i, label %_ZSt4copyIN9__gnu_cxx17__normal_iteratorIPKN3dap8ChecksumESt6vectorIS3_SaIS3_EEEENS1_IPS3_S8_EEET0_T_SD_SC_.exit.loopexit, !llvm.loop !52
 
 _ZSt4copyIN9__gnu_cxx17__normal_iteratorIPKN3dap8ChecksumESt6vectorIS3_SaIS3_EEEENS1_IPS3_S8_EEET0_T_SD_SC_.exit.loopexit: ; preds = %.lr.ph.i.i.i.i.i
@@ -6269,7 +6269,7 @@ _ZSt4copyIN9__gnu_cxx17__normal_iteratorIPKN3dap8ChecksumESt6vectorIS3_SaIS3_EEE
   %55 = getelementptr inbounds i8, ptr %.0910.i.i.i.i.i32, i64 64
   %56 = getelementptr inbounds i8, ptr %.0811.i.i.i.i.i31, i64 64
   %57 = add nsw i64 %.012.i.i.i.i.i30, -1
-  %58 = icmp ugt i64 %.012.i.i.i.i.i30, 1
+  %58 = icmp samesign ugt i64 %.012.i.i.i.i.i30, 1
   br i1 %58, label %.lr.ph.i.i.i.i.i29, label %_ZSt4copyIPN3dap8ChecksumES2_ET0_T_S4_S3_.exit.loopexit, !llvm.loop !54
 
 _ZSt4copyIPN3dap8ChecksumES2_ET0_T_S4_S3_.exit.loopexit: ; preds = %.lr.ph.i.i.i.i.i29
@@ -6796,7 +6796,7 @@ define linkonce_odr dso_local noundef ptr @_ZSt14__copy_move_a2ILb0EPKN3dap6Sour
   %63 = getelementptr inbounds i8, ptr %.09.i3, i64 304
   %64 = getelementptr inbounds i8, ptr %.08.i4, i64 304
   %65 = add nsw i64 %.0.i5, -1
-  %66 = icmp ugt i64 %.0.i5, 1
+  %66 = icmp samesign ugt i64 %.0.i5, 1
   br i1 %66, label %.lr.ph, label %_ZNSt11__copy_moveILb0ELb0ESt26random_access_iterator_tagE8__copy_mIPKN3dap6SourceEPS4_EET0_T_S9_S8_.exit, !llvm.loop !58
 
 _ZNSt11__copy_moveILb0ELb0ESt26random_access_iterator_tagE8__copy_mIPKN3dap6SourceEPS4_EET0_T_S9_S8_.exit: ; preds = %.lr.ph, %3
@@ -6886,7 +6886,7 @@ define linkonce_odr dso_local noundef ptr @_ZSt14__copy_move_a2ILb0EPN3dap6Sourc
   %63 = getelementptr inbounds i8, ptr %.09.i3, i64 304
   %64 = getelementptr inbounds i8, ptr %.08.i4, i64 304
   %65 = add nsw i64 %.0.i5, -1
-  %66 = icmp ugt i64 %.0.i5, 1
+  %66 = icmp samesign ugt i64 %.0.i5, 1
   br i1 %66, label %.lr.ph, label %_ZNSt11__copy_moveILb0ELb0ESt26random_access_iterator_tagE8__copy_mIPN3dap6SourceES5_EET0_T_S7_S6_.exit, !llvm.loop !59
 
 _ZNSt11__copy_moveILb0ELb0ESt26random_access_iterator_tagE8__copy_mIPN3dap6SourceES5_EET0_T_S7_S6_.exit: ; preds = %.lr.ph, %3

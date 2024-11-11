@@ -54,7 +54,7 @@ define noundef i64 @_ZN10line_index12WideEncoding7measure17hb75bd5cdb7fd18cdE(pt
   %19 = icmp ne ptr %14, %6
   tail call void @llvm.assume(i1 %19)
   %20 = getelementptr inbounds i8, ptr %8, i64 2
-  %21 = icmp ugt i8 %15, -33
+  %21 = icmp samesign ugt i8 %15, -33
   br i1 %21, label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h01f562d980bdc7a8E.exit15.i.i.i", label %_ZN4core4char7methods16encode_utf16_raw17h320237ac03d2da94E.exit.i.i
 
 "_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h01f562d980bdc7a8E.exit15.i.i.i": ; preds = %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h01f562d980bdc7a8E.exit13.i.i.i"
@@ -71,7 +71,7 @@ define noundef i64 @_ZN10line_index12WideEncoding7measure17hb75bd5cdb7fd18cdE(pt
   %31 = or disjoint i32 %28, %30
   %32 = shl nuw nsw i32 %18, 12
   %33 = or disjoint i32 %31, %32
-  %34 = icmp ugt i8 %15, -17
+  %34 = icmp samesign ugt i8 %15, -17
   br i1 %34, label %35, label %.thread8.i.i
 
 35:                                               ; preds = %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h01f562d980bdc7a8E.exit15.i.i.i"
@@ -1133,7 +1133,7 @@ define internal fastcc noundef i64 @_ZN10line_index27analyze_source_file_generic
   %58 = and i8 %56, 63
   %59 = zext nneg i8 %58 to i32
   %60 = or disjoint i32 %57, %59
-  %61 = icmp ugt i8 %26, -33
+  %61 = icmp samesign ugt i8 %26, -33
   br i1 %61, label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h01f562d980bdc7a8E.exit15.i", label %.thread70
 
 "_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h01f562d980bdc7a8E.exit15.i": ; preds = %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h01f562d980bdc7a8E.exit13.i"
@@ -1147,7 +1147,7 @@ define internal fastcc noundef i64 @_ZN10line_index27analyze_source_file_generic
   %68 = or disjoint i32 %65, %67
   %69 = shl nuw nsw i32 %54, 12
   %70 = or disjoint i32 %68, %69
-  %71 = icmp ugt i8 %26, -17
+  %71 = icmp samesign ugt i8 %26, -17
   br i1 %71, label %72, label %.thread70
 
 72:                                               ; preds = %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h01f562d980bdc7a8E.exit15.i"

@@ -1226,7 +1226,7 @@ define internal fastcc i64 @match_at(ptr noundef %0, ptr noundef %1, ptr noundef
   %469 = getelementptr i8, ptr %.522064096, i64 2
   %470 = getelementptr i8, ptr %459, i64 2
   store ptr %470, ptr %19, align 8
-  %471 = icmp ugt i32 %.in4117, 1
+  %471 = icmp samesign ugt i32 %.in4117, 1
   br i1 %471, label %.lr.ph4097, label %._crit_edge4098, !llvm.loop !15
 
 ._crit_edge4098:                                  ; preds = %468, %.preheader3526
@@ -1282,7 +1282,7 @@ define internal fastcc i64 @match_at(ptr noundef %0, ptr noundef %1, ptr noundef
   %499 = getelementptr i8, ptr %.622074091, i64 3
   %500 = getelementptr i8, ptr %484, i64 3
   store ptr %500, ptr %19, align 8
-  %501 = icmp ugt i32 %.in4116, 1
+  %501 = icmp samesign ugt i32 %.in4116, 1
   br i1 %501, label %.lr.ph4092, label %._crit_edge4093, !llvm.loop !16
 
 ._crit_edge4093:                                  ; preds = %498, %.preheader3528

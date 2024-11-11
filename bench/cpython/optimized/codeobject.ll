@@ -8306,7 +8306,7 @@ if.end7.i.i:                                      ; preds = %if.then.if.end6_cri
   store i8 %bdelta.addr.190.i.i, ptr %add.ptr.i29.i.i, align 1
   store i8 127, ptr %incdec.ptr.i30.i.i, align 1
   %sub8.i.i = add nsw i32 %ldelta.addr.091.i.i, -127
-  %cmp2.i.i = icmp ugt i32 %ldelta.addr.091.i.i, 254
+  %cmp2.i.i = icmp samesign ugt i32 %ldelta.addr.091.i.i, 254
   br i1 %cmp2.i.i, label %while.body3.i.i, label %while.end17.i.i, !llvm.loop !40
 
 while.body12.i.i:                                 ; preds = %if.end16.i.i, %while.body12.preheader.i.i

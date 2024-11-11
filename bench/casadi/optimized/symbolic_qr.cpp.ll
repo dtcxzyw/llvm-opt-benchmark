@@ -3895,7 +3895,7 @@ _ZNK6casadi13GenericMatrixINS_6MatrixINS_6SXElemEEEE3nnzEv.exit: ; preds = %.noe
   %165 = getelementptr inbounds i8, ptr %.0910.i.i.i.i.i, i64 8
   %166 = getelementptr inbounds i8, ptr %.0811.i.i.i.i.i, i64 8
   %167 = add nsw i64 %.012.i.i.i.i.i, -1
-  %168 = icmp ugt i64 %.012.i.i.i.i.i, 1
+  %168 = icmp samesign ugt i64 %.012.i.i.i.i.i, 1
   br i1 %168, label %.lr.ph.i.i.i.i.i, label %.loopexit209, !llvm.loop !23
 
 .loopexit209:                                     ; preds = %.noexc112, %161
@@ -4020,7 +4020,7 @@ _ZNK6casadi13GenericMatrixINS_6MatrixINS_6SXElemEEEE3nnzEv.exit120: ; preds = %.
   %210 = getelementptr inbounds i8, ptr %.0910.i.i.i.i.i125, i64 8
   %211 = getelementptr inbounds i8, ptr %.0811.i.i.i.i.i124, i64 8
   %212 = add nsw i64 %.012.i.i.i.i.i123, -1
-  %213 = icmp ugt i64 %.012.i.i.i.i.i123, 1
+  %213 = icmp samesign ugt i64 %.012.i.i.i.i.i123, 1
   br i1 %213, label %.lr.ph.i.i.i.i.i122, label %.loopexit195, !llvm.loop !23
 
 .loopexit195:                                     ; preds = %.noexc126, %206
@@ -4129,7 +4129,7 @@ _ZNSt6vectorIN6casadi6MatrixINS0_6SXElemEEESaIS3_EED2Ev.exit: ; preds = %_ZSt8_D
   %245 = getelementptr inbounds i8, ptr %.0910.i.i.i.i.i135, i64 8
   %246 = getelementptr inbounds i8, ptr %.0811.i.i.i.i.i134, i64 8
   %247 = add nsw i64 %.012.i.i.i.i.i133, -1
-  %248 = icmp ugt i64 %.012.i.i.i.i.i133, 1
+  %248 = icmp samesign ugt i64 %.012.i.i.i.i.i133, 1
   br i1 %248, label %.lr.ph.i.i.i.i.i132, label %_ZSt4copyIN9__gnu_cxx17__normal_iteratorIPN6casadi6SXElemESt6vectorIS3_SaIS3_EEEES4_ET0_T_SA_S9_.exit, !llvm.loop !24
 
 _ZSt4copyIN9__gnu_cxx17__normal_iteratorIPN6casadi6SXElemESt6vectorIS3_SaIS3_EEEES4_ET0_T_SA_S9_.exit: ; preds = %.noexc136, %236

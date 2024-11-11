@@ -968,7 +968,7 @@ define hidden noundef zeroext i1 @_ZN8rawspeed10RawDecoder19handleCameraSupportE
   %36 = load ptr, ptr %3, align 8, !tbaa !141
   %37 = load ptr, ptr %4, align 8, !tbaa !141
   tail call void (i32, ptr, ...) @_ZN8rawspeed8writeLogENS_10DEBUG_PRIOEPKcz(i32 noundef 256, ptr noundef nonnull @.str.10, ptr noundef %35, ptr noundef %36, ptr noundef %37)
-  %38 = icmp ult i32 %10, 2
+  %38 = icmp samesign ult i32 %10, 2
   %39 = getelementptr inbounds i8, ptr %0, i64 24
   %40 = load i8, ptr %39, align 8, !range !147
   %41 = icmp eq i8 %40, 0
@@ -1312,7 +1312,7 @@ define hidden void @_ZN8rawspeed10RawDecoder11setMetaDataEPKNS_14CameraMetaDataE
   %206 = load ptr, ptr %138, align 8, !tbaa !173
   %207 = zext nneg i32 %205 to i64
   %208 = zext nneg i32 %151 to i64
-  %209 = icmp ult i32 %151, 32
+  %209 = icmp samesign ult i32 %151, 32
   %210 = ptrtoint ptr %206 to i64
   %211 = sub i64 %204, %210
   %212 = icmp ult i64 %211, 128

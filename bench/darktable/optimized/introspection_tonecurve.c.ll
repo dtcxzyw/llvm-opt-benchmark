@@ -1590,7 +1590,7 @@ define void @commit_params(ptr nocapture noundef readnone %0, ptr nocapture noun
 32:                                               ; preds = %29
   %33 = getelementptr inbounds i8, ptr %31, i64 24
   %34 = zext nneg i32 %26 to i64
-  %35 = icmp ult i32 %26, 16
+  %35 = icmp samesign ult i32 %26, 16
   br i1 %35, label %.preheader103, label %36
 
 .preheader103:                                    ; preds = %49, %32
@@ -1652,7 +1652,7 @@ define void @commit_params(ptr nocapture noundef readnone %0, ptr nocapture noun
 67:                                               ; preds = %51
   %68 = getelementptr inbounds i8, ptr %56, i64 24
   %69 = zext nneg i32 %65 to i64
-  %70 = icmp ult i32 %65, 16
+  %70 = icmp samesign ult i32 %65, 16
   %71 = add nsw i64 %69, -257
   %72 = icmp ult i64 %71, -256
   %73 = select i1 %70, i1 true, i1 %72
@@ -1907,7 +1907,7 @@ define void @commit_params(ptr nocapture noundef readnone %0, ptr nocapture noun
 251:                                              ; preds = %232
   %252 = getelementptr inbounds i8, ptr %238, i64 24
   %253 = zext nneg i32 %249 to i64
-  %254 = icmp ult i32 %249, 16
+  %254 = icmp samesign ult i32 %249, 16
   %255 = add nsw i64 %253, -257
   %256 = icmp ult i64 %255, -256
   %257 = select i1 %254, i1 true, i1 %256
@@ -2045,7 +2045,7 @@ define void @commit_params(ptr nocapture noundef readnone %0, ptr nocapture noun
 351:                                              ; preds = %347
   %352 = getelementptr inbounds i8, ptr %350, i64 24
   %353 = zext nneg i32 %228 to i64
-  %354 = icmp ult i32 %228, 16
+  %354 = icmp samesign ult i32 %228, 16
   br i1 %354, label %.preheader100, label %355
 
 355:                                              ; preds = %351
@@ -2203,7 +2203,7 @@ define void @commit_params(ptr nocapture noundef readnone %0, ptr nocapture noun
 460:                                              ; preds = %441
   %461 = getelementptr inbounds i8, ptr %447, i64 24
   %462 = zext nneg i32 %458 to i64
-  %463 = icmp ult i32 %458, 16
+  %463 = icmp samesign ult i32 %458, 16
   %464 = add nsw i64 %462, -257
   %465 = icmp ult i64 %464, -256
   %466 = select i1 %463, i1 true, i1 %465
@@ -2341,7 +2341,7 @@ define void @commit_params(ptr nocapture noundef readnone %0, ptr nocapture noun
 560:                                              ; preds = %556
   %561 = getelementptr inbounds i8, ptr %559, i64 24
   %562 = zext nneg i32 %437 to i64
-  %563 = icmp ult i32 %437, 16
+  %563 = icmp samesign ult i32 %437, 16
   br i1 %563, label %.preheader99, label %564
 
 564:                                              ; preds = %560
@@ -3157,7 +3157,7 @@ define void @init_pipe(ptr nocapture noundef readonly %0, ptr nocapture noundef 
 24:                                               ; preds = %3
   %25 = getelementptr inbounds i8, ptr %15, i64 24
   %26 = zext nneg i32 %22 to i64
-  %27 = icmp ult i32 %22, 16
+  %27 = icmp samesign ult i32 %22, 16
   %28 = add nsw i64 %26, -257
   %29 = icmp ult i64 %28, -256
   %30 = select i1 %27, i1 true, i1 %29
@@ -3261,7 +3261,7 @@ define void @init_pipe(ptr nocapture noundef readonly %0, ptr nocapture noundef 
 86:                                               ; preds = %70
   %87 = getelementptr inbounds i8, ptr %73, i64 24
   %88 = zext nneg i32 %82 to i64
-  %89 = icmp ult i32 %82, 16
+  %89 = icmp samesign ult i32 %82, 16
   %90 = add nsw i64 %88, -257
   %91 = icmp ult i64 %90, -256
   %92 = select i1 %89, i1 true, i1 %91
@@ -3427,7 +3427,7 @@ define void @init_pipe(ptr nocapture noundef readonly %0, ptr nocapture noundef 
 199:                                              ; preds = %183
   %200 = getelementptr inbounds i8, ptr %186, i64 24
   %201 = zext nneg i32 %195 to i64
-  %202 = icmp ult i32 %195, 16
+  %202 = icmp samesign ult i32 %195, 16
   %203 = add nsw i64 %201, -257
   %204 = icmp ult i64 %203, -256
   %205 = select i1 %202, i1 true, i1 %204
@@ -3984,7 +3984,7 @@ define void @gui_init(ptr noundef %0) local_unnamed_addr #1 {
 28:                                               ; preds = %5
   %29 = getelementptr inbounds i8, ptr %17, i64 24
   %30 = zext nneg i32 %26 to i64
-  %31 = icmp ult i32 %26, 16
+  %31 = icmp samesign ult i32 %26, 16
   %32 = add nsw i64 %30, -257
   %33 = icmp ult i64 %32, -256
   %34 = select i1 %31, i1 true, i1 %33
@@ -4090,7 +4090,7 @@ define void @gui_init(ptr noundef %0) local_unnamed_addr #1 {
 92:                                               ; preds = %74
   %93 = getelementptr inbounds i8, ptr %77, i64 24
   %94 = zext nneg i32 %90 to i64
-  %95 = icmp ult i32 %90, 16
+  %95 = icmp samesign ult i32 %90, 16
   %96 = add nsw i64 %94, -257
   %97 = icmp ult i64 %96, -256
   %98 = select i1 %95, i1 true, i1 %97
@@ -4258,7 +4258,7 @@ define void @gui_init(ptr noundef %0) local_unnamed_addr #1 {
 207:                                              ; preds = %189
   %208 = getelementptr inbounds i8, ptr %192, i64 24
   %209 = zext nneg i32 %205 to i64
-  %210 = icmp ult i32 %205, 16
+  %210 = icmp samesign ult i32 %205, 16
   %211 = add nsw i64 %209, -257
   %212 = icmp ult i64 %211, -256
   %213 = select i1 %210, i1 true, i1 %212
@@ -4715,7 +4715,7 @@ define internal noundef i32 @dt_iop_tonecurve_draw(ptr noundef %0, ptr noundef %
 42:                                               ; preds = %38
   %43 = getelementptr inbounds i8, ptr %41, i64 24
   %44 = zext nneg i32 %24 to i64
-  %45 = icmp ult i32 %24, 16
+  %45 = icmp samesign ult i32 %24, 16
   br i1 %45, label %.preheader107, label %46
 
 .preheader107:                                    ; preds = %59, %42
@@ -4780,7 +4780,7 @@ define internal noundef i32 @dt_iop_tonecurve_draw(ptr noundef %0, ptr noundef %
 80:                                               ; preds = %61
   %81 = getelementptr inbounds i8, ptr %67, i64 24
   %82 = zext nneg i32 %78 to i64
-  %83 = icmp ult i32 %78, 16
+  %83 = icmp samesign ult i32 %78, 16
   %84 = add nsw i64 %82, -257
   %85 = icmp ult i64 %84, -256
   %86 = select i1 %83, i1 true, i1 %85
@@ -7014,7 +7014,7 @@ dt_draw_curve_calc_value.exit:                    ; preds = %.loopexit.i, %166
 208:                                              ; preds = %186
   %209 = fadd reassoc nsz arcp contract afn float %187, 1.000000e+00
   %210 = call reassoc nsz arcp contract afn float @llvm.log.f32(float %209)
-  %211 = icmp ult i32 %20, 9
+  %211 = icmp samesign ult i32 %20, 9
   br i1 %211, label %.loopexit25, label %212
 
 212:                                              ; preds = %208
@@ -7303,7 +7303,7 @@ dt_draw_curve_calc_value.exit:                    ; preds = %.loopexit.i, %166
 
 399:                                              ; preds = %388
   %400 = zext nneg i32 %397 to i64
-  %401 = icmp ult i32 %397, 24
+  %401 = icmp samesign ult i32 %397, 24
   br i1 %401, label %437, label %402
 
 402:                                              ; preds = %399
@@ -7684,7 +7684,7 @@ define internal noundef i32 @dt_iop_tonecurve_motion_notify(ptr noundef %0, ptr 
 
 97:                                               ; preds = %93
   %98 = and i64 %96, 3
-  %99 = icmp ult i32 %14, 4
+  %99 = icmp samesign ult i32 %14, 4
   br i1 %99, label %.loopexit28, label %100
 
 100:                                              ; preds = %97

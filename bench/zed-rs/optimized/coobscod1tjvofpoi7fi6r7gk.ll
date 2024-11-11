@@ -25875,7 +25875,7 @@ define hidden void @_ZN4text6Buffer16apply_local_edit17h6b1d22846e477d17E.llvm.6
   %405 = getelementptr inbounds i8, ptr %379, i64 224
   %406 = load i32, ptr %405, align 8, !noalias !7441, !noundef !4
   %407 = zext i32 %406 to i64
-  %408 = icmp ugt i64 %395, %407
+  %408 = icmp samesign ugt i64 %395, %407
   br i1 %408, label %.invoke1286, label %411
 
 .invoke1286:                                      ; preds = %446, %388, %404, %._crit_edge134.i
@@ -26006,7 +26006,7 @@ define hidden void @_ZN4text6Buffer16apply_local_edit17h6b1d22846e477d17E.llvm.6
   %447 = getelementptr inbounds i8, ptr %379, i64 2056
   %448 = load i32, ptr %447, align 8, !noalias !7441, !noundef !4
   %449 = zext i32 %448 to i64
-  %450 = icmp ugt i64 %393, %449
+  %450 = icmp samesign ugt i64 %393, %449
   br i1 %450, label %.invoke1286, label %451
 
 451:                                              ; preds = %446
@@ -27441,7 +27441,7 @@ define hidden void @_ZN4text6Buffer16apply_local_edit17h6b1d22846e477d17E.llvm.6
   br i1 %942, label %949, label %943
 
 943:                                              ; preds = %936
-  %944 = icmp ult i64 %908, %941
+  %944 = icmp samesign ult i64 %908, %941
   br i1 %944, label %945, label %.invoke1294
 
 945:                                              ; preds = %943
@@ -53890,7 +53890,7 @@ define hidden noundef zeroext i1 @"_ZN8sum_tree6cursor19Cursor$LT$T$C$D$GT$13see
   %89 = getelementptr inbounds i8, ptr %61, i64 24
   %90 = load i32, ptr %89, align 8, !noundef !4
   %91 = zext i32 %90 to i64
-  %92 = icmp ugt i64 %79, %91
+  %92 = icmp samesign ugt i64 %79, %91
   br i1 %92, label %102, label %94
 
 93:                                               ; preds = %._crit_edge152
@@ -54001,7 +54001,7 @@ define hidden noundef zeroext i1 @"_ZN8sum_tree6cursor19Cursor$LT$T$C$D$GT$13see
   %128 = getelementptr inbounds i8, ptr %61, i64 704
   %129 = load i32, ptr %128, align 8, !noundef !4
   %130 = zext i32 %129 to i64
-  %131 = icmp ugt i64 %77, %130
+  %131 = icmp samesign ugt i64 %77, %130
   br i1 %131, label %139, label %133
 
 132:                                              ; preds = %72
@@ -54282,7 +54282,7 @@ define internal fastcc void @"_ZN8sum_tree6cursor19Cursor$LT$T$C$D$GT$13seek_int
   %73 = getelementptr inbounds i8, ptr %44, i64 224
   %74 = load i32, ptr %73, align 8, !noundef !4
   %75 = zext i32 %74 to i64
-  %76 = icmp ugt i64 %62, %75
+  %76 = icmp samesign ugt i64 %62, %75
   br i1 %76, label %87, label %78
 
 77:                                               ; preds = %._crit_edge134
@@ -54409,7 +54409,7 @@ define internal fastcc void @"_ZN8sum_tree6cursor19Cursor$LT$T$C$D$GT$13seek_int
   %115 = getelementptr inbounds i8, ptr %44, i64 2056
   %116 = load i32, ptr %115, align 8, !noundef !4
   %117 = zext i32 %116 to i64
-  %118 = icmp ugt i64 %60, %117
+  %118 = icmp samesign ugt i64 %60, %117
   br i1 %118, label %126, label %120
 
 119:                                              ; preds = %55
@@ -54774,7 +54774,7 @@ define hidden void @"_ZN8sum_tree6cursor19Cursor$LT$T$C$D$GT$14search_forward17h
   store i64 %63, ptr %38, align 8
   %64 = load i32, ptr %39, align 8, !noundef !4
   %65 = zext i32 %64 to i64
-  %66 = icmp ult i64 %63, %65
+  %66 = icmp samesign ult i64 %63, %65
   br i1 %66, label %.lr.ph35, label %"_ZN4core3ops8function5impls79_$LT$impl$u20$core..ops..function..FnMut$LT$A$GT$$u20$for$u20$$RF$mut$u20$F$GT$8call_mut17h109716f7e41cad2fE.exit.thread"
 
 67:                                               ; preds = %34
@@ -54833,7 +54833,7 @@ define hidden void @"_ZN8sum_tree6cursor19Cursor$LT$T$C$D$GT$14search_forward17h
   store i64 %94, ptr %77, align 8
   %95 = load i32, ptr %76, align 8, !noundef !4
   %96 = zext i32 %95 to i64
-  %.not = icmp ult i64 %94, %96
+  %.not = icmp samesign ult i64 %94, %96
   br i1 %.not, label %.lr.ph, label %_ZN8arrayvec13arrayvec_impl12ArrayVecImpl3pop17h42a94cd628f5c3c3E.exit
 
 97:                                               ; preds = %"_ZN4core3ops8function5impls79_$LT$impl$u20$core..ops..function..FnMut$LT$A$GT$$u20$for$u20$$RF$mut$u20$F$GT$8call_mut17h109716f7e41cad2fE.exit.thread"

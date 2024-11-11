@@ -3717,7 +3717,7 @@ if.then.i.i12:                                    ; preds = %_ZNKSt7__cxx1112bas
 
 land.lhs.true.i.i:                                ; preds = %_ZNKSt7__cxx1112basic_stringIDsSt11char_traitsIDsESaIDsEE8capacityEv.exit.i2
   %mul.i.i = shl nuw nsw i64 %cond.i.i1719, 1
-  %cmp3.i.i = icmp ult i64 %sub.i, %mul.i.i
+  %cmp3.i.i = icmp samesign ult i64 %sub.i, %mul.i.i
   %spec.store.select.i.i = tail call i64 @llvm.umin.i64(i64 %mul.i.i, i64 2305843009213693951)
   %__new_capacity.0.i = select i1 %cmp3.i.i, i64 %spec.store.select.i.i, i64 %sub.i
   %add.i.i = shl nuw nsw i64 %__new_capacity.0.i, 1

@@ -15660,7 +15660,7 @@ _ZN4llvm15SmallVectorImplIPKNS_10BasicBlockEE7reserveEm.exit: ; preds = %5, %14
   %22 = getelementptr inbounds i8, ptr %.sroa.05.08.i.i.i.i.i.i.i.i, i64 32
   %23 = getelementptr inbounds i8, ptr %.049.i.i.i.i.i.i.i.i, i64 8
   %24 = add nsw i64 %.010.i.i.i.i.i.i.i.i, -1
-  %25 = icmp ugt i64 %.010.i.i.i.i.i.i.i.i, 1
+  %25 = icmp samesign ugt i64 %.010.i.i.i.i.i.i.i.i, 1
   br i1 %25, label %.lr.ph.i.i.i.i.i.i.i.i, label %_ZN4llvm23SmallVectorTemplateBaseIPKNS_10BasicBlockELb1EE18uninitialized_copyINS_15mapped_iteratorIPKNS_3UseEPFS3_PKNS_5ValueEES3_EEPS3_EEvT_SH_T0_.exit, !llvm.loop !188
 
 _ZN4llvm23SmallVectorTemplateBaseIPKNS_10BasicBlockELb1EE18uninitialized_copyINS_15mapped_iteratorIPKNS_3UseEPFS3_PKNS_5ValueEES3_EEPS3_EEvT_SH_T0_.exit: ; preds = %.lr.ph.i.i.i.i.i.i.i.i, %_ZN4llvm15SmallVectorImplIPKNS_10BasicBlockEE7reserveEm.exit

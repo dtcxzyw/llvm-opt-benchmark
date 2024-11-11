@@ -1316,7 +1316,7 @@ if.then70:                                        ; preds = %legacy
   br i1 %cmp2.i, label %if.then.i, label %if.end16.i
 
 if.then.i:                                        ; preds = %if.then70
-  %cmp3.i = icmp ult i32 %inl, 2147483639
+  %cmp3.i = icmp samesign ult i32 %inl, 2147483639
   br i1 %cmp3.i, label %if.then4.i, label %if.end.i
 
 if.then4.i:                                       ; preds = %if.then.i
@@ -1466,7 +1466,7 @@ if.end117:                                        ; preds = %lor.lhs.false
   %not = sub nsw i32 0, %8
   %and118 = and i32 %inl, %not
   %sub119 = sub nuw nsw i32 2147483647, %8
-  %cmp120 = icmp ugt i32 %and118, %sub119
+  %cmp120 = icmp samesign ugt i32 %and118, %sub119
   br i1 %cmp120, label %if.then122, label %if.end123
 
 if.then122:                                       ; preds = %if.end117
@@ -1488,7 +1488,7 @@ if.end126:                                        ; preds = %cond.end108, %if.en
   br i1 %tobool128.not, label %return, label %if.end130
 
 if.end130:                                        ; preds = %if.end126
-  %cmp131 = icmp ugt i32 %8, 1
+  %cmp131 = icmp samesign ugt i32 %8, 1
   br i1 %cmp131, label %land.lhs.true133, label %if.else141
 
 land.lhs.true133:                                 ; preds = %if.end130
@@ -1886,7 +1886,7 @@ cond.end61:                                       ; preds = %if.end55
   %15 = load i8, ptr %arrayidx, align 1
   %conv63 = zext i8 %15 to i32
   %cmp64 = icmp eq i8 %15, 0
-  %cmp67 = icmp ult i32 %10, %conv63
+  %cmp67 = icmp samesign ult i32 %10, %conv63
   %or.cond = select i1 %cmp64, i1 true, i1 %cmp67
   br i1 %or.cond, label %if.then69, label %for.body
 
@@ -2076,7 +2076,7 @@ if.then:                                          ; preds = %entry
   br i1 %cmp2.i, label %if.then.i, label %if.end16.i
 
 if.then.i:                                        ; preds = %if.then
-  %cmp3.i = icmp ult i32 %inl, 2147483639
+  %cmp3.i = icmp samesign ult i32 %inl, 2147483639
   br i1 %cmp3.i, label %if.then4.i, label %if.end.i
 
 if.then4.i:                                       ; preds = %if.then.i

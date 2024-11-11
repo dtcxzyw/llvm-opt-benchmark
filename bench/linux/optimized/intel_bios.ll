@@ -1469,14 +1469,14 @@ define dso_local void @intel_bios_init(ptr noundef %0) local_unnamed_addr #5 ali
   %482 = getelementptr inbounds i8, ptr %477, i64 3
   %483 = load i16, ptr %482, align 1
   %484 = zext i16 %483 to i32
-  %485 = icmp ugt i32 %472, %484
+  %485 = icmp samesign ugt i32 %472, %484
   br i1 %485, label %.thread112, label %486
 
 486:                                              ; preds = %481
   %487 = getelementptr inbounds i8, ptr %477, i64 6
   %488 = load i16, ptr %487, align 1
   %489 = zext i16 %488 to i32
-  %490 = icmp ugt i32 %472, %489
+  %490 = icmp samesign ugt i32 %472, %489
   br i1 %490, label %.thread112, label %491
 
 491:                                              ; preds = %486
@@ -1500,7 +1500,7 @@ define dso_local void @intel_bios_init(ptr noundef %0) local_unnamed_addr #5 ali
 502:                                              ; preds = %497
   %503 = load i16, ptr %498, align 8
   %504 = zext i16 %503 to i32
-  %505 = icmp ugt i32 %472, %504
+  %505 = icmp samesign ugt i32 %472, %504
   br i1 %505, label %.thread112, label %506
 
 506:                                              ; preds = %502

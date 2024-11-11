@@ -7663,7 +7663,7 @@ getMetaCommand.exit.i:                            ; preds = %99, %96, %93, %90, 
   unreachable
 
 151:                                              ; preds = %146
-  %152 = icmp ugt i32 %147, 3
+  %152 = icmp samesign ugt i32 %147, 3
   br i1 %152, label %153, label %158
 
 153:                                              ; preds = %151

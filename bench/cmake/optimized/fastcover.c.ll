@@ -943,7 +943,7 @@ define dso_local i64 @ZDICT_optimizeTrainFromBuffer_fastCover(ptr nocapture noun
   %107 = getelementptr inbounds i8, ptr %8, i64 48
   %108 = getelementptr inbounds i8, ptr %8, i64 68
   %.not159 = icmp eq ptr %.0131, null
-  %109 = icmp ugt i32 %43, 3
+  %109 = icmp samesign ugt i32 %43, 3
   %110 = getelementptr inbounds i8, ptr %8, i64 56
   %111 = getelementptr inbounds i8, ptr %8, i64 8
   br label %.lr.ph196.split

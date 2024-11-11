@@ -369,7 +369,7 @@ define dso_local noundef range(i32 0, 3) i32 @_Z21cmDependsJava_yyparsePv(ptr no
   br i1 %27, label %.thread, label %28
 
 28:                                               ; preds = %26
-  %29 = icmp ult i32 %.4, 361
+  %29 = icmp samesign ult i32 %.4, 361
   br i1 %29, label %30, label %35
 
 30:                                               ; preds = %28

@@ -5289,7 +5289,7 @@ invoke.cont4:                                     ; preds = %invoke.cont
   store i64 0, ptr %_M_size.i.i.i.i.i, align 16
   %_notifier = getelementptr inbounds i8, ptr %this, i64 312
   %_waiters.i = getelementptr inbounds i8, ptr %this, i64 320
-  %cmp.i.i.i = icmp ugt i64 %N, 82351536043346212
+  %cmp.i.i.i = icmp samesign ugt i64 %N, 82351536043346212
   br i1 %cmp.i.i.i, label %if.then.i.i.i, label %_ZNSt6vectorIN2tf8Notifier6WaiterESaIS2_EE17_S_check_init_lenEmRKS3_.exit.i.i
 
 if.then.i.i.i:                                    ; preds = %invoke.cont4

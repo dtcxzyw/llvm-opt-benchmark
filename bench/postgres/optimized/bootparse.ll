@@ -161,7 +161,7 @@ define dso_local range(i32 0, 2) i32 @boot_yyparse() local_unnamed_addr #0 {
   br i1 %52, label %.sink.split402, label %53
 
 53:                                               ; preds = %51
-  %54 = icmp ult i32 %48, 283
+  %54 = icmp samesign ult i32 %48, 283
   br i1 %54, label %55, label %60
 
 55:                                               ; preds = %53

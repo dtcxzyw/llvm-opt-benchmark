@@ -19954,7 +19954,7 @@ for.body:                                         ; preds = %for.body, %for.body
   br i1 %or.cond.not, label %return.loopexit, label %for.body, !llvm.loop !647
 
 if.else:                                          ; preds = %entry
-  %cmp12 = icmp ult i64 %length, 1025
+  %cmp12 = icmp samesign ult i64 %length, 1025
   %22 = load ptr, ptr %this, align 8
   %23 = load ptr, ptr %22, align 8
   %left_start_idx_14 = getelementptr inbounds i8, ptr %1, i64 32
@@ -19974,7 +19974,7 @@ if.then.i:                                        ; preds = %if.else
   %add.ptr.i = getelementptr inbounds i8, ptr %_ZN5arrow4util8internalL14kNonNullFillerE.maybe_null.i.i, i64 %div.i
   %rem.i = srem i64 %add18, 8
   %sub.i = sub nsw i64 8, %rem.i
-  %cmp6.not.i = icmp ult i64 %length, %sub.i
+  %cmp6.not.i = icmp samesign ult i64 %length, %sub.i
   %sh_prom.i12.i = and i64 %rem.i, 4294967295
   br i1 %cmp6.not.i, label %if.else.i, label %if.then7.i
 
@@ -20033,7 +20033,7 @@ if.then.i33:                                      ; preds = %if.else.i, %if.then
   %add.ptr.i25 = getelementptr inbounds i8, ptr %_ZN5arrow4util8internalL14kNonNullFillerE.maybe_null.i.i23, i64 %div.i24
   %rem.i27 = srem i64 %add23, 8
   %sub.i28 = sub nsw i64 8, %rem.i27
-  %cmp6.not.i34 = icmp ult i64 %length, %sub.i28
+  %cmp6.not.i34 = icmp samesign ult i64 %length, %sub.i28
   %sh_prom.i12.i35 = and i64 %rem.i27, 4294967295
   br i1 %cmp6.not.i34, label %if.else.i50, label %if.then7.i36
 

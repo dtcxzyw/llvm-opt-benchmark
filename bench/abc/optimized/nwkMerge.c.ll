@@ -1467,7 +1467,7 @@ Nwk_ManGraphListAdd.exit22.i105:                  ; preds = %239, %235
   br label %Nwk_ManGraphListInsert.exit109
 
 247:                                              ; preds = %214
-  %248 = icmp ugt i32 %212, 15
+  %248 = icmp samesign ugt i32 %212, 15
   br i1 %248, label %249, label %260
 
 249:                                              ; preds = %247
@@ -1982,7 +1982,7 @@ Nwk_ManGraphListAdd.exit22.i169:                  ; preds = %493, %489
   br label %Nwk_ManGraphListInsert.exit173
 
 501:                                              ; preds = %468
-  %502 = icmp ugt i32 %466, 15
+  %502 = icmp samesign ugt i32 %466, 15
   br i1 %502, label %503, label %514
 
 503:                                              ; preds = %501

@@ -10464,7 +10464,7 @@ _ZN7LIRItemC2EP11InstructionP12LIRGenerator.exit: ; preds = %36, %45
   %50 = load ptr, ptr %9, align 8
   %51 = getelementptr inbounds ptr, ptr %50, i64 %indvars.iv.next
   store ptr %.0.i.i.i, ptr %51, align 8
-  %52 = icmp ugt i64 %indvars.iv, 1
+  %52 = icmp samesign ugt i64 %indvars.iv, 1
   br i1 %52, label %17, label %._crit_edge, !llvm.loop !9
 
 ._crit_edge:                                      ; preds = %49, %_ZN13GrowableArrayIP7LIRItemEC2EiiRKS1_.exit
@@ -10619,7 +10619,7 @@ _ZN7LIRItem6resultEv.exit:                        ; preds = %115, %120, %131
   %indvars.iv.next73.tr = trunc i64 %indvars.iv.next73 to i32
   %133 = shl i32 %indvars.iv.next73.tr, 2
   tail call void @_ZN12LIRGenerator21store_stack_parameterE7LIR_Opr8ByteSize(ptr noundef nonnull align 8 dereferenceable(232) %0, i64 %.sroa.03.0.i, i32 noundef %133)
-  %134 = icmp ugt i64 %indvars.iv72, 1
+  %134 = icmp samesign ugt i64 %indvars.iv72, 1
   br i1 %134, label %.lr.ph69, label %._crit_edge70, !llvm.loop !10
 
 ._crit_edge70:                                    ; preds = %_ZN7LIRItem6resultEv.exit, %_ZNK10ciMetadata9is_loadedEv.exit.thread

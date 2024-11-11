@@ -5496,7 +5496,7 @@ define internal fastcc i64 @heap_getattr(ptr noundef nonnull %0, i32 noundef ran
   %10 = load i16, ptr %9, align 2
   %11 = and i16 %10, 2047
   %12 = zext nneg i16 %11 to i32
-  %13 = icmp ugt i32 %1, %12
+  %13 = icmp samesign ugt i32 %1, %12
   br i1 %13, label %14, label %16
 
 14:                                               ; preds = %6

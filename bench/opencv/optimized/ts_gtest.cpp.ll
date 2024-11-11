@@ -1897,7 +1897,7 @@ _ZN7testing7MessagelsIA2_cEERS0_RKT_.exit39:      ; preds = %_ZN7testing7Message
 
 _ZN7testing7MessagelsINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEERS0_RKT_.exit41: ; preds = %_ZN7testing7MessagelsIA2_cEERS0_RKT_.exit39
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %11) #50
-  %84 = icmp ugt i64 %indvars.iv, 1
+  %84 = icmp samesign ugt i64 %indvars.iv, 1
   br i1 %84, label %.lr.ph, label %.loopexit, !llvm.loop !11
 
 85:                                               ; preds = %19, %6
@@ -17824,7 +17824,7 @@ _ZN7testing8internal6String12FormatHexIntB5cxx11Ei.exit: ; preds = %16
   br label %common.resume
 
 28:                                               ; preds = %2
-  %29 = icmp ult i32 %1, 128
+  %29 = icmp samesign ult i32 %1, 128
   br i1 %29, label %30, label %33
 
 30:                                               ; preds = %28
@@ -17834,7 +17834,7 @@ _ZN7testing8internal6String12FormatHexIntB5cxx11Ei.exit: ; preds = %16
   br label %71
 
 33:                                               ; preds = %28
-  %34 = icmp ult i32 %1, 2048
+  %34 = icmp samesign ult i32 %1, 2048
   br i1 %34, label %35, label %44
 
 35:                                               ; preds = %33
@@ -17851,7 +17851,7 @@ _ZN7testing8internal6String12FormatHexIntB5cxx11Ei.exit: ; preds = %16
   br label %71
 
 44:                                               ; preds = %33
-  %45 = icmp ult i32 %1, 65536
+  %45 = icmp samesign ult i32 %1, 65536
   %46 = lshr i32 %1, 6
   %47 = trunc i32 %1 to i8
   %48 = and i8 %47, 63
@@ -26458,7 +26458,7 @@ define hidden void @_ZN7testing8internal17TestEventRepeater22OnEnvironmentsSetUp
   %22 = getelementptr inbounds i8, ptr %21, i64 40
   %23 = load ptr, ptr %22, align 8
   tail call void %23(ptr noundef nonnull align 8 dereferenceable(8) %20, ptr noundef nonnull align 8 dereferenceable(72) %1)
-  %24 = icmp ugt i64 %indvars.iv, 1
+  %24 = icmp samesign ugt i64 %indvars.iv, 1
   br i1 %24, label %.lr.ph, label %.loopexit, !llvm.loop !413
 
 .loopexit:                                        ; preds = %.lr.ph, %6, %2
@@ -26499,7 +26499,7 @@ define hidden void @_ZN7testing8internal17TestEventRepeater25OnEnvironmentsTearD
   %22 = getelementptr inbounds i8, ptr %21, i64 96
   %23 = load ptr, ptr %22, align 8
   tail call void %23(ptr noundef nonnull align 8 dereferenceable(8) %20, ptr noundef nonnull align 8 dereferenceable(72) %1)
-  %24 = icmp ugt i64 %indvars.iv, 1
+  %24 = icmp samesign ugt i64 %indvars.iv, 1
   br i1 %24, label %.lr.ph, label %.loopexit, !llvm.loop !414
 
 .loopexit:                                        ; preds = %.lr.ph, %6, %2
@@ -26540,7 +26540,7 @@ define hidden void @_ZN7testing8internal17TestEventRepeater9OnTestEndERKNS_8Test
   %22 = getelementptr inbounds i8, ptr %21, i64 72
   %23 = load ptr, ptr %22, align 8
   tail call void %23(ptr noundef nonnull align 8 dereferenceable(8) %20, ptr noundef nonnull align 8 dereferenceable(264) %1)
-  %24 = icmp ugt i64 %indvars.iv, 1
+  %24 = icmp samesign ugt i64 %indvars.iv, 1
   br i1 %24, label %.lr.ph, label %.loopexit, !llvm.loop !415
 
 .loopexit:                                        ; preds = %.lr.ph, %6, %2
@@ -26581,7 +26581,7 @@ define hidden void @_ZN7testing8internal17TestEventRepeater13OnTestCaseEndERKNS_
   %22 = getelementptr inbounds i8, ptr %21, i64 80
   %23 = load ptr, ptr %22, align 8
   tail call void %23(ptr noundef nonnull align 8 dereferenceable(8) %20, ptr noundef nonnull align 8 dereferenceable(248) %1)
-  %24 = icmp ugt i64 %indvars.iv, 1
+  %24 = icmp samesign ugt i64 %indvars.iv, 1
   br i1 %24, label %.lr.ph, label %.loopexit, !llvm.loop !416
 
 .loopexit:                                        ; preds = %.lr.ph, %6, %2
@@ -26622,7 +26622,7 @@ define hidden void @_ZN7testing8internal17TestEventRepeater16OnTestProgramEndERK
   %22 = getelementptr inbounds i8, ptr %21, i64 112
   %23 = load ptr, ptr %22, align 8
   tail call void %23(ptr noundef nonnull align 8 dereferenceable(8) %20, ptr noundef nonnull align 8 dereferenceable(72) %1)
-  %24 = icmp ugt i64 %indvars.iv, 1
+  %24 = icmp samesign ugt i64 %indvars.iv, 1
   br i1 %24, label %.lr.ph, label %.loopexit, !llvm.loop !417
 
 .loopexit:                                        ; preds = %.lr.ph, %6, %2
@@ -26701,7 +26701,7 @@ define hidden void @_ZN7testing8internal17TestEventRepeater18OnTestIterationEndE
   %23 = getelementptr inbounds i8, ptr %22, i64 104
   %24 = load ptr, ptr %23, align 8
   tail call void %24(ptr noundef nonnull align 8 dereferenceable(8) %21, ptr noundef nonnull align 8 dereferenceable(72) %1, i32 noundef %2)
-  %25 = icmp ugt i64 %indvars.iv, 1
+  %25 = icmp samesign ugt i64 %indvars.iv, 1
   br i1 %25, label %.lr.ph, label %.loopexit, !llvm.loop !419
 
 .loopexit:                                        ; preds = %.lr.ph, %7, %3
@@ -41203,7 +41203,7 @@ define linkonce_odr hidden void @_ZN7testing8internal12ShuffleRangeIiEEvPNS0_6Ra
   store i32 %71, ptr %66, align 4
   store i32 %70, ptr %69, align 4
   %indvars.iv.next = add nsw i64 %indvars.iv, -1
-  %72 = icmp ugt i64 %indvars.iv, 2
+  %72 = icmp samesign ugt i64 %indvars.iv, 2
   br i1 %72, label %.lr.ph, label %._crit_edge, !llvm.loop !692
 
 ._crit_edge:                                      ; preds = %.lr.ph, %56
@@ -50805,11 +50805,11 @@ define void @_ZN7testing8internal13PrintStringToERKNSt7__cxx1112basic_stringIcSt
   br i1 %22, label %.backedge.i.i, label %23
 
 23:                                               ; preds = %.lr.ph.i5.i
-  %24 = icmp ult i8 %21, -62
+  %24 = icmp samesign ult i8 %21, -62
   br i1 %24, label %_ZN7testing8internal12_GLOBAL__N_122ConditionalPrintAsTextEPKcmPSo.exit, label %25
 
 25:                                               ; preds = %23
-  %26 = icmp ult i8 %21, -32
+  %26 = icmp samesign ult i8 %21, -32
   br i1 %26, label %27, label %33
 
 27:                                               ; preds = %25
@@ -50852,11 +50852,11 @@ define void @_ZN7testing8internal13PrintStringToERKNSt7__cxx1112basic_stringIcSt
   ]
 
 46:                                               ; preds = %45
-  %47 = icmp ugt i8 %39, -97
+  %47 = icmp samesign ugt i8 %39, -97
   br i1 %47, label %.backedge.i.i, label %_ZN7testing8internal12_GLOBAL__N_122ConditionalPrintAsTextEPKcmPSo.exit
 
 48:                                               ; preds = %45
-  %49 = icmp ult i8 %39, -96
+  %49 = icmp samesign ult i8 %39, -96
   br i1 %49, label %.backedge.i.i, label %_ZN7testing8internal12_GLOBAL__N_122ConditionalPrintAsTextEPKcmPSo.exit
 
 50:                                               ; preds = %33
@@ -50894,11 +50894,11 @@ define void @_ZN7testing8internal13PrintStringToERKNSt7__cxx1112basic_stringIcSt
   ]
 
 67:                                               ; preds = %66
-  %68 = icmp ugt i8 %56, -113
+  %68 = icmp samesign ugt i8 %56, -113
   br i1 %68, label %.backedge.i.i, label %_ZN7testing8internal12_GLOBAL__N_122ConditionalPrintAsTextEPKcmPSo.exit
 
 69:                                               ; preds = %66
-  %70 = icmp ult i8 %56, -112
+  %70 = icmp samesign ult i8 %56, -112
   br i1 %70, label %.backedge.i.i, label %_ZN7testing8internal12_GLOBAL__N_122ConditionalPrintAsTextEPKcmPSo.exit
 
 .backedge.i.i:                                    ; preds = %69, %67, %66, %48, %46, %45, %29, %.lr.ph.i5.i

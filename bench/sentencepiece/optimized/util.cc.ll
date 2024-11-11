@@ -344,7 +344,7 @@ define noundef range(i32 0, 1114112) i32 @_ZN13sentencepiece11string_util10Decod
 86:                                               ; preds = %83
   %87 = icmp samesign ult i32 %80, 55296
   %88 = add nsw i32 %69, -57344
-  %89 = icmp ult i32 %88, 1056768
+  %89 = icmp samesign ult i32 %88, 1056768
   %90 = or i1 %89, %87
   br i1 %90, label %91, label %.thread47
 

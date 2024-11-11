@@ -2301,7 +2301,7 @@ Vec_PtrPush.exit89:                               ; preds = %.Vec_PtrGrow.exit11
   %187 = sext i32 %162 to i64
   %188 = getelementptr inbounds ptr, ptr %185, i64 %187
   store ptr %161, ptr %188, align 8
-  %189 = icmp ugt i64 %indvars.iv101, 1
+  %189 = icmp samesign ugt i64 %indvars.iv101, 1
   br i1 %189, label %.lr.ph, label %.critedge2, !llvm.loop !24
 
 .critedge2:                                       ; preds = %Vec_PtrPush.exit89, %Vec_PtrAlloc.exit

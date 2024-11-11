@@ -4345,7 +4345,7 @@ _ZNSt12_Vector_baseISt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE
   %49 = getelementptr inbounds i8, ptr %.0910.i.i.i.i.i, i64 40
   %50 = getelementptr inbounds i8, ptr %.0811.i.i.i.i.i, i64 40
   %51 = add nsw i64 %.012.i.i.i.i.i, -1
-  %52 = icmp ugt i64 %.012.i.i.i.i.i, 1
+  %52 = icmp samesign ugt i64 %.012.i.i.i.i.i, 1
   br i1 %52, label %.lr.ph.i.i.i.i.i16, label %_ZSt4copyIPKSt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEbEPS7_ET0_T_SC_SB_.exit.loopexit, !llvm.loop !227
 
 _ZSt4copyIPKSt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEbEPS7_ET0_T_SC_SB_.exit.loopexit: ; preds = %.lr.ph.i.i.i.i.i16
@@ -4391,7 +4391,7 @@ _ZSt7advanceIPKSt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEbEmEv
   %62 = getelementptr inbounds i8, ptr %.0910.i.i.i.i.i23, i64 40
   %63 = getelementptr inbounds i8, ptr %.0811.i.i.i.i.i22, i64 40
   %64 = add nsw i64 %.012.i.i.i.i.i21, -1
-  %65 = icmp ugt i64 %.012.i.i.i.i.i21, 1
+  %65 = icmp samesign ugt i64 %.012.i.i.i.i.i21, 1
   br i1 %65, label %.lr.ph.i.i.i.i.i20, label %_ZSt4copyIPKSt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEbEPS7_ET0_T_SC_SB_.exit24.loopexit, !llvm.loop !227
 
 _ZSt4copyIPKSt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEbEPS7_ET0_T_SC_SB_.exit24.loopexit: ; preds = %.lr.ph.i.i.i.i.i20

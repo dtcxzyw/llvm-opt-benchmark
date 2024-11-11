@@ -1755,7 +1755,7 @@ define internal i32 @dissect_wccp2_router_identity_info(ptr noundef %0, i32 noun
   br label %dissect_wccp2_router_identity_element.exit
 
 dissect_wccp2_router_identity_element.exit:       ; preds = %10, %26
-  %28 = icmp ult i32 %2, 12
+  %28 = icmp samesign ult i32 %2, 12
   br i1 %28, label %29, label %31
 
 29:                                               ; preds = %dissect_wccp2_router_identity_element.exit
@@ -1768,7 +1768,7 @@ dissect_wccp2_router_identity_element.exit:       ; preds = %10, %26
   %34 = load i32, ptr @hf_router_identity_send_to_ipv4, align 4
   %35 = load i32, ptr @hf_router_identity_send_to_ipv6, align 4
   %36 = tail call fastcc ptr @wccp_add_ipaddress_item(ptr noundef %4, i32 noundef %33, i32 noundef %34, i32 noundef %35, ptr noundef %0, i32 noundef %32, ptr noundef %5)
-  %37 = icmp ult i32 %2, 16
+  %37 = icmp samesign ult i32 %2, 16
   br i1 %37, label %38, label %40
 
 38:                                               ; preds = %31
@@ -1895,7 +1895,7 @@ dissect_wccp2_assignment_key_element.exit:        ; preds = %6
   br i1 %exitcond129.not, label %._crit_edge, label %.lr.ph, !llvm.loop !13
 
 ._crit_edge:                                      ; preds = %31
-  %37 = icmp ult i32 %.081109, 8
+  %37 = icmp samesign ult i32 %.081109, 8
   br i1 %37, label %38, label %._crit_edge.thread
 
 38:                                               ; preds = %._crit_edge
@@ -1921,7 +1921,7 @@ dissect_wccp2_assignment_key_element.exit:        ; preds = %6
   %.1115 = phi i32 [ %59, %57 ], [ %44, %.lr.ph117.preheader ]
   %.182114 = phi i32 [ %55, %57 ], [ %43, %.lr.ph117.preheader ]
   %.184113 = phi i32 [ %60, %57 ], [ 0, %.lr.ph117.preheader ]
-  %45 = icmp ult i32 %.182114, 4
+  %45 = icmp samesign ult i32 %.182114, 4
   br i1 %45, label %46, label %48
 
 46:                                               ; preds = %.lr.ph117
@@ -2026,7 +2026,7 @@ dissect_wccp2_router_identity_element.exit:       ; preds = %22, %38
   br i1 %exitcond108.not, label %._crit_edge, label %.lr.ph, !llvm.loop !15
 
 ._crit_edge:                                      ; preds = %dissect_wccp2_router_identity_element.exit
-  %41 = icmp ult i32 %.06487, 12
+  %41 = icmp samesign ult i32 %.06487, 12
   br i1 %41, label %42, label %._crit_edge.thread
 
 42:                                               ; preds = %._crit_edge
@@ -2053,7 +2053,7 @@ dissect_wccp2_router_identity_element.exit:       ; preds = %22, %38
   %.195 = phi i32 [ %56, %51 ], [ %47, %.lr.ph98.preheader ]
   %.16394 = phi i32 [ %57, %51 ], [ 0, %.lr.ph98.preheader ]
   %.165.in93 = phi i32 [ %.16596, %51 ], [ %.064.lcssa115, %.lr.ph98.preheader ]
-  %48 = icmp ult i32 %.165.in93, 8
+  %48 = icmp samesign ult i32 %.165.in93, 8
   br i1 %48, label %49, label %51
 
 49:                                               ; preds = %.lr.ph98
@@ -2144,7 +2144,7 @@ define internal i32 @dissect_wccp2_assignment_info(ptr noundef %0, i32 noundef %
 
 ._crit_edge:                                      ; preds = %29
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %7)
-  %37 = icmp ult i32 %.066, 4
+  %37 = icmp samesign ult i32 %.066, 4
   br i1 %37, label %38, label %40
 
 38:                                               ; preds = %._crit_edge
@@ -2509,7 +2509,7 @@ define internal i32 @dissect_wccp2_alternate_assignment_info(ptr noundef %0, i32
   %18 = add nsw i32 %2, -4
   %19 = add i32 %1, 4
   %20 = zext i16 %15 to i32
-  %21 = icmp ult i32 %18, %20
+  %21 = icmp samesign ult i32 %18, %20
   br i1 %21, label %22, label %24
 
 22:                                               ; preds = %10
@@ -2517,7 +2517,7 @@ define internal i32 @dissect_wccp2_alternate_assignment_info(ptr noundef %0, i32
   br label %24
 
 24:                                               ; preds = %22, %10
-  %25 = icmp ugt i32 %18, %20
+  %25 = icmp samesign ugt i32 %18, %20
   br i1 %25, label %26, label %28
 
 26:                                               ; preds = %24
@@ -2623,7 +2623,7 @@ define internal i32 @dissect_wccp2r1_alt_assignment_map_info(ptr noundef %0, i32
   %18 = add nsw i32 %2, -4
   %19 = add i32 %1, 4
   %20 = zext i16 %15 to i32
-  %21 = icmp ult i32 %18, %20
+  %21 = icmp samesign ult i32 %18, %20
   br i1 %21, label %22, label %24
 
 22:                                               ; preds = %10
@@ -2631,7 +2631,7 @@ define internal i32 @dissect_wccp2r1_alt_assignment_map_info(ptr noundef %0, i32
   br label %24
 
 24:                                               ; preds = %22, %10
-  %25 = icmp ugt i32 %18, %20
+  %25 = icmp samesign ugt i32 %18, %20
   br i1 %25, label %26, label %29
 
 26:                                               ; preds = %24
@@ -2932,7 +2932,7 @@ define internal range(i32 2147483644, 2147483643) i32 @dissect_wccp2_command_ext
   br i1 %or.cond4, label %26, label %35
 
 26:                                               ; preds = %12
-  %27 = icmp ult i32 %.04153, 8
+  %27 = icmp samesign ult i32 %.04153, 8
   br i1 %27, label %28, label %30
 
 28:                                               ; preds = %26
@@ -3025,7 +3025,7 @@ define internal fastcc ptr @wccp_add_ipaddress_item(ptr noundef %0, i32 noundef 
   %24 = getelementptr inbounds i8, ptr %6, i64 8
   %25 = load i16, ptr %24, align 8
   %26 = zext i16 %25 to i32
-  %27 = icmp ugt i32 %13, %26
+  %27 = icmp samesign ugt i32 %13, %26
   br i1 %27, label %28, label %30
 
 28:                                               ; preds = %23
@@ -3062,7 +3062,7 @@ define internal fastcc ptr @wccp_add_ipaddress_item(ptr noundef %0, i32 noundef 
   %46 = getelementptr inbounds i8, ptr %6, i64 8
   %47 = load i16, ptr %46, align 8
   %48 = zext i16 %47 to i32
-  %49 = icmp ugt i32 %13, %48
+  %49 = icmp samesign ugt i32 %13, %48
   br i1 %49, label %50, label %52
 
 50:                                               ; preds = %45
@@ -3182,7 +3182,7 @@ define internal fastcc i32 @dissect_wccp2_web_cache_identity_element(ptr noundef
   %53 = call ptr @proto_tree_add_item(ptr noundef %45, i32 noundef %52, ptr noundef %0, i32 noundef %49, i32 noundef 2, i32 noundef 0) #7
   %54 = add nsw i32 %2, -12
   %55 = add i32 %1, 12
-  %56 = icmp ult i32 %54, %51
+  %56 = icmp samesign ult i32 %54, %51
   br i1 %56, label %57, label %59
 
 57:                                               ; preds = %43
@@ -3190,7 +3190,7 @@ define internal fastcc i32 @dissect_wccp2_web_cache_identity_element(ptr noundef
   br label %59
 
 59:                                               ; preds = %57, %43
-  %60 = icmp ugt i32 %54, %51
+  %60 = icmp samesign ugt i32 %54, %51
   %61 = add nuw nsw i32 %51, 16
   %62 = icmp eq i32 %2, %61
   %or.cond.i = select i1 %60, i1 %62, i1 false
@@ -3246,7 +3246,7 @@ define internal fastcc i32 @dissect_wccp2_web_cache_identity_element(ptr noundef
   br i1 %.not41.i.i, label %84, label %dissect_wccp2_alternate_mask_assignment_data_element.exit.i
 
 84:                                               ; preds = %81
-  %.old1.i.i = icmp ugt i32 %79, 4
+  %.old1.i.i = icmp samesign ugt i32 %79, 4
   br i1 %.old1.i.i, label %.preheader.i.i, label %85
 
 85:                                               ; preds = %84
@@ -3346,7 +3346,7 @@ wccp_bucket_info.exit:                            ; preds = %15
   br i1 %27, label %dissect_wccp2_assignment_weight_and_status_element.exit, label %28
 
 28:                                               ; preds = %26
-  %29 = icmp ult i32 %7, 5
+  %29 = icmp samesign ult i32 %7, 5
   br i1 %29, label %30, label %32
 
 30:                                               ; preds = %28
@@ -3383,7 +3383,7 @@ define internal fastcc range(i32 -2147483648, 2147483644) i32 @dissect_wccp2_mas
   br i1 %.not, label %14, label %31
 
 14:                                               ; preds = %11
-  %15 = icmp ult i32 %9, 2
+  %15 = icmp samesign ult i32 %9, 2
   br i1 %15, label %16, label %18
 
 16:                                               ; preds = %14
@@ -3464,7 +3464,7 @@ define internal fastcc i32 @dissect_wccp2_mask_value_set_list(ptr noundef %0, i3
   br i1 %.not.i, label %28, label %dissect_wccp2_mask_value_set_element.exit
 
 28:                                               ; preds = %25
-  %29 = icmp ult i32 %23, 4
+  %29 = icmp samesign ult i32 %23, 4
   br i1 %29, label %30, label %32
 
 30:                                               ; preds = %28
@@ -3626,7 +3626,7 @@ define internal fastcc i32 @dissect_wccp2_mask_element(ptr noundef %0, i32 nound
 8:                                                ; preds = %4
   %9 = load i32, ptr @hf_mask_element_src_ip, align 4
   %10 = tail call ptr @proto_tree_add_item(ptr noundef %3, i32 noundef %9, ptr noundef %0, i32 noundef %1, i32 noundef 4, i32 noundef 0) #7
-  %11 = icmp ult i32 %2, 8
+  %11 = icmp samesign ult i32 %2, 8
   br i1 %11, label %12, label %14
 
 12:                                               ; preds = %8
@@ -3637,7 +3637,7 @@ define internal fastcc i32 @dissect_wccp2_mask_element(ptr noundef %0, i32 nound
   %15 = add i32 %1, 4
   %16 = load i32, ptr @hf_mask_element_dest_ip, align 4
   %17 = tail call ptr @proto_tree_add_item(ptr noundef %3, i32 noundef %16, ptr noundef %0, i32 noundef %15, i32 noundef 4, i32 noundef 0) #7
-  %18 = icmp ult i32 %2, 10
+  %18 = icmp samesign ult i32 %2, 10
   br i1 %18, label %19, label %21
 
 19:                                               ; preds = %14
@@ -3648,7 +3648,7 @@ define internal fastcc i32 @dissect_wccp2_mask_element(ptr noundef %0, i32 nound
   %22 = add i32 %1, 8
   %23 = load i32, ptr @hf_mask_element_src_port, align 4
   %24 = tail call ptr @proto_tree_add_item(ptr noundef %3, i32 noundef %23, ptr noundef %0, i32 noundef %22, i32 noundef 2, i32 noundef 0) #7
-  %25 = icmp ult i32 %2, 12
+  %25 = icmp samesign ult i32 %2, 12
   br i1 %25, label %26, label %28
 
 26:                                               ; preds = %21
@@ -3713,7 +3713,7 @@ define internal fastcc ptr @decode_wccp_encoded_address(ptr noundef %0, i32 noun
   %24 = getelementptr inbounds i8, ptr %2, i64 8
   %25 = load i16, ptr %24, align 8
   %26 = zext i16 %25 to i32
-  %27 = icmp ugt i32 %11, %26
+  %27 = icmp samesign ugt i32 %11, %26
   br i1 %27, label %28, label %33
 
 28:                                               ; preds = %23
@@ -3756,7 +3756,7 @@ define internal fastcc ptr @decode_wccp_encoded_address(ptr noundef %0, i32 noun
   %51 = getelementptr inbounds i8, ptr %2, i64 8
   %52 = load i16, ptr %51, align 8
   %53 = zext i16 %52 to i32
-  %54 = icmp ugt i32 %11, %53
+  %54 = icmp samesign ugt i32 %11, %53
   br i1 %54, label %55, label %60
 
 55:                                               ; preds = %50
@@ -3855,7 +3855,7 @@ define internal fastcc i32 @dissect_wccp2_alternate_mask_value_set_list(ptr noun
   br i1 %.not.i, label %27, label %dissect_wccp2_alternate_mask_value_set_element.exit
 
 27:                                               ; preds = %25
-  %28 = icmp ult i32 %22, 4
+  %28 = icmp samesign ult i32 %22, 4
   br i1 %28, label %29, label %31
 
 29:                                               ; preds = %27

@@ -15297,7 +15297,7 @@ define noundef zeroext i1 @_ZN32pxrInternal_v0_24__pxrReserved__7SdfPath17_LessT
   %.03442.i = phi ptr [ %47, %.lr.ph44.i ], [ %20, %.preheader38.i ]
   %47 = load ptr, ptr %.03442.i, align 8
   %48 = add nsw i32 %.143.i, -1
-  %49 = icmp ugt i32 %.143.i, 1
+  %49 = icmp samesign ugt i32 %.143.i, 1
   br i1 %49, label %.lr.ph44.i, label %._crit_edge.i, !llvm.loop !189
 
 ._crit_edge.i:                                    ; preds = %.lr.ph44.i, %.lr.ph.i, %.preheader38.i
@@ -15391,7 +15391,7 @@ define noundef zeroext i1 @_ZN32pxrInternal_v0_24__pxrReserved__7SdfPath17_LessT
   %.03442.i30 = phi ptr [ %96, %.lr.ph44.i28 ], [ %76, %.preheader38.i26 ]
   %96 = load ptr, ptr %.03442.i30, align 8
   %97 = add nsw i32 %.143.i29, -1
-  %98 = icmp ugt i32 %.143.i29, 1
+  %98 = icmp samesign ugt i32 %.143.i29, 1
   br i1 %98, label %.lr.ph44.i28, label %._crit_edge.i31, !llvm.loop !189
 
 ._crit_edge.i31:                                  ; preds = %.lr.ph44.i28, %.lr.ph.i40, %.preheader38.i26
@@ -22310,7 +22310,7 @@ define linkonce_odr ptr @_ZSt21__unguarded_partitionIN9__gnu_cxx17__normal_itera
   %.03442.i.i = phi ptr [ %58, %.lr.ph44.i.i ], [ %31, %.preheader38.i.i ]
   %58 = load ptr, ptr %.03442.i.i, align 8
   %59 = add nsw i32 %.143.i.i, -1
-  %60 = icmp ugt i32 %.143.i.i, 1
+  %60 = icmp samesign ugt i32 %.143.i.i, 1
   br i1 %60, label %.lr.ph44.i.i, label %._crit_edge.i.i, !llvm.loop !189
 
 ._crit_edge.i.i:                                  ; preds = %.lr.ph44.i.i, %.lr.ph.i.i, %.preheader38.i.i
@@ -22401,7 +22401,7 @@ define linkonce_odr ptr @_ZSt21__unguarded_partitionIN9__gnu_cxx17__normal_itera
   %.03442.i30.i = phi ptr [ %104, %.lr.ph44.i28.i ], [ %84, %.preheader38.i26.i ]
   %104 = load ptr, ptr %.03442.i30.i, align 8
   %105 = add nsw i32 %.143.i29.i, -1
-  %106 = icmp ugt i32 %.143.i29.i, 1
+  %106 = icmp samesign ugt i32 %.143.i29.i, 1
   br i1 %106, label %.lr.ph44.i28.i, label %._crit_edge.i31.i, !llvm.loop !189
 
 ._crit_edge.i31.i:                                ; preds = %.lr.ph44.i28.i, %.lr.ph.i40.i, %.preheader38.i26.i
@@ -22547,7 +22547,7 @@ _ZNK9__gnu_cxx5__ops15_Iter_less_iterclINS_17__normal_iteratorIPN32pxrInternal_v
   %.03442.i.i24 = phi ptr [ %173, %.lr.ph44.i.i22 ], [ %146, %.preheader38.i.i20 ]
   %173 = load ptr, ptr %.03442.i.i24, align 8
   %174 = add nsw i32 %.143.i.i23, -1
-  %175 = icmp ugt i32 %.143.i.i23, 1
+  %175 = icmp samesign ugt i32 %.143.i.i23, 1
   br i1 %175, label %.lr.ph44.i.i22, label %._crit_edge.i.i25, !llvm.loop !189
 
 ._crit_edge.i.i25:                                ; preds = %.lr.ph44.i.i22, %.lr.ph.i.i34, %.preheader38.i.i20
@@ -22638,7 +22638,7 @@ _ZNK9__gnu_cxx5__ops15_Iter_less_iterclINS_17__normal_iteratorIPN32pxrInternal_v
   %.03442.i30.i45 = phi ptr [ %219, %.lr.ph44.i28.i43 ], [ %199, %.preheader38.i26.i41 ]
   %219 = load ptr, ptr %.03442.i30.i45, align 8
   %220 = add nsw i32 %.143.i29.i44, -1
-  %221 = icmp ugt i32 %.143.i29.i44, 1
+  %221 = icmp samesign ugt i32 %.143.i29.i44, 1
   br i1 %221, label %.lr.ph44.i28.i43, label %._crit_edge.i31.i46, !llvm.loop !189
 
 ._crit_edge.i31.i46:                              ; preds = %.lr.ph44.i28.i43, %.lr.ph.i40.i55, %.preheader38.i26.i41

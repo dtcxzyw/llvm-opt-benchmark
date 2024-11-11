@@ -101,7 +101,7 @@ entry:
 
 if.then.i.i:                                      ; preds = %entry
   %5 = load ptr, ptr %data.i.i, align 8
-  %cmp.i.i.i = icmp ugt i32 %3, 16
+  %cmp.i.i.i = icmp samesign ugt i32 %3, 16
   %idx.ext.i.i.i = zext nneg i32 %3 to i64
   %add.ptr.i.i.i = getelementptr inbounds i8, ptr %5, i64 %idx.ext.i.i.i
   %add.ptr2.i.i.i = getelementptr inbounds i8, ptr %add.ptr.i.i.i, i64 -16
@@ -361,7 +361,7 @@ if.then.i.i:                                      ; preds = %if.end
 
 _ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit.i: ; preds = %if.then.i.i, %if.end
   %retval.0.i.i = phi ptr [ %call.i.i, %if.then.i.i ], [ %1, %if.end ]
-  %cmp.i7.i.i = icmp ugt i64 %call, 127
+  %cmp.i7.i.i = icmp samesign ugt i64 %call, 127
   br i1 %cmp.i7.i.i, label %while.body.i.i.i, label %_ZN6google8protobuf2io17CodedOutputStream13WriteVarint32Ej.exit
 
 while.body.i.i.i:                                 ; preds = %_ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit.i, %while.body.i.i.i

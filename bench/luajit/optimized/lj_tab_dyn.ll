@@ -1176,7 +1176,7 @@ if.then.i.i:                                      ; preds = %if.then.i
   br i1 %or.cond.i.i, label %if.then8.i.i, label %countint.exit.i
 
 if.then8.i.i:                                     ; preds = %if.then.i.i
-  %cmp9.i.i = icmp ugt i32 %conv2.i.i, 2
+  %cmp9.i.i = icmp samesign ugt i32 %conv2.i.i, 2
   %sub.i.i = add nsw i32 %conv2.i.i, -1
   %15 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %sub.i.i, i1 true)
   %xor.i.i = xor i32 %15, 31
@@ -1219,7 +1219,7 @@ if.then.i20:                                      ; preds = %counthash.exit
   br i1 %or.cond.i, label %if.then8.i, label %countint.exit
 
 if.then8.i:                                       ; preds = %if.then.i20
-  %cmp9.i = icmp ugt i32 %conv2.i, 2
+  %cmp9.i = icmp samesign ugt i32 %conv2.i, 2
   %sub.i23 = add nsw i32 %conv2.i, -1
   %19 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %sub.i23, i1 true)
   %xor.i = xor i32 %19, 31

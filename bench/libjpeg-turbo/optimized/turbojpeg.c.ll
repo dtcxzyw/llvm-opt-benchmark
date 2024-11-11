@@ -1829,7 +1829,7 @@ define range(i32 0, -2147483648) i32 @tj3YUVPlaneWidth(i32 noundef %0, i32 nound
 7:                                                ; preds = %3
   %8 = icmp eq i32 %2, 3
   %9 = select i1 %8, i32 1, i32 3
-  %.not = icmp ult i32 %0, %9
+  %.not = icmp samesign ult i32 %0, %9
   br i1 %.not, label %10, label %.sink.split
 
 10:                                               ; preds = %7
@@ -1882,7 +1882,7 @@ define range(i32 0, -2147483648) i32 @tj3YUVPlaneHeight(i32 noundef %0, i32 noun
 7:                                                ; preds = %3
   %8 = icmp eq i32 %2, 3
   %9 = select i1 %8, i32 1, i32 3
-  %.not = icmp ult i32 %0, %9
+  %.not = icmp samesign ult i32 %0, %9
   br i1 %.not, label %10, label %.sink.split
 
 10:                                               ; preds = %7
@@ -1959,7 +1959,7 @@ define range(i32 -1, -2147483648) i32 @tjPlaneWidth(i32 noundef %0, i32 noundef 
 7:                                                ; preds = %3
   %8 = icmp eq i32 %2, 3
   %9 = select i1 %8, i32 1, i32 3
-  %.not.i = icmp ult i32 %0, %9
+  %.not.i = icmp samesign ult i32 %0, %9
   br i1 %.not.i, label %10, label %tj3YUVPlaneWidth.exit.thread
 
 10:                                               ; preds = %7
@@ -2020,7 +2020,7 @@ define range(i32 -1, -2147483648) i32 @tjPlaneHeight(i32 noundef %0, i32 noundef
 7:                                                ; preds = %3
   %8 = icmp eq i32 %2, 3
   %9 = select i1 %8, i32 1, i32 3
-  %.not.i = icmp ult i32 %0, %9
+  %.not.i = icmp samesign ult i32 %0, %9
   br i1 %.not.i, label %10, label %tj3YUVPlaneHeight.exit.thread
 
 10:                                               ; preds = %7
@@ -2090,7 +2090,7 @@ define range(i64 0, 4611686014132420610) i64 @tj3YUVPlaneSize(i32 noundef %0, i3
 14:                                               ; preds = %12
   %15 = icmp eq i32 %4, 3
   %16 = select i1 %15, i32 1, i32 3
-  %.not.i = icmp ult i32 %0, %16
+  %.not.i = icmp samesign ult i32 %0, %16
   br i1 %.not.i, label %17, label %tj3YUVPlaneHeight.exit.thread.sink.split
 
 17:                                               ; preds = %14
@@ -9551,7 +9551,7 @@ define range(i32 -1, 1) i32 @tj3SetCroppingRegion(ptr noundef %0, i64 %1, i64 %2
   %105 = sub nsw i32 %104, %.sroa.0.sroa.0.0.extract.trunc
   %.sroa.14.8.insert.ext = zext i32 %105 to i64
   %.sroa.14.8.insert.insert = select i1 %23, i64 %.sroa.14.8.insert.ext, i64 0
-  %106 = icmp ult i64 %2, 4294967296
+  %106 = icmp samesign ult i64 %2, 4294967296
   %107 = sub nsw i32 %101, %.sroa.0.sroa.10.0.extract.trunc
   %.sroa.14.12.insert.ext = zext i32 %107 to i64
   %.sroa.14.12.insert.shift = shl nuw i64 %.sroa.14.12.insert.ext, 32

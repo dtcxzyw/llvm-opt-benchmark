@@ -99,9 +99,9 @@ define void @dbdsdc_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
 59:                                               ; preds = %56
   %60 = load i32, ptr %6, align 4, !tbaa !3
   %61 = icmp slt i32 %60, 1
-  %62 = icmp ult i32 %60, %57
+  %62 = icmp samesign ult i32 %60, %57
   %63 = and i1 %52, %62
-  %or.cond = or i1 %61, %63
+  %or.cond = select i1 %61, i1 true, i1 %63
   br i1 %or.cond, label %.thread, label %64
 
 64:                                               ; preds = %59

@@ -6558,7 +6558,7 @@ define internal fastcc i32 @fSignedTag(ptr noundef nonnull %0, ptr noundef %1, p
   %16 = or disjoint i64 %15, -256
   %.not21.i = icmp slt i8 %14, 0
   %.018.i = select i1 %.not21.i, i64 %16, i64 %15
-  %17 = icmp ugt i32 %11, 1
+  %17 = icmp samesign ugt i32 %11, 1
   br i1 %17, label %.lr.ph.i, label %.loopexit
 
 .lr.ph.i:                                         ; preds = %13, %.lr.ph.i
@@ -8009,7 +8009,7 @@ define internal fastcc i32 @fAbstractSyntaxNType(ptr noundef nonnull %0, ptr nou
   br i1 %128, label %129, label %133
 
 129:                                              ; preds = %4
-  %130 = icmp ult i32 %127, 512
+  %130 = icmp samesign ult i32 %127, 512
   %ASHRAE_Reserved_Fmt.Vendor_Proprietary_Fmt.i = select i1 %130, ptr @ASHRAE_Reserved_Fmt, ptr @Vendor_Proprietary_Fmt
   %131 = tail call ptr @val_to_str(i32 noundef %127, ptr noundef nonnull @BACnetPropertyIdentifier, ptr noundef nonnull %ASHRAE_Reserved_Fmt.Vendor_Proprietary_Fmt.i) #7
   %132 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %126, i64 noundef 256, ptr noundef nonnull @.str.2642, ptr noundef %131) #7
@@ -15679,7 +15679,7 @@ fUnsigned64.exit:                                 ; preds = %.lr.ph.i
   %49 = or disjoint i64 %48, -256
   %.not21.i = icmp slt i8 %47, 0
   %.018.i145 = select i1 %.not21.i, i64 %49, i64 %48
-  %50 = icmp ugt i32 %44, 1
+  %50 = icmp samesign ugt i32 %44, 1
   br i1 %50, label %.lr.ph.i147, label %.loopexit
 
 .lr.ph.i147:                                      ; preds = %46, %.lr.ph.i147

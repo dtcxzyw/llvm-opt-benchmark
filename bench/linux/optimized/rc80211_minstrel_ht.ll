@@ -1112,7 +1112,7 @@ define internal void @minstrel_ht_tx_status(ptr nocapture noundef readonly %0, p
   br i1 %497, label %498, label %500
 
 498:                                              ; preds = %500, %492
-  %499 = icmp ugt i64 %493, 1
+  %499 = icmp samesign ugt i64 %493, 1
   br i1 %499, label %492, label %.loopexit37, !llvm.loop !26
 
 500:                                              ; preds = %492
@@ -1173,7 +1173,7 @@ define internal void @minstrel_ht_tx_status(ptr nocapture noundef readonly %0, p
   br i1 %536, label %537, label %539
 
 537:                                              ; preds = %539, %531
-  %538 = icmp ugt i64 %532, 1
+  %538 = icmp samesign ugt i64 %532, 1
   br i1 %538, label %531, label %.loopexit, !llvm.loop !26
 
 539:                                              ; preds = %531
@@ -4354,11 +4354,11 @@ define internal fastcc void @minstrel_ht_update_rates(ptr nocapture noundef read
   br i1 %65, label %86, label %66
 
 66:                                               ; preds = %55
-  %67 = icmp ugt i32 %64, 369250
+  %67 = icmp samesign ugt i32 %64, 369250
   br i1 %67, label %86, label %68
 
 68:                                               ; preds = %66
-  %69 = icmp ugt i32 %64, 147750
+  %69 = icmp samesign ugt i32 %64, 147750
   br i1 %69, label %86, label %70
 
 70:                                               ; preds = %68

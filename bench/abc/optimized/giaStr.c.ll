@@ -5431,7 +5431,7 @@ Vec_IntSelectSortCost2.exit:                      ; preds = %._crit_edge.i
 
 155:                                              ; preds = %.lr.ph383, %.backedge
   %.val288381 = phi i32 [ %.val288380422, %.lr.ph383 ], [ %.val288, %.backedge ]
-  %156 = icmp ugt i32 %.val288381, 64
+  %156 = icmp samesign ugt i32 %.val288381, 64
   br i1 %156, label %157, label %164
 
 157:                                              ; preds = %155

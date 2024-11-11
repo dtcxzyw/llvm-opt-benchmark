@@ -1951,7 +1951,7 @@ define internal i64 @dma_buf_ioctl(ptr nocapture noundef readonly %0, i32 nounde
 
 22:                                               ; preds = %18, %21, %20
   %23 = phi i32 [ 0, %21 ], [ 1, %20 ], [ 2, %18 ]
-  %24 = icmp ult i64 %16, 4
+  %24 = icmp samesign ult i64 %16, 4
   br i1 %24, label %27, label %25
 
 25:                                               ; preds = %22

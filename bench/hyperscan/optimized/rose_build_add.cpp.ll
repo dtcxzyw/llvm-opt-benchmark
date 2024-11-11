@@ -658,7 +658,7 @@ entry:
   br i1 %cmp.i.i.i.i.i, label %land.lhs.true.i.i.i.i.i, label %cond.false.i.i.i.i.i
 
 land.lhs.true.i.i.i.i.i:                          ; preds = %entry
-  %cmp2.i.i.i.i.i = icmp ult i64 %add.i.i.i.i.i, 5
+  %cmp2.i.i.i.i.i = icmp samesign ult i64 %add.i.i.i.i.i, 5
   br i1 %cmp2.i.i.i.i.i, label %if.then.i.i.i.i.i, label %cond.true.i.i.i.i.i
 
 if.then.i.i.i.i.i:                                ; preds = %land.lhs.true.i.i.i.i.i
@@ -6504,7 +6504,7 @@ call.i.i.noexc.i.i:                               ; preds = %if.then.i191.i
   br i1 %cmp.i.i.i.i.i72.i.i, label %land.lhs.true.i.i.i.i.i.i.i, label %cond.false.i.i.i.i.i.i.i
 
 land.lhs.true.i.i.i.i.i.i.i:                      ; preds = %.noexc.i.i
-  %cmp2.i.i.i.i.i.i.i = icmp ult i64 %add.i.i.i.i.i71.i.i, 5
+  %cmp2.i.i.i.i.i.i.i = icmp samesign ult i64 %add.i.i.i.i.i71.i.i, 5
   br i1 %cmp2.i.i.i.i.i.i.i, label %if.then.i.i.i.i.i73.i.i, label %cond.true.i.i.i.i.i.i.i
 
 if.then.i.i.i.i.i73.i.i:                          ; preds = %land.lhs.true.i.i.i.i.i.i.i
@@ -7022,7 +7022,7 @@ _ZNKSt5dequeIN3ue215rose_literal_idESaIS1_EE14_M_range_checkEm.exit.i.i.i.i: ; p
   br i1 %cmp.i.i.i.i.i.i201.i.i, label %land.lhs.true.i.i.i.i.i.i.i.i, label %cond.false.i.i.i.i.i.i.i.i
 
 land.lhs.true.i.i.i.i.i.i.i.i:                    ; preds = %_ZNKSt5dequeIN3ue215rose_literal_idESaIS1_EE14_M_range_checkEm.exit.i.i.i.i
-  %cmp2.i.i.i.i.i.i.i.i = icmp ult i64 %add.i.i.i.i.i.i.i.i, 4
+  %cmp2.i.i.i.i.i.i.i.i = icmp samesign ult i64 %add.i.i.i.i.i.i.i.i, 4
   br i1 %cmp2.i.i.i.i.i.i.i.i, label %if.then.i.i.i.i.i.i.i228.i, label %cond.true.i.i.i.i.i.i.i.i
 
 if.then.i.i.i.i.i.i.i228.i:                       ; preds = %land.lhs.true.i.i.i.i.i.i.i.i
@@ -7463,7 +7463,7 @@ if.then189.i.i:                                   ; preds = %for.body.i.i178.i
   br i1 %cmp.i.i.i.i290.i.i, label %land.lhs.true.i.i.i.i.i.i, label %cond.false.i.i.i.i.i.i
 
 land.lhs.true.i.i.i.i.i.i:                        ; preds = %if.then189.i.i
-  %cmp2.i.i.i.i.i188.i = icmp ult i64 %add.i.i.i.i.i181.i, 5
+  %cmp2.i.i.i.i.i188.i = icmp samesign ult i64 %add.i.i.i.i.i181.i, 5
   br i1 %cmp2.i.i.i.i.i188.i, label %if.then.i.i.i.i291.i.i, label %cond.true.i.i.i.i.i189.i
 
 if.then.i.i.i.i291.i.i:                           ; preds = %land.lhs.true.i.i.i.i.i.i
@@ -7533,7 +7533,7 @@ call.i.i298.noexc.i.i:                            ; preds = %_ZNSt5dequeIN3ue217
   br i1 %cmp.i.i.i.i.i311.i.i, label %land.lhs.true.i.i.i.i.i328.i.i, label %cond.false.i.i.i.i.i312.i.i
 
 land.lhs.true.i.i.i.i.i328.i.i:                   ; preds = %.noexc335.i.i
-  %cmp2.i.i.i.i.i329.i.i = icmp ult i64 %add.i.i.i.i.i310.i.i, 5
+  %cmp2.i.i.i.i.i329.i.i = icmp samesign ult i64 %add.i.i.i.i.i310.i.i, 5
   br i1 %cmp2.i.i.i.i.i329.i.i, label %if.then.i.i.i.i.i332.i.i, label %cond.true.i.i.i.i.i330.i.i
 
 if.then.i.i.i.i.i332.i.i:                         ; preds = %land.lhs.true.i.i.i.i.i328.i.i
@@ -7990,7 +7990,7 @@ for.body.i.i390:                                  ; preds = %call.i.i.i387.noexc
   br i1 %cmp.i.i.i.i13.i.i, label %land.lhs.true.i.i.i.i.i.i559, label %cond.false.i.i.i.i.i.i397
 
 land.lhs.true.i.i.i.i.i.i559:                     ; preds = %for.body.i.i390
-  %cmp2.i.i.i.i.i.i560 = icmp ult i64 %add.i.i.i.i.i.i396, 5
+  %cmp2.i.i.i.i.i.i560 = icmp samesign ult i64 %add.i.i.i.i.i.i396, 5
   br i1 %cmp2.i.i.i.i.i.i560, label %if.then.i.i.i.i.i.i563, label %cond.true.i.i.i.i.i.i561
 
 if.then.i.i.i.i.i.i563:                           ; preds = %land.lhs.true.i.i.i.i.i.i559
@@ -8130,7 +8130,7 @@ _ZNK5boost9container19vector_alloc_holderINS0_22small_vector_allocatorIN3ue212gr
   br i1 %cmp3.i.i.i, label %if.then.i.i593.i.invoke, label %if.end.i4.i.i
 
 if.end.i4.i.i:                                    ; preds = %_ZNK5boost9container19vector_alloc_holderINS0_22small_vector_allocatorIN3ue212graph_detail17vertex_descriptorINS3_9ue2_graphINS3_9RoseGraphENS3_15RoseVertexPropsENS3_13RoseEdgePropsEEEEESaIvEvEEmNS_11move_detail17integral_constantIjLj1EEEE13next_capacityINS0_16growth_factor_60EEEmm.exit.i.i
-  %cmp.i.i.i.i.i.i.i585.i = icmp ugt i64 %508, 576460752303423487
+  %cmp.i.i.i.i.i.i.i585.i = icmp samesign ugt i64 %508, 576460752303423487
   br i1 %cmp.i.i.i.i.i.i.i585.i, label %if.end.i.i.i.i.i.i.i.i, label %_ZN5boost9container19vector_alloc_holderINS0_22small_vector_allocatorIN3ue212graph_detail17vertex_descriptorINS3_9ue2_graphINS3_9RoseGraphENS3_15RoseVertexPropsENS3_13RoseEdgePropsEEEEESaIvEvEEmNS_11move_detail17integral_constantIjLj1EEEE8allocateEm.exit.i.i
 
 if.end.i.i.i.i.i.i.i.i:                           ; preds = %if.end.i4.i.i
@@ -9165,7 +9165,7 @@ _ZNK5boost9container19vector_alloc_holderINS0_22small_vector_allocatorIjSaIvEvEE
 
 if.end.i4.i744:                                   ; preds = %_ZNK5boost9container19vector_alloc_holderINS0_22small_vector_allocatorIjSaIvEvEEmNS_11move_detail17integral_constantIjLj1EEEE13next_capacityINS0_16growth_factor_60EEEmm.exit.i.thread, %_ZNK5boost9container19vector_alloc_holderINS0_22small_vector_allocatorIjSaIvEvEEmNS_11move_detail17integral_constantIjLj1EEEE13next_capacityINS0_16growth_factor_60EEEmm.exit.i
   %630 = phi i64 [ %626, %_ZNK5boost9container19vector_alloc_holderINS0_22small_vector_allocatorIjSaIvEvEEmNS_11move_detail17integral_constantIjLj1EEEE13next_capacityINS0_16growth_factor_60EEEmm.exit.i.thread ], [ %629, %_ZNK5boost9container19vector_alloc_holderINS0_22small_vector_allocatorIjSaIvEvEEmNS_11move_detail17integral_constantIjLj1EEEE13next_capacityINS0_16growth_factor_60EEEmm.exit.i ]
-  %cmp.i.i.i.i.i.i.i745 = icmp ugt i64 %630, 2305843009213693951
+  %cmp.i.i.i.i.i.i.i745 = icmp samesign ugt i64 %630, 2305843009213693951
   br i1 %cmp.i.i.i.i.i.i.i745, label %if.end.i.i.i.i.i.i.i.invoke, label %_ZN5boost9container19vector_alloc_holderINS0_22small_vector_allocatorIjSaIvEvEEmNS_11move_detail17integral_constantIjLj1EEEE8allocateEm.exit.i
 
 _ZN5boost9container19vector_alloc_holderINS0_22small_vector_allocatorIjSaIvEvEEmNS_11move_detail17integral_constantIjLj1EEEE8allocateEm.exit.i: ; preds = %if.end.i4.i744
@@ -9279,7 +9279,7 @@ invoke.cont15.i.i:                                ; preds = %_ZN5boost9container
   br i1 %cmp.i.i.i.i.i.i427, label %land.lhs.true.i.i.i.i.i265.i, label %cond.false.i.i.i.i.i245.i
 
 land.lhs.true.i.i.i.i.i265.i:                     ; preds = %invoke.cont15.i.i
-  %cmp2.i.i.i.i.i266.i = icmp ult i64 %add.i.i.i.i.i244.i, 5
+  %cmp2.i.i.i.i.i266.i = icmp samesign ult i64 %add.i.i.i.i.i244.i, 5
   br i1 %cmp2.i.i.i.i.i266.i, label %if.then.i.i.i.i.i269.i, label %cond.true.i.i.i.i.i267.i
 
 if.then.i.i.i.i.i269.i:                           ; preds = %land.lhs.true.i.i.i.i.i265.i
@@ -9412,7 +9412,7 @@ _ZNK5boost9container19vector_alloc_holderINS0_22small_vector_allocatorIN3ue212gr
   br i1 %cmp3.i.i, label %if.then.i.i.i.i700.invoke, label %if.end.i4.i
 
 if.end.i4.i:                                      ; preds = %_ZNK5boost9container19vector_alloc_holderINS0_22small_vector_allocatorIN3ue212graph_detail17vertex_descriptorINS3_9ue2_graphINS3_9RoseGraphENS3_15RoseVertexPropsENS3_13RoseEdgePropsEEEEESaIvEvEEmNS_11move_detail17integral_constantIjLj1EEEE13next_capacityINS0_16growth_factor_60EEEmm.exit.i
-  %cmp.i.i.i.i.i.i.i711 = icmp ugt i64 %651, 576460752303423487
+  %cmp.i.i.i.i.i.i.i711 = icmp samesign ugt i64 %651, 576460752303423487
   br i1 %cmp.i.i.i.i.i.i.i711, label %if.end.i.i.i.i.i.i.i.invoke, label %_ZN5boost9container19vector_alloc_holderINS0_22small_vector_allocatorIN3ue212graph_detail17vertex_descriptorINS3_9ue2_graphINS3_9RoseGraphENS3_15RoseVertexPropsENS3_13RoseEdgePropsEEEEESaIvEvEEmNS_11move_detail17integral_constantIjLj1EEEE8allocateEm.exit.i
 
 if.end.i.i.i.i.i.i.i.invoke:                      ; preds = %if.end.i4.i, %if.end.i4.i744
@@ -12213,7 +12213,7 @@ invoke.cont18.i:                                  ; preds = %invoke.cont14.i
   br i1 %cmp.i.i.i.i.i, label %land.lhs.true.i.i.i.i.i, label %cond.false.i.i.i.i.i
 
 land.lhs.true.i.i.i.i.i:                          ; preds = %invoke.cont18.i
-  %cmp2.i.i.i.i.i = icmp ult i64 %add.i.i.i.i.i, 5
+  %cmp2.i.i.i.i.i = icmp samesign ult i64 %add.i.i.i.i.i, 5
   br i1 %cmp2.i.i.i.i.i, label %if.then.i.i.i.i.i, label %cond.true.i.i.i.i.i
 
 if.then.i.i.i.i.i:                                ; preds = %land.lhs.true.i.i.i.i.i
@@ -14547,7 +14547,7 @@ entry:
   br i1 %cmp.i.i.i.i.i, label %land.lhs.true.i.i.i.i.i, label %cond.false.i.i.i.i.i
 
 land.lhs.true.i.i.i.i.i:                          ; preds = %entry
-  %cmp2.i.i.i.i.i = icmp ult i64 %add.i.i.i.i.i, 5
+  %cmp2.i.i.i.i.i = icmp samesign ult i64 %add.i.i.i.i.i, 5
   br i1 %cmp2.i.i.i.i.i, label %if.then.i.i.i.i.i, label %cond.true.i.i.i.i.i
 
 if.then.i.i.i.i.i:                                ; preds = %land.lhs.true.i.i.i.i.i
@@ -14988,7 +14988,7 @@ if.then.i5:                                       ; preds = %_ZNK5boost9containe
   unreachable
 
 if.end.i4:                                        ; preds = %_ZNK5boost9container19vector_alloc_holderINS0_22small_vector_allocatorIN3ue212graph_detail17vertex_descriptorINS3_9ue2_graphINS3_9RoseGraphENS3_15RoseVertexPropsENS3_13RoseEdgePropsEEEEESaIvEvEEmNS_11move_detail17integral_constantIjLj1EEEE13next_capacityINS0_16growth_factor_60EEEmm.exit
-  %cmp.i.i.i.i.i.i = icmp ugt i64 %5, 576460752303423487
+  %cmp.i.i.i.i.i.i = icmp samesign ugt i64 %5, 576460752303423487
   br i1 %cmp.i.i.i.i.i.i, label %if.end.i.i.i.i.i.i, label %_ZN5boost9container19vector_alloc_holderINS0_22small_vector_allocatorIN3ue212graph_detail17vertex_descriptorINS3_9ue2_graphINS3_9RoseGraphENS3_15RoseVertexPropsENS3_13RoseEdgePropsEEEEESaIvEvEEmNS_11move_detail17integral_constantIjLj1EEEE8allocateEm.exit
 
 if.end.i.i.i.i.i.i:                               ; preds = %if.end.i4
@@ -24112,7 +24112,7 @@ if.then3:                                         ; preds = %if.else
   br i1 %cmp.i.i, label %land.lhs.true.i.i, label %cond.false.i.i
 
 land.lhs.true.i.i:                                ; preds = %if.then3
-  %cmp2.i.i = icmp ult i64 %add.i.i13, 5
+  %cmp2.i.i = icmp samesign ult i64 %add.i.i13, 5
   br i1 %cmp2.i.i, label %if.then.i.i, label %cond.true.i.i
 
 if.then.i.i:                                      ; preds = %land.lhs.true.i.i
@@ -24754,7 +24754,7 @@ if.end.i:                                         ; preds = %if.then.i, %if.then
   br i1 %cmp.i.i.i, label %land.lhs.true.i.i.i, label %cond.false.i.i.i
 
 land.lhs.true.i.i.i:                              ; preds = %if.end.i
-  %cmp2.i.i.i = icmp ult i64 %add.i.i.i, 5
+  %cmp2.i.i.i = icmp samesign ult i64 %add.i.i.i, 5
   br i1 %cmp2.i.i.i, label %if.then.i.i.i, label %cond.true.i.i.i
 
 if.then.i.i.i:                                    ; preds = %land.lhs.true.i.i.i
@@ -25827,7 +25827,7 @@ if.then.i5:                                       ; preds = %_ZNK5boost9containe
   unreachable
 
 if.end.i4:                                        ; preds = %_ZNK5boost9container19vector_alloc_holderINS0_22small_vector_allocatorIjSaIvEvEEmNS_11move_detail17integral_constantIjLj1EEEE13next_capacityINS0_16growth_factor_60EEEmm.exit
-  %cmp.i.i.i.i.i.i = icmp ugt i64 %5, 2305843009213693951
+  %cmp.i.i.i.i.i.i = icmp samesign ugt i64 %5, 2305843009213693951
   br i1 %cmp.i.i.i.i.i.i, label %if.end.i.i.i.i.i.i, label %_ZN5boost9container19vector_alloc_holderINS0_22small_vector_allocatorIjSaIvEvEEmNS_11move_detail17integral_constantIjLj1EEEE8allocateEm.exit
 
 if.end.i.i.i.i.i.i:                               ; preds = %if.end.i4

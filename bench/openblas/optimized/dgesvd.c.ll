@@ -155,7 +155,7 @@ define void @dgesvd_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
   br i1 %101, label %102, label %.thread65
 
 102:                                              ; preds = %100
-  %103 = icmp uge i32 %77, %80
+  %103 = icmp samesign uge i32 %77, %80
   %104 = icmp sgt i32 %47, 0
   %105 = select i1 %103, i1 %104, i1 false
   br i1 %105, label %106, label %344
@@ -3829,7 +3829,7 @@ define void @dgesvd_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
   %2387 = load double, ptr %2386, align 8, !tbaa !13
   %2388 = getelementptr inbounds double, ptr %44, i64 %2384
   store double %2387, ptr %2388, align 8, !tbaa !13
-  %2389 = icmp ugt i64 %2384, 2
+  %2389 = icmp samesign ugt i64 %2384, 2
   br i1 %2389, label %2383, label %.thread66, !llvm.loop !21
 
 .thread66:                                        ; preds = %2383, %2358, %2375, %.loopexit, %.loopexit128

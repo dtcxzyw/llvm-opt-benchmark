@@ -21712,7 +21712,7 @@ define linkonce_odr hidden void @_ZN5Eigen8internal29general_matrix_matrix_produ
 
 31:                                               ; preds = %29
   %32 = shl nuw i64 %24, 3
-  %33 = icmp ult i64 %24, 16385
+  %33 = icmp samesign ult i64 %24, 16385
   br i1 %33, label %34, label %37
 
 34:                                               ; preds = %31
@@ -21734,7 +21734,7 @@ define linkonce_odr hidden void @_ZN5Eigen8internal29general_matrix_matrix_produ
 _ZN5Eigen8internal14aligned_mallocEm.exit:        ; preds = %37, %29, %34
   %42 = phi ptr [ %36, %34 ], [ null, %29 ], [ %38, %37 ]
   %43 = phi ptr [ %36, %34 ], [ %30, %29 ], [ %38, %37 ]
-  %44 = icmp ugt i64 %24, 16384
+  %44 = icmp samesign ugt i64 %24, 16384
   %45 = icmp ugt i64 %25, 2305843009213693951
   br i1 %45, label %.invoke, label %46
 
@@ -21746,7 +21746,7 @@ _ZN5Eigen8internal14aligned_mallocEm.exit:        ; preds = %37, %29, %34
 
 49:                                               ; preds = %46
   %50 = shl nuw i64 %25, 3
-  %51 = icmp ult i64 %25, 16385
+  %51 = icmp samesign ult i64 %25, 16385
   br i1 %51, label %52, label %55
 
 52:                                               ; preds = %49
@@ -21771,7 +21771,7 @@ _ZN5Eigen8internal14aligned_mallocEm.exit:        ; preds = %37, %29, %34
 59:                                               ; preds = %52, %46, %55
   %60 = phi ptr [ %54, %52 ], [ null, %46 ], [ %56, %55 ]
   %61 = phi ptr [ %54, %52 ], [ %48, %46 ], [ %56, %55 ]
-  %62 = icmp ugt i64 %25, 16384
+  %62 = icmp samesign ugt i64 %25, 16384
   %63 = icmp ne i64 %17, %2
   %or.cond164.not = or i1 %63, %20
   %spec.select = select i1 %or.cond164.not, i1 true, i1 %23

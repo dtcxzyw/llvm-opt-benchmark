@@ -1413,7 +1413,7 @@ define range(i32 -1, 1) i32 @PGTYPEStimestamp_add_interval(ptr nocapture noundef
 
 77:                                               ; preds = %73
   %78 = icmp eq i32 %39, -4713
-  %79 = icmp ugt i32 %38, 10
+  %79 = icmp samesign ugt i32 %38, 10
   %or.cond = and i1 %78, %79
   br i1 %or.cond, label %.thread.i, label %tm2timestamp.exit.thread
 
@@ -1423,7 +1423,7 @@ define range(i32 -1, 1) i32 @PGTYPEStimestamp_add_interval(ptr nocapture noundef
 
 82:                                               ; preds = %80
   %83 = icmp eq i32 %39, 5874898
-  %84 = icmp ult i32 %38, 6
+  %84 = icmp samesign ult i32 %38, 6
   %or.cond46 = and i1 %83, %84
   br i1 %or.cond46, label %.thread.i, label %tm2timestamp.exit.thread
 

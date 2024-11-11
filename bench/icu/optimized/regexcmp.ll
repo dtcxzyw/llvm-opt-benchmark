@@ -5603,7 +5603,7 @@ if.then115:                                       ; preds = %_ZNK6icu_759UVector
 
 if.then123:                                       ; preds = %_ZNK6icu_759UVector6410elementAtiEi.exit167
   %and125 = and i32 %36, 16777215
-  %cmp126 = icmp ugt i32 %and125, %inc90
+  %cmp126 = icmp samesign ugt i32 %and125, %inc90
   br i1 %cmp126, label %if.then127, label %for.cond89.outer254.backedge
 
 for.cond89.outer254.backedge:                     ; preds = %if.then123, %_ZNK6icu_759UVector3210elementAtiEi.exit177, %if.then115, %if.then108, %_ZNK6icu_759UVector6410elementAtiEi.exit167
@@ -6596,7 +6596,7 @@ if.then374:                                       ; preds = %_ZNK6icu_759UVector
 
 if.then381:                                       ; preds = %_ZNK6icu_759UVector6410elementAtiEi.exit310
   %and383 = and i32 %conv359, 16777215
-  %cmp384 = icmp ugt i32 %and383, %inc354
+  %cmp384 = icmp samesign ugt i32 %and383, %inc354
   br i1 %cmp384, label %if.then385, label %for.cond353.outer410.backedge
 
 for.cond353.outer410.backedge:                    ; preds = %if.then381, %_ZNK6icu_759UVector3210elementAtiEi.exit320, %if.then374, %_ZNK6icu_759UVector6410elementAtiEi.exit310
@@ -6849,7 +6849,7 @@ if.then13.i:                                      ; preds = %if.then9.i
   unreachable
 
 if.end14.i:                                       ; preds = %if.then9.i, %if.then9.i
-  %cmp15.not.i = icmp ugt i32 %val, -16777217
+  %cmp15.not.i = icmp samesign ugt i32 %val, -16777217
   br i1 %cmp15.not.i, label %if.end.i3, label %if.then16.i
 
 if.then16.i:                                      ; preds = %if.end14.i
@@ -7631,7 +7631,7 @@ if.then13:                                        ; preds = %if.then9
   unreachable
 
 if.end14:                                         ; preds = %if.then9, %if.then9
-  %cmp15.not = icmp ugt i32 %val, -16777217
+  %cmp15.not = icmp samesign ugt i32 %val, -16777217
   br i1 %cmp15.not, label %if.end18, label %if.then16
 
 if.then16:                                        ; preds = %if.end14
@@ -8437,7 +8437,7 @@ if.then3.i:                                       ; preds = %if.end.i16
   unreachable
 
 if.end4.i:                                        ; preds = %if.end.i16
-  %cmp5.i = icmp ugt i32 %retval.0.i, 16777215
+  %cmp5.i = icmp samesign ugt i32 %retval.0.i, 16777215
   br i1 %cmp5.i, label %if.then6.i, label %if.end7.i
 
 if.then6.i:                                       ; preds = %if.end4.i

@@ -23481,7 +23481,7 @@ _ZN10serde_json3ser9Formatter17begin_array_value17h44a11688ca4787a7E.exit.i.i.i.
   br label %52
 
 45:                                               ; preds = %_ZN10serde_json3ser9Formatter17begin_array_value17h44a11688ca4787a7E.exit.i.i.i.i.i
-  %46 = icmp ult i8 %.val6.i.i, 10
+  %46 = icmp samesign ult i8 %.val6.i.i, 10
   br i1 %46, label %52, label %47
 
 47:                                               ; preds = %45
@@ -23801,7 +23801,7 @@ _ZN10serde_json3ser9Formatter17begin_array_value17h44a11688ca4787a7E.exit.i.i.i.
   br label %71
 
 64:                                               ; preds = %_ZN10serde_json3ser9Formatter17begin_array_value17h44a11688ca4787a7E.exit.i.i.i.i.i.i.i.i.i
-  %65 = icmp ult i8 %.0.in.i.i.i.i.i.i.i.i.i.i.i.i.i, 10
+  %65 = icmp samesign ult i8 %.0.in.i.i.i.i.i.i.i.i.i.i.i.i.i, 10
   br i1 %65, label %71, label %66
 
 66:                                               ; preds = %64

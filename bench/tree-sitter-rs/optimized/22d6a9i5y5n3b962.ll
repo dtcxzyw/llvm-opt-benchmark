@@ -103,7 +103,7 @@ define hidden void @_ZN4core5slice4sort10merge_sort17h1882ba32989b4523E(ptr noal
   br label %41
 
 23:                                               ; preds = %3
-  %24 = icmp ugt i64 %1, 1
+  %24 = icmp samesign ugt i64 %1, 1
   br i1 %24, label %266, label %40
 
 25:                                               ; preds = %.body, %26
@@ -832,7 +832,7 @@ define hidden void @_ZN4core5slice4sort10merge_sort17h209d394d700c5492E(ptr noal
   br label %40
 
 23:                                               ; preds = %3
-  %24 = icmp ugt i64 %1, 1
+  %24 = icmp samesign ugt i64 %1, 1
   br i1 %24, label %"_ZN115_$LT$core..ops..range..RangeInclusive$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$9index_mut17h7890f38ef1cfc9f3E.exit.i", label %_ZN4core5slice4sort25insertion_sort_shift_left17h180f88c803774d02E.exit
 
 25:                                               ; preds = %59, %26
@@ -1489,7 +1489,7 @@ define hidden void @_ZN4core5slice4sort10merge_sort17h551b61d2777cc4e0E(ptr noal
   br label %49
 
 31:                                               ; preds = %3
-  %32 = icmp ugt i64 %1, 1
+  %32 = icmp samesign ugt i64 %1, 1
   br i1 %32, label %299, label %48
 
 33:                                               ; preds = %.body, %34
@@ -2300,7 +2300,7 @@ define hidden void @_ZN4core5slice4sort10merge_sort17h97c00dd9ea1e460cE(ptr noal
   br label %42
 
 24:                                               ; preds = %3
-  %25 = icmp ugt i64 %1, 1
+  %25 = icmp samesign ugt i64 %1, 1
   br i1 %25, label %232, label %41
 
 26:                                               ; preds = %.body, %27
@@ -2924,7 +2924,7 @@ define hidden void @_ZN4core5slice4sort10merge_sort17hd594727d848f5481E(ptr noal
   br label %42
 
 24:                                               ; preds = %3
-  %25 = icmp ugt i64 %1, 1
+  %25 = icmp samesign ugt i64 %1, 1
   br i1 %25, label %299, label %41
 
 26:                                               ; preds = %.body, %27
@@ -14433,7 +14433,7 @@ _ZN4core5slice4sort25insertion_sort_shift_left17h65ed64e41901fd58E.exit: ; preds
   br i1 %39, label %"_ZN4core5slice4sort12choose_pivot28_$u7b$$u7b$closure$u7d$$u7d$17he8507c6f9bbb8b95E.exit.i", label %"_ZN4core5slice4sort12choose_pivot28_$u7b$$u7b$closure$u7d$$u7d$17he8507c6f9bbb8b95E.exit.thread.i"
 
 "_ZN4core5slice4sort12choose_pivot28_$u7b$$u7b$closure$u7d$$u7d$17he8507c6f9bbb8b95E.exit.i": ; preds = %"_ZN4core5slice4sort12choose_pivot28_$u7b$$u7b$closure$u7d$$u7d$17he8507c6f9bbb8b95E.exit41.i"
-  %40 = icmp ult i64 %.2113.i, 11
+  %40 = icmp samesign ult i64 %.2113.i, 11
   br i1 %40, label %"_ZN4core5slice4sort12choose_pivot28_$u7b$$u7b$closure$u7d$$u7d$17he8507c6f9bbb8b95E.exit.thread.i", label %102
 
 "_ZN4core5slice4sort12choose_pivot28_$u7b$$u7b$closure$u7d$$u7d$17he1f89394e977390fE.exit.i17.i": ; preds = %17
@@ -17857,7 +17857,7 @@ _ZN4core5slice4sort25insertion_sort_shift_left17h1f9bc432948871f1E.exit: ; preds
   br i1 %55, label %"_ZN4core5slice4sort12choose_pivot28_$u7b$$u7b$closure$u7d$$u7d$17hb0e436332e1cfc1dE.exit.i", label %"_ZN4core5slice4sort12choose_pivot28_$u7b$$u7b$closure$u7d$$u7d$17hb0e436332e1cfc1dE.exit.thread.i"
 
 "_ZN4core5slice4sort12choose_pivot28_$u7b$$u7b$closure$u7d$$u7d$17hb0e436332e1cfc1dE.exit.i": ; preds = %"_ZN4core5slice4sort12choose_pivot28_$u7b$$u7b$closure$u7d$$u7d$17h40458daabf941b9fE.exit11.i.i"
-  %56 = icmp ult i64 %.2177.i, 11
+  %56 = icmp samesign ult i64 %.2177.i, 11
   br i1 %56, label %"_ZN4core5slice4sort12choose_pivot28_$u7b$$u7b$closure$u7d$$u7d$17hb0e436332e1cfc1dE.exit.thread.i", label %149
 
 57:                                               ; preds = %23
@@ -21487,7 +21487,7 @@ define hidden void @_ZN4core5slice4sort7recurse17h5f7815451da1f45cE.llvm.1467545
   br i1 %74, label %"_ZN4core5slice4sort12choose_pivot28_$u7b$$u7b$closure$u7d$$u7d$17hb77e217af28fc021E.exit.i", label %"_ZN4core5slice4sort12choose_pivot28_$u7b$$u7b$closure$u7d$$u7d$17hb77e217af28fc021E.exit.thread.i"
 
 "_ZN4core5slice4sort12choose_pivot28_$u7b$$u7b$closure$u7d$$u7d$17hb77e217af28fc021E.exit.i": ; preds = %69, %"_ZN4core5slice4sort12choose_pivot28_$u7b$$u7b$closure$u7d$$u7d$17h58ce401a83c230b7E.exit10.i.i"
-  %75 = icmp ult i64 %.2180.i, 11
+  %75 = icmp samesign ult i64 %.2180.i, 11
   br i1 %75, label %"_ZN4core5slice4sort12choose_pivot28_$u7b$$u7b$closure$u7d$$u7d$17hb77e217af28fc021E.exit.thread.i", label %246
 
 76:                                               ; preds = %17
@@ -23531,7 +23531,7 @@ _ZN4core5slice4sort25insertion_sort_shift_left17he75c80960dcc4c39E.exit: ; preds
   br i1 %34, label %"_ZN4core5slice4sort12choose_pivot28_$u7b$$u7b$closure$u7d$$u7d$17hc20d9a1be50dbf33E.exit.i", label %"_ZN4core5slice4sort12choose_pivot28_$u7b$$u7b$closure$u7d$$u7d$17hc20d9a1be50dbf33E.exit.thread.i"
 
 "_ZN4core5slice4sort12choose_pivot28_$u7b$$u7b$closure$u7d$$u7d$17hc20d9a1be50dbf33E.exit.i": ; preds = %"_ZN4core5slice4sort12choose_pivot28_$u7b$$u7b$closure$u7d$$u7d$17h3976e5fac9ca8336E.exit.i.i"
-  %35 = icmp ult i64 %.2129.i, 11
+  %35 = icmp samesign ult i64 %.2129.i, 11
   br i1 %35, label %"_ZN4core5slice4sort12choose_pivot28_$u7b$$u7b$closure$u7d$$u7d$17hc20d9a1be50dbf33E.exit.thread.i", label %83
 
 36:                                               ; preds = %17
@@ -24259,7 +24259,7 @@ _ZN4core5slice4sort25insertion_sort_shift_left17h4a5907ab286399bfE.exit: ; preds
   br i1 %55, label %"_ZN4core5slice4sort12choose_pivot28_$u7b$$u7b$closure$u7d$$u7d$17h6daba42304600e57E.exit.i", label %"_ZN4core5slice4sort12choose_pivot28_$u7b$$u7b$closure$u7d$$u7d$17h6daba42304600e57E.exit.thread.i"
 
 "_ZN4core5slice4sort12choose_pivot28_$u7b$$u7b$closure$u7d$$u7d$17h6daba42304600e57E.exit.i": ; preds = %"_ZN4core5slice4sort12choose_pivot28_$u7b$$u7b$closure$u7d$$u7d$17hd93da57992135bc9E.exit11.i.i"
-  %56 = icmp ult i64 %.2177.i, 11
+  %56 = icmp samesign ult i64 %.2177.i, 11
   br i1 %56, label %"_ZN4core5slice4sort12choose_pivot28_$u7b$$u7b$closure$u7d$$u7d$17h6daba42304600e57E.exit.thread.i", label %149
 
 57:                                               ; preds = %23
@@ -27787,7 +27787,7 @@ _ZN4core5slice4sort25insertion_sort_shift_left17h76436c80d93e8c1cE.exit: ; preds
   br i1 %56, label %"_ZN4core5slice4sort12choose_pivot28_$u7b$$u7b$closure$u7d$$u7d$17h210fba8dac26581aE.exit.i", label %"_ZN4core5slice4sort12choose_pivot28_$u7b$$u7b$closure$u7d$$u7d$17h210fba8dac26581aE.exit.thread.i"
 
 "_ZN4core5slice4sort12choose_pivot28_$u7b$$u7b$closure$u7d$$u7d$17h210fba8dac26581aE.exit.i": ; preds = %"_ZN4core5slice4sort12choose_pivot28_$u7b$$u7b$closure$u7d$$u7d$17h7d130b6f22eb4429E.exit9.i.i"
-  %57 = icmp ult i64 %.2159.i, 11
+  %57 = icmp samesign ult i64 %.2159.i, 11
   br i1 %57, label %"_ZN4core5slice4sort12choose_pivot28_$u7b$$u7b$closure$u7d$$u7d$17h210fba8dac26581aE.exit.thread.i", label %150
 
 58:                                               ; preds = %24
@@ -28631,7 +28631,7 @@ _ZN4core5slice4sort25insertion_sort_shift_left17hc4eb9b0544bb1605E.exit: ; preds
   br i1 %43, label %"_ZN4core5slice4sort12choose_pivot28_$u7b$$u7b$closure$u7d$$u7d$17hb1cf81c7df3eba18E.exit.i", label %"_ZN4core5slice4sort12choose_pivot28_$u7b$$u7b$closure$u7d$$u7d$17hb1cf81c7df3eba18E.exit.thread.i"
 
 "_ZN4core5slice4sort12choose_pivot28_$u7b$$u7b$closure$u7d$$u7d$17hb1cf81c7df3eba18E.exit.i": ; preds = %"_ZN4core5slice4sort12choose_pivot28_$u7b$$u7b$closure$u7d$$u7d$17hb1cf81c7df3eba18E.exit23.i"
-  %44 = icmp ult i64 %.295.i, 11
+  %44 = icmp samesign ult i64 %.295.i, 11
   br i1 %44, label %"_ZN4core5slice4sort12choose_pivot28_$u7b$$u7b$closure$u7d$$u7d$17hb1cf81c7df3eba18E.exit.thread.i", label %106
 
 "_ZN4core5slice4sort12choose_pivot28_$u7b$$u7b$closure$u7d$$u7d$17h9e34c52c7da2290eE.exit.i15.i": ; preds = %21
@@ -29434,7 +29434,7 @@ _ZN4core5slice4sort25insertion_sort_shift_left17h1d23d0518be2e950E.exit: ; preds
   br i1 %42, label %"_ZN4core5slice4sort12choose_pivot28_$u7b$$u7b$closure$u7d$$u7d$17h9e6ad21e1c156428E.exit.i", label %"_ZN4core5slice4sort12choose_pivot28_$u7b$$u7b$closure$u7d$$u7d$17h9e6ad21e1c156428E.exit.thread.i"
 
 "_ZN4core5slice4sort12choose_pivot28_$u7b$$u7b$closure$u7d$$u7d$17h9e6ad21e1c156428E.exit.i": ; preds = %"_ZN4core5slice4sort12choose_pivot28_$u7b$$u7b$closure$u7d$$u7d$17h2479477ae032bed5E.exit.i.i"
-  %43 = icmp ult i64 %.2141.i, 11
+  %43 = icmp samesign ult i64 %.2141.i, 11
   br i1 %43, label %"_ZN4core5slice4sort12choose_pivot28_$u7b$$u7b$closure$u7d$$u7d$17h9e6ad21e1c156428E.exit.thread.i", label %109
 
 44:                                               ; preds = %19
@@ -31319,7 +31319,7 @@ _ZN4core5slice4sort25insertion_sort_shift_left17h5c63d21459c54387E.exit: ; preds
   br i1 %spec.select.i.i.i18.i.i, label %"_ZN4core5slice4sort12choose_pivot28_$u7b$$u7b$closure$u7d$$u7d$17he8b96e449ac73127E.exit.i", label %"_ZN4core5slice4sort12choose_pivot28_$u7b$$u7b$closure$u7d$$u7d$17he8b96e449ac73127E.exit.thread.i"
 
 "_ZN4core5slice4sort12choose_pivot28_$u7b$$u7b$closure$u7d$$u7d$17he8b96e449ac73127E.exit.i": ; preds = %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$20sort_unstable_by_key28_$u7b$$u7b$closure$u7d$$u7d$17hed2cf1391e05d76bE.exit.i15.i.i", %"_ZN4core5slice4sort12choose_pivot28_$u7b$$u7b$closure$u7d$$u7d$17h17cde27099f00227E.exit12.i.i"
-  %54 = icmp ult i64 %.2174.i, 11
+  %54 = icmp samesign ult i64 %.2174.i, 11
   br i1 %54, label %"_ZN4core5slice4sort12choose_pivot28_$u7b$$u7b$closure$u7d$$u7d$17he8b96e449ac73127E.exit.thread.i", label %150
 
 55:                                               ; preds = %20

@@ -1021,7 +1021,7 @@ _ZL23getMSMemberPointerSlotsPKN5clang17MemberPointerTypeE.exit: ; preds = %89, %
   %95 = add i32 %94, %93
   %96 = zext i32 %95 to i64
   %97 = add nuw nsw i32 %.3.i, %.016.i
-  %98 = icmp ugt i32 %97, 1
+  %98 = icmp samesign ugt i32 %97, 1
   br i1 %98, label %99, label %.sink.split
 
 99:                                               ; preds = %_ZL23getMSMemberPointerSlotsPKN5clang17MemberPointerTypeE.exit

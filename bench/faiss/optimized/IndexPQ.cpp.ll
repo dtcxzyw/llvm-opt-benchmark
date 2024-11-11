@@ -3057,7 +3057,7 @@ define internal noundef float @_ZN5faiss12_GLOBAL__N_118PQDistanceComputerINS_16
   %58 = getelementptr inbounds i8, ptr %.sroa.033.043, i64 1
   %59 = add nsw i32 %53, -8
   %60 = lshr i32 %59, 3
-  %61 = icmp ugt i32 %53, 15
+  %61 = icmp samesign ugt i32 %53, 15
   br i1 %61, label %.lr.ph.i.preheader, label %._crit_edge.i
 
 .lr.ph.i.preheader:                               ; preds = %55
@@ -3134,7 +3134,7 @@ _ZN5faiss16PQDecoderGeneric6decodeEv.exit:        ; preds = %._crit_edge.i, %74,
   %94 = getelementptr inbounds i8, ptr %.sroa.0.048, i64 1
   %95 = add nsw i32 %89, -8
   %96 = lshr i32 %95, 3
-  %97 = icmp ugt i32 %89, 15
+  %97 = icmp samesign ugt i32 %89, 15
   br i1 %97, label %.lr.ph.i26.preheader, label %._crit_edge.i22
 
 .lr.ph.i26.preheader:                             ; preds = %91
@@ -3300,7 +3300,7 @@ define internal noundef float @_ZN5faiss12_GLOBAL__N_118PQDistanceComputerINS_16
   %33 = getelementptr inbounds i8, ptr %.sroa.0.018.i.i, i64 1
   %34 = add nsw i32 %28, -8
   %35 = lshr i32 %34, 3
-  %36 = icmp ugt i32 %28, 15
+  %36 = icmp samesign ugt i32 %28, 15
   br i1 %36, label %.lr.ph.i.i.i, label %._crit_edge.i.i.i
 
 .lr.ph.i.i.i:                                     ; preds = %30, %.lr.ph.i.i.i
@@ -7148,7 +7148,7 @@ _ZNSt6vectorIiSaIiEE6resizeEm.exit.i.i:           ; preds = %._ZNSt6vectorIiSaIi
   %65 = icmp ult i64 %61, 2305843009213693952
   tail call void @llvm.assume(i1 %65)
   %66 = xor i64 %61, 2305843009213693951
-  %67 = icmp ult i64 %66, %64
+  %67 = icmp samesign ult i64 %66, %64
   br i1 %67, label %68, label %_ZNKSt6vectorIiSaIiEE12_M_check_lenEmPKc.exit.i.i
 
 68:                                               ; preds = %63

@@ -2108,7 +2108,7 @@ define dso_local noundef ptr @intel_engine_coredump_alloc(ptr noundef %0, i32 no
   br label %89
 
 70:                                               ; preds = %63
-  %71 = icmp ugt i8 %51, 7
+  %71 = icmp samesign ugt i8 %51, 7
   %72 = load ptr, ptr %27, align 8
   br i1 %71, label %73, label %77
 
@@ -3953,7 +3953,7 @@ define dso_local noundef ptr @intel_gt_coredump_alloc(ptr noundef %0, i32 nounde
   br label %.loopexit13
 
 111:                                              ; preds = %87
-  %112 = icmp ugt i8 %89, 7
+  %112 = icmp samesign ugt i8 %89, 7
   br i1 %112, label %113, label %126
 
 113:                                              ; preds = %111
@@ -4076,7 +4076,7 @@ define dso_local noundef ptr @intel_gt_coredump_alloc(ptr noundef %0, i32 nounde
   br label %201
 
 192:                                              ; preds = %183
-  %193 = icmp ugt i8 %171, 7
+  %193 = icmp samesign ugt i8 %171, 7
   br i1 %193, label %194, label %204
 
 194:                                              ; preds = %192
@@ -4301,7 +4301,7 @@ define dso_local noundef ptr @intel_gt_coredump_alloc(ptr noundef %0, i32 nounde
   br i1 %341, label %331, label %.loopexit, !llvm.loop !89
 
 342:                                              ; preds = %313
-  %343 = icmp ugt i8 %322, 3
+  %343 = icmp samesign ugt i8 %322, 3
   %344 = getelementptr inbounds i8, ptr %316, i64 828
   %345 = load i32, ptr %344, align 4
   %346 = icmp eq i32 %345, 0
@@ -6445,7 +6445,7 @@ define internal range(i64 -9223372036854775808, 2147483648) i64 @gpu_state_read(
   br i1 %14, label %24, label %15
 
 15:                                               ; preds = %11
-  %16 = icmp ugt i64 %13, 2147483647
+  %16 = icmp samesign ugt i64 %13, 2147483647
   br i1 %16, label %17, label %18, !prof !52
 
 17:                                               ; preds = %15

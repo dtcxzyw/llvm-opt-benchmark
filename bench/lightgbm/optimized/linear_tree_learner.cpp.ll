@@ -1456,7 +1456,7 @@ _ZNSt10unique_ptrIN8LightGBM4TreeESt14default_deleteIS1_EED2Ev.exit: ; preds = %
   br i1 %72, label %74, label %.preheader.i
 
 .preheader.i:                                     ; preds = %67
-  %73 = icmp ugt i64 %71, 1
+  %73 = icmp samesign ugt i64 %71, 1
   br i1 %73, label %.lr.ph.i, label %_ZN8LightGBM9ArrayArgsINS_9SplitInfoEE6ArgMaxERKSt6vectorIS1_SaIS1_EE.exit
 
 74:                                               ; preds = %67
@@ -6519,7 +6519,7 @@ _ZN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEC2ImiEERKT_RKT0_.exit.thread: ; preds
   br i1 %182, label %183, label %.preheader.preheader
 
 183:                                              ; preds = %181
-  %184 = icmp ugt i64 %166, 2305843009213693951
+  %184 = icmp samesign ugt i64 %166, 2305843009213693951
   br i1 %184, label %.invoke242, label %185
 
 185:                                              ; preds = %183
@@ -8602,7 +8602,7 @@ define linkonce_odr void @_ZN5Eigen12DenseStorageIdLin1ELin1ELin1ELi0EE6resizeEl
   br i1 %12, label %13, label %.sink.split
 
 13:                                               ; preds = %10
-  %14 = icmp ugt i64 %1, 2305843009213693951
+  %14 = icmp samesign ugt i64 %1, 2305843009213693951
   br i1 %14, label %15, label %17
 
 15:                                               ; preds = %13
@@ -8810,7 +8810,7 @@ define linkonce_odr void @_ZN5Eigen12DenseStorageIiLin1ELin1ELi1ELi0EE6resizeEll
   br i1 %9, label %10, label %.sink.split
 
 10:                                               ; preds = %7
-  %11 = icmp ugt i64 %1, 4611686018427387903
+  %11 = icmp samesign ugt i64 %1, 4611686018427387903
   br i1 %11, label %12, label %14
 
 12:                                               ; preds = %10
@@ -8855,7 +8855,7 @@ define linkonce_odr void @_ZN5Eigen12DenseStorageIiLin1ELi1ELin1ELi1EE6resizeEll
   br i1 %9, label %10, label %.sink.split
 
 10:                                               ; preds = %7
-  %11 = icmp ugt i64 %1, 4611686018427387903
+  %11 = icmp samesign ugt i64 %1, 4611686018427387903
   br i1 %11, label %12, label %14
 
 12:                                               ; preds = %10
@@ -9402,7 +9402,7 @@ _ZN5Eigen15PermutationBaseINS_17PermutationMatrixILin1ELin1EiEEE11setIdentityEl.
   %251 = load i32, ptr %249, align 4
   store i32 %251, ptr %248, align 4
   store i32 %250, ptr %249, align 4
-  %252 = icmp ugt i64 %.057.in211, 1
+  %252 = icmp samesign ugt i64 %.057.in211, 1
   br i1 %252, label %.lr.ph212, label %._crit_edge, !llvm.loop !171
 
 ._crit_edge:                                      ; preds = %.lr.ph212, %_ZN5Eigen15PermutationBaseINS_17PermutationMatrixILin1ELin1EiEEE11setIdentityEl.exit
@@ -9568,7 +9568,7 @@ define linkonce_odr noundef double @_ZN5Eigen8internal10redux_implINS0_13scalar_
   %22 = and <2 x i64> %21, splat (i64 9223372036854775807)
   %23 = bitcast <2 x i64> %22 to <2 x double>
   %invariant.gep.i.i.i.i.i.i.i = getelementptr i8, ptr %9, i64 48
-  %24 = icmp ugt i64 %6, 7
+  %24 = icmp samesign ugt i64 %6, 7
   br i1 %24, label %.lr.ph.i.i.i.i.i.i.i, label %._crit_edge.i.i.i.i.i.i.i
 
 .lr.ph.i.i.i.i.i.i.i:                             ; preds = %19, %.lr.ph.i.i.i.i.i.i.i
@@ -9644,7 +9644,7 @@ _ZNK5Eigen8internal15redux_evaluatorINS_16PartialReduxExprIKNS_12CwiseUnaryOpINS
   %62 = sdiv i64 %6, 2
   %63 = shl nsw i64 %62, 1
   %64 = icmp sgt i64 %6, 3
-  %65 = icmp ugt i64 %6, 7
+  %65 = icmp samesign ugt i64 %6, 7
   %66 = icmp sgt i64 %63, %61
   %67 = icmp slt i64 %63, %6
   br i1 %7, label %_ZNK5Eigen8internal15redux_evaluatorINS_16PartialReduxExprIKNS_12CwiseUnaryOpINS0_13scalar_abs_opIdEEKNS_6MatrixIdLin1ELin1ELi0ELin1ELin1EEEEENS0_10member_sumIddEELi0EEEE17coeffByOuterInnerEll.exit37.us, label %.lr.ph.split
@@ -11030,7 +11030,7 @@ _ZN5Eigen15PlainObjectBaseINS_6MatrixIdLin1ELin1ELi0ELin1ELin1EEEE6resizeEll.exi
   br i1 %74, label %75, label %.sink.split.i
 
 75:                                               ; preds = %73
-  %76 = icmp ugt i64 %70, 2305843009213693951
+  %76 = icmp samesign ugt i64 %70, 2305843009213693951
   br i1 %76, label %.invoke, label %77
 
 77:                                               ; preds = %75
@@ -11541,7 +11541,7 @@ define linkonce_odr void @_ZN5Eigen8internal23triangular_solve_matrixIdlLi1ELi5E
 
 23:                                               ; preds = %21
   %24 = shl nuw i64 %16, 3
-  %25 = icmp ult i64 %16, 16385
+  %25 = icmp samesign ult i64 %16, 16385
   br i1 %25, label %26, label %29
 
 26:                                               ; preds = %23
@@ -11563,7 +11563,7 @@ define linkonce_odr void @_ZN5Eigen8internal23triangular_solve_matrixIdlLi1ELi5E
 _ZN5Eigen8internal14aligned_mallocEm.exit:        ; preds = %29, %21, %26
   %34 = phi ptr [ %28, %26 ], [ null, %21 ], [ %30, %29 ]
   %35 = phi ptr [ %28, %26 ], [ %22, %21 ], [ %30, %29 ]
-  %36 = icmp ugt i64 %16, 16384
+  %36 = icmp samesign ugt i64 %16, 16384
   %37 = icmp ugt i64 %17, 2305843009213693951
   br i1 %37, label %.invoke, label %38
 
@@ -11575,7 +11575,7 @@ _ZN5Eigen8internal14aligned_mallocEm.exit:        ; preds = %29, %21, %26
 
 41:                                               ; preds = %38
   %42 = shl nuw i64 %17, 3
-  %43 = icmp ult i64 %17, 16385
+  %43 = icmp samesign ult i64 %17, 16385
   br i1 %43, label %44, label %47
 
 44:                                               ; preds = %41
@@ -11600,7 +11600,7 @@ _ZN5Eigen8internal14aligned_mallocEm.exit:        ; preds = %29, %21, %26
 51:                                               ; preds = %44, %38, %47
   %52 = phi ptr [ %46, %44 ], [ null, %38 ], [ %48, %47 ]
   %53 = phi ptr [ %46, %44 ], [ %40, %38 ], [ %48, %47 ]
-  %54 = icmp ugt i64 %17, 16384
+  %54 = icmp samesign ugt i64 %17, 16384
   %55 = load atomic i8, ptr @_ZGVZN5Eigen8internal20manage_caching_sizesENS_6ActionEPlS2_S2_E12m_cacheSizes acquire, align 8
   %56 = icmp eq i8 %55, 0
   br i1 %56, label %57, label %63, !prof !252
@@ -11795,7 +11795,7 @@ _ZN5Eigen8internal13gemm_pack_rhsIdlNS0_16blas_data_mapperIdlLi0ELi0ELi1EEELi4EL
   call void asm sideeffect "#EIGEN PRODUCT PACK LHS", "~{dirflag},~{fpsr},~{flags}"() #8, !srcloc !259
   %146 = and i64 %139, 9223372036854775804
   %147 = and i64 %139, 9223372036854775806
-  %148 = icmp ugt i64 %139, 3
+  %148 = icmp samesign ugt i64 %139, 3
   br i1 %148, label %.preheader88.lr.ph.i.us, label %.preheader87.i.us
 
 .preheader88.lr.ph.i.us:                          ; preds = %141
@@ -12019,7 +12019,7 @@ _ZN5Eigen8internal13gemm_pack_lhsIdlNS0_22const_blas_data_mapperIdlLi0EEELi4ELi2
   call void asm sideeffect "#EIGEN PRODUCT PACK LHS", "~{dirflag},~{fpsr},~{flags}"() #8, !srcloc !259
   %230 = and i64 %.sroa.speculated, 9223372036854775804
   %231 = and i64 %.sroa.speculated, 9223372036854775806
-  %232 = icmp ugt i64 %.sroa.speculated, 3
+  %232 = icmp samesign ugt i64 %.sroa.speculated, 3
   br i1 %232, label %.preheader88.lr.ph.i326, label %.preheader87.i302
 
 .preheader88.lr.ph.i326:                          ; preds = %229
@@ -12364,7 +12364,7 @@ _ZN5Eigen8internal20manage_caching_sizesENS_6ActionEPlS2_S2_.exit: ; preds = %4,
 
 122:                                              ; preds = %118
   %123 = icmp ne i64 %15, 0
-  %124 = icmp ult i64 %120, 32769
+  %124 = icmp samesign ult i64 %120, 32769
   %or.cond3 = and i1 %123, %124
   br i1 %or.cond3, label %125, label %126
 
@@ -16546,7 +16546,7 @@ _ZN5Eigen8internal20manage_caching_sizesENS_6ActionEPlS2_S2_.exit: ; preds = %4,
 
 122:                                              ; preds = %118
   %123 = icmp ne i64 %15, 0
-  %124 = icmp ult i64 %120, 32769
+  %124 = icmp samesign ult i64 %120, 32769
   %or.cond3 = and i1 %123, %124
   br i1 %or.cond3, label %125, label %126
 
@@ -16628,7 +16628,7 @@ define linkonce_odr void @_ZN5Eigen8internal29general_matrix_matrix_productIldLi
 
 31:                                               ; preds = %29
   %32 = shl nuw i64 %24, 3
-  %33 = icmp ult i64 %24, 16385
+  %33 = icmp samesign ult i64 %24, 16385
   br i1 %33, label %34, label %37
 
 34:                                               ; preds = %31
@@ -16650,7 +16650,7 @@ define linkonce_odr void @_ZN5Eigen8internal29general_matrix_matrix_productIldLi
 _ZN5Eigen8internal14aligned_mallocEm.exit:        ; preds = %37, %29, %34
   %42 = phi ptr [ %36, %34 ], [ null, %29 ], [ %38, %37 ]
   %43 = phi ptr [ %36, %34 ], [ %30, %29 ], [ %38, %37 ]
-  %44 = icmp ugt i64 %24, 16384
+  %44 = icmp samesign ugt i64 %24, 16384
   %45 = icmp ugt i64 %25, 2305843009213693951
   br i1 %45, label %.invoke, label %46
 
@@ -16662,7 +16662,7 @@ _ZN5Eigen8internal14aligned_mallocEm.exit:        ; preds = %37, %29, %34
 
 49:                                               ; preds = %46
   %50 = shl nuw i64 %25, 3
-  %51 = icmp ult i64 %25, 16385
+  %51 = icmp samesign ult i64 %25, 16385
   br i1 %51, label %52, label %55
 
 52:                                               ; preds = %49
@@ -16687,7 +16687,7 @@ _ZN5Eigen8internal14aligned_mallocEm.exit:        ; preds = %37, %29, %34
 59:                                               ; preds = %52, %46, %55
   %60 = phi ptr [ %54, %52 ], [ null, %46 ], [ %56, %55 ]
   %61 = phi ptr [ %54, %52 ], [ %48, %46 ], [ %56, %55 ]
-  %62 = icmp ugt i64 %25, 16384
+  %62 = icmp samesign ugt i64 %25, 16384
   %63 = icmp ne i64 %17, %2
   %or.cond164.not = or i1 %63, %20
   %spec.select = select i1 %or.cond164.not, i1 true, i1 %23
@@ -17263,7 +17263,7 @@ define linkonce_odr void @_ZN5Eigen8internal23triangular_solve_matrixIdlLi1ELi2E
 
 23:                                               ; preds = %21
   %24 = shl nuw i64 %16, 3
-  %25 = icmp ult i64 %16, 16385
+  %25 = icmp samesign ult i64 %16, 16385
   br i1 %25, label %26, label %29
 
 26:                                               ; preds = %23
@@ -17285,7 +17285,7 @@ define linkonce_odr void @_ZN5Eigen8internal23triangular_solve_matrixIdlLi1ELi2E
 _ZN5Eigen8internal14aligned_mallocEm.exit:        ; preds = %29, %21, %26
   %34 = phi ptr [ %28, %26 ], [ null, %21 ], [ %30, %29 ]
   %35 = phi ptr [ %28, %26 ], [ %22, %21 ], [ %30, %29 ]
-  %36 = icmp ugt i64 %16, 16384
+  %36 = icmp samesign ugt i64 %16, 16384
   %37 = icmp ugt i64 %17, 2305843009213693951
   br i1 %37, label %.invoke, label %38
 
@@ -17297,7 +17297,7 @@ _ZN5Eigen8internal14aligned_mallocEm.exit:        ; preds = %29, %21, %26
 
 41:                                               ; preds = %38
   %42 = shl nuw i64 %17, 3
-  %43 = icmp ult i64 %17, 16385
+  %43 = icmp samesign ult i64 %17, 16385
   br i1 %43, label %44, label %47
 
 44:                                               ; preds = %41
@@ -17322,7 +17322,7 @@ _ZN5Eigen8internal14aligned_mallocEm.exit:        ; preds = %29, %21, %26
 51:                                               ; preds = %44, %38, %47
   %52 = phi ptr [ %46, %44 ], [ null, %38 ], [ %48, %47 ]
   %53 = phi ptr [ %46, %44 ], [ %40, %38 ], [ %48, %47 ]
-  %54 = icmp ugt i64 %17, 16384
+  %54 = icmp samesign ugt i64 %17, 16384
   %55 = load atomic i8, ptr @_ZGVZN5Eigen8internal20manage_caching_sizesENS_6ActionEPlS2_S2_E12m_cacheSizes acquire, align 8
   %56 = icmp eq i8 %55, 0
   br i1 %56, label %57, label %63, !prof !252
@@ -17513,7 +17513,7 @@ _ZN5Eigen8internal13gemm_pack_rhsIdlNS0_16blas_data_mapperIdlLi0ELi0ELi1EEELi4EL
   call void asm sideeffect "#EIGEN PRODUCT PACK LHS", "~{dirflag},~{fpsr},~{flags}"() #8, !srcloc !259
   %145 = and i64 %95, 9223372036854775804
   %146 = and i64 %95, 9223372036854775806
-  %147 = icmp ugt i64 %95, 3
+  %147 = icmp samesign ugt i64 %95, 3
   br i1 %147, label %.preheader88.lr.ph.i.us, label %.preheader87.i.us
 
 .preheader88.lr.ph.i.us:                          ; preds = %142
@@ -17742,7 +17742,7 @@ _ZN5Eigen8internal13gemm_pack_lhsIdlNS0_22const_blas_data_mapperIdlLi0EEELi4ELi2
   call void asm sideeffect "#EIGEN PRODUCT PACK LHS", "~{dirflag},~{fpsr},~{flags}"() #8, !srcloc !259
   %238 = and i64 %.sroa.speculated, 9223372036854775804
   %239 = and i64 %.sroa.speculated, 9223372036854775806
-  %240 = icmp ugt i64 %.sroa.speculated, 3
+  %240 = icmp samesign ugt i64 %.sroa.speculated, 3
   br i1 %240, label %.preheader88.lr.ph.i333, label %.preheader87.i309
 
 .preheader88.lr.ph.i333:                          ; preds = %237
@@ -18827,7 +18827,7 @@ define linkonce_odr void @_ZN5Eigen12DenseStorageIdLin1ELi1ELin1ELi1EE6resizeEll
   br i1 %9, label %10, label %.sink.split
 
 10:                                               ; preds = %7
-  %11 = icmp ugt i64 %1, 2305843009213693951
+  %11 = icmp samesign ugt i64 %1, 2305843009213693951
   br i1 %11, label %12, label %14
 
 12:                                               ; preds = %10
@@ -18883,7 +18883,7 @@ define linkonce_odr void @_ZN5Eigen8internal19gemv_dense_selectorILi2ELi1ELb1EE3
 
 17:                                               ; preds = %15
   %18 = shl nuw i64 %11, 3
-  %19 = icmp ult i64 %11, 16385
+  %19 = icmp samesign ult i64 %11, 16385
   br i1 %19, label %20, label %23
 
 20:                                               ; preds = %17
@@ -18905,7 +18905,7 @@ define linkonce_odr void @_ZN5Eigen8internal19gemv_dense_selectorILi2ELi1ELb1EE3
 28:                                               ; preds = %20, %15, %23
   %29 = phi ptr [ %22, %20 ], [ null, %15 ], [ %24, %23 ]
   %30 = phi ptr [ %22, %20 ], [ %16, %15 ], [ %24, %23 ]
-  %31 = icmp ugt i64 %11, 16384
+  %31 = icmp samesign ugt i64 %11, 16384
   %32 = getelementptr inbounds i8, ptr %7, i64 16
   %33 = load i64, ptr %32, align 8
   %34 = getelementptr inbounds i8, ptr %7, i64 8
@@ -19835,7 +19835,7 @@ _ZN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEC2ImiEERKT_RKT0_.exit.thread: ; preds
   br i1 %182, label %183, label %.preheader.preheader
 
 183:                                              ; preds = %181
-  %184 = icmp ugt i64 %166, 2305843009213693951
+  %184 = icmp samesign ugt i64 %166, 2305843009213693951
   br i1 %184, label %.invoke242, label %185
 
 185:                                              ; preds = %183

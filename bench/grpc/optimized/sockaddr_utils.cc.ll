@@ -2186,7 +2186,7 @@ do.end:                                           ; preds = %if.else15
   %address_parts.sroa.7.0.copyload = load i32, ptr %address_parts.sroa.7.0.sin6_addr21.sroa_idx, align 4
   %address_parts.sroa.11.0.sin6_addr21.sroa_idx = getelementptr inbounds i8, ptr %address, i64 20
   %address_parts.sroa.11.0.copyload = load i32, ptr %address_parts.sroa.11.0.sin6_addr21.sroa_idx, align 4
-  %cmp22 = icmp ult i32 %mask_bits, 33
+  %cmp22 = icmp samesign ult i32 %mask_bits, 33
   br i1 %cmp22, label %if.then23, label %if.else32
 
 if.then23:                                        ; preds = %do.end
@@ -2197,7 +2197,7 @@ if.then23:                                        ; preds = %do.end
   br label %if.end65
 
 if.else32:                                        ; preds = %do.end
-  %cmp33 = icmp ult i32 %mask_bits, 65
+  %cmp33 = icmp samesign ult i32 %mask_bits, 65
   br i1 %cmp33, label %if.then34, label %if.else44
 
 if.then34:                                        ; preds = %if.else32
@@ -2208,7 +2208,7 @@ if.then34:                                        ; preds = %if.else32
   br label %if.end65
 
 if.else44:                                        ; preds = %if.else32
-  %cmp45 = icmp ult i32 %mask_bits, 97
+  %cmp45 = icmp samesign ult i32 %mask_bits, 97
   br i1 %cmp45, label %if.then46, label %if.else55
 
 if.then46:                                        ; preds = %if.else44

@@ -4191,7 +4191,7 @@ define dso_local i32 @scsi_vpd_lun_id(ptr noundef %0, ptr nocapture noundef writ
   br i1 %81, label %82, label %84
 
 82:                                               ; preds = %79
-  %83 = icmp ugt i8 %22, 2
+  %83 = icmp samesign ugt i8 %22, 2
   br i1 %83, label %.thread, label %84
 
 84:                                               ; preds = %82, %79

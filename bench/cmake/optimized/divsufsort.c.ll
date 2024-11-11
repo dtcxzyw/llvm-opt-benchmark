@@ -544,7 +544,7 @@ define internal fastcc range(i32 -2147483645, -2147483648) i32 @sort_typeBstar(p
   br label %172
 
 161:                                              ; preds = %147
-  %.not36.i.i = icmp ult i32 %145, 256
+  %.not36.i.i = icmp samesign ult i32 %145, 256
   br i1 %.not36.i.i, label %168, label %162
 
 162:                                              ; preds = %161
@@ -576,7 +576,7 @@ define internal fastcc range(i32 -2147483645, -2147483648) i32 @sort_typeBstar(p
   %182 = lshr i32 %173, 1
   %183 = add nsw i32 %182, -7
   %184 = shl i32 %181, %183
-  %185 = icmp ugt i32 %173, 23
+  %185 = icmp samesign ugt i32 %173, 23
   br i1 %185, label %186, label %191
 
 186:                                              ; preds = %175
@@ -893,11 +893,11 @@ ss_compare.exit.i.i:                              ; preds = %295, %.thread.i.i.i
   %327 = add nsw i32 %.0811.i.i.i.i, -1
   %328 = getelementptr inbounds i8, ptr %.012.i.i.i.i, i64 4
   %329 = getelementptr inbounds i8, ptr %.0910.i.i.i.i, i64 4
-  %330 = icmp ugt i32 %.0811.i.i.i.i, 1
+  %330 = icmp samesign ugt i32 %.0811.i.i.i.i, 1
   br i1 %330, label %.lr.ph.i.i.i.i, label %ss_rotate.exit.i.i, !llvm.loop !20
 
 331:                                              ; preds = %323
-  %332 = icmp ult i32 %.04886.i.i.i, %.087.i.i.i
+  %332 = icmp samesign ult i32 %.04886.i.i.i, %.087.i.i.i
   br i1 %332, label %333, label %345
 
 333:                                              ; preds = %331
@@ -1317,7 +1317,7 @@ thread-pre-split.i:                               ; preds = %.thread.i, %2058
   br label %.outer.i.i.preheader
 
 520:                                              ; preds = %504
-  %.not7.i.i.i = icmp ult i32 %506, 256
+  %.not7.i.i.i = icmp samesign ult i32 %506, 256
   br i1 %.not7.i.i.i, label %527, label %521
 
 521:                                              ; preds = %520
@@ -1684,7 +1684,7 @@ thread-pre-split.i:                               ; preds = %.thread.i, %2058
   %691 = add nsw i32 %.1136255.i86.i, -1
   %692 = getelementptr inbounds i8, ptr %.0141253.i88.i, i64 4
   %693 = getelementptr inbounds i8, ptr %.0139254.i87.i, i64 4
-  %694 = icmp ugt i32 %.1136255.i86.i, 1
+  %694 = icmp samesign ugt i32 %.1136255.i86.i, 1
   br i1 %694, label %.lr.ph257.i85.i, label %._crit_edge258.i74.i, !llvm.loop !38
 
 ._crit_edge258.i74.i:                             ; preds = %.lr.ph257.i85.i, %674
@@ -1718,7 +1718,7 @@ thread-pre-split.i:                               ; preds = %.thread.i, %2058
   %710 = add nsw i32 %.3138261.i81.i, -1
   %711 = getelementptr inbounds i8, ptr %.1142259.i83.i, i64 4
   %712 = getelementptr inbounds i8, ptr %.1140260.i82.i, i64 4
-  %713 = icmp ugt i32 %.3138261.i81.i, 1
+  %713 = icmp samesign ugt i32 %.3138261.i81.i, 1
   br i1 %713, label %.lr.ph263.i80.i, label %._crit_edge264.i76.i, !llvm.loop !39
 
 ._crit_edge264.i76.i:                             ; preds = %.lr.ph263.i80.i, %._crit_edge258.i74.i
@@ -1857,7 +1857,7 @@ tr_partition.exit120.i:                           ; preds = %._crit_edge264.i76.
   br label %tr_ilg.exit528.i.i
 
 789:                                              ; preds = %769
-  %.not7.i527.i.i = icmp ult i32 %775, 256
+  %.not7.i527.i.i = icmp samesign ult i32 %775, 256
   br i1 %.not7.i527.i.i, label %796, label %790
 
 790:                                              ; preds = %789
@@ -1907,7 +1907,7 @@ tr_ilg.exit528.i.i:                               ; preds = %796, %790, %783, %7
   br label %.outer.i.i.backedge
 
 819:                                              ; preds = %tr_ilg.exit528.i.i
-  %.not7.i531.i.i = icmp ult i32 %805, 256
+  %.not7.i531.i.i = icmp samesign ult i32 %805, 256
   br i1 %.not7.i531.i.i, label %826, label %820
 
 820:                                              ; preds = %819
@@ -1954,7 +1954,7 @@ tr_ilg.exit528.i.i:                               ; preds = %796, %790, %783, %7
   br label %.outer.i.i.backedge
 
 847:                                              ; preds = %832
-  %.not7.i535.i.i = icmp ult i32 %833, 256
+  %.not7.i535.i.i = icmp samesign ult i32 %833, 256
   br i1 %.not7.i535.i.i, label %854, label %848
 
 848:                                              ; preds = %847
@@ -2028,7 +2028,7 @@ tr_ilg.exit528.i.i:                               ; preds = %796, %790, %783, %7
   br label %tr_ilg.exit540.i.i
 
 895:                                              ; preds = %875
-  %.not7.i539.i.i = icmp ult i32 %881, 256
+  %.not7.i539.i.i = icmp samesign ult i32 %881, 256
   br i1 %.not7.i539.i.i, label %902, label %896
 
 896:                                              ; preds = %895
@@ -2078,7 +2078,7 @@ tr_ilg.exit540.i.i:                               ; preds = %902, %896, %889, %8
   br label %.outer.i.i.backedge
 
 925:                                              ; preds = %tr_ilg.exit540.i.i
-  %.not7.i543.i.i = icmp ult i32 %911, 256
+  %.not7.i543.i.i = icmp samesign ult i32 %911, 256
   br i1 %.not7.i543.i.i, label %932, label %926
 
 926:                                              ; preds = %925
@@ -2125,7 +2125,7 @@ tr_ilg.exit540.i.i:                               ; preds = %902, %896, %889, %8
   br label %.outer.i.i.backedge
 
 953:                                              ; preds = %938
-  %.not7.i547.i.i = icmp ult i32 %939, 256
+  %.not7.i547.i.i = icmp samesign ult i32 %939, 256
   br i1 %.not7.i547.i.i, label %960, label %954
 
 954:                                              ; preds = %953
@@ -2500,7 +2500,7 @@ tr_copy.exit.i.i:                                 ; preds = %1100, %1033, %._cri
   br label %tr_ilg.exit556.i.i
 
 1166:                                             ; preds = %1146
-  %.not7.i555.i.i = icmp ult i32 %1152, 256
+  %.not7.i555.i.i = icmp samesign ult i32 %1152, 256
   br i1 %.not7.i555.i.i, label %1173, label %1167
 
 1167:                                             ; preds = %1166
@@ -2827,7 +2827,7 @@ tr_fixdown.exit55.i.i.i:                          ; preds = %1345, %.lr.ph.i50.i
   %1359 = getelementptr inbounds i32, ptr %.0455.ph.i.i, i64 %indvars.iv.next70.i.i207.i
   %1360 = load i32, ptr %1359, align 4
   store i32 %1360, ptr %.0455.ph.i.i, align 4
-  %1361 = icmp ugt i64 %indvars.iv.next70.i.i207.i, 1
+  %1361 = icmp samesign ugt i64 %indvars.iv.next70.i.i207.i, 1
   br i1 %1361, label %.lr.ph.i57.i.i.preheader.i, label %tr_fixdown.exit62.thread.i.i.i
 
 .lr.ph.i57.i.i.preheader.i:                       ; preds = %.lr.ph66.preheader.i.i.i, %tr_fixdown.exit62.i.i.i
@@ -2896,7 +2896,7 @@ tr_fixdown.exit62.i.i.i:                          ; preds = %1381, %.lr.ph.i57.i
   %1394 = getelementptr inbounds i32, ptr %.0455.ph.i.i, i64 %indvars.iv.next70.i.i.i
   %1395 = load i32, ptr %1394, align 4
   store i32 %1395, ptr %.0455.ph.i.i, align 4
-  %1396 = icmp ugt i64 %indvars.iv.next70.i.i.i, 1
+  %1396 = icmp samesign ugt i64 %indvars.iv.next70.i.i.i, 1
   br i1 %1396, label %.lr.ph.i57.i.i.preheader.i, label %tr_fixdown.exit62.thread.i.i.i
 
 tr_heapsort.exit.i.i:                             ; preds = %tr_fixdown.exit62.thread.i.i.i, %1356
@@ -3438,7 +3438,7 @@ tr_pivot.exit.i.i:                                ; preds = %1604, %tr_median3.e
   %1716 = add nsw i32 %.1136255.i.i, -1
   %1717 = getelementptr inbounds i8, ptr %.0141253.i.i, i64 4
   %1718 = getelementptr inbounds i8, ptr %.0139254.i.i, i64 4
-  %1719 = icmp ugt i32 %.1136255.i.i, 1
+  %1719 = icmp samesign ugt i32 %.1136255.i.i, 1
   br i1 %1719, label %.lr.ph257.i.i, label %._crit_edge258.i.i, !llvm.loop !38
 
 ._crit_edge258.i.i:                               ; preds = %.lr.ph257.i.i, %1700
@@ -3472,7 +3472,7 @@ tr_pivot.exit.i.i:                                ; preds = %1604, %tr_median3.e
   %1735 = add nsw i32 %.3138261.i.i, -1
   %1736 = getelementptr inbounds i8, ptr %.1142259.i.i, i64 4
   %1737 = getelementptr inbounds i8, ptr %.1140260.i.i, i64 4
-  %1738 = icmp ugt i32 %.3138261.i.i, 1
+  %1738 = icmp samesign ugt i32 %.3138261.i.i, 1
   br i1 %1738, label %.lr.ph263.i.i, label %tr_partition.exit.i, !llvm.loop !39
 
 tr_partition.exit.i:                              ; preds = %.lr.ph263.i.i, %._crit_edge258.i.i
@@ -3520,7 +3520,7 @@ tr_partition.exit.i:                              ; preds = %.lr.ph263.i.i, %._c
   br label %tr_ilg.exit573.i.i
 
 1762:                                             ; preds = %1747
-  %.not7.i572.i.i = icmp ult i32 %1748, 256
+  %.not7.i572.i.i = icmp samesign ult i32 %1748, 256
   br i1 %.not7.i572.i.i, label %1769, label %1763
 
 1763:                                             ; preds = %1762
@@ -3991,7 +3991,7 @@ tr_partition.exit.thread.i:                       ; preds = %tr_partition.exit.i
   br label %tr_ilg.exit583.i.i
 
 2018:                                             ; preds = %2004
-  %.not7.i582.i.i = icmp ult i32 %537, 256
+  %.not7.i582.i.i = icmp samesign ult i32 %537, 256
   br i1 %.not7.i582.i.i, label %2025, label %2019
 
 2019:                                             ; preds = %2018
@@ -4277,7 +4277,7 @@ define dso_local range(i32 -2147483647, -2147483648) i32 @divbwt(ptr noundef %0,
   br i1 %or.cond3, label %328, label %11
 
 11:                                               ; preds = %7
-  %12 = icmp ult i32 %3, 2
+  %12 = icmp samesign ult i32 %3, 2
   br i1 %12, label %13, label %17
 
 13:                                               ; preds = %11
@@ -5309,7 +5309,7 @@ ss_fixdown.exit60.i:                              ; preds = %210, %.lr.ph.i55.i.
   %224 = getelementptr inbounds i32, ptr %.0426, i64 %indvars.iv.next75.i43
   %225 = load i32, ptr %224, align 4
   store i32 %225, ptr %.0426, align 4
-  %226 = icmp ugt i64 %indvars.iv.next75.i43, 1
+  %226 = icmp samesign ugt i64 %indvars.iv.next75.i43, 1
   br i1 %226, label %.lr.ph.i62.i.preheader, label %ss_fixdown.exit67.thread.i
 
 .lr.ph.i62.i.preheader:                           ; preds = %.lr.ph71.preheader.i, %ss_fixdown.exit67.i
@@ -5387,7 +5387,7 @@ ss_fixdown.exit67.i:                              ; preds = %252, %.lr.ph.i62.i.
   %265 = getelementptr inbounds i32, ptr %.0426, i64 %indvars.iv.next75.i
   %266 = load i32, ptr %265, align 4
   store i32 %266, ptr %.0426, align 4
-  %267 = icmp ugt i64 %indvars.iv.next75.i, 1
+  %267 = icmp samesign ugt i64 %indvars.iv.next75.i, 1
   br i1 %267, label %.lr.ph.i62.i.preheader, label %ss_fixdown.exit67.thread.i
 
 ss_heapsort.exit:                                 ; preds = %ss_fixdown.exit67.thread.i, %221, %93
@@ -6268,7 +6268,7 @@ ss_pivot.exit:                                    ; preds = %405, %437, %446, %s
   %833 = add nsw i32 %.1396631, -1
   %834 = getelementptr inbounds i8, ptr %.0401629, i64 4
   %835 = getelementptr inbounds i8, ptr %.0399630, i64 4
-  %836 = icmp ugt i32 %.1396631, 1
+  %836 = icmp samesign ugt i32 %.1396631, 1
   br i1 %836, label %.lr.ph633, label %._crit_edge634, !llvm.loop !86
 
 ._crit_edge634:                                   ; preds = %.lr.ph633, %817
@@ -6302,7 +6302,7 @@ ss_pivot.exit:                                    ; preds = %405, %437, %446, %s
   %852 = add nsw i32 %.3398637, -1
   %853 = getelementptr inbounds i8, ptr %.1402635, i64 4
   %854 = getelementptr inbounds i8, ptr %.1400636, i64 4
-  %855 = icmp ugt i32 %.3398637, 1
+  %855 = icmp samesign ugt i32 %.3398637, 1
   br i1 %855, label %.lr.ph639, label %._crit_edge640, !llvm.loop !87
 
 ._crit_edge640:                                   ; preds = %.lr.ph639, %._crit_edge634
@@ -6812,7 +6812,7 @@ define internal fastcc void @ss_swapmerge(ptr noundef nonnull readonly %0, ptr n
   %23 = add nsw i32 %.0811.i.i, -1
   %24 = getelementptr inbounds i8, ptr %.012.i.i, i64 4
   %25 = getelementptr inbounds i8, ptr %.0910.i.i, i64 4
-  %26 = icmp ugt i32 %.0811.i.i, 1
+  %26 = icmp samesign ugt i32 %.0811.i.i, 1
   br i1 %26, label %.lr.ph.i.i, label %ss_blockswap.exit.i, !llvm.loop !20
 
 ss_blockswap.exit.i:                              ; preds = %.lr.ph.i.i, %17
@@ -7401,7 +7401,7 @@ ss_compare.exit316.thread:                        ; preds = %233, %243, %ss_comp
   %269 = add nsw i32 %.0811.i.i342, -1
   %270 = getelementptr inbounds i8, ptr %.012.i.i341, i64 4
   %271 = getelementptr inbounds i8, ptr %.0910.i.i343, i64 4
-  %272 = icmp ugt i32 %.0811.i.i342, 1
+  %272 = icmp samesign ugt i32 %.0811.i.i342, 1
   br i1 %272, label %.lr.ph.i.i340, label %ss_blockswap.exit.i317, !llvm.loop !20
 
 ss_blockswap.exit.i317:                           ; preds = %.lr.ph.i.i340, %263
@@ -7961,7 +7961,7 @@ ss_compare.exit385.thread:                        ; preds = %.thread.i378, %489,
   %507 = add nsw i32 %.0811.i, -1
   %508 = getelementptr inbounds i8, ptr %.012.i, i64 4
   %509 = getelementptr inbounds i8, ptr %.0910.i, i64 4
-  %510 = icmp ugt i32 %.0811.i, 1
+  %510 = icmp samesign ugt i32 %.0811.i, 1
   br i1 %510, label %.lr.ph.i387, label %ss_blockswap.exit, !llvm.loop !20
 
 ss_blockswap.exit:                                ; preds = %.lr.ph.i387

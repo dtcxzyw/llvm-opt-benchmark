@@ -524,7 +524,7 @@ _pack_list_of_str.exit:                           ; preds = %.thread.i, %136, %1
   br label %293
 
 149:                                              ; preds = %3
-  %150 = icmp ugt i16 %1, 9983
+  %150 = icmp samesign ugt i16 %1, 9983
   br i1 %150, label %151, label %291
 
 151:                                              ; preds = %149
@@ -2221,7 +2221,7 @@ _pack_list_of_str.exit:                           ; preds = %.thread.i, %26, %26
   br label %270
 
 92:                                               ; preds = %3
-  %93 = icmp ugt i16 %1, 10239
+  %93 = icmp samesign ugt i16 %1, 10239
   br i1 %93, label %94, label %180
 
 94:                                               ; preds = %92
@@ -2412,7 +2412,7 @@ _pack_list_of_str.exit310:                        ; preds = %.thread.i309, %114,
   br label %270
 
 180:                                              ; preds = %92
-  %181 = icmp ugt i16 %1, 9983
+  %181 = icmp samesign ugt i16 %1, 9983
   br i1 %181, label %182, label %268
 
 182:                                              ; preds = %180
@@ -2834,7 +2834,7 @@ define range(i32 -1, 1) i32 @slurmdb_unpack_cluster_rec(ptr nocapture noundef wr
   br i1 %.not252, label %324, label %.loopexit254
 
 114:                                              ; preds = %3
-  %115 = icmp ugt i16 %1, 10239
+  %115 = icmp samesign ugt i16 %1, 10239
   br i1 %115, label %116, label %218
 
 116:                                              ; preds = %114
@@ -3047,7 +3047,7 @@ define range(i32 -1, 1) i32 @slurmdb_unpack_cluster_rec(ptr nocapture noundef wr
   br i1 %.not231, label %324, label %.loopexit254
 
 218:                                              ; preds = %114
-  %219 = icmp ugt i16 %1, 9983
+  %219 = icmp samesign ugt i16 %1, 9983
   br i1 %219, label %220, label %322
 
 220:                                              ; preds = %218
@@ -3814,7 +3814,7 @@ define range(i32 -1, 1) i32 @slurmdb_unpack_assoc_rec_members(ptr noundef %0, i1
   br i1 %.not231, label %265, label %.loopexit233
 
 135:                                              ; preds = %3
-  %136 = icmp ugt i16 %1, 9983
+  %136 = icmp samesign ugt i16 %1, 9983
   br i1 %136, label %137, label %263
 
 137:                                              ; preds = %135
@@ -8479,7 +8479,7 @@ _pack_list_of_str.exit76:                         ; preds = %.thread.i75, %31, %
   br label %.sink.split
 
 43:                                               ; preds = %3
-  %44 = icmp ugt i16 %1, 9983
+  %44 = icmp samesign ugt i16 %1, 9983
   br i1 %44, label %45, label %83
 
 45:                                               ; preds = %43
@@ -8812,7 +8812,7 @@ define range(i32 -1, 1) i32 @slurmdb_unpack_cluster_cond(ptr nocapture noundef w
   br i1 %.not144, label %183, label %.loopexit149
 
 90:                                               ; preds = %3
-  %91 = icmp ugt i16 %1, 9983
+  %91 = icmp samesign ugt i16 %1, 9983
   br i1 %91, label %92, label %.loopexit149
 
 92:                                               ; preds = %90
@@ -11549,7 +11549,7 @@ define void @slurmdb_pack_job_rec(ptr noundef readonly %0, i16 noundef zeroext %
   br label %539
 
 273:                                              ; preds = %3
-  %274 = icmp ugt i16 %1, 9983
+  %274 = icmp samesign ugt i16 %1, 9983
   br i1 %274, label %275, label %537
 
 275:                                              ; preds = %273
@@ -12878,7 +12878,7 @@ define range(i32 -1, 1) i32 @slurmdb_unpack_job_rec(ptr nocapture noundef writeo
   br i1 %.not408, label %436, label %.loopexit
 
 222:                                              ; preds = %3
-  %223 = icmp ugt i16 %1, 9983
+  %223 = icmp samesign ugt i16 %1, 9983
   br i1 %223, label %224, label %434
 
 224:                                              ; preds = %222

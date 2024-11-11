@@ -4228,7 +4228,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_115X86AvoidSFBPass11buildCopiesEiPN
   %.06878 = phi i64 [ %6, %.lr.ph ], [ %39, %.backedge ]
   %.06977 = phi i32 [ %1, %.lr.ph ], [ %.069.be, %.backedge ]
   %15 = add nsw i32 %.06977, -16
-  %16 = icmp ugt i32 %.06977, 15
+  %16 = icmp samesign ugt i32 %.06977, 15
   br i1 %16, label %17, label %_ZL15isYMMLoadOpcodej.exit
 
 17:                                               ; preds = %14
@@ -4349,7 +4349,7 @@ _ZL22getYMMtoXMMStoreOpcodej.exit:                ; preds = %_ZL21getYMMtoXMMLoa
   br i1 %.not102, label %._crit_edge, label %14, !llvm.loop !18
 
 _ZL15isYMMLoadOpcodej.exit:                       ; preds = %14
-  %41 = icmp ugt i32 %.06977, 7
+  %41 = icmp samesign ugt i32 %.06977, 7
   br i1 %41, label %_ZL15isYMMLoadOpcodej.exit.thread76, label %45
 
 _ZL15isYMMLoadOpcodej.exit.thread76:              ; preds = %17, %_ZL15isYMMLoadOpcodej.exit
@@ -4360,7 +4360,7 @@ _ZL15isYMMLoadOpcodej.exit.thread76:              ; preds = %17, %_ZL15isYMMLoad
   br label %.backedge
 
 45:                                               ; preds = %_ZL15isYMMLoadOpcodej.exit
-  %46 = icmp ugt i32 %.06977, 3
+  %46 = icmp samesign ugt i32 %.06977, 3
   br i1 %46, label %47, label %51
 
 47:                                               ; preds = %45

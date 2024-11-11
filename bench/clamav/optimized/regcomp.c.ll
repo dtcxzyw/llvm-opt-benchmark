@@ -186,7 +186,7 @@ define i32 @cli_regcomp_real(ptr noundef %0, ptr noundef %1, i32 noundef %2) loc
   %30 = add nuw nsw i64 %29, 1
   %31 = getelementptr inbounds i8, ptr %4, i64 32
   store i64 %30, ptr %31, align 8
-  %32 = icmp ult i64 %30, %.080
+  %32 = icmp samesign ult i64 %30, %.080
   br i1 %32, label %33, label %34
 
 33:                                               ; preds = %27
@@ -5051,7 +5051,7 @@ othercase.exit:                                   ; preds = %542, %544, %546
   br label %557
 
 557:                                              ; preds = %524, %531, %550, %othercase.exit
-  %558 = icmp ugt i64 %indvars.iv, 1
+  %558 = icmp samesign ugt i64 %indvars.iv, 1
   br i1 %558, label %524, label %.loopexit.loopexit
 
 .loopexit.loopexit:                               ; preds = %557
@@ -5100,7 +5100,7 @@ othercase.exit:                                   ; preds = %542, %544, %546
 577:                                              ; preds = %568, %573
   %storemerge = phi i8 [ %572, %568 ], [ %576, %573 ]
   store i8 %storemerge, ptr %156, align 1
-  %578 = icmp ugt i32 %.0194.in, 1
+  %578 = icmp samesign ugt i32 %.0194.in, 1
   br i1 %578, label %.lr.ph195, label %._crit_edge.loopexit
 
 ._crit_edge.loopexit:                             ; preds = %577

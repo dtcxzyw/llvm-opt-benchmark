@@ -847,7 +847,7 @@ for.body.lr.ph:                                   ; preds = %entry
   %out.addr.3.idx = select i1 %flip, i64 0, i64 %idx.ext7
   %idx.ext18 = sext i32 %linepad to i64
   %xtraiter = and i32 %height, 3
-  %0 = icmp ult i32 %height, 4
+  %0 = icmp samesign ult i32 %height, 4
   br i1 %0, label %for.end.loopexit.unr-lcssa, label %for.body.lr.ph.new
 
 for.body.lr.ph.new:                               ; preds = %for.body.lr.ph
@@ -935,7 +935,7 @@ for.body.lr.ph:                                   ; preds = %if.end
 
 for.body.preheader:                               ; preds = %for.body.lr.ph
   %xtraiter = and i32 %height, 3
-  %0 = icmp ult i32 %height, 4
+  %0 = icmp samesign ult i32 %height, 4
   br i1 %0, label %return.loopexit89.unr-lcssa, label %for.body.preheader.new
 
 for.body.preheader.new:                           ; preds = %for.body.preheader
@@ -1128,7 +1128,7 @@ for.body.lr.ph:                                   ; preds = %entry
   %out.addr.3.idx = select i1 %flip, i64 0, i64 %idx.ext7
   %idx.ext18 = sext i32 %linepad to i64
   %xtraiter = and i32 %height, 3
-  %0 = icmp ult i32 %height, 4
+  %0 = icmp samesign ult i32 %height, 4
   br i1 %0, label %for.end.loopexit.unr-lcssa, label %for.body.lr.ph.new
 
 for.body.lr.ph.new:                               ; preds = %for.body.lr.ph
@@ -1372,7 +1372,7 @@ for.body.preheader:                               ; preds = %entry
   %dP12 = ptrtoint ptr %dP to i64
   %sP13 = ptrtoint ptr %sP to i64
   %0 = zext nneg i32 %sN to i64
-  %min.iters.check = icmp ult i32 %sN, 16
+  %min.iters.check = icmp samesign ult i32 %sN, 16
   %1 = sub i64 %dP12, %sP13
   %diff.check = icmp ult i64 %1, 32
   %or.cond = or i1 %min.iters.check, %diff.check
@@ -1481,7 +1481,7 @@ entry:
 
 for.body.preheader:                               ; preds = %entry
   %0 = zext nneg i32 %sN to i64
-  %min.iters.check = icmp ult i32 %sN, 4
+  %min.iters.check = icmp samesign ult i32 %sN, 4
   br i1 %min.iters.check, label %for.body.preheader1, label %vector.ph
 
 for.body.preheader1:                              ; preds = %middle.block, %for.body.preheader
@@ -1592,7 +1592,7 @@ for.body.preheader:                               ; preds = %entry
   %dP7 = ptrtoint ptr %dP to i64
   %sP8 = ptrtoint ptr %sP to i64
   %0 = zext nneg i32 %sN to i64
-  %min.iters.check = icmp ult i32 %sN, 16
+  %min.iters.check = icmp samesign ult i32 %sN, 16
   %1 = sub i64 %dP7, %sP8
   %diff.check = icmp ult i64 %1, 32
   %or.cond = or i1 %min.iters.check, %diff.check
@@ -1847,7 +1847,7 @@ entry:
 
 for.body.preheader:                               ; preds = %entry
   %0 = zext nneg i32 %sN to i64
-  %min.iters.check = icmp ult i32 %sN, 8
+  %min.iters.check = icmp samesign ult i32 %sN, 8
   br i1 %min.iters.check, label %for.body.preheader1, label %vector.ph
 
 for.body.preheader1:                              ; preds = %middle.block, %for.body.preheader
@@ -1945,7 +1945,7 @@ entry:
 
 for.body.preheader:                               ; preds = %entry
   %0 = zext nneg i32 %sN to i64
-  %min.iters.check = icmp ult i32 %sN, 8
+  %min.iters.check = icmp samesign ult i32 %sN, 8
   br i1 %min.iters.check, label %for.body.preheader1, label %vector.memcheck
 
 for.body.preheader1:                              ; preds = %middle.block, %vector.memcheck, %for.body.preheader
@@ -2055,7 +2055,7 @@ entry:
 
 for.body.preheader:                               ; preds = %entry
   %0 = zext nneg i32 %sN to i64
-  %min.iters.check = icmp ult i32 %sN, 9
+  %min.iters.check = icmp samesign ult i32 %sN, 9
   br i1 %min.iters.check, label %for.body.preheader1, label %vector.memcheck
 
 for.body.preheader1:                              ; preds = %for.body.preheader35.loopexit, %vector.memcheck, %for.body.preheader
@@ -2230,7 +2230,7 @@ entry:
 
 iter.check:                                       ; preds = %entry
   %0 = zext nneg i32 %sN to i64
-  %min.iters.check = icmp ult i32 %sN, 9
+  %min.iters.check = icmp samesign ult i32 %sN, 9
   br i1 %min.iters.check, label %for.body.preheader, label %vector.memcheck
 
 vector.memcheck:                                  ; preds = %iter.check
@@ -2246,7 +2246,7 @@ vector.memcheck:                                  ; preds = %iter.check
   br i1 %found.conflict, label %for.body.preheader, label %vector.main.loop.iter.check
 
 vector.main.loop.iter.check:                      ; preds = %vector.memcheck
-  %min.iters.check30 = icmp ult i32 %sN, 17
+  %min.iters.check30 = icmp samesign ult i32 %sN, 17
   br i1 %min.iters.check30, label %vec.epilog.ph, label %vector.ph
 
 vector.ph:                                        ; preds = %vector.main.loop.iter.check
@@ -2714,7 +2714,7 @@ entry:
 
 for.body.preheader:                               ; preds = %entry
   %0 = zext nneg i32 %sN to i64
-  %min.iters.check = icmp ult i32 %sN, 8
+  %min.iters.check = icmp samesign ult i32 %sN, 8
   br i1 %min.iters.check, label %for.body.preheader1, label %vector.memcheck
 
 for.body.preheader1:                              ; preds = %middle.block, %vector.memcheck, %for.body.preheader
@@ -2881,7 +2881,7 @@ for.body.preheader:                               ; preds = %entry
   %dP9 = ptrtoint ptr %dP to i64
   %sP10 = ptrtoint ptr %sP to i64
   %0 = zext nneg i32 %sN to i64
-  %min.iters.check = icmp ult i32 %sN, 8
+  %min.iters.check = icmp samesign ult i32 %sN, 8
   %1 = sub i64 %dP9, %sP10
   %diff.check = icmp ult i64 %1, 32
   %or.cond = or i1 %min.iters.check, %diff.check
@@ -2992,7 +2992,7 @@ for.body.preheader:                               ; preds = %entry
   %dP13 = ptrtoint ptr %dP to i64
   %sP14 = ptrtoint ptr %sP to i64
   %0 = zext nneg i32 %sN to i64
-  %min.iters.check = icmp ult i32 %sN, 8
+  %min.iters.check = icmp samesign ult i32 %sN, 8
   %1 = sub i64 %dP13, %sP14
   %diff.check = icmp ult i64 %1, 32
   %or.cond = or i1 %min.iters.check, %diff.check
@@ -3265,7 +3265,7 @@ entry:
 
 for.body.preheader:                               ; preds = %entry
   %0 = zext nneg i32 %sN to i64
-  %min.iters.check = icmp ult i32 %sN, 8
+  %min.iters.check = icmp samesign ult i32 %sN, 8
   br i1 %min.iters.check, label %for.body.preheader1, label %vector.memcheck
 
 for.body.preheader1:                              ; preds = %middle.block, %vector.memcheck, %for.body.preheader
@@ -3549,7 +3549,7 @@ entry:
 
 for.body.preheader:                               ; preds = %entry
   %0 = zext nneg i32 %sN to i64
-  %min.iters.check = icmp ult i32 %sN, 8
+  %min.iters.check = icmp samesign ult i32 %sN, 8
   br i1 %min.iters.check, label %for.body.preheader1, label %vector.ph
 
 for.body.preheader1:                              ; preds = %middle.block, %for.body.preheader
@@ -3643,7 +3643,7 @@ for.body.preheader:                               ; preds = %entry
   %dP7 = ptrtoint ptr %dP to i64
   %sP8 = ptrtoint ptr %sP to i64
   %0 = zext nneg i32 %sN to i64
-  %min.iters.check = icmp ult i32 %sN, 16
+  %min.iters.check = icmp samesign ult i32 %sN, 16
   %1 = sub i64 %dP7, %sP8
   %diff.check = icmp ult i64 %1, 32
   %or.cond = or i1 %min.iters.check, %diff.check
@@ -3810,7 +3810,7 @@ sw.bb2:                                           ; preds = %sw.bb
 
 for.body.i.preheader:                             ; preds = %sw.bb2
   %0 = zext nneg i32 %sN to i64
-  %min.iters.check422 = icmp ult i32 %sN, 16
+  %min.iters.check422 = icmp samesign ult i32 %sN, 16
   %1 = sub i64 %dP417, %sP418
   %diff.check419 = icmp ult i64 %1, 32
   %or.cond = or i1 %min.iters.check422, %diff.check419
@@ -3910,7 +3910,7 @@ sw.bb3:                                           ; preds = %sw.bb
 
 for.body.i77.preheader:                           ; preds = %sw.bb3
   %20 = zext nneg i32 %sN to i64
-  %min.iters.check397 = icmp ult i32 %sN, 4
+  %min.iters.check397 = icmp samesign ult i32 %sN, 4
   br i1 %min.iters.check397, label %for.body.i77.preheader56, label %vector.ph398
 
 vector.ph398:                                     ; preds = %for.body.i77.preheader
@@ -4069,7 +4069,7 @@ sw.bb6:                                           ; preds = %sw.bb5
 
 for.body.i91.preheader:                           ; preds = %sw.bb6
   %61 = zext nneg i32 %sN to i64
-  %min.iters.check373 = icmp ult i32 %sN, 16
+  %min.iters.check373 = icmp samesign ult i32 %sN, 16
   %62 = sub i64 %dP417, %sP418
   %diff.check = icmp ult i64 %62, 32
   %or.cond444 = or i1 %min.iters.check373, %diff.check
@@ -4178,7 +4178,7 @@ sw.bb8:                                           ; preds = %sw.bb5
 
 for.body.i106.preheader:                          ; preds = %sw.bb8
   %83 = zext nneg i32 %sN to i64
-  %min.iters.check346 = icmp ult i32 %sN, 8
+  %min.iters.check346 = icmp samesign ult i32 %sN, 8
   br i1 %min.iters.check346, label %for.body.i106.preheader60, label %vector.ph347
 
 vector.ph347:                                     ; preds = %for.body.i106.preheader
@@ -4329,7 +4329,7 @@ sw.bb13:                                          ; preds = %sw.bb12
 
 for.body.i134.preheader:                          ; preds = %sw.bb13
   %125 = zext nneg i32 %sN to i64
-  %min.iters.check323 = icmp ult i32 %sN, 8
+  %min.iters.check323 = icmp samesign ult i32 %sN, 8
   br i1 %min.iters.check323, label %for.body.i134.preheader62, label %vector.ph324
 
 vector.ph324:                                     ; preds = %for.body.i134.preheader
@@ -4421,7 +4421,7 @@ sw.bb14:                                          ; preds = %sw.bb12
 
 for.body.i150.preheader:                          ; preds = %sw.bb14
   %156 = zext nneg i32 %sN to i64
-  %min.iters.check297 = icmp ult i32 %sN, 9
+  %min.iters.check297 = icmp samesign ult i32 %sN, 9
   br i1 %min.iters.check297, label %for.body.i150.preheader64, label %vector.memcheck289
 
 vector.memcheck289:                               ; preds = %for.body.i150.preheader
@@ -4647,7 +4647,7 @@ sw.bb20:                                          ; preds = %sw.bb19
 
 for.body.i164.preheader:                          ; preds = %sw.bb20
   %262 = zext nneg i32 %sN to i64
-  %min.iters.check267 = icmp ult i32 %sN, 8
+  %min.iters.check267 = icmp samesign ult i32 %sN, 8
   br i1 %min.iters.check267, label %for.body.i164.preheader66, label %vector.memcheck259
 
 vector.memcheck259:                               ; preds = %for.body.i164.preheader
@@ -4739,7 +4739,7 @@ sw.bb21:                                          ; preds = %sw.bb19
 
 for.body.i177.preheader:                          ; preds = %sw.bb21
   %290 = zext nneg i32 %sN to i64
-  %min.iters.check = icmp ult i32 %sN, 8
+  %min.iters.check = icmp samesign ult i32 %sN, 8
   br i1 %min.iters.check, label %for.body.i177.preheader68, label %vector.memcheck
 
 vector.memcheck:                                  ; preds = %for.body.i177.preheader

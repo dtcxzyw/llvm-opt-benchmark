@@ -69,14 +69,14 @@ for.body1072.lr.ph:                               ; preds = %for.cond1070.prehea
   br label %for.body1072
 
 if.then:                                          ; preds = %entry
-  %cmp1 = icmp ugt i32 %order, 8
+  %cmp1 = icmp samesign ugt i32 %order, 8
   %0 = load i32, ptr %qlp_coeff, align 4
   %vecinit3.i1757 = insertelement <4 x i32> poison, i32 %0, i64 0
   %permil = shufflevector <4 x i32> %vecinit3.i1757, <4 x i32> poison, <4 x i32> zeroinitializer
   br i1 %cmp1, label %if.then2, label %if.else469
 
 if.then2:                                         ; preds = %if.then
-  %cmp3 = icmp ugt i32 %order, 10
+  %cmp3 = icmp samesign ugt i32 %order, 10
   %arrayidx8 = getelementptr inbounds i8, ptr %qlp_coeff, i64 4
   %1 = load i32, ptr %arrayidx8, align 4
   %vecinit3.i1751 = insertelement <4 x i32> poison, i32 %1, i64 0
@@ -384,11 +384,11 @@ for.body401:                                      ; preds = %for.body401.prehead
   br i1 %cmp400, label %for.body401, label %if.end977.loopexit855, !llvm.loop !8
 
 if.else469:                                       ; preds = %if.then
-  %cmp470 = icmp ugt i32 %order, 4
+  %cmp470 = icmp samesign ugt i32 %order, 4
   br i1 %cmp470, label %if.then471, label %if.else804
 
 if.then471:                                       ; preds = %if.else469
-  %cmp472 = icmp ugt i32 %order, 6
+  %cmp472 = icmp samesign ugt i32 %order, 6
   %arrayidx487 = getelementptr inbounds i8, ptr %qlp_coeff, i64 4
   %67 = load i32, ptr %arrayidx487, align 4
   %vecinit3.i1499 = insertelement <4 x i32> poison, i32 %67, i64 0
@@ -616,7 +616,7 @@ for.body760:                                      ; preds = %for.body760.prehead
   br i1 %cmp759, label %for.body760, label %if.end977.loopexit859, !llvm.loop !12
 
 if.else804:                                       ; preds = %if.else469
-  %cmp805 = icmp ugt i32 %order, 2
+  %cmp805 = icmp samesign ugt i32 %order, 2
   br i1 %cmp805, label %if.then806, label %if.else911
 
 if.then806:                                       ; preds = %if.else804

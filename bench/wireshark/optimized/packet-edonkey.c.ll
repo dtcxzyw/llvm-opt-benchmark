@@ -1427,7 +1427,7 @@ define internal void @dissect_edonkey_tcp_message(i8 noundef zeroext %0, ptr nou
   %109 = add i32 %3, 16
   %110 = add nsw i32 %.0218, -16
   %111 = sdiv i32 %110, 8
-  %112 = icmp ugt i32 %.0218, 23
+  %112 = icmp samesign ugt i32 %.0218, 23
   br i1 %112, label %.lr.ph.preheader, label %.loopexit
 
 .lr.ph.preheader:                                 ; preds = %106

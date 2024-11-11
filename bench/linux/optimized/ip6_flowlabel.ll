@@ -1529,9 +1529,9 @@ define internal fastcc noundef range(i32 -105, 1) i32 @mem_check(ptr noundef %0)
 
 28:                                               ; preds = %26
   %29 = icmp sgt i32 %19, 0
-  %30 = icmp ult i32 %14, 2048
+  %30 = icmp samesign ult i32 %14, 2048
   %31 = and i1 %30, %29
-  %32 = icmp ult i32 %14, 1024
+  %32 = icmp samesign ult i32 %14, 1024
   %33 = or i1 %32, %31
   br i1 %33, label %34, label %36
 

@@ -521,7 +521,7 @@ _ZL9sizeofinti.exit473:                           ; preds = %.lr.ph.i470, %_ZL9s
   %269 = load i32, ptr %268, align 4
   %270 = sub nsw i32 %269, %.sroa.14.0627
   %271 = call i32 @llvm.abs.i32(i32 %270, i1 true)
-  %272 = icmp ult i32 %271, %243
+  %272 = icmp samesign ult i32 %271, %243
   br i1 %272, label %273, label %279
 
 273:                                              ; preds = %267
@@ -529,7 +529,7 @@ _ZL9sizeofinti.exit473:                           ; preds = %.lr.ph.i470, %_ZL9s
   %275 = load i32, ptr %274, align 4
   %276 = sub nsw i32 %275, %.sroa.28.0626
   %277 = call i32 @llvm.abs.i32(i32 %276, i1 true)
-  %278 = icmp ult i32 %277, %243
+  %278 = icmp samesign ult i32 %277, %243
   br i1 %278, label %281, label %279
 
 279:                                              ; preds = %273, %267, %263, %255
@@ -559,7 +559,7 @@ _ZL9sizeofinti.exit473:                           ; preds = %.lr.ph.i470, %_ZL9s
   %295 = load i32, ptr %294, align 4
   %296 = sub nsw i32 %293, %295
   %297 = call i32 @llvm.abs.i32(i32 %296, i1 true)
-  %298 = icmp ult i32 %297, %.0410623
+  %298 = icmp samesign ult i32 %297, %.0410623
   br i1 %298, label %299, label %308
 
 299:                                              ; preds = %291
@@ -569,7 +569,7 @@ _ZL9sizeofinti.exit473:                           ; preds = %.lr.ph.i470, %_ZL9s
   %303 = load i32, ptr %302, align 4
   %304 = sub nsw i32 %301, %303
   %305 = call i32 @llvm.abs.i32(i32 %304, i1 true)
-  %306 = icmp ult i32 %305, %.0410623
+  %306 = icmp samesign ult i32 %305, %.0410623
   br i1 %306, label %307, label %308
 
 307:                                              ; preds = %299
@@ -619,7 +619,7 @@ _ZL9sizeofinti.exit473:                           ; preds = %.lr.ph.i470, %_ZL9s
   store i64 %332, ptr %16, align 8
   %333 = getelementptr inbounds i8, ptr %330, i64 %331
   store i8 %329, ptr %333, align 1
-  %334 = icmp ugt i32 %.03235.i, 15
+  %334 = icmp samesign ugt i32 %.03235.i, 15
   br i1 %334, label %.lr.ph.i475, label %._crit_edge.i, !llvm.loop !9
 
 ._crit_edge.i:                                    ; preds = %.lr.ph.i475, %321
@@ -687,7 +687,7 @@ _ZL8sendbitsP10DataBufferii.exit:                 ; preds = %349, %351
   store i64 %368, ptr %16, align 8
   %369 = getelementptr inbounds i8, ptr %366, i64 %367
   store i8 %365, ptr %369, align 1
-  %370 = icmp ugt i32 %.03235.i483, 15
+  %370 = icmp samesign ugt i32 %.03235.i483, 15
   br i1 %370, label %.lr.ph.i481, label %._crit_edge.i476, !llvm.loop !9
 
 ._crit_edge.i476:                                 ; preds = %.lr.ph.i481, %_ZL8sendbitsP10DataBufferii.exit
@@ -755,7 +755,7 @@ _ZL8sendbitsP10DataBufferii.exit484:              ; preds = %385, %387
   store i64 %404, ptr %16, align 8
   %405 = getelementptr inbounds i8, ptr %402, i64 %403
   store i8 %401, ptr %405, align 1
-  %406 = icmp ugt i32 %.03235.i492, 15
+  %406 = icmp samesign ugt i32 %.03235.i492, 15
   br i1 %406, label %.lr.ph.i490, label %._crit_edge.i485, !llvm.loop !9
 
 ._crit_edge.i485:                                 ; preds = %.lr.ph.i490, %_ZL8sendbitsP10DataBufferii.exit484
@@ -892,7 +892,7 @@ _ZL8sendbitsP10DataBufferii.exit493:              ; preds = %423, %421, %430
   %483 = load i32, ptr %482, align 4
   %484 = sub nsw i32 %483, %471
   %485 = call i32 @llvm.abs.i32(i32 %484, i1 true)
-  %486 = icmp ult i32 %485, %.0410623
+  %486 = icmp samesign ult i32 %485, %.0410623
   br i1 %486, label %487, label %._crit_edge614.loopexit
 
 487:                                              ; preds = %481
@@ -900,7 +900,7 @@ _ZL8sendbitsP10DataBufferii.exit493:              ; preds = %423, %421, %430
   %489 = load i32, ptr %488, align 4
   %490 = sub nsw i32 %489, %472
   %491 = call i32 @llvm.abs.i32(i32 %490, i1 true)
-  %492 = icmp ult i32 %491, %.0410623
+  %492 = icmp samesign ult i32 %491, %.0410623
   %493 = icmp samesign ult i64 %indvars.iv668, 21
   %494 = select i1 %492, i1 %493, i1 false
   br i1 %494, label %439, label %._crit_edge614.loopexit, !llvm.loop !10
@@ -2006,7 +2006,7 @@ _ZL8sendbitsP10DataBufferii.exit:                 ; preds = %42, %56
   store i64 %77, ptr %0, align 8
   %78 = getelementptr inbounds i8, ptr %75, i64 %76
   store i8 %74, ptr %78, align 1
-  %79 = icmp ugt i32 %.03235.i72, 15
+  %79 = icmp samesign ugt i32 %.03235.i72, 15
   br i1 %79, label %70, label %._crit_edge.i68, !llvm.loop !9
 
 ._crit_edge.i68:                                  ; preds = %70, %._crit_edge122
@@ -2114,7 +2114,7 @@ _ZL8sendbitsP10DataBufferii.exit82:               ; preds = %96, %110
   store i64 %137, ptr %0, align 8
   %138 = getelementptr inbounds i8, ptr %135, i64 %136
   store i8 %134, ptr %138, align 1
-  %139 = icmp ugt i32 %.03235.i90, 15
+  %139 = icmp samesign ugt i32 %.03235.i90, 15
   br i1 %139, label %128, label %._crit_edge.i83, !llvm.loop !9
 
 ._crit_edge.i83:                                  ; preds = %128, %._crit_edge125
@@ -2203,7 +2203,7 @@ define internal fastcc noundef range(i32 0, -2147483648) i32 @_ZL11receivebitsP1
   %19 = add nsw i32 %.041, -8
   %20 = shl i32 %18, %19
   %21 = or i32 %20, %.03439
-  %22 = icmp ugt i32 %.041, 15
+  %22 = icmp samesign ugt i32 %.041, 15
   br i1 %22, label %10, label %._crit_edge, !llvm.loop !27
 
 ._crit_edge:                                      ; preds = %10, %2
@@ -2291,7 +2291,7 @@ _ZL11receivebitsP10DataBufferi.exit:              ; preds = %_ZL11receivebitsP10
   %20 = getelementptr inbounds [32 x i32], ptr %5, i64 0, i64 %indvars.iv
   store i32 %19, ptr %20, align 4
   %21 = add nsw i32 %.03061, -8
-  %22 = icmp ugt i32 %.03061, 16
+  %22 = icmp samesign ugt i32 %.03061, 16
   br i1 %22, label %_ZL11receivebitsP10DataBufferi.exit, label %._crit_edge.thread, !llvm.loop !28
 
 ._crit_edge.thread:                               ; preds = %_ZL11receivebitsP10DataBufferi.exit
@@ -2309,7 +2309,7 @@ _ZL11receivebitsP10DataBufferi.exit:              ; preds = %_ZL11receivebitsP10
   %27 = load i32, ptr %26, align 8
   %28 = getelementptr inbounds i8, ptr %0, i64 12
   %29 = load i32, ptr %28, align 4
-  %30 = icmp ugt i32 %.030.lcssa101, 7
+  %30 = icmp samesign ugt i32 %.030.lcssa101, 7
   br i1 %30, label %.lr.ph.i._ZL11receivebitsP10DataBufferi.exit45_crit_edge, label %._crit_edge.i34.thread
 
 .lr.ph.i._ZL11receivebitsP10DataBufferi.exit45_crit_edge: ; preds = %25

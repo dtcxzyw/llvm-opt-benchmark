@@ -1054,7 +1054,7 @@ define hidden zeroext i16 @in_cksum(ptr nocapture noundef readonly %0, i32 nound
   %6 = zext i16 %5 to i32
   %7 = add nuw nsw i32 %.02225, %6
   %8 = add nsw i32 %.02324, -2
-  %9 = icmp ugt i32 %.02324, 3
+  %9 = icmp samesign ugt i32 %.02324, 3
   br i1 %9, label %.lr.ph, label %._crit_edge, !llvm.loop !6
 
 ._crit_edge:                                      ; preds = %.lr.ph, %2

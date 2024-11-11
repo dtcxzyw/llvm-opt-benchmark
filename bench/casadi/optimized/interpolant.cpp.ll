@@ -6709,7 +6709,7 @@ _ZNSt6vectorIdSaIdEE17_S_check_init_lenEmRKS0_.exit.i.i: ; preds = %178
 .preheader.i:                                     ; preds = %198
   %204 = lshr exact i64 %191, 3
   %.01215.i = load double, ptr %195, align 8
-  %205 = icmp ugt i64 %191, 8
+  %205 = icmp samesign ugt i64 %191, 8
   br i1 %205, label %.lr.ph.i, label %_ZN6casadi13is_increasingIdEEbRKSt6vectorIT_SaIS2_EE.exit
 
 206:                                              ; preds = %.lr.ph.i

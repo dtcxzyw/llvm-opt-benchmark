@@ -124,7 +124,7 @@ define internal i32 @dissect_flip(ptr noundef %0, ptr noundef %1, ptr noundef %2
   %13 = tail call i32 @tvb_get_ntohl(ptr noundef %0, i32 noundef 4) #5
   %14 = and i32 %13, 65535
   %15 = icmp samesign ult i32 %14, 8
-  %16 = icmp ugt i32 %14, %8
+  %16 = icmp samesign ugt i32 %14, %8
   %or.cond110 = or i1 %15, %16
   %17 = load ptr, ptr %6, align 8
   %18 = tail call ptr @val_to_str(i32 noundef %12, ptr noundef null, ptr noundef nonnull @.str.36) #5
@@ -181,7 +181,7 @@ define internal i32 @dissect_flip(ptr noundef %0, ptr noundef %1, ptr noundef %2
   br i1 %or.cond, label %70, label %.preheader
 
 .preheader:                                       ; preds = %45
-  %49 = icmp ugt i32 %46, 3
+  %49 = icmp samesign ugt i32 %46, 3
   %50 = select i1 %47, i1 %49, i1 false
   br i1 %50, label %.lr.ph, label %._crit_edge
 
@@ -228,7 +228,7 @@ dissect_flip_chksum_hdr.exit.us:                  ; preds = %63, %._crit_edge.i.
   %65 = add nsw i32 %.0102117.us, -4
   %66 = and i32 %62, 65536
   %67 = icmp ne i32 %66, 0
-  %68 = icmp ugt i32 %65, 3
+  %68 = icmp samesign ugt i32 %65, 3
   %69 = select i1 %67, i1 %68, i1 false
   br i1 %69, label %.lr.ph.split.us, label %._crit_edge, !llvm.loop !4
 
@@ -286,7 +286,7 @@ dissect_flip_chksum_hdr.exit:                     ; preds = %73, %98
   %100 = add nsw i32 %.0102117, -4
   %101 = and i32 %81, 65536
   %102 = icmp ne i32 %101, 0
-  %103 = icmp ugt i32 %100, 3
+  %103 = icmp samesign ugt i32 %100, 3
   %104 = select i1 %102, i1 %103, i1 false
   br i1 %104, label %.lr.ph.split, label %._crit_edge, !llvm.loop !4
 

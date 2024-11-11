@@ -52690,7 +52690,7 @@ _ZSt22__uninitialized_move_aIPSt4pairImmES2_SaIS1_EET0_T_S5_S4_RT1_.exit: ; pred
   %36 = getelementptr inbounds i8, ptr %.069.i.i.i.i.i, i64 -8
   store i64 %35, ptr %36, align 8
   %37 = add nsw i64 %.010.i.i.i.i.i, -1
-  %38 = icmp ugt i64 %.010.i.i.i.i.i, 1
+  %38 = icmp samesign ugt i64 %.010.i.i.i.i.i, 1
   br i1 %38, label %.lr.ph.i.i.i.i.i43, label %_ZSt13move_backwardIPSt4pairImmES2_ET0_T_S4_S3_.exit, !llvm.loop !8244
 
 _ZSt13move_backwardIPSt4pairImmES2_ET0_T_S4_S3_.exit: ; preds = %.lr.ph.i.i.i.i.i43, %_ZSt22__uninitialized_move_aIPSt4pairImmES2_SaIS1_EET0_T_S5_S4_RT1_.exit
@@ -52710,7 +52710,7 @@ _ZSt13move_backwardIPSt4pairImmES2_ET0_T_S4_S3_.exit: ; preds = %.lr.ph.i.i.i.i.
   %44 = getelementptr inbounds i8, ptr %.0910.i.i.i.i.i, i64 16
   %45 = getelementptr inbounds i8, ptr %.0811.i.i.i.i.i, i64 16
   %46 = add nsw i64 %.012.i.i.i.i.i, -1
-  %47 = icmp ugt i64 %.012.i.i.i.i.i, 1
+  %47 = icmp samesign ugt i64 %.012.i.i.i.i.i, 1
   br i1 %47, label %.lr.ph.i.i.i.i.i44, label %_ZSt4copyIN9__gnu_cxx17__normal_iteratorIPSt4pairImmESt6vectorIS3_SaIS3_EEEES8_ET0_T_SA_S9_.exit, !llvm.loop !8245
 
 _ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPSt4pairImmESt6vectorIS3_SaIS3_EEEEmEvRT_T0_.exit: ; preds = %17
@@ -52773,7 +52773,7 @@ _ZSt22__uninitialized_move_aIPSt4pairImmES2_SaIS1_EET0_T_S5_S4_RT1_.exit51: ; pr
   %64 = getelementptr inbounds i8, ptr %.0910.i.i.i.i.i56, i64 16
   %65 = getelementptr inbounds i8, ptr %.0811.i.i.i.i.i55, i64 16
   %66 = add nsw i64 %.012.i.i.i.i.i54, -1
-  %67 = icmp ugt i64 %.012.i.i.i.i.i54, 1
+  %67 = icmp samesign ugt i64 %.012.i.i.i.i.i54, 1
   br i1 %67, label %.lr.ph.i.i.i.i.i53, label %_ZSt4copyIN9__gnu_cxx17__normal_iteratorIPSt4pairImmESt6vectorIS3_SaIS3_EEEES8_ET0_T_SA_S9_.exit, !llvm.loop !8245
 
 68:                                               ; preds = %5
@@ -57280,7 +57280,7 @@ define linkonce_odr ptr @_ZNSt6vectorIN4llvm6object7VernAuxESaIS2_EE14_M_emplace
   %38 = getelementptr inbounds i8, ptr %.078.i.i.i.i.i.i, i64 -32
   %39 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEOS4_(ptr noundef nonnull align 8 dereferenceable(32) %37, ptr noundef nonnull align 8 dereferenceable(32) %38) #18
   %40 = add nsw i64 %.010.i.i.i.i.i.i, -1
-  %41 = icmp ugt i64 %.010.i.i.i.i.i.i, 1
+  %41 = icmp samesign ugt i64 %.010.i.i.i.i.i.i, 1
   br i1 %41, label %.lr.ph.i.i.i.i.i.i, label %_ZNSt6vectorIN4llvm6object7VernAuxESaIS2_EE13_M_insert_auxIS2_EEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEOT_.exit, !llvm.loop !8763
 
 _ZNSt6vectorIN4llvm6object7VernAuxESaIS2_EE13_M_insert_auxIS2_EEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEOT_.exit: ; preds = %.lr.ph.i.i.i.i.i.i, %18

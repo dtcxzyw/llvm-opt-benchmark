@@ -587,7 +587,7 @@ define dso_local i32 @io_ringfd_register(ptr noundef %0, ptr noundef %1, i32 nou
   br i1 %43, label %44, label %.thread
 
 44:                                               ; preds = %42
-  %45 = icmp ult i32 %36, %37
+  %45 = icmp samesign ult i32 %36, %37
   br i1 %45, label %.preheader, label %.thread
 
 .preheader:                                       ; preds = %44, %55

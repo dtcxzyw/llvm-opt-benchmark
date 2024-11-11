@@ -9430,7 +9430,7 @@ if.end43:                                         ; preds = %for.inc, %entry, %i
   %11 = load i64, ptr %vstart, align 8
   %conv45 = trunc i64 %11 to i32
   %conv47120 = and i64 %11, 4294967295
-  %cmp49121 = icmp ugt i64 %10, %conv47120
+  %cmp49121 = icmp samesign ugt i64 %10, %conv47120
   br i1 %cmp49121, label %while.cond52.preheader.lr.ph, label %for.end82
 
 while.cond52.preheader.lr.ph:                     ; preds = %if.end43

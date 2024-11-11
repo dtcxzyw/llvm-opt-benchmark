@@ -9748,7 +9748,7 @@ define hidden void @_ZN4core4hash4Hash10hash_slice17h925907478f50d824E.llvm.1039
 43:                                               ; preds = %37, %31
   %.117.i.i8 = phi i64 [ %41, %37 ], [ %.016.i.i6, %31 ]
   %.1.i.i9 = phi i64 [ %42, %37 ], [ %.0.i.i7, %31 ]
-  %44 = icmp ult i64 %.1.i.i9, %.0.sroa.speculated.i.i5
+  %44 = icmp samesign ult i64 %.1.i.i9, %.0.sroa.speculated.i.i5
   br i1 %44, label %45, label %_ZN4core4hash3sip9u8to64_le17ha75b6e91f974688fE.exit.i10
 
 45:                                               ; preds = %43
@@ -9834,12 +9834,12 @@ _ZN4core4hash3sip9u8to64_le17ha75b6e91f974688fE.exit.i10: ; preds = %45, %43
 100:                                              ; preds = %92, %79
   %.117.i15.i16 = phi i64 [ %98, %92 ], [ %.016.i13.i14, %79 ]
   %.1.i16.i17 = phi i64 [ %99, %92 ], [ %.0.i14.i15, %79 ]
-  %101 = icmp ult i64 %.1.i16.i17, %80
+  %101 = icmp samesign ult i64 %.1.i16.i17, %80
   br i1 %101, label %102, label %"_ZN71_$LT$core..hash..sip..Hasher$LT$S$GT$$u20$as$u20$core..hash..Hasher$GT$5write17heca62c5414634a5fE.llvm.10393017446704266758.exit33"
 
 102:                                              ; preds = %100
   %103 = add nuw nsw i64 %.1.i16.i17, %.0.i1250
-  %104 = icmp ult i64 %103, 4
+  %104 = icmp samesign ult i64 %103, 4
   tail call void @llvm.assume(i1 %104), !noalias !2413
   %105 = getelementptr inbounds i8, ptr %6, i64 %103
   %106 = load i8, ptr %105, align 1, !alias.scope !2410, !noalias !2405, !noundef !9
@@ -9890,7 +9890,7 @@ _ZN4core4hash3sip9u8to64_le17ha75b6e91f974688fE.exit.i10: ; preds = %45, %43
 130:                                              ; preds = %124, %118
   %.117.i.i = phi i64 [ %128, %124 ], [ %.016.i.i, %118 ]
   %.1.i.i = phi i64 [ %129, %124 ], [ %.0.i.i, %118 ]
-  %131 = icmp ult i64 %.1.i.i, %.0.sroa.speculated.i.i
+  %131 = icmp samesign ult i64 %.1.i.i, %.0.sroa.speculated.i.i
   br i1 %131, label %132, label %_ZN4core4hash3sip9u8to64_le17ha75b6e91f974688fE.exit.i
 
 132:                                              ; preds = %130
@@ -9977,12 +9977,12 @@ _ZN4core4hash3sip9u8to64_le17ha75b6e91f974688fE.exit.i: ; preds = %132, %130
 187:                                              ; preds = %179, %166
   %.117.i15.i = phi i64 [ %185, %179 ], [ %.016.i13.i, %166 ]
   %.1.i16.i = phi i64 [ %186, %179 ], [ %.0.i14.i, %166 ]
-  %188 = icmp ult i64 %.1.i16.i, %167
+  %188 = icmp samesign ult i64 %.1.i16.i, %167
   br i1 %188, label %189, label %_ZN4core4hash3sip9u8to64_le17ha75b6e91f974688fE.exit20.i
 
 189:                                              ; preds = %187
   %190 = add nuw nsw i64 %.1.i16.i, %.0.i454
-  %191 = icmp ult i64 %190, 4
+  %191 = icmp samesign ult i64 %190, 4
   tail call void @llvm.assume(i1 %191), !noalias !2436
   %192 = getelementptr inbounds i8, ptr %5, i64 %190
   %193 = load i8, ptr %192, align 1, !alias.scope !2433, !noalias !2428, !noundef !9

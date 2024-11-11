@@ -505,7 +505,7 @@ if.else3.i.i:                                     ; preds = %if.else.i.i
   br label %if.end25
 
 cond.false.i:                                     ; preds = %invoke.cont21
-  %cmp.i5.i = icmp ult i16 %11, 16448
+  %cmp.i5.i = icmp samesign ult i16 %11, 16448
   br i1 %cmp.i5.i, label %if.then.i.i, label %if.else.i6.i
 
 if.then.i.i:                                      ; preds = %cond.false.i
@@ -514,7 +514,7 @@ if.then.i.i:                                      ; preds = %cond.false.i
   br label %if.end25
 
 if.else.i6.i:                                     ; preds = %cond.false.i
-  %cmp1.i7.i = icmp ult i16 %11, 32704
+  %cmp1.i7.i = icmp samesign ult i16 %11, 32704
   br i1 %cmp1.i7.i, label %if.then2.i9.i, label %if.else4.i.i
 
 if.then2.i9.i:                                    ; preds = %if.else.i6.i

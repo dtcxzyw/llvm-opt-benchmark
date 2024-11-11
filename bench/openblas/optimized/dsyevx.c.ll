@@ -143,13 +143,13 @@ define void @dsyevx_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
 97:                                               ; preds = %95
   %98 = load i32, ptr %14, align 4, !tbaa !3
   %99 = icmp slt i32 %98, 1
-  %100 = icmp ult i32 %98, %70
-  %or.cond = and i1 %54, %100
-  %or.cond43 = or i1 %99, %or.cond
+  %100 = icmp samesign ult i32 %98, %70
+  %or.cond = select i1 %54, i1 %100, i1 false
+  %or.cond43 = select i1 %99, i1 true, i1 %or.cond
   br i1 %or.cond43, label %.thread23.sink.split, label %101
 
 101:                                              ; preds = %97
-  %102 = icmp ult i32 %70, 2
+  %102 = icmp samesign ult i32 %70, 2
   br i1 %102, label %113, label %103
 
 103:                                              ; preds = %101

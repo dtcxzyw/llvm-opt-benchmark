@@ -5344,7 +5344,7 @@ define internal i64 @tty_read(ptr nocapture noundef readonly %0, ptr noundef %1)
   br label %.thread
 
 51:                                               ; preds = %44
-  %52 = icmp ugt i64 %42, 64
+  %52 = icmp samesign ugt i64 %42, 64
   br i1 %52, label %53, label %54, !prof !26
 
 53:                                               ; preds = %51

@@ -1466,7 +1466,7 @@ _ZNSt12_Vector_baseIN3gmx20CorrelationBlockDataESaIS1_EE13_M_deallocateEPS1_m.ex
   %47 = getelementptr inbounds i8, ptr %.0910.i.i.i.i.i, i64 96
   %48 = getelementptr inbounds i8, ptr %.0811.i.i.i.i.i, i64 96
   %49 = add nsw i64 %.012.i.i.i.i.i, -1
-  %50 = icmp ugt i64 %.012.i.i.i.i.i, 1
+  %50 = icmp samesign ugt i64 %.012.i.i.i.i.i, 1
   br i1 %50, label %.lr.ph.i.i.i.i.i, label %_ZSt4copyIN9__gnu_cxx17__normal_iteratorIPKN3gmx20CorrelationBlockDataESt6vectorIS3_SaIS3_EEEENS1_IPS3_S8_EEET0_T_SD_SC_.exit.loopexit, !llvm.loop !14
 
 _ZSt4copyIN9__gnu_cxx17__normal_iteratorIPKN3gmx20CorrelationBlockDataESt6vectorIS3_SaIS3_EEEENS1_IPS3_S8_EEET0_T_SD_SC_.exit.loopexit: ; preds = %.lr.ph.i.i.i.i.i
@@ -1534,7 +1534,7 @@ _ZSt8_DestroyIN3gmx20CorrelationBlockDataEEvPT_.exit.i.i.i30: ; preds = %59, %_Z
   %70 = getelementptr inbounds i8, ptr %.0910.i.i.i.i.i37, i64 96
   %71 = getelementptr inbounds i8, ptr %.0811.i.i.i.i.i36, i64 96
   %72 = add nsw i64 %.012.i.i.i.i.i35, -1
-  %73 = icmp ugt i64 %.012.i.i.i.i.i35, 1
+  %73 = icmp samesign ugt i64 %.012.i.i.i.i.i35, 1
   br i1 %73, label %.lr.ph.i.i.i.i.i34, label %_ZSt4copyIPN3gmx20CorrelationBlockDataES2_ET0_T_S4_S3_.exit.loopexit, !llvm.loop !16
 
 _ZSt4copyIPN3gmx20CorrelationBlockDataES2_ET0_T_S4_S3_.exit.loopexit: ; preds = %.lr.ph.i.i.i.i.i34

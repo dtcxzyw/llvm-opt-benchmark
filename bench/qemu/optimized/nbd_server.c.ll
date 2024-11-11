@@ -1859,7 +1859,7 @@ if.end5.i:                                        ; preds = %if.end.i
   store ptr %29, ptr %call.i, align 8
   %rem.i = and i64 %25, 3
   %tobool.i = icmp ne i64 %rem.i, 0
-  %cmp11.i = icmp ult i64 %25, 8
+  %cmp11.i = icmp samesign ult i64 %25, 8
   %or.cond.i = or i1 %cmp11.i, %tobool.i
   br i1 %or.cond.i, label %skip.i, label %lor.lhs.false12.i
 

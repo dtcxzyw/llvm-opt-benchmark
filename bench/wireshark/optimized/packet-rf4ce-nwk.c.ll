@@ -389,7 +389,7 @@ define internal i32 @dissect_rf4ce_nwk_common(ptr noundef %0, ptr noundef %1, pt
   br label %52
 
 46:                                               ; preds = %34
-  %47 = icmp ugt i32 %40, %.1
+  %47 = icmp samesign ugt i32 %40, %.1
   br i1 %47, label %.critedge, label %.critedge84
 
 .critedge:                                        ; preds = %46

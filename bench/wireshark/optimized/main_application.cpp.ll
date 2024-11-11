@@ -6525,7 +6525,7 @@ _ZNK17QArrayDataPointerIP7QActionE11needsDetachEv.exit.thread.i.i.i6._crit_edge:
   %103 = getelementptr i8, ptr %.sroa.0.09.i.i.i.i.i.i.i, i64 -8
   store ptr %102, ptr %103, align 8
   %104 = add nsw i64 %.010.i.i.i.i.i.i.i, -1
-  %105 = icmp ugt i64 %.010.i.i.i.i.i.i.i, 1
+  %105 = icmp samesign ugt i64 %.010.i.i.i.i.i.i.i, 1
   br i1 %105, label %.lr.ph.i.i.i.i.i.i.i, label %_ZSt13move_backwardIN5QListIP7QActionE8iteratorES4_ET0_T_S6_S5_.exit.i.i, !llvm.loop !43
 
 106:                                              ; preds = %.noexc13
@@ -6627,7 +6627,7 @@ _ZSt25__unguarded_linear_insertIN5QListIP7QActionE8iteratorEN9__gnu_cxx5__ops14_
   %132 = getelementptr i8, ptr %.sroa.0.09.i.i.i.i.i.i34.i, i64 -8
   store ptr %131, ptr %132, align 8
   %133 = add nsw i64 %.010.i.i.i.i.i.i33.i, -1
-  %134 = icmp ugt i64 %.010.i.i.i.i.i.i33.i, 1
+  %134 = icmp samesign ugt i64 %.010.i.i.i.i.i.i33.i, 1
   br i1 %134, label %.lr.ph.i.i.i.i.i.i32.i, label %_ZSt13move_backwardIN5QListIP7QActionE8iteratorES4_ET0_T_S6_S5_.exit.i23.i, !llvm.loop !43
 
 135:                                              ; preds = %.noexc18
@@ -6906,7 +6906,7 @@ _ZNK17QArrayDataPointerIP7QActionE11needsDetachEv.exit.thread.i.i.i6._crit_edge:
   %103 = getelementptr i8, ptr %.sroa.0.09.i.i.i.i.i.i.i, i64 -8
   store ptr %102, ptr %103, align 8
   %104 = add nsw i64 %.010.i.i.i.i.i.i.i, -1
-  %105 = icmp ugt i64 %.010.i.i.i.i.i.i.i, 1
+  %105 = icmp samesign ugt i64 %.010.i.i.i.i.i.i.i, 1
   br i1 %105, label %.lr.ph.i.i.i.i.i.i.i, label %_ZSt13move_backwardIN5QListIP7QActionE8iteratorES4_ET0_T_S6_S5_.exit.i.i, !llvm.loop !43
 
 106:                                              ; preds = %.noexc13
@@ -7008,7 +7008,7 @@ _ZSt25__unguarded_linear_insertIN5QListIP7QActionE8iteratorEN9__gnu_cxx5__ops14_
   %132 = getelementptr i8, ptr %.sroa.0.09.i.i.i.i.i.i34.i, i64 -8
   store ptr %131, ptr %132, align 8
   %133 = add nsw i64 %.010.i.i.i.i.i.i33.i, -1
-  %134 = icmp ugt i64 %.010.i.i.i.i.i.i33.i, 1
+  %134 = icmp samesign ugt i64 %.010.i.i.i.i.i.i33.i, 1
   br i1 %134, label %.lr.ph.i.i.i.i.i.i32.i, label %_ZSt13move_backwardIN5QListIP7QActionE8iteratorES4_ET0_T_S6_S5_.exit.i23.i, !llvm.loop !43
 
 135:                                              ; preds = %.noexc18
@@ -7285,7 +7285,7 @@ _ZNK17QArrayDataPointerIP7QActionE11needsDetachEv.exit.thread.i.i.i6._crit_edge:
   %103 = getelementptr i8, ptr %.sroa.0.09.i.i.i.i.i.i.i, i64 -8
   store ptr %102, ptr %103, align 8
   %104 = add nsw i64 %.010.i.i.i.i.i.i.i, -1
-  %105 = icmp ugt i64 %.010.i.i.i.i.i.i.i, 1
+  %105 = icmp samesign ugt i64 %.010.i.i.i.i.i.i.i, 1
   br i1 %105, label %.lr.ph.i.i.i.i.i.i.i, label %_ZSt13move_backwardIN5QListIP7QActionE8iteratorES4_ET0_T_S6_S5_.exit.i.i, !llvm.loop !43
 
 106:                                              ; preds = %.noexc13
@@ -7387,7 +7387,7 @@ _ZSt25__unguarded_linear_insertIN5QListIP7QActionE8iteratorEN9__gnu_cxx5__ops14_
   %132 = getelementptr i8, ptr %.sroa.0.09.i.i.i.i.i.i34.i, i64 -8
   store ptr %131, ptr %132, align 8
   %133 = add nsw i64 %.010.i.i.i.i.i.i33.i, -1
-  %134 = icmp ugt i64 %.010.i.i.i.i.i.i33.i, 1
+  %134 = icmp samesign ugt i64 %.010.i.i.i.i.i.i33.i, 1
   br i1 %134, label %.lr.ph.i.i.i.i.i.i32.i, label %_ZSt13move_backwardIN5QListIP7QActionE8iteratorES4_ET0_T_S6_S5_.exit.i23.i, !llvm.loop !43
 
 135:                                              ; preds = %.noexc18

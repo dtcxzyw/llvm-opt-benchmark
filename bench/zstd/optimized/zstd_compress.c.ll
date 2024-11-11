@@ -248,7 +248,7 @@ if.end5:                                          ; preds = %lor.lhs.false.i
   br i1 %cmp.i, label %return, label %lor.lhs.false.i29
 
 lor.lhs.false.i29:                                ; preds = %if.end5
-  %cmp1.i31 = icmp ult i64 %workspaceSize, 10888
+  %cmp1.i31 = icmp samesign ult i64 %workspaceSize, 10888
   br i1 %cmp1.i31, label %do.end3.i26, label %if.end.i32
 
 do.end3.i26:                                      ; preds = %lor.lhs.false.i29
@@ -675,7 +675,7 @@ do.end22:                                         ; preds = %ZSTD_checkCParams.e
 if.end.i23.i:                                     ; preds = %do.end22
   store i32 2, ptr %useRowMatchFinder.i, align 8
   %useBlockSplitter.i = getelementptr inbounds i8, ptr %cctxParams, i64 140
-  %cmp1.i.i = icmp ugt i32 %11, 6
+  %cmp1.i.i = icmp samesign ugt i32 %11, 6
   br i1 %cmp1.i.i, label %land.rhs.i30.i, label %if.end.i27.i.thread15
 
 if.end.i27.i.thread15:                            ; preds = %if.end.i23.i
@@ -683,7 +683,7 @@ if.end.i27.i.thread15:                            ; preds = %if.end.i23.i
   br label %ZSTD_CCtxParams_init_internal.exit
 
 if.end.i27.i:                                     ; preds = %do.end22
-  %cmp3.i.i = icmp ugt i32 %0, 14
+  %cmp3.i.i = icmp samesign ugt i32 %0, 14
   %spec.select.i.i = select i1 %cmp3.i.i, i32 1, i32 2
   store i32 %spec.select.i.i, ptr %useRowMatchFinder.i, align 8
   %useBlockSplitter.i8 = getelementptr inbounds i8, ptr %cctxParams, i64 140
@@ -691,10 +691,10 @@ if.end.i27.i:                                     ; preds = %do.end22
   br label %ZSTD_CCtxParams_init_internal.exit
 
 land.rhs.i30.i:                                   ; preds = %if.end.i23.i
-  %cmp2.i.i = icmp ugt i32 %0, 16
+  %cmp2.i.i = icmp samesign ugt i32 %0, 16
   %15 = select i1 %cmp2.i.i, i32 1, i32 2
   store i32 %15, ptr %useBlockSplitter.i, align 4
-  %cmp2.i31.i = icmp ugt i32 %0, 26
+  %cmp2.i31.i = icmp samesign ugt i32 %0, 26
   %16 = select i1 %cmp2.i31.i, i32 1, i32 2
   br label %ZSTD_CCtxParams_init_internal.exit
 
@@ -2407,7 +2407,7 @@ entry:
 
 if.then6.i:                                       ; preds = %entry
   %add.i = add nuw nsw i64 %spec.store.select, %dictSize
-  %cmp7.i = icmp ult i64 %add.i, 64
+  %cmp7.i = icmp samesign ult i64 %add.i, 64
   %conv.i = trunc nuw i64 %add.i to i32
   %sub.i = add i32 %conv.i, -1
   %1 = tail call range(i32 0, 32) i32 @llvm.ctlz.i32(i32 %sub.i, i1 true)
@@ -2451,7 +2451,7 @@ ZSTD_dictAndWindowLog.exit.i:                     ; preds = %if.else6.i.i, %if.e
   %sub.i21.i = add nsw i32 %cPar2.sroa.6.0, %conv.neg.i.i
   %add22.i = add nuw nsw i32 %retval.0.i.i, 1
   %spec.store.select25.i = tail call i32 @llvm.umin.i32(i32 %cPar2.sroa.8.0, i32 %add22.i)
-  %cmp29.i = icmp ugt i32 %sub.i21.i, %retval.0.i.i
+  %cmp29.i = icmp samesign ugt i32 %sub.i21.i, %retval.0.i.i
   %sub34.i = sub nsw i32 %retval.0.i.i, %conv.neg.i.i
   %spec.select29 = select i1 %cmp29.i, i32 %sub34.i, i32 %cPar2.sroa.6.0
   br label %if.end36.i
@@ -2576,7 +2576,7 @@ sw.epilog.i:                                      ; preds = %sw.bb2.i, %sw.bb1.i
 
 if.then6.i:                                       ; preds = %sw.epilog.i
   %add.i = add nuw nsw i64 %srcSize.addr.0.i, %dictSize.addr.0.i
-  %cmp7.i = icmp ult i64 %add.i, 64
+  %cmp7.i = icmp samesign ult i64 %add.i, 64
   %conv.i = trunc nuw i64 %add.i to i32
   %sub.i = add i32 %conv.i, -1
   %11 = tail call range(i32 0, 32) i32 @llvm.ctlz.i32(i32 %sub.i, i1 true)
@@ -2758,7 +2758,7 @@ sw.epilog.i:                                      ; preds = %sw.bb2.i, %sw.bb1.i
 
 if.then6.i:                                       ; preds = %sw.epilog.i
   %add.i15 = add nuw nsw i64 %srcSize.addr.0.i, %dictSize.addr.0.i
-  %cmp7.i = icmp ult i64 %add.i15, 64
+  %cmp7.i = icmp samesign ult i64 %add.i15, 64
   %conv.i = trunc nuw i64 %add.i15 to i32
   %sub.i = add i32 %conv.i, -1
   %1 = tail call range(i32 0, 32) i32 @llvm.ctlz.i32(i32 %sub.i, i1 true)
@@ -5935,7 +5935,7 @@ if.then.i:                                        ; preds = %ZSTD_shouldAttachDi
   br i1 %cmp3.i.i.i, label %if.then6.i.i.i, label %if.end15.i.i.i
 
 if.then6.i.i.i:                                   ; preds = %if.then.i
-  %cmp7.i.i.i = icmp ult i64 %pledgedSrcSize, 64
+  %cmp7.i.i.i = icmp samesign ult i64 %pledgedSrcSize, 64
   %conv.i.i.i = trunc nuw i64 %pledgedSrcSize to i32
   %sub.i28.i.i = add nsw i32 %conv.i.i.i, -1
   %11 = tail call range(i32 0, 32) i32 @llvm.ctlz.i32(i32 %sub.i28.i.i, i1 true)
@@ -7053,7 +7053,7 @@ do.end11:                                         ; preds = %ZSTD_checkCParams.e
 if.end.i23.i:                                     ; preds = %do.end11
   store i32 2, ptr %useRowMatchFinder.i, align 8
   %useBlockSplitter.i = getelementptr inbounds i8, ptr %cctx, i64 588
-  %cmp1.i.i = icmp ugt i32 %11, 6
+  %cmp1.i.i = icmp samesign ugt i32 %11, 6
   br i1 %cmp1.i.i, label %land.rhs.i30.i, label %if.end.i27.i.thread16
 
 if.end.i27.i.thread16:                            ; preds = %if.end.i23.i
@@ -7061,7 +7061,7 @@ if.end.i27.i.thread16:                            ; preds = %if.end.i23.i
   br label %ZSTD_CCtxParams_init_internal.exit
 
 if.end.i27.i:                                     ; preds = %do.end11
-  %cmp3.i.i = icmp ugt i32 %0, 14
+  %cmp3.i.i = icmp samesign ugt i32 %0, 14
   %spec.select.i.i = select i1 %cmp3.i.i, i32 1, i32 2
   store i32 %spec.select.i.i, ptr %useRowMatchFinder.i, align 8
   %useBlockSplitter.i9 = getelementptr inbounds i8, ptr %cctx, i64 588
@@ -7069,10 +7069,10 @@ if.end.i27.i:                                     ; preds = %do.end11
   br label %ZSTD_CCtxParams_init_internal.exit
 
 land.rhs.i30.i:                                   ; preds = %if.end.i23.i
-  %cmp2.i.i = icmp ugt i32 %0, 16
+  %cmp2.i.i = icmp samesign ugt i32 %0, 16
   %15 = select i1 %cmp2.i.i, i32 1, i32 2
   store i32 %15, ptr %useBlockSplitter.i, align 4
-  %cmp2.i31.i = icmp ugt i32 %0, 26
+  %cmp2.i31.i = icmp samesign ugt i32 %0, 26
   %16 = select i1 %cmp2.i31.i, i32 1, i32 2
   br label %ZSTD_CCtxParams_init_internal.exit
 
@@ -12281,7 +12281,7 @@ lor.lhs.false.i175:                               ; preds = %lor.lhs.false.i
   store ptr %add.ptr.i, ptr %tableValidEnd.i.i, align 8
   store ptr %retval.0.i.i, ptr %blockState, align 8
   %add.ptr.i169 = getelementptr inbounds i8, ptr %retval.0.i.i, i64 11264
-  %cmp1.i177 = icmp ult i64 %call63, 11264
+  %cmp1.i177 = icmp samesign ult i64 %call63, 11264
   br i1 %cmp1.i177, label %ZSTD_cwksp_reserve_object.exit181.thread, label %lor.lhs.false.i189
 
 ZSTD_cwksp_reserve_object.exit181.thread:         ; preds = %lor.lhs.false.i175
@@ -12296,7 +12296,7 @@ lor.lhs.false.i189:                               ; preds = %lor.lhs.false.i175
   store ptr %add.ptr.i169, ptr %tableValidEnd.i.i, align 8
   %nextCBlock = getelementptr inbounds i8, ptr %zc, i64 3208
   store ptr %add.ptr.i, ptr %nextCBlock, align 8
-  %cmp1.i191 = icmp ult i64 %call63, 20184
+  %cmp1.i191 = icmp samesign ult i64 %call63, 20184
   br i1 %cmp1.i191, label %ZSTD_cwksp_reserve_object.exit195.thread, label %if.end183.thread
 
 ZSTD_cwksp_reserve_object.exit195.thread:         ; preds = %lor.lhs.false.i189
@@ -14511,7 +14511,7 @@ if.then:                                          ; preds = %entry
   %sub.ptr.sub.i22 = sub i64 %sub.ptr.lhs.cast.i20, %sub.ptr.rhs.cast.i
   %conv.i23 = trunc i64 %sub.ptr.sub.i22 to i32
   %and.i = and i32 %sub.i19, %conv.i23
-  %cmp.i24 = icmp ult i32 %and.i, 2
+  %cmp.i24 = icmp samesign ult i32 %and.i, 2
   %cond.i = tail call i32 @llvm.umax.i32(i32 %shl.i, i32 2)
   %cond7.i = select i1 %cmp.i24, i32 %cond.i, i32 0
   %cond13.i = tail call i32 @llvm.umax.i32(i32 %shl, i32 %shl.i)
@@ -16789,7 +16789,7 @@ if.end79:                                         ; preds = %if.then36, %if.then
   %23 = load i32, ptr %deterministicRefPrefix, align 4
   %forceNonContiguous = getelementptr inbounds i8, ptr %ms, i64 136
   store i32 %23, ptr %forceNonContiguous, align 8
-  %cmp99 = icmp ult i64 %srcSize.addr.1, 9
+  %cmp99 = icmp samesign ult i64 %srcSize.addr.1, 9
   br i1 %cmp99, label %return, label %if.end102
 
 if.end102:                                        ; preds = %if.end79

@@ -2356,7 +2356,7 @@ define internal fastcc noundef ptr @CatalogCacheCreateEntry(ptr noundef %0, ptr 
   %61 = load i16, ptr %60, align 2
   %62 = and i16 %61, 2047
   %63 = zext nneg i16 %62 to i32
-  %64 = icmp ugt i32 %55, %63
+  %64 = icmp samesign ugt i32 %55, %63
   br i1 %64, label %65, label %67
 
 65:                                               ; preds = %58

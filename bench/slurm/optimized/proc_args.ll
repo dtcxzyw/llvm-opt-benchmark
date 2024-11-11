@@ -1496,7 +1496,7 @@ thread-pre-split:                                 ; preds = %9, %9, %13
   unreachable
 
 26:                                               ; preds = %19, %22
-  %27 = icmp ugt i64 %.0, 2147483647
+  %27 = icmp samesign ugt i64 %.0, 2147483647
   br i1 %27, label %28, label %31
 
 28:                                               ; preds = %26
@@ -1568,7 +1568,7 @@ thread-pre-split49:                               ; preds = %36, %36, %41
   unreachable
 
 53:                                               ; preds = %46, %49
-  %54 = icmp ugt i64 %.1, 2147483647
+  %54 = icmp samesign ugt i64 %.1, 2147483647
   br i1 %54, label %55, label %58
 
 55:                                               ; preds = %53
@@ -3150,7 +3150,7 @@ define range(i32 0, 2147483647) i32 @parse_int(ptr noundef %0, ptr noundef %1, i
   unreachable
 
 13:                                               ; preds = %8
-  %14 = icmp ugt i64 %6, 2147483646
+  %14 = icmp samesign ugt i64 %6, 2147483646
   br i1 %14, label %15, label %17
 
 15:                                               ; preds = %13

@@ -217,7 +217,7 @@ define dso_local void @inflate_fast(ptr nocapture noundef %0, i32 noundef %1) lo
   %174 = shl nuw nsw i64 %172, %173
   %175 = add i64 %174, %163
   %176 = add nuw nsw i32 %164, 8
-  %177 = icmp ult i32 %176, %167
+  %177 = icmp samesign ult i32 %176, %167
   br i1 %177, label %178, label %186
 
 178:                                              ; preds = %169

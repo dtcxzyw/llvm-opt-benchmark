@@ -1469,7 +1469,7 @@ if.end39:                                         ; preds = %land.lhs.true19
   br i1 %cmp43, label %if.then44, label %if.end59
 
 if.then44:                                        ; preds = %if.end39
-  %cmp45 = icmp ult i32 %length, 7
+  %cmp45 = icmp samesign ult i32 %length, 7
   br i1 %cmp45, label %if.then46, label %if.end47
 
 if.then46:                                        ; preds = %if.then44

@@ -634,7 +634,7 @@ define noundef double @"_ZN119_$LT$statrs..distribution..inverse_gamma..InverseG
   br i1 %13, label %14, label %"_ZN47_$LT$f64$u20$as$u20$approx..ulps_eq..UlpsEq$GT$7ulps_eq17hdd68b037342b848bE.exit"
 
 14:                                               ; preds = %11
-  %15 = icmp ugt i64 %12, 4607182418800017403
+  %15 = icmp samesign ugt i64 %12, 4607182418800017403
   br i1 %15, label %"_ZN47_$LT$f64$u20$as$u20$approx..ulps_eq..UlpsEq$GT$7ulps_eq17hdd68b037342b848bE.exit.thread", label %"_ZN47_$LT$f64$u20$as$u20$approx..ulps_eq..UlpsEq$GT$7ulps_eq17hdd68b037342b848bE.exit.thread6"
 
 "_ZN47_$LT$f64$u20$as$u20$approx..ulps_eq..UlpsEq$GT$7ulps_eq17hdd68b037342b848bE.exit": ; preds = %11
@@ -699,7 +699,7 @@ define noundef double @"_ZN119_$LT$statrs..distribution..inverse_gamma..InverseG
   br i1 %13, label %14, label %"_ZN47_$LT$f64$u20$as$u20$approx..ulps_eq..UlpsEq$GT$7ulps_eq17hdd68b037342b848bE.exit.i"
 
 14:                                               ; preds = %11
-  %15 = icmp ugt i64 %12, 4607182418800017403
+  %15 = icmp samesign ugt i64 %12, 4607182418800017403
   br i1 %15, label %"_ZN47_$LT$f64$u20$as$u20$approx..ulps_eq..UlpsEq$GT$7ulps_eq17hdd68b037342b848bE.exit.thread.i", label %"_ZN47_$LT$f64$u20$as$u20$approx..ulps_eq..UlpsEq$GT$7ulps_eq17hdd68b037342b848bE.exit.thread6.i"
 
 "_ZN47_$LT$f64$u20$as$u20$approx..ulps_eq..UlpsEq$GT$7ulps_eq17hdd68b037342b848bE.exit.i": ; preds = %11

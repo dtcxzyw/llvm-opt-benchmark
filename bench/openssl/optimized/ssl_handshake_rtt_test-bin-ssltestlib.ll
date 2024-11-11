@@ -624,7 +624,7 @@ for.body:                                         ; preds = %for.body.lr.ph, %if
   %outl.addr.258 = phi i32 [ %spec.select, %for.body.lr.ph ], [ %outl.addr.3, %if.end68 ]
   %rem.056 = phi i32 [ %5, %for.body.lr.ph ], [ %sub71, %if.end68 ]
   %rec.055 = phi ptr [ %9, %for.body.lr.ph ], [ %rec.1, %if.end68 ]
-  %cmp17 = icmp ult i32 %rem.056, 13
+  %cmp17 = icmp samesign ult i32 %rem.056, 13
   br i1 %cmp17, label %return, label %if.end19
 
 if.end19:                                         ; preds = %for.body
@@ -693,7 +693,7 @@ land.lhs.true50:                                  ; preds = %if.end45
   br i1 %cmp51, label %if.then53, label %if.else
 
 if.then53:                                        ; preds = %land.lhs.true50
-  %cmp54 = icmp ugt i32 %rem.056, %add
+  %cmp54 = icmp samesign ugt i32 %rem.056, %add
   br i1 %cmp54, label %if.then56, label %if.end59
 
 if.then56:                                        ; preds = %if.then53
@@ -937,7 +937,7 @@ if.end11:                                         ; preds = %if.end11.lr.ph, %if
   %conv18 = zext i8 %5 to i32
   %or19 = or disjoint i32 %shl16, %conv18
   %add = add nuw nsw i32 %or19, 13
-  %cmp20 = icmp ult i32 %rem.049, %add
+  %cmp20 = icmp samesign ult i32 %rem.049, %add
   br i1 %cmp20, label %return, label %if.end23
 
 if.end23:                                         ; preds = %if.end11

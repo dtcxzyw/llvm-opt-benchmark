@@ -2515,16 +2515,16 @@ switch.lookup:                                    ; preds = %459
   br i1 %571, label %572, label %615
 
 572:                                              ; preds = %570
-  %573 = icmp ugt i32 %551, %555
+  %573 = icmp samesign ugt i32 %551, %555
   %574 = sub nuw nsw i32 %551, %555
-  %575 = icmp ult i32 %574, 32768
+  %575 = icmp samesign ult i32 %574, 32768
   %or.cond568 = select i1 %573, i1 %575, i1 false
   br i1 %or.cond568, label %580, label %576
 
 576:                                              ; preds = %572
-  %577 = icmp ugt i32 %555, %551
+  %577 = icmp samesign ugt i32 %555, %551
   %578 = sub nuw nsw i32 %555, %551
-  %579 = icmp ugt i32 %578, 32767
+  %579 = icmp samesign ugt i32 %578, 32767
   %or.cond570 = select i1 %577, i1 %579, i1 false
   br i1 %or.cond570, label %580, label %581
 

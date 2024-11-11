@@ -23957,7 +23957,7 @@ _ZNSt6vectorIjSaIjEE9push_backERKj.exit:          ; preds = %10, %_ZNSt6vectorIj
   %40 = shl nuw i32 1, %.0
   %41 = or i32 %40, %1
   tail call void @_ZN7cvflann8LshIndexINS_7HammingIhEEE13fill_xor_maskEjijRSt6vectorIjSaIjEE(ptr noundef nonnull align 8 dereferenceable(161) %0, i32 noundef %41, i32 noundef %.0, i32 noundef %38, ptr noundef nonnull align 8 dereferenceable(24) %4)
-  %42 = icmp ugt i32 %.0.in13, 1
+  %42 = icmp samesign ugt i32 %.0.in13, 1
   br i1 %42, label %39, label %.loopexit, !llvm.loop !216
 
 .loopexit:                                        ; preds = %39, %_ZNSt6vectorIjSaIjEE9push_backERKj.exit

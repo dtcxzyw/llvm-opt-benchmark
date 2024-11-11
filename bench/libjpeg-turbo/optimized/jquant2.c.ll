@@ -108,7 +108,7 @@ define void @jinit_2pass_quantizer(ptr noundef %0) local_unnamed_addr #0 {
   br i1 %56, label %.sink.split, label %57
 
 57:                                               ; preds = %53
-  %58 = icmp ugt i32 %55, 256
+  %58 = icmp samesign ugt i32 %55, 256
   br i1 %58, label %.sink.split, label %65
 
 .sink.split:                                      ; preds = %57, %53
@@ -251,7 +251,7 @@ define internal void @start_pass_2_quant(ptr noundef %0, i32 noundef %1) #0 {
   br i1 %18, label %.sink.split, label %19
 
 19:                                               ; preds = %13
-  %20 = icmp ugt i32 %17, 256
+  %20 = icmp samesign ugt i32 %17, 256
   br i1 %20, label %.sink.split, label %27
 
 .sink.split:                                      ; preds = %19, %13

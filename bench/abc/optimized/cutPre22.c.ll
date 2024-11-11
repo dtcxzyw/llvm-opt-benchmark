@@ -281,7 +281,7 @@ select.unfold.i:                                  ; preds = %select.unfold.i, %s
   %34 = load i32, ptr %33, align 4
   %35 = getelementptr inbounds i32, ptr %.040, i64 %indvars.iv.next.i
   store i32 %34, ptr %35, align 4
-  %36 = icmp ugt i64 %indvars.iv.i, 1
+  %36 = icmp samesign ugt i64 %indvars.iv.i, 1
   br i1 %36, label %select.unfold.i, label %Extra_TruthCopy.exit.loopexit, !llvm.loop !9
 
 Extra_TruthCopy.exit.loopexit:                    ; preds = %select.unfold.i
@@ -645,7 +645,7 @@ select.unfold.i.i:                                ; preds = %select.unfold.i.i, 
   %113 = load i32, ptr %112, align 4
   %114 = getelementptr inbounds i32, ptr %.040.i, i64 %indvars.iv.next.i.i
   store i32 %113, ptr %114, align 4
-  %115 = icmp ugt i64 %indvars.iv.i.i, 1
+  %115 = icmp samesign ugt i64 %indvars.iv.i.i, 1
   br i1 %115, label %select.unfold.i.i, label %Extra_TruthCopy.exit.loopexit.i, !llvm.loop !9
 
 Extra_TruthCopy.exit.loopexit.i:                  ; preds = %select.unfold.i.i
@@ -1002,7 +1002,7 @@ select.unfold.i.us:                               ; preds = %select.unfold.i.us,
   %285 = load i32, ptr %284, align 4
   %286 = getelementptr inbounds i32, ptr %277, i64 %indvars.iv.next.i250.us
   store i32 %285, ptr %286, align 4
-  %287 = icmp ugt i64 %indvars.iv.i249.us, 1
+  %287 = icmp samesign ugt i64 %indvars.iv.i249.us, 1
   br i1 %287, label %select.unfold.i.us, label %Extra_TruthCopy.exit.us, !llvm.loop !9
 
 Extra_TruthCopy.exit.us:                          ; preds = %select.unfold.i.us
@@ -1028,7 +1028,7 @@ select.unfold.i.i253.us:                          ; preds = %select.unfold.i.i25
   %300 = load i32, ptr %299, align 4
   %301 = getelementptr inbounds i32, ptr @Cut_CellCrossBar.uTemp0, i64 %indvars.iv.next.i.i255.us
   store i32 %300, ptr %301, align 4
-  %302 = icmp ugt i64 %indvars.iv.i.i254.us, 1
+  %302 = icmp samesign ugt i64 %indvars.iv.i.i254.us, 1
   br i1 %302, label %select.unfold.i.i253.us, label %select.unfold.preheader.i35.i.us, !llvm.loop !9
 
 select.unfold.preheader.i35.i.us:                 ; preds = %select.unfold.i.i253.us
@@ -1048,7 +1048,7 @@ select.unfold.i36.i.us:                           ; preds = %select.unfold.i36.i
   %310 = load i32, ptr %309, align 4
   %311 = getelementptr inbounds i32, ptr @Cut_CellCrossBar.uTemp1, i64 %indvars.iv.next.i38.i.us
   store i32 %310, ptr %311, align 4
-  %312 = icmp ugt i64 %indvars.iv.i37.i.us, 1
+  %312 = icmp samesign ugt i64 %indvars.iv.i37.i.us, 1
   br i1 %312, label %select.unfold.i36.i.us, label %Extra_TruthCopy.exit39.i.us, !llvm.loop !9
 
 Extra_TruthCopy.exit39.i.us:                      ; preds = %select.unfold.i36.i.us
@@ -1205,7 +1205,7 @@ select.unfold.i.i275.us:                          ; preds = %select.unfold.i.i27
   %399 = load i32, ptr %398, align 4
   %400 = getelementptr inbounds i32, ptr %.040.i267.us, i64 %indvars.iv.next.i.i277.us
   store i32 %399, ptr %400, align 4
-  %401 = icmp ugt i64 %indvars.iv.i.i276.us, 1
+  %401 = icmp samesign ugt i64 %indvars.iv.i.i276.us, 1
   br i1 %401, label %select.unfold.i.i275.us, label %Extra_TruthCopy.exit.loopexit.i278.us, !llvm.loop !9
 
 Extra_TruthCopy.exit.loopexit.i278.us:            ; preds = %select.unfold.i.i275.us
@@ -2033,11 +2033,11 @@ Abc_Clock.exit:                                   ; preds = %0, %8
   br i1 %27, label %.split.split.us.preheader, label %28
 
 28:                                               ; preds = %26
-  %29 = icmp ult i32 %24, 100
+  %29 = icmp samesign ult i32 %24, 100
   br i1 %29, label %.split.split.split.us.preheader, label %30
 
 30:                                               ; preds = %28
-  %31 = icmp ult i32 %24, 1000
+  %31 = icmp samesign ult i32 %24, 1000
   %32 = getelementptr inbounds i8, ptr %.098, i64 28
   br i1 %31, label %.split.split.split.split.us.preheader, label %.split.split.split.split.preheader
 

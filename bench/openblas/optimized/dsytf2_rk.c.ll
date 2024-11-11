@@ -484,7 +484,7 @@ define void @dsytf2_rk_(ptr noundef %0, ptr nocapture noundef readonly %1, ptr n
   %328 = call double @llvm.fmuladd.f64(double %327, double %309, double %323)
   store double %328, ptr %317, align 8, !tbaa !7
   %329 = add nsw i64 %316, -1
-  %330 = icmp ugt i64 %316, 1
+  %330 = icmp samesign ugt i64 %316, 1
   br i1 %330, label %315, label %331, !llvm.loop !12
 
 331:                                              ; preds = %315

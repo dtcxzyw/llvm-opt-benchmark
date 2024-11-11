@@ -667,7 +667,7 @@ define dso_local i32 @i915_perf_open_ioctl(ptr noundef %0, ptr nocapture noundef
   %149 = add nsw i64 %145, -1
   %150 = add nuw nsw i64 %149, %148
   %151 = udiv i64 %150, %148
-  %152 = icmp ult i64 %151, 1000000001
+  %152 = icmp samesign ult i64 %151, 1000000001
   br i1 %152, label %153, label %.thread
 
 153:                                              ; preds = %143
@@ -7496,7 +7496,7 @@ define internal fastcc zeroext i1 @oa_buffer_check_unlocked(ptr noundef %0) unna
   %48 = and i32 %47, 16777215
   %49 = sub i32 %47, %22
   %50 = and i32 %49, 16777215
-  %51 = icmp ult i32 %50, %12
+  %51 = icmp samesign ult i32 %50, %12
   br i1 %51, label %.thread3, label %.lr.ph.split.us
 
 .thread:                                          ; preds = %.lr.ph, %60
@@ -7518,7 +7518,7 @@ define internal fastcc zeroext i1 @oa_buffer_check_unlocked(ptr noundef %0) unna
   %62 = and i32 %61, 16777215
   %63 = sub i32 %61, %22
   %64 = and i32 %63, 16777215
-  %65 = icmp ult i32 %64, %12
+  %65 = icmp samesign ult i32 %64, %12
   br i1 %65, label %.thread3, label %.thread
 
 .thread3:                                         ; preds = %60, %.thread2, %.thread, %46, %42, %.lr.ph.split.us, %1

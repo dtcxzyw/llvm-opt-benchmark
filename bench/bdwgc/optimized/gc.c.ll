@@ -1703,7 +1703,7 @@ GC_setup_atfork.exit:                             ; preds = %GC_init_size_map.ex
   %293 = getelementptr inbounds [1701 x i8], ptr %1, i64 0, i64 %292
   store i8 0, ptr %293, align 1
   %294 = call i32 @close(i32 noundef %277) #41
-  %295 = icmp ugt i32 %283, 4
+  %295 = icmp samesign ugt i32 %283, 4
   br i1 %295, label %.lr.ph.preheader.i, label %.thread150
 
 .lr.ph.preheader.i:                               ; preds = %291
@@ -2037,7 +2037,7 @@ GC_stop_init.exit:                                ; preds = %403
 GC_parse_version.exit.i:                          ; preds = %429, %427
   %.1.i = phi i32 [ -1, %427 ], [ %432, %429 ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4)
-  %433 = icmp ugt i32 %422, 2
+  %433 = icmp samesign ugt i32 %422, 2
   br i1 %433, label %437, label %434
 
 434:                                              ; preds = %GC_parse_version.exit.i
@@ -6717,7 +6717,7 @@ GC_lock.exit:                                     ; preds = %.preheader.i.i, %GC
   br label %GC_register_displacement_inner.exit
 
 GC_register_displacement_inner.exit:              ; preds = %22, %25
-  %28 = icmp ugt i64 %0, 4063
+  %28 = icmp samesign ugt i64 %0, 4063
   br i1 %28, label %29, label %31
 
 29:                                               ; preds = %GC_register_displacement_inner.exit
@@ -7941,7 +7941,7 @@ GC_lock.exit:                                     ; preds = %.preheader.i.i, %GC
   %51 = getelementptr inbounds i8, ptr %50, i64 28
   %52 = load i32, ptr %51, align 4
   %.not.i7 = icmp ne i32 %52, 0
-  %53 = icmp ugt i64 %.val6, 8
+  %53 = icmp samesign ugt i64 %.val6, 8
   %or.cond.i = select i1 %.not.i7, i1 %53, i1 false
   br i1 %or.cond.i, label %54, label %57
 
@@ -9555,7 +9555,7 @@ GC_find_header.exit.i.i:                          ; preds = %67
   %93 = getelementptr inbounds i8, ptr %92, i64 28
   %94 = load i32, ptr %93, align 4
   %.not.i.i10.i = icmp ne i32 %94, 0
-  %95 = icmp ugt i64 %.val2.i.i, 8
+  %95 = icmp samesign ugt i64 %.val2.i.i, 8
   %or.cond.i.i.i = select i1 %.not.i.i10.i, i1 %95, i1 false
   br i1 %or.cond.i.i.i, label %96, label %99
 
@@ -20301,7 +20301,7 @@ define internal fastcc range(i32 -1, 3) i32 @GC_make_array_descriptor(i64 nounde
   br i1 %17, label %18, label %21
 
 18:                                               ; preds = %16
-  %19 = icmp ult i64 %0, 2
+  %19 = icmp samesign ult i64 %0, 2
   br i1 %19, label %20, label %84
 
 20:                                               ; preds = %18
@@ -21490,7 +21490,7 @@ define hidden ptr @GC_get_main_stack_base() local_unnamed_addr #1 {
 
 35:                                               ; preds = %33
   %36 = add nuw nsw i64 %31, %.01316.i.i
-  %37 = icmp ult i64 %36, 4096
+  %37 = icmp samesign ult i64 %36, 4096
   br i1 %37, label %.lr.ph.i.i, label %41, !llvm.loop !109
 
 GC_repeat_read.exit.i:                            ; preds = %.lr.ph.i.i
@@ -21784,7 +21784,7 @@ ensure_min_linux_ver.exit.thread19.i.i:           ; preds = %56, %51, %46
 GC_parse_version.exit.i.i.i:                      ; preds = %56, %54
   %.1.i.i.i = phi i32 [ -1, %54 ], [ %59, %56 ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2)
-  %60 = icmp ugt i32 %49, 3
+  %60 = icmp samesign ugt i32 %49, 3
   br i1 %60, label %ensure_min_linux_ver.exit.thread16.i.i, label %ensure_min_linux_ver.exit.i.i
 
 ensure_min_linux_ver.exit.thread16.i.i:           ; preds = %GC_parse_version.exit.i.i.i
@@ -28108,7 +28108,7 @@ GC_find_header.exit.i.i:                          ; preds = %34
   %60 = getelementptr inbounds i8, ptr %59, i64 28
   %61 = load i32, ptr %60, align 4
   %.not.i.i.i = icmp ne i32 %61, 0
-  %62 = icmp ugt i64 %.val2.i.i, 8
+  %62 = icmp samesign ugt i64 %.val2.i.i, 8
   %or.cond.i.i.i = select i1 %.not.i.i.i, i1 %62, i1 false
   br i1 %or.cond.i.i.i, label %63, label %66
 
@@ -28196,7 +28196,7 @@ GC_find_header.exit.i28.i:                        ; preds = %85
   %111 = getelementptr inbounds i8, ptr %110, i64 28
   %112 = load i32, ptr %111, align 4
   %.not.i.i31.i = icmp ne i32 %112, 0
-  %113 = icmp ugt i64 %.val2.i30.i, 8
+  %113 = icmp samesign ugt i64 %.val2.i30.i, 8
   %or.cond.i.i32.i = select i1 %.not.i.i31.i, i1 %113, i1 false
   br i1 %or.cond.i.i32.i, label %114, label %116
 
@@ -29912,7 +29912,7 @@ GC_find_header.exit.i:                            ; preds = %34
   %60 = getelementptr inbounds i8, ptr %59, i64 28
   %61 = load i32, ptr %60, align 4
   %.not.i.i = icmp ne i32 %61, 0
-  %62 = icmp ugt i64 %.val2.i, 8
+  %62 = icmp samesign ugt i64 %.val2.i, 8
   %or.cond.i.i = select i1 %.not.i.i, i1 %62, i1 false
   br i1 %or.cond.i.i, label %63, label %66
 
@@ -30000,7 +30000,7 @@ GC_find_header.exit.i22:                          ; preds = %85
   %111 = getelementptr inbounds i8, ptr %110, i64 28
   %112 = load i32, ptr %111, align 4
   %.not.i.i25 = icmp ne i32 %112, 0
-  %113 = icmp ugt i64 %.val2.i24, 8
+  %113 = icmp samesign ugt i64 %.val2.i24, 8
   %or.cond.i.i26 = select i1 %.not.i.i25, i1 %113, i1 false
   br i1 %or.cond.i.i26, label %114, label %116
 
@@ -34918,7 +34918,7 @@ define internal fastcc ptr @GC_mark_from(ptr noundef %0, ptr noundef %1, ptr nou
 
 .split230.us251:                                  ; preds = %18
   %45 = getelementptr inbounds i8, ptr %.1.ph.us, i64 -16
-  %46 = icmp ult i64 %.0143.us242, 8
+  %46 = icmp samesign ult i64 %.0143.us242, 8
   br i1 %46, label %.backedge.us, label %.split275.us
 
 .outer.us:                                        ; preds = %.split.us254, %37
@@ -34999,7 +34999,7 @@ default.unreachable:                              ; preds = %54
 
 .split230.us:                                     ; preds = %66
   %70 = getelementptr inbounds i8, ptr %.0240, i64 -16
-  %71 = icmp ult i64 %.0143.us, 8
+  %71 = icmp samesign ult i64 %.0143.us, 8
   br i1 %71, label %.backedge, label %.split275.us
 
 .split225.split.us:                               ; preds = %34, %54
@@ -38341,7 +38341,7 @@ define internal range(i32 -1, 1) i32 @GC_register_dynlib_callback(ptr nocapture 
   br label %.loopexit
 
 87:                                               ; preds = %84
-  %88 = icmp ugt i64 %indvars.iv, 1
+  %88 = icmp samesign ugt i64 %indvars.iv, 1
   br i1 %88, label %.lr.ph65, label %.loopexit, !llvm.loop !210
 
 .loopexit:                                        ; preds = %87, %.thread, %56, %.lr.ph69, %79, %81
@@ -41653,7 +41653,7 @@ define internal fastcc range(i32 0, 2) i32 @GC_collect_or_expand(i64 noundef ran
 62:                                               ; preds = %59
   %63 = sub nuw i64 %60, %43
   %64 = lshr i64 %63, 12
-  %65 = icmp ugt i64 %.1, %64
+  %65 = icmp samesign ugt i64 %.1, %64
   br i1 %65, label %66, label %68
 
 66:                                               ; preds = %62

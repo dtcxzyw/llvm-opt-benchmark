@@ -10624,7 +10624,7 @@ if.then:                                          ; preds = %entry
   br label %return
 
 if.else:                                          ; preds = %entry
-  %cmp15 = icmp ugt i32 %value, 9
+  %cmp15 = icmp samesign ugt i32 %value, 9
   %add17 = select i1 %cmp15, i32 2, i32 1
   br label %return
 
@@ -10657,21 +10657,21 @@ if.then2:                                         ; preds = %if.then
   br label %return
 
 if.else:                                          ; preds = %if.then
-  %cmp14 = icmp ugt i64 %value, 99999999999
+  %cmp14 = icmp samesign ugt i64 %value, 99999999999
   %add16 = select i1 %cmp14, i32 12, i32 11
   br label %return
 
 if.else26:                                        ; preds = %entry
-  %cmp27 = icmp ugt i64 %value, 99999
+  %cmp27 = icmp samesign ugt i64 %value, 99999
   br i1 %cmp27, label %if.then28, label %if.else42
 
 if.then28:                                        ; preds = %if.else26
-  %cmp30 = icmp ugt i64 %value, 999999
+  %cmp30 = icmp samesign ugt i64 %value, 999999
   %add32 = select i1 %cmp30, i32 7, i32 6
   br label %return
 
 if.else42:                                        ; preds = %if.else26
-  %cmp44 = icmp ugt i64 %value, 9
+  %cmp44 = icmp samesign ugt i64 %value, 9
   %add46 = select i1 %cmp44, i32 2, i32 1
   br label %return
 
@@ -25644,7 +25644,7 @@ entry:
   br i1 %cmp26.i, label %while.body.i.preheader, label %while.cond1.preheader.i
 
 while.body.i.preheader:                           ; preds = %entry
-  %0 = icmp ult i32 %d.coerce, -146097
+  %0 = icmp samesign ult i32 %d.coerce, -146097
   %umin.neg3 = sext i1 %0 to i32
   %umin = zext i1 %0 to i32
   %.neg1 = tail call i32 @llvm.usub.sat.i32(i32 -146097, i32 %d.coerce)
@@ -25659,7 +25659,7 @@ while.body.i.preheader:                           ; preds = %entry
   br label %while.end6.i
 
 while.cond1.preheader.i:                          ; preds = %entry
-  %cmp227.i = icmp ugt i32 %d.coerce, 146096
+  %cmp227.i = icmp samesign ugt i32 %d.coerce, 146096
   br i1 %cmp227.i, label %while.body3.i.preheader, label %while.end6.i
 
 while.body3.i.preheader:                          ; preds = %while.cond1.preheader.i
@@ -25736,13 +25736,13 @@ if.end4.i:                                        ; preds = %entry
 
 if.then6.i:                                       ; preds = %if.end4.i
   %cmp7.not.i = icmp ne i32 %year, -5877641
-  %cmp11.i = icmp ult i32 %month, 6
+  %cmp11.i = icmp samesign ult i32 %month, 6
   %or.cond61.i = or i1 %cmp7.not.i, %cmp11.i
   br i1 %or.cond61.i, label %cleanup, label %lor.lhs.false12.i
 
 lor.lhs.false12.i:                                ; preds = %if.then6.i
   %cmp13.i = icmp eq i32 %month, 6
-  %cmp14.i = icmp ult i32 %day, 25
+  %cmp14.i = icmp samesign ult i32 %day, 25
   %or.cond41.i = and i1 %cmp13.i, %cmp14.i
   br i1 %or.cond41.i, label %cleanup, label %_ZN6duckdb4Date10IsLeapYearEi.exit.thread74.i
 
@@ -25752,13 +25752,13 @@ if.end19.i:                                       ; preds = %if.end4.i
 
 if.then21.i:                                      ; preds = %if.end19.i
   %cmp22.not.i = icmp ne i32 %year, 5881580
-  %cmp27.i = icmp ugt i32 %month, 7
+  %cmp27.i = icmp samesign ugt i32 %month, 7
   %or.cond62.i = or i1 %cmp22.not.i, %cmp27.i
   br i1 %or.cond62.i, label %cleanup, label %lor.lhs.false28.i
 
 lor.lhs.false28.i:                                ; preds = %if.then21.i
   %cmp29.i = icmp eq i32 %month, 7
-  %cmp31.i = icmp ugt i32 %day, 10
+  %cmp31.i = icmp samesign ugt i32 %day, 10
   %or.cond42.i = and i1 %cmp29.i, %cmp31.i
   br i1 %or.cond42.i, label %cleanup, label %_ZN6duckdb4Date10IsLeapYearEi.exit.thread.i
 
@@ -25839,7 +25839,7 @@ if.then7:                                         ; preds = %cond.end
   br label %if.end35
 
 if.else:                                          ; preds = %cond.end
-  %cmp15 = icmp ugt i32 %year, 2369
+  %cmp15 = icmp samesign ugt i32 %year, 2369
   br i1 %cmp15, label %if.then16, label %if.else29
 
 if.then16:                                        ; preds = %if.else
@@ -25888,13 +25888,13 @@ if.end4:                                          ; preds = %entry
 
 if.then6:                                         ; preds = %if.end4
   %cmp7.not = icmp ne i32 %year, -5877641
-  %cmp11 = icmp ult i32 %month, 6
+  %cmp11 = icmp samesign ult i32 %month, 6
   %or.cond61 = or i1 %cmp7.not, %cmp11
   br i1 %or.cond61, label %return, label %lor.lhs.false12
 
 lor.lhs.false12:                                  ; preds = %if.then6
   %cmp13 = icmp eq i32 %month, 6
-  %cmp14 = icmp ult i32 %day, 25
+  %cmp14 = icmp samesign ult i32 %day, 25
   %or.cond41 = and i1 %cmp13, %cmp14
   br i1 %or.cond41, label %return, label %_ZN6duckdb4Date10IsLeapYearEi.exit.thread74
 
@@ -25904,13 +25904,13 @@ if.end19:                                         ; preds = %if.end4
 
 if.then21:                                        ; preds = %if.end19
   %cmp22.not = icmp ne i32 %year, 5881580
-  %cmp27 = icmp ugt i32 %month, 7
+  %cmp27 = icmp samesign ugt i32 %month, 7
   %or.cond62 = or i1 %cmp22.not, %cmp27
   br i1 %or.cond62, label %return, label %lor.lhs.false28
 
 lor.lhs.false28:                                  ; preds = %if.then21
   %cmp29 = icmp eq i32 %month, 7
-  %cmp31 = icmp ugt i32 %day, 10
+  %cmp31 = icmp samesign ugt i32 %day, 10
   %or.cond42 = and i1 %cmp29, %cmp31
   br i1 %or.cond42, label %return, label %_ZN6duckdb4Date10IsLeapYearEi.exit.thread
 
@@ -27161,7 +27161,7 @@ if.end12:                                         ; preds = %entry
   br i1 %cmp26.i.i, label %while.body.i.preheader.i, label %while.cond1.preheader.i.i
 
 while.body.i.preheader.i:                         ; preds = %if.end12
-  %14 = icmp ult i32 %date.coerce, -146097
+  %14 = icmp samesign ult i32 %date.coerce, -146097
   %umin.i.neg95 = sext i1 %14 to i32
   %umin.i = zext i1 %14 to i32
   %.neg = tail call i32 @llvm.usub.sat.i32(i32 -146097, i32 %date.coerce)
@@ -27176,7 +27176,7 @@ while.body.i.preheader.i:                         ; preds = %if.end12
   br label %while.end6.i.i
 
 while.cond1.preheader.i.i:                        ; preds = %if.end12
-  %cmp227.i.i = icmp ugt i32 %date.coerce, 146096
+  %cmp227.i.i = icmp samesign ugt i32 %date.coerce, 146096
   br i1 %cmp227.i.i, label %while.body3.i.preheader.i, label %while.end6.i.i
 
 while.body3.i.preheader.i:                        ; preds = %while.cond1.preheader.i.i
@@ -27881,7 +27881,7 @@ if.end:                                           ; preds = %land.lhs.true, %ent
   br i1 %cmp26.i, label %while.body.i.preheader, label %while.cond1.preheader.i
 
 while.body.i.preheader:                           ; preds = %if.end
-  %3 = icmp ult i32 %d.coerce, -146097
+  %3 = icmp samesign ult i32 %d.coerce, -146097
   %umin.neg2 = sext i1 %3 to i32
   %umin = zext i1 %3 to i32
   %.neg1 = tail call i32 @llvm.usub.sat.i32(i32 -146097, i32 %d.coerce)
@@ -27896,7 +27896,7 @@ while.body.i.preheader:                           ; preds = %if.end
   br label %while.end6.i
 
 while.cond1.preheader.i:                          ; preds = %if.end
-  %cmp227.i = icmp ugt i32 %d.coerce, 146096
+  %cmp227.i = icmp samesign ugt i32 %d.coerce, 146096
   br i1 %cmp227.i, label %while.body3.i.preheader, label %while.end6.i
 
 while.body3.i.preheader:                          ; preds = %while.cond1.preheader.i
@@ -27976,7 +27976,7 @@ if.end.i:                                         ; preds = %land.lhs.true.i, %_
   br i1 %cmp26.i.i, label %while.body.i.preheader.i, label %while.cond1.preheader.i.i
 
 while.body.i.preheader.i:                         ; preds = %if.end.i
-  %3 = icmp ult i32 %retval.sroa.0.0.i, -146097
+  %3 = icmp samesign ult i32 %retval.sroa.0.0.i, -146097
   %umin.i.neg24 = sext i1 %3 to i32
   %umin.i = zext i1 %3 to i32
   %.neg = tail call i32 @llvm.usub.sat.i32(i32 -146097, i32 %retval.sroa.0.0.i)
@@ -27991,7 +27991,7 @@ while.body.i.preheader.i:                         ; preds = %if.end.i
   br label %while.end6.i.i
 
 while.cond1.preheader.i.i:                        ; preds = %if.end.i
-  %cmp227.i.i = icmp ugt i32 %retval.sroa.0.0.i, 146096
+  %cmp227.i.i = icmp samesign ugt i32 %retval.sroa.0.0.i, 146096
   br i1 %cmp227.i.i, label %while.body3.i.preheader.i, label %while.end6.i.i
 
 while.body3.i.preheader.i:                        ; preds = %while.cond1.preheader.i.i, %entry
@@ -28061,7 +28061,7 @@ entry:
   br i1 %cmp26.i, label %while.body.i.preheader, label %while.cond1.preheader.i
 
 while.body.i.preheader:                           ; preds = %entry
-  %0 = icmp ult i32 %d.coerce, -146097
+  %0 = icmp samesign ult i32 %d.coerce, -146097
   %umin.neg2 = sext i1 %0 to i32
   %umin = zext i1 %0 to i32
   %.neg1 = tail call i32 @llvm.usub.sat.i32(i32 -146097, i32 %d.coerce)
@@ -28076,7 +28076,7 @@ while.body.i.preheader:                           ; preds = %entry
   br label %while.end6.i
 
 while.cond1.preheader.i:                          ; preds = %entry
-  %cmp227.i = icmp ugt i32 %d.coerce, 146096
+  %cmp227.i = icmp samesign ugt i32 %d.coerce, 146096
   br i1 %cmp227.i, label %while.body3.i.preheader, label %while.end6.i
 
 while.body3.i.preheader:                          ; preds = %while.cond1.preheader.i
@@ -28117,7 +28117,7 @@ entry:
   br i1 %cmp26.i.i, label %while.body.i.preheader.i, label %while.cond1.preheader.i.i
 
 while.body.i.preheader.i:                         ; preds = %entry
-  %0 = icmp ult i32 %date.coerce.fr, -146097
+  %0 = icmp samesign ult i32 %date.coerce.fr, -146097
   %umin.i.neg2 = sext i1 %0 to i32
   %umin.i = zext i1 %0 to i32
   %.neg = tail call i32 @llvm.usub.sat.i32(i32 -146097, i32 %date.coerce.fr)
@@ -28130,7 +28130,7 @@ while.body.i.preheader.i:                         ; preds = %entry
   br label %while.end6.i.i
 
 while.cond1.preheader.i.i:                        ; preds = %entry
-  %cmp227.i.i = icmp ugt i32 %date.coerce.fr, 146096
+  %cmp227.i.i = icmp samesign ugt i32 %date.coerce.fr, 146096
   br i1 %cmp227.i.i, label %while.body3.i.preheader.i, label %while.end6.i.i
 
 while.body3.i.preheader.i:                        ; preds = %while.cond1.preheader.i.i
@@ -28181,7 +28181,7 @@ entry:
   br i1 %cmp26.i.i, label %while.body.i.preheader.i, label %while.cond1.preheader.i.i
 
 while.body.i.preheader.i:                         ; preds = %entry
-  %0 = icmp ult i32 %date.coerce.fr, -146097
+  %0 = icmp samesign ult i32 %date.coerce.fr, -146097
   %umin.i.neg4 = sext i1 %0 to i32
   %umin.i = zext i1 %0 to i32
   %.neg = tail call i32 @llvm.usub.sat.i32(i32 -146097, i32 %date.coerce.fr)
@@ -28194,7 +28194,7 @@ while.body.i.preheader.i:                         ; preds = %entry
   br label %while.end6.i.i
 
 while.cond1.preheader.i.i:                        ; preds = %entry
-  %cmp227.i.i = icmp ugt i32 %date.coerce.fr, 146096
+  %cmp227.i.i = icmp samesign ugt i32 %date.coerce.fr, 146096
   br i1 %cmp227.i.i, label %while.body3.i.preheader.i, label %while.end6.i.i
 
 while.body3.i.preheader.i:                        ; preds = %while.cond1.preheader.i.i
@@ -28251,7 +28251,7 @@ entry:
   br i1 %cmp26.i, label %while.body.i.preheader, label %while.cond1.preheader.i
 
 while.body.i.preheader:                           ; preds = %entry
-  %0 = icmp ult i32 %date.coerce.fr, -146097
+  %0 = icmp samesign ult i32 %date.coerce.fr, -146097
   %umin.neg2 = sext i1 %0 to i32
   %umin = zext i1 %0 to i32
   %.neg = tail call i32 @llvm.usub.sat.i32(i32 -146097, i32 %date.coerce.fr)
@@ -28264,7 +28264,7 @@ while.body.i.preheader:                           ; preds = %entry
   br label %while.end6.i
 
 while.cond1.preheader.i:                          ; preds = %entry
-  %cmp227.i = icmp ugt i32 %date.coerce.fr, 146096
+  %cmp227.i = icmp samesign ugt i32 %date.coerce.fr, 146096
   br i1 %cmp227.i, label %while.body3.i.preheader, label %while.end6.i
 
 while.body3.i.preheader:                          ; preds = %while.cond1.preheader.i
@@ -28334,7 +28334,7 @@ entry:
   br i1 %cmp26.i.i.i, label %while.body.i.preheader.i.i, label %while.cond1.preheader.i.i.i
 
 while.body.i.preheader.i.i:                       ; preds = %entry
-  %0 = icmp ult i32 %date.coerce, -146097
+  %0 = icmp samesign ult i32 %date.coerce, -146097
   %umin.i.neg74.i = sext i1 %0 to i32
   %umin.i.i = zext i1 %0 to i32
   %.neg.i = tail call i32 @llvm.usub.sat.i32(i32 -146097, i32 %date.coerce)
@@ -28349,7 +28349,7 @@ while.body.i.preheader.i.i:                       ; preds = %entry
   br label %while.end6.i.i.i
 
 while.cond1.preheader.i.i.i:                      ; preds = %entry
-  %cmp227.i.i.i = icmp ugt i32 %date.coerce, 146096
+  %cmp227.i.i.i = icmp samesign ugt i32 %date.coerce, 146096
   br i1 %cmp227.i.i.i, label %while.body3.i.preheader.i.i, label %while.end6.i.i.i
 
 while.body3.i.preheader.i.i:                      ; preds = %while.cond1.preheader.i.i.i
@@ -28444,7 +28444,7 @@ _ZN6duckdbL13GetISOWeekOneEi.exit45.i:            ; preds = %if.else.i.i35.i, %i
   br label %_ZN6duckdbL14GetISOYearWeekENS_6date_tERi.exit
 
 if.else.i:                                        ; preds = %_ZN6duckdbL13GetISOWeekOneEi.exit.i
-  %cmp15.i = icmp ugt i32 %spec.select.i, 51
+  %cmp15.i = icmp samesign ugt i32 %spec.select.i, 51
   br i1 %cmp15.i, label %land.rhs.i, label %_ZN6duckdbL14GetISOYearWeekENS_6date_tERi.exit
 
 land.rhs.i:                                       ; preds = %if.else.i
@@ -28522,7 +28522,7 @@ entry:
   br i1 %cmp26.i.i, label %while.body.i.preheader.i, label %while.cond1.preheader.i.i
 
 while.body.i.preheader.i:                         ; preds = %entry
-  %0 = icmp ult i32 %date.coerce, -146097
+  %0 = icmp samesign ult i32 %date.coerce, -146097
   %umin.i.neg45 = sext i1 %0 to i32
   %umin.i = zext i1 %0 to i32
   %.neg = tail call i32 @llvm.usub.sat.i32(i32 -146097, i32 %date.coerce)
@@ -28537,7 +28537,7 @@ while.body.i.preheader.i:                         ; preds = %entry
   br label %while.end6.i.i
 
 while.cond1.preheader.i.i:                        ; preds = %entry
-  %cmp227.i.i = icmp ugt i32 %date.coerce, 146096
+  %cmp227.i.i = icmp samesign ugt i32 %date.coerce, 146096
   br i1 %cmp227.i.i, label %while.body3.i.preheader.i, label %while.end6.i.i
 
 while.body3.i.preheader.i:                        ; preds = %while.cond1.preheader.i.i
@@ -28751,7 +28751,7 @@ if.end.i17:                                       ; preds = %_ZN6duckdb15Decimal
   store ptr %1, ptr %agg.result, align 8, !tbaa !115
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %__dnew.i.i) #40
   store i64 %conv2, ptr %__dnew.i.i, align 8, !tbaa !87
-  %cmp.i.i = icmp ugt i32 %retval.0.i, 15
+  %cmp.i.i = icmp samesign ugt i32 %retval.0.i, 15
   br i1 %cmp.i.i, label %if.then.i.i, label %if.end.i.i
 
 if.then.i.i:                                      ; preds = %if.end.i17
@@ -28910,7 +28910,7 @@ if.end.i16:                                       ; preds = %_ZN6duckdb13Numeric
   store ptr %1, ptr %agg.result, align 8, !tbaa !115
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %__dnew.i.i) #40
   store i64 %conv2, ptr %__dnew.i.i, align 8, !tbaa !87
-  %cmp.i.i = icmp ugt i32 %retval.0.i, 15
+  %cmp.i.i = icmp samesign ugt i32 %retval.0.i, 15
   br i1 %cmp.i.i, label %if.then.i.i, label %if.end.i.i
 
 if.then.i.i:                                      ; preds = %if.end.i16
@@ -32588,7 +32588,7 @@ if.then7:                                         ; preds = %if.else
   br label %if.end34
 
 if.else13:                                        ; preds = %if.else
-  %cmp14 = icmp ult i64 %0, 64
+  %cmp14 = icmp samesign ult i64 %0, 64
   %upper16 = getelementptr inbounds i8, ptr %this, i64 8
   %3 = load i64, ptr %upper16, align 8, !tbaa !739
   br i1 %cmp14, label %if.then15, label %if.else22
@@ -32663,7 +32663,7 @@ if.then13:                                        ; preds = %if.else
   br label %return
 
 if.else14:                                        ; preds = %if.else
-  %cmp15 = icmp ult i64 %1, 64
+  %cmp15 = icmp samesign ult i64 %1, 64
   br i1 %cmp15, label %if.then16, label %if.else23
 
 if.then16:                                        ; preds = %if.else14
@@ -32943,7 +32943,7 @@ if.then7.i:                                       ; preds = %if.else.i
   br label %if.end34.i
 
 if.else13.i:                                      ; preds = %if.else.i
-  %cmp14.i = icmp ult i64 %0, 64
+  %cmp14.i = icmp samesign ult i64 %0, 64
   %upper16.i = getelementptr inbounds i8, ptr %this, i64 8
   %3 = load i64, ptr %upper16.i, align 8, !tbaa !739
   br i1 %cmp14.i, label %if.then15.i, label %if.else22.i
@@ -33017,7 +33017,7 @@ if.then13.i:                                      ; preds = %if.else.i
   br label %_ZNK6duckdb9hugeint_tlsERKS0_.exit
 
 if.else14.i:                                      ; preds = %if.else.i
-  %cmp15.i = icmp ult i64 %1, 64
+  %cmp15.i = icmp samesign ult i64 %1, 64
   br i1 %cmp15.i, label %if.then16.i, label %if.else23.i
 
 if.then16.i:                                      ; preds = %if.else14.i
@@ -33250,11 +33250,11 @@ switch.early.test:                                ; preds = %lor.lhs.false
   ]
 
 if.end22:                                         ; preds = %switch.early.test, %switch.early.test, %switch.early.test, %switch.early.test, %switch.early.test, %switch.early.test, %switch.early.test, %switch.early.test, %switch.early.test, %switch.early.test, %switch.early.test, %switch.early.test
-  %cmp23 = icmp ugt i64 %count.085, 15
+  %cmp23 = icmp samesign ugt i64 %count.085, 15
   br i1 %cmp23, label %if.end.i, label %if.end.i67
 
 if.end22.thread:                                  ; preds = %lor.lhs.false
-  %cmp2387 = icmp ugt i64 %count.085, 15
+  %cmp2387 = icmp samesign ugt i64 %count.085, 15
   br i1 %cmp2387, label %"_ZZN6duckdb4UUID10FromStringENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERNS_9hugeint_tEENK3$_0clEc.exit", label %"_ZZN6duckdb4UUID10FromStringENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERNS_9hugeint_tEENK3$_0clEc.exit76"
 
 if.end.i:                                         ; preds = %if.end22
@@ -33266,7 +33266,7 @@ if.then11.i:                                      ; preds = %if.end.i
 
 if.end15.i:                                       ; preds = %if.end.i
   %9 = add nsw i8 %.fr78, -65
-  %or.cond28.i = icmp ult i8 %9, 6
+  %or.cond28.i = icmp samesign ult i8 %9, 6
   %sub24.i = add nsw i8 %.fr78, -55
   %spec.select.i = select i1 %or.cond28.i, i8 %sub24.i, i8 0
   br label %"_ZZN6duckdb4UUID10FromStringENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERNS_9hugeint_tEENK3$_0clEc.exit"
@@ -33288,7 +33288,7 @@ if.then11.i74:                                    ; preds = %if.end.i67
 
 if.end15.i69:                                     ; preds = %if.end.i67
   %10 = add nsw i8 %.fr78, -65
-  %or.cond28.i70 = icmp ult i8 %10, 6
+  %or.cond28.i70 = icmp samesign ult i8 %10, 6
   %sub24.i71 = add nsw i8 %.fr78, -55
   %spec.select.i72 = select i1 %or.cond28.i70, i8 %sub24.i71, i8 0
   br label %"_ZZN6duckdb4UUID10FromStringENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERNS_9hugeint_tEENK3$_0clEc.exit76"
@@ -36671,7 +36671,7 @@ if.end20:                                         ; preds = %if.else, %if.then16
   %div28.neg = sdiv i64 %add27, -1000000
   %mul30.neg = mul nsw i64 %div28.neg, -1000000
   %add31.neg = sub i64 %mul30.neg, %add27
-  %cmp33 = icmp ugt i64 %micros13.0, -36000000000
+  %cmp33 = icmp samesign ugt i64 %micros13.0, -36000000000
   br i1 %cmp33, label %if.then34, label %if.end37
 
 if.then34:                                        ; preds = %if.end20
@@ -36691,7 +36691,7 @@ if.then28.i.i:                                    ; preds = %if.end37
   br label %_ZN6duckdb13NumericHelper14UnsignedLengthImEEiT_.exit.i
 
 if.else42.i.i:                                    ; preds = %if.end37
-  %cmp44.i.i = icmp ugt i64 %micros13.0.nonneg, 35999999999
+  %cmp44.i.i = icmp samesign ugt i64 %micros13.0.nonneg, 35999999999
   %add46.i.i = select i1 %cmp44.i.i, i64 2, i64 1
   br label %_ZN6duckdb13NumericHelper14UnsignedLengthImEEiT_.exit.i
 
@@ -37544,7 +37544,7 @@ entry:
   br i1 %cmp26.i.i, label %while.body.i.preheader.i, label %while.cond1.preheader.i.i
 
 while.body.i.preheader.i:                         ; preds = %entry
-  %0 = icmp ult i32 %agg.tmp5.sroa.0.0.copyload, -146097
+  %0 = icmp samesign ult i32 %agg.tmp5.sroa.0.0.copyload, -146097
   %umin.i.neg274 = sext i1 %0 to i32
   %umin.i = zext i1 %0 to i32
   %.neg = tail call i32 @llvm.usub.sat.i32(i32 -146097, i32 %agg.tmp5.sroa.0.0.copyload)
@@ -37559,7 +37559,7 @@ while.body.i.preheader.i:                         ; preds = %entry
   br label %while.end6.i.i
 
 while.cond1.preheader.i.i:                        ; preds = %entry
-  %cmp227.i.i = icmp ugt i32 %agg.tmp5.sroa.0.0.copyload, 146096
+  %cmp227.i.i = icmp samesign ugt i32 %agg.tmp5.sroa.0.0.copyload, 146096
   br i1 %cmp227.i.i, label %while.body3.i.preheader.i, label %while.end6.i.i
 
 while.body3.i.preheader.i:                        ; preds = %while.cond1.preheader.i.i
@@ -37617,7 +37617,7 @@ _ZN6duckdb4Date7ConvertENS_6date_tERiS2_S2_.exit: ; preds = %while.cond7.i.i
   br i1 %cmp26.i.i121, label %while.body.i.preheader.i155, label %while.cond1.preheader.i.i122
 
 while.body.i.preheader.i155:                      ; preds = %_ZN6duckdb4Date7ConvertENS_6date_tERiS2_S2_.exit
-  %21 = icmp ult i32 %agg.tmp7.sroa.0.0.copyload, -146097
+  %21 = icmp samesign ult i32 %agg.tmp7.sroa.0.0.copyload, -146097
   %umin.i156.neg275 = sext i1 %21 to i32
   %umin.i156 = zext i1 %21 to i32
   %.neg224 = tail call i32 @llvm.usub.sat.i32(i32 -146097, i32 %agg.tmp7.sroa.0.0.copyload)
@@ -37632,7 +37632,7 @@ while.body.i.preheader.i155:                      ; preds = %_ZN6duckdb4Date7Con
   br label %while.end6.i.i124
 
 while.cond1.preheader.i.i122:                     ; preds = %_ZN6duckdb4Date7ConvertENS_6date_tERiS2_S2_.exit
-  %cmp227.i.i123 = icmp ugt i32 %agg.tmp7.sroa.0.0.copyload, 146096
+  %cmp227.i.i123 = icmp samesign ugt i32 %agg.tmp7.sroa.0.0.copyload, 146096
   br i1 %cmp227.i.i123, label %while.body3.i.preheader.i153, label %while.end6.i.i124
 
 while.body3.i.preheader.i153:                     ; preds = %while.cond1.preheader.i.i122
@@ -37757,7 +37757,7 @@ if.end:                                           ; preds = %if.then, %_ZN6duckd
   br i1 %cmp225, label %while.body.preheader, label %while.cond27.preheader
 
 while.body.preheader:                             ; preds = %if.end
-  %43 = icmp ult i32 %micros_diff.0, -1000000
+  %43 = icmp samesign ult i32 %micros_diff.0, -1000000
   %umin.neg40 = sext i1 %43 to i32
   %umin = zext i1 %43 to i32
   %.neg7 = tail call i32 @llvm.usub.sat.i32(i32 -1000000, i32 %micros_diff.0)
@@ -37778,7 +37778,7 @@ while.cond27.preheader:                           ; preds = %while.body.preheade
   br i1 %cmp28229, label %while.body29.preheader, label %while.cond33.preheader
 
 while.body29.preheader:                           ; preds = %while.cond27.preheader
-  %52 = icmp ult i32 %sec_diff.1.lcssa, -60
+  %52 = icmp samesign ult i32 %sec_diff.1.lcssa, -60
   %umin282.neg41 = sext i1 %52 to i32
   %umin282 = zext i1 %52 to i32
   %.neg8 = tail call i32 @llvm.usub.sat.i32(i32 -60, i32 %sec_diff.1.lcssa)
@@ -37799,7 +37799,7 @@ while.cond33.preheader:                           ; preds = %while.body29.prehea
   br i1 %cmp34234, label %while.body35.preheader, label %while.cond39.preheader
 
 while.body35.preheader:                           ; preds = %while.cond33.preheader
-  %61 = icmp ult i32 %min_diff.1.lcssa, -60
+  %61 = icmp samesign ult i32 %min_diff.1.lcssa, -60
   %umin284.neg42 = sext i1 %61 to i32
   %umin284 = zext i1 %61 to i32
   %.neg9 = tail call i32 @llvm.usub.sat.i32(i32 -60, i32 %min_diff.1.lcssa)
@@ -37820,7 +37820,7 @@ while.cond39.preheader:                           ; preds = %while.body35.prehea
   br i1 %cmp40239, label %while.body41.preheader, label %while.cond45.preheader
 
 while.body41.preheader:                           ; preds = %while.cond39.preheader
-  %70 = icmp ult i32 %hour_diff.1.lcssa, -24
+  %70 = icmp samesign ult i32 %hour_diff.1.lcssa, -24
   %umin286.neg43 = sext i1 %70 to i32
   %umin286 = zext i1 %70 to i32
   %.neg10 = tail call i32 @llvm.usub.sat.i32(i32 -24, i32 %hour_diff.1.lcssa)
@@ -38202,7 +38202,7 @@ while.cond68.preheader:                           ; preds = %while.cond68.prehea
   br i1 %cmp69269, label %while.body70.preheader, label %while.end73
 
 while.body70.preheader:                           ; preds = %while.cond68.preheader
-  %162 = icmp ult i32 %month_diff.1.lcssa, -12
+  %162 = icmp samesign ult i32 %month_diff.1.lcssa, -12
   %umin288.neg50 = sext i1 %162 to i32
   %umin288 = zext i1 %162 to i32
   %.neg23 = tail call i32 @llvm.usub.sat.i32(i32 -12, i32 %month_diff.1.lcssa)
@@ -38612,7 +38612,7 @@ if.then2:                                         ; preds = %if.end
   br i1 %cmp26.i.i, label %while.body.i.preheader.i, label %while.cond1.preheader.i.i
 
 while.body.i.preheader.i:                         ; preds = %if.then2
-  %0 = icmp ult i32 %left.coerce, -146097
+  %0 = icmp samesign ult i32 %left.coerce, -146097
   %umin.i.neg140 = sext i1 %0 to i32
   %umin.i = zext i1 %0 to i32
   %.neg = tail call i32 @llvm.usub.sat.i32(i32 -146097, i32 %left.coerce)
@@ -38627,7 +38627,7 @@ while.body.i.preheader.i:                         ; preds = %if.then2
   br label %while.end6.i.i
 
 while.cond1.preheader.i.i:                        ; preds = %if.then2
-  %cmp227.i.i = icmp ugt i32 %left.coerce, 146096
+  %cmp227.i.i = icmp samesign ugt i32 %left.coerce, 146096
   br i1 %cmp227.i.i, label %while.body3.i.preheader.i, label %while.end6.i.i
 
 while.body3.i.preheader.i:                        ; preds = %while.cond1.preheader.i.i
@@ -46067,7 +46067,7 @@ _ZN6duckdb4Date16ParseDoubleDigitEPKcmRmRi.exit:  ; preds = %land.lhs.true3.i
   %mul.i = mul nuw nsw i32 %sub.i, 10
   %sub10.i = add nsw i32 %mul.i, -48
   %add.i = add nsw i32 %sub10.i, %conv9.i
-  %cmp34 = icmp ult i32 %add.i, 60
+  %cmp34 = icmp samesign ult i32 %add.i, 60
   br i1 %cmp34, label %_ZN6duckdb4Date16ParseDoubleDigitEPKcmRmRi.exit.if.end37_crit_edge, label %return
 
 _ZN6duckdb4Date16ParseDoubleDigitEPKcmRmRi.exit.if.end37_crit_edge: ; preds = %_ZN6duckdb4Date16ParseDoubleDigitEPKcmRmRi.exit, %land.lhs.true3.i, %if.then.i
@@ -46121,7 +46121,7 @@ _ZN6duckdb4Date16ParseDoubleDigitEPKcmRmRi.exit115: ; preds = %land.lhs.true3.i1
   %mul.i112 = mul nuw nsw i32 %sub.i105, 10
   %sub10.i113 = add nsw i32 %mul.i112, -48
   %add.i114 = add nsw i32 %sub10.i113, %conv9.i111
-  %cmp48 = icmp ult i32 %add.i114, 60
+  %cmp48 = icmp samesign ult i32 %add.i114, 60
   br i1 %cmp48, label %if.end51, label %return
 
 if.end51:                                         ; preds = %_ZN6duckdb4Date16ParseDoubleDigitEPKcmRmRi.exit115, %land.lhs.true3.i107, %if.then.i102, %land.lhs.true40, %if.end37
@@ -54077,11 +54077,11 @@ switch.early.test.i:                              ; preds = %lor.lhs.false.i
   ]
 
 if.end22.i:                                       ; preds = %switch.early.test.i, %switch.early.test.i, %switch.early.test.i, %switch.early.test.i, %switch.early.test.i, %switch.early.test.i, %switch.early.test.i, %switch.early.test.i, %switch.early.test.i, %switch.early.test.i, %switch.early.test.i, %switch.early.test.i
-  %cmp23.i = icmp ugt i64 %count.085.i, 15
+  %cmp23.i = icmp samesign ugt i64 %count.085.i, 15
   br i1 %cmp23.i, label %if.end.i.i4, label %if.end.i67.i
 
 if.end22.thread.i:                                ; preds = %lor.lhs.false.i
-  %cmp2387.i = icmp ugt i64 %count.085.i, 15
+  %cmp2387.i = icmp samesign ugt i64 %count.085.i, 15
   br i1 %cmp2387.i, label %"_ZZN6duckdb4UUID10FromStringENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERNS_9hugeint_tEENK3$_0clEc.exit.i", label %"_ZZN6duckdb4UUID10FromStringENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERNS_9hugeint_tEENK3$_0clEc.exit76.i"
 
 if.end.i.i4:                                      ; preds = %if.end22.i
@@ -54093,7 +54093,7 @@ if.then11.i.i:                                    ; preds = %if.end.i.i4
 
 if.end15.i.i:                                     ; preds = %if.end.i.i4
   %24 = add nsw i8 %.fr78.i, -65
-  %or.cond28.i.i = icmp ult i8 %24, 6
+  %or.cond28.i.i = icmp samesign ult i8 %24, 6
   %sub24.i.i = add nsw i8 %.fr78.i, -55
   %spec.select.i.i = select i1 %or.cond28.i.i, i8 %sub24.i.i, i8 0
   br label %"_ZZN6duckdb4UUID10FromStringENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERNS_9hugeint_tEENK3$_0clEc.exit.i"
@@ -54115,7 +54115,7 @@ if.then11.i74.i:                                  ; preds = %if.end.i67.i
 
 if.end15.i69.i:                                   ; preds = %if.end.i67.i
   %25 = add nsw i8 %.fr78.i, -65
-  %or.cond28.i70.i = icmp ult i8 %25, 6
+  %or.cond28.i70.i = icmp samesign ult i8 %25, 6
   %sub24.i71.i = add nsw i8 %.fr78.i, -55
   %spec.select.i72.i = select i1 %or.cond28.i70.i, i8 %sub24.i71.i, i8 0
   br label %"_ZZN6duckdb4UUID10FromStringENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERNS_9hugeint_tEENK3$_0clEc.exit76.i"
@@ -115547,21 +115547,21 @@ if.then2.i:                                       ; preds = %if.then.i
   br label %_ZN6duckdb13NumericHelper14UnsignedLengthImEEiT_.exit
 
 if.else.i:                                        ; preds = %if.then.i
-  %cmp14.i = icmp ugt i64 %value.coerce0, 99999999999
+  %cmp14.i = icmp samesign ugt i64 %value.coerce0, 99999999999
   %add16.i = select i1 %cmp14.i, i32 12, i32 11
   br label %_ZN6duckdb13NumericHelper14UnsignedLengthImEEiT_.exit
 
 if.else26.i:                                      ; preds = %if.then
-  %cmp27.i = icmp ugt i64 %value.coerce0, 99999
+  %cmp27.i = icmp samesign ugt i64 %value.coerce0, 99999
   br i1 %cmp27.i, label %if.then28.i, label %if.else42.i
 
 if.then28.i:                                      ; preds = %if.else26.i
-  %cmp30.i = icmp ugt i64 %value.coerce0, 999999
+  %cmp30.i = icmp samesign ugt i64 %value.coerce0, 999999
   %add32.i = select i1 %cmp30.i, i32 7, i32 6
   br label %_ZN6duckdb13NumericHelper14UnsignedLengthImEEiT_.exit
 
 if.else42.i:                                      ; preds = %if.else26.i
-  %cmp44.i = icmp ugt i64 %value.coerce0, 9
+  %cmp44.i = icmp samesign ugt i64 %value.coerce0, 9
   %add46.i = select i1 %cmp44.i, i32 2, i32 1
   br label %_ZN6duckdb13NumericHelper14UnsignedLengthImEEiT_.exit
 
@@ -123028,7 +123028,7 @@ if.end:                                           ; preds = %if.then, %entry
   br i1 %cmp1, label %if.then2, label %if.end3
 
 if.then2:                                         ; preds = %if.end
-  %cmp29.i = icmp ugt i32 %value.addr.0, 99
+  %cmp29.i = icmp samesign ugt i32 %value.addr.0, 99
   br i1 %cmp29.i, label %while.body.i, label %while.end.i
 
 while.body.i:                                     ; preds = %if.then2, %while.body.i
@@ -123086,7 +123086,7 @@ if.end3:                                          ; preds = %if.end
   %conv4 = trunc i64 %5 to i32
   %rem = urem i32 %value.addr.0, %conv4
   %div = udiv i32 %value.addr.0, %conv4
-  %cmp29.i34 = icmp ugt i32 %rem, 99
+  %cmp29.i34 = icmp samesign ugt i32 %rem, 99
   br i1 %cmp29.i34, label %while.body.i52, label %while.end.i35
 
 while.body.i52:                                   ; preds = %if.end3, %while.body.i52
@@ -123357,7 +123357,7 @@ if.end:                                           ; preds = %if.then, %entry
   br i1 %cmp1, label %if.then2, label %if.end3
 
 if.then2:                                         ; preds = %if.end
-  %cmp31.i = icmp ugt i64 %value.addr.0, 99
+  %cmp31.i = icmp samesign ugt i64 %value.addr.0, 99
   br i1 %cmp31.i, label %while.body.i, label %while.end.i
 
 while.body.i:                                     ; preds = %if.then2, %while.body.i
@@ -123416,7 +123416,7 @@ if.end3:                                          ; preds = %if.end
   %5 = load i64, ptr %arrayidx, align 8, !tbaa !87
   %rem = urem i64 %value.addr.0, %5
   %div = udiv i64 %value.addr.0, %5
-  %cmp31.i32 = icmp ugt i64 %rem, 99
+  %cmp31.i32 = icmp samesign ugt i64 %rem, 99
   br i1 %cmp31.i32, label %while.body.i51, label %while.end.i33
 
 while.body.i51:                                   ; preds = %if.end3, %while.body.i51

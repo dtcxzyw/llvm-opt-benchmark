@@ -631,7 +631,7 @@ define internal i32 @oabd_sys_write(ptr nocapture noundef %0, ptr noundef %1, i3
   %20 = load i32, ptr %19, align 4
   %21 = lshr i32 %.068.i, 8
   %22 = xor i32 %20, %21
-  %23 = icmp ugt i32 %.059.i, 1
+  %23 = icmp samesign ugt i32 %.059.i, 1
   br i1 %23, label %14, label %crc32.exit
 
 crc32.exit:                                       ; preds = %14

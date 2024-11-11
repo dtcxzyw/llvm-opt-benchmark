@@ -14351,7 +14351,7 @@ _ZN4Luau8Compiler8allocRegEPNS_7AstNodeEj.exit:   ; preds = %17
   unreachable
 
 _ZN4Luau8Compiler17getConstantNumberEPNS_7AstExprE.exit: ; preds = %.noexc42
-  %or.cond = icmp ult i32 %70, 256
+  %or.cond = icmp samesign ult i32 %70, 256
   br i1 %or.cond, label %74, label %_ZN4Luau8Compiler17getConstantNumberEPNS_7AstExprE.exit._ZN4Luau8Compiler17getConstantNumberEPNS_7AstExprE.exit.thread_crit_edge
 
 _ZN4Luau8Compiler17getConstantNumberEPNS_7AstExprE.exit._ZN4Luau8Compiler17getConstantNumberEPNS_7AstExprE.exit.thread_crit_edge: ; preds = %_ZN4Luau8Compiler17getConstantNumberEPNS_7AstExprE.exit
@@ -16709,7 +16709,7 @@ tailrecurse.backedge:                             ; preds = %225, %_ZN4Luau12Den
   unreachable
 
 87:                                               ; preds = %79
-  %88 = icmp ult i32 %83, 32768
+  %88 = icmp samesign ult i32 %83, 32768
   %89 = load ptr, ptr %0, align 8
   br i1 %88, label %90, label %92
 
@@ -16746,7 +16746,7 @@ tailrecurse.backedge:                             ; preds = %225, %_ZN4Luau12Den
   unreachable
 
 104:                                              ; preds = %97
-  %105 = icmp ult i32 %100, 32768
+  %105 = icmp samesign ult i32 %100, 32768
   %106 = load ptr, ptr %0, align 8
   br i1 %105, label %107, label %109
 
@@ -17090,7 +17090,7 @@ define linkonce_odr dso_local void @_ZN4Luau8Compiler19compileExprConstantEPNS_7
   unreachable
 
 34:                                               ; preds = %28
-  %35 = icmp ult i32 %30, 32768
+  %35 = icmp samesign ult i32 %30, 32768
   %36 = load ptr, ptr %0, align 8
   br i1 %35, label %37, label %39
 
@@ -17148,7 +17148,7 @@ define linkonce_odr dso_local void @_ZN4Luau8Compiler19compileExprConstantEPNS_7
   unreachable
 
 69:                                               ; preds = %58
-  %70 = icmp ult i32 %65, 32768
+  %70 = icmp samesign ult i32 %65, 32768
   %71 = load ptr, ptr %0, align 8
   br i1 %70, label %72, label %74
 
@@ -17432,7 +17432,7 @@ _ZN4Luau8Compiler9canImportEPNS_13AstExprGlobalE.exit.thread: ; preds = %32, %30
   unreachable
 
 43:                                               ; preds = %_ZN4Luau8Compiler9canImportEPNS_13AstExprGlobalE.exit.thread
-  %44 = icmp ult i32 %39, 1024
+  %44 = icmp samesign ult i32 %39, 1024
   br i1 %44, label %45, label %_ZN4Luau8Compiler9canImportEPNS_13AstExprGlobalE.exit.thread30
 
 45:                                               ; preds = %43
@@ -18214,7 +18214,7 @@ _ZN4Luau8Compiler8allocRegEPNS_7AstNodeEj.exit:   ; preds = %100
           to label %144 unwind label %.loopexit.split-lp.loopexit.split-lp
 
 144:                                              ; preds = %142
-  %145 = icmp ult i32 %138, 32768
+  %145 = icmp samesign ult i32 %138, 32768
   %146 = load ptr, ptr %0, align 8
   br i1 %145, label %147, label %149
 
@@ -18702,7 +18702,7 @@ define linkonce_odr dso_local void @_ZN4Luau8Compiler17compileExprBinaryEPNS_13A
   br i1 %50, label %.invoke, label %_ZN4Luau8Compiler17getConstantNumberEPNS_7AstExprE.exit
 
 _ZN4Luau8Compiler17getConstantNumberEPNS_7AstExprE.exit: ; preds = %.noexc
-  %or.cond = icmp ult i32 %49, 256
+  %or.cond = icmp samesign ult i32 %49, 256
   br i1 %or.cond, label %51, label %_ZN4Luau8Compiler17getConstantNumberEPNS_7AstExprE.exit._ZN4Luau8Compiler17getConstantNumberEPNS_7AstExprE.exit.thread_crit_edge
 
 _ZN4Luau8Compiler17getConstantNumberEPNS_7AstExprE.exit._ZN4Luau8Compiler17getConstantNumberEPNS_7AstExprE.exit.thread_crit_edge: ; preds = %_ZN4Luau8Compiler17getConstantNumberEPNS_7AstExprE.exit
@@ -18811,7 +18811,7 @@ _ZN4Luau8Compiler17getConstantNumberEPNS_7AstExprE.exit.thread: ; preds = %38, %
   br i1 %103, label %.invoke, label %_ZN4Luau8Compiler17getConstantNumberEPNS_7AstExprE.exit77
 
 _ZN4Luau8Compiler17getConstantNumberEPNS_7AstExprE.exit77: ; preds = %.noexc75
-  %or.cond3 = icmp ult i32 %102, 256
+  %or.cond3 = icmp samesign ult i32 %102, 256
   br i1 %or.cond3, label %104, label %_ZN4Luau8Compiler17getConstantNumberEPNS_7AstExprE.exit77.thread
 
 104:                                              ; preds = %_ZN4Luau8Compiler17getConstantNumberEPNS_7AstExprE.exit77
@@ -19963,7 +19963,7 @@ _ZNSt6vectorISt10unique_ptrIA_cSt14default_deleteIS1_EESaIS4_EE12emplace_backIJS
   %78 = call i32 @llvm.umax.i32(i32 %77, i32 %71)
   store i32 %78, ptr %76, align 8
   %79 = trunc i32 %65 to i8
-  %80 = icmp ult i32 %55, 32768
+  %80 = icmp samesign ult i32 %55, 32768
   %81 = load ptr, ptr %0, align 8
   br i1 %80, label %82, label %84
 

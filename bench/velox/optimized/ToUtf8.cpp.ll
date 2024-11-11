@@ -7665,7 +7665,7 @@ if.then10.i.i:                                    ; preds = %if.end.i.i
 
 if.end14.i.i:                                     ; preds = %if.end.i.i
   %conv15.i.i = zext nneg i32 %sub.i.i to i64
-  %cmp16.i.i = icmp ult i32 %sub.i.i, 13
+  %cmp16.i.i = icmp samesign ult i32 %sub.i.i, 13
   %cmp.i.i.i.i = icmp ult i32 %3, 13
   %or.cond.i.i = and i1 %cmp.i.i.i.i, %cmp16.i.i
   %cmp.i.i15.i.i = icmp ult i32 %2, 13
@@ -7712,7 +7712,7 @@ if.end.i:                                         ; preds = %cond.false
   br i1 %cmp.i.i.i, label %if.then4.i, label %if.end9.i
 
 if.then4.i:                                       ; preds = %if.end.i
-  %cmp5.i = icmp ult i32 %9, 5
+  %cmp5.i = icmp samesign ult i32 %9, 5
   br i1 %cmp5.i, label %_ZNK8facebook5velox10StringVieweqERKS1_.exit, label %lor.rhs.i
 
 lor.rhs.i:                                        ; preds = %if.then4.i
@@ -18065,11 +18065,11 @@ if.then.i:                                        ; preds = %if.end8
   br i1 %lnot, label %_ZNK5folly3f146detail8F14TableINS1_20ValueContainerPolicyIPKN8facebook5velox6BufferEvvvvEEE25computeChunkCountAndScaleEmbb.exit, label %if.then3.i
 
 if.then3.i:                                       ; preds = %if.then.i
-  %cmp4.i = icmp ult i64 %.sroa.speculated, 3
+  %cmp4.i = icmp samesign ult i64 %.sroa.speculated, 3
   br i1 %cmp4.i, label %_ZNK5folly3f146detail8F14TableINS1_20ValueContainerPolicyIPKN8facebook5velox6BufferEvvvvEEE25computeChunkCountAndScaleEmbb.exit, label %if.else.i
 
 if.else.i:                                        ; preds = %if.then3.i
-  %cmp6.inv.i = icmp ugt i64 %.sroa.speculated, 6
+  %cmp6.inv.i = icmp samesign ugt i64 %.sroa.speculated, 6
   %spec.select.i = select i1 %cmp6.inv.i, i64 14, i64 6
   br label %_ZNK5folly3f146detail8F14TableINS1_20ValueContainerPolicyIPKN8facebook5velox6BufferEvvvvEEE25computeChunkCountAndScaleEmbb.exit
 
@@ -18695,11 +18695,11 @@ if.then.i:                                        ; preds = %if.end5
   br i1 %cmp.i4.i.i, label %if.then.i.i.i, label %if.else11.i.i.i
 
 if.then.i.i.i:                                    ; preds = %if.then.i
-  %cmp4.i.i.i = icmp ult i64 %.sroa.speculated.i.i, 3
+  %cmp4.i.i.i = icmp samesign ult i64 %.sroa.speculated.i.i, 3
   br i1 %cmp4.i.i.i, label %_ZN5folly3f146detail8F14TableINS1_20ValueContainerPolicyIPKN8facebook5velox6BufferEvvvvEEE20reserveForInsertImplEmmmm.exit.i, label %if.else.i.i.i
 
 if.else.i.i.i:                                    ; preds = %if.then.i.i.i
-  %cmp6.inv.i.i.i = icmp ugt i64 %.sroa.speculated.i.i, 6
+  %cmp6.inv.i.i.i = icmp samesign ugt i64 %.sroa.speculated.i.i, 6
   %spec.select.i.i.i = select i1 %cmp6.inv.i.i.i, i64 14, i64 6
   br label %_ZN5folly3f146detail8F14TableINS1_20ValueContainerPolicyIPKN8facebook5velox6BufferEvvvvEEE20reserveForInsertImplEmmmm.exit.i
 
@@ -19070,7 +19070,7 @@ if.then10.i.i.i136:                               ; preds = %if.end.i.i.i109
 
 if.end14.i.i.i112:                                ; preds = %if.end.i.i.i109
   %conv15.i.i.i113 = zext nneg i32 %sub.i.i.i110 to i64
-  %cmp16.i.i.i114 = icmp ult i32 %sub.i.i.i110, 13
+  %cmp16.i.i.i114 = icmp samesign ult i32 %sub.i.i.i110, 13
   %cmp.i.i.i.i.i115 = icmp ult i32 %15, 13
   %or.cond.i.i.i116 = and i1 %cmp.i.i.i.i.i115, %cmp16.i.i.i114
   %cmp.i.i15.i.i.i117 = icmp ult i32 %14, 13
@@ -19109,7 +19109,7 @@ if.end.i.i92:                                     ; preds = %cond.false.i85
   br i1 %cmp.i.i.i.i93, label %if.then4.i.i103, label %if.end9.i.i94
 
 if.then4.i.i103:                                  ; preds = %if.end.i.i92
-  %cmp5.i.i104 = icmp ult i32 %15, 5
+  %cmp5.i.i104 = icmp samesign ult i32 %15, 5
   %cmp8.i.i108 = icmp eq ptr %retval.sroa.2.0.copyload.i.i.i44, %retval.sroa.2.0.copyload.i7.i.i49
   %spec.select = select i1 %cmp5.i.i104, i1 true, i1 %cmp8.i.i108
   br label %_ZNK8facebook5velox10StringVieweqERKS1_.exit.i87
@@ -19275,7 +19275,7 @@ if.then10.i.i.i:                                  ; preds = %if.end.i.i.i
 
 if.end14.i.i.i:                                   ; preds = %if.end.i.i.i
   %conv15.i.i.i = zext nneg i32 %sub.i.i.i to i64
-  %cmp16.i.i.i = icmp ult i32 %sub.i.i.i, 13
+  %cmp16.i.i.i = icmp samesign ult i32 %sub.i.i.i, 13
   %cmp.i.i.i.i.i = icmp ult i32 %29, 13
   %or.cond.i.i.i = and i1 %cmp.i.i.i.i.i, %cmp16.i.i.i
   %cmp.i.i15.i.i.i = icmp ult i32 %28, 13
@@ -19314,7 +19314,7 @@ if.end.i.i:                                       ; preds = %cond.false.i
   br i1 %cmp.i.i.i.i, label %if.then4.i.i, label %if.end9.i.i
 
 if.then4.i.i:                                     ; preds = %if.end.i.i
-  %cmp5.i.i = icmp ult i32 %29, 5
+  %cmp5.i.i = icmp samesign ult i32 %29, 5
   %cmp8.i.i = icmp eq ptr %retval.sroa.2.0.copyload.i.i.i, %retval.sroa.2.0.copyload.i7.i.i
   %spec.select152 = select i1 %cmp5.i.i, i1 true, i1 %cmp8.i.i
   br label %_ZNK8facebook5velox10StringVieweqERKS1_.exit.i
@@ -19774,7 +19774,7 @@ if.then10.i.i.i:                                  ; preds = %if.end.i.i.i
 
 if.end14.i.i.i:                                   ; preds = %if.end.i.i.i
   %conv15.i.i.i = zext nneg i32 %sub.i.i.i to i64
-  %cmp16.i.i.i = icmp ult i32 %sub.i.i.i, 13
+  %cmp16.i.i.i = icmp samesign ult i32 %sub.i.i.i, 13
   %cmp.i.i.i.i.i = icmp ult i32 %18, 13
   %or.cond.i.i.i = and i1 %cmp.i.i.i.i.i, %cmp16.i.i.i
   %cmp.i.i15.i.i.i = icmp ult i32 %17, 13
@@ -19813,7 +19813,7 @@ if.end.i.i:                                       ; preds = %cond.false.i
   br i1 %cmp.i.i.i.i, label %if.then4.i.i, label %if.end9.i.i
 
 if.then4.i.i:                                     ; preds = %if.end.i.i
-  %cmp5.i.i = icmp ult i32 %18, 5
+  %cmp5.i.i = icmp samesign ult i32 %18, 5
   %cmp8.i.i = icmp eq ptr %retval.sroa.2.0.copyload.i.i.i, %retval.sroa.2.0.copyload.i7.i.i
   %spec.select = select i1 %cmp5.i.i, i1 true, i1 %cmp8.i.i
   br label %_ZNK8facebook5velox10StringVieweqERKS1_.exit.i
@@ -19953,7 +19953,7 @@ if.then10.i.i.i124:                               ; preds = %if.end.i.i.i97
 
 if.end14.i.i.i100:                                ; preds = %if.end.i.i.i97
   %conv15.i.i.i101 = zext nneg i32 %sub.i.i.i98 to i64
-  %cmp16.i.i.i102 = icmp ult i32 %sub.i.i.i98, 13
+  %cmp16.i.i.i102 = icmp samesign ult i32 %sub.i.i.i98, 13
   %cmp.i.i.i.i.i103 = icmp ult i32 %28, 13
   %or.cond.i.i.i104 = and i1 %cmp.i.i.i.i.i103, %cmp16.i.i.i102
   %cmp.i.i15.i.i.i105 = icmp ult i32 %27, 13
@@ -19992,7 +19992,7 @@ if.end.i.i80:                                     ; preds = %cond.false.i73
   br i1 %cmp.i.i.i.i81, label %if.then4.i.i91, label %if.end9.i.i82
 
 if.then4.i.i91:                                   ; preds = %if.end.i.i80
-  %cmp5.i.i92 = icmp ult i32 %28, 5
+  %cmp5.i.i92 = icmp samesign ult i32 %28, 5
   %cmp8.i.i96 = icmp eq ptr %retval.sroa.2.0.copyload.i.i.i34, %retval.sroa.2.0.copyload.i7.i.i39
   %spec.select159 = select i1 %cmp5.i.i92, i1 true, i1 %cmp8.i.i96
   br label %_ZNK8facebook5velox10StringVieweqERKS1_.exit.i75
@@ -20207,7 +20207,7 @@ if.then10.i.i.i:                                  ; preds = %if.end.i.i.i
 
 if.end14.i.i.i:                                   ; preds = %if.end.i.i.i
   %conv15.i.i.i = zext nneg i32 %sub.i.i.i to i64
-  %cmp16.i.i.i = icmp ult i32 %sub.i.i.i, 13
+  %cmp16.i.i.i = icmp samesign ult i32 %sub.i.i.i, 13
   %cmp.i.i.i.i.i = icmp ult i32 %20, 13
   %or.cond.i.i.i = and i1 %cmp.i.i.i.i.i, %cmp16.i.i.i
   %cmp.i.i15.i.i.i = icmp ult i32 %19, 13
@@ -20246,7 +20246,7 @@ if.end.i.i:                                       ; preds = %cond.false.i
   br i1 %cmp.i.i.i.i, label %if.then4.i.i, label %if.end9.i.i
 
 if.then4.i.i:                                     ; preds = %if.end.i.i
-  %cmp5.i.i = icmp ult i32 %20, 5
+  %cmp5.i.i = icmp samesign ult i32 %20, 5
   %cmp8.i.i = icmp eq ptr %retval.sroa.2.0.copyload.i.i.i, %retval.sroa.2.0.copyload.i7.i.i
   %spec.select = select i1 %cmp5.i.i, i1 true, i1 %cmp8.i.i
   br label %_ZNK8facebook5velox10StringVieweqERKS1_.exit.i
@@ -20440,7 +20440,7 @@ if.then10.i.i.i:                                  ; preds = %if.end.i.i.i
 
 if.end14.i.i.i:                                   ; preds = %if.end.i.i.i
   %conv15.i.i.i = zext nneg i32 %sub.i.i.i to i64
-  %cmp16.i.i.i = icmp ult i32 %sub.i.i.i, 13
+  %cmp16.i.i.i = icmp samesign ult i32 %sub.i.i.i, 13
   %cmp.i.i.i.i.i = icmp ult i32 %17, 13
   %or.cond.i.i.i = and i1 %cmp.i.i.i.i.i, %cmp16.i.i.i
   %cmp.i.i15.i.i.i = icmp ult i32 %16, 13
@@ -20479,7 +20479,7 @@ if.end.i.i:                                       ; preds = %cond.false.i
   br i1 %cmp.i.i.i.i, label %if.then4.i.i, label %if.end9.i.i
 
 if.then4.i.i:                                     ; preds = %if.end.i.i
-  %cmp5.i.i = icmp ult i32 %17, 5
+  %cmp5.i.i = icmp samesign ult i32 %17, 5
   %cmp8.i.i = icmp eq ptr %retval.sroa.2.0.copyload.i.i.i, %retval.sroa.2.0.copyload.i7.i.i
   %spec.select = select i1 %cmp5.i.i, i1 true, i1 %cmp8.i.i
   br label %_ZNK8facebook5velox10StringVieweqERKS1_.exit.i
@@ -21038,7 +21038,7 @@ if.then10.i.i.i:                                  ; preds = %if.end.i.i.i
 
 if.end14.i.i.i:                                   ; preds = %if.end.i.i.i
   %conv15.i.i.i = zext nneg i32 %sub.i.i.i to i64
-  %cmp16.i.i.i = icmp ult i32 %sub.i.i.i, 13
+  %cmp16.i.i.i = icmp samesign ult i32 %sub.i.i.i, 13
   %cmp.i.i.i.i.i = icmp ult i32 %11, 13
   %or.cond.i.i.i = and i1 %cmp.i.i.i.i.i, %cmp16.i.i.i
   %or.cond21.i.i.i = and i1 %cmp.i.i15.i.i.i, %or.cond.i.i.i
@@ -21074,7 +21074,7 @@ if.end.i.i:                                       ; preds = %cond.false.i
   br i1 %cmp.i.i.i.i, label %if.then4.i.i, label %if.end9.i.i
 
 if.then4.i.i:                                     ; preds = %if.end.i.i
-  %cmp5.i.i = icmp ult i32 %11, 5
+  %cmp5.i.i = icmp samesign ult i32 %11, 5
   %cmp8.i.i = icmp eq ptr %retval.sroa.2.0.copyload.i.i.i, %retval.sroa.2.0.copyload.i7.i.i
   %spec.select = select i1 %cmp5.i.i, i1 true, i1 %cmp8.i.i
   br label %_ZNK8facebook5velox10StringVieweqERKS1_.exit.i
@@ -21105,7 +21105,7 @@ while.cond10.preheader:                           ; preds = %_ZN8facebook5velox1
   %cmp.i.i.i.i41 = icmp ult i32 %8, 13
   %conv13.i.i47 = and i64 %retval.sroa.0.0.copyload.i5.i.i, 4294967295
   %sub.i.i48 = add nsw i64 %conv13.i.i47, -4
-  %cmp5.i.i52 = icmp ult i32 %8, 5
+  %cmp5.i.i52 = icmp samesign ult i32 %8, 5
   %cond.i.i.i.i69.sroa.sel = select i1 %cmp.i.i.i.i41, ptr %2, ptr %.sroa.gep
   br label %while.cond10
 
@@ -21145,7 +21145,7 @@ if.then10.i.i.i84:                                ; preds = %if.end.i.i.i57
 
 if.end14.i.i.i60:                                 ; preds = %if.end.i.i.i57
   %conv15.i.i.i61 = zext nneg i32 %sub.i.i.i58 to i64
-  %cmp16.i.i.i62 = icmp ult i32 %sub.i.i.i58, 13
+  %cmp16.i.i.i62 = icmp samesign ult i32 %sub.i.i.i58, 13
   %or.cond.i.i.i64 = and i1 %cmp.i.i.i.i41, %cmp16.i.i.i62
   %cmp.i.i15.i.i.i65 = icmp ult i32 %15, 13
   %or.cond21.i.i.i66 = and i1 %cmp.i.i15.i.i.i65, %or.cond.i.i.i64
@@ -21336,7 +21336,7 @@ if.then10.i.i.i:                                  ; preds = %if.end.i.i.i
 
 if.end14.i.i.i:                                   ; preds = %if.end.i.i.i
   %conv15.i.i.i = zext nneg i32 %sub.i.i.i to i64
-  %cmp16.i.i.i = icmp ult i32 %sub.i.i.i, 13
+  %cmp16.i.i.i = icmp samesign ult i32 %sub.i.i.i, 13
   %cmp.i.i.i.i.i = icmp ult i32 %12, 13
   %or.cond.i.i.i = and i1 %cmp.i.i.i.i.i, %cmp16.i.i.i
   %cmp.i.i15.i.i.i = icmp ult i32 %11, 13
@@ -21375,7 +21375,7 @@ if.end.i.i:                                       ; preds = %cond.false.i
   br i1 %cmp.i.i.i.i, label %if.then4.i.i, label %if.end9.i.i
 
 if.then4.i.i:                                     ; preds = %if.end.i.i
-  %cmp5.i.i = icmp ult i32 %12, 5
+  %cmp5.i.i = icmp samesign ult i32 %12, 5
   %cmp8.i.i = icmp eq ptr %retval.sroa.2.0.copyload.i.i.i.i, %retval.sroa.2.0.copyload.i7.i.i.i
   %spec.select = select i1 %cmp5.i.i, i1 true, i1 %cmp8.i.i
   br label %_ZNK8facebook5velox10StringVieweqERKS1_.exit.i
@@ -21486,7 +21486,7 @@ if.then10.i.i.i:                                  ; preds = %if.end.i.i.i
 
 if.end14.i.i.i:                                   ; preds = %if.end.i.i.i
   %conv15.i.i.i = zext nneg i32 %sub.i.i.i to i64
-  %cmp16.i.i.i = icmp ult i32 %sub.i.i.i, 13
+  %cmp16.i.i.i = icmp samesign ult i32 %sub.i.i.i, 13
   %cmp.i.i.i.i.i = icmp ult i32 %6, 13
   %or.cond.i.i.i = and i1 %cmp.i.i.i.i.i, %cmp16.i.i.i
   %cmp.i.i15.i.i.i = icmp ult i32 %5, 13
@@ -21525,7 +21525,7 @@ if.end.i.i:                                       ; preds = %cond.false.i
   br i1 %cmp.i.i.i.i, label %if.then4.i.i, label %if.end9.i.i
 
 if.then4.i.i:                                     ; preds = %if.end.i.i
-  %cmp5.i.i = icmp ult i32 %6, 5
+  %cmp5.i.i = icmp samesign ult i32 %6, 5
   %cmp8.i.i = icmp eq ptr %retval.sroa.2.0.copyload.i.i.i.i, %retval.sroa.2.0.copyload.i7.i.i.i
   %spec.select = select i1 %cmp5.i.i, i1 true, i1 %cmp8.i.i
   br label %_ZNK8facebook5velox10StringVieweqERKS1_.exit.i
@@ -21821,7 +21821,7 @@ if.then10.i.i.i145:                               ; preds = %if.end.i.i.i118
 
 if.end14.i.i.i121:                                ; preds = %if.end.i.i.i118
   %conv15.i.i.i122 = zext nneg i32 %sub.i.i.i119 to i64
-  %cmp16.i.i.i123 = icmp ult i32 %sub.i.i.i119, 13
+  %cmp16.i.i.i123 = icmp samesign ult i32 %sub.i.i.i119, 13
   %cmp.i.i.i.i.i124 = icmp ult i32 %23, 13
   %or.cond.i.i.i125 = and i1 %cmp.i.i.i.i.i124, %cmp16.i.i.i123
   %cmp.i.i15.i.i.i126 = icmp ult i32 %22, 13
@@ -21860,7 +21860,7 @@ if.end.i.i101:                                    ; preds = %cond.false.i94
   br i1 %cmp.i.i.i.i102, label %if.then4.i.i112, label %if.end9.i.i103
 
 if.then4.i.i112:                                  ; preds = %if.end.i.i101
-  %cmp5.i.i113 = icmp ult i32 %23, 5
+  %cmp5.i.i113 = icmp samesign ult i32 %23, 5
   %cmp8.i.i117 = icmp eq ptr %retval.sroa.2.0.copyload.i.i.i50, %retval.sroa.2.0.copyload.i7.i.i56
   %spec.select = select i1 %cmp5.i.i113, i1 true, i1 %cmp8.i.i117
   br label %_ZNK8facebook5velox10StringVieweqERKS1_.exit.i96
@@ -22041,7 +22041,7 @@ if.then10.i.i.i:                                  ; preds = %if.end.i.i.i
 
 if.end14.i.i.i:                                   ; preds = %if.end.i.i.i
   %conv15.i.i.i = zext nneg i32 %sub.i.i.i to i64
-  %cmp16.i.i.i = icmp ult i32 %sub.i.i.i, 13
+  %cmp16.i.i.i = icmp samesign ult i32 %sub.i.i.i, 13
   %cmp.i.i.i.i.i = icmp ult i32 %45, 13
   %or.cond.i.i.i = and i1 %cmp.i.i.i.i.i, %cmp16.i.i.i
   %cmp.i.i15.i.i.i = icmp ult i32 %44, 13
@@ -22080,7 +22080,7 @@ if.end.i.i:                                       ; preds = %cond.false.i
   br i1 %cmp.i.i.i.i, label %if.then4.i.i, label %if.end9.i.i
 
 if.then4.i.i:                                     ; preds = %if.end.i.i
-  %cmp5.i.i = icmp ult i32 %45, 5
+  %cmp5.i.i = icmp samesign ult i32 %45, 5
   %cmp8.i.i = icmp eq ptr %retval.sroa.2.0.copyload.i.i.i, %retval.sroa.2.0.copyload.i7.i.i
   %spec.select162 = select i1 %cmp5.i.i, i1 true, i1 %cmp8.i.i
   br label %_ZNK8facebook5velox10StringVieweqERKS1_.exit.i
@@ -22578,7 +22578,7 @@ if.then10.i.i.i:                                  ; preds = %if.end.i.i.i
 
 if.end14.i.i.i:                                   ; preds = %if.end.i.i.i
   %conv15.i.i.i = zext nneg i32 %sub.i.i.i to i64
-  %cmp16.i.i.i = icmp ult i32 %sub.i.i.i, 13
+  %cmp16.i.i.i = icmp samesign ult i32 %sub.i.i.i, 13
   %cmp.i.i.i.i.i = icmp ult i32 %28, 13
   %or.cond.i.i.i = and i1 %cmp.i.i.i.i.i, %cmp16.i.i.i
   %cmp.i.i15.i.i.i = icmp ult i32 %27, 13
@@ -22617,7 +22617,7 @@ if.end.i.i:                                       ; preds = %cond.false.i
   br i1 %cmp.i.i.i.i, label %if.then4.i.i, label %if.end9.i.i
 
 if.then4.i.i:                                     ; preds = %if.end.i.i
-  %cmp5.i.i = icmp ult i32 %28, 5
+  %cmp5.i.i = icmp samesign ult i32 %28, 5
   %cmp8.i.i = icmp eq ptr %retval.sroa.2.0.copyload.i.i.i, %retval.sroa.2.0.copyload.i7.i.i
   %spec.select = select i1 %cmp5.i.i, i1 true, i1 %cmp8.i.i
   br label %_ZNK8facebook5velox10StringVieweqERKS1_.exit.i
@@ -22780,7 +22780,7 @@ if.then10.i.i.i133:                               ; preds = %if.end.i.i.i106
 
 if.end14.i.i.i109:                                ; preds = %if.end.i.i.i106
   %conv15.i.i.i110 = zext nneg i32 %sub.i.i.i107 to i64
-  %cmp16.i.i.i111 = icmp ult i32 %sub.i.i.i107, 13
+  %cmp16.i.i.i111 = icmp samesign ult i32 %sub.i.i.i107, 13
   %cmp.i.i.i.i.i112 = icmp ult i32 %45, 13
   %or.cond.i.i.i113 = and i1 %cmp.i.i.i.i.i112, %cmp16.i.i.i111
   %cmp.i.i15.i.i.i114 = icmp ult i32 %44, 13
@@ -22819,7 +22819,7 @@ if.end.i.i89:                                     ; preds = %cond.false.i82
   br i1 %cmp.i.i.i.i90, label %if.then4.i.i100, label %if.end9.i.i91
 
 if.then4.i.i100:                                  ; preds = %if.end.i.i89
-  %cmp5.i.i101 = icmp ult i32 %45, 5
+  %cmp5.i.i101 = icmp samesign ult i32 %45, 5
   %cmp8.i.i105 = icmp eq ptr %retval.sroa.2.0.copyload.i.i.i40, %retval.sroa.2.0.copyload.i7.i.i46
   %spec.select168 = select i1 %cmp5.i.i101, i1 true, i1 %cmp8.i.i105
   br label %_ZNK8facebook5velox10StringVieweqERKS1_.exit.i84
@@ -23056,7 +23056,7 @@ if.then10.i.i.i:                                  ; preds = %if.end.i.i.i
 
 if.end14.i.i.i:                                   ; preds = %if.end.i.i.i
   %conv15.i.i.i = zext nneg i32 %sub.i.i.i to i64
-  %cmp16.i.i.i = icmp ult i32 %sub.i.i.i, 13
+  %cmp16.i.i.i = icmp samesign ult i32 %sub.i.i.i, 13
   %cmp.i.i.i.i.i = icmp ult i32 %30, 13
   %or.cond.i.i.i = and i1 %cmp.i.i.i.i.i, %cmp16.i.i.i
   %cmp.i.i15.i.i.i = icmp ult i32 %29, 13
@@ -23095,7 +23095,7 @@ if.end.i.i:                                       ; preds = %cond.false.i
   br i1 %cmp.i.i.i.i, label %if.then4.i.i, label %if.end9.i.i
 
 if.then4.i.i:                                     ; preds = %if.end.i.i
-  %cmp5.i.i = icmp ult i32 %30, 5
+  %cmp5.i.i = icmp samesign ult i32 %30, 5
   %cmp8.i.i = icmp eq ptr %retval.sroa.2.0.copyload.i.i.i, %retval.sroa.2.0.copyload.i7.i.i
   %spec.select = select i1 %cmp5.i.i, i1 true, i1 %cmp8.i.i
   br label %_ZNK8facebook5velox10StringVieweqERKS1_.exit.i
@@ -23311,7 +23311,7 @@ if.then10.i.i.i:                                  ; preds = %if.end.i.i.i
 
 if.end14.i.i.i:                                   ; preds = %if.end.i.i.i
   %conv15.i.i.i = zext nneg i32 %sub.i.i.i to i64
-  %cmp16.i.i.i = icmp ult i32 %sub.i.i.i, 13
+  %cmp16.i.i.i = icmp samesign ult i32 %sub.i.i.i, 13
   %cmp.i.i.i.i.i = icmp ult i32 %27, 13
   %or.cond.i.i.i = and i1 %cmp.i.i.i.i.i, %cmp16.i.i.i
   %cmp.i.i15.i.i.i = icmp ult i32 %26, 13
@@ -23350,7 +23350,7 @@ if.end.i.i:                                       ; preds = %cond.false.i
   br i1 %cmp.i.i.i.i, label %if.then4.i.i, label %if.end9.i.i
 
 if.then4.i.i:                                     ; preds = %if.end.i.i
-  %cmp5.i.i = icmp ult i32 %27, 5
+  %cmp5.i.i = icmp samesign ult i32 %27, 5
   %cmp8.i.i = icmp eq ptr %retval.sroa.2.0.copyload.i.i.i, %retval.sroa.2.0.copyload.i7.i.i
   %spec.select = select i1 %cmp5.i.i, i1 true, i1 %cmp8.i.i
   br label %_ZNK8facebook5velox10StringVieweqERKS1_.exit.i
@@ -24000,7 +24000,7 @@ if.then10.i.i.i:                                  ; preds = %if.end.i.i.i
 
 if.end14.i.i.i:                                   ; preds = %if.end.i.i.i
   %conv15.i.i.i = zext nneg i32 %sub.i.i.i to i64
-  %cmp16.i.i.i = icmp ult i32 %sub.i.i.i, 13
+  %cmp16.i.i.i = icmp samesign ult i32 %sub.i.i.i, 13
   %cmp.i.i.i.i.i = icmp ult i32 %19, 13
   %or.cond.i.i.i = and i1 %cmp.i.i.i.i.i, %cmp16.i.i.i
   %or.cond21.i.i.i = and i1 %cmp.i.i15.i.i.i, %or.cond.i.i.i
@@ -24036,7 +24036,7 @@ if.end.i.i:                                       ; preds = %cond.false.i
   br i1 %cmp.i.i.i.i, label %if.then4.i.i, label %if.end9.i.i
 
 if.then4.i.i:                                     ; preds = %if.end.i.i
-  %cmp5.i.i = icmp ult i32 %19, 5
+  %cmp5.i.i = icmp samesign ult i32 %19, 5
   %cmp8.i.i = icmp eq ptr %retval.sroa.2.0.copyload.i.i.i, %retval.sroa.2.0.copyload.i7.i.i
   %spec.select = select i1 %cmp5.i.i, i1 true, i1 %cmp8.i.i
   br label %_ZNK8facebook5velox10StringVieweqERKS1_.exit.i
@@ -24067,7 +24067,7 @@ while.cond10.preheader:                           ; preds = %_ZN8facebook5velox1
   %cmp.i.i.i.i45 = icmp ult i32 %15, 13
   %conv13.i.i51 = and i64 %retval.sroa.0.0.copyload.i5.i.i, 4294967295
   %sub.i.i52 = add nsw i64 %conv13.i.i51, -4
-  %cmp5.i.i56 = icmp ult i32 %15, 5
+  %cmp5.i.i56 = icmp samesign ult i32 %15, 5
   %cond.i.i.i.i73.sroa.sel = select i1 %cmp.i.i.i.i45, ptr %4, ptr %.sroa.gep
   br label %while.cond10
 
@@ -24110,7 +24110,7 @@ if.then10.i.i.i88:                                ; preds = %if.end.i.i.i61
 
 if.end14.i.i.i64:                                 ; preds = %if.end.i.i.i61
   %conv15.i.i.i65 = zext nneg i32 %sub.i.i.i62 to i64
-  %cmp16.i.i.i66 = icmp ult i32 %sub.i.i.i62, 13
+  %cmp16.i.i.i66 = icmp samesign ult i32 %sub.i.i.i62, 13
   %or.cond.i.i.i68 = and i1 %cmp.i.i.i.i45, %cmp16.i.i.i66
   %cmp.i.i15.i.i.i69 = icmp ult i32 %24, 13
   %or.cond21.i.i.i70 = and i1 %cmp.i.i15.i.i.i69, %or.cond.i.i.i68
@@ -24323,7 +24323,7 @@ if.then10.i.i.i:                                  ; preds = %if.end.i.i.i
 
 if.end14.i.i.i:                                   ; preds = %if.end.i.i.i
   %conv15.i.i.i = zext nneg i32 %sub.i.i.i to i64
-  %cmp16.i.i.i = icmp ult i32 %sub.i.i.i, 13
+  %cmp16.i.i.i = icmp samesign ult i32 %sub.i.i.i, 13
   %cmp.i.i.i.i.i = icmp ult i32 %23, 13
   %or.cond.i.i.i = and i1 %cmp.i.i.i.i.i, %cmp16.i.i.i
   %cmp.i.i15.i.i.i = icmp ult i32 %22, 13
@@ -24362,7 +24362,7 @@ if.end.i.i:                                       ; preds = %cond.false.i
   br i1 %cmp.i.i.i.i, label %if.then4.i.i, label %if.end9.i.i
 
 if.then4.i.i:                                     ; preds = %if.end.i.i
-  %cmp5.i.i = icmp ult i32 %23, 5
+  %cmp5.i.i = icmp samesign ult i32 %23, 5
   %cmp8.i.i = icmp eq ptr %retval.sroa.2.0.copyload.i.i.i.i, %retval.sroa.2.0.copyload.i7.i.i.i
   %spec.select = select i1 %cmp5.i.i, i1 true, i1 %cmp8.i.i
   br label %_ZNK8facebook5velox10StringVieweqERKS1_.exit.i
@@ -24488,7 +24488,7 @@ if.then10.i.i.i:                                  ; preds = %if.end.i.i.i
 
 if.end14.i.i.i:                                   ; preds = %if.end.i.i.i
   %conv15.i.i.i = zext nneg i32 %sub.i.i.i to i64
-  %cmp16.i.i.i = icmp ult i32 %sub.i.i.i, 13
+  %cmp16.i.i.i = icmp samesign ult i32 %sub.i.i.i, 13
   %cmp.i.i.i.i.i = icmp ult i32 %9, 13
   %or.cond.i.i.i = and i1 %cmp.i.i.i.i.i, %cmp16.i.i.i
   %cmp.i.i15.i.i.i = icmp ult i32 %8, 13
@@ -24527,7 +24527,7 @@ if.end.i.i:                                       ; preds = %cond.false.i
   br i1 %cmp.i.i.i.i, label %if.then4.i.i, label %if.end9.i.i
 
 if.then4.i.i:                                     ; preds = %if.end.i.i
-  %cmp5.i.i = icmp ult i32 %9, 5
+  %cmp5.i.i = icmp samesign ult i32 %9, 5
   %cmp8.i.i = icmp eq ptr %retval.sroa.2.0.copyload.i.i.i.i, %retval.sroa.2.0.copyload.i7.i.i.i
   %spec.select = select i1 %cmp5.i.i, i1 true, i1 %cmp8.i.i
   br label %_ZNK8facebook5velox10StringVieweqERKS1_.exit.i

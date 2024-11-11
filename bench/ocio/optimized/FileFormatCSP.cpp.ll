@@ -1026,7 +1026,7 @@ ehcleanup215:                                     ; preds = %ehcleanup211, %clea
   br label %ehcleanup831
 
 if.end216:                                        ; preds = %invoke.cont181
-  %cmp217 = icmp ugt i32 %27, 1
+  %cmp217 = icmp samesign ugt i32 %27, 1
   br i1 %cmp217, label %if.then218, label %if.else
 
 if.then218:                                       ; preds = %if.end216

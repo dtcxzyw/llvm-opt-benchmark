@@ -17383,7 +17383,7 @@ lor.lhs.false.i115.lor.lhs.false.i.thread_crit_edge: ; preds = %lor.lhs.false.i1
 
 lor.lhs.false.i:                                  ; preds = %lor.lhs.false.i115
   %add.ptr.i121 = getelementptr inbounds i8, ptr %29, i64 24
-  %cmp2.i = icmp ult i32 %24, 5
+  %cmp2.i = icmp samesign ult i32 %24, 5
   br i1 %cmp2.i, label %lor.lhs.false.i.if.then.i102_crit_edge, label %if.end.i101
 
 lor.lhs.false.i.if.then.i102_crit_edge:           ; preds = %lor.lhs.false.i
@@ -19150,7 +19150,7 @@ lor.lhs.false.i100.lor.lhs.false.i75.thread_crit_edge: ; preds = %lor.lhs.false.
 
 lor.lhs.false.i75:                                ; preds = %lor.lhs.false.i100
   %add.ptr.i106 = getelementptr inbounds i8, ptr %27, i64 8
-  %cmp2.i77 = icmp ult i32 %22, 3
+  %cmp2.i77 = icmp samesign ult i32 %22, 3
   br i1 %cmp2.i77, label %lor.lhs.false.i75.if.then.i83_crit_edge, label %if.end.i78
 
 lor.lhs.false.i75.if.then.i83_crit_edge:          ; preds = %lor.lhs.false.i75

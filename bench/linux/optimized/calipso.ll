@@ -2386,7 +2386,7 @@ define internal fastcc range(i32 -22, 1) i32 @calipso_opt_find(ptr nocapture nou
 
 85:                                               ; preds = %80
   %86 = add nuw nsw i32 %45, 1
-  %87 = icmp ult i32 %86, %78
+  %87 = icmp samesign ult i32 %86, %78
   br i1 %87, label %88, label %97
 
 88:                                               ; preds = %85
@@ -2396,7 +2396,7 @@ define internal fastcc range(i32 -22, 1) i32 @calipso_opt_find(ptr nocapture nou
   %92 = zext i8 %91 to i32
   %93 = add nuw nsw i32 %92, 2
   %94 = add nuw nsw i32 %93, %45
-  %95 = icmp ugt i32 %94, %78
+  %95 = icmp samesign ugt i32 %94, %78
   %96 = select i1 %95, i32 -22, i32 %93
   br label %97
 

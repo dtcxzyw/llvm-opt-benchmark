@@ -80,7 +80,7 @@ entry:
   %log_blocks_ = getelementptr inbounds i8, ptr %this, i64 4
   %0 = load i32, ptr %log_blocks_, align 4
   %cmp.i = icmp slt i32 %0, 6
-  %cmp1.i = icmp ult i32 %0, 14
+  %cmp1.i = icmp samesign ult i32 %0, 14
   %cmp4.i = icmp slt i32 %0, 30
   %cond.i = select i1 %cmp4.i, i32 32, i32 64
   %cond5.i = select i1 %cmp1.i, i32 16, i32 %cond.i
@@ -716,7 +716,7 @@ entry:
   %log_blocks_ = getelementptr inbounds i8, ptr %this, i64 4
   %0 = load i32, ptr %log_blocks_, align 4
   %cmp.i = icmp slt i32 %0, 6
-  %cmp1.i = icmp ult i32 %0, 14
+  %cmp1.i = icmp samesign ult i32 %0, 14
   %cmp4.i = icmp slt i32 %0, 30
   %1 = select i1 %cmp4.i, i32 40, i32 72
   %2 = select i1 %cmp1.i, i32 24, i32 %1
@@ -841,7 +841,7 @@ entry:
 
 for.body.lr.ph:                                   ; preds = %entry
   %0 = load i32, ptr %log_blocks_, align 4
-  %cmp1.i = icmp ult i32 %0, 14
+  %cmp1.i = icmp samesign ult i32 %0, 14
   %cmp4.i = icmp slt i32 %0, 30
   %1 = select i1 %cmp4.i, i64 40, i64 72
   %2 = select i1 %cmp1.i, i64 24, i64 %1
@@ -971,7 +971,7 @@ if.end10:                                         ; preds = %land.lhs.true, %if.
 
 for.body.lr.ph.i:                                 ; preds = %if.end10
   %2 = load i32, ptr %log_blocks_.i, align 4
-  %cmp1.i.i = icmp ult i32 %2, 14
+  %cmp1.i.i = icmp samesign ult i32 %2, 14
   %cmp4.i.i = icmp slt i32 %2, 30
   %3 = select i1 %cmp4.i.i, i64 40, i64 72
   %4 = select i1 %cmp1.i.i, i64 24, i64 %3
@@ -1454,7 +1454,7 @@ for.body:                                         ; preds = %while.body25, %for.
   %arrayidx33 = getelementptr inbounds i32, ptr %out_group_ids, i64 %idxprom28
   %28 = load i32, ptr %log_blocks_.i, align 4
   %cmp.i.i = icmp slt i32 %28, 6
-  %cmp1.i.i = icmp ult i32 %28, 14
+  %cmp1.i.i = icmp samesign ult i32 %28, 14
   %cmp4.i.i = icmp slt i32 %28, 30
   %cond.i.i = select i1 %cmp4.i.i, i64 32, i64 64
   %cond5.i.i = select i1 %cmp1.i.i, i64 16, i64 %cond.i.i
@@ -1684,7 +1684,7 @@ entry:
   %log_blocks_ = getelementptr inbounds i8, ptr %this, i64 4
   %0 = load i32, ptr %log_blocks_, align 4
   %cmp.i = icmp slt i32 %0, 6
-  %cmp1.i = icmp ult i32 %0, 14
+  %cmp1.i = icmp samesign ult i32 %0, 14
   %cmp4.i = icmp slt i32 %0, 30
   %cond.i = select i1 %cmp4.i, i64 32, i64 64
   %cond5.i = select i1 %cmp1.i, i64 16, i64 %cond.i
@@ -1908,7 +1908,7 @@ if.then:                                          ; preds = %invoke.cont35
   %9 = load i32, ptr %arrayidx28, align 4
   %10 = load i32, ptr %log_blocks_.i, align 4
   %cmp.i.i = icmp slt i32 %10, 6
-  %cmp1.i.i = icmp ult i32 %10, 14
+  %cmp1.i.i = icmp samesign ult i32 %10, 14
   %cmp4.i.i = icmp slt i32 %10, 30
   %11 = select i1 %cmp4.i.i, i64 40, i64 72
   %12 = select i1 %cmp1.i.i, i64 24, i64 %11
@@ -2275,7 +2275,7 @@ while.end17:                                      ; preds = %for.body, %if.end
   %log_blocks_.i = getelementptr inbounds i8, ptr %this, i64 4
   %3 = load i32, ptr %log_blocks_.i, align 4
   %cmp.i.i = icmp slt i32 %3, 6
-  %cmp1.i.i = icmp ult i32 %3, 14
+  %cmp1.i.i = icmp samesign ult i32 %3, 14
   %cmp4.i.i = icmp slt i32 %3, 30
   %4 = select i1 %cmp4.i.i, i32 40, i32 72
   %5 = select i1 %cmp1.i.i, i32 24, i32 %4
@@ -2479,14 +2479,14 @@ entry:
   %log_blocks_ = getelementptr inbounds i8, ptr %this, i64 4
   %0 = load i32, ptr %log_blocks_, align 4
   %cmp.i = icmp slt i32 %0, 6
-  %cmp1.i = icmp ult i32 %0, 14
+  %cmp1.i = icmp samesign ult i32 %0, 14
   %cmp4.i = icmp slt i32 %0, 30
   %cond.i = select i1 %cmp4.i, i32 32, i32 64
   %cond5.i = select i1 %cmp1.i, i32 16, i32 %cond.i
   %cond7.i = select i1 %cmp.i, i32 8, i32 %cond5.i
   %add = add nsw i32 %0, 1
   %cmp.i78 = icmp slt i32 %0, 5
-  %cmp1.i79 = icmp ult i32 %add, 14
+  %cmp1.i79 = icmp samesign ult i32 %add, 14
   %cmp4.i80 = icmp slt i32 %0, 29
   %1 = select i1 %cmp4.i80, i64 40, i64 72
   %2 = select i1 %cmp1.i79, i64 24, i64 %1
@@ -3364,7 +3364,7 @@ entry:
   %log_blocks_ = getelementptr inbounds i8, ptr %this, i64 4
   store i32 %log_blocks, ptr %log_blocks_, align 4
   %cmp.i = icmp slt i32 %log_blocks, 6
-  %cmp1.i = icmp ult i32 %log_blocks, 14
+  %cmp1.i = icmp samesign ult i32 %log_blocks, 14
   %cmp4.i = icmp slt i32 %log_blocks, 30
   %0 = select i1 %cmp4.i, i64 40, i64 72
   %1 = select i1 %cmp1.i, i64 24, i64 %0

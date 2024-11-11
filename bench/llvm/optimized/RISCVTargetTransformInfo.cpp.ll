@@ -490,7 +490,7 @@ define dso_local { i64, i32 } @_ZN4llvm12RISCVTTIImpl23getRISCVInstructionCostEN
   %25 = zext nneg i16 %3 to i64
   %26 = add nsw i64 %25, -1
   %27 = getelementptr inbounds [240 x i16], ptr @_ZZNK4llvm3MVT23getVectorMinNumElementsEvE10NElemTable, i64 0, i64 %26
-  %spec.select.i58 = icmp ult i16 %6, 120
+  %spec.select.i58 = icmp samesign ult i16 %6, 120
   %28 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %29 = icmp eq i32 %.fca.1.extract32, 1
   br label %30
@@ -11612,7 +11612,7 @@ _ZN4llvm23SmallVectorTemplateBaseIjLb1EE9push_backEj.exit182: ; preds = %.lr.ph.
   call void @_ZN4llvm15SmallVectorBaseIjE8set_sizeEm(ptr noundef nonnull align 8 dereferenceable(16) %7, i64 noundef %134) #21
   %135 = add i32 %storemerge267, 1
   %136 = zext i32 %135 to i64
-  %137 = icmp ugt i64 %.sroa.019.1.lcssa.sink.i, %136
+  %137 = icmp samesign ugt i64 %.sroa.019.1.lcssa.sink.i, %136
   br i1 %137, label %.lr.ph.split, label %._crit_edge, !llvm.loop !141
 
 ._crit_edge:                                      ; preds = %_ZN4llvm23SmallVectorTemplateBaseIjLb1EE9push_backEj.exit182, %_ZN4llvm23SmallVectorTemplateBaseIjLb1EE9push_backEj.exit
@@ -12870,7 +12870,7 @@ _ZN4llvmmlERKNS_15InstructionCostES2_.exit161:    ; preds = %60
   br i1 %.not128, label %125, label %114
 
 114:                                              ; preds = %111
-  %spec.select.i191 = icmp ult i16 %58, 120
+  %spec.select.i191 = icmp samesign ult i16 %58, 120
   br i1 %spec.select.i191, label %115, label %123
 
 115:                                              ; preds = %114
@@ -22224,7 +22224,7 @@ define linkonce_odr noundef nonnull align 8 dereferenceable(16) ptr @_ZN4llvm15S
   %17 = getelementptr inbounds i8, ptr %.0910.i.i.i.i.i, i64 80
   %18 = getelementptr inbounds i8, ptr %.0811.i.i.i.i.i, i64 80
   %19 = add nsw i64 %.012.i.i.i.i.i, -1
-  %20 = icmp ugt i64 %.012.i.i.i.i.i, 1
+  %20 = icmp samesign ugt i64 %.012.i.i.i.i.i, 1
   br i1 %20, label %.lr.ph.i.i.i.i.i, label %_ZSt4copyIPKN4llvm30DiagnosticInfoOptimizationBase8ArgumentEPS2_ET0_T_S7_S6_.exit.loopexit, !llvm.loop !230
 
 _ZSt4copyIPKN4llvm30DiagnosticInfoOptimizationBase8ArgumentEPS2_ET0_T_S7_S6_.exit.loopexit: ; preds = %.lr.ph.i.i.i.i.i
@@ -22305,7 +22305,7 @@ _ZN4llvm15SmallVectorImplINS_30DiagnosticInfoOptimizationBase8ArgumentEE5clearEv
   %47 = getelementptr inbounds i8, ptr %.0910.i.i.i.i.i35, i64 80
   %48 = getelementptr inbounds i8, ptr %.0811.i.i.i.i.i34, i64 80
   %49 = add nsw i64 %.012.i.i.i.i.i33, -1
-  %50 = icmp ugt i64 %.012.i.i.i.i.i33, 1
+  %50 = icmp samesign ugt i64 %.012.i.i.i.i.i33, 1
   br i1 %50, label %.lr.ph.i.i.i.i.i32, label %_ZSt4copyIPKN4llvm30DiagnosticInfoOptimizationBase8ArgumentEPS2_ET0_T_S7_S6_.exit36, !llvm.loop !230
 
 _ZSt4copyIPKN4llvm30DiagnosticInfoOptimizationBase8ArgumentEPS2_ET0_T_S7_S6_.exit36: ; preds = %.lr.ph.i.i.i.i.i32, %37, %36, %_ZN4llvm15SmallVectorImplINS_30DiagnosticInfoOptimizationBase8ArgumentEE5clearEv.exit
@@ -22455,7 +22455,7 @@ _ZN4llvm15SmallVectorImplIPKNS_5ValueEE7reserveEm.exit: ; preds = %3, %12
   %19 = getelementptr inbounds i8, ptr %.sroa.05.08.i.i.i.i.i.i.i.i, i64 32
   %20 = getelementptr inbounds i8, ptr %.049.i.i.i.i.i.i.i.i, i64 8
   %21 = add nsw i64 %.010.i.i.i.i.i.i.i.i, -1
-  %22 = icmp ugt i64 %.010.i.i.i.i.i.i.i.i, 1
+  %22 = icmp samesign ugt i64 %.010.i.i.i.i.i.i.i.i, 1
   br i1 %22, label %.lr.ph.i.i.i.i.i.i.i.i, label %_ZN4llvm23SmallVectorTemplateBaseIPKNS_5ValueELb1EE18uninitialized_copyINS_4User17value_op_iteratorEPS3_EEvT_S9_T0_.exit, !llvm.loop !233
 
 _ZN4llvm23SmallVectorTemplateBaseIPKNS_5ValueELb1EE18uninitialized_copyINS_4User17value_op_iteratorEPS3_EEvT_S9_T0_.exit: ; preds = %.lr.ph.i.i.i.i.i.i.i.i, %_ZN4llvm15SmallVectorImplIPKNS_5ValueEE7reserveEm.exit

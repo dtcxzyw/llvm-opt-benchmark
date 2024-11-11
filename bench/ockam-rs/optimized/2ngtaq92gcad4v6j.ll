@@ -18080,7 +18080,7 @@ define hidden void @"_ZN113_$LT$kafka_protocol..messages..produce_request..Produ
   br i1 %24, label %25, label %27
 
 25:                                               ; preds = %3
-  %26 = icmp ugt i16 %2, 8
+  %26 = icmp samesign ugt i16 %2, 8
   br i1 %26, label %39, label %35
 
 27:                                               ; preds = %3, %43, %46
@@ -18675,7 +18675,7 @@ define hidden noundef ptr @"_ZN113_$LT$kafka_protocol..messages..produce_request
   br i1 %.not, label %45, label %23
 
 18:                                               ; preds = %3
-  %19 = icmp ugt i16 %2, 8
+  %19 = icmp samesign ugt i16 %2, 8
   %20 = getelementptr inbounds i8, ptr %0, i64 72
   %21 = load ptr, ptr %20, align 8, !noalias !4, !noundef !4
   %22 = icmp eq ptr %21, null
@@ -19516,7 +19516,7 @@ define hidden noundef ptr @"_ZN118_$LT$kafka_protocol..messages..produce_request
 
 40:                                               ; preds = %35
   %41 = trunc nuw i64 %38 to i32
-  %42 = icmp ugt i64 %38, 127
+  %42 = icmp samesign ugt i64 %38, 127
   br i1 %42, label %.lr.ph.i, label %.loopexit
 
 .lr.ph.i:                                         ; preds = %40, %.lr.ph.i
@@ -20060,7 +20060,7 @@ define hidden noundef ptr @"_ZN119_$LT$kafka_protocol..messages..produce_request
 
 36:                                               ; preds = %31
   %37 = trunc nuw i64 %34 to i32
-  %38 = icmp ugt i64 %34, 127
+  %38 = icmp samesign ugt i64 %34, 127
   br i1 %38, label %.lr.ph.i, label %.loopexit
 
 .lr.ph.i:                                         ; preds = %36, %.lr.ph.i
@@ -89739,7 +89739,7 @@ define hidden void @"_ZN78_$LT$tinyvec..tinyvec..TinyVec$LT$A$GT$$u20$as$u20$ock
   unreachable
 
 67:                                               ; preds = %54
-  %68 = icmp ult i64 %57, %56
+  %68 = icmp samesign ult i64 %57, %56
   br i1 %68, label %69, label %"_ZN7tinyvec8arrayvec17ArrayVec$LT$A$GT$7set_len17h2c71521a2d21c08bE.exit.i.i"
 
 69:                                               ; preds = %67

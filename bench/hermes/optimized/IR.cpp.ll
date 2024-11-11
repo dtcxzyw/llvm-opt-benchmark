@@ -6734,7 +6734,7 @@ for.body.i.i.i.i.i.i:                             ; preds = %_ZN6hermes11Instruc
   %incdec.ptr.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__first.addr.07.i.i.i.i.i.i, i64 16
   %incdec.ptr1.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__result.addr.08.i.i.i.i.i.i, i64 16
   %dec.i.i.i.i.i.i = add nsw i64 %__n.09.i.i.i.i.i.i, -1
-  %cmp.i.i.i.i.i.i = icmp ugt i64 %__n.09.i.i.i.i.i.i, 1
+  %cmp.i.i.i.i.i.i = icmp samesign ugt i64 %__n.09.i.i.i.i.i.i, 1
   br i1 %cmp.i.i.i.i.i.i, label %for.body.i.i.i.i.i.i, label %_ZSt4moveIPSt4pairIPN6hermes5ValueEjES5_ET0_T_S7_S6_.exit.loopexit.i, !llvm.loop !24
 
 _ZSt4moveIPSt4pairIPN6hermes5ValueEjES5_ET0_T_S7_S6_.exit.loopexit.i: ; preds = %for.body.i.i.i.i.i.i

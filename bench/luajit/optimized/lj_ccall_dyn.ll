@@ -872,7 +872,7 @@ if.then32:                                        ; preds = %while.body
   br label %if.end34
 
 if.end34:                                         ; preds = %if.then32, %while.body
-  %cmp23 = icmp ugt i32 %dec82.in, 1
+  %cmp23 = icmp samesign ugt i32 %dec82.in, 1
   br i1 %cmp23, label %while.body, label %return, !llvm.loop !10
 
 return:                                           ; preds = %if.end34, %ccall_get_results.exit.thread93, %ccall_get_results.exit, %if.end.thread, %if.end

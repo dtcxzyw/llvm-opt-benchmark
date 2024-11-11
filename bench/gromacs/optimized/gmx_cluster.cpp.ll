@@ -1009,7 +1009,7 @@ _ZNSt10filesystem7__cxx114pathD2Ev.exit:          ; preds = %307, %310
   br label %.body
 
 332:                                              ; preds = %321
-  %333 = icmp ult i32 %.pr, 2
+  %333 = icmp samesign ult i32 %.pr, 2
   br i1 %333, label %.thread826, label %339
 
 .thread826:                                       ; preds = %316, %332

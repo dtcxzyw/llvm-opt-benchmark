@@ -222,7 +222,7 @@ avifBitsRead.exit200.i.i.thread:                  ; preds = %avifBitsRead.exit11
   %.sroa.69.154 = select i1 %.not15.i.i132.i.i, i32 %.sroa.69.153, i32 1
   %.sroa.0.155 = select i1 %.not15.i.i132.i.i, i32 %.sroa.0.154, i32 %77
   %88 = select i1 %.not15.i.i132.i.i, i32 %77, i32 1
-  %89 = icmp ult i32 %78, 24
+  %89 = icmp samesign ult i32 %78, 24
   br i1 %89, label %.preheader482, label %avifBitsRead.exit134.i.i, !llvm.loop !6
 
 avifBitsRead.exit134.i.i:                         ; preds = %86
@@ -549,7 +549,7 @@ avifBitsRead.exit178.i.i:                         ; preds = %avifBitsRefill.exit
   %.sroa.69.142 = select i1 %.not15.i.i187.i.i, i32 %.sroa.69.141, i32 1
   %.sroa.0.143 = select i1 %.not15.i.i187.i.i, i32 %.sroa.0.142, i32 %220
   %231 = select i1 %.not15.i.i187.i.i, i32 %220, i32 1
-  %232 = icmp ult i32 %221, 2
+  %232 = icmp samesign ult i32 %221, 2
   br i1 %232, label %.preheader479, label %avifBitsRefill.exit.i188.i.i, !llvm.loop !6
 
 avifBitsRefill.exit.i188.i.i:                     ; preds = %229
@@ -700,7 +700,7 @@ avifBitsRead.exit211.i.i:                         ; preds = %avifBitsRefill.exit
   %.sroa.69.138 = select i1 %.not15.i.i220.i.i, i32 %.sroa.69.137, i32 1
   %.sroa.0.139 = select i1 %.not15.i.i220.i.i, i32 %.sroa.0.138, i32 %284
   %295 = select i1 %.not15.i.i220.i.i, i32 %284, i32 1
-  %296 = icmp ult i32 %285, 4
+  %296 = icmp samesign ult i32 %285, 4
   br i1 %296, label %.preheader478, label %avifBitsRefill.exit.i221.i.i, !llvm.loop !6
 
 avifBitsRefill.exit.i221.i.i:                     ; preds = %293

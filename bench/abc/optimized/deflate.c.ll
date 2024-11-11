@@ -72,7 +72,7 @@ define range(i32 -6, 1) i32 @deflateInit2_(ptr noundef %0, i32 noundef %1, i32 n
   br label %37
 
 34:                                               ; preds = %29
-  %35 = icmp ugt i32 %3, 15
+  %35 = icmp samesign ugt i32 %3, 15
   %36 = add nsw i32 %3, -16
   %spec.select = select i1 %35, i32 %36, i32 %3
   %spec.select116 = select i1 %35, i32 2, i32 1
@@ -1078,7 +1078,7 @@ define range(i32 -5, 2) i32 @deflate(ptr noundef %0, i32 noundef %1) local_unnam
   br i1 %247, label %252, label %248
 
 248:                                              ; preds = %244
-  %249 = icmp ult i32 %246, 6
+  %249 = icmp samesign ult i32 %246, 6
   br i1 %249, label %252, label %250
 
 250:                                              ; preds = %248

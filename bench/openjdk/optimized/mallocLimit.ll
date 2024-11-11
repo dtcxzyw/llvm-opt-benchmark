@@ -114,7 +114,7 @@ define hidden void @_ZNK14MallocLimitSet8print_onEP12outputStream(ptr nocapture 
   br i1 %6, label %_Z24byte_size_in_proper_unitImET_S0_.exit, label %7
 
 7:                                                ; preds = %5
-  %8 = icmp ugt i64 %3, 104857599
+  %8 = icmp samesign ugt i64 %3, 104857599
   br i1 %8, label %.thread, label %11
 
 .thread:                                          ; preds = %7
@@ -126,7 +126,7 @@ _Z24byte_size_in_proper_unitImET_S0_.exit:        ; preds = %5
   br label %_Z25proper_unit_for_byte_sizem.exit
 
 11:                                               ; preds = %7
-  %12 = icmp ugt i64 %3, 102399
+  %12 = icmp samesign ugt i64 %3, 102399
   %13 = lshr i64 %3, 10
   %spec.select.i = select i1 %12, i64 %13, i64 %3
   %.str.19..str.20.i = select i1 %12, ptr @.str.19, ptr @.str.20
@@ -170,7 +170,7 @@ _ZL12mode_to_name15MallocLimitMode.exit:          ; preds = %_Z25proper_unit_for
   br i1 %25, label %_Z24byte_size_in_proper_unitImET_S0_.exit15, label %26
 
 26:                                               ; preds = %22
-  %27 = icmp ugt i64 %21, 104857599
+  %27 = icmp samesign ugt i64 %21, 104857599
   br i1 %27, label %.thread28, label %30
 
 .thread28:                                        ; preds = %26
@@ -182,7 +182,7 @@ _Z24byte_size_in_proper_unitImET_S0_.exit15:      ; preds = %22
   br label %_Z25proper_unit_for_byte_sizem.exit18
 
 30:                                               ; preds = %26
-  %31 = icmp ugt i64 %21, 102399
+  %31 = icmp samesign ugt i64 %21, 102399
   %32 = lshr i64 %21, 10
   %spec.select.i13 = select i1 %31, i64 %32, i64 %21
   %.str.19..str.20.i16 = select i1 %31, ptr @.str.19, ptr @.str.20

@@ -153,7 +153,7 @@ define dso_local noundef range(i32 0, 2) i32 @__ext4_check_dir_entry(ptr noundef
 82:                                               ; preds = %75, %71
   %83 = phi i32 [ %74, %71 ], [ %81, %75 ]
   %84 = and i32 %83, -4
-  %85 = icmp ugt i32 %84, %14
+  %85 = icmp samesign ugt i32 %84, %14
   br i1 %85, label %111, label %86, !prof !5
 
 86:                                               ; preds = %82

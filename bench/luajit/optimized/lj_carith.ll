@@ -1336,7 +1336,7 @@ for.body.i:                                       ; preds = %for.cond.preheader.
 for.end.i:                                        ; preds = %for.body.i, %for.cond.preheader.i
   %x.addr.0.lcssa.i = phi i64 [ %x, %for.cond.preheader.i ], [ %mul.i, %for.body.i ]
   %k.addr.0.lcssa.i = phi i64 [ %k, %for.cond.preheader.i ], [ %shr.i, %for.body.i ]
-  %cmp3.not.i = icmp ult i64 %k.addr.0.lcssa.i, 2
+  %cmp3.not.i = icmp samesign ult i64 %k.addr.0.lcssa.i, 2
   br i1 %cmp3.not.i, label %return, label %for.cond5.preheader.i
 
 for.cond5.preheader.i:                            ; preds = %for.end.i

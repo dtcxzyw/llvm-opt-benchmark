@@ -757,7 +757,7 @@ _ZL13lm_print_parsiPKdP8_IO_FILE.exit:            ; preds = %.lr.ph.i, %106
   %295 = load double, ptr %294, align 8
   %296 = fdiv double %291, %295
   store double %296, ptr %290, align 8
-  %297 = icmp ugt i64 %indvars.iv.next410.i906, 1
+  %297 = icmp samesign ugt i64 %indvars.iv.next410.i906, 1
   br i1 %297, label %.lr.ph.preheader.i700, label %.preheader369.i.preheader
 
 .lr.ph.preheader.i700:                            ; preds = %.lr.ph.preheader.i700.preheader, %.loopexit370.i

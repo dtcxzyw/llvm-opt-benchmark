@@ -96,7 +96,7 @@ define dso_local noundef range(i32 0, 2) i32 @_ZN6asmjit9_abi_1_1014ZoneVectorBa
   br i1 %58, label %59, label %74
 
 59:                                               ; preds = %54
-  %60 = icmp ult i64 %57, 129
+  %60 = icmp samesign ult i64 %57, 129
   br i1 %60, label %61, label %64
 
 61:                                               ; preds = %59
@@ -196,7 +196,7 @@ define dso_local noundef range(i32 0, 2) i32 @_ZN6asmjit9_abi_1_1014ZoneVectorBa
   br i1 %33, label %34, label %49
 
 34:                                               ; preds = %29
-  %35 = icmp ult i64 %32, 129
+  %35 = icmp samesign ult i64 %32, 129
   br i1 %35, label %36, label %39
 
 36:                                               ; preds = %34
@@ -349,7 +349,7 @@ define dso_local noundef range(i32 0, 2) i32 @_ZN6asmjit9_abi_1_1013ZoneBitVecto
   br i1 %37, label %38, label %53
 
 38:                                               ; preds = %33
-  %39 = icmp ult i32 %34, 1032
+  %39 = icmp samesign ult i32 %34, 1032
   br i1 %39, label %40, label %43
 
 40:                                               ; preds = %38
@@ -700,7 +700,7 @@ define dso_local noundef range(i32 0, 2) i32 @_ZN6asmjit9_abi_1_1013ZoneBitVecto
   br i1 %131, label %132, label %147
 
 132:                                              ; preds = %.loopexit15
-  %133 = icmp ult i32 %128, 1032
+  %133 = icmp samesign ult i32 %128, 1032
   br i1 %133, label %134, label %137
 
 134:                                              ; preds = %132
@@ -767,7 +767,7 @@ define dso_local noundef range(i32 0, 2) i32 @_ZN6asmjit9_abi_1_1013ZoneBitVecto
   %171 = phi i32 [ %165, %158 ], [ %153, %151 ]
   %172 = add i32 %2, 63
   %173 = lshr i32 %172, 6
-  %174 = icmp ult i32 %171, %173
+  %174 = icmp samesign ult i32 %171, %173
   br i1 %174, label %175, label %.loopexit
 
 175:                                              ; preds = %170

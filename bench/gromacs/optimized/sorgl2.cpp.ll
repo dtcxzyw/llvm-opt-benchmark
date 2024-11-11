@@ -42,7 +42,7 @@ define void @sorgl2_(ptr nocapture noundef readonly %0, ptr nocapture noundef re
   br i1 %28, label %.thread, label %29
 
 29:                                               ; preds = %27
-  %30 = icmp ult i32 %23, %17
+  %30 = icmp samesign ult i32 %23, %17
   br i1 %30, label %31, label %.lr.ph117
 
 31:                                               ; preds = %29
@@ -189,7 +189,7 @@ define void @sorgl2_(ptr nocapture noundef readonly %0, ptr nocapture noundef re
   %indvars.iv.next127 = add nsw i64 %indvars.iv126, -1
   %103 = trunc nuw nsw i64 %indvars.iv.next127 to i32
   store i32 %103, ptr %9, align 4
-  %.not100.not111 = icmp ugt i64 %indvars.iv126, 1
+  %.not100.not111 = icmp samesign ugt i64 %indvars.iv126, 1
   br i1 %.not100.not111, label %.lr.ph114.preheader, label %.thread
 
 .lr.ph114.preheader:                              ; preds = %96

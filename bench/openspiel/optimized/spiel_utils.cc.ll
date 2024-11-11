@@ -275,7 +275,7 @@ define noundef range(i64 0, 2147483647) i64 @_ZN10open_spiel19RankActionMixedBas
 73:                                               ; preds = %65
   store i32 %67, ptr %19, align 4
   store i32 1, ptr %20, align 4
-  %74 = icmp ugt i32 %67, 1
+  %74 = icmp samesign ugt i32 %67, 1
   br i1 %74, label %79, label %75
 
 75:                                               ; preds = %73

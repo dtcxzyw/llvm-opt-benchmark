@@ -3898,7 +3898,7 @@ define linkonce_odr dso_local noundef ptr @_ZNSt20__copy_move_backwardILb1ELb0ES
   %59 = load i64, ptr %58, align 8
   store i64 %59, ptr %57, align 8
   %60 = add nsw i64 %.010, -1
-  %61 = icmp ugt i64 %.010, 1
+  %61 = icmp samesign ugt i64 %.010, 1
   br i1 %61, label %.lr.ph, label %._crit_edge, !llvm.loop !49
 
 ._crit_edge:                                      ; preds = %.lr.ph, %3

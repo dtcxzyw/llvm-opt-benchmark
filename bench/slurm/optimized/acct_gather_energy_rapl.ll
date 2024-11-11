@@ -186,7 +186,7 @@ define void @acct_gather_energy_p_conf_set(i32 %0, ptr nocapture readnone %1) lo
   br label %.backedge.i
 
 33:                                               ; preds = %28
-  %34 = icmp ugt i32 %29, 255
+  %34 = icmp samesign ugt i32 %29, 255
   br i1 %34, label %35, label %36
 
 35:                                               ; preds = %33

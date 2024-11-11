@@ -28,7 +28,7 @@ switch.lookup:                                    ; preds = %switch.hole_check
   br i1 %11, label %.thread255.sink.split, label %12
 
 12:                                               ; preds = %switch.lookup
-  %13 = icmp ult i32 %10, 2
+  %13 = icmp samesign ult i32 %10, 2
   br i1 %13, label %.thread255, label %14
 
 14:                                               ; preds = %12

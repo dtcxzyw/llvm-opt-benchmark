@@ -54,7 +54,7 @@ define noundef i32 @dgemm_otcopy(i64 noundef %0, i64 noundef %1, ptr nocapture n
   %36 = getelementptr inbounds i8, ptr %24, i64 16
   %37 = getelementptr inbounds i8, ptr %25, i64 %.idx3
   %38 = add nsw i64 %22, -1
-  %39 = icmp ugt i64 %22, 1
+  %39 = icmp samesign ugt i64 %22, 1
   br i1 %39, label %21, label %.loopexit6.us.us, !llvm.loop !7
 
 .loopexit6.us.us:                                 ; preds = %21
@@ -94,7 +94,7 @@ define noundef i32 @dgemm_otcopy(i64 noundef %0, i64 noundef %1, ptr nocapture n
   %64 = getelementptr inbounds i8, ptr %52, i64 16
   %65 = getelementptr inbounds i8, ptr %53, i64 %.idx3
   %66 = add nsw i64 %50, -1
-  %67 = icmp ugt i64 %50, 1
+  %67 = icmp samesign ugt i64 %50, 1
   br i1 %67, label %49, label %.loopexit6.us, !llvm.loop !7
 
 .loopexit6.us:                                    ; preds = %49
@@ -137,7 +137,7 @@ define noundef i32 @dgemm_otcopy(i64 noundef %0, i64 noundef %1, ptr nocapture n
   store double %85, ptr %86, align 8, !tbaa !3
   %87 = getelementptr inbounds i8, ptr %81, i64 16
   %88 = add nsw i64 %79, -1
-  %89 = icmp ugt i64 %79, 1
+  %89 = icmp samesign ugt i64 %79, 1
   br i1 %89, label %.split.split, label %.loopexit7.loopexit26, !llvm.loop !10
 
 .loopexit7.loopexit26:                            ; preds = %.split.split
@@ -174,7 +174,7 @@ define noundef i32 @dgemm_otcopy(i64 noundef %0, i64 noundef %1, ptr nocapture n
   %106 = getelementptr inbounds i8, ptr %100, i64 16
   %107 = getelementptr inbounds i8, ptr %101, i64 %.idx4
   %108 = add nsw i64 %99, -1
-  %109 = icmp ugt i64 %99, 1
+  %109 = icmp samesign ugt i64 %99, 1
   br i1 %109, label %98, label %.loopexit, !llvm.loop !11
 
 .loopexit:                                        ; preds = %98, %95

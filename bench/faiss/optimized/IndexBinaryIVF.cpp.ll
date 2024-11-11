@@ -18523,7 +18523,7 @@ _ZN5faiss13InvertedLists11ScopedCodesC2EPKS0_m.exit.preheader: ; preds = %80
   br i1 %.not.i, label %_ZN5faiss13HCounterStateINS_16HammingComputer4EE14update_counterEPKhm.exit, label %102
 
 102:                                              ; preds = %89
-  %103 = icmp ult i32 %100, %101
+  %103 = icmp samesign ult i32 %100, %101
   %104 = load i32, ptr %40, align 8
   br i1 %103, label %105, label %131
 
@@ -18986,7 +18986,7 @@ _ZN5faiss13InvertedLists11ScopedCodesC2EPKS0_m.exit.preheader: ; preds = %80
   br i1 %.not.i, label %_ZN5faiss13HCounterStateINS_16HammingComputer8EE14update_counterEPKhm.exit, label %103
 
 103:                                              ; preds = %89
-  %104 = icmp ugt i32 %102, %101
+  %104 = icmp samesign ugt i32 %102, %101
   %105 = load i32, ptr %40, align 4
   br i1 %104, label %106, label %131
 
@@ -19455,7 +19455,7 @@ _ZN5faiss13InvertedLists11ScopedCodesC2EPKS0_m.exit.preheader: ; preds = %81
   br i1 %.not.i, label %_ZN5faiss13HCounterStateINS_17HammingComputer16EE14update_counterEPKhm.exit, label %111
 
 111:                                              ; preds = %90
-  %112 = icmp ult i32 %109, %110
+  %112 = icmp samesign ult i32 %109, %110
   %113 = load i32, ptr %41, align 4
   br i1 %112, label %114, label %140
 
@@ -19933,7 +19933,7 @@ _ZN5faiss13InvertedLists11ScopedCodesC2EPKS0_m.exit.preheader: ; preds = %82
   br i1 %.not.i, label %_ZN5faiss13HCounterStateINS_17HammingComputer20EE14update_counterEPKhm.exit, label %118
 
 118:                                              ; preds = %91
-  %119 = icmp ult i32 %116, %117
+  %119 = icmp samesign ult i32 %116, %117
   %120 = load i32, ptr %42, align 4
   br i1 %119, label %121, label %147
 
@@ -20420,7 +20420,7 @@ _ZN5faiss13InvertedLists11ScopedCodesC2EPKS0_m.exit.preheader: ; preds = %83
   br i1 %.not.i, label %_ZN5faiss13HCounterStateINS_17HammingComputer32EE14update_counterEPKhm.exit, label %127
 
 127:                                              ; preds = %92
-  %128 = icmp ult i32 %125, %126
+  %128 = icmp samesign ult i32 %125, %126
   %129 = load i32, ptr %43, align 4
   br i1 %128, label %130, label %156
 
@@ -20939,7 +20939,7 @@ _ZN5faiss13InvertedLists11ScopedCodesC2EPKS0_m.exit.preheader: ; preds = %87
   br i1 %.not.i, label %_ZN5faiss13HCounterStateINS_17HammingComputer64EE14update_counterEPKhm.exit, label %159
 
 159:                                              ; preds = %96
-  %160 = icmp ult i32 %157, %158
+  %160 = icmp samesign ult i32 %157, %158
   %161 = load i32, ptr %47, align 4
   br i1 %160, label %162, label %188
 
@@ -21867,7 +21867,7 @@ _ZN5faiss13InvertedLists11ScopedCodesC2EPKS0_m.exit: ; preds = %80
   br i1 %.not.i, label %_ZN5faiss13HCounterStateINS_16HammingComputer4EE14update_counterEPKhm.exit, label %108
 
 108:                                              ; preds = %.lr.ph
-  %109 = icmp ult i32 %106, %107
+  %109 = icmp samesign ult i32 %106, %107
   %110 = load i32, ptr %40, align 8
   br i1 %109, label %111, label %137
 
@@ -22351,7 +22351,7 @@ _ZN5faiss13InvertedLists11ScopedCodesC2EPKS0_m.exit: ; preds = %80
   br i1 %.not.i, label %_ZN5faiss13HCounterStateINS_16HammingComputer8EE14update_counterEPKhm.exit, label %109
 
 109:                                              ; preds = %.lr.ph
-  %110 = icmp ugt i32 %108, %107
+  %110 = icmp samesign ugt i32 %108, %107
   %111 = load i32, ptr %40, align 4
   br i1 %110, label %112, label %137
 
@@ -22841,7 +22841,7 @@ _ZN5faiss13InvertedLists11ScopedCodesC2EPKS0_m.exit: ; preds = %81
   br i1 %.not.i, label %_ZN5faiss13HCounterStateINS_17HammingComputer16EE14update_counterEPKhm.exit, label %117
 
 117:                                              ; preds = %.lr.ph
-  %118 = icmp ult i32 %115, %116
+  %118 = icmp samesign ult i32 %115, %116
   %119 = load i32, ptr %41, align 4
   br i1 %118, label %120, label %146
 
@@ -23340,7 +23340,7 @@ _ZN5faiss13InvertedLists11ScopedCodesC2EPKS0_m.exit: ; preds = %82
   br i1 %.not.i, label %_ZN5faiss13HCounterStateINS_17HammingComputer20EE14update_counterEPKhm.exit, label %124
 
 124:                                              ; preds = %.lr.ph
-  %125 = icmp ult i32 %122, %123
+  %125 = icmp samesign ult i32 %122, %123
   %126 = load i32, ptr %42, align 4
   br i1 %125, label %127, label %153
 
@@ -23848,7 +23848,7 @@ _ZN5faiss13InvertedLists11ScopedCodesC2EPKS0_m.exit: ; preds = %83
   br i1 %.not.i, label %_ZN5faiss13HCounterStateINS_17HammingComputer32EE14update_counterEPKhm.exit, label %133
 
 133:                                              ; preds = %.lr.ph
-  %134 = icmp ult i32 %131, %132
+  %134 = icmp samesign ult i32 %131, %132
   %135 = load i32, ptr %43, align 4
   br i1 %134, label %136, label %162
 
@@ -24388,7 +24388,7 @@ _ZN5faiss13InvertedLists11ScopedCodesC2EPKS0_m.exit: ; preds = %87
   br i1 %.not.i, label %_ZN5faiss13HCounterStateINS_17HammingComputer64EE14update_counterEPKhm.exit, label %165
 
 165:                                              ; preds = %.lr.ph
-  %166 = icmp ult i32 %163, %164
+  %166 = icmp samesign ult i32 %163, %164
   %167 = load i32, ptr %47, align 4
   br i1 %166, label %168, label %194
 

@@ -1199,7 +1199,7 @@ removeDontCares.exit130:                          ; preds = %removeDontCares.exi
 321:                                              ; preds = %316
   %322 = add i16 %.0137, 1
   %323 = zext i16 %322 to i32
-  %324 = icmp ugt i32 %313, %323
+  %324 = icmp samesign ugt i32 %313, %323
   br i1 %324, label %316, label %._crit_edge, !llvm.loop !17
 
 ._crit_edge:                                      ; preds = %321, %316, %.preheader

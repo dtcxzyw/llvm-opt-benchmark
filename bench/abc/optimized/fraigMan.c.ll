@@ -255,7 +255,7 @@ define noundef ptr @Fraig_ManCreate(ptr noundef %0) local_unnamed_addr #4 {
   br label %9
 
 6:                                                ; preds = %4
-  %7 = icmp ugt i32 %.pre, 32768
+  %7 = icmp samesign ugt i32 %.pre, 32768
   br i1 %7, label %8, label %9
 
 8:                                                ; preds = %6
@@ -282,7 +282,7 @@ define noundef ptr @Fraig_ManCreate(ptr noundef %0) local_unnamed_addr #4 {
   br i1 %12, label %.sink.split, label %13
 
 13:                                               ; preds = %9
-  %14 = icmp ugt i32 %11, 32768
+  %14 = icmp samesign ugt i32 %11, 32768
   br i1 %14, label %.sink.split, label %15
 
 .sink.split:                                      ; preds = %13, %9

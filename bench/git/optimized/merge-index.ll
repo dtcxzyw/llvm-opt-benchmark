@@ -98,7 +98,7 @@ if.end11:                                         ; preds = %sub_120, %if.end4, 
   %i.1 = phi i32 [ %inc10, %if.then9 ], [ %i.0, %if.end4.tail ], [ %i.0, %if.end4 ], [ %i.0, %sub_120 ]
   store ptr %15, ptr @pgm, align 8
   %i.231 = add nuw nsw i32 %i.1, 1
-  %cmp1532 = icmp ult i32 %i.231, %argc
+  %cmp1532 = icmp samesign ult i32 %i.231, %argc
   br i1 %cmp1532, label %for.body.preheader, label %for.end
 
 for.body.preheader:                               ; preds = %if.end11

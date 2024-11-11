@@ -488,7 +488,7 @@ sw.bb62:                                          ; preds = %sw.epilog, %sw.epil
   br i1 %cmp64, label %if.end72.sink.split, label %if.else
 
 if.else:                                          ; preds = %sw.bb62
-  %cmp68 = icmp ugt i32 %8, 120
+  %cmp68 = icmp samesign ugt i32 %8, 120
   br i1 %cmp68, label %if.end72.sink.split, label %if.end72
 
 if.end72.sink.split:                              ; preds = %if.else, %sw.bb62

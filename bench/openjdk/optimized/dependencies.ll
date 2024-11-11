@@ -652,7 +652,7 @@ _ZN12Dependencies13note_dep_seenEiP12ciBaseObject.exit: ; preds = %13, %._crit_e
   br label %_ZN12Dependencies16maybe_merge_ctxkEP13GrowableArrayIP12ciBaseObjectEiP7ciKlass.exit.thread
 
 _ZN12Dependencies16maybe_merge_ctxkEP13GrowableArrayIP12ciBaseObjectEiP7ciKlass.exit: ; preds = %62, %52
-  %67 = icmp ugt i64 %indvars.iv92, 3
+  %67 = icmp samesign ugt i64 %indvars.iv92, 3
   br i1 %67, label %52, label %.loopexit, !llvm.loop !9
 
 68:                                               ; preds = %4
@@ -828,7 +828,7 @@ _ZN12Dependencies13note_dep_seenEiP12ciBaseObject.exit63: ; preds = %_ZN12Depend
   br i1 %147, label %_ZN12Dependencies16maybe_merge_ctxkEP13GrowableArrayIP12ciBaseObjectEiP7ciKlass.exit.thread, label %148
 
 148:                                              ; preds = %145, %141
-  %149 = icmp ugt i64 %indvars.iv, 3
+  %149 = icmp samesign ugt i64 %indvars.iv, 3
   br i1 %149, label %141, label %.loopexit, !llvm.loop !10
 
 .loopexit:                                        ; preds = %148, %_ZN12Dependencies16maybe_merge_ctxkEP13GrowableArrayIP12ciBaseObjectEiP7ciKlass.exit, %135, %47, %_ZN12Dependencies13note_dep_seenEiP12ciBaseObject.exit63, %_ZN12Dependencies13note_dep_seenEiP12ciBaseObject.exit
@@ -1176,7 +1176,7 @@ _ZN12Dependencies13note_dep_seenEiP12ciBaseObject.exit68: ; preds = %_ZN12Depend
   br label %_ZN12Dependencies16maybe_merge_ctxkEP13GrowableArrayIP12ciBaseObjectEiP7ciKlass.exit.thread
 
 _ZN12Dependencies16maybe_merge_ctxkEP13GrowableArrayIP12ciBaseObjectEiP7ciKlass.exit: ; preds = %132, %116
-  %137 = icmp ugt i64 %indvars.iv, 7
+  %137 = icmp samesign ugt i64 %indvars.iv, 7
   br i1 %137, label %116, label %.loopexit, !llvm.loop !11
 
 .loopexit:                                        ; preds = %_ZN12Dependencies16maybe_merge_ctxkEP13GrowableArrayIP12ciBaseObjectEiP7ciKlass.exit, %111, %_ZN12Dependencies13note_dep_seenEiP12ciBaseObject.exit68
@@ -1751,7 +1751,7 @@ _ZN12Dependencies13note_dep_seenEiNS_8DepValueE.exit: ; preds = %22, %._crit_edg
   br i1 %69, label %.loopexit81, label %70
 
 70:                                               ; preds = %67, %61
-  %71 = icmp ugt i64 %indvars.iv, 3
+  %71 = icmp samesign ugt i64 %indvars.iv, 3
   br i1 %71, label %61, label %.loopexit, !llvm.loop !13
 
 72:                                               ; preds = %4

@@ -2850,7 +2850,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
 
 _ZN6google7logging8internal13CheckOpStringD2Ev.exit61: ; preds = %_ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14default_deleteIS5_EED2Ev.exit58
   store ptr null, ptr %39, align 8
-  %123 = icmp ugt i32 %.in, 1
+  %123 = icmp samesign ugt i32 %.in, 1
   br i1 %123, label %_ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14default_deleteIS5_EED2Ev.exit, label %._crit_edge, !llvm.loop !29
 
 124:                                              ; preds = %_ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14default_deleteIS5_EED2Ev.exit58
@@ -3098,7 +3098,7 @@ define internal void @_ZL11BM_logspeedi(i32 noundef %0) #3 personality ptr @__gx
 
 8:                                                ; preds = %6
   call void @_ZN6google10LogMessageD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %2)
-  %9 = icmp ugt i32 %.in, 1
+  %9 = icmp samesign ugt i32 %.in, 1
   br i1 %9, label %.lr.ph, label %._crit_edge, !llvm.loop !31
 
 10:                                               ; preds = %6, %.lr.ph
@@ -3157,7 +3157,7 @@ define internal void @_ZL7BM_vlogi(i32 noundef %0) #3 personality ptr @__gxx_per
   br label %.critedge
 
 .critedge:                                        ; preds = %7, %9, %16
-  %17 = icmp ugt i32 %.in, 1
+  %17 = icmp samesign ugt i32 %.in, 1
   br i1 %17, label %.lr.ph, label %._crit_edge, !llvm.loop !32
 
 18:                                               ; preds = %14, %12

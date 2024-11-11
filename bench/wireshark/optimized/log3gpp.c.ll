@@ -179,7 +179,7 @@ thread-pre-split:                                 ; preds = %thread-pre-split.th
   %72 = phi i32 [ %67, %66 ], [ %60, %thread-pre-split.thread.i40 ]
   %73 = add i32 %72, %.1.ph
   store i32 %73, ptr @first_packet_offset, align 4
-  %74 = icmp ugt i32 %72, 99
+  %74 = icmp samesign ugt i32 %72, 99
   br i1 %74, label %.thread, label %75
 
 75:                                               ; preds = %.thread58, %thread-pre-split
@@ -1031,7 +1031,7 @@ define internal fastcc range(i32 0, 2) i32 @parse_line(ptr nocapture noundef rea
   %48 = mul i32 %47, %.0134210
   %49 = add i32 %48, %43
   %50 = mul i32 %.0134210, 10
-  %51 = icmp ugt i64 %indvars.iv268, 1
+  %51 = icmp samesign ugt i64 %indvars.iv268, 1
   br i1 %51, label %.lr.ph212, label %.sink.split, !llvm.loop !10
 
 .sink.split:                                      ; preds = %.lr.ph212, %.thread

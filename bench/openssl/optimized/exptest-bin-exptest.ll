@@ -566,11 +566,11 @@ entry:
   br i1 %cmp, label %if.end7, label %if.else
 
 if.else:                                          ; preds = %entry
-  %cmp1 = icmp ult i32 %idx, 201
+  %cmp1 = icmp samesign ult i32 %idx, 201
   br i1 %cmp1, label %if.end7, label %if.else3
 
 if.else3:                                         ; preds = %if.else
-  %cmp4 = icmp ult i32 %idx, 301
+  %cmp4 = icmp samesign ult i32 %idx, 301
   %spec.select = select i1 %cmp4, i32 2048, i32 0
   br label %if.end7
 

@@ -456,7 +456,7 @@ land.lhs.true:                                    ; preds = %for.end
   %min_depth.sroa.0.3.i = select i1 %cmp.i25.i, i32 %min_depth.sroa.0.2.i, i32 %27
   %conv.i = zext i32 %edit_distance to i64
   %add.i = add nuw nsw i64 %conv.i, 1
-  %cmp.i.i29.i = icmp ult i32 %min_depth.sroa.0.3.i, 2147483647
+  %cmp.i.i29.i = icmp samesign ult i32 %min_depth.sroa.0.3.i, 2147483647
   %conv.i.i = zext nneg i32 %min_depth.sroa.0.3.i to i64
   %cmp.i30.i = icmp samesign uge i64 %add.i, %conv.i.i
   %retval.0.i.i = and i1 %cmp.i.i29.i, %cmp.i30.i
@@ -3017,7 +3017,7 @@ if.then.i5.i.cont:                                ; preds = %if.then.i5.i.invoke
   unreachable
 
 if.end.i4.i:                                      ; preds = %_ZNK5boost9container19vector_alloc_holderINS0_22small_vector_allocatorIN3ue212graph_detail17vertex_descriptorINS3_9ue2_graphINS3_8NGHolderENS3_19NFAGraphVertexPropsENS3_17NFAGraphEdgePropsEEEEESaIvEvEEmNS_11move_detail17integral_constantIjLj1EEEE13next_capacityINS0_16growth_factor_60EEEmm.exit.i
-  %cmp.i.i.i.i.i.i.i246 = icmp ugt i64 %55, 576460752303423487
+  %cmp.i.i.i.i.i.i.i246 = icmp samesign ugt i64 %55, 576460752303423487
   br i1 %cmp.i.i.i.i.i.i.i246, label %if.end.i.i.i.i.i.i.i, label %_ZN5boost9container19vector_alloc_holderINS0_22small_vector_allocatorIN3ue212graph_detail17vertex_descriptorINS3_9ue2_graphINS3_8NGHolderENS3_19NFAGraphVertexPropsENS3_17NFAGraphEdgePropsEEEEESaIvEvEEmNS_11move_detail17integral_constantIjLj1EEEE8allocateEm.exit.i
 
 if.end.i.i.i.i.i.i.i:                             ; preds = %if.end.i4.i
@@ -3409,7 +3409,7 @@ _ZNK5boost9container19vector_alloc_holderINS0_22small_vector_allocatorIN3ue212gr
   br i1 %cmp3.i.i708, label %if.then.i.i747.invoke, label %if.end.i4.i709
 
 if.end.i4.i709:                                   ; preds = %_ZNK5boost9container19vector_alloc_holderINS0_22small_vector_allocatorIN3ue212graph_detail17vertex_descriptorINS3_9ue2_graphINS3_8NGHolderENS3_19NFAGraphVertexPropsENS3_17NFAGraphEdgePropsEEEEESaIvEvEEmNS_11move_detail17integral_constantIjLj1EEEE13next_capacityINS0_16growth_factor_60EEEmm.exit.i705
-  %cmp.i.i.i.i.i.i.i710 = icmp ugt i64 %78, 576460752303423487
+  %cmp.i.i.i.i.i.i.i710 = icmp samesign ugt i64 %78, 576460752303423487
   br i1 %cmp.i.i.i.i.i.i.i710, label %if.end.i.i.i.i.i.i.i742, label %_ZN5boost9container19vector_alloc_holderINS0_22small_vector_allocatorIN3ue212graph_detail17vertex_descriptorINS3_9ue2_graphINS3_8NGHolderENS3_19NFAGraphVertexPropsENS3_17NFAGraphEdgePropsEEEEESaIvEvEEmNS_11move_detail17integral_constantIjLj1EEEE8allocateEm.exit.i711
 
 if.end.i.i.i.i.i.i.i742:                          ; preds = %if.end.i4.i709
@@ -3756,7 +3756,7 @@ _ZNK5boost9container19vector_alloc_holderINS0_22small_vector_allocatorIN3ue212gr
   br i1 %cmp3.i.i.i, label %if.then.i.i.invoke.i.invoke, label %if.end.i4.i.i
 
 if.end.i4.i.i:                                    ; preds = %_ZNK5boost9container19vector_alloc_holderINS0_22small_vector_allocatorIN3ue212graph_detail17vertex_descriptorINS3_9ue2_graphINS3_8NGHolderENS3_19NFAGraphVertexPropsENS3_17NFAGraphEdgePropsEEEEESaIvEvEEmNS_11move_detail17integral_constantIjLj1EEEE13next_capacityINS0_16growth_factor_60EEEmm.exit.i.i
-  %cmp.i.i.i.i.i.i.i61.i = icmp ugt i64 %102, 576460752303423487
+  %cmp.i.i.i.i.i.i.i61.i = icmp samesign ugt i64 %102, 576460752303423487
   br i1 %cmp.i.i.i.i.i.i.i61.i, label %if.end.i.i.i.i.i.i.i.i, label %_ZN5boost9container19vector_alloc_holderINS0_22small_vector_allocatorIN3ue212graph_detail17vertex_descriptorINS3_9ue2_graphINS3_8NGHolderENS3_19NFAGraphVertexPropsENS3_17NFAGraphEdgePropsEEEEESaIvEvEEmNS_11move_detail17integral_constantIjLj1EEEE8allocateEm.exit.i.i
 
 if.end.i.i.i.i.i.i.i.i:                           ; preds = %if.end.i4.i.i
@@ -4245,7 +4245,7 @@ _ZNK5boost9container19vector_alloc_holderINS0_22small_vector_allocatorIN3ue212gr
   br i1 %cmp3.i.i481, label %if.then.i.i.i.i645.invoke, label %if.end.i4.i482
 
 if.end.i4.i482:                                   ; preds = %_ZNK5boost9container19vector_alloc_holderINS0_22small_vector_allocatorIN3ue212graph_detail17vertex_descriptorINS3_9ue2_graphINS3_8NGHolderENS3_19NFAGraphVertexPropsENS3_17NFAGraphEdgePropsEEEEESaIvEvEEmNS_11move_detail17integral_constantIjLj1EEEE13next_capacityINS0_16growth_factor_60EEEmm.exit.i478
-  %cmp.i.i.i.i.i.i.i483 = icmp ugt i64 %137, 576460752303423487
+  %cmp.i.i.i.i.i.i.i483 = icmp samesign ugt i64 %137, 576460752303423487
   br i1 %cmp.i.i.i.i.i.i.i483, label %if.end.i.i.i.i.i.i.i515, label %_ZN5boost9container19vector_alloc_holderINS0_22small_vector_allocatorIN3ue212graph_detail17vertex_descriptorINS3_9ue2_graphINS3_8NGHolderENS3_19NFAGraphVertexPropsENS3_17NFAGraphEdgePropsEEEEESaIvEvEEmNS_11move_detail17integral_constantIjLj1EEEE8allocateEm.exit.i484
 
 if.end.i.i.i.i.i.i.i515:                          ; preds = %if.end.i4.i482
@@ -7269,7 +7269,7 @@ if.then.i5:                                       ; preds = %_ZNK5boost9containe
   unreachable
 
 if.end.i4:                                        ; preds = %_ZNK5boost9container19vector_alloc_holderINS0_22small_vector_allocatorIN3ue212graph_detail17vertex_descriptorINS3_9ue2_graphINS3_8NGHolderENS3_19NFAGraphVertexPropsENS3_17NFAGraphEdgePropsEEEEESaIvEvEEmNS_11move_detail17integral_constantIjLj1EEEE13next_capacityINS0_16growth_factor_60EEEmm.exit
-  %cmp.i.i.i.i.i.i = icmp ugt i64 %5, 576460752303423487
+  %cmp.i.i.i.i.i.i = icmp samesign ugt i64 %5, 576460752303423487
   br i1 %cmp.i.i.i.i.i.i, label %if.end.i.i.i.i.i.i, label %_ZN5boost9container19vector_alloc_holderINS0_22small_vector_allocatorIN3ue212graph_detail17vertex_descriptorINS3_9ue2_graphINS3_8NGHolderENS3_19NFAGraphVertexPropsENS3_17NFAGraphEdgePropsEEEEESaIvEvEEmNS_11move_detail17integral_constantIjLj1EEEE8allocateEm.exit
 
 if.end.i.i.i.i.i.i:                               ; preds = %if.end.i4
@@ -10109,7 +10109,7 @@ _ZNK5boost9container19vector_alloc_holderINS0_22small_vector_allocatorIN3ue212gr
   br i1 %cmp3.i.i.i, label %if.then.i.i.invoke.i, label %if.end.i4.i.i
 
 if.end.i4.i.i:                                    ; preds = %_ZNK5boost9container19vector_alloc_holderINS0_22small_vector_allocatorIN3ue212graph_detail17vertex_descriptorINS3_9ue2_graphINS3_8NGHolderENS3_19NFAGraphVertexPropsENS3_17NFAGraphEdgePropsEEEEESaIvEvEEmNS_11move_detail17integral_constantIjLj1EEEE13next_capacityINS0_16growth_factor_60EEEmm.exit.i.i
-  %cmp.i.i.i.i.i.i.i63.i = icmp ugt i64 %28, 576460752303423487
+  %cmp.i.i.i.i.i.i.i63.i = icmp samesign ugt i64 %28, 576460752303423487
   br i1 %cmp.i.i.i.i.i.i.i63.i, label %if.end.i.i.i.i.i.i.i.i, label %_ZN5boost9container19vector_alloc_holderINS0_22small_vector_allocatorIN3ue212graph_detail17vertex_descriptorINS3_9ue2_graphINS3_8NGHolderENS3_19NFAGraphVertexPropsENS3_17NFAGraphEdgePropsEEEEESaIvEvEEmNS_11move_detail17integral_constantIjLj1EEEE8allocateEm.exit.i.i
 
 if.end.i.i.i.i.i.i.i.i:                           ; preds = %if.end.i4.i.i

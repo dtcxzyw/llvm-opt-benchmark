@@ -493,7 +493,7 @@ define internal fastcc i32 @get_reg_offset(ptr nocapture noundef nonnull readonl
 
 37:                                               ; preds = %31, %9
   %38 = phi i32 [ %16, %9 ], [ %36, %31 ]
-  %39 = icmp ult i32 %38, %6
+  %39 = icmp samesign ult i32 %38, %6
   br i1 %39, label %43, label %40
 
 40:                                               ; preds = %37
@@ -1428,7 +1428,7 @@ define internal fastcc range(i32 -22, 1) i32 @get_seg_base_limit(ptr noundef non
   br label %93
 
 89:                                               ; preds = %66
-  %90 = icmp ult i32 %64, 6
+  %90 = icmp samesign ult i32 %64, 6
   %91 = and i1 %90, %72
   %92 = select i1 %91, i32 0, i32 %64
   br label %93
@@ -1668,7 +1668,7 @@ define internal fastcc i32 @get_eff_addr_sib(ptr noundef nonnull %0, ptr noundef
   br i1 %33, label %84, label %34
 
 34:                                               ; preds = %32
-  %35 = icmp ugt i32 %30, 160
+  %35 = icmp samesign ugt i32 %30, 160
   br i1 %35, label %42, label %36, !prof !31
 
 36:                                               ; preds = %34
@@ -1689,7 +1689,7 @@ define internal fastcc i32 @get_eff_addr_sib(ptr noundef nonnull %0, ptr noundef
   br i1 %46, label %84, label %47
 
 47:                                               ; preds = %45
-  %48 = icmp ugt i32 %29, 160
+  %48 = icmp samesign ugt i32 %29, 160
   br i1 %48, label %55, label %49, !prof !31
 
 49:                                               ; preds = %47

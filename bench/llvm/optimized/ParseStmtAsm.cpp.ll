@@ -3476,7 +3476,7 @@ define internal fastcc void @"_ZN4llvm8erase_ifINS_11SmallVectorINSt7__cxx1112ba
   %74 = getelementptr inbounds i8, ptr %.0910.i.i.i.i.i.i, i64 32
   %75 = getelementptr inbounds i8, ptr %.0811.i.i.i.i.i.i, i64 32
   %76 = add nsw i64 %.012.i.i.i.i.i.i, -1
-  %77 = icmp ugt i64 %.012.i.i.i.i.i.i, 1
+  %77 = icmp samesign ugt i64 %.012.i.i.i.i.i.i, 1
   br i1 %77, label %.lr.ph.i.i.i.i.i.i, label %_ZSt4moveIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES6_ET0_T_S8_S7_.exit.i, !llvm.loop !23
 
 _ZSt4moveIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES6_ET0_T_S8_S7_.exit.i: ; preds = %.lr.ph.i.i.i.i.i.i, %"_ZN4llvm9remove_ifIRNS_11SmallVectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEELj4EEEZN5clang6Parser26ParseMicrosoftAsmStatementENSA_14SourceLocationEE3$_1EEDaOT_T0_.exit"
@@ -3590,7 +3590,7 @@ _ZSt13move_backwardIPN4llvm9StringRefES2_ET0_T_S4_S3_.exit: ; preds = %34, %44
   %53 = getelementptr inbounds i8, ptr %.0910.i.i.i.i.i, i64 32
   %54 = getelementptr inbounds i8, ptr %.0811.i.i.i.i.i, i64 16
   %55 = add nsw i64 %.012.i.i.i.i.i, -1
-  %56 = icmp ugt i64 %.012.i.i.i.i.i, 1
+  %56 = icmp samesign ugt i64 %.012.i.i.i.i.i, 1
   br i1 %56, label %.lr.ph.i.i.i.i.i, label %_ZSt4copyIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPN4llvm9StringRefEET0_T_SB_SA_.exit, !llvm.loop !25
 
 57:                                               ; preds = %_ZN4llvm15SmallVectorImplINS_9StringRefEE7reserveEm.exit

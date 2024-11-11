@@ -479,7 +479,7 @@ if.end62.i:                                       ; preds = %if.end55.i, %if.the
   br label %_ZL14ApplySecOffsetP14PRExplodedTimei.exit.sink.split
 
 if.else70.i:                                      ; preds = %if.end33.i
-  %cmp72.i = icmp ugt i32 %32, 23
+  %cmp72.i = icmp samesign ugt i32 %32, 23
   br i1 %cmp72.i, label %if.then73.i, label %_ZL14ApplySecOffsetP14PRExplodedTimei.exit
 
 if.then73.i:                                      ; preds = %if.else70.i
@@ -1828,9 +1828,9 @@ if.then1193:                                      ; preds = %if.end1189
   br i1 %or.cond12, label %sw.epilog, label %if.end1199
 
 if.end1199:                                       ; preds = %if.then1193
-  %cmp1200 = icmp ult i32 %n1.0, 70
+  %cmp1200 = icmp samesign ult i32 %n1.0, 70
   %add1202 = add nuw nsw i32 %n1.0, 2000
-  %cmp1204 = icmp ult i32 %n1.0, 100
+  %cmp1204 = icmp samesign ult i32 %n1.0, 100
   %add1206 = add nuw nsw i32 %n1.0, 1900
   %spec.select529 = select i1 %cmp1204, i32 %add1206, i32 %n1.0
   %year.2 = select i1 %cmp1200, i32 %add1202, i32 %spec.select529
@@ -1948,7 +1948,7 @@ if.then1345:                                      ; preds = %if.then1343
   br label %sw.epilog
 
 if.else1347:                                      ; preds = %if.then1343
-  %cmp1348 = icmp ult i32 %sub1335, 628
+  %cmp1348 = icmp samesign ult i32 %sub1335, 628
   %add1350 = add nuw nsw i32 %sub1335, 1372
   %spec.select538 = select i1 %cmp1348, i32 %add1350, i32 %add1336
   br label %sw.epilog

@@ -745,7 +745,7 @@ define void @Wlc_BlastShiftRight(ptr noundef %0, ptr nocapture noundef readonly 
   %19 = getelementptr inbounds i32, ptr %14, i64 %18
   %20 = load i32, ptr %19, align 4
   %21 = add nuw nsw i32 %.09.i, 1
-  %22 = icmp ult i32 %21, %4
+  %22 = icmp samesign ult i32 %21, %4
   br i1 %22, label %.lr.ph.preheader, label %.thread
 
 .lr.ph.preheader:                                 ; preds = %17
@@ -912,7 +912,7 @@ define void @Wlc_BlastShiftLeft(ptr noundef %0, ptr nocapture noundef readonly %
   %18 = getelementptr inbounds i32, ptr %14, i64 %17
   %19 = load i32, ptr %18, align 4
   %20 = add nuw nsw i32 %.09.i, 1
-  %21 = icmp ult i32 %20, %4
+  %21 = icmp samesign ult i32 %20, %4
   br i1 %21, label %.lr.ph.preheader, label %.thread
 
 .lr.ph.preheader:                                 ; preds = %16
@@ -11596,7 +11596,7 @@ Vec_IntFree.exit:                                 ; preds = %.critedge14, %409
   br i1 %444, label %445, label %.thread5495
 
 445:                                              ; preds = %431
-  %446 = icmp ugt i32 %.val2706, 2
+  %446 = icmp samesign ugt i32 %.val2706, 2
   br i1 %446, label %Wlc_ObjHasArray.exit.thread.i.i.i2876, label %447
 
 447:                                              ; preds = %445
@@ -11709,7 +11709,7 @@ Wlc_ObjFanin.exit:                                ; preds = %483
   br i1 %.not2477, label %.thread5495, label %511
 
 511:                                              ; preds = %.thread4417
-  %512 = icmp ugt i32 %.val2706, 2
+  %512 = icmp samesign ugt i32 %.val2706, 2
   br i1 %512, label %Wlc_ObjHasArray.exit.thread.i.i2887, label %513
 
 513:                                              ; preds = %511
@@ -13387,7 +13387,7 @@ Vec_IntPush.exit3029:                             ; preds = %.Vec_IntGrow.exit10
   br i1 %1317, label %.lr.ph4834, label %.critedge20
 
 .lr.ph4834:                                       ; preds = %.preheader4641
-  %1318 = icmp ugt i32 %.val2715, 2
+  %1318 = icmp samesign ugt i32 %.val2715, 2
   %1319 = getelementptr inbounds i8, ptr %432, i64 16
   %wide.trip.count5238 = zext nneg i32 %.val2715 to i64
   br label %1603
@@ -18853,7 +18853,7 @@ Vec_PtrPush.exit3794:                             ; preds = %.Vec_PtrGrow.exit11
   br i1 %3640, label %3641, label %.thread4482
 
 3641:                                             ; preds = %Vec_PtrPush.exit3794
-  %3642 = icmp ugt i32 %.val2726, 2
+  %3642 = icmp samesign ugt i32 %.val2726, 2
   br i1 %3642, label %3662, label %3643
 
 3643:                                             ; preds = %3641
@@ -18918,7 +18918,7 @@ Vec_PtrPush.exit3794:                             ; preds = %.Vec_PtrGrow.exit11
   %3683 = load i32, ptr %3682, align 4
   %3684 = sext i32 %3683 to i64
   %3685 = getelementptr inbounds i32, ptr %.val27724475, i64 %3684
-  %3686 = icmp ugt i32 %.val2726, 4
+  %3686 = icmp samesign ugt i32 %.val2726, 4
   br i1 %3686, label %Wlc_ObjFaninId.exit3802, label %.thread4482
 
 Wlc_ObjFaninId.exit3802:                          ; preds = %3678

@@ -600,7 +600,7 @@ define internal i32 @mspack_fmap_read(ptr noundef %0, ptr nocapture noundef %1, 
 fmap_readn.exit:                                  ; preds = %31, %11
   %.0.i = phi i64 [ %spec.select.i, %31 ], [ 0, %11 ]
   %33 = trunc nuw nsw i64 %.0.i to i32
-  %34 = icmp ugt i32 %2, %33
+  %34 = icmp samesign ugt i32 %2, %33
   br i1 %34, label %35, label %36
 
 35:                                               ; preds = %fmap_readn.exit

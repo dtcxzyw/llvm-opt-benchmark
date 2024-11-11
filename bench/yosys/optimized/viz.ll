@@ -19520,7 +19520,7 @@ define internal fastcc noundef i32 @_ZN12_GLOBAL__N_15Graph5phaseEbi(ptr noundef
   %253 = getelementptr inbounds i8, ptr %84, i64 4
   %254 = getelementptr inbounds i8, ptr %82, i64 4
   %255 = icmp sgt i32 %2, 5
-  %256 = icmp ugt i32 %2, 5
+  %256 = icmp samesign ugt i32 %2, 5
   %257 = icmp sgt i32 %2, 6
   %258 = getelementptr inbounds i8, ptr %111, i64 112
   %259 = getelementptr inbounds i8, ptr %111, i64 56
@@ -38345,7 +38345,7 @@ define linkonce_odr void @_ZSt22__final_insertion_sortIN9__gnu_cxx17__normal_ite
   %23 = getelementptr inbounds i8, ptr %.069.i.i.i.i.i.i, i64 -4
   store i32 %22, ptr %23, align 4
   %24 = add nsw i64 %.010.i.i.i.i.i.i, -1
-  %25 = icmp ugt i64 %.010.i.i.i.i.i.i, 1
+  %25 = icmp samesign ugt i64 %.010.i.i.i.i.i.i, 1
   br i1 %25, label %.lr.ph.i.i.i.i.i.i, label %_ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPN5Yosys7hashlib4dictIihNS3_8hash_opsIiEEE7entry_tESt6vectorIS8_SaIS8_EEEESD_ET0_T_SF_SE_.exit.i, !llvm.loop !200
 
 _ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPN5Yosys7hashlib4dictIihNS3_8hash_opsIiEEE7entry_tESt6vectorIS8_SaIS8_EEEESD_ET0_T_SF_SE_.exit.i: ; preds = %.lr.ph.i.i.i.i.i.i
@@ -38491,7 +38491,7 @@ _ZSt25__unguarded_linear_insertIN9__gnu_cxx17__normal_iteratorIPN5Yosys7hashlib4
   %78 = getelementptr inbounds i8, ptr %.069.i.i.i.i.i.i42, i64 -4
   store i32 %77, ptr %78, align 4
   %79 = add nsw i64 %.010.i.i.i.i.i.i41, -1
-  %80 = icmp ugt i64 %.010.i.i.i.i.i.i41, 1
+  %80 = icmp samesign ugt i64 %.010.i.i.i.i.i.i41, 1
   br i1 %80, label %.lr.ph.i.i.i.i.i.i40, label %_ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPN5Yosys7hashlib4dictIihNS3_8hash_opsIiEEE7entry_tESt6vectorIS8_SaIS8_EEEESD_ET0_T_SF_SE_.exit.i38, !llvm.loop !200
 
 _ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPN5Yosys7hashlib4dictIihNS3_8hash_opsIiEEE7entry_tESt6vectorIS8_SaIS8_EEEESD_ET0_T_SF_SE_.exit.i38: ; preds = %.lr.ph.i.i.i.i.i.i40, %64
@@ -43529,7 +43529,7 @@ _ZNSt12_Vector_baseIN5Yosys7hashlib4poolISt4pairIiiENS1_8hash_opsIS4_EEE7entry_t
   %44 = getelementptr inbounds i8, ptr %.0910.i.i.i.i.i, i64 12
   %45 = getelementptr inbounds i8, ptr %.0811.i.i.i.i.i, i64 12
   %46 = add nsw i64 %.012.i.i.i.i.i, -1
-  %47 = icmp ugt i64 %.012.i.i.i.i.i, 1
+  %47 = icmp samesign ugt i64 %.012.i.i.i.i.i, 1
   br i1 %47, label %.lr.ph.i.i.i.i.i, label %_ZSt22__uninitialized_copy_aIPN5Yosys7hashlib4poolISt4pairIiiENS1_8hash_opsIS4_EEE7entry_tES9_S8_ET0_T_SB_SA_RSaIT1_E.exit, !llvm.loop !218
 
 48:                                               ; preds = %29
@@ -43557,7 +43557,7 @@ _ZNSt12_Vector_baseIN5Yosys7hashlib4poolISt4pairIiiENS1_8hash_opsIS4_EEE7entry_t
   %58 = getelementptr inbounds i8, ptr %.0910.i.i.i.i.i30, i64 12
   %59 = getelementptr inbounds i8, ptr %.0811.i.i.i.i.i29, i64 12
   %60 = add nsw i64 %.012.i.i.i.i.i28, -1
-  %61 = icmp ugt i64 %.012.i.i.i.i.i28, 1
+  %61 = icmp samesign ugt i64 %.012.i.i.i.i.i28, 1
   br i1 %61, label %.lr.ph.i.i.i.i.i27, label %_ZSt4copyIPN5Yosys7hashlib4poolISt4pairIiiENS1_8hash_opsIS4_EEE7entry_tES9_ET0_T_SB_SA_.exit.loopexit, !llvm.loop !219
 
 _ZSt4copyIPN5Yosys7hashlib4poolISt4pairIiiENS1_8hash_opsIS4_EEE7entry_tES9_ET0_T_SB_SA_.exit.loopexit: ; preds = %.lr.ph.i.i.i.i.i27
@@ -50838,7 +50838,7 @@ _ZNK9__gnu_cxx5__ops15_Iter_less_iterclINS_17__normal_iteratorIPNSt7__cxx1112bas
   %20 = getelementptr inbounds i8, ptr %.069.i.i.i.i.i, i64 -32
   %21 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEOS4_(ptr noundef nonnull align 8 dereferenceable(32) %20, ptr noundef nonnull align 8 dereferenceable(32) %19) #30
   %22 = add nsw i64 %.010.i.i.i.i.i, -1
-  %23 = icmp ugt i64 %.010.i.i.i.i.i, 1
+  %23 = icmp samesign ugt i64 %.010.i.i.i.i.i, 1
   br i1 %23, label %.lr.ph.i.i.i.i.i, label %.loopexit, !llvm.loop !303
 
 .loopexit:                                        ; preds = %.lr.ph.i.i.i.i.i, %13
@@ -54192,7 +54192,7 @@ _ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN5Yosys7hashlib4poolINSt7__cxx1112basic_st
   %29 = getelementptr inbounds i8, ptr %.069.i.i.i.i.i, i64 -8
   store i32 %28, ptr %29, align 8
   %30 = add nsw i64 %.010.i.i.i.i.i, -1
-  %31 = icmp ugt i64 %.010.i.i.i.i.i, 1
+  %31 = icmp samesign ugt i64 %.010.i.i.i.i.i, 1
   br i1 %31, label %.lr.ph.i.i.i.i.i, label %.loopexit, !llvm.loop !332
 
 .loopexit:                                        ; preds = %.lr.ph.i.i.i.i.i, %16

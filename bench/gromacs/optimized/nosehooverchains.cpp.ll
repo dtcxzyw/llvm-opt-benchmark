@@ -7693,7 +7693,7 @@ define noundef float @_ZN3gmx15NoseHooverGroup8applyNhcEff(ptr nocapture noundef
   %126 = fmul double %125, %119
   %127 = fptrunc double %126 to float
   store float %127, ptr %120, align 4
-  %128 = icmp ugt i64 %indvars.iv, 1
+  %128 = icmp samesign ugt i64 %indvars.iv, 1
   br i1 %128, label %82, label %._crit_edge, !llvm.loop !135
 
 ._crit_edge:                                      ; preds = %116, %69

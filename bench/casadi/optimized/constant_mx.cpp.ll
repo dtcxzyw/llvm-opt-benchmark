@@ -6245,7 +6245,7 @@ define linkonce_odr hidden noundef i32 @_ZNK6casadi10ConstantDM7eval_sxEPPKNS_6S
   %20 = getelementptr inbounds i8, ptr %.0910.i.i.i.i.i, i64 8
   %21 = getelementptr inbounds i8, ptr %.0811.i.i.i.i.i, i64 8
   %22 = add nsw i64 %.012.i.i.i.i.i, -1
-  %23 = icmp ugt i64 %.012.i.i.i.i.i, 1
+  %23 = icmp samesign ugt i64 %.012.i.i.i.i.i, 1
   br i1 %23, label %.lr.ph.i.i.i.i.i, label %_ZSt4copyIN9__gnu_cxx17__normal_iteratorIPKdSt6vectorIdSaIdEEEEPN6casadi6SXElemEET0_T_SC_SB_.exit, !llvm.loop !58
 
 _ZSt4copyIN9__gnu_cxx17__normal_iteratorIPKdSt6vectorIdSaIdEEEEPN6casadi6SXElemEET0_T_SC_SB_.exit: ; preds = %.lr.ph.i.i.i.i.i, %5
@@ -6352,7 +6352,7 @@ define linkonce_odr hidden noundef i32 @_ZNK6casadi12ConstantFile7eval_sxEPPKNS_
   %18 = getelementptr inbounds i8, ptr %.0910.i.i.i.i.i, i64 8
   %19 = getelementptr inbounds i8, ptr %.0811.i.i.i.i.i, i64 8
   %20 = add nsw i64 %.012.i.i.i.i.i, -1
-  %21 = icmp ugt i64 %.012.i.i.i.i.i, 1
+  %21 = icmp samesign ugt i64 %.012.i.i.i.i.i, 1
   br i1 %21, label %.lr.ph.i.i.i.i.i, label %_ZSt4copyIN9__gnu_cxx17__normal_iteratorIPKdSt6vectorIdSaIdEEEEPN6casadi6SXElemEET0_T_SC_SB_.exit, !llvm.loop !58
 
 _ZSt4copyIN9__gnu_cxx17__normal_iteratorIPKdSt6vectorIdSaIdEEEEPN6casadi6SXElemEET0_T_SC_SB_.exit: ; preds = %.lr.ph.i.i.i.i.i, %5

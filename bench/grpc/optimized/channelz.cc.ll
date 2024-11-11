@@ -16994,7 +16994,7 @@ for.body.i.i52:                                   ; preds = %for.body.i.i52.preh
   %incdec.ptr.i.i54 = getelementptr inbounds i8, ptr %__first.addr.0.i.i4865, i64 56
   %incdec.ptr1.i.i55 = getelementptr inbounds i8, ptr %__result.addr.0.i.i4966, i64 56
   %dec.i.i56 = add nsw i64 %__n.0.i.i5067, -1
-  %cmp.i.i51 = icmp ugt i64 %__n.0.i.i5067, 1
+  %cmp.i.i51 = icmp samesign ugt i64 %__n.0.i.i5067, 1
   br i1 %cmp.i.i51, label %for.body.i.i52, label %_ZSt14__copy_move_a2ILb0EPN9grpc_core12experimental4JsonES3_ET1_T0_S5_S4_.exit.loopexit, !llvm.loop !307
 
 _ZSt14__copy_move_a2ILb0EPN9grpc_core12experimental4JsonES3_ET1_T0_S5_S4_.exit.loopexit: ; preds = %for.body.i.i52

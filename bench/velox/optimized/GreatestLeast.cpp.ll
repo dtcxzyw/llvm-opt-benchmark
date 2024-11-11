@@ -27073,7 +27073,7 @@ if.then10.i.i:                                    ; preds = %if.end.i.i29
 
 if.end14.i.i:                                     ; preds = %if.end.i.i29
   %conv15.i.i = zext nneg i32 %sub.i.i to i64
-  %cmp16.i.i = icmp ult i32 %sub.i.i, 13
+  %cmp16.i.i = icmp samesign ult i32 %sub.i.i, 13
   %cmp.i.i.i.i = icmp ult i32 %25, 13
   %or.cond.i.i = and i1 %cmp.i.i.i.i, %cmp16.i.i
   %cmp.i.i15.i.i = icmp ult i32 %26, 13
@@ -41125,7 +41125,7 @@ if.then10.i.i:                                    ; preds = %if.end.i.i29
 
 if.end14.i.i:                                     ; preds = %if.end.i.i29
   %conv15.i.i = zext nneg i32 %sub.i.i to i64
-  %cmp16.i.i = icmp ult i32 %sub.i.i, 13
+  %cmp16.i.i = icmp samesign ult i32 %sub.i.i, 13
   %cmp.i.i.i.i = icmp ult i32 %25, 13
   %or.cond.i.i = and i1 %cmp.i.i.i.i, %cmp16.i.i
   %cmp.i.i15.i.i = icmp ult i32 %26, 13

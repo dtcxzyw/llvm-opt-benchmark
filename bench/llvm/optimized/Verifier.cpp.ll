@@ -49649,7 +49649,7 @@ _ZNK9__gnu_cxx5__ops15_Iter_less_iterclIPSt4pairIPN4llvm10BasicBlockEPNS4_5Value
   %24 = getelementptr inbounds i8, ptr %.069.i.i.i.i.i.i, i64 -8
   store ptr %23, ptr %24, align 8
   %25 = add nsw i64 %.010.i.i.i.i.i.i, -1
-  %26 = icmp ugt i64 %.010.i.i.i.i.i.i, 1
+  %26 = icmp samesign ugt i64 %.010.i.i.i.i.i.i, 1
   br i1 %26, label %.lr.ph.i.i.i.i.i.i, label %_ZSt13move_backwardIPSt4pairIPN4llvm10BasicBlockEPNS1_5ValueEES7_ET0_T_S9_S8_.exit.i, !llvm.loop !297
 
 _ZSt13move_backwardIPSt4pairIPN4llvm10BasicBlockEPNS1_5ValueEES7_ET0_T_S9_S8_.exit.i: ; preds = %.lr.ph.i.i.i.i.i.i
@@ -49811,7 +49811,7 @@ _ZNK9__gnu_cxx5__ops15_Iter_less_iterclIPSt4pairIPN4llvm10BasicBlockEPNS4_5Value
   %72 = getelementptr inbounds i8, ptr %.069.i.i.i.i.i.i41, i64 -8
   store ptr %71, ptr %72, align 8
   %73 = add nsw i64 %.010.i.i.i.i.i.i40, -1
-  %74 = icmp ugt i64 %.010.i.i.i.i.i.i40, 1
+  %74 = icmp samesign ugt i64 %.010.i.i.i.i.i.i40, 1
   br i1 %74, label %.lr.ph.i.i.i.i.i.i39, label %_ZSt13move_backwardIPSt4pairIPN4llvm10BasicBlockEPNS1_5ValueEES7_ET0_T_S9_S8_.exit.i37, !llvm.loop !297
 
 _ZSt13move_backwardIPSt4pairIPN4llvm10BasicBlockEPNS1_5ValueEES7_ET0_T_S9_S8_.exit.i37: ; preds = %.lr.ph.i.i.i.i.i.i39, %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclIPSt4pairIPN4llvm10BasicBlockEPNS4_5ValueEESA_EEbT_T0_.exit.thread.i35
@@ -66566,11 +66566,11 @@ _ZNK4llvm11ConstantInt12getSExtValueEv.exit:      ; preds = %2098, %2105
 
 2126:                                             ; preds = %2124
   %2127 = sub nsw i64 0, %.0.i.i944
-  %.not663 = icmp ult i64 %.0613, %2127
+  %.not663 = icmp samesign ult i64 %.0613, %2127
   br i1 %.not663, label %.thread1150, label %_ZN4llvm8dyn_castINS_21AtomicMemTransferInstEKNS_18AtomicMemIntrinsicEEEDcPT0_.exit.thread
 
 2128:                                             ; preds = %2124
-  %2129 = icmp ult i64 %.0.i.i944, %.0613
+  %2129 = icmp samesign ult i64 %.0.i.i944, %.0613
   br i1 %2129, label %_ZN4llvm8dyn_castINS_21AtomicMemTransferInstEKNS_18AtomicMemIntrinsicEEEDcPT0_.exit.thread, label %.thread1150
 
 .thread1150:                                      ; preds = %2126, %2128

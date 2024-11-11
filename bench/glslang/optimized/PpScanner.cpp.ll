@@ -1614,7 +1614,7 @@ switch.early.test640:                             ; preds = %81
   %95 = getelementptr inbounds [1025 x i8], ptr %5, i64 0, i64 %94
   store i8 %92, ptr %95, align 1
   %96 = add nsw i32 %.5553, -48
-  %or.cond17 = icmp ult i32 %96, 10
+  %or.cond17 = icmp samesign ult i32 %96, 10
   br i1 %or.cond17, label %112, label %97
 
 97:                                               ; preds = %91

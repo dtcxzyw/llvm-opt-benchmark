@@ -6351,7 +6351,7 @@ define void @_ZN5nblib21ListedForceCalculator7computeEN3gmx8ArrayRefIKNS1_11Basi
   store float %28, ptr %.sroa.0.07.i.i.i.i.i, align 4
   %29 = getelementptr inbounds i8, ptr %.sroa.0.07.i.i.i.i.i, i64 4
   %30 = add nsw i64 %.09.i.i.i.i.i, -1
-  %31 = icmp ugt i64 %.09.i.i.i.i.i, 1
+  %31 = icmp samesign ugt i64 %.09.i.i.i.i.i, 1
   br i1 %31, label %.lr.ph.i.i.i.i.i, label %_ZSt4copyIPfN3gmx12ArrayRefIterIfEEET0_T_S5_S4_.exit, !llvm.loop !20
 
 _ZSt4copyIPfN3gmx12ArrayRefIterIfEEET0_T_S5_S4_.exit: ; preds = %.lr.ph.i.i.i.i.i, %8
@@ -34511,7 +34511,7 @@ define void @_ZN5nblib21ListedForceCalculator7computeEN3gmx8ArrayRefIKNS1_11Basi
   store float %19, ptr %.sroa.0.07.i.i.i.i.i, align 4
   %20 = getelementptr inbounds i8, ptr %.sroa.0.07.i.i.i.i.i, i64 4
   %21 = add nsw i64 %.09.i.i.i.i.i, -1
-  %22 = icmp ugt i64 %.09.i.i.i.i.i, 1
+  %22 = icmp samesign ugt i64 %.09.i.i.i.i.i, 1
   br i1 %22, label %.lr.ph.i.i.i.i.i, label %_ZSt4copyIPfN3gmx12ArrayRefIterIfEEET0_T_S5_S4_.exit, !llvm.loop !20
 
 _ZSt4copyIPfN3gmx12ArrayRefIterIfEEET0_T_S5_S4_.exit: ; preds = %.lr.ph.i.i.i.i.i, %7

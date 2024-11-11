@@ -1538,7 +1538,7 @@ rgb565_image_blend.exit:                          ; preds = %._crit_edge.us.i, %
   br i1 %418, label %458, label %419
 
 419:                                              ; preds = %415
-  %420 = icmp ult i16 %.sroa.4.0.us.i10, 3
+  %420 = icmp samesign ult i16 %.sroa.4.0.us.i10, 3
   br i1 %420, label %blend_non_normal_pixel.exit.us.i23, label %421
 
 421:                                              ; preds = %419
@@ -3133,7 +3133,7 @@ l8_image_blend.exit:                              ; preds = %._crit_edge.us.i77,
   br i1 %1163, label %1203, label %1164
 
 1164:                                             ; preds = %1160
-  %1165 = icmp ult i16 %.sroa.4.0.us.i119, 3
+  %1165 = icmp samesign ult i16 %.sroa.4.0.us.i119, 3
   br i1 %1165, label %blend_non_normal_pixel.exit.us.i133, label %1166
 
 1166:                                             ; preds = %1164

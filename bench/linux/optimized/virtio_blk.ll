@@ -1083,7 +1083,7 @@ define internal fastcc i32 @init_vq(ptr nocapture noundef %0) unnamed_addr #2 al
   store ptr %67, ptr %68, align 8
   %indvars.iv.next = add nuw i64 %indvars.iv, 1
   %69 = trunc nuw i64 %indvars.iv.next to i32
-  %70 = icmp ugt i32 %35, %69
+  %70 = icmp samesign ugt i32 %35, %69
   br i1 %70, label %.preheader10, label %.loopexit11.loopexit, !llvm.loop !14
 
 .preheader8:                                      ; preds = %.preheader8.preheader, %.preheader8

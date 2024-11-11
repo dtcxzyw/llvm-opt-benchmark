@@ -908,7 +908,7 @@ _ZN3gmx12ForceBuffers6resizeEi.exit:              ; preds = %2, %15
   %54 = getelementptr inbounds i8, ptr %.sroa.05.07.i.i.i.i.i, i64 12
   %55 = getelementptr inbounds i8, ptr %.sroa.0.08.i.i.i.i.i, i64 12
   %56 = add nsw i64 %.09.i.i.i.i.i, -1
-  %57 = icmp ugt i64 %.09.i.i.i.i.i, 1
+  %57 = icmp samesign ugt i64 %.09.i.i.i.i.i, 1
   br i1 %57, label %.lr.ph.i.i.i.i.i, label %_ZSt4copyIN3gmx12ArrayRefIterIKNS0_11BasicVectorIfEEEENS1_IS3_EEET0_T_S8_S7_.exit, !llvm.loop !25
 
 _ZSt4copyIN3gmx12ArrayRefIterIKNS0_11BasicVectorIfEEEENS1_IS3_EEET0_T_S8_S7_.exit: ; preds = %.lr.ph.i.i.i.i.i, %_ZN3gmx12ForceBuffers6resizeEi.exit

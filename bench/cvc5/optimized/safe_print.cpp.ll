@@ -477,7 +477,7 @@ while.body.i7:                                    ; preds = %_ZN4cvc58internal10
   store i8 %conv.i9, ptr %arrayidx4.i, align 1
   %div.i10 = udiv i64 %i.addr.016.i, 10
   %cmp2.i11 = icmp ugt i64 %i.addr.016.i, 9
-  %cmp3.i = icmp ugt i64 %idx.0.in17.i, 1
+  %cmp3.i = icmp samesign ugt i64 %idx.0.in17.i, 1
   %5 = and i1 %cmp3.i, %cmp2.i11
   br i1 %5, label %while.body.i7, label %while.end.i12, !llvm.loop !10
 

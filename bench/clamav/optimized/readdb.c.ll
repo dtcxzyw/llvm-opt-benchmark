@@ -4804,7 +4804,7 @@ define internal fastcc range(i32 0, 21) i32 @cli_loadcrt(ptr noundef %0, ptr nou
   br label %.loopexit
 
 61:                                               ; preds = %55
-  %62 = icmp ugt i64 %56, 11
+  %62 = icmp samesign ugt i64 %56, 11
   br i1 %62, label %63, label %92
 
 63:                                               ; preds = %61
@@ -5529,7 +5529,7 @@ define internal fastcc i32 @cli_loadndb(ptr noundef %0, ptr nocapture noundef %1
   br label %.backedge
 
 68:                                               ; preds = %64, %62, %61
-  %69 = icmp ugt i32 %50, 4
+  %69 = icmp samesign ugt i32 %50, 4
   br i1 %69, label %70, label %88
 
 70:                                               ; preds = %68
@@ -6992,7 +6992,7 @@ define internal fastcc i32 @cli_loadftm(ptr noundef %0, ptr nocapture noundef %1
   br i1 %or.cond, label %.loopexit, label %39
 
 39:                                               ; preds = %34
-  %40 = icmp ugt i32 %37, 6
+  %40 = icmp samesign ugt i32 %37, 6
   br i1 %40, label %41, label %60
 
 41:                                               ; preds = %39
@@ -8247,7 +8247,7 @@ define internal fastcc range(i32 0, 21) i32 @cli_loadcdb(ptr noundef %0, ptr noc
   br i1 %or.cond, label %.loopexit, label %46
 
 46:                                               ; preds = %42
-  %47 = icmp ugt i32 %44, 10
+  %47 = icmp samesign ugt i32 %44, 10
   br i1 %47, label %48, label %71
 
 48:                                               ; preds = %46
@@ -15329,7 +15329,7 @@ define internal fastcc noundef i32 @load_oneldb(ptr noundef %0, i32 noundef rang
 
 55:                                               ; preds = %51, %53
   %.0103 = phi i32 [ %49, %53 ], [ %50, %51 ]
-  %56 = icmp ugt i32 %.0103, 64
+  %56 = icmp samesign ugt i32 %.0103, 64
   br i1 %56, label %57, label %58
 
 57:                                               ; preds = %55

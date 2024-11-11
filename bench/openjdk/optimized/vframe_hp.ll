@@ -266,7 +266,7 @@ _ZN29jvmtiDeferredLocalVariableSet7matchesEPK6vframe.exit: ; preds = %86
   %111 = getelementptr inbounds i8, ptr %110, i64 44
   %112 = load i16, ptr %111, align 4
   %113 = zext i16 %112 to i32
-  %114 = icmp ult i32 %105, %113
+  %114 = icmp samesign ult i32 %105, %113
   br i1 %114, label %115, label %118
 
 115:                                              ; preds = %107
@@ -409,7 +409,7 @@ define hidden void @_ZN29jvmtiDeferredLocalVariableSet13update_localsEP20StackVa
   %20 = getelementptr inbounds i8, ptr %19, i64 44
   %21 = load i16, ptr %20, align 4
   %22 = zext i16 %21 to i32
-  %23 = icmp ult i32 %14, %22
+  %23 = icmp samesign ult i32 %14, %22
   br i1 %23, label %24, label %27
 
 24:                                               ; preds = %16
@@ -1244,7 +1244,7 @@ _ZN29jvmtiDeferredLocalVariableSet7matchesEPK6vframe.exit: ; preds = %86
   %115 = zext i16 %114 to i32
   %116 = add nuw nsw i32 %111, 1
   %117 = add nuw nsw i32 %116, %115
-  %118 = icmp ult i32 %105, %117
+  %118 = icmp samesign ult i32 %105, %117
   br i1 %118, label %119, label %123
 
 119:                                              ; preds = %112
@@ -1324,7 +1324,7 @@ define hidden void @_ZN29jvmtiDeferredLocalVariableSet12update_stackEP20StackVal
   %24 = zext i16 %23 to i32
   %25 = add nuw nsw i32 %20, 1
   %26 = add nuw nsw i32 %25, %24
-  %27 = icmp ult i32 %14, %26
+  %27 = icmp samesign ult i32 %14, %26
   br i1 %27, label %28, label %32
 
 28:                                               ; preds = %21

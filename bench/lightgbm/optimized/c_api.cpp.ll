@@ -8601,7 +8601,7 @@ define linkonce_odr void @_ZZ25RowFunctionFromCSR_helperIiflESt8functionIFSt6vec
   br i1 %11, label %12, label %19
 
 12:                                               ; preds = %3
-  %13 = icmp ugt i64 %10, 576460752303423487
+  %13 = icmp samesign ugt i64 %10, 576460752303423487
   br i1 %13, label %.noexc, label %_ZNSt12_Vector_baseISt4pairIidESaIS1_EE11_M_allocateEm.exit.i
 
 .noexc:                                           ; preds = %12
@@ -9013,7 +9013,7 @@ define linkonce_odr void @_ZZ25RowFunctionFromCSR_helperIidlESt8functionIFSt6vec
   br i1 %11, label %12, label %19
 
 12:                                               ; preds = %3
-  %13 = icmp ugt i64 %10, 576460752303423487
+  %13 = icmp samesign ugt i64 %10, 576460752303423487
   br i1 %13, label %.noexc, label %_ZNSt12_Vector_baseISt4pairIidESaIS1_EE11_M_allocateEm.exit.i
 
 .noexc:                                           ; preds = %12
@@ -12084,7 +12084,7 @@ define noundef i32 @LGBM_DatasetCreateFromCSR(ptr noundef %0, i32 noundef %1, pt
   br label %378
 
 34:                                               ; preds = %11
-  %35 = icmp ugt i64 %7, 2147483646
+  %35 = icmp samesign ugt i64 %7, 2147483646
   br i1 %35, label %.invoke, label %37
 
 .invoke:                                          ; preds = %11, %34
@@ -13471,7 +13471,7 @@ define noundef i32 @LGBM_DatasetCreateFromCSRFunc(ptr noundef %0, i32 noundef %1
   br label %.body
 
 29:                                               ; preds = %6
-  %30 = icmp ugt i64 %2, 2147483646
+  %30 = icmp samesign ugt i64 %2, 2147483646
   br i1 %30, label %.invoke, label %32
 
 .invoke:                                          ; preds = %6, %29
@@ -40015,7 +40015,7 @@ define noundef i32 @LGBM_BoosterPredictForCSR(ptr noundef %0, ptr noundef %1, i3
   br label %121
 
 25:                                               ; preds = %15
-  %26 = icmp ugt i64 %8, 2147483646
+  %26 = icmp samesign ugt i64 %8, 2147483646
   br i1 %26, label %.invoke, label %28
 
 .invoke:                                          ; preds = %15, %25
@@ -40868,7 +40868,7 @@ define noundef i32 @LGBM_BoosterPredictSparseOutput(ptr noundef %0, ptr noundef 
   br label %_ZNSt8functionIFSt6vectorISt4pairIidESaIS2_EElEED2Ev.exit79
 
 51:                                               ; preds = %43
-  %52 = icmp ugt i64 %8, 2147483646
+  %52 = icmp samesign ugt i64 %8, 2147483646
   br i1 %52, label %.invoke, label %54
 
 .invoke:                                          ; preds = %43, %51
@@ -41763,7 +41763,7 @@ _ZNSt6vectorIiSaIiEE17_S_check_init_lenEmRKS0_.exit.i: ; preds = %_ZNSt8function
   call void @llvm.memset.p0.i64(ptr align 4 %105, i8 0, i64 %108, i1 false)
   %109 = getelementptr inbounds i8, ptr %26, i64 8
   store ptr %103, ptr %109, align 8
-  %110 = icmp ugt i64 %97, 1152921504606846975
+  %110 = icmp samesign ugt i64 %97, 1152921504606846975
   br i1 %110, label %111, label %_ZNSt6vectorIlSaIlEE17_S_check_init_lenEmRKS0_.exit.i.thread
 
 111:                                              ; preds = %107
@@ -43936,7 +43936,7 @@ define linkonce_odr void @_ZZ25RowFunctionFromCSR_helperIlflESt8functionIFSt6vec
   br i1 %10, label %11, label %18
 
 11:                                               ; preds = %3
-  %12 = icmp ugt i64 %9, 576460752303423487
+  %12 = icmp samesign ugt i64 %9, 576460752303423487
   br i1 %12, label %.noexc, label %_ZNSt12_Vector_baseISt4pairIidESaIS1_EE11_M_allocateEm.exit.i
 
 .noexc:                                           ; preds = %11
@@ -44346,7 +44346,7 @@ define linkonce_odr void @_ZZ25RowFunctionFromCSR_helperIldlESt8functionIFSt6vec
   br i1 %10, label %11, label %18
 
 11:                                               ; preds = %3
-  %12 = icmp ugt i64 %9, 576460752303423487
+  %12 = icmp samesign ugt i64 %9, 576460752303423487
   br i1 %12, label %.noexc, label %_ZNSt12_Vector_baseISt4pairIidESaIS1_EE11_M_allocateEm.exit.i
 
 .noexc:                                           ; preds = %11
@@ -47257,7 +47257,7 @@ define noundef i32 @LGBM_BoosterPredictForCSRSingleRow(ptr noundef %0, ptr nound
   br label %126
 
 25:                                               ; preds = %15
-  %26 = icmp ugt i64 %8, 2147483646
+  %26 = icmp samesign ugt i64 %8, 2147483646
   br i1 %26, label %.invoke, label %28
 
 .invoke:                                          ; preds = %15, %25
@@ -48169,7 +48169,7 @@ define noundef i32 @LGBM_BoosterPredictForCSRSingleRowFastInit(ptr noundef %0, i
   br label %27
 
 15:                                               ; preds = %8
-  %16 = icmp ugt i64 %5, 2147483646
+  %16 = icmp samesign ugt i64 %5, 2147483646
   br i1 %16, label %.invoke, label %18
 
 .invoke:                                          ; preds = %8, %15

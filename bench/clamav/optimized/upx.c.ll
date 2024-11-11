@@ -189,7 +189,7 @@ doubleebx.exit185:                                ; preds = %63, %76
 
 84:                                               ; preds = %81
   %.not154 = icmp ult i32 %.10, %1
-  %.not155 = icmp ult i32 %82, 16777216
+  %.not155 = icmp samesign ult i32 %82, 16777216
   %or.cond169 = select i1 %.not154, i1 %.not155, i1 false
   br i1 %or.cond169, label %85, label %doubleebx.exit.thread
 
@@ -1411,7 +1411,7 @@ doubleebx.exit202:                                ; preds = %81, %93
 
 109:                                              ; preds = %106
   %.not164 = icmp ult i32 %.10, %1
-  %.not165 = icmp ult i32 %107, 16777216
+  %.not165 = icmp samesign ult i32 %107, 16777216
   %or.cond179 = select i1 %.not164, i1 %.not165, i1 false
   br i1 %or.cond179, label %110, label %doubleebx.exit.thread
 
@@ -1883,7 +1883,7 @@ doubleebx.exit208:                                ; preds = %93, %105
 
 123:                                              ; preds = %120
   %.not169 = icmp ult i32 %91, %1
-  %.not170 = icmp ult i32 %121, 16777216
+  %.not170 = icmp samesign ult i32 %121, 16777216
   %or.cond185 = select i1 %.not169, i1 %.not170, i1 false
   br i1 %or.cond185, label %124, label %doubleebx.exit.thread
 

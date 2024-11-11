@@ -360,7 +360,7 @@ define internal fastcc noundef zeroext i1 @_ZN4core4iter6traits8iterator8Iterato
   %32 = and i8 %30, 63
   %33 = zext nneg i8 %32 to i32
   %34 = or disjoint i32 %31, %33
-  %35 = icmp ugt i8 %24, -33
+  %35 = icmp samesign ugt i8 %24, -33
   br i1 %35, label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hdf40d6fbeebd7854E.exit15.i.i.i.i.i.i", label %"_ZN87_$LT$core..str..iter..CharIndices$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hbf461ba4ba35c2afE.exit.thread6.i.i.i.i"
 
 36:                                               ; preds = %.lr.ph.i.i.i
@@ -378,7 +378,7 @@ define internal fastcc noundef zeroext i1 @_ZN4core4iter6traits8iterator8Iterato
   %44 = or disjoint i32 %41, %43
   %45 = shl nuw nsw i32 %27, 12
   %46 = or disjoint i32 %44, %45
-  %47 = icmp ugt i8 %24, -17
+  %47 = icmp samesign ugt i8 %24, -17
   br i1 %47, label %48, label %"_ZN87_$LT$core..str..iter..CharIndices$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hbf461ba4ba35c2afE.exit.thread6.i.i.i.i"
 
 48:                                               ; preds = %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hdf40d6fbeebd7854E.exit15.i.i.i.i.i.i"
@@ -1178,7 +1178,7 @@ common.resume:                                    ; preds = %32, %18
   %50 = and i8 %48, 63
   %51 = zext nneg i8 %50 to i32
   %52 = or disjoint i32 %49, %51
-  %53 = icmp ugt i8 %42, -33
+  %53 = icmp samesign ugt i8 %42, -33
   br i1 %53, label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hdf40d6fbeebd7854E.exit15.i.i", label %.lr.ph.i.i
 
 54:                                               ; preds = %41
@@ -1196,7 +1196,7 @@ common.resume:                                    ; preds = %32, %18
   %62 = or disjoint i32 %59, %61
   %63 = shl nuw nsw i32 %46, 12
   %64 = or disjoint i32 %62, %63
-  %65 = icmp ugt i8 %42, -17
+  %65 = icmp samesign ugt i8 %42, -17
   br i1 %65, label %66, label %.lr.ph.i.i
 
 66:                                               ; preds = %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hdf40d6fbeebd7854E.exit15.i.i"

@@ -15006,7 +15006,7 @@ _ZL14_hb_cmp_methodIjN3AAT18LookupSegmentArrayIN2OT7IntTypeItLj2EEEEEJEEiPKvS7_D
   %71 = load i8, ptr %70, align 1
   %72 = zext i8 %71 to i32
   %73 = or disjoint i32 %69, %72
-  %.not.i = icmp ugt i32 %73, %1
+  %.not.i = icmp samesign ugt i32 %73, %1
   br i1 %.not.i, label %_ZNK3AAT18LookupSegmentArrayIN2OT7IntTypeItLj2EEEE9get_valueEjPKv.exit, label %74
 
 74:                                               ; preds = %62
@@ -15017,7 +15017,7 @@ _ZL14_hb_cmp_methodIjN3AAT18LookupSegmentArrayIN2OT7IntTypeItLj2EEEEEJEEiPKvS7_D
   %79 = load i8, ptr %78, align 1
   %80 = zext i8 %79 to i32
   %81 = or disjoint i32 %77, %80
-  %.not3.i = icmp ugt i32 %1, %81
+  %.not3.i = icmp samesign ugt i32 %1, %81
   br i1 %.not3.i, label %_ZNK3AAT18LookupSegmentArrayIN2OT7IntTypeItLj2EEEE9get_valueEjPKv.exit, label %82
 
 82:                                               ; preds = %74
@@ -16706,7 +16706,7 @@ _ZL14_hb_cmp_methodIjN3AAT18LookupSegmentArrayIN2OT11HBGlyphID16EEEJEEiPKvS6_DpT
   %71 = load i8, ptr %70, align 1
   %72 = zext i8 %71 to i32
   %73 = or disjoint i32 %69, %72
-  %.not.i = icmp ugt i32 %73, %1
+  %.not.i = icmp samesign ugt i32 %73, %1
   br i1 %.not.i, label %_ZNK3AAT18LookupSegmentArrayIN2OT11HBGlyphID16EE9get_valueEjPKv.exit, label %74
 
 74:                                               ; preds = %62
@@ -16717,7 +16717,7 @@ _ZL14_hb_cmp_methodIjN3AAT18LookupSegmentArrayIN2OT11HBGlyphID16EEEJEEiPKvS6_DpT
   %79 = load i8, ptr %78, align 1
   %80 = zext i8 %79 to i32
   %81 = or disjoint i32 %77, %80
-  %.not3.i = icmp ugt i32 %1, %81
+  %.not3.i = icmp samesign ugt i32 %1, %81
   br i1 %.not3.i, label %_ZNK3AAT18LookupSegmentArrayIN2OT11HBGlyphID16EE9get_valueEjPKv.exit, label %82
 
 82:                                               ; preds = %74
@@ -32979,7 +32979,7 @@ _ZL14_hb_cmp_methodIjN3AAT18LookupSegmentArrayIN2OT8OffsetToINS2_7ArrayOfINS0_6A
   %71 = load i8, ptr %70, align 1
   %72 = zext i8 %71 to i32
   %73 = or disjoint i32 %69, %72
-  %.not.i = icmp ugt i32 %73, %1
+  %.not.i = icmp samesign ugt i32 %73, %1
   br i1 %.not.i, label %_ZNK3AAT18LookupSegmentArrayIN2OT8OffsetToINS1_7ArrayOfINS_6AnchorENS1_7IntTypeIjLj4EEEEENS5_ItLj2EEELb0EEEE9get_valueEjPKv.exit, label %74
 
 74:                                               ; preds = %62
@@ -32990,7 +32990,7 @@ _ZL14_hb_cmp_methodIjN3AAT18LookupSegmentArrayIN2OT8OffsetToINS2_7ArrayOfINS0_6A
   %79 = load i8, ptr %78, align 1
   %80 = zext i8 %79 to i32
   %81 = or disjoint i32 %77, %80
-  %.not3.i = icmp ugt i32 %1, %81
+  %.not3.i = icmp samesign ugt i32 %1, %81
   br i1 %.not3.i, label %_ZNK3AAT18LookupSegmentArrayIN2OT8OffsetToINS1_7ArrayOfINS_6AnchorENS1_7IntTypeIjLj4EEEEENS5_ItLj2EEELb0EEEE9get_valueEjPKv.exit, label %82
 
 82:                                               ; preds = %74
@@ -34585,7 +34585,7 @@ _ZL14_hb_cmp_methodIjN3AAT18LookupSegmentArrayIN2OT7IntTypeIjLj4EEEEEJEEiPKvS7_D
   %71 = load i8, ptr %70, align 1
   %72 = zext i8 %71 to i32
   %73 = or disjoint i32 %69, %72
-  %.not.i = icmp ugt i32 %73, %1
+  %.not.i = icmp samesign ugt i32 %73, %1
   br i1 %.not.i, label %_ZNK3AAT18LookupSegmentArrayIN2OT7IntTypeIjLj4EEEE9get_valueEjPKv.exit, label %74
 
 74:                                               ; preds = %62
@@ -34596,7 +34596,7 @@ _ZL14_hb_cmp_methodIjN3AAT18LookupSegmentArrayIN2OT7IntTypeIjLj4EEEEEJEEiPKvS7_D
   %79 = load i8, ptr %78, align 1
   %80 = zext i8 %79 to i32
   %81 = or disjoint i32 %77, %80
-  %.not3.i = icmp ugt i32 %1, %81
+  %.not3.i = icmp samesign ugt i32 %1, %81
   br i1 %.not3.i, label %_ZNK3AAT18LookupSegmentArrayIN2OT7IntTypeIjLj4EEEE9get_valueEjPKv.exit, label %82
 
 82:                                               ; preds = %74

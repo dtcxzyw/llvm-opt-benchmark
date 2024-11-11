@@ -106,7 +106,7 @@ define range(i32 -2, 1) i32 @inflateReset2(ptr noundef %0, i32 noundef %1) local
 12:                                               ; preds = %8
   %13 = lshr i32 %1, 4
   %14 = add nuw nsw i32 %13, 1
-  %15 = icmp ult i32 %1, 48
+  %15 = icmp samesign ult i32 %1, 48
   %16 = and i32 %1, 15
   %spec.select = select i1 %15, i32 %16, i32 %1
   br label %select.unfold
@@ -270,7 +270,7 @@ define range(i32 -6, 1) i32 @inflateInit2_(ptr noundef %0, i32 noundef %1, ptr n
 39:                                               ; preds = %35
   %40 = lshr i32 %1, 4
   %41 = add nuw nsw i32 %40, 1
-  %42 = icmp ult i32 %1, 48
+  %42 = icmp samesign ult i32 %1, 48
   %43 = and i32 %1, 15
   %spec.select = select i1 %42, i32 %43, i32 %1
   br label %select.unfold.i
@@ -404,7 +404,7 @@ define range(i32 -2, 1) i32 @inflatePrime(ptr noundef readonly %0, i32 noundef %
   br label %31
 
 14:                                               ; preds = %9
-  %15 = icmp ugt i32 %1, 16
+  %15 = icmp samesign ugt i32 %1, 16
   br i1 %15, label %31, label %16
 
 16:                                               ; preds = %14
@@ -1792,7 +1792,7 @@ default.unreachable2892:                          ; preds = %444
   %552 = zext i16 %551 to i64
   %553 = getelementptr inbounds [320 x i16], ptr %46, i64 0, i64 %552
   store i16 0, ptr %553, align 2
-  %554 = icmp ult i32 %547, 18
+  %554 = icmp samesign ult i32 %547, 18
   br i1 %554, label %.lr.ph1932, label %._crit_edge1933.loopexit, !llvm.loop !17
 
 ._crit_edge1933.loopexit:                         ; preds = %.lr.ph1932
@@ -3621,7 +3621,7 @@ define range(i32 -5, 1) i32 @inflateSync(ptr noundef %0) local_unnamed_addr #5 {
   %33 = getelementptr inbounds i8, ptr %2, i64 %indvars.iv.i
   %34 = load i8, ptr %33, align 1
   %35 = zext i8 %34 to i32
-  %36 = icmp ult i32 %.01415.i, 2
+  %36 = icmp samesign ult i32 %.01415.i, 2
   %37 = select i1 %36, i32 0, i32 255
   %38 = icmp eq i32 %37, %35
   %39 = add nuw nsw i32 %.01415.i, 1
@@ -3631,7 +3631,7 @@ define range(i32 -5, 1) i32 @inflateSync(ptr noundef %0) local_unnamed_addr #5 {
   %.1.i = select i1 %38, i32 %39, i32 %spec.select.i
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %41 = icmp samesign ult i64 %indvars.iv.next.i, %32
-  %42 = icmp ult i32 %.1.i, 4
+  %42 = icmp samesign ult i32 %.1.i, 4
   %43 = select i1 %41, i1 %42, i1 false
   br i1 %43, label %.lr.ph.i, label %syncsearch.exit, !llvm.loop !30
 
@@ -3662,7 +3662,7 @@ syncsearch.exit:                                  ; preds = %.lr.ph.i, %.thread
   %54 = getelementptr inbounds i8, ptr %49, i64 %indvars.iv.i45
   %55 = load i8, ptr %54, align 1
   %56 = zext i8 %55 to i32
-  %57 = icmp ult i32 %.01415.i46, 2
+  %57 = icmp samesign ult i32 %.01415.i46, 2
   %58 = select i1 %57, i32 0, i32 255
   %59 = icmp eq i32 %58, %56
   %60 = add nuw nsw i32 %.01415.i46, 1
@@ -3672,7 +3672,7 @@ syncsearch.exit:                                  ; preds = %.lr.ph.i, %.thread
   %.1.i49 = select i1 %59, i32 %60, i32 %spec.select.i48
   %indvars.iv.next.i50 = add nuw nsw i64 %indvars.iv.i45, 1
   %62 = icmp samesign ult i64 %indvars.iv.next.i50, %53
-  %63 = icmp ult i32 %.1.i49, 4
+  %63 = icmp samesign ult i32 %.1.i49, 4
   %64 = select i1 %62, i1 %63, i1 false
   br i1 %64, label %.lr.ph.i44, label %._crit_edge.loopexit.i51, !llvm.loop !30
 

@@ -2793,7 +2793,7 @@ define hidden void @_ZN2cv8ximgproc25EdgeAwareInterpolatorImpl25geodesicDistance
   br label %361
 
 361:                                              ; preds = %347, %357
-  %362 = icmp ugt i64 %indvars.iv439, 1
+  %362 = icmp samesign ugt i64 %indvars.iv439, 1
   br i1 %362, label %.lr.ph419, label %._crit_edge420.loopexit, !llvm.loop !32
 
 ._crit_edge420.loopexit:                          ; preds = %361
@@ -9361,7 +9361,7 @@ define hidden void @_ZN2cv8ximgproc19RICInterpolatorImpl25geodesicDistanceTransf
   br label %361
 
 361:                                              ; preds = %347, %357
-  %362 = icmp ugt i64 %indvars.iv448, 1
+  %362 = icmp samesign ugt i64 %indvars.iv448, 1
   br i1 %362, label %.lr.ph428, label %._crit_edge429.loopexit, !llvm.loop !159
 
 ._crit_edge429.loopexit:                          ; preds = %361

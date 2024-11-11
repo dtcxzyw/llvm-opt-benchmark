@@ -245,7 +245,7 @@ define dso_local range(i32 -1, 16777216) i32 @intel_crtc_max_vblank_count(ptr no
   br i1 %25, label %29, label %26
 
 26:                                               ; preds = %19
-  %27 = icmp ugt i16 %21, 2
+  %27 = icmp samesign ugt i16 %21, 2
   %28 = select i1 %27, i32 16777215, i32 0
   br label %29
 
@@ -291,7 +291,7 @@ define dso_local void @intel_crtc_vblank_on(ptr nocapture noundef readonly %0) l
   br i1 %26, label %30, label %27
 
 27:                                               ; preds = %20
-  %28 = icmp ugt i16 %22, 2
+  %28 = icmp samesign ugt i16 %22, 2
   %29 = select i1 %28, i32 16777215, i32 0
   br label %30
 

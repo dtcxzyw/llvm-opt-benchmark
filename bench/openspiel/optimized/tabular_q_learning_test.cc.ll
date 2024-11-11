@@ -2673,7 +2673,7 @@ _ZN4absl7debian213flat_hash_mapISt4pairINSt7__cxx1112basic_stringIcSt11char_trai
 977:                                              ; preds = %972
   %978 = xor i32 %964, -1
   %979 = urem i32 %978, %967
-  %980 = icmp ugt i32 %979, %976
+  %980 = icmp samesign ugt i32 %979, %976
   br i1 %980, label %.lr.ph.i.i.i.i.i.i.i.i, label %.loopexit.i.i.i.i.i.i.i.i
 
 .lr.ph.i.i.i.i.i.i.i.i:                           ; preds = %977, %.noexc4.i.i
@@ -4654,7 +4654,7 @@ define linkonce_odr dso_local noundef i64 @_ZN4absl7debian213hash_internal9HashS
   br label %56
 
 11:                                               ; preds = %3
-  %12 = icmp ugt i64 %2, 8
+  %12 = icmp samesign ugt i64 %2, 8
   br i1 %12, label %13, label %25
 
 13:                                               ; preds = %11
@@ -4674,7 +4674,7 @@ define linkonce_odr dso_local noundef i64 @_ZN4absl7debian213hash_internal9HashS
   br label %56
 
 25:                                               ; preds = %11
-  %26 = icmp ugt i64 %2, 3
+  %26 = icmp samesign ugt i64 %2, 3
   br i1 %26, label %27, label %36
 
 27:                                               ; preds = %25

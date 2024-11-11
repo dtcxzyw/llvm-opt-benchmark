@@ -309,7 +309,7 @@ define internal fastcc noundef zeroext i1 @ip6_parse_tlv(i1 noundef zeroext %0, 
   %52 = load i8, ptr %51, align 1
   %53 = zext i8 %52 to i32
   %54 = add nuw nsw i32 %53, 2
-  %55 = icmp ugt i32 %54, %41
+  %55 = icmp samesign ugt i32 %54, %41
   br i1 %55, label %.thread24, label %56
 
 56:                                               ; preds = %48
@@ -631,7 +631,7 @@ default.unreachable:                              ; preds = %352
   %266 = load i8, ptr %265, align 1
   %267 = zext i8 %266 to i32
   %268 = add nuw nsw i32 %267, 2
-  %269 = icmp ugt i32 %268, %255
+  %269 = icmp samesign ugt i32 %268, %255
   br i1 %269, label %.thread24, label %270
 
 270:                                              ; preds = %262
@@ -724,7 +724,7 @@ default.unreachable:                              ; preds = %352
   %325 = load i8, ptr %324, align 1
   %326 = zext i8 %325 to i32
   %327 = add nuw nsw i32 %326, 2
-  %328 = icmp ugt i32 %327, %308
+  %328 = icmp samesign ugt i32 %327, %308
   br i1 %328, label %.thread24, label %329
 
 329:                                              ; preds = %321
@@ -2397,7 +2397,7 @@ define internal noundef range(i32 -1, 2) i32 @ipv6_rthdr_rcv(ptr noundef %0) #3 
 
 580:                                              ; preds = %576
   %581 = zext i8 %554 to i64
-  %582 = icmp ult i64 %577, %581
+  %582 = icmp samesign ult i64 %577, %581
   br i1 %582, label %583, label %601
 
 583:                                              ; preds = %580

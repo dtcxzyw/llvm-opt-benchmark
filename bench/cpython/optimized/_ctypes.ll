@@ -10794,7 +10794,7 @@ if.then57:                                        ; preds = %if.end55
   br label %return
 
 if.end60:                                         ; preds = %if.end55
-  %cmp61 = icmp ugt i64 %call18, 2305843009213693951
+  %cmp61 = icmp samesign ugt i64 %call18, 2305843009213693951
   br i1 %cmp61, label %if.then64, label %cond.end
 
 cond.end:                                         ; preds = %if.end60
@@ -11636,7 +11636,7 @@ if.then110:                                       ; preds = %if.end108
   br label %return
 
 if.end113:                                        ; preds = %if.end108
-  %cmp114 = icmp ugt i64 %len.0, 2305843009213693951
+  %cmp114 = icmp samesign ugt i64 %len.0, 2305843009213693951
   br i1 %cmp114, label %if.then117, label %cond.end
 
 cond.end:                                         ; preds = %if.end113

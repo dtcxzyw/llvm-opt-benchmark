@@ -21072,7 +21072,7 @@ _ZN12_GLOBAL__N_112_GLOBAL__N_113expand_rule_tD2Ev.exit: ; preds = %_ZNSt3setIN5
 
 548:                                              ; preds = %546
   %549 = sub nsw i32 %.2105252, %545
-  %550 = icmp ugt i32 %.in, 1
+  %550 = icmp samesign ugt i32 %.in, 1
   %551 = icmp ne i32 %549, 0
   %552 = select i1 %550, i1 %551, i1 false
   br i1 %552, label %.lr.ph253, label %._crit_edge254, !llvm.loop !276

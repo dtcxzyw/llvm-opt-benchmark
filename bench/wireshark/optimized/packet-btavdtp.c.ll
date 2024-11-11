@@ -5552,7 +5552,7 @@ dissect_codec.exit:                               ; preds = %165, %209, %211, %2
   %600 = tail call ptr @proto_tree_add_item(ptr noundef %591, i32 noundef %599, ptr noundef %0, i32 noundef %596, i32 noundef 1, i32 noundef 0) #6
   %601 = add i32 %.2251, 2
   %602 = add nsw i32 %.1, -2
-  %603 = icmp ugt i32 %602, 1
+  %603 = icmp samesign ugt i32 %602, 1
   br i1 %603, label %604, label %.thread273
 
 604:                                              ; preds = %586

@@ -177,7 +177,7 @@ _ZN8proxygen25HTTPCommonHeadersInternal4hashEPKcm.exit: ; preds = %if.then, %sw.
   %7 = load i8, ptr %arrayidx14.i, align 1
   %conv15.i = zext i8 %7 to i32
   %add16.i = add nuw nsw i32 %hval.1.i, %conv15.i
-  %cmp2 = icmp ult i32 %add16.i, 116
+  %cmp2 = icmp samesign ult i32 %add16.i, 116
   br i1 %cmp2, label %if.then3, label %return
 
 if.then3:                                         ; preds = %_ZN8proxygen25HTTPCommonHeadersInternal4hashEPKcm.exit
@@ -296,7 +296,7 @@ _ZN8proxygen25HTTPCommonHeadersInternal4hashEPKcm.exit.i: ; preds = %sw.bb.i.i, 
   %7 = load i8, ptr %arrayidx14.i.i, align 1
   %conv15.i.i = zext i8 %7 to i32
   %add16.i.i = add nuw nsw i32 %hval.1.i.i, %conv15.i.i
-  %cmp2.i = icmp ult i32 %add16.i.i, 116
+  %cmp2.i = icmp samesign ult i32 %add16.i.i, 116
   br i1 %cmp2.i, label %if.then3.i, label %cond.end
 
 if.then3.i:                                       ; preds = %_ZN8proxygen25HTTPCommonHeadersInternal4hashEPKcm.exit.i

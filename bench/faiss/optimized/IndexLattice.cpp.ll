@@ -1256,7 +1256,7 @@ define internal void @_ZNK5faiss12IndexLattice9sa_decodeElPKhPf.omp_outlined(ptr
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 8
   %69 = add nsw i32 %.02732.i, -8
   %.024.i = add nuw nsw i64 %.02435.i, 1
-  %70 = icmp ugt i32 %.02732.i, 16
+  %70 = icmp samesign ugt i32 %.02732.i, 16
   br i1 %70, label %.lr.ph.i, label %._crit_edge.loopexit.i, !llvm.loop !18
 
 ._crit_edge.loopexit.i:                           ; preds = %.lr.ph.i
@@ -1348,7 +1348,7 @@ _ZN5faiss15BitstringReader4readEi.exit:           ; preds = %53, %._crit_edge.i
   %indvars.iv.next.i53 = add nuw nsw i64 %indvars.iv.i49, 8
   %125 = add nsw i32 %.02732.i52, -8
   %.024.i54 = add nuw nsw i64 %.02435.i50, 1
-  %126 = icmp ugt i32 %.02732.i52, 16
+  %126 = icmp samesign ugt i32 %.02732.i52, 16
   br i1 %126, label %.lr.ph.i48, label %._crit_edge.loopexit.i55, !llvm.loop !18
 
 ._crit_edge.loopexit.i55:                         ; preds = %.lr.ph.i48

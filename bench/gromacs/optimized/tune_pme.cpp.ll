@@ -2243,7 +2243,7 @@ _ZNSt10filesystem7__cxx114pathD2Ev.exit.i117:     ; preds = %626, %623
   br i1 %658, label %659, label %672
 
 659:                                              ; preds = %656
-  %660 = icmp ult i32 %614, 16
+  %660 = icmp samesign ult i32 %614, 16
   br i1 %660, label %.thread.i, label %661
 
 .thread.i:                                        ; preds = %659
@@ -2520,7 +2520,7 @@ _ZNSt10filesystem7__cxx114pathD2Ev.exit.i117:     ; preds = %626, %623
   br i1 %or.cond7.i, label %787, label %796
 
 787:                                              ; preds = %785
-  %788 = icmp ult i64 %619, 100
+  %788 = icmp samesign ult i64 %619, 100
   %789 = load ptr, ptr @stderr, align 8
   %790 = call i64 @fwrite(ptr nonnull @.str.285, i64 15, i64 1, ptr %789) #26
   %791 = load ptr, ptr @stderr, align 8
@@ -2575,7 +2575,7 @@ _ZNSt10filesystem7__cxx114pathD2Ev.exit.i117:     ; preds = %626, %623
 
 818:                                              ; preds = %816
   %819 = shl nuw nsw i32 %618, 1
-  %820 = icmp ugt i32 %819, %614
+  %820 = icmp samesign ugt i32 %819, %614
   br i1 %820, label %821, label %826
 
 821:                                              ; preds = %818
@@ -2595,7 +2595,7 @@ _ZNSt10filesystem7__cxx114pathD2Ev.exit.i117:     ; preds = %626, %623
 826:                                              ; preds = %818
   %.not118.i = icmp ne i32 %618, 0
   %827 = mul nuw nsw i32 %618, 5
-  %828 = icmp ult i32 %827, %614
+  %828 = icmp samesign ult i32 %827, %614
   %or.cond121.i = select i1 %.not118.i, i1 %828, i1 false
   br i1 %or.cond121.i, label %829, label %836
 
@@ -4121,7 +4121,7 @@ _ZL19make_benchmark_tprsPKcPPcllffbPKiP13PmeTuneInputsP8_IO_FILE.exit: ; preds =
   br i1 %1578, label %1580, label %.thread.i.i163
 
 .thread.i.i163:                                   ; preds = %1577
-  %1579 = icmp ult i32 %1545, 128
+  %1579 = icmp samesign ult i32 %1545, 128
   %..i.i164 = select i1 %1579, i32 2, i32 3
   br label %1583
 

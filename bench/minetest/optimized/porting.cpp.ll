@@ -544,7 +544,7 @@ _ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.2: ; preds = %for.body.i.2
   br i1 %cmp.i.i.i.2, label %cleanup.i, label %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.3
 
 for.body.i.3:                                     ; preds = %for.body.i
-  %cmp2.i.3 = icmp ult i64 %1, 9
+  %cmp2.i.3 = icmp samesign ult i64 %1, 9
   br i1 %cmp2.i.3, label %_Z15removeStringEndSt17basic_string_viewIcSt11char_traitsIcEEPPKc.exit, label %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.3
 
 _ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.3: ; preds = %for.body.i.3, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.2, %for.body.i.2, %for.body.i.1

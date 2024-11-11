@@ -433,7 +433,7 @@ _ZN4llvm5WinEH9FrameInfo6EpilogD2Ev.exit:         ; preds = %48, %38
 ; Function Attrs: mustprogress nounwind uwtable
 define dso_local void @_ZN4llvm28AArch64TargetWinCOFFStreamer25emitARM64WinCFIAllocStackEj(ptr noundef nonnull align 8 dereferenceable(40) %0, i32 noundef %1) unnamed_addr #0 align 2 {
   %3 = icmp ugt i32 %1, 16383
-  %4 = icmp ugt i32 %1, 511
+  %4 = icmp samesign ugt i32 %1, 511
   %spec.select = select i1 %4, i32 11, i32 2
   %.0 = select i1 %3, i32 1, i32 %spec.select
   tail call void @_ZN4llvm28AArch64TargetWinCOFFStreamer22emitARM64WinUnwindCodeEjii(ptr noundef nonnull align 8 dereferenceable(40) %0, i32 noundef %.0, i32 noundef -1, i32 noundef %1)

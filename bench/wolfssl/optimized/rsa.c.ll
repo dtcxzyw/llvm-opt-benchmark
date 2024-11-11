@@ -337,7 +337,7 @@ if.end.i18:                                       ; preds = %do.end
 
 if.end4.i:                                        ; preds = %if.end.i18
   %conv.i = zext nneg i32 %call.i19 to i64
-  %cmp5.i20 = icmp ugt i32 %call.i19, 64
+  %cmp5.i20 = icmp samesign ugt i32 %call.i19, 64
   br i1 %cmp5.i20, label %RsaPad_OAEP.exit, label %if.end8.i21
 
 if.end8.i21:                                      ; preds = %if.end4.i
@@ -588,7 +588,7 @@ if.end.i:                                         ; preds = %sw.bb
   br i1 %cmp4.i, label %if.then6.i, label %for.cond43.preheader.i
 
 for.cond43.preheader.i:                           ; preds = %if.end.i
-  %cmp4455.i = icmp ugt i32 %pkcsBlockLen, 2
+  %cmp4455.i = icmp samesign ugt i32 %pkcsBlockLen, 2
   br i1 %cmp4455.i, label %for.body46.preheader.i, label %for.end68.i
 
 for.body46.preheader.i:                           ; preds = %for.cond43.preheader.i
@@ -772,7 +772,7 @@ if.end13.i:                                       ; preds = %RsaMGF.exit.i
 
 while.end.i.i:                                    ; preds = %if.end13.i
   %div15.i.i = lshr i32 %call.i, 3
-  %cmp2.not.i.i.i = icmp ult i32 %call.i, 8
+  %cmp2.not.i.i.i = icmp samesign ult i32 %call.i, 8
   br i1 %cmp2.not.i.i.i, label %XorWords.exit.i.i, label %for.body.i.i.i
 
 for.body.i.i.i:                                   ; preds = %while.end.i.i, %for.body.i.i.i
@@ -1110,7 +1110,7 @@ if.else.i:                                        ; preds = %if.end15.i
 
 if.end29.i:                                       ; preds = %if.else.i, %if.then18.i
   %saltLen.addr.0.i = phi i32 [ %spec.store.select.i, %if.then18.i ], [ %saltLen, %if.else.i ]
-  %cmp30.not.i = icmp ugt i32 %sub11.i, %saltLen.addr.0.i
+  %cmp30.not.i = icmp samesign ugt i32 %sub11.i, %saltLen.addr.0.i
   br i1 %cmp30.not.i, label %if.end33.i, label %sw.epilog
 
 if.end33.i:                                       ; preds = %if.end29.i
@@ -2576,7 +2576,7 @@ entry:
 if.end:                                           ; preds = %entry
   %add = add i32 %seedSz, 4
   %cmp1 = icmp ugt i32 %add, 68
-  %cmp4 = icmp ugt i32 %call.fr, 68
+  %cmp4 = icmp samesign ugt i32 %call.fr, 68
   %or.cond = or i1 %cmp1, %cmp4
   br i1 %or.cond, label %if.then6, label %if.end15
 

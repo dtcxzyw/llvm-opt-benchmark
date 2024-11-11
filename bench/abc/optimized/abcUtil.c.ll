@@ -4510,7 +4510,7 @@ Vec_PtrGrow.exit.i.i:                             ; preds = %22, %20
   %66 = load ptr, ptr %44, align 8
   %67 = getelementptr inbounds ptr, ptr %66, i64 %50
   store ptr %49, ptr %67, align 8
-  %68 = icmp ugt i64 %indvars.iv, 2
+  %68 = icmp samesign ugt i64 %indvars.iv, 2
   br i1 %68, label %.lr.ph, label %Vec_PtrPushUnique.exit, !llvm.loop !68
 
 Vec_PtrPushUnique.exit:                           ; preds = %9, %65, %.lr.ph, %37

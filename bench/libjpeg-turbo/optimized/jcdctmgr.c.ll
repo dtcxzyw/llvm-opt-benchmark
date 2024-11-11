@@ -327,7 +327,7 @@ compute_reciprocal.exit:                          ; preds = %61, %66, %68
   %77 = add nsw i16 %76, -16
   %78 = getelementptr inbounds i8, ptr %47, i64 384
   store i16 %77, ptr %78, align 2
-  %79 = icmp ult i32 %.0.i, 17
+  %79 = icmp samesign ult i32 %.0.i, 17
   br i1 %79, label %80, label %84
 
 80:                                               ; preds = %compute_reciprocal.exit
@@ -456,7 +456,7 @@ compute_reciprocal.exit100:                       ; preds = %124, %129, %131
   %140 = add nsw i16 %139, -16
   %141 = getelementptr inbounds i8, ptr %106, i64 384
   store i16 %140, ptr %141, align 2
-  %142 = icmp ult i32 %.0.i86, 17
+  %142 = icmp samesign ult i32 %.0.i86, 17
   br i1 %142, label %143, label %147
 
 143:                                              ; preds = %compute_reciprocal.exit100.thread, %compute_reciprocal.exit100

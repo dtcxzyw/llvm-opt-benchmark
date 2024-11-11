@@ -1268,7 +1268,7 @@ define dso_local void @_ZN5clang13ASTStmtReader19VisitAttributedStmtEPNS_14Attri
   %15 = getelementptr inbounds i8, ptr %.0910.i.i.i.i.i, i64 8
   %16 = getelementptr inbounds i8, ptr %.0811.i.i.i.i.i, i64 8
   %17 = add nsw i64 %.012.i.i.i.i.i, -1
-  %18 = icmp ugt i64 %.012.i.i.i.i.i, 1
+  %18 = icmp samesign ugt i64 %.012.i.i.i.i.i, 1
   br i1 %18, label %.lr.ph.i.i.i.i.i, label %_ZSt4copyIPPN5clang4AttrEPPKS1_ET0_T_S8_S7_.exit, !llvm.loop !7
 
 _ZSt4copyIPPN5clang4AttrEPPKS1_ET0_T_S8_S7_.exit: ; preds = %.lr.ph.i.i.i.i.i, %2

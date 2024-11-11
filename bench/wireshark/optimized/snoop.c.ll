@@ -167,7 +167,7 @@ define hidden range(i32 -1, 2) i32 @snoop_open(ptr noundef %0, ptr noundef %1, p
   br label %87
 
 65:                                               ; preds = %60
-  %66 = icmp ugt i32 %49, 26
+  %66 = icmp samesign ugt i32 %49, 26
   br i1 %66, label %71, label %67
 
 67:                                               ; preds = %65
@@ -361,7 +361,7 @@ define internal fastcc i32 @snoop_read_packet(ptr nocapture noundef readonly %0,
   ]
 
 35:                                               ; preds = %32
-  %36 = icmp ult i32 %20, 4
+  %36 = icmp samesign ult i32 %20, 4
   br i1 %36, label %37, label %39
 
 37:                                               ; preds = %35
@@ -397,7 +397,7 @@ define internal fastcc i32 @snoop_read_packet(ptr nocapture noundef readonly %0,
   br label %63
 
 51:                                               ; preds = %32
-  %52 = icmp ult i32 %20, 12
+  %52 = icmp samesign ult i32 %20, 12
   br i1 %52, label %53, label %55
 
 53:                                               ; preds = %51

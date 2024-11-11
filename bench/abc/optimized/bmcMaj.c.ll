@@ -5432,7 +5432,7 @@ Vec_WrdStart.exit.i.i:                            ; preds = %232, %Exa3_ManMarku
   br i1 %243, label %.lr.ph.i46.preheader.i, label %Exa3_ManTruthTables.exit.i
 
 .lr.ph.i46.preheader.i:                           ; preds = %Vec_WrdStart.exit.i.i
-  %244 = icmp ult i32 %242, 7
+  %244 = icmp samesign ult i32 %242, 7
   %245 = add nsw i32 %242, -6
   %246 = shl nuw i32 1, %245
   %247 = select i1 %244, i32 1, i32 %246
@@ -8090,7 +8090,7 @@ Vec_WrdGrow.exit.i:                               ; preds = %48, %46
   br label %Vec_WrdGrow.exit22.i
 
 51:                                               ; preds = %39
-  %52 = icmp ult i32 %40, 64
+  %52 = icmp samesign ult i32 %40, 64
   br i1 %52, label %53, label %.lr.ph.i104
 
 53:                                               ; preds = %51
@@ -18316,7 +18316,7 @@ define void @Exa6_WriteFile2(ptr nocapture noundef readonly %0, i32 noundef %1, 
   %22 = trunc i64 %21 to i32
   %23 = and i32 %22, 1
   %24 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %8, ptr noundef nonnull @.str.88, i32 noundef %23) #33
-  %25 = icmp ugt i64 %indvars.iv59, 1
+  %25 = icmp samesign ugt i64 %indvars.iv59, 1
   br i1 %25, label %17, label %._crit_edge.us, !llvm.loop !278
 
 .lr.ph.us:                                        ; preds = %.lr.ph46.split.us
@@ -18353,7 +18353,7 @@ define void @Exa6_WriteFile2(ptr nocapture noundef readonly %0, i32 noundef %1, 
   %43 = trunc i64 %42 to i32
   %44 = and i32 %43, 1
   %45 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %8, ptr noundef nonnull @.str.88, i32 noundef %44) #33
-  %46 = icmp ugt i64 %indvars.iv, 1
+  %46 = icmp samesign ugt i64 %indvars.iv, 1
   br i1 %46, label %38, label %._crit_edge, !llvm.loop !278
 
 ._crit_edge:                                      ; preds = %38, %.lr.ph46.split
@@ -18398,7 +18398,7 @@ define void @Exa6_WriteFile2(ptr nocapture noundef readonly %0, i32 noundef %1, 
   %62 = trunc i64 %61 to i32
   %63 = and i32 %62, 1
   %64 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %8, ptr noundef nonnull @.str.88, i32 noundef %63) #33
-  %65 = icmp ugt i64 %indvars.iv63, 1
+  %65 = icmp samesign ugt i64 %indvars.iv63, 1
   br i1 %65, label %57, label %._crit_edge51, !llvm.loop !279
 
 ._crit_edge51:                                    ; preds = %57, %50

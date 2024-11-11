@@ -1356,7 +1356,7 @@ define internal fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_115X86ExpandPseudo8ex
   %123 = icmp eq i32 %122, 14
   %124 = select i1 %120, i1 %123, i1 false
   %125 = add nsw i32 %91, -4861
-  %or.cond7 = icmp ult i32 %125, 4
+  %or.cond7 = icmp samesign ult i32 %125, 4
   br i1 %or.cond7, label %126, label %183
 
 126:                                              ; preds = %115
@@ -4089,7 +4089,7 @@ _ZNK4llvm15MCRegisterClass8containsENS_10MCRegisterE.exit558: ; preds = %_ZNK4ll
 
 _ZNK4llvm15MCRegisterClass8containsENS_10MCRegisterE.exit558.thread: ; preds = %_ZNK4llvm15MCRegisterClass8containsENS_10MCRegisterE.exit.thread, %1254, %_ZNK4llvm15MCRegisterClass8containsENS_10MCRegisterE.exit558
   %.1 = phi i32 [ %1255, %1254 ], [ %1233, %_ZNK4llvm15MCRegisterClass8containsENS_10MCRegisterE.exit558 ], [ %1233, %_ZNK4llvm15MCRegisterClass8containsENS_10MCRegisterE.exit.thread ]
-  %1256 = icmp ult i32 %.1, 2
+  %1256 = icmp samesign ult i32 %.1, 2
   br i1 %1256, label %_ZN4llvm17MachineBasicBlock5eraseENS_26MachineInstrBundleIteratorINS_12MachineInstrELb0EEE.exit, label %1257
 
 1257:                                             ; preds = %_ZNK4llvm15MCRegisterClass8containsENS_10MCRegisterE.exit558.thread

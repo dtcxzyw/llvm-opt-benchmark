@@ -903,7 +903,7 @@ define range(i32 -1, 1) i32 @PGTYPESdate_defmt_asc(ptr noundef writeonly %0, ptr
 
 236:                                              ; preds = %232, %230
   %237 = icmp eq i32 %.sroa.7.1, 2
-  %238 = icmp ugt i32 %.sroa.0.1, 29
+  %238 = icmp samesign ugt i32 %.sroa.0.1, 29
   %or.cond31 = select i1 %237, i1 %238, i1 false
   br i1 %or.cond31, label %239, label %241
 

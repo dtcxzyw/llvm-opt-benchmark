@@ -1315,7 +1315,7 @@ switch.lookup:                                    ; preds = %switch.hole_check
   %26 = getelementptr i8, ptr %21, i64 %indvars.iv.next
   store i8 %25, ptr %26, align 1
   %27 = lshr i64 %.03133, 8
-  %28 = icmp ugt i64 %indvars.iv, 1
+  %28 = icmp samesign ugt i64 %indvars.iv, 1
   br i1 %28, label %24, label %29, !llvm.loop !9
 
 29:                                               ; preds = %24

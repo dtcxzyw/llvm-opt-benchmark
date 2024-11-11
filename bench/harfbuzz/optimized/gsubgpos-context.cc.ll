@@ -141,7 +141,7 @@ _ZN5graph5GSTAR8sanitizeERKNS_7graph_t8vertex_tE.exit.i: ; preds = %if.end.i.i
   %add.i.i2.i.i.i = or disjoint i32 %shl.i.i1.i.i.i, %shl.i.i2.i.i.i.i.i
   %cmp.i.i.i.i = icmp ugt i32 %add.i.i2.i.i.i, 65536
   %add.i.i.i.i = select i1 %cmp.i.i.i.i, i64 14, i64 10
-  %cmp4.i.not.i = icmp ult i64 %sub.ptr.sub.i.i, %add.i.i.i.i
+  %cmp4.i.not.i = icmp samesign ult i64 %sub.ptr.sub.i.i, %add.i.i.i.i
   br i1 %cmp4.i.not.i, label %if.end8, label %if.then3
 
 if.then3:                                         ; preds = %_ZN5graph5GSTAR8sanitizeERKNS_7graph_t8vertex_tE.exit.i, %if.end.i.i
@@ -711,7 +711,7 @@ _ZNK5graph10LookupListIN2OT6Layout10SmallTypesEE8sanitizeERKNS_7graph_t8vertex_t
   %15 = shl nuw nsw i64 %conv.i.i.i, 9
   %16 = shl nuw nsw i64 %conv4.i.i.i, 1
   %mul.i = or disjoint i64 %16, %15
-  %cmp4.i.not = icmp ult i64 %sub.ptr.sub.i, %mul.i
+  %cmp4.i.not = icmp samesign ult i64 %sub.ptr.sub.i, %mul.i
   br i1 %cmp4.i.not, label %for.end, label %for.cond.preheader
 
 for.cond.preheader:                               ; preds = %_ZNK5graph10LookupListIN2OT6Layout10SmallTypesEE8sanitizeERKNS_7graph_t8vertex_tE.exit
@@ -828,7 +828,7 @@ _ZNK5graph6Lookup8sanitizeERNS_7graph_t8vertex_tE.exit: ; preds = %_ZN11hb_vecto
   %retval.0.in.v.i.i = ptrtoint ptr %retval.0.in.v.v.i.i to i64
   %retval.0.in.i.i = sub i64 %retval.0.in.v.i.i, %sub.ptr.rhs.cast.i.i
   %conv.i = and i64 %retval.0.in.i.i, 4294967295
-  %cmp4.i49.not = icmp ult i64 %sub.ptr.sub.i45, %conv.i
+  %cmp4.i49.not = icmp samesign ult i64 %sub.ptr.sub.i45, %conv.i
   br i1 %cmp4.i49.not, label %for.inc, label %if.end15
 
 if.end15:                                         ; preds = %_ZNK5graph6Lookup8sanitizeERNS_7graph_t8vertex_tE.exit

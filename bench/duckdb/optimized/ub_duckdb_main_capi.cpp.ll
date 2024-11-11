@@ -5387,7 +5387,7 @@ for.body.lr.ph:                                   ; preds = %if.then.i.i.i.i.i
   %children = getelementptr inbounds i8, ptr %schema, i64 40
   %4 = load ptr, ptr %children, align 8, !tbaa !122
   %xtraiter = and i64 %1, 3
-  %5 = icmp ult i64 %1, 4
+  %5 = icmp samesign ult i64 %1, 4
   br i1 %5, label %for.cond.cleanup.loopexit.unr-lcssa, label %for.body.lr.ph.new
 
 for.body.lr.ph.new:                               ; preds = %for.body.lr.ph
@@ -5859,7 +5859,7 @@ for.body13.lr.ph:                                 ; preds = %_ZN26arrow_array_st
   %children15 = getelementptr inbounds i8, ptr %schema, i64 40
   %58 = load ptr, ptr %children15, align 8, !tbaa !122
   %xtraiter59 = and i64 %57, 3
-  %59 = icmp ult i64 %57, 4
+  %59 = icmp samesign ult i64 %57, 4
   br i1 %59, label %if.then.i.i.i.loopexit.unr-lcssa, label %for.body13.lr.ph.new
 
 for.body13.lr.ph.new:                             ; preds = %for.body13.lr.ph
@@ -8981,7 +8981,7 @@ if.then:                                          ; preds = %entry
   br label %return
 
 if.end:                                           ; preds = %entry
-  %cmp.i = icmp ugt i8 %width, 18
+  %cmp.i = icmp samesign ugt i8 %width, 18
   br i1 %cmp.i, label %if.then.i, label %if.end.i
 
 if.then.i:                                        ; preds = %if.end
@@ -8989,7 +8989,7 @@ if.then.i:                                        ; preds = %if.end
   br label %return
 
 if.end.i:                                         ; preds = %if.end
-  %cmp2.i = icmp ugt i8 %width, 9
+  %cmp2.i = icmp samesign ugt i8 %width, 9
   br i1 %cmp2.i, label %if.then3.i, label %if.end4.i
 
 if.then3.i:                                       ; preds = %if.end.i
@@ -9046,7 +9046,7 @@ _ZN6duckdb25TryCastToDecimalCInternalIdNS_21ToCDecimalCastWrapperIlEEEE14duckdb_
   br label %return
 
 if.end4.i:                                        ; preds = %if.end.i
-  %cmp6.i = icmp ugt i8 %width, 4
+  %cmp6.i = icmp samesign ugt i8 %width, 4
   br i1 %cmp6.i, label %if.then7.i, label %if.end8.i
 
 if.then7.i:                                       ; preds = %if.end4.i

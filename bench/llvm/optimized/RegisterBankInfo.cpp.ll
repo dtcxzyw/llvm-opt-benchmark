@@ -837,7 +837,7 @@ _ZNK4llvm16RegisterBankInfo13getSizeInBitsENS_8RegisterERKNS_19MachineRegisterIn
   %211 = getelementptr inbounds i8, ptr %210, i64 32
   %212 = load ptr, ptr %211, align 8
   %213 = call noundef nonnull align 8 dereferenceable(24) ptr %212(ptr noundef nonnull align 8 dereferenceable(160) %0, ptr noundef nonnull align 8 dereferenceable(56) %188, i64 0) #14
-  %214 = icmp ult i32 %184, 1073741824
+  %214 = icmp samesign ult i32 %184, 1073741824
   br i1 %214, label %215, label %.thread
 
 215:                                              ; preds = %209

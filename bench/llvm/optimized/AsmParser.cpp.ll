@@ -5808,7 +5808,7 @@ define internal noundef zeroext i1 @_ZN12_GLOBAL__N_19AsmParser18parseEscapedStr
   %110 = zext nneg i8 %105 to i32
   %111 = add nsw i32 %110, -48
   %112 = or disjoint i32 %111, %109
-  %113 = icmp ugt i32 %112, 255
+  %113 = icmp samesign ugt i32 %112, 255
   br i1 %113, label %114, label %.thread
 
 114:                                              ; preds = %108
@@ -13388,7 +13388,7 @@ define internal fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_19AsmParser18parseDir
   br label %82
 
 50:                                               ; preds = %40
-  %51 = icmp ugt i64 %41, 8
+  %51 = icmp samesign ugt i64 %41, 8
   br i1 %51, label %52, label %59
 
 52:                                               ; preds = %50
@@ -24453,7 +24453,7 @@ _ZN4llvmplERKNS_5TwineES2_.exit128:               ; preds = %_ZN4llvmeqENS_9Stri
 306:                                              ; preds = %298
   %307 = add i32 %.083, 1
   %308 = zext i32 %307 to i64
-  %309 = icmp ult i64 %304, %308
+  %309 = icmp samesign ult i64 %304, %308
   br i1 %309, label %310, label %312
 
 310:                                              ; preds = %306
@@ -24462,7 +24462,7 @@ _ZN4llvmplERKNS_5TwineES2_.exit128:               ; preds = %_ZN4llvmeqENS_9Stri
   br label %_ZNSt6vectorIS_IN4llvm8AsmTokenESaIS1_EESaIS3_EE6resizeEm.exit144
 
 312:                                              ; preds = %306
-  %313 = icmp ugt i64 %304, %308
+  %313 = icmp samesign ugt i64 %304, %308
   br i1 %313, label %314, label %_ZNSt6vectorIS_IN4llvm8AsmTokenESaIS1_EESaIS3_EE6resizeEm.exit144
 
 314:                                              ; preds = %312
@@ -32609,7 +32609,7 @@ _ZSt13move_backwardIPjS0_ET0_T_S2_S1_.exit:       ; preds = %_ZN4llvm15SmallVect
   %69 = getelementptr inbounds i8, ptr %.0910.i.i.i.i.i, i64 2
   %70 = getelementptr inbounds i8, ptr %.0811.i.i.i.i.i, i64 4
   %71 = add nsw i64 %.012.i.i.i.i.i, -1
-  %72 = icmp ugt i64 %.012.i.i.i.i.i, 1
+  %72 = icmp samesign ugt i64 %.012.i.i.i.i.i, 1
   br i1 %72, label %.lr.ph.i.i.i.i.i, label %_ZSt4copyIPKtPjET0_T_S4_S3_.exit, !llvm.loop !625
 
 73:                                               ; preds = %_ZN4llvm15SmallVectorImplIjE7reserveEm.exit
@@ -32666,7 +32666,7 @@ _ZSt13move_backwardIPjS0_ET0_T_S2_S1_.exit:       ; preds = %_ZN4llvm15SmallVect
   %92 = getelementptr inbounds i8, ptr %.0910.i.i.i.i.i.i.i.i, i64 2
   %93 = getelementptr inbounds i8, ptr %.0811.i.i.i.i.i.i.i.i, i64 4
   %94 = add nsw i64 %.012.i.i.i.i.i.i.i.i, -1
-  %95 = icmp ugt i64 %.012.i.i.i.i.i.i.i.i, 1
+  %95 = icmp samesign ugt i64 %.012.i.i.i.i.i.i.i.i, 1
   br i1 %95, label %.lr.ph.i.i.i.i.i.i.i.i, label %_ZSt4copyIPKtPjET0_T_S4_S3_.exit, !llvm.loop !625
 
 _ZSt4copyIPKtPjET0_T_S4_S3_.exit:                 ; preds = %.lr.ph.i.i.i.i.i, %.lr.ph.i.i.i.i.i.i.i.i, %._crit_edge, %_ZSt13move_backwardIPjS0_ET0_T_S2_S1_.exit, %12
@@ -32711,7 +32711,7 @@ _ZN4llvm15SmallVectorImplIjE7reserveEm.exit:      ; preds = %3, %12
   %20 = getelementptr inbounds i8, ptr %.0910.i.i.i.i.i.i.i.i, i64 2
   %21 = getelementptr inbounds i8, ptr %.0811.i.i.i.i.i.i.i.i, i64 4
   %22 = add nsw i64 %.012.i.i.i.i.i.i.i.i, -1
-  %23 = icmp ugt i64 %.012.i.i.i.i.i.i.i.i, 1
+  %23 = icmp samesign ugt i64 %.012.i.i.i.i.i.i.i.i, 1
   br i1 %23, label %.lr.ph.i.i.i.i.i.i.i.i, label %_ZN4llvm23SmallVectorTemplateBaseIjLb1EE18uninitialized_copyIPKtPjEEvT_S6_T0_.exit, !llvm.loop !625
 
 _ZN4llvm23SmallVectorTemplateBaseIjLb1EE18uninitialized_copyIPKtPjEEvT_S6_T0_.exit: ; preds = %.lr.ph.i.i.i.i.i.i.i.i, %_ZN4llvm15SmallVectorImplIjE7reserveEm.exit

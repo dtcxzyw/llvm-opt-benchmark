@@ -9039,7 +9039,7 @@ _ZN4ncnnL49convolution_im2col_gemm_get_optimal_tile_mnk_int8EiiiRiS0_S0_i.exit.i
   %1116 = zext nneg i32 %.1306.lcssa.i.us.i to i64
   %1117 = sext i32 %881 to i64
   %1118 = add nuw nsw i32 %1114, 22
-  %1119 = icmp ult i32 %1118, %.sroa.speculated.us.i145
+  %1119 = icmp samesign ult i32 %1118, %.sroa.speculated.us.i145
   br label %.lr.ph104.us.i.us.i
 
 .lr.ph104.us.i.us.i:                              ; preds = %._crit_edge119.us.i.us.i, %.lr.ph104.us.preheader.i.us.i

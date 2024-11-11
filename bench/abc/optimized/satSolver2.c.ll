@@ -6734,7 +6734,7 @@ solver2_progress.exit118.i:                       ; preds = %._crit_edge.loopexi
   %731 = sext i32 %726 to i64
   %732 = getelementptr inbounds i32, ptr %730, i64 %731
   %733 = load i32, ptr %732, align 4
-  %734 = icmp ugt i32 %.val61.i.i, 2
+  %734 = icmp samesign ugt i32 %.val61.i.i, 2
   br i1 %734, label %.lr.ph.i123.i, label %._crit_edge.i122.i
 
 .lr.ph.i123.i:                                    ; preds = %729, %758

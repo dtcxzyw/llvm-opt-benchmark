@@ -895,7 +895,7 @@ png_free_buffer_list.exit:                        ; preds = %20, %17, %11
   %73 = lshr i32 %67, 4
   %74 = shl nuw nsw i32 128, %73
   %75 = zext nneg i32 %74 to i64
-  %.not.i87 = icmp ugt i64 %63, %75
+  %.not.i87 = icmp samesign ugt i64 %63, %75
   br i1 %.not.i87, label %optimize_cmf.exit, label %.preheader.i
 
 .preheader.i:                                     ; preds = %72, %.preheader.i
@@ -905,7 +905,7 @@ png_free_buffer_list.exit:                        ; preds = %20, %17, %11
   %77 = add i32 %.022.i, -1
   %78 = icmp ne i32 %77, 0
   %79 = zext nneg i32 %76 to i64
-  %80 = icmp ule i64 %63, %79
+  %80 = icmp samesign ule i64 %63, %79
   %81 = select i1 %78, i1 %80, i1 false
   br i1 %81, label %.preheader.i, label %82, !llvm.loop !25
 
@@ -1006,7 +1006,7 @@ optimize_cmf.exit:                                ; preds = %82, %72, %65, %62, 
   %135 = lshr i32 %129, 4
   %136 = shl nuw nsw i32 128, %135
   %137 = zext nneg i32 %136 to i64
-  %.not.i90 = icmp ugt i64 %125, %137
+  %.not.i90 = icmp samesign ugt i64 %125, %137
   br i1 %.not.i90, label %optimize_cmf.exit94, label %.preheader.i91
 
 .preheader.i91:                                   ; preds = %134, %.preheader.i91
@@ -1016,7 +1016,7 @@ optimize_cmf.exit:                                ; preds = %82, %72, %65, %62, 
   %139 = add i32 %.022.i92, -1
   %140 = icmp ne i32 %139, 0
   %141 = zext nneg i32 %138 to i64
-  %142 = icmp ule i64 %125, %141
+  %142 = icmp samesign ule i64 %125, %141
   %143 = select i1 %140, i1 %142, i1 false
   br i1 %143, label %.preheader.i91, label %144, !llvm.loop !25
 
@@ -1173,7 +1173,7 @@ define internal fastcc noundef i32 @png_deflate_claim(ptr noalias noundef %0, i3
   %67 = shl nuw i32 1, %66
   %68 = add nuw nsw i64 %2, 262
   %69 = zext i32 %67 to i64
-  %.not7388 = icmp ugt i64 %68, %69
+  %.not7388 = icmp samesign ugt i64 %68, %69
   br i1 %.not7388, label %.loopexit, label %.lr.ph.preheader
 
 .lr.ph.preheader:                                 ; preds = %65
@@ -1185,7 +1185,7 @@ define internal fastcc noundef i32 @png_deflate_claim(ptr noalias noundef %0, i3
   %.289 = phi i32 [ %72, %.lr.ph ], [ %.065, %.lr.ph.preheader ]
   %71 = lshr i32 %.090, 1
   %72 = add nsw i32 %.289, -1
-  %.not73 = icmp ult i32 %71, %70
+  %.not73 = icmp samesign ult i32 %71, %70
   br i1 %.not73, label %.loopexit, label %.lr.ph, !llvm.loop !26
 
 .loopexit:                                        ; preds = %.lr.ph, %65, %63
@@ -1893,7 +1893,7 @@ define internal fastcc i32 @png_text_compress(ptr noalias noundef %0, i32 nounde
   %69 = lshr i32 %63, 4
   %70 = shl nuw nsw i32 128, %69
   %71 = zext nneg i32 %70 to i64
-  %.not.i = icmp ugt i64 %59, %71
+  %.not.i = icmp samesign ugt i64 %59, %71
   br i1 %.not.i, label %optimize_cmf.exit, label %.preheader.i
 
 .preheader.i:                                     ; preds = %68, %.preheader.i
@@ -1903,7 +1903,7 @@ define internal fastcc i32 @png_text_compress(ptr noalias noundef %0, i32 nounde
   %73 = add i32 %.022.i, -1
   %74 = icmp ne i32 %73, 0
   %75 = zext nneg i32 %72 to i64
-  %76 = icmp ule i64 %59, %75
+  %76 = icmp samesign ule i64 %59, %75
   %77 = select i1 %74, i1 %76, i1 false
   br i1 %77, label %.preheader.i, label %78, !llvm.loop !25
 
@@ -2400,7 +2400,7 @@ define void @png_write_tRNS(ptr noalias noundef %0, ptr noundef %1, ptr nocaptur
   %10 = getelementptr inbounds i8, ptr %0, i64 600
   %11 = load i16, ptr %10, align 8
   %12 = zext i16 %11 to i32
-  %13 = icmp ugt i32 %3, %12
+  %13 = icmp samesign ugt i32 %3, %12
   br i1 %13, label %14, label %15
 
 14:                                               ; preds = %9, %7

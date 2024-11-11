@@ -890,7 +890,7 @@ lor.lhs.false.i:                                  ; preds = %if.end5.i
   %shr10.i = lshr i32 %add7.i, 1
   %add11.i = add nuw nsw i32 %shr10.i, 1
   %conv12.i = zext nneg i32 %add11.i to i64
-  %cmp13.i = icmp ult i64 %call.i, %conv12.i
+  %cmp13.i = icmp samesign ult i64 %call.i, %conv12.i
   br i1 %cmp13.i, label %if.end, label %if.end16.i
 
 if.end16.i:                                       ; preds = %lor.lhs.false.i
@@ -914,7 +914,7 @@ while.body.i:                                     ; preds = %if.end16.i, %while.
   %and36.pn.i = zext nneg i8 %and36.pn.in.i to i32
   %number.1.i = or disjoint i32 %shl.i, %and36.pn.i
   %dec.i = add nsw i32 %nibbles.025.i, -1
-  %cmp28.i = icmp ugt i32 %nibbles.025.i, 1
+  %cmp28.i = icmp samesign ugt i32 %nibbles.025.i, 1
   br i1 %cmp28.i, label %while.body.i, label %decode_int_internal.exit, !llvm.loop !9
 
 decode_int_internal.exit:                         ; preds = %while.body.i
@@ -949,7 +949,7 @@ if.end5.i:                                        ; preds = %if.end.i
   %shr10.i = lshr i32 %add7.i, 1
   %add11.i = add nuw nsw i32 %shr10.i, 1
   %conv12.i = zext nneg i32 %add11.i to i64
-  %cmp13.i = icmp ult i64 %call.i, %conv12.i
+  %cmp13.i = icmp samesign ult i64 %call.i, %conv12.i
   br i1 %cmp13.i, label %if.end, label %if.end16.i
 
 if.end16.i:                                       ; preds = %if.end5.i
@@ -973,7 +973,7 @@ while.body.i:                                     ; preds = %if.end16.i, %while.
   %conv37.pn.i = zext nneg i8 %conv37.pn.in.i to i64
   %number.1.i = or disjoint i64 %shl.i, %conv37.pn.i
   %dec.i = add nsw i32 %nibbles.025.i, -1
-  %cmp28.i = icmp ugt i32 %nibbles.025.i, 1
+  %cmp28.i = icmp samesign ugt i32 %nibbles.025.i, 1
   br i1 %cmp28.i, label %while.body.i, label %decode_int64_internal.exit, !llvm.loop !10
 
 decode_int64_internal.exit:                       ; preds = %while.body.i
@@ -1106,7 +1106,7 @@ lor.lhs.false.i:                                  ; preds = %if.end5.i
   %shr10.i = lshr i32 %add7.i, 1
   %add11.i = add nuw nsw i32 %shr10.i, 1
   %conv12.i = zext nneg i32 %add11.i to i64
-  %cmp13.i = icmp ult i64 %sub.i, %conv12.i
+  %cmp13.i = icmp samesign ult i64 %sub.i, %conv12.i
   br i1 %cmp13.i, label %return, label %if.end16.i
 
 if.end16.i:                                       ; preds = %lor.lhs.false.i
@@ -1132,7 +1132,7 @@ while.body.i9:                                    ; preds = %if.end16.i, %while.
   %and36.pn.i = zext nneg i8 %and36.pn.in.i to i32
   %number.1.i = or disjoint i32 %shl.i10, %and36.pn.i
   %dec.i = add nsw i32 %nibbles.025.i, -1
-  %cmp28.i = icmp ugt i32 %nibbles.025.i, 1
+  %cmp28.i = icmp samesign ugt i32 %nibbles.025.i, 1
   br i1 %cmp28.i, label %while.body.i9, label %decode_int_internal.exit, !llvm.loop !9
 
 decode_int_internal.exit:                         ; preds = %while.body.i9
@@ -1207,7 +1207,7 @@ lor.lhs.false.i:                                  ; preds = %if.end5.i
   %shr10.i = lshr i32 %add7.i, 1
   %add11.i = add nuw nsw i32 %shr10.i, 1
   %conv12.i = zext nneg i32 %add11.i to i64
-  %cmp13.i = icmp ult i64 %sub.i, %conv12.i
+  %cmp13.i = icmp samesign ult i64 %sub.i, %conv12.i
   br i1 %cmp13.i, label %return, label %if.end16.i
 
 if.end16.i:                                       ; preds = %lor.lhs.false.i
@@ -1233,7 +1233,7 @@ while.body.i6:                                    ; preds = %if.end16.i, %while.
   %and36.pn.i = zext nneg i8 %and36.pn.in.i to i32
   %number.1.i = or disjoint i32 %shl.i7, %and36.pn.i
   %dec.i = add nsw i32 %nibbles.025.i, -1
-  %cmp28.i = icmp ugt i32 %nibbles.025.i, 1
+  %cmp28.i = icmp samesign ugt i32 %nibbles.025.i, 1
   br i1 %cmp28.i, label %while.body.i6, label %decode_int_internal.exit, !llvm.loop !9
 
 decode_int_internal.exit:                         ; preds = %while.body.i6
@@ -1435,7 +1435,7 @@ lor.lhs.false.i:                                  ; preds = %if.end5.i
   %shr10.i = lshr i32 %add7.i, 1
   %add11.i = add nuw nsw i32 %shr10.i, 1
   %conv12.i = zext nneg i32 %add11.i to i64
-  %cmp13.i = icmp ult i64 %call.i8, %conv12.i
+  %cmp13.i = icmp samesign ult i64 %call.i8, %conv12.i
   br i1 %cmp13.i, label %decode_int_internal.exit, label %if.end16.i
 
 if.end16.i:                                       ; preds = %lor.lhs.false.i
@@ -1459,7 +1459,7 @@ while.body.i10:                                   ; preds = %if.end16.i, %while.
   %and36.pn.i = zext nneg i8 %and36.pn.in.i to i32
   %number.1.i = or disjoint i32 %shl.i11, %and36.pn.i
   %dec.i = add nsw i32 %nibbles.025.i, -1
-  %cmp28.i = icmp ugt i32 %nibbles.025.i, 1
+  %cmp28.i = icmp samesign ugt i32 %nibbles.025.i, 1
   br i1 %cmp28.i, label %while.body.i10, label %while.end.i, !llvm.loop !9
 
 while.end.i:                                      ; preds = %while.body.i10
@@ -1556,7 +1556,7 @@ if.end5.i:                                        ; preds = %if.end.i
   %shr10.i = lshr i32 %add7.i, 1
   %add11.i = add nuw nsw i32 %shr10.i, 1
   %conv12.i = zext nneg i32 %add11.i to i64
-  %cmp13.i = icmp ult i64 %call.i8, %conv12.i
+  %cmp13.i = icmp samesign ult i64 %call.i8, %conv12.i
   br i1 %cmp13.i, label %decode_int64_internal.exit, label %if.end16.i
 
 if.end16.i:                                       ; preds = %if.end5.i
@@ -1580,7 +1580,7 @@ while.body.i10:                                   ; preds = %if.end16.i, %while.
   %conv37.pn.i = zext nneg i8 %conv37.pn.in.i to i64
   %number.1.i = or disjoint i64 %shl.i11, %conv37.pn.i
   %dec.i = add nsw i32 %nibbles.025.i, -1
-  %cmp28.i = icmp ugt i32 %nibbles.025.i, 1
+  %cmp28.i = icmp samesign ugt i32 %nibbles.025.i, 1
   br i1 %cmp28.i, label %while.body.i10, label %while.end.i, !llvm.loop !10
 
 while.end.i:                                      ; preds = %while.body.i10
@@ -1701,7 +1701,7 @@ lor.lhs.false.i:                                  ; preds = %if.end5.i
   %shr10.i = lshr i32 %add7.i, 1
   %add11.i = add nuw nsw i32 %shr10.i, 1
   %conv12.i = zext nneg i32 %add11.i to i64
-  %cmp13.i = icmp ult i64 %call.i, %conv12.i
+  %cmp13.i = icmp samesign ult i64 %call.i, %conv12.i
   br i1 %cmp13.i, label %done, label %if.end16.i
 
 if.end16.i:                                       ; preds = %lor.lhs.false.i
@@ -1725,7 +1725,7 @@ while.body.i:                                     ; preds = %if.end16.i, %while.
   %and36.pn.i = zext nneg i8 %and36.pn.in.i to i32
   %number.1.i = or disjoint i32 %shl.i, %and36.pn.i
   %dec.i = add nsw i32 %nibbles.025.i, -1
-  %cmp28.i = icmp ugt i32 %nibbles.025.i, 1
+  %cmp28.i = icmp samesign ugt i32 %nibbles.025.i, 1
   br i1 %cmp28.i, label %while.body.i, label %if.end7, !llvm.loop !9
 
 if.end7:                                          ; preds = %while.body.i
@@ -1756,7 +1756,7 @@ lor.lhs.false.i16:                                ; preds = %if.end5.i12
   %shr10.i17 = lshr i32 %add7.i14, 1
   %add11.i18 = add nuw nsw i32 %shr10.i17, 1
   %conv12.i19 = zext nneg i32 %add11.i18 to i64
-  %cmp13.i20 = icmp ult i64 %sub.i, %conv12.i19
+  %cmp13.i20 = icmp samesign ult i64 %sub.i, %conv12.i19
   br i1 %cmp13.i20, label %done, label %if.end16.i21
 
 if.end16.i21:                                     ; preds = %lor.lhs.false.i16
@@ -1782,7 +1782,7 @@ while.body.i24:                                   ; preds = %if.end16.i21, %whil
   %and36.pn.i34 = zext nneg i8 %and36.pn.in.i33 to i32
   %number.1.i35 = or disjoint i32 %shl.i27, %and36.pn.i34
   %dec.i36 = add nsw i32 %nibbles.025.i25, -1
-  %cmp28.i37 = icmp ugt i32 %nibbles.025.i25, 1
+  %cmp28.i37 = icmp samesign ugt i32 %nibbles.025.i25, 1
   br i1 %cmp28.i37, label %while.body.i24, label %if.end12, !llvm.loop !9
 
 if.end12:                                         ; preds = %while.body.i24

@@ -2467,7 +2467,7 @@ define internal i32 @nv_napi_poll(ptr noundef %0, i32 noundef %1) #2 align 16 {
 
 59:                                               ; preds = %56
   %60 = and i32 %38, 65535
-  %61 = icmp ult i32 %38, 1073741824
+  %61 = icmp samesign ult i32 %38, 1073741824
   br i1 %61, label %.thread, label %62, !prof !18
 
 62:                                               ; preds = %59
@@ -2547,7 +2547,7 @@ select.unfold:                                    ; preds = %84, %82
 
 101:                                              ; preds = %98
   %102 = and i32 %38, 16383
-  %103 = icmp ult i32 %38, 1073741824
+  %103 = icmp samesign ult i32 %38, 1073741824
   br i1 %103, label %.thread23, label %104, !prof !18
 
 104:                                              ; preds = %101
@@ -7759,7 +7759,7 @@ define internal fastcc i32 @nv_rx_process_optimized(ptr noundef %0, i32 noundef 
 
 40:                                               ; preds = %26
   %41 = and i32 %22, 16383
-  %42 = icmp ult i32 %22, 1073741824
+  %42 = icmp samesign ult i32 %22, 1073741824
   br i1 %42, label %.thread, label %43, !prof !18
 
 43:                                               ; preds = %40
@@ -7994,7 +7994,7 @@ define internal fastcc i32 @nv_tx_done_optimized(ptr noundef %0, i32 noundef %1)
   br i1 %46, label %101, label %47
 
 47:                                               ; preds = %44
-  %48 = icmp ult i32 %28, 1073741824
+  %48 = icmp samesign ult i32 %28, 1073741824
   br i1 %48, label %58, label %49, !prof !18
 
 49:                                               ; preds = %47
@@ -13495,7 +13495,7 @@ define internal fastcc i32 @nv_tx_done(ptr noundef %0, i32 noundef %1) unnamed_a
   br i1 %43, label %87, label %44
 
 44:                                               ; preds = %41
-  %45 = icmp ult i32 %22, 1073741824
+  %45 = icmp samesign ult i32 %22, 1073741824
   br i1 %45, label %50, label %46, !prof !18
 
 46:                                               ; preds = %44
@@ -13527,7 +13527,7 @@ define internal fastcc i32 @nv_tx_done(ptr noundef %0, i32 noundef %1) unnamed_a
   br i1 %62, label %87, label %63
 
 63:                                               ; preds = %60
-  %64 = icmp ult i32 %22, 1073741824
+  %64 = icmp samesign ult i32 %22, 1073741824
   br i1 %64, label %69, label %65, !prof !18
 
 65:                                               ; preds = %63
@@ -16546,7 +16546,7 @@ nv_disable_irq.exit:                              ; preds = %341, %343, %347
   br i1 %572, label %573, label %.loopexit
 
 573:                                              ; preds = %569
-  %574 = icmp ult i32 %570, 1073741824
+  %574 = icmp samesign ult i32 %570, 1073741824
   %575 = icmp eq i32 %571, 1500
   %576 = select i1 %574, i1 %575, i1 false
   br i1 %576, label %577, label %.loopexit

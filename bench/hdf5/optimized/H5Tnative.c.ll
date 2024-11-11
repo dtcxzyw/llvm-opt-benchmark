@@ -538,11 +538,11 @@ select.unfold.i:                                  ; preds = %75, %42
   br i1 %140, label %select.unfold.i327, label %141
 
 141:                                              ; preds = %139
-  %142 = icmp ugt i64 %19, 4
+  %142 = icmp samesign ugt i64 %19, 4
   br i1 %142, label %select.unfold.i327, label %143
 
 143:                                              ; preds = %141
-  %144 = icmp ugt i64 %19, 2
+  %144 = icmp samesign ugt i64 %19, 2
   br i1 %144, label %select.unfold.i327, label %.thread.i
 
 select.unfold31.i:                                ; preds = %137

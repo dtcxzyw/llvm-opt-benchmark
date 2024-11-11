@@ -2699,7 +2699,7 @@ define dso_local void @intel_dp_start_link_train(ptr noundef %0, ptr noundef %1)
   %980 = call i64 @drm_dp_dpcd_write(ptr noundef %100, i32 noundef %979, ptr noundef nonnull %3, i64 noundef 1) #7
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %3) #7
   %981 = add nsw i32 %976, -1
-  %982 = icmp ugt i32 %976, 1
+  %982 = icmp samesign ugt i32 %976, 1
   %983 = and i1 %977, %982
   br i1 %983, label %.preheader, label %984
 

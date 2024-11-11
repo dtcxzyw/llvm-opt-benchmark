@@ -128,7 +128,7 @@ define hidden { i32, i32 } @_ZN4core3str11validations15next_code_point17h409974b
   %16 = and i8 %14, 63
   %17 = zext nneg i8 %16 to i32
   %18 = or disjoint i32 %15, %17
-  %19 = icmp ugt i8 %8, -33
+  %19 = icmp samesign ugt i8 %8, -33
   br i1 %19, label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h86f92eeef77deff8E.exit15", label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h86f92eeef77deff8E.exit.thread"
 
 20:                                               ; preds = %6
@@ -147,7 +147,7 @@ define hidden { i32, i32 } @_ZN4core3str11validations15next_code_point17h409974b
   %28 = or disjoint i32 %25, %27
   %29 = shl nuw nsw i32 %11, 12
   %30 = or disjoint i32 %28, %29
-  %31 = icmp ugt i8 %8, -17
+  %31 = icmp samesign ugt i8 %8, -17
   br i1 %31, label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h86f92eeef77deff8E.exit17", label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h86f92eeef77deff8E.exit.thread"
 
 "_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h86f92eeef77deff8E.exit17": ; preds = %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h86f92eeef77deff8E.exit15"
@@ -578,7 +578,7 @@ define { i32, i8 } @_ZN6uu_env14native_int_str24get_char_from_native_int17h567f0
   %20 = and i8 %18, 63
   %21 = zext nneg i8 %20 to i32
   %22 = or disjoint i32 %19, %21
-  %23 = icmp ugt i8 %12, -33
+  %23 = icmp samesign ugt i8 %12, -33
   br i1 %23, label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h86f92eeef77deff8E.exit15.i.i", label %"_ZN6uu_env14native_int_str24get_char_from_native_int28_$u7b$$u7b$closure$u7d$$u7d$17h8f386e36431fca8dE.llvm.11676108902394252037.exit"
 
 24:                                               ; preds = %11
@@ -596,7 +596,7 @@ define { i32, i8 } @_ZN6uu_env14native_int_str24get_char_from_native_int17h567f0
   %32 = or disjoint i32 %29, %31
   %33 = shl nuw nsw i32 %16, 12
   %34 = or disjoint i32 %32, %33
-  %35 = icmp ugt i8 %12, -17
+  %35 = icmp samesign ugt i8 %12, -17
   br i1 %35, label %36, label %"_ZN6uu_env14native_int_str24get_char_from_native_int28_$u7b$$u7b$closure$u7d$$u7d$17h8f386e36431fca8dE.llvm.11676108902394252037.exit"
 
 36:                                               ; preds = %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h86f92eeef77deff8E.exit15.i.i"
@@ -647,7 +647,7 @@ define hidden noundef range(i32 0, 1114112) i32 @"_ZN6uu_env14native_int_str24ge
   %13 = and i8 %11, 63
   %14 = zext nneg i8 %13 to i32
   %15 = or disjoint i32 %12, %14
-  %16 = icmp ugt i8 %5, -33
+  %16 = icmp samesign ugt i8 %5, -33
   br i1 %16, label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h86f92eeef77deff8E.exit15.i", label %.thread7
 
 17:                                               ; preds = %4
@@ -665,7 +665,7 @@ define hidden noundef range(i32 0, 1114112) i32 @"_ZN6uu_env14native_int_str24ge
   %25 = or disjoint i32 %22, %24
   %26 = shl nuw nsw i32 %9, 12
   %27 = or disjoint i32 %25, %26
-  %28 = icmp ugt i8 %5, -17
+  %28 = icmp samesign ugt i8 %5, -17
   br i1 %28, label %29, label %.thread7
 
 29:                                               ; preds = %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h86f92eeef77deff8E.exit15.i"

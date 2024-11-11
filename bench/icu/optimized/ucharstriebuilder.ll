@@ -1768,7 +1768,7 @@ if.then3:                                         ; preds = %if.end
   br label %if.end19
 
 if.else:                                          ; preds = %if.end
-  %cmp7 = icmp ult i32 %value, 256
+  %cmp7 = icmp samesign ult i32 %value, 256
   br i1 %cmp7, label %if.then8, label %if.else11
 
 if.then8:                                         ; preds = %if.else
@@ -1819,7 +1819,7 @@ if.then:                                          ; preds = %entry
   br label %return
 
 if.end:                                           ; preds = %entry
-  %cmp2 = icmp ult i32 %sub, 67043328
+  %cmp2 = icmp samesign ult i32 %sub, 67043328
   %shr = lshr i32 %sub, 16
   %2 = trunc nuw i32 %shr to i16
   br i1 %cmp2, label %if.then3, label %if.else

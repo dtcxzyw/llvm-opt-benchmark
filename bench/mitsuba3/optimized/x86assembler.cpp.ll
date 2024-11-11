@@ -6364,7 +6364,7 @@ define dso_local noundef i32 @_ZN6asmjit9_abi_1_103x869Assembler5_emitEjRKNS0_8O
   %4198 = trunc i32 %4162 to i8
   store i8 %4198, ptr %4197, align 1, !tbaa !51
   %4199 = getelementptr inbounds i8, ptr %4197, i64 1
-  %4200 = icmp ugt i8 %4163, 3
+  %4200 = icmp samesign ugt i8 %4163, 3
   br i1 %4200, label %4201, label %4206
 
 4201:                                             ; preds = %4172
@@ -6662,7 +6662,7 @@ define dso_local noundef i32 @_ZN6asmjit9_abi_1_103x869Assembler5_emitEjRKNS0_8O
   %4430 = or i8 %4429, -64
   store i8 %4430, ptr %4426, align 1, !tbaa !51
   %4431 = getelementptr inbounds i8, ptr %4424, i64 2
-  %4432 = icmp ugt i8 %4383, 3
+  %4432 = icmp samesign ugt i8 %4383, 3
   br i1 %4432, label %4433, label %4436
 
 4433:                                             ; preds = %4399
@@ -7152,7 +7152,7 @@ define dso_local noundef i32 @_ZN6asmjit9_abi_1_103x869Assembler5_emitEjRKNS0_8O
   store i64 %4793, ptr %4794, align 8, !tbaa !109
   store i32 0, ptr %4757, align 1, !tbaa !51
   %4795 = getelementptr inbounds i8, ptr %4596, i64 5
-  %4796 = icmp ugt i8 %4601, 3
+  %4796 = icmp samesign ugt i8 %4601, 3
   br i1 %4796, label %4797, label %4800
 
 4797:                                             ; preds = %4753
@@ -7215,7 +7215,7 @@ define dso_local noundef i32 @_ZN6asmjit9_abi_1_103x869Assembler5_emitEjRKNS0_8O
   %4836 = trunc i64 %4828 to i32
   store i32 %4836, ptr %4835, align 1, !tbaa !51
   %4837 = getelementptr inbounds i8, ptr %4596, i64 5
-  %4838 = icmp ugt i8 %4601, 3
+  %4838 = icmp samesign ugt i8 %4601, 3
   br i1 %4838, label %4839, label %4842
 
 4839:                                             ; preds = %4831
@@ -8850,7 +8850,7 @@ define dso_local noundef i32 @_ZN6asmjit9_abi_1_103x869Assembler5_emitEjRKNS0_8O
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %5949, i8 0, i64 %5961, i1 false)
   %5986 = getelementptr inbounds i8, ptr %5949, i64 %5961
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %10) #11
-  %5987 = icmp ugt i8 %5951, 3
+  %5987 = icmp samesign ugt i8 %5951, 3
   br i1 %5987, label %5988, label %5991
 
 5988:                                             ; preds = %5985

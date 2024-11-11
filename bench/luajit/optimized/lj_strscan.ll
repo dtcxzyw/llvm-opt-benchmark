@@ -462,7 +462,7 @@ if.end358:                                        ; preds = %land.lhs.true349, %
   br i1 %brmerge, label %lor.lhs.false364, label %return
 
 lor.lhs.false364:                                 ; preds = %if.end358
-  %cmp365 = icmp ugt i32 %fmt.6, 4
+  %cmp365 = icmp samesign ugt i32 %fmt.6, 4
   %and368 = and i32 %opt, 8
   %tobool369.not = icmp eq i32 %and368, 0
   %or.cond = and i1 %tobool369.not, %cmp365
@@ -1041,7 +1041,7 @@ if.end12:                                         ; preds = %cond.end, %if.then
   %p.addr.0 = phi ptr [ %incdec.ptr11, %cond.end ], [ %p, %if.then ]
   %xip.0.idx = phi i64 [ 1, %cond.end ], [ 0, %if.then ]
   %i.1 = phi i32 [ %dec, %cond.end ], [ %i.0, %if.then ]
-  %cmp13177 = icmp ugt i32 %i.1, 1
+  %cmp13177 = icmp samesign ugt i32 %i.1, 1
   br i1 %cmp13177, label %for.body.preheader, label %for.end
 
 for.body.preheader:                               ; preds = %if.end12
@@ -1136,8 +1136,8 @@ if.end61:                                         ; preds = %cond.end53, %for.en
 
 while.cond.preheader:                             ; preds = %if.end61
   %cmp85183 = icmp sgt i32 %ex10.addr.1, 0
-  %cmp87184 = icmp ult i32 %dig.addr.0, 19
-  %19 = and i1 %cmp85183, %cmp87184
+  %cmp87184 = icmp samesign ult i32 %dig.addr.0, 19
+  %19 = select i1 %cmp85183, i1 %cmp87184, i1 false
   br i1 %19, label %while.body.preheader, label %if.end95
 
 while.body.preheader:                             ; preds = %while.cond.preheader
@@ -1200,7 +1200,7 @@ if.end95:                                         ; preds = %while.body.preheade
   %dig.addr.3 = phi i32 [ %dig.addr.0, %while.cond.preheader ], [ %36, %while.body.preheader ]
   %xip.4.idx = phi i64 [ %xip.2.idx, %while.cond.preheader ], [ %29, %while.body.preheader ]
   %xip.4.ptr = getelementptr inbounds i8, ptr %xi, i64 %xip.4.idx
-  %cmp96 = icmp ult i32 %dig.addr.3, 21
+  %cmp96 = icmp samesign ult i32 %dig.addr.3, 21
   %cmp98 = icmp eq i32 %ex10.addr.3, 0
   %or.cond = and i1 %cmp98, %cmp96
   br i1 %or.cond, label %if.then100, label %if.end178
@@ -1574,7 +1574,7 @@ for.body369:                                      ; preds = %while.end353, %for.
   %i358.0.in = add nuw nsw i32 %i358.0247, 1
   %i358.0 = and i32 %i358.0.in, 511
   %dec362 = add nsw i32 %dec362248, -1
-  %cmp363 = icmp ugt i32 %dec362248, 1
+  %cmp363 = icmp samesign ugt i32 %dec362248, 1
   %cmp366 = icmp ne i32 %i358.0, %lo.5.lcssa
   %57 = select i1 %cmp363, i1 %cmp366, i1 false
   br i1 %57, label %for.body369, label %for.end378, !llvm.loop !21
@@ -1595,7 +1595,7 @@ while.body386:                                    ; preds = %while.cond382.prehe
   %idig.6253 = phi i32 [ %dec383, %while.body386 ], [ %dec362.lcssa, %while.cond382.preheader ]
   %dec383 = add nsw i32 %idig.6253, -1
   %mul387 = mul i64 %x354.1254, 100
-  %cmp384 = icmp ugt i32 %idig.6253, 1
+  %cmp384 = icmp samesign ugt i32 %idig.6253, 1
   br i1 %cmp384, label %while.body386, label %if.end405, !llvm.loop !22
 
 if.else389:                                       ; preds = %for.end378

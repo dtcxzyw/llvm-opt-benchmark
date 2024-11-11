@@ -1223,7 +1223,7 @@ sw.bb:                                            ; preds = %entry
 land.lhs.true:                                    ; preds = %sw.bb
   %conv4 = zext nneg i8 %shr to i64
   %add = add nuw nsw i64 %incr, %conv4
-  %cmp5 = icmp ult i64 %add, 32
+  %cmp5 = icmp samesign ult i64 %add, 32
   br i1 %cmp5, label %cond.end, label %cond.false
 
 lor.rhs:                                          ; preds = %sw.bb

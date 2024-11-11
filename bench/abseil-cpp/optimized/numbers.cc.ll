@@ -478,7 +478,7 @@ entry:
 
 if.then.i:                                        ; preds = %entry
   %conv1.i = trunc nuw i64 %i to i32
-  %cmp.i30.i = icmp ult i64 %i, 10
+  %cmp.i30.i = icmp samesign ult i64 %i, 10
   br i1 %cmp.i30.i, label %if.then.i53.i, label %if.end.i31.i
 
 if.then.i53.i:                                    ; preds = %if.then.i
@@ -489,7 +489,7 @@ if.then.i53.i:                                    ; preds = %if.then.i
   br label %_ZN4absl12_GLOBAL__N_113EncodeFullU64EmPc.exit
 
 if.end.i31.i:                                     ; preds = %if.then.i
-  %cmp1.i32.i = icmp ult i64 %i, 100000000
+  %cmp1.i32.i = icmp samesign ult i64 %i, 100000000
   br i1 %cmp1.i32.i, label %if.then2.i40.i, label %if.end8.i33.i
 
 if.then2.i40.i:                                   ; preds = %if.end.i31.i
@@ -720,7 +720,7 @@ if.end:                                           ; preds = %if.then, %entry
 
 if.then.i:                                        ; preds = %if.end
   %conv1.i = trunc nuw i64 %u.0 to i32
-  %cmp.i30.i = icmp ult i64 %u.0, 10
+  %cmp.i30.i = icmp samesign ult i64 %u.0, 10
   br i1 %cmp.i30.i, label %if.then.i53.i, label %if.end.i31.i
 
 if.then.i53.i:                                    ; preds = %if.then.i
@@ -731,7 +731,7 @@ if.then.i53.i:                                    ; preds = %if.then.i
   br label %_ZN4absl12_GLOBAL__N_113EncodeFullU64EmPc.exit
 
 if.end.i31.i:                                     ; preds = %if.then.i
-  %cmp1.i32.i = icmp ult i64 %u.0, 100000000
+  %cmp1.i32.i = icmp samesign ult i64 %u.0, 100000000
   br i1 %cmp1.i32.i, label %if.then2.i40.i, label %if.end8.i33.i
 
 if.then2.i40.i:                                   ; preds = %if.end.i31.i

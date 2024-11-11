@@ -500,7 +500,7 @@ define hidden void @_ZNK8rawspeed20SonyArw1Decompressor10decompressENS_10ByteStr
 191:                                              ; preds = %184
   %192 = trunc nuw nsw i32 %188 to i16
   tail call void @llvm.assume(i1 %59)
-  %193 = icmp ugt i32 %13, %102
+  %193 = icmp samesign ugt i32 %13, %102
   tail call void @llvm.assume(i1 %193)
   %194 = mul nsw i32 %102, %16
   %195 = add nuw nsw i32 %194, %11
@@ -510,7 +510,7 @@ define hidden void @_ZNK8rawspeed20SonyArw1Decompressor10decompressENS_10ByteStr
   %198 = getelementptr inbounds i16, ptr %60, i64 %197
   store i16 %192, ptr %198, align 2, !tbaa !105
   %199 = add nuw nsw i32 %102, 2
-  %200 = icmp ugt i32 %199, %13
+  %200 = icmp samesign ugt i32 %199, %13
   br i1 %200, label %50, label %62, !llvm.loop !107
 }
 

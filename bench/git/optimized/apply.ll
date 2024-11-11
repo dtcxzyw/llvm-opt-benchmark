@@ -3181,11 +3181,11 @@ sw.bb9.i.i.i.i:                                   ; preds = %if.end5.i.i.i.i
   br label %for.cond.outer32.i.i.i.i
 
 sw.bb12.i.i.i.i:                                  ; preds = %if.end5.i.i.i.i
-  %cmp13.i.i.i.i = icmp ult i32 %sub.i.i.i.i, 3
+  %cmp13.i.i.i.i = icmp samesign ult i32 %sub.i.i.i.i, 3
   br i1 %cmp13.i.i.i.i, label %if.then26.i.i.i.i, label %sw.epilog.i.i.i.i
 
 sw.bb16.i.i.i.i:                                  ; preds = %if.end5.i.i.i.i
-  %cmp17.i.i.i.i = icmp ult i32 %sub.i.i.i.i, 5
+  %cmp17.i.i.i.i = icmp samesign ult i32 %sub.i.i.i.i, 5
   br i1 %cmp17.i.i.i.i, label %if.then26.i.i.i.i, label %sw.epilog.i.i.i.i
 
 sw.epilog.i.i.i.i:                                ; preds = %sw.bb16.i.i.i.i, %sw.bb12.i.i.i.i

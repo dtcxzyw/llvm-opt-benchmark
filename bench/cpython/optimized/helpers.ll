@@ -957,15 +957,15 @@ for.body:                                         ; preds = %entry, %for.inc
   br i1 %cmp.i, label %for.inc, label %if.else.i
 
 if.else.i:                                        ; preds = %for.body
-  %cmp3.i = icmp ult i8 %1, -32
+  %cmp3.i = icmp samesign ult i8 %1, -32
   br i1 %cmp3.i, label %if.then5.i, label %if.else10.i
 
 if.then5.i:                                       ; preds = %if.else.i
-  %cmp7.i = icmp ult i8 %1, -62
+  %cmp7.i = icmp samesign ult i8 %1, -62
   br i1 %cmp7.i, label %if.then3, label %if.end55.i
 
 if.else10.i:                                      ; preds = %if.else.i
-  %cmp12.i = icmp ult i8 %1, -16
+  %cmp12.i = icmp samesign ult i8 %1, -16
   br i1 %cmp12.i, label %if.then14.i, label %if.else34.i
 
 if.then14.i:                                      ; preds = %if.else10.i
@@ -987,7 +987,7 @@ land.lhs.true26.i:                                ; preds = %if.then14.i
   br i1 %cmp29.i, label %if.then3, label %if.end55.i
 
 if.else34.i:                                      ; preds = %if.else10.i
-  %cmp36.i = icmp ult i8 %1, -11
+  %cmp36.i = icmp samesign ult i8 %1, -11
   br i1 %cmp36.i, label %if.then38.i, label %if.then3
 
 if.then38.i:                                      ; preds = %if.else34.i

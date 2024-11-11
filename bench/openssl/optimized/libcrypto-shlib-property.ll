@@ -697,7 +697,7 @@ impl_free.exit:                                   ; preds = %for.body
 
 if.end:                                           ; preds = %impl_free.exit, %for.body
   %count.1 = phi i32 [ %inc, %impl_free.exit ], [ %count.013, %for.body ]
-  %cmp = icmp ugt i32 %dec14.in, 1
+  %cmp = icmp samesign ugt i32 %dec14.in, 1
   br i1 %cmp, label %for.body, label %for.end, !llvm.loop !7
 
 for.end:                                          ; preds = %if.end

@@ -1105,7 +1105,7 @@ _ZNSt10shared_ptrIKN10open_spiel4GameEED2Ev.exit: ; preds = %34, %52, %65, %_ZNS
 93:                                               ; preds = %86
   store i32 %2, ptr %14, align 4
   store i32 99, ptr %15, align 4
-  %94 = icmp ult i32 %2, 100
+  %94 = icmp samesign ult i32 %2, 100
   br i1 %94, label %100, label %95
 
 95:                                               ; preds = %93
@@ -1129,7 +1129,7 @@ _ZNSt10shared_ptrIKN10open_spiel4GameEED2Ev.exit: ; preds = %34, %52, %65, %_ZNS
 100:                                              ; preds = %93
   store i32 %3, ptr %18, align 4
   store i32 26, ptr %19, align 4
-  %101 = icmp ult i32 %3, 27
+  %101 = icmp samesign ult i32 %3, 27
   br i1 %101, label %.lr.ph.preheader.i.i.i.i.i.i.i.i.i, label %102
 
 102:                                              ; preds = %100
@@ -1865,7 +1865,7 @@ _ZNSt10shared_ptrIKN10open_spiel4GameEED2Ev.exit: ; preds = %51, %69, %82, %_ZNS
 110:                                              ; preds = %103
   store i32 %2, ptr %17, align 4
   store i32 99, ptr %18, align 4
-  %111 = icmp ult i32 %2, 100
+  %111 = icmp samesign ult i32 %2, 100
   br i1 %111, label %117, label %112
 
 112:                                              ; preds = %110
@@ -1889,7 +1889,7 @@ _ZNSt10shared_ptrIKN10open_spiel4GameEED2Ev.exit: ; preds = %51, %69, %82, %_ZNS
 117:                                              ; preds = %110
   store i32 %3, ptr %21, align 4
   store i32 26, ptr %22, align 4
-  %118 = icmp ult i32 %3, 27
+  %118 = icmp samesign ult i32 %3, 27
   br i1 %118, label %124, label %119
 
 119:                                              ; preds = %117
@@ -2629,7 +2629,7 @@ _ZNK10open_spiel7clobber12ClobberState8InBoundsEii.exit.thread: ; preds = %_ZNSt
   br i1 %62, label %63, label %_ZNK10open_spiel7clobber12ClobberState8InBoundsEii.exit33.thread
 
 63:                                               ; preds = %61
-  %64 = icmp ult i32 %39, %45
+  %64 = icmp samesign ult i32 %39, %45
   %65 = icmp sgt i32 %42, -1
   %or.cond.i32 = and i1 %65, %64
   %66 = icmp slt i32 %42, %48

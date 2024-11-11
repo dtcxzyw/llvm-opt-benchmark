@@ -1417,7 +1417,7 @@ define internal fastcc range(i64 -2147483648, 2147483648) i64 @__se_sys_pkey_all
 
 41:                                               ; preds = %40, %39, %39
   %42 = phi i32 [ 1, %40 ], [ 16, %39 ], [ 16, %39 ]
-  %43 = icmp ugt i32 %42, %28
+  %43 = icmp samesign ugt i32 %42, %28
   br i1 %43, label %44, label %.thread
 
 44:                                               ; preds = %41
@@ -1525,7 +1525,7 @@ define internal fastcc noundef range(i64 -22, 1) i64 @__se_sys_pkey_free(i64 nou
 
 16:                                               ; preds = %15, %14, %14
   %17 = phi i32 [ 1, %15 ], [ 16, %14 ], [ 16, %14 ]
-  %18 = icmp ugt i32 %17, %2
+  %18 = icmp samesign ugt i32 %17, %2
   br i1 %18, label %19, label %35
 
 19:                                               ; preds = %16
@@ -1781,7 +1781,7 @@ define internal fastcc i32 @do_mprotect_pkey(i64 noundef %0, i64 noundef %1, i64
 
 51:                                               ; preds = %50, %49, %49
   %52 = phi i32 [ 1, %50 ], [ 16, %49 ], [ 16, %49 ]
-  %53 = icmp ugt i32 %52, %3
+  %53 = icmp samesign ugt i32 %52, %3
   br i1 %53, label %54, label %180
 
 54:                                               ; preds = %51

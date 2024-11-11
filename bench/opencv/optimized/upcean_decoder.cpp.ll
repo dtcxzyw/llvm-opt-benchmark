@@ -1150,7 +1150,7 @@ _ZNSt12_Vector_baseIhSaIhEE11_M_allocateEm.exit.i.i: ; preds = %_ZNSt6vectorIhSa
   store i8 %27, ptr %.045.i.i.i.i.i.i.i.i.i.i, align 1
   %28 = getelementptr inbounds i8, ptr %.045.i.i.i.i.i.i.i.i.i.i, i64 1
   %29 = add nsw i64 %.06.i.i.i.i.i.i.i.i.i.i, -1
-  %30 = icmp ugt i64 %.06.i.i.i.i.i.i.i.i.i.i, 1
+  %30 = icmp samesign ugt i64 %.06.i.i.i.i.i.i.i.i.i.i, 1
   br i1 %30, label %.lr.ph.i.i.i.i.i.i.i.i.i.i, label %.loopexit, !llvm.loop !25
 
 31:                                               ; preds = %_ZNSt16allocator_traitsISaIhEE8allocateERS0_m.exit.i.i.i, %20
@@ -1363,7 +1363,7 @@ define hidden noundef zeroext i1 @_ZNK2cv7barcode13UPCEANDecoder7isValidERKNSt7_
   %26 = add nsw i32 %25, -48
   %27 = sub nsw i32 10, %.016.fr.lcssa
   %.urem = sub nsw i32 0, %.016.fr.lcssa
-  %.cmp = icmp ult i32 %27, 10
+  %.cmp = icmp samesign ult i32 %27, 10
   %28 = select i1 %.cmp, i32 %27, i32 %.urem
   %29 = icmp eq i32 %26, %28
   br label %30
@@ -1874,7 +1874,7 @@ _ZNSt6vectorIiSaIiEED2Ev.exit:                    ; preds = %12, %14
   %28 = getelementptr inbounds i8, ptr %.0910.i.i.i.i.i, i64 24
   %29 = getelementptr inbounds i8, ptr %.0811.i.i.i.i.i, i64 24
   %30 = add nsw i64 %.012.i.i.i.i.i, -1
-  %31 = icmp ugt i64 %.012.i.i.i.i.i, 1
+  %31 = icmp samesign ugt i64 %.012.i.i.i.i.i, 1
   br i1 %31, label %.lr.ph.i.i.i.i.i, label %.preheader.preheader, !llvm.loop !29
 
 .preheader.preheader:                             ; preds = %.noexc22, %19

@@ -2369,7 +2369,7 @@ if.end.i:                                         ; preds = %if.then.i786
           to label %if.end27.i unwind label %lpad.loopexit.i.loopexit.split-lp
 
 if.else.i780:                                     ; preds = %for.body.i
-  %cmp5.i = icmp ugt i64 %agg.tmp.sroa.0.0.copyload.i, 8
+  %cmp5.i = icmp samesign ugt i64 %agg.tmp.sroa.0.0.copyload.i, 8
   br i1 %cmp5.i, label %if.then6.i, label %if.else14.i
 
 if.then6.i:                                       ; preds = %if.else.i780
@@ -2389,7 +2389,7 @@ if.then6.i:                                       ; preds = %if.else.i780
   br label %call.i.i.i.i.i.i.i.i.i.i.noexc
 
 if.else14.i:                                      ; preds = %if.else.i780
-  %cmp15.i = icmp ugt i64 %agg.tmp.sroa.0.0.copyload.i, 3
+  %cmp15.i = icmp samesign ugt i64 %agg.tmp.sroa.0.0.copyload.i, 3
   br i1 %cmp15.i, label %if.then16.i, label %if.else18.i
 
 if.then16.i:                                      ; preds = %if.else14.i
@@ -2686,7 +2686,7 @@ if.end.i963:                                      ; preds = %if.then.i961
           to label %if.end27.i927 unwind label %lpad.loopexit.i.loopexit
 
 if.else.i904:                                     ; preds = %if.then.i879
-  %cmp5.i905 = icmp ugt i64 %agg.tmp.sroa.0.0.copyload.i.i.i.i.i.i881, 8
+  %cmp5.i905 = icmp samesign ugt i64 %agg.tmp.sroa.0.0.copyload.i.i.i.i.i.i881, 8
   br i1 %cmp5.i905, label %if.then6.i947, label %if.else14.i906
 
 if.then6.i947:                                    ; preds = %if.else.i904
@@ -2706,7 +2706,7 @@ if.then6.i947:                                    ; preds = %if.else.i904
   br label %call.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.noexc898
 
 if.else14.i906:                                   ; preds = %if.else.i904
-  %cmp15.i907 = icmp ugt i64 %agg.tmp.sroa.0.0.copyload.i.i.i.i.i.i881, 3
+  %cmp15.i907 = icmp samesign ugt i64 %agg.tmp.sroa.0.0.copyload.i.i.i.i.i.i881, 3
   br i1 %cmp15.i907, label %if.then16.i936, label %if.else18.i908
 
 if.then16.i936:                                   ; preds = %if.else14.i906
@@ -11453,7 +11453,7 @@ if.end:                                           ; preds = %if.then
   br label %if.end27
 
 if.else:                                          ; preds = %entry
-  %cmp5 = icmp ugt i64 %len, 8
+  %cmp5 = icmp samesign ugt i64 %len, 8
   br i1 %cmp5, label %if.then6, label %if.else14
 
 if.then6:                                         ; preds = %if.else
@@ -11474,7 +11474,7 @@ if.then6:                                         ; preds = %if.else
   br label %return
 
 if.else14:                                        ; preds = %if.else
-  %cmp15 = icmp ugt i64 %len, 3
+  %cmp15 = icmp samesign ugt i64 %len, 3
   br i1 %cmp15, label %if.then16, label %if.else18
 
 if.then16:                                        ; preds = %if.else14

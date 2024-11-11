@@ -216,7 +216,7 @@ proto_item_set_generated.exit:                    ; preds = %33, %36, %39
 70:                                               ; preds = %66
   %71 = load i32, ptr %63, align 4
   %72 = zext i32 %71 to i64
-  %73 = icmp ult i64 %68, %72
+  %73 = icmp samesign ult i64 %68, %72
   br i1 %73, label %74, label %87
 
 74:                                               ; preds = %70
@@ -245,7 +245,7 @@ proto_item_set_generated.exit270:                 ; preds = %74, %79, %82
   br label %.critedge
 
 87:                                               ; preds = %70
-  %.not257 = icmp ugt i64 %68, %72
+  %.not257 = icmp samesign ugt i64 %68, %72
   br label %.critedge
 
 .critedge:                                        ; preds = %51, %66, %87, %62, %proto_item_set_generated.exit270

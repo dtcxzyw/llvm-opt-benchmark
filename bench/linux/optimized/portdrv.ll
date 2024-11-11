@@ -476,7 +476,7 @@ define internal i32 @pcie_portdrv_probe(ptr noundef %0, ptr nocapture readnone %
   %106 = phi i32 [ 0, %88 ], [ 0, %93 ], [ %102, %96 ]
   %107 = phi i32 [ %90, %88 ], [ %90, %93 ], [ %104, %96 ]
   call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %3) #13
-  %108 = icmp ugt i32 %107, %76
+  %108 = icmp samesign ugt i32 %107, %76
   br i1 %108, label %109, label %110
 
 109:                                              ; preds = %105

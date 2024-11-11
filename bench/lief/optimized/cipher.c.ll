@@ -343,7 +343,7 @@ define hidden i32 @mbedtls_cipher_set_iv(ptr nocapture noundef %0, ptr noundef %
   %13 = getelementptr inbounds i8, ptr %4, i64 24
   %14 = load i32, ptr %13, align 8
   %15 = zext i32 %14 to i64
-  %16 = icmp ult i64 %2, %15
+  %16 = icmp samesign ult i64 %2, %15
   br i1 %16, label %54, label %17
 
 17:                                               ; preds = %8, %12

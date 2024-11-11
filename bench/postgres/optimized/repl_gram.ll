@@ -160,7 +160,7 @@ define dso_local range(i32 0, 2) i32 @replication_yyparse() local_unnamed_addr #
   br i1 %50, label %.loopexit.loopexit, label %51
 
 51:                                               ; preds = %49
-  %52 = icmp ult i32 %46, 283
+  %52 = icmp samesign ult i32 %46, 283
   br i1 %52, label %53, label %58
 
 53:                                               ; preds = %51

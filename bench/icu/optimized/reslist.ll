@@ -1719,7 +1719,7 @@ if.then26:                                        ; preds = %land.lhs.true22
   br label %if.end38
 
 if.else:                                          ; preds = %if.then15
-  %cmp27 = icmp ult i32 %cond.i.i, 1007
+  %cmp27 = icmp samesign ult i32 %cond.i.i, 1007
   br i1 %cmp27, label %if.then28, label %if.else30
 
 if.then28:                                        ; preds = %_ZNK6icu_7513UnicodeStringixEi.exit, %land.lhs.true22, %if.else
@@ -1728,7 +1728,7 @@ if.then28:                                        ; preds = %_ZNK6icu_7513Unicod
   br label %if.end38
 
 if.else30:                                        ; preds = %if.else
-  %cmp31 = icmp ult i32 %cond.i.i, 1048576
+  %cmp31 = icmp samesign ult i32 %cond.i.i, 1048576
   %fNumCharsForLength33 = getelementptr inbounds i8, ptr %this, i64 140
   br i1 %cmp31, label %if.then32, label %if.else34
 
@@ -3574,7 +3574,7 @@ for.body217:                                      ; preds = %invoke.cont210, %fo
   %incdec.ptr = getelementptr inbounds i8, ptr %p.0168, i64 2
   store i16 %or221, ptr %p.0168, align 2
   %dec224 = add nsw i32 %count.0169, -1
-  %cmp216 = icmp ugt i32 %count.0169, 1
+  %cmp216 = icmp samesign ugt i32 %count.0169, 1
   br i1 %cmp216, label %for.body217, label %invoke.cont227.loopexit, !llvm.loop !24
 
 lpad:                                             ; preds = %invoke.cont233, %invoke.cont227, %invoke.cont

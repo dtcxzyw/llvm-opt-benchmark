@@ -5745,7 +5745,7 @@ _ZStplIcSt11char_traitsIcESaIcEENSt7__cxx1112basic_stringIT_T0_T1_EERKS8_PKS5_.e
 826:                                              ; preds = %825
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %66) #36
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %67) #36
-  %827 = icmp ugt i64 %indvars.iv, 1
+  %827 = icmp samesign ugt i64 %indvars.iv, 1
   br i1 %827, label %.lr.ph642, label %._crit_edge643, !llvm.loop !21
 
 828:                                              ; preds = %824
@@ -8195,7 +8195,7 @@ _ZNSt6vectorIN5Yosys5RTLIL5StateESaIS2_EEC2ERKS4_.exit: ; preds = %4, %14
 
 22:                                               ; preds = %19
   %23 = zext nneg i32 %2 to i64
-  %24 = icmp ult i64 %11, %23
+  %24 = icmp samesign ult i64 %11, %23
   br i1 %24, label %_ZNKSt6vectorIN5Yosys5RTLIL5StateESaIS2_EE12_M_check_lenEmPKc.exit.i.i, label %36
 
 _ZNKSt6vectorIN5Yosys5RTLIL5StateESaIS2_EE12_M_check_lenEmPKc.exit.i.i: ; preds = %22
@@ -8238,7 +8238,7 @@ _ZNSt12_Vector_baseIN5Yosys5RTLIL5StateESaIS2_EE13_M_deallocateEPS2_m.exit35.i.i
   br label %_ZNSt6vectorIN5Yosys5RTLIL5StateESaIS2_EE6resizeEm.exit
 
 36:                                               ; preds = %22
-  %37 = icmp ugt i64 %11, %23
+  %37 = icmp samesign ugt i64 %11, %23
   %38 = getelementptr inbounds i8, ptr %16, i64 %23
   %spec.select = select i1 %37, ptr %38, ptr %17
   br label %_ZNSt6vectorIN5Yosys5RTLIL5StateESaIS2_EE6resizeEm.exit
@@ -20278,7 +20278,7 @@ switch.lookup:                                    ; preds = %.lr.ph.i
           to label %66 unwind label %.loopexit.i
 
 66:                                               ; preds = %.lr.ph.i, %switch.lookup
-  %67 = icmp ugt i64 %indvars.iv.i, 1
+  %67 = icmp samesign ugt i64 %indvars.iv.i, 1
   br i1 %67, label %.lr.ph.i, label %.loopexit, !llvm.loop !121
 
 68:                                               ; preds = %63, %.loopexit.split-lp.i, %.loopexit.i

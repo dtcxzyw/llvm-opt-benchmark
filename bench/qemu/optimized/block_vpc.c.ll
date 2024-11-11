@@ -209,7 +209,7 @@ if.then21:                                        ; preds = %if.then16
   br label %fail
 
 if.else:                                          ; preds = %if.then16
-  %cmp22 = icmp ult i64 %call19, 512
+  %cmp22 = icmp samesign ult i64 %call19, 512
   br i1 %cmp22, label %if.then24, label %if.end26
 
 if.then24:                                        ; preds = %if.else

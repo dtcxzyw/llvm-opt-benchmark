@@ -17755,7 +17755,7 @@ if.end.i.i.i:                                     ; preds = %if.then
   store ptr %agg.tmp.sroa.0.0.copyload, ptr %agg.tmp.i.i.i, align 8
   store i64 %agg.tmp.sroa.4.0.copyload.fr.i55, ptr %agg.tmp.sroa.3.0.agg.tmp.i.sroa_idx.i.i, align 8
   call fastcc void @"_ZSt13__adjust_heapIN7rocksdb10autovectorIPKNS0_16IngestedFileInfoELm8EE13iterator_implIS5_S4_EElS4_N9__gnu_cxx5__ops15_Iter_comp_iterIZNS0_27ExternalSstFileIngestionJob7PrepareERKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaISI_EESM_SM_RKNS0_11TemperatureEmPNS0_12SuperVersionEE3$_0EEEvT_T0_SV_T1_T2_"(ptr noundef %agg.tmp.i.i.i, i64 noundef %div12.i.i.i, i64 noundef %sub.i.i.i.i, ptr noundef %20, ptr readonly %__comp.coerce)
-  %cmp7.i40.i.i = icmp ult i64 %sub.i.i.i, 2
+  %cmp7.i40.i.i = icmp samesign ult i64 %sub.i.i.i, 2
   br i1 %cmp7.i40.i.i, label %while.body.lr.ph.i.i, label %if.end9.split.i.i.i
 
 if.end9.split.i.i.i:                              ; preds = %if.end.i.i.i, %if.end9.split.i.i.i
@@ -18534,7 +18534,7 @@ for.body.i.i.i.i.i:                               ; preds = %for.body.i.i.i.i.i.
   %retval.0.i.i12.i.i.i.i.i = select i1 %cmp.i.i7.i.i.i.i.i, ptr %arrayidx.i.i9.i.i.i.i.i, ptr %add.ptr.i.i.i11.i.i.i.i.i
   store ptr %20, ptr %retval.0.i.i12.i.i.i.i.i, align 8, !noalias !146
   %dec.i.i.i.i.i = add nsw i64 %__n.014.i.i.i.i.i, -1
-  %cmp.i.i.i.i.i = icmp ugt i64 %__n.014.i.i.i.i.i, 1
+  %cmp.i.i.i.i.i = icmp samesign ugt i64 %__n.014.i.i.i.i.i, 1
   br i1 %cmp.i.i.i.i.i, label %for.body.i.i.i.i.i, label %invoke.cont18.loopexit, !llvm.loop !157
 
 invoke.cont18.loopexit:                           ; preds = %for.body.i.i.i.i.i

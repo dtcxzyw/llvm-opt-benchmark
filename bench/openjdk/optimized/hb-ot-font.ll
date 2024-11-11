@@ -5870,7 +5870,7 @@ _ZL14_hb_cmp_methodIjZNK2OT19CmapSubtableFormat413accelerator_t9get_glyphEjPjE11
   %51 = load i8, ptr %50, align 1
   %52 = zext i8 %51 to i32
   %53 = or disjoint i32 %49, %52
-  %54 = icmp ult i32 %1, %53
+  %54 = icmp samesign ult i32 %1, %53
   br i1 %54, label %55, label %_ZL10hb_bsearchIKN2OT7IntTypeItLj2EEEjJjEEPT_RKT0_S5_mmPFiPKvSA_DpT1_ESC_.exit.i
 
 55:                                               ; preds = %_ZL14_hb_cmp_methodIjZNK2OT19CmapSubtableFormat413accelerator_t9get_glyphEjPjE11CustomRangeJjEEiPKvS6_DpT1_.exit.i.i.i
@@ -6157,7 +6157,7 @@ _ZL14_hb_cmp_methodIjZNK2OT19CmapSubtableFormat413accelerator_t9get_glyphEjPjE11
   %28 = load i8, ptr %27, align 1
   %29 = zext i8 %28 to i32
   %30 = or disjoint i32 %26, %29
-  %31 = icmp ult i32 %1, %30
+  %31 = icmp samesign ult i32 %1, %30
   br i1 %31, label %32, label %_ZL10hb_bsearchIKN2OT7IntTypeItLj2EEEjJjEEPT_RKT0_S5_mmPFiPKvSA_DpT1_ESC_.exit
 
 32:                                               ; preds = %_ZL14_hb_cmp_methodIjZNK2OT19CmapSubtableFormat413accelerator_t9get_glyphEjPjE11CustomRangeJjEEiPKvS6_DpT1_.exit.i.i
@@ -10802,7 +10802,7 @@ _ZN21hb_sanitize_context_t14end_processingEv.exit.i: ; preds = %16
   br i1 %87, label %_ZN11hb_vector_tI9hb_pair_tIiiELb0EE6resizeEibb.exit.thread, label %88
 
 88:                                               ; preds = %50
-  %.not.i.i = icmp ugt i32 %85, %86
+  %.not.i.i = icmp samesign ugt i32 %85, %86
   br i1 %.not.i.i, label %.preheader.i.i, label %105
 
 .preheader.i.i:                                   ; preds = %88, %.preheader.i.i
@@ -14248,7 +14248,7 @@ _ZN11hb_vector_tIiLb0EE5allocEjb.exit.thread21.i: ; preds = %245, %.thread.i.i27
   br label %.loopexit.i
 
 263:                                              ; preds = %257
-  %.not42.i = icmp ult i8 %252, 64
+  %.not42.i = icmp samesign ult i8 %252, 64
   br i1 %.not42.i, label %283, label %264
 
 264:                                              ; preds = %263
@@ -14399,7 +14399,7 @@ _ZN11hb_vector_tIiLb0EE14realloc_vectorIiTnPN12hb_enable_ifIXsr3std28is_triviall
   br label %.loopexit.i301
 
 322:                                              ; preds = %316
-  %.not42.i311 = icmp ult i8 %311, 64
+  %.not42.i311 = icmp samesign ult i8 %311, 64
   br i1 %.not42.i311, label %342, label %323
 
 323:                                              ; preds = %322
@@ -16484,7 +16484,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN2OT18TupleVariationData13unpac
   br i1 %21, label %_ZN11hb_vector_tIjLb0EE6resizeEibb.exit.thread, label %22
 
 22:                                               ; preds = %19
-  %.not.i.i = icmp ugt i32 %.044, %20
+  %.not.i.i = icmp samesign ugt i32 %.044, %20
   br i1 %.not.i.i, label %.preheader.i.i, label %_ZN11hb_vector_tIjLb0EE6resizeEibb.exit
 
 .preheader.i.i:                                   ; preds = %22, %.preheader.i.i
@@ -23319,7 +23319,7 @@ _ZNK2OT7ArrayOfIN3CFF17FDSelect3_4_RangeINS_7IntTypeIjLj4EEENS3_ItLj2EEEEES4_Eix
   %134 = load i8, ptr %133, align 1
   %135 = zext i8 %134 to i32
   %136 = or disjoint i32 %132, %135
-  %.not.i39 = icmp ult i64 %indvars.iv70, %.pre-phi96
+  %.not.i39 = icmp samesign ult i64 %indvars.iv70, %.pre-phi96
   br i1 %.not.i39, label %137, label %_ZNK2OT7ArrayOfIN3CFF17FDSelect3_4_RangeINS_7IntTypeIjLj4EEENS3_ItLj2EEEEES4_EixEi.exit41
 
 137:                                              ; preds = %_ZNK2OT7ArrayOfIN3CFF17FDSelect3_4_RangeINS_7IntTypeIjLj4EEENS3_ItLj2EEEEES4_EixEi.exit38
@@ -41706,8 +41706,8 @@ _ZNK9hb_face_t14get_num_glyphsEv.exit:            ; preds = %51, %74
   %.sroa.speculated = call i32 @llvm.umin.i32(i32 %.0.i, i32 %76)
   %77 = load i32, ptr %5, align 8
   %78 = icmp sgt i32 %77, -1
-  %.not.i30 = icmp ugt i32 %.sroa.speculated, %77
-  %or.cond40 = and i1 %78, %.not.i30
+  %.not.i30 = icmp samesign ugt i32 %.sroa.speculated, %77
+  %or.cond40 = select i1 %78, i1 %.not.i30, i1 false
   br i1 %or.cond40, label %.preheader.i, label %_ZN11hb_vector_tIjLb0EE5allocEjb.exit
 
 .preheader.i:                                     ; preds = %_ZNK9hb_face_t14get_num_glyphsEv.exit, %.preheader.i

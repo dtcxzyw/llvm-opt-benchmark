@@ -128,7 +128,7 @@ if.end57:                                         ; preds = %while.body, %do.bod
   %call61 = tail call i64 @target_strlen(i64 noundef %stringp.addr.059) #13
   %add62 = add i64 %stringp.addr.059, 1
   %add63 = add i64 %add62, %call61
-  %cmp = icmp ugt i32 %dec60.in, 1
+  %cmp = icmp samesign ugt i32 %dec60.in, 1
   br i1 %cmp, label %while.body, label %while.end, !llvm.loop !5
 
 while.end:                                        ; preds = %if.end57, %if.end44
@@ -167,7 +167,7 @@ if.end90:                                         ; preds = %while.body80, %do.b
   %call94 = tail call i64 @target_strlen(i64 noundef %stringp.addr.165) #13
   %add95 = add i64 %stringp.addr.165, 1
   %add96 = add i64 %add95, %call94
-  %cmp78 = icmp ugt i32 %dec7766.in, 1
+  %cmp78 = icmp samesign ugt i32 %dec7766.in, 1
   br i1 %cmp78, label %while.body80, label %while.end97, !llvm.loop !7
 
 while.end97:                                      ; preds = %if.end90, %if.end73
@@ -302,7 +302,7 @@ if.then26.i:                                      ; preds = %if.end20.i
   unreachable
 
 if.end27.i:                                       ; preds = %if.end20.i
-  %cmp28.i = icmp ult i32 %conv.i, 1024
+  %cmp28.i = icmp samesign ult i32 %conv.i, 1024
   br i1 %cmp28.i, label %if.then30.i, label %if.end35.i
 
 if.then30.i:                                      ; preds = %if.end27.i

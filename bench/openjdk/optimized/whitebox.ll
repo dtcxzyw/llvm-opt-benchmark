@@ -10658,7 +10658,7 @@ _ZL24is_excluded_for_compilerP16AbstractCompilerR12methodHandle.exit34: ; preds 
   br i1 %115, label %_ZN13CompileBroker8compilerEi.exit, label %116
 
 116:                                              ; preds = %114
-  %117 = icmp ult i32 %3, 4
+  %117 = icmp samesign ult i32 %3, 4
   br i1 %117, label %_ZN13CompileBroker8compilerEi.exit, label %_ZL24can_be_compiled_at_levelR12methodHandlehi.exit
 
 _ZN13CompileBroker8compilerEi.exit:               ; preds = %114, %116
@@ -26340,7 +26340,7 @@ _ZN10JNIHandles7resolveEP8_jobject.exit.thread:   ; preds = %40, %_ZN10JNIHandle
 
 57:                                               ; preds = %_ZN10JNIHandles7resolveEP8_jobject.exit.thread, %54
   %58 = phi ptr [ %55, %54 ], [ %56, %_ZN10JNIHandles7resolveEP8_jobject.exit.thread ]
-  %59 = icmp ult i64 %3, 9
+  %59 = icmp samesign ult i64 %3, 9
   %60 = trunc i64 %3 to i32
   %61 = add i32 %60, -8
   %.0.i.i = select i1 %59, i32 0, i32 %61
@@ -43062,7 +43062,7 @@ _ZN26GrowableArrayWithAllocatorIP11MonitorInfo13GrowableArrayIS1_EE6appendERKS1_
   br label %_ZNK11MonitorInfo5ownerEv.exit.thread
 
 _ZNK11MonitorInfo5ownerEv.exit.thread:            ; preds = %42, %_ZNK11MonitorInfo5ownerEv.exit, %_ZN26GrowableArrayWithAllocatorIP11MonitorInfo13GrowableArrayIS1_EE6appendERKS1_.exit, %35
-  %63 = icmp ugt i64 %indvars.iv, 1
+  %63 = icmp samesign ugt i64 %indvars.iv, 1
   br i1 %63, label %35, label %.loopexit, !llvm.loop !45
 
 .loopexit:                                        ; preds = %_ZNK11MonitorInfo5ownerEv.exit.thread, %30, %.lr.ph30

@@ -1685,7 +1685,7 @@ aeron_window_resize_report.exit.i:                ; preds = %654, %651, %648, %p
   call fastcc void @aeron_sequence_report(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %613, ptr noundef nonnull %559, ptr noundef %7, ptr noundef %.0)
   call fastcc void @aeron_stream_report(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %613, ptr noundef nonnull %559, ptr noundef %.0)
   call void @proto_item_set_len(ptr noundef %611, i32 noundef %552) #9
-  %663 = icmp ult i32 %552, 36
+  %663 = icmp samesign ult i32 %552, 36
   br i1 %663, label %664, label %dissect_aeron_sm.exit
 
 664:                                              ; preds = %662
@@ -1810,7 +1810,7 @@ proto_item_set_generated.exit.i144:               ; preds = %689, %686, %670
 
 751:                                              ; preds = %749
   call void @proto_item_set_len(ptr noundef %722, i32 noundef %719) #9
-  %752 = icmp ult i32 %719, 12
+  %752 = icmp samesign ult i32 %719, 12
   br i1 %752, label %753, label %dissect_aeron_rtt.exit.thread159
 
 753:                                              ; preds = %751
@@ -2047,7 +2047,7 @@ define internal range(i32 0, 2) i32 @test_aeron_packet(ptr noundef %0, ptr nound
   br i1 %21, label %27, label %24
 
 22:                                               ; preds = %17
-  %23 = icmp ugt i32 %13, %5
+  %23 = icmp samesign ugt i32 %13, %5
   br i1 %23, label %27, label %24
 
 24:                                               ; preds = %22, %19

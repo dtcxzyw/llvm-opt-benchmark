@@ -24853,7 +24853,7 @@ if.end13.i.i:                                     ; preds = %if.then3.i.i, %if.e
 
 if.then19.i.i:                                    ; preds = %if.end13.i.i
   %add.i.i = sub i64 2, %7
-  %cmp.i.i.i = icmp ugt i64 %add.i.i, %sub.ptr.div.i.i.i
+  %cmp.i.i.i = icmp samesign ugt i64 %add.i.i, %sub.ptr.div.i.i.i
   br i1 %cmp.i.i.i, label %if.then.i.i.i, label %if.else.i.i.i
 
 if.then.i.i.i:                                    ; preds = %if.then19.i.i
@@ -24865,7 +24865,7 @@ if.then.i.i.i:                                    ; preds = %if.then19.i.i
   br label %invoke.cont10
 
 if.else.i.i.i:                                    ; preds = %if.then19.i.i
-  %cmp4.i.i.i = icmp ult i64 %add.i.i, %sub.ptr.div.i.i.i
+  %cmp4.i.i.i = icmp samesign ult i64 %add.i.i, %sub.ptr.div.i.i.i
   br i1 %cmp4.i.i.i, label %if.then5.i.i.i, label %invoke.cont10
 
 if.then5.i.i.i:                                   ; preds = %if.else.i.i.i

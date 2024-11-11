@@ -1523,7 +1523,7 @@ define internal fastcc void @_ZL22commit_log_print_valueP8_IO_FILEiPKv(ptr nocap
   %28 = getelementptr inbounds i64, ptr %2, i64 %indvars.iv.next
   %29 = load i64, ptr %28, align 8
   %30 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %0, ptr noundef nonnull @.str.17, i64 noundef %29) #20
-  %31 = icmp ugt i64 %indvars.iv, 1
+  %31 = icmp samesign ugt i64 %indvars.iv, 1
   br i1 %31, label %.lr.ph, label %.loopexit, !llvm.loop !11
 
 32:                                               ; preds = %20

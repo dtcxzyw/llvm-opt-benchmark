@@ -693,7 +693,7 @@ _ZN5Eigen9DenseBaseINS_6MatrixIdLin1ELi1ELi0ELin1ELi1EEEE7setZeroEv.exit: ; pred
   %87 = load <2 x double>, ptr %86, align 1
   %88 = fmul <2 x double> %87, %87
   %invariant.gep.i.i.i.i = getelementptr inbounds i8, ptr %61, i64 48
-  %89 = icmp ugt i64 %63, 7
+  %89 = icmp samesign ugt i64 %63, 7
   br i1 %89, label %.lr.ph.i.i.i.i, label %._crit_edge.i.i.i.i
 
 .lr.ph.i.i.i.i:                                   ; preds = %85, %.lr.ph.i.i.i.i
@@ -761,7 +761,7 @@ _ZNK5Eigen10MatrixBaseINS_3MapIKNS_6MatrixIdLin1ELi1ELi0ELin1ELi1EEELi0ENS_6Stri
   %122 = getelementptr inbounds i8, ptr %61, i64 16
   %123 = load <2 x double>, ptr %122, align 1
   %124 = fmul <2 x double> %121, %123
-  %125 = icmp ugt i64 %63, 7
+  %125 = icmp samesign ugt i64 %63, 7
   br i1 %125, label %.lr.ph.i.i.i.i.i, label %._crit_edge.i.i.i.i.i
 
 .lr.ph.i.i.i.i.i:                                 ; preds = %119, %.lr.ph.i.i.i.i.i
@@ -911,7 +911,7 @@ _ZN5Eigen6MatrixIdLin1ELi1ELi0ELin1ELi1EEaSINS_13CwiseBinaryOpINS_8internal17sca
   %202 = load <2 x double>, ptr %201, align 16
   %203 = fmul <2 x double> %202, %202
   %invariant.gep.i.i.i.i.i = getelementptr inbounds i8, ptr %191, i64 48
-  %204 = icmp ugt i64 %188, 7
+  %204 = icmp samesign ugt i64 %188, 7
   br i1 %204, label %.lr.ph.i.i.i.i.i77, label %._crit_edge.i.i.i.i.i74
 
 .lr.ph.i.i.i.i.i77:                               ; preds = %200, %.lr.ph.i.i.i.i.i77
@@ -1104,7 +1104,7 @@ _ZNK5Eigen10MatrixBaseINS_6MatrixIdLin1ELi1ELi0ELin1ELi1EEEE4normEv.exit: ; pred
   %305 = load <2 x double>, ptr %304, align 1
   %306 = fmul <2 x double> %305, %305
   %invariant.gep.i.i.i.i.i91 = getelementptr inbounds i8, ptr %290, i64 48
-  %307 = icmp ugt i64 %292, 7
+  %307 = icmp samesign ugt i64 %292, 7
   br i1 %307, label %.lr.ph.i.i.i.i.i95, label %._crit_edge.i.i.i.i.i92
 
 .lr.ph.i.i.i.i.i95:                               ; preds = %303, %.lr.ph.i.i.i.i.i95
@@ -1359,7 +1359,7 @@ _ZN5Eigen6MatrixIdLin1ELi1ELi0ELin1ELi1EEaSINS_13CwiseBinaryOpINS_8internal20sca
   %431 = getelementptr inbounds i8, ptr %417, i64 16
   %432 = load <2 x double>, ptr %431, align 16
   %433 = fmul <2 x double> %430, %432
-  %434 = icmp ugt i64 %413, 7
+  %434 = icmp samesign ugt i64 %413, 7
   br i1 %434, label %.lr.ph.i.i.i.i.i142, label %._crit_edge.i.i.i.i.i139
 
 .lr.ph.i.i.i.i.i142:                              ; preds = %428, %.lr.ph.i.i.i.i.i142
@@ -1433,7 +1433,7 @@ _ZNK5Eigen10MatrixBaseINS_6MatrixIdLin1ELi1ELi0ELin1ELi1EEEE3dotIS2_EENS_20Scala
   %474 = load <2 x double>, ptr %473, align 16
   %475 = fmul <2 x double> %474, %474
   %invariant.gep.i.i.i.i156 = getelementptr inbounds i8, ptr %417, i64 48
-  %476 = icmp ugt i64 %413, 7
+  %476 = icmp samesign ugt i64 %413, 7
   br i1 %476, label %.lr.ph.i.i.i.i160, label %._crit_edge.i.i.i.i157
 
 .lr.ph.i.i.i.i160:                                ; preds = %472, %.lr.ph.i.i.i.i160
@@ -1530,7 +1530,7 @@ _ZNK5Eigen10MatrixBaseINS_6MatrixIdLin1ELi1ELi0ELin1ELi1EEEE11squaredNormEv.exit
   %522 = load <2 x double>, ptr %521, align 16
   %523 = fmul <2 x double> %522, %522
   %invariant.gep.i.i.i.i175 = getelementptr inbounds i8, ptr %511, i64 48
-  %524 = icmp ugt i64 %507, 7
+  %524 = icmp samesign ugt i64 %507, 7
   br i1 %524, label %.lr.ph.i.i.i.i179, label %._crit_edge.i.i.i.i176
 
 .lr.ph.i.i.i.i179:                                ; preds = %520, %.lr.ph.i.i.i.i179
@@ -1623,7 +1623,7 @@ _ZNK5Eigen10MatrixBaseINS_6MatrixIdLin1ELi1ELi0ELin1ELi1EEEE11squaredNormEv.exit
   %572 = load <2 x double>, ptr %571, align 16
   %573 = fmul <2 x double> %572, %572
   %invariant.gep.i.i.i.i195 = getelementptr inbounds i8, ptr %416, i64 48
-  %574 = icmp ugt i64 %.pre403, 7
+  %574 = icmp samesign ugt i64 %.pre403, 7
   br i1 %574, label %.lr.ph.i.i.i.i199, label %._crit_edge.i.i.i.i196
 
 .lr.ph.i.i.i.i199:                                ; preds = %570, %.lr.ph.i.i.i.i199
@@ -1801,7 +1801,7 @@ _ZN5Eigen9DenseBaseINS_6MatrixIdLin1ELi1ELi0ELin1ELi1EEEE7setZeroEv.exit218: ; p
   %665 = getelementptr inbounds i8, ptr %652, i64 16
   %666 = load <2 x double>, ptr %665, align 16
   %667 = fmul <2 x double> %664, %666
-  %668 = icmp ugt i64 %648, 7
+  %668 = icmp samesign ugt i64 %648, 7
   br i1 %668, label %.lr.ph.i.i.i.i.i230, label %._crit_edge.i.i.i.i.i227
 
 .lr.ph.i.i.i.i.i230:                              ; preds = %662, %.lr.ph.i.i.i.i.i230
@@ -1876,7 +1876,7 @@ _ZNK5Eigen10MatrixBaseINS_6MatrixIdLin1ELi1ELi0ELin1ELi1EEEE3dotIS2_EENS_20Scala
   %709 = getelementptr inbounds i8, ptr %652, i64 16
   %710 = load <2 x double>, ptr %709, align 1
   %711 = fmul <2 x double> %708, %710
-  %712 = icmp ugt i64 %648, 7
+  %712 = icmp samesign ugt i64 %648, 7
   br i1 %712, label %.lr.ph.i.i.i.i.i249, label %._crit_edge.i.i.i.i.i246
 
 .lr.ph.i.i.i.i.i249:                              ; preds = %707, %.lr.ph.i.i.i.i.i249
@@ -2004,7 +2004,7 @@ _ZNK5Eigen10MatrixBaseINS_3MapIKNS_6MatrixIdLin1ELi1ELi0ELin1ELi1EEELi0ENS_6Stri
   %788 = load <2 x double>, ptr %787, align 16
   %789 = fmul <2 x double> %788, %788
   %invariant.gep.i.i.i.i.i263 = getelementptr inbounds i8, ptr %777, i64 48
-  %790 = icmp ugt i64 %774, 7
+  %790 = icmp samesign ugt i64 %774, 7
   br i1 %790, label %.lr.ph.i.i.i.i.i267, label %._crit_edge.i.i.i.i.i264
 
 .lr.ph.i.i.i.i.i267:                              ; preds = %786, %.lr.ph.i.i.i.i.i267
@@ -2565,7 +2565,7 @@ define linkonce_odr void @_ZN5Eigen12DenseStorageIdLin1ELin1ELi1ELi0EE6resizeEll
   br i1 %9, label %10, label %.sink.split
 
 10:                                               ; preds = %7
-  %11 = icmp ugt i64 %1, 2305843009213693951
+  %11 = icmp samesign ugt i64 %1, 2305843009213693951
   br i1 %11, label %12, label %14
 
 12:                                               ; preds = %10

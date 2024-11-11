@@ -82,7 +82,7 @@ define hidden void @_ZN4core5slice4sort10merge_sort17ha44e256eb632d9eaE(ptr noal
   br label %47
 
 26:                                               ; preds = %3
-  %27 = icmp ugt i64 %1, 1
+  %27 = icmp samesign ugt i64 %1, 1
   br i1 %27, label %.preheader.i69, label %_ZN4core5slice4sort25insertion_sort_shift_left17h422a0769200c4112E.exit
 
 28:                                               ; preds = %.body, %29
@@ -811,7 +811,7 @@ define hidden void @_ZN4core5slice4sort10merge_sort17hfa237d32bb8cc797E(ptr noal
   br label %46
 
 24:                                               ; preds = %3
-  %25 = icmp ugt i64 %1, 1
+  %25 = icmp samesign ugt i64 %1, 1
   br i1 %25, label %238, label %45
 
 26:                                               ; preds = %.body, %27

@@ -1282,7 +1282,7 @@ _ZN4llvm21SequenceToOffsetTableINSt7__cxx1112basic_stringIcSt11char_traitsIcESaI
   %214 = getelementptr inbounds i8, ptr %.0910.i.i.i.i.i.i.i.i, i64 80
   %215 = getelementptr inbounds i8, ptr %.0811.i.i.i.i.i.i.i.i, i64 80
   %216 = add nsw i64 %.012.i.i.i.i.i.i.i.i, -1
-  %217 = icmp ugt i64 %.012.i.i.i.i.i.i.i.i, 1
+  %217 = icmp samesign ugt i64 %.012.i.i.i.i.i.i.i.i, 1
   br i1 %217, label %.lr.ph.i.i.i.i.i.i.i.i, label %_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPN4llvm16AsmWriterOperandESt6vectorIS3_SaIS3_EEEES8_ET0_T_SA_S9_.exit.loopexit.i.i.i, !llvm.loop !9
 
 _ZSt4moveIN9__gnu_cxx17__normal_iteratorIPN4llvm16AsmWriterOperandESt6vectorIS3_SaIS3_EEEES8_ET0_T_SA_S9_.exit.loopexit.i.i.i: ; preds = %.lr.ph.i.i.i.i.i.i.i.i
@@ -2254,7 +2254,7 @@ _ZNSt6vectorIN4llvm16AsmWriterOperandESaIS1_EE5eraseEN9__gnu_cxx17__normal_itera
   %704 = getelementptr inbounds i8, ptr %.0910.i.i.i.i.i.i.i111.i, i64 80
   %705 = getelementptr inbounds i8, ptr %.0811.i.i.i.i.i.i.i110.i, i64 80
   %706 = add nsw i64 %.012.i.i.i.i.i.i.i109.i, -1
-  %707 = icmp ugt i64 %.012.i.i.i.i.i.i.i109.i, 1
+  %707 = icmp samesign ugt i64 %.012.i.i.i.i.i.i.i109.i, 1
   br i1 %707, label %.lr.ph.i.i.i.i.i.i.i108.i, label %_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPN4llvm16AsmWriterOperandESt6vectorIS3_SaIS3_EEEES8_ET0_T_SA_S9_.exit.loopexit.i.i112.i, !llvm.loop !9
 
 _ZSt4moveIN9__gnu_cxx17__normal_iteratorIPN4llvm16AsmWriterOperandESt6vectorIS3_SaIS3_EEEES8_ET0_T_SA_S9_.exit.loopexit.i.i112.i: ; preds = %.lr.ph.i.i.i.i.i.i.i108.i
@@ -5334,7 +5334,7 @@ _ZN4llvm11raw_ostreamlsEPKc.exit25.i.i.i:         ; preds = %2195, %2193
   %2222 = getelementptr inbounds i8, ptr %.0910.i.i.i.i.i.i.i.i36, i64 112
   %2223 = getelementptr inbounds i8, ptr %.0811.i.i.i.i.i.i.i.i35, i64 112
   %2224 = add nsw i64 %.012.i.i.i.i.i.i.i.i34, -1
-  %2225 = icmp ugt i64 %.012.i.i.i.i.i.i.i.i34, 1
+  %2225 = icmp samesign ugt i64 %.012.i.i.i.i.i.i.i.i34, 1
   br i1 %2225, label %.lr.ph.i.i.i.i.i.i140.i.i, label %_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPSt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN4llvm16AsmWriterOperandEESt6vectorISB_SaISB_EEEESG_ET0_T_SI_SH_.exit.loopexit.i.i.i, !llvm.loop !74
 
 _ZSt4moveIN9__gnu_cxx17__normal_iteratorIPSt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN4llvm16AsmWriterOperandEESt6vectorISB_SaISB_EEEESG_ET0_T_SI_SH_.exit.loopexit.i.i.i: ; preds = %.lr.ph.i.i.i.i.i.i140.i.i

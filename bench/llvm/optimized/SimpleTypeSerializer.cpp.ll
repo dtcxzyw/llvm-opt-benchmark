@@ -223,7 +223,7 @@ _ZN4llvm5ErrorD2Ev.exit.i:                        ; preds = %_ZN4llvm5ErrorD2Ev.
   %.not.i.i = icmp eq ptr %48, null
   call void @llvm.assume(i1 %.not.i.i)
   %49 = add nsw i32 %.08.i, -1
-  %50 = icmp ugt i32 %.08.i, 1
+  %50 = icmp samesign ugt i32 %.08.i, 1
   br i1 %50, label %_ZN4llvm5ErrorD2Ev.exit.i, label %_ZL10addPaddingRN4llvm18BinaryStreamWriterE.exit, !llvm.loop !7
 
 _ZL10addPaddingRN4llvm18BinaryStreamWriterE.exit: ; preds = %_ZN4llvm5ErrorD2Ev.exit.i, %_ZN4llvm5ErrorD2Ev.exit11
@@ -521,7 +521,7 @@ _ZN4llvm5ErrorD2Ev.exit.i:                        ; preds = %_ZN4llvm5ErrorD2Ev.
   %.not.i.i = icmp eq ptr %48, null
   call void @llvm.assume(i1 %.not.i.i)
   %49 = add nsw i32 %.08.i, -1
-  %50 = icmp ugt i32 %.08.i, 1
+  %50 = icmp samesign ugt i32 %.08.i, 1
   br i1 %50, label %_ZN4llvm5ErrorD2Ev.exit.i, label %_ZL10addPaddingRN4llvm18BinaryStreamWriterE.exit, !llvm.loop !7
 
 _ZL10addPaddingRN4llvm18BinaryStreamWriterE.exit: ; preds = %_ZN4llvm5ErrorD2Ev.exit.i, %_ZN4llvm5ErrorD2Ev.exit11
@@ -733,7 +733,7 @@ _ZN4llvm5ErrorD2Ev.exit.i:                        ; preds = %_ZN4llvm5ErrorD2Ev.
   %.not.i.i = icmp eq ptr %48, null
   call void @llvm.assume(i1 %.not.i.i)
   %49 = add nsw i32 %.08.i, -1
-  %50 = icmp ugt i32 %.08.i, 1
+  %50 = icmp samesign ugt i32 %.08.i, 1
   br i1 %50, label %_ZN4llvm5ErrorD2Ev.exit.i, label %_ZL10addPaddingRN4llvm18BinaryStreamWriterE.exit, !llvm.loop !7
 
 _ZL10addPaddingRN4llvm18BinaryStreamWriterE.exit: ; preds = %_ZN4llvm5ErrorD2Ev.exit.i, %_ZN4llvm5ErrorD2Ev.exit11
@@ -945,7 +945,7 @@ _ZN4llvm5ErrorD2Ev.exit.i:                        ; preds = %_ZN4llvm5ErrorD2Ev.
   %.not.i.i = icmp eq ptr %48, null
   call void @llvm.assume(i1 %.not.i.i)
   %49 = add nsw i32 %.08.i, -1
-  %50 = icmp ugt i32 %.08.i, 1
+  %50 = icmp samesign ugt i32 %.08.i, 1
   br i1 %50, label %_ZN4llvm5ErrorD2Ev.exit.i, label %_ZL10addPaddingRN4llvm18BinaryStreamWriterE.exit, !llvm.loop !7
 
 _ZL10addPaddingRN4llvm18BinaryStreamWriterE.exit: ; preds = %_ZN4llvm5ErrorD2Ev.exit.i, %_ZN4llvm5ErrorD2Ev.exit11
@@ -1157,7 +1157,7 @@ _ZN4llvm5ErrorD2Ev.exit.i:                        ; preds = %_ZN4llvm5ErrorD2Ev.
   %.not.i.i = icmp eq ptr %48, null
   call void @llvm.assume(i1 %.not.i.i)
   %49 = add nsw i32 %.08.i, -1
-  %50 = icmp ugt i32 %.08.i, 1
+  %50 = icmp samesign ugt i32 %.08.i, 1
   br i1 %50, label %_ZN4llvm5ErrorD2Ev.exit.i, label %_ZL10addPaddingRN4llvm18BinaryStreamWriterE.exit, !llvm.loop !7
 
 _ZL10addPaddingRN4llvm18BinaryStreamWriterE.exit: ; preds = %_ZN4llvm5ErrorD2Ev.exit.i, %_ZN4llvm5ErrorD2Ev.exit11
@@ -1369,7 +1369,7 @@ _ZN4llvm5ErrorD2Ev.exit.i:                        ; preds = %_ZN4llvm5ErrorD2Ev.
   %.not.i.i = icmp eq ptr %48, null
   call void @llvm.assume(i1 %.not.i.i)
   %49 = add nsw i32 %.08.i, -1
-  %50 = icmp ugt i32 %.08.i, 1
+  %50 = icmp samesign ugt i32 %.08.i, 1
   br i1 %50, label %_ZN4llvm5ErrorD2Ev.exit.i, label %_ZL10addPaddingRN4llvm18BinaryStreamWriterE.exit, !llvm.loop !7
 
 _ZL10addPaddingRN4llvm18BinaryStreamWriterE.exit: ; preds = %_ZN4llvm5ErrorD2Ev.exit.i, %_ZN4llvm5ErrorD2Ev.exit11
@@ -1581,7 +1581,7 @@ _ZN4llvm5ErrorD2Ev.exit.i:                        ; preds = %_ZN4llvm5ErrorD2Ev.
   %.not.i.i = icmp eq ptr %48, null
   call void @llvm.assume(i1 %.not.i.i)
   %49 = add nsw i32 %.08.i, -1
-  %50 = icmp ugt i32 %.08.i, 1
+  %50 = icmp samesign ugt i32 %.08.i, 1
   br i1 %50, label %_ZN4llvm5ErrorD2Ev.exit.i, label %_ZL10addPaddingRN4llvm18BinaryStreamWriterE.exit, !llvm.loop !7
 
 _ZL10addPaddingRN4llvm18BinaryStreamWriterE.exit: ; preds = %_ZN4llvm5ErrorD2Ev.exit.i, %_ZN4llvm5ErrorD2Ev.exit11
@@ -1793,7 +1793,7 @@ _ZN4llvm5ErrorD2Ev.exit.i:                        ; preds = %_ZN4llvm5ErrorD2Ev.
   %.not.i.i = icmp eq ptr %48, null
   call void @llvm.assume(i1 %.not.i.i)
   %49 = add nsw i32 %.08.i, -1
-  %50 = icmp ugt i32 %.08.i, 1
+  %50 = icmp samesign ugt i32 %.08.i, 1
   br i1 %50, label %_ZN4llvm5ErrorD2Ev.exit.i, label %_ZL10addPaddingRN4llvm18BinaryStreamWriterE.exit, !llvm.loop !7
 
 _ZL10addPaddingRN4llvm18BinaryStreamWriterE.exit: ; preds = %_ZN4llvm5ErrorD2Ev.exit.i, %_ZN4llvm5ErrorD2Ev.exit11
@@ -2005,7 +2005,7 @@ _ZN4llvm5ErrorD2Ev.exit.i:                        ; preds = %_ZN4llvm5ErrorD2Ev.
   %.not.i.i = icmp eq ptr %48, null
   call void @llvm.assume(i1 %.not.i.i)
   %49 = add nsw i32 %.08.i, -1
-  %50 = icmp ugt i32 %.08.i, 1
+  %50 = icmp samesign ugt i32 %.08.i, 1
   br i1 %50, label %_ZN4llvm5ErrorD2Ev.exit.i, label %_ZL10addPaddingRN4llvm18BinaryStreamWriterE.exit, !llvm.loop !7
 
 _ZL10addPaddingRN4llvm18BinaryStreamWriterE.exit: ; preds = %_ZN4llvm5ErrorD2Ev.exit.i, %_ZN4llvm5ErrorD2Ev.exit11
@@ -2217,7 +2217,7 @@ _ZN4llvm5ErrorD2Ev.exit.i:                        ; preds = %_ZN4llvm5ErrorD2Ev.
   %.not.i.i = icmp eq ptr %48, null
   call void @llvm.assume(i1 %.not.i.i)
   %49 = add nsw i32 %.08.i, -1
-  %50 = icmp ugt i32 %.08.i, 1
+  %50 = icmp samesign ugt i32 %.08.i, 1
   br i1 %50, label %_ZN4llvm5ErrorD2Ev.exit.i, label %_ZL10addPaddingRN4llvm18BinaryStreamWriterE.exit, !llvm.loop !7
 
 _ZL10addPaddingRN4llvm18BinaryStreamWriterE.exit: ; preds = %_ZN4llvm5ErrorD2Ev.exit.i, %_ZN4llvm5ErrorD2Ev.exit11
@@ -2429,7 +2429,7 @@ _ZN4llvm5ErrorD2Ev.exit.i:                        ; preds = %_ZN4llvm5ErrorD2Ev.
   %.not.i.i = icmp eq ptr %48, null
   call void @llvm.assume(i1 %.not.i.i)
   %49 = add nsw i32 %.08.i, -1
-  %50 = icmp ugt i32 %.08.i, 1
+  %50 = icmp samesign ugt i32 %.08.i, 1
   br i1 %50, label %_ZN4llvm5ErrorD2Ev.exit.i, label %_ZL10addPaddingRN4llvm18BinaryStreamWriterE.exit, !llvm.loop !7
 
 _ZL10addPaddingRN4llvm18BinaryStreamWriterE.exit: ; preds = %_ZN4llvm5ErrorD2Ev.exit.i, %_ZN4llvm5ErrorD2Ev.exit11
@@ -2641,7 +2641,7 @@ _ZN4llvm5ErrorD2Ev.exit.i:                        ; preds = %_ZN4llvm5ErrorD2Ev.
   %.not.i.i = icmp eq ptr %48, null
   call void @llvm.assume(i1 %.not.i.i)
   %49 = add nsw i32 %.08.i, -1
-  %50 = icmp ugt i32 %.08.i, 1
+  %50 = icmp samesign ugt i32 %.08.i, 1
   br i1 %50, label %_ZN4llvm5ErrorD2Ev.exit.i, label %_ZL10addPaddingRN4llvm18BinaryStreamWriterE.exit, !llvm.loop !7
 
 _ZL10addPaddingRN4llvm18BinaryStreamWriterE.exit: ; preds = %_ZN4llvm5ErrorD2Ev.exit.i, %_ZN4llvm5ErrorD2Ev.exit11
@@ -2853,7 +2853,7 @@ _ZN4llvm5ErrorD2Ev.exit.i:                        ; preds = %_ZN4llvm5ErrorD2Ev.
   %.not.i.i = icmp eq ptr %48, null
   call void @llvm.assume(i1 %.not.i.i)
   %49 = add nsw i32 %.08.i, -1
-  %50 = icmp ugt i32 %.08.i, 1
+  %50 = icmp samesign ugt i32 %.08.i, 1
   br i1 %50, label %_ZN4llvm5ErrorD2Ev.exit.i, label %_ZL10addPaddingRN4llvm18BinaryStreamWriterE.exit, !llvm.loop !7
 
 _ZL10addPaddingRN4llvm18BinaryStreamWriterE.exit: ; preds = %_ZN4llvm5ErrorD2Ev.exit.i, %_ZN4llvm5ErrorD2Ev.exit11
@@ -3065,7 +3065,7 @@ _ZN4llvm5ErrorD2Ev.exit.i:                        ; preds = %_ZN4llvm5ErrorD2Ev.
   %.not.i.i = icmp eq ptr %48, null
   call void @llvm.assume(i1 %.not.i.i)
   %49 = add nsw i32 %.08.i, -1
-  %50 = icmp ugt i32 %.08.i, 1
+  %50 = icmp samesign ugt i32 %.08.i, 1
   br i1 %50, label %_ZN4llvm5ErrorD2Ev.exit.i, label %_ZL10addPaddingRN4llvm18BinaryStreamWriterE.exit, !llvm.loop !7
 
 _ZL10addPaddingRN4llvm18BinaryStreamWriterE.exit: ; preds = %_ZN4llvm5ErrorD2Ev.exit.i, %_ZN4llvm5ErrorD2Ev.exit11
@@ -3277,7 +3277,7 @@ _ZN4llvm5ErrorD2Ev.exit.i:                        ; preds = %_ZN4llvm5ErrorD2Ev.
   %.not.i.i = icmp eq ptr %48, null
   call void @llvm.assume(i1 %.not.i.i)
   %49 = add nsw i32 %.08.i, -1
-  %50 = icmp ugt i32 %.08.i, 1
+  %50 = icmp samesign ugt i32 %.08.i, 1
   br i1 %50, label %_ZN4llvm5ErrorD2Ev.exit.i, label %_ZL10addPaddingRN4llvm18BinaryStreamWriterE.exit, !llvm.loop !7
 
 _ZL10addPaddingRN4llvm18BinaryStreamWriterE.exit: ; preds = %_ZN4llvm5ErrorD2Ev.exit.i, %_ZN4llvm5ErrorD2Ev.exit11
@@ -3489,7 +3489,7 @@ _ZN4llvm5ErrorD2Ev.exit.i:                        ; preds = %_ZN4llvm5ErrorD2Ev.
   %.not.i.i = icmp eq ptr %48, null
   call void @llvm.assume(i1 %.not.i.i)
   %49 = add nsw i32 %.08.i, -1
-  %50 = icmp ugt i32 %.08.i, 1
+  %50 = icmp samesign ugt i32 %.08.i, 1
   br i1 %50, label %_ZN4llvm5ErrorD2Ev.exit.i, label %_ZL10addPaddingRN4llvm18BinaryStreamWriterE.exit, !llvm.loop !7
 
 _ZL10addPaddingRN4llvm18BinaryStreamWriterE.exit: ; preds = %_ZN4llvm5ErrorD2Ev.exit.i, %_ZN4llvm5ErrorD2Ev.exit11
@@ -3701,7 +3701,7 @@ _ZN4llvm5ErrorD2Ev.exit.i:                        ; preds = %_ZN4llvm5ErrorD2Ev.
   %.not.i.i = icmp eq ptr %48, null
   call void @llvm.assume(i1 %.not.i.i)
   %49 = add nsw i32 %.08.i, -1
-  %50 = icmp ugt i32 %.08.i, 1
+  %50 = icmp samesign ugt i32 %.08.i, 1
   br i1 %50, label %_ZN4llvm5ErrorD2Ev.exit.i, label %_ZL10addPaddingRN4llvm18BinaryStreamWriterE.exit, !llvm.loop !7
 
 _ZL10addPaddingRN4llvm18BinaryStreamWriterE.exit: ; preds = %_ZN4llvm5ErrorD2Ev.exit.i, %_ZN4llvm5ErrorD2Ev.exit11
@@ -3913,7 +3913,7 @@ _ZN4llvm5ErrorD2Ev.exit.i:                        ; preds = %_ZN4llvm5ErrorD2Ev.
   %.not.i.i = icmp eq ptr %48, null
   call void @llvm.assume(i1 %.not.i.i)
   %49 = add nsw i32 %.08.i, -1
-  %50 = icmp ugt i32 %.08.i, 1
+  %50 = icmp samesign ugt i32 %.08.i, 1
   br i1 %50, label %_ZN4llvm5ErrorD2Ev.exit.i, label %_ZL10addPaddingRN4llvm18BinaryStreamWriterE.exit, !llvm.loop !7
 
 _ZL10addPaddingRN4llvm18BinaryStreamWriterE.exit: ; preds = %_ZN4llvm5ErrorD2Ev.exit.i, %_ZN4llvm5ErrorD2Ev.exit11
@@ -4125,7 +4125,7 @@ _ZN4llvm5ErrorD2Ev.exit.i:                        ; preds = %_ZN4llvm5ErrorD2Ev.
   %.not.i.i = icmp eq ptr %48, null
   call void @llvm.assume(i1 %.not.i.i)
   %49 = add nsw i32 %.08.i, -1
-  %50 = icmp ugt i32 %.08.i, 1
+  %50 = icmp samesign ugt i32 %.08.i, 1
   br i1 %50, label %_ZN4llvm5ErrorD2Ev.exit.i, label %_ZL10addPaddingRN4llvm18BinaryStreamWriterE.exit, !llvm.loop !7
 
 _ZL10addPaddingRN4llvm18BinaryStreamWriterE.exit: ; preds = %_ZN4llvm5ErrorD2Ev.exit.i, %_ZN4llvm5ErrorD2Ev.exit11
@@ -4337,7 +4337,7 @@ _ZN4llvm5ErrorD2Ev.exit.i:                        ; preds = %_ZN4llvm5ErrorD2Ev.
   %.not.i.i = icmp eq ptr %48, null
   call void @llvm.assume(i1 %.not.i.i)
   %49 = add nsw i32 %.08.i, -1
-  %50 = icmp ugt i32 %.08.i, 1
+  %50 = icmp samesign ugt i32 %.08.i, 1
   br i1 %50, label %_ZN4llvm5ErrorD2Ev.exit.i, label %_ZL10addPaddingRN4llvm18BinaryStreamWriterE.exit, !llvm.loop !7
 
 _ZL10addPaddingRN4llvm18BinaryStreamWriterE.exit: ; preds = %_ZN4llvm5ErrorD2Ev.exit.i, %_ZN4llvm5ErrorD2Ev.exit11
@@ -4549,7 +4549,7 @@ _ZN4llvm5ErrorD2Ev.exit.i:                        ; preds = %_ZN4llvm5ErrorD2Ev.
   %.not.i.i = icmp eq ptr %48, null
   call void @llvm.assume(i1 %.not.i.i)
   %49 = add nsw i32 %.08.i, -1
-  %50 = icmp ugt i32 %.08.i, 1
+  %50 = icmp samesign ugt i32 %.08.i, 1
   br i1 %50, label %_ZN4llvm5ErrorD2Ev.exit.i, label %_ZL10addPaddingRN4llvm18BinaryStreamWriterE.exit, !llvm.loop !7
 
 _ZL10addPaddingRN4llvm18BinaryStreamWriterE.exit: ; preds = %_ZN4llvm5ErrorD2Ev.exit.i, %_ZN4llvm5ErrorD2Ev.exit11
@@ -4761,7 +4761,7 @@ _ZN4llvm5ErrorD2Ev.exit.i:                        ; preds = %_ZN4llvm5ErrorD2Ev.
   %.not.i.i = icmp eq ptr %48, null
   call void @llvm.assume(i1 %.not.i.i)
   %49 = add nsw i32 %.08.i, -1
-  %50 = icmp ugt i32 %.08.i, 1
+  %50 = icmp samesign ugt i32 %.08.i, 1
   br i1 %50, label %_ZN4llvm5ErrorD2Ev.exit.i, label %_ZL10addPaddingRN4llvm18BinaryStreamWriterE.exit, !llvm.loop !7
 
 _ZL10addPaddingRN4llvm18BinaryStreamWriterE.exit: ; preds = %_ZN4llvm5ErrorD2Ev.exit.i, %_ZN4llvm5ErrorD2Ev.exit11
@@ -4973,7 +4973,7 @@ _ZN4llvm5ErrorD2Ev.exit.i:                        ; preds = %_ZN4llvm5ErrorD2Ev.
   %.not.i.i = icmp eq ptr %48, null
   call void @llvm.assume(i1 %.not.i.i)
   %49 = add nsw i32 %.08.i, -1
-  %50 = icmp ugt i32 %.08.i, 1
+  %50 = icmp samesign ugt i32 %.08.i, 1
   br i1 %50, label %_ZN4llvm5ErrorD2Ev.exit.i, label %_ZL10addPaddingRN4llvm18BinaryStreamWriterE.exit, !llvm.loop !7
 
 _ZL10addPaddingRN4llvm18BinaryStreamWriterE.exit: ; preds = %_ZN4llvm5ErrorD2Ev.exit.i, %_ZN4llvm5ErrorD2Ev.exit11
@@ -5185,7 +5185,7 @@ _ZN4llvm5ErrorD2Ev.exit.i:                        ; preds = %_ZN4llvm5ErrorD2Ev.
   %.not.i.i = icmp eq ptr %48, null
   call void @llvm.assume(i1 %.not.i.i)
   %49 = add nsw i32 %.08.i, -1
-  %50 = icmp ugt i32 %.08.i, 1
+  %50 = icmp samesign ugt i32 %.08.i, 1
   br i1 %50, label %_ZN4llvm5ErrorD2Ev.exit.i, label %_ZL10addPaddingRN4llvm18BinaryStreamWriterE.exit, !llvm.loop !7
 
 _ZL10addPaddingRN4llvm18BinaryStreamWriterE.exit: ; preds = %_ZN4llvm5ErrorD2Ev.exit.i, %_ZN4llvm5ErrorD2Ev.exit11
@@ -5397,7 +5397,7 @@ _ZN4llvm5ErrorD2Ev.exit.i:                        ; preds = %_ZN4llvm5ErrorD2Ev.
   %.not.i.i = icmp eq ptr %48, null
   call void @llvm.assume(i1 %.not.i.i)
   %49 = add nsw i32 %.08.i, -1
-  %50 = icmp ugt i32 %.08.i, 1
+  %50 = icmp samesign ugt i32 %.08.i, 1
   br i1 %50, label %_ZN4llvm5ErrorD2Ev.exit.i, label %_ZL10addPaddingRN4llvm18BinaryStreamWriterE.exit, !llvm.loop !7
 
 _ZL10addPaddingRN4llvm18BinaryStreamWriterE.exit: ; preds = %_ZN4llvm5ErrorD2Ev.exit.i, %_ZN4llvm5ErrorD2Ev.exit11

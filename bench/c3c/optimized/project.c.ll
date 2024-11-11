@@ -1286,7 +1286,7 @@ get_valid_integer.exit:                           ; preds = %254
   br i1 %261, label %262, label %get_valid_integer.exit.thread
 
 262:                                              ; preds = %get_valid_integer.exit
-  %263 = icmp ult i64 %260, 1024
+  %263 = icmp samesign ult i64 %260, 1024
   br i1 %263, label %264, label %265
 
 264:                                              ; preds = %262
@@ -1294,7 +1294,7 @@ get_valid_integer.exit:                           ; preds = %254
   unreachable
 
 265:                                              ; preds = %262
-  %266 = icmp ugt i64 %260, 1048576
+  %266 = icmp samesign ugt i64 %260, 1048576
   br i1 %266, label %267, label %268
 
 267:                                              ; preds = %265

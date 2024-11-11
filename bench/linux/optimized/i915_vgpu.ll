@@ -359,7 +359,7 @@ define dso_local i32 @intel_vgt_balloon(ptr noundef %0) local_unnamed_addr #0 al
   br label %89
 
 50:                                               ; preds = %34
-  %51 = icmp ult i64 %38, %20
+  %51 = icmp samesign ult i64 %38, %20
   br i1 %51, label %52, label %55
 
 52:                                               ; preds = %50

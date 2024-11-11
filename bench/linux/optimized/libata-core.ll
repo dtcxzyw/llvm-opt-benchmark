@@ -4807,7 +4807,7 @@ define dso_local void @ata_std_postreset(ptr noundef %0, ptr nocapture readnone 
 
 48:                                               ; preds = %42
   %49 = add nsw i32 %33, -1
-  %50 = icmp ugt i32 %49, 2
+  %50 = icmp samesign ugt i32 %49, 2
   br i1 %50, label %55, label %51
 
 51:                                               ; preds = %48
@@ -4830,7 +4830,7 @@ define dso_local void @ata_std_postreset(ptr noundef %0, ptr nocapture readnone 
 
 63:                                               ; preds = %59
   %64 = add nsw i32 %33, -1
-  %65 = icmp ugt i32 %64, 2
+  %65 = icmp samesign ugt i32 %64, 2
   br i1 %65, label %70, label %66
 
 66:                                               ; preds = %63
@@ -5140,7 +5140,7 @@ default.unreachable:                              ; preds = %30, %8
 
 56:                                               ; preds = %52, %48, %26, %9
   %57 = phi ptr [ %53, %52 ], [ %33, %48 ], [ %29, %26 ], [ %10, %9 ]
-  %58 = icmp ult i32 %2, 2
+  %58 = icmp samesign ult i32 %2, 2
   br i1 %58, label %59, label %.critedge
 
 59:                                               ; preds = %56
@@ -13326,7 +13326,7 @@ define dso_local range(i32 -2147483648, 1) i32 @ata_wait_ready(ptr noundef %0, i
 99:                                               ; preds = %97
   %100 = sub i64 %26, %32
   %101 = icmp slt i64 %100, 0
-  %102 = icmp ugt i64 %95, 3000
+  %102 = icmp samesign ugt i64 %95, 3000
   %103 = and i1 %101, %102
   br i1 %103, label %104, label %122
 

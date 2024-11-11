@@ -12816,7 +12816,7 @@ _ZL13normalizeNameRN4llvm9StringRefE.exit:        ; preds = %5, %_ZNK4llvm9Strin
   %39 = getelementptr inbounds nuw i8, ptr %11, i64 8
   store i32 64, ptr %39, align 8
   store i64 0, ptr %11, align 8
-  %40 = icmp ugt i64 %.sroa.8.0, 3
+  %40 = icmp samesign ugt i64 %.sroa.8.0, 3
   br i1 %40, label %41, label %_ZN4llvm5APIntaSEm.exit.thread.thread
 
 41:                                               ; preds = %_ZL13normalizeNameRN4llvm9StringRefE.exit

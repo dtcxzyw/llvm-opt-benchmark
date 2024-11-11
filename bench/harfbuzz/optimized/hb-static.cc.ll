@@ -4047,7 +4047,7 @@ for.body.preheader.i:                             ; preds = %for.cond.preheader.
   br label %if.end45.i
 
 if.else.i:                                        ; preds = %if.end5.i
-  %tobool10.not.i = icmp ult i8 %55, 64
+  %tobool10.not.i = icmp samesign ult i8 %55, 64
   br i1 %tobool10.not.i, label %if.else27.i, label %if.then11.i
 
 if.then11.i:                                      ; preds = %if.else.i
@@ -4198,7 +4198,7 @@ for.body.preheader.i300:                          ; preds = %for.cond.preheader.
   br label %if.end45.i296
 
 if.else.i307:                                     ; preds = %if.end5.i292
-  %tobool10.not.i308 = icmp ult i8 %72, 64
+  %tobool10.not.i308 = icmp samesign ult i8 %72, 64
   br i1 %tobool10.not.i308, label %if.else27.i330, label %if.then11.i309
 
 if.then11.i309:                                   ; preds = %if.else.i307
@@ -6211,7 +6211,7 @@ if.end9:                                          ; preds = %if.end5, %if.end
   br i1 %cmp.i.i.i, label %return, label %if.end.i.i
 
 if.end.i.i:                                       ; preds = %if.end9
-  %cmp9.not.i.i = icmp ugt i32 %count.0, %3
+  %cmp9.not.i.i = icmp samesign ugt i32 %count.0, %3
   br i1 %cmp9.not.i.i, label %while.body.i.i, label %_ZN11hb_vector_tIjLb0EE6resizeEibb.exit
 
 while.body.i.i:                                   ; preds = %if.end.i.i, %while.body.i.i
@@ -7789,7 +7789,7 @@ cond.end:                                         ; preds = %if.then.i18, %cond.
   br i1 %cmp.i.i.i, label %for.end52, label %if.end.i.i
 
 if.end.i.i:                                       ; preds = %cond.end
-  %cmp9.not.i.i = icmp ugt i32 %add.i.i, %24
+  %cmp9.not.i.i = icmp samesign ugt i32 %add.i.i, %24
   br i1 %cmp9.not.i.i, label %while.body.i.i, label %if.end
 
 while.body.i.i:                                   ; preds = %if.end.i.i, %while.body.i.i

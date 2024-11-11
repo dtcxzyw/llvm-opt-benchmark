@@ -2743,7 +2743,7 @@ _ZN4Luau3getINS_16IntersectionTypeEEEPKT_PKNS_4TypeE.exit21: ; preds = %70
   unreachable
 
 87:                                               ; preds = %79
-  %88 = icmp ugt i64 %83, 1152921504606846975
+  %88 = icmp samesign ugt i64 %83, 1152921504606846975
   br i1 %88, label %89, label %_ZNSt15__new_allocatorIPKN4Luau4TypeEE8allocateEmPKv.exit.i
 
 89:                                               ; preds = %87
@@ -17184,7 +17184,7 @@ define linkonce_odr dso_local void @_ZN4Luau8VecDequeIPKNS_4TypeESaIS3_EE4growEv
   unreachable
 
 11:                                               ; preds = %1
-  %12 = icmp ugt i64 %7, 1152921504606846975
+  %12 = icmp samesign ugt i64 %7, 1152921504606846975
   br i1 %12, label %13, label %_ZNSt15__new_allocatorIPKN4Luau4TypeEE8allocateEmPKv.exit
 
 13:                                               ; preds = %11
@@ -19324,7 +19324,7 @@ define linkonce_odr dso_local void @_ZN4Luau8VecDequeISt4pairIPKNS_9UnionTypeEmE
   unreachable
 
 11:                                               ; preds = %1
-  %12 = icmp ugt i64 %7, 576460752303423487
+  %12 = icmp samesign ugt i64 %7, 576460752303423487
   br i1 %12, label %13, label %_ZNSt15__new_allocatorISt4pairIPKN4Luau9UnionTypeEmEE8allocateEmPKv.exit
 
 13:                                               ; preds = %11
@@ -19770,7 +19770,7 @@ define linkonce_odr dso_local void @_ZN4Luau8VecDequeISt4pairIPKNS_16Intersectio
   unreachable
 
 11:                                               ; preds = %1
-  %12 = icmp ugt i64 %7, 576460752303423487
+  %12 = icmp samesign ugt i64 %7, 576460752303423487
   br i1 %12, label %13, label %_ZNSt15__new_allocatorISt4pairIPKN4Luau16IntersectionTypeEmEE8allocateEmPKv.exit
 
 13:                                               ; preds = %11

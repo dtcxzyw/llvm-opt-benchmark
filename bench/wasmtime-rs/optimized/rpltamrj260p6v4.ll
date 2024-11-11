@@ -2518,7 +2518,7 @@ default.unreachable:                              ; preds = %5
   br i1 %21, label %_ZN17cranelift_codegen2ir5types4Type5bytes17h2a049200537afc31E.exit.thread, label %22
 
 22:                                               ; preds = %20
-  %23 = icmp ult i16 %1, 128
+  %23 = icmp samesign ult i16 %1, 128
   %24 = and i16 %1, 15
   %25 = or disjoint i16 %24, 112
   %.0.i.i.i.i = select i1 %23, i16 %1, i16 %25
@@ -2744,7 +2744,7 @@ default.unreachable:                              ; preds = %5
   br i1 %26, label %_ZN17cranelift_codegen2ir5types4Type5bytes17h2a049200537afc31E.exit.thread, label %27
 
 27:                                               ; preds = %25
-  %28 = icmp ult i16 %1, 128
+  %28 = icmp samesign ult i16 %1, 128
   %29 = and i16 %1, 15
   %30 = or disjoint i16 %29, 112
   %.0.i.i.i.i = select i1 %28, i16 %1, i16 %30
@@ -6844,7 +6844,7 @@ define internal fastcc i64 @_ZN17cranelift_codegen3isa3x645lower4isle14generated
   br i1 %25, label %26, label %"_ZN17cranelift_codegen3isa3x645lower4isle255_$LT$impl$u20$cranelift_codegen..isa..x64..lower..isle..generated_code..Context$u20$for$u20$cranelift_codegen..machinst..isle..IsleContext$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..MInst$C$cranelift_codegen..isa..x64..X64Backend$GT$$GT$10fits_in_1617h1be43d6933153e3bE.exit.thread"
 
 26:                                               ; preds = %24
-  %27 = icmp ult i16 %1, 128
+  %27 = icmp samesign ult i16 %1, 128
   %28 = and i16 %1, 15
   %29 = or disjoint i16 %28, 112
   %.0.i.i.i.i = select i1 %27, i16 %1, i16 %29
@@ -8295,7 +8295,7 @@ default.unreachable:                              ; preds = %14
   br i1 %18, label %"_ZN17cranelift_codegen3isa3x645lower4isle255_$LT$impl$u20$cranelift_codegen..isa..x64..lower..isle..generated_code..Context$u20$for$u20$cranelift_codegen..machinst..isle..IsleContext$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..MInst$C$cranelift_codegen..isa..x64..X64Backend$GT$$GT$26operand_size_of_type_32_6417h43f1ca3c7f36b411E.exit", label %19
 
 19:                                               ; preds = %"_ZN17cranelift_codegen3isa3x645lower4isle255_$LT$impl$u20$cranelift_codegen..isa..x64..lower..isle..generated_code..Context$u20$for$u20$cranelift_codegen..machinst..isle..IsleContext$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..MInst$C$cranelift_codegen..isa..x64..X64Backend$GT$$GT$17temp_writable_gpr17h28c426f58c0012f7E.exit"
-  %20 = icmp ult i16 %0, 128
+  %20 = icmp samesign ult i16 %0, 128
   %21 = and i16 %0, 15
   %22 = or disjoint i16 %21, 112
   %.0.i.i.i.i = select i1 %20, i16 %0, i16 %22
@@ -8501,7 +8501,7 @@ default.unreachable:                              ; preds = %14
   br i1 %18, label %"_ZN17cranelift_codegen3isa3x645lower4isle255_$LT$impl$u20$cranelift_codegen..isa..x64..lower..isle..generated_code..Context$u20$for$u20$cranelift_codegen..machinst..isle..IsleContext$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..MInst$C$cranelift_codegen..isa..x64..X64Backend$GT$$GT$26operand_size_of_type_32_6417h43f1ca3c7f36b411E.exit", label %19
 
 19:                                               ; preds = %"_ZN17cranelift_codegen3isa3x645lower4isle255_$LT$impl$u20$cranelift_codegen..isa..x64..lower..isle..generated_code..Context$u20$for$u20$cranelift_codegen..machinst..isle..IsleContext$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..MInst$C$cranelift_codegen..isa..x64..X64Backend$GT$$GT$17temp_writable_gpr17h28c426f58c0012f7E.exit"
-  %20 = icmp ult i16 %0, 128
+  %20 = icmp samesign ult i16 %0, 128
   %21 = and i16 %0, 15
   %22 = or disjoint i16 %21, 112
   %.0.i.i.i.i = select i1 %20, i16 %0, i16 %22
@@ -14167,7 +14167,7 @@ _ZN17cranelift_codegen3isa3x645lower4isle14generated_code33constructor_value32_z
   br i1 %89, label %_ZN17cranelift_codegen3isa3x645lower4isle14generated_code29constructor_operand_size_bits17hc8e5f6d57b311ad3E.exit, label %.thread
 
 .thread:                                          ; preds = %"_ZN17cranelift_codegen3isa3x645lower4isle255_$LT$impl$u20$cranelift_codegen..isa..x64..lower..isle..generated_code..Context$u20$for$u20$cranelift_codegen..machinst..isle..IsleContext$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..MInst$C$cranelift_codegen..isa..x64..X64Backend$GT$$GT$9inst_data17hefe2b43fa409b04cE.exit.i", %53, %54, %38, %36, %88
-  %90 = icmp ult i16 %2, 128
+  %90 = icmp samesign ult i16 %2, 128
   %91 = and i16 %2, 15
   %92 = or disjoint i16 %91, 112
   %.0.i.i.i.i = select i1 %90, i16 %2, i16 %92
@@ -14558,7 +14558,7 @@ define internal fastcc noundef i32 @_ZN17cranelift_codegen3isa3x645lower4isle14g
   br i1 %8, label %9, label %"_ZN17cranelift_codegen3isa3x645lower4isle255_$LT$impl$u20$cranelift_codegen..isa..x64..lower..isle..generated_code..Context$u20$for$u20$cranelift_codegen..machinst..isle..IsleContext$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..MInst$C$cranelift_codegen..isa..x64..X64Backend$GT$$GT$10fits_in_3217ha778144ddb81d2f2E.exit.thread5"
 
 9:                                                ; preds = %7
-  %10 = icmp ult i16 %0, 128
+  %10 = icmp samesign ult i16 %0, 128
   %11 = and i16 %0, 15
   %12 = or disjoint i16 %11, 112
   %.0.i.i.i.i = select i1 %10, i16 %0, i16 %12
@@ -18175,7 +18175,7 @@ default.unreachable:                              ; preds = %13
   br i1 %17, label %"_ZN17cranelift_codegen3isa3x645lower4isle255_$LT$impl$u20$cranelift_codegen..isa..x64..lower..isle..generated_code..Context$u20$for$u20$cranelift_codegen..machinst..isle..IsleContext$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..MInst$C$cranelift_codegen..isa..x64..X64Backend$GT$$GT$26operand_size_of_type_32_6417h43f1ca3c7f36b411E.exit", label %18
 
 18:                                               ; preds = %"_ZN17cranelift_codegen3isa3x645lower4isle255_$LT$impl$u20$cranelift_codegen..isa..x64..lower..isle..generated_code..Context$u20$for$u20$cranelift_codegen..machinst..isle..IsleContext$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..MInst$C$cranelift_codegen..isa..x64..X64Backend$GT$$GT$17temp_writable_gpr17h28c426f58c0012f7E.exit"
-  %19 = icmp ult i16 %1, 128
+  %19 = icmp samesign ult i16 %1, 128
   %20 = and i16 %1, 15
   %21 = or disjoint i16 %20, 112
   %.0.i.i.i.i = select i1 %19, i16 %1, i16 %21
@@ -18323,7 +18323,7 @@ define internal fastcc void @_ZN17cranelift_codegen3isa3x645lower4isle14generate
   br i1 %10, label %11, label %"_ZN17cranelift_codegen3isa3x645lower4isle255_$LT$impl$u20$cranelift_codegen..isa..x64..lower..isle..generated_code..Context$u20$for$u20$cranelift_codegen..machinst..isle..IsleContext$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..MInst$C$cranelift_codegen..isa..x64..X64Backend$GT$$GT$10fits_in_6417heb9c87f74d574defE.exit.thread"
 
 11:                                               ; preds = %4
-  %12 = icmp ult i16 %1, 128
+  %12 = icmp samesign ult i16 %1, 128
   %13 = and i16 %1, 15
   %14 = or disjoint i16 %13, 112
   %.0.i.i.i.i = select i1 %12, i16 %1, i16 %14
@@ -19044,7 +19044,7 @@ default.unreachable:                              ; preds = %13
   br i1 %17, label %"_ZN17cranelift_codegen3isa3x645lower4isle255_$LT$impl$u20$cranelift_codegen..isa..x64..lower..isle..generated_code..Context$u20$for$u20$cranelift_codegen..machinst..isle..IsleContext$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..MInst$C$cranelift_codegen..isa..x64..X64Backend$GT$$GT$26operand_size_of_type_32_6417h43f1ca3c7f36b411E.exit", label %18
 
 18:                                               ; preds = %"_ZN17cranelift_codegen3isa3x645lower4isle255_$LT$impl$u20$cranelift_codegen..isa..x64..lower..isle..generated_code..Context$u20$for$u20$cranelift_codegen..machinst..isle..IsleContext$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..MInst$C$cranelift_codegen..isa..x64..X64Backend$GT$$GT$17temp_writable_gpr17h28c426f58c0012f7E.exit"
-  %19 = icmp ult i16 %1, 128
+  %19 = icmp samesign ult i16 %1, 128
   %20 = and i16 %1, 15
   %21 = or disjoint i16 %20, 112
   %.0.i.i.i.i = select i1 %19, i16 %1, i16 %21
@@ -20449,7 +20449,7 @@ define internal fastcc noundef i32 @_ZN17cranelift_codegen3isa3x645lower4isle14g
   br i1 %18, label %.thread, label %"_ZN17cranelift_codegen3isa3x645lower4isle255_$LT$impl$u20$cranelift_codegen..isa..x64..lower..isle..generated_code..Context$u20$for$u20$cranelift_codegen..machinst..isle..IsleContext$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..MInst$C$cranelift_codegen..isa..x64..X64Backend$GT$$GT$10fits_in_6417heb9c87f74d574defE.exit.thread54"
 
 .thread:                                          ; preds = %29, %17
-  %19 = icmp ult i16 %1, 128
+  %19 = icmp samesign ult i16 %1, 128
   %20 = and i16 %1, 15
   %21 = or disjoint i16 %20, 112
   %.0.i.i.i.i = select i1 %19, i16 %1, i16 %21
@@ -21042,7 +21042,7 @@ define internal fastcc noundef i32 @_ZN17cranelift_codegen3isa3x645lower4isle14g
   br i1 %6, label %"_ZN17cranelift_codegen3isa3x645lower4isle255_$LT$impl$u20$cranelift_codegen..isa..x64..lower..isle..generated_code..Context$u20$for$u20$cranelift_codegen..machinst..isle..IsleContext$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..MInst$C$cranelift_codegen..isa..x64..X64Backend$GT$$GT$11ty_32_or_6417h1decfc9c7a353fc4E.exit.thread2", label %7
 
 7:                                                ; preds = %3
-  %8 = icmp ult i16 %0, 128
+  %8 = icmp samesign ult i16 %0, 128
   %9 = and i16 %0, 15
   %10 = or disjoint i16 %9, 112
   %.0.i.i.i.i = select i1 %8, i16 %0, i16 %10
@@ -21151,7 +21151,7 @@ define internal fastcc noundef i32 @_ZN17cranelift_codegen3isa3x645lower4isle14g
   br i1 %5, label %"_ZN17cranelift_codegen3isa3x645lower4isle255_$LT$impl$u20$cranelift_codegen..isa..x64..lower..isle..generated_code..Context$u20$for$u20$cranelift_codegen..machinst..isle..IsleContext$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..MInst$C$cranelift_codegen..isa..x64..X64Backend$GT$$GT$11ty_32_or_6417h1decfc9c7a353fc4E.exit.thread2", label %6
 
 6:                                                ; preds = %3
-  %7 = icmp ult i16 %0, 128
+  %7 = icmp samesign ult i16 %0, 128
   %8 = and i16 %0, 15
   %9 = or disjoint i16 %8, 112
   %.0.i.i.i.i = select i1 %7, i16 %0, i16 %9
@@ -21235,7 +21235,7 @@ define internal fastcc noundef i32 @_ZN17cranelift_codegen3isa3x645lower4isle14g
   br i1 %5, label %"_ZN17cranelift_codegen3isa3x645lower4isle255_$LT$impl$u20$cranelift_codegen..isa..x64..lower..isle..generated_code..Context$u20$for$u20$cranelift_codegen..machinst..isle..IsleContext$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..MInst$C$cranelift_codegen..isa..x64..X64Backend$GT$$GT$11ty_32_or_6417h1decfc9c7a353fc4E.exit.thread2", label %6
 
 6:                                                ; preds = %3
-  %7 = icmp ult i16 %0, 128
+  %7 = icmp samesign ult i16 %0, 128
   %8 = and i16 %0, 15
   %9 = or disjoint i16 %8, 112
   %.0.i.i.i.i = select i1 %7, i16 %0, i16 %9
@@ -21342,7 +21342,7 @@ define internal fastcc noundef i32 @_ZN17cranelift_codegen3isa3x645lower4isle14g
   br i1 %5, label %"_ZN17cranelift_codegen3isa3x645lower4isle255_$LT$impl$u20$cranelift_codegen..isa..x64..lower..isle..generated_code..Context$u20$for$u20$cranelift_codegen..machinst..isle..IsleContext$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..MInst$C$cranelift_codegen..isa..x64..X64Backend$GT$$GT$11ty_32_or_6417h1decfc9c7a353fc4E.exit.thread2", label %6
 
 6:                                                ; preds = %3
-  %7 = icmp ult i16 %0, 128
+  %7 = icmp samesign ult i16 %0, 128
   %8 = and i16 %0, 15
   %9 = or disjoint i16 %8, 112
   %.0.i.i.i.i = select i1 %7, i16 %0, i16 %9
@@ -21449,7 +21449,7 @@ define internal fastcc noundef i32 @_ZN17cranelift_codegen3isa3x645lower4isle14g
   br i1 %5, label %"_ZN17cranelift_codegen3isa3x645lower4isle255_$LT$impl$u20$cranelift_codegen..isa..x64..lower..isle..generated_code..Context$u20$for$u20$cranelift_codegen..machinst..isle..IsleContext$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..MInst$C$cranelift_codegen..isa..x64..X64Backend$GT$$GT$11ty_32_or_6417h1decfc9c7a353fc4E.exit.thread2", label %6
 
 6:                                                ; preds = %3
-  %7 = icmp ult i16 %0, 128
+  %7 = icmp samesign ult i16 %0, 128
   %8 = and i16 %0, 15
   %9 = or disjoint i16 %8, 112
   %.0.i.i.i.i = select i1 %7, i16 %0, i16 %9
@@ -22773,7 +22773,7 @@ default.unreachable:                              ; preds = %13
   br i1 %17, label %"_ZN17cranelift_codegen3isa3x645lower4isle255_$LT$impl$u20$cranelift_codegen..isa..x64..lower..isle..generated_code..Context$u20$for$u20$cranelift_codegen..machinst..isle..IsleContext$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..MInst$C$cranelift_codegen..isa..x64..X64Backend$GT$$GT$26operand_size_of_type_32_6417h43f1ca3c7f36b411E.exit", label %18
 
 18:                                               ; preds = %"_ZN17cranelift_codegen3isa3x645lower4isle255_$LT$impl$u20$cranelift_codegen..isa..x64..lower..isle..generated_code..Context$u20$for$u20$cranelift_codegen..machinst..isle..IsleContext$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..MInst$C$cranelift_codegen..isa..x64..X64Backend$GT$$GT$17temp_writable_gpr17h28c426f58c0012f7E.exit"
-  %19 = icmp ult i16 %1, 128
+  %19 = icmp samesign ult i16 %1, 128
   %20 = and i16 %1, 15
   %21 = or disjoint i16 %20, 112
   %.0.i.i.i.i = select i1 %19, i16 %1, i16 %21
@@ -38549,7 +38549,7 @@ default.unreachable:                              ; preds = %13
   br i1 %17, label %"_ZN17cranelift_codegen3isa3x645lower4isle255_$LT$impl$u20$cranelift_codegen..isa..x64..lower..isle..generated_code..Context$u20$for$u20$cranelift_codegen..machinst..isle..IsleContext$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..MInst$C$cranelift_codegen..isa..x64..X64Backend$GT$$GT$26operand_size_of_type_32_6417h43f1ca3c7f36b411E.exit", label %18
 
 18:                                               ; preds = %"_ZN17cranelift_codegen3isa3x645lower4isle255_$LT$impl$u20$cranelift_codegen..isa..x64..lower..isle..generated_code..Context$u20$for$u20$cranelift_codegen..machinst..isle..IsleContext$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..MInst$C$cranelift_codegen..isa..x64..X64Backend$GT$$GT$17temp_writable_gpr17h28c426f58c0012f7E.exit"
-  %19 = icmp ult i16 %0, 128
+  %19 = icmp samesign ult i16 %0, 128
   %20 = and i16 %0, 15
   %21 = or disjoint i16 %20, 112
   %.0.i.i.i.i = select i1 %19, i16 %0, i16 %21
@@ -38899,7 +38899,7 @@ default.unreachable:                              ; preds = %13
   br i1 %17, label %"_ZN17cranelift_codegen3isa3x645lower4isle255_$LT$impl$u20$cranelift_codegen..isa..x64..lower..isle..generated_code..Context$u20$for$u20$cranelift_codegen..machinst..isle..IsleContext$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..MInst$C$cranelift_codegen..isa..x64..X64Backend$GT$$GT$26operand_size_of_type_32_6417h43f1ca3c7f36b411E.exit", label %18
 
 18:                                               ; preds = %"_ZN17cranelift_codegen3isa3x645lower4isle255_$LT$impl$u20$cranelift_codegen..isa..x64..lower..isle..generated_code..Context$u20$for$u20$cranelift_codegen..machinst..isle..IsleContext$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..MInst$C$cranelift_codegen..isa..x64..X64Backend$GT$$GT$17temp_writable_gpr17h28c426f58c0012f7E.exit"
-  %19 = icmp ult i16 %0, 128
+  %19 = icmp samesign ult i16 %0, 128
   %20 = and i16 %0, 15
   %21 = or disjoint i16 %20, 112
   %.0.i.i.i.i = select i1 %19, i16 %0, i16 %21
@@ -39038,7 +39038,7 @@ define internal fastcc noundef i32 @_ZN17cranelift_codegen3isa3x645lower4isle14g
   br i1 %3, label %"_ZN17cranelift_codegen3isa3x645lower4isle255_$LT$impl$u20$cranelift_codegen..isa..x64..lower..isle..generated_code..Context$u20$for$u20$cranelift_codegen..machinst..isle..IsleContext$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..MInst$C$cranelift_codegen..isa..x64..X64Backend$GT$$GT$26operand_size_of_type_32_6417h43f1ca3c7f36b411E.exit", label %4
 
 4:                                                ; preds = %2
-  %5 = icmp ult i16 %0, 128
+  %5 = icmp samesign ult i16 %0, 128
   %6 = and i16 %0, 15
   %7 = or disjoint i16 %6, 112
   %.0.i.i.i.i = select i1 %5, i16 %0, i16 %7
@@ -39077,7 +39077,7 @@ define internal fastcc noundef i32 @_ZN17cranelift_codegen3isa3x645lower4isle14g
   br i1 %3, label %"_ZN17cranelift_codegen3isa3x645lower4isle255_$LT$impl$u20$cranelift_codegen..isa..x64..lower..isle..generated_code..Context$u20$for$u20$cranelift_codegen..machinst..isle..IsleContext$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..MInst$C$cranelift_codegen..isa..x64..X64Backend$GT$$GT$26operand_size_of_type_32_6417h43f1ca3c7f36b411E.exit", label %4
 
 4:                                                ; preds = %2
-  %5 = icmp ult i16 %0, 128
+  %5 = icmp samesign ult i16 %0, 128
   %6 = and i16 %0, 15
   %7 = or disjoint i16 %6, 112
   %.0.i.i.i.i = select i1 %5, i16 %0, i16 %7
@@ -39116,7 +39116,7 @@ define internal fastcc noundef i32 @_ZN17cranelift_codegen3isa3x645lower4isle14g
   br i1 %3, label %"_ZN17cranelift_codegen3isa3x645lower4isle255_$LT$impl$u20$cranelift_codegen..isa..x64..lower..isle..generated_code..Context$u20$for$u20$cranelift_codegen..machinst..isle..IsleContext$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..MInst$C$cranelift_codegen..isa..x64..X64Backend$GT$$GT$26operand_size_of_type_32_6417h43f1ca3c7f36b411E.exit", label %4
 
 4:                                                ; preds = %2
-  %5 = icmp ult i16 %0, 128
+  %5 = icmp samesign ult i16 %0, 128
   %6 = and i16 %0, 15
   %7 = or disjoint i16 %6, 112
   %.0.i.i.i.i = select i1 %5, i16 %0, i16 %7
@@ -39155,7 +39155,7 @@ define internal fastcc noundef i32 @_ZN17cranelift_codegen3isa3x645lower4isle14g
   br i1 %3, label %"_ZN17cranelift_codegen3isa3x645lower4isle255_$LT$impl$u20$cranelift_codegen..isa..x64..lower..isle..generated_code..Context$u20$for$u20$cranelift_codegen..machinst..isle..IsleContext$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..MInst$C$cranelift_codegen..isa..x64..X64Backend$GT$$GT$26operand_size_of_type_32_6417h43f1ca3c7f36b411E.exit", label %4
 
 4:                                                ; preds = %2
-  %5 = icmp ult i16 %0, 128
+  %5 = icmp samesign ult i16 %0, 128
   %6 = and i16 %0, 15
   %7 = or disjoint i16 %6, 112
   %.0.i.i.i.i = select i1 %5, i16 %0, i16 %7
@@ -39194,7 +39194,7 @@ define internal fastcc noundef i32 @_ZN17cranelift_codegen3isa3x645lower4isle14g
   br i1 %3, label %"_ZN17cranelift_codegen3isa3x645lower4isle255_$LT$impl$u20$cranelift_codegen..isa..x64..lower..isle..generated_code..Context$u20$for$u20$cranelift_codegen..machinst..isle..IsleContext$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..MInst$C$cranelift_codegen..isa..x64..X64Backend$GT$$GT$26operand_size_of_type_32_6417h43f1ca3c7f36b411E.exit", label %4
 
 4:                                                ; preds = %2
-  %5 = icmp ult i16 %0, 128
+  %5 = icmp samesign ult i16 %0, 128
   %6 = and i16 %0, 15
   %7 = or disjoint i16 %6, 112
   %.0.i.i.i.i = select i1 %5, i16 %0, i16 %7
@@ -39235,7 +39235,7 @@ define internal fastcc noundef i32 @_ZN17cranelift_codegen3isa3x645lower4isle14g
   br i1 %6, label %"_ZN17cranelift_codegen3isa3x645lower4isle255_$LT$impl$u20$cranelift_codegen..isa..x64..lower..isle..generated_code..Context$u20$for$u20$cranelift_codegen..machinst..isle..IsleContext$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..MInst$C$cranelift_codegen..isa..x64..X64Backend$GT$$GT$26operand_size_of_type_32_6417h43f1ca3c7f36b411E.exit", label %7
 
 7:                                                ; preds = %3
-  %8 = icmp ult i16 %0, 128
+  %8 = icmp samesign ult i16 %0, 128
   %9 = and i16 %0, 15
   %10 = or disjoint i16 %9, 112
   %.0.i.i.i.i = select i1 %8, i16 %0, i16 %10
@@ -39432,7 +39432,7 @@ define internal fastcc noundef i32 @_ZN17cranelift_codegen3isa3x645lower4isle14g
   br i1 %3, label %"_ZN17cranelift_codegen3isa3x645lower4isle255_$LT$impl$u20$cranelift_codegen..isa..x64..lower..isle..generated_code..Context$u20$for$u20$cranelift_codegen..machinst..isle..IsleContext$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..MInst$C$cranelift_codegen..isa..x64..X64Backend$GT$$GT$26operand_size_of_type_32_6417h43f1ca3c7f36b411E.exit", label %4
 
 4:                                                ; preds = %2
-  %5 = icmp ult i16 %0, 128
+  %5 = icmp samesign ult i16 %0, 128
   %6 = and i16 %0, 15
   %7 = or disjoint i16 %6, 112
   %.0.i.i.i.i = select i1 %5, i16 %0, i16 %7
@@ -43080,7 +43080,7 @@ define internal fastcc void @_ZN17cranelift_codegen3isa3x645lower4isle14generate
   br i1 %6, label %"_ZN17cranelift_codegen3isa3x645lower4isle255_$LT$impl$u20$cranelift_codegen..isa..x64..lower..isle..generated_code..Context$u20$for$u20$cranelift_codegen..machinst..isle..IsleContext$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..MInst$C$cranelift_codegen..isa..x64..X64Backend$GT$$GT$26operand_size_of_type_32_6417h43f1ca3c7f36b411E.exit.i", label %7
 
 7:                                                ; preds = %4
-  %8 = icmp ult i16 %1, 128
+  %8 = icmp samesign ult i16 %1, 128
   %9 = and i16 %1, 15
   %10 = or disjoint i16 %9, 112
   %.0.i.i.i.i.i = select i1 %8, i16 %1, i16 %10
@@ -43197,7 +43197,7 @@ define internal fastcc void @_ZN17cranelift_codegen3isa3x645lower4isle14generate
   br i1 %6, label %"_ZN17cranelift_codegen3isa3x645lower4isle255_$LT$impl$u20$cranelift_codegen..isa..x64..lower..isle..generated_code..Context$u20$for$u20$cranelift_codegen..machinst..isle..IsleContext$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..MInst$C$cranelift_codegen..isa..x64..X64Backend$GT$$GT$26operand_size_of_type_32_6417h43f1ca3c7f36b411E.exit.i", label %7
 
 7:                                                ; preds = %4
-  %8 = icmp ult i16 %1, 128
+  %8 = icmp samesign ult i16 %1, 128
   %9 = and i16 %1, 15
   %10 = or disjoint i16 %9, 112
   %.0.i.i.i.i.i = select i1 %8, i16 %1, i16 %10
@@ -43314,7 +43314,7 @@ define internal fastcc void @_ZN17cranelift_codegen3isa3x645lower4isle14generate
   br i1 %6, label %"_ZN17cranelift_codegen3isa3x645lower4isle255_$LT$impl$u20$cranelift_codegen..isa..x64..lower..isle..generated_code..Context$u20$for$u20$cranelift_codegen..machinst..isle..IsleContext$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..MInst$C$cranelift_codegen..isa..x64..X64Backend$GT$$GT$26operand_size_of_type_32_6417h43f1ca3c7f36b411E.exit.i", label %7
 
 7:                                                ; preds = %4
-  %8 = icmp ult i16 %1, 128
+  %8 = icmp samesign ult i16 %1, 128
   %9 = and i16 %1, 15
   %10 = or disjoint i16 %9, 112
   %.0.i.i.i.i.i = select i1 %8, i16 %1, i16 %10
@@ -43431,7 +43431,7 @@ define internal fastcc void @_ZN17cranelift_codegen3isa3x645lower4isle14generate
   br i1 %6, label %"_ZN17cranelift_codegen3isa3x645lower4isle255_$LT$impl$u20$cranelift_codegen..isa..x64..lower..isle..generated_code..Context$u20$for$u20$cranelift_codegen..machinst..isle..IsleContext$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..MInst$C$cranelift_codegen..isa..x64..X64Backend$GT$$GT$26operand_size_of_type_32_6417h43f1ca3c7f36b411E.exit.i", label %7
 
 7:                                                ; preds = %4
-  %8 = icmp ult i16 %1, 128
+  %8 = icmp samesign ult i16 %1, 128
   %9 = and i16 %1, 15
   %10 = or disjoint i16 %9, 112
   %.0.i.i.i.i.i = select i1 %8, i16 %1, i16 %10
@@ -43548,7 +43548,7 @@ define internal fastcc void @_ZN17cranelift_codegen3isa3x645lower4isle14generate
   br i1 %6, label %"_ZN17cranelift_codegen3isa3x645lower4isle255_$LT$impl$u20$cranelift_codegen..isa..x64..lower..isle..generated_code..Context$u20$for$u20$cranelift_codegen..machinst..isle..IsleContext$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..MInst$C$cranelift_codegen..isa..x64..X64Backend$GT$$GT$26operand_size_of_type_32_6417h43f1ca3c7f36b411E.exit.i", label %7
 
 7:                                                ; preds = %4
-  %8 = icmp ult i16 %1, 128
+  %8 = icmp samesign ult i16 %1, 128
   %9 = and i16 %1, 15
   %10 = or disjoint i16 %9, 112
   %.0.i.i.i.i.i = select i1 %8, i16 %1, i16 %10
@@ -50143,7 +50143,7 @@ default.unreachable:                              ; preds = %13
   br i1 %17, label %"_ZN17cranelift_codegen3isa3x645lower4isle255_$LT$impl$u20$cranelift_codegen..isa..x64..lower..isle..generated_code..Context$u20$for$u20$cranelift_codegen..machinst..isle..IsleContext$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..MInst$C$cranelift_codegen..isa..x64..X64Backend$GT$$GT$26operand_size_of_type_32_6417h43f1ca3c7f36b411E.exit", label %18
 
 18:                                               ; preds = %"_ZN17cranelift_codegen3isa3x645lower4isle255_$LT$impl$u20$cranelift_codegen..isa..x64..lower..isle..generated_code..Context$u20$for$u20$cranelift_codegen..machinst..isle..IsleContext$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..MInst$C$cranelift_codegen..isa..x64..X64Backend$GT$$GT$17temp_writable_gpr17h28c426f58c0012f7E.exit"
-  %19 = icmp ult i16 %0, 128
+  %19 = icmp samesign ult i16 %0, 128
   %20 = and i16 %0, 15
   %21 = or disjoint i16 %20, 112
   %.0.i.i.i.i = select i1 %19, i16 %0, i16 %21
@@ -79893,7 +79893,7 @@ define internal fastcc i64 @_ZN17cranelift_codegen3isa3x645lower4isle14generated
 
 .lr.ph:                                           ; preds = %4
   %12 = icmp ult i16 %1, 256
-  %13 = icmp ult i16 %1, 128
+  %13 = icmp samesign ult i16 %1, 128
   %14 = and i16 %1, 15
   %15 = or disjoint i16 %14, 112
   %.0.i.i.i.i = select i1 %13, i16 %1, i16 %15
@@ -80060,7 +80060,7 @@ _ZN17cranelift_codegen2ir5types4Type4bits17h6ac7b92b6381a3ecE.exit.i: ; preds = 
   br i1 %47, label %48, label %"_ZN17cranelift_codegen3isa3x645lower4isle255_$LT$impl$u20$cranelift_codegen..isa..x64..lower..isle..generated_code..Context$u20$for$u20$cranelift_codegen..machinst..isle..IsleContext$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..MInst$C$cranelift_codegen..isa..x64..X64Backend$GT$$GT$10fits_in_6417heb9c87f74d574defE.exit.thread"
 
 48:                                               ; preds = %.split.us
-  %49 = icmp ult i16 %.tr74123, 128
+  %49 = icmp samesign ult i16 %.tr74123, 128
   %50 = and i16 %.tr74123, 15
   %51 = or disjoint i16 %50, 112
   %.0.i.i.i.i43 = select i1 %49, i16 %.tr74123, i16 %51
@@ -80684,7 +80684,7 @@ define internal fastcc range(i64 36028779839094784, 36028784134062080) i64 @_ZN1
   br i1 %13, label %14, label %"_ZN17cranelift_codegen3isa3x645lower4isle255_$LT$impl$u20$cranelift_codegen..isa..x64..lower..isle..generated_code..Context$u20$for$u20$cranelift_codegen..machinst..isle..IsleContext$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..MInst$C$cranelift_codegen..isa..x64..X64Backend$GT$$GT$10fits_in_6417heb9c87f74d574defE.exit.thread"
 
 14:                                               ; preds = %3
-  %15 = icmp ult i16 %0, 128
+  %15 = icmp samesign ult i16 %0, 128
   %16 = and i16 %0, 15
   %17 = or disjoint i16 %16, 112
   %.0.i.i.i.i = select i1 %15, i16 %0, i16 %17
@@ -82202,7 +82202,7 @@ default.unreachable:                              ; preds = %"_ZN17cranelift_cod
   br i1 %29, label %44, label %30
 
 30:                                               ; preds = %"_ZN17cranelift_codegen3isa3x645lower4isle255_$LT$impl$u20$cranelift_codegen..isa..x64..lower..isle..generated_code..Context$u20$for$u20$cranelift_codegen..machinst..isle..IsleContext$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..MInst$C$cranelift_codegen..isa..x64..X64Backend$GT$$GT$17temp_writable_gpr17h28c426f58c0012f7E.exit.i.i"
-  %31 = icmp ult i16 %1, 128
+  %31 = icmp samesign ult i16 %1, 128
   %32 = and i16 %1, 15
   %33 = or disjoint i16 %32, 112
   %.0.i.i.i.i.i.i = select i1 %31, i16 %1, i16 %33
@@ -82422,7 +82422,7 @@ _ZN17cranelift_codegen3isa3x645lower4isle14generated_code23constructor_bsr_or_el
   br i1 %76, label %"_ZN17cranelift_codegen3isa3x645lower4isle255_$LT$impl$u20$cranelift_codegen..isa..x64..lower..isle..generated_code..Context$u20$for$u20$cranelift_codegen..machinst..isle..IsleContext$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..MInst$C$cranelift_codegen..isa..x64..X64Backend$GT$$GT$11ty_bits_u6417h8c520bc541cbc1c9E.exit", label %77
 
 77:                                               ; preds = %_ZN17cranelift_codegen3isa3x645lower4isle14generated_code23constructor_bsr_or_else17h96f19b55e7a27f36E.exit
-  %78 = icmp ult i16 %2, 128
+  %78 = icmp samesign ult i16 %2, 128
   %79 = and i16 %2, 15
   %80 = or disjoint i16 %79, 112
   %.0.i.i.i.i = select i1 %78, i16 %2, i16 %80
@@ -82490,7 +82490,7 @@ define internal fastcc noundef i32 @_ZN17cranelift_codegen3isa3x645lower4isle14g
   br i1 %13, label %"_ZN17cranelift_codegen3isa3x645lower4isle255_$LT$impl$u20$cranelift_codegen..isa..x64..lower..isle..generated_code..Context$u20$for$u20$cranelift_codegen..machinst..isle..IsleContext$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..MInst$C$cranelift_codegen..isa..x64..X64Backend$GT$$GT$11ty_bits_u6417h8c520bc541cbc1c9E.exit", label %14
 
 14:                                               ; preds = %4
-  %15 = icmp ult i16 %2, 128
+  %15 = icmp samesign ult i16 %2, 128
   %16 = and i16 %2, 15
   %17 = or disjoint i16 %16, 112
   %.0.i.i.i.i = select i1 %15, i16 %2, i16 %17
@@ -82578,7 +82578,7 @@ default.unreachable:                              ; preds = %"_ZN17cranelift_cod
   br i1 %40, label %55, label %41
 
 41:                                               ; preds = %"_ZN17cranelift_codegen3isa3x645lower4isle255_$LT$impl$u20$cranelift_codegen..isa..x64..lower..isle..generated_code..Context$u20$for$u20$cranelift_codegen..machinst..isle..IsleContext$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..MInst$C$cranelift_codegen..isa..x64..X64Backend$GT$$GT$17temp_writable_gpr17h28c426f58c0012f7E.exit.i.i"
-  %42 = icmp ult i16 %1, 128
+  %42 = icmp samesign ult i16 %1, 128
   %43 = and i16 %1, 15
   %44 = or disjoint i16 %43, 112
   %.0.i.i.i.i.i.i = select i1 %42, i16 %1, i16 %44
@@ -86691,7 +86691,7 @@ _ZN17cranelift_codegen3isa3x645lower4isle14generated_code30constructor_reg_to_gp
   br i1 %55, label %_ZN17cranelift_codegen2ir5types4Type5bytes17h2a049200537afc31E.exit7.i, label %56
 
 56:                                               ; preds = %54
-  %57 = icmp ult i16 %1, 128
+  %57 = icmp samesign ult i16 %1, 128
   %58 = and i16 %1, 15
   %59 = or disjoint i16 %58, 112
   %.0.i.i.i.i.i = select i1 %57, i16 %1, i16 %59
@@ -91271,7 +91271,7 @@ _ZN17cranelift_codegen2ir5types4Type4bits17h6ac7b92b6381a3ecE.exit.thread: ; pre
   br label %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17h89efe71f6f141bf4E.exit"
 
 27:                                               ; preds = %22
-  %28 = icmp ult i16 %25, 128
+  %28 = icmp samesign ult i16 %25, 128
   %29 = and i16 %25, 15
   %30 = or disjoint i16 %29, 112
   %.0.i.i.i = select i1 %28, i16 %25, i16 %30
@@ -91846,7 +91846,7 @@ _ZN17cranelift_codegen2ir5types4Type4bits17h6ac7b92b6381a3ecE.exit.thread: ; pre
   br label %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17h89efe71f6f141bf4E.exit"
 
 4:                                                ; preds = %1
-  %5 = icmp ult i16 %0, 128
+  %5 = icmp samesign ult i16 %0, 128
   %6 = and i16 %0, 15
   %7 = or disjoint i16 %6, 112
   %.0.i.i.i = select i1 %5, i16 %0, i16 %7
@@ -91887,7 +91887,7 @@ define internal fastcc noundef range(i16 0, -32767) i16 @"_ZN17cranelift_codegen
   br i1 %2, label %_ZN17cranelift_codegen2ir5types4Type4bits17h6ac7b92b6381a3ecE.exit, label %3
 
 3:                                                ; preds = %1
-  %4 = icmp ult i16 %0, 128
+  %4 = icmp samesign ult i16 %0, 128
   %5 = and i16 %0, 15
   %6 = or disjoint i16 %5, 112
   %.0.i.i.i = select i1 %4, i16 %0, i16 %6
@@ -91921,7 +91921,7 @@ define internal fastcc { i16, i16 } @"_ZN17cranelift_codegen3isa3x645lower4isle2
   br i1 %2, label %3, label %_ZN17cranelift_codegen2ir5types4Type4bits17h6ac7b92b6381a3ecE.exit.thread
 
 3:                                                ; preds = %1
-  %4 = icmp ult i16 %0, 128
+  %4 = icmp samesign ult i16 %0, 128
   %5 = and i16 %0, 15
   %6 = or disjoint i16 %5, 112
   %.0.i.i.i = select i1 %4, i16 %0, i16 %6
@@ -91961,7 +91961,7 @@ define internal fastcc { i16, i16 } @"_ZN17cranelift_codegen3isa3x645lower4isle2
   br i1 %2, label %3, label %_ZN17cranelift_codegen2ir5types4Type4bits17h6ac7b92b6381a3ecE.exit.thread
 
 3:                                                ; preds = %1
-  %4 = icmp ult i16 %0, 128
+  %4 = icmp samesign ult i16 %0, 128
   %5 = and i16 %0, 15
   %6 = or disjoint i16 %5, 112
   %.0.i.i.i = select i1 %4, i16 %0, i16 %6
@@ -92001,7 +92001,7 @@ define internal fastcc i16 @"_ZN17cranelift_codegen3isa3x645lower4isle255_$LT$im
   br i1 %2, label %.thread, label %3
 
 3:                                                ; preds = %1
-  %4 = icmp ult i16 %0, 128
+  %4 = icmp samesign ult i16 %0, 128
   %5 = and i16 %0, 15
   %6 = or disjoint i16 %5, 112
   %.0.i.i.i = select i1 %4, i16 %0, i16 %6
@@ -92044,7 +92044,7 @@ define internal fastcc { i16, i16 } @"_ZN17cranelift_codegen3isa3x645lower4isle2
   br i1 %2, label %.thread.i, label %3
 
 3:                                                ; preds = %1
-  %4 = icmp ult i16 %0, 128
+  %4 = icmp samesign ult i16 %0, 128
   %5 = and i16 %0, 15
   %6 = or disjoint i16 %5, 112
   %.0.i.i.i.i = select i1 %4, i16 %0, i16 %6
@@ -92089,7 +92089,7 @@ define internal fastcc i16 @"_ZN17cranelift_codegen3isa3x645lower4isle255_$LT$im
   br i1 %2, label %_ZN17cranelift_codegen2ir5types4Type4bits17h6ac7b92b6381a3ecE.exit.thread, label %3
 
 3:                                                ; preds = %1
-  %4 = icmp ult i16 %0, 128
+  %4 = icmp samesign ult i16 %0, 128
   %5 = and i16 %0, 15
   %6 = or disjoint i16 %5, 112
   %.0.i.i.i = select i1 %4, i16 %0, i16 %6
@@ -92125,7 +92125,7 @@ define internal fastcc i16 @"_ZN17cranelift_codegen3isa3x645lower4isle255_$LT$im
   br i1 %2, label %_ZN17cranelift_codegen2ir5types4Type4bits17h6ac7b92b6381a3ecE.exit.thread, label %3
 
 3:                                                ; preds = %1
-  %4 = icmp ult i16 %0, 128
+  %4 = icmp samesign ult i16 %0, 128
   %5 = and i16 %0, 15
   %6 = or disjoint i16 %5, 112
   %.0.i.i.i = select i1 %4, i16 %0, i16 %6
@@ -92161,7 +92161,7 @@ define internal fastcc { i16, i16 } @"_ZN17cranelift_codegen3isa3x645lower4isle2
   br i1 %2, label %_ZN17cranelift_codegen2ir5types4Type4bits17h6ac7b92b6381a3ecE.exit5.thread, label %3
 
 3:                                                ; preds = %1
-  %4 = icmp ult i16 %0, 128
+  %4 = icmp samesign ult i16 %0, 128
   %5 = and i16 %0, 15
   %6 = or disjoint i16 %5, 112
   %.0.i.i.i = select i1 %4, i16 %0, i16 %6
@@ -92216,7 +92216,7 @@ define internal fastcc { i16, i16 } @"_ZN17cranelift_codegen3isa3x645lower4isle2
   br i1 %2, label %_ZN17cranelift_codegen2ir5types4Type4bits17h6ac7b92b6381a3ecE.exit5.thread, label %3
 
 3:                                                ; preds = %1
-  %4 = icmp ult i16 %0, 128
+  %4 = icmp samesign ult i16 %0, 128
   %5 = and i16 %0, 15
   %6 = or disjoint i16 %5, 112
   %.0.i.i.i = select i1 %4, i16 %0, i16 %6

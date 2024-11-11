@@ -3011,13 +3011,13 @@ _ZN4llvm10sampleprofL14getRepInFormatENS_9StringRefE.exit83: ; preds = %_ZNK4llv
   %.sroa.22.0..sroa_idx = getelementptr inbounds i8, ptr %210, i64 16
   %.sroa.22.0.copyload = load i64, ptr %.sroa.22.0..sroa_idx, align 8
   %212 = call noundef ptr @_ZN4llvm15ContextTrieNode15getChildContextERKNS_10sampleprof12LineLocationENS1_10FunctionIdE(ptr noundef nonnull align 8 dereferenceable(96) %.031120, ptr noundef nonnull align 4 dereferenceable(8) %210, ptr %.sroa.01.0.copyload, i64 %.sroa.22.0.copyload)
-  %213 = icmp ugt i64 %indvars.iv, 1
+  %213 = icmp samesign ugt i64 %indvars.iv, 1
   %214 = icmp ne ptr %212, null
   %215 = and i1 %213, %214
   br i1 %215, label %.lr.ph121, label %._crit_edge122.loopexit, !llvm.loop !31
 
 ._crit_edge122.loopexit:                          ; preds = %.lr.ph121
-  %216 = icmp ult i64 %indvars.iv, 2
+  %216 = icmp samesign ult i64 %indvars.iv, 2
   %217 = select i1 %216, ptr %212, ptr null
   br label %._crit_edge122
 

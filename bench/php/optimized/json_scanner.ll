@@ -138,11 +138,11 @@ define hidden range(i32 44, 267) i32 @php_json_scan(ptr noundef %0) local_unname
   br i1 %46, label %47, label %59
 
 47:                                               ; preds = %.lr.ph.split._crit_edge
-  %48 = icmp ult i8 %.lcssa1838, 116
+  %48 = icmp samesign ult i8 %.lcssa1838, 116
   br i1 %48, label %49, label %54
 
 49:                                               ; preds = %47
-  %50 = icmp ult i8 %.lcssa1838, 103
+  %50 = icmp samesign ult i8 %.lcssa1838, 103
   br i1 %50, label %51, label %52
 
 51:                                               ; preds = %49
@@ -154,7 +154,7 @@ define hidden range(i32 44, 267) i32 @php_json_scan(ptr noundef %0) local_unname
   br i1 %53, label %194, label %.loopexit1635
 
 54:                                               ; preds = %47
-  %55 = icmp ult i8 %.lcssa1838, 123
+  %55 = icmp samesign ult i8 %.lcssa1838, 123
   br i1 %55, label %56, label %58
 
 56:                                               ; preds = %54
@@ -180,7 +180,7 @@ define hidden range(i32 44, 267) i32 @php_json_scan(ptr noundef %0) local_unname
   br i1 %64, label %.loopexit1635, label %208
 
 65:                                               ; preds = %61
-  %66 = icmp ult i8 %.lcssa1838, -32
+  %66 = icmp samesign ult i8 %.lcssa1838, -32
   br i1 %66, label %212, label %67
 
 67:                                               ; preds = %65
@@ -188,7 +188,7 @@ define hidden range(i32 44, 267) i32 @php_json_scan(ptr noundef %0) local_unname
   br i1 %68, label %215, label %220
 
 69:                                               ; preds = %59
-  %70 = icmp ult i8 %.lcssa1838, -15
+  %70 = icmp samesign ult i8 %.lcssa1838, -15
   br i1 %70, label %71, label %72
 
 71:                                               ; preds = %69
@@ -198,7 +198,7 @@ define hidden range(i32 44, 267) i32 @php_json_scan(ptr noundef %0) local_unname
   ]
 
 72:                                               ; preds = %69
-  %73 = icmp ult i8 %.lcssa1838, -12
+  %73 = icmp samesign ult i8 %.lcssa1838, -12
   br i1 %73, label %233, label %74
 
 74:                                               ; preds = %72
@@ -745,7 +745,7 @@ define hidden range(i32 44, 267) i32 @php_json_scan(ptr noundef %0) local_unname
   br i1 %331, label %332, label %336
 
 332:                                              ; preds = %330
-  %333 = icmp ult i8 %328, 32
+  %333 = icmp samesign ult i8 %328, 32
   br i1 %333, label %353, label %334
 
 334:                                              ; preds = %332
@@ -761,11 +761,11 @@ define hidden range(i32 44, 267) i32 @php_json_scan(ptr noundef %0) local_unname
   br i1 %339, label %356, label %340
 
 340:                                              ; preds = %338
-  %341 = icmp ult i8 %328, -62
+  %341 = icmp samesign ult i8 %328, -62
   br i1 %341, label %423, label %440
 
 342:                                              ; preds = %.backedge1629
-  %343 = icmp ult i8 %328, -16
+  %343 = icmp samesign ult i8 %328, -16
   br i1 %343, label %344, label %347
 
 344:                                              ; preds = %342
@@ -783,7 +783,7 @@ define hidden range(i32 44, 267) i32 @php_json_scan(ptr noundef %0) local_unname
   br i1 %348, label %447, label %349
 
 349:                                              ; preds = %347
-  %350 = icmp ult i8 %328, -12
+  %350 = icmp samesign ult i8 %328, -12
   br i1 %350, label %451, label %351
 
 351:                                              ; preds = %349
@@ -891,7 +891,7 @@ define hidden range(i32 44, 267) i32 @php_json_scan(ptr noundef %0) local_unname
   br i1 %400, label %401, label %410
 
 401:                                              ; preds = %397
-  %402 = icmp ult i8 %399, 48
+  %402 = icmp samesign ult i8 %399, 48
   br i1 %402, label %403, label %404
 
 403:                                              ; preds = %401
@@ -901,7 +901,7 @@ define hidden range(i32 44, 267) i32 @php_json_scan(ptr noundef %0) local_unname
   ]
 
 404:                                              ; preds = %401
-  %405 = icmp ult i8 %399, 93
+  %405 = icmp samesign ult i8 %399, 93
   br i1 %405, label %406, label %408
 
 406:                                              ; preds = %404
@@ -1046,11 +1046,11 @@ define hidden range(i32 44, 267) i32 @php_json_scan(ptr noundef %0) local_unname
   br i1 %464, label %465, label %474
 
 465:                                              ; preds = %461
-  %466 = icmp ult i8 %463, 58
+  %466 = icmp samesign ult i8 %463, 58
   br i1 %466, label %467, label %471
 
 467:                                              ; preds = %465
-  %468 = icmp ult i8 %463, 48
+  %468 = icmp samesign ult i8 %463, 48
   br i1 %468, label %.thread1611.loopexit, label %469
 
 469:                                              ; preds = %467
@@ -1058,7 +1058,7 @@ define hidden range(i32 44, 267) i32 @php_json_scan(ptr noundef %0) local_unname
   br i1 %470, label %493, label %509
 
 471:                                              ; preds = %465
-  %472 = icmp ult i8 %463, 65
+  %472 = icmp samesign ult i8 %463, 65
   br i1 %472, label %.thread1611.loopexit, label %473
 
 473:                                              ; preds = %471
@@ -1116,7 +1116,7 @@ define hidden range(i32 44, 267) i32 @php_json_scan(ptr noundef %0) local_unname
   br i1 %496, label %497, label %503
 
 497:                                              ; preds = %493
-  %498 = icmp ult i8 %495, 48
+  %498 = icmp samesign ult i8 %495, 48
   br i1 %498, label %.thread1611.loopexit, label %499
 
 499:                                              ; preds = %497
@@ -1124,7 +1124,7 @@ define hidden range(i32 44, 267) i32 @php_json_scan(ptr noundef %0) local_unname
   br i1 %500, label %538, label %501
 
 501:                                              ; preds = %499
-  %502 = icmp ult i8 %495, 56
+  %502 = icmp samesign ult i8 %495, 56
   br i1 %502, label %551, label %560
 
 503:                                              ; preds = %493
@@ -1132,7 +1132,7 @@ define hidden range(i32 44, 267) i32 @php_json_scan(ptr noundef %0) local_unname
   br i1 %504, label %505, label %507
 
 505:                                              ; preds = %503
-  %506 = icmp ult i8 %495, 65
+  %506 = icmp samesign ult i8 %495, 65
   br i1 %506, label %.thread1611.loopexit, label %560
 
 507:                                              ; preds = %503
@@ -1167,11 +1167,11 @@ define hidden range(i32 44, 267) i32 @php_json_scan(ptr noundef %0) local_unname
   br i1 %521, label %522, label %528
 
 522:                                              ; preds = %518
-  %523 = icmp ult i8 %520, 56
+  %523 = icmp samesign ult i8 %520, 56
   br i1 %523, label %524, label %526
 
 524:                                              ; preds = %522
-  %525 = icmp ult i8 %520, 48
+  %525 = icmp samesign ult i8 %520, 48
   br i1 %525, label %.thread1611.loopexit, label %560
 
 526:                                              ; preds = %522
@@ -1185,7 +1185,7 @@ define hidden range(i32 44, 267) i32 @php_json_scan(ptr noundef %0) local_unname
 
 530:                                              ; preds = %528
   %531 = getelementptr inbounds i8, ptr %327, i64 1
-  %532 = icmp ult i8 %520, 71
+  %532 = icmp samesign ult i8 %520, 71
   br i1 %532, label %578, label %.thread1611
 
 533:                                              ; preds = %528
@@ -1205,15 +1205,15 @@ define hidden range(i32 44, 267) i32 @php_json_scan(ptr noundef %0) local_unname
   br i1 %541, label %542, label %548
 
 542:                                              ; preds = %538
-  %543 = icmp ult i8 %540, 48
+  %543 = icmp samesign ult i8 %540, 48
   br i1 %543, label %.thread1611.loopexit, label %544
 
 544:                                              ; preds = %542
-  %545 = icmp ult i8 %540, 56
+  %545 = icmp samesign ult i8 %540, 56
   br i1 %545, label %588, label %546
 
 546:                                              ; preds = %544
-  %547 = icmp ult i8 %540, 58
+  %547 = icmp samesign ult i8 %540, 58
   br i1 %547, label %597, label %.thread1611.loopexit
 
 548:                                              ; preds = %538
@@ -1535,11 +1535,11 @@ define hidden range(i32 44, 267) i32 @php_json_scan(ptr noundef %0) local_unname
   br i1 %697, label %711, label %698
 
 698:                                              ; preds = %696
-  %699 = icmp ult i8 %688, -62
+  %699 = icmp samesign ult i8 %688, -62
   br i1 %699, label %754, label %780
 
 700:                                              ; preds = %.backedge
-  %701 = icmp ult i8 %688, -16
+  %701 = icmp samesign ult i8 %688, -16
   br i1 %701, label %702, label %705
 
 702:                                              ; preds = %700
@@ -1557,7 +1557,7 @@ define hidden range(i32 44, 267) i32 @php_json_scan(ptr noundef %0) local_unname
   br i1 %706, label %787, label %707
 
 707:                                              ; preds = %705
-  %708 = icmp ult i8 %688, -12
+  %708 = icmp samesign ult i8 %688, -12
   br i1 %708, label %791, label %709
 
 709:                                              ; preds = %707
@@ -1779,11 +1779,11 @@ php_json_scanner_copy_string.exit1567:            ; preds = %759, %765
   br i1 %800, label %801, label %810
 
 801:                                              ; preds = %797
-  %802 = icmp ult i8 %799, 58
+  %802 = icmp samesign ult i8 %799, 58
   br i1 %802, label %803, label %807
 
 803:                                              ; preds = %801
-  %804 = icmp ult i8 %799, 48
+  %804 = icmp samesign ult i8 %799, 48
   br i1 %804, label %.thread1614, label %805
 
 805:                                              ; preds = %803
@@ -1791,7 +1791,7 @@ php_json_scanner_copy_string.exit1567:            ; preds = %759, %765
   br i1 %806, label %827, label %843
 
 807:                                              ; preds = %801
-  %808 = icmp ult i8 %799, 65
+  %808 = icmp samesign ult i8 %799, 65
   br i1 %808, label %.thread1614, label %809
 
 809:                                              ; preds = %807
@@ -1844,7 +1844,7 @@ php_json_scanner_copy_string.exit1567:            ; preds = %759, %765
   br i1 %830, label %831, label %837
 
 831:                                              ; preds = %827
-  %832 = icmp ult i8 %829, 48
+  %832 = icmp samesign ult i8 %829, 48
   br i1 %832, label %.thread1614, label %833
 
 833:                                              ; preds = %831
@@ -1852,7 +1852,7 @@ php_json_scanner_copy_string.exit1567:            ; preds = %759, %765
   br i1 %834, label %865, label %835
 
 835:                                              ; preds = %833
-  %836 = icmp ult i8 %829, 56
+  %836 = icmp samesign ult i8 %829, 56
   br i1 %836, label %878, label %887
 
 837:                                              ; preds = %827
@@ -1860,7 +1860,7 @@ php_json_scanner_copy_string.exit1567:            ; preds = %759, %765
   br i1 %838, label %839, label %841
 
 839:                                              ; preds = %837
-  %840 = icmp ult i8 %829, 65
+  %840 = icmp samesign ult i8 %829, 65
   br i1 %840, label %.thread1614, label %887
 
 841:                                              ; preds = %837
@@ -1895,15 +1895,15 @@ php_json_scanner_copy_string.exit1567:            ; preds = %759, %765
   br i1 %855, label %856, label %862
 
 856:                                              ; preds = %852
-  %857 = icmp ult i8 %854, 48
+  %857 = icmp samesign ult i8 %854, 48
   br i1 %857, label %.thread1614, label %858
 
 858:                                              ; preds = %856
-  %859 = icmp ult i8 %854, 56
+  %859 = icmp samesign ult i8 %854, 56
   br i1 %859, label %887, label %860
 
 860:                                              ; preds = %858
-  %861 = icmp ult i8 %854, 58
+  %861 = icmp samesign ult i8 %854, 58
   br i1 %861, label %896, label %.thread1614
 
 862:                                              ; preds = %852
@@ -1921,15 +1921,15 @@ php_json_scanner_copy_string.exit1567:            ; preds = %759, %765
   br i1 %868, label %869, label %875
 
 869:                                              ; preds = %865
-  %870 = icmp ult i8 %867, 48
+  %870 = icmp samesign ult i8 %867, 48
   br i1 %870, label %.thread1614, label %871
 
 871:                                              ; preds = %869
-  %872 = icmp ult i8 %867, 56
+  %872 = icmp samesign ult i8 %867, 56
   br i1 %872, label %905, label %873
 
 873:                                              ; preds = %871
-  %874 = icmp ult i8 %867, 58
+  %874 = icmp samesign ult i8 %867, 58
   br i1 %874, label %914, label %.thread1614
 
 875:                                              ; preds = %865
@@ -2489,11 +2489,11 @@ php_json_scanner_copy_string.exit1579:            ; preds = %1118, %1124
   br i1 %1146, label %1147, label %1156
 
 1147:                                             ; preds = %1143
-  %1148 = icmp ult i8 %1145, 58
+  %1148 = icmp samesign ult i8 %1145, 58
   br i1 %1148, label %1149, label %1153
 
 1149:                                             ; preds = %1147
-  %1150 = icmp ult i8 %1145, 48
+  %1150 = icmp samesign ult i8 %1145, 48
   br i1 %1150, label %1164, label %1151
 
 1151:                                             ; preds = %1149
@@ -2501,7 +2501,7 @@ php_json_scanner_copy_string.exit1579:            ; preds = %1118, %1124
   br i1 %1152, label %1165, label %1181
 
 1153:                                             ; preds = %1147
-  %1154 = icmp ult i8 %1145, 65
+  %1154 = icmp samesign ult i8 %1145, 65
   br i1 %1154, label %1164, label %1155
 
 1155:                                             ; preds = %1153
@@ -2537,7 +2537,7 @@ php_json_scanner_copy_string.exit1579:            ; preds = %1118, %1124
   br i1 %1168, label %1169, label %1175
 
 1169:                                             ; preds = %1165
-  %1170 = icmp ult i8 %1167, 48
+  %1170 = icmp samesign ult i8 %1167, 48
   br i1 %1170, label %1164, label %1171
 
 1171:                                             ; preds = %1169
@@ -2545,7 +2545,7 @@ php_json_scanner_copy_string.exit1579:            ; preds = %1118, %1124
   br i1 %1172, label %1203, label %1173
 
 1173:                                             ; preds = %1171
-  %1174 = icmp ult i8 %1167, 56
+  %1174 = icmp samesign ult i8 %1167, 56
   br i1 %1174, label %1216, label %1225
 
 1175:                                             ; preds = %1165
@@ -2553,7 +2553,7 @@ php_json_scanner_copy_string.exit1579:            ; preds = %1118, %1124
   br i1 %1176, label %1177, label %1179
 
 1177:                                             ; preds = %1175
-  %1178 = icmp ult i8 %1167, 65
+  %1178 = icmp samesign ult i8 %1167, 65
   br i1 %1178, label %1164, label %1225
 
 1179:                                             ; preds = %1175
@@ -2588,15 +2588,15 @@ php_json_scanner_copy_string.exit1579:            ; preds = %1118, %1124
   br i1 %1193, label %1194, label %1200
 
 1194:                                             ; preds = %1190
-  %1195 = icmp ult i8 %1192, 48
+  %1195 = icmp samesign ult i8 %1192, 48
   br i1 %1195, label %1164, label %1196
 
 1196:                                             ; preds = %1194
-  %1197 = icmp ult i8 %1192, 56
+  %1197 = icmp samesign ult i8 %1192, 56
   br i1 %1197, label %1225, label %1198
 
 1198:                                             ; preds = %1196
-  %1199 = icmp ult i8 %1192, 58
+  %1199 = icmp samesign ult i8 %1192, 58
   br i1 %1199, label %1234, label %1164
 
 1200:                                             ; preds = %1190
@@ -2614,15 +2614,15 @@ php_json_scanner_copy_string.exit1579:            ; preds = %1118, %1124
   br i1 %1206, label %1207, label %1213
 
 1207:                                             ; preds = %1203
-  %1208 = icmp ult i8 %1205, 48
+  %1208 = icmp samesign ult i8 %1205, 48
   br i1 %1208, label %1164, label %1209
 
 1209:                                             ; preds = %1207
-  %1210 = icmp ult i8 %1205, 56
+  %1210 = icmp samesign ult i8 %1205, 56
   br i1 %1210, label %1243, label %1211
 
 1211:                                             ; preds = %1209
-  %1212 = icmp ult i8 %1205, 58
+  %1212 = icmp samesign ult i8 %1205, 58
   br i1 %1212, label %1252, label %1164
 
 1213:                                             ; preds = %1203

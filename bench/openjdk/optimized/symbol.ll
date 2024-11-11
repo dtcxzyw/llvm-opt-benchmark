@@ -158,7 +158,7 @@ define hidden noundef i32 @_ZNK6Symbol11index_of_atEiPKci(ptr noundef nonnull al
   %19 = sext i8 %18 to i32
   %20 = getelementptr inbounds i8, ptr %14, i64 1
   %21 = ptrtoint ptr %20 to i64
-  %22 = icmp ult i32 %3, 3
+  %22 = icmp samesign ult i32 %3, 3
   %23 = getelementptr inbounds i8, ptr %2, i64 1
   %24 = add nsw i32 %3, -1
   %25 = zext nneg i32 %24 to i64

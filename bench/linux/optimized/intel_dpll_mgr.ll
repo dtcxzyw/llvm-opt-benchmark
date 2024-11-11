@@ -949,7 +949,7 @@ define dso_local void @intel_shared_dpll_init(ptr noundef %0) local_unnamed_addr
   br i1 %25, label %26, label %.thread
 
 26:                                               ; preds = %23
-  %27 = icmp ugt i16 %5, 11
+  %27 = icmp samesign ugt i16 %5, 11
   br i1 %27, label %.thread, label %28
 
 28:                                               ; preds = %26
@@ -2292,7 +2292,7 @@ define internal noundef range(i32 -22, 1) i32 @icl_compute_dplls(ptr nocapture n
 
 41:                                               ; preds = %31
   %42 = add nsw i32 %38, -8999000
-  %43 = icmp ult i32 %38, 8999000
+  %43 = icmp samesign ult i32 %38, 8999000
   %44 = sub nsw i32 8999000, %38
   %45 = select i1 %43, i32 %44, i32 %42
   %46 = icmp ult i32 %45, %34

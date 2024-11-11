@@ -1640,7 +1640,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZNK5clang10TargetInfo16hasBuilti
   br i1 %or.cond, label %_ZN4llvm13isPowerOf2_64Em.exit, label %7
 
 7:                                                ; preds = %3
-  %.not6 = icmp ugt i64 %1, 8
+  %.not6 = icmp samesign ugt i64 %1, 8
   br i1 %.not6, label %8, label %_ZN4llvm13isPowerOf2_64Em.exit
 
 8:                                                ; preds = %7
@@ -1935,7 +1935,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZNK5clang7targets17SystemZTarget
   %17 = load ptr, ptr %.fca.0.extract.i17, align 8
   %18 = getelementptr inbounds nuw i8, ptr %17, i64 8
   store i8 1, ptr %18, align 1
-  %19 = icmp ugt i32 %7, 11
+  %19 = icmp samesign ugt i32 %7, 11
   br i1 %19, label %20, label %.thread33
 
 20:                                               ; preds = %14
@@ -1955,7 +1955,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZNK5clang7targets17SystemZTarget
   %28 = load ptr, ptr %.fca.0.extract.i19, align 8
   %29 = getelementptr inbounds nuw i8, ptr %28, i64 8
   store i8 1, ptr %29, align 1
-  %30 = icmp ugt i32 %7, 13
+  %30 = icmp samesign ugt i32 %7, 13
   br i1 %30, label %31, label %.thread33
 
 31:                                               ; preds = %25

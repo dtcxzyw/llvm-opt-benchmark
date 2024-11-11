@@ -729,7 +729,7 @@ _ZN5Eigen12DenseStorageIfLin1ELin1ELi1ELi0EE6resizeElll.exit.thread: ; preds = %
   br label %._crit_edge.i.i.i.i.i.i.i
 
 20:                                               ; preds = %_ZN5Eigen15PlainObjectBaseINS_6MatrixIfLin1ELi1ELi0ELin1ELi1EEEE6resizeEll.exit.i.i.i.i.i.i.i
-  %21 = icmp ugt i64 %16, 4611686018427387903
+  %21 = icmp samesign ugt i64 %16, 4611686018427387903
   br i1 %21, label %.noexc, label %23
 
 .noexc:                                           ; preds = %20
@@ -752,7 +752,7 @@ _ZN5Eigen12DenseStorageIfLin1ELin1ELi1ELi0EE6resizeElll.exit.thread: ; preds = %
 
 _ZN5Eigen12DenseStorageIfLin1ELin1ELi1ELi0EE6resizeElll.exit: ; preds = %23
   %28 = and i64 %16, 4611686018427387900
-  %29 = icmp ugt i64 %16, 3
+  %29 = icmp samesign ugt i64 %16, 3
   br i1 %29, label %.lr.ph.i.preheader.i.i.i.i.i.i, label %._crit_edge.i.i.i.i.i.i.i
 
 .lr.ph.i.preheader.i.i.i.i.i.i:                   ; preds = %_ZN5Eigen12DenseStorageIfLin1ELin1ELi1ELi0EE6resizeElll.exit
@@ -831,7 +831,7 @@ _ZN5Eigen6MatrixIfLin1ELi1ELi0ELin1ELi1EEC2INS_13CwiseBinaryOpINS_8internal13sca
   %72 = load <4 x float>, ptr %71, align 16
   %73 = fmul <4 x float> %72, %72
   %invariant.gep.i.i.i.i = getelementptr inbounds i8, ptr %.sink.i23, i64 48
-  %74 = icmp ugt i64 %16, 15
+  %74 = icmp samesign ugt i64 %16, 15
   br i1 %74, label %.lr.ph.i.i.i.i, label %._crit_edge.i.i.i.i
 
 .lr.ph.i.i.i.i:                                   ; preds = %70, %.lr.ph.i.i.i.i
@@ -1819,7 +1819,7 @@ define linkonce_odr hidden void @_ZN5Eigen12DenseStorageIfLin1ELin1ELi1ELi0EE6re
   br i1 %9, label %10, label %.sink.split
 
 10:                                               ; preds = %7
-  %11 = icmp ugt i64 %1, 4611686018427387903
+  %11 = icmp samesign ugt i64 %1, 4611686018427387903
   br i1 %11, label %12, label %14
 
 12:                                               ; preds = %10

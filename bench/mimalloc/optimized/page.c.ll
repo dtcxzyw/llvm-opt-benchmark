@@ -77,11 +77,11 @@ entry:
 if.then:                                          ; preds = %entry
   %sub.i.i = add nuw nsw i64 %size, 7
   %div1.i.i = lshr i64 %sub.i.i, 3
-  %cmp.i = icmp ult i64 %size, 9
+  %cmp.i = icmp samesign ult i64 %size, 9
   br i1 %cmp.i, label %mi_bin.exit, label %if.else.i
 
 if.else.i:                                        ; preds = %if.then
-  %cmp1.i = icmp ult i64 %size, 65
+  %cmp1.i = icmp samesign ult i64 %size, 65
   br i1 %cmp1.i, label %if.then2.i, label %if.else7.i
 
 if.then2.i:                                       ; preds = %if.else.i
@@ -306,11 +306,11 @@ if.end:                                           ; preds = %entry
   br i1 %cmp5, label %for.end, label %if.end7
 
 if.end7:                                          ; preds = %if.end
-  %cmp8 = icmp ult i64 %0, 9
+  %cmp8 = icmp samesign ult i64 %0, 9
   br i1 %cmp8, label %for.body.preheader, label %if.else.i
 
 if.else.i:                                        ; preds = %if.end7
-  %cmp1.i = icmp ult i64 %0, 65
+  %cmp1.i = icmp samesign ult i64 %0, 65
   br i1 %cmp1.i, label %if.then2.i, label %if.else7.i
 
 if.then2.i:                                       ; preds = %if.else.i
@@ -1170,7 +1170,7 @@ land.lhs.true:                                    ; preds = %if.then
   br i1 %cmp8, label %if.then10, label %if.end27
 
 if.then10:                                        ; preds = %land.lhs.true
-  %cmp13 = icmp ult i32 %0, 16385
+  %cmp13 = icmp samesign ult i32 %0, 16385
   %conv15 = select i1 %cmp13, i8 34, i8 10
   %retire_expire = getelementptr inbounds i8, ptr %page, i64 15
   %bf.load = load i8, ptr %retire_expire, align 1

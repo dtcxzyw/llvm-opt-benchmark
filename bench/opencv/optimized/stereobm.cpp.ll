@@ -1591,7 +1591,7 @@ _ZNK2cv11_InputArray6getMatEi.exit:               ; preds = %187, %190
   %.sroa.speculated205 = call i32 @llvm.smin.i32(i32 %238, i32 0)
   %240 = add nsw i32 %.sroa.speculated205, %234
   %241 = sub nsw i32 0, %.sroa.speculated205
-  %242 = icmp ule i32 %234, %241
+  %242 = icmp samesign ule i32 %234, %241
   %243 = icmp slt i32 %240, %232
   %or.cond3 = select i1 %242, i1 true, i1 %243
   br i1 %or.cond3, label %244, label %268

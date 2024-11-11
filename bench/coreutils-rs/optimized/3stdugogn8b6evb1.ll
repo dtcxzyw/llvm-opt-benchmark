@@ -668,7 +668,7 @@ define hidden void @_ZN4core5slice4sort10merge_sort17h8ad7b542fb834e75E(ptr noal
   br label %45
 
 24:                                               ; preds = %3
-  %25 = icmp ugt i64 %1, 1
+  %25 = icmp samesign ugt i64 %1, 1
   br i1 %25, label %"_ZN115_$LT$core..ops..range..RangeInclusive$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$9index_mut17ha03a46e915cc073cE.exit.i", label %_ZN4core5slice4sort25insertion_sort_shift_left17h4eaf96ac321a736cE.exit
 
 26:                                               ; preds = %75, %27
@@ -2946,7 +2946,7 @@ define internal fastcc i64 @"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$14reserve_r
   br i1 %32, label %35, label %43
 
 33:                                               ; preds = %27
-  %34 = icmp ult i64 %.0.sroa.speculated.i, 4
+  %34 = icmp samesign ult i64 %.0.sroa.speculated.i, 4
   %..i.i.i = select i1 %34, i64 4, i64 8
   br label %.thread.i.i
 
@@ -3886,7 +3886,7 @@ _ZN4core4hash3sip9u8to64_le17hafb73875f3c80924E.exit.i.i.i: ; preds = %368, %366
 488:                                              ; preds = %482, %476
   %.118.i.i.i56.i = phi i64 [ %486, %482 ], [ %.017.i.i.i54.i, %476 ]
   %.1.i.i.i57.i = phi i64 [ %487, %482 ], [ %.0.i.i.i55.i, %476 ]
-  %489 = icmp ult i64 %.1.i.i.i57.i, %.0.sroa.speculated.i.i.i53.i
+  %489 = icmp samesign ult i64 %.1.i.i.i57.i, %.0.sroa.speculated.i.i.i53.i
   br i1 %489, label %490, label %_ZN4core4hash3sip9u8to64_le17hafb73875f3c80924E.exit.i.i58.i
 
 490:                                              ; preds = %488
@@ -3918,7 +3918,7 @@ _ZN4core4hash3sip9u8to64_le17hafb73875f3c80924E.exit.i.i58.i: ; preds = %490, %4
   %505 = sub nuw nsw i64 8, %.0.i.i60.i
   %506 = and i64 %505, 7
   %507 = and i64 %505, 8
-  %508 = icmp ult i64 %.0.i.i60.i, %507
+  %508 = icmp samesign ult i64 %.0.i.i60.i, %507
   br i1 %508, label %._crit_edge.i.i78.loopexit.i, label %._crit_edge.i.i78.i
 
 509:                                              ; preds = %_ZN4core4hash3sip9u8to64_le17hafb73875f3c80924E.exit.i.i58.i
@@ -3998,7 +3998,7 @@ _ZN4core4hash3sip9u8to64_le17hafb73875f3c80924E.exit.i.i58.i: ; preds = %490, %4
 559:                                              ; preds = %551, %548
   %.118.i15.i.i64.i = phi i64 [ %557, %551 ], [ %.017.i13.i.i62.i, %548 ]
   %.1.i16.i.i65.i = phi i64 [ %558, %551 ], [ %.0.i14.i.i63.i, %548 ]
-  %560 = icmp ult i64 %.1.i16.i.i65.i, %506
+  %560 = icmp samesign ult i64 %.1.i16.i.i65.i, %506
   br i1 %560, label %561, label %"_ZN71_$LT$std..hash..random..DefaultHasher$u20$as$u20$core..hash..Hasher$GT$5write17h65f66e5fad0e1a99E.exit81.i"
 
 561:                                              ; preds = %559

@@ -14,7 +14,7 @@ define noundef zeroext i1 @_ZN10OpenSubdiv6v3_6_03Bfr16VertexDescriptor10Initial
   br label %12
 
 6:                                                ; preds = %2
-  %7 = icmp ult i32 %1, 65536
+  %7 = icmp samesign ult i32 %1, 65536
   %8 = zext i1 %7 to i8
   %9 = load i8, ptr %0, align 8
   %10 = and i8 %9, -2

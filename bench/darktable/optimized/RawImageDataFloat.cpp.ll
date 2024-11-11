@@ -979,7 +979,7 @@ define hidden void @_ZN8rawspeed17RawImageDataFloat15scaleBlackWhiteEv(ptr nound
   %76 = add nsw i64 %75, -150
   %77 = add nsw i64 %75, -151
   %78 = and i64 %76, 7
-  %79 = icmp ult i64 %77, 7
+  %79 = icmp samesign ult i64 %77, 7
   %80 = and i64 %76, -8
   %81 = icmp eq i64 %78, 0
   %82 = add nuw nsw i64 %68, 2
@@ -1846,7 +1846,7 @@ define hidden void @_ZN8rawspeed17RawImageDataFloat11fixBadPixelEjji(ptr nocaptu
   %146 = phi i32 [ %100, %102 ], [ %171, %168 ]
   %147 = phi float [ 0.000000e+00, %102 ], [ %170, %168 ]
   %148 = phi float [ -1.000000e+00, %102 ], [ %169, %168 ]
-  %149 = icmp ugt i32 %13, %146
+  %149 = icmp samesign ugt i32 %13, %146
   tail call void @llvm.assume(i1 %149)
   %150 = mul nsw i32 %146, %28
   %151 = add nuw nsw i32 %150, %28

@@ -440,7 +440,7 @@ if.then13:                                        ; preds = %if.end5
   br i1 %cmp14, label %return, label %if.end16
 
 if.end16:                                         ; preds = %if.then13
-  %cmp18 = icmp ult i8 %2, 64
+  %cmp18 = icmp samesign ult i8 %2, 64
   %cmp20 = icmp ult i64 %pkt.val, 21
   %or.cond = select i1 %cmp18, i1 true, i1 %cmp20
   br i1 %or.cond, label %return, label %if.end22
@@ -988,8 +988,8 @@ lor.lhs.false:                                    ; preds = %if.end11
 land.lhs.true:                                    ; preds = %lor.lhs.false
   %conv17 = zext i8 %2 to i64
   %cmp18.not = icmp ne i64 %short_conn_id_len, %conv17
-  %cmp33 = icmp ugt i64 %short_conn_id_len, 20
-  %or.cond = or i1 %cmp18.not, %cmp33
+  %cmp33 = icmp samesign ugt i64 %short_conn_id_len, 20
+  %or.cond = select i1 %cmp18.not, i1 true, i1 %cmp33
   br i1 %or.cond, label %return, label %lor.lhs.false35
 
 lor.lhs.false35:                                  ; preds = %land.lhs.true
@@ -1303,8 +1303,8 @@ lor.lhs.false:                                    ; preds = %entry
 land.lhs.true:                                    ; preds = %lor.lhs.false
   %conv = zext i8 %1 to i64
   %cmp3.not = icmp ne i64 %short_conn_id_len, %conv
-  %cmp16 = icmp ugt i64 %short_conn_id_len, 20
-  %or.cond = or i1 %cmp3.not, %cmp16
+  %cmp16 = icmp samesign ugt i64 %short_conn_id_len, 20
+  %or.cond = select i1 %cmp3.not, i1 true, i1 %cmp16
   br i1 %or.cond, label %return, label %lor.lhs.false18
 
 lor.lhs.false18:                                  ; preds = %land.lhs.true
@@ -1474,7 +1474,7 @@ if.end24:                                         ; preds = %land.lhs.true, %lor
   br i1 %or.cond22, label %return, label %return.sink.split
 
 if.else:                                          ; preds = %if.end
-  %cmp37 = icmp ult i8 %0, 64
+  %cmp37 = icmp samesign ult i8 %0, 64
   %add41 = add nuw nsw i64 %short_conn_id_len, 21
   %cmp42 = icmp ult i64 %buf_len, %add41
   %or.cond23 = select i1 %cmp37, i1 true, i1 %cmp42

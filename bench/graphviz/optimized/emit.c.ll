@@ -5289,7 +5289,7 @@ define noundef zeroext i1 @findStopColor(ptr noundef %0, ptr nocapture noundef w
   br label %56
 
 12:                                               ; preds = %9
-  %13 = icmp ugt i32 %7, 2
+  %13 = icmp samesign ugt i32 %7, 2
   br i1 %13, label %14, label %16
 
 14:                                               ; preds = %12

@@ -2356,7 +2356,7 @@ define void @bb_pack_state(ptr nocapture noundef readonly %0, ptr noundef %1, i1
   br label %.sink.split
 
 119:                                              ; preds = %3
-  %120 = icmp ugt i16 %2, 9983
+  %120 = icmp samesign ugt i16 %2, 9983
   br i1 %120, label %121, label %245
 
 121:                                              ; preds = %119

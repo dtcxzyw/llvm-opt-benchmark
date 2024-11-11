@@ -900,7 +900,7 @@ for.body:                                         ; preds = %for.body.preheader,
   %6 = load ptr, ptr %a, align 8
   %arrayidx16 = getelementptr inbounds i64, ptr %6, i64 %indvars.iv.next
   store i64 %asmresult.i, ptr %arrayidx16, align 8
-  %cmp9 = icmp ugt i64 %indvars.iv, 1
+  %cmp9 = icmp samesign ugt i64 %indvars.iv, 1
   br i1 %cmp9, label %for.body, label %for.end, !llvm.loop !13
 
 for.end:                                          ; preds = %for.body
@@ -962,7 +962,7 @@ for.body:                                         ; preds = %for.body.lr.ph, %fo
   %conv = zext i64 %3 to i128
   %or = or disjoint i128 %shl, %conv
   %rem = urem i128 %or, %conv2
-  %cmp1 = icmp ugt i64 %indvars.iv, 1
+  %cmp1 = icmp samesign ugt i64 %indvars.iv, 1
   br i1 %cmp1, label %for.body, label %for.end.loopexit, !llvm.loop !14
 
 for.end.loopexit:                                 ; preds = %for.body

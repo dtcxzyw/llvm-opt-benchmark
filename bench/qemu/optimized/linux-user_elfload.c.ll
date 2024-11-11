@@ -1984,7 +1984,7 @@ if.end33.i:                                       ; preds = %if.end27.i
 for.cond40.preheader.i:                           ; preds = %if.end33.i
   %div.i = udiv i64 %62, 24
   %conv29.i = trunc nuw nsw i64 %div.i to i32
-  %cmp416.not.i = icmp ult i64 %62, 24
+  %cmp416.not.i = icmp samesign ult i64 %62, 24
   br i1 %cmp416.not.i, label %for.end74.i, label %for.body43.i
 
 for.body43.i:                                     ; preds = %for.cond40.preheader.i, %if.end73.i

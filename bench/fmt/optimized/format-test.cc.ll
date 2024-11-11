@@ -9305,7 +9305,7 @@ if.then:                                          ; preds = %for.body
 
 if.end:                                           ; preds = %for.body
   store i8 48, ptr %arrayidx, align 1
-  %cmp = icmp ugt i64 %indvars.iv, 1
+  %cmp = icmp samesign ugt i64 %indvars.iv, 1
   br i1 %cmp, label %for.body, label %for.end, !llvm.loop !5
 
 for.end:                                          ; preds = %if.end, %entry, %if.then
@@ -9356,7 +9356,7 @@ if.then.i:                                        ; preds = %for.body.i
 
 if.end.i:                                         ; preds = %for.body.i
   store i8 48, ptr %arrayidx.i, align 1
-  %cmp.i = icmp ugt i64 %indvars.iv.i, 1
+  %cmp.i = icmp samesign ugt i64 %indvars.iv.i, 1
   br i1 %cmp.i, label %for.body.i, label %_Z9incrementPc.exit, !llvm.loop !5
 
 _Z9incrementPc.exit:                              ; preds = %if.end.i, %entry, %if.then.i
@@ -9477,7 +9477,7 @@ if.then.i29:                                      ; preds = %for.body.i24
 
 if.end.i31:                                       ; preds = %for.body.i24
   store i8 48, ptr %arrayidx.i27, align 1
-  %cmp.i32 = icmp ugt i64 %indvars.iv.i25, 1
+  %cmp.i32 = icmp samesign ugt i64 %indvars.iv.i25, 1
   br i1 %cmp.i32, label %for.body.i24, label %_Z9incrementPc.exit33, !llvm.loop !5
 
 _Z9incrementPc.exit33:                            ; preds = %if.end.i31, %_ZN7testing15AssertionResultD2Ev.exit, %if.then.i29
@@ -9596,7 +9596,7 @@ if.then.i64:                                      ; preds = %for.body.i59
 
 if.end.i66:                                       ; preds = %for.body.i59
   store i8 48, ptr %arrayidx.i62, align 1
-  %cmp.i67 = icmp ugt i64 %indvars.iv.i60, 1
+  %cmp.i67 = icmp samesign ugt i64 %indvars.iv.i60, 1
   br i1 %cmp.i67, label %for.body.i59, label %_Z9incrementPc.exit68, !llvm.loop !5
 
 _Z9incrementPc.exit68:                            ; preds = %if.end.i66, %_ZN7testing15AssertionResultD2Ev.exit54, %if.then.i64
@@ -9718,7 +9718,7 @@ if.then.i99:                                      ; preds = %for.body.i94
 
 if.end.i101:                                      ; preds = %for.body.i94
   store i8 48, ptr %arrayidx.i97, align 1
-  %cmp.i102 = icmp ugt i64 %indvars.iv.i95, 1
+  %cmp.i102 = icmp samesign ugt i64 %indvars.iv.i95, 1
   br i1 %cmp.i102, label %for.body.i94, label %_Z9incrementPc.exit103, !llvm.loop !5
 
 _Z9incrementPc.exit103:                           ; preds = %if.end.i101, %_ZN7testing15AssertionResultD2Ev.exit89, %if.then.i99
@@ -60579,7 +60579,7 @@ if.then.i:                                        ; preds = %for.body.i
 
 if.end.i:                                         ; preds = %for.body.i
   store i8 48, ptr %arrayidx.i, align 1
-  %cmp.i = icmp ugt i64 %indvars.iv.i, 1
+  %cmp.i = icmp samesign ugt i64 %indvars.iv.i, 1
   br i1 %cmp.i, label %for.body.i, label %_Z9incrementPc.exit, !llvm.loop !5
 
 _Z9incrementPc.exit:                              ; preds = %if.end.i, %entry, %if.then.i
@@ -63819,7 +63819,7 @@ if.then.i:                                        ; preds = %for.body.i
 
 if.end.i:                                         ; preds = %for.body.i
   store i8 48, ptr %arrayidx.i, align 1
-  %cmp.i = icmp ugt i64 %indvars.iv.i, 1
+  %cmp.i = icmp samesign ugt i64 %indvars.iv.i, 1
   br i1 %cmp.i, label %for.body.i, label %_Z9incrementPc.exit, !llvm.loop !5
 
 _Z9incrementPc.exit:                              ; preds = %if.end.i, %entry, %if.then.i
@@ -70051,7 +70051,7 @@ if.then.i:                                        ; preds = %for.body.i
 
 if.end.i:                                         ; preds = %for.body.i
   store i8 48, ptr %arrayidx.i, align 1
-  %cmp.i = icmp ugt i64 %indvars.iv.i, 1
+  %cmp.i = icmp samesign ugt i64 %indvars.iv.i, 1
   br i1 %cmp.i, label %for.body.i, label %_Z9incrementPc.exit, !llvm.loop !5
 
 _Z9incrementPc.exit:                              ; preds = %if.end.i, %entry, %if.then.i
@@ -80634,7 +80634,7 @@ if.then.i:                                        ; preds = %for.body.i
 
 if.end.i:                                         ; preds = %for.body.i
   store i8 48, ptr %arrayidx.i, align 1
-  %cmp.i = icmp ugt i64 %indvars.iv.i, 1
+  %cmp.i = icmp samesign ugt i64 %indvars.iv.i, 1
   br i1 %cmp.i, label %for.body.i, label %_Z9incrementPc.exit, !llvm.loop !5
 
 _Z9incrementPc.exit:                              ; preds = %if.end.i, %entry, %if.then.i
@@ -170577,7 +170577,7 @@ if.end37.i:                                       ; preds = %for.cond.i
   unreachable
 
 sw.bb43.i:                                        ; preds = %for.cond.i
-  %cmp.not.i58 = icmp ult i32 %enter_state.i.sroa.0.0, 4
+  %cmp.not.i58 = icmp samesign ult i32 %enter_state.i.sroa.0.0, 4
   br i1 %cmp.not.i58, label %if.end48.i, label %if.then.i59
 
 if.then.i59:                                      ; preds = %sw.bb43.i
@@ -170589,7 +170589,7 @@ if.end48.i:                                       ; preds = %sw.bb43.i
   unreachable
 
 sw.bb63.i:                                        ; preds = %for.cond.i, %for.cond.i, %for.cond.i, %for.cond.i, %for.cond.i, %for.cond.i, %for.cond.i, %for.cond.i, %for.cond.i, %for.cond.i
-  %cmp.not.i63 = icmp ult i32 %enter_state.i.sroa.0.0, 5
+  %cmp.not.i63 = icmp samesign ult i32 %enter_state.i.sroa.0.0, 5
   br i1 %cmp.not.i63, label %_ZZN3fmt3v106detail18parse_format_specsIcEEPKT_S5_S5_RNS1_20dynamic_format_specsIS3_EERNS0_26basic_format_parse_contextIS3_EENS1_4typeEENUt_clENS1_5stateEb.exit66, label %if.then.i64
 
 if.then.i64:                                      ; preds = %sw.bb63.i
@@ -170601,7 +170601,7 @@ _ZZN3fmt3v106detail18parse_format_specsIcEEPKT_S5_S5_RNS1_20dynamic_format_specs
   br label %sw.epilog151.i
 
 if.end68.i:                                       ; preds = %for.cond.i
-  %cmp.not.i67 = icmp ult i32 %enter_state.i.sroa.0.0, 6
+  %cmp.not.i67 = icmp samesign ult i32 %enter_state.i.sroa.0.0, 6
   br i1 %cmp.not.i67, label %_ZZN3fmt3v106detail18parse_format_specsIcEEPKT_S5_S5_RNS1_20dynamic_format_specsIS3_EERNS0_26basic_format_parse_contextIS3_EENS1_4typeEENUt_clENS1_5stateEb.exit70, label %if.then.i68
 
 if.then.i68:                                      ; preds = %if.end68.i
@@ -171472,7 +171472,7 @@ if.then3.i:                                       ; preds = %if.then.i
   br label %cond.end
 
 if.end4.i:                                        ; preds = %cond.true
-  %cmp5.i = icmp ugt i32 %7, 14
+  %cmp5.i = icmp samesign ugt i32 %7, 14
   br i1 %cmp5.i, label %cond.end, label %if.end7.i
 
 if.end7.i:                                        ; preds = %if.end4.i
@@ -173846,7 +173846,7 @@ _ZN3fmt3v106detail11parse_alignEc.exit49:         ; preds = %_ZZN3fmt3v106detail
   br label %sw.epilog151.i
 
 if.end16.i:                                       ; preds = %for.cond.i, %for.cond.i, %for.cond.i
-  %cmp.not.i50 = icmp ult i32 %enter_state.i.sroa.0.0, 2
+  %cmp.not.i50 = icmp samesign ult i32 %enter_state.i.sroa.0.0, 2
   br i1 %cmp.not.i50, label %_ZZN3fmt3v106detail18parse_format_specsIcEEPKT_S5_S5_RNS1_20dynamic_format_specsIS3_EERNS0_26basic_format_parse_contextIS3_EENS1_4typeEENUt_clENS1_5stateEb.exit53, label %if.then.i51
 
 if.then.i51:                                      ; preds = %if.end16.i
@@ -173879,7 +173879,7 @@ sw.epilog.i:                                      ; preds = %sw.epilog.i.sink.sp
   br label %sw.epilog151.i
 
 if.end37.i:                                       ; preds = %for.cond.i
-  %cmp.not.i54 = icmp ult i32 %enter_state.i.sroa.0.0, 3
+  %cmp.not.i54 = icmp samesign ult i32 %enter_state.i.sroa.0.0, 3
   br i1 %cmp.not.i54, label %_ZZN3fmt3v106detail18parse_format_specsIcEEPKT_S5_S5_RNS1_20dynamic_format_specsIS3_EERNS0_26basic_format_parse_contextIS3_EENS1_4typeEENUt_clENS1_5stateEb.exit57, label %if.then.i55
 
 if.then.i55:                                      ; preds = %if.end37.i
@@ -173894,7 +173894,7 @@ _ZZN3fmt3v106detail18parse_format_specsIcEEPKT_S5_S5_RNS1_20dynamic_format_specs
   br label %sw.epilog151.i
 
 sw.bb43.i:                                        ; preds = %for.cond.i
-  %cmp.not.i58 = icmp ult i32 %enter_state.i.sroa.0.0, 4
+  %cmp.not.i58 = icmp samesign ult i32 %enter_state.i.sroa.0.0, 4
   br i1 %cmp.not.i58, label %if.end49.i, label %if.then.i59
 
 if.then.i59:                                      ; preds = %sw.bb43.i
@@ -173918,7 +173918,7 @@ if.end61.i:                                       ; preds = %if.then55.i, %if.en
   br label %sw.epilog151.i
 
 sw.bb63.i:                                        ; preds = %for.cond.i, %for.cond.i, %for.cond.i, %for.cond.i, %for.cond.i, %for.cond.i, %for.cond.i, %for.cond.i, %for.cond.i, %for.cond.i
-  %cmp.not.i63 = icmp ult i32 %enter_state.i.sroa.0.0, 5
+  %cmp.not.i63 = icmp samesign ult i32 %enter_state.i.sroa.0.0, 5
   br i1 %cmp.not.i63, label %_ZZN3fmt3v106detail18parse_format_specsIcEEPKT_S5_S5_RNS1_20dynamic_format_specsIS3_EERNS0_26basic_format_parse_contextIS3_EENS1_4typeEENUt_clENS1_5stateEb.exit66, label %if.then.i64
 
 if.then.i64:                                      ; preds = %sw.bb63.i
@@ -173934,7 +173934,7 @@ if.end68.i:                                       ; preds = %for.cond.i
   unreachable
 
 if.end74.i:                                       ; preds = %for.cond.i
-  %cmp.not.i75 = icmp ult i32 %enter_state.i.sroa.0.0, 7
+  %cmp.not.i75 = icmp samesign ult i32 %enter_state.i.sroa.0.0, 7
   br i1 %cmp.not.i75, label %_ZZN3fmt3v106detail18parse_format_specsIcEEPKT_S5_S5_RNS1_20dynamic_format_specsIS3_EERNS0_26basic_format_parse_contextIS3_EENS1_4typeEENUt_clENS1_5stateEb.exit78, label %if.then.i76
 
 if.then.i76:                                      ; preds = %if.end74.i
@@ -177676,7 +177676,7 @@ if.end37.i:                                       ; preds = %for.cond.i
   unreachable
 
 sw.bb43.i:                                        ; preds = %for.cond.i
-  %cmp.not.i57 = icmp ult i32 %enter_state.i.sroa.0.0, 4
+  %cmp.not.i57 = icmp samesign ult i32 %enter_state.i.sroa.0.0, 4
   br i1 %cmp.not.i57, label %if.end48.i, label %if.then.i58
 
 if.then.i58:                                      ; preds = %sw.bb43.i
@@ -177688,7 +177688,7 @@ if.end48.i:                                       ; preds = %sw.bb43.i
   unreachable
 
 sw.bb63.i:                                        ; preds = %for.cond.i, %for.cond.i, %for.cond.i, %for.cond.i, %for.cond.i, %for.cond.i, %for.cond.i, %for.cond.i, %for.cond.i, %for.cond.i
-  %cmp.not.i62 = icmp ult i32 %enter_state.i.sroa.0.0, 5
+  %cmp.not.i62 = icmp samesign ult i32 %enter_state.i.sroa.0.0, 5
   br i1 %cmp.not.i62, label %_ZZN3fmt3v106detail18parse_format_specsIcEEPKT_S5_S5_RNS1_20dynamic_format_specsIS3_EERNS0_26basic_format_parse_contextIS3_EENS1_4typeEENUt_clENS1_5stateEb.exit65, label %if.then.i63
 
 if.then.i63:                                      ; preds = %sw.bb63.i
@@ -177700,7 +177700,7 @@ _ZZN3fmt3v106detail18parse_format_specsIcEEPKT_S5_S5_RNS1_20dynamic_format_specs
   br label %sw.epilog151.i
 
 if.end68.i:                                       ; preds = %for.cond.i
-  %cmp.not.i66 = icmp ult i32 %enter_state.i.sroa.0.0, 6
+  %cmp.not.i66 = icmp samesign ult i32 %enter_state.i.sroa.0.0, 6
   br i1 %cmp.not.i66, label %_ZZN3fmt3v106detail18parse_format_specsIcEEPKT_S5_S5_RNS1_20dynamic_format_specsIS3_EERNS0_26basic_format_parse_contextIS3_EENS1_4typeEENUt_clENS1_5stateEb.exit69, label %if.then.i67
 
 if.then.i67:                                      ; preds = %if.end68.i
@@ -178352,7 +178352,7 @@ _ZN3fmt3v106detail11parse_alignEc.exit48:         ; preds = %_ZZN3fmt3v106detail
   br label %sw.epilog151.i
 
 if.end16.i:                                       ; preds = %for.cond.i, %for.cond.i, %for.cond.i
-  %cmp.not.i49 = icmp ult i32 %enter_state.i.sroa.0.0, 2
+  %cmp.not.i49 = icmp samesign ult i32 %enter_state.i.sroa.0.0, 2
   br i1 %cmp.not.i49, label %_ZZN3fmt3v106detail18parse_format_specsIcEEPKT_S5_S5_RNS1_20dynamic_format_specsIS3_EERNS0_26basic_format_parse_contextIS3_EENS1_4typeEENUt_clENS1_5stateEb.exit52, label %if.then.i50
 
 if.then.i50:                                      ; preds = %if.end16.i
@@ -178385,7 +178385,7 @@ sw.epilog.i:                                      ; preds = %sw.epilog.i.sink.sp
   br label %sw.epilog151.i
 
 if.end37.i:                                       ; preds = %for.cond.i
-  %cmp.not.i53 = icmp ult i32 %enter_state.i.sroa.0.0, 3
+  %cmp.not.i53 = icmp samesign ult i32 %enter_state.i.sroa.0.0, 3
   br i1 %cmp.not.i53, label %_ZZN3fmt3v106detail18parse_format_specsIcEEPKT_S5_S5_RNS1_20dynamic_format_specsIS3_EERNS0_26basic_format_parse_contextIS3_EENS1_4typeEENUt_clENS1_5stateEb.exit56, label %if.then.i54
 
 if.then.i54:                                      ; preds = %if.end37.i
@@ -178400,7 +178400,7 @@ _ZZN3fmt3v106detail18parse_format_specsIcEEPKT_S5_S5_RNS1_20dynamic_format_specs
   br label %sw.epilog151.i
 
 sw.bb43.i:                                        ; preds = %for.cond.i
-  %cmp.not.i57 = icmp ult i32 %enter_state.i.sroa.0.0, 4
+  %cmp.not.i57 = icmp samesign ult i32 %enter_state.i.sroa.0.0, 4
   br i1 %cmp.not.i57, label %if.end49.i, label %if.then.i58
 
 if.then.i58:                                      ; preds = %sw.bb43.i
@@ -178424,7 +178424,7 @@ if.end61.i:                                       ; preds = %if.then55.i, %if.en
   br label %sw.epilog151.i
 
 sw.bb63.i:                                        ; preds = %for.cond.i, %for.cond.i, %for.cond.i, %for.cond.i, %for.cond.i, %for.cond.i, %for.cond.i, %for.cond.i, %for.cond.i, %for.cond.i
-  %cmp.not.i62 = icmp ult i32 %enter_state.i.sroa.0.0, 5
+  %cmp.not.i62 = icmp samesign ult i32 %enter_state.i.sroa.0.0, 5
   br i1 %cmp.not.i62, label %_ZZN3fmt3v106detail18parse_format_specsIcEEPKT_S5_S5_RNS1_20dynamic_format_specsIS3_EERNS0_26basic_format_parse_contextIS3_EENS1_4typeEENUt_clENS1_5stateEb.exit65, label %if.then.i63
 
 if.then.i63:                                      ; preds = %sw.bb63.i
@@ -178440,7 +178440,7 @@ if.end68.i:                                       ; preds = %for.cond.i
   unreachable
 
 if.end74.i:                                       ; preds = %for.cond.i
-  %cmp.not.i74 = icmp ult i32 %enter_state.i.sroa.0.0, 7
+  %cmp.not.i74 = icmp samesign ult i32 %enter_state.i.sroa.0.0, 7
   br i1 %cmp.not.i74, label %_ZZN3fmt3v106detail18parse_format_specsIcEEPKT_S5_S5_RNS1_20dynamic_format_specsIS3_EERNS0_26basic_format_parse_contextIS3_EENS1_4typeEENUt_clENS1_5stateEb.exit77, label %if.then.i75
 
 if.then.i75:                                      ; preds = %if.end74.i
@@ -180173,7 +180173,7 @@ _ZN3fmt3v106detail11parse_alignEc.exit50:         ; preds = %_ZZN3fmt3v106detail
   br label %sw.epilog151.i
 
 sw.bb43.i:                                        ; preds = %for.cond.i
-  %cmp.not.i51 = icmp ult i32 %enter_state.i.sroa.0.0, 4
+  %cmp.not.i51 = icmp samesign ult i32 %enter_state.i.sroa.0.0, 4
   br i1 %cmp.not.i51, label %_ZN3fmt3v106detail18parse_format_specsIcEEPKT_S5_S5_RNS1_20dynamic_format_specsIS3_EERNS0_26basic_format_parse_contextIS3_EENS1_4typeE.exit, label %if.then.i52
 
 if.then.i52:                                      ; preds = %sw.bb43.i
@@ -180181,7 +180181,7 @@ if.then.i52:                                      ; preds = %sw.bb43.i
   unreachable
 
 sw.bb63.i:                                        ; preds = %for.cond.i, %for.cond.i, %for.cond.i, %for.cond.i, %for.cond.i, %for.cond.i, %for.cond.i, %for.cond.i, %for.cond.i, %for.cond.i
-  %cmp.not.i56 = icmp ult i32 %enter_state.i.sroa.0.0, 5
+  %cmp.not.i56 = icmp samesign ult i32 %enter_state.i.sroa.0.0, 5
   br i1 %cmp.not.i56, label %_ZZN3fmt3v106detail18parse_format_specsIcEEPKT_S5_S5_RNS1_20dynamic_format_specsIS3_EERNS0_26basic_format_parse_contextIS3_EENS1_4typeEENUt_clENS1_5stateEb.exit59, label %if.then.i57
 
 if.then.i57:                                      ; preds = %sw.bb63.i
@@ -180417,7 +180417,7 @@ _ZN3fmt3v106detail11parse_alignEc.exit49:         ; preds = %_ZZN3fmt3v106detail
   br label %sw.epilog151.i
 
 if.end16.i:                                       ; preds = %for.cond.i, %for.cond.i, %for.cond.i
-  %cmp.not.i50 = icmp ult i32 %enter_state.i.sroa.0.0, 2
+  %cmp.not.i50 = icmp samesign ult i32 %enter_state.i.sroa.0.0, 2
   br i1 %cmp.not.i50, label %_ZZN3fmt3v106detail18parse_format_specsIcEEPKT_S5_S5_RNS1_20dynamic_format_specsIS3_EERNS0_26basic_format_parse_contextIS3_EENS1_4typeEENUt_clENS1_5stateEb.exit53, label %if.then.i51
 
 if.then.i51:                                      ; preds = %if.end16.i
@@ -180450,7 +180450,7 @@ sw.epilog.i:                                      ; preds = %sw.epilog.i.sink.sp
   br label %sw.epilog151.i
 
 if.end37.i:                                       ; preds = %for.cond.i
-  %cmp.not.i54 = icmp ult i32 %enter_state.i.sroa.0.0, 3
+  %cmp.not.i54 = icmp samesign ult i32 %enter_state.i.sroa.0.0, 3
   br i1 %cmp.not.i54, label %_ZZN3fmt3v106detail18parse_format_specsIcEEPKT_S5_S5_RNS1_20dynamic_format_specsIS3_EERNS0_26basic_format_parse_contextIS3_EENS1_4typeEENUt_clENS1_5stateEb.exit57, label %if.then.i55
 
 if.then.i55:                                      ; preds = %if.end37.i
@@ -180465,7 +180465,7 @@ _ZZN3fmt3v106detail18parse_format_specsIcEEPKT_S5_S5_RNS1_20dynamic_format_specs
   br label %sw.epilog151.i
 
 sw.bb43.i:                                        ; preds = %for.cond.i
-  %cmp.not.i58 = icmp ult i32 %enter_state.i.sroa.0.0, 4
+  %cmp.not.i58 = icmp samesign ult i32 %enter_state.i.sroa.0.0, 4
   br i1 %cmp.not.i58, label %if.end49.i, label %if.then.i59
 
 if.then.i59:                                      ; preds = %sw.bb43.i
@@ -180489,7 +180489,7 @@ if.end61.i:                                       ; preds = %if.then55.i, %if.en
   br label %sw.epilog151.i
 
 sw.bb63.i:                                        ; preds = %for.cond.i, %for.cond.i, %for.cond.i, %for.cond.i, %for.cond.i, %for.cond.i, %for.cond.i, %for.cond.i, %for.cond.i, %for.cond.i
-  %cmp.not.i63 = icmp ult i32 %enter_state.i.sroa.0.0, 5
+  %cmp.not.i63 = icmp samesign ult i32 %enter_state.i.sroa.0.0, 5
   br i1 %cmp.not.i63, label %_ZZN3fmt3v106detail18parse_format_specsIcEEPKT_S5_S5_RNS1_20dynamic_format_specsIS3_EERNS0_26basic_format_parse_contextIS3_EENS1_4typeEENUt_clENS1_5stateEb.exit66, label %if.then.i64
 
 if.then.i64:                                      ; preds = %sw.bb63.i
@@ -180501,7 +180501,7 @@ _ZZN3fmt3v106detail18parse_format_specsIcEEPKT_S5_S5_RNS1_20dynamic_format_specs
   br label %sw.epilog151.i
 
 if.end68.i:                                       ; preds = %for.cond.i
-  %cmp.not.i67 = icmp ult i32 %enter_state.i.sroa.0.0, 6
+  %cmp.not.i67 = icmp samesign ult i32 %enter_state.i.sroa.0.0, 6
   br i1 %cmp.not.i67, label %_ZZN3fmt3v106detail18parse_format_specsIcEEPKT_S5_S5_RNS1_20dynamic_format_specsIS3_EERNS0_26basic_format_parse_contextIS3_EENS1_4typeEENUt_clENS1_5stateEb.exit70, label %if.then.i68
 
 if.then.i68:                                      ; preds = %if.end68.i
@@ -180527,7 +180527,7 @@ _ZN3fmt3v106detail15parse_precisionIcEEPKT_S5_S5_RiRNS1_7arg_refIS3_EERNS0_26bas
   br label %sw.epilog151.i
 
 if.end74.i:                                       ; preds = %for.cond.i
-  %cmp.not.i75 = icmp ult i32 %enter_state.i.sroa.0.0, 7
+  %cmp.not.i75 = icmp samesign ult i32 %enter_state.i.sroa.0.0, 7
   br i1 %cmp.not.i75, label %_ZZN3fmt3v106detail18parse_format_specsIcEEPKT_S5_S5_RNS1_20dynamic_format_specsIS3_EERNS0_26basic_format_parse_contextIS3_EENS1_4typeEENUt_clENS1_5stateEb.exit78, label %if.then.i76
 
 if.then.i76:                                      ; preds = %if.end74.i
@@ -181682,7 +181682,7 @@ if.end73:                                         ; preds = %_ZN3fmt3v106detail6
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(10) %buffer.i, i8 0, i64 10, i1 false)
   %idx.ext.i.i = ashr i64 %add.i.i133, 32
   %add.ptr.i.i = getelementptr inbounds i8, ptr %buffer.i, i64 %idx.ext.i.i
-  %cmp119.i.i = icmp ugt i32 %abs_e.0, 99
+  %cmp119.i.i = icmp samesign ugt i32 %abs_e.0, 99
   br i1 %cmp119.i.i, label %while.body.i.i, label %while.end.i.i
 
 while.body.i.i:                                   ; preds = %if.end73, %while.body.i.i
@@ -181935,7 +181935,7 @@ if.then92:                                        ; preds = %if.end72
   %add93 = add nsw i32 %sub74.neg, %digits_in_the_first_segment.0
   %cmp.i = icmp sgt i32 %add93, 0
   %sub.i = sub nuw nsw i32 2147483647, %add93
-  %cmp1.i = icmp ugt i32 %precision, %sub.i
+  %cmp1.i = icmp samesign ugt i32 %precision, %sub.i
   %or.cond.i = select i1 %cmp.i, i1 %cmp1.i, i1 false
   br i1 %or.cond.i, label %if.then.i, label %_ZN3fmt3v106detail16adjust_precisionERii.exit
 
@@ -182054,7 +182054,7 @@ if.end.i:                                         ; preds = %if.else.i, %if.then
   %prod.0 = phi i64 [ %add9.i, %if.else.i ], [ %add.i117, %if.then.i114 ]
   %digits.0.in = phi i64 [ %shr10.i, %if.else.i ], [ %shr2.i, %if.then.i114 ]
   %number_of_digits_printed.0.i = phi i32 [ 2, %if.else.i ], [ 1, %if.then.i114 ]
-  %cmp1410.i = icmp ugt i32 %precision.addr.0, %number_of_digits_printed.0.i
+  %cmp1410.i = icmp samesign ugt i32 %precision.addr.0, %number_of_digits_printed.0.i
   br i1 %cmp1410.i, label %while.body.lr.ph.i, label %if.then125.thread
 
 if.then125.thread:                                ; preds = %if.end.i
@@ -182168,7 +182168,7 @@ if.end.i136:                                      ; preds = %if.else.i152, %if.t
   %digits.2.in = phi i64 [ %shr10.i156, %if.else.i152 ], [ %shr2.i133, %if.then.i129 ]
   %number_of_digits_printed.0.i137 = phi i32 [ 2, %if.else.i152 ], [ 1, %if.then.i129 ]
   %digits.2 = trunc nuw nsw i64 %digits.2.in to i32
-  %cmp1410.i138 = icmp ult i32 %number_of_digits_printed.0.i137, %sub161
+  %cmp1410.i138 = icmp samesign ult i32 %number_of_digits_printed.0.i137, %sub161
   br i1 %cmp1410.i138, label %while.body.lr.ph.i139, label %if.then164
 
 while.body.lr.ph.i139:                            ; preds = %if.end.i136
@@ -187581,7 +187581,7 @@ _ZNSt20back_insert_iteratorIN3fmt3v106detail6bufferIcEEEaSEOc.exit23: ; preds = 
 
 if.end:                                           ; preds = %_ZNSt20back_insert_iteratorIN3fmt3v106detail6bufferIcEEEaSEOc.exit23, %_ZNSt20back_insert_iteratorIN3fmt3v106detail6bufferIcEEEaSEOc.exit
   %exp.addr.0 = phi i32 [ %sub, %_ZNSt20back_insert_iteratorIN3fmt3v106detail6bufferIcEEEaSEOc.exit ], [ %exp, %_ZNSt20back_insert_iteratorIN3fmt3v106detail6bufferIcEEEaSEOc.exit23 ]
-  %cmp17 = icmp ugt i32 %exp.addr.0, 99
+  %cmp17 = icmp samesign ugt i32 %exp.addr.0, 99
   br i1 %cmp17, label %if.then18, label %if.end39
 
 if.then18:                                        ; preds = %if.end
@@ -187590,7 +187590,7 @@ if.then18:                                        ; preds = %if.end
   %8 = shl nuw nsw i32 %div, 1
   %mul.i = zext nneg i32 %8 to i64
   %arrayidx.i = getelementptr inbounds [201 x i8], ptr @.str.2170, i64 0, i64 %mul.i
-  %cmp21 = icmp ugt i32 %exp.addr.0, 999
+  %cmp21 = icmp samesign ugt i32 %exp.addr.0, 999
   br i1 %cmp21, label %if.then22, label %if.end30
 
 if.then22:                                        ; preds = %if.then18
@@ -190036,7 +190036,7 @@ _ZN3fmt3v106detail11parse_alignEc.exit49:         ; preds = %_ZZN3fmt3v106detail
   br label %sw.epilog151.i
 
 if.end16.i:                                       ; preds = %for.cond.i, %for.cond.i, %for.cond.i
-  %cmp.not.i50 = icmp ult i32 %enter_state.i.sroa.0.0, 2
+  %cmp.not.i50 = icmp samesign ult i32 %enter_state.i.sroa.0.0, 2
   br i1 %cmp.not.i50, label %_ZZN3fmt3v106detail18parse_format_specsIcEEPKT_S5_S5_RNS1_20dynamic_format_specsIS3_EERNS0_26basic_format_parse_contextIS3_EENS1_4typeEENUt_clENS1_5stateEb.exit53, label %if.then.i51
 
 if.then.i51:                                      ; preds = %if.end16.i
@@ -190069,7 +190069,7 @@ sw.epilog.i:                                      ; preds = %sw.epilog.i.sink.sp
   br label %sw.epilog151.i
 
 if.end37.i:                                       ; preds = %for.cond.i
-  %cmp.not.i54 = icmp ult i32 %enter_state.i.sroa.0.0, 3
+  %cmp.not.i54 = icmp samesign ult i32 %enter_state.i.sroa.0.0, 3
   br i1 %cmp.not.i54, label %_ZZN3fmt3v106detail18parse_format_specsIcEEPKT_S5_S5_RNS1_20dynamic_format_specsIS3_EERNS0_26basic_format_parse_contextIS3_EENS1_4typeEENUt_clENS1_5stateEb.exit57, label %if.then.i55
 
 if.then.i55:                                      ; preds = %if.end37.i
@@ -190084,7 +190084,7 @@ _ZZN3fmt3v106detail18parse_format_specsIcEEPKT_S5_S5_RNS1_20dynamic_format_specs
   br label %sw.epilog151.i
 
 sw.bb43.i:                                        ; preds = %for.cond.i
-  %cmp.not.i58 = icmp ult i32 %enter_state.i.sroa.0.0, 4
+  %cmp.not.i58 = icmp samesign ult i32 %enter_state.i.sroa.0.0, 4
   br i1 %cmp.not.i58, label %if.end49.i, label %if.then.i59
 
 if.then.i59:                                      ; preds = %sw.bb43.i
@@ -190108,7 +190108,7 @@ if.end61.i:                                       ; preds = %if.then55.i, %if.en
   br label %sw.epilog151.i
 
 sw.bb63.i:                                        ; preds = %for.cond.i, %for.cond.i, %for.cond.i, %for.cond.i, %for.cond.i, %for.cond.i, %for.cond.i, %for.cond.i, %for.cond.i, %for.cond.i
-  %cmp.not.i63 = icmp ult i32 %enter_state.i.sroa.0.0, 5
+  %cmp.not.i63 = icmp samesign ult i32 %enter_state.i.sroa.0.0, 5
   br i1 %cmp.not.i63, label %_ZZN3fmt3v106detail18parse_format_specsIcEEPKT_S5_S5_RNS1_20dynamic_format_specsIS3_EERNS0_26basic_format_parse_contextIS3_EENS1_4typeEENUt_clENS1_5stateEb.exit66, label %if.then.i64
 
 if.then.i64:                                      ; preds = %sw.bb63.i
@@ -190120,7 +190120,7 @@ _ZZN3fmt3v106detail18parse_format_specsIcEEPKT_S5_S5_RNS1_20dynamic_format_specs
   br label %sw.epilog151.i
 
 if.end68.i:                                       ; preds = %for.cond.i
-  %cmp.not.i67 = icmp ult i32 %enter_state.i.sroa.0.0, 6
+  %cmp.not.i67 = icmp samesign ult i32 %enter_state.i.sroa.0.0, 6
   br i1 %cmp.not.i67, label %_ZZN3fmt3v106detail18parse_format_specsIcEEPKT_S5_S5_RNS1_20dynamic_format_specsIS3_EERNS0_26basic_format_parse_contextIS3_EENS1_4typeEENUt_clENS1_5stateEb.exit70, label %if.then.i68
 
 if.then.i68:                                      ; preds = %if.end68.i
@@ -190146,7 +190146,7 @@ _ZN3fmt3v106detail15parse_precisionIcEEPKT_S5_S5_RiRNS1_7arg_refIS3_EERNS0_26bas
   br label %sw.epilog151.i
 
 if.end74.i:                                       ; preds = %for.cond.i
-  %cmp.not.i75 = icmp ult i32 %enter_state.i.sroa.0.0, 7
+  %cmp.not.i75 = icmp samesign ult i32 %enter_state.i.sroa.0.0, 7
   br i1 %cmp.not.i75, label %_ZZN3fmt3v106detail18parse_format_specsIcEEPKT_S5_S5_RNS1_20dynamic_format_specsIS3_EERNS0_26basic_format_parse_contextIS3_EENS1_4typeEENUt_clENS1_5stateEb.exit78, label %if.then.i76
 
 if.then.i76:                                      ; preds = %if.end74.i
@@ -190995,7 +190995,7 @@ if.end37.i:                                       ; preds = %for.cond.i
   unreachable
 
 sw.bb43.i:                                        ; preds = %for.cond.i
-  %cmp.not.i58 = icmp ult i32 %enter_state.i.sroa.0.0, 4
+  %cmp.not.i58 = icmp samesign ult i32 %enter_state.i.sroa.0.0, 4
   br i1 %cmp.not.i58, label %if.end48.i, label %if.then.i59
 
 if.then.i59:                                      ; preds = %sw.bb43.i
@@ -191007,7 +191007,7 @@ if.end48.i:                                       ; preds = %sw.bb43.i
   unreachable
 
 sw.bb63.i:                                        ; preds = %for.cond.i, %for.cond.i, %for.cond.i, %for.cond.i, %for.cond.i, %for.cond.i, %for.cond.i, %for.cond.i, %for.cond.i, %for.cond.i
-  %cmp.not.i63 = icmp ult i32 %enter_state.i.sroa.0.0, 5
+  %cmp.not.i63 = icmp samesign ult i32 %enter_state.i.sroa.0.0, 5
   br i1 %cmp.not.i63, label %_ZZN3fmt3v106detail18parse_format_specsIcEEPKT_S5_S5_RNS1_20dynamic_format_specsIS3_EERNS0_26basic_format_parse_contextIS3_EENS1_4typeEENUt_clENS1_5stateEb.exit66, label %if.then.i64
 
 if.then.i64:                                      ; preds = %sw.bb63.i
@@ -192064,7 +192064,7 @@ if.end16.i:                                       ; preds = %for.cond.i, %for.co
   unreachable
 
 if.end37.i:                                       ; preds = %for.cond.i
-  %cmp.not.i54 = icmp ult i32 %enter_state.i.sroa.0.0, 3
+  %cmp.not.i54 = icmp samesign ult i32 %enter_state.i.sroa.0.0, 3
   br i1 %cmp.not.i54, label %_ZZN3fmt3v106detail18parse_format_specsIcEEPKT_S5_S5_RNS1_20dynamic_format_specsIS3_EERNS0_26basic_format_parse_contextIS3_EENS1_4typeEENUt_clENS1_5stateEb.exit57, label %if.then.i55
 
 if.then.i55:                                      ; preds = %if.end37.i
@@ -192079,7 +192079,7 @@ _ZZN3fmt3v106detail18parse_format_specsIcEEPKT_S5_S5_RNS1_20dynamic_format_specs
   br label %sw.epilog151.i
 
 sw.bb43.i:                                        ; preds = %for.cond.i
-  %cmp.not.i58 = icmp ult i32 %enter_state.i.sroa.0.0, 4
+  %cmp.not.i58 = icmp samesign ult i32 %enter_state.i.sroa.0.0, 4
   br i1 %cmp.not.i58, label %if.end49.i, label %if.then.i59
 
 if.then.i59:                                      ; preds = %sw.bb43.i
@@ -192103,7 +192103,7 @@ if.end61.i:                                       ; preds = %if.then55.i, %if.en
   br label %sw.epilog151.i
 
 sw.bb63.i:                                        ; preds = %for.cond.i, %for.cond.i, %for.cond.i, %for.cond.i, %for.cond.i, %for.cond.i, %for.cond.i, %for.cond.i, %for.cond.i, %for.cond.i
-  %cmp.not.i63 = icmp ult i32 %enter_state.i.sroa.0.0, 5
+  %cmp.not.i63 = icmp samesign ult i32 %enter_state.i.sroa.0.0, 5
   br i1 %cmp.not.i63, label %_ZZN3fmt3v106detail18parse_format_specsIcEEPKT_S5_S5_RNS1_20dynamic_format_specsIS3_EERNS0_26basic_format_parse_contextIS3_EENS1_4typeEENUt_clENS1_5stateEb.exit66, label %if.then.i64
 
 if.then.i64:                                      ; preds = %sw.bb63.i
@@ -192119,7 +192119,7 @@ if.end68.i:                                       ; preds = %for.cond.i
   unreachable
 
 if.end74.i:                                       ; preds = %for.cond.i
-  %cmp.not.i75 = icmp ult i32 %enter_state.i.sroa.0.0, 7
+  %cmp.not.i75 = icmp samesign ult i32 %enter_state.i.sroa.0.0, 7
   br i1 %cmp.not.i75, label %_ZZN3fmt3v106detail18parse_format_specsIcEEPKT_S5_S5_RNS1_20dynamic_format_specsIS3_EERNS0_26basic_format_parse_contextIS3_EENS1_4typeEENUt_clENS1_5stateEb.exit78, label %if.then.i76
 
 if.then.i76:                                      ; preds = %if.end74.i
@@ -195012,7 +195012,7 @@ if.end37.i:                                       ; preds = %for.cond.i
   unreachable
 
 sw.bb43.i:                                        ; preds = %for.cond.i
-  %cmp.not.i58 = icmp ult i32 %enter_state.i.sroa.0.0, 4
+  %cmp.not.i58 = icmp samesign ult i32 %enter_state.i.sroa.0.0, 4
   br i1 %cmp.not.i58, label %if.end48.i, label %if.then.i59
 
 if.then.i59:                                      ; preds = %sw.bb43.i
@@ -195024,7 +195024,7 @@ if.end48.i:                                       ; preds = %sw.bb43.i
   unreachable
 
 sw.bb63.i:                                        ; preds = %for.cond.i, %for.cond.i, %for.cond.i, %for.cond.i, %for.cond.i, %for.cond.i, %for.cond.i, %for.cond.i, %for.cond.i, %for.cond.i
-  %cmp.not.i63 = icmp ult i32 %enter_state.i.sroa.0.0, 5
+  %cmp.not.i63 = icmp samesign ult i32 %enter_state.i.sroa.0.0, 5
   br i1 %cmp.not.i63, label %_ZZN3fmt3v106detail18parse_format_specsIcEEPKT_S5_S5_RNS1_20dynamic_format_specsIS3_EERNS0_26basic_format_parse_contextIS3_EENS1_4typeEENUt_clENS1_5stateEb.exit66, label %if.then.i64
 
 if.then.i64:                                      ; preds = %sw.bb63.i
@@ -195036,7 +195036,7 @@ _ZZN3fmt3v106detail18parse_format_specsIcEEPKT_S5_S5_RNS1_20dynamic_format_specs
   br label %sw.epilog151.i
 
 if.end68.i:                                       ; preds = %for.cond.i
-  %cmp.not.i67 = icmp ult i32 %enter_state.i.sroa.0.0, 6
+  %cmp.not.i67 = icmp samesign ult i32 %enter_state.i.sroa.0.0, 6
   br i1 %cmp.not.i67, label %_ZZN3fmt3v106detail18parse_format_specsIcEEPKT_S5_S5_RNS1_20dynamic_format_specsIS3_EERNS0_26basic_format_parse_contextIS3_EENS1_4typeEENUt_clENS1_5stateEb.exit70, label %if.then.i68
 
 if.then.i68:                                      ; preds = %if.end68.i

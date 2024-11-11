@@ -37,7 +37,7 @@ define dso_local noundef ptr @rb_parser_st_init_existing_table_with_size(ptr nou
   %18 = load i8, ptr %17, align 2
   %19 = getelementptr inbounds i8, ptr %0, i64 2
   store i8 %18, ptr %19, align 2
-  %20 = icmp ult i64 %2, 16
+  %20 = icmp samesign ult i64 %2, 16
   br i1 %20, label %21, label %23
 
 21:                                               ; preds = %5

@@ -3237,7 +3237,7 @@ _ZN16BlockListBuilder16make_loop_headerEP10BlockBegin.exit: ; preds = %29, %25, 
   %89 = load ptr, ptr %88, align 8
   %90 = call noundef nonnull align 8 dereferenceable(16) ptr @_ZN16BlockListBuilder10mark_loopsEP10BlockBeginb(ptr noundef nonnull align 8 dereferenceable(140) %0, ptr noundef %89, i1 noundef zeroext %spec.select)
   call void @_ZN6BitMap9set_unionERKS_(ptr noundef nonnull align 8 dereferenceable(16) %4, ptr noundef nonnull align 8 dereferenceable(16) %90) #19
-  %91 = icmp ugt i64 %indvars.iv, 1
+  %91 = icmp samesign ugt i64 %indvars.iv, 1
   br i1 %91, label %.lr.ph, label %._crit_edge, !llvm.loop !18
 
 ._crit_edge:                                      ; preds = %.lr.ph, %48
@@ -22212,7 +22212,7 @@ _ZN13GrowableArrayIP11InstructionEC2EiiRKS1_.exit: ; preds = %_ZN12GraphBuilder1
   %105 = load ptr, ptr %88, align 8
   %106 = getelementptr inbounds ptr, ptr %105, i64 %indvars.iv.next
   store ptr %104, ptr %106, align 8
-  %107 = icmp ugt i64 %indvars.iv, 1
+  %107 = icmp samesign ugt i64 %indvars.iv, 1
   br i1 %107, label %95, label %._crit_edge, !llvm.loop !32
 
 ._crit_edge:                                      ; preds = %95, %_ZN13GrowableArrayIP11InstructionEC2EiiRKS1_.exit
@@ -28411,7 +28411,7 @@ _ZNK8BlockEnd13number_of_suxEv.exit:              ; preds = %2836
   %2863 = getelementptr inbounds ptr, ptr %2862, i64 %indvars.iv.next
   %2864 = load ptr, ptr %2863, align 8
   call void @_ZN12GraphBuilder9ScopeData16add_to_work_listEP10BlockBegin(ptr noundef nonnull align 8 dereferenceable(137) %2859, ptr noundef %2864)
-  %2865 = icmp ugt i64 %indvars.iv, 1
+  %2865 = icmp samesign ugt i64 %indvars.iv, 1
   br i1 %2865, label %2844, label %._crit_edge, !llvm.loop !40
 
 ._crit_edge:                                      ; preds = %2858, %2836, %_ZNK8BlockEnd13number_of_suxEv.exit

@@ -1599,15 +1599,15 @@ define internal fastcc range(i32 7, 1000) i32 @scan(ptr noundef nonnull %0, ptr 
   br i1 %47, label %48, label %112
 
 48:                                               ; preds = %46
-  %49 = icmp ult i8 %41, 64
+  %49 = icmp samesign ult i8 %41, 64
   br i1 %49, label %50, label %78
 
 50:                                               ; preds = %48
-  %51 = icmp ult i8 %41, 45
+  %51 = icmp samesign ult i8 %41, 45
   br i1 %51, label %52, label %60
 
 52:                                               ; preds = %50
-  %53 = icmp ult i8 %41, 40
+  %53 = icmp samesign ult i8 %41, 40
   br i1 %53, label %54, label %55
 
 54:                                               ; preds = %52
@@ -1622,7 +1622,7 @@ define internal fastcc range(i32 7, 1000) i32 @scan(ptr noundef nonnull %0, ptr 
   br i1 %56, label %231, label %57
 
 57:                                               ; preds = %55
-  %58 = icmp ult i8 %41, 43
+  %58 = icmp samesign ult i8 %41, 43
   br i1 %58, label %183, label %59
 
 59:                                               ; preds = %57
@@ -1630,7 +1630,7 @@ define internal fastcc range(i32 7, 1000) i32 @scan(ptr noundef nonnull %0, ptr 
   br i1 %.not17240, label %260, label %238
 
 60:                                               ; preds = %50
-  %61 = icmp ult i8 %41, 49
+  %61 = icmp samesign ult i8 %41, 49
   br i1 %61, label %62, label %67
 
 62:                                               ; preds = %60
@@ -1638,7 +1638,7 @@ define internal fastcc range(i32 7, 1000) i32 @scan(ptr noundef nonnull %0, ptr 
   br i1 %63, label %238, label %64
 
 64:                                               ; preds = %62
-  %65 = icmp ult i8 %41, 47
+  %65 = icmp samesign ult i8 %41, 47
   br i1 %65, label %260, label %66
 
 66:                                               ; preds = %64
@@ -1646,7 +1646,7 @@ define internal fastcc range(i32 7, 1000) i32 @scan(ptr noundef nonnull %0, ptr 
   br i1 %.not16978, label %262, label %183
 
 67:                                               ; preds = %60
-  %68 = icmp ult i8 %41, 51
+  %68 = icmp samesign ult i8 %41, 51
   br i1 %68, label %69, label %74
 
 69:                                               ; preds = %67
@@ -1662,15 +1662,15 @@ define internal fastcc range(i32 7, 1000) i32 @scan(ptr noundef nonnull %0, ptr 
   br i1 %75, label %454, label %76
 
 76:                                               ; preds = %74
-  %77 = icmp ult i8 %41, 58
+  %77 = icmp samesign ult i8 %41, 58
   br i1 %77, label %520, label %183
 
 78:                                               ; preds = %48
-  %79 = icmp ult i8 %41, 73
+  %79 = icmp samesign ult i8 %41, 73
   br i1 %79, label %80, label %94
 
 80:                                               ; preds = %78
-  %81 = icmp ult i8 %41, 68
+  %81 = icmp samesign ult i8 %41, 68
   br i1 %81, label %82, label %87
 
 82:                                               ; preds = %80
@@ -1678,7 +1678,7 @@ define internal fastcc range(i32 7, 1000) i32 @scan(ptr noundef nonnull %0, ptr 
   br i1 %83, label %581, label %84
 
 84:                                               ; preds = %82
-  %85 = icmp ult i8 %41, 66
+  %85 = icmp samesign ult i8 %41, 66
   br i1 %85, label %590, label %86
 
 86:                                               ; preds = %84
@@ -1686,7 +1686,7 @@ define internal fastcc range(i32 7, 1000) i32 @scan(ptr noundef nonnull %0, ptr 
   br i1 %.not16816, label %923, label %909
 
 87:                                               ; preds = %80
-  %88 = icmp ult i8 %41, 70
+  %88 = icmp samesign ult i8 %41, 70
   br i1 %88, label %89, label %93
 
 89:                                               ; preds = %87
@@ -1702,7 +1702,7 @@ define internal fastcc range(i32 7, 1000) i32 @scan(ptr noundef nonnull %0, ptr 
   ]
 
 94:                                               ; preds = %78
-  %95 = icmp ult i8 %41, 77
+  %95 = icmp samesign ult i8 %41, 77
   br i1 %95, label %96, label %101
 
 96:                                               ; preds = %94
@@ -1710,7 +1710,7 @@ define internal fastcc range(i32 7, 1000) i32 @scan(ptr noundef nonnull %0, ptr 
   br i1 %97, label %1022, label %98
 
 98:                                               ; preds = %96
-  %99 = icmp ult i8 %41, 75
+  %99 = icmp samesign ult i8 %41, 75
   br i1 %99, label %1052, label %100
 
 100:                                              ; preds = %98
@@ -1718,7 +1718,7 @@ define internal fastcc range(i32 7, 1000) i32 @scan(ptr noundef nonnull %0, ptr 
   br i1 %.not16558, label %1071, label %923
 
 101:                                              ; preds = %94
-  %102 = icmp ult i8 %41, 79
+  %102 = icmp samesign ult i8 %41, 79
   br i1 %102, label %103, label %108
 
 103:                                              ; preds = %101
@@ -1733,7 +1733,7 @@ define internal fastcc range(i32 7, 1000) i32 @scan(ptr noundef nonnull %0, ptr 
   br i1 %109, label %1136, label %110
 
 110:                                              ; preds = %108
-  %111 = icmp ult i8 %41, 81
+  %111 = icmp samesign ult i8 %41, 81
   br i1 %111, label %1157, label %923
 
 112:                                              ; preds = %46
@@ -1741,11 +1741,11 @@ define internal fastcc range(i32 7, 1000) i32 @scan(ptr noundef nonnull %0, ptr 
   br i1 %113, label %114, label %147
 
 114:                                              ; preds = %112
-  %115 = icmp ult i8 %41, 97
+  %115 = icmp samesign ult i8 %41, 97
   br i1 %115, label %116, label %132
 
 116:                                              ; preds = %114
-  %117 = icmp ult i8 %41, 87
+  %117 = icmp samesign ult i8 %41, 87
   br i1 %117, label %118, label %123
 
 118:                                              ; preds = %116
@@ -1753,7 +1753,7 @@ define internal fastcc range(i32 7, 1000) i32 @scan(ptr noundef nonnull %0, ptr 
   br i1 %119, label %1178, label %120
 
 120:                                              ; preds = %118
-  %121 = icmp ult i8 %41, 85
+  %121 = icmp samesign ult i8 %41, 85
   br i1 %121, label %1213, label %122
 
 122:                                              ; preds = %120
@@ -1761,7 +1761,7 @@ define internal fastcc range(i32 7, 1000) i32 @scan(ptr noundef nonnull %0, ptr 
   br i1 %.not16324, label %1216, label %923
 
 123:                                              ; preds = %116
-  %124 = icmp ult i8 %41, 89
+  %124 = icmp samesign ult i8 %41, 89
   br i1 %124, label %125, label %128
 
 125:                                              ; preds = %123
@@ -1774,11 +1774,11 @@ define internal fastcc range(i32 7, 1000) i32 @scan(ptr noundef nonnull %0, ptr 
   br i1 %129, label %1285, label %130
 
 130:                                              ; preds = %128
-  %131 = icmp ult i8 %41, 91
+  %131 = icmp samesign ult i8 %41, 91
   br i1 %131, label %923, label %183
 
 132:                                              ; preds = %114
-  %133 = icmp ult i8 %41, 101
+  %133 = icmp samesign ult i8 %41, 101
   br i1 %133, label %134, label %139
 
 134:                                              ; preds = %132
@@ -1786,7 +1786,7 @@ define internal fastcc range(i32 7, 1000) i32 @scan(ptr noundef nonnull %0, ptr 
   br i1 %135, label %1306, label %136
 
 136:                                              ; preds = %134
-  %137 = icmp ult i8 %41, 99
+  %137 = icmp samesign ult i8 %41, 99
   br i1 %137, label %1341, label %138
 
 138:                                              ; preds = %136
@@ -1794,7 +1794,7 @@ define internal fastcc range(i32 7, 1000) i32 @scan(ptr noundef nonnull %0, ptr 
   br i1 %.not16278, label %1365, label %1356
 
 139:                                              ; preds = %132
-  %140 = icmp ult i8 %41, 103
+  %140 = icmp samesign ult i8 %41, 103
   br i1 %140, label %141, label %145
 
 141:                                              ; preds = %139
@@ -1812,7 +1812,7 @@ define internal fastcc range(i32 7, 1000) i32 @scan(ptr noundef nonnull %0, ptr 
   br i1 %148, label %149, label %166
 
 149:                                              ; preds = %147
-  %150 = icmp ult i8 %41, 112
+  %150 = icmp samesign ult i8 %41, 112
   br i1 %150, label %151, label %158
 
 151:                                              ; preds = %149
@@ -1820,7 +1820,7 @@ define internal fastcc range(i32 7, 1000) i32 @scan(ptr noundef nonnull %0, ptr 
   br i1 %152, label %1459, label %153
 
 153:                                              ; preds = %151
-  %154 = icmp ult i8 %41, 110
+  %154 = icmp samesign ult i8 %41, 110
   br i1 %154, label %1474, label %155
 
 155:                                              ; preds = %153
@@ -1830,7 +1830,7 @@ define internal fastcc range(i32 7, 1000) i32 @scan(ptr noundef nonnull %0, ptr 
   br i1 %.not16263, label %1531, label %1499
 
 158:                                              ; preds = %149
-  %159 = icmp ult i8 %41, 115
+  %159 = icmp samesign ult i8 %41, 115
   br i1 %159, label %160, label %162
 
 160:                                              ; preds = %158
@@ -1842,7 +1842,7 @@ define internal fastcc range(i32 7, 1000) i32 @scan(ptr noundef nonnull %0, ptr 
   br i1 %163, label %1571, label %164
 
 164:                                              ; preds = %162
-  %165 = icmp ult i8 %41, 117
+  %165 = icmp samesign ult i8 %41, 117
   br i1 %165, label %1607, label %1356
 
 166:                                              ; preds = %147
@@ -2022,7 +2022,7 @@ add_error.exit:                                   ; preds = %209, %213
   br i1 %253, label %254, label %256
 
 254:                                              ; preds = %252
-  %255 = icmp ult i8 %240, 48
+  %255 = icmp samesign ult i8 %240, 48
   br i1 %255, label %185, label %1761
 
 256:                                              ; preds = %252
@@ -2045,15 +2045,15 @@ add_error.exit:                                   ; preds = %209, %213
   br i1 %265, label %266, label %298
 
 266:                                              ; preds = %262
-  %267 = icmp ult i8 %264, 65
+  %267 = icmp samesign ult i8 %264, 65
   br i1 %267, label %268, label %282
 
 268:                                              ; preds = %266
-  %269 = icmp ult i8 %264, 46
+  %269 = icmp samesign ult i8 %264, 46
   br i1 %269, label %270, label %275
 
 270:                                              ; preds = %268
-  %271 = icmp ult i8 %264, 32
+  %271 = icmp samesign ult i8 %264, 32
   br i1 %271, label %272, label %274
 
 272:                                              ; preds = %270
@@ -2067,7 +2067,7 @@ add_error.exit:                                   ; preds = %209, %213
   ]
 
 275:                                              ; preds = %268
-  %276 = icmp ult i8 %264, 49
+  %276 = icmp samesign ult i8 %264, 49
   br i1 %276, label %277, label %278
 
 277:                                              ; preds = %275
@@ -2077,7 +2077,7 @@ add_error.exit:                                   ; preds = %209, %213
   ]
 
 278:                                              ; preds = %275
-  %279 = icmp ult i8 %264, 58
+  %279 = icmp samesign ult i8 %264, 58
   br i1 %279, label %2073, label %280
 
 280:                                              ; preds = %278
@@ -2085,11 +2085,11 @@ add_error.exit:                                   ; preds = %209, %213
   br i1 %281, label %2105, label %185
 
 282:                                              ; preds = %266
-  %283 = icmp ult i8 %264, 72
+  %283 = icmp samesign ult i8 %264, 72
   br i1 %283, label %284, label %289
 
 284:                                              ; preds = %282
-  %285 = icmp ult i8 %264, 69
+  %285 = icmp samesign ult i8 %264, 69
   br i1 %285, label %286, label %287
 
 286:                                              ; preds = %284
@@ -2103,7 +2103,7 @@ add_error.exit:                                   ; preds = %209, %213
   br i1 %288, label %.lr.ph23897.preheader, label %185
 
 289:                                              ; preds = %282
-  %290 = icmp ult i8 %264, 80
+  %290 = icmp samesign ult i8 %264, 80
   br i1 %290, label %291, label %293
 
 291:                                              ; preds = %289
@@ -2112,11 +2112,11 @@ add_error.exit:                                   ; preds = %209, %213
   br i1 %or.cond41, label %185, label %.lr.ph23897.preheader
 
 293:                                              ; preds = %289
-  %294 = icmp ult i8 %264, 83
+  %294 = icmp samesign ult i8 %264, 83
   br i1 %294, label %185, label %295
 
 295:                                              ; preds = %293
-  %296 = icmp ugt i8 %264, 89
+  %296 = icmp samesign ugt i8 %264, 89
   %297 = icmp ne i8 %264, 97
   %or.cond44 = and i1 %296, %297
   br i1 %or.cond44, label %185, label %.preheader17594
@@ -2126,11 +2126,11 @@ add_error.exit:                                   ; preds = %209, %213
   br i1 %299, label %300, label %316
 
 300:                                              ; preds = %298
-  %301 = icmp ult i8 %264, 105
+  %301 = icmp samesign ult i8 %264, 105
   br i1 %301, label %302, label %308
 
 302:                                              ; preds = %300
-  %303 = icmp ult i8 %264, 102
+  %303 = icmp samesign ult i8 %264, 102
   br i1 %303, label %304, label %306
 
 304:                                              ; preds = %302
@@ -2142,7 +2142,7 @@ add_error.exit:                                   ; preds = %209, %213
   br i1 %307, label %185, label %._crit_edge23898.thread34634.thread
 
 308:                                              ; preds = %300
-  %309 = icmp ult i8 %264, 109
+  %309 = icmp samesign ult i8 %264, 109
   br i1 %309, label %310, label %312
 
 310:                                              ; preds = %308
@@ -2154,7 +2154,7 @@ add_error.exit:                                   ; preds = %209, %213
   br i1 %313, label %2286, label %314
 
 314:                                              ; preds = %312
-  %315 = icmp ult i8 %264, 112
+  %315 = icmp samesign ult i8 %264, 112
   br i1 %315, label %._crit_edge23898.thread.thread.thread, label %185
 
 316:                                              ; preds = %298
@@ -2162,7 +2162,7 @@ add_error.exit:                                   ; preds = %209, %213
   br i1 %317, label %318, label %323
 
 318:                                              ; preds = %316
-  %319 = icmp ult i8 %264, 117
+  %319 = icmp samesign ult i8 %264, 117
   br i1 %319, label %320, label %321
 
 320:                                              ; preds = %318
@@ -2193,15 +2193,15 @@ add_error.exit:                                   ; preds = %209, %213
   br i1 %73, label %329, label %364
 
 329:                                              ; preds = %328
-  %330 = icmp ult i8 %72, 65
+  %330 = icmp samesign ult i8 %72, 65
   br i1 %330, label %331, label %348
 
 331:                                              ; preds = %329
-  %332 = icmp ult i8 %72, 46
+  %332 = icmp samesign ult i8 %72, 46
   br i1 %332, label %333, label %338
 
 333:                                              ; preds = %331
-  %334 = icmp ult i8 %72, 32
+  %334 = icmp samesign ult i8 %72, 32
   br i1 %334, label %335, label %337
 
 335:                                              ; preds = %333
@@ -2215,7 +2215,7 @@ add_error.exit:                                   ; preds = %209, %213
   ]
 
 338:                                              ; preds = %331
-  %339 = icmp ult i8 %72, 51
+  %339 = icmp samesign ult i8 %72, 51
   br i1 %339, label %340, label %344
 
 340:                                              ; preds = %338
@@ -2223,11 +2223,11 @@ add_error.exit:                                   ; preds = %209, %213
   br i1 %341, label %2407, label %342
 
 342:                                              ; preds = %340
-  %343 = icmp ult i8 %72, 48
+  %343 = icmp samesign ult i8 %72, 48
   br i1 %343, label %2038, label %2073
 
 344:                                              ; preds = %338
-  %345 = icmp ult i8 %72, 58
+  %345 = icmp samesign ult i8 %72, 58
   br i1 %345, label %2420, label %346
 
 346:                                              ; preds = %344
@@ -2235,11 +2235,11 @@ add_error.exit:                                   ; preds = %209, %213
   br i1 %347, label %2452, label %185
 
 348:                                              ; preds = %329
-  %349 = icmp ult i8 %72, 72
+  %349 = icmp samesign ult i8 %72, 72
   br i1 %349, label %350, label %355
 
 350:                                              ; preds = %348
-  %351 = icmp ult i8 %72, 69
+  %351 = icmp samesign ult i8 %72, 69
   br i1 %351, label %352, label %353
 
 352:                                              ; preds = %350
@@ -2253,7 +2253,7 @@ add_error.exit:                                   ; preds = %209, %213
   br i1 %354, label %.lr.ph23884.preheader, label %185
 
 355:                                              ; preds = %348
-  %356 = icmp ult i8 %72, 81
+  %356 = icmp samesign ult i8 %72, 81
   br i1 %356, label %357, label %359
 
 357:                                              ; preds = %355
@@ -2262,11 +2262,11 @@ add_error.exit:                                   ; preds = %209, %213
   br i1 %or.cond50, label %185, label %.lr.ph23884.preheader
 
 359:                                              ; preds = %355
-  %360 = icmp ult i8 %72, 83
+  %360 = icmp samesign ult i8 %72, 83
   br i1 %360, label %185, label %361
 
 361:                                              ; preds = %359
-  %362 = icmp ugt i8 %72, 89
+  %362 = icmp samesign ugt i8 %72, 89
   %363 = icmp ne i8 %72, 97
   %or.cond53 = and i1 %362, %363
   br i1 %or.cond53, label %185, label %.preheader17613
@@ -2276,11 +2276,11 @@ add_error.exit:                                   ; preds = %209, %213
   br i1 %365, label %366, label %379
 
 366:                                              ; preds = %364
-  %367 = icmp ult i8 %72, 105
+  %367 = icmp samesign ult i8 %72, 105
   br i1 %367, label %368, label %374
 
 368:                                              ; preds = %366
-  %369 = icmp ult i8 %72, 102
+  %369 = icmp samesign ult i8 %72, 102
   br i1 %369, label %370, label %372
 
 370:                                              ; preds = %368
@@ -2292,7 +2292,7 @@ add_error.exit:                                   ; preds = %209, %213
   br i1 %373, label %185, label %._crit_edge23885.thread.thread.thread
 
 374:                                              ; preds = %366
-  %375 = icmp ult i8 %72, 109
+  %375 = icmp samesign ult i8 %72, 109
   br i1 %375, label %376, label %378
 
 376:                                              ; preds = %374
@@ -2310,7 +2310,7 @@ add_error.exit:                                   ; preds = %209, %213
   br i1 %380, label %381, label %386
 
 381:                                              ; preds = %379
-  %382 = icmp ult i8 %72, 117
+  %382 = icmp samesign ult i8 %72, 117
   br i1 %382, label %383, label %384
 
 383:                                              ; preds = %381
@@ -2341,15 +2341,15 @@ add_error.exit:                                   ; preds = %209, %213
   br i1 %73, label %392, label %427
 
 392:                                              ; preds = %391
-  %393 = icmp ult i8 %72, 65
+  %393 = icmp samesign ult i8 %72, 65
   br i1 %393, label %394, label %411
 
 394:                                              ; preds = %392
-  %395 = icmp ult i8 %72, 46
+  %395 = icmp samesign ult i8 %72, 46
   br i1 %395, label %396, label %401
 
 396:                                              ; preds = %394
-  %397 = icmp ult i8 %72, 32
+  %397 = icmp samesign ult i8 %72, 32
   br i1 %397, label %398, label %400
 
 398:                                              ; preds = %396
@@ -2363,7 +2363,7 @@ add_error.exit:                                   ; preds = %209, %213
   ]
 
 401:                                              ; preds = %394
-  %402 = icmp ult i8 %72, 53
+  %402 = icmp samesign ult i8 %72, 53
   br i1 %402, label %403, label %407
 
 403:                                              ; preds = %401
@@ -2371,11 +2371,11 @@ add_error.exit:                                   ; preds = %209, %213
   br i1 %404, label %2407, label %405
 
 405:                                              ; preds = %403
-  %406 = icmp ult i8 %72, 48
+  %406 = icmp samesign ult i8 %72, 48
   br i1 %406, label %2038, label %2420
 
 407:                                              ; preds = %401
-  %408 = icmp ult i8 %72, 58
+  %408 = icmp samesign ult i8 %72, 58
   br i1 %408, label %2490, label %409
 
 409:                                              ; preds = %407
@@ -2383,11 +2383,11 @@ add_error.exit:                                   ; preds = %209, %213
   br i1 %410, label %2452, label %185
 
 411:                                              ; preds = %392
-  %412 = icmp ult i8 %72, 72
+  %412 = icmp samesign ult i8 %72, 72
   br i1 %412, label %413, label %418
 
 413:                                              ; preds = %411
-  %414 = icmp ult i8 %72, 69
+  %414 = icmp samesign ult i8 %72, 69
   br i1 %414, label %415, label %416
 
 415:                                              ; preds = %413
@@ -2401,7 +2401,7 @@ add_error.exit:                                   ; preds = %209, %213
   br i1 %417, label %.lr.ph23884.preheader, label %185
 
 418:                                              ; preds = %411
-  %419 = icmp ult i8 %72, 81
+  %419 = icmp samesign ult i8 %72, 81
   br i1 %419, label %420, label %422
 
 420:                                              ; preds = %418
@@ -2410,11 +2410,11 @@ add_error.exit:                                   ; preds = %209, %213
   br i1 %or.cond59, label %185, label %.lr.ph23884.preheader
 
 422:                                              ; preds = %418
-  %423 = icmp ult i8 %72, 83
+  %423 = icmp samesign ult i8 %72, 83
   br i1 %423, label %185, label %424
 
 424:                                              ; preds = %422
-  %425 = icmp ugt i8 %72, 89
+  %425 = icmp samesign ugt i8 %72, 89
   %426 = icmp ne i8 %72, 97
   %or.cond62 = and i1 %425, %426
   br i1 %or.cond62, label %185, label %.preheader17613
@@ -2424,11 +2424,11 @@ add_error.exit:                                   ; preds = %209, %213
   br i1 %428, label %429, label %442
 
 429:                                              ; preds = %427
-  %430 = icmp ult i8 %72, 105
+  %430 = icmp samesign ult i8 %72, 105
   br i1 %430, label %431, label %437
 
 431:                                              ; preds = %429
-  %432 = icmp ult i8 %72, 102
+  %432 = icmp samesign ult i8 %72, 102
   br i1 %432, label %433, label %435
 
 433:                                              ; preds = %431
@@ -2440,7 +2440,7 @@ add_error.exit:                                   ; preds = %209, %213
   br i1 %436, label %185, label %._crit_edge23885.thread.thread.thread
 
 437:                                              ; preds = %429
-  %438 = icmp ult i8 %72, 109
+  %438 = icmp samesign ult i8 %72, 109
   br i1 %438, label %439, label %441
 
 439:                                              ; preds = %437
@@ -2458,7 +2458,7 @@ add_error.exit:                                   ; preds = %209, %213
   br i1 %443, label %444, label %449
 
 444:                                              ; preds = %442
-  %445 = icmp ult i8 %72, 117
+  %445 = icmp samesign ult i8 %72, 117
   br i1 %445, label %446, label %447
 
 446:                                              ; preds = %444
@@ -2493,15 +2493,15 @@ add_error.exit:                                   ; preds = %209, %213
   br i1 %457, label %458, label %493
 
 458:                                              ; preds = %454
-  %459 = icmp ult i8 %456, 65
+  %459 = icmp samesign ult i8 %456, 65
   br i1 %459, label %460, label %477
 
 460:                                              ; preds = %458
-  %461 = icmp ult i8 %456, 46
+  %461 = icmp samesign ult i8 %456, 46
   br i1 %461, label %462, label %467
 
 462:                                              ; preds = %460
-  %463 = icmp ult i8 %456, 32
+  %463 = icmp samesign ult i8 %456, 32
   br i1 %463, label %464, label %466
 
 464:                                              ; preds = %462
@@ -2515,7 +2515,7 @@ add_error.exit:                                   ; preds = %209, %213
   ]
 
 467:                                              ; preds = %460
-  %468 = icmp ult i8 %456, 50
+  %468 = icmp samesign ult i8 %456, 50
   br i1 %468, label %469, label %473
 
 469:                                              ; preds = %467
@@ -2523,11 +2523,11 @@ add_error.exit:                                   ; preds = %209, %213
   br i1 %470, label %2407, label %471
 
 471:                                              ; preds = %469
-  %472 = icmp ult i8 %456, 48
+  %472 = icmp samesign ult i8 %456, 48
   br i1 %472, label %2038, label %2490
 
 473:                                              ; preds = %467
-  %474 = icmp ult i8 %456, 58
+  %474 = icmp samesign ult i8 %456, 58
   br i1 %474, label %2514, label %475
 
 475:                                              ; preds = %473
@@ -2535,11 +2535,11 @@ add_error.exit:                                   ; preds = %209, %213
   br i1 %476, label %2452, label %185
 
 477:                                              ; preds = %458
-  %478 = icmp ult i8 %456, 72
+  %478 = icmp samesign ult i8 %456, 72
   br i1 %478, label %479, label %484
 
 479:                                              ; preds = %477
-  %480 = icmp ult i8 %456, 69
+  %480 = icmp samesign ult i8 %456, 69
   br i1 %480, label %481, label %482
 
 481:                                              ; preds = %479
@@ -2553,7 +2553,7 @@ add_error.exit:                                   ; preds = %209, %213
   br i1 %483, label %.lr.ph23884.preheader, label %185
 
 484:                                              ; preds = %477
-  %485 = icmp ult i8 %456, 81
+  %485 = icmp samesign ult i8 %456, 81
   br i1 %485, label %486, label %488
 
 486:                                              ; preds = %484
@@ -2562,11 +2562,11 @@ add_error.exit:                                   ; preds = %209, %213
   br i1 %or.cond68, label %185, label %.lr.ph23884.preheader
 
 488:                                              ; preds = %484
-  %489 = icmp ult i8 %456, 83
+  %489 = icmp samesign ult i8 %456, 83
   br i1 %489, label %185, label %490
 
 490:                                              ; preds = %488
-  %491 = icmp ugt i8 %456, 89
+  %491 = icmp samesign ugt i8 %456, 89
   %492 = icmp ne i8 %456, 97
   %or.cond71 = and i1 %491, %492
   br i1 %or.cond71, label %185, label %.preheader17613
@@ -2576,11 +2576,11 @@ add_error.exit:                                   ; preds = %209, %213
   br i1 %494, label %495, label %508
 
 495:                                              ; preds = %493
-  %496 = icmp ult i8 %456, 105
+  %496 = icmp samesign ult i8 %456, 105
   br i1 %496, label %497, label %503
 
 497:                                              ; preds = %495
-  %498 = icmp ult i8 %456, 102
+  %498 = icmp samesign ult i8 %456, 102
   br i1 %498, label %499, label %501
 
 499:                                              ; preds = %497
@@ -2592,7 +2592,7 @@ add_error.exit:                                   ; preds = %209, %213
   br i1 %502, label %185, label %._crit_edge23885.thread.thread.thread
 
 503:                                              ; preds = %495
-  %504 = icmp ult i8 %456, 109
+  %504 = icmp samesign ult i8 %456, 109
   br i1 %504, label %505, label %507
 
 505:                                              ; preds = %503
@@ -2610,7 +2610,7 @@ add_error.exit:                                   ; preds = %209, %213
   br i1 %509, label %510, label %515
 
 510:                                              ; preds = %508
-  %511 = icmp ult i8 %456, 117
+  %511 = icmp samesign ult i8 %456, 117
   br i1 %511, label %512, label %513
 
 512:                                              ; preds = %510
@@ -2645,15 +2645,15 @@ add_error.exit:                                   ; preds = %209, %213
   br i1 %523, label %524, label %555
 
 524:                                              ; preds = %520
-  %525 = icmp ult i8 %522, 66
+  %525 = icmp samesign ult i8 %522, 66
   br i1 %525, label %526, label %540
 
 526:                                              ; preds = %524
-  %527 = icmp ult i8 %522, 46
+  %527 = icmp samesign ult i8 %522, 46
   br i1 %527, label %528, label %533
 
 528:                                              ; preds = %526
-  %529 = icmp ult i8 %522, 32
+  %529 = icmp samesign ult i8 %522, 32
   br i1 %529, label %530, label %532
 
 530:                                              ; preds = %528
@@ -2667,7 +2667,7 @@ add_error.exit:                                   ; preds = %209, %213
   ]
 
 533:                                              ; preds = %526
-  %534 = icmp ult i8 %522, 58
+  %534 = icmp samesign ult i8 %522, 58
   br i1 %534, label %535, label %539
 
 535:                                              ; preds = %533
@@ -2675,7 +2675,7 @@ add_error.exit:                                   ; preds = %209, %213
   br i1 %536, label %2407, label %537
 
 537:                                              ; preds = %535
-  %538 = icmp ult i8 %522, 48
+  %538 = icmp samesign ult i8 %522, 48
   br i1 %538, label %2038, label %2514
 
 539:                                              ; preds = %533
@@ -2685,11 +2685,11 @@ add_error.exit:                                   ; preds = %209, %213
   ]
 
 540:                                              ; preds = %524
-  %541 = icmp ult i8 %522, 75
+  %541 = icmp samesign ult i8 %522, 75
   br i1 %541, label %542, label %548
 
 542:                                              ; preds = %540
-  %543 = icmp ult i8 %522, 70
+  %543 = icmp samesign ult i8 %522, 70
   br i1 %543, label %544, label %546
 
 544:                                              ; preds = %542
@@ -2701,7 +2701,7 @@ add_error.exit:                                   ; preds = %209, %213
   br i1 %547, label %185, label %.lr.ph23884.preheader
 
 548:                                              ; preds = %540
-  %549 = icmp ult i8 %522, 83
+  %549 = icmp samesign ult i8 %522, 83
   br i1 %549, label %550, label %552
 
 550:                                              ; preds = %548
@@ -2710,7 +2710,7 @@ add_error.exit:                                   ; preds = %209, %213
   br i1 %or.cond74, label %.lr.ph23884.preheader, label %185
 
 552:                                              ; preds = %548
-  %553 = icmp ult i8 %522, 90
+  %553 = icmp samesign ult i8 %522, 90
   %554 = icmp eq i8 %522, 97
   %or.cond77 = or i1 %553, %554
   br i1 %or.cond77, label %.preheader17613, label %185
@@ -2720,11 +2720,11 @@ add_error.exit:                                   ; preds = %209, %213
   br i1 %556, label %557, label %569
 
 557:                                              ; preds = %555
-  %558 = icmp ult i8 %522, 106
+  %558 = icmp samesign ult i8 %522, 106
   br i1 %558, label %559, label %565
 
 559:                                              ; preds = %557
-  %560 = icmp ult i8 %522, 103
+  %560 = icmp samesign ult i8 %522, 103
   br i1 %560, label %561, label %563
 
 561:                                              ; preds = %559
@@ -2736,7 +2736,7 @@ add_error.exit:                                   ; preds = %209, %213
   br i1 %564, label %._crit_edge23885.thread.thread.thread.thread, label %185
 
 565:                                              ; preds = %557
-  %566 = icmp ult i8 %522, 110
+  %566 = icmp samesign ult i8 %522, 110
   br i1 %566, label %567, label %568
 
 567:                                              ; preds = %565
@@ -2756,7 +2756,7 @@ add_error.exit:                                   ; preds = %209, %213
   br i1 %570, label %571, label %576
 
 571:                                              ; preds = %569
-  %572 = icmp ult i8 %522, 117
+  %572 = icmp samesign ult i8 %522, 117
   br i1 %572, label %573, label %574
 
 573:                                              ; preds = %571
@@ -2813,7 +2813,7 @@ add_error.exit:                                   ; preds = %209, %213
   br i1 %593, label %594, label %607
 
 594:                                              ; preds = %590
-  %595 = icmp ult i8 %592, 71
+  %595 = icmp samesign ult i8 %592, 71
   br i1 %595, label %596, label %601
 
 596:                                              ; preds = %594
@@ -2822,11 +2822,11 @@ add_error.exit:                                   ; preds = %209, %213
   br i1 %598, label %.loopexit17671, label %599
 
 599:                                              ; preds = %596
-  %600 = icmp ugt i8 %592, 64
+  %600 = icmp samesign ugt i8 %592, 64
   br i1 %600, label %.loopexit17670, label %.loopexit17669
 
 601:                                              ; preds = %594
-  %602 = icmp ult i8 %592, 80
+  %602 = icmp samesign ult i8 %592, 80
   br i1 %602, label %603, label %606
 
 603:                                              ; preds = %601
@@ -2845,12 +2845,12 @@ add_error.exit:                                   ; preds = %209, %213
   br i1 %608, label %609, label %616
 
 609:                                              ; preds = %607
-  %610 = icmp ult i8 %592, 97
+  %610 = icmp samesign ult i8 %592, 97
   br i1 %610, label %611, label %614
 
 611:                                              ; preds = %609
   %612 = getelementptr inbounds i8, ptr %.01433828656, i64 1
-  %613 = icmp ult i8 %592, 91
+  %613 = icmp samesign ult i8 %592, 91
   br i1 %613, label %.loopexit17670, label %.loopexit17669
 
 614:                                              ; preds = %609
@@ -3725,7 +3725,7 @@ add_error.exit17432:                              ; preds = %898, %902
 
 916:                                              ; preds = %914
   %917 = getelementptr inbounds i8, ptr %.01433828656, i64 1
-  %918 = icmp ult i8 %911, 91
+  %918 = icmp samesign ult i8 %911, 91
   br i1 %918, label %.loopexit17670, label %.loopexit17669
 
 919:                                              ; preds = %914
@@ -3761,7 +3761,7 @@ add_error.exit17432:                              ; preds = %898, %902
   br i1 %935, label %936, label %943
 
 936:                                              ; preds = %934
-  %937 = icmp ult i8 %92, 42
+  %937 = icmp samesign ult i8 %92, 42
   br i1 %937, label %938, label %940
 
 938:                                              ; preds = %936
@@ -3770,7 +3770,7 @@ add_error.exit17432:                              ; preds = %898, %902
   br i1 %.not16815, label %.loopexit17671, label %.loopexit17669
 
 940:                                              ; preds = %936
-  %941 = icmp ult i8 %92, 65
+  %941 = icmp samesign ult i8 %92, 65
   br i1 %941, label %.loopexit17669.loopexit.split.loop.exit39632, label %942
 
 942:                                              ; preds = %940
@@ -3782,11 +3782,11 @@ add_error.exit17432:                              ; preds = %898, %902
   br i1 %944, label %945, label %949
 
 945:                                              ; preds = %943
-  %946 = icmp ult i8 %92, 91
+  %946 = icmp samesign ult i8 %92, 91
   br i1 %946, label %.loopexit17670.loopexit.split.loop.exit41780, label %947
 
 947:                                              ; preds = %945
-  %948 = icmp ult i8 %92, 97
+  %948 = icmp samesign ult i8 %92, 97
   br i1 %948, label %.loopexit17669.loopexit.split.loop.exit39634, label %2750
 
 949:                                              ; preds = %943
@@ -3802,7 +3802,7 @@ add_error.exit17432:                              ; preds = %898, %902
   br i1 %954, label %955, label %961
 
 955:                                              ; preds = %953
-  %956 = icmp ult i8 %92, 65
+  %956 = icmp samesign ult i8 %92, 65
   br i1 %956, label %957, label %960
 
 957:                                              ; preds = %955
@@ -3821,11 +3821,11 @@ add_error.exit17432:                              ; preds = %898, %902
   br i1 %962, label %963, label %968
 
 963:                                              ; preds = %961
-  %964 = icmp ult i8 %92, 91
+  %964 = icmp samesign ult i8 %92, 91
   br i1 %964, label %.loopexit17670.loopexit.split.loop.exit41782, label %965
 
 965:                                              ; preds = %963
-  %966 = icmp ult i8 %92, 97
+  %966 = icmp samesign ult i8 %92, 97
   br i1 %966, label %.loopexit17669.loopexit.split.loop.exit39638, label %967
 
 967:                                              ; preds = %965
@@ -3847,11 +3847,11 @@ add_error.exit17432:                              ; preds = %898, %902
   br i1 %975, label %976, label %990
 
 976:                                              ; preds = %972
-  %977 = icmp ult i8 %974, 70
+  %977 = icmp samesign ult i8 %974, 70
   br i1 %977, label %978, label %985
 
 978:                                              ; preds = %976
-  %979 = icmp ult i8 %974, 42
+  %979 = icmp samesign ult i8 %974, 42
   br i1 %979, label %980, label %982
 
 980:                                              ; preds = %978
@@ -3860,7 +3860,7 @@ add_error.exit17432:                              ; preds = %898, %902
   br i1 %.not16704, label %.loopexit17671, label %.loopexit17669
 
 982:                                              ; preds = %978
-  %983 = icmp ult i8 %974, 65
+  %983 = icmp samesign ult i8 %974, 65
   br i1 %983, label %.loopexit17669.loopexit.split.loop.exit39642, label %984
 
 984:                                              ; preds = %982
@@ -3868,7 +3868,7 @@ add_error.exit17432:                              ; preds = %898, %902
   br i1 %.not16696, label %3034, label %.loopexit17670.loopexit.split.loop.exit41784
 
 985:                                              ; preds = %976
-  %986 = icmp ult i8 %974, 79
+  %986 = icmp samesign ult i8 %974, 79
   br i1 %986, label %987, label %989
 
 987:                                              ; preds = %985
@@ -3886,15 +3886,15 @@ add_error.exit17432:                              ; preds = %898, %902
   br i1 %991, label %992, label %999
 
 992:                                              ; preds = %990
-  %993 = icmp ult i8 %974, 101
+  %993 = icmp samesign ult i8 %974, 101
   br i1 %993, label %994, label %998
 
 994:                                              ; preds = %992
-  %995 = icmp ult i8 %974, 91
+  %995 = icmp samesign ult i8 %974, 91
   br i1 %995, label %.loopexit17670.loopexit.split.loop.exit41788, label %996
 
 996:                                              ; preds = %994
-  %997 = icmp ult i8 %974, 97
+  %997 = icmp samesign ult i8 %974, 97
   br i1 %997, label %.loopexit17669.loopexit.split.loop.exit39644, label %2750
 
 998:                                              ; preds = %992
@@ -3931,7 +3931,7 @@ add_error.exit17432:                              ; preds = %898, %902
   br i1 %1013, label %.loopexit17671, label %1014
 
 1014:                                             ; preds = %1011
-  %1015 = icmp ult i8 %1009, 65
+  %1015 = icmp samesign ult i8 %1009, 65
   br i1 %1015, label %.loopexit17669, label %.loopexit17670
 
 1016:                                             ; preds = %1007
@@ -3955,11 +3955,11 @@ add_error.exit17432:                              ; preds = %898, %902
   br i1 %1025, label %1026, label %1039
 
 1026:                                             ; preds = %1022
-  %1027 = icmp ult i8 %1024, 41
+  %1027 = icmp samesign ult i8 %1024, 41
   br i1 %1027, label %1028, label %1033
 
 1028:                                             ; preds = %1026
-  %1029 = icmp ult i8 %1024, 10
+  %1029 = icmp samesign ult i8 %1024, 10
   br i1 %1029, label %1030, label %1031
 
 1030:                                             ; preds = %1028
@@ -3971,7 +3971,7 @@ add_error.exit17432:                              ; preds = %898, %902
   br i1 %1032, label %.preheader17640, label %.loopexit17669
 
 1033:                                             ; preds = %1026
-  %1034 = icmp ult i8 %1024, 45
+  %1034 = icmp samesign ult i8 %1024, 45
   br i1 %1034, label %1035, label %1037
 
 1035:                                             ; preds = %1033
@@ -3987,11 +3987,11 @@ add_error.exit17432:                              ; preds = %898, %902
   br i1 %1040, label %1041, label %1046
 
 1041:                                             ; preds = %1039
-  %1042 = icmp ult i8 %1024, 73
+  %1042 = icmp samesign ult i8 %1024, 73
   br i1 %1042, label %1043, label %1045
 
 1043:                                             ; preds = %1041
-  %1044 = icmp ult i8 %1024, 65
+  %1044 = icmp samesign ult i8 %1024, 65
   br i1 %1044, label %.loopexit17669, label %.loopexit17670
 
 1045:                                             ; preds = %1041
@@ -4020,7 +4020,7 @@ add_error.exit17432:                              ; preds = %898, %902
   br i1 %1055, label %1056, label %1062
 
 1056:                                             ; preds = %1052
-  %1057 = icmp ult i8 %1054, 65
+  %1057 = icmp samesign ult i8 %1054, 65
   br i1 %1057, label %1058, label %1061
 
 1058:                                             ; preds = %1056
@@ -4039,7 +4039,7 @@ add_error.exit17432:                              ; preds = %898, %902
   br i1 %1063, label %1064, label %1067
 
 1064:                                             ; preds = %1062
-  %1065 = icmp ult i8 %1054, 91
+  %1065 = icmp samesign ult i8 %1054, 91
   br i1 %1065, label %.loopexit17670.loopexit.split.loop.exit41792, label %1066
 
 1066:                                             ; preds = %1064
@@ -4072,7 +4072,7 @@ add_error.exit17432:                              ; preds = %898, %902
 
 1078:                                             ; preds = %1076
   %1079 = getelementptr inbounds i8, ptr %.01433828656, i64 1
-  %1080 = icmp ult i8 %1073, 91
+  %1080 = icmp samesign ult i8 %1073, 91
   br i1 %1080, label %.loopexit17670, label %.loopexit17669
 
 1081:                                             ; preds = %1076
@@ -4087,7 +4087,7 @@ add_error.exit17432:                              ; preds = %898, %902
   br i1 %107, label %1086, label %1090
 
 1086:                                             ; preds = %1085
-  %1087 = icmp ult i8 %106, 66
+  %1087 = icmp samesign ult i8 %106, 66
   br i1 %1087, label %1088, label %1089
 
 1088:                                             ; preds = %1086
@@ -4107,11 +4107,11 @@ add_error.exit17432:                              ; preds = %898, %902
   br i1 %1091, label %1092, label %1098
 
 1092:                                             ; preds = %1090
-  %1093 = icmp ult i8 %106, 91
+  %1093 = icmp samesign ult i8 %106, 91
   br i1 %1093, label %.loopexit17670.loopexit.split.loop.exit41794, label %1094
 
 1094:                                             ; preds = %1092
-  %1095 = icmp ult i8 %106, 97
+  %1095 = icmp samesign ult i8 %106, 97
   br i1 %1095, label %.loopexit17669.loopexit.split.loop.exit39656, label %1096
 
 1096:                                             ; preds = %1094
@@ -4138,7 +4138,7 @@ add_error.exit17432:                              ; preds = %898, %902
   br i1 %107, label %1107, label %1119
 
 1107:                                             ; preds = %1106
-  %1108 = icmp ult i8 %106, 69
+  %1108 = icmp samesign ult i8 %106, 69
   br i1 %1108, label %1109, label %1114
 
 1109:                                             ; preds = %1107
@@ -4147,11 +4147,11 @@ add_error.exit17432:                              ; preds = %898, %902
   br i1 %1111, label %.loopexit17671, label %1112
 
 1112:                                             ; preds = %1109
-  %1113 = icmp ult i8 %106, 65
+  %1113 = icmp samesign ult i8 %106, 65
   br i1 %1113, label %.loopexit17669, label %.loopexit17670
 
 1114:                                             ; preds = %1107
-  %1115 = icmp ult i8 %106, 73
+  %1115 = icmp samesign ult i8 %106, 73
   br i1 %1115, label %1116, label %1118
 
 1116:                                             ; preds = %1114
@@ -4169,12 +4169,12 @@ add_error.exit17432:                              ; preds = %898, %902
   br i1 %1120, label %1121, label %1128
 
 1121:                                             ; preds = %1119
-  %1122 = icmp ult i8 %106, 97
+  %1122 = icmp samesign ult i8 %106, 97
   br i1 %1122, label %1123, label %1126
 
 1123:                                             ; preds = %1121
   %1124 = getelementptr inbounds i8, ptr %.01433828656, i64 1
-  %1125 = icmp ult i8 %106, 91
+  %1125 = icmp samesign ult i8 %106, 91
   br i1 %1125, label %.loopexit17670, label %.loopexit17669
 
 1126:                                             ; preds = %1121
@@ -4204,7 +4204,7 @@ add_error.exit17432:                              ; preds = %898, %902
   br i1 %1139, label %1140, label %1147
 
 1140:                                             ; preds = %1136
-  %1141 = icmp ult i8 %1138, 42
+  %1141 = icmp samesign ult i8 %1138, 42
   br i1 %1141, label %1142, label %1144
 
 1142:                                             ; preds = %1140
@@ -4213,7 +4213,7 @@ add_error.exit17432:                              ; preds = %898, %902
   br i1 %.not16494, label %.loopexit17671, label %.loopexit17669
 
 1144:                                             ; preds = %1140
-  %1145 = icmp ult i8 %1138, 65
+  %1145 = icmp samesign ult i8 %1138, 65
   br i1 %1145, label %.loopexit17669.loopexit.split.loop.exit39662, label %1146
 
 1146:                                             ; preds = %1144
@@ -4225,11 +4225,11 @@ add_error.exit17432:                              ; preds = %898, %902
   br i1 %1148, label %1149, label %1153
 
 1149:                                             ; preds = %1147
-  %1150 = icmp ult i8 %1138, 91
+  %1150 = icmp samesign ult i8 %1138, 91
   br i1 %1150, label %.loopexit17670.loopexit.split.loop.exit41800, label %1151
 
 1151:                                             ; preds = %1149
-  %1152 = icmp ult i8 %1138, 97
+  %1152 = icmp samesign ult i8 %1138, 97
   br i1 %1152, label %.loopexit17669.loopexit.split.loop.exit39664, label %2750
 
 1153:                                             ; preds = %1147
@@ -4247,7 +4247,7 @@ add_error.exit17432:                              ; preds = %898, %902
   br i1 %1160, label %1161, label %1168
 
 1161:                                             ; preds = %1157
-  %1162 = icmp ult i8 %1159, 42
+  %1162 = icmp samesign ult i8 %1159, 42
   br i1 %1162, label %1163, label %1165
 
 1163:                                             ; preds = %1161
@@ -4256,7 +4256,7 @@ add_error.exit17432:                              ; preds = %898, %902
   br i1 %.not16475, label %.loopexit17671, label %.loopexit17669
 
 1165:                                             ; preds = %1161
-  %1166 = icmp ult i8 %1159, 65
+  %1166 = icmp samesign ult i8 %1159, 65
   br i1 %1166, label %.loopexit17669.loopexit.split.loop.exit39668, label %1167
 
 1167:                                             ; preds = %1165
@@ -4268,11 +4268,11 @@ add_error.exit17432:                              ; preds = %898, %902
   br i1 %1169, label %1170, label %1174
 
 1170:                                             ; preds = %1168
-  %1171 = icmp ult i8 %1159, 91
+  %1171 = icmp samesign ult i8 %1159, 91
   br i1 %1171, label %.loopexit17670.loopexit.split.loop.exit41804, label %1172
 
 1172:                                             ; preds = %1170
-  %1173 = icmp ult i8 %1159, 97
+  %1173 = icmp samesign ult i8 %1159, 97
   br i1 %1173, label %.loopexit17669.loopexit.split.loop.exit39670, label %2750
 
 1174:                                             ; preds = %1168
@@ -4290,11 +4290,11 @@ add_error.exit17432:                              ; preds = %898, %902
   br i1 %1181, label %1182, label %1197
 
 1182:                                             ; preds = %1178
-  %1183 = icmp ult i8 %1180, 69
+  %1183 = icmp samesign ult i8 %1180, 69
   br i1 %1183, label %1184, label %1192
 
 1184:                                             ; preds = %1182
-  %1185 = icmp ult i8 %1180, 42
+  %1185 = icmp samesign ult i8 %1180, 42
   br i1 %1185, label %1186, label %1188
 
 1186:                                             ; preds = %1184
@@ -4303,7 +4303,7 @@ add_error.exit17432:                              ; preds = %898, %902
   br i1 %.not16455, label %.loopexit17671, label %.loopexit17669
 
 1188:                                             ; preds = %1184
-  %1189 = icmp ult i8 %1180, 65
+  %1189 = icmp samesign ult i8 %1180, 65
   br i1 %1189, label %.loopexit17669.loopexit.split.loop.exit39674, label %1190
 
 1190:                                             ; preds = %1188
@@ -4311,7 +4311,7 @@ add_error.exit17432:                              ; preds = %898, %902
   br i1 %1191, label %3965, label %.loopexit17670.loopexit.split.loop.exit41806
 
 1192:                                             ; preds = %1182
-  %1193 = icmp ult i8 %1180, 73
+  %1193 = icmp samesign ult i8 %1180, 73
   br i1 %1193, label %1194, label %1196
 
 1194:                                             ; preds = %1192
@@ -4329,12 +4329,12 @@ add_error.exit17432:                              ; preds = %898, %902
   br i1 %1198, label %1199, label %1205
 
 1199:                                             ; preds = %1197
-  %1200 = icmp ult i8 %1180, 97
+  %1200 = icmp samesign ult i8 %1180, 97
   br i1 %1200, label %1201, label %1204
 
 1201:                                             ; preds = %1199
   %1202 = getelementptr inbounds i8, ptr %.01433828656, i64 1
-  %1203 = icmp ult i8 %1180, 91
+  %1203 = icmp samesign ult i8 %1180, 91
   br i1 %1203, label %.loopexit17670, label %.loopexit17669
 
 1204:                                             ; preds = %1199
@@ -4436,7 +4436,7 @@ add_error.exit17432:                              ; preds = %898, %902
   br i1 %1219, label %1220, label %1227
 
 1220:                                             ; preds = %1216
-  %1221 = icmp ult i8 %1218, 33
+  %1221 = icmp samesign ult i8 %1218, 33
   br i1 %1221, label %1222, label %1223
 
 1222:                                             ; preds = %1220
@@ -4450,7 +4450,7 @@ add_error.exit17432:                              ; preds = %898, %902
   br i1 %1224, label %.loopexit17671, label %1225
 
 1225:                                             ; preds = %1223
-  %1226 = icmp ult i8 %1218, 45
+  %1226 = icmp samesign ult i8 %1218, 45
   br i1 %1226, label %.loopexit17669, label %.preheader17640
 
 1227:                                             ; preds = %1216
@@ -4462,11 +4462,11 @@ add_error.exit17432:                              ; preds = %898, %902
   br i1 %1230, label %.loopexit17669, label %1231
 
 1231:                                             ; preds = %1229
-  %1232 = icmp ult i8 %1218, 58
+  %1232 = icmp samesign ult i8 %1218, 58
   br i1 %1232, label %.preheader17640, label %1233
 
 1233:                                             ; preds = %1231
-  %1234 = icmp ult i8 %1218, 65
+  %1234 = icmp samesign ult i8 %1218, 65
   br i1 %1234, label %.loopexit17669, label %.loopexit17670
 
 1235:                                             ; preds = %1227
@@ -4488,7 +4488,7 @@ add_error.exit17432:                              ; preds = %898, %902
   br i1 %1243, label %1244, label %1251
 
 1244:                                             ; preds = %1241
-  %1245 = icmp ult i8 %1242, 42
+  %1245 = icmp samesign ult i8 %1242, 42
   br i1 %1245, label %1246, label %1248
 
 1246:                                             ; preds = %1244
@@ -4497,7 +4497,7 @@ add_error.exit17432:                              ; preds = %898, %902
   br i1 %.not16323, label %.loopexit17671, label %.loopexit17669
 
 1248:                                             ; preds = %1244
-  %1249 = icmp ult i8 %1242, 65
+  %1249 = icmp samesign ult i8 %1242, 65
   br i1 %1249, label %.loopexit17669.loopexit.split.loop.exit39680, label %1250
 
 1250:                                             ; preds = %1248
@@ -4509,11 +4509,11 @@ add_error.exit17432:                              ; preds = %898, %902
   br i1 %1252, label %1253, label %1257
 
 1253:                                             ; preds = %1251
-  %1254 = icmp ult i8 %1242, 91
+  %1254 = icmp samesign ult i8 %1242, 91
   br i1 %1254, label %.loopexit17670.loopexit.split.loop.exit41814, label %1255
 
 1255:                                             ; preds = %1253
-  %1256 = icmp ult i8 %1242, 97
+  %1256 = icmp samesign ult i8 %1242, 97
   br i1 %1256, label %.loopexit17669.loopexit.split.loop.exit39682, label %2750
 
 1257:                                             ; preds = %1251
@@ -4531,7 +4531,7 @@ add_error.exit17432:                              ; preds = %898, %902
   br i1 %1263, label %1264, label %1271
 
 1264:                                             ; preds = %1261
-  %1265 = icmp ult i8 %1262, 33
+  %1265 = icmp samesign ult i8 %1262, 33
   br i1 %1265, label %1266, label %1267
 
 1266:                                             ; preds = %1264
@@ -4545,7 +4545,7 @@ add_error.exit17432:                              ; preds = %898, %902
   br i1 %1268, label %.loopexit17671, label %1269
 
 1269:                                             ; preds = %1267
-  %1270 = icmp ult i8 %1262, 45
+  %1270 = icmp samesign ult i8 %1262, 45
   br i1 %1270, label %.loopexit17669, label %.preheader17640
 
 1271:                                             ; preds = %1261
@@ -4557,11 +4557,11 @@ add_error.exit17432:                              ; preds = %898, %902
   br i1 %1274, label %.loopexit17669, label %1275
 
 1275:                                             ; preds = %1273
-  %1276 = icmp ult i8 %1262, 58
+  %1276 = icmp samesign ult i8 %1262, 58
   br i1 %1276, label %.preheader17640, label %1277
 
 1277:                                             ; preds = %1275
-  %1278 = icmp ult i8 %1262, 65
+  %1278 = icmp samesign ult i8 %1262, 65
   br i1 %1278, label %.loopexit17669, label %.loopexit17670
 
 1279:                                             ; preds = %1271
@@ -4584,7 +4584,7 @@ add_error.exit17432:                              ; preds = %898, %902
   br i1 %1288, label %1289, label %1296
 
 1289:                                             ; preds = %1285
-  %1290 = icmp ult i8 %1287, 42
+  %1290 = icmp samesign ult i8 %1287, 42
   br i1 %1290, label %1291, label %1293
 
 1291:                                             ; preds = %1289
@@ -4593,7 +4593,7 @@ add_error.exit17432:                              ; preds = %898, %902
   br i1 %.not16301, label %.loopexit17671, label %.loopexit17669
 
 1293:                                             ; preds = %1289
-  %1294 = icmp ult i8 %1287, 65
+  %1294 = icmp samesign ult i8 %1287, 65
   br i1 %1294, label %.loopexit17669.loopexit.split.loop.exit39686, label %1295
 
 1295:                                             ; preds = %1293
@@ -4605,11 +4605,11 @@ add_error.exit17432:                              ; preds = %898, %902
   br i1 %1297, label %1298, label %1302
 
 1298:                                             ; preds = %1296
-  %1299 = icmp ult i8 %1287, 91
+  %1299 = icmp samesign ult i8 %1287, 91
   br i1 %1299, label %.loopexit17670.loopexit.split.loop.exit41818, label %1300
 
 1300:                                             ; preds = %1298
-  %1301 = icmp ult i8 %1287, 97
+  %1301 = icmp samesign ult i8 %1287, 97
   br i1 %1301, label %.loopexit17669.loopexit.split.loop.exit39688, label %2750
 
 1302:                                             ; preds = %1296
@@ -4627,7 +4627,7 @@ add_error.exit17432:                              ; preds = %898, %902
   br i1 %1309, label %1310, label %1323
 
 1310:                                             ; preds = %1306
-  %1311 = icmp ult i8 %1308, 71
+  %1311 = icmp samesign ult i8 %1308, 71
   br i1 %1311, label %1312, label %1317
 
 1312:                                             ; preds = %1310
@@ -4636,11 +4636,11 @@ add_error.exit17432:                              ; preds = %898, %902
   br i1 %1314, label %.loopexit17671, label %1315
 
 1315:                                             ; preds = %1312
-  %1316 = icmp ult i8 %1308, 65
+  %1316 = icmp samesign ult i8 %1308, 65
   br i1 %1316, label %.loopexit17669, label %.loopexit17670
 
 1317:                                             ; preds = %1310
-  %1318 = icmp ult i8 %1308, 80
+  %1318 = icmp samesign ult i8 %1308, 80
   br i1 %1318, label %1319, label %1322
 
 1319:                                             ; preds = %1317
@@ -4660,11 +4660,11 @@ add_error.exit17432:                              ; preds = %898, %902
 
 1325:                                             ; preds = %1323
   %1326 = getelementptr inbounds i8, ptr %.01433828656, i64 1
-  %1327 = icmp ult i8 %1308, 97
+  %1327 = icmp samesign ult i8 %1308, 97
   br i1 %1327, label %1328, label %1330
 
 1328:                                             ; preds = %1325
-  %1329 = icmp ult i8 %1308, 91
+  %1329 = icmp samesign ult i8 %1308, 91
   br i1 %1329, label %.loopexit17670, label %.loopexit17669
 
 1330:                                             ; preds = %1325
@@ -4706,7 +4706,7 @@ add_error.exit17432:                              ; preds = %898, %902
 
 1348:                                             ; preds = %1346
   %1349 = getelementptr inbounds i8, ptr %.01433828656, i64 1
-  %1350 = icmp ult i8 %1343, 91
+  %1350 = icmp samesign ult i8 %1343, 91
   br i1 %1350, label %.loopexit17670, label %.loopexit17669
 
 1351:                                             ; preds = %1346
@@ -4743,7 +4743,7 @@ add_error.exit17432:                              ; preds = %898, %902
   br i1 %1368, label %1369, label %1376
 
 1369:                                             ; preds = %1365
-  %1370 = icmp ult i8 %1367, 42
+  %1370 = icmp samesign ult i8 %1367, 42
   br i1 %1370, label %1371, label %1373
 
 1371:                                             ; preds = %1369
@@ -4752,7 +4752,7 @@ add_error.exit17432:                              ; preds = %898, %902
   br i1 %.not16280, label %.loopexit17671, label %.loopexit17669
 
 1373:                                             ; preds = %1369
-  %1374 = icmp ult i8 %1367, 65
+  %1374 = icmp samesign ult i8 %1367, 65
   br i1 %1374, label %.loopexit17669.loopexit.split.loop.exit39692, label %1375
 
 1375:                                             ; preds = %1373
@@ -4783,7 +4783,7 @@ add_error.exit17432:                              ; preds = %898, %902
   br i1 %1387, label %1388, label %1394
 
 1388:                                             ; preds = %1386
-  %1389 = icmp ult i8 %144, 65
+  %1389 = icmp samesign ult i8 %144, 65
   br i1 %1389, label %1390, label %1393
 
 1390:                                             ; preds = %1388
@@ -4802,11 +4802,11 @@ add_error.exit17432:                              ; preds = %898, %902
   br i1 %1395, label %1396, label %1401
 
 1396:                                             ; preds = %1394
-  %1397 = icmp ult i8 %144, 91
+  %1397 = icmp samesign ult i8 %144, 91
   br i1 %1397, label %.loopexit17670.loopexit.split.loop.exit41824, label %1398
 
 1398:                                             ; preds = %1396
-  %1399 = icmp ult i8 %144, 97
+  %1399 = icmp samesign ult i8 %144, 97
   br i1 %1399, label %.loopexit17669.loopexit.split.loop.exit39694, label %1400
 
 1400:                                             ; preds = %1398
@@ -4827,11 +4827,11 @@ add_error.exit17432:                              ; preds = %898, %902
   br i1 %1407, label %1408, label %1422
 
 1408:                                             ; preds = %1406
-  %1409 = icmp ult i8 %144, 70
+  %1409 = icmp samesign ult i8 %144, 70
   br i1 %1409, label %1410, label %1417
 
 1410:                                             ; preds = %1408
-  %1411 = icmp ult i8 %144, 42
+  %1411 = icmp samesign ult i8 %144, 42
   br i1 %1411, label %1412, label %1414
 
 1412:                                             ; preds = %1410
@@ -4840,7 +4840,7 @@ add_error.exit17432:                              ; preds = %898, %902
   br i1 %.not16275, label %.loopexit17671, label %.loopexit17669
 
 1414:                                             ; preds = %1410
-  %1415 = icmp ult i8 %144, 65
+  %1415 = icmp samesign ult i8 %144, 65
   br i1 %1415, label %.loopexit17669.loopexit.split.loop.exit39696, label %1416
 
 1416:                                             ; preds = %1414
@@ -4848,7 +4848,7 @@ add_error.exit17432:                              ; preds = %898, %902
   br i1 %.not16274, label %3034, label %.loopexit17670.loopexit.split.loop.exit41828
 
 1417:                                             ; preds = %1408
-  %1418 = icmp ult i8 %144, 79
+  %1418 = icmp samesign ult i8 %144, 79
   br i1 %1418, label %1419, label %1421
 
 1419:                                             ; preds = %1417
@@ -4866,7 +4866,7 @@ add_error.exit17432:                              ; preds = %898, %902
   br i1 %1423, label %1424, label %1430
 
 1424:                                             ; preds = %1422
-  %1425 = icmp ult i8 %144, 101
+  %1425 = icmp samesign ult i8 %144, 101
   br i1 %1425, label %1426, label %1429
 
 1426:                                             ; preds = %1424
@@ -4905,7 +4905,7 @@ add_error.exit17432:                              ; preds = %898, %902
   br i1 %1442, label %1443, label %1449
 
 1443:                                             ; preds = %1439
-  %1444 = icmp ult i8 %1441, 65
+  %1444 = icmp samesign ult i8 %1441, 65
   br i1 %1444, label %1445, label %1448
 
 1445:                                             ; preds = %1443
@@ -4924,7 +4924,7 @@ add_error.exit17432:                              ; preds = %898, %902
   br i1 %1450, label %1451, label %1454
 
 1451:                                             ; preds = %1449
-  %1452 = icmp ult i8 %1441, 91
+  %1452 = icmp samesign ult i8 %1441, 91
   br i1 %1452, label %.loopexit17670.loopexit.split.loop.exit41834, label %1453
 
 1453:                                             ; preds = %1451
@@ -4958,7 +4958,7 @@ add_error.exit17432:                              ; preds = %898, %902
 
 1466:                                             ; preds = %1464
   %1467 = getelementptr inbounds i8, ptr %.01433828656, i64 1
-  %1468 = icmp ult i8 %1461, 91
+  %1468 = icmp samesign ult i8 %1461, 91
   br i1 %1468, label %.loopexit17670, label %.loopexit17669
 
 1469:                                             ; preds = %1464
@@ -4977,7 +4977,7 @@ add_error.exit17432:                              ; preds = %898, %902
   br i1 %1477, label %1478, label %1482
 
 1478:                                             ; preds = %1474
-  %1479 = icmp ult i8 %1476, 66
+  %1479 = icmp samesign ult i8 %1476, 66
   br i1 %1479, label %1480, label %1481
 
 1480:                                             ; preds = %1478
@@ -4997,11 +4997,11 @@ add_error.exit17432:                              ; preds = %898, %902
   br i1 %1483, label %1484, label %1490
 
 1484:                                             ; preds = %1482
-  %1485 = icmp ult i8 %1476, 91
+  %1485 = icmp samesign ult i8 %1476, 91
   br i1 %1485, label %.loopexit17670.loopexit.split.loop.exit41836, label %1486
 
 1486:                                             ; preds = %1484
-  %1487 = icmp ult i8 %1476, 97
+  %1487 = icmp samesign ult i8 %1476, 97
   br i1 %1487, label %.loopexit17669.loopexit.split.loop.exit39700, label %1488
 
 1488:                                             ; preds = %1486
@@ -5030,7 +5030,7 @@ add_error.exit17432:                              ; preds = %898, %902
   br i1 %1500, label %1501, label %1513
 
 1501:                                             ; preds = %1499
-  %1502 = icmp ult i8 %157, 69
+  %1502 = icmp samesign ult i8 %157, 69
   br i1 %1502, label %1503, label %1508
 
 1503:                                             ; preds = %1501
@@ -5039,11 +5039,11 @@ add_error.exit17432:                              ; preds = %898, %902
   br i1 %1505, label %.loopexit17671, label %1506
 
 1506:                                             ; preds = %1503
-  %1507 = icmp ult i8 %157, 65
+  %1507 = icmp samesign ult i8 %157, 65
   br i1 %1507, label %.loopexit17669, label %.loopexit17670
 
 1508:                                             ; preds = %1501
-  %1509 = icmp ult i8 %157, 73
+  %1509 = icmp samesign ult i8 %157, 73
   br i1 %1509, label %1510, label %1512
 
 1510:                                             ; preds = %1508
@@ -5061,12 +5061,12 @@ add_error.exit17432:                              ; preds = %898, %902
   br i1 %1514, label %1515, label %1522
 
 1515:                                             ; preds = %1513
-  %1516 = icmp ult i8 %157, 97
+  %1516 = icmp samesign ult i8 %157, 97
   br i1 %1516, label %1517, label %1520
 
 1517:                                             ; preds = %1515
   %1518 = getelementptr inbounds i8, ptr %.01433828656, i64 1
-  %1519 = icmp ult i8 %157, 91
+  %1519 = icmp samesign ult i8 %157, 91
   br i1 %1519, label %.loopexit17670, label %.loopexit17669
 
 1520:                                             ; preds = %1515
@@ -5095,7 +5095,7 @@ add_error.exit17432:                              ; preds = %898, %902
   br i1 %1532, label %1533, label %1540
 
 1533:                                             ; preds = %1531
-  %1534 = icmp ult i8 %157, 42
+  %1534 = icmp samesign ult i8 %157, 42
   br i1 %1534, label %1535, label %1537
 
 1535:                                             ; preds = %1533
@@ -5104,7 +5104,7 @@ add_error.exit17432:                              ; preds = %898, %902
   br i1 %.not16265, label %.loopexit17671, label %.loopexit17669
 
 1537:                                             ; preds = %1533
-  %1538 = icmp ult i8 %157, 65
+  %1538 = icmp samesign ult i8 %157, 65
   br i1 %1538, label %.loopexit17669.loopexit.split.loop.exit39702, label %1539
 
 1539:                                             ; preds = %1537
@@ -5137,7 +5137,7 @@ add_error.exit17432:                              ; preds = %898, %902
   br i1 %1553, label %1554, label %1561
 
 1554:                                             ; preds = %1550
-  %1555 = icmp ult i8 %1552, 42
+  %1555 = icmp samesign ult i8 %1552, 42
   br i1 %1555, label %1556, label %1558
 
 1556:                                             ; preds = %1554
@@ -5146,7 +5146,7 @@ add_error.exit17432:                              ; preds = %898, %902
   br i1 %.not16262, label %.loopexit17671, label %.loopexit17669
 
 1558:                                             ; preds = %1554
-  %1559 = icmp ult i8 %1552, 65
+  %1559 = icmp samesign ult i8 %1552, 65
   br i1 %1559, label %.loopexit17669.loopexit.split.loop.exit39704, label %1560
 
 1560:                                             ; preds = %1558
@@ -5179,11 +5179,11 @@ add_error.exit17432:                              ; preds = %898, %902
   br i1 %1574, label %1575, label %1590
 
 1575:                                             ; preds = %1571
-  %1576 = icmp ult i8 %1573, 69
+  %1576 = icmp samesign ult i8 %1573, 69
   br i1 %1576, label %1577, label %1585
 
 1577:                                             ; preds = %1575
-  %1578 = icmp ult i8 %1573, 42
+  %1578 = icmp samesign ult i8 %1573, 42
   br i1 %1578, label %1579, label %1581
 
 1579:                                             ; preds = %1577
@@ -5192,7 +5192,7 @@ add_error.exit17432:                              ; preds = %898, %902
   br i1 %.not16260, label %.loopexit17671, label %.loopexit17669
 
 1581:                                             ; preds = %1577
-  %1582 = icmp ult i8 %1573, 65
+  %1582 = icmp samesign ult i8 %1573, 65
   br i1 %1582, label %.loopexit17669.loopexit.split.loop.exit39706, label %1583
 
 1583:                                             ; preds = %1581
@@ -5200,7 +5200,7 @@ add_error.exit17432:                              ; preds = %898, %902
   br i1 %1584, label %3965, label %.loopexit17670.loopexit.split.loop.exit41852
 
 1585:                                             ; preds = %1575
-  %1586 = icmp ult i8 %1573, 73
+  %1586 = icmp samesign ult i8 %1573, 73
   br i1 %1586, label %1587, label %1589
 
 1587:                                             ; preds = %1585
@@ -5218,12 +5218,12 @@ add_error.exit17432:                              ; preds = %898, %902
   br i1 %1591, label %1592, label %1598
 
 1592:                                             ; preds = %1590
-  %1593 = icmp ult i8 %1573, 97
+  %1593 = icmp samesign ult i8 %1573, 97
   br i1 %1593, label %1594, label %1597
 
 1594:                                             ; preds = %1592
   %1595 = getelementptr inbounds i8, ptr %.01433828656, i64 1
-  %1596 = icmp ult i8 %1573, 91
+  %1596 = icmp samesign ult i8 %1573, 91
   br i1 %1596, label %.loopexit17670, label %.loopexit17669
 
 1597:                                             ; preds = %1592
@@ -5325,7 +5325,7 @@ add_error.exit17432:                              ; preds = %898, %902
   br i1 %1613, label %1614, label %1621
 
 1614:                                             ; preds = %1610
-  %1615 = icmp ult i8 %1612, 42
+  %1615 = icmp samesign ult i8 %1612, 42
   br i1 %1615, label %1616, label %1618
 
 1616:                                             ; preds = %1614
@@ -5334,7 +5334,7 @@ add_error.exit17432:                              ; preds = %898, %902
   br i1 %.not16257, label %.loopexit17671, label %.loopexit17669
 
 1618:                                             ; preds = %1614
-  %1619 = icmp ult i8 %1612, 65
+  %1619 = icmp samesign ult i8 %1612, 65
   br i1 %1619, label %.loopexit17669.loopexit.split.loop.exit39710, label %1620
 
 1620:                                             ; preds = %1618
@@ -5367,7 +5367,7 @@ add_error.exit17432:                              ; preds = %898, %902
   br i1 %1634, label %1635, label %1642
 
 1635:                                             ; preds = %1631
-  %1636 = icmp ult i8 %1633, 42
+  %1636 = icmp samesign ult i8 %1633, 42
   br i1 %1636, label %1637, label %1639
 
 1637:                                             ; preds = %1635
@@ -5376,7 +5376,7 @@ add_error.exit17432:                              ; preds = %898, %902
   br i1 %.not16255, label %.loopexit17671, label %.loopexit17669
 
 1639:                                             ; preds = %1635
-  %1640 = icmp ult i8 %1633, 65
+  %1640 = icmp samesign ult i8 %1633, 65
   br i1 %1640, label %.loopexit17669.loopexit.split.loop.exit39712, label %1641
 
 1641:                                             ; preds = %1639
@@ -5457,11 +5457,11 @@ add_error.exit17432:                              ; preds = %898, %902
   br i1 %1673, label %1674, label %1687
 
 1674:                                             ; preds = %1671
-  %1675 = icmp ult i32 %.261437817464, 5
+  %1675 = icmp samesign ult i32 %.261437817464, 5
   br i1 %1675, label %1676, label %1681
 
 1676:                                             ; preds = %1674
-  %1677 = icmp ult i32 %.261437817464, 3
+  %1677 = icmp samesign ult i32 %.261437817464, 3
   br i1 %1677, label %1678, label %1679
 
 1678:                                             ; preds = %1676
@@ -5475,7 +5475,7 @@ add_error.exit17432:                              ; preds = %898, %902
   br i1 %1680, label %.loopexit17733, label %.loopexit17511
 
 1681:                                             ; preds = %1674
-  %1682 = icmp ult i32 %.261437817464, 7
+  %1682 = icmp samesign ult i32 %.261437817464, 7
   br i1 %1682, label %1683, label %1685
 
 1683:                                             ; preds = %1681
@@ -5491,7 +5491,7 @@ add_error.exit17432:                              ; preds = %898, %902
   br i1 %1688, label %1689, label %1695
 
 1689:                                             ; preds = %1687
-  %1690 = icmp ult i32 %.261437817464, 11
+  %1690 = icmp samesign ult i32 %.261437817464, 11
   br i1 %1690, label %1691, label %1693
 
 1691:                                             ; preds = %1689
@@ -5521,11 +5521,11 @@ add_error.exit17432:                              ; preds = %898, %902
   br i1 %1702, label %1703, label %1716
 
 1703:                                             ; preds = %.loopexit17738
-  %1704 = icmp ult i32 %.261437817469, 22
+  %1704 = icmp samesign ult i32 %.261437817469, 22
   br i1 %1704, label %1705, label %1710
 
 1705:                                             ; preds = %1703
-  %1706 = icmp ult i32 %.261437817469, 20
+  %1706 = icmp samesign ult i32 %.261437817469, 20
   br i1 %1706, label %1707, label %1708
 
 1707:                                             ; preds = %1705
@@ -5539,7 +5539,7 @@ add_error.exit17432:                              ; preds = %898, %902
   br i1 %1709, label %.loopexit17516, label %.loopexit17717
 
 1710:                                             ; preds = %1703
-  %1711 = icmp ult i32 %.261437817469, 24
+  %1711 = icmp samesign ult i32 %.261437817469, 24
   br i1 %1711, label %1712, label %1714
 
 1712:                                             ; preds = %1710
@@ -5555,7 +5555,7 @@ add_error.exit17432:                              ; preds = %898, %902
   br i1 %1717, label %1718, label %1724
 
 1718:                                             ; preds = %1716
-  %1719 = icmp ult i32 %.261437817469, 28
+  %1719 = icmp samesign ult i32 %.261437817469, 28
   br i1 %1719, label %1720, label %1722
 
 1720:                                             ; preds = %1718
@@ -5646,15 +5646,15 @@ add_error.exit17432:                              ; preds = %898, %902
   br i1 %1764, label %1765, label %1792
 
 1765:                                             ; preds = %1761
-  %1766 = icmp ult i8 %1763, 70
+  %1766 = icmp samesign ult i8 %1763, 70
   br i1 %1766, label %1767, label %1779
 
 1767:                                             ; preds = %1765
-  %1768 = icmp ult i8 %1763, 48
+  %1768 = icmp samesign ult i8 %1763, 48
   br i1 %1768, label %1769, label %1774
 
 1769:                                             ; preds = %1767
-  %1770 = icmp ult i8 %1763, 10
+  %1770 = icmp samesign ult i8 %1763, 10
   br i1 %1770, label %1771, label %1772
 
 1771:                                             ; preds = %1769
@@ -5666,7 +5666,7 @@ add_error.exit17432:                              ; preds = %898, %902
   br i1 %1773, label %4547, label %.loopexit17669
 
 1774:                                             ; preds = %1767
-  %1775 = icmp ult i8 %1763, 59
+  %1775 = icmp samesign ult i8 %1763, 59
   br i1 %1775, label %1776, label %1777
 
 1776:                                             ; preds = %1774
@@ -5678,11 +5678,11 @@ add_error.exit17432:                              ; preds = %898, %902
   br i1 %1778, label %4547, label %.loopexit17669
 
 1779:                                             ; preds = %1765
-  %1780 = icmp ult i8 %1763, 78
+  %1780 = icmp samesign ult i8 %1763, 78
   br i1 %1780, label %1781, label %1786
 
 1781:                                             ; preds = %1779
-  %1782 = icmp ult i8 %1763, 72
+  %1782 = icmp samesign ult i8 %1763, 72
   br i1 %1782, label %1783, label %1785
 
 1783:                                             ; preds = %1781
@@ -5696,11 +5696,11 @@ add_error.exit17432:                              ; preds = %898, %902
   ]
 
 1786:                                             ; preds = %1779
-  %1787 = icmp ult i8 %1763, 86
+  %1787 = icmp samesign ult i8 %1763, 86
   br i1 %1787, label %1788, label %1790
 
 1788:                                             ; preds = %1786
-  %1789 = icmp ult i8 %1763, 83
+  %1789 = icmp samesign ult i8 %1763, 83
   br i1 %1789, label %.loopexit17669, label %4547
 
 1790:                                             ; preds = %1786
@@ -5712,11 +5712,11 @@ add_error.exit17432:                              ; preds = %898, %902
   br i1 %1793, label %1794, label %1808
 
 1794:                                             ; preds = %1792
-  %1795 = icmp ult i8 %1763, 103
+  %1795 = icmp samesign ult i8 %1763, 103
   br i1 %1795, label %1796, label %1802
 
 1796:                                             ; preds = %1794
-  %1797 = icmp ult i8 %1763, 100
+  %1797 = icmp samesign ult i8 %1763, 100
   br i1 %1797, label %1798, label %1800
 
 1798:                                             ; preds = %1796
@@ -5728,7 +5728,7 @@ add_error.exit17432:                              ; preds = %898, %902
   br i1 %1801, label %.loopexit17669, label %4547
 
 1802:                                             ; preds = %1794
-  %1803 = icmp ult i8 %1763, 105
+  %1803 = icmp samesign ult i8 %1763, 105
   br i1 %1803, label %1804, label %1806
 
 1804:                                             ; preds = %1802
@@ -5744,7 +5744,7 @@ add_error.exit17432:                              ; preds = %898, %902
   br i1 %1809, label %1810, label %1815
 
 1810:                                             ; preds = %1808
-  %1811 = icmp ult i8 %1763, 119
+  %1811 = icmp samesign ult i8 %1763, 119
   br i1 %1811, label %1812, label %1813
 
 1812:                                             ; preds = %1810
@@ -5775,15 +5775,15 @@ add_error.exit17432:                              ; preds = %898, %902
   br i1 %1823, label %1824, label %1854
 
 1824:                                             ; preds = %1820
-  %1825 = icmp ult i8 %1822, 68
+  %1825 = icmp samesign ult i8 %1822, 68
   br i1 %1825, label %1826, label %1840
 
 1826:                                             ; preds = %1824
-  %1827 = icmp ult i8 %1822, 48
+  %1827 = icmp samesign ult i8 %1822, 48
   br i1 %1827, label %1828, label %1833
 
 1828:                                             ; preds = %1826
-  %1829 = icmp ult i8 %1822, 10
+  %1829 = icmp samesign ult i8 %1822, 10
   br i1 %1829, label %1830, label %1831
 
 1830:                                             ; preds = %1828
@@ -5795,7 +5795,7 @@ add_error.exit17432:                              ; preds = %898, %902
   br i1 %1832, label %4547, label %.loopexit17669
 
 1833:                                             ; preds = %1826
-  %1834 = icmp ult i8 %1822, 54
+  %1834 = icmp samesign ult i8 %1822, 54
   br i1 %1834, label %1835, label %1836
 
 1835:                                             ; preds = %1833
@@ -5803,7 +5803,7 @@ add_error.exit17432:                              ; preds = %898, %902
   br i1 %.not17248, label %4717, label %4649
 
 1836:                                             ; preds = %1833
-  %1837 = icmp ult i8 %1822, 58
+  %1837 = icmp samesign ult i8 %1822, 58
   br i1 %1837, label %4773, label %1838
 
 1838:                                             ; preds = %1836
@@ -5811,11 +5811,11 @@ add_error.exit17432:                              ; preds = %898, %902
   br i1 %1839, label %4709, label %.loopexit17669
 
 1840:                                             ; preds = %1824
-  %1841 = icmp ult i8 %1822, 73
+  %1841 = icmp samesign ult i8 %1822, 73
   br i1 %1841, label %1842, label %1848
 
 1842:                                             ; preds = %1840
-  %1843 = icmp ult i8 %1822, 70
+  %1843 = icmp samesign ult i8 %1822, 70
   br i1 %1843, label %1844, label %1846
 
 1844:                                             ; preds = %1842
@@ -5827,7 +5827,7 @@ add_error.exit17432:                              ; preds = %898, %902
   br i1 %1847, label %.loopexit17669, label %4547
 
 1848:                                             ; preds = %1840
-  %1849 = icmp ult i8 %1822, 83
+  %1849 = icmp samesign ult i8 %1822, 83
   br i1 %1849, label %1850, label %1852
 
 1850:                                             ; preds = %1848
@@ -5843,11 +5843,11 @@ add_error.exit17432:                              ; preds = %898, %902
   br i1 %1855, label %1856, label %1869
 
 1856:                                             ; preds = %1854
-  %1857 = icmp ult i8 %1822, 102
+  %1857 = icmp samesign ult i8 %1822, 102
   br i1 %1857, label %1858, label %1864
 
 1858:                                             ; preds = %1856
-  %1859 = icmp ult i8 %1822, 90
+  %1859 = icmp samesign ult i8 %1822, 90
   br i1 %1859, label %1860, label %1862
 
 1860:                                             ; preds = %1858
@@ -5859,7 +5859,7 @@ add_error.exit17432:                              ; preds = %898, %902
   br i1 %1863, label %4547, label %.loopexit17669
 
 1864:                                             ; preds = %1856
-  %1865 = icmp ult i8 %1822, 104
+  %1865 = icmp samesign ult i8 %1822, 104
   br i1 %1865, label %1866, label %1868
 
 1866:                                             ; preds = %1864
@@ -5877,11 +5877,11 @@ add_error.exit17432:                              ; preds = %898, %902
   br i1 %1870, label %1871, label %1877
 
 1871:                                             ; preds = %1869
-  %1872 = icmp ult i8 %1822, 118
+  %1872 = icmp samesign ult i8 %1822, 118
   br i1 %1872, label %1873, label %1875
 
 1873:                                             ; preds = %1871
-  %1874 = icmp ult i8 %1822, 115
+  %1874 = icmp samesign ult i8 %1822, 115
   br i1 %1874, label %.loopexit17669, label %4547
 
 1875:                                             ; preds = %1871
@@ -5910,15 +5910,15 @@ add_error.exit17432:                              ; preds = %898, %902
   br i1 %1885, label %1886, label %1914
 
 1886:                                             ; preds = %1882
-  %1887 = icmp ult i8 %1884, 69
+  %1887 = icmp samesign ult i8 %1884, 69
   br i1 %1887, label %1888, label %1900
 
 1888:                                             ; preds = %1886
-  %1889 = icmp ult i8 %1884, 48
+  %1889 = icmp samesign ult i8 %1884, 48
   br i1 %1889, label %1890, label %1895
 
 1890:                                             ; preds = %1888
-  %1891 = icmp ult i8 %1884, 10
+  %1891 = icmp samesign ult i8 %1884, 10
   br i1 %1891, label %1892, label %1893
 
 1892:                                             ; preds = %1890
@@ -5930,11 +5930,11 @@ add_error.exit17432:                              ; preds = %898, %902
   br i1 %1894, label %4547, label %.loopexit17669
 
 1895:                                             ; preds = %1888
-  %1896 = icmp ult i8 %1884, 58
+  %1896 = icmp samesign ult i8 %1884, 58
   br i1 %1896, label %1897, label %1899
 
 1897:                                             ; preds = %1895
-  %1898 = icmp ult i8 %1884, 54
+  %1898 = icmp samesign ult i8 %1884, 54
   br i1 %1898, label %4717, label %4773
 
 1899:                                             ; preds = %1895
@@ -5944,11 +5944,11 @@ add_error.exit17432:                              ; preds = %898, %902
   ]
 
 1900:                                             ; preds = %1886
-  %1901 = icmp ult i8 %1884, 77
+  %1901 = icmp samesign ult i8 %1884, 77
   br i1 %1901, label %1902, label %1908
 
 1902:                                             ; preds = %1900
-  %1903 = icmp ult i8 %1884, 71
+  %1903 = icmp samesign ult i8 %1884, 71
   br i1 %1903, label %1904, label %1906
 
 1904:                                             ; preds = %1902
@@ -5960,7 +5960,7 @@ add_error.exit17432:                              ; preds = %898, %902
   br i1 %1907, label %4547, label %.loopexit17669
 
 1908:                                             ; preds = %1900
-  %1909 = icmp ult i8 %1884, 83
+  %1909 = icmp samesign ult i8 %1884, 83
   br i1 %1909, label %1910, label %1912
 
 1910:                                             ; preds = %1908
@@ -5976,11 +5976,11 @@ add_error.exit17432:                              ; preds = %898, %902
   br i1 %1915, label %1916, label %1929
 
 1916:                                             ; preds = %1914
-  %1917 = icmp ult i8 %1884, 102
+  %1917 = icmp samesign ult i8 %1884, 102
   br i1 %1917, label %1918, label %1924
 
 1918:                                             ; preds = %1916
-  %1919 = icmp ult i8 %1884, 90
+  %1919 = icmp samesign ult i8 %1884, 90
   br i1 %1919, label %1920, label %1922
 
 1920:                                             ; preds = %1918
@@ -5992,7 +5992,7 @@ add_error.exit17432:                              ; preds = %898, %902
   br i1 %1923, label %4547, label %.loopexit17669
 
 1924:                                             ; preds = %1916
-  %1925 = icmp ult i8 %1884, 104
+  %1925 = icmp samesign ult i8 %1884, 104
   br i1 %1925, label %1926, label %1928
 
 1926:                                             ; preds = %1924
@@ -6010,11 +6010,11 @@ add_error.exit17432:                              ; preds = %898, %902
   br i1 %1930, label %1931, label %1937
 
 1931:                                             ; preds = %1929
-  %1932 = icmp ult i8 %1884, 118
+  %1932 = icmp samesign ult i8 %1884, 118
   br i1 %1932, label %1933, label %1935
 
 1933:                                             ; preds = %1931
-  %1934 = icmp ult i8 %1884, 115
+  %1934 = icmp samesign ult i8 %1884, 115
   br i1 %1934, label %.loopexit17669, label %4547
 
 1935:                                             ; preds = %1931
@@ -6168,11 +6168,11 @@ add_error.exit17432:                              ; preds = %898, %902
   br i1 %1993, label %._crit_edge23898.thread34634, label %._crit_edge23898.thread
 
 ._crit_edge23898.thread34634:                     ; preds = %._crit_edge23898
-  %1994 = icmp ult i8 %.014339.lcssa, 101
+  %1994 = icmp samesign ult i8 %.014339.lcssa, 101
   br i1 %1994, label %1995, label %._crit_edge23898.thread34634.thread
 
 1995:                                             ; preds = %._crit_edge23898.thread34634
-  %1996 = icmp ult i8 %.014339.lcssa, 97
+  %1996 = icmp samesign ult i8 %.014339.lcssa, 97
   br i1 %1996, label %1997, label %2001
 
 1997:                                             ; preds = %1995
@@ -6180,7 +6180,7 @@ add_error.exit17432:                              ; preds = %898, %902
   br i1 %1998, label %2266, label %1999
 
 1999:                                             ; preds = %1997
-  %2000 = icmp ult i8 %.014339.lcssa, 90
+  %2000 = icmp samesign ult i8 %.014339.lcssa, 90
   br i1 %2000, label %.thread34777, label %.thread
 
 2001:                                             ; preds = %1995
@@ -6192,7 +6192,7 @@ add_error.exit17432:                              ; preds = %898, %902
 ._crit_edge23898.thread34634.thread:              ; preds = %306, %._crit_edge23898.thread34634
   %.014339.lcssa3463734669 = phi i8 [ %.014339.lcssa, %._crit_edge23898.thread34634 ], [ %264, %306 ]
   %.9.lcssa3463834668 = phi ptr [ %.9.lcssa, %._crit_edge23898.thread34634 ], [ %263, %306 ]
-  %2002 = icmp ult i8 %.014339.lcssa3463734669, 104
+  %2002 = icmp samesign ult i8 %.014339.lcssa3463734669, 104
   br i1 %2002, label %2003, label %2005
 
 2003:                                             ; preds = %._crit_edge23898.thread34634.thread
@@ -6214,7 +6214,7 @@ add_error.exit17432:                              ; preds = %898, %902
 ._crit_edge23898.thread.thread:                   ; preds = %2065, %2444, %2506, %._crit_edge23898.thread
   %.014339.lcssa3463034686 = phi i8 [ %.014339.lcssa34630, %._crit_edge23898.thread ], [ %2043, %2065 ], [ %2422, %2444 ], [ %2492, %2506 ]
   %.9.lcssa3463134685 = phi ptr [ %.9.lcssa34631, %._crit_edge23898.thread ], [ %2042, %2065 ], [ %2421, %2444 ], [ %2491, %2506 ]
-  %2007 = icmp ult i8 %.014339.lcssa3463034686, 112
+  %2007 = icmp samesign ult i8 %.014339.lcssa3463034686, 112
   br i1 %2007, label %._crit_edge23898.thread.thread.thread, label %2008
 
 ._crit_edge23898.thread.thread.thread:            ; preds = %314, %._crit_edge23898.thread.thread
@@ -6226,7 +6226,7 @@ add_error.exit17432:                              ; preds = %898, %902
   ]
 
 2008:                                             ; preds = %._crit_edge23898.thread.thread
-  %2009 = icmp ult i8 %.014339.lcssa3463034686, 115
+  %2009 = icmp samesign ult i8 %.014339.lcssa3463034686, 115
   br i1 %2009, label %.thread, label %2010
 
 2010:                                             ; preds = %2008
@@ -6277,7 +6277,7 @@ add_error.exit17432:                              ; preds = %898, %902
   br i1 %2028, label %2029, label %2034
 
 2029:                                             ; preds = %2025
-  %2030 = icmp ult i8 %2027, 48
+  %2030 = icmp samesign ult i8 %2027, 48
   br i1 %2030, label %4836, label %2031
 
 2031:                                             ; preds = %2029
@@ -6335,11 +6335,11 @@ add_error.exit17432:                              ; preds = %898, %902
   br i1 %2044, label %2045, label %2061
 
 2045:                                             ; preds = %2041
-  %2046 = icmp ult i8 %2043, 47
+  %2046 = icmp samesign ult i8 %2043, 47
   br i1 %2046, label %2047, label %2053
 
 2047:                                             ; preds = %2045
-  %2048 = icmp ult i8 %2043, 10
+  %2048 = icmp samesign ult i8 %2043, 10
   br i1 %2048, label %2049, label %2050
 
 2049:                                             ; preds = %2047
@@ -6347,7 +6347,7 @@ add_error.exit17432:                              ; preds = %898, %902
   br i1 %.not17171, label %1942, label %.lr.ph23897.preheader
 
 2050:                                             ; preds = %2047
-  %2051 = icmp ult i8 %2043, 45
+  %2051 = icmp samesign ult i8 %2043, 45
   br i1 %2051, label %.lr.ph23897.preheader, label %2052
 
 2052:                                             ; preds = %2050
@@ -6355,7 +6355,7 @@ add_error.exit17432:                              ; preds = %898, %902
   br i1 %.not17164, label %2025, label %5082
 
 2053:                                             ; preds = %2045
-  %2054 = icmp ult i8 %2043, 54
+  %2054 = icmp samesign ult i8 %2043, 54
   br i1 %2054, label %2055, label %2057
 
 2055:                                             ; preds = %2053
@@ -6363,7 +6363,7 @@ add_error.exit17432:                              ; preds = %898, %902
   br i1 %2056, label %2038, label %5092
 
 2057:                                             ; preds = %2053
-  %2058 = icmp ult i8 %2043, 58
+  %2058 = icmp samesign ult i8 %2043, 58
   br i1 %2058, label %5105, label %2059
 
 2059:                                             ; preds = %2057
@@ -6375,7 +6375,7 @@ add_error.exit17432:                              ; preds = %898, %902
   br i1 %2062, label %2063, label %2068
 
 2063:                                             ; preds = %2061
-  %2064 = icmp ult i8 %2043, 114
+  %2064 = icmp samesign ult i8 %2043, 114
   br i1 %2064, label %2065, label %2067
 
 2065:                                             ; preds = %2063
@@ -6407,11 +6407,11 @@ add_error.exit17432:                              ; preds = %898, %902
   br i1 %2076, label %2077, label %2093
 
 2077:                                             ; preds = %2073
-  %2078 = icmp ult i8 %2075, 47
+  %2078 = icmp samesign ult i8 %2075, 47
   br i1 %2078, label %2079, label %2085
 
 2079:                                             ; preds = %2077
-  %2080 = icmp ult i8 %2075, 10
+  %2080 = icmp samesign ult i8 %2075, 10
   br i1 %2080, label %2081, label %2082
 
 2081:                                             ; preds = %2079
@@ -6419,7 +6419,7 @@ add_error.exit17432:                              ; preds = %898, %902
   br i1 %.not17037, label %2337, label %.lr.ph23884.preheader
 
 2082:                                             ; preds = %2079
-  %2083 = icmp ult i8 %2075, 45
+  %2083 = icmp samesign ult i8 %2075, 45
   br i1 %2083, label %.lr.ph23884.preheader, label %2084
 
 2084:                                             ; preds = %2082
@@ -6427,7 +6427,7 @@ add_error.exit17432:                              ; preds = %898, %902
   br i1 %.not17011, label %2407, label %5082
 
 2085:                                             ; preds = %2077
-  %2086 = icmp ult i8 %2075, 54
+  %2086 = icmp samesign ult i8 %2075, 54
   br i1 %2086, label %2087, label %2089
 
 2087:                                             ; preds = %2085
@@ -6435,7 +6435,7 @@ add_error.exit17432:                              ; preds = %898, %902
   br i1 %2088, label %2038, label %5092
 
 2089:                                             ; preds = %2085
-  %2090 = icmp ult i8 %2075, 58
+  %2090 = icmp samesign ult i8 %2075, 58
   br i1 %2090, label %5105, label %2091
 
 2091:                                             ; preds = %2089
@@ -6447,7 +6447,7 @@ add_error.exit17432:                              ; preds = %898, %902
   br i1 %2094, label %2095, label %2100
 
 2095:                                             ; preds = %2093
-  %2096 = icmp ult i8 %2075, 114
+  %2096 = icmp samesign ult i8 %2075, 114
   br i1 %2096, label %2097, label %2099
 
 2097:                                             ; preds = %2095
@@ -6546,7 +6546,7 @@ add_error.exit17432:                              ; preds = %898, %902
   br i1 %2135, label %2136, label %2141
 
 2136:                                             ; preds = %2132
-  %2137 = icmp ult i8 %2134, 79
+  %2137 = icmp samesign ult i8 %2134, 79
   br i1 %2137, label %2138, label %2140
 
 2138:                                             ; preds = %2136
@@ -6591,7 +6591,7 @@ add_error.exit17432:                              ; preds = %898, %902
   br i1 %2152, label %2153, label %2162
 
 2153:                                             ; preds = %2149
-  %2154 = icmp ult i8 %2151, 32
+  %2154 = icmp samesign ult i8 %2151, 32
   br i1 %2154, label %2155, label %2157
 
 2155:                                             ; preds = %2153
@@ -6603,7 +6603,7 @@ add_error.exit17432:                              ; preds = %898, %902
   br i1 %2158, label %.preheader17590, label %2159
 
 2159:                                             ; preds = %2157
-  %2160 = icmp ugt i8 %2151, 44
+  %2160 = icmp samesign ugt i8 %2151, 44
   %2161 = icmp ne i8 %2151, 47
   %or.cond146 = and i1 %2160, %2161
   br i1 %or.cond146, label %.preheader17590, label %.loopexit17733
@@ -6613,7 +6613,7 @@ add_error.exit17432:                              ; preds = %898, %902
   br i1 %2163, label %2164, label %2168
 
 2164:                                             ; preds = %2162
-  %2165 = icmp ult i8 %2151, 58
+  %2165 = icmp samesign ult i8 %2151, 58
   br i1 %2165, label %.loopexit17734, label %2166
 
 2166:                                             ; preds = %2164
@@ -6690,7 +6690,7 @@ add_error.exit17432:                              ; preds = %898, %902
   br i1 %2196, label %2197, label %2201
 
 2197:                                             ; preds = %2193
-  %2198 = icmp ult i8 %2195, 74
+  %2198 = icmp samesign ult i8 %2195, 74
   br i1 %2198, label %2199, label %2200
 
 2199:                                             ; preds = %2197
@@ -6751,7 +6751,7 @@ add_error.exit17432:                              ; preds = %898, %902
   br i1 %2220, label %2221, label %2226
 
 2221:                                             ; preds = %2217
-  %2222 = icmp ult i8 %2219, 69
+  %2222 = icmp samesign ult i8 %2219, 69
   br i1 %2222, label %2223, label %2225
 
 2223:                                             ; preds = %2221
@@ -6822,7 +6822,7 @@ add_error.exit17432:                              ; preds = %898, %902
   br i1 %2248, label %2249, label %2254
 
 2249:                                             ; preds = %2245
-  %2250 = icmp ult i8 %2247, 10
+  %2250 = icmp samesign ult i8 %2247, 10
   br i1 %2250, label %2251, label %2252
 
 2251:                                             ; preds = %2249
@@ -6838,7 +6838,7 @@ add_error.exit17432:                              ; preds = %898, %902
   br i1 %2255, label %2256, label %2260
 
 2256:                                             ; preds = %2254
-  %2257 = icmp ult i8 %2247, 47
+  %2257 = icmp samesign ult i8 %2247, 47
   br i1 %2257, label %.preheader17590, label %2258
 
 2258:                                             ; preds = %2256
@@ -6867,7 +6867,7 @@ add_error.exit17432:                              ; preds = %898, %902
   br i1 %2269, label %2270, label %2275
 
 2270:                                             ; preds = %2266
-  %2271 = icmp ult i8 %2268, 10
+  %2271 = icmp samesign ult i8 %2268, 10
   br i1 %2271, label %2272, label %2273
 
 2272:                                             ; preds = %2270
@@ -6883,7 +6883,7 @@ add_error.exit17432:                              ; preds = %898, %902
   br i1 %2276, label %2277, label %2281
 
 2277:                                             ; preds = %2275
-  %2278 = icmp ult i8 %2268, 47
+  %2278 = icmp samesign ult i8 %2268, 47
   br i1 %2278, label %.preheader17590, label %2279
 
 2279:                                             ; preds = %2277
@@ -6935,7 +6935,7 @@ add_error.exit17432:                              ; preds = %898, %902
   br i1 %2300, label %2301, label %2306
 
 2301:                                             ; preds = %2297
-  %2302 = icmp ult i8 %2299, 69
+  %2302 = icmp samesign ult i8 %2299, 69
   br i1 %2302, label %2303, label %2305
 
 2303:                                             ; preds = %2301
@@ -7158,11 +7158,11 @@ add_error.exit17432:                              ; preds = %898, %902
 ._crit_edge23885.thread:                          ; preds = %561, %._crit_edge23885
   %.22.lcssa34642 = phi ptr [ %.22.lcssa, %._crit_edge23885 ], [ %521, %561 ]
   %.114340.lcssa34641 = phi i8 [ %.114340.lcssa, %._crit_edge23885 ], [ %522, %561 ]
-  %2389 = icmp ult i8 %.114340.lcssa34641, 102
+  %2389 = icmp samesign ult i8 %.114340.lcssa34641, 102
   br i1 %2389, label %2390, label %._crit_edge23885.thread.thread
 
 2390:                                             ; preds = %._crit_edge23885.thread
-  %2391 = icmp ult i8 %.114340.lcssa34641, 97
+  %2391 = icmp samesign ult i8 %.114340.lcssa34641, 97
   br i1 %2391, label %2392, label %2396
 
 2392:                                             ; preds = %2390
@@ -7170,7 +7170,7 @@ add_error.exit17432:                              ; preds = %898, %902
   br i1 %2393, label %2266, label %2394
 
 2394:                                             ; preds = %2392
-  %2395 = icmp ult i8 %.114340.lcssa34641, 90
+  %2395 = icmp samesign ult i8 %.114340.lcssa34641, 90
   br i1 %2395, label %.thread34777, label %.thread
 
 2396:                                             ; preds = %2390
@@ -7180,7 +7180,7 @@ add_error.exit17432:                              ; preds = %898, %902
   ]
 
 ._crit_edge23885.thread.thread:                   ; preds = %._crit_edge23885.thread
-  %2397 = icmp ult i8 %.114340.lcssa34641, 105
+  %2397 = icmp samesign ult i8 %.114340.lcssa34641, 105
   br i1 %2397, label %._crit_edge23885.thread.thread.thread, label %._crit_edge23885.thread.thread.thread34801
 
 ._crit_edge23885.thread.thread.thread:            ; preds = %501, %435, %372, %._crit_edge23885.thread.thread
@@ -7208,7 +7208,7 @@ add_error.exit17432:                              ; preds = %898, %902
 ._crit_edge23885.thread34646.thread34726:         ; preds = %2097, %._crit_edge23885.thread34646
   %.114340.lcssa3464934730 = phi i8 [ %.114340.lcssa34649, %._crit_edge23885.thread34646 ], [ %2075, %2097 ]
   %.22.lcssa3465034729 = phi ptr [ %.22.lcssa34650, %._crit_edge23885.thread34646 ], [ %2074, %2097 ]
-  %2399 = icmp ult i8 %.114340.lcssa3464934730, 113
+  %2399 = icmp samesign ult i8 %.114340.lcssa3464934730, 113
   br i1 %2399, label %._crit_edge23885.thread34646.thread34726.thread, label %2400
 
 ._crit_edge23885.thread34646.thread34726.thread:  ; preds = %568, %._crit_edge23885.thread34646.thread34726
@@ -7220,7 +7220,7 @@ add_error.exit17432:                              ; preds = %898, %902
   ]
 
 2400:                                             ; preds = %._crit_edge23885.thread34646.thread34726
-  %2401 = icmp ult i8 %.114340.lcssa3464934730, 115
+  %2401 = icmp samesign ult i8 %.114340.lcssa3464934730, 115
   br i1 %2401, label %.thread, label %2402
 
 2402:                                             ; preds = %2400
@@ -7253,7 +7253,7 @@ add_error.exit17432:                              ; preds = %898, %902
   br i1 %2410, label %2411, label %2416
 
 2411:                                             ; preds = %2407
-  %2412 = icmp ult i8 %2409, 48
+  %2412 = icmp samesign ult i8 %2409, 48
   br i1 %2412, label %4836, label %2413
 
 2413:                                             ; preds = %2411
@@ -7278,11 +7278,11 @@ add_error.exit17432:                              ; preds = %898, %902
   br i1 %2423, label %2424, label %2440
 
 2424:                                             ; preds = %2420
-  %2425 = icmp ult i8 %2422, 47
+  %2425 = icmp samesign ult i8 %2422, 47
   br i1 %2425, label %2426, label %2432
 
 2426:                                             ; preds = %2424
-  %2427 = icmp ult i8 %2422, 10
+  %2427 = icmp samesign ult i8 %2422, 10
   br i1 %2427, label %2428, label %2429
 
 2428:                                             ; preds = %2426
@@ -7290,7 +7290,7 @@ add_error.exit17432:                              ; preds = %898, %902
   br i1 %.not16976, label %1942, label %.lr.ph23897.preheader
 
 2429:                                             ; preds = %2426
-  %2430 = icmp ult i8 %2422, 45
+  %2430 = icmp samesign ult i8 %2422, 45
   br i1 %2430, label %.lr.ph23897.preheader, label %2431
 
 2431:                                             ; preds = %2429
@@ -7298,7 +7298,7 @@ add_error.exit17432:                              ; preds = %898, %902
   br i1 %.not16975, label %2025, label %5082
 
 2432:                                             ; preds = %2424
-  %2433 = icmp ult i8 %2422, 54
+  %2433 = icmp samesign ult i8 %2422, 54
   br i1 %2433, label %2434, label %2436
 
 2434:                                             ; preds = %2432
@@ -7306,7 +7306,7 @@ add_error.exit17432:                              ; preds = %898, %902
   br i1 %2435, label %5496, label %5092
 
 2436:                                             ; preds = %2432
-  %2437 = icmp ult i8 %2422, 58
+  %2437 = icmp samesign ult i8 %2422, 58
   br i1 %2437, label %5105, label %2438
 
 2438:                                             ; preds = %2436
@@ -7318,7 +7318,7 @@ add_error.exit17432:                              ; preds = %898, %902
   br i1 %2441, label %2442, label %2447
 
 2442:                                             ; preds = %2440
-  %2443 = icmp ult i8 %2422, 114
+  %2443 = icmp samesign ult i8 %2422, 114
   br i1 %2443, label %2444, label %2446
 
 2444:                                             ; preds = %2442
@@ -7366,7 +7366,7 @@ add_error.exit17432:                              ; preds = %898, %902
   br i1 %2463, label %2464, label %2469
 
 2464:                                             ; preds = %2460
-  %2465 = icmp ult i8 %2462, 77
+  %2465 = icmp samesign ult i8 %2462, 77
   br i1 %2465, label %2466, label %2468
 
 2466:                                             ; preds = %2464
@@ -7445,7 +7445,7 @@ add_error.exit17432:                              ; preds = %898, %902
   br i1 %2493, label %2494, label %2504
 
 2494:                                             ; preds = %2490
-  %2495 = icmp ult i8 %2492, 46
+  %2495 = icmp samesign ult i8 %2492, 46
   br i1 %2495, label %2496, label %2497
 
 2496:                                             ; preds = %2494
@@ -7455,7 +7455,7 @@ add_error.exit17432:                              ; preds = %898, %902
   ]
 
 2497:                                             ; preds = %2494
-  %2498 = icmp ult i8 %2492, 48
+  %2498 = icmp samesign ult i8 %2492, 48
   br i1 %2498, label %2499, label %2501
 
 2499:                                             ; preds = %2497
@@ -7463,7 +7463,7 @@ add_error.exit17432:                              ; preds = %898, %902
   br i1 %2500, label %5588, label %5496
 
 2501:                                             ; preds = %2497
-  %2502 = icmp ult i8 %2492, 58
+  %2502 = icmp samesign ult i8 %2492, 58
   br i1 %2502, label %5105, label %2503
 
 2503:                                             ; preds = %2501
@@ -7475,7 +7475,7 @@ add_error.exit17432:                              ; preds = %898, %902
   br i1 %2505, label %2506, label %2509
 
 2506:                                             ; preds = %2504
-  %2507 = icmp ult i8 %2492, 114
+  %2507 = icmp samesign ult i8 %2492, 114
   br i1 %2507, label %._crit_edge23898.thread.thread, label %2508
 
 2508:                                             ; preds = %2506
@@ -7507,7 +7507,7 @@ add_error.exit17432:                              ; preds = %898, %902
   br i1 %2519, label %5598, label %2520
 
 2520:                                             ; preds = %2518
-  %2521 = icmp ult i8 %2516, 48
+  %2521 = icmp samesign ult i8 %2516, 48
   br i1 %2521, label %4547, label %5105
 
 2522:                                             ; preds = %2514
@@ -7994,7 +7994,7 @@ add_error.exit17432:                              ; preds = %898, %902
   br i1 %2693, label %2694, label %2700
 
 2694:                                             ; preds = %2690
-  %2695 = icmp ult i8 %2692, 42
+  %2695 = icmp samesign ult i8 %2692, 42
   br i1 %2695, label %2696, label %2697
 
 2696:                                             ; preds = %2694
@@ -8002,7 +8002,7 @@ add_error.exit17432:                              ; preds = %898, %902
   br i1 %.not16944, label %.loopexit17671, label %.loopexit17669
 
 2697:                                             ; preds = %2694
-  %2698 = icmp ult i8 %2692, 65
+  %2698 = icmp samesign ult i8 %2692, 65
   br i1 %2698, label %.loopexit17669, label %2699
 
 2699:                                             ; preds = %2697
@@ -8033,7 +8033,7 @@ add_error.exit17432:                              ; preds = %898, %902
   br i1 %2711, label %2712, label %2719
 
 2712:                                             ; preds = %2708
-  %2713 = icmp ult i8 %2710, 42
+  %2713 = icmp samesign ult i8 %2710, 42
   br i1 %2713, label %2714, label %2716
 
 2714:                                             ; preds = %2712
@@ -8042,7 +8042,7 @@ add_error.exit17432:                              ; preds = %898, %902
   br i1 %.not16942, label %.loopexit17671, label %.loopexit17669
 
 2716:                                             ; preds = %2712
-  %2717 = icmp ult i8 %2710, 65
+  %2717 = icmp samesign ult i8 %2710, 65
   br i1 %2717, label %.loopexit17669.loopexit.split.loop.exit39714, label %2718
 
 2718:                                             ; preds = %2716
@@ -8075,7 +8075,7 @@ add_error.exit17432:                              ; preds = %898, %902
   br i1 %2732, label %2733, label %2740
 
 2733:                                             ; preds = %2729
-  %2734 = icmp ult i8 %2731, 42
+  %2734 = icmp samesign ult i8 %2731, 42
   br i1 %2734, label %2735, label %2737
 
 2735:                                             ; preds = %2733
@@ -8084,7 +8084,7 @@ add_error.exit17432:                              ; preds = %898, %902
   br i1 %.not16876, label %.loopexit17671, label %.loopexit17669
 
 2737:                                             ; preds = %2733
-  %2738 = icmp ult i8 %2731, 65
+  %2738 = icmp samesign ult i8 %2731, 65
   br i1 %2738, label %.loopexit17669.loopexit.split.loop.exit39716, label %2739
 
 2739:                                             ; preds = %2737
@@ -8118,7 +8118,7 @@ add_error.exit17432:                              ; preds = %898, %902
   br i1 %2753, label %2754, label %2760
 
 2754:                                             ; preds = %2750
-  %2755 = icmp ult i8 %2752, 45
+  %2755 = icmp samesign ult i8 %2752, 45
   br i1 %2755, label %2756, label %2758
 
 2756:                                             ; preds = %2754
@@ -8155,7 +8155,7 @@ add_error.exit17432:                              ; preds = %898, %902
   br i1 %2771, label %2772, label %2779
 
 2772:                                             ; preds = %2768
-  %2773 = icmp ult i8 %2770, 46
+  %2773 = icmp samesign ult i8 %2770, 46
   br i1 %2773, label %2774, label %2775
 
 2774:                                             ; preds = %2772
@@ -8169,7 +8169,7 @@ add_error.exit17432:                              ; preds = %898, %902
   br i1 %2776, label %5862, label %2777
 
 2777:                                             ; preds = %2775
-  %2778 = icmp ult i8 %2770, 65
+  %2778 = icmp samesign ult i8 %2770, 65
   br i1 %2778, label %.loopexit17669, label %.loopexit17677
 
 2779:                                             ; preds = %2768
@@ -8181,7 +8181,7 @@ add_error.exit17432:                              ; preds = %898, %902
   br i1 %2782, label %.loopexit17709, label %2783
 
 2783:                                             ; preds = %2781
-  %2784 = icmp ult i8 %2770, 91
+  %2784 = icmp samesign ult i8 %2770, 91
   br i1 %2784, label %.loopexit17677, label %2785
 
 2785:                                             ; preds = %2783
@@ -8212,7 +8212,7 @@ add_error.exit17432:                              ; preds = %898, %902
   br i1 %2797, label %2798, label %2805
 
 2798:                                             ; preds = %2794
-  %2799 = icmp ult i8 %2796, 46
+  %2799 = icmp samesign ult i8 %2796, 46
   br i1 %2799, label %2800, label %2801
 
 2800:                                             ; preds = %2798
@@ -8226,7 +8226,7 @@ add_error.exit17432:                              ; preds = %898, %902
   br i1 %2802, label %5862, label %2803
 
 2803:                                             ; preds = %2801
-  %2804 = icmp ult i8 %2796, 65
+  %2804 = icmp samesign ult i8 %2796, 65
   br i1 %2804, label %.loopexit17669, label %.loopexit17677
 
 2805:                                             ; preds = %2794
@@ -8238,7 +8238,7 @@ add_error.exit17432:                              ; preds = %898, %902
   br i1 %2808, label %5787, label %2809
 
 2809:                                             ; preds = %2807
-  %2810 = icmp ult i8 %2796, 91
+  %2810 = icmp samesign ult i8 %2796, 91
   br i1 %2810, label %.loopexit17677, label %2811
 
 2811:                                             ; preds = %2809
@@ -8269,7 +8269,7 @@ add_error.exit17432:                              ; preds = %898, %902
   br i1 %2823, label %2824, label %2831
 
 2824:                                             ; preds = %2820
-  %2825 = icmp ult i8 %2822, 46
+  %2825 = icmp samesign ult i8 %2822, 46
   br i1 %2825, label %2826, label %2827
 
 2826:                                             ; preds = %2824
@@ -8283,7 +8283,7 @@ add_error.exit17432:                              ; preds = %898, %902
   br i1 %2828, label %5862, label %2829
 
 2829:                                             ; preds = %2827
-  %2830 = icmp ult i8 %2822, 65
+  %2830 = icmp samesign ult i8 %2822, 65
   br i1 %2830, label %.loopexit17669, label %.loopexit17677
 
 2831:                                             ; preds = %2820
@@ -8295,7 +8295,7 @@ add_error.exit17432:                              ; preds = %898, %902
   br i1 %2834, label %5830, label %2835
 
 2835:                                             ; preds = %2833
-  %2836 = icmp ult i8 %2822, 91
+  %2836 = icmp samesign ult i8 %2822, 91
   br i1 %2836, label %.loopexit17677, label %2837
 
 2837:                                             ; preds = %2835
@@ -8325,7 +8325,7 @@ add_error.exit17432:                              ; preds = %898, %902
   br i1 %2849, label %2850, label %2857
 
 2850:                                             ; preds = %2846
-  %2851 = icmp ult i8 %2848, 42
+  %2851 = icmp samesign ult i8 %2848, 42
   br i1 %2851, label %2852, label %2854
 
 2852:                                             ; preds = %2850
@@ -8334,7 +8334,7 @@ add_error.exit17432:                              ; preds = %898, %902
   br i1 %.not16835, label %.loopexit17671, label %.loopexit17669
 
 2854:                                             ; preds = %2850
-  %2855 = icmp ult i8 %2848, 65
+  %2855 = icmp samesign ult i8 %2848, 65
   br i1 %2855, label %.loopexit17669.loopexit.split.loop.exit39718, label %2856
 
 2856:                                             ; preds = %2854
@@ -8368,7 +8368,7 @@ add_error.exit17432:                              ; preds = %898, %902
   br i1 %2870, label %2871, label %2878
 
 2871:                                             ; preds = %2867
-  %2872 = icmp ult i8 %2869, 46
+  %2872 = icmp samesign ult i8 %2869, 46
   br i1 %2872, label %2873, label %2874
 
 2873:                                             ; preds = %2871
@@ -8382,7 +8382,7 @@ add_error.exit17432:                              ; preds = %898, %902
   br i1 %2875, label %5862, label %2876
 
 2876:                                             ; preds = %2874
-  %2877 = icmp ult i8 %2869, 65
+  %2877 = icmp samesign ult i8 %2869, 65
   br i1 %2877, label %.loopexit17669, label %.loopexit17677
 
 2878:                                             ; preds = %2867
@@ -8394,7 +8394,7 @@ add_error.exit17432:                              ; preds = %898, %902
   br i1 %2881, label %5979, label %2882
 
 2882:                                             ; preds = %2880
-  %2883 = icmp ult i8 %2869, 91
+  %2883 = icmp samesign ult i8 %2869, 91
   br i1 %2883, label %.loopexit17677, label %2884
 
 2884:                                             ; preds = %2882
@@ -8424,7 +8424,7 @@ add_error.exit17432:                              ; preds = %898, %902
   br i1 %2896, label %2897, label %2904
 
 2897:                                             ; preds = %2893
-  %2898 = icmp ult i8 %2895, 42
+  %2898 = icmp samesign ult i8 %2895, 42
   br i1 %2898, label %2899, label %2901
 
 2899:                                             ; preds = %2897
@@ -8433,7 +8433,7 @@ add_error.exit17432:                              ; preds = %898, %902
   br i1 %.not16814, label %.loopexit17671, label %.loopexit17669
 
 2901:                                             ; preds = %2897
-  %2902 = icmp ult i8 %2895, 65
+  %2902 = icmp samesign ult i8 %2895, 65
   br i1 %2902, label %.loopexit17669.loopexit.split.loop.exit39720, label %2903
 
 2903:                                             ; preds = %2901
@@ -8467,7 +8467,7 @@ add_error.exit17432:                              ; preds = %898, %902
   br i1 %2917, label %2918, label %2925
 
 2918:                                             ; preds = %2914
-  %2919 = icmp ult i8 %2916, 46
+  %2919 = icmp samesign ult i8 %2916, 46
   br i1 %2919, label %2920, label %2921
 
 2920:                                             ; preds = %2918
@@ -8481,7 +8481,7 @@ add_error.exit17432:                              ; preds = %898, %902
   br i1 %2922, label %5862, label %2923
 
 2923:                                             ; preds = %2921
-  %2924 = icmp ult i8 %2916, 65
+  %2924 = icmp samesign ult i8 %2916, 65
   br i1 %2924, label %.loopexit17669, label %.loopexit17677
 
 2925:                                             ; preds = %2914
@@ -8493,7 +8493,7 @@ add_error.exit17432:                              ; preds = %898, %902
   br i1 %2928, label %6026, label %2929
 
 2929:                                             ; preds = %2927
-  %2930 = icmp ult i8 %2916, 91
+  %2930 = icmp samesign ult i8 %2916, 91
   br i1 %2930, label %.loopexit17677, label %2931
 
 2931:                                             ; preds = %2929
@@ -8523,7 +8523,7 @@ add_error.exit17432:                              ; preds = %898, %902
   br i1 %2943, label %2944, label %2951
 
 2944:                                             ; preds = %2940
-  %2945 = icmp ult i8 %2942, 42
+  %2945 = icmp samesign ult i8 %2942, 42
   br i1 %2945, label %2946, label %2948
 
 2946:                                             ; preds = %2944
@@ -8532,7 +8532,7 @@ add_error.exit17432:                              ; preds = %898, %902
   br i1 %.not16794, label %.loopexit17671, label %.loopexit17669
 
 2948:                                             ; preds = %2944
-  %2949 = icmp ult i8 %2942, 65
+  %2949 = icmp samesign ult i8 %2942, 65
   br i1 %2949, label %.loopexit17669.loopexit.split.loop.exit39722, label %2950
 
 2950:                                             ; preds = %2948
@@ -8565,7 +8565,7 @@ add_error.exit17432:                              ; preds = %898, %902
   br i1 %2964, label %2965, label %2972
 
 2965:                                             ; preds = %2961
-  %2966 = icmp ult i8 %2963, 42
+  %2966 = icmp samesign ult i8 %2963, 42
   br i1 %2966, label %2967, label %2969
 
 2967:                                             ; preds = %2965
@@ -8574,7 +8574,7 @@ add_error.exit17432:                              ; preds = %898, %902
   br i1 %.not16734, label %.loopexit17671, label %.loopexit17669
 
 2969:                                             ; preds = %2965
-  %2970 = icmp ult i8 %2963, 65
+  %2970 = icmp samesign ult i8 %2963, 65
   br i1 %2970, label %.loopexit17669.loopexit.split.loop.exit39724, label %2971
 
 2971:                                             ; preds = %2969
@@ -8608,7 +8608,7 @@ add_error.exit17432:                              ; preds = %898, %902
   br i1 %2985, label %2986, label %2993
 
 2986:                                             ; preds = %2982
-  %2987 = icmp ult i8 %2984, 46
+  %2987 = icmp samesign ult i8 %2984, 46
   br i1 %2987, label %2988, label %2989
 
 2988:                                             ; preds = %2986
@@ -8622,7 +8622,7 @@ add_error.exit17432:                              ; preds = %898, %902
   br i1 %2990, label %5862, label %2991
 
 2991:                                             ; preds = %2989
-  %2992 = icmp ult i8 %2984, 65
+  %2992 = icmp samesign ult i8 %2984, 65
   br i1 %2992, label %.loopexit17669, label %.loopexit17677
 
 2993:                                             ; preds = %2982
@@ -8634,7 +8634,7 @@ add_error.exit17432:                              ; preds = %898, %902
   br i1 %2996, label %6094, label %2997
 
 2997:                                             ; preds = %2995
-  %2998 = icmp ult i8 %2984, 91
+  %2998 = icmp samesign ult i8 %2984, 91
   br i1 %2998, label %.loopexit17677, label %2999
 
 2999:                                             ; preds = %2997
@@ -8665,7 +8665,7 @@ add_error.exit17432:                              ; preds = %898, %902
   br i1 %3011, label %3012, label %3019
 
 3012:                                             ; preds = %3008
-  %3013 = icmp ult i8 %3010, 46
+  %3013 = icmp samesign ult i8 %3010, 46
   br i1 %3013, label %3014, label %3015
 
 3014:                                             ; preds = %3012
@@ -8679,7 +8679,7 @@ add_error.exit17432:                              ; preds = %898, %902
   br i1 %3016, label %5862, label %3017
 
 3017:                                             ; preds = %3015
-  %3018 = icmp ult i8 %3010, 65
+  %3018 = icmp samesign ult i8 %3010, 65
   br i1 %3018, label %.loopexit17669, label %.loopexit17677
 
 3019:                                             ; preds = %3008
@@ -8691,7 +8691,7 @@ add_error.exit17432:                              ; preds = %898, %902
   br i1 %3022, label %6115, label %3023
 
 3023:                                             ; preds = %3021
-  %3024 = icmp ult i8 %3010, 91
+  %3024 = icmp samesign ult i8 %3010, 91
   br i1 %3024, label %.loopexit17677, label %3025
 
 3025:                                             ; preds = %3023
@@ -8721,7 +8721,7 @@ add_error.exit17432:                              ; preds = %898, %902
   br i1 %3037, label %3038, label %3045
 
 3038:                                             ; preds = %3034
-  %3039 = icmp ult i8 %3036, 42
+  %3039 = icmp samesign ult i8 %3036, 42
   br i1 %3039, label %3040, label %3042
 
 3040:                                             ; preds = %3038
@@ -8730,7 +8730,7 @@ add_error.exit17432:                              ; preds = %898, %902
   br i1 %.not16703, label %.loopexit17671, label %.loopexit17669
 
 3042:                                             ; preds = %3038
-  %3043 = icmp ult i8 %3036, 65
+  %3043 = icmp samesign ult i8 %3036, 65
   br i1 %3043, label %.loopexit17669.loopexit.split.loop.exit39726, label %3044
 
 3044:                                             ; preds = %3042
@@ -8743,7 +8743,7 @@ add_error.exit17432:                              ; preds = %898, %902
 
 3047:                                             ; preds = %3045
   %3048 = getelementptr inbounds i8, ptr %.01433828656, i64 2
-  %3049 = icmp ugt i8 %3036, 90
+  %3049 = icmp samesign ugt i8 %3036, 90
   %3050 = icmp ne i8 %3036, 97
   %or.cond200 = and i1 %3049, %3050
   br i1 %or.cond200, label %.loopexit17669, label %.loopexit17677
@@ -8764,7 +8764,7 @@ add_error.exit17432:                              ; preds = %898, %902
   br i1 %3059, label %3060, label %3066
 
 3060:                                             ; preds = %3056
-  %3061 = icmp ult i8 %3058, 65
+  %3061 = icmp samesign ult i8 %3058, 65
   br i1 %3061, label %3062, label %3065
 
 3062:                                             ; preds = %3060
@@ -8783,11 +8783,11 @@ add_error.exit17432:                              ; preds = %898, %902
   br i1 %3067, label %3068, label %3073
 
 3068:                                             ; preds = %3066
-  %3069 = icmp ult i8 %3058, 91
+  %3069 = icmp samesign ult i8 %3058, 91
   br i1 %3069, label %.loopexit17677.loopexit.split.loop.exit41621, label %3070
 
 3070:                                             ; preds = %3068
-  %3071 = icmp ult i8 %3058, 97
+  %3071 = icmp samesign ult i8 %3058, 97
   br i1 %3071, label %.loopexit17669.loopexit.split.loop.exit39728, label %3072
 
 3072:                                             ; preds = %3070
@@ -8810,7 +8810,7 @@ add_error.exit17432:                              ; preds = %898, %902
   br i1 %3081, label %3082, label %3089
 
 3082:                                             ; preds = %3078
-  %3083 = icmp ult i8 %3080, 42
+  %3083 = icmp samesign ult i8 %3080, 42
   br i1 %3083, label %3084, label %3086
 
 3084:                                             ; preds = %3082
@@ -8819,7 +8819,7 @@ add_error.exit17432:                              ; preds = %898, %902
   br i1 %.not16685, label %.loopexit17671, label %.loopexit17669
 
 3086:                                             ; preds = %3082
-  %3087 = icmp ult i8 %3080, 65
+  %3087 = icmp samesign ult i8 %3080, 65
   br i1 %3087, label %.loopexit17669.loopexit.split.loop.exit39730, label %3088
 
 3088:                                             ; preds = %3086
@@ -8852,7 +8852,7 @@ add_error.exit17432:                              ; preds = %898, %902
   br i1 %3102, label %3103, label %3109
 
 3103:                                             ; preds = %3099
-  %3104 = icmp ult i8 %3101, 65
+  %3104 = icmp samesign ult i8 %3101, 65
   br i1 %3104, label %3105, label %3108
 
 3105:                                             ; preds = %3103
@@ -8872,11 +8872,11 @@ add_error.exit17432:                              ; preds = %898, %902
 
 3111:                                             ; preds = %3109
   %3112 = getelementptr inbounds i8, ptr %.01433828656, i64 2
-  %3113 = icmp ult i8 %3101, 91
+  %3113 = icmp samesign ult i8 %3101, 91
   br i1 %3113, label %.loopexit17677, label %3114
 
 3114:                                             ; preds = %3111
-  %3115 = icmp ult i8 %3101, 97
+  %3115 = icmp samesign ult i8 %3101, 97
   br i1 %3115, label %.loopexit17669, label %3116
 
 3116:                                             ; preds = %3114
@@ -8900,7 +8900,7 @@ add_error.exit17432:                              ; preds = %898, %902
   br i1 %3125, label %3126, label %3130
 
 3126:                                             ; preds = %3122
-  %3127 = icmp ult i8 %3124, 46
+  %3127 = icmp samesign ult i8 %3124, 46
   br i1 %3127, label %3128, label %3129
 
 3128:                                             ; preds = %3126
@@ -8924,7 +8924,7 @@ add_error.exit17432:                              ; preds = %898, %902
   br i1 %3133, label %6188, label %3134
 
 3134:                                             ; preds = %3132
-  %3135 = icmp ult i8 %3124, 91
+  %3135 = icmp samesign ult i8 %3124, 91
   br i1 %3135, label %.loopexit17677, label %3136
 
 3136:                                             ; preds = %3134
@@ -8955,11 +8955,11 @@ add_error.exit17432:                              ; preds = %898, %902
   br i1 %3148, label %3149, label %3162
 
 3149:                                             ; preds = %3145
-  %3150 = icmp ult i8 %3147, 47
+  %3150 = icmp samesign ult i8 %3147, 47
   br i1 %3150, label %3151, label %3156
 
 3151:                                             ; preds = %3149
-  %3152 = icmp ult i8 %3147, 42
+  %3152 = icmp samesign ult i8 %3147, 42
   br i1 %3152, label %3153, label %3154
 
 3153:                                             ; preds = %3151
@@ -8971,7 +8971,7 @@ add_error.exit17432:                              ; preds = %898, %902
   br i1 %3155, label %5862, label %.loopexit17669
 
 3156:                                             ; preds = %3149
-  %3157 = icmp ult i8 %3147, 65
+  %3157 = icmp samesign ult i8 %3147, 65
   br i1 %3157, label %3158, label %3160
 
 3158:                                             ; preds = %3156
@@ -8987,7 +8987,7 @@ add_error.exit17432:                              ; preds = %898, %902
   br i1 %3163, label %3164, label %3170
 
 3164:                                             ; preds = %3162
-  %3165 = icmp ult i8 %3147, 91
+  %3165 = icmp samesign ult i8 %3147, 91
   br i1 %3165, label %3166, label %3168
 
 3166:                                             ; preds = %3164
@@ -9022,7 +9022,7 @@ add_error.exit17432:                              ; preds = %898, %902
   br i1 %3181, label %3182, label %3189
 
 3182:                                             ; preds = %3178
-  %3183 = icmp ult i8 %3180, 46
+  %3183 = icmp samesign ult i8 %3180, 46
   br i1 %3183, label %3184, label %3185
 
 3184:                                             ; preds = %3182
@@ -9036,7 +9036,7 @@ add_error.exit17432:                              ; preds = %898, %902
   br i1 %3186, label %5862, label %3187
 
 3187:                                             ; preds = %3185
-  %3188 = icmp ult i8 %3180, 65
+  %3188 = icmp samesign ult i8 %3180, 65
   br i1 %3188, label %.loopexit17669, label %.loopexit17677
 
 3189:                                             ; preds = %3178
@@ -9048,7 +9048,7 @@ add_error.exit17432:                              ; preds = %898, %902
   br i1 %3192, label %6262, label %3193
 
 3193:                                             ; preds = %3191
-  %3194 = icmp ult i8 %3180, 91
+  %3194 = icmp samesign ult i8 %3180, 91
   br i1 %3194, label %.loopexit17677, label %3195
 
 3195:                                             ; preds = %3193
@@ -9079,11 +9079,11 @@ add_error.exit17432:                              ; preds = %898, %902
   br i1 %3207, label %3208, label %3221
 
 3208:                                             ; preds = %3204
-  %3209 = icmp ult i8 %3206, 47
+  %3209 = icmp samesign ult i8 %3206, 47
   br i1 %3209, label %3210, label %3215
 
 3210:                                             ; preds = %3208
-  %3211 = icmp ult i8 %3206, 42
+  %3211 = icmp samesign ult i8 %3206, 42
   br i1 %3211, label %3212, label %3213
 
 3212:                                             ; preds = %3210
@@ -9095,7 +9095,7 @@ add_error.exit17432:                              ; preds = %898, %902
   br i1 %3214, label %5862, label %.loopexit17669
 
 3215:                                             ; preds = %3208
-  %3216 = icmp ult i8 %3206, 65
+  %3216 = icmp samesign ult i8 %3206, 65
   br i1 %3216, label %3217, label %3219
 
 3217:                                             ; preds = %3215
@@ -9111,7 +9111,7 @@ add_error.exit17432:                              ; preds = %898, %902
   br i1 %3222, label %3223, label %3229
 
 3223:                                             ; preds = %3221
-  %3224 = icmp ult i8 %3206, 91
+  %3224 = icmp samesign ult i8 %3206, 91
   br i1 %3224, label %3225, label %3227
 
 3225:                                             ; preds = %3223
@@ -9150,7 +9150,7 @@ add_error.exit17432:                              ; preds = %898, %902
   br i1 %3243, label %.loopexit17671, label %3244
 
 3244:                                             ; preds = %3241
-  %3245 = icmp ult i8 %3239, 65
+  %3245 = icmp samesign ult i8 %3239, 65
   br i1 %3245, label %.loopexit17669, label %.loopexit17677
 
 3246:                                             ; preds = %3237
@@ -9209,11 +9209,11 @@ add_error.exit17432:                              ; preds = %898, %902
   br i1 %3274, label %3275, label %3290
 
 3275:                                             ; preds = %3271
-  %3276 = icmp ult i8 %3273, 33
+  %3276 = icmp samesign ult i8 %3273, 33
   br i1 %3276, label %3277, label %3282
 
 3277:                                             ; preds = %3275
-  %3278 = icmp ult i8 %3273, 9
+  %3278 = icmp samesign ult i8 %3273, 9
   br i1 %3278, label %3279, label %3281
 
 3279:                                             ; preds = %3277
@@ -9227,7 +9227,7 @@ add_error.exit17432:                              ; preds = %898, %902
   ]
 
 3282:                                             ; preds = %3275
-  %3283 = icmp ult i8 %3273, 46
+  %3283 = icmp samesign ult i8 %3273, 46
   br i1 %3283, label %3284, label %3286
 
 3284:                                             ; preds = %3282
@@ -9239,7 +9239,7 @@ add_error.exit17432:                              ; preds = %898, %902
   br i1 %3287, label %6581, label %3288
 
 3288:                                             ; preds = %3286
-  %3289 = icmp ult i8 %3273, 48
+  %3289 = icmp samesign ult i8 %3273, 48
   br i1 %3289, label %.thread, label %6607
 
 3290:                                             ; preds = %3271
@@ -9247,7 +9247,7 @@ add_error.exit17432:                              ; preds = %898, %902
   br i1 %3291, label %3292, label %3297
 
 3292:                                             ; preds = %3290
-  %3293 = icmp ult i8 %3273, 101
+  %3293 = icmp samesign ult i8 %3273, 101
   br i1 %3293, label %3294, label %3295
 
 3294:                                             ; preds = %3292
@@ -9283,11 +9283,11 @@ add_error.exit17432:                              ; preds = %898, %902
   br i1 %3307, label %3308, label %3323
 
 3308:                                             ; preds = %3304
-  %3309 = icmp ult i8 %3306, 33
+  %3309 = icmp samesign ult i8 %3306, 33
   br i1 %3309, label %3310, label %3315
 
 3310:                                             ; preds = %3308
-  %3311 = icmp ult i8 %3306, 9
+  %3311 = icmp samesign ult i8 %3306, 9
   br i1 %3311, label %3312, label %3314
 
 3312:                                             ; preds = %3310
@@ -9301,7 +9301,7 @@ add_error.exit17432:                              ; preds = %898, %902
   ]
 
 3315:                                             ; preds = %3308
-  %3316 = icmp ult i8 %3306, 46
+  %3316 = icmp samesign ult i8 %3306, 46
   br i1 %3316, label %3317, label %3319
 
 3317:                                             ; preds = %3315
@@ -9313,7 +9313,7 @@ add_error.exit17432:                              ; preds = %898, %902
   br i1 %3320, label %6581, label %3321
 
 3321:                                             ; preds = %3319
-  %3322 = icmp ult i8 %3306, 48
+  %3322 = icmp samesign ult i8 %3306, 48
   br i1 %3322, label %.thread, label %6607
 
 3323:                                             ; preds = %3304
@@ -9321,11 +9321,11 @@ add_error.exit17432:                              ; preds = %898, %902
   br i1 %3324, label %3325, label %3332
 
 3325:                                             ; preds = %3323
-  %3326 = icmp ult i8 %3306, 101
+  %3326 = icmp samesign ult i8 %3306, 101
   br i1 %3326, label %3327, label %3330
 
 3327:                                             ; preds = %3325
-  %3328 = icmp ult i8 %3306, 58
+  %3328 = icmp samesign ult i8 %3306, 58
   br i1 %3328, label %6652, label %3329
 
 3329:                                             ; preds = %3327
@@ -9361,11 +9361,11 @@ add_error.exit17432:                              ; preds = %898, %902
   br i1 %3342, label %3343, label %3358
 
 3343:                                             ; preds = %3339
-  %3344 = icmp ult i8 %3341, 33
+  %3344 = icmp samesign ult i8 %3341, 33
   br i1 %3344, label %3345, label %3350
 
 3345:                                             ; preds = %3343
-  %3346 = icmp ult i8 %3341, 9
+  %3346 = icmp samesign ult i8 %3341, 9
   br i1 %3346, label %3347, label %3349
 
 3347:                                             ; preds = %3345
@@ -9379,7 +9379,7 @@ add_error.exit17432:                              ; preds = %898, %902
   ]
 
 3350:                                             ; preds = %3343
-  %3351 = icmp ult i8 %3341, 46
+  %3351 = icmp samesign ult i8 %3341, 46
   br i1 %3351, label %3352, label %3354
 
 3352:                                             ; preds = %3350
@@ -9391,7 +9391,7 @@ add_error.exit17432:                              ; preds = %898, %902
   br i1 %3355, label %6581, label %3356
 
 3356:                                             ; preds = %3354
-  %3357 = icmp ult i8 %3341, 48
+  %3357 = icmp samesign ult i8 %3341, 48
   br i1 %3357, label %.thread, label %6652
 
 3358:                                             ; preds = %3339
@@ -9399,7 +9399,7 @@ add_error.exit17432:                              ; preds = %898, %902
   br i1 %3359, label %3360, label %3365
 
 3360:                                             ; preds = %3358
-  %3361 = icmp ult i8 %3341, 101
+  %3361 = icmp samesign ult i8 %3341, 101
   br i1 %3361, label %3362, label %3363
 
 3362:                                             ; preds = %3360
@@ -9436,7 +9436,7 @@ add_error.exit17432:                              ; preds = %898, %902
   br i1 %3375, label %3376, label %3383
 
 3376:                                             ; preds = %3372
-  %3377 = icmp ult i8 %3374, 33
+  %3377 = icmp samesign ult i8 %3374, 33
   br i1 %3377, label %3378, label %3379
 
 3378:                                             ; preds = %3376
@@ -9450,7 +9450,7 @@ add_error.exit17432:                              ; preds = %898, %902
   br i1 %3380, label %.loopexit17671, label %3381
 
 3381:                                             ; preds = %3379
-  %3382 = icmp ult i8 %3374, 45
+  %3382 = icmp samesign ult i8 %3374, 45
   br i1 %3382, label %.loopexit17669, label %.preheader17640
 
 3383:                                             ; preds = %3372
@@ -9462,11 +9462,11 @@ add_error.exit17432:                              ; preds = %898, %902
   br i1 %3386, label %.loopexit17669, label %3387
 
 3387:                                             ; preds = %3385
-  %3388 = icmp ult i8 %3374, 58
+  %3388 = icmp samesign ult i8 %3374, 58
   br i1 %3388, label %.preheader17640, label %3389
 
 3389:                                             ; preds = %3387
-  %3390 = icmp ult i8 %3374, 65
+  %3390 = icmp samesign ult i8 %3374, 65
   br i1 %3390, label %.loopexit17669, label %.loopexit17677
 
 3391:                                             ; preds = %3383
@@ -9490,7 +9490,7 @@ add_error.exit17432:                              ; preds = %898, %902
   br i1 %3400, label %3401, label %3406
 
 3401:                                             ; preds = %3397
-  %3402 = icmp ult i8 %3399, 32
+  %3402 = icmp samesign ult i8 %3399, 32
   br i1 %3402, label %3403, label %3405
 
 3403:                                             ; preds = %3401
@@ -9509,7 +9509,7 @@ add_error.exit17432:                              ; preds = %898, %902
 
 3408:                                             ; preds = %3406
   %3409 = icmp ne i8 %3399, 47
-  %3410 = icmp ult i8 %3399, 58
+  %3410 = icmp samesign ult i8 %3399, 58
   %or.cond233 = and i1 %3409, %3410
   br i1 %or.cond233, label %.preheader17640, label %.loopexit17669
 
@@ -9527,7 +9527,7 @@ add_error.exit17432:                              ; preds = %898, %902
   br i1 %3417, label %3418, label %3425
 
 3418:                                             ; preds = %3414
-  %3419 = icmp ult i8 %3416, 42
+  %3419 = icmp samesign ult i8 %3416, 42
   br i1 %3419, label %3420, label %3422
 
 3420:                                             ; preds = %3418
@@ -9536,7 +9536,7 @@ add_error.exit17432:                              ; preds = %898, %902
   br i1 %.not16619, label %.loopexit17671, label %.loopexit17669
 
 3422:                                             ; preds = %3418
-  %3423 = icmp ult i8 %3416, 65
+  %3423 = icmp samesign ult i8 %3416, 65
   br i1 %3423, label %.loopexit17669.loopexit.split.loop.exit39732, label %3424
 
 3424:                                             ; preds = %3422
@@ -9569,7 +9569,7 @@ add_error.exit17432:                              ; preds = %898, %902
   br i1 %3438, label %3439, label %3445
 
 3439:                                             ; preds = %3435
-  %3440 = icmp ult i8 %3437, 65
+  %3440 = icmp samesign ult i8 %3437, 65
   br i1 %3440, label %3441, label %3444
 
 3441:                                             ; preds = %3439
@@ -9588,11 +9588,11 @@ add_error.exit17432:                              ; preds = %898, %902
   br i1 %3446, label %3447, label %3452
 
 3447:                                             ; preds = %3445
-  %3448 = icmp ult i8 %3437, 91
+  %3448 = icmp samesign ult i8 %3437, 91
   br i1 %3448, label %.loopexit17677.loopexit.split.loop.exit41631, label %3449
 
 3449:                                             ; preds = %3447
-  %3450 = icmp ult i8 %3437, 97
+  %3450 = icmp samesign ult i8 %3437, 97
   br i1 %3450, label %.loopexit17669.loopexit.split.loop.exit39734, label %3451
 
 3451:                                             ; preds = %3449
@@ -9616,7 +9616,7 @@ add_error.exit17432:                              ; preds = %898, %902
   br i1 %3460, label %3461, label %3468
 
 3461:                                             ; preds = %3457
-  %3462 = icmp ult i8 %3459, 46
+  %3462 = icmp samesign ult i8 %3459, 46
   br i1 %3462, label %3463, label %3464
 
 3463:                                             ; preds = %3461
@@ -9630,7 +9630,7 @@ add_error.exit17432:                              ; preds = %898, %902
   br i1 %3465, label %5862, label %3466
 
 3466:                                             ; preds = %3464
-  %3467 = icmp ult i8 %3459, 65
+  %3467 = icmp samesign ult i8 %3459, 65
   br i1 %3467, label %.loopexit17669, label %.loopexit17677
 
 3468:                                             ; preds = %3457
@@ -9642,7 +9642,7 @@ add_error.exit17432:                              ; preds = %898, %902
   br i1 %3471, label %6673, label %3472
 
 3472:                                             ; preds = %3470
-  %3473 = icmp ult i8 %3459, 91
+  %3473 = icmp samesign ult i8 %3459, 91
   br i1 %3473, label %.loopexit17677, label %3474
 
 3474:                                             ; preds = %3472
@@ -9673,11 +9673,11 @@ add_error.exit17432:                              ; preds = %898, %902
   br i1 %3486, label %3487, label %3500
 
 3487:                                             ; preds = %3483
-  %3488 = icmp ult i8 %3485, 47
+  %3488 = icmp samesign ult i8 %3485, 47
   br i1 %3488, label %3489, label %3494
 
 3489:                                             ; preds = %3487
-  %3490 = icmp ult i8 %3485, 42
+  %3490 = icmp samesign ult i8 %3485, 42
   br i1 %3490, label %3491, label %3492
 
 3491:                                             ; preds = %3489
@@ -9689,7 +9689,7 @@ add_error.exit17432:                              ; preds = %898, %902
   br i1 %3493, label %5862, label %.loopexit17669
 
 3494:                                             ; preds = %3487
-  %3495 = icmp ult i8 %3485, 65
+  %3495 = icmp samesign ult i8 %3485, 65
   br i1 %3495, label %3496, label %3498
 
 3496:                                             ; preds = %3494
@@ -9705,7 +9705,7 @@ add_error.exit17432:                              ; preds = %898, %902
   br i1 %3501, label %3502, label %3508
 
 3502:                                             ; preds = %3500
-  %3503 = icmp ult i8 %3485, 91
+  %3503 = icmp samesign ult i8 %3485, 91
   br i1 %3503, label %3504, label %3506
 
 3504:                                             ; preds = %3502
@@ -9739,7 +9739,7 @@ add_error.exit17432:                              ; preds = %898, %902
   br i1 %3519, label %3520, label %3527
 
 3520:                                             ; preds = %3516
-  %3521 = icmp ult i8 %3518, 42
+  %3521 = icmp samesign ult i8 %3518, 42
   br i1 %3521, label %3522, label %3524
 
 3522:                                             ; preds = %3520
@@ -9748,7 +9748,7 @@ add_error.exit17432:                              ; preds = %898, %902
   br i1 %.not16589, label %.loopexit17671, label %.loopexit17669
 
 3524:                                             ; preds = %3520
-  %3525 = icmp ult i8 %3518, 65
+  %3525 = icmp samesign ult i8 %3518, 65
   br i1 %3525, label %.loopexit17669.loopexit.split.loop.exit39736, label %3526
 
 3526:                                             ; preds = %3524
@@ -9782,7 +9782,7 @@ add_error.exit17432:                              ; preds = %898, %902
   br i1 %3540, label %3541, label %3548
 
 3541:                                             ; preds = %3537
-  %3542 = icmp ult i8 %3539, 46
+  %3542 = icmp samesign ult i8 %3539, 46
   br i1 %3542, label %3543, label %3544
 
 3543:                                             ; preds = %3541
@@ -9796,7 +9796,7 @@ add_error.exit17432:                              ; preds = %898, %902
   br i1 %3545, label %5862, label %3546
 
 3546:                                             ; preds = %3544
-  %3547 = icmp ult i8 %3539, 65
+  %3547 = icmp samesign ult i8 %3539, 65
   br i1 %3547, label %.loopexit17669, label %.loopexit17677
 
 3548:                                             ; preds = %3537
@@ -9808,7 +9808,7 @@ add_error.exit17432:                              ; preds = %898, %902
   br i1 %3551, label %6877, label %3552
 
 3552:                                             ; preds = %3550
-  %3553 = icmp ult i8 %3539, 91
+  %3553 = icmp samesign ult i8 %3539, 91
   br i1 %3553, label %.loopexit17677, label %3554
 
 3554:                                             ; preds = %3552
@@ -9838,7 +9838,7 @@ add_error.exit17432:                              ; preds = %898, %902
   br i1 %3566, label %3567, label %3573
 
 3567:                                             ; preds = %3563
-  %3568 = icmp ult i8 %3565, 65
+  %3568 = icmp samesign ult i8 %3565, 65
   br i1 %3568, label %3569, label %3572
 
 3569:                                             ; preds = %3567
@@ -9861,7 +9861,7 @@ add_error.exit17432:                              ; preds = %898, %902
   br i1 %3576, label %.loopexit17677.loopexit.split.loop.exit41637, label %3577
 
 3577:                                             ; preds = %3575
-  %3578 = icmp ult i8 %3565, 97
+  %3578 = icmp samesign ult i8 %3565, 97
   br i1 %3578, label %.loopexit17669.loopexit.split.loop.exit39738, label %3579
 
 3579:                                             ; preds = %3577
@@ -9884,7 +9884,7 @@ add_error.exit17432:                              ; preds = %898, %902
   br i1 %3588, label %3589, label %3596
 
 3589:                                             ; preds = %3585
-  %3590 = icmp ult i8 %3587, 42
+  %3590 = icmp samesign ult i8 %3587, 42
   br i1 %3590, label %3591, label %3593
 
 3591:                                             ; preds = %3589
@@ -9893,7 +9893,7 @@ add_error.exit17432:                              ; preds = %898, %902
   br i1 %.not16549, label %.loopexit17671, label %.loopexit17669
 
 3593:                                             ; preds = %3589
-  %3594 = icmp ult i8 %3587, 65
+  %3594 = icmp samesign ult i8 %3587, 65
   br i1 %3594, label %.loopexit17669.loopexit.split.loop.exit39740, label %3595
 
 3595:                                             ; preds = %3593
@@ -9926,7 +9926,7 @@ add_error.exit17432:                              ; preds = %898, %902
   br i1 %3608, label %3609, label %3615
 
 3609:                                             ; preds = %.loopexit17672
-  %3610 = icmp ult i8 %3607, 42
+  %3610 = icmp samesign ult i8 %3607, 42
   br i1 %3610, label %3611, label %3612
 
 3611:                                             ; preds = %3609
@@ -9934,7 +9934,7 @@ add_error.exit17432:                              ; preds = %898, %902
   br i1 %.not16541, label %.loopexit17671, label %.loopexit17669
 
 3612:                                             ; preds = %3609
-  %3613 = icmp ult i8 %3607, 65
+  %3613 = icmp samesign ult i8 %3607, 65
   br i1 %3613, label %.loopexit17669, label %3614
 
 3614:                                             ; preds = %3612
@@ -9966,11 +9966,11 @@ add_error.exit17432:                              ; preds = %898, %902
   br i1 %3626, label %3627, label %3640
 
 3627:                                             ; preds = %3623
-  %3628 = icmp ult i8 %3625, 47
+  %3628 = icmp samesign ult i8 %3625, 47
   br i1 %3628, label %3629, label %3634
 
 3629:                                             ; preds = %3627
-  %3630 = icmp ult i8 %3625, 42
+  %3630 = icmp samesign ult i8 %3625, 42
   br i1 %3630, label %3631, label %3632
 
 3631:                                             ; preds = %3629
@@ -9982,7 +9982,7 @@ add_error.exit17432:                              ; preds = %898, %902
   br i1 %3633, label %5862, label %.loopexit17669
 
 3634:                                             ; preds = %3627
-  %3635 = icmp ult i8 %3625, 65
+  %3635 = icmp samesign ult i8 %3625, 65
   br i1 %3635, label %3636, label %3638
 
 3636:                                             ; preds = %3634
@@ -9998,7 +9998,7 @@ add_error.exit17432:                              ; preds = %898, %902
   br i1 %3641, label %3642, label %3648
 
 3642:                                             ; preds = %3640
-  %3643 = icmp ult i8 %3625, 91
+  %3643 = icmp samesign ult i8 %3625, 91
   br i1 %3643, label %3644, label %3646
 
 3644:                                             ; preds = %3642
@@ -10033,7 +10033,7 @@ add_error.exit17432:                              ; preds = %898, %902
   br i1 %3659, label %3660, label %3667
 
 3660:                                             ; preds = %3656
-  %3661 = icmp ult i8 %3658, 46
+  %3661 = icmp samesign ult i8 %3658, 46
   br i1 %3661, label %3662, label %3663
 
 3662:                                             ; preds = %3660
@@ -10047,7 +10047,7 @@ add_error.exit17432:                              ; preds = %898, %902
   br i1 %3664, label %5862, label %3665
 
 3665:                                             ; preds = %3663
-  %3666 = icmp ult i8 %3658, 65
+  %3666 = icmp samesign ult i8 %3658, 65
   br i1 %3666, label %.loopexit17669, label %.loopexit17677
 
 3667:                                             ; preds = %3656
@@ -10059,7 +10059,7 @@ add_error.exit17432:                              ; preds = %898, %902
   br i1 %3670, label %6972, label %3671
 
 3671:                                             ; preds = %3669
-  %3672 = icmp ult i8 %3658, 91
+  %3672 = icmp samesign ult i8 %3658, 91
   br i1 %3672, label %.loopexit17677, label %3673
 
 3673:                                             ; preds = %3671
@@ -10090,7 +10090,7 @@ add_error.exit17432:                              ; preds = %898, %902
   br i1 %3685, label %3686, label %3693
 
 3686:                                             ; preds = %3682
-  %3687 = icmp ult i8 %3684, 46
+  %3687 = icmp samesign ult i8 %3684, 46
   br i1 %3687, label %3688, label %3689
 
 3688:                                             ; preds = %3686
@@ -10104,7 +10104,7 @@ add_error.exit17432:                              ; preds = %898, %902
   br i1 %3690, label %5862, label %3691
 
 3691:                                             ; preds = %3689
-  %3692 = icmp ult i8 %3684, 65
+  %3692 = icmp samesign ult i8 %3684, 65
   br i1 %3692, label %.loopexit17669, label %.loopexit17677
 
 3693:                                             ; preds = %3682
@@ -10116,7 +10116,7 @@ add_error.exit17432:                              ; preds = %898, %902
   br i1 %3696, label %.loopexit17699, label %3697
 
 3697:                                             ; preds = %3695
-  %3698 = icmp ult i8 %3684, 91
+  %3698 = icmp samesign ult i8 %3684, 91
   br i1 %3698, label %.loopexit17677, label %3699
 
 3699:                                             ; preds = %3697
@@ -10146,7 +10146,7 @@ add_error.exit17432:                              ; preds = %898, %902
   br i1 %3711, label %3712, label %3719
 
 3712:                                             ; preds = %3708
-  %3713 = icmp ult i8 %3710, 42
+  %3713 = icmp samesign ult i8 %3710, 42
   br i1 %3713, label %3714, label %3716
 
 3714:                                             ; preds = %3712
@@ -10155,7 +10155,7 @@ add_error.exit17432:                              ; preds = %898, %902
   br i1 %.not16519, label %.loopexit17671, label %.loopexit17669
 
 3716:                                             ; preds = %3712
-  %3717 = icmp ult i8 %3710, 65
+  %3717 = icmp samesign ult i8 %3710, 65
   br i1 %3717, label %.loopexit17669.loopexit.split.loop.exit39742, label %3718
 
 3718:                                             ; preds = %3716
@@ -10188,7 +10188,7 @@ add_error.exit17432:                              ; preds = %898, %902
   br i1 %3732, label %3733, label %3740
 
 3733:                                             ; preds = %3729
-  %3734 = icmp ult i8 %3731, 42
+  %3734 = icmp samesign ult i8 %3731, 42
   br i1 %3734, label %3735, label %3737
 
 3735:                                             ; preds = %3733
@@ -10197,7 +10197,7 @@ add_error.exit17432:                              ; preds = %898, %902
   br i1 %.not16515, label %.loopexit17671, label %.loopexit17669
 
 3737:                                             ; preds = %3733
-  %3738 = icmp ult i8 %3731, 65
+  %3738 = icmp samesign ult i8 %3731, 65
   br i1 %3738, label %.loopexit17669.loopexit.split.loop.exit39744, label %3739
 
 3739:                                             ; preds = %3737
@@ -10230,7 +10230,7 @@ add_error.exit17432:                              ; preds = %898, %902
   br i1 %3753, label %3754, label %3766
 
 3754:                                             ; preds = %3750
-  %3755 = icmp ult i8 %3752, 79
+  %3755 = icmp samesign ult i8 %3752, 79
   br i1 %3755, label %3756, label %3761
 
 3756:                                             ; preds = %3754
@@ -10239,7 +10239,7 @@ add_error.exit17432:                              ; preds = %898, %902
   br i1 %3758, label %.loopexit17671, label %3759
 
 3759:                                             ; preds = %3756
-  %3760 = icmp ult i8 %3752, 65
+  %3760 = icmp samesign ult i8 %3752, 65
   br i1 %3760, label %.loopexit17669, label %.loopexit17677
 
 3761:                                             ; preds = %3754
@@ -10247,7 +10247,7 @@ add_error.exit17432:                              ; preds = %898, %902
   br i1 %3762, label %.loopexit17697, label %3763
 
 3763:                                             ; preds = %3761
-  %3764 = icmp ult i8 %3752, 86
+  %3764 = icmp samesign ult i8 %3752, 86
   br i1 %3764, label %.loopexit17677.loopexit.split.loop.exit41647, label %3765
 
 3765:                                             ; preds = %3763
@@ -10260,11 +10260,11 @@ add_error.exit17432:                              ; preds = %898, %902
 
 3768:                                             ; preds = %3766
   %3769 = getelementptr inbounds i8, ptr %.01433828656, i64 2
-  %3770 = icmp ult i8 %3752, 91
+  %3770 = icmp samesign ult i8 %3752, 91
   br i1 %3770, label %.loopexit17677, label %3771
 
 3771:                                             ; preds = %3768
-  %3772 = icmp ult i8 %3752, 97
+  %3772 = icmp samesign ult i8 %3752, 97
   br i1 %3772, label %.loopexit17669, label %3773
 
 3773:                                             ; preds = %3771
@@ -10296,7 +10296,7 @@ add_error.exit17432:                              ; preds = %898, %902
   br i1 %3785, label %3786, label %3793
 
 3786:                                             ; preds = %3782
-  %3787 = icmp ult i8 %3784, 46
+  %3787 = icmp samesign ult i8 %3784, 46
   br i1 %3787, label %3788, label %3789
 
 3788:                                             ; preds = %3786
@@ -10310,7 +10310,7 @@ add_error.exit17432:                              ; preds = %898, %902
   br i1 %3790, label %5862, label %3791
 
 3791:                                             ; preds = %3789
-  %3792 = icmp ult i8 %3784, 65
+  %3792 = icmp samesign ult i8 %3784, 65
   br i1 %3792, label %.loopexit17669, label %.loopexit17677
 
 3793:                                             ; preds = %3782
@@ -10322,7 +10322,7 @@ add_error.exit17432:                              ; preds = %898, %902
   br i1 %3796, label %7082, label %3797
 
 3797:                                             ; preds = %3795
-  %3798 = icmp ult i8 %3784, 91
+  %3798 = icmp samesign ult i8 %3784, 91
   br i1 %3798, label %.loopexit17677, label %3799
 
 3799:                                             ; preds = %3797
@@ -10353,7 +10353,7 @@ add_error.exit17432:                              ; preds = %898, %902
   br i1 %3811, label %3812, label %3819
 
 3812:                                             ; preds = %3808
-  %3813 = icmp ult i8 %3810, 46
+  %3813 = icmp samesign ult i8 %3810, 46
   br i1 %3813, label %3814, label %3815
 
 3814:                                             ; preds = %3812
@@ -10367,7 +10367,7 @@ add_error.exit17432:                              ; preds = %898, %902
   br i1 %3816, label %5862, label %3817
 
 3817:                                             ; preds = %3815
-  %3818 = icmp ult i8 %3810, 65
+  %3818 = icmp samesign ult i8 %3810, 65
   br i1 %3818, label %.loopexit17669, label %.loopexit17677
 
 3819:                                             ; preds = %3808
@@ -10379,7 +10379,7 @@ add_error.exit17432:                              ; preds = %898, %902
   br i1 %3822, label %6220, label %3823
 
 3823:                                             ; preds = %3821
-  %3824 = icmp ult i8 %3810, 91
+  %3824 = icmp samesign ult i8 %3810, 91
   br i1 %3824, label %.loopexit17677, label %3825
 
 3825:                                             ; preds = %3823
@@ -10410,11 +10410,11 @@ add_error.exit17432:                              ; preds = %898, %902
   br i1 %3837, label %3838, label %3852
 
 3838:                                             ; preds = %3834
-  %3839 = icmp ult i8 %3836, 47
+  %3839 = icmp samesign ult i8 %3836, 47
   br i1 %3839, label %3840, label %3845
 
 3840:                                             ; preds = %3838
-  %3841 = icmp ult i8 %3836, 42
+  %3841 = icmp samesign ult i8 %3836, 42
   br i1 %3841, label %3842, label %3843
 
 3842:                                             ; preds = %3840
@@ -10426,7 +10426,7 @@ add_error.exit17432:                              ; preds = %898, %902
   br i1 %3844, label %5862, label %.loopexit17669
 
 3845:                                             ; preds = %3838
-  %3846 = icmp ult i8 %3836, 79
+  %3846 = icmp samesign ult i8 %3836, 79
   br i1 %3846, label %3847, label %3851
 
 3847:                                             ; preds = %3845
@@ -10434,7 +10434,7 @@ add_error.exit17432:                              ; preds = %898, %902
   br i1 %3848, label %5862, label %3849
 
 3849:                                             ; preds = %3847
-  %3850 = icmp ult i8 %3836, 65
+  %3850 = icmp samesign ult i8 %3836, 65
   br i1 %3850, label %.loopexit17669, label %.loopexit17677
 
 3851:                                             ; preds = %3845
@@ -10448,7 +10448,7 @@ add_error.exit17432:                              ; preds = %898, %902
   br i1 %3853, label %3854, label %3864
 
 3854:                                             ; preds = %3852
-  %3855 = icmp ult i8 %3836, 95
+  %3855 = icmp samesign ult i8 %3836, 95
   br i1 %3855, label %3856, label %3860
 
 3856:                                             ; preds = %3854
@@ -10456,7 +10456,7 @@ add_error.exit17432:                              ; preds = %898, %902
   br i1 %3857, label %.loopexit17698, label %3858
 
 3858:                                             ; preds = %3856
-  %3859 = icmp ult i8 %3836, 91
+  %3859 = icmp samesign ult i8 %3836, 91
   br i1 %3859, label %.loopexit17677, label %.loopexit17669
 
 3860:                                             ; preds = %3854
@@ -10464,7 +10464,7 @@ add_error.exit17432:                              ; preds = %898, %902
   br i1 %3861, label %5862, label %3862
 
 3862:                                             ; preds = %3860
-  %3863 = icmp ult i8 %3836, 97
+  %3863 = icmp samesign ult i8 %3836, 97
   br i1 %3863, label %.loopexit17669, label %5871
 
 3864:                                             ; preds = %3852
@@ -10492,7 +10492,7 @@ add_error.exit17432:                              ; preds = %898, %902
   br i1 %3874, label %3875, label %3882
 
 3875:                                             ; preds = %3871
-  %3876 = icmp ult i8 %3873, 42
+  %3876 = icmp samesign ult i8 %3873, 42
   br i1 %3876, label %3877, label %3879
 
 3877:                                             ; preds = %3875
@@ -10501,7 +10501,7 @@ add_error.exit17432:                              ; preds = %898, %902
   br i1 %.not16493, label %.loopexit17671, label %.loopexit17669
 
 3879:                                             ; preds = %3875
-  %3880 = icmp ult i8 %3873, 65
+  %3880 = icmp samesign ult i8 %3873, 65
   br i1 %3880, label %.loopexit17669.loopexit.split.loop.exit39746, label %3881
 
 3881:                                             ; preds = %3879
@@ -10535,7 +10535,7 @@ add_error.exit17432:                              ; preds = %898, %902
   br i1 %3895, label %3896, label %3903
 
 3896:                                             ; preds = %3892
-  %3897 = icmp ult i8 %3894, 46
+  %3897 = icmp samesign ult i8 %3894, 46
   br i1 %3897, label %3898, label %3899
 
 3898:                                             ; preds = %3896
@@ -10549,7 +10549,7 @@ add_error.exit17432:                              ; preds = %898, %902
   br i1 %3900, label %5862, label %3901
 
 3901:                                             ; preds = %3899
-  %3902 = icmp ult i8 %3894, 65
+  %3902 = icmp samesign ult i8 %3894, 65
   br i1 %3902, label %.loopexit17669, label %.loopexit17677
 
 3903:                                             ; preds = %3892
@@ -10561,7 +10561,7 @@ add_error.exit17432:                              ; preds = %898, %902
   br i1 %3906, label %7199, label %3907
 
 3907:                                             ; preds = %3905
-  %3908 = icmp ult i8 %3894, 91
+  %3908 = icmp samesign ult i8 %3894, 91
   br i1 %3908, label %.loopexit17677, label %3909
 
 3909:                                             ; preds = %3907
@@ -10591,7 +10591,7 @@ add_error.exit17432:                              ; preds = %898, %902
   br i1 %3921, label %3922, label %3929
 
 3922:                                             ; preds = %3918
-  %3923 = icmp ult i8 %3920, 42
+  %3923 = icmp samesign ult i8 %3920, 42
   br i1 %3923, label %3924, label %3926
 
 3924:                                             ; preds = %3922
@@ -10600,7 +10600,7 @@ add_error.exit17432:                              ; preds = %898, %902
   br i1 %.not16474, label %.loopexit17671, label %.loopexit17669
 
 3926:                                             ; preds = %3922
-  %3927 = icmp ult i8 %3920, 65
+  %3927 = icmp samesign ult i8 %3920, 65
   br i1 %3927, label %.loopexit17669.loopexit.split.loop.exit39748, label %3928
 
 3928:                                             ; preds = %3926
@@ -10634,7 +10634,7 @@ add_error.exit17432:                              ; preds = %898, %902
   br i1 %3942, label %3943, label %3950
 
 3943:                                             ; preds = %3939
-  %3944 = icmp ult i8 %3941, 46
+  %3944 = icmp samesign ult i8 %3941, 46
   br i1 %3944, label %3945, label %3946
 
 3945:                                             ; preds = %3943
@@ -10648,7 +10648,7 @@ add_error.exit17432:                              ; preds = %898, %902
   br i1 %3947, label %5862, label %3948
 
 3948:                                             ; preds = %3946
-  %3949 = icmp ult i8 %3941, 65
+  %3949 = icmp samesign ult i8 %3941, 65
   br i1 %3949, label %.loopexit17669, label %.loopexit17677
 
 3950:                                             ; preds = %3939
@@ -10660,7 +10660,7 @@ add_error.exit17432:                              ; preds = %898, %902
   br i1 %3953, label %7267, label %3954
 
 3954:                                             ; preds = %3952
-  %3955 = icmp ult i8 %3941, 91
+  %3955 = icmp samesign ult i8 %3941, 91
   br i1 %3955, label %.loopexit17677, label %3956
 
 3956:                                             ; preds = %3954
@@ -10690,7 +10690,7 @@ add_error.exit17432:                              ; preds = %898, %902
   br i1 %3968, label %3969, label %3976
 
 3969:                                             ; preds = %3965
-  %3970 = icmp ult i8 %3967, 42
+  %3970 = icmp samesign ult i8 %3967, 42
   br i1 %3970, label %3971, label %3973
 
 3971:                                             ; preds = %3969
@@ -10699,7 +10699,7 @@ add_error.exit17432:                              ; preds = %898, %902
   br i1 %.not16454, label %.loopexit17671, label %.loopexit17669
 
 3973:                                             ; preds = %3969
-  %3974 = icmp ult i8 %3967, 65
+  %3974 = icmp samesign ult i8 %3967, 65
   br i1 %3974, label %.loopexit17669.loopexit.split.loop.exit39750, label %3975
 
 3975:                                             ; preds = %3973
@@ -10732,7 +10732,7 @@ add_error.exit17432:                              ; preds = %898, %902
   br i1 %3989, label %3990, label %4002
 
 3990:                                             ; preds = %3986
-  %3991 = icmp ult i8 %3988, 67
+  %3991 = icmp samesign ult i8 %3988, 67
   br i1 %3991, label %3992, label %3997
 
 3992:                                             ; preds = %3990
@@ -10741,11 +10741,11 @@ add_error.exit17432:                              ; preds = %898, %902
   br i1 %3994, label %.loopexit17671, label %3995
 
 3995:                                             ; preds = %3992
-  %3996 = icmp ult i8 %3988, 65
+  %3996 = icmp samesign ult i8 %3988, 65
   br i1 %3996, label %.loopexit17669, label %.loopexit17677
 
 3997:                                             ; preds = %3990
-  %3998 = icmp ult i8 %3988, 80
+  %3998 = icmp samesign ult i8 %3988, 80
   br i1 %3998, label %3999, label %4001
 
 3999:                                             ; preds = %3997
@@ -10763,12 +10763,12 @@ add_error.exit17432:                              ; preds = %898, %902
   br i1 %4003, label %4004, label %4011
 
 4004:                                             ; preds = %4002
-  %4005 = icmp ult i8 %3988, 97
+  %4005 = icmp samesign ult i8 %3988, 97
   br i1 %4005, label %4006, label %4009
 
 4006:                                             ; preds = %4004
   %4007 = getelementptr inbounds i8, ptr %.01433828656, i64 2
-  %4008 = icmp ult i8 %3988, 91
+  %4008 = icmp samesign ult i8 %3988, 91
   br i1 %4008, label %.loopexit17677, label %.loopexit17669
 
 4009:                                             ; preds = %4004
@@ -10799,7 +10799,7 @@ add_error.exit17432:                              ; preds = %898, %902
   br i1 %4023, label %4024, label %4031
 
 4024:                                             ; preds = %4020
-  %4025 = icmp ult i8 %4022, 42
+  %4025 = icmp samesign ult i8 %4022, 42
   br i1 %4025, label %4026, label %4028
 
 4026:                                             ; preds = %4024
@@ -10808,7 +10808,7 @@ add_error.exit17432:                              ; preds = %898, %902
   br i1 %.not16427, label %.loopexit17671, label %.loopexit17669
 
 4028:                                             ; preds = %4024
-  %4029 = icmp ult i8 %4022, 65
+  %4029 = icmp samesign ult i8 %4022, 65
   br i1 %4029, label %.loopexit17669.loopexit.split.loop.exit39752, label %4030
 
 4030:                                             ; preds = %4028
@@ -10842,7 +10842,7 @@ add_error.exit17432:                              ; preds = %898, %902
   br i1 %4044, label %4045, label %4052
 
 4045:                                             ; preds = %4041
-  %4046 = icmp ult i8 %4043, 46
+  %4046 = icmp samesign ult i8 %4043, 46
   br i1 %4046, label %4047, label %4048
 
 4047:                                             ; preds = %4045
@@ -10856,7 +10856,7 @@ add_error.exit17432:                              ; preds = %898, %902
   br i1 %4049, label %5862, label %4050
 
 4050:                                             ; preds = %4048
-  %4051 = icmp ult i8 %4043, 65
+  %4051 = icmp samesign ult i8 %4043, 65
   br i1 %4051, label %.loopexit17669, label %.loopexit17677
 
 4052:                                             ; preds = %4041
@@ -10868,7 +10868,7 @@ add_error.exit17432:                              ; preds = %898, %902
   br i1 %4055, label %7314, label %4056
 
 4056:                                             ; preds = %4054
-  %4057 = icmp ult i8 %4043, 91
+  %4057 = icmp samesign ult i8 %4043, 91
   br i1 %4057, label %.loopexit17677, label %4058
 
 4058:                                             ; preds = %4056
@@ -10899,11 +10899,11 @@ add_error.exit17432:                              ; preds = %898, %902
   br i1 %4070, label %4071, label %4086
 
 4071:                                             ; preds = %4067
-  %4072 = icmp ult i8 %4069, 48
+  %4072 = icmp samesign ult i8 %4069, 48
   br i1 %4072, label %4073, label %4079
 
 4073:                                             ; preds = %4071
-  %4074 = icmp ult i8 %4069, 45
+  %4074 = icmp samesign ult i8 %4069, 45
   br i1 %4074, label %4075, label %4077
 
 4075:                                             ; preds = %4073
@@ -10915,11 +10915,11 @@ add_error.exit17432:                              ; preds = %898, %902
   br i1 %4078, label %.loopexit17669, label %5862
 
 4079:                                             ; preds = %4071
-  %4080 = icmp ult i8 %4069, 68
+  %4080 = icmp samesign ult i8 %4069, 68
   br i1 %4080, label %4081, label %4084
 
 4081:                                             ; preds = %4079
-  %4082 = icmp ult i8 %4069, 65
+  %4082 = icmp samesign ult i8 %4069, 65
   br i1 %4082, label %.loopexit17669, label %4083
 
 4083:                                             ; preds = %4081
@@ -10935,7 +10935,7 @@ add_error.exit17432:                              ; preds = %898, %902
   br i1 %4087, label %4088, label %4098
 
 4088:                                             ; preds = %4086
-  %4089 = icmp ult i8 %4069, 95
+  %4089 = icmp samesign ult i8 %4069, 95
   br i1 %4089, label %4090, label %4094
 
 4090:                                             ; preds = %4088
@@ -10943,7 +10943,7 @@ add_error.exit17432:                              ; preds = %898, %902
   br i1 %4091, label %7388, label %4092
 
 4092:                                             ; preds = %4090
-  %4093 = icmp ult i8 %4069, 91
+  %4093 = icmp samesign ult i8 %4069, 91
   br i1 %4093, label %.loopexit17677, label %.loopexit17669
 
 4094:                                             ; preds = %4088
@@ -10951,7 +10951,7 @@ add_error.exit17432:                              ; preds = %898, %902
   br i1 %4095, label %5862, label %4096
 
 4096:                                             ; preds = %4094
-  %4097 = icmp ult i8 %4069, 97
+  %4097 = icmp samesign ult i8 %4069, 97
   br i1 %4097, label %.loopexit17669, label %5871
 
 4098:                                             ; preds = %4086
@@ -10980,7 +10980,7 @@ add_error.exit17432:                              ; preds = %898, %902
   br i1 %4108, label %4109, label %4116
 
 4109:                                             ; preds = %4105
-  %4110 = icmp ult i8 %4107, 46
+  %4110 = icmp samesign ult i8 %4107, 46
   br i1 %4110, label %4111, label %4112
 
 4111:                                             ; preds = %4109
@@ -10994,7 +10994,7 @@ add_error.exit17432:                              ; preds = %898, %902
   br i1 %4113, label %5862, label %4114
 
 4114:                                             ; preds = %4112
-  %4115 = icmp ult i8 %4107, 65
+  %4115 = icmp samesign ult i8 %4107, 65
   br i1 %4115, label %.loopexit17669, label %.loopexit17677
 
 4116:                                             ; preds = %4105
@@ -11006,7 +11006,7 @@ add_error.exit17432:                              ; preds = %898, %902
   br i1 %4119, label %6220, label %4120
 
 4120:                                             ; preds = %4118
-  %4121 = icmp ult i8 %4107, 91
+  %4121 = icmp samesign ult i8 %4107, 91
   br i1 %4121, label %.loopexit17677, label %4122
 
 4122:                                             ; preds = %4120
@@ -11183,7 +11183,7 @@ add_error.exit17432:                              ; preds = %898, %902
   br i1 %4208, label %4209, label %4215
 
 4209:                                             ; preds = %4205
-  %4210 = icmp ult i8 %4207, 65
+  %4210 = icmp samesign ult i8 %4207, 65
   br i1 %4210, label %4211, label %4214
 
 4211:                                             ; preds = %4209
@@ -11202,11 +11202,11 @@ add_error.exit17432:                              ; preds = %898, %902
   br i1 %4216, label %4217, label %4222
 
 4217:                                             ; preds = %4215
-  %4218 = icmp ult i8 %4207, 91
+  %4218 = icmp samesign ult i8 %4207, 91
   br i1 %4218, label %.loopexit17677.loopexit.split.loop.exit41665, label %4219
 
 4219:                                             ; preds = %4217
-  %4220 = icmp ult i8 %4207, 97
+  %4220 = icmp samesign ult i8 %4207, 97
   br i1 %4220, label %.loopexit17669.loopexit.split.loop.exit39754, label %4221
 
 4221:                                             ; preds = %4219
@@ -11229,7 +11229,7 @@ add_error.exit17432:                              ; preds = %898, %902
   br i1 %4230, label %4231, label %4237
 
 4231:                                             ; preds = %4227
-  %4232 = icmp ult i8 %4229, 65
+  %4232 = icmp samesign ult i8 %4229, 65
   br i1 %4232, label %4233, label %4236
 
 4233:                                             ; preds = %4231
@@ -11249,11 +11249,11 @@ add_error.exit17432:                              ; preds = %898, %902
 
 4239:                                             ; preds = %4237
   %4240 = getelementptr inbounds i8, ptr %.01433828656, i64 2
-  %4241 = icmp ult i8 %4229, 91
+  %4241 = icmp samesign ult i8 %4229, 91
   br i1 %4241, label %.loopexit17677, label %4242
 
 4242:                                             ; preds = %4239
-  %4243 = icmp ult i8 %4229, 97
+  %4243 = icmp samesign ult i8 %4229, 97
   br i1 %4243, label %.loopexit17669, label %4244
 
 4244:                                             ; preds = %4242
@@ -11276,7 +11276,7 @@ add_error.exit17432:                              ; preds = %898, %902
   br i1 %4253, label %4254, label %4260
 
 4254:                                             ; preds = %4250
-  %4255 = icmp ult i8 %4252, 42
+  %4255 = icmp samesign ult i8 %4252, 42
   br i1 %4255, label %4256, label %4257
 
 4256:                                             ; preds = %4254
@@ -11284,7 +11284,7 @@ add_error.exit17432:                              ; preds = %898, %902
   br i1 %.not16371, label %.loopexit17671, label %.loopexit17669
 
 4257:                                             ; preds = %4254
-  %4258 = icmp ult i8 %4252, 65
+  %4258 = icmp samesign ult i8 %4252, 65
   br i1 %4258, label %.loopexit17669, label %4259
 
 4259:                                             ; preds = %4257
@@ -11315,7 +11315,7 @@ add_error.exit17432:                              ; preds = %898, %902
   br i1 %4271, label %4272, label %4279
 
 4272:                                             ; preds = %4268
-  %4273 = icmp ult i8 %4270, 42
+  %4273 = icmp samesign ult i8 %4270, 42
   br i1 %4273, label %4274, label %4276
 
 4274:                                             ; preds = %4272
@@ -11324,7 +11324,7 @@ add_error.exit17432:                              ; preds = %898, %902
   br i1 %.not16364, label %.loopexit17671, label %.loopexit17669
 
 4276:                                             ; preds = %4272
-  %4277 = icmp ult i8 %4270, 65
+  %4277 = icmp samesign ult i8 %4270, 65
   br i1 %4277, label %.loopexit17669.loopexit.split.loop.exit39756, label %4278
 
 4278:                                             ; preds = %4276
@@ -11358,11 +11358,11 @@ add_error.exit17432:                              ; preds = %898, %902
   br i1 %4292, label %4293, label %4306
 
 4293:                                             ; preds = %4289
-  %4294 = icmp ult i8 %4291, 47
+  %4294 = icmp samesign ult i8 %4291, 47
   br i1 %4294, label %4295, label %4300
 
 4295:                                             ; preds = %4293
-  %4296 = icmp ult i8 %4291, 42
+  %4296 = icmp samesign ult i8 %4291, 42
   br i1 %4296, label %4297, label %4298
 
 4297:                                             ; preds = %4295
@@ -11374,7 +11374,7 @@ add_error.exit17432:                              ; preds = %898, %902
   br i1 %4299, label %5862, label %.loopexit17669
 
 4300:                                             ; preds = %4293
-  %4301 = icmp ult i8 %4291, 65
+  %4301 = icmp samesign ult i8 %4291, 65
   br i1 %4301, label %4302, label %4304
 
 4302:                                             ; preds = %4300
@@ -11390,7 +11390,7 @@ add_error.exit17432:                              ; preds = %898, %902
   br i1 %4307, label %4308, label %4314
 
 4308:                                             ; preds = %4306
-  %4309 = icmp ult i8 %4291, 91
+  %4309 = icmp samesign ult i8 %4291, 91
   br i1 %4309, label %4310, label %4312
 
 4310:                                             ; preds = %4308
@@ -11425,11 +11425,11 @@ add_error.exit17432:                              ; preds = %898, %902
   br i1 %4325, label %4326, label %4339
 
 4326:                                             ; preds = %4322
-  %4327 = icmp ult i8 %4324, 47
+  %4327 = icmp samesign ult i8 %4324, 47
   br i1 %4327, label %4328, label %4333
 
 4328:                                             ; preds = %4326
-  %4329 = icmp ult i8 %4324, 42
+  %4329 = icmp samesign ult i8 %4324, 42
   br i1 %4329, label %4330, label %4331
 
 4330:                                             ; preds = %4328
@@ -11441,7 +11441,7 @@ add_error.exit17432:                              ; preds = %898, %902
   br i1 %4332, label %5862, label %.loopexit17669
 
 4333:                                             ; preds = %4326
-  %4334 = icmp ult i8 %4324, 65
+  %4334 = icmp samesign ult i8 %4324, 65
   br i1 %4334, label %4335, label %4337
 
 4335:                                             ; preds = %4333
@@ -11457,7 +11457,7 @@ add_error.exit17432:                              ; preds = %898, %902
   br i1 %4340, label %4341, label %4347
 
 4341:                                             ; preds = %4339
-  %4342 = icmp ult i8 %4324, 91
+  %4342 = icmp samesign ult i8 %4324, 91
   br i1 %4342, label %4343, label %4345
 
 4343:                                             ; preds = %4341
@@ -11492,7 +11492,7 @@ add_error.exit17432:                              ; preds = %898, %902
   br i1 %4358, label %4359, label %4366
 
 4359:                                             ; preds = %4355
-  %4360 = icmp ult i8 %4357, 46
+  %4360 = icmp samesign ult i8 %4357, 46
   br i1 %4360, label %4361, label %4362
 
 4361:                                             ; preds = %4359
@@ -11506,7 +11506,7 @@ add_error.exit17432:                              ; preds = %898, %902
   br i1 %4363, label %5862, label %4364
 
 4364:                                             ; preds = %4362
-  %4365 = icmp ult i8 %4357, 65
+  %4365 = icmp samesign ult i8 %4357, 65
   br i1 %4365, label %.loopexit17669, label %.loopexit17677
 
 4366:                                             ; preds = %4355
@@ -11518,7 +11518,7 @@ add_error.exit17432:                              ; preds = %898, %902
   br i1 %4369, label %.loopexit17684, label %4370
 
 4370:                                             ; preds = %4368
-  %4371 = icmp ult i8 %4357, 91
+  %4371 = icmp samesign ult i8 %4357, 91
   br i1 %4371, label %.loopexit17677, label %4372
 
 4372:                                             ; preds = %4370
@@ -11549,7 +11549,7 @@ add_error.exit17432:                              ; preds = %898, %902
   br i1 %4384, label %4385, label %4392
 
 4385:                                             ; preds = %4381
-  %4386 = icmp ult i8 %4383, 46
+  %4386 = icmp samesign ult i8 %4383, 46
   br i1 %4386, label %4387, label %4388
 
 4387:                                             ; preds = %4385
@@ -11563,7 +11563,7 @@ add_error.exit17432:                              ; preds = %898, %902
   br i1 %4389, label %5862, label %4390
 
 4390:                                             ; preds = %4388
-  %4391 = icmp ult i8 %4383, 65
+  %4391 = icmp samesign ult i8 %4383, 65
   br i1 %4391, label %.loopexit17669, label %.loopexit17677
 
 4392:                                             ; preds = %4381
@@ -11575,7 +11575,7 @@ add_error.exit17432:                              ; preds = %898, %902
   br i1 %4395, label %7628, label %4396
 
 4396:                                             ; preds = %4394
-  %4397 = icmp ult i8 %4383, 91
+  %4397 = icmp samesign ult i8 %4383, 91
   br i1 %4397, label %.loopexit17677, label %4398
 
 4398:                                             ; preds = %4396
@@ -11606,7 +11606,7 @@ add_error.exit17432:                              ; preds = %898, %902
   br i1 %4410, label %4411, label %4418
 
 4411:                                             ; preds = %4407
-  %4412 = icmp ult i8 %4409, 33
+  %4412 = icmp samesign ult i8 %4409, 33
   br i1 %4412, label %4413, label %4414
 
 4413:                                             ; preds = %4411
@@ -11620,7 +11620,7 @@ add_error.exit17432:                              ; preds = %898, %902
   br i1 %4415, label %.loopexit17671, label %4416
 
 4416:                                             ; preds = %4414
-  %4417 = icmp ult i8 %4409, 45
+  %4417 = icmp samesign ult i8 %4409, 45
   br i1 %4417, label %.loopexit17669, label %.preheader17640
 
 4418:                                             ; preds = %4407
@@ -11632,11 +11632,11 @@ add_error.exit17432:                              ; preds = %898, %902
   br i1 %4421, label %.loopexit17669, label %4422
 
 4422:                                             ; preds = %4420
-  %4423 = icmp ult i8 %4409, 58
+  %4423 = icmp samesign ult i8 %4409, 58
   br i1 %4423, label %.preheader17640, label %4424
 
 4424:                                             ; preds = %4422
-  %4425 = icmp ult i8 %4409, 65
+  %4425 = icmp samesign ult i8 %4409, 65
   br i1 %4425, label %.loopexit17669, label %.loopexit17677
 
 4426:                                             ; preds = %4418
@@ -11659,7 +11659,7 @@ add_error.exit17432:                              ; preds = %898, %902
   br i1 %4435, label %4436, label %4444
 
 4436:                                             ; preds = %4432
-  %4437 = icmp ult i8 %4434, 65
+  %4437 = icmp samesign ult i8 %4434, 65
   br i1 %4437, label %4438, label %4441
 
 4438:                                             ; preds = %4436
@@ -11668,7 +11668,7 @@ add_error.exit17432:                              ; preds = %898, %902
   br i1 %4440, label %.loopexit17671, label %.loopexit17669
 
 4441:                                             ; preds = %4436
-  %4442 = icmp ult i8 %4434, 68
+  %4442 = icmp samesign ult i8 %4434, 68
   br i1 %4442, label %.loopexit17677.loopexit.split.loop.exit41671, label %4443
 
 4443:                                             ; preds = %4441
@@ -11706,7 +11706,7 @@ add_error.exit17432:                              ; preds = %898, %902
   br i1 %4459, label %4460, label %4470
 
 4460:                                             ; preds = %4456
-  %4461 = icmp ult i8 %4458, 46
+  %4461 = icmp samesign ult i8 %4458, 46
   br i1 %4461, label %4462, label %4463
 
 4462:                                             ; preds = %4460
@@ -11716,7 +11716,7 @@ add_error.exit17432:                              ; preds = %898, %902
   ]
 
 4463:                                             ; preds = %4460
-  %4464 = icmp ult i8 %4458, 48
+  %4464 = icmp samesign ult i8 %4458, 48
   br i1 %4464, label %4465, label %4467
 
 4465:                                             ; preds = %4463
@@ -11724,7 +11724,7 @@ add_error.exit17432:                              ; preds = %898, %902
   br i1 %4466, label %.loopexit17669, label %5862
 
 4467:                                             ; preds = %4463
-  %4468 = icmp ult i8 %4458, 65
+  %4468 = icmp samesign ult i8 %4458, 65
   br i1 %4468, label %.loopexit17669, label %4469
 
 4469:                                             ; preds = %4467
@@ -11736,7 +11736,7 @@ add_error.exit17432:                              ; preds = %898, %902
   br i1 %4471, label %4472, label %4478
 
 4472:                                             ; preds = %4470
-  %4473 = icmp ult i8 %4458, 91
+  %4473 = icmp samesign ult i8 %4458, 91
   br i1 %4473, label %4474, label %4476
 
 4474:                                             ; preds = %4472
@@ -11770,7 +11770,7 @@ add_error.exit17432:                              ; preds = %898, %902
   br i1 %4488, label %4489, label %4496
 
 4489:                                             ; preds = %4485
-  %4490 = icmp ult i8 %4487, 42
+  %4490 = icmp samesign ult i8 %4487, 42
   br i1 %4490, label %4491, label %4493
 
 4491:                                             ; preds = %4489
@@ -11779,7 +11779,7 @@ add_error.exit17432:                              ; preds = %898, %902
   br i1 %.not16300, label %.loopexit17671, label %.loopexit17669
 
 4493:                                             ; preds = %4489
-  %4494 = icmp ult i8 %4487, 65
+  %4494 = icmp samesign ult i8 %4487, 65
   br i1 %4494, label %.loopexit17669.loopexit.split.loop.exit39758, label %4495
 
 4495:                                             ; preds = %4493
@@ -11813,7 +11813,7 @@ add_error.exit17432:                              ; preds = %898, %902
   br i1 %4509, label %4510, label %4517
 
 4510:                                             ; preds = %4506
-  %4511 = icmp ult i8 %4508, 46
+  %4511 = icmp samesign ult i8 %4508, 46
   br i1 %4511, label %4512, label %4513
 
 4512:                                             ; preds = %4510
@@ -11827,7 +11827,7 @@ add_error.exit17432:                              ; preds = %898, %902
   br i1 %4514, label %5862, label %4515
 
 4515:                                             ; preds = %4513
-  %4516 = icmp ult i8 %4508, 65
+  %4516 = icmp samesign ult i8 %4508, 65
   br i1 %4516, label %.loopexit17669, label %.loopexit17677
 
 4517:                                             ; preds = %4506
@@ -11839,7 +11839,7 @@ add_error.exit17432:                              ; preds = %898, %902
   br i1 %4520, label %7921, label %4521
 
 4521:                                             ; preds = %4519
-  %4522 = icmp ult i8 %4508, 91
+  %4522 = icmp samesign ult i8 %4508, 91
   br i1 %4522, label %.loopexit17677, label %4523
 
 4523:                                             ; preds = %4521
@@ -11907,11 +11907,11 @@ add_error.exit17432:                              ; preds = %898, %902
   br i1 %4548, label %4549, label %4572
 
 4549:                                             ; preds = %4547
-  %4550 = icmp ult i8 %.314342, 72
+  %4550 = icmp samesign ult i8 %.314342, 72
   br i1 %4550, label %4551, label %4559
 
 4551:                                             ; preds = %4549
-  %4552 = icmp ult i8 %.314342, 33
+  %4552 = icmp samesign ult i8 %.314342, 33
   br i1 %4552, label %4553, label %4554
 
 4553:                                             ; preds = %4551
@@ -11921,7 +11921,7 @@ add_error.exit17432:                              ; preds = %898, %902
   ]
 
 4554:                                             ; preds = %4551
-  %4555 = icmp ult i8 %.314342, 69
+  %4555 = icmp samesign ult i8 %.314342, 69
   br i1 %4555, label %4556, label %4557
 
 4556:                                             ; preds = %4554
@@ -11933,11 +11933,11 @@ add_error.exit17432:                              ; preds = %898, %902
   br i1 %4558, label %4611, label %.loopexit17580
 
 4559:                                             ; preds = %4549
-  %4560 = icmp ult i8 %.314342, 84
+  %4560 = icmp samesign ult i8 %.314342, 84
   br i1 %4560, label %4561, label %4566
 
 4561:                                             ; preds = %4559
-  %4562 = icmp ult i8 %.314342, 77
+  %4562 = icmp samesign ult i8 %.314342, 77
   br i1 %4562, label %4563, label %4565
 
 4563:                                             ; preds = %4561
@@ -11951,7 +11951,7 @@ add_error.exit17432:                              ; preds = %898, %902
   ]
 
 4566:                                             ; preds = %4559
-  %4567 = icmp ult i8 %.314342, 86
+  %4567 = icmp samesign ult i8 %.314342, 86
   br i1 %4567, label %4568, label %4570
 
 4568:                                             ; preds = %4566
@@ -11967,11 +11967,11 @@ add_error.exit17432:                              ; preds = %898, %902
   br i1 %4573, label %4574, label %4587
 
 4574:                                             ; preds = %4572
-  %4575 = icmp ult i8 %.314342, 103
+  %4575 = icmp samesign ult i8 %.314342, 103
   br i1 %4575, label %4576, label %4581
 
 4576:                                             ; preds = %4574
-  %4577 = icmp ult i8 %.314342, 100
+  %4577 = icmp samesign ult i8 %.314342, 100
   br i1 %4577, label %4578, label %4580
 
 4578:                                             ; preds = %4576
@@ -11985,7 +11985,7 @@ add_error.exit17432:                              ; preds = %898, %902
   ]
 
 4581:                                             ; preds = %4574
-  %4582 = icmp ult i8 %.314342, 105
+  %4582 = icmp samesign ult i8 %.314342, 105
   br i1 %4582, label %4583, label %4585
 
 4583:                                             ; preds = %4581
@@ -12001,7 +12001,7 @@ add_error.exit17432:                              ; preds = %898, %902
   br i1 %4588, label %4589, label %4594
 
 4589:                                             ; preds = %4587
-  %4590 = icmp ult i8 %.314342, 117
+  %4590 = icmp samesign ult i8 %.314342, 117
   br i1 %4590, label %4591, label %4593
 
 4591:                                             ; preds = %4589
@@ -12087,7 +12087,7 @@ add_error.exit17432:                              ; preds = %898, %902
   br i1 %4624, label %4625, label %4630
 
 4625:                                             ; preds = %4621
-  %4626 = icmp ult i8 %4623, 79
+  %4626 = icmp samesign ult i8 %4623, 79
   br i1 %4626, label %4627, label %4629
 
 4627:                                             ; preds = %4625
@@ -12123,7 +12123,7 @@ add_error.exit17432:                              ; preds = %898, %902
   br i1 %4638, label %4639, label %4644
 
 4639:                                             ; preds = %4635
-  %4640 = icmp ult i8 %4637, 69
+  %4640 = icmp samesign ult i8 %4637, 69
   br i1 %4640, label %4641, label %4643
 
 4641:                                             ; preds = %4639
@@ -12158,15 +12158,15 @@ add_error.exit17432:                              ; preds = %898, %902
   br i1 %4652, label %4653, label %4681
 
 4653:                                             ; preds = %4649
-  %4654 = icmp ult i8 %4651, 69
+  %4654 = icmp samesign ult i8 %4651, 69
   br i1 %4654, label %4655, label %4667
 
 4655:                                             ; preds = %4653
-  %4656 = icmp ult i8 %4651, 48
+  %4656 = icmp samesign ult i8 %4651, 48
   br i1 %4656, label %4657, label %4662
 
 4657:                                             ; preds = %4655
-  %4658 = icmp ult i8 %4651, 10
+  %4658 = icmp samesign ult i8 %4651, 10
   br i1 %4658, label %4659, label %4660
 
 4659:                                             ; preds = %4657
@@ -12178,11 +12178,11 @@ add_error.exit17432:                              ; preds = %898, %902
   br i1 %4661, label %4547, label %.loopexit17669
 
 4662:                                             ; preds = %4655
-  %4663 = icmp ult i8 %4651, 58
+  %4663 = icmp samesign ult i8 %4651, 58
   br i1 %4663, label %4664, label %4666
 
 4664:                                             ; preds = %4662
-  %4665 = icmp ult i8 %4651, 54
+  %4665 = icmp samesign ult i8 %4651, 54
   br i1 %4665, label %7989, label %8045
 
 4666:                                             ; preds = %4662
@@ -12192,11 +12192,11 @@ add_error.exit17432:                              ; preds = %898, %902
   ]
 
 4667:                                             ; preds = %4653
-  %4668 = icmp ult i8 %4651, 77
+  %4668 = icmp samesign ult i8 %4651, 77
   br i1 %4668, label %4669, label %4675
 
 4669:                                             ; preds = %4667
-  %4670 = icmp ult i8 %4651, 71
+  %4670 = icmp samesign ult i8 %4651, 71
   br i1 %4670, label %4671, label %4673
 
 4671:                                             ; preds = %4669
@@ -12208,7 +12208,7 @@ add_error.exit17432:                              ; preds = %898, %902
   br i1 %4674, label %4547, label %.loopexit17669
 
 4675:                                             ; preds = %4667
-  %4676 = icmp ult i8 %4651, 83
+  %4676 = icmp samesign ult i8 %4651, 83
   br i1 %4676, label %4677, label %4679
 
 4677:                                             ; preds = %4675
@@ -12224,11 +12224,11 @@ add_error.exit17432:                              ; preds = %898, %902
   br i1 %4682, label %4683, label %4696
 
 4683:                                             ; preds = %4681
-  %4684 = icmp ult i8 %4651, 102
+  %4684 = icmp samesign ult i8 %4651, 102
   br i1 %4684, label %4685, label %4691
 
 4685:                                             ; preds = %4683
-  %4686 = icmp ult i8 %4651, 90
+  %4686 = icmp samesign ult i8 %4651, 90
   br i1 %4686, label %4687, label %4689
 
 4687:                                             ; preds = %4685
@@ -12240,7 +12240,7 @@ add_error.exit17432:                              ; preds = %898, %902
   br i1 %4690, label %4547, label %.loopexit17669
 
 4691:                                             ; preds = %4683
-  %4692 = icmp ult i8 %4651, 104
+  %4692 = icmp samesign ult i8 %4651, 104
   br i1 %4692, label %4693, label %4695
 
 4693:                                             ; preds = %4691
@@ -12258,11 +12258,11 @@ add_error.exit17432:                              ; preds = %898, %902
   br i1 %4697, label %4698, label %4704
 
 4698:                                             ; preds = %4696
-  %4699 = icmp ult i8 %4651, 118
+  %4699 = icmp samesign ult i8 %4651, 118
   br i1 %4699, label %4700, label %4702
 
 4700:                                             ; preds = %4698
-  %4701 = icmp ult i8 %4651, 115
+  %4701 = icmp samesign ult i8 %4651, 115
   br i1 %4701, label %.loopexit17669, label %4547
 
 4702:                                             ; preds = %4698
@@ -12306,11 +12306,11 @@ add_error.exit17432:                              ; preds = %898, %902
   br i1 %4720, label %4721, label %4745
 
 4721:                                             ; preds = %4717
-  %4722 = icmp ult i8 %4719, 70
+  %4722 = icmp samesign ult i8 %4719, 70
   br i1 %4722, label %4723, label %4732
 
 4723:                                             ; preds = %4721
-  %4724 = icmp ult i8 %4719, 33
+  %4724 = icmp samesign ult i8 %4719, 33
   br i1 %4724, label %4725, label %4726
 
 4725:                                             ; preds = %4723
@@ -12320,11 +12320,11 @@ add_error.exit17432:                              ; preds = %898, %902
   ]
 
 4726:                                             ; preds = %4723
-  %4727 = icmp ult i8 %4719, 58
+  %4727 = icmp samesign ult i8 %4719, 58
   br i1 %4727, label %4728, label %4730
 
 4728:                                             ; preds = %4726
-  %4729 = icmp ult i8 %4719, 48
+  %4729 = icmp samesign ult i8 %4719, 48
   br i1 %4729, label %.loopexit17669, label %8045
 
 4730:                                             ; preds = %4726
@@ -12332,11 +12332,11 @@ add_error.exit17432:                              ; preds = %898, %902
   br i1 %4731, label %4547, label %.loopexit17669
 
 4732:                                             ; preds = %4721
-  %4733 = icmp ult i8 %4719, 78
+  %4733 = icmp samesign ult i8 %4719, 78
   br i1 %4733, label %4734, label %4739
 
 4734:                                             ; preds = %4732
-  %4735 = icmp ult i8 %4719, 72
+  %4735 = icmp samesign ult i8 %4719, 72
   br i1 %4735, label %4736, label %4738
 
 4736:                                             ; preds = %4734
@@ -12350,11 +12350,11 @@ add_error.exit17432:                              ; preds = %898, %902
   ]
 
 4739:                                             ; preds = %4732
-  %4740 = icmp ult i8 %4719, 86
+  %4740 = icmp samesign ult i8 %4719, 86
   br i1 %4740, label %4741, label %4743
 
 4741:                                             ; preds = %4739
-  %4742 = icmp ult i8 %4719, 83
+  %4742 = icmp samesign ult i8 %4719, 83
   br i1 %4742, label %.loopexit17669, label %4547
 
 4743:                                             ; preds = %4739
@@ -12366,11 +12366,11 @@ add_error.exit17432:                              ; preds = %898, %902
   br i1 %4746, label %4747, label %4761
 
 4747:                                             ; preds = %4745
-  %4748 = icmp ult i8 %4719, 103
+  %4748 = icmp samesign ult i8 %4719, 103
   br i1 %4748, label %4749, label %4755
 
 4749:                                             ; preds = %4747
-  %4750 = icmp ult i8 %4719, 100
+  %4750 = icmp samesign ult i8 %4719, 100
   br i1 %4750, label %4751, label %4753
 
 4751:                                             ; preds = %4749
@@ -12382,7 +12382,7 @@ add_error.exit17432:                              ; preds = %898, %902
   br i1 %4754, label %.loopexit17669, label %4547
 
 4755:                                             ; preds = %4747
-  %4756 = icmp ult i8 %4719, 105
+  %4756 = icmp samesign ult i8 %4719, 105
   br i1 %4756, label %4757, label %4759
 
 4757:                                             ; preds = %4755
@@ -12398,7 +12398,7 @@ add_error.exit17432:                              ; preds = %898, %902
   br i1 %4762, label %4763, label %4768
 
 4763:                                             ; preds = %4761
-  %4764 = icmp ult i8 %4719, 119
+  %4764 = icmp samesign ult i8 %4719, 119
   br i1 %4764, label %4765, label %4766
 
 4765:                                             ; preds = %4763
@@ -12429,11 +12429,11 @@ add_error.exit17432:                              ; preds = %898, %902
   br i1 %4776, label %4777, label %4801
 
 4777:                                             ; preds = %4773
-  %4778 = icmp ult i8 %4775, 70
+  %4778 = icmp samesign ult i8 %4775, 70
   br i1 %4778, label %4779, label %4788
 
 4779:                                             ; preds = %4777
-  %4780 = icmp ult i8 %4775, 33
+  %4780 = icmp samesign ult i8 %4775, 33
   br i1 %4780, label %4781, label %4782
 
 4781:                                             ; preds = %4779
@@ -12443,11 +12443,11 @@ add_error.exit17432:                              ; preds = %898, %902
   ]
 
 4782:                                             ; preds = %4779
-  %4783 = icmp ult i8 %4775, 58
+  %4783 = icmp samesign ult i8 %4775, 58
   br i1 %4783, label %4784, label %4786
 
 4784:                                             ; preds = %4782
-  %4785 = icmp ult i8 %4775, 48
+  %4785 = icmp samesign ult i8 %4775, 48
   br i1 %4785, label %.loopexit17669, label %8115
 
 4786:                                             ; preds = %4782
@@ -12455,11 +12455,11 @@ add_error.exit17432:                              ; preds = %898, %902
   br i1 %4787, label %4547, label %.loopexit17669
 
 4788:                                             ; preds = %4777
-  %4789 = icmp ult i8 %4775, 78
+  %4789 = icmp samesign ult i8 %4775, 78
   br i1 %4789, label %4790, label %4795
 
 4790:                                             ; preds = %4788
-  %4791 = icmp ult i8 %4775, 72
+  %4791 = icmp samesign ult i8 %4775, 72
   br i1 %4791, label %4792, label %4794
 
 4792:                                             ; preds = %4790
@@ -12473,11 +12473,11 @@ add_error.exit17432:                              ; preds = %898, %902
   ]
 
 4795:                                             ; preds = %4788
-  %4796 = icmp ult i8 %4775, 86
+  %4796 = icmp samesign ult i8 %4775, 86
   br i1 %4796, label %4797, label %4799
 
 4797:                                             ; preds = %4795
-  %4798 = icmp ult i8 %4775, 83
+  %4798 = icmp samesign ult i8 %4775, 83
   br i1 %4798, label %.loopexit17669, label %4547
 
 4799:                                             ; preds = %4795
@@ -12489,11 +12489,11 @@ add_error.exit17432:                              ; preds = %898, %902
   br i1 %4802, label %4803, label %4817
 
 4803:                                             ; preds = %4801
-  %4804 = icmp ult i8 %4775, 103
+  %4804 = icmp samesign ult i8 %4775, 103
   br i1 %4804, label %4805, label %4811
 
 4805:                                             ; preds = %4803
-  %4806 = icmp ult i8 %4775, 100
+  %4806 = icmp samesign ult i8 %4775, 100
   br i1 %4806, label %4807, label %4809
 
 4807:                                             ; preds = %4805
@@ -12505,7 +12505,7 @@ add_error.exit17432:                              ; preds = %898, %902
   br i1 %4810, label %.loopexit17669, label %4547
 
 4811:                                             ; preds = %4803
-  %4812 = icmp ult i8 %4775, 105
+  %4812 = icmp samesign ult i8 %4775, 105
   br i1 %4812, label %4813, label %4815
 
 4813:                                             ; preds = %4811
@@ -12521,7 +12521,7 @@ add_error.exit17432:                              ; preds = %898, %902
   br i1 %4818, label %4819, label %4824
 
 4819:                                             ; preds = %4817
-  %4820 = icmp ult i8 %4775, 119
+  %4820 = icmp samesign ult i8 %4775, 119
   br i1 %4820, label %4821, label %4822
 
 4821:                                             ; preds = %4819
@@ -12593,7 +12593,7 @@ add_error.exit17432:                              ; preds = %898, %902
   br i1 %4840, label %4841, label %4844
 
 4841:                                             ; preds = %4837
-  %4842 = icmp ult i8 %4839, 45
+  %4842 = icmp samesign ult i8 %4839, 45
   br i1 %4842, label %.thread, label %4843
 
 4843:                                             ; preds = %4841
@@ -12614,7 +12614,7 @@ add_error.exit17432:                              ; preds = %898, %902
   br i1 %4850, label %4851, label %4854
 
 4851:                                             ; preds = %4847
-  %4852 = icmp ult i8 %4849, 45
+  %4852 = icmp samesign ult i8 %4849, 45
   br i1 %4852, label %.thread, label %4853
 
 4853:                                             ; preds = %4851
@@ -12657,7 +12657,7 @@ add_error.exit17432:                              ; preds = %898, %902
   br i1 %4872, label %4873, label %4876
 
 4873:                                             ; preds = %4869
-  %4874 = icmp ult i8 %4871, 45
+  %4874 = icmp samesign ult i8 %4871, 45
   br i1 %4874, label %.thread, label %4875
 
 4875:                                             ; preds = %4873
@@ -12677,7 +12677,7 @@ add_error.exit17432:                              ; preds = %898, %902
   br i1 %4882, label %4883, label %4886
 
 4883:                                             ; preds = %4879
-  %4884 = icmp ult i8 %4881, 45
+  %4884 = icmp samesign ult i8 %4881, 45
   br i1 %4884, label %.thread, label %4885
 
 4885:                                             ; preds = %4883
@@ -12739,7 +12739,7 @@ add_error.exit17432:                              ; preds = %898, %902
   br i1 %4916, label %4917, label %4920
 
 4917:                                             ; preds = %4915
-  %4918 = icmp ult i8 %2033, 45
+  %4918 = icmp samesign ult i8 %2033, 45
   br i1 %4918, label %.loopexit17511, label %4919
 
 4919:                                             ; preds = %4917
@@ -12763,7 +12763,7 @@ add_error.exit17432:                              ; preds = %898, %902
   br i1 %4927, label %4928, label %4931
 
 4928:                                             ; preds = %4926
-  %4929 = icmp ult i8 %2033, 45
+  %4929 = icmp samesign ult i8 %2033, 45
   br i1 %4929, label %.loopexit17511, label %4930
 
 4930:                                             ; preds = %4928
@@ -12792,7 +12792,7 @@ add_error.exit17432:                              ; preds = %898, %902
   br i1 %4940, label %4941, label %4944
 
 4941:                                             ; preds = %4937
-  %4942 = icmp ult i8 %4939, 45
+  %4942 = icmp samesign ult i8 %4939, 45
   br i1 %4942, label %.loopexit17511, label %4943
 
 4943:                                             ; preds = %4941
@@ -12821,7 +12821,7 @@ add_error.exit17432:                              ; preds = %898, %902
   br i1 %4955, label %4956, label %4959
 
 4956:                                             ; preds = %4950
-  %4957 = icmp ult i8 %4954, 45
+  %4957 = icmp samesign ult i8 %4954, 45
   br i1 %4957, label %.loopexit17511, label %4958
 
 4958:                                             ; preds = %4956
@@ -12840,7 +12840,7 @@ add_error.exit17432:                              ; preds = %898, %902
   br i1 %4964, label %4965, label %4973
 
 4965:                                             ; preds = %4961
-  %4966 = icmp ult i8 %4963, 48
+  %4966 = icmp samesign ult i8 %4963, 48
   br i1 %4966, label %4967, label %4969
 
 4967:                                             ; preds = %4965
@@ -12848,7 +12848,7 @@ add_error.exit17432:                              ; preds = %898, %902
   br i1 %4968, label %8164, label %.loopexit17731
 
 4969:                                             ; preds = %4965
-  %4970 = icmp ult i8 %4963, 58
+  %4970 = icmp samesign ult i8 %4963, 58
   br i1 %4970, label %5026, label %4971
 
 4971:                                             ; preds = %4969
@@ -12937,7 +12937,7 @@ add_error.exit17432:                              ; preds = %898, %902
   br i1 %5012, label %5013, label %5019
 
 5013:                                             ; preds = %5009
-  %5014 = icmp ult i8 %5011, 48
+  %5014 = icmp samesign ult i8 %5011, 48
   br i1 %5014, label %5015, label %5016
 
 5015:                                             ; preds = %5013
@@ -12945,7 +12945,7 @@ add_error.exit17432:                              ; preds = %898, %902
   br i1 %.not17188, label %8164, label %.loopexit17731
 
 5016:                                             ; preds = %5013
-  %5017 = icmp ult i8 %5011, 50
+  %5017 = icmp samesign ult i8 %5011, 50
   br i1 %5017, label %5026, label %5018
 
 5018:                                             ; preds = %5016
@@ -13125,7 +13125,7 @@ add_error.exit17432:                              ; preds = %898, %902
   br i1 %5097, label %8253, label %5098
 
 5098:                                             ; preds = %5096
-  %5099 = icmp ult i8 %5094, 48
+  %5099 = icmp samesign ult i8 %5094, 48
   br i1 %5099, label %4547, label %8256
 
 5100:                                             ; preds = %5092
@@ -13151,7 +13151,7 @@ add_error.exit17432:                              ; preds = %898, %902
   br i1 %5110, label %8253, label %5111
 
 5111:                                             ; preds = %5109
-  %5112 = icmp ult i8 %5107, 48
+  %5112 = icmp samesign ult i8 %5107, 48
   br i1 %5112, label %4547, label %8349
 
 5113:                                             ; preds = %5105
@@ -13278,7 +13278,7 @@ add_error.exit17432:                              ; preds = %898, %902
   br i1 %5168, label %5169, label %5175
 
 5169:                                             ; preds = %5167
-  %5170 = icmp ult i8 %5164, 45
+  %5170 = icmp samesign ult i8 %5164, 45
   br i1 %5170, label %.thread, label %.backedge17593
 
 .backedge17593:                                   ; preds = %5169, %5166, %5166
@@ -13364,7 +13364,7 @@ add_error.exit17432:                              ; preds = %898, %902
   br i1 %5210, label %5211, label %5216
 
 5211:                                             ; preds = %5206
-  %5212 = icmp ult i8 %5209, 10
+  %5212 = icmp samesign ult i8 %5209, 10
   br i1 %5212, label %5213, label %5214
 
 5213:                                             ; preds = %5211
@@ -13380,7 +13380,7 @@ add_error.exit17432:                              ; preds = %898, %902
   br i1 %5217, label %5218, label %5222
 
 5218:                                             ; preds = %5216
-  %5219 = icmp ult i8 %5209, 47
+  %5219 = icmp samesign ult i8 %5209, 47
   br i1 %5219, label %.preheader17590, label %5220
 
 5220:                                             ; preds = %5218
@@ -13418,7 +13418,7 @@ add_error.exit17432:                              ; preds = %898, %902
   br i1 %5233, label %5234, label %5236
 
 5234:                                             ; preds = %5232
-  %5235 = icmp ult i8 %5225, 45
+  %5235 = icmp samesign ult i8 %5225, 45
   br i1 %5235, label %.loopexit17733, label %.preheader17590
 
 5236:                                             ; preds = %5232
@@ -13492,7 +13492,7 @@ add_error.exit17432:                              ; preds = %898, %902
   br i1 %5266, label %5267, label %5272
 
 5267:                                             ; preds = %5263
-  %5268 = icmp ult i8 %5265, 76
+  %5268 = icmp samesign ult i8 %5265, 76
   br i1 %5268, label %5269, label %5271
 
 5269:                                             ; preds = %5267
@@ -13708,7 +13708,7 @@ timelib_eat_spaces.exit17435:                     ; preds = %5295, %5298, %5302,
   br i1 %5355, label %5356, label %5359
 
 5356:                                             ; preds = %5352
-  %5357 = icmp ult i8 %5354, 68
+  %5357 = icmp samesign ult i8 %5354, 68
   br i1 %5357, label %.loopexit17580, label %5358
 
 5358:                                             ; preds = %5356
@@ -13764,7 +13764,7 @@ timelib_eat_spaces.exit17435:                     ; preds = %5295, %5298, %5302,
   br i1 %5384, label %5385, label %5391
 
 5385:                                             ; preds = %5381
-  %5386 = icmp ult i8 %5383, 10
+  %5386 = icmp samesign ult i8 %5383, 10
   br i1 %5386, label %5387, label %5388
 
 5387:                                             ; preds = %5385
@@ -13772,7 +13772,7 @@ timelib_eat_spaces.exit17435:                     ; preds = %5295, %5298, %5302,
   br i1 %.not17053, label %5588, label %4836
 
 5388:                                             ; preds = %5385
-  %5389 = icmp ult i8 %5383, 45
+  %5389 = icmp samesign ult i8 %5383, 45
   br i1 %5389, label %4836, label %5390
 
 5390:                                             ; preds = %5388
@@ -13806,11 +13806,11 @@ timelib_eat_spaces.exit17435:                     ; preds = %5295, %5298, %5302,
   br i1 %5403, label %5404, label %5421
 
 5404:                                             ; preds = %5401
-  %5405 = icmp ult i8 %5402, 78
+  %5405 = icmp samesign ult i8 %5402, 78
   br i1 %5405, label %5406, label %5410
 
 5406:                                             ; preds = %5404
-  %5407 = icmp ult i8 %5402, 71
+  %5407 = icmp samesign ult i8 %5402, 71
   br i1 %5407, label %5408, label %5409
 
 5408:                                             ; preds = %5406
@@ -13826,11 +13826,11 @@ timelib_eat_spaces.exit17435:                     ; preds = %5295, %5298, %5302,
   ]
 
 5410:                                             ; preds = %5404
-  %5411 = icmp ult i8 %5402, 86
+  %5411 = icmp samesign ult i8 %5402, 86
   br i1 %5411, label %5412, label %5415
 
 5412:                                             ; preds = %5410
-  %5413 = icmp ult i8 %5402, 83
+  %5413 = icmp samesign ult i8 %5402, 83
   br i1 %5413, label %.loopexit17580, label %5414
 
 5414:                                             ; preds = %5412
@@ -13840,7 +13840,7 @@ timelib_eat_spaces.exit17435:                     ; preds = %5295, %5298, %5302,
   ]
 
 5415:                                             ; preds = %5410
-  %5416 = icmp ult i8 %5402, 88
+  %5416 = icmp samesign ult i8 %5402, 88
   br i1 %5416, label %5417, label %5419
 
 5417:                                             ; preds = %5415
@@ -13856,7 +13856,7 @@ timelib_eat_spaces.exit17435:                     ; preds = %5295, %5298, %5302,
   br i1 %5422, label %5423, label %5431
 
 5423:                                             ; preds = %5421
-  %5424 = icmp ult i8 %5402, 104
+  %5424 = icmp samesign ult i8 %5402, 104
   br i1 %5424, label %5425, label %5426
 
 5425:                                             ; preds = %5423
@@ -13866,7 +13866,7 @@ timelib_eat_spaces.exit17435:                     ; preds = %5295, %5298, %5302,
   ]
 
 5426:                                             ; preds = %5423
-  %5427 = icmp ult i8 %5402, 109
+  %5427 = icmp samesign ult i8 %5402, 109
   br i1 %5427, label %5428, label %5430
 
 5428:                                             ; preds = %5426
@@ -13888,7 +13888,7 @@ timelib_eat_spaces.exit17435:                     ; preds = %5295, %5298, %5302,
   br i1 %5434, label %2231, label %5435
 
 5435:                                             ; preds = %5433
-  %5436 = icmp ult i8 %5402, 118
+  %5436 = icmp samesign ult i8 %5402, 118
   br i1 %5436, label %2241, label %5437
 
 5437:                                             ; preds = %5435
@@ -13931,7 +13931,7 @@ timelib_eat_spaces.exit17435:                     ; preds = %5295, %5298, %5302,
   br i1 %5453, label %5454, label %5457
 
 5454:                                             ; preds = %5452
-  %5455 = icmp ult i8 %2415, 45
+  %5455 = icmp samesign ult i8 %2415, 45
   br i1 %5455, label %.loopexit17511, label %5456
 
 5456:                                             ; preds = %5454
@@ -13955,7 +13955,7 @@ timelib_eat_spaces.exit17435:                     ; preds = %5295, %5298, %5302,
   br i1 %5464, label %5465, label %5468
 
 5465:                                             ; preds = %5463
-  %5466 = icmp ult i8 %2415, 45
+  %5466 = icmp samesign ult i8 %2415, 45
   br i1 %5466, label %.loopexit17511, label %5467
 
 5467:                                             ; preds = %5465
@@ -13984,7 +13984,7 @@ timelib_eat_spaces.exit17435:                     ; preds = %5295, %5298, %5302,
   br i1 %5477, label %5478, label %5481
 
 5478:                                             ; preds = %5474
-  %5479 = icmp ult i8 %5476, 45
+  %5479 = icmp samesign ult i8 %5476, 45
   br i1 %5479, label %.loopexit17511, label %5480
 
 5480:                                             ; preds = %5478
@@ -14011,7 +14011,7 @@ timelib_eat_spaces.exit17435:                     ; preds = %5295, %5298, %5302,
   br i1 %5490, label %5491, label %5494
 
 5491:                                             ; preds = %5487
-  %5492 = icmp ult i8 %5489, 45
+  %5492 = icmp samesign ult i8 %5489, 45
   br i1 %5492, label %.loopexit17511, label %5493
 
 5493:                                             ; preds = %5491
@@ -14115,15 +14115,15 @@ timelib_eat_spaces.exit17435:                     ; preds = %5295, %5298, %5302,
   br i1 %5530, label %5531, label %5558
 
 5531:                                             ; preds = %5528
-  %5532 = icmp ult i8 %5529, 78
+  %5532 = icmp samesign ult i8 %5529, 78
   br i1 %5532, label %5533, label %5545
 
 5533:                                             ; preds = %5531
-  %5534 = icmp ult i8 %5529, 70
+  %5534 = icmp samesign ult i8 %5529, 70
   br i1 %5534, label %5535, label %5540
 
 5535:                                             ; preds = %5533
-  %5536 = icmp ult i8 %5529, 66
+  %5536 = icmp samesign ult i8 %5529, 66
   br i1 %5536, label %5537, label %5538
 
 5537:                                             ; preds = %5535
@@ -14135,7 +14135,7 @@ timelib_eat_spaces.exit17435:                     ; preds = %5295, %5298, %5302,
   br i1 %5539, label %4607, label %.thread
 
 5540:                                             ; preds = %5533
-  %5541 = icmp ult i8 %5529, 72
+  %5541 = icmp samesign ult i8 %5529, 72
   br i1 %5541, label %5542, label %5544
 
 5542:                                             ; preds = %5540
@@ -14149,11 +14149,11 @@ timelib_eat_spaces.exit17435:                     ; preds = %5295, %5298, %5302,
   ]
 
 5545:                                             ; preds = %5531
-  %5546 = icmp ult i8 %5529, 85
+  %5546 = icmp samesign ult i8 %5529, 85
   br i1 %5546, label %5547, label %5553
 
 5547:                                             ; preds = %5545
-  %5548 = icmp ult i8 %5529, 81
+  %5548 = icmp samesign ult i8 %5529, 81
   br i1 %5548, label %5549, label %5550
 
 5549:                                             ; preds = %5547
@@ -14161,7 +14161,7 @@ timelib_eat_spaces.exit17435:                     ; preds = %5295, %5298, %5302,
   br i1 %.not16998, label %.loopexit17619, label %.thread
 
 5550:                                             ; preds = %5547
-  %5551 = icmp ult i8 %5529, 83
+  %5551 = icmp samesign ult i8 %5529, 83
   br i1 %5551, label %.thread, label %5552
 
 5552:                                             ; preds = %5550
@@ -14169,7 +14169,7 @@ timelib_eat_spaces.exit17435:                     ; preds = %5295, %5298, %5302,
   br i1 %.not16997, label %2231, label %4635
 
 5553:                                             ; preds = %5545
-  %5554 = icmp ult i8 %5529, 88
+  %5554 = icmp samesign ult i8 %5529, 88
   br i1 %5554, label %5555, label %5556
 
 5555:                                             ; preds = %5553
@@ -14187,11 +14187,11 @@ timelib_eat_spaces.exit17435:                     ; preds = %5295, %5298, %5302,
   br i1 %5559, label %5560, label %5572
 
 5560:                                             ; preds = %5558
-  %5561 = icmp ult i8 %5529, 103
+  %5561 = icmp samesign ult i8 %5529, 103
   br i1 %5561, label %5562, label %5567
 
 5562:                                             ; preds = %5560
-  %5563 = icmp ult i8 %5529, 100
+  %5563 = icmp samesign ult i8 %5529, 100
   br i1 %5563, label %5564, label %5566
 
 5564:                                             ; preds = %5562
@@ -14205,7 +14205,7 @@ timelib_eat_spaces.exit17435:                     ; preds = %5295, %5298, %5302,
   ]
 
 5567:                                             ; preds = %5560
-  %5568 = icmp ult i8 %5529, 109
+  %5568 = icmp samesign ult i8 %5529, 109
   br i1 %5568, label %5569, label %5571
 
 5569:                                             ; preds = %5567
@@ -14223,7 +14223,7 @@ timelib_eat_spaces.exit17435:                     ; preds = %5295, %5298, %5302,
   br i1 %5573, label %5574, label %5578
 
 5574:                                             ; preds = %5572
-  %5575 = icmp ult i8 %5529, 116
+  %5575 = icmp samesign ult i8 %5529, 116
   br i1 %5575, label %5576, label %5577
 
 5576:                                             ; preds = %5574
@@ -14725,11 +14725,11 @@ timelib_eat_spaces.exit17435:                     ; preds = %5295, %5298, %5302,
   br i1 %5790, label %5791, label %5804
 
 5791:                                             ; preds = %5787
-  %5792 = icmp ult i8 %5789, 41
+  %5792 = icmp samesign ult i8 %5789, 41
   br i1 %5792, label %5793, label %5799
 
 5793:                                             ; preds = %5791
-  %5794 = icmp ult i8 %5789, 10
+  %5794 = icmp samesign ult i8 %5789, 10
   br i1 %5794, label %5795, label %5797
 
 5795:                                             ; preds = %5793
@@ -14741,7 +14741,7 @@ timelib_eat_spaces.exit17435:                     ; preds = %5295, %5298, %5302,
   br i1 %5798, label %.preheader17640, label %.loopexit17692
 
 5799:                                             ; preds = %5791
-  %5800 = icmp ult i8 %5789, 45
+  %5800 = icmp samesign ult i8 %5789, 45
   br i1 %5800, label %5801, label %5803
 
 5801:                                             ; preds = %5799
@@ -14759,11 +14759,11 @@ timelib_eat_spaces.exit17435:                     ; preds = %5295, %5298, %5302,
   br i1 %5805, label %5806, label %5812
 
 5806:                                             ; preds = %5804
-  %5807 = icmp ult i8 %5789, 65
+  %5807 = icmp samesign ult i8 %5789, 65
   br i1 %5807, label %5808, label %5810
 
 5808:                                             ; preds = %5806
-  %5809 = icmp ult i8 %5789, 58
+  %5809 = icmp samesign ult i8 %5789, 58
   br i1 %5809, label %.preheader17640, label %.loopexit17692
 
 5810:                                             ; preds = %5806
@@ -14775,7 +14775,7 @@ timelib_eat_spaces.exit17435:                     ; preds = %5295, %5298, %5302,
   br i1 %5813, label %5814, label %5816
 
 5814:                                             ; preds = %5812
-  %5815 = icmp ugt i8 %5789, 96
+  %5815 = icmp samesign ugt i8 %5789, 96
   br i1 %5815, label %.loopexit17676, label %.loopexit17692
 
 5816:                                             ; preds = %5812
@@ -14820,11 +14820,11 @@ timelib_eat_spaces.exit17435:                     ; preds = %5295, %5298, %5302,
   br i1 %5833, label %5834, label %5846
 
 5834:                                             ; preds = %5830
-  %5835 = icmp ult i8 %5832, 41
+  %5835 = icmp samesign ult i8 %5832, 41
   br i1 %5835, label %5836, label %5841
 
 5836:                                             ; preds = %5834
-  %5837 = icmp ult i8 %5832, 10
+  %5837 = icmp samesign ult i8 %5832, 10
   br i1 %5837, label %5838, label %5839
 
 5838:                                             ; preds = %5836
@@ -14836,7 +14836,7 @@ timelib_eat_spaces.exit17435:                     ; preds = %5295, %5298, %5302,
   br i1 %5840, label %.preheader17640, label %.loopexit17692
 
 5841:                                             ; preds = %5834
-  %5842 = icmp ult i8 %5832, 45
+  %5842 = icmp samesign ult i8 %5832, 45
   br i1 %5842, label %5843, label %5845
 
 5843:                                             ; preds = %5841
@@ -14854,11 +14854,11 @@ timelib_eat_spaces.exit17435:                     ; preds = %5295, %5298, %5302,
   br i1 %5847, label %5848, label %5854
 
 5848:                                             ; preds = %5846
-  %5849 = icmp ult i8 %5832, 65
+  %5849 = icmp samesign ult i8 %5832, 65
   br i1 %5849, label %5850, label %5852
 
 5850:                                             ; preds = %5848
-  %5851 = icmp ult i8 %5832, 58
+  %5851 = icmp samesign ult i8 %5832, 58
   br i1 %5851, label %.preheader17640, label %.loopexit17692
 
 5852:                                             ; preds = %5848
@@ -14870,7 +14870,7 @@ timelib_eat_spaces.exit17435:                     ; preds = %5295, %5298, %5302,
   br i1 %5855, label %5856, label %5858
 
 5856:                                             ; preds = %5854
-  %5857 = icmp ult i8 %5832, 97
+  %5857 = icmp samesign ult i8 %5832, 97
   br i1 %5857, label %.loopexit17692, label %.loopexit17676
 
 5858:                                             ; preds = %5854
@@ -14906,7 +14906,7 @@ timelib_eat_spaces.exit17435:                     ; preds = %5295, %5298, %5302,
   br i1 %5874, label %5875, label %5881
 
 5875:                                             ; preds = %5871
-  %5876 = icmp ult i8 %5873, 45
+  %5876 = icmp samesign ult i8 %5873, 45
   br i1 %5876, label %5877, label %5879
 
 5877:                                             ; preds = %5875
@@ -14943,7 +14943,7 @@ timelib_eat_spaces.exit17435:                     ; preds = %5295, %5298, %5302,
   br i1 %5892, label %5893, label %5899
 
 5893:                                             ; preds = %5889
-  %5894 = icmp ult i8 %5891, 45
+  %5894 = icmp samesign ult i8 %5891, 45
   br i1 %5894, label %5895, label %5897
 
 5895:                                             ; preds = %5893
@@ -14980,11 +14980,11 @@ timelib_eat_spaces.exit17435:                     ; preds = %5295, %5298, %5302,
   br i1 %5910, label %5911, label %5923
 
 5911:                                             ; preds = %5907
-  %5912 = icmp ult i8 %5909, 41
+  %5912 = icmp samesign ult i8 %5909, 41
   br i1 %5912, label %5913, label %5918
 
 5913:                                             ; preds = %5911
-  %5914 = icmp ult i8 %5909, 10
+  %5914 = icmp samesign ult i8 %5909, 10
   br i1 %5914, label %5915, label %5916
 
 5915:                                             ; preds = %5913
@@ -14996,7 +14996,7 @@ timelib_eat_spaces.exit17435:                     ; preds = %5295, %5298, %5302,
   br i1 %5917, label %.preheader17640, label %.loopexit17692
 
 5918:                                             ; preds = %5911
-  %5919 = icmp ult i8 %5909, 46
+  %5919 = icmp samesign ult i8 %5909, 46
   br i1 %5919, label %5920, label %5921
 
 5920:                                             ; preds = %5918
@@ -15014,11 +15014,11 @@ timelib_eat_spaces.exit17435:                     ; preds = %5295, %5298, %5302,
   br i1 %5924, label %5925, label %5933
 
 5925:                                             ; preds = %5923
-  %5926 = icmp ult i8 %5909, 73
+  %5926 = icmp samesign ult i8 %5909, 73
   br i1 %5926, label %5927, label %5929
 
 5927:                                             ; preds = %5925
-  %5928 = icmp ult i8 %5909, 65
+  %5928 = icmp samesign ult i8 %5909, 65
   br i1 %5928, label %.loopexit17692, label %.loopexit17676
 
 5929:                                             ; preds = %5925
@@ -15026,7 +15026,7 @@ timelib_eat_spaces.exit17435:                     ; preds = %5295, %5298, %5302,
   br i1 %5930, label %9066, label %5931
 
 5931:                                             ; preds = %5929
-  %5932 = icmp ult i8 %5909, 91
+  %5932 = icmp samesign ult i8 %5909, 91
   br i1 %5932, label %.loopexit17676, label %.loopexit17692
 
 5933:                                             ; preds = %5923
@@ -15038,7 +15038,7 @@ timelib_eat_spaces.exit17435:                     ; preds = %5295, %5298, %5302,
   br i1 %5936, label %5862, label %5937
 
 5937:                                             ; preds = %5935
-  %5938 = icmp ult i8 %5909, 97
+  %5938 = icmp samesign ult i8 %5909, 97
   br i1 %5938, label %.loopexit17692, label %9121
 
 5939:                                             ; preds = %5933
@@ -15057,11 +15057,11 @@ timelib_eat_spaces.exit17435:                     ; preds = %5295, %5298, %5302,
   br i1 %5946, label %5947, label %5959
 
 5947:                                             ; preds = %5943
-  %5948 = icmp ult i8 %5945, 41
+  %5948 = icmp samesign ult i8 %5945, 41
   br i1 %5948, label %5949, label %5954
 
 5949:                                             ; preds = %5947
-  %5950 = icmp ult i8 %5945, 10
+  %5950 = icmp samesign ult i8 %5945, 10
   br i1 %5950, label %5951, label %5952
 
 5951:                                             ; preds = %5949
@@ -15073,7 +15073,7 @@ timelib_eat_spaces.exit17435:                     ; preds = %5295, %5298, %5302,
   br i1 %5953, label %.preheader17640, label %.loopexit17692
 
 5954:                                             ; preds = %5947
-  %5955 = icmp ult i8 %5945, 46
+  %5955 = icmp samesign ult i8 %5945, 46
   br i1 %5955, label %5956, label %5957
 
 5956:                                             ; preds = %5954
@@ -15091,11 +15091,11 @@ timelib_eat_spaces.exit17435:                     ; preds = %5295, %5298, %5302,
   br i1 %5960, label %5961, label %5969
 
 5961:                                             ; preds = %5959
-  %5962 = icmp ult i8 %5945, 85
+  %5962 = icmp samesign ult i8 %5945, 85
   br i1 %5962, label %5963, label %5965
 
 5963:                                             ; preds = %5961
-  %5964 = icmp ult i8 %5945, 65
+  %5964 = icmp samesign ult i8 %5945, 65
   br i1 %5964, label %.loopexit17692, label %.loopexit17676
 
 5965:                                             ; preds = %5961
@@ -15103,7 +15103,7 @@ timelib_eat_spaces.exit17435:                     ; preds = %5295, %5298, %5302,
   br i1 %5966, label %9087, label %5967
 
 5967:                                             ; preds = %5965
-  %5968 = icmp ult i8 %5945, 91
+  %5968 = icmp samesign ult i8 %5945, 91
   br i1 %5968, label %.loopexit17676, label %.loopexit17692
 
 5969:                                             ; preds = %5959
@@ -15115,7 +15115,7 @@ timelib_eat_spaces.exit17435:                     ; preds = %5295, %5298, %5302,
   br i1 %5972, label %5862, label %5973
 
 5973:                                             ; preds = %5971
-  %5974 = icmp ult i8 %5945, 97
+  %5974 = icmp samesign ult i8 %5945, 97
   br i1 %5974, label %.loopexit17692, label %9121
 
 5975:                                             ; preds = %5969
@@ -15133,7 +15133,7 @@ timelib_eat_spaces.exit17435:                     ; preds = %5295, %5298, %5302,
   br i1 %5982, label %5983, label %5990
 
 5983:                                             ; preds = %5979
-  %5984 = icmp ult i8 %5981, 42
+  %5984 = icmp samesign ult i8 %5981, 42
   br i1 %5984, label %5985, label %5987
 
 5985:                                             ; preds = %5983
@@ -15142,7 +15142,7 @@ timelib_eat_spaces.exit17435:                     ; preds = %5295, %5298, %5302,
   br i1 %.not16834, label %.loopexit17671, label %.loopexit17669
 
 5987:                                             ; preds = %5983
-  %5988 = icmp ult i8 %5981, 65
+  %5988 = icmp samesign ult i8 %5981, 65
   br i1 %5988, label %.loopexit17669.loopexit.split.loop.exit39760, label %5989
 
 5989:                                             ; preds = %5987
@@ -15176,7 +15176,7 @@ timelib_eat_spaces.exit17435:                     ; preds = %5295, %5298, %5302,
   br i1 %6003, label %6004, label %6011
 
 6004:                                             ; preds = %6000
-  %6005 = icmp ult i8 %6002, 46
+  %6005 = icmp samesign ult i8 %6002, 46
   br i1 %6005, label %6006, label %6007
 
 6006:                                             ; preds = %6004
@@ -15190,7 +15190,7 @@ timelib_eat_spaces.exit17435:                     ; preds = %5295, %5298, %5302,
   br i1 %6008, label %5862, label %6009
 
 6009:                                             ; preds = %6007
-  %6010 = icmp ult i8 %6002, 65
+  %6010 = icmp samesign ult i8 %6002, 65
   br i1 %6010, label %.loopexit17669, label %.loopexit17676
 
 6011:                                             ; preds = %6000
@@ -15202,7 +15202,7 @@ timelib_eat_spaces.exit17435:                     ; preds = %5295, %5298, %5302,
   br i1 %6014, label %9206, label %6015
 
 6015:                                             ; preds = %6013
-  %6016 = icmp ult i8 %6002, 91
+  %6016 = icmp samesign ult i8 %6002, 91
   br i1 %6016, label %.loopexit17676, label %6017
 
 6017:                                             ; preds = %6015
@@ -15233,11 +15233,11 @@ timelib_eat_spaces.exit17435:                     ; preds = %5295, %5298, %5302,
   br i1 %6029, label %6030, label %6042
 
 6030:                                             ; preds = %6026
-  %6031 = icmp ult i8 %6028, 41
+  %6031 = icmp samesign ult i8 %6028, 41
   br i1 %6031, label %6032, label %6037
 
 6032:                                             ; preds = %6030
-  %6033 = icmp ult i8 %6028, 10
+  %6033 = icmp samesign ult i8 %6028, 10
   br i1 %6033, label %6034, label %6035
 
 6034:                                             ; preds = %6032
@@ -15249,7 +15249,7 @@ timelib_eat_spaces.exit17435:                     ; preds = %5295, %5298, %5302,
   br i1 %6036, label %.preheader17640, label %.loopexit17692
 
 6037:                                             ; preds = %6030
-  %6038 = icmp ult i8 %6028, 45
+  %6038 = icmp samesign ult i8 %6028, 45
   br i1 %6038, label %6039, label %6041
 
 6039:                                             ; preds = %6037
@@ -15267,11 +15267,11 @@ timelib_eat_spaces.exit17435:                     ; preds = %5295, %5298, %5302,
   br i1 %6043, label %6044, label %6050
 
 6044:                                             ; preds = %6042
-  %6045 = icmp ult i8 %6028, 65
+  %6045 = icmp samesign ult i8 %6028, 65
   br i1 %6045, label %6046, label %6048
 
 6046:                                             ; preds = %6044
-  %6047 = icmp ult i8 %6028, 58
+  %6047 = icmp samesign ult i8 %6028, 58
   br i1 %6047, label %.preheader17640, label %.loopexit17692
 
 6048:                                             ; preds = %6044
@@ -15283,7 +15283,7 @@ timelib_eat_spaces.exit17435:                     ; preds = %5295, %5298, %5302,
   br i1 %6051, label %6052, label %6054
 
 6052:                                             ; preds = %6050
-  %6053 = icmp ult i8 %6028, 97
+  %6053 = icmp samesign ult i8 %6028, 97
   br i1 %6053, label %.loopexit17692, label %.loopexit17676
 
 6054:                                             ; preds = %6050
@@ -15302,11 +15302,11 @@ timelib_eat_spaces.exit17435:                     ; preds = %5295, %5298, %5302,
   br i1 %6061, label %6062, label %6074
 
 6062:                                             ; preds = %6058
-  %6063 = icmp ult i8 %6060, 41
+  %6063 = icmp samesign ult i8 %6060, 41
   br i1 %6063, label %6064, label %6069
 
 6064:                                             ; preds = %6062
-  %6065 = icmp ult i8 %6060, 10
+  %6065 = icmp samesign ult i8 %6060, 10
   br i1 %6065, label %6066, label %6067
 
 6066:                                             ; preds = %6064
@@ -15318,7 +15318,7 @@ timelib_eat_spaces.exit17435:                     ; preds = %5295, %5298, %5302,
   br i1 %6068, label %.preheader17640, label %.loopexit17692
 
 6069:                                             ; preds = %6062
-  %6070 = icmp ult i8 %6060, 46
+  %6070 = icmp samesign ult i8 %6060, 46
   br i1 %6070, label %6071, label %6072
 
 6071:                                             ; preds = %6069
@@ -15336,11 +15336,11 @@ timelib_eat_spaces.exit17435:                     ; preds = %5295, %5298, %5302,
   br i1 %6075, label %6076, label %6084
 
 6076:                                             ; preds = %6074
-  %6077 = icmp ult i8 %6060, 69
+  %6077 = icmp samesign ult i8 %6060, 69
   br i1 %6077, label %6078, label %6080
 
 6078:                                             ; preds = %6076
-  %6079 = icmp ult i8 %6060, 65
+  %6079 = icmp samesign ult i8 %6060, 65
   br i1 %6079, label %.loopexit17692, label %.loopexit17676
 
 6080:                                             ; preds = %6076
@@ -15348,7 +15348,7 @@ timelib_eat_spaces.exit17435:                     ; preds = %5295, %5298, %5302,
   br i1 %6081, label %9236, label %6082
 
 6082:                                             ; preds = %6080
-  %6083 = icmp ult i8 %6060, 91
+  %6083 = icmp samesign ult i8 %6060, 91
   br i1 %6083, label %.loopexit17676, label %.loopexit17692
 
 6084:                                             ; preds = %6074
@@ -15360,7 +15360,7 @@ timelib_eat_spaces.exit17435:                     ; preds = %5295, %5298, %5302,
   br i1 %6087, label %5862, label %6088
 
 6088:                                             ; preds = %6086
-  %6089 = icmp ult i8 %6060, 97
+  %6089 = icmp samesign ult i8 %6060, 97
   br i1 %6089, label %.loopexit17692, label %9121
 
 6090:                                             ; preds = %6084
@@ -15378,7 +15378,7 @@ timelib_eat_spaces.exit17435:                     ; preds = %5295, %5298, %5302,
   br i1 %6097, label %6098, label %6105
 
 6098:                                             ; preds = %6094
-  %6099 = icmp ult i8 %6096, 42
+  %6099 = icmp samesign ult i8 %6096, 42
   br i1 %6099, label %6100, label %6102
 
 6100:                                             ; preds = %6098
@@ -15387,7 +15387,7 @@ timelib_eat_spaces.exit17435:                     ; preds = %5295, %5298, %5302,
   br i1 %.not16793, label %.loopexit17671, label %.loopexit17669
 
 6102:                                             ; preds = %6098
-  %6103 = icmp ult i8 %6096, 65
+  %6103 = icmp samesign ult i8 %6096, 65
   br i1 %6103, label %.loopexit17669.loopexit.split.loop.exit39762, label %6104
 
 6104:                                             ; preds = %6102
@@ -15420,7 +15420,7 @@ timelib_eat_spaces.exit17435:                     ; preds = %5295, %5298, %5302,
   br i1 %6118, label %6119, label %6126
 
 6119:                                             ; preds = %6115
-  %6120 = icmp ult i8 %6117, 42
+  %6120 = icmp samesign ult i8 %6117, 42
   br i1 %6120, label %6121, label %6123
 
 6121:                                             ; preds = %6119
@@ -15429,7 +15429,7 @@ timelib_eat_spaces.exit17435:                     ; preds = %5295, %5298, %5302,
   br i1 %.not16733, label %.loopexit17671, label %.loopexit17669
 
 6123:                                             ; preds = %6119
-  %6124 = icmp ult i8 %6117, 65
+  %6124 = icmp samesign ult i8 %6117, 65
   br i1 %6124, label %.loopexit17669.loopexit.split.loop.exit39764, label %6125
 
 6125:                                             ; preds = %6123
@@ -15463,7 +15463,7 @@ timelib_eat_spaces.exit17435:                     ; preds = %5295, %5298, %5302,
   br i1 %6139, label %6140, label %6147
 
 6140:                                             ; preds = %6136
-  %6141 = icmp ult i8 %6138, 46
+  %6141 = icmp samesign ult i8 %6138, 46
   br i1 %6141, label %6142, label %6143
 
 6142:                                             ; preds = %6140
@@ -15477,7 +15477,7 @@ timelib_eat_spaces.exit17435:                     ; preds = %5295, %5298, %5302,
   br i1 %6144, label %5862, label %6145
 
 6145:                                             ; preds = %6143
-  %6146 = icmp ult i8 %6138, 65
+  %6146 = icmp samesign ult i8 %6138, 65
   br i1 %6146, label %.loopexit17669, label %.loopexit17676
 
 6147:                                             ; preds = %6136
@@ -15489,7 +15489,7 @@ timelib_eat_spaces.exit17435:                     ; preds = %5295, %5298, %5302,
   br i1 %6150, label %9283, label %6151
 
 6151:                                             ; preds = %6149
-  %6152 = icmp ult i8 %6138, 91
+  %6152 = icmp samesign ult i8 %6138, 91
   br i1 %6152, label %.loopexit17676, label %6153
 
 6153:                                             ; preds = %6151
@@ -15520,7 +15520,7 @@ timelib_eat_spaces.exit17435:                     ; preds = %5295, %5298, %5302,
   br i1 %6165, label %6166, label %6173
 
 6166:                                             ; preds = %6162
-  %6167 = icmp ult i8 %6164, 46
+  %6167 = icmp samesign ult i8 %6164, 46
   br i1 %6167, label %6168, label %6169
 
 6168:                                             ; preds = %6166
@@ -15534,7 +15534,7 @@ timelib_eat_spaces.exit17435:                     ; preds = %5295, %5298, %5302,
   br i1 %6170, label %5862, label %6171
 
 6171:                                             ; preds = %6169
-  %6172 = icmp ult i8 %6164, 65
+  %6172 = icmp samesign ult i8 %6164, 65
   br i1 %6172, label %.loopexit17669, label %.loopexit17676
 
 6173:                                             ; preds = %6162
@@ -15546,7 +15546,7 @@ timelib_eat_spaces.exit17435:                     ; preds = %5295, %5298, %5302,
   br i1 %6176, label %9304, label %6177
 
 6177:                                             ; preds = %6175
-  %6178 = icmp ult i8 %6164, 91
+  %6178 = icmp samesign ult i8 %6164, 91
   br i1 %6178, label %.loopexit17676, label %6179
 
 6179:                                             ; preds = %6177
@@ -15577,11 +15577,11 @@ timelib_eat_spaces.exit17435:                     ; preds = %5295, %5298, %5302,
   br i1 %6191, label %6192, label %6204
 
 6192:                                             ; preds = %6188
-  %6193 = icmp ult i8 %6190, 41
+  %6193 = icmp samesign ult i8 %6190, 41
   br i1 %6193, label %6194, label %6199
 
 6194:                                             ; preds = %6192
-  %6195 = icmp ult i8 %6190, 10
+  %6195 = icmp samesign ult i8 %6190, 10
   br i1 %6195, label %6196, label %6197
 
 6196:                                             ; preds = %6194
@@ -15593,7 +15593,7 @@ timelib_eat_spaces.exit17435:                     ; preds = %5295, %5298, %5302,
   br i1 %6198, label %.preheader17640, label %.loopexit17692
 
 6199:                                             ; preds = %6192
-  %6200 = icmp ult i8 %6190, 45
+  %6200 = icmp samesign ult i8 %6190, 45
   br i1 %6200, label %6201, label %6203
 
 6201:                                             ; preds = %6199
@@ -15611,11 +15611,11 @@ timelib_eat_spaces.exit17435:                     ; preds = %5295, %5298, %5302,
   br i1 %6205, label %6206, label %6212
 
 6206:                                             ; preds = %6204
-  %6207 = icmp ult i8 %6190, 65
+  %6207 = icmp samesign ult i8 %6190, 65
   br i1 %6207, label %6208, label %6210
 
 6208:                                             ; preds = %6206
-  %6209 = icmp ult i8 %6190, 58
+  %6209 = icmp samesign ult i8 %6190, 58
   br i1 %6209, label %.preheader17640, label %.loopexit17692
 
 6210:                                             ; preds = %6206
@@ -15627,7 +15627,7 @@ timelib_eat_spaces.exit17435:                     ; preds = %5295, %5298, %5302,
   br i1 %6213, label %6214, label %6216
 
 6214:                                             ; preds = %6212
-  %6215 = icmp ult i8 %6190, 97
+  %6215 = icmp samesign ult i8 %6190, 97
   br i1 %6215, label %.loopexit17692, label %.loopexit17676
 
 6216:                                             ; preds = %6212
@@ -15645,7 +15645,7 @@ timelib_eat_spaces.exit17435:                     ; preds = %5295, %5298, %5302,
   br i1 %6223, label %6224, label %6231
 
 6224:                                             ; preds = %6220
-  %6225 = icmp ult i8 %6222, 42
+  %6225 = icmp samesign ult i8 %6222, 42
   br i1 %6225, label %6226, label %6228
 
 6226:                                             ; preds = %6224
@@ -15654,7 +15654,7 @@ timelib_eat_spaces.exit17435:                     ; preds = %5295, %5298, %5302,
   br i1 %.not16695, label %.loopexit17671, label %.loopexit17669
 
 6228:                                             ; preds = %6224
-  %6229 = icmp ult i8 %6222, 65
+  %6229 = icmp samesign ult i8 %6222, 65
   br i1 %6229, label %.loopexit17669.loopexit.split.loop.exit39766, label %6230
 
 6230:                                             ; preds = %6228
@@ -15687,7 +15687,7 @@ timelib_eat_spaces.exit17435:                     ; preds = %5295, %5298, %5302,
   br i1 %6244, label %6245, label %6252
 
 6245:                                             ; preds = %6241
-  %6246 = icmp ult i8 %6243, 42
+  %6246 = icmp samesign ult i8 %6243, 42
   br i1 %6246, label %6247, label %6249
 
 6247:                                             ; preds = %6245
@@ -15696,7 +15696,7 @@ timelib_eat_spaces.exit17435:                     ; preds = %5295, %5298, %5302,
   br i1 %.not16691, label %.loopexit17671, label %.loopexit17669
 
 6249:                                             ; preds = %6245
-  %6250 = icmp ult i8 %6243, 65
+  %6250 = icmp samesign ult i8 %6243, 65
   br i1 %6250, label %.loopexit17669.loopexit.split.loop.exit39768, label %6251
 
 6251:                                             ; preds = %6249
@@ -15729,7 +15729,7 @@ timelib_eat_spaces.exit17435:                     ; preds = %5295, %5298, %5302,
   br i1 %6265, label %6266, label %6273
 
 6266:                                             ; preds = %6262
-  %6267 = icmp ult i8 %6264, 42
+  %6267 = icmp samesign ult i8 %6264, 42
   br i1 %6267, label %6268, label %6270
 
 6268:                                             ; preds = %6266
@@ -15738,7 +15738,7 @@ timelib_eat_spaces.exit17435:                     ; preds = %5295, %5298, %5302,
   br i1 %.not16684, label %.loopexit17671, label %.loopexit17669
 
 6270:                                             ; preds = %6266
-  %6271 = icmp ult i8 %6264, 65
+  %6271 = icmp samesign ult i8 %6264, 65
   br i1 %6271, label %.loopexit17669.loopexit.split.loop.exit39770, label %6272
 
 6272:                                             ; preds = %6270
@@ -15771,7 +15771,7 @@ timelib_eat_spaces.exit17435:                     ; preds = %5295, %5298, %5302,
   br i1 %6285, label %6286, label %6293
 
 6286:                                             ; preds = %.loopexit17699
-  %6287 = icmp ult i8 %6284, 42
+  %6287 = icmp samesign ult i8 %6284, 42
   br i1 %6287, label %6288, label %6290
 
 6288:                                             ; preds = %6286
@@ -15779,7 +15779,7 @@ timelib_eat_spaces.exit17435:                     ; preds = %5295, %5298, %5302,
   br i1 %6289, label %.loopexit17671, label %.loopexit17679
 
 6290:                                             ; preds = %6286
-  %6291 = icmp ult i8 %6284, 65
+  %6291 = icmp samesign ult i8 %6284, 65
   br i1 %6291, label %.loopexit17679, label %6292
 
 6292:                                             ; preds = %6290
@@ -15872,7 +15872,7 @@ timelib_eat_spaces.exit17435:                     ; preds = %5295, %5298, %5302,
   br i1 %6335, label %6336, label %6343
 
 6336:                                             ; preds = %6332
-  %6337 = icmp ult i8 %6334, 42
+  %6337 = icmp samesign ult i8 %6334, 42
   br i1 %6337, label %6338, label %6340
 
 6338:                                             ; preds = %6336
@@ -15881,7 +15881,7 @@ timelib_eat_spaces.exit17435:                     ; preds = %5295, %5298, %5302,
   br i1 %.not16673, label %.loopexit17671, label %.loopexit17669
 
 6340:                                             ; preds = %6336
-  %6341 = icmp ult i8 %6334, 65
+  %6341 = icmp samesign ult i8 %6334, 65
   br i1 %6341, label %.loopexit17669.loopexit.split.loop.exit39772, label %6342
 
 6342:                                             ; preds = %6340
@@ -15915,11 +15915,11 @@ timelib_eat_spaces.exit17435:                     ; preds = %5295, %5298, %5302,
   br i1 %6356, label %6357, label %6369
 
 6357:                                             ; preds = %6353
-  %6358 = icmp ult i8 %6355, 41
+  %6358 = icmp samesign ult i8 %6355, 41
   br i1 %6358, label %6359, label %6364
 
 6359:                                             ; preds = %6357
-  %6360 = icmp ult i8 %6355, 10
+  %6360 = icmp samesign ult i8 %6355, 10
   br i1 %6360, label %6361, label %6362
 
 6361:                                             ; preds = %6359
@@ -15931,7 +15931,7 @@ timelib_eat_spaces.exit17435:                     ; preds = %5295, %5298, %5302,
   br i1 %6363, label %.preheader17640, label %.loopexit17692
 
 6364:                                             ; preds = %6357
-  %6365 = icmp ult i8 %6355, 46
+  %6365 = icmp samesign ult i8 %6355, 46
   br i1 %6365, label %6366, label %6367
 
 6366:                                             ; preds = %6364
@@ -15949,11 +15949,11 @@ timelib_eat_spaces.exit17435:                     ; preds = %5295, %5298, %5302,
   br i1 %6370, label %6371, label %6379
 
 6371:                                             ; preds = %6369
-  %6372 = icmp ult i8 %6355, 82
+  %6372 = icmp samesign ult i8 %6355, 82
   br i1 %6372, label %6373, label %6375
 
 6373:                                             ; preds = %6371
-  %6374 = icmp ult i8 %6355, 65
+  %6374 = icmp samesign ult i8 %6355, 65
   br i1 %6374, label %.loopexit17692, label %.loopexit17676
 
 6375:                                             ; preds = %6371
@@ -15961,7 +15961,7 @@ timelib_eat_spaces.exit17435:                     ; preds = %5295, %5298, %5302,
   br i1 %6376, label %9377, label %6377
 
 6377:                                             ; preds = %6375
-  %6378 = icmp ult i8 %6355, 91
+  %6378 = icmp samesign ult i8 %6355, 91
   br i1 %6378, label %.loopexit17676, label %.loopexit17692
 
 6379:                                             ; preds = %6369
@@ -15973,7 +15973,7 @@ timelib_eat_spaces.exit17435:                     ; preds = %5295, %5298, %5302,
   br i1 %6382, label %5862, label %6383
 
 6383:                                             ; preds = %6381
-  %6384 = icmp ult i8 %6355, 97
+  %6384 = icmp samesign ult i8 %6355, 97
   br i1 %6384, label %.loopexit17692, label %9121
 
 6385:                                             ; preds = %6379
@@ -15992,7 +15992,7 @@ timelib_eat_spaces.exit17435:                     ; preds = %5295, %5298, %5302,
   br i1 %6392, label %6393, label %6400
 
 6393:                                             ; preds = %6389
-  %6394 = icmp ult i8 %6391, 46
+  %6394 = icmp samesign ult i8 %6391, 46
   br i1 %6394, label %6395, label %6396
 
 6395:                                             ; preds = %6393
@@ -16006,7 +16006,7 @@ timelib_eat_spaces.exit17435:                     ; preds = %5295, %5298, %5302,
   br i1 %6397, label %5862, label %6398
 
 6398:                                             ; preds = %6396
-  %6399 = icmp ult i8 %6391, 65
+  %6399 = icmp samesign ult i8 %6391, 65
   br i1 %6399, label %.loopexit17669, label %.loopexit17676
 
 6400:                                             ; preds = %6389
@@ -16018,7 +16018,7 @@ timelib_eat_spaces.exit17435:                     ; preds = %5295, %5298, %5302,
   br i1 %6403, label %9398, label %6404
 
 6404:                                             ; preds = %6402
-  %6405 = icmp ult i8 %6391, 91
+  %6405 = icmp samesign ult i8 %6391, 91
   br i1 %6405, label %.loopexit17676, label %6406
 
 6406:                                             ; preds = %6404
@@ -16049,7 +16049,7 @@ timelib_eat_spaces.exit17435:                     ; preds = %5295, %5298, %5302,
   br i1 %6418, label %6419, label %6426
 
 6419:                                             ; preds = %6415
-  %6420 = icmp ult i8 %6417, 46
+  %6420 = icmp samesign ult i8 %6417, 46
   br i1 %6420, label %6421, label %6422
 
 6421:                                             ; preds = %6419
@@ -16063,7 +16063,7 @@ timelib_eat_spaces.exit17435:                     ; preds = %5295, %5298, %5302,
   br i1 %6423, label %5862, label %6424
 
 6424:                                             ; preds = %6422
-  %6425 = icmp ult i8 %6417, 65
+  %6425 = icmp samesign ult i8 %6417, 65
   br i1 %6425, label %.loopexit17669, label %.loopexit17676
 
 6426:                                             ; preds = %6415
@@ -16075,7 +16075,7 @@ timelib_eat_spaces.exit17435:                     ; preds = %5295, %5298, %5302,
   br i1 %6429, label %9419, label %6430
 
 6430:                                             ; preds = %6428
-  %6431 = icmp ult i8 %6417, 91
+  %6431 = icmp samesign ult i8 %6417, 91
   br i1 %6431, label %.loopexit17676, label %6432
 
 6432:                                             ; preds = %6430
@@ -16106,7 +16106,7 @@ timelib_eat_spaces.exit17435:                     ; preds = %5295, %5298, %5302,
   br i1 %6444, label %6445, label %6452
 
 6445:                                             ; preds = %6441
-  %6446 = icmp ult i8 %6443, 46
+  %6446 = icmp samesign ult i8 %6443, 46
   br i1 %6446, label %6447, label %6448
 
 6447:                                             ; preds = %6445
@@ -16120,7 +16120,7 @@ timelib_eat_spaces.exit17435:                     ; preds = %5295, %5298, %5302,
   br i1 %6449, label %5862, label %6450
 
 6450:                                             ; preds = %6448
-  %6451 = icmp ult i8 %6443, 65
+  %6451 = icmp samesign ult i8 %6443, 65
   br i1 %6451, label %.loopexit17669, label %.loopexit17676
 
 6452:                                             ; preds = %6441
@@ -16132,7 +16132,7 @@ timelib_eat_spaces.exit17435:                     ; preds = %5295, %5298, %5302,
   br i1 %6455, label %9440, label %6456
 
 6456:                                             ; preds = %6454
-  %6457 = icmp ult i8 %6443, 91
+  %6457 = icmp samesign ult i8 %6443, 91
   br i1 %6457, label %.loopexit17676, label %6458
 
 6458:                                             ; preds = %6456
@@ -16163,7 +16163,7 @@ timelib_eat_spaces.exit17435:                     ; preds = %5295, %5298, %5302,
   br i1 %6470, label %6471, label %6478
 
 6471:                                             ; preds = %6467
-  %6472 = icmp ult i8 %6469, 46
+  %6472 = icmp samesign ult i8 %6469, 46
   br i1 %6472, label %6473, label %6474
 
 6473:                                             ; preds = %6471
@@ -16177,7 +16177,7 @@ timelib_eat_spaces.exit17435:                     ; preds = %5295, %5298, %5302,
   br i1 %6475, label %5862, label %6476
 
 6476:                                             ; preds = %6474
-  %6477 = icmp ult i8 %6469, 65
+  %6477 = icmp samesign ult i8 %6469, 65
   br i1 %6477, label %.loopexit17679, label %.loopexit17676
 
 6478:                                             ; preds = %6467
@@ -16189,7 +16189,7 @@ timelib_eat_spaces.exit17435:                     ; preds = %5295, %5298, %5302,
   br i1 %6481, label %.loopexit17704, label %6482
 
 6482:                                             ; preds = %6480
-  %6483 = icmp ult i8 %6469, 91
+  %6483 = icmp samesign ult i8 %6469, 91
   br i1 %6483, label %.loopexit17676, label %6484
 
 6484:                                             ; preds = %6482
@@ -16220,7 +16220,7 @@ timelib_eat_spaces.exit17435:                     ; preds = %5295, %5298, %5302,
   br i1 %6496, label %6497, label %6504
 
 6497:                                             ; preds = %6493
-  %6498 = icmp ult i8 %6495, 46
+  %6498 = icmp samesign ult i8 %6495, 46
   br i1 %6498, label %6499, label %6500
 
 6499:                                             ; preds = %6497
@@ -16234,7 +16234,7 @@ timelib_eat_spaces.exit17435:                     ; preds = %5295, %5298, %5302,
   br i1 %6501, label %5862, label %6502
 
 6502:                                             ; preds = %6500
-  %6503 = icmp ult i8 %6495, 65
+  %6503 = icmp samesign ult i8 %6495, 65
   br i1 %6503, label %.loopexit17669, label %.loopexit17676
 
 6504:                                             ; preds = %6493
@@ -16246,7 +16246,7 @@ timelib_eat_spaces.exit17435:                     ; preds = %5295, %5298, %5302,
   br i1 %6507, label %9473, label %6508
 
 6508:                                             ; preds = %6506
-  %6509 = icmp ult i8 %6495, 91
+  %6509 = icmp samesign ult i8 %6495, 91
   br i1 %6509, label %.loopexit17676, label %6510
 
 6510:                                             ; preds = %6508
@@ -16277,7 +16277,7 @@ timelib_eat_spaces.exit17435:                     ; preds = %5295, %5298, %5302,
   br i1 %6522, label %6523, label %6529
 
 6523:                                             ; preds = %6519
-  %6524 = icmp ult i8 %6521, 42
+  %6524 = icmp samesign ult i8 %6521, 42
   br i1 %6524, label %6525, label %6527
 
 6525:                                             ; preds = %6523
@@ -16299,7 +16299,7 @@ timelib_eat_spaces.exit17435:                     ; preds = %5295, %5298, %5302,
 
 6533:                                             ; preds = %6531
   %6534 = getelementptr inbounds i8, ptr %.01433828656, i64 3
-  %6535 = icmp ult i8 %6521, 65
+  %6535 = icmp samesign ult i8 %6521, 65
   br i1 %6535, label %.loopexit17669, label %.loopexit17676
 
 6536:                                             ; preds = %6529
@@ -16317,7 +16317,7 @@ timelib_eat_spaces.exit17435:                     ; preds = %5295, %5298, %5302,
   br i1 %6542, label %6543, label %6551
 
 6543:                                             ; preds = %6539
-  %6544 = icmp ult i8 %6541, 49
+  %6544 = icmp samesign ult i8 %6541, 49
   br i1 %6544, label %6545, label %6547
 
 6545:                                             ; preds = %6543
@@ -16329,7 +16329,7 @@ timelib_eat_spaces.exit17435:                     ; preds = %5295, %5298, %5302,
   br i1 %6548, label %9670, label %6549
 
 6549:                                             ; preds = %6547
-  %6550 = icmp ult i8 %6541, 51
+  %6550 = icmp samesign ult i8 %6541, 51
   br i1 %6550, label %9682, label %9692
 
 6551:                                             ; preds = %6539
@@ -16426,7 +16426,7 @@ timelib_eat_spaces.exit17435:                     ; preds = %5295, %5298, %5302,
   br i1 %6596, label %6597, label %6603
 
 6597:                                             ; preds = %6595
-  %6598 = icmp ult i8 %.514344, 48
+  %6598 = icmp samesign ult i8 %.514344, 48
   br i1 %6598, label %.loopexit17710, label %6599
 
 6599:                                             ; preds = %6597
@@ -16454,11 +16454,11 @@ timelib_eat_spaces.exit17435:                     ; preds = %5295, %5298, %5302,
   br i1 %6610, label %6611, label %6626
 
 6611:                                             ; preds = %6607
-  %6612 = icmp ult i8 %6609, 33
+  %6612 = icmp samesign ult i8 %6609, 33
   br i1 %6612, label %6613, label %6618
 
 6613:                                             ; preds = %6611
-  %6614 = icmp ult i8 %6609, 9
+  %6614 = icmp samesign ult i8 %6609, 9
   br i1 %6614, label %6615, label %6617
 
 6615:                                             ; preds = %6613
@@ -16472,7 +16472,7 @@ timelib_eat_spaces.exit17435:                     ; preds = %5295, %5298, %5302,
   ]
 
 6618:                                             ; preds = %6611
-  %6619 = icmp ult i8 %6609, 46
+  %6619 = icmp samesign ult i8 %6609, 46
   br i1 %6619, label %6620, label %6622
 
 6620:                                             ; preds = %6618
@@ -16484,7 +16484,7 @@ timelib_eat_spaces.exit17435:                     ; preds = %5295, %5298, %5302,
   br i1 %6623, label %6581, label %6624
 
 6624:                                             ; preds = %6622
-  %6625 = icmp ult i8 %6609, 48
+  %6625 = icmp samesign ult i8 %6609, 48
   br i1 %6625, label %.thread, label %9744
 
 6626:                                             ; preds = %6607
@@ -16492,7 +16492,7 @@ timelib_eat_spaces.exit17435:                     ; preds = %5295, %5298, %5302,
   br i1 %6627, label %6628, label %6633
 
 6628:                                             ; preds = %6626
-  %6629 = icmp ult i8 %6609, 101
+  %6629 = icmp samesign ult i8 %6609, 101
   br i1 %6629, label %6630, label %6631
 
 6630:                                             ; preds = %6628
@@ -16562,7 +16562,7 @@ timelib_eat_spaces.exit17435:                     ; preds = %5295, %5298, %5302,
   br i1 %6659, label %6660, label %6665
 
 6660:                                             ; preds = %6656
-  %6661 = icmp ult i8 %6658, 32
+  %6661 = icmp samesign ult i8 %6658, 32
   br i1 %6661, label %6662, label %6664
 
 6662:                                             ; preds = %6660
@@ -16581,7 +16581,7 @@ timelib_eat_spaces.exit17435:                     ; preds = %5295, %5298, %5302,
 
 6667:                                             ; preds = %6665
   %6668 = icmp ne i8 %6658, 47
-  %6669 = icmp ult i8 %6658, 58
+  %6669 = icmp samesign ult i8 %6658, 58
   %or.cond500 = and i1 %6668, %6669
   br i1 %or.cond500, label %.preheader17640, label %.loopexit17669
 
@@ -16600,11 +16600,11 @@ timelib_eat_spaces.exit17435:                     ; preds = %5295, %5298, %5302,
   br i1 %6676, label %6677, label %6689
 
 6677:                                             ; preds = %6673
-  %6678 = icmp ult i8 %6675, 41
+  %6678 = icmp samesign ult i8 %6675, 41
   br i1 %6678, label %6679, label %6684
 
 6679:                                             ; preds = %6677
-  %6680 = icmp ult i8 %6675, 10
+  %6680 = icmp samesign ult i8 %6675, 10
   br i1 %6680, label %6681, label %6682
 
 6681:                                             ; preds = %6679
@@ -16616,7 +16616,7 @@ timelib_eat_spaces.exit17435:                     ; preds = %5295, %5298, %5302,
   br i1 %6683, label %.preheader17640, label %.loopexit17692
 
 6684:                                             ; preds = %6677
-  %6685 = icmp ult i8 %6675, 45
+  %6685 = icmp samesign ult i8 %6675, 45
   br i1 %6685, label %6686, label %6688
 
 6686:                                             ; preds = %6684
@@ -16634,11 +16634,11 @@ timelib_eat_spaces.exit17435:                     ; preds = %5295, %5298, %5302,
   br i1 %6690, label %6691, label %6697
 
 6691:                                             ; preds = %6689
-  %6692 = icmp ult i8 %6675, 65
+  %6692 = icmp samesign ult i8 %6675, 65
   br i1 %6692, label %6693, label %6695
 
 6693:                                             ; preds = %6691
-  %6694 = icmp ult i8 %6675, 58
+  %6694 = icmp samesign ult i8 %6675, 58
   br i1 %6694, label %.preheader17640, label %.loopexit17692
 
 6695:                                             ; preds = %6691
@@ -16650,7 +16650,7 @@ timelib_eat_spaces.exit17435:                     ; preds = %5295, %5298, %5302,
   br i1 %6698, label %6699, label %6701
 
 6699:                                             ; preds = %6697
-  %6700 = icmp ult i8 %6675, 97
+  %6700 = icmp samesign ult i8 %6675, 97
   br i1 %6700, label %.loopexit17692, label %.loopexit17676
 
 6701:                                             ; preds = %6697
@@ -16669,11 +16669,11 @@ timelib_eat_spaces.exit17435:                     ; preds = %5295, %5298, %5302,
   br i1 %6708, label %6709, label %6721
 
 6709:                                             ; preds = %6705
-  %6710 = icmp ult i8 %6707, 41
+  %6710 = icmp samesign ult i8 %6707, 41
   br i1 %6710, label %6711, label %6716
 
 6711:                                             ; preds = %6709
-  %6712 = icmp ult i8 %6707, 10
+  %6712 = icmp samesign ult i8 %6707, 10
   br i1 %6712, label %6713, label %6714
 
 6713:                                             ; preds = %6711
@@ -16685,7 +16685,7 @@ timelib_eat_spaces.exit17435:                     ; preds = %5295, %5298, %5302,
   br i1 %6715, label %.preheader17640, label %.loopexit17692
 
 6716:                                             ; preds = %6709
-  %6717 = icmp ult i8 %6707, 45
+  %6717 = icmp samesign ult i8 %6707, 45
   br i1 %6717, label %6718, label %6720
 
 6718:                                             ; preds = %6716
@@ -16703,11 +16703,11 @@ timelib_eat_spaces.exit17435:                     ; preds = %5295, %5298, %5302,
   br i1 %6722, label %6723, label %6729
 
 6723:                                             ; preds = %6721
-  %6724 = icmp ult i8 %6707, 65
+  %6724 = icmp samesign ult i8 %6707, 65
   br i1 %6724, label %6725, label %6727
 
 6725:                                             ; preds = %6723
-  %6726 = icmp ult i8 %6707, 58
+  %6726 = icmp samesign ult i8 %6707, 58
   br i1 %6726, label %.preheader17640, label %.loopexit17692
 
 6727:                                             ; preds = %6723
@@ -16719,7 +16719,7 @@ timelib_eat_spaces.exit17435:                     ; preds = %5295, %5298, %5302,
   br i1 %6730, label %6731, label %6733
 
 6731:                                             ; preds = %6729
-  %6732 = icmp ult i8 %6707, 97
+  %6732 = icmp samesign ult i8 %6707, 97
   br i1 %6732, label %.loopexit17692, label %.loopexit17676
 
 6733:                                             ; preds = %6729
@@ -16738,11 +16738,11 @@ timelib_eat_spaces.exit17435:                     ; preds = %5295, %5298, %5302,
   br i1 %6740, label %6741, label %6753
 
 6741:                                             ; preds = %6737
-  %6742 = icmp ult i8 %6739, 41
+  %6742 = icmp samesign ult i8 %6739, 41
   br i1 %6742, label %6743, label %6748
 
 6743:                                             ; preds = %6741
-  %6744 = icmp ult i8 %6739, 10
+  %6744 = icmp samesign ult i8 %6739, 10
   br i1 %6744, label %6745, label %6746
 
 6745:                                             ; preds = %6743
@@ -16754,7 +16754,7 @@ timelib_eat_spaces.exit17435:                     ; preds = %5295, %5298, %5302,
   br i1 %6747, label %.preheader17640, label %.loopexit17692
 
 6748:                                             ; preds = %6741
-  %6749 = icmp ult i8 %6739, 45
+  %6749 = icmp samesign ult i8 %6739, 45
   br i1 %6749, label %6750, label %6752
 
 6750:                                             ; preds = %6748
@@ -16772,11 +16772,11 @@ timelib_eat_spaces.exit17435:                     ; preds = %5295, %5298, %5302,
   br i1 %6754, label %6755, label %6761
 
 6755:                                             ; preds = %6753
-  %6756 = icmp ult i8 %6739, 65
+  %6756 = icmp samesign ult i8 %6739, 65
   br i1 %6756, label %6757, label %6759
 
 6757:                                             ; preds = %6755
-  %6758 = icmp ult i8 %6739, 58
+  %6758 = icmp samesign ult i8 %6739, 58
   br i1 %6758, label %.preheader17640, label %.loopexit17692
 
 6759:                                             ; preds = %6755
@@ -16788,7 +16788,7 @@ timelib_eat_spaces.exit17435:                     ; preds = %5295, %5298, %5302,
   br i1 %6762, label %6763, label %6765
 
 6763:                                             ; preds = %6761
-  %6764 = icmp ult i8 %6739, 97
+  %6764 = icmp samesign ult i8 %6739, 97
   br i1 %6764, label %.loopexit17692, label %.loopexit17676
 
 6765:                                             ; preds = %6761
@@ -16807,11 +16807,11 @@ timelib_eat_spaces.exit17435:                     ; preds = %5295, %5298, %5302,
   br i1 %6772, label %6773, label %6785
 
 6773:                                             ; preds = %6769
-  %6774 = icmp ult i8 %6771, 41
+  %6774 = icmp samesign ult i8 %6771, 41
   br i1 %6774, label %6775, label %6780
 
 6775:                                             ; preds = %6773
-  %6776 = icmp ult i8 %6771, 10
+  %6776 = icmp samesign ult i8 %6771, 10
   br i1 %6776, label %6777, label %6778
 
 6777:                                             ; preds = %6775
@@ -16823,7 +16823,7 @@ timelib_eat_spaces.exit17435:                     ; preds = %5295, %5298, %5302,
   br i1 %6779, label %.preheader17640, label %.loopexit17692
 
 6780:                                             ; preds = %6773
-  %6781 = icmp ult i8 %6771, 46
+  %6781 = icmp samesign ult i8 %6771, 46
   br i1 %6781, label %6782, label %6783
 
 6782:                                             ; preds = %6780
@@ -16841,11 +16841,11 @@ timelib_eat_spaces.exit17435:                     ; preds = %5295, %5298, %5302,
   br i1 %6786, label %6787, label %6795
 
 6787:                                             ; preds = %6785
-  %6788 = icmp ult i8 %6771, 85
+  %6788 = icmp samesign ult i8 %6771, 85
   br i1 %6788, label %6789, label %6791
 
 6789:                                             ; preds = %6787
-  %6790 = icmp ult i8 %6771, 65
+  %6790 = icmp samesign ult i8 %6771, 65
   br i1 %6790, label %.loopexit17692, label %.loopexit17676
 
 6791:                                             ; preds = %6787
@@ -16853,7 +16853,7 @@ timelib_eat_spaces.exit17435:                     ; preds = %5295, %5298, %5302,
   br i1 %6792, label %9752, label %6793
 
 6793:                                             ; preds = %6791
-  %6794 = icmp ult i8 %6771, 91
+  %6794 = icmp samesign ult i8 %6771, 91
   br i1 %6794, label %.loopexit17676, label %.loopexit17692
 
 6795:                                             ; preds = %6785
@@ -16865,7 +16865,7 @@ timelib_eat_spaces.exit17435:                     ; preds = %5295, %5298, %5302,
   br i1 %6798, label %5862, label %6799
 
 6799:                                             ; preds = %6797
-  %6800 = icmp ult i8 %6771, 97
+  %6800 = icmp samesign ult i8 %6771, 97
   br i1 %6800, label %.loopexit17692, label %9121
 
 6801:                                             ; preds = %6795
@@ -16884,11 +16884,11 @@ timelib_eat_spaces.exit17435:                     ; preds = %5295, %5298, %5302,
   br i1 %6808, label %6809, label %6821
 
 6809:                                             ; preds = %6805
-  %6810 = icmp ult i8 %6807, 41
+  %6810 = icmp samesign ult i8 %6807, 41
   br i1 %6810, label %6811, label %6816
 
 6811:                                             ; preds = %6809
-  %6812 = icmp ult i8 %6807, 10
+  %6812 = icmp samesign ult i8 %6807, 10
   br i1 %6812, label %6813, label %6814
 
 6813:                                             ; preds = %6811
@@ -16900,7 +16900,7 @@ timelib_eat_spaces.exit17435:                     ; preds = %5295, %5298, %5302,
   br i1 %6815, label %.preheader17640, label %.loopexit17692
 
 6816:                                             ; preds = %6809
-  %6817 = icmp ult i8 %6807, 46
+  %6817 = icmp samesign ult i8 %6807, 46
   br i1 %6817, label %6818, label %6819
 
 6818:                                             ; preds = %6816
@@ -16918,11 +16918,11 @@ timelib_eat_spaces.exit17435:                     ; preds = %5295, %5298, %5302,
   br i1 %6822, label %6823, label %6831
 
 6823:                                             ; preds = %6821
-  %6824 = icmp ult i8 %6807, 89
+  %6824 = icmp samesign ult i8 %6807, 89
   br i1 %6824, label %6825, label %6827
 
 6825:                                             ; preds = %6823
-  %6826 = icmp ult i8 %6807, 65
+  %6826 = icmp samesign ult i8 %6807, 65
   br i1 %6826, label %.loopexit17692, label %.loopexit17676
 
 6827:                                             ; preds = %6823
@@ -16930,7 +16930,7 @@ timelib_eat_spaces.exit17435:                     ; preds = %5295, %5298, %5302,
   br i1 %6828, label %9767, label %6829
 
 6829:                                             ; preds = %6827
-  %6830 = icmp ult i8 %6807, 91
+  %6830 = icmp samesign ult i8 %6807, 91
   br i1 %6830, label %.loopexit17676, label %.loopexit17692
 
 6831:                                             ; preds = %6821
@@ -16942,7 +16942,7 @@ timelib_eat_spaces.exit17435:                     ; preds = %5295, %5298, %5302,
   br i1 %6834, label %5862, label %6835
 
 6835:                                             ; preds = %6833
-  %6836 = icmp ult i8 %6807, 97
+  %6836 = icmp samesign ult i8 %6807, 97
   br i1 %6836, label %.loopexit17692, label %9121
 
 6837:                                             ; preds = %6831
@@ -16961,11 +16961,11 @@ timelib_eat_spaces.exit17435:                     ; preds = %5295, %5298, %5302,
   br i1 %6844, label %6845, label %6857
 
 6845:                                             ; preds = %6841
-  %6846 = icmp ult i8 %6843, 41
+  %6846 = icmp samesign ult i8 %6843, 41
   br i1 %6846, label %6847, label %6852
 
 6847:                                             ; preds = %6845
-  %6848 = icmp ult i8 %6843, 10
+  %6848 = icmp samesign ult i8 %6843, 10
   br i1 %6848, label %6849, label %6850
 
 6849:                                             ; preds = %6847
@@ -16977,7 +16977,7 @@ timelib_eat_spaces.exit17435:                     ; preds = %5295, %5298, %5302,
   br i1 %6851, label %.preheader17640, label %.loopexit17692
 
 6852:                                             ; preds = %6845
-  %6853 = icmp ult i8 %6843, 46
+  %6853 = icmp samesign ult i8 %6843, 46
   br i1 %6853, label %6854, label %6855
 
 6854:                                             ; preds = %6852
@@ -16995,11 +16995,11 @@ timelib_eat_spaces.exit17435:                     ; preds = %5295, %5298, %5302,
   br i1 %6858, label %6859, label %6867
 
 6859:                                             ; preds = %6857
-  %6860 = icmp ult i8 %6843, 69
+  %6860 = icmp samesign ult i8 %6843, 69
   br i1 %6860, label %6861, label %6863
 
 6861:                                             ; preds = %6859
-  %6862 = icmp ult i8 %6843, 65
+  %6862 = icmp samesign ult i8 %6843, 65
   br i1 %6862, label %.loopexit17692, label %.loopexit17676
 
 6863:                                             ; preds = %6859
@@ -17007,7 +17007,7 @@ timelib_eat_spaces.exit17435:                     ; preds = %5295, %5298, %5302,
   br i1 %6864, label %9767, label %6865
 
 6865:                                             ; preds = %6863
-  %6866 = icmp ult i8 %6843, 91
+  %6866 = icmp samesign ult i8 %6843, 91
   br i1 %6866, label %.loopexit17676, label %.loopexit17692
 
 6867:                                             ; preds = %6857
@@ -17019,7 +17019,7 @@ timelib_eat_spaces.exit17435:                     ; preds = %5295, %5298, %5302,
   br i1 %6870, label %5862, label %6871
 
 6871:                                             ; preds = %6869
-  %6872 = icmp ult i8 %6843, 97
+  %6872 = icmp samesign ult i8 %6843, 97
   br i1 %6872, label %.loopexit17692, label %9121
 
 6873:                                             ; preds = %6867
@@ -17037,7 +17037,7 @@ timelib_eat_spaces.exit17435:                     ; preds = %5295, %5298, %5302,
   br i1 %6880, label %6881, label %6888
 
 6881:                                             ; preds = %6877
-  %6882 = icmp ult i8 %6879, 42
+  %6882 = icmp samesign ult i8 %6879, 42
   br i1 %6882, label %6883, label %6885
 
 6883:                                             ; preds = %6881
@@ -17046,7 +17046,7 @@ timelib_eat_spaces.exit17435:                     ; preds = %5295, %5298, %5302,
   br i1 %.not16588, label %.loopexit17671, label %.loopexit17669
 
 6885:                                             ; preds = %6881
-  %6886 = icmp ult i8 %6879, 65
+  %6886 = icmp samesign ult i8 %6879, 65
   br i1 %6886, label %.loopexit17669.loopexit.split.loop.exit39776, label %6887
 
 6887:                                             ; preds = %6885
@@ -17080,7 +17080,7 @@ timelib_eat_spaces.exit17435:                     ; preds = %5295, %5298, %5302,
   br i1 %6901, label %6902, label %6909
 
 6902:                                             ; preds = %6898
-  %6903 = icmp ult i8 %6900, 46
+  %6903 = icmp samesign ult i8 %6900, 46
   br i1 %6903, label %6904, label %6905
 
 6904:                                             ; preds = %6902
@@ -17094,7 +17094,7 @@ timelib_eat_spaces.exit17435:                     ; preds = %5295, %5298, %5302,
   br i1 %6906, label %5862, label %6907
 
 6907:                                             ; preds = %6905
-  %6908 = icmp ult i8 %6900, 65
+  %6908 = icmp samesign ult i8 %6900, 65
   br i1 %6908, label %.loopexit17669, label %.loopexit17676
 
 6909:                                             ; preds = %6898
@@ -17106,7 +17106,7 @@ timelib_eat_spaces.exit17435:                     ; preds = %5295, %5298, %5302,
   br i1 %6912, label %9835, label %6913
 
 6913:                                             ; preds = %6911
-  %6914 = icmp ult i8 %6900, 91
+  %6914 = icmp samesign ult i8 %6900, 91
   br i1 %6914, label %.loopexit17676, label %6915
 
 6915:                                             ; preds = %6913
@@ -17137,11 +17137,11 @@ timelib_eat_spaces.exit17435:                     ; preds = %5295, %5298, %5302,
   br i1 %6927, label %6928, label %6940
 
 6928:                                             ; preds = %6924
-  %6929 = icmp ult i8 %6926, 41
+  %6929 = icmp samesign ult i8 %6926, 41
   br i1 %6929, label %6930, label %6935
 
 6930:                                             ; preds = %6928
-  %6931 = icmp ult i8 %6926, 10
+  %6931 = icmp samesign ult i8 %6926, 10
   br i1 %6931, label %6932, label %6933
 
 6932:                                             ; preds = %6930
@@ -17153,7 +17153,7 @@ timelib_eat_spaces.exit17435:                     ; preds = %5295, %5298, %5302,
   br i1 %6934, label %.preheader17640, label %.loopexit17692
 
 6935:                                             ; preds = %6928
-  %6936 = icmp ult i8 %6926, 45
+  %6936 = icmp samesign ult i8 %6926, 45
   br i1 %6936, label %6937, label %6939
 
 6937:                                             ; preds = %6935
@@ -17171,11 +17171,11 @@ timelib_eat_spaces.exit17435:                     ; preds = %5295, %5298, %5302,
   br i1 %6941, label %6942, label %6948
 
 6942:                                             ; preds = %6940
-  %6943 = icmp ult i8 %6926, 65
+  %6943 = icmp samesign ult i8 %6926, 65
   br i1 %6943, label %6944, label %6946
 
 6944:                                             ; preds = %6942
-  %6945 = icmp ult i8 %6926, 58
+  %6945 = icmp samesign ult i8 %6926, 58
   br i1 %6945, label %.preheader17640, label %.loopexit17692
 
 6946:                                             ; preds = %6942
@@ -17187,7 +17187,7 @@ timelib_eat_spaces.exit17435:                     ; preds = %5295, %5298, %5302,
   br i1 %6949, label %6950, label %6952
 
 6950:                                             ; preds = %6948
-  %6951 = icmp ult i8 %6926, 97
+  %6951 = icmp samesign ult i8 %6926, 97
   br i1 %6951, label %.loopexit17692, label %.loopexit17676
 
 6952:                                             ; preds = %6948
@@ -17206,7 +17206,7 @@ timelib_eat_spaces.exit17435:                     ; preds = %5295, %5298, %5302,
   br i1 %6959, label %6960, label %6964
 
 6960:                                             ; preds = %6956
-  %6961 = icmp ult i8 %6958, 33
+  %6961 = icmp samesign ult i8 %6958, 33
   br i1 %6961, label %6962, label %6963
 
 6962:                                             ; preds = %6960
@@ -17227,7 +17227,7 @@ timelib_eat_spaces.exit17435:                     ; preds = %5295, %5298, %5302,
 
 6966:                                             ; preds = %6964
   %6967 = icmp ne i8 %6958, 47
-  %6968 = icmp ult i8 %6958, 58
+  %6968 = icmp samesign ult i8 %6958, 58
   %or.cond512 = and i1 %6967, %6968
   br i1 %or.cond512, label %.preheader17640, label %.loopexit17692
 
@@ -17245,7 +17245,7 @@ timelib_eat_spaces.exit17435:                     ; preds = %5295, %5298, %5302,
   br i1 %6975, label %6976, label %6983
 
 6976:                                             ; preds = %6972
-  %6977 = icmp ult i8 %6974, 42
+  %6977 = icmp samesign ult i8 %6974, 42
   br i1 %6977, label %6978, label %6980
 
 6978:                                             ; preds = %6976
@@ -17254,7 +17254,7 @@ timelib_eat_spaces.exit17435:                     ; preds = %5295, %5298, %5302,
   br i1 %.not16548, label %.loopexit17671, label %.loopexit17669
 
 6980:                                             ; preds = %6976
-  %6981 = icmp ult i8 %6974, 65
+  %6981 = icmp samesign ult i8 %6974, 65
   br i1 %6981, label %.loopexit17669.loopexit.split.loop.exit39778, label %6982
 
 6982:                                             ; preds = %6980
@@ -17288,11 +17288,11 @@ timelib_eat_spaces.exit17435:                     ; preds = %5295, %5298, %5302,
   br i1 %6996, label %6997, label %7009
 
 6997:                                             ; preds = %6993
-  %6998 = icmp ult i8 %6995, 41
+  %6998 = icmp samesign ult i8 %6995, 41
   br i1 %6998, label %6999, label %7004
 
 6999:                                             ; preds = %6997
-  %7000 = icmp ult i8 %6995, 10
+  %7000 = icmp samesign ult i8 %6995, 10
   br i1 %7000, label %7001, label %7002
 
 7001:                                             ; preds = %6999
@@ -17304,7 +17304,7 @@ timelib_eat_spaces.exit17435:                     ; preds = %5295, %5298, %5302,
   br i1 %7003, label %.preheader17640, label %.loopexit17692
 
 7004:                                             ; preds = %6997
-  %7005 = icmp ult i8 %6995, 46
+  %7005 = icmp samesign ult i8 %6995, 46
   br i1 %7005, label %7006, label %7007
 
 7006:                                             ; preds = %7004
@@ -17322,11 +17322,11 @@ timelib_eat_spaces.exit17435:                     ; preds = %5295, %5298, %5302,
   br i1 %7010, label %7011, label %7019
 
 7011:                                             ; preds = %7009
-  %7012 = icmp ult i8 %6995, 67
+  %7012 = icmp samesign ult i8 %6995, 67
   br i1 %7012, label %7013, label %7015
 
 7013:                                             ; preds = %7011
-  %7014 = icmp ult i8 %6995, 65
+  %7014 = icmp samesign ult i8 %6995, 65
   br i1 %7014, label %.loopexit17692, label %.loopexit17676
 
 7015:                                             ; preds = %7011
@@ -17334,7 +17334,7 @@ timelib_eat_spaces.exit17435:                     ; preds = %5295, %5298, %5302,
   br i1 %7016, label %9882, label %7017
 
 7017:                                             ; preds = %7015
-  %7018 = icmp ult i8 %6995, 91
+  %7018 = icmp samesign ult i8 %6995, 91
   br i1 %7018, label %.loopexit17676, label %.loopexit17692
 
 7019:                                             ; preds = %7009
@@ -17346,7 +17346,7 @@ timelib_eat_spaces.exit17435:                     ; preds = %5295, %5298, %5302,
   br i1 %7022, label %5862, label %7023
 
 7023:                                             ; preds = %7021
-  %7024 = icmp ult i8 %6995, 97
+  %7024 = icmp samesign ult i8 %6995, 97
   br i1 %7024, label %.loopexit17692, label %9121
 
 7025:                                             ; preds = %7019
@@ -17365,7 +17365,7 @@ timelib_eat_spaces.exit17435:                     ; preds = %5295, %5298, %5302,
   br i1 %7032, label %7033, label %7042
 
 7033:                                             ; preds = %7029
-  %7034 = icmp ult i8 %7031, 33
+  %7034 = icmp samesign ult i8 %7031, 33
   br i1 %7034, label %7035, label %7036
 
 7035:                                             ; preds = %7033
@@ -17375,7 +17375,7 @@ timelib_eat_spaces.exit17435:                     ; preds = %5295, %5298, %5302,
   ]
 
 7036:                                             ; preds = %7033
-  %7037 = icmp ult i8 %7031, 42
+  %7037 = icmp samesign ult i8 %7031, 42
   br i1 %7037, label %7038, label %7039
 
 7038:                                             ; preds = %7036
@@ -17383,7 +17383,7 @@ timelib_eat_spaces.exit17435:                     ; preds = %5295, %5298, %5302,
   br i1 %.not16533, label %.loopexit17671, label %.loopexit17692
 
 7039:                                             ; preds = %7036
-  %7040 = icmp ult i8 %7031, 45
+  %7040 = icmp samesign ult i8 %7031, 45
   br i1 %7040, label %.loopexit17692, label %7041
 
 7041:                                             ; preds = %7039
@@ -17399,11 +17399,11 @@ timelib_eat_spaces.exit17435:                     ; preds = %5295, %5298, %5302,
   br i1 %7045, label %5862, label %7046
 
 7046:                                             ; preds = %7044
-  %7047 = icmp ult i8 %7031, 58
+  %7047 = icmp samesign ult i8 %7031, 58
   br i1 %7047, label %.preheader17640, label %7048
 
 7048:                                             ; preds = %7046
-  %7049 = icmp ult i8 %7031, 65
+  %7049 = icmp samesign ult i8 %7031, 65
   br i1 %7049, label %.loopexit17692, label %.loopexit17676
 
 7050:                                             ; preds = %7042
@@ -17428,7 +17428,7 @@ timelib_eat_spaces.exit17435:                     ; preds = %5295, %5298, %5302,
   br i1 %7059, label %7060, label %7067
 
 7060:                                             ; preds = %7056
-  %7061 = icmp ult i8 %7058, 46
+  %7061 = icmp samesign ult i8 %7058, 46
   br i1 %7061, label %7062, label %7063
 
 7062:                                             ; preds = %7060
@@ -17442,7 +17442,7 @@ timelib_eat_spaces.exit17435:                     ; preds = %5295, %5298, %5302,
   br i1 %7064, label %5862, label %7065
 
 7065:                                             ; preds = %7063
-  %7066 = icmp ult i8 %7058, 65
+  %7066 = icmp samesign ult i8 %7058, 65
   br i1 %7066, label %.loopexit17669, label %.loopexit17676
 
 7067:                                             ; preds = %7056
@@ -17454,7 +17454,7 @@ timelib_eat_spaces.exit17435:                     ; preds = %5295, %5298, %5302,
   br i1 %7070, label %9903, label %7071
 
 7071:                                             ; preds = %7069
-  %7072 = icmp ult i8 %7058, 91
+  %7072 = icmp samesign ult i8 %7058, 91
   br i1 %7072, label %.loopexit17676, label %7073
 
 7073:                                             ; preds = %7071
@@ -17484,7 +17484,7 @@ timelib_eat_spaces.exit17435:                     ; preds = %5295, %5298, %5302,
   br i1 %7085, label %7086, label %7093
 
 7086:                                             ; preds = %7082
-  %7087 = icmp ult i8 %7084, 42
+  %7087 = icmp samesign ult i8 %7084, 42
   br i1 %7087, label %7088, label %7090
 
 7088:                                             ; preds = %7086
@@ -17493,7 +17493,7 @@ timelib_eat_spaces.exit17435:                     ; preds = %5295, %5298, %5302,
   br i1 %.not16518, label %.loopexit17671, label %.loopexit17669
 
 7090:                                             ; preds = %7086
-  %7091 = icmp ult i8 %7084, 65
+  %7091 = icmp samesign ult i8 %7084, 65
   br i1 %7091, label %.loopexit17669.loopexit.split.loop.exit39780, label %7092
 
 7092:                                             ; preds = %7090
@@ -17526,7 +17526,7 @@ timelib_eat_spaces.exit17435:                     ; preds = %5295, %5298, %5302,
   br i1 %7105, label %7106, label %7112
 
 7106:                                             ; preds = %.loopexit17697
-  %7107 = icmp ult i8 %7104, 42
+  %7107 = icmp samesign ult i8 %7104, 42
   br i1 %7107, label %7108, label %7109
 
 7108:                                             ; preds = %7106
@@ -17534,7 +17534,7 @@ timelib_eat_spaces.exit17435:                     ; preds = %5295, %5298, %5302,
   br i1 %.not16513, label %.loopexit17671, label %.loopexit17669
 
 7109:                                             ; preds = %7106
-  %7110 = icmp ult i8 %7104, 65
+  %7110 = icmp samesign ult i8 %7104, 65
   br i1 %7110, label %.loopexit17669, label %7111
 
 7111:                                             ; preds = %7109
@@ -17590,7 +17590,7 @@ timelib_eat_spaces.exit17435:                     ; preds = %5295, %5298, %5302,
   br i1 %7132, label %7133, label %7140
 
 7133:                                             ; preds = %7129
-  %7134 = icmp ult i8 %7131, 46
+  %7134 = icmp samesign ult i8 %7131, 46
   br i1 %7134, label %7135, label %7136
 
 7135:                                             ; preds = %7133
@@ -17604,7 +17604,7 @@ timelib_eat_spaces.exit17435:                     ; preds = %5295, %5298, %5302,
   br i1 %7137, label %5862, label %7138
 
 7138:                                             ; preds = %7136
-  %7139 = icmp ult i8 %7131, 65
+  %7139 = icmp samesign ult i8 %7131, 65
   br i1 %7139, label %.loopexit17669, label %.loopexit17676
 
 7140:                                             ; preds = %7129
@@ -17616,7 +17616,7 @@ timelib_eat_spaces.exit17435:                     ; preds = %5295, %5298, %5302,
   br i1 %7143, label %9976, label %7144
 
 7144:                                             ; preds = %7142
-  %7145 = icmp ult i8 %7131, 91
+  %7145 = icmp samesign ult i8 %7131, 91
   br i1 %7145, label %.loopexit17676, label %7146
 
 7146:                                             ; preds = %7144
@@ -17647,7 +17647,7 @@ timelib_eat_spaces.exit17435:                     ; preds = %5295, %5298, %5302,
   br i1 %7158, label %7159, label %7166
 
 7159:                                             ; preds = %7155
-  %7160 = icmp ult i8 %7157, 46
+  %7160 = icmp samesign ult i8 %7157, 46
   br i1 %7160, label %7161, label %7162
 
 7161:                                             ; preds = %7159
@@ -17661,7 +17661,7 @@ timelib_eat_spaces.exit17435:                     ; preds = %5295, %5298, %5302,
   br i1 %7163, label %5862, label %7164
 
 7164:                                             ; preds = %7162
-  %7165 = icmp ult i8 %7157, 65
+  %7165 = icmp samesign ult i8 %7157, 65
   br i1 %7165, label %.loopexit17669, label %.loopexit17676
 
 7166:                                             ; preds = %7155
@@ -17673,7 +17673,7 @@ timelib_eat_spaces.exit17435:                     ; preds = %5295, %5298, %5302,
   br i1 %7169, label %.loopexit17696, label %7170
 
 7170:                                             ; preds = %7168
-  %7171 = icmp ult i8 %7157, 91
+  %7171 = icmp samesign ult i8 %7157, 91
   br i1 %7171, label %.loopexit17676, label %7172
 
 7172:                                             ; preds = %7170
@@ -17704,7 +17704,7 @@ timelib_eat_spaces.exit17435:                     ; preds = %5295, %5298, %5302,
   br i1 %7184, label %7185, label %7191
 
 7185:                                             ; preds = %7181
-  %7186 = icmp ult i8 %7183, 45
+  %7186 = icmp samesign ult i8 %7183, 45
   br i1 %7186, label %7187, label %7189
 
 7187:                                             ; preds = %7185
@@ -17741,11 +17741,11 @@ timelib_eat_spaces.exit17435:                     ; preds = %5295, %5298, %5302,
   br i1 %7202, label %7203, label %7215
 
 7203:                                             ; preds = %7199
-  %7204 = icmp ult i8 %7201, 41
+  %7204 = icmp samesign ult i8 %7201, 41
   br i1 %7204, label %7205, label %7210
 
 7205:                                             ; preds = %7203
-  %7206 = icmp ult i8 %7201, 10
+  %7206 = icmp samesign ult i8 %7201, 10
   br i1 %7206, label %7207, label %7208
 
 7207:                                             ; preds = %7205
@@ -17757,7 +17757,7 @@ timelib_eat_spaces.exit17435:                     ; preds = %5295, %5298, %5302,
   br i1 %7209, label %.preheader17640, label %.loopexit17692
 
 7210:                                             ; preds = %7203
-  %7211 = icmp ult i8 %7201, 45
+  %7211 = icmp samesign ult i8 %7201, 45
   br i1 %7211, label %7212, label %7214
 
 7212:                                             ; preds = %7210
@@ -17775,11 +17775,11 @@ timelib_eat_spaces.exit17435:                     ; preds = %5295, %5298, %5302,
   br i1 %7216, label %7217, label %7223
 
 7217:                                             ; preds = %7215
-  %7218 = icmp ult i8 %7201, 65
+  %7218 = icmp samesign ult i8 %7201, 65
   br i1 %7218, label %7219, label %7221
 
 7219:                                             ; preds = %7217
-  %7220 = icmp ult i8 %7201, 58
+  %7220 = icmp samesign ult i8 %7201, 58
   br i1 %7220, label %.preheader17640, label %.loopexit17692
 
 7221:                                             ; preds = %7217
@@ -17791,7 +17791,7 @@ timelib_eat_spaces.exit17435:                     ; preds = %5295, %5298, %5302,
   br i1 %7224, label %7225, label %7227
 
 7225:                                             ; preds = %7223
-  %7226 = icmp ult i8 %7201, 97
+  %7226 = icmp samesign ult i8 %7201, 97
   br i1 %7226, label %.loopexit17692, label %.loopexit17676
 
 7227:                                             ; preds = %7223
@@ -17810,11 +17810,11 @@ timelib_eat_spaces.exit17435:                     ; preds = %5295, %5298, %5302,
   br i1 %7234, label %7235, label %7247
 
 7235:                                             ; preds = %7231
-  %7236 = icmp ult i8 %7233, 41
+  %7236 = icmp samesign ult i8 %7233, 41
   br i1 %7236, label %7237, label %7242
 
 7237:                                             ; preds = %7235
-  %7238 = icmp ult i8 %7233, 10
+  %7238 = icmp samesign ult i8 %7233, 10
   br i1 %7238, label %7239, label %7240
 
 7239:                                             ; preds = %7237
@@ -17826,7 +17826,7 @@ timelib_eat_spaces.exit17435:                     ; preds = %5295, %5298, %5302,
   br i1 %7241, label %.preheader17640, label %.loopexit17692
 
 7242:                                             ; preds = %7235
-  %7243 = icmp ult i8 %7233, 46
+  %7243 = icmp samesign ult i8 %7233, 46
   br i1 %7243, label %7244, label %7245
 
 7244:                                             ; preds = %7242
@@ -17844,11 +17844,11 @@ timelib_eat_spaces.exit17435:                     ; preds = %5295, %5298, %5302,
   br i1 %7248, label %7249, label %7257
 
 7249:                                             ; preds = %7247
-  %7250 = icmp ult i8 %7233, 79
+  %7250 = icmp samesign ult i8 %7233, 79
   br i1 %7250, label %7251, label %7253
 
 7251:                                             ; preds = %7249
-  %7252 = icmp ult i8 %7233, 65
+  %7252 = icmp samesign ult i8 %7233, 65
   br i1 %7252, label %.loopexit17692, label %.loopexit17676
 
 7253:                                             ; preds = %7249
@@ -17856,7 +17856,7 @@ timelib_eat_spaces.exit17435:                     ; preds = %5295, %5298, %5302,
   br i1 %7254, label %10076, label %7255
 
 7255:                                             ; preds = %7253
-  %7256 = icmp ult i8 %7233, 91
+  %7256 = icmp samesign ult i8 %7233, 91
   br i1 %7256, label %.loopexit17676, label %.loopexit17692
 
 7257:                                             ; preds = %7247
@@ -17868,7 +17868,7 @@ timelib_eat_spaces.exit17435:                     ; preds = %5295, %5298, %5302,
   br i1 %7260, label %5862, label %7261
 
 7261:                                             ; preds = %7259
-  %7262 = icmp ult i8 %7233, 97
+  %7262 = icmp samesign ult i8 %7233, 97
   br i1 %7262, label %.loopexit17692, label %9121
 
 7263:                                             ; preds = %7257
@@ -17886,7 +17886,7 @@ timelib_eat_spaces.exit17435:                     ; preds = %5295, %5298, %5302,
   br i1 %7270, label %7271, label %7278
 
 7271:                                             ; preds = %7267
-  %7272 = icmp ult i8 %7269, 42
+  %7272 = icmp samesign ult i8 %7269, 42
   br i1 %7272, label %7273, label %7275
 
 7273:                                             ; preds = %7271
@@ -17895,7 +17895,7 @@ timelib_eat_spaces.exit17435:                     ; preds = %5295, %5298, %5302,
   br i1 %.not16473, label %.loopexit17671, label %.loopexit17669
 
 7275:                                             ; preds = %7271
-  %7276 = icmp ult i8 %7269, 65
+  %7276 = icmp samesign ult i8 %7269, 65
   br i1 %7276, label %.loopexit17669.loopexit.split.loop.exit39782, label %7277
 
 7277:                                             ; preds = %7275
@@ -17929,7 +17929,7 @@ timelib_eat_spaces.exit17435:                     ; preds = %5295, %5298, %5302,
   br i1 %7291, label %7292, label %7299
 
 7292:                                             ; preds = %7288
-  %7293 = icmp ult i8 %7290, 46
+  %7293 = icmp samesign ult i8 %7290, 46
   br i1 %7293, label %7294, label %7295
 
 7294:                                             ; preds = %7292
@@ -17943,7 +17943,7 @@ timelib_eat_spaces.exit17435:                     ; preds = %5295, %5298, %5302,
   br i1 %7296, label %5862, label %7297
 
 7297:                                             ; preds = %7295
-  %7298 = icmp ult i8 %7290, 65
+  %7298 = icmp samesign ult i8 %7290, 65
   br i1 %7298, label %.loopexit17669, label %.loopexit17676
 
 7299:                                             ; preds = %7288
@@ -17955,7 +17955,7 @@ timelib_eat_spaces.exit17435:                     ; preds = %5295, %5298, %5302,
   br i1 %7302, label %10121, label %7303
 
 7303:                                             ; preds = %7301
-  %7304 = icmp ult i8 %7290, 91
+  %7304 = icmp samesign ult i8 %7290, 91
   br i1 %7304, label %.loopexit17676, label %7305
 
 7305:                                             ; preds = %7303
@@ -17985,7 +17985,7 @@ timelib_eat_spaces.exit17435:                     ; preds = %5295, %5298, %5302,
   br i1 %7317, label %7318, label %7325
 
 7318:                                             ; preds = %7314
-  %7319 = icmp ult i8 %7316, 42
+  %7319 = icmp samesign ult i8 %7316, 42
   br i1 %7319, label %7320, label %7322
 
 7320:                                             ; preds = %7318
@@ -17994,7 +17994,7 @@ timelib_eat_spaces.exit17435:                     ; preds = %5295, %5298, %5302,
   br i1 %.not16453, label %.loopexit17671, label %.loopexit17679
 
 7322:                                             ; preds = %7318
-  %7323 = icmp ult i8 %7316, 65
+  %7323 = icmp samesign ult i8 %7316, 65
   br i1 %7323, label %.loopexit17679.loopexit.split.loop.exit, label %7324
 
 7324:                                             ; preds = %7322
@@ -18027,7 +18027,7 @@ timelib_eat_spaces.exit17435:                     ; preds = %5295, %5298, %5302,
   br i1 %7338, label %7339, label %7346
 
 7339:                                             ; preds = %7335
-  %7340 = icmp ult i8 %7337, 42
+  %7340 = icmp samesign ult i8 %7337, 42
   br i1 %7340, label %7341, label %7343
 
 7341:                                             ; preds = %7339
@@ -18036,7 +18036,7 @@ timelib_eat_spaces.exit17435:                     ; preds = %5295, %5298, %5302,
   br i1 %.not16446, label %.loopexit17671, label %.loopexit17669
 
 7343:                                             ; preds = %7339
-  %7344 = icmp ult i8 %7337, 65
+  %7344 = icmp samesign ult i8 %7337, 65
   br i1 %7344, label %.loopexit17669.loopexit.split.loop.exit39784, label %7345
 
 7345:                                             ; preds = %7343
@@ -18070,11 +18070,11 @@ timelib_eat_spaces.exit17435:                     ; preds = %5295, %5298, %5302,
   br i1 %7359, label %7360, label %7372
 
 7360:                                             ; preds = %7356
-  %7361 = icmp ult i8 %7358, 41
+  %7361 = icmp samesign ult i8 %7358, 41
   br i1 %7361, label %7362, label %7367
 
 7362:                                             ; preds = %7360
-  %7363 = icmp ult i8 %7358, 10
+  %7363 = icmp samesign ult i8 %7358, 10
   br i1 %7363, label %7364, label %7365
 
 7364:                                             ; preds = %7362
@@ -18086,7 +18086,7 @@ timelib_eat_spaces.exit17435:                     ; preds = %5295, %5298, %5302,
   br i1 %7366, label %.preheader17640, label %.loopexit17692
 
 7367:                                             ; preds = %7360
-  %7368 = icmp ult i8 %7358, 45
+  %7368 = icmp samesign ult i8 %7358, 45
   br i1 %7368, label %7369, label %7371
 
 7369:                                             ; preds = %7367
@@ -18104,11 +18104,11 @@ timelib_eat_spaces.exit17435:                     ; preds = %5295, %5298, %5302,
   br i1 %7373, label %7374, label %7380
 
 7374:                                             ; preds = %7372
-  %7375 = icmp ult i8 %7358, 65
+  %7375 = icmp samesign ult i8 %7358, 65
   br i1 %7375, label %7376, label %7378
 
 7376:                                             ; preds = %7374
-  %7377 = icmp ult i8 %7358, 58
+  %7377 = icmp samesign ult i8 %7358, 58
   br i1 %7377, label %.preheader17640, label %.loopexit17692
 
 7378:                                             ; preds = %7374
@@ -18120,7 +18120,7 @@ timelib_eat_spaces.exit17435:                     ; preds = %5295, %5298, %5302,
   br i1 %7381, label %7382, label %7384
 
 7382:                                             ; preds = %7380
-  %7383 = icmp ult i8 %7358, 97
+  %7383 = icmp samesign ult i8 %7358, 97
   br i1 %7383, label %.loopexit17692, label %.loopexit17676
 
 7384:                                             ; preds = %7380
@@ -18138,7 +18138,7 @@ timelib_eat_spaces.exit17435:                     ; preds = %5295, %5298, %5302,
   br i1 %7391, label %7392, label %7399
 
 7392:                                             ; preds = %7388
-  %7393 = icmp ult i8 %7390, 42
+  %7393 = icmp samesign ult i8 %7390, 42
   br i1 %7393, label %7394, label %7396
 
 7394:                                             ; preds = %7392
@@ -18147,7 +18147,7 @@ timelib_eat_spaces.exit17435:                     ; preds = %5295, %5298, %5302,
   br i1 %.not16434, label %.loopexit17671, label %.loopexit17669
 
 7396:                                             ; preds = %7392
-  %7397 = icmp ult i8 %7390, 65
+  %7397 = icmp samesign ult i8 %7390, 65
   br i1 %7397, label %.loopexit17669.loopexit.split.loop.exit39786, label %7398
 
 7398:                                             ; preds = %7396
@@ -18181,7 +18181,7 @@ timelib_eat_spaces.exit17435:                     ; preds = %5295, %5298, %5302,
   br i1 %7412, label %7413, label %7420
 
 7413:                                             ; preds = %7409
-  %7414 = icmp ult i8 %7411, 46
+  %7414 = icmp samesign ult i8 %7411, 46
   br i1 %7414, label %7415, label %7416
 
 7415:                                             ; preds = %7413
@@ -18195,7 +18195,7 @@ timelib_eat_spaces.exit17435:                     ; preds = %5295, %5298, %5302,
   br i1 %7417, label %5862, label %7418
 
 7418:                                             ; preds = %7416
-  %7419 = icmp ult i8 %7411, 65
+  %7419 = icmp samesign ult i8 %7411, 65
   br i1 %7419, label %.loopexit17679, label %.loopexit17676
 
 7420:                                             ; preds = %7409
@@ -18207,7 +18207,7 @@ timelib_eat_spaces.exit17435:                     ; preds = %5295, %5298, %5302,
   br i1 %7423, label %10168, label %7424
 
 7424:                                             ; preds = %7422
-  %7425 = icmp ult i8 %7411, 91
+  %7425 = icmp samesign ult i8 %7411, 91
   br i1 %7425, label %.loopexit17676, label %7426
 
 7426:                                             ; preds = %7424
@@ -18238,7 +18238,7 @@ timelib_eat_spaces.exit17435:                     ; preds = %5295, %5298, %5302,
   br i1 %7438, label %7439, label %7446
 
 7439:                                             ; preds = %7435
-  %7440 = icmp ult i8 %7437, 46
+  %7440 = icmp samesign ult i8 %7437, 46
   br i1 %7440, label %7441, label %7442
 
 7441:                                             ; preds = %7439
@@ -18252,7 +18252,7 @@ timelib_eat_spaces.exit17435:                     ; preds = %5295, %5298, %5302,
   br i1 %7443, label %5862, label %7444
 
 7444:                                             ; preds = %7442
-  %7445 = icmp ult i8 %7437, 65
+  %7445 = icmp samesign ult i8 %7437, 65
   br i1 %7445, label %.loopexit17669, label %.loopexit17676
 
 7446:                                             ; preds = %7435
@@ -18264,7 +18264,7 @@ timelib_eat_spaces.exit17435:                     ; preds = %5295, %5298, %5302,
   br i1 %7449, label %10189, label %7450
 
 7450:                                             ; preds = %7448
-  %7451 = icmp ult i8 %7437, 91
+  %7451 = icmp samesign ult i8 %7437, 91
   br i1 %7451, label %.loopexit17676, label %7452
 
 7452:                                             ; preds = %7450
@@ -18295,11 +18295,11 @@ timelib_eat_spaces.exit17435:                     ; preds = %5295, %5298, %5302,
   br i1 %7464, label %7465, label %7477
 
 7465:                                             ; preds = %7461
-  %7466 = icmp ult i8 %7463, 41
+  %7466 = icmp samesign ult i8 %7463, 41
   br i1 %7466, label %7467, label %7472
 
 7467:                                             ; preds = %7465
-  %7468 = icmp ult i8 %7463, 10
+  %7468 = icmp samesign ult i8 %7463, 10
   br i1 %7468, label %7469, label %7470
 
 7469:                                             ; preds = %7467
@@ -18311,7 +18311,7 @@ timelib_eat_spaces.exit17435:                     ; preds = %5295, %5298, %5302,
   br i1 %7471, label %.preheader17640, label %.loopexit17692
 
 7472:                                             ; preds = %7465
-  %7473 = icmp ult i8 %7463, 46
+  %7473 = icmp samesign ult i8 %7463, 46
   br i1 %7473, label %7474, label %7475
 
 7474:                                             ; preds = %7472
@@ -18329,11 +18329,11 @@ timelib_eat_spaces.exit17435:                     ; preds = %5295, %5298, %5302,
   br i1 %7478, label %7479, label %7487
 
 7479:                                             ; preds = %7477
-  %7480 = icmp ult i8 %7463, 84
+  %7480 = icmp samesign ult i8 %7463, 84
   br i1 %7480, label %7481, label %7483
 
 7481:                                             ; preds = %7479
-  %7482 = icmp ult i8 %7463, 65
+  %7482 = icmp samesign ult i8 %7463, 65
   br i1 %7482, label %.loopexit17692, label %.loopexit17676
 
 7483:                                             ; preds = %7479
@@ -18341,7 +18341,7 @@ timelib_eat_spaces.exit17435:                     ; preds = %5295, %5298, %5302,
   br i1 %7484, label %10210, label %7485
 
 7485:                                             ; preds = %7483
-  %7486 = icmp ult i8 %7463, 91
+  %7486 = icmp samesign ult i8 %7463, 91
   br i1 %7486, label %.loopexit17676, label %.loopexit17692
 
 7487:                                             ; preds = %7477
@@ -18353,7 +18353,7 @@ timelib_eat_spaces.exit17435:                     ; preds = %5295, %5298, %5302,
   br i1 %7490, label %5862, label %7491
 
 7491:                                             ; preds = %7489
-  %7492 = icmp ult i8 %7463, 97
+  %7492 = icmp samesign ult i8 %7463, 97
   br i1 %7492, label %.loopexit17692, label %9121
 
 7493:                                             ; preds = %7487
@@ -18372,7 +18372,7 @@ timelib_eat_spaces.exit17435:                     ; preds = %5295, %5298, %5302,
   br i1 %7500, label %7501, label %7508
 
 7501:                                             ; preds = %7497
-  %7502 = icmp ult i8 %7499, 46
+  %7502 = icmp samesign ult i8 %7499, 46
   br i1 %7502, label %7503, label %7504
 
 7503:                                             ; preds = %7501
@@ -18386,7 +18386,7 @@ timelib_eat_spaces.exit17435:                     ; preds = %5295, %5298, %5302,
   br i1 %7505, label %5862, label %7506
 
 7506:                                             ; preds = %7504
-  %7507 = icmp ult i8 %7499, 65
+  %7507 = icmp samesign ult i8 %7499, 65
   br i1 %7507, label %.loopexit17669, label %.loopexit17676
 
 7508:                                             ; preds = %7497
@@ -18398,7 +18398,7 @@ timelib_eat_spaces.exit17435:                     ; preds = %5295, %5298, %5302,
   br i1 %7511, label %10242, label %7512
 
 7512:                                             ; preds = %7510
-  %7513 = icmp ult i8 %7499, 91
+  %7513 = icmp samesign ult i8 %7499, 91
   br i1 %7513, label %.loopexit17676, label %7514
 
 7514:                                             ; preds = %7512
@@ -18447,7 +18447,7 @@ timelib_eat_spaces.exit17435:                     ; preds = %5295, %5298, %5302,
   br i1 %7536, label %7537, label %7545
 
 7537:                                             ; preds = %7533
-  %7538 = icmp ult i8 %7535, 65
+  %7538 = icmp samesign ult i8 %7535, 65
   br i1 %7538, label %7539, label %7542
 
 7539:                                             ; preds = %7537
@@ -18456,7 +18456,7 @@ timelib_eat_spaces.exit17435:                     ; preds = %5295, %5298, %5302,
   br i1 %7541, label %.loopexit17671, label %.loopexit17669
 
 7542:                                             ; preds = %7537
-  %7543 = icmp ult i8 %7535, 82
+  %7543 = icmp samesign ult i8 %7535, 82
   br i1 %7543, label %.loopexit17676.loopexit.split.loop.exit42381, label %7544
 
 7544:                                             ; preds = %7542
@@ -18493,7 +18493,7 @@ timelib_eat_spaces.exit17435:                     ; preds = %5295, %5298, %5302,
   br i1 %7560, label %7561, label %7568
 
 7561:                                             ; preds = %7557
-  %7562 = icmp ult i8 %7559, 42
+  %7562 = icmp samesign ult i8 %7559, 42
   br i1 %7562, label %7563, label %7565
 
 7563:                                             ; preds = %7561
@@ -18502,7 +18502,7 @@ timelib_eat_spaces.exit17435:                     ; preds = %5295, %5298, %5302,
   br i1 %.not16388, label %.loopexit17671, label %.loopexit17679
 
 7565:                                             ; preds = %7561
-  %7566 = icmp ult i8 %7559, 65
+  %7566 = icmp samesign ult i8 %7559, 65
   br i1 %7566, label %.loopexit17679.loopexit.split.loop.exit42489, label %7567
 
 7567:                                             ; preds = %7565
@@ -18545,7 +18545,7 @@ timelib_eat_spaces.exit17435:                     ; preds = %5295, %5298, %5302,
   br i1 %7583, label %7584, label %7586
 
 7584:                                             ; preds = %7582
-  %7585 = icmp ult i8 %7579, 91
+  %7585 = icmp samesign ult i8 %7579, 91
   br i1 %7585, label %.loopexit17676, label %.loopexit17669
 
 7586:                                             ; preds = %7582
@@ -18563,7 +18563,7 @@ timelib_eat_spaces.exit17435:                     ; preds = %5295, %5298, %5302,
   br i1 %7593, label %7594, label %7601
 
 7594:                                             ; preds = %7590
-  %7595 = icmp ult i8 %7592, 42
+  %7595 = icmp samesign ult i8 %7592, 42
   br i1 %7595, label %7596, label %7598
 
 7596:                                             ; preds = %7594
@@ -18572,7 +18572,7 @@ timelib_eat_spaces.exit17435:                     ; preds = %5295, %5298, %5302,
   br i1 %.not16379, label %.loopexit17671, label %.loopexit17669
 
 7598:                                             ; preds = %7594
-  %7599 = icmp ult i8 %7592, 65
+  %7599 = icmp samesign ult i8 %7592, 65
   br i1 %7599, label %.loopexit17669.loopexit.split.loop.exit39788, label %7600
 
 7600:                                             ; preds = %7598
@@ -18605,7 +18605,7 @@ timelib_eat_spaces.exit17435:                     ; preds = %5295, %5298, %5302,
   br i1 %7613, label %7614, label %7620
 
 7614:                                             ; preds = %.loopexit17684
-  %7615 = icmp ult i8 %7612, 42
+  %7615 = icmp samesign ult i8 %7612, 42
   br i1 %7615, label %7616, label %7617
 
 7616:                                             ; preds = %7614
@@ -18613,7 +18613,7 @@ timelib_eat_spaces.exit17435:                     ; preds = %5295, %5298, %5302,
   br i1 %.not16370, label %.loopexit17671, label %.loopexit17679
 
 7617:                                             ; preds = %7614
-  %7618 = icmp ult i8 %7612, 65
+  %7618 = icmp samesign ult i8 %7612, 65
   br i1 %7618, label %.loopexit17679, label %7619
 
 7619:                                             ; preds = %7617
@@ -18644,7 +18644,7 @@ timelib_eat_spaces.exit17435:                     ; preds = %5295, %5298, %5302,
   br i1 %7631, label %7632, label %7639
 
 7632:                                             ; preds = %7628
-  %7633 = icmp ult i8 %7630, 42
+  %7633 = icmp samesign ult i8 %7630, 42
   br i1 %7633, label %7634, label %7636
 
 7634:                                             ; preds = %7632
@@ -18653,7 +18653,7 @@ timelib_eat_spaces.exit17435:                     ; preds = %5295, %5298, %5302,
   br i1 %.not16363, label %.loopexit17671, label %.loopexit17669
 
 7636:                                             ; preds = %7632
-  %7637 = icmp ult i8 %7630, 65
+  %7637 = icmp samesign ult i8 %7630, 65
   br i1 %7637, label %.loopexit17669.loopexit.split.loop.exit39790, label %7638
 
 7638:                                             ; preds = %7636
@@ -18687,7 +18687,7 @@ timelib_eat_spaces.exit17435:                     ; preds = %5295, %5298, %5302,
   br i1 %7652, label %7653, label %7663
 
 7653:                                             ; preds = %7649
-  %7654 = icmp ult i8 %7651, 46
+  %7654 = icmp samesign ult i8 %7651, 46
   br i1 %7654, label %7655, label %7656
 
 7655:                                             ; preds = %7653
@@ -18697,7 +18697,7 @@ timelib_eat_spaces.exit17435:                     ; preds = %5295, %5298, %5302,
   ]
 
 7656:                                             ; preds = %7653
-  %7657 = icmp ult i8 %7651, 48
+  %7657 = icmp samesign ult i8 %7651, 48
   br i1 %7657, label %7658, label %7660
 
 7658:                                             ; preds = %7656
@@ -18705,7 +18705,7 @@ timelib_eat_spaces.exit17435:                     ; preds = %5295, %5298, %5302,
   br i1 %7659, label %.loopexit17669, label %5862
 
 7660:                                             ; preds = %7656
-  %7661 = icmp ult i8 %7651, 65
+  %7661 = icmp samesign ult i8 %7651, 65
   br i1 %7661, label %.loopexit17669, label %7662
 
 7662:                                             ; preds = %7660
@@ -18717,7 +18717,7 @@ timelib_eat_spaces.exit17435:                     ; preds = %5295, %5298, %5302,
   br i1 %7664, label %7665, label %7671
 
 7665:                                             ; preds = %7663
-  %7666 = icmp ult i8 %7651, 91
+  %7666 = icmp samesign ult i8 %7651, 91
   br i1 %7666, label %7667, label %7669
 
 7667:                                             ; preds = %7665
@@ -18752,7 +18752,7 @@ timelib_eat_spaces.exit17435:                     ; preds = %5295, %5298, %5302,
   br i1 %7681, label %7682, label %7689
 
 7682:                                             ; preds = %7678
-  %7683 = icmp ult i8 %7680, 46
+  %7683 = icmp samesign ult i8 %7680, 46
   br i1 %7683, label %7684, label %7685
 
 7684:                                             ; preds = %7682
@@ -18766,7 +18766,7 @@ timelib_eat_spaces.exit17435:                     ; preds = %5295, %5298, %5302,
   br i1 %7686, label %5862, label %7687
 
 7687:                                             ; preds = %7685
-  %7688 = icmp ult i8 %7680, 65
+  %7688 = icmp samesign ult i8 %7680, 65
   br i1 %7688, label %.loopexit17679, label %.loopexit17676
 
 7689:                                             ; preds = %7678
@@ -18778,7 +18778,7 @@ timelib_eat_spaces.exit17435:                     ; preds = %5295, %5298, %5302,
   br i1 %7692, label %10402, label %7693
 
 7693:                                             ; preds = %7691
-  %7694 = icmp ult i8 %7680, 91
+  %7694 = icmp samesign ult i8 %7680, 91
   br i1 %7694, label %.loopexit17676, label %7695
 
 7695:                                             ; preds = %7693
@@ -18809,7 +18809,7 @@ timelib_eat_spaces.exit17435:                     ; preds = %5295, %5298, %5302,
   br i1 %7707, label %7708, label %7715
 
 7708:                                             ; preds = %7704
-  %7709 = icmp ult i8 %7706, 45
+  %7709 = icmp samesign ult i8 %7706, 45
   br i1 %7709, label %7710, label %7712
 
 7710:                                             ; preds = %7708
@@ -18818,7 +18818,7 @@ timelib_eat_spaces.exit17435:                     ; preds = %5295, %5298, %5302,
 
 7712:                                             ; preds = %7708
   %7713 = icmp ne i8 %7706, 46
-  %7714 = icmp ult i8 %7706, 48
+  %7714 = icmp samesign ult i8 %7706, 48
   %or.cond569 = and i1 %7713, %7714
   br i1 %or.cond569, label %5862, label %.loopexit17669
 
@@ -18831,7 +18831,7 @@ timelib_eat_spaces.exit17435:                     ; preds = %5295, %5298, %5302,
   br i1 %7718, label %.loopexit17688, label %7719
 
 7719:                                             ; preds = %7717
-  %7720 = icmp ult i8 %7706, 91
+  %7720 = icmp samesign ult i8 %7706, 91
   br i1 %7720, label %.loopexit17676, label %7721
 
 7721:                                             ; preds = %7719
@@ -18858,7 +18858,7 @@ timelib_eat_spaces.exit17435:                     ; preds = %5295, %5298, %5302,
   br i1 %7731, label %7732, label %7739
 
 7732:                                             ; preds = %7728
-  %7733 = icmp ult i8 %7730, 46
+  %7733 = icmp samesign ult i8 %7730, 46
   br i1 %7733, label %7734, label %7735
 
 7734:                                             ; preds = %7732
@@ -18872,7 +18872,7 @@ timelib_eat_spaces.exit17435:                     ; preds = %5295, %5298, %5302,
   br i1 %7736, label %5862, label %7737
 
 7737:                                             ; preds = %7735
-  %7738 = icmp ult i8 %7730, 65
+  %7738 = icmp samesign ult i8 %7730, 65
   br i1 %7738, label %.loopexit17669, label %.loopexit17676
 
 7739:                                             ; preds = %7728
@@ -18884,7 +18884,7 @@ timelib_eat_spaces.exit17435:                     ; preds = %5295, %5298, %5302,
   br i1 %7742, label %10441, label %7743
 
 7743:                                             ; preds = %7741
-  %7744 = icmp ult i8 %7730, 91
+  %7744 = icmp samesign ult i8 %7730, 91
   br i1 %7744, label %.loopexit17676, label %7745
 
 7745:                                             ; preds = %7743
@@ -18915,7 +18915,7 @@ timelib_eat_spaces.exit17435:                     ; preds = %5295, %5298, %5302,
   br i1 %7757, label %7758, label %7765
 
 7758:                                             ; preds = %7754
-  %7759 = icmp ult i8 %7756, 46
+  %7759 = icmp samesign ult i8 %7756, 46
   br i1 %7759, label %7760, label %7761
 
 7760:                                             ; preds = %7758
@@ -18929,7 +18929,7 @@ timelib_eat_spaces.exit17435:                     ; preds = %5295, %5298, %5302,
   br i1 %7762, label %5862, label %7763
 
 7763:                                             ; preds = %7761
-  %7764 = icmp ult i8 %7756, 65
+  %7764 = icmp samesign ult i8 %7756, 65
   br i1 %7764, label %.loopexit17679, label %.loopexit17676
 
 7765:                                             ; preds = %7754
@@ -18941,7 +18941,7 @@ timelib_eat_spaces.exit17435:                     ; preds = %5295, %5298, %5302,
   br i1 %7768, label %.loopexit17678, label %7769
 
 7769:                                             ; preds = %7767
-  %7770 = icmp ult i8 %7756, 91
+  %7770 = icmp samesign ult i8 %7756, 91
   br i1 %7770, label %.loopexit17676, label %7771
 
 7771:                                             ; preds = %7769
@@ -18972,7 +18972,7 @@ timelib_eat_spaces.exit17435:                     ; preds = %5295, %5298, %5302,
   br i1 %7783, label %7784, label %7791
 
 7784:                                             ; preds = %7780
-  %7785 = icmp ult i8 %7782, 46
+  %7785 = icmp samesign ult i8 %7782, 46
   br i1 %7785, label %7786, label %7787
 
 7786:                                             ; preds = %7784
@@ -18986,7 +18986,7 @@ timelib_eat_spaces.exit17435:                     ; preds = %5295, %5298, %5302,
   br i1 %7788, label %5862, label %7789
 
 7789:                                             ; preds = %7787
-  %7790 = icmp ult i8 %7782, 65
+  %7790 = icmp samesign ult i8 %7782, 65
   br i1 %7790, label %.loopexit17669, label %.loopexit17676
 
 7791:                                             ; preds = %7780
@@ -18998,7 +18998,7 @@ timelib_eat_spaces.exit17435:                     ; preds = %5295, %5298, %5302,
   br i1 %7794, label %10479, label %7795
 
 7795:                                             ; preds = %7793
-  %7796 = icmp ult i8 %7782, 91
+  %7796 = icmp samesign ult i8 %7782, 91
   br i1 %7796, label %.loopexit17676, label %7797
 
 7797:                                             ; preds = %7795
@@ -19029,7 +19029,7 @@ timelib_eat_spaces.exit17435:                     ; preds = %5295, %5298, %5302,
   br i1 %7809, label %7810, label %7817
 
 7810:                                             ; preds = %7806
-  %7811 = icmp ult i8 %7808, 33
+  %7811 = icmp samesign ult i8 %7808, 33
   br i1 %7811, label %7812, label %7813
 
 7812:                                             ; preds = %7810
@@ -19043,7 +19043,7 @@ timelib_eat_spaces.exit17435:                     ; preds = %5295, %5298, %5302,
   br i1 %7814, label %.loopexit17671, label %7815
 
 7815:                                             ; preds = %7813
-  %7816 = icmp ult i8 %7808, 45
+  %7816 = icmp samesign ult i8 %7808, 45
   br i1 %7816, label %.loopexit17669, label %.preheader17640
 
 7817:                                             ; preds = %7806
@@ -19055,11 +19055,11 @@ timelib_eat_spaces.exit17435:                     ; preds = %5295, %5298, %5302,
   br i1 %7820, label %.loopexit17669, label %7821
 
 7821:                                             ; preds = %7819
-  %7822 = icmp ult i8 %7808, 58
+  %7822 = icmp samesign ult i8 %7808, 58
   br i1 %7822, label %.preheader17640, label %7823
 
 7823:                                             ; preds = %7821
-  %7824 = icmp ult i8 %7808, 65
+  %7824 = icmp samesign ult i8 %7808, 65
   br i1 %7824, label %.loopexit17669, label %.loopexit17676
 
 7825:                                             ; preds = %7817
@@ -19082,7 +19082,7 @@ timelib_eat_spaces.exit17435:                     ; preds = %5295, %5298, %5302,
   br i1 %7834, label %7835, label %7842
 
 7835:                                             ; preds = %7831
-  %7836 = icmp ult i8 %7833, 42
+  %7836 = icmp samesign ult i8 %7833, 42
   br i1 %7836, label %7837, label %7839
 
 7837:                                             ; preds = %7835
@@ -19091,7 +19091,7 @@ timelib_eat_spaces.exit17435:                     ; preds = %5295, %5298, %5302,
   br i1 %.not16322, label %.loopexit17671, label %.loopexit17679
 
 7839:                                             ; preds = %7835
-  %7840 = icmp ult i8 %7833, 65
+  %7840 = icmp samesign ult i8 %7833, 65
   br i1 %7840, label %.loopexit17679.loopexit.split.loop.exit42491, label %7841
 
 7841:                                             ; preds = %7839
@@ -19124,7 +19124,7 @@ timelib_eat_spaces.exit17435:                     ; preds = %5295, %5298, %5302,
   br i1 %7854, label %7855, label %7861
 
 7855:                                             ; preds = %.loopexit17680
-  %7856 = icmp ult i8 %7853, 42
+  %7856 = icmp samesign ult i8 %7853, 42
   br i1 %7856, label %7857, label %7858
 
 7857:                                             ; preds = %7855
@@ -19132,7 +19132,7 @@ timelib_eat_spaces.exit17435:                     ; preds = %5295, %5298, %5302,
   br i1 %.not16316, label %.loopexit17671, label %.loopexit17669
 
 7858:                                             ; preds = %7855
-  %7859 = icmp ult i8 %7853, 65
+  %7859 = icmp samesign ult i8 %7853, 65
   br i1 %7859, label %.loopexit17669, label %7860
 
 7860:                                             ; preds = %7858
@@ -19164,7 +19164,7 @@ timelib_eat_spaces.exit17435:                     ; preds = %5295, %5298, %5302,
   br i1 %7872, label %7873, label %7880
 
 7873:                                             ; preds = %7869
-  %7874 = icmp ult i8 %7871, 46
+  %7874 = icmp samesign ult i8 %7871, 46
   br i1 %7874, label %7875, label %7876
 
 7875:                                             ; preds = %7873
@@ -19178,7 +19178,7 @@ timelib_eat_spaces.exit17435:                     ; preds = %5295, %5298, %5302,
   br i1 %7877, label %5862, label %7878
 
 7878:                                             ; preds = %7876
-  %7879 = icmp ult i8 %7871, 65
+  %7879 = icmp samesign ult i8 %7871, 65
   br i1 %7879, label %.loopexit17679, label %.loopexit17676
 
 7880:                                             ; preds = %7869
@@ -19190,7 +19190,7 @@ timelib_eat_spaces.exit17435:                     ; preds = %5295, %5298, %5302,
   br i1 %7883, label %10673, label %7884
 
 7884:                                             ; preds = %7882
-  %7885 = icmp ult i8 %7871, 91
+  %7885 = icmp samesign ult i8 %7871, 91
   br i1 %7885, label %.loopexit17676, label %7886
 
 7886:                                             ; preds = %7884
@@ -19221,7 +19221,7 @@ timelib_eat_spaces.exit17435:                     ; preds = %5295, %5298, %5302,
   br i1 %7898, label %7899, label %7906
 
 7899:                                             ; preds = %7895
-  %7900 = icmp ult i8 %7897, 46
+  %7900 = icmp samesign ult i8 %7897, 46
   br i1 %7900, label %7901, label %7902
 
 7901:                                             ; preds = %7899
@@ -19235,7 +19235,7 @@ timelib_eat_spaces.exit17435:                     ; preds = %5295, %5298, %5302,
   br i1 %7903, label %5862, label %7904
 
 7904:                                             ; preds = %7902
-  %7905 = icmp ult i8 %7897, 65
+  %7905 = icmp samesign ult i8 %7897, 65
   br i1 %7905, label %.loopexit17669, label %.loopexit17676
 
 7906:                                             ; preds = %7895
@@ -19247,7 +19247,7 @@ timelib_eat_spaces.exit17435:                     ; preds = %5295, %5298, %5302,
   br i1 %7909, label %.loopexit17678, label %7910
 
 7910:                                             ; preds = %7908
-  %7911 = icmp ult i8 %7897, 91
+  %7911 = icmp samesign ult i8 %7897, 91
   br i1 %7911, label %.loopexit17676, label %7912
 
 7912:                                             ; preds = %7910
@@ -19277,7 +19277,7 @@ timelib_eat_spaces.exit17435:                     ; preds = %5295, %5298, %5302,
   br i1 %7924, label %7925, label %7932
 
 7925:                                             ; preds = %7921
-  %7926 = icmp ult i8 %7923, 42
+  %7926 = icmp samesign ult i8 %7923, 42
   br i1 %7926, label %7927, label %7929
 
 7927:                                             ; preds = %7925
@@ -19286,7 +19286,7 @@ timelib_eat_spaces.exit17435:                     ; preds = %5295, %5298, %5302,
   br i1 %.not16299, label %.loopexit17671, label %.loopexit17669
 
 7929:                                             ; preds = %7925
-  %7930 = icmp ult i8 %7923, 65
+  %7930 = icmp samesign ult i8 %7923, 65
   br i1 %7930, label %.loopexit17669.loopexit.split.loop.exit39792, label %7931
 
 7931:                                             ; preds = %7929
@@ -19320,7 +19320,7 @@ timelib_eat_spaces.exit17435:                     ; preds = %5295, %5298, %5302,
   br i1 %7945, label %7946, label %7953
 
 7946:                                             ; preds = %7942
-  %7947 = icmp ult i8 %7944, 46
+  %7947 = icmp samesign ult i8 %7944, 46
   br i1 %7947, label %7948, label %7949
 
 7948:                                             ; preds = %7946
@@ -19334,7 +19334,7 @@ timelib_eat_spaces.exit17435:                     ; preds = %5295, %5298, %5302,
   br i1 %7950, label %5862, label %7951
 
 7951:                                             ; preds = %7949
-  %7952 = icmp ult i8 %7944, 65
+  %7952 = icmp samesign ult i8 %7944, 65
   br i1 %7952, label %.loopexit17669, label %.loopexit17676
 
 7953:                                             ; preds = %7942
@@ -19346,7 +19346,7 @@ timelib_eat_spaces.exit17435:                     ; preds = %5295, %5298, %5302,
   br i1 %7956, label %10720, label %7957
 
 7957:                                             ; preds = %7955
-  %7958 = icmp ult i8 %7944, 91
+  %7958 = icmp samesign ult i8 %7944, 91
   br i1 %7958, label %.loopexit17676, label %7959
 
 7959:                                             ; preds = %7957
@@ -19422,11 +19422,11 @@ timelib_eat_spaces.exit17435:                     ; preds = %5295, %5298, %5302,
   br i1 %7992, label %7993, label %8017
 
 7993:                                             ; preds = %7989
-  %7994 = icmp ult i8 %7991, 70
+  %7994 = icmp samesign ult i8 %7991, 70
   br i1 %7994, label %7995, label %8004
 
 7995:                                             ; preds = %7993
-  %7996 = icmp ult i8 %7991, 33
+  %7996 = icmp samesign ult i8 %7991, 33
   br i1 %7996, label %7997, label %7998
 
 7997:                                             ; preds = %7995
@@ -19436,11 +19436,11 @@ timelib_eat_spaces.exit17435:                     ; preds = %5295, %5298, %5302,
   ]
 
 7998:                                             ; preds = %7995
-  %7999 = icmp ult i8 %7991, 58
+  %7999 = icmp samesign ult i8 %7991, 58
   br i1 %7999, label %8000, label %8002
 
 8000:                                             ; preds = %7998
-  %8001 = icmp ult i8 %7991, 48
+  %8001 = icmp samesign ult i8 %7991, 48
   br i1 %8001, label %.loopexit17669, label %10779
 
 8002:                                             ; preds = %7998
@@ -19448,11 +19448,11 @@ timelib_eat_spaces.exit17435:                     ; preds = %5295, %5298, %5302,
   br i1 %8003, label %4547, label %.loopexit17669
 
 8004:                                             ; preds = %7993
-  %8005 = icmp ult i8 %7991, 78
+  %8005 = icmp samesign ult i8 %7991, 78
   br i1 %8005, label %8006, label %8011
 
 8006:                                             ; preds = %8004
-  %8007 = icmp ult i8 %7991, 72
+  %8007 = icmp samesign ult i8 %7991, 72
   br i1 %8007, label %8008, label %8010
 
 8008:                                             ; preds = %8006
@@ -19466,11 +19466,11 @@ timelib_eat_spaces.exit17435:                     ; preds = %5295, %5298, %5302,
   ]
 
 8011:                                             ; preds = %8004
-  %8012 = icmp ult i8 %7991, 86
+  %8012 = icmp samesign ult i8 %7991, 86
   br i1 %8012, label %8013, label %8015
 
 8013:                                             ; preds = %8011
-  %8014 = icmp ult i8 %7991, 83
+  %8014 = icmp samesign ult i8 %7991, 83
   br i1 %8014, label %.loopexit17669, label %4547
 
 8015:                                             ; preds = %8011
@@ -19482,11 +19482,11 @@ timelib_eat_spaces.exit17435:                     ; preds = %5295, %5298, %5302,
   br i1 %8018, label %8019, label %8033
 
 8019:                                             ; preds = %8017
-  %8020 = icmp ult i8 %7991, 103
+  %8020 = icmp samesign ult i8 %7991, 103
   br i1 %8020, label %8021, label %8027
 
 8021:                                             ; preds = %8019
-  %8022 = icmp ult i8 %7991, 100
+  %8022 = icmp samesign ult i8 %7991, 100
   br i1 %8022, label %8023, label %8025
 
 8023:                                             ; preds = %8021
@@ -19498,7 +19498,7 @@ timelib_eat_spaces.exit17435:                     ; preds = %5295, %5298, %5302,
   br i1 %8026, label %.loopexit17669, label %4547
 
 8027:                                             ; preds = %8019
-  %8028 = icmp ult i8 %7991, 105
+  %8028 = icmp samesign ult i8 %7991, 105
   br i1 %8028, label %8029, label %8031
 
 8029:                                             ; preds = %8027
@@ -19514,7 +19514,7 @@ timelib_eat_spaces.exit17435:                     ; preds = %5295, %5298, %5302,
   br i1 %8034, label %8035, label %8040
 
 8035:                                             ; preds = %8033
-  %8036 = icmp ult i8 %7991, 119
+  %8036 = icmp samesign ult i8 %7991, 119
   br i1 %8036, label %8037, label %8038
 
 8037:                                             ; preds = %8035
@@ -19545,11 +19545,11 @@ timelib_eat_spaces.exit17435:                     ; preds = %5295, %5298, %5302,
   br i1 %8048, label %8049, label %8073
 
 8049:                                             ; preds = %8045
-  %8050 = icmp ult i8 %8047, 70
+  %8050 = icmp samesign ult i8 %8047, 70
   br i1 %8050, label %8051, label %8060
 
 8051:                                             ; preds = %8049
-  %8052 = icmp ult i8 %8047, 33
+  %8052 = icmp samesign ult i8 %8047, 33
   br i1 %8052, label %8053, label %8054
 
 8053:                                             ; preds = %8051
@@ -19559,11 +19559,11 @@ timelib_eat_spaces.exit17435:                     ; preds = %5295, %5298, %5302,
   ]
 
 8054:                                             ; preds = %8051
-  %8055 = icmp ult i8 %8047, 58
+  %8055 = icmp samesign ult i8 %8047, 58
   br i1 %8055, label %8056, label %8058
 
 8056:                                             ; preds = %8054
-  %8057 = icmp ult i8 %8047, 48
+  %8057 = icmp samesign ult i8 %8047, 48
   br i1 %8057, label %.loopexit17669, label %10840
 
 8058:                                             ; preds = %8054
@@ -19571,11 +19571,11 @@ timelib_eat_spaces.exit17435:                     ; preds = %5295, %5298, %5302,
   br i1 %8059, label %4547, label %.loopexit17669
 
 8060:                                             ; preds = %8049
-  %8061 = icmp ult i8 %8047, 78
+  %8061 = icmp samesign ult i8 %8047, 78
   br i1 %8061, label %8062, label %8067
 
 8062:                                             ; preds = %8060
-  %8063 = icmp ult i8 %8047, 72
+  %8063 = icmp samesign ult i8 %8047, 72
   br i1 %8063, label %8064, label %8066
 
 8064:                                             ; preds = %8062
@@ -19589,11 +19589,11 @@ timelib_eat_spaces.exit17435:                     ; preds = %5295, %5298, %5302,
   ]
 
 8067:                                             ; preds = %8060
-  %8068 = icmp ult i8 %8047, 86
+  %8068 = icmp samesign ult i8 %8047, 86
   br i1 %8068, label %8069, label %8071
 
 8069:                                             ; preds = %8067
-  %8070 = icmp ult i8 %8047, 83
+  %8070 = icmp samesign ult i8 %8047, 83
   br i1 %8070, label %.loopexit17669, label %4547
 
 8071:                                             ; preds = %8067
@@ -19605,11 +19605,11 @@ timelib_eat_spaces.exit17435:                     ; preds = %5295, %5298, %5302,
   br i1 %8074, label %8075, label %8089
 
 8075:                                             ; preds = %8073
-  %8076 = icmp ult i8 %8047, 103
+  %8076 = icmp samesign ult i8 %8047, 103
   br i1 %8076, label %8077, label %8083
 
 8077:                                             ; preds = %8075
-  %8078 = icmp ult i8 %8047, 100
+  %8078 = icmp samesign ult i8 %8047, 100
   br i1 %8078, label %8079, label %8081
 
 8079:                                             ; preds = %8077
@@ -19621,7 +19621,7 @@ timelib_eat_spaces.exit17435:                     ; preds = %5295, %5298, %5302,
   br i1 %8082, label %.loopexit17669, label %4547
 
 8083:                                             ; preds = %8075
-  %8084 = icmp ult i8 %8047, 105
+  %8084 = icmp samesign ult i8 %8047, 105
   br i1 %8084, label %8085, label %8087
 
 8085:                                             ; preds = %8083
@@ -19637,7 +19637,7 @@ timelib_eat_spaces.exit17435:                     ; preds = %5295, %5298, %5302,
   br i1 %8090, label %8091, label %8096
 
 8091:                                             ; preds = %8089
-  %8092 = icmp ult i8 %8047, 119
+  %8092 = icmp samesign ult i8 %8047, 119
   br i1 %8092, label %8093, label %8094
 
 8093:                                             ; preds = %8091
@@ -19925,7 +19925,7 @@ timelib_eat_spaces.exit17435:                     ; preds = %5295, %5298, %5302,
   br i1 %8236, label %8237, label %8240
 
 8237:                                             ; preds = %8233
-  %8238 = icmp ult i8 %8235, 45
+  %8238 = icmp samesign ult i8 %8235, 45
   br i1 %8238, label %.thread, label %8239
 
 8239:                                             ; preds = %8237
@@ -19945,7 +19945,7 @@ timelib_eat_spaces.exit17435:                     ; preds = %5295, %5298, %5302,
   br i1 %8246, label %8247, label %8250
 
 8247:                                             ; preds = %8243
-  %8248 = icmp ult i8 %8245, 45
+  %8248 = icmp samesign ult i8 %8245, 45
   br i1 %8248, label %.thread, label %8249
 
 8249:                                             ; preds = %8247
@@ -19998,15 +19998,15 @@ timelib_eat_spaces.exit17435:                     ; preds = %5295, %5298, %5302,
   br i1 %8259, label %8260, label %8292
 
 8260:                                             ; preds = %8256
-  %8261 = icmp ult i8 %8258, 54
+  %8261 = icmp samesign ult i8 %8258, 54
   br i1 %8261, label %8262, label %8280
 
 8262:                                             ; preds = %8260
-  %8263 = icmp ult i8 %8258, 46
+  %8263 = icmp samesign ult i8 %8258, 46
   br i1 %8263, label %8264, label %8269
 
 8264:                                             ; preds = %8262
-  %8265 = icmp ult i8 %8258, 32
+  %8265 = icmp samesign ult i8 %8258, 32
   br i1 %8265, label %8266, label %8268
 
 8266:                                             ; preds = %8264
@@ -20020,7 +20020,7 @@ timelib_eat_spaces.exit17435:                     ; preds = %5295, %5298, %5302,
   ]
 
 8269:                                             ; preds = %8262
-  %8270 = icmp ult i8 %8258, 49
+  %8270 = icmp samesign ult i8 %8258, 49
   br i1 %8270, label %8271, label %8272
 
 8271:                                             ; preds = %8269
@@ -20034,7 +20034,7 @@ timelib_eat_spaces.exit17435:                     ; preds = %5295, %5298, %5302,
   br i1 %8273, label %11111, label %8274
 
 8274:                                             ; preds = %8272
-  %8275 = icmp ult i8 %8258, 51
+  %8275 = icmp samesign ult i8 %8258, 51
   br i1 %8275, label %11122, label %8276
 
 8276:                                             ; preds = %8274
@@ -20044,11 +20044,11 @@ timelib_eat_spaces.exit17435:                     ; preds = %5295, %5298, %5302,
   br i1 %8277, label %11129, label %11142
 
 8280:                                             ; preds = %8260
-  %8281 = icmp ult i8 %8258, 68
+  %8281 = icmp samesign ult i8 %8258, 68
   br i1 %8281, label %8282, label %8287
 
 8282:                                             ; preds = %8280
-  %8283 = icmp ult i8 %8258, 59
+  %8283 = icmp samesign ult i8 %8258, 59
   br i1 %8283, label %8284, label %8285
 
 8284:                                             ; preds = %8282
@@ -20062,7 +20062,7 @@ timelib_eat_spaces.exit17435:                     ; preds = %5295, %5298, %5302,
   br i1 %8286, label %.lr.ph23890.preheader, label %.loopexit17691
 
 8287:                                             ; preds = %8280
-  %8288 = icmp ult i8 %8258, 71
+  %8288 = icmp samesign ult i8 %8258, 71
   br i1 %8288, label %8289, label %8290
 
 8289:                                             ; preds = %8287
@@ -20077,7 +20077,7 @@ timelib_eat_spaces.exit17435:                     ; preds = %5295, %5298, %5302,
   ]
 
 .preheader17607:                                  ; preds = %8390
-  %8291 = icmp ult i8 %8351, 88
+  %8291 = icmp samesign ult i8 %8351, 88
   br i1 %8291, label %.lr.ph23890.preheader, label %.thread34610
 
 .lr.ph23890.preheader:                            ; preds = %8266, %8268, %8285, %8289, %8300, %8359, %8361, %8379, %8381, %8290, %8376, %8376, %.preheader17607
@@ -20091,15 +20091,15 @@ timelib_eat_spaces.exit17435:                     ; preds = %5295, %5298, %5302,
   br i1 %8293, label %8294, label %8309
 
 8294:                                             ; preds = %8292
-  %8295 = icmp ult i8 %8258, 98
+  %8295 = icmp samesign ult i8 %8258, 98
   br i1 %8295, label %8296, label %8304
 
 8296:                                             ; preds = %8294
-  %8297 = icmp ult i8 %8258, 88
+  %8297 = icmp samesign ult i8 %8258, 88
   br i1 %8297, label %8298, label %8301
 
 8298:                                             ; preds = %8296
-  %8299 = icmp ult i8 %8258, 83
+  %8299 = icmp samesign ult i8 %8258, 83
   br i1 %8299, label %.loopexit17691, label %8300
 
 8300:                                             ; preds = %8298
@@ -20107,13 +20107,13 @@ timelib_eat_spaces.exit17435:                     ; preds = %5295, %5298, %5302,
   br i1 %.not17066, label %11289, label %.lr.ph23890.preheader
 
 8301:                                             ; preds = %8296
-  %8302 = icmp ult i8 %8258, 90
+  %8302 = icmp samesign ult i8 %8258, 90
   %8303 = icmp eq i8 %8258, 97
   %or.cond662 = or i1 %8302, %8303
   br i1 %or.cond662, label %._crit_edge23891.thread34651.thread, label %.loopexit17691
 
 8304:                                             ; preds = %8294
-  %8305 = icmp ult i8 %8258, 102
+  %8305 = icmp samesign ult i8 %8258, 102
   br i1 %8305, label %8306, label %8308
 
 8306:                                             ; preds = %8304
@@ -20131,17 +20131,17 @@ timelib_eat_spaces.exit17435:                     ; preds = %5295, %5298, %5302,
   br i1 %8310, label %8311, label %8319
 
 8311:                                             ; preds = %8309
-  %8312 = icmp ult i8 %8258, 112
+  %8312 = icmp samesign ult i8 %8258, 112
   br i1 %8312, label %8313, label %8316
 
 8313:                                             ; preds = %8311
   %8314 = icmp eq i8 %8258, 106
-  %8315 = icmp ugt i8 %8258, 108
+  %8315 = icmp samesign ugt i8 %8258, 108
   %or.cond668 = or i1 %8314, %8315
   br i1 %or.cond668, label %._crit_edge23891, label %.loopexit17691
 
 8316:                                             ; preds = %8311
-  %8317 = icmp ugt i8 %8258, 114
+  %8317 = icmp samesign ugt i8 %8258, 114
   %8318 = icmp ne i8 %8258, 118
   %or.cond671 = and i1 %8317, %8318
   br i1 %or.cond671, label %._crit_edge23891.thread34659, label %.loopexit17691
@@ -20224,15 +20224,15 @@ timelib_eat_spaces.exit17435:                     ; preds = %5295, %5298, %5302,
   br i1 %8352, label %8353, label %8384
 
 8353:                                             ; preds = %8349
-  %8354 = icmp ult i8 %8351, 52
+  %8354 = icmp samesign ult i8 %8351, 52
   br i1 %8354, label %8355, label %8368
 
 8355:                                             ; preds = %8353
-  %8356 = icmp ult i8 %8351, 46
+  %8356 = icmp samesign ult i8 %8351, 46
   br i1 %8356, label %8357, label %8362
 
 8357:                                             ; preds = %8355
-  %8358 = icmp ult i8 %8351, 32
+  %8358 = icmp samesign ult i8 %8351, 32
   br i1 %8358, label %8359, label %8361
 
 8359:                                             ; preds = %8357
@@ -20246,7 +20246,7 @@ timelib_eat_spaces.exit17435:                     ; preds = %5295, %5298, %5302,
   ]
 
 8362:                                             ; preds = %8355
-  %8363 = icmp ult i8 %8351, 49
+  %8363 = icmp samesign ult i8 %8351, 49
   br i1 %8363, label %8364, label %8365
 
 8364:                                             ; preds = %8362
@@ -20264,15 +20264,15 @@ timelib_eat_spaces.exit17435:                     ; preds = %5295, %5298, %5302,
   ]
 
 8368:                                             ; preds = %8353
-  %8369 = icmp ult i8 %8351, 69
+  %8369 = icmp samesign ult i8 %8351, 69
   br i1 %8369, label %8370, label %8377
 
 8370:                                             ; preds = %8368
-  %8371 = icmp ult i8 %8351, 65
+  %8371 = icmp samesign ult i8 %8351, 65
   br i1 %8371, label %8372, label %8376
 
 8372:                                             ; preds = %8370
-  %8373 = icmp ult i8 %8351, 58
+  %8373 = icmp samesign ult i8 %8351, 58
   br i1 %8373, label %11158, label %8374
 
 8374:                                             ; preds = %8372
@@ -20286,7 +20286,7 @@ timelib_eat_spaces.exit17435:                     ; preds = %5295, %5298, %5302,
   ]
 
 8377:                                             ; preds = %8368
-  %8378 = icmp ult i8 %8351, 72
+  %8378 = icmp samesign ult i8 %8351, 72
   br i1 %8378, label %8379, label %8381
 
 8379:                                             ; preds = %8377
@@ -20294,7 +20294,7 @@ timelib_eat_spaces.exit17435:                     ; preds = %5295, %5298, %5302,
   br i1 %8380, label %.lr.ph23890.preheader, label %.loopexit17715
 
 8381:                                             ; preds = %8377
-  %8382 = icmp ult i8 %8351, 75
+  %8382 = icmp samesign ult i8 %8351, 75
   %8383 = add nsw i8 %8351, -77
   %or.cond677 = icmp ult i8 %8383, 3
   %or.cond17379 = select i1 %8382, i1 true, i1 %or.cond677
@@ -20305,11 +20305,11 @@ timelib_eat_spaces.exit17435:                     ; preds = %5295, %5298, %5302,
   br i1 %8385, label %8386, label %8399
 
 8386:                                             ; preds = %8384
-  %8387 = icmp ult i8 %8351, 100
+  %8387 = icmp samesign ult i8 %8351, 100
   br i1 %8387, label %8388, label %8394
 
 8388:                                             ; preds = %8386
-  %8389 = icmp ult i8 %8351, 90
+  %8389 = icmp samesign ult i8 %8351, 90
   br i1 %8389, label %8390, label %8392
 
 8390:                                             ; preds = %8388
@@ -20321,7 +20321,7 @@ timelib_eat_spaces.exit17435:                     ; preds = %5295, %5298, %5302,
   br i1 %8393, label %._crit_edge23891.thread34651.thread.thread.thread, label %.loopexit17715
 
 8394:                                             ; preds = %8386
-  %8395 = icmp ult i8 %8351, 103
+  %8395 = icmp samesign ult i8 %8351, 103
   br i1 %8395, label %8396, label %8397
 
 8396:                                             ; preds = %8394
@@ -20338,7 +20338,7 @@ timelib_eat_spaces.exit17435:                     ; preds = %5295, %5298, %5302,
   br i1 %8400, label %8401, label %8406
 
 8401:                                             ; preds = %8399
-  %8402 = icmp ult i8 %8351, 115
+  %8402 = icmp samesign ult i8 %8351, 115
   br i1 %8402, label %8403, label %8405
 
 8403:                                             ; preds = %8401
@@ -20384,7 +20384,7 @@ timelib_eat_spaces.exit17435:                     ; preds = %5295, %5298, %5302,
   br i1 %8418, label %8419, label %8426
 
 8419:                                             ; preds = %8415
-  %8420 = icmp ult i8 %8417, 32
+  %8420 = icmp samesign ult i8 %8417, 32
   br i1 %8420, label %8421, label %8423
 
 8421:                                             ; preds = %8419
@@ -20393,7 +20393,7 @@ timelib_eat_spaces.exit17435:                     ; preds = %5295, %5298, %5302,
 
 8423:                                             ; preds = %8419
   %8424 = icmp ne i8 %8417, 32
-  %8425 = icmp ult i8 %8417, 45
+  %8425 = icmp samesign ult i8 %8417, 45
   %or.cond686 = and i1 %8424, %8425
   br i1 %or.cond686, label %.loopexit17733, label %.preheader17590
 
@@ -20403,7 +20403,7 @@ timelib_eat_spaces.exit17435:                     ; preds = %5295, %5298, %5302,
 
 8428:                                             ; preds = %8426
   %8429 = icmp ne i8 %8417, 47
-  %8430 = icmp ult i8 %8417, 58
+  %8430 = icmp samesign ult i8 %8417, 58
   %or.cond689 = and i1 %8429, %8430
   br i1 %or.cond689, label %.loopexit17734, label %.loopexit17733
 
@@ -20420,7 +20420,7 @@ timelib_eat_spaces.exit17435:                     ; preds = %5295, %5298, %5302,
   br i1 %8436, label %8437, label %8444
 
 8437:                                             ; preds = %8433
-  %8438 = icmp ult i8 %8435, 32
+  %8438 = icmp samesign ult i8 %8435, 32
   br i1 %8438, label %8439, label %8441
 
 8439:                                             ; preds = %8437
@@ -20429,7 +20429,7 @@ timelib_eat_spaces.exit17435:                     ; preds = %5295, %5298, %5302,
 
 8441:                                             ; preds = %8437
   %8442 = icmp ne i8 %8435, 32
-  %8443 = icmp ult i8 %8435, 45
+  %8443 = icmp samesign ult i8 %8435, 45
   %or.cond695 = and i1 %8442, %8443
   br i1 %or.cond695, label %.loopexit17733, label %.preheader17590
 
@@ -20439,7 +20439,7 @@ timelib_eat_spaces.exit17435:                     ; preds = %5295, %5298, %5302,
 
 8446:                                             ; preds = %8444
   %8447 = icmp ne i8 %8435, 47
-  %8448 = icmp ult i8 %8435, 58
+  %8448 = icmp samesign ult i8 %8435, 58
   %or.cond698 = and i1 %8447, %8448
   br i1 %or.cond698, label %.loopexit17734, label %.loopexit17733
 
@@ -20493,7 +20493,7 @@ timelib_eat_spaces.exit17435:                     ; preds = %5295, %5298, %5302,
   br i1 %8464, label %8465, label %8472
 
 8465:                                             ; preds = %8461
-  %8466 = icmp ult i8 %8463, 32
+  %8466 = icmp samesign ult i8 %8463, 32
   br i1 %8466, label %8467, label %8469
 
 8467:                                             ; preds = %8465
@@ -20502,7 +20502,7 @@ timelib_eat_spaces.exit17435:                     ; preds = %5295, %5298, %5302,
 
 8469:                                             ; preds = %8465
   %8470 = icmp ne i8 %8463, 32
-  %8471 = icmp ult i8 %8463, 45
+  %8471 = icmp samesign ult i8 %8463, 45
   %or.cond707 = and i1 %8470, %8471
   br i1 %or.cond707, label %.loopexit17733, label %.preheader17590
 
@@ -20512,7 +20512,7 @@ timelib_eat_spaces.exit17435:                     ; preds = %5295, %5298, %5302,
 
 8474:                                             ; preds = %8472
   %8475 = icmp ne i8 %8463, 47
-  %8476 = icmp ult i8 %8463, 58
+  %8476 = icmp samesign ult i8 %8463, 58
   %or.cond710 = and i1 %8475, %8476
   br i1 %or.cond710, label %.loopexit17734, label %.loopexit17733
 
@@ -20529,7 +20529,7 @@ timelib_eat_spaces.exit17435:                     ; preds = %5295, %5298, %5302,
   br i1 %8482, label %8483, label %8490
 
 8483:                                             ; preds = %8479
-  %8484 = icmp ult i8 %8481, 32
+  %8484 = icmp samesign ult i8 %8481, 32
   br i1 %8484, label %8485, label %8487
 
 8485:                                             ; preds = %8483
@@ -20538,7 +20538,7 @@ timelib_eat_spaces.exit17435:                     ; preds = %5295, %5298, %5302,
 
 8487:                                             ; preds = %8483
   %8488 = icmp ne i8 %8481, 32
-  %8489 = icmp ult i8 %8481, 45
+  %8489 = icmp samesign ult i8 %8481, 45
   %or.cond716 = and i1 %8488, %8489
   br i1 %or.cond716, label %.loopexit17733, label %.preheader17590
 
@@ -20548,7 +20548,7 @@ timelib_eat_spaces.exit17435:                     ; preds = %5295, %5298, %5302,
 
 8492:                                             ; preds = %8490
   %8493 = icmp ne i8 %8481, 47
-  %8494 = icmp ult i8 %8481, 58
+  %8494 = icmp samesign ult i8 %8481, 58
   %or.cond719 = and i1 %8493, %8494
   br i1 %or.cond719, label %.loopexit17734, label %.loopexit17733
 
@@ -20597,7 +20597,7 @@ timelib_eat_spaces.exit17435:                     ; preds = %5295, %5298, %5302,
   br i1 %8518, label %8519, label %8526
 
 8519:                                             ; preds = %8515
-  %8520 = icmp ult i8 %8517, 32
+  %8520 = icmp samesign ult i8 %8517, 32
   br i1 %8520, label %8521, label %8523
 
 8521:                                             ; preds = %8519
@@ -20606,7 +20606,7 @@ timelib_eat_spaces.exit17435:                     ; preds = %5295, %5298, %5302,
 
 8523:                                             ; preds = %8519
   %8524 = icmp ne i8 %8517, 32
-  %8525 = icmp ult i8 %8517, 45
+  %8525 = icmp samesign ult i8 %8517, 45
   %or.cond737 = and i1 %8524, %8525
   br i1 %or.cond737, label %.loopexit17733, label %.preheader17590
 
@@ -20616,7 +20616,7 @@ timelib_eat_spaces.exit17435:                     ; preds = %5295, %5298, %5302,
 
 8528:                                             ; preds = %8526
   %8529 = icmp ne i8 %8517, 47
-  %8530 = icmp ult i8 %8517, 58
+  %8530 = icmp samesign ult i8 %8517, 58
   %or.cond740 = and i1 %8529, %8530
   br i1 %or.cond740, label %.loopexit17734, label %.loopexit17733
 
@@ -20633,7 +20633,7 @@ timelib_eat_spaces.exit17435:                     ; preds = %5295, %5298, %5302,
   br i1 %8536, label %8537, label %8544
 
 8537:                                             ; preds = %8533
-  %8538 = icmp ult i8 %8535, 32
+  %8538 = icmp samesign ult i8 %8535, 32
   br i1 %8538, label %8539, label %8541
 
 8539:                                             ; preds = %8537
@@ -20642,7 +20642,7 @@ timelib_eat_spaces.exit17435:                     ; preds = %5295, %5298, %5302,
 
 8541:                                             ; preds = %8537
   %8542 = icmp ne i8 %8535, 32
-  %8543 = icmp ult i8 %8535, 45
+  %8543 = icmp samesign ult i8 %8535, 45
   %or.cond746 = and i1 %8542, %8543
   br i1 %or.cond746, label %.loopexit17733, label %.preheader17590
 
@@ -20652,7 +20652,7 @@ timelib_eat_spaces.exit17435:                     ; preds = %5295, %5298, %5302,
 
 8546:                                             ; preds = %8544
   %8547 = icmp ne i8 %8535, 47
-  %8548 = icmp ult i8 %8535, 58
+  %8548 = icmp samesign ult i8 %8535, 58
   %or.cond749 = and i1 %8547, %8548
   br i1 %or.cond749, label %.loopexit17734, label %.loopexit17733
 
@@ -20669,7 +20669,7 @@ timelib_eat_spaces.exit17435:                     ; preds = %5295, %5298, %5302,
   br i1 %8554, label %8555, label %8562
 
 8555:                                             ; preds = %8551
-  %8556 = icmp ult i8 %8553, 32
+  %8556 = icmp samesign ult i8 %8553, 32
   br i1 %8556, label %8557, label %8559
 
 8557:                                             ; preds = %8555
@@ -20678,7 +20678,7 @@ timelib_eat_spaces.exit17435:                     ; preds = %5295, %5298, %5302,
 
 8559:                                             ; preds = %8555
   %8560 = icmp ne i8 %8553, 32
-  %8561 = icmp ult i8 %8553, 45
+  %8561 = icmp samesign ult i8 %8553, 45
   %or.cond755 = and i1 %8560, %8561
   br i1 %or.cond755, label %.loopexit17733, label %.preheader17590
 
@@ -20688,7 +20688,7 @@ timelib_eat_spaces.exit17435:                     ; preds = %5295, %5298, %5302,
 
 8564:                                             ; preds = %8562
   %8565 = icmp ne i8 %8553, 47
-  %8566 = icmp ult i8 %8553, 58
+  %8566 = icmp samesign ult i8 %8553, 58
   %or.cond758 = and i1 %8565, %8566
   br i1 %or.cond758, label %.loopexit17734, label %.loopexit17733
 
@@ -20705,7 +20705,7 @@ timelib_eat_spaces.exit17435:                     ; preds = %5295, %5298, %5302,
   br i1 %8572, label %8573, label %8580
 
 8573:                                             ; preds = %8569
-  %8574 = icmp ult i8 %8571, 32
+  %8574 = icmp samesign ult i8 %8571, 32
   br i1 %8574, label %8575, label %8577
 
 8575:                                             ; preds = %8573
@@ -20714,7 +20714,7 @@ timelib_eat_spaces.exit17435:                     ; preds = %5295, %5298, %5302,
 
 8577:                                             ; preds = %8573
   %8578 = icmp ne i8 %8571, 32
-  %8579 = icmp ult i8 %8571, 45
+  %8579 = icmp samesign ult i8 %8571, 45
   %or.cond764 = and i1 %8578, %8579
   br i1 %or.cond764, label %.loopexit17733, label %.preheader17590
 
@@ -20724,7 +20724,7 @@ timelib_eat_spaces.exit17435:                     ; preds = %5295, %5298, %5302,
 
 8582:                                             ; preds = %8580
   %8583 = icmp ne i8 %8571, 47
-  %8584 = icmp ult i8 %8571, 58
+  %8584 = icmp samesign ult i8 %8571, 58
   %or.cond767 = and i1 %8583, %8584
   br i1 %or.cond767, label %.loopexit17734, label %.loopexit17733
 
@@ -20815,7 +20815,7 @@ timelib_eat_spaces.exit17435:                     ; preds = %5295, %5298, %5302,
   br i1 %8623, label %8624, label %8631
 
 8624:                                             ; preds = %8620
-  %8625 = icmp ult i8 %8622, 32
+  %8625 = icmp samesign ult i8 %8622, 32
   br i1 %8625, label %8626, label %8628
 
 8626:                                             ; preds = %8624
@@ -20824,7 +20824,7 @@ timelib_eat_spaces.exit17435:                     ; preds = %5295, %5298, %5302,
 
 8628:                                             ; preds = %8624
   %8629 = icmp ne i8 %8622, 32
-  %8630 = icmp ult i8 %8622, 45
+  %8630 = icmp samesign ult i8 %8622, 45
   %or.cond782 = and i1 %8629, %8630
   br i1 %or.cond782, label %.loopexit17733, label %.preheader17590
 
@@ -20834,7 +20834,7 @@ timelib_eat_spaces.exit17435:                     ; preds = %5295, %5298, %5302,
 
 8633:                                             ; preds = %8631
   %8634 = icmp ne i8 %8622, 47
-  %8635 = icmp ult i8 %8622, 58
+  %8635 = icmp samesign ult i8 %8622, 58
   %or.cond785 = and i1 %8634, %8635
   br i1 %or.cond785, label %.loopexit17734, label %.loopexit17733
 
@@ -20886,7 +20886,7 @@ timelib_eat_spaces.exit17435:                     ; preds = %5295, %5298, %5302,
   br i1 %8655, label %8656, label %8663
 
 8656:                                             ; preds = %8652
-  %8657 = icmp ult i8 %8654, 32
+  %8657 = icmp samesign ult i8 %8654, 32
   br i1 %8657, label %8658, label %8660
 
 8658:                                             ; preds = %8656
@@ -20895,7 +20895,7 @@ timelib_eat_spaces.exit17435:                     ; preds = %5295, %5298, %5302,
 
 8660:                                             ; preds = %8656
   %8661 = icmp ne i8 %8654, 32
-  %8662 = icmp ult i8 %8654, 45
+  %8662 = icmp samesign ult i8 %8654, 45
   %or.cond794 = and i1 %8661, %8662
   br i1 %or.cond794, label %.loopexit17733, label %.preheader17590
 
@@ -20905,7 +20905,7 @@ timelib_eat_spaces.exit17435:                     ; preds = %5295, %5298, %5302,
 
 8665:                                             ; preds = %8663
   %8666 = icmp ne i8 %8654, 47
-  %8667 = icmp ult i8 %8654, 58
+  %8667 = icmp samesign ult i8 %8654, 58
   %or.cond797 = and i1 %8666, %8667
   br i1 %or.cond797, label %.loopexit17734, label %.loopexit17733
 
@@ -20978,11 +20978,11 @@ timelib_eat_spaces.exit17435:                     ; preds = %5295, %5298, %5302,
   br i1 %8703, label %8704, label %8727
 
 8704:                                             ; preds = %8701
-  %8705 = icmp ult i8 %8702, 83
+  %8705 = icmp samesign ult i8 %8702, 83
   br i1 %8705, label %8706, label %8715
 
 8706:                                             ; preds = %8704
-  %8707 = icmp ult i8 %8702, 71
+  %8707 = icmp samesign ult i8 %8702, 71
   br i1 %8707, label %8708, label %8709
 
 8708:                                             ; preds = %8706
@@ -20992,7 +20992,7 @@ timelib_eat_spaces.exit17435:                     ; preds = %5295, %5298, %5302,
   ]
 
 8709:                                             ; preds = %8706
-  %8710 = icmp ult i8 %8702, 73
+  %8710 = icmp samesign ult i8 %8702, 73
   br i1 %8710, label %8711, label %8713
 
 8711:                                             ; preds = %8709
@@ -21004,7 +21004,7 @@ timelib_eat_spaces.exit17435:                     ; preds = %5295, %5298, %5302,
   br i1 %8714, label %4621, label %.loopexit17580
 
 8715:                                             ; preds = %8704
-  %8716 = icmp ult i8 %8702, 87
+  %8716 = icmp samesign ult i8 %8702, 87
   br i1 %8716, label %8717, label %8722
 
 8717:                                             ; preds = %8715
@@ -21012,7 +21012,7 @@ timelib_eat_spaces.exit17435:                     ; preds = %5295, %5298, %5302,
   br i1 %8718, label %4635, label %8719
 
 8719:                                             ; preds = %8717
-  %8720 = icmp ult i8 %8702, 85
+  %8720 = icmp samesign ult i8 %8702, 85
   br i1 %8720, label %2231, label %8721
 
 8721:                                             ; preds = %8719
@@ -21020,7 +21020,7 @@ timelib_eat_spaces.exit17435:                     ; preds = %5295, %5298, %5302,
   br i1 %.not17297, label %.loopexit17580, label %2241
 
 8722:                                             ; preds = %8715
-  %8723 = icmp ult i8 %8702, 89
+  %8723 = icmp samesign ult i8 %8702, 89
   br i1 %8723, label %8724, label %8726
 
 8724:                                             ; preds = %8722
@@ -21038,7 +21038,7 @@ timelib_eat_spaces.exit17435:                     ; preds = %5295, %5298, %5302,
   br i1 %8728, label %8729, label %8738
 
 8729:                                             ; preds = %8727
-  %8730 = icmp ult i8 %8702, 105
+  %8730 = icmp samesign ult i8 %8702, 105
   br i1 %8730, label %8731, label %8732
 
 8731:                                             ; preds = %8729
@@ -21048,7 +21048,7 @@ timelib_eat_spaces.exit17435:                     ; preds = %5295, %5298, %5302,
   ]
 
 8732:                                             ; preds = %8729
-  %8733 = icmp ult i8 %8702, 110
+  %8733 = icmp samesign ult i8 %8702, 110
   br i1 %8733, label %8734, label %8735
 
 8734:                                             ; preds = %8732
@@ -21056,7 +21056,7 @@ timelib_eat_spaces.exit17435:                     ; preds = %5295, %5298, %5302,
   br i1 %.not17294, label %4621, label %.loopexit17580
 
 8735:                                             ; preds = %8732
-  %8736 = icmp ult i8 %8702, 115
+  %8736 = icmp samesign ult i8 %8702, 115
   br i1 %8736, label %.loopexit17580, label %8737
 
 8737:                                             ; preds = %8735
@@ -21068,7 +21068,7 @@ timelib_eat_spaces.exit17435:                     ; preds = %5295, %5298, %5302,
   br i1 %8739, label %8740, label %8745
 
 8740:                                             ; preds = %8738
-  %8741 = icmp ult i8 %8702, 119
+  %8741 = icmp samesign ult i8 %8702, 119
   br i1 %8741, label %8742, label %8744
 
 8742:                                             ; preds = %8740
@@ -21121,11 +21121,11 @@ timelib_eat_spaces.exit17435:                     ; preds = %5295, %5298, %5302,
   br i1 %8765, label %8766, label %8780
 
 8766:                                             ; preds = %8762
-  %8767 = icmp ult i8 %8764, 45
+  %8767 = icmp samesign ult i8 %8764, 45
   br i1 %8767, label %8768, label %8773
 
 8768:                                             ; preds = %8766
-  %8769 = icmp ult i8 %8764, 10
+  %8769 = icmp samesign ult i8 %8764, 10
   br i1 %8769, label %8770, label %8771
 
 8770:                                             ; preds = %8768
@@ -21137,7 +21137,7 @@ timelib_eat_spaces.exit17435:                     ; preds = %5295, %5298, %5302,
   br i1 %8772, label %.preheader17616, label %.loopexit17511
 
 8773:                                             ; preds = %8766
-  %8774 = icmp ult i8 %8764, 58
+  %8774 = icmp samesign ult i8 %8764, 58
   br i1 %8774, label %8775, label %8779
 
 8775:                                             ; preds = %8773
@@ -21145,7 +21145,7 @@ timelib_eat_spaces.exit17435:                     ; preds = %5295, %5298, %5302,
   br i1 %8776, label %8122, label %8777
 
 8777:                                             ; preds = %8775
-  %8778 = icmp ult i8 %8764, 47
+  %8778 = icmp samesign ult i8 %8764, 47
   br i1 %8778, label %8750, label %.loopexit17511
 
 8779:                                             ; preds = %8773
@@ -21159,7 +21159,7 @@ timelib_eat_spaces.exit17435:                     ; preds = %5295, %5298, %5302,
   br i1 %8781, label %8782, label %8787
 
 8782:                                             ; preds = %8780
-  %8783 = icmp ult i8 %8764, 81
+  %8783 = icmp samesign ult i8 %8764, 81
   br i1 %8783, label %8784, label %8785
 
 8784:                                             ; preds = %8782
@@ -21211,11 +21211,11 @@ timelib_eat_spaces.exit17435:                     ; preds = %5295, %5298, %5302,
   br i1 %8805, label %8806, label %8818
 
 8806:                                             ; preds = %8802
-  %8807 = icmp ult i8 %8804, 46
+  %8807 = icmp samesign ult i8 %8804, 46
   br i1 %8807, label %8808, label %8813
 
 8808:                                             ; preds = %8806
-  %8809 = icmp ult i8 %8804, 10
+  %8809 = icmp samesign ult i8 %8804, 10
   br i1 %8809, label %8810, label %8811
 
 8810:                                             ; preds = %8808
@@ -21227,7 +21227,7 @@ timelib_eat_spaces.exit17435:                     ; preds = %5295, %5298, %5302,
   br i1 %8812, label %.preheader17616, label %.loopexit17511
 
 8813:                                             ; preds = %8806
-  %8814 = icmp ult i8 %8804, 58
+  %8814 = icmp samesign ult i8 %8804, 58
   br i1 %8814, label %8815, label %8817
 
 8815:                                             ; preds = %8813
@@ -21245,7 +21245,7 @@ timelib_eat_spaces.exit17435:                     ; preds = %5295, %5298, %5302,
   br i1 %8819, label %8820, label %8825
 
 8820:                                             ; preds = %8818
-  %8821 = icmp ult i8 %8804, 81
+  %8821 = icmp samesign ult i8 %8804, 81
   br i1 %8821, label %8822, label %8823
 
 8822:                                             ; preds = %8820
@@ -21278,11 +21278,11 @@ timelib_eat_spaces.exit17435:                     ; preds = %5295, %5298, %5302,
   br i1 %8833, label %8834, label %8846
 
 8834:                                             ; preds = %8830
-  %8835 = icmp ult i8 %8832, 46
+  %8835 = icmp samesign ult i8 %8832, 46
   br i1 %8835, label %8836, label %8841
 
 8836:                                             ; preds = %8834
-  %8837 = icmp ult i8 %8832, 10
+  %8837 = icmp samesign ult i8 %8832, 10
   br i1 %8837, label %8838, label %8839
 
 8838:                                             ; preds = %8836
@@ -21294,7 +21294,7 @@ timelib_eat_spaces.exit17435:                     ; preds = %5295, %5298, %5302,
   br i1 %8840, label %.preheader17616, label %.loopexit17511
 
 8841:                                             ; preds = %8834
-  %8842 = icmp ult i8 %8832, 58
+  %8842 = icmp samesign ult i8 %8832, 58
   br i1 %8842, label %8843, label %8845
 
 8843:                                             ; preds = %8841
@@ -21312,7 +21312,7 @@ timelib_eat_spaces.exit17435:                     ; preds = %5295, %5298, %5302,
   br i1 %8847, label %8848, label %8853
 
 8848:                                             ; preds = %8846
-  %8849 = icmp ult i8 %8832, 81
+  %8849 = icmp samesign ult i8 %8832, 81
   br i1 %8849, label %8850, label %8851
 
 8850:                                             ; preds = %8848
@@ -21441,15 +21441,15 @@ timelib_eat_spaces.exit17435:                     ; preds = %5295, %5298, %5302,
   br i1 %8911, label %8912, label %8938
 
 8912:                                             ; preds = %8909
-  %8913 = icmp ult i8 %8910, 80
+  %8913 = icmp samesign ult i8 %8910, 80
   br i1 %8913, label %8914, label %8926
 
 8914:                                             ; preds = %8912
-  %8915 = icmp ult i8 %8910, 70
+  %8915 = icmp samesign ult i8 %8910, 70
   br i1 %8915, label %8916, label %8921
 
 8916:                                             ; preds = %8914
-  %8917 = icmp ult i8 %8910, 66
+  %8917 = icmp samesign ult i8 %8910, 66
   br i1 %8917, label %8918, label %8919
 
 8918:                                             ; preds = %8916
@@ -21461,7 +21461,7 @@ timelib_eat_spaces.exit17435:                     ; preds = %5295, %5298, %5302,
   br i1 %8920, label %4607, label %.thread
 
 8921:                                             ; preds = %8914
-  %8922 = icmp ult i8 %8910, 73
+  %8922 = icmp samesign ult i8 %8910, 73
   br i1 %8922, label %8923, label %8924
 
 8923:                                             ; preds = %8921
@@ -21475,11 +21475,11 @@ timelib_eat_spaces.exit17435:                     ; preds = %5295, %5298, %5302,
   br i1 %8925, label %4621, label %.thread
 
 8926:                                             ; preds = %8912
-  %8927 = icmp ult i8 %8910, 86
+  %8927 = icmp samesign ult i8 %8910, 86
   br i1 %8927, label %8928, label %8933
 
 8928:                                             ; preds = %8926
-  %8929 = icmp ult i8 %8910, 83
+  %8929 = icmp samesign ult i8 %8910, 83
   br i1 %8929, label %8930, label %8932
 
 8930:                                             ; preds = %8928
@@ -21493,7 +21493,7 @@ timelib_eat_spaces.exit17435:                     ; preds = %5295, %5298, %5302,
   ]
 
 8933:                                             ; preds = %8926
-  %8934 = icmp ult i8 %8910, 89
+  %8934 = icmp samesign ult i8 %8910, 89
   br i1 %8934, label %8935, label %8937
 
 8935:                                             ; preds = %8933
@@ -21511,11 +21511,11 @@ timelib_eat_spaces.exit17435:                     ; preds = %5295, %5298, %5302,
   br i1 %8939, label %8940, label %8952
 
 8940:                                             ; preds = %8938
-  %8941 = icmp ult i8 %8910, 104
+  %8941 = icmp samesign ult i8 %8910, 104
   br i1 %8941, label %8942, label %8947
 
 8942:                                             ; preds = %8940
-  %8943 = icmp ult i8 %8910, 101
+  %8943 = icmp samesign ult i8 %8910, 101
   br i1 %8943, label %8944, label %8945
 
 8944:                                             ; preds = %8942
@@ -21527,7 +21527,7 @@ timelib_eat_spaces.exit17435:                     ; preds = %5295, %5298, %5302,
   br i1 %8946, label %4611, label %.thread
 
 8947:                                             ; preds = %8940
-  %8948 = icmp ult i8 %8910, 110
+  %8948 = icmp samesign ult i8 %8910, 110
   br i1 %8948, label %8949, label %8950
 
 8949:                                             ; preds = %8947
@@ -21545,7 +21545,7 @@ timelib_eat_spaces.exit17435:                     ; preds = %5295, %5298, %5302,
   br i1 %8953, label %8954, label %8959
 
 8954:                                             ; preds = %8952
-  %8955 = icmp ult i8 %8910, 118
+  %8955 = icmp samesign ult i8 %8910, 118
   br i1 %8955, label %8956, label %8957
 
 8956:                                             ; preds = %8954
@@ -21827,7 +21827,7 @@ timelib_eat_spaces.exit17435:                     ; preds = %5295, %5298, %5302,
   br i1 %9069, label %9070, label %9077
 
 9070:                                             ; preds = %9066
-  %9071 = icmp ult i8 %9068, 42
+  %9071 = icmp samesign ult i8 %9068, 42
   br i1 %9071, label %9072, label %9074
 
 9072:                                             ; preds = %9070
@@ -21836,7 +21836,7 @@ timelib_eat_spaces.exit17435:                     ; preds = %5295, %5298, %5302,
   br i1 %.not16879, label %.loopexit17671, label %.loopexit17669
 
 9074:                                             ; preds = %9070
-  %9075 = icmp ult i8 %9068, 65
+  %9075 = icmp samesign ult i8 %9068, 65
   br i1 %9075, label %.loopexit17669.loopexit.split.loop.exit39794, label %9076
 
 9076:                                             ; preds = %9074
@@ -21869,7 +21869,7 @@ timelib_eat_spaces.exit17435:                     ; preds = %5295, %5298, %5302,
   br i1 %9090, label %9091, label %9098
 
 9091:                                             ; preds = %9087
-  %9092 = icmp ult i8 %9089, 42
+  %9092 = icmp samesign ult i8 %9089, 42
   br i1 %9092, label %9093, label %9095
 
 9093:                                             ; preds = %9091
@@ -21878,7 +21878,7 @@ timelib_eat_spaces.exit17435:                     ; preds = %5295, %5298, %5302,
   br i1 %.not16873, label %.loopexit17671, label %.loopexit17669
 
 9095:                                             ; preds = %9091
-  %9096 = icmp ult i8 %9089, 65
+  %9096 = icmp samesign ult i8 %9089, 65
   br i1 %9096, label %.loopexit17669.loopexit.split.loop.exit39796, label %9097
 
 9097:                                             ; preds = %9095
@@ -21942,7 +21942,7 @@ timelib_eat_spaces.exit17435:                     ; preds = %5295, %5298, %5302,
   br i1 %9124, label %9125, label %9131
 
 9125:                                             ; preds = %9121
-  %9126 = icmp ult i8 %9123, 45
+  %9126 = icmp samesign ult i8 %9123, 45
   br i1 %9126, label %9127, label %9129
 
 9127:                                             ; preds = %9125
@@ -22003,7 +22003,7 @@ timelib_eat_spaces.exit17435:                     ; preds = %5295, %5298, %5302,
   br i1 %9157, label %9158, label %9165
 
 9158:                                             ; preds = %9154
-  %9159 = icmp ult i8 %9156, 46
+  %9159 = icmp samesign ult i8 %9156, 46
   br i1 %9159, label %9160, label %9161
 
 9160:                                             ; preds = %9158
@@ -22017,7 +22017,7 @@ timelib_eat_spaces.exit17435:                     ; preds = %5295, %5298, %5302,
   br i1 %9162, label %5862, label %9163
 
 9163:                                             ; preds = %9161
-  %9164 = icmp ult i8 %9156, 65
+  %9164 = icmp samesign ult i8 %9156, 65
   br i1 %9164, label %.loopexit17669, label %.loopexit17675
 
 9165:                                             ; preds = %9154
@@ -22029,7 +22029,7 @@ timelib_eat_spaces.exit17435:                     ; preds = %5295, %5298, %5302,
   br i1 %9168, label %11692, label %9169
 
 9169:                                             ; preds = %9167
-  %9170 = icmp ult i8 %9156, 91
+  %9170 = icmp samesign ult i8 %9156, 91
   br i1 %9170, label %.loopexit17675, label %9171
 
 9171:                                             ; preds = %9169
@@ -22060,7 +22060,7 @@ timelib_eat_spaces.exit17435:                     ; preds = %5295, %5298, %5302,
   br i1 %9183, label %9184, label %9191
 
 9184:                                             ; preds = %9180
-  %9185 = icmp ult i8 %9182, 46
+  %9185 = icmp samesign ult i8 %9182, 46
   br i1 %9185, label %9186, label %9187
 
 9186:                                             ; preds = %9184
@@ -22074,7 +22074,7 @@ timelib_eat_spaces.exit17435:                     ; preds = %5295, %5298, %5302,
   br i1 %9188, label %5862, label %9189
 
 9189:                                             ; preds = %9187
-  %9190 = icmp ult i8 %9182, 65
+  %9190 = icmp samesign ult i8 %9182, 65
   br i1 %9190, label %.loopexit17669, label %.loopexit17675
 
 9191:                                             ; preds = %9180
@@ -22086,7 +22086,7 @@ timelib_eat_spaces.exit17435:                     ; preds = %5295, %5298, %5302,
   br i1 %9194, label %11709, label %9195
 
 9195:                                             ; preds = %9193
-  %9196 = icmp ult i8 %9182, 91
+  %9196 = icmp samesign ult i8 %9182, 91
   br i1 %9196, label %.loopexit17675, label %9197
 
 9197:                                             ; preds = %9195
@@ -22127,7 +22127,7 @@ timelib_eat_spaces.exit17435:                     ; preds = %5295, %5298, %5302,
   br i1 %9212, label %9213, label %9215
 
 9213:                                             ; preds = %9211
-  %9214 = icmp ult i8 %9208, 65
+  %9214 = icmp samesign ult i8 %9208, 65
   br i1 %9214, label %.loopexit17669, label %.loopexit17675
 
 9215:                                             ; preds = %9211
@@ -22143,7 +22143,7 @@ timelib_eat_spaces.exit17435:                     ; preds = %5295, %5298, %5302,
   br i1 %9220, label %9221, label %9226
 
 9221:                                             ; preds = %9217
-  %9222 = icmp ult i8 %9219, 41
+  %9222 = icmp samesign ult i8 %9219, 41
   br i1 %9222, label %9223, label %9225
 
 9223:                                             ; preds = %9221
@@ -22185,7 +22185,7 @@ timelib_eat_spaces.exit17435:                     ; preds = %5295, %5298, %5302,
   br i1 %9239, label %9240, label %9247
 
 9240:                                             ; preds = %9236
-  %9241 = icmp ult i8 %9238, 42
+  %9241 = icmp samesign ult i8 %9238, 42
   br i1 %9241, label %9242, label %9244
 
 9242:                                             ; preds = %9240
@@ -22194,7 +22194,7 @@ timelib_eat_spaces.exit17435:                     ; preds = %5295, %5298, %5302,
   br i1 %.not16811, label %.loopexit17671, label %.loopexit17669
 
 9244:                                             ; preds = %9240
-  %9245 = icmp ult i8 %9238, 65
+  %9245 = icmp samesign ult i8 %9238, 65
   br i1 %9245, label %.loopexit17669.loopexit.split.loop.exit39798, label %9246
 
 9246:                                             ; preds = %9244
@@ -22228,7 +22228,7 @@ timelib_eat_spaces.exit17435:                     ; preds = %5295, %5298, %5302,
   br i1 %9260, label %9261, label %9268
 
 9261:                                             ; preds = %9257
-  %9262 = icmp ult i8 %9259, 46
+  %9262 = icmp samesign ult i8 %9259, 46
   br i1 %9262, label %9263, label %9264
 
 9263:                                             ; preds = %9261
@@ -22242,7 +22242,7 @@ timelib_eat_spaces.exit17435:                     ; preds = %5295, %5298, %5302,
   br i1 %9265, label %5862, label %9266
 
 9266:                                             ; preds = %9264
-  %9267 = icmp ult i8 %9259, 65
+  %9267 = icmp samesign ult i8 %9259, 65
   br i1 %9267, label %.loopexit17669, label %.loopexit17675
 
 9268:                                             ; preds = %9257
@@ -22254,7 +22254,7 @@ timelib_eat_spaces.exit17435:                     ; preds = %5295, %5298, %5302,
   br i1 %9271, label %11805, label %9272
 
 9272:                                             ; preds = %9270
-  %9273 = icmp ult i8 %9259, 91
+  %9273 = icmp samesign ult i8 %9259, 91
   br i1 %9273, label %.loopexit17675, label %9274
 
 9274:                                             ; preds = %9272
@@ -22284,7 +22284,7 @@ timelib_eat_spaces.exit17435:                     ; preds = %5295, %5298, %5302,
   br i1 %9286, label %9287, label %9294
 
 9287:                                             ; preds = %9283
-  %9288 = icmp ult i8 %9285, 42
+  %9288 = icmp samesign ult i8 %9285, 42
   br i1 %9288, label %9289, label %9291
 
 9289:                                             ; preds = %9287
@@ -22293,7 +22293,7 @@ timelib_eat_spaces.exit17435:                     ; preds = %5295, %5298, %5302,
   br i1 %.not16792, label %.loopexit17671, label %.loopexit17669
 
 9291:                                             ; preds = %9287
-  %9292 = icmp ult i8 %9285, 65
+  %9292 = icmp samesign ult i8 %9285, 65
   br i1 %9292, label %.loopexit17669.loopexit.split.loop.exit39800, label %9293
 
 9293:                                             ; preds = %9291
@@ -22326,7 +22326,7 @@ timelib_eat_spaces.exit17435:                     ; preds = %5295, %5298, %5302,
   br i1 %9307, label %9308, label %9315
 
 9308:                                             ; preds = %9304
-  %9309 = icmp ult i8 %9306, 42
+  %9309 = icmp samesign ult i8 %9306, 42
   br i1 %9309, label %9310, label %9312
 
 9310:                                             ; preds = %9308
@@ -22335,7 +22335,7 @@ timelib_eat_spaces.exit17435:                     ; preds = %5295, %5298, %5302,
   br i1 %.not16732, label %.loopexit17671, label %.loopexit17669
 
 9312:                                             ; preds = %9308
-  %9313 = icmp ult i8 %9306, 65
+  %9313 = icmp samesign ult i8 %9306, 65
   br i1 %9313, label %.loopexit17669.loopexit.split.loop.exit39802, label %9314
 
 9314:                                             ; preds = %9312
@@ -22369,7 +22369,7 @@ timelib_eat_spaces.exit17435:                     ; preds = %5295, %5298, %5302,
   br i1 %9328, label %9329, label %9336
 
 9329:                                             ; preds = %9325
-  %9330 = icmp ult i8 %9327, 46
+  %9330 = icmp samesign ult i8 %9327, 46
   br i1 %9330, label %9331, label %9332
 
 9331:                                             ; preds = %9329
@@ -22383,7 +22383,7 @@ timelib_eat_spaces.exit17435:                     ; preds = %5295, %5298, %5302,
   br i1 %9333, label %5862, label %9334
 
 9334:                                             ; preds = %9332
-  %9335 = icmp ult i8 %9327, 65
+  %9335 = icmp samesign ult i8 %9327, 65
   br i1 %9335, label %.loopexit17669, label %.loopexit17675
 
 9336:                                             ; preds = %9325
@@ -22395,7 +22395,7 @@ timelib_eat_spaces.exit17435:                     ; preds = %5295, %5298, %5302,
   br i1 %9339, label %11850, label %9340
 
 9340:                                             ; preds = %9338
-  %9341 = icmp ult i8 %9327, 91
+  %9341 = icmp samesign ult i8 %9327, 91
   br i1 %9341, label %.loopexit17675, label %9342
 
 9342:                                             ; preds = %9340
@@ -22426,7 +22426,7 @@ timelib_eat_spaces.exit17435:                     ; preds = %5295, %5298, %5302,
   br i1 %9354, label %9355, label %9362
 
 9355:                                             ; preds = %9351
-  %9356 = icmp ult i8 %9353, 46
+  %9356 = icmp samesign ult i8 %9353, 46
   br i1 %9356, label %9357, label %9358
 
 9357:                                             ; preds = %9355
@@ -22440,7 +22440,7 @@ timelib_eat_spaces.exit17435:                     ; preds = %5295, %5298, %5302,
   br i1 %9359, label %5862, label %9360
 
 9360:                                             ; preds = %9358
-  %9361 = icmp ult i8 %9353, 65
+  %9361 = icmp samesign ult i8 %9353, 65
   br i1 %9361, label %.loopexit17669, label %.loopexit17675
 
 9362:                                             ; preds = %9351
@@ -22452,7 +22452,7 @@ timelib_eat_spaces.exit17435:                     ; preds = %5295, %5298, %5302,
   br i1 %9365, label %11876, label %9366
 
 9366:                                             ; preds = %9364
-  %9367 = icmp ult i8 %9353, 91
+  %9367 = icmp samesign ult i8 %9353, 91
   br i1 %9367, label %.loopexit17675, label %9368
 
 9368:                                             ; preds = %9366
@@ -22482,7 +22482,7 @@ timelib_eat_spaces.exit17435:                     ; preds = %5295, %5298, %5302,
   br i1 %9380, label %9381, label %9388
 
 9381:                                             ; preds = %9377
-  %9382 = icmp ult i8 %9379, 42
+  %9382 = icmp samesign ult i8 %9379, 42
   br i1 %9382, label %9383, label %9385
 
 9383:                                             ; preds = %9381
@@ -22491,7 +22491,7 @@ timelib_eat_spaces.exit17435:                     ; preds = %5295, %5298, %5302,
   br i1 %.not16700, label %.loopexit17671, label %.loopexit17669
 
 9385:                                             ; preds = %9381
-  %9386 = icmp ult i8 %9379, 65
+  %9386 = icmp samesign ult i8 %9379, 65
   br i1 %9386, label %.loopexit17669.loopexit.split.loop.exit39804, label %9387
 
 9387:                                             ; preds = %9385
@@ -22524,7 +22524,7 @@ timelib_eat_spaces.exit17435:                     ; preds = %5295, %5298, %5302,
   br i1 %9401, label %9402, label %9409
 
 9402:                                             ; preds = %9398
-  %9403 = icmp ult i8 %9400, 42
+  %9403 = icmp samesign ult i8 %9400, 42
   br i1 %9403, label %9404, label %9406
 
 9404:                                             ; preds = %9402
@@ -22533,7 +22533,7 @@ timelib_eat_spaces.exit17435:                     ; preds = %5295, %5298, %5302,
   br i1 %.not16694, label %.loopexit17671, label %.loopexit17669
 
 9406:                                             ; preds = %9402
-  %9407 = icmp ult i8 %9400, 65
+  %9407 = icmp samesign ult i8 %9400, 65
   br i1 %9407, label %.loopexit17669.loopexit.split.loop.exit39806, label %9408
 
 9408:                                             ; preds = %9406
@@ -22566,7 +22566,7 @@ timelib_eat_spaces.exit17435:                     ; preds = %5295, %5298, %5302,
   br i1 %9422, label %9423, label %9430
 
 9423:                                             ; preds = %9419
-  %9424 = icmp ult i8 %9421, 42
+  %9424 = icmp samesign ult i8 %9421, 42
   br i1 %9424, label %9425, label %9427
 
 9425:                                             ; preds = %9423
@@ -22575,7 +22575,7 @@ timelib_eat_spaces.exit17435:                     ; preds = %5295, %5298, %5302,
   br i1 %.not16690, label %.loopexit17671, label %.loopexit17669
 
 9427:                                             ; preds = %9423
-  %9428 = icmp ult i8 %9421, 65
+  %9428 = icmp samesign ult i8 %9421, 65
   br i1 %9428, label %.loopexit17669.loopexit.split.loop.exit39808, label %9429
 
 9429:                                             ; preds = %9427
@@ -22608,7 +22608,7 @@ timelib_eat_spaces.exit17435:                     ; preds = %5295, %5298, %5302,
   br i1 %9443, label %9444, label %9451
 
 9444:                                             ; preds = %9440
-  %9445 = icmp ult i8 %9442, 42
+  %9445 = icmp samesign ult i8 %9442, 42
   br i1 %9445, label %9446, label %9448
 
 9446:                                             ; preds = %9444
@@ -22617,7 +22617,7 @@ timelib_eat_spaces.exit17435:                     ; preds = %5295, %5298, %5302,
   br i1 %.not16683, label %.loopexit17671, label %.loopexit17669
 
 9448:                                             ; preds = %9444
-  %9449 = icmp ult i8 %9442, 65
+  %9449 = icmp samesign ult i8 %9442, 65
   br i1 %9449, label %.loopexit17669.loopexit.split.loop.exit39810, label %9450
 
 9450:                                             ; preds = %9448
@@ -22660,7 +22660,7 @@ timelib_eat_spaces.exit17435:                     ; preds = %5295, %5298, %5302,
   br i1 %9466, label %9467, label %9469
 
 9467:                                             ; preds = %9465
-  %9468 = icmp ult i8 %9462, 91
+  %9468 = icmp samesign ult i8 %9462, 91
   br i1 %9468, label %.loopexit17675, label %.loopexit17669
 
 9469:                                             ; preds = %9465
@@ -22678,7 +22678,7 @@ timelib_eat_spaces.exit17435:                     ; preds = %5295, %5298, %5302,
   br i1 %9476, label %9477, label %9484
 
 9477:                                             ; preds = %9473
-  %9478 = icmp ult i8 %9475, 42
+  %9478 = icmp samesign ult i8 %9475, 42
   br i1 %9478, label %9479, label %9481
 
 9479:                                             ; preds = %9477
@@ -22687,7 +22687,7 @@ timelib_eat_spaces.exit17435:                     ; preds = %5295, %5298, %5302,
   br i1 %.not16672, label %.loopexit17671, label %.loopexit17669
 
 9481:                                             ; preds = %9477
-  %9482 = icmp ult i8 %9475, 65
+  %9482 = icmp samesign ult i8 %9475, 65
   br i1 %9482, label %.loopexit17669.loopexit.split.loop.exit39812, label %9483
 
 9483:                                             ; preds = %9481
@@ -22721,7 +22721,7 @@ timelib_eat_spaces.exit17435:                     ; preds = %5295, %5298, %5302,
   br i1 %9497, label %9498, label %9505
 
 9498:                                             ; preds = %9494
-  %9499 = icmp ult i8 %9496, 46
+  %9499 = icmp samesign ult i8 %9496, 46
   br i1 %9499, label %9500, label %9501
 
 9500:                                             ; preds = %9498
@@ -22735,7 +22735,7 @@ timelib_eat_spaces.exit17435:                     ; preds = %5295, %5298, %5302,
   br i1 %9502, label %5862, label %9503
 
 9503:                                             ; preds = %9501
-  %9504 = icmp ult i8 %9496, 65
+  %9504 = icmp samesign ult i8 %9496, 65
   br i1 %9504, label %.loopexit17669, label %.loopexit17675
 
 9505:                                             ; preds = %9494
@@ -22747,7 +22747,7 @@ timelib_eat_spaces.exit17435:                     ; preds = %5295, %5298, %5302,
   br i1 %9508, label %11961, label %9509
 
 9509:                                             ; preds = %9507
-  %9510 = icmp ult i8 %9496, 91
+  %9510 = icmp samesign ult i8 %9496, 91
   br i1 %9510, label %.loopexit17675, label %9511
 
 9511:                                             ; preds = %9509
@@ -22778,7 +22778,7 @@ timelib_eat_spaces.exit17435:                     ; preds = %5295, %5298, %5302,
   br i1 %9523, label %9524, label %9531
 
 9524:                                             ; preds = %9520
-  %9525 = icmp ult i8 %9522, 46
+  %9525 = icmp samesign ult i8 %9522, 46
   br i1 %9525, label %9526, label %9527
 
 9526:                                             ; preds = %9524
@@ -22792,7 +22792,7 @@ timelib_eat_spaces.exit17435:                     ; preds = %5295, %5298, %5302,
   br i1 %9528, label %5862, label %9529
 
 9529:                                             ; preds = %9527
-  %9530 = icmp ult i8 %9522, 65
+  %9530 = icmp samesign ult i8 %9522, 65
   br i1 %9530, label %.loopexit17669, label %.loopexit17675
 
 9531:                                             ; preds = %9520
@@ -22804,7 +22804,7 @@ timelib_eat_spaces.exit17435:                     ; preds = %5295, %5298, %5302,
   br i1 %9534, label %11976, label %9535
 
 9535:                                             ; preds = %9533
-  %9536 = icmp ult i8 %9522, 91
+  %9536 = icmp samesign ult i8 %9522, 91
   br i1 %9536, label %.loopexit17675, label %9537
 
 9537:                                             ; preds = %9535
@@ -22835,7 +22835,7 @@ timelib_eat_spaces.exit17435:                     ; preds = %5295, %5298, %5302,
   br i1 %9549, label %9550, label %9557
 
 9550:                                             ; preds = %9546
-  %9551 = icmp ult i8 %9548, 46
+  %9551 = icmp samesign ult i8 %9548, 46
   br i1 %9551, label %9552, label %9553
 
 9552:                                             ; preds = %9550
@@ -22849,7 +22849,7 @@ timelib_eat_spaces.exit17435:                     ; preds = %5295, %5298, %5302,
   br i1 %9554, label %5862, label %9555
 
 9555:                                             ; preds = %9553
-  %9556 = icmp ult i8 %9548, 65
+  %9556 = icmp samesign ult i8 %9548, 65
   br i1 %9556, label %.loopexit17669, label %.loopexit17675
 
 9557:                                             ; preds = %9546
@@ -22861,7 +22861,7 @@ timelib_eat_spaces.exit17435:                     ; preds = %5295, %5298, %5302,
   br i1 %9560, label %11991, label %9561
 
 9561:                                             ; preds = %9559
-  %9562 = icmp ult i8 %9548, 91
+  %9562 = icmp samesign ult i8 %9548, 91
   br i1 %9562, label %.loopexit17675, label %9563
 
 9563:                                             ; preds = %9561
@@ -22892,7 +22892,7 @@ timelib_eat_spaces.exit17435:                     ; preds = %5295, %5298, %5302,
   br i1 %9575, label %9576, label %9583
 
 9576:                                             ; preds = %9572
-  %9577 = icmp ult i8 %9574, 46
+  %9577 = icmp samesign ult i8 %9574, 46
   br i1 %9577, label %9578, label %9579
 
 9578:                                             ; preds = %9576
@@ -22906,7 +22906,7 @@ timelib_eat_spaces.exit17435:                     ; preds = %5295, %5298, %5302,
   br i1 %9580, label %5862, label %9581
 
 9581:                                             ; preds = %9579
-  %9582 = icmp ult i8 %9574, 65
+  %9582 = icmp samesign ult i8 %9574, 65
   br i1 %9582, label %.loopexit17669, label %.loopexit17675
 
 9583:                                             ; preds = %9572
@@ -22918,7 +22918,7 @@ timelib_eat_spaces.exit17435:                     ; preds = %5295, %5298, %5302,
   br i1 %9586, label %12006, label %9587
 
 9587:                                             ; preds = %9585
-  %9588 = icmp ult i8 %9574, 91
+  %9588 = icmp samesign ult i8 %9574, 91
   br i1 %9588, label %.loopexit17675, label %9589
 
 9589:                                             ; preds = %9587
@@ -22949,7 +22949,7 @@ timelib_eat_spaces.exit17435:                     ; preds = %5295, %5298, %5302,
   br i1 %9601, label %9602, label %9609
 
 9602:                                             ; preds = %9598
-  %9603 = icmp ult i8 %9600, 45
+  %9603 = icmp samesign ult i8 %9600, 45
   br i1 %9603, label %9604, label %9606
 
 9604:                                             ; preds = %9602
@@ -22958,7 +22958,7 @@ timelib_eat_spaces.exit17435:                     ; preds = %5295, %5298, %5302,
 
 9606:                                             ; preds = %9602
   %9607 = icmp ne i8 %9600, 46
-  %9608 = icmp ult i8 %9600, 48
+  %9608 = icmp samesign ult i8 %9600, 48
   %or.cond896 = and i1 %9607, %9608
   br i1 %or.cond896, label %5862, label %.loopexit17669
 
@@ -22971,7 +22971,7 @@ timelib_eat_spaces.exit17435:                     ; preds = %5295, %5298, %5302,
   br i1 %9612, label %.loopexit17703, label %9613
 
 9613:                                             ; preds = %9611
-  %9614 = icmp ult i8 %9600, 91
+  %9614 = icmp samesign ult i8 %9600, 91
   br i1 %9614, label %.loopexit17675, label %9615
 
 9615:                                             ; preds = %9613
@@ -22998,7 +22998,7 @@ timelib_eat_spaces.exit17435:                     ; preds = %5295, %5298, %5302,
   br i1 %9625, label %9626, label %9633
 
 9626:                                             ; preds = %9622
-  %9627 = icmp ult i8 %9624, 46
+  %9627 = icmp samesign ult i8 %9624, 46
   br i1 %9627, label %9628, label %9629
 
 9628:                                             ; preds = %9626
@@ -23012,7 +23012,7 @@ timelib_eat_spaces.exit17435:                     ; preds = %5295, %5298, %5302,
   br i1 %9630, label %5862, label %9631
 
 9631:                                             ; preds = %9629
-  %9632 = icmp ult i8 %9624, 65
+  %9632 = icmp samesign ult i8 %9624, 65
   br i1 %9632, label %.loopexit17669, label %.loopexit17675
 
 9633:                                             ; preds = %9622
@@ -23024,7 +23024,7 @@ timelib_eat_spaces.exit17435:                     ; preds = %5295, %5298, %5302,
   br i1 %9636, label %12045, label %9637
 
 9637:                                             ; preds = %9635
-  %9638 = icmp ult i8 %9624, 91
+  %9638 = icmp samesign ult i8 %9624, 91
   br i1 %9638, label %.loopexit17675, label %9639
 
 9639:                                             ; preds = %9637
@@ -23267,7 +23267,7 @@ timelib_eat_spaces.exit17435:                     ; preds = %5295, %5298, %5302,
 
 9759:                                             ; preds = %9757
   %9760 = getelementptr inbounds i8, ptr %.01433828656, i64 4
-  %9761 = icmp ult i8 %9754, 91
+  %9761 = icmp samesign ult i8 %9754, 91
   br i1 %9761, label %.loopexit17675, label %.loopexit17669
 
 9762:                                             ; preds = %9757
@@ -23287,7 +23287,7 @@ timelib_eat_spaces.exit17435:                     ; preds = %5295, %5298, %5302,
   br i1 %9770, label %9771, label %9776
 
 9771:                                             ; preds = %9767
-  %9772 = icmp ult i8 %9769, 32
+  %9772 = icmp samesign ult i8 %9769, 32
   br i1 %9772, label %9773, label %9775
 
 9773:                                             ; preds = %9771
@@ -23306,7 +23306,7 @@ timelib_eat_spaces.exit17435:                     ; preds = %5295, %5298, %5302,
 
 9778:                                             ; preds = %9776
   %9779 = icmp ne i8 %9769, 47
-  %9780 = icmp ult i8 %9769, 58
+  %9780 = icmp samesign ult i8 %9769, 58
   %or.cond905 = and i1 %9779, %9780
   br i1 %or.cond905, label %.preheader17640, label %.loopexit17692
 
@@ -23325,7 +23325,7 @@ timelib_eat_spaces.exit17435:                     ; preds = %5295, %5298, %5302,
   br i1 %9787, label %9788, label %9795
 
 9788:                                             ; preds = %9784
-  %9789 = icmp ult i8 %9786, 45
+  %9789 = icmp samesign ult i8 %9786, 45
   br i1 %9789, label %9790, label %9792
 
 9790:                                             ; preds = %9788
@@ -23334,7 +23334,7 @@ timelib_eat_spaces.exit17435:                     ; preds = %5295, %5298, %5302,
 
 9792:                                             ; preds = %9788
   %9793 = icmp ne i8 %9786, 46
-  %9794 = icmp ult i8 %9786, 48
+  %9794 = icmp samesign ult i8 %9786, 48
   %or.cond911 = and i1 %9793, %9794
   br i1 %or.cond911, label %5862, label %.loopexit17669
 
@@ -23347,7 +23347,7 @@ timelib_eat_spaces.exit17435:                     ; preds = %5295, %5298, %5302,
   br i1 %9798, label %12332, label %9799
 
 9799:                                             ; preds = %9797
-  %9800 = icmp ult i8 %9786, 91
+  %9800 = icmp samesign ult i8 %9786, 91
   br i1 %9800, label %.loopexit17675, label %9801
 
 9801:                                             ; preds = %9799
@@ -23374,7 +23374,7 @@ timelib_eat_spaces.exit17435:                     ; preds = %5295, %5298, %5302,
   br i1 %9811, label %9812, label %9821
 
 9812:                                             ; preds = %9808
-  %9813 = icmp ult i8 %9810, 33
+  %9813 = icmp samesign ult i8 %9810, 33
   br i1 %9813, label %9814, label %9815
 
 9814:                                             ; preds = %9812
@@ -23384,7 +23384,7 @@ timelib_eat_spaces.exit17435:                     ; preds = %5295, %5298, %5302,
   ]
 
 9815:                                             ; preds = %9812
-  %9816 = icmp ult i8 %9810, 42
+  %9816 = icmp samesign ult i8 %9810, 42
   br i1 %9816, label %9817, label %9818
 
 9817:                                             ; preds = %9815
@@ -23392,7 +23392,7 @@ timelib_eat_spaces.exit17435:                     ; preds = %5295, %5298, %5302,
   br i1 %.not16594, label %.loopexit17671, label %.loopexit17692
 
 9818:                                             ; preds = %9815
-  %9819 = icmp ult i8 %9810, 45
+  %9819 = icmp samesign ult i8 %9810, 45
   br i1 %9819, label %.loopexit17692, label %9820
 
 9820:                                             ; preds = %9818
@@ -23408,11 +23408,11 @@ timelib_eat_spaces.exit17435:                     ; preds = %5295, %5298, %5302,
   br i1 %9824, label %5862, label %9825
 
 9825:                                             ; preds = %9823
-  %9826 = icmp ult i8 %9810, 58
+  %9826 = icmp samesign ult i8 %9810, 58
   br i1 %9826, label %.preheader17640, label %9827
 
 9827:                                             ; preds = %9825
-  %9828 = icmp ult i8 %9810, 65
+  %9828 = icmp samesign ult i8 %9810, 65
   br i1 %9828, label %.loopexit17692, label %.loopexit17675
 
 9829:                                             ; preds = %9821
@@ -23437,7 +23437,7 @@ timelib_eat_spaces.exit17435:                     ; preds = %5295, %5298, %5302,
   br i1 %9838, label %9839, label %9844
 
 9839:                                             ; preds = %9835
-  %9840 = icmp ult i8 %9837, 32
+  %9840 = icmp samesign ult i8 %9837, 32
   br i1 %9840, label %9841, label %9843
 
 9841:                                             ; preds = %9839
@@ -23475,11 +23475,11 @@ timelib_eat_spaces.exit17435:                     ; preds = %5295, %5298, %5302,
   br i1 %9853, label %9854, label %9867
 
 9854:                                             ; preds = %9850
-  %9855 = icmp ult i8 %9852, 41
+  %9855 = icmp samesign ult i8 %9852, 41
   br i1 %9855, label %9856, label %9861
 
 9856:                                             ; preds = %9854
-  %9857 = icmp ult i8 %9852, 10
+  %9857 = icmp samesign ult i8 %9852, 10
   br i1 %9857, label %9858, label %9859
 
 9858:                                             ; preds = %9856
@@ -23491,7 +23491,7 @@ timelib_eat_spaces.exit17435:                     ; preds = %5295, %5298, %5302,
   br i1 %9860, label %12447, label %.loopexit17669
 
 9861:                                             ; preds = %9854
-  %9862 = icmp ult i8 %9852, 45
+  %9862 = icmp samesign ult i8 %9852, 45
   br i1 %9862, label %9863, label %9865
 
 9863:                                             ; preds = %9861
@@ -23507,11 +23507,11 @@ timelib_eat_spaces.exit17435:                     ; preds = %5295, %5298, %5302,
   br i1 %9868, label %9869, label %9875
 
 9869:                                             ; preds = %9867
-  %9870 = icmp ult i8 %9852, 91
+  %9870 = icmp samesign ult i8 %9852, 91
   br i1 %9870, label %9871, label %9873
 
 9871:                                             ; preds = %9869
-  %9872 = icmp ult i8 %9852, 65
+  %9872 = icmp samesign ult i8 %9852, 65
   br i1 %9872, label %.loopexit17669, label %.loopexit17675
 
 9873:                                             ; preds = %9869
@@ -23541,7 +23541,7 @@ timelib_eat_spaces.exit17435:                     ; preds = %5295, %5298, %5302,
   br i1 %9885, label %9886, label %9893
 
 9886:                                             ; preds = %9882
-  %9887 = icmp ult i8 %9884, 42
+  %9887 = icmp samesign ult i8 %9884, 42
   br i1 %9887, label %9888, label %9890
 
 9888:                                             ; preds = %9886
@@ -23550,7 +23550,7 @@ timelib_eat_spaces.exit17435:                     ; preds = %5295, %5298, %5302,
   br i1 %.not16555, label %.loopexit17671, label %.loopexit17669
 
 9890:                                             ; preds = %9886
-  %9891 = icmp ult i8 %9884, 65
+  %9891 = icmp samesign ult i8 %9884, 65
   br i1 %9891, label %.loopexit17669.loopexit.split.loop.exit39814, label %9892
 
 9892:                                             ; preds = %9890
@@ -23583,7 +23583,7 @@ timelib_eat_spaces.exit17435:                     ; preds = %5295, %5298, %5302,
   br i1 %9906, label %9907, label %9914
 
 9907:                                             ; preds = %9903
-  %9908 = icmp ult i8 %9905, 42
+  %9908 = icmp samesign ult i8 %9905, 42
   br i1 %9908, label %9909, label %9911
 
 9909:                                             ; preds = %9907
@@ -23592,7 +23592,7 @@ timelib_eat_spaces.exit17435:                     ; preds = %5295, %5298, %5302,
   br i1 %.not16547, label %.loopexit17671, label %.loopexit17669
 
 9911:                                             ; preds = %9907
-  %9912 = icmp ult i8 %9905, 65
+  %9912 = icmp samesign ult i8 %9905, 65
   br i1 %9912, label %.loopexit17669.loopexit.split.loop.exit39816, label %9913
 
 9913:                                             ; preds = %9911
@@ -23626,7 +23626,7 @@ timelib_eat_spaces.exit17435:                     ; preds = %5295, %5298, %5302,
   br i1 %9927, label %9928, label %9935
 
 9928:                                             ; preds = %9924
-  %9929 = icmp ult i8 %9926, 46
+  %9929 = icmp samesign ult i8 %9926, 46
   br i1 %9929, label %9930, label %9931
 
 9930:                                             ; preds = %9928
@@ -23640,7 +23640,7 @@ timelib_eat_spaces.exit17435:                     ; preds = %5295, %5298, %5302,
   br i1 %9932, label %5862, label %9933
 
 9933:                                             ; preds = %9931
-  %9934 = icmp ult i8 %9926, 65
+  %9934 = icmp samesign ult i8 %9926, 65
   br i1 %9934, label %.loopexit17669, label %.loopexit17675
 
 9935:                                             ; preds = %9924
@@ -23652,7 +23652,7 @@ timelib_eat_spaces.exit17435:                     ; preds = %5295, %5298, %5302,
   br i1 %9938, label %11692, label %9939
 
 9939:                                             ; preds = %9937
-  %9940 = icmp ult i8 %9926, 91
+  %9940 = icmp samesign ult i8 %9926, 91
   br i1 %9940, label %.loopexit17675, label %9941
 
 9941:                                             ; preds = %9939
@@ -23683,7 +23683,7 @@ timelib_eat_spaces.exit17435:                     ; preds = %5295, %5298, %5302,
   br i1 %9953, label %9954, label %9961
 
 9954:                                             ; preds = %9950
-  %9955 = icmp ult i8 %9952, 46
+  %9955 = icmp samesign ult i8 %9952, 46
   br i1 %9955, label %9956, label %9957
 
 9956:                                             ; preds = %9954
@@ -23697,7 +23697,7 @@ timelib_eat_spaces.exit17435:                     ; preds = %5295, %5298, %5302,
   br i1 %9958, label %5862, label %9959
 
 9959:                                             ; preds = %9957
-  %9960 = icmp ult i8 %9952, 65
+  %9960 = icmp samesign ult i8 %9952, 65
   br i1 %9960, label %.loopexit17669, label %.loopexit17675
 
 9961:                                             ; preds = %9950
@@ -23709,7 +23709,7 @@ timelib_eat_spaces.exit17435:                     ; preds = %5295, %5298, %5302,
   br i1 %9964, label %12459, label %9965
 
 9965:                                             ; preds = %9963
-  %9966 = icmp ult i8 %9952, 91
+  %9966 = icmp samesign ult i8 %9952, 91
   br i1 %9966, label %.loopexit17675, label %9967
 
 9967:                                             ; preds = %9965
@@ -23740,7 +23740,7 @@ timelib_eat_spaces.exit17435:                     ; preds = %5295, %5298, %5302,
   br i1 %9979, label %9980, label %9985
 
 9980:                                             ; preds = %9976
-  %9981 = icmp ult i8 %9978, 32
+  %9981 = icmp samesign ult i8 %9978, 32
   br i1 %9981, label %9982, label %9984
 
 9982:                                             ; preds = %9980
@@ -23850,11 +23850,11 @@ timelib_eat_spaces.exit17435:                     ; preds = %5295, %5298, %5302,
   br i1 %10029, label %10030, label %10043
 
 10030:                                            ; preds = %10026
-  %10031 = icmp ult i8 %10028, 41
+  %10031 = icmp samesign ult i8 %10028, 41
   br i1 %10031, label %10032, label %10037
 
 10032:                                            ; preds = %10030
-  %10033 = icmp ult i8 %10028, 10
+  %10033 = icmp samesign ult i8 %10028, 10
   br i1 %10033, label %10034, label %10035
 
 10034:                                            ; preds = %10032
@@ -23866,7 +23866,7 @@ timelib_eat_spaces.exit17435:                     ; preds = %5295, %5298, %5302,
   br i1 %10036, label %12387, label %.loopexit17669
 
 10037:                                            ; preds = %10030
-  %10038 = icmp ult i8 %10028, 45
+  %10038 = icmp samesign ult i8 %10028, 45
   br i1 %10038, label %10039, label %10041
 
 10039:                                            ; preds = %10037
@@ -23882,11 +23882,11 @@ timelib_eat_spaces.exit17435:                     ; preds = %5295, %5298, %5302,
   br i1 %10044, label %10045, label %10051
 
 10045:                                            ; preds = %10043
-  %10046 = icmp ult i8 %10028, 91
+  %10046 = icmp samesign ult i8 %10028, 91
   br i1 %10046, label %10047, label %10049
 
 10047:                                            ; preds = %10045
-  %10048 = icmp ult i8 %10028, 65
+  %10048 = icmp samesign ult i8 %10028, 65
   br i1 %10048, label %.loopexit17669, label %.loopexit17675
 
 10049:                                            ; preds = %10045
@@ -23917,7 +23917,7 @@ timelib_eat_spaces.exit17435:                     ; preds = %5295, %5298, %5302,
   br i1 %10061, label %10062, label %10068
 
 10062:                                            ; preds = %10058
-  %10063 = icmp ult i8 %10060, 45
+  %10063 = icmp samesign ult i8 %10060, 45
   br i1 %10063, label %10064, label %10066
 
 10064:                                            ; preds = %10062
@@ -23953,7 +23953,7 @@ timelib_eat_spaces.exit17435:                     ; preds = %5295, %5298, %5302,
   br i1 %10079, label %10080, label %10087
 
 10080:                                            ; preds = %10076
-  %10081 = icmp ult i8 %10078, 42
+  %10081 = icmp samesign ult i8 %10078, 42
   br i1 %10081, label %10082, label %10084
 
 10082:                                            ; preds = %10080
@@ -23962,7 +23962,7 @@ timelib_eat_spaces.exit17435:                     ; preds = %5295, %5298, %5302,
   br i1 %.not16490, label %.loopexit17671, label %.loopexit17669
 
 10084:                                            ; preds = %10080
-  %10085 = icmp ult i8 %10078, 65
+  %10085 = icmp samesign ult i8 %10078, 65
   br i1 %10085, label %.loopexit17669.loopexit.split.loop.exit39818, label %10086
 
 10086:                                            ; preds = %10084
@@ -23975,7 +23975,7 @@ timelib_eat_spaces.exit17435:                     ; preds = %5295, %5298, %5302,
 
 10089:                                            ; preds = %10087
   %10090 = getelementptr inbounds i8, ptr %.01433828656, i64 4
-  %10091 = icmp ugt i8 %10078, 90
+  %10091 = icmp samesign ugt i8 %10078, 90
   %10092 = icmp ne i8 %10078, 97
   %or.cond941 = and i1 %10091, %10092
   br i1 %or.cond941, label %.loopexit17669, label %.loopexit17675
@@ -23997,7 +23997,7 @@ timelib_eat_spaces.exit17435:                     ; preds = %5295, %5298, %5302,
   br i1 %10101, label %10102, label %10106
 
 10102:                                            ; preds = %10098
-  %10103 = icmp ult i8 %10100, 46
+  %10103 = icmp samesign ult i8 %10100, 46
   br i1 %10103, label %10104, label %10105
 
 10104:                                            ; preds = %10102
@@ -24021,7 +24021,7 @@ timelib_eat_spaces.exit17435:                     ; preds = %5295, %5298, %5302,
   br i1 %10109, label %12506, label %10110
 
 10110:                                            ; preds = %10108
-  %10111 = icmp ult i8 %10100, 91
+  %10111 = icmp samesign ult i8 %10100, 91
   br i1 %10111, label %.loopexit17675, label %10112
 
 10112:                                            ; preds = %10110
@@ -24051,7 +24051,7 @@ timelib_eat_spaces.exit17435:                     ; preds = %5295, %5298, %5302,
   br i1 %10124, label %10125, label %10132
 
 10125:                                            ; preds = %10121
-  %10126 = icmp ult i8 %10123, 42
+  %10126 = icmp samesign ult i8 %10123, 42
   br i1 %10126, label %10127, label %10129
 
 10127:                                            ; preds = %10125
@@ -24060,7 +24060,7 @@ timelib_eat_spaces.exit17435:                     ; preds = %5295, %5298, %5302,
   br i1 %.not16472, label %.loopexit17671, label %.loopexit17669
 
 10129:                                            ; preds = %10125
-  %10130 = icmp ult i8 %10123, 65
+  %10130 = icmp samesign ult i8 %10123, 65
   br i1 %10130, label %.loopexit17669.loopexit.split.loop.exit39820, label %10131
 
 10131:                                            ; preds = %10129
@@ -24094,7 +24094,7 @@ timelib_eat_spaces.exit17435:                     ; preds = %5295, %5298, %5302,
   br i1 %10145, label %10146, label %10153
 
 10146:                                            ; preds = %10142
-  %10147 = icmp ult i8 %10144, 46
+  %10147 = icmp samesign ult i8 %10144, 46
   br i1 %10147, label %10148, label %10149
 
 10148:                                            ; preds = %10146
@@ -24108,7 +24108,7 @@ timelib_eat_spaces.exit17435:                     ; preds = %5295, %5298, %5302,
   br i1 %10150, label %5862, label %10151
 
 10151:                                            ; preds = %10149
-  %10152 = icmp ult i8 %10144, 65
+  %10152 = icmp samesign ult i8 %10144, 65
   br i1 %10152, label %.loopexit17669, label %.loopexit17675
 
 10153:                                            ; preds = %10142
@@ -24120,7 +24120,7 @@ timelib_eat_spaces.exit17435:                     ; preds = %5295, %5298, %5302,
   br i1 %10156, label %12553, label %10157
 
 10157:                                            ; preds = %10155
-  %10158 = icmp ult i8 %10144, 91
+  %10158 = icmp samesign ult i8 %10144, 91
   br i1 %10158, label %.loopexit17675, label %10159
 
 10159:                                            ; preds = %10157
@@ -24150,7 +24150,7 @@ timelib_eat_spaces.exit17435:                     ; preds = %5295, %5298, %5302,
   br i1 %10171, label %10172, label %10179
 
 10172:                                            ; preds = %10168
-  %10173 = icmp ult i8 %10170, 42
+  %10173 = icmp samesign ult i8 %10170, 42
   br i1 %10173, label %10174, label %10176
 
 10174:                                            ; preds = %10172
@@ -24159,7 +24159,7 @@ timelib_eat_spaces.exit17435:                     ; preds = %5295, %5298, %5302,
   br i1 %.not16452, label %.loopexit17671, label %.loopexit17669
 
 10176:                                            ; preds = %10172
-  %10177 = icmp ult i8 %10170, 65
+  %10177 = icmp samesign ult i8 %10170, 65
   br i1 %10177, label %.loopexit17669.loopexit.split.loop.exit39822, label %10178
 
 10178:                                            ; preds = %10176
@@ -24192,7 +24192,7 @@ timelib_eat_spaces.exit17435:                     ; preds = %5295, %5298, %5302,
   br i1 %10192, label %10193, label %10200
 
 10193:                                            ; preds = %10189
-  %10194 = icmp ult i8 %10191, 42
+  %10194 = icmp samesign ult i8 %10191, 42
   br i1 %10194, label %10195, label %10197
 
 10195:                                            ; preds = %10193
@@ -24201,7 +24201,7 @@ timelib_eat_spaces.exit17435:                     ; preds = %5295, %5298, %5302,
   br i1 %.not16445, label %.loopexit17671, label %.loopexit17669
 
 10197:                                            ; preds = %10193
-  %10198 = icmp ult i8 %10191, 65
+  %10198 = icmp samesign ult i8 %10191, 65
   br i1 %10198, label %.loopexit17669.loopexit.split.loop.exit39824, label %10199
 
 10199:                                            ; preds = %10197
@@ -24235,11 +24235,11 @@ timelib_eat_spaces.exit17435:                     ; preds = %5295, %5298, %5302,
   br i1 %10213, label %10214, label %10226
 
 10214:                                            ; preds = %10210
-  %10215 = icmp ult i8 %10212, 41
+  %10215 = icmp samesign ult i8 %10212, 41
   br i1 %10215, label %10216, label %10221
 
 10216:                                            ; preds = %10214
-  %10217 = icmp ult i8 %10212, 10
+  %10217 = icmp samesign ult i8 %10212, 10
   br i1 %10217, label %10218, label %10219
 
 10218:                                            ; preds = %10216
@@ -24251,7 +24251,7 @@ timelib_eat_spaces.exit17435:                     ; preds = %5295, %5298, %5302,
   br i1 %10220, label %.preheader17640, label %.loopexit17692
 
 10221:                                            ; preds = %10214
-  %10222 = icmp ult i8 %10212, 45
+  %10222 = icmp samesign ult i8 %10212, 45
   br i1 %10222, label %10223, label %10225
 
 10223:                                            ; preds = %10221
@@ -24269,11 +24269,11 @@ timelib_eat_spaces.exit17435:                     ; preds = %5295, %5298, %5302,
   br i1 %10227, label %10228, label %10234
 
 10228:                                            ; preds = %10226
-  %10229 = icmp ult i8 %10212, 65
+  %10229 = icmp samesign ult i8 %10212, 65
   br i1 %10229, label %10230, label %10232
 
 10230:                                            ; preds = %10228
-  %10231 = icmp ult i8 %10212, 58
+  %10231 = icmp samesign ult i8 %10212, 58
   br i1 %10231, label %.preheader17640, label %.loopexit17692
 
 10232:                                            ; preds = %10228
@@ -24285,7 +24285,7 @@ timelib_eat_spaces.exit17435:                     ; preds = %5295, %5298, %5302,
   br i1 %10235, label %10236, label %10238
 
 10236:                                            ; preds = %10234
-  %10237 = icmp ult i8 %10212, 97
+  %10237 = icmp samesign ult i8 %10212, 97
   br i1 %10237, label %.loopexit17692, label %.loopexit17675
 
 10238:                                            ; preds = %10234
@@ -24303,7 +24303,7 @@ timelib_eat_spaces.exit17435:                     ; preds = %5295, %5298, %5302,
   br i1 %10245, label %10246, label %10253
 
 10246:                                            ; preds = %10242
-  %10247 = icmp ult i8 %10244, 42
+  %10247 = icmp samesign ult i8 %10244, 42
   br i1 %10247, label %10248, label %10250
 
 10248:                                            ; preds = %10246
@@ -24312,7 +24312,7 @@ timelib_eat_spaces.exit17435:                     ; preds = %5295, %5298, %5302,
   br i1 %.not16433, label %.loopexit17671, label %.loopexit17669
 
 10250:                                            ; preds = %10246
-  %10251 = icmp ult i8 %10244, 65
+  %10251 = icmp samesign ult i8 %10244, 65
   br i1 %10251, label %.loopexit17669.loopexit.split.loop.exit39826, label %10252
 
 10252:                                            ; preds = %10250
@@ -24346,7 +24346,7 @@ timelib_eat_spaces.exit17435:                     ; preds = %5295, %5298, %5302,
   br i1 %10266, label %10267, label %10274
 
 10267:                                            ; preds = %10263
-  %10268 = icmp ult i8 %10265, 46
+  %10268 = icmp samesign ult i8 %10265, 46
   br i1 %10268, label %10269, label %10270
 
 10269:                                            ; preds = %10267
@@ -24360,7 +24360,7 @@ timelib_eat_spaces.exit17435:                     ; preds = %5295, %5298, %5302,
   br i1 %10271, label %5862, label %10272
 
 10272:                                            ; preds = %10270
-  %10273 = icmp ult i8 %10265, 65
+  %10273 = icmp samesign ult i8 %10265, 65
   br i1 %10273, label %.loopexit17669, label %.loopexit17675
 
 10274:                                            ; preds = %10263
@@ -24372,7 +24372,7 @@ timelib_eat_spaces.exit17435:                     ; preds = %5295, %5298, %5302,
   br i1 %10277, label %12600, label %10278
 
 10278:                                            ; preds = %10276
-  %10279 = icmp ult i8 %10265, 91
+  %10279 = icmp samesign ult i8 %10265, 91
   br i1 %10279, label %.loopexit17675, label %10280
 
 10280:                                            ; preds = %10278
@@ -24403,7 +24403,7 @@ timelib_eat_spaces.exit17435:                     ; preds = %5295, %5298, %5302,
   br i1 %10292, label %10293, label %10300
 
 10293:                                            ; preds = %10289
-  %10294 = icmp ult i8 %10291, 46
+  %10294 = icmp samesign ult i8 %10291, 46
   br i1 %10294, label %10295, label %10296
 
 10295:                                            ; preds = %10293
@@ -24417,7 +24417,7 @@ timelib_eat_spaces.exit17435:                     ; preds = %5295, %5298, %5302,
   br i1 %10297, label %5862, label %10298
 
 10298:                                            ; preds = %10296
-  %10299 = icmp ult i8 %10291, 65
+  %10299 = icmp samesign ult i8 %10291, 65
   br i1 %10299, label %.loopexit17669, label %.loopexit17675
 
 10300:                                            ; preds = %10289
@@ -24429,7 +24429,7 @@ timelib_eat_spaces.exit17435:                     ; preds = %5295, %5298, %5302,
   br i1 %10303, label %12621, label %10304
 
 10304:                                            ; preds = %10302
-  %10305 = icmp ult i8 %10291, 91
+  %10305 = icmp samesign ult i8 %10291, 91
   br i1 %10305, label %.loopexit17675, label %10306
 
 10306:                                            ; preds = %10304
@@ -24460,11 +24460,11 @@ timelib_eat_spaces.exit17435:                     ; preds = %5295, %5298, %5302,
   br i1 %10318, label %10319, label %10331
 
 10319:                                            ; preds = %10315
-  %10320 = icmp ult i8 %10317, 41
+  %10320 = icmp samesign ult i8 %10317, 41
   br i1 %10320, label %10321, label %10326
 
 10321:                                            ; preds = %10319
-  %10322 = icmp ult i8 %10317, 10
+  %10322 = icmp samesign ult i8 %10317, 10
   br i1 %10322, label %10323, label %10324
 
 10323:                                            ; preds = %10321
@@ -24476,7 +24476,7 @@ timelib_eat_spaces.exit17435:                     ; preds = %5295, %5298, %5302,
   br i1 %10325, label %.preheader17640, label %.loopexit17692
 
 10326:                                            ; preds = %10319
-  %10327 = icmp ult i8 %10317, 46
+  %10327 = icmp samesign ult i8 %10317, 46
   br i1 %10327, label %10328, label %10329
 
 10328:                                            ; preds = %10326
@@ -24494,11 +24494,11 @@ timelib_eat_spaces.exit17435:                     ; preds = %5295, %5298, %5302,
   br i1 %10332, label %10333, label %10341
 
 10333:                                            ; preds = %10331
-  %10334 = icmp ult i8 %10317, 69
+  %10334 = icmp samesign ult i8 %10317, 69
   br i1 %10334, label %10335, label %10337
 
 10335:                                            ; preds = %10333
-  %10336 = icmp ult i8 %10317, 65
+  %10336 = icmp samesign ult i8 %10317, 65
   br i1 %10336, label %.loopexit17692, label %.loopexit17675
 
 10337:                                            ; preds = %10333
@@ -24506,7 +24506,7 @@ timelib_eat_spaces.exit17435:                     ; preds = %5295, %5298, %5302,
   br i1 %10338, label %12642, label %10339
 
 10339:                                            ; preds = %10337
-  %10340 = icmp ult i8 %10317, 91
+  %10340 = icmp samesign ult i8 %10317, 91
   br i1 %10340, label %.loopexit17675, label %.loopexit17692
 
 10341:                                            ; preds = %10331
@@ -24518,7 +24518,7 @@ timelib_eat_spaces.exit17435:                     ; preds = %5295, %5298, %5302,
   br i1 %10344, label %5862, label %10345
 
 10345:                                            ; preds = %10343
-  %10346 = icmp ult i8 %10317, 97
+  %10346 = icmp samesign ult i8 %10317, 97
   br i1 %10346, label %.loopexit17692, label %11730
 
 10347:                                            ; preds = %10341
@@ -24537,7 +24537,7 @@ timelib_eat_spaces.exit17435:                     ; preds = %5295, %5298, %5302,
   br i1 %10354, label %10355, label %10362
 
 10355:                                            ; preds = %10351
-  %10356 = icmp ult i8 %10353, 46
+  %10356 = icmp samesign ult i8 %10353, 46
   br i1 %10356, label %10357, label %10358
 
 10357:                                            ; preds = %10355
@@ -24551,7 +24551,7 @@ timelib_eat_spaces.exit17435:                     ; preds = %5295, %5298, %5302,
   br i1 %10359, label %5862, label %10360
 
 10360:                                            ; preds = %10358
-  %10361 = icmp ult i8 %10353, 65
+  %10361 = icmp samesign ult i8 %10353, 65
   br i1 %10361, label %.loopexit17669, label %.loopexit17675
 
 10362:                                            ; preds = %10351
@@ -24563,7 +24563,7 @@ timelib_eat_spaces.exit17435:                     ; preds = %5295, %5298, %5302,
   br i1 %10365, label %12663, label %10366
 
 10366:                                            ; preds = %10364
-  %10367 = icmp ult i8 %10353, 91
+  %10367 = icmp samesign ult i8 %10353, 91
   br i1 %10367, label %.loopexit17675, label %10368
 
 10368:                                            ; preds = %10366
@@ -24600,7 +24600,7 @@ timelib_eat_spaces.exit17435:                     ; preds = %5295, %5298, %5302,
   br i1 %10384, label %10385, label %10392
 
 10385:                                            ; preds = %10381
-  %10386 = icmp ult i8 %10383, 42
+  %10386 = icmp samesign ult i8 %10383, 42
   br i1 %10386, label %10387, label %10389
 
 10387:                                            ; preds = %10385
@@ -24609,7 +24609,7 @@ timelib_eat_spaces.exit17435:                     ; preds = %5295, %5298, %5302,
   br i1 %.not16391, label %.loopexit17671, label %.loopexit17669
 
 10389:                                            ; preds = %10385
-  %10390 = icmp ult i8 %10383, 65
+  %10390 = icmp samesign ult i8 %10383, 65
   br i1 %10390, label %.loopexit17669.loopexit.split.loop.exit39828, label %10391
 
 10391:                                            ; preds = %10389
@@ -24642,7 +24642,7 @@ timelib_eat_spaces.exit17435:                     ; preds = %5295, %5298, %5302,
   br i1 %10405, label %10406, label %10413
 
 10406:                                            ; preds = %10402
-  %10407 = icmp ult i8 %10404, 42
+  %10407 = icmp samesign ult i8 %10404, 42
   br i1 %10407, label %10408, label %10410
 
 10408:                                            ; preds = %10406
@@ -24651,7 +24651,7 @@ timelib_eat_spaces.exit17435:                     ; preds = %5295, %5298, %5302,
   br i1 %.not16387, label %.loopexit17671, label %.loopexit17669
 
 10410:                                            ; preds = %10406
-  %10411 = icmp ult i8 %10404, 65
+  %10411 = icmp samesign ult i8 %10404, 65
   br i1 %10411, label %.loopexit17669.loopexit.split.loop.exit39830, label %10412
 
 10412:                                            ; preds = %10410
@@ -24684,7 +24684,7 @@ timelib_eat_spaces.exit17435:                     ; preds = %5295, %5298, %5302,
   br i1 %10425, label %10426, label %10432
 
 10426:                                            ; preds = %.loopexit17688
-  %10427 = icmp ult i8 %10424, 42
+  %10427 = icmp samesign ult i8 %10424, 42
   br i1 %10427, label %10428, label %10429
 
 10428:                                            ; preds = %10426
@@ -24692,7 +24692,7 @@ timelib_eat_spaces.exit17435:                     ; preds = %5295, %5298, %5302,
   br i1 %.not16382, label %.loopexit17671, label %.loopexit17669
 
 10429:                                            ; preds = %10426
-  %10430 = icmp ult i8 %10424, 65
+  %10430 = icmp samesign ult i8 %10424, 65
   br i1 %10430, label %.loopexit17669, label %10431
 
 10431:                                            ; preds = %10429
@@ -24705,7 +24705,7 @@ timelib_eat_spaces.exit17435:                     ; preds = %5295, %5298, %5302,
 
 10434:                                            ; preds = %10432
   %10435 = icmp ne i8 %10424, 90
-  %10436 = icmp ult i8 %10424, 97
+  %10436 = icmp samesign ult i8 %10424, 97
   %or.cond965 = and i1 %10435, %10436
   br i1 %or.cond965, label %.loopexit17669, label %.loopexit17675
 
@@ -24724,7 +24724,7 @@ timelib_eat_spaces.exit17435:                     ; preds = %5295, %5298, %5302,
   br i1 %10444, label %10445, label %10452
 
 10445:                                            ; preds = %10441
-  %10446 = icmp ult i8 %10443, 42
+  %10446 = icmp samesign ult i8 %10443, 42
   br i1 %10446, label %10447, label %10449
 
 10447:                                            ; preds = %10445
@@ -24733,7 +24733,7 @@ timelib_eat_spaces.exit17435:                     ; preds = %5295, %5298, %5302,
   br i1 %.not16378, label %.loopexit17671, label %.loopexit17669
 
 10449:                                            ; preds = %10445
-  %10450 = icmp ult i8 %10443, 65
+  %10450 = icmp samesign ult i8 %10443, 65
   br i1 %10450, label %.loopexit17669.loopexit.split.loop.exit39832, label %10451
 
 10451:                                            ; preds = %10449
@@ -24766,7 +24766,7 @@ timelib_eat_spaces.exit17435:                     ; preds = %5295, %5298, %5302,
   br i1 %10464, label %10465, label %10471
 
 10465:                                            ; preds = %.loopexit17678
-  %10466 = icmp ult i8 %10463, 42
+  %10466 = icmp samesign ult i8 %10463, 42
   br i1 %10466, label %10467, label %10468
 
 10467:                                            ; preds = %10465
@@ -24774,7 +24774,7 @@ timelib_eat_spaces.exit17435:                     ; preds = %5295, %5298, %5302,
   br i1 %.not16369, label %.loopexit17671, label %.loopexit17669
 
 10468:                                            ; preds = %10465
-  %10469 = icmp ult i8 %10463, 65
+  %10469 = icmp samesign ult i8 %10463, 65
   br i1 %10469, label %.loopexit17669, label %10470
 
 10470:                                            ; preds = %10468
@@ -24805,7 +24805,7 @@ timelib_eat_spaces.exit17435:                     ; preds = %5295, %5298, %5302,
   br i1 %10482, label %10483, label %10490
 
 10483:                                            ; preds = %10479
-  %10484 = icmp ult i8 %10481, 42
+  %10484 = icmp samesign ult i8 %10481, 42
   br i1 %10484, label %10485, label %10487
 
 10485:                                            ; preds = %10483
@@ -24814,7 +24814,7 @@ timelib_eat_spaces.exit17435:                     ; preds = %5295, %5298, %5302,
   br i1 %.not16362, label %.loopexit17671, label %.loopexit17669
 
 10487:                                            ; preds = %10483
-  %10488 = icmp ult i8 %10481, 65
+  %10488 = icmp samesign ult i8 %10481, 65
   br i1 %10488, label %.loopexit17669.loopexit.split.loop.exit39834, label %10489
 
 10489:                                            ; preds = %10487
@@ -24848,7 +24848,7 @@ timelib_eat_spaces.exit17435:                     ; preds = %5295, %5298, %5302,
   br i1 %10503, label %10504, label %10511
 
 10504:                                            ; preds = %10500
-  %10505 = icmp ult i8 %10502, 46
+  %10505 = icmp samesign ult i8 %10502, 46
   br i1 %10505, label %10506, label %10507
 
 10506:                                            ; preds = %10504
@@ -24862,7 +24862,7 @@ timelib_eat_spaces.exit17435:                     ; preds = %5295, %5298, %5302,
   br i1 %10508, label %5862, label %10509
 
 10509:                                            ; preds = %10507
-  %10510 = icmp ult i8 %10502, 65
+  %10510 = icmp samesign ult i8 %10502, 65
   br i1 %10510, label %.loopexit17669, label %.loopexit17675
 
 10511:                                            ; preds = %10500
@@ -24874,7 +24874,7 @@ timelib_eat_spaces.exit17435:                     ; preds = %5295, %5298, %5302,
   br i1 %10514, label %11976, label %10515
 
 10515:                                            ; preds = %10513
-  %10516 = icmp ult i8 %10502, 91
+  %10516 = icmp samesign ult i8 %10502, 91
   br i1 %10516, label %.loopexit17675, label %10517
 
 10517:                                            ; preds = %10515
@@ -24905,7 +24905,7 @@ timelib_eat_spaces.exit17435:                     ; preds = %5295, %5298, %5302,
   br i1 %10529, label %10530, label %10537
 
 10530:                                            ; preds = %10526
-  %10531 = icmp ult i8 %10528, 46
+  %10531 = icmp samesign ult i8 %10528, 46
   br i1 %10531, label %10532, label %10533
 
 10532:                                            ; preds = %10530
@@ -24919,7 +24919,7 @@ timelib_eat_spaces.exit17435:                     ; preds = %5295, %5298, %5302,
   br i1 %10534, label %5862, label %10535
 
 10535:                                            ; preds = %10533
-  %10536 = icmp ult i8 %10528, 65
+  %10536 = icmp samesign ult i8 %10528, 65
   br i1 %10536, label %.loopexit17669, label %.loopexit17675
 
 10537:                                            ; preds = %10526
@@ -24931,7 +24931,7 @@ timelib_eat_spaces.exit17435:                     ; preds = %5295, %5298, %5302,
   br i1 %10540, label %12600, label %10541
 
 10541:                                            ; preds = %10539
-  %10542 = icmp ult i8 %10528, 91
+  %10542 = icmp samesign ult i8 %10528, 91
   br i1 %10542, label %.loopexit17675, label %10543
 
 10543:                                            ; preds = %10541
@@ -24962,7 +24962,7 @@ timelib_eat_spaces.exit17435:                     ; preds = %5295, %5298, %5302,
   br i1 %10555, label %10556, label %10563
 
 10556:                                            ; preds = %10552
-  %10557 = icmp ult i8 %10554, 46
+  %10557 = icmp samesign ult i8 %10554, 46
   br i1 %10557, label %10558, label %10559
 
 10558:                                            ; preds = %10556
@@ -24976,7 +24976,7 @@ timelib_eat_spaces.exit17435:                     ; preds = %5295, %5298, %5302,
   br i1 %10560, label %5862, label %10561
 
 10561:                                            ; preds = %10559
-  %10562 = icmp ult i8 %10554, 65
+  %10562 = icmp samesign ult i8 %10554, 65
   br i1 %10562, label %.loopexit17669, label %.loopexit17675
 
 10563:                                            ; preds = %10552
@@ -24988,7 +24988,7 @@ timelib_eat_spaces.exit17435:                     ; preds = %5295, %5298, %5302,
   br i1 %10566, label %.loopexit17687, label %10567
 
 10567:                                            ; preds = %10565
-  %10568 = icmp ult i8 %10554, 91
+  %10568 = icmp samesign ult i8 %10554, 91
   br i1 %10568, label %.loopexit17675, label %10569
 
 10569:                                            ; preds = %10567
@@ -25019,7 +25019,7 @@ timelib_eat_spaces.exit17435:                     ; preds = %5295, %5298, %5302,
   br i1 %10581, label %10582, label %10589
 
 10582:                                            ; preds = %10578
-  %10583 = icmp ult i8 %10580, 46
+  %10583 = icmp samesign ult i8 %10580, 46
   br i1 %10583, label %10584, label %10585
 
 10584:                                            ; preds = %10582
@@ -25033,7 +25033,7 @@ timelib_eat_spaces.exit17435:                     ; preds = %5295, %5298, %5302,
   br i1 %10586, label %5862, label %10587
 
 10587:                                            ; preds = %10585
-  %10588 = icmp ult i8 %10580, 65
+  %10588 = icmp samesign ult i8 %10580, 65
   br i1 %10588, label %.loopexit17669, label %.loopexit17675
 
 10589:                                            ; preds = %10578
@@ -25045,7 +25045,7 @@ timelib_eat_spaces.exit17435:                     ; preds = %5295, %5298, %5302,
   br i1 %10592, label %12816, label %10593
 
 10593:                                            ; preds = %10591
-  %10594 = icmp ult i8 %10580, 91
+  %10594 = icmp samesign ult i8 %10580, 91
   br i1 %10594, label %.loopexit17675, label %10595
 
 10595:                                            ; preds = %10593
@@ -25076,7 +25076,7 @@ timelib_eat_spaces.exit17435:                     ; preds = %5295, %5298, %5302,
   br i1 %10607, label %10608, label %10615
 
 10608:                                            ; preds = %10604
-  %10609 = icmp ult i8 %10606, 46
+  %10609 = icmp samesign ult i8 %10606, 46
   br i1 %10609, label %10610, label %10611
 
 10610:                                            ; preds = %10608
@@ -25090,7 +25090,7 @@ timelib_eat_spaces.exit17435:                     ; preds = %5295, %5298, %5302,
   br i1 %10612, label %5862, label %10613
 
 10613:                                            ; preds = %10611
-  %10614 = icmp ult i8 %10606, 65
+  %10614 = icmp samesign ult i8 %10606, 65
   br i1 %10614, label %.loopexit17669, label %.loopexit17675
 
 10615:                                            ; preds = %10604
@@ -25102,7 +25102,7 @@ timelib_eat_spaces.exit17435:                     ; preds = %5295, %5298, %5302,
   br i1 %10618, label %.loopexit17683, label %10619
 
 10619:                                            ; preds = %10617
-  %10620 = icmp ult i8 %10606, 91
+  %10620 = icmp samesign ult i8 %10606, 91
   br i1 %10620, label %.loopexit17675, label %10621
 
 10621:                                            ; preds = %10619
@@ -25133,7 +25133,7 @@ timelib_eat_spaces.exit17435:                     ; preds = %5295, %5298, %5302,
   br i1 %10633, label %10634, label %10641
 
 10634:                                            ; preds = %10630
-  %10635 = icmp ult i8 %10632, 46
+  %10635 = icmp samesign ult i8 %10632, 46
   br i1 %10635, label %10636, label %10637
 
 10636:                                            ; preds = %10634
@@ -25147,7 +25147,7 @@ timelib_eat_spaces.exit17435:                     ; preds = %5295, %5298, %5302,
   br i1 %10638, label %5862, label %10639
 
 10639:                                            ; preds = %10637
-  %10640 = icmp ult i8 %10632, 65
+  %10640 = icmp samesign ult i8 %10632, 65
   br i1 %10640, label %.loopexit17669, label %.loopexit17675
 
 10641:                                            ; preds = %10630
@@ -25159,7 +25159,7 @@ timelib_eat_spaces.exit17435:                     ; preds = %5295, %5298, %5302,
   br i1 %10644, label %12663, label %10645
 
 10645:                                            ; preds = %10643
-  %10646 = icmp ult i8 %10632, 91
+  %10646 = icmp samesign ult i8 %10632, 91
   br i1 %10646, label %.loopexit17675, label %10647
 
 10647:                                            ; preds = %10645
@@ -25190,7 +25190,7 @@ timelib_eat_spaces.exit17435:                     ; preds = %5295, %5298, %5302,
   br i1 %10659, label %10660, label %10665
 
 10660:                                            ; preds = %10656
-  %10661 = icmp ult i8 %10658, 32
+  %10661 = icmp samesign ult i8 %10658, 32
   br i1 %10661, label %10662, label %10664
 
 10662:                                            ; preds = %10660
@@ -25209,7 +25209,7 @@ timelib_eat_spaces.exit17435:                     ; preds = %5295, %5298, %5302,
 
 10667:                                            ; preds = %10665
   %10668 = icmp ne i8 %10658, 47
-  %10669 = icmp ult i8 %10658, 58
+  %10669 = icmp samesign ult i8 %10658, 58
   %or.cond977 = and i1 %10668, %10669
   br i1 %or.cond977, label %.preheader17640, label %.loopexit17669
 
@@ -25227,7 +25227,7 @@ timelib_eat_spaces.exit17435:                     ; preds = %5295, %5298, %5302,
   br i1 %10676, label %10677, label %10684
 
 10677:                                            ; preds = %10673
-  %10678 = icmp ult i8 %10675, 42
+  %10678 = icmp samesign ult i8 %10675, 42
   br i1 %10678, label %10679, label %10681
 
 10679:                                            ; preds = %10677
@@ -25236,7 +25236,7 @@ timelib_eat_spaces.exit17435:                     ; preds = %5295, %5298, %5302,
   br i1 %.not16321, label %.loopexit17671, label %.loopexit17669
 
 10681:                                            ; preds = %10677
-  %10682 = icmp ult i8 %10675, 65
+  %10682 = icmp samesign ult i8 %10675, 65
   br i1 %10682, label %.loopexit17669.loopexit.split.loop.exit39836, label %10683
 
 10683:                                            ; preds = %10681
@@ -25270,7 +25270,7 @@ timelib_eat_spaces.exit17435:                     ; preds = %5295, %5298, %5302,
   br i1 %10697, label %10698, label %10705
 
 10698:                                            ; preds = %10694
-  %10699 = icmp ult i8 %10696, 46
+  %10699 = icmp samesign ult i8 %10696, 46
   br i1 %10699, label %10700, label %10701
 
 10700:                                            ; preds = %10698
@@ -25284,7 +25284,7 @@ timelib_eat_spaces.exit17435:                     ; preds = %5295, %5298, %5302,
   br i1 %10702, label %5862, label %10703
 
 10703:                                            ; preds = %10701
-  %10704 = icmp ult i8 %10696, 65
+  %10704 = icmp samesign ult i8 %10696, 65
   br i1 %10704, label %.loopexit17669, label %.loopexit17675
 
 10705:                                            ; preds = %10694
@@ -25296,7 +25296,7 @@ timelib_eat_spaces.exit17435:                     ; preds = %5295, %5298, %5302,
   br i1 %10708, label %12917, label %10709
 
 10709:                                            ; preds = %10707
-  %10710 = icmp ult i8 %10696, 91
+  %10710 = icmp samesign ult i8 %10696, 91
   br i1 %10710, label %.loopexit17675, label %10711
 
 10711:                                            ; preds = %10709
@@ -25326,7 +25326,7 @@ timelib_eat_spaces.exit17435:                     ; preds = %5295, %5298, %5302,
   br i1 %10723, label %10724, label %10731
 
 10724:                                            ; preds = %10720
-  %10725 = icmp ult i8 %10722, 42
+  %10725 = icmp samesign ult i8 %10722, 42
   br i1 %10725, label %10726, label %10728
 
 10726:                                            ; preds = %10724
@@ -25335,7 +25335,7 @@ timelib_eat_spaces.exit17435:                     ; preds = %5295, %5298, %5302,
   br i1 %.not16298, label %.loopexit17671, label %.loopexit17669
 
 10728:                                            ; preds = %10724
-  %10729 = icmp ult i8 %10722, 65
+  %10729 = icmp samesign ult i8 %10722, 65
   br i1 %10729, label %.loopexit17669.loopexit.split.loop.exit39838, label %10730
 
 10730:                                            ; preds = %10728
@@ -25369,7 +25369,7 @@ timelib_eat_spaces.exit17435:                     ; preds = %5295, %5298, %5302,
   br i1 %10744, label %10745, label %10752
 
 10745:                                            ; preds = %10741
-  %10746 = icmp ult i8 %10743, 46
+  %10746 = icmp samesign ult i8 %10743, 46
   br i1 %10746, label %10747, label %10748
 
 10747:                                            ; preds = %10745
@@ -25383,7 +25383,7 @@ timelib_eat_spaces.exit17435:                     ; preds = %5295, %5298, %5302,
   br i1 %10749, label %5862, label %10750
 
 10750:                                            ; preds = %10748
-  %10751 = icmp ult i8 %10743, 65
+  %10751 = icmp samesign ult i8 %10743, 65
   br i1 %10751, label %.loopexit17669, label %.loopexit17675
 
 10752:                                            ; preds = %10741
@@ -25395,7 +25395,7 @@ timelib_eat_spaces.exit17435:                     ; preds = %5295, %5298, %5302,
   br i1 %10755, label %12964, label %10756
 
 10756:                                            ; preds = %10754
-  %10757 = icmp ult i8 %10743, 91
+  %10757 = icmp samesign ult i8 %10743, 91
   br i1 %10757, label %.loopexit17675, label %10758
 
 10758:                                            ; preds = %10756
@@ -25453,15 +25453,15 @@ timelib_eat_spaces.exit17435:                     ; preds = %5295, %5298, %5302,
   br i1 %10782, label %10783, label %10813
 
 10783:                                            ; preds = %10779
-  %10784 = icmp ult i8 %10781, 58
+  %10784 = icmp samesign ult i8 %10781, 58
   br i1 %10784, label %10785, label %10800
 
 10785:                                            ; preds = %10783
-  %10786 = icmp ult i8 %10781, 45
+  %10786 = icmp samesign ult i8 %10781, 45
   br i1 %10786, label %10787, label %10792
 
 10787:                                            ; preds = %10785
-  %10788 = icmp ult i8 %10781, 10
+  %10788 = icmp samesign ult i8 %10781, 10
   br i1 %10788, label %10789, label %10790
 
 10789:                                            ; preds = %10787
@@ -25473,7 +25473,7 @@ timelib_eat_spaces.exit17435:                     ; preds = %5295, %5298, %5302,
   br i1 %10791, label %4547, label %.loopexit17669
 
 10792:                                            ; preds = %10785
-  %10793 = icmp ult i8 %10781, 48
+  %10793 = icmp samesign ult i8 %10781, 48
   br i1 %10793, label %10794, label %10796
 
 10794:                                            ; preds = %10792
@@ -25481,7 +25481,7 @@ timelib_eat_spaces.exit17435:                     ; preds = %5295, %5298, %5302,
   br i1 %10795, label %13011, label %.loopexit17669
 
 10796:                                            ; preds = %10792
-  %10797 = icmp ult i8 %10781, 54
+  %10797 = icmp samesign ult i8 %10781, 54
   br i1 %10797, label %13019, label %10798
 
 10798:                                            ; preds = %10796
@@ -25489,11 +25489,11 @@ timelib_eat_spaces.exit17435:                     ; preds = %5295, %5298, %5302,
   br i1 %10799, label %13032, label %13048
 
 10800:                                            ; preds = %10783
-  %10801 = icmp ult i8 %10781, 72
+  %10801 = icmp samesign ult i8 %10781, 72
   br i1 %10801, label %10802, label %10807
 
 10802:                                            ; preds = %10800
-  %10803 = icmp ult i8 %10781, 69
+  %10803 = icmp samesign ult i8 %10781, 69
   br i1 %10803, label %10804, label %10805
 
 10804:                                            ; preds = %10802
@@ -25505,7 +25505,7 @@ timelib_eat_spaces.exit17435:                     ; preds = %5295, %5298, %5302,
   br i1 %10806, label %4547, label %.loopexit17669
 
 10807:                                            ; preds = %10800
-  %10808 = icmp ult i8 %10781, 78
+  %10808 = icmp samesign ult i8 %10781, 78
   br i1 %10808, label %10809, label %10810
 
 10809:                                            ; preds = %10807
@@ -25515,7 +25515,7 @@ timelib_eat_spaces.exit17435:                     ; preds = %5295, %5298, %5302,
   ]
 
 10810:                                            ; preds = %10807
-  %10811 = icmp ugt i8 %10781, 82
+  %10811 = icmp samesign ugt i8 %10781, 82
   %10812 = icmp ne i8 %10781, 86
   %or.cond995 = and i1 %10811, %10812
   br i1 %or.cond995, label %4547, label %.loopexit17669
@@ -25525,11 +25525,11 @@ timelib_eat_spaces.exit17435:                     ; preds = %5295, %5298, %5302,
   br i1 %10814, label %10815, label %10827
 
 10815:                                            ; preds = %10813
-  %10816 = icmp ult i8 %10781, 101
+  %10816 = icmp samesign ult i8 %10781, 101
   br i1 %10816, label %10817, label %10822
 
 10817:                                            ; preds = %10815
-  %10818 = icmp ult i8 %10781, 89
+  %10818 = icmp samesign ult i8 %10781, 89
   br i1 %10818, label %10819, label %10821
 
 10819:                                            ; preds = %10817
@@ -25543,7 +25543,7 @@ timelib_eat_spaces.exit17435:                     ; preds = %5295, %5298, %5302,
   ]
 
 10822:                                            ; preds = %10815
-  %10823 = icmp ult i8 %10781, 104
+  %10823 = icmp samesign ult i8 %10781, 104
   br i1 %10823, label %10824, label %10826
 
 10824:                                            ; preds = %10822
@@ -25561,11 +25561,11 @@ timelib_eat_spaces.exit17435:                     ; preds = %5295, %5298, %5302,
   br i1 %10828, label %10829, label %10835
 
 10829:                                            ; preds = %10827
-  %10830 = icmp ult i8 %10781, 118
+  %10830 = icmp samesign ult i8 %10781, 118
   br i1 %10830, label %10831, label %10833
 
 10831:                                            ; preds = %10829
-  %10832 = icmp ult i8 %10781, 115
+  %10832 = icmp samesign ult i8 %10781, 115
   br i1 %10832, label %.loopexit17669, label %4547
 
 10833:                                            ; preds = %10829
@@ -25597,7 +25597,7 @@ timelib_eat_spaces.exit17435:                     ; preds = %5295, %5298, %5302,
   br i1 %10845, label %13011, label %10846
 
 10846:                                            ; preds = %10844
-  %10847 = icmp ult i8 %10842, 48
+  %10847 = icmp samesign ult i8 %10842, 48
   br i1 %10847, label %4547, label %13048
 
 10848:                                            ; preds = %10840
@@ -25641,11 +25641,11 @@ timelib_eat_spaces.exit17435:                     ; preds = %5295, %5298, %5302,
   br i1 %10868, label %10869, label %10875
 
 10869:                                            ; preds = %10865
-  %10870 = icmp ult i8 %10867, 48
+  %10870 = icmp samesign ult i8 %10867, 48
   br i1 %10870, label %.loopexit17713, label %10871
 
 10871:                                            ; preds = %10869
-  %10872 = icmp ult i8 %10867, 58
+  %10872 = icmp samesign ult i8 %10867, 58
   br i1 %10872, label %13097, label %10873
 
 10873:                                            ; preds = %10871
@@ -25728,15 +25728,15 @@ timelib_eat_spaces.exit17435:                     ; preds = %5295, %5298, %5302,
   br i1 %10910, label %10911, label %10918
 
 10911:                                            ; preds = %10907
-  %10912 = icmp ult i8 %10909, 50
+  %10912 = icmp samesign ult i8 %10909, 50
   br i1 %10912, label %10913, label %10915
 
 10913:                                            ; preds = %10911
-  %10914 = icmp ult i8 %10909, 48
+  %10914 = icmp samesign ult i8 %10909, 48
   br i1 %10914, label %.loopexit17713, label %13097
 
 10915:                                            ; preds = %10911
-  %10916 = icmp ult i8 %10909, 58
+  %10916 = icmp samesign ult i8 %10909, 58
   br i1 %10916, label %13065, label %10917
 
 10917:                                            ; preds = %10915
@@ -25768,11 +25768,11 @@ timelib_eat_spaces.exit17435:                     ; preds = %5295, %5298, %5302,
   br i1 %10928, label %10929, label %10934
 
 10929:                                            ; preds = %10925
-  %10930 = icmp ult i8 %10927, 48
+  %10930 = icmp samesign ult i8 %10927, 48
   br i1 %10930, label %.loopexit17713, label %10931
 
 10931:                                            ; preds = %10929
-  %10932 = icmp ult i8 %10927, 58
+  %10932 = icmp samesign ult i8 %10927, 58
   br i1 %10932, label %13065, label %10933
 
 10933:                                            ; preds = %10931
@@ -26048,14 +26048,14 @@ timelib_eat_spaces.exit17435:                     ; preds = %5295, %5298, %5302,
   %.325.lcssa34602 = phi ptr [ %.325.lcssa, %._crit_edge23891 ], [ %8350, %8396 ]
   %.614345.lcssa34601 = phi i8 [ %.614345.lcssa, %._crit_edge23891 ], [ %8351, %8396 ]
   %.12314475.ph3458134600 = phi i32 [ %.12314475.ph34581, %._crit_edge23891 ], [ 13, %8396 ]
-  %11058 = icmp ult i8 %.614345.lcssa34601, 101
+  %11058 = icmp samesign ult i8 %.614345.lcssa34601, 101
   br i1 %11058, label %._crit_edge23891.thread34651.thread, label %._crit_edge23891.thread34651.thread34743
 
 ._crit_edge23891.thread34651.thread:              ; preds = %8301, %._crit_edge23891.thread34651
   %.12314475.ph345813460034609 = phi i32 [ %.12314475.ph3458134600, %._crit_edge23891.thread34651 ], [ 12, %8301 ]
   %.614345.lcssa3460134608 = phi i8 [ %.614345.lcssa34601, %._crit_edge23891.thread34651 ], [ %8258, %8301 ]
   %.325.lcssa3460234607 = phi ptr [ %.325.lcssa34602, %._crit_edge23891.thread34651 ], [ %8257, %8301 ]
-  %11059 = icmp ult i8 %.614345.lcssa3460134608, 97
+  %11059 = icmp samesign ult i8 %.614345.lcssa3460134608, 97
   br i1 %11059, label %.thread34610, label %._crit_edge23891.thread34651.thread.thread
 
 .thread34610:                                     ; preds = %.preheader17607, %._crit_edge23891.thread34651.thread
@@ -26066,7 +26066,7 @@ timelib_eat_spaces.exit17435:                     ; preds = %5295, %5298, %5302,
   br i1 %11060, label %.loopexit17728, label %11061
 
 11061:                                            ; preds = %.thread34610
-  %11062 = icmp ult i8 %.614345.lcssa346013460834615, 90
+  %11062 = icmp samesign ult i8 %.614345.lcssa346013460834615, 90
   br i1 %11062, label %.thread34777, label %.thread
 
 ._crit_edge23891.thread34651.thread.thread:       ; preds = %._crit_edge23891.thread34651.thread
@@ -26079,7 +26079,7 @@ timelib_eat_spaces.exit17435:                     ; preds = %5295, %5298, %5302,
   %.12314475.ph345813460034749 = phi i32 [ %.12314475.ph3458134600, %._crit_edge23891.thread34651 ], [ 12, %8308 ]
   %.614345.lcssa3460134748 = phi i8 [ %.614345.lcssa34601, %._crit_edge23891.thread34651 ], [ %8258, %8308 ]
   %.325.lcssa3460234747 = phi ptr [ %.325.lcssa34602, %._crit_edge23891.thread34651 ], [ %8257, %8308 ]
-  %11063 = icmp ult i8 %.614345.lcssa3460134748, 104
+  %11063 = icmp samesign ult i8 %.614345.lcssa3460134748, 104
   br i1 %11063, label %11064, label %._crit_edge23891.thread34651.thread34743.thread
 
 11064:                                            ; preds = %._crit_edge23891.thread34651.thread34743
@@ -26103,7 +26103,7 @@ timelib_eat_spaces.exit17435:                     ; preds = %5295, %5298, %5302,
   br i1 %11066, label %11067, label %11072
 
 11067:                                            ; preds = %._crit_edge23891.thread34659
-  %11068 = icmp ult i8 %.614345.lcssa34664, 112
+  %11068 = icmp samesign ult i8 %.614345.lcssa34664, 112
   br i1 %11068, label %.thread34763, label %11069
 
 .thread34763:                                     ; preds = %8403, %11067
@@ -26116,7 +26116,7 @@ timelib_eat_spaces.exit17435:                     ; preds = %5295, %5298, %5302,
   ]
 
 11069:                                            ; preds = %11067
-  %11070 = icmp ult i8 %.614345.lcssa34664, 115
+  %11070 = icmp samesign ult i8 %.614345.lcssa34664, 115
   br i1 %11070, label %.thread, label %11071
 
 11071:                                            ; preds = %11069
@@ -26281,11 +26281,11 @@ timelib_eat_spaces.exit17435:                     ; preds = %5295, %5298, %5302,
   br i1 %11130, label %11131, label %11137
 
 11131:                                            ; preds = %11129
-  %11132 = icmp ult i8 %8279, 48
+  %11132 = icmp samesign ult i8 %8279, 48
   br i1 %11132, label %4547, label %11133
 
 11133:                                            ; preds = %11131
-  %11134 = icmp ult i8 %8279, 54
+  %11134 = icmp samesign ult i8 %8279, 54
   br i1 %11134, label %13496, label %11135
 
 11135:                                            ; preds = %11133
@@ -26438,7 +26438,7 @@ timelib_eat_spaces.exit17435:                     ; preds = %5295, %5298, %5302,
   br i1 %11194, label %11195, label %11200
 
 11195:                                            ; preds = %11191
-  %11196 = icmp ult i8 %11193, 79
+  %11196 = icmp samesign ult i8 %11193, 79
   br i1 %11196, label %11197, label %11199
 
 11197:                                            ; preds = %11195
@@ -26568,7 +26568,7 @@ timelib_eat_spaces.exit17435:                     ; preds = %5295, %5298, %5302,
   br i1 %11250, label %11251, label %11255
 
 11251:                                            ; preds = %11247
-  %11252 = icmp ult i8 %11249, 74
+  %11252 = icmp samesign ult i8 %11249, 74
   br i1 %11252, label %11253, label %11254
 
 11253:                                            ; preds = %11251
@@ -26632,7 +26632,7 @@ timelib_eat_spaces.exit17435:                     ; preds = %5295, %5298, %5302,
   br i1 %11274, label %11275, label %11280
 
 11275:                                            ; preds = %11271
-  %11276 = icmp ult i8 %11273, 69
+  %11276 = icmp samesign ult i8 %11273, 69
   br i1 %11276, label %11277, label %11279
 
 11277:                                            ; preds = %11275
@@ -26674,7 +26674,7 @@ timelib_eat_spaces.exit17435:                     ; preds = %5295, %5298, %5302,
   br i1 %11292, label %11293, label %11296
 
 11293:                                            ; preds = %11289
-  %11294 = icmp ult i8 %11291, 48
+  %11294 = icmp samesign ult i8 %11291, 48
   br i1 %11294, label %.thread, label %11295
 
 11295:                                            ; preds = %11293
@@ -26768,11 +26768,11 @@ timelib_eat_spaces.exit17435:                     ; preds = %5295, %5298, %5302,
   br i1 %11330, label %11331, label %11337
 
 11331:                                            ; preds = %11329
-  %11332 = icmp ult i8 %8367, 48
+  %11332 = icmp samesign ult i8 %8367, 48
   br i1 %11332, label %4547, label %11333
 
 11333:                                            ; preds = %11331
-  %11334 = icmp ult i8 %8367, 54
+  %11334 = icmp samesign ult i8 %8367, 54
   br i1 %11334, label %13796, label %11335
 
 11335:                                            ; preds = %11333
@@ -27055,7 +27055,7 @@ timelib_eat_spaces.exit17435:                     ; preds = %5295, %5298, %5302,
   br i1 %11476, label %11477, label %11486
 
 11477:                                            ; preds = %.lr.ph23881
-  %11478 = icmp ult i8 %11475, 32
+  %11478 = icmp samesign ult i8 %11475, 32
   br i1 %11478, label %11479, label %11485
 
 11479:                                            ; preds = %11477
@@ -27404,11 +27404,11 @@ timelib_eat_spaces.exit17435:                     ; preds = %5295, %5298, %5302,
   br i1 %11625, label %11626, label %11641
 
 11626:                                            ; preds = %11620
-  %11627 = icmp ult i8 %11624, 33
+  %11627 = icmp samesign ult i8 %11624, 33
   br i1 %11627, label %11628, label %11633
 
 11628:                                            ; preds = %11626
-  %11629 = icmp ult i8 %11624, 9
+  %11629 = icmp samesign ult i8 %11624, 9
   br i1 %11629, label %11630, label %11632
 
 11630:                                            ; preds = %11628
@@ -27422,7 +27422,7 @@ timelib_eat_spaces.exit17435:                     ; preds = %5295, %5298, %5302,
   ]
 
 11633:                                            ; preds = %11626
-  %11634 = icmp ult i8 %11624, 46
+  %11634 = icmp samesign ult i8 %11624, 46
   br i1 %11634, label %11635, label %11637
 
 11635:                                            ; preds = %11633
@@ -27434,7 +27434,7 @@ timelib_eat_spaces.exit17435:                     ; preds = %5295, %5298, %5302,
   br i1 %11638, label %6581, label %11639
 
 11639:                                            ; preds = %11637
-  %11640 = icmp ult i8 %11624, 48
+  %11640 = icmp samesign ult i8 %11624, 48
   br i1 %11640, label %.thread, label %14024
 
 11641:                                            ; preds = %11620
@@ -27442,7 +27442,7 @@ timelib_eat_spaces.exit17435:                     ; preds = %5295, %5298, %5302,
   br i1 %11642, label %11643, label %11648
 
 11643:                                            ; preds = %11641
-  %11644 = icmp ult i8 %11624, 101
+  %11644 = icmp samesign ult i8 %11624, 101
   br i1 %11644, label %11645, label %11646
 
 11645:                                            ; preds = %11643
@@ -27480,11 +27480,11 @@ timelib_eat_spaces.exit17435:                     ; preds = %5295, %5298, %5302,
   br i1 %11660, label %11661, label %11676
 
 11661:                                            ; preds = %11655
-  %11662 = icmp ult i8 %11659, 33
+  %11662 = icmp samesign ult i8 %11659, 33
   br i1 %11662, label %11663, label %11668
 
 11663:                                            ; preds = %11661
-  %11664 = icmp ult i8 %11659, 9
+  %11664 = icmp samesign ult i8 %11659, 9
   br i1 %11664, label %11665, label %11667
 
 11665:                                            ; preds = %11663
@@ -27498,7 +27498,7 @@ timelib_eat_spaces.exit17435:                     ; preds = %5295, %5298, %5302,
   ]
 
 11668:                                            ; preds = %11661
-  %11669 = icmp ult i8 %11659, 46
+  %11669 = icmp samesign ult i8 %11659, 46
   br i1 %11669, label %11670, label %11672
 
 11670:                                            ; preds = %11668
@@ -27510,7 +27510,7 @@ timelib_eat_spaces.exit17435:                     ; preds = %5295, %5298, %5302,
   br i1 %11673, label %6581, label %11674
 
 11674:                                            ; preds = %11672
-  %11675 = icmp ult i8 %11659, 48
+  %11675 = icmp samesign ult i8 %11659, 48
   br i1 %11675, label %.thread, label %14024
 
 11676:                                            ; preds = %11655
@@ -27518,11 +27518,11 @@ timelib_eat_spaces.exit17435:                     ; preds = %5295, %5298, %5302,
   br i1 %11677, label %11678, label %11685
 
 11678:                                            ; preds = %11676
-  %11679 = icmp ult i8 %11659, 101
+  %11679 = icmp samesign ult i8 %11659, 101
   br i1 %11679, label %11680, label %11683
 
 11680:                                            ; preds = %11678
-  %11681 = icmp ult i8 %11659, 58
+  %11681 = icmp samesign ult i8 %11659, 58
   br i1 %11681, label %6652, label %11682
 
 11682:                                            ; preds = %11680
@@ -27559,7 +27559,7 @@ timelib_eat_spaces.exit17435:                     ; preds = %5295, %5298, %5302,
   br i1 %11695, label %11696, label %11701
 
 11696:                                            ; preds = %11692
-  %11697 = icmp ult i8 %11694, 32
+  %11697 = icmp samesign ult i8 %11694, 32
   br i1 %11697, label %11698, label %11700
 
 11698:                                            ; preds = %11696
@@ -27578,7 +27578,7 @@ timelib_eat_spaces.exit17435:                     ; preds = %5295, %5298, %5302,
 
 11703:                                            ; preds = %11701
   %11704 = icmp ne i8 %11694, 47
-  %11705 = icmp ult i8 %11694, 58
+  %11705 = icmp samesign ult i8 %11694, 58
   %or.cond1172 = and i1 %11704, %11705
   br i1 %or.cond1172, label %.preheader17640, label %.loopexit17692
 
@@ -27596,7 +27596,7 @@ timelib_eat_spaces.exit17435:                     ; preds = %5295, %5298, %5302,
   br i1 %11712, label %11713, label %11720
 
 11713:                                            ; preds = %11709
-  %11714 = icmp ult i8 %11711, 42
+  %11714 = icmp samesign ult i8 %11711, 42
   br i1 %11714, label %11715, label %11717
 
 11715:                                            ; preds = %11713
@@ -27605,7 +27605,7 @@ timelib_eat_spaces.exit17435:                     ; preds = %5295, %5298, %5302,
   br i1 %.not16872, label %.loopexit17671, label %.loopexit17669
 
 11717:                                            ; preds = %11713
-  %11718 = icmp ult i8 %11711, 65
+  %11718 = icmp samesign ult i8 %11711, 65
   br i1 %11718, label %.loopexit17669.loopexit.split.loop.exit39842, label %11719
 
 11719:                                            ; preds = %11717
@@ -27639,7 +27639,7 @@ timelib_eat_spaces.exit17435:                     ; preds = %5295, %5298, %5302,
   br i1 %11733, label %11734, label %11740
 
 11734:                                            ; preds = %11730
-  %11735 = icmp ult i8 %11732, 45
+  %11735 = icmp samesign ult i8 %11732, 45
   br i1 %11735, label %11736, label %11738
 
 11736:                                            ; preds = %11734
@@ -27676,7 +27676,7 @@ timelib_eat_spaces.exit17435:                     ; preds = %5295, %5298, %5302,
   br i1 %11751, label %11752, label %11761
 
 11752:                                            ; preds = %11748
-  %11753 = icmp ult i8 %11750, 33
+  %11753 = icmp samesign ult i8 %11750, 33
   br i1 %11753, label %11754, label %11755
 
 11754:                                            ; preds = %11752
@@ -27686,7 +27686,7 @@ timelib_eat_spaces.exit17435:                     ; preds = %5295, %5298, %5302,
   ]
 
 11755:                                            ; preds = %11752
-  %11756 = icmp ult i8 %11750, 42
+  %11756 = icmp samesign ult i8 %11750, 42
   br i1 %11756, label %11757, label %11758
 
 11757:                                            ; preds = %11755
@@ -27694,7 +27694,7 @@ timelib_eat_spaces.exit17435:                     ; preds = %5295, %5298, %5302,
   br i1 %.not16849, label %.loopexit17671, label %.loopexit17692
 
 11758:                                            ; preds = %11755
-  %11759 = icmp ult i8 %11750, 45
+  %11759 = icmp samesign ult i8 %11750, 45
   br i1 %11759, label %.loopexit17692, label %11760
 
 11760:                                            ; preds = %11758
@@ -27710,11 +27710,11 @@ timelib_eat_spaces.exit17435:                     ; preds = %5295, %5298, %5302,
   br i1 %11764, label %5862, label %11765
 
 11765:                                            ; preds = %11763
-  %11766 = icmp ult i8 %11750, 58
+  %11766 = icmp samesign ult i8 %11750, 58
   br i1 %11766, label %.preheader17640, label %11767
 
 11767:                                            ; preds = %11765
-  %11768 = icmp ult i8 %11750, 65
+  %11768 = icmp samesign ult i8 %11750, 65
   br i1 %11768, label %.loopexit17692, label %.loopexit17674
 
 11769:                                            ; preds = %11761
@@ -27739,7 +27739,7 @@ timelib_eat_spaces.exit17435:                     ; preds = %5295, %5298, %5302,
   br i1 %11778, label %11779, label %11786
 
 11779:                                            ; preds = %11775
-  %11780 = icmp ult i8 %11777, 46
+  %11780 = icmp samesign ult i8 %11777, 46
   br i1 %11780, label %11781, label %11782
 
 11781:                                            ; preds = %11779
@@ -27753,7 +27753,7 @@ timelib_eat_spaces.exit17435:                     ; preds = %5295, %5298, %5302,
   br i1 %11783, label %5862, label %11784
 
 11784:                                            ; preds = %11782
-  %11785 = icmp ult i8 %11777, 65
+  %11785 = icmp samesign ult i8 %11777, 65
   br i1 %11785, label %.loopexit17669, label %.loopexit17674
 
 11786:                                            ; preds = %11775
@@ -27765,7 +27765,7 @@ timelib_eat_spaces.exit17435:                     ; preds = %5295, %5298, %5302,
   br i1 %11789, label %14060, label %11790
 
 11790:                                            ; preds = %11788
-  %11791 = icmp ult i8 %11777, 91
+  %11791 = icmp samesign ult i8 %11777, 91
   br i1 %11791, label %.loopexit17674, label %11792
 
 11792:                                            ; preds = %11790
@@ -27803,7 +27803,7 @@ timelib_eat_spaces.exit17435:                     ; preds = %5295, %5298, %5302,
   br i1 %11808, label %11809, label %11816
 
 11809:                                            ; preds = %11805
-  %11810 = icmp ult i8 %11807, 42
+  %11810 = icmp samesign ult i8 %11807, 42
   br i1 %11810, label %11811, label %11813
 
 11811:                                            ; preds = %11809
@@ -27812,7 +27812,7 @@ timelib_eat_spaces.exit17435:                     ; preds = %5295, %5298, %5302,
   br i1 %.not16810, label %.loopexit17671, label %.loopexit17669
 
 11813:                                            ; preds = %11809
-  %11814 = icmp ult i8 %11807, 65
+  %11814 = icmp samesign ult i8 %11807, 65
   br i1 %11814, label %.loopexit17669.loopexit.split.loop.exit39844, label %11815
 
 11815:                                            ; preds = %11813
@@ -27825,7 +27825,7 @@ timelib_eat_spaces.exit17435:                     ; preds = %5295, %5298, %5302,
 
 11818:                                            ; preds = %11816
   %11819 = getelementptr inbounds i8, ptr %.01433828656, i64 5
-  %11820 = icmp ugt i8 %11807, 90
+  %11820 = icmp samesign ugt i8 %11807, 90
   %11821 = icmp ne i8 %11807, 97
   %or.cond1196 = and i1 %11820, %11821
   br i1 %or.cond1196, label %.loopexit17669, label %.loopexit17674
@@ -27847,7 +27847,7 @@ timelib_eat_spaces.exit17435:                     ; preds = %5295, %5298, %5302,
   br i1 %11830, label %11831, label %11835
 
 11831:                                            ; preds = %11827
-  %11832 = icmp ult i8 %11829, 46
+  %11832 = icmp samesign ult i8 %11829, 46
   br i1 %11832, label %11833, label %11834
 
 11833:                                            ; preds = %11831
@@ -27871,7 +27871,7 @@ timelib_eat_spaces.exit17435:                     ; preds = %5295, %5298, %5302,
   br i1 %11838, label %14117, label %11839
 
 11839:                                            ; preds = %11837
-  %11840 = icmp ult i8 %11829, 91
+  %11840 = icmp samesign ult i8 %11829, 91
   br i1 %11840, label %.loopexit17674, label %11841
 
 11841:                                            ; preds = %11839
@@ -27902,7 +27902,7 @@ timelib_eat_spaces.exit17435:                     ; preds = %5295, %5298, %5302,
   br i1 %11853, label %11854, label %11863
 
 11854:                                            ; preds = %11850
-  %11855 = icmp ult i8 %11852, 33
+  %11855 = icmp samesign ult i8 %11852, 33
   br i1 %11855, label %11856, label %11857
 
 11856:                                            ; preds = %11854
@@ -27912,7 +27912,7 @@ timelib_eat_spaces.exit17435:                     ; preds = %5295, %5298, %5302,
   ]
 
 11857:                                            ; preds = %11854
-  %11858 = icmp ult i8 %11852, 42
+  %11858 = icmp samesign ult i8 %11852, 42
   br i1 %11858, label %11859, label %11860
 
 11859:                                            ; preds = %11857
@@ -27920,7 +27920,7 @@ timelib_eat_spaces.exit17435:                     ; preds = %5295, %5298, %5302,
   br i1 %.not16757, label %.loopexit17671, label %.loopexit17669
 
 11860:                                            ; preds = %11857
-  %11861 = icmp ult i8 %11852, 65
+  %11861 = icmp samesign ult i8 %11852, 65
   br i1 %11861, label %.loopexit17669, label %11862
 
 11862:                                            ; preds = %11860
@@ -27932,11 +27932,11 @@ timelib_eat_spaces.exit17435:                     ; preds = %5295, %5298, %5302,
   br i1 %11864, label %11865, label %11871
 
 11865:                                            ; preds = %11863
-  %11866 = icmp ult i8 %11852, 97
+  %11866 = icmp samesign ult i8 %11852, 97
   br i1 %11866, label %11867, label %11869
 
 11867:                                            ; preds = %11865
-  %11868 = icmp ult i8 %11852, 91
+  %11868 = icmp samesign ult i8 %11852, 91
   br i1 %11868, label %.loopexit17674, label %.loopexit17669
 
 11869:                                            ; preds = %11865
@@ -27962,7 +27962,7 @@ timelib_eat_spaces.exit17435:                     ; preds = %5295, %5298, %5302,
   br i1 %11879, label %11880, label %11887
 
 11880:                                            ; preds = %11876
-  %11881 = icmp ult i8 %11878, 42
+  %11881 = icmp samesign ult i8 %11878, 42
   br i1 %11881, label %11882, label %11884
 
 11882:                                            ; preds = %11880
@@ -27971,7 +27971,7 @@ timelib_eat_spaces.exit17435:                     ; preds = %5295, %5298, %5302,
   br i1 %.not16731, label %.loopexit17671, label %.loopexit17669
 
 11884:                                            ; preds = %11880
-  %11885 = icmp ult i8 %11878, 65
+  %11885 = icmp samesign ult i8 %11878, 65
   br i1 %11885, label %.loopexit17669.loopexit.split.loop.exit39846, label %11886
 
 11886:                                            ; preds = %11884
@@ -28005,11 +28005,11 @@ timelib_eat_spaces.exit17435:                     ; preds = %5295, %5298, %5302,
   br i1 %11900, label %11901, label %11916
 
 11901:                                            ; preds = %11897
-  %11902 = icmp ult i8 %11899, 42
+  %11902 = icmp samesign ult i8 %11899, 42
   br i1 %11902, label %11903, label %11908
 
 11903:                                            ; preds = %11901
-  %11904 = icmp ult i8 %11899, 32
+  %11904 = icmp samesign ult i8 %11899, 32
   br i1 %11904, label %11905, label %11907
 
 11905:                                            ; preds = %11903
@@ -28023,7 +28023,7 @@ timelib_eat_spaces.exit17435:                     ; preds = %5295, %5298, %5302,
   ]
 
 11908:                                            ; preds = %11901
-  %11909 = icmp ult i8 %11899, 47
+  %11909 = icmp samesign ult i8 %11899, 47
   br i1 %11909, label %11910, label %11912
 
 11910:                                            ; preds = %11908
@@ -28035,7 +28035,7 @@ timelib_eat_spaces.exit17435:                     ; preds = %5295, %5298, %5302,
   br i1 %11913, label %5862, label %11914
 
 11914:                                            ; preds = %11912
-  %11915 = icmp ult i8 %11899, 65
+  %11915 = icmp samesign ult i8 %11899, 65
   br i1 %11915, label %.loopexit17669, label %.loopexit17674
 
 11916:                                            ; preds = %11897
@@ -28043,7 +28043,7 @@ timelib_eat_spaces.exit17435:                     ; preds = %5295, %5298, %5302,
   br i1 %11917, label %11918, label %11928
 
 11918:                                            ; preds = %11916
-  %11919 = icmp ult i8 %11899, 95
+  %11919 = icmp samesign ult i8 %11899, 95
   br i1 %11919, label %11920, label %11924
 
 11920:                                            ; preds = %11918
@@ -28051,7 +28051,7 @@ timelib_eat_spaces.exit17435:                     ; preds = %5295, %5298, %5302,
   br i1 %11921, label %14203, label %11922
 
 11922:                                            ; preds = %11920
-  %11923 = icmp ult i8 %11899, 91
+  %11923 = icmp samesign ult i8 %11899, 91
   br i1 %11923, label %.loopexit17674, label %.loopexit17669
 
 11924:                                            ; preds = %11918
@@ -28059,7 +28059,7 @@ timelib_eat_spaces.exit17435:                     ; preds = %5295, %5298, %5302,
   br i1 %11925, label %5862, label %11926
 
 11926:                                            ; preds = %11924
-  %11927 = icmp ult i8 %11899, 97
+  %11927 = icmp samesign ult i8 %11899, 97
   br i1 %11927, label %.loopexit17669, label %14078
 
 11928:                                            ; preds = %11916
@@ -28088,7 +28088,7 @@ timelib_eat_spaces.exit17435:                     ; preds = %5295, %5298, %5302,
   br i1 %11938, label %11939, label %11946
 
 11939:                                            ; preds = %11935
-  %11940 = icmp ult i8 %11937, 46
+  %11940 = icmp samesign ult i8 %11937, 46
   br i1 %11940, label %11941, label %11942
 
 11941:                                            ; preds = %11939
@@ -28102,7 +28102,7 @@ timelib_eat_spaces.exit17435:                     ; preds = %5295, %5298, %5302,
   br i1 %11943, label %5862, label %11944
 
 11944:                                            ; preds = %11942
-  %11945 = icmp ult i8 %11937, 65
+  %11945 = icmp samesign ult i8 %11937, 65
   br i1 %11945, label %.loopexit17669, label %.loopexit17674
 
 11946:                                            ; preds = %11935
@@ -28114,7 +28114,7 @@ timelib_eat_spaces.exit17435:                     ; preds = %5295, %5298, %5302,
   br i1 %11949, label %14225, label %11950
 
 11950:                                            ; preds = %11948
-  %11951 = icmp ult i8 %11937, 91
+  %11951 = icmp samesign ult i8 %11937, 91
   br i1 %11951, label %.loopexit17674, label %11952
 
 11952:                                            ; preds = %11950
@@ -28155,7 +28155,7 @@ timelib_eat_spaces.exit17435:                     ; preds = %5295, %5298, %5302,
 
 11968:                                            ; preds = %11966
   %11969 = getelementptr inbounds i8, ptr %.01433828656, i64 5
-  %11970 = icmp ult i8 %11963, 91
+  %11970 = icmp samesign ult i8 %11963, 91
   br i1 %11970, label %.loopexit17674, label %.loopexit17669
 
 11971:                                            ; preds = %11966
@@ -28175,7 +28175,7 @@ timelib_eat_spaces.exit17435:                     ; preds = %5295, %5298, %5302,
   br i1 %11979, label %11980, label %11985
 
 11980:                                            ; preds = %11976
-  %11981 = icmp ult i8 %11978, 32
+  %11981 = icmp samesign ult i8 %11978, 32
   br i1 %11981, label %11982, label %11984
 
 11982:                                            ; preds = %11980
@@ -28213,7 +28213,7 @@ timelib_eat_spaces.exit17435:                     ; preds = %5295, %5298, %5302,
   br i1 %11994, label %11995, label %12000
 
 11995:                                            ; preds = %11991
-  %11996 = icmp ult i8 %11993, 32
+  %11996 = icmp samesign ult i8 %11993, 32
   br i1 %11996, label %11997, label %11999
 
 11997:                                            ; preds = %11995
@@ -28254,7 +28254,7 @@ timelib_eat_spaces.exit17435:                     ; preds = %5295, %5298, %5302,
   br i1 %12009, label %12010, label %12017
 
 12010:                                            ; preds = %12006
-  %12011 = icmp ult i8 %12008, 42
+  %12011 = icmp samesign ult i8 %12008, 42
   br i1 %12011, label %12012, label %12014
 
 12012:                                            ; preds = %12010
@@ -28263,7 +28263,7 @@ timelib_eat_spaces.exit17435:                     ; preds = %5295, %5298, %5302,
   br i1 %.not16682, label %.loopexit17671, label %.loopexit17669
 
 12014:                                            ; preds = %12010
-  %12015 = icmp ult i8 %12008, 65
+  %12015 = icmp samesign ult i8 %12008, 65
   br i1 %12015, label %.loopexit17669.loopexit.split.loop.exit39848, label %12016
 
 12016:                                            ; preds = %12014
@@ -28296,7 +28296,7 @@ timelib_eat_spaces.exit17435:                     ; preds = %5295, %5298, %5302,
   br i1 %12029, label %12030, label %12036
 
 12030:                                            ; preds = %.loopexit17703
-  %12031 = icmp ult i8 %12028, 42
+  %12031 = icmp samesign ult i8 %12028, 42
   br i1 %12031, label %12032, label %12033
 
 12032:                                            ; preds = %12030
@@ -28304,7 +28304,7 @@ timelib_eat_spaces.exit17435:                     ; preds = %5295, %5298, %5302,
   br i1 %.not16677, label %.loopexit17671, label %.loopexit17669
 
 12033:                                            ; preds = %12030
-  %12034 = icmp ult i8 %12028, 65
+  %12034 = icmp samesign ult i8 %12028, 65
   br i1 %12034, label %.loopexit17669, label %12035
 
 12035:                                            ; preds = %12033
@@ -28317,7 +28317,7 @@ timelib_eat_spaces.exit17435:                     ; preds = %5295, %5298, %5302,
 
 12038:                                            ; preds = %12036
   %12039 = icmp ne i8 %12028, 90
-  %12040 = icmp ult i8 %12028, 97
+  %12040 = icmp samesign ult i8 %12028, 97
   %or.cond1214 = and i1 %12039, %12040
   br i1 %or.cond1214, label %.loopexit17669, label %.loopexit17674
 
@@ -28347,7 +28347,7 @@ timelib_eat_spaces.exit17435:                     ; preds = %5295, %5298, %5302,
   br i1 %12051, label %12052, label %12054
 
 12052:                                            ; preds = %12050
-  %12053 = icmp ult i8 %12047, 65
+  %12053 = icmp samesign ult i8 %12047, 65
   br i1 %12053, label %.loopexit17669, label %.loopexit17674
 
 12054:                                            ; preds = %12050
@@ -28363,7 +28363,7 @@ timelib_eat_spaces.exit17435:                     ; preds = %5295, %5298, %5302,
   br i1 %12059, label %12060, label %12067
 
 12060:                                            ; preds = %12056
-  %12061 = icmp ult i8 %12058, 45
+  %12061 = icmp samesign ult i8 %12058, 45
   br i1 %12061, label %12062, label %12064
 
 12062:                                            ; preds = %12060
@@ -28372,7 +28372,7 @@ timelib_eat_spaces.exit17435:                     ; preds = %5295, %5298, %5302,
 
 12064:                                            ; preds = %12060
   %12065 = icmp ne i8 %12058, 46
-  %12066 = icmp ult i8 %12058, 48
+  %12066 = icmp samesign ult i8 %12058, 48
   %or.cond1220 = and i1 %12065, %12066
   br i1 %or.cond1220, label %5862, label %.loopexit17669
 
@@ -28385,7 +28385,7 @@ timelib_eat_spaces.exit17435:                     ; preds = %5295, %5298, %5302,
   br i1 %12070, label %14272, label %12071
 
 12071:                                            ; preds = %12069
-  %12072 = icmp ult i8 %12058, 91
+  %12072 = icmp samesign ult i8 %12058, 91
   br i1 %12072, label %.loopexit17674, label %12073
 
 12073:                                            ; preds = %12071
@@ -28412,11 +28412,11 @@ timelib_eat_spaces.exit17435:                     ; preds = %5295, %5298, %5302,
   br i1 %12083, label %12084, label %12097
 
 12084:                                            ; preds = %12080
-  %12085 = icmp ult i8 %12082, 41
+  %12085 = icmp samesign ult i8 %12082, 41
   br i1 %12085, label %12086, label %12091
 
 12086:                                            ; preds = %12084
-  %12087 = icmp ult i8 %12082, 10
+  %12087 = icmp samesign ult i8 %12082, 10
   br i1 %12087, label %12088, label %12089
 
 12088:                                            ; preds = %12086
@@ -28428,7 +28428,7 @@ timelib_eat_spaces.exit17435:                     ; preds = %5295, %5298, %5302,
   br i1 %12090, label %14143, label %.loopexit17669
 
 12091:                                            ; preds = %12084
-  %12092 = icmp ult i8 %12082, 45
+  %12092 = icmp samesign ult i8 %12082, 45
   br i1 %12092, label %12093, label %12095
 
 12093:                                            ; preds = %12091
@@ -28444,11 +28444,11 @@ timelib_eat_spaces.exit17435:                     ; preds = %5295, %5298, %5302,
   br i1 %12098, label %12099, label %12105
 
 12099:                                            ; preds = %12097
-  %12100 = icmp ult i8 %12082, 91
+  %12100 = icmp samesign ult i8 %12082, 91
   br i1 %12100, label %12101, label %12103
 
 12101:                                            ; preds = %12099
-  %12102 = icmp ult i8 %12082, 65
+  %12102 = icmp samesign ult i8 %12082, 65
   br i1 %12102, label %.loopexit17669, label %.loopexit17674
 
 12103:                                            ; preds = %12099
@@ -28479,11 +28479,11 @@ timelib_eat_spaces.exit17435:                     ; preds = %5295, %5298, %5302,
   br i1 %12115, label %12116, label %12129
 
 12116:                                            ; preds = %12112
-  %12117 = icmp ult i8 %12114, 41
+  %12117 = icmp samesign ult i8 %12114, 41
   br i1 %12117, label %12118, label %12123
 
 12118:                                            ; preds = %12116
-  %12119 = icmp ult i8 %12114, 10
+  %12119 = icmp samesign ult i8 %12114, 10
   br i1 %12119, label %12120, label %12121
 
 12120:                                            ; preds = %12118
@@ -28495,7 +28495,7 @@ timelib_eat_spaces.exit17435:                     ; preds = %5295, %5298, %5302,
   br i1 %12122, label %14281, label %.loopexit17669
 
 12123:                                            ; preds = %12116
-  %12124 = icmp ult i8 %12114, 45
+  %12124 = icmp samesign ult i8 %12114, 45
   br i1 %12124, label %12125, label %12127
 
 12125:                                            ; preds = %12123
@@ -28511,11 +28511,11 @@ timelib_eat_spaces.exit17435:                     ; preds = %5295, %5298, %5302,
   br i1 %12130, label %12131, label %12137
 
 12131:                                            ; preds = %12129
-  %12132 = icmp ult i8 %12114, 91
+  %12132 = icmp samesign ult i8 %12114, 91
   br i1 %12132, label %12133, label %12135
 
 12133:                                            ; preds = %12131
-  %12134 = icmp ult i8 %12114, 65
+  %12134 = icmp samesign ult i8 %12114, 65
   br i1 %12134, label %.loopexit17669, label %.loopexit17674
 
 12135:                                            ; preds = %12131
@@ -28546,7 +28546,7 @@ timelib_eat_spaces.exit17435:                     ; preds = %5295, %5298, %5302,
   br i1 %12147, label %12148, label %12155
 
 12148:                                            ; preds = %12144
-  %12149 = icmp ult i8 %12146, 46
+  %12149 = icmp samesign ult i8 %12146, 46
   br i1 %12149, label %12150, label %12151
 
 12150:                                            ; preds = %12148
@@ -28560,7 +28560,7 @@ timelib_eat_spaces.exit17435:                     ; preds = %5295, %5298, %5302,
   br i1 %12152, label %5862, label %12153
 
 12153:                                            ; preds = %12151
-  %12154 = icmp ult i8 %12146, 65
+  %12154 = icmp samesign ult i8 %12146, 65
   br i1 %12154, label %.loopexit17669, label %.loopexit17674
 
 12155:                                            ; preds = %12144
@@ -28572,7 +28572,7 @@ timelib_eat_spaces.exit17435:                     ; preds = %5295, %5298, %5302,
   br i1 %12158, label %14203, label %12159
 
 12159:                                            ; preds = %12157
-  %12160 = icmp ult i8 %12146, 91
+  %12160 = icmp samesign ult i8 %12146, 91
   br i1 %12160, label %.loopexit17674, label %12161
 
 12161:                                            ; preds = %12159
@@ -28603,7 +28603,7 @@ timelib_eat_spaces.exit17435:                     ; preds = %5295, %5298, %5302,
   br i1 %12173, label %12174, label %12181
 
 12174:                                            ; preds = %12170
-  %12175 = icmp ult i8 %12172, 46
+  %12175 = icmp samesign ult i8 %12172, 46
   br i1 %12175, label %12176, label %12177
 
 12176:                                            ; preds = %12174
@@ -28617,7 +28617,7 @@ timelib_eat_spaces.exit17435:                     ; preds = %5295, %5298, %5302,
   br i1 %12178, label %5862, label %12179
 
 12179:                                            ; preds = %12177
-  %12180 = icmp ult i8 %12172, 65
+  %12180 = icmp samesign ult i8 %12172, 65
   br i1 %12180, label %.loopexit17669, label %.loopexit17674
 
 12181:                                            ; preds = %12170
@@ -28629,7 +28629,7 @@ timelib_eat_spaces.exit17435:                     ; preds = %5295, %5298, %5302,
   br i1 %12184, label %.loopexit17702, label %12185
 
 12185:                                            ; preds = %12183
-  %12186 = icmp ult i8 %12172, 91
+  %12186 = icmp samesign ult i8 %12172, 91
   br i1 %12186, label %.loopexit17674, label %12187
 
 12187:                                            ; preds = %12185
@@ -28660,7 +28660,7 @@ timelib_eat_spaces.exit17435:                     ; preds = %5295, %5298, %5302,
   br i1 %12199, label %12200, label %12205
 
 12200:                                            ; preds = %12196
-  %12201 = icmp ult i8 %12198, 41
+  %12201 = icmp samesign ult i8 %12198, 41
   br i1 %12201, label %12202, label %12204
 
 12202:                                            ; preds = %12200
@@ -28718,7 +28718,7 @@ timelib_eat_spaces.exit17435:                     ; preds = %5295, %5298, %5302,
   br i1 %12226, label %12227, label %12230
 
 12227:                                            ; preds = %12223
-  %12228 = icmp ult i8 %12225, 48
+  %12228 = icmp samesign ult i8 %12225, 48
   br i1 %12228, label %.loopexit17669, label %12229
 
 12229:                                            ; preds = %12227
@@ -28930,7 +28930,7 @@ timelib_eat_spaces.exit17435:                     ; preds = %5295, %5298, %5302,
   br i1 %12335, label %12336, label %12343
 
 12336:                                            ; preds = %12332
-  %12337 = icmp ult i8 %12334, 42
+  %12337 = icmp samesign ult i8 %12334, 42
   br i1 %12337, label %12338, label %12340
 
 12338:                                            ; preds = %12336
@@ -28939,7 +28939,7 @@ timelib_eat_spaces.exit17435:                     ; preds = %5295, %5298, %5302,
   br i1 %.not16616, label %.loopexit17671, label %.loopexit17669
 
 12340:                                            ; preds = %12336
-  %12341 = icmp ult i8 %12334, 65
+  %12341 = icmp samesign ult i8 %12334, 65
   br i1 %12341, label %.loopexit17669.loopexit.split.loop.exit39850, label %12342
 
 12342:                                            ; preds = %12340
@@ -28973,7 +28973,7 @@ timelib_eat_spaces.exit17435:                     ; preds = %5295, %5298, %5302,
   br i1 %12356, label %12357, label %12364
 
 12357:                                            ; preds = %12353
-  %12358 = icmp ult i8 %12355, 46
+  %12358 = icmp samesign ult i8 %12355, 46
   br i1 %12358, label %12359, label %12360
 
 12359:                                            ; preds = %12357
@@ -28987,7 +28987,7 @@ timelib_eat_spaces.exit17435:                     ; preds = %5295, %5298, %5302,
   br i1 %12361, label %5862, label %12362
 
 12362:                                            ; preds = %12360
-  %12363 = icmp ult i8 %12355, 65
+  %12363 = icmp samesign ult i8 %12355, 65
   br i1 %12363, label %.loopexit17669, label %.loopexit17674
 
 12364:                                            ; preds = %12353
@@ -28999,7 +28999,7 @@ timelib_eat_spaces.exit17435:                     ; preds = %5295, %5298, %5302,
   br i1 %12367, label %14429, label %12368
 
 12368:                                            ; preds = %12366
-  %12369 = icmp ult i8 %12355, 91
+  %12369 = icmp samesign ult i8 %12355, 91
   br i1 %12369, label %.loopexit17674, label %12370
 
 12370:                                            ; preds = %12368
@@ -29057,11 +29057,11 @@ timelib_eat_spaces.exit17435:                     ; preds = %5295, %5298, %5302,
   br i1 %12395, label %12396, label %12419
 
 12396:                                            ; preds = %12394
-  %12397 = icmp ult i8 %.814347, 72
+  %12397 = icmp samesign ult i8 %.814347, 72
   br i1 %12397, label %12398, label %12406
 
 12398:                                            ; preds = %12396
-  %12399 = icmp ult i8 %.814347, 33
+  %12399 = icmp samesign ult i8 %.814347, 33
   br i1 %12399, label %12400, label %12401
 
 12400:                                            ; preds = %12398
@@ -29071,7 +29071,7 @@ timelib_eat_spaces.exit17435:                     ; preds = %5295, %5298, %5302,
   ]
 
 12401:                                            ; preds = %12398
-  %12402 = icmp ult i8 %.814347, 69
+  %12402 = icmp samesign ult i8 %.814347, 69
   br i1 %12402, label %12403, label %12404
 
 12403:                                            ; preds = %12401
@@ -29083,11 +29083,11 @@ timelib_eat_spaces.exit17435:                     ; preds = %5295, %5298, %5302,
   br i1 %12405, label %14459, label %.thread
 
 12406:                                            ; preds = %12396
-  %12407 = icmp ult i8 %.814347, 84
+  %12407 = icmp samesign ult i8 %.814347, 84
   br i1 %12407, label %12408, label %12413
 
 12408:                                            ; preds = %12406
-  %12409 = icmp ult i8 %.814347, 77
+  %12409 = icmp samesign ult i8 %.814347, 77
   br i1 %12409, label %12410, label %12412
 
 12410:                                            ; preds = %12408
@@ -29101,7 +29101,7 @@ timelib_eat_spaces.exit17435:                     ; preds = %5295, %5298, %5302,
   ]
 
 12413:                                            ; preds = %12406
-  %12414 = icmp ult i8 %.814347, 86
+  %12414 = icmp samesign ult i8 %.814347, 86
   br i1 %12414, label %12415, label %12417
 
 12415:                                            ; preds = %12413
@@ -29117,11 +29117,11 @@ timelib_eat_spaces.exit17435:                     ; preds = %5295, %5298, %5302,
   br i1 %12420, label %12421, label %12434
 
 12421:                                            ; preds = %12419
-  %12422 = icmp ult i8 %.814347, 103
+  %12422 = icmp samesign ult i8 %.814347, 103
   br i1 %12422, label %12423, label %12428
 
 12423:                                            ; preds = %12421
-  %12424 = icmp ult i8 %.814347, 100
+  %12424 = icmp samesign ult i8 %.814347, 100
   br i1 %12424, label %12425, label %12427
 
 12425:                                            ; preds = %12423
@@ -29135,7 +29135,7 @@ timelib_eat_spaces.exit17435:                     ; preds = %5295, %5298, %5302,
   ]
 
 12428:                                            ; preds = %12421
-  %12429 = icmp ult i8 %.814347, 105
+  %12429 = icmp samesign ult i8 %.814347, 105
   br i1 %12429, label %12430, label %12432
 
 12430:                                            ; preds = %12428
@@ -29151,7 +29151,7 @@ timelib_eat_spaces.exit17435:                     ; preds = %5295, %5298, %5302,
   br i1 %12435, label %12436, label %12441
 
 12436:                                            ; preds = %12434
-  %12437 = icmp ult i8 %.814347, 117
+  %12437 = icmp samesign ult i8 %.814347, 117
   br i1 %12437, label %12438, label %12440
 
 12438:                                            ; preds = %12436
@@ -29208,7 +29208,7 @@ timelib_eat_spaces.exit17435:                     ; preds = %5295, %5298, %5302,
   br i1 %12462, label %12463, label %12470
 
 12463:                                            ; preds = %12459
-  %12464 = icmp ult i8 %12461, 42
+  %12464 = icmp samesign ult i8 %12461, 42
   br i1 %12464, label %12465, label %12467
 
 12465:                                            ; preds = %12463
@@ -29217,7 +29217,7 @@ timelib_eat_spaces.exit17435:                     ; preds = %5295, %5298, %5302,
   br i1 %.not16546, label %.loopexit17671, label %.loopexit17669
 
 12467:                                            ; preds = %12463
-  %12468 = icmp ult i8 %12461, 65
+  %12468 = icmp samesign ult i8 %12461, 65
   br i1 %12468, label %.loopexit17669.loopexit.split.loop.exit39852, label %12469
 
 12469:                                            ; preds = %12467
@@ -29251,7 +29251,7 @@ timelib_eat_spaces.exit17435:                     ; preds = %5295, %5298, %5302,
   br i1 %12483, label %12484, label %12491
 
 12484:                                            ; preds = %12480
-  %12485 = icmp ult i8 %12482, 46
+  %12485 = icmp samesign ult i8 %12482, 46
   br i1 %12485, label %12486, label %12487
 
 12486:                                            ; preds = %12484
@@ -29265,7 +29265,7 @@ timelib_eat_spaces.exit17435:                     ; preds = %5295, %5298, %5302,
   br i1 %12488, label %5862, label %12489
 
 12489:                                            ; preds = %12487
-  %12490 = icmp ult i8 %12482, 65
+  %12490 = icmp samesign ult i8 %12482, 65
   br i1 %12490, label %.loopexit17669, label %.loopexit17674
 
 12491:                                            ; preds = %12480
@@ -29277,7 +29277,7 @@ timelib_eat_spaces.exit17435:                     ; preds = %5295, %5298, %5302,
   br i1 %12494, label %14585, label %12495
 
 12495:                                            ; preds = %12493
-  %12496 = icmp ult i8 %12482, 91
+  %12496 = icmp samesign ult i8 %12482, 91
   br i1 %12496, label %.loopexit17674, label %12497
 
 12497:                                            ; preds = %12495
@@ -29307,7 +29307,7 @@ timelib_eat_spaces.exit17435:                     ; preds = %5295, %5298, %5302,
   br i1 %12509, label %12510, label %12517
 
 12510:                                            ; preds = %12506
-  %12511 = icmp ult i8 %12508, 42
+  %12511 = icmp samesign ult i8 %12508, 42
   br i1 %12511, label %12512, label %12514
 
 12512:                                            ; preds = %12510
@@ -29316,7 +29316,7 @@ timelib_eat_spaces.exit17435:                     ; preds = %5295, %5298, %5302,
   br i1 %.not16489, label %.loopexit17671, label %.loopexit17669
 
 12514:                                            ; preds = %12510
-  %12515 = icmp ult i8 %12508, 65
+  %12515 = icmp samesign ult i8 %12508, 65
   br i1 %12515, label %.loopexit17669.loopexit.split.loop.exit39854, label %12516
 
 12516:                                            ; preds = %12514
@@ -29350,7 +29350,7 @@ timelib_eat_spaces.exit17435:                     ; preds = %5295, %5298, %5302,
   br i1 %12530, label %12531, label %12538
 
 12531:                                            ; preds = %12527
-  %12532 = icmp ult i8 %12529, 46
+  %12532 = icmp samesign ult i8 %12529, 46
   br i1 %12532, label %12533, label %12534
 
 12533:                                            ; preds = %12531
@@ -29364,7 +29364,7 @@ timelib_eat_spaces.exit17435:                     ; preds = %5295, %5298, %5302,
   br i1 %12535, label %5862, label %12536
 
 12536:                                            ; preds = %12534
-  %12537 = icmp ult i8 %12529, 65
+  %12537 = icmp samesign ult i8 %12529, 65
   br i1 %12537, label %.loopexit17669, label %.loopexit17674
 
 12538:                                            ; preds = %12527
@@ -29376,7 +29376,7 @@ timelib_eat_spaces.exit17435:                     ; preds = %5295, %5298, %5302,
   br i1 %12541, label %14612, label %12542
 
 12542:                                            ; preds = %12540
-  %12543 = icmp ult i8 %12529, 91
+  %12543 = icmp samesign ult i8 %12529, 91
   br i1 %12543, label %.loopexit17674, label %12544
 
 12544:                                            ; preds = %12542
@@ -29406,7 +29406,7 @@ timelib_eat_spaces.exit17435:                     ; preds = %5295, %5298, %5302,
   br i1 %12556, label %12557, label %12564
 
 12557:                                            ; preds = %12553
-  %12558 = icmp ult i8 %12555, 42
+  %12558 = icmp samesign ult i8 %12555, 42
   br i1 %12558, label %12559, label %12561
 
 12559:                                            ; preds = %12557
@@ -29415,7 +29415,7 @@ timelib_eat_spaces.exit17435:                     ; preds = %5295, %5298, %5302,
   br i1 %.not16471, label %.loopexit17671, label %.loopexit17669
 
 12561:                                            ; preds = %12557
-  %12562 = icmp ult i8 %12555, 65
+  %12562 = icmp samesign ult i8 %12555, 65
   br i1 %12562, label %.loopexit17669.loopexit.split.loop.exit39856, label %12563
 
 12563:                                            ; preds = %12561
@@ -29449,7 +29449,7 @@ timelib_eat_spaces.exit17435:                     ; preds = %5295, %5298, %5302,
   br i1 %12577, label %12578, label %12585
 
 12578:                                            ; preds = %12574
-  %12579 = icmp ult i8 %12576, 46
+  %12579 = icmp samesign ult i8 %12576, 46
   br i1 %12579, label %12580, label %12581
 
 12580:                                            ; preds = %12578
@@ -29463,7 +29463,7 @@ timelib_eat_spaces.exit17435:                     ; preds = %5295, %5298, %5302,
   br i1 %12582, label %5862, label %12583
 
 12583:                                            ; preds = %12581
-  %12584 = icmp ult i8 %12576, 65
+  %12584 = icmp samesign ult i8 %12576, 65
   br i1 %12584, label %.loopexit17669, label %.loopexit17674
 
 12585:                                            ; preds = %12574
@@ -29475,7 +29475,7 @@ timelib_eat_spaces.exit17435:                     ; preds = %5295, %5298, %5302,
   br i1 %12588, label %14638, label %12589
 
 12589:                                            ; preds = %12587
-  %12590 = icmp ult i8 %12576, 91
+  %12590 = icmp samesign ult i8 %12576, 91
   br i1 %12590, label %.loopexit17674, label %12591
 
 12591:                                            ; preds = %12589
@@ -29505,7 +29505,7 @@ timelib_eat_spaces.exit17435:                     ; preds = %5295, %5298, %5302,
   br i1 %12603, label %12604, label %12611
 
 12604:                                            ; preds = %12600
-  %12605 = icmp ult i8 %12602, 42
+  %12605 = icmp samesign ult i8 %12602, 42
   br i1 %12605, label %12606, label %12608
 
 12606:                                            ; preds = %12604
@@ -29514,7 +29514,7 @@ timelib_eat_spaces.exit17435:                     ; preds = %5295, %5298, %5302,
   br i1 %.not16451, label %.loopexit17671, label %.loopexit17669
 
 12608:                                            ; preds = %12604
-  %12609 = icmp ult i8 %12602, 65
+  %12609 = icmp samesign ult i8 %12602, 65
   br i1 %12609, label %.loopexit17669.loopexit.split.loop.exit39858, label %12610
 
 12610:                                            ; preds = %12608
@@ -29547,7 +29547,7 @@ timelib_eat_spaces.exit17435:                     ; preds = %5295, %5298, %5302,
   br i1 %12624, label %12625, label %12632
 
 12625:                                            ; preds = %12621
-  %12626 = icmp ult i8 %12623, 42
+  %12626 = icmp samesign ult i8 %12623, 42
   br i1 %12626, label %12627, label %12629
 
 12627:                                            ; preds = %12625
@@ -29556,7 +29556,7 @@ timelib_eat_spaces.exit17435:                     ; preds = %5295, %5298, %5302,
   br i1 %.not16444, label %.loopexit17671, label %.loopexit17669
 
 12629:                                            ; preds = %12625
-  %12630 = icmp ult i8 %12623, 65
+  %12630 = icmp samesign ult i8 %12623, 65
   br i1 %12630, label %.loopexit17669.loopexit.split.loop.exit39860, label %12631
 
 12631:                                            ; preds = %12629
@@ -29589,7 +29589,7 @@ timelib_eat_spaces.exit17435:                     ; preds = %5295, %5298, %5302,
   br i1 %12645, label %12646, label %12653
 
 12646:                                            ; preds = %12642
-  %12647 = icmp ult i8 %12644, 42
+  %12647 = icmp samesign ult i8 %12644, 42
   br i1 %12647, label %12648, label %12650
 
 12648:                                            ; preds = %12646
@@ -29598,7 +29598,7 @@ timelib_eat_spaces.exit17435:                     ; preds = %5295, %5298, %5302,
   br i1 %.not16436, label %.loopexit17671, label %.loopexit17669
 
 12650:                                            ; preds = %12646
-  %12651 = icmp ult i8 %12644, 65
+  %12651 = icmp samesign ult i8 %12644, 65
   br i1 %12651, label %.loopexit17669.loopexit.split.loop.exit39862, label %12652
 
 12652:                                            ; preds = %12650
@@ -29631,7 +29631,7 @@ timelib_eat_spaces.exit17435:                     ; preds = %5295, %5298, %5302,
   br i1 %12666, label %12667, label %12674
 
 12667:                                            ; preds = %12663
-  %12668 = icmp ult i8 %12665, 42
+  %12668 = icmp samesign ult i8 %12665, 42
   br i1 %12668, label %12669, label %12671
 
 12669:                                            ; preds = %12667
@@ -29640,7 +29640,7 @@ timelib_eat_spaces.exit17435:                     ; preds = %5295, %5298, %5302,
   br i1 %.not16432, label %.loopexit17671, label %.loopexit17669
 
 12671:                                            ; preds = %12667
-  %12672 = icmp ult i8 %12665, 65
+  %12672 = icmp samesign ult i8 %12665, 65
   br i1 %12672, label %.loopexit17669.loopexit.split.loop.exit39864, label %12673
 
 12673:                                            ; preds = %12671
@@ -29674,7 +29674,7 @@ timelib_eat_spaces.exit17435:                     ; preds = %5295, %5298, %5302,
   br i1 %12687, label %12688, label %12695
 
 12688:                                            ; preds = %12684
-  %12689 = icmp ult i8 %12686, 46
+  %12689 = icmp samesign ult i8 %12686, 46
   br i1 %12689, label %12690, label %12691
 
 12690:                                            ; preds = %12688
@@ -29688,7 +29688,7 @@ timelib_eat_spaces.exit17435:                     ; preds = %5295, %5298, %5302,
   br i1 %12692, label %5862, label %12693
 
 12693:                                            ; preds = %12691
-  %12694 = icmp ult i8 %12686, 65
+  %12694 = icmp samesign ult i8 %12686, 65
   br i1 %12694, label %.loopexit17669, label %.loopexit17674
 
 12695:                                            ; preds = %12684
@@ -29700,7 +29700,7 @@ timelib_eat_spaces.exit17435:                     ; preds = %5295, %5298, %5302,
   br i1 %12698, label %14665, label %12699
 
 12699:                                            ; preds = %12697
-  %12700 = icmp ult i8 %12686, 91
+  %12700 = icmp samesign ult i8 %12686, 91
   br i1 %12700, label %.loopexit17674, label %12701
 
 12701:                                            ; preds = %12699
@@ -29731,7 +29731,7 @@ timelib_eat_spaces.exit17435:                     ; preds = %5295, %5298, %5302,
   br i1 %12713, label %12714, label %12721
 
 12714:                                            ; preds = %12710
-  %12715 = icmp ult i8 %12712, 46
+  %12715 = icmp samesign ult i8 %12712, 46
   br i1 %12715, label %12716, label %12717
 
 12716:                                            ; preds = %12714
@@ -29745,7 +29745,7 @@ timelib_eat_spaces.exit17435:                     ; preds = %5295, %5298, %5302,
   br i1 %12718, label %5862, label %12719
 
 12719:                                            ; preds = %12717
-  %12720 = icmp ult i8 %12712, 65
+  %12720 = icmp samesign ult i8 %12712, 65
   br i1 %12720, label %.loopexit17669, label %.loopexit17674
 
 12721:                                            ; preds = %12710
@@ -29757,7 +29757,7 @@ timelib_eat_spaces.exit17435:                     ; preds = %5295, %5298, %5302,
   br i1 %12724, label %14203, label %12725
 
 12725:                                            ; preds = %12723
-  %12726 = icmp ult i8 %12712, 91
+  %12726 = icmp samesign ult i8 %12712, 91
   br i1 %12726, label %.loopexit17674, label %12727
 
 12727:                                            ; preds = %12725
@@ -29788,7 +29788,7 @@ timelib_eat_spaces.exit17435:                     ; preds = %5295, %5298, %5302,
   br i1 %12739, label %12740, label %12747
 
 12740:                                            ; preds = %12736
-  %12741 = icmp ult i8 %12738, 46
+  %12741 = icmp samesign ult i8 %12738, 46
   br i1 %12741, label %12742, label %12743
 
 12742:                                            ; preds = %12740
@@ -29802,7 +29802,7 @@ timelib_eat_spaces.exit17435:                     ; preds = %5295, %5298, %5302,
   br i1 %12744, label %5862, label %12745
 
 12745:                                            ; preds = %12743
-  %12746 = icmp ult i8 %12738, 65
+  %12746 = icmp samesign ult i8 %12738, 65
   br i1 %12746, label %.loopexit17669, label %.loopexit17674
 
 12747:                                            ; preds = %12736
@@ -29814,7 +29814,7 @@ timelib_eat_spaces.exit17435:                     ; preds = %5295, %5298, %5302,
   br i1 %12750, label %14673, label %12751
 
 12751:                                            ; preds = %12749
-  %12752 = icmp ult i8 %12738, 91
+  %12752 = icmp samesign ult i8 %12738, 91
   br i1 %12752, label %.loopexit17674, label %12753
 
 12753:                                            ; preds = %12751
@@ -29845,7 +29845,7 @@ timelib_eat_spaces.exit17435:                     ; preds = %5295, %5298, %5302,
   br i1 %12765, label %12766, label %12773
 
 12766:                                            ; preds = %12762
-  %12767 = icmp ult i8 %12764, 46
+  %12767 = icmp samesign ult i8 %12764, 46
   br i1 %12767, label %12768, label %12769
 
 12768:                                            ; preds = %12766
@@ -29859,7 +29859,7 @@ timelib_eat_spaces.exit17435:                     ; preds = %5295, %5298, %5302,
   br i1 %12770, label %5862, label %12771
 
 12771:                                            ; preds = %12769
-  %12772 = icmp ult i8 %12764, 65
+  %12772 = icmp samesign ult i8 %12764, 65
   br i1 %12772, label %.loopexit17669, label %.loopexit17674
 
 12773:                                            ; preds = %12762
@@ -29871,7 +29871,7 @@ timelib_eat_spaces.exit17435:                     ; preds = %5295, %5298, %5302,
   br i1 %12776, label %14682, label %12777
 
 12777:                                            ; preds = %12775
-  %12778 = icmp ult i8 %12764, 91
+  %12778 = icmp samesign ult i8 %12764, 91
   br i1 %12778, label %.loopexit17674, label %12779
 
 12779:                                            ; preds = %12777
@@ -29956,7 +29956,7 @@ timelib_eat_spaces.exit17435:                     ; preds = %5295, %5298, %5302,
   br i1 %12819, label %12820, label %12827
 
 12820:                                            ; preds = %12816
-  %12821 = icmp ult i8 %12818, 42
+  %12821 = icmp samesign ult i8 %12818, 42
   br i1 %12821, label %12822, label %12824
 
 12822:                                            ; preds = %12820
@@ -29965,7 +29965,7 @@ timelib_eat_spaces.exit17435:                     ; preds = %5295, %5298, %5302,
   br i1 %.not16377, label %.loopexit17671, label %.loopexit17669
 
 12824:                                            ; preds = %12820
-  %12825 = icmp ult i8 %12818, 65
+  %12825 = icmp samesign ult i8 %12818, 65
   br i1 %12825, label %.loopexit17669.loopexit.split.loop.exit39866, label %12826
 
 12826:                                            ; preds = %12824
@@ -30008,7 +30008,7 @@ timelib_eat_spaces.exit17435:                     ; preds = %5295, %5298, %5302,
   br i1 %12842, label %12843, label %12845
 
 12843:                                            ; preds = %12841
-  %12844 = icmp ult i8 %12838, 91
+  %12844 = icmp samesign ult i8 %12838, 91
   br i1 %12844, label %.loopexit17674, label %.loopexit17669
 
 12845:                                            ; preds = %12841
@@ -30027,7 +30027,7 @@ timelib_eat_spaces.exit17435:                     ; preds = %5295, %5298, %5302,
   br i1 %12852, label %12853, label %12859
 
 12853:                                            ; preds = %12849
-  %12854 = icmp ult i8 %12851, 45
+  %12854 = icmp samesign ult i8 %12851, 45
   br i1 %12854, label %12855, label %12857
 
 12855:                                            ; preds = %12853
@@ -30064,7 +30064,7 @@ timelib_eat_spaces.exit17435:                     ; preds = %5295, %5298, %5302,
   br i1 %12870, label %12871, label %12878
 
 12871:                                            ; preds = %12867
-  %12872 = icmp ult i8 %12869, 46
+  %12872 = icmp samesign ult i8 %12869, 46
   br i1 %12872, label %12873, label %12874
 
 12873:                                            ; preds = %12871
@@ -30078,7 +30078,7 @@ timelib_eat_spaces.exit17435:                     ; preds = %5295, %5298, %5302,
   br i1 %12875, label %5862, label %12876
 
 12876:                                            ; preds = %12874
-  %12877 = icmp ult i8 %12869, 65
+  %12877 = icmp samesign ult i8 %12869, 65
   br i1 %12877, label %.loopexit17669, label %.loopexit17674
 
 12878:                                            ; preds = %12867
@@ -30090,7 +30090,7 @@ timelib_eat_spaces.exit17435:                     ; preds = %5295, %5298, %5302,
   br i1 %12881, label %14754, label %12882
 
 12882:                                            ; preds = %12880
-  %12883 = icmp ult i8 %12869, 91
+  %12883 = icmp samesign ult i8 %12869, 91
   br i1 %12883, label %.loopexit17674, label %12884
 
 12884:                                            ; preds = %12882
@@ -30121,7 +30121,7 @@ timelib_eat_spaces.exit17435:                     ; preds = %5295, %5298, %5302,
   br i1 %12896, label %12897, label %12904
 
 12897:                                            ; preds = %12893
-  %12898 = icmp ult i8 %12895, 45
+  %12898 = icmp samesign ult i8 %12895, 45
   br i1 %12898, label %12899, label %12901
 
 12899:                                            ; preds = %12897
@@ -30130,7 +30130,7 @@ timelib_eat_spaces.exit17435:                     ; preds = %5295, %5298, %5302,
 
 12901:                                            ; preds = %12897
   %12902 = icmp ne i8 %12895, 46
-  %12903 = icmp ult i8 %12895, 48
+  %12903 = icmp samesign ult i8 %12895, 48
   %or.cond1277 = and i1 %12902, %12903
   br i1 %or.cond1277, label %5862, label %.loopexit17669
 
@@ -30143,7 +30143,7 @@ timelib_eat_spaces.exit17435:                     ; preds = %5295, %5298, %5302,
   br i1 %12907, label %.loopexit17682, label %12908
 
 12908:                                            ; preds = %12906
-  %12909 = icmp ult i8 %12895, 91
+  %12909 = icmp samesign ult i8 %12895, 91
   br i1 %12909, label %.loopexit17674, label %12910
 
 12910:                                            ; preds = %12908
@@ -30169,7 +30169,7 @@ timelib_eat_spaces.exit17435:                     ; preds = %5295, %5298, %5302,
   br i1 %12920, label %12921, label %12928
 
 12921:                                            ; preds = %12917
-  %12922 = icmp ult i8 %12919, 42
+  %12922 = icmp samesign ult i8 %12919, 42
   br i1 %12922, label %12923, label %12925
 
 12923:                                            ; preds = %12921
@@ -30178,7 +30178,7 @@ timelib_eat_spaces.exit17435:                     ; preds = %5295, %5298, %5302,
   br i1 %.not16320, label %.loopexit17671, label %.loopexit17669
 
 12925:                                            ; preds = %12921
-  %12926 = icmp ult i8 %12919, 65
+  %12926 = icmp samesign ult i8 %12919, 65
   br i1 %12926, label %.loopexit17669.loopexit.split.loop.exit39868, label %12927
 
 12927:                                            ; preds = %12925
@@ -30212,7 +30212,7 @@ timelib_eat_spaces.exit17435:                     ; preds = %5295, %5298, %5302,
   br i1 %12941, label %12942, label %12949
 
 12942:                                            ; preds = %12938
-  %12943 = icmp ult i8 %12940, 46
+  %12943 = icmp samesign ult i8 %12940, 46
   br i1 %12943, label %12944, label %12945
 
 12944:                                            ; preds = %12942
@@ -30226,7 +30226,7 @@ timelib_eat_spaces.exit17435:                     ; preds = %5295, %5298, %5302,
   br i1 %12946, label %5862, label %12947
 
 12947:                                            ; preds = %12945
-  %12948 = icmp ult i8 %12940, 65
+  %12948 = icmp samesign ult i8 %12940, 65
   br i1 %12948, label %.loopexit17669, label %.loopexit17674
 
 12949:                                            ; preds = %12938
@@ -30238,7 +30238,7 @@ timelib_eat_spaces.exit17435:                     ; preds = %5295, %5298, %5302,
   br i1 %12952, label %14806, label %12953
 
 12953:                                            ; preds = %12951
-  %12954 = icmp ult i8 %12940, 91
+  %12954 = icmp samesign ult i8 %12940, 91
   br i1 %12954, label %.loopexit17674, label %12955
 
 12955:                                            ; preds = %12953
@@ -30268,7 +30268,7 @@ timelib_eat_spaces.exit17435:                     ; preds = %5295, %5298, %5302,
   br i1 %12967, label %12968, label %12975
 
 12968:                                            ; preds = %12964
-  %12969 = icmp ult i8 %12966, 42
+  %12969 = icmp samesign ult i8 %12966, 42
   br i1 %12969, label %12970, label %12972
 
 12970:                                            ; preds = %12968
@@ -30277,7 +30277,7 @@ timelib_eat_spaces.exit17435:                     ; preds = %5295, %5298, %5302,
   br i1 %.not16297, label %.loopexit17671, label %.loopexit17669
 
 12972:                                            ; preds = %12968
-  %12973 = icmp ult i8 %12966, 65
+  %12973 = icmp samesign ult i8 %12966, 65
   br i1 %12973, label %.loopexit17669.loopexit.split.loop.exit39870, label %12974
 
 12974:                                            ; preds = %12972
@@ -30311,7 +30311,7 @@ timelib_eat_spaces.exit17435:                     ; preds = %5295, %5298, %5302,
   br i1 %12988, label %12989, label %12996
 
 12989:                                            ; preds = %12985
-  %12990 = icmp ult i8 %12987, 46
+  %12990 = icmp samesign ult i8 %12987, 46
   br i1 %12990, label %12991, label %12992
 
 12991:                                            ; preds = %12989
@@ -30325,7 +30325,7 @@ timelib_eat_spaces.exit17435:                     ; preds = %5295, %5298, %5302,
   br i1 %12993, label %5862, label %12994
 
 12994:                                            ; preds = %12992
-  %12995 = icmp ult i8 %12987, 65
+  %12995 = icmp samesign ult i8 %12987, 65
   br i1 %12995, label %.loopexit17669, label %.loopexit17674
 
 12996:                                            ; preds = %12985
@@ -30337,7 +30337,7 @@ timelib_eat_spaces.exit17435:                     ; preds = %5295, %5298, %5302,
   br i1 %12999, label %14833, label %13000
 
 13000:                                            ; preds = %12998
-  %13001 = icmp ult i8 %12987, 91
+  %13001 = icmp samesign ult i8 %12987, 91
   br i1 %13001, label %.loopexit17674, label %13002
 
 13002:                                            ; preds = %13000
@@ -30385,7 +30385,7 @@ timelib_eat_spaces.exit17435:                     ; preds = %5295, %5298, %5302,
   br i1 %13024, label %14868, label %13025
 
 13025:                                            ; preds = %13023
-  %13026 = icmp ult i8 %13021, 48
+  %13026 = icmp samesign ult i8 %13021, 48
   br i1 %13026, label %4547, label %14876
 
 13027:                                            ; preds = %13019
@@ -30407,7 +30407,7 @@ timelib_eat_spaces.exit17435:                     ; preds = %5295, %5298, %5302,
   br i1 %13035, label %13036, label %13043
 
 13036:                                            ; preds = %13032
-  %13037 = icmp ult i8 %13034, 46
+  %13037 = icmp samesign ult i8 %13034, 46
   br i1 %13037, label %13038, label %13039
 
 13038:                                            ; preds = %13036
@@ -30415,7 +30415,7 @@ timelib_eat_spaces.exit17435:                     ; preds = %5295, %5298, %5302,
   br i1 %.not17267, label %14868, label %4547
 
 13039:                                            ; preds = %13036
-  %13040 = icmp ult i8 %13034, 48
+  %13040 = icmp samesign ult i8 %13034, 48
   br i1 %13040, label %4547, label %13041
 
 13041:                                            ; preds = %13039
@@ -30445,7 +30445,7 @@ timelib_eat_spaces.exit17435:                     ; preds = %5295, %5298, %5302,
   br i1 %13053, label %14868, label %13054
 
 13054:                                            ; preds = %13052
-  %13055 = icmp ult i8 %13050, 48
+  %13055 = icmp samesign ult i8 %13050, 48
   br i1 %13055, label %4547, label %14938
 
 13056:                                            ; preds = %13048
@@ -30545,11 +30545,11 @@ timelib_eat_spaces.exit17435:                     ; preds = %5295, %5298, %5302,
   br i1 %13100, label %13101, label %13106
 
 13101:                                            ; preds = %13097
-  %13102 = icmp ult i8 %13099, 48
+  %13102 = icmp samesign ult i8 %13099, 48
   br i1 %13102, label %.loopexit17713, label %13103
 
 13103:                                            ; preds = %13101
-  %13104 = icmp ult i8 %13099, 58
+  %13104 = icmp samesign ult i8 %13099, 58
   br i1 %13104, label %14959, label %13105
 
 13105:                                            ; preds = %13103
@@ -31040,15 +31040,15 @@ timelib_eat_spaces.exit17435:                     ; preds = %5295, %5298, %5302,
   br i1 %13339, label %13340, label %13370
 
 13340:                                            ; preds = %13336
-  %13341 = icmp ult i8 %13338, 68
+  %13341 = icmp samesign ult i8 %13338, 68
   br i1 %13341, label %13342, label %13358
 
 13342:                                            ; preds = %13340
-  %13343 = icmp ult i8 %13338, 48
+  %13343 = icmp samesign ult i8 %13338, 48
   br i1 %13343, label %13344, label %13350
 
 13344:                                            ; preds = %13342
-  %13345 = icmp ult i8 %13338, 10
+  %13345 = icmp samesign ult i8 %13338, 10
   br i1 %13345, label %13346, label %13348
 
 13346:                                            ; preds = %13344
@@ -31060,7 +31060,7 @@ timelib_eat_spaces.exit17435:                     ; preds = %5295, %5298, %5302,
   br i1 %13349, label %4547, label %.loopexit17716
 
 13350:                                            ; preds = %13342
-  %13351 = icmp ult i8 %13338, 51
+  %13351 = icmp samesign ult i8 %13338, 51
   br i1 %13351, label %13352, label %13354
 
 13352:                                            ; preds = %13350
@@ -31072,15 +31072,15 @@ timelib_eat_spaces.exit17435:                     ; preds = %5295, %5298, %5302,
   br i1 %13355, label %15202, label %13356
 
 13356:                                            ; preds = %13354
-  %13357 = icmp ult i8 %13338, 58
+  %13357 = icmp samesign ult i8 %13338, 58
   br i1 %13357, label %15262, label %.loopexit17716
 
 13358:                                            ; preds = %13340
-  %13359 = icmp ult i8 %13338, 73
+  %13359 = icmp samesign ult i8 %13338, 73
   br i1 %13359, label %13360, label %13365
 
 13360:                                            ; preds = %13358
-  %13361 = icmp ult i8 %13338, 70
+  %13361 = icmp samesign ult i8 %13338, 70
   br i1 %13361, label %13362, label %13364
 
 13362:                                            ; preds = %13360
@@ -31092,7 +31092,7 @@ timelib_eat_spaces.exit17435:                     ; preds = %5295, %5298, %5302,
   br i1 %.not17086, label %.loopexit17716, label %4547
 
 13365:                                            ; preds = %13358
-  %13366 = icmp ult i8 %13338, 83
+  %13366 = icmp samesign ult i8 %13338, 83
   br i1 %13366, label %13367, label %13369
 
 13367:                                            ; preds = %13365
@@ -31108,11 +31108,11 @@ timelib_eat_spaces.exit17435:                     ; preds = %5295, %5298, %5302,
   br i1 %13371, label %13372, label %13384
 
 13372:                                            ; preds = %13370
-  %13373 = icmp ult i8 %13338, 102
+  %13373 = icmp samesign ult i8 %13338, 102
   br i1 %13373, label %13374, label %13379
 
 13374:                                            ; preds = %13372
-  %13375 = icmp ult i8 %13338, 90
+  %13375 = icmp samesign ult i8 %13338, 90
   br i1 %13375, label %13376, label %13377
 
 13376:                                            ; preds = %13374
@@ -31124,7 +31124,7 @@ timelib_eat_spaces.exit17435:                     ; preds = %5295, %5298, %5302,
   br i1 %13378, label %4547, label %.loopexit17716
 
 13379:                                            ; preds = %13372
-  %13380 = icmp ult i8 %13338, 104
+  %13380 = icmp samesign ult i8 %13338, 104
   br i1 %13380, label %13381, label %13383
 
 13381:                                            ; preds = %13379
@@ -31142,11 +31142,11 @@ timelib_eat_spaces.exit17435:                     ; preds = %5295, %5298, %5302,
   br i1 %13385, label %13386, label %13392
 
 13386:                                            ; preds = %13384
-  %13387 = icmp ult i8 %13338, 118
+  %13387 = icmp samesign ult i8 %13338, 118
   br i1 %13387, label %13388, label %13390
 
 13388:                                            ; preds = %13386
-  %13389 = icmp ugt i8 %13338, 114
+  %13389 = icmp samesign ugt i8 %13338, 114
   br i1 %13389, label %4547, label %.loopexit17716
 
 13390:                                            ; preds = %13386
@@ -31245,15 +31245,15 @@ timelib_eat_spaces.exit17435:                     ; preds = %5295, %5298, %5302,
   br i1 %13438, label %13439, label %13468
 
 13439:                                            ; preds = %13435
-  %13440 = icmp ult i8 %13437, 69
+  %13440 = icmp samesign ult i8 %13437, 69
   br i1 %13440, label %13441, label %13454
 
 13441:                                            ; preds = %13439
-  %13442 = icmp ult i8 %13437, 48
+  %13442 = icmp samesign ult i8 %13437, 48
   br i1 %13442, label %13443, label %13448
 
 13443:                                            ; preds = %13441
-  %13444 = icmp ult i8 %13437, 10
+  %13444 = icmp samesign ult i8 %13437, 10
   br i1 %13444, label %13445, label %13446
 
 13445:                                            ; preds = %13443
@@ -31265,7 +31265,7 @@ timelib_eat_spaces.exit17435:                     ; preds = %5295, %5298, %5302,
   br i1 %13447, label %4547, label %.loopexit17716
 
 13448:                                            ; preds = %13441
-  %13449 = icmp ult i8 %13437, 52
+  %13449 = icmp samesign ult i8 %13437, 52
   br i1 %13449, label %13450, label %13451
 
 13450:                                            ; preds = %13448
@@ -31273,7 +31273,7 @@ timelib_eat_spaces.exit17435:                     ; preds = %5295, %5298, %5302,
   br i1 %.not17082, label %15202, label %15125
 
 13451:                                            ; preds = %13448
-  %13452 = icmp ult i8 %13437, 58
+  %13452 = icmp samesign ult i8 %13437, 58
   br i1 %13452, label %15262, label %13453
 
 13453:                                            ; preds = %13451
@@ -31281,11 +31281,11 @@ timelib_eat_spaces.exit17435:                     ; preds = %5295, %5298, %5302,
   br i1 %.not17081, label %4547, label %.loopexit17716
 
 13454:                                            ; preds = %13439
-  %13455 = icmp ult i8 %13437, 77
+  %13455 = icmp samesign ult i8 %13437, 77
   br i1 %13455, label %13456, label %13462
 
 13456:                                            ; preds = %13454
-  %13457 = icmp ult i8 %13437, 71
+  %13457 = icmp samesign ult i8 %13437, 71
   br i1 %13457, label %13458, label %13460
 
 13458:                                            ; preds = %13456
@@ -31297,7 +31297,7 @@ timelib_eat_spaces.exit17435:                     ; preds = %5295, %5298, %5302,
   br i1 %13461, label %4547, label %.loopexit17716
 
 13462:                                            ; preds = %13454
-  %13463 = icmp ult i8 %13437, 83
+  %13463 = icmp samesign ult i8 %13437, 83
   br i1 %13463, label %13464, label %13466
 
 13464:                                            ; preds = %13462
@@ -31313,11 +31313,11 @@ timelib_eat_spaces.exit17435:                     ; preds = %5295, %5298, %5302,
   br i1 %13469, label %13470, label %13483
 
 13470:                                            ; preds = %13468
-  %13471 = icmp ult i8 %13437, 102
+  %13471 = icmp samesign ult i8 %13437, 102
   br i1 %13471, label %13472, label %13478
 
 13472:                                            ; preds = %13470
-  %13473 = icmp ult i8 %13437, 90
+  %13473 = icmp samesign ult i8 %13437, 90
   br i1 %13473, label %13474, label %13476
 
 13474:                                            ; preds = %13472
@@ -31329,7 +31329,7 @@ timelib_eat_spaces.exit17435:                     ; preds = %5295, %5298, %5302,
   br i1 %13477, label %4547, label %.loopexit17716
 
 13478:                                            ; preds = %13470
-  %13479 = icmp ult i8 %13437, 104
+  %13479 = icmp samesign ult i8 %13437, 104
   br i1 %13479, label %13480, label %13482
 
 13480:                                            ; preds = %13478
@@ -31347,11 +31347,11 @@ timelib_eat_spaces.exit17435:                     ; preds = %5295, %5298, %5302,
   br i1 %13484, label %13485, label %13491
 
 13485:                                            ; preds = %13483
-  %13486 = icmp ult i8 %13437, 118
+  %13486 = icmp samesign ult i8 %13437, 118
   br i1 %13486, label %13487, label %13489
 
 13487:                                            ; preds = %13485
-  %13488 = icmp ult i8 %13437, 115
+  %13488 = icmp samesign ult i8 %13437, 115
   br i1 %13488, label %.loopexit17716, label %4547
 
 13489:                                            ; preds = %13485
@@ -31380,11 +31380,11 @@ timelib_eat_spaces.exit17435:                     ; preds = %5295, %5298, %5302,
   br i1 %13499, label %13500, label %13524
 
 13500:                                            ; preds = %13496
-  %13501 = icmp ult i8 %13498, 70
+  %13501 = icmp samesign ult i8 %13498, 70
   br i1 %13501, label %13502, label %13511
 
 13502:                                            ; preds = %13500
-  %13503 = icmp ult i8 %13498, 33
+  %13503 = icmp samesign ult i8 %13498, 33
   br i1 %13503, label %13504, label %13505
 
 13504:                                            ; preds = %13502
@@ -31394,11 +31394,11 @@ timelib_eat_spaces.exit17435:                     ; preds = %5295, %5298, %5302,
   ]
 
 13505:                                            ; preds = %13502
-  %13506 = icmp ult i8 %13498, 58
+  %13506 = icmp samesign ult i8 %13498, 58
   br i1 %13506, label %13507, label %13509
 
 13507:                                            ; preds = %13505
-  %13508 = icmp ult i8 %13498, 48
+  %13508 = icmp samesign ult i8 %13498, 48
   br i1 %13508, label %.loopexit17716, label %15262
 
 13509:                                            ; preds = %13505
@@ -31406,11 +31406,11 @@ timelib_eat_spaces.exit17435:                     ; preds = %5295, %5298, %5302,
   br i1 %13510, label %4547, label %.loopexit17716
 
 13511:                                            ; preds = %13500
-  %13512 = icmp ult i8 %13498, 78
+  %13512 = icmp samesign ult i8 %13498, 78
   br i1 %13512, label %13513, label %13518
 
 13513:                                            ; preds = %13511
-  %13514 = icmp ult i8 %13498, 72
+  %13514 = icmp samesign ult i8 %13498, 72
   br i1 %13514, label %13515, label %13517
 
 13515:                                            ; preds = %13513
@@ -31424,11 +31424,11 @@ timelib_eat_spaces.exit17435:                     ; preds = %5295, %5298, %5302,
   ]
 
 13518:                                            ; preds = %13511
-  %13519 = icmp ult i8 %13498, 86
+  %13519 = icmp samesign ult i8 %13498, 86
   br i1 %13519, label %13520, label %13522
 
 13520:                                            ; preds = %13518
-  %13521 = icmp ult i8 %13498, 83
+  %13521 = icmp samesign ult i8 %13498, 83
   br i1 %13521, label %.loopexit17716, label %4547
 
 13522:                                            ; preds = %13518
@@ -31440,11 +31440,11 @@ timelib_eat_spaces.exit17435:                     ; preds = %5295, %5298, %5302,
   br i1 %13525, label %13526, label %13540
 
 13526:                                            ; preds = %13524
-  %13527 = icmp ult i8 %13498, 103
+  %13527 = icmp samesign ult i8 %13498, 103
   br i1 %13527, label %13528, label %13534
 
 13528:                                            ; preds = %13526
-  %13529 = icmp ult i8 %13498, 100
+  %13529 = icmp samesign ult i8 %13498, 100
   br i1 %13529, label %13530, label %13532
 
 13530:                                            ; preds = %13528
@@ -31456,7 +31456,7 @@ timelib_eat_spaces.exit17435:                     ; preds = %5295, %5298, %5302,
   br i1 %13533, label %.loopexit17716, label %4547
 
 13534:                                            ; preds = %13526
-  %13535 = icmp ult i8 %13498, 105
+  %13535 = icmp samesign ult i8 %13498, 105
   br i1 %13535, label %13536, label %13538
 
 13536:                                            ; preds = %13534
@@ -31472,7 +31472,7 @@ timelib_eat_spaces.exit17435:                     ; preds = %5295, %5298, %5302,
   br i1 %13541, label %13542, label %13547
 
 13542:                                            ; preds = %13540
-  %13543 = icmp ult i8 %13498, 119
+  %13543 = icmp samesign ult i8 %13498, 119
   br i1 %13543, label %13544, label %13545
 
 13544:                                            ; preds = %13542
@@ -31503,15 +31503,15 @@ timelib_eat_spaces.exit17435:                     ; preds = %5295, %5298, %5302,
   br i1 %13555, label %13556, label %13584
 
 13556:                                            ; preds = %13552
-  %13557 = icmp ult i8 %13554, 70
+  %13557 = icmp samesign ult i8 %13554, 70
   br i1 %13557, label %13558, label %13571
 
 13558:                                            ; preds = %13556
-  %13559 = icmp ult i8 %13554, 48
+  %13559 = icmp samesign ult i8 %13554, 48
   br i1 %13559, label %13560, label %13565
 
 13560:                                            ; preds = %13558
-  %13561 = icmp ult i8 %13554, 10
+  %13561 = icmp samesign ult i8 %13554, 10
   br i1 %13561, label %13562, label %13563
 
 13562:                                            ; preds = %13560
@@ -31523,11 +31523,11 @@ timelib_eat_spaces.exit17435:                     ; preds = %5295, %5298, %5302,
   br i1 %13564, label %4547, label %.loopexit17716
 
 13565:                                            ; preds = %13558
-  %13566 = icmp ult i8 %13554, 58
+  %13566 = icmp samesign ult i8 %13554, 58
   br i1 %13566, label %13567, label %13569
 
 13567:                                            ; preds = %13565
-  %13568 = icmp ult i8 %13554, 55
+  %13568 = icmp samesign ult i8 %13554, 55
   br i1 %13568, label %15262, label %15318
 
 13569:                                            ; preds = %13565
@@ -31535,11 +31535,11 @@ timelib_eat_spaces.exit17435:                     ; preds = %5295, %5298, %5302,
   br i1 %13570, label %4547, label %.loopexit17716
 
 13571:                                            ; preds = %13556
-  %13572 = icmp ult i8 %13554, 78
+  %13572 = icmp samesign ult i8 %13554, 78
   br i1 %13572, label %13573, label %13578
 
 13573:                                            ; preds = %13571
-  %13574 = icmp ult i8 %13554, 72
+  %13574 = icmp samesign ult i8 %13554, 72
   br i1 %13574, label %13575, label %13577
 
 13575:                                            ; preds = %13573
@@ -31553,11 +31553,11 @@ timelib_eat_spaces.exit17435:                     ; preds = %5295, %5298, %5302,
   ]
 
 13578:                                            ; preds = %13571
-  %13579 = icmp ult i8 %13554, 86
+  %13579 = icmp samesign ult i8 %13554, 86
   br i1 %13579, label %13580, label %13582
 
 13580:                                            ; preds = %13578
-  %13581 = icmp ult i8 %13554, 83
+  %13581 = icmp samesign ult i8 %13554, 83
   br i1 %13581, label %.loopexit17716, label %4547
 
 13582:                                            ; preds = %13578
@@ -31569,11 +31569,11 @@ timelib_eat_spaces.exit17435:                     ; preds = %5295, %5298, %5302,
   br i1 %13585, label %13586, label %13600
 
 13586:                                            ; preds = %13584
-  %13587 = icmp ult i8 %13554, 103
+  %13587 = icmp samesign ult i8 %13554, 103
   br i1 %13587, label %13588, label %13594
 
 13588:                                            ; preds = %13586
-  %13589 = icmp ult i8 %13554, 100
+  %13589 = icmp samesign ult i8 %13554, 100
   br i1 %13589, label %13590, label %13592
 
 13590:                                            ; preds = %13588
@@ -31585,7 +31585,7 @@ timelib_eat_spaces.exit17435:                     ; preds = %5295, %5298, %5302,
   br i1 %13593, label %.loopexit17716, label %4547
 
 13594:                                            ; preds = %13586
-  %13595 = icmp ult i8 %13554, 105
+  %13595 = icmp samesign ult i8 %13554, 105
   br i1 %13595, label %13596, label %13598
 
 13596:                                            ; preds = %13594
@@ -31601,7 +31601,7 @@ timelib_eat_spaces.exit17435:                     ; preds = %5295, %5298, %5302,
   br i1 %13601, label %13602, label %13607
 
 13602:                                            ; preds = %13600
-  %13603 = icmp ult i8 %13554, 119
+  %13603 = icmp samesign ult i8 %13554, 119
   br i1 %13603, label %13604, label %13605
 
 13604:                                            ; preds = %13602
@@ -31632,11 +31632,11 @@ timelib_eat_spaces.exit17435:                     ; preds = %5295, %5298, %5302,
   br i1 %13615, label %13616, label %13640
 
 13616:                                            ; preds = %13612
-  %13617 = icmp ult i8 %13614, 70
+  %13617 = icmp samesign ult i8 %13614, 70
   br i1 %13617, label %13618, label %13627
 
 13618:                                            ; preds = %13616
-  %13619 = icmp ult i8 %13614, 33
+  %13619 = icmp samesign ult i8 %13614, 33
   br i1 %13619, label %13620, label %13621
 
 13620:                                            ; preds = %13618
@@ -31646,11 +31646,11 @@ timelib_eat_spaces.exit17435:                     ; preds = %5295, %5298, %5302,
   ]
 
 13621:                                            ; preds = %13618
-  %13622 = icmp ult i8 %13614, 58
+  %13622 = icmp samesign ult i8 %13614, 58
   br i1 %13622, label %13623, label %13625
 
 13623:                                            ; preds = %13621
-  %13624 = icmp ult i8 %13614, 48
+  %13624 = icmp samesign ult i8 %13614, 48
   br i1 %13624, label %.loopexit17716, label %15318
 
 13625:                                            ; preds = %13621
@@ -31658,11 +31658,11 @@ timelib_eat_spaces.exit17435:                     ; preds = %5295, %5298, %5302,
   br i1 %13626, label %4547, label %.loopexit17716
 
 13627:                                            ; preds = %13616
-  %13628 = icmp ult i8 %13614, 78
+  %13628 = icmp samesign ult i8 %13614, 78
   br i1 %13628, label %13629, label %13634
 
 13629:                                            ; preds = %13627
-  %13630 = icmp ult i8 %13614, 72
+  %13630 = icmp samesign ult i8 %13614, 72
   br i1 %13630, label %13631, label %13633
 
 13631:                                            ; preds = %13629
@@ -31676,11 +31676,11 @@ timelib_eat_spaces.exit17435:                     ; preds = %5295, %5298, %5302,
   ]
 
 13634:                                            ; preds = %13627
-  %13635 = icmp ult i8 %13614, 86
+  %13635 = icmp samesign ult i8 %13614, 86
   br i1 %13635, label %13636, label %13638
 
 13636:                                            ; preds = %13634
-  %13637 = icmp ult i8 %13614, 83
+  %13637 = icmp samesign ult i8 %13614, 83
   br i1 %13637, label %.loopexit17716, label %4547
 
 13638:                                            ; preds = %13634
@@ -31692,11 +31692,11 @@ timelib_eat_spaces.exit17435:                     ; preds = %5295, %5298, %5302,
   br i1 %13641, label %13642, label %13656
 
 13642:                                            ; preds = %13640
-  %13643 = icmp ult i8 %13614, 103
+  %13643 = icmp samesign ult i8 %13614, 103
   br i1 %13643, label %13644, label %13650
 
 13644:                                            ; preds = %13642
-  %13645 = icmp ult i8 %13614, 100
+  %13645 = icmp samesign ult i8 %13614, 100
   br i1 %13645, label %13646, label %13648
 
 13646:                                            ; preds = %13644
@@ -31708,7 +31708,7 @@ timelib_eat_spaces.exit17435:                     ; preds = %5295, %5298, %5302,
   br i1 %13649, label %.loopexit17716, label %4547
 
 13650:                                            ; preds = %13642
-  %13651 = icmp ult i8 %13614, 105
+  %13651 = icmp samesign ult i8 %13614, 105
   br i1 %13651, label %13652, label %13654
 
 13652:                                            ; preds = %13650
@@ -31724,7 +31724,7 @@ timelib_eat_spaces.exit17435:                     ; preds = %5295, %5298, %5302,
   br i1 %13657, label %13658, label %13663
 
 13658:                                            ; preds = %13656
-  %13659 = icmp ult i8 %13614, 119
+  %13659 = icmp samesign ult i8 %13614, 119
   br i1 %13659, label %13660, label %13661
 
 13660:                                            ; preds = %13658
@@ -31960,7 +31960,7 @@ timelib_eat_spaces.exit17435:                     ; preds = %5295, %5298, %5302,
   br i1 %13768, label %13769, label %13776
 
 13769:                                            ; preds = %13765
-  %13770 = icmp ult i8 %13767, 49
+  %13770 = icmp samesign ult i8 %13767, 49
   br i1 %13770, label %13771, label %13772
 
 13771:                                            ; preds = %13769
@@ -31968,7 +31968,7 @@ timelib_eat_spaces.exit17435:                     ; preds = %5295, %5298, %5302,
   br i1 %.not17064, label %15118, label %4547
 
 13772:                                            ; preds = %13769
-  %13773 = icmp ult i8 %13767, 51
+  %13773 = icmp samesign ult i8 %13767, 51
   br i1 %13773, label %15125, label %13774
 
 13774:                                            ; preds = %13772
@@ -31994,11 +31994,11 @@ timelib_eat_spaces.exit17435:                     ; preds = %5295, %5298, %5302,
   br i1 %13784, label %13785, label %13791
 
 13785:                                            ; preds = %13781
-  %13786 = icmp ult i8 %13783, 48
+  %13786 = icmp samesign ult i8 %13783, 48
   br i1 %13786, label %4547, label %13787
 
 13787:                                            ; preds = %13785
-  %13788 = icmp ult i8 %13783, 51
+  %13788 = icmp samesign ult i8 %13783, 51
   br i1 %13788, label %15125, label %13789
 
 13789:                                            ; preds = %13787
@@ -32123,11 +32123,11 @@ timelib_eat_spaces.exit17435:                     ; preds = %5295, %5298, %5302,
   br i1 %13849, label %13850, label %13864
 
 13850:                                            ; preds = %13846
-  %13851 = icmp ult i8 %13848, 46
+  %13851 = icmp samesign ult i8 %13848, 46
   br i1 %13851, label %13852, label %13857
 
 13852:                                            ; preds = %13850
-  %13853 = icmp ult i8 %13848, 10
+  %13853 = icmp samesign ult i8 %13848, 10
   br i1 %13853, label %13854, label %13855
 
 13854:                                            ; preds = %13852
@@ -32139,7 +32139,7 @@ timelib_eat_spaces.exit17435:                     ; preds = %5295, %5298, %5302,
   br i1 %13856, label %.preheader17616, label %.loopexit17511
 
 13857:                                            ; preds = %13850
-  %13858 = icmp ult i8 %13848, 48
+  %13858 = icmp samesign ult i8 %13848, 48
   br i1 %13858, label %13859, label %13861
 
 13859:                                            ; preds = %13857
@@ -32147,7 +32147,7 @@ timelib_eat_spaces.exit17435:                     ; preds = %5295, %5298, %5302,
   br i1 %13860, label %13125, label %.loopexit17511
 
 13861:                                            ; preds = %13857
-  %13862 = icmp ult i8 %13848, 58
+  %13862 = icmp samesign ult i8 %13848, 58
   br i1 %13862, label %14959, label %13863
 
 13863:                                            ; preds = %13861
@@ -32159,7 +32159,7 @@ timelib_eat_spaces.exit17435:                     ; preds = %5295, %5298, %5302,
   br i1 %13865, label %13866, label %13871
 
 13866:                                            ; preds = %13864
-  %13867 = icmp ult i8 %13848, 81
+  %13867 = icmp samesign ult i8 %13848, 81
   br i1 %13867, label %13868, label %13869
 
 13868:                                            ; preds = %13866
@@ -32197,7 +32197,7 @@ timelib_eat_spaces.exit17435:                     ; preds = %5295, %5298, %5302,
   br i1 %13883, label %13884, label %13889
 
 13884:                                            ; preds = %13881
-  %13885 = icmp ult i8 %13882, 66
+  %13885 = icmp samesign ult i8 %13882, 66
   br i1 %13885, label %13886, label %13887
 
 13886:                                            ; preds = %13884
@@ -32240,7 +32240,7 @@ timelib_eat_spaces.exit17435:                     ; preds = %5295, %5298, %5302,
   br i1 %13902, label %13903, label %13915
 
 13903:                                            ; preds = %13899
-  %13904 = icmp ult i8 %13901, 33
+  %13904 = icmp samesign ult i8 %13901, 33
   br i1 %13904, label %13905, label %13910
 
 13905:                                            ; preds = %13903
@@ -32258,7 +32258,7 @@ timelib_eat_spaces.exit17435:                     ; preds = %5295, %5298, %5302,
   br i1 %13909, label %.loopexit, label %.lr.ph23881
 
 13910:                                            ; preds = %13903
-  %13911 = icmp ult i8 %13901, 47
+  %13911 = icmp samesign ult i8 %13901, 47
   br i1 %13911, label %13912, label %13913
 
 13912:                                            ; preds = %13910
@@ -32274,7 +32274,7 @@ timelib_eat_spaces.exit17435:                     ; preds = %5295, %5298, %5302,
   br i1 %13916, label %13917, label %13922
 
 13917:                                            ; preds = %13915
-  %13918 = icmp ult i8 %13901, 97
+  %13918 = icmp samesign ult i8 %13901, 97
   br i1 %13918, label %13919, label %13921
 
 13919:                                            ; preds = %13917
@@ -32328,11 +32328,11 @@ timelib_eat_spaces.exit17435:                     ; preds = %5295, %5298, %5302,
   br i1 %13939, label %13940, label %13945
 
 13940:                                            ; preds = %13936
-  %13941 = icmp ult i8 %13938, 48
+  %13941 = icmp samesign ult i8 %13938, 48
   br i1 %13941, label %.loopexit17713, label %13942
 
 13942:                                            ; preds = %13940
-  %13943 = icmp ult i8 %13938, 58
+  %13943 = icmp samesign ult i8 %13938, 58
   br i1 %13943, label %13968, label %13944
 
 13944:                                            ; preds = %13942
@@ -32363,11 +32363,11 @@ timelib_eat_spaces.exit17435:                     ; preds = %5295, %5298, %5302,
   br i1 %13955, label %13956, label %13961
 
 13956:                                            ; preds = %13952
-  %13957 = icmp ult i8 %13954, 48
+  %13957 = icmp samesign ult i8 %13954, 48
   br i1 %13957, label %.loopexit17713, label %13958
 
 13958:                                            ; preds = %13956
-  %13959 = icmp ult i8 %13954, 50
+  %13959 = icmp samesign ult i8 %13954, 50
   br i1 %13959, label %13968, label %13960
 
 13960:                                            ; preds = %13958
@@ -32537,11 +32537,11 @@ timelib_eat_spaces.exit17435:                     ; preds = %5295, %5298, %5302,
   br i1 %14029, label %14030, label %14046
 
 14030:                                            ; preds = %14024
-  %14031 = icmp ult i8 %14028, 33
+  %14031 = icmp samesign ult i8 %14028, 33
   br i1 %14031, label %14032, label %14037
 
 14032:                                            ; preds = %14030
-  %14033 = icmp ult i8 %14028, 9
+  %14033 = icmp samesign ult i8 %14028, 9
   br i1 %14033, label %14034, label %14036
 
 14034:                                            ; preds = %14032
@@ -32555,11 +32555,11 @@ timelib_eat_spaces.exit17435:                     ; preds = %5295, %5298, %5302,
   ]
 
 14037:                                            ; preds = %14030
-  %14038 = icmp ult i8 %14028, 46
+  %14038 = icmp samesign ult i8 %14028, 46
   br i1 %14038, label %14039, label %14042
 
 14039:                                            ; preds = %14037
-  %14040 = icmp ult i8 %14028, 44
+  %14040 = icmp samesign ult i8 %14028, 44
   br i1 %14040, label %.thread, label %14041
 
 14041:                                            ; preds = %14039
@@ -32571,7 +32571,7 @@ timelib_eat_spaces.exit17435:                     ; preds = %5295, %5298, %5302,
   br i1 %14043, label %6581, label %14044
 
 14044:                                            ; preds = %14042
-  %14045 = icmp ult i8 %14028, 48
+  %14045 = icmp samesign ult i8 %14028, 48
   br i1 %14045, label %.thread, label %9744
 
 14046:                                            ; preds = %14024
@@ -32579,7 +32579,7 @@ timelib_eat_spaces.exit17435:                     ; preds = %5295, %5298, %5302,
   br i1 %14047, label %14048, label %14053
 
 14048:                                            ; preds = %14046
-  %14049 = icmp ult i8 %14028, 101
+  %14049 = icmp samesign ult i8 %14028, 101
   br i1 %14049, label %14050, label %14051
 
 14050:                                            ; preds = %14048
@@ -32616,7 +32616,7 @@ timelib_eat_spaces.exit17435:                     ; preds = %5295, %5298, %5302,
   br i1 %14063, label %14064, label %14069
 
 14064:                                            ; preds = %14060
-  %14065 = icmp ult i8 %14062, 10
+  %14065 = icmp samesign ult i8 %14062, 10
   br i1 %14065, label %14066, label %14067
 
 14066:                                            ; preds = %14064
@@ -32636,7 +32636,7 @@ timelib_eat_spaces.exit17435:                     ; preds = %5295, %5298, %5302,
   br i1 %14072, label %.loopexit17671, label %14073
 
 14073:                                            ; preds = %14071
-  %14074 = icmp ult i8 %14062, 45
+  %14074 = icmp samesign ult i8 %14062, 45
   br i1 %14074, label %.loopexit17692, label %.preheader17640
 
 14075:                                            ; preds = %14069
@@ -32692,7 +32692,7 @@ timelib_eat_spaces.exit17435:                     ; preds = %5295, %5298, %5302,
   br i1 %14100, label %14101, label %14106
 
 14101:                                            ; preds = %14099
-  %14102 = icmp ult i8 %14095, 32
+  %14102 = icmp samesign ult i8 %14095, 32
   br i1 %14102, label %14103, label %14105
 
 14103:                                            ; preds = %14101
@@ -32754,7 +32754,7 @@ timelib_eat_spaces.exit17435:                     ; preds = %5295, %5298, %5302,
   br i1 %14128, label %14129, label %14136
 
 14129:                                            ; preds = %14125
-  %14130 = icmp ult i8 %14127, 45
+  %14130 = icmp samesign ult i8 %14127, 45
   br i1 %14130, label %14131, label %14133
 
 14131:                                            ; preds = %14129
@@ -32763,7 +32763,7 @@ timelib_eat_spaces.exit17435:                     ; preds = %5295, %5298, %5302,
 
 14133:                                            ; preds = %14129
   %14134 = icmp ne i8 %14127, 46
-  %14135 = icmp ult i8 %14127, 48
+  %14135 = icmp samesign ult i8 %14127, 48
   %or.cond1460 = and i1 %14134, %14135
   br i1 %or.cond1460, label %5862, label %.loopexit17669
 
@@ -32804,11 +32804,11 @@ timelib_eat_spaces.exit17435:                     ; preds = %5295, %5298, %5302,
   br i1 %14151, label %14152, label %14175
 
 14152:                                            ; preds = %14150
-  %14153 = icmp ult i8 %.914348, 72
+  %14153 = icmp samesign ult i8 %.914348, 72
   br i1 %14153, label %14154, label %14162
 
 14154:                                            ; preds = %14152
-  %14155 = icmp ult i8 %.914348, 33
+  %14155 = icmp samesign ult i8 %.914348, 33
   br i1 %14155, label %14156, label %14157
 
 14156:                                            ; preds = %14154
@@ -32818,7 +32818,7 @@ timelib_eat_spaces.exit17435:                     ; preds = %5295, %5298, %5302,
   ]
 
 14157:                                            ; preds = %14154
-  %14158 = icmp ult i8 %.914348, 69
+  %14158 = icmp samesign ult i8 %.914348, 69
   br i1 %14158, label %14159, label %14160
 
 14159:                                            ; preds = %14157
@@ -32830,11 +32830,11 @@ timelib_eat_spaces.exit17435:                     ; preds = %5295, %5298, %5302,
   br i1 %14161, label %14459, label %.thread
 
 14162:                                            ; preds = %14152
-  %14163 = icmp ult i8 %.914348, 84
+  %14163 = icmp samesign ult i8 %.914348, 84
   br i1 %14163, label %14164, label %14169
 
 14164:                                            ; preds = %14162
-  %14165 = icmp ult i8 %.914348, 77
+  %14165 = icmp samesign ult i8 %.914348, 77
   br i1 %14165, label %14166, label %14168
 
 14166:                                            ; preds = %14164
@@ -32848,7 +32848,7 @@ timelib_eat_spaces.exit17435:                     ; preds = %5295, %5298, %5302,
   ]
 
 14169:                                            ; preds = %14162
-  %14170 = icmp ult i8 %.914348, 86
+  %14170 = icmp samesign ult i8 %.914348, 86
   br i1 %14170, label %14171, label %14173
 
 14171:                                            ; preds = %14169
@@ -32864,11 +32864,11 @@ timelib_eat_spaces.exit17435:                     ; preds = %5295, %5298, %5302,
   br i1 %14176, label %14177, label %14190
 
 14177:                                            ; preds = %14175
-  %14178 = icmp ult i8 %.914348, 103
+  %14178 = icmp samesign ult i8 %.914348, 103
   br i1 %14178, label %14179, label %14184
 
 14179:                                            ; preds = %14177
-  %14180 = icmp ult i8 %.914348, 100
+  %14180 = icmp samesign ult i8 %.914348, 100
   br i1 %14180, label %14181, label %14183
 
 14181:                                            ; preds = %14179
@@ -32882,7 +32882,7 @@ timelib_eat_spaces.exit17435:                     ; preds = %5295, %5298, %5302,
   ]
 
 14184:                                            ; preds = %14177
-  %14185 = icmp ult i8 %.914348, 105
+  %14185 = icmp samesign ult i8 %.914348, 105
   br i1 %14185, label %14186, label %14188
 
 14186:                                            ; preds = %14184
@@ -32898,7 +32898,7 @@ timelib_eat_spaces.exit17435:                     ; preds = %5295, %5298, %5302,
   br i1 %14191, label %14192, label %14197
 
 14192:                                            ; preds = %14190
-  %14193 = icmp ult i8 %.914348, 117
+  %14193 = icmp samesign ult i8 %.914348, 117
   br i1 %14193, label %14194, label %14196
 
 14194:                                            ; preds = %14192
@@ -32931,7 +32931,7 @@ timelib_eat_spaces.exit17435:                     ; preds = %5295, %5298, %5302,
   br i1 %14206, label %14207, label %14212
 
 14207:                                            ; preds = %14203
-  %14208 = icmp ult i8 %14205, 10
+  %14208 = icmp samesign ult i8 %14205, 10
   br i1 %14208, label %14209, label %14210
 
 14209:                                            ; preds = %14207
@@ -33006,7 +33006,7 @@ timelib_eat_spaces.exit17435:                     ; preds = %5295, %5298, %5302,
   br i1 %14241, label %14242, label %14246
 
 14242:                                            ; preds = %14240
-  %14243 = icmp ult i8 %14236, 33
+  %14243 = icmp samesign ult i8 %14236, 33
   br i1 %14243, label %14244, label %14245
 
 14244:                                            ; preds = %14242
@@ -33051,7 +33051,7 @@ timelib_eat_spaces.exit17435:                     ; preds = %5295, %5298, %5302,
   br i1 %14257, label %14258, label %14265
 
 14258:                                            ; preds = %14254
-  %14259 = icmp ult i8 %14256, 45
+  %14259 = icmp samesign ult i8 %14256, 45
   br i1 %14259, label %14260, label %14262
 
 14260:                                            ; preds = %14258
@@ -33060,7 +33060,7 @@ timelib_eat_spaces.exit17435:                     ; preds = %5295, %5298, %5302,
 
 14262:                                            ; preds = %14258
   %14263 = icmp ne i8 %14256, 46
-  %14264 = icmp ult i8 %14256, 48
+  %14264 = icmp samesign ult i8 %14256, 48
   %or.cond1475 = and i1 %14263, %14264
   br i1 %or.cond1475, label %5862, label %.loopexit17669
 
@@ -33129,7 +33129,7 @@ timelib_eat_spaces.exit17435:                     ; preds = %5295, %5298, %5302,
   br i1 %14295, label %14296, label %14303
 
 14296:                                            ; preds = %14292
-  %14297 = icmp ult i8 %14294, 45
+  %14297 = icmp samesign ult i8 %14294, 45
   br i1 %14297, label %14298, label %14300
 
 14298:                                            ; preds = %14296
@@ -33138,7 +33138,7 @@ timelib_eat_spaces.exit17435:                     ; preds = %5295, %5298, %5302,
 
 14300:                                            ; preds = %14296
   %14301 = icmp ne i8 %14294, 46
-  %14302 = icmp ult i8 %14294, 48
+  %14302 = icmp samesign ult i8 %14294, 48
   %or.cond1487 = and i1 %14301, %14302
   br i1 %or.cond1487, label %5862, label %.loopexit17669
 
@@ -33168,7 +33168,7 @@ timelib_eat_spaces.exit17435:                     ; preds = %5295, %5298, %5302,
   br i1 %14313, label %14314, label %14321
 
 14314:                                            ; preds = %14310
-  %14315 = icmp ult i8 %14312, 45
+  %14315 = icmp samesign ult i8 %14312, 45
   br i1 %14315, label %14316, label %14318
 
 14316:                                            ; preds = %14314
@@ -33177,7 +33177,7 @@ timelib_eat_spaces.exit17435:                     ; preds = %5295, %5298, %5302,
 
 14318:                                            ; preds = %14314
   %14319 = icmp ne i8 %14312, 46
-  %14320 = icmp ult i8 %14312, 48
+  %14320 = icmp samesign ult i8 %14312, 48
   %or.cond1490 = and i1 %14319, %14320
   br i1 %or.cond1490, label %5862, label %.loopexit17679
 
@@ -33419,7 +33419,7 @@ timelib_eat_spaces.exit17435:                     ; preds = %5295, %5298, %5302,
   br i1 %14440, label %14441, label %14448
 
 14441:                                            ; preds = %14437
-  %14442 = icmp ult i8 %14439, 45
+  %14442 = icmp samesign ult i8 %14439, 45
   br i1 %14442, label %14443, label %14445
 
 14443:                                            ; preds = %14441
@@ -33428,7 +33428,7 @@ timelib_eat_spaces.exit17435:                     ; preds = %5295, %5298, %5302,
 
 14445:                                            ; preds = %14441
   %14446 = icmp ne i8 %14439, 46
-  %14447 = icmp ult i8 %14439, 48
+  %14447 = icmp samesign ult i8 %14439, 48
   %or.cond1505 = and i1 %14446, %14447
   br i1 %or.cond1505, label %5862, label %.loopexit17669
 
@@ -33500,7 +33500,7 @@ timelib_eat_spaces.exit17435:                     ; preds = %5295, %5298, %5302,
   br i1 %14476, label %14477, label %14482
 
 14477:                                            ; preds = %14473
-  %14478 = icmp ult i8 %14475, 79
+  %14478 = icmp samesign ult i8 %14475, 79
   br i1 %14478, label %14479, label %14481
 
 14479:                                            ; preds = %14477
@@ -33535,7 +33535,7 @@ timelib_eat_spaces.exit17435:                     ; preds = %5295, %5298, %5302,
   br i1 %14490, label %14491, label %14496
 
 14491:                                            ; preds = %14487
-  %14492 = icmp ult i8 %14489, 69
+  %14492 = icmp samesign ult i8 %14489, 69
   br i1 %14492, label %14493, label %14495
 
 14493:                                            ; preds = %14491
@@ -33641,11 +33641,11 @@ timelib_eat_spaces.exit17435:                     ; preds = %5295, %5298, %5302,
   br i1 %14539, label %14540, label %14557
 
 14540:                                            ; preds = %14537
-  %14541 = icmp ult i8 %14538, 78
+  %14541 = icmp samesign ult i8 %14538, 78
   br i1 %14541, label %14542, label %14546
 
 14542:                                            ; preds = %14540
-  %14543 = icmp ult i8 %14538, 71
+  %14543 = icmp samesign ult i8 %14538, 71
   br i1 %14543, label %14544, label %14545
 
 14544:                                            ; preds = %14542
@@ -33661,11 +33661,11 @@ timelib_eat_spaces.exit17435:                     ; preds = %5295, %5298, %5302,
   ]
 
 14546:                                            ; preds = %14540
-  %14547 = icmp ult i8 %14538, 86
+  %14547 = icmp samesign ult i8 %14538, 86
   br i1 %14547, label %14548, label %14551
 
 14548:                                            ; preds = %14546
-  %14549 = icmp ult i8 %14538, 83
+  %14549 = icmp samesign ult i8 %14538, 83
   br i1 %14549, label %.thread, label %14550
 
 14550:                                            ; preds = %14548
@@ -33675,7 +33675,7 @@ timelib_eat_spaces.exit17435:                     ; preds = %5295, %5298, %5302,
   ]
 
 14551:                                            ; preds = %14546
-  %14552 = icmp ult i8 %14538, 88
+  %14552 = icmp samesign ult i8 %14538, 88
   br i1 %14552, label %14553, label %14555
 
 14553:                                            ; preds = %14551
@@ -33691,7 +33691,7 @@ timelib_eat_spaces.exit17435:                     ; preds = %5295, %5298, %5302,
   br i1 %14558, label %14559, label %14567
 
 14559:                                            ; preds = %14557
-  %14560 = icmp ult i8 %14538, 104
+  %14560 = icmp samesign ult i8 %14538, 104
   br i1 %14560, label %14561, label %14562
 
 14561:                                            ; preds = %14559
@@ -33701,7 +33701,7 @@ timelib_eat_spaces.exit17435:                     ; preds = %5295, %5298, %5302,
   ]
 
 14562:                                            ; preds = %14559
-  %14563 = icmp ult i8 %14538, 109
+  %14563 = icmp samesign ult i8 %14538, 109
   br i1 %14563, label %14564, label %14566
 
 14564:                                            ; preds = %14562
@@ -33723,7 +33723,7 @@ timelib_eat_spaces.exit17435:                     ; preds = %5295, %5298, %5302,
   br i1 %14570, label %14501, label %14571
 
 14571:                                            ; preds = %14569
-  %14572 = icmp ult i8 %14538, 118
+  %14572 = icmp samesign ult i8 %14538, 118
   br i1 %14572, label %14511, label %14573
 
 14573:                                            ; preds = %14571
@@ -33777,7 +33777,7 @@ timelib_eat_spaces.exit17435:                     ; preds = %5295, %5298, %5302,
   br i1 %14597, label %14598, label %14605
 
 14598:                                            ; preds = %14594
-  %14599 = icmp ult i8 %14596, 45
+  %14599 = icmp samesign ult i8 %14596, 45
   br i1 %14599, label %14600, label %14602
 
 14600:                                            ; preds = %14598
@@ -33786,7 +33786,7 @@ timelib_eat_spaces.exit17435:                     ; preds = %5295, %5298, %5302,
 
 14602:                                            ; preds = %14598
   %14603 = icmp ne i8 %14596, 46
-  %14604 = icmp ult i8 %14596, 48
+  %14604 = icmp samesign ult i8 %14596, 48
   %or.cond1529 = and i1 %14603, %14604
   br i1 %or.cond1529, label %5862, label %.loopexit17669
 
@@ -33831,7 +33831,7 @@ timelib_eat_spaces.exit17435:                     ; preds = %5295, %5298, %5302,
   br i1 %14623, label %14624, label %14631
 
 14624:                                            ; preds = %14620
-  %14625 = icmp ult i8 %14622, 45
+  %14625 = icmp samesign ult i8 %14622, 45
   br i1 %14625, label %14626, label %14628
 
 14626:                                            ; preds = %14624
@@ -33840,7 +33840,7 @@ timelib_eat_spaces.exit17435:                     ; preds = %5295, %5298, %5302,
 
 14628:                                            ; preds = %14624
   %14629 = icmp ne i8 %14622, 46
-  %14630 = icmp ult i8 %14622, 48
+  %14630 = icmp samesign ult i8 %14622, 48
   %or.cond1535 = and i1 %14629, %14630
   br i1 %or.cond1535, label %5862, label %.loopexit17669
 
@@ -33887,7 +33887,7 @@ timelib_eat_spaces.exit17435:                     ; preds = %5295, %5298, %5302,
   br i1 %14650, label %14651, label %14658
 
 14651:                                            ; preds = %14647
-  %14652 = icmp ult i8 %14649, 45
+  %14652 = icmp samesign ult i8 %14649, 45
   br i1 %14652, label %14653, label %14655
 
 14653:                                            ; preds = %14651
@@ -33896,7 +33896,7 @@ timelib_eat_spaces.exit17435:                     ; preds = %5295, %5298, %5302,
 
 14655:                                            ; preds = %14651
   %14656 = icmp ne i8 %14649, 46
-  %14657 = icmp ult i8 %14649, 48
+  %14657 = icmp samesign ult i8 %14649, 48
   %or.cond1541 = and i1 %14656, %14657
   br i1 %or.cond1541, label %5862, label %.loopexit17669
 
@@ -33975,7 +33975,7 @@ timelib_eat_spaces.exit17435:                     ; preds = %5295, %5298, %5302,
   br i1 %14693, label %14694, label %14701
 
 14694:                                            ; preds = %14690
-  %14695 = icmp ult i8 %14692, 45
+  %14695 = icmp samesign ult i8 %14692, 45
   br i1 %14695, label %14696, label %14698
 
 14696:                                            ; preds = %14694
@@ -33984,7 +33984,7 @@ timelib_eat_spaces.exit17435:                     ; preds = %5295, %5298, %5302,
 
 14698:                                            ; preds = %14694
   %14699 = icmp ne i8 %14692, 46
-  %14700 = icmp ult i8 %14692, 48
+  %14700 = icmp samesign ult i8 %14692, 48
   %or.cond1553 = and i1 %14699, %14700
   br i1 %or.cond1553, label %5862, label %.loopexit17669
 
@@ -34018,7 +34018,7 @@ timelib_eat_spaces.exit17435:                     ; preds = %5295, %5298, %5302,
   br i1 %14713, label %14714, label %14721
 
 14714:                                            ; preds = %14710
-  %14715 = icmp ult i8 %14712, 45
+  %14715 = icmp samesign ult i8 %14712, 45
   br i1 %14715, label %14716, label %14718
 
 14716:                                            ; preds = %14714
@@ -34027,7 +34027,7 @@ timelib_eat_spaces.exit17435:                     ; preds = %5295, %5298, %5302,
 
 14718:                                            ; preds = %14714
   %14719 = icmp ne i8 %14712, 46
-  %14720 = icmp ult i8 %14712, 48
+  %14720 = icmp samesign ult i8 %14712, 48
   %or.cond1556 = and i1 %14719, %14720
   br i1 %or.cond1556, label %5862, label %.loopexit17669
 
@@ -34057,7 +34057,7 @@ timelib_eat_spaces.exit17435:                     ; preds = %5295, %5298, %5302,
   br i1 %14731, label %14732, label %14739
 
 14732:                                            ; preds = %14728
-  %14733 = icmp ult i8 %14730, 45
+  %14733 = icmp samesign ult i8 %14730, 45
   br i1 %14733, label %14734, label %14736
 
 14734:                                            ; preds = %14732
@@ -34066,7 +34066,7 @@ timelib_eat_spaces.exit17435:                     ; preds = %5295, %5298, %5302,
 
 14736:                                            ; preds = %14732
   %14737 = icmp ne i8 %14730, 46
-  %14738 = icmp ult i8 %14730, 48
+  %14738 = icmp samesign ult i8 %14730, 48
   %or.cond1559 = and i1 %14737, %14738
   br i1 %or.cond1559, label %5862, label %.loopexit17669
 
@@ -34141,7 +34141,7 @@ timelib_eat_spaces.exit17435:                     ; preds = %5295, %5298, %5302,
   br i1 %14773, label %14774, label %14781
 
 14774:                                            ; preds = %14770
-  %14775 = icmp ult i8 %14772, 45
+  %14775 = icmp samesign ult i8 %14772, 45
   br i1 %14775, label %14776, label %14778
 
 14776:                                            ; preds = %14774
@@ -34150,7 +34150,7 @@ timelib_eat_spaces.exit17435:                     ; preds = %5295, %5298, %5302,
 
 14778:                                            ; preds = %14774
   %14779 = icmp ne i8 %14772, 46
-  %14780 = icmp ult i8 %14772, 48
+  %14780 = icmp samesign ult i8 %14772, 48
   %or.cond1571 = and i1 %14779, %14780
   br i1 %or.cond1571, label %5862, label %.loopexit17669
 
@@ -34180,7 +34180,7 @@ timelib_eat_spaces.exit17435:                     ; preds = %5295, %5298, %5302,
   br i1 %14791, label %14792, label %14799
 
 14792:                                            ; preds = %14788
-  %14793 = icmp ult i8 %14790, 45
+  %14793 = icmp samesign ult i8 %14790, 45
   br i1 %14793, label %14794, label %14796
 
 14794:                                            ; preds = %14792
@@ -34189,7 +34189,7 @@ timelib_eat_spaces.exit17435:                     ; preds = %5295, %5298, %5302,
 
 14796:                                            ; preds = %14792
   %14797 = icmp ne i8 %14790, 46
-  %14798 = icmp ult i8 %14790, 48
+  %14798 = icmp samesign ult i8 %14790, 48
   %or.cond1574 = and i1 %14797, %14798
   br i1 %or.cond1574, label %5862, label %.loopexit17669
 
@@ -34236,7 +34236,7 @@ timelib_eat_spaces.exit17435:                     ; preds = %5295, %5298, %5302,
   br i1 %14818, label %14819, label %14826
 
 14819:                                            ; preds = %14815
-  %14820 = icmp ult i8 %14817, 45
+  %14820 = icmp samesign ult i8 %14817, 45
   br i1 %14820, label %14821, label %14823
 
 14821:                                            ; preds = %14819
@@ -34245,7 +34245,7 @@ timelib_eat_spaces.exit17435:                     ; preds = %5295, %5298, %5302,
 
 14823:                                            ; preds = %14819
   %14824 = icmp ne i8 %14817, 46
-  %14825 = icmp ult i8 %14817, 48
+  %14825 = icmp samesign ult i8 %14817, 48
   %or.cond1580 = and i1 %14824, %14825
   br i1 %or.cond1580, label %5862, label %.loopexit17669
 
@@ -34292,7 +34292,7 @@ timelib_eat_spaces.exit17435:                     ; preds = %5295, %5298, %5302,
   br i1 %14845, label %14846, label %14853
 
 14846:                                            ; preds = %14842
-  %14847 = icmp ult i8 %14844, 45
+  %14847 = icmp samesign ult i8 %14844, 45
   br i1 %14847, label %14848, label %14850
 
 14848:                                            ; preds = %14846
@@ -34301,7 +34301,7 @@ timelib_eat_spaces.exit17435:                     ; preds = %5295, %5298, %5302,
 
 14850:                                            ; preds = %14846
   %14851 = icmp ne i8 %14844, 46
-  %14852 = icmp ult i8 %14844, 48
+  %14852 = icmp samesign ult i8 %14844, 48
   %or.cond1586 = and i1 %14851, %14852
   br i1 %or.cond1586, label %5862, label %.loopexit17669
 
@@ -34360,15 +34360,15 @@ timelib_eat_spaces.exit17435:                     ; preds = %5295, %5298, %5302,
   br i1 %14879, label %14880, label %14910
 
 14880:                                            ; preds = %14876
-  %14881 = icmp ult i8 %14878, 69
+  %14881 = icmp samesign ult i8 %14878, 69
   br i1 %14881, label %14882, label %14896
 
 14882:                                            ; preds = %14880
-  %14883 = icmp ult i8 %14878, 45
+  %14883 = icmp samesign ult i8 %14878, 45
   br i1 %14883, label %14884, label %14889
 
 14884:                                            ; preds = %14882
-  %14885 = icmp ult i8 %14878, 10
+  %14885 = icmp samesign ult i8 %14878, 10
   br i1 %14885, label %14886, label %14887
 
 14886:                                            ; preds = %14884
@@ -34380,7 +34380,7 @@ timelib_eat_spaces.exit17435:                     ; preds = %5295, %5298, %5302,
   br i1 %14888, label %4547, label %.loopexit17669
 
 14889:                                            ; preds = %14882
-  %14890 = icmp ult i8 %14878, 48
+  %14890 = icmp samesign ult i8 %14878, 48
   br i1 %14890, label %14891, label %14893
 
 14891:                                            ; preds = %14889
@@ -34388,7 +34388,7 @@ timelib_eat_spaces.exit17435:                     ; preds = %5295, %5298, %5302,
   br i1 %14892, label %14868, label %.loopexit17669
 
 14893:                                            ; preds = %14889
-  %14894 = icmp ult i8 %14878, 58
+  %14894 = icmp samesign ult i8 %14878, 58
   br i1 %14894, label %16029, label %14895
 
 14895:                                            ; preds = %14893
@@ -34396,11 +34396,11 @@ timelib_eat_spaces.exit17435:                     ; preds = %5295, %5298, %5302,
   br i1 %.not17270, label %4547, label %.loopexit17669
 
 14896:                                            ; preds = %14880
-  %14897 = icmp ult i8 %14878, 77
+  %14897 = icmp samesign ult i8 %14878, 77
   br i1 %14897, label %14898, label %14904
 
 14898:                                            ; preds = %14896
-  %14899 = icmp ult i8 %14878, 71
+  %14899 = icmp samesign ult i8 %14878, 71
   br i1 %14899, label %14900, label %14902
 
 14900:                                            ; preds = %14898
@@ -34412,7 +34412,7 @@ timelib_eat_spaces.exit17435:                     ; preds = %5295, %5298, %5302,
   br i1 %14903, label %4547, label %.loopexit17669
 
 14904:                                            ; preds = %14896
-  %14905 = icmp ult i8 %14878, 83
+  %14905 = icmp samesign ult i8 %14878, 83
   br i1 %14905, label %14906, label %14908
 
 14906:                                            ; preds = %14904
@@ -34428,11 +34428,11 @@ timelib_eat_spaces.exit17435:                     ; preds = %5295, %5298, %5302,
   br i1 %14911, label %14912, label %14925
 
 14912:                                            ; preds = %14910
-  %14913 = icmp ult i8 %14878, 102
+  %14913 = icmp samesign ult i8 %14878, 102
   br i1 %14913, label %14914, label %14920
 
 14914:                                            ; preds = %14912
-  %14915 = icmp ult i8 %14878, 90
+  %14915 = icmp samesign ult i8 %14878, 90
   br i1 %14915, label %14916, label %14918
 
 14916:                                            ; preds = %14914
@@ -34444,7 +34444,7 @@ timelib_eat_spaces.exit17435:                     ; preds = %5295, %5298, %5302,
   br i1 %14919, label %4547, label %.loopexit17669
 
 14920:                                            ; preds = %14912
-  %14921 = icmp ult i8 %14878, 104
+  %14921 = icmp samesign ult i8 %14878, 104
   br i1 %14921, label %14922, label %14924
 
 14922:                                            ; preds = %14920
@@ -34462,11 +34462,11 @@ timelib_eat_spaces.exit17435:                     ; preds = %5295, %5298, %5302,
   br i1 %14926, label %14927, label %14933
 
 14927:                                            ; preds = %14925
-  %14928 = icmp ult i8 %14878, 118
+  %14928 = icmp samesign ult i8 %14878, 118
   br i1 %14928, label %14929, label %14931
 
 14929:                                            ; preds = %14927
-  %14930 = icmp ult i8 %14878, 115
+  %14930 = icmp samesign ult i8 %14878, 115
   br i1 %14930, label %.loopexit17669, label %4547
 
 14931:                                            ; preds = %14927
@@ -34498,7 +34498,7 @@ timelib_eat_spaces.exit17435:                     ; preds = %5295, %5298, %5302,
   br i1 %14943, label %14868, label %14944
 
 14944:                                            ; preds = %14942
-  %14945 = icmp ult i8 %14940, 48
+  %14945 = icmp samesign ult i8 %14940, 48
   br i1 %14945, label %4547, label %16029
 
 14946:                                            ; preds = %14938
@@ -34577,11 +34577,11 @@ timelib_eat_spaces.exit17435:                     ; preds = %5295, %5298, %5302,
   br i1 %14981, label %14982, label %14987
 
 14982:                                            ; preds = %14978
-  %14983 = icmp ult i8 %14980, 48
+  %14983 = icmp samesign ult i8 %14980, 48
   br i1 %14983, label %.loopexit17713, label %14984
 
 14984:                                            ; preds = %14982
-  %14985 = icmp ult i8 %14980, 58
+  %14985 = icmp samesign ult i8 %14980, 58
   br i1 %14985, label %16071, label %14986
 
 14986:                                            ; preds = %14984
@@ -34612,15 +34612,15 @@ timelib_eat_spaces.exit17435:                     ; preds = %5295, %5298, %5302,
   br i1 %14997, label %14998, label %15005
 
 14998:                                            ; preds = %14994
-  %14999 = icmp ult i8 %14996, 50
+  %14999 = icmp samesign ult i8 %14996, 50
   br i1 %14999, label %15000, label %15002
 
 15000:                                            ; preds = %14998
-  %15001 = icmp ult i8 %14996, 48
+  %15001 = icmp samesign ult i8 %14996, 48
   br i1 %15001, label %.loopexit17713, label %16071
 
 15002:                                            ; preds = %14998
-  %15003 = icmp ult i8 %14996, 58
+  %15003 = icmp samesign ult i8 %14996, 58
   br i1 %15003, label %13065, label %15004
 
 15004:                                            ; preds = %15002
@@ -34871,11 +34871,11 @@ timelib_eat_spaces.exit17435:                     ; preds = %5295, %5298, %5302,
   br i1 %15128, label %15129, label %15153
 
 15129:                                            ; preds = %15125
-  %15130 = icmp ult i8 %15127, 70
+  %15130 = icmp samesign ult i8 %15127, 70
   br i1 %15130, label %15131, label %15140
 
 15131:                                            ; preds = %15129
-  %15132 = icmp ult i8 %15127, 33
+  %15132 = icmp samesign ult i8 %15127, 33
   br i1 %15132, label %15133, label %15134
 
 15133:                                            ; preds = %15131
@@ -34885,11 +34885,11 @@ timelib_eat_spaces.exit17435:                     ; preds = %5295, %5298, %5302,
   ]
 
 15134:                                            ; preds = %15131
-  %15135 = icmp ult i8 %15127, 58
+  %15135 = icmp samesign ult i8 %15127, 58
   br i1 %15135, label %15136, label %15138
 
 15136:                                            ; preds = %15134
-  %15137 = icmp ugt i8 %15127, 47
+  %15137 = icmp samesign ugt i8 %15127, 47
   br i1 %15137, label %16328, label %.loopexit17717
 
 15138:                                            ; preds = %15134
@@ -34897,11 +34897,11 @@ timelib_eat_spaces.exit17435:                     ; preds = %5295, %5298, %5302,
   br i1 %15139, label %4547, label %.loopexit17717
 
 15140:                                            ; preds = %15129
-  %15141 = icmp ult i8 %15127, 78
+  %15141 = icmp samesign ult i8 %15127, 78
   br i1 %15141, label %15142, label %15147
 
 15142:                                            ; preds = %15140
-  %15143 = icmp ult i8 %15127, 72
+  %15143 = icmp samesign ult i8 %15127, 72
   br i1 %15143, label %15144, label %15146
 
 15144:                                            ; preds = %15142
@@ -34915,11 +34915,11 @@ timelib_eat_spaces.exit17435:                     ; preds = %5295, %5298, %5302,
   ]
 
 15147:                                            ; preds = %15140
-  %15148 = icmp ult i8 %15127, 86
+  %15148 = icmp samesign ult i8 %15127, 86
   br i1 %15148, label %15149, label %15151
 
 15149:                                            ; preds = %15147
-  %15150 = icmp ugt i8 %15127, 82
+  %15150 = icmp samesign ugt i8 %15127, 82
   br i1 %15150, label %4547, label %.loopexit17717
 
 15151:                                            ; preds = %15147
@@ -34931,11 +34931,11 @@ timelib_eat_spaces.exit17435:                     ; preds = %5295, %5298, %5302,
   br i1 %15154, label %15155, label %15167
 
 15155:                                            ; preds = %15153
-  %15156 = icmp ult i8 %15127, 103
+  %15156 = icmp samesign ult i8 %15127, 103
   br i1 %15156, label %15157, label %15162
 
 15157:                                            ; preds = %15155
-  %15158 = icmp ult i8 %15127, 100
+  %15158 = icmp samesign ult i8 %15127, 100
   br i1 %15158, label %15159, label %15161
 
 15159:                                            ; preds = %15157
@@ -34947,7 +34947,7 @@ timelib_eat_spaces.exit17435:                     ; preds = %5295, %5298, %5302,
   br i1 %.not17095, label %.loopexit17717, label %4547
 
 15162:                                            ; preds = %15155
-  %15163 = icmp ult i8 %15127, 105
+  %15163 = icmp samesign ult i8 %15127, 105
   br i1 %15163, label %15164, label %15165
 
 15164:                                            ; preds = %15162
@@ -34963,7 +34963,7 @@ timelib_eat_spaces.exit17435:                     ; preds = %5295, %5298, %5302,
   br i1 %15168, label %15169, label %15173
 
 15169:                                            ; preds = %15167
-  %15170 = icmp ult i8 %15127, 119
+  %15170 = icmp samesign ult i8 %15127, 119
   br i1 %15170, label %15171, label %15172
 
 15171:                                            ; preds = %15169
@@ -35045,15 +35045,15 @@ timelib_eat_spaces.exit17435:                     ; preds = %5295, %5298, %5302,
   br i1 %15205, label %15206, label %15234
 
 15206:                                            ; preds = %15202
-  %15207 = icmp ult i8 %15204, 70
+  %15207 = icmp samesign ult i8 %15204, 70
   br i1 %15207, label %15208, label %15221
 
 15208:                                            ; preds = %15206
-  %15209 = icmp ult i8 %15204, 48
+  %15209 = icmp samesign ult i8 %15204, 48
   br i1 %15209, label %15210, label %15215
 
 15210:                                            ; preds = %15208
-  %15211 = icmp ult i8 %15204, 10
+  %15211 = icmp samesign ult i8 %15204, 10
   br i1 %15211, label %15212, label %15213
 
 15212:                                            ; preds = %15210
@@ -35065,11 +35065,11 @@ timelib_eat_spaces.exit17435:                     ; preds = %5295, %5298, %5302,
   br i1 %15214, label %4547, label %.loopexit17717
 
 15215:                                            ; preds = %15208
-  %15216 = icmp ult i8 %15204, 58
+  %15216 = icmp samesign ult i8 %15204, 58
   br i1 %15216, label %15217, label %15219
 
 15217:                                            ; preds = %15215
-  %15218 = icmp ult i8 %15204, 50
+  %15218 = icmp samesign ult i8 %15204, 50
   br i1 %15218, label %16328, label %16401
 
 15219:                                            ; preds = %15215
@@ -35077,11 +35077,11 @@ timelib_eat_spaces.exit17435:                     ; preds = %5295, %5298, %5302,
   br i1 %15220, label %4547, label %.loopexit17717
 
 15221:                                            ; preds = %15206
-  %15222 = icmp ult i8 %15204, 78
+  %15222 = icmp samesign ult i8 %15204, 78
   br i1 %15222, label %15223, label %15228
 
 15223:                                            ; preds = %15221
-  %15224 = icmp ult i8 %15204, 72
+  %15224 = icmp samesign ult i8 %15204, 72
   br i1 %15224, label %15225, label %15227
 
 15225:                                            ; preds = %15223
@@ -35095,11 +35095,11 @@ timelib_eat_spaces.exit17435:                     ; preds = %5295, %5298, %5302,
   ]
 
 15228:                                            ; preds = %15221
-  %15229 = icmp ult i8 %15204, 86
+  %15229 = icmp samesign ult i8 %15204, 86
   br i1 %15229, label %15230, label %15232
 
 15230:                                            ; preds = %15228
-  %15231 = icmp ult i8 %15204, 83
+  %15231 = icmp samesign ult i8 %15204, 83
   br i1 %15231, label %.loopexit17717, label %4547
 
 15232:                                            ; preds = %15228
@@ -35111,11 +35111,11 @@ timelib_eat_spaces.exit17435:                     ; preds = %5295, %5298, %5302,
   br i1 %15235, label %15236, label %15250
 
 15236:                                            ; preds = %15234
-  %15237 = icmp ult i8 %15204, 103
+  %15237 = icmp samesign ult i8 %15204, 103
   br i1 %15237, label %15238, label %15244
 
 15238:                                            ; preds = %15236
-  %15239 = icmp ult i8 %15204, 100
+  %15239 = icmp samesign ult i8 %15204, 100
   br i1 %15239, label %15240, label %15242
 
 15240:                                            ; preds = %15238
@@ -35127,7 +35127,7 @@ timelib_eat_spaces.exit17435:                     ; preds = %5295, %5298, %5302,
   br i1 %15243, label %.loopexit17717, label %4547
 
 15244:                                            ; preds = %15236
-  %15245 = icmp ult i8 %15204, 105
+  %15245 = icmp samesign ult i8 %15204, 105
   br i1 %15245, label %15246, label %15248
 
 15246:                                            ; preds = %15244
@@ -35143,7 +35143,7 @@ timelib_eat_spaces.exit17435:                     ; preds = %5295, %5298, %5302,
   br i1 %15251, label %15252, label %15257
 
 15252:                                            ; preds = %15250
-  %15253 = icmp ult i8 %15204, 119
+  %15253 = icmp samesign ult i8 %15204, 119
   br i1 %15253, label %15254, label %15255
 
 15254:                                            ; preds = %15252
@@ -35174,11 +35174,11 @@ timelib_eat_spaces.exit17435:                     ; preds = %5295, %5298, %5302,
   br i1 %15265, label %15266, label %15290
 
 15266:                                            ; preds = %15262
-  %15267 = icmp ult i8 %15264, 70
+  %15267 = icmp samesign ult i8 %15264, 70
   br i1 %15267, label %15268, label %15277
 
 15268:                                            ; preds = %15266
-  %15269 = icmp ult i8 %15264, 33
+  %15269 = icmp samesign ult i8 %15264, 33
   br i1 %15269, label %15270, label %15271
 
 15270:                                            ; preds = %15268
@@ -35188,11 +35188,11 @@ timelib_eat_spaces.exit17435:                     ; preds = %5295, %5298, %5302,
   ]
 
 15271:                                            ; preds = %15268
-  %15272 = icmp ult i8 %15264, 58
+  %15272 = icmp samesign ult i8 %15264, 58
   br i1 %15272, label %15273, label %15275
 
 15273:                                            ; preds = %15271
-  %15274 = icmp ult i8 %15264, 48
+  %15274 = icmp samesign ult i8 %15264, 48
   br i1 %15274, label %.loopexit17717, label %16401
 
 15275:                                            ; preds = %15271
@@ -35200,11 +35200,11 @@ timelib_eat_spaces.exit17435:                     ; preds = %5295, %5298, %5302,
   br i1 %15276, label %4547, label %.loopexit17717
 
 15277:                                            ; preds = %15266
-  %15278 = icmp ult i8 %15264, 78
+  %15278 = icmp samesign ult i8 %15264, 78
   br i1 %15278, label %15279, label %15284
 
 15279:                                            ; preds = %15277
-  %15280 = icmp ult i8 %15264, 72
+  %15280 = icmp samesign ult i8 %15264, 72
   br i1 %15280, label %15281, label %15283
 
 15281:                                            ; preds = %15279
@@ -35218,11 +35218,11 @@ timelib_eat_spaces.exit17435:                     ; preds = %5295, %5298, %5302,
   ]
 
 15284:                                            ; preds = %15277
-  %15285 = icmp ult i8 %15264, 86
+  %15285 = icmp samesign ult i8 %15264, 86
   br i1 %15285, label %15286, label %15288
 
 15286:                                            ; preds = %15284
-  %15287 = icmp ult i8 %15264, 83
+  %15287 = icmp samesign ult i8 %15264, 83
   br i1 %15287, label %.loopexit17717, label %4547
 
 15288:                                            ; preds = %15284
@@ -35234,11 +35234,11 @@ timelib_eat_spaces.exit17435:                     ; preds = %5295, %5298, %5302,
   br i1 %15291, label %15292, label %15306
 
 15292:                                            ; preds = %15290
-  %15293 = icmp ult i8 %15264, 103
+  %15293 = icmp samesign ult i8 %15264, 103
   br i1 %15293, label %15294, label %15300
 
 15294:                                            ; preds = %15292
-  %15295 = icmp ult i8 %15264, 100
+  %15295 = icmp samesign ult i8 %15264, 100
   br i1 %15295, label %15296, label %15298
 
 15296:                                            ; preds = %15294
@@ -35250,7 +35250,7 @@ timelib_eat_spaces.exit17435:                     ; preds = %5295, %5298, %5302,
   br i1 %15299, label %.loopexit17717, label %4547
 
 15300:                                            ; preds = %15292
-  %15301 = icmp ult i8 %15264, 105
+  %15301 = icmp samesign ult i8 %15264, 105
   br i1 %15301, label %15302, label %15304
 
 15302:                                            ; preds = %15300
@@ -35266,7 +35266,7 @@ timelib_eat_spaces.exit17435:                     ; preds = %5295, %5298, %5302,
   br i1 %15307, label %15308, label %15313
 
 15308:                                            ; preds = %15306
-  %15309 = icmp ult i8 %15264, 119
+  %15309 = icmp samesign ult i8 %15264, 119
   br i1 %15309, label %15310, label %15311
 
 15310:                                            ; preds = %15308
@@ -35497,7 +35497,7 @@ timelib_eat_spaces.exit17435:                     ; preds = %5295, %5298, %5302,
   br i1 %15421, label %15422, label %15427
 
 15422:                                            ; preds = %15419
-  %15423 = icmp ult i8 %15420, 66
+  %15423 = icmp samesign ult i8 %15420, 66
   br i1 %15423, label %15424, label %15425
 
 15424:                                            ; preds = %15422
@@ -35530,11 +35530,11 @@ timelib_eat_spaces.exit17435:                     ; preds = %5295, %5298, %5302,
   br i1 %15435, label %15436, label %15448
 
 15436:                                            ; preds = %15432
-  %15437 = icmp ult i8 %15434, 46
+  %15437 = icmp samesign ult i8 %15434, 46
   br i1 %15437, label %15438, label %15443
 
 15438:                                            ; preds = %15436
-  %15439 = icmp ult i8 %15434, 10
+  %15439 = icmp samesign ult i8 %15434, 10
   br i1 %15439, label %15440, label %15441
 
 15440:                                            ; preds = %15438
@@ -35546,7 +35546,7 @@ timelib_eat_spaces.exit17435:                     ; preds = %5295, %5298, %5302,
   br i1 %15442, label %.preheader17616, label %.loopexit17511
 
 15443:                                            ; preds = %15436
-  %15444 = icmp ult i8 %15434, 58
+  %15444 = icmp samesign ult i8 %15434, 58
   br i1 %15444, label %15445, label %15447
 
 15445:                                            ; preds = %15443
@@ -35564,7 +35564,7 @@ timelib_eat_spaces.exit17435:                     ; preds = %5295, %5298, %5302,
   br i1 %15449, label %15450, label %15455
 
 15450:                                            ; preds = %15448
-  %15451 = icmp ult i8 %15434, 81
+  %15451 = icmp samesign ult i8 %15434, 81
   br i1 %15451, label %15452, label %15453
 
 15452:                                            ; preds = %15450
@@ -35605,11 +35605,11 @@ timelib_eat_spaces.exit17435:                     ; preds = %5295, %5298, %5302,
   br i1 %15463, label %15464, label %15469
 
 15464:                                            ; preds = %15460
-  %15465 = icmp ult i8 %15462, 48
+  %15465 = icmp samesign ult i8 %15462, 48
   br i1 %15465, label %.loopexit17713, label %15466
 
 15466:                                            ; preds = %15464
-  %15467 = icmp ult i8 %15462, 58
+  %15467 = icmp samesign ult i8 %15462, 58
   br i1 %15467, label %16491, label %15468
 
 15468:                                            ; preds = %15466
@@ -35640,11 +35640,11 @@ timelib_eat_spaces.exit17435:                     ; preds = %5295, %5298, %5302,
   br i1 %15479, label %15480, label %15485
 
 15480:                                            ; preds = %15476
-  %15481 = icmp ult i8 %15478, 48
+  %15481 = icmp samesign ult i8 %15478, 48
   br i1 %15481, label %.loopexit17713, label %15482
 
 15482:                                            ; preds = %15480
-  %15483 = icmp ult i8 %15478, 50
+  %15483 = icmp samesign ult i8 %15478, 50
   br i1 %15483, label %16491, label %15484
 
 15484:                                            ; preds = %15482
@@ -35779,11 +35779,11 @@ timelib_eat_spaces.exit17435:                     ; preds = %5295, %5298, %5302,
   br i1 %15545, label %15546, label %15563
 
 15546:                                            ; preds = %15543
-  %15547 = icmp ult i8 %15544, 78
+  %15547 = icmp samesign ult i8 %15544, 78
   br i1 %15547, label %15548, label %15552
 
 15548:                                            ; preds = %15546
-  %15549 = icmp ult i8 %15544, 71
+  %15549 = icmp samesign ult i8 %15544, 71
   br i1 %15549, label %15550, label %15551
 
 15550:                                            ; preds = %15548
@@ -35799,11 +35799,11 @@ timelib_eat_spaces.exit17435:                     ; preds = %5295, %5298, %5302,
   ]
 
 15552:                                            ; preds = %15546
-  %15553 = icmp ult i8 %15544, 86
+  %15553 = icmp samesign ult i8 %15544, 86
   br i1 %15553, label %15554, label %15557
 
 15554:                                            ; preds = %15552
-  %15555 = icmp ult i8 %15544, 83
+  %15555 = icmp samesign ult i8 %15544, 83
   br i1 %15555, label %.thread, label %15556
 
 15556:                                            ; preds = %15554
@@ -35813,7 +35813,7 @@ timelib_eat_spaces.exit17435:                     ; preds = %5295, %5298, %5302,
   ]
 
 15557:                                            ; preds = %15552
-  %15558 = icmp ult i8 %15544, 88
+  %15558 = icmp samesign ult i8 %15544, 88
   br i1 %15558, label %15559, label %15561
 
 15559:                                            ; preds = %15557
@@ -35829,7 +35829,7 @@ timelib_eat_spaces.exit17435:                     ; preds = %5295, %5298, %5302,
   br i1 %15564, label %15565, label %15573
 
 15565:                                            ; preds = %15563
-  %15566 = icmp ult i8 %15544, 104
+  %15566 = icmp samesign ult i8 %15544, 104
   br i1 %15566, label %15567, label %15568
 
 15567:                                            ; preds = %15565
@@ -35839,7 +35839,7 @@ timelib_eat_spaces.exit17435:                     ; preds = %5295, %5298, %5302,
   ]
 
 15568:                                            ; preds = %15565
-  %15569 = icmp ult i8 %15544, 109
+  %15569 = icmp samesign ult i8 %15544, 109
   br i1 %15569, label %15570, label %15572
 
 15570:                                            ; preds = %15568
@@ -35861,7 +35861,7 @@ timelib_eat_spaces.exit17435:                     ; preds = %5295, %5298, %5302,
   br i1 %15576, label %14501, label %15577
 
 15577:                                            ; preds = %15575
-  %15578 = icmp ult i8 %15544, 118
+  %15578 = icmp samesign ult i8 %15544, 118
   br i1 %15578, label %14511, label %15579
 
 15579:                                            ; preds = %15577
@@ -36003,11 +36003,11 @@ timelib_eat_spaces.exit17435:                     ; preds = %5295, %5298, %5302,
   br i1 %15644, label %15645, label %15663
 
 15645:                                            ; preds = %15641
-  %15646 = icmp ult i8 %15643, 46
+  %15646 = icmp samesign ult i8 %15643, 46
   br i1 %15646, label %15647, label %15658
 
 15647:                                            ; preds = %15645
-  %15648 = icmp ult i8 %15643, 10
+  %15648 = icmp samesign ult i8 %15643, 10
   br i1 %15648, label %15649, label %15650
 
 15649:                                            ; preds = %15647
@@ -36028,7 +36028,7 @@ timelib_eat_spaces.exit17435:                     ; preds = %5295, %5298, %5302,
   br i1 %15657, label %.loopexit, label %.lr.ph28729
 
 15658:                                            ; preds = %15645
-  %15659 = icmp ult i8 %15643, 58
+  %15659 = icmp samesign ult i8 %15643, 58
   br i1 %15659, label %15660, label %15662
 
 15660:                                            ; preds = %15658
@@ -36046,7 +36046,7 @@ timelib_eat_spaces.exit17435:                     ; preds = %5295, %5298, %5302,
   br i1 %15664, label %15665, label %15670
 
 15665:                                            ; preds = %15663
-  %15666 = icmp ult i8 %15643, 81
+  %15666 = icmp samesign ult i8 %15643, 81
   br i1 %15666, label %15667, label %15668
 
 15667:                                            ; preds = %15665
@@ -36100,7 +36100,7 @@ timelib_eat_spaces.exit17435:                     ; preds = %5295, %5298, %5302,
   br i1 %15685, label %15686, label %15688
 
 15686:                                            ; preds = %15684
-  %15687 = icmp ult i8 %15681, 45
+  %15687 = icmp samesign ult i8 %15681, 45
   br i1 %15687, label %.loopexit17692, label %.preheader17640
 
 15688:                                            ; preds = %15684
@@ -36125,7 +36125,7 @@ timelib_eat_spaces.exit17435:                     ; preds = %5295, %5298, %5302,
   br i1 %15698, label %15699, label %15710
 
 15699:                                            ; preds = %15697
-  %15700 = icmp ult i8 %15693, 32
+  %15700 = icmp samesign ult i8 %15693, 32
   br i1 %15700, label %15701, label %15703
 
 15701:                                            ; preds = %15699
@@ -36201,7 +36201,7 @@ timelib_eat_spaces.exit17435:                     ; preds = %5295, %5298, %5302,
   br i1 %15735, label %15736, label %15741
 
 15736:                                            ; preds = %15732
-  %15737 = icmp ult i8 %15734, 76
+  %15737 = icmp samesign ult i8 %15734, 76
   br i1 %15737, label %15738, label %15740
 
 15738:                                            ; preds = %15736
@@ -36432,7 +36432,7 @@ timelib_eat_spaces.exit17440:                     ; preds = %15793, %15796, %158
   br i1 %15839, label %15840, label %15843
 
 15840:                                            ; preds = %15836
-  %15841 = icmp ult i8 %15838, 68
+  %15841 = icmp samesign ult i8 %15838, 68
   br i1 %15841, label %.thread, label %15842
 
 15842:                                            ; preds = %15840
@@ -36500,11 +36500,11 @@ timelib_eat_spaces.exit17440:                     ; preds = %15793, %15796, %158
   br i1 %15874, label %15875, label %15898
 
 15875:                                            ; preds = %15872
-  %15876 = icmp ult i8 %15873, 83
+  %15876 = icmp samesign ult i8 %15873, 83
   br i1 %15876, label %15877, label %15886
 
 15877:                                            ; preds = %15875
-  %15878 = icmp ult i8 %15873, 71
+  %15878 = icmp samesign ult i8 %15873, 71
   br i1 %15878, label %15879, label %15880
 
 15879:                                            ; preds = %15877
@@ -36514,7 +36514,7 @@ timelib_eat_spaces.exit17440:                     ; preds = %15793, %15796, %158
   ]
 
 15880:                                            ; preds = %15877
-  %15881 = icmp ult i8 %15873, 73
+  %15881 = icmp samesign ult i8 %15873, 73
   br i1 %15881, label %15882, label %15884
 
 15882:                                            ; preds = %15880
@@ -36526,7 +36526,7 @@ timelib_eat_spaces.exit17440:                     ; preds = %15793, %15796, %158
   br i1 %15885, label %14473, label %.thread
 
 15886:                                            ; preds = %15875
-  %15887 = icmp ult i8 %15873, 87
+  %15887 = icmp samesign ult i8 %15873, 87
   br i1 %15887, label %15888, label %15893
 
 15888:                                            ; preds = %15886
@@ -36534,7 +36534,7 @@ timelib_eat_spaces.exit17440:                     ; preds = %15793, %15796, %158
   br i1 %15889, label %14487, label %15890
 
 15890:                                            ; preds = %15888
-  %15891 = icmp ult i8 %15873, 85
+  %15891 = icmp samesign ult i8 %15873, 85
   br i1 %15891, label %14501, label %15892
 
 15892:                                            ; preds = %15890
@@ -36542,7 +36542,7 @@ timelib_eat_spaces.exit17440:                     ; preds = %15793, %15796, %158
   br i1 %.not16576, label %.thread, label %14511
 
 15893:                                            ; preds = %15886
-  %15894 = icmp ult i8 %15873, 89
+  %15894 = icmp samesign ult i8 %15873, 89
   br i1 %15894, label %15895, label %15897
 
 15895:                                            ; preds = %15893
@@ -36560,7 +36560,7 @@ timelib_eat_spaces.exit17440:                     ; preds = %15793, %15796, %158
   br i1 %15899, label %15900, label %15909
 
 15900:                                            ; preds = %15898
-  %15901 = icmp ult i8 %15873, 105
+  %15901 = icmp samesign ult i8 %15873, 105
   br i1 %15901, label %15902, label %15903
 
 15902:                                            ; preds = %15900
@@ -36570,7 +36570,7 @@ timelib_eat_spaces.exit17440:                     ; preds = %15793, %15796, %158
   ]
 
 15903:                                            ; preds = %15900
-  %15904 = icmp ult i8 %15873, 110
+  %15904 = icmp samesign ult i8 %15873, 110
   br i1 %15904, label %15905, label %15906
 
 15905:                                            ; preds = %15903
@@ -36578,7 +36578,7 @@ timelib_eat_spaces.exit17440:                     ; preds = %15793, %15796, %158
   br i1 %.not16573, label %14473, label %.thread
 
 15906:                                            ; preds = %15903
-  %15907 = icmp ult i8 %15873, 115
+  %15907 = icmp samesign ult i8 %15873, 115
   br i1 %15907, label %.thread, label %15908
 
 15908:                                            ; preds = %15906
@@ -36590,7 +36590,7 @@ timelib_eat_spaces.exit17440:                     ; preds = %15793, %15796, %158
   br i1 %15910, label %15911, label %15916
 
 15911:                                            ; preds = %15909
-  %15912 = icmp ult i8 %15873, 119
+  %15912 = icmp samesign ult i8 %15873, 119
   br i1 %15912, label %15913, label %15915
 
 15913:                                            ; preds = %15911
@@ -36769,7 +36769,7 @@ timelib_eat_spaces.exit17440:                     ; preds = %15793, %15796, %158
   br i1 %15989, label %15990, label %15995
 
 15990:                                            ; preds = %15986
-  %15991 = icmp ult i8 %15988, 47
+  %15991 = icmp samesign ult i8 %15988, 47
   br i1 %15991, label %15992, label %15994
 
 15992:                                            ; preds = %15990
@@ -36859,7 +36859,7 @@ timelib_eat_spaces.exit17440:                     ; preds = %15793, %15796, %158
   br i1 %16034, label %14868, label %16035
 
 16035:                                            ; preds = %16033
-  %16036 = icmp ult i8 %16031, 48
+  %16036 = icmp samesign ult i8 %16031, 48
   br i1 %16036, label %4547, label %16917
 
 16037:                                            ; preds = %16029
@@ -36937,11 +36937,11 @@ timelib_eat_spaces.exit17440:                     ; preds = %15793, %15796, %158
   br i1 %16074, label %16075, label %16081
 
 16075:                                            ; preds = %16071
-  %16076 = icmp ult i8 %16073, 48
+  %16076 = icmp samesign ult i8 %16073, 48
   br i1 %16076, label %.loopexit17714, label %16077
 
 16077:                                            ; preds = %16075
-  %16078 = icmp ult i8 %16073, 58
+  %16078 = icmp samesign ult i8 %16073, 58
   br i1 %16078, label %14959, label %16079
 
 16079:                                            ; preds = %16077
@@ -37024,11 +37024,11 @@ timelib_eat_spaces.exit17440:                     ; preds = %15793, %15796, %158
   br i1 %16116, label %16117, label %16123
 
 16117:                                            ; preds = %16113
-  %16118 = icmp ult i8 %16115, 58
+  %16118 = icmp samesign ult i8 %16115, 58
   br i1 %16118, label %16119, label %16121
 
 16119:                                            ; preds = %16117
-  %16120 = icmp ult i8 %16115, 48
+  %16120 = icmp samesign ult i8 %16115, 48
   br i1 %16120, label %.loopexit17713, label %16147
 
 16121:                                            ; preds = %16117
@@ -37061,11 +37061,11 @@ timelib_eat_spaces.exit17440:                     ; preds = %15793, %15796, %158
   br i1 %16133, label %16134, label %16140
 
 16134:                                            ; preds = %16130
-  %16135 = icmp ult i8 %16132, 50
+  %16135 = icmp samesign ult i8 %16132, 50
   br i1 %16135, label %16136, label %16138
 
 16136:                                            ; preds = %16134
-  %16137 = icmp ult i8 %16132, 48
+  %16137 = icmp samesign ult i8 %16132, 48
   br i1 %16137, label %.loopexit17713, label %16147
 
 16138:                                            ; preds = %16134
@@ -37319,11 +37319,11 @@ timelib_eat_spaces.exit17440:                     ; preds = %15793, %15796, %158
   br i1 %16259, label %16260, label %16266
 
 16260:                                            ; preds = %16256
-  %16261 = icmp ult i8 %16258, 48
+  %16261 = icmp samesign ult i8 %16258, 48
   br i1 %16261, label %.loopexit17725, label %16262
 
 16262:                                            ; preds = %16260
-  %16263 = icmp ult i8 %16258, 58
+  %16263 = icmp samesign ult i8 %16258, 58
   br i1 %16263, label %.loopexit17722, label %16264
 
 16264:                                            ; preds = %16262
@@ -37387,11 +37387,11 @@ timelib_eat_spaces.exit17440:                     ; preds = %15793, %15796, %158
   br i1 %16292, label %16293, label %16298
 
 16293:                                            ; preds = %16289
-  %16294 = icmp ult i8 %16291, 48
+  %16294 = icmp samesign ult i8 %16291, 48
   br i1 %16294, label %.loopexit17725, label %16295
 
 16295:                                            ; preds = %16293
-  %16296 = icmp ult i8 %16291, 50
+  %16296 = icmp samesign ult i8 %16291, 50
   br i1 %16296, label %.loopexit17722, label %16297
 
 16297:                                            ; preds = %16295
@@ -37465,15 +37465,15 @@ timelib_eat_spaces.exit17440:                     ; preds = %15793, %15796, %158
   br i1 %16331, label %16332, label %16359
 
 16332:                                            ; preds = %16328
-  %16333 = icmp ult i8 %16330, 71
+  %16333 = icmp samesign ult i8 %16330, 71
   br i1 %16333, label %16334, label %16347
 
 16334:                                            ; preds = %16332
-  %16335 = icmp ult i8 %16330, 48
+  %16335 = icmp samesign ult i8 %16330, 48
   br i1 %16335, label %16336, label %16342
 
 16336:                                            ; preds = %16334
-  %16337 = icmp ult i8 %16330, 10
+  %16337 = icmp samesign ult i8 %16330, 10
   br i1 %16337, label %16338, label %16340
 
 16338:                                            ; preds = %16336
@@ -37485,11 +37485,11 @@ timelib_eat_spaces.exit17440:                     ; preds = %15793, %15796, %158
   br i1 %16341, label %4540, label %.loopexit17718
 
 16342:                                            ; preds = %16334
-  %16343 = icmp ult i8 %16330, 68
+  %16343 = icmp samesign ult i8 %16330, 68
   br i1 %16343, label %16344, label %16346
 
 16344:                                            ; preds = %16342
-  %16345 = icmp ult i8 %16330, 58
+  %16345 = icmp samesign ult i8 %16330, 58
   br i1 %16345, label %17034, label %.loopexit17718
 
 16346:                                            ; preds = %16342
@@ -37499,11 +37499,11 @@ timelib_eat_spaces.exit17440:                     ; preds = %15793, %15796, %158
   ]
 
 16347:                                            ; preds = %16332
-  %16348 = icmp ult i8 %16330, 83
+  %16348 = icmp samesign ult i8 %16330, 83
   br i1 %16348, label %16349, label %16354
 
 16349:                                            ; preds = %16347
-  %16350 = icmp ult i8 %16330, 73
+  %16350 = icmp samesign ult i8 %16330, 73
   br i1 %16350, label %16351, label %16352
 
 16351:                                            ; preds = %16349
@@ -37515,7 +37515,7 @@ timelib_eat_spaces.exit17440:                     ; preds = %15793, %15796, %158
   br i1 %16353, label %4621, label %.loopexit17718
 
 16354:                                            ; preds = %16347
-  %16355 = icmp ult i8 %16330, 86
+  %16355 = icmp samesign ult i8 %16330, 86
   br i1 %16355, label %16356, label %16357
 
 16356:                                            ; preds = %16354
@@ -37533,11 +37533,11 @@ timelib_eat_spaces.exit17440:                     ; preds = %15793, %15796, %158
   br i1 %16360, label %16361, label %16373
 
 16361:                                            ; preds = %16359
-  %16362 = icmp ult i8 %16330, 103
+  %16362 = icmp samesign ult i8 %16330, 103
   br i1 %16362, label %16363, label %16368
 
 16363:                                            ; preds = %16361
-  %16364 = icmp ult i8 %16330, 100
+  %16364 = icmp samesign ult i8 %16330, 100
   br i1 %16364, label %16365, label %16367
 
 16365:                                            ; preds = %16363
@@ -37551,7 +37551,7 @@ timelib_eat_spaces.exit17440:                     ; preds = %15793, %15796, %158
   ]
 
 16368:                                            ; preds = %16361
-  %16369 = icmp ult i8 %16330, 109
+  %16369 = icmp samesign ult i8 %16330, 109
   br i1 %16369, label %16370, label %16372
 
 16370:                                            ; preds = %16368
@@ -37569,7 +37569,7 @@ timelib_eat_spaces.exit17440:                     ; preds = %15793, %15796, %158
   br i1 %16374, label %16375, label %16381
 
 16375:                                            ; preds = %16373
-  %16376 = icmp ult i8 %16330, 118
+  %16376 = icmp samesign ult i8 %16330, 118
   br i1 %16376, label %16377, label %16379
 
 16377:                                            ; preds = %16375
@@ -37925,7 +37925,7 @@ timelib_eat_spaces.exit17440:                     ; preds = %15793, %15796, %158
   br i1 %16558, label %16559, label %16562
 
 16559:                                            ; preds = %16555
-  %16560 = icmp ult i8 %16557, 68
+  %16560 = icmp samesign ult i8 %16557, 68
   br i1 %16560, label %.thread, label %16561
 
 16561:                                            ; preds = %16559
@@ -37971,11 +37971,11 @@ timelib_eat_spaces.exit17440:                     ; preds = %15793, %15796, %158
   br i1 %16582, label %16583, label %16606
 
 16583:                                            ; preds = %16580
-  %16584 = icmp ult i8 %16581, 83
+  %16584 = icmp samesign ult i8 %16581, 83
   br i1 %16584, label %16585, label %16594
 
 16585:                                            ; preds = %16583
-  %16586 = icmp ult i8 %16581, 71
+  %16586 = icmp samesign ult i8 %16581, 71
   br i1 %16586, label %16587, label %16588
 
 16587:                                            ; preds = %16585
@@ -37985,7 +37985,7 @@ timelib_eat_spaces.exit17440:                     ; preds = %15793, %15796, %158
   ]
 
 16588:                                            ; preds = %16585
-  %16589 = icmp ult i8 %16581, 73
+  %16589 = icmp samesign ult i8 %16581, 73
   br i1 %16589, label %16590, label %16592
 
 16590:                                            ; preds = %16588
@@ -37997,7 +37997,7 @@ timelib_eat_spaces.exit17440:                     ; preds = %15793, %15796, %158
   br i1 %16593, label %14473, label %.thread
 
 16594:                                            ; preds = %16583
-  %16595 = icmp ult i8 %16581, 87
+  %16595 = icmp samesign ult i8 %16581, 87
   br i1 %16595, label %16596, label %16601
 
 16596:                                            ; preds = %16594
@@ -38005,7 +38005,7 @@ timelib_eat_spaces.exit17440:                     ; preds = %15793, %15796, %158
   br i1 %16597, label %14487, label %16598
 
 16598:                                            ; preds = %16596
-  %16599 = icmp ult i8 %16581, 85
+  %16599 = icmp samesign ult i8 %16581, 85
   br i1 %16599, label %14501, label %16600
 
 16600:                                            ; preds = %16598
@@ -38013,7 +38013,7 @@ timelib_eat_spaces.exit17440:                     ; preds = %15793, %15796, %158
   br i1 %.not16748, label %.thread, label %14511
 
 16601:                                            ; preds = %16594
-  %16602 = icmp ult i8 %16581, 89
+  %16602 = icmp samesign ult i8 %16581, 89
   br i1 %16602, label %16603, label %16605
 
 16603:                                            ; preds = %16601
@@ -38031,7 +38031,7 @@ timelib_eat_spaces.exit17440:                     ; preds = %15793, %15796, %158
   br i1 %16607, label %16608, label %16617
 
 16608:                                            ; preds = %16606
-  %16609 = icmp ult i8 %16581, 105
+  %16609 = icmp samesign ult i8 %16581, 105
   br i1 %16609, label %16610, label %16611
 
 16610:                                            ; preds = %16608
@@ -38041,7 +38041,7 @@ timelib_eat_spaces.exit17440:                     ; preds = %15793, %15796, %158
   ]
 
 16611:                                            ; preds = %16608
-  %16612 = icmp ult i8 %16581, 110
+  %16612 = icmp samesign ult i8 %16581, 110
   br i1 %16612, label %16613, label %16614
 
 16613:                                            ; preds = %16611
@@ -38049,7 +38049,7 @@ timelib_eat_spaces.exit17440:                     ; preds = %15793, %15796, %158
   br i1 %.not16745, label %14473, label %.thread
 
 16614:                                            ; preds = %16611
-  %16615 = icmp ult i8 %16581, 115
+  %16615 = icmp samesign ult i8 %16581, 115
   br i1 %16615, label %.thread, label %16616
 
 16616:                                            ; preds = %16614
@@ -38061,7 +38061,7 @@ timelib_eat_spaces.exit17440:                     ; preds = %15793, %15796, %158
   br i1 %16618, label %16619, label %16624
 
 16619:                                            ; preds = %16617
-  %16620 = icmp ult i8 %16581, 119
+  %16620 = icmp samesign ult i8 %16581, 119
   br i1 %16620, label %16621, label %16623
 
 16621:                                            ; preds = %16619
@@ -38139,7 +38139,7 @@ timelib_eat_spaces.exit17440:                     ; preds = %15793, %15796, %158
   br i1 %16657, label %16658, label %16667
 
 16658:                                            ; preds = %.lr.ph28729
-  %16659 = icmp ult i8 %16656, 32
+  %16659 = icmp samesign ult i8 %16656, 32
   br i1 %16659, label %16660, label %16666
 
 16660:                                            ; preds = %16658
@@ -38255,7 +38255,7 @@ timelib_eat_spaces.exit17440:                     ; preds = %15793, %15796, %158
   br i1 %16704, label %16705, label %16710
 
 16705:                                            ; preds = %16700
-  %16706 = icmp ult i8 %16703, 32
+  %16706 = icmp samesign ult i8 %16703, 32
   br i1 %16706, label %16707, label %16709
 
 16707:                                            ; preds = %16705
@@ -38337,7 +38337,7 @@ timelib_eat_spaces.exit17440:                     ; preds = %15793, %15796, %158
   br i1 %16741, label %16742, label %16746
 
 16742:                                            ; preds = %16738
-  %16743 = icmp ult i8 %16740, 33
+  %16743 = icmp samesign ult i8 %16740, 33
   br i1 %16743, label %16744, label %16745
 
 16744:                                            ; preds = %16742
@@ -38391,7 +38391,7 @@ timelib_eat_spaces.exit17440:                     ; preds = %15793, %15796, %158
   br i1 %16762, label %16763, label %16768
 
 16763:                                            ; preds = %16759
-  %16764 = icmp ult i8 %16761, 32
+  %16764 = icmp samesign ult i8 %16761, 32
   br i1 %16764, label %16765, label %16767
 
 16765:                                            ; preds = %16763
@@ -38451,7 +38451,7 @@ timelib_eat_spaces.exit17440:                     ; preds = %15793, %15796, %158
   br i1 %16786, label %16787, label %16792
 
 16787:                                            ; preds = %16783
-  %16788 = icmp ult i8 %16785, 32
+  %16788 = icmp samesign ult i8 %16785, 32
   br i1 %16788, label %16789, label %16791
 
 16789:                                            ; preds = %16787
@@ -38486,7 +38486,7 @@ timelib_eat_spaces.exit17440:                     ; preds = %15793, %15796, %158
   br i1 %16800, label %16801, label %16806
 
 16801:                                            ; preds = %16797
-  %16802 = icmp ult i8 %16799, 32
+  %16802 = icmp samesign ult i8 %16799, 32
   br i1 %16802, label %16803, label %16805
 
 16803:                                            ; preds = %16801
@@ -38522,7 +38522,7 @@ timelib_eat_spaces.exit17440:                     ; preds = %15793, %15796, %158
   br i1 %16813, label %16814, label %16819
 
 16814:                                            ; preds = %.split.loop.exit28305
-  %16815 = icmp ult i8 %16812, 32
+  %16815 = icmp samesign ult i8 %16812, 32
   br i1 %16815, label %16816, label %16818
 
 16816:                                            ; preds = %16814
@@ -38751,7 +38751,7 @@ timelib_eat_spaces.exit17440:                     ; preds = %15793, %15796, %158
   br i1 %16922, label %14868, label %16923
 
 16923:                                            ; preds = %16921
-  %16924 = icmp ult i8 %16919, 48
+  %16924 = icmp samesign ult i8 %16919, 48
   br i1 %16924, label %4547, label %17589
 
 16925:                                            ; preds = %16917
@@ -38824,11 +38824,11 @@ timelib_eat_spaces.exit17440:                     ; preds = %15793, %15796, %158
   br i1 %16959, label %16960, label %16966
 
 16960:                                            ; preds = %16956
-  %16961 = icmp ult i8 %16958, 58
+  %16961 = icmp samesign ult i8 %16958, 58
   br i1 %16961, label %16962, label %16964
 
 16962:                                            ; preds = %16960
-  %16963 = icmp ult i8 %16958, 48
+  %16963 = icmp samesign ult i8 %16958, 48
   br i1 %16963, label %.loopexit17713, label %17630
 
 16964:                                            ; preds = %16960
@@ -38861,11 +38861,11 @@ timelib_eat_spaces.exit17440:                     ; preds = %15793, %15796, %158
   br i1 %16976, label %16977, label %16983
 
 16977:                                            ; preds = %16973
-  %16978 = icmp ult i8 %16975, 50
+  %16978 = icmp samesign ult i8 %16975, 50
   br i1 %16978, label %16979, label %16981
 
 16979:                                            ; preds = %16977
-  %16980 = icmp ult i8 %16975, 48
+  %16980 = icmp samesign ult i8 %16975, 48
   br i1 %16980, label %.loopexit17713, label %17630
 
 16981:                                            ; preds = %16977
@@ -38919,11 +38919,11 @@ timelib_eat_spaces.exit17440:                     ; preds = %15793, %15796, %158
   br i1 %17005, label %17006, label %17011
 
 17006:                                            ; preds = %17002
-  %17007 = icmp ult i8 %17004, 48
+  %17007 = icmp samesign ult i8 %17004, 48
   br i1 %17007, label %.loopexit17725, label %17008
 
 17008:                                            ; preds = %17006
-  %17009 = icmp ult i8 %17004, 58
+  %17009 = icmp samesign ult i8 %17004, 58
   br i1 %17009, label %17644, label %17010
 
 17010:                                            ; preds = %17008
@@ -38954,11 +38954,11 @@ timelib_eat_spaces.exit17440:                     ; preds = %15793, %15796, %158
   br i1 %17021, label %17022, label %17027
 
 17022:                                            ; preds = %17018
-  %17023 = icmp ult i8 %17020, 48
+  %17023 = icmp samesign ult i8 %17020, 48
   br i1 %17023, label %.loopexit17725, label %17024
 
 17024:                                            ; preds = %17022
-  %17025 = icmp ult i8 %17020, 50
+  %17025 = icmp samesign ult i8 %17020, 50
   br i1 %17025, label %17644, label %17026
 
 17026:                                            ; preds = %17024
@@ -39007,11 +39007,11 @@ timelib_eat_spaces.exit17440:                     ; preds = %15793, %15796, %158
   br i1 %17044, label %17045, label %17055
 
 17045:                                            ; preds = %17041
-  %17046 = icmp ult i8 %17043, 51
+  %17046 = icmp samesign ult i8 %17043, 51
   br i1 %17046, label %17047, label %17052
 
 17047:                                            ; preds = %17045
-  %17048 = icmp ult i8 %17043, 48
+  %17048 = icmp samesign ult i8 %17043, 48
   br i1 %17048, label %.thread17467, label %17049
 
 17049:                                            ; preds = %17047
@@ -39021,7 +39021,7 @@ timelib_eat_spaces.exit17440:                     ; preds = %15793, %15796, %158
   br i1 %.not17100, label %17671, label %17663
 
 17052:                                            ; preds = %17045
-  %17053 = icmp ult i8 %17043, 58
+  %17053 = icmp samesign ult i8 %17043, 58
   br i1 %17053, label %17678, label %17054
 
 17054:                                            ; preds = %17052
@@ -39049,11 +39049,11 @@ timelib_eat_spaces.exit17440:                     ; preds = %15793, %15796, %158
   br i1 %17063, label %17064, label %17075
 
 17064:                                            ; preds = %17060
-  %17065 = icmp ult i8 %17062, 51
+  %17065 = icmp samesign ult i8 %17062, 51
   br i1 %17065, label %17066, label %17072
 
 17066:                                            ; preds = %17064
-  %17067 = icmp ult i8 %17062, 48
+  %17067 = icmp samesign ult i8 %17062, 48
   br i1 %17067, label %.thread17467, label %17068
 
 17068:                                            ; preds = %17066
@@ -39064,7 +39064,7 @@ timelib_eat_spaces.exit17440:                     ; preds = %15793, %15796, %158
   br i1 %.not17097, label %17693, label %17688
 
 17072:                                            ; preds = %17064
-  %17073 = icmp ult i8 %17062, 58
+  %17073 = icmp samesign ult i8 %17062, 58
   br i1 %17073, label %17698, label %17074
 
 17074:                                            ; preds = %17072
@@ -39149,11 +39149,11 @@ timelib_eat_spaces.exit17440:                     ; preds = %15793, %15796, %158
   br i1 %17114, label %17115, label %17121
 
 17115:                                            ; preds = %17112
-  %17116 = icmp ult i8 %17113, 58
+  %17116 = icmp samesign ult i8 %17113, 58
   br i1 %17116, label %17117, label %17119
 
 17117:                                            ; preds = %17115
-  %17118 = icmp ult i8 %17113, 48
+  %17118 = icmp samesign ult i8 %17113, 48
   br i1 %17118, label %.loopexit17511, label %.preheader17627
 
 17119:                                            ; preds = %17115
@@ -39188,11 +39188,11 @@ timelib_eat_spaces.exit17440:                     ; preds = %15793, %15796, %158
   br i1 %17132, label %17133, label %17139
 
 17133:                                            ; preds = %17130
-  %17134 = icmp ult i8 %17131, 58
+  %17134 = icmp samesign ult i8 %17131, 58
   br i1 %17134, label %17135, label %17137
 
 17135:                                            ; preds = %17133
-  %17136 = icmp ult i8 %17131, 48
+  %17136 = icmp samesign ult i8 %17131, 48
   br i1 %17136, label %.thread, label %.preheader17630
 
 17137:                                            ; preds = %17133
@@ -39280,7 +39280,7 @@ timelib_eat_spaces.exit17440:                     ; preds = %15793, %15796, %158
   br i1 %17177, label %17178, label %17187
 
 17178:                                            ; preds = %17174
-  %17179 = icmp ult i8 %17176, 33
+  %17179 = icmp samesign ult i8 %17176, 33
   br i1 %17179, label %17180, label %17181
 
 17180:                                            ; preds = %17178
@@ -39290,11 +39290,11 @@ timelib_eat_spaces.exit17440:                     ; preds = %15793, %15796, %158
   ]
 
 17181:                                            ; preds = %17178
-  %17182 = icmp ult i8 %17176, 58
+  %17182 = icmp samesign ult i8 %17176, 58
   br i1 %17182, label %17183, label %17185
 
 17183:                                            ; preds = %17181
-  %17184 = icmp ugt i8 %17176, 47
+  %17184 = icmp samesign ugt i8 %17176, 47
   br i1 %17184, label %.loopexit17707, label %17200
 
 17185:                                            ; preds = %17181
@@ -39306,7 +39306,7 @@ timelib_eat_spaces.exit17440:                     ; preds = %15793, %15796, %158
   br i1 %17188, label %17189, label %17194
 
 17189:                                            ; preds = %17187
-  %17190 = icmp ult i8 %17176, 97
+  %17190 = icmp samesign ult i8 %17176, 97
   br i1 %17190, label %17191, label %17193
 
 17191:                                            ; preds = %17189
@@ -39417,7 +39417,7 @@ timelib_eat_spaces.exit17440:                     ; preds = %15793, %15796, %158
   br i1 %17247, label %17248, label %17257
 
 17248:                                            ; preds = %17244
-  %17249 = icmp ult i8 %17246, 33
+  %17249 = icmp samesign ult i8 %17246, 33
   br i1 %17249, label %17250, label %17251
 
 17250:                                            ; preds = %17248
@@ -39427,11 +39427,11 @@ timelib_eat_spaces.exit17440:                     ; preds = %15793, %15796, %158
   ]
 
 17251:                                            ; preds = %17248
-  %17252 = icmp ult i8 %17246, 53
+  %17252 = icmp samesign ult i8 %17246, 53
   br i1 %17252, label %17253, label %17255
 
 17253:                                            ; preds = %17251
-  %17254 = icmp ult i8 %17246, 48
+  %17254 = icmp samesign ult i8 %17246, 48
   br i1 %17254, label %17200, label %.loopexit17707
 
 17255:                                            ; preds = %17251
@@ -39443,7 +39443,7 @@ timelib_eat_spaces.exit17440:                     ; preds = %15793, %15796, %158
   br i1 %17258, label %17259, label %17264
 
 17259:                                            ; preds = %17257
-  %17260 = icmp ult i8 %17246, 97
+  %17260 = icmp samesign ult i8 %17246, 97
   br i1 %17260, label %17261, label %17263
 
 17261:                                            ; preds = %17259
@@ -39478,7 +39478,7 @@ timelib_eat_spaces.exit17440:                     ; preds = %15793, %15796, %158
   br i1 %17273, label %17274, label %17282
 
 17274:                                            ; preds = %.loopexit17707
-  %17275 = icmp ult i8 %17272, 33
+  %17275 = icmp samesign ult i8 %17272, 33
   br i1 %17275, label %17276, label %17281
 
 17276:                                            ; preds = %17274
@@ -39546,7 +39546,7 @@ timelib_eat_spaces.exit17440:                     ; preds = %15793, %15796, %158
   br i1 %17297, label %17298, label %17306
 
 17298:                                            ; preds = %17294
-  %17299 = icmp ult i8 %17296, 33
+  %17299 = icmp samesign ult i8 %17296, 33
   br i1 %17299, label %17300, label %17301
 
 17300:                                            ; preds = %17298
@@ -39556,7 +39556,7 @@ timelib_eat_spaces.exit17440:                     ; preds = %15793, %15796, %158
   ]
 
 17301:                                            ; preds = %17298
-  %17302 = icmp ult i8 %17296, 41
+  %17302 = icmp samesign ult i8 %17296, 41
   br i1 %17302, label %17303, label %17304
 
 17303:                                            ; preds = %17301
@@ -39575,7 +39575,7 @@ timelib_eat_spaces.exit17440:                     ; preds = %15793, %15796, %158
   br i1 %17307, label %17308, label %17314
 
 17308:                                            ; preds = %17306
-  %17309 = icmp ult i8 %17296, 65
+  %17309 = icmp samesign ult i8 %17296, 65
   br i1 %17309, label %17310, label %17312
 
 17310:                                            ; preds = %17308
@@ -39617,7 +39617,7 @@ timelib_eat_spaces.exit17440:                     ; preds = %15793, %15796, %158
   br i1 %17326, label %17327, label %17335
 
 17327:                                            ; preds = %17323
-  %17328 = icmp ult i8 %17325, 33
+  %17328 = icmp samesign ult i8 %17325, 33
   br i1 %17328, label %17329, label %17330
 
 17329:                                            ; preds = %17327
@@ -39627,7 +39627,7 @@ timelib_eat_spaces.exit17440:                     ; preds = %15793, %15796, %158
   ]
 
 17330:                                            ; preds = %17327
-  %17331 = icmp ult i8 %17325, 41
+  %17331 = icmp samesign ult i8 %17325, 41
   br i1 %17331, label %17332, label %17333
 
 17332:                                            ; preds = %17330
@@ -39646,7 +39646,7 @@ timelib_eat_spaces.exit17440:                     ; preds = %15793, %15796, %158
   br i1 %17336, label %17337, label %17343
 
 17337:                                            ; preds = %17335
-  %17338 = icmp ult i8 %17325, 65
+  %17338 = icmp samesign ult i8 %17325, 65
   br i1 %17338, label %17339, label %17341
 
 17339:                                            ; preds = %17337
@@ -39720,7 +39720,7 @@ timelib_eat_spaces.exit17440:                     ; preds = %15793, %15796, %158
   br i1 %17370, label %17371, label %17376
 
 17371:                                            ; preds = %17368
-  %17372 = icmp ult i8 %17369, 66
+  %17372 = icmp samesign ult i8 %17369, 66
   br i1 %17372, label %17373, label %17374
 
 17373:                                            ; preds = %17371
@@ -40196,7 +40196,7 @@ timelib_eat_spaces.exit17455:                     ; preds = %17508, %17511, %175
   br i1 %17594, label %14868, label %17595
 
 17595:                                            ; preds = %17593
-  %17596 = icmp ult i8 %17591, 48
+  %17596 = icmp samesign ult i8 %17591, 48
   br i1 %17596, label %4547, label %18076
 
 17597:                                            ; preds = %17589
@@ -40366,7 +40366,7 @@ timelib_eat_spaces.exit17455:                     ; preds = %17508, %17511, %175
   br i1 %17672, label %17673, label %17676
 
 17673:                                            ; preds = %17671
-  %17674 = icmp ult i8 %17051, 48
+  %17674 = icmp samesign ult i8 %17051, 48
   br i1 %17674, label %.thread17467, label %17675
 
 17675:                                            ; preds = %17673
@@ -40476,7 +40476,7 @@ timelib_eat_spaces.exit17455:                     ; preds = %17508, %17511, %175
   br i1 %17731, label %17732, label %17741
 
 17732:                                            ; preds = %.lr.ph28728
-  %17733 = icmp ult i8 %17730, 32
+  %17733 = icmp samesign ult i8 %17730, 32
   br i1 %17733, label %17734, label %17740
 
 17734:                                            ; preds = %17732
@@ -40615,7 +40615,7 @@ timelib_eat_spaces.exit17455:                     ; preds = %17508, %17511, %175
   br i1 %17785, label %.thread34625, label %17786
 
 17786:                                            ; preds = %17784
-  %17787 = icmp ult i8 %.1114350.lcssa, 65
+  %17787 = icmp samesign ult i8 %.1114350.lcssa, 65
   br i1 %17787, label %.thread17467, label %17810
 
 17788:                                            ; preds = %._crit_edge28739
@@ -40696,7 +40696,7 @@ timelib_eat_spaces.exit17455:                     ; preds = %17508, %17511, %175
   br i1 %17825, label %16645, label %17826
 
 17826:                                            ; preds = %17824
-  %17827 = icmp ult i8 %17822, 65
+  %17827 = icmp samesign ult i8 %17822, 65
   br i1 %17827, label %.loopexit17516, label %18231
 
 17828:                                            ; preds = %17820
@@ -40805,7 +40805,7 @@ timelib_eat_spaces.exit17455:                     ; preds = %17508, %17511, %175
   br i1 %17873, label %17874, label %17878
 
 17874:                                            ; preds = %._crit_edge28733
-  %17875 = icmp ult i8 %.1214351.lcssa, 72
+  %17875 = icmp samesign ult i8 %.1214351.lcssa, 72
   br i1 %17875, label %17876, label %17877
 
 17876:                                            ; preds = %17874
@@ -40823,7 +40823,7 @@ timelib_eat_spaces.exit17455:                     ; preds = %17508, %17511, %175
   br i1 %17879, label %17880, label %17884
 
 17880:                                            ; preds = %17878
-  %17881 = icmp ult i8 %.1214351.lcssa, 97
+  %17881 = icmp samesign ult i8 %.1214351.lcssa, 97
   br i1 %17881, label %.thread17467, label %17882
 
 17882:                                            ; preds = %17880
@@ -40847,7 +40847,7 @@ timelib_eat_spaces.exit17455:                     ; preds = %17508, %17511, %175
   br i1 %17891, label %17892, label %17900
 
 17892:                                            ; preds = %17888
-  %17893 = icmp ult i8 %17890, 46
+  %17893 = icmp samesign ult i8 %17890, 46
   br i1 %17893, label %17894, label %17896
 
 17894:                                            ; preds = %17892
@@ -40859,7 +40859,7 @@ timelib_eat_spaces.exit17455:                     ; preds = %17508, %17511, %175
   br i1 %17897, label %17352, label %17898
 
 17898:                                            ; preds = %17896
-  %17899 = icmp ult i8 %17890, 65
+  %17899 = icmp samesign ult i8 %17890, 65
   br i1 %17899, label %.loopexit17516, label %18231
 
 17900:                                            ; preds = %17888
@@ -40871,7 +40871,7 @@ timelib_eat_spaces.exit17455:                     ; preds = %17508, %17511, %175
   br i1 %17903, label %18302, label %17904
 
 17904:                                            ; preds = %17902
-  %17905 = icmp ult i8 %17890, 91
+  %17905 = icmp samesign ult i8 %17890, 91
   br i1 %17905, label %18231, label %.loopexit17516
 
 17906:                                            ; preds = %17900
@@ -40891,7 +40891,7 @@ timelib_eat_spaces.exit17455:                     ; preds = %17508, %17511, %175
   br i1 %17913, label %17914, label %17922
 
 17914:                                            ; preds = %17910
-  %17915 = icmp ult i8 %17912, 46
+  %17915 = icmp samesign ult i8 %17912, 46
   br i1 %17915, label %17916, label %17918
 
 17916:                                            ; preds = %17914
@@ -40903,7 +40903,7 @@ timelib_eat_spaces.exit17455:                     ; preds = %17508, %17511, %175
   br i1 %17919, label %17352, label %17920
 
 17920:                                            ; preds = %17918
-  %17921 = icmp ult i8 %17912, 65
+  %17921 = icmp samesign ult i8 %17912, 65
   br i1 %17921, label %.loopexit17516, label %18231
 
 17922:                                            ; preds = %17910
@@ -40915,7 +40915,7 @@ timelib_eat_spaces.exit17455:                     ; preds = %17508, %17511, %175
   br i1 %17925, label %18302, label %17926
 
 17926:                                            ; preds = %17924
-  %17927 = icmp ult i8 %17912, 91
+  %17927 = icmp samesign ult i8 %17912, 91
   br i1 %17927, label %18231, label %.loopexit17516
 
 17928:                                            ; preds = %17922
@@ -41074,7 +41074,7 @@ timelib_eat_spaces.exit17455:                     ; preds = %17508, %17511, %175
   br i1 %18010, label %18011, label %18016
 
 18011:                                            ; preds = %18008
-  %18012 = icmp ult i8 %18009, 66
+  %18012 = icmp samesign ult i8 %18009, 66
   br i1 %18012, label %18013, label %18014
 
 18013:                                            ; preds = %18011
@@ -41214,7 +41214,7 @@ timelib_eat_spaces.exit17455:                     ; preds = %17508, %17511, %175
   br i1 %18081, label %14868, label %18082
 
 18082:                                            ; preds = %18080
-  %18083 = icmp ult i8 %18078, 48
+  %18083 = icmp samesign ult i8 %18078, 48
   br i1 %18083, label %4547, label %18465
 
 18084:                                            ; preds = %18076
@@ -41424,7 +41424,7 @@ timelib_eat_spaces.exit17455:                     ; preds = %17508, %17511, %175
   br i1 %18186, label %18187, label %18192
 
 18187:                                            ; preds = %18184
-  %18188 = icmp ult i8 %18185, 66
+  %18188 = icmp samesign ult i8 %18185, 66
   br i1 %18188, label %18189, label %18190
 
 18189:                                            ; preds = %18187
@@ -41482,7 +41482,7 @@ timelib_eat_spaces.exit17455:                     ; preds = %17508, %17511, %175
   br i1 %18213, label %18214, label %18217
 
 18214:                                            ; preds = %18210
-  %18215 = icmp ult i8 %18212, 48
+  %18215 = icmp samesign ult i8 %18212, 48
   br i1 %18215, label %.loopexit17516, label %18216
 
 18216:                                            ; preds = %18214
@@ -41543,7 +41543,7 @@ timelib_eat_spaces.exit17455:                     ; preds = %17508, %17511, %175
   br i1 %18243, label %18244, label %18250
 
 18244:                                            ; preds = %18240
-  %18245 = icmp ult i8 %18242, 45
+  %18245 = icmp samesign ult i8 %18242, 45
   br i1 %18245, label %18246, label %18248
 
 18246:                                            ; preds = %18244
@@ -41583,7 +41583,7 @@ timelib_eat_spaces.exit17455:                     ; preds = %17508, %17511, %175
   br i1 %18263, label %16645, label %18264
 
 18264:                                            ; preds = %18262
-  %18265 = icmp ult i8 %18260, 65
+  %18265 = icmp samesign ult i8 %18260, 65
   br i1 %18265, label %.loopexit17516, label %18649
 
 18266:                                            ; preds = %18258
@@ -41612,7 +41612,7 @@ timelib_eat_spaces.exit17455:                     ; preds = %17508, %17511, %175
   br i1 %18279, label %18280, label %18287
 
 18280:                                            ; preds = %18277
-  %18281 = icmp ult i8 %18278, 43
+  %18281 = icmp samesign ult i8 %18278, 43
   br i1 %18281, label %18282, label %18284
 
 18282:                                            ; preds = %18280
@@ -41621,7 +41621,7 @@ timelib_eat_spaces.exit17455:                     ; preds = %17508, %17511, %175
 
 18284:                                            ; preds = %18280
   %18285 = icmp ne i8 %18278, 44
-  %18286 = icmp ult i8 %18278, 46
+  %18286 = icmp samesign ult i8 %18278, 46
   %or.cond2228 = and i1 %18285, %18286
   br i1 %or.cond2228, label %.thread34625, label %.thread17467
 
@@ -41634,7 +41634,7 @@ timelib_eat_spaces.exit17455:                     ; preds = %17508, %17511, %175
   br i1 %18290, label %17820, label %18291
 
 18291:                                            ; preds = %18289
-  %18292 = icmp ult i8 %18278, 91
+  %18292 = icmp samesign ult i8 %18278, 91
   br i1 %18292, label %17810, label %.thread17467
 
 18293:                                            ; preds = %18287
@@ -41664,7 +41664,7 @@ timelib_eat_spaces.exit17455:                     ; preds = %17508, %17511, %175
   br i1 %18305, label %18306, label %18310
 
 18306:                                            ; preds = %18302
-  %18307 = icmp ult i8 %18304, 10
+  %18307 = icmp samesign ult i8 %18304, 10
   br i1 %18307, label %18308, label %18309
 
 18308:                                            ; preds = %18306
@@ -41702,7 +41702,7 @@ timelib_eat_spaces.exit17455:                     ; preds = %17508, %17511, %175
   br i1 %18320, label %18321, label %18329
 
 18321:                                            ; preds = %18317
-  %18322 = icmp ult i8 %18319, 32
+  %18322 = icmp samesign ult i8 %18319, 32
   br i1 %18322, label %18323, label %18324
 
 18323:                                            ; preds = %18321
@@ -41712,7 +41712,7 @@ timelib_eat_spaces.exit17455:                     ; preds = %17508, %17511, %175
   ]
 
 18324:                                            ; preds = %18321
-  %18325 = icmp ult i8 %18319, 41
+  %18325 = icmp samesign ult i8 %18319, 41
   br i1 %18325, label %18326, label %18328
 
 18326:                                            ; preds = %18324
@@ -41734,11 +41734,11 @@ timelib_eat_spaces.exit17455:                     ; preds = %17508, %17511, %175
   br i1 %18332, label %17996, label %18333
 
 18333:                                            ; preds = %18331
-  %18334 = icmp ult i8 %18319, 48
+  %18334 = icmp samesign ult i8 %18319, 48
   br i1 %18334, label %.preheader17517, label %18335
 
 18335:                                            ; preds = %18333
-  %18336 = icmp ult i8 %18319, 65
+  %18336 = icmp samesign ult i8 %18319, 65
   br i1 %18336, label %.loopexit17516, label %18649
 
 18337:                                            ; preds = %18329
@@ -41768,11 +41768,11 @@ timelib_eat_spaces.exit17455:                     ; preds = %17508, %17511, %175
   br i1 %18350, label %18351, label %18363
 
 18351:                                            ; preds = %18348
-  %18352 = icmp ult i8 %18349, 45
+  %18352 = icmp samesign ult i8 %18349, 45
   br i1 %18352, label %18353, label %18358
 
 18353:                                            ; preds = %18351
-  %18354 = icmp ult i8 %18349, 41
+  %18354 = icmp samesign ult i8 %18349, 41
   br i1 %18354, label %18355, label %18356
 
 18355:                                            ; preds = %18353
@@ -41784,7 +41784,7 @@ timelib_eat_spaces.exit17455:                     ; preds = %17508, %17511, %175
   br i1 %18357, label %.thread34625, label %.thread17467
 
 18358:                                            ; preds = %18351
-  %18359 = icmp ult i8 %18349, 65
+  %18359 = icmp samesign ult i8 %18349, 65
   br i1 %18359, label %18360, label %18362
 
 18360:                                            ; preds = %18358
@@ -41802,7 +41802,7 @@ timelib_eat_spaces.exit17455:                     ; preds = %17508, %17511, %175
   br i1 %18364, label %18365, label %18371
 
 18365:                                            ; preds = %18363
-  %18366 = icmp ult i8 %18349, 81
+  %18366 = icmp samesign ult i8 %18349, 81
   br i1 %18366, label %18367, label %18368
 
 18367:                                            ; preds = %18365
@@ -41810,7 +41810,7 @@ timelib_eat_spaces.exit17455:                     ; preds = %17508, %17511, %175
   br i1 %.not16914, label %17888, label %17810
 
 18368:                                            ; preds = %18365
-  %18369 = icmp ult i8 %18349, 91
+  %18369 = icmp samesign ult i8 %18349, 91
   br i1 %18369, label %17810, label %18370
 
 18370:                                            ; preds = %18368
@@ -41892,7 +41892,7 @@ timelib_eat_spaces.exit17455:                     ; preds = %17508, %17511, %175
   br i1 %18407, label %18408, label %18413
 
 18408:                                            ; preds = %18404
-  %18409 = icmp ult i8 %18406, 32
+  %18409 = icmp samesign ult i8 %18406, 32
   br i1 %18409, label %18410, label %18412
 
 18410:                                            ; preds = %18408
@@ -42023,7 +42023,7 @@ timelib_eat_spaces.exit17455:                     ; preds = %17508, %17511, %175
   br i1 %18470, label %14868, label %18471
 
 18471:                                            ; preds = %18469
-  %18472 = icmp ult i8 %18467, 48
+  %18472 = icmp samesign ult i8 %18467, 48
   br i1 %18472, label %4547, label %18786
 
 18473:                                            ; preds = %18465
@@ -42303,7 +42303,7 @@ timelib_eat_spaces.exit17455:                     ; preds = %17508, %17511, %175
   br i1 %18616, label %18617, label %18622
 
 18617:                                            ; preds = %18614
-  %18618 = icmp ult i8 %18615, 66
+  %18618 = icmp samesign ult i8 %18615, 66
   br i1 %18618, label %18619, label %18620
 
 18619:                                            ; preds = %18617
@@ -42421,7 +42421,7 @@ timelib_eat_spaces.exit17455:                     ; preds = %17508, %17511, %175
   br i1 %18671, label %18672, label %18678
 
 18672:                                            ; preds = %18668
-  %18673 = icmp ult i8 %18670, 45
+  %18673 = icmp samesign ult i8 %18670, 45
   br i1 %18673, label %18674, label %18676
 
 18674:                                            ; preds = %18672
@@ -42458,7 +42458,7 @@ timelib_eat_spaces.exit17455:                     ; preds = %17508, %17511, %175
   br i1 %18689, label %18690, label %18695
 
 18690:                                            ; preds = %18686
-  %18691 = icmp ult i8 %18688, 42
+  %18691 = icmp samesign ult i8 %18688, 42
   br i1 %18691, label %18692, label %18693
 
 18692:                                            ; preds = %18690
@@ -42478,7 +42478,7 @@ timelib_eat_spaces.exit17455:                     ; preds = %17508, %17511, %175
   br i1 %18698, label %.thread34625, label %18699
 
 18699:                                            ; preds = %18697
-  %18700 = icmp ult i8 %18688, 65
+  %18700 = icmp samesign ult i8 %18688, 65
   br i1 %18700, label %.loopexit17516, label %18858
 
 18701:                                            ; preds = %18695
@@ -42499,7 +42499,7 @@ timelib_eat_spaces.exit17455:                     ; preds = %17508, %17511, %175
   br i1 %18710, label %18711, label %18718
 
 18711:                                            ; preds = %18708
-  %18712 = icmp ult i8 %18709, 43
+  %18712 = icmp samesign ult i8 %18709, 43
   br i1 %18712, label %18713, label %18715
 
 18713:                                            ; preds = %18711
@@ -42508,7 +42508,7 @@ timelib_eat_spaces.exit17455:                     ; preds = %17508, %17511, %175
 
 18715:                                            ; preds = %18711
   %18716 = icmp ne i8 %18709, 44
-  %18717 = icmp ult i8 %18709, 46
+  %18717 = icmp samesign ult i8 %18709, 46
   %or.cond2294 = and i1 %18716, %18717
   br i1 %or.cond2294, label %.thread34625, label %.thread17467
 
@@ -42521,7 +42521,7 @@ timelib_eat_spaces.exit17455:                     ; preds = %17508, %17511, %175
   br i1 %18721, label %17820, label %18722
 
 18722:                                            ; preds = %18720
-  %18723 = icmp ult i8 %18709, 91
+  %18723 = icmp samesign ult i8 %18709, 91
   br i1 %18723, label %17810, label %.thread17467
 
 18724:                                            ; preds = %18718
@@ -42545,11 +42545,11 @@ timelib_eat_spaces.exit17455:                     ; preds = %17508, %17511, %175
   br i1 %18735, label %18736, label %18748
 
 18736:                                            ; preds = %18733
-  %18737 = icmp ult i8 %18734, 45
+  %18737 = icmp samesign ult i8 %18734, 45
   br i1 %18737, label %18738, label %18743
 
 18738:                                            ; preds = %18736
-  %18739 = icmp ult i8 %18734, 41
+  %18739 = icmp samesign ult i8 %18734, 41
   br i1 %18739, label %18740, label %18741
 
 18740:                                            ; preds = %18738
@@ -42561,7 +42561,7 @@ timelib_eat_spaces.exit17455:                     ; preds = %17508, %17511, %175
   br i1 %18742, label %.thread34625, label %.thread17467
 
 18743:                                            ; preds = %18736
-  %18744 = icmp ult i8 %18734, 65
+  %18744 = icmp samesign ult i8 %18734, 65
   br i1 %18744, label %18745, label %18747
 
 18745:                                            ; preds = %18743
@@ -42579,7 +42579,7 @@ timelib_eat_spaces.exit17455:                     ; preds = %17508, %17511, %175
   br i1 %18749, label %18750, label %18756
 
 18750:                                            ; preds = %18748
-  %18751 = icmp ult i8 %18734, 81
+  %18751 = icmp samesign ult i8 %18734, 81
   br i1 %18751, label %18752, label %18753
 
 18752:                                            ; preds = %18750
@@ -42587,7 +42587,7 @@ timelib_eat_spaces.exit17455:                     ; preds = %17508, %17511, %175
   br i1 %.not16908, label %17888, label %17810
 
 18753:                                            ; preds = %18750
-  %18754 = icmp ult i8 %18734, 91
+  %18754 = icmp samesign ult i8 %18734, 91
   br i1 %18754, label %17810, label %18755
 
 18755:                                            ; preds = %18753
@@ -42666,7 +42666,7 @@ timelib_eat_spaces.exit17455:                     ; preds = %17508, %17511, %175
   br i1 %18791, label %14868, label %18792
 
 18792:                                            ; preds = %18790
-  %18793 = icmp ult i8 %18788, 48
+  %18793 = icmp samesign ult i8 %18788, 48
   br i1 %18793, label %4547, label %18911
 
 18794:                                            ; preds = %18786
@@ -42824,7 +42824,7 @@ timelib_eat_spaces.exit17455:                     ; preds = %17508, %17511, %175
   br i1 %18869, label %18870, label %18876
 
 18870:                                            ; preds = %.lr.ph28743
-  %18871 = icmp ult i8 %18868, 46
+  %18871 = icmp samesign ult i8 %18868, 46
   br i1 %18871, label %18872, label %18874
 
 18872:                                            ; preds = %18870
@@ -42845,7 +42845,7 @@ timelib_eat_spaces.exit17455:                     ; preds = %17508, %17511, %175
   br i1 %18877, label %18878, label %18882
 
 18878:                                            ; preds = %18876
-  %18879 = icmp ult i8 %18868, 91
+  %18879 = icmp samesign ult i8 %18868, 91
   br i1 %18879, label %.backedge, label %18881
 
 .backedge:                                        ; preds = %18878, %18882
@@ -42872,7 +42872,7 @@ timelib_eat_spaces.exit17455:                     ; preds = %17508, %17511, %175
   br i1 %18888, label %18889, label %18895
 
 18889:                                            ; preds = %18885
-  %18890 = icmp ult i8 %18887, 45
+  %18890 = icmp samesign ult i8 %18887, 45
   br i1 %18890, label %18891, label %18893
 
 18891:                                            ; preds = %18889
@@ -42926,7 +42926,7 @@ timelib_eat_spaces.exit17455:                     ; preds = %17508, %17511, %175
   br i1 %18916, label %14868, label %18917
 
 18917:                                            ; preds = %18915
-  %18918 = icmp ult i8 %18913, 48
+  %18918 = icmp samesign ult i8 %18913, 48
   br i1 %18918, label %4547, label %19055
 
 18919:                                            ; preds = %18911
@@ -43193,7 +43193,7 @@ timelib_eat_spaces.exit17455:                     ; preds = %17508, %17511, %175
   br i1 %19040, label %19041, label %19047
 
 19041:                                            ; preds = %19037
-  %19042 = icmp ult i8 %19039, 45
+  %19042 = icmp samesign ult i8 %19039, 45
   br i1 %19042, label %19043, label %19045
 
 19043:                                            ; preds = %19041
@@ -43293,7 +43293,7 @@ timelib_eat_spaces.exit17455:                     ; preds = %17508, %17511, %175
   br i1 %19096, label %19097, label %19102
 
 19097:                                            ; preds = %19093
-  %19098 = icmp ult i8 %19095, 42
+  %19098 = icmp samesign ult i8 %19095, 42
   br i1 %19098, label %19099, label %19100
 
 19099:                                            ; preds = %19097
@@ -43545,7 +43545,7 @@ timelib_eat_spaces.exit17455:                     ; preds = %17508, %17511, %175
   br i1 %19224, label %19225, label %19234
 
 19225:                                            ; preds = %.lr.ph23894
-  %19226 = icmp ult i8 %19223, 10
+  %19226 = icmp samesign ult i8 %19223, 10
   br i1 %19226, label %19227, label %19232
 
 19227:                                            ; preds = %19225
@@ -43695,7 +43695,7 @@ timelib_eat_spaces.exit17455:                     ; preds = %17508, %17511, %175
   br i1 %19294, label %19295, label %19297
 
 19295:                                            ; preds = %19293
-  %19296 = icmp ult i8 %19290, 48
+  %19296 = icmp samesign ult i8 %19290, 48
   br i1 %19296, label %.loopexit17612, label %.preheader17610
 
 19297:                                            ; preds = %19293
@@ -43814,7 +43814,7 @@ timelib_eat_spaces.exit17455:                     ; preds = %17508, %17511, %175
   br i1 %19359, label %19360, label %19363
 
 19360:                                            ; preds = %19356
-  %19361 = icmp ult i8 %19358, 48
+  %19361 = icmp samesign ult i8 %19358, 48
   br i1 %19361, label %19307, label %19362
 
 19362:                                            ; preds = %19360
@@ -43988,7 +43988,7 @@ timelib_eat_spaces.exit17455:                     ; preds = %17508, %17511, %175
   br i1 %19450, label %19451, label %19454
 
 19451:                                            ; preds = %19447
-  %19452 = icmp ult i8 %19449, 48
+  %19452 = icmp samesign ult i8 %19449, 48
   br i1 %19452, label %.loopexit17612.loopexit34928.split.loop.exit39575, label %19453
 
 19453:                                            ; preds = %19451

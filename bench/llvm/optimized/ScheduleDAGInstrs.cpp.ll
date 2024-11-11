@@ -1693,7 +1693,7 @@ define dso_local void @_ZN4llvm17ScheduleDAGInstrs18addPhysRegDataDepsEPNS_5SUni
   %93 = getelementptr inbounds nuw i8, ptr %92, i64 2
   %94 = load i16, ptr %93, align 2
   %95 = zext i16 %94 to i32
-  %.not38 = icmp ult i32 %80, %95
+  %.not38 = icmp samesign ult i32 %80, %95
   br i1 %.not38, label %153, label %96
 
 96:                                               ; preds = %82

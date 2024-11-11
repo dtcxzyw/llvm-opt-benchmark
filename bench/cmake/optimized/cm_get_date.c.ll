@@ -1211,7 +1211,7 @@ datephrase.exit.i:                                ; preds = %398, %386, %374, %3
   br label %dayphrase.exit.sink.split.i
 
 555:                                              ; preds = %549
-  %556 = icmp ult i64 %532, 2400
+  %556 = icmp samesign ult i64 %532, 2400
   %.lhs.trunc73.i = trunc i64 %532 to i16
   %557 = urem i16 %.lhs.trunc73.i, 100
   %558 = udiv i16 %.lhs.trunc73.i, 100
@@ -1470,7 +1470,7 @@ define internal fastcc i64 @Convert(i64 noundef %0, i64 noundef %1, i64 noundef 
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(12) %9, ptr noundef nonnull align 1 dereferenceable(12) @__const.Convert.DaysInMonth, i64 12, i1 false)
   %11 = icmp slt i64 %2, 69
   %12 = add nsw i64 %2, 2000
-  %13 = icmp ult i64 %2, 100
+  %13 = icmp samesign ult i64 %2, 100
   %14 = add nuw nsw i64 %2, 1900
   %spec.select = select i1 %13, i64 %14, i64 %2
   %.056 = select i1 %11, i64 %12, i64 %spec.select

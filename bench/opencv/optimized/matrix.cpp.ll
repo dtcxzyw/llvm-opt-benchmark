@@ -1212,7 +1212,7 @@ define hidden void @_ZN2cv7setSizeERNS_3MatEiPKiPKmb(ptr noundef nonnull align 8
   br label %29
 
 29:                                               ; preds = %26, %22
-  %30 = icmp ugt i32 %1, 2
+  %30 = icmp samesign ugt i32 %1, 2
   br i1 %30, label %31, label %44
 
 31:                                               ; preds = %29
@@ -3903,7 +3903,7 @@ define void @_ZN2cv3MatC2ERKS0_RKNS_5RangeES5_(ptr noundef nonnull align 8 deref
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(1088) %scevgep.i, i8 0, i64 1088, i1 false)
   store ptr %scevgep.i, ptr %7, align 8
   %34 = getelementptr inbounds i8, ptr %7, i64 8
-  %.not.i.i = icmp ugt i32 %21, 136
+  %.not.i.i = icmp samesign ugt i32 %21, 136
   store i64 %33, ptr %34, align 8
   br i1 %.not.i.i, label %35, label %.lr.ph.preheader
 
@@ -4414,8 +4414,8 @@ define void @_ZN2cv3MatC2ERKS0_RKNS_5Rect_IiEE(ptr noundef nonnull align 8 deref
   br label %135
 
 95:                                               ; preds = %84
-  %96 = icmp ult i32 %72, %77
-  %97 = icmp ult i32 %82, %87
+  %96 = icmp samesign ult i32 %72, %77
+  %97 = icmp samesign ult i32 %82, %87
   %or.cond = or i1 %96, %97
   br i1 %or.cond, label %98, label %.lr.ph.preheader.i.i
 
@@ -5937,16 +5937,16 @@ _ZNK2cv3Mat5emptyEv.exit.thread:                  ; preds = %2, %_ZNK2cv3Mat8ele
   resume { ptr, i32 } %.pn
 
 60:                                               ; preds = %_ZNK2cv3Mat5emptyEv.exit.thread
-  %61 = icmp ugt i64 %50, 2147483647
+  %61 = icmp samesign ugt i64 %50, 2147483647
   br i1 %61, label %62, label %69
 
 62:                                               ; preds = %60
-  %63 = icmp ugt i64 %50, 2199023254528
+  %63 = icmp samesign ugt i64 %50, 2199023254528
   br i1 %63, label %64, label %69
 
 64:                                               ; preds = %62
-  %65 = icmp ugt i64 %50, 2251799812636672
-  %66 = icmp ugt i64 %50, 2305843008139952128
+  %65 = icmp samesign ugt i64 %50, 2251799812636672
+  %66 = icmp samesign ugt i64 %50, 2305843008139952128
   %67 = select i1 %66, i32 2147483647, i32 1073741824
   %68 = select i1 %65, i32 %67, i32 1048576
   br label %69
@@ -7263,7 +7263,7 @@ define void @_ZNK2cv3Mat7reshapeEiiPKi(ptr dead_on_unwind noalias writable sret(
   br label %61
 
 51:                                               ; preds = %45
-  %52 = icmp ult i32 %2, 513
+  %52 = icmp samesign ult i32 %2, 513
   br i1 %52, label %61, label %53
 
 53:                                               ; preds = %51

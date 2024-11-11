@@ -338,7 +338,7 @@ searchChar.exit:                                  ; preds = %157
   %178 = sext i32 %177 to i64
   %179 = tail call ptr @palloc(i64 noundef %178) #9
   %180 = zext nneg i32 %170 to i64
-  %181 = icmp ult i32 %170, 127
+  %181 = icmp samesign ult i32 %170, 127
   br i1 %181, label %182, label %186
 
 182:                                              ; preds = %172

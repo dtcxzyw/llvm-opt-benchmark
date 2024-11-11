@@ -31072,7 +31072,7 @@ define noundef ptr @proto_tree_add_bits_ret_val(ptr noundef %0, i32 noundef %1, 
   %46 = and i32 %45, 255
   %47 = add nuw nsw i32 %46, 7
   %48 = lshr i32 %47, 3
-  %49 = icmp ult i32 %4, 65
+  %49 = icmp samesign ult i32 %4, 65
   br i1 %49, label %56, label %50
 
 50:                                               ; preds = %42
@@ -32231,7 +32231,7 @@ proto_item_is_hidden.exit.thread.i:               ; preds = %65, %58, %proto_ite
   %.not115.i = icmp ne i32 %88, 0
   %89 = zext i1 %.not115.i to i32
   %spec.select.i = add nuw nsw i32 %87, %89
-  %90 = icmp ult i32 %4, 65
+  %90 = icmp samesign ult i32 %4, 65
   br i1 %90, label %91, label %104
 
 91:                                               ; preds = %82

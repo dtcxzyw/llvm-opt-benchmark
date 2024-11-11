@@ -77,7 +77,7 @@ define noundef i32 @Cudd_ApaAdd(i32 noundef %0, ptr nocapture noundef readonly %
   %11 = add i32 %10, %8
   %12 = getelementptr inbounds i32, ptr %3, i64 %indvars.iv.next
   store i32 %11, ptr %12, align 4
-  %13 = icmp ugt i64 %indvars.iv, 1
+  %13 = icmp samesign ugt i64 %indvars.iv, 1
   br i1 %13, label %.lr.ph, label %._crit_edge, !llvm.loop !6
 
 ._crit_edge:                                      ; preds = %.lr.ph, %4
@@ -110,7 +110,7 @@ define range(i32 -1, 1) i32 @Cudd_ApaSubtract(i32 noundef %0, ptr nocapture noun
   %17 = trunc i64 %16 to i32
   %18 = getelementptr inbounds i32, ptr %3, i64 %indvars.iv.next
   store i32 %17, ptr %18, align 4
-  %19 = icmp ugt i64 %indvars.iv, 1
+  %19 = icmp samesign ugt i64 %indvars.iv, 1
   br i1 %19, label %.lr.ph, label %._crit_edge.loopexit, !llvm.loop !7
 
 ._crit_edge.loopexit:                             ; preds = %.lr.ph
@@ -218,7 +218,7 @@ define void @Cudd_ApaShiftRight(i32 noundef %0, i32 noundef %1, ptr nocapture no
   %10 = tail call i32 @llvm.fshl.i32(i32 %9, i32 %8, i32 31)
   %11 = getelementptr inbounds i32, ptr %3, i64 %indvars.iv.next
   store i32 %10, ptr %11, align 4
-  %12 = icmp ugt i64 %indvars.iv, 2
+  %12 = icmp samesign ugt i64 %indvars.iv, 2
   br i1 %12, label %.lr.ph, label %._crit_edge, !llvm.loop !10
 
 ._crit_edge:                                      ; preds = %.lr.ph, %4
@@ -1007,7 +1007,7 @@ Cudd_ApaSetToLiteral.exit:                        ; preds = %35, %.lr.ph.prehead
   %80 = trunc i64 %79 to i32
   %81 = getelementptr inbounds i32, ptr %57, i64 %indvars.iv.next.i
   store i32 %80, ptr %81, align 4
-  %82 = icmp ugt i64 %indvars.iv.i, 1
+  %82 = icmp samesign ugt i64 %indvars.iv.i, 1
   br i1 %82, label %.lr.ph.i, label %Cudd_ApaSubtract.exit, !llvm.loop !7
 
 83:                                               ; preds = %65
@@ -1160,7 +1160,7 @@ define internal fastcc ptr @cuddApaCountMintermAux(ptr noundef %0, i32 noundef %
   %70 = trunc i64 %69 to i32
   %71 = getelementptr inbounds i32, ptr %43, i64 %indvars.iv.next.i
   store i32 %70, ptr %71, align 4
-  %72 = icmp ugt i64 %indvars.iv.i, 1
+  %72 = icmp samesign ugt i64 %indvars.iv.i, 1
   br i1 %72, label %.lr.ph.i, label %.lr.ph.i71, !llvm.loop !7
 
 .lr.ph.i71:                                       ; preds = %.lr.ph.i, %.lr.ph.i71
@@ -1172,7 +1172,7 @@ define internal fastcc ptr @cuddApaCountMintermAux(ptr noundef %0, i32 noundef %
   %76 = load i32, ptr %75, align 4
   %77 = add i32 %76, %74
   store i32 %77, ptr %75, align 4
-  %78 = icmp ugt i64 %indvars.iv.i72, 1
+  %78 = icmp samesign ugt i64 %indvars.iv.i72, 1
   br i1 %78, label %.lr.ph.i71, label %Cudd_ApaAdd.exit, !llvm.loop !6
 
 79:                                               ; preds = %55
@@ -1192,7 +1192,7 @@ define internal fastcc ptr @cuddApaCountMintermAux(ptr noundef %0, i32 noundef %
   %85 = add i32 %84, %82
   %86 = getelementptr inbounds i32, ptr %43, i64 %indvars.iv.next.i77
   store i32 %85, ptr %86, align 4
-  %87 = icmp ugt i64 %indvars.iv.i76, 1
+  %87 = icmp samesign ugt i64 %indvars.iv.i76, 1
   br i1 %87, label %.lr.ph.i75, label %Cudd_ApaAdd.exit, !llvm.loop !6
 
 Cudd_ApaAdd.exit:                                 ; preds = %.lr.ph.i71, %.lr.ph.i75
@@ -1213,7 +1213,7 @@ Cudd_ApaAdd.exit:                                 ; preds = %.lr.ph.i71, %.lr.ph
   %92 = load i32, ptr %gep.i, align 4
   %93 = call i32 @llvm.fshl.i32(i32 %92, i32 %91, i32 31)
   store i32 %93, ptr %90, align 4
-  %94 = icmp ugt i64 %indvars.iv.i81, 2
+  %94 = icmp samesign ugt i64 %indvars.iv.i81, 2
   br i1 %94, label %.lr.ph.i80, label %Cudd_ApaShiftRight.exit, !llvm.loop !10
 
 Cudd_ApaShiftRight.exit:                          ; preds = %.lr.ph.i80, %58, %79, %Cudd_ApaAdd.exit

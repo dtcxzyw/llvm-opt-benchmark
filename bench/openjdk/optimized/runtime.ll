@@ -2503,7 +2503,7 @@ define internal fastcc noundef ptr @_ZL19make_arraycopy_Type13ArrayCopyType(i32 
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 2
   %22 = getelementptr i8, ptr %20, i64 8
   store ptr %21, ptr %22, align 8
-  %23 = icmp ugt i32 %.042, 1
+  %23 = icmp samesign ugt i32 %.042, 1
   br i1 %23, label %.lr.ph, label %._crit_edge.loopexit, !llvm.loop !16
 
 ._crit_edge.loopexit:                             ; preds = %.lr.ph

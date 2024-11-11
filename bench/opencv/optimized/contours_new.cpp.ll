@@ -1823,7 +1823,7 @@ define hidden noundef zeroext i1 @_ZN15ContourScanner_11contourScanEiRiRN2cv6Poi
   br i1 %or.cond3, label %140, label %26
 
 26:                                               ; preds = %23
-  %.not = icmp ult i32 %1, 2
+  %.not = icmp samesign ult i32 %1, 2
   br i1 %.not, label %29, label %27
 
 27:                                               ; preds = %26
@@ -2161,7 +2161,7 @@ define hidden noundef i32 @_ZN15ContourScanner_24findFirstBoundingContourERKN2cv
   %.261.i = phi i8 [ %89, %88 ], [ %.160.i, %87 ]
   %89 = add nuw nsw i8 %.261.i, 1
   %.urem.i = add nsw i8 %.261.i, -7
-  %.cmp.i = icmp ult i8 %.261.i, 7
+  %.cmp.i = icmp samesign ult i8 %.261.i, 7
   %90 = select i1 %.cmp.i, i8 %89, i8 %.urem.i
   %91 = sext i8 %90 to i64
   %92 = getelementptr inbounds [8 x %"class.cv::Point_"], ptr @_ZN2cvL15chainCodeDeltasE, i64 0, i64 %91
@@ -2176,7 +2176,7 @@ define hidden noundef i32 @_ZN15ContourScanner_24findFirstBoundingContourERKN2cv
   %97 = xor i32 %.val71.i, %.val70.i
   %98 = and i32 %97, 1073741823
   %99 = icmp eq i32 %98, 0
-  %100 = icmp ugt i8 %.261.i, 13
+  %100 = icmp samesign ugt i8 %.261.i, 13
   %or.cond.not.i = or i1 %100, %99
   br i1 %or.cond.not.i, label %101, label %88, !llvm.loop !41
 
@@ -2264,7 +2264,7 @@ _ZN12_GLOBAL__N_115icvTraceContourIiEEbRN2cv3MatERKNS1_6Point_IiEES7_b.exit: ; p
   %.261.i34 = phi i8 [ %142, %141 ], [ %.16018.i, %.preheader6.i ]
   %142 = add nuw nsw i8 %.261.i34, 1
   %.urem.i35 = add nsw i8 %.261.i34, -7
-  %.cmp.i36 = icmp ult i8 %.261.i34, 7
+  %.cmp.i36 = icmp samesign ult i8 %.261.i34, 7
   %143 = select i1 %.cmp.i36, i8 %142, i8 %.urem.i35
   %144 = sext i8 %143 to i64
   %145 = getelementptr inbounds [8 x %"class.cv::Point_"], ptr @_ZN2cvL15chainCodeDeltasE, i64 0, i64 %144
@@ -2277,7 +2277,7 @@ _ZN12_GLOBAL__N_115icvTraceContourIiEEbRN2cv3MatERKNS1_6Point_IiEES7_b.exit: ; p
   %149 = getelementptr inbounds i8, ptr %.06217.i, i64 %148
   %.val70.i37 = load i8, ptr %149, align 1
   %150 = icmp ne i8 %.val70.i37, 0
-  %151 = icmp ugt i8 %.261.i34, 13
+  %151 = icmp samesign ugt i8 %.261.i34, 13
   %or.cond.not.i38 = or i1 %151, %150
   br i1 %or.cond.not.i38, label %152, label %141, !llvm.loop !45
 

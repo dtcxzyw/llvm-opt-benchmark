@@ -719,7 +719,7 @@ define internal range(i32 0, 2) i32 @check_z21_header(ptr nocapture readnone %0,
   %8 = tail call zeroext i16 @tvb_get_guint16(ptr noundef %1, i32 noundef %2, i32 noundef -2147483648) #2
   %9 = zext i16 %8 to i32
   %10 = icmp ult i16 %8, 4
-  %11 = icmp ult i32 %5, %9
+  %11 = icmp samesign ult i32 %5, %9
   %or.cond = or i1 %10, %11
   br i1 %or.cond, label %17, label %12
 

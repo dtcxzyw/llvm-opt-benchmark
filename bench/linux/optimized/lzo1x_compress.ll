@@ -696,7 +696,7 @@ define internal fastcc void @lzogeneric1x_1_compress(ptr noundef %0, i64 noundef
 
 438:                                              ; preds = %417, %404
   %439 = phi ptr [ %407, %404 ], [ %416, %417 ]
-  %440 = icmp ugt i64 %395, 15
+  %440 = icmp samesign ugt i64 %395, 15
   br i1 %440, label %.preheader10.preheader, label %.preheader.preheader
 
 .preheader10.preheader:                           ; preds = %.thread120, %438

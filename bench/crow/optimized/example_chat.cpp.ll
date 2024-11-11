@@ -41804,7 +41804,7 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZN4crow8response18validate_mi
   br i1 %48, label %90, label %51
 
 49:                                               ; preds = %1
-  %50 = icmp ugt i64 %43, 6
+  %50 = icmp samesign ugt i64 %43, 6
   br i1 %50, label %51, label %54
 
 51:                                               ; preds = %49, %46
@@ -56097,7 +56097,7 @@ define linkonce_odr dso_local noundef i64 @_ZNK4asio6detail11timer_queueINS0_18c
 16:                                               ; preds = %14
   %17 = sub nuw nsw i64 9223372036854775807, %10
   %18 = sub nsw i64 0, %9
-  %19 = icmp ult i64 %17, %18
+  %19 = icmp samesign ult i64 %17, %18
   %20 = sub nsw i64 %10, %9
   br i1 %19, label %28, label %30
 
@@ -56156,7 +56156,7 @@ define linkonce_odr dso_local noundef i64 @_ZNK4asio6detail11timer_queueINS0_18c
 16:                                               ; preds = %14
   %17 = sub nuw nsw i64 9223372036854775807, %10
   %18 = sub nsw i64 0, %9
-  %19 = icmp ult i64 %17, %18
+  %19 = icmp samesign ult i64 %17, %18
   %20 = sub nsw i64 %10, %9
   br i1 %19, label %28, label %30
 
@@ -59846,7 +59846,7 @@ define linkonce_odr dso_local noundef i64 @_ZNK4asio6detail11timer_queueINS0_18c
 16:                                               ; preds = %14
   %17 = sub nuw nsw i64 9223372036854775807, %10
   %18 = sub nsw i64 0, %9
-  %19 = icmp ult i64 %17, %18
+  %19 = icmp samesign ult i64 %17, %18
   %20 = sub nsw i64 %10, %9
   br i1 %19, label %28, label %30
 
@@ -59905,7 +59905,7 @@ define linkonce_odr dso_local noundef i64 @_ZNK4asio6detail11timer_queueINS0_18c
 16:                                               ; preds = %14
   %17 = sub nuw nsw i64 9223372036854775807, %10
   %18 = sub nsw i64 0, %9
-  %19 = icmp ult i64 %17, %18
+  %19 = icmp samesign ult i64 %17, %18
   %20 = sub nsw i64 %10, %9
   br i1 %19, label %28, label %30
 
@@ -76329,7 +76329,7 @@ define linkonce_odr dso_local noundef i64 @_ZN4crow8qs_parseEPcPS0_mb(ptr nounde
   br label %74
 
 70:                                               ; preds = %65
-  %71 = icmp ugt i8 %51, 96
+  %71 = icmp samesign ugt i8 %51, 96
   %72 = add nsw i8 %51, -87
   %73 = select i1 %71, i8 %72, i8 0
   br label %74
@@ -76349,7 +76349,7 @@ define linkonce_odr dso_local noundef i64 @_ZN4crow8qs_parseEPcPS0_mb(ptr nounde
   br label %86
 
 82:                                               ; preds = %77
-  %83 = icmp ugt i8 %60, 96
+  %83 = icmp samesign ugt i8 %60, 96
   %84 = add nsw i8 %60, -87
   %85 = select i1 %83, i8 %84, i8 0
   br label %86

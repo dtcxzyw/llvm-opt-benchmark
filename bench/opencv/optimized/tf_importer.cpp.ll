@@ -42966,7 +42966,7 @@ define linkonce_odr hidden void @_ZN6google8protobuf3MapINSt7__cxx1112basic_stri
 
 23:                                               ; preds = %13
   %24 = lshr i64 %18, 6
-  %.not18.i = icmp ule i64 %15, %24
+  %.not18.i = icmp samesign ule i64 %15, %24
   %25 = icmp ugt i64 %17, 8
   %or.cond.i = and i1 %25, %.not18.i
   br i1 %or.cond.i, label %26, label %_ZN6google8protobuf3MapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN17opencv_tensorflow9AttrValueEE8InnerMap24ResizeIfLoadIsOutOfRangeEm.exit.thread
@@ -46557,7 +46557,7 @@ _ZSt22__uninitialized_move_aIPN2cv3MatES2_SaIS1_EET0_T_S5_S4_RT1_.exit: ; preds 
 
 .noexc:                                           ; preds = %.lr.ph.i.i.i.i.i68
   %37 = add nsw i64 %.010.i.i.i.i.i, -1
-  %38 = icmp ugt i64 %.010.i.i.i.i.i, 1
+  %38 = icmp samesign ugt i64 %.010.i.i.i.i.i, 1
   br i1 %38, label %.lr.ph.i.i.i.i.i68, label %_ZSt13move_backwardIPN2cv3MatES2_ET0_T_S4_S3_.exit, !llvm.loop !313
 
 _ZSt13move_backwardIPN2cv3MatES2_ET0_T_S4_S3_.exit: ; preds = %.noexc, %_ZSt22__uninitialized_move_aIPN2cv3MatES2_SaIS1_EET0_T_S5_S4_RT1_.exit
@@ -47718,14 +47718,14 @@ define internal fastcc noundef range(i32 0, 4) i32 @_ZN2cv3dnn14dnn4_v2024052112
 
 17:                                               ; preds = %15
   %.urem = add nsw i32 %0, -3
-  %.cmp = icmp ult i32 %0, 3
+  %.cmp = icmp samesign ult i32 %0, 3
   %18 = select i1 %.cmp, i32 %0, i32 %.urem
   %19 = add nuw nsw i32 %18, 1
   br label %23
 
 20:                                               ; preds = %15
   %.urem13 = add nsw i32 %0, 1
-  %.cmp14 = icmp ult i32 %4, 3
+  %.cmp14 = icmp samesign ult i32 %4, 3
   %21 = select i1 %.cmp14, i32 %4, i32 %.urem13
   %22 = add nuw nsw i32 %21, 1
   br label %23

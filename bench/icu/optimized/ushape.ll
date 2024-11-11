@@ -529,7 +529,7 @@ if.then268:                                       ; preds = %if.end266
   br label %return
 
 if.else270:                                       ; preds = %if.end95
-  %cmp271 = icmp ult i32 %destCapacity, %sourceLength.addr.0
+  %cmp271 = icmp samesign ult i32 %destCapacity, %sourceLength.addr.0
   br i1 %cmp271, label %if.then272, label %if.end273
 
 if.then272:                                       ; preds = %if.else270
@@ -2313,7 +2313,7 @@ if.then30:                                        ; preds = %land.lhs.true26
 
 sw.epilog39:                                      ; preds = %for.body17, %sw.bb24, %land.lhs.true26, %if.then30, %sw.bb23, %sw.bb22
   %lastStrongWasAL.addr.3 = phi i8 [ %lastStrongWasAL.addr.224, %for.body17 ], [ 1, %if.then30 ], [ 1, %land.lhs.true26 ], [ 0, %sw.bb24 ], [ 1, %sw.bb23 ], [ 0, %sw.bb22 ]
-  %cmp16 = icmp ugt i64 %indvars.iv27, 1
+  %cmp16 = icmp samesign ugt i64 %indvars.iv27, 1
   br i1 %cmp16, label %for.body17, label %if.end41, !llvm.loop !26
 
 if.end41:                                         ; preds = %for.inc, %sw.epilog39, %for.cond.preheader, %for.cond15.preheader

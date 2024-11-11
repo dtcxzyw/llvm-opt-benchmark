@@ -23001,7 +23001,7 @@ do.body78:                                        ; preds = %if.then65
   br label %do.end120
 
 if.then102:                                       ; preds = %if.then65
-  %cmp103 = icmp ult i32 %call69, 1706
+  %cmp103 = icmp samesign ult i32 %call69, 1706
   br i1 %cmp103, label %do.end120, label %do.body106
 
 do.body106:                                       ; preds = %if.then102
@@ -23048,7 +23048,7 @@ do.body140:                                       ; preds = %if.then128
   br label %do.end266.sink.split
 
 if.then164:                                       ; preds = %if.then128
-  %cmp165 = icmp ult i32 %call131, 1706
+  %cmp165 = icmp samesign ult i32 %call131, 1706
   br i1 %cmp165, label %if.then190, label %do.body168
 
 do.body168:                                       ; preds = %if.then164
@@ -23094,7 +23094,7 @@ do.body224:                                       ; preds = %if.then211
   br label %do.end266.sink.split
 
 if.then248:                                       ; preds = %if.then211
-  %cmp249 = icmp ult i32 %call215, 1706
+  %cmp249 = icmp samesign ult i32 %call215, 1706
   br i1 %cmp249, label %do.end266, label %do.body252
 
 do.body252:                                       ; preds = %if.then248

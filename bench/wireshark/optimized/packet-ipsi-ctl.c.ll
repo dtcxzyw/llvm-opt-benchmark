@@ -166,7 +166,7 @@ define internal i32 @dissect_ipsictl(ptr noundef %0, ptr nocapture noundef reado
 54:                                               ; preds = %48
   %55 = add i32 %.0133183197, 8
   %56 = add i32 %38, -8
-  %57 = icmp ugt i32 %56, 1
+  %57 = icmp samesign ugt i32 %56, 1
   br i1 %57, label %64, label %.thread169
 
 .thread166:                                       ; preds = %.thread158
@@ -175,12 +175,12 @@ define internal i32 @dissect_ipsictl(ptr noundef %0, ptr nocapture noundef reado
   %60 = tail call ptr @proto_tree_add_uint(ptr noundef %37, i32 noundef %58, ptr noundef %0, i32 noundef %20, i32 noundef 2, i32 noundef %59) #2
   %61 = add i32 %.0133183197, 8
   %62 = add i32 %38, -8
-  %63 = icmp ugt i32 %62, 1
+  %63 = icmp samesign ugt i32 %62, 1
   br i1 %63, label %.thread174, label %.thread169
 
 64:                                               ; preds = %54
   %65 = add i32 %.0133183197, 10
-  %66 = icmp ugt i32 %56, 3
+  %66 = icmp samesign ugt i32 %56, 3
   br i1 %66, label %75, label %.thread169
 
 .thread174:                                       ; preds = %.thread166
@@ -188,7 +188,7 @@ define internal i32 @dissect_ipsictl(ptr noundef %0, ptr nocapture noundef reado
   %68 = zext i16 %.1 to i32
   %69 = tail call ptr @proto_tree_add_uint(ptr noundef %37, i32 noundef %67, ptr noundef %0, i32 noundef %61, i32 noundef 2, i32 noundef %68) #2
   %70 = add i32 %.0133183197, 10
-  %71 = icmp ugt i32 %62, 3
+  %71 = icmp samesign ugt i32 %62, 3
   br i1 %71, label %72, label %.thread169
 
 72:                                               ; preds = %.thread174

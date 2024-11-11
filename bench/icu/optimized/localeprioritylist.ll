@@ -952,7 +952,7 @@ if.else:                                          ; preds = %while.body
   br i1 %cmp25, label %if.then26, label %if.end32
 
 if.then26:                                        ; preds = %if.else
-  %cmp28 = icmp ugt i8 %8, 4
+  %cmp28 = icmp samesign ugt i8 %8, 4
   %inc = zext i1 %cmp28 to i32
   %spec.select = add nsw i32 %weight.027, %inc
   br label %if.end32
@@ -1165,7 +1165,7 @@ if.end82:                                         ; preds = %invoke.cont76
   store i32 %inc95, ptr %listLength, align 8
   %index96 = getelementptr inbounds i8, ptr %arrayidx.i39, i64 12
   store i32 %23, ptr %index96, align 4
-  %cmp97 = icmp ult i32 %weight, 1000
+  %cmp97 = icmp samesign ult i32 %weight, 1000
   br i1 %cmp97, label %if.then98, label %return
 
 if.then98:                                        ; preds = %if.end82

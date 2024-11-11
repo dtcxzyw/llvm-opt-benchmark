@@ -3134,7 +3134,7 @@ _ZN5Yosys5RTLIL8IdStringD2Ev.exit67.i:            ; preds = %1169, %1163, %"_ZZN
   br label %_ZNSt5dequeIPN5Yosys5RTLIL4CellESaIS3_EE9push_backERKS3_.exit.i
 
 1181:                                             ; preds = %1080
-  %1182 = icmp ult i32 %1081, 26
+  %1182 = icmp samesign ult i32 %1081, 26
   br i1 %1182, label %1183, label %1278
 
 1183:                                             ; preds = %1181
@@ -81627,7 +81627,7 @@ _ZNSt12_Vector_baseIN5Yosys5RTLIL8SigChunkESaIS2_EE13_M_deallocateEPS2_m.exit: ;
   %45 = getelementptr inbounds i8, ptr %.0910.i.i.i.i.i, i64 40
   %46 = getelementptr inbounds i8, ptr %.0811.i.i.i.i.i, i64 40
   %47 = add nsw i64 %.012.i.i.i.i.i, -1
-  %48 = icmp ugt i64 %.012.i.i.i.i.i, 1
+  %48 = icmp samesign ugt i64 %.012.i.i.i.i.i, 1
   br i1 %48, label %.lr.ph.i.i.i.i.i, label %_ZSt4copyIN9__gnu_cxx17__normal_iteratorIPKN5Yosys5RTLIL8SigChunkESt6vectorIS4_SaIS4_EEEENS1_IPS4_S9_EEET0_T_SE_SD_.exit.loopexit, !llvm.loop !780
 
 _ZSt4copyIN9__gnu_cxx17__normal_iteratorIPKN5Yosys5RTLIL8SigChunkESt6vectorIS4_SaIS4_EEEENS1_IPS4_S9_EEET0_T_SE_SD_.exit.loopexit: ; preds = %.lr.ph.i.i.i.i.i
@@ -81687,7 +81687,7 @@ _ZSt8_DestroyIN5Yosys5RTLIL8SigChunkEEvPT_.exit.i.i.i28: ; preds = %54, %.lr.ph.
   %66 = getelementptr inbounds i8, ptr %.0910.i.i.i.i.i35, i64 40
   %67 = getelementptr inbounds i8, ptr %.0811.i.i.i.i.i34, i64 40
   %68 = add nsw i64 %.012.i.i.i.i.i33, -1
-  %69 = icmp ugt i64 %.012.i.i.i.i.i33, 1
+  %69 = icmp samesign ugt i64 %.012.i.i.i.i.i33, 1
   br i1 %69, label %.lr.ph.i.i.i.i.i32, label %_ZSt4copyIPN5Yosys5RTLIL8SigChunkES3_ET0_T_S5_S4_.exit.loopexit, !llvm.loop !782
 
 _ZSt4copyIPN5Yosys5RTLIL8SigChunkES3_ET0_T_S5_S4_.exit.loopexit: ; preds = %.lr.ph.i.i.i.i.i32
@@ -150224,7 +150224,7 @@ _ZNSt12_Vector_baseISt5tupleIJPN5Yosys5RTLIL4CellEiiiEESaIS5_EE13_M_deallocateEP
   %47 = getelementptr inbounds i8, ptr %.0910.i.i.i.i.i, i64 24
   %48 = getelementptr inbounds i8, ptr %.0811.i.i.i.i.i, i64 24
   %49 = add nsw i64 %.012.i.i.i.i.i, -1
-  %50 = icmp ugt i64 %.012.i.i.i.i.i, 1
+  %50 = icmp samesign ugt i64 %.012.i.i.i.i.i, 1
   br i1 %50, label %.lr.ph.i.i.i.i.i, label %_ZSt22__uninitialized_copy_aIPSt5tupleIJPN5Yosys5RTLIL4CellEiiiEES6_S5_ET0_T_S8_S7_RSaIT1_E.exit, !llvm.loop !1168
 
 51:                                               ; preds = %29
@@ -150256,7 +150256,7 @@ _ZNSt12_Vector_baseISt5tupleIJPN5Yosys5RTLIL4CellEiiiEESaIS5_EE13_M_deallocateEP
   %64 = getelementptr inbounds i8, ptr %.0910.i.i.i.i.i30, i64 24
   %65 = getelementptr inbounds i8, ptr %.0811.i.i.i.i.i29, i64 24
   %66 = add nsw i64 %.012.i.i.i.i.i28, -1
-  %67 = icmp ugt i64 %.012.i.i.i.i.i28, 1
+  %67 = icmp samesign ugt i64 %.012.i.i.i.i.i28, 1
   br i1 %67, label %.lr.ph.i.i.i.i.i27, label %_ZSt4copyIPSt5tupleIJPN5Yosys5RTLIL4CellEiiiEES6_ET0_T_S8_S7_.exit.loopexit, !llvm.loop !1169
 
 _ZSt4copyIPSt5tupleIJPN5Yosys5RTLIL4CellEiiiEES6_ET0_T_S8_S7_.exit.loopexit: ; preds = %.lr.ph.i.i.i.i.i27

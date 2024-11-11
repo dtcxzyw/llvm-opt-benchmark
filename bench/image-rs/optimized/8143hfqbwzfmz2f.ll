@@ -23528,7 +23528,7 @@ switch.lookup:                                    ; preds = %109
   br i1 %163, label %164, label %166
 
 164:                                              ; preds = %159
-  %165 = icmp ugt i8 %161, %155
+  %165 = icmp samesign ugt i8 %161, %155
   br i1 %165, label %"_ZN5image6codecs3tga7decoder19TgaDecoder$LT$R$GT$3new17hccb142e074d89f9bE.exit.thread", label %168
 
 166:                                              ; preds = %159
@@ -30695,7 +30695,7 @@ switch.lookup:                                    ; preds = %22
   br i1 %76, label %77, label %79
 
 77:                                               ; preds = %72
-  %78 = icmp ugt i8 %74, %68
+  %78 = icmp samesign ugt i8 %74, %68
   br i1 %78, label %104, label %81
 
 79:                                               ; preds = %72

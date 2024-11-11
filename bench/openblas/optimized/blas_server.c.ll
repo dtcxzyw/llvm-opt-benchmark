@@ -601,7 +601,7 @@ define noundef i32 @exec_blas(i64 noundef %0, ptr noundef readonly %1) local_unn
   br i1 %10, label %77, label %11
 
 11:                                               ; preds = %7
-  %12 = icmp ugt i64 %0, 1
+  %12 = icmp samesign ugt i64 %0, 1
   %13 = icmp ne ptr @omp_in_parallel, null
   %14 = and i1 %13, %12
   br i1 %14, label %15, label %21

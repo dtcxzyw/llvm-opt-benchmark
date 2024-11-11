@@ -7033,7 +7033,7 @@ while.body.us69.i.i.i.i.i.i:                      ; preds = %while.body.lr.ph.sp
   %add13.us.i.i.i.i.i.i = add nuw nsw i32 %lower.066.us70.i.i.i.i.i.i, %155
   %div15.us.i.i.i.i.i.i = lshr i32 %add13.us.i.i.i.i.i.i, 1
   %add22.us79.i.i.i.i.i.i = add nuw nsw i32 %div15.us.i.i.i.i.i.i, 1
-  %cmp5.us82.i.i.i.i.i.i = icmp ult i32 %add22.us79.i.i.i.i.i.i, %155
+  %cmp5.us82.i.i.i.i.i.i = icmp samesign ult i32 %add22.us79.i.i.i.i.i.i, %155
   br i1 %cmp5.us82.i.i.i.i.i.i, label %while.body.us69.i.i.i.i.i.i, label %_ZN8facebook5velox9functions12_GLOBAL__N_111widthBucketIdEEldRNS0_13DecodedVectorEii.exit.i.i.i.i.i, !llvm.loop !70
 
 if.then3.i.i.i.i.i.i:                             ; preds = %if.end.i.i.i.i.i.i
@@ -10194,7 +10194,7 @@ if.end12.us.i.i.i.i.i.i:                          ; preds = %while.body.lr.ph.sp
   %add13.us.i.i.i.i.i.i = add nuw nsw i32 %lower.065.us69.i.i.i.i.i.i, %155
   %div15.us.i.i.i.i.i.i = lshr i32 %add13.us.i.i.i.i.i.i, 1
   %add22.us78.i.i.i.i.i.i = add nuw nsw i32 %div15.us.i.i.i.i.i.i, 1
-  %cmp5.us81.i.i.i.i.i.i = icmp ult i32 %add22.us78.i.i.i.i.i.i, %155
+  %cmp5.us81.i.i.i.i.i.i = icmp samesign ult i32 %add22.us78.i.i.i.i.i.i, %155
   br i1 %cmp5.us81.i.i.i.i.i.i, label %if.end12.us.i.i.i.i.i.i, label %_ZN8facebook5velox9functions12_GLOBAL__N_111widthBucketIlEEldRNS0_13DecodedVectorEii.exit.i.i.i.i.i, !llvm.loop !88
 
 if.then3.i.i.i.i.i.i:                             ; preds = %if.end.i.i.i.i.i.i

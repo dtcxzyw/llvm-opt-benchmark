@@ -3412,7 +3412,7 @@ from_char_set_int.exit472.i:                      ; preds = %531
   br i1 %857, label %DCH_from_char.exit, label %858
 
 858:                                              ; preds = %853
-  %859 = icmp ult i32 %856, 4
+  %859 = icmp samesign ult i32 %856, 4
   br i1 %859, label %860, label %876
 
 860:                                              ; preds = %858
@@ -3425,7 +3425,7 @@ from_char_set_int.exit472.i:                      ; preds = %531
   br label %adjust_partial_year_to_2020.exit.i
 
 865:                                              ; preds = %860
-  %866 = icmp ult i32 %861, 100
+  %866 = icmp samesign ult i32 %861, 100
   br i1 %866, label %867, label %869
 
 867:                                              ; preds = %865
@@ -3433,7 +3433,7 @@ from_char_set_int.exit472.i:                      ; preds = %531
   br label %adjust_partial_year_to_2020.exit.i
 
 869:                                              ; preds = %865
-  %870 = icmp ult i32 %861, 520
+  %870 = icmp samesign ult i32 %861, 520
   br i1 %870, label %871, label %873
 
 871:                                              ; preds = %869
@@ -3441,7 +3441,7 @@ from_char_set_int.exit472.i:                      ; preds = %531
   br label %adjust_partial_year_to_2020.exit.i
 
 873:                                              ; preds = %869
-  %874 = icmp ult i32 %861, 1000
+  %874 = icmp samesign ult i32 %861, 1000
   %875 = add nuw nsw i32 %861, 1000
   %spec.select.i485.i = select i1 %874, i32 %875, i32 %861
   br label %adjust_partial_year_to_2020.exit.i
@@ -3491,7 +3491,7 @@ adjust_partial_year_to_2020.exit.i:               ; preds = %873, %871, %867, %8
   br i1 %898, label %DCH_from_char.exit, label %899
 
 899:                                              ; preds = %894
-  %900 = icmp ult i32 %897, 4
+  %900 = icmp samesign ult i32 %897, 4
   br i1 %900, label %901, label %917
 
 901:                                              ; preds = %899
@@ -3504,7 +3504,7 @@ adjust_partial_year_to_2020.exit.i:               ; preds = %873, %871, %867, %8
   br label %adjust_partial_year_to_2020.exit489.i
 
 906:                                              ; preds = %901
-  %907 = icmp ult i32 %902, 100
+  %907 = icmp samesign ult i32 %902, 100
   br i1 %907, label %908, label %910
 
 908:                                              ; preds = %906
@@ -3512,7 +3512,7 @@ adjust_partial_year_to_2020.exit.i:               ; preds = %873, %871, %867, %8
   br label %adjust_partial_year_to_2020.exit489.i
 
 910:                                              ; preds = %906
-  %911 = icmp ult i32 %902, 520
+  %911 = icmp samesign ult i32 %902, 520
   br i1 %911, label %912, label %914
 
 912:                                              ; preds = %910
@@ -3520,7 +3520,7 @@ adjust_partial_year_to_2020.exit.i:               ; preds = %873, %871, %867, %8
   br label %adjust_partial_year_to_2020.exit489.i
 
 914:                                              ; preds = %910
-  %915 = icmp ult i32 %902, 1000
+  %915 = icmp samesign ult i32 %902, 1000
   %916 = add nuw nsw i32 %902, 1000
   %spec.select.i487.i = select i1 %915, i32 %916, i32 %902
   br label %adjust_partial_year_to_2020.exit489.i
@@ -3570,7 +3570,7 @@ adjust_partial_year_to_2020.exit489.i:            ; preds = %914, %912, %908, %9
   br i1 %939, label %DCH_from_char.exit, label %940
 
 940:                                              ; preds = %935
-  %941 = icmp ult i32 %938, 4
+  %941 = icmp samesign ult i32 %938, 4
   br i1 %941, label %942, label %958
 
 942:                                              ; preds = %940
@@ -3583,7 +3583,7 @@ adjust_partial_year_to_2020.exit489.i:            ; preds = %914, %912, %908, %9
   br label %adjust_partial_year_to_2020.exit492.i
 
 947:                                              ; preds = %942
-  %948 = icmp ult i32 %943, 100
+  %948 = icmp samesign ult i32 %943, 100
   br i1 %948, label %949, label %951
 
 949:                                              ; preds = %947
@@ -3591,7 +3591,7 @@ adjust_partial_year_to_2020.exit489.i:            ; preds = %914, %912, %908, %9
   br label %adjust_partial_year_to_2020.exit492.i
 
 951:                                              ; preds = %947
-  %952 = icmp ult i32 %943, 520
+  %952 = icmp samesign ult i32 %943, 520
   br i1 %952, label %953, label %955
 
 953:                                              ; preds = %951
@@ -3599,7 +3599,7 @@ adjust_partial_year_to_2020.exit489.i:            ; preds = %914, %912, %908, %9
   br label %adjust_partial_year_to_2020.exit492.i
 
 955:                                              ; preds = %951
-  %956 = icmp ult i32 %943, 1000
+  %956 = icmp samesign ult i32 %943, 1000
   %957 = add nuw nsw i32 %943, 1000
   %spec.select.i490.i = select i1 %956, i32 %957, i32 %943
   br label %adjust_partial_year_to_2020.exit492.i
@@ -6365,7 +6365,7 @@ NUM_prepare_locale.exit:                          ; preds = %89, %123, %125
   %482 = tail call i32 @pg_mblen(ptr noundef nonnull %.sroa.147.13) #18
   %483 = sext i32 %482 to i64
   %484 = getelementptr i8, ptr %.sroa.147.13, i64 %483
-  %485 = icmp ugt i32 %.in.i, 1
+  %485 = icmp samesign ugt i32 %.in.i, 1
   br i1 %485, label %.lr.ph.i, label %NUM_numpart_to_char.exit, !llvm.loop !26
 
 486:                                              ; preds = %161
@@ -6494,7 +6494,7 @@ asc_tolower_z.exit344:                            ; preds = %.lr.ph.i.i340, %515
   %547 = tail call i32 @pg_mblen(ptr noundef nonnull %.sroa.147.14) #18
   %548 = sext i32 %547 to i64
   %549 = getelementptr i8, ptr %.sroa.147.14, i64 %548
-  %550 = icmp ugt i32 %.in.i347, 1
+  %550 = icmp samesign ugt i32 %.in.i347, 1
   br i1 %550, label %.preheader1, label %NUM_numpart_to_char.exit, !llvm.loop !26
 
 551:                                              ; preds = %161
@@ -6542,7 +6542,7 @@ asc_tolower_z.exit344:                            ; preds = %.lr.ph.i.i340, %515
   %570 = tail call i32 @pg_mblen(ptr noundef nonnull %.sroa.147.15) #18
   %571 = sext i32 %570 to i64
   %572 = getelementptr i8, ptr %.sroa.147.15, i64 %571
-  %573 = icmp ugt i32 %.in.i356, 1
+  %573 = icmp samesign ugt i32 %.in.i356, 1
   br i1 %573, label %.preheader4, label %NUM_numpart_to_char.exit, !llvm.loop !26
 
 574:                                              ; preds = %161

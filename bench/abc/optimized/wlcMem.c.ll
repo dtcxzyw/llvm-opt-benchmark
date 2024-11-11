@@ -1501,7 +1501,7 @@ define range(i32 0, 2) i32 @Wlc_ObjCheckIsEmpty_rec(ptr nocapture noundef readon
   br i1 %19, label %.lr.ph, label %.critedge
 
 .lr.ph:                                           ; preds = %.preheader
-  %20 = icmp ugt i32 %.val18, 2
+  %20 = icmp samesign ugt i32 %.val18, 2
   %21 = getelementptr inbounds i8, ptr %1, i64 16
   %22 = getelementptr i8, ptr %0, i64 640
   %.val17 = load ptr, ptr %22, align 8

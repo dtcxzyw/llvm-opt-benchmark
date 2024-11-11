@@ -893,7 +893,7 @@ _ZNSt12_Vector_baseIN5draco9IndexTypeIjNS0_29AttributeValueIndex_tag_type_EEESaI
   %36 = getelementptr inbounds i8, ptr %.0910.i.i.i.i.i, i64 4
   %37 = getelementptr inbounds i8, ptr %.0811.i.i.i.i.i, i64 4
   %38 = add nsw i64 %.012.i.i.i.i.i, -1
-  %39 = icmp ugt i64 %.012.i.i.i.i.i, 1
+  %39 = icmp samesign ugt i64 %.012.i.i.i.i.i, 1
   br i1 %39, label %.lr.ph.i.i.i.i.i, label %_ZSt22__uninitialized_copy_aIPN5draco9IndexTypeIjNS0_29AttributeValueIndex_tag_type_EEES4_S3_ET0_T_S6_S5_RSaIT1_E.exit, !llvm.loop !4
 
 40:                                               ; preds = %28
@@ -910,7 +910,7 @@ _ZNSt12_Vector_baseIN5draco9IndexTypeIjNS0_29AttributeValueIndex_tag_type_EEESaI
   %44 = getelementptr inbounds i8, ptr %.0910.i.i.i.i.i29, i64 4
   %45 = getelementptr inbounds i8, ptr %.0811.i.i.i.i.i28, i64 4
   %46 = add nsw i64 %.012.i.i.i.i.i27, -1
-  %47 = icmp ugt i64 %.012.i.i.i.i.i27, 1
+  %47 = icmp samesign ugt i64 %.012.i.i.i.i.i27, 1
   br i1 %47, label %.lr.ph.i.i.i.i.i26, label %_ZSt4copyIPN5draco9IndexTypeIjNS0_29AttributeValueIndex_tag_type_EEES4_ET0_T_S6_S5_.exit.loopexit, !llvm.loop !6
 
 _ZSt4copyIPN5draco9IndexTypeIjNS0_29AttributeValueIndex_tag_type_EEES4_ET0_T_S6_S5_.exit.loopexit: ; preds = %.lr.ph.i.i.i.i.i26
@@ -2371,7 +2371,7 @@ _ZSt22__uninitialized_move_aIPN5draco9IndexTypeIjNS0_29AttributeValueIndex_tag_t
   %34 = load i32, ptr %32, align 4
   store i32 %34, ptr %33, align 4
   %35 = add nsw i64 %.010.i.i.i.i.i, -1
-  %36 = icmp ugt i64 %.010.i.i.i.i.i, 1
+  %36 = icmp samesign ugt i64 %.010.i.i.i.i.i, 1
   br i1 %36, label %.lr.ph.i.i.i.i.i68, label %_ZSt13move_backwardIPN5draco9IndexTypeIjNS0_29AttributeValueIndex_tag_type_EEES4_ET0_T_S6_S5_.exit, !llvm.loop !28
 
 _ZSt13move_backwardIPN5draco9IndexTypeIjNS0_29AttributeValueIndex_tag_type_EEES4_ET0_T_S6_S5_.exit: ; preds = %.lr.ph.i.i.i.i.i68, %_ZSt22__uninitialized_move_aIPN5draco9IndexTypeIjNS0_29AttributeValueIndex_tag_type_EEES4_SaIS3_EET0_T_S7_S6_RT1_.exit

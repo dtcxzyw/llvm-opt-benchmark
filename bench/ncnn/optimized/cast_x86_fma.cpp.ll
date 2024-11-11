@@ -258,7 +258,7 @@ define hidden noundef range(i32 -100, 1) i32 @_ZNK4ncnn12Cast_x86_fma7forwardERK
   %138 = and i32 %133, 2147483640
   %wide.trip.count71.i = zext nneg i32 %129 to i64
   %139 = or disjoint i32 %138, 3
-  %140 = icmp ult i32 %139, %133
+  %140 = icmp samesign ult i32 %139, %133
   br label %.lr.ph.us.i
 
 .lr.ph.us.i:                                      ; preds = %._crit_edge.us.i, %.lr.ph.us.preheader.i
@@ -470,7 +470,7 @@ _ZN4ncnnL21cast_fp32_to_fp16_sseERKNS_3MatERS0_RKNS_6OptionE.exit: ; preds = %._
   %241 = and i32 %236, 2147483640
   %wide.trip.count71.i243 = zext nneg i32 %232 to i64
   %242 = or disjoint i32 %241, 3
-  %243 = icmp ult i32 %242, %236
+  %243 = icmp samesign ult i32 %242, %236
   br label %.lr.ph.us.i244
 
 .lr.ph.us.i244:                                   ; preds = %._crit_edge.us.i250, %.lr.ph.us.preheader.i242
@@ -742,7 +742,7 @@ _ZN4ncnnL21cast_fp16_to_fp32_sseERKNS_3MatERS0_RKNS_6OptionE.exit: ; preds = %._
   %368 = and i32 %363, 2147483632
   %wide.trip.count264.i = zext nneg i32 %359 to i64
   %369 = or disjoint i32 %368, 7
-  %370 = icmp ult i32 %369, %363
+  %370 = icmp samesign ult i32 %369, %363
   br label %.lr.ph.us.i263
 
 .lr.ph.us.i263:                                   ; preds = %._crit_edge.us.i266, %.lr.ph.us.preheader.i262
@@ -982,7 +982,7 @@ _ZN4ncnnL21cast_fp32_to_bf16_sseERKNS_3MatERS0_RKNS_6OptionE.exit: ; preds = %._
   %493 = and i32 %488, 2147483640
   %wide.trip.count238.i = zext nneg i32 %484 to i64
   %494 = or disjoint i32 %493, 3
-  %495 = icmp ult i32 %494, %488
+  %495 = icmp samesign ult i32 %494, %488
   br label %.lr.ph.us.i273
 
 .lr.ph.us.i273:                                   ; preds = %._crit_edge.us.i276, %.lr.ph.us.preheader.i272

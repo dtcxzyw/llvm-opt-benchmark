@@ -493,11 +493,11 @@ if.then4.i:                                       ; preds = %if.end.i98
 
 if.end11.i:                                       ; preds = %if.end.i98
   %41 = shl nuw nsw i32 %conv.i96, 13
-  %cmp.i.i.i100 = icmp ugt i16 %40, 1023
+  %cmp.i.i.i100 = icmp samesign ugt i16 %40, 1023
   br i1 %cmp.i.i.i100, label %if.then.i.i.i110, label %if.else12.i.i.i101
 
 if.then.i.i.i110:                                 ; preds = %if.end11.i
-  %cmp6.i.i.i111 = icmp ult i16 %40, 31744
+  %cmp6.i.i.i111 = icmp samesign ult i16 %40, 31744
   br i1 %cmp6.i.i.i111, label %if.then10.i.i.i114, label %if.else.i.i.i112
 
 if.then10.i.i.i114:                               ; preds = %if.then.i.i.i110

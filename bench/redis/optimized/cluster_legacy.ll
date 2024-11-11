@@ -2298,7 +2298,7 @@ if.end508:                                        ; preds = %if.then497, %if.els
   br i1 %or.cond5, label %if.then520, label %while.cond522.preheader
 
 while.cond522.preheader:                          ; preds = %if.end508
-  %cmp523.not631 = icmp ugt i32 %start.0, %stop.0
+  %cmp523.not631 = icmp samesign ugt i32 %start.0, %stop.0
   br i1 %cmp523.not631, label %for.inc529, label %while.body525.preheader
 
 while.body525.preheader:                          ; preds = %while.cond522.preheader
@@ -17548,7 +17548,7 @@ getSlotOrReply.exit269.thread:                    ; preds = %getSlotOrReply.exit
 getSlotOrReply.exit269:                           ; preds = %getSlotOrReply.exit260
   %conv.i266 = trunc nuw nsw i64 %93 to i32
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %slot.i261)
-  %cmp167 = icmp ugt i64 %88, %93
+  %cmp167 = icmp samesign ugt i64 %88, %93
   br i1 %cmp167, label %if.then169, label %for.body.lr.ph.i
 
 if.then169:                                       ; preds = %getSlotOrReply.exit269

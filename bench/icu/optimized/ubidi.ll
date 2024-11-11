@@ -1418,7 +1418,7 @@ ubidi_getCustomizedClass_75.exit.i:               ; preds = %if.then.i.i, %lor.l
   %idxprom68.i220 = sext i32 %sub67.i to i64
   %arrayidx69.i221 = getelementptr inbounds i8, ptr %75, i64 %idxprom68.i220
   store i8 %conv62.i, ptr %arrayidx69.i221, align 1
-  %cmp70.i = icmp ugt i32 %uchar.0.i, 65535
+  %cmp70.i = icmp samesign ugt i32 %uchar.0.i, 65535
   br i1 %cmp70.i, label %if.then71.i, label %if.end78.i
 
 if.then71.i:                                      ; preds = %ubidi_getCustomizedClass_75.exit.i
@@ -1757,7 +1757,7 @@ for.end.i:                                        ; preds = %if.end141.i, %for.c
 
 while.body.preheader.i:                           ; preds = %for.end.i
   %139 = tail call i32 @llvm.umin.i32(i32 %stackLast.0.ph169.lcssa213.i, i32 125)
-  %cmp260.i = icmp ugt i32 %stackLast.0.ph169.lcssa213.i, 125
+  %cmp260.i = icmp samesign ugt i32 %stackLast.0.ph169.lcssa213.i, 125
   %140 = zext nneg i32 %139 to i64
   %spec.select613 = select i1 %cmp260.i, i32 2, i32 %state.1.ph167.lcssa216.i
   br label %while.body.i
@@ -3142,7 +3142,7 @@ sw.bb:                                            ; preds = %for.body112, %for.b
   %arrayidx119 = getelementptr inbounds i8, ptr %1, i64 %indvars.iv
   store i8 %previousLevel.0456, ptr %arrayidx119, align 1
   %97 = add nsw i8 %94, -11
-  %or.cond = icmp ult i8 %97, 2
+  %or.cond = icmp samesign ult i8 %97, 2
   br i1 %or.cond, label %if.then125, label %if.else130
 
 if.then125:                                       ; preds = %sw.bb
@@ -4720,7 +4720,7 @@ ubidi_getParaLevelAtIndex_75.exit55:              ; preds = %for.end.thread.i41,
   br label %while.end74
 
 if.end73:                                         ; preds = %if.else51, %if.then37
-  %cmp25 = icmp ugt i64 %indvars.iv76, 1
+  %cmp25 = icmp samesign ugt i64 %indvars.iv76, 1
   br i1 %cmp25, label %while.body26, label %if.end76, !llvm.loop !31
 
 while.end74:                                      ; preds = %if.else42, %cond.true63, %ubidi_getParaLevelAtIndex_75.exit55
@@ -5663,7 +5663,7 @@ while.body71.i:                                   ; preds = %land.rhs63.i
   store i32 0, ptr %match76.i, align 4
   %33 = load i16, ptr %start, align 4
   %conv61.i = zext i16 %33 to i32
-  %cmp62.not.not.i = icmp ugt i32 %k.054.i, %conv61.i
+  %cmp62.not.not.i = icmp samesign ugt i32 %k.054.i, %conv61.i
   br i1 %cmp62.not.not.i, label %land.rhs63.i, label %while.end77.i, !llvm.loop !36
 
 while.end77.i:                                    ; preds = %while.body71.i, %land.rhs63.i, %if.else56.i

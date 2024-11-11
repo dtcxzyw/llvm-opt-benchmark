@@ -7457,7 +7457,7 @@ define internal void @dissect_gtpv2_mm_context_utms_qq(ptr noundef %0, ptr nound
 
 67:                                               ; preds = %62, %57
   %.3 = phi i32 [ %66, %62 ], [ %61, %57 ]
-  %68 = icmp ult i32 %.3, %54
+  %68 = icmp samesign ult i32 %.3, %54
   br i1 %68, label %69, label %71
 
 69:                                               ; preds = %67
@@ -8320,7 +8320,7 @@ define internal void @dissect_gtpv2_mbms_ip_mc_dist(ptr noundef %0, ptr nocaptur
   %48 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %47, ptr noundef %0, i32 noundef %.1, i32 noundef 1, i32 noundef 0) #10
   %49 = add nuw nsw i32 %.1, 1
   %50 = zext i16 %4 to i32
-  %51 = icmp ult i32 %49, %50
+  %51 = icmp samesign ult i32 %49, %50
   br i1 %51, label %52, label %56
 
 52:                                               ; preds = %46
@@ -8601,7 +8601,7 @@ define internal void @dissect_gtpv2_add_mm_cont_for_srvcc(ptr noundef %0, ptr no
 46:                                               ; preds = %38, %33
   %.2 = phi i32 [ %45, %38 ], [ %37, %33 ]
   %47 = zext i16 %4 to i32
-  %48 = icmp ult i32 %.2, %47
+  %48 = icmp samesign ult i32 %.2, %47
   br i1 %48, label %49, label %53
 
 49:                                               ; preds = %46

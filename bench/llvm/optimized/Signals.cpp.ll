@@ -3462,7 +3462,7 @@ define linkonce_odr hidden void @_ZN16DSOMarkupPrinter14printDSOMarkupEP12dl_phd
   %51 = getelementptr inbounds i8, ptr %40, i64 %47
   %52 = icmp eq i32 %26, 3
   %53 = icmp samesign ugt i64 %..i.i, 2
-  %or.cond.i = and i1 %52, %53
+  %or.cond.i = select i1 %52, i1 %53, i1 false
   br i1 %or.cond.i, label %54, label %65
 
 54:                                               ; preds = %49

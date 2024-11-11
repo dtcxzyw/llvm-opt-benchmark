@@ -902,7 +902,7 @@ LWLockAttemptLock.exit31:                         ; preds = %.split.us.i27
   %64 = add nsw i32 %.239, -1
   %65 = load ptr, ptr %14, align 8
   tail call void @PGSemaphoreUnlock(ptr noundef %65) #15
-  %66 = icmp ugt i32 %.239, 1
+  %66 = icmp samesign ugt i32 %.239, 1
   br i1 %66, label %.lr.ph, label %._crit_edge, !llvm.loop !19
 
 ._crit_edge:                                      ; preds = %.lr.ph, %.loopexit
@@ -1216,7 +1216,7 @@ proclist_delete_offset.exit:                      ; preds = %40, %42
   %74 = getelementptr inbounds i8, ptr %73, i64 24
   %75 = load ptr, ptr %74, align 8
   call void @PGSemaphoreUnlock(ptr noundef %75) #15
-  %76 = icmp ugt i32 %.110, 1
+  %76 = icmp samesign ugt i32 %.110, 1
   br i1 %76, label %.lr.ph, label %.loopexit, !llvm.loop !21
 
 .loopexit:                                        ; preds = %.lr.ph, %.preheader, %57
@@ -1430,7 +1430,7 @@ LWLockAttemptLock.exit30:                         ; preds = %.split.us.i26
   %59 = add nsw i32 %.234, -1
   %60 = load ptr, ptr %57, align 8
   tail call void @PGSemaphoreUnlock(ptr noundef %60) #15
-  %61 = icmp ugt i32 %.234, 1
+  %61 = icmp samesign ugt i32 %.234, 1
   br i1 %61, label %58, label %.loopexit, !llvm.loop !22
 
 .loopexit:                                        ; preds = %58, %54
@@ -1543,7 +1543,7 @@ LWLockConflictsWithVar.exit.thread:               ; preds = %31, %15, %.loopexit
   %38 = add nsw i32 %.242, -1
   %39 = load ptr, ptr %36, align 8
   tail call void @PGSemaphoreUnlock(ptr noundef %39) #15
-  %40 = icmp ugt i32 %.242, 1
+  %40 = icmp samesign ugt i32 %.242, 1
   br i1 %40, label %37, label %._crit_edge, !llvm.loop !23
 
 ._crit_edge:                                      ; preds = %37, %4, %LWLockConflictsWithVar.exit.thread

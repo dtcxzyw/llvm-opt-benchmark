@@ -912,7 +912,7 @@ select.unfold:                                    ; preds = %25, %22
   br i1 %39, label %40, label %205
 
 40:                                               ; preds = %32
-  %41 = icmp ult i32 %14, 4
+  %41 = icmp samesign ult i32 %14, 4
   br i1 %41, label %44, label %42
 
 42:                                               ; preds = %40
@@ -1582,7 +1582,7 @@ define internal fastcc range(i64 -2147483648, 2147483648) i64 @__se_sys_get_memp
 
 24:                                               ; preds = %16
   store i64 0, ptr %8, align 8, !annotation !20
-  %25 = icmp ult i64 %4, 4
+  %25 = icmp samesign ult i64 %4, 4
   br i1 %25, label %32, label %26
 
 26:                                               ; preds = %24
@@ -1600,7 +1600,7 @@ define internal fastcc range(i64 -2147483648, 2147483648) i64 @__se_sys_get_memp
   br label %194
 
 32:                                               ; preds = %24
-  %33 = icmp ult i64 %4, 2
+  %33 = icmp samesign ult i64 %4, 2
   br i1 %33, label %59, label %34
 
 34:                                               ; preds = %32
@@ -2002,7 +2002,7 @@ define internal fastcc range(i64 -2147483648, 2147483648) i64 @__se_sys_get_memp
   br label %.thread22
 
 253:                                              ; preds = %247
-  %254 = icmp ult i64 %249, 9
+  %254 = icmp samesign ult i64 %249, 9
   br i1 %254, label %256, label %255, !prof !30
 
 255:                                              ; preds = %253
@@ -5336,7 +5336,7 @@ define dso_local void @mpol_to_str(ptr noundef %0, i32 noundef %1, ptr noundef r
   br i1 %39, label %40, label %42
 
 40:                                               ; preds = %33
-  %41 = icmp ult i16 %.shrunk, 16384
+  %41 = icmp samesign ult i16 %.shrunk, 16384
   br i1 %41, label %49, label %42
 
 42:                                               ; preds = %40, %33
@@ -5452,7 +5452,7 @@ define internal void @mpol_rebind_nodemask(ptr noundef %0, ptr noundef %1) #0 al
 
 13:                                               ; preds = %2
   store i64 0, ptr %4, align 8, !annotation !20
-  %14 = icmp ult i16 %6, 16384
+  %14 = icmp samesign ult i16 %6, 16384
   br i1 %14, label %20, label %15
 
 15:                                               ; preds = %13

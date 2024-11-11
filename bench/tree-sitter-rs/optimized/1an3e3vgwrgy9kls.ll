@@ -18877,7 +18877,7 @@ define internal fastcc void @_ZN15tree_sitter_cli8generate15prepare_grammar13exp
   %95 = and i8 %93, 63
   %96 = zext nneg i8 %95 to i32
   %97 = or disjoint i32 %94, %96
-  %98 = icmp ugt i8 %87, -33
+  %98 = icmp samesign ugt i8 %87, -33
   br i1 %98, label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h85ea683819a1173eE.llvm.13013766950239737229.exit15.i.i", label %.thread30.i
 
 99:                                               ; preds = %85
@@ -18895,7 +18895,7 @@ define internal fastcc void @_ZN15tree_sitter_cli8generate15prepare_grammar13exp
   %107 = or disjoint i32 %104, %106
   %108 = shl nuw nsw i32 %90, 12
   %109 = or disjoint i32 %107, %108
-  %110 = icmp ugt i8 %87, -17
+  %110 = icmp samesign ugt i8 %87, -17
   br i1 %110, label %111, label %.thread30.i
 
 111:                                              ; preds = %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h85ea683819a1173eE.llvm.13013766950239737229.exit15.i.i"
@@ -29026,7 +29026,7 @@ _ZN3std2fs4read17h5e8c3c11a03a0f57E.exit.i.i.i:   ; preds = %306, %.noexc6.i.i
   %498 = and i8 %496, 63
   %499 = zext nneg i8 %498 to i32
   %500 = or disjoint i32 %497, %499
-  %501 = icmp ugt i8 %490, -33
+  %501 = icmp samesign ugt i8 %490, -33
   br i1 %501, label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h85ea683819a1173eE.llvm.13013766950239737229.exit15.i.i.i.i.i", label %_ZN4core3str11validations15next_code_point17ha5afdba8b28ac17aE.exit.thread.i.i.i.i
 
 502:                                              ; preds = %489
@@ -29044,7 +29044,7 @@ _ZN3std2fs4read17h5e8c3c11a03a0f57E.exit.i.i.i:   ; preds = %306, %.noexc6.i.i
   %510 = or disjoint i32 %507, %509
   %511 = shl nuw nsw i32 %494, 12
   %512 = or disjoint i32 %510, %511
-  %513 = icmp ugt i8 %490, -17
+  %513 = icmp samesign ugt i8 %490, -17
   br i1 %513, label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h85ea683819a1173eE.llvm.13013766950239737229.exit17.i.i.i.i.i", label %_ZN4core3str11validations15next_code_point17ha5afdba8b28ac17aE.exit.thread.i.i.i.i
 
 "_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h85ea683819a1173eE.llvm.13013766950239737229.exit17.i.i.i.i.i": ; preds = %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h85ea683819a1173eE.llvm.13013766950239737229.exit15.i.i.i.i.i"

@@ -9255,7 +9255,7 @@ _ZN13proj_nlohmann6detail5lexerINS_10basic_jsonISt3mapSt6vectorNSt7__cxx1112basi
   br label %_ZN13proj_nlohmann6detail5lexerINS_10basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS_14adl_serializerES4_IhSaIhEEEENS0_22iterator_input_adapterIN9__gnu_cxx17__normal_iteratorIPKcSA_EEEEE18next_byte_in_rangeESt16initializer_listIiE.exit.thread.sink.split
 
 76:                                               ; preds = %72
-  %77 = icmp ult i32 %.1.i, 2048
+  %77 = icmp samesign ult i32 %.1.i, 2048
   br i1 %77, label %78, label %85
 
 78:                                               ; preds = %76
@@ -9269,7 +9269,7 @@ _ZN13proj_nlohmann6detail5lexerINS_10basic_jsonISt3mapSt6vectorNSt7__cxx1112basi
   br label %_ZN13proj_nlohmann6detail5lexerINS_10basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS_14adl_serializerES4_IhSaIhEEEENS0_22iterator_input_adapterIN9__gnu_cxx17__normal_iteratorIPKcSA_EEEEE18next_byte_in_rangeESt16initializer_listIiE.exit.thread.sink.split
 
 85:                                               ; preds = %76
-  %86 = icmp ult i32 %.1.i, 65536
+  %86 = icmp samesign ult i32 %.1.i, 65536
   br i1 %86, label %87, label %98
 
 87:                                               ; preds = %85
@@ -16293,7 +16293,7 @@ _ZN13proj_nlohmann10basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11cha
   %87 = getelementptr inbounds i8, ptr %.0910.i.i.i.i.i.i.i, i64 16
   %88 = getelementptr inbounds i8, ptr %.0811.i.i.i.i.i.i.i, i64 16
   %89 = add nsw i64 %.012.i.i.i.i.i.i.i, -1
-  %90 = icmp ugt i64 %.012.i.i.i.i.i.i.i, 1
+  %90 = icmp samesign ugt i64 %.012.i.i.i.i.i.i.i, 1
   br i1 %90, label %81, label %_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPN13proj_nlohmann10basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS2_14adl_serializerES5_IhSaIhEEEES5_ISF_SaISF_EEEESJ_ET0_T_SL_SK_.exit.loopexit.i.i, !llvm.loop !157
 
 _ZSt4moveIN9__gnu_cxx17__normal_iteratorIPN13proj_nlohmann10basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS2_14adl_serializerES5_IhSaIhEEEES5_ISF_SaISF_EEEESJ_ET0_T_SL_SK_.exit.loopexit.i.i: ; preds = %81

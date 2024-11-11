@@ -726,7 +726,7 @@ define internal void @dissect_hello_mt_port_cap_clv(ptr noundef %0, ptr noundef 
 8:                                                ; preds = %6
   %9 = load i32, ptr @hf_isis_hello_mtid, align 4
   %10 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %9, ptr noundef %0, i32 noundef %3, i32 noundef 2, i32 noundef 0) #4
-  %11 = icmp ugt i32 %5, 3
+  %11 = icmp samesign ugt i32 %5, 3
   br i1 %11, label %.lr.ph.preheader, label %.loopexit
 
 .lr.ph.preheader:                                 ; preds = %8
@@ -743,7 +743,7 @@ define internal void @dissect_hello_mt_port_cap_clv(ptr noundef %0, ptr noundef 
   %17 = add nsw i32 %.08195, -2
   %18 = add i32 %.096, 2
   %19 = zext i8 %16 to i32
-  %20 = icmp ult i32 %17, %19
+  %20 = icmp samesign ult i32 %17, %19
   br i1 %20, label %21, label %24
 
 21:                                               ; preds = %.lr.ph
@@ -826,7 +826,7 @@ define internal void @dissect_hello_mt_port_cap_clv(ptr noundef %0, ptr noundef 
   %75 = tail call ptr @proto_tree_add_item(ptr noundef %66, i32 noundef %73, ptr noundef %0, i32 noundef %74, i32 noundef 2, i32 noundef 0) #4
   %76 = add i32 %.02.i, 6
   %77 = add nsw i32 %.0171.i, -6
-  %78 = icmp ugt i32 %.0171.i, 11
+  %78 = icmp samesign ugt i32 %.0171.i, 11
   br i1 %78, label %.lr.ph.i, label %dissect_hello_mt_port_cap_appointedfwrdrs_clv.exit, !llvm.loop !4
 
 79:                                               ; preds = %24
@@ -884,7 +884,7 @@ define internal void @dissect_hello_mt_port_cap_clv(ptr noundef %0, ptr noundef 
 .lr.ph.i89:                                       ; preds = %113, %.lr.ph.preheader.i
   %.031.i = phi i32 [ %124, %113 ], [ %18, %.lr.ph.preheader.i ]
   %.02730.i = phi i32 [ %123, %113 ], [ %19, %.lr.ph.preheader.i ]
-  %110 = icmp ult i32 %.02730.i, 6
+  %110 = icmp samesign ult i32 %.02730.i, 6
   br i1 %110, label %111, label %113
 
 111:                                              ; preds = %.lr.ph.i89
@@ -965,7 +965,7 @@ define internal void @dissect_hello_restart_clv(ptr noundef %0, ptr nocapture re
   %12 = tail call ptr @proto_tree_add_bitmask_with_flags(ptr noundef %2, ptr noundef %0, i32 noundef %3, i32 noundef %10, i32 noundef %11, ptr noundef nonnull @dissect_hello_restart_clv.flags, i32 noundef 0, i32 noundef 12) #4
   %13 = and i8 %9, 2
   %14 = icmp eq i8 %13, 0
-  %15 = icmp ult i32 %5, 3
+  %15 = icmp samesign ult i32 %5, 3
   %brmerge = select i1 %15, i1 true, i1 %14
   br i1 %brmerge, label %20, label %16
 
@@ -981,7 +981,7 @@ define internal void @dissect_hello_restart_clv(ptr noundef %0, ptr nocapture re
   %22 = load i8, ptr %21, align 1
   %23 = zext i8 %22 to i32
   %24 = add nuw nsw i32 %23, 3
-  %.not18 = icmp ult i32 %5, %24
+  %.not18 = icmp samesign ult i32 %5, %24
   %brmerge20 = select i1 %.not18, i1 true, i1 %14
   br i1 %brmerge20, label %.thread25, label %25
 
@@ -1135,7 +1135,7 @@ define internal void @dissect_hello_bfd_enabled_clv(ptr noundef %0, ptr nocaptur
   %12 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %11, ptr noundef %0, i32 noundef %10, i32 noundef 1, i32 noundef 0) #4
   %13 = add nsw i32 %.012, -3
   %14 = add i32 %.01011, 3
-  %15 = icmp ugt i32 %.012, 5
+  %15 = icmp samesign ugt i32 %.012, 5
   br i1 %15, label %.lr.ph, label %._crit_edge, !llvm.loop !8
 
 ._crit_edge:                                      ; preds = %.lr.ph, %6

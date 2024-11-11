@@ -3479,7 +3479,7 @@ switch.lookup:                                    ; preds = %.lr.ph.i.i.i
           to label %634 unwind label %.loopexit.i.i.i
 
 634:                                              ; preds = %.lr.ph.i.i.i, %switch.lookup
-  %635 = icmp ugt i64 %indvars.iv.i.i.i, 1
+  %635 = icmp samesign ugt i64 %indvars.iv.i.i.i, 1
   br i1 %635, label %.lr.ph.i.i.i, label %.invoke41.i.i.i, !llvm.loop !49
 
 .sink.split.i.i.i:                                ; preds = %621, %588
@@ -4359,7 +4359,7 @@ _ZNK5Yosys7hashlib4dictINS_5RTLIL8IdStringENSt7__cxx1112basic_stringIcSt11char_t
   br i1 %71, label %72, label %.thread
 
 72:                                               ; preds = %70
-  %73 = icmp ult i8 %65, 58
+  %73 = icmp samesign ult i8 %65, 58
   %74 = icmp ne i64 %indvars.iv, 0
   %or.cond = and i1 %73, %74
   %75 = icmp eq i8 %65, 95
@@ -24413,7 +24413,7 @@ _ZNSt6vectorIN5Yosys5RTLIL5StateESaIS2_EE9push_backEOS2_.exit: ; preds = %51, %_
   %94 = icmp eq i8 %93, 1
   %95 = or disjoint i32 %.2, 8
   %.3 = select i1 %94, i32 %95, i32 %.2
-  %96 = icmp ult i32 %.3, 10
+  %96 = icmp samesign ult i32 %.3, 10
   %.v = select i1 %96, i32 48, i32 87
   %97 = add nuw nsw i32 %.v, %.3
   %98 = trunc nuw nsw i32 %97 to i8

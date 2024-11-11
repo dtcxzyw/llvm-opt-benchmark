@@ -405,7 +405,7 @@ determine_best_coding_triple.exit92:              ; preds = %40
   %50 = icmp slt i32 %49, %.170
   %.267 = select i1 %50, i32 0, i32 %.166
   %.2 = select i1 %50, i32 10, i32 %.1
-  %51 = icmp ugt i32 %3, 5
+  %51 = icmp samesign ugt i32 %3, 5
   br i1 %51, label %52, label %.thread
 
 52:                                               ; preds = %45
@@ -774,7 +774,7 @@ determine_best_coding_triple.exit181:             ; preds = %83
   %93 = icmp slt i32 %92, %.3132
   %.4127 = select i1 %93, i32 0, i32 %.3126
   %.4 = select i1 %93, i32 8, i32 %.3
-  %94 = icmp ugt i32 %5, 5
+  %94 = icmp samesign ugt i32 %5, 5
   br i1 %94, label %95, label %.thread
 
 95:                                               ; preds = %90

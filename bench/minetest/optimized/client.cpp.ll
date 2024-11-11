@@ -16183,7 +16183,7 @@ _ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i383.9: ; preds = %_ZNSt11char_tr
   br i1 %cmp.i.i.i386.9, label %cleanup.i394, label %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i383.10
 
 for.body.i377.10:                                 ; preds = %for.body.i377
-  %cmp2.i379.10 = icmp ult i64 %70, 4
+  %cmp2.i379.10 = icmp samesign ult i64 %70, 4
   br i1 %cmp2.i379.10, label %invoke.cont86, label %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i383.10
 
 _ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i383.10: ; preds = %for.body.i377.10, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i383.9

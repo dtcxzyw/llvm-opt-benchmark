@@ -30127,8 +30127,8 @@ _ZNK32pxrInternal_v0_24__pxrReserved__7TfTokencvRKNSt7__cxx1112basic_stringIcSt1
   br i1 %35, label %36, label %.critedge.i.i
 
 36:                                               ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__7TfTokencvRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEv.exit3.i
-  %37 = icmp ult i8 %28, 64
-  %38 = icmp ult i8 %30, 64
+  %37 = icmp samesign ult i8 %28, 64
+  %38 = icmp samesign ult i8 %30, 64
   %39 = xor i32 %33, %31
   %40 = and i32 %39, 95
   %.not.i.i = icmp eq i32 %40, 0
@@ -30261,8 +30261,8 @@ _ZNK32pxrInternal_v0_24__pxrReserved__7TfTokencvRKNSt7__cxx1112basic_stringIcSt1
   br i1 %30, label %31, label %.critedge.i
 
 31:                                               ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__7TfTokencvRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEv.exit2
-  %32 = icmp ult i8 %23, 64
-  %33 = icmp ult i8 %25, 64
+  %32 = icmp samesign ult i8 %23, 64
+  %33 = icmp samesign ult i8 %25, 64
   %34 = xor i32 %28, %26
   %35 = and i32 %34, 95
   %.not.i = icmp eq i32 %35, 0
@@ -30527,8 +30527,8 @@ _ZNK32pxrInternal_v0_24__pxrReserved__7TfTokencvRKNSt7__cxx1112basic_stringIcSt1
   br i1 %30, label %31, label %.critedge.i
 
 31:                                               ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__7TfTokencvRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEv.exit3
-  %32 = icmp ult i8 %23, 64
-  %33 = icmp ult i8 %25, 64
+  %32 = icmp samesign ult i8 %23, 64
+  %33 = icmp samesign ult i8 %25, 64
   %34 = xor i32 %28, %26
   %35 = and i32 %34, 95
   %.not.i = icmp eq i32 %35, 0
@@ -30679,8 +30679,8 @@ _ZNK32pxrInternal_v0_24__pxrReserved__7TfTokencvRKNSt7__cxx1112basic_stringIcSt1
   br i1 %33, label %34, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN32pxrInternal_v0_24__pxrReserved__20TfDictionaryLessThanEEclINS_17__normal_iteratorIPNS2_7TfTokenESt6vectorIS7_SaIS7_EEEESC_EEbT_T0_.exit
 
 34:                                               ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__7TfTokencvRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEv.exit2.i
-  %35 = icmp ult i8 %26, 64
-  %36 = icmp ult i8 %28, 64
+  %35 = icmp samesign ult i8 %26, 64
+  %36 = icmp samesign ult i8 %28, 64
   %37 = xor i32 %31, %29
   %38 = and i32 %37, 95
   %.not.i.i = icmp eq i32 %38, 0
@@ -30756,8 +30756,8 @@ _ZNK32pxrInternal_v0_24__pxrReserved__7TfTokencvRKNSt7__cxx1112basic_stringIcSt1
   br i1 %76, label %77, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN32pxrInternal_v0_24__pxrReserved__20TfDictionaryLessThanEEclINS_17__normal_iteratorIPNS2_7TfTokenESt6vectorIS7_SaIS7_EEEESC_EEbT_T0_.exit16
 
 77:                                               ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__7TfTokencvRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEv.exit2.i11
-  %78 = icmp ult i8 %69, 64
-  %79 = icmp ult i8 %71, 64
+  %78 = icmp samesign ult i8 %69, 64
+  %79 = icmp samesign ult i8 %71, 64
   %80 = xor i32 %74, %72
   %81 = and i32 %80, 95
   %.not.i.i14 = icmp eq i32 %81, 0
@@ -31029,8 +31029,8 @@ _ZNK32pxrInternal_v0_24__pxrReserved__7TfTokencvRKNSt7__cxx1112basic_stringIcSt1
   br i1 %30, label %31, label %.critedge.i
 
 31:                                               ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__7TfTokencvRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEv.exit3
-  %32 = icmp ult i8 %23, 64
-  %33 = icmp ult i8 %25, 64
+  %32 = icmp samesign ult i8 %23, 64
+  %33 = icmp samesign ult i8 %25, 64
   %34 = xor i32 %28, %26
   %35 = and i32 %34, 95
   %.not.i = icmp eq i32 %35, 0
@@ -33361,7 +33361,7 @@ define linkonce_odr noundef zeroext i1 @_ZN3tbb6detail2d211micro_queueIN32pxrInt
   %.01.i.i.us.i = phi i32 [ %16, %.lr.ph.i.i.us.i ], [ %.sroa.0.018.us.i, %14 ]
   %16 = add nsw i32 %.01.i.i.us.i, -1
   tail call void @llvm.x86.sse2.pause()
-  %17 = icmp ugt i32 %.01.i.i.us.i, 1
+  %17 = icmp samesign ugt i32 %.01.i.i.us.i, 1
   br i1 %17, label %.lr.ph.i.i.us.i, label %_ZN3tbb6detail2d0L13machine_pauseEi.exit.i.us.i, !llvm.loop !362
 
 _ZN3tbb6detail2d0L13machine_pauseEi.exit.i.us.i:  ; preds = %.lr.ph.i.i.us.i, %14
@@ -33397,7 +33397,7 @@ _ZN3tbb6detail2d015spin_wait_whileImZNS1_18spin_wait_until_eqImmEET_RKSt6atomicI
   %.01.i.i.us.i28 = phi i32 [ %28, %.lr.ph.i.i.us.i27 ], [ %.sroa.0.017.us.i, %26 ]
   %28 = add nsw i32 %.01.i.i.us.i28, -1
   tail call void @llvm.x86.sse2.pause()
-  %29 = icmp ugt i32 %.01.i.i.us.i28, 1
+  %29 = icmp samesign ugt i32 %.01.i.i.us.i28, 1
   br i1 %29, label %.lr.ph.i.i.us.i27, label %_ZN3tbb6detail2d0L13machine_pauseEi.exit.i.us.i26, !llvm.loop !362
 
 _ZN3tbb6detail2d0L13machine_pauseEi.exit.i.us.i26: ; preds = %.lr.ph.i.i.us.i27, %26
@@ -33480,7 +33480,7 @@ _ZN3tbb6detail2d015spin_wait_whileImZNS1_18spin_wait_while_eqImmEET_RKSt6atomicI
   %.01.i.i.i.i.i.i = phi i32 [ %65, %.lr.ph.i.i.i.i.i.i ], [ %.sroa.0.02.i.i.i.i, %63 ]
   %65 = add nsw i32 %.01.i.i.i.i.i.i, -1
   call void @llvm.x86.sse2.pause()
-  %66 = icmp ugt i32 %.01.i.i.i.i.i.i, 1
+  %66 = icmp samesign ugt i32 %.01.i.i.i.i.i.i, 1
   br i1 %66, label %.lr.ph.i.i.i.i.i.i, label %_ZN3tbb6detail2d0L13machine_pauseEi.exit.i.i.i.i.i, !llvm.loop !362
 
 _ZN3tbb6detail2d0L13machine_pauseEi.exit.i.i.i.i.i: ; preds = %.lr.ph.i.i.i.i.i.i, %63
@@ -33640,7 +33640,7 @@ define linkonce_odr void @_ZN3tbb6detail2d225micro_queue_pop_finalizerINS1_11mic
   %.01.i.i.i.i.i = phi i32 [ %16, %.lr.ph.i.i.i.i.i ], [ %.sroa.0.02.i.i.i, %14 ]
   %16 = add nsw i32 %.01.i.i.i.i.i, -1
   tail call void @llvm.x86.sse2.pause()
-  %17 = icmp ugt i32 %.01.i.i.i.i.i, 1
+  %17 = icmp samesign ugt i32 %.01.i.i.i.i.i, 1
   br i1 %17, label %.lr.ph.i.i.i.i.i, label %_ZN3tbb6detail2d0L13machine_pauseEi.exit.i.i.i.i, !llvm.loop !362
 
 _ZN3tbb6detail2d0L13machine_pauseEi.exit.i.i.i.i: ; preds = %.lr.ph.i.i.i.i.i, %14
@@ -36621,7 +36621,7 @@ _ZN3tbb6detail2d014try_call_proxyIZNS0_2d211micro_queueIN32pxrInternal_v0_24__px
   %.01.i.i.i = phi i32 [ %32, %.lr.ph.i.i.i ], [ %.sroa.0.06.i, %30 ]
   %32 = add nsw i32 %.01.i.i.i, -1
   call void @llvm.x86.sse2.pause()
-  %33 = icmp ugt i32 %.01.i.i.i, 1
+  %33 = icmp samesign ugt i32 %.01.i.i.i, 1
   br i1 %33, label %.lr.ph.i.i.i, label %_ZN3tbb6detail2d0L13machine_pauseEi.exit.i.i, !llvm.loop !362
 
 _ZN3tbb6detail2d0L13machine_pauseEi.exit.i.i:     ; preds = %.lr.ph.i.i.i, %30
@@ -36662,7 +36662,7 @@ _ZNK3tbb6detail2d211micro_queueIN32pxrInternal_v0_24__pxrReserved__7SdfPathENS0_
   %.01.i.i.i.i.i = phi i32 [ %47, %.lr.ph.i.i.i.i.i ], [ %.sroa.0.02.i.i.i, %45 ]
   %47 = add nsw i32 %.01.i.i.i.i.i, -1
   call void @llvm.x86.sse2.pause()
-  %48 = icmp ugt i32 %.01.i.i.i.i.i, 1
+  %48 = icmp samesign ugt i32 %.01.i.i.i.i.i, 1
   br i1 %48, label %.lr.ph.i.i.i.i.i, label %_ZN3tbb6detail2d0L13machine_pauseEi.exit.i.i.i.i, !llvm.loop !362
 
 _ZN3tbb6detail2d0L13machine_pauseEi.exit.i.i.i.i: ; preds = %.lr.ph.i.i.i.i.i, %45
@@ -36750,7 +36750,7 @@ define linkonce_odr void @_ZN3tbb6detail2d010raii_guardIZNS0_2d211micro_queueIN3
   %.01.i.i.i.i.i.i.i = phi i32 [ %20, %.lr.ph.i.i.i.i.i.i.i ], [ %.sroa.0.02.i.i.i.i.i, %18 ]
   %20 = add nsw i32 %.01.i.i.i.i.i.i.i, -1
   tail call void @llvm.x86.sse2.pause()
-  %21 = icmp ugt i32 %.01.i.i.i.i.i.i.i, 1
+  %21 = icmp samesign ugt i32 %.01.i.i.i.i.i.i.i, 1
   br i1 %21, label %.lr.ph.i.i.i.i.i.i.i, label %_ZN3tbb6detail2d0L13machine_pauseEi.exit.i.i.i.i.i.i, !llvm.loop !362
 
 _ZN3tbb6detail2d0L13machine_pauseEi.exit.i.i.i.i.i.i: ; preds = %.lr.ph.i.i.i.i.i.i.i, %18
@@ -49649,7 +49649,7 @@ _ZNSt4pairIN32pxrInternal_v0_24__pxrReserved__7SdfPathES1_EaSEOS2_.exit: ; preds
   store i32 0, ptr %70, align 4
   store i32 %71, ptr %69, align 4
   %72 = add nsw i64 %.010.i.i.i.i.i, -1
-  %73 = icmp ugt i64 %.010.i.i.i.i.i, 1
+  %73 = icmp samesign ugt i64 %.010.i.i.i.i.i, 1
   br i1 %73, label %.lr.ph.i.i.i.i.i, label %.loopexit, !llvm.loop !515
 
 .loopexit:                                        ; preds = %_ZNSt4pairIN32pxrInternal_v0_24__pxrReserved__7SdfPathES1_EaSEOS2_.exit, %11

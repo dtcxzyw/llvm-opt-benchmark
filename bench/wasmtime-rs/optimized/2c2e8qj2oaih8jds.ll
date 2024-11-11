@@ -28,7 +28,7 @@ define noundef range(i64 0, 4294967296) i64 @_ZN24cranelift_codegen_shared13cons
   %14 = and i8 %12, 63
   %15 = zext nneg i8 %14 to i32
   %16 = or disjoint i32 %13, %15
-  %17 = icmp ugt i8 %6, -33
+  %17 = icmp samesign ugt i8 %6, -33
   br i1 %17, label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h82b0a8bdb87aabf7E.exit15.i", label %.thread16
 
 18:                                               ; preds = %.lr.ph
@@ -46,7 +46,7 @@ define noundef range(i64 0, 4294967296) i64 @_ZN24cranelift_codegen_shared13cons
   %26 = or disjoint i32 %23, %25
   %27 = shl nuw nsw i32 %9, 12
   %28 = or disjoint i32 %26, %27
-  %29 = icmp ugt i8 %6, -17
+  %29 = icmp samesign ugt i8 %6, -17
   br i1 %29, label %30, label %.thread16
 
 30:                                               ; preds = %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h82b0a8bdb87aabf7E.exit15.i"

@@ -623,7 +623,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__11TfMallocTag4AutoC2IRA3_KcJRA41_S3_EEEOT_D
   %39 = getelementptr inbounds i8, ptr %.0910.i.i.i.i.i.i.i.i, i64 72
   %40 = getelementptr inbounds i8, ptr %.0811.i.i.i.i.i.i.i.i, i64 72
   %41 = add nsw i64 %.012.i.i.i.i.i.i.i.i, -1
-  %42 = icmp ugt i64 %.012.i.i.i.i.i.i.i.i, 1
+  %42 = icmp samesign ugt i64 %.012.i.i.i.i.i.i.i.i, 1
   br i1 %42, label %.lr.ph.i.i.i.i.i.i.i.i, label %_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPN32pxrInternal_v0_24__pxrReserved__10TsKeyFrameESt6vectorIS3_SaIS3_EEEES8_ET0_T_SA_S9_.exit.loopexit.i.i.i, !llvm.loop !8
 
 _ZSt4moveIN9__gnu_cxx17__normal_iteratorIPN32pxrInternal_v0_24__pxrReserved__10TsKeyFrameESt6vectorIS3_SaIS3_EEEES8_ET0_T_SA_S9_.exit.loopexit.i.i.i: ; preds = %.noexc
@@ -740,7 +740,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__13TsKeyFrameMap6insertIN9__gnu_cxx17__norma
   %87 = getelementptr inbounds i8, ptr %.0910.i.i.i.i.i.i.i.i23, i64 72
   %88 = getelementptr inbounds i8, ptr %.0811.i.i.i.i.i.i.i.i22, i64 72
   %89 = add nsw i64 %.012.i.i.i.i.i.i.i.i21, -1
-  %90 = icmp ugt i64 %.012.i.i.i.i.i.i.i.i21, 1
+  %90 = icmp samesign ugt i64 %.012.i.i.i.i.i.i.i.i21, 1
   br i1 %90, label %.lr.ph.i.i.i.i.i.i.i.i20, label %_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPN32pxrInternal_v0_24__pxrReserved__10TsKeyFrameESt6vectorIS3_SaIS3_EEEES8_ET0_T_SA_S9_.exit.loopexit.i.i.i24, !llvm.loop !8
 
 _ZSt4moveIN9__gnu_cxx17__normal_iteratorIPN32pxrInternal_v0_24__pxrReserved__10TsKeyFrameESt6vectorIS3_SaIS3_EEEES8_ET0_T_SA_S9_.exit.loopexit.i.i.i24: ; preds = %.noexc27
@@ -4139,7 +4139,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__10GfIntervaloRERKS0_.exit: ; preds = %131, 
   %158 = getelementptr inbounds i8, ptr %.0910.i.i.i.i.i.i.i.i.i, i64 72
   %159 = getelementptr inbounds i8, ptr %.0811.i.i.i.i.i.i.i.i.i, i64 72
   %160 = add nsw i64 %.012.i.i.i.i.i.i.i.i.i, -1
-  %161 = icmp ugt i64 %.012.i.i.i.i.i.i.i.i.i, 1
+  %161 = icmp samesign ugt i64 %.012.i.i.i.i.i.i.i.i.i, 1
   br i1 %161, label %.lr.ph.i.i.i.i.i.i.i.i.i, label %_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPN32pxrInternal_v0_24__pxrReserved__10TsKeyFrameESt6vectorIS3_SaIS3_EEEES8_ET0_T_SA_S9_.exit.loopexit.i.i.i.i, !llvm.loop !8
 
 _ZSt4moveIN9__gnu_cxx17__normal_iteratorIPN32pxrInternal_v0_24__pxrReserved__10TsKeyFrameESt6vectorIS3_SaIS3_EEEES8_ET0_T_SA_S9_.exit.loopexit.i.i.i.i: ; preds = %.noexc25
@@ -4356,7 +4356,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__10GfIntervaloRERKS0_.exit30: ; preds = %_ZN
   %266 = getelementptr inbounds i8, ptr %.0910.i.i.i.i.i.i.i.i.i38, i64 72
   %267 = getelementptr inbounds i8, ptr %.0811.i.i.i.i.i.i.i.i.i37, i64 72
   %268 = add nsw i64 %.012.i.i.i.i.i.i.i.i.i36, -1
-  %269 = icmp ugt i64 %.012.i.i.i.i.i.i.i.i.i36, 1
+  %269 = icmp samesign ugt i64 %.012.i.i.i.i.i.i.i.i.i36, 1
   br i1 %269, label %.lr.ph.i.i.i.i.i.i.i.i.i35, label %_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPN32pxrInternal_v0_24__pxrReserved__10TsKeyFrameESt6vectorIS3_SaIS3_EEEES8_ET0_T_SA_S9_.exit.loopexit.i.i.i.i39, !llvm.loop !8
 
 _ZSt4moveIN9__gnu_cxx17__normal_iteratorIPN32pxrInternal_v0_24__pxrReserved__10TsKeyFrameESt6vectorIS3_SaIS3_EEEES8_ET0_T_SA_S9_.exit.loopexit.i.i.i.i39: ; preds = %.noexc42
@@ -4577,7 +4577,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__10GfIntervaloRERKS0_.exit52: ; preds = %_ZN
   %377 = getelementptr inbounds i8, ptr %.0910.i.i.i.i.i.i.i.i.i60, i64 72
   %378 = getelementptr inbounds i8, ptr %.0811.i.i.i.i.i.i.i.i.i59, i64 72
   %379 = add nsw i64 %.012.i.i.i.i.i.i.i.i.i58, -1
-  %380 = icmp ugt i64 %.012.i.i.i.i.i.i.i.i.i58, 1
+  %380 = icmp samesign ugt i64 %.012.i.i.i.i.i.i.i.i.i58, 1
   br i1 %380, label %.lr.ph.i.i.i.i.i.i.i.i.i57, label %_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPN32pxrInternal_v0_24__pxrReserved__10TsKeyFrameESt6vectorIS3_SaIS3_EEEES8_ET0_T_SA_S9_.exit.loopexit.i.i.i.i61, !llvm.loop !8
 
 _ZSt4moveIN9__gnu_cxx17__normal_iteratorIPN32pxrInternal_v0_24__pxrReserved__10TsKeyFrameESt6vectorIS3_SaIS3_EEEES8_ET0_T_SA_S9_.exit.loopexit.i.i.i.i61: ; preds = %.noexc64
@@ -5668,7 +5668,7 @@ define void @_ZN32pxrInternal_v0_24__pxrReserved__18TsSpline_KeyFrames16_UnrollK
   %27 = getelementptr inbounds i8, ptr %.0910.i.i.i.i.i.i.i.i, i64 72
   %28 = getelementptr inbounds i8, ptr %.0811.i.i.i.i.i.i.i.i, i64 72
   %29 = add nsw i64 %.012.i.i.i.i.i.i.i.i, -1
-  %30 = icmp ugt i64 %.012.i.i.i.i.i.i.i.i, 1
+  %30 = icmp samesign ugt i64 %.012.i.i.i.i.i.i.i.i, 1
   br i1 %30, label %.lr.ph.i.i.i.i.i.i.i.i, label %_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPN32pxrInternal_v0_24__pxrReserved__10TsKeyFrameESt6vectorIS3_SaIS3_EEEES8_ET0_T_SA_S9_.exit.loopexit.i.i.i, !llvm.loop !8
 
 _ZSt4moveIN9__gnu_cxx17__normal_iteratorIPN32pxrInternal_v0_24__pxrReserved__10TsKeyFrameESt6vectorIS3_SaIS3_EEEES8_ET0_T_SA_S9_.exit.loopexit.i.i.i: ; preds = %.lr.ph.i.i.i.i.i.i.i.i
@@ -5733,7 +5733,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__13TsKeyFrameMap5eraseEN9__gnu_cxx17__normal
   %54 = getelementptr inbounds i8, ptr %.0910.i.i.i.i.i.i.i.i29, i64 72
   %55 = getelementptr inbounds i8, ptr %.0811.i.i.i.i.i.i.i.i28, i64 72
   %56 = add nsw i64 %.012.i.i.i.i.i.i.i.i27, -1
-  %57 = icmp ugt i64 %.012.i.i.i.i.i.i.i.i27, 1
+  %57 = icmp samesign ugt i64 %.012.i.i.i.i.i.i.i.i27, 1
   br i1 %57, label %.lr.ph.i.i.i.i.i.i.i.i26, label %_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPN32pxrInternal_v0_24__pxrReserved__10TsKeyFrameESt6vectorIS3_SaIS3_EEEES8_ET0_T_SA_S9_.exit.loopexit.i.i.i30, !llvm.loop !8
 
 _ZSt4moveIN9__gnu_cxx17__normal_iteratorIPN32pxrInternal_v0_24__pxrReserved__10TsKeyFrameESt6vectorIS3_SaIS3_EEEES8_ET0_T_SA_S9_.exit.loopexit.i.i.i30: ; preds = %.lr.ph.i.i.i.i.i.i.i.i26
@@ -6304,7 +6304,7 @@ _ZNSt12_Vector_baseIN32pxrInternal_v0_24__pxrReserved__10TsKeyFrameESaIS1_EE13_M
   %40 = getelementptr inbounds i8, ptr %.0910.i.i.i.i.i, i64 72
   %41 = getelementptr inbounds i8, ptr %.0811.i.i.i.i.i, i64 72
   %42 = add nsw i64 %.012.i.i.i.i.i, -1
-  %43 = icmp ugt i64 %.012.i.i.i.i.i, 1
+  %43 = icmp samesign ugt i64 %.012.i.i.i.i.i, 1
   br i1 %43, label %.lr.ph.i.i.i.i.i, label %_ZSt4copyIN9__gnu_cxx17__normal_iteratorIPKN32pxrInternal_v0_24__pxrReserved__10TsKeyFrameESt6vectorIS3_SaIS3_EEEENS1_IPS3_S8_EEET0_T_SD_SC_.exit.loopexit, !llvm.loop !28
 
 _ZSt4copyIN9__gnu_cxx17__normal_iteratorIPKN32pxrInternal_v0_24__pxrReserved__10TsKeyFrameESt6vectorIS3_SaIS3_EEEENS1_IPS3_S8_EEET0_T_SD_SC_.exit.loopexit: ; preds = %.lr.ph.i.i.i.i.i
@@ -6347,7 +6347,7 @@ _ZSt4copyIN9__gnu_cxx17__normal_iteratorIPKN32pxrInternal_v0_24__pxrReserved__10
   %52 = getelementptr inbounds i8, ptr %.0910.i.i.i.i.i33, i64 72
   %53 = getelementptr inbounds i8, ptr %.0811.i.i.i.i.i32, i64 72
   %54 = add nsw i64 %.012.i.i.i.i.i31, -1
-  %55 = icmp ugt i64 %.012.i.i.i.i.i31, 1
+  %55 = icmp samesign ugt i64 %.012.i.i.i.i.i31, 1
   br i1 %55, label %.lr.ph.i.i.i.i.i30, label %_ZSt4copyIPN32pxrInternal_v0_24__pxrReserved__10TsKeyFrameES2_ET0_T_S4_S3_.exit.loopexit, !llvm.loop !30
 
 _ZSt4copyIPN32pxrInternal_v0_24__pxrReserved__10TsKeyFrameES2_ET0_T_S4_S3_.exit.loopexit: ; preds = %.lr.ph.i.i.i.i.i30
@@ -6615,7 +6615,7 @@ define linkonce_odr ptr @_ZNSt6vectorIN32pxrInternal_v0_24__pxrReserved__10TsKey
   %28 = getelementptr inbounds i8, ptr %.069.i.i.i.i.i.i, i64 -72
   %29 = tail call noundef nonnull align 8 dereferenceable(72) ptr @_ZN32pxrInternal_v0_24__pxrReserved__10TsKeyFrameaSERKS0_(ptr noundef nonnull align 8 dereferenceable(72) %28, ptr noundef nonnull align 8 dereferenceable(72) %27)
   %30 = add nsw i64 %.010.i.i.i.i.i.i, -1
-  %31 = icmp ugt i64 %.010.i.i.i.i.i.i, 1
+  %31 = icmp samesign ugt i64 %.010.i.i.i.i.i.i, 1
   br i1 %31, label %.lr.ph.i.i.i.i.i.i, label %_ZNSt6vectorIN32pxrInternal_v0_24__pxrReserved__10TsKeyFrameESaIS1_EE13_M_insert_auxIS1_EEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEOT_.exit, !llvm.loop !33
 
 _ZNSt6vectorIN32pxrInternal_v0_24__pxrReserved__10TsKeyFrameESaIS1_EE13_M_insert_auxIS1_EEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEOT_.exit: ; preds = %.lr.ph.i.i.i.i.i.i, %17
@@ -7056,7 +7056,7 @@ define linkonce_odr ptr @_ZNSt6vectorIN32pxrInternal_v0_24__pxrReserved__10TsKey
 
 .noexc8:                                          ; preds = %.lr.ph.i.i.i.i.i.i
   %33 = add nsw i64 %.010.i.i.i.i.i.i, -1
-  %34 = icmp ugt i64 %.010.i.i.i.i.i.i, 1
+  %34 = icmp samesign ugt i64 %.010.i.i.i.i.i.i, 1
   br i1 %34, label %.lr.ph.i.i.i.i.i.i, label %_ZSt13move_backwardIPN32pxrInternal_v0_24__pxrReserved__10TsKeyFrameES2_ET0_T_S4_S3_.exit.i, !llvm.loop !33
 
 _ZSt13move_backwardIPN32pxrInternal_v0_24__pxrReserved__10TsKeyFrameES2_ET0_T_S4_S3_.exit.i: ; preds = %.noexc8, %.noexc

@@ -24,7 +24,7 @@ define noundef range(i64 -274877906431, 274877907330) i64 @_ZN32pxrInternal_v0_2
   br i1 %2, label %24, label %3
 
 3:                                                ; preds = %1
-  %4 = icmp ult i64 %0, 2113929217
+  %4 = icmp samesign ult i64 %0, 2113929217
   br i1 %4, label %5, label %10
 
 5:                                                ; preds = %3
@@ -80,7 +80,7 @@ define noundef i64 @_ZN32pxrInternal_v0_24__pxrReserved__17TfFastCompression16Co
   br label %45
 
 11:                                               ; preds = %3
-  %12 = icmp ult i64 %2, 2113929217
+  %12 = icmp samesign ult i64 %2, 2113929217
   br i1 %12, label %13, label %.lr.ph.preheader
 
 13:                                               ; preds = %11

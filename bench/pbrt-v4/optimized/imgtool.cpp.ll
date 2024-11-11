@@ -30434,10 +30434,10 @@ invoke.cont814:                                   ; preds = %invoke.cont777, %in
   %.sroa.speculated5.i9.i707 = call i32 @llvm.smax.i32(i32 %t1.sroa.0.0.extract.trunc.i.i697, i32 0)
   %.sroa.speculated.i10.i708 = call i32 @llvm.smax.i32(i32 %t1.sroa.3.0.extract.trunc.i.i699, i32 0)
   %cmp.not.i713 = icmp sge i32 %.sroa.speculated5.i.i, %.sroa.speculated5.i.i700
-  %cmp6.not.i717 = icmp ule i32 %.sroa.speculated5.i9.i, %.sroa.speculated5.i9.i707
+  %cmp6.not.i717 = icmp samesign ule i32 %.sroa.speculated5.i9.i, %.sroa.speculated5.i9.i707
   %or.cond3891.not3896 = and i1 %cmp.not.i713, %cmp6.not.i717
   %cmp11.not.i721 = icmp sge i32 %.sroa.speculated.i.i, %.sroa.speculated.i.i701
-  %cmp16.i725 = icmp ule i32 %.sroa.speculated.i10.i, %.sroa.speculated.i10.i708
+  %cmp16.i725 = icmp samesign ule i32 %.sroa.speculated.i10.i, %.sroa.speculated.i10.i708
   %285 = and i1 %cmp11.not.i721, %cmp16.i725
   %or.cond3893 = select i1 %or.cond3891.not3896, i1 %285, i1 false
   br i1 %or.cond3893, label %if.end831, label %if.then818
@@ -33365,7 +33365,7 @@ for.end.i.i.i.i.us:                               ; preds = %for.body.i.i.i.i116
 
 call.i.i.i.i.i.i.noexc.i.i.i.us:                  ; preds = %for.end.i.i.i.i.us, %if.then3.i.i.i.i.us, %for.end29.i.i.i.i.us
   %dec.i.i.i.i.i.i.i.i.us = add nsw i64 %__n.07.i.i.i.i.i.i.i.i.us, -1
-  %cmp.i.i.i.i.i.i.i.i.us = icmp ugt i64 %__n.07.i.i.i.i.i.i.i.i.us, 1
+  %cmp.i.i.i.i.i.i.i.i.us = icmp samesign ugt i64 %__n.07.i.i.i.i.i.i.i.i.us, 1
   br i1 %cmp.i.i.i.i.i.i.i.i.us, label %if.end.i.i109.i.i.us, label %if.end.i2267.us.loopexit, !llvm.loop !190
 
 if.end.i2267.us.loopexit:                         ; preds = %call.i.i.i.i.i.i.noexc.i.i.i.us
@@ -40618,7 +40618,7 @@ for.body.i.i.i.i.i.i.i:                           ; preds = %if.then.i.i, %for.b
   %incdec.ptr.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__first.addr.07.i.i.i.i.i.i.i, i64 32
   %incdec.ptr1.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__result.addr.08.i.i.i.i.i.i.i, i64 32
   %dec.i.i.i.i.i.i.i = add nsw i64 %__n.09.i.i.i.i.i.i.i, -1
-  %cmp.i.i.i.i.i.i.i = icmp ugt i64 %__n.09.i.i.i.i.i.i.i, 1
+  %cmp.i.i.i.i.i.i.i = icmp samesign ugt i64 %__n.09.i.i.i.i.i.i.i, 1
   br i1 %cmp.i.i.i.i.i.i.i, label %for.body.i.i.i.i.i.i.i, label %if.end.loopexit.i.i, !llvm.loop !246
 
 if.end.loopexit.i.i:                              ; preds = %for.body.i.i.i.i.i.i.i
@@ -52987,7 +52987,7 @@ for.body.i.i.i.i.i:                               ; preds = %if.then25, %for.bod
   %incdec.ptr.i.i.i.i.i = getelementptr inbounds i8, ptr %__first.addr.07.i.i.i.i.i, i64 32
   %incdec.ptr1.i.i.i.i.i = getelementptr inbounds i8, ptr %__result.addr.08.i.i.i.i.i, i64 32
   %dec.i.i.i.i.i = add nsw i64 %__n.09.i.i.i.i.i, -1
-  %cmp.i.i.i.i.i = icmp ugt i64 %__n.09.i.i.i.i.i, 1
+  %cmp.i.i.i.i.i = icmp samesign ugt i64 %__n.09.i.i.i.i.i, 1
   br i1 %cmp.i.i.i.i.i, label %for.body.i.i.i.i.i, label %_ZSt4copyIPKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPS5_ET0_T_SA_S9_.exit.loopexit, !llvm.loop !285
 
 _ZSt4copyIPKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPS5_ET0_T_SA_S9_.exit.loopexit: ; preds = %for.body.i.i.i.i.i
@@ -53025,7 +53025,7 @@ for.body.i.i.i.i.i31:                             ; preds = %if.else29, %for.bod
   %incdec.ptr.i.i.i.i.i36 = getelementptr inbounds i8, ptr %__first.addr.07.i.i.i.i.i34, i64 32
   %incdec.ptr1.i.i.i.i.i37 = getelementptr inbounds i8, ptr %__result.addr.08.i.i.i.i.i33, i64 32
   %dec.i.i.i.i.i38 = add nsw i64 %__n.09.i.i.i.i.i32, -1
-  %cmp.i.i.i.i.i39 = icmp ugt i64 %__n.09.i.i.i.i.i32, 1
+  %cmp.i.i.i.i.i39 = icmp samesign ugt i64 %__n.09.i.i.i.i.i32, 1
   br i1 %cmp.i.i.i.i.i39, label %for.body.i.i.i.i.i31, label %_ZSt4copyIPKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPS5_ET0_T_SA_S9_.exit40.loopexit, !llvm.loop !285
 
 _ZSt4copyIPKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPS5_ET0_T_SA_S9_.exit40.loopexit: ; preds = %for.body.i.i.i.i.i31
@@ -59577,7 +59577,7 @@ for.end29.i:                                      ; preds = %for.body22.i, %_ZN4
 
 call.i.i.i.i.i.i.i.noexc:                         ; preds = %for.end29.i, %for.end.i, %if.then3.i
   %dec.i.i.i.i.i = add nsw i64 %__n.07.i.i.i.i.i, -1
-  %cmp.i.i.i.i.i = icmp ugt i64 %__n.07.i.i.i.i.i, 1
+  %cmp.i.i.i.i.i = icmp samesign ugt i64 %__n.07.i.i.i.i.i, 1
   br i1 %cmp.i.i.i.i.i, label %if.end.i, label %invoke.cont.loopexit, !llvm.loop !300
 
 invoke.cont.loopexit:                             ; preds = %call.i.i.i.i.i.i.i.noexc
@@ -67067,7 +67067,7 @@ call.i.i.i.i.i.i.noexc:                           ; preds = %for.body.i.i.i.i.i.
   %incdec.ptr.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__first.addr.07.i.i.i.i.i.i, i64 24
   %incdec.ptr1.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__result.addr.08.i.i.i.i.i.i, i64 24
   %dec.i.i.i.i.i.i = add nsw i64 %__n.09.i.i.i.i.i.i, -1
-  %cmp.i.i.i.i.i.i = icmp ugt i64 %__n.09.i.i.i.i.i.i, 1
+  %cmp.i.i.i.i.i.i = icmp samesign ugt i64 %__n.09.i.i.i.i.i.i, 1
   br i1 %cmp.i.i.i.i.i.i, label %for.body.i.i.i.i.i.i, label %invoke.cont67, !llvm.loop !361
 
 invoke.cont67:                                    ; preds = %call.i.i.i.i.i.i.noexc, %_ZN4pstd3pmr21polymorphic_allocatorISt4byteE15allocate_objectISt6vectorIN4pbrt17VarianceEstimatorIdEESaIS8_EEEEPT_m.exit.i, %if.then.i54
@@ -67563,7 +67563,7 @@ for.body.i.i.i.i.i.i.i:                           ; preds = %for.body.i.i.i.i.i.
   %incdec.ptr.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__first.addr.07.i.i.i.i.i.i.i, i64 24
   %incdec.ptr1.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__result.addr.08.i.i.i.i.i.i.i, i64 24
   %dec.i.i.i.i.i.i.i = add nsw i64 %__n.09.i.i.i.i.i.i.i, -1
-  %cmp.i.i.i.i.i.i.i = icmp ugt i64 %__n.09.i.i.i.i.i.i.i, 1
+  %cmp.i.i.i.i.i.i.i = icmp samesign ugt i64 %__n.09.i.i.i.i.i.i.i, 1
   br i1 %cmp.i.i.i.i.i.i.i, label %for.body.i.i.i.i.i.i.i, label %_ZN4pbrt11ThreadLocalINS_7Array2DISt6vectorINS_17VarianceEstimatorIdEESaIS4_EEEEE5EntryC2EOS9_.exit, !llvm.loop !361
 
 _ZN4pbrt11ThreadLocalINS_7Array2DISt6vectorINS_17VarianceEstimatorIdEESaIS4_EEEEE5EntryC2EOS9_.exit: ; preds = %for.body.i.i.i.i.i.i.i, %if.then.i.i, %_ZN4pstd3pmr21polymorphic_allocatorISt4byteE15allocate_objectISt6vectorIN4pbrt17VarianceEstimatorIdEESaIS8_EEEEPT_m.exit.i.i

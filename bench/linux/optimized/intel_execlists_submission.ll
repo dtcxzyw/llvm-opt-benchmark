@@ -503,7 +503,7 @@ define internal void @execlists_submission_tasklet(ptr nocapture noundef readonl
   br i1 %41, label %42, label %45
 
 42:                                               ; preds = %40
-  %43 = icmp ult i32 %35, 1073741824
+  %43 = icmp samesign ult i32 %35, 1073741824
   %44 = select i1 %43, ptr @.str.9, ptr @.str.8
   br label %45
 

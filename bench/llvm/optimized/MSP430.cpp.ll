@@ -629,7 +629,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZNK5clang10TargetInfo16hasBuilti
   br i1 %or.cond, label %_ZN4llvm13isPowerOf2_64Em.exit, label %7
 
 7:                                                ; preds = %3
-  %.not6 = icmp ugt i64 %1, 8
+  %.not6 = icmp samesign ugt i64 %1, 8
   br i1 %.not6, label %8, label %_ZN4llvm13isPowerOf2_64Em.exit
 
 8:                                                ; preds = %7

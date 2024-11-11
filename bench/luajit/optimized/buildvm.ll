@@ -1068,7 +1068,7 @@ while.body31.backedge:                            ; preds = %if.then35, %while.e
   br label %while.body31
 
 if.else:                                          ; preds = %while.body31
-  %cmp37 = icmp ult i8 %14, -12
+  %cmp37 = icmp samesign ult i8 %14, -12
   br i1 %cmp37, label %if.then39, label %if.else193
 
 if.then39:                                        ; preds = %if.else
@@ -2242,7 +2242,7 @@ if.then168:                                       ; preds = %if.else165
 
 if.else170:                                       ; preds = %if.else165
   %cmp171 = icmp eq i32 %n.2171, 4
-  %cmp174 = icmp ult i8 %20, 32
+  %cmp174 = icmp samesign ult i8 %20, 32
   %or.cond2 = select i1 %cmp171, i1 %cmp174, i1 false
   br i1 %or.cond2, label %if.then176, label %if.end184
 
@@ -4202,7 +4202,7 @@ sw.bb108.i:                                       ; preds = %for.body, %for.body
   tail call void (ptr, i32, ...) @dasm_put(ptr noundef nonnull readonly %ctx, i32 noundef 10697)
   %13 = trunc nuw i32 %op.09 to i8
   %div110249.lhs.trunc.off.i = add nsw i8 %13, -27
-  %cond.i = icmp ult i8 %div110249.lhs.trunc.off.i, 5
+  %cond.i = icmp samesign ult i8 %div110249.lhs.trunc.off.i, 5
   br i1 %cond.i, label %sw.bb112.i, label %sw.default113.i
 
 sw.bb112.i:                                       ; preds = %sw.bb108.i

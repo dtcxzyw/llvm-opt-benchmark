@@ -489,7 +489,7 @@ define dso_local i32 @i915_gem_userptr_ioctl(ptr noundef %0, ptr nocapture nound
   br i1 %43, label %80, label %44
 
 44:                                               ; preds = %35, %32
-  %45 = icmp ult i32 %13, 2
+  %45 = icmp samesign ult i32 %13, 2
   br i1 %45, label %53, label %46
 
 46:                                               ; preds = %44

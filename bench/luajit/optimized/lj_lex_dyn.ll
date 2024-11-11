@@ -122,7 +122,7 @@ lex_next.exit69:                                  ; preds = %if.end.i, %if.end7.
 
 land.lhs.true:                                    ; preds = %lex_next.exit69
   %add.ptr = getelementptr inbounds i8, ptr %call.i47, i64 3
-  %cmp4.not = icmp ult i64 %6, 3
+  %cmp4.not = icmp samesign ult i64 %6, 3
   br i1 %cmp4.not, label %return, label %land.lhs.true5
 
 land.lhs.true5:                                   ; preds = %land.lhs.true
@@ -2177,7 +2177,7 @@ lj_buf_more.exit573.i:                            ; preds = %if.then.i571.i, %if
   br label %if.end109.i
 
 if.else.i:                                        ; preds = %do.end.i
-  %cmp88.i = icmp ugt i32 %c5.3.i, 65535
+  %cmp88.i = icmp samesign ugt i32 %c5.3.i, 65535
   br i1 %cmp88.i, label %if.then90.i, label %if.else96.i
 
 if.then90.i:                                      ; preds = %if.else.i

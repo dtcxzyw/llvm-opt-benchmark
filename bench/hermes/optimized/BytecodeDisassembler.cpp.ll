@@ -1610,7 +1610,7 @@ if.else.i:                                        ; preds = %while.body
 _ZN6hermes3hbc14checkBufferTagEPKh.exit:          ; preds = %if.then.i, %if.else.i
   %retval.sroa.0.0.i = phi i32 [ %and10.i, %if.else.i ], [ %or.i, %if.then.i ]
   %retval.sroa.3.0.i = and i8 %6, 112
-  %cmp9 = icmp ugt i32 %retval.sroa.0.0.i, 15
+  %cmp9 = icmp samesign ugt i32 %retval.sroa.0.0.i, 15
   %cond = select i1 %cmp9, i32 2, i32 1
   %add = add nsw i32 %cond, %5
   store i32 %add, ptr %ind, align 4
@@ -2030,7 +2030,7 @@ if.else.i:                                        ; preds = %while.body
 _ZN6hermes3hbc14checkBufferTagEPKh.exit:          ; preds = %if.then.i, %if.else.i
   %retval.sroa.0.0.i = phi i32 [ %and10.i, %if.else.i ], [ %or.i, %if.then.i ]
   %retval.sroa.3.0.i = and i8 %6, 112
-  %cmp12 = icmp ugt i32 %retval.sroa.0.0.i, 15
+  %cmp12 = icmp samesign ugt i32 %retval.sroa.0.0.i, 15
   %cond = select i1 %cmp12, i32 2, i32 1
   %add = add nsw i32 %cond, %5
   store i32 %add, ptr %keyInd, align 4
@@ -2126,7 +2126,7 @@ if.else.i58:                                      ; preds = %while.body23
 _ZN6hermes3hbc14checkBufferTagEPKh.exit60:        ; preds = %if.then.i46, %if.else.i58
   %retval.sroa.0.0.i52 = phi i32 [ %and10.i59, %if.else.i58 ], [ %or.i51, %if.then.i46 ]
   %retval.sroa.3.0.i53 = and i8 %16, 112
-  %cmp29 = icmp ugt i32 %retval.sroa.0.0.i52, 15
+  %cmp29 = icmp samesign ugt i32 %retval.sroa.0.0.i52, 15
   %cond30 = select i1 %cmp29, i32 2, i32 1
   %add31 = add nsw i32 %cond30, %15
   store i32 %add31, ptr %valInd, align 4

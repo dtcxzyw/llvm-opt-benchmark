@@ -591,7 +591,7 @@ if.then40:                                        ; preds = %lor.lhs.false36, %i
   br label %return
 
 if.end41:                                         ; preds = %lor.lhs.false36
-  %cmp42 = icmp ugt i32 %4, 19
+  %cmp42 = icmp samesign ugt i32 %4, 19
   br i1 %cmp42, label %if.then43, label %if.else
 
 if.then43:                                        ; preds = %if.end41
@@ -600,7 +600,7 @@ if.then43:                                        ; preds = %if.end41
   br label %if.end51
 
 if.else:                                          ; preds = %if.end41
-  %cmp45 = icmp ugt i32 %4, 5
+  %cmp45 = icmp samesign ugt i32 %4, 5
   br i1 %cmp45, label %if.then46, label %if.end51
 
 if.then46:                                        ; preds = %if.else
@@ -630,7 +630,7 @@ cond.false:                                       ; preds = %if.end56
 
 cond.end:                                         ; preds = %if.end56, %cond.false
   %cond = phi ptr [ %7, %cond.false ], [ null, %if.end56 ]
-  %cmp.i344 = icmp ugt i32 %4, 5
+  %cmp.i344 = icmp samesign ugt i32 %4, 5
   br i1 %cmp.i344, label %_ZN6icu_7512_GLOBAL__N_18getIndexEPKiii.exit, label %_ZN6icu_7512_GLOBAL__N_18getIndexEPKiii.exit349
 
 _ZN6icu_7512_GLOBAL__N_18getIndexEPKiii.exit:     ; preds = %cond.end
@@ -970,7 +970,7 @@ _ZN6icu_7512_GLOBAL__N_18getIndexEPKiii.exit406:  ; preds = %_ZN6icu_7512_GLOBAL
 
 if.then186:                                       ; preds = %_ZN6icu_7512_GLOBAL__N_18getIndexEPKiii.exit406
   %cmp188 = icmp eq ptr %data101.0, null
-  %cmp190 = icmp ult i32 %sub184, 20
+  %cmp190 = icmp samesign ult i32 %sub184, 20
   %or.cond2 = or i1 %cmp188, %cmp190
   br i1 %or.cond2, label %if.then191, label %if.end192
 

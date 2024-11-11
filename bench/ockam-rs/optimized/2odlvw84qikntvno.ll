@@ -116,7 +116,7 @@ define hidden void @_ZN4core5slice4sort10merge_sort17hbf58c5a5e2313c23E(ptr noal
   br label %41
 
 23:                                               ; preds = %3
-  %24 = icmp ugt i64 %1, 1
+  %24 = icmp samesign ugt i64 %1, 1
   br i1 %24, label %247, label %40
 
 25:                                               ; preds = %80, %26

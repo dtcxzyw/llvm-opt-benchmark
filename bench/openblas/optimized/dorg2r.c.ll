@@ -56,7 +56,7 @@ define void @dorg2r_(ptr nocapture noundef readonly %0, ptr nocapture noundef re
   br i1 %36, label %.loopexit, label %37
 
 37:                                               ; preds = %35
-  %38 = icmp ult i32 %23, %20
+  %38 = icmp samesign ult i32 %23, %20
   br i1 %38, label %39, label %..thread9_crit_edge
 
 ..thread9_crit_edge:                              ; preds = %37

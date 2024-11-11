@@ -2017,7 +2017,7 @@ define internal void @azx_probe_work(ptr noundef %0) #1 align 16 {
   %176 = add nuw nsw i32 %172, %173
   %177 = getelementptr i8, ptr %0, i64 -188
   store i32 %176, ptr %177, align 4
-  %178 = icmp ugt i32 %176, 15
+  %178 = icmp samesign ugt i32 %176, 15
   br i1 %178, label %179, label %189
 
 179:                                              ; preds = %171

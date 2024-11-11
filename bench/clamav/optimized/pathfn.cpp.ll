@@ -2072,7 +2072,7 @@ _Z11PointToNamePKw.exit:                          ; preds = %.preheader, %89
   br i1 %105, label %106, label %114
 
 106:                                              ; preds = %96
-  %107 = icmp ult i32 %104, -3
+  %107 = icmp samesign ult i32 %104, -3
   br i1 %107, label %108, label %114
 
 108:                                              ; preds = %106

@@ -2030,7 +2030,7 @@ define hidden { ptr, ptr } @"_ZN108_$LT$alloc..collections..btree..map..Iter$LT$
 _ZN5alloc11collections5btree3mem7replace17h7ec37ed6df05de45E.llvm.13768622333196367855.exit: ; preds = %.loopexit.i.i
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %4), !noalias !165
   %39 = getelementptr inbounds i8, ptr %.sroa.0.0.ph.i.i, i64 1064
-  %40 = icmp ult i64 %.sroa.8.013.ph.i.i, 11
+  %40 = icmp samesign ult i64 %.sroa.8.013.ph.i.i, 11
   tail call void @llvm.assume(i1 %40)
   %41 = getelementptr inbounds i64, ptr %39, i64 %.sroa.8.013.ph.i.i
   %42 = getelementptr inbounds { [12 x i64] }, ptr %.sroa.0.0.ph.i.i, i64 %.sroa.8.013.ph.i.i
@@ -8724,7 +8724,7 @@ define hidden { ptr, ptr } @_ZN5alloc11collections5btree3mem7replace17h7ec37ed6d
 25:                                               ; preds = %.loopexit.i
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %4), !noalias !1006
   %26 = getelementptr inbounds i8, ptr %.sroa.0.0.ph.i, i64 1064
-  %27 = icmp ult i64 %.sroa.8.013.ph.i, 11
+  %27 = icmp samesign ult i64 %.sroa.8.013.ph.i, 11
   tail call void @llvm.assume(i1 %27)
   %28 = getelementptr inbounds i64, ptr %26, i64 %.sroa.8.013.ph.i
   %29 = getelementptr inbounds { [12 x i64] }, ptr %.sroa.0.0.ph.i, i64 %.sroa.8.013.ph.i
@@ -9963,7 +9963,7 @@ define hidden void @"_ZN5alloc11collections5btree8navigate263_$LT$impl$u20$alloc
   call void @"_ZN5alloc11collections5btree8navigate235_$LT$impl$u20$alloc..collections..btree..node..Handle$LT$alloc..collections..btree..node..NodeRef$LT$BorrowType$C$K$C$V$C$alloc..collections..btree..node..marker..LeafOrInternal$GT$$C$alloc..collections..btree..node..marker..KV$GT$$GT$14next_leaf_edge17h4c77f82471807febE"(ptr noalias nocapture noundef nonnull sret([24 x i8]) align 8 dereferenceable(24) %0, ptr noalias nocapture noundef nonnull align 8 dereferenceable(24) %4)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %4)
   %27 = getelementptr inbounds i8, ptr %.sroa.0.0.ph, i64 1064
-  %28 = icmp ult i64 %.sroa.8.013.ph, 11
+  %28 = icmp samesign ult i64 %.sroa.8.013.ph, 11
   tail call void @llvm.assume(i1 %28)
   %29 = getelementptr inbounds i64, ptr %27, i64 %.sroa.8.013.ph
   %30 = getelementptr inbounds { [12 x i64] }, ptr %.sroa.0.0.ph, i64 %.sroa.8.013.ph

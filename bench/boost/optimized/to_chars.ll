@@ -242,7 +242,7 @@ define internal fastcc void @_ZN5boost8charconv6detail3ryuL20long_double_to_fd12
   %33 = mul nuw nsw i64 %32, 169464822037455
   %34 = lshr i64 %33, 49
   %35 = trunc nuw nsw i64 %34 to i32
-  %36 = icmp ugt i32 %.0.i, 3
+  %36 = icmp samesign ugt i32 %.0.i, 3
   %.neg198.i = sext i1 %36 to i32
   %37 = add nsw i32 %35, %.neg198.i
   %38 = zext i32 %37 to i64
@@ -698,7 +698,7 @@ _ZN5boost8charconv6detail3ryuL19generic_computePow5EjPm.exit.i: ; preds = %152, 
   %234 = icmp eq i8 %.1165.i, 5
   %or.cond4.i = select i1 %233, i1 %234, i1 false
   %or.cond202.i = and i1 %232, %or.cond4.i
-  %235 = icmp ugt i8 %.1165.i, 4
+  %235 = icmp samesign ugt i8 %.1165.i, 4
   %not.or.cond202.i = xor i1 %or.cond202.i, true
   %236 = select i1 %not.or.cond202.i, i1 %235, i1 false
   br label %237
@@ -1097,16 +1097,16 @@ _ZN5boost8charconv6detailneENS1_7uint128Ei.exit.thread: ; preds = %4
   br label %_ZN5boost8charconv6detail19total_buffer_lengthIjEEiiT_b.exit
 
 29:                                               ; preds = %_ZN5boost8charconv6detailneENS1_7uint128Ei.exit.thread
-  %30 = icmp ugt i32 %24, 99
+  %30 = icmp samesign ugt i32 %24, 99
   br i1 %30, label %31, label %33
 
 31:                                               ; preds = %29
-  %32 = icmp ugt i32 %24, 999
+  %32 = icmp samesign ugt i32 %24, 999
   %.12.i.i = select i1 %32, i32 4, i32 3
   br label %_ZN5boost8charconv6detail19total_buffer_lengthIjEEiiT_b.exit
 
 33:                                               ; preds = %29
-  %34 = icmp ugt i32 %24, 9
+  %34 = icmp samesign ugt i32 %24, 9
   %.13.i.i = select i1 %34, i32 2, i32 1
   br label %_ZN5boost8charconv6detail19total_buffer_lengthIjEEiiT_b.exit
 
@@ -1266,25 +1266,25 @@ _ZN5boost8charconv6detailrsENS1_7uint128Ei.exit.thread: ; preds = %84
   br label %_ZN5boost8charconv6detail10num_digitsIjEEiT_.exit.i.i
 
 100:                                              ; preds = %94
-  %101 = icmp ugt i32 %24, 99999
+  %101 = icmp samesign ugt i32 %24, 99999
   br i1 %101, label %102, label %_ZN5boost8charconv6detail10num_digitsIjEEiT_.exit.i.i
 
 102:                                              ; preds = %100
-  %103 = icmp ugt i32 %24, 999999
+  %103 = icmp samesign ugt i32 %24, 999999
   %.11.i.i.i = select i1 %103, i64 7, i64 6
   br label %_ZN5boost8charconv6detail10num_digitsIjEEiT_.exit.i.i
 
 104:                                              ; preds = %91
-  %105 = icmp ugt i32 %24, 99
+  %105 = icmp samesign ugt i32 %24, 99
   br i1 %105, label %106, label %108
 
 106:                                              ; preds = %104
-  %107 = icmp ugt i32 %24, 999
+  %107 = icmp samesign ugt i32 %24, 999
   %.12.i.i.i = select i1 %107, i64 4, i64 3
   br label %_ZN5boost8charconv6detail10num_digitsIjEEiT_.exit.i.i
 
 108:                                              ; preds = %104
-  %109 = icmp ugt i32 %24, 9
+  %109 = icmp samesign ugt i32 %24, 9
   %.13.i.i.i = select i1 %109, i64 2, i64 1
   br label %_ZN5boost8charconv6detail10num_digitsIjEEiT_.exit.i.i
 
@@ -1627,25 +1627,25 @@ define linkonce_odr hidden { ptr, i32 } @_ZN5boost8charconv6detail20to_chars_pri
   br label %_ZN5boost8charconv6detail10num_digitsIjEEiT_.exit.i.i.thread
 
 35:                                               ; preds = %29
-  %36 = icmp ugt i32 %spec.select.i.i, 99999
+  %36 = icmp samesign ugt i32 %spec.select.i.i, 99999
   br i1 %36, label %37, label %_ZN5boost8charconv6detail10num_digitsIjEEiT_.exit.i.i.thread
 
 37:                                               ; preds = %35
-  %38 = icmp ugt i32 %spec.select.i.i, 999999
+  %38 = icmp samesign ugt i32 %spec.select.i.i, 999999
   %.11.i.i.i = select i1 %38, i64 7, i64 6
   br label %_ZN5boost8charconv6detail10num_digitsIjEEiT_.exit.i.i.thread
 
 39:                                               ; preds = %26
-  %40 = icmp ugt i32 %spec.select.i.i, 99
+  %40 = icmp samesign ugt i32 %spec.select.i.i, 99
   br i1 %40, label %41, label %43
 
 41:                                               ; preds = %39
-  %42 = icmp ugt i32 %spec.select.i.i, 999
+  %42 = icmp samesign ugt i32 %spec.select.i.i, 999
   %.12.i.i.i = select i1 %42, i64 4, i64 3
   br label %_ZN5boost8charconv6detail10num_digitsIjEEiT_.exit.i.i.thread
 
 43:                                               ; preds = %39
-  %44 = icmp ugt i32 %spec.select.i.i, 9
+  %44 = icmp samesign ugt i32 %spec.select.i.i, 9
   %.13.i.i.i = select i1 %44, i64 2, i64 1
   br label %_ZN5boost8charconv6detail10num_digitsIjEEiT_.exit.i.i.thread
 
@@ -1830,14 +1830,14 @@ _ZN5boost8charconv6detail19total_buffer_lengthIiEEiiT_b.exit: ; preds = %_ZN5boo
   br label %_ZN5boost8charconv6detail15to_chars_detailL14print_9_digitsEjRiRPc.exit
 
 49:                                               ; preds = %14
-  %50 = icmp ugt i32 %0, 999999
+  %50 = icmp samesign ugt i32 %0, 999999
   br i1 %50, label %51, label %116
 
 51:                                               ; preds = %49
   %52 = zext nneg i32 %0 to i64
   %53 = mul nuw nsw i64 %52, 281474978
   %54 = lshr i64 %53, 16
-  %55 = icmp ugt i32 %0, 9999999
+  %55 = icmp samesign ugt i32 %0, 9999999
   %56 = select i1 %55, i32 7, i32 6
   %57 = add nsw i32 %56, %1
   %sh.diff113.i = lshr i64 %53, 47
@@ -1922,13 +1922,13 @@ _ZN5boost8charconv6detail19total_buffer_lengthIiEEiiT_b.exit: ; preds = %_ZN5boo
   br label %_ZN5boost8charconv6detail15to_chars_detailL14print_9_digitsEjRiRPc.exit
 
 116:                                              ; preds = %49
-  %117 = icmp ugt i32 %0, 9999
+  %117 = icmp samesign ugt i32 %0, 9999
   br i1 %117, label %118, label %167
 
 118:                                              ; preds = %116
   %119 = zext nneg i32 %0 to i64
   %120 = mul nuw nsw i64 %119, 429497
-  %121 = icmp ugt i32 %0, 99999
+  %121 = icmp samesign ugt i32 %0, 99999
   %122 = select i1 %121, i32 5, i32 4
   %123 = add nsw i32 %122, %1
   %sh.diff112.i = lshr i64 %120, 31
@@ -1992,13 +1992,13 @@ _ZN5boost8charconv6detail19total_buffer_lengthIiEEiiT_b.exit: ; preds = %_ZN5boo
   br label %_ZN5boost8charconv6detail15to_chars_detailL14print_9_digitsEjRiRPc.exit
 
 167:                                              ; preds = %116
-  %168 = icmp ugt i32 %0, 99
+  %168 = icmp samesign ugt i32 %0, 99
   br i1 %168, label %169, label %203
 
 169:                                              ; preds = %167
   %170 = zext nneg i32 %0 to i64
   %171 = mul nuw nsw i64 %170, 42949673
-  %172 = icmp ugt i32 %0, 999
+  %172 = icmp samesign ugt i32 %0, 999
   %173 = select i1 %172, i32 3, i32 2
   %174 = add nsw i32 %173, %1
   %sh.diff.i = lshr i64 %171, 31
@@ -2041,7 +2041,7 @@ _ZN5boost8charconv6detail19total_buffer_lengthIiEEiiT_b.exit: ; preds = %_ZN5boo
   br label %_ZN5boost8charconv6detail15to_chars_detailL14print_9_digitsEjRiRPc.exit
 
 203:                                              ; preds = %167
-  %204 = icmp ugt i32 %0, 9
+  %204 = icmp samesign ugt i32 %0, 9
   %205 = zext i1 %204 to i32
   %206 = add nsw i32 %1, %205
   %207 = shl nuw nsw i32 %0, 1
@@ -2209,14 +2209,14 @@ _ZN5boost8charconv6detail19total_buffer_lengthIiEEiiT_b.exit: ; preds = %_ZN5boo
 63:                                               ; preds = %.thread202, %29
   %.0191200206 = phi i32 [ %1, %.thread202 ], [ %22, %29 ]
   %.0201205 = phi i32 [ %16, %.thread202 ], [ %19, %29 ]
-  %64 = icmp ugt i32 %.0201205, 999999
+  %64 = icmp samesign ugt i32 %.0201205, 999999
   br i1 %64, label %65, label %130
 
 65:                                               ; preds = %63
   %66 = zext nneg i32 %.0201205 to i64
   %67 = mul nuw nsw i64 %66, 281474978
   %68 = lshr i64 %67, 16
-  %69 = icmp ugt i32 %.0201205, 9999999
+  %69 = icmp samesign ugt i32 %.0201205, 9999999
   %70 = select i1 %69, i32 7, i32 6
   %71 = add nsw i32 %70, %.0191200206
   %sh.diff113.i = lshr i64 %67, 47
@@ -2301,13 +2301,13 @@ _ZN5boost8charconv6detail19total_buffer_lengthIiEEiiT_b.exit: ; preds = %_ZN5boo
   br label %_ZN5boost8charconv6detail15to_chars_detailL14print_9_digitsEjRiRPc.exit
 
 130:                                              ; preds = %63
-  %131 = icmp ugt i32 %.0201205, 9999
+  %131 = icmp samesign ugt i32 %.0201205, 9999
   br i1 %131, label %132, label %181
 
 132:                                              ; preds = %130
   %133 = zext nneg i32 %.0201205 to i64
   %134 = mul nuw nsw i64 %133, 429497
-  %135 = icmp ugt i32 %.0201205, 99999
+  %135 = icmp samesign ugt i32 %.0201205, 99999
   %136 = select i1 %135, i32 5, i32 4
   %137 = add nsw i32 %136, %.0191200206
   %sh.diff112.i = lshr i64 %134, 31
@@ -2371,13 +2371,13 @@ _ZN5boost8charconv6detail19total_buffer_lengthIiEEiiT_b.exit: ; preds = %_ZN5boo
   br label %_ZN5boost8charconv6detail15to_chars_detailL14print_9_digitsEjRiRPc.exit
 
 181:                                              ; preds = %130
-  %182 = icmp ugt i32 %.0201205, 99
+  %182 = icmp samesign ugt i32 %.0201205, 99
   br i1 %182, label %183, label %217
 
 183:                                              ; preds = %181
   %184 = zext nneg i32 %.0201205 to i64
   %185 = mul nuw nsw i64 %184, 42949673
-  %186 = icmp ugt i32 %.0201205, 999
+  %186 = icmp samesign ugt i32 %.0201205, 999
   %187 = select i1 %186, i32 3, i32 2
   %188 = add nsw i32 %187, %.0191200206
   %sh.diff.i = lshr i64 %185, 31
@@ -2420,7 +2420,7 @@ _ZN5boost8charconv6detail19total_buffer_lengthIiEEiiT_b.exit: ; preds = %_ZN5boo
   br label %_ZN5boost8charconv6detail15to_chars_detailL14print_9_digitsEjRiRPc.exit
 
 217:                                              ; preds = %181
-  %218 = icmp ugt i32 %.0201205, 9
+  %218 = icmp samesign ugt i32 %.0201205, 9
   %219 = zext i1 %218 to i32
   %220 = add nsw i32 %.0191200206, %219
   %221 = shl nuw nsw i32 %.0201205, 1
@@ -2519,7 +2519,7 @@ _ZN5boost8charconv6detail19total_buffer_lengthIiEEiiT_b.exit: ; preds = %_ZN5boo
   br label %_ZN5boost8charconv6detail15to_chars_detailL14print_9_digitsEjRiRPc.exit
 
 290:                                              ; preds = %234
-  %291 = icmp ugt i32 %19, 999999
+  %291 = icmp samesign ugt i32 %19, 999999
   br i1 %291, label %292, label %326
 
 292:                                              ; preds = %290
@@ -2536,7 +2536,7 @@ _ZN5boost8charconv6detail19total_buffer_lengthIiEEiiT_b.exit: ; preds = %_ZN5boo
   %301 = load i8, ptr %300, align 1, !tbaa !23
   %302 = getelementptr inbounds i8, ptr %2, i64 2
   store i8 %301, ptr %302, align 1, !tbaa !23
-  %303 = icmp ugt i32 %19, 9999999
+  %303 = icmp samesign ugt i32 %19, 9999999
   %304 = select i1 %303, i32 7, i32 6
   %305 = zext i1 %303 to i64
   %306 = getelementptr inbounds nuw i8, ptr %2, i64 %305
@@ -2568,7 +2568,7 @@ _ZN5boost8charconv6detail19total_buffer_lengthIiEEiiT_b.exit: ; preds = %_ZN5boo
   br label %392
 
 326:                                              ; preds = %290
-  %327 = icmp ugt i32 %19, 9999
+  %327 = icmp samesign ugt i32 %19, 9999
   br i1 %327, label %328, label %355
 
 328:                                              ; preds = %326
@@ -2584,7 +2584,7 @@ _ZN5boost8charconv6detail19total_buffer_lengthIiEEiiT_b.exit: ; preds = %_ZN5boo
   %336 = load i8, ptr %335, align 1, !tbaa !23
   %337 = getelementptr inbounds i8, ptr %2, i64 2
   store i8 %336, ptr %337, align 1, !tbaa !23
-  %338 = icmp ugt i32 %19, 99999
+  %338 = icmp samesign ugt i32 %19, 99999
   %339 = select i1 %338, i32 5, i32 4
   %340 = zext i1 %338 to i64
   %341 = getelementptr inbounds nuw i8, ptr %2, i64 %340
@@ -2608,7 +2608,7 @@ _ZN5boost8charconv6detail19total_buffer_lengthIiEEiiT_b.exit: ; preds = %_ZN5boo
   br label %392
 
 355:                                              ; preds = %326
-  %356 = icmp ugt i32 %19, 99
+  %356 = icmp samesign ugt i32 %19, 99
   br i1 %356, label %357, label %378
 
 357:                                              ; preds = %355
@@ -2624,7 +2624,7 @@ _ZN5boost8charconv6detail19total_buffer_lengthIiEEiiT_b.exit: ; preds = %_ZN5boo
   %365 = load i8, ptr %364, align 1, !tbaa !23
   %366 = getelementptr inbounds i8, ptr %2, i64 2
   store i8 %365, ptr %366, align 1, !tbaa !23
-  %367 = icmp ugt i32 %19, 999
+  %367 = icmp samesign ugt i32 %19, 999
   %368 = select i1 %367, i32 3, i32 2
   %369 = zext i1 %367 to i64
   %370 = getelementptr inbounds nuw i8, ptr %2, i64 %369
@@ -2651,7 +2651,7 @@ _ZN5boost8charconv6detail19total_buffer_lengthIiEEiiT_b.exit: ; preds = %_ZN5boo
   %386 = load i8, ptr %385, align 1, !tbaa !23
   %387 = getelementptr inbounds i8, ptr %2, i64 2
   store i8 %386, ptr %387, align 1, !tbaa !23
-  %388 = icmp ugt i32 %19, 9
+  %388 = icmp samesign ugt i32 %19, 9
   %389 = zext i1 %388 to i32
   %390 = select i1 %388, i64 3, i64 2
   %391 = getelementptr inbounds nuw i8, ptr %2, i64 %390
@@ -2767,7 +2767,7 @@ _ZN5boost8charconv6detail15to_chars_detailL14print_9_digitsEjRiRPc.exit: ; preds
 456:                                              ; preds = %455, %447
   %.3194 = phi i32 [ %448, %447 ], [ %.1192, %455 ]
   %.2 = getelementptr inbounds i8, ptr %.0190, i64 2
-  %457 = icmp ugt i32 %.3194, 99
+  %457 = icmp samesign ugt i32 %.3194, 99
   br i1 %457, label %458, label %472
 
 458:                                              ; preds = %456
@@ -3299,151 +3299,151 @@ define linkonce_odr hidden noundef i32 @_ZN5boost8charconv6detail10num_digitsEo(
   br i1 %3, label %61, label %4
 
 4:                                                ; preds = %2
-  %5 = icmp ugt i128 %.sroa.0.0.insert.insert, 9999999999999999999999999999999999999
+  %5 = icmp samesign ugt i128 %.sroa.0.0.insert.insert, 9999999999999999999999999999999999999
   br i1 %5, label %61, label %6
 
 6:                                                ; preds = %4
-  %7 = icmp ugt i128 %.sroa.0.0.insert.insert, 999999999999999999999999999999999999
+  %7 = icmp samesign ugt i128 %.sroa.0.0.insert.insert, 999999999999999999999999999999999999
   br i1 %7, label %61, label %8
 
 8:                                                ; preds = %6
-  %9 = icmp ugt i128 %.sroa.0.0.insert.insert, 99999999999999999999999999999999999
+  %9 = icmp samesign ugt i128 %.sroa.0.0.insert.insert, 99999999999999999999999999999999999
   br i1 %9, label %61, label %10
 
 10:                                               ; preds = %8
-  %11 = icmp ugt i128 %.sroa.0.0.insert.insert, 9999999999999999999999999999999999
+  %11 = icmp samesign ugt i128 %.sroa.0.0.insert.insert, 9999999999999999999999999999999999
   br i1 %11, label %61, label %12
 
 12:                                               ; preds = %10
-  %13 = icmp ugt i128 %.sroa.0.0.insert.insert, 999999999999999999999999999999999
+  %13 = icmp samesign ugt i128 %.sroa.0.0.insert.insert, 999999999999999999999999999999999
   br i1 %13, label %61, label %14
 
 14:                                               ; preds = %12
-  %15 = icmp ugt i128 %.sroa.0.0.insert.insert, 99999999999999999999999999999999
+  %15 = icmp samesign ugt i128 %.sroa.0.0.insert.insert, 99999999999999999999999999999999
   br i1 %15, label %61, label %16
 
 16:                                               ; preds = %14
-  %17 = icmp ugt i128 %.sroa.0.0.insert.insert, 9999999999999999999999999999999
+  %17 = icmp samesign ugt i128 %.sroa.0.0.insert.insert, 9999999999999999999999999999999
   br i1 %17, label %61, label %18
 
 18:                                               ; preds = %16
-  %19 = icmp ugt i128 %.sroa.0.0.insert.insert, 999999999999999999999999999999
+  %19 = icmp samesign ugt i128 %.sroa.0.0.insert.insert, 999999999999999999999999999999
   br i1 %19, label %61, label %20
 
 20:                                               ; preds = %18
-  %21 = icmp ugt i128 %.sroa.0.0.insert.insert, 99999999999999999999999999999
+  %21 = icmp samesign ugt i128 %.sroa.0.0.insert.insert, 99999999999999999999999999999
   br i1 %21, label %61, label %22
 
 22:                                               ; preds = %20
-  %23 = icmp ugt i128 %.sroa.0.0.insert.insert, 9999999999999999999999999999
+  %23 = icmp samesign ugt i128 %.sroa.0.0.insert.insert, 9999999999999999999999999999
   br i1 %23, label %61, label %24
 
 24:                                               ; preds = %22
-  %25 = icmp ugt i128 %.sroa.0.0.insert.insert, 999999999999999999999999999
+  %25 = icmp samesign ugt i128 %.sroa.0.0.insert.insert, 999999999999999999999999999
   br i1 %25, label %61, label %26
 
 26:                                               ; preds = %24
-  %27 = icmp ugt i128 %.sroa.0.0.insert.insert, 99999999999999999999999999
+  %27 = icmp samesign ugt i128 %.sroa.0.0.insert.insert, 99999999999999999999999999
   br i1 %27, label %61, label %28
 
 28:                                               ; preds = %26
-  %29 = icmp ugt i128 %.sroa.0.0.insert.insert, 9999999999999999999999999
+  %29 = icmp samesign ugt i128 %.sroa.0.0.insert.insert, 9999999999999999999999999
   br i1 %29, label %61, label %30
 
 30:                                               ; preds = %28
-  %31 = icmp ugt i128 %.sroa.0.0.insert.insert, 999999999999999999999999
+  %31 = icmp samesign ugt i128 %.sroa.0.0.insert.insert, 999999999999999999999999
   br i1 %31, label %61, label %32
 
 32:                                               ; preds = %30
-  %33 = icmp ugt i128 %.sroa.0.0.insert.insert, 99999999999999999999999
+  %33 = icmp samesign ugt i128 %.sroa.0.0.insert.insert, 99999999999999999999999
   br i1 %33, label %61, label %34
 
 34:                                               ; preds = %32
-  %35 = icmp ugt i128 %.sroa.0.0.insert.insert, 9999999999999999999999
+  %35 = icmp samesign ugt i128 %.sroa.0.0.insert.insert, 9999999999999999999999
   br i1 %35, label %61, label %36
 
 36:                                               ; preds = %34
-  %37 = icmp ugt i128 %.sroa.0.0.insert.insert, 999999999999999999999
+  %37 = icmp samesign ugt i128 %.sroa.0.0.insert.insert, 999999999999999999999
   br i1 %37, label %61, label %38
 
 38:                                               ; preds = %36
-  %39 = icmp ugt i128 %.sroa.0.0.insert.insert, 99999999999999999999
+  %39 = icmp samesign ugt i128 %.sroa.0.0.insert.insert, 99999999999999999999
   br i1 %39, label %61, label %40
 
 40:                                               ; preds = %38
-  %.not = icmp ult i128 %.sroa.0.0.insert.insert, 10000000000000000000
+  %.not = icmp samesign ult i128 %.sroa.0.0.insert.insert, 10000000000000000000
   br i1 %.not, label %41, label %61
 
 41:                                               ; preds = %40
-  %.not39 = icmp ult i128 %.sroa.0.0.insert.insert, 1000000000000000000
+  %.not39 = icmp samesign ult i128 %.sroa.0.0.insert.insert, 1000000000000000000
   br i1 %.not39, label %42, label %61
 
 42:                                               ; preds = %41
-  %.not40 = icmp ult i128 %.sroa.0.0.insert.insert, 100000000000000000
+  %.not40 = icmp samesign ult i128 %.sroa.0.0.insert.insert, 100000000000000000
   br i1 %.not40, label %43, label %61
 
 43:                                               ; preds = %42
-  %.not41 = icmp ult i128 %.sroa.0.0.insert.insert, 10000000000000000
+  %.not41 = icmp samesign ult i128 %.sroa.0.0.insert.insert, 10000000000000000
   br i1 %.not41, label %44, label %61
 
 44:                                               ; preds = %43
-  %.not42 = icmp ult i128 %.sroa.0.0.insert.insert, 1000000000000000
+  %.not42 = icmp samesign ult i128 %.sroa.0.0.insert.insert, 1000000000000000
   br i1 %.not42, label %45, label %61
 
 45:                                               ; preds = %44
-  %.not43 = icmp ult i128 %.sroa.0.0.insert.insert, 100000000000000
+  %.not43 = icmp samesign ult i128 %.sroa.0.0.insert.insert, 100000000000000
   br i1 %.not43, label %46, label %61
 
 46:                                               ; preds = %45
-  %.not44 = icmp ult i128 %.sroa.0.0.insert.insert, 10000000000000
+  %.not44 = icmp samesign ult i128 %.sroa.0.0.insert.insert, 10000000000000
   br i1 %.not44, label %47, label %61
 
 47:                                               ; preds = %46
-  %.not45 = icmp ult i128 %.sroa.0.0.insert.insert, 1000000000000
+  %.not45 = icmp samesign ult i128 %.sroa.0.0.insert.insert, 1000000000000
   br i1 %.not45, label %48, label %61
 
 48:                                               ; preds = %47
-  %.not46 = icmp ult i128 %.sroa.0.0.insert.insert, 100000000000
+  %.not46 = icmp samesign ult i128 %.sroa.0.0.insert.insert, 100000000000
   br i1 %.not46, label %49, label %61
 
 49:                                               ; preds = %48
-  %.not47 = icmp ult i128 %.sroa.0.0.insert.insert, 10000000000
+  %.not47 = icmp samesign ult i128 %.sroa.0.0.insert.insert, 10000000000
   br i1 %.not47, label %50, label %61
 
 50:                                               ; preds = %49
-  %.not48 = icmp ult i128 %.sroa.0.0.insert.insert, 1000000000
+  %.not48 = icmp samesign ult i128 %.sroa.0.0.insert.insert, 1000000000
   br i1 %.not48, label %51, label %61
 
 51:                                               ; preds = %50
-  %.not49 = icmp ult i128 %.sroa.0.0.insert.insert, 100000000
+  %.not49 = icmp samesign ult i128 %.sroa.0.0.insert.insert, 100000000
   br i1 %.not49, label %52, label %61
 
 52:                                               ; preds = %51
-  %.not50 = icmp ult i128 %.sroa.0.0.insert.insert, 10000000
+  %.not50 = icmp samesign ult i128 %.sroa.0.0.insert.insert, 10000000
   br i1 %.not50, label %53, label %61
 
 53:                                               ; preds = %52
-  %.not51 = icmp ult i128 %.sroa.0.0.insert.insert, 1000000
+  %.not51 = icmp samesign ult i128 %.sroa.0.0.insert.insert, 1000000
   br i1 %.not51, label %54, label %61
 
 54:                                               ; preds = %53
-  %.not52 = icmp ult i128 %.sroa.0.0.insert.insert, 100000
+  %.not52 = icmp samesign ult i128 %.sroa.0.0.insert.insert, 100000
   br i1 %.not52, label %55, label %61
 
 55:                                               ; preds = %54
-  %.not53 = icmp ult i128 %.sroa.0.0.insert.insert, 10000
+  %.not53 = icmp samesign ult i128 %.sroa.0.0.insert.insert, 10000
   br i1 %.not53, label %56, label %61
 
 56:                                               ; preds = %55
-  %.not54 = icmp ult i128 %.sroa.0.0.insert.insert, 1000
+  %.not54 = icmp samesign ult i128 %.sroa.0.0.insert.insert, 1000
   br i1 %.not54, label %57, label %61
 
 57:                                               ; preds = %56
-  %.not55 = icmp ult i128 %.sroa.0.0.insert.insert, 100
+  %.not55 = icmp samesign ult i128 %.sroa.0.0.insert.insert, 100
   br i1 %.not55, label %58, label %61
 
 58:                                               ; preds = %57
-  %.not56 = icmp ult i128 %.sroa.0.0.insert.insert, 10
+  %.not56 = icmp samesign ult i128 %.sroa.0.0.insert.insert, 10
   br i1 %.not56, label %59, label %61
 
 59:                                               ; preds = %58
@@ -3625,42 +3625,42 @@ define linkonce_odr hidden { ptr, i32 } @_ZN5boost8charconv6detail21to_chars_int
   br i1 %.not, label %43, label %10
 
 10:                                               ; preds = %6
-  %11 = icmp ugt i64 %2, 9999
+  %11 = icmp samesign ugt i64 %2, 9999
   br i1 %11, label %12, label %22
 
 12:                                               ; preds = %10
-  %13 = icmp ugt i64 %2, 9999999
+  %13 = icmp samesign ugt i64 %2, 9999999
   br i1 %13, label %14, label %18
 
 14:                                               ; preds = %12
-  %15 = icmp ugt i64 %2, 99999999
+  %15 = icmp samesign ugt i64 %2, 99999999
   br i1 %15, label %16, label %_ZN5boost8charconv6detail10num_digitsIjEEiT_.exit
 
 16:                                               ; preds = %14
-  %17 = icmp ugt i64 %2, 999999999
+  %17 = icmp samesign ugt i64 %2, 999999999
   %..i = select i1 %17, i32 10, i32 9
   br label %_ZN5boost8charconv6detail10num_digitsIjEEiT_.exit
 
 18:                                               ; preds = %12
-  %19 = icmp ugt i64 %2, 99999
+  %19 = icmp samesign ugt i64 %2, 99999
   br i1 %19, label %20, label %_ZN5boost8charconv6detail10num_digitsIjEEiT_.exit
 
 20:                                               ; preds = %18
-  %21 = icmp ugt i64 %2, 999999
+  %21 = icmp samesign ugt i64 %2, 999999
   %.11.i = select i1 %21, i32 7, i32 6
   br label %_ZN5boost8charconv6detail10num_digitsIjEEiT_.exit
 
 22:                                               ; preds = %10
-  %23 = icmp ugt i64 %2, 99
+  %23 = icmp samesign ugt i64 %2, 99
   br i1 %23, label %24, label %26
 
 24:                                               ; preds = %22
-  %25 = icmp ugt i64 %2, 999
+  %25 = icmp samesign ugt i64 %2, 999
   %.12.i = select i1 %25, i32 4, i32 3
   br label %_ZN5boost8charconv6detail10num_digitsIjEEiT_.exit
 
 26:                                               ; preds = %22
-  %27 = icmp ugt i64 %2, 9
+  %27 = icmp samesign ugt i64 %2, 9
   %.13.i = select i1 %27, i32 2, i32 1
   br label %_ZN5boost8charconv6detail10num_digitsIjEEiT_.exit
 
@@ -3721,21 +3721,21 @@ _ZN5boost8charconv6detail11decompose32EjPc.exit:  ; preds = %31
   br label %_ZN5boost8charconv6detail10num_digitsImEEiT_.exit
 
 55:                                               ; preds = %47
-  %56 = icmp ugt i64 %2, 999999999999999
+  %56 = icmp samesign ugt i64 %2, 999999999999999
   %.21.i = select i1 %56, i32 16, i32 15
   br label %_ZN5boost8charconv6detail10num_digitsImEEiT_.exit
 
 57:                                               ; preds = %45
-  %58 = icmp ugt i64 %2, 999999999999
+  %58 = icmp samesign ugt i64 %2, 999999999999
   br i1 %58, label %59, label %61
 
 59:                                               ; preds = %57
-  %60 = icmp ugt i64 %2, 9999999999999
+  %60 = icmp samesign ugt i64 %2, 9999999999999
   %.22.i = select i1 %60, i32 14, i32 13
   br label %_ZN5boost8charconv6detail10num_digitsImEEiT_.exit
 
 61:                                               ; preds = %57
-  %62 = icmp ugt i64 %2, 99999999999
+  %62 = icmp samesign ugt i64 %2, 99999999999
   %.23.i = select i1 %62, i32 12, i32 11
   br label %_ZN5boost8charconv6detail10num_digitsImEEiT_.exit
 
@@ -3768,38 +3768,38 @@ _ZN5boost8charconv6detail10num_digitsImEEiT_.exit83.thread: ; preds = %64, %_ZN5
   %72 = udiv i64 %2, 1000000000
   %73 = trunc i64 %72 to i32
   %74 = urem i64 %2, 1000000000
-  %75 = icmp ugt i32 %73, 9999
+  %75 = icmp samesign ugt i32 %73, 9999
   br i1 %75, label %76, label %84
 
 76:                                               ; preds = %_ZN5boost8charconv6detail10num_digitsImEEiT_.exit83.thread
-  %77 = icmp ugt i32 %73, 9999999
+  %77 = icmp samesign ugt i32 %73, 9999999
   br i1 %77, label %78, label %80
 
 78:                                               ; preds = %76
-  %79 = icmp ugt i32 %73, 99999999
+  %79 = icmp samesign ugt i32 %73, 99999999
   %spec.select = select i1 %79, i64 9, i64 8
   br label %_ZN5boost8charconv6detail10num_digitsIjEEiT_.exit89
 
 80:                                               ; preds = %76
-  %81 = icmp ugt i32 %73, 99999
+  %81 = icmp samesign ugt i32 %73, 99999
   br i1 %81, label %82, label %_ZN5boost8charconv6detail10num_digitsIjEEiT_.exit89
 
 82:                                               ; preds = %80
-  %83 = icmp ugt i32 %73, 999999
+  %83 = icmp samesign ugt i32 %73, 999999
   %.11.i87 = select i1 %83, i64 7, i64 6
   br label %_ZN5boost8charconv6detail10num_digitsIjEEiT_.exit89
 
 84:                                               ; preds = %_ZN5boost8charconv6detail10num_digitsImEEiT_.exit83.thread
-  %85 = icmp ugt i32 %73, 99
+  %85 = icmp samesign ugt i32 %73, 99
   br i1 %85, label %86, label %88
 
 86:                                               ; preds = %84
-  %87 = icmp ugt i32 %73, 999
+  %87 = icmp samesign ugt i32 %73, 999
   %.12.i86 = select i1 %87, i64 4, i64 3
   br label %_ZN5boost8charconv6detail10num_digitsIjEEiT_.exit89
 
 88:                                               ; preds = %84
-  %89 = icmp ugt i32 %73, 9
+  %89 = icmp samesign ugt i32 %73, 9
   %.13.i84 = select i1 %89, i64 2, i64 1
   br label %_ZN5boost8charconv6detail10num_digitsIjEEiT_.exit89
 
@@ -4048,25 +4048,25 @@ define linkonce_odr hidden { ptr, i32 } @_ZN5boost8charconv6detail19to_chars_fix
   br label %_ZN5boost8charconv6detail10num_digitsIjEEiT_.exit
 
 43:                                               ; preds = %37
-  %44 = icmp ugt i32 %.sroa.023.0.extract.trunc, 99999
+  %44 = icmp samesign ugt i32 %.sroa.023.0.extract.trunc, 99999
   br i1 %44, label %45, label %_ZN5boost8charconv6detail10num_digitsIjEEiT_.exit
 
 45:                                               ; preds = %43
-  %46 = icmp ugt i32 %.sroa.023.0.extract.trunc, 999999
+  %46 = icmp samesign ugt i32 %.sroa.023.0.extract.trunc, 999999
   %.11.i = select i1 %46, i32 7, i32 6
   br label %_ZN5boost8charconv6detail10num_digitsIjEEiT_.exit
 
 47:                                               ; preds = %35
-  %48 = icmp ugt i32 %.sroa.023.0.extract.trunc, 99
+  %48 = icmp samesign ugt i32 %.sroa.023.0.extract.trunc, 99
   br i1 %48, label %49, label %51
 
 49:                                               ; preds = %47
-  %50 = icmp ugt i32 %.sroa.023.0.extract.trunc, 999
+  %50 = icmp samesign ugt i32 %.sroa.023.0.extract.trunc, 999
   %.12.i = select i1 %50, i32 4, i32 3
   br label %_ZN5boost8charconv6detail10num_digitsIjEEiT_.exit
 
 51:                                               ; preds = %47
-  %52 = icmp ugt i32 %.sroa.023.0.extract.trunc, 9
+  %52 = icmp samesign ugt i32 %.sroa.023.0.extract.trunc, 9
   %.13.i = select i1 %52, i32 2, i32 1
   br label %_ZN5boost8charconv6detail10num_digitsIjEEiT_.exit
 
@@ -4216,25 +4216,25 @@ _ZN5boost8charconv6detail21to_chars_integer_implIjEENS0_15to_chars_resultEPcS4_T
   br label %_ZN5boost8charconv6detail10num_digitsIjEEiT_.exit.i
 
 109:                                              ; preds = %103
-  %110 = icmp ugt i32 %.sroa.023.0.extract.trunc51, 99999
+  %110 = icmp samesign ugt i32 %.sroa.023.0.extract.trunc51, 99999
   br i1 %110, label %111, label %_ZN5boost8charconv6detail10num_digitsIjEEiT_.exit.i
 
 111:                                              ; preds = %109
-  %112 = icmp ugt i32 %.sroa.023.0.extract.trunc51, 999999
+  %112 = icmp samesign ugt i32 %.sroa.023.0.extract.trunc51, 999999
   %.11.i.i = select i1 %112, i64 7, i64 6
   br label %_ZN5boost8charconv6detail10num_digitsIjEEiT_.exit.i
 
 113:                                              ; preds = %99
-  %114 = icmp ugt i32 %.sroa.023.0.extract.trunc51, 99
+  %114 = icmp samesign ugt i32 %.sroa.023.0.extract.trunc51, 99
   br i1 %114, label %115, label %117
 
 115:                                              ; preds = %113
-  %116 = icmp ugt i32 %.sroa.023.0.extract.trunc51, 999
+  %116 = icmp samesign ugt i32 %.sroa.023.0.extract.trunc51, 999
   %.12.i.i = select i1 %116, i64 4, i64 3
   br label %_ZN5boost8charconv6detail10num_digitsIjEEiT_.exit.i
 
 117:                                              ; preds = %113
-  %118 = icmp ugt i32 %.sroa.023.0.extract.trunc51, 9
+  %118 = icmp samesign ugt i32 %.sroa.023.0.extract.trunc51, 9
   %.13.i.i = select i1 %118, i64 2, i64 1
   br label %_ZN5boost8charconv6detail10num_digitsIjEEiT_.exit.i
 
@@ -4883,12 +4883,12 @@ define linkonce_odr hidden { ptr, i32 } @_ZN5boost8charconv6detail5floffINS1_15m
 310:                                              ; preds = %306, %303
   %.sink2738 = phi i64 [ 2, %306 ], [ 1, %303 ]
   %311 = getelementptr inbounds i8, ptr %300, i64 %.sink2738
-  %312 = icmp ugt i32 %301, %.0956
+  %312 = icmp samesign ugt i32 %301, %.0956
   br i1 %312, label %315, label %.preheader2381
 
 .preheader2381:                                   ; preds = %310
   %313 = add nsw i32 %301, -1
-  %.not2504 = icmp ult i32 %313, 2
+  %.not2504 = icmp samesign ult i32 %313, 2
   br i1 %.not2504, label %._crit_edge2419, label %.lr.ph2418.preheader
 
 .lr.ph2418.preheader:                             ; preds = %.preheader2381
@@ -4912,7 +4912,7 @@ define linkonce_odr hidden { ptr, i32 } @_ZN5boost8charconv6detail5floffINS1_15m
   store i16 %321, ptr %.132424, align 1
   %322 = getelementptr inbounds i8, ptr %.132424, i64 2
   %323 = add nsw i32 %.19572423, -2
-  %324 = icmp ugt i32 %.19572423, 2
+  %324 = icmp samesign ugt i32 %.19572423, 2
   br i1 %324, label %.lr.ph2426, label %.loopexit2380, !llvm.loop !38
 
 ._crit_edge2419:                                  ; preds = %.lr.ph2418, %.preheader2381
@@ -5065,7 +5065,7 @@ _ZN5boost8charconv6detailL65check_rounding_condition_subsegment_boundary_with_ne
   br label %420
 
 408:                                              ; preds = %.thread1940
-  %409 = icmp ugt i32 %270, 9999
+  %409 = icmp samesign ugt i32 %270, 9999
   br i1 %409, label %410, label %413
 
 410:                                              ; preds = %408
@@ -5074,7 +5074,7 @@ _ZN5boost8charconv6detailL65check_rounding_condition_subsegment_boundary_with_ne
   br label %420
 
 413:                                              ; preds = %408
-  %414 = icmp ugt i32 %270, 99
+  %414 = icmp samesign ugt i32 %270, 99
   br i1 %414, label %415, label %418
 
 415:                                              ; preds = %413
@@ -5109,12 +5109,12 @@ _ZN5boost8charconv6detailL65check_rounding_condition_subsegment_boundary_with_ne
   %428 = load i16, ptr %427, align 2
   store i16 %428, ptr %.17, align 1
   %429 = getelementptr inbounds i8, ptr %.17, i64 2
-  %430 = icmp ugt i32 %.6923, %.2958
+  %430 = icmp samesign ugt i32 %.6923, %.2958
   br i1 %430, label %433, label %.preheader
 
 .preheader:                                       ; preds = %424
   %431 = add nsw i32 %.6923, -1
-  %.not2505 = icmp ult i32 %431, 2
+  %.not2505 = icmp samesign ult i32 %431, 2
   br i1 %.not2505, label %._crit_edge2432, label %.lr.ph2431.preheader
 
 .lr.ph2431.preheader:                             ; preds = %.preheader
@@ -5139,7 +5139,7 @@ _ZN5boost8charconv6detailL65check_rounding_condition_subsegment_boundary_with_ne
   store i16 %439, ptr %.182437, align 1
   %440 = getelementptr inbounds i8, ptr %.182437, i64 2
   %441 = add nsw i32 %.49602436, -2
-  %442 = icmp ugt i32 %.49602436, 2
+  %442 = icmp samesign ugt i32 %.49602436, 2
   br i1 %442, label %.lr.ph2439, label %.loopexit2379, !llvm.loop !40
 
 ._crit_edge2432:                                  ; preds = %.lr.ph2431, %.preheader
@@ -5618,7 +5618,7 @@ _ZN5boost8charconv6detail22fixed_point_calculatorILm3EE26generate_and_discard_lo
   br label %.loopexit
 
 724:                                              ; preds = %666
-  %725 = icmp ult i32 %514, 17
+  %725 = icmp samesign ult i32 %514, 17
   br i1 %725, label %726, label %_ZN5boost8charconv6detail22fixed_point_calculatorILm3EE26generate_and_discard_lowerImEET_S5_Pmm.exit1226
 
 726:                                              ; preds = %724
@@ -5777,7 +5777,7 @@ _ZN5boost8charconv6detail22fixed_point_calculatorILm3EE26generate_and_discard_lo
   %832 = getelementptr inbounds i8, ptr %.32045, i64 10
   %833 = add nsw i32 %514, -10
   store i32 %833, ptr %9, align 4, !tbaa !32
-  %834 = icmp ugt i32 %514, 11
+  %834 = icmp samesign ugt i32 %514, 11
   br i1 %834, label %.lr.ph2476, label %._crit_edge2477
 
 .lr.ph2476:                                       ; preds = %_ZN5boost8charconv6detail22fixed_point_calculatorILm3EE26generate_and_discard_lowerImEET_S5_Pmm.exit1223, %.lr.ph2476
@@ -5954,7 +5954,7 @@ _ZN5boost8charconv6detail22fixed_point_calculatorILm3EE26generate_and_discard_lo
   store i16 %939, ptr %.372469, align 1
   %940 = getelementptr inbounds i8, ptr %.372469, i64 2
   %941 = add nsw i32 %.110122467, -2
-  %942 = icmp ugt i32 %.110122467, 3
+  %942 = icmp samesign ugt i32 %.110122467, 3
   br i1 %942, label %.lr.ph2471, label %._crit_edge2472, !llvm.loop !49
 
 ._crit_edge2472:                                  ; preds = %.lr.ph2471, %927
@@ -6158,7 +6158,7 @@ _ZN5boost8charconv6detail18has_further_digitsILj0ELj0ENS1_24extended_cache_long_
   br i1 %.0.i1256, label %.thread2227, label %.thread2269
 
 1064:                                             ; preds = %945
-  %1065 = icmp ult i32 %514, 10
+  %1065 = icmp samesign ult i32 %514, 10
   br i1 %1065, label %1066, label %_ZN5boost8charconv6detail22fixed_point_calculatorILm3EE8generateImEET_S5_Pmm.exit1249
 
 1066:                                             ; preds = %1064
@@ -6475,7 +6475,7 @@ _ZN5boost8charconv6detail22fixed_point_calculatorILm3EE8generateImEET_S5_Pmm.exi
   %1236 = trunc i64 %1230 to i32
   %.neg1085 = mul i32 %1235, -10000000
   %1237 = add i32 %.neg1085, %1236
-  %1238 = icmp ugt i32 %514, 16
+  %1238 = icmp samesign ugt i32 %514, 16
   br i1 %1238, label %1239, label %1404
 
 1239:                                             ; preds = %_ZN5boost8charconv6detail22fixed_point_calculatorILm3EE8generateImEET_S5_Pmm.exit1249
@@ -6503,7 +6503,7 @@ _ZN5boost8charconv6detail22fixed_point_calculatorILm3EE8generateImEET_S5_Pmm.exi
   %1252 = mul nuw nsw i64 %1234, 687195
   %1253 = lshr i64 %1252, 4
   %1254 = add nuw nsw i64 %1253, 1
-  %1255 = icmp ult i32 %514, 21
+  %1255 = icmp samesign ult i32 %514, 21
   br i1 %1255, label %.lr.ph.i1387.preheader, label %_ZN5boost8charconv6detail13compute_powerImiEET_S3_T0_.exit1394
 
 .lr.ph.i1387.preheader:                           ; preds = %1251
@@ -6565,7 +6565,7 @@ _ZN5boost8charconv6detail13compute_powerImiEET_S3_T0_.exit1394: ; preds = %.lr.p
   store i16 %1276, ptr %.462443, align 1
   %1277 = getelementptr inbounds i8, ptr %.462443, i64 2
   %1278 = add nsw i32 %.19892442, -2
-  %1279 = icmp ugt i32 %.19892442, 3
+  %1279 = icmp samesign ugt i32 %.19892442, 3
   br i1 %1279, label %.lr.ph2445, label %_ZN5boost8charconv6detailL65check_rounding_condition_subsegment_boundary_with_next_subsegmentINS1_32uint_with_known_number_of_digitsILj7ELb1EEEbJETnNSt9enable_ifIXsr3std7is_sameIT0_bEE5valueEbE4typeELb1EEEbjT_S6_DpT1_.exit.thread, !llvm.loop !51
 
 1280:                                             ; preds = %1239
@@ -6577,7 +6577,7 @@ _ZN5boost8charconv6detail13compute_powerImiEET_S3_T0_.exit1394: ; preds = %.lr.p
   %1283 = mul nuw nsw i64 %1234, 687195
   %1284 = lshr i64 %1283, 4
   %1285 = add nuw nsw i64 %1284, 1
-  %1286 = icmp ult i32 %514, 22
+  %1286 = icmp samesign ult i32 %514, 22
   br i1 %1286, label %1287, label %1296
 
 1287:                                             ; preds = %1282
@@ -6637,7 +6637,7 @@ _ZN5boost8charconv6detail13compute_powerImiEET_S3_T0_.exit1403: ; preds = %.lr.p
   br i1 %or.cond.i.i1404, label %_ZN5boost8charconv6detail18has_further_digitsILj1ELj16ENS1_24extended_cache_long_implILb1EEEEEbmiRiNS1_6uconstIXT_EEENS6_IXT0_EEE.exit, label %1311
 
 1311:                                             ; preds = %1307
-  %1312 = icmp ugt i32 %513, 35
+  %1312 = icmp samesign ugt i32 %513, 35
   br i1 %1312, label %_ZN5boost8charconv6detail18has_further_digitsILj1ELj16ENS1_24extended_cache_long_implILb1EEEEEbmiRiNS1_6uconstIXT_EEENS6_IXT0_EEE.exit, label %1313
 
 1313:                                             ; preds = %1311
@@ -6648,7 +6648,7 @@ _ZN5boost8charconv6detail13compute_powerImiEET_S3_T0_.exit1403: ; preds = %.lr.p
 
 _ZN5boost8charconv6detail18has_further_digitsILj1ELj16ENS1_24extended_cache_long_implILb1EEEEEbmiRiNS1_6uconstIXT_EEENS6_IXT0_EEE.exit: ; preds = %1307, %1311, %1313
   %.0.i.i1405 = phi i32 [ %1316, %1313 ], [ 1, %1307 ], [ 0, %1311 ]
-  %1317 = icmp ugt i32 %1235, 500000
+  %1317 = icmp samesign ugt i32 %1235, 500000
   br i1 %1317, label %.thread1988.sink.split, label %_ZN5boost8charconv6detailL65check_rounding_condition_subsegment_boundary_with_next_subsegmentINS1_32uint_with_known_number_of_digitsILj6ELb1EEEbJETnNSt9enable_ifIXsr3std7is_sameIT0_bEE5valueEbE4typeELb1EEEbjT_S6_DpT1_.exit
 
 _ZN5boost8charconv6detailL65check_rounding_condition_subsegment_boundary_with_next_subsegmentINS1_32uint_with_known_number_of_digitsILj6ELb1EEEbJETnNSt9enable_ifIXsr3std7is_sameIT0_bEE5valueEbE4typeELb1EEEbjT_S6_DpT1_.exit: ; preds = %_ZN5boost8charconv6detail18has_further_digitsILj1ELj16ENS1_24extended_cache_long_implILb1EEEEEbmiRiNS1_6uconstIXT_EEENS6_IXT0_EEE.exit
@@ -6669,7 +6669,7 @@ _ZN5boost8charconv6detailL65check_rounding_condition_subsegment_boundary_with_ne
   %1327 = mul nuw nsw i64 %1234, 687195
   %1328 = lshr i64 %1327, 4
   %1329 = add nuw nsw i64 %1328, 1
-  %1330 = icmp ult i32 %514, 21
+  %1330 = icmp samesign ult i32 %514, 21
   br i1 %1330, label %.lr.ph.i1407.preheader, label %_ZN5boost8charconv6detail13compute_powerImiEET_S3_T0_.exit1414
 
 .lr.ph.i1407.preheader:                           ; preds = %1326
@@ -6805,7 +6805,7 @@ _ZN5boost8charconv6detailL65check_rounding_condition_subsegment_boundary_with_ne
   br i1 %or.cond.i.i1417, label %_ZN5boost8charconv6detail18has_further_digitsILj1ELj16ENS1_24extended_cache_long_implILb1EEEEEbmiRiNS1_6uconstIXT_EEENS6_IXT0_EEE.exit1419, label %1390
 
 1390:                                             ; preds = %1382
-  %1391 = icmp ugt i32 %1383, 35
+  %1391 = icmp samesign ugt i32 %1383, 35
   br i1 %1391, label %_ZN5boost8charconv6detail18has_further_digitsILj1ELj16ENS1_24extended_cache_long_implILb1EEEEEbmiRiNS1_6uconstIXT_EEENS6_IXT0_EEE.exit1419, label %1392
 
 1392:                                             ; preds = %1390
@@ -6943,7 +6943,7 @@ _ZN5boost8charconv6detail13compute_powerImiEET_S3_T0_.exit1428: ; preds = %.lr.p
   store i16 %1449, ptr %.562449, align 1
   %1450 = getelementptr inbounds i8, ptr %.562449, i64 2
   %1451 = add nsw i32 %.210032447, -2
-  %1452 = icmp ugt i32 %.210032447, 3
+  %1452 = icmp samesign ugt i32 %.210032447, 3
   br i1 %1452, label %.lr.ph2451, label %_ZN5boost8charconv6detail22fixed_point_calculatorILm3EE26generate_and_discard_lowerImEET_S5_Pmm.exit1232, !llvm.loop !52
 
 _ZN5boost8charconv6detail22fixed_point_calculatorILm3EE26generate_and_discard_lowerImEET_S5_Pmm.exit1232: ; preds = %.lr.ph2451, %1442
@@ -7005,7 +7005,7 @@ _ZN5boost8charconv6detail22fixed_point_calculatorILm3EE26generate_and_discard_lo
   %1494 = mul nuw nsw i64 %1493, 17592187
   %1495 = lshr i64 %1494, 12
   %1496 = add nuw nsw i64 %1495, 1
-  %1497 = icmp ult i32 %1405, 7
+  %1497 = icmp samesign ult i32 %1405, 7
   br i1 %1497, label %1498, label %1507
 
 1498:                                             ; preds = %1492
@@ -8171,7 +8171,7 @@ _ZN5boost8charconv6detailL42check_rounding_condition_inside_subsegmentIbJETnNSt9
   %.sink2746 = phi i64 [ 10, %2152 ], [ 9, %2142 ]
   %.0837 = phi i64 [ %2148, %2152 ], [ %2124, %2142 ]
   %2157 = getelementptr inbounds i8, ptr %.68, i64 %.sink2746
-  %2158 = icmp ugt i32 %.28945, 12
+  %2158 = icmp samesign ugt i32 %.28945, 12
   br i1 %2158, label %.lr.ph2500.preheader, label %._crit_edge2501.thread
 
 ._crit_edge2501.thread:                           ; preds = %2156
@@ -8917,11 +8917,11 @@ define linkonce_odr hidden { ptr, i32 } @_ZN5boost8charconv6detail12to_chars_hex
   br i1 %30, label %_ZN5boost8charconv6detail19total_buffer_lengthIjEEiiT_b.exit, label %31
 
 31:                                               ; preds = %13
-  %32 = icmp ugt i32 %28, 99
+  %32 = icmp samesign ugt i32 %28, 99
   br i1 %32, label %_ZN5boost8charconv6detail19total_buffer_lengthIjEEiiT_b.exit, label %33
 
 33:                                               ; preds = %31
-  %34 = icmp ugt i32 %28, 9
+  %34 = icmp samesign ugt i32 %28, 9
   %.13.i.i = select i1 %34, i32 2, i32 1
   br label %_ZN5boost8charconv6detail19total_buffer_lengthIjEEiiT_b.exit
 
@@ -9067,25 +9067,25 @@ _ZN5boost8charconv6detail19total_buffer_lengthIjEEiiT_b.exit: ; preds = %31, %13
   br label %_ZN5boost8charconv6detail10num_digitsIjEEiT_.exit.i.i
 
 102:                                              ; preds = %96
-  %103 = icmp ugt i32 %28, 99999
+  %103 = icmp samesign ugt i32 %28, 99999
   br i1 %103, label %104, label %_ZN5boost8charconv6detail10num_digitsIjEEiT_.exit.i.i
 
 104:                                              ; preds = %102
-  %105 = icmp ugt i32 %28, 999999
+  %105 = icmp samesign ugt i32 %28, 999999
   %.11.i.i.i = select i1 %105, i64 7, i64 6
   br label %_ZN5boost8charconv6detail10num_digitsIjEEiT_.exit.i.i
 
 106:                                              ; preds = %93
-  %107 = icmp ugt i32 %28, 99
+  %107 = icmp samesign ugt i32 %28, 99
   br i1 %107, label %108, label %110
 
 108:                                              ; preds = %106
-  %109 = icmp ugt i32 %28, 999
+  %109 = icmp samesign ugt i32 %28, 999
   %.12.i.i.i = select i1 %109, i64 4, i64 3
   br label %_ZN5boost8charconv6detail10num_digitsIjEEiT_.exit.i.i
 
 110:                                              ; preds = %106
-  %111 = icmp ugt i32 %28, 9
+  %111 = icmp samesign ugt i32 %28, 9
   %.13.i.i.i = select i1 %111, i64 2, i64 1
   br label %_ZN5boost8charconv6detail10num_digitsIjEEiT_.exit.i.i
 
@@ -9869,61 +9869,61 @@ _ZZN5boost8charconv6detail10to_decimalIdNS1_22dragonbox_float_traitsIdEEJEEEDaNS
   br label %_ZN5boost8charconv6detail10num_digitsImEEiT_.exit
 
 59:                                               ; preds = %51
-  %60 = icmp ugt i64 %35, 999999999999999
+  %60 = icmp samesign ugt i64 %35, 999999999999999
   %.21.i = select i1 %60, i32 16, i32 15
   br label %_ZN5boost8charconv6detail10num_digitsImEEiT_.exit
 
 61:                                               ; preds = %49
-  %62 = icmp ugt i64 %35, 999999999999
+  %62 = icmp samesign ugt i64 %35, 999999999999
   br i1 %62, label %63, label %65
 
 63:                                               ; preds = %61
-  %64 = icmp ugt i64 %35, 9999999999999
+  %64 = icmp samesign ugt i64 %35, 9999999999999
   %.22.i = select i1 %64, i32 14, i32 13
   br label %_ZN5boost8charconv6detail10num_digitsImEEiT_.exit
 
 65:                                               ; preds = %61
-  %66 = icmp ugt i64 %35, 99999999999
+  %66 = icmp samesign ugt i64 %35, 99999999999
   %.23.i = select i1 %66, i32 12, i32 11
   br label %_ZN5boost8charconv6detail10num_digitsImEEiT_.exit
 
 67:                                               ; preds = %47
-  %68 = icmp ugt i64 %35, 99999
+  %68 = icmp samesign ugt i64 %35, 99999
   br i1 %68, label %69, label %77
 
 69:                                               ; preds = %67
-  %70 = icmp ugt i64 %35, 9999999
+  %70 = icmp samesign ugt i64 %35, 9999999
   br i1 %70, label %71, label %75
 
 71:                                               ; preds = %69
-  %72 = icmp ugt i64 %35, 99999999
+  %72 = icmp samesign ugt i64 %35, 99999999
   br i1 %72, label %73, label %_ZN5boost8charconv6detail10num_digitsImEEiT_.exit
 
 73:                                               ; preds = %71
-  %74 = icmp ugt i64 %35, 999999999
+  %74 = icmp samesign ugt i64 %35, 999999999
   %.24.i = select i1 %74, i32 10, i32 9
   br label %_ZN5boost8charconv6detail10num_digitsImEEiT_.exit
 
 75:                                               ; preds = %69
-  %76 = icmp ugt i64 %35, 999999
+  %76 = icmp samesign ugt i64 %35, 999999
   %.25.i = select i1 %76, i32 7, i32 6
   br label %_ZN5boost8charconv6detail10num_digitsImEEiT_.exit
 
 77:                                               ; preds = %67
-  %78 = icmp ugt i64 %35, 99
+  %78 = icmp samesign ugt i64 %35, 99
   br i1 %78, label %79, label %83
 
 79:                                               ; preds = %77
-  %80 = icmp ugt i64 %35, 999
+  %80 = icmp samesign ugt i64 %35, 999
   br i1 %80, label %81, label %_ZN5boost8charconv6detail10num_digitsImEEiT_.exit
 
 81:                                               ; preds = %79
-  %82 = icmp ugt i64 %35, 9999
+  %82 = icmp samesign ugt i64 %35, 9999
   %.26.i = select i1 %82, i32 5, i32 4
   br label %_ZN5boost8charconv6detail10num_digitsImEEiT_.exit
 
 83:                                               ; preds = %77
-  %84 = icmp ugt i64 %35, 9
+  %84 = icmp samesign ugt i64 %35, 9
   %.27.i = select i1 %84, i32 2, i32 1
   br label %_ZN5boost8charconv6detail10num_digitsImEEiT_.exit
 
@@ -10124,16 +10124,16 @@ define linkonce_odr hidden { ptr, i32 } @_ZN5boost8charconv6detail12to_chars_hex
   br i1 %28, label %_ZN5boost8charconv6detail19total_buffer_lengthIjEEiiT_b.exit, label %29
 
 29:                                               ; preds = %13
-  %30 = icmp ugt i32 %26, 99
+  %30 = icmp samesign ugt i32 %26, 99
   br i1 %30, label %31, label %33
 
 31:                                               ; preds = %29
-  %32 = icmp ugt i32 %26, 999
+  %32 = icmp samesign ugt i32 %26, 999
   %.12.i.i = select i1 %32, i32 4, i32 3
   br label %_ZN5boost8charconv6detail19total_buffer_lengthIjEEiiT_b.exit
 
 33:                                               ; preds = %29
-  %34 = icmp ugt i32 %26, 9
+  %34 = icmp samesign ugt i32 %26, 9
   %.13.i.i = select i1 %34, i32 2, i32 1
   br label %_ZN5boost8charconv6detail19total_buffer_lengthIjEEiiT_b.exit
 
@@ -10279,25 +10279,25 @@ _ZN5boost8charconv6detail19total_buffer_lengthIjEEiiT_b.exit: ; preds = %13, %31
   br label %_ZN5boost8charconv6detail10num_digitsIjEEiT_.exit.i.i
 
 100:                                              ; preds = %94
-  %101 = icmp ugt i32 %26, 99999
+  %101 = icmp samesign ugt i32 %26, 99999
   br i1 %101, label %102, label %_ZN5boost8charconv6detail10num_digitsIjEEiT_.exit.i.i
 
 102:                                              ; preds = %100
-  %103 = icmp ugt i32 %26, 999999
+  %103 = icmp samesign ugt i32 %26, 999999
   %.11.i.i.i = select i1 %103, i64 7, i64 6
   br label %_ZN5boost8charconv6detail10num_digitsIjEEiT_.exit.i.i
 
 104:                                              ; preds = %91
-  %105 = icmp ugt i32 %26, 99
+  %105 = icmp samesign ugt i32 %26, 99
   br i1 %105, label %106, label %108
 
 106:                                              ; preds = %104
-  %107 = icmp ugt i32 %26, 999
+  %107 = icmp samesign ugt i32 %26, 999
   %.12.i.i.i = select i1 %107, i64 4, i64 3
   br label %_ZN5boost8charconv6detail10num_digitsIjEEiT_.exit.i.i
 
 108:                                              ; preds = %104
-  %109 = icmp ugt i32 %26, 9
+  %109 = icmp samesign ugt i32 %26, 9
   %.13.i.i.i = select i1 %109, i64 2, i64 1
   br label %_ZN5boost8charconv6detail10num_digitsIjEEiT_.exit.i.i
 

@@ -63,7 +63,7 @@ spin_acquire_lock.exit:                           ; preds = %10, %4, %7
   br i1 %17, label %18, label %135
 
 18:                                               ; preds = %spin_acquire_lock.exit
-  %19 = icmp ult i64 %0, 23
+  %19 = icmp samesign ult i64 %0, 23
   %20 = add nuw nsw i64 %0, 23
   %21 = and i64 %20, 496
   %22 = select i1 %19, i64 32, i64 %21
@@ -3694,7 +3694,7 @@ define internal fastcc ptr @try_realloc_chunk(ptr noundef %0, ptr noundef nonnul
 
 62:                                               ; preds = %61
   %63 = sub nuw nsw i64 %7, %2
-  %64 = icmp ugt i64 %63, 31
+  %64 = icmp samesign ugt i64 %63, 31
   br i1 %64, label %65, label %mmap_resize.exit
 
 65:                                               ; preds = %62
@@ -4152,7 +4152,7 @@ spin_acquire_lock.exit:                           ; preds = %10, %2, %6
   br i1 %17, label %18, label %144
 
 18:                                               ; preds = %spin_acquire_lock.exit
-  %19 = icmp ult i64 %1, 23
+  %19 = icmp samesign ult i64 %1, 23
   %20 = add nuw nsw i64 %1, 23
   %21 = and i64 %20, 496
   %22 = select i1 %19, i64 32, i64 %21
@@ -7133,7 +7133,7 @@ define hidden ptr @mspace_malloc_lockless(ptr noundef %0, i64 noundef %1) local_
   br i1 %3, label %4, label %130
 
 4:                                                ; preds = %2
-  %5 = icmp ult i64 %1, 23
+  %5 = icmp samesign ult i64 %1, 23
   %6 = add nuw nsw i64 %1, 23
   %7 = and i64 %6, 496
   %8 = select i1 %5, i64 32, i64 %7
@@ -10166,7 +10166,7 @@ spin_acquire_lock.exit:                           ; preds = %11, %5, %8
 50:                                               ; preds = %48
   %51 = tail call i64 @llvm.umax.i64(i64 range(i64 0, -105) %44, i64 256)
   %52 = or disjoint i64 %51, 8
-  %.not.i.i = icmp ult i64 %32, %52
+  %.not.i.i = icmp samesign ult i64 %32, %52
   br i1 %.not.i.i, label %57, label %53
 
 53:                                               ; preds = %50

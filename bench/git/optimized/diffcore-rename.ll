@@ -468,7 +468,7 @@ insert_file_table.exit.i:                         ; preds = %if.end3.i.i.i, %if.
   store i32 %retval.0.i.i.i170, ptr %hash1.i.i.i, align 8
   store ptr null, ptr %call.i.i, align 8
   call void @hashmap_add(ptr noundef nonnull %file_table.i, ptr noundef nonnull %call.i.i) #14
-  %cmp.i = icmp ugt i64 %indvars.iv.i, 1
+  %cmp.i = icmp samesign ugt i64 %indvars.iv.i, 1
   br i1 %cmp.i, label %for.body.i, label %for.cond2.preheader.i, !llvm.loop !8
 
 for.body5.i:                                      ; preds = %find_identical_files.exit.i, %for.body5.lr.ph.i

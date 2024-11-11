@@ -96,7 +96,7 @@ define noundef signext i16 @_ZN32pxrInternal_v0_24__pxrReserved__8pxr_half4half7
   %.not = icmp eq i32 %46, 0
   %47 = add nsw i32 %6, -111
   %spec.select38 = select i1 %.not, i32 %7, i32 %47
-  %48 = icmp ugt i32 %spec.select38, 30
+  %48 = icmp samesign ugt i32 %spec.select38, 30
   br i1 %48, label %49, label %55
 
 49:                                               ; preds = %41

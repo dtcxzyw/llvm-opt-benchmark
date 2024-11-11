@@ -6339,7 +6339,7 @@ ends_with.exit:                                   ; preds = %land.lhs.true25
   br i1 %tobool.not.i.i.i.not, label %if.end54, label %ends_with.exit36
 
 lor.lhs.false:                                    ; preds = %land.lhs.true25
-  %cmp.i.i.i29 = icmp ult i64 %call.i.i, 4
+  %cmp.i.i.i29 = icmp samesign ult i64 %call.i.i, 4
   br i1 %cmp.i.i.i29, label %if.end31, label %ends_with.exit36
 
 ends_with.exit36:                                 ; preds = %ends_with.exit, %lor.lhs.false

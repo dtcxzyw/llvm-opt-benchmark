@@ -3391,7 +3391,7 @@ define ptr @Bmc_GiaTargetStates(ptr noundef %0, ptr nocapture noundef readonly %
   br label %48
 
 21:                                               ; preds = %15
-  %22 = icmp ugt i32 %3, %17
+  %22 = icmp samesign ugt i32 %3, %17
   br i1 %22, label %23, label %25
 
 23:                                               ; preds = %21
@@ -3399,7 +3399,7 @@ define ptr @Bmc_GiaTargetStates(ptr noundef %0, ptr nocapture noundef readonly %
   br label %48
 
 25:                                               ; preds = %21
-  %26 = icmp ugt i32 %2, %3
+  %26 = icmp samesign ugt i32 %2, %3
   br i1 %26, label %27, label %29
 
 27:                                               ; preds = %25

@@ -155,7 +155,7 @@ if.else.i:                                        ; preds = %if.end.i
 
 if.then9.i:                                       ; preds = %if.else.i
   %cmp10.i = icmp samesign ult i8 %5, 9
-  %cmp12.not.i = icmp ugt i64 %max.134, %conv5.i
+  %cmp12.not.i = icmp samesign ugt i64 %max.134, %conv5.i
   %or.cond.i = select i1 %cmp10.i, i1 %cmp12.not.i, i1 false
   br i1 %or.cond.i, label %while.cond.preheader.i, label %err
 

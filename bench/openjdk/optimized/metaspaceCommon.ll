@@ -47,7 +47,7 @@ define hidden void @_ZN9metaspace25print_human_readable_sizeEP12outputStreammmi(
 
 .lr.ph:                                           ; preds = %4
   %6 = icmp eq i64 %1, 0
-  %.inv = icmp ult i64 %1, 1024
+  %.inv = icmp samesign ult i64 %1, 1024
   %. = select i1 %.inv, i64 1, i64 1024
   %7 = add i64 %1, -1073741824
   %brmerge = icmp ult i64 %7, -1073741823

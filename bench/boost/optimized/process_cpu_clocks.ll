@@ -203,7 +203,7 @@ _ZN5boost6chrono13chrono_detail11tick_factorEv.exit: ; preds = %4
 
 9:                                                ; preds = %_ZN5boost6chrono13chrono_detail11tick_factorEv.exit
   %10 = udiv i64 1000000000, %7
-  %.not.i2 = icmp ugt i64 %7, 1000000000
+  %.not.i2 = icmp samesign ugt i64 %7, 1000000000
   %spec.store.select.i3 = select i1 %.not.i2, i64 -1, i64 %10
   br label %_ZN5boost6chrono13chrono_detail11tick_factorEv.exit5
 
@@ -305,7 +305,7 @@ _ZN5boost6chrono13chrono_detail11tick_factorEv.exit: ; preds = %28
 
 36:                                               ; preds = %33
   %37 = udiv i64 1000000000, %34
-  %.not.i12 = icmp ugt i64 %34, 1000000000
+  %.not.i12 = icmp samesign ugt i64 %34, 1000000000
   %spec.store.select.i13 = select i1 %.not.i12, i64 -1, i64 %37
   br label %_ZN5boost6chrono13chrono_detail11tick_factorEv.exit15
 
@@ -899,7 +899,7 @@ _ZN5boost6chrono13chrono_detail11tick_factorEv.exit: ; preds = %4
 
 13:                                               ; preds = %_ZN5boost6chrono13chrono_detail11tick_factorEv.exit
   %14 = udiv i64 1000000000, %11
-  %.not.i1 = icmp ugt i64 %11, 1000000000
+  %.not.i1 = icmp samesign ugt i64 %11, 1000000000
   %spec.store.select.i2 = select i1 %.not.i1, i64 -1, i64 %14
   br label %_ZN5boost6chrono13chrono_detail11tick_factorEv.exit4
 
@@ -1002,7 +1002,7 @@ _ZN5boost6chrono13chrono_detail11tick_factorEv.exit: ; preds = %28
 
 40:                                               ; preds = %33
   %41 = udiv i64 1000000000, %38
-  %.not.i10 = icmp ugt i64 %38, 1000000000
+  %.not.i10 = icmp samesign ugt i64 %38, 1000000000
   %spec.store.select.i11 = select i1 %.not.i10, i64 -1, i64 %41
   br label %_ZN5boost6chrono13chrono_detail11tick_factorEv.exit13
 
@@ -1100,7 +1100,7 @@ _ZN5boost6chrono13chrono_detail11tick_factorEv.exit: ; preds = %4
 
 14:                                               ; preds = %_ZN5boost6chrono13chrono_detail11tick_factorEv.exit
   %15 = udiv i64 1000000000, %12
-  %.not.i2 = icmp ugt i64 %12, 1000000000
+  %.not.i2 = icmp samesign ugt i64 %12, 1000000000
   %spec.store.select.i3 = select i1 %.not.i2, i64 -1, i64 %15
   br label %_ZN5boost6chrono13chrono_detail11tick_factorEv.exit5
 
@@ -1204,7 +1204,7 @@ _ZN5boost6chrono13chrono_detail11tick_factorEv.exit: ; preds = %28
 
 41:                                               ; preds = %33
   %42 = udiv i64 1000000000, %39
-  %.not.i10 = icmp ugt i64 %39, 1000000000
+  %.not.i10 = icmp samesign ugt i64 %39, 1000000000
   %spec.store.select.i11 = select i1 %.not.i10, i64 -1, i64 %42
   br label %_ZN5boost6chrono13chrono_detail11tick_factorEv.exit13
 
@@ -1399,7 +1399,7 @@ _ZN5boost6chrono13chrono_detail11tick_factorEv.exit: ; preds = %29
 
 34:                                               ; preds = %_ZN5boost6chrono13chrono_detail11tick_factorEv.exit
   %35 = udiv i64 1000000000, %32
-  %.not.i10 = icmp ugt i64 %32, 1000000000
+  %.not.i10 = icmp samesign ugt i64 %32, 1000000000
   %spec.store.select.i11 = select i1 %.not.i10, i64 -1, i64 %35
   br label %_ZN5boost6chrono13chrono_detail11tick_factorEv.exit13
 
@@ -1416,7 +1416,7 @@ _ZN5boost6chrono13chrono_detail11tick_factorEv.exit13: ; preds = %_ZN5boost6chro
 
 43:                                               ; preds = %_ZN5boost6chrono13chrono_detail11tick_factorEv.exit13
   %44 = udiv i64 1000000000, %41
-  %.not.i14 = icmp ugt i64 %41, 1000000000
+  %.not.i14 = icmp samesign ugt i64 %41, 1000000000
   %spec.store.select.i15 = select i1 %.not.i14, i64 -1, i64 %44
   br label %_ZN5boost6chrono13chrono_detail11tick_factorEv.exit17
 
@@ -1434,7 +1434,7 @@ _ZN5boost6chrono13chrono_detail11tick_factorEv.exit17: ; preds = %_ZN5boost6chro
 
 53:                                               ; preds = %_ZN5boost6chrono13chrono_detail11tick_factorEv.exit17
   %54 = udiv i64 1000000000, %51
-  %.not.i18 = icmp ugt i64 %51, 1000000000
+  %.not.i18 = icmp samesign ugt i64 %51, 1000000000
   %spec.store.select.i19 = select i1 %.not.i18, i64 -1, i64 %54
   br label %_ZN5boost6chrono13chrono_detail11tick_factorEv.exit21
 

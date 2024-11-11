@@ -1137,7 +1137,7 @@ define range(i32 -1, -2147483648) i32 @H5Iinc_type_ref(i32 noundef %0) local_unn
   br label %.thread32
 
 29:                                               ; preds = %21
-  %30 = icmp ult i32 %0, 17
+  %30 = icmp samesign ult i32 %0, 17
   br i1 %30, label %31, label %35
 
 31:                                               ; preds = %29
@@ -1282,7 +1282,7 @@ define range(i32 -1, -2147483648) i32 @H5Iget_type_ref(i32 noundef %0) local_unn
   br label %.thread32
 
 29:                                               ; preds = %21
-  %30 = icmp ult i32 %0, 17
+  %30 = icmp samesign ult i32 %0, 17
   br i1 %30, label %31, label %35
 
 31:                                               ; preds = %29

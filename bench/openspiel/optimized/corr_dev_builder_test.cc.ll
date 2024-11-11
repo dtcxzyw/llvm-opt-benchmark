@@ -584,7 +584,7 @@ _ZNSt12_Vector_baseISt4pairIldESaIS1_EE13_M_deallocateEPS1_m.exit.i120.i: ; pred
   %149 = getelementptr inbounds i8, ptr %.0910.i.i.i.i.i.i95.i, i64 16
   %150 = getelementptr inbounds i8, ptr %.0811.i.i.i.i.i.i94.i, i64 16
   %151 = add nsw i64 %.012.i.i.i.i.i.i93.i, -1
-  %152 = icmp ugt i64 %.012.i.i.i.i.i.i93.i, 1
+  %152 = icmp samesign ugt i64 %.012.i.i.i.i.i.i93.i, 1
   br i1 %152, label %.lr.ph.i.i.i.i.i.i92.i, label %_ZSt22__uninitialized_copy_aIPSt4pairIldES2_S1_ET0_T_S4_S3_RSaIT1_E.exit.i91.i, !llvm.loop !8
 
 153:                                              ; preds = %138
@@ -605,7 +605,7 @@ _ZNSt12_Vector_baseISt4pairIldESaIS1_EE13_M_deallocateEPS1_m.exit.i120.i: ; pred
   %160 = getelementptr inbounds i8, ptr %.0910.i.i.i.i.i29.i106.i, i64 16
   %161 = getelementptr inbounds i8, ptr %.0811.i.i.i.i.i28.i105.i, i64 16
   %162 = add nsw i64 %.012.i.i.i.i.i27.i104.i, -1
-  %163 = icmp ugt i64 %.012.i.i.i.i.i27.i104.i, 1
+  %163 = icmp samesign ugt i64 %.012.i.i.i.i.i27.i104.i, 1
   br i1 %163, label %.lr.ph.i.i.i.i.i26.i103.i, label %_ZSt4copyIPSt4pairIldES2_ET0_T_S4_S3_.exit.loopexit.i107.i, !llvm.loop !10
 
 _ZSt4copyIPSt4pairIldES2_ET0_T_S4_S3_.exit.loopexit.i107.i: ; preds = %.lr.ph.i.i.i.i.i26.i103.i
@@ -814,7 +814,7 @@ _ZNSt12_Vector_baseISt4pairIldESaIS1_EE13_M_deallocateEPS1_m.exit.i.i: ; preds =
   %232 = getelementptr inbounds i8, ptr %.0910.i.i.i.i.i.i.i, i64 16
   %233 = getelementptr inbounds i8, ptr %.0811.i.i.i.i.i.i.i, i64 16
   %234 = add nsw i64 %.012.i.i.i.i.i.i.i, -1
-  %235 = icmp ugt i64 %.012.i.i.i.i.i.i.i, 1
+  %235 = icmp samesign ugt i64 %.012.i.i.i.i.i.i.i, 1
   br i1 %235, label %.lr.ph.i.i.i.i.i.i.i, label %_ZSt22__uninitialized_copy_aIPSt4pairIldES2_S1_ET0_T_S4_S3_RSaIT1_E.exit.i.i, !llvm.loop !8
 
 236:                                              ; preds = %221
@@ -835,7 +835,7 @@ _ZNSt12_Vector_baseISt4pairIldESaIS1_EE13_M_deallocateEPS1_m.exit.i.i: ; preds =
   %243 = getelementptr inbounds i8, ptr %.0910.i.i.i.i.i29.i.i, i64 16
   %244 = getelementptr inbounds i8, ptr %.0811.i.i.i.i.i28.i.i, i64 16
   %245 = add nsw i64 %.012.i.i.i.i.i27.i.i, -1
-  %246 = icmp ugt i64 %.012.i.i.i.i.i27.i.i, 1
+  %246 = icmp samesign ugt i64 %.012.i.i.i.i.i27.i.i, 1
   br i1 %246, label %.lr.ph.i.i.i.i.i26.i.i, label %_ZSt4copyIPSt4pairIldES2_ET0_T_S4_S3_.exit.loopexit.i.i, !llvm.loop !10
 
 _ZSt4copyIPSt4pairIldES2_ET0_T_S4_S3_.exit.loopexit.i.i: ; preds = %.lr.ph.i.i.i.i.i26.i.i

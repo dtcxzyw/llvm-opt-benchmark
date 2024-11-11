@@ -349,7 +349,7 @@ if.then:                                          ; preds = %entry
   br label %return
 
 if.else3:                                         ; preds = %entry
-  %cmp4 = icmp ult i32 %value, 65537
+  %cmp4 = icmp samesign ult i32 %value, 65537
   br i1 %cmp4, label %if.then5, label %return
 
 if.then5:                                         ; preds = %if.else3
@@ -384,7 +384,7 @@ if.then:                                          ; preds = %entry
   br label %return
 
 if.else3:                                         ; preds = %entry
-  %cmp4 = icmp ult i32 %value, 49153
+  %cmp4 = icmp samesign ult i32 %value, 49153
   br i1 %cmp4, label %if.then5, label %return
 
 if.then5:                                         ; preds = %if.else3
@@ -419,7 +419,7 @@ if.then:                                          ; preds = %entry
   br label %return
 
 if.else3:                                         ; preds = %entry
-  %cmp4 = icmp ult i32 %value, 8388609
+  %cmp4 = icmp samesign ult i32 %value, 8388609
   br i1 %cmp4, label %if.then5, label %return
 
 if.then5:                                         ; preds = %if.else3
@@ -454,7 +454,7 @@ if.then:                                          ; preds = %entry
   br label %return
 
 if.else3:                                         ; preds = %entry
-  %cmp4 = icmp ult i32 %value, 49
+  %cmp4 = icmp samesign ult i32 %value, 49
   br i1 %cmp4, label %if.then5, label %if.else11
 
 if.then5:                                         ; preds = %if.else3
@@ -474,7 +474,7 @@ if.then5:                                         ; preds = %if.else3
   br label %return
 
 if.else11:                                        ; preds = %if.else3
-  %cmp12 = icmp ult i32 %value, 56
+  %cmp12 = icmp samesign ult i32 %value, 56
   %. = select i1 %cmp12, i32 8, i32 9
   br label %return
 
@@ -494,7 +494,7 @@ if.then:                                          ; preds = %entry
   br label %return
 
 if.else3:                                         ; preds = %entry
-  %cmp4 = icmp ult i32 %value, 6145
+  %cmp4 = icmp samesign ult i32 %value, 6145
   br i1 %cmp4, label %if.then5, label %if.else11
 
 if.then5:                                         ; preds = %if.else3
@@ -514,7 +514,7 @@ if.then5:                                         ; preds = %if.else3
   br label %return
 
 if.else11:                                        ; preds = %if.else3
-  %cmp12 = icmp ult i32 %value, 6414
+  %cmp12 = icmp samesign ult i32 %value, 6414
   %. = select i1 %cmp12, i32 18, i32 19
   br label %return
 

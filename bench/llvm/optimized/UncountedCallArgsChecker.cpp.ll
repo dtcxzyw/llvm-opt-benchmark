@@ -23489,7 +23489,7 @@ _ZNK4llvm9StringRef9ends_withES0_.exit.i.i.i.i:   ; preds = %172
   br i1 %175, label %_ZNK5clang19CXXOperatorCallExpr14isAssignmentOpEv.exit.thread.critedge.i.i.i, label %_ZNK4llvm9StringRef9ends_withES0_.exit7.i.i.i.i
 
 _ZNK4llvm9StringRef9ends_withES0_.exit.thread24.i.i.i.i: ; preds = %172
-  %.not.i5.i.i.i.i = icmp ult i64 %124, 3
+  %.not.i5.i.i.i.i = icmp samesign ult i64 %124, 3
   br i1 %.not.i5.i.i.i.i, label %.critedge.i.i.i, label %_ZNK4llvm9StringRef9ends_withES0_.exit7.i.i.i.i
 
 _ZNK4llvm9StringRef9ends_withES0_.exit7.i.i.i.i:  ; preds = %_ZNK4llvm9StringRef9ends_withES0_.exit.thread24.i.i.i.i, %_ZNK4llvm9StringRef9ends_withES0_.exit.i.i.i.i

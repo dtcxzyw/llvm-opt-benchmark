@@ -4398,7 +4398,7 @@ while.body.i:                                     ; preds = %while.body.i, %whil
   %19 = load ptr, ptr %arrayidx2.i, align 8
   store ptr %19, ptr %arrayidx.i22, align 8
   store ptr %18, ptr %arrayidx2.i, align 8
-  %cmp.i = icmp ugt i64 %indvars.iv.i20, 2
+  %cmp.i = icmp samesign ugt i64 %indvars.iv.i20, 2
   br i1 %cmp.i, label %while.body.i, label %invoke.cont13, !llvm.loop !27
 
 invoke.cont13:                                    ; preds = %while.body.i, %invoke.cont8, %invoke.cont9

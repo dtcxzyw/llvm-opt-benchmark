@@ -453,7 +453,7 @@ Wlc_ObjConstValue.exit:                           ; preds = %Wlc_ObjHasArray.exi
   %195 = add nuw nsw i32 %192, 87
   %.0.i.i = select i1 %193, i32 %194, i32 %195
   %fputc.i = tail call i32 @fputc(i32 %.0.i.i, ptr nonnull %40)
-  %196 = icmp ugt i32 %.0.in5.i, 1
+  %196 = icmp samesign ugt i32 %.0.in5.i, 1
   br i1 %196, label %.lr.ph.i, label %Abc_TtPrintHexArrayRev.exit, !llvm.loop !9
 
 Abc_TtPrintHexArrayRev.exit:                      ; preds = %.lr.ph.i
@@ -504,7 +504,7 @@ Wlc_ObjConstValue.exit489:                        ; preds = %Wlc_ObjHasArray.exi
   %219 = add nuw nsw i32 %216, 87
   %.0.i.i493 = select i1 %217, i32 %218, i32 %219
   %fputc.i494 = tail call i32 @fputc(i32 %.0.i.i493, ptr nonnull %40)
-  %220 = icmp ugt i32 %.0.in5.i491, 1
+  %220 = icmp samesign ugt i32 %.0.in5.i491, 1
   br i1 %220, label %.lr.ph.i490, label %Abc_TtPrintHexArrayRev.exit495, !llvm.loop !9
 
 Abc_TtPrintHexArrayRev.exit495:                   ; preds = %.lr.ph.i490, %Abc_TtPrintHexArrayRev.exit
@@ -736,7 +736,7 @@ Wlc_ObjConstValue.exit497:                        ; preds = %Wlc_ObjHasArray.exi
   %332 = add nuw nsw i32 %329, 87
   %.0.i.i501 = select i1 %330, i32 %331, i32 %332
   %fputc.i502 = tail call i32 @fputc(i32 %.0.i.i501, ptr nonnull %40)
-  %333 = icmp ugt i32 %.0.in5.i499, 1
+  %333 = icmp samesign ugt i32 %.0.in5.i499, 1
   br i1 %333, label %.lr.ph.i498, label %Abc_TtPrintHexArrayRev.exit503, !llvm.loop !9
 
 Abc_TtPrintHexArrayRev.exit503:                   ; preds = %.lr.ph.i498
@@ -787,7 +787,7 @@ Wlc_ObjConstValue.exit505:                        ; preds = %Wlc_ObjHasArray.exi
   %356 = add nuw nsw i32 %353, 87
   %.0.i.i509 = select i1 %354, i32 %355, i32 %356
   %fputc.i510 = tail call i32 @fputc(i32 %.0.i.i509, ptr nonnull %40)
-  %357 = icmp ugt i32 %.0.in5.i507, 1
+  %357 = icmp samesign ugt i32 %.0.in5.i507, 1
   br i1 %357, label %.lr.ph.i506, label %Abc_TtPrintHexArrayRev.exit511, !llvm.loop !9
 
 Abc_TtPrintHexArrayRev.exit511:                   ; preds = %.lr.ph.i506, %Abc_TtPrintHexArrayRev.exit503

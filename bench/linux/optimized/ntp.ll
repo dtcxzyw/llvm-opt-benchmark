@@ -560,7 +560,7 @@ define dso_local range(i32 0, 6) i32 @__do_adjtimex(ptr nocapture noundef %0, pt
 157:                                              ; preds = %151
   %158 = and i32 %154, 8
   %159 = icmp eq i32 %158, 0
-  %160 = icmp ult i64 %152, 2049
+  %160 = icmp samesign ult i64 %152, 2049
   %161 = and i1 %160, %159
   br i1 %161, label %166, label %162
 

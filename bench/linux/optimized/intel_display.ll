@@ -15903,7 +15903,7 @@ define dso_local range(i32 -2, 16) i32 @intel_mode_valid(ptr nocapture noundef r
   br i1 %23, label %39, label %28
 
 28:                                               ; preds = %27
-  %29 = icmp ugt i16 %22, 8
+  %29 = icmp samesign ugt i16 %22, 8
   br i1 %29, label %39, label %30
 
 30:                                               ; preds = %28
@@ -15914,7 +15914,7 @@ define dso_local range(i32 -2, 16) i32 @intel_mode_valid(ptr nocapture noundef r
   br i1 %34, label %35, label %39
 
 35:                                               ; preds = %30
-  %36 = icmp ugt i16 %22, 2
+  %36 = icmp samesign ugt i16 %22, 2
   %37 = select i1 %36, i32 4096, i32 2048
   %38 = select i1 %36, i32 8192, i32 4096
   br label %39

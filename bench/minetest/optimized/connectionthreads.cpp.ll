@@ -14493,7 +14493,7 @@ lpad22:                                           ; preds = %invoke.cont20
   br label %ehcleanup366
 
 if.end30:                                         ; preds = %invoke.cont27
-  %cmp31 = icmp ult i32 %call28, 7
+  %cmp31 = icmp samesign ult i32 %call28, 7
   br i1 %cmp31, label %if.then40, label %invoke.cont34
 
 invoke.cont34:                                    ; preds = %if.end30
@@ -14579,7 +14579,7 @@ if.then.i452:                                     ; preds = %invoke.cont52
           to label %invoke.cont54 unwind label %lpad45
 
 invoke.cont54:                                    ; preds = %if.then.i452, %invoke.cont52, %invoke.cont50, %invoke.cont48, %invoke.cont46, %call.i.noexc
-  %cmp57 = icmp ugt i32 %call28, 3
+  %cmp57 = icmp samesign ugt i32 %call28, 3
   br i1 %cmp57, label %cond.true, label %cond.end
 
 cond.true:                                        ; preds = %invoke.cont54

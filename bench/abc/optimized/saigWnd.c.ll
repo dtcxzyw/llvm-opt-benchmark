@@ -2033,7 +2033,7 @@ define ptr @Saig_ManFindPivot(ptr nocapture noundef readonly %0) local_unnamed_a
 .lr.ph53:                                         ; preds = %11
   %14 = lshr i32 %.val37, 1
   %15 = add nsw i32 %.val37, -1
-  %.not = icmp ugt i32 %14, %15
+  %.not = icmp samesign ugt i32 %14, %15
   br i1 %.not, label %.critedge, label %.critedge.loopexit.split.loop.exit
 
 16:                                               ; preds = %11
@@ -2215,7 +2215,7 @@ define ptr @Saig_ManWindowTest(ptr noundef %0) local_unnamed_addr #0 {
 .lr.ph53.i:                                       ; preds = %11
   %14 = lshr i32 %.val37.i, 1
   %15 = add nsw i32 %.val37.i, -1
-  %.not.i = icmp ugt i32 %14, %15
+  %.not.i = icmp samesign ugt i32 %14, %15
   br i1 %.not.i, label %Saig_ManFindPivot.exit, label %.critedge.loopexit.split.loop.exit.i
 
 16:                                               ; preds = %11

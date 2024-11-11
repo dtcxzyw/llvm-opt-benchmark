@@ -2635,7 +2635,7 @@ define dso_local void @serial8250_update_uartclk(ptr noundef %0, i32 noundef %1)
 
 50:                                               ; preds = %46
   %51 = udiv i32 %47, 12
-  %52 = icmp ugt i32 %51, %36
+  %52 = icmp samesign ugt i32 %51, %36
   br i1 %52, label %53, label %67
 
 53:                                               ; preds = %50, %42
@@ -2865,7 +2865,7 @@ define dso_local void @serial8250_do_set_termios(ptr noundef %0, ptr noundef %1,
 
 63:                                               ; preds = %59
   %64 = udiv i32 %60, 12
-  %65 = icmp ugt i32 %64, %49
+  %65 = icmp samesign ugt i32 %64, %49
   br i1 %65, label %66, label %80
 
 66:                                               ; preds = %63, %55
@@ -3760,7 +3760,7 @@ define dso_local void @serial8250_console_write(ptr noundef %0, ptr noundef %1, 
 
 98:                                               ; preds = %94
   %99 = udiv i32 %95, 12
-  %100 = icmp ugt i32 %99, %84
+  %100 = icmp samesign ugt i32 %99, %84
   br i1 %100, label %101, label %115
 
 101:                                              ; preds = %98, %90

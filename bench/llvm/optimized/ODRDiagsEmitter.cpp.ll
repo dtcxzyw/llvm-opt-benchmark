@@ -21969,7 +21969,7 @@ _ZN4llvm15SmallVectorImplIPKN5clang16TemplateArgumentEE7reserveEm.exit.i: ; pred
   %30 = getelementptr inbounds i8, ptr %.sroa.05.08.i.i.i.i.i.i.i.i.i, i64 24
   %31 = getelementptr inbounds i8, ptr %.049.i.i.i.i.i.i.i.i.i, i64 8
   %32 = add nsw i64 %.010.i.i.i.i.i.i.i.i.i, -1
-  %33 = icmp ugt i64 %.010.i.i.i.i.i.i.i.i.i, 1
+  %33 = icmp samesign ugt i64 %.010.i.i.i.i.i.i.i.i.i, 1
   br i1 %33, label %.lr.ph.i.i.i.i.i.i.i.i.i, label %_ZN4llvm15SmallVectorImplIPKN5clang16TemplateArgumentEE6appendINS_16pointer_iteratorIS4_S4_EEvEEvT_S9_.exit, !llvm.loop !324
 
 _ZN4llvm15SmallVectorImplIPKN5clang16TemplateArgumentEE6appendINS_16pointer_iteratorIS4_S4_EEvEEvT_S9_.exit: ; preds = %.lr.ph.i.i.i.i.i.i.i.i.i, %_ZN4llvm15SmallVectorImplIPKN5clang16TemplateArgumentEE7reserveEm.exit.i
@@ -22070,7 +22070,7 @@ _ZSt13move_backwardIPPKN5clang16TemplateArgumentES4_ET0_T_S6_S5_.exit: ; preds =
   %83 = getelementptr inbounds i8, ptr %.sroa.05.08.i.i.i.i.i, i64 24
   %84 = getelementptr inbounds i8, ptr %.049.i.i.i.i.i, i64 8
   %85 = add nsw i64 %.010.i.i.i.i.i, -1
-  %86 = icmp ugt i64 %.010.i.i.i.i.i, 1
+  %86 = icmp samesign ugt i64 %.010.i.i.i.i.i, 1
   br i1 %86, label %.lr.ph.i.i.i.i.i, label %_ZSt4copyIN4llvm16pointer_iteratorIPKN5clang16TemplateArgumentES5_EEPS5_ET0_T_S9_S8_.exit, !llvm.loop !324
 
 87:                                               ; preds = %_ZN4llvm15SmallVectorImplIPKN5clang16TemplateArgumentEE7reserveEm.exit
@@ -22126,7 +22126,7 @@ _ZSt13move_backwardIPPKN5clang16TemplateArgumentES4_ET0_T_S6_S5_.exit: ; preds =
   %103 = getelementptr inbounds i8, ptr %.sroa.05.08.i.i.i.i.i.i.i.i, i64 24
   %104 = getelementptr inbounds i8, ptr %.049.i.i.i.i.i.i.i.i, i64 8
   %105 = add nsw i64 %.010.i.i.i.i.i.i.i.i, -1
-  %106 = icmp ugt i64 %.010.i.i.i.i.i.i.i.i, 1
+  %106 = icmp samesign ugt i64 %.010.i.i.i.i.i.i.i.i, 1
   br i1 %106, label %.lr.ph.i.i.i.i.i.i.i.i, label %_ZSt4copyIN4llvm16pointer_iteratorIPKN5clang16TemplateArgumentES5_EEPS5_ET0_T_S9_S8_.exit, !llvm.loop !324
 
 _ZSt4copyIN4llvm16pointer_iteratorIPKN5clang16TemplateArgumentES5_EEPS5_ET0_T_S9_S8_.exit: ; preds = %.lr.ph.i.i.i.i.i, %.lr.ph.i.i.i.i.i.i.i.i, %._crit_edge, %_ZSt13move_backwardIPPKN5clang16TemplateArgumentES4_ET0_T_S6_S5_.exit, %_ZN4llvm15SmallVectorImplIPKN5clang16TemplateArgumentEE6appendINS_16pointer_iteratorIS4_S4_EEvEEvT_S9_.exit

@@ -859,7 +859,7 @@ define hidden void @_ZN12futures_util6future8join_all8join_all17h6f0561ba8529059
   %.sroa.5.0..sroa_idx.i = getelementptr inbounds i8, ptr %1, i64 16
   %.sroa.5.0.copyload.i = load i64, ptr %.sroa.5.0..sroa_idx.i, align 8, !alias.scope !202, !noalias !205
   %7 = getelementptr inbounds { [4 x i64], i64, [2 x i64] }, ptr %.sroa.4.0.copyload.i, i64 %.sroa.5.0.copyload.i
-  %8 = icmp ult i64 %.sroa.5.0.copyload.i, 31
+  %8 = icmp samesign ult i64 %.sroa.5.0.copyload.i, 31
   br i1 %8, label %.noexc, label %9
 
 9:                                                ; preds = %2

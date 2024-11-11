@@ -1623,7 +1623,7 @@ _ZN5ropey4tree4node4Node9leaf_text17h78ed2b3427cacdf3E.exit: ; preds = %46
   unreachable
 
 _ZN5ropey4tree13node_children12NodeChildren5nodes17h41f9a73c210d05f7E.exit28: ; preds = %_ZN5ropey4tree4node4Node9leaf_text17h78ed2b3427cacdf3E.exit
-  %58 = icmp ult i64 %.sroa.0.0183, %55
+  %58 = icmp samesign ult i64 %.sroa.0.0183, %55
   br i1 %58, label %60, label %70, !prof !90
 
 59:                                               ; preds = %_ZN5ropey4tree13node_children12NodeChildren5nodes17h41f9a73c210d05f7E.exit26
@@ -1669,14 +1669,14 @@ _ZN5ropey4tree4node4Node9leaf_text17h78ed2b3427cacdf3E.exit30: ; preds = %60
   unreachable
 
 _ZN5ropey4tree13node_children12NodeChildren5nodes17h41f9a73c210d05f7E.exit31: ; preds = %71
-  %76 = icmp ult i64 %43, %73
+  %76 = icmp samesign ult i64 %43, %73
   br i1 %76, label %111, label %119, !prof !90
 
 77:                                               ; preds = %_ZN5ropey4tree4node4Node9leaf_text17h78ed2b3427cacdf3E.exit30
   call void @llvm.experimental.noalias.scope.decl(metadata !339)
   %78 = load i8, ptr %14, align 8, !alias.scope !339, !noalias !342, !noundef !4
   %79 = zext i8 %78 to i64
-  %80 = icmp ult i64 %.sroa.0.0183, %79
+  %80 = icmp samesign ult i64 %.sroa.0.0183, %79
   br i1 %80, label %82, label %81
 
 81:                                               ; preds = %77
@@ -1806,7 +1806,7 @@ _ZN5ropey4tree4node4Node9leaf_text17h78ed2b3427cacdf3E.exit36: ; preds = %111
   call void @llvm.experimental.noalias.scope.decl(metadata !391)
   %123 = load i8, ptr %14, align 8, !alias.scope !391, !noalias !394, !noundef !4
   %124 = zext i8 %123 to i64
-  %125 = icmp ult i64 %.sroa.0.0183, %124
+  %125 = icmp samesign ult i64 %.sroa.0.0183, %124
   br i1 %125, label %127, label %126
 
 126:                                              ; preds = %122
@@ -2133,7 +2133,7 @@ define hidden void @_ZN5ropey4tree13node_children12NodeChildren12insert_split17h
   br i1 %.not2, label %.invoke, label %15
 
 15:                                               ; preds = %14
-  %16 = icmp ult i64 %2, %10
+  %16 = icmp samesign ult i64 %2, %10
   br i1 %16, label %18, label %17
 
 17:                                               ; preds = %15
@@ -2247,7 +2247,7 @@ define hidden void @_ZN5ropey4tree13node_children12NodeChildren6remove17h3b2b5ec
 
 13:                                               ; preds = %9
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %5), !noalias !501
-  %14 = icmp ult i64 %2, 24
+  %14 = icmp samesign ult i64 %2, 24
   br i1 %14, label %15, label %36, !prof !90
 
 15:                                               ; preds = %13
@@ -3537,7 +3537,7 @@ define hidden void @_ZN5ropey4tree13node_children5inner20NodeChildrenInternal6re
 
 13:                                               ; preds = %9
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %5)
-  %14 = icmp ult i64 %2, 24
+  %14 = icmp samesign ult i64 %2, 24
   br i1 %14, label %15, label %36, !prof !90
 
 15:                                               ; preds = %13

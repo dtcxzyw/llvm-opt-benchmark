@@ -1586,7 +1586,7 @@ invoke.cont65:                                    ; preds = %call5.i.i.i.i2.i.i.
   call void @llvm.memset.p0.i64(ptr align 8 %incdec.ptr.i.i.i.i.i142, i8 0, i64 %69, i1 false), !tbaa !92
   %_M_finish.i.i7.i147 = getelementptr inbounds nuw i8, ptr %this, i64 424
   store ptr %add.ptr.i.i.i140, ptr %_M_finish.i.i7.i147, align 8, !tbaa !93
-  %cmp.i.i154 = icmp ugt i64 %sub.ptr.div.i, 576460752303423487
+  %cmp.i.i154 = icmp samesign ugt i64 %sub.ptr.div.i, 576460752303423487
   br i1 %cmp.i.i154, label %if.then.i.i160, label %for.body.preheader.i.i.i.i.i
 
 if.then.i.i160:                                   ; preds = %invoke.cont65
@@ -4054,7 +4054,7 @@ invoke.cont63:                                    ; preds = %call5.i.i.i.i2.i.i.
   call void @llvm.memset.p0.i64(ptr align 8 %incdec.ptr.i.i.i.i.i148, i8 0, i64 %67, i1 false), !tbaa !92
   %_M_finish.i.i7.i153 = getelementptr inbounds nuw i8, ptr %this, i64 424
   store ptr %add.ptr.i.i.i146, ptr %_M_finish.i.i7.i153, align 8, !tbaa !93
-  %cmp.i.i160 = icmp ugt i64 %sub.ptr.div.i, 576460752303423487
+  %cmp.i.i160 = icmp samesign ugt i64 %sub.ptr.div.i, 576460752303423487
   br i1 %cmp.i.i160, label %if.then.i.i166, label %for.body.preheader.i.i.i.i.i
 
 if.then.i.i166:                                   ; preds = %invoke.cont63

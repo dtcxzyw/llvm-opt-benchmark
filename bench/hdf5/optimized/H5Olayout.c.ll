@@ -194,7 +194,7 @@ define internal ptr @H5O__layout_decode(ptr noundef %0, ptr nocapture readnone %
   br label %1349
 
 39:                                               ; preds = %29
-  %40 = icmp ult i8 %31, 3
+  %40 = icmp samesign ult i8 %31, 3
   %41 = ptrtoint ptr %30 to i64
   %42 = sub i64 %21, %41
   %43 = icmp eq i64 %42, -1
@@ -385,7 +385,7 @@ default.unreachable:                              ; preds = %87
   br label %.loopexit
 
 147:                                              ; preds = %127
-  %148 = icmp ult i8 %52, 2
+  %148 = icmp samesign ult i8 %52, 2
   br i1 %148, label %149, label %153
 
 149:                                              ; preds = %147
@@ -843,7 +843,7 @@ default.unreachable:                              ; preds = %87
   br label %1349
 
 415:                                              ; preds = %405
-  %416 = icmp ult i8 %407, 2
+  %416 = icmp samesign ult i8 %407, 2
   br i1 %416, label %417, label %421
 
 417:                                              ; preds = %415

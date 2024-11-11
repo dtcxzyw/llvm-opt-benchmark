@@ -145,7 +145,7 @@ if.end26:                                         ; preds = %if.end11, %if.end22
   %3 = load i8, ptr %arrayidx29, align 1
   %cmp31 = icmp eq i8 %3, 92
   %conv32.neg = sext i1 %cmp31 to i32
-  %cmp35109 = icmp ugt i32 %i.187, 1
+  %cmp35109 = icmp samesign ugt i32 %i.187, 1
   br i1 %cmp35109, label %for.body, label %for.end.thread
 
 for.end.thread:                                   ; preds = %if.end26

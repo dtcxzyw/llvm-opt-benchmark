@@ -70239,7 +70239,7 @@ common.ret:                                       ; preds = %"_ZN4core3ptr69drop
   store i8 0, ptr %375, align 8, !noalias !16982
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %.sroa.5.sroa.0.i.i)
   %418 = getelementptr inbounds { i64, [2 x i64] }, ptr %.sroa.5128.0.copyload.i, i64 %.sroa.6129.0.copyload.i
-  %419 = icmp ult i64 %.sroa.6129.0.copyload.i, 31
+  %419 = icmp samesign ult i64 %.sroa.6129.0.copyload.i, 31
   br i1 %419, label %.noexc.i.i, label %420
 
 420:                                              ; preds = %._crit_edge.i

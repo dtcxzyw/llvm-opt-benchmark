@@ -34044,7 +34044,7 @@ define internal fastcc void @_ZN15tree_sitter_cli8generate6render9Generator19san
   %45 = and i8 %43, 63
   %46 = zext nneg i8 %45 to i32
   %47 = or disjoint i32 %44, %46
-  %48 = icmp ugt i8 %37, -33
+  %48 = icmp samesign ugt i8 %37, -33
   br i1 %48, label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h85ea683819a1173eE.exit15.i", label %.thread25
 
 49:                                               ; preds = %35
@@ -34062,7 +34062,7 @@ define internal fastcc void @_ZN15tree_sitter_cli8generate6render9Generator19san
   %57 = or disjoint i32 %54, %56
   %58 = shl nuw nsw i32 %40, 12
   %59 = or disjoint i32 %57, %58
-  %60 = icmp ugt i8 %37, -17
+  %60 = icmp samesign ugt i8 %37, -17
   br i1 %60, label %62, label %.thread25
 
 61:                                               ; preds = %.loopexit, %210, %188
@@ -34736,7 +34736,7 @@ define internal fastcc void @_ZN15tree_sitter_cli8generate6render9Generator15san
   %56 = and i8 %54, 63
   %57 = zext nneg i8 %56 to i32
   %58 = or disjoint i32 %55, %57
-  %59 = icmp ugt i8 %48, -33
+  %59 = icmp samesign ugt i8 %48, -33
   br i1 %59, label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h85ea683819a1173eE.exit15.i", label %85
 
 60:                                               ; preds = %46
@@ -34754,7 +34754,7 @@ define internal fastcc void @_ZN15tree_sitter_cli8generate6render9Generator15san
   %68 = or disjoint i32 %65, %67
   %69 = shl nuw nsw i32 %51, 12
   %70 = or disjoint i32 %68, %69
-  %71 = icmp ugt i8 %48, -17
+  %71 = icmp samesign ugt i8 %48, -17
   br i1 %71, label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h85ea683819a1173eE.exit17.i", label %85
 
 "_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h85ea683819a1173eE.exit17.i": ; preds = %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h85ea683819a1173eE.exit15.i"

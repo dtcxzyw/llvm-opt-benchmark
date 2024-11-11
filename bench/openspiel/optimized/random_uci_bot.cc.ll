@@ -577,7 +577,7 @@ _ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EED2Ev.ex
   unreachable
 
 _ZN4absl7debian211string_viewC2EPKc.exit:         ; preds = %79
-  %.not.i40 = icmp ult i64 %81, 13
+  %.not.i40 = icmp samesign ult i64 %81, 13
   br i1 %.not.i40, label %_ZN4absl7debian210StartsWithENS0_11string_viewES1_.exit.thread114, label %_ZN4absl7debian210StartsWithENS0_11string_viewES1_.exit
 
 _ZN4absl7debian210StartsWithENS0_11string_viewES1_.exit: ; preds = %_ZN4absl7debian211string_viewC2EPKc.exit
@@ -811,7 +811,7 @@ _ZN4absl7debian210StartsWithENS0_11string_viewES1_.exit.thread114: ; preds = %_Z
   unreachable
 
 _ZN4absl7debian211string_viewC2EPKc.exit51:       ; preds = %_ZN4absl7debian210StartsWithENS0_11string_viewES1_.exit.thread114
-  %.not.i52 = icmp ult i64 %168, 11
+  %.not.i52 = icmp samesign ult i64 %168, 11
   br i1 %.not.i52, label %_ZN4absl7debian210StartsWithENS0_11string_viewES1_.exit54.thread117, label %_ZN4absl7debian210StartsWithENS0_11string_viewES1_.exit54
 
 _ZN4absl7debian210StartsWithENS0_11string_viewES1_.exit54: ; preds = %_ZN4absl7debian211string_viewC2EPKc.exit51
@@ -830,7 +830,7 @@ _ZN4absl7debian210StartsWithENS0_11string_viewES1_.exit54.thread117: ; preds = %
   unreachable
 
 _ZN4absl7debian211string_viewC2EPKc.exit56:       ; preds = %_ZN4absl7debian210StartsWithENS0_11string_viewES1_.exit54.thread117
-  %.not.i57 = icmp ult i64 %173, 8
+  %.not.i57 = icmp samesign ult i64 %173, 8
   br i1 %.not.i57, label %_ZN4absl7debian210StartsWithENS0_11string_viewES1_.exit59.thread118, label %_ZN4absl7debian210StartsWithENS0_11string_viewES1_.exit59
 
 _ZN4absl7debian210StartsWithENS0_11string_viewES1_.exit59: ; preds = %_ZN4absl7debian211string_viewC2EPKc.exit56
@@ -849,7 +849,7 @@ _ZN4absl7debian210StartsWithENS0_11string_viewES1_.exit59.thread118: ; preds = %
   unreachable
 
 _ZN4absl7debian211string_viewC2EPKc.exit61:       ; preds = %_ZN4absl7debian210StartsWithENS0_11string_viewES1_.exit59.thread118
-  %.not.i62 = icmp ult i64 %178, 8
+  %.not.i62 = icmp samesign ult i64 %178, 8
   br i1 %.not.i62, label %_ZN4absl7debian210StartsWithENS0_11string_viewES1_.exit64.thread119, label %_ZN4absl7debian210StartsWithENS0_11string_viewES1_.exit64
 
 _ZN4absl7debian210StartsWithENS0_11string_viewES1_.exit64: ; preds = %_ZN4absl7debian211string_viewC2EPKc.exit61
@@ -868,7 +868,7 @@ _ZN4absl7debian210StartsWithENS0_11string_viewES1_.exit64.thread119: ; preds = %
   unreachable
 
 _ZN4absl7debian211string_viewC2EPKc.exit66:       ; preds = %_ZN4absl7debian210StartsWithENS0_11string_viewES1_.exit64.thread119
-  %.not.i67 = icmp ult i64 %183, 7
+  %.not.i67 = icmp samesign ult i64 %183, 7
   br i1 %.not.i67, label %_ZN4absl7debian210StartsWithENS0_11string_viewES1_.exit69.thread120, label %_ZN4absl7debian210StartsWithENS0_11string_viewES1_.exit69
 
 _ZN4absl7debian210StartsWithENS0_11string_viewES1_.exit69: ; preds = %_ZN4absl7debian211string_viewC2EPKc.exit66
@@ -927,7 +927,7 @@ _ZN4absl7debian210StartsWithENS0_11string_viewES1_.exit54.thread: ; preds = %_ZN
 215:                                              ; preds = %210
   %216 = xor i32 %202, -1
   %217 = urem i32 %216, %205
-  %218 = icmp ugt i32 %217, %214
+  %218 = icmp samesign ugt i32 %217, %214
   br i1 %218, label %.lr.ph.i.i.i.i.i.i, label %.loopexit.i.i.i.i.i.i
 
 .lr.ph.i.i.i.i.i.i:                               ; preds = %215, %.noexc72

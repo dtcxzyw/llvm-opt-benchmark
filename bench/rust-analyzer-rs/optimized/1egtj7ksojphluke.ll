@@ -45174,7 +45174,7 @@ define internal fastcc void @_ZN3ide14signature_help13SignatureHelp10push_param1
 
 "_ZN72_$LT$$RF$alloc..string..String$u20$as$u20$text_size..traits..TextLen$GT$8text_len17hefcca76eddf96b6fE.exit9": ; preds = %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$17extend_from_slice17ha597a032ad8ee589E.exit8"
   call void @llvm.lifetime.end.p0(i64 0, ptr nonnull %6)
-  %.not = icmp ugt i64 %.val6, %43
+  %.not = icmp samesign ugt i64 %.val6, %43
   br i1 %.not, label %46, label %47
 
 46:                                               ; preds = %"_ZN72_$LT$$RF$alloc..string..String$u20$as$u20$text_size..traits..TextLen$GT$8text_len17hefcca76eddf96b6fE.exit9"

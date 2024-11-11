@@ -1772,7 +1772,7 @@ _valid_node_list.exit.i:                          ; preds = %514, %512, %509, %5
 
 575:                                              ; preds = %570
   %.not136.i = icmp ne i32 %573, 0
-  %576 = icmp ugt i32 %571, %573
+  %576 = icmp samesign ugt i32 %571, %573
   %or.cond158.i = and i1 %.not136.i, %576
   br i1 %or.cond158.i, label %577, label %579
 

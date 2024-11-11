@@ -130,7 +130,7 @@ define range(i32 0, 2) i32 @SharpYuvConvertWithOptions(ptr noundef readonly %0, 
   ]
 
 40:                                               ; preds = %39, %39, %39
-  %41 = icmp ugt i32 %5, 8
+  %41 = icmp samesign ugt i32 %5, 8
   br i1 %41, label %42, label %45
 
 42:                                               ; preds = %40
@@ -140,7 +140,7 @@ define range(i32 0, 2) i32 @SharpYuvConvertWithOptions(ptr noundef readonly %0, 
   br i1 %or.cond, label %45, label %601
 
 45:                                               ; preds = %42, %40
-  %46 = icmp ugt i32 %12, 8
+  %46 = icmp samesign ugt i32 %12, 8
   br i1 %46, label %47, label %51
 
 47:                                               ; preds = %45

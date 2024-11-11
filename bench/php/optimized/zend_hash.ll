@@ -10937,7 +10937,7 @@ define range(i32 -1, 1) i32 @zend_hash_str_del_ind(ptr noundef %0, ptr nocapture
   %.1135 = phi i64 [ %68, %49 ], [ %.0134.lcssa, %._crit_edge ]
   %.1133 = phi i64 [ %69, %49 ], [ %.0132.lcssa, %._crit_edge ]
   %.1 = phi ptr [ %70, %49 ], [ %.0130.lcssa, %._crit_edge ]
-  %72 = icmp ugt i64 %.1133, 1
+  %72 = icmp samesign ugt i64 %.1133, 1
   br i1 %72, label %73, label %94
 
 73:                                               ; preds = %71
@@ -11291,7 +11291,7 @@ define range(i32 -1, 1) i32 @zend_hash_str_del(ptr noundef %0, ptr nocapture nou
   %.1125 = phi i64 [ %68, %49 ], [ %.0124.lcssa, %._crit_edge ]
   %.1123 = phi i64 [ %69, %49 ], [ %.0122.lcssa, %._crit_edge ]
   %.1 = phi ptr [ %70, %49 ], [ %.0121.lcssa, %._crit_edge ]
-  %72 = icmp ugt i64 %.1123, 1
+  %72 = icmp samesign ugt i64 %.1123, 1
   br i1 %72, label %73, label %94
 
 73:                                               ; preds = %71
@@ -16568,7 +16568,7 @@ define ptr @zend_hash_str_find(ptr nocapture noundef readonly %0, ptr nocapture 
   %.170 = phi i64 [ %67, %48 ], [ %.069.lcssa, %._crit_edge ]
   %.168 = phi i64 [ %68, %48 ], [ %.067.lcssa, %._crit_edge ]
   %.1 = phi ptr [ %69, %48 ], [ %.066.lcssa, %._crit_edge ]
-  %71 = icmp ugt i64 %.168, 1
+  %71 = icmp samesign ugt i64 %.168, 1
   br i1 %71, label %72, label %93
 
 72:                                               ; preds = %70

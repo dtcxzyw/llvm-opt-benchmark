@@ -8506,7 +8506,7 @@ define hidden noundef zeroext i1 @"_ZN12sharded_slab4page19Shared$LT$T$C$C$GT$5c
   br i1 %.not19.i.i, label %.lr.ph25.i.i, label %"_ZN12sharded_slab4page19Shared$LT$T$C$C$GT$5clear28_$u7b$$u7b$closure$u7d$$u7d$17h5ff04b89c3216555E.llvm.14059259217783387920.exit"
 
 .lr.ph25.i.i:                                     ; preds = %14
-  %.cmp.i.i = icmp ult i64 %2, 8190
+  %.cmp.i.i = icmp samesign ult i64 %2, 8190
   %.v.i.i = select i1 %.cmp.i.i, i64 1, i64 -8190
   %18 = add nsw i64 %.v.i.i, %2
   %19 = shl nuw i64 %18, 51
@@ -8603,7 +8603,7 @@ define hidden noundef zeroext i1 @"_ZN12sharded_slab4page19Shared$LT$T$C$C$GT$5c
   br i1 %.not20.i.i, label %.lr.ph26.i.i, label %"_ZN12sharded_slab4page19Shared$LT$T$C$C$GT$5clear28_$u7b$$u7b$closure$u7d$$u7d$17h576729d43d1b789cE.llvm.14059259217783387920.exit"
 
 .lr.ph26.i.i:                                     ; preds = %14
-  %.cmp.i.i = icmp ult i64 %2, 8190
+  %.cmp.i.i = icmp samesign ult i64 %2, 8190
   %.v.i.i = select i1 %.cmp.i.i, i64 1, i64 -8190
   %18 = add nsw i64 %.v.i.i, %2
   %19 = shl nuw i64 %18, 51
@@ -8711,7 +8711,7 @@ define hidden noundef zeroext i1 @"_ZN12sharded_slab4page19Shared$LT$T$C$C$GT$5c
   br i1 %.not20.i, label %.lr.ph26.i, label %"_ZN12sharded_slab4page4slot17Slot$LT$T$C$C$GT$12release_with17h522a281aa5cce921E.llvm.14059259217783387920.exit"
 
 .lr.ph26.i:                                       ; preds = %11
-  %.cmp.i = icmp ult i64 %14, 8190
+  %.cmp.i = icmp samesign ult i64 %14, 8190
   %.v.i = select i1 %.cmp.i, i64 1, i64 -8190
   %21 = add nsw i64 %.v.i, %14
   %22 = shl nuw i64 %21, 51
@@ -8819,7 +8819,7 @@ define hidden noundef zeroext i1 @"_ZN12sharded_slab4page19Shared$LT$T$C$C$GT$5c
   br i1 %.not19.i, label %.lr.ph25.i, label %"_ZN12sharded_slab4page4slot17Slot$LT$T$C$C$GT$12release_with17he5eb972992b340d7E.llvm.14059259217783387920.exit"
 
 .lr.ph25.i:                                       ; preds = %11
-  %.cmp.i = icmp ult i64 %14, 8190
+  %.cmp.i = icmp samesign ult i64 %14, 8190
   %.v.i = select i1 %.cmp.i, i64 1, i64 -8190
   %21 = add nsw i64 %.v.i, %14
   %22 = shl nuw i64 %21, 51
@@ -42962,7 +42962,7 @@ _ZN4core3str7pattern13simd_contains17hf720a9f11bbf911cE.exit: ; preds = %39, %18
   %158 = and i8 %156, 63
   %159 = zext nneg i8 %158 to i32
   %160 = or disjoint i32 %157, %159
-  %161 = icmp ugt i8 %150, -33
+  %161 = icmp samesign ugt i8 %150, -33
   br i1 %161, label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h2a7c50e0a8a2426bE.exit14.i.i.i.i", label %"_ZN81_$LT$core..str..iter..Chars$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h917887c7fa076885E.exit.i.i"
 
 162:                                              ; preds = %149
@@ -42980,7 +42980,7 @@ _ZN4core3str7pattern13simd_contains17hf720a9f11bbf911cE.exit: ; preds = %39, %18
   %170 = or disjoint i32 %167, %169
   %171 = shl nuw nsw i32 %154, 12
   %172 = or disjoint i32 %170, %171
-  %173 = icmp ugt i8 %150, -17
+  %173 = icmp samesign ugt i8 %150, -17
   br i1 %173, label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h2a7c50e0a8a2426bE.exit16.i.i.i.i", label %"_ZN81_$LT$core..str..iter..Chars$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h917887c7fa076885E.exit.i.i"
 
 "_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h2a7c50e0a8a2426bE.exit16.i.i.i.i": ; preds = %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h2a7c50e0a8a2426bE.exit14.i.i.i.i"
@@ -74663,7 +74663,7 @@ _ZN14regex_automata4util4pool5inner9THREAD_ID7__getit17hc5c7cc6e52df33b8E.exit.i
   %339 = and i8 %337, 63
   %340 = zext nneg i8 %339 to i32
   %341 = or disjoint i32 %338, %340
-  %342 = icmp ugt i8 %331, -33
+  %342 = icmp samesign ugt i8 %331, -33
   br i1 %342, label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h2a7c50e0a8a2426bE.exit14.i.i.i.i.i.i.i.i.i.i", label %"_ZN87_$LT$core..str..iter..CharIndices$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h796f6dc6d209d49eE.exit.thread11.i.i.i.i.i.i.i"
 
 343:                                              ; preds = %.lr.ph.i.i.i.i.i.i
@@ -74681,7 +74681,7 @@ _ZN14regex_automata4util4pool5inner9THREAD_ID7__getit17hc5c7cc6e52df33b8E.exit.i
   %351 = or disjoint i32 %348, %350
   %352 = shl nuw nsw i32 %334, 12
   %353 = or disjoint i32 %351, %352
-  %354 = icmp ugt i8 %331, -17
+  %354 = icmp samesign ugt i8 %331, -17
   br i1 %354, label %"_ZN81_$LT$core..str..iter..Chars$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h917887c7fa076885E.exit.i.i.i.i.i.i.i.i", label %"_ZN87_$LT$core..str..iter..CharIndices$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h796f6dc6d209d49eE.exit.thread11.i.i.i.i.i.i.i"
 
 "_ZN81_$LT$core..str..iter..Chars$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h917887c7fa076885E.exit.i.i.i.i.i.i.i.i": ; preds = %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h2a7c50e0a8a2426bE.exit14.i.i.i.i.i.i.i.i.i.i"
@@ -74715,7 +74715,7 @@ _ZN14regex_automata4util4pool5inner9THREAD_ID7__getit17hc5c7cc6e52df33b8E.exit.i
   ]
 
 370:                                              ; preds = %"_ZN87_$LT$core..str..iter..CharIndices$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h796f6dc6d209d49eE.exit.thread11.i.i.i.i.i.i.i"
-  %371 = icmp ugt i32 %366, 127
+  %371 = icmp samesign ugt i32 %366, 127
   br i1 %371, label %372, label %392
 
 372:                                              ; preds = %370

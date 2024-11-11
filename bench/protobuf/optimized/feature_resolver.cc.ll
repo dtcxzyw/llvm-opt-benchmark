@@ -3740,7 +3740,7 @@ if.then15:                                        ; preds = %if.then7
   %conv27 = zext nneg i8 %.sroa.speculated116 to i32
   %cmp31.not = icmp samesign uge i32 %conv20, %conv27
   %narrow = add nuw nsw i8 %.sroa.speculated116, %5
-  %cmp36 = icmp ult i8 %narrow, 61
+  %cmp36 = icmp samesign ult i8 %narrow, 61
   %or.cond = select i1 %cmp31.not, i1 true, i1 %cmp36
   br i1 %or.cond, label %if.then37, label %if.end53
 
@@ -3793,7 +3793,7 @@ if.then68:                                        ; preds = %if.then59
   %sub87 = sub nsw i32 %conv85, %conv86
   %cmp88.not = icmp sle i32 %conv83, %sub87
   %narrow123 = add nuw nsw i8 %.sroa.speculated, %12
-  %cmp94 = icmp ult i8 %narrow123, 61
+  %cmp94 = icmp samesign ult i8 %narrow123, 61
   %or.cond122 = select i1 %cmp88.not, i1 true, i1 %cmp94
   br i1 %or.cond122, label %if.then95, label %if.end108
 
@@ -6341,7 +6341,7 @@ if.end28.i:                                       ; preds = %while.end24.i, %do.
   %arrayidx.i62.i = getelementptr i8, ptr %parent.2.i, i64 10
   %15 = load i8, ptr %arrayidx.i62.i, align 1
   %conv35.i = zext i8 %15 to i64
-  %cmp36.not.not.i = icmp ult i64 %pos.2.i, %conv35.i
+  %cmp36.not.not.i = icmp samesign ult i64 %pos.2.i, %conv35.i
   br i1 %cmp36.not.not.i, label %do.body.i.backedge, label %do.body37.i
 
 do.body.i.backedge:                               ; preds = %if.end28.i, %do.end52.i

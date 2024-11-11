@@ -5440,7 +5440,7 @@ _ZN7RegMask2ORERKS_.exit:                         ; preds = %.lr.ph.i, %105
   %indvars.iv166 = phi i64 [ %133, %.lr.ph149 ], [ %indvars.iv.next167, %_ZN7RegMask2ORERKS_.exit109 ]
   %135 = load i32, ptr %131, align 8
   %136 = zext i32 %135 to i64
-  %137 = icmp ult i64 %indvars.iv166, %136
+  %137 = icmp samesign ult i64 %indvars.iv166, %136
   br i1 %137, label %138, label %_ZNK5Block8get_nodeEj.exit
 
 138:                                              ; preds = %134

@@ -644,7 +644,7 @@ invoke.cont:
   br i1 %cmp, label %land.lhs.true, label %if.else
 
 land.lhs.true:                                    ; preds = %invoke.cont
-  %cmp.not.i = icmp ugt i32 %5, 40
+  %cmp.not.i = icmp samesign ugt i32 %5, 40
   br i1 %cmp.not.i, label %do.body.i, label %for.inc.lr.ph
 
 do.body.i:                                        ; preds = %land.lhs.true, %do.body.i
@@ -1056,7 +1056,7 @@ if.end31:                                         ; preds = %if.then24
   %18 = load ptr, ptr %17, align 8
   %data32.i = getelementptr inbounds i8, ptr %18, i64 16
   %19 = load ptr, ptr %data32.i, align 8
-  %cmp.i24 = icmp ult i32 %13, 55296
+  %cmp.i24 = icmp samesign ult i32 %13, 55296
   br i1 %cmp.i24, label %cond.true.i, label %cond.false.i
 
 cond.true.i:                                      ; preds = %if.end31
@@ -1072,12 +1072,12 @@ cond.true.i:                                      ; preds = %if.end31
   br label %_ZNK6icu_7513CollationData7getCE32Ei.exit
 
 cond.false.i:                                     ; preds = %if.end31
-  %cmp4.i = icmp ult i32 %13, 65536
+  %cmp4.i = icmp samesign ult i32 %13, 65536
   br i1 %cmp4.i, label %cond.true5.i, label %cond.false17.i
 
 cond.true5.i:                                     ; preds = %cond.false.i
   %22 = load ptr, ptr %18, align 8
-  %cmp8.i = icmp ult i32 %13, 56320
+  %cmp8.i = icmp samesign ult i32 %13, 56320
   %cond.i = select i1 %cmp8.i, i32 320, i32 0
   %shr9.i = lshr i32 %13, 5
   %add10.i = add nuw nsw i32 %cond.i, %shr9.i
@@ -1091,7 +1091,7 @@ cond.true5.i:                                     ; preds = %cond.false.i
   br label %_ZNK6icu_7513CollationData7getCE32Ei.exit
 
 cond.false17.i:                                   ; preds = %cond.false.i
-  %cmp18.i = icmp ugt i32 %13, 1114111
+  %cmp18.i = icmp samesign ugt i32 %13, 1114111
   br i1 %cmp18.i, label %_ZNK6icu_7513CollationData7getCE32Ei.exit, label %cond.false20.i
 
 cond.false20.i:                                   ; preds = %cond.false17.i
@@ -1225,7 +1225,7 @@ cond.false:                                       ; preds = %entry
   %2 = load ptr, ptr %1, align 8
   %data32.i = getelementptr inbounds i8, ptr %2, i64 16
   %3 = load ptr, ptr %data32.i, align 8
-  %cmp.i = icmp ult i32 %call, 55296
+  %cmp.i = icmp samesign ult i32 %call, 55296
   br i1 %cmp.i, label %cond.true.i, label %cond.false.i
 
 cond.true.i:                                      ; preds = %cond.false
@@ -1241,12 +1241,12 @@ cond.true.i:                                      ; preds = %cond.false
   br label %_ZNK6icu_7513CollationData7getCE32Ei.exit
 
 cond.false.i:                                     ; preds = %cond.false
-  %cmp4.i = icmp ult i32 %call, 65536
+  %cmp4.i = icmp samesign ult i32 %call, 65536
   br i1 %cmp4.i, label %cond.true5.i, label %cond.false17.i
 
 cond.true5.i:                                     ; preds = %cond.false.i
   %6 = load ptr, ptr %2, align 8
-  %cmp8.i = icmp ult i32 %call, 56320
+  %cmp8.i = icmp samesign ult i32 %call, 56320
   %cond.i = select i1 %cmp8.i, i32 320, i32 0
   %shr9.i = lshr i32 %call, 5
   %add10.i = add nuw nsw i32 %cond.i, %shr9.i
@@ -1260,7 +1260,7 @@ cond.true5.i:                                     ; preds = %cond.false.i
   br label %_ZNK6icu_7513CollationData7getCE32Ei.exit
 
 cond.false17.i:                                   ; preds = %cond.false.i
-  %cmp18.i = icmp ugt i32 %call, 1114111
+  %cmp18.i = icmp samesign ugt i32 %call, 1114111
   br i1 %cmp18.i, label %_ZNK6icu_7513CollationData7getCE32Ei.exit, label %cond.false20.i
 
 cond.false20.i:                                   ; preds = %cond.false17.i
@@ -1353,7 +1353,7 @@ cond.false.i:                                     ; preds = %entry
 
 cond.true5.i:                                     ; preds = %cond.false.i
   %5 = load ptr, ptr %1, align 8
-  %cmp8.i = icmp ult i32 %c, 56320
+  %cmp8.i = icmp samesign ult i32 %c, 56320
   %cond.i = select i1 %cmp8.i, i32 320, i32 0
   %shr9.i = lshr i32 %c, 5
   %add10.i = add nuw nsw i32 %cond.i, %shr9.i
@@ -2024,7 +2024,7 @@ cond.false.i:                                     ; preds = %if.then66
 
 cond.true5.i:                                     ; preds = %cond.false.i
   %61 = load ptr, ptr %57, align 8
-  %cmp8.i = icmp ult i32 %c.addr.0678, 56320
+  %cmp8.i = icmp samesign ult i32 %c.addr.0678, 56320
   %cond.i = select i1 %cmp8.i, i32 320, i32 0
   %shr9.i = lshr i32 %c.addr.0678, 5
   %add10.i = add nuw nsw i32 %cond.i, %shr9.i
@@ -2135,11 +2135,11 @@ if.else:                                          ; preds = %if.then91
   br i1 %cmp97.not, label %if.end119, label %land.lhs.true98
 
 land.lhs.true98:                                  ; preds = %if.else
-  %cmp.i269 = icmp ult i32 %call94, 768
+  %cmp.i269 = icmp samesign ult i32 %call94, 768
   br i1 %cmp.i269, label %if.then101, label %if.end.i270
 
 if.end.i270:                                      ; preds = %land.lhs.true98
-  %cmp1.i = icmp ugt i32 %call94, 65535
+  %cmp1.i = icmp samesign ugt i32 %call94, 65535
   %shr.i271 = lshr i32 %call94, 10
   %conv.i272 = add nuw nsw i32 %shr.i271, 55232
   %conv3.i = and i32 %conv.i272, 65535
@@ -2247,11 +2247,11 @@ if.else110:                                       ; preds = %_ZN6icu_7517Collati
   br i1 %cmp112.not, label %if.end119, label %land.lhs.true113
 
 land.lhs.true113:                                 ; preds = %if.else110
-  %cmp.i284 = icmp ult i32 %retval.0.i281629, 768
+  %cmp.i284 = icmp samesign ult i32 %retval.0.i281629, 768
   br i1 %cmp.i284, label %if.then116, label %if.end.i285
 
 if.end.i285:                                      ; preds = %land.lhs.true113
-  %cmp1.i286 = icmp ugt i32 %retval.0.i281629, 65535
+  %cmp1.i286 = icmp samesign ugt i32 %retval.0.i281629, 65535
   %shr.i287 = lshr i32 %retval.0.i281629, 10
   %conv.i288 = add nuw nsw i32 %shr.i287, 55232
   %conv3.i289 = and i32 %conv.i288, 65535
@@ -3173,7 +3173,7 @@ if.else3.i.i:                                     ; preds = %if.else.i.i
   br label %if.end13
 
 cond.false.i:                                     ; preds = %if.then10
-  %cmp.i5.i = icmp ult i16 %5, 16448
+  %cmp.i5.i = icmp samesign ult i16 %5, 16448
   br i1 %cmp.i5.i, label %if.then.i.i, label %if.else.i6.i
 
 if.then.i.i:                                      ; preds = %cond.false.i
@@ -3182,7 +3182,7 @@ if.then.i.i:                                      ; preds = %cond.false.i
   br label %if.end13
 
 if.else.i6.i:                                     ; preds = %cond.false.i
-  %cmp1.i7.i = icmp ult i16 %5, 32704
+  %cmp1.i7.i = icmp samesign ult i16 %5, 32704
   br i1 %cmp1.i7.i, label %if.then2.i9.i, label %if.else4.i.i
 
 if.then2.i9.i:                                    ; preds = %if.else.i6.i
@@ -3475,7 +3475,7 @@ if.else3.i.i:                                     ; preds = %if.else.i.i
   br label %invoke.cont11
 
 cond.false.i:                                     ; preds = %if.then10
-  %cmp.i5.i = icmp ult i16 %3, 16448
+  %cmp.i5.i = icmp samesign ult i16 %3, 16448
   br i1 %cmp.i5.i, label %if.then.i.i, label %if.else.i6.i
 
 if.then.i.i:                                      ; preds = %cond.false.i
@@ -3484,7 +3484,7 @@ if.then.i.i:                                      ; preds = %cond.false.i
   br label %invoke.cont11
 
 if.else.i6.i:                                     ; preds = %cond.false.i
-  %cmp1.i7.i = icmp ult i16 %3, 32704
+  %cmp1.i7.i = icmp samesign ult i16 %3, 32704
   br i1 %cmp1.i7.i, label %if.then2.i9.i, label %if.else4.i.i
 
 if.then2.i9.i:                                    ; preds = %if.else.i6.i
@@ -3745,7 +3745,7 @@ if.then.i91:                                      ; preds = %land.lhs.true.i83
   br i1 %cmp.i.i99, label %if.then.i.i100, label %if.else10.i.i
 
 if.then.i.i100:                                   ; preds = %if.then.i91
-  %cmp2.not.i.i = icmp ult i32 %sub.i.i98, %sinceMatch.0
+  %cmp2.not.i.i = icmp samesign ult i32 %sub.i.i98, %sinceMatch.0
   br i1 %cmp2.not.i.i, label %if.else.i.i101, label %if.then3.i.i
 
 if.then3.i.i:                                     ; preds = %if.then.i.i100
@@ -3880,7 +3880,7 @@ if.end50:                                         ; preds = %invoke.cont47, %if.
   br i1 %cmp.i.i147, label %for.end, label %if.else.i.i148
 
 if.else.i.i148:                                   ; preds = %if.end50
-  %cmp2.i.i = icmp ult i32 %c.addr.2, 65536
+  %cmp2.i.i = icmp samesign ult i32 %c.addr.2, 65536
   br i1 %cmp2.i.i, label %if.then3.i.i150, label %if.end6.i.i
 
 if.then3.i.i150:                                  ; preds = %if.else.i.i148
@@ -4077,15 +4077,15 @@ if.end9:                                          ; preds = %invoke.cont5
   %5 = load ptr, ptr %4, align 8
   %data32.i = getelementptr inbounds i8, ptr %5, i64 16
   %6 = load ptr, ptr %data32.i, align 8
-  %cmp.i = icmp ult i32 %call6, 55296
+  %cmp.i = icmp samesign ult i32 %call6, 55296
   br i1 %cmp.i, label %_ZNK6icu_7513CollationData7getCE32Ei.exit.thread, label %cond.false.i
 
 cond.false.i:                                     ; preds = %if.end9
-  %cmp4.i = icmp ult i32 %call6, 65536
+  %cmp4.i = icmp samesign ult i32 %call6, 65536
   br i1 %cmp4.i, label %_ZNK6icu_7513CollationData7getCE32Ei.exit.thread226, label %cond.false17.i
 
 cond.false17.i:                                   ; preds = %cond.false.i
-  %cmp18.i = icmp ugt i32 %call6, 1114111
+  %cmp18.i = icmp samesign ugt i32 %call6, 1114111
   br i1 %cmp18.i, label %_ZNK6icu_7513CollationData7getCE32Ei.exit, label %cond.false20.i
 
 cond.false20.i:                                   ; preds = %cond.false17.i
@@ -4129,7 +4129,7 @@ _ZNK6icu_7513CollationData7getCE32Ei.exit:        ; preds = %cond.false17.i, %co
 
 _ZNK6icu_7513CollationData7getCE32Ei.exit.thread226: ; preds = %cond.false.i
   %15 = load ptr, ptr %5, align 8
-  %cmp8.i = icmp ult i32 %call6, 56320
+  %cmp8.i = icmp samesign ult i32 %call6, 56320
   %cond.i = select i1 %cmp8.i, i32 320, i32 0
   %shr9.i = lshr i32 %call6, 5
   %add10.i = add nuw nsw i32 %cond.i, %shr9.i
@@ -4182,7 +4182,7 @@ if.then13:                                        ; preds = %_ZNK6icu_7513Collat
   %27 = load ptr, ptr %26, align 8
   %data32.i33 = getelementptr inbounds i8, ptr %27, i64 16
   %28 = load ptr, ptr %data32.i33, align 8
-  %cmp18.i38 = icmp ugt i32 %call6, 1114111
+  %cmp18.i38 = icmp samesign ugt i32 %call6, 1114111
   br i1 %cmp18.i38, label %_ZNK6icu_7513CollationData7getCE32Ei.exit79, label %cond.false20.i39
 
 cond.true5.i60:                                   ; preds = %_ZNK6icu_7513CollationData7getCE32Ei.exit.thread226
@@ -4192,7 +4192,7 @@ cond.true5.i60:                                   ; preds = %_ZNK6icu_7513Collat
   %data32.i33233 = getelementptr inbounds i8, ptr %30, i64 16
   %31 = load ptr, ptr %data32.i33233, align 8
   %32 = load ptr, ptr %30, align 8
-  %cmp8.i61 = icmp ult i32 %call6, 56320
+  %cmp8.i61 = icmp samesign ult i32 %call6, 56320
   %cond.i62 = select i1 %cmp8.i61, i32 320, i32 0
   %shr9.i63 = lshr i32 %call6, 5
   %add10.i64 = add nuw nsw i32 %cond.i62, %shr9.i63
@@ -4294,15 +4294,15 @@ if.end44:                                         ; preds = %invoke.cont40
   %49 = load ptr, ptr %48, align 8
   %data32.i84 = getelementptr inbounds i8, ptr %49, i64 16
   %50 = load ptr, ptr %data32.i84, align 8
-  %cmp.i85 = icmp ult i32 %call41, 55296
+  %cmp.i85 = icmp samesign ult i32 %call41, 55296
   br i1 %cmp.i85, label %_ZNK6icu_7513CollationData7getCE32Ei.exit130.thread, label %cond.false.i86
 
 cond.false.i86:                                   ; preds = %if.end44
-  %cmp4.i87 = icmp ult i32 %call41, 65536
+  %cmp4.i87 = icmp samesign ult i32 %call41, 65536
   br i1 %cmp4.i87, label %_ZNK6icu_7513CollationData7getCE32Ei.exit130.thread234, label %cond.false17.i88
 
 cond.false17.i88:                                 ; preds = %cond.false.i86
-  %cmp18.i89 = icmp ugt i32 %call41, 1114111
+  %cmp18.i89 = icmp samesign ugt i32 %call41, 1114111
   br i1 %cmp18.i89, label %_ZNK6icu_7513CollationData7getCE32Ei.exit130, label %cond.false20.i90
 
 cond.false20.i90:                                 ; preds = %cond.false17.i88
@@ -4346,7 +4346,7 @@ _ZNK6icu_7513CollationData7getCE32Ei.exit130:     ; preds = %cond.false17.i88, %
 
 _ZNK6icu_7513CollationData7getCE32Ei.exit130.thread234: ; preds = %cond.false.i86
   %59 = load ptr, ptr %49, align 8
-  %cmp8.i112 = icmp ult i32 %call41, 56320
+  %cmp8.i112 = icmp samesign ult i32 %call41, 56320
   %cond.i113 = select i1 %cmp8.i112, i32 320, i32 0
   %shr9.i114 = lshr i32 %call41, 5
   %add10.i115 = add nuw nsw i32 %cond.i113, %shr9.i114
@@ -4399,7 +4399,7 @@ if.then49:                                        ; preds = %_ZNK6icu_7513Collat
   %71 = load ptr, ptr %70, align 8
   %data32.i131 = getelementptr inbounds i8, ptr %71, i64 16
   %72 = load ptr, ptr %data32.i131, align 8
-  %cmp18.i136 = icmp ugt i32 %call41, 1114111
+  %cmp18.i136 = icmp samesign ugt i32 %call41, 1114111
   br i1 %cmp18.i136, label %_ZNK6icu_7513CollationData7getCE32Ei.exit177, label %cond.false20.i137
 
 cond.true5.i158:                                  ; preds = %_ZNK6icu_7513CollationData7getCE32Ei.exit130.thread234
@@ -4409,7 +4409,7 @@ cond.true5.i158:                                  ; preds = %_ZNK6icu_7513Collat
   %data32.i131241 = getelementptr inbounds i8, ptr %74, i64 16
   %75 = load ptr, ptr %data32.i131241, align 8
   %76 = load ptr, ptr %74, align 8
-  %cmp8.i159 = icmp ult i32 %call41, 56320
+  %cmp8.i159 = icmp samesign ult i32 %call41, 56320
   %cond.i160 = select i1 %cmp8.i159, i32 320, i32 0
   %shr9.i161 = lshr i32 %call41, 5
   %add10.i162 = add nuw nsw i32 %cond.i160, %shr9.i161
@@ -4582,7 +4582,7 @@ if.end:                                           ; preds = %entry
   br i1 %cmp.i.i, label %_ZNK6icu_7513CollationData8getFCD16Ei.exit, label %if.else.i.i
 
 if.else.i.i:                                      ; preds = %if.end
-  %cmp2.i.i = icmp ult i32 %c, 65536
+  %cmp2.i.i = icmp samesign ult i32 %c, 65536
   br i1 %cmp2.i.i, label %if.then3.i.i, label %if.end6.i.i
 
 if.then3.i.i:                                     ; preds = %if.else.i.i
@@ -4750,11 +4750,11 @@ if.end5:                                          ; preds = %_ZN6icu_7517Collati
   %minDecompNoCP.i.i69 = getelementptr inbounds i8, ptr %27, i64 8
   %28 = load i16, ptr %minDecompNoCP.i.i69, align 8
   %conv.i.i70 = zext i16 %28 to i32
-  %cmp.i.i71 = icmp ult i32 %retval.0.i301, %conv.i.i70
+  %cmp.i.i71 = icmp samesign ult i32 %retval.0.i301, %conv.i.i70
   br i1 %cmp.i.i71, label %if.then9, label %if.else.i.i72
 
 if.else.i.i72:                                    ; preds = %if.end5
-  %cmp2.i.i73 = icmp ult i32 %retval.0.i301, 65536
+  %cmp2.i.i73 = icmp samesign ult i32 %retval.0.i301, 65536
   br i1 %cmp2.i.i73, label %if.then3.i.i77, label %_ZNK6icu_7513CollationData8getFCD16Ei.exit88
 
 if.then3.i.i77:                                   ; preds = %if.else.i.i72
@@ -5026,7 +5026,7 @@ if.else3.i.i:                                     ; preds = %if.else.i.i140
   br label %_ZNK6icu_7510UCharsTrie8getValueEv.exit
 
 cond.false.i:                                     ; preds = %if.then52
-  %cmp.i5.i = icmp ult i16 %62, 16448
+  %cmp.i5.i = icmp samesign ult i16 %62, 16448
   br i1 %cmp.i5.i, label %if.then.i.i143, label %if.else.i6.i
 
 if.then.i.i143:                                   ; preds = %cond.false.i
@@ -5035,7 +5035,7 @@ if.then.i.i143:                                   ; preds = %cond.false.i
   br label %_ZNK6icu_7510UCharsTrie8getValueEv.exit
 
 if.else.i6.i:                                     ; preds = %cond.false.i
-  %cmp1.i7.i = icmp ult i16 %62, 32704
+  %cmp1.i7.i = icmp samesign ult i16 %62, 32704
   br i1 %cmp1.i7.i, label %if.then2.i9.i, label %if.else4.i.i
 
 if.then2.i9.i:                                    ; preds = %if.else.i6.i
@@ -5198,11 +5198,11 @@ if.end67:                                         ; preds = %_ZN6icu_7517Collati
   %minDecompNoCP.i.i208 = getelementptr inbounds i8, ptr %95, i64 8
   %96 = load i16, ptr %minDecompNoCP.i.i208, align 8
   %conv.i.i209 = zext i16 %96 to i32
-  %cmp.i.i210 = icmp ult i32 %retval.0.i194310, %conv.i.i209
+  %cmp.i.i210 = icmp samesign ult i32 %retval.0.i194310, %conv.i.i209
   br i1 %cmp.i.i210, label %for.end74, label %if.else.i.i211
 
 if.else.i.i211:                                   ; preds = %if.end67
-  %cmp2.i.i212 = icmp ult i32 %retval.0.i194310, 65536
+  %cmp2.i.i212 = icmp samesign ult i32 %retval.0.i194310, 65536
   br i1 %cmp2.i.i212, label %if.then3.i.i216, label %_ZNK6icu_7513CollationData8getFCD16Ei.exit227
 
 if.then3.i.i216:                                  ; preds = %if.else.i.i211
@@ -5385,7 +5385,7 @@ cond.false.i289:                                  ; preds = %if.then96
 
 cond.true5.i:                                     ; preds = %cond.false.i289
   %127 = load ptr, ptr %123, align 8
-  %cmp8.i = icmp ult i32 %call.i284, 56320
+  %cmp8.i = icmp samesign ult i32 %call.i284, 56320
   %cond.i290 = select i1 %cmp8.i, i32 320, i32 0
   %shr9.i = lshr i32 %call.i284, 5
   %add10.i = add nuw nsw i32 %cond.i290, %shr9.i
@@ -5580,7 +5580,7 @@ if.then.i:                                        ; preds = %_ZN6icu_7515MaybeSt
   br label %return
 
 if.end:                                           ; preds = %for.end
-  %cmp11 = icmp ult i32 %value.0.lcssa, 10234
+  %cmp11 = icmp samesign ult i32 %value.0.lcssa, 10234
   br i1 %cmp11, label %if.then12, label %if.end22
 
 if.then12:                                        ; preds = %if.end
@@ -5675,7 +5675,7 @@ if.then.i99:                                      ; preds = %_ZN6icu_7515MaybeSt
   br label %return
 
 if.end22:                                         ; preds = %if.end
-  %cmp28 = icmp ult i32 %value.0.lcssa, 1042490
+  %cmp28 = icmp samesign ult i32 %value.0.lcssa, 1042490
   br i1 %cmp28, label %if.then29, label %if.end47
 
 if.then29:                                        ; preds = %if.end22
@@ -6072,15 +6072,15 @@ if.end15:                                         ; preds = %if.end11
   %8 = load ptr, ptr %7, align 8
   %data32.i = getelementptr inbounds i8, ptr %8, i64 16
   %9 = load ptr, ptr %data32.i, align 8
-  %cmp.i = icmp ult i32 %call8, 55296
+  %cmp.i = icmp samesign ult i32 %call8, 55296
   br i1 %cmp.i, label %_ZNK6icu_7513CollationData7getCE32Ei.exit.thread, label %cond.false.i
 
 cond.false.i:                                     ; preds = %if.end15
-  %cmp4.i = icmp ult i32 %call8, 65536
+  %cmp4.i = icmp samesign ult i32 %call8, 65536
   br i1 %cmp4.i, label %_ZNK6icu_7513CollationData7getCE32Ei.exit.thread91, label %cond.false17.i
 
 cond.false17.i:                                   ; preds = %cond.false.i
-  %cmp18.i = icmp ugt i32 %call8, 1114111
+  %cmp18.i = icmp samesign ugt i32 %call8, 1114111
   br i1 %cmp18.i, label %_ZNK6icu_7513CollationData7getCE32Ei.exit, label %cond.false20.i
 
 cond.false20.i:                                   ; preds = %cond.false17.i
@@ -6124,7 +6124,7 @@ _ZNK6icu_7513CollationData7getCE32Ei.exit:        ; preds = %cond.false17.i, %co
 
 _ZNK6icu_7513CollationData7getCE32Ei.exit.thread91: ; preds = %cond.false.i
   %18 = load ptr, ptr %8, align 8
-  %cmp8.i = icmp ult i32 %call8, 56320
+  %cmp8.i = icmp samesign ult i32 %call8, 56320
   %cond.i = select i1 %cmp8.i, i32 320, i32 0
   %shr9.i = lshr i32 %call8, 5
   %add10.i = add nuw nsw i32 %cond.i, %shr9.i
@@ -6177,7 +6177,7 @@ if.then19:                                        ; preds = %_ZNK6icu_7513Collat
   %30 = load ptr, ptr %29, align 8
   %data32.i20 = getelementptr inbounds i8, ptr %30, i64 16
   %31 = load ptr, ptr %data32.i20, align 8
-  %cmp18.i25 = icmp ugt i32 %call8, 1114111
+  %cmp18.i25 = icmp samesign ugt i32 %call8, 1114111
   br i1 %cmp18.i25, label %_ZNK6icu_7513CollationData7getCE32Ei.exit66, label %cond.false20.i26
 
 cond.true5.i47:                                   ; preds = %_ZNK6icu_7513CollationData7getCE32Ei.exit.thread91
@@ -6187,7 +6187,7 @@ cond.true5.i47:                                   ; preds = %_ZNK6icu_7513Collat
   %data32.i2098 = getelementptr inbounds i8, ptr %33, i64 16
   %34 = load ptr, ptr %data32.i2098, align 8
   %35 = load ptr, ptr %33, align 8
-  %cmp8.i48 = icmp ult i32 %call8, 56320
+  %cmp8.i48 = icmp samesign ult i32 %call8, 56320
   %cond.i49 = select i1 %cmp8.i48, i32 320, i32 0
   %shr9.i50 = lshr i32 %call8, 5
   %add10.i51 = add nuw nsw i32 %cond.i49, %shr9.i50
@@ -6387,7 +6387,7 @@ cond.false.i:                                     ; preds = %land.rhs
   %3 = load ptr, ptr %this, align 8
   %data32.i.i = getelementptr inbounds i8, ptr %3, i64 16
   %4 = load ptr, ptr %data32.i.i, align 8
-  %cmp.i.i = icmp ult i32 %c, 55296
+  %cmp.i.i = icmp samesign ult i32 %c, 55296
   br i1 %cmp.i.i, label %cond.true.i.i, label %cond.false.i.i
 
 cond.true.i.i:                                    ; preds = %cond.false.i
@@ -6403,12 +6403,12 @@ cond.true.i.i:                                    ; preds = %cond.false.i
   br label %_ZNK6icu_7513CollationData7getCE32Ei.exit.i
 
 cond.false.i.i:                                   ; preds = %cond.false.i
-  %cmp4.i.i = icmp ult i32 %c, 65536
+  %cmp4.i.i = icmp samesign ult i32 %c, 65536
   br i1 %cmp4.i.i, label %cond.true5.i.i, label %cond.false17.i.i
 
 cond.true5.i.i:                                   ; preds = %cond.false.i.i
   %7 = load ptr, ptr %3, align 8
-  %cmp8.i.i = icmp ult i32 %c, 56320
+  %cmp8.i.i = icmp samesign ult i32 %c, 56320
   %cond.i.i = select i1 %cmp8.i.i, i32 320, i32 0
   %shr9.i.i = lshr i32 %c, 5
   %add10.i.i = add nuw nsw i32 %cond.i.i, %shr9.i.i
@@ -6422,7 +6422,7 @@ cond.true5.i.i:                                   ; preds = %cond.false.i.i
   br label %_ZNK6icu_7513CollationData7getCE32Ei.exit.i
 
 cond.false17.i.i:                                 ; preds = %cond.false.i.i
-  %cmp18.i.i = icmp ugt i32 %c, 1114111
+  %cmp18.i.i = icmp samesign ugt i32 %c, 1114111
   br i1 %cmp18.i.i, label %_ZNK6icu_7513CollationData7getCE32Ei.exit.i, label %cond.false20.i.i
 
 cond.false20.i.i:                                 ; preds = %cond.false17.i.i

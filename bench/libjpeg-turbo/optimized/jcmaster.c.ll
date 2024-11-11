@@ -242,7 +242,7 @@ define void @jinit_c_master_control(ptr noundef %0, i32 noundef %1) local_unname
   br i1 %or.cond7.i, label %124, label %120
 
 120:                                              ; preds = %116
-  %121 = icmp ugt i32 %.fr.i, %115
+  %121 = icmp samesign ugt i32 %.fr.i, %115
   %122 = icmp slt i32 %110, 0
   %or.cond9.i = select i1 %121, i1 true, i1 %122
   %123 = icmp sgt i32 %110, %115
@@ -1678,7 +1678,7 @@ define internal fastcc void @per_scan_setup(ptr noundef %0) unnamed_addr #0 {
   %107 = sext i32 %105 to i64
   %108 = getelementptr inbounds [10 x i32], ptr %69, i64 0, i64 %107
   store i32 %103, ptr %108, align 4
-  %109 = icmp ugt i32 %.08088, 1
+  %109 = icmp samesign ugt i32 %.08088, 1
   br i1 %109, label %.lr.ph, label %._crit_edge, !llvm.loop !19
 
 ._crit_edge:                                      ; preds = %.lr.ph, %101

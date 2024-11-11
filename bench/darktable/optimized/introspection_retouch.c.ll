@@ -7338,7 +7338,7 @@ dt_ioppr_rgb_matrix_to_lab.exit:                  ; preds = %371, %373
   %717 = sext i32 %715 to i64
   %718 = zext nneg i32 %706 to i64
   %719 = and i64 %718, 3
-  %720 = icmp ult i32 %706, 4
+  %720 = icmp samesign ult i32 %706, 4
   br i1 %720, label %.loopexit27, label %721
 
 721:                                              ; preds = %708
@@ -8447,7 +8447,7 @@ define void @distort_mask(ptr nocapture noundef readnone %0, ptr nocapture nound
   %31 = zext nneg i32 %18 to i64
   %32 = getelementptr float, ptr %2, i64 %29
   %33 = and i64 %31, 3
-  %34 = icmp ult i32 %18, 4
+  %34 = icmp samesign ult i32 %18, 4
   br i1 %34, label %.loopexit1, label %35
 
 35:                                               ; preds = %20
@@ -9522,7 +9522,7 @@ define internal fastcc void @_retouch_clone(ptr nocapture noundef %0, ptr nocapt
   %114 = getelementptr i8, ptr %2, i64 %113
   %115 = shl i64 %112, 4
   %116 = getelementptr i8, ptr %16, i64 %115
-  %117 = icmp ult i32 %96, 8
+  %117 = icmp samesign ult i32 %96, 8
   %118 = and i64 %106, 2147483640
   %119 = insertelement <8 x float> poison, float %6, i64 0
   %120 = shufflevector <8 x float> %119, <8 x float> poison, <8 x i32> zeroinitializer
@@ -9909,7 +9909,7 @@ define internal fastcc void @_retouch_heal(ptr nocapture noundef %0, ptr nocaptu
   %189 = getelementptr i8, ptr %2, i64 %188
   %190 = shl i64 %187, 4
   %191 = getelementptr i8, ptr %24, i64 %190
-  %192 = icmp ult i32 %171, 8
+  %192 = icmp samesign ult i32 %171, 8
   %193 = and i64 %181, 2147483640
   %194 = insertelement <8 x float> poison, float %6, i64 0
   %195 = shufflevector <8 x float> %194, <8 x float> poison, <8 x i32> zeroinitializer
@@ -10271,7 +10271,7 @@ define internal fastcc void @_retouch_blur(ptr noundef %0, ptr nocapture noundef
   %155 = getelementptr i8, ptr %3, i64 %154
   %156 = shl i64 %153, 4
   %157 = getelementptr i8, ptr %28, i64 %156
-  %158 = icmp ult i32 %137, 8
+  %158 = icmp samesign ult i32 %137, 8
   %159 = and i64 %147, 2147483640
   %160 = insertelement <8 x float> poison, float %5, i64 0
   %161 = shufflevector <8 x float> %160, <8 x float> poison, <8 x i32> zeroinitializer
@@ -10440,7 +10440,7 @@ define internal fastcc void @_retouch_fill(ptr nocapture noundef %0, ptr nocaptu
   %32 = mul nuw i64 %31, %23
   %33 = getelementptr i8, ptr %2, i64 %32
   %34 = getelementptr i8, ptr %5, i64 16
-  %35 = icmp ult i32 %12, 8
+  %35 = icmp samesign ult i32 %12, 8
   %36 = and i64 %23, 2147483640
   %37 = insertelement <8 x float> poison, float %4, i64 0
   %38 = shufflevector <8 x float> %37, <8 x float> poison, <8 x i32> zeroinitializer
@@ -10601,7 +10601,7 @@ define internal fastcc void @rt_copy_mask_to_alpha(ptr nocapture noundef %0, ptr
   %24 = zext nneg i32 %12 to i64
   %25 = zext nneg i32 %8 to i64
   %26 = and i32 %12, 3
-  %27 = icmp ult i32 %12, 4
+  %27 = icmp samesign ult i32 %12, 4
   %28 = and i32 %12, 2147483644
   %29 = icmp eq i32 %26, 0
   %30 = sub i32 %23, %21

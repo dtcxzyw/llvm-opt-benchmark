@@ -1287,7 +1287,7 @@ read_qpack_prefixed_integer.exit200:              ; preds = %71, %.lr.ph.i191, %
   br label %287
 
 116:                                              ; preds = %27
-  %.not175 = icmp ult i8 %28, 64
+  %.not175 = icmp samesign ult i8 %28, 64
   br i1 %.not175, label %219, label %117
 
 117:                                              ; preds = %116
@@ -1478,7 +1478,7 @@ read_qpack_prefixed_integer.exit228:              ; preds = %164, %.lr.ph.i219, 
   br label %287
 
 219:                                              ; preds = %116
-  %.not176 = icmp ult i8 %28, 32
+  %.not176 = icmp samesign ult i8 %28, 32
   %220 = call ptr @tvb_get_ptr(ptr noundef %0, i32 noundef %17, i32 noundef -1) #11
   %221 = call i32 @tvb_captured_length_remaining(ptr noundef %0, i32 noundef %17) #11
   %222 = sext i32 %221 to i64

@@ -2478,7 +2478,7 @@ Vec_BitStart.exit:                                ; preds = %3, %16
   %69 = load i32, ptr %68, align 4
   tail call void @Gia_PolynCoreCollect_rec(ptr noundef %0, i32 noundef %67, ptr noundef nonnull %4, ptr noundef nonnull %14)
   tail call void @Gia_PolynCoreCollect_rec(ptr noundef %0, i32 noundef %69, ptr noundef nonnull %4, ptr noundef nonnull %14)
-  %70 = icmp ugt i64 %indvars.iv, 1
+  %70 = icmp samesign ugt i64 %indvars.iv, 1
   br i1 %70, label %28, label %.critedge.loopexit, !llvm.loop !25
 
 .critedge.loopexit:                               ; preds = %28

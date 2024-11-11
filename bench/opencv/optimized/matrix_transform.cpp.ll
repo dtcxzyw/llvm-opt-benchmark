@@ -3327,7 +3327,7 @@ _ZNSt6vectorIiSaIiEEC2EmRKiRKS0_.exit328:         ; preds = %.lr.ph.i.i.i.i.i.i.
   %534 = sdiv i32 %.0234483, %533
   %535 = getelementptr inbounds i32, ptr %.sroa.0.0, i64 %indvars.iv.next577
   store i32 %534, ptr %535, align 4
-  %536 = icmp ugt i64 %indvars.iv576, 1
+  %536 = icmp samesign ugt i64 %indvars.iv576, 1
   br i1 %536, label %.lr.ph486, label %.lr.ph496, !llvm.loop !83
 
 537:                                              ; preds = %521

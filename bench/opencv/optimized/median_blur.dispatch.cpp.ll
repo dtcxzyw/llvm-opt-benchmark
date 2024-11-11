@@ -10423,7 +10423,7 @@ define void @_ZN2cv10medianBlurERKNS_11_InputArrayERKNS_12_OutputArrayEi(ptr nou
   br label %80
 
 38:                                               ; preds = %28
-  %39 = icmp ult i32 %2, 2
+  %39 = icmp samesign ult i32 %2, 2
   br i1 %39, label %43, label %40
 
 40:                                               ; preds = %38

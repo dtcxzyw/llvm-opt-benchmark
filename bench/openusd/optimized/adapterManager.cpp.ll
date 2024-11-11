@@ -1888,7 +1888,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__17TfSmallVectorBase18_UninitializedMoveIPNS
   %172 = getelementptr inbounds i8, ptr %.069.i.i.i.i.i, i64 -24
   %173 = tail call noundef nonnull align 8 dereferenceable(24) ptr @_ZN32pxrInternal_v0_24__pxrReserved__25UsdImaging_AdapterManager12AdapterEntryaSERKS1_(ptr noundef nonnull align 8 dereferenceable(24) %172, ptr noundef nonnull align 8 dereferenceable(24) %171) #20
   %174 = add nsw i64 %.010.i.i.i.i.i, -1
-  %175 = icmp ugt i64 %.010.i.i.i.i.i, 1
+  %175 = icmp samesign ugt i64 %.010.i.i.i.i.i, 1
   br i1 %175, label %.lr.ph.i.i.i.i.i, label %_ZSt13copy_backwardIPN32pxrInternal_v0_24__pxrReserved__25UsdImaging_AdapterManager12AdapterEntryES3_ET0_T_S5_S4_.exit, !llvm.loop !19
 
 _ZSt13copy_backwardIPN32pxrInternal_v0_24__pxrReserved__25UsdImaging_AdapterManager12AdapterEntryES3_ET0_T_S5_S4_.exit: ; preds = %.lr.ph.i.i.i.i.i, %_ZN32pxrInternal_v0_24__pxrReserved__17TfSmallVectorBase18_UninitializedMoveIPNS_25UsdImaging_AdapterManager12AdapterEntryEEET_S5_S5_S5_.exit75

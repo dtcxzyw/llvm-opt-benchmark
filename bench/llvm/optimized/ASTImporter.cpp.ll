@@ -93814,7 +93814,7 @@ _ZN4llvm15SmallVectorImplIPN5clang4DeclEE7reserveEm.exit: ; preds = %3, %14
   store ptr %27, ptr %.045.i.i.i.i.i.i.i.i, align 8
   %28 = getelementptr inbounds i8, ptr %.045.i.i.i.i.i.i.i.i, i64 8
   %29 = add nsw i64 %.06.i.i.i.i.i.i.i.i, -1
-  %30 = icmp ugt i64 %.06.i.i.i.i.i.i.i.i, 1
+  %30 = icmp samesign ugt i64 %.06.i.i.i.i.i.i.i.i, 1
   br i1 %30, label %.lr.ph.i.i.i.i.i.i.i.i, label %_ZN4llvm23SmallVectorTemplateBaseIPN5clang4DeclELb1EE18uninitialized_copyISt16reverse_iteratorIPKS3_EPS3_EEvT_SB_T0_.exit, !llvm.loop !8595
 
 _ZN4llvm23SmallVectorTemplateBaseIPN5clang4DeclELb1EE18uninitialized_copyISt16reverse_iteratorIPKS3_EPS3_EEvT_SB_T0_.exit: ; preds = %.lr.ph.i.i.i.i.i.i.i.i, %_ZN4llvm15SmallVectorImplIPN5clang4DeclEE7reserveEm.exit
@@ -111463,7 +111463,7 @@ _ZN4llvm15SmallVectorImplINS_11SmallVectorIPN5clang4DeclELj32EEEE12assignRemoteE
   %40 = getelementptr inbounds i8, ptr %.0910.i.i.i.i.i, i64 272
   %41 = getelementptr inbounds i8, ptr %.0811.i.i.i.i.i, i64 272
   %42 = add nsw i64 %.012.i.i.i.i.i, -1
-  %43 = icmp ugt i64 %.012.i.i.i.i.i, 1
+  %43 = icmp samesign ugt i64 %.012.i.i.i.i.i, 1
   br i1 %43, label %.lr.ph.i.i.i.i.i, label %_ZSt4moveIPN4llvm11SmallVectorIPN5clang4DeclELj32EEES6_ET0_T_S8_S7_.exit, !llvm.loop !9086
 
 _ZSt4moveIPN4llvm11SmallVectorIPN5clang4DeclELj32EEES6_ET0_T_S8_S7_.exit: ; preds = %.lr.ph.i.i.i.i.i, %35, %33
@@ -111598,7 +111598,7 @@ _ZN4llvm23SmallVectorTemplateBaseINS_11SmallVectorIPN5clang4DeclELj32EEELb0EE4gr
   %89 = getelementptr inbounds i8, ptr %.0910.i.i.i.i.i54, i64 272
   %90 = getelementptr inbounds i8, ptr %.0811.i.i.i.i.i53, i64 272
   %91 = add nsw i64 %.012.i.i.i.i.i52, -1
-  %92 = icmp ugt i64 %.012.i.i.i.i.i52, 1
+  %92 = icmp samesign ugt i64 %.012.i.i.i.i.i52, 1
   br i1 %92, label %.lr.ph.i.i.i.i.i51, label %_ZSt4moveIPN4llvm11SmallVectorIPN5clang4DeclELj32EEES6_ET0_T_S8_S7_.exit55, !llvm.loop !9086
 
 _ZSt4moveIPN4llvm11SmallVectorIPN5clang4DeclELj32EEES6_ET0_T_S8_S7_.exit55: ; preds = %.lr.ph.i.i.i.i.i51, %84, %83, %_ZN4llvm23SmallVectorTemplateBaseINS_11SmallVectorIPN5clang4DeclELj32EEELb0EE4growEm.exit

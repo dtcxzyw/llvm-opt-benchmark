@@ -535,7 +535,7 @@ gz_skip.exit:                                     ; preds = %38, %32
   %84 = getelementptr inbounds i8, ptr %0, i64 72
   %85 = load i32, ptr %84, align 8
   %86 = zext i32 %85 to i64
-  %87 = icmp ult i64 %.0171204, %86
+  %87 = icmp samesign ult i64 %.0171204, %86
   br i1 %87, label %88, label %97
 
 88:                                               ; preds = %83
@@ -814,7 +814,7 @@ fast_seek_find.exit.thread:                       ; preds = %102, %97, %120, %fa
   %228 = getelementptr inbounds i8, ptr %0, i64 72
   %229 = load i32, ptr %228, align 8
   %230 = zext i32 %229 to i64
-  %.not189 = icmp ult i64 %.0171204, %230
+  %.not189 = icmp samesign ult i64 %.0171204, %230
   br i1 %.not189, label %.thread213, label %231
 
 231:                                              ; preds = %227, %226
@@ -939,7 +939,7 @@ fast_seek_reset.exit201:                          ; preds = %275, %278, %281
   %.1 = phi i64 [ %100, %fast_seek_reset.exit201 ], [ %.0171204, %..thread213_crit_edge ], [ %.0171204, %227 ]
   %295 = getelementptr inbounds i8, ptr %0, i64 72
   %296 = zext i32 %294 to i64
-  %297 = icmp ult i64 %.1, %296
+  %297 = icmp samesign ult i64 %.1, %296
   %298 = trunc nuw i64 %.1 to i32
   %299 = select i1 %297, i32 %298, i32 %294
   %300 = sub i32 %294, %299
@@ -1533,7 +1533,7 @@ fill_in_buffer.exit102.thread107.i:               ; preds = %fill_in_buffer.exit
   br i1 %138, label %gz_head.exit.thread, label %139
 
 139:                                              ; preds = %136, %134
-  %.not90.i = icmp ult i8 %112, 16
+  %.not90.i = icmp samesign ult i8 %112, 16
   br i1 %.not90.i, label %143, label %140
 
 140:                                              ; preds = %139

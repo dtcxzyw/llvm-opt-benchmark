@@ -4593,7 +4593,7 @@ if.end4:                                          ; preds = %if.end
 if.end7:                                          ; preds = %if.end4
   %arrayidx8 = getelementptr i8, ptr %args, i64 8
   %1 = load ptr, ptr %arrayidx8, align 8
-  %cmp9 = icmp ult i64 %nargs, 3
+  %cmp9 = icmp samesign ult i64 %nargs, 3
   br i1 %cmp9, label %skip_optional, label %if.end11
 
 if.end11:                                         ; preds = %if.end7
@@ -4605,7 +4605,7 @@ if.end11:                                         ; preds = %if.end7
 if.end15:                                         ; preds = %if.end11
   %arrayidx16 = getelementptr i8, ptr %args, i64 24
   %3 = load ptr, ptr %arrayidx16, align 8
-  %cmp17 = icmp ult i64 %nargs, 5
+  %cmp17 = icmp samesign ult i64 %nargs, 5
   br i1 %cmp17, label %skip_optional, label %if.end19
 
 if.end19:                                         ; preds = %if.end15
@@ -4617,7 +4617,7 @@ if.end19:                                         ; preds = %if.end15
 if.end23:                                         ; preds = %if.end19
   %arrayidx24 = getelementptr i8, ptr %args, i64 40
   %5 = load ptr, ptr %arrayidx24, align 8
-  %cmp25 = icmp ult i64 %nargs, 7
+  %cmp25 = icmp samesign ult i64 %nargs, 7
   br i1 %cmp25, label %skip_optional, label %if.end27
 
 if.end27:                                         ; preds = %if.end23
@@ -9658,7 +9658,7 @@ if.then3:                                         ; preds = %land.lhs.true, %if.
   br label %exit
 
 if.else4:                                         ; preds = %if.else
-  %cmp5 = icmp ugt i64 %call, 255
+  %cmp5 = icmp samesign ugt i64 %call, 255
   br i1 %cmp5, label %if.then6, label %if.else7
 
 if.then6:                                         ; preds = %if.else4

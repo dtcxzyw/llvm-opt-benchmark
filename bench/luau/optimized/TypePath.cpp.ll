@@ -6981,7 +6981,7 @@ define linkonce_odr dso_local void @_ZN4Luau8VecDequeISt4pairIPKNS_9UnionTypeEmE
   unreachable
 
 11:                                               ; preds = %1
-  %12 = icmp ugt i64 %7, 576460752303423487
+  %12 = icmp samesign ugt i64 %7, 576460752303423487
   br i1 %12, label %13, label %_ZNSt15__new_allocatorISt4pairIPKN4Luau9UnionTypeEmEE8allocateEmPKv.exit
 
 13:                                               ; preds = %11
@@ -7453,7 +7453,7 @@ define linkonce_odr dso_local void @_ZN4Luau8VecDequeISt4pairIPKNS_16Intersectio
   unreachable
 
 11:                                               ; preds = %1
-  %12 = icmp ugt i64 %7, 576460752303423487
+  %12 = icmp samesign ugt i64 %7, 576460752303423487
   br i1 %12, label %13, label %_ZNSt15__new_allocatorISt4pairIPKN4Luau16IntersectionTypeEmEE8allocateEmPKv.exit
 
 13:                                               ; preds = %11

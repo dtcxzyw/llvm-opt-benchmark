@@ -32,7 +32,7 @@ for.body.i:                                       ; preds = %if.end.i, %for.body
   %add.ptr.i.i = getelementptr inbounds float, ptr %3, i64 %idx.ext.i.i
   %conv.i = sext i32 %4 to i64
   %call5.i = tail call i64 @fwrite(ptr noundef %add.ptr.i.i, i64 noundef 4, i64 noundef %conv.i, ptr noundef nonnull %call.i)
-  %cmp.i = icmp ugt i32 %y.0.in11.i, 1
+  %cmp.i = icmp samesign ugt i32 %y.0.in11.i, 1
   br i1 %cmp.i, label %for.body.i, label %for.end.i, !llvm.loop !5
 
 for.end.i:                                        ; preds = %for.body.i, %if.end.i
@@ -73,7 +73,7 @@ for.body.i:                                       ; preds = %if.end.i, %for.body
   %add.ptr.i.i = getelementptr inbounds float, ptr %3, i64 %idx.ext.i.i
   %conv.i = sext i32 %mul.i.i to i64
   %call5.i = tail call i64 @fwrite(ptr noundef %add.ptr.i.i, i64 noundef 4, i64 noundef %conv.i, ptr noundef nonnull %call.i)
-  %cmp.i = icmp ugt i32 %y.0.in11.i, 1
+  %cmp.i = icmp samesign ugt i32 %y.0.in11.i, 1
   br i1 %cmp.i, label %for.body.i, label %for.end.i, !llvm.loop !7
 
 for.end.i:                                        ; preds = %for.body.i, %if.end.i
@@ -115,7 +115,7 @@ for.body.i:                                       ; preds = %if.end.i, %for.body
   %mul.i = shl nsw i32 %4, 2
   %conv.i = sext i32 %mul.i to i64
   %call5.i = tail call i64 @fwrite(ptr noundef %add.ptr.i.i, i64 noundef 4, i64 noundef %conv.i, ptr noundef nonnull %call.i)
-  %cmp.i = icmp ugt i32 %y.0.in11.i, 1
+  %cmp.i = icmp samesign ugt i32 %y.0.in11.i, 1
   br i1 %cmp.i, label %for.body.i, label %for.end.i, !llvm.loop !8
 
 for.end.i:                                        ; preds = %for.body.i, %if.end.i

@@ -590,7 +590,7 @@ define void @_ZN6casadi16SparsityInternal9postorderEPKxxPxS3_(ptr nocapture noun
   br label %17
 
 17:                                               ; preds = %.lr.ph46, %11
-  %18 = icmp ugt i64 %.145.in, 1
+  %18 = icmp samesign ugt i64 %.145.in, 1
   br i1 %18, label %.lr.ph46, label %.lr.ph49, !llvm.loop !9
 
 .lr.ph49:                                         ; preds = %17, %_ZN6casadi16SparsityInternal13postorder_dfsExxPxPKxS1_S1_.exit
@@ -1078,7 +1078,7 @@ define noundef range(i64 0, -9223372036854775808) i64 @_ZN6casadi16SparsityInter
   br label %49
 
 49:                                               ; preds = %.lr.ph158, %45
-  %50 = icmp ugt i64 %.1122157.in, 1
+  %50 = icmp samesign ugt i64 %.1122157.in, 1
   br i1 %50, label %.lr.ph158, label %.preheader137, !llvm.loop !26
 
 .preheader:                                       ; preds = %80, %.preheader137
@@ -1213,7 +1213,7 @@ define void @_ZN6casadi16SparsityInternal7qr_initEPKxS2_PxS3_S3_S3_S3_S3_S3_(ptr
   br label %25
 
 25:                                               ; preds = %19, %.lr.ph46.i
-  %26 = icmp ugt i64 %.145.in.i, 1
+  %26 = icmp samesign ugt i64 %.145.in.i, 1
   br i1 %26, label %.lr.ph46.i, label %.lr.ph49.i, !llvm.loop !9
 
 .lr.ph49.i:                                       ; preds = %25, %_ZN6casadi16SparsityInternal13postorder_dfsExxPxPKxS1_S1_.exit.i
@@ -3545,7 +3545,7 @@ _ZNSt6vectorIxSaIxEE6resizeEm.exit112:            ; preds = %292, %294, %296, %2
   %302 = load i64, ptr %301, align 8
   %303 = getelementptr inbounds i64, ptr %300, i64 %.0176
   store i64 %302, ptr %303, align 8
-  %304 = icmp ugt i64 %.0176, 1
+  %304 = icmp samesign ugt i64 %.0176, 1
   br i1 %304, label %.lr.ph177, label %._crit_edge178, !llvm.loop !84
 
 ._crit_edge178:                                   ; preds = %.lr.ph177, %_ZNSt6vectorIxSaIxEE6resizeEm.exit112
@@ -21677,7 +21677,7 @@ _ZNSt12_Vector_baseIxSaIxEE13_M_deallocateEPxm.exit35.i: ; preds = %162, %_ZNSt6
   br label %_ZNSt6vectorIxSaIxEE6resizeEm.exit
 
 165:                                              ; preds = %121
-  %166 = icmp ult i64 %131, %132
+  %166 = icmp samesign ult i64 %131, %132
   br i1 %166, label %167, label %_ZNSt6vectorIxSaIxEE6resizeEm.exit
 
 167:                                              ; preds = %165
@@ -22401,7 +22401,7 @@ _ZNK6casadi16SparsityInternal10get_colindEv.exit: ; preds = %_ZNSt6vectorIxSaIxE
   br label %_ZNSt6vectorIxSaIxEE6resizeEmRKx.exit
 
 203:                                              ; preds = %_ZNK6casadi16SparsityInternal10get_colindEv.exit
-  %204 = icmp ult i64 %195, %199
+  %204 = icmp samesign ult i64 %195, %199
   br i1 %204, label %205, label %_ZNSt6vectorIxSaIxEE6resizeEmRKx.exit
 
 205:                                              ; preds = %203
@@ -28231,7 +28231,7 @@ _ZNSt12_Vector_baseIxSaIxEE13_M_deallocateEPxm.exit35.i: ; preds = %37, %_ZNSt6v
   br label %_ZNSt6vectorIxSaIxEE6resizeEm.exit
 
 39:                                               ; preds = %._crit_edge
-  %40 = icmp ult i64 %6, %20
+  %40 = icmp samesign ult i64 %6, %20
   %spec.select.v = select i1 %40, i64 %.idx.i, i64 %gepdiff.i
   %spec.select = getelementptr inbounds i8, ptr %.sroa.0111.1147, i64 %spec.select.v
   br label %_ZNSt6vectorIxSaIxEE6resizeEm.exit
@@ -28367,7 +28367,7 @@ _ZNSt6vectorIxSaIxEEC2EmRKS0_.exit:               ; preds = %_ZSt6fill_nIPxmxET_
   store i64 %83, ptr %81, align 8
   %84 = getelementptr inbounds i64, ptr %73, i64 %82
   store i64 %.023, ptr %84, align 8
-  %85 = icmp ugt i64 %.023.in138, 1
+  %85 = icmp samesign ugt i64 %.023.in138, 1
   br i1 %85, label %.lr.ph139, label %._crit_edge140, !llvm.loop !421
 
 86:                                               ; preds = %71, %70
@@ -28459,7 +28459,7 @@ _ZNSt6vectorIxSaIxEE6resizeEm.exit39:             ; preds = %111, %_ZNSt12_Vecto
   store i64 %115, ptr %116, align 8, !noalias !422
   %117 = getelementptr inbounds i8, ptr %.056.i.i.i.i.i, i64 8
   %118 = add nsw i64 %.07.i.i.i.i.i, -1
-  %119 = icmp ugt i64 %.07.i.i.i.i.i, 1
+  %119 = icmp samesign ugt i64 %.07.i.i.i.i.i, 1
   br i1 %119, label %.lr.ph.i.i.i.i.i, label %_ZSt14__copy_move_a1ILb0EPxSt16reverse_iteratorIS0_EET1_T0_S4_S3_.exit.loopexit.i.i, !llvm.loop !433
 
 _ZSt14__copy_move_a1ILb0EPxSt16reverse_iteratorIS0_EET1_T0_S4_S3_.exit.loopexit.i.i: ; preds = %.lr.ph.i.i.i.i.i, %_ZNSt6vectorIxSaIxEE6resizeEm.exit39

@@ -1337,7 +1337,7 @@ while.body:                                       ; preds = %entry, %while.body
   %vfn = getelementptr inbounds i8, ptr %vtable, i64 16
   %0 = load ptr, ptr %vfn, align 8
   tail call void %0(ptr noundef nonnull align 8 dereferenceable(8) %this, ptr noundef %status)
-  %cmp = icmp ugt i32 %n.addr.05, 1
+  %cmp = icmp samesign ugt i32 %n.addr.05, 1
   br i1 %cmp, label %while.body, label %while.end, !llvm.loop !11
 
 while.end:                                        ; preds = %while.body, %entry

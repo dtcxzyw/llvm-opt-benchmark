@@ -22,7 +22,7 @@ for.body:                                         ; preds = %for.body.lr.ph, %if
   %l.074 = phi i64 [ %length, %for.body.lr.ph ], [ %sub, %if.end ]
   %tout1.073 = phi i32 [ %1, %for.body.lr.ph ], [ %12, %if.end ]
   %tout0.072 = phi i32 [ %0, %for.body.lr.ph ], [ %11, %if.end ]
-  %cmp27 = icmp ugt i64 %l.074, 7
+  %cmp27 = icmp samesign ugt i64 %l.074, 7
   br i1 %cmp27, label %if.then, label %if.else
 
 if.then:                                          ; preds = %for.body

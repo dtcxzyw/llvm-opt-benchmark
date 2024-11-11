@@ -1396,7 +1396,7 @@ define range(i32 0, 23) i32 @cli_bytecode_load(ptr noundef %0, ptr noundef %1, p
   br label %63
 
 48:                                               ; preds = %44
-  %49 = icmp ugt i32 %45, 7
+  %49 = icmp samesign ugt i32 %45, 7
   br i1 %49, label %.lr.ph.i.preheader.i, label %.sink.split.i
 
 .lr.ph.i.preheader.i:                             ; preds = %48
@@ -2933,7 +2933,7 @@ parseTypes.exit:                                  ; preds = %671, %add_static_ty
   br label %851
 
 693:                                              ; preds = %689
-  %694 = icmp ugt i32 %690, 2
+  %694 = icmp samesign ugt i32 %690, 2
   br i1 %694, label %.lr.ph.i.preheader.i174, label %readNumber.exit.thread124.i
 
 .lr.ph.i.preheader.i174:                          ; preds = %693
@@ -3393,7 +3393,7 @@ parseApis.exit:                                   ; preds = %845, %.preheader.i1
   br i1 %869, label %readNumber.exit.thread.i187, label %.preheader.i.i186
 
 .preheader.i.i186:                                ; preds = %868
-  %870 = icmp ugt i32 %865, 2
+  %870 = icmp samesign ugt i32 %865, 2
   br i1 %870, label %.lr.ph.i.preheader.i207, label %readNumber.exit.thread.i187
 
 .lr.ph.i.preheader.i207:                          ; preds = %.preheader.i.i186
@@ -3870,7 +3870,7 @@ parseGlobals.exit:                                ; preds = %1042
   br label %1077
 
 1061:                                             ; preds = %1057
-  %1062 = icmp ugt i32 %1058, 2
+  %1062 = icmp samesign ugt i32 %1058, 2
   br i1 %1062, label %.lr.ph.i.preheader.i228, label %readNumber.exit.i219
 
 .lr.ph.i.preheader.i228:                          ; preds = %1061

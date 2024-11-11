@@ -105,7 +105,7 @@ entry:
   br i1 %cmp, label %return, label %if.end
 
 if.end:                                           ; preds = %entry
-  %cmp1 = icmp ugt i64 %addr, 255
+  %cmp1 = icmp samesign ugt i64 %addr, 255
   br i1 %cmp1, label %if.then2, label %if.else
 
 if.then2:                                         ; preds = %if.end

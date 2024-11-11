@@ -3229,7 +3229,7 @@ if.end.i217:                                      ; preds = %if.then.i225, %for.
   br i1 %cmp.i219, label %for.body.i215, label %for.end.i, !llvm.loop !26
 
 for.end.i:                                        ; preds = %if.end.i217
-  %cmp.i.i220 = icmp ugt i64 %195, 1
+  %cmp.i.i220 = icmp samesign ugt i64 %195, 1
   br i1 %cmp.i.i220, label %sane_qsort.exit.i, label %st_mult.exit47.i
 
 sane_qsort.exit.i:                                ; preds = %for.end.i
@@ -4512,7 +4512,7 @@ for.inc181:                                       ; preds = %if.then178, %do.bod
   %indvars.iv.next222.pre-phi = phi i64 [ %87, %if.then178 ], [ %87, %do.body171 ], [ %.pre230, %_.exit185 ]
   %89 = load i32, ptr %num_objects, align 4
   %90 = zext i32 %89 to i64
-  %cmp101 = icmp ult i64 %indvars.iv.next222.pre-phi, %90
+  %cmp101 = icmp samesign ult i64 %indvars.iv.next222.pre-phi, %90
   br i1 %cmp101, label %for.body103, label %for.end183, !llvm.loop !37
 
 for.end183:                                       ; preds = %for.inc181, %if.end98, %_.exit191

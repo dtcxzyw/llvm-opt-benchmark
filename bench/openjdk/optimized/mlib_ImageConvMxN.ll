@@ -57,7 +57,7 @@ define hidden i32 @mlib_ImageConvMxN_f(ptr noundef %0, ptr noundef %1, ptr nound
   br i1 %or.cond3, label %103, label %19
 
 19:                                               ; preds = %10
-  %20 = icmp ult i32 %5, %3
+  %20 = icmp samesign ult i32 %5, %3
   %21 = icmp ult i32 %6, %4
   %or.cond208 = and i1 %20, %21
   br i1 %or.cond208, label %22, label %103

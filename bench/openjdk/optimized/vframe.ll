@@ -818,7 +818,7 @@ _ZN26GrowableArrayWithAllocatorIP11MonitorInfo13GrowableArrayIS1_EE6appendERKS1_
 
 _ZNK11MonitorInfo5ownerEv.exit.thread:            ; preds = %48, %54, %_ZNK11MonitorInfo5ownerEv.exit, %43, %_ZN26GrowableArrayWithAllocatorIP11MonitorInfo13GrowableArrayIS1_EE6appendERKS1_.exit
   %.1 = phi i1 [ %.02332, %43 ], [ %.02332, %_ZNK11MonitorInfo5ownerEv.exit ], [ true, %_ZN26GrowableArrayWithAllocatorIP11MonitorInfo13GrowableArrayIS1_EE6appendERKS1_.exit ], [ false, %54 ], [ %.02332, %48 ]
-  %74 = icmp ugt i64 %indvars.iv, 1
+  %74 = icmp samesign ugt i64 %indvars.iv, 1
   br i1 %74, label %36, label %.loopexit, !llvm.loop !11
 
 .loopexit:                                        ; preds = %_ZNK11MonitorInfo5ownerEv.exit.thread, %.thread30, %_ZN13GrowableArrayIP11MonitorInfoEC2Ei.exit

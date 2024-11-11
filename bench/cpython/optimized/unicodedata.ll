@@ -1770,7 +1770,7 @@ if.end33.i:                                       ; preds = %if.then31.i, %while
   %call38.i = call i32 (ptr, i64, ptr, ...) @PyOS_snprintf(ptr noundef %add.ptr.i, i64 noundef %sub.i, ptr noundef nonnull @.str.80, i32 noundef %22) #9
   %call41.i = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %add.ptr.i) #10
   %add42.i = add i64 %call41.i, %i.1.i
-  %cmp28.i = icmp ugt i32 %dec24.in.i, 1
+  %cmp28.i = icmp samesign ugt i32 %dec24.in.i, 1
   br i1 %cmp28.i, label %while.body.i, label %while.end.i, !llvm.loop !4
 
 while.end.i:                                      ; preds = %if.end33.i, %if.end16.i

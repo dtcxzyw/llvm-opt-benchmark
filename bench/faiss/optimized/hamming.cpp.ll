@@ -22678,7 +22678,7 @@ define internal void @_ZN5faiss12_GLOBAL__N_115hammings_knn_mcINS_16HammingCompu
   br i1 %.not.i, label %_ZN5faiss13HCounterStateINS_16HammingComputer4EE14update_counterEPKhm.exit, label %41
 
 41:                                               ; preds = %.lr.ph
-  %42 = icmp ult i32 %38, %40
+  %42 = icmp samesign ult i32 %38, %40
   %43 = getelementptr inbounds i8, ptr %28, i64 32
   %44 = load i32, ptr %43, align 8
   br i1 %42, label %45, label %74
@@ -22852,7 +22852,7 @@ define internal void @_ZN5faiss12_GLOBAL__N_115hammings_knn_mcINS_16HammingCompu
   br i1 %.not.i, label %_ZN5faiss13HCounterStateINS_16HammingComputer8EE14update_counterEPKhm.exit, label %42
 
 42:                                               ; preds = %.lr.ph
-  %43 = icmp ugt i32 %41, %39
+  %43 = icmp samesign ugt i32 %41, %39
   %44 = getelementptr inbounds i8, ptr %28, i64 36
   %45 = load i32, ptr %44, align 4
   br i1 %43, label %46, label %74
@@ -23020,7 +23020,7 @@ define internal void @_ZN5faiss12_GLOBAL__N_115hammings_knn_mcINS_17HammingCompu
   br i1 %.not.i, label %_ZN5faiss13HCounterStateINS_17HammingComputer16EE14update_counterEPKhm.exit, label %50
 
 50:                                               ; preds = %.lr.ph
-  %51 = icmp ult i32 %47, %49
+  %51 = icmp samesign ult i32 %47, %49
   %52 = getelementptr inbounds i8, ptr %28, i64 44
   %53 = load i32, ptr %52, align 4
   br i1 %51, label %54, label %83
@@ -23197,7 +23197,7 @@ define internal void @_ZN5faiss12_GLOBAL__N_115hammings_knn_mcINS_17HammingCompu
   br i1 %.not.i, label %_ZN5faiss13HCounterStateINS_17HammingComputer20EE14update_counterEPKhm.exit, label %57
 
 57:                                               ; preds = %.lr.ph
-  %58 = icmp ult i32 %54, %56
+  %58 = icmp samesign ult i32 %54, %56
   %59 = getelementptr inbounds i8, ptr %28, i64 52
   %60 = load i32, ptr %59, align 4
   br i1 %58, label %61, label %90
@@ -23383,7 +23383,7 @@ define internal void @_ZN5faiss12_GLOBAL__N_115hammings_knn_mcINS_17HammingCompu
   br i1 %.not.i, label %_ZN5faiss13HCounterStateINS_17HammingComputer32EE14update_counterEPKhm.exit, label %66
 
 66:                                               ; preds = %.lr.ph
-  %67 = icmp ult i32 %63, %65
+  %67 = icmp samesign ult i32 %63, %65
   %68 = getelementptr inbounds i8, ptr %28, i64 60
   %69 = load i32, ptr %68, align 4
   br i1 %67, label %70, label %99
@@ -23601,7 +23601,7 @@ define internal void @_ZN5faiss12_GLOBAL__N_115hammings_knn_mcINS_17HammingCompu
   br i1 %.not.i, label %_ZN5faiss13HCounterStateINS_17HammingComputer64EE14update_counterEPKhm.exit, label %98
 
 98:                                               ; preds = %.lr.ph
-  %99 = icmp ult i32 %95, %97
+  %99 = icmp samesign ult i32 %95, %97
   %100 = getelementptr inbounds i8, ptr %28, i64 92
   %101 = load i32, ptr %100, align 4
   br i1 %99, label %102, label %131
@@ -27396,7 +27396,7 @@ define internal void @_ZN5faiss17unpack_bitstringsEmmiPKhmPi.omp_outlined(ptr no
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 8
   %55 = add nsw i32 %.02732.i, -8
   %.024.i = add nuw nsw i64 %.02435.i, 1
-  %56 = icmp ugt i32 %.02732.i, 16
+  %56 = icmp samesign ugt i32 %.02732.i, 16
   br i1 %56, label %.lr.ph.i, label %._crit_edge.loopexit.i, !llvm.loop !845
 
 ._crit_edge.loopexit.i:                           ; preds = %.lr.ph.i
@@ -27641,7 +27641,7 @@ define internal void @_ZN5faiss17unpack_bitstringsEmmPKiPKhmPi.omp_outlined(ptr 
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 8
   %57 = add nsw i32 %.02732.i, -8
   %.024.i = add nuw nsw i64 %.02435.i, 1
-  %58 = icmp ugt i32 %.02732.i, 16
+  %58 = icmp samesign ugt i32 %.02732.i, 16
   br i1 %58, label %.lr.ph.i, label %._crit_edge.loopexit.i, !llvm.loop !845
 
 ._crit_edge.loopexit.i:                           ; preds = %.lr.ph.i

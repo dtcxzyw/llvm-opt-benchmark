@@ -2652,7 +2652,7 @@ if.then.i.i:                                      ; preds = %invoke.cont5
   %sub.i.i.i = shl nuw nsw i64 %3, 1
   %mul.i.i = xor i64 %sub.i.i.i, 126
   call fastcc void @"_ZSt16__introsort_loopIN9__gnu_cxx17__normal_iteratorIPmSt6vectorImSaImEEEElNS0_5__ops15_Iter_comp_iterIZ15shuffle_samplesRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES2_S2_S2_PKmSI_mE3$_0EEEvT_SL_T0_T1_"(ptr nonnull %call5.i.i.i.i64, ptr nonnull %add.ptr37.i, i64 noundef %mul.i.i, ptr nonnull readonly %rnd)
-  %cmp.i1.i.i = icmp ugt i64 %count, 16
+  %cmp.i1.i.i = icmp samesign ugt i64 %count, 16
   %scevgep.i.i.i = getelementptr i8, ptr %call5.i.i.i.i64, i64 8
   br i1 %cmp.i1.i.i, label %for.body.i.i.i.i, label %if.else.i.i.i
 

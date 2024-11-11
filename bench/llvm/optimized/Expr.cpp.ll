@@ -7985,7 +7985,7 @@ _ZN4llvm11raw_ostreamlsEc.exit91:                 ; preds = %142, %144
   br i1 %147, label %.lr.ph, label %_ZN4llvm11raw_ostreamlsEc.exit115, !llvm.loop !90
 
 148:                                              ; preds = %.thread144
-  %149 = icmp ugt i32 %.070142149, 65535
+  %149 = icmp samesign ugt i32 %.070142149, 65535
   %150 = load ptr, ptr %49, align 8
   %151 = load ptr, ptr %47, align 8
   %152 = ptrtoint ptr %150 to i64
@@ -14142,7 +14142,7 @@ _ZSt13copy_backwardIPPN5clang4StmtES3_ET0_T_S5_S4_.exit: ; preds = %_ZN5clang9AS
   %120 = getelementptr inbounds i8, ptr %.0910.i.i.i.i.i, i64 8
   %121 = getelementptr inbounds i8, ptr %.0811.i.i.i.i.i, i64 8
   %122 = add nsw i64 %.012.i.i.i.i.i, -1
-  %123 = icmp ugt i64 %.012.i.i.i.i.i, 1
+  %123 = icmp samesign ugt i64 %.012.i.i.i.i.i, 1
   br i1 %123, label %.lr.ph.i.i.i.i.i, label %_ZSt4copyIPKPN5clang4ExprEPPNS0_4StmtEET0_T_S9_S8_.exit, !llvm.loop !134
 
 124:                                              ; preds = %_ZN5clang9ASTVectorIPNS_4StmtEE7reserveERKNS_10ASTContextEj.exit
@@ -14191,7 +14191,7 @@ _ZSt13copy_backwardIPPN5clang4StmtES3_ET0_T_S5_S4_.exit: ; preds = %_ZN5clang9AS
   %134 = getelementptr inbounds i8, ptr %.0910.i.i.i.i.i.i.i.i, i64 8
   %135 = getelementptr inbounds i8, ptr %.0811.i.i.i.i.i.i.i.i, i64 8
   %136 = add nsw i64 %.012.i.i.i.i.i.i.i.i, -1
-  %137 = icmp ugt i64 %.012.i.i.i.i.i.i.i.i, 1
+  %137 = icmp samesign ugt i64 %.012.i.i.i.i.i.i.i.i, 1
   br i1 %137, label %.lr.ph.i.i.i.i.i.i.i.i, label %_ZSt4copyIPKPN5clang4ExprEPPNS0_4StmtEET0_T_S9_S8_.exit, !llvm.loop !134
 
 _ZSt4copyIPKPN5clang4ExprEPPNS0_4StmtEET0_T_S9_S8_.exit: ; preds = %.lr.ph.i.i.i.i.i, %.lr.ph.i.i.i.i.i.i.i.i, %._crit_edge, %_ZSt13copy_backwardIPPN5clang4StmtES3_ET0_T_S5_S4_.exit, %13
@@ -14309,7 +14309,7 @@ define linkonce_odr hidden void @_ZN5clang9ASTVectorIPNS_4StmtEE6resizeERKNS_10A
   br i1 %13, label %.sink.split, label %14
 
 14:                                               ; preds = %4
-  %15 = icmp ult i64 %12, %5
+  %15 = icmp samesign ult i64 %12, %5
   br i1 %15, label %16, label %57
 
 16:                                               ; preds = %14
@@ -27781,7 +27781,7 @@ _ZN5clang4ExprC2ENS_4Stmt9StmtClassENS_8QualTypeENS_13ExprValueKindENS_14ExprObj
   %47 = getelementptr inbounds i8, ptr %.0910.i.i.i.i.i, i64 8
   %48 = getelementptr inbounds i8, ptr %.0811.i.i.i.i.i, i64 8
   %49 = add nsw i64 %.012.i.i.i.i.i, -1
-  %50 = icmp ugt i64 %.012.i.i.i.i.i, 1
+  %50 = icmp samesign ugt i64 %.012.i.i.i.i.i, 1
   br i1 %50, label %.lr.ph.i.i.i.i.i, label %_ZSt4copyIPKPN5clang4ExprEPPNS0_4StmtEET0_T_S9_S8_.exit, !llvm.loop !134
 
 _ZSt4copyIPKPN5clang4ExprEPPNS0_4StmtEET0_T_S9_S8_.exit: ; preds = %.lr.ph.i.i.i.i.i, %_ZN5clang4ExprC2ENS_4Stmt9StmtClassENS_8QualTypeENS_13ExprValueKindENS_14ExprObjectKindE.exit
@@ -27879,7 +27879,7 @@ _ZN5clang4ExprC2ENS_4Stmt9StmtClassENS_8QualTypeENS_13ExprValueKindENS_14ExprObj
   %47 = getelementptr inbounds i8, ptr %.0910.i.i.i.i.i, i64 8
   %48 = getelementptr inbounds i8, ptr %.0811.i.i.i.i.i, i64 8
   %49 = add nsw i64 %.012.i.i.i.i.i, -1
-  %50 = icmp ugt i64 %.012.i.i.i.i.i, 1
+  %50 = icmp samesign ugt i64 %.012.i.i.i.i.i, 1
   br i1 %50, label %.lr.ph.i.i.i.i.i, label %_ZSt4copyIPKPN5clang4ExprEPPNS0_4StmtEET0_T_S9_S8_.exit, !llvm.loop !134
 
 _ZSt4copyIPKPN5clang4ExprEPPNS0_4StmtEET0_T_S9_S8_.exit: ; preds = %.lr.ph.i.i.i.i.i, %_ZN5clang4ExprC2ENS_4Stmt9StmtClassENS_8QualTypeENS_13ExprValueKindENS_14ExprObjectKindE.exit
@@ -27968,7 +27968,7 @@ _ZN5clang4ExprC2ENS_4Stmt9StmtClassENS_8QualTypeENS_13ExprValueKindENS_14ExprObj
   %36 = getelementptr inbounds i8, ptr %.0910.i.i.i.i.i, i64 8
   %37 = getelementptr inbounds i8, ptr %.0811.i.i.i.i.i, i64 8
   %38 = add nsw i64 %.012.i.i.i.i.i, -1
-  %39 = icmp ugt i64 %.012.i.i.i.i.i, 1
+  %39 = icmp samesign ugt i64 %.012.i.i.i.i.i, 1
   br i1 %39, label %.lr.ph.i.i.i.i.i, label %_ZSt4copyIPKPN5clang4ExprEPPNS0_4StmtEET0_T_S9_S8_.exit, !llvm.loop !134
 
 _ZSt4copyIPKPN5clang4ExprEPPNS0_4StmtEET0_T_S9_S8_.exit: ; preds = %.lr.ph.i.i.i.i.i, %_ZN5clang4ExprC2ENS_4Stmt9StmtClassENS_8QualTypeENS_13ExprValueKindENS_14ExprObjectKindE.exit
@@ -28058,7 +28058,7 @@ _ZN5clang4ExprC2ENS_4Stmt9StmtClassENS_8QualTypeENS_13ExprValueKindENS_14ExprObj
   %37 = getelementptr inbounds i8, ptr %.0910.i.i.i.i.i, i64 8
   %38 = getelementptr inbounds i8, ptr %.0811.i.i.i.i.i, i64 8
   %39 = add nsw i64 %.012.i.i.i.i.i, -1
-  %40 = icmp ugt i64 %.012.i.i.i.i.i, 1
+  %40 = icmp samesign ugt i64 %.012.i.i.i.i.i, 1
   br i1 %40, label %.lr.ph.i.i.i.i.i, label %_ZSt4copyIPKPN5clang4ExprEPPNS0_4StmtEET0_T_S9_S8_.exit, !llvm.loop !134
 
 _ZSt4copyIPKPN5clang4ExprEPPNS0_4StmtEET0_T_S9_S8_.exit: ; preds = %.lr.ph.i.i.i.i.i, %_ZN5clang4ExprC2ENS_4Stmt9StmtClassENS_8QualTypeENS_13ExprValueKindENS_14ExprObjectKindE.exit
@@ -33823,7 +33823,7 @@ _ZN5clang9ASTVectorIPNS_4StmtEE4growERKNS_10ASTContextEm.exit: ; preds = %_ZnamR
   %57 = getelementptr inbounds i8, ptr %.0910.i.i.i.i.i.i.i, i64 8
   %58 = getelementptr inbounds i8, ptr %.0811.i.i.i.i.i.i.i, i64 8
   %59 = add nsw i64 %.012.i.i.i.i.i.i.i, -1
-  %60 = icmp ugt i64 %.012.i.i.i.i.i.i.i, 1
+  %60 = icmp samesign ugt i64 %.012.i.i.i.i.i.i.i, 1
   br i1 %60, label %.lr.ph.i.i.i.i.i.i.i, label %_ZSt18uninitialized_copyIPKPN5clang4ExprEPPNS0_4StmtEET0_T_S9_S8_.exit.loopexit, !llvm.loop !134
 
 _ZSt18uninitialized_copyIPKPN5clang4ExprEPPNS0_4StmtEET0_T_S9_S8_.exit.loopexit: ; preds = %.lr.ph.i.i.i.i.i.i.i

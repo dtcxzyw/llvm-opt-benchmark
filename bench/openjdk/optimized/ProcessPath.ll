@@ -1329,7 +1329,7 @@ ProcessQuad.exit:                                 ; preds = %227, %.thread84.i, 
 
 .preheader.i:                                     ; preds = %.preheader.sink.split.i, %427
   %.2202.i = phi i32 [ %.2.i, %427 ], [ %428, %.preheader.sink.split.i ]
-  %431 = icmp ugt i32 %.2202.i, 1
+  %431 = icmp samesign ugt i32 %.2202.i, 1
   br i1 %431, label %.lr.ph.preheader.i, label %._crit_edge.i241
 
 .lr.ph.preheader.i:                               ; preds = %.preheader.i
@@ -3198,7 +3198,7 @@ define internal fastcc void @ProcessMonotonicQuad(ptr noundef %0, ptr nocapture 
   %.199.i = select i1 %184, i32 %123, i32 %178
   %185 = load ptr, ptr %0, align 8
   tail call void %185(ptr noundef nonnull %0, i32 noundef %.0100122.i, i32 noundef %.098123.i, i32 noundef %spec.select.i, i32 noundef %.199.i, ptr noundef nonnull %2, i8 noundef zeroext range(i8 0, 2) %115, i8 noundef zeroext 0) #12
-  %186 = icmp ugt i32 %.195124.i, 2
+  %186 = icmp samesign ugt i32 %.195124.i, 2
   br i1 %186, label %.lr.ph127.i, label %DrawMonotonicQuad.exit, !llvm.loop !19
 
 DrawMonotonicQuad.exit:                           ; preds = %.lr.ph127.i, %.preheader.i
@@ -3589,7 +3589,7 @@ define internal fastcc void @ProcessMonotonicCubic(ptr noundef %0, ptr nocapture
   %247 = add nsw i32 %.2182222.i, -3
   %248 = and i32 %.2179223.i, 2
   %249 = icmp ne i32 %248, 0
-  %250 = icmp ult i32 %.2182222.i, 10
+  %250 = icmp samesign ult i32 %.2182222.i, 10
   %or.cond.not191.i = select i1 %249, i1 true, i1 %250
   %251 = add nsw i32 %232, %243
   %.not.i = icmp ugt i32 %251, %244

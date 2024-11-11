@@ -128,7 +128,7 @@ define void @_ZN8WasmEdge4Host4WASI8FdHolder5resetEv(ptr nocapture noundef nonnu
   br i1 %3, label %4, label %8
 
 4:                                                ; preds = %1
-  %switch.i = icmp ugt i32 %2, 2
+  %switch.i = icmp samesign ugt i32 %2, 2
   br i1 %switch.i, label %5, label %7
 
 5:                                                ; preds = %4
@@ -1118,7 +1118,7 @@ _ZN8WasmEdge4Host4WASI8FdHolderD2Ev.exit.thread70: ; preds = %17, %15
   %22 = load i32, ptr %21, align 4
   %23 = tail call noundef zeroext i16 @_ZN8WasmEdge4Host4WASI6detail9fromErrNoEi(i32 noundef %22) #24
   %.sroa.652.sroa.6.0.extract.shift55 = lshr i16 %23, 8
-  %switch.i.i.i = icmp ugt i32 %10, 2
+  %switch.i.i.i = icmp samesign ugt i32 %10, 2
   br i1 %switch.i.i.i, label %24, label %_ZN8WasmEdge4Host4WASI8FdHolderD2Ev.exit.thread
 
 24:                                               ; preds = %20
@@ -1276,7 +1276,7 @@ _ZN8WasmEdge4Host4WASI6detail12fromFileTypeEh.exit: ; preds = %77, %switch.looku
   %93 = getelementptr inbounds i8, ptr %.0910.i.i.i.i.i, i64 1
   %94 = getelementptr inbounds i8, ptr %.0811.i.i.i.i.i, i64 1
   %95 = add nsw i64 %.012.i.i.i.i.i, -1
-  %96 = icmp ugt i64 %.012.i.i.i.i.i, 1
+  %96 = icmp samesign ugt i64 %.012.i.i.i.i.i, 1
   br i1 %96, label %.lr.ph.i.i.i.i.i, label %.loopexit, !llvm.loop !4
 
 .loopexit:                                        ; preds = %.lr.ph.i.i.i.i.i, %_ZN8WasmEdge4Host4WASI6detail12fromFileTypeEh.exit
@@ -2649,7 +2649,7 @@ _ZN8WasmEdge4Host4WASI9DirHolderD2Ev.exit.i:      ; preds = %13, %21
   store i8 0, ptr %0, align 8
   %32 = getelementptr inbounds i8, ptr %0, i64 8
   store i16 %31, ptr %32, align 8
-  %switch.i.i.i.i = icmp ugt i32 %5, 2
+  %switch.i.i.i.i = icmp samesign ugt i32 %5, 2
   br i1 %switch.i.i.i.i, label %33, label %_ZN8WasmEdge4Host4WASI5INodeD2Ev.exit
 
 33:                                               ; preds = %28
@@ -3835,7 +3835,7 @@ _ZN8WasmEdge4Host4WASI6Poller5Timer6createEv.exit.thread: ; preds = %40
   br i1 %71, label %72, label %_ZN8WasmEdge4Host4WASI6Poller5TimerD2Ev.exit7
 
 72:                                               ; preds = %69
-  %switch.i.i.i.i.i.i.i = icmp ugt i32 %70, 2
+  %switch.i.i.i.i.i.i.i = icmp samesign ugt i32 %70, 2
   br i1 %switch.i.i.i.i.i.i.i, label %73, label %75
 
 73:                                               ; preds = %72
@@ -3941,7 +3941,7 @@ define linkonce_odr hidden void @_ZNSt6vectorIN8WasmEdge4Host4WASI6Poller5TimerE
   br i1 %10, label %11, label %_ZNSt16allocator_traitsISaIN8WasmEdge4Host4WASI6Poller5TimerEEE7destroyIS4_EEvRS5_PT_.exit
 
 11:                                               ; preds = %8
-  %switch.i.i.i.i.i.i = icmp ugt i32 %9, 2
+  %switch.i.i.i.i.i.i = icmp samesign ugt i32 %9, 2
   br i1 %switch.i.i.i.i.i.i, label %12, label %14
 
 12:                                               ; preds = %11
@@ -4610,7 +4610,7 @@ _ZNSt6vectorIN8WasmEdge4Host4WASI6Poller5TimerESaIS4_EE12emplace_backIJS4_EEERS4
   br i1 %91, label %92, label %_ZN5cxx208expectedIN8WasmEdge4Host4WASI6Poller5TimerE14__wasi_errno_tED2Ev.exit
 
 92:                                               ; preds = %89
-  %switch.i.i.i.i.i.i.i.i.i.i.i.i.i = icmp ugt i32 %90, 2
+  %switch.i.i.i.i.i.i.i.i.i.i.i.i.i = icmp samesign ugt i32 %90, 2
   br i1 %switch.i.i.i.i.i.i.i.i.i.i.i.i.i, label %93, label %95
 
 93:                                               ; preds = %92
@@ -4659,7 +4659,7 @@ _ZN5cxx208expectedIN8WasmEdge4Host4WASI6Poller5TimerE14__wasi_errno_tED2Ev.exit:
   br i1 %115, label %116, label %_ZNSt6vectorIN8WasmEdge4Host4WASI6Poller5TimerESaIS4_EE8pop_backEv.exit
 
 116:                                              ; preds = %113
-  %switch.i.i.i.i.i.i.i = icmp ugt i32 %114, 2
+  %switch.i.i.i.i.i.i.i = icmp samesign ugt i32 %114, 2
   br i1 %switch.i.i.i.i.i.i.i, label %117, label %119
 
 117:                                              ; preds = %116
@@ -4835,7 +4835,7 @@ _ZNSt10_HashtableIiSt4pairIKiN8WasmEdge4Host4WASI6Poller6FdDataEESaIS7_ENSt8__de
   br i1 %201, label %202, label %_ZNSt6vectorIN8WasmEdge4Host4WASI6Poller5TimerESaIS4_EE8pop_backEv.exit41
 
 202:                                              ; preds = %199
-  %switch.i.i.i.i.i.i.i40 = icmp ugt i32 %200, 2
+  %switch.i.i.i.i.i.i.i40 = icmp samesign ugt i32 %200, 2
   br i1 %switch.i.i.i.i.i.i.i40, label %203, label %205
 
 203:                                              ; preds = %202
@@ -6186,7 +6186,7 @@ _ZNSt13unordered_mapIiN8WasmEdge4Host4WASI6Poller6FdDataESt4hashIiESt8equal_toIi
   br i1 %213, label %214, label %_ZSt8_DestroyIN8WasmEdge4Host4WASI6Poller5TimerEEvPT_.exit.i.i.i.i.i
 
 214:                                              ; preds = %211
-  %switch.i.i.i.i.i.i.i.i.i.i = icmp ugt i32 %212, 2
+  %switch.i.i.i.i.i.i.i.i.i.i = icmp samesign ugt i32 %212, 2
   br i1 %switch.i.i.i.i.i.i.i.i.i.i, label %215, label %217
 
 215:                                              ; preds = %214
@@ -6561,7 +6561,7 @@ define linkonce_odr hidden void @_ZNSt10_HashtableI16__wasi_clockid_tSt4pairIKS0
   br i1 %14, label %15, label %_ZSt8_DestroyIN8WasmEdge4Host4WASI6Poller5TimerEEvPT_.exit.i.i.i.i.i.i.i.i
 
 15:                                               ; preds = %12
-  %switch.i.i.i.i.i.i.i.i.i.i.i.i.i = icmp ugt i32 %13, 2
+  %switch.i.i.i.i.i.i.i.i.i.i.i.i.i = icmp samesign ugt i32 %13, 2
   br i1 %switch.i.i.i.i.i.i.i.i.i.i.i.i.i, label %16, label %18
 
 16:                                               ; preds = %15

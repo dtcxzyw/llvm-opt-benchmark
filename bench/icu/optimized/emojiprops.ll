@@ -557,7 +557,7 @@ if.end13:                                         ; preds = %lor.lhs.false, %if.
   %cmp14 = icmp eq i32 %which, 71
   %spec.select = select i1 %cmp14, i32 70, i32 %which
   %spec.select15 = select i1 %cmp14, i32 65, i32 %which
-  %cmp17.not19 = icmp ugt i32 %spec.select15, %spec.select
+  %cmp17.not19 = icmp samesign ugt i32 %spec.select15, %spec.select
   br i1 %cmp17.not19, label %return, label %for.body.lr.ph
 
 for.body.lr.ph:                                   ; preds = %if.end13
@@ -634,7 +634,7 @@ if.end4:                                          ; preds = %entry
   %cmp5 = icmp eq i32 %which, 71
   %spec.select = select i1 %cmp5, i32 70, i32 %which
   %spec.select14 = select i1 %cmp5, i32 65, i32 %which
-  %cmp8.not15 = icmp ugt i32 %spec.select14, %spec.select
+  %cmp8.not15 = icmp samesign ugt i32 %spec.select14, %spec.select
   br i1 %cmp8.not15, label %for.end, label %for.body.lr.ph
 
 for.body.lr.ph:                                   ; preds = %if.end4

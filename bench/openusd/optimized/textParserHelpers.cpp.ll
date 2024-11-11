@@ -20577,7 +20577,7 @@ _ZNKSt14default_deleteISt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcE
 
 _ZN32pxrInternal_v0_24__pxrReserved__12SdfReferenceaSEOS0_.exit: ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__7SdfPathaSEOS0_.exit.i, %_ZNKSt14default_deleteISt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN32pxrInternal_v0_24__pxrReserved__7VtValueESt4lessIvESaISt4pairIKS6_S8_EEEEclEPSF_.exit.i.i.i.i.i.i
   %64 = add nsw i64 %.010.i.i.i.i.i, -1
-  %65 = icmp ugt i64 %.010.i.i.i.i.i, 1
+  %65 = icmp samesign ugt i64 %.010.i.i.i.i.i, 1
   br i1 %65, label %.lr.ph.i.i.i.i.i, label %.loopexit, !llvm.loop !112
 
 .loopexit:                                        ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__12SdfReferenceaSEOS0_.exit, %12
@@ -27126,7 +27126,7 @@ _ZNK9__gnu_cxx5__ops15_Iter_less_iterclINS_17__normal_iteratorIPNSt7__cxx1112bas
   %20 = getelementptr inbounds i8, ptr %.069.i.i.i.i.i, i64 -32
   %21 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEOS4_(ptr noundef nonnull align 8 dereferenceable(32) %20, ptr noundef nonnull align 8 dereferenceable(32) %19) #23
   %22 = add nsw i64 %.010.i.i.i.i.i, -1
-  %23 = icmp ugt i64 %.010.i.i.i.i.i, 1
+  %23 = icmp samesign ugt i64 %.010.i.i.i.i.i, 1
   br i1 %23, label %.lr.ph.i.i.i.i.i, label %.loopexit, !llvm.loop !173
 
 .loopexit:                                        ; preds = %.lr.ph.i.i.i.i.i, %13
@@ -32554,11 +32554,11 @@ _ZN32pxrInternal_v0_24__pxrReserved__24Sdf_TextFileFormatParser13_ToItemVectorIi
   %23 = getelementptr inbounds i8, ptr %21, i64 %16
   %24 = getelementptr inbounds nuw i8, ptr %7, i64 8
   store ptr %23, ptr %24, align 8, !alias.scope !287
-  %25 = icmp ult i64 %16, 8
+  %25 = icmp samesign ult i64 %16, 8
   br i1 %25, label %_ZN32pxrInternal_v0_24__pxrReserved__24Sdf_TextFileFormatParser14_HasDuplicatesIiEEbRKSt6vectorIT_SaIS3_EE.exit.thread, label %26
 
 26:                                               ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__24Sdf_TextFileFormatParser13_ToItemVectorIiEESt6vectorIT_SaIS3_EERKNS_7VtArrayIS3_EE.exit
-  %27 = icmp ult i64 %16, 44
+  %27 = icmp samesign ult i64 %16, 44
   br i1 %27, label %28, label %.preheader.i.i.i
 
 28:                                               ; preds = %26
@@ -34817,11 +34817,11 @@ _ZN32pxrInternal_v0_24__pxrReserved__24Sdf_TextFileFormatParser13_ToItemVectorIl
   %23 = getelementptr inbounds i8, ptr %21, i64 %16
   %24 = getelementptr inbounds nuw i8, ptr %7, i64 8
   store ptr %23, ptr %24, align 8, !alias.scope !320
-  %25 = icmp ult i64 %16, 16
+  %25 = icmp samesign ult i64 %16, 16
   br i1 %25, label %_ZN32pxrInternal_v0_24__pxrReserved__24Sdf_TextFileFormatParser14_HasDuplicatesIlEEbRKSt6vectorIT_SaIS3_EE.exit.thread, label %26
 
 26:                                               ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__24Sdf_TextFileFormatParser13_ToItemVectorIlEESt6vectorIT_SaIS3_EERKNS_7VtArrayIS3_EE.exit
-  %27 = icmp ult i64 %16, 88
+  %27 = icmp samesign ult i64 %16, 88
   br i1 %27, label %28, label %.preheader.i.i.i
 
 28:                                               ; preds = %26
@@ -37075,11 +37075,11 @@ _ZN32pxrInternal_v0_24__pxrReserved__24Sdf_TextFileFormatParser13_ToItemVectorIj
   %23 = getelementptr inbounds i8, ptr %21, i64 %16
   %24 = getelementptr inbounds nuw i8, ptr %7, i64 8
   store ptr %23, ptr %24, align 8, !alias.scope !353
-  %25 = icmp ult i64 %16, 8
+  %25 = icmp samesign ult i64 %16, 8
   br i1 %25, label %_ZN32pxrInternal_v0_24__pxrReserved__24Sdf_TextFileFormatParser14_HasDuplicatesIjEEbRKSt6vectorIT_SaIS3_EE.exit.thread, label %26
 
 26:                                               ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__24Sdf_TextFileFormatParser13_ToItemVectorIjEESt6vectorIT_SaIS3_EERKNS_7VtArrayIS3_EE.exit
-  %27 = icmp ult i64 %16, 44
+  %27 = icmp samesign ult i64 %16, 44
   br i1 %27, label %28, label %.preheader.i.i.i
 
 28:                                               ; preds = %26
@@ -39333,11 +39333,11 @@ _ZN32pxrInternal_v0_24__pxrReserved__24Sdf_TextFileFormatParser13_ToItemVectorIm
   %23 = getelementptr inbounds i8, ptr %21, i64 %16
   %24 = getelementptr inbounds nuw i8, ptr %7, i64 8
   store ptr %23, ptr %24, align 8, !alias.scope !386
-  %25 = icmp ult i64 %16, 16
+  %25 = icmp samesign ult i64 %16, 16
   br i1 %25, label %_ZN32pxrInternal_v0_24__pxrReserved__24Sdf_TextFileFormatParser14_HasDuplicatesImEEbRKSt6vectorIT_SaIS3_EE.exit.thread, label %26
 
 26:                                               ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__24Sdf_TextFileFormatParser13_ToItemVectorImEESt6vectorIT_SaIS3_EERKNS_7VtArrayIS3_EE.exit
-  %27 = icmp ult i64 %16, 88
+  %27 = icmp samesign ult i64 %16, 88
   br i1 %27, label %28, label %.preheader.i.i.i
 
 28:                                               ; preds = %26

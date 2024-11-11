@@ -847,7 +847,7 @@ _ZN4llvm15BitstreamWriter4EmitEjj.exit9:          ; preds = %_ZN4llvm15Bitstream
   %storemerge6.i8 = phi i32 [ %38, %30 ], [ %28, %_ZN4llvm15BitstreamWriter4EmitEjj.exit ]
   store i32 %storemerge6.i8, ptr %8, align 8
   %40 = add nuw nsw i32 %storemerge6.i8, 4
-  %41 = icmp ult i32 %storemerge6.i8, 28
+  %41 = icmp samesign ult i32 %storemerge6.i8, 28
   br i1 %41, label %_ZN4llvm15BitstreamWriter4EmitEjj.exit13, label %42
 
 42:                                               ; preds = %_ZN4llvm15BitstreamWriter4EmitEjj.exit9
@@ -871,7 +871,7 @@ _ZN4llvm15BitstreamWriter4EmitEjj.exit13:         ; preds = %_ZN4llvm15Bitstream
   %51 = or i32 %49, %50
   store i32 %51, ptr %11, align 4
   %52 = add nuw nsw i32 %storemerge6.i12, 4
-  %53 = icmp ult i32 %storemerge6.i12, 28
+  %53 = icmp samesign ult i32 %storemerge6.i12, 28
   br i1 %53, label %_ZN4llvm15BitstreamWriter4EmitEjj.exit17, label %54
 
 54:                                               ; preds = %_ZN4llvm15BitstreamWriter4EmitEjj.exit13
@@ -899,7 +899,7 @@ _ZN4llvm15BitstreamWriter4EmitEjj.exit17:         ; preds = %_ZN4llvm15Bitstream
   %65 = or i32 %63, %64
   store i32 %65, ptr %11, align 4
   %66 = add nuw nsw i32 %storemerge6.i16, 4
-  %67 = icmp ult i32 %storemerge6.i16, 28
+  %67 = icmp samesign ult i32 %storemerge6.i16, 28
   br i1 %67, label %_ZN4llvm15BitstreamWriter4EmitEjj.exit21, label %68
 
 68:                                               ; preds = %_ZN4llvm15BitstreamWriter4EmitEjj.exit17
@@ -927,7 +927,7 @@ _ZN4llvm15BitstreamWriter4EmitEjj.exit21:         ; preds = %_ZN4llvm15Bitstream
   %79 = or i32 %77, %78
   store i32 %79, ptr %11, align 4
   %80 = add nuw nsw i32 %storemerge6.i20, 4
-  %81 = icmp ult i32 %storemerge6.i20, 28
+  %81 = icmp samesign ult i32 %storemerge6.i20, 28
   br i1 %81, label %_ZN4llvm15BitstreamWriter4EmitEjj.exit25, label %82
 
 82:                                               ; preds = %_ZN4llvm15BitstreamWriter4EmitEjj.exit21
@@ -4813,7 +4813,7 @@ _ZN4llvm15SmallVectorImplImE7reserveEm.exit.i.i:  ; preds = %1363, %_ZN4llvm23Sm
   %1370 = getelementptr inbounds i8, ptr %.0910.i.i.i.i.i.i.i.i.i.i, i64 1
   %1371 = getelementptr inbounds i8, ptr %.0811.i.i.i.i.i.i.i.i.i.i, i64 8
   %1372 = add nsw i64 %.012.i.i.i.i.i.i.i.i.i.i, -1
-  %1373 = icmp ugt i64 %.012.i.i.i.i.i.i.i.i.i.i, 1
+  %1373 = icmp samesign ugt i64 %.012.i.i.i.i.i.i.i.i.i.i, 1
   br i1 %1373, label %.lr.ph.i.i.i.i.i.i.i.i.i.i, label %_ZN4llvm15SmallVectorImplImE6appendIPKcvEEvT_S5_.exit.i, !llvm.loop !63
 
 _ZN4llvm15SmallVectorImplImE6appendIPKcvEEvT_S5_.exit.i: ; preds = %.lr.ph.i.i.i.i.i.i.i.i.i.i, %_ZN4llvm15SmallVectorImplImE7reserveEm.exit.i.i
@@ -22697,7 +22697,7 @@ _ZN4llvm15BitstreamWriter4EmitEjj.exit.i328:      ; preds = %_ZN4llvm15SmallVect
   %248 = or i32 %247, %246
   store i32 %248, ptr %208, align 4
   %249 = add nuw nsw i32 %storemerge6.i.i329, 6
-  %250 = icmp ult i32 %storemerge6.i.i329, 26
+  %250 = icmp samesign ult i32 %storemerge6.i.i329, 26
   br i1 %250, label %_ZN4llvm15BitstreamWriter7EmitVBREjj.exit336, label %251
 
 251:                                              ; preds = %_ZN4llvm15BitstreamWriter4EmitEjj.exit.i328
@@ -22785,7 +22785,7 @@ _ZN4llvm15BitstreamWriter4EmitEjj.exit.i:         ; preds = %_ZN4llvm15SmallVect
   %291 = or i32 %290, %288
   store i32 %291, ptr %208, align 4
   %292 = add nuw nsw i32 %289, 6
-  %293 = icmp ult i32 %289, 26
+  %293 = icmp samesign ult i32 %289, 26
   br i1 %293, label %_ZN4llvm15BitstreamWriter7EmitVBREjj.exit, label %294
 
 294:                                              ; preds = %._crit_edge.i319
@@ -23295,7 +23295,7 @@ _ZN4llvm15BitstreamWriter4EmitEjj.exit.i373:      ; preds = %_ZN4llvm15SmallVect
   %570 = or i32 %569, %568
   store i32 %570, ptr %517, align 4
   %571 = add nuw nsw i32 %storemerge6.i.i374, 6
-  %572 = icmp ult i32 %storemerge6.i.i374, 26
+  %572 = icmp samesign ult i32 %storemerge6.i.i374, 26
   br i1 %572, label %_ZN4llvm15BitstreamWriter7EmitVBREjj.exit381, label %573
 
 573:                                              ; preds = %_ZN4llvm15BitstreamWriter4EmitEjj.exit.i373
@@ -23400,7 +23400,7 @@ _ZN4llvm15BitstreamWriter4EmitEjj.exit.i353:      ; preds = %_ZN4llvm15SmallVect
   %626 = or i32 %625, %623
   store i32 %626, ptr %517, align 4
   %627 = add nuw nsw i32 %624, 6
-  %628 = icmp ult i32 %624, 26
+  %628 = icmp samesign ult i32 %624, 26
   br i1 %628, label %_ZN4llvm15BitstreamWriter7EmitVBREjj.exit365, label %629
 
 629:                                              ; preds = %._crit_edge.i356
@@ -23852,7 +23852,7 @@ _ZN4llvm15BitstreamWriter4EmitEjj.exit.i418:      ; preds = %_ZN4llvm15SmallVect
   %870 = or i32 %869, %868
   store i32 %870, ptr %817, align 4
   %871 = add nuw nsw i32 %storemerge6.i.i419, 6
-  %872 = icmp ult i32 %storemerge6.i.i419, 26
+  %872 = icmp samesign ult i32 %storemerge6.i.i419, 26
   br i1 %872, label %_ZN4llvm15BitstreamWriter7EmitVBREjj.exit426, label %873
 
 873:                                              ; preds = %_ZN4llvm15BitstreamWriter4EmitEjj.exit.i418
@@ -23957,7 +23957,7 @@ _ZN4llvm15BitstreamWriter4EmitEjj.exit.i398:      ; preds = %_ZN4llvm15SmallVect
   %926 = or i32 %925, %923
   store i32 %926, ptr %817, align 4
   %927 = add nuw nsw i32 %924, 6
-  %928 = icmp ult i32 %924, 26
+  %928 = icmp samesign ult i32 %924, 26
   br i1 %928, label %_ZN4llvm15BitstreamWriter7EmitVBREjj.exit410, label %929
 
 929:                                              ; preds = %._crit_edge.i401
@@ -24576,7 +24576,7 @@ _ZN4llvm15BitstreamWriter4EmitEjj.exit.i464:      ; preds = %_ZN4llvm15SmallVect
   %1267 = or i32 %1266, %1265
   store i32 %1267, ptr %1214, align 4
   %1268 = add nuw nsw i32 %storemerge6.i.i465, 6
-  %1269 = icmp ult i32 %storemerge6.i.i465, 26
+  %1269 = icmp samesign ult i32 %storemerge6.i.i465, 26
   br i1 %1269, label %_ZN4llvm15BitstreamWriter7EmitVBREjj.exit472, label %1270
 
 1270:                                             ; preds = %_ZN4llvm15BitstreamWriter4EmitEjj.exit.i464
@@ -24681,7 +24681,7 @@ _ZN4llvm15BitstreamWriter4EmitEjj.exit.i444:      ; preds = %_ZN4llvm15SmallVect
   %1323 = or i32 %1322, %1320
   store i32 %1323, ptr %1214, align 4
   %1324 = add nuw nsw i32 %1321, 6
-  %1325 = icmp ult i32 %1321, 26
+  %1325 = icmp samesign ult i32 %1321, 26
   br i1 %1325, label %_ZN4llvm15BitstreamWriter7EmitVBREjj.exit456, label %1326
 
 1326:                                             ; preds = %._crit_edge.i447
@@ -25011,7 +25011,7 @@ _ZN4llvm15BitstreamWriter4EmitEjj.exit.i510:      ; preds = %_ZN4llvm15SmallVect
   %1506 = or i32 %1505, %1504
   store i32 %1506, ptr %1453, align 4
   %1507 = add nuw nsw i32 %storemerge6.i.i511, 6
-  %1508 = icmp ult i32 %storemerge6.i.i511, 26
+  %1508 = icmp samesign ult i32 %storemerge6.i.i511, 26
   br i1 %1508, label %_ZN4llvm15BitstreamWriter7EmitVBREjj.exit518, label %1509
 
 1509:                                             ; preds = %_ZN4llvm15BitstreamWriter4EmitEjj.exit.i510
@@ -25116,7 +25116,7 @@ _ZN4llvm15BitstreamWriter4EmitEjj.exit.i490:      ; preds = %_ZN4llvm15SmallVect
   %1562 = or i32 %1561, %1559
   store i32 %1562, ptr %1453, align 4
   %1563 = add nuw nsw i32 %1560, 6
-  %1564 = icmp ult i32 %1560, 26
+  %1564 = icmp samesign ult i32 %1560, 26
   br i1 %1564, label %_ZN4llvm15BitstreamWriter7EmitVBREjj.exit502, label %1565
 
 1565:                                             ; preds = %._crit_edge.i493
@@ -25649,7 +25649,7 @@ _ZN4llvm15BitstreamWriter4EmitEjj.exit.i556:      ; preds = %_ZN4llvm15SmallVect
   %1865 = or i32 %1864, %1863
   store i32 %1865, ptr %1812, align 4
   %1866 = add nuw nsw i32 %storemerge6.i.i557, 6
-  %1867 = icmp ult i32 %storemerge6.i.i557, 26
+  %1867 = icmp samesign ult i32 %storemerge6.i.i557, 26
   br i1 %1867, label %_ZN4llvm15BitstreamWriter7EmitVBREjj.exit564, label %1868
 
 1868:                                             ; preds = %_ZN4llvm15BitstreamWriter4EmitEjj.exit.i556
@@ -25754,7 +25754,7 @@ _ZN4llvm15BitstreamWriter4EmitEjj.exit.i536:      ; preds = %_ZN4llvm15SmallVect
   %1921 = or i32 %1920, %1918
   store i32 %1921, ptr %1812, align 4
   %1922 = add nuw nsw i32 %1919, 6
-  %1923 = icmp ult i32 %1919, 26
+  %1923 = icmp samesign ult i32 %1919, 26
   br i1 %1923, label %_ZN4llvm15BitstreamWriter7EmitVBREjj.exit548, label %1924
 
 1924:                                             ; preds = %._crit_edge.i539
@@ -26688,7 +26688,7 @@ _ZN4llvm15BitstreamWriter4EmitEjj.exit.i31.i:     ; preds = %_ZN4llvm15SmallVect
   %2354 = or i32 %2353, %2351
   store i32 %2354, ptr %2268, align 4
   %2355 = add nuw nsw i32 %2352, 6
-  %2356 = icmp ult i32 %2352, 26
+  %2356 = icmp samesign ult i32 %2352, 26
   br i1 %2356, label %_ZN4llvm15BitstreamWriter7EmitVBREjj.exit.i, label %2357
 
 2357:                                             ; preds = %._crit_edge.i34.i
@@ -26749,7 +26749,7 @@ _ZN4llvm15BitstreamWriter7EmitVBREjj.exit.i:      ; preds = %_ZN4llvm15SmallVect
 
 2384:                                             ; preds = %.lr.ph.i.i301
   %2385 = trunc nuw i64 %2382 to i32
-  %.not16.i48.i = icmp ult i64 %2382, 32
+  %.not16.i48.i = icmp samesign ult i64 %2382, 32
   br i1 %.not16.i48.i, label %._crit_edge.i59.i, label %.lr.ph.i50.i
 
 .lr.ph.i50.i:                                     ; preds = %2384, %_ZN4llvm15BitstreamWriter4EmitEjj.exit.i56.i
@@ -32345,7 +32345,7 @@ _ZN4llvm15SmallVectorImplIcE7reserveEm.exit:      ; preds = %3, %11
   %18 = getelementptr inbounds i8, ptr %.0910.i.i.i.i.i.i.i.i, i64 1
   %19 = getelementptr inbounds i8, ptr %.0811.i.i.i.i.i.i.i.i, i64 1
   %20 = add nsw i64 %.012.i.i.i.i.i.i.i.i, -1
-  %21 = icmp ugt i64 %.012.i.i.i.i.i.i.i.i, 1
+  %21 = icmp samesign ugt i64 %.012.i.i.i.i.i.i.i.i, 1
   br i1 %21, label %.lr.ph.i.i.i.i.i.i.i.i, label %_ZN4llvm23SmallVectorTemplateBaseIcLb1EE18uninitialized_copyIPKhPcEEvT_S6_T0_.exit, !llvm.loop !465
 
 _ZN4llvm23SmallVectorTemplateBaseIcLb1EE18uninitialized_copyIPKhPcEEvT_S6_T0_.exit: ; preds = %.lr.ph.i.i.i.i.i.i.i.i, %_ZN4llvm15SmallVectorImplIcE7reserveEm.exit
@@ -32396,7 +32396,7 @@ _ZN4llvm15SmallVectorImplIcE7reserveEm.exit:      ; preds = %3, %12
   %20 = getelementptr inbounds i8, ptr %.0910.i.i.i.i.i.i.i.i, i64 4
   %21 = getelementptr inbounds i8, ptr %.0811.i.i.i.i.i.i.i.i, i64 1
   %22 = add nsw i64 %.012.i.i.i.i.i.i.i.i, -1
-  %23 = icmp ugt i64 %.012.i.i.i.i.i.i.i.i, 1
+  %23 = icmp samesign ugt i64 %.012.i.i.i.i.i.i.i.i, 1
   br i1 %23, label %.lr.ph.i.i.i.i.i.i.i.i, label %_ZN4llvm23SmallVectorTemplateBaseIcLb1EE18uninitialized_copyIPKjPcEEvT_S6_T0_.exit, !llvm.loop !466
 
 _ZN4llvm23SmallVectorTemplateBaseIcLb1EE18uninitialized_copyIPKjPcEEvT_S6_T0_.exit: ; preds = %.lr.ph.i.i.i.i.i.i.i.i, %_ZN4llvm15SmallVectorImplIcE7reserveEm.exit
@@ -33208,7 +33208,7 @@ _ZN4llvm15SmallVectorImplIcE7reserveEm.exit:      ; preds = %3, %12
   %20 = getelementptr inbounds i8, ptr %.0910.i.i.i.i.i.i.i.i, i64 8
   %21 = getelementptr inbounds i8, ptr %.0811.i.i.i.i.i.i.i.i, i64 1
   %22 = add nsw i64 %.012.i.i.i.i.i.i.i.i, -1
-  %23 = icmp ugt i64 %.012.i.i.i.i.i.i.i.i, 1
+  %23 = icmp samesign ugt i64 %.012.i.i.i.i.i.i.i.i, 1
   br i1 %23, label %.lr.ph.i.i.i.i.i.i.i.i, label %_ZN4llvm23SmallVectorTemplateBaseIcLb1EE18uninitialized_copyIPKmPcEEvT_S6_T0_.exit, !llvm.loop !472
 
 _ZN4llvm23SmallVectorTemplateBaseIcLb1EE18uninitialized_copyIPKmPcEEvT_S6_T0_.exit: ; preds = %.lr.ph.i.i.i.i.i.i.i.i, %_ZN4llvm15SmallVectorImplIcE7reserveEm.exit
@@ -33894,7 +33894,7 @@ _ZN4llvm15SmallVectorImplImE7reserveEm.exit:      ; preds = %3, %11
   %19 = getelementptr inbounds i8, ptr %.0910.i.i.i.i.i.i.i.i, i64 1
   %20 = getelementptr inbounds i8, ptr %.0811.i.i.i.i.i.i.i.i, i64 8
   %21 = add nsw i64 %.012.i.i.i.i.i.i.i.i, -1
-  %22 = icmp ugt i64 %.012.i.i.i.i.i.i.i.i, 1
+  %22 = icmp samesign ugt i64 %.012.i.i.i.i.i.i.i.i, 1
   br i1 %22, label %.lr.ph.i.i.i.i.i.i.i.i, label %_ZN4llvm23SmallVectorTemplateBaseImLb1EE18uninitialized_copyIPKcPmEEvT_S6_T0_.exit, !llvm.loop !63
 
 _ZN4llvm23SmallVectorTemplateBaseImLb1EE18uninitialized_copyIPKcPmEEvT_S6_T0_.exit: ; preds = %.lr.ph.i.i.i.i.i.i.i.i, %_ZN4llvm15SmallVectorImplImE7reserveEm.exit
@@ -36867,7 +36867,7 @@ _ZN4llvm15SmallVectorImplImE7reserveEm.exit:      ; preds = %3, %11
   %19 = getelementptr inbounds i8, ptr %.0910.i.i.i.i.i.i.i.i, i64 1
   %20 = getelementptr inbounds i8, ptr %.0811.i.i.i.i.i.i.i.i, i64 8
   %21 = add nsw i64 %.012.i.i.i.i.i.i.i.i, -1
-  %22 = icmp ugt i64 %.012.i.i.i.i.i.i.i.i, 1
+  %22 = icmp samesign ugt i64 %.012.i.i.i.i.i.i.i.i, 1
   br i1 %22, label %.lr.ph.i.i.i.i.i.i.i.i, label %_ZN4llvm23SmallVectorTemplateBaseImLb1EE18uninitialized_copyIN9__gnu_cxx17__normal_iteratorIPKcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEPmEEvT_SF_T0_.exit, !llvm.loop !63
 
 _ZN4llvm23SmallVectorTemplateBaseImLb1EE18uninitialized_copyIN9__gnu_cxx17__normal_iteratorIPKcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEPmEEvT_SF_T0_.exit: ; preds = %.lr.ph.i.i.i.i.i.i.i.i, %_ZN4llvm15SmallVectorImplImE7reserveEm.exit
@@ -52825,7 +52825,7 @@ _ZN4llvm15SmallVectorImplImE7reserveEm.exit:      ; preds = %3, %11
   %19 = getelementptr inbounds i8, ptr %.0910.i.i.i.i.i.i.i.i, i64 1
   %20 = getelementptr inbounds i8, ptr %.0811.i.i.i.i.i.i.i.i, i64 8
   %21 = add nsw i64 %.012.i.i.i.i.i.i.i.i, -1
-  %22 = icmp ugt i64 %.012.i.i.i.i.i.i.i.i, 1
+  %22 = icmp samesign ugt i64 %.012.i.i.i.i.i.i.i.i, 1
   br i1 %22, label %.lr.ph.i.i.i.i.i.i.i.i, label %_ZN4llvm23SmallVectorTemplateBaseImLb1EE18uninitialized_copyIPKhPmEEvT_S6_T0_.exit, !llvm.loop !546
 
 _ZN4llvm23SmallVectorTemplateBaseImLb1EE18uninitialized_copyIPKhPmEEvT_S6_T0_.exit: ; preds = %.lr.ph.i.i.i.i.i.i.i.i, %_ZN4llvm15SmallVectorImplImE7reserveEm.exit
@@ -53077,7 +53077,7 @@ _ZN4llvm15SmallVectorImplImE7reserveEm.exit:      ; preds = %3, %12
   %20 = getelementptr inbounds i8, ptr %.0910.i.i.i.i.i.i.i.i, i64 4
   %21 = getelementptr inbounds i8, ptr %.0811.i.i.i.i.i.i.i.i, i64 8
   %22 = add nsw i64 %.012.i.i.i.i.i.i.i.i, -1
-  %23 = icmp ugt i64 %.012.i.i.i.i.i.i.i.i, 1
+  %23 = icmp samesign ugt i64 %.012.i.i.i.i.i.i.i.i, 1
   br i1 %23, label %.lr.ph.i.i.i.i.i.i.i.i, label %_ZN4llvm23SmallVectorTemplateBaseImLb1EE18uninitialized_copyIN9__gnu_cxx17__normal_iteratorIPjSt6vectorIjSaIjEEEEPmEEvT_SB_T0_.exit, !llvm.loop !548
 
 _ZN4llvm23SmallVectorTemplateBaseImLb1EE18uninitialized_copyIN9__gnu_cxx17__normal_iteratorIPjSt6vectorIjSaIjEEEEPmEEvT_SB_T0_.exit: ; preds = %.lr.ph.i.i.i.i.i.i.i.i, %_ZN4llvm15SmallVectorImplImE7reserveEm.exit
@@ -64722,7 +64722,7 @@ _ZN4llvm15BitstreamWriter4EmitEjj.exit.i532:      ; preds = %_ZN4llvm15SmallVect
   %1594 = or i32 %1593, %1591
   store i32 %1594, ptr %1508, align 4
   %1595 = add nuw nsw i32 %1592, 6
-  %1596 = icmp ult i32 %1592, 26
+  %1596 = icmp samesign ult i32 %1592, 26
   br i1 %1596, label %_ZN4llvm15BitstreamWriter7EmitVBREjj.exit, label %1597
 
 1597:                                             ; preds = %._crit_edge.i535
@@ -64783,7 +64783,7 @@ _ZN4llvm15BitstreamWriter7EmitVBREjj.exit:        ; preds = %._crit_edge.i535, %
 
 1624:                                             ; preds = %.lr.ph.i514
   %1625 = trunc nuw i64 %1622 to i32
-  %.not16.i549 = icmp ult i64 %1622, 32
+  %.not16.i549 = icmp samesign ult i64 %1622, 32
   br i1 %.not16.i549, label %._crit_edge.i560, label %.lr.ph.i551
 
 .lr.ph.i551:                                      ; preds = %1624, %_ZN4llvm15BitstreamWriter4EmitEjj.exit.i557
@@ -65239,7 +65239,7 @@ _ZN4llvm15SmallVectorImplIjE7reserveEm.exit:      ; preds = %3, %11
   %19 = getelementptr inbounds i8, ptr %.0910.i.i.i.i.i.i.i.i, i64 1
   %20 = getelementptr inbounds i8, ptr %.0811.i.i.i.i.i.i.i.i, i64 4
   %21 = add nsw i64 %.012.i.i.i.i.i.i.i.i, -1
-  %22 = icmp ugt i64 %.012.i.i.i.i.i.i.i.i, 1
+  %22 = icmp samesign ugt i64 %.012.i.i.i.i.i.i.i.i, 1
   br i1 %22, label %.lr.ph.i.i.i.i.i.i.i.i, label %_ZN4llvm23SmallVectorTemplateBaseIjLb1EE18uninitialized_copyIPKcPjEEvT_S6_T0_.exit, !llvm.loop !660
 
 _ZN4llvm23SmallVectorTemplateBaseIjLb1EE18uninitialized_copyIPKcPjEEvT_S6_T0_.exit: ; preds = %.lr.ph.i.i.i.i.i.i.i.i, %_ZN4llvm15SmallVectorImplIjE7reserveEm.exit

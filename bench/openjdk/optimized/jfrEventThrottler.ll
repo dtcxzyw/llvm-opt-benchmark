@@ -242,19 +242,19 @@ _Z9normalizePlS_.exit:                            ; preds = %8, %11, %15, %19
   %31 = phi i64 [ %24, %_Z9normalizePlS_.exit.thread ], [ %4, %_Z9normalizePlS_.exit ]
   %32 = phi i64 [ %.sink.i, %_Z9normalizePlS_.exit.thread ], [ %10, %_Z9normalizePlS_.exit ]
   %33 = icmp eq i64 %32, 60000
-  %34 = icmp ult i64 %31, 600
+  %34 = icmp samesign ult i64 %31, 600
   %or.cond.i = and i1 %34, %33
   br i1 %or.cond.i, label %_Z37set_sample_points_and_window_durationR16JfrSamplerParamsll.exit.thread, label %35
 
 35:                                               ; preds = %29
   %36 = icmp eq i64 %32, 3600000
-  %37 = icmp ult i64 %31, 36000
+  %37 = icmp samesign ult i64 %31, 36000
   %or.cond3.i = and i1 %37, %36
   br i1 %or.cond3.i, label %_Z37set_sample_points_and_window_durationR16JfrSamplerParamsll.exit.thread, label %38
 
 38:                                               ; preds = %35
   %39 = icmp eq i64 %32, 86400000
-  %40 = icmp ult i64 %31, 864000
+  %40 = icmp samesign ult i64 %31, 864000
   %or.cond5.i = and i1 %40, %39
   br i1 %or.cond5.i, label %_Z37set_sample_points_and_window_durationR16JfrSamplerParamsll.exit.thread, label %41
 

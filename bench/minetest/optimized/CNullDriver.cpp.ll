@@ -12544,7 +12544,7 @@ _ZNK9__gnu_cxx5__ops14_Val_less_iterclIKN3irr5video11CNullDriver8SSurfaceENS_17_
   br i1 %cmp.i.i.i.i.i52, label %cleanup, label %if.else15
 
 if.else15:                                        ; preds = %_ZNK9__gnu_cxx5__ops14_Val_less_iterclIKN3irr5video11CNullDriver8SSurfaceENS_17__normal_iteratorIPS6_St6vectorIS6_SaIS6_EEEEEEbRT_T0_.exit
-  %cmp16.i.not = icmp ult i64 %__len.0133, 2
+  %cmp16.i.not = icmp samesign ult i64 %__len.0133, 2
   br i1 %cmp16.i.not, label %_ZSt13__lower_boundIN9__gnu_cxx17__normal_iteratorIPN3irr5video11CNullDriver8SSurfaceESt6vectorIS5_SaIS5_EEEES5_NS0_5__ops14_Iter_less_valEET_SD_SD_RKT0_T1_.exit, label %while.body.i
 
 while.body.i:                                     ; preds = %if.else15, %_ZNK9__gnu_cxx5__ops14_Iter_less_valclINS_17__normal_iteratorIPN3irr5video11CNullDriver8SSurfaceESt6vectorIS7_SaIS7_EEEEKS7_EEbT_RT0_.exit.i

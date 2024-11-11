@@ -670,7 +670,7 @@ define internal i32 @dissect_ecat_mailbox(ptr noundef %0, ptr noundef %1, ptr no
   %39 = and i16 %38, 7
   %40 = zext nneg i16 %39 to i32
   %41 = tail call ptr @proto_tree_add_uint(ptr noundef %25, i32 noundef %37, ptr noundef %0, i32 noundef 5, i32 noundef 1, i32 noundef %40) #7
-  %.not = icmp ult i32 %10, %20
+  %.not = icmp samesign ult i32 %10, %20
   br i1 %.not, label %738, label %42
 
 42:                                               ; preds = %12

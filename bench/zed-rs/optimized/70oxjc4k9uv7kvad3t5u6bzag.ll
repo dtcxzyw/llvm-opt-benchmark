@@ -2126,7 +2126,7 @@ define hidden void @"_ZN4core4hash5impls50_$LT$impl$u20$core..hash..Hash$u20$for
   %.sroa.027.1.i.i = phi i64 [ %12, %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17hd976a2f4b6b1aadfE.exit.i.i" ], [ %.sroa.027.0.lcssa.i.i, %._crit_edge.i.i ]
   %.sroa.11.1.i.i = phi i64 [ %13, %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17hd976a2f4b6b1aadfE.exit.i.i" ], [ %.sroa.11.0.lcssa.i.i, %._crit_edge.i.i ]
   %.sroa.0.1.i.i = phi ptr [ %14, %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17hd976a2f4b6b1aadfE.exit.i.i" ], [ %.sroa.0.0.lcssa.i.i, %._crit_edge.i.i ]
-  %8 = icmp ugt i64 %.sroa.11.1.i.i, 1
+  %8 = icmp samesign ugt i64 %.sroa.11.1.i.i, 1
   br i1 %8, label %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17hb2326ec913a1ebb5E.exit.i.i", label %15
 
 "_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17hd976a2f4b6b1aadfE.exit.i.i": ; preds = %._crit_edge.i.i
@@ -2321,7 +2321,7 @@ define hidden void @_ZN4core4hash6Hasher9write_str17h9e6fdd41daffb6feE.llvm.6743
   %.sroa.027.1.i = phi i64 [ %12, %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17hd976a2f4b6b1aadfE.exit.i" ], [ %.sroa.027.0.lcssa.i, %._crit_edge.i ]
   %.sroa.11.1.i = phi i64 [ %13, %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17hd976a2f4b6b1aadfE.exit.i" ], [ %.sroa.11.0.lcssa.i, %._crit_edge.i ]
   %.sroa.0.1.i = phi ptr [ %14, %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17hd976a2f4b6b1aadfE.exit.i" ], [ %.sroa.0.0.lcssa.i, %._crit_edge.i ]
-  %8 = icmp ugt i64 %.sroa.11.1.i, 1
+  %8 = icmp samesign ugt i64 %.sroa.11.1.i, 1
   br i1 %8, label %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17hb2326ec913a1ebb5E.exit.i", label %15
 
 "_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17hd976a2f4b6b1aadfE.exit.i": ; preds = %._crit_edge.i
@@ -4637,7 +4637,7 @@ define hidden void @"_ZN59_$LT$rustc_hash..FxHasher$u20$as$u20$core..hash..Hashe
   %.sroa.027.1 = phi i64 [ %12, %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17hd976a2f4b6b1aadfE.exit" ], [ %.sroa.027.0.lcssa, %._crit_edge ]
   %.sroa.11.1 = phi i64 [ %13, %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17hd976a2f4b6b1aadfE.exit" ], [ %.sroa.11.0.lcssa, %._crit_edge ]
   %.sroa.0.1 = phi ptr [ %14, %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17hd976a2f4b6b1aadfE.exit" ], [ %.sroa.0.0.lcssa, %._crit_edge ]
-  %8 = icmp ugt i64 %.sroa.11.1, 1
+  %8 = icmp samesign ugt i64 %.sroa.11.1, 1
   br i1 %8, label %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17hb2326ec913a1ebb5E.exit", label %15
 
 "_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17hd976a2f4b6b1aadfE.exit": ; preds = %._crit_edge
@@ -7895,7 +7895,7 @@ define hidden void @"_ZN67_$LT$util..arc_cow..ArcCow$LT$T$GT$$u20$as$u20$core..h
   %.sroa.027.1.i.i.i = phi i64 [ %17, %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17hd976a2f4b6b1aadfE.exit.i.i.i" ], [ %.sroa.027.0.lcssa.i.i.i, %._crit_edge.i.i.i ]
   %.sroa.11.1.i.i.i = phi i64 [ %18, %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17hd976a2f4b6b1aadfE.exit.i.i.i" ], [ %.sroa.11.0.lcssa.i.i.i, %._crit_edge.i.i.i ]
   %.sroa.0.1.i.i.i = phi ptr [ %19, %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17hd976a2f4b6b1aadfE.exit.i.i.i" ], [ %.sroa.0.0.lcssa.i.i.i, %._crit_edge.i.i.i ]
-  %13 = icmp ugt i64 %.sroa.11.1.i.i.i, 1
+  %13 = icmp samesign ugt i64 %.sroa.11.1.i.i.i, 1
   br i1 %13, label %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17hb2326ec913a1ebb5E.exit.i.i.i", label %20
 
 "_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17hd976a2f4b6b1aadfE.exit.i.i.i": ; preds = %._crit_edge.i.i.i
@@ -7974,7 +7974,7 @@ define hidden void @"_ZN67_$LT$util..arc_cow..ArcCow$LT$T$GT$$u20$as$u20$core..h
   %.sroa.027.1.i.i.i5 = phi i64 [ %50, %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17hd976a2f4b6b1aadfE.exit.i.i.i15" ], [ %.sroa.027.0.lcssa.i.i.i2, %._crit_edge.i.i.i1 ]
   %.sroa.11.1.i.i.i6 = phi i64 [ %51, %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17hd976a2f4b6b1aadfE.exit.i.i.i15" ], [ %.sroa.11.0.lcssa.i.i.i3, %._crit_edge.i.i.i1 ]
   %.sroa.0.1.i.i.i7 = phi ptr [ %52, %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17hd976a2f4b6b1aadfE.exit.i.i.i15" ], [ %.sroa.0.0.lcssa.i.i.i4, %._crit_edge.i.i.i1 ]
-  %46 = icmp ugt i64 %.sroa.11.1.i.i.i6, 1
+  %46 = icmp samesign ugt i64 %.sroa.11.1.i.i.i6, 1
   br i1 %46, label %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17hb2326ec913a1ebb5E.exit.i.i.i13", label %53
 
 "_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17hd976a2f4b6b1aadfE.exit.i.i.i15": ; preds = %._crit_edge.i.i.i1
@@ -14067,7 +14067,7 @@ _ZN2ui5utils15format_distance12DateTimeType8to_naive17h1253e3b543e6f2deE.exit: ;
   br label %203
 
 131:                                              ; preds = %129
-  %132 = icmp ult i64 %.sroa.037.0.i, 2700
+  %132 = icmp samesign ult i64 %.sroa.037.0.i, 2700
   br i1 %132, label %136, label %134
 
 133:                                              ; preds = %129
@@ -14075,7 +14075,7 @@ _ZN2ui5utils15format_distance12DateTimeType8to_naive17h1253e3b543e6f2deE.exit: ;
   br label %203
 
 134:                                              ; preds = %131
-  %135 = icmp ult i64 %.sroa.037.0.i, 5400
+  %135 = icmp samesign ult i64 %.sroa.037.0.i, 5400
   br i1 %135, label %139, label %137
 
 136:                                              ; preds = %131
@@ -14099,7 +14099,7 @@ _ZN2ui5utils15format_distance12DateTimeType8to_naive17h1253e3b543e6f2deE.exit: ;
   br label %203
 
 137:                                              ; preds = %134
-  %138 = icmp ult i64 %.sroa.037.0.i, 86400
+  %138 = icmp samesign ult i64 %.sroa.037.0.i, 86400
   br i1 %138, label %142, label %140
 
 139:                                              ; preds = %134
@@ -14109,7 +14109,7 @@ _ZN2ui5utils15format_distance12DateTimeType8to_naive17h1253e3b543e6f2deE.exit: ;
   br label %203
 
 140:                                              ; preds = %137
-  %141 = icmp ult i64 %.sroa.037.0.i, 172800
+  %141 = icmp samesign ult i64 %.sroa.037.0.i, 172800
   br i1 %141, label %145, label %143
 
 142:                                              ; preds = %137
@@ -14117,7 +14117,7 @@ _ZN2ui5utils15format_distance12DateTimeType8to_naive17h1253e3b543e6f2deE.exit: ;
   br i1 %5, label %198, label %197
 
 143:                                              ; preds = %140
-  %144 = icmp ult i64 %.sroa.037.0.i, 2592000
+  %144 = icmp samesign ult i64 %.sroa.037.0.i, 2592000
   br i1 %144, label %148, label %146
 
 145:                                              ; preds = %140
@@ -14125,7 +14125,7 @@ _ZN2ui5utils15format_distance12DateTimeType8to_naive17h1253e3b543e6f2deE.exit: ;
   br label %203
 
 146:                                              ; preds = %143
-  %147 = icmp ult i64 %.sroa.037.0.i, 5184000
+  %147 = icmp samesign ult i64 %.sroa.037.0.i, 5184000
   br i1 %147, label %151, label %149
 
 148:                                              ; preds = %143
@@ -14149,7 +14149,7 @@ _ZN2ui5utils15format_distance12DateTimeType8to_naive17h1253e3b543e6f2deE.exit: ;
   br label %203
 
 149:                                              ; preds = %146
-  %150 = icmp ult i64 %.sroa.037.0.i, 7776000
+  %150 = icmp samesign ult i64 %.sroa.037.0.i, 7776000
   br i1 %150, label %154, label %152
 
 151:                                              ; preds = %146
@@ -14159,7 +14159,7 @@ _ZN2ui5utils15format_distance12DateTimeType8to_naive17h1253e3b543e6f2deE.exit: ;
   br label %203
 
 152:                                              ; preds = %149
-  %153 = icmp ult i64 %.sroa.037.0.i, 31540000
+  %153 = icmp samesign ult i64 %.sroa.037.0.i, 31540000
   br i1 %153, label %157, label %155
 
 154:                                              ; preds = %149
@@ -14169,7 +14169,7 @@ _ZN2ui5utils15format_distance12DateTimeType8to_naive17h1253e3b543e6f2deE.exit: ;
   br label %203
 
 155:                                              ; preds = %152
-  %156 = icmp ult i64 %.sroa.037.0.i, 39425000
+  %156 = icmp samesign ult i64 %.sroa.037.0.i, 39425000
   br i1 %156, label %160, label %158
 
 157:                                              ; preds = %152
@@ -14193,7 +14193,7 @@ _ZN2ui5utils15format_distance12DateTimeType8to_naive17h1253e3b543e6f2deE.exit: ;
   br label %203
 
 158:                                              ; preds = %155
-  %159 = icmp ult i64 %.sroa.037.0.i, 55195000
+  %159 = icmp samesign ult i64 %.sroa.037.0.i, 55195000
   br i1 %159, label %163, label %161
 
 160:                                              ; preds = %155
@@ -14203,7 +14203,7 @@ _ZN2ui5utils15format_distance12DateTimeType8to_naive17h1253e3b543e6f2deE.exit: ;
   br label %203
 
 161:                                              ; preds = %158
-  %162 = icmp ult i64 %.sroa.037.0.i, 63080000
+  %162 = icmp samesign ult i64 %.sroa.037.0.i, 63080000
   br i1 %162, label %168, label %164
 
 163:                                              ; preds = %158

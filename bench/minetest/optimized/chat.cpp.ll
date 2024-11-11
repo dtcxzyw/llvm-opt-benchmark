@@ -1214,7 +1214,7 @@ if.then.i388:                                     ; preds = %if.then63
   %31 = load ptr, ptr %24, align 8, !tbaa !43
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %__dnew.i.i.i) #27
   store i64 %26, ptr %__dnew.i.i.i, align 8, !tbaa !31
-  %cmp.i.i.i713 = icmp ugt i64 %26, 3
+  %cmp.i.i.i713 = icmp samesign ugt i64 %26, 3
   br i1 %cmp.i.i.i713, label %if.then.i.i.i730, label %if.end.i.i.i714
 
 if.then.i.i.i730:                                 ; preds = %if.then.i388
@@ -4640,7 +4640,7 @@ if.then8:                                         ; preds = %if.else
 for.body.preheader:                               ; preds = %if.then8
   %wide.trip.count = zext nneg i32 %14 to i64
   %xtraiter = and i64 %wide.trip.count, 3
-  %17 = icmp ult i32 %14, 4
+  %17 = icmp samesign ult i32 %14, 4
   br i1 %17, label %if.end19.loopexit.unr-lcssa, label %for.body.preheader.new
 
 for.body.preheader.new:                           ; preds = %for.body.preheader

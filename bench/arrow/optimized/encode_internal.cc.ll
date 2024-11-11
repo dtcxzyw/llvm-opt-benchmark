@@ -872,7 +872,7 @@ for.body.i.i.i:                                   ; preds = %for.body.i.i.i, %fo
   store i64 %10, ptr %add.ptr.i.i.i, align 1
   %inc.i.i.i = add i32 %istripe.08.i.i.i, 1
   %conv.i.i.i = zext i32 %inc.i.i.i to i64
-  %cmp.not.i.i.i = icmp ult i64 %div.i.i.i.i, %conv.i.i.i
+  %cmp.not.i.i.i = icmp samesign ult i64 %div.i.i.i.i, %conv.i.i.i
   br i1 %cmp.not.i.i.i, label %_ZZN5arrow7compute13EncoderBinary9DecodeImpILb1EEEvjjjRKNS0_12RowTableImplEPNS0_14KeyColumnArrayEENKUlPhPKhlE_clES8_SA_l.exit.loopexit.i.i, label %for.body.i.i.i, !llvm.loop !16
 
 _ZZN5arrow7compute13EncoderBinary9DecodeImpILb1EEEvjjjRKNS0_12RowTableImplEPNS0_14KeyColumnArrayEENKUlPhPKhlE_clES8_SA_l.exit.loopexit.i.i: ; preds = %for.body.i.i.i
@@ -925,7 +925,7 @@ for.body.i.i.i52:                                 ; preds = %for.body.i.i.i52, %
   store i64 %16, ptr %add.ptr.i.i.i55, align 1
   %inc.i.i.i57 = add i32 %istripe.08.i.i.i54, 1
   %conv.i.i.i58 = zext i32 %inc.i.i.i57 to i64
-  %cmp.not.i.i.i59 = icmp ult i64 %div.i.i.i.i42, %conv.i.i.i58
+  %cmp.not.i.i.i59 = icmp samesign ult i64 %div.i.i.i.i42, %conv.i.i.i58
   br i1 %cmp.not.i.i.i59, label %_ZZN5arrow7compute13EncoderBinary9DecodeImpILb0EEEvjjjRKNS0_12RowTableImplEPNS0_14KeyColumnArrayEENKUlPhPKhlE_clES8_SA_l.exit.loopexit.i.i, label %for.body.i.i.i52, !llvm.loop !18
 
 _ZZN5arrow7compute13EncoderBinary9DecodeImpILb0EEEvjjjRKNS0_12RowTableImplEPNS0_14KeyColumnArrayEENKUlPhPKhlE_clES8_SA_l.exit.loopexit.i.i: ; preds = %for.body.i.i.i52
@@ -1439,7 +1439,7 @@ for.body.i.i.i:                                   ; preds = %for.body.i.i, %for.
   store i64 %11, ptr %add.ptr.i.i.i, align 1
   %inc.i.i.i = add i32 %istripe.08.i.i.i, 1
   %conv.i.i.i = zext i32 %inc.i.i.i to i64
-  %cmp.not.i.i.i = icmp ult i64 %div.i.i.i.i, %conv.i.i.i
+  %cmp.not.i.i.i = icmp samesign ult i64 %div.i.i.i.i, %conv.i.i.i
   br i1 %cmp.not.i.i.i, label %_ZZN5arrow7compute16EncoderVarBinary9DecodeImpILb1EEEvjjjRKNS0_12RowTableImplEPNS0_14KeyColumnArrayEENKUlPhPKhlE_clES8_SA_l.exit.i.i, label %for.body.i.i.i, !llvm.loop !35
 
 _ZZN5arrow7compute16EncoderVarBinary9DecodeImpILb1EEEvjjjRKNS0_12RowTableImplEPNS0_14KeyColumnArrayEENKUlPhPKhlE_clES8_SA_l.exit.i.i: ; preds = %for.body.i.i.i, %for.body.i.i
@@ -1504,7 +1504,7 @@ for.body.i.i.i39:                                 ; preds = %for.body.i.i21, %fo
   store i64 %23, ptr %add.ptr.i.i.i42, align 1
   %inc.i.i.i43 = add i32 %istripe.08.i.i.i41, 1
   %conv.i.i.i44 = zext i32 %inc.i.i.i43 to i64
-  %cmp.not.i.i.i45 = icmp ult i64 %div.i.i.i.i37, %conv.i.i.i44
+  %cmp.not.i.i.i45 = icmp samesign ult i64 %div.i.i.i.i37, %conv.i.i.i44
   br i1 %cmp.not.i.i.i45, label %_ZZN5arrow7compute16EncoderVarBinary9DecodeImpILb0EEEvjjjRKNS0_12RowTableImplEPNS0_14KeyColumnArrayEENKUlPhPKhlE_clES8_SA_l.exit.i.i, label %for.body.i.i.i39, !llvm.loop !37
 
 _ZZN5arrow7compute16EncoderVarBinary9DecodeImpILb0EEEvjjjRKNS0_12RowTableImplEPNS0_14KeyColumnArrayEENKUlPhPKhlE_clES8_SA_l.exit.i.i: ; preds = %for.body.i.i.i39, %for.body.i.i21

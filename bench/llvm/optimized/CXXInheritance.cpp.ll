@@ -8629,7 +8629,7 @@ _ZN4llvm15SmallVectorImplISt4pairIjNS_11SmallVectorIN5clang19UniqueVirtualMethod
   %44 = getelementptr inbounds i8, ptr %.0910.i.i.i.i.i, i64 120
   %45 = getelementptr inbounds i8, ptr %.0811.i.i.i.i.i, i64 120
   %46 = add nsw i64 %.012.i.i.i.i.i, -1
-  %47 = icmp ugt i64 %.012.i.i.i.i.i, 1
+  %47 = icmp samesign ugt i64 %.012.i.i.i.i.i, 1
   br i1 %47, label %.lr.ph.i.i.i.i.i, label %_ZSt4moveIPSt4pairIjN4llvm11SmallVectorIN5clang19UniqueVirtualMethodELj4EEEES7_ET0_T_S9_S8_.exit, !llvm.loop !65
 
 _ZSt4moveIPSt4pairIjN4llvm11SmallVectorIN5clang19UniqueVirtualMethodELj4EEEES7_ET0_T_S9_S8_.exit: ; preds = %.lr.ph.i.i.i.i.i, %36, %34
@@ -8771,7 +8771,7 @@ _ZN4llvm23SmallVectorTemplateBaseISt4pairIjNS_11SmallVectorIN5clang19UniqueVirtu
   %99 = getelementptr inbounds i8, ptr %.0910.i.i.i.i.i54, i64 120
   %100 = getelementptr inbounds i8, ptr %.0811.i.i.i.i.i53, i64 120
   %101 = add nsw i64 %.012.i.i.i.i.i52, -1
-  %102 = icmp ugt i64 %.012.i.i.i.i.i52, 1
+  %102 = icmp samesign ugt i64 %.012.i.i.i.i.i52, 1
   br i1 %102, label %.lr.ph.i.i.i.i.i51, label %_ZSt4moveIPSt4pairIjN4llvm11SmallVectorIN5clang19UniqueVirtualMethodELj4EEEES7_ET0_T_S9_S8_.exit55, !llvm.loop !65
 
 _ZSt4moveIPSt4pairIjN4llvm11SmallVectorIN5clang19UniqueVirtualMethodELj4EEEES7_ET0_T_S9_S8_.exit55: ; preds = %.lr.ph.i.i.i.i.i51, %91, %90, %_ZN4llvm23SmallVectorTemplateBaseISt4pairIjNS_11SmallVectorIN5clang19UniqueVirtualMethodELj4EEEELb0EE4growEm.exit

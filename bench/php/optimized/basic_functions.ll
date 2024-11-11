@@ -4880,7 +4880,7 @@ define hidden void @zif_error_log(ptr noundef %0, ptr nocapture noundef writeonl
   br i1 %32, label %33, label %.thread270
 
 33:                                               ; preds = %31, %.critedge
-  %34 = icmp ult i32 %8, 3
+  %34 = icmp samesign ult i32 %8, 3
   br i1 %34, label %.thread287, label %35
 
 35:                                               ; preds = %33

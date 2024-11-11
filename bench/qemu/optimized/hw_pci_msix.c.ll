@@ -603,8 +603,8 @@ land.lhs.true:                                    ; preds = %if.end6
   %sub.i.i = add nsw i64 %add.i.i, %conv15
   %add.i3.i = add nsw i64 %conv18, -1
   %sub.i4.i = add nsw i64 %add.i3.i, %conv17
-  %cmp.i = icmp ult i64 %sub.i4.i, %conv15
-  %cmp2.i = icmp ult i64 %sub.i.i, %conv17
+  %cmp.i = icmp samesign ult i64 %sub.i4.i, %conv15
+  %cmp2.i = icmp samesign ult i64 %sub.i.i, %conv17
   %.not.i.not = select i1 %cmp.i, i1 true, i1 %cmp2.i
   br i1 %.not.i.not, label %lor.lhs.false20, label %if.then34
 

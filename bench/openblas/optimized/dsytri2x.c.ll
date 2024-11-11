@@ -1503,7 +1503,7 @@ thread-pre-split95:                               ; preds = %thread-pre-split95.
 
 965:                                              ; preds = %.preheader
   store i32 %963, ptr %14, align 4, !tbaa !3
-  %966 = icmp ult i32 %960, %963
+  %966 = icmp samesign ult i32 %960, %963
   br i1 %966, label %967, label %968
 
 967:                                              ; preds = %965
@@ -1526,7 +1526,7 @@ thread-pre-split95:                               ; preds = %thread-pre-split95.
 973:                                              ; preds = %.preheader
   %974 = sub nsw i32 0, %963
   store i32 %974, ptr %14, align 4, !tbaa !3
-  %975 = icmp ult i32 %960, %974
+  %975 = icmp samesign ult i32 %960, %974
   br i1 %975, label %976, label %977
 
 976:                                              ; preds = %973

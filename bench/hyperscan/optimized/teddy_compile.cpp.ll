@@ -2393,7 +2393,7 @@ for.body.i.i.i.i.i.i36.i.i:                       ; preds = %for.body.i.i.i.i.i.
   %incdec.ptr.i2.i.i.i.i.i.i41.i.i = getelementptr inbounds i8, ptr %agg.tmp2.sroa.0.0.i.i.i.i.i38.i.i, i64 -4
   store i32 %103, ptr %incdec.ptr.i2.i.i.i.i.i.i41.i.i, align 4, !noalias !88
   %dec.i.i.i.i.i.i42.i.i = add nsw i64 %__n.04.i.i.i.i.i.i39.i.i, -1
-  %cmp.i.i.i.i.i.i43.i.i = icmp ugt i64 %__n.04.i.i.i.i.i.i39.i.i, 1
+  %cmp.i.i.i.i.i.i43.i.i = icmp samesign ugt i64 %__n.04.i.i.i.i.i.i39.i.i, 1
   br i1 %cmp.i.i.i.i.i.i43.i.i, label %for.body.i.i.i.i.i.i36.i.i, label %for.inc.i20.i.i, !llvm.loop !99
 
 if.else.i18.i.i:                                  ; preds = %for.body.i14.i.i
@@ -4832,7 +4832,7 @@ for.body.i.i.i.i.i.i36:                           ; preds = %for.body.i.i.i.i.i.
   %incdec.ptr.i2.i.i.i.i.i.i41 = getelementptr inbounds i8, ptr %agg.tmp2.sroa.0.0.i.i.i.i.i38, i64 -4
   store i32 %18, ptr %incdec.ptr.i2.i.i.i.i.i.i41, align 4, !noalias !194
   %dec.i.i.i.i.i.i42 = add nsw i64 %__n.04.i.i.i.i.i.i39, -1
-  %cmp.i.i.i.i.i.i43 = icmp ugt i64 %__n.04.i.i.i.i.i.i39, 1
+  %cmp.i.i.i.i.i.i43 = icmp samesign ugt i64 %__n.04.i.i.i.i.i.i39, 1
   br i1 %cmp.i.i.i.i.i.i43, label %for.body.i.i.i.i.i.i36, label %for.inc.i20, !llvm.loop !99
 
 if.else.i18:                                      ; preds = %for.body.i14
@@ -6186,7 +6186,7 @@ for.body.i.i.i.i.i:                               ; preds = %_ZSt13move_backward
   %incdec.ptr.i.i.i.i.i.i = getelementptr inbounds i8, ptr %agg.tmp.sroa.0.0.i.i.i.i, i64 4
   %incdec.ptr.i.i.i.i.i = getelementptr inbounds i8, ptr %__result.addr.05.i.i.i.i.i, i64 4
   %dec.i.i.i.i.i = add nsw i64 %__n.06.i.i.i.i.i, -1
-  %cmp.i.i.i.i.i = icmp ugt i64 %__n.06.i.i.i.i.i, 1
+  %cmp.i.i.i.i.i = icmp samesign ugt i64 %__n.06.i.i.i.i.i, 1
   br i1 %cmp.i.i.i.i.i, label %for.body.i.i.i.i.i, label %if.end97, !llvm.loop !258
 
 _ZSt7advanceIN5boost9container12vec_iteratorIPjLb1EEEmEvRT_T0_.exit: ; preds = %if.then5
@@ -6206,7 +6206,7 @@ for.body.i.i.i.i.i.i.i.i:                         ; preds = %_ZSt7advanceIN5boos
   %incdec.ptr.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %agg.tmp.sroa.0.0.i.i.i.i.i.i.i, i64 4
   %incdec.ptr.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__result.addr.05.i.i.i.i.i.i.i.i, i64 4
   %dec.i.i.i.i.i.i.i.i = add nsw i64 %__n.06.i.i.i.i.i.i.i.i, -1
-  %cmp.i.i.i.i.i.i.i.i = icmp ugt i64 %__n.06.i.i.i.i.i.i.i.i, 1
+  %cmp.i.i.i.i.i.i.i.i = icmp samesign ugt i64 %__n.06.i.i.i.i.i.i.i.i, 1
   br i1 %cmp.i.i.i.i.i.i.i.i, label %for.body.i.i.i.i.i.i.i.i, label %_ZSt22__uninitialized_copy_aIN5boost9container12vec_iteratorIPjLb1EEES3_jET0_T_S6_S5_RSaIT1_E.exit.loopexit, !llvm.loop !258
 
 _ZSt22__uninitialized_copy_aIN5boost9container12vec_iteratorIPjLb1EEES3_jET0_T_S6_S5_RSaIT1_E.exit.loopexit: ; preds = %for.body.i.i.i.i.i.i.i.i
@@ -6246,7 +6246,7 @@ for.body.i.i.i.i.i49:                             ; preds = %_ZSt22__uninitializ
   %incdec.ptr.i.i.i.i.i.i53 = getelementptr inbounds i8, ptr %agg.tmp.sroa.0.0.i.i.i.i50, i64 4
   %incdec.ptr.i.i.i.i.i54 = getelementptr inbounds i8, ptr %__result.addr.05.i.i.i.i.i52, i64 4
   %dec.i.i.i.i.i55 = add nsw i64 %__n.06.i.i.i.i.i51, -1
-  %cmp.i.i.i.i.i56 = icmp ugt i64 %__n.06.i.i.i.i.i51, 1
+  %cmp.i.i.i.i.i56 = icmp samesign ugt i64 %__n.06.i.i.i.i.i51, 1
   br i1 %cmp.i.i.i.i.i56, label %for.body.i.i.i.i.i49, label %if.end97, !llvm.loop !258
 
 if.else58:                                        ; preds = %if.then
@@ -6300,7 +6300,7 @@ for.body.i.i.i.i.i.i.i.i72:                       ; preds = %invoke.cont, %for.b
   %incdec.ptr.i.i.i.i.i.i.i.i.i76 = getelementptr inbounds i8, ptr %agg.tmp.sroa.0.0.i.i.i.i.i.i.i73, i64 4
   %incdec.ptr.i.i.i.i.i.i.i.i77 = getelementptr inbounds i8, ptr %__result.addr.05.i.i.i.i.i.i.i.i75, i64 4
   %dec.i.i.i.i.i.i.i.i78 = add nsw i64 %__n.06.i.i.i.i.i.i.i.i74, -1
-  %cmp.i.i.i.i.i.i.i.i79 = icmp ugt i64 %__n.06.i.i.i.i.i.i.i.i74, 1
+  %cmp.i.i.i.i.i.i.i.i79 = icmp samesign ugt i64 %__n.06.i.i.i.i.i.i.i.i74, 1
   br i1 %cmp.i.i.i.i.i.i.i.i79, label %for.body.i.i.i.i.i.i.i.i72, label %invoke.cont71, !llvm.loop !258
 
 invoke.cont71:                                    ; preds = %for.body.i.i.i.i.i.i.i.i72

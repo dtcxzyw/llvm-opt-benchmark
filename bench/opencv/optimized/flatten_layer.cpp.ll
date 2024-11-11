@@ -1100,7 +1100,7 @@ _ZN2cv3dnn14dnn4_v20240521L14normalize_axisEii.exit57: ; preds = %_ZN2cv3dnn14dn
   br i1 %.not28.i.not, label %.preheader.i, label %99
 
 .preheader.i:                                     ; preds = %97
-  %.not82 = icmp ugt i32 %63, %70
+  %.not82 = icmp samesign ugt i32 %63, %70
   br i1 %.not82, label %_ZN2cv3dnn14dnn4_v20240521L5totalERKSt6vectorIiSaIiEEii.exit.thread, label %.lr.ph.preheader.i
 
 _ZN2cv3dnn14dnn4_v20240521L5totalERKSt6vectorIiSaIiEEii.exit.thread: ; preds = %.preheader.i

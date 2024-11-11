@@ -2809,7 +2809,7 @@ if.then63:                                        ; preds = %if.end59
   br label %if.then.i31
 
 if.else:                                          ; preds = %if.end59
-  %cmp64 = icmp ult i32 %call61, 2048
+  %cmp64 = icmp samesign ult i32 %call61, 2048
   br i1 %cmp64, label %if.then65, label %if.end79
 
 if.then65:                                        ; preds = %if.else

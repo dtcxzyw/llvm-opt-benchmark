@@ -686,7 +686,7 @@ if.end28:                                         ; preds = %if.end18
   %maxLiteralSize_ = getelementptr inbounds i8, ptr %this, i64 16
   %19 = load i32, ptr %maxLiteralSize_, align 8
   %conv29 = zext i32 %19 to i64
-  %cmp30 = icmp ugt i64 %16, %conv29
+  %cmp30 = icmp samesign ugt i64 %16, %conv29
   br i1 %cmp30, label %if.then31, label %invoke.cont43
 
 if.then31:                                        ; preds = %if.end28

@@ -198,7 +198,7 @@ sw.epilog.sink.split:                             ; preds = %if.end, %if.end, %i
   br label %sw.epilog
 
 sw.epilog:                                        ; preds = %sw.epilog.sink.split, %if.end, %if.end, %if.end, %if.end
-  %cmp13 = icmp ugt i32 %tst, 5
+  %cmp13 = icmp samesign ugt i32 %tst, 5
   br i1 %cmp13, label %if.then15, label %if.end36
 
 if.then15:                                        ; preds = %sw.epilog
@@ -245,7 +245,7 @@ if.end36:                                         ; preds = %if.end33, %sw.epilo
   %sess.1 = phi ptr [ %call29, %if.end33 ], [ null, %sw.epilog ]
   %13 = add nsw i32 %tst, -3
   %or.cond = icmp ult i32 %13, 3
-  %cmp42 = icmp ugt i32 %tst, 8
+  %cmp42 = icmp samesign ugt i32 %tst, 8
   %or.cond1 = or i1 %cmp42, %or.cond
   br i1 %or.cond1, label %if.then44, label %if.end52
 
@@ -317,7 +317,7 @@ lor.lhs.false81:                                  ; preds = %if.then75
   br i1 %tobool86.not, label %err, label %lor.lhs.false87
 
 lor.lhs.false87:                                  ; preds = %lor.lhs.false81
-  %cmp88 = icmp ult i32 %tst, 9
+  %cmp88 = icmp samesign ult i32 %tst, 9
   br i1 %cmp88, label %land.lhs.true90, label %if.else
 
 land.lhs.true90:                                  ; preds = %lor.lhs.false87
@@ -947,7 +947,7 @@ lor.lhs.false.i46:                                ; preds = %lor.lhs.false23
   %conv6.i.i.i = zext i8 %15 to i64
   %or7.i.i.i = or disjoint i64 %or.i.i.i52, %conv6.i.i.i
   %sub.i.i.i53 = add nsw i64 %or.i.i.i, -4
-  %cmp.i.i4.i54 = icmp ult i64 %sub.i.i.i53, %or7.i.i.i
+  %cmp.i.i4.i54 = icmp samesign ult i64 %sub.i.i.i53, %or7.i.i.i
   br i1 %cmp.i.i4.i54, label %return, label %if.end27
 
 if.end27:                                         ; preds = %lor.lhs.false.i46
@@ -967,7 +967,7 @@ lor.lhs.false.i65:                                ; preds = %if.then30
   %16 = load i8, ptr %add.ptr.i.i62, align 1
   %sub.i.i.i67 = add nsw i64 %or7.i.i.i, -35
   %conv.i = zext i8 %16 to i64
-  %cmp.i.i.i68 = icmp ult i64 %sub.i.i.i67, %conv.i
+  %cmp.i.i.i68 = icmp samesign ult i64 %sub.i.i.i67, %conv.i
   br i1 %cmp.i.i.i68, label %return, label %if.end37
 
 if.end37:                                         ; preds = %lor.lhs.false.i65
@@ -1008,7 +1008,7 @@ lor.lhs.false.i89:                                ; preds = %if.then62
   %17 = load i8, ptr %add.ptr.i.i82, align 1
   %sub.i.i.i91 = add nsw i64 %or7.i.i.i, -35
   %conv.i92 = zext i8 %17 to i64
-  %cmp.i.i.i93 = icmp ult i64 %sub.i.i.i91, %conv.i92
+  %cmp.i.i.i93 = icmp samesign ult i64 %sub.i.i.i91, %conv.i92
   br i1 %cmp.i.i.i93, label %return, label %if.end70
 
 if.end70:                                         ; preds = %lor.lhs.false.i89

@@ -155,7 +155,7 @@ if.then:                                          ; preds = %entry
   br label %fail
 
 if.end:                                           ; preds = %entry
-  %cmp2 = icmp ugt i32 %conv, 1073731823
+  %cmp2 = icmp samesign ugt i32 %conv, 1073731823
   br i1 %cmp2, label %if.then4, label %if.end5
 
 if.then4:                                         ; preds = %if.end
@@ -1145,7 +1145,7 @@ if.end:                                           ; preds = %for.body
   %idxprom9 = sext i32 %4 to i64
   %arrayidx10 = getelementptr i64, ptr %values, i64 %idxprom9
   %5 = load i64, ptr %arrayidx10, align 8
-  %cmp13 = icmp ugt i32 %conv3, 1
+  %cmp13 = icmp samesign ugt i32 %conv3, 1
   br i1 %cmp13, label %if.then15, label %if.else
 
 if.then15:                                        ; preds = %if.end

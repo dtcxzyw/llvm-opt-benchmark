@@ -8070,8 +8070,8 @@ land.rhs549:                                      ; preds = %if.then531, %if.the
 invoke.cont556:                                   ; preds = %land.rhs549
   %113 = load ptr, ptr %enum_def.i, align 8, !noalias !157
   %cmp.not.i346 = icmp ne ptr %113, null
-  %114 = icmp ult i32 %111, 10
-  %115 = and i1 %114, %cmp.not.i346
+  %114 = icmp samesign ult i32 %111, 10
+  %115 = select i1 %cmp.not.i346, i1 %114, i1 false
   br i1 %115, label %if.then565, label %if.end574
 
 invoke.cont560:                                   ; preds = %land.rhs549
@@ -11195,7 +11195,7 @@ for.body.i.i.i.i.i:                               ; preds = %if.then27, %for.bod
   %incdec.ptr.i.i.i.i.i = getelementptr inbounds i8, ptr %__first.addr.07.i.i.i.i.i, i64 32
   %incdec.ptr1.i.i.i.i.i = getelementptr inbounds i8, ptr %__result.addr.08.i.i.i.i.i, i64 32
   %dec.i.i.i.i.i = add nsw i64 %__n.09.i.i.i.i.i, -1
-  %cmp.i.i.i.i.i = icmp ugt i64 %__n.09.i.i.i.i.i, 1
+  %cmp.i.i.i.i.i = icmp samesign ugt i64 %__n.09.i.i.i.i.i, 1
   br i1 %cmp.i.i.i.i.i, label %for.body.i.i.i.i.i, label %_ZSt4copyIN9__gnu_cxx17__normal_iteratorIPKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt6vectorIS7_SaIS7_EEEENS1_IPS7_SC_EEET0_T_SH_SG_.exit.loopexit, !llvm.loop !188
 
 _ZSt4copyIN9__gnu_cxx17__normal_iteratorIPKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt6vectorIS7_SaIS7_EEEENS1_IPS7_SC_EEET0_T_SH_SG_.exit.loopexit: ; preds = %for.body.i.i.i.i.i
@@ -11235,7 +11235,7 @@ for.body.i.i.i.i.i38:                             ; preds = %if.else49, %for.bod
   %incdec.ptr.i.i.i.i.i43 = getelementptr inbounds i8, ptr %__first.addr.07.i.i.i.i.i41, i64 32
   %incdec.ptr1.i.i.i.i.i44 = getelementptr inbounds i8, ptr %__result.addr.08.i.i.i.i.i40, i64 32
   %dec.i.i.i.i.i45 = add nsw i64 %__n.09.i.i.i.i.i39, -1
-  %cmp.i.i.i.i.i46 = icmp ugt i64 %__n.09.i.i.i.i.i39, 1
+  %cmp.i.i.i.i.i46 = icmp samesign ugt i64 %__n.09.i.i.i.i.i39, 1
   br i1 %cmp.i.i.i.i.i46, label %for.body.i.i.i.i.i38, label %_ZSt4copyIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES6_ET0_T_S8_S7_.exit.loopexit, !llvm.loop !190
 
 _ZSt4copyIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES6_ET0_T_S8_S7_.exit.loopexit: ; preds = %for.body.i.i.i.i.i38
@@ -29776,7 +29776,7 @@ _ZN11flatbuffers14StringToNumberIhEEbPKcPT_.exit: ; preds = %if.then4.i.i, %if.e
 
 land.lhs.true:                                    ; preds = %_ZN11flatbuffers14StringToNumberIhEEbPKcPT_.exit
   %cmp.i = icmp ule i64 %min_align, %i64.24.i
-  %cmp1.i = icmp ult i64 %i64.24.i, 33
+  %cmp1.i = icmp samesign ult i64 %i64.24.i, 33
   %or.cond.i9 = and i1 %cmp1.i, %cmp.i
   %11 = call range(i64 0, 7) i64 @llvm.ctpop.i64(i64 %i64.24.i)
   %cmp2.i = icmp samesign ult i64 %11, 2
@@ -50736,7 +50736,7 @@ if.then.i.i.i:                                    ; preds = %cond.true.i.i.i.i.i
 
 .noexc.i:                                         ; preds = %if.then.i.i.i
   %sub.ptr.rhs.cast.i.i277 = ptrtoint ptr %call5.i.i.i.i2.i6.i.i to i64
-  %cmp.i279 = icmp ugt i64 %sub.ptr.sub.i.i.i, 128
+  %cmp.i279 = icmp samesign ugt i64 %sub.ptr.sub.i.i.i, 128
   br i1 %cmp.i279, label %for.body.lr.ph.i.i, label %if.else.i280
 
 for.body.lr.ph.i.i:                               ; preds = %.noexc.i
@@ -51198,7 +51198,7 @@ if.then.i.i.i24:                                  ; preds = %cond.true.i.i.i.i.i
 
 .noexc.i30:                                       ; preds = %if.then.i.i.i24
   %sub.ptr.rhs.cast.i.i293 = ptrtoint ptr %call5.i.i.i.i2.i6.i.i25 to i64
-  %cmp.i295 = icmp ugt i64 %sub.ptr.sub.i.i.i20, 128
+  %cmp.i295 = icmp samesign ugt i64 %sub.ptr.sub.i.i.i20, 128
   br i1 %cmp.i295, label %for.body.lr.ph.i.i319, label %if.else.i296
 
 for.body.lr.ph.i.i319:                            ; preds = %.noexc.i30
@@ -55568,7 +55568,7 @@ cond.true.i.i71:                                  ; preds = %_ZNK11flatbuffers5T
   br label %_ZNK11flatbuffers5Table22GetOptionalFieldOffsetEt.exit.i.i79
 
 _ZNK10reflection5Field8optionalEv.exit:           ; preds = %if.end26
-  %cmp.i.i.i77 = icmp ugt i16 %30, 18
+  %cmp.i.i.i77 = icmp samesign ugt i16 %30, 18
   br i1 %cmp.i.i.i77, label %_ZNK11flatbuffers5Table22GetOptionalFieldOffsetEt.exit.i.i79, label %_ZNK10reflection5Field8requiredEv.exit.thread.thread
 
 _ZNK11flatbuffers5Table22GetOptionalFieldOffsetEt.exit.i.i79: ; preds = %cond.true.i.i71, %_ZNK11flatbuffers5Table22GetOptionalFieldOffsetEt.exit.i.i68, %_ZNK10reflection5Field8optionalEv.exit
@@ -60954,7 +60954,7 @@ invoke.cont42.thread:                             ; preds = %cond.true.i.i, %_ZN
   br label %_ZNK11flatbuffers5Table22GetOptionalFieldOffsetEt.exit.i.i140
 
 invoke.cont42:                                    ; preds = %invoke.cont36
-  %cmp.i.i.i138 = icmp ugt i16 %28, 8
+  %cmp.i.i.i138 = icmp samesign ugt i16 %28, 8
   br i1 %cmp.i.i.i138, label %_ZNK11flatbuffers5Table22GetOptionalFieldOffsetEt.exit.i.i140, label %invoke.cont46.thread
 
 invoke.cont46.thread:                             ; preds = %invoke.cont42
@@ -67529,7 +67529,7 @@ entry:
 lor.lhs.false:                                    ; preds = %entry
   %conv4 = sext i32 %m to i64
   %sub = sub nsw i64 4294967295, %conv4
-  %cmp5 = icmp ugt i64 %0, %sub
+  %cmp5 = icmp samesign ugt i64 %0, %sub
   br i1 %cmp5, label %if.then, label %if.end
 
 if.then:                                          ; preds = %lor.lhs.false, %entry
@@ -91257,7 +91257,7 @@ for.body.i.i.i.i.i.i:                             ; preds = %for.body.i.i.i.i.i.
   %second3.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__result.addr.06.i.i.i.i.i.i, i64 -8
   store ptr %10, ptr %second3.i.i.i.i.i.i.i, align 8
   %dec.i.i.i.i.i.i = add nsw i64 %__n.07.i.i.i.i.i.i, -1
-  %cmp.i.i.i.i.i.i = icmp ugt i64 %__n.07.i.i.i.i.i.i, 1
+  %cmp.i.i.i.i.i.i = icmp samesign ugt i64 %__n.07.i.i.i.i.i.i, 1
   br i1 %cmp.i.i.i.i.i.i, label %for.body.i.i.i.i.i.i, label %_ZNSt6vectorISt4pairIN11flatbuffers5ValueEPNS1_8FieldDefEESaIS5_EE13_M_insert_auxIS5_EEvN9__gnu_cxx17__normal_iteratorIPS5_S7_EEOT_.exit, !llvm.loop !1570
 
 _ZNSt6vectorISt4pairIN11flatbuffers5ValueEPNS1_8FieldDefEESaIS5_EE13_M_insert_auxIS5_EEvN9__gnu_cxx17__normal_iteratorIPS5_S7_EEOT_.exit: ; preds = %for.body.i.i.i.i.i.i, %if.else

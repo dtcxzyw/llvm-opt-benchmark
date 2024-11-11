@@ -2904,7 +2904,7 @@ for.body.i.i:                                     ; preds = %for.body.i.i, %for.
   %23 = extractvalue { double, double } %call3.i.i.i.i, 0
   %mul5.i.i.i.i = fmul double %div.i.i.i.i, %23
   %24 = tail call double @llvm.fmuladd.f64(double %20, double %mul5.i.i.i.i, double %sum.02.i.i)
-  %cmp.i27.i = icmp ugt i64 %indvars.iv.i.i, 1
+  %cmp.i27.i = icmp samesign ugt i64 %indvars.iv.i.i, 1
   br i1 %cmp.i27.i, label %for.body.i.i, label %"_ZNK8QuantLib18GaussianQuadratureclIZNS_12_GLOBAL__N_19cdf_nu_dsERKNS_13HestonProcessEddddNS3_14DiscretizationEE3$_1EEdRKT_.exit.i", !llvm.loop !108
 
 "_ZNK8QuantLib18GaussianQuadratureclIZNS_12_GLOBAL__N_19cdf_nu_dsERKNS_13HestonProcessEddddNS3_14DiscretizationEE3$_1EEdRKT_.exit.i": ; preds = %for.body.i.i, %cond.true.i
@@ -7919,7 +7919,7 @@ for.body.i:                                       ; preds = %for.body.i, %if.the
   %7 = load double, ptr %arrayidx2.i, align 8, !tbaa !87
   %add3.i = fadd double %d.08.i, %7
   %mul4.i = fmul double %mul, %add3.i
-  %cmp.i = icmp ugt i64 %indvars.iv.i, 1
+  %cmp.i = icmp samesign ugt i64 %indvars.iv.i, 1
   br i1 %cmp.i, label %for.body.i, label %_ZN8QuantLib12_GLOBAL__N_14padeEdPKdS2_m.exit, !llvm.loop !140
 
 _ZN8QuantLib12_GLOBAL__N_14padeEdPKdS2_m.exit:    ; preds = %for.body.i
@@ -7948,7 +7948,7 @@ for.body.i11:                                     ; preds = %for.body.i11, %if.e
   %9 = load double, ptr %arrayidx2.i19, align 8, !tbaa !87
   %add3.i20 = fadd double %d.08.i13, %9
   %mul4.i21 = fmul double %div, %add3.i20
-  %cmp.i22 = icmp ugt i64 %indvars.iv.i12, 1
+  %cmp.i22 = icmp samesign ugt i64 %indvars.iv.i12, 1
   br i1 %cmp.i22, label %for.body.i11, label %_ZN8QuantLib12_GLOBAL__N_14padeEdPKdS2_m.exit26, !llvm.loop !140
 
 _ZN8QuantLib12_GLOBAL__N_14padeEdPKdS2_m.exit26:  ; preds = %for.body.i11
@@ -7968,7 +7968,7 @@ for.body.i27:                                     ; preds = %for.body.i27, %_ZN8
   %11 = load double, ptr %arrayidx2.i35, align 8, !tbaa !87
   %add3.i36 = fadd double %d.08.i29, %11
   %mul4.i37 = fmul double %div, %add3.i36
-  %cmp.i38 = icmp ugt i64 %indvars.iv.i28, 1
+  %cmp.i38 = icmp samesign ugt i64 %indvars.iv.i28, 1
   br i1 %cmp.i38, label %for.body.i27, label %_ZN8QuantLib12_GLOBAL__N_14padeEdPKdS2_m.exit42, !llvm.loop !140
 
 _ZN8QuantLib12_GLOBAL__N_14padeEdPKdS2_m.exit42:  ; preds = %for.body.i27
@@ -8272,7 +8272,7 @@ for.body.i.i.i.i.i:                               ; preds = %for.body.i.i.i.i.i,
   %30 = extractvalue { double, double } %call3.i.i.i.i.i.i.i, 0
   %mul5.i.i.i.i.i.i.i = fmul double %mul1.i.i.i.i.i.i.i, %30
   %31 = tail call double @llvm.fmuladd.f64(double %27, double %mul5.i.i.i.i.i.i.i, double %sum.02.i.i.i.i.i)
-  %cmp.i.i.i.i.i = icmp ugt i64 %indvars.iv.i.i.i.i.i, 1
+  %cmp.i.i.i.i.i = icmp samesign ugt i64 %indvars.iv.i.i.i.i.i, 1
   br i1 %cmp.i.i.i.i.i, label %for.body.i.i.i.i.i, label %"_ZSt10__invoke_rIdRZNK8QuantLib13HestonProcess3pdfEddddE3$_0JdEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EES5_E4typeEOS6_DpOS7_.exit", !llvm.loop !154
 
 lpad.i.i.i.i:                                     ; preds = %init.i.i.i.i

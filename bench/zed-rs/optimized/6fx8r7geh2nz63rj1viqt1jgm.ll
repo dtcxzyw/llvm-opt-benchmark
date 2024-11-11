@@ -6489,9 +6489,9 @@ define hidden void @"_ZN11tungstenite9handshake7machine30HandshakeMachine$LT$Str
   br i1 %or.cond, label %69, label %65
 
 65:                                               ; preds = %59
-  %66 = icmp ugt i64 %61, 64
+  %66 = icmp samesign ugt i64 %61, 64
   %67 = shl nuw nsw i64 %61, 7
-  %68 = icmp ugt i64 %67, %62
+  %68 = icmp samesign ugt i64 %67, %62
   %or.cond.i = select i1 %66, i1 %68, i1 false
   br i1 %or.cond.i, label %69, label %71
 
@@ -7116,9 +7116,9 @@ define hidden void @"_ZN11tungstenite9handshake7machine30HandshakeMachine$LT$Str
   br i1 %or.cond, label %69, label %65
 
 65:                                               ; preds = %59
-  %66 = icmp ugt i64 %61, 64
+  %66 = icmp samesign ugt i64 %61, 64
   %67 = shl nuw nsw i64 %61, 7
-  %68 = icmp ugt i64 %67, %62
+  %68 = icmp samesign ugt i64 %67, %62
   %or.cond.i = select i1 %66, i1 %68, i1 false
   br i1 %or.cond.i, label %69, label %71
 

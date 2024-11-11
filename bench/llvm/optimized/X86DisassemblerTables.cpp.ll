@@ -7665,7 +7665,7 @@ define linkonce_odr noundef nonnull align 8 dereferenceable(16) ptr @_ZN4llvm15S
   %15 = getelementptr inbounds i8, ptr %.0910.i.i.i.i.i, i64 8
   %16 = getelementptr inbounds i8, ptr %.0811.i.i.i.i.i, i64 8
   %17 = add nsw i64 %.012.i.i.i.i.i, -1
-  %18 = icmp ugt i64 %.012.i.i.i.i.i, 1
+  %18 = icmp samesign ugt i64 %.012.i.i.i.i.i, 1
   br i1 %18, label %.lr.ph.i.i.i.i.i, label %_ZSt4copyIPKSt4pairIN4llvm15X86Disassembler15OperandEncodingENS2_11OperandTypeEEPS5_ET0_T_SA_S9_.exit, !llvm.loop !37
 
 _ZSt4copyIPKSt4pairIN4llvm15X86Disassembler15OperandEncodingENS2_11OperandTypeEEPS5_ET0_T_SA_S9_.exit: ; preds = %.lr.ph.i.i.i.i.i, %7
@@ -7711,7 +7711,7 @@ _ZSt4copyIPKSt4pairIN4llvm15X86Disassembler15OperandEncodingENS2_11OperandTypeEE
   %36 = getelementptr inbounds i8, ptr %.0910.i.i.i.i.i34, i64 8
   %37 = getelementptr inbounds i8, ptr %.0811.i.i.i.i.i33, i64 8
   %38 = add nsw i64 %.012.i.i.i.i.i32, -1
-  %39 = icmp ugt i64 %.012.i.i.i.i.i32, 1
+  %39 = icmp samesign ugt i64 %.012.i.i.i.i.i32, 1
   br i1 %39, label %.lr.ph.i.i.i.i.i31, label %_ZSt4copyIPKSt4pairIN4llvm15X86Disassembler15OperandEncodingENS2_11OperandTypeEEPS5_ET0_T_SA_S9_.exit35, !llvm.loop !37
 
 _ZSt4copyIPKSt4pairIN4llvm15X86Disassembler15OperandEncodingENS2_11OperandTypeEEPS5_ET0_T_SA_S9_.exit35: ; preds = %.lr.ph.i.i.i.i.i31, %28, %27, %23

@@ -618,7 +618,7 @@ if.then:                                          ; preds = %entry
   br i1 %cmp, label %for.body.lr.ph, label %land.end
 
 land.end:                                         ; preds = %if.then
-  %cmp513.not = icmp ult i64 %1, 2
+  %cmp513.not = icmp samesign ult i64 %1, 2
   br i1 %cmp513.not, label %if.end, label %for.body.lr.ph.thread
 
 for.body.lr.ph.thread:                            ; preds = %land.end
@@ -750,7 +750,7 @@ if.then.i:                                        ; preds = %invoke.cont18
   br i1 %cmp.i, label %for.body.lr.ph.i, label %land.end.i
 
 land.end.i:                                       ; preds = %if.then.i
-  %cmp513.not.i = icmp ult i64 %10, 2
+  %cmp513.not.i = icmp samesign ult i64 %10, 2
   br i1 %cmp513.not.i, label %nrvo.skipdtor, label %for.body.lr.ph.thread.i
 
 for.body.lr.ph.thread.i:                          ; preds = %land.end.i

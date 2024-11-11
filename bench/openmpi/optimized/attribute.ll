@@ -3602,7 +3602,7 @@ define i32 @ompi_attr_delete_all(i32 noundef %0, ptr noundef %1, ptr noundef %2)
   br label %.lr.ph36
 
 42:                                               ; preds = %.lr.ph36
-  %43 = icmp ugt i64 %indvars.iv42, 1
+  %43 = icmp samesign ugt i64 %indvars.iv42, 1
   br i1 %43, label %.lr.ph36, label %._crit_edge37, !llvm.loop !9
 
 .lr.ph36:                                         ; preds = %.lr.ph36.preheader, %42

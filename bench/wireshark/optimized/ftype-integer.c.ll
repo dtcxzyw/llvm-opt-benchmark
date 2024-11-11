@@ -203,7 +203,7 @@ define internal noundef zeroext i1 @uint8_from_sinteger64(ptr nocapture noundef 
   br label %_uint64_from_sinteger64.exit
 
 9:                                                ; preds = %4
-  %10 = icmp ugt i64 %2, 255
+  %10 = icmp samesign ugt i64 %2, 255
   br i1 %10, label %11, label %14
 
 11:                                               ; preds = %9
@@ -729,7 +729,7 @@ define internal noundef zeroext i1 @uint16_from_sinteger64(ptr nocapture noundef
   br label %_uint64_from_sinteger64.exit
 
 9:                                                ; preds = %4
-  %10 = icmp ugt i64 %2, 65535
+  %10 = icmp samesign ugt i64 %2, 65535
   br i1 %10, label %11, label %14
 
 11:                                               ; preds = %9
@@ -789,7 +789,7 @@ define internal noundef zeroext i1 @uint24_from_sinteger64(ptr nocapture noundef
   br label %_uint64_from_sinteger64.exit
 
 9:                                                ; preds = %4
-  %10 = icmp ugt i64 %2, 16777215
+  %10 = icmp samesign ugt i64 %2, 16777215
   br i1 %10, label %11, label %14
 
 11:                                               ; preds = %9
@@ -849,7 +849,7 @@ define internal noundef zeroext i1 @uint32_from_sinteger64(ptr nocapture noundef
   br label %_uint64_from_sinteger64.exit
 
 9:                                                ; preds = %4
-  %10 = icmp ugt i64 %2, 4294967295
+  %10 = icmp samesign ugt i64 %2, 4294967295
   br i1 %10, label %11, label %14
 
 11:                                               ; preds = %9
@@ -916,7 +916,7 @@ define internal noundef zeroext i1 @uint40_from_sinteger64(ptr nocapture noundef
   br label %_uint64_from_sinteger64.exit
 
 9:                                                ; preds = %4
-  %10 = icmp ugt i64 %2, 1099511627775
+  %10 = icmp samesign ugt i64 %2, 1099511627775
   br i1 %10, label %11, label %14
 
 11:                                               ; preds = %9
@@ -990,7 +990,7 @@ define internal noundef zeroext i1 @uint48_from_sinteger64(ptr nocapture noundef
   br label %_uint64_from_sinteger64.exit
 
 9:                                                ; preds = %4
-  %10 = icmp ugt i64 %2, 281474976710655
+  %10 = icmp samesign ugt i64 %2, 281474976710655
   br i1 %10, label %11, label %14
 
 11:                                               ; preds = %9
@@ -1050,7 +1050,7 @@ define internal noundef zeroext i1 @uint56_from_sinteger64(ptr nocapture noundef
   br label %_uint64_from_sinteger64.exit
 
 9:                                                ; preds = %4
-  %10 = icmp ugt i64 %2, 72057594037927935
+  %10 = icmp samesign ugt i64 %2, 72057594037927935
   br i1 %10, label %11, label %14
 
 11:                                               ; preds = %9
@@ -1124,7 +1124,7 @@ define internal noundef zeroext i1 @sint8_from_uinteger64(ptr nocapture noundef 
   br label %_sint64_from_uinteger64.exit
 
 9:                                                ; preds = %4
-  %10 = icmp ugt i64 %2, 127
+  %10 = icmp samesign ugt i64 %2, 127
   br i1 %10, label %11, label %14
 
 11:                                               ; preds = %9
@@ -1475,7 +1475,7 @@ define internal noundef zeroext i1 @sint16_from_uinteger64(ptr nocapture noundef
   br label %_sint64_from_uinteger64.exit
 
 9:                                                ; preds = %4
-  %10 = icmp ugt i64 %2, 32767
+  %10 = icmp samesign ugt i64 %2, 32767
   br i1 %10, label %11, label %14
 
 11:                                               ; preds = %9
@@ -1549,7 +1549,7 @@ define internal noundef zeroext i1 @sint24_from_uinteger64(ptr nocapture noundef
   br label %_sint64_from_uinteger64.exit
 
 9:                                                ; preds = %4
-  %10 = icmp ugt i64 %2, 8388607
+  %10 = icmp samesign ugt i64 %2, 8388607
   br i1 %10, label %11, label %14
 
 11:                                               ; preds = %9
@@ -1623,7 +1623,7 @@ define internal noundef zeroext i1 @sint32_from_uinteger64(ptr nocapture noundef
   br label %_sint64_from_uinteger64.exit
 
 9:                                                ; preds = %4
-  %10 = icmp ugt i64 %2, 2147483647
+  %10 = icmp samesign ugt i64 %2, 2147483647
   br i1 %10, label %11, label %14
 
 11:                                               ; preds = %9
@@ -1697,7 +1697,7 @@ define internal noundef zeroext i1 @sint40_from_uinteger64(ptr nocapture noundef
   br label %_sint64_from_uinteger64.exit
 
 9:                                                ; preds = %4
-  %10 = icmp ugt i64 %2, 549755813887
+  %10 = icmp samesign ugt i64 %2, 549755813887
   br i1 %10, label %11, label %14
 
 11:                                               ; preds = %9
@@ -1785,7 +1785,7 @@ define internal noundef zeroext i1 @sint48_from_uinteger64(ptr nocapture noundef
   br label %_sint64_from_uinteger64.exit
 
 9:                                                ; preds = %4
-  %10 = icmp ugt i64 %2, 140737488355327
+  %10 = icmp samesign ugt i64 %2, 140737488355327
   br i1 %10, label %11, label %14
 
 11:                                               ; preds = %9
@@ -1859,7 +1859,7 @@ define internal noundef zeroext i1 @sint56_from_uinteger64(ptr nocapture noundef
   br label %_sint64_from_uinteger64.exit
 
 9:                                                ; preds = %4
-  %10 = icmp ugt i64 %2, 36028797018963967
+  %10 = icmp samesign ugt i64 %2, 36028797018963967
   br i1 %10, label %11, label %14
 
 11:                                               ; preds = %9

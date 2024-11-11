@@ -4358,7 +4358,7 @@ define dso_local noundef range(i32 16, 21) i32 @_ZN4llvm6detail9IEEEFloat14handl
 
 54:                                               ; preds = %47, %._crit_edge.i
   %.1.i = phi i32 [ %51, %47 ], [ %.0.lcssa.i, %._crit_edge.i ]
-  %55 = icmp ult i32 %.1.i, %38
+  %55 = icmp samesign ult i32 %.1.i, %38
   br i1 %55, label %.lr.ph17.preheader.i, label %_ZN4llvm6detailL25tcSetLeastSignificantBitsEPmjj.exit
 
 .lr.ph17.preheader.i:                             ; preds = %54
@@ -7151,7 +7151,7 @@ define dso_local noundef range(i32 0, 17) i32 @_ZNK4llvm6detail9IEEEFloat16conve
 
 ._crit_edge.i.thread:                             ; preds = %10, %32, %._crit_edge.i
   %.1.i = phi i32 [ %36, %32 ], [ %.0.lcssa.i, %._crit_edge.i ], [ 0, %10 ]
-  %39 = icmp ult i32 %.1.i, %12
+  %39 = icmp samesign ult i32 %.1.i, %12
   br i1 %39, label %.lr.ph17.preheader.i, label %_ZN4llvm6detailL25tcSetLeastSignificantBitsEPmjj.exit
 
 .lr.ph17.preheader.i:                             ; preds = %._crit_edge.i.thread
@@ -8545,7 +8545,7 @@ _ZN4llvm5ErrorD2Ev.exit36.i.i:                    ; preds = %98
 105:                                              ; preds = %98
   %106 = mul nuw nsw i32 %.0.i.i, 10
   %107 = add nuw nsw i32 %101, %106
-  %108 = icmp ugt i32 %107, 23999
+  %108 = icmp samesign ugt i32 %107, 23999
   br i1 %108, label %109, label %.preheader.i81.i, !llvm.loop !189
 
 109:                                              ; preds = %105, %.preheader.i81.i
@@ -13768,7 +13768,7 @@ _ZN4llvm23SmallVectorTemplateBaseIcLb1EE9push_backEc.exit.i: ; preds = %98, %94
   %115 = call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %114, i1 false)
   %116 = trunc nuw nsw i64 %115 to i32
   %..i.i = call i32 @llvm.umin.i32(i32 %111, i32 %116)
-  %.not228.i = icmp ugt i32 %111, %116
+  %.not228.i = icmp samesign ugt i32 %111, %116
   br i1 %.not228.i, label %118, label %117
 
 117:                                              ; preds = %113

@@ -347,7 +347,7 @@ _ZN4llvmeqENS_9StringRefES0_.exit54.thread221:    ; preds = %102, %114, %_ZN4llv
   br label %.critedge.thread
 
 .thread:                                          ; preds = %125, %120
-  %.cmp = icmp ugt i32 %119, 9
+  %.cmp = icmp samesign ugt i32 %119, 9
   %128 = select i1 %.cmp, i8 49, i8 48
   store i8 %128, ptr %27, align 1
   %.urem = add nuw nsw i32 %119, 246

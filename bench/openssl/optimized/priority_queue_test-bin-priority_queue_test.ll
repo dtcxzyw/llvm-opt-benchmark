@@ -468,7 +468,7 @@ if.end88:                                         ; preds = %if.then79
   br label %if.end91
 
 if.end91:                                         ; preds = %if.end88, %while.body
-  %cmp72 = icmp ugt i32 %dec64.in, 1
+  %cmp72 = icmp samesign ugt i32 %dec64.in, 1
   br i1 %cmp72, label %while.body, label %while.end, !llvm.loop !9
 
 while.end:                                        ; preds = %if.end91, %while.cond.preheader

@@ -9331,7 +9331,7 @@ _ZN4llvm12MachineInstr8all_defsEv.exit:           ; preds = %.lr.ph.i.i.i.i.i225
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %9)
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %10)
   store i32 %615, ptr %7, align 4
-  %618 = icmp ult i32 %615, 1073741824
+  %618 = icmp samesign ult i32 %615, 1073741824
   br i1 %618, label %619, label %_ZL19addRegAndItsAliasesIN4llvm8SmallSetINS0_8RegisterELj4ESt4lessIS2_EEEEvS2_PKNS0_18TargetRegisterInfoERT_.exit.thread331
 
 619:                                              ; preds = %616

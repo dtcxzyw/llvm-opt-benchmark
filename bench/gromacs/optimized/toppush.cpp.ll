@@ -7481,7 +7481,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit: ; pr
 73:                                               ; preds = %70
   %74 = load double, ptr %19, align 8
   %75 = fptrunc double %74 to float
-  %76 = icmp ugt i32 %68, 2
+  %76 = icmp samesign ugt i32 %68, 2
   br i1 %76, label %77, label %_ZSteqIiiENSt9enable_ifIXsr14is_convertibleIDTeqclsr3stdE7declvalIRKT_EEclsr3stdE7declvalIRKT0_EEEbEE5valueEbE4typeERKSt8optionalIS1_ERKSA_IS4_E.exit
 
 77:                                               ; preds = %73
@@ -7574,7 +7574,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit59: ; 
 103:                                              ; preds = %98
   %104 = load double, ptr %22, align 8
   %105 = fptrunc double %104 to float
-  %106 = icmp ugt i32 %68, 4
+  %106 = icmp samesign ugt i32 %68, 4
   br i1 %106, label %107, label %_ZSteqIiiENSt9enable_ifIXsr14is_convertibleIDTeqclsr3stdE7declvalIRKT_EEclsr3stdE7declvalIRKT0_EEEbEE5valueEbE4typeERKSt8optionalIS1_ERKSA_IS4_E.exit
 
 107:                                              ; preds = %103
@@ -12770,7 +12770,7 @@ define void @_Z9push_exclPcN3gmx8ArrayRefINS0_14ExclusionBlockEEEP14WarningHandl
   %26 = load i32, ptr %6, align 4
   %27 = icmp slt i32 %26, 1
   %28 = zext nneg i32 %26 to i64
-  %.not10 = icmp ult i64 %20, %28
+  %.not10 = icmp samesign ult i64 %20, %28
   %or.cond27 = select i1 %27, i1 true, i1 %.not10
   br i1 %or.cond27, label %102, label %29
 
@@ -14270,7 +14270,7 @@ _ZNSt12_Vector_baseI17InteractionOfTypeSaIS0_EE13_M_deallocateEPS0_m.exit: ; pre
   %44 = getelementptr inbounds i8, ptr %.0910.i.i.i.i.i, i64 104
   %45 = getelementptr inbounds i8, ptr %.0811.i.i.i.i.i, i64 104
   %46 = add nsw i64 %.012.i.i.i.i.i, -1
-  %47 = icmp ugt i64 %.012.i.i.i.i.i, 1
+  %47 = icmp samesign ugt i64 %.012.i.i.i.i.i, 1
   br i1 %47, label %.lr.ph.i.i.i.i.i, label %_ZSt4copyIN9__gnu_cxx17__normal_iteratorIPK17InteractionOfTypeSt6vectorIS2_SaIS2_EEEENS1_IPS2_S7_EEET0_T_SC_SB_.exit.loopexit, !llvm.loop !147
 
 _ZSt4copyIN9__gnu_cxx17__normal_iteratorIPK17InteractionOfTypeSt6vectorIS2_SaIS2_EEEENS1_IPS2_S7_EEET0_T_SC_SB_.exit.loopexit: ; preds = %.lr.ph.i.i.i.i.i
@@ -14329,7 +14329,7 @@ _ZSt8_DestroyI17InteractionOfTypeEvPT_.exit.i.i.i28: ; preds = %53, %.lr.ph.i.i.
   %64 = getelementptr inbounds i8, ptr %.0910.i.i.i.i.i35, i64 104
   %65 = getelementptr inbounds i8, ptr %.0811.i.i.i.i.i34, i64 104
   %66 = add nsw i64 %.012.i.i.i.i.i33, -1
-  %67 = icmp ugt i64 %.012.i.i.i.i.i33, 1
+  %67 = icmp samesign ugt i64 %.012.i.i.i.i.i33, 1
   br i1 %67, label %.lr.ph.i.i.i.i.i32, label %_ZSt4copyIP17InteractionOfTypeS1_ET0_T_S3_S2_.exit.loopexit, !llvm.loop !149
 
 _ZSt4copyIP17InteractionOfTypeS1_ET0_T_S3_S2_.exit.loopexit: ; preds = %.lr.ph.i.i.i.i.i32
@@ -15523,7 +15523,7 @@ _ZSt13move_backwardIPiS0_ET0_T_S2_S1_.exit:       ; preds = %_ZSt22__uninitializ
   %33 = getelementptr inbounds i8, ptr %.sroa.05.07.i.i.i.i.i, i64 4
   %34 = getelementptr inbounds i8, ptr %.09.i.i.i.i.i, i64 4
   %35 = add nsw i64 %.048.i.i.i.i.i, -1
-  %36 = icmp ugt i64 %.048.i.i.i.i.i, 1
+  %36 = icmp samesign ugt i64 %.048.i.i.i.i.i, 1
   br i1 %36, label %.lr.ph.i.i.i.i.i, label %_ZSt4copyIN3gmx12ArrayRefIterIKiEEN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEET0_T_SC_SB_.exit, !llvm.loop !176
 
 _ZSt7advanceIN3gmx12ArrayRefIterIKiEEmEvRT_T0_.exit: ; preds = %17
@@ -15543,7 +15543,7 @@ _ZSt7advanceIN3gmx12ArrayRefIterIKiEEmEvRT_T0_.exit: ; preds = %17
   %43 = getelementptr inbounds i8, ptr %.sroa.05.07.i.i.i.i.i.i.i.i, i64 4
   %44 = getelementptr inbounds i8, ptr %.09.i.i.i.i.i.i.i.i, i64 4
   %45 = add nsw i64 %.048.i.i.i.i.i.i.i.i, -1
-  %46 = icmp ugt i64 %.048.i.i.i.i.i.i.i.i, 1
+  %46 = icmp samesign ugt i64 %.048.i.i.i.i.i.i.i.i, 1
   br i1 %46, label %.lr.ph.i.i.i.i.i.i.i.i, label %_ZSt22__uninitialized_copy_aIN3gmx12ArrayRefIterIKiEEPiiET0_T_S6_S5_RSaIT1_E.exit.loopexit, !llvm.loop !176
 
 _ZSt22__uninitialized_copy_aIN3gmx12ArrayRefIterIKiEEPiiET0_T_S6_S5_RSaIT1_E.exit.loopexit: ; preds = %.lr.ph.i.i.i.i.i.i.i.i
@@ -15580,7 +15580,7 @@ _ZSt22__uninitialized_move_aIPiS0_SaIiEET0_T_S3_S2_RT1_.exit56: ; preds = %_ZSt2
   %56 = getelementptr inbounds i8, ptr %.sroa.05.07.i.i.i.i.i61, i64 4
   %57 = getelementptr inbounds i8, ptr %.09.i.i.i.i.i59, i64 4
   %58 = add nsw i64 %.048.i.i.i.i.i60, -1
-  %59 = icmp ugt i64 %.048.i.i.i.i.i60, 1
+  %59 = icmp samesign ugt i64 %.048.i.i.i.i.i60, 1
   br i1 %59, label %.lr.ph.i.i.i.i.i58, label %_ZSt4copyIN3gmx12ArrayRefIterIKiEEN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEET0_T_SC_SB_.exit, !llvm.loop !176
 
 60:                                               ; preds = %5

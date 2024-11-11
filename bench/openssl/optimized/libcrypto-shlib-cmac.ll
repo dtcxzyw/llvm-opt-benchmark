@@ -380,7 +380,7 @@ if.end34:                                         ; preds = %if.end23, %if.end6
   %sub36 = add i64 %dlen.addr.0, -1
   %conv37 = zext nneg i32 %call to i64
   %div38 = udiv i64 %sub36, %conv37
-  %cmp39 = icmp ugt i32 %call, 2048
+  %cmp39 = icmp samesign ugt i32 %call, 2048
   br i1 %cmp39, label %while.cond.preheader, label %while.cond57.preheader
 
 while.cond57.preheader:                           ; preds = %if.end34

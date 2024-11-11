@@ -6339,7 +6339,7 @@ for.body.i.i52:                                   ; preds = %for.body.i.i52.preh
   %incdec.ptr.i.i54 = getelementptr inbounds i8, ptr %__first.addr.0.i.i4863, i64 56
   %incdec.ptr1.i.i55 = getelementptr inbounds i8, ptr %__result.addr.0.i.i4964, i64 56
   %dec.i.i56 = add nsw i64 %__n.0.i.i5065, -1
-  %cmp.i.i51 = icmp ugt i64 %__n.0.i.i5065, 1
+  %cmp.i.i51 = icmp samesign ugt i64 %__n.0.i.i5065, 1
   br i1 %cmp.i.i51, label %for.body.i.i52, label %_ZSt14__copy_move_a2ILb0EPN9grpc_core12experimental4JsonES3_ET1_T0_S5_S4_.exit.loopexit, !llvm.loop !85
 
 _ZSt14__copy_move_a2ILb0EPN9grpc_core12experimental4JsonES3_ET1_T0_S5_S4_.exit.loopexit: ; preds = %for.body.i.i52
@@ -10637,7 +10637,7 @@ for.body.i.i.i.i.i:                               ; preds = %for.body.i.i.i.i.i,
   %incdec.ptr.i.i.i.i.i = getelementptr inbounds i8, ptr %__first.addr.0.i2.i.i.i.i, i64 56
   %incdec.ptr1.i.i.i.i.i = getelementptr inbounds i8, ptr %__result.addr.0.i3.i.i.i.i, i64 56
   %dec.i.i.i.i.i = add nsw i64 %__n.0.i4.i.i.i.i, -1
-  %cmp.i.i.i.i.i = icmp ugt i64 %__n.0.i4.i.i.i.i, 1
+  %cmp.i.i.i.i.i = icmp samesign ugt i64 %__n.0.i4.i.i.i.i, 1
   br i1 %cmp.i.i.i.i.i, label %for.body.i.i.i.i.i, label %_ZSt4copyIPKN9grpc_core12experimental4JsonEPS2_ET0_T_S7_S6_.exit.loopexit, !llvm.loop !83
 
 _ZSt4copyIPKN9grpc_core12experimental4JsonEPS2_ET0_T_S7_S6_.exit.loopexit: ; preds = %for.body.i.i.i.i.i
@@ -10703,7 +10703,7 @@ for.body.i.i.i.i.i34:                             ; preds = %for.body.i.i.i.i.i3
   %incdec.ptr.i.i.i.i.i38 = getelementptr inbounds i8, ptr %__first.addr.0.i2.i.i.i.i37, i64 56
   %incdec.ptr1.i.i.i.i.i39 = getelementptr inbounds i8, ptr %__result.addr.0.i3.i.i.i.i36, i64 56
   %dec.i.i.i.i.i40 = add nsw i64 %__n.0.i4.i.i.i.i35, -1
-  %cmp.i.i.i.i.i41 = icmp ugt i64 %__n.0.i4.i.i.i.i35, 1
+  %cmp.i.i.i.i.i41 = icmp samesign ugt i64 %__n.0.i4.i.i.i.i35, 1
   br i1 %cmp.i.i.i.i.i41, label %for.body.i.i.i.i.i34, label %_ZSt4copyIPKN9grpc_core12experimental4JsonEPS2_ET0_T_S7_S6_.exit42.loopexit, !llvm.loop !83
 
 _ZSt4copyIPKN9grpc_core12experimental4JsonEPS2_ET0_T_S7_S6_.exit42.loopexit: ; preds = %for.body.i.i.i.i.i34

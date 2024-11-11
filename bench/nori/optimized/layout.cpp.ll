@@ -1288,7 +1288,7 @@ _ZN7nanogui5ArrayIiLm2EEC2Ei.exit.critedge:       ; preds = %21
   store i32 %97, ptr %95, align 4
   %98 = add nsw i32 %.099163, -1
   %indvars.iv.next184 = add nuw nsw i64 %indvars.iv183, 1
-  %99 = icmp ugt i32 %.099163, 1
+  %99 = icmp samesign ugt i32 %.099163, 1
   %100 = icmp samesign ult i64 %indvars.iv.next184, %89
   %or.cond = select i1 %99, i1 %100, i1 false
   br i1 %or.cond, label %.lr.ph164, label %.critedge, !llvm.loop !11

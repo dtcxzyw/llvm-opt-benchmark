@@ -118,7 +118,7 @@ define noundef ptr @word_to_hex_npad(ptr noundef writeonly %0, i16 noundef zeroe
   br label %.thread16
 
 9:                                                ; preds = %2
-  %10 = icmp ugt i16 %1, 255
+  %10 = icmp samesign ugt i16 %1, 255
   br i1 %10, label %.thread16, label %17
 
 .thread16:                                        ; preds = %9, %.thread
@@ -133,7 +133,7 @@ define noundef ptr @word_to_hex_npad(ptr noundef writeonly %0, i16 noundef zeroe
   br label %19
 
 17:                                               ; preds = %9
-  %18 = icmp ugt i16 %1, 15
+  %18 = icmp samesign ugt i16 %1, 15
   br i1 %18, label %19, label %26
 
 19:                                               ; preds = %.thread16, %17
@@ -1026,7 +1026,7 @@ define ptr @uint_to_str_back_len(ptr noundef %0, i32 noundef %1, i32 noundef %2)
   br i1 %18, label %.lr.ph.i, label %._crit_edge.i, !llvm.loop !11
 
 ._crit_edge.i:                                    ; preds = %.lr.ph.i
-  %.not.i = icmp ult i32 %.01213.i, 100
+  %.not.i = icmp samesign ult i32 %.01213.i, 100
   br i1 %.not.i, label %uint_to_str_back.exit, label %._crit_edge.thread21.i
 
 ._crit_edge.thread21.i:                           ; preds = %._crit_edge.i, %5
@@ -1099,7 +1099,7 @@ define ptr @uint64_to_str_back_len(ptr noundef %0, i64 noundef %1, i32 noundef %
   br i1 %17, label %.lr.ph.i, label %._crit_edge.i, !llvm.loop !12
 
 ._crit_edge.i:                                    ; preds = %.lr.ph.i
-  %.not.i = icmp ult i64 %.01213.i, 100
+  %.not.i = icmp samesign ult i64 %.01213.i, 100
   br i1 %.not.i, label %uint64_to_str_back.exit, label %._crit_edge.thread21.i
 
 ._crit_edge.thread21.i:                           ; preds = %._crit_edge.i, %5
@@ -1174,7 +1174,7 @@ define noundef ptr @int_to_str_back(ptr noundef writeonly %0, i32 noundef %1) lo
   br i1 %18, label %.lr.ph.i, label %._crit_edge.i, !llvm.loop !11
 
 ._crit_edge.i:                                    ; preds = %.lr.ph.i
-  %.not.i = icmp ult i32 %.01213.i, 100
+  %.not.i = icmp samesign ult i32 %.01213.i, 100
   br i1 %.not.i, label %uint_to_str_back.exit19.sink.split, label %.sink.split.i
 
 .sink.split.i:                                    ; preds = %4, %._crit_edge.i
@@ -1191,7 +1191,7 @@ define noundef ptr @int_to_str_back(ptr noundef writeonly %0, i32 noundef %1) lo
   br i1 %23, label %uint_to_str_back.exit19.sink.split, label %24
 
 24:                                               ; preds = %22
-  %25 = icmp ugt i32 %1, 9
+  %25 = icmp samesign ugt i32 %1, 9
   br i1 %25, label %.lr.ph.i14, label %._crit_edge.thread21.i7
 
 .lr.ph.i14:                                       ; preds = %24, %.lr.ph.i14
@@ -1214,7 +1214,7 @@ define noundef ptr @int_to_str_back(ptr noundef writeonly %0, i32 noundef %1) lo
   br i1 %37, label %.lr.ph.i14, label %._crit_edge.i17, !llvm.loop !11
 
 ._crit_edge.i17:                                  ; preds = %.lr.ph.i14
-  %.not.i18 = icmp ult i32 %.01213.i16, 100
+  %.not.i18 = icmp samesign ult i32 %.01213.i16, 100
   br i1 %.not.i18, label %uint_to_str_back.exit19, label %._crit_edge.thread21.i7
 
 ._crit_edge.thread21.i7:                          ; preds = %._crit_edge.i17, %24
@@ -1265,7 +1265,7 @@ define noundef ptr @int64_to_str_back(ptr noundef writeonly %0, i64 noundef %1) 
   br i1 %17, label %.lr.ph.i, label %._crit_edge.i, !llvm.loop !12
 
 ._crit_edge.i:                                    ; preds = %.lr.ph.i
-  %.not.i = icmp ult i64 %.01213.i, 100
+  %.not.i = icmp samesign ult i64 %.01213.i, 100
   br i1 %.not.i, label %uint64_to_str_back.exit19.sink.split, label %.sink.split.i
 
 .sink.split.i:                                    ; preds = %4, %._crit_edge.i
@@ -1282,7 +1282,7 @@ define noundef ptr @int64_to_str_back(ptr noundef writeonly %0, i64 noundef %1) 
   br i1 %22, label %uint64_to_str_back.exit19.sink.split, label %23
 
 23:                                               ; preds = %21
-  %24 = icmp ugt i64 %1, 9
+  %24 = icmp samesign ugt i64 %1, 9
   br i1 %24, label %.lr.ph.i14, label %._crit_edge.thread21.i7
 
 .lr.ph.i14:                                       ; preds = %23, %.lr.ph.i14
@@ -1304,7 +1304,7 @@ define noundef ptr @int64_to_str_back(ptr noundef writeonly %0, i64 noundef %1) 
   br i1 %35, label %.lr.ph.i14, label %._crit_edge.i17, !llvm.loop !12
 
 ._crit_edge.i17:                                  ; preds = %.lr.ph.i14
-  %.not.i18 = icmp ult i64 %.01213.i16, 100
+  %.not.i18 = icmp samesign ult i64 %.01213.i16, 100
   br i1 %.not.i18, label %uint64_to_str_back.exit19, label %._crit_edge.thread21.i7
 
 ._crit_edge.thread21.i7:                          ; preds = %._crit_edge.i17, %23
@@ -1332,35 +1332,35 @@ define void @guint32_to_str_buf(i32 noundef %0, ptr noundef %1, i64 noundef %2) 
   br i1 %4, label %guint32_to_str_buf_len.exit, label %5
 
 5:                                                ; preds = %3
-  %6 = icmp ugt i32 %0, 99999999
+  %6 = icmp samesign ugt i32 %0, 99999999
   br i1 %6, label %guint32_to_str_buf_len.exit, label %7
 
 7:                                                ; preds = %5
-  %8 = icmp ugt i32 %0, 9999999
+  %8 = icmp samesign ugt i32 %0, 9999999
   br i1 %8, label %guint32_to_str_buf_len.exit, label %9
 
 9:                                                ; preds = %7
-  %10 = icmp ugt i32 %0, 999999
+  %10 = icmp samesign ugt i32 %0, 999999
   br i1 %10, label %guint32_to_str_buf_len.exit, label %11
 
 11:                                               ; preds = %9
-  %12 = icmp ugt i32 %0, 99999
+  %12 = icmp samesign ugt i32 %0, 99999
   br i1 %12, label %guint32_to_str_buf_len.exit, label %13
 
 13:                                               ; preds = %11
-  %14 = icmp ugt i32 %0, 9999
+  %14 = icmp samesign ugt i32 %0, 9999
   br i1 %14, label %guint32_to_str_buf_len.exit, label %15
 
 15:                                               ; preds = %13
-  %16 = icmp ugt i32 %0, 999
+  %16 = icmp samesign ugt i32 %0, 999
   br i1 %16, label %guint32_to_str_buf_len.exit, label %17
 
 17:                                               ; preds = %15
-  %18 = icmp ugt i32 %0, 99
+  %18 = icmp samesign ugt i32 %0, 99
   br i1 %18, label %guint32_to_str_buf_len.exit, label %19
 
 19:                                               ; preds = %17
-  %20 = icmp ugt i32 %0, 9
+  %20 = icmp samesign ugt i32 %0, 9
   %..i = select i1 %20, i64 2, i64 1
   br label %guint32_to_str_buf_len.exit
 
@@ -1403,7 +1403,7 @@ guint32_to_str_buf_len.exit:                      ; preds = %3, %5, %7, %9, %11,
   br i1 %39, label %.lr.ph.i, label %._crit_edge.i, !llvm.loop !11
 
 ._crit_edge.i:                                    ; preds = %.lr.ph.i
-  %.not.i = icmp ult i32 %.01213.i, 100
+  %.not.i = icmp samesign ult i32 %.01213.i, 100
   br i1 %.not.i, label %uint_to_str_back.exit, label %._crit_edge.thread21.i
 
 ._crit_edge.thread21.i:                           ; preds = %._crit_edge.i, %26
@@ -1436,71 +1436,71 @@ define void @guint64_to_str_buf(i64 noundef %0, ptr noundef %1, i64 noundef %2) 
   br i1 %6, label %guint64_to_str_buf_len.exit, label %7
 
 7:                                                ; preds = %5
-  %8 = icmp ugt i64 %0, 99999999999999999
+  %8 = icmp samesign ugt i64 %0, 99999999999999999
   br i1 %8, label %guint64_to_str_buf_len.exit, label %9
 
 9:                                                ; preds = %7
-  %10 = icmp ugt i64 %0, 9999999999999999
+  %10 = icmp samesign ugt i64 %0, 9999999999999999
   br i1 %10, label %guint64_to_str_buf_len.exit, label %11
 
 11:                                               ; preds = %9
-  %12 = icmp ugt i64 %0, 999999999999999
+  %12 = icmp samesign ugt i64 %0, 999999999999999
   br i1 %12, label %guint64_to_str_buf_len.exit, label %13
 
 13:                                               ; preds = %11
-  %14 = icmp ugt i64 %0, 99999999999999
+  %14 = icmp samesign ugt i64 %0, 99999999999999
   br i1 %14, label %guint64_to_str_buf_len.exit, label %15
 
 15:                                               ; preds = %13
-  %16 = icmp ugt i64 %0, 9999999999999
+  %16 = icmp samesign ugt i64 %0, 9999999999999
   br i1 %16, label %guint64_to_str_buf_len.exit, label %17
 
 17:                                               ; preds = %15
-  %18 = icmp ugt i64 %0, 999999999999
+  %18 = icmp samesign ugt i64 %0, 999999999999
   br i1 %18, label %guint64_to_str_buf_len.exit, label %19
 
 19:                                               ; preds = %17
-  %20 = icmp ugt i64 %0, 99999999999
+  %20 = icmp samesign ugt i64 %0, 99999999999
   br i1 %20, label %guint64_to_str_buf_len.exit, label %21
 
 21:                                               ; preds = %19
-  %22 = icmp ugt i64 %0, 9999999999
+  %22 = icmp samesign ugt i64 %0, 9999999999
   br i1 %22, label %guint64_to_str_buf_len.exit, label %23
 
 23:                                               ; preds = %21
-  %24 = icmp ugt i64 %0, 999999999
+  %24 = icmp samesign ugt i64 %0, 999999999
   br i1 %24, label %guint64_to_str_buf_len.exit, label %25
 
 25:                                               ; preds = %23
-  %26 = icmp ugt i64 %0, 99999999
+  %26 = icmp samesign ugt i64 %0, 99999999
   br i1 %26, label %guint64_to_str_buf_len.exit, label %27
 
 27:                                               ; preds = %25
-  %28 = icmp ugt i64 %0, 9999999
+  %28 = icmp samesign ugt i64 %0, 9999999
   br i1 %28, label %guint64_to_str_buf_len.exit, label %29
 
 29:                                               ; preds = %27
-  %30 = icmp ugt i64 %0, 999999
+  %30 = icmp samesign ugt i64 %0, 999999
   br i1 %30, label %guint64_to_str_buf_len.exit, label %31
 
 31:                                               ; preds = %29
-  %32 = icmp ugt i64 %0, 99999
+  %32 = icmp samesign ugt i64 %0, 99999
   br i1 %32, label %guint64_to_str_buf_len.exit, label %33
 
 33:                                               ; preds = %31
-  %34 = icmp ugt i64 %0, 9999
+  %34 = icmp samesign ugt i64 %0, 9999
   br i1 %34, label %guint64_to_str_buf_len.exit, label %35
 
 35:                                               ; preds = %33
-  %36 = icmp ugt i64 %0, 999
+  %36 = icmp samesign ugt i64 %0, 999
   br i1 %36, label %guint64_to_str_buf_len.exit, label %37
 
 37:                                               ; preds = %35
-  %38 = icmp ugt i64 %0, 99
+  %38 = icmp samesign ugt i64 %0, 99
   br i1 %38, label %guint64_to_str_buf_len.exit, label %39
 
 39:                                               ; preds = %37
-  %40 = icmp ugt i64 %0, 9
+  %40 = icmp samesign ugt i64 %0, 9
   %..i = select i1 %40, i64 2, i64 1
   br label %guint64_to_str_buf_len.exit
 
@@ -1542,7 +1542,7 @@ guint64_to_str_buf_len.exit:                      ; preds = %3, %5, %7, %9, %11,
   br i1 %58, label %.lr.ph.i, label %._crit_edge.i, !llvm.loop !12
 
 ._crit_edge.i:                                    ; preds = %.lr.ph.i
-  %.not.i = icmp ult i64 %.01213.i, 100
+  %.not.i = icmp samesign ult i64 %.01213.i, 100
   br i1 %.not.i, label %uint64_to_str_back.exit, label %._crit_edge.thread21.i
 
 ._crit_edge.thread21.i:                           ; preds = %._crit_edge.i, %46
@@ -2348,7 +2348,7 @@ define i32 @format_fractional_part_nsecs(ptr noundef %0, i64 noundef %1, i32 nou
   br i1 %43, label %.sink.split.i.i, label %44
 
 44:                                               ; preds = %42
-  %45 = icmp ugt i32 %.054, 9
+  %45 = icmp samesign ugt i32 %.054, 9
   br i1 %45, label %.lr.ph.i.i, label %._crit_edge.thread21.i.i
 
 .lr.ph.i.i:                                       ; preds = %44, %.lr.ph.i.i
@@ -2371,7 +2371,7 @@ define i32 @format_fractional_part_nsecs(ptr noundef %0, i64 noundef %1, i32 nou
   br i1 %57, label %.lr.ph.i.i, label %._crit_edge.i.i, !llvm.loop !11
 
 ._crit_edge.i.i:                                  ; preds = %.lr.ph.i.i
-  %.not.i.i = icmp ult i32 %.01213.i.i, 100
+  %.not.i.i = icmp samesign ult i32 %.01213.i.i, 100
   br i1 %.not.i.i, label %uint_to_str_back.exit.i, label %._crit_edge.thread21.i.i
 
 ._crit_edge.thread21.i.i:                         ; preds = %._crit_edge.i.i, %44
@@ -2511,7 +2511,7 @@ define void @display_signed_time(ptr noundef %0, i64 noundef %1, ptr nocapture n
   br i1 %34, label %.lr.ph.i.i, label %._crit_edge.i.i, !llvm.loop !12
 
 ._crit_edge.i.i:                                  ; preds = %.lr.ph.i.i
-  %.not.i.i = icmp ult i64 %.01213.i.i, 100
+  %.not.i.i = icmp samesign ult i64 %.01213.i.i, 100
   br i1 %.not.i.i, label %uint64_to_str_back.exit19.sink.split.i, label %.sink.split.i.i
 
 .sink.split.i.i:                                  ; preds = %._crit_edge.i.i, %.thread
@@ -2528,7 +2528,7 @@ define void @display_signed_time(ptr noundef %0, i64 noundef %1, ptr nocapture n
   br i1 %39, label %uint64_to_str_back.exit19.sink.split.i, label %40
 
 40:                                               ; preds = %38
-  %41 = icmp ugt i64 %.pr, 9
+  %41 = icmp samesign ugt i64 %.pr, 9
   br i1 %41, label %.lr.ph.i14.i, label %._crit_edge.thread21.i7.i
 
 .lr.ph.i14.i:                                     ; preds = %40, %.lr.ph.i14.i
@@ -2550,7 +2550,7 @@ define void @display_signed_time(ptr noundef %0, i64 noundef %1, ptr nocapture n
   br i1 %52, label %.lr.ph.i14.i, label %._crit_edge.i17.i, !llvm.loop !12
 
 ._crit_edge.i17.i:                                ; preds = %.lr.ph.i14.i
-  %.not.i18.i = icmp ult i64 %.01213.i16.i, 100
+  %.not.i18.i = icmp samesign ult i64 %.01213.i16.i, 100
   br i1 %.not.i18.i, label %int64_to_str_back.exit, label %._crit_edge.thread21.i7.i
 
 ._crit_edge.thread21.i7.i:                        ; preds = %._crit_edge.i17.i, %40

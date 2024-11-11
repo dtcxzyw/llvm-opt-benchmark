@@ -3590,7 +3590,7 @@ _ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__c
   %226 = zext nneg i8 %221 to i32
   %227 = add nsw i32 %226, -48
   %228 = icmp ne i32 %222, 429496729
-  %229 = icmp ult i32 %227, 6
+  %229 = icmp samesign ult i32 %227, 6
   %or.cond4.not.i = select i1 %228, i1 true, i1 %229
   br i1 %or.cond4.not.i, label %230, label %.loopexit
 
@@ -3704,7 +3704,7 @@ _ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__c
   %261 = zext nneg i8 %256 to i32
   %262 = add nsw i32 %261, -48
   %263 = icmp ne i32 %257, 429496729
-  %264 = icmp ult i32 %262, 6
+  %264 = icmp samesign ult i32 %262, 6
   %or.cond4.not.i59 = select i1 %263, i1 true, i1 %264
   br i1 %or.cond4.not.i59, label %265, label %.loopexit103
 

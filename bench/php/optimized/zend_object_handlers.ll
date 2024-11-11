@@ -1477,7 +1477,7 @@ is_protected_compatible_scope.exit.thread403:     ; preds = %91, %zend_get_paren
   %165 = load i32, ptr %164, align 8
   %166 = zext i32 %165 to i64
   %167 = shl nuw nsw i64 %166, 5
-  %168 = icmp ult i64 %163, %167
+  %168 = icmp samesign ult i64 %163, %167
   br i1 %168, label %169, label %.critedge
 
 169:                                              ; preds = %162
@@ -6718,7 +6718,7 @@ is_protected_compatible_scope.exit.thread243:     ; preds = %77, %zend_get_paren
   %112 = load i32, ptr %111, align 8
   %113 = zext i32 %112 to i64
   %114 = shl nuw nsw i64 %113, 5
-  %115 = icmp ult i64 %110, %114
+  %115 = icmp samesign ult i64 %110, %114
   br i1 %115, label %116, label %.critedge
 
 116:                                              ; preds = %109

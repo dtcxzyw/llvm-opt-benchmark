@@ -83,7 +83,7 @@ define noundef range(i32 -1, -2147483648) i32 @_ZN7xgboost6common16GetCGroupV1Co
 
 9:                                                ; preds = %2
   %10 = udiv i32 %4, %6
-  %11 = icmp ugt i32 %6, %4
+  %11 = icmp samesign ugt i32 %6, %4
   %.sroa.speculated = select i1 %11, i32 1, i32 %10
   br label %12
 
@@ -451,7 +451,7 @@ define noundef range(i32 -1, -2147483648) i32 @_ZN7xgboost6common14GetCfsCPUCoun
 
 24:                                               ; preds = %17
   %25 = udiv i32 %19, %21
-  %26 = icmp ugt i32 %21, %19
+  %26 = icmp samesign ugt i32 %21, %19
   %.sroa.speculated.i = select i1 %26, i32 1, i32 %25
   br label %.critedge
 

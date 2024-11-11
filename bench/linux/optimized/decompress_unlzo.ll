@@ -248,7 +248,7 @@ define dso_local noundef range(i32 -1, 1) i32 @unlzo(ptr noundef %0, i64 noundef
   br label %.loopexit23
 
 85:                                               ; preds = %81
-  %86 = icmp ult i64 %68, 12
+  %86 = icmp samesign ult i64 %68, 12
   %87 = and i1 %21, %86
   br i1 %87, label %88, label %94
 
@@ -286,7 +286,7 @@ define dso_local noundef range(i32 -1, 1) i32 @unlzo(ptr noundef %0, i64 noundef
 
 107:                                              ; preds = %98
   %108 = zext nneg i32 %100 to i64
-  %109 = icmp ult i64 %102, %108
+  %109 = icmp samesign ult i64 %102, %108
   %or.cond = select i1 %21, i1 %109, i1 false
   br i1 %or.cond, label %110, label %._crit_edge
 

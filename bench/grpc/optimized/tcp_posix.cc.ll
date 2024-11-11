@@ -1750,7 +1750,7 @@ call26.i.noexc:                                   ; preds = %.noexc25
 call.i.i.noexc:                                   ; preds = %call26.i.noexc
   %tcp_read_alloc_64k.i.i = getelementptr inbounds i8, ptr %call.i.i27, i64 72
   %15 = atomicrmw add ptr %tcp_read_alloc_64k.i.i, i64 1 monotonic, align 8
-  %cmp21.i = icmp ugt i32 %extra_wanted.033.i, 65536
+  %cmp21.i = icmp samesign ugt i32 %extra_wanted.033.i, 65536
   br i1 %cmp21.i, label %while.body.i, label %if.end39.i, !llvm.loop !22
 
 while.body30.i:                                   ; preds = %call.i23.i.noexc, %while.body30.preheader.i
@@ -1775,7 +1775,7 @@ call36.i.noexc:                                   ; preds = %.noexc28
 call.i23.i.noexc:                                 ; preds = %call36.i.noexc
   %tcp_read_alloc_8k.i.i = getelementptr inbounds i8, ptr %call.i23.i30, i64 64
   %19 = atomicrmw add ptr %tcp_read_alloc_8k.i.i, i64 1 monotonic, align 8
-  %cmp29.i = icmp ugt i32 %extra_wanted.134.i, 8192
+  %cmp29.i = icmp samesign ugt i32 %extra_wanted.134.i, 8192
   br i1 %cmp29.i, label %while.body30.i, label %if.end39.i, !llvm.loop !26
 
 if.end39.i:                                       ; preds = %call.i.i.noexc, %call.i23.i.noexc

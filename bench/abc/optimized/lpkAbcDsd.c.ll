@@ -1593,7 +1593,7 @@ Vec_IntFree.exit:                                 ; preds = %Lpk_DsdLateArriving
   %67 = load i32, ptr %66, align 4
   %68 = getelementptr inbounds i32, ptr %57, i64 %indvars.iv.next.i60
   store i32 %67, ptr %68, align 4
-  %69 = icmp ugt i64 %indvars.iv.i59, 1
+  %69 = icmp samesign ugt i64 %indvars.iv.i59, 1
   br i1 %69, label %65, label %Kit_TruthCopy.exit, !llvm.loop !25
 
 Kit_TruthCopy.exit:                               ; preds = %65
@@ -1757,7 +1757,7 @@ define ptr @Lpk_DsdSplit(ptr nocapture noundef readonly %0, ptr noundef %1, ptr 
   %20 = load i32, ptr %19, align 4
   %21 = getelementptr inbounds i32, ptr %7, i64 %indvars.iv.next.i
   store i32 %20, ptr %21, align 4
-  %22 = icmp ugt i64 %indvars.iv.i, 1
+  %22 = icmp samesign ugt i64 %indvars.iv.i, 1
   br i1 %22, label %18, label %Kit_TruthCopy.exit, !llvm.loop !25
 
 Kit_TruthCopy.exit:                               ; preds = %18, %25
@@ -1931,7 +1931,7 @@ Kit_WordFindFirstBit.exit:                        ; preds = %Kit_TruthCopy.exit,
   %105 = load i32, ptr %104, align 4
   %106 = getelementptr inbounds i32, ptr %8, i64 %indvars.iv.next.i95
   store i32 %105, ptr %106, align 4
-  %107 = icmp ugt i64 %indvars.iv.i94, 1
+  %107 = icmp samesign ugt i64 %indvars.iv.i94, 1
   br i1 %107, label %103, label %Kit_TruthCopy.exit96, !llvm.loop !25
 
 Kit_TruthCopy.exit96:                             ; preds = %103

@@ -993,7 +993,7 @@ _ZNSt6vectorIS_IdSaIdEESaIS1_EE17_S_check_init_lenEmRKS2_.exit.i.thread: ; preds
   %126 = add nuw nsw i64 %125, 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(1) %121, i8 0, i64 %126, i1 false)
   store ptr %123, ptr %122, align 8
-  %127 = icmp ugt i64 %116, 384307168202282325
+  %127 = icmp samesign ugt i64 %116, 384307168202282325
   br i1 %127, label %128, label %_ZNSt6vectorIS_IdSaIdEESaIS1_EE17_S_check_init_lenEmRKS2_.exit.i
 
 128:                                              ; preds = %.noexc244

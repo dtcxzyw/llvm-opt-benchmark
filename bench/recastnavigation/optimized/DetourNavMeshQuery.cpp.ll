@@ -3344,7 +3344,7 @@ define noundef range(i32 1073741824, 1073741841) i32 @_ZNK14dtNavMeshQuery13getP
   %46 = zext i32 %45 to i64
   %47 = getelementptr inbounds %struct.dtNode, ptr %44, i64 %46
   %.0.i49 = select i1 %.not.i48, ptr null, ptr %47
-  %48 = icmp ugt i64 %indvars.iv, 1
+  %48 = icmp samesign ugt i64 %indvars.iv, 1
   br i1 %48, label %.lr.ph60, label %._crit_edge, !llvm.loop !31
 
 ._crit_edge:                                      ; preds = %36, %.preheader
@@ -5636,7 +5636,7 @@ _Z11dtVisfinitePKf.exit207:                       ; preds = %46
   br i1 %.not191, label %74, label %_Z11dtVisfinitePKf.exit.thread
 
 74:                                               ; preds = %71
-  %75 = icmp ugt i32 %4, 1
+  %75 = icmp samesign ugt i32 %4, 1
   br i1 %75, label %.lr.ph, label %270
 
 .lr.ph:                                           ; preds = %74

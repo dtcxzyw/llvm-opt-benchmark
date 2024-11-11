@@ -192,7 +192,7 @@ define noundef i32 @H5HF__dtable_lookup(ptr nocapture noundef readonly %0, i64 n
   br label %H5VM_log2_gen.exit
 
 28:                                               ; preds = %14
-  %.not27.i = icmp ult i64 %1, 1099511627776
+  %.not27.i = icmp samesign ult i64 %1, 1099511627776
   br i1 %.not27.i, label %35, label %29
 
 29:                                               ; preds = %28
@@ -212,11 +212,11 @@ define noundef i32 @H5HF__dtable_lookup(ptr nocapture noundef readonly %0, i64 n
 
 40:                                               ; preds = %12
   %41 = lshr i64 %1, 16
-  %.not23.i = icmp ult i64 %1, 65536
+  %.not23.i = icmp samesign ult i64 %1, 65536
   br i1 %.not23.i, label %54, label %42
 
 42:                                               ; preds = %40
-  %.not25.i = icmp ult i64 %1, 16777216
+  %.not25.i = icmp samesign ult i64 %1, 16777216
   br i1 %.not25.i, label %49, label %43
 
 43:                                               ; preds = %42
@@ -235,7 +235,7 @@ define noundef i32 @H5HF__dtable_lookup(ptr nocapture noundef readonly %0, i64 n
   br label %H5VM_log2_gen.exit
 
 54:                                               ; preds = %40
-  %.not24.i = icmp ult i64 %1, 256
+  %.not24.i = icmp samesign ult i64 %1, 256
   br i1 %.not24.i, label %61, label %55
 
 55:                                               ; preds = %54
@@ -354,7 +354,7 @@ define i32 @H5HF__dtable_size_to_rows(ptr nocapture noundef readonly %0, i64 nou
   br label %H5VM_log2_gen.exit
 
 18:                                               ; preds = %4
-  %.not27.i = icmp ult i64 %1, 1099511627776
+  %.not27.i = icmp samesign ult i64 %1, 1099511627776
   br i1 %.not27.i, label %25, label %19
 
 19:                                               ; preds = %18
@@ -374,11 +374,11 @@ define i32 @H5HF__dtable_size_to_rows(ptr nocapture noundef readonly %0, i64 nou
 
 30:                                               ; preds = %2
   %31 = lshr i64 %1, 16
-  %.not23.i = icmp ult i64 %1, 65536
+  %.not23.i = icmp samesign ult i64 %1, 65536
   br i1 %.not23.i, label %44, label %32
 
 32:                                               ; preds = %30
-  %.not25.i = icmp ult i64 %1, 16777216
+  %.not25.i = icmp samesign ult i64 %1, 16777216
   br i1 %.not25.i, label %39, label %33
 
 33:                                               ; preds = %32
@@ -397,7 +397,7 @@ define i32 @H5HF__dtable_size_to_rows(ptr nocapture noundef readonly %0, i64 nou
   br label %H5VM_log2_gen.exit
 
 44:                                               ; preds = %30
-  %.not24.i = icmp ult i64 %1, 256
+  %.not24.i = icmp samesign ult i64 %1, 256
   br i1 %.not24.i, label %51, label %45
 
 45:                                               ; preds = %44

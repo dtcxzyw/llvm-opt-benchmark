@@ -1972,7 +1972,7 @@ lor.lhs.false:                                    ; preds = %if.end38
   br i1 %cmp43, label %Compare, label %if.end46
 
 if.end46:                                         ; preds = %lor.lhs.false
-  %cmp48 = icmp ult i64 %call21, %conv42
+  %cmp48 = icmp samesign ult i64 %call21, %conv42
   br i1 %cmp48, label %Compare, label %if.end51
 
 if.end51:                                         ; preds = %if.end46
@@ -2164,8 +2164,8 @@ lor.lhs.false4:                                   ; preds = %lor.lhs.false, %lan
 if.end:                                           ; preds = %lor.lhs.false4, %land.lhs.true, %lor.lhs.false
   %2 = getelementptr i8, ptr %args, i64 16
   %args.val = load i64, ptr %2, align 8
-  %cmp9 = icmp ult i64 %args.val, 2
-  br i1 %cmp9, label %if.end15, label %lor.lhs.false10
+  %or.cond12 = icmp ult i64 %args.val, 2
+  br i1 %or.cond12, label %if.end15, label %lor.lhs.false10
 
 lor.lhs.false10:                                  ; preds = %if.end
   %call12 = tail call i32 @_PyArg_CheckPositional(ptr noundef nonnull @.str.1, i64 noundef %args.val, i64 noundef 0, i64 noundef 1) #17

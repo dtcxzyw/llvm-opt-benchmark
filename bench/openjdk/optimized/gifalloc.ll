@@ -67,7 +67,7 @@ GifBitSize.exit:                                  ; preds = %3
   %.0.i21 = phi i32 [ 1, %16 ], [ %20, %17 ]
   %18 = icmp samesign ult i32 %.0.i21, 9
   %19 = shl nuw nsw i32 1, %.0.i21
-  %.not.i22 = icmp ult i32 %19, %0
+  %.not.i22 = icmp samesign ult i32 %19, %0
   %or.cond.i23 = select i1 %18, i1 %.not.i22, i1 false
   %20 = add nuw nsw i32 %.0.i21, 1
   br i1 %or.cond.i23, label %17, label %GifBitSize.exit24, !llvm.loop !6
@@ -164,7 +164,7 @@ GifBitSize.exit.i:                                ; preds = %7
   %.0.i21.i = phi i32 [ 1, %20 ], [ %24, %21 ]
   %22 = icmp samesign ult i32 %.0.i21.i, 9
   %23 = shl nuw nsw i32 1, %.0.i21.i
-  %.not.i22.i = icmp ult i32 %23, %6
+  %.not.i22.i = icmp samesign ult i32 %23, %6
   %or.cond.i23.i = select i1 %22, i1 %.not.i22.i, i1 false
   %24 = add nuw nsw i32 %.0.i21.i, 1
   br i1 %or.cond.i23.i, label %21, label %GifMakeMapObject.exit, !llvm.loop !6
@@ -652,7 +652,7 @@ GifBitSize.exit.i:                                ; preds = %29
   %.0.i21.i = phi i32 [ 1, %42 ], [ %46, %43 ]
   %44 = icmp samesign ult i32 %.0.i21.i, 9
   %45 = shl nuw nsw i32 1, %.0.i21.i
-  %.not.i22.i = icmp ult i32 %45, %26
+  %.not.i22.i = icmp samesign ult i32 %45, %26
   %or.cond.i23.i = select i1 %44, i1 %.not.i22.i, i1 false
   %46 = add nuw nsw i32 %.0.i21.i, 1
   br i1 %or.cond.i23.i, label %43, label %GifBitSize.exit24.i, !llvm.loop !6

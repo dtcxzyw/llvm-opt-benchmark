@@ -670,7 +670,7 @@ if.then2:                                         ; preds = %if.end
   %txq_num = getelementptr inbounds i8, ptr %opaque, i64 14168
   %2 = load i8, ptr %txq_num, align 8
   %conv3 = zext i8 %2 to i32
-  %cmp.not = icmp ugt i32 %conv, %conv3
+  %cmp.not = icmp samesign ugt i32 %conv, %conv3
   br i1 %cmp.not, label %do.body, label %if.then5
 
 if.then5:                                         ; preds = %if.then2

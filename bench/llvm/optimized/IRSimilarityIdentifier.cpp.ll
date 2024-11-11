@@ -24439,7 +24439,7 @@ _ZN4llvm10SuffixTree17RepeatedSubstringC2EOS1_.exit: ; preds = %14, %17
   %28 = getelementptr inbounds i8, ptr %.078.i.i.i.i.i, i64 -64
   %29 = call noundef nonnull align 8 dereferenceable(16) ptr @_ZN4llvm15SmallVectorImplIjEaSEOS1_(ptr noundef nonnull align 8 dereferenceable(64) %27, ptr noundef nonnull align 8 dereferenceable(64) %28)
   %30 = add nsw i64 %.010.i.i.i.i.i, -1
-  %31 = icmp ugt i64 %.010.i.i.i.i.i, 1
+  %31 = icmp samesign ugt i64 %.010.i.i.i.i.i, 1
   br i1 %31, label %.lr.ph.i.i.i.i.i, label %_ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPN4llvm10SuffixTree17RepeatedSubstringESt6vectorIS4_SaIS4_EEEES9_ET0_T_SB_SA_.exit, !llvm.loop !437
 
 _ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPN4llvm10SuffixTree17RepeatedSubstringESt6vectorIS4_SaIS4_EEEES9_ET0_T_SB_SA_.exit: ; preds = %.lr.ph.i.i.i.i.i, %_ZN4llvm10SuffixTree17RepeatedSubstringC2EOS1_.exit
@@ -24957,7 +24957,7 @@ define internal fastcc void @"_ZSt24__merge_sort_with_bufferIN9__gnu_cxx17__norm
   %44 = getelementptr inbounds i8, ptr %.0910.i.i.i.i.i.i, i64 72
   %45 = getelementptr inbounds i8, ptr %.0811.i.i.i.i.i.i, i64 72
   %46 = add nsw i64 %.012.i.i.i.i.i.i, -1
-  %47 = icmp ugt i64 %.012.i.i.i.i.i.i, 1
+  %47 = icmp samesign ugt i64 %.012.i.i.i.i.i.i, 1
   br i1 %47, label %.lr.ph.i.i.i.i.i.i, label %_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPN4llvm10SuffixTree17RepeatedSubstringESt6vectorIS4_SaIS4_EEEES5_ET0_T_SB_SA_.exit.i, !llvm.loop !448
 
 _ZSt4moveIN9__gnu_cxx17__normal_iteratorIPN4llvm10SuffixTree17RepeatedSubstringESt6vectorIS4_SaIS4_EEEES5_ET0_T_SB_SA_.exit.i: ; preds = %.lr.ph.i.i.i.i.i.i, %.critedge.i
@@ -24984,7 +24984,7 @@ _ZSt4moveIN9__gnu_cxx17__normal_iteratorIPN4llvm10SuffixTree17RepeatedSubstringE
   %57 = getelementptr inbounds i8, ptr %.0910.i.i.i.i.i14.i, i64 72
   %58 = getelementptr inbounds i8, ptr %.0811.i.i.i.i.i13.i, i64 72
   %59 = add nsw i64 %.012.i.i.i.i.i12.i, -1
-  %60 = icmp ugt i64 %.012.i.i.i.i.i12.i, 1
+  %60 = icmp samesign ugt i64 %.012.i.i.i.i.i12.i, 1
   br i1 %60, label %.lr.ph.i.i.i.i.i11.i, label %"_ZSt12__move_mergeIN9__gnu_cxx17__normal_iteratorIPN4llvm10SuffixTree17RepeatedSubstringESt6vectorIS4_SaIS4_EEEES5_NS0_5__ops15_Iter_comp_iterIZNS2_12IRSimilarity22IRSimilarityIdentifier14findCandidatesERS6_IPNSC_17IRInstructionDataESaISF_EERS6_IjSaIjEEE3$_0EEET0_T_SP_SP_SP_SO_T1_.exit", !llvm.loop !448
 
 "_ZSt12__move_mergeIN9__gnu_cxx17__normal_iteratorIPN4llvm10SuffixTree17RepeatedSubstringESt6vectorIS4_SaIS4_EEEES5_NS0_5__ops15_Iter_comp_iterIZNS2_12IRSimilarity22IRSimilarityIdentifier14findCandidatesERS6_IPNSC_17IRInstructionDataESaISF_EERS6_IjSaIjEEE3$_0EEET0_T_SP_SP_SP_SO_T1_.exit": ; preds = %.lr.ph.i.i.i.i.i11.i, %_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPN4llvm10SuffixTree17RepeatedSubstringESt6vectorIS4_SaIS4_EEEES5_ET0_T_SB_SA_.exit.i
@@ -25075,7 +25075,7 @@ _ZSt4moveIN9__gnu_cxx17__normal_iteratorIPN4llvm10SuffixTree17RepeatedSubstringE
   %91 = getelementptr inbounds i8, ptr %.0910.i.i.i.i.i.i35, i64 72
   %92 = getelementptr inbounds i8, ptr %.0811.i.i.i.i.i.i34, i64 72
   %93 = add nsw i64 %.012.i.i.i.i.i.i33, -1
-  %94 = icmp ugt i64 %.012.i.i.i.i.i.i33, 1
+  %94 = icmp samesign ugt i64 %.012.i.i.i.i.i.i33, 1
   br i1 %94, label %.lr.ph.i.i.i.i.i.i32, label %_ZSt4moveIPN4llvm10SuffixTree17RepeatedSubstringEN9__gnu_cxx17__normal_iteratorIS3_St6vectorIS2_SaIS2_EEEEET0_T_SB_SA_.exit.i, !llvm.loop !448
 
 _ZSt4moveIPN4llvm10SuffixTree17RepeatedSubstringEN9__gnu_cxx17__normal_iteratorIS3_St6vectorIS2_SaIS2_EEEEET0_T_SB_SA_.exit.i: ; preds = %.lr.ph.i.i.i.i.i.i32, %._crit_edge.i
@@ -25106,7 +25106,7 @@ _ZSt4moveIPN4llvm10SuffixTree17RepeatedSubstringEN9__gnu_cxx17__normal_iteratorI
   %108 = getelementptr inbounds i8, ptr %.0910.i.i.i.i.i23.i, i64 72
   %109 = getelementptr inbounds i8, ptr %.0811.i.i.i.i.i22.i, i64 72
   %110 = add nsw i64 %.012.i.i.i.i.i21.i, -1
-  %111 = icmp ugt i64 %.012.i.i.i.i.i21.i, 1
+  %111 = icmp samesign ugt i64 %.012.i.i.i.i.i21.i, 1
   br i1 %111, label %.lr.ph.i.i.i.i.i20.i, label %_ZSt4moveIPN4llvm10SuffixTree17RepeatedSubstringEN9__gnu_cxx17__normal_iteratorIS3_St6vectorIS2_SaIS2_EEEEET0_T_SB_SA_.exit24.loopexit.i, !llvm.loop !448
 
 _ZSt4moveIPN4llvm10SuffixTree17RepeatedSubstringEN9__gnu_cxx17__normal_iteratorIS3_St6vectorIS2_SaIS2_EEEEET0_T_SB_SA_.exit24.loopexit.i: ; preds = %.lr.ph.i.i.i.i.i20.i
@@ -25172,7 +25172,7 @@ tailrecurse._crit_edge:                           ; preds = %tailrecurse, %7
   %18 = getelementptr inbounds i8, ptr %.0910.i.i.i.i.i, i64 72
   %19 = getelementptr inbounds i8, ptr %.0811.i.i.i.i.i, i64 72
   %20 = add nsw i64 %.012.i.i.i.i.i, -1
-  %21 = icmp ugt i64 %.012.i.i.i.i.i, 1
+  %21 = icmp samesign ugt i64 %.012.i.i.i.i.i, 1
   br i1 %21, label %.lr.ph.i.i.i.i.i, label %.lr.ph.i, !llvm.loop !448
 
 .lr.ph.i:                                         ; preds = %.lr.ph.i.i.i.i.i, %33
@@ -25233,7 +25233,7 @@ tailrecurse._crit_edge:                           ; preds = %tailrecurse, %7
   %44 = getelementptr inbounds i8, ptr %.0910.i.i.i.i.i.i, i64 72
   %45 = getelementptr inbounds i8, ptr %.0811.i.i.i.i.i.i, i64 72
   %46 = add nsw i64 %.012.i.i.i.i.i.i, -1
-  %47 = icmp ugt i64 %.012.i.i.i.i.i.i, 1
+  %47 = icmp samesign ugt i64 %.012.i.i.i.i.i.i, 1
   br i1 %47, label %.lr.ph.i.i.i.i.i.i, label %"_ZSt21__move_merge_adaptiveIPN4llvm10SuffixTree17RepeatedSubstringEN9__gnu_cxx17__normal_iteratorIS3_St6vectorIS2_SaIS2_EEEES9_NS4_5__ops15_Iter_comp_iterIZNS0_12IRSimilarity22IRSimilarityIdentifier14findCandidatesERS6_IPNSC_17IRInstructionDataESaISF_EERS6_IjSaIjEEE3$_0EEEvT_SO_T0_SP_T1_T2_.exit", !llvm.loop !448
 
 48:                                               ; preds = %.lr.ph, %tailrecurse
@@ -25267,7 +25267,7 @@ tailrecurse._crit_edge:                           ; preds = %tailrecurse, %7
   %58 = getelementptr inbounds i8, ptr %.0910.i.i.i.i.i88, i64 72
   %59 = getelementptr inbounds i8, ptr %.0811.i.i.i.i.i87, i64 72
   %60 = add nsw i64 %.012.i.i.i.i.i86, -1
-  %61 = icmp ugt i64 %.012.i.i.i.i.i86, 1
+  %61 = icmp samesign ugt i64 %.012.i.i.i.i.i86, 1
   br i1 %61, label %.lr.ph.i.i.i.i.i85, label %_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPN4llvm10SuffixTree17RepeatedSubstringESt6vectorIS4_SaIS4_EEEES5_ET0_T_SB_SA_.exit89, !llvm.loop !448
 
 _ZSt4moveIN9__gnu_cxx17__normal_iteratorIPN4llvm10SuffixTree17RepeatedSubstringESt6vectorIS4_SaIS4_EEEES5_ET0_T_SB_SA_.exit89: ; preds = %.lr.ph.i.i.i.i.i85, %50
@@ -25298,7 +25298,7 @@ _ZSt4moveIN9__gnu_cxx17__normal_iteratorIPN4llvm10SuffixTree17RepeatedSubstringE
   %73 = getelementptr inbounds i8, ptr %.078.i.i.i.i.i.i, i64 -64
   %74 = tail call noundef nonnull align 8 dereferenceable(16) ptr @_ZN4llvm15SmallVectorImplIjEaSEOS1_(ptr noundef nonnull align 8 dereferenceable(64) %72, ptr noundef nonnull align 8 dereferenceable(64) %73)
   %75 = add nsw i64 %.010.i.i.i.i.i.i, -1
-  %76 = icmp ugt i64 %.010.i.i.i.i.i.i, 1
+  %76 = icmp samesign ugt i64 %.010.i.i.i.i.i.i, 1
   br i1 %76, label %.lr.ph.i.i.i.i.i.i93, label %"_ZSt21__move_merge_adaptiveIPN4llvm10SuffixTree17RepeatedSubstringEN9__gnu_cxx17__normal_iteratorIS3_St6vectorIS2_SaIS2_EEEES9_NS4_5__ops15_Iter_comp_iterIZNS0_12IRSimilarity22IRSimilarityIdentifier14findCandidatesERS6_IPNSC_17IRInstructionDataESaISF_EERS6_IjSaIjEEE3$_0EEEvT_SO_T0_SP_T1_T2_.exit", !llvm.loop !437
 
 77:                                               ; preds = %_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPN4llvm10SuffixTree17RepeatedSubstringESt6vectorIS4_SaIS4_EEEES5_ET0_T_SB_SA_.exit89
@@ -25357,7 +25357,7 @@ _ZSt4moveIN9__gnu_cxx17__normal_iteratorIPN4llvm10SuffixTree17RepeatedSubstringE
   %100 = getelementptr inbounds i8, ptr %.078.i.i.i.i.i23.i, i64 -64
   %101 = tail call noundef nonnull align 8 dereferenceable(16) ptr @_ZN4llvm15SmallVectorImplIjEaSEOS1_(ptr noundef nonnull align 8 dereferenceable(64) %99, ptr noundef nonnull align 8 dereferenceable(64) %100)
   %102 = add nsw i64 %.010.i.i.i.i.i21.i, -1
-  %103 = icmp ugt i64 %.010.i.i.i.i.i21.i, 1
+  %103 = icmp samesign ugt i64 %.010.i.i.i.i.i21.i, 1
   br i1 %103, label %.lr.ph.i.i.i.i.i20.i, label %"_ZSt21__move_merge_adaptiveIPN4llvm10SuffixTree17RepeatedSubstringEN9__gnu_cxx17__normal_iteratorIS3_St6vectorIS2_SaIS2_EEEES9_NS4_5__ops15_Iter_comp_iterIZNS0_12IRSimilarity22IRSimilarityIdentifier14findCandidatesERS6_IPNSC_17IRInstructionDataESaISF_EERS6_IjSaIjEEE3$_0EEEvT_SO_T0_SP_T1_T2_.exit", !llvm.loop !437
 
 104:                                              ; preds = %81
@@ -25535,7 +25535,7 @@ define internal fastcc void @"_ZSt12__move_mergeIN9__gnu_cxx17__normal_iteratorI
   %31 = getelementptr inbounds i8, ptr %.0910.i.i.i.i.i, i64 72
   %32 = getelementptr inbounds i8, ptr %.0811.i.i.i.i.i, i64 72
   %33 = add nsw i64 %.012.i.i.i.i.i, -1
-  %34 = icmp ugt i64 %.012.i.i.i.i.i, 1
+  %34 = icmp samesign ugt i64 %.012.i.i.i.i.i, 1
   br i1 %34, label %.lr.ph.i.i.i.i.i, label %_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPN4llvm10SuffixTree17RepeatedSubstringESt6vectorIS4_SaIS4_EEEES5_ET0_T_SB_SA_.exit, !llvm.loop !448
 
 _ZSt4moveIN9__gnu_cxx17__normal_iteratorIPN4llvm10SuffixTree17RepeatedSubstringESt6vectorIS4_SaIS4_EEEES5_ET0_T_SB_SA_.exit: ; preds = %.lr.ph.i.i.i.i.i, %.critedge
@@ -25562,7 +25562,7 @@ _ZSt4moveIN9__gnu_cxx17__normal_iteratorIPN4llvm10SuffixTree17RepeatedSubstringE
   %44 = getelementptr inbounds i8, ptr %.0910.i.i.i.i.i14, i64 72
   %45 = getelementptr inbounds i8, ptr %.0811.i.i.i.i.i13, i64 72
   %46 = add nsw i64 %.012.i.i.i.i.i12, -1
-  %47 = icmp ugt i64 %.012.i.i.i.i.i12, 1
+  %47 = icmp samesign ugt i64 %.012.i.i.i.i.i12, 1
   br i1 %47, label %.lr.ph.i.i.i.i.i11, label %_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPN4llvm10SuffixTree17RepeatedSubstringESt6vectorIS4_SaIS4_EEEES5_ET0_T_SB_SA_.exit15, !llvm.loop !448
 
 _ZSt4moveIN9__gnu_cxx17__normal_iteratorIPN4llvm10SuffixTree17RepeatedSubstringESt6vectorIS4_SaIS4_EEEES5_ET0_T_SB_SA_.exit15: ; preds = %.lr.ph.i.i.i.i.i11, %_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPN4llvm10SuffixTree17RepeatedSubstringESt6vectorIS4_SaIS4_EEEES5_ET0_T_SB_SA_.exit
@@ -25635,7 +25635,7 @@ define internal fastcc void @"_ZSt12__move_mergeIPN4llvm10SuffixTree17RepeatedSu
   %33 = getelementptr inbounds i8, ptr %.0910.i.i.i.i.i, i64 72
   %34 = getelementptr inbounds i8, ptr %.0811.i.i.i.i.i, i64 72
   %35 = add nsw i64 %.012.i.i.i.i.i, -1
-  %36 = icmp ugt i64 %.012.i.i.i.i.i, 1
+  %36 = icmp samesign ugt i64 %.012.i.i.i.i.i, 1
   br i1 %36, label %.lr.ph.i.i.i.i.i, label %_ZSt4moveIPN4llvm10SuffixTree17RepeatedSubstringEN9__gnu_cxx17__normal_iteratorIS3_St6vectorIS2_SaIS2_EEEEET0_T_SB_SA_.exit, !llvm.loop !448
 
 _ZSt4moveIPN4llvm10SuffixTree17RepeatedSubstringEN9__gnu_cxx17__normal_iteratorIS3_St6vectorIS2_SaIS2_EEEEET0_T_SB_SA_.exit: ; preds = %.lr.ph.i.i.i.i.i, %._crit_edge
@@ -25666,7 +25666,7 @@ _ZSt4moveIPN4llvm10SuffixTree17RepeatedSubstringEN9__gnu_cxx17__normal_iteratorI
   %50 = getelementptr inbounds i8, ptr %.0910.i.i.i.i.i23, i64 72
   %51 = getelementptr inbounds i8, ptr %.0811.i.i.i.i.i22, i64 72
   %52 = add nsw i64 %.012.i.i.i.i.i21, -1
-  %53 = icmp ugt i64 %.012.i.i.i.i.i21, 1
+  %53 = icmp samesign ugt i64 %.012.i.i.i.i.i21, 1
   br i1 %53, label %.lr.ph.i.i.i.i.i20, label %_ZSt4moveIPN4llvm10SuffixTree17RepeatedSubstringEN9__gnu_cxx17__normal_iteratorIS3_St6vectorIS2_SaIS2_EEEEET0_T_SB_SA_.exit24, !llvm.loop !448
 
 _ZSt4moveIPN4llvm10SuffixTree17RepeatedSubstringEN9__gnu_cxx17__normal_iteratorIS3_St6vectorIS2_SaIS2_EEEEET0_T_SB_SA_.exit24: ; preds = %.lr.ph.i.i.i.i.i20, %_ZSt4moveIPN4llvm10SuffixTree17RepeatedSubstringEN9__gnu_cxx17__normal_iteratorIS3_St6vectorIS2_SaIS2_EEEEET0_T_SB_SA_.exit
@@ -25707,7 +25707,7 @@ define linkonce_odr ptr @_ZSt17__rotate_adaptiveIN9__gnu_cxx17__normal_iteratorI
   %20 = getelementptr inbounds i8, ptr %.0910.i.i.i.i.i, i64 72
   %21 = getelementptr inbounds i8, ptr %.0811.i.i.i.i.i, i64 72
   %22 = add nsw i64 %.012.i.i.i.i.i, -1
-  %23 = icmp ugt i64 %.012.i.i.i.i.i, 1
+  %23 = icmp samesign ugt i64 %.012.i.i.i.i.i, 1
   br i1 %23, label %.lr.ph.i.i.i.i.i, label %_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPN4llvm10SuffixTree17RepeatedSubstringESt6vectorIS4_SaIS4_EEEES5_ET0_T_SB_SA_.exit, !llvm.loop !448
 
 _ZSt4moveIN9__gnu_cxx17__normal_iteratorIPN4llvm10SuffixTree17RepeatedSubstringESt6vectorIS4_SaIS4_EEEES5_ET0_T_SB_SA_.exit: ; preds = %.lr.ph.i.i.i.i.i, %10
@@ -25733,7 +25733,7 @@ _ZSt4moveIN9__gnu_cxx17__normal_iteratorIPN4llvm10SuffixTree17RepeatedSubstringE
   %32 = getelementptr inbounds i8, ptr %.078.i.i.i.i.i, i64 -64
   %33 = tail call noundef nonnull align 8 dereferenceable(16) ptr @_ZN4llvm15SmallVectorImplIjEaSEOS1_(ptr noundef nonnull align 8 dereferenceable(64) %31, ptr noundef nonnull align 8 dereferenceable(64) %32)
   %34 = add nsw i64 %.010.i.i.i.i.i, -1
-  %35 = icmp ugt i64 %.010.i.i.i.i.i, 1
+  %35 = icmp samesign ugt i64 %.010.i.i.i.i.i, 1
   br i1 %35, label %.lr.ph.i.i.i.i.i38, label %_ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPN4llvm10SuffixTree17RepeatedSubstringESt6vectorIS4_SaIS4_EEEES9_ET0_T_SB_SA_.exit, !llvm.loop !437
 
 _ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPN4llvm10SuffixTree17RepeatedSubstringESt6vectorIS4_SaIS4_EEEES9_ET0_T_SB_SA_.exit: ; preds = %.lr.ph.i.i.i.i.i38, %_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPN4llvm10SuffixTree17RepeatedSubstringESt6vectorIS4_SaIS4_EEEES5_ET0_T_SB_SA_.exit
@@ -25759,7 +25759,7 @@ _ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPN4llvm10SuffixTree17Repeated
   %45 = getelementptr inbounds i8, ptr %.0910.i.i.i.i.i44, i64 72
   %46 = getelementptr inbounds i8, ptr %.0811.i.i.i.i.i43, i64 72
   %47 = add nsw i64 %.012.i.i.i.i.i42, -1
-  %48 = icmp ugt i64 %.012.i.i.i.i.i42, 1
+  %48 = icmp samesign ugt i64 %.012.i.i.i.i.i42, 1
   br i1 %48, label %.lr.ph.i.i.i.i.i41, label %_ZSt4moveIPN4llvm10SuffixTree17RepeatedSubstringEN9__gnu_cxx17__normal_iteratorIS3_St6vectorIS2_SaIS2_EEEEET0_T_SB_SA_.exit.loopexit, !llvm.loop !448
 
 _ZSt4moveIPN4llvm10SuffixTree17RepeatedSubstringEN9__gnu_cxx17__normal_iteratorIS3_St6vectorIS2_SaIS2_EEEEET0_T_SB_SA_.exit.loopexit: ; preds = %.lr.ph.i.i.i.i.i41
@@ -25803,7 +25803,7 @@ _ZSt4moveIPN4llvm10SuffixTree17RepeatedSubstringEN9__gnu_cxx17__normal_iteratorI
   %63 = getelementptr inbounds i8, ptr %.0910.i.i.i.i.i50, i64 72
   %64 = getelementptr inbounds i8, ptr %.0811.i.i.i.i.i49, i64 72
   %65 = add nsw i64 %.012.i.i.i.i.i48, -1
-  %66 = icmp ugt i64 %.012.i.i.i.i.i48, 1
+  %66 = icmp samesign ugt i64 %.012.i.i.i.i.i48, 1
   br i1 %66, label %.lr.ph.i.i.i.i.i47, label %_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPN4llvm10SuffixTree17RepeatedSubstringESt6vectorIS4_SaIS4_EEEES5_ET0_T_SB_SA_.exit51, !llvm.loop !448
 
 _ZSt4moveIN9__gnu_cxx17__normal_iteratorIPN4llvm10SuffixTree17RepeatedSubstringESt6vectorIS4_SaIS4_EEEES5_ET0_T_SB_SA_.exit51: ; preds = %.lr.ph.i.i.i.i.i47, %53
@@ -25829,7 +25829,7 @@ _ZSt4moveIN9__gnu_cxx17__normal_iteratorIPN4llvm10SuffixTree17RepeatedSubstringE
   %75 = getelementptr inbounds i8, ptr %.0910.i.i.i.i.i57, i64 72
   %76 = getelementptr inbounds i8, ptr %.0811.i.i.i.i.i56, i64 72
   %77 = add nsw i64 %.012.i.i.i.i.i55, -1
-  %78 = icmp ugt i64 %.012.i.i.i.i.i55, 1
+  %78 = icmp samesign ugt i64 %.012.i.i.i.i.i55, 1
   br i1 %78, label %.lr.ph.i.i.i.i.i54, label %_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPN4llvm10SuffixTree17RepeatedSubstringESt6vectorIS4_SaIS4_EEEES9_ET0_T_SB_SA_.exit, !llvm.loop !448
 
 _ZSt4moveIN9__gnu_cxx17__normal_iteratorIPN4llvm10SuffixTree17RepeatedSubstringESt6vectorIS4_SaIS4_EEEES9_ET0_T_SB_SA_.exit: ; preds = %.lr.ph.i.i.i.i.i54, %_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPN4llvm10SuffixTree17RepeatedSubstringESt6vectorIS4_SaIS4_EEEES5_ET0_T_SB_SA_.exit51
@@ -25855,7 +25855,7 @@ _ZSt4moveIN9__gnu_cxx17__normal_iteratorIPN4llvm10SuffixTree17RepeatedSubstringE
   %88 = getelementptr inbounds i8, ptr %.078.i.i.i.i.i63, i64 -64
   %89 = tail call noundef nonnull align 8 dereferenceable(16) ptr @_ZN4llvm15SmallVectorImplIjEaSEOS1_(ptr noundef nonnull align 8 dereferenceable(64) %87, ptr noundef nonnull align 8 dereferenceable(64) %88)
   %90 = add nsw i64 %.010.i.i.i.i.i61, -1
-  %91 = icmp ugt i64 %.010.i.i.i.i.i61, 1
+  %91 = icmp samesign ugt i64 %.010.i.i.i.i.i61, 1
   br i1 %91, label %.lr.ph.i.i.i.i.i60, label %_ZSt13move_backwardIPN4llvm10SuffixTree17RepeatedSubstringEN9__gnu_cxx17__normal_iteratorIS3_St6vectorIS2_SaIS2_EEEEET0_T_SB_SA_.exit.loopexit, !llvm.loop !437
 
 _ZSt13move_backwardIPN4llvm10SuffixTree17RepeatedSubstringEN9__gnu_cxx17__normal_iteratorIS3_St6vectorIS2_SaIS2_EEEEET0_T_SB_SA_.exit.loopexit: ; preds = %.lr.ph.i.i.i.i.i60

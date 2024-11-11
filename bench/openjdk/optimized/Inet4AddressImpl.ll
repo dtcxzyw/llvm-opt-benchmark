@@ -695,7 +695,7 @@ tcp_ping4.exit:                                   ; preds = %78, %86, %94, %109,
   %186 = and i8 %185, 60
   %narrow.i = add nuw nsw i8 %186, 24
   %187 = zext nneg i8 %narrow.i to i32
-  %188 = icmp ult i32 %181, %187
+  %188 = icmp samesign ult i32 %181, %187
   br i1 %188, label %204, label %189
 
 189:                                              ; preds = %183

@@ -14888,7 +14888,7 @@ define internal range(i32 -1, 1) i32 @arg_set_priority(ptr nocapture noundef wri
   br label %18
 
 11:                                               ; preds = %6
-  %12 = icmp ugt i64 %7, 4294967293
+  %12 = icmp samesign ugt i64 %7, 4294967293
   br i1 %12, label %13, label %15
 
 13:                                               ; preds = %11
@@ -17558,7 +17558,7 @@ define internal i32 @arg_set_data_umask(ptr nocapture noundef readonly %0, ptr n
   br label %48
 
 35:                                               ; preds = %25
-  %36 = icmp ugt i32 %26, 4095
+  %36 = icmp samesign ugt i32 %26, 4095
   br i1 %36, label %37, label %44
 
 37:                                               ; preds = %35

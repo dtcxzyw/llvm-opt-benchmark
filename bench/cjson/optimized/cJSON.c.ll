@@ -5743,7 +5743,7 @@ define internal fastcc range(i32 0, 2) i32 @parse_string(ptr nocapture noundef n
   br label %117
 
 57:                                               ; preds = %42
-  %58 = icmp ult i64 %40, 6
+  %58 = icmp samesign ult i64 %40, 6
   br i1 %58, label %.critedge, label %59
 
 59:                                               ; preds = %57

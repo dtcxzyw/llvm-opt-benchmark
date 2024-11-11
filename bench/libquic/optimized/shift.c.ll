@@ -61,7 +61,7 @@ for.body:                                         ; preds = %for.body.preheader,
   %8 = load i64, ptr %arrayidx18, align 8
   %gep53 = getelementptr i64, ptr %invariant.gep52, i64 %indvars.iv.next46
   store i64 %8, ptr %gep53, align 8
-  %cmp15 = icmp ugt i64 %indvars.iv45, 1
+  %cmp15 = icmp samesign ugt i64 %indvars.iv45, 1
   br i1 %cmp15, label %for.body, label %if.end42, !llvm.loop !7
 
 if.else:                                          ; preds = %if.end6
@@ -94,7 +94,7 @@ for.body27:                                       ; preds = %for.body27.lr.ph, %
   %shl = shl i64 %14, %sh_prom34
   %gep51 = getelementptr i64, ptr %invariant.gep50, i64 %indvars.iv.next
   store i64 %shl, ptr %gep51, align 8
-  %cmp25 = icmp ugt i64 %indvars.iv, 1
+  %cmp25 = icmp samesign ugt i64 %indvars.iv, 1
   br i1 %cmp25, label %for.body27, label %if.end42, !llvm.loop !9
 
 if.end42:                                         ; preds = %for.body27, %for.body, %if.else, %if.then12
@@ -395,7 +395,7 @@ while.body:                                       ; preds = %while.body.preheade
   %or = tail call i64 @llvm.fshl.i64(i64 %c.0.in25, i64 %9, i64 63)
   %arrayidx30 = getelementptr inbounds i64, ptr %6, i64 %indvars.iv.next
   store i64 %or, ptr %arrayidx30, align 8
-  %cmp22 = icmp ugt i64 %indvars.iv, 1
+  %cmp22 = icmp samesign ugt i64 %indvars.iv, 1
   br i1 %cmp22, label %while.body, label %while.end, !llvm.loop !13
 
 while.end:                                        ; preds = %while.body, %if.end21

@@ -8260,7 +8260,7 @@ _ZN14regex_automata4util8captures14GroupInfoInner9group_len17h54f6f08f5d394483E.
   %414 = add nsw i64 %413, -2
   %415 = add nuw nsw i64 %414, %407
   %.sroa.4.0.i = select i1 %411, i64 %412, i64 %415
-  %416 = icmp ugt i64 %.sroa.4.0.i, 2147483646
+  %416 = icmp samesign ugt i64 %.sroa.4.0.i, 2147483646
   br i1 %416, label %418, label %421
 
 .invoke:                                          ; preds = %431, %_ZN14regex_automata4util8captures14GroupInfoInner9group_len17h54f6f08f5d394483E.exit.i235, %389, %_ZN14regex_automata4util8captures14GroupInfoInner9group_len17h54f6f08f5d394483E.exit.i

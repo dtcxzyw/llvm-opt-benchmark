@@ -2574,7 +2574,7 @@ Compute_Round.exit:                               ; preds = %Compute_Funcs.exit,
   %301 = shl i16 %.tr.i, 14
   %302 = and i16 %301, 16384
   %303 = xor i16 %302, 16384
-  %304 = icmp ult i8 %276, 4
+  %304 = icmp samesign ult i8 %276, 4
   br i1 %304, label %305, label %306
 
 305:                                              ; preds = %300
@@ -5572,7 +5572,7 @@ Ins_Goto_CodeRange.exit.i530:                     ; preds = %1755, %1754, %1749,
   br label %Ins_SPVTL.exit
 
 1771:                                             ; preds = %297
-  %1772 = icmp ugt i8 %276, -33
+  %1772 = icmp samesign ugt i8 %276, -33
   br i1 %1772, label %1773, label %1775
 
 1773:                                             ; preds = %1771
@@ -5583,7 +5583,7 @@ Ins_Goto_CodeRange.exit.i530:                     ; preds = %1755, %1754, %1749,
   br label %Ins_SPVTL.exit
 
 1775:                                             ; preds = %1771
-  %1776 = icmp ugt i8 %276, -65
+  %1776 = icmp samesign ugt i8 %276, -65
   br i1 %1776, label %1777, label %1778
 
 1777:                                             ; preds = %1775
@@ -5592,7 +5592,7 @@ Ins_Goto_CodeRange.exit.i530:                     ; preds = %1755, %1754, %1749,
   br label %Ins_SPVTL.exit
 
 1778:                                             ; preds = %1775
-  %1779 = icmp ugt i8 %276, -73
+  %1779 = icmp samesign ugt i8 %276, -73
   br i1 %1779, label %1780, label %1781
 
 1780:                                             ; preds = %1778
@@ -5600,7 +5600,7 @@ Ins_Goto_CodeRange.exit.i530:                     ; preds = %1755, %1754, %1749,
   br label %Ins_SPVTL.exit
 
 1781:                                             ; preds = %1778
-  %1782 = icmp ugt i8 %276, -81
+  %1782 = icmp samesign ugt i8 %276, -81
   br i1 %1782, label %1783, label %1784
 
 1783:                                             ; preds = %1781
@@ -7770,7 +7770,7 @@ define internal fastcc void @Ins_FDEF(ptr nocapture noundef %0, ptr nocapture no
   %51 = getelementptr inbounds i8, ptr %0, i64 760
   %52 = load i32, ptr %51, align 8
   %53 = zext i32 %52 to i64
-  %54 = icmp ugt i64 %37, %53
+  %54 = icmp samesign ugt i64 %37, %53
   br i1 %54, label %55, label %56
 
 55:                                               ; preds = %41
@@ -15010,7 +15010,7 @@ define internal fastcc ptr @ft_var_readpackeddeltas(ptr noundef %0, i64 noundef 
   br i1 %31, label %.lr.ph, label %.loopexit, !llvm.loop !98
 
 32:                                               ; preds = %14
-  %.not60 = icmp ult i8 %15, 64
+  %.not60 = icmp samesign ult i8 %15, 64
   br i1 %.not60, label %48, label %33
 
 33:                                               ; preds = %32
@@ -16650,7 +16650,7 @@ define internal range(i64 0, 4294967296) i64 @tt_face_get_location(ptr nocapture
 
 91:                                               ; preds = %88, %86
   %.2 = phi i64 [ %.0, %86 ], [ %84, %88 ]
-  %.not62 = icmp ult i64 %.2, %.054
+  %.not62 = icmp samesign ult i64 %.2, %.054
   %spec.select = select i1 %.not62, i64 %84, i64 %.2
   br label %.thread71
 
@@ -16997,7 +16997,7 @@ define internal fastcc i32 @load_truetype_glyph(ptr noundef nonnull %0, i32 noun
 
 149:                                              ; preds = %146, %144
   %.2.i = phi i64 [ %.0.i, %144 ], [ %142, %146 ]
-  %.not62.i = icmp ult i64 %.2.i, %.054.i
+  %.not62.i = icmp samesign ult i64 %.2.i, %.054.i
   %spec.select.i = select i1 %.not62.i, i64 %142, i64 %.2.i
   br label %.thread71.i
 
@@ -22728,7 +22728,7 @@ define internal fastcc zeroext range(i8 0, 2) i8 @tt_check_single_notdef(ptr nou
 
 tt_face_get_location.exit.us:                     ; preds = %43, %40
   %.2.i.us = phi i64 [ %41, %40 ], [ %14, %43 ]
-  %.not62.i.us = icmp ult i64 %.2.i.us, %38
+  %.not62.i.us = icmp samesign ult i64 %.2.i.us, %38
   %spec.select.i.us = select i1 %.not62.i.us, i64 %14, i64 %.2.i.us
   %45 = icmp eq i64 %spec.select.i.us, %38
   br i1 %45, label %tt_face_get_location.exit.thread.us, label %46
@@ -22809,7 +22809,7 @@ tt_face_get_location.exit.thread.us:              ; preds = %46, %tt_face_get_lo
 
 tt_face_get_location.exit:                        ; preds = %93, %91
   %.2.i = phi i64 [ %.0.i, %91 ], [ %14, %93 ]
-  %.not62.i = icmp ult i64 %.2.i, %68
+  %.not62.i = icmp samesign ult i64 %.2.i, %68
   %spec.select.i = select i1 %.not62.i, i64 %14, i64 %.2.i
   %95 = icmp eq i64 %spec.select.i, %68
   br i1 %95, label %tt_face_get_location.exit.thread, label %96

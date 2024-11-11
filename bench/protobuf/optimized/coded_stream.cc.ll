@@ -193,7 +193,7 @@ entry:
   %4 = load i32, ptr %current_limit_, align 8
   %cmp = icmp sgt i32 %byte_limit, -1
   %sub = sub nsw i32 2147483647, %sub.i
-  %cmp2.not = icmp ule i32 %byte_limit, %sub
+  %cmp2.not = icmp samesign ule i32 %byte_limit, %sub
   %or.cond.not10 = select i1 %cmp, i1 %cmp2.not, i1 false
   %sub4 = sub nsw i32 %4, %sub.i
   %cmp5 = icmp slt i32 %byte_limit, %sub4
@@ -285,7 +285,7 @@ entry:
   %4 = load i32, ptr %current_limit_.i, align 8
   %cmp.i = icmp sgt i32 %byte_limit, -1
   %sub.i = sub nsw i32 2147483647, %sub.i.i
-  %cmp2.not.i = icmp ule i32 %byte_limit, %sub.i
+  %cmp2.not.i = icmp samesign ule i32 %byte_limit, %sub.i
   %or.cond.not10.i = select i1 %cmp.i, i1 %cmp2.not.i, i1 false
   %sub4.i = sub nsw i32 %4, %sub.i.i
   %cmp5.i = icmp slt i32 %byte_limit, %sub4.i
@@ -353,7 +353,7 @@ entry:
   %5 = load i32, ptr %current_limit_.i, align 8
   %cmp.i = icmp sgt i32 %cond, -1
   %sub.i = sub nsw i32 2147483647, %sub.i.i
-  %cmp2.not.i = icmp ule i32 %cond, %sub.i
+  %cmp2.not.i = icmp samesign ule i32 %cond, %sub.i
   %or.cond.not10.i = select i1 %cmp.i, i1 %cmp2.not.i, i1 false
   %sub4.i = sub nsw i32 %5, %sub.i.i
   %cmp5.i = icmp slt i32 %cond, %sub4.i
@@ -1179,7 +1179,7 @@ if.end:                                           ; preds = %entry
   %input_ = getelementptr inbounds i8, ptr %this, i64 16
   %0 = load ptr, ptr %input_, align 8
   %cmp2 = icmp eq ptr %0, null
-  %cmp3 = icmp ult i32 %size, 512
+  %cmp3 = icmp samesign ult i32 %size, 512
   %or.cond = or i1 %cmp3, %cmp2
   %buffer_end_.i = getelementptr inbounds i8, ptr %this, i64 8
   br i1 %or.cond, label %if.then4, label %if.else
@@ -5012,7 +5012,7 @@ while.body.i.i.i.i:                               ; preds = %if.then.i, %while.b
   %arrayidx14.i.i.i.i = getelementptr inbounds [12 x i8], ptr %index_.i.i.i.i, i64 0, i64 %indvars.iv.next.i.i.i.i
   store i8 %10, ptr %arrayidx14.i.i.i.i, align 1
   %index.0.i.i.i.i = zext i8 %10 to i64
-  %cmp.i.i.i.i = icmp ugt i64 %indvars.iv.i.i.i.i, 1
+  %cmp.i.i.i.i = icmp samesign ugt i64 %indvars.iv.i.i.i.i, 1
   br i1 %cmp.i.i.i.i, label %while.body.i.i.i.i, label %_ZN4absl12lts_2023080213cord_internal21CordRepBtreeNavigator9InitFirstEPNS1_12CordRepBtreeE.exit.i.i, !llvm.loop !29
 
 _ZN4absl12lts_2023080213cord_internal21CordRepBtreeNavigator9InitFirstEPNS1_12CordRepBtreeE.exit.i.i: ; preds = %while.body.i.i.i.i, %if.then.i

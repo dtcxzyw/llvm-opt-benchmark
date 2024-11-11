@@ -33073,7 +33073,7 @@ define linkonce_odr hidden void @_ZN2cv23EigenvalueDecomposition4hqr2Ev(ptr noun
   br label %29
 
 27:                                               ; preds = %29
-  %28 = icmp ugt i64 %indvars.iv1035, 1
+  %28 = icmp samesign ugt i64 %indvars.iv1035, 1
   br i1 %28, label %29, label %._crit_edge851, !llvm.loop !320
 
 29:                                               ; preds = %.lr.ph850, %27

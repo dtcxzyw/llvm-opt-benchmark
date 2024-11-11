@@ -5195,11 +5195,11 @@ if.then.i.i:                                      ; preds = %if.end5.i
   br i1 %cmp.i16.i, label %if.then.i.i14, label %if.else11.i.i
 
 if.then.i.i14:                                    ; preds = %if.then.i.i
-  %cmp4.i.i = icmp ult i64 %.sroa.speculated.i, 3
+  %cmp4.i.i = icmp samesign ult i64 %.sroa.speculated.i, 3
   br i1 %cmp4.i.i, label %_ZNK5folly3f146detail8F14TableINS1_20ValueContainerPolicyIPKvvvvvEEE25computeChunkCountAndScaleEmbb.exit.i, label %if.else.i.i
 
 if.else.i.i:                                      ; preds = %if.then.i.i14
-  %cmp6.inv.i.i = icmp ugt i64 %.sroa.speculated.i, 6
+  %cmp6.inv.i.i = icmp samesign ugt i64 %.sroa.speculated.i, 6
   %spec.select.i.i = select i1 %cmp6.inv.i.i, i64 14, i64 6
   br label %_ZNK5folly3f146detail8F14TableINS1_20ValueContainerPolicyIPKvvvvvEEE25computeChunkCountAndScaleEmbb.exit.i
 
@@ -25665,7 +25665,7 @@ cleanup:                                          ; preds = %if.end, %entry
 if.end.1:                                         ; preds = %cleanup
   %sub.1 = sub i64 %capacity, %rem.1
   %.sroa.speculated.1 = tail call i64 @llvm.umin.i64(i64 %sub.1, i64 %rem.1)
-  %cmp7.1 = icmp ugt i64 %.sroa.speculated.1, %bestSep.2
+  %cmp7.1 = icmp samesign ugt i64 %.sroa.speculated.1, %bestSep.2
   %spec.select.1 = tail call i64 @llvm.umax.i64(i64 %.sroa.speculated.1, i64 %bestSep.2)
   %spec.select23.1 = select i1 %cmp7.1, i32 3, i32 %bestStride.2
   br label %cleanup.1
@@ -25683,7 +25683,7 @@ cleanup.1:                                        ; preds = %if.end.1, %cleanup
 if.end.2:                                         ; preds = %cleanup.1
   %sub.2 = sub i64 %capacity, %rem.2
   %.sroa.speculated.2 = tail call i64 @llvm.umin.i64(i64 %sub.2, i64 %rem.2)
-  %cmp7.2 = icmp ugt i64 %.sroa.speculated.2, %bestSep.2.1
+  %cmp7.2 = icmp samesign ugt i64 %.sroa.speculated.2, %bestSep.2.1
   %spec.select.2 = tail call i64 @llvm.umax.i64(i64 %.sroa.speculated.2, i64 %bestSep.2.1)
   %spec.select23.2 = select i1 %cmp7.2, i32 5, i32 %bestStride.2.1
   br label %cleanup.2
@@ -25701,7 +25701,7 @@ cleanup.2:                                        ; preds = %if.end.2, %cleanup.
 if.end.3:                                         ; preds = %cleanup.2
   %sub.3 = sub i64 %capacity, %rem.3
   %.sroa.speculated.3 = tail call i64 @llvm.umin.i64(i64 %sub.3, i64 %rem.3)
-  %cmp7.3 = icmp ugt i64 %.sroa.speculated.3, %bestSep.2.2
+  %cmp7.3 = icmp samesign ugt i64 %.sroa.speculated.3, %bestSep.2.2
   %spec.select.3 = tail call i64 @llvm.umax.i64(i64 %.sroa.speculated.3, i64 %bestSep.2.2)
   %spec.select23.3 = select i1 %cmp7.3, i32 7, i32 %bestStride.2.2
   br label %cleanup.3
@@ -25719,7 +25719,7 @@ cleanup.3:                                        ; preds = %if.end.3, %cleanup.
 if.end.4:                                         ; preds = %cleanup.3
   %sub.4 = sub i64 %capacity, %rem.4
   %.sroa.speculated.4 = tail call i64 @llvm.umin.i64(i64 %sub.4, i64 %rem.4)
-  %cmp7.4 = icmp ugt i64 %.sroa.speculated.4, %bestSep.2.3
+  %cmp7.4 = icmp samesign ugt i64 %.sroa.speculated.4, %bestSep.2.3
   %spec.select.4 = tail call i64 @llvm.umax.i64(i64 %.sroa.speculated.4, i64 %bestSep.2.3)
   %spec.select23.4 = select i1 %cmp7.4, i32 11, i32 %bestStride.2.3
   br label %cleanup.4
@@ -25737,7 +25737,7 @@ cleanup.4:                                        ; preds = %if.end.4, %cleanup.
 if.end.5:                                         ; preds = %cleanup.4
   %sub.5 = sub i64 %capacity, %rem.5
   %.sroa.speculated.5 = tail call i64 @llvm.umin.i64(i64 %sub.5, i64 %rem.5)
-  %cmp7.5 = icmp ugt i64 %.sroa.speculated.5, %bestSep.2.4
+  %cmp7.5 = icmp samesign ugt i64 %.sroa.speculated.5, %bestSep.2.4
   %spec.select.5 = tail call i64 @llvm.umax.i64(i64 %.sroa.speculated.5, i64 %bestSep.2.4)
   %spec.select23.5 = select i1 %cmp7.5, i32 13, i32 %bestStride.2.4
   br label %cleanup.5
@@ -25755,7 +25755,7 @@ cleanup.5:                                        ; preds = %if.end.5, %cleanup.
 if.end.6:                                         ; preds = %cleanup.5
   %sub.6 = sub i64 %capacity, %rem.6
   %.sroa.speculated.6 = tail call i64 @llvm.umin.i64(i64 %sub.6, i64 %rem.6)
-  %cmp7.6 = icmp ugt i64 %.sroa.speculated.6, %bestSep.2.5
+  %cmp7.6 = icmp samesign ugt i64 %.sroa.speculated.6, %bestSep.2.5
   %spec.select.6 = tail call i64 @llvm.umax.i64(i64 %.sroa.speculated.6, i64 %bestSep.2.5)
   %spec.select23.6 = select i1 %cmp7.6, i32 17, i32 %bestStride.2.5
   br label %cleanup.6
@@ -25773,7 +25773,7 @@ cleanup.6:                                        ; preds = %if.end.6, %cleanup.
 if.end.7:                                         ; preds = %cleanup.6
   %sub.7 = sub i64 %capacity, %rem.7
   %.sroa.speculated.7 = tail call i64 @llvm.umin.i64(i64 %sub.7, i64 %rem.7)
-  %cmp7.7 = icmp ugt i64 %.sroa.speculated.7, %bestSep.2.6
+  %cmp7.7 = icmp samesign ugt i64 %.sroa.speculated.7, %bestSep.2.6
   %spec.select.7 = tail call i64 @llvm.umax.i64(i64 %.sroa.speculated.7, i64 %bestSep.2.6)
   %spec.select23.7 = select i1 %cmp7.7, i32 19, i32 %bestStride.2.6
   br label %cleanup.7
@@ -25791,7 +25791,7 @@ cleanup.7:                                        ; preds = %if.end.7, %cleanup.
 if.end.8:                                         ; preds = %cleanup.7
   %sub.8 = sub i64 %capacity, %rem.8
   %.sroa.speculated.8 = tail call i64 @llvm.umin.i64(i64 %sub.8, i64 %rem.8)
-  %cmp7.8 = icmp ugt i64 %.sroa.speculated.8, %bestSep.2.7
+  %cmp7.8 = icmp samesign ugt i64 %.sroa.speculated.8, %bestSep.2.7
   %spec.select23.8 = select i1 %cmp7.8, i32 23, i32 %bestStride.2.7
   br label %cleanup.8
 
@@ -27980,7 +27980,7 @@ if.else.i.i:                                      ; preds = %while.body.i.i
   br i1 %cmp.i.i45.i.i, label %cleanup.i.i, label %if.else15.i.i
 
 if.else15.i.i:                                    ; preds = %if.else.i.i
-  %cmp17.i.i.i.not = icmp ult i64 %__len.098.i.i, 2
+  %cmp17.i.i.i.not = icmp samesign ult i64 %__len.098.i.i, 2
   br i1 %cmp17.i.i.i.not, label %_ZSt13__lower_boundIN9__gnu_cxx17__normal_iteratorIPSt10shared_ptrIN5folly18ThreadPoolExecutor6ThreadEESt6vectorIS6_SaIS6_EEEES6_NS0_5__ops14_Iter_comp_valINS4_10ThreadList7CompareEEEET_SH_SH_RKT0_T1_.exit.i.i, label %while.body.i.i.i
 
 while.body.i.i.i:                                 ; preds = %if.else15.i.i, %while.body.i.i.i

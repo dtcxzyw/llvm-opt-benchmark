@@ -531,7 +531,7 @@ if.then114:                                       ; preds = %land.lhs.true111
   br label %return
 
 land.lhs.true118:                                 ; preds = %land.lhs.true111
-  %cmp121 = icmp ult i64 %20, %19
+  %cmp121 = icmp samesign ult i64 %20, %19
   br i1 %cmp121, label %if.then122, label %for.inc
 
 if.then122:                                       ; preds = %land.lhs.true118

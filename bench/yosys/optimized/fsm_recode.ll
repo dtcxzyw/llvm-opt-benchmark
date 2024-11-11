@@ -5078,7 +5078,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_116fm_set_fsm_printEPN5Yosys5RTLIL4
   br label %29
 
 29:                                               ; preds = %23, %26
-  %30 = icmp ugt i32 %.03539.in, 1
+  %30 = icmp samesign ugt i32 %.03539.in, 1
   br i1 %30, label %.lr.ph, label %._crit_edge, !llvm.loop !41
 
 .loopexit:                                        ; preds = %.lr.ph, %22
@@ -5151,7 +5151,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_116fm_set_fsm_printEPN5Yosys5RTLIL4
   %66 = icmp eq i8 %65, 1
   %67 = select i1 %66, i32 49, i32 48
   %fputc = call i32 @fputc(i32 %67, ptr nonnull %4)
-  %68 = icmp ugt i64 %indvars.iv, 1
+  %68 = icmp samesign ugt i64 %indvars.iv, 1
   br i1 %68, label %.lr.ph42, label %._crit_edge43.loopexit, !llvm.loop !45
 
 69:                                               ; preds = %31

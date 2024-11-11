@@ -13412,7 +13412,7 @@ define linkonce_odr noundef i64 @_ZN4absl7debian213hash_internal9HashState21Comb
   br label %56
 
 11:                                               ; preds = %3
-  %12 = icmp ugt i64 %2, 8
+  %12 = icmp samesign ugt i64 %2, 8
   br i1 %12, label %13, label %25
 
 13:                                               ; preds = %11
@@ -13432,7 +13432,7 @@ define linkonce_odr noundef i64 @_ZN4absl7debian213hash_internal9HashState21Comb
   br label %56
 
 25:                                               ; preds = %11
-  %26 = icmp ugt i64 %2, 3
+  %26 = icmp samesign ugt i64 %2, 3
   br i1 %26, label %27, label %36
 
 27:                                               ; preds = %25
@@ -14410,7 +14410,7 @@ _ZN4absl7debian211string_viewC2ISaIcEEERKNSt7__cxx1112basic_stringIcSt11char_tra
   br i1 %35, label %.thread.i.i.i, label %_ZNK4absl7debian218container_internal5btreeINS1_10set_paramsINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4lessIS9_ESaIS9_ELi256ELb0EEEE12compare_keysIS9_S9_EEbRKT_RKT0_.exit
 
 .thread.i.i.i:                                    ; preds = %33, %_ZN4absl7debian211string_viewC2ISaIcEEERKNSt7__cxx1112basic_stringIcSt11char_traitsIcET_EE.exit3.i
-  %36 = icmp ult i64 %24, %28
+  %36 = icmp samesign ult i64 %24, %28
   br i1 %36, label %.critedge, label %89
 
 _ZNK4absl7debian218container_internal5btreeINS1_10set_paramsINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4lessIS9_ESaIS9_ELi256ELb0EEEE12compare_keysIS9_S9_EEbRKT_RKT0_.exit: ; preds = %33
@@ -14520,7 +14520,7 @@ _ZN4absl7debian211string_viewC2ISaIcEEERKNSt7__cxx1112basic_stringIcSt11char_tra
   br i1 %85, label %.thread.i.i.i48, label %_ZNK4absl7debian218container_internal5btreeINS1_10set_paramsINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4lessIS9_ESaIS9_ELi256ELb0EEEE12compare_keysIS9_S9_EEbRKT_RKT0_.exit49
 
 .thread.i.i.i48:                                  ; preds = %83, %_ZN4absl7debian211string_viewC2ISaIcEEERKNSt7__cxx1112basic_stringIcSt11char_traitsIcET_EE.exit3.i46
-  %86 = icmp ult i64 %74, %78
+  %86 = icmp samesign ult i64 %74, %78
   br i1 %86, label %.critedge2, label %160
 
 _ZNK4absl7debian218container_internal5btreeINS1_10set_paramsINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4lessIS9_ESaIS9_ELi256ELb0EEEE12compare_keysIS9_S9_EEbRKT_RKT0_.exit49: ; preds = %83
@@ -14569,7 +14569,7 @@ _ZN4absl7debian211string_viewC2ISaIcEEERKNSt7__cxx1112basic_stringIcSt11char_tra
   br i1 %102, label %.thread.i.i.i53, label %_ZNK4absl7debian218container_internal5btreeINS1_10set_paramsINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4lessIS9_ESaIS9_ELi256ELb0EEEE12compare_keysIS9_S9_EEbRKT_RKT0_.exit54
 
 .thread.i.i.i53:                                  ; preds = %100, %_ZN4absl7debian211string_viewC2ISaIcEEERKNSt7__cxx1112basic_stringIcSt11char_traitsIcET_EE.exit3.i51
-  %103 = icmp ult i64 %91, %95
+  %103 = icmp samesign ult i64 %91, %95
   br i1 %103, label %104, label %158
 
 _ZNK4absl7debian218container_internal5btreeINS1_10set_paramsINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4lessIS9_ESaIS9_ELi256ELb0EEEE12compare_keysIS9_S9_EEbRKT_RKT0_.exit54: ; preds = %100
@@ -14671,7 +14671,7 @@ _ZN4absl7debian211string_viewC2ISaIcEEERKNSt7__cxx1112basic_stringIcSt11char_tra
   br i1 %154, label %.thread.i.i.i60, label %_ZNK4absl7debian218container_internal5btreeINS1_10set_paramsINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4lessIS9_ESaIS9_ELi256ELb0EEEE12compare_keysIS9_S9_EEbRKT_RKT0_.exit61
 
 .thread.i.i.i60:                                  ; preds = %152, %_ZN4absl7debian211string_viewC2ISaIcEEERKNSt7__cxx1112basic_stringIcSt11char_traitsIcET_EE.exit3.i58
-  %155 = icmp ult i64 %140, %147
+  %155 = icmp samesign ult i64 %140, %147
   br i1 %155, label %.critedge4, label %160
 
 _ZNK4absl7debian218container_internal5btreeINS1_10set_paramsINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4lessIS9_ESaIS9_ELi256ELb0EEEE12compare_keysIS9_S9_EEbRKT_RKT0_.exit61: ; preds = %152
@@ -15250,7 +15250,7 @@ define linkonce_odr void @_ZN4absl7debian218container_internal5btreeINS1_10set_p
   %59 = sub nsw i32 %58, %.sroa.speculated
   %.not73 = icmp sle i32 %52, %59
   %narrow = add nuw nsw i8 %55, %49
-  %60 = icmp ult i8 %narrow, 7
+  %60 = icmp samesign ult i8 %narrow, 7
   %or.cond91 = select i1 %.not73, i1 true, i1 %60
   br i1 %or.cond91, label %61, label %71
 

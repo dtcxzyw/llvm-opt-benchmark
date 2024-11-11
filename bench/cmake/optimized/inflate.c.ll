@@ -276,7 +276,7 @@ inflateStateCheck.exit:                           ; preds = %16
   br i1 %22, label %23, label %27
 
 23:                                               ; preds = %21
-  %24 = icmp ult i32 %1, -15
+  %24 = icmp samesign ult i32 %1, -15
   br i1 %24, label %inflateStateCheck.exit.thread, label %25
 
 25:                                               ; preds = %23
@@ -286,7 +286,7 @@ inflateStateCheck.exit:                           ; preds = %16
 27:                                               ; preds = %21
   %28 = lshr i32 %1, 4
   %29 = add nuw nsw i32 %28, 5
-  %30 = icmp ult i32 %1, 48
+  %30 = icmp samesign ult i32 %1, 48
   %31 = and i32 %1, 15
   %spec.select = select i1 %30, i32 %31, i32 %1
   br label %select.unfold
@@ -423,7 +423,7 @@ inflateStateCheck.exit.i:                         ; preds = %40
   br i1 %46, label %47, label %51
 
 47:                                               ; preds = %45
-  %48 = icmp ult i32 %1, -15
+  %48 = icmp samesign ult i32 %1, -15
   br i1 %48, label %cm_zlib_inflateReset2.exit.thread, label %49
 
 49:                                               ; preds = %47
@@ -433,7 +433,7 @@ inflateStateCheck.exit.i:                         ; preds = %40
 51:                                               ; preds = %45
   %52 = lshr i32 %1, 4
   %53 = add nuw nsw i32 %52, 5
-  %54 = icmp ult i32 %1, 48
+  %54 = icmp samesign ult i32 %1, 48
   %55 = and i32 %1, 15
   %spec.select = select i1 %54, i32 %55, i32 %1
   br label %select.unfold.i
@@ -554,7 +554,7 @@ inflateStateCheck.exit:                           ; preds = %17
   br label %inflateStateCheck.exit.thread
 
 27:                                               ; preds = %22
-  %28 = icmp ugt i32 %1, 16
+  %28 = icmp samesign ugt i32 %1, 16
   br i1 %28, label %inflateStateCheck.exit.thread, label %29
 
 29:                                               ; preds = %27
@@ -2033,7 +2033,7 @@ default.unreachable2862:                          ; preds = %488
   %596 = zext i16 %595 to i64
   %597 = getelementptr inbounds [320 x i16], ptr %58, i64 0, i64 %596
   store i16 0, ptr %597, align 2
-  %598 = icmp ult i32 %591, 18
+  %598 = icmp samesign ult i32 %591, 18
   br i1 %598, label %.lr.ph1934, label %._crit_edge1935.loopexit, !llvm.loop !18
 
 ._crit_edge1935.loopexit:                         ; preds = %.lr.ph1934
@@ -3385,7 +3385,7 @@ default.unreachable2862:                          ; preds = %488
   br i1 %1110, label %1111, label %updatewindow.exit.thread
 
 1111:                                             ; preds = %1108
-  %1112 = icmp ult i32 %1109, 16206
+  %1112 = icmp samesign ult i32 %1109, 16206
   %1113 = icmp ne i32 %1, 4
   %or.cond9 = or i1 %1113, %1112
   br i1 %or.cond9, label %1114, label %updatewindow.exit.thread
@@ -4059,7 +4059,7 @@ inflateStateCheck.exit:                           ; preds = %16
   %47 = getelementptr inbounds i8, ptr %2, i64 %indvars.iv.i
   %48 = load i8, ptr %47, align 1
   %49 = zext i8 %48 to i32
-  %50 = icmp ult i32 %.01415.i, 2
+  %50 = icmp samesign ult i32 %.01415.i, 2
   %51 = select i1 %50, i32 0, i32 255
   %52 = icmp eq i32 %51, %49
   %53 = add nuw nsw i32 %.01415.i, 1
@@ -4069,7 +4069,7 @@ inflateStateCheck.exit:                           ; preds = %16
   %.1.i = select i1 %52, i32 %53, i32 %spec.select.i46
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %55 = icmp samesign ult i64 %indvars.iv.next.i, %46
-  %56 = icmp ult i32 %.1.i, 4
+  %56 = icmp samesign ult i32 %.1.i, 4
   %57 = select i1 %55, i1 %56, i1 false
   br i1 %57, label %.lr.ph.i, label %syncsearch.exit, !llvm.loop !30
 
@@ -4100,7 +4100,7 @@ syncsearch.exit:                                  ; preds = %.lr.ph.i, %.thread
   %68 = getelementptr inbounds i8, ptr %63, i64 %indvars.iv.i51
   %69 = load i8, ptr %68, align 1
   %70 = zext i8 %69 to i32
-  %71 = icmp ult i32 %.01415.i52, 2
+  %71 = icmp samesign ult i32 %.01415.i52, 2
   %72 = select i1 %71, i32 0, i32 255
   %73 = icmp eq i32 %72, %70
   %74 = add nuw nsw i32 %.01415.i52, 1
@@ -4110,7 +4110,7 @@ syncsearch.exit:                                  ; preds = %.lr.ph.i, %.thread
   %.1.i55 = select i1 %73, i32 %74, i32 %spec.select.i54
   %indvars.iv.next.i56 = add nuw nsw i64 %indvars.iv.i51, 1
   %76 = icmp samesign ult i64 %indvars.iv.next.i56, %67
-  %77 = icmp ult i32 %.1.i55, 4
+  %77 = icmp samesign ult i32 %.1.i55, 4
   %78 = select i1 %76, i1 %77, i1 false
   br i1 %78, label %.lr.ph.i50, label %._crit_edge.loopexit.i57, !llvm.loop !30
 

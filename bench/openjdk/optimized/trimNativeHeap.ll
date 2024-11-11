@@ -730,7 +730,7 @@ define linkonce_odr hidden void @_ZN23NativeHeapTrimmerThread20execute_trim_and_
   br i1 %23, label %_Z24byte_size_in_proper_unitImET_S0_.exit, label %24
 
 24:                                               ; preds = %21
-  %25 = icmp ugt i64 %15, 104857599
+  %25 = icmp samesign ugt i64 %15, 104857599
   br i1 %25, label %.thread, label %28
 
 .thread:                                          ; preds = %24
@@ -742,7 +742,7 @@ _Z24byte_size_in_proper_unitImET_S0_.exit:        ; preds = %21
   br label %_Z25proper_unit_for_byte_sizem.exit
 
 28:                                               ; preds = %24
-  %29 = icmp ugt i64 %15, 102399
+  %29 = icmp samesign ugt i64 %15, 102399
   %30 = lshr i64 %15, 10
   %spec.select.i = select i1 %29, i64 %30, i64 %15
   %.str.16..str.17.i = select i1 %29, ptr @.str.16, ptr @.str.17
@@ -755,7 +755,7 @@ _Z25proper_unit_for_byte_sizem.exit:              ; preds = %.thread, %_Z24byte_
   br i1 %31, label %_Z24byte_size_in_proper_unitImET_S0_.exit13, label %32
 
 32:                                               ; preds = %_Z25proper_unit_for_byte_sizem.exit
-  %33 = icmp ugt i64 %13, 104857599
+  %33 = icmp samesign ugt i64 %13, 104857599
   br i1 %33, label %.thread30, label %36
 
 .thread30:                                        ; preds = %32
@@ -767,7 +767,7 @@ _Z24byte_size_in_proper_unitImET_S0_.exit13:      ; preds = %_Z25proper_unit_for
   br label %_Z25proper_unit_for_byte_sizem.exit16
 
 36:                                               ; preds = %32
-  %37 = icmp ugt i64 %13, 102399
+  %37 = icmp samesign ugt i64 %13, 102399
   %38 = lshr i64 %13, 10
   %spec.select.i11 = select i1 %37, i64 %38, i64 %13
   %.str.16..str.17.i14 = select i1 %37, ptr @.str.16, ptr @.str.17
@@ -781,7 +781,7 @@ _Z25proper_unit_for_byte_sizem.exit16:            ; preds = %.thread30, %_Z24byt
   br i1 %40, label %_Z24byte_size_in_proper_unitImET_S0_.exit19, label %41
 
 41:                                               ; preds = %_Z25proper_unit_for_byte_sizem.exit16
-  %42 = icmp ugt i64 %19, 104857599
+  %42 = icmp samesign ugt i64 %19, 104857599
   br i1 %42, label %.thread35, label %45
 
 .thread35:                                        ; preds = %41
@@ -793,7 +793,7 @@ _Z24byte_size_in_proper_unitImET_S0_.exit19:      ; preds = %_Z25proper_unit_for
   br label %_Z25proper_unit_for_byte_sizem.exit22
 
 45:                                               ; preds = %41
-  %46 = icmp ugt i64 %19, 102399
+  %46 = icmp samesign ugt i64 %19, 102399
   %47 = lshr i64 %19, 10
   %spec.select.i17 = select i1 %46, i64 %47, i64 %19
   %.str.16..str.17.i20 = select i1 %46, ptr @.str.16, ptr @.str.17

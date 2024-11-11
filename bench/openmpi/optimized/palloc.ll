@@ -1123,7 +1123,7 @@ pmix_cmd_line_get_param.exit489:                  ; preds = %.lr.ph.i484
 
 427:                                              ; preds = %423, %420
   %.1.in.i = phi i64 [ %426, %423 ], [ %.0.in.i, %420 ]
-  %428 = icmp ugt i32 %403, 3
+  %428 = icmp samesign ugt i32 %403, 3
   br i1 %428, label %429, label %pmix_convert_string_to_time.exit
 
 429:                                              ; preds = %427

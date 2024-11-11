@@ -1627,7 +1627,7 @@ define void @php_stat(ptr noundef %0, i32 noundef %1, ptr nocapture noundef %2) 
   br i1 %.not802, label %35, label %29
 
 29:                                               ; preds = %26
-  %30 = icmp ult i32 %22, 5
+  %30 = icmp samesign ult i32 %22, 5
   %31 = and i32 %1, 14
   %32 = icmp eq i32 %31, 14
   %33 = or i1 %30, %32

@@ -21361,7 +21361,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__17UsdSkelAnimMapper16_ResizeContainerINSt7_
   %69 = getelementptr inbounds i8, ptr %.0910.i.i.i.i.i, i64 32
   %70 = getelementptr inbounds i8, ptr %.0811.i.i.i.i.i, i64 32
   %71 = add nsw i64 %.012.i.i.i.i.i, -1
-  %72 = icmp ugt i64 %.012.i.i.i.i.i, 1
+  %72 = icmp samesign ugt i64 %.012.i.i.i.i.i, 1
   br i1 %72, label %.lr.ph.i.i.i.i.i, label %_ZSt4copyIPKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPS5_ET0_T_SA_S9_.exit, !llvm.loop !107
 
 73:                                               ; preds = %48
@@ -21409,7 +21409,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__17UsdSkelAnimMapper16_ResizeContainerINSt7_
   %96 = getelementptr inbounds i8, ptr %.0910.i.i.i.i.i59, i64 32
   %97 = getelementptr inbounds i8, ptr %.0811.i.i.i.i.i58, i64 32
   %98 = add nsw i64 %.012.i.i.i.i.i57, -1
-  %99 = icmp ugt i64 %.012.i.i.i.i.i57, 1
+  %99 = icmp samesign ugt i64 %.012.i.i.i.i.i57, 1
   br i1 %99, label %.lr.ph.i.i.i.i.i56, label %_ZSt4copyIPKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPS5_ET0_T_SA_S9_.exit60, !llvm.loop !107
 
 _ZSt4copyIPKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPS5_ET0_T_SA_S9_.exit60: ; preds = %.lr.ph.i.i.i.i.i56, %82, %86
@@ -22820,7 +22820,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__12SdfAssetPathC2ERKS0_.exit: ; preds = %34,
   %67 = getelementptr inbounds i8, ptr %.0910.i.i.i.i.i, i64 64
   %68 = getelementptr inbounds i8, ptr %.0811.i.i.i.i.i, i64 64
   %69 = add nsw i64 %.012.i.i.i.i.i, -1
-  %70 = icmp ugt i64 %.012.i.i.i.i.i, 1
+  %70 = icmp samesign ugt i64 %.012.i.i.i.i.i, 1
   br i1 %70, label %.lr.ph.i.i.i.i.i, label %_ZSt4copyIPKN32pxrInternal_v0_24__pxrReserved__12SdfAssetPathEPS1_ET0_T_S6_S5_.exit, !llvm.loop !126
 
 71:                                               ; preds = %47
@@ -22874,7 +22874,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__12SdfAssetPathC2ERKS0_.exit: ; preds = %34,
   %99 = getelementptr inbounds i8, ptr %.0910.i.i.i.i.i55, i64 64
   %100 = getelementptr inbounds i8, ptr %.0811.i.i.i.i.i54, i64 64
   %101 = add nsw i64 %.012.i.i.i.i.i53, -1
-  %102 = icmp ugt i64 %.012.i.i.i.i.i53, 1
+  %102 = icmp samesign ugt i64 %.012.i.i.i.i.i53, 1
   br i1 %102, label %.lr.ph.i.i.i.i.i52, label %_ZSt4copyIPKN32pxrInternal_v0_24__pxrReserved__12SdfAssetPathEPS1_ET0_T_S6_S5_.exit56, !llvm.loop !126
 
 _ZSt4copyIPKN32pxrInternal_v0_24__pxrReserved__12SdfAssetPathEPS1_ET0_T_S6_S5_.exit56: ; preds = %.lr.ph.i.i.i.i.i52, %82, %86
@@ -25905,7 +25905,7 @@ define linkonce_odr noundef zeroext i1 @_ZNK32pxrInternal_v0_24__pxrReserved__17
   %69 = getelementptr inbounds i8, ptr %.0910.i.i.i.i.i, i64 104
   %70 = getelementptr inbounds i8, ptr %.0811.i.i.i.i.i, i64 104
   %71 = add nsw i64 %.012.i.i.i.i.i, -1
-  %72 = icmp ugt i64 %.012.i.i.i.i.i, 1
+  %72 = icmp samesign ugt i64 %.012.i.i.i.i.i, 1
   br i1 %72, label %.lr.ph.i.i.i.i.i, label %_ZSt4copyIPKN32pxrInternal_v0_24__pxrReserved__17SdfPathExpressionEPS1_ET0_T_S6_S5_.exit, !llvm.loop !150
 
 73:                                               ; preds = %43
@@ -25965,7 +25965,7 @@ define linkonce_odr noundef zeroext i1 @_ZNK32pxrInternal_v0_24__pxrReserved__17
   %106 = getelementptr inbounds i8, ptr %.0910.i.i.i.i.i56, i64 104
   %107 = getelementptr inbounds i8, ptr %.0811.i.i.i.i.i55, i64 104
   %108 = add nsw i64 %.012.i.i.i.i.i54, -1
-  %109 = icmp ugt i64 %.012.i.i.i.i.i54, 1
+  %109 = icmp samesign ugt i64 %.012.i.i.i.i.i54, 1
   br i1 %109, label %.lr.ph.i.i.i.i.i53, label %_ZSt4copyIPKN32pxrInternal_v0_24__pxrReserved__17SdfPathExpressionEPS1_ET0_T_S6_S5_.exit57, !llvm.loop !150
 
 _ZSt4copyIPKN32pxrInternal_v0_24__pxrReserved__17SdfPathExpressionEPS1_ET0_T_S6_S5_.exit57: ; preds = %.lr.ph.i.i.i.i.i53, %84, %88
@@ -30031,7 +30031,7 @@ _ZNSt12_Vector_baseIN32pxrInternal_v0_24__pxrReserved__14SdfPathPatternESaIS1_EE
   %39 = getelementptr inbounds i8, ptr %.0910.i.i.i.i.i, i64 64
   %40 = getelementptr inbounds i8, ptr %.0811.i.i.i.i.i, i64 64
   %41 = add nsw i64 %.012.i.i.i.i.i, -1
-  %42 = icmp ugt i64 %.012.i.i.i.i.i, 1
+  %42 = icmp samesign ugt i64 %.012.i.i.i.i.i, 1
   br i1 %42, label %.lr.ph.i.i.i.i.i, label %_ZSt4copyIN9__gnu_cxx17__normal_iteratorIPKN32pxrInternal_v0_24__pxrReserved__14SdfPathPatternESt6vectorIS3_SaIS3_EEEENS1_IPS3_S8_EEET0_T_SD_SC_.exit.loopexit, !llvm.loop !227
 
 _ZSt4copyIN9__gnu_cxx17__normal_iteratorIPKN32pxrInternal_v0_24__pxrReserved__14SdfPathPatternESt6vectorIS3_SaIS3_EEEENS1_IPS3_S8_EEET0_T_SD_SC_.exit.loopexit: ; preds = %.lr.ph.i.i.i.i.i
@@ -30071,7 +30071,7 @@ _ZSt4copyIN9__gnu_cxx17__normal_iteratorIPKN32pxrInternal_v0_24__pxrReserved__14
   %51 = getelementptr inbounds i8, ptr %.0910.i.i.i.i.i32, i64 64
   %52 = getelementptr inbounds i8, ptr %.0811.i.i.i.i.i31, i64 64
   %53 = add nsw i64 %.012.i.i.i.i.i30, -1
-  %54 = icmp ugt i64 %.012.i.i.i.i.i30, 1
+  %54 = icmp samesign ugt i64 %.012.i.i.i.i.i30, 1
   br i1 %54, label %.lr.ph.i.i.i.i.i29, label %_ZSt4copyIPN32pxrInternal_v0_24__pxrReserved__14SdfPathPatternES2_ET0_T_S4_S3_.exit.loopexit, !llvm.loop !229
 
 _ZSt4copyIPN32pxrInternal_v0_24__pxrReserved__14SdfPathPatternES2_ET0_T_S4_S3_.exit.loopexit: ; preds = %.lr.ph.i.i.i.i.i29
@@ -31363,7 +31363,7 @@ _ZNSt12_Vector_baseIN32pxrInternal_v0_24__pxrReserved__14SdfPathPattern9Componen
   %42 = getelementptr inbounds i8, ptr %.0910.i.i.i.i.i, i64 40
   %43 = getelementptr inbounds i8, ptr %.0811.i.i.i.i.i, i64 40
   %44 = add nsw i64 %.012.i.i.i.i.i, -1
-  %45 = icmp ugt i64 %.012.i.i.i.i.i, 1
+  %45 = icmp samesign ugt i64 %.012.i.i.i.i.i, 1
   br i1 %45, label %.lr.ph.i.i.i.i.i, label %_ZSt4copyIN9__gnu_cxx17__normal_iteratorIPKN32pxrInternal_v0_24__pxrReserved__14SdfPathPattern9ComponentESt6vectorIS4_SaIS4_EEEENS1_IPS4_S9_EEET0_T_SE_SD_.exit.loopexit, !llvm.loop !237
 
 _ZSt4copyIN9__gnu_cxx17__normal_iteratorIPKN32pxrInternal_v0_24__pxrReserved__14SdfPathPattern9ComponentESt6vectorIS4_SaIS4_EEEENS1_IPS4_S9_EEET0_T_SE_SD_.exit.loopexit: ; preds = %.lr.ph.i.i.i.i.i
@@ -31409,7 +31409,7 @@ _ZSt4copyIN9__gnu_cxx17__normal_iteratorIPKN32pxrInternal_v0_24__pxrReserved__14
   %56 = getelementptr inbounds i8, ptr %.0910.i.i.i.i.i33, i64 40
   %57 = getelementptr inbounds i8, ptr %.0811.i.i.i.i.i32, i64 40
   %58 = add nsw i64 %.012.i.i.i.i.i31, -1
-  %59 = icmp ugt i64 %.012.i.i.i.i.i31, 1
+  %59 = icmp samesign ugt i64 %.012.i.i.i.i.i31, 1
   br i1 %59, label %.lr.ph.i.i.i.i.i30, label %_ZSt4copyIPN32pxrInternal_v0_24__pxrReserved__14SdfPathPattern9ComponentES3_ET0_T_S5_S4_.exit.loopexit, !llvm.loop !239
 
 _ZSt4copyIPN32pxrInternal_v0_24__pxrReserved__14SdfPathPattern9ComponentES3_ET0_T_S5_S4_.exit.loopexit: ; preds = %.lr.ph.i.i.i.i.i30
@@ -31602,7 +31602,7 @@ _ZNSt12_Vector_baseIN32pxrInternal_v0_24__pxrReserved__22SdfPredicateExpressionE
   %55 = getelementptr inbounds i8, ptr %.0910.i.i.i.i.i, i64 80
   %56 = getelementptr inbounds i8, ptr %.0811.i.i.i.i.i, i64 80
   %57 = add nsw i64 %.012.i.i.i.i.i, -1
-  %58 = icmp ugt i64 %.012.i.i.i.i.i, 1
+  %58 = icmp samesign ugt i64 %.012.i.i.i.i.i, 1
   br i1 %58, label %.lr.ph.i.i.i.i.i, label %_ZSt4copyIN9__gnu_cxx17__normal_iteratorIPKN32pxrInternal_v0_24__pxrReserved__22SdfPredicateExpressionESt6vectorIS3_SaIS3_EEEENS1_IPS3_S8_EEET0_T_SD_SC_.exit.loopexit, !llvm.loop !241
 
 _ZSt4copyIN9__gnu_cxx17__normal_iteratorIPKN32pxrInternal_v0_24__pxrReserved__22SdfPredicateExpressionESt6vectorIS3_SaIS3_EEEENS1_IPS3_S8_EEET0_T_SD_SC_.exit.loopexit: ; preds = %.lr.ph.i.i.i.i.i
@@ -31668,7 +31668,7 @@ _ZSt8_DestroyIN32pxrInternal_v0_24__pxrReserved__22SdfPredicateExpressionEEvPT_.
   %82 = getelementptr inbounds i8, ptr %.0910.i.i.i.i.i35, i64 80
   %83 = getelementptr inbounds i8, ptr %.0811.i.i.i.i.i34, i64 80
   %84 = add nsw i64 %.012.i.i.i.i.i33, -1
-  %85 = icmp ugt i64 %.012.i.i.i.i.i33, 1
+  %85 = icmp samesign ugt i64 %.012.i.i.i.i.i33, 1
   br i1 %85, label %.lr.ph.i.i.i.i.i32, label %_ZSt4copyIPN32pxrInternal_v0_24__pxrReserved__22SdfPredicateExpressionES2_ET0_T_S4_S3_.exit.loopexit, !llvm.loop !243
 
 _ZSt4copyIPN32pxrInternal_v0_24__pxrReserved__22SdfPredicateExpressionES2_ET0_T_S4_S3_.exit.loopexit: ; preds = %.lr.ph.i.i.i.i.i32
@@ -32230,7 +32230,7 @@ _ZNSt12_Vector_baseIN32pxrInternal_v0_24__pxrReserved__22SdfPredicateExpression6
   %72 = getelementptr inbounds i8, ptr %.0910.i.i.i.i.i, i64 64
   %73 = getelementptr inbounds i8, ptr %.0811.i.i.i.i.i, i64 64
   %74 = add nsw i64 %.012.i.i.i.i.i, -1
-  %75 = icmp ugt i64 %.012.i.i.i.i.i, 1
+  %75 = icmp samesign ugt i64 %.012.i.i.i.i.i, 1
   br i1 %75, label %.lr.ph.i.i.i.i.i, label %_ZSt4copyIN9__gnu_cxx17__normal_iteratorIPKN32pxrInternal_v0_24__pxrReserved__22SdfPredicateExpression6FnCallESt6vectorIS4_SaIS4_EEEENS1_IPS4_S9_EEET0_T_SE_SD_.exit.loopexit, !llvm.loop !245
 
 _ZSt4copyIN9__gnu_cxx17__normal_iteratorIPKN32pxrInternal_v0_24__pxrReserved__22SdfPredicateExpression6FnCallESt6vectorIS4_SaIS4_EEEENS1_IPS4_S9_EEET0_T_SE_SD_.exit.loopexit: ; preds = %.lr.ph.i.i.i.i.i
@@ -32338,7 +32338,7 @@ _ZSt8_DestroyIN32pxrInternal_v0_24__pxrReserved__22SdfPredicateExpression6FnCall
   %117 = getelementptr inbounds i8, ptr %.0910.i.i.i.i.i44, i64 64
   %118 = getelementptr inbounds i8, ptr %.0811.i.i.i.i.i43, i64 64
   %119 = add nsw i64 %.012.i.i.i.i.i42, -1
-  %120 = icmp ugt i64 %.012.i.i.i.i.i42, 1
+  %120 = icmp samesign ugt i64 %.012.i.i.i.i.i42, 1
   br i1 %120, label %.lr.ph.i.i.i.i.i41, label %_ZSt4copyIPN32pxrInternal_v0_24__pxrReserved__22SdfPredicateExpression6FnCallES3_ET0_T_S5_S4_.exit.loopexit, !llvm.loop !247
 
 _ZSt4copyIPN32pxrInternal_v0_24__pxrReserved__22SdfPredicateExpression6FnCallES3_ET0_T_S5_S4_.exit.loopexit: ; preds = %.lr.ph.i.i.i.i.i41

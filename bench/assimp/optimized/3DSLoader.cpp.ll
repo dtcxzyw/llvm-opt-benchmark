@@ -2380,7 +2380,7 @@ if.end:                                           ; preds = %_ZN6Assimp12StreamR
   %sub.ptr.lhs.cast.i13 = ptrtoint ptr %14 to i64
   %sub.ptr.sub.i15 = sub i64 %sub.ptr.lhs.cast.i13, %sub.ptr.rhs.cast.i
   %conv2.i16 = and i64 %sub.ptr.sub.i15, 4294967295
-  %cmp12 = icmp ugt i64 %sub, %conv2.i16
+  %cmp12 = icmp samesign ugt i64 %sub, %conv2.i16
   br i1 %cmp12, label %if.then13, label %if.end15
 
 if.then13:                                        ; preds = %if.end
@@ -10289,7 +10289,7 @@ sw.bb:                                            ; preds = %_ZN6Assimp12StreamR
   br i1 %cmp14, label %if.then15, label %for.cond.preheader
 
 for.cond.preheader:                               ; preds = %sw.bb
-  %cmp19.not104 = icmp ult i32 %sub, 4
+  %cmp19.not104 = icmp samesign ult i32 %sub, 4
   br i1 %cmp19.not104, label %sw.epilog, label %for.body
 
 if.then15:                                        ; preds = %sw.bb

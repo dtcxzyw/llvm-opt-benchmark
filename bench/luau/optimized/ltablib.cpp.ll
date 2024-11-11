@@ -1110,7 +1110,7 @@ define internal fastcc void @_ZL8sort_recP9lua_StateP5TableiiiPFiS0_PK10lua_TVal
   %.024.in25.i = phi i32 [ %.024.i, %.lr.ph.i ], [ %23, %.lr.ph.preheader.i ]
   %.024.i = add nsw i32 %.024.in25.i, -1
   tail call fastcc void @_ZL13sort_siftheapP9lua_StateP5TableiiPFiS0_PK10lua_TValueS5_Ei(ptr noundef %0, ptr noundef readonly %1, i32 noundef %.096160, i32 noundef %.098159, ptr noundef readonly %5, i32 noundef %.024.i)
-  %26 = icmp ugt i32 %.024.in25.i, 1
+  %26 = icmp samesign ugt i32 %.024.in25.i, 1
   br i1 %26, label %.lr.ph.i, label %.preheader.i, !llvm.loop !20
 
 27:                                               ; preds = %27, %.preheader.i
@@ -1128,7 +1128,7 @@ define internal fastcc void @_ZL8sort_recP9lua_StateP5TableiiiPFiS0_PK10lua_TVal
   %.reass.i = add i32 %invariant.op.i, %32
   tail call fastcc void @_ZL13sort_siftheapP9lua_StateP5TableiiPFiS0_PK10lua_TValueS5_Ei(ptr noundef %0, ptr noundef readonly %1, i32 noundef %.096160, i32 noundef %.reass.i, ptr noundef readonly %5, i32 noundef 0)
   %indvars.iv.next.i = add nsw i64 %indvars.iv.i, -1
-  %33 = icmp ugt i64 %indvars.iv.i, 1
+  %33 = icmp samesign ugt i64 %indvars.iv.i, 1
   br i1 %33, label %27, label %_ZL9sort_heapP9lua_StateP5TableiiPFiS0_PK10lua_TValueS5_E.exit, !llvm.loop !21
 
 34:                                               ; preds = %17

@@ -484,7 +484,7 @@ _ZNSt10shared_ptrISt4pairIN32pxrInternal_v0_24__pxrReserved__7SdfPathES2_EEC2IS3
   %77 = getelementptr inbounds i8, ptr %.0910.i.i.i.i.i, i64 16
   %78 = getelementptr inbounds i8, ptr %.0811.i.i.i.i.i, i64 16
   %79 = add nsw i64 %.012.i.i.i.i.i, -1
-  %80 = icmp ugt i64 %.012.i.i.i.i.i, 1
+  %80 = icmp samesign ugt i64 %.012.i.i.i.i.i, 1
   br i1 %80, label %.lr.ph.i.i.i.i.i, label %_ZSt18uninitialized_copyIPKSt4pairIN32pxrInternal_v0_24__pxrReserved__7SdfPathES2_EPS3_ET0_T_S8_S7_.exit, !llvm.loop !6
 
 _ZSt18uninitialized_copyIPKSt4pairIN32pxrInternal_v0_24__pxrReserved__7SdfPathES2_EPS3_ET0_T_S8_S7_.exit: ; preds = %.lr.ph.i.i.i.i.i, %_ZSt10_ConstructISt4pairIN32pxrInternal_v0_24__pxrReserved__7SdfPathES2_EJRKS3_EEvPT_DpOT0_.exit.i.i.i, %_ZNSt10shared_ptrISt4pairIN32pxrInternal_v0_24__pxrReserved__7SdfPathES2_EEC2IS3_St14default_deleteIA_S3_EvEEPT_T0_.exit, %17, %4
@@ -5352,7 +5352,7 @@ _ZNSt12_Vector_baseISt4pairIN32pxrInternal_v0_24__pxrReserved__7SdfPathES2_ESaIS
   store ptr %22, ptr %20, align 8
   %23 = getelementptr inbounds %"struct.std::pair", ptr %22, i64 %15
   store ptr %23, ptr %19, align 8
-  %24 = icmp ult i32 %14, 3
+  %24 = icmp samesign ult i32 %14, 3
   %25 = load ptr, ptr %1, align 8
   %spec.select.i = select i1 %24, ptr %1, ptr %25
   %26 = getelementptr inbounds %"struct.std::pair", ptr %spec.select.i, i64 %15
@@ -12334,7 +12334,7 @@ _ZNSt4pairIN32pxrInternal_v0_24__pxrReserved__7SdfPathES1_EaSEOS2_.exit: ; preds
   store i32 0, ptr %82, align 4
   store i32 %83, ptr %81, align 4
   %84 = add nsw i64 %.010.i.i.i.i.i, -1
-  %85 = icmp ugt i64 %.010.i.i.i.i.i, 1
+  %85 = icmp samesign ugt i64 %.010.i.i.i.i.i, 1
   br i1 %85, label %.lr.ph.i.i.i.i.i, label %_ZSt13move_backwardIPSt4pairIN32pxrInternal_v0_24__pxrReserved__7SdfPathES2_ES4_ET0_T_S6_S5_.exit, !llvm.loop !122
 
 _ZSt13move_backwardIPSt4pairIN32pxrInternal_v0_24__pxrReserved__7SdfPathES2_ES4_ET0_T_S6_S5_.exit: ; preds = %_ZNSt4pairIN32pxrInternal_v0_24__pxrReserved__7SdfPathES1_EaSEOS2_.exit, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_PathPairOrderEEclIPSt4pairINS2_7SdfPathES8_ESA_EEbT_T0_.exit.thread
@@ -13250,7 +13250,7 @@ tailrecurse._crit_edge:                           ; preds = %tailrecurse, %7
   %15 = getelementptr inbounds i8, ptr %.0910.i.i.i.i.i, i64 16
   %16 = getelementptr inbounds i8, ptr %.0811.i.i.i.i.i, i64 16
   %17 = add nsw i64 %.012.i.i.i.i.i, -1
-  %18 = icmp ugt i64 %.012.i.i.i.i.i, 1
+  %18 = icmp samesign ugt i64 %.012.i.i.i.i.i, 1
   br i1 %18, label %.lr.ph.i.i.i.i.i, label %_ZSt4moveIPSt4pairIN32pxrInternal_v0_24__pxrReserved__7SdfPathES2_ES4_ET0_T_S6_S5_.exit, !llvm.loop !134
 
 _ZSt4moveIPSt4pairIN32pxrInternal_v0_24__pxrReserved__7SdfPathES2_ES4_ET0_T_S6_S5_.exit: ; preds = %.lr.ph.i.i.i.i.i
@@ -13330,7 +13330,7 @@ _ZN9__gnu_cxx5__ops15_Iter_comp_iterIN32pxrInternal_v0_24__pxrReserved__12_GLOBA
   %47 = getelementptr inbounds i8, ptr %.0910.i.i.i.i.i.i, i64 16
   %48 = getelementptr inbounds i8, ptr %.0811.i.i.i.i.i.i, i64 16
   %49 = add nsw i64 %.012.i.i.i.i.i.i, -1
-  %50 = icmp ugt i64 %.012.i.i.i.i.i.i, 1
+  %50 = icmp samesign ugt i64 %.012.i.i.i.i.i.i, 1
   br i1 %50, label %.lr.ph.i.i.i.i.i.i, label %_ZSt21__move_merge_adaptiveIPSt4pairIN32pxrInternal_v0_24__pxrReserved__7SdfPathES2_ES4_S4_N9__gnu_cxx5__ops15_Iter_comp_iterINS1_12_GLOBAL__N_114_PathPairOrderEEEEvT_SB_T0_SC_T1_T2_.exit, !llvm.loop !134
 
 51:                                               ; preds = %.lr.ph, %tailrecurse
@@ -13357,7 +13357,7 @@ _ZN9__gnu_cxx5__ops15_Iter_comp_iterIN32pxrInternal_v0_24__pxrReserved__12_GLOBA
   %58 = getelementptr inbounds i8, ptr %.0910.i.i.i.i.i76, i64 16
   %59 = getelementptr inbounds i8, ptr %.0811.i.i.i.i.i75, i64 16
   %60 = add nsw i64 %.012.i.i.i.i.i74, -1
-  %61 = icmp ugt i64 %.012.i.i.i.i.i74, 1
+  %61 = icmp samesign ugt i64 %.012.i.i.i.i.i74, 1
   br i1 %61, label %.lr.ph.i.i.i.i.i73, label %_ZSt4moveIPSt4pairIN32pxrInternal_v0_24__pxrReserved__7SdfPathES2_ES4_ET0_T_S6_S5_.exit77, !llvm.loop !134
 
 _ZSt4moveIPSt4pairIN32pxrInternal_v0_24__pxrReserved__7SdfPathES2_ES4_ET0_T_S6_S5_.exit77: ; preds = %.lr.ph.i.i.i.i.i73, %53
@@ -13381,7 +13381,7 @@ _ZSt4moveIPSt4pairIN32pxrInternal_v0_24__pxrReserved__7SdfPathES2_ES4_ET0_T_S6_S
   %70 = getelementptr inbounds i8, ptr %.069.i.i.i.i.i.i, i64 -16
   %71 = tail call noundef nonnull align 4 dereferenceable(16) ptr @_ZNSt4pairIN32pxrInternal_v0_24__pxrReserved__7SdfPathES1_EaSEOS2_(ptr noundef nonnull align 4 dereferenceable(16) %70, ptr noundef nonnull align 4 dereferenceable(16) %69) #22
   %72 = add nsw i64 %.010.i.i.i.i.i.i, -1
-  %73 = icmp ugt i64 %.010.i.i.i.i.i.i, 1
+  %73 = icmp samesign ugt i64 %.010.i.i.i.i.i.i, 1
   br i1 %73, label %.lr.ph.i.i.i.i.i.i86, label %_ZSt21__move_merge_adaptiveIPSt4pairIN32pxrInternal_v0_24__pxrReserved__7SdfPathES2_ES4_S4_N9__gnu_cxx5__ops15_Iter_comp_iterINS1_12_GLOBAL__N_114_PathPairOrderEEEEvT_SB_T0_SC_T1_T2_.exit, !llvm.loop !122
 
 74:                                               ; preds = %_ZSt4moveIPSt4pairIN32pxrInternal_v0_24__pxrReserved__7SdfPathES2_ES4_ET0_T_S6_S5_.exit77
@@ -13454,7 +13454,7 @@ _ZN9__gnu_cxx5__ops15_Iter_comp_iterIN32pxrInternal_v0_24__pxrReserved__12_GLOBA
   %103 = getelementptr inbounds i8, ptr %.069.i.i.i.i.i35.i, i64 -16
   %104 = tail call noundef nonnull align 4 dereferenceable(16) ptr @_ZNSt4pairIN32pxrInternal_v0_24__pxrReserved__7SdfPathES1_EaSEOS2_(ptr noundef nonnull align 4 dereferenceable(16) %103, ptr noundef nonnull align 4 dereferenceable(16) %102) #22
   %105 = add nsw i64 %.010.i.i.i.i.i34.i, -1
-  %106 = icmp ugt i64 %.010.i.i.i.i.i34.i, 1
+  %106 = icmp samesign ugt i64 %.010.i.i.i.i.i34.i, 1
   br i1 %106, label %.lr.ph.i.i.i.i.i33.i, label %_ZSt21__move_merge_adaptiveIPSt4pairIN32pxrInternal_v0_24__pxrReserved__7SdfPathES2_ES4_S4_N9__gnu_cxx5__ops15_Iter_comp_iterINS1_12_GLOBAL__N_114_PathPairOrderEEEEvT_SB_T0_SC_T1_T2_.exit, !llvm.loop !122
 
 _ZN9__gnu_cxx5__ops15_Iter_comp_iterIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_PathPairOrderEEclIPSt4pairINS2_7SdfPathES8_ESA_EEbT_T0_.exit.thread39.i: ; preds = %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_PathPairOrderEEclIPSt4pairINS2_7SdfPathES8_ESA_EEbT_T0_.exit.i83, %88, %82
@@ -13875,7 +13875,7 @@ define linkonce_odr noundef ptr @_ZSt17__rotate_adaptiveIPSt4pairIN32pxrInternal
   %17 = getelementptr inbounds i8, ptr %.0910.i.i.i.i.i, i64 16
   %18 = getelementptr inbounds i8, ptr %.0811.i.i.i.i.i, i64 16
   %19 = add nsw i64 %.012.i.i.i.i.i, -1
-  %20 = icmp ugt i64 %.012.i.i.i.i.i, 1
+  %20 = icmp samesign ugt i64 %.012.i.i.i.i.i, 1
   br i1 %20, label %.lr.ph.i.i.i.i.i, label %_ZSt4moveIPSt4pairIN32pxrInternal_v0_24__pxrReserved__7SdfPathES2_ES4_ET0_T_S6_S5_.exit, !llvm.loop !134
 
 _ZSt4moveIPSt4pairIN32pxrInternal_v0_24__pxrReserved__7SdfPathES2_ES4_ET0_T_S6_S5_.exit: ; preds = %.lr.ph.i.i.i.i.i, %10
@@ -13894,7 +13894,7 @@ _ZSt4moveIPSt4pairIN32pxrInternal_v0_24__pxrReserved__7SdfPathES2_ES4_ET0_T_S6_S
   %26 = getelementptr inbounds i8, ptr %.069.i.i.i.i.i, i64 -16
   %27 = tail call noundef nonnull align 4 dereferenceable(16) ptr @_ZNSt4pairIN32pxrInternal_v0_24__pxrReserved__7SdfPathES1_EaSEOS2_(ptr noundef nonnull align 4 dereferenceable(16) %26, ptr noundef nonnull align 4 dereferenceable(16) %25) #22
   %28 = add nsw i64 %.010.i.i.i.i.i, -1
-  %29 = icmp ugt i64 %.010.i.i.i.i.i, 1
+  %29 = icmp samesign ugt i64 %.010.i.i.i.i.i, 1
   br i1 %29, label %.lr.ph.i.i.i.i.i36, label %_ZSt13move_backwardIPSt4pairIN32pxrInternal_v0_24__pxrReserved__7SdfPathES2_ES4_ET0_T_S6_S5_.exit, !llvm.loop !122
 
 _ZSt13move_backwardIPSt4pairIN32pxrInternal_v0_24__pxrReserved__7SdfPathES2_ES4_ET0_T_S6_S5_.exit: ; preds = %.lr.ph.i.i.i.i.i36, %_ZSt4moveIPSt4pairIN32pxrInternal_v0_24__pxrReserved__7SdfPathES2_ES4_ET0_T_S6_S5_.exit
@@ -13913,7 +13913,7 @@ _ZSt13move_backwardIPSt4pairIN32pxrInternal_v0_24__pxrReserved__7SdfPathES2_ES4_
   %36 = getelementptr inbounds i8, ptr %.0910.i.i.i.i.i41, i64 16
   %37 = getelementptr inbounds i8, ptr %.0811.i.i.i.i.i40, i64 16
   %38 = add nsw i64 %.012.i.i.i.i.i39, -1
-  %39 = icmp ugt i64 %.012.i.i.i.i.i39, 1
+  %39 = icmp samesign ugt i64 %.012.i.i.i.i.i39, 1
   br i1 %39, label %.lr.ph.i.i.i.i.i38, label %_ZSt4moveIPSt4pairIN32pxrInternal_v0_24__pxrReserved__7SdfPathES2_ES4_ET0_T_S6_S5_.exit42, !llvm.loop !134
 
 40:                                               ; preds = %7
@@ -13940,7 +13940,7 @@ _ZSt13move_backwardIPSt4pairIN32pxrInternal_v0_24__pxrReserved__7SdfPathES2_ES4_
   %49 = getelementptr inbounds i8, ptr %.0910.i.i.i.i.i47, i64 16
   %50 = getelementptr inbounds i8, ptr %.0811.i.i.i.i.i46, i64 16
   %51 = add nsw i64 %.012.i.i.i.i.i45, -1
-  %52 = icmp ugt i64 %.012.i.i.i.i.i45, 1
+  %52 = icmp samesign ugt i64 %.012.i.i.i.i.i45, 1
   br i1 %52, label %.lr.ph.i.i.i.i.i44, label %_ZSt4moveIPSt4pairIN32pxrInternal_v0_24__pxrReserved__7SdfPathES2_ES4_ET0_T_S6_S5_.exit48, !llvm.loop !134
 
 _ZSt4moveIPSt4pairIN32pxrInternal_v0_24__pxrReserved__7SdfPathES2_ES4_ET0_T_S6_S5_.exit48: ; preds = %.lr.ph.i.i.i.i.i44, %42
@@ -13959,7 +13959,7 @@ _ZSt4moveIPSt4pairIN32pxrInternal_v0_24__pxrReserved__7SdfPathES2_ES4_ET0_T_S6_S
   %58 = getelementptr inbounds i8, ptr %.0910.i.i.i.i.i53, i64 16
   %59 = getelementptr inbounds i8, ptr %.0811.i.i.i.i.i52, i64 16
   %60 = add nsw i64 %.012.i.i.i.i.i51, -1
-  %61 = icmp ugt i64 %.012.i.i.i.i.i51, 1
+  %61 = icmp samesign ugt i64 %.012.i.i.i.i.i51, 1
   br i1 %61, label %.lr.ph.i.i.i.i.i50, label %_ZSt4moveIPSt4pairIN32pxrInternal_v0_24__pxrReserved__7SdfPathES2_ES4_ET0_T_S6_S5_.exit54, !llvm.loop !134
 
 _ZSt4moveIPSt4pairIN32pxrInternal_v0_24__pxrReserved__7SdfPathES2_ES4_ET0_T_S6_S5_.exit54: ; preds = %.lr.ph.i.i.i.i.i50, %_ZSt4moveIPSt4pairIN32pxrInternal_v0_24__pxrReserved__7SdfPathES2_ES4_ET0_T_S6_S5_.exit48
@@ -13978,7 +13978,7 @@ _ZSt4moveIPSt4pairIN32pxrInternal_v0_24__pxrReserved__7SdfPathES2_ES4_ET0_T_S6_S
   %68 = getelementptr inbounds i8, ptr %.069.i.i.i.i.i58, i64 -16
   %69 = tail call noundef nonnull align 4 dereferenceable(16) ptr @_ZNSt4pairIN32pxrInternal_v0_24__pxrReserved__7SdfPathES1_EaSEOS2_(ptr noundef nonnull align 4 dereferenceable(16) %68, ptr noundef nonnull align 4 dereferenceable(16) %67) #22
   %70 = add nsw i64 %.010.i.i.i.i.i57, -1
-  %71 = icmp ugt i64 %.010.i.i.i.i.i57, 1
+  %71 = icmp samesign ugt i64 %.010.i.i.i.i.i57, 1
   br i1 %71, label %.lr.ph.i.i.i.i.i56, label %_ZSt4moveIPSt4pairIN32pxrInternal_v0_24__pxrReserved__7SdfPathES2_ES4_ET0_T_S6_S5_.exit42, !llvm.loop !122
 
 72:                                               ; preds = %40
@@ -15248,7 +15248,7 @@ _ZNSt4pairIN32pxrInternal_v0_24__pxrReserved__7SdfPathES1_EaSEOS2_.exit: ; preds
   store i32 0, ptr %82, align 4
   store i32 %83, ptr %81, align 4
   %84 = add nsw i64 %.010.i.i.i.i.i, -1
-  %85 = icmp ugt i64 %.010.i.i.i.i.i, 1
+  %85 = icmp samesign ugt i64 %.010.i.i.i.i.i, 1
   br i1 %85, label %.lr.ph.i.i.i.i.i, label %.loopexit, !llvm.loop !122
 
 .loopexit:                                        ; preds = %_ZNSt4pairIN32pxrInternal_v0_24__pxrReserved__7SdfPathES1_EaSEOS2_.exit, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_PathPairOrderEEclINS_17__normal_iteratorIPSt4pairINS2_7SdfPathES9_ESt6vectorISA_SaISA_EEEESF_EEbT_T0_.exit.thread

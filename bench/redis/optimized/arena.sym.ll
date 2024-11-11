@@ -3707,7 +3707,7 @@ entry:
   br i1 %cmp, label %do.end2, label %if.else
 
 do.end2:                                          ; preds = %entry
-  %cmp.i = icmp ult i64 %usize, 4097
+  %cmp.i = icmp samesign ult i64 %usize, 4097
   br i1 %cmp.i, label %if.then.i, label %sz_size2index_compute.exit
 
 if.then.i:                                        ; preds = %do.end2
@@ -4486,7 +4486,7 @@ tsdn_rtree_ctx.exit:                              ; preds = %if.end.i99.split, %
   br i1 %cmp, label %do.end44, label %if.end
 
 if.end:                                           ; preds = %tsdn_rtree_ctx.exit
-  %cmp.i72 = icmp ult i64 %size, 4097
+  %cmp.i72 = icmp samesign ult i64 %size, 4097
   br i1 %cmp.i72, label %if.then.i78, label %if.end5.i
 
 if.then.i78:                                      ; preds = %if.end
@@ -4559,7 +4559,7 @@ do.end16:                                         ; preds = %sz_s2u.exit
   br i1 %cmp17, label %land.lhs.true, label %lor.lhs.false
 
 lor.lhs.false:                                    ; preds = %do.end16
-  %cmp.i49 = icmp ult i64 %retval.i60.0, 4097
+  %cmp.i49 = icmp samesign ult i64 %retval.i60.0, 4097
   br i1 %cmp.i49, label %if.then.i55, label %sz_size2index_compute.exit
 
 if.then.i55:                                      ; preds = %sz_s2u.exit.thread, %lor.lhs.false
@@ -4591,7 +4591,7 @@ sz_size2index_compute.exit:                       ; preds = %lor.lhs.false
 sz_size2index.exit57:                             ; preds = %sz_size2index_compute.exit, %if.then.i55
   %retval.i60.09499103 = phi i64 [ %retval.i60.09499102, %if.then.i55 ], [ %retval.i60.0, %sz_size2index_compute.exit ]
   %retval.i47.0 = phi i32 [ %conv.i93, %if.then.i55 ], [ %add23.i, %sz_size2index_compute.exit ]
-  %cmp.i = icmp ult i64 %oldsize, 4097
+  %cmp.i = icmp samesign ult i64 %oldsize, 4097
   br i1 %cmp.i, label %if.then.i, label %sz_size2index_compute.exit79
 
 if.then.i:                                        ; preds = %sz_size2index.exit57
@@ -4626,7 +4626,7 @@ sz_size2index.exit:                               ; preds = %sz_size2index_compu
 
 land.lhs.true:                                    ; preds = %sz_size2index.exit, %do.end16
   %retval.i60.096 = phi i64 [ %retval.i60.09499103, %sz_size2index.exit ], [ %retval.i60.0, %do.end16 ]
-  %cmp23 = icmp ugt i64 %size, %oldsize
+  %cmp23 = icmp samesign ugt i64 %size, %oldsize
   %cmp26 = icmp ult i64 %retval.i60.096, %oldsize
   %or.cond47 = select i1 %cmp23, i1 true, i1 %cmp26
   br i1 %or.cond47, label %do.end44, label %if.end29
@@ -4822,7 +4822,7 @@ if.then.i60:                                      ; preds = %cond.false
   %add.i = add nuw nsw i64 %sub.i, %size
   %add2.i = sub nsw i64 0, %alignment
   %and.i = and i64 %add.i, %add2.i
-  %cmp.i30.i = icmp ult i64 %and.i, 4097
+  %cmp.i30.i = icmp samesign ult i64 %and.i, 4097
   br i1 %cmp.i30.i, label %if.then.i36.i, label %if.end5.i113
 
 if.then.i36.i:                                    ; preds = %if.then.i60
@@ -4894,7 +4894,7 @@ if.end18.i:                                       ; preds = %sz_s2u.exit38.i, %i
 cond.end:                                         ; preds = %sz_s2u.exit38.i, %if.end18.i, %if.then.i, %if.end5.i167
   %cond = phi i64 [ %1, %if.then.i ], [ %and.i182, %if.end5.i167 ], [ %retval.i28.i.0, %sz_s2u.exit38.i ], [ %.usize.i.0, %if.end18.i ]
   %cmp2 = icmp eq i64 %cond, 0
-  %cmp3 = icmp ugt i64 %size, 8070450532247928832
+  %cmp3 = icmp samesign ugt i64 %size, 8070450532247928832
   %11 = or i1 %cmp3, %cmp2
   br i1 %11, label %return, label %if.end
 
@@ -5126,7 +5126,7 @@ if.end31.i.i:                                     ; preds = %if.end.i18.i, %sz_s
   br label %arena_ralloc_move_helper.exit
 
 if.end.i159:                                      ; preds = %if.end29
-  %cmp1.i.i = icmp ult i64 %alignment, 4097
+  %cmp1.i.i = icmp samesign ult i64 %alignment, 4097
   %or.cond1.i = and i1 %cmp1.i.i, %cmp5
   br i1 %or.cond1.i, label %if.then.i25.i, label %if.end9.i.i
 
@@ -5135,7 +5135,7 @@ if.then.i25.i:                                    ; preds = %if.end.i159
   %add.i.i = add nuw nsw i64 %sub.i.i160, %cond
   %add2.i.i = sub nsw i64 0, %alignment
   %and.i.i = and i64 %add.i.i, %add2.i.i
-  %cmp.i30.i.i = icmp ult i64 %and.i.i, 4097
+  %cmp.i30.i.i = icmp samesign ult i64 %and.i.i, 4097
   br i1 %cmp.i30.i.i, label %if.then.i36.i.i, label %if.end5.i241.i
 
 if.then.i36.i.i:                                  ; preds = %if.then.i25.i
@@ -5181,7 +5181,7 @@ sz_s2u.exit.i.i:                                  ; preds = %if.end.i.i.i
   %50 = xor i64 %notmask150.i, -1
   %add.i288.i = add nuw nsw i64 %cond, %50
   %and.i290.i = and i64 %add.i288.i, %notmask150.i
-  %cmp14.i.i = icmp ult i64 %and.i290.i, %cond
+  %cmp14.i.i = icmp samesign ult i64 %and.i290.i, %cond
   br i1 %cmp14.i.i, label %arena_ralloc_move_helper.exit.thread, label %if.end18.i.i
 
 if.end18.i.i:                                     ; preds = %sz_s2u.exit.i.i, %if.end9.i.i, %sz_s2u.exit38.i.i
@@ -5276,7 +5276,7 @@ if.end5.i.i171:                                   ; preds = %if.end.i.i170
 
 sz_size2index.exit.i180:                          ; preds = %if.end5.i.i171, %if.then.i.i185
   %retval.i.0.i181 = phi i32 [ %conv.i13.i, %if.then.i.i185 ], [ %add23.i.i179, %if.end5.i.i171 ]
-  %cmp.i182 = icmp ult i32 %retval.i.0.i181, 39
+  %cmp.i182 = icmp samesign ult i32 %retval.i.0.i181, 39
   br i1 %cmp.i182, label %if.then.i184, label %if.else.i
 
 if.then.i184:                                     ; preds = %sz_size2index.exit.i180
@@ -5341,7 +5341,7 @@ if.end5.i191:                                     ; preds = %if.end.i.i206
 sz_size2index.exit.i:                             ; preds = %if.end5.i191, %if.then.i.i208
   %retval.i.i190.0 = phi i32 [ %conv.i29.i, %if.then.i.i208 ], [ %add23.i, %if.end5.i191 ]
   %conv7.i = zext nneg i32 %retval.i.i190.0 to i64
-  %cmp8.i = icmp ult i32 %retval.i.i190.0, 39
+  %cmp8.i = icmp samesign ult i32 %retval.i.i190.0, 39
   br i1 %cmp8.i, label %if.then19.i, label %if.else.i207
 
 if.then19.i:                                      ; preds = %sz_size2index.exit.i

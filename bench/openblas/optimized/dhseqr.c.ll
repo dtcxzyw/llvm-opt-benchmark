@@ -91,7 +91,7 @@ define void @dhseqr_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
 
 58:                                               ; preds = %55
   %59 = tail call i32 @llvm.umax.i32(i32 %53, i32 1)
-  %60 = icmp ugt i32 %56, %59
+  %60 = icmp samesign ugt i32 %56, %59
   br i1 %60, label %.thread, label %61
 
 61:                                               ; preds = %58

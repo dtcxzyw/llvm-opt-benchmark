@@ -3457,7 +3457,7 @@ define internal fastcc void @dissect_attr_ndl(ptr noundef %0, ptr noundef %1, i3
   %45 = sub nsw i32 %6, %.170
   %46 = load i32, ptr @ett_ndl_schedule_entries, align 4
   %47 = tail call ptr @proto_tree_add_subtree(ptr noundef %0, ptr noundef %1, i32 noundef %.1, i32 noundef %45, i32 noundef %46, ptr noundef null, ptr noundef nonnull @.str.725) #4
-  %48 = icmp ult i32 %.170, %6
+  %48 = icmp samesign ult i32 %.170, %6
   br i1 %48, label %.lr.ph, label %.loopexit
 
 .lr.ph:                                           ; preds = %44, %.lr.ph

@@ -1612,7 +1612,7 @@ radius_add_attribute.exit170.i.i:                 ; preds = %621, %619, %617
   br i1 %756, label %._crit_edge186.i.i, label %706
 
 757:                                              ; preds = %742
-  %758 = icmp ult i32 %734, 20
+  %758 = icmp samesign ult i32 %734, 20
   br i1 %758, label %759, label %763
 
 759:                                              ; preds = %757

@@ -471,7 +471,7 @@ sw.bb:                                            ; preds = %if.end, %if.end
 if.end3:                                          ; preds = %sw.bb
   %type = getelementptr inbounds i8, ptr %out, i64 16
   store i32 1, ptr %type, align 8
-  %cmp7 = icmp ugt i64 %sub.ptr.sub, 7
+  %cmp7 = icmp samesign ugt i64 %sub.ptr.sub, 7
   br i1 %cmp7, label %land.lhs.true, label %if.else
 
 land.lhs.true:                                    ; preds = %if.end3

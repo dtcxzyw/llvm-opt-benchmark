@@ -5484,7 +5484,7 @@ _ZN4absl7debian219str_format_internal18FormatSpecTemplateIJLNS0_23FormatConversi
   br label %.body.i.i29
 
 1744:                                             ; preds = %1740, %.lr.ph479.i.i
-  %1745 = icmp ugt i64 %indvars.iv566.i.i, 1
+  %1745 = icmp samesign ugt i64 %indvars.iv566.i.i, 1
   br i1 %1745, label %.lr.ph479.i.i, label %._crit_edge480.i.i, !llvm.loop !40
 
 ._crit_edge480.i.i:                               ; preds = %1744

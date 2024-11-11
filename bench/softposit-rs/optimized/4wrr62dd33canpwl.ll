@@ -94,7 +94,7 @@ _ZN9softposit5p16e15P16E116calculate_regime17he80d131ebda81979E.exit: ; preds = 
   %.sroa.51.0.in.i = phi i8 [ %30, %29 ], [ %24, %23 ]
   %.sroa.0.0.i = phi i16 [ %33, %29 ], [ %28, %23 ]
   %.sroa.51.0.insert.ext.i = zext nneg i8 %.sroa.51.0.in.i to i64
-  %34 = icmp ugt i8 %.sroa.51.0.in.i, 14
+  %34 = icmp samesign ugt i8 %.sroa.51.0.in.i, 14
   br i1 %34, label %50, label %47
 
 .lr.ph:                                           ; preds = %.preheader66, %.lr.ph

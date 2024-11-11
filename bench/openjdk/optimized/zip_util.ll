@@ -516,7 +516,7 @@ define internal fastcc i64 @readCEN(ptr nocapture noundef nonnull %0, i32 nounde
   br i1 %25, label %findEND.exit.thread, label %.outer.i.preheader.i.i
 
 .outer.i.preheader.i.i:                           ; preds = %22
-  %26 = icmp ult i64 %.0.i, 128
+  %26 = icmp samesign ult i64 %.0.i, 128
   br i1 %26, label %.outer.split.i.preheader.i.preheader.i, label %readFullyAt.exit.i.preheader
 
 readFullyAt.exit.i.preheader:                     ; preds = %.outer.i.i.i, %.outer.i.preheader.i.i
@@ -1455,7 +1455,7 @@ isMetaName.exit.thread:                           ; preds = %.preheader.i, %453,
   %506 = load i8, ptr %.045.i, align 1
   %507 = sext i8 %506 to i32
   %508 = add i32 %504, %507
-  %509 = icmp ugt i32 %.036.i, 1
+  %509 = icmp samesign ugt i32 %.036.i, 1
   br i1 %509, label %.lr.ph.i191, label %hashN.exit, !llvm.loop !15
 
 hashN.exit:                                       ; preds = %.lr.ph.i191, %isMetaName.exit.thread
@@ -1729,7 +1729,7 @@ define hidden ptr @ZIP_GetEntry2(ptr nocapture noundef %0, ptr nocapture noundef
   %9 = load i8, ptr %.045.i, align 1
   %10 = sext i8 %9 to i32
   %11 = add i32 %7, %10
-  %12 = icmp ugt i32 %.036.i, 1
+  %12 = icmp samesign ugt i32 %.036.i, 1
   br i1 %12, label %.lr.ph.i, label %hashN.exit, !llvm.loop !15
 
 hashN.exit:                                       ; preds = %.lr.ph.i, %4
@@ -2279,7 +2279,7 @@ sequentialAccessReadCENHeader.exit.thread:        ; preds = %32, %55, %sequentia
   br i1 %164, label %238, label %279
 
 238:                                              ; preds = %237
-  %239 = icmp ult i32 %.0, 8
+  %239 = icmp samesign ult i32 %.0, 8
   br i1 %239, label %.loopexit, label %240
 
 240:                                              ; preds = %238
@@ -2330,7 +2330,7 @@ sequentialAccessReadCENHeader.exit.thread:        ; preds = %32, %55, %sequentia
   %.2 = phi i32 [ %241, %243 ], [ %.1183, %237 ]
   %.1 = phi i32 [ %278, %243 ], [ %.0, %237 ]
   %280 = icmp ne i64 %135, 4294967295
-  %281 = icmp ult i32 %.1, 8
+  %281 = icmp samesign ult i32 %.1, 8
   %or.cond5 = select i1 %280, i1 true, i1 %281
   %282 = add nsw i32 %.2, 8
   %283 = icmp sgt i32 %282, %77

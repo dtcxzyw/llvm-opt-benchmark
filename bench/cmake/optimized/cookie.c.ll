@@ -486,7 +486,7 @@ define dso_local ptr @Curl_cookie_add(ptr noundef %0, ptr nocapture noundef %1, 
   br label %631
 
 74:                                               ; preds = %65
-  %75 = icmp ugt i64 %.0429.lcssa, 6
+  %75 = icmp samesign ugt i64 %.0429.lcssa, 6
   %76 = icmp eq i8 %39, 95
   %or.cond649 = and i1 %76, %75
   br i1 %or.cond649, label %77, label %87
@@ -857,7 +857,7 @@ bad_domain.exit:                                  ; preds = %171, %175
 225:                                              ; preds = %.critedge583
   %226 = load i64, ptr %27, align 8
   %227 = icmp eq i64 %226, 0
-  %228 = icmp ult i64 %.2432, 128
+  %228 = icmp samesign ult i64 %.2432, 128
   %or.cond19 = and i1 %228, %227
   br i1 %or.cond19, label %229, label %.critedge579
 

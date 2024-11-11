@@ -246,119 +246,119 @@ entry:
   br i1 %cmp, label %done, label %if.end
 
 if.end:                                           ; preds = %entry
-  %cmp1 = icmp ult i32 %mul, 836
+  %cmp1 = icmp samesign ult i32 %mul, 836
   br i1 %cmp1, label %done, label %if.end3
 
 if.end3:                                          ; preds = %if.end
-  %cmp4 = icmp ult i32 %mul, 1221
+  %cmp4 = icmp samesign ult i32 %mul, 1221
   br i1 %cmp4, label %done, label %if.end6
 
 if.end6:                                          ; preds = %if.end3
-  %cmp7 = icmp ult i32 %mul, 1485
+  %cmp7 = icmp samesign ult i32 %mul, 1485
   br i1 %cmp7, label %done, label %if.end9
 
 if.end9:                                          ; preds = %if.end6
-  %cmp10 = icmp ult i32 %mul, 1661
+  %cmp10 = icmp samesign ult i32 %mul, 1661
   br i1 %cmp10, label %done, label %if.end12
 
 if.end12:                                         ; preds = %if.end9
-  %cmp13 = icmp ult i32 %mul, 2211
+  %cmp13 = icmp samesign ult i32 %mul, 2211
   br i1 %cmp13, label %done, label %if.end15
 
 if.end15:                                         ; preds = %if.end12
-  %cmp16 = icmp ult i32 %mul, 3311
+  %cmp16 = icmp samesign ult i32 %mul, 3311
   br i1 %cmp16, label %done, label %if.end18
 
 if.end18:                                         ; preds = %if.end15
-  %cmp19 = icmp ult i32 %mul, 6611
+  %cmp19 = icmp samesign ult i32 %mul, 6611
   br i1 %cmp19, label %done, label %if.end21
 
 if.end21:                                         ; preds = %if.end18
-  %cmp22 = icmp ult i32 %mul, 13211
+  %cmp22 = icmp samesign ult i32 %mul, 13211
   br i1 %cmp22, label %done, label %if.end24
 
 if.end24:                                         ; preds = %if.end21
-  %cmp25 = icmp ult i32 %mul, 19811
+  %cmp25 = icmp samesign ult i32 %mul, 19811
   br i1 %cmp25, label %done, label %if.end27
 
 if.end27:                                         ; preds = %if.end24
-  %cmp28 = icmp ult i32 %mul, 26411
+  %cmp28 = icmp samesign ult i32 %mul, 26411
   br i1 %cmp28, label %done, label %if.end30
 
 if.end30:                                         ; preds = %if.end27
-  %cmp31 = icmp ult i32 %mul, 52811
+  %cmp31 = icmp samesign ult i32 %mul, 52811
   br i1 %cmp31, label %done, label %if.end33
 
 if.end33:                                         ; preds = %if.end30
-  %cmp34 = icmp ult i32 %mul, 105611
+  %cmp34 = icmp samesign ult i32 %mul, 105611
   br i1 %cmp34, label %done, label %if.end36
 
 if.end36:                                         ; preds = %if.end33
-  %cmp37 = icmp ult i32 %mul, 211211
+  %cmp37 = icmp samesign ult i32 %mul, 211211
   br i1 %cmp37, label %done, label %if.end39
 
 if.end39:                                         ; preds = %if.end36
-  %cmp40 = icmp ult i32 %mul, 422411
+  %cmp40 = icmp samesign ult i32 %mul, 422411
   br i1 %cmp40, label %done, label %if.end42
 
 if.end42:                                         ; preds = %if.end39
-  %cmp43 = icmp ult i32 %mul, 633611
+  %cmp43 = icmp samesign ult i32 %mul, 633611
   br i1 %cmp43, label %done, label %if.end45
 
 if.end45:                                         ; preds = %if.end42
-  %cmp46 = icmp ult i32 %mul, 1267211
+  %cmp46 = icmp samesign ult i32 %mul, 1267211
   br i1 %cmp46, label %done, label %if.end48
 
 if.end48:                                         ; preds = %if.end45
-  %cmp49 = icmp ult i32 %mul, 2534411
+  %cmp49 = icmp samesign ult i32 %mul, 2534411
   br i1 %cmp49, label %done, label %if.end51
 
 if.end51:                                         ; preds = %if.end48
-  %cmp52 = icmp ult i32 %mul, 5068811
+  %cmp52 = icmp samesign ult i32 %mul, 5068811
   br i1 %cmp52, label %done, label %if.end54
 
 if.end54:                                         ; preds = %if.end51
-  %cmp55 = icmp ult i32 %mul, 5500011
+  %cmp55 = icmp samesign ult i32 %mul, 5500011
   br i1 %cmp55, label %done, label %if.end57
 
 if.end57:                                         ; preds = %if.end54
-  %cmp58 = icmp ult i32 %mul, 6336011
+  %cmp58 = icmp samesign ult i32 %mul, 6336011
   br i1 %cmp58, label %done, label %if.end60
 
 if.end60:                                         ; preds = %if.end57
-  %cmp61 = icmp ult i32 %mul, 10137611
+  %cmp61 = icmp samesign ult i32 %mul, 10137611
   br i1 %cmp61, label %done, label %if.end63
 
 if.end63:                                         ; preds = %if.end60
-  %cmp64 = icmp ult i32 %mul, 11000011
+  %cmp64 = icmp samesign ult i32 %mul, 11000011
   br i1 %cmp64, label %done, label %if.end66
 
 if.end66:                                         ; preds = %if.end63
-  %cmp67 = icmp ult i32 %mul, 12672011
+  %cmp67 = icmp samesign ult i32 %mul, 12672011
   br i1 %cmp67, label %done, label %if.end69
 
 if.end69:                                         ; preds = %if.end66
-  %cmp70 = icmp ult i32 %mul, 16500011
+  %cmp70 = icmp samesign ult i32 %mul, 16500011
   br i1 %cmp70, label %done, label %if.end72
 
 if.end72:                                         ; preds = %if.end69
-  %cmp73 = icmp ult i32 %mul, 22000011
+  %cmp73 = icmp samesign ult i32 %mul, 22000011
   br i1 %cmp73, label %done, label %if.end75
 
 if.end75:                                         ; preds = %if.end72
-  %cmp76 = icmp ult i32 %mul, 27500011
+  %cmp76 = icmp samesign ult i32 %mul, 27500011
   br i1 %cmp76, label %done, label %if.end78
 
 if.end78:                                         ; preds = %if.end75
-  %cmp79 = icmp ult i32 %mul, 33000011
+  %cmp79 = icmp samesign ult i32 %mul, 33000011
   br i1 %cmp79, label %done, label %if.end81
 
 if.end81:                                         ; preds = %if.end78
-  %cmp82 = icmp ult i32 %mul, 38500011
+  %cmp82 = icmp samesign ult i32 %mul, 38500011
   br i1 %cmp82, label %done, label %if.end84
 
 if.end84:                                         ; preds = %if.end81
-  %cmp85 = icmp ult i32 %mul, 44000011
+  %cmp85 = icmp samesign ult i32 %mul, 44000011
   %. = select i1 %cmp85, i32 4111, i32 4098
   br label %done
 

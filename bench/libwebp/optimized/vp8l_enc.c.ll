@@ -143,7 +143,7 @@ GetHistoBits.exit.i:                              ; preds = %52
   %64 = getelementptr inbounds i8, ptr %14, i64 68
   store i32 %63, ptr %64, align 4
   %65 = icmp slt i32 %41, 4
-  %66 = icmp ugt i32 %41, 4
+  %66 = icmp samesign ugt i32 %41, 4
   %67 = select i1 %66, i32 4, i32 5
   %68 = select i1 %65, i32 6, i32 %67
   %69 = call i32 @llvm.umin.i32(i32 %63, i32 %68)
@@ -1331,7 +1331,7 @@ VP8LPutBits.exit31.i:                             ; preds = %162, %VP8LPutBits.e
   %184 = getelementptr inbounds [256 x i32], ptr %10, i64 0, i64 %indvars.iv.i
   store i32 %183, ptr %184, align 4
   %indvars.iv.next.i = add nsw i64 %indvars.iv.i, -1
-  %185 = icmp ugt i64 %indvars.iv.i, 1
+  %185 = icmp samesign ugt i64 %indvars.iv.i, 1
   br i1 %185, label %.lr.ph.i, label %EncodePalette.exit, !llvm.loop !18
 
 EncodePalette.exit:                               ; preds = %.lr.ph.i, %VP8LPutBits.exit31.i
@@ -4006,7 +4006,7 @@ ClearHuffmanTreeIfOnlyOneSymbol.exit.i:           ; preds = %175, %.preheader.i.
 
 198:                                              ; preds = %196, %194, %188
   %.1.i = phi i32 [ %195, %194 ], [ %197, %196 ], [ %193, %188 ]
-  %199 = icmp ugt i64 %indvars.iv90.i, 1
+  %199 = icmp samesign ugt i64 %indvars.iv90.i, 1
   br i1 %199, label %.lr.ph81.i, label %._crit_edge82.loopexit.i, !llvm.loop !50
 
 ._crit_edge82.loopexit.split.loop.exit.i:         ; preds = %.lr.ph81.i

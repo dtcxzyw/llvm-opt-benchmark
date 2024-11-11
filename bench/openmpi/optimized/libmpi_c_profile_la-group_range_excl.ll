@@ -107,7 +107,7 @@ define i32 @PMPI_Group_range_excl(ptr noundef %0, i32 noundef %1, ptr noundef %2
   br i1 %43, label %.loopexit102, label %44
 
 44:                                               ; preds = %40
-  %45 = icmp ult i32 %32, %37
+  %45 = icmp samesign ult i32 %32, %37
   br i1 %45, label %46, label %55
 
 46:                                               ; preds = %44
@@ -115,7 +115,7 @@ define i32 @PMPI_Group_range_excl(ptr noundef %0, i32 noundef %1, ptr noundef %2
   br i1 %47, label %.loopexit102, label %.preheader
 
 .preheader:                                       ; preds = %46
-  %.not97114 = icmp ugt i32 %32, %37
+  %.not97114 = icmp samesign ugt i32 %32, %37
   br i1 %.not97114, label %.loopexit, label %.lr.ph116.preheader
 
 .lr.ph116.preheader:                              ; preds = %.preheader
@@ -139,7 +139,7 @@ define i32 @PMPI_Group_range_excl(ptr noundef %0, i32 noundef %1, ptr noundef %2
   br i1 %.not97, label %.loopexit, label %.lr.ph116, !llvm.loop !4
 
 55:                                               ; preds = %44
-  %56 = icmp ugt i32 %32, %37
+  %56 = icmp samesign ugt i32 %32, %37
   br i1 %56, label %57, label %66
 
 57:                                               ; preds = %55
@@ -147,7 +147,7 @@ define i32 @PMPI_Group_range_excl(ptr noundef %0, i32 noundef %1, ptr noundef %2
   br i1 %58, label %.loopexit102, label %.preheader103
 
 .preheader103:                                    ; preds = %57
-  %.not95111 = icmp ult i32 %32, %37
+  %.not95111 = icmp samesign ult i32 %32, %37
   br i1 %.not95111, label %.loopexit, label %.lr.ph113.preheader
 
 .lr.ph113.preheader:                              ; preds = %.preheader103

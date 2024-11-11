@@ -9612,7 +9612,7 @@ _ZN6google8protobuf16RepeatedPtrFieldIN13sentencepiece31SentencePieceText_Senten
   %151 = load ptr, ptr %149, align 8
   store ptr %151, ptr %148, align 8
   store ptr %150, ptr %149, align 8
-  %152 = icmp ugt i64 %indvars.iv74, 2
+  %152 = icmp samesign ugt i64 %indvars.iv74, 2
   br i1 %152, label %.lr.ph66, label %._crit_edge, !llvm.loop !163
 
 ._crit_edge:                                      ; preds = %.lr.ph66, %_ZN6google8protobuf16RepeatedPtrFieldIN13sentencepiece31SentencePieceText_SentencePieceEE3AddEv.exit
@@ -10816,7 +10816,7 @@ _ZN13sentencepiece4util13StatusBuilderlsIA53_cEERS1_RKT_.exit: ; preds = %_ZN13s
   br label %_ZNSt6vectorISt4pairISt17basic_string_viewIcSt11char_traitsIcEEiESaIS5_EED2Ev.exit141
 
 133:                                              ; preds = %82
-  %or.cond9 = icmp ult i32 %4, 2
+  %or.cond9 = icmp samesign ult i32 %4, 2
   %134 = load ptr, ptr %76, align 8
   %135 = call { i64, ptr } @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEcvSt17basic_string_viewIcS2_EEv(ptr noundef nonnull align 8 dereferenceable(32) %12) #25
   %136 = extractvalue { i64, ptr } %135, 0

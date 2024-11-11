@@ -11876,8 +11876,8 @@ invoke.cont58:                                    ; preds = %call.i115.noexc
 invoke.cont66:                                    ; preds = %invoke.cont58
   %27 = load ptr, ptr %enum_def.i, align 8
   %cmp.not.i120 = icmp ne ptr %27, null
-  %28 = icmp ult i32 %25, 10
-  %29 = and i1 %28, %cmp.not.i120
+  %28 = icmp samesign ult i32 %25, 10
+  %29 = select i1 %cmp.not.i120, i1 %28, i1 false
   br i1 %29, label %if.then113, label %if.then68
 
 if.then68:                                        ; preds = %invoke.cont66
@@ -17240,8 +17240,8 @@ invoke.cont57:                                    ; preds = %call.i73.noexc
 if.then62:                                        ; preds = %invoke.cont57
   %20 = load ptr, ptr %enum_def.i, align 8
   %cmp.not.i = icmp ne ptr %20, null
-  %21 = icmp ult i32 %18, 10
-  %22 = and i1 %21, %cmp.not.i
+  %21 = icmp samesign ult i32 %18, 10
+  %22 = select i1 %cmp.not.i, i1 %21, i1 false
   br i1 %22, label %if.then64, label %if.end80
 
 if.then64:                                        ; preds = %if.then62
@@ -19408,8 +19408,8 @@ land.rhs164:                                      ; preds = %if.else162
 
 lor.rhs:                                          ; preds = %land.rhs164
   %cmp.not.i178 = icmp ne ptr %type.sroa.13.0.copyload, null
-  %54 = icmp ult i32 %52, 10
-  %55 = and i1 %cmp.not.i178, %54
+  %54 = icmp samesign ult i32 %52, 10
+  %55 = select i1 %cmp.not.i178, i1 %54, i1 false
   br i1 %55, label %if.then171, label %if.else217
 
 if.then171:                                       ; preds = %land.rhs164, %lor.rhs
@@ -27312,8 +27312,8 @@ invoke.cont94:                                    ; preds = %invoke.cont87
   %enum_def.i = getelementptr inbounds i8, ptr %field, i64 216
   %27 = load ptr, ptr %enum_def.i, align 8
   %cmp.not.i = icmp ne ptr %27, null
-  %28 = icmp ult i32 %25, 10
-  %29 = and i1 %28, %cmp.not.i
+  %28 = icmp samesign ult i32 %25, 10
+  %29 = select i1 %cmp.not.i, i1 %28, i1 false
   %cmp.i338 = icmp eq i32 %24, 2
   br i1 %29, label %if.end161, label %land.lhs.true96
 
@@ -31198,8 +31198,8 @@ invoke.cont72:                                    ; preds = %call.i160.noexc
 land.end.thread:                                  ; preds = %invoke.cont72
   %21 = load ptr, ptr %enum_def.i.i, align 8
   %cmp.not.i = icmp ne ptr %21, null
-  %22 = icmp ult i32 %19, 10
-  %23 = and i1 %22, %cmp.not.i
+  %22 = icmp samesign ult i32 %19, 10
+  %23 = select i1 %cmp.not.i, i1 %22, i1 false
   %24 = select i1 %23, ptr @.str.279, ptr @.str
   br label %if.then
 
@@ -31820,8 +31820,8 @@ invoke.cont171:                                   ; preds = %invoke.cont159, %if
   %.pre-phi507 = phi i32 [ %.pre505, %if.end168 ], [ %71, %invoke.cont159 ]
   %77 = load ptr, ptr %enum_def.i.i, align 8
   %cmp.not.i268 = icmp ne ptr %77, null
-  %78 = icmp ult i32 %.pre-phi507, 10
-  %79 = and i1 %78, %cmp.not.i268
+  %78 = icmp samesign ult i32 %.pre-phi507, 10
+  %79 = select i1 %cmp.not.i268, i1 %78, i1 false
   %80 = load i32, ptr %value, align 8
   %cmp.i269 = icmp eq i32 %80, 2
   %or.cond = select i1 %79, i1 true, i1 %cmp.i269
@@ -33642,8 +33642,8 @@ invoke.cont118:                                   ; preds = %land.lhs.true
   %enum_def.i = getelementptr inbounds i8, ptr %field, i64 216
   %23 = load ptr, ptr %enum_def.i, align 8
   %cmp.not.i = icmp ne ptr %23, null
-  %24 = icmp ult i32 %21, 10
-  %25 = and i1 %24, %cmp.not.i
+  %24 = icmp samesign ult i32 %21, 10
+  %25 = select i1 %cmp.not.i, i1 %24, i1 false
   %cond120 = select i1 %25, ptr @.str.261, ptr @.str
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp121) #19
   %call.i212217 = invoke noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(32) %is_enum)
@@ -40759,8 +40759,8 @@ land.lhs.true271:                                 ; preds = %invoke.cont265
 
 invoke.cont280:                                   ; preds = %land.lhs.true271
   %cmp.not.i = icmp ne ptr %98, null
-  %99 = icmp ult i32 %96, 10
-  %100 = and i1 %99, %cmp.not.i
+  %99 = icmp samesign ult i32 %96, 10
+  %100 = select i1 %cmp.not.i, i1 %99, i1 false
   br i1 %100, label %cond.true316, label %if.then282
 
 if.then282:                                       ; preds = %invoke.cont280

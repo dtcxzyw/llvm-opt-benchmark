@@ -2895,7 +2895,7 @@ define internal i64 @io_buffer_map(i32 noundef %0, ptr nocapture noundef readonl
 
 rb_check_arity.exit:                              ; preds = %3
   %6 = load i64, ptr %1, align 8
-  %7 = icmp ugt i32 %0, 1
+  %7 = icmp samesign ugt i32 %0, 1
   br i1 %7, label %8, label %22
 
 8:                                                ; preds = %rb_check_arity.exit
@@ -2939,7 +2939,7 @@ rb_check_arity.exit:                              ; preds = %3
 
 io_buffer_extract_size.exit:                      ; preds = %20, %18, %22
   %.017 = phi i64 [ %23, %22 ], [ %19, %18 ], [ %21, %20 ]
-  %27 = icmp ugt i32 %0, 2
+  %27 = icmp samesign ugt i32 %0, 2
   br i1 %27, label %28, label %rb_num2long_inline.exit.thread
 
 28:                                               ; preds = %io_buffer_extract_size.exit
@@ -5433,7 +5433,7 @@ define internal fastcc i64 @io_buffer_copy_from(ptr nocapture noundef readonly %
 
 io_buffer_extract_offset.exit:                    ; preds = %16, %14
   %.018 = phi i64 [ %15, %14 ], [ %17, %16 ]
-  %18 = icmp ugt i32 %3, 2
+  %18 = icmp samesign ugt i32 %3, 2
   br i1 %18, label %19, label %34
 
 19:                                               ; preds = %io_buffer_extract_offset.exit

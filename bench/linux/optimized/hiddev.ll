@@ -914,7 +914,7 @@ define internal range(i64 -2147483648, 2147483648) i64 @hiddev_ioctl(ptr nocaptu
   br i1 %115, label %116, label %hiddev_ioctl_string.exit
 
 116:                                              ; preds = %114
-  %117 = icmp ugt i32 %109, 1
+  %117 = icmp samesign ugt i32 %109, 1
   %118 = and i32 %109, 1
   %119 = icmp eq i32 %118, 0
   %120 = and i1 %117, %119
@@ -956,7 +956,7 @@ define internal range(i64 -2147483648, 2147483648) i64 @hiddev_ioctl(ptr nocaptu
 142:                                              ; preds = %139
   %143 = add nuw i32 %140, 1
   %144 = sext i32 %143 to i64
-  %145 = icmp ugt i32 %140, 255
+  %145 = icmp samesign ugt i32 %140, 255
   br i1 %145, label %146, label %147, !prof !22
 
 146:                                              ; preds = %142

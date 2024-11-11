@@ -5701,7 +5701,7 @@ if.then2.i:                                       ; preds = %if.end.i
   br label %exit
 
 if.end4.i:                                        ; preds = %if.end.i
-  %tobool5.not.i = icmp ult i32 %call10, 32768
+  %tobool5.not.i = icmp samesign ult i32 %call10, 32768
   %and6.i = and i32 %call10, 98320
   %cmp7.not.i = icmp eq i32 %and6.i, 98320
   %or.cond8.i = or i1 %tobool5.not.i, %cmp7.not.i

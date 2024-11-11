@@ -4195,7 +4195,7 @@ get_next_code_point.exit:                         ; preds = %.loopexit.i, %.loop
   %402 = getelementptr inbounds i8, ptr %3, i64 84
   %403 = load i32, ptr %402, align 4
   %404 = icmp sle i32 %397, %403
-  %405 = icmp ult i32 %397, 10
+  %405 = icmp samesign ult i32 %397, 10
   %or.cond3 = or i1 %405, %404
   br i1 %or.cond3, label %406, label %425
 
@@ -4350,7 +4350,7 @@ get_next_code_point.exit:                         ; preds = %.loopexit.i, %.loop
 
 484:                                              ; preds = %480
   %485 = sub nsw i32 2147483647, %483
-  %486 = icmp ugt i32 %479, %485
+  %486 = icmp samesign ugt i32 %479, %485
   %487 = add nsw i32 %483, %479
   %spec.select.i = select i1 %486, i32 -208, i32 %487
   br label %backref_rel_to_abs.exit
@@ -4521,7 +4521,7 @@ backref_rel_to_abs.exit:                          ; preds = %477, %488, %484
 
 574:                                              ; preds = %570
   %575 = sub nsw i32 2147483647, %573
-  %576 = icmp ugt i32 %.pre997, %575
+  %576 = icmp samesign ugt i32 %.pre997, %575
   %577 = add nsw i32 %573, %.pre997
   br i1 %576, label %backref_rel_to_abs.exit717.thread, label %backref_rel_to_abs.exit717
 
@@ -4981,7 +4981,7 @@ fetch_escaped_value.exit:                         ; preds = %629
 
 793:                                              ; preds = %788
   %794 = sub nsw i32 2147483647, %792
-  %795 = icmp ugt i32 %789, %794
+  %795 = icmp samesign ugt i32 %789, %794
   %796 = add nsw i32 %792, %789
   br i1 %795, label %backref_rel_to_abs.exit722.thread, label %backref_rel_to_abs.exit722
 
@@ -5615,7 +5615,7 @@ define internal fastcc range(i32 -400, 1) i32 @scan_octal_number(ptr nocapture n
   %20 = load ptr, ptr %10, align 8
   %21 = tail call i32 %20(i32 noundef %13, i32 noundef 4) #25
   %22 = icmp ne i32 %21, 0
-  %23 = icmp ult i32 %13, 56
+  %23 = icmp samesign ult i32 %13, 56
   %or.cond = select i1 %22, i1 %23, i1 false
   br i1 %or.cond, label %24, label %._crit_edge
 
@@ -5814,7 +5814,7 @@ define internal fastcc i32 @check_code_point_sequence(ptr noundef %0, ptr nounde
   %38 = load ptr, ptr %37, align 8
   %39 = tail call i32 %38(i32 noundef %12, i32 noundef 4) #25
   %40 = icmp ne i32 %39, 0
-  %41 = icmp ult i32 %12, 56
+  %41 = icmp samesign ult i32 %12, 56
   %or.cond7 = select i1 %40, i1 %41, i1 false
   br i1 %or.cond7, label %.loopexit, label %42
 
@@ -6826,7 +6826,7 @@ define internal fastcc range(i32 -400, 1) i32 @scan_number_of_base(ptr nocapture
   %55 = load ptr, ptr %45, align 8
   %56 = tail call i32 %55(i32 noundef %48, i32 noundef 4) #25
   %57 = icmp ne i32 %56, 0
-  %58 = icmp ult i32 %48, 56
+  %58 = icmp samesign ult i32 %48, 56
   %or.cond.i = select i1 %57, i1 %58, i1 false
   br i1 %or.cond.i, label %59, label %._crit_edge.i13
 
@@ -7533,7 +7533,7 @@ node_new_anchor.exit:                             ; preds = %118, %120
   br i1 %136, label %prs_bag.exit.thread, label %137
 
 137:                                              ; preds = %134
-  %138 = icmp ugt i32 %135, 31
+  %138 = icmp samesign ugt i32 %135, 31
   %or.cond.i = and i1 %131, %138
   br i1 %or.cond.i, label %prs_bag.exit.thread, label %139
 
@@ -7564,8 +7564,8 @@ node_new_memory.exit442.thread:                   ; preds = %143
   store ptr %calloc.i.i.i441, ptr %0, align 8
   %149 = getelementptr inbounds i8, ptr %calloc.i.i.i441, i64 32
   store i32 %135, ptr %149, align 8
-  %150 = icmp ult i32 %135, 32
-  %or.cond15.i = and i1 %131, %150
+  %150 = icmp samesign ult i32 %135, 32
+  %or.cond15.i = select i1 %131, i1 %150, i1 false
   br i1 %or.cond15.i, label %151, label %155
 
 151:                                              ; preds = %145
@@ -7792,7 +7792,7 @@ onig_node_free.exit738:                           ; preds = %onig_node_free.exit
 
 261:                                              ; preds = %257
   %262 = sub nsw i32 2147483647, %260
-  %263 = icmp ugt i32 %258, %262
+  %263 = icmp samesign ugt i32 %258, %262
   %264 = add nsw i32 %260, %258
   %spec.select.i439 = select i1 %263, i32 -208, i32 %264
   br label %backref_rel_to_abs.exit
@@ -8178,7 +8178,7 @@ node_new_memory.exit433.thread:                   ; preds = %437
   br i1 %443, label %prs_bag.exit.thread, label %444
 
 444:                                              ; preds = %439
-  %445 = icmp ugt i32 %442, 31
+  %445 = icmp samesign ugt i32 %442, 31
   br i1 %445, label %prs_bag.exit.thread, label %446
 
 446:                                              ; preds = %444
@@ -10310,7 +10310,7 @@ define internal fastcc i32 @add_ctype_to_cc(ptr nocapture noundef nonnull %0, i3
   br i1 %9, label %10, label %20
 
 10:                                               ; preds = %4
-  %11 = icmp ult i32 %1, 14
+  %11 = icmp samesign ult i32 %1, 14
   br i1 %11, label %12, label %15
 
 12:                                               ; preds = %10
@@ -10712,7 +10712,7 @@ define internal fastcc i32 @add_ctype_to_cc(ptr nocapture noundef nonnull %0, i3
   br i1 %166, label %.preheader5.i160, label %.preheader9.i151
 
 .preheader9.i151:                                 ; preds = %161
-  %167 = icmp ult i32 %.027.i, %165
+  %167 = icmp samesign ult i32 %.027.i, %165
   br i1 %167, label %.lr.ph.preheader.i155, label %._crit_edge.i152
 
 .lr.ph.preheader.i155:                            ; preds = %.preheader9.i151
@@ -16562,7 +16562,7 @@ define internal fastcc range(i32 -400, 1) i32 @cc_char_next(ptr nocapture nounde
   br i1 %or.cond.not, label %38, label %add_code_range.exit.thread
 
 38:                                               ; preds = %36
-  %39 = icmp ugt i32 %35, %2
+  %39 = icmp samesign ugt i32 %35, %2
   br i1 %39, label %40, label %.lr.ph.preheader.i
 
 40:                                               ; preds = %38
@@ -17275,7 +17275,7 @@ define internal fastcc i32 @check_code_point_sequence_cc(ptr noundef %0, ptr nou
   %45 = load ptr, ptr %44, align 8
   %46 = tail call i32 %45(i32 noundef %13, i32 noundef 4) #25
   %47 = icmp ne i32 %46, 0
-  %48 = icmp ult i32 %13, 56
+  %48 = icmp samesign ult i32 %13, 56
   %or.cond7 = select i1 %47, i1 %48, i1 false
   br i1 %or.cond7, label %.loopexit68, label %49
 

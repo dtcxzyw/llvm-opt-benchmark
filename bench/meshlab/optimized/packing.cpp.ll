@@ -9306,7 +9306,7 @@ _ZN3vcg18RasterizedOutline210gridHeightEi.exit.lr.ph: ; preds = %.preheader
   br i1 %or.cond, label %106, label %112
 
 106:                                              ; preds = %94
-  %107 = icmp ugt i32 %98, %103
+  %107 = icmp samesign ugt i32 %98, %103
   br i1 %107, label %108, label %109
 
 108:                                              ; preds = %106
@@ -9438,7 +9438,7 @@ _ZN3vcg18RasterizedOutline210gridHeightEi.exit:   ; preds = %_ZN3vcg18Rasterized
   br i1 %or.cond3, label %188, label %194
 
 188:                                              ; preds = %176
-  %189 = icmp ugt i32 %180, %185
+  %189 = icmp samesign ugt i32 %180, %185
   br i1 %189, label %190, label %191
 
 190:                                              ; preds = %188

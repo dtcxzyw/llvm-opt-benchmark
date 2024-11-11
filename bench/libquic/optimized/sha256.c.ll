@@ -488,7 +488,7 @@ sw.default:                                       ; preds = %if.end
   br i1 %cmp101, label %return, label %for.cond105.preheader
 
 for.cond105.preheader:                            ; preds = %sw.default
-  %cmp10776.not = icmp ult i32 %3, 4
+  %cmp10776.not = icmp samesign ult i32 %3, 4
   br i1 %cmp10776.not, label %return, label %for.body109
 
 for.body109:                                      ; preds = %for.cond105.preheader, %for.body109

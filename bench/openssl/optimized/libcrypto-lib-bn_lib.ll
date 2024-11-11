@@ -1014,7 +1014,7 @@ for.body64:                                       ; preds = %for.cond57.preheade
   %dec74 = add nsw i32 %len.addr.369, -1
   %add.ptr76 = getelementptr inbounds i8, ptr %s.addr.273, i64 %.
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 8
-  %cmp58 = icmp ugt i32 %len.addr.369, 1
+  %cmp58 = icmp samesign ugt i32 %len.addr.369, 1
   %cmp61 = icmp samesign ult i64 %indvars.iv, 56
   %13 = select i1 %cmp58, i1 %cmp61, i1 false
   br i1 %13, label %for.body64, label %for.end78, !llvm.loop !7

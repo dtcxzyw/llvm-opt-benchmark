@@ -23158,7 +23158,7 @@ define dso_local void @_ZN24cmComputeLinkInformation17HandleBadFullItemERKN20cmC
   %40 = getelementptr inbounds i8, ptr %.0910.i.i.i.i.i.i.i, i64 32
   %41 = getelementptr inbounds i8, ptr %.0811.i.i.i.i.i.i.i, i64 32
   %42 = add nsw i64 %.012.i.i.i.i.i.i.i, -1
-  %43 = icmp ugt i64 %.012.i.i.i.i.i.i.i, 1
+  %43 = icmp samesign ugt i64 %.012.i.i.i.i.i.i.i, 1
   br i1 %43, label %.lr.ph.i.i.i.i.i.i.i, label %_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt6vectorIS7_SaIS7_EEEESC_ET0_T_SE_SD_.exit.loopexit.i.i, !llvm.loop !777
 
 _ZSt4moveIN9__gnu_cxx17__normal_iteratorIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt6vectorIS7_SaIS7_EEEESC_ET0_T_SE_SD_.exit.loopexit.i.i: ; preds = %.lr.ph.i.i.i.i.i.i.i

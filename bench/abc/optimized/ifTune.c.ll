@@ -1208,7 +1208,7 @@ Ifn_ManStrType2.exit:                             ; preds = %3
 
 Ifn_NtkParseConstraints.exit.thread:              ; preds = %.preheader.lr.ph.i
   %19 = getelementptr inbounds i8, ptr %2, i64 5680
-  %20 = icmp ult i32 %14, 7
+  %20 = icmp samesign ult i32 %14, 7
   %21 = add nsw i32 %14, -6
   %22 = shl nuw i32 1, %21
   %.fr.i30 = freeze i32 %22

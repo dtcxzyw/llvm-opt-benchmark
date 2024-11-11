@@ -141,7 +141,7 @@ if.then17:                                        ; preds = %if.end15
   br label %if.end18
 
 if.end18:                                         ; preds = %if.then17, %if.end15
-  %cmp19 = icmp ugt i32 %call1, 1
+  %cmp19 = icmp samesign ugt i32 %call1, 1
   br i1 %cmp19, label %if.then21, label %if.end23
 
 if.then21:                                        ; preds = %if.end18

@@ -2891,7 +2891,7 @@ print_stats_table_header.exit:                    ; preds = %print_stats_table_h
   br label %relative_time_string.exit.i
 
 753:                                              ; preds = %748
-  %754 = icmp ugt i32 %750, 38
+  %754 = icmp samesign ugt i32 %750, 38
   br i1 %754, label %relative_time_string.exit.i, label %755
 
 755:                                              ; preds = %753
@@ -3838,7 +3838,7 @@ putquote.exit132.i:                               ; preds = %1141, %1136
   br label %relative_time_string.exit.i150
 
 1152:                                             ; preds = %1147
-  %1153 = icmp ugt i32 %1149, 38
+  %1153 = icmp samesign ugt i32 %1149, 38
   br i1 %1153, label %relative_time_string.exit.i150, label %1154
 
 1154:                                             ; preds = %1152

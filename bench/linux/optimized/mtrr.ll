@@ -651,7 +651,7 @@ define dso_local void @arch_phys_wc_del(i32 noundef %0) #0 align 16 {
   br i1 %2, label %3, label %12
 
 3:                                                ; preds = %1
-  %4 = icmp ult i32 %0, 1000
+  %4 = icmp samesign ult i32 %0, 1000
   br i1 %4, label %5, label %6, !prof !14
 
 5:                                                ; preds = %3

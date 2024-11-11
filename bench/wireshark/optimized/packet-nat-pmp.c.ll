@@ -523,7 +523,7 @@ proto_item_set_hidden.exit325.i:                  ; preds = %56, %53, %50
   ]
 
 76:                                               ; preds = %75, %75
-  %77 = icmp ugt i8 %12, 1
+  %77 = icmp samesign ugt i8 %12, 1
   br i1 %77, label %78, label %81
 
 78:                                               ; preds = %76
@@ -562,7 +562,7 @@ proto_item_set_hidden.exit325.i:                  ; preds = %56, %53, %50
   br label %137
 
 104:                                              ; preds = %75, %75
-  %105 = icmp ugt i8 %12, 1
+  %105 = icmp samesign ugt i8 %12, 1
   br i1 %105, label %106, label %109
 
 106:                                              ; preds = %104

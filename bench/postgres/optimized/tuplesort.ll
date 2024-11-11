@@ -3099,7 +3099,7 @@ define dso_local noundef zeroext i1 @tuplesort_skiptuples(ptr noundef %0, i64 no
   br label %39
 
 39:                                               ; preds = %36, %38
-  %40 = icmp ugt i64 %.in, 1
+  %40 = icmp samesign ugt i64 %.in, 1
   br i1 %40, label %.lr.ph, label %._crit_edge, !llvm.loop !21
 
 ._crit_edge:                                      ; preds = %39, %28

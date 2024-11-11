@@ -12540,7 +12540,7 @@ define dso_local void @clear_huge_page(ptr noundef %0, i64 noundef %1, i32 nound
   br i1 %15, label %36, label %16
 
 16:                                               ; preds = %6
-  %17 = icmp ult i32 %14, %2
+  %17 = icmp samesign ult i32 %14, %2
   br i1 %17, label %18, label %.loopexit5
 
 18:                                               ; preds = %16

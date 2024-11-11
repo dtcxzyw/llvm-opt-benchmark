@@ -362,7 +362,7 @@ define hidden zeroext range(i8 0, 2) i8 @stepControl_handleStep(ptr noundef %0, 
   br i1 %or.cond.i, label %.preheader.i, label %findLineNumber.exit
 
 .preheader.i:                                     ; preds = %139
-  %149 = icmp ugt i32 %146, 1
+  %149 = icmp samesign ugt i32 %146, 1
   br i1 %149, label %.lr.ph.preheader.i, label %._crit_edge.i
 
 .lr.ph.preheader.i:                               ; preds = %.preheader.i
@@ -1085,7 +1085,7 @@ getLineNumberTable.exit:                          ; preds = %70, %73, %81
   br i1 %or.cond.i, label %.preheader.i, label %findLineNumber.exit
 
 .preheader.i:                                     ; preds = %91
-  %99 = icmp ugt i32 %96, 1
+  %99 = icmp samesign ugt i32 %96, 1
   br i1 %99, label %.lr.ph.preheader.i, label %._crit_edge.i
 
 .lr.ph.preheader.i:                               ; preds = %.preheader.i

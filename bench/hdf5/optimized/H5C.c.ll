@@ -1650,7 +1650,7 @@ define range(i32 -1, 1) i32 @H5C_validate_resize_config(ptr noundef readonly %0,
   br label %210
 
 68:                                               ; preds = %60
-  %69 = icmp ugt i64 %62, 1000000
+  %69 = icmp samesign ugt i64 %62, 1000000
   br i1 %69, label %70, label %74
 
 70:                                               ; preds = %68
@@ -1810,7 +1810,7 @@ define range(i32 -1, 1) i32 @H5C_validate_resize_config(ptr noundef readonly %0,
   br label %210
 
 162:                                              ; preds = %154
-  %163 = icmp ugt i32 %156, 10
+  %163 = icmp samesign ugt i32 %156, 10
   br i1 %163, label %164, label %168
 
 164:                                              ; preds = %162

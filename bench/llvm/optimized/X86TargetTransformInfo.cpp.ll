@@ -503,7 +503,7 @@ define dso_local noundef range(i32 0, 33) i32 @_ZNK4llvm10X86TTIImpl20getNumberO
   br i1 %16, label %.critedge, label %23
 
 17:                                               ; preds = %10
-  %18 = icmp ugt i32 %8, 8
+  %18 = icmp samesign ugt i32 %8, 8
   br i1 %18, label %23, label %22
 
 .critedge:                                        ; preds = %.thread
@@ -1201,7 +1201,7 @@ _ZN4llvm15InstructionCostpLERKS0_.exit727:        ; preds = %_ZN4llvmmlERKNS_15I
   br i1 %spec.select.i737, label %231, label %.thread2392
 
 231:                                              ; preds = %.critedge17.thread2302.thread
-  %spec.select.i738.not = icmp ult i32 %.sroa.02189.0.extract.trunc, 2
+  %spec.select.i738.not = icmp samesign ult i32 %.sroa.02189.0.extract.trunc, 2
   %232 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %233 = load ptr, ptr %232, align 8
   br i1 %spec.select.i738.not, label %.thread2473.thread, label %234
@@ -8571,7 +8571,7 @@ _ZNK4llvm3MVT13getScalarTypeEv.exit:              ; preds = %.critedge2
 124:                                              ; preds = %_ZNK4llvm3MVT13getScalarTypeEv.exit
   %125 = getelementptr inbounds [240 x i16], ptr @_ZZNK4llvm3MVT23getVectorMinNumElementsEvE10NElemTable, i64 0, i64 %120
   %126 = load i16, ptr %125, align 2
-  %spec.select.i.i.i290 = icmp ult i16 %.sroa.025.0.lcssa42.sink.i, 137
+  %spec.select.i.i.i290 = icmp samesign ult i16 %.sroa.025.0.lcssa42.sink.i, 137
   br i1 %spec.select.i.i.i290, label %129, label %127
 
 127:                                              ; preds = %124
@@ -11566,7 +11566,7 @@ _ZNK4llvm16BasicTTIImplBaseINS_10X86TTIImplEE23getTypeLegalizationCostEPNS_4Type
   br i1 %60, label %61, label %129
 
 61:                                               ; preds = %59
-  %spec.select.i.i240 = icmp ult i16 %50, 120
+  %spec.select.i.i240 = icmp samesign ult i16 %50, 120
   br i1 %spec.select.i.i240, label %_ZNK4llvm3MVT14is128BitVectorEv.exit, label %_ZNK4llvm3MVT14is128BitVectorEv.exit.thread
 
 _ZNK4llvm3MVT14is128BitVectorEv.exit:             ; preds = %61
@@ -25321,7 +25321,7 @@ _ZN4llvm23SmallVectorTemplateBaseIjLb1EE9push_backEj.exit: ; preds = %28, %32
   br label %.thread
 
 38:                                               ; preds = %14
-  %39 = icmp ugt i32 %18, 255
+  %39 = icmp samesign ugt i32 %18, 255
   br i1 %39, label %.thread, label %54
 
 .thread:                                          ; preds = %20, %24, %_ZN4llvm23SmallVectorTemplateBaseIjLb1EE9push_backEj.exit, %38
@@ -25354,7 +25354,7 @@ _ZN4llvm23SmallVectorTemplateBaseIjLb1EE9push_backEj.exit7: ; preds = %44, %48
   br label %.thread19
 
 54:                                               ; preds = %38
-  %55 = icmp ugt i32 %18, 127
+  %55 = icmp samesign ugt i32 %18, 127
   br i1 %55, label %.thread19, label %70
 
 .thread19:                                        ; preds = %.thread, %_ZN4llvm23SmallVectorTemplateBaseIjLb1EE9push_backEj.exit7, %54
@@ -34163,7 +34163,7 @@ _ZN4llvm15SmallVectorImplIPKNS_5ValueEE7reserveEm.exit: ; preds = %3, %12
   %19 = getelementptr inbounds i8, ptr %.sroa.05.08.i.i.i.i.i.i.i.i, i64 32
   %20 = getelementptr inbounds i8, ptr %.049.i.i.i.i.i.i.i.i, i64 8
   %21 = add nsw i64 %.010.i.i.i.i.i.i.i.i, -1
-  %22 = icmp ugt i64 %.010.i.i.i.i.i.i.i.i, 1
+  %22 = icmp samesign ugt i64 %.010.i.i.i.i.i.i.i.i, 1
   br i1 %22, label %.lr.ph.i.i.i.i.i.i.i.i, label %_ZN4llvm23SmallVectorTemplateBaseIPKNS_5ValueELb1EE18uninitialized_copyINS_4User23const_value_op_iteratorEPS3_EEvT_S9_T0_.exit, !llvm.loop !252
 
 _ZN4llvm23SmallVectorTemplateBaseIPKNS_5ValueELb1EE18uninitialized_copyINS_4User23const_value_op_iteratorEPS3_EEvT_S9_T0_.exit: ; preds = %.lr.ph.i.i.i.i.i.i.i.i, %_ZN4llvm15SmallVectorImplIPKNS_5ValueEE7reserveEm.exit

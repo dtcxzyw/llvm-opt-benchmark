@@ -7980,7 +7980,7 @@ if.end63.i:                                       ; preds = %if.end60.i
 
 lor.lhs.false65.i:                                ; preds = %if.end63.i
   %cmp66.i = icmp ne i64 %nValue.0.i, 1844674407370955161
-  %cmp69.not.i = icmp ugt i32 %add.i, 5
+  %cmp69.not.i = icmp samesign ugt i32 %add.i, 5
   %or.cond.i = or i1 %cmp66.i, %cmp69.not.i
   br i1 %or.cond.i, label %if.end75.i, label %if.then70.i
 
@@ -8123,7 +8123,7 @@ if.end63.i89:                                     ; preds = %if.end60.i62
 
 lor.lhs.false65.i91:                              ; preds = %if.end63.i89
   %cmp66.i92 = icmp ne i64 %nValue.0.i54, 1844674407370955161
-  %cmp69.not.i94 = icmp ugt i32 %add.i66, 5
+  %cmp69.not.i94 = icmp samesign ugt i32 %add.i66, 5
   %or.cond.i95 = or i1 %cmp66.i92, %cmp69.not.i94
   br i1 %or.cond.i95, label %if.end75.i100, label %if.then70.i96
 
@@ -8523,7 +8523,7 @@ if.end63.i:                                       ; preds = %if.end60.i
 
 lor.lhs.false65.i:                                ; preds = %if.end63.i
   %cmp66.i = icmp ne i64 %nValue.0.i, 1844674407370955161
-  %cmp69.not.i = icmp ugt i32 %add.i, 5
+  %cmp69.not.i = icmp samesign ugt i32 %add.i, 5
   %or.cond.i = or i1 %cmp66.i, %cmp69.not.i
   br i1 %or.cond.i, label %if.end75.i, label %if.then70.i
 
@@ -8666,7 +8666,7 @@ if.end63.i93:                                     ; preds = %if.end60.i66
 
 lor.lhs.false65.i95:                              ; preds = %if.end63.i93
   %cmp66.i96 = icmp ne i64 %nValue.0.i58, 1844674407370955161
-  %cmp69.not.i98 = icmp ugt i32 %add.i70, 5
+  %cmp69.not.i98 = icmp samesign ugt i32 %add.i70, 5
   %or.cond.i99 = or i1 %cmp66.i96, %cmp69.not.i98
   br i1 %or.cond.i99, label %if.end75.i104, label %if.then70.i100
 
@@ -10102,38 +10102,38 @@ if.end6.i:                                        ; preds = %if.end3.i
   br i1 %cmp7.i, label %if.then8.i, label %if.end31.i
 
 if.then8.i:                                       ; preds = %if.end6.i
-  %cmp9.i = icmp ult i64 %v.tr19.i, 100000000
+  %cmp9.i = icmp samesign ult i64 %v.tr19.i, 100000000
   br i1 %cmp9.i, label %if.then10.i, label %if.end21.i
 
 if.then10.i:                                      ; preds = %if.then8.i
-  %cmp11.i = icmp ult i64 %v.tr19.i, 1000000
+  %cmp11.i = icmp samesign ult i64 %v.tr19.i, 1000000
   br i1 %cmp11.i, label %if.then12.i, label %if.end17.i
 
 if.then12.i:                                      ; preds = %if.then10.i
-  %cmp13.i = icmp ult i64 %v.tr19.i, 10000
+  %cmp13.i = icmp samesign ult i64 %v.tr19.i, 10000
   br i1 %cmp13.i, label %_ZN2EA4StdCL8digits10Em.exit, label %if.end15.i
 
 if.end15.i:                                       ; preds = %if.then12.i
-  %cmp16.i = icmp ugt i64 %v.tr19.i, 99999
+  %cmp16.i = icmp samesign ugt i64 %v.tr19.i, 99999
   %add.i = select i1 %cmp16.i, i32 6, i32 5
   br label %_ZN2EA4StdCL8digits10Em.exit
 
 if.end17.i:                                       ; preds = %if.then10.i
-  %cmp18.i = icmp ugt i64 %v.tr19.i, 9999999
+  %cmp18.i = icmp samesign ugt i64 %v.tr19.i, 9999999
   %add20.i = select i1 %cmp18.i, i32 8, i32 7
   br label %_ZN2EA4StdCL8digits10Em.exit
 
 if.end21.i:                                       ; preds = %if.then8.i
-  %cmp22.i = icmp ult i64 %v.tr19.i, 10000000000
+  %cmp22.i = icmp samesign ult i64 %v.tr19.i, 10000000000
   br i1 %cmp22.i, label %if.then23.i, label %if.end27.i
 
 if.then23.i:                                      ; preds = %if.end21.i
-  %cmp24.i = icmp ugt i64 %v.tr19.i, 999999999
+  %cmp24.i = icmp samesign ugt i64 %v.tr19.i, 999999999
   %add26.i = select i1 %cmp24.i, i32 10, i32 9
   br label %_ZN2EA4StdCL8digits10Em.exit
 
 if.end27.i:                                       ; preds = %if.end21.i
-  %cmp28.i = icmp ugt i64 %v.tr19.i, 99999999999
+  %cmp28.i = icmp samesign ugt i64 %v.tr19.i, 99999999999
   %add30.i = select i1 %cmp28.i, i32 12, i32 11
   br label %_ZN2EA4StdCL8digits10Em.exit
 
@@ -10272,38 +10272,38 @@ if.end6.i.i:                                      ; preds = %if.end3.i.i
   br i1 %cmp7.i.i, label %if.then8.i.i, label %if.end31.i.i
 
 if.then8.i.i:                                     ; preds = %if.end6.i.i
-  %cmp9.i.i = icmp ult i64 %v.tr19.i.i, 100000000
+  %cmp9.i.i = icmp samesign ult i64 %v.tr19.i.i, 100000000
   br i1 %cmp9.i.i, label %if.then10.i.i, label %if.end21.i.i
 
 if.then10.i.i:                                    ; preds = %if.then8.i.i
-  %cmp11.i.i = icmp ult i64 %v.tr19.i.i, 1000000
+  %cmp11.i.i = icmp samesign ult i64 %v.tr19.i.i, 1000000
   br i1 %cmp11.i.i, label %if.then12.i.i, label %if.end17.i.i
 
 if.then12.i.i:                                    ; preds = %if.then10.i.i
-  %cmp13.i.i = icmp ult i64 %v.tr19.i.i, 10000
+  %cmp13.i.i = icmp samesign ult i64 %v.tr19.i.i, 10000
   br i1 %cmp13.i.i, label %_ZN2EA4StdCL8digits10Em.exit.i, label %if.end15.i.i
 
 if.end15.i.i:                                     ; preds = %if.then12.i.i
-  %cmp16.i.i = icmp ugt i64 %v.tr19.i.i, 99999
+  %cmp16.i.i = icmp samesign ugt i64 %v.tr19.i.i, 99999
   %add.i.i = select i1 %cmp16.i.i, i32 6, i32 5
   br label %_ZN2EA4StdCL8digits10Em.exit.i
 
 if.end17.i.i:                                     ; preds = %if.then10.i.i
-  %cmp18.i.i = icmp ugt i64 %v.tr19.i.i, 9999999
+  %cmp18.i.i = icmp samesign ugt i64 %v.tr19.i.i, 9999999
   %add20.i.i = select i1 %cmp18.i.i, i32 8, i32 7
   br label %_ZN2EA4StdCL8digits10Em.exit.i
 
 if.end21.i.i:                                     ; preds = %if.then8.i.i
-  %cmp22.i.i = icmp ult i64 %v.tr19.i.i, 10000000000
+  %cmp22.i.i = icmp samesign ult i64 %v.tr19.i.i, 10000000000
   br i1 %cmp22.i.i, label %if.then23.i.i, label %if.end27.i.i
 
 if.then23.i.i:                                    ; preds = %if.end21.i.i
-  %cmp24.i.i = icmp ugt i64 %v.tr19.i.i, 999999999
+  %cmp24.i.i = icmp samesign ugt i64 %v.tr19.i.i, 999999999
   %add26.i.i = select i1 %cmp24.i.i, i32 10, i32 9
   br label %_ZN2EA4StdCL8digits10Em.exit.i
 
 if.end27.i.i:                                     ; preds = %if.end21.i.i
-  %cmp28.i.i = icmp ugt i64 %v.tr19.i.i, 99999999999
+  %cmp28.i.i = icmp samesign ugt i64 %v.tr19.i.i, 99999999999
   %add30.i.i = select i1 %cmp28.i.i, i32 12, i32 11
   br label %_ZN2EA4StdCL8digits10Em.exit.i
 
@@ -12143,7 +12143,7 @@ while.body:                                       ; preds = %while.cond.preheade
   %nDigits.0139 = phi i32 [ %inc, %while.body ], [ 1, %while.cond.preheader ]
   %mul = mul nuw nsw i32 %nLimit.0140, 10
   %inc = add nuw nsw i32 %nDigits.0139, 1
-  %cmp8.not = icmp ugt i32 %mul, %conv
+  %cmp8.not = icmp samesign ugt i32 %mul, %conv
   br i1 %cmp8.not, label %while.end.loopexit, label %while.body, !llvm.loop !224
 
 while.end.loopexit:                               ; preds = %while.body
@@ -12306,7 +12306,7 @@ if.end37:                                         ; preds = %if.end33, %if.end23
   br i1 %cmp38, label %if.then39, label %if.end55
 
 if.then39:                                        ; preds = %if.end37
-  %cmp40.not = icmp ult i32 %nPositionResult.0, %nResultCapacity
+  %cmp40.not = icmp samesign ult i32 %nPositionResult.0, %nResultCapacity
   br i1 %cmp40.not, label %if.end51, label %if.then41
 
 if.then41:                                        ; preds = %if.then39
@@ -12594,7 +12594,7 @@ while.body:                                       ; preds = %while.cond.preheade
   %nDigits.0131 = phi i32 [ %inc, %while.body ], [ 1, %while.cond.preheader ]
   %mul = mul nuw nsw i32 %nLimit.0132, 10
   %inc = add nuw nsw i32 %nDigits.0131, 1
-  %cmp8.not = icmp ugt i32 %mul, %conv
+  %cmp8.not = icmp samesign ugt i32 %mul, %conv
   br i1 %cmp8.not, label %while.end.loopexit, label %while.body, !llvm.loop !230
 
 while.end.loopexit:                               ; preds = %while.body
@@ -12724,7 +12724,7 @@ if.end37:                                         ; preds = %if.end33, %if.end23
   br i1 %cmp38, label %if.then39, label %if.end55
 
 if.then39:                                        ; preds = %if.end37
-  %cmp40.not = icmp ult i32 %nPositionResult.0, %nResultCapacity
+  %cmp40.not = icmp samesign ult i32 %nPositionResult.0, %nResultCapacity
   br i1 %cmp40.not, label %if.end51, label %if.then41
 
 if.then41:                                        ; preds = %if.then39
@@ -13005,7 +13005,7 @@ while.body:                                       ; preds = %while.cond.preheade
   %nDigits.0129 = phi i32 [ %inc, %while.body ], [ 1, %while.cond.preheader ]
   %mul = mul nuw nsw i32 %nLimit.0130, 10
   %inc = add nuw nsw i32 %nDigits.0129, 1
-  %cmp8.not = icmp ugt i32 %mul, %conv
+  %cmp8.not = icmp samesign ugt i32 %mul, %conv
   br i1 %cmp8.not, label %while.end.loopexit, label %while.body, !llvm.loop !236
 
 while.end.loopexit:                               ; preds = %while.body
@@ -13091,7 +13091,7 @@ if.end37:                                         ; preds = %if.end33, %if.end23
   br i1 %cmp38, label %if.then39, label %if.end55
 
 if.then39:                                        ; preds = %if.end37
-  %cmp40.not = icmp ult i32 %nPositionResult.0, %nResultCapacity
+  %cmp40.not = icmp samesign ult i32 %nPositionResult.0, %nResultCapacity
   br i1 %cmp40.not, label %if.end51, label %if.then41
 
 if.then41:                                        ; preds = %if.then39

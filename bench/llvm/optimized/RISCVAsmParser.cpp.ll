@@ -8915,9 +8915,10 @@ _ZL20MatchRegisterAltNameN4llvm9StringRefE.exit:  ; preds = %switch.lookup17, %s
   %93 = load i64, ptr %92, align 8
   %94 = and i64 %93, 70368744177664
   %95 = icmp ne i64 %94, 0
-  %96 = add nsw i32 %.sroa.06.0, -59
-  %97 = icmp ult i32 %96, 16
-  %or.cond10 = select i1 %95, i1 %97, i1 false
+  %96 = icmp samesign ugt i32 %.sroa.06.0, 58
+  %or.cond = select i1 %95, i1 %96, i1 false
+  %97 = icmp samesign ult i32 %.sroa.06.0, 75
+  %or.cond10 = select i1 %or.cond, i1 %97, i1 false
   %.sroa.06.1 = select i1 %or.cond10, i32 0, i32 %.sroa.06.0
   ret i32 %.sroa.06.1
 }
@@ -17306,7 +17307,7 @@ _ZNK4llvm9StringRef12getAsIntegerIjEEbjRT_.exit50.thread: ; preds = %44, %_ZN4ll
 _ZN4llvm13isPowerOf2_32Ej.exit.i:                 ; preds = %46
   %50 = call range(i32 1, 33) i32 @llvm.ctpop.i32(i32 %47)
   %51 = icmp samesign ugt i32 %50, 1
-  %52 = icmp ugt i64 %45, 8
+  %52 = icmp samesign ugt i64 %45, 8
   %or.cond.i.not112 = or i1 %52, %51
   %53 = icmp eq i64 %45, 1
   %.not106 = and i1 %53, %49
@@ -17324,7 +17325,7 @@ _ZN4llvm13isPowerOf2_32Ej.exit.i:                 ; preds = %46
   %60 = and i64 %59, 1073741824
   %.not107 = icmp eq i64 %60, 0
   %61 = select i1 %.not107, i32 4, i32 8
-  %62 = icmp ult i32 %61, %47
+  %62 = icmp samesign ult i32 %61, %47
   br i1 %62, label %63, label %77
 
 63:                                               ; preds = %55

@@ -1177,7 +1177,7 @@ if.else:                                          ; preds = %if.end
   br i1 %or.cond1, label %if.end98, label %if.else21
 
 if.else21:                                        ; preds = %if.else
-  %tobool.not = icmp ult i32 %2, 134217728
+  %tobool.not = icmp samesign ult i32 %2, 134217728
   br i1 %tobool.not, label %return, label %if.then22
 
 if.then22:                                        ; preds = %if.else21
@@ -2026,7 +2026,7 @@ if.then51.i:                                      ; preds = %if.end44.i
   %78 = trunc nuw nsw i32 %retval.0.i.i to i16
   %conv53.i = or disjoint i16 %78, 23296
   %conv54.i = trunc i32 %sp.addr.1 to i16
-  %cmp55.i = icmp ult i32 %ssize.0.i, 4
+  %cmp55.i = icmp samesign ult i32 %ssize.0.i, 4
   %cond60.i = select i1 %cmp55.i, i32 19, i32 %st.0.i
   %shl61.i = shl nuw nsw i32 %retval.0.i.i, 5
   %or62.i = add nuw nsw i32 %cond60.i, %shl61.i
@@ -2048,7 +2048,7 @@ if.else.i:                                        ; preds = %if.end44.i
   br i1 %or.cond4.i, label %if.then74.i, label %if.else95.i
 
 if.then74.i:                                      ; preds = %if.else.i
-  %cmp75.i = icmp ult i32 %61, 4
+  %cmp75.i = icmp samesign ult i32 %61, 4
   %cond80.i = select i1 %cmp75.i, i32 19, i32 %retval.0.i.i
   %80 = trunc nuw nsw i32 %cond80.i to i16
   %conv82.i = or disjoint i16 %80, 23296

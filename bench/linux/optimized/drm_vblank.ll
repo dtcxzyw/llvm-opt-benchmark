@@ -3182,7 +3182,7 @@ define dso_local i32 @drm_wait_vblank_ioctl(ptr noundef %0, ptr nocapture nounde
   %23 = and i32 %9, 62
   %24 = icmp eq i32 %23, 0
   %25 = lshr exact i32 %23, 1
-  %26 = icmp ugt i32 %9, 536870911
+  %26 = icmp samesign ugt i32 %9, 536870911
   %27 = zext i1 %26 to i32
   %28 = select i1 %24, i32 %27, i32 %25
   %29 = getelementptr inbounds i8, ptr %0, i64 48

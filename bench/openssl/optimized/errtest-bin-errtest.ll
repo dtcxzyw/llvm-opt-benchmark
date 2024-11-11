@@ -214,7 +214,7 @@ lor.rhs:                                          ; preds = %for.body
   br i1 %cmp32, label %land.rhs34, label %lor.end
 
 land.rhs34:                                       ; preds = %lor.rhs
-  %cmp36 = icmp ult i8 %2, 71
+  %cmp36 = icmp samesign ult i8 %2, 71
   %4 = zext i1 %cmp36 to i32
   br label %lor.end
 

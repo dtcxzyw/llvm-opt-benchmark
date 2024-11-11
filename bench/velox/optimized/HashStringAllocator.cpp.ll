@@ -1101,7 +1101,7 @@ entry:
   br i1 %brmerge.not, label %if.then, label %if.end4
 
 if.then:                                          ; preds = %entry
-  %cmp2 = icmp ugt i32 %size, 536870911
+  %cmp2 = icmp samesign ugt i32 %size, 536870911
   br i1 %cmp2, label %if.then3, label %_ZN8facebook5velox19HashStringAllocator6HeaderC2Ej.exit
 
 if.then3:                                         ; preds = %if.then
@@ -1903,7 +1903,7 @@ _ZN8facebook5velox19HashStringAllocator6Header7setSizeEi.exit.i: ; preds = %if.e
   %idx.ext.i.i17 = zext nneg i32 %and.i.i.i16 to i64
   %add.ptr.i.i18 = getelementptr inbounds i8, ptr %add.ptr.i11, i64 %idx.ext.i.i17
   store i32 %sub3.i, ptr %add.ptr.i.i18, align 4
-  %cmp.i6.i = icmp ugt i32 %sub3.i, 536870911
+  %cmp.i6.i = icmp samesign ugt i32 %sub3.i, 536870911
   br i1 %cmp.i6.i, label %if.then.i7.i, label %_ZN8facebook5velox19HashStringAllocator6HeaderC2Ej.exit.i
 
 if.then.i7.i:                                     ; preds = %_ZN8facebook5velox19HashStringAllocator6Header7setSizeEi.exit.i
@@ -1989,7 +1989,7 @@ _ZN8facebook5velox19HashStringAllocator6Header7setSizeEi.exit: ; preds = %if.end
   %idx.ext.i = zext nneg i32 %and.i.i to i64
   %add.ptr.i = getelementptr inbounds i8, ptr %add.ptr.i.i, i64 %idx.ext.i
   store i32 %sub3, ptr %add.ptr.i, align 4
-  %cmp.i6 = icmp ugt i32 %sub3, 536870911
+  %cmp.i6 = icmp samesign ugt i32 %sub3, 536870911
   br i1 %cmp.i6, label %if.then.i7, label %_ZN8facebook5velox19HashStringAllocator6HeaderC2Ej.exit
 
 if.then.i7:                                       ; preds = %_ZN8facebook5velox19HashStringAllocator6Header7setSizeEi.exit
@@ -2266,7 +2266,7 @@ if.then.i.i:                                      ; preds = %invoke.cont15
   unreachable
 
 if.end.i.i:                                       ; preds = %invoke.cont15
-  %cmp.i.i.i.i = icmp ult i32 %conv.i10, 13
+  %cmp.i.i.i.i = icmp samesign ult i32 %conv.i10, 13
   br i1 %cmp.i.i.i.i, label %if.then2.i.i, label %if.else.i.i
 
 if.then2.i.i:                                     ; preds = %if.end.i.i
@@ -2772,7 +2772,7 @@ _ZN8facebook5velox19HashStringAllocator6Header7setSizeEi.exit.i: ; preds = %if.e
   %idx.ext.i.i24 = zext nneg i32 %and.i.i.i23 to i64
   %add.ptr.i.i25 = getelementptr inbounds i8, ptr %2, i64 %idx.ext.i.i24
   store i32 %sub3.i, ptr %add.ptr.i.i25, align 4
-  %cmp.i6.i = icmp ugt i32 %sub3.i, 536870911
+  %cmp.i6.i = icmp samesign ugt i32 %sub3.i, 536870911
   br i1 %cmp.i6.i, label %if.then.i7.i, label %_ZN8facebook5velox19HashStringAllocator6HeaderC2Ej.exit.i
 
 if.then.i7.i:                                     ; preds = %_ZN8facebook5velox19HashStringAllocator6Header7setSizeEi.exit.i
@@ -3508,7 +3508,7 @@ _ZN8facebook5velox4simd6detail12copyNextWordIN5xsimd5batchIaNS4_4fma3INS4_4avx2E
   %29 = ptrtoint ptr %to.addr.096.i to i64
   %add.i7.i.i = add i64 %29, 32
   %30 = inttoptr i64 %add.i7.i.i to ptr
-  %cmp.not.i50 = icmp ult i32 %bytes.addr.098.i, 64
+  %cmp.not.i50 = icmp samesign ult i32 %bytes.addr.098.i, 64
   br i1 %cmp.not.i50, label %while.cond2.preheader.i, label %if.then.i.i, !llvm.loop !35
 
 if.then.i3.i:                                     ; preds = %while.cond2.preheader.i, %_ZN8facebook5velox4simd6detail12copyNextWordIlN5xsimd4fma3INS4_4avx2EEEEEbRPvRPKvRi.exit.i
@@ -3558,7 +3558,7 @@ if.end11.i:                                       ; preds = %if.end.i14.i, %whil
   %to.addr.4.ph.i = phi ptr [ %to.addr.1.lcssa.i, %while.end8.i ], [ %40, %if.end.i14.i ]
   %from.addr.4.ph.i = phi ptr [ %from.addr.1.lcssa.i, %while.end8.i ], [ %38, %if.end.i14.i ]
   %bytes.addr.4.ph.i = phi i32 [ %bytes.addr.1.lcssa.i, %while.end8.i ], [ %sub.i12.i, %if.end.i14.i ]
-  %cmp.i17.i = icmp ugt i32 %bytes.addr.4.ph.i, 1
+  %cmp.i17.i = icmp samesign ugt i32 %bytes.addr.4.ph.i, 1
   br i1 %cmp.i17.i, label %if.then.i19.i, label %if.end14.i
 
 if.then.i19.i:                                    ; preds = %if.end11.i
@@ -3596,7 +3596,7 @@ if.then.i55:                                      ; preds = %_ZN8facebook5velox4
   unreachable
 
 if.end.i:                                         ; preds = %_ZN8facebook5velox4simd6memcpyIN5xsimd4fma3INS3_4avx2EEEEEvPvPKviRKT_.exit
-  %cmp.i.i.i = icmp ult i32 %numBytes, 13
+  %cmp.i.i.i = icmp samesign ult i32 %numBytes, 13
   br i1 %cmp.i.i.i, label %if.then2.i, label %if.else.i
 
 if.then2.i:                                       ; preds = %if.end.i
@@ -4071,7 +4071,7 @@ if.end66:                                         ; preds = %if.then57, %if.end5
   br label %if.end88
 
 if.else:                                          ; preds = %if.end40
-  %cmp.i67.not = icmp ult i32 %6, 1073741824
+  %cmp.i67.not = icmp samesign ult i32 %6, 1073741824
   br i1 %cmp.i67.not, label %if.else83, label %if.then71
 
 if.then71:                                        ; preds = %if.else
@@ -4580,11 +4580,11 @@ if.then.i:                                        ; preds = %if.end9
   br i1 %cmp.i4.i.i, label %if.then.i.i.i, label %if.else11.i.i.i
 
 if.then.i.i.i:                                    ; preds = %if.then.i
-  %cmp4.i.i.i = icmp ult i64 %.sroa.speculated.i.i, 3
+  %cmp4.i.i.i = icmp samesign ult i64 %.sroa.speculated.i.i, 3
   br i1 %cmp4.i.i.i, label %_ZN5folly3f146detail8F14TableINS1_20ValueContainerPolicyIPvmvvvEEE20reserveForInsertImplEmmmm.exit.i, label %if.else.i.i.i
 
 if.else.i.i.i:                                    ; preds = %if.then.i.i.i
-  %cmp6.inv.i.i.i = icmp ugt i64 %.sroa.speculated.i.i, 6
+  %cmp6.inv.i.i.i = icmp samesign ugt i64 %.sroa.speculated.i.i, 6
   %spec.select.i.i.i = select i1 %cmp6.inv.i.i.i, i64 14, i64 6
   br label %_ZN5folly3f146detail8F14TableINS1_20ValueContainerPolicyIPvmvvvEEE20reserveForInsertImplEmmmm.exit.i
 

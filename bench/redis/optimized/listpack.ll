@@ -107,7 +107,7 @@ if.else81.thread:                                 ; preds = %if.end20.thread
 if.then30:                                        ; preds = %if.end20
   %narrow = add nsw i8 %2, -48
   %sub = zext nneg i8 %narrow to i64
-  %cmp3745 = icmp ult i64 %plen.0, %slen
+  %cmp3745 = icmp samesign ult i64 %plen.0, %slen
   br i1 %cmp3745, label %land.lhs.true39, label %if.end70
 
 land.lhs.true39:                                  ; preds = %if.then30, %if.end60
@@ -1903,7 +1903,7 @@ if.end108:                                        ; preds = %cond.end45, %lpEnco
 
 if.end115:                                        ; preds = %if.end108
   %add.ptr116 = getelementptr inbounds i8, ptr %lp, i64 %sub.ptr.sub
-  %cmp117 = icmp ugt i64 %sub, %or60
+  %cmp117 = icmp samesign ugt i64 %sub, %or60
   br i1 %cmp117, label %land.lhs.true, label %if.end129
 
 land.lhs.true:                                    ; preds = %if.end115
@@ -1932,7 +1932,7 @@ if.end129:                                        ; preds = %if.end127, %land.lh
   %add.ptr140.sink = getelementptr inbounds i8, ptr %dst.0, i64 %add.ptr140.sink.idx
   %sub143 = sub i64 %or60, %.sink
   tail call void @llvm.memmove.p0.p0.i64(ptr align 1 %add.ptr134, ptr align 1 %add.ptr140.sink, i64 %sub143, i1 false)
-  %cmp145 = icmp ult i64 %sub, %or60
+  %cmp145 = icmp samesign ult i64 %sub, %or60
   br i1 %cmp145, label %if.then147, label %if.end154
 
 if.then147:                                       ; preds = %if.end129
@@ -2654,13 +2654,13 @@ if.then:                                          ; preds = %entry
   %add = select i1 %cmp24, i64 %conv8, i64 0
   %index.addr.0 = add nsw i64 %add, %index
   %cmp9 = icmp sgt i64 %index.addr.0, -1
-  %cmp14.not = icmp ult i64 %index.addr.0, %conv8
+  %cmp14.not = icmp samesign ult i64 %index.addr.0, %conv8
   %or.cond = select i1 %cmp9, i1 %cmp14.not, i1 false
   br i1 %or.cond, label %if.end17, label %return
 
 if.end17:                                         ; preds = %if.then
   %div24 = lshr i64 %conv8, 1
-  %cmp19 = icmp ugt i64 %index.addr.0, %div24
+  %cmp19 = icmp samesign ugt i64 %index.addr.0, %div24
   %sub = sub nsw i64 %index.addr.0, %conv8
   br i1 %cmp19, label %if.else34, label %if.then29
 
@@ -2698,7 +2698,7 @@ while.body:                                       ; preds = %lpFirst.exit, %whil
   %index.addr.245 = phi i64 [ %dec, %while.body ], [ %index.addr.137, %lpFirst.exit ]
   %call33 = tail call ptr @lpNext(ptr noundef nonnull %lp, ptr noundef nonnull %ele.046)
   %dec = add nsw i64 %index.addr.245, -1
-  %cmp30 = icmp ugt i64 %index.addr.245, 1
+  %cmp30 = icmp samesign ugt i64 %index.addr.245, 1
   %tobool32 = icmp ne ptr %call33, null
   %5 = and i1 %cmp30, %tobool32
   br i1 %5, label %while.body, label %return, !llvm.loop !10
@@ -4341,7 +4341,7 @@ do.body.i:                                        ; preds = %while.end.i, %if.en
 
 lpLength.exit:                                    ; preds = %entry, %do.body.i
   %retval.0.in.i = phi i32 [ %or.i, %entry ], [ %count.0.lcssa19.i, %do.body.i ]
-  %tobool.not = icmp ult i32 %retval.0.in.i, 2
+  %tobool.not = icmp samesign ult i32 %retval.0.in.i, 2
   br i1 %tobool.not, label %cond.false, label %for.cond.preheader
 
 for.cond.preheader:                               ; preds = %while.end.i, %lpLength.exit

@@ -820,7 +820,7 @@ _ZNSt17_Temporary_bufferIPN5clang6format12_GLOBAL__N_116UsingDeclarationES3_ED2E
   %129 = getelementptr inbounds i8, ptr %.0910.i.i.i.i.i.i, i64 40
   %130 = getelementptr inbounds i8, ptr %.0811.i.i.i.i.i.i, i64 40
   %131 = add nsw i64 %.012.i.i.i.i.i.i, -1
-  %132 = icmp ugt i64 %.012.i.i.i.i.i.i, 1
+  %132 = icmp samesign ugt i64 %.012.i.i.i.i.i.i, 1
   br i1 %132, label %.lr.ph.i.i.i.i.i.i86, label %_ZSt4moveIPN5clang6format12_GLOBAL__N_116UsingDeclarationES4_ET0_T_S6_S5_.exit.i, !llvm.loop !22
 
 _ZSt4moveIPN5clang6format12_GLOBAL__N_116UsingDeclarationES4_ET0_T_S6_S5_.exit.i: ; preds = %.lr.ph.i.i.i.i.i.i86, %"_ZSt6uniqueIPN5clang6format12_GLOBAL__N_116UsingDeclarationEZNS2_24endUsingDeclarationBlockEPN4llvm15SmallVectorImplIS3_EERKNS0_13SourceManagerEPNS0_7tooling12ReplacementsENS1_11FormatStyle28SortUsingDeclarationsOptionsEE3$_1ET_SI_SI_T0_.exit"
@@ -1784,7 +1784,7 @@ define internal fastcc void @"_ZSt16__insertion_sortIPN5clang6format12_GLOBAL__N
   %27 = getelementptr inbounds i8, ptr %.078.i.i.i.i.i, i64 -32
   %28 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEOS4_(ptr noundef nonnull align 8 dereferenceable(32) %26, ptr noundef nonnull align 8 dereferenceable(32) %27) #12
   %29 = add nsw i64 %.010.i.i.i.i.i, -1
-  %30 = icmp ugt i64 %.010.i.i.i.i.i, 1
+  %30 = icmp samesign ugt i64 %.010.i.i.i.i.i, 1
   br i1 %30, label %.lr.ph.i.i.i.i.i, label %_ZSt13move_backwardIPN5clang6format12_GLOBAL__N_116UsingDeclarationES4_ET0_T_S6_S5_.exit, !llvm.loop !27
 
 _ZSt13move_backwardIPN5clang6format12_GLOBAL__N_116UsingDeclarationES4_ET0_T_S6_S5_.exit: ; preds = %.lr.ph.i.i.i.i.i, %15
@@ -2456,7 +2456,7 @@ define internal fastcc void @"_ZSt24__merge_sort_with_bufferIPN5clang6format12_G
   %50 = getelementptr inbounds i8, ptr %.0910.i.i.i.i.i.i, i64 40
   %51 = getelementptr inbounds i8, ptr %.0811.i.i.i.i.i.i, i64 40
   %52 = add nsw i64 %.012.i.i.i.i.i.i, -1
-  %53 = icmp ugt i64 %.012.i.i.i.i.i.i, 1
+  %53 = icmp samesign ugt i64 %.012.i.i.i.i.i.i, 1
   br i1 %53, label %.lr.ph.i.i.i.i.i.i, label %_ZSt4moveIPN5clang6format12_GLOBAL__N_116UsingDeclarationES4_ET0_T_S6_S5_.exit.i, !llvm.loop !22
 
 _ZSt4moveIPN5clang6format12_GLOBAL__N_116UsingDeclarationES4_ET0_T_S6_S5_.exit.i: ; preds = %.lr.ph.i.i.i.i.i.i, %._crit_edge.i
@@ -2483,7 +2483,7 @@ _ZSt4moveIPN5clang6format12_GLOBAL__N_116UsingDeclarationES4_ET0_T_S6_S5_.exit.i
   %63 = getelementptr inbounds i8, ptr %.0910.i.i.i.i.i26.i, i64 40
   %64 = getelementptr inbounds i8, ptr %.0811.i.i.i.i.i25.i, i64 40
   %65 = add nsw i64 %.012.i.i.i.i.i24.i, -1
-  %66 = icmp ugt i64 %.012.i.i.i.i.i24.i, 1
+  %66 = icmp samesign ugt i64 %.012.i.i.i.i.i24.i, 1
   br i1 %66, label %.lr.ph.i.i.i.i.i23.i, label %"_ZSt12__move_mergeIPN5clang6format12_GLOBAL__N_116UsingDeclarationES4_N9__gnu_cxx5__ops15_Iter_comp_iterIZNS2_24endUsingDeclarationBlockEPN4llvm15SmallVectorImplIS3_EERKNS0_13SourceManagerEPNS0_7tooling12ReplacementsENS1_11FormatStyle28SortUsingDeclarationsOptionsEE3$_0EEET0_T_SN_SN_SN_SM_T1_.exit", !llvm.loop !22
 
 "_ZSt12__move_mergeIPN5clang6format12_GLOBAL__N_116UsingDeclarationES4_N9__gnu_cxx5__ops15_Iter_comp_iterIZNS2_24endUsingDeclarationBlockEPN4llvm15SmallVectorImplIS3_EERKNS0_13SourceManagerEPNS0_7tooling12ReplacementsENS1_11FormatStyle28SortUsingDeclarationsOptionsEE3$_0EEET0_T_SN_SN_SN_SM_T1_.exit": ; preds = %.lr.ph.i.i.i.i.i23.i, %_ZSt4moveIPN5clang6format12_GLOBAL__N_116UsingDeclarationES4_ET0_T_S6_S5_.exit.i
@@ -2577,7 +2577,7 @@ _ZSt4moveIPN5clang6format12_GLOBAL__N_116UsingDeclarationES4_ET0_T_S6_S5_.exit.i
   %99 = getelementptr inbounds i8, ptr %.0910.i.i.i.i.i.i53, i64 40
   %100 = getelementptr inbounds i8, ptr %.0811.i.i.i.i.i.i52, i64 40
   %101 = add nsw i64 %.012.i.i.i.i.i.i51, -1
-  %102 = icmp ugt i64 %.012.i.i.i.i.i.i51, 1
+  %102 = icmp samesign ugt i64 %.012.i.i.i.i.i.i51, 1
   br i1 %102, label %.lr.ph.i.i.i.i.i.i50, label %_ZSt4moveIPN5clang6format12_GLOBAL__N_116UsingDeclarationES4_ET0_T_S6_S5_.exit.i41, !llvm.loop !22
 
 _ZSt4moveIPN5clang6format12_GLOBAL__N_116UsingDeclarationES4_ET0_T_S6_S5_.exit.i41: ; preds = %.lr.ph.i.i.i.i.i.i50, %._crit_edge.i37
@@ -2604,7 +2604,7 @@ _ZSt4moveIPN5clang6format12_GLOBAL__N_116UsingDeclarationES4_ET0_T_S6_S5_.exit.i
   %112 = getelementptr inbounds i8, ptr %.0910.i.i.i.i.i26.i48, i64 40
   %113 = getelementptr inbounds i8, ptr %.0811.i.i.i.i.i25.i47, i64 40
   %114 = add nsw i64 %.012.i.i.i.i.i24.i46, -1
-  %115 = icmp ugt i64 %.012.i.i.i.i.i24.i46, 1
+  %115 = icmp samesign ugt i64 %.012.i.i.i.i.i24.i46, 1
   br i1 %115, label %.lr.ph.i.i.i.i.i23.i45, label %"_ZSt12__move_mergeIPN5clang6format12_GLOBAL__N_116UsingDeclarationES4_N9__gnu_cxx5__ops15_Iter_comp_iterIZNS2_24endUsingDeclarationBlockEPN4llvm15SmallVectorImplIS3_EERKNS0_13SourceManagerEPNS0_7tooling12ReplacementsENS1_11FormatStyle28SortUsingDeclarationsOptionsEE3$_0EEET0_T_SN_SN_SN_SM_T1_.exit60", !llvm.loop !22
 
 "_ZSt12__move_mergeIPN5clang6format12_GLOBAL__N_116UsingDeclarationES4_N9__gnu_cxx5__ops15_Iter_comp_iterIZNS2_24endUsingDeclarationBlockEPN4llvm15SmallVectorImplIS3_EERKNS0_13SourceManagerEPNS0_7tooling12ReplacementsENS1_11FormatStyle28SortUsingDeclarationsOptionsEE3$_0EEET0_T_SN_SN_SN_SM_T1_.exit60": ; preds = %.lr.ph.i.i.i.i.i23.i45, %_ZSt4moveIPN5clang6format12_GLOBAL__N_116UsingDeclarationES4_ET0_T_S6_S5_.exit.i41
@@ -2674,7 +2674,7 @@ tailrecurse._crit_edge:                           ; preds = %_ZSt17__rotate_adap
   %24 = getelementptr inbounds i8, ptr %.0910.i.i.i.i.i, i64 40
   %25 = getelementptr inbounds i8, ptr %.0811.i.i.i.i.i, i64 40
   %26 = add nsw i64 %.012.i.i.i.i.i, -1
-  %27 = icmp ugt i64 %.012.i.i.i.i.i, 1
+  %27 = icmp samesign ugt i64 %.012.i.i.i.i.i, 1
   br i1 %27, label %.lr.ph.i.i.i.i.i, label %_ZSt4moveIPN5clang6format12_GLOBAL__N_116UsingDeclarationES4_ET0_T_S6_S5_.exit, !llvm.loop !22
 
 _ZSt4moveIPN5clang6format12_GLOBAL__N_116UsingDeclarationES4_ET0_T_S6_S5_.exit: ; preds = %.lr.ph.i.i.i.i.i
@@ -2744,7 +2744,7 @@ _ZSt4moveIPN5clang6format12_GLOBAL__N_116UsingDeclarationES4_ET0_T_S6_S5_.exit: 
   %54 = getelementptr inbounds i8, ptr %.0910.i.i.i.i.i.i, i64 40
   %55 = getelementptr inbounds i8, ptr %.0811.i.i.i.i.i.i, i64 40
   %56 = add nsw i64 %.012.i.i.i.i.i.i, -1
-  %57 = icmp ugt i64 %.012.i.i.i.i.i.i, 1
+  %57 = icmp samesign ugt i64 %.012.i.i.i.i.i.i, 1
   br i1 %57, label %.lr.ph.i.i.i.i.i.i, label %"_ZSt21__move_merge_adaptiveIPN5clang6format12_GLOBAL__N_116UsingDeclarationES4_S4_N9__gnu_cxx5__ops15_Iter_comp_iterIZNS2_24endUsingDeclarationBlockEPN4llvm15SmallVectorImplIS3_EERKNS0_13SourceManagerEPNS0_7tooling12ReplacementsENS1_11FormatStyle28SortUsingDeclarationsOptionsEE3$_0EEEvT_SM_T0_SN_T1_T2_.exit", !llvm.loop !22
 
 "_ZSt21__move_merge_adaptiveIPN5clang6format12_GLOBAL__N_116UsingDeclarationES4_S4_N9__gnu_cxx5__ops15_Iter_comp_iterIZNS2_24endUsingDeclarationBlockEPN4llvm15SmallVectorImplIS3_EERKNS0_13SourceManagerEPNS0_7tooling12ReplacementsENS1_11FormatStyle28SortUsingDeclarationsOptionsEE3$_0EEEvT_SM_T0_SN_T1_T2_.exit": ; preds = %.lr.ph.i.i.i.i.i.i, %._crit_edge.i.thread, %._crit_edge.i, %._crit_edge.i.thread178
@@ -2782,7 +2782,7 @@ _ZSt4moveIPN5clang6format12_GLOBAL__N_116UsingDeclarationES4_ET0_T_S6_S5_.exit: 
   %68 = getelementptr inbounds i8, ptr %.0910.i.i.i.i.i79, i64 40
   %69 = getelementptr inbounds i8, ptr %.0811.i.i.i.i.i78, i64 40
   %70 = add nsw i64 %.012.i.i.i.i.i77, -1
-  %71 = icmp ugt i64 %.012.i.i.i.i.i77, 1
+  %71 = icmp samesign ugt i64 %.012.i.i.i.i.i77, 1
   br i1 %71, label %.lr.ph.i.i.i.i.i76, label %_ZSt4moveIPN5clang6format12_GLOBAL__N_116UsingDeclarationES4_ET0_T_S6_S5_.exit80, !llvm.loop !22
 
 _ZSt4moveIPN5clang6format12_GLOBAL__N_116UsingDeclarationES4_ET0_T_S6_S5_.exit80: ; preds = %.lr.ph.i.i.i.i.i76, %60
@@ -2814,7 +2814,7 @@ _ZSt4moveIPN5clang6format12_GLOBAL__N_116UsingDeclarationES4_ET0_T_S6_S5_.exit80
   %82 = getelementptr inbounds i8, ptr %.078.i.i.i.i.i.i, i64 -32
   %83 = tail call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEOS4_(ptr noundef nonnull align 8 dereferenceable(32) %81, ptr noundef nonnull align 8 dereferenceable(32) %82) #12
   %84 = add nsw i64 %.010.i.i.i.i.i.i, -1
-  %85 = icmp ugt i64 %.010.i.i.i.i.i.i, 1
+  %85 = icmp samesign ugt i64 %.010.i.i.i.i.i.i, 1
   br i1 %85, label %.lr.ph.i.i.i.i.i.i83, label %"_ZSt30__move_merge_adaptive_backwardIPN5clang6format12_GLOBAL__N_116UsingDeclarationES4_S4_N9__gnu_cxx5__ops15_Iter_comp_iterIZNS2_24endUsingDeclarationBlockEPN4llvm15SmallVectorImplIS3_EERKNS0_13SourceManagerEPNS0_7tooling12ReplacementsENS1_11FormatStyle28SortUsingDeclarationsOptionsEE3$_0EEEvT_SM_T0_SN_T1_T2_.exit", !llvm.loop !27
 
 86:                                               ; preds = %_ZSt4moveIPN5clang6format12_GLOBAL__N_116UsingDeclarationES4_ET0_T_S6_S5_.exit80
@@ -2871,7 +2871,7 @@ _ZSt4moveIPN5clang6format12_GLOBAL__N_116UsingDeclarationES4_ET0_T_S6_S5_.exit80
   %109 = getelementptr inbounds i8, ptr %.078.i.i.i.i.i37.i, i64 -32
   %110 = tail call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEOS4_(ptr noundef nonnull align 8 dereferenceable(32) %108, ptr noundef nonnull align 8 dereferenceable(32) %109) #12
   %111 = add nsw i64 %.010.i.i.i.i.i35.i, -1
-  %112 = icmp ugt i64 %.010.i.i.i.i.i35.i, 1
+  %112 = icmp samesign ugt i64 %.010.i.i.i.i.i35.i, 1
   br i1 %112, label %.lr.ph.i.i.i.i.i34.i, label %"_ZSt30__move_merge_adaptive_backwardIPN5clang6format12_GLOBAL__N_116UsingDeclarationES4_S4_N9__gnu_cxx5__ops15_Iter_comp_iterIZNS2_24endUsingDeclarationBlockEPN4llvm15SmallVectorImplIS3_EERKNS0_13SourceManagerEPNS0_7tooling12ReplacementsENS1_11FormatStyle28SortUsingDeclarationsOptionsEE3$_0EEEvT_SM_T0_SN_T1_T2_.exit", !llvm.loop !27
 
 113:                                              ; preds = %90
@@ -3010,7 +3010,7 @@ _ZSt7advanceIPN5clang6format12_GLOBAL__N_116UsingDeclarationElEvRT_T0_.exit.i94:
   %164 = getelementptr inbounds i8, ptr %.0910.i.i.i.i.i.i109, i64 40
   %165 = getelementptr inbounds i8, ptr %.0811.i.i.i.i.i.i108, i64 40
   %166 = add nsw i64 %.012.i.i.i.i.i.i107, -1
-  %167 = icmp ugt i64 %.012.i.i.i.i.i.i107, 1
+  %167 = icmp samesign ugt i64 %.012.i.i.i.i.i.i107, 1
   br i1 %167, label %.lr.ph.i.i.i.i.i.i106, label %_ZSt4moveIPN5clang6format12_GLOBAL__N_116UsingDeclarationES4_ET0_T_S6_S5_.exit.i, !llvm.loop !22
 
 _ZSt4moveIPN5clang6format12_GLOBAL__N_116UsingDeclarationES4_ET0_T_S6_S5_.exit.i: ; preds = %.lr.ph.i.i.i.i.i.i106, %154
@@ -3036,7 +3036,7 @@ _ZSt4moveIPN5clang6format12_GLOBAL__N_116UsingDeclarationES4_ET0_T_S6_S5_.exit.i
   %176 = getelementptr inbounds i8, ptr %.078.i.i.i.i.i.i104, i64 -32
   %177 = tail call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEOS4_(ptr noundef nonnull align 8 dereferenceable(32) %175, ptr noundef nonnull align 8 dereferenceable(32) %176) #12
   %178 = add nsw i64 %.010.i.i.i.i.i.i102, -1
-  %179 = icmp ugt i64 %.010.i.i.i.i.i.i102, 1
+  %179 = icmp samesign ugt i64 %.010.i.i.i.i.i.i102, 1
   br i1 %179, label %.lr.ph.i.i.i.i.i37.i, label %_ZSt13move_backwardIPN5clang6format12_GLOBAL__N_116UsingDeclarationES4_ET0_T_S6_S5_.exit.i, !llvm.loop !27
 
 _ZSt13move_backwardIPN5clang6format12_GLOBAL__N_116UsingDeclarationES4_ET0_T_S6_S5_.exit.i: ; preds = %.lr.ph.i.i.i.i.i37.i, %_ZSt4moveIPN5clang6format12_GLOBAL__N_116UsingDeclarationES4_ET0_T_S6_S5_.exit.i
@@ -3061,7 +3061,7 @@ _ZSt13move_backwardIPN5clang6format12_GLOBAL__N_116UsingDeclarationES4_ET0_T_S6_
   %188 = getelementptr inbounds i8, ptr %.0910.i.i.i.i.i43.i, i64 40
   %189 = getelementptr inbounds i8, ptr %.0811.i.i.i.i.i42.i, i64 40
   %190 = add nsw i64 %.012.i.i.i.i.i41.i, -1
-  %191 = icmp ugt i64 %.012.i.i.i.i.i41.i, 1
+  %191 = icmp samesign ugt i64 %.012.i.i.i.i.i41.i, 1
   br i1 %191, label %.lr.ph.i.i.i.i.i40.i, label %_ZSt17__rotate_adaptiveIPN5clang6format12_GLOBAL__N_116UsingDeclarationES4_lET_S5_S5_S5_T1_S6_T0_S6_.exit, !llvm.loop !22
 
 192:                                              ; preds = %150
@@ -3095,7 +3095,7 @@ _ZSt13move_backwardIPN5clang6format12_GLOBAL__N_116UsingDeclarationES4_ET0_T_S6_
   %204 = getelementptr inbounds i8, ptr %.0910.i.i.i.i.i50.i, i64 40
   %205 = getelementptr inbounds i8, ptr %.0811.i.i.i.i.i49.i, i64 40
   %206 = add nsw i64 %.012.i.i.i.i.i48.i, -1
-  %207 = icmp ugt i64 %.012.i.i.i.i.i48.i, 1
+  %207 = icmp samesign ugt i64 %.012.i.i.i.i.i48.i, 1
   br i1 %207, label %.lr.ph.i.i.i.i.i47.i, label %_ZSt4moveIPN5clang6format12_GLOBAL__N_116UsingDeclarationES4_ET0_T_S6_S5_.exit51.i, !llvm.loop !22
 
 _ZSt4moveIPN5clang6format12_GLOBAL__N_116UsingDeclarationES4_ET0_T_S6_S5_.exit51.i: ; preds = %.lr.ph.i.i.i.i.i47.i, %194
@@ -3121,7 +3121,7 @@ _ZSt4moveIPN5clang6format12_GLOBAL__N_116UsingDeclarationES4_ET0_T_S6_S5_.exit51
   %216 = getelementptr inbounds i8, ptr %.0910.i.i.i.i.i57.i, i64 40
   %217 = getelementptr inbounds i8, ptr %.0811.i.i.i.i.i56.i, i64 40
   %218 = add nsw i64 %.012.i.i.i.i.i55.i, -1
-  %219 = icmp ugt i64 %.012.i.i.i.i.i55.i, 1
+  %219 = icmp samesign ugt i64 %.012.i.i.i.i.i55.i, 1
   br i1 %219, label %.lr.ph.i.i.i.i.i54.i, label %_ZSt4moveIPN5clang6format12_GLOBAL__N_116UsingDeclarationES4_ET0_T_S6_S5_.exit58.i, !llvm.loop !22
 
 _ZSt4moveIPN5clang6format12_GLOBAL__N_116UsingDeclarationES4_ET0_T_S6_S5_.exit58.i: ; preds = %.lr.ph.i.i.i.i.i54.i, %_ZSt4moveIPN5clang6format12_GLOBAL__N_116UsingDeclarationES4_ET0_T_S6_S5_.exit51.i
@@ -3146,7 +3146,7 @@ _ZSt4moveIPN5clang6format12_GLOBAL__N_116UsingDeclarationES4_ET0_T_S6_S5_.exit58
   %228 = getelementptr inbounds i8, ptr %.078.i.i.i.i.i64.i, i64 -32
   %229 = tail call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEOS4_(ptr noundef nonnull align 8 dereferenceable(32) %227, ptr noundef nonnull align 8 dereferenceable(32) %228) #12
   %230 = add nsw i64 %.010.i.i.i.i.i62.i, -1
-  %231 = icmp ugt i64 %.010.i.i.i.i.i62.i, 1
+  %231 = icmp samesign ugt i64 %.010.i.i.i.i.i62.i, 1
   br i1 %231, label %.lr.ph.i.i.i.i.i61.i, label %_ZSt17__rotate_adaptiveIPN5clang6format12_GLOBAL__N_116UsingDeclarationES4_lET_S5_S5_S5_T1_S6_T0_S6_.exit, !llvm.loop !27
 
 232:                                              ; preds = %192
@@ -3234,7 +3234,7 @@ define internal fastcc void @"_ZSt12__move_mergeIPN5clang6format12_GLOBAL__N_116
   %37 = getelementptr inbounds i8, ptr %.0910.i.i.i.i.i, i64 40
   %38 = getelementptr inbounds i8, ptr %.0811.i.i.i.i.i, i64 40
   %39 = add nsw i64 %.012.i.i.i.i.i, -1
-  %40 = icmp ugt i64 %.012.i.i.i.i.i, 1
+  %40 = icmp samesign ugt i64 %.012.i.i.i.i.i, 1
   br i1 %40, label %.lr.ph.i.i.i.i.i, label %_ZSt4moveIPN5clang6format12_GLOBAL__N_116UsingDeclarationES4_ET0_T_S6_S5_.exit, !llvm.loop !22
 
 _ZSt4moveIPN5clang6format12_GLOBAL__N_116UsingDeclarationES4_ET0_T_S6_S5_.exit: ; preds = %.lr.ph.i.i.i.i.i, %._crit_edge
@@ -3261,7 +3261,7 @@ _ZSt4moveIPN5clang6format12_GLOBAL__N_116UsingDeclarationES4_ET0_T_S6_S5_.exit: 
   %50 = getelementptr inbounds i8, ptr %.0910.i.i.i.i.i26, i64 40
   %51 = getelementptr inbounds i8, ptr %.0811.i.i.i.i.i25, i64 40
   %52 = add nsw i64 %.012.i.i.i.i.i24, -1
-  %53 = icmp ugt i64 %.012.i.i.i.i.i24, 1
+  %53 = icmp samesign ugt i64 %.012.i.i.i.i.i24, 1
   br i1 %53, label %.lr.ph.i.i.i.i.i23, label %_ZSt4moveIPN5clang6format12_GLOBAL__N_116UsingDeclarationES4_ET0_T_S6_S5_.exit27, !llvm.loop !22
 
 _ZSt4moveIPN5clang6format12_GLOBAL__N_116UsingDeclarationES4_ET0_T_S6_S5_.exit27: ; preds = %.lr.ph.i.i.i.i.i23, %_ZSt4moveIPN5clang6format12_GLOBAL__N_116UsingDeclarationES4_ET0_T_S6_S5_.exit

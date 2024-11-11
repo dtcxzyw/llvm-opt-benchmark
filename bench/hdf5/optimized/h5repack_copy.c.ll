@@ -5691,7 +5691,7 @@ define internal fastcc range(i32 -1, 1) i32 @get_hyperslab(i64 noundef range(i64
   %31 = getelementptr inbounds [32 x i64], ptr %7, i64 0, i64 %indvars.iv.next134
   %32 = load i64, ptr %31, align 8
   %33 = mul i64 %32, %.089118
-  %34 = icmp ugt i64 %indvars.iv133, 1
+  %34 = icmp samesign ugt i64 %indvars.iv133, 1
   br i1 %34, label %.lr.ph, label %._crit_edge
 
 ._crit_edge:                                      ; preds = %.lr.ph
@@ -5737,7 +5737,7 @@ define internal fastcc range(i32 -1, 1) i32 @get_hyperslab(i64 noundef range(i64
   %53 = getelementptr inbounds i64, ptr %4, i64 %indvars.iv.next137
   store i64 %52, ptr %53, align 8
   %54 = mul i64 %52, %.087121
-  %55 = icmp ugt i64 %indvars.iv136, 1
+  %55 = icmp samesign ugt i64 %indvars.iv136, 1
   br i1 %55, label %.lr.ph123, label %.loopexit
 
 .preheader:                                       ; preds = %.preheader.preheader, %57

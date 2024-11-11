@@ -3156,7 +3156,7 @@ if.then.i:                                        ; preds = %entry
   unreachable
 
 if.end.i:                                         ; preds = %entry
-  %cmp1.i = icmp ugt i32 %call.i, 8191
+  %cmp1.i = icmp samesign ugt i32 %call.i, 8191
   br i1 %cmp1.i, label %if.then3.i, label %nfvasprintf.exit
 
 if.then3.i:                                       ; preds = %if.end.i

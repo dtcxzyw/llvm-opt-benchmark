@@ -366,7 +366,7 @@ if.end.i28.i.i:                                   ; preds = %_ZNSt6vectorIN3ue21
   %reverseEdges.sroa.0.0.i = phi ptr [ %call5.i.i.i.i.i29.i, %_ZNSt6vectorIN3ue212graph_detail15edge_descriptorINS0_9ue2_graphINS0_8NGHolderENS0_19NFAGraphVertexPropsENS0_17NFAGraphEdgePropsEEEEESaIS8_EE7reserveEm.exit.i.i ], [ null, %if.end.i.i.i ]
   %reverseEdges.sroa.18.0.i = phi ptr [ %add.ptr21.i.i.i, %_ZNSt6vectorIN3ue212graph_detail15edge_descriptorINS0_9ue2_graphINS0_8NGHolderENS0_19NFAGraphVertexPropsENS0_17NFAGraphEdgePropsEEEEESaIS8_EE7reserveEm.exit.i.i ], [ null, %if.end.i.i.i ]
   %sub.ptr.div.i.i33.i.i = lshr exact i64 %sub.ptr.sub.i.i.i, 3
-  %cmp3.i34.i.i = icmp ult i64 %sub.ptr.div.i.i33.i.i, %mul.i.i
+  %cmp3.i34.i.i = icmp samesign ult i64 %sub.ptr.div.i.i33.i.i, %mul.i.i
   br i1 %cmp3.i34.i.i, label %_ZNSt12_Vector_baseIySaIyEE11_M_allocateEm.exit.i.i.i, label %_ZNSt6vectorIySaIyEE7reserveEm.exit.i.i
 
 _ZNSt12_Vector_baseIySaIyEE11_M_allocateEm.exit.i.i.i: ; preds = %if.end.i28.i.i

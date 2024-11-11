@@ -211,7 +211,7 @@ define hidden noundef range(i32 0, 2) i32 @main(i32 noundef %0, ptr nocapture no
   br label %.invoke83
 
 68:                                               ; preds = %59
-  %69 = icmp ugt i32 %62, %49
+  %69 = icmp samesign ugt i32 %62, %49
   br i1 %69, label %.invoke83, label %.thread74
 
 .invoke83:                                        ; preds = %68, %53, %66

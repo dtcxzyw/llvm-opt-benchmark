@@ -87,7 +87,7 @@ define internal i32 @dissect_icap(ptr noundef %0, ptr noundef %1, ptr noundef %2
   br i1 %13, label %is_icap_message.exit, label %14
 
 14:                                               ; preds = %11
-  %15 = icmp ugt i32 %8, 6
+  %15 = icmp samesign ugt i32 %8, 6
   br i1 %15, label %16, label %31
 
 16:                                               ; preds = %14
@@ -164,7 +164,7 @@ is_icap_message.exit:                             ; preds = %23, %20, %16, %11
   br i1 %52, label %.thread15.sink.split.i78, label %is_icap_message.exit80.thread
 
 53:                                               ; preds = %48
-  %54 = icmp ugt i32 %43, 6
+  %54 = icmp samesign ugt i32 %43, 6
   br i1 %54, label %55, label %.preheader
 
 55:                                               ; preds = %53

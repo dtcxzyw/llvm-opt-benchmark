@@ -8006,7 +8006,7 @@ _ZSt13move_backwardIPN4llvm8RegisterES2_ET0_T_S4_S3_.exit: ; preds = %34, %44
   %53 = getelementptr inbounds i8, ptr %.0910.i.i.i.i.i, i64 2
   %54 = getelementptr inbounds i8, ptr %.0811.i.i.i.i.i, i64 4
   %55 = add nsw i64 %.012.i.i.i.i.i, -1
-  %56 = icmp ugt i64 %.012.i.i.i.i.i, 1
+  %56 = icmp samesign ugt i64 %.012.i.i.i.i.i, 1
   br i1 %56, label %.lr.ph.i.i.i.i.i, label %_ZSt4copyIPKtPN4llvm8RegisterEET0_T_S6_S5_.exit, !llvm.loop !304
 
 57:                                               ; preds = %_ZN4llvm15SmallVectorImplINS_8RegisterEE7reserveEm.exit

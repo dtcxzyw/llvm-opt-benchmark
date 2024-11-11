@@ -3960,7 +3960,7 @@ if.then76.split:                                  ; preds = %if.then76
   br label %if.end115
 
 if.end.i135:                                      ; preds = %if.then76
-  %cmp10.i143 = icmp ult i32 %oprsz.addr.0169, 20
+  %cmp10.i143 = icmp samesign ult i32 %oprsz.addr.0169, 20
   br i1 %cmp10.i143, label %if.else83, label %lor.lhs.false79.split
 
 lor.lhs.false79.split:                            ; preds = %if.end.i135
@@ -3987,7 +3987,7 @@ if.else90:                                        ; preds = %if.else86
   %2 = add i64 %in_c.addr.0167, -1
   %3 = icmp ult i64 %2, -2
   %or.cond3.not247 = and i1 %cmp91, %3
-  %cmp10.i156 = icmp ult i32 %oprsz.addr.0169, 20
+  %cmp10.i156 = icmp samesign ult i32 %oprsz.addr.0169, 20
   %or.cond196 = and i1 %cmp10.i156, %or.cond3.not247
   br i1 %or.cond196, label %if.else103, label %if.then101
 
@@ -8228,7 +8228,7 @@ if.else54:                                        ; preds = %land.lhs.true, %if.
   ]
 
 do.body.i.i:                                      ; preds = %if.else54, %if.else54, %if.else54
-  %cmp.i.i = icmp ule i32 %oprsz, %maxsz
+  %cmp.i.i = icmp samesign ule i32 %oprsz, %maxsz
   br label %simd_desc.exit
 
 do.body1.i.i:                                     ; preds = %if.else54

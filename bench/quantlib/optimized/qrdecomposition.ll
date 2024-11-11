@@ -96,7 +96,7 @@ for.body.i.i.i.i.i.us.i:                          ; preds = %for.body.i.i.i.i.i.
   %incdec.ptr.i.i.i.i.i.us.i = getelementptr inbounds nuw i8, ptr %__first.addr.08.i.i.i.i.i.us.i, i64 8
   %add.ptr.i.i.i.i.i.i.us.i = getelementptr inbounds double, ptr %__result.sroa.0.07.i.i.i.i.i.us.i, i64 %1
   %dec.i.i.i.i.i.us.i = add nsw i64 %__n.09.i.i.i.i.i.us.i, -1
-  %cmp.i.i.i.i.i.us.i = icmp ugt i64 %__n.09.i.i.i.i.i.us.i, 1
+  %cmp.i.i.i.i.i.us.i = icmp samesign ugt i64 %__n.09.i.i.i.i.i.us.i, 1
   br i1 %cmp.i.i.i.i.i.us.i, label %for.body.i.i.i.i.i.us.i, label %invoke.cont9.loopexit.us.i, !llvm.loop !22
 
 invoke.cont9.loopexit.us.i:                       ; preds = %for.body.i.i.i.i.i.us.i
@@ -262,7 +262,7 @@ for.body.i.i.i.i.i:                               ; preds = %invoke.cont56, %for
   store double %38, ptr %__result.addr.09.i.i.i.i.i, align 8, !tbaa !20
   %add.ptr.i.i.i.i.i.i = getelementptr inbounds double, ptr %__first.sroa.0.08.i.i.i.i.i, i64 %1
   %dec.i.i.i.i.i = add nsw i64 %__n.010.i.i.i.i.i, -1
-  %cmp.i.i.i.i.i = icmp ugt i64 %__n.010.i.i.i.i.i, 1
+  %cmp.i.i.i.i.i = icmp samesign ugt i64 %__n.010.i.i.i.i.i, 1
   br i1 %cmp.i.i.i.i.i, label %for.body.i.i.i.i.i, label %for.inc, !llvm.loop !26
 
 if.else:                                          ; preds = %invoke.cont39
@@ -681,7 +681,7 @@ for.body.i.i.i.i.i307:                            ; preds = %invoke.cont324, %fo
   %incdec.ptr.i.i.i.i.i308 = getelementptr inbounds nuw i8, ptr %__first.addr.07.i.i.i.i.i, i64 4
   %incdec.ptr1.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %__result.addr.08.i.i.i.i.i, i64 8
   %dec.i.i.i.i.i309 = add nsw i64 %__n.09.i.i.i.i.i, -1
-  %cmp.i.i.i.i.i310 = icmp ugt i64 %__n.09.i.i.i.i.i, 1
+  %cmp.i.i.i.i.i310 = icmp samesign ugt i64 %__n.09.i.i.i.i.i, 1
   br i1 %cmp.i.i.i.i.i310, label %for.body.i.i.i.i.i307, label %_ZNSt10unique_ptrIA_iSt14default_deleteIS0_EED2Ev.exit, !llvm.loop !44
 
 lpad323:                                          ; preds = %if.then.i.i.i.i.i300, %if.then.i.i
@@ -1178,7 +1178,7 @@ for.body.i.i.i.i.i:                               ; preds = %invoke.cont75, %for
   %incdec.ptr.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %__first.addr.07.i.i.i.i.i, i64 8
   %incdec.ptr1.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %__result.addr.08.i.i.i.i.i, i64 4
   %dec.i.i.i.i.i = add nsw i64 %__n.09.i.i.i.i.i, -1
-  %cmp.i.i.i.i.i = icmp ugt i64 %__n.09.i.i.i.i.i, 1
+  %cmp.i.i.i.i.i = icmp samesign ugt i64 %__n.09.i.i.i.i.i, 1
   br i1 %cmp.i.i.i.i.i, label %for.body.i.i.i.i.i, label %invoke.cont85, !llvm.loop !53
 
 invoke.cont85:                                    ; preds = %for.body.i.i.i.i.i, %invoke.cont75
@@ -1222,7 +1222,7 @@ for.body.i.i.i.i.i.us.i:                          ; preds = %for.body.i.i.i.i.i.
   %incdec.ptr.i.i.i.i.i.us.i = getelementptr inbounds nuw i8, ptr %__first.addr.08.i.i.i.i.i.us.i, i64 8
   %add.ptr.i.i.i.i.i.i.us.i = getelementptr inbounds double, ptr %__result.sroa.0.07.i.i.i.i.i.us.i, i64 %59
   %dec.i.i.i.i.i.us.i = add nsw i64 %__n.09.i.i.i.i.i.us.i, -1
-  %cmp.i.i.i.i.i.us.i = icmp ugt i64 %__n.09.i.i.i.i.i.us.i, 1
+  %cmp.i.i.i.i.i.us.i = icmp samesign ugt i64 %__n.09.i.i.i.i.i.us.i, 1
   br i1 %cmp.i.i.i.i.i.us.i, label %for.body.i.i.i.i.i.us.i, label %invoke.cont9.loopexit.us.i, !llvm.loop !22
 
 invoke.cont9.loopexit.us.i:                       ; preds = %for.body.i.i.i.i.i.us.i
@@ -1365,7 +1365,7 @@ for.body.i.i.i.i.i.us.i131:                       ; preds = %for.body.i.i.i.i.i.
   %incdec.ptr.i.i.i.i.i.us.i135 = getelementptr inbounds nuw i8, ptr %__first.addr.08.i.i.i.i.i.us.i133, i64 8
   %add.ptr.i.i.i.i.i.i.us.i136 = getelementptr inbounds double, ptr %__result.sroa.0.07.i.i.i.i.i.us.i134, i64 %79
   %dec.i.i.i.i.i.us.i137 = add nsw i64 %__n.09.i.i.i.i.i.us.i132, -1
-  %cmp.i.i.i.i.i.us.i138 = icmp ugt i64 %__n.09.i.i.i.i.i.us.i132, 1
+  %cmp.i.i.i.i.i.us.i138 = icmp samesign ugt i64 %__n.09.i.i.i.i.i.us.i132, 1
   br i1 %cmp.i.i.i.i.i.us.i138, label %for.body.i.i.i.i.i.us.i131, label %invoke.cont9.loopexit.us.i139, !llvm.loop !22
 
 invoke.cont9.loopexit.us.i139:                    ; preds = %for.body.i.i.i.i.i.us.i131

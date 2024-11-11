@@ -87,7 +87,7 @@ define internal void @wspstat_init(ptr noundef %0, ptr nocapture readnone %1) #0
   %indvars49 = trunc i64 %indvars.iv to i32
   %28 = getelementptr %struct._wsp_pdu_t, ptr %25, i64 %indvars.iv, i32 1
   store i32 0, ptr %28, align 8
-  %29 = icmp ult i32 %indvars49, 10
+  %29 = icmp samesign ult i32 %indvars49, 10
   br i1 %29, label %index2pdut.exit, label %30
 
 30:                                               ; preds = %.lr.ph46

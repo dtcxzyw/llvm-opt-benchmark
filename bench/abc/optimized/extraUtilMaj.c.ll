@@ -484,7 +484,7 @@ define range(i32 1, 0) i32 @Gem_GroupsDerive(ptr noundef readonly %0, i32 nounde
   br i1 %7, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %4
-  %8 = icmp ult i32 %1, 7
+  %8 = icmp samesign ult i32 %1, 7
   %9 = add nsw i32 %1, -6
   %10 = shl nuw i32 1, %9
   %11 = select i1 %8, i32 1, i32 %10
@@ -1079,7 +1079,7 @@ Abc_TtCopy.exit:                                  ; preds = %.lr.ph.i39, %Gem_Gr
   br i1 %70, label %.lr.ph.i43, label %Abc_TtSwapAdjacent.exit, !llvm.loop !28
 
 71:                                               ; preds = %62
-  %72 = icmp ult i32 %indvars111, 7
+  %72 = icmp samesign ult i32 %indvars111, 7
   %73 = trunc i64 %indvars.iv to i32
   %74 = add i32 %73, -6
   %75 = shl nuw i32 1, %74
@@ -1180,7 +1180,7 @@ Abc_TtSwapAdjacent.exit:                          ; preds = %._crit_edge.us.i, %
   br i1 %123, label %.lr.ph.i52, label %Abc_TtSwapAdjacent.exit59, !llvm.loop !28
 
 124:                                              ; preds = %115
-  %125 = icmp ult i64 %93, 7
+  %125 = icmp samesign ult i64 %93, 7
   %126 = trunc i64 %indvars.iv to i32
   %127 = add i32 %126, -5
   %128 = shl nuw i32 1, %127
@@ -1503,7 +1503,7 @@ Abc_TtCopy.exit:                                  ; preds = %.lr.ph.i, %3
   br i1 %79, label %.preheader.us.preheader.i, label %Abc_TtSwapAdjacent.exit
 
 .preheader.us.preheader.i:                        ; preds = %87
-  %88 = icmp ult i64 %indvars.iv, 7
+  %88 = icmp samesign ult i64 %indvars.iv, 7
   %89 = trunc i64 %indvars.iv to i32
   %90 = add nsw i32 %89, -6
   %91 = shl nuw nsw i32 1, %90
@@ -2797,7 +2797,7 @@ Abc_TtCopy.exit:                                  ; preds = %.lr.ph.i, %4
   br i1 %83, label %.preheader.us.preheader.i, label %Abc_TtSwapAdjacent.exit
 
 .preheader.us.preheader.i:                        ; preds = %91
-  %92 = icmp ult i64 %indvars.iv, 7
+  %92 = icmp samesign ult i64 %indvars.iv, 7
   %93 = trunc i64 %indvars.iv to i32
   %94 = add nsw i32 %93, -6
   %95 = shl nuw nsw i32 1, %94
@@ -2906,7 +2906,7 @@ Abc_TtSwapAdjacent.exit:                          ; preds = %._crit_edge.us.i, %
   br i1 %143, label %.preheader.us.preheader.i83, label %Abc_TtSwapAdjacent.exit97
 
 .preheader.us.preheader.i83:                      ; preds = %151
-  %152 = icmp ult i64 %indvars.iv178, 7
+  %152 = icmp samesign ult i64 %indvars.iv178, 7
   %153 = trunc i64 %indvars.iv178 to i32
   %154 = add nsw i32 %153, -6
   %155 = shl nuw nsw i32 1, %154

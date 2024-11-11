@@ -389,7 +389,7 @@ calculate_padding.exit:                           ; preds = %46, %43
   br i1 %or.cond, label %59, label %66
 
 59:                                               ; preds = %.outer._crit_edge
-  %60 = icmp ugt i64 %.053.ph.lcssa90, 1
+  %60 = icmp samesign ugt i64 %.053.ph.lcssa90, 1
   br i1 %60, label %61, label %calculate_padding.exit78
 
 61:                                               ; preds = %59

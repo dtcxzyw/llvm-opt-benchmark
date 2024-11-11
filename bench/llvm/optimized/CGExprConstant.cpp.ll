@@ -7656,7 +7656,7 @@ _ZSt13move_backwardIPPN4llvm8ConstantES3_ET0_T_S5_S4_.exit.i.i.i.i.i: ; preds = 
   %218 = add i64 %.0.allc.03.i.i.i.i.i.i.i.i.i.i.i.i.i, 1
   %219 = getelementptr inbounds i8, ptr %.044.i.i.i.i.i.i.i.i.i.i.i.i.i, i64 8
   %220 = add nsw i64 %.05.i.i.i.i.i.i.i.i.i.i.i.i.i, -1
-  %221 = icmp ugt i64 %.05.i.i.i.i.i.i.i.i.i.i.i.i.i, 1
+  %221 = icmp samesign ugt i64 %.05.i.i.i.i.i.i.i.i.i.i.i.i.i, 1
   br i1 %221, label %.lr.ph.i.i.i.i.i.i.i.i.i.i.i.i.i, label %"_ZN12_GLOBAL__N_17replaceIN4llvm11SmallVectorIPNS1_8ConstantELj32EEENS1_14iterator_rangeINS1_15mapped_iteratorINS1_6detail15SafeIntIteratorIjLb0EEEZNS_24ConstantAggregateBuilder5splitEmN5clang9CharUnitsEE3$_0S4_EEEEEEvRT_mmT0_.exit.i", !llvm.loop !67
 
 222:                                              ; preds = %.lr.ph.i.i.i.i
@@ -8447,7 +8447,7 @@ _ZSt13move_backwardIPPN4llvm8ConstantES3_ET0_T_S5_S4_.exit.i.i.i.i158.i: ; preds
   %619 = add i64 %.0.allc.03.i.i.i.i.i.i.i.i.i.i.i.i178.i, 1
   %620 = getelementptr inbounds i8, ptr %.044.i.i.i.i.i.i.i.i.i.i.i.i177.i, i64 8
   %621 = add nsw i64 %.05.i.i.i.i.i.i.i.i.i.i.i.i176.i, -1
-  %622 = icmp ugt i64 %.05.i.i.i.i.i.i.i.i.i.i.i.i176.i, 1
+  %622 = icmp samesign ugt i64 %.05.i.i.i.i.i.i.i.i.i.i.i.i176.i, 1
   br i1 %622, label %.lr.ph.i.i.i.i.i.i.i.i.i.i.i.i175.i, label %"_ZN12_GLOBAL__N_17replaceIN4llvm11SmallVectorIPNS1_8ConstantELj32EEENS1_14iterator_rangeINS1_15mapped_iteratorINS1_6detail15SafeIntIteratorIjLb0EEEZNS_24ConstantAggregateBuilder5splitEmN5clang9CharUnitsEE3$_3S4_EEEEEEvRT_mmT0_.exit.i", !llvm.loop !78
 
 623:                                              ; preds = %.lr.ph.i.i.i140.i

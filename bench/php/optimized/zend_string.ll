@@ -204,7 +204,7 @@ define range(i64 -9223372036854775808, 0) i64 @zend_hash_func(ptr nocapture noun
   %.138 = phi i64 [ %66, %47 ], [ %.037.lcssa, %._crit_edge ]
   %.136 = phi i64 [ %67, %47 ], [ %.035.lcssa, %._crit_edge ]
   %.1 = phi ptr [ %68, %47 ], [ %.0.lcssa, %._crit_edge ]
-  %70 = icmp ugt i64 %.136, 1
+  %70 = icmp samesign ugt i64 %.136, 1
   br i1 %70, label %71, label %92
 
 71:                                               ; preds = %69
@@ -657,7 +657,7 @@ define internal ptr @zend_string_init_interned_request(ptr nocapture noundef rea
   %.1168 = phi ptr [ %70, %49 ], [ %.0167.lcssa, %._crit_edge ]
   %.1166 = phi i64 [ %69, %49 ], [ %.0165.lcssa, %._crit_edge ]
   %.1 = phi i64 [ %68, %49 ], [ %.0164.lcssa, %._crit_edge ]
-  %72 = icmp ugt i64 %.1166, 1
+  %72 = icmp samesign ugt i64 %.1166, 1
   br i1 %72, label %73, label %94
 
 73:                                               ; preds = %71
@@ -909,7 +909,7 @@ define internal ptr @zend_string_init_existing_interned_request(ptr nocapture no
   %.1157 = phi ptr [ %69, %48 ], [ %.0156.lcssa, %._crit_edge ]
   %.1155 = phi i64 [ %68, %48 ], [ %.0154.lcssa, %._crit_edge ]
   %.1 = phi i64 [ %67, %48 ], [ %.0153.lcssa, %._crit_edge ]
-  %71 = icmp ugt i64 %.1155, 1
+  %71 = icmp samesign ugt i64 %.1155, 1
   br i1 %71, label %72, label %93
 
 72:                                               ; preds = %70
@@ -1289,7 +1289,7 @@ define internal ptr @zend_string_init_interned_permanent(ptr nocapture noundef r
   %.1140 = phi i64 [ %68, %49 ], [ %.0139.lcssa, %._crit_edge ]
   %.1137 = phi i64 [ %69, %49 ], [ %.0136.lcssa, %._crit_edge ]
   %.1 = phi ptr [ %70, %49 ], [ %.0135.lcssa, %._crit_edge ]
-  %72 = icmp ugt i64 %.1137, 1
+  %72 = icmp samesign ugt i64 %.1137, 1
   br i1 %72, label %73, label %94
 
 73:                                               ; preds = %71
@@ -1491,7 +1491,7 @@ define internal ptr @zend_string_init_existing_interned_permanent(ptr nocapture 
   %.1128 = phi i64 [ %67, %48 ], [ %.0127.lcssa, %._crit_edge ]
   %.1125 = phi i64 [ %68, %48 ], [ %.0124.lcssa, %._crit_edge ]
   %.1 = phi ptr [ %69, %48 ], [ %.0123.lcssa, %._crit_edge ]
-  %71 = icmp ugt i64 %.1125, 1
+  %71 = icmp samesign ugt i64 %.1125, 1
   br i1 %71, label %72, label %93
 
 72:                                               ; preds = %70

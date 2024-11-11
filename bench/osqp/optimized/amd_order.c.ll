@@ -65,14 +65,14 @@ define i64 @amd_l_order(i64 noundef %0, ptr noundef %1, ptr noundef %2, ptr noun
   br label %108
 
 30:                                               ; preds = %24
-  %31 = icmp ugt i64 %0, 2305843009213693950
-  %32 = icmp ugt i64 %23, 2305843009213693950
+  %31 = icmp samesign ugt i64 %0, 2305843009213693950
+  %32 = icmp samesign ugt i64 %23, 2305843009213693950
   %or.cond7 = select i1 %31, i1 true, i1 %32
   br i1 %or.cond7, label %108, label %36
 
 .thread165:                                       ; preds = %.thread
-  %33 = icmp ugt i64 %0, 2305843009213693950
-  %34 = icmp ugt i64 %23, 2305843009213693950
+  %33 = icmp samesign ugt i64 %0, 2305843009213693950
+  %34 = icmp samesign ugt i64 %23, 2305843009213693950
   %or.cond7166 = select i1 %33, i1 true, i1 %34
   br i1 %or.cond7166, label %35, label %.thread168
 

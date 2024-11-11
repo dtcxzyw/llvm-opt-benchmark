@@ -990,7 +990,7 @@ define internal fastcc void @_process_command(i32 noundef %0, ptr noundef %1) un
   br i1 %.not418, label %36, label %50
 
 36:                                               ; preds = %32
-  %37 = icmp ugt i32 %0, 2
+  %37 = icmp samesign ugt i32 %0, 2
   br i1 %37, label %38, label %41
 
 38:                                               ; preds = %36
@@ -1333,7 +1333,7 @@ define internal fastcc void @_process_command(i32 noundef %0, ptr noundef %1) un
   br i1 %.not436, label %193, label %231
 
 193:                                              ; preds = %189
-  %194 = icmp ugt i32 %0, 3
+  %194 = icmp samesign ugt i32 %0, 3
   br i1 %194, label %195, label %198
 
 195:                                              ; preds = %193
@@ -1416,7 +1416,7 @@ define internal fastcc void @_process_command(i32 noundef %0, ptr noundef %1) un
   br i1 %.not438, label %235, label %265
 
 235:                                              ; preds = %231
-  %236 = icmp ugt i32 %0, 3
+  %236 = icmp samesign ugt i32 %0, 3
   br i1 %236, label %237, label %240
 
 237:                                              ; preds = %235
@@ -1530,7 +1530,7 @@ define internal fastcc void @_process_command(i32 noundef %0, ptr noundef %1) un
   br i1 %.not445, label %284, label %299
 
 284:                                              ; preds = %282
-  %285 = icmp ugt i32 %0, 2
+  %285 = icmp samesign ugt i32 %0, 2
   br i1 %285, label %286, label %289
 
 286:                                              ; preds = %284
@@ -1636,7 +1636,7 @@ define internal fastcc void @_process_command(i32 noundef %0, ptr noundef %1) un
   br i1 %.not454, label %329, label %339
 
 329:                                              ; preds = %327
-  %330 = icmp ugt i32 %0, 2
+  %330 = icmp samesign ugt i32 %0, 2
   br i1 %330, label %331, label %334
 
 331:                                              ; preds = %329
@@ -1904,7 +1904,7 @@ define internal fastcc void @_process_command(i32 noundef %0, ptr noundef %1) un
   br label %_create_it.exit
 
 423:                                              ; preds = %416
-  %424 = icmp ugt i32 %0, 2
+  %424 = icmp samesign ugt i32 %0, 2
   br i1 %424, label %425, label %430
 
 425:                                              ; preds = %423
@@ -1939,7 +1939,7 @@ define internal fastcc void @_process_command(i32 noundef %0, ptr noundef %1) un
   br i1 %.not477, label %438, label %457
 
 438:                                              ; preds = %436
-  %439 = icmp ugt i32 %0, 2
+  %439 = icmp samesign ugt i32 %0, 2
   br i1 %439, label %440, label %445
 
 440:                                              ; preds = %438
@@ -1999,7 +1999,7 @@ define internal fastcc void @_process_command(i32 noundef %0, ptr noundef %1) un
   br i1 %.not483, label %464, label %499
 
 464:                                              ; preds = %462, %460
-  %465 = icmp ugt i32 %0, 2
+  %465 = icmp samesign ugt i32 %0, 2
   br i1 %465, label %466, label %471
 
 466:                                              ; preds = %464
@@ -2082,7 +2082,7 @@ define internal fastcc void @_process_command(i32 noundef %0, ptr noundef %1) un
   br i1 %.not490, label %504, label %546
 
 504:                                              ; preds = %502
-  %505 = icmp ugt i32 %0, 2
+  %505 = icmp samesign ugt i32 %0, 2
   br i1 %505, label %506, label %511
 
 506:                                              ; preds = %504
@@ -2212,7 +2212,7 @@ define internal fastcc void @_process_command(i32 noundef %0, ptr noundef %1) un
   br i1 %.not500, label %563, label %572
 
 563:                                              ; preds = %558
-  %564 = icmp ugt i32 %0, 4
+  %564 = icmp samesign ugt i32 %0, 4
   br i1 %564, label %565, label %568
 
 565:                                              ; preds = %563
@@ -2236,7 +2236,7 @@ define internal fastcc void @_process_command(i32 noundef %0, ptr noundef %1) un
   br i1 %.not501, label %576, label %584
 
 576:                                              ; preds = %572
-  %577 = icmp ugt i32 %0, 3
+  %577 = icmp samesign ugt i32 %0, 3
   br i1 %577, label %578, label %581
 
 578:                                              ; preds = %576
@@ -2268,7 +2268,7 @@ define internal fastcc void @_process_command(i32 noundef %0, ptr noundef %1) un
   %592 = getelementptr inbounds i8, ptr %591, i64 256
   %593 = load i32, ptr %592, align 8
   tail call void @slurm_conf_unlock() #17
-  %594 = icmp ugt i32 %0, 2
+  %594 = icmp samesign ugt i32 %0, 2
   br i1 %594, label %595, label %598
 
 595:                                              ; preds = %590
@@ -2352,7 +2352,7 @@ define internal fastcc void @_process_command(i32 noundef %0, ptr noundef %1) un
   br label %_create_it.exit
 
 633:                                              ; preds = %620
-  %634 = icmp ugt i32 %0, 2
+  %634 = icmp samesign ugt i32 %0, 2
   br i1 %634, label %635, label %638
 
 635:                                              ; preds = %633
@@ -2463,7 +2463,7 @@ define internal fastcc void @_process_command(i32 noundef %0, ptr noundef %1) un
   br i1 %.not518, label %679, label %694
 
 679:                                              ; preds = %677
-  %680 = icmp ugt i32 %0, 3
+  %680 = icmp samesign ugt i32 %0, 3
   br i1 %680, label %681, label %684
 
 681:                                              ; preds = %679
@@ -2520,7 +2520,7 @@ define internal fastcc void @_process_command(i32 noundef %0, ptr noundef %1) un
   br i1 %.not521, label %707, label %717
 
 707:                                              ; preds = %705
-  %708 = icmp ult i32 %0, 3
+  %708 = icmp samesign ult i32 %0, 3
   br i1 %708, label %709, label %712
 
 709:                                              ; preds = %707
@@ -2547,7 +2547,7 @@ define internal fastcc void @_process_command(i32 noundef %0, ptr noundef %1) un
   br i1 %.not523, label %719, label %734
 
 719:                                              ; preds = %717
-  %720 = icmp ult i32 %0, 5
+  %720 = icmp samesign ult i32 %0, 5
   br i1 %720, label %721, label %724
 
 721:                                              ; preds = %719
@@ -2557,7 +2557,7 @@ define internal fastcc void @_process_command(i32 noundef %0, ptr noundef %1) un
   br label %_create_it.exit
 
 724:                                              ; preds = %719
-  %725 = icmp ugt i32 %0, 6
+  %725 = icmp samesign ugt i32 %0, 6
   br i1 %725, label %726, label %729
 
 726:                                              ; preds = %724

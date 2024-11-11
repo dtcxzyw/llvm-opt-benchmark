@@ -1136,7 +1136,7 @@ Aig_ObjFaninId0.exit184:                          ; preds = %156, %158
   br label %.critedge
 
 .critedge:                                        ; preds = %97, %91, %Aig_ObjFaninId1.exit182, %Aig_ObjFaninId0.exit184, %155
-  %183 = icmp ugt i64 %indvars.iv226, 1
+  %183 = icmp samesign ugt i64 %indvars.iv226, 1
   br i1 %183, label %91, label %.critedge2.preheader, !llvm.loop !18
 
 .critedge4.preheader:                             ; preds = %.critedge2, %.critedge2.preheader
@@ -1690,7 +1690,7 @@ Aig_ObjFaninId0.exit216:                          ; preds = %168, %170
   br label %.critedge
 
 .critedge:                                        ; preds = %103, %95, %156, %Aig_ObjFaninId1.exit214, %Aig_ObjFaninId0.exit216, %185, %167
-  %196 = icmp ugt i64 %indvars.iv250, 1
+  %196 = icmp samesign ugt i64 %indvars.iv250, 1
   br i1 %196, label %95, label %.critedge2.preheader.loopexit, !llvm.loop !23
 
 197:                                              ; preds = %.lr.ph247, %.critedge2

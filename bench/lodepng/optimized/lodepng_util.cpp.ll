@@ -4037,7 +4037,7 @@ while.body169.i.i:                                ; preds = %if.end158.i.i, %whi
   %t0.0119.i.i = phi float [ %mul170.i.i, %while.body169.i.i ], [ %22, %if.end158.i.i ]
   %mul170.i.i = fmul float %t0.0119.i.i, 0x3E00000000000000
   %add171.i.i = add nsw i32 %i.1120.i.i, 31
-  %cmp168.i.i = icmp ult i32 %i.1120.i.i, -61
+  %cmp168.i.i = icmp samesign ult i32 %i.1120.i.i, -61
   br i1 %cmp168.i.i, label %while.body169.i.i, label %while.end178.i.i, !llvm.loop !35
 
 while.body175.i.i:                                ; preds = %while.cond173.preheader.i.i, %while.body175.i.i
@@ -4045,7 +4045,7 @@ while.body175.i.i:                                ; preds = %while.cond173.prehe
   %t0.1124.i.i = phi float [ %mul176.i.i, %while.body175.i.i ], [ %22, %while.cond173.preheader.i.i ]
   %mul176.i.i = fmul float %t0.1124.i.i, 0x41E0000000000000
   %sub177.i.i = add nsw i32 %i.2125.i.i, -31
-  %cmp174.i.i = icmp ugt i32 %i.2125.i.i, 61
+  %cmp174.i.i = icmp samesign ugt i32 %i.2125.i.i, 61
   br i1 %cmp174.i.i, label %while.body175.i.i, label %cond.false185.i.i, !llvm.loop !36
 
 while.end178.i.i:                                 ; preds = %while.body169.i.i, %while.cond173.preheader.i.i
@@ -4959,7 +4959,7 @@ while.body169.i:                                  ; preds = %if.end158.i, %while
   %t0.0119.i = phi float [ %mul170.i, %while.body169.i ], [ %48, %if.end158.i ]
   %mul170.i = fmul float %t0.0119.i, 0x3E00000000000000
   %add171.i = add nsw i32 %i.1120.i, 31
-  %cmp168.i = icmp ult i32 %i.1120.i, -61
+  %cmp168.i = icmp samesign ult i32 %i.1120.i, -61
   br i1 %cmp168.i, label %while.body169.i, label %while.end178.i, !llvm.loop !35
 
 while.body175.i:                                  ; preds = %while.cond173.preheader.i, %while.body175.i
@@ -4967,7 +4967,7 @@ while.body175.i:                                  ; preds = %while.cond173.prehe
   %t0.1124.i = phi float [ %mul176.i, %while.body175.i ], [ %48, %while.cond173.preheader.i ]
   %mul176.i = fmul float %t0.1124.i, 0x41E0000000000000
   %sub177.i = add nsw i32 %i.2125.i, -31
-  %cmp174.i = icmp ugt i32 %i.2125.i, 61
+  %cmp174.i = icmp samesign ugt i32 %i.2125.i, 61
   br i1 %cmp174.i, label %while.body175.i, label %cond.false185.i, !llvm.loop !36
 
 while.end178.i:                                   ; preds = %while.body169.i, %while.cond173.preheader.i
@@ -6301,7 +6301,7 @@ while.body169:                                    ; preds = %if.end158, %while.b
   %t0.0119 = phi float [ %mul170, %while.body169 ], [ %13, %if.end158 ]
   %mul170 = fmul float %t0.0119, 0x3E00000000000000
   %add171 = add nsw i32 %i.1120, 31
-  %cmp168 = icmp ult i32 %i.1120, -61
+  %cmp168 = icmp samesign ult i32 %i.1120, -61
   br i1 %cmp168, label %while.body169, label %while.end178, !llvm.loop !35
 
 while.body175:                                    ; preds = %while.cond173.preheader, %while.body175
@@ -6309,7 +6309,7 @@ while.body175:                                    ; preds = %while.cond173.prehe
   %t0.1124 = phi float [ %mul176, %while.body175 ], [ %13, %while.cond173.preheader ]
   %mul176 = fmul float %t0.1124, 0x41E0000000000000
   %sub177 = add nsw i32 %i.2125, -31
-  %cmp174 = icmp ugt i32 %i.2125, 61
+  %cmp174 = icmp samesign ugt i32 %i.2125, 61
   br i1 %cmp174, label %while.body175, label %cond.false185, !llvm.loop !36
 
 while.end178:                                     ; preds = %while.body169, %while.cond173.preheader
@@ -8241,7 +8241,7 @@ _ZNSt6vectorIiSaIiEE9push_backEOi.exit225:        ; preds = %if.then.i.i195, %_Z
   br i1 %cmp30, label %for.end108, label %if.else32
 
 if.else32:                                        ; preds = %_ZNSt6vectorIiSaIiEE9push_backEOi.exit225
-  %cmp33 = icmp ult i64 %7, 256
+  %cmp33 = icmp samesign ult i64 %7, 256
   br i1 %cmp33, label %if.then34, label %if.else38
 
 if.then34:                                        ; preds = %if.else32
@@ -8318,7 +8318,7 @@ _ZNSt6vectorIhSaIhEE9push_backEOh.exit:           ; preds = %if.then.i.i229, %_Z
   br label %for.cond.outer476, !llvm.loop !60
 
 if.else38:                                        ; preds = %if.else32
-  %cmp40 = icmp ult i64 %7, 286
+  %cmp40 = icmp samesign ult i64 %7, 286
   br i1 %cmp40, label %if.then41, label %for.cond, !llvm.loop !60
 
 if.then41:                                        ; preds = %if.else38
@@ -8414,7 +8414,7 @@ _ZN7lodepng11ExtractZlib19huffmanDecodeSymbolEPKhRmRKNS0_11HuffmanTreeEm.exit290
   br label %return
 
 if.end54:                                         ; preds = %if.end7.i280
-  %cmp55 = icmp ugt i64 %68, 29
+  %cmp55 = icmp samesign ugt i64 %68, 29
   br i1 %cmp55, label %if.then56, label %if.end58
 
 if.then56:                                        ; preds = %if.end54
@@ -8436,7 +8436,7 @@ if.then63:                                        ; preds = %if.end58
 if.end65:                                         ; preds = %if.end58
   %arrayidx59 = getelementptr inbounds [30 x i64], ptr @_ZN7lodepngL8DISTBASEE, i64 0, i64 %68
   %71 = load i64, ptr %arrayidx59, align 8
-  %cmp5.not.i291 = icmp ult i64 %68, 4
+  %cmp5.not.i291 = icmp samesign ult i64 %68, 4
   br i1 %cmp5.not.i291, label %_ZN7lodepng11ExtractZlib18readBitsFromStreamERmPKhm.exit311, label %for.body.i294
 
 for.body.i294:                                    ; preds = %if.end65, %for.body.i294
@@ -9509,7 +9509,7 @@ _ZNSt6vectorIiSaIiEE17_M_realloc_insertIJiEEEvN9__gnu_cxx17__normal_iteratorIPiS
   br label %invoke.cont68
 
 invoke.cont68:                                    ; preds = %_ZNSt6vectorIiSaIiEE17_M_realloc_insertIJiEEEvN9__gnu_cxx17__normal_iteratorIPiS1_EEDpOT_.exit.i.i207, %if.then.i.i182
-  %cmp69 = icmp ult i64 %39, 16
+  %cmp69 = icmp samesign ult i64 %39, 16
   br i1 %cmp69, label %if.then70, label %if.else79
 
 if.then70:                                        ; preds = %invoke.cont68

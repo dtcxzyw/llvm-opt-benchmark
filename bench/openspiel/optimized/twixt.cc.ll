@@ -1934,7 +1934,7 @@ define void @_ZNK10open_spiel5twixt10TwixTState17ObservationTensorEiN4absl7debia
 23:                                               ; preds = %4
   store i32 %1, ptr %13, align 4
   store i32 2, ptr %14, align 4
-  %24 = icmp ult i32 %1, 2
+  %24 = icmp samesign ult i32 %1, 2
   br i1 %24, label %29, label %25
 
 25:                                               ; preds = %23
@@ -4563,7 +4563,7 @@ define linkonce_odr void @_ZNK10open_spiel5twixt10TwixTState22InformationStateSt
 17:                                               ; preds = %3
   store i32 %2, ptr %8, align 4
   store i32 2, ptr %9, align 4
-  %18 = icmp ult i32 %2, 2
+  %18 = icmp samesign ult i32 %2, 2
   br i1 %18, label %23, label %19
 
 19:                                               ; preds = %17
@@ -4674,7 +4674,7 @@ define linkonce_odr void @_ZNK10open_spiel5twixt10TwixTState17ObservationStringB
 17:                                               ; preds = %3
   store i32 %2, ptr %8, align 4
   store i32 2, ptr %9, align 4
-  %18 = icmp ult i32 %2, 2
+  %18 = icmp samesign ult i32 %2, 2
   br i1 %18, label %23, label %19
 
 19:                                               ; preds = %17
@@ -6445,7 +6445,7 @@ _ZNSt12_Vector_baseISt6vectorIN10open_spiel5twixt4CellESaIS3_EESaIS5_EE13_M_deal
   %47 = getelementptr inbounds i8, ptr %.0910.i.i.i.i.i, i64 24
   %48 = getelementptr inbounds i8, ptr %.0811.i.i.i.i.i, i64 24
   %49 = add nsw i64 %.012.i.i.i.i.i, -1
-  %50 = icmp ugt i64 %.012.i.i.i.i.i, 1
+  %50 = icmp samesign ugt i64 %.012.i.i.i.i.i, 1
   br i1 %50, label %.lr.ph.i.i.i.i.i, label %_ZSt4copyIN9__gnu_cxx17__normal_iteratorIPKSt6vectorIN10open_spiel5twixt4CellESaIS5_EES2_IS7_SaIS7_EEEENS1_IPS7_SB_EEET0_T_SG_SF_.exit.loopexit, !llvm.loop !30
 
 _ZSt4copyIN9__gnu_cxx17__normal_iteratorIPKSt6vectorIN10open_spiel5twixt4CellESaIS5_EES2_IS7_SaIS7_EEEENS1_IPS7_SB_EEET0_T_SG_SF_.exit.loopexit: ; preds = %.lr.ph.i.i.i.i.i
@@ -6501,7 +6501,7 @@ _ZSt8_DestroyISt6vectorIN10open_spiel5twixt4CellESaIS3_EEEvPT_.exit.i.i.i28: ; p
   %66 = getelementptr inbounds i8, ptr %.0910.i.i.i.i.i35, i64 24
   %67 = getelementptr inbounds i8, ptr %.0811.i.i.i.i.i34, i64 24
   %68 = add nsw i64 %.012.i.i.i.i.i33, -1
-  %69 = icmp ugt i64 %.012.i.i.i.i.i33, 1
+  %69 = icmp samesign ugt i64 %.012.i.i.i.i.i33, 1
   br i1 %69, label %.lr.ph.i.i.i.i.i32, label %_ZSt4copyIPSt6vectorIN10open_spiel5twixt4CellESaIS3_EES6_ET0_T_S8_S7_.exit.loopexit, !llvm.loop !32
 
 _ZSt4copyIPSt6vectorIN10open_spiel5twixt4CellESaIS3_EES6_ET0_T_S8_S7_.exit.loopexit: ; preds = %.lr.ph.i.i.i.i.i32

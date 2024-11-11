@@ -270,7 +270,7 @@ if.end46:                                         ; preds = %if.end38
   %conv42 = trunc i32 %dx.0 to i8
   %arrayidx45 = getelementptr i8, ptr %buf, i64 1
   store i8 %conv42, ptr %arrayidx45, align 1
-  %cmp47 = icmp ugt i32 %len, 2
+  %cmp47 = icmp samesign ugt i32 %len, 2
   br i1 %cmp47, label %if.end54, label %sw.epilog
 
 if.end54:                                         ; preds = %if.end46
@@ -296,7 +296,7 @@ if.end81:                                         ; preds = %if.end72
   %conv77 = trunc i32 %dx.0 to i8
   %arrayidx80 = getelementptr i8, ptr %buf, i64 1
   store i8 %conv77, ptr %arrayidx80, align 1
-  %cmp82 = icmp ugt i32 %len, 2
+  %cmp82 = icmp samesign ugt i32 %len, 2
   br i1 %cmp82, label %if.end89, label %sw.epilog
 
 if.end89:                                         ; preds = %if.end81
@@ -311,7 +311,7 @@ if.end98:                                         ; preds = %if.end89
   %conv94 = trunc i32 %dy.0 to i8
   %arrayidx97 = getelementptr i8, ptr %buf, i64 3
   store i8 %conv94, ptr %arrayidx97, align 1
-  %cmp99 = icmp ugt i32 %len, 4
+  %cmp99 = icmp samesign ugt i32 %len, 4
   br i1 %cmp99, label %if.then101, label %if.end107
 
 if.then101:                                       ; preds = %if.end98
@@ -323,7 +323,7 @@ if.then101:                                       ; preds = %if.end98
 
 if.end107:                                        ; preds = %if.then101, %if.end98
   %l.8 = phi i32 [ 5, %if.then101 ], [ 4, %if.end98 ]
-  %cmp108 = icmp ugt i32 %len, %l.8
+  %cmp108 = icmp samesign ugt i32 %len, %l.8
   br i1 %cmp108, label %if.then110, label %sw.epilog
 
 if.then110:                                       ; preds = %if.end107

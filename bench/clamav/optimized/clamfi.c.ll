@@ -858,7 +858,7 @@ define dso_local i32 @clamfi_eom(ptr noundef %0) local_unnamed_addr #0 {
   br label %309
 
 133:                                              ; preds = %66
-  %134 = icmp ugt i32 %64, 7
+  %134 = icmp samesign ugt i32 %64, 7
   br i1 %134, label %135, label %.thread
 
 135:                                              ; preds = %133

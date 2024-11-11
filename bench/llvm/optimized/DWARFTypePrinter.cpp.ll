@@ -3437,7 +3437,7 @@ _ZN4llvm11raw_ostreamlsEc.exit145:                ; preds = %389, %391
   br label %_ZN4llvm11raw_ostreamlsEPKc.exit
 
 400:                                              ; preds = %395
-  %401 = icmp ult i64 %spec.select342, 65536
+  %401 = icmp samesign ult i64 %spec.select342, 65536
   %402 = load ptr, ptr %0, align 8
   br i1 %401, label %403, label %405
 

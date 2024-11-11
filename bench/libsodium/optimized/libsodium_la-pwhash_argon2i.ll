@@ -128,7 +128,7 @@ if.then:                                          ; preds = %entry
   br label %return
 
 if.end:                                           ; preds = %entry
-  %cmp1 = icmp ult i64 %outlen, 16
+  %cmp1 = icmp samesign ult i64 %outlen, 16
   br i1 %cmp1, label %if.then2, label %if.end4
 
 if.then2:                                         ; preds = %if.end
@@ -149,8 +149,8 @@ if.then9:                                         ; preds = %if.end4
   br label %return
 
 if.end11:                                         ; preds = %if.end4
-  %cmp14 = icmp ult i64 %opslimit, 3
-  %cmp16 = icmp ult i64 %memlimit, 8192
+  %cmp14 = icmp samesign ult i64 %opslimit, 3
+  %cmp16 = icmp samesign ult i64 %memlimit, 8192
   %or.cond3 = or i1 %cmp14, %cmp16
   br i1 %or.cond3, label %if.then17, label %if.end19
 
@@ -216,8 +216,8 @@ if.then:                                          ; preds = %entry
   br label %return
 
 if.end:                                           ; preds = %entry
-  %cmp6 = icmp ult i64 %opslimit, 3
-  %cmp8 = icmp ult i64 %memlimit, 8192
+  %cmp6 = icmp samesign ult i64 %opslimit, 3
+  %cmp8 = icmp samesign ult i64 %memlimit, 8192
   %or.cond3 = or i1 %cmp6, %cmp8
   br i1 %or.cond3, label %if.then9, label %if.end11
 

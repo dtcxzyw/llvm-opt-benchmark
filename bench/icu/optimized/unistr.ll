@@ -248,7 +248,7 @@ if.then.i:                                        ; preds = %if.then
   br label %if.end50
 
 if.end.i:                                         ; preds = %if.then
-  %cmp2.i = icmp ult i32 %capacity, 2147483638
+  %cmp2.i = icmp samesign ult i32 %capacity, 2147483638
   br i1 %cmp2.i, label %if.then3.i, label %if.end13.i
 
 if.then3.i:                                       ; preds = %if.end.i
@@ -291,12 +291,12 @@ lpad:                                             ; preds = %if.then3.i92, %if.t
   resume { ptr, i32 } %1
 
 if.else:                                          ; preds = %entry
-  %cmp4 = icmp ult i32 %c, 65536
+  %cmp4 = icmp samesign ult i32 %c, 65536
   br i1 %cmp4, label %if.then5, label %if.else16
 
 if.then5:                                         ; preds = %if.else
   %spec.select = tail call i32 @llvm.smax.i32(i32 %capacity, i32 %count)
-  %cmp.i27 = icmp ult i32 %spec.select, 28
+  %cmp.i27 = icmp samesign ult i32 %spec.select, 28
   br i1 %cmp.i27, label %if.then5.if.then10_crit_edge, label %if.end.i28
 
 if.then5.if.then10_crit_edge:                     ; preds = %if.then5
@@ -305,7 +305,7 @@ if.then5.if.then10_crit_edge:                     ; preds = %if.then5
   br label %for.body.preheader
 
 if.end.i28:                                       ; preds = %if.then5
-  %cmp2.i29 = icmp ult i32 %spec.select, 2147483638
+  %cmp2.i29 = icmp samesign ult i32 %spec.select, 2147483638
   br i1 %cmp2.i29, label %if.then3.i35, label %invoke.cont8
 
 if.then3.i35:                                     ; preds = %if.end.i28
@@ -381,7 +381,7 @@ if.else.i:                                        ; preds = %for.end
   br label %if.end50
 
 if.else16:                                        ; preds = %if.else
-  %cmp17 = icmp ugt i32 %count, 1073741823
+  %cmp17 = icmp samesign ugt i32 %count, 1073741823
   br i1 %cmp17, label %if.then18, label %if.end21
 
 if.then18:                                        ; preds = %if.else16
@@ -393,7 +393,7 @@ if.then.i79:                                      ; preds = %if.then18
   br label %if.end50
 
 if.end.i59:                                       ; preds = %if.then18
-  %cmp2.i60 = icmp ult i32 %capacity, 2147483638
+  %cmp2.i60 = icmp samesign ult i32 %capacity, 2147483638
   br i1 %cmp2.i60, label %if.then3.i66, label %if.end13.i61
 
 if.then3.i66:                                     ; preds = %if.end.i59
@@ -540,7 +540,7 @@ if.then:                                          ; preds = %entry
   br label %return
 
 if.end:                                           ; preds = %entry
-  %cmp2 = icmp ult i32 %capacity, 2147483638
+  %cmp2 = icmp samesign ult i32 %capacity, 2147483638
   br i1 %cmp2, label %if.then3, label %if.end13
 
 if.then3:                                         ; preds = %if.end
@@ -1419,7 +1419,7 @@ if.end45:                                         ; preds = %if.then33, %if.else
 
 if.end.i:                                         ; preds = %if.then37, %do.body.i, %if.end45
   %oldArray.091 = phi ptr [ %oldArray.0, %if.end45 ], [ %oldStackBuffer, %do.body.i ], [ %oldStackBuffer, %if.then37 ]
-  %cmp2.i = icmp ult i32 %growCapacity.addr.0, 2147483638
+  %cmp2.i = icmp samesign ult i32 %growCapacity.addr.0, 2147483638
   br i1 %cmp2.i, label %if.then3.i, label %lor.lhs.false48
 
 if.then3.i:                                       ; preds = %if.end.i
@@ -1457,7 +1457,7 @@ land.lhs.true50:                                  ; preds = %lor.lhs.false48
   br i1 %cmp.i38, label %if.then53, label %if.end.i39
 
 if.end.i39:                                       ; preds = %land.lhs.true50
-  %cmp2.i40 = icmp ult i32 %newCapacity.addr.0, 2147483638
+  %cmp2.i40 = icmp samesign ult i32 %newCapacity.addr.0, 2147483638
   br i1 %cmp2.i40, label %if.then3.i46, label %_ZN6icu_7513UnicodeString8allocateEi.exit62
 
 if.then3.i46:                                     ; preds = %if.end.i39
@@ -2003,7 +2003,7 @@ sw.bb52.if.then56_crit_edge:                      ; preds = %sw.bb52
   br label %if.then56
 
 if.end.i:                                         ; preds = %sw.bb52
-  %cmp2.i = icmp ult i32 %cond.i, 2147483638
+  %cmp2.i = icmp samesign ult i32 %cond.i, 2147483638
   br i1 %cmp2.i, label %if.then3.i, label %sw.default
 
 if.then3.i:                                       ; preds = %if.end.i
@@ -3060,7 +3060,7 @@ if.then20:                                        ; preds = %invoke.cont17
 
 if.end23:                                         ; preds = %invoke.cont17
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %buffer.i)
-  %cmp.i = icmp ult i32 %call2.i17, 65536
+  %cmp.i = icmp samesign ult i32 %call2.i17, 65536
   br i1 %cmp.i, label %if.then.i, label %if.else.i20
 
 if.then.i:                                        ; preds = %if.end23
@@ -3069,7 +3069,7 @@ if.then.i:                                        ; preds = %if.end23
   br label %cond.false.i
 
 if.else.i20:                                      ; preds = %if.end23
-  %cmp2.i = icmp ult i32 %call2.i17, 1114112
+  %cmp2.i = icmp samesign ult i32 %call2.i17, 1114112
   br i1 %cmp2.i, label %if.then4.i, label %invoke.cont24
 
 if.then4.i:                                       ; preds = %if.else.i20
@@ -3907,8 +3907,8 @@ do.body39:                                        ; preds = %do.body39.preheader
   %13 = load i16, ptr %arrayidx42, align 2
   %14 = and i16 %13, -1024
   %cmp45 = icmp eq i16 %14, -9216
-  %cmp47 = icmp ugt i32 %index.addr.433, 1
-  %or.cond = and i1 %cmp45, %cmp47
+  %cmp47 = icmp samesign ugt i32 %index.addr.433, 1
+  %or.cond = select i1 %cmp45, i1 %cmp47, i1 false
   br i1 %or.cond, label %land.lhs.true48, label %do.end58
 
 land.lhs.true48:                                  ; preds = %do.body39
@@ -6230,7 +6230,7 @@ while.body:                                       ; preds = %while.body.preheade
   %indvars.iv.next = add nsw i64 %indvars.iv, -1
   %arrayidx = getelementptr inbounds i16, ptr %cond.i10, i64 %indvars.iv.next
   store i16 %padChar, ptr %arrayidx, align 2
-  %cmp4 = icmp ugt i64 %indvars.iv, 1
+  %cmp4 = icmp samesign ugt i64 %indvars.iv, 1
   br i1 %cmp4, label %while.body, label %while.end, !llvm.loop !19
 
 while.end:                                        ; preds = %while.body, %_ZL12us_arrayCopyPKDsiPDsii.exit

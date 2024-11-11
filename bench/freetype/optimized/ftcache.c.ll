@@ -4865,7 +4865,7 @@ define internal fastcc void @ftc_cache_resize(ptr nocapture noundef %0) unnamed_
 
 46:                                               ; preds = %8
   %47 = zext i32 %10 to i64
-  %48 = icmp ugt i64 %9, %47
+  %48 = icmp samesign ugt i64 %9, %47
   br i1 %48, label %49, label %79
 
 49:                                               ; preds = %46

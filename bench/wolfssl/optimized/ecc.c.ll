@@ -3055,7 +3055,7 @@ entry:
 
 lor.lhs.false2:                                   ; preds = %entry
   %add = add nuw nsw i32 %size, 8
-  %cmp3 = icmp ugt i32 %size, 66
+  %cmp3 = icmp samesign ugt i32 %size, 66
   %cmp5 = icmp eq ptr %k, null
   %or.cond1 = or i1 %cmp3, %cmp5
   %cmp7 = icmp eq ptr %order, null
@@ -5506,7 +5506,7 @@ entry:
   br i1 %or.cond1, label %return, label %lor.lhs.false4
 
 lor.lhs.false4:                                   ; preds = %entry
-  %narrow.i = icmp ugt i32 %curve_idx, 4
+  %narrow.i = icmp samesign ugt i32 %curve_idx, 4
   %and = and i32 %inLen, 1
   %cmp6 = icmp eq i32 %and, 0
   %or.cond35 = or i1 %narrow.i, %cmp6
@@ -6179,7 +6179,7 @@ for.inc.us.i:                                     ; preds = %for.body.us.i
   br i1 %exitcond36.i, label %if.end37.thread41, label %for.body.us.i, !llvm.loop !6
 
 if.then7.split.i:                                 ; preds = %if.then7.i
-  %cmp20.not23.i = icmp ugt i32 %sub, 56
+  %cmp20.not23.i = icmp samesign ugt i32 %sub, 56
   br i1 %cmp20.not23.i, label %for.inc.i, label %if.end29.i
 
 for.body.i:                                       ; preds = %for.inc.i

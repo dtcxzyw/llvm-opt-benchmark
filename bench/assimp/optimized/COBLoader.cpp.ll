@@ -1622,7 +1622,7 @@ for.body185:                                      ; preds = %invoke.cont178, %fo
   br i1 %cmp.i.i.i.i, label %land.lhs.true.i.i.i.i, label %cond.false.i.i.i.i
 
 land.lhs.true.i.i.i.i:                            ; preds = %for.body185
-  %cmp2.i.i.i.i = icmp ult i64 %add.i.i.i.i, 32
+  %cmp2.i.i.i.i = icmp samesign ult i64 %add.i.i.i.i, 32
   br i1 %cmp2.i.i.i.i, label %if.then.i.i.i.i, label %cond.true.i.i.i.i
 
 if.then.i.i.i.i:                                  ; preds = %land.lhs.true.i.i.i.i
@@ -1747,7 +1747,7 @@ for.body201:                                      ; preds = %for.cond197
   br i1 %cmp.i.i.i.i185, label %land.lhs.true.i.i.i.i195, label %cond.false.i.i.i.i186
 
 land.lhs.true.i.i.i.i195:                         ; preds = %for.body201
-  %cmp2.i.i.i.i196 = icmp ult i64 %add.i.i.i.i184, 32
+  %cmp2.i.i.i.i196 = icmp samesign ult i64 %add.i.i.i.i184, 32
   br i1 %cmp2.i.i.i.i196, label %if.then.i.i.i.i199, label %cond.true.i.i.i.i197
 
 if.then.i.i.i.i199:                               ; preds = %land.lhs.true.i.i.i.i195

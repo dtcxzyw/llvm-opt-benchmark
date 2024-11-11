@@ -673,8 +673,8 @@ rsa_alt_sign_wrap.exit:                           ; preds = %12
 24:                                               ; preds = %21
   %25 = call i32 @mbedtls_rsa_pkcs1_verify(ptr noundef %0, i32 noundef 0, i32 noundef 32, ptr noundef nonnull %6, ptr noundef nonnull %5) #10
   %.not.i = icmp ne i32 %25, 0
-  %26 = icmp ugt i64 %15, %22
-  %or.cond = or i1 %26, %.not.i
+  %26 = icmp samesign ugt i64 %15, %22
+  %or.cond = select i1 %.not.i, i1 true, i1 %26
   br i1 %or.cond, label %rsa_verify_wrap.exit.thread, label %rsa_verify_wrap.exit
 
 rsa_verify_wrap.exit.thread:                      ; preds = %21, %24

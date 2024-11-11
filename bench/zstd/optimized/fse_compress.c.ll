@@ -317,7 +317,7 @@ entry:
   br i1 %cmp, label %return, label %if.end
 
 if.end:                                           ; preds = %entry
-  %cmp1 = icmp ult i32 %tableLog, 5
+  %cmp1 = icmp samesign ult i32 %tableLog, 5
   br i1 %cmp1, label %return, label %if.end3
 
 if.end3:                                          ; preds = %if.end
@@ -664,7 +664,7 @@ if.end6:                                          ; preds = %if.end3
   %1 = tail call range(i32 0, 32) i32 @llvm.ctlz.i32(i32 %maxSymbolValue, i1 true)
   %add2.i = sub nuw nsw i32 33, %1
   %cond.i = tail call range(i32 1, 33) i32 @llvm.umin.i32(i32 %add.i, i32 %add2.i)
-  %cmp7 = icmp ult i32 %spec.store.select, %cond.i
+  %cmp7 = icmp samesign ult i32 %spec.store.select, %cond.i
   br i1 %cmp7, label %return, label %if.end9
 
 if.end9:                                          ; preds = %if.end6

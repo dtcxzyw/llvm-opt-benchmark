@@ -798,7 +798,7 @@ thread-pre-split:                                 ; preds = %126
   br i1 %140, label %141, label %142
 
 141:                                              ; preds = %137
-  %or.cond3.inv = icmp ugt i32 %.0147212, 1
+  %or.cond3.inv = icmp samesign ugt i32 %.0147212, 1
   %.176 = select i1 %or.cond3.inv, i32 3, i32 1
   br label %142
 
@@ -1042,7 +1042,7 @@ thread-pre-split:                                 ; preds = %126
   %291 = zext i16 %290 to i32
   %292 = add nsw i32 %291, -1
   %293 = icmp eq i32 %289, %292
-  %or.cond7 = icmp ult i32 %.0147.lcssa, 2
+  %or.cond7 = icmp samesign ult i32 %.0147.lcssa, 2
   %or.cond179 = select i1 %293, i1 %or.cond7, i1 false
   br i1 %or.cond179, label %294, label %316
 
@@ -1964,7 +1964,7 @@ thread-pre-split:                                 ; preds = %70
   br i1 %84, label %85, label %86
 
 85:                                               ; preds = %81
-  %or.cond3.inv = icmp ugt i32 %.0119174, 1
+  %or.cond3.inv = icmp samesign ugt i32 %.0119174, 1
   %.137 = select i1 %or.cond3.inv, i32 3, i32 1
   br label %86
 
@@ -2197,7 +2197,7 @@ thread-pre-split:                                 ; preds = %70
   %235 = zext i16 %234 to i32
   %236 = add nsw i32 %235, -1
   %237 = icmp eq i32 %233, %236
-  %or.cond7 = icmp ult i32 %.0119.lcssa, 2
+  %or.cond7 = icmp samesign ult i32 %.0119.lcssa, 2
   %or.cond140 = select i1 %237, i1 %or.cond7, i1 false
   br i1 %or.cond140, label %238, label %261
 

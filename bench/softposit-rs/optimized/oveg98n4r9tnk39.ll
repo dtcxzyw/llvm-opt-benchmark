@@ -237,7 +237,7 @@ _ZN9softposit5p16e15P16E116calculate_regime17he80d131ebda81979E.exit: ; preds = 
   br i1 %.not, label %108, label %111
 
 106:                                              ; preds = %_ZN9softposit5p16e15P16E117separate_bits_tmp17hb53692effe90da8fE.exit255
-  %107 = icmp ult i16 %89, -30
+  %107 = icmp samesign ult i16 %89, -30
   br i1 %107, label %154, label %148
 
 108:                                              ; preds = %105
@@ -247,7 +247,7 @@ _ZN9softposit5p16e15P16E116calculate_regime17he80d131ebda81979E.exit: ; preds = 
   br i1 %or.cond8, label %60, label %113
 
 111:                                              ; preds = %105
-  %112 = icmp ugt i16 %89, 30
+  %112 = icmp samesign ugt i16 %89, 30
   br i1 %112, label %128, label %121
 
 113:                                              ; preds = %108
@@ -380,7 +380,7 @@ _ZN9softposit5p16e15P16E116calculate_regime17he80d131ebda81979E.exit: ; preds = 
   br i1 %176, label %.thread266, label %.preheader
 
 .preheader:                                       ; preds = %175
-  %177 = icmp ult i32 %.3189262, 536870912
+  %177 = icmp samesign ult i32 %.3189262, 536870912
   br i1 %177, label %.lr.ph, label %._crit_edge
 
 178:                                              ; preds = %146

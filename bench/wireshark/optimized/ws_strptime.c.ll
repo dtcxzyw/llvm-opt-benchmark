@@ -849,7 +849,7 @@ conv_num.exit507:                                 ; preds = %274, %.critedge.i50
 .preheader.i509:                                  ; preds = %295
   %298 = zext nneg i8 %296 to i32
   %299 = add nsw i32 %298, -48
-  %300 = icmp ugt i32 %299, 6
+  %300 = icmp samesign ugt i32 %299, 6
   br i1 %300, label %conv_num.exit519, label %301
 
 301:                                              ; preds = %.preheader.i509
@@ -1080,7 +1080,7 @@ conv_num.exit579:                                 ; preds = %380, %.critedge.i57
   br label %.sink.split
 
 403:                                              ; preds = %conv_num.exit579
-  %404 = icmp ult i32 %397, 69
+  %404 = icmp samesign ult i32 %397, 69
   br i1 %404, label %405, label %407
 
 405:                                              ; preds = %403
@@ -1222,7 +1222,7 @@ thread-pre-split591:                              ; preds = %423, %434, %438, %.
 
 460:                                              ; preds = %455
   %461 = zext nneg i8 %418 to i64
-  %462 = icmp ult i8 %418, 78
+  %462 = icmp samesign ult i8 %418, 78
   br i1 %462, label %463, label %466
 
 463:                                              ; preds = %460

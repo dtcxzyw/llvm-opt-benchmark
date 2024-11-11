@@ -3637,7 +3637,7 @@ define linkonce_odr hidden void @_ZN12hb_bit_set_t9del_pagesEii(ptr noundef nonn
   br i1 %.not19.i.i.i.i.not, label %_ZN12hb_bit_set_t26allocate_compact_workspaceER11hb_vector_tIjLb0EE.exit, label %.thread.i.i.i.i
 
 .thread.i.i.i.i:                                  ; preds = %4
-  %8 = icmp ugt i32 %6, 1073741823
+  %8 = icmp samesign ugt i32 %6, 1073741823
   br i1 %8, label %_ZN12hb_bit_set_t6resizeEjbb.exit.thread, label %_ZN11hb_vector_tIjLb0EE14realloc_vectorIjTnPN12hb_enable_ifIXsr3std28is_trivially_copy_assignableIT_EE5valueEvE4typeELPv0EEEPjj11hb_priorityILj0EE.exit.i.i.i.i
 
 _ZN11hb_vector_tIjLb0EE14realloc_vectorIjTnPN12hb_enable_ifIXsr3std28is_trivially_copy_assignableIT_EE5valueEvE4typeELPv0EEEPjj11hb_priorityILj0EE.exit.i.i.i.i: ; preds = %.thread.i.i.i.i
@@ -5305,7 +5305,7 @@ define linkonce_odr hidden void @_ZN12hb_bit_set_t8process_EPF16hb_vector_size_t
   br i1 %.not19.i.i.i.i.not, label %_ZN12hb_bit_set_t26allocate_compact_workspaceER11hb_vector_tIjLb0EE.exit.thread, label %.thread.i.i.i.i
 
 .thread.i.i.i.i:                                  ; preds = %15
-  %17 = icmp ugt i32 %12, 1073741823
+  %17 = icmp samesign ugt i32 %12, 1073741823
   br i1 %17, label %_ZN12hb_bit_set_t6resizeEjbb.exit148.thread, label %_ZN11hb_vector_tIjLb0EE14realloc_vectorIjTnPN12hb_enable_ifIXsr3std28is_trivially_copy_assignableIT_EE5valueEvE4typeELPv0EEEPjj11hb_priorityILj0EE.exit.i.i.i.i
 
 _ZN11hb_vector_tIjLb0EE14realloc_vectorIjTnPN12hb_enable_ifIXsr3std28is_trivially_copy_assignableIT_EE5valueEvE4typeELPv0EEEPjj11hb_priorityILj0EE.exit.i.i.i.i: ; preds = %.thread.i.i.i.i

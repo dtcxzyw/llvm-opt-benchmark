@@ -271,11 +271,11 @@ define range(i32 1, 5) i32 @jvp_utf8_encode_length(i32 noundef %0) local_unnamed
   br i1 %2, label %7, label %3
 
 3:                                                ; preds = %1
-  %4 = icmp ult i32 %0, 2048
+  %4 = icmp samesign ult i32 %0, 2048
   br i1 %4, label %7, label %5
 
 5:                                                ; preds = %3
-  %6 = icmp ult i32 %0, 65536
+  %6 = icmp samesign ult i32 %0, 65536
   %. = select i1 %6, i32 3, i32 4
   br label %7
 
@@ -296,7 +296,7 @@ define i32 @jvp_utf8_encode(i32 noundef %0, ptr noundef %1) local_unnamed_addr #
   br label %54
 
 7:                                                ; preds = %2
-  %8 = icmp ult i32 %0, 2048
+  %8 = icmp samesign ult i32 %0, 2048
   br i1 %8, label %9, label %18
 
 9:                                                ; preds = %7
@@ -313,7 +313,7 @@ define i32 @jvp_utf8_encode(i32 noundef %0, ptr noundef %1) local_unnamed_addr #
   br label %54
 
 18:                                               ; preds = %7
-  %19 = icmp ult i32 %0, 65536
+  %19 = icmp samesign ult i32 %0, 65536
   br i1 %19, label %20, label %34
 
 20:                                               ; preds = %18

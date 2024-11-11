@@ -1131,7 +1131,7 @@ ompi_range_sum.exit239:                           ; preds = %ompi_range_sum.exit
 162:                                              ; preds = %159, %155
   %163 = add nsw i32 %.1171, %.0168282
   %164 = lshr i32 %.0168282, 1
-  %.not287 = icmp ult i32 %.0168282, 2
+  %.not287 = icmp samesign ult i32 %.0168282, 2
   br i1 %.not287, label %._crit_edge, label %85, !llvm.loop !10
 
 ._crit_edge:                                      ; preds = %162, %81

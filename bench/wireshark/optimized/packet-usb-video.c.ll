@@ -1187,7 +1187,7 @@ dissect_usb_video_camera_terminal.exit.i:         ; preds = %176, %dissect_usb_v
   %.0134.i = phi i8 [ 0, %60 ], [ %104, %dissect_usb_video_selector_unit.exit.i ], [ %104, %dissect_usb_video_extension_unit.exit.i ], [ %104, %176 ], [ %104, %103 ], [ %67, %78 ], [ %67, %83 ], [ %67, %98 ], [ %104, %dissect_bmControl.exit.i.i ], [ %104, %126 ]
   %.0133.i = phi i16 [ 0, %60 ], [ 0, %dissect_usb_video_selector_unit.exit.i ], [ 0, %dissect_usb_video_extension_unit.exit.i ], [ 0, %176 ], [ 0, %103 ], [ %68, %78 ], [ 513, %83 ], [ 513, %98 ], [ 0, %dissect_bmControl.exit.i.i ], [ 0, %126 ]
   %.0132.i = phi i32 [ %61, %60 ], [ %142, %dissect_usb_video_selector_unit.exit.i ], [ %175, %dissect_usb_video_extension_unit.exit.i ], [ 4, %176 ], [ 4, %103 ], [ %81, %78 ], [ %97, %83 ], [ %102, %98 ], [ %123, %dissect_bmControl.exit.i.i ], [ %130, %126 ]
-  %178 = icmp ult i32 %.0132.i, %9
+  %178 = icmp samesign ult i32 %.0132.i, %9
   br i1 %178, label %179, label %183
 
 179:                                              ; preds = %dissect_usb_video_camera_terminal.exit.i

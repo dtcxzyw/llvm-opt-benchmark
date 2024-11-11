@@ -2367,7 +2367,7 @@ for.body.i:                                       ; preds = %for.inc.i, %for.bod
   br i1 %cmp2.not.i, label %cond.true10, label %for.inc.i
 
 for.inc.i:                                        ; preds = %for.body.i
-  %cmp.i19 = icmp ugt i64 %indvars.iv, 1
+  %cmp.i19 = icmp samesign ugt i64 %indvars.iv, 1
   br i1 %cmp.i19, label %for.body.i, label %cond.false11, !llvm.loop !10
 
 cond.true10:                                      ; preds = %for.body.i
@@ -2672,7 +2672,7 @@ for.body.i:                                       ; preds = %for.inc.i, %for.bod
   br i1 %cmp2.not.i, label %cond.true, label %for.inc.i
 
 for.inc.i:                                        ; preds = %for.body.i
-  %cmp.i = icmp ugt i64 %indvars.iv, 1
+  %cmp.i = icmp samesign ugt i64 %indvars.iv, 1
   br i1 %cmp.i, label %for.body.i, label %cond.false, !llvm.loop !10
 
 cond.true:                                        ; preds = %for.body.i
@@ -9141,7 +9141,7 @@ while.body:                                       ; preds = %while.body.lr.ph, %
   %dec.i = add nsw i32 %7, -1
   store i32 %dec.i, ptr %ColorStack, align 8
   %dec = add nsw i32 %count.addr.19, -1
-  %cmp3 = icmp ugt i32 %count.addr.19, 1
+  %cmp3 = icmp samesign ugt i32 %count.addr.19, 1
   br i1 %cmp3, label %while.body, label %while.end, !llvm.loop !41
 
 while.end:                                        ; preds = %while.body, %entry
@@ -21347,7 +21347,7 @@ if.then.i:                                        ; preds = %for.body.i30
   br i1 %tobool2.not.i, label %for.inc.i, label %_ZN5ImGui20GetTopMostPopupModalEv.exit
 
 for.inc.i:                                        ; preds = %if.then.i, %for.body.i30
-  %cmp.i36 = icmp ugt i64 %indvars.iv.i31, 1
+  %cmp.i36 = icmp samesign ugt i64 %indvars.iv.i31, 1
   br i1 %cmp.i36, label %for.body.i30, label %_ZN5ImGui20GetTopMostPopupModalEv.exit, !llvm.loop !65
 
 _ZN5ImGui20GetTopMostPopupModalEv.exit:           ; preds = %if.then.i, %for.inc.i, %if.then49
@@ -21528,7 +21528,7 @@ if.then:                                          ; preds = %for.body
   br i1 %tobool2.not, label %for.inc, label %return
 
 for.inc:                                          ; preds = %for.body, %if.then
-  %cmp = icmp ugt i64 %indvars.iv, 1
+  %cmp = icmp samesign ugt i64 %indvars.iv, 1
   br i1 %cmp, label %for.body, label %return, !llvm.loop !65
 
 return:                                           ; preds = %if.then, %for.inc, %entry
@@ -21868,7 +21868,7 @@ if.end62.i:                                       ; preds = %lor.lhs.false57.i, 
 for.inc.i:                                        ; preds = %if.end62.i, %lor.lhs.false57.i, %land.lhs.true.i43.i, %_ZNK6ImRect15ContainsWithPadERK6ImVec2S2_.exit.i, %land.lhs.true9.i.i, %land.lhs.true.i.i, %if.end14.i, %if.end9.i, %lor.lhs.false.i, %for.body.i
   %hovered_window_ignoring_moving_window.2.i = phi ptr [ %hovered_window_ignoring_moving_window.056.i, %lor.lhs.false.i ], [ %hovered_window_ignoring_moving_window.056.i, %if.end9.i ], [ %hovered_window_ignoring_moving_window.3.i, %if.end62.i ], [ %hovered_window_ignoring_moving_window.056.i, %_ZNK6ImRect15ContainsWithPadERK6ImVec2S2_.exit.i ], [ %hovered_window_ignoring_moving_window.056.i, %for.body.i ], [ %hovered_window_ignoring_moving_window.056.i, %land.lhs.true9.i.i ], [ %hovered_window_ignoring_moving_window.056.i, %land.lhs.true.i.i ], [ %hovered_window_ignoring_moving_window.056.i, %if.end14.i ], [ null, %lor.lhs.false57.i ], [ %hovered_window_ignoring_moving_window.056.i, %land.lhs.true.i43.i ]
   %hovered_window.3.i = phi ptr [ %hovered_window.157.i, %lor.lhs.false.i ], [ %hovered_window.157.i, %if.end9.i ], [ null, %if.end62.i ], [ %hovered_window.157.i, %_ZNK6ImRect15ContainsWithPadERK6ImVec2S2_.exit.i ], [ %hovered_window.157.i, %for.body.i ], [ %hovered_window.157.i, %land.lhs.true9.i.i ], [ %hovered_window.157.i, %land.lhs.true.i.i ], [ %hovered_window.157.i, %if.end14.i ], [ %spec.select35.i, %lor.lhs.false57.i ], [ %hovered_window.157.i, %land.lhs.true.i43.i ]
-  %cmp.i = icmp ugt i64 %indvars.iv.i, 1
+  %cmp.i = icmp samesign ugt i64 %indvars.iv.i, 1
   br i1 %cmp.i, label %for.body.i, label %_ZL17FindHoveredWindowv.exit, !llvm.loop !67
 
 _ZL17FindHoveredWindowv.exit:                     ; preds = %if.end62.i, %for.inc.i, %if.end.i
@@ -21906,7 +21906,7 @@ if.then.i:                                        ; preds = %for.body.i72
   br i1 %tobool2.not.i78, label %for.inc.i79, label %land.lhs.true
 
 for.inc.i79:                                      ; preds = %if.then.i, %for.body.i72
-  %cmp.i80 = icmp ugt i64 %indvars.iv.i73, 1
+  %cmp.i80 = icmp samesign ugt i64 %indvars.iv.i73, 1
   br i1 %cmp.i80, label %for.body.i72, label %if.end, !llvm.loop !65
 
 land.lhs.true:                                    ; preds = %if.then.i
@@ -22173,7 +22173,7 @@ if.then:                                          ; preds = %for.body
 
 for.inc:                                          ; preds = %for.body, %if.then
   %7 = phi i32 [ %3, %for.body ], [ %dec.i, %if.then ]
-  %cmp = icmp ugt i64 %indvars.iv, 1
+  %cmp = icmp samesign ugt i64 %indvars.iv, 1
   br i1 %cmp, label %for.body, label %for.end, !llvm.loop !69
 
 for.end:                                          ; preds = %for.inc, %entry
@@ -23988,7 +23988,7 @@ if.then.i.i.i387:                                 ; preds = %for.body.i.i.i
   br i1 %tobool2.not.i.i.i, label %for.inc.i.i.i, label %if.then.i176.i
 
 for.inc.i.i.i:                                    ; preds = %if.then.i.i.i387, %for.body.i.i.i
-  %cmp.i.i.i388 = icmp ugt i64 %indvars.iv.i.i.i, 1
+  %cmp.i.i.i388 = icmp samesign ugt i64 %indvars.iv.i.i.i, 1
   br i1 %cmp.i.i.i388, label %for.body.i.i.i, label %if.end.i.i320, !llvm.loop !65
 
 if.then.i176.i:                                   ; preds = %if.then.i.i.i387
@@ -24313,7 +24313,7 @@ _ZN5ImGui20IsWindowNavFocusableEP11ImGuiWindow.exit.i.i.i: ; preds = %land.lhs.t
   br i1 %tobool1.not.i.i.i.i, label %if.then66.i.i, label %for.inc.i198.i.i
 
 for.inc.i198.i.i:                                 ; preds = %_ZN5ImGui20IsWindowNavFocusableEP11ImGuiWindow.exit.i.i.i, %land.lhs.true.i.i.i.i, %for.body.i197.i.i
-  %cmp.i199.i.i = icmp ugt i64 %indvars.iv.i.i373, 1
+  %cmp.i199.i.i = icmp samesign ugt i64 %indvars.iv.i.i373, 1
   br i1 %cmp.i199.i.i, label %for.body.i197.i.i, label %if.end84.i.i, !llvm.loop !80
 
 if.then66.i.i:                                    ; preds = %_ZN5ImGui20IsWindowNavFocusableEP11ImGuiWindow.exit.i.i.i, %if.then61.if.then66_crit_edge.i.i
@@ -28620,7 +28620,7 @@ if.then.i434:                                     ; preds = %for.body.i430
   br i1 %tobool2.not.i, label %for.inc.i437, label %if.then255
 
 for.inc.i437:                                     ; preds = %if.then.i434, %for.body.i430
-  %cmp.i438 = icmp ugt i64 %indvars.iv.i431, 1
+  %cmp.i438 = icmp samesign ugt i64 %indvars.iv.i431, 1
   br i1 %cmp.i438, label %for.body.i430, label %lor.lhs.false251, !llvm.loop !65
 
 lor.lhs.false251:                                 ; preds = %for.inc.i437, %_ZN5ImGuiL17UpdateMouseInputsEv.exit
@@ -39404,7 +39404,7 @@ _ZL24IsWindowActiveAndVisibleP11ImGuiWindow.exit.i.i: ; preds = %land.lhs.true.i
   br i1 %tobool1.i.i.i, label %for.inc.i.i, label %_ZN5ImGui30GetTopMostAndVisiblePopupModalEv.exit.i
 
 for.inc.i.i:                                      ; preds = %_ZL24IsWindowActiveAndVisibleP11ImGuiWindow.exit.i.i, %land.lhs.true.i.i, %if.then.i.i, %for.body.i.i
-  %cmp.i.i = icmp ugt i64 %indvars.iv.i.i, 1
+  %cmp.i.i = icmp samesign ugt i64 %indvars.iv.i.i, 1
   br i1 %cmp.i.i, label %for.body.i.i, label %_ZN5ImGui30GetTopMostAndVisiblePopupModalEv.exit.i, !llvm.loop !103
 
 _ZN5ImGui30GetTopMostAndVisiblePopupModalEv.exit.i: ; preds = %for.inc.i.i, %_ZL24IsWindowActiveAndVisibleP11ImGuiWindow.exit.i.i, %_ZN5ImGui16CallContextHooksEP12ImGuiContext20ImGuiContextHookType.exit
@@ -50255,7 +50255,7 @@ land.lhs.true:                                    ; preds = %if.end
   %cmp = icmp ne i32 %owner_id, %3
   %cmp2 = icmp ne i32 %owner_id, 0
   %or.cond = and i1 %cmp2, %cmp
-  %or.cond1 = icmp ult i32 %0, 119
+  %or.cond1 = icmp samesign ult i32 %0, 119
   %or.cond13 = and i1 %or.cond1, %or.cond
   br i1 %or.cond13, label %return, label %if.end9
 
@@ -51364,7 +51364,7 @@ land.lhs.true:                                    ; preds = %_ZN5ImGui15GetKeyOw
   %cmp = icmp ne i32 %3, %5
   %cmp3 = icmp ne i32 %3, 0
   %or.cond = and i1 %cmp3, %cmp
-  %or.cond1 = icmp ult i32 %0, 119
+  %or.cond1 = icmp samesign ult i32 %0, 119
   %or.cond9 = and i1 %or.cond1, %or.cond
   br i1 %or.cond9, label %return, label %if.end10
 
@@ -54490,7 +54490,7 @@ _ZL24IsWindowActiveAndVisibleP11ImGuiWindow.exit: ; preds = %land.lhs.true
   br i1 %tobool1.i, label %for.inc, label %return
 
 for.inc:                                          ; preds = %land.lhs.true, %for.body, %_ZL24IsWindowActiveAndVisibleP11ImGuiWindow.exit, %if.then
-  %cmp = icmp ugt i64 %indvars.iv, 1
+  %cmp = icmp samesign ugt i64 %indvars.iv, 1
   br i1 %cmp, label %for.body, label %return, !llvm.loop !103
 
 return:                                           ; preds = %_ZL24IsWindowActiveAndVisibleP11ImGuiWindow.exit, %for.inc, %entry
@@ -56405,7 +56405,7 @@ if.then.i7:                                       ; preds = %for.body.i
   br i1 %tobool2.not.i, label %for.inc.i, label %if.end7
 
 for.inc.i:                                        ; preds = %if.then.i7, %for.body.i
-  %cmp.i8 = icmp ugt i64 %indvars.iv.i, 1
+  %cmp.i8 = icmp samesign ugt i64 %indvars.iv.i, 1
   br i1 %cmp.i8, label %for.body.i, label %if.then5, !llvm.loop !65
 
 if.then5:                                         ; preds = %for.inc.i, %if.then3
@@ -63944,7 +63944,7 @@ for.body.i:                                       ; preds = %for.body.i, %for.bo
   %242 = load i32, ptr %IDStack.i.i, align 8
   %dec.i.i.i = add nsw i32 %242, -1
   store i32 %dec.i.i.i, ptr %IDStack.i.i, align 8
-  %cmp.i708 = icmp ugt i64 %indvars.iv.i, 1
+  %cmp.i708 = icmp samesign ugt i64 %indvars.iv.i, 1
   br i1 %cmp.i708, label %for.body.i, label %for.end.i, !llvm.loop !142
 
 for.end.i:                                        ; preds = %for.body.i, %if.end.i705
@@ -63985,7 +63985,7 @@ for.body.i715:                                    ; preds = %for.body.i715, %for
   %252 = load i32, ptr %IDStack.i.i721, align 8
   %dec.i.i.i722 = add nsw i32 %252, -1
   store i32 %dec.i.i.i722, ptr %IDStack.i.i721, align 8
-  %cmp.i723 = icmp ugt i64 %indvars.iv.i716, 1
+  %cmp.i723 = icmp samesign ugt i64 %indvars.iv.i716, 1
   br i1 %cmp.i723, label %for.body.i715, label %for.end.i712, !llvm.loop !142
 
 for.end.i712:                                     ; preds = %for.body.i715, %if.end.i710
@@ -69378,7 +69378,7 @@ for.body:                                         ; preds = %for.body.lr.ph, %fo
   %9 = load i32, ptr %IDStack.i, align 8
   %dec.i.i = add nsw i32 %9, -1
   store i32 %dec.i.i, ptr %IDStack.i, align 8
-  %cmp = icmp ugt i64 %indvars.iv, 1
+  %cmp = icmp samesign ugt i64 %indvars.iv, 1
   br i1 %cmp, label %for.body, label %for.end, !llvm.loop !142
 
 for.end:                                          ; preds = %for.body, %if.end
@@ -71684,7 +71684,7 @@ for.body.i:                                       ; preds = %for.body.i.lr.ph, %
   %82 = load i32, ptr %IDStack.i.i, align 8
   %dec.i.i.i = add nsw i32 %82, -1
   store i32 %dec.i.i.i, ptr %IDStack.i.i, align 8
-  %cmp.i111 = icmp ugt i64 %indvars.iv135, 1
+  %cmp.i111 = icmp samesign ugt i64 %indvars.iv135, 1
   br i1 %cmp.i111, label %for.body.i, label %for.end.i, !llvm.loop !142
 
 for.end.i:                                        ; preds = %for.body.i, %if.end.i110

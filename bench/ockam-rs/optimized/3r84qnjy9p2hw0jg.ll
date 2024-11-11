@@ -7154,7 +7154,7 @@ define hidden void @_ZN4core5slice4sort10merge_sort17h533ed1c23dcb384bE(ptr noal
   br label %41
 
 23:                                               ; preds = %3
-  %24 = icmp ugt i64 %1, 1
+  %24 = icmp samesign ugt i64 %1, 1
   br i1 %24, label %247, label %40
 
 25:                                               ; preds = %80, %26
@@ -7764,7 +7764,7 @@ define hidden void @_ZN4core5slice4sort10merge_sort17h59a03ef1f0ef31a4E(ptr noal
   br label %41
 
 23:                                               ; preds = %3
-  %24 = icmp ugt i64 %1, 1
+  %24 = icmp samesign ugt i64 %1, 1
   br i1 %24, label %247, label %40
 
 25:                                               ; preds = %80, %26
@@ -25712,7 +25712,7 @@ common.ret:                                       ; preds = %"_ZN4core3ptr94drop
   br label %.critedge27.i.i
 
 527:                                              ; preds = %524
-  %528 = icmp ult i64 %519, 32
+  %528 = icmp samesign ult i64 %519, 32
   br i1 %528, label %529, label %533
 
 529:                                              ; preds = %527

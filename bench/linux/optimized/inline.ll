@@ -3900,7 +3900,7 @@ define dso_local i32 @ext4_inline_data_truncate(ptr noundef %0, ptr nocapture no
 
 94:                                               ; preds = %90, %68
   %95 = phi ptr [ %83, %90 ], [ null, %68 ]
-  %96 = icmp ult i64 %51, 60
+  %96 = icmp samesign ult i64 %51, 60
   br i1 %96, label %97, label %107
 
 97:                                               ; preds = %94

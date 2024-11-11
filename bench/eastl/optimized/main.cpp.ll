@@ -136,7 +136,7 @@ if.then22:                                        ; preds = %if.else15.tail
   br i1 %cmp27, label %if.end32.sink.split, label %if.else29
 
 if.else29:                                        ; preds = %if.then22
-  %cmp30 = icmp ugt i32 %call26, 10
+  %cmp30 = icmp samesign ugt i32 %call26, 10
   br i1 %cmp30, label %if.end32.sink.split, label %if.end32
 
 if.end32.sink.split:                              ; preds = %if.else29, %if.then22

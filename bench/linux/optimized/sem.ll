@@ -2032,7 +2032,7 @@ define internal fastcc range(i32 -34, 2) i32 @perform_atomic_semop(ptr nocapture
   br i1 %44, label %101, label %45
 
 45:                                               ; preds = %42
-  %46 = icmp ugt i32 %43, 32767
+  %46 = icmp samesign ugt i32 %43, 32767
   br i1 %46, label %.critedge, label %47
 
 47:                                               ; preds = %45
@@ -4781,7 +4781,7 @@ define internal fastcc range(i32 -34, 2) i32 @perform_atomic_semop_slow(ptr noca
   br i1 %36, label %94, label %37
 
 37:                                               ; preds = %34
-  %38 = icmp ugt i32 %35, 32767
+  %38 = icmp samesign ugt i32 %35, 32767
   br i1 %38, label %.thread12, label %39
 
 39:                                               ; preds = %37

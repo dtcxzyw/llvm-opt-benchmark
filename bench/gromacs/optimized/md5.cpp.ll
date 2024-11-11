@@ -54,7 +54,7 @@ define void @_Z14gmx_md5_appendP11md5_state_sPKhi(ptr noundef %0, ptr noundef %1
 
 19:                                               ; preds = %18
   %20 = add nuw nsw i32 %6, %2
-  %21 = icmp ugt i32 %20, 64
+  %21 = icmp samesign ugt i32 %20, 64
   %22 = sub nuw nsw i32 64, %6
   %23 = select i1 %21, i32 %22, i32 %2
   %24 = getelementptr inbounds i8, ptr %0, i64 24
@@ -84,7 +84,7 @@ define void @_Z14gmx_md5_appendP11md5_state_sPKhi(ptr noundef %0, ptr noundef %1
   tail call fastcc void @_ZL11md5_processP11md5_state_sPKh(ptr noundef nonnull %0, ptr noundef %.143)
   %35 = getelementptr inbounds i8, ptr %.143, i64 64
   %36 = add nsw i32 %.13842, -64
-  %37 = icmp ugt i32 %.13842, 127
+  %37 = icmp samesign ugt i32 %.13842, 127
   br i1 %37, label %.lr.ph, label %._crit_edge, !llvm.loop !5
 
 ._crit_edge:                                      ; preds = %.lr.ph, %33

@@ -623,7 +623,7 @@ define internal i32 @dissect_pnrp(ptr noundef %0, ptr noundef %1, ptr noundef %2
   %93 = call ptr @proto_tree_add_item(ptr noundef %84, i32 noundef %92, ptr noundef %.0533, i32 noundef %.07.i, i32 noundef 32, i32 noundef 0) #3
   %94 = add nsw i32 %.056.i, -32
   %95 = add nsw i32 %.07.i, 32
-  %96 = icmp ugt i32 %.056.i, 63
+  %96 = icmp samesign ugt i32 %.056.i, 63
   br i1 %96, label %.lr.ph.i, label %dissect_pnrp_ids.exit, !llvm.loop !4
 
 dissect_pnrp_ids.exit:                            ; preds = %.lr.ph.i, %82, %81
@@ -813,7 +813,7 @@ dissect_pnrp_ids.exit:                            ; preds = %.lr.ph.i, %82, %81
   %225 = call ptr @proto_tree_add_item(ptr noundef %216, i32 noundef %224, ptr noundef %.0533, i32 noundef %.07.i575, i32 noundef 32, i32 noundef 0) #3
   %226 = add nsw i32 %.056.i576, -32
   %227 = add nsw i32 %.07.i575, 32
-  %228 = icmp ugt i32 %.056.i576, 63
+  %228 = icmp samesign ugt i32 %.056.i576, 63
   br i1 %228, label %.lr.ph.i574, label %dissect_pnrp_ids.exit577, !llvm.loop !4
 
 dissect_pnrp_ids.exit577:                         ; preds = %.lr.ph.i574, %214, %213
@@ -875,7 +875,7 @@ dissect_pnrp_ids.exit577:                         ; preds = %.lr.ph.i574, %214, 
   %264 = call ptr @proto_tree_add_item(ptr noundef %243, i32 noundef %263, ptr noundef %.0533, i32 noundef %.07.i579, i32 noundef 32, i32 noundef 0) #3
   %265 = add nsw i32 %.056.i580, -32
   %266 = add nsw i32 %.07.i579, 32
-  %267 = icmp ugt i32 %.056.i580, 63
+  %267 = icmp samesign ugt i32 %.056.i580, 63
   br i1 %267, label %.lr.ph.i578, label %dissect_pnrp_ids.exit581, !llvm.loop !4
 
 dissect_pnrp_ids.exit581:                         ; preds = %.lr.ph.i578, %241, %240
@@ -1158,7 +1158,7 @@ dissect_pnrp_ids.exit581:                         ; preds = %.lr.ph.i578, %241, 
   %436 = add i32 %432, 16
   %437 = call i32 @tvb_reported_length_remaining(ptr noundef %.0533, i32 noundef %436) #3
   %438 = icmp sgt i32 %437, -1
-  %439 = icmp ugt i32 %.078.i.i, 31
+  %439 = icmp samesign ugt i32 %.078.i.i, 31
   %440 = select i1 %438, i1 %439, i1 false
   br i1 %440, label %.lr.ph.i.i, label %dissect_route_entry.exit, !llvm.loop !8
 

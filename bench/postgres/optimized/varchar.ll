@@ -468,7 +468,7 @@ define internal fastcc range(i32 5, 10485765) i32 @anychar_typmodin(ptr noundef 
   unreachable
 
 17:                                               ; preds = %10
-  %18 = icmp ugt i32 %11, 10485760
+  %18 = icmp samesign ugt i32 %11, 10485760
   br i1 %18, label %19, label %23
 
 19:                                               ; preds = %17

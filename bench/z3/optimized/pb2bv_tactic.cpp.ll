@@ -15903,7 +15903,7 @@ for.body:                                         ; preds = %for.body.preheader,
   %8 = load i64, ptr %m_lit3.i, align 8
   store i64 %8, ptr %m_lit.i, align 8
   %dec = add nsw i64 %__n.07, -1
-  %cmp = icmp ugt i64 %__n.07, 1
+  %cmp = icmp samesign ugt i64 %__n.07, 1
   br i1 %cmp, label %for.body, label %for.end, !llvm.loop !84
 
 for.end:                                          ; preds = %for.body, %entry
@@ -16800,7 +16800,7 @@ for.body:                                         ; preds = %for.body.preheader,
   %incdec.ptr = getelementptr inbounds i8, ptr %__first.addr.07, i64 40
   %incdec.ptr1 = getelementptr inbounds i8, ptr %__result.addr.08, i64 40
   %dec = add nsw i64 %__n.09, -1
-  %cmp = icmp ugt i64 %__n.09, 1
+  %cmp = icmp samesign ugt i64 %__n.09, 1
   br i1 %cmp, label %for.body, label %for.end, !llvm.loop !93
 
 for.end:                                          ; preds = %for.body, %entry

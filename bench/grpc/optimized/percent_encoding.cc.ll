@@ -387,7 +387,7 @@ lpad:                                             ; preds = %do.body.i50.invoke,
 
 if.else:                                          ; preds = %switch.early.test81, %switch.early.test81, %switch.early.test81, %switch.early.test81, %switch.early.test81, %switch.early.test81, %switch.early.test81, %switch.early.test81, %switch.early.test81, %switch.early.test81, %switch.early.test81, %switch.early.test81, %if.end.i34
   %14 = add nsw i8 %.fr82, -48
-  %or.cond.i41 = icmp ult i8 %14, 10
+  %or.cond.i41 = icmp samesign ult i8 %14, 10
   br i1 %or.cond.i41, label %invoke.cont22, label %if.end.i42
 
 if.end.i42:                                       ; preds = %if.else
@@ -411,7 +411,7 @@ if.then20.i:                                      ; preds = %if.end14.i
 invoke.cont22:                                    ; preds = %if.then20.i, %if.then10.i44, %if.else
   %retval.0.i43 = phi i8 [ %add.i, %if.then10.i44 ], [ %add23.i, %if.then20.i ], [ %14, %if.else ]
   %17 = add nsw i8 %.fr83, -48
-  %or.cond.i45 = icmp ult i8 %17, 10
+  %or.cond.i45 = icmp samesign ult i8 %17, 10
   br i1 %or.cond.i45, label %invoke.cont28, label %if.end.i46
 
 if.end.i46:                                       ; preds = %invoke.cont22

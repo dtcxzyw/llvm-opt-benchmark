@@ -3606,7 +3606,7 @@ for.inc:                                          ; preds = %do.body2806, %do.bo
   br i1 %cmp92.not, label %for.end, label %for.body, !llvm.loop !4
 
 for.end:                                          ; preds = %for.inc
-  %cmp3657 = icmp ult i8 %state.5, 62
+  %cmp3657 = icmp samesign ult i8 %state.5, 62
   br i1 %cmp3657, label %if.then3658, label %do.body3677
 
 if.then3658:                                      ; preds = %for.end

@@ -1266,7 +1266,7 @@ for.inc51.i.i:                                    ; preds = %if.then42.for.inc51
   %i.1.i.i = phi i64 [ %add.i.i, %if.then38.i.i ], [ %i.045.i.i, %if.then42.for.inc51_crit_edge.i.i ], [ %i.045.i.i, %if.else.i.i ]
   %inc.i.i20 = add nuw nsw i64 %i.1.i.i, 1
   %conv24.i.i = zext i16 %28 to i64
-  %cmp25.i.i = icmp ult i64 %inc.i.i20, %conv24.i.i
+  %cmp25.i.i = icmp samesign ult i64 %inc.i.i20, %conv24.i.i
   br i1 %cmp25.i.i, label %for.body27.i.i, label %mi_heap_area_visit_blocks.exit.i, !llvm.loop !11
 
 mi_heap_area_visit_blocks.exit.i:                 ; preds = %for.inc51.i.i, %for.cond22.preheader.i.i, %if.end5.i.i, %if.end.i.i

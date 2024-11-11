@@ -4160,7 +4160,7 @@ if.else.i:                                        ; preds = %if.then8
   br label %if.end
 
 if.end:                                           ; preds = %if.else.i, %if.then15.i, %if.then
-  %cmp9 = icmp ugt i32 %hi, 10
+  %cmp9 = icmp samesign ugt i32 %hi, 10
   br i1 %cmp9, label %if.then10, label %if.end17
 
 if.then10:                                        ; preds = %if.end
@@ -4304,7 +4304,7 @@ invoke.cont36:                                    ; preds = %for.body33
   %indvars.iv.next73 = add nsw i64 %indvars.iv72, -1
   %arrayidx.i.i = getelementptr inbounds ptr, ptr %call5.i3.i, i64 %indvars.iv.next73
   store ptr %call35, ptr %arrayidx.i.i, align 8
-  %cmp32 = icmp ugt i64 %indvars.iv, 1
+  %cmp32 = icmp samesign ugt i64 %indvars.iv, 1
   br i1 %cmp32, label %for.body33, label %for.end40.loopexit, !llvm.loop !45
 
 _ZN3re28PODArrayIPNS_6RegexpEED2Ev.exit.loopexit: ; preds = %for.body33
@@ -5268,7 +5268,7 @@ for.body36:                                       ; preds = %for.body36.lr.ph, %
   %arrayidx39 = getelementptr inbounds %"struct.re2::URange16", ptr %31, i64 %indvars.iv74
   %32 = load i16, ptr %arrayidx39, align 2
   %conv41 = zext i16 %32 to i32
-  %cmp42 = icmp ult i32 %next.060, %conv41
+  %cmp42 = icmp samesign ult i32 %next.060, %conv41
   br i1 %cmp42, label %if.then43, label %if.end49
 
 if.then43:                                        ; preds = %for.body36
@@ -6031,7 +6031,7 @@ if.then67:                                        ; preds = %_ZNK4absl7debian211
 if.end.i114:                                      ; preds = %if.then67
   %24 = getelementptr i8, ptr %14, i64 %13
   %add.ptr9.ptr.i = getelementptr i8, ptr %24, i64 -2
-  %cmp10.not35.i = icmp ult i64 %13, 4
+  %cmp10.not35.i = icmp samesign ult i64 %13, 4
   br i1 %cmp10.not35.i, label %if.end73, label %land.rhs.preheader.i
 
 land.rhs.preheader.i:                             ; preds = %if.end.i114
@@ -8846,7 +8846,7 @@ for.body.i6:                                      ; preds = %.noexc, %for.body.l
   br i1 %or.cond1.i14, label %if.then.i16, label %if.end12.i15.invoke
 
 if.then.i16:                                      ; preds = %for.body.i6
-  %cmp7.i17 = icmp ult i16 %7, 10
+  %cmp7.i17 = icmp samesign ult i16 %7, 10
   br i1 %cmp7.i17, label %if.then8.i21, label %if.end.i18
 
 if.then8.i21:                                     ; preds = %if.then.i16
@@ -8890,7 +8890,7 @@ if.then8.i:                                       ; preds = %if.then.i
           to label %if.end.i unwind label %lpad.loopexit
 
 if.end.i:                                         ; preds = %if.then8.i, %if.then.i
-  %cmp9.i = icmp ugt i32 %15, 10
+  %cmp9.i = icmp samesign ugt i32 %15, 10
   br i1 %cmp9.i, label %if.then10.i.invoke, label %.noexc8
 
 if.then10.i.invoke:                               ; preds = %for.body9.i, %if.end.i

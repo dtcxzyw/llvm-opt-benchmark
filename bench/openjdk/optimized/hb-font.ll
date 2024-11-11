@@ -8817,7 +8817,7 @@ define linkonce_odr hidden noundef i32 @_ZNK2OT11SegmentMaps3mapEijj(ptr noundef
 
 63:                                               ; preds = %38
   %64 = add nsw i32 %11, -1
-  %65 = icmp ugt i32 %64, 1
+  %65 = icmp samesign ugt i32 %64, 1
   br i1 %65, label %.lr.ph.preheader, label %.critedge
 
 .lr.ph.preheader:                                 ; preds = %63

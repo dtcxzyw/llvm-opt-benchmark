@@ -932,7 +932,7 @@ _ZN5draco13DecoderBuffer6DecodeImEEbPT_.exit.thread: ; preds = %7
   br label %81
 
 58:                                               ; preds = %43
-  %59 = icmp ult i32 %29, 3
+  %59 = icmp samesign ult i32 %29, 3
   br i1 %59, label %_ZN5draco13DecoderBuffer6DecodeImEEbPT_.exit, label %60
 
 60:                                               ; preds = %58
@@ -968,7 +968,7 @@ _ZN5draco13DecoderBuffer6DecodeImEEbPT_.exit.thread: ; preds = %7
   %83 = getelementptr inbounds i8, ptr %0, i64 92
   %84 = add nuw nsw i32 %82, 16384
   store i32 %84, ptr %83, align 4
-  %85 = icmp ult i32 %82, 4177920
+  %85 = icmp samesign ult i32 %82, 4177920
   br label %_ZN5draco13DecoderBuffer6DecodeImEEbPT_.exit
 
 _ZN5draco13DecoderBuffer6DecodeImEEbPT_.exit:     ; preds = %81, %58, %45, %24, %7, %18, %16
@@ -4232,7 +4232,7 @@ _ZN5draco13DecoderBuffer6DecodeImEEbPT_.exit.thread: ; preds = %7
   br label %81
 
 58:                                               ; preds = %43
-  %59 = icmp ult i32 %29, 3
+  %59 = icmp samesign ult i32 %29, 3
   br i1 %59, label %_ZN5draco13DecoderBuffer6DecodeImEEbPT_.exit, label %60
 
 60:                                               ; preds = %58
@@ -4268,7 +4268,7 @@ _ZN5draco13DecoderBuffer6DecodeImEEbPT_.exit.thread: ; preds = %7
   %83 = getelementptr inbounds i8, ptr %0, i64 92
   %84 = add nuw nsw i32 %82, 16384
   store i32 %84, ptr %83, align 4
-  %85 = icmp ult i32 %82, 4177920
+  %85 = icmp samesign ult i32 %82, 4177920
   br label %_ZN5draco13DecoderBuffer6DecodeImEEbPT_.exit
 
 _ZN5draco13DecoderBuffer6DecodeImEEbPT_.exit:     ; preds = %81, %58, %45, %24, %7, %18, %16
@@ -4592,7 +4592,7 @@ _ZN5draco13DecoderBuffer6DecodeImEEbPT_.exit.thread: ; preds = %7
   br label %81
 
 58:                                               ; preds = %43
-  %59 = icmp ult i32 %29, 3
+  %59 = icmp samesign ult i32 %29, 3
   br i1 %59, label %_ZN5draco13DecoderBuffer6DecodeImEEbPT_.exit, label %60
 
 60:                                               ; preds = %58
@@ -4628,7 +4628,7 @@ _ZN5draco13DecoderBuffer6DecodeImEEbPT_.exit.thread: ; preds = %7
   %83 = getelementptr inbounds i8, ptr %0, i64 92
   %84 = add nuw nsw i32 %82, 16384
   store i32 %84, ptr %83, align 4
-  %85 = icmp ult i32 %82, 4177920
+  %85 = icmp samesign ult i32 %82, 4177920
   br label %_ZN5draco13DecoderBuffer6DecodeImEEbPT_.exit
 
 _ZN5draco13DecoderBuffer6DecodeImEEbPT_.exit:     ; preds = %81, %58, %45, %24, %7, %18, %16
@@ -4952,7 +4952,7 @@ _ZN5draco13DecoderBuffer6DecodeImEEbPT_.exit.thread: ; preds = %7
   br label %81
 
 58:                                               ; preds = %43
-  %59 = icmp ult i32 %29, 3
+  %59 = icmp samesign ult i32 %29, 3
   br i1 %59, label %_ZN5draco13DecoderBuffer6DecodeImEEbPT_.exit, label %60
 
 60:                                               ; preds = %58
@@ -4988,7 +4988,7 @@ _ZN5draco13DecoderBuffer6DecodeImEEbPT_.exit.thread: ; preds = %7
   %83 = getelementptr inbounds i8, ptr %0, i64 92
   %84 = add nuw nsw i32 %82, 16384
   store i32 %84, ptr %83, align 4
-  %85 = icmp ult i32 %82, 4177920
+  %85 = icmp samesign ult i32 %82, 4177920
   br label %_ZN5draco13DecoderBuffer6DecodeImEEbPT_.exit
 
 _ZN5draco13DecoderBuffer6DecodeImEEbPT_.exit:     ; preds = %81, %58, %45, %24, %7, %18, %16
@@ -5312,7 +5312,7 @@ _ZN5draco13DecoderBuffer6DecodeImEEbPT_.exit.thread: ; preds = %7
   br label %81
 
 58:                                               ; preds = %43
-  %59 = icmp ult i32 %29, 3
+  %59 = icmp samesign ult i32 %29, 3
   br i1 %59, label %_ZN5draco13DecoderBuffer6DecodeImEEbPT_.exit, label %60
 
 60:                                               ; preds = %58
@@ -5348,7 +5348,7 @@ _ZN5draco13DecoderBuffer6DecodeImEEbPT_.exit.thread: ; preds = %7
   %83 = getelementptr inbounds i8, ptr %0, i64 92
   %84 = add nuw nsw i32 %82, 16384
   store i32 %84, ptr %83, align 4
-  %85 = icmp ult i32 %82, 4177920
+  %85 = icmp samesign ult i32 %82, 4177920
   br label %_ZN5draco13DecoderBuffer6DecodeImEEbPT_.exit
 
 _ZN5draco13DecoderBuffer6DecodeImEEbPT_.exit:     ; preds = %81, %58, %45, %24, %7, %18, %16
@@ -5672,7 +5672,7 @@ _ZN5draco13DecoderBuffer6DecodeImEEbPT_.exit.thread: ; preds = %7
   br label %81
 
 58:                                               ; preds = %43
-  %59 = icmp ult i32 %29, 3
+  %59 = icmp samesign ult i32 %29, 3
   br i1 %59, label %_ZN5draco13DecoderBuffer6DecodeImEEbPT_.exit, label %60
 
 60:                                               ; preds = %58
@@ -5708,7 +5708,7 @@ _ZN5draco13DecoderBuffer6DecodeImEEbPT_.exit.thread: ; preds = %7
   %83 = getelementptr inbounds i8, ptr %0, i64 92
   %84 = add nuw nsw i32 %82, 16384
   store i32 %84, ptr %83, align 4
-  %85 = icmp ult i32 %82, 4177920
+  %85 = icmp samesign ult i32 %82, 4177920
   br label %_ZN5draco13DecoderBuffer6DecodeImEEbPT_.exit
 
 _ZN5draco13DecoderBuffer6DecodeImEEbPT_.exit:     ; preds = %81, %58, %45, %24, %7, %18, %16
@@ -6032,7 +6032,7 @@ _ZN5draco13DecoderBuffer6DecodeImEEbPT_.exit.thread: ; preds = %7
   br label %81
 
 58:                                               ; preds = %43
-  %59 = icmp ult i32 %29, 3
+  %59 = icmp samesign ult i32 %29, 3
   br i1 %59, label %_ZN5draco13DecoderBuffer6DecodeImEEbPT_.exit, label %60
 
 60:                                               ; preds = %58
@@ -6068,7 +6068,7 @@ _ZN5draco13DecoderBuffer6DecodeImEEbPT_.exit.thread: ; preds = %7
   %83 = getelementptr inbounds i8, ptr %0, i64 92
   %84 = add nuw nsw i32 %82, 16384
   store i32 %84, ptr %83, align 4
-  %85 = icmp ult i32 %82, 4177920
+  %85 = icmp samesign ult i32 %82, 4177920
   br label %_ZN5draco13DecoderBuffer6DecodeImEEbPT_.exit
 
 _ZN5draco13DecoderBuffer6DecodeImEEbPT_.exit:     ; preds = %81, %58, %45, %24, %7, %18, %16
@@ -6392,7 +6392,7 @@ _ZN5draco13DecoderBuffer6DecodeImEEbPT_.exit.thread: ; preds = %7
   br label %81
 
 58:                                               ; preds = %43
-  %59 = icmp ult i32 %29, 3
+  %59 = icmp samesign ult i32 %29, 3
   br i1 %59, label %_ZN5draco13DecoderBuffer6DecodeImEEbPT_.exit, label %60
 
 60:                                               ; preds = %58
@@ -6428,7 +6428,7 @@ _ZN5draco13DecoderBuffer6DecodeImEEbPT_.exit.thread: ; preds = %7
   %83 = getelementptr inbounds i8, ptr %0, i64 92
   %84 = add nuw nsw i32 %82, 16384
   store i32 %84, ptr %83, align 4
-  %85 = icmp ult i32 %82, 4177920
+  %85 = icmp samesign ult i32 %82, 4177920
   br label %_ZN5draco13DecoderBuffer6DecodeImEEbPT_.exit
 
 _ZN5draco13DecoderBuffer6DecodeImEEbPT_.exit:     ; preds = %81, %58, %45, %24, %7, %18, %16
@@ -6752,7 +6752,7 @@ _ZN5draco13DecoderBuffer6DecodeImEEbPT_.exit.thread: ; preds = %7
   br label %81
 
 58:                                               ; preds = %43
-  %59 = icmp ult i32 %29, 3
+  %59 = icmp samesign ult i32 %29, 3
   br i1 %59, label %_ZN5draco13DecoderBuffer6DecodeImEEbPT_.exit, label %60
 
 60:                                               ; preds = %58
@@ -6788,7 +6788,7 @@ _ZN5draco13DecoderBuffer6DecodeImEEbPT_.exit.thread: ; preds = %7
   %83 = getelementptr inbounds i8, ptr %0, i64 92
   %84 = add nuw nsw i32 %82, 32768
   store i32 %84, ptr %83, align 4
-  %85 = icmp ult i32 %82, 8355840
+  %85 = icmp samesign ult i32 %82, 8355840
   br label %_ZN5draco13DecoderBuffer6DecodeImEEbPT_.exit
 
 _ZN5draco13DecoderBuffer6DecodeImEEbPT_.exit:     ; preds = %81, %58, %45, %24, %7, %18, %16
@@ -7226,7 +7226,7 @@ _ZN5draco13DecoderBuffer6DecodeImEEbPT_.exit.thread: ; preds = %7
   br label %81
 
 58:                                               ; preds = %43
-  %59 = icmp ult i32 %29, 3
+  %59 = icmp samesign ult i32 %29, 3
   br i1 %59, label %_ZN5draco13DecoderBuffer6DecodeImEEbPT_.exit, label %60
 
 60:                                               ; preds = %58
@@ -7262,7 +7262,7 @@ _ZN5draco13DecoderBuffer6DecodeImEEbPT_.exit.thread: ; preds = %7
   %83 = getelementptr inbounds i8, ptr %0, i64 92
   %84 = add nuw nsw i32 %82, 131072
   store i32 %84, ptr %83, align 4
-  %85 = icmp ult i32 %82, 33423360
+  %85 = icmp samesign ult i32 %82, 33423360
   br label %_ZN5draco13DecoderBuffer6DecodeImEEbPT_.exit
 
 _ZN5draco13DecoderBuffer6DecodeImEEbPT_.exit:     ; preds = %81, %58, %45, %24, %7, %18, %16
@@ -7700,7 +7700,7 @@ _ZN5draco13DecoderBuffer6DecodeImEEbPT_.exit.thread: ; preds = %7
   br label %81
 
 58:                                               ; preds = %43
-  %59 = icmp ult i32 %29, 3
+  %59 = icmp samesign ult i32 %29, 3
   br i1 %59, label %_ZN5draco13DecoderBuffer6DecodeImEEbPT_.exit, label %60
 
 60:                                               ; preds = %58
@@ -7736,7 +7736,7 @@ _ZN5draco13DecoderBuffer6DecodeImEEbPT_.exit.thread: ; preds = %7
   %83 = getelementptr inbounds i8, ptr %0, i64 92
   %84 = add nuw nsw i32 %82, 262144
   store i32 %84, ptr %83, align 4
-  %85 = icmp ult i32 %82, 66846720
+  %85 = icmp samesign ult i32 %82, 66846720
   br label %_ZN5draco13DecoderBuffer6DecodeImEEbPT_.exit
 
 _ZN5draco13DecoderBuffer6DecodeImEEbPT_.exit:     ; preds = %81, %58, %45, %24, %7, %18, %16
@@ -8174,7 +8174,7 @@ _ZN5draco13DecoderBuffer6DecodeImEEbPT_.exit.thread: ; preds = %7
   br label %81
 
 58:                                               ; preds = %43
-  %59 = icmp ult i32 %29, 3
+  %59 = icmp samesign ult i32 %29, 3
   br i1 %59, label %_ZN5draco13DecoderBuffer6DecodeImEEbPT_.exit, label %60
 
 60:                                               ; preds = %58
@@ -8210,7 +8210,7 @@ _ZN5draco13DecoderBuffer6DecodeImEEbPT_.exit.thread: ; preds = %7
   %83 = getelementptr inbounds i8, ptr %0, i64 92
   %84 = add nuw nsw i32 %82, 1048576
   store i32 %84, ptr %83, align 4
-  %85 = icmp ult i32 %82, 267386880
+  %85 = icmp samesign ult i32 %82, 267386880
   br label %_ZN5draco13DecoderBuffer6DecodeImEEbPT_.exit
 
 _ZN5draco13DecoderBuffer6DecodeImEEbPT_.exit:     ; preds = %81, %58, %45, %24, %7, %18, %16
@@ -8648,7 +8648,7 @@ _ZN5draco13DecoderBuffer6DecodeImEEbPT_.exit.thread: ; preds = %7
   br label %81
 
 58:                                               ; preds = %43
-  %59 = icmp ult i32 %29, 3
+  %59 = icmp samesign ult i32 %29, 3
   br i1 %59, label %_ZN5draco13DecoderBuffer6DecodeImEEbPT_.exit, label %60
 
 60:                                               ; preds = %58
@@ -8684,7 +8684,7 @@ _ZN5draco13DecoderBuffer6DecodeImEEbPT_.exit.thread: ; preds = %7
   %83 = getelementptr inbounds i8, ptr %0, i64 92
   %84 = add nuw nsw i32 %82, 2097152
   store i32 %84, ptr %83, align 4
-  %85 = icmp ult i32 %82, 534773760
+  %85 = icmp samesign ult i32 %82, 534773760
   br label %_ZN5draco13DecoderBuffer6DecodeImEEbPT_.exit
 
 _ZN5draco13DecoderBuffer6DecodeImEEbPT_.exit:     ; preds = %81, %58, %45, %24, %7, %18, %16
@@ -9122,7 +9122,7 @@ _ZN5draco13DecoderBuffer6DecodeImEEbPT_.exit.thread: ; preds = %7
   br label %81
 
 58:                                               ; preds = %43
-  %59 = icmp ult i32 %29, 3
+  %59 = icmp samesign ult i32 %29, 3
   br i1 %59, label %_ZN5draco13DecoderBuffer6DecodeImEEbPT_.exit, label %60
 
 60:                                               ; preds = %58
@@ -9158,7 +9158,7 @@ _ZN5draco13DecoderBuffer6DecodeImEEbPT_.exit.thread: ; preds = %7
   %83 = getelementptr inbounds i8, ptr %0, i64 92
   %84 = add nuw nsw i32 %82, 4194304
   store i32 %84, ptr %83, align 4
-  %85 = icmp ult i32 %82, 1069547520
+  %85 = icmp samesign ult i32 %82, 1069547520
   br label %_ZN5draco13DecoderBuffer6DecodeImEEbPT_.exit
 
 _ZN5draco13DecoderBuffer6DecodeImEEbPT_.exit:     ; preds = %81, %58, %45, %24, %7, %18, %16
@@ -9596,7 +9596,7 @@ _ZN5draco13DecoderBuffer6DecodeImEEbPT_.exit.thread: ; preds = %7
   br label %81
 
 58:                                               ; preds = %43
-  %59 = icmp ult i32 %29, 3
+  %59 = icmp samesign ult i32 %29, 3
   br i1 %59, label %_ZN5draco13DecoderBuffer6DecodeImEEbPT_.exit, label %60
 
 60:                                               ; preds = %58
@@ -9632,7 +9632,7 @@ _ZN5draco13DecoderBuffer6DecodeImEEbPT_.exit.thread: ; preds = %7
   %83 = getelementptr inbounds i8, ptr %0, i64 92
   %84 = add nuw nsw i32 %82, 4194304
   store i32 %84, ptr %83, align 4
-  %85 = icmp ult i32 %82, 1069547520
+  %85 = icmp samesign ult i32 %82, 1069547520
   br label %_ZN5draco13DecoderBuffer6DecodeImEEbPT_.exit
 
 _ZN5draco13DecoderBuffer6DecodeImEEbPT_.exit:     ; preds = %81, %58, %45, %24, %7, %18, %16
@@ -9956,7 +9956,7 @@ _ZN5draco13DecoderBuffer6DecodeImEEbPT_.exit.thread: ; preds = %7
   br label %81
 
 58:                                               ; preds = %43
-  %59 = icmp ult i32 %29, 3
+  %59 = icmp samesign ult i32 %29, 3
   br i1 %59, label %_ZN5draco13DecoderBuffer6DecodeImEEbPT_.exit, label %60
 
 60:                                               ; preds = %58
@@ -9992,7 +9992,7 @@ _ZN5draco13DecoderBuffer6DecodeImEEbPT_.exit.thread: ; preds = %7
   %83 = getelementptr inbounds i8, ptr %0, i64 92
   %84 = add nuw nsw i32 %82, 4194304
   store i32 %84, ptr %83, align 4
-  %85 = icmp ult i32 %82, 1069547520
+  %85 = icmp samesign ult i32 %82, 1069547520
   br label %_ZN5draco13DecoderBuffer6DecodeImEEbPT_.exit
 
 _ZN5draco13DecoderBuffer6DecodeImEEbPT_.exit:     ; preds = %81, %58, %45, %24, %7, %18, %16
@@ -10316,7 +10316,7 @@ _ZN5draco13DecoderBuffer6DecodeImEEbPT_.exit.thread: ; preds = %7
   br label %81
 
 58:                                               ; preds = %43
-  %59 = icmp ult i32 %29, 3
+  %59 = icmp samesign ult i32 %29, 3
   br i1 %59, label %_ZN5draco13DecoderBuffer6DecodeImEEbPT_.exit, label %60
 
 60:                                               ; preds = %58
@@ -10352,7 +10352,7 @@ _ZN5draco13DecoderBuffer6DecodeImEEbPT_.exit.thread: ; preds = %7
   %83 = getelementptr inbounds i8, ptr %0, i64 92
   %84 = add nuw nsw i32 %82, 4194304
   store i32 %84, ptr %83, align 4
-  %85 = icmp ult i32 %82, 1069547520
+  %85 = icmp samesign ult i32 %82, 1069547520
   br label %_ZN5draco13DecoderBuffer6DecodeImEEbPT_.exit
 
 _ZN5draco13DecoderBuffer6DecodeImEEbPT_.exit:     ; preds = %81, %58, %45, %24, %7, %18, %16
@@ -10676,7 +10676,7 @@ _ZN5draco13DecoderBuffer6DecodeImEEbPT_.exit.thread: ; preds = %7
   br label %81
 
 58:                                               ; preds = %43
-  %59 = icmp ult i32 %29, 3
+  %59 = icmp samesign ult i32 %29, 3
   br i1 %59, label %_ZN5draco13DecoderBuffer6DecodeImEEbPT_.exit, label %60
 
 60:                                               ; preds = %58
@@ -10712,7 +10712,7 @@ _ZN5draco13DecoderBuffer6DecodeImEEbPT_.exit.thread: ; preds = %7
   %83 = getelementptr inbounds i8, ptr %0, i64 92
   %84 = add nuw nsw i32 %82, 4194304
   store i32 %84, ptr %83, align 4
-  %85 = icmp ult i32 %82, 1069547520
+  %85 = icmp samesign ult i32 %82, 1069547520
   br label %_ZN5draco13DecoderBuffer6DecodeImEEbPT_.exit
 
 _ZN5draco13DecoderBuffer6DecodeImEEbPT_.exit:     ; preds = %81, %58, %45, %24, %7, %18, %16

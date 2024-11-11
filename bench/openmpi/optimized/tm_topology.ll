@@ -534,7 +534,7 @@ define hidden noalias noundef ptr @tm_load_topology(ptr noundef %0, i32 noundef 
   %67 = load double, ptr %66, align 8
   %68 = fadd double %store_forwarded, %67
   store double %68, ptr %66, align 8
-  %69 = icmp ugt i64 %indvars.iv57.i, 1
+  %69 = icmp samesign ugt i64 %indvars.iv57.i, 1
   br i1 %69, label %.lr.ph53.i, label %._crit_edge54.i, !llvm.loop !13
 
 ._crit_edge54.i:                                  ; preds = %.lr.ph53.i, %._crit_edge.thread.i

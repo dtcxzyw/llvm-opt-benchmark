@@ -6191,7 +6191,7 @@ define internal fastcc noundef range(i32 0, 2) i32 @tt_available(ptr nocapture n
   %11 = zext i8 %.45.val to i32
   %12 = add nsw i32 %11, -1
   %13 = and i32 %12, %2
-  %14 = icmp ult i32 %13, 8
+  %14 = icmp samesign ult i32 %13, 8
   br i1 %14, label %15, label %.loopexit3
 
 15:                                               ; preds = %10
@@ -10521,7 +10521,7 @@ define internal void @ehci_relinquish_port(ptr noundef %0, i32 noundef %1) #0 al
 
 25:                                               ; preds = %22, %.lr.ph
   tail call void @_raw_spin_unlock_irq(ptr noundef %9) #19
-  %26 = icmp ugt i32 %18, 1
+  %26 = icmp samesign ugt i32 %18, 1
   br i1 %26, label %27, label %.loopexit
 
 27:                                               ; preds = %25
@@ -10778,7 +10778,7 @@ define internal noundef i64 @companion_store(ptr nocapture noundef readonly %0, 
   %15 = getelementptr inbounds i8, ptr %7, i64 816
   %16 = load i32, ptr %15, align 8
   %17 = and i32 %16, 15
-  %18 = icmp ugt i32 %spec.select, %17
+  %18 = icmp samesign ugt i32 %spec.select, %17
   br i1 %18, label %.thread3, label %19
 
 19:                                               ; preds = %14
@@ -10834,7 +10834,7 @@ define internal noundef i64 @companion_store(ptr nocapture noundef readonly %0, 
 
 48:                                               ; preds = %45, %.lr.ph
   call void @_raw_spin_unlock_irq(ptr noundef %32) #19
-  %49 = icmp ugt i32 %41, 1
+  %49 = icmp samesign ugt i32 %41, 1
   br i1 %49, label %50, label %.thread3
 
 50:                                               ; preds = %48

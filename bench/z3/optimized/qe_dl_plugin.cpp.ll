@@ -885,7 +885,7 @@ if.then5:                                         ; preds = %_ZN2qe9dl_plugin15i
   %m_ptr.i4.i.i = getelementptr inbounds i8, ptr %ref.tmp, i64 24
   store ptr null, ptr %m_ptr.i4.i.i, align 8
   %7 = load ptr, ptr @_ZN8rational13g_mpq_managerE, align 8
-  %cmp.i.i.i.i6 = icmp ult i64 %2, 2147483647
+  %cmp.i.i.i.i6 = icmp samesign ult i64 %2, 2147483647
   br i1 %cmp.i.i.i.i6, label %if.then.i.i.i.i, label %if.else.i.i.i.i
 
 if.then.i.i.i.i:                                  ; preds = %if.then5

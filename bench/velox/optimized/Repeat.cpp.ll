@@ -3516,7 +3516,7 @@ if.then.i.i:                                      ; preds = %if.end.i
   unreachable
 
 if.end.i.i:                                       ; preds = %if.end.i
-  %cmp1.i.i = icmp ugt i32 %6, 10000
+  %cmp1.i.i = icmp samesign ugt i32 %6, 10000
   br i1 %cmp1.i.i, label %if.then3.i.i, label %_ZN8facebook5velox9functions12_GLOBAL__N_114RepeatFunction10checkCountEi.exit.i
 
 if.then3.i.i:                                     ; preds = %if.end.i.i
@@ -5171,7 +5171,7 @@ if.then.i.i.i.i.i213:                             ; preds = %cond.end.i.i.i.i
   unreachable
 
 if.end.i5.i.i.i.i:                                ; preds = %cond.end.i.i.i.i
-  %cmp1.i.i.i.i.i = icmp ugt i32 %232, 10000
+  %cmp1.i.i.i.i.i = icmp samesign ugt i32 %232, 10000
   br i1 %cmp1.i.i.i.i.i, label %if.then3.i.i.i.i.i, label %_ZZNK8facebook5velox9functions12_GLOBAL__N_114RepeatFunction9applyFlatERKNS0_17SelectivityVectorERSt6vectorISt10shared_ptrINS0_10BaseVectorEESaISA_EERKS8_IKNS0_4TypeEERNS0_4exec7EvalCtxEENKUlT_E_clIiEEDaSM_.exit.i.i.i
 
 if.then3.i.i.i.i.i:                               ; preds = %if.end.i5.i.i.i.i
@@ -5394,7 +5394,7 @@ if.then.i.i.i.i.i.i.i.i.i:                        ; preds = %cond.end.i.i.i.i.i.
   unreachable
 
 if.end.i5.i.i.i.i.i.i.i.i:                        ; preds = %cond.end.i.i.i.i.i.i.i.i
-  %cmp1.i.i.i.i.i.i.i.i.i = icmp ugt i32 %261, 10000
+  %cmp1.i.i.i.i.i.i.i.i.i = icmp samesign ugt i32 %261, 10000
   br i1 %cmp1.i.i.i.i.i.i.i.i.i, label %if.then3.i.i.i.i.i.i.i.i.i, label %_ZZNK8facebook5velox9functions12_GLOBAL__N_114RepeatFunction9applyFlatERKNS0_17SelectivityVectorERSt6vectorISt10shared_ptrINS0_10BaseVectorEESaISA_EERKS8_IKNS0_4TypeEERNS0_4exec7EvalCtxEENKUlT_E_clImEEDaSM_.exit.i.i.i.i.i.i.i
 
 if.then3.i.i.i.i.i.i.i.i.i:                       ; preds = %if.end.i5.i.i.i.i.i.i.i.i
@@ -5523,7 +5523,7 @@ if.then.i.i80.i.i.i.i.i.i.i:                      ; preds = %cond.end.i70.i.i.i.
   unreachable
 
 if.end.i5.i75.i.i.i.i.i.i.i:                      ; preds = %cond.end.i70.i.i.i.i.i.i.i
-  %cmp1.i.i76.i.i.i.i.i.i.i = icmp ugt i32 %281, 10000
+  %cmp1.i.i76.i.i.i.i.i.i.i = icmp samesign ugt i32 %281, 10000
   br i1 %cmp1.i.i76.i.i.i.i.i.i.i, label %if.then3.i.i79.i.i.i.i.i.i.i, label %_ZZNK8facebook5velox9functions12_GLOBAL__N_114RepeatFunction9applyFlatERKNS0_17SelectivityVectorERSt6vectorISt10shared_ptrINS0_10BaseVectorEESaISA_EERKS8_IKNS0_4TypeEERNS0_4exec7EvalCtxEENKUlT_E_clIiEEDaSM_.exit.i.i.i.i.i.i.i
 
 if.then3.i.i79.i.i.i.i.i.i.i:                     ; preds = %if.end.i5.i75.i.i.i.i.i.i.i
@@ -12082,7 +12082,7 @@ if.then.i.i:                                      ; preds = %cond.end.i
   unreachable
 
 if.end.i5.i:                                      ; preds = %cond.end.i
-  %cmp1.i.i = icmp ugt i32 %28, 10000
+  %cmp1.i.i = icmp samesign ugt i32 %28, 10000
   br i1 %cmp1.i.i, label %if.then3.i.i, label %_ZZNK8facebook5velox9functions12_GLOBAL__N_114RepeatFunction9applyFlatERKNS0_17SelectivityVectorERSt6vectorISt10shared_ptrINS0_10BaseVectorEESaISA_EERKS8_IKNS0_4TypeEERNS0_4exec7EvalCtxEENKUlT_E_clIiEEDaSM_.exit
 
 if.then3.i.i:                                     ; preds = %if.end.i5.i

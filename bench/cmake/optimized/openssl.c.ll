@@ -2639,7 +2639,7 @@ define internal range(i32 -1, 1) i32 @ossl_shutdown(ptr noundef %0, ptr noundef 
   %50 = load i8, ptr %.0.i, align 1
   %.not.i = icmp eq i8 %50, 0
   %51 = icmp samesign ugt i64 %.021.i, 13
-  %or.cond = and i1 %51, %.not.i
+  %or.cond = select i1 %.not.i, i1 %51, i1 false
   br i1 %or.cond, label %52, label %ossl_strerror.exit
 
 52:                                               ; preds = %49
@@ -3447,7 +3447,7 @@ define internal range(i64 -1, 2147483648) i64 @ossl_send(ptr nocapture noundef r
   %41 = load i8, ptr %.0.i, align 1
   %.not.i = icmp eq i8 %41, 0
   %42 = icmp samesign ugt i64 %.021.i, 13
-  %or.cond = and i1 %42, %.not.i
+  %or.cond = select i1 %.not.i, i1 %42, i1 false
   br i1 %or.cond, label %43, label %ossl_strerror.exit
 
 43:                                               ; preds = %40
@@ -3626,7 +3626,7 @@ define internal fastcc noundef nonnull ptr @ossl_strerror(i64 noundef %0, ptr no
 16:                                               ; preds = %14
   %.not23 = icmp eq i64 %0, 0
   %17 = select i1 %.not23, i64 8, i64 13
-  %18 = icmp ult i64 %17, %.021
+  %18 = icmp samesign ult i64 %17, %.021
   br i1 %18, label %19, label %22
 
 19:                                               ; preds = %16

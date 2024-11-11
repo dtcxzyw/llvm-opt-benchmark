@@ -465,7 +465,7 @@ for.body24:                                       ; preds = %for.body24.preheade
   %22 = load i32, ptr %arrayidx29, align 4
   store i32 %22, ptr %arrayidx27, align 4
   store i32 %21, ptr %arrayidx29, align 4
-  %cmp23 = icmp ugt i64 %indvars.iv124, 2
+  %cmp23 = icmp samesign ugt i64 %indvars.iv124, 2
   br i1 %cmp23, label %for.body24, label %if.end36.loopexit, !llvm.loop !8
 
 if.end36.loopexit:                                ; preds = %for.body24

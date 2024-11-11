@@ -41,7 +41,7 @@ if.then7:                                         ; preds = %if.end3
   br i1 %cmp.i, label %for.end, label %if.end.i
 
 if.end.i:                                         ; preds = %if.then7
-  %cmp8 = icmp ult i32 %length.addr.0, 128
+  %cmp8 = icmp samesign ult i32 %length.addr.0, 128
   %mul = shl nuw nsw i32 %length.addr.0, 1
   %2 = and i32 %mul, 2147483520
   %and = add nuw nsw i32 %2, 128

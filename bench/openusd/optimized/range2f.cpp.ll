@@ -179,7 +179,7 @@ define <2 x float> @_ZNK32pxrInternal_v0_24__pxrReserved__9GfRange2f9GetCornerEm
   %.val = load float, ptr %0, align 4
   %.val7 = load float, ptr %13, align 4
   %14 = select i1 %.not, float %.val, float %.val7
-  %.not4 = icmp ult i64 %1, 2
+  %.not4 = icmp samesign ult i64 %1, 2
   %15 = select i1 %.not4, ptr %0, ptr %13
   %16 = getelementptr inbounds i8, ptr %15, i64 4
   %17 = load float, ptr %16, align 4
@@ -220,7 +220,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__9GfRange2f9GetCornerEm.exit: ; preds = %2
   %.val.i = load float, ptr %0, align 4
   %.val7.i = load float, ptr %11, align 4
   %12 = select i1 %.not.i, float %.val.i, float %.val7.i
-  %.not4.i = icmp ult i64 %1, 2
+  %.not4.i = icmp samesign ult i64 %1, 2
   %13 = select i1 %.not4.i, ptr %0, ptr %11
   %14 = getelementptr inbounds i8, ptr %13, i64 4
   %15 = load float, ptr %14, align 4

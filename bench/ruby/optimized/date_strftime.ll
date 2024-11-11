@@ -832,7 +832,7 @@ rb_num2int_inline.exit:                           ; preds = %283, %285
   %.010261707 = phi i32 [ %380, %.lr.ph ], [ %.22, %371 ]
   %379 = call i64 (i64, i64, i32, ...) @rb_funcall(i64 noundef %.010241708, i64 noundef 42, i32 noundef 1, i64 noundef 2000000001) #10
   %380 = add nsw i32 %.010261707, -9
-  %381 = icmp ugt i32 %.010261707, 17
+  %381 = icmp samesign ugt i32 %.010261707, 17
   br i1 %381, label %.lr.ph, label %.preheader1407, !llvm.loop !9
 
 .lr.ph1712:                                       ; preds = %.preheader1407, %.lr.ph1712
@@ -840,7 +840,7 @@ rb_num2int_inline.exit:                           ; preds = %283, %285
   %.010281710 = phi i64 [ %382, %.lr.ph1712 ], [ 1, %.preheader1407 ]
   %382 = mul nuw nsw i64 %.010281710, 10
   %383 = add nsw i32 %.110271711, -1
-  %384 = icmp ugt i32 %.110271711, 1
+  %384 = icmp samesign ugt i32 %.110271711, 1
   br i1 %384, label %.lr.ph1712, label %._crit_edge, !llvm.loop !10
 
 ._crit_edge:                                      ; preds = %.lr.ph1712
@@ -1932,7 +1932,7 @@ upcase.exit1361:                                  ; preds = %830, %822
   %967 = getelementptr inbounds i8, ptr %.6, i64 %966
   %968 = icmp eq i16 %961, 0
   %or.cond40 = and i1 %952, %968
-  %969 = icmp ult i64 %.01005, 2
+  %969 = icmp samesign ult i64 %.01005, 2
   %or.cond44.not = or i1 %969, %or.cond40
   br i1 %or.cond44.not, label %1121, label %970
 

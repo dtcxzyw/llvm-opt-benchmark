@@ -6805,7 +6805,7 @@ _ZN3vte4ansi11PrivateMode3new17h86949433fa76faa0E.exit648.i: ; preds = %1595, %1
   br i1 %or.cond.i.i, label %2125, label %.lr.ph89.i.i
 
 2074:                                             ; preds = %2066
-  %2075 = icmp ugt i64 %2053, 2
+  %2075 = icmp samesign ugt i64 %2053, 2
   br i1 %2075, label %2200, label %2068
 
 2076:                                             ; preds = %2069
@@ -7740,7 +7740,7 @@ default.unreachable:                              ; preds = %.noexc116.i.i
   br i1 %.not85.i.i, label %2391, label %2392
 
 2389:                                             ; preds = %2288
-  %2390 = icmp ult i64 %2053, 3
+  %2390 = icmp samesign ult i64 %2053, 3
   br i1 %2390, label %2418, label %2408
 
 2391:                                             ; preds = %2398, %2392, %2388
@@ -8107,7 +8107,7 @@ switch.lookup131:                                 ; preds = %2401
   br label %.thread
 
 2536:                                             ; preds = %2038
-  %2537 = icmp ult i64 %858, 16
+  %2537 = icmp samesign ult i64 %858, 16
   br i1 %2537, label %2042, label %2539
 
 2538:                                             ; preds = %2038
@@ -8162,7 +8162,7 @@ switch.lookup131:                                 ; preds = %2401
   br label %"_ZN66_$LT$vte..ansi..Performer$LT$H$C$T$GT$$u20$as$u20$vte..Perform$GT$6unhook17h25cdefaa7f309bbcE.exit"
 
 2559:                                             ; preds = %2551
-  %2560 = icmp ult i64 %2542, 16
+  %2560 = icmp samesign ult i64 %2542, 16
   br i1 %2560, label %2562, label %2569
 
 2561:                                             ; preds = %2551

@@ -574,11 +574,11 @@ define void @_ZN10OpenSubdiv6v3_6_03Bfr16ParameterizationC2ENS0_3Sdc10SchemeType
 
 16:                                               ; preds = %13
   store i8 2, ptr %0, align 2
-  %17 = icmp ult i32 %2, 10
+  %17 = icmp samesign ult i32 %2, 10
   br i1 %17, label %18, label %21
 
 18:                                               ; preds = %16
-  %19 = icmp ugt i32 %2, 4
+  %19 = icmp samesign ugt i32 %2, 4
   %20 = select i1 %19, i8 3, i8 2
   br label %27
 

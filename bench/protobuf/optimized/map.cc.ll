@@ -1735,7 +1735,7 @@ _ZN4absl12lts_2023080218container_internal10btree_nodeINS1_10map_paramsIN6google
   %arrayidx.i68 = getelementptr i8, ptr %parent.2, i64 10
   %16 = load i8, ptr %arrayidx.i68, align 1
   %conv35 = zext i8 %16 to i64
-  %cmp36.not.not = icmp ult i64 %pos.2, %conv35
+  %cmp36.not.not = icmp samesign ult i64 %pos.2, %conv35
   br i1 %cmp36.not.not, label %do.body.backedge, label %do.body37.preheader
 
 do.body.backedge:                                 ; preds = %_ZN4absl12lts_2023080218container_internal10btree_nodeINS1_10map_paramsIN6google8protobuf8internal10VariantKeyEPNS6_8NodeBaseESt4lessIS7_ENS6_12MapAllocatorISt4pairIKS7_S9_EEELi256ELb0EEEE10deallocateEmPSI_PSG_.exit67, %do.end52
@@ -1823,7 +1823,7 @@ if.end:                                           ; preds = %if.then
   br label %if.end27
 
 if.else:                                          ; preds = %entry
-  %cmp5 = icmp ugt i64 %len, 8
+  %cmp5 = icmp samesign ugt i64 %len, 8
   br i1 %cmp5, label %if.then6, label %if.else14
 
 if.then6:                                         ; preds = %if.else
@@ -1844,7 +1844,7 @@ if.then6:                                         ; preds = %if.else
   br label %return
 
 if.else14:                                        ; preds = %if.else
-  %cmp15 = icmp ugt i64 %len, 3
+  %cmp15 = icmp samesign ugt i64 %len, 3
   br i1 %cmp15, label %if.then16, label %if.else18
 
 if.then16:                                        ; preds = %if.else14
@@ -3252,7 +3252,7 @@ if.then15:                                        ; preds = %if.then7
   %conv27 = zext nneg i8 %.sroa.speculated128 to i32
   %cmp31.not = icmp samesign uge i32 %conv26, %conv27
   %narrow = add nuw nsw i8 %.sroa.speculated128, %5
-  %cmp36 = icmp ult i8 %narrow, 10
+  %cmp36 = icmp samesign ult i8 %narrow, 10
   %or.cond = select i1 %cmp31.not, i1 true, i1 %cmp36
   br i1 %or.cond, label %if.then37, label %if.end53
 
@@ -3305,7 +3305,7 @@ if.then68:                                        ; preds = %if.then59
   %sub87 = sub nsw i32 %conv85, %conv86
   %cmp88.not = icmp sle i32 %conv83, %sub87
   %narrow135 = add nuw nsw i8 %.sroa.speculated, %12
-  %cmp94 = icmp ult i8 %narrow135, 10
+  %cmp94 = icmp samesign ult i8 %narrow135, 10
   %or.cond134 = select i1 %cmp88.not, i1 true, i1 %cmp94
   br i1 %or.cond134, label %if.then95, label %if.end108
 

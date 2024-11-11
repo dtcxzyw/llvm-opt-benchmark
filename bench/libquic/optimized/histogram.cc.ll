@@ -863,7 +863,7 @@ if.end28:                                         ; preds = %if.then26, %do.body
   %vfn30 = getelementptr inbounds i8, ptr %vtable29, i64 40
   %10 = load ptr, ptr %vfn30, align 8
   tail call void %10(ptr noundef nonnull align 8 dereferenceable(44) %histogram_pointer.0, i32 noundef %sub)
-  %cmp32 = icmp ugt i32 %sub, 5
+  %cmp32 = icmp samesign ugt i32 %sub, 5
   %or34 = or i32 %spec.select21, 4
   %spec.select22 = select i1 %cmp32, i32 %or34, i32 %spec.select21
   br label %if.end61
@@ -887,7 +887,7 @@ if.end49:                                         ; preds = %if.then47, %do.body
   %vfn52 = getelementptr inbounds i8, ptr %vtable51, i64 40
   %14 = load ptr, ptr %vfn52, align 8
   tail call void %14(ptr noundef nonnull align 8 dereferenceable(44) %histogram_pointer44.0, i32 noundef %sub50)
-  %cmp56 = icmp ult i32 %sub, -5
+  %cmp56 = icmp samesign ult i32 %sub, -5
   %or58 = or i32 %spec.select21, 8
   %spec.select23 = select i1 %cmp56, i32 %or58, i32 %spec.select21
   br label %if.end61

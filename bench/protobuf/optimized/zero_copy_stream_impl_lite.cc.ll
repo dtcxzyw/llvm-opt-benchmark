@@ -2999,7 +2999,7 @@ if.then.i.i:                                      ; preds = %if.then.i
   %call4.i.i.i.i = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %and.i.i.i.i.i.i) #31, !noalias !15
   %17 = getelementptr inbounds i8, ptr %call4.i.i.i.i, i64 8
   store i64 4, ptr %17, align 8, !noalias !15
-  %cmp.i.i.i.i.i.i = icmp ult i64 %and.i.i.i.i.i.i, 513
+  %cmp.i.i.i.i.i.i = icmp samesign ult i64 %and.i.i.i.i.i.i, 513
   %.sink8.i.i.i.i.i.i = select i1 %cmp.i.i.i.i.i.i, i64 3, i64 6
   %.sink.i.i.i.i.i.i = select i1 %cmp.i.i.i.i.i.i, i64 2, i64 58
   %div36.i.i.i.i.i.i = lshr i64 %and.i.i.i.i.i.i, %.sink8.i.i.i.i.i.i
@@ -3104,7 +3104,7 @@ if.then.i22:                                      ; preds = %sw.bb13
   %call4.i.i.i = call noalias noundef nonnull ptr @_Znwm(i64 noundef %and.i.i.i.i.i) #31, !noalias !16
   %32 = getelementptr inbounds i8, ptr %call4.i.i.i, i64 8
   store i64 4, ptr %32, align 8, !noalias !16
-  %cmp.i.i.i.i.i24 = icmp ult i64 %and.i.i.i.i.i, 513
+  %cmp.i.i.i.i.i24 = icmp samesign ult i64 %and.i.i.i.i.i, 513
   %.sink8.i.i.i.i.i = select i1 %cmp.i.i.i.i.i24, i64 3, i64 6
   %.sink.i.i.i.i.i = select i1 %cmp.i.i.i.i.i24, i64 2, i64 58
   %div36.i.i.i.i.i = lshr i64 %and.i.i.i.i.i, %.sink8.i.i.i.i.i
@@ -3752,7 +3752,7 @@ while.body.i.i.i.i:                               ; preds = %if.then.i, %while.b
   %arrayidx14.i.i.i.i = getelementptr inbounds [12 x i8], ptr %index_.i.i.i.i, i64 0, i64 %indvars.iv.next.i.i.i.i
   store i8 %10, ptr %arrayidx14.i.i.i.i, align 1
   %index.0.i.i.i.i = zext i8 %10 to i64
-  %cmp.i.i.i.i = icmp ugt i64 %indvars.iv.i.i.i.i, 1
+  %cmp.i.i.i.i = icmp samesign ugt i64 %indvars.iv.i.i.i.i, 1
   br i1 %cmp.i.i.i.i, label %while.body.i.i.i.i, label %_ZN4absl12lts_2023080213cord_internal21CordRepBtreeNavigator9InitFirstEPNS1_12CordRepBtreeE.exit.i.i, !llvm.loop !19
 
 _ZN4absl12lts_2023080213cord_internal21CordRepBtreeNavigator9InitFirstEPNS1_12CordRepBtreeE.exit.i.i: ; preds = %while.body.i.i.i.i, %if.then.i

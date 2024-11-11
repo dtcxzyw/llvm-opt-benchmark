@@ -3018,7 +3018,7 @@ define internal range(i32 -92, 1) i32 @packet_getsockopt(ptr nocapture noundef r
 
 59:                                               ; preds = %23
   %60 = tail call i32 @llvm.umin.i32(i32 %16, i32 4)
-  %61 = icmp ult i32 %16, 4
+  %61 = icmp samesign ult i32 %16, 4
   br i1 %61, label %149, label %62
 
 62:                                               ; preds = %59
@@ -3612,7 +3612,7 @@ define internal i32 @packet_sendmsg(ptr nocapture noundef readonly %0, ptr nound
 296:                                              ; preds = %._crit_edge, %293, %280
   %297 = phi i16 [ %.pre, %._crit_edge ], [ %295, %293 ], [ %290, %280 ]
   %298 = zext i16 %297 to i32
-  %299 = icmp ult i32 %274, %298
+  %299 = icmp samesign ult i32 %274, %298
   br i1 %299, label %.thread, label %._crit_edge152
 
 ._crit_edge152:                                   ; preds = %296
@@ -10934,7 +10934,7 @@ define internal i32 @packet_sendmsg_spkt(ptr nocapture noundef readonly %0, ptr 
   %152 = add i32 %149, %49
   %153 = add i32 %152, %151
   %154 = zext i32 %153 to i64
-  %155 = icmp ugt i64 %2, %154
+  %155 = icmp samesign ugt i64 %2, %154
   br i1 %155, label %156, label %174
 
 156:                                              ; preds = %148

@@ -5460,7 +5460,7 @@ define internal fastcc noundef range(i32 -41, 2) i32 @tcp_ack(ptr noundef %0, pt
   %820 = sub i64 %816, %819
   %821 = call i64 @llvm.smax.i64(i64 %820, i64 0)
   %822 = and i64 %821, 4294967295
-  %823 = icmp ugt i64 %691, %822
+  %823 = icmp samesign ugt i64 %691, %822
   %824 = or i32 %673, 4096
   %825 = select i1 %823, i32 %824, i32 %673
   br label %826
@@ -6109,7 +6109,7 @@ define internal fastcc void @tcp_event_data_recv(ptr noundef %0, ptr nocapture n
   br i1 %74, label %82, label %75
 
 75:                                               ; preds = %62
-  %76 = icmp ugt i32 %73, 107
+  %76 = icmp samesign ugt i32 %73, 107
   br i1 %76, label %77, label %90
 
 77:                                               ; preds = %75
@@ -15511,7 +15511,7 @@ define internal fastcc ptr @tcp_sacktag_walk(ptr noundef %0, ptr noundef %1, ptr
   br i1 %200, label %206, label %201
 
 201:                                              ; preds = %199
-  %202 = icmp ult i32 %175, %185
+  %202 = icmp samesign ult i32 %175, %185
   br i1 %202, label %.thread34, label %203
 
 203:                                              ; preds = %201

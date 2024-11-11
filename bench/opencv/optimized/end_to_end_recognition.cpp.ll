@@ -2776,7 +2776,7 @@ _ZNSt6vectorIiSaIiEE9push_backERKi.exit:          ; preds = %_ZNSt6vectorIiSaIiE
   %1145 = getelementptr inbounds i8, ptr %.0910.i.i.i.i.i.i.i, i64 32
   %1146 = getelementptr inbounds i8, ptr %.0811.i.i.i.i.i.i.i, i64 32
   %1147 = add nsw i64 %.012.i.i.i.i.i.i.i, -1
-  %1148 = icmp ugt i64 %.012.i.i.i.i.i.i.i, 1
+  %1148 = icmp samesign ugt i64 %.012.i.i.i.i.i.i.i, 1
   br i1 %1148, label %.lr.ph.i.i.i.i.i.i.i, label %_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt6vectorIS7_SaIS7_EEEESC_ET0_T_SE_SD_.exit.loopexit.i.i, !llvm.loop !35
 
 _ZSt4moveIN9__gnu_cxx17__normal_iteratorIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt6vectorIS7_SaIS7_EEEESC_ET0_T_SE_SD_.exit.loopexit.i.i: ; preds = %.lr.ph.i.i.i.i.i.i.i
@@ -5731,7 +5731,7 @@ define linkonce_odr hidden void @_ZSt16__insertion_sortIN9__gnu_cxx17__normal_it
   %17 = getelementptr inbounds i8, ptr %.069.i.i.i.i.i, i64 -32
   %18 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEOS4_(ptr noundef nonnull align 8 dereferenceable(32) %17, ptr noundef nonnull align 8 dereferenceable(32) %16) #19
   %19 = add nsw i64 %.010.i.i.i.i.i, -1
-  %20 = icmp ugt i64 %.010.i.i.i.i.i, 1
+  %20 = icmp samesign ugt i64 %.010.i.i.i.i.i, 1
   br i1 %20, label %.lr.ph.i.i.i.i.i, label %.loopexit, !llvm.loop !66
 
 .loopexit:                                        ; preds = %.lr.ph.i.i.i.i.i, %10

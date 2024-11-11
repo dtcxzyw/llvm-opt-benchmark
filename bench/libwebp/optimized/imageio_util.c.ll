@@ -296,7 +296,7 @@ define hidden void @ImgIoUtilCopyPlane(ptr nocapture noundef readonly %0, i32 no
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %.089, ptr align 1 %.0710, i64 %8, i1 false)
   %13 = getelementptr inbounds i8, ptr %.0710, i64 %9
   %14 = getelementptr inbounds i8, ptr %.089, i64 %10
-  %15 = icmp ugt i32 %.011, 1
+  %15 = icmp samesign ugt i32 %.011, 1
   br i1 %15, label %11, label %._crit_edge, !llvm.loop !7
 
 ._crit_edge:                                      ; preds = %11, %6

@@ -926,7 +926,7 @@ if.end5:                                          ; preds = %if.end
 if.then6:                                         ; preds = %if.end5
   %and7 = and i32 %conv, 32767
   %add = add nuw nsw i32 %and7, 2
-  %cmp8 = icmp ult i32 %srcLength, %add
+  %cmp8 = icmp samesign ult i32 %srcLength, %add
   br i1 %cmp8, label %if.then9, label %if.end12
 
 if.then9:                                         ; preds = %if.then6
@@ -943,7 +943,7 @@ if.end12:                                         ; preds = %if.then6
   br label %if.end23
 
 if.else:                                          ; preds = %if.end5
-  %cmp17.not = icmp ugt i32 %srcLength, %conv
+  %cmp17.not = icmp samesign ugt i32 %srcLength, %conv
   %bmpLength22 = getelementptr inbounds i8, ptr %fillSet, i64 8
   br i1 %cmp17.not, label %if.end21, label %if.then18
 
@@ -984,7 +984,7 @@ entry:
 if.end:                                           ; preds = %entry
   %staticArray = getelementptr inbounds i8, ptr %fillSet, i64 16
   store ptr %staticArray, ptr %fillSet, align 8
-  %cmp2 = icmp ult i32 %c, 65535
+  %cmp2 = icmp samesign ult i32 %c, 65535
   br i1 %cmp2, label %if.then3, label %if.else
 
 if.then3:                                         ; preds = %if.end
@@ -1016,7 +1016,7 @@ if.then11:                                        ; preds = %if.else
   br label %if.end47
 
 if.else20:                                        ; preds = %if.else
-  %cmp21 = icmp ult i32 %c, 1114111
+  %cmp21 = icmp samesign ult i32 %c, 1114111
   %bmpLength23 = getelementptr inbounds i8, ptr %fillSet, i64 8
   store i32 0, ptr %bmpLength23, align 8
   %length24 = getelementptr inbounds i8, ptr %fillSet, i64 12
@@ -1061,13 +1061,13 @@ entry:
 
 if.end:                                           ; preds = %entry
   %0 = load ptr, ptr %set, align 8
-  %cmp3 = icmp ult i32 %c, 65536
+  %cmp3 = icmp samesign ult i32 %c, 65536
   br i1 %cmp3, label %if.then4, label %if.else27
 
 if.then4:                                         ; preds = %if.end
   %1 = load i16, ptr %0, align 2
   %conv = zext i16 %1 to i32
-  %cmp5 = icmp ult i32 %c, %conv
+  %cmp5 = icmp samesign ult i32 %c, %conv
   br i1 %cmp5, label %if.end25, label %if.else
 
 if.else:                                          ; preds = %if.then4
@@ -1078,7 +1078,7 @@ if.else:                                          ; preds = %if.then4
   %arrayidx7 = getelementptr inbounds i16, ptr %0, i64 %idxprom
   %3 = load i16, ptr %arrayidx7, align 2
   %conv8 = zext i16 %3 to i32
-  %cmp9 = icmp ult i32 %c, %conv8
+  %cmp9 = icmp samesign ult i32 %c, %conv8
   br i1 %cmp9, label %for.cond.preheader, label %if.end25
 
 for.cond.preheader:                               ; preds = %if.else
@@ -1274,7 +1274,7 @@ if.then10:                                        ; preds = %if.end
   %3 = load i16, ptr %arrayidx, align 2
   %conv = zext i16 %3 to i32
   store i32 %conv, ptr %pStart, align 4
-  %cmp11 = icmp ult i32 %inc, %2
+  %cmp11 = icmp samesign ult i32 %inc, %2
   br i1 %cmp11, label %if.then12, label %if.else
 
 if.then12:                                        ; preds = %if.then10

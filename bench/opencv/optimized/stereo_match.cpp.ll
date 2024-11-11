@@ -1939,7 +1939,7 @@ switch.lookup:                                    ; preds = %switch.hole_check
   br label %929
 
 754:                                              ; preds = %731
-  %or.cond = icmp ult i32 %.0193, 3
+  %or.cond = icmp samesign ult i32 %.0193, 3
   %755 = and i32 %.0193, 2147483646
   %756 = icmp eq i32 %755, 4
   %or.cond5 = or i1 %or.cond, %756

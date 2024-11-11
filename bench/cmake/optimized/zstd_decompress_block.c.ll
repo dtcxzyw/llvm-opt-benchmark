@@ -392,7 +392,7 @@ ZSTD_allocateLiteralsBuffer.exit226:              ; preds = %162, %168, %176
   br i1 %186, label %187, label %202
 
 187:                                              ; preds = %ZSTD_allocateLiteralsBuffer.exit226
-  %188 = icmp ugt i64 %184, %2
+  %188 = icmp samesign ugt i64 %184, %2
   br i1 %188, label %272, label %189
 
 189:                                              ; preds = %187
@@ -2494,7 +2494,7 @@ BIT_reloadDStreamFast.exit2363.i:                 ; preds = %573
 669:                                              ; preds = %659
   %670 = getelementptr inbounds i8, ptr %661, i64 -32
   %671 = icmp ule ptr %.11835.i, %670
-  %672 = icmp ult i64 %660, -16
+  %672 = icmp samesign ult i64 %660, -16
   %or.cond3.i.i = and i1 %672, %671
   br i1 %or.cond3.i.i, label %673, label %.lr.ph.i.i.preheader
 
@@ -2669,7 +2669,7 @@ thread-pre-split:                                 ; preds = %651, %ZSTD_safecopy
   br i1 %737, label %733, label %.loopexit2500.i, !llvm.loop !27
 
 738:                                              ; preds = %726
-  %739 = icmp ult i64 %.sroa.10.0.copyload, 8
+  %739 = icmp samesign ult i64 %.sroa.10.0.copyload, 8
   br i1 %739, label %740, label %761
 
 740:                                              ; preds = %738
@@ -2842,7 +2842,7 @@ thread-pre-split:                                 ; preds = %651, %ZSTD_safecopy
 826:                                              ; preds = %817
   %827 = getelementptr inbounds i8, ptr %798, i64 -32
   %828 = icmp ule ptr %.11835.i, %827
-  %829 = icmp ult i64 %818, -16
+  %829 = icmp samesign ult i64 %818, -16
   %or.cond3.i.i.i = and i1 %829, %828
   br i1 %or.cond3.i.i.i, label %830, label %.lr.ph.i.i.i.preheader
 
@@ -3020,7 +3020,7 @@ ZSTD_safecopyDstBeforeSrc.exit.i.i:               ; preds = %.lr.ph.i.i.i, %.lr.
   br i1 %900, label %896, label %ZSTD_execSequenceEndSplitLitBuffer.exit.i, !llvm.loop !27
 
 901:                                              ; preds = %889
-  %902 = icmp ult i64 %.sroa.10.0.copyload.i, 8
+  %902 = icmp samesign ult i64 %.sroa.10.0.copyload.i, 8
   br i1 %902, label %903, label %924
 
 903:                                              ; preds = %901
@@ -3229,7 +3229,7 @@ ZSTD_safecopyDstBeforeSrc.exit.i.i:               ; preds = %.lr.ph.i.i.i, %.lr.
   br i1 %1002, label %998, label %ZSTD_execSequenceEndSplitLitBuffer.exit.i, !llvm.loop !27
 
 1003:                                             ; preds = %991
-  %1004 = icmp ult i64 %.sroa.1018.0.copyload, 8
+  %1004 = icmp samesign ult i64 %.sroa.1018.0.copyload, 8
   br i1 %1004, label %1005, label %1026
 
 1005:                                             ; preds = %1003
@@ -3427,7 +3427,7 @@ ZSTD_execSequenceEndSplitLitBuffer.exit.i:        ; preds = %1045, %.preheader25
 1104:                                             ; preds = %1094
   %1105 = getelementptr inbounds i8, ptr %1096, i64 -32
   %1106 = icmp ule ptr %.418382537.i, %1105
-  %1107 = icmp ult i64 %1095, -16
+  %1107 = icmp samesign ult i64 %1095, -16
   %or.cond3.i2372.i = and i1 %1107, %1106
   br i1 %or.cond3.i2372.i, label %1108, label %.lr.ph.i2376.i.preheader
 
@@ -3602,7 +3602,7 @@ thread-pre-split36:                               ; preds = %1086, %ZSTD_safecop
   br i1 %1172, label %1168, label %.loopexit2484.i, !llvm.loop !27
 
 1173:                                             ; preds = %1161
-  %1174 = icmp ult i64 %.sroa.1026.0.copyload, 8
+  %1174 = icmp samesign ult i64 %.sroa.1026.0.copyload, 8
   br i1 %1174, label %1175, label %1196
 
 1175:                                             ; preds = %1173
@@ -3763,7 +3763,7 @@ thread-pre-split36:                               ; preds = %1086, %ZSTD_safecop
 1254:                                             ; preds = %1245
   %1255 = getelementptr inbounds i8, ptr %1226, i64 -32
   %1256 = icmp ule ptr %.418382537.i, %1255
-  %1257 = icmp ult i64 %1246, -16
+  %1257 = icmp samesign ult i64 %1246, -16
   %or.cond3.i.i2393.i = and i1 %1257, %1256
   br i1 %or.cond3.i.i2393.i, label %1258, label %.lr.ph.i.i2397.i.preheader
 
@@ -3941,7 +3941,7 @@ ZSTD_safecopyDstBeforeSrc.exit.i2400.i:           ; preds = %.lr.ph.i.i2397.i, %
   br i1 %1328, label %1324, label %ZSTD_execSequenceEndSplitLitBuffer.exit2418.i, !llvm.loop !27
 
 1329:                                             ; preds = %1317
-  %1330 = icmp ult i64 %.sroa.102441.0.copyload.i, 8
+  %1330 = icmp samesign ult i64 %.sroa.102441.0.copyload.i, 8
   br i1 %1330, label %1331, label %1352
 
 1331:                                             ; preds = %1329
@@ -4147,7 +4147,7 @@ ZSTD_safecopyDstBeforeSrc.exit.i2400.i:           ; preds = %.lr.ph.i.i2397.i, %
   br i1 %1427, label %1423, label %ZSTD_execSequenceEndSplitLitBuffer.exit2418.i, !llvm.loop !27
 
 1428:                                             ; preds = %1416
-  %1429 = icmp ult i64 %.sroa.1034.0.copyload, 8
+  %1429 = icmp samesign ult i64 %.sroa.1034.0.copyload, 8
   br i1 %1429, label %1430, label %1451
 
 1430:                                             ; preds = %1428
@@ -5044,7 +5044,7 @@ BIT_reloadDStreamFast.exit.i:                     ; preds = %313
 418:                                              ; preds = %409
   %419 = getelementptr inbounds i8, ptr %391, i64 -32
   %420 = icmp ule ptr %.115442051.i, %419
-  %421 = icmp ult i64 %410, -16
+  %421 = icmp samesign ult i64 %410, -16
   %or.cond3.i.i.i = and i1 %420, %421
   br i1 %or.cond3.i.i.i, label %422, label %.lr.ph.i.i.i.preheader
 
@@ -5222,7 +5222,7 @@ ZSTD_safecopyDstBeforeSrc.exit.i.i:               ; preds = %.lr.ph.i.i.i, %.lr.
   br i1 %492, label %488, label %ZSTD_execSequenceEndSplitLitBuffer.exit.i, !llvm.loop !27
 
 493:                                              ; preds = %481
-  %494 = icmp ult i64 %.sroa.14.02055.i, 8
+  %494 = icmp samesign ult i64 %.sroa.14.02055.i, 8
   br i1 %494, label %495, label %516
 
 495:                                              ; preds = %493
@@ -5676,7 +5676,7 @@ BIT_reloadDStreamFast.exit1946.i:                 ; preds = %678
 772:                                              ; preds = %762
   %773 = getelementptr inbounds i8, ptr %764, i64 -32
   %774 = icmp ule ptr %.11544.lcssa.i, %773
-  %775 = icmp ult i64 %763, -16
+  %775 = icmp samesign ult i64 %763, -16
   %or.cond3.i.i = and i1 %775, %774
   br i1 %or.cond3.i.i, label %776, label %.lr.ph.i.i.preheader
 
@@ -5863,7 +5863,7 @@ ZSTD_safecopyDstBeforeSrc.exit.i:                 ; preds = %.lr.ph.i.i, %.lr.ph
   br i1 %852, label %848, label %.loopexit2023.i, !llvm.loop !27
 
 853:                                              ; preds = %840
-  %854 = icmp ult i64 %821, 8
+  %854 = icmp samesign ult i64 %821, 8
   br i1 %854, label %855, label %876
 
 855:                                              ; preds = %853
@@ -6405,7 +6405,7 @@ BIT_reloadDStreamFast.exit1963.i:                 ; preds = %1047
   br i1 %1170, label %1166, label %.loopexit2019.i, !llvm.loop !27
 
 1171:                                             ; preds = %1158
-  %1172 = icmp ult i64 %1141, 8
+  %1172 = icmp samesign ult i64 %1141, 8
   br i1 %1172, label %1173, label %1194
 
 1173:                                             ; preds = %1171
@@ -7456,7 +7456,7 @@ BIT_reloadDStreamFast.exit.i:                     ; preds = %333
   br i1 %453, label %449, label %.loopexit718.i, !llvm.loop !27
 
 454:                                              ; preds = %441
-  %455 = icmp ult i64 %425, 8
+  %455 = icmp samesign ult i64 %425, 8
   br i1 %455, label %456, label %477
 
 456:                                              ; preds = %454
@@ -7835,7 +7835,7 @@ define internal fastcc i64 @ZSTD_execSequenceEnd(ptr noundef %0, ptr noundef %1,
 38:                                               ; preds = %37
   %.1140.val150.i = load <2 x i64>, ptr %14, align 1
   store <2 x i64> %.1140.val150.i, ptr %0, align 1
-  %39 = icmp ult i64 %9, 17
+  %39 = icmp samesign ult i64 %9, 17
   br i1 %39, label %ZSTD_safecopy.exit, label %40
 
 40:                                               ; preds = %38
@@ -8053,7 +8053,7 @@ define internal fastcc void @ZSTD_safecopy(ptr noundef %0, ptr noundef %1, ptr n
 56:                                               ; preds = %47
   %.1140.val150 = load <2 x i64>, ptr %.1140, align 1
   store <2 x i64> %.1140.val150, ptr %.1138, align 1
-  %57 = icmp ult i64 %.0100, 17
+  %57 = icmp samesign ult i64 %.0100, 17
   br i1 %57, label %.loopexit, label %58
 
 58:                                               ; preds = %56

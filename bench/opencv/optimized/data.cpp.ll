@@ -1967,7 +1967,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN2cv2ml13TrainDataImpl7loadCSVE
 
 87:                                               ; preds = %.lr.ph
   store i8 0, ptr %83, align 1
-  %88 = icmp ugt i64 %indvars.iv, 1
+  %88 = icmp samesign ugt i64 %indvars.iv, 1
   br i1 %88, label %.lr.ph, label %.critedge, !llvm.loop !20
 
 .critedge:                                        ; preds = %.lr.ph, %87, %78

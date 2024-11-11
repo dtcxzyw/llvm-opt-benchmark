@@ -2896,7 +2896,7 @@ define void @_ZN10OpenSubdiv6v3_6_03Vtr8internal10Refinement33populateFaceParent
   br i1 %63, label %.lr.ph90, label %.loopexit
 
 .lr.ph90:                                         ; preds = %62
-  %64 = icmp ugt i32 %.fr, 4
+  %64 = icmp samesign ugt i32 %.fr, 4
   %65 = sext i32 %.05895 to i64
   br i1 %64, label %.lr.ph90.split.us.preheader, label %.lr.ph90.split.preheader
 
@@ -3035,7 +3035,7 @@ define void @_ZN10OpenSubdiv6v3_6_03Vtr8internal10Refinement33populateFaceParent
   br i1 %144, label %.lr.ph, label %.loopexit81
 
 .lr.ph:                                           ; preds = %143
-  %145 = icmp ugt i32 %.fr97, 4
+  %145 = icmp samesign ugt i32 %.fr97, 4
   %146 = xor i8 %90, 1
   %147 = zext nneg i8 %146 to i64
   br i1 %145, label %.lr.ph.split.us, label %.lr.ph.split.preheader
@@ -3311,7 +3311,7 @@ define void @_ZN10OpenSubdiv6v3_6_03Vtr8internal10Refinement33populateEdgeParent
   br i1 %63, label %.lr.ph90, label %.loopexit
 
 .lr.ph90:                                         ; preds = %62
-  %64 = icmp ugt i32 %.fr, 4
+  %64 = icmp samesign ugt i32 %.fr, 4
   %65 = sext i32 %.05895 to i64
   br i1 %64, label %.lr.ph90.split.us.preheader, label %.lr.ph90.split.preheader
 
@@ -3450,7 +3450,7 @@ define void @_ZN10OpenSubdiv6v3_6_03Vtr8internal10Refinement33populateEdgeParent
   br i1 %144, label %.lr.ph, label %.loopexit81
 
 .lr.ph:                                           ; preds = %143
-  %145 = icmp ugt i32 %.fr97, 4
+  %145 = icmp samesign ugt i32 %.fr97, 4
   %146 = xor i8 %90, 1
   %147 = zext nneg i8 %146 to i64
   br i1 %145, label %.lr.ph.split.us, label %.lr.ph.split.preheader

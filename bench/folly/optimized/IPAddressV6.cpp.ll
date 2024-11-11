@@ -4123,7 +4123,7 @@ if.then.i.i:                                      ; preds = %sw.bb.i
   unreachable
 
 _ZN3fmt2v96detail13specs_checkerINS1_21dynamic_specs_handlerINS0_26basic_format_parse_contextIcNS1_13error_handlerEEEEEE24require_numeric_argumentEv.exit.i: ; preds = %sw.bb.i
-  %11 = icmp ult i32 %9, 8
+  %11 = icmp samesign ult i32 %9, 8
   br i1 %11, label %switch.hole_check, label %sw.epilog.i.sink.split
 
 if.then.i51:                                      ; preds = %switch.hole_check
@@ -4141,7 +4141,7 @@ if.then.i.i53:                                    ; preds = %sw.bb20.i
   unreachable
 
 _ZN3fmt2v96detail13specs_checkerINS1_21dynamic_specs_handlerINS0_26basic_format_parse_contextIcNS1_13error_handlerEEEEEE24require_numeric_argumentEv.exit.i54: ; preds = %sw.bb20.i
-  %15 = icmp ult i32 %13, 8
+  %15 = icmp samesign ult i32 %13, 8
   br i1 %15, label %switch.hole_check99, label %sw.epilog.i.sink.split
 
 if.then.i60:                                      ; preds = %switch.hole_check99
@@ -4159,7 +4159,7 @@ if.then.i.i63:                                    ; preds = %sw.bb22.i
   unreachable
 
 _ZN3fmt2v96detail13specs_checkerINS1_21dynamic_specs_handlerINS0_26basic_format_parse_contextIcNS1_13error_handlerEEEEEE24require_numeric_argumentEv.exit.i64: ; preds = %sw.bb22.i
-  %19 = icmp ult i32 %17, 8
+  %19 = icmp samesign ult i32 %17, 8
   br i1 %19, label %switch.hole_check106, label %sw.epilog.i.sink.split
 
 if.then.i70:                                      ; preds = %switch.hole_check106
@@ -5650,7 +5650,7 @@ if.then3.i:                                       ; preds = %if.then.i
   br label %cond.end
 
 if.end4.i:                                        ; preds = %cond.true
-  %cmp5.i = icmp ugt i32 %6, 14
+  %cmp5.i = icmp samesign ugt i32 %6, 14
   br i1 %cmp5.i, label %cond.end, label %if.end7.i
 
 if.end7.i:                                        ; preds = %if.end4.i
@@ -8571,7 +8571,7 @@ if.end4:                                          ; preds = %if.end
   %rem = and i64 %sub, 63
   %shl = shl nsw i64 -1, %rem
   %1 = tail call noundef i64 @llvm.bswap.i64(i64 %shl)
-  %cmp5 = icmp ult i64 %numBits, 65
+  %cmp5 = icmp samesign ult i64 %numBits, 65
   %cond = select i1 %cmp5, i64 %1, i64 -1
   %cond10 = select i1 %cmp5, i64 0, i64 %1
   br label %return
@@ -9283,7 +9283,7 @@ if.end4.i:                                        ; preds = %if.end.i
   %rem.i = and i64 %sub.i, 63
   %shl.i = shl nsw i64 -1, %rem.i
   %5 = tail call noundef i64 @llvm.bswap.i64(i64 %shl.i)
-  %cmp5.i = icmp ult i64 %numBits, 65
+  %cmp5.i = icmp samesign ult i64 %numBits, 65
   %cond.i = select i1 %cmp5.i, i64 %5, i64 -1
   %cond10.i = select i1 %cmp5.i, i64 0, i64 %5
   br label %_ZN5folly11IPAddressV69fetchMaskEm.exit

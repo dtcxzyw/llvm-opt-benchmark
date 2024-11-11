@@ -3581,7 +3581,7 @@ define hidden { ptr, i64 } @"_ZN8triomphe6header110_$LT$impl$u20$core..convert..
 
 "_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17h7f2424c8acffe504E.exit.i.i": ; preds = %2
   call void @llvm.lifetime.end.p0(i64 0, ptr nonnull %3), !noalias !1051
-  %6 = icmp ugt i64 %1, 9223372036854775792
+  %6 = icmp samesign ugt i64 %1, 9223372036854775792
   br i1 %6, label %7, label %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17h7ba6e769f35971e0E.exit.i.i.i.i"
 
 7:                                                ; preds = %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17h7f2424c8acffe504E.exit.i.i"
@@ -3631,7 +3631,7 @@ define hidden { ptr, i64 } @"_ZN8triomphe6header96_$LT$impl$u20$triomphe..arc..A
 
 "_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17h7f2424c8acffe504E.exit.i": ; preds = %1
   call void @llvm.lifetime.end.p0(i64 0, ptr nonnull %2)
-  %7 = icmp ugt i64 %4, 2305843009213693948
+  %7 = icmp samesign ugt i64 %4, 2305843009213693948
   br i1 %7, label %8, label %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17h7ba6e769f35971e0E.exit.i.i.i"
 
 8:                                                ; preds = %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17h7f2424c8acffe504E.exit.i"
@@ -3736,7 +3736,7 @@ define hidden { ptr, i64 } @"_ZN8triomphe6header96_$LT$impl$u20$triomphe..arc..A
 
 "_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17h7f2424c8acffe504E.exit.i": ; preds = %1
   call void @llvm.lifetime.end.p0(i64 0, ptr nonnull %2)
-  %15 = icmp ugt i64 %9, 9223372036854775792
+  %15 = icmp samesign ugt i64 %9, 9223372036854775792
   br i1 %15, label %16, label %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17h7ba6e769f35971e0E.exit.i.i.i"
 
 16:                                               ; preds = %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17h7f2424c8acffe504E.exit.i"
@@ -3867,7 +3867,7 @@ define hidden { ptr, i64 } @"_ZN8triomphe6header96_$LT$impl$u20$triomphe..arc..A
 
 "_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17h7f2424c8acffe504E.exit.i": ; preds = %2
   call void @llvm.lifetime.end.p0(i64 0, ptr nonnull %3)
-  %6 = icmp ugt i64 %1, 9223372036854775792
+  %6 = icmp samesign ugt i64 %1, 9223372036854775792
   br i1 %6, label %7, label %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17h7ba6e769f35971e0E.exit.i.i.i"
 
 7:                                                ; preds = %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17h7f2424c8acffe504E.exit.i"

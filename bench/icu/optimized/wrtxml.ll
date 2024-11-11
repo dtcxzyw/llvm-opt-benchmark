@@ -3519,21 +3519,21 @@ if.then38:                                        ; preds = %do.end, %do.end
   br label %return
 
 if.end40:                                         ; preds = %do.end
-  %cmp41 = icmp ult i32 %c.0, 128
+  %cmp41 = icmp samesign ult i32 %c.0, 128
   br i1 %cmp41, label %cond.end59.thread, label %cond.false
 
 cond.false:                                       ; preds = %if.end40
-  %cmp42 = icmp ult i32 %c.0, 2048
+  %cmp42 = icmp samesign ult i32 %c.0, 2048
   br i1 %cmp42, label %cond.end59, label %cond.false44
 
 cond.false44:                                     ; preds = %cond.false
-  %cmp45 = icmp ult i32 %c.0, 55296
+  %cmp45 = icmp samesign ult i32 %c.0, 55296
   br i1 %cmp45, label %cond.end59, label %cond.false47
 
 cond.false47:                                     ; preds = %cond.false44
   %5 = add nsw i32 %c.0, -1114112
   %or.cond4 = icmp ult i32 %5, -1056768
-  %cmp53 = icmp ult i32 %c.0, 65536
+  %cmp53 = icmp samesign ult i32 %c.0, 65536
   %cond = select i1 %cmp53, i32 3, i32 4
   %cond54 = select i1 %or.cond4, i32 0, i32 %cond
   br label %cond.end59
@@ -3638,7 +3638,7 @@ sw.default:                                       ; preds = %if.then65
   br label %if.end202
 
 if.else101:                                       ; preds = %cond.end59
-  %cmp102 = icmp ult i32 %c.0, 2048
+  %cmp102 = icmp samesign ult i32 %c.0, 2048
   br i1 %cmp102, label %land.lhs.true103, label %if.else117
 
 land.lhs.true103:                                 ; preds = %if.else101
@@ -3663,7 +3663,7 @@ if.then106:                                       ; preds = %land.lhs.true103
   br label %if.end202
 
 if.else117:                                       ; preds = %land.lhs.true103, %if.else101
-  %cmp118 = icmp ult i32 %c.0, 55296
+  %cmp118 = icmp samesign ult i32 %c.0, 55296
   %10 = and i32 %c.0, 2147475456
   %or.cond5 = icmp eq i32 %10, 57344
   %or.cond115 = or i1 %cmp118, %or.cond5
@@ -4055,7 +4055,7 @@ for.body.i:                                       ; preds = %sw.bb.i, %for.body.
 
 sw.bb.i:                                          ; preds = %for.body.i, %for.body.i, %for.body.i, %for.body.i
   store i8 0, ptr %arrayidx.i, align 1
-  %cmp2.i = icmp ugt i64 %indvars.iv.i, 1
+  %cmp2.i = icmp samesign ugt i64 %indvars.iv.i, 1
   br i1 %cmp2.i, label %for.body.i, label %for.end.i, !llvm.loop !19
 
 for.end.loopexit.split.loop.exit.i:               ; preds = %for.body.i

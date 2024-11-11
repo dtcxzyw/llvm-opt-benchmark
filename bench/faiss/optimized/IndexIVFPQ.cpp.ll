@@ -416,7 +416,7 @@ _ZNSt10unique_ptrIA_fSt14default_deleteIS0_EED2Ev.exit27: ; preds = %_ZN5faissL1
   %56 = getelementptr inbounds i64, ptr %3, i64 %.0
   %57 = load i64, ptr %56, align 8
   tail call void @_ZNK5faiss15Level1Quantizer13encode_listnoElPh(ptr noundef nonnull align 8 dereferenceable(72) %44, i64 noundef %57, ptr noundef %52)
-  %58 = icmp ugt i64 %.0.in30, 1
+  %58 = icmp samesign ugt i64 %.0.in30, 1
   br i1 %58, label %48, label %.loopexit, !llvm.loop !10
 
 .loopexit:                                        ; preds = %48, %43, %42
@@ -62207,7 +62207,7 @@ define internal noundef float @_ZNK5faiss12_GLOBAL__N_112IVFPQScannerILNS_10Metr
   %32 = getelementptr inbounds i8, ptr %.sroa.0.018.i.i, i64 1
   %33 = add nsw i32 %27, -8
   %34 = lshr i32 %33, 3
-  %35 = icmp ugt i32 %27, 15
+  %35 = icmp samesign ugt i32 %27, 15
   br i1 %35, label %.lr.ph.i.i.i, label %._crit_edge.i.i.i
 
 .lr.ph.i.i.i:                                     ; preds = %29, %.lr.ph.i.i.i
@@ -62897,7 +62897,7 @@ _ZN5faiss12_GLOBAL__N_116KnnSearchResultsINS_4CMinIflEELb1EE3addElf.exit117.i: ;
   %346 = getelementptr inbounds i8, ptr %.sroa.0.018.i.i.i, i64 1
   %347 = add nsw i32 %341, -8
   %348 = lshr i32 %347, 3
-  %349 = icmp ugt i32 %341, 15
+  %349 = icmp samesign ugt i32 %341, 15
   br i1 %349, label %.lr.ph.i.i.i.i, label %._crit_edge.i.i.i.i
 
 .lr.ph.i.i.i.i:                                   ; preds = %343, %.lr.ph.i.i.i.i
@@ -63129,7 +63129,7 @@ _ZN5faiss12_GLOBAL__N_116KnnSearchResultsINS_4CMinIflEELb1EE3addElf.exit136.i: ;
   %464 = getelementptr inbounds i8, ptr %.sroa.0.018.i.i143.i, i64 1
   %465 = add nsw i32 %459, -8
   %466 = lshr i32 %465, 3
-  %467 = icmp ugt i32 %459, 15
+  %467 = icmp samesign ugt i32 %459, 15
   br i1 %467, label %.lr.ph.i.i.i161.i, label %._crit_edge.i.i.i155.i
 
 .lr.ph.i.i.i161.i:                                ; preds = %461, %.lr.ph.i.i.i161.i
@@ -63360,7 +63360,7 @@ _ZN5faiss12_GLOBAL__N_116KnnSearchResultsINS_4CMinIflEELb1EE3addElf.exit187.i: ;
   %582 = getelementptr inbounds i8, ptr %.sroa.0.018.i.i194.i, i64 1
   %583 = add nsw i32 %577, -8
   %584 = lshr i32 %583, 3
-  %585 = icmp ugt i32 %577, 15
+  %585 = icmp samesign ugt i32 %577, 15
   br i1 %585, label %.lr.ph.i.i.i212.i, label %._crit_edge.i.i.i206.i
 
 .lr.ph.i.i.i212.i:                                ; preds = %579, %.lr.ph.i.i.i212.i
@@ -63618,7 +63618,7 @@ _ZNK5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE0ENS_16PQDecoderGeneri
   %711 = getelementptr inbounds i8, ptr %.sroa.0.029.i, i64 1
   %712 = add nsw i32 %706, -8
   %713 = lshr i32 %712, 3
-  %714 = icmp ugt i32 %706, 15
+  %714 = icmp samesign ugt i32 %706, 15
   br i1 %714, label %.lr.ph.i.preheader.i, label %._crit_edge.i.i
 
 .lr.ph.i.preheader.i:                             ; preds = %708
@@ -64388,7 +64388,7 @@ _ZN5faiss12_GLOBAL__N_118RangeSearchResultsINS_4CMinIflEELb1EE3addElf.exit111.i.
   %264 = getelementptr inbounds i8, ptr %.sroa.0.018.i.i.i.i.i.i, i64 1
   %265 = add nsw i32 %259, -8
   %266 = lshr i32 %265, 3
-  %267 = icmp ugt i32 %259, 15
+  %267 = icmp samesign ugt i32 %259, 15
   br i1 %267, label %.lr.ph.i.i.i.i.i.i.i, label %._crit_edge.i.i.i.i.i.i.i
 
 .lr.ph.i.i.i.i.i.i.i:                             ; preds = %261, %.lr.ph.i.i.i.i.i.i.i
@@ -64535,7 +64535,7 @@ _ZN5faiss12_GLOBAL__N_118RangeSearchResultsINS_4CMinIflEELb1EE3addElf.exit113.i.
   %340 = getelementptr inbounds i8, ptr %.sroa.0.018.i.i120.i.i.i.i, i64 1
   %341 = add nsw i32 %335, -8
   %342 = lshr i32 %341, 3
-  %343 = icmp ugt i32 %335, 15
+  %343 = icmp samesign ugt i32 %335, 15
   br i1 %343, label %.lr.ph.i.i.i138.i.i.i.i, label %._crit_edge.i.i.i132.i.i.i.i
 
 .lr.ph.i.i.i138.i.i.i.i:                          ; preds = %337, %.lr.ph.i.i.i138.i.i.i.i
@@ -64959,7 +64959,7 @@ _ZN5faiss12_GLOBAL__N_118RangeSearchResultsINS_4CMinIflEELb1EE3addElf.exit111.i.
   %582 = getelementptr inbounds i8, ptr %.sroa.0.018.i.i.i.i50.i.i, i64 1
   %583 = add nsw i32 %577, -8
   %584 = lshr i32 %583, 3
-  %585 = icmp ugt i32 %577, 15
+  %585 = icmp samesign ugt i32 %577, 15
   br i1 %585, label %.lr.ph.i.i.i.i.i116.i.i, label %._crit_edge.i.i.i.i.i111.i.i
 
 .lr.ph.i.i.i.i.i116.i.i:                          ; preds = %579, %.lr.ph.i.i.i.i.i116.i.i
@@ -65107,7 +65107,7 @@ _ZN5faiss12_GLOBAL__N_118RangeSearchResultsINS_4CMinIflEELb1EE3addElf.exit113.i.
   %659 = getelementptr inbounds i8, ptr %.sroa.0.018.i.i120.i.i85.i.i, i64 1
   %660 = add nsw i32 %654, -8
   %661 = lshr i32 %660, 3
-  %662 = icmp ugt i32 %654, 15
+  %662 = icmp samesign ugt i32 %654, 15
   br i1 %662, label %.lr.ph.i.i.i138.i.i103.i.i, label %._crit_edge.i.i.i132.i.i98.i.i
 
 .lr.ph.i.i.i138.i.i103.i.i:                       ; preds = %656, %.lr.ph.i.i.i138.i.i103.i.i
@@ -65557,7 +65557,7 @@ _ZN5faiss12_GLOBAL__N_118RangeSearchResultsINS_4CMinIflEELb1EE3addElf.exit111.i.
   %927 = getelementptr inbounds i8, ptr %.sroa.0.018.i.i.i.i145.i.i, i64 1
   %928 = add nsw i32 %922, -8
   %929 = lshr i32 %928, 3
-  %930 = icmp ugt i32 %922, 15
+  %930 = icmp samesign ugt i32 %922, 15
   br i1 %930, label %.lr.ph.i.i.i.i.i207.i.i, label %._crit_edge.i.i.i.i.i202.i.i
 
 .lr.ph.i.i.i.i.i207.i.i:                          ; preds = %924, %.lr.ph.i.i.i.i.i207.i.i
@@ -65711,7 +65711,7 @@ _ZN5faiss12_GLOBAL__N_118RangeSearchResultsINS_4CMinIflEELb1EE3addElf.exit113.i.
   %1010 = getelementptr inbounds i8, ptr %.sroa.0.018.i.i120.i.i176.i.i, i64 1
   %1011 = add nsw i32 %1005, -8
   %1012 = lshr i32 %1011, 3
-  %1013 = icmp ugt i32 %1005, 15
+  %1013 = icmp samesign ugt i32 %1005, 15
   br i1 %1013, label %.lr.ph.i.i.i138.i.i194.i.i, label %._crit_edge.i.i.i132.i.i189.i.i
 
 .lr.ph.i.i.i138.i.i194.i.i:                       ; preds = %1007, %.lr.ph.i.i.i138.i.i194.i.i
@@ -66184,7 +66184,7 @@ _ZN5faiss12_GLOBAL__N_118RangeSearchResultsINS_4CMinIflEELb1EE3addElf.exit111.i.
   %1301 = getelementptr inbounds i8, ptr %.sroa.0.018.i.i.i.i234.i.i, i64 1
   %1302 = add nsw i32 %1296, -8
   %1303 = lshr i32 %1302, 3
-  %1304 = icmp ugt i32 %1296, 15
+  %1304 = icmp samesign ugt i32 %1296, 15
   br i1 %1304, label %.lr.ph.i.i.i.i.i296.i.i, label %._crit_edge.i.i.i.i.i291.i.i
 
 .lr.ph.i.i.i.i.i296.i.i:                          ; preds = %1298, %.lr.ph.i.i.i.i.i296.i.i
@@ -66343,7 +66343,7 @@ _ZN5faiss12_GLOBAL__N_118RangeSearchResultsINS_4CMinIflEELb1EE3addElf.exit113.i.
   %1389 = getelementptr inbounds i8, ptr %.sroa.0.018.i.i120.i.i265.i.i, i64 1
   %1390 = add nsw i32 %1384, -8
   %1391 = lshr i32 %1390, 3
-  %1392 = icmp ugt i32 %1384, 15
+  %1392 = icmp samesign ugt i32 %1384, 15
   br i1 %1392, label %.lr.ph.i.i.i138.i.i283.i.i, label %._crit_edge.i.i.i132.i.i278.i.i
 
 .lr.ph.i.i.i138.i.i283.i.i:                       ; preds = %1386, %.lr.ph.i.i.i138.i.i283.i.i
@@ -66845,7 +66845,7 @@ _ZN5faiss12_GLOBAL__N_118RangeSearchResultsINS_4CMinIflEELb1EE3addElf.exit111.i.
   %1709 = getelementptr inbounds i8, ptr %.sroa.0.018.i.i.i.i323.i.i, i64 1
   %1710 = add nsw i32 %1704, -8
   %1711 = lshr i32 %1710, 3
-  %1712 = icmp ugt i32 %1704, 15
+  %1712 = icmp samesign ugt i32 %1704, 15
   br i1 %1712, label %.lr.ph.i.i.i.i.i385.i.i, label %._crit_edge.i.i.i.i.i380.i.i
 
 .lr.ph.i.i.i.i.i385.i.i:                          ; preds = %1706, %.lr.ph.i.i.i.i.i385.i.i
@@ -67011,7 +67011,7 @@ _ZN5faiss12_GLOBAL__N_118RangeSearchResultsINS_4CMinIflEELb1EE3addElf.exit113.i.
   %1804 = getelementptr inbounds i8, ptr %.sroa.0.018.i.i120.i.i354.i.i, i64 1
   %1805 = add nsw i32 %1799, -8
   %1806 = lshr i32 %1805, 3
-  %1807 = icmp ugt i32 %1799, 15
+  %1807 = icmp samesign ugt i32 %1799, 15
   br i1 %1807, label %.lr.ph.i.i.i138.i.i372.i.i, label %._crit_edge.i.i.i132.i.i367.i.i
 
 .lr.ph.i.i.i138.i.i372.i.i:                       ; preds = %1801, %.lr.ph.i.i.i138.i.i372.i.i
@@ -67617,7 +67617,7 @@ _ZN5faiss12_GLOBAL__N_118RangeSearchResultsINS_4CMinIflEELb1EE3addElf.exit111.i.
   %2228 = getelementptr inbounds i8, ptr %.sroa.0.018.i.i.i.i412.i.i, i64 1
   %2229 = add nsw i32 %2223, -8
   %2230 = lshr i32 %2229, 3
-  %2231 = icmp ugt i32 %2223, 15
+  %2231 = icmp samesign ugt i32 %2223, 15
   br i1 %2231, label %.lr.ph.i.i.i.i.i474.i.i, label %._crit_edge.i.i.i.i.i469.i.i
 
 .lr.ph.i.i.i.i.i474.i.i:                          ; preds = %2225, %.lr.ph.i.i.i.i.i474.i.i
@@ -67807,7 +67807,7 @@ _ZN5faiss12_GLOBAL__N_118RangeSearchResultsINS_4CMinIflEELb1EE3addElf.exit113.i.
   %2347 = getelementptr inbounds i8, ptr %.sroa.0.018.i.i120.i.i443.i.i, i64 1
   %2348 = add nsw i32 %2342, -8
   %2349 = lshr i32 %2348, 3
-  %2350 = icmp ugt i32 %2342, 15
+  %2350 = icmp samesign ugt i32 %2342, 15
   br i1 %2350, label %.lr.ph.i.i.i138.i.i461.i.i, label %._crit_edge.i.i.i132.i.i456.i.i
 
 .lr.ph.i.i.i138.i.i461.i.i:                       ; preds = %2344, %.lr.ph.i.i.i138.i.i461.i.i
@@ -68226,7 +68226,7 @@ _ZN5faiss12_GLOBAL__N_118RangeSearchResultsINS_4CMinIflEELb1EE3addElf.exit111.i.
   %2580 = getelementptr inbounds i8, ptr %.sroa.0.018.i.i.i.i501.i.i, i64 1
   %2581 = add nsw i32 %2575, -8
   %2582 = lshr i32 %2581, 3
-  %2583 = icmp ugt i32 %2575, 15
+  %2583 = icmp samesign ugt i32 %2575, 15
   br i1 %2583, label %.lr.ph.i.i.i.i.i563.i.i, label %._crit_edge.i.i.i.i.i558.i.i
 
 .lr.ph.i.i.i.i.i563.i.i:                          ; preds = %2577, %.lr.ph.i.i.i.i.i563.i.i
@@ -68371,7 +68371,7 @@ _ZN5faiss12_GLOBAL__N_118RangeSearchResultsINS_4CMinIflEELb1EE3addElf.exit113.i.
   %2654 = getelementptr inbounds i8, ptr %.sroa.0.018.i.i120.i.i532.i.i, i64 1
   %2655 = add nsw i32 %2649, -8
   %2656 = lshr i32 %2655, 3
-  %2657 = icmp ugt i32 %2649, 15
+  %2657 = icmp samesign ugt i32 %2649, 15
   br i1 %2657, label %.lr.ph.i.i.i138.i.i550.i.i, label %._crit_edge.i.i.i132.i.i545.i.i
 
 .lr.ph.i.i.i138.i.i550.i.i:                       ; preds = %2651, %.lr.ph.i.i.i138.i.i550.i.i
@@ -68687,7 +68687,7 @@ _ZN5faiss12_GLOBAL__N_118RangeSearchResultsINS_4CMinIflEELb1EE3addElf.exit69.i: 
   %2806 = getelementptr inbounds i8, ptr %.sroa.0.018.i.i.i, i64 1
   %2807 = add nsw i32 %2801, -8
   %2808 = lshr i32 %2807, 3
-  %2809 = icmp ugt i32 %2801, 15
+  %2809 = icmp samesign ugt i32 %2801, 15
   br i1 %2809, label %.lr.ph.i.i.i.i20, label %._crit_edge.i.i.i.i
 
 .lr.ph.i.i.i.i20:                                 ; preds = %2803, %.lr.ph.i.i.i.i20
@@ -68828,7 +68828,7 @@ _ZN5faiss12_GLOBAL__N_118RangeSearchResultsINS_4CMinIflEELb1EE3addElf.exit71.i: 
   %2876 = getelementptr inbounds i8, ptr %.sroa.0.018.i.i78.i, i64 1
   %2877 = add nsw i32 %2871, -8
   %2878 = lshr i32 %2877, 3
-  %2879 = icmp ugt i32 %2871, 15
+  %2879 = icmp samesign ugt i32 %2871, 15
   br i1 %2879, label %.lr.ph.i.i.i96.i, label %._crit_edge.i.i.i90.i
 
 .lr.ph.i.i.i96.i:                                 ; preds = %2873, %.lr.ph.i.i.i96.i
@@ -68969,7 +68969,7 @@ _ZN5faiss12_GLOBAL__N_118RangeSearchResultsINS_4CMinIflEELb1EE3addElf.exit106.i:
   %2947 = getelementptr inbounds i8, ptr %.sroa.0.018.i.i113.i, i64 1
   %2948 = add nsw i32 %2942, -8
   %2949 = lshr i32 %2948, 3
-  %2950 = icmp ugt i32 %2942, 15
+  %2950 = icmp samesign ugt i32 %2942, 15
   br i1 %2950, label %.lr.ph.i.i.i131.i, label %._crit_edge.i.i.i125.i
 
 .lr.ph.i.i.i131.i:                                ; preds = %2944, %.lr.ph.i.i.i131.i
@@ -69133,7 +69133,7 @@ _ZNK5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE0ENS_16PQDecoderGeneri
   %3025 = getelementptr inbounds i8, ptr %.sroa.0.029.i, i64 1
   %3026 = add nsw i32 %3020, -8
   %3027 = lshr i32 %3026, 3
-  %3028 = icmp ugt i32 %3020, 15
+  %3028 = icmp samesign ugt i32 %3020, 15
   br i1 %3028, label %.lr.ph.i.preheader.i, label %._crit_edge.i.i
 
 .lr.ph.i.preheader.i:                             ; preds = %3022
@@ -70143,7 +70143,7 @@ _ZN5faiss12_GLOBAL__N_116KnnSearchResultsINS_4CMinIflEELb1EE3addElf.exit159.i.i:
   %410 = getelementptr inbounds i8, ptr %.sroa.0.018.i.i.i.i, i64 1
   %411 = add nsw i32 %405, -8
   %412 = lshr i32 %411, 3
-  %413 = icmp ugt i32 %405, 15
+  %413 = icmp samesign ugt i32 %405, 15
   br i1 %413, label %.lr.ph.i.i.i.i.i, label %._crit_edge.i.i.i.i.i
 
 .lr.ph.i.i.i.i.i:                                 ; preds = %407, %.lr.ph.i.i.i.i.i
@@ -70375,7 +70375,7 @@ _ZN5faiss12_GLOBAL__N_116KnnSearchResultsINS_4CMinIflEELb1EE3addElf.exit178.i.i:
   %528 = getelementptr inbounds i8, ptr %.sroa.0.018.i.i185.i.i, i64 1
   %529 = add nsw i32 %523, -8
   %530 = lshr i32 %529, 3
-  %531 = icmp ugt i32 %523, 15
+  %531 = icmp samesign ugt i32 %523, 15
   br i1 %531, label %.lr.ph.i.i.i203.i.i, label %._crit_edge.i.i.i197.i.i
 
 .lr.ph.i.i.i203.i.i:                              ; preds = %525, %.lr.ph.i.i.i203.i.i
@@ -71216,7 +71216,7 @@ _ZN5faiss12_GLOBAL__N_116KnnSearchResultsINS_4CMinIflEELb1EE3addElf.exit159.i.i1
   %978 = getelementptr inbounds i8, ptr %.sroa.0.018.i.i.i.i53, i64 1
   %979 = add nsw i32 %973, -8
   %980 = lshr i32 %979, 3
-  %981 = icmp ugt i32 %973, 15
+  %981 = icmp samesign ugt i32 %973, 15
   br i1 %981, label %.lr.ph.i.i.i.i.i149, label %._crit_edge.i.i.i.i.i144
 
 .lr.ph.i.i.i.i.i149:                              ; preds = %975, %.lr.ph.i.i.i.i.i149
@@ -71449,7 +71449,7 @@ _ZN5faiss12_GLOBAL__N_116KnnSearchResultsINS_4CMinIflEELb1EE3addElf.exit178.i.i6
   %1097 = getelementptr inbounds i8, ptr %.sroa.0.018.i.i185.i.i90, i64 1
   %1098 = add nsw i32 %1092, -8
   %1099 = lshr i32 %1098, 3
-  %1100 = icmp ugt i32 %1092, 15
+  %1100 = icmp samesign ugt i32 %1092, 15
   br i1 %1100, label %.lr.ph.i.i.i203.i.i122, label %._crit_edge.i.i.i197.i.i117
 
 .lr.ph.i.i.i203.i.i122:                           ; preds = %1094, %.lr.ph.i.i.i203.i.i122
@@ -72316,7 +72316,7 @@ _ZN5faiss12_GLOBAL__N_116KnnSearchResultsINS_4CMinIflEELb1EE3addElf.exit159.i.i3
   %1573 = getelementptr inbounds i8, ptr %.sroa.0.018.i.i.i.i241, i64 1
   %1574 = add nsw i32 %1568, -8
   %1575 = lshr i32 %1574, 3
-  %1576 = icmp ugt i32 %1568, 15
+  %1576 = icmp samesign ugt i32 %1568, 15
   br i1 %1576, label %.lr.ph.i.i.i.i.i333, label %._crit_edge.i.i.i.i.i328
 
 .lr.ph.i.i.i.i.i333:                              ; preds = %1570, %.lr.ph.i.i.i.i.i333
@@ -72555,7 +72555,7 @@ _ZN5faiss12_GLOBAL__N_116KnnSearchResultsINS_4CMinIflEELb1EE3addElf.exit178.i.i2
   %1698 = getelementptr inbounds i8, ptr %.sroa.0.018.i.i185.i.i274, i64 1
   %1699 = add nsw i32 %1693, -8
   %1700 = lshr i32 %1699, 3
-  %1701 = icmp ugt i32 %1693, 15
+  %1701 = icmp samesign ugt i32 %1693, 15
   br i1 %1701, label %.lr.ph.i.i.i203.i.i306, label %._crit_edge.i.i.i197.i.i301
 
 .lr.ph.i.i.i203.i.i306:                           ; preds = %1695, %.lr.ph.i.i.i203.i.i306
@@ -73445,7 +73445,7 @@ _ZN5faiss12_GLOBAL__N_116KnnSearchResultsINS_4CMinIflEELb1EE3addElf.exit159.i.i5
   %2197 = getelementptr inbounds i8, ptr %.sroa.0.018.i.i.i.i421, i64 1
   %2198 = add nsw i32 %2192, -8
   %2199 = lshr i32 %2198, 3
-  %2200 = icmp ugt i32 %2192, 15
+  %2200 = icmp samesign ugt i32 %2192, 15
   br i1 %2200, label %.lr.ph.i.i.i.i.i513, label %._crit_edge.i.i.i.i.i508
 
 .lr.ph.i.i.i.i.i513:                              ; preds = %2194, %.lr.ph.i.i.i.i.i513
@@ -73689,7 +73689,7 @@ _ZN5faiss12_GLOBAL__N_116KnnSearchResultsINS_4CMinIflEELb1EE3addElf.exit178.i.i4
   %2327 = getelementptr inbounds i8, ptr %.sroa.0.018.i.i185.i.i454, i64 1
   %2328 = add nsw i32 %2322, -8
   %2329 = lshr i32 %2328, 3
-  %2330 = icmp ugt i32 %2322, 15
+  %2330 = icmp samesign ugt i32 %2322, 15
   br i1 %2330, label %.lr.ph.i.i.i203.i.i486, label %._crit_edge.i.i.i197.i.i481
 
 .lr.ph.i.i.i203.i.i486:                           ; preds = %2324, %.lr.ph.i.i.i203.i.i486
@@ -74608,7 +74608,7 @@ _ZN5faiss12_GLOBAL__N_116KnnSearchResultsINS_4CMinIflEELb1EE3addElf.exit159.i.i7
   %2855 = getelementptr inbounds i8, ptr %.sroa.0.018.i.i.i.i601, i64 1
   %2856 = add nsw i32 %2850, -8
   %2857 = lshr i32 %2856, 3
-  %2858 = icmp ugt i32 %2850, 15
+  %2858 = icmp samesign ugt i32 %2850, 15
   br i1 %2858, label %.lr.ph.i.i.i.i.i693, label %._crit_edge.i.i.i.i.i688
 
 .lr.ph.i.i.i.i.i693:                              ; preds = %2852, %.lr.ph.i.i.i.i.i693
@@ -74859,7 +74859,7 @@ _ZN5faiss12_GLOBAL__N_116KnnSearchResultsINS_4CMinIflEELb1EE3addElf.exit178.i.i6
   %2992 = getelementptr inbounds i8, ptr %.sroa.0.018.i.i185.i.i634, i64 1
   %2993 = add nsw i32 %2987, -8
   %2994 = lshr i32 %2993, 3
-  %2995 = icmp ugt i32 %2987, 15
+  %2995 = icmp samesign ugt i32 %2987, 15
   br i1 %2995, label %.lr.ph.i.i.i203.i.i666, label %._crit_edge.i.i.i197.i.i661
 
 .lr.ph.i.i.i203.i.i666:                           ; preds = %2989, %.lr.ph.i.i.i203.i.i666
@@ -75882,7 +75882,7 @@ _ZN5faiss12_GLOBAL__N_116KnnSearchResultsINS_4CMinIflEELb1EE3addElf.exit159.i.i8
   %3624 = getelementptr inbounds i8, ptr %.sroa.0.018.i.i.i.i781, i64 1
   %3625 = add nsw i32 %3619, -8
   %3626 = lshr i32 %3625, 3
-  %3627 = icmp ugt i32 %3619, 15
+  %3627 = icmp samesign ugt i32 %3619, 15
   br i1 %3627, label %.lr.ph.i.i.i.i.i873, label %._crit_edge.i.i.i.i.i868
 
 .lr.ph.i.i.i.i.i873:                              ; preds = %3621, %.lr.ph.i.i.i.i.i873
@@ -76157,7 +76157,7 @@ _ZN5faiss12_GLOBAL__N_116KnnSearchResultsINS_4CMinIflEELb1EE3addElf.exit178.i.i7
   %3785 = getelementptr inbounds i8, ptr %.sroa.0.018.i.i185.i.i814, i64 1
   %3786 = add nsw i32 %3780, -8
   %3787 = lshr i32 %3786, 3
-  %3788 = icmp ugt i32 %3780, 15
+  %3788 = icmp samesign ugt i32 %3780, 15
   br i1 %3788, label %.lr.ph.i.i.i203.i.i846, label %._crit_edge.i.i.i197.i.i841
 
 .lr.ph.i.i.i203.i.i846:                           ; preds = %3782, %.lr.ph.i.i.i203.i.i846
@@ -76993,7 +76993,7 @@ _ZN5faiss12_GLOBAL__N_116KnnSearchResultsINS_4CMinIflEELb1EE3addElf.exit159.i.i1
   %4226 = getelementptr inbounds i8, ptr %.sroa.0.018.i.i.i.i960, i64 1
   %4227 = add nsw i32 %4221, -8
   %4228 = lshr i32 %4227, 3
-  %4229 = icmp ugt i32 %4221, 15
+  %4229 = icmp samesign ugt i32 %4221, 15
   br i1 %4229, label %.lr.ph.i.i.i.i.i1052, label %._crit_edge.i.i.i.i.i1047
 
 .lr.ph.i.i.i.i.i1052:                             ; preds = %4223, %.lr.ph.i.i.i.i.i1052
@@ -77223,7 +77223,7 @@ _ZN5faiss12_GLOBAL__N_116KnnSearchResultsINS_4CMinIflEELb1EE3addElf.exit178.i.i9
   %4342 = getelementptr inbounds i8, ptr %.sroa.0.018.i.i185.i.i993, i64 1
   %4343 = add nsw i32 %4337, -8
   %4344 = lshr i32 %4343, 3
-  %4345 = icmp ugt i32 %4337, 15
+  %4345 = icmp samesign ugt i32 %4337, 15
   br i1 %4345, label %.lr.ph.i.i.i203.i.i1025, label %._crit_edge.i.i.i197.i.i1020
 
 .lr.ph.i.i.i203.i.i1025:                          ; preds = %4339, %.lr.ph.i.i.i203.i.i1025
@@ -77460,7 +77460,7 @@ define linkonce_odr void @_ZN5faiss27distance_four_codes_genericINS_16PQDecoderG
   %31 = getelementptr inbounds i8, ptr %.sroa.085.0106, i64 1
   %32 = add nsw i32 %26, -8
   %33 = lshr i32 %32, 3
-  %34 = icmp ugt i32 %26, 15
+  %34 = icmp samesign ugt i32 %26, 15
   br i1 %34, label %.lr.ph.i.preheader, label %._crit_edge.i
 
 .lr.ph.i.preheader:                               ; preds = %28
@@ -77542,7 +77542,7 @@ _ZN5faiss16PQDecoderGeneric6decodeEv.exit:        ; preds = %._crit_edge.i, %47,
   %71 = getelementptr inbounds i8, ptr %.sroa.079.0103, i64 1
   %72 = add nsw i32 %66, -8
   %73 = lshr i32 %72, 3
-  %74 = icmp ugt i32 %66, 15
+  %74 = icmp samesign ugt i32 %66, 15
   br i1 %74, label %.lr.ph.i38.preheader, label %._crit_edge.i34
 
 .lr.ph.i38.preheader:                             ; preds = %68
@@ -77624,7 +77624,7 @@ _ZN5faiss16PQDecoderGeneric6decodeEv.exit43:      ; preds = %._crit_edge.i34, %8
   %111 = getelementptr inbounds i8, ptr %.sroa.073.0108, i64 1
   %112 = add nsw i32 %106, -8
   %113 = lshr i32 %112, 3
-  %114 = icmp ugt i32 %106, 15
+  %114 = icmp samesign ugt i32 %106, 15
   br i1 %114, label %.lr.ph.i52.preheader, label %._crit_edge.i48
 
 .lr.ph.i52.preheader:                             ; preds = %108
@@ -77706,7 +77706,7 @@ _ZN5faiss16PQDecoderGeneric6decodeEv.exit57:      ; preds = %._crit_edge.i48, %1
   %151 = getelementptr inbounds i8, ptr %.sroa.0.0113, i64 1
   %152 = add nsw i32 %146, -8
   %153 = lshr i32 %152, 3
-  %154 = icmp ugt i32 %146, 15
+  %154 = icmp samesign ugt i32 %146, 15
   br i1 %154, label %.lr.ph.i66.preheader, label %._crit_edge.i62
 
 .lr.ph.i66.preheader:                             ; preds = %148
@@ -77870,7 +77870,7 @@ define internal noundef float @_ZNK5faiss12_GLOBAL__N_112IVFPQScannerILNS_10Metr
   %32 = getelementptr inbounds i8, ptr %.sroa.0.018.i.i, i64 1
   %33 = add nsw i32 %27, -8
   %34 = lshr i32 %33, 3
-  %35 = icmp ugt i32 %27, 15
+  %35 = icmp samesign ugt i32 %27, 15
   br i1 %35, label %.lr.ph.i.i.i, label %._crit_edge.i.i.i
 
 .lr.ph.i.i.i:                                     ; preds = %29, %.lr.ph.i.i.i
@@ -78560,7 +78560,7 @@ _ZN5faiss12_GLOBAL__N_116KnnSearchResultsINS_4CMaxIflEELb1EE3addElf.exit117.i: ;
   %346 = getelementptr inbounds i8, ptr %.sroa.0.018.i.i.i, i64 1
   %347 = add nsw i32 %341, -8
   %348 = lshr i32 %347, 3
-  %349 = icmp ugt i32 %341, 15
+  %349 = icmp samesign ugt i32 %341, 15
   br i1 %349, label %.lr.ph.i.i.i.i, label %._crit_edge.i.i.i.i
 
 .lr.ph.i.i.i.i:                                   ; preds = %343, %.lr.ph.i.i.i.i
@@ -78792,7 +78792,7 @@ _ZN5faiss12_GLOBAL__N_116KnnSearchResultsINS_4CMaxIflEELb1EE3addElf.exit136.i: ;
   %464 = getelementptr inbounds i8, ptr %.sroa.0.018.i.i143.i, i64 1
   %465 = add nsw i32 %459, -8
   %466 = lshr i32 %465, 3
-  %467 = icmp ugt i32 %459, 15
+  %467 = icmp samesign ugt i32 %459, 15
   br i1 %467, label %.lr.ph.i.i.i161.i, label %._crit_edge.i.i.i155.i
 
 .lr.ph.i.i.i161.i:                                ; preds = %461, %.lr.ph.i.i.i161.i
@@ -79023,7 +79023,7 @@ _ZN5faiss12_GLOBAL__N_116KnnSearchResultsINS_4CMaxIflEELb1EE3addElf.exit187.i: ;
   %582 = getelementptr inbounds i8, ptr %.sroa.0.018.i.i194.i, i64 1
   %583 = add nsw i32 %577, -8
   %584 = lshr i32 %583, 3
-  %585 = icmp ugt i32 %577, 15
+  %585 = icmp samesign ugt i32 %577, 15
   br i1 %585, label %.lr.ph.i.i.i212.i, label %._crit_edge.i.i.i206.i
 
 .lr.ph.i.i.i212.i:                                ; preds = %579, %.lr.ph.i.i.i212.i
@@ -79281,7 +79281,7 @@ _ZNK5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE1ENS_16PQDecoderGeneri
   %711 = getelementptr inbounds i8, ptr %.sroa.0.029.i, i64 1
   %712 = add nsw i32 %706, -8
   %713 = lshr i32 %712, 3
-  %714 = icmp ugt i32 %706, 15
+  %714 = icmp samesign ugt i32 %706, 15
   br i1 %714, label %.lr.ph.i.preheader.i, label %._crit_edge.i.i
 
 .lr.ph.i.preheader.i:                             ; preds = %708
@@ -80048,7 +80048,7 @@ _ZN5faiss12_GLOBAL__N_118RangeSearchResultsINS_4CMaxIflEELb1EE3addElf.exit111.i.
   %264 = getelementptr inbounds i8, ptr %.sroa.0.018.i.i.i.i.i.i, i64 1
   %265 = add nsw i32 %259, -8
   %266 = lshr i32 %265, 3
-  %267 = icmp ugt i32 %259, 15
+  %267 = icmp samesign ugt i32 %259, 15
   br i1 %267, label %.lr.ph.i.i.i.i.i.i.i, label %._crit_edge.i.i.i.i.i.i.i
 
 .lr.ph.i.i.i.i.i.i.i:                             ; preds = %261, %.lr.ph.i.i.i.i.i.i.i
@@ -80195,7 +80195,7 @@ _ZN5faiss12_GLOBAL__N_118RangeSearchResultsINS_4CMaxIflEELb1EE3addElf.exit113.i.
   %340 = getelementptr inbounds i8, ptr %.sroa.0.018.i.i120.i.i.i.i, i64 1
   %341 = add nsw i32 %335, -8
   %342 = lshr i32 %341, 3
-  %343 = icmp ugt i32 %335, 15
+  %343 = icmp samesign ugt i32 %335, 15
   br i1 %343, label %.lr.ph.i.i.i138.i.i.i.i, label %._crit_edge.i.i.i132.i.i.i.i
 
 .lr.ph.i.i.i138.i.i.i.i:                          ; preds = %337, %.lr.ph.i.i.i138.i.i.i.i
@@ -80619,7 +80619,7 @@ _ZN5faiss12_GLOBAL__N_118RangeSearchResultsINS_4CMaxIflEELb1EE3addElf.exit111.i.
   %582 = getelementptr inbounds i8, ptr %.sroa.0.018.i.i.i.i50.i.i, i64 1
   %583 = add nsw i32 %577, -8
   %584 = lshr i32 %583, 3
-  %585 = icmp ugt i32 %577, 15
+  %585 = icmp samesign ugt i32 %577, 15
   br i1 %585, label %.lr.ph.i.i.i.i.i116.i.i, label %._crit_edge.i.i.i.i.i111.i.i
 
 .lr.ph.i.i.i.i.i116.i.i:                          ; preds = %579, %.lr.ph.i.i.i.i.i116.i.i
@@ -80767,7 +80767,7 @@ _ZN5faiss12_GLOBAL__N_118RangeSearchResultsINS_4CMaxIflEELb1EE3addElf.exit113.i.
   %659 = getelementptr inbounds i8, ptr %.sroa.0.018.i.i120.i.i85.i.i, i64 1
   %660 = add nsw i32 %654, -8
   %661 = lshr i32 %660, 3
-  %662 = icmp ugt i32 %654, 15
+  %662 = icmp samesign ugt i32 %654, 15
   br i1 %662, label %.lr.ph.i.i.i138.i.i103.i.i, label %._crit_edge.i.i.i132.i.i98.i.i
 
 .lr.ph.i.i.i138.i.i103.i.i:                       ; preds = %656, %.lr.ph.i.i.i138.i.i103.i.i
@@ -81217,7 +81217,7 @@ _ZN5faiss12_GLOBAL__N_118RangeSearchResultsINS_4CMaxIflEELb1EE3addElf.exit111.i.
   %927 = getelementptr inbounds i8, ptr %.sroa.0.018.i.i.i.i145.i.i, i64 1
   %928 = add nsw i32 %922, -8
   %929 = lshr i32 %928, 3
-  %930 = icmp ugt i32 %922, 15
+  %930 = icmp samesign ugt i32 %922, 15
   br i1 %930, label %.lr.ph.i.i.i.i.i207.i.i, label %._crit_edge.i.i.i.i.i202.i.i
 
 .lr.ph.i.i.i.i.i207.i.i:                          ; preds = %924, %.lr.ph.i.i.i.i.i207.i.i
@@ -81371,7 +81371,7 @@ _ZN5faiss12_GLOBAL__N_118RangeSearchResultsINS_4CMaxIflEELb1EE3addElf.exit113.i.
   %1010 = getelementptr inbounds i8, ptr %.sroa.0.018.i.i120.i.i176.i.i, i64 1
   %1011 = add nsw i32 %1005, -8
   %1012 = lshr i32 %1011, 3
-  %1013 = icmp ugt i32 %1005, 15
+  %1013 = icmp samesign ugt i32 %1005, 15
   br i1 %1013, label %.lr.ph.i.i.i138.i.i194.i.i, label %._crit_edge.i.i.i132.i.i189.i.i
 
 .lr.ph.i.i.i138.i.i194.i.i:                       ; preds = %1007, %.lr.ph.i.i.i138.i.i194.i.i
@@ -81844,7 +81844,7 @@ _ZN5faiss12_GLOBAL__N_118RangeSearchResultsINS_4CMaxIflEELb1EE3addElf.exit111.i.
   %1301 = getelementptr inbounds i8, ptr %.sroa.0.018.i.i.i.i234.i.i, i64 1
   %1302 = add nsw i32 %1296, -8
   %1303 = lshr i32 %1302, 3
-  %1304 = icmp ugt i32 %1296, 15
+  %1304 = icmp samesign ugt i32 %1296, 15
   br i1 %1304, label %.lr.ph.i.i.i.i.i296.i.i, label %._crit_edge.i.i.i.i.i291.i.i
 
 .lr.ph.i.i.i.i.i296.i.i:                          ; preds = %1298, %.lr.ph.i.i.i.i.i296.i.i
@@ -82003,7 +82003,7 @@ _ZN5faiss12_GLOBAL__N_118RangeSearchResultsINS_4CMaxIflEELb1EE3addElf.exit113.i.
   %1389 = getelementptr inbounds i8, ptr %.sroa.0.018.i.i120.i.i265.i.i, i64 1
   %1390 = add nsw i32 %1384, -8
   %1391 = lshr i32 %1390, 3
-  %1392 = icmp ugt i32 %1384, 15
+  %1392 = icmp samesign ugt i32 %1384, 15
   br i1 %1392, label %.lr.ph.i.i.i138.i.i283.i.i, label %._crit_edge.i.i.i132.i.i278.i.i
 
 .lr.ph.i.i.i138.i.i283.i.i:                       ; preds = %1386, %.lr.ph.i.i.i138.i.i283.i.i
@@ -82505,7 +82505,7 @@ _ZN5faiss12_GLOBAL__N_118RangeSearchResultsINS_4CMaxIflEELb1EE3addElf.exit111.i.
   %1709 = getelementptr inbounds i8, ptr %.sroa.0.018.i.i.i.i323.i.i, i64 1
   %1710 = add nsw i32 %1704, -8
   %1711 = lshr i32 %1710, 3
-  %1712 = icmp ugt i32 %1704, 15
+  %1712 = icmp samesign ugt i32 %1704, 15
   br i1 %1712, label %.lr.ph.i.i.i.i.i385.i.i, label %._crit_edge.i.i.i.i.i380.i.i
 
 .lr.ph.i.i.i.i.i385.i.i:                          ; preds = %1706, %.lr.ph.i.i.i.i.i385.i.i
@@ -82671,7 +82671,7 @@ _ZN5faiss12_GLOBAL__N_118RangeSearchResultsINS_4CMaxIflEELb1EE3addElf.exit113.i.
   %1804 = getelementptr inbounds i8, ptr %.sroa.0.018.i.i120.i.i354.i.i, i64 1
   %1805 = add nsw i32 %1799, -8
   %1806 = lshr i32 %1805, 3
-  %1807 = icmp ugt i32 %1799, 15
+  %1807 = icmp samesign ugt i32 %1799, 15
   br i1 %1807, label %.lr.ph.i.i.i138.i.i372.i.i, label %._crit_edge.i.i.i132.i.i367.i.i
 
 .lr.ph.i.i.i138.i.i372.i.i:                       ; preds = %1801, %.lr.ph.i.i.i138.i.i372.i.i
@@ -83277,7 +83277,7 @@ _ZN5faiss12_GLOBAL__N_118RangeSearchResultsINS_4CMaxIflEELb1EE3addElf.exit111.i.
   %2228 = getelementptr inbounds i8, ptr %.sroa.0.018.i.i.i.i412.i.i, i64 1
   %2229 = add nsw i32 %2223, -8
   %2230 = lshr i32 %2229, 3
-  %2231 = icmp ugt i32 %2223, 15
+  %2231 = icmp samesign ugt i32 %2223, 15
   br i1 %2231, label %.lr.ph.i.i.i.i.i474.i.i, label %._crit_edge.i.i.i.i.i469.i.i
 
 .lr.ph.i.i.i.i.i474.i.i:                          ; preds = %2225, %.lr.ph.i.i.i.i.i474.i.i
@@ -83467,7 +83467,7 @@ _ZN5faiss12_GLOBAL__N_118RangeSearchResultsINS_4CMaxIflEELb1EE3addElf.exit113.i.
   %2347 = getelementptr inbounds i8, ptr %.sroa.0.018.i.i120.i.i443.i.i, i64 1
   %2348 = add nsw i32 %2342, -8
   %2349 = lshr i32 %2348, 3
-  %2350 = icmp ugt i32 %2342, 15
+  %2350 = icmp samesign ugt i32 %2342, 15
   br i1 %2350, label %.lr.ph.i.i.i138.i.i461.i.i, label %._crit_edge.i.i.i132.i.i456.i.i
 
 .lr.ph.i.i.i138.i.i461.i.i:                       ; preds = %2344, %.lr.ph.i.i.i138.i.i461.i.i
@@ -83886,7 +83886,7 @@ _ZN5faiss12_GLOBAL__N_118RangeSearchResultsINS_4CMaxIflEELb1EE3addElf.exit111.i.
   %2580 = getelementptr inbounds i8, ptr %.sroa.0.018.i.i.i.i501.i.i, i64 1
   %2581 = add nsw i32 %2575, -8
   %2582 = lshr i32 %2581, 3
-  %2583 = icmp ugt i32 %2575, 15
+  %2583 = icmp samesign ugt i32 %2575, 15
   br i1 %2583, label %.lr.ph.i.i.i.i.i563.i.i, label %._crit_edge.i.i.i.i.i558.i.i
 
 .lr.ph.i.i.i.i.i563.i.i:                          ; preds = %2577, %.lr.ph.i.i.i.i.i563.i.i
@@ -84031,7 +84031,7 @@ _ZN5faiss12_GLOBAL__N_118RangeSearchResultsINS_4CMaxIflEELb1EE3addElf.exit113.i.
   %2654 = getelementptr inbounds i8, ptr %.sroa.0.018.i.i120.i.i532.i.i, i64 1
   %2655 = add nsw i32 %2649, -8
   %2656 = lshr i32 %2655, 3
-  %2657 = icmp ugt i32 %2649, 15
+  %2657 = icmp samesign ugt i32 %2649, 15
   br i1 %2657, label %.lr.ph.i.i.i138.i.i550.i.i, label %._crit_edge.i.i.i132.i.i545.i.i
 
 .lr.ph.i.i.i138.i.i550.i.i:                       ; preds = %2651, %.lr.ph.i.i.i138.i.i550.i.i
@@ -84347,7 +84347,7 @@ _ZN5faiss12_GLOBAL__N_118RangeSearchResultsINS_4CMaxIflEELb1EE3addElf.exit69.i: 
   %2806 = getelementptr inbounds i8, ptr %.sroa.0.018.i.i.i, i64 1
   %2807 = add nsw i32 %2801, -8
   %2808 = lshr i32 %2807, 3
-  %2809 = icmp ugt i32 %2801, 15
+  %2809 = icmp samesign ugt i32 %2801, 15
   br i1 %2809, label %.lr.ph.i.i.i.i20, label %._crit_edge.i.i.i.i
 
 .lr.ph.i.i.i.i20:                                 ; preds = %2803, %.lr.ph.i.i.i.i20
@@ -84488,7 +84488,7 @@ _ZN5faiss12_GLOBAL__N_118RangeSearchResultsINS_4CMaxIflEELb1EE3addElf.exit71.i: 
   %2876 = getelementptr inbounds i8, ptr %.sroa.0.018.i.i78.i, i64 1
   %2877 = add nsw i32 %2871, -8
   %2878 = lshr i32 %2877, 3
-  %2879 = icmp ugt i32 %2871, 15
+  %2879 = icmp samesign ugt i32 %2871, 15
   br i1 %2879, label %.lr.ph.i.i.i96.i, label %._crit_edge.i.i.i90.i
 
 .lr.ph.i.i.i96.i:                                 ; preds = %2873, %.lr.ph.i.i.i96.i
@@ -84629,7 +84629,7 @@ _ZN5faiss12_GLOBAL__N_118RangeSearchResultsINS_4CMaxIflEELb1EE3addElf.exit106.i:
   %2947 = getelementptr inbounds i8, ptr %.sroa.0.018.i.i113.i, i64 1
   %2948 = add nsw i32 %2942, -8
   %2949 = lshr i32 %2948, 3
-  %2950 = icmp ugt i32 %2942, 15
+  %2950 = icmp samesign ugt i32 %2942, 15
   br i1 %2950, label %.lr.ph.i.i.i131.i, label %._crit_edge.i.i.i125.i
 
 .lr.ph.i.i.i131.i:                                ; preds = %2944, %.lr.ph.i.i.i131.i
@@ -84793,7 +84793,7 @@ _ZNK5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE1ENS_16PQDecoderGeneri
   %3025 = getelementptr inbounds i8, ptr %.sroa.0.029.i, i64 1
   %3026 = add nsw i32 %3020, -8
   %3027 = lshr i32 %3026, 3
-  %3028 = icmp ugt i32 %3020, 15
+  %3028 = icmp samesign ugt i32 %3020, 15
   br i1 %3028, label %.lr.ph.i.preheader.i, label %._crit_edge.i.i
 
 .lr.ph.i.preheader.i:                             ; preds = %3022
@@ -85800,7 +85800,7 @@ _ZN5faiss12_GLOBAL__N_116KnnSearchResultsINS_4CMaxIflEELb1EE3addElf.exit159.i.i:
   %410 = getelementptr inbounds i8, ptr %.sroa.0.018.i.i.i.i, i64 1
   %411 = add nsw i32 %405, -8
   %412 = lshr i32 %411, 3
-  %413 = icmp ugt i32 %405, 15
+  %413 = icmp samesign ugt i32 %405, 15
   br i1 %413, label %.lr.ph.i.i.i.i.i, label %._crit_edge.i.i.i.i.i
 
 .lr.ph.i.i.i.i.i:                                 ; preds = %407, %.lr.ph.i.i.i.i.i
@@ -86032,7 +86032,7 @@ _ZN5faiss12_GLOBAL__N_116KnnSearchResultsINS_4CMaxIflEELb1EE3addElf.exit178.i.i:
   %528 = getelementptr inbounds i8, ptr %.sroa.0.018.i.i185.i.i, i64 1
   %529 = add nsw i32 %523, -8
   %530 = lshr i32 %529, 3
-  %531 = icmp ugt i32 %523, 15
+  %531 = icmp samesign ugt i32 %523, 15
   br i1 %531, label %.lr.ph.i.i.i203.i.i, label %._crit_edge.i.i.i197.i.i
 
 .lr.ph.i.i.i203.i.i:                              ; preds = %525, %.lr.ph.i.i.i203.i.i
@@ -86873,7 +86873,7 @@ _ZN5faiss12_GLOBAL__N_116KnnSearchResultsINS_4CMaxIflEELb1EE3addElf.exit159.i.i1
   %978 = getelementptr inbounds i8, ptr %.sroa.0.018.i.i.i.i53, i64 1
   %979 = add nsw i32 %973, -8
   %980 = lshr i32 %979, 3
-  %981 = icmp ugt i32 %973, 15
+  %981 = icmp samesign ugt i32 %973, 15
   br i1 %981, label %.lr.ph.i.i.i.i.i149, label %._crit_edge.i.i.i.i.i144
 
 .lr.ph.i.i.i.i.i149:                              ; preds = %975, %.lr.ph.i.i.i.i.i149
@@ -87106,7 +87106,7 @@ _ZN5faiss12_GLOBAL__N_116KnnSearchResultsINS_4CMaxIflEELb1EE3addElf.exit178.i.i6
   %1097 = getelementptr inbounds i8, ptr %.sroa.0.018.i.i185.i.i90, i64 1
   %1098 = add nsw i32 %1092, -8
   %1099 = lshr i32 %1098, 3
-  %1100 = icmp ugt i32 %1092, 15
+  %1100 = icmp samesign ugt i32 %1092, 15
   br i1 %1100, label %.lr.ph.i.i.i203.i.i122, label %._crit_edge.i.i.i197.i.i117
 
 .lr.ph.i.i.i203.i.i122:                           ; preds = %1094, %.lr.ph.i.i.i203.i.i122
@@ -87973,7 +87973,7 @@ _ZN5faiss12_GLOBAL__N_116KnnSearchResultsINS_4CMaxIflEELb1EE3addElf.exit159.i.i3
   %1573 = getelementptr inbounds i8, ptr %.sroa.0.018.i.i.i.i241, i64 1
   %1574 = add nsw i32 %1568, -8
   %1575 = lshr i32 %1574, 3
-  %1576 = icmp ugt i32 %1568, 15
+  %1576 = icmp samesign ugt i32 %1568, 15
   br i1 %1576, label %.lr.ph.i.i.i.i.i333, label %._crit_edge.i.i.i.i.i328
 
 .lr.ph.i.i.i.i.i333:                              ; preds = %1570, %.lr.ph.i.i.i.i.i333
@@ -88212,7 +88212,7 @@ _ZN5faiss12_GLOBAL__N_116KnnSearchResultsINS_4CMaxIflEELb1EE3addElf.exit178.i.i2
   %1698 = getelementptr inbounds i8, ptr %.sroa.0.018.i.i185.i.i274, i64 1
   %1699 = add nsw i32 %1693, -8
   %1700 = lshr i32 %1699, 3
-  %1701 = icmp ugt i32 %1693, 15
+  %1701 = icmp samesign ugt i32 %1693, 15
   br i1 %1701, label %.lr.ph.i.i.i203.i.i306, label %._crit_edge.i.i.i197.i.i301
 
 .lr.ph.i.i.i203.i.i306:                           ; preds = %1695, %.lr.ph.i.i.i203.i.i306
@@ -89102,7 +89102,7 @@ _ZN5faiss12_GLOBAL__N_116KnnSearchResultsINS_4CMaxIflEELb1EE3addElf.exit159.i.i5
   %2197 = getelementptr inbounds i8, ptr %.sroa.0.018.i.i.i.i421, i64 1
   %2198 = add nsw i32 %2192, -8
   %2199 = lshr i32 %2198, 3
-  %2200 = icmp ugt i32 %2192, 15
+  %2200 = icmp samesign ugt i32 %2192, 15
   br i1 %2200, label %.lr.ph.i.i.i.i.i513, label %._crit_edge.i.i.i.i.i508
 
 .lr.ph.i.i.i.i.i513:                              ; preds = %2194, %.lr.ph.i.i.i.i.i513
@@ -89346,7 +89346,7 @@ _ZN5faiss12_GLOBAL__N_116KnnSearchResultsINS_4CMaxIflEELb1EE3addElf.exit178.i.i4
   %2327 = getelementptr inbounds i8, ptr %.sroa.0.018.i.i185.i.i454, i64 1
   %2328 = add nsw i32 %2322, -8
   %2329 = lshr i32 %2328, 3
-  %2330 = icmp ugt i32 %2322, 15
+  %2330 = icmp samesign ugt i32 %2322, 15
   br i1 %2330, label %.lr.ph.i.i.i203.i.i486, label %._crit_edge.i.i.i197.i.i481
 
 .lr.ph.i.i.i203.i.i486:                           ; preds = %2324, %.lr.ph.i.i.i203.i.i486
@@ -90265,7 +90265,7 @@ _ZN5faiss12_GLOBAL__N_116KnnSearchResultsINS_4CMaxIflEELb1EE3addElf.exit159.i.i7
   %2855 = getelementptr inbounds i8, ptr %.sroa.0.018.i.i.i.i601, i64 1
   %2856 = add nsw i32 %2850, -8
   %2857 = lshr i32 %2856, 3
-  %2858 = icmp ugt i32 %2850, 15
+  %2858 = icmp samesign ugt i32 %2850, 15
   br i1 %2858, label %.lr.ph.i.i.i.i.i693, label %._crit_edge.i.i.i.i.i688
 
 .lr.ph.i.i.i.i.i693:                              ; preds = %2852, %.lr.ph.i.i.i.i.i693
@@ -90516,7 +90516,7 @@ _ZN5faiss12_GLOBAL__N_116KnnSearchResultsINS_4CMaxIflEELb1EE3addElf.exit178.i.i6
   %2992 = getelementptr inbounds i8, ptr %.sroa.0.018.i.i185.i.i634, i64 1
   %2993 = add nsw i32 %2987, -8
   %2994 = lshr i32 %2993, 3
-  %2995 = icmp ugt i32 %2987, 15
+  %2995 = icmp samesign ugt i32 %2987, 15
   br i1 %2995, label %.lr.ph.i.i.i203.i.i666, label %._crit_edge.i.i.i197.i.i661
 
 .lr.ph.i.i.i203.i.i666:                           ; preds = %2989, %.lr.ph.i.i.i203.i.i666
@@ -91539,7 +91539,7 @@ _ZN5faiss12_GLOBAL__N_116KnnSearchResultsINS_4CMaxIflEELb1EE3addElf.exit159.i.i8
   %3624 = getelementptr inbounds i8, ptr %.sroa.0.018.i.i.i.i781, i64 1
   %3625 = add nsw i32 %3619, -8
   %3626 = lshr i32 %3625, 3
-  %3627 = icmp ugt i32 %3619, 15
+  %3627 = icmp samesign ugt i32 %3619, 15
   br i1 %3627, label %.lr.ph.i.i.i.i.i873, label %._crit_edge.i.i.i.i.i868
 
 .lr.ph.i.i.i.i.i873:                              ; preds = %3621, %.lr.ph.i.i.i.i.i873
@@ -91814,7 +91814,7 @@ _ZN5faiss12_GLOBAL__N_116KnnSearchResultsINS_4CMaxIflEELb1EE3addElf.exit178.i.i7
   %3785 = getelementptr inbounds i8, ptr %.sroa.0.018.i.i185.i.i814, i64 1
   %3786 = add nsw i32 %3780, -8
   %3787 = lshr i32 %3786, 3
-  %3788 = icmp ugt i32 %3780, 15
+  %3788 = icmp samesign ugt i32 %3780, 15
   br i1 %3788, label %.lr.ph.i.i.i203.i.i846, label %._crit_edge.i.i.i197.i.i841
 
 .lr.ph.i.i.i203.i.i846:                           ; preds = %3782, %.lr.ph.i.i.i203.i.i846
@@ -92650,7 +92650,7 @@ _ZN5faiss12_GLOBAL__N_116KnnSearchResultsINS_4CMaxIflEELb1EE3addElf.exit159.i.i1
   %4226 = getelementptr inbounds i8, ptr %.sroa.0.018.i.i.i.i960, i64 1
   %4227 = add nsw i32 %4221, -8
   %4228 = lshr i32 %4227, 3
-  %4229 = icmp ugt i32 %4221, 15
+  %4229 = icmp samesign ugt i32 %4221, 15
   br i1 %4229, label %.lr.ph.i.i.i.i.i1052, label %._crit_edge.i.i.i.i.i1047
 
 .lr.ph.i.i.i.i.i1052:                             ; preds = %4223, %.lr.ph.i.i.i.i.i1052
@@ -92880,7 +92880,7 @@ _ZN5faiss12_GLOBAL__N_116KnnSearchResultsINS_4CMaxIflEELb1EE3addElf.exit178.i.i9
   %4342 = getelementptr inbounds i8, ptr %.sroa.0.018.i.i185.i.i993, i64 1
   %4343 = add nsw i32 %4337, -8
   %4344 = lshr i32 %4343, 3
-  %4345 = icmp ugt i32 %4337, 15
+  %4345 = icmp samesign ugt i32 %4337, 15
   br i1 %4345, label %.lr.ph.i.i.i203.i.i1025, label %._crit_edge.i.i.i197.i.i1020
 
 .lr.ph.i.i.i203.i.i1025:                          ; preds = %4339, %.lr.ph.i.i.i203.i.i1025
@@ -147668,7 +147668,7 @@ define internal noundef float @_ZNK5faiss12_GLOBAL__N_112IVFPQScannerILNS_10Metr
   %32 = getelementptr inbounds i8, ptr %.sroa.0.018.i.i, i64 1
   %33 = add nsw i32 %27, -8
   %34 = lshr i32 %33, 3
-  %35 = icmp ugt i32 %27, 15
+  %35 = icmp samesign ugt i32 %27, 15
   br i1 %35, label %.lr.ph.i.i.i, label %._crit_edge.i.i.i
 
 .lr.ph.i.i.i:                                     ; preds = %29, %.lr.ph.i.i.i
@@ -148361,7 +148361,7 @@ _ZN5faiss12_GLOBAL__N_116KnnSearchResultsINS_4CMinIflEELb0EE3addElf.exit116.i: ;
   %350 = getelementptr inbounds i8, ptr %.sroa.0.018.i.i.i, i64 1
   %351 = add nsw i32 %345, -8
   %352 = lshr i32 %351, 3
-  %353 = icmp ugt i32 %345, 15
+  %353 = icmp samesign ugt i32 %345, 15
   br i1 %353, label %.lr.ph.i.i.i.i, label %._crit_edge.i.i.i.i
 
 .lr.ph.i.i.i.i:                                   ; preds = %347, %.lr.ph.i.i.i.i
@@ -148593,7 +148593,7 @@ _ZN5faiss12_GLOBAL__N_116KnnSearchResultsINS_4CMinIflEELb0EE3addElf.exit135.i: ;
   %468 = getelementptr inbounds i8, ptr %.sroa.0.018.i.i142.i, i64 1
   %469 = add nsw i32 %463, -8
   %470 = lshr i32 %469, 3
-  %471 = icmp ugt i32 %463, 15
+  %471 = icmp samesign ugt i32 %463, 15
   br i1 %471, label %.lr.ph.i.i.i160.i, label %._crit_edge.i.i.i154.i
 
 .lr.ph.i.i.i160.i:                                ; preds = %465, %.lr.ph.i.i.i160.i
@@ -148824,7 +148824,7 @@ _ZN5faiss12_GLOBAL__N_116KnnSearchResultsINS_4CMinIflEELb0EE3addElf.exit186.i: ;
   %586 = getelementptr inbounds i8, ptr %.sroa.0.018.i.i193.i, i64 1
   %587 = add nsw i32 %581, -8
   %588 = lshr i32 %587, 3
-  %589 = icmp ugt i32 %581, 15
+  %589 = icmp samesign ugt i32 %581, 15
   br i1 %589, label %.lr.ph.i.i.i211.i, label %._crit_edge.i.i.i205.i
 
 .lr.ph.i.i.i211.i:                                ; preds = %583, %.lr.ph.i.i.i211.i
@@ -149075,7 +149075,7 @@ _ZNK5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE0ENS_16PQDecoderGeneri
   %710 = getelementptr inbounds i8, ptr %.sroa.0.028.i, i64 1
   %711 = add nsw i32 %705, -8
   %712 = lshr i32 %711, 3
-  %713 = icmp ugt i32 %705, 15
+  %713 = icmp samesign ugt i32 %705, 15
   br i1 %713, label %.lr.ph.i.preheader.i, label %._crit_edge.i.i
 
 .lr.ph.i.preheader.i:                             ; preds = %707
@@ -149849,7 +149849,7 @@ _ZN5faiss12_GLOBAL__N_118RangeSearchResultsINS_4CMinIflEELb0EE3addElf.exit102.i.
   %251 = getelementptr inbounds i8, ptr %.sroa.0.018.i.i.i.i.i.i, i64 1
   %252 = add nsw i32 %246, -8
   %253 = lshr i32 %252, 3
-  %254 = icmp ugt i32 %246, 15
+  %254 = icmp samesign ugt i32 %246, 15
   br i1 %254, label %.lr.ph.i.i.i.i.i.i.i, label %._crit_edge.i.i.i.i.i.i.i
 
 .lr.ph.i.i.i.i.i.i.i:                             ; preds = %248, %.lr.ph.i.i.i.i.i.i.i
@@ -149999,7 +149999,7 @@ _ZN5faiss12_GLOBAL__N_118RangeSearchResultsINS_4CMinIflEELb0EE3addElf.exit104.i.
   %326 = getelementptr inbounds i8, ptr %.sroa.0.018.i.i111.i.i.i.i, i64 1
   %327 = add nsw i32 %321, -8
   %328 = lshr i32 %327, 3
-  %329 = icmp ugt i32 %321, 15
+  %329 = icmp samesign ugt i32 %321, 15
   br i1 %329, label %.lr.ph.i.i.i129.i.i.i.i, label %._crit_edge.i.i.i123.i.i.i.i
 
 .lr.ph.i.i.i129.i.i.i.i:                          ; preds = %323, %.lr.ph.i.i.i129.i.i.i.i
@@ -150422,7 +150422,7 @@ _ZN5faiss12_GLOBAL__N_118RangeSearchResultsINS_4CMinIflEELb0EE3addElf.exit102.i.
   %558 = getelementptr inbounds i8, ptr %.sroa.0.018.i.i.i.i48.i.i, i64 1
   %559 = add nsw i32 %553, -8
   %560 = lshr i32 %559, 3
-  %561 = icmp ugt i32 %553, 15
+  %561 = icmp samesign ugt i32 %553, 15
   br i1 %561, label %.lr.ph.i.i.i.i.i112.i.i, label %._crit_edge.i.i.i.i.i107.i.i
 
 .lr.ph.i.i.i.i.i112.i.i:                          ; preds = %555, %.lr.ph.i.i.i.i.i112.i.i
@@ -150573,7 +150573,7 @@ _ZN5faiss12_GLOBAL__N_118RangeSearchResultsINS_4CMinIflEELb0EE3addElf.exit104.i.
   %634 = getelementptr inbounds i8, ptr %.sroa.0.018.i.i111.i.i81.i.i, i64 1
   %635 = add nsw i32 %629, -8
   %636 = lshr i32 %635, 3
-  %637 = icmp ugt i32 %629, 15
+  %637 = icmp samesign ugt i32 %629, 15
   br i1 %637, label %.lr.ph.i.i.i129.i.i99.i.i, label %._crit_edge.i.i.i123.i.i94.i.i
 
 .lr.ph.i.i.i129.i.i99.i.i:                        ; preds = %631, %.lr.ph.i.i.i129.i.i99.i.i
@@ -151022,7 +151022,7 @@ _ZN5faiss12_GLOBAL__N_118RangeSearchResultsINS_4CMinIflEELb0EE3addElf.exit102.i.
   %892 = getelementptr inbounds i8, ptr %.sroa.0.018.i.i.i.i140.i.i, i64 1
   %893 = add nsw i32 %887, -8
   %894 = lshr i32 %893, 3
-  %895 = icmp ugt i32 %887, 15
+  %895 = icmp samesign ugt i32 %887, 15
   br i1 %895, label %.lr.ph.i.i.i.i.i200.i.i, label %._crit_edge.i.i.i.i.i195.i.i
 
 .lr.ph.i.i.i.i.i200.i.i:                          ; preds = %889, %.lr.ph.i.i.i.i.i200.i.i
@@ -151179,7 +151179,7 @@ _ZN5faiss12_GLOBAL__N_118RangeSearchResultsINS_4CMinIflEELb0EE3addElf.exit104.i.
   %974 = getelementptr inbounds i8, ptr %.sroa.0.018.i.i111.i.i169.i.i, i64 1
   %975 = add nsw i32 %969, -8
   %976 = lshr i32 %975, 3
-  %977 = icmp ugt i32 %969, 15
+  %977 = icmp samesign ugt i32 %969, 15
   br i1 %977, label %.lr.ph.i.i.i129.i.i187.i.i, label %._crit_edge.i.i.i123.i.i182.i.i
 
 .lr.ph.i.i.i129.i.i187.i.i:                       ; preds = %971, %.lr.ph.i.i.i129.i.i187.i.i
@@ -151651,7 +151651,7 @@ _ZN5faiss12_GLOBAL__N_118RangeSearchResultsINS_4CMinIflEELb0EE3addElf.exit102.i.
   %1255 = getelementptr inbounds i8, ptr %.sroa.0.018.i.i.i.i226.i.i, i64 1
   %1256 = add nsw i32 %1250, -8
   %1257 = lshr i32 %1256, 3
-  %1258 = icmp ugt i32 %1250, 15
+  %1258 = icmp samesign ugt i32 %1250, 15
   br i1 %1258, label %.lr.ph.i.i.i.i.i286.i.i, label %._crit_edge.i.i.i.i.i281.i.i
 
 .lr.ph.i.i.i.i.i286.i.i:                          ; preds = %1252, %.lr.ph.i.i.i.i.i286.i.i
@@ -151813,7 +151813,7 @@ _ZN5faiss12_GLOBAL__N_118RangeSearchResultsINS_4CMinIflEELb0EE3addElf.exit104.i.
   %1342 = getelementptr inbounds i8, ptr %.sroa.0.018.i.i111.i.i255.i.i, i64 1
   %1343 = add nsw i32 %1337, -8
   %1344 = lshr i32 %1343, 3
-  %1345 = icmp ugt i32 %1337, 15
+  %1345 = icmp samesign ugt i32 %1337, 15
   br i1 %1345, label %.lr.ph.i.i.i129.i.i273.i.i, label %._crit_edge.i.i.i123.i.i268.i.i
 
 .lr.ph.i.i.i129.i.i273.i.i:                       ; preds = %1339, %.lr.ph.i.i.i129.i.i273.i.i
@@ -152314,7 +152314,7 @@ _ZN5faiss12_GLOBAL__N_118RangeSearchResultsINS_4CMinIflEELb0EE3addElf.exit102.i.
   %1652 = getelementptr inbounds i8, ptr %.sroa.0.018.i.i.i.i312.i.i, i64 1
   %1653 = add nsw i32 %1647, -8
   %1654 = lshr i32 %1653, 3
-  %1655 = icmp ugt i32 %1647, 15
+  %1655 = icmp samesign ugt i32 %1647, 15
   br i1 %1655, label %.lr.ph.i.i.i.i.i372.i.i, label %._crit_edge.i.i.i.i.i367.i.i
 
 .lr.ph.i.i.i.i.i372.i.i:                          ; preds = %1649, %.lr.ph.i.i.i.i.i372.i.i
@@ -152483,7 +152483,7 @@ _ZN5faiss12_GLOBAL__N_118RangeSearchResultsINS_4CMinIflEELb0EE3addElf.exit104.i.
   %1746 = getelementptr inbounds i8, ptr %.sroa.0.018.i.i111.i.i341.i.i, i64 1
   %1747 = add nsw i32 %1741, -8
   %1748 = lshr i32 %1747, 3
-  %1749 = icmp ugt i32 %1741, 15
+  %1749 = icmp samesign ugt i32 %1741, 15
   br i1 %1749, label %.lr.ph.i.i.i129.i.i359.i.i, label %._crit_edge.i.i.i123.i.i354.i.i
 
 .lr.ph.i.i.i129.i.i359.i.i:                       ; preds = %1743, %.lr.ph.i.i.i129.i.i359.i.i
@@ -153088,7 +153088,7 @@ _ZN5faiss12_GLOBAL__N_118RangeSearchResultsINS_4CMinIflEELb0EE3addElf.exit102.i.
   %2160 = getelementptr inbounds i8, ptr %.sroa.0.018.i.i.i.i399.i.i, i64 1
   %2161 = add nsw i32 %2155, -8
   %2162 = lshr i32 %2161, 3
-  %2163 = icmp ugt i32 %2155, 15
+  %2163 = icmp samesign ugt i32 %2155, 15
   br i1 %2163, label %.lr.ph.i.i.i.i.i459.i.i, label %._crit_edge.i.i.i.i.i454.i.i
 
 .lr.ph.i.i.i.i.i459.i.i:                          ; preds = %2157, %.lr.ph.i.i.i.i.i459.i.i
@@ -153281,7 +153281,7 @@ _ZN5faiss12_GLOBAL__N_118RangeSearchResultsINS_4CMinIflEELb0EE3addElf.exit104.i.
   %2278 = getelementptr inbounds i8, ptr %.sroa.0.018.i.i111.i.i428.i.i, i64 1
   %2279 = add nsw i32 %2273, -8
   %2280 = lshr i32 %2279, 3
-  %2281 = icmp ugt i32 %2273, 15
+  %2281 = icmp samesign ugt i32 %2273, 15
   br i1 %2281, label %.lr.ph.i.i.i129.i.i446.i.i, label %._crit_edge.i.i.i123.i.i441.i.i
 
 .lr.ph.i.i.i129.i.i446.i.i:                       ; preds = %2275, %.lr.ph.i.i.i129.i.i446.i.i
@@ -153699,7 +153699,7 @@ _ZN5faiss12_GLOBAL__N_118RangeSearchResultsINS_4CMinIflEELb0EE3addElf.exit102.i.
   %2501 = getelementptr inbounds i8, ptr %.sroa.0.018.i.i.i.i485.i.i, i64 1
   %2502 = add nsw i32 %2496, -8
   %2503 = lshr i32 %2502, 3
-  %2504 = icmp ugt i32 %2496, 15
+  %2504 = icmp samesign ugt i32 %2496, 15
   br i1 %2504, label %.lr.ph.i.i.i.i.i545.i.i, label %._crit_edge.i.i.i.i.i540.i.i
 
 .lr.ph.i.i.i.i.i545.i.i:                          ; preds = %2498, %.lr.ph.i.i.i.i.i545.i.i
@@ -153847,7 +153847,7 @@ _ZN5faiss12_GLOBAL__N_118RangeSearchResultsINS_4CMinIflEELb0EE3addElf.exit104.i.
   %2574 = getelementptr inbounds i8, ptr %.sroa.0.018.i.i111.i.i514.i.i, i64 1
   %2575 = add nsw i32 %2569, -8
   %2576 = lshr i32 %2575, 3
-  %2577 = icmp ugt i32 %2569, 15
+  %2577 = icmp samesign ugt i32 %2569, 15
   br i1 %2577, label %.lr.ph.i.i.i129.i.i532.i.i, label %._crit_edge.i.i.i123.i.i527.i.i
 
 .lr.ph.i.i.i129.i.i532.i.i:                       ; preds = %2571, %.lr.ph.i.i.i129.i.i532.i.i
@@ -154176,7 +154176,7 @@ _ZN5faiss12_GLOBAL__N_118RangeSearchResultsINS_4CMinIflEELb0EE3addElf.exit68.i: 
   %2732 = getelementptr inbounds i8, ptr %.sroa.0.018.i.i.i, i64 1
   %2733 = add nsw i32 %2727, -8
   %2734 = lshr i32 %2733, 3
-  %2735 = icmp ugt i32 %2727, 15
+  %2735 = icmp samesign ugt i32 %2727, 15
   br i1 %2735, label %.lr.ph.i.i.i.i20, label %._crit_edge.i.i.i.i
 
 .lr.ph.i.i.i.i20:                                 ; preds = %2729, %.lr.ph.i.i.i.i20
@@ -154317,7 +154317,7 @@ _ZN5faiss12_GLOBAL__N_118RangeSearchResultsINS_4CMinIflEELb0EE3addElf.exit70.i: 
   %2802 = getelementptr inbounds i8, ptr %.sroa.0.018.i.i77.i, i64 1
   %2803 = add nsw i32 %2797, -8
   %2804 = lshr i32 %2803, 3
-  %2805 = icmp ugt i32 %2797, 15
+  %2805 = icmp samesign ugt i32 %2797, 15
   br i1 %2805, label %.lr.ph.i.i.i95.i, label %._crit_edge.i.i.i89.i
 
 .lr.ph.i.i.i95.i:                                 ; preds = %2799, %.lr.ph.i.i.i95.i
@@ -154458,7 +154458,7 @@ _ZN5faiss12_GLOBAL__N_118RangeSearchResultsINS_4CMinIflEELb0EE3addElf.exit105.i:
   %2873 = getelementptr inbounds i8, ptr %.sroa.0.018.i.i112.i, i64 1
   %2874 = add nsw i32 %2868, -8
   %2875 = lshr i32 %2874, 3
-  %2876 = icmp ugt i32 %2868, 15
+  %2876 = icmp samesign ugt i32 %2868, 15
   br i1 %2876, label %.lr.ph.i.i.i130.i, label %._crit_edge.i.i.i124.i
 
 .lr.ph.i.i.i130.i:                                ; preds = %2870, %.lr.ph.i.i.i130.i
@@ -154615,7 +154615,7 @@ _ZNK5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE0ENS_16PQDecoderGeneri
   %2946 = getelementptr inbounds i8, ptr %.sroa.0.028.i, i64 1
   %2947 = add nsw i32 %2941, -8
   %2948 = lshr i32 %2947, 3
-  %2949 = icmp ugt i32 %2941, 15
+  %2949 = icmp samesign ugt i32 %2941, 15
   br i1 %2949, label %.lr.ph.i.preheader.i, label %._crit_edge.i.i
 
 .lr.ph.i.preheader.i:                             ; preds = %2943
@@ -155594,7 +155594,7 @@ _ZN5faiss12_GLOBAL__N_116KnnSearchResultsINS_4CMinIflEELb0EE3addElf.exit150.i.i:
   %383 = getelementptr inbounds i8, ptr %.sroa.0.018.i.i.i.i, i64 1
   %384 = add nsw i32 %378, -8
   %385 = lshr i32 %384, 3
-  %386 = icmp ugt i32 %378, 15
+  %386 = icmp samesign ugt i32 %378, 15
   br i1 %386, label %.lr.ph.i.i.i.i.i, label %._crit_edge.i.i.i.i.i
 
 .lr.ph.i.i.i.i.i:                                 ; preds = %380, %.lr.ph.i.i.i.i.i
@@ -155818,7 +155818,7 @@ _ZN5faiss12_GLOBAL__N_116KnnSearchResultsINS_4CMinIflEELb0EE3addElf.exit169.i.i:
   %495 = getelementptr inbounds i8, ptr %.sroa.0.018.i.i176.i.i, i64 1
   %496 = add nsw i32 %490, -8
   %497 = lshr i32 %496, 3
-  %498 = icmp ugt i32 %490, 15
+  %498 = icmp samesign ugt i32 %490, 15
   br i1 %498, label %.lr.ph.i.i.i194.i.i, label %._crit_edge.i.i.i188.i.i
 
 .lr.ph.i.i.i194.i.i:                              ; preds = %492, %.lr.ph.i.i.i194.i.i
@@ -156623,7 +156623,7 @@ _ZN5faiss12_GLOBAL__N_116KnnSearchResultsINS_4CMinIflEELb0EE3addElf.exit150.i.i1
   %919 = getelementptr inbounds i8, ptr %.sroa.0.018.i.i.i.i51, i64 1
   %920 = add nsw i32 %914, -8
   %921 = lshr i32 %920, 3
-  %922 = icmp ugt i32 %914, 15
+  %922 = icmp samesign ugt i32 %914, 15
   br i1 %922, label %.lr.ph.i.i.i.i.i145, label %._crit_edge.i.i.i.i.i140
 
 .lr.ph.i.i.i.i.i145:                              ; preds = %916, %.lr.ph.i.i.i.i.i145
@@ -156848,7 +156848,7 @@ _ZN5faiss12_GLOBAL__N_116KnnSearchResultsINS_4CMinIflEELb0EE3addElf.exit169.i.i6
   %1032 = getelementptr inbounds i8, ptr %.sroa.0.018.i.i176.i.i86, i64 1
   %1033 = add nsw i32 %1027, -8
   %1034 = lshr i32 %1033, 3
-  %1035 = icmp ugt i32 %1027, 15
+  %1035 = icmp samesign ugt i32 %1027, 15
   br i1 %1035, label %.lr.ph.i.i.i194.i.i118, label %._crit_edge.i.i.i188.i.i113
 
 .lr.ph.i.i.i194.i.i118:                           ; preds = %1029, %.lr.ph.i.i.i194.i.i118
@@ -157679,7 +157679,7 @@ _ZN5faiss12_GLOBAL__N_116KnnSearchResultsINS_4CMinIflEELb0EE3addElf.exit150.i.i3
   %1482 = getelementptr inbounds i8, ptr %.sroa.0.018.i.i.i.i235, i64 1
   %1483 = add nsw i32 %1477, -8
   %1484 = lshr i32 %1483, 3
-  %1485 = icmp ugt i32 %1477, 15
+  %1485 = icmp samesign ugt i32 %1477, 15
   br i1 %1485, label %.lr.ph.i.i.i.i.i325, label %._crit_edge.i.i.i.i.i320
 
 .lr.ph.i.i.i.i.i325:                              ; preds = %1479, %.lr.ph.i.i.i.i.i325
@@ -157910,7 +157910,7 @@ _ZN5faiss12_GLOBAL__N_116KnnSearchResultsINS_4CMinIflEELb0EE3addElf.exit169.i.i2
   %1601 = getelementptr inbounds i8, ptr %.sroa.0.018.i.i176.i.i266, i64 1
   %1602 = add nsw i32 %1596, -8
   %1603 = lshr i32 %1602, 3
-  %1604 = icmp ugt i32 %1596, 15
+  %1604 = icmp samesign ugt i32 %1596, 15
   br i1 %1604, label %.lr.ph.i.i.i194.i.i298, label %._crit_edge.i.i.i188.i.i293
 
 .lr.ph.i.i.i194.i.i298:                           ; preds = %1598, %.lr.ph.i.i.i194.i.i298
@@ -158764,7 +158764,7 @@ _ZN5faiss12_GLOBAL__N_116KnnSearchResultsINS_4CMinIflEELb0EE3addElf.exit150.i.i5
   %2074 = getelementptr inbounds i8, ptr %.sroa.0.018.i.i.i.i411, i64 1
   %2075 = add nsw i32 %2069, -8
   %2076 = lshr i32 %2075, 3
-  %2077 = icmp ugt i32 %2069, 15
+  %2077 = icmp samesign ugt i32 %2069, 15
   br i1 %2077, label %.lr.ph.i.i.i.i.i501, label %._crit_edge.i.i.i.i.i496
 
 .lr.ph.i.i.i.i.i501:                              ; preds = %2071, %.lr.ph.i.i.i.i.i501
@@ -159000,7 +159000,7 @@ _ZN5faiss12_GLOBAL__N_116KnnSearchResultsINS_4CMinIflEELb0EE3addElf.exit169.i.i4
   %2198 = getelementptr inbounds i8, ptr %.sroa.0.018.i.i176.i.i442, i64 1
   %2199 = add nsw i32 %2193, -8
   %2200 = lshr i32 %2199, 3
-  %2201 = icmp ugt i32 %2193, 15
+  %2201 = icmp samesign ugt i32 %2193, 15
   br i1 %2201, label %.lr.ph.i.i.i194.i.i474, label %._crit_edge.i.i.i188.i.i469
 
 .lr.ph.i.i.i194.i.i474:                           ; preds = %2195, %.lr.ph.i.i.i194.i.i474
@@ -159883,7 +159883,7 @@ _ZN5faiss12_GLOBAL__N_116KnnSearchResultsINS_4CMinIflEELb0EE3addElf.exit150.i.i6
   %2700 = getelementptr inbounds i8, ptr %.sroa.0.018.i.i.i.i587, i64 1
   %2701 = add nsw i32 %2695, -8
   %2702 = lshr i32 %2701, 3
-  %2703 = icmp ugt i32 %2695, 15
+  %2703 = icmp samesign ugt i32 %2695, 15
   br i1 %2703, label %.lr.ph.i.i.i.i.i677, label %._crit_edge.i.i.i.i.i672
 
 .lr.ph.i.i.i.i.i677:                              ; preds = %2697, %.lr.ph.i.i.i.i.i677
@@ -160126,7 +160126,7 @@ _ZN5faiss12_GLOBAL__N_116KnnSearchResultsINS_4CMinIflEELb0EE3addElf.exit169.i.i6
   %2831 = getelementptr inbounds i8, ptr %.sroa.0.018.i.i176.i.i618, i64 1
   %2832 = add nsw i32 %2826, -8
   %2833 = lshr i32 %2832, 3
-  %2834 = icmp ugt i32 %2826, 15
+  %2834 = icmp samesign ugt i32 %2826, 15
   br i1 %2834, label %.lr.ph.i.i.i194.i.i650, label %._crit_edge.i.i.i188.i.i645
 
 .lr.ph.i.i.i194.i.i650:                           ; preds = %2828, %.lr.ph.i.i.i194.i.i650
@@ -161113,7 +161113,7 @@ _ZN5faiss12_GLOBAL__N_116KnnSearchResultsINS_4CMinIflEELb0EE3addElf.exit150.i.i8
   %3437 = getelementptr inbounds i8, ptr %.sroa.0.018.i.i.i.i765, i64 1
   %3438 = add nsw i32 %3432, -8
   %3439 = lshr i32 %3438, 3
-  %3440 = icmp ugt i32 %3432, 15
+  %3440 = icmp samesign ugt i32 %3432, 15
   br i1 %3440, label %.lr.ph.i.i.i.i.i855, label %._crit_edge.i.i.i.i.i850
 
 .lr.ph.i.i.i.i.i855:                              ; preds = %3434, %.lr.ph.i.i.i.i.i855
@@ -161380,7 +161380,7 @@ _ZN5faiss12_GLOBAL__N_116KnnSearchResultsINS_4CMinIflEELb0EE3addElf.exit169.i.i7
   %3592 = getelementptr inbounds i8, ptr %.sroa.0.018.i.i176.i.i796, i64 1
   %3593 = add nsw i32 %3587, -8
   %3594 = lshr i32 %3593, 3
-  %3595 = icmp ugt i32 %3587, 15
+  %3595 = icmp samesign ugt i32 %3587, 15
   br i1 %3595, label %.lr.ph.i.i.i194.i.i828, label %._crit_edge.i.i.i188.i.i823
 
 .lr.ph.i.i.i194.i.i828:                           ; preds = %3589, %.lr.ph.i.i.i194.i.i828
@@ -162180,7 +162180,7 @@ _ZN5faiss12_GLOBAL__N_116KnnSearchResultsINS_4CMinIflEELb0EE3addElf.exit150.i.i1
   %4007 = getelementptr inbounds i8, ptr %.sroa.0.018.i.i.i.i940, i64 1
   %4008 = add nsw i32 %4002, -8
   %4009 = lshr i32 %4008, 3
-  %4010 = icmp ugt i32 %4002, 15
+  %4010 = icmp samesign ugt i32 %4002, 15
   br i1 %4010, label %.lr.ph.i.i.i.i.i1030, label %._crit_edge.i.i.i.i.i1025
 
 .lr.ph.i.i.i.i.i1030:                             ; preds = %4004, %.lr.ph.i.i.i.i.i1030
@@ -162402,7 +162402,7 @@ _ZN5faiss12_GLOBAL__N_116KnnSearchResultsINS_4CMinIflEELb0EE3addElf.exit169.i.i9
   %4117 = getelementptr inbounds i8, ptr %.sroa.0.018.i.i176.i.i971, i64 1
   %4118 = add nsw i32 %4112, -8
   %4119 = lshr i32 %4118, 3
-  %4120 = icmp ugt i32 %4112, 15
+  %4120 = icmp samesign ugt i32 %4112, 15
   br i1 %4120, label %.lr.ph.i.i.i194.i.i1003, label %._crit_edge.i.i.i188.i.i998
 
 .lr.ph.i.i.i194.i.i1003:                          ; preds = %4114, %.lr.ph.i.i.i194.i.i1003
@@ -162679,7 +162679,7 @@ define internal noundef float @_ZNK5faiss12_GLOBAL__N_112IVFPQScannerILNS_10Metr
   %32 = getelementptr inbounds i8, ptr %.sroa.0.018.i.i, i64 1
   %33 = add nsw i32 %27, -8
   %34 = lshr i32 %33, 3
-  %35 = icmp ugt i32 %27, 15
+  %35 = icmp samesign ugt i32 %27, 15
   br i1 %35, label %.lr.ph.i.i.i, label %._crit_edge.i.i.i
 
 .lr.ph.i.i.i:                                     ; preds = %29, %.lr.ph.i.i.i
@@ -163372,7 +163372,7 @@ _ZN5faiss12_GLOBAL__N_116KnnSearchResultsINS_4CMaxIflEELb0EE3addElf.exit116.i: ;
   %350 = getelementptr inbounds i8, ptr %.sroa.0.018.i.i.i, i64 1
   %351 = add nsw i32 %345, -8
   %352 = lshr i32 %351, 3
-  %353 = icmp ugt i32 %345, 15
+  %353 = icmp samesign ugt i32 %345, 15
   br i1 %353, label %.lr.ph.i.i.i.i, label %._crit_edge.i.i.i.i
 
 .lr.ph.i.i.i.i:                                   ; preds = %347, %.lr.ph.i.i.i.i
@@ -163604,7 +163604,7 @@ _ZN5faiss12_GLOBAL__N_116KnnSearchResultsINS_4CMaxIflEELb0EE3addElf.exit135.i: ;
   %468 = getelementptr inbounds i8, ptr %.sroa.0.018.i.i142.i, i64 1
   %469 = add nsw i32 %463, -8
   %470 = lshr i32 %469, 3
-  %471 = icmp ugt i32 %463, 15
+  %471 = icmp samesign ugt i32 %463, 15
   br i1 %471, label %.lr.ph.i.i.i160.i, label %._crit_edge.i.i.i154.i
 
 .lr.ph.i.i.i160.i:                                ; preds = %465, %.lr.ph.i.i.i160.i
@@ -163835,7 +163835,7 @@ _ZN5faiss12_GLOBAL__N_116KnnSearchResultsINS_4CMaxIflEELb0EE3addElf.exit186.i: ;
   %586 = getelementptr inbounds i8, ptr %.sroa.0.018.i.i193.i, i64 1
   %587 = add nsw i32 %581, -8
   %588 = lshr i32 %587, 3
-  %589 = icmp ugt i32 %581, 15
+  %589 = icmp samesign ugt i32 %581, 15
   br i1 %589, label %.lr.ph.i.i.i211.i, label %._crit_edge.i.i.i205.i
 
 .lr.ph.i.i.i211.i:                                ; preds = %583, %.lr.ph.i.i.i211.i
@@ -164086,7 +164086,7 @@ _ZNK5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE1ENS_16PQDecoderGeneri
   %710 = getelementptr inbounds i8, ptr %.sroa.0.028.i, i64 1
   %711 = add nsw i32 %705, -8
   %712 = lshr i32 %711, 3
-  %713 = icmp ugt i32 %705, 15
+  %713 = icmp samesign ugt i32 %705, 15
   br i1 %713, label %.lr.ph.i.preheader.i, label %._crit_edge.i.i
 
 .lr.ph.i.preheader.i:                             ; preds = %707
@@ -164857,7 +164857,7 @@ _ZN5faiss12_GLOBAL__N_118RangeSearchResultsINS_4CMaxIflEELb0EE3addElf.exit102.i.
   %251 = getelementptr inbounds i8, ptr %.sroa.0.018.i.i.i.i.i.i, i64 1
   %252 = add nsw i32 %246, -8
   %253 = lshr i32 %252, 3
-  %254 = icmp ugt i32 %246, 15
+  %254 = icmp samesign ugt i32 %246, 15
   br i1 %254, label %.lr.ph.i.i.i.i.i.i.i, label %._crit_edge.i.i.i.i.i.i.i
 
 .lr.ph.i.i.i.i.i.i.i:                             ; preds = %248, %.lr.ph.i.i.i.i.i.i.i
@@ -165007,7 +165007,7 @@ _ZN5faiss12_GLOBAL__N_118RangeSearchResultsINS_4CMaxIflEELb0EE3addElf.exit104.i.
   %326 = getelementptr inbounds i8, ptr %.sroa.0.018.i.i111.i.i.i.i, i64 1
   %327 = add nsw i32 %321, -8
   %328 = lshr i32 %327, 3
-  %329 = icmp ugt i32 %321, 15
+  %329 = icmp samesign ugt i32 %321, 15
   br i1 %329, label %.lr.ph.i.i.i129.i.i.i.i, label %._crit_edge.i.i.i123.i.i.i.i
 
 .lr.ph.i.i.i129.i.i.i.i:                          ; preds = %323, %.lr.ph.i.i.i129.i.i.i.i
@@ -165430,7 +165430,7 @@ _ZN5faiss12_GLOBAL__N_118RangeSearchResultsINS_4CMaxIflEELb0EE3addElf.exit102.i.
   %558 = getelementptr inbounds i8, ptr %.sroa.0.018.i.i.i.i48.i.i, i64 1
   %559 = add nsw i32 %553, -8
   %560 = lshr i32 %559, 3
-  %561 = icmp ugt i32 %553, 15
+  %561 = icmp samesign ugt i32 %553, 15
   br i1 %561, label %.lr.ph.i.i.i.i.i112.i.i, label %._crit_edge.i.i.i.i.i107.i.i
 
 .lr.ph.i.i.i.i.i112.i.i:                          ; preds = %555, %.lr.ph.i.i.i.i.i112.i.i
@@ -165581,7 +165581,7 @@ _ZN5faiss12_GLOBAL__N_118RangeSearchResultsINS_4CMaxIflEELb0EE3addElf.exit104.i.
   %634 = getelementptr inbounds i8, ptr %.sroa.0.018.i.i111.i.i81.i.i, i64 1
   %635 = add nsw i32 %629, -8
   %636 = lshr i32 %635, 3
-  %637 = icmp ugt i32 %629, 15
+  %637 = icmp samesign ugt i32 %629, 15
   br i1 %637, label %.lr.ph.i.i.i129.i.i99.i.i, label %._crit_edge.i.i.i123.i.i94.i.i
 
 .lr.ph.i.i.i129.i.i99.i.i:                        ; preds = %631, %.lr.ph.i.i.i129.i.i99.i.i
@@ -166030,7 +166030,7 @@ _ZN5faiss12_GLOBAL__N_118RangeSearchResultsINS_4CMaxIflEELb0EE3addElf.exit102.i.
   %892 = getelementptr inbounds i8, ptr %.sroa.0.018.i.i.i.i140.i.i, i64 1
   %893 = add nsw i32 %887, -8
   %894 = lshr i32 %893, 3
-  %895 = icmp ugt i32 %887, 15
+  %895 = icmp samesign ugt i32 %887, 15
   br i1 %895, label %.lr.ph.i.i.i.i.i200.i.i, label %._crit_edge.i.i.i.i.i195.i.i
 
 .lr.ph.i.i.i.i.i200.i.i:                          ; preds = %889, %.lr.ph.i.i.i.i.i200.i.i
@@ -166187,7 +166187,7 @@ _ZN5faiss12_GLOBAL__N_118RangeSearchResultsINS_4CMaxIflEELb0EE3addElf.exit104.i.
   %974 = getelementptr inbounds i8, ptr %.sroa.0.018.i.i111.i.i169.i.i, i64 1
   %975 = add nsw i32 %969, -8
   %976 = lshr i32 %975, 3
-  %977 = icmp ugt i32 %969, 15
+  %977 = icmp samesign ugt i32 %969, 15
   br i1 %977, label %.lr.ph.i.i.i129.i.i187.i.i, label %._crit_edge.i.i.i123.i.i182.i.i
 
 .lr.ph.i.i.i129.i.i187.i.i:                       ; preds = %971, %.lr.ph.i.i.i129.i.i187.i.i
@@ -166659,7 +166659,7 @@ _ZN5faiss12_GLOBAL__N_118RangeSearchResultsINS_4CMaxIflEELb0EE3addElf.exit102.i.
   %1255 = getelementptr inbounds i8, ptr %.sroa.0.018.i.i.i.i226.i.i, i64 1
   %1256 = add nsw i32 %1250, -8
   %1257 = lshr i32 %1256, 3
-  %1258 = icmp ugt i32 %1250, 15
+  %1258 = icmp samesign ugt i32 %1250, 15
   br i1 %1258, label %.lr.ph.i.i.i.i.i286.i.i, label %._crit_edge.i.i.i.i.i281.i.i
 
 .lr.ph.i.i.i.i.i286.i.i:                          ; preds = %1252, %.lr.ph.i.i.i.i.i286.i.i
@@ -166821,7 +166821,7 @@ _ZN5faiss12_GLOBAL__N_118RangeSearchResultsINS_4CMaxIflEELb0EE3addElf.exit104.i.
   %1342 = getelementptr inbounds i8, ptr %.sroa.0.018.i.i111.i.i255.i.i, i64 1
   %1343 = add nsw i32 %1337, -8
   %1344 = lshr i32 %1343, 3
-  %1345 = icmp ugt i32 %1337, 15
+  %1345 = icmp samesign ugt i32 %1337, 15
   br i1 %1345, label %.lr.ph.i.i.i129.i.i273.i.i, label %._crit_edge.i.i.i123.i.i268.i.i
 
 .lr.ph.i.i.i129.i.i273.i.i:                       ; preds = %1339, %.lr.ph.i.i.i129.i.i273.i.i
@@ -167322,7 +167322,7 @@ _ZN5faiss12_GLOBAL__N_118RangeSearchResultsINS_4CMaxIflEELb0EE3addElf.exit102.i.
   %1652 = getelementptr inbounds i8, ptr %.sroa.0.018.i.i.i.i312.i.i, i64 1
   %1653 = add nsw i32 %1647, -8
   %1654 = lshr i32 %1653, 3
-  %1655 = icmp ugt i32 %1647, 15
+  %1655 = icmp samesign ugt i32 %1647, 15
   br i1 %1655, label %.lr.ph.i.i.i.i.i372.i.i, label %._crit_edge.i.i.i.i.i367.i.i
 
 .lr.ph.i.i.i.i.i372.i.i:                          ; preds = %1649, %.lr.ph.i.i.i.i.i372.i.i
@@ -167491,7 +167491,7 @@ _ZN5faiss12_GLOBAL__N_118RangeSearchResultsINS_4CMaxIflEELb0EE3addElf.exit104.i.
   %1746 = getelementptr inbounds i8, ptr %.sroa.0.018.i.i111.i.i341.i.i, i64 1
   %1747 = add nsw i32 %1741, -8
   %1748 = lshr i32 %1747, 3
-  %1749 = icmp ugt i32 %1741, 15
+  %1749 = icmp samesign ugt i32 %1741, 15
   br i1 %1749, label %.lr.ph.i.i.i129.i.i359.i.i, label %._crit_edge.i.i.i123.i.i354.i.i
 
 .lr.ph.i.i.i129.i.i359.i.i:                       ; preds = %1743, %.lr.ph.i.i.i129.i.i359.i.i
@@ -168096,7 +168096,7 @@ _ZN5faiss12_GLOBAL__N_118RangeSearchResultsINS_4CMaxIflEELb0EE3addElf.exit102.i.
   %2160 = getelementptr inbounds i8, ptr %.sroa.0.018.i.i.i.i399.i.i, i64 1
   %2161 = add nsw i32 %2155, -8
   %2162 = lshr i32 %2161, 3
-  %2163 = icmp ugt i32 %2155, 15
+  %2163 = icmp samesign ugt i32 %2155, 15
   br i1 %2163, label %.lr.ph.i.i.i.i.i459.i.i, label %._crit_edge.i.i.i.i.i454.i.i
 
 .lr.ph.i.i.i.i.i459.i.i:                          ; preds = %2157, %.lr.ph.i.i.i.i.i459.i.i
@@ -168289,7 +168289,7 @@ _ZN5faiss12_GLOBAL__N_118RangeSearchResultsINS_4CMaxIflEELb0EE3addElf.exit104.i.
   %2278 = getelementptr inbounds i8, ptr %.sroa.0.018.i.i111.i.i428.i.i, i64 1
   %2279 = add nsw i32 %2273, -8
   %2280 = lshr i32 %2279, 3
-  %2281 = icmp ugt i32 %2273, 15
+  %2281 = icmp samesign ugt i32 %2273, 15
   br i1 %2281, label %.lr.ph.i.i.i129.i.i446.i.i, label %._crit_edge.i.i.i123.i.i441.i.i
 
 .lr.ph.i.i.i129.i.i446.i.i:                       ; preds = %2275, %.lr.ph.i.i.i129.i.i446.i.i
@@ -168707,7 +168707,7 @@ _ZN5faiss12_GLOBAL__N_118RangeSearchResultsINS_4CMaxIflEELb0EE3addElf.exit102.i.
   %2501 = getelementptr inbounds i8, ptr %.sroa.0.018.i.i.i.i485.i.i, i64 1
   %2502 = add nsw i32 %2496, -8
   %2503 = lshr i32 %2502, 3
-  %2504 = icmp ugt i32 %2496, 15
+  %2504 = icmp samesign ugt i32 %2496, 15
   br i1 %2504, label %.lr.ph.i.i.i.i.i545.i.i, label %._crit_edge.i.i.i.i.i540.i.i
 
 .lr.ph.i.i.i.i.i545.i.i:                          ; preds = %2498, %.lr.ph.i.i.i.i.i545.i.i
@@ -168855,7 +168855,7 @@ _ZN5faiss12_GLOBAL__N_118RangeSearchResultsINS_4CMaxIflEELb0EE3addElf.exit104.i.
   %2574 = getelementptr inbounds i8, ptr %.sroa.0.018.i.i111.i.i514.i.i, i64 1
   %2575 = add nsw i32 %2569, -8
   %2576 = lshr i32 %2575, 3
-  %2577 = icmp ugt i32 %2569, 15
+  %2577 = icmp samesign ugt i32 %2569, 15
   br i1 %2577, label %.lr.ph.i.i.i129.i.i532.i.i, label %._crit_edge.i.i.i123.i.i527.i.i
 
 .lr.ph.i.i.i129.i.i532.i.i:                       ; preds = %2571, %.lr.ph.i.i.i129.i.i532.i.i
@@ -169184,7 +169184,7 @@ _ZN5faiss12_GLOBAL__N_118RangeSearchResultsINS_4CMaxIflEELb0EE3addElf.exit68.i: 
   %2732 = getelementptr inbounds i8, ptr %.sroa.0.018.i.i.i, i64 1
   %2733 = add nsw i32 %2727, -8
   %2734 = lshr i32 %2733, 3
-  %2735 = icmp ugt i32 %2727, 15
+  %2735 = icmp samesign ugt i32 %2727, 15
   br i1 %2735, label %.lr.ph.i.i.i.i20, label %._crit_edge.i.i.i.i
 
 .lr.ph.i.i.i.i20:                                 ; preds = %2729, %.lr.ph.i.i.i.i20
@@ -169325,7 +169325,7 @@ _ZN5faiss12_GLOBAL__N_118RangeSearchResultsINS_4CMaxIflEELb0EE3addElf.exit70.i: 
   %2802 = getelementptr inbounds i8, ptr %.sroa.0.018.i.i77.i, i64 1
   %2803 = add nsw i32 %2797, -8
   %2804 = lshr i32 %2803, 3
-  %2805 = icmp ugt i32 %2797, 15
+  %2805 = icmp samesign ugt i32 %2797, 15
   br i1 %2805, label %.lr.ph.i.i.i95.i, label %._crit_edge.i.i.i89.i
 
 .lr.ph.i.i.i95.i:                                 ; preds = %2799, %.lr.ph.i.i.i95.i
@@ -169466,7 +169466,7 @@ _ZN5faiss12_GLOBAL__N_118RangeSearchResultsINS_4CMaxIflEELb0EE3addElf.exit105.i:
   %2873 = getelementptr inbounds i8, ptr %.sroa.0.018.i.i112.i, i64 1
   %2874 = add nsw i32 %2868, -8
   %2875 = lshr i32 %2874, 3
-  %2876 = icmp ugt i32 %2868, 15
+  %2876 = icmp samesign ugt i32 %2868, 15
   br i1 %2876, label %.lr.ph.i.i.i130.i, label %._crit_edge.i.i.i124.i
 
 .lr.ph.i.i.i130.i:                                ; preds = %2870, %.lr.ph.i.i.i130.i
@@ -169623,7 +169623,7 @@ _ZNK5faiss12_GLOBAL__N_113IVFPQScannerTIlLNS_10MetricTypeE1ENS_16PQDecoderGeneri
   %2946 = getelementptr inbounds i8, ptr %.sroa.0.028.i, i64 1
   %2947 = add nsw i32 %2941, -8
   %2948 = lshr i32 %2947, 3
-  %2949 = icmp ugt i32 %2941, 15
+  %2949 = icmp samesign ugt i32 %2941, 15
   br i1 %2949, label %.lr.ph.i.preheader.i, label %._crit_edge.i.i
 
 .lr.ph.i.preheader.i:                             ; preds = %2943
@@ -170599,7 +170599,7 @@ _ZN5faiss12_GLOBAL__N_116KnnSearchResultsINS_4CMaxIflEELb0EE3addElf.exit150.i.i:
   %383 = getelementptr inbounds i8, ptr %.sroa.0.018.i.i.i.i, i64 1
   %384 = add nsw i32 %378, -8
   %385 = lshr i32 %384, 3
-  %386 = icmp ugt i32 %378, 15
+  %386 = icmp samesign ugt i32 %378, 15
   br i1 %386, label %.lr.ph.i.i.i.i.i, label %._crit_edge.i.i.i.i.i
 
 .lr.ph.i.i.i.i.i:                                 ; preds = %380, %.lr.ph.i.i.i.i.i
@@ -170823,7 +170823,7 @@ _ZN5faiss12_GLOBAL__N_116KnnSearchResultsINS_4CMaxIflEELb0EE3addElf.exit169.i.i:
   %495 = getelementptr inbounds i8, ptr %.sroa.0.018.i.i176.i.i, i64 1
   %496 = add nsw i32 %490, -8
   %497 = lshr i32 %496, 3
-  %498 = icmp ugt i32 %490, 15
+  %498 = icmp samesign ugt i32 %490, 15
   br i1 %498, label %.lr.ph.i.i.i194.i.i, label %._crit_edge.i.i.i188.i.i
 
 .lr.ph.i.i.i194.i.i:                              ; preds = %492, %.lr.ph.i.i.i194.i.i
@@ -171628,7 +171628,7 @@ _ZN5faiss12_GLOBAL__N_116KnnSearchResultsINS_4CMaxIflEELb0EE3addElf.exit150.i.i1
   %919 = getelementptr inbounds i8, ptr %.sroa.0.018.i.i.i.i51, i64 1
   %920 = add nsw i32 %914, -8
   %921 = lshr i32 %920, 3
-  %922 = icmp ugt i32 %914, 15
+  %922 = icmp samesign ugt i32 %914, 15
   br i1 %922, label %.lr.ph.i.i.i.i.i145, label %._crit_edge.i.i.i.i.i140
 
 .lr.ph.i.i.i.i.i145:                              ; preds = %916, %.lr.ph.i.i.i.i.i145
@@ -171853,7 +171853,7 @@ _ZN5faiss12_GLOBAL__N_116KnnSearchResultsINS_4CMaxIflEELb0EE3addElf.exit169.i.i6
   %1032 = getelementptr inbounds i8, ptr %.sroa.0.018.i.i176.i.i86, i64 1
   %1033 = add nsw i32 %1027, -8
   %1034 = lshr i32 %1033, 3
-  %1035 = icmp ugt i32 %1027, 15
+  %1035 = icmp samesign ugt i32 %1027, 15
   br i1 %1035, label %.lr.ph.i.i.i194.i.i118, label %._crit_edge.i.i.i188.i.i113
 
 .lr.ph.i.i.i194.i.i118:                           ; preds = %1029, %.lr.ph.i.i.i194.i.i118
@@ -172684,7 +172684,7 @@ _ZN5faiss12_GLOBAL__N_116KnnSearchResultsINS_4CMaxIflEELb0EE3addElf.exit150.i.i3
   %1482 = getelementptr inbounds i8, ptr %.sroa.0.018.i.i.i.i235, i64 1
   %1483 = add nsw i32 %1477, -8
   %1484 = lshr i32 %1483, 3
-  %1485 = icmp ugt i32 %1477, 15
+  %1485 = icmp samesign ugt i32 %1477, 15
   br i1 %1485, label %.lr.ph.i.i.i.i.i325, label %._crit_edge.i.i.i.i.i320
 
 .lr.ph.i.i.i.i.i325:                              ; preds = %1479, %.lr.ph.i.i.i.i.i325
@@ -172915,7 +172915,7 @@ _ZN5faiss12_GLOBAL__N_116KnnSearchResultsINS_4CMaxIflEELb0EE3addElf.exit169.i.i2
   %1601 = getelementptr inbounds i8, ptr %.sroa.0.018.i.i176.i.i266, i64 1
   %1602 = add nsw i32 %1596, -8
   %1603 = lshr i32 %1602, 3
-  %1604 = icmp ugt i32 %1596, 15
+  %1604 = icmp samesign ugt i32 %1596, 15
   br i1 %1604, label %.lr.ph.i.i.i194.i.i298, label %._crit_edge.i.i.i188.i.i293
 
 .lr.ph.i.i.i194.i.i298:                           ; preds = %1598, %.lr.ph.i.i.i194.i.i298
@@ -173769,7 +173769,7 @@ _ZN5faiss12_GLOBAL__N_116KnnSearchResultsINS_4CMaxIflEELb0EE3addElf.exit150.i.i5
   %2074 = getelementptr inbounds i8, ptr %.sroa.0.018.i.i.i.i411, i64 1
   %2075 = add nsw i32 %2069, -8
   %2076 = lshr i32 %2075, 3
-  %2077 = icmp ugt i32 %2069, 15
+  %2077 = icmp samesign ugt i32 %2069, 15
   br i1 %2077, label %.lr.ph.i.i.i.i.i501, label %._crit_edge.i.i.i.i.i496
 
 .lr.ph.i.i.i.i.i501:                              ; preds = %2071, %.lr.ph.i.i.i.i.i501
@@ -174005,7 +174005,7 @@ _ZN5faiss12_GLOBAL__N_116KnnSearchResultsINS_4CMaxIflEELb0EE3addElf.exit169.i.i4
   %2198 = getelementptr inbounds i8, ptr %.sroa.0.018.i.i176.i.i442, i64 1
   %2199 = add nsw i32 %2193, -8
   %2200 = lshr i32 %2199, 3
-  %2201 = icmp ugt i32 %2193, 15
+  %2201 = icmp samesign ugt i32 %2193, 15
   br i1 %2201, label %.lr.ph.i.i.i194.i.i474, label %._crit_edge.i.i.i188.i.i469
 
 .lr.ph.i.i.i194.i.i474:                           ; preds = %2195, %.lr.ph.i.i.i194.i.i474
@@ -174888,7 +174888,7 @@ _ZN5faiss12_GLOBAL__N_116KnnSearchResultsINS_4CMaxIflEELb0EE3addElf.exit150.i.i6
   %2700 = getelementptr inbounds i8, ptr %.sroa.0.018.i.i.i.i587, i64 1
   %2701 = add nsw i32 %2695, -8
   %2702 = lshr i32 %2701, 3
-  %2703 = icmp ugt i32 %2695, 15
+  %2703 = icmp samesign ugt i32 %2695, 15
   br i1 %2703, label %.lr.ph.i.i.i.i.i677, label %._crit_edge.i.i.i.i.i672
 
 .lr.ph.i.i.i.i.i677:                              ; preds = %2697, %.lr.ph.i.i.i.i.i677
@@ -175131,7 +175131,7 @@ _ZN5faiss12_GLOBAL__N_116KnnSearchResultsINS_4CMaxIflEELb0EE3addElf.exit169.i.i6
   %2831 = getelementptr inbounds i8, ptr %.sroa.0.018.i.i176.i.i618, i64 1
   %2832 = add nsw i32 %2826, -8
   %2833 = lshr i32 %2832, 3
-  %2834 = icmp ugt i32 %2826, 15
+  %2834 = icmp samesign ugt i32 %2826, 15
   br i1 %2834, label %.lr.ph.i.i.i194.i.i650, label %._crit_edge.i.i.i188.i.i645
 
 .lr.ph.i.i.i194.i.i650:                           ; preds = %2828, %.lr.ph.i.i.i194.i.i650
@@ -176118,7 +176118,7 @@ _ZN5faiss12_GLOBAL__N_116KnnSearchResultsINS_4CMaxIflEELb0EE3addElf.exit150.i.i8
   %3437 = getelementptr inbounds i8, ptr %.sroa.0.018.i.i.i.i765, i64 1
   %3438 = add nsw i32 %3432, -8
   %3439 = lshr i32 %3438, 3
-  %3440 = icmp ugt i32 %3432, 15
+  %3440 = icmp samesign ugt i32 %3432, 15
   br i1 %3440, label %.lr.ph.i.i.i.i.i855, label %._crit_edge.i.i.i.i.i850
 
 .lr.ph.i.i.i.i.i855:                              ; preds = %3434, %.lr.ph.i.i.i.i.i855
@@ -176385,7 +176385,7 @@ _ZN5faiss12_GLOBAL__N_116KnnSearchResultsINS_4CMaxIflEELb0EE3addElf.exit169.i.i7
   %3592 = getelementptr inbounds i8, ptr %.sroa.0.018.i.i176.i.i796, i64 1
   %3593 = add nsw i32 %3587, -8
   %3594 = lshr i32 %3593, 3
-  %3595 = icmp ugt i32 %3587, 15
+  %3595 = icmp samesign ugt i32 %3587, 15
   br i1 %3595, label %.lr.ph.i.i.i194.i.i828, label %._crit_edge.i.i.i188.i.i823
 
 .lr.ph.i.i.i194.i.i828:                           ; preds = %3589, %.lr.ph.i.i.i194.i.i828
@@ -177185,7 +177185,7 @@ _ZN5faiss12_GLOBAL__N_116KnnSearchResultsINS_4CMaxIflEELb0EE3addElf.exit150.i.i1
   %4007 = getelementptr inbounds i8, ptr %.sroa.0.018.i.i.i.i940, i64 1
   %4008 = add nsw i32 %4002, -8
   %4009 = lshr i32 %4008, 3
-  %4010 = icmp ugt i32 %4002, 15
+  %4010 = icmp samesign ugt i32 %4002, 15
   br i1 %4010, label %.lr.ph.i.i.i.i.i1030, label %._crit_edge.i.i.i.i.i1025
 
 .lr.ph.i.i.i.i.i1030:                             ; preds = %4004, %.lr.ph.i.i.i.i.i1030
@@ -177407,7 +177407,7 @@ _ZN5faiss12_GLOBAL__N_116KnnSearchResultsINS_4CMaxIflEELb0EE3addElf.exit169.i.i9
   %4117 = getelementptr inbounds i8, ptr %.sroa.0.018.i.i176.i.i971, i64 1
   %4118 = add nsw i32 %4112, -8
   %4119 = lshr i32 %4118, 3
-  %4120 = icmp ugt i32 %4112, 15
+  %4120 = icmp samesign ugt i32 %4112, 15
   br i1 %4120, label %.lr.ph.i.i.i194.i.i1003, label %._crit_edge.i.i.i188.i.i998
 
 .lr.ph.i.i.i194.i.i1003:                          ; preds = %4114, %.lr.ph.i.i.i194.i.i1003

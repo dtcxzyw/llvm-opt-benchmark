@@ -189,9 +189,9 @@ define hidden range(i32 -128, 274) i32 @ini_lex(ptr noundef %0) local_unnamed_ad
 .lr.ph4075:                                       ; preds = %1
   %4 = load ptr, ptr getelementptr inbounds (i8, ptr @ini_scanner_globals, i64 24), align 8
   %5 = icmp slt i32 %.pre4472, 4
-  %6 = icmp ult i32 %.pre4472, 6
+  %6 = icmp samesign ult i32 %.pre4472, 6
   %7 = icmp eq i32 %.pre4472, 6
-  %8 = icmp ult i32 %.pre4472, 8
+  %8 = icmp samesign ult i32 %.pre4472, 8
   %9 = icmp slt i32 %.pre4472, 2
   %.not3642 = icmp eq i32 %.pre4472, 1
   br label %11
@@ -270,15 +270,15 @@ define hidden range(i32 -128, 274) i32 @ini_lex(ptr noundef %0) local_unnamed_ad
   br i1 %34, label %35, label %66
 
 35:                                               ; preds = %33
-  %36 = icmp ult i8 %22, 37
+  %36 = icmp samesign ult i8 %22, 37
   br i1 %36, label %37, label %52
 
 37:                                               ; preds = %35
-  %38 = icmp ult i8 %22, 13
+  %38 = icmp samesign ult i8 %22, 13
   br i1 %38, label %39, label %46
 
 39:                                               ; preds = %37
-  %40 = icmp ult i8 %22, 9
+  %40 = icmp samesign ult i8 %22, 9
   br i1 %40, label %41, label %42
 
 41:                                               ; preds = %39
@@ -290,11 +290,11 @@ define hidden range(i32 -128, 274) i32 @ini_lex(ptr noundef %0) local_unnamed_ad
   br i1 %43, label %.preheader3834, label %44
 
 44:                                               ; preds = %42
-  %45 = icmp ult i8 %22, 11
+  %45 = icmp samesign ult i8 %22, 11
   br i1 %45, label %.loopexit3847, label %.loopexit3734
 
 46:                                               ; preds = %37
-  %47 = icmp ult i8 %22, 32
+  %47 = icmp samesign ult i8 %22, 32
   br i1 %47, label %48, label %50
 
 48:                                               ; preds = %46
@@ -306,11 +306,11 @@ define hidden range(i32 -128, 274) i32 @ini_lex(ptr noundef %0) local_unnamed_ad
   br i1 %51, label %.loopexit3734, label %233
 
 52:                                               ; preds = %35
-  %53 = icmp ult i8 %22, 59
+  %53 = icmp samesign ult i8 %22, 59
   br i1 %53, label %54, label %61
 
 54:                                               ; preds = %52
-  %55 = icmp ult i8 %22, 39
+  %55 = icmp samesign ult i8 %22, 39
   br i1 %55, label %56, label %58
 
 56:                                               ; preds = %54
@@ -319,12 +319,12 @@ define hidden range(i32 -128, 274) i32 @ini_lex(ptr noundef %0) local_unnamed_ad
 
 58:                                               ; preds = %54
   %59 = icmp ne i8 %22, 39
-  %60 = icmp ult i8 %22, 42
+  %60 = icmp samesign ult i8 %22, 42
   %or.cond = and i1 %59, %60
   br i1 %or.cond, label %233, label %.loopexit3734
 
 61:                                               ; preds = %52
-  %62 = icmp ult i8 %22, 62
+  %62 = icmp samesign ult i8 %22, 62
   br i1 %62, label %63, label %64
 
 63:                                               ; preds = %61
@@ -342,11 +342,11 @@ define hidden range(i32 -128, 274) i32 @ini_lex(ptr noundef %0) local_unnamed_ad
   br i1 %67, label %68, label %82
 
 68:                                               ; preds = %66
-  %69 = icmp ult i8 %22, 89
+  %69 = icmp samesign ult i8 %22, 89
   br i1 %69, label %70, label %76
 
 70:                                               ; preds = %68
-  %71 = icmp ult i8 %22, 80
+  %71 = icmp samesign ult i8 %22, 80
   br i1 %71, label %72, label %74
 
 72:                                               ; preds = %70
@@ -358,7 +358,7 @@ define hidden range(i32 -128, 274) i32 @ini_lex(ptr noundef %0) local_unnamed_ad
   br i1 %75, label %279, label %.loopexit3734
 
 76:                                               ; preds = %68
-  %77 = icmp ult i8 %22, 92
+  %77 = icmp samesign ult i8 %22, 92
   br i1 %77, label %78, label %79
 
 78:                                               ; preds = %76
@@ -369,7 +369,7 @@ define hidden range(i32 -128, 274) i32 @ini_lex(ptr noundef %0) local_unnamed_ad
 
 79:                                               ; preds = %76
   %80 = icmp ne i8 %22, 92
-  %81 = icmp ult i8 %22, 95
+  %81 = icmp samesign ult i8 %22, 95
   %or.cond19 = and i1 %80, %81
   br i1 %or.cond19, label %233, label %.loopexit3734
 
@@ -378,7 +378,7 @@ define hidden range(i32 -128, 274) i32 @ini_lex(ptr noundef %0) local_unnamed_ad
   br i1 %83, label %84, label %92
 
 84:                                               ; preds = %82
-  %85 = icmp ult i8 %22, 110
+  %85 = icmp samesign ult i8 %22, 110
   br i1 %85, label %86, label %88
 
 86:                                               ; preds = %84
@@ -390,7 +390,7 @@ define hidden range(i32 -128, 274) i32 @ini_lex(ptr noundef %0) local_unnamed_ad
   br i1 %89, label %259, label %90
 
 90:                                               ; preds = %88
-  %91 = icmp ult i8 %22, 112
+  %91 = icmp samesign ult i8 %22, 112
   br i1 %91, label %269, label %.loopexit3734
 
 92:                                               ; preds = %82
@@ -579,11 +579,11 @@ define hidden range(i32 -128, 274) i32 @ini_lex(ptr noundef %0) local_unnamed_ad
   br i1 %161, label %162, label %168
 
 162:                                              ; preds = %160
-  %163 = icmp ult i8 %157, 9
+  %163 = icmp samesign ult i8 %157, 9
   br i1 %163, label %174, label %164
 
 164:                                              ; preds = %162
-  %165 = icmp ult i8 %157, 11
+  %165 = icmp samesign ult i8 %157, 11
   br i1 %165, label %.loopexit3847, label %166
 
 166:                                              ; preds = %164
@@ -653,11 +653,11 @@ define hidden range(i32 -128, 274) i32 @ini_lex(ptr noundef %0) local_unnamed_ad
   br i1 %199, label %200, label %216
 
 200:                                              ; preds = %198
-  %201 = icmp ult i8 %197, 14
+  %201 = icmp samesign ult i8 %197, 14
   br i1 %201, label %202, label %209
 
 202:                                              ; preds = %200
-  %203 = icmp ult i8 %197, 10
+  %203 = icmp samesign ult i8 %197, 10
   br i1 %203, label %204, label %208
 
 204:                                              ; preds = %202
@@ -680,11 +680,11 @@ define hidden range(i32 -128, 274) i32 @ini_lex(ptr noundef %0) local_unnamed_ad
   ]
 
 209:                                              ; preds = %200
-  %210 = icmp ult i8 %197, 36
+  %210 = icmp samesign ult i8 %197, 36
   br i1 %210, label %211, label %214
 
 211:                                              ; preds = %209
-  %212 = icmp ugt i8 %197, 31
+  %212 = icmp samesign ugt i8 %197, 31
   %213 = icmp ne i8 %197, 35
   %or.cond28 = and i1 %212, %213
   br i1 %or.cond28, label %.loopexit3846, label %.loopexit3734
@@ -698,12 +698,12 @@ define hidden range(i32 -128, 274) i32 @ini_lex(ptr noundef %0) local_unnamed_ad
   br i1 %217, label %218, label %226
 
 218:                                              ; preds = %216
-  %219 = icmp ult i8 %197, 59
+  %219 = icmp samesign ult i8 %197, 59
   br i1 %219, label %220, label %223
 
 220:                                              ; preds = %218
   %221 = icmp ne i8 %197, 39
-  %222 = icmp ult i8 %197, 42
+  %222 = icmp samesign ult i8 %197, 42
   %or.cond31 = and i1 %221, %222
   br i1 %or.cond31, label %.loopexit3846, label %.loopexit3734
 
@@ -762,7 +762,7 @@ define hidden range(i32 -128, 274) i32 @ini_lex(ptr noundef %0) local_unnamed_ad
   ]
 
 242:                                              ; preds = %240, %240
-  %243 = icmp ult i8 %241, 11
+  %243 = icmp samesign ult i8 %241, 11
   br i1 %243, label %329, label %341
 
 .lr.ph4172:                                       ; preds = %.preheader3725, %.backedge3727
@@ -1028,11 +1028,11 @@ define hidden range(i32 -128, 274) i32 @ini_lex(ptr noundef %0) local_unnamed_ad
   br i1 %352, label %353, label %364
 
 353:                                              ; preds = %349
-  %354 = icmp ult i8 %351, 32
+  %354 = icmp samesign ult i8 %351, 32
   br i1 %354, label %355, label %359
 
 355:                                              ; preds = %353
-  %356 = icmp ult i8 %351, 10
+  %356 = icmp samesign ult i8 %351, 10
   br i1 %356, label %357, label %358
 
 357:                                              ; preds = %355
@@ -1048,7 +1048,7 @@ define hidden range(i32 -128, 274) i32 @ini_lex(ptr noundef %0) local_unnamed_ad
   ]
 
 359:                                              ; preds = %353
-  %360 = icmp ult i8 %351, 36
+  %360 = icmp samesign ult i8 %351, 36
   br i1 %360, label %361, label %362
 
 361:                                              ; preds = %359
@@ -1071,11 +1071,11 @@ define hidden range(i32 -128, 274) i32 @ini_lex(ptr noundef %0) local_unnamed_ad
   br i1 %365, label %366, label %372
 
 366:                                              ; preds = %364
-  %367 = icmp ult i8 %351, 60
+  %367 = icmp samesign ult i8 %351, 60
   br i1 %367, label %368, label %371
 
 368:                                              ; preds = %366
-  %369 = icmp ugt i8 %351, 41
+  %369 = icmp samesign ugt i8 %351, 41
   %370 = icmp ne i8 %351, 59
   %or.cond61 = and i1 %369, %370
   br i1 %or.cond61, label %105, label %.loopexit3730
@@ -1183,11 +1183,11 @@ define hidden range(i32 -128, 274) i32 @ini_lex(ptr noundef %0) local_unnamed_ad
   br i1 %417, label %418, label %434
 
 418:                                              ; preds = %415
-  %419 = icmp ult i8 %416, 14
+  %419 = icmp samesign ult i8 %416, 14
   br i1 %419, label %420, label %426
 
 420:                                              ; preds = %418
-  %421 = icmp ult i8 %416, 10
+  %421 = icmp samesign ult i8 %416, 10
   br i1 %421, label %422, label %425
 
 422:                                              ; preds = %420
@@ -1209,11 +1209,11 @@ define hidden range(i32 -128, 274) i32 @ini_lex(ptr noundef %0) local_unnamed_ad
   ]
 
 426:                                              ; preds = %418
-  %427 = icmp ult i8 %416, 35
+  %427 = icmp samesign ult i8 %416, 35
   br i1 %427, label %428, label %432
 
 428:                                              ; preds = %426
-  %429 = icmp ult i8 %416, 32
+  %429 = icmp samesign ult i8 %416, 32
   br i1 %429, label %.loopexit3734, label %430
 
 430:                                              ; preds = %428
@@ -1230,12 +1230,12 @@ define hidden range(i32 -128, 274) i32 @ini_lex(ptr noundef %0) local_unnamed_ad
   br i1 %435, label %436, label %443
 
 436:                                              ; preds = %434
-  %437 = icmp ult i8 %416, 59
+  %437 = icmp samesign ult i8 %416, 59
   br i1 %437, label %438, label %441
 
 438:                                              ; preds = %436
   %439 = icmp eq i8 %416, 39
-  %440 = icmp ugt i8 %416, 41
+  %440 = icmp samesign ugt i8 %416, 41
   %or.cond82 = or i1 %439, %440
   br i1 %or.cond82, label %.loopexit3734, label %.loopexit3746
 
@@ -1365,11 +1365,11 @@ define hidden range(i32 -128, 274) i32 @ini_lex(ptr noundef %0) local_unnamed_ad
   br i1 %498, label %499, label %515
 
 499:                                              ; preds = %496
-  %500 = icmp ult i8 %497, 14
+  %500 = icmp samesign ult i8 %497, 14
   br i1 %500, label %501, label %507
 
 501:                                              ; preds = %499
-  %502 = icmp ult i8 %497, 10
+  %502 = icmp samesign ult i8 %497, 10
   br i1 %502, label %503, label %506
 
 503:                                              ; preds = %501
@@ -1392,11 +1392,11 @@ define hidden range(i32 -128, 274) i32 @ini_lex(ptr noundef %0) local_unnamed_ad
   ]
 
 507:                                              ; preds = %499
-  %508 = icmp ult i8 %497, 35
+  %508 = icmp samesign ult i8 %497, 35
   br i1 %508, label %509, label %513
 
 509:                                              ; preds = %507
-  %510 = icmp ult i8 %497, 32
+  %510 = icmp samesign ult i8 %497, 32
   br i1 %510, label %.loopexit3734, label %511
 
 511:                                              ; preds = %509
@@ -1413,12 +1413,12 @@ define hidden range(i32 -128, 274) i32 @ini_lex(ptr noundef %0) local_unnamed_ad
   br i1 %516, label %517, label %524
 
 517:                                              ; preds = %515
-  %518 = icmp ult i8 %497, 59
+  %518 = icmp samesign ult i8 %497, 59
   br i1 %518, label %519, label %522
 
 519:                                              ; preds = %517
   %520 = icmp ne i8 %497, 39
-  %521 = icmp ult i8 %497, 42
+  %521 = icmp samesign ult i8 %497, 42
   %or.cond106 = and i1 %520, %521
   br i1 %or.cond106, label %.loopexit3730, label %.loopexit3734
 
@@ -1494,11 +1494,11 @@ define hidden range(i32 -128, 274) i32 @ini_lex(ptr noundef %0) local_unnamed_ad
   br i1 %554, label %555, label %571
 
 555:                                              ; preds = %552
-  %556 = icmp ult i8 %553, 14
+  %556 = icmp samesign ult i8 %553, 14
   br i1 %556, label %557, label %563
 
 557:                                              ; preds = %555
-  %558 = icmp ult i8 %553, 10
+  %558 = icmp samesign ult i8 %553, 10
   br i1 %558, label %559, label %562
 
 559:                                              ; preds = %557
@@ -1520,11 +1520,11 @@ define hidden range(i32 -128, 274) i32 @ini_lex(ptr noundef %0) local_unnamed_ad
   ]
 
 563:                                              ; preds = %555
-  %564 = icmp ult i8 %553, 35
+  %564 = icmp samesign ult i8 %553, 35
   br i1 %564, label %565, label %569
 
 565:                                              ; preds = %563
-  %566 = icmp ult i8 %553, 32
+  %566 = icmp samesign ult i8 %553, 32
   br i1 %566, label %.loopexit3734, label %567
 
 567:                                              ; preds = %565
@@ -1541,12 +1541,12 @@ define hidden range(i32 -128, 274) i32 @ini_lex(ptr noundef %0) local_unnamed_ad
   br i1 %572, label %573, label %580
 
 573:                                              ; preds = %571
-  %574 = icmp ult i8 %553, 59
+  %574 = icmp samesign ult i8 %553, 59
   br i1 %574, label %575, label %578
 
 575:                                              ; preds = %573
   %576 = icmp eq i8 %553, 39
-  %577 = icmp ugt i8 %553, 41
+  %577 = icmp samesign ugt i8 %553, 41
   %or.cond130 = or i1 %576, %577
   br i1 %or.cond130, label %.loopexit3734, label %.loopexit3738
 
@@ -1651,11 +1651,11 @@ define hidden range(i32 -128, 274) i32 @ini_lex(ptr noundef %0) local_unnamed_ad
   br i1 %619, label %620, label %635
 
 620:                                              ; preds = %618
-  %621 = icmp ult i8 %22, 35
+  %621 = icmp samesign ult i8 %22, 35
   br i1 %621, label %622, label %627
 
 622:                                              ; preds = %620
-  %623 = icmp ult i8 %22, 13
+  %623 = icmp samesign ult i8 %22, 13
   br i1 %623, label %624, label %626
 
 624:                                              ; preds = %622
@@ -1670,7 +1670,7 @@ define hidden range(i32 -128, 274) i32 @ini_lex(ptr noundef %0) local_unnamed_ad
   ]
 
 627:                                              ; preds = %620
-  %628 = icmp ult i8 %22, 39
+  %628 = icmp samesign ult i8 %22, 39
   br i1 %628, label %629, label %631
 
 629:                                              ; preds = %627
@@ -1682,7 +1682,7 @@ define hidden range(i32 -128, 274) i32 @ini_lex(ptr noundef %0) local_unnamed_ad
   br i1 %632, label %738, label %633
 
 633:                                              ; preds = %631
-  %634 = icmp ult i8 %22, 45
+  %634 = icmp samesign ult i8 %22, 45
   %.not3651 = icmp eq i8 %22, 47
   %or.cond5305 = or i1 %634, %.not3651
   br i1 %or.cond5305, label %.loopexit3706, label %741
@@ -1692,11 +1692,11 @@ define hidden range(i32 -128, 274) i32 @ini_lex(ptr noundef %0) local_unnamed_ad
   br i1 %636, label %637, label %645
 
 637:                                              ; preds = %635
-  %638 = icmp ult i8 %22, 60
+  %638 = icmp samesign ult i8 %22, 60
   br i1 %638, label %639, label %643
 
 639:                                              ; preds = %637
-  %640 = icmp ult i8 %22, 58
+  %640 = icmp samesign ult i8 %22, 58
   br i1 %640, label %.preheader3713, label %641
 
 641:                                              ; preds = %639
@@ -1704,7 +1704,7 @@ define hidden range(i32 -128, 274) i32 @ini_lex(ptr noundef %0) local_unnamed_ad
   br i1 %642, label %715, label %.loopexit3706
 
 643:                                              ; preds = %637
-  %644 = icmp ult i8 %22, 65
+  %644 = icmp samesign ult i8 %22, 65
   %.not3645 = icmp eq i8 %22, 91
   %or.cond5306 = or i1 %644, %.not3645
   br i1 %or.cond5306, label %.loopexit3706, label %.preheader3715.preheader
@@ -1824,15 +1824,15 @@ define hidden range(i32 -128, 274) i32 @ini_lex(ptr noundef %0) local_unnamed_ad
   br i1 %697, label %698, label %706
 
 698:                                              ; preds = %696
-  %699 = icmp ult i8 %693, 14
+  %699 = icmp samesign ult i8 %693, 14
   br i1 %699, label %700, label %705
 
 700:                                              ; preds = %698
-  %701 = icmp ult i8 %693, 9
+  %701 = icmp samesign ult i8 %693, 9
   br i1 %701, label %.loopexit3706, label %702
 
 702:                                              ; preds = %700
-  %703 = icmp ugt i8 %693, 10
+  %703 = icmp samesign ugt i8 %693, 10
   %704 = icmp ne i8 %693, 13
   %or.cond142 = and i1 %703, %704
   br i1 %or.cond142, label %.loopexit3706, label %668
@@ -1945,7 +1945,7 @@ define hidden range(i32 -128, 274) i32 @ini_lex(ptr noundef %0) local_unnamed_ad
   br i1 %753, label %754, label %762
 
 754:                                              ; preds = %752
-  %755 = icmp ult i8 %749, 14
+  %755 = icmp samesign ult i8 %749, 14
   br i1 %755, label %756, label %757
 
 756:                                              ; preds = %754
@@ -1955,7 +1955,7 @@ define hidden range(i32 -128, 274) i32 @ini_lex(ptr noundef %0) local_unnamed_ad
   ]
 
 757:                                              ; preds = %754
-  %758 = icmp ult i8 %749, 35
+  %758 = icmp samesign ult i8 %749, 35
   br i1 %758, label %759, label %760
 
 759:                                              ; preds = %757
@@ -2059,7 +2059,7 @@ define hidden range(i32 -128, 274) i32 @ini_lex(ptr noundef %0) local_unnamed_ad
   br i1 %805, label %806, label %810
 
 806:                                              ; preds = %804
-  %807 = icmp ult i8 %799, 14
+  %807 = icmp samesign ult i8 %799, 14
   br i1 %807, label %808, label %809
 
 808:                                              ; preds = %806
@@ -2242,7 +2242,7 @@ define hidden range(i32 -128, 274) i32 @ini_lex(ptr noundef %0) local_unnamed_ad
   br i1 %887, label %888, label %896
 
 888:                                              ; preds = %885
-  %889 = icmp ult i8 %886, 14
+  %889 = icmp samesign ult i8 %886, 14
   br i1 %889, label %890, label %891
 
 890:                                              ; preds = %888
@@ -2252,7 +2252,7 @@ define hidden range(i32 -128, 274) i32 @ini_lex(ptr noundef %0) local_unnamed_ad
   ]
 
 891:                                              ; preds = %888
-  %892 = icmp ult i8 %886, 35
+  %892 = icmp samesign ult i8 %886, 35
   br i1 %892, label %893, label %894
 
 893:                                              ; preds = %891
@@ -2272,7 +2272,7 @@ define hidden range(i32 -128, 274) i32 @ini_lex(ptr noundef %0) local_unnamed_ad
   br i1 %899, label %.loopexit3711, label %900
 
 900:                                              ; preds = %898
-  %901 = icmp ugt i8 %886, 47
+  %901 = icmp samesign ugt i8 %886, 47
   %902 = icmp ne i8 %886, 58
   %or.cond163 = and i1 %901, %902
   br i1 %or.cond163, label %.preheader3709, label %.loopexit3706
@@ -2374,11 +2374,11 @@ define hidden range(i32 -128, 274) i32 @ini_lex(ptr noundef %0) local_unnamed_ad
   br i1 %952, label %953, label %968
 
 953:                                              ; preds = %951
-  %954 = icmp ult i8 %24, 35
+  %954 = icmp samesign ult i8 %24, 35
   br i1 %954, label %955, label %960
 
 955:                                              ; preds = %953
-  %956 = icmp ult i8 %24, 13
+  %956 = icmp samesign ult i8 %24, 13
   br i1 %956, label %957, label %959
 
 957:                                              ; preds = %955
@@ -2393,7 +2393,7 @@ define hidden range(i32 -128, 274) i32 @ini_lex(ptr noundef %0) local_unnamed_ad
   ]
 
 960:                                              ; preds = %953
-  %961 = icmp ult i8 %24, 39
+  %961 = icmp samesign ult i8 %24, 39
   br i1 %961, label %962, label %964
 
 962:                                              ; preds = %960
@@ -2405,7 +2405,7 @@ define hidden range(i32 -128, 274) i32 @ini_lex(ptr noundef %0) local_unnamed_ad
   br i1 %965, label %1079, label %966
 
 966:                                              ; preds = %964
-  %967 = icmp ult i8 %24, 45
+  %967 = icmp samesign ult i8 %24, 45
   %.not3631 = icmp eq i8 %24, 47
   %or.cond5309 = or i1 %967, %.not3631
   br i1 %or.cond5309, label %.loopexit3788, label %1082
@@ -2415,11 +2415,11 @@ define hidden range(i32 -128, 274) i32 @ini_lex(ptr noundef %0) local_unnamed_ad
   br i1 %969, label %970, label %978
 
 970:                                              ; preds = %968
-  %971 = icmp ult i8 %24, 60
+  %971 = icmp samesign ult i8 %24, 60
   br i1 %971, label %972, label %976
 
 972:                                              ; preds = %970
-  %973 = icmp ult i8 %24, 58
+  %973 = icmp samesign ult i8 %24, 58
   br i1 %973, label %.preheader3796, label %974
 
 974:                                              ; preds = %972
@@ -2427,7 +2427,7 @@ define hidden range(i32 -128, 274) i32 @ini_lex(ptr noundef %0) local_unnamed_ad
   br i1 %975, label %1056, label %.loopexit3788
 
 976:                                              ; preds = %970
-  %977 = icmp ult i8 %24, 65
+  %977 = icmp samesign ult i8 %24, 65
   %.not3625 = icmp eq i8 %24, 91
   %or.cond5310 = or i1 %977, %.not3625
   br i1 %or.cond5310, label %.loopexit3788, label %.preheader3798.preheader
@@ -2570,15 +2570,15 @@ define hidden range(i32 -128, 274) i32 @ini_lex(ptr noundef %0) local_unnamed_ad
   br i1 %1038, label %1039, label %1047
 
 1039:                                             ; preds = %1037
-  %1040 = icmp ult i8 %1034, 14
+  %1040 = icmp samesign ult i8 %1034, 14
   br i1 %1040, label %1041, label %1046
 
 1041:                                             ; preds = %1039
-  %1042 = icmp ult i8 %1034, 9
+  %1042 = icmp samesign ult i8 %1034, 9
   br i1 %1042, label %.loopexit3788, label %1043
 
 1043:                                             ; preds = %1041
-  %1044 = icmp ugt i8 %1034, 10
+  %1044 = icmp samesign ugt i8 %1034, 10
   %1045 = icmp ne i8 %1034, 13
   %or.cond169 = and i1 %1044, %1045
   br i1 %or.cond169, label %.loopexit3788, label %1003
@@ -2691,7 +2691,7 @@ define hidden range(i32 -128, 274) i32 @ini_lex(ptr noundef %0) local_unnamed_ad
   br i1 %1094, label %1095, label %1103
 
 1095:                                             ; preds = %1093
-  %1096 = icmp ult i8 %1090, 14
+  %1096 = icmp samesign ult i8 %1090, 14
   br i1 %1096, label %1097, label %1098
 
 1097:                                             ; preds = %1095
@@ -2701,7 +2701,7 @@ define hidden range(i32 -128, 274) i32 @ini_lex(ptr noundef %0) local_unnamed_ad
   ]
 
 1098:                                             ; preds = %1095
-  %1099 = icmp ult i8 %1090, 35
+  %1099 = icmp samesign ult i8 %1090, 35
   br i1 %1099, label %1100, label %1101
 
 1100:                                             ; preds = %1098
@@ -2822,7 +2822,7 @@ define hidden range(i32 -128, 274) i32 @ini_lex(ptr noundef %0) local_unnamed_ad
   br i1 %1152, label %1153, label %1157
 
 1153:                                             ; preds = %1151
-  %1154 = icmp ult i8 %1146, 14
+  %1154 = icmp samesign ult i8 %1146, 14
   br i1 %1154, label %1155, label %1156
 
 1155:                                             ; preds = %1153
@@ -2932,7 +2932,7 @@ define hidden range(i32 -128, 274) i32 @ini_lex(ptr noundef %0) local_unnamed_ad
   br i1 %1203, label %1204, label %1212
 
 1204:                                             ; preds = %.lr.ph4131
-  %1205 = icmp ult i8 %1202, 9
+  %1205 = icmp samesign ult i8 %1202, 9
   br i1 %1205, label %.loopexit3802, label %1206
 
 1206:                                             ; preds = %1204
@@ -2946,7 +2946,7 @@ define hidden range(i32 -128, 274) i32 @ini_lex(ptr noundef %0) local_unnamed_ad
   br i1 %1209, label %.loopexit, label %.lr.ph4131
 
 1210:                                             ; preds = %1206
-  %1211 = icmp ult i8 %1202, 11
+  %1211 = icmp samesign ult i8 %1202, 11
   br i1 %1211, label %1277, label %.loopexit3802
 
 1212:                                             ; preds = %.lr.ph4131
@@ -3054,7 +3054,7 @@ define hidden range(i32 -128, 274) i32 @ini_lex(ptr noundef %0) local_unnamed_ad
   br i1 %1253, label %1254, label %1262
 
 1254:                                             ; preds = %1251
-  %1255 = icmp ult i8 %1252, 14
+  %1255 = icmp samesign ult i8 %1252, 14
   br i1 %1255, label %1256, label %1257
 
 1256:                                             ; preds = %1254
@@ -3064,7 +3064,7 @@ define hidden range(i32 -128, 274) i32 @ini_lex(ptr noundef %0) local_unnamed_ad
   ]
 
 1257:                                             ; preds = %1254
-  %1258 = icmp ult i8 %1252, 35
+  %1258 = icmp samesign ult i8 %1252, 35
   br i1 %1258, label %1259, label %1260
 
 1259:                                             ; preds = %1257
@@ -3084,7 +3084,7 @@ define hidden range(i32 -128, 274) i32 @ini_lex(ptr noundef %0) local_unnamed_ad
   br i1 %1265, label %.loopexit3794, label %1266
 
 1266:                                             ; preds = %1264
-  %1267 = icmp ugt i8 %1252, 47
+  %1267 = icmp samesign ugt i8 %1252, 47
   %1268 = icmp ne i8 %1252, 58
   %or.cond190 = and i1 %1267, %1268
   br i1 %or.cond190, label %.preheader3792, label %.loopexit3788
@@ -3425,11 +3425,11 @@ define hidden range(i32 -128, 274) i32 @ini_lex(ptr noundef %0) local_unnamed_ad
   br i1 %1387, label %1388, label %1394
 
 1388:                                             ; preds = %1386
-  %1389 = icmp ult i8 %1383, 9
+  %1389 = icmp samesign ult i8 %1383, 9
   br i1 %1389, label %1400, label %1390
 
 1390:                                             ; preds = %1388
-  %1391 = icmp ult i8 %1383, 11
+  %1391 = icmp samesign ult i8 %1383, 11
   br i1 %1391, label %1428, label %1392
 
 1392:                                             ; preds = %1390
@@ -3620,11 +3620,11 @@ define hidden range(i32 -128, 274) i32 @ini_lex(ptr noundef %0) local_unnamed_ad
   br i1 %1486, label %1487, label %1502
 
 1487:                                             ; preds = %1485
-  %1488 = icmp ult i8 %1482, 32
+  %1488 = icmp samesign ult i8 %1482, 32
   br i1 %1488, label %1489, label %1494
 
 1489:                                             ; preds = %1487
-  %1490 = icmp ult i8 %1482, 11
+  %1490 = icmp samesign ult i8 %1482, 11
   br i1 %1490, label %1491, label %1493
 
 1491:                                             ; preds = %1489
@@ -3637,11 +3637,11 @@ define hidden range(i32 -128, 274) i32 @ini_lex(ptr noundef %0) local_unnamed_ad
   br i1 %.not3609, label %1512, label %.loopexit3754
 
 1494:                                             ; preds = %1487
-  %1495 = icmp ult i8 %1482, 37
+  %1495 = icmp samesign ult i8 %1482, 37
   br i1 %1495, label %1496, label %1499
 
 1496:                                             ; preds = %1494
-  %1497 = icmp ult i8 %1482, 35
+  %1497 = icmp samesign ult i8 %1482, 35
   br i1 %1497, label %1512, label %1498
 
 1498:                                             ; preds = %1496
@@ -3650,7 +3650,7 @@ define hidden range(i32 -128, 274) i32 @ini_lex(ptr noundef %0) local_unnamed_ad
 
 1499:                                             ; preds = %1494
   %1500 = icmp eq i8 %1482, 37
-  %1501 = icmp ugt i8 %1482, 41
+  %1501 = icmp samesign ugt i8 %1482, 41
   %or.cond205 = or i1 %1500, %1501
   br i1 %or.cond205, label %.loopexit3754, label %1512
 
@@ -3659,7 +3659,7 @@ define hidden range(i32 -128, 274) i32 @ini_lex(ptr noundef %0) local_unnamed_ad
   br i1 %1503, label %1504, label %1508
 
 1504:                                             ; preds = %1502
-  %1505 = icmp ult i8 %1482, 60
+  %1505 = icmp samesign ult i8 %1482, 60
   br i1 %1505, label %1506, label %1507
 
 1506:                                             ; preds = %1504
@@ -3757,7 +3757,7 @@ define hidden range(i32 -128, 274) i32 @ini_lex(ptr noundef %0) local_unnamed_ad
   ]
 
 1546:                                             ; preds = %1544, %1544
-  %1547 = icmp ult i8 %1545, 11
+  %1547 = icmp samesign ult i8 %1545, 11
   br i1 %1547, label %1892, label %1904
 
 1548:                                             ; preds = %1330
@@ -3788,11 +3788,11 @@ define hidden range(i32 -128, 274) i32 @ini_lex(ptr noundef %0) local_unnamed_ad
   br i1 %1560, label %1561, label %1578
 
 1561:                                             ; preds = %1559
-  %1562 = icmp ult i8 %1554, 14
+  %1562 = icmp samesign ult i8 %1554, 14
   br i1 %1562, label %1563, label %1569
 
 1563:                                             ; preds = %1561
-  %1564 = icmp ult i8 %1554, 9
+  %1564 = icmp samesign ult i8 %1554, 9
   br i1 %1564, label %1565, label %1566
 
 1565:                                             ; preds = %1563
@@ -3800,17 +3800,17 @@ define hidden range(i32 -128, 274) i32 @ini_lex(ptr noundef %0) local_unnamed_ad
   br i1 %.not3603, label %1588, label %.loopexit3754
 
 1566:                                             ; preds = %1563
-  %1567 = icmp ugt i8 %1554, 10
+  %1567 = icmp samesign ugt i8 %1554, 10
   %1568 = icmp ne i8 %1554, 13
   %or.cond211 = and i1 %1567, %1568
   br i1 %or.cond211, label %.loopexit3754, label %1588
 
 1569:                                             ; preds = %1561
-  %1570 = icmp ult i8 %1554, 36
+  %1570 = icmp samesign ult i8 %1554, 36
   br i1 %1570, label %1571, label %1574
 
 1571:                                             ; preds = %1569
-  %1572 = icmp ult i8 %1554, 32
+  %1572 = icmp samesign ult i8 %1554, 32
   %1573 = icmp eq i8 %1554, 35
   %or.cond214 = or i1 %1572, %1573
   br i1 %or.cond214, label %.loopexit3754, label %1588
@@ -3820,7 +3820,7 @@ define hidden range(i32 -128, 274) i32 @ini_lex(ptr noundef %0) local_unnamed_ad
   br i1 %1575, label %1824, label %1576
 
 1576:                                             ; preds = %1574
-  %1577 = icmp ult i8 %1554, 38
+  %1577 = icmp samesign ult i8 %1554, 38
   br i1 %1577, label %.loopexit3754, label %1588
 
 1578:                                             ; preds = %1559
@@ -3828,7 +3828,7 @@ define hidden range(i32 -128, 274) i32 @ini_lex(ptr noundef %0) local_unnamed_ad
   br i1 %1579, label %1580, label %1584
 
 1580:                                             ; preds = %1578
-  %1581 = icmp ult i8 %1554, 60
+  %1581 = icmp samesign ult i8 %1554, 60
   br i1 %1581, label %1582, label %1583
 
 1582:                                             ; preds = %1580
@@ -3914,11 +3914,11 @@ define hidden range(i32 -128, 274) i32 @ini_lex(ptr noundef %0) local_unnamed_ad
   br i1 %1620, label %1621, label %1638
 
 1621:                                             ; preds = %1617
-  %1622 = icmp ult i8 %1619, 35
+  %1622 = icmp samesign ult i8 %1619, 35
   br i1 %1622, label %1623, label %1630
 
 1623:                                             ; preds = %1621
-  %1624 = icmp ult i8 %1619, 11
+  %1624 = icmp samesign ult i8 %1619, 11
   br i1 %1624, label %1625, label %1627
 
 1625:                                             ; preds = %1623
@@ -3928,12 +3928,12 @@ define hidden range(i32 -128, 274) i32 @ini_lex(ptr noundef %0) local_unnamed_ad
 
 1627:                                             ; preds = %1623
   %1628 = icmp ne i8 %1619, 13
-  %1629 = icmp ult i8 %1619, 32
+  %1629 = icmp samesign ult i8 %1619, 32
   %or.cond223 = and i1 %1628, %1629
   br i1 %or.cond223, label %1347, label %1588
 
 1630:                                             ; preds = %1621
-  %1631 = icmp ult i8 %1619, 48
+  %1631 = icmp samesign ult i8 %1619, 48
   br i1 %1631, label %1632, label %1634
 
 1632:                                             ; preds = %1630
@@ -3942,7 +3942,7 @@ define hidden range(i32 -128, 274) i32 @ini_lex(ptr noundef %0) local_unnamed_ad
   br i1 %or.cond226, label %1588, label %1347
 
 1634:                                             ; preds = %1630
-  %1635 = icmp ult i8 %1619, 58
+  %1635 = icmp samesign ult i8 %1619, 58
   br i1 %1635, label %.preheader3760, label %1636
 
 1636:                                             ; preds = %1634
@@ -3954,7 +3954,7 @@ define hidden range(i32 -128, 274) i32 @ini_lex(ptr noundef %0) local_unnamed_ad
   br i1 %1639, label %1640, label %1648
 
 1640:                                             ; preds = %1638
-  %1641 = icmp ult i8 %1619, 66
+  %1641 = icmp samesign ult i8 %1619, 66
   br i1 %1641, label %1642, label %1643
 
 1642:                                             ; preds = %1640
@@ -3964,11 +3964,11 @@ define hidden range(i32 -128, 274) i32 @ini_lex(ptr noundef %0) local_unnamed_ad
   ]
 
 1643:                                             ; preds = %1640
-  %1644 = icmp ult i8 %1619, 91
+  %1644 = icmp samesign ult i8 %1619, 91
   br i1 %1644, label %.preheader3760, label %1645
 
 1645:                                             ; preds = %1643
-  %1646 = icmp ult i8 %1619, 94
+  %1646 = icmp samesign ult i8 %1619, 94
   br i1 %1646, label %1347, label %1647
 
 1647:                                             ; preds = %1645
@@ -3984,7 +3984,7 @@ define hidden range(i32 -128, 274) i32 @ini_lex(ptr noundef %0) local_unnamed_ad
   br i1 %1651, label %1347, label %1652
 
 1652:                                             ; preds = %1650
-  %1653 = icmp ult i8 %1619, 98
+  %1653 = icmp samesign ult i8 %1619, 98
   br i1 %1653, label %1908, label %1654
 
 1654:                                             ; preds = %1652
@@ -4006,11 +4006,11 @@ define hidden range(i32 -128, 274) i32 @ini_lex(ptr noundef %0) local_unnamed_ad
   br i1 %1661, label %1662, label %1683
 
 1662:                                             ; preds = %1658
-  %1663 = icmp ult i8 %1660, 38
+  %1663 = icmp samesign ult i8 %1660, 38
   br i1 %1663, label %1664, label %1668
 
 1664:                                             ; preds = %1662
-  %1665 = icmp ult i8 %1660, 13
+  %1665 = icmp samesign ult i8 %1660, 13
   br i1 %1665, label %1666, label %1667
 
 1666:                                             ; preds = %1664
@@ -4029,21 +4029,21 @@ define hidden range(i32 -128, 274) i32 @ini_lex(ptr noundef %0) local_unnamed_ad
   ]
 
 1668:                                             ; preds = %1662
-  %1669 = icmp ult i8 %1660, 59
+  %1669 = icmp samesign ult i8 %1660, 59
   br i1 %1669, label %1670, label %1675
 
 1670:                                             ; preds = %1668
-  %1671 = icmp ult i8 %1660, 42
+  %1671 = icmp samesign ult i8 %1660, 42
   br i1 %1671, label %1588, label %1672
 
 1672:                                             ; preds = %1670
-  %1673 = icmp ugt i8 %1660, 47
+  %1673 = icmp samesign ugt i8 %1660, 47
   %1674 = icmp ne i8 %1660, 58
   %or.cond238 = and i1 %1673, %1674
   br i1 %or.cond238, label %.preheader3760, label %1347
 
 1675:                                             ; preds = %1668
-  %1676 = icmp ult i8 %1660, 61
+  %1676 = icmp samesign ult i8 %1660, 61
   br i1 %1676, label %1677, label %1679
 
 1677:                                             ; preds = %1675
@@ -4055,7 +4055,7 @@ define hidden range(i32 -128, 274) i32 @ini_lex(ptr noundef %0) local_unnamed_ad
   br i1 %1680, label %1588, label %1681
 
 1681:                                             ; preds = %1679
-  %1682 = icmp ult i8 %1660, 65
+  %1682 = icmp samesign ult i8 %1660, 65
   br i1 %1682, label %1347, label %.preheader3760
 
 1683:                                             ; preds = %1658
@@ -4063,7 +4063,7 @@ define hidden range(i32 -128, 274) i32 @ini_lex(ptr noundef %0) local_unnamed_ad
   br i1 %1684, label %1685, label %1693
 
 1685:                                             ; preds = %1683
-  %1686 = icmp ult i8 %1660, 91
+  %1686 = icmp samesign ult i8 %1660, 91
   br i1 %1686, label %1687, label %1688
 
 1687:                                             ; preds = %1685
@@ -4073,7 +4073,7 @@ define hidden range(i32 -128, 274) i32 @ini_lex(ptr noundef %0) local_unnamed_ad
   ]
 
 1688:                                             ; preds = %1685
-  %1689 = icmp ult i8 %1660, 95
+  %1689 = icmp samesign ult i8 %1660, 95
   br i1 %1689, label %1690, label %1691
 
 1690:                                             ; preds = %1688
@@ -4115,11 +4115,11 @@ define hidden range(i32 -128, 274) i32 @ini_lex(ptr noundef %0) local_unnamed_ad
   br i1 %1705, label %1706, label %1727
 
 1706:                                             ; preds = %1702
-  %1707 = icmp ult i8 %1704, 38
+  %1707 = icmp samesign ult i8 %1704, 38
   br i1 %1707, label %1708, label %1712
 
 1708:                                             ; preds = %1706
-  %1709 = icmp ult i8 %1704, 13
+  %1709 = icmp samesign ult i8 %1704, 13
   br i1 %1709, label %1710, label %1711
 
 1710:                                             ; preds = %1708
@@ -4138,21 +4138,21 @@ define hidden range(i32 -128, 274) i32 @ini_lex(ptr noundef %0) local_unnamed_ad
   ]
 
 1712:                                             ; preds = %1706
-  %1713 = icmp ult i8 %1704, 59
+  %1713 = icmp samesign ult i8 %1704, 59
   br i1 %1713, label %1714, label %1719
 
 1714:                                             ; preds = %1712
-  %1715 = icmp ult i8 %1704, 42
+  %1715 = icmp samesign ult i8 %1704, 42
   br i1 %1715, label %1588, label %1716
 
 1716:                                             ; preds = %1714
-  %1717 = icmp ugt i8 %1704, 47
+  %1717 = icmp samesign ugt i8 %1704, 47
   %1718 = icmp ne i8 %1704, 58
   %or.cond247 = and i1 %1717, %1718
   br i1 %or.cond247, label %.preheader3760, label %1347
 
 1719:                                             ; preds = %1712
-  %1720 = icmp ult i8 %1704, 61
+  %1720 = icmp samesign ult i8 %1704, 61
   br i1 %1720, label %1721, label %1723
 
 1721:                                             ; preds = %1719
@@ -4164,7 +4164,7 @@ define hidden range(i32 -128, 274) i32 @ini_lex(ptr noundef %0) local_unnamed_ad
   br i1 %1724, label %1588, label %1725
 
 1725:                                             ; preds = %1723
-  %1726 = icmp ult i8 %1704, 65
+  %1726 = icmp samesign ult i8 %1704, 65
   br i1 %1726, label %1347, label %.preheader3760
 
 1727:                                             ; preds = %1702
@@ -4172,7 +4172,7 @@ define hidden range(i32 -128, 274) i32 @ini_lex(ptr noundef %0) local_unnamed_ad
   br i1 %1728, label %1729, label %1737
 
 1729:                                             ; preds = %1727
-  %1730 = icmp ult i8 %1704, 91
+  %1730 = icmp samesign ult i8 %1704, 91
   br i1 %1730, label %1731, label %1732
 
 1731:                                             ; preds = %1729
@@ -4182,7 +4182,7 @@ define hidden range(i32 -128, 274) i32 @ini_lex(ptr noundef %0) local_unnamed_ad
   ]
 
 1732:                                             ; preds = %1729
-  %1733 = icmp ult i8 %1704, 95
+  %1733 = icmp samesign ult i8 %1704, 95
   br i1 %1733, label %1734, label %1735
 
 1734:                                             ; preds = %1732
@@ -4224,11 +4224,11 @@ define hidden range(i32 -128, 274) i32 @ini_lex(ptr noundef %0) local_unnamed_ad
   br i1 %1749, label %1750, label %1768
 
 1750:                                             ; preds = %1746
-  %1751 = icmp ult i8 %1748, 35
+  %1751 = icmp samesign ult i8 %1748, 35
   br i1 %1751, label %1752, label %1759
 
 1752:                                             ; preds = %1750
-  %1753 = icmp ult i8 %1748, 11
+  %1753 = icmp samesign ult i8 %1748, 11
   br i1 %1753, label %1754, label %1756
 
 1754:                                             ; preds = %1752
@@ -4238,24 +4238,24 @@ define hidden range(i32 -128, 274) i32 @ini_lex(ptr noundef %0) local_unnamed_ad
 
 1756:                                             ; preds = %1752
   %1757 = icmp ne i8 %1748, 13
-  %1758 = icmp ult i8 %1748, 32
+  %1758 = icmp samesign ult i8 %1748, 32
   %or.cond253 = and i1 %1757, %1758
   br i1 %or.cond253, label %1347, label %1588
 
 1759:                                             ; preds = %1750
-  %1760 = icmp ult i8 %1748, 58
+  %1760 = icmp samesign ult i8 %1748, 58
   br i1 %1760, label %1761, label %1767
 
 1761:                                             ; preds = %1759
-  %1762 = icmp ult i8 %1748, 38
+  %1762 = icmp samesign ult i8 %1748, 38
   br i1 %1762, label %1347, label %1763
 
 1763:                                             ; preds = %1761
-  %1764 = icmp ult i8 %1748, 42
+  %1764 = icmp samesign ult i8 %1748, 42
   br i1 %1764, label %1588, label %1765
 
 1765:                                             ; preds = %1763
-  %1766 = icmp ult i8 %1748, 48
+  %1766 = icmp samesign ult i8 %1748, 48
   br i1 %1766, label %1347, label %.preheader3760
 
 1767:                                             ; preds = %1759
@@ -4269,11 +4269,11 @@ define hidden range(i32 -128, 274) i32 @ini_lex(ptr noundef %0) local_unnamed_ad
   br i1 %1769, label %1770, label %1779
 
 1770:                                             ; preds = %1768
-  %1771 = icmp ult i8 %1748, 91
+  %1771 = icmp samesign ult i8 %1748, 91
   br i1 %1771, label %1772, label %1776
 
 1772:                                             ; preds = %1770
-  %1773 = icmp ult i8 %1748, 65
+  %1773 = icmp samesign ult i8 %1748, 65
   br i1 %1773, label %1347, label %1774
 
 1774:                                             ; preds = %1772
@@ -4281,7 +4281,7 @@ define hidden range(i32 -128, 274) i32 @ini_lex(ptr noundef %0) local_unnamed_ad
   br i1 %1775, label %2155, label %.preheader3760
 
 1776:                                             ; preds = %1770
-  %1777 = icmp ult i8 %1748, 94
+  %1777 = icmp samesign ult i8 %1748, 94
   br i1 %1777, label %1347, label %1778
 
 1778:                                             ; preds = %1776
@@ -4315,11 +4315,11 @@ define hidden range(i32 -128, 274) i32 @ini_lex(ptr noundef %0) local_unnamed_ad
   br i1 %1788, label %1789, label %1807
 
 1789:                                             ; preds = %1785
-  %1790 = icmp ult i8 %1787, 35
+  %1790 = icmp samesign ult i8 %1787, 35
   br i1 %1790, label %1791, label %1798
 
 1791:                                             ; preds = %1789
-  %1792 = icmp ult i8 %1787, 11
+  %1792 = icmp samesign ult i8 %1787, 11
   br i1 %1792, label %1793, label %1795
 
 1793:                                             ; preds = %1791
@@ -4329,24 +4329,24 @@ define hidden range(i32 -128, 274) i32 @ini_lex(ptr noundef %0) local_unnamed_ad
 
 1795:                                             ; preds = %1791
   %1796 = icmp ne i8 %1787, 13
-  %1797 = icmp ult i8 %1787, 32
+  %1797 = icmp samesign ult i8 %1787, 32
   %or.cond265 = and i1 %1796, %1797
   br i1 %or.cond265, label %1347, label %1588
 
 1798:                                             ; preds = %1789
-  %1799 = icmp ult i8 %1787, 58
+  %1799 = icmp samesign ult i8 %1787, 58
   br i1 %1799, label %1800, label %1806
 
 1800:                                             ; preds = %1798
-  %1801 = icmp ult i8 %1787, 38
+  %1801 = icmp samesign ult i8 %1787, 38
   br i1 %1801, label %1347, label %1802
 
 1802:                                             ; preds = %1800
-  %1803 = icmp ult i8 %1787, 42
+  %1803 = icmp samesign ult i8 %1787, 42
   br i1 %1803, label %1588, label %1804
 
 1804:                                             ; preds = %1802
-  %1805 = icmp ult i8 %1787, 48
+  %1805 = icmp samesign ult i8 %1787, 48
   br i1 %1805, label %1347, label %.preheader3760
 
 1806:                                             ; preds = %1798
@@ -4360,11 +4360,11 @@ define hidden range(i32 -128, 274) i32 @ini_lex(ptr noundef %0) local_unnamed_ad
   br i1 %1808, label %1809, label %1818
 
 1809:                                             ; preds = %1807
-  %1810 = icmp ult i8 %1787, 91
+  %1810 = icmp samesign ult i8 %1787, 91
   br i1 %1810, label %1811, label %1815
 
 1811:                                             ; preds = %1809
-  %1812 = icmp ult i8 %1787, 65
+  %1812 = icmp samesign ult i8 %1787, 65
   br i1 %1812, label %1347, label %1813
 
 1813:                                             ; preds = %1811
@@ -4372,7 +4372,7 @@ define hidden range(i32 -128, 274) i32 @ini_lex(ptr noundef %0) local_unnamed_ad
   br i1 %1814, label %2194, label %.preheader3760
 
 1815:                                             ; preds = %1809
-  %1816 = icmp ult i8 %1787, 94
+  %1816 = icmp samesign ult i8 %1787, 94
   br i1 %1816, label %1347, label %1817
 
 1817:                                             ; preds = %1815
@@ -4430,7 +4430,7 @@ define hidden range(i32 -128, 274) i32 @ini_lex(ptr noundef %0) local_unnamed_ad
 1836:                                             ; preds = %1831, %1835
   %1837 = load ptr, ptr getelementptr inbounds (i8, ptr @ini_scanner_globals, i64 48), align 8
   store ptr %1837, ptr getelementptr inbounds (i8, ptr @ini_scanner_globals, i64 40), align 8
-  %1838 = icmp ult i32 %.53245, 3
+  %1838 = icmp samesign ult i32 %.53245, 3
   br i1 %1838, label %1839, label %1840
 
 1839:                                             ; preds = %1836
@@ -4440,7 +4440,7 @@ define hidden range(i32 -128, 274) i32 @ini_lex(ptr noundef %0) local_unnamed_ad
   ]
 
 1840:                                             ; preds = %1836
-  %1841 = icmp ult i32 %.53245, 5
+  %1841 = icmp samesign ult i32 %.53245, 5
   br i1 %1841, label %1842, label %.loopexit3781
 
 1842:                                             ; preds = %1840
@@ -4493,11 +4493,11 @@ define hidden range(i32 -128, 274) i32 @ini_lex(ptr noundef %0) local_unnamed_ad
   br i1 %1861, label %1862, label %1878
 
 1862:                                             ; preds = %1859
-  %1863 = icmp ult i8 %1860, 32
+  %1863 = icmp samesign ult i8 %1860, 32
   br i1 %1863, label %1864, label %1870
 
 1864:                                             ; preds = %1862
-  %1865 = icmp ult i8 %1860, 11
+  %1865 = icmp samesign ult i8 %1860, 11
   br i1 %1865, label %1866, label %1868
 
 1866:                                             ; preds = %1864
@@ -4510,11 +4510,11 @@ define hidden range(i32 -128, 274) i32 @ini_lex(ptr noundef %0) local_unnamed_ad
   br i1 %1869, label %1512, label %.loopexit3754
 
 1870:                                             ; preds = %1862
-  %1871 = icmp ult i8 %1860, 37
+  %1871 = icmp samesign ult i8 %1860, 37
   br i1 %1871, label %1872, label %1875
 
 1872:                                             ; preds = %1870
-  %1873 = icmp ult i8 %1860, 35
+  %1873 = icmp samesign ult i8 %1860, 35
   br i1 %1873, label %1512, label %1874
 
 1874:                                             ; preds = %1872
@@ -4523,7 +4523,7 @@ define hidden range(i32 -128, 274) i32 @ini_lex(ptr noundef %0) local_unnamed_ad
 
 1875:                                             ; preds = %1870
   %1876 = icmp ne i8 %1860, 37
-  %1877 = icmp ult i8 %1860, 42
+  %1877 = icmp samesign ult i8 %1860, 42
   %or.cond277 = and i1 %1876, %1877
   br i1 %or.cond277, label %1512, label %.loopexit3754
 
@@ -4532,11 +4532,11 @@ define hidden range(i32 -128, 274) i32 @ini_lex(ptr noundef %0) local_unnamed_ad
   br i1 %1879, label %1880, label %1887
 
 1880:                                             ; preds = %1878
-  %1881 = icmp ult i8 %1860, 60
+  %1881 = icmp samesign ult i8 %1860, 60
   br i1 %1881, label %1882, label %1885
 
 1882:                                             ; preds = %1880
-  %1883 = icmp ult i8 %1860, 58
+  %1883 = icmp samesign ult i8 %1860, 58
   br i1 %1883, label %.preheader3770, label %1884
 
 1884:                                             ; preds = %1882
@@ -4597,11 +4597,11 @@ define hidden range(i32 -128, 274) i32 @ini_lex(ptr noundef %0) local_unnamed_ad
   br i1 %1911, label %1912, label %1930
 
 1912:                                             ; preds = %1908
-  %1913 = icmp ult i8 %1910, 35
+  %1913 = icmp samesign ult i8 %1910, 35
   br i1 %1913, label %1914, label %1921
 
 1914:                                             ; preds = %1912
-  %1915 = icmp ult i8 %1910, 11
+  %1915 = icmp samesign ult i8 %1910, 11
   br i1 %1915, label %1916, label %1918
 
 1916:                                             ; preds = %1914
@@ -4611,24 +4611,24 @@ define hidden range(i32 -128, 274) i32 @ini_lex(ptr noundef %0) local_unnamed_ad
 
 1918:                                             ; preds = %1914
   %1919 = icmp ne i8 %1910, 13
-  %1920 = icmp ult i8 %1910, 32
+  %1920 = icmp samesign ult i8 %1910, 32
   %or.cond286 = and i1 %1919, %1920
   br i1 %or.cond286, label %1347, label %1588
 
 1921:                                             ; preds = %1912
-  %1922 = icmp ult i8 %1910, 58
+  %1922 = icmp samesign ult i8 %1910, 58
   br i1 %1922, label %1923, label %1929
 
 1923:                                             ; preds = %1921
-  %1924 = icmp ult i8 %1910, 38
+  %1924 = icmp samesign ult i8 %1910, 38
   br i1 %1924, label %1347, label %1925
 
 1925:                                             ; preds = %1923
-  %1926 = icmp ult i8 %1910, 42
+  %1926 = icmp samesign ult i8 %1910, 42
   br i1 %1926, label %1588, label %1927
 
 1927:                                             ; preds = %1925
-  %1928 = icmp ult i8 %1910, 48
+  %1928 = icmp samesign ult i8 %1910, 48
   br i1 %1928, label %1347, label %.preheader3760
 
 1929:                                             ; preds = %1921
@@ -4642,11 +4642,11 @@ define hidden range(i32 -128, 274) i32 @ini_lex(ptr noundef %0) local_unnamed_ad
   br i1 %1931, label %1932, label %1941
 
 1932:                                             ; preds = %1930
-  %1933 = icmp ult i8 %1910, 91
+  %1933 = icmp samesign ult i8 %1910, 91
   br i1 %1933, label %1934, label %1938
 
 1934:                                             ; preds = %1932
-  %1935 = icmp ult i8 %1910, 65
+  %1935 = icmp samesign ult i8 %1910, 65
   br i1 %1935, label %1347, label %1936
 
 1936:                                             ; preds = %1934
@@ -4654,7 +4654,7 @@ define hidden range(i32 -128, 274) i32 @ini_lex(ptr noundef %0) local_unnamed_ad
   br i1 %1937, label %2280, label %.preheader3760
 
 1938:                                             ; preds = %1932
-  %1939 = icmp ult i8 %1910, 94
+  %1939 = icmp samesign ult i8 %1910, 94
   br i1 %1939, label %1347, label %1940
 
 1940:                                             ; preds = %1938
@@ -4688,11 +4688,11 @@ define hidden range(i32 -128, 274) i32 @ini_lex(ptr noundef %0) local_unnamed_ad
   br i1 %1950, label %1951, label %1969
 
 1951:                                             ; preds = %1947
-  %1952 = icmp ult i8 %1949, 33
+  %1952 = icmp samesign ult i8 %1949, 33
   br i1 %1952, label %1953, label %1961
 
 1953:                                             ; preds = %1951
-  %1954 = icmp ult i8 %1949, 11
+  %1954 = icmp samesign ult i8 %1949, 11
   br i1 %1954, label %1955, label %1960
 
 1955:                                             ; preds = %1953
@@ -4700,7 +4700,7 @@ define hidden range(i32 -128, 274) i32 @ini_lex(ptr noundef %0) local_unnamed_ad
   br i1 %1956, label %.loopexit3777, label %1957
 
 1957:                                             ; preds = %1955
-  %1958 = icmp ult i8 %1949, 9
+  %1958 = icmp samesign ult i8 %1949, 9
   br i1 %1958, label %1347, label %1959
 
 1959:                                             ; preds = %1957
@@ -4714,18 +4714,18 @@ define hidden range(i32 -128, 274) i32 @ini_lex(ptr noundef %0) local_unnamed_ad
   ]
 
 1961:                                             ; preds = %1951
-  %1962 = icmp ult i8 %1949, 48
+  %1962 = icmp samesign ult i8 %1949, 48
   br i1 %1962, label %1963, label %1966
 
 1963:                                             ; preds = %1961
-  %1964 = icmp ugt i8 %1949, 34
+  %1964 = icmp samesign ugt i8 %1949, 34
   %1965 = add nsw i8 %1949, -42
   %or.cond295 = icmp ult i8 %1965, -4
   %or.cond3700 = select i1 %1964, i1 %or.cond295, i1 false
   br i1 %or.cond3700, label %1347, label %.loopexit3777
 
 1966:                                             ; preds = %1961
-  %1967 = icmp ult i8 %1949, 58
+  %1967 = icmp samesign ult i8 %1949, 58
   br i1 %1967, label %.preheader3760, label %1968
 
 1968:                                             ; preds = %1966
@@ -4737,7 +4737,7 @@ define hidden range(i32 -128, 274) i32 @ini_lex(ptr noundef %0) local_unnamed_ad
   br i1 %1970, label %1971, label %1984
 
 1971:                                             ; preds = %1969
-  %1972 = icmp ult i8 %1949, 79
+  %1972 = icmp samesign ult i8 %1949, 79
   br i1 %1972, label %1973, label %1978
 
 1973:                                             ; preds = %1971
@@ -4745,7 +4745,7 @@ define hidden range(i32 -128, 274) i32 @ini_lex(ptr noundef %0) local_unnamed_ad
   br i1 %1974, label %.loopexit3777, label %1975
 
 1975:                                             ; preds = %1973
-  %1976 = icmp ult i8 %1949, 65
+  %1976 = icmp samesign ult i8 %1949, 65
   br i1 %1976, label %1347, label %1977
 
 1977:                                             ; preds = %1975
@@ -4753,11 +4753,11 @@ define hidden range(i32 -128, 274) i32 @ini_lex(ptr noundef %0) local_unnamed_ad
   br i1 %.not3583, label %2323, label %.preheader3760
 
 1978:                                             ; preds = %1971
-  %1979 = icmp ult i8 %1949, 91
+  %1979 = icmp samesign ult i8 %1949, 91
   br i1 %1979, label %.preheader3760, label %1980
 
 1980:                                             ; preds = %1978
-  %1981 = icmp ult i8 %1949, 94
+  %1981 = icmp samesign ult i8 %1949, 94
   br i1 %1981, label %1347, label %1982
 
 1982:                                             ; preds = %1980
@@ -4839,11 +4839,11 @@ define hidden range(i32 -128, 274) i32 @ini_lex(ptr noundef %0) local_unnamed_ad
   br i1 %2018, label %2019, label %2037
 
 2019:                                             ; preds = %2015
-  %2020 = icmp ult i8 %2017, 35
+  %2020 = icmp samesign ult i8 %2017, 35
   br i1 %2020, label %2021, label %2028
 
 2021:                                             ; preds = %2019
-  %2022 = icmp ult i8 %2017, 11
+  %2022 = icmp samesign ult i8 %2017, 11
   br i1 %2022, label %2023, label %2025
 
 2023:                                             ; preds = %2021
@@ -4853,24 +4853,24 @@ define hidden range(i32 -128, 274) i32 @ini_lex(ptr noundef %0) local_unnamed_ad
 
 2025:                                             ; preds = %2021
   %2026 = icmp ne i8 %2017, 13
-  %2027 = icmp ult i8 %2017, 32
+  %2027 = icmp samesign ult i8 %2017, 32
   %or.cond301 = and i1 %2026, %2027
   br i1 %or.cond301, label %1347, label %1588
 
 2028:                                             ; preds = %2019
-  %2029 = icmp ult i8 %2017, 58
+  %2029 = icmp samesign ult i8 %2017, 58
   br i1 %2029, label %2030, label %2036
 
 2030:                                             ; preds = %2028
-  %2031 = icmp ult i8 %2017, 38
+  %2031 = icmp samesign ult i8 %2017, 38
   br i1 %2031, label %1347, label %2032
 
 2032:                                             ; preds = %2030
-  %2033 = icmp ult i8 %2017, 42
+  %2033 = icmp samesign ult i8 %2017, 42
   br i1 %2033, label %1588, label %2034
 
 2034:                                             ; preds = %2032
-  %2035 = icmp ult i8 %2017, 48
+  %2035 = icmp samesign ult i8 %2017, 48
   br i1 %2035, label %1347, label %.preheader3760
 
 2036:                                             ; preds = %2028
@@ -4884,11 +4884,11 @@ define hidden range(i32 -128, 274) i32 @ini_lex(ptr noundef %0) local_unnamed_ad
   br i1 %2038, label %2039, label %2048
 
 2039:                                             ; preds = %2037
-  %2040 = icmp ult i8 %2017, 91
+  %2040 = icmp samesign ult i8 %2017, 91
   br i1 %2040, label %2041, label %2045
 
 2041:                                             ; preds = %2039
-  %2042 = icmp ult i8 %2017, 65
+  %2042 = icmp samesign ult i8 %2017, 65
   br i1 %2042, label %1347, label %2043
 
 2043:                                             ; preds = %2041
@@ -4896,7 +4896,7 @@ define hidden range(i32 -128, 274) i32 @ini_lex(ptr noundef %0) local_unnamed_ad
   br i1 %2044, label %2363, label %.preheader3760
 
 2045:                                             ; preds = %2039
-  %2046 = icmp ult i8 %2017, 94
+  %2046 = icmp samesign ult i8 %2017, 94
   br i1 %2046, label %1347, label %2047
 
 2047:                                             ; preds = %2045
@@ -4930,11 +4930,11 @@ define hidden range(i32 -128, 274) i32 @ini_lex(ptr noundef %0) local_unnamed_ad
   br i1 %2057, label %2058, label %2076
 
 2058:                                             ; preds = %2054
-  %2059 = icmp ult i8 %2056, 35
+  %2059 = icmp samesign ult i8 %2056, 35
   br i1 %2059, label %2060, label %2067
 
 2060:                                             ; preds = %2058
-  %2061 = icmp ult i8 %2056, 11
+  %2061 = icmp samesign ult i8 %2056, 11
   br i1 %2061, label %2062, label %2064
 
 2062:                                             ; preds = %2060
@@ -4944,24 +4944,24 @@ define hidden range(i32 -128, 274) i32 @ini_lex(ptr noundef %0) local_unnamed_ad
 
 2064:                                             ; preds = %2060
   %2065 = icmp ne i8 %2056, 13
-  %2066 = icmp ult i8 %2056, 32
+  %2066 = icmp samesign ult i8 %2056, 32
   %or.cond313 = and i1 %2065, %2066
   br i1 %or.cond313, label %1347, label %1588
 
 2067:                                             ; preds = %2058
-  %2068 = icmp ult i8 %2056, 58
+  %2068 = icmp samesign ult i8 %2056, 58
   br i1 %2068, label %2069, label %2075
 
 2069:                                             ; preds = %2067
-  %2070 = icmp ult i8 %2056, 38
+  %2070 = icmp samesign ult i8 %2056, 38
   br i1 %2070, label %1347, label %2071
 
 2071:                                             ; preds = %2069
-  %2072 = icmp ult i8 %2056, 42
+  %2072 = icmp samesign ult i8 %2056, 42
   br i1 %2072, label %1588, label %2073
 
 2073:                                             ; preds = %2071
-  %2074 = icmp ult i8 %2056, 48
+  %2074 = icmp samesign ult i8 %2056, 48
   br i1 %2074, label %1347, label %.preheader3760
 
 2075:                                             ; preds = %2067
@@ -4975,11 +4975,11 @@ define hidden range(i32 -128, 274) i32 @ini_lex(ptr noundef %0) local_unnamed_ad
   br i1 %2077, label %2078, label %2087
 
 2078:                                             ; preds = %2076
-  %2079 = icmp ult i8 %2056, 91
+  %2079 = icmp samesign ult i8 %2056, 91
   br i1 %2079, label %2080, label %2084
 
 2080:                                             ; preds = %2078
-  %2081 = icmp ult i8 %2056, 65
+  %2081 = icmp samesign ult i8 %2056, 65
   br i1 %2081, label %1347, label %2082
 
 2082:                                             ; preds = %2080
@@ -4987,7 +4987,7 @@ define hidden range(i32 -128, 274) i32 @ini_lex(ptr noundef %0) local_unnamed_ad
   br i1 %2083, label %2402, label %.preheader3760
 
 2084:                                             ; preds = %2078
-  %2085 = icmp ult i8 %2056, 94
+  %2085 = icmp samesign ult i8 %2056, 94
   br i1 %2085, label %1347, label %2086
 
 2086:                                             ; preds = %2084
@@ -5030,11 +5030,11 @@ define hidden range(i32 -128, 274) i32 @ini_lex(ptr noundef %0) local_unnamed_ad
   br i1 %2102, label %2103, label %2119
 
 2103:                                             ; preds = %2101
-  %2104 = icmp ult i8 %2096, 13
+  %2104 = icmp samesign ult i8 %2096, 13
   br i1 %2104, label %2105, label %2112
 
 2105:                                             ; preds = %2103
-  %2106 = icmp ult i8 %2096, 9
+  %2106 = icmp samesign ult i8 %2096, 9
   br i1 %2106, label %2107, label %2108
 
 2107:                                             ; preds = %2105
@@ -5046,11 +5046,11 @@ define hidden range(i32 -128, 274) i32 @ini_lex(ptr noundef %0) local_unnamed_ad
   br i1 %2109, label %.preheader3762, label %2110
 
 2110:                                             ; preds = %2108
-  %2111 = icmp ugt i8 %2096, 10
+  %2111 = icmp samesign ugt i8 %2096, 10
   br i1 %2111, label %1347, label %.loopexit3764
 
 2112:                                             ; preds = %2103
-  %2113 = icmp ult i8 %2096, 33
+  %2113 = icmp samesign ult i8 %2096, 33
   br i1 %2113, label %2114, label %2117
 
 2114:                                             ; preds = %2112
@@ -5075,7 +5075,7 @@ define hidden range(i32 -128, 274) i32 @ini_lex(ptr noundef %0) local_unnamed_ad
   br i1 %2120, label %2121, label %2125
 
 2121:                                             ; preds = %2119
-  %2122 = icmp ult i8 %2096, 60
+  %2122 = icmp samesign ult i8 %2096, 60
   br i1 %2122, label %2123, label %2124
 
 2123:                                             ; preds = %2121
@@ -5159,11 +5159,11 @@ define hidden range(i32 -128, 274) i32 @ini_lex(ptr noundef %0) local_unnamed_ad
   br i1 %2158, label %2159, label %2177
 
 2159:                                             ; preds = %2155
-  %2160 = icmp ult i8 %2157, 35
+  %2160 = icmp samesign ult i8 %2157, 35
   br i1 %2160, label %2161, label %2168
 
 2161:                                             ; preds = %2159
-  %2162 = icmp ult i8 %2157, 11
+  %2162 = icmp samesign ult i8 %2157, 11
   br i1 %2162, label %2163, label %2165
 
 2163:                                             ; preds = %2161
@@ -5173,24 +5173,24 @@ define hidden range(i32 -128, 274) i32 @ini_lex(ptr noundef %0) local_unnamed_ad
 
 2165:                                             ; preds = %2161
   %2166 = icmp ne i8 %2157, 13
-  %2167 = icmp ult i8 %2157, 32
+  %2167 = icmp samesign ult i8 %2157, 32
   %or.cond331 = and i1 %2166, %2167
   br i1 %or.cond331, label %1347, label %1588
 
 2168:                                             ; preds = %2159
-  %2169 = icmp ult i8 %2157, 58
+  %2169 = icmp samesign ult i8 %2157, 58
   br i1 %2169, label %2170, label %2176
 
 2170:                                             ; preds = %2168
-  %2171 = icmp ult i8 %2157, 38
+  %2171 = icmp samesign ult i8 %2157, 38
   br i1 %2171, label %1347, label %2172
 
 2172:                                             ; preds = %2170
-  %2173 = icmp ult i8 %2157, 42
+  %2173 = icmp samesign ult i8 %2157, 42
   br i1 %2173, label %1588, label %2174
 
 2174:                                             ; preds = %2172
-  %2175 = icmp ult i8 %2157, 48
+  %2175 = icmp samesign ult i8 %2157, 48
   br i1 %2175, label %1347, label %.preheader3760
 
 2176:                                             ; preds = %2168
@@ -5204,11 +5204,11 @@ define hidden range(i32 -128, 274) i32 @ini_lex(ptr noundef %0) local_unnamed_ad
   br i1 %2178, label %2179, label %2188
 
 2179:                                             ; preds = %2177
-  %2180 = icmp ult i8 %2157, 91
+  %2180 = icmp samesign ult i8 %2157, 91
   br i1 %2180, label %2181, label %2185
 
 2181:                                             ; preds = %2179
-  %2182 = icmp ult i8 %2157, 65
+  %2182 = icmp samesign ult i8 %2157, 65
   br i1 %2182, label %1347, label %2183
 
 2183:                                             ; preds = %2181
@@ -5216,7 +5216,7 @@ define hidden range(i32 -128, 274) i32 @ini_lex(ptr noundef %0) local_unnamed_ad
   br i1 %2184, label %2445, label %.preheader3760
 
 2185:                                             ; preds = %2179
-  %2186 = icmp ult i8 %2157, 94
+  %2186 = icmp samesign ult i8 %2157, 94
   br i1 %2186, label %1347, label %2187
 
 2187:                                             ; preds = %2185
@@ -5250,11 +5250,11 @@ define hidden range(i32 -128, 274) i32 @ini_lex(ptr noundef %0) local_unnamed_ad
   br i1 %2197, label %2198, label %2216
 
 2198:                                             ; preds = %2194
-  %2199 = icmp ult i8 %2196, 35
+  %2199 = icmp samesign ult i8 %2196, 35
   br i1 %2199, label %2200, label %2207
 
 2200:                                             ; preds = %2198
-  %2201 = icmp ult i8 %2196, 11
+  %2201 = icmp samesign ult i8 %2196, 11
   br i1 %2201, label %2202, label %2204
 
 2202:                                             ; preds = %2200
@@ -5264,24 +5264,24 @@ define hidden range(i32 -128, 274) i32 @ini_lex(ptr noundef %0) local_unnamed_ad
 
 2204:                                             ; preds = %2200
   %2205 = icmp ne i8 %2196, 13
-  %2206 = icmp ult i8 %2196, 32
+  %2206 = icmp samesign ult i8 %2196, 32
   %or.cond343 = and i1 %2205, %2206
   br i1 %or.cond343, label %1347, label %1588
 
 2207:                                             ; preds = %2198
-  %2208 = icmp ult i8 %2196, 58
+  %2208 = icmp samesign ult i8 %2196, 58
   br i1 %2208, label %2209, label %2215
 
 2209:                                             ; preds = %2207
-  %2210 = icmp ult i8 %2196, 38
+  %2210 = icmp samesign ult i8 %2196, 38
   br i1 %2210, label %1347, label %2211
 
 2211:                                             ; preds = %2209
-  %2212 = icmp ult i8 %2196, 42
+  %2212 = icmp samesign ult i8 %2196, 42
   br i1 %2212, label %1588, label %2213
 
 2213:                                             ; preds = %2211
-  %2214 = icmp ult i8 %2196, 48
+  %2214 = icmp samesign ult i8 %2196, 48
   br i1 %2214, label %1347, label %.preheader3760
 
 2215:                                             ; preds = %2207
@@ -5295,11 +5295,11 @@ define hidden range(i32 -128, 274) i32 @ini_lex(ptr noundef %0) local_unnamed_ad
   br i1 %2217, label %2218, label %2227
 
 2218:                                             ; preds = %2216
-  %2219 = icmp ult i8 %2196, 91
+  %2219 = icmp samesign ult i8 %2196, 91
   br i1 %2219, label %2220, label %2224
 
 2220:                                             ; preds = %2218
-  %2221 = icmp ult i8 %2196, 65
+  %2221 = icmp samesign ult i8 %2196, 65
   br i1 %2221, label %1347, label %2222
 
 2222:                                             ; preds = %2220
@@ -5307,7 +5307,7 @@ define hidden range(i32 -128, 274) i32 @ini_lex(ptr noundef %0) local_unnamed_ad
   br i1 %2223, label %2093, label %.preheader3760
 
 2224:                                             ; preds = %2218
-  %2225 = icmp ult i8 %2196, 94
+  %2225 = icmp samesign ult i8 %2196, 94
   br i1 %2225, label %1347, label %2226
 
 2226:                                             ; preds = %2224
@@ -5430,11 +5430,11 @@ define hidden range(i32 -128, 274) i32 @ini_lex(ptr noundef %0) local_unnamed_ad
   br i1 %2283, label %2284, label %2302
 
 2284:                                             ; preds = %2280
-  %2285 = icmp ult i8 %2282, 35
+  %2285 = icmp samesign ult i8 %2282, 35
   br i1 %2285, label %2286, label %2293
 
 2286:                                             ; preds = %2284
-  %2287 = icmp ult i8 %2282, 11
+  %2287 = icmp samesign ult i8 %2282, 11
   br i1 %2287, label %2288, label %2290
 
 2288:                                             ; preds = %2286
@@ -5444,24 +5444,24 @@ define hidden range(i32 -128, 274) i32 @ini_lex(ptr noundef %0) local_unnamed_ad
 
 2290:                                             ; preds = %2286
   %2291 = icmp ne i8 %2282, 13
-  %2292 = icmp ult i8 %2282, 32
+  %2292 = icmp samesign ult i8 %2282, 32
   %or.cond355 = and i1 %2291, %2292
   br i1 %or.cond355, label %1347, label %1588
 
 2293:                                             ; preds = %2284
-  %2294 = icmp ult i8 %2282, 58
+  %2294 = icmp samesign ult i8 %2282, 58
   br i1 %2294, label %2295, label %2301
 
 2295:                                             ; preds = %2293
-  %2296 = icmp ult i8 %2282, 38
+  %2296 = icmp samesign ult i8 %2282, 38
   br i1 %2296, label %1347, label %2297
 
 2297:                                             ; preds = %2295
-  %2298 = icmp ult i8 %2282, 42
+  %2298 = icmp samesign ult i8 %2282, 42
   br i1 %2298, label %1588, label %2299
 
 2299:                                             ; preds = %2297
-  %2300 = icmp ult i8 %2282, 48
+  %2300 = icmp samesign ult i8 %2282, 48
   br i1 %2300, label %1347, label %.preheader3760
 
 2301:                                             ; preds = %2293
@@ -5475,11 +5475,11 @@ define hidden range(i32 -128, 274) i32 @ini_lex(ptr noundef %0) local_unnamed_ad
   br i1 %2303, label %2304, label %2313
 
 2304:                                             ; preds = %2302
-  %2305 = icmp ult i8 %2282, 91
+  %2305 = icmp samesign ult i8 %2282, 91
   br i1 %2305, label %2306, label %2310
 
 2306:                                             ; preds = %2304
-  %2307 = icmp ult i8 %2282, 65
+  %2307 = icmp samesign ult i8 %2282, 65
   br i1 %2307, label %1347, label %2308
 
 2308:                                             ; preds = %2306
@@ -5487,7 +5487,7 @@ define hidden range(i32 -128, 274) i32 @ini_lex(ptr noundef %0) local_unnamed_ad
   br i1 %2309, label %2323, label %.preheader3760
 
 2310:                                             ; preds = %2304
-  %2311 = icmp ult i8 %2282, 94
+  %2311 = icmp samesign ult i8 %2282, 94
   br i1 %2311, label %1347, label %2312
 
 2312:                                             ; preds = %2310
@@ -5536,11 +5536,11 @@ define hidden range(i32 -128, 274) i32 @ini_lex(ptr noundef %0) local_unnamed_ad
   br i1 %2327, label %2328, label %2346
 
 2328:                                             ; preds = %2323
-  %2329 = icmp ult i8 %2326, 35
+  %2329 = icmp samesign ult i8 %2326, 35
   br i1 %2329, label %2330, label %2337
 
 2330:                                             ; preds = %2328
-  %2331 = icmp ult i8 %2326, 11
+  %2331 = icmp samesign ult i8 %2326, 11
   br i1 %2331, label %2332, label %2334
 
 2332:                                             ; preds = %2330
@@ -5550,24 +5550,24 @@ define hidden range(i32 -128, 274) i32 @ini_lex(ptr noundef %0) local_unnamed_ad
 
 2334:                                             ; preds = %2330
   %2335 = icmp ne i8 %2326, 13
-  %2336 = icmp ult i8 %2326, 32
+  %2336 = icmp samesign ult i8 %2326, 32
   %or.cond370 = and i1 %2335, %2336
   br i1 %or.cond370, label %1347, label %1588
 
 2337:                                             ; preds = %2328
-  %2338 = icmp ult i8 %2326, 58
+  %2338 = icmp samesign ult i8 %2326, 58
   br i1 %2338, label %2339, label %2345
 
 2339:                                             ; preds = %2337
-  %2340 = icmp ult i8 %2326, 38
+  %2340 = icmp samesign ult i8 %2326, 38
   br i1 %2340, label %1347, label %2341
 
 2341:                                             ; preds = %2339
-  %2342 = icmp ult i8 %2326, 42
+  %2342 = icmp samesign ult i8 %2326, 42
   br i1 %2342, label %1588, label %2343
 
 2343:                                             ; preds = %2341
-  %2344 = icmp ult i8 %2326, 48
+  %2344 = icmp samesign ult i8 %2326, 48
   br i1 %2344, label %1347, label %.preheader3760
 
 2345:                                             ; preds = %2337
@@ -5581,11 +5581,11 @@ define hidden range(i32 -128, 274) i32 @ini_lex(ptr noundef %0) local_unnamed_ad
   br i1 %2347, label %2348, label %2357
 
 2348:                                             ; preds = %2346
-  %2349 = icmp ult i8 %2326, 91
+  %2349 = icmp samesign ult i8 %2326, 91
   br i1 %2349, label %2350, label %2354
 
 2350:                                             ; preds = %2348
-  %2351 = icmp ult i8 %2326, 65
+  %2351 = icmp samesign ult i8 %2326, 65
   br i1 %2351, label %1347, label %2352
 
 2352:                                             ; preds = %2350
@@ -5593,7 +5593,7 @@ define hidden range(i32 -128, 274) i32 @ini_lex(ptr noundef %0) local_unnamed_ad
   br i1 %2353, label %2402, label %.preheader3760
 
 2354:                                             ; preds = %2348
-  %2355 = icmp ult i8 %2326, 94
+  %2355 = icmp samesign ult i8 %2326, 94
   br i1 %2355, label %1347, label %2356
 
 2356:                                             ; preds = %2354
@@ -5627,11 +5627,11 @@ define hidden range(i32 -128, 274) i32 @ini_lex(ptr noundef %0) local_unnamed_ad
   br i1 %2366, label %2367, label %2385
 
 2367:                                             ; preds = %2363
-  %2368 = icmp ult i8 %2365, 35
+  %2368 = icmp samesign ult i8 %2365, 35
   br i1 %2368, label %2369, label %2376
 
 2369:                                             ; preds = %2367
-  %2370 = icmp ult i8 %2365, 11
+  %2370 = icmp samesign ult i8 %2365, 11
   br i1 %2370, label %2371, label %2373
 
 2371:                                             ; preds = %2369
@@ -5641,24 +5641,24 @@ define hidden range(i32 -128, 274) i32 @ini_lex(ptr noundef %0) local_unnamed_ad
 
 2373:                                             ; preds = %2369
   %2374 = icmp ne i8 %2365, 13
-  %2375 = icmp ult i8 %2365, 32
+  %2375 = icmp samesign ult i8 %2365, 32
   %or.cond382 = and i1 %2374, %2375
   br i1 %or.cond382, label %1347, label %1588
 
 2376:                                             ; preds = %2367
-  %2377 = icmp ult i8 %2365, 58
+  %2377 = icmp samesign ult i8 %2365, 58
   br i1 %2377, label %2378, label %2384
 
 2378:                                             ; preds = %2376
-  %2379 = icmp ult i8 %2365, 38
+  %2379 = icmp samesign ult i8 %2365, 38
   br i1 %2379, label %1347, label %2380
 
 2380:                                             ; preds = %2378
-  %2381 = icmp ult i8 %2365, 42
+  %2381 = icmp samesign ult i8 %2365, 42
   br i1 %2381, label %1588, label %2382
 
 2382:                                             ; preds = %2380
-  %2383 = icmp ult i8 %2365, 48
+  %2383 = icmp samesign ult i8 %2365, 48
   br i1 %2383, label %1347, label %.preheader3760
 
 2384:                                             ; preds = %2376
@@ -5672,11 +5672,11 @@ define hidden range(i32 -128, 274) i32 @ini_lex(ptr noundef %0) local_unnamed_ad
   br i1 %2386, label %2387, label %2396
 
 2387:                                             ; preds = %2385
-  %2388 = icmp ult i8 %2365, 91
+  %2388 = icmp samesign ult i8 %2365, 91
   br i1 %2388, label %2389, label %2393
 
 2389:                                             ; preds = %2387
-  %2390 = icmp ult i8 %2365, 65
+  %2390 = icmp samesign ult i8 %2365, 65
   br i1 %2390, label %1347, label %2391
 
 2391:                                             ; preds = %2389
@@ -5684,7 +5684,7 @@ define hidden range(i32 -128, 274) i32 @ini_lex(ptr noundef %0) local_unnamed_ad
   br i1 %2392, label %2484, label %.preheader3760
 
 2393:                                             ; preds = %2387
-  %2394 = icmp ult i8 %2365, 94
+  %2394 = icmp samesign ult i8 %2365, 94
   br i1 %2394, label %1347, label %2395
 
 2395:                                             ; preds = %2393
@@ -5727,11 +5727,11 @@ define hidden range(i32 -128, 274) i32 @ini_lex(ptr noundef %0) local_unnamed_ad
   br i1 %2411, label %2412, label %2429
 
 2412:                                             ; preds = %2410
-  %2413 = icmp ult i8 %2405, 13
+  %2413 = icmp samesign ult i8 %2405, 13
   br i1 %2413, label %2414, label %2422
 
 2414:                                             ; preds = %2412
-  %2415 = icmp ult i8 %2405, 9
+  %2415 = icmp samesign ult i8 %2405, 9
   br i1 %2415, label %2416, label %2418
 
 2416:                                             ; preds = %2414
@@ -5743,11 +5743,11 @@ define hidden range(i32 -128, 274) i32 @ini_lex(ptr noundef %0) local_unnamed_ad
   br i1 %2419, label %.preheader3775, label %2420
 
 2420:                                             ; preds = %2418
-  %2421 = icmp ult i8 %2405, 11
+  %2421 = icmp samesign ult i8 %2405, 11
   br i1 %2421, label %.loopexit3777, label %1347
 
 2422:                                             ; preds = %2412
-  %2423 = icmp ult i8 %2405, 33
+  %2423 = icmp samesign ult i8 %2405, 33
   br i1 %2423, label %2424, label %2427
 
 2424:                                             ; preds = %2422
@@ -5773,7 +5773,7 @@ define hidden range(i32 -128, 274) i32 @ini_lex(ptr noundef %0) local_unnamed_ad
   br i1 %2430, label %2431, label %2436
 
 2431:                                             ; preds = %2429
-  %2432 = icmp ult i8 %2405, 60
+  %2432 = icmp samesign ult i8 %2405, 60
   br i1 %2432, label %2433, label %2434
 
 2433:                                             ; preds = %2431
@@ -5821,11 +5821,11 @@ define hidden range(i32 -128, 274) i32 @ini_lex(ptr noundef %0) local_unnamed_ad
   br i1 %2448, label %2449, label %2467
 
 2449:                                             ; preds = %2445
-  %2450 = icmp ult i8 %2447, 35
+  %2450 = icmp samesign ult i8 %2447, 35
   br i1 %2450, label %2451, label %2458
 
 2451:                                             ; preds = %2449
-  %2452 = icmp ult i8 %2447, 11
+  %2452 = icmp samesign ult i8 %2447, 11
   br i1 %2452, label %2453, label %2455
 
 2453:                                             ; preds = %2451
@@ -5835,24 +5835,24 @@ define hidden range(i32 -128, 274) i32 @ini_lex(ptr noundef %0) local_unnamed_ad
 
 2455:                                             ; preds = %2451
   %2456 = icmp ne i8 %2447, 13
-  %2457 = icmp ult i8 %2447, 32
+  %2457 = icmp samesign ult i8 %2447, 32
   %or.cond403 = and i1 %2456, %2457
   br i1 %or.cond403, label %1347, label %1588
 
 2458:                                             ; preds = %2449
-  %2459 = icmp ult i8 %2447, 58
+  %2459 = icmp samesign ult i8 %2447, 58
   br i1 %2459, label %2460, label %2466
 
 2460:                                             ; preds = %2458
-  %2461 = icmp ult i8 %2447, 38
+  %2461 = icmp samesign ult i8 %2447, 38
   br i1 %2461, label %1347, label %2462
 
 2462:                                             ; preds = %2460
-  %2463 = icmp ult i8 %2447, 42
+  %2463 = icmp samesign ult i8 %2447, 42
   br i1 %2463, label %1588, label %2464
 
 2464:                                             ; preds = %2462
-  %2465 = icmp ult i8 %2447, 48
+  %2465 = icmp samesign ult i8 %2447, 48
   br i1 %2465, label %1347, label %.preheader3760
 
 2466:                                             ; preds = %2458
@@ -5866,11 +5866,11 @@ define hidden range(i32 -128, 274) i32 @ini_lex(ptr noundef %0) local_unnamed_ad
   br i1 %2468, label %2469, label %2478
 
 2469:                                             ; preds = %2467
-  %2470 = icmp ult i8 %2447, 91
+  %2470 = icmp samesign ult i8 %2447, 91
   br i1 %2470, label %2471, label %2475
 
 2471:                                             ; preds = %2469
-  %2472 = icmp ult i8 %2447, 65
+  %2472 = icmp samesign ult i8 %2447, 65
   br i1 %2472, label %1347, label %2473
 
 2473:                                             ; preds = %2471
@@ -5878,7 +5878,7 @@ define hidden range(i32 -128, 274) i32 @ini_lex(ptr noundef %0) local_unnamed_ad
   br i1 %2474, label %2093, label %.preheader3760
 
 2475:                                             ; preds = %2469
-  %2476 = icmp ult i8 %2447, 94
+  %2476 = icmp samesign ult i8 %2447, 94
   br i1 %2476, label %1347, label %2477
 
 2477:                                             ; preds = %2475
@@ -5924,11 +5924,11 @@ define hidden range(i32 -128, 274) i32 @ini_lex(ptr noundef %0) local_unnamed_ad
   br i1 %2492, label %2493, label %2509
 
 2493:                                             ; preds = %2491
-  %2494 = icmp ult i8 %2486, 13
+  %2494 = icmp samesign ult i8 %2486, 13
   br i1 %2494, label %2495, label %2502
 
 2495:                                             ; preds = %2493
-  %2496 = icmp ult i8 %2486, 9
+  %2496 = icmp samesign ult i8 %2486, 9
   br i1 %2496, label %2497, label %2498
 
 2497:                                             ; preds = %2495
@@ -5940,11 +5940,11 @@ define hidden range(i32 -128, 274) i32 @ini_lex(ptr noundef %0) local_unnamed_ad
   br i1 %2499, label %.preheader3779, label %2500
 
 2500:                                             ; preds = %2498
-  %2501 = icmp ugt i8 %2486, 10
+  %2501 = icmp samesign ugt i8 %2486, 10
   br i1 %2501, label %1347, label %.loopexit3781
 
 2502:                                             ; preds = %2493
-  %2503 = icmp ult i8 %2486, 33
+  %2503 = icmp samesign ult i8 %2486, 33
   br i1 %2503, label %2504, label %2507
 
 2504:                                             ; preds = %2502
@@ -5969,7 +5969,7 @@ define hidden range(i32 -128, 274) i32 @ini_lex(ptr noundef %0) local_unnamed_ad
   br i1 %2510, label %2511, label %2515
 
 2511:                                             ; preds = %2509
-  %2512 = icmp ult i8 %2486, 60
+  %2512 = icmp samesign ult i8 %2486, 60
   br i1 %2512, label %2513, label %2514
 
 2513:                                             ; preds = %2511
@@ -6327,11 +6327,11 @@ define hidden range(i32 -128, 274) i32 @ini_lex(ptr noundef %0) local_unnamed_ad
   br i1 %2671, label %2672, label %2687
 
 2672:                                             ; preds = %2670
-  %2673 = icmp ult i8 %30, 35
+  %2673 = icmp samesign ult i8 %30, 35
   br i1 %2673, label %2674, label %2679
 
 2674:                                             ; preds = %2672
-  %2675 = icmp ult i8 %30, 13
+  %2675 = icmp samesign ult i8 %30, 13
   br i1 %2675, label %2676, label %2678
 
 2676:                                             ; preds = %2674
@@ -6346,7 +6346,7 @@ define hidden range(i32 -128, 274) i32 @ini_lex(ptr noundef %0) local_unnamed_ad
   ]
 
 2679:                                             ; preds = %2672
-  %2680 = icmp ult i8 %30, 39
+  %2680 = icmp samesign ult i8 %30, 39
   br i1 %2680, label %2681, label %2683
 
 2681:                                             ; preds = %2679
@@ -6358,7 +6358,7 @@ define hidden range(i32 -128, 274) i32 @ini_lex(ptr noundef %0) local_unnamed_ad
   br i1 %2684, label %2772, label %2685
 
 2685:                                             ; preds = %2683
-  %2686 = icmp ult i8 %30, 45
+  %2686 = icmp samesign ult i8 %30, 45
   %.not3532 = icmp eq i8 %30, 47
   %or.cond5313 = or i1 %2686, %.not3532
   br i1 %or.cond5313, label %.loopexit3819, label %2795
@@ -6368,11 +6368,11 @@ define hidden range(i32 -128, 274) i32 @ini_lex(ptr noundef %0) local_unnamed_ad
   br i1 %2688, label %2689, label %2701
 
 2689:                                             ; preds = %2687
-  %2690 = icmp ult i8 %30, 60
+  %2690 = icmp samesign ult i8 %30, 60
   br i1 %2690, label %2691, label %2695
 
 2691:                                             ; preds = %2689
-  %2692 = icmp ult i8 %30, 58
+  %2692 = icmp samesign ult i8 %30, 58
   br i1 %2692, label %.preheader3823, label %2693
 
 2693:                                             ; preds = %2691
@@ -6380,11 +6380,11 @@ define hidden range(i32 -128, 274) i32 @ini_lex(ptr noundef %0) local_unnamed_ad
   br i1 %2694, label %2772, label %.loopexit3819
 
 2695:                                             ; preds = %2689
-  %2696 = icmp ult i8 %30, 65
+  %2696 = icmp samesign ult i8 %30, 65
   br i1 %2696, label %.loopexit3819, label %2697
 
 2697:                                             ; preds = %2695
-  %2698 = icmp ult i8 %30, 91
+  %2698 = icmp samesign ult i8 %30, 91
   br i1 %2698, label %.preheader3825.preheader, label %2699
 
 2699:                                             ; preds = %2697
@@ -6506,15 +6506,15 @@ define hidden range(i32 -128, 274) i32 @ini_lex(ptr noundef %0) local_unnamed_ad
   br i1 %2755, label %2756, label %2764
 
 2756:                                             ; preds = %2754
-  %2757 = icmp ult i8 %2751, 14
+  %2757 = icmp samesign ult i8 %2751, 14
   br i1 %2757, label %2758, label %2763
 
 2758:                                             ; preds = %2756
-  %2759 = icmp ult i8 %2751, 9
+  %2759 = icmp samesign ult i8 %2751, 9
   br i1 %2759, label %.loopexit3819, label %2760
 
 2760:                                             ; preds = %2758
-  %2761 = icmp ugt i8 %2751, 10
+  %2761 = icmp samesign ugt i8 %2751, 10
   %2762 = icmp ne i8 %2751, 13
   %or.cond424 = and i1 %2761, %2762
   br i1 %or.cond424, label %.loopexit3819, label %2726
@@ -6620,7 +6620,7 @@ define hidden range(i32 -128, 274) i32 @ini_lex(ptr noundef %0) local_unnamed_ad
   br i1 %2807, label %2808, label %2816
 
 2808:                                             ; preds = %2806
-  %2809 = icmp ult i8 %2803, 14
+  %2809 = icmp samesign ult i8 %2803, 14
   br i1 %2809, label %2810, label %2811
 
 2810:                                             ; preds = %2808
@@ -6630,7 +6630,7 @@ define hidden range(i32 -128, 274) i32 @ini_lex(ptr noundef %0) local_unnamed_ad
   ]
 
 2811:                                             ; preds = %2808
-  %2812 = icmp ult i8 %2803, 35
+  %2812 = icmp samesign ult i8 %2803, 35
   br i1 %2812, label %2813, label %2814
 
 2813:                                             ; preds = %2811
@@ -6646,7 +6646,7 @@ define hidden range(i32 -128, 274) i32 @ini_lex(ptr noundef %0) local_unnamed_ad
   br i1 %2817, label %2818, label %2822
 
 2818:                                             ; preds = %2816
-  %2819 = icmp ult i8 %2803, 46
+  %2819 = icmp samesign ult i8 %2803, 46
   br i1 %2819, label %2820, label %2821
 
 2820:                                             ; preds = %2818
@@ -6738,7 +6738,7 @@ define hidden range(i32 -128, 274) i32 @ini_lex(ptr noundef %0) local_unnamed_ad
   br i1 %2860, label %2861, label %2865
 
 2861:                                             ; preds = %2859
-  %2862 = icmp ult i8 %2854, 14
+  %2862 = icmp samesign ult i8 %2854, 14
   br i1 %2862, label %2863, label %2864
 
 2863:                                             ; preds = %2861
@@ -6904,7 +6904,7 @@ define hidden range(i32 -128, 274) i32 @ini_lex(ptr noundef %0) local_unnamed_ad
   br i1 %2930, label %2931, label %2939
 
 2931:                                             ; preds = %2928
-  %2932 = icmp ult i8 %2929, 14
+  %2932 = icmp samesign ult i8 %2929, 14
   br i1 %2932, label %2933, label %2934
 
 2933:                                             ; preds = %2931
@@ -6914,7 +6914,7 @@ define hidden range(i32 -128, 274) i32 @ini_lex(ptr noundef %0) local_unnamed_ad
   ]
 
 2934:                                             ; preds = %2931
-  %2935 = icmp ult i8 %2929, 35
+  %2935 = icmp samesign ult i8 %2929, 35
   br i1 %2935, label %2936, label %2937
 
 2936:                                             ; preds = %2934
@@ -6930,7 +6930,7 @@ define hidden range(i32 -128, 274) i32 @ini_lex(ptr noundef %0) local_unnamed_ad
   br i1 %2940, label %2941, label %2948
 
 2941:                                             ; preds = %2939
-  %2942 = icmp ult i8 %2929, 48
+  %2942 = icmp samesign ult i8 %2929, 48
   br i1 %2942, label %2943, label %2945
 
 2943:                                             ; preds = %2941
@@ -6938,7 +6938,7 @@ define hidden range(i32 -128, 274) i32 @ini_lex(ptr noundef %0) local_unnamed_ad
   br i1 %2944, label %2826, label %.loopexit3819
 
 2945:                                             ; preds = %2941
-  %2946 = icmp ult i8 %2929, 58
+  %2946 = icmp samesign ult i8 %2929, 58
   br i1 %2946, label %.preheader3821, label %2947
 
 2947:                                             ; preds = %2945
@@ -6962,11 +6962,11 @@ define hidden range(i32 -128, 274) i32 @ini_lex(ptr noundef %0) local_unnamed_ad
   br i1 %2954, label %2955, label %2969
 
 2955:                                             ; preds = %2953
-  %2956 = icmp ult i8 %30, 33
+  %2956 = icmp samesign ult i8 %30, 33
   br i1 %2956, label %2957, label %2962
 
 2957:                                             ; preds = %2955
-  %2958 = icmp ult i8 %30, 11
+  %2958 = icmp samesign ult i8 %30, 11
   br i1 %2958, label %2959, label %2961
 
 2959:                                             ; preds = %2957
@@ -6979,7 +6979,7 @@ define hidden range(i32 -128, 274) i32 @ini_lex(ptr noundef %0) local_unnamed_ad
   br i1 %.not3518, label %2986, label %2988
 
 2962:                                             ; preds = %2955
-  %2963 = icmp ult i8 %30, 37
+  %2963 = icmp samesign ult i8 %30, 37
   br i1 %2963, label %2964, label %2966
 
 2964:                                             ; preds = %2962
@@ -6988,7 +6988,7 @@ define hidden range(i32 -128, 274) i32 @ini_lex(ptr noundef %0) local_unnamed_ad
 
 2966:                                             ; preds = %2962
   %2967 = icmp ne i8 %30, 38
-  %2968 = icmp ult i8 %30, 40
+  %2968 = icmp samesign ult i8 %30, 40
   %or.cond448 = and i1 %2967, %2968
   br i1 %or.cond448, label %2988, label %2986
 
@@ -6997,11 +6997,11 @@ define hidden range(i32 -128, 274) i32 @ini_lex(ptr noundef %0) local_unnamed_ad
   br i1 %2970, label %2971, label %2977
 
 2971:                                             ; preds = %2969
-  %2972 = icmp ult i8 %30, 60
+  %2972 = icmp samesign ult i8 %30, 60
   br i1 %2972, label %2973, label %2976
 
 2973:                                             ; preds = %2971
-  %2974 = icmp ult i8 %30, 58
+  %2974 = icmp samesign ult i8 %30, 58
   br i1 %2974, label %2988, label %2975
 
 2975:                                             ; preds = %2973
@@ -7020,7 +7020,7 @@ define hidden range(i32 -128, 274) i32 @ini_lex(ptr noundef %0) local_unnamed_ad
 
 2979:                                             ; preds = %2977
   %2980 = icmp eq i8 %30, 92
-  %2981 = icmp ugt i8 %30, 94
+  %2981 = icmp samesign ugt i8 %30, 94
   %or.cond454 = or i1 %2980, %2981
   br i1 %or.cond454, label %2988, label %2986
 
@@ -7235,7 +7235,7 @@ define hidden range(i32 -128, 274) i32 @ini_lex(ptr noundef %0) local_unnamed_ad
   br i1 %3057, label %3058, label %3065
 
 3058:                                             ; preds = %3056
-  %3059 = icmp ult i8 %30, 9
+  %3059 = icmp samesign ult i8 %30, 9
   br i1 %3059, label %3060, label %3061
 
 3060:                                             ; preds = %3058
@@ -7247,7 +7247,7 @@ define hidden range(i32 -128, 274) i32 @ini_lex(ptr noundef %0) local_unnamed_ad
   br i1 %3062, label %3141, label %3063
 
 3063:                                             ; preds = %3061
-  %3064 = icmp ult i8 %30, 11
+  %3064 = icmp samesign ult i8 %30, 11
   br i1 %3064, label %.loopexit3844, label %.loopexit3842
 
 3065:                                             ; preds = %3056
@@ -7471,11 +7471,11 @@ define hidden range(i32 -128, 274) i32 @ini_lex(ptr noundef %0) local_unnamed_ad
   br i1 %3144, label %3145, label %3150
 
 3145:                                             ; preds = %3141
-  %3146 = icmp ult i8 %3143, 9
+  %3146 = icmp samesign ult i8 %3143, 9
   br i1 %3146, label %.loopexit3843, label %3147
 
 3147:                                             ; preds = %3145
-  %3148 = icmp ugt i8 %3143, 10
+  %3148 = icmp samesign ugt i8 %3143, 10
   %3149 = icmp ne i8 %3143, 13
   %or.cond457 = and i1 %3148, %3149
   br i1 %or.cond457, label %.loopexit3843, label %.preheader3839.preheader
@@ -7537,7 +7537,7 @@ define hidden range(i32 -128, 274) i32 @ini_lex(ptr noundef %0) local_unnamed_ad
   ]
 
 3175:                                             ; preds = %3173, %3173
-  %3176 = icmp ult i8 %3174, 11
+  %3176 = icmp samesign ult i8 %3174, 11
   br i1 %3176, label %3193, label %3205
 
 3177:                                             ; preds = %3180

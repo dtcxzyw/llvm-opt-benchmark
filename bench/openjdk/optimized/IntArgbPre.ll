@@ -905,7 +905,7 @@ define hidden void @ByteIndexedBmToIntArgbPreXparOver(ptr noundef %0, ptr nounde
   br i1 %26, label %27, label %55
 
 27:                                               ; preds = %21
-  %28 = icmp ugt i32 %25, -16777217
+  %28 = icmp samesign ugt i32 %25, -16777217
   br i1 %28, label %.sink.split, label %29
 
 29:                                               ; preds = %27
@@ -1006,7 +1006,7 @@ define hidden void @ByteIndexedBmToIntArgbPreScaleXparOver(ptr noundef %0, ptr n
   br i1 %39, label %40, label %68
 
 40:                                               ; preds = %31
-  %41 = icmp ugt i32 %38, -16777217
+  %41 = icmp samesign ugt i32 %38, -16777217
   br i1 %41, label %.sink.split, label %42
 
 42:                                               ; preds = %40
@@ -1096,7 +1096,7 @@ define hidden void @ByteIndexedBmToIntArgbPreXparBgCopy(ptr noundef %0, ptr noun
   br i1 %27, label %28, label %56
 
 28:                                               ; preds = %22
-  %29 = icmp ugt i32 %26, -16777217
+  %29 = icmp samesign ugt i32 %26, -16777217
   br i1 %29, label %56, label %30
 
 30:                                               ; preds = %28
@@ -1186,7 +1186,7 @@ define hidden void @IntArgbToIntArgbPreXorBlit(ptr noundef %0, ptr noundef %1, i
   br i1 %26, label %60, label %27
 
 27:                                               ; preds = %24
-  %28 = icmp ugt i32 %25, -16777217
+  %28 = icmp samesign ugt i32 %25, -16777217
   br i1 %28, label %55, label %29
 
 29:                                               ; preds = %27

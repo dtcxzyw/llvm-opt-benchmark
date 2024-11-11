@@ -622,7 +622,7 @@ Abc_TtCopy.exit69.i.us:                           ; preds = %.lr.ph.i58.i.us, %.
   br i1 %264, label %350, label %265
 
 265:                                              ; preds = %.lr.ph.i71.i.us
-  %266 = icmp ugt i64 %indvars.iv.next.i73.i.us, %261
+  %266 = icmp samesign ugt i64 %indvars.iv.next.i73.i.us, %261
   br i1 %266, label %267, label %Abc_TtSwapVars.exit213.us
 
 267:                                              ; preds = %265
@@ -633,7 +633,7 @@ Abc_TtCopy.exit69.i.us:                           ; preds = %.lr.ph.i58.i.us, %.
 270:                                              ; preds = %267
   %spec.select.i187.us = call i32 @llvm.smax.i32(i32 range(i32 -2147483648, 15) %268, i32 range(i32 -2147483648, 14) %.017.i.i.us)
   %spec.select117.i188.us = call i32 @llvm.smin.i32(i32 range(i32 -2147483648, 15) %268, i32 range(i32 -2147483648, 14) %.017.i.i.us)
-  %271 = icmp ult i32 %spec.select.i187.us, 6
+  %271 = icmp samesign ult i32 %spec.select.i187.us, 6
   br i1 %271, label %328, label %272
 
 272:                                              ; preds = %270
@@ -776,7 +776,7 @@ Abc_TtSwapVars.exit213.us:                        ; preds = %296, %325, %Abc_TtS
 
 350:                                              ; preds = %Abc_TtSwapVars.exit213.us, %.lr.ph.i71.i.us
   %.1.i.i114.us = phi i32 [ %.017.i.i.us, %.lr.ph.i71.i.us ], [ %349, %Abc_TtSwapVars.exit213.us ]
-  %351 = icmp ugt i64 %indvars.iv.i72.i.us, 1
+  %351 = icmp samesign ugt i64 %indvars.iv.i72.i.us, 1
   %352 = icmp sgt i32 %.1.i.i114.us, -1
   %353 = select i1 %351, i1 %352, i1 false
   br i1 %353, label %.lr.ph.i71.i.us, label %Abc_TtExpand.exit.i.us, !llvm.loop !20
@@ -810,7 +810,7 @@ Abc_TtExpand.exit.i.us:                           ; preds = %350, %Abc_TtCopy.ex
   br i1 %367, label %453, label %368
 
 368:                                              ; preds = %.lr.ph.i75.i.us
-  %369 = icmp ugt i64 %indvars.iv.next.i78.i.us, %364
+  %369 = icmp samesign ugt i64 %indvars.iv.next.i78.i.us, %364
   br i1 %369, label %370, label %Abc_TtSwapVars.exit186.us
 
 370:                                              ; preds = %368
@@ -821,7 +821,7 @@ Abc_TtExpand.exit.i.us:                           ; preds = %350, %Abc_TtCopy.ex
 373:                                              ; preds = %370
   %spec.select.i160.us = call i32 @llvm.smax.i32(i32 range(i32 -2147483648, 15) %371, i32 range(i32 -2147483648, 14) %.017.i77.i.us)
   %spec.select117.i161.us = call i32 @llvm.smin.i32(i32 range(i32 -2147483648, 15) %371, i32 range(i32 -2147483648, 14) %.017.i77.i.us)
-  %374 = icmp ult i32 %spec.select.i160.us, 6
+  %374 = icmp samesign ult i32 %spec.select.i160.us, 6
   br i1 %374, label %431, label %375
 
 375:                                              ; preds = %373
@@ -964,7 +964,7 @@ Abc_TtSwapVars.exit186.us:                        ; preds = %399, %428, %Abc_TtS
 
 453:                                              ; preds = %Abc_TtSwapVars.exit186.us, %.lr.ph.i75.i.us
   %.1.i79.i.us = phi i32 [ %.017.i77.i.us, %.lr.ph.i75.i.us ], [ %452, %Abc_TtSwapVars.exit186.us ]
-  %454 = icmp ugt i64 %indvars.iv.i76.i.us, 1
+  %454 = icmp samesign ugt i64 %indvars.iv.i76.i.us, 1
   %455 = icmp sgt i32 %.1.i79.i.us, -1
   %456 = select i1 %454, i1 %455, i1 false
   br i1 %456, label %.lr.ph.i75.i.us, label %Abc_TtExpand.exit80.i.us.loopexit, !llvm.loop !20
@@ -1325,7 +1325,7 @@ Abc_TtMinBase.exit.i.us:                          ; preds = %Abc_TtMinBase.exit.
   br i1 %631, label %654, label %632
 
 632:                                              ; preds = %.lr.ph.i.i.i.us
-  %633 = icmp ugt i64 %indvars.iv.next.i.i.i.us, %628
+  %633 = icmp samesign ugt i64 %indvars.iv.next.i.i.i.us, %628
   br i1 %633, label %634, label %652
 
 634:                                              ; preds = %632
@@ -1357,7 +1357,7 @@ Abc_TtMinBase.exit.i.us:                          ; preds = %Abc_TtMinBase.exit.
 654:                                              ; preds = %652, %.lr.ph.i.i.i.us
   %.117.i.i.i.us = phi i64 [ %.01619.i.i.i.us, %.lr.ph.i.i.i.us ], [ %.2.i.i.i.us, %652 ]
   %.1.i.i.i.us = phi i32 [ %.020.i.i.i.us, %.lr.ph.i.i.i.us ], [ %653, %652 ]
-  %655 = icmp ugt i64 %indvars.iv.i.i.i.us, 1
+  %655 = icmp samesign ugt i64 %indvars.iv.i.i.i.us, 1
   %656 = icmp sgt i32 %.1.i.i.i.us, -1
   %657 = select i1 %655, i1 %656, i1 false
   br i1 %657, label %.lr.ph.i.i.i.us, label %Abc_Tt6Expand.exit.i.i.us, !llvm.loop !24
@@ -1389,7 +1389,7 @@ Abc_Tt6Expand.exit.i.i.us:                        ; preds = %654, %582
   br i1 %669, label %692, label %670
 
 670:                                              ; preds = %.lr.ph.i45.i.i.us
-  %671 = icmp ugt i64 %indvars.iv.next.i49.i.i.us, %666
+  %671 = icmp samesign ugt i64 %indvars.iv.next.i49.i.i.us, %666
   br i1 %671, label %672, label %690
 
 672:                                              ; preds = %670
@@ -1421,7 +1421,7 @@ Abc_Tt6Expand.exit.i.i.us:                        ; preds = %654, %582
 692:                                              ; preds = %690, %.lr.ph.i45.i.i.us
   %.117.i51.i.i.us = phi i64 [ %.01619.i48.i.i.us, %.lr.ph.i45.i.i.us ], [ %.2.i50.i.i.us, %690 ]
   %.1.i52.i.i.us = phi i32 [ %.020.i47.i.i.us, %.lr.ph.i45.i.i.us ], [ %691, %690 ]
-  %693 = icmp ugt i64 %indvars.iv.i46.i.i.us, 1
+  %693 = icmp samesign ugt i64 %indvars.iv.i46.i.i.us, 1
   %694 = icmp sgt i32 %.1.i52.i.i.us, -1
   %695 = select i1 %693, i1 %694, i1 false
   br i1 %695, label %.lr.ph.i45.i.i.us, label %Abc_Tt6Expand.exit54.i.i.us, !llvm.loop !24

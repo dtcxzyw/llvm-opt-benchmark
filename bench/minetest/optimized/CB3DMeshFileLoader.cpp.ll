@@ -4738,7 +4738,7 @@ if.then.i.i.i:                                    ; preds = %if.then5.i.i
   br label %_ZN3irr4core5arrayINS_5video17S3DVertex2TCoordsEE10reallocateEjb.exit
 
 if.else.i:                                        ; preds = %if.end25
-  %cmp3.i.i = icmp ult i64 %sub.ptr.div.i.i119, %conv.i120
+  %cmp3.i.i = icmp samesign ult i64 %sub.ptr.div.i.i119, %conv.i120
   br i1 %cmp3.i.i, label %_ZNSt12_Vector_baseIN3irr5video17S3DVertex2TCoordsESaIS2_EE11_M_allocateEm.exit.i.i, label %_ZN3irr4core5arrayINS_5video17S3DVertex2TCoordsEE10reallocateEjb.exit
 
 _ZNSt12_Vector_baseIN3irr5video17S3DVertex2TCoordsESaIS2_EE11_M_allocateEm.exit.i.i: ; preds = %if.else.i
@@ -4815,7 +4815,7 @@ if.then.i.i.i157:                                 ; preds = %if.then5.i.i154
   br label %_ZN3irr4core5arrayIiE10reallocateEjb.exit
 
 if.else.i135:                                     ; preds = %_ZN3irr4core5arrayINS_5video17S3DVertex2TCoordsEE10reallocateEjb.exit
-  %cmp3.i.i136 = icmp ult i64 %sub.ptr.div.i.i132, %conv.i133
+  %cmp3.i.i136 = icmp samesign ult i64 %sub.ptr.div.i.i132, %conv.i133
   br i1 %cmp3.i.i136, label %_ZNSt12_Vector_baseIiSaIiEE11_M_allocateEm.exit.i.i, label %_ZN3irr4core5arrayIiE10reallocateEjb.exit
 
 _ZNSt12_Vector_baseIiSaIiEE11_M_allocateEm.exit.i.i: ; preds = %if.else.i135
@@ -5695,7 +5695,7 @@ if.then.i.i.i:                                    ; preds = %if.then5.i.i
   br label %_ZN3irr4core5arrayItE10reallocateEjb.exit
 
 if.else.i:                                        ; preds = %if.end15
-  %cmp3.i.i = icmp ult i64 %sub.ptr.div.i.i223, %conv.i224
+  %cmp3.i.i = icmp samesign ult i64 %sub.ptr.div.i.i223, %conv.i224
   br i1 %cmp3.i.i, label %_ZNSt12_Vector_baseItSaItEE11_M_allocateEm.exit.i.i, label %_ZN3irr4core5arrayItE10reallocateEjb.exit
 
 _ZNSt12_Vector_baseItSaItEE11_M_allocateEm.exit.i.i: ; preds = %if.else.i

@@ -1504,7 +1504,7 @@ define void @lv_inv_area(ptr noundef %0, ptr noundef %1) local_unnamed_addr #1 {
   br i1 %51, label %.loopexit, label %43
 
 ._crit_edge:                                      ; preds = %43
-  %52 = icmp ugt i32 %46, 31
+  %52 = icmp samesign ugt i32 %46, 31
   br i1 %52, label %53, label %._crit_edge.thread
 
 53:                                               ; preds = %._crit_edge

@@ -55,7 +55,7 @@ define { i64, i64 } @_RINvMs6_NtCs7oQ2vmvFkJi_9hashbrown3rawINtB6_8RawTableTReBQ
   br i1 %35, label %37, label %39
 
 .thread.i:                                        ; preds = %31
-  %36 = icmp ult i64 %.sroa.0.0.sroa.speculated.i, 4
+  %36 = icmp samesign ult i64 %.sroa.0.0.sroa.speculated.i, 4
   %..i.i = select i1 %36, i64 4, i64 8
   br label %47
 
@@ -70,7 +70,7 @@ define { i64, i64 } @_RINvMs6_NtCs7oQ2vmvFkJi_9hashbrown3rawINtB6_8RawTableTReBQ
   %43 = tail call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %42, i1 true)
   %44 = lshr i64 -1, %43
   %45 = add nuw nsw i64 %44, 1
-  %46 = icmp ugt i64 %44, 576460752303423486
+  %46 = icmp samesign ugt i64 %44, 576460752303423486
   br i1 %46, label %55, label %47
 
 47:                                               ; preds = %39, %.thread.i
@@ -114,7 +114,7 @@ _RINvMsa_NtCs7oQ2vmvFkJi_9hashbrown3rawNtB6_13RawTableInner17new_uninitializedNt
   br label %common.resume
 
 64:                                               ; preds = %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$8allocate17ha99d1879f26c35e4E.exit.i.i"
-  %65 = icmp ult i64 %.sroa.4.0.i.ph14.i, 9
+  %65 = icmp samesign ult i64 %.sroa.4.0.i.ph14.i, 9
   %66 = add nsw i64 %.sroa.4.0.i.ph14.i, -1
   %67 = lshr i64 %.sroa.4.0.i.ph14.i, 3
   %68 = mul nuw nsw i64 %67, 7

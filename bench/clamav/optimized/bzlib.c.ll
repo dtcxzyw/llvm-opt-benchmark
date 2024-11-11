@@ -1927,7 +1927,7 @@ makeMaps_d.exit.i:                                ; preds = %881
   store i8 %.010841539.i, ptr %1083, align 1
   %1084 = add i8 %.010841539.i, 1
   %1085 = zext i8 %1084 to i32
-  %1086 = icmp ugt i32 %.121041.i, %1085
+  %1086 = icmp samesign ugt i32 %.121041.i, %1085
   br i1 %1086, label %.lr.ph1540.i, label %.preheader1420.i
 
 1087:                                             ; preds = %._crit_edge1545.i, %.lr.ph1547.i
@@ -3204,7 +3204,7 @@ CreateDecodeTables.exit.i:                        ; preds = %.lr.ph85.i.i, %.pre
   %1699 = zext i32 %1698 to i64
   %1700 = getelementptr inbounds [4096 x i8], ptr %38, i64 0, i64 %1699
   %1701 = load i8, ptr %1700, align 1
-  %1702 = icmp ugt i32 %1694, 3
+  %1702 = icmp samesign ugt i32 %1694, 3
   br i1 %1702, label %.lr.ph1585.preheader.i, label %.lr.ph1589.preheader.i
 
 .lr.ph1585.preheader.i:                           ; preds = %1696

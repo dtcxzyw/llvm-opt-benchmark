@@ -1036,13 +1036,13 @@ for.body:                                         ; preds = %for.body.lr.ph, %fo
   tail call void @socket_send_channel_create(ptr noundef nonnull @multifd_new_send_channel_async, ptr noundef nonnull %arrayidx15) #15
   %inc = add i8 %i.041, 1
   %conv11 = zext i8 %inc to i32
-  %cmp = icmp ugt i32 %call2, %conv11
+  %cmp = icmp samesign ugt i32 %call2, %conv11
   br i1 %cmp, label %for.body, label %for.body46, !llvm.loop !11
 
 for.cond42:                                       ; preds = %for.body46
   %inc56 = add i8 %i.144, 1
   %conv43 = zext i8 %inc56 to i32
-  %cmp44 = icmp ugt i32 %call2, %conv43
+  %cmp44 = icmp samesign ugt i32 %call2, %conv43
   br i1 %cmp44, label %for.body46, label %return, !llvm.loop !12
 
 for.body46:                                       ; preds = %for.body, %for.cond42
@@ -1569,13 +1569,13 @@ for.body:                                         ; preds = %for.body.lr.ph, %fo
   store i32 %conv28, ptr %page_size, align 4
   %inc = add i8 %i.026, 1
   %conv9 = zext i8 %inc to i32
-  %cmp = icmp ugt i32 %call2, %conv9
+  %cmp = icmp samesign ugt i32 %call2, %conv9
   br i1 %cmp, label %for.body, label %for.body33, !llvm.loop !18
 
 for.cond29:                                       ; preds = %for.body33
   %inc44 = add i8 %i.129, 1
   %conv30 = zext i8 %inc44 to i32
-  %cmp31 = icmp ugt i32 %call2, %conv30
+  %cmp31 = icmp samesign ugt i32 %call2, %conv30
   br i1 %cmp31, label %for.body33, label %return, !llvm.loop !19
 
 for.body33:                                       ; preds = %for.body, %for.cond29

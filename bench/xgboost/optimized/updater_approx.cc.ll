@@ -28395,7 +28395,7 @@ _ZNSt12_Vector_baseIN7xgboost6common4SpanINS0_6detail20GradientPairInternalIdEEL
   %41 = getelementptr inbounds i8, ptr %.0910.i.i.i.i.i, i64 16
   %42 = getelementptr inbounds i8, ptr %.0811.i.i.i.i.i, i64 16
   %43 = add nsw i64 %.012.i.i.i.i.i, -1
-  %44 = icmp ugt i64 %.012.i.i.i.i.i, 1
+  %44 = icmp samesign ugt i64 %.012.i.i.i.i.i, 1
   br i1 %44, label %.lr.ph.i.i.i.i.i25, label %_ZSt22__uninitialized_copy_aIPN7xgboost6common4SpanINS0_6detail20GradientPairInternalIdEELm18446744073709551615EEES7_S6_ET0_T_S9_S8_RSaIT1_E.exit, !llvm.loop !296
 
 45:                                               ; preds = %30
@@ -28416,7 +28416,7 @@ _ZNSt12_Vector_baseIN7xgboost6common4SpanINS0_6detail20GradientPairInternalIdEEL
   %52 = getelementptr inbounds i8, ptr %.0910.i.i.i.i.i30, i64 16
   %53 = getelementptr inbounds i8, ptr %.0811.i.i.i.i.i29, i64 16
   %54 = add nsw i64 %.012.i.i.i.i.i28, -1
-  %55 = icmp ugt i64 %.012.i.i.i.i.i28, 1
+  %55 = icmp samesign ugt i64 %.012.i.i.i.i.i28, 1
   br i1 %55, label %.lr.ph.i.i.i.i.i27, label %_ZSt4copyIPN7xgboost6common4SpanINS0_6detail20GradientPairInternalIdEELm18446744073709551615EEES7_ET0_T_S9_S8_.exit.loopexit, !llvm.loop !297
 
 _ZSt4copyIPN7xgboost6common4SpanINS0_6detail20GradientPairInternalIdEELm18446744073709551615EEES7_ET0_T_S9_S8_.exit.loopexit: ; preds = %.lr.ph.i.i.i.i.i27
@@ -29506,7 +29506,7 @@ define linkonce_odr void @_ZN7xgboost6common14HistCollection10AddHistRowEj(ptr n
   %17 = add i32 %1, 1
   %18 = zext i32 %17 to i64
   store i64 4294967295, ptr %4, align 8
-  %19 = icmp ult i64 %15, %18
+  %19 = icmp samesign ult i64 %15, %18
   br i1 %19, label %20, label %22
 
 20:                                               ; preds = %16
@@ -29516,7 +29516,7 @@ define linkonce_odr void @_ZN7xgboost6common14HistCollection10AddHistRowEj(ptr n
   br label %_ZNSt6vectorImSaImEE6resizeEmRKm.exit
 
 22:                                               ; preds = %16
-  %23 = icmp ugt i64 %15, %18
+  %23 = icmp samesign ugt i64 %15, %18
   br i1 %23, label %24, label %_ZNSt6vectorImSaImEE6resizeEmRKm.exit
 
 24:                                               ; preds = %22

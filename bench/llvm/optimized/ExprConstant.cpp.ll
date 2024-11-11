@@ -15642,7 +15642,7 @@ _ZN4llvm16dyn_cast_or_nullIN5clang13StringLiteralEKNS1_4ExprEEEDaPT0_.exit: ; pr
   %58 = getelementptr inbounds nuw i8, ptr %7, i64 16
   %59 = load i64, ptr %58, align 8
   %60 = icmp sgt i64 %59, -1
-  %.not44 = icmp ule i64 %59, %57
+  %.not44 = icmp samesign ule i64 %59, %57
   %or.cond.not81 = select i1 %60, i1 %.not44, i1 false
   %61 = icmp eq i32 %53, 1
   %or.cond79 = select i1 %or.cond.not81, i1 %61, i1 false
@@ -33295,7 +33295,7 @@ define internal fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_18EvalInfo14CheckArra
   %20 = getelementptr inbounds nuw i8, ptr %19, i64 128
   %21 = load i64, ptr %20, align 8
   %22 = lshr i64 %21, 32
-  %23 = icmp ule i64 %3, %22
+  %23 = icmp samesign ule i64 %3, %22
   %.not7 = xor i1 %4, true
   %brmerge = or i1 %23, %.not7
   br i1 %brmerge, label %_ZN5clang18OptionalDiagnosticlsImEERS0_RKT_.exit, label %24
@@ -167102,7 +167102,7 @@ _ZL15EvaluateIntegerPKN5clang4ExprERN4llvm6APSIntERN12_GLOBAL__N_18EvalInfoE.exi
   store i8 0, ptr %160, align 1
   store i8 0, ptr %161, align 1
   %.off157 = add nsw i32 %2, -114
-  %switch158 = icmp ult i32 %.off157, 5
+  %switch158 = icmp samesign ult i32 %.off157, 5
   br i1 %switch158, label %2442, label %2457
 
 2442:                                             ; preds = %2439

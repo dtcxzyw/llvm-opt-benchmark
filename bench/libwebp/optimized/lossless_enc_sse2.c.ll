@@ -763,7 +763,7 @@ define internal i32 @VectorMismatch_SSE2(ptr nocapture noundef readonly %0, ptr 
   br i1 %37, label %38, label %.loopexit
 
 38:                                               ; preds = %29
-  %39 = icmp ugt i32 %2, 7
+  %39 = icmp samesign ugt i32 %2, 7
   br i1 %39, label %40, label %.loopexit
 
 40:                                               ; preds = %38

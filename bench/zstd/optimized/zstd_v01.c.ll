@@ -274,7 +274,7 @@ if.end.i.i.i.i:                                   ; preds = %if.end.i36.i
   br i1 %cmp.i.i.i.i, label %if.then2.i.i.i.i, label %if.else34.i.i.i.i
 
 if.then2.i.i.i.i:                                 ; preds = %if.end.i.i.i.i
-  %cmp3.i.i.i.i = icmp ugt i8 %8, -15
+  %cmp3.i.i.i.i = icmp samesign ugt i8 %8, -15
   br i1 %cmp3.i.i.i.i, label %if.then5.i.i.i.i, label %if.else.i.i.i.i
 
 if.then5.i.i.i.i:                                 ; preds = %if.then2.i.i.i.i
@@ -289,7 +289,7 @@ if.else.i.i.i.i:                                  ; preds = %if.then2.i.i.i.i
   %sub8.i.i.i.i = add nsw i64 %conv.i.i.i.i, -127
   %add.i.i.i.i = add nsw i64 %conv.i.i.i.i, -126
   %div59.i.i.i.i = lshr i64 %add.i.i.i.i, 1
-  %cmp10.not.i.i.i.i = icmp ult i64 %div59.i.i.i.i, %sub.i.i
+  %cmp10.not.i.i.i.i = icmp samesign ult i64 %div59.i.i.i.i, %sub.i.i
   br i1 %cmp10.not.i.i.i.i, label %if.end13.i.i.i.i, label %HUF_readDTable.exit.thread.i.i.i
 
 if.end13.i.i.i.i:                                 ; preds = %if.else.i.i.i.i
@@ -314,7 +314,7 @@ for.body.i.i.i.i:                                 ; preds = %if.end13.i.i.i.i, %
   br i1 %15, label %for.body.i.i.i.i, label %if.end46.i.i.i.i, !llvm.loop !4
 
 if.else34.i.i.i.i:                                ; preds = %if.end.i.i.i.i
-  %cmp36.not.i.i.i.i = icmp ugt i64 %sub.i.i, %conv.i.i.i.i
+  %cmp36.not.i.i.i.i = icmp samesign ugt i64 %sub.i.i, %conv.i.i.i.i
   br i1 %cmp36.not.i.i.i.i, label %if.end39.i.i.i.i, label %HUF_readDTable.exit.thread.i.i.i
 
 if.end39.i.i.i.i:                                 ; preds = %if.else34.i.i.i.i
@@ -324,7 +324,7 @@ if.end39.i.i.i.i:                                 ; preds = %if.else34.i.i.i.i
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %tableLog.i.i.i.i.i)
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %maxSymbolValue.i.i.i.i.i)
   store i32 255, ptr %maxSymbolValue.i.i.i.i.i, align 4
-  %cmp.i.i.i.i.i = icmp ult i8 %8, 2
+  %cmp.i.i.i.i.i = icmp samesign ult i8 %8, 2
   br i1 %cmp.i.i.i.i.i, label %FSE_decompress.exit.thread.i.i.i.i, label %if.end.i.i.i.i.i
 
 if.end.i.i.i.i.i:                                 ; preds = %if.end39.i.i.i.i
@@ -469,7 +469,7 @@ if.end.i22.i.i.i.i.i.i:                           ; preds = %FSE_initDStream.exi
   %sh_prom2.i.i.i.i.i.i.i.i.i = zext nneg i32 %and1.i.i.i.i.i.i.i.i.i to i64
   %shr3.i.i.i.i.i.i.i.i.i = lshr i64 %shr.i.i.i.i.i.i.i.i.i, %sh_prom2.i.i.i.i.i.i.i.i.i
   %add.i.i.i.i.i.i.i.i.i = add nuw nsw i32 %bitD.i13.sroa.24.3873.i.i.i.i.i.i, %conv.i68.i.i.i.i.i.i
-  %cmp.i.i.i.i.i.i.i.i = icmp ugt i32 %add.i.i.i.i.i.i.i.i.i, 64
+  %cmp.i.i.i.i.i.i.i.i = icmp samesign ugt i32 %add.i.i.i.i.i.i.i.i.i, 64
   br i1 %cmp.i.i.i.i.i.i.i.i, label %FSE_initDState.exit.i.i.i.i.i.i, label %if.end.i.i.i.i.i.i.i.i
 
 if.end.i.i.i.i.i.i.i.i:                           ; preds = %if.end.i22.i.i.i.i.i.i
@@ -987,7 +987,7 @@ if.end.i.i.i.i.i.i.i:                             ; preds = %FSE_initDStream.exi
   %sh_prom2.i.i.i408.i.i.i.i.i.i = zext nneg i32 %and1.i.i.i407.i.i.i.i.i.i to i64
   %shr3.i.i.i409.i.i.i.i.i.i = lshr i64 %shr.i.i.i406.i.i.i.i.i.i, %sh_prom2.i.i.i408.i.i.i.i.i.i
   %add.i.i.i410.i.i.i.i.i.i = add nuw nsw i32 %bitD.i.sroa.24.3912.i.i.i.i.i.i, %conv.i400.i.i.i.i.i.i
-  %cmp.i.i411.i.i.i.i.i.i = icmp ugt i32 %add.i.i.i410.i.i.i.i.i.i, 64
+  %cmp.i.i411.i.i.i.i.i.i = icmp samesign ugt i32 %add.i.i.i410.i.i.i.i.i.i, 64
   br i1 %cmp.i.i411.i.i.i.i.i.i, label %FSE_initDState.exit446.i.i.i.i.i.i, label %if.end.i.i412.i.i.i.i.i.i
 
 if.end.i.i412.i.i.i.i.i.i:                        ; preds = %if.end.i.i.i.i.i.i.i
@@ -2910,7 +2910,7 @@ if.end17.i:                                       ; preds = %FSE_initDStream.exi
   %sh_prom2.i.i.i.i = zext nneg i32 %and1.i.i.i.i to i64
   %shr3.i.i.i.i = lshr i64 %shr.i.i.i.i, %sh_prom2.i.i.i.i
   %add.i.i.i.i26 = add nuw nsw i32 %seqState.sroa.17.1254.i, %conv.i47.i
-  %cmp.i.i48.i = icmp ugt i32 %add.i.i.i.i26, 64
+  %cmp.i.i48.i = icmp samesign ugt i32 %add.i.i.i.i26, 64
   br i1 %cmp.i.i48.i, label %FSE_initDState.exit.i, label %if.end.i.i.i
 
 if.end.i.i.i:                                     ; preds = %if.end17.i
@@ -3362,7 +3362,7 @@ if.then64.i.i:                                    ; preds = %if.end63.i190.i
 
 if.end73.i.i:                                     ; preds = %if.then64.i.i, %if.end63.i190.i
   %qutt.0.i.i = phi i64 [ %spec.select.i.i33, %if.then64.i.i ], [ 12, %if.end63.i190.i ]
-  %cmp75.i.i = icmp ult i64 %offset.0.i.i, 8
+  %cmp75.i.i = icmp samesign ult i64 %offset.0.i.i, 8
   br i1 %cmp75.i.i, label %if.then77.i.i, label %if.else.i191.i
 
 if.then77.i.i:                                    ; preds = %if.end73.i.i
@@ -3447,7 +3447,7 @@ while.body.i.i:                                   ; preds = %if.end115.i.i, %whi
   br i1 %cmp116.i.i, label %while.body.i.i, label %if.end121.i.i, !llvm.loop !15
 
 if.else119.i.i:                                   ; preds = %if.end94.i.i
-  %cmp5.i69.i.i = icmp ugt i64 %matchLength.0.i.i, 4
+  %cmp5.i69.i.i = icmp samesign ugt i64 %matchLength.0.i.i, 4
   br i1 %cmp5.i69.i.i, label %while.body.i70.i.i, label %if.end121.i.i
 
 while.body.i70.i.i:                               ; preds = %if.else119.i.i, %while.body.i70.i.i

@@ -105,7 +105,7 @@ if.then2.i:                                       ; preds = %if.then.i
   br label %if.end32
 
 if.else.i:                                        ; preds = %if.then.i
-  %cmp3.i = icmp ult i32 %sub30, 10668
+  %cmp3.i = icmp samesign ult i32 %sub30, 10668
   br i1 %cmp3.i, label %if.then4.i, label %if.else11.i
 
 if.then4.i:                                       ; preds = %if.else.i
@@ -123,7 +123,7 @@ if.then4.i:                                       ; preds = %if.else.i
   br label %if.end32
 
 if.else11.i:                                      ; preds = %if.else.i
-  %cmp12.i = icmp ult i32 %sub30, 192786
+  %cmp12.i = icmp samesign ult i32 %sub30, 192786
   %rem14.i = urem i32 %sub30, 253
   %10 = trunc nuw i32 %rem14.i to i8
   %conv16.i = add nuw i8 %10, 3
@@ -166,7 +166,7 @@ if.else25.i:                                      ; preds = %if.else11.i
   br label %if.end32
 
 if.else43.i:                                      ; preds = %if.else29
-  %cmp44.i = icmp ugt i32 %sub30, -10669
+  %cmp44.i = icmp samesign ugt i32 %sub30, -10669
   br i1 %cmp44.i, label %do.body.i, label %if.else58.i
 
 do.body.i:                                        ; preds = %if.else43.i
@@ -190,7 +190,7 @@ do.body.i:                                        ; preds = %if.else43.i
   br label %if.end32
 
 if.else58.i:                                      ; preds = %if.else43.i
-  %cmp59.i = icmp ugt i32 %sub30, -192787
+  %cmp59.i = icmp samesign ugt i32 %sub30, -192787
   %diff.nonneg87.i = sub nsw i32 0, %sub30
   %rem6288.i = urem i32 %diff.nonneg87.i, 253
   %div6390.i = udiv i32 %diff.nonneg87.i, 253

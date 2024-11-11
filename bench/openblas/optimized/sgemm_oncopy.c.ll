@@ -58,7 +58,7 @@ define noundef i32 @sgemm_oncopy(i64 noundef %0, i64 noundef %1, ptr noalias nou
   %44 = getelementptr inbounds i8, ptr %21, i64 16
   %45 = getelementptr inbounds i8, ptr %20, i64 64
   %46 = add nsw i64 %25, -1
-  %47 = icmp ugt i64 %25, 1
+  %47 = icmp samesign ugt i64 %25, 1
   br i1 %47, label %19, label %.loopexit17.us, !llvm.loop !6
 
 .preheader14.us:                                  ; preds = %.loopexit17.us, %.preheader14.us
@@ -202,7 +202,7 @@ define noundef i32 @sgemm_oncopy(i64 noundef %0, i64 noundef %1, ptr noalias nou
   %139 = getelementptr inbounds i8, ptr %114, i64 16
   %140 = getelementptr inbounds i8, ptr %113, i64 32
   %141 = add nsw i64 %116, -1
-  %142 = icmp ugt i64 %116, 1
+  %142 = icmp samesign ugt i64 %116, 1
   br i1 %142, label %.preheader12, label %.loopexit13, !llvm.loop !13
 
 .loopexit13:                                      ; preds = %.preheader12, %108
@@ -227,7 +227,7 @@ define noundef i32 @sgemm_oncopy(i64 noundef %0, i64 noundef %1, ptr noalias nou
   %156 = getelementptr inbounds i8, ptr %149, i64 4
   %157 = getelementptr inbounds i8, ptr %148, i64 8
   %158 = add nsw i64 %151, -1
-  %159 = icmp ugt i64 %151, 1
+  %159 = icmp samesign ugt i64 %151, 1
   br i1 %159, label %.preheader10, label %.loopexit11, !llvm.loop !14
 
 .loopexit11:                                      ; preds = %.preheader10, %.loopexit13, %.loopexit18
@@ -263,7 +263,7 @@ define noundef i32 @sgemm_oncopy(i64 noundef %0, i64 noundef %1, ptr noalias nou
   %180 = getelementptr inbounds i8, ptr %168, i64 16
   %181 = getelementptr inbounds i8, ptr %167, i64 16
   %182 = add nsw i64 %169, -1
-  %183 = icmp ugt i64 %169, 1
+  %183 = icmp samesign ugt i64 %169, 1
   br i1 %183, label %.preheader8, label %.loopexit9, !llvm.loop !15
 
 .loopexit9:                                       ; preds = %.preheader8, %164
@@ -282,7 +282,7 @@ define noundef i32 @sgemm_oncopy(i64 noundef %0, i64 noundef %1, ptr noalias nou
   %192 = getelementptr inbounds i8, ptr %189, i64 4
   %193 = getelementptr inbounds i8, ptr %188, i64 4
   %194 = add nsw i64 %190, -1
-  %195 = icmp ugt i64 %190, 1
+  %195 = icmp samesign ugt i64 %190, 1
   br i1 %195, label %.preheader, label %.loopexit, !llvm.loop !16
 
 .loopexit:                                        ; preds = %.preheader, %.loopexit9, %.loopexit11

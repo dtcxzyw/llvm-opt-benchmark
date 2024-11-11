@@ -3712,7 +3712,7 @@ define internal fastcc range(i32 -1, 1) i32 @parse_debug_line_header(ptr noundef
   %42 = load i8, ptr %38, align 1
   %43 = getelementptr inbounds i8, ptr %2, i64 24
   store i8 %42, ptr %43, align 8
-  %44 = icmp ugt i16 %34, 3
+  %44 = icmp samesign ugt i16 %34, 3
   br i1 %44, label %45, label %49
 
 45:                                               ; preds = %30

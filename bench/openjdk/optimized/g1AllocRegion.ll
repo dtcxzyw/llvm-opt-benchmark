@@ -1095,7 +1095,7 @@ define hidden noundef ptr @_ZN18MutatorAllocRegion7releaseEv(ptr noundef nonnull
   br i1 %22, label %_Z24byte_size_in_proper_unitImET_S0_.exit, label %23
 
 23:                                               ; preds = %17
-  %24 = icmp ugt i64 %21, 104857599
+  %24 = icmp samesign ugt i64 %21, 104857599
   br i1 %24, label %.thread, label %27
 
 .thread:                                          ; preds = %23
@@ -1107,7 +1107,7 @@ _Z24byte_size_in_proper_unitImET_S0_.exit:        ; preds = %17
   br label %_Z25proper_unit_for_byte_sizem.exit
 
 27:                                               ; preds = %23
-  %28 = icmp ugt i64 %21, 102399
+  %28 = icmp samesign ugt i64 %21, 102399
   %29 = lshr i64 %21, 10
   %spec.select.i = select i1 %28, i64 %29, i64 %21
   %.str.27..str.28.i = select i1 %28, ptr @.str.27, ptr @.str.28

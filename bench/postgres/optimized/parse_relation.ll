@@ -672,7 +672,7 @@ define dso_local ptr @GetNSItemByRangeTablePosn(ptr nocapture noundef readonly %
   %.01117 = phi i32 [ %5, %.lr.ph ], [ %2, %3 ]
   %5 = add nsw i32 %.01117, -1
   %6 = load ptr, ptr %.018, align 8
-  %7 = icmp ugt i32 %.01117, 1
+  %7 = icmp samesign ugt i32 %.01117, 1
   br i1 %7, label %.lr.ph, label %._crit_edge, !llvm.loop !8
 
 ._crit_edge:                                      ; preds = %.lr.ph, %3
@@ -731,7 +731,7 @@ define dso_local ptr @GetRTEByRangeTablePosn(ptr nocapture noundef readonly %0, 
   %.034 = phi ptr [ %6, %.lr.ph ], [ %0, %3 ]
   %5 = add nsw i32 %.05, -1
   %6 = load ptr, ptr %.034, align 8
-  %7 = icmp ugt i32 %.05, 1
+  %7 = icmp samesign ugt i32 %.05, 1
   br i1 %7, label %.lr.ph, label %._crit_edge, !llvm.loop !9
 
 ._crit_edge:                                      ; preds = %.lr.ph, %3

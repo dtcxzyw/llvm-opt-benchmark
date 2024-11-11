@@ -651,7 +651,7 @@ Exp_Truth6.exit:                                  ; preds = %Exp_Truth6Lit.exit3
   br label %356
 
 241:                                              ; preds = %Mio_SopRegister.exit
-  %242 = icmp ult i32 %57, 9
+  %242 = icmp samesign ult i32 %57, 9
   br i1 %242, label %243, label %356
 
 243:                                              ; preds = %241

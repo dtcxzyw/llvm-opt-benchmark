@@ -2303,7 +2303,7 @@ _ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN13sentencepiece6SortedINSt7__cxx1112basic
   %32 = getelementptr inbounds i8, ptr %.069.i.i.i.i.i, i64 -8
   store i64 %31, ptr %32, align 8
   %33 = add nsw i64 %.010.i.i.i.i.i, -1
-  %34 = icmp ugt i64 %.010.i.i.i.i.i, 1
+  %34 = icmp samesign ugt i64 %.010.i.i.i.i.i, 1
   br i1 %34, label %.lr.ph.i.i.i.i.i, label %.loopexit, !llvm.loop !29
 
 .loopexit:                                        ; preds = %.lr.ph.i.i.i.i.i, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN13sentencepiece6SortedINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEmEESt6vectorISt4pairIT_T0_ESaISE_EERKSG_EUlRKSB_IS9_mESL_E_EclINS_17__normal_iteratorIPSJ_SA_ISJ_SaISJ_EEEEST_EEbSC_SD_.exit.thread

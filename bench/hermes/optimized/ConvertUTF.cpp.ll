@@ -742,19 +742,19 @@ if.end20:                                         ; preds = %sw.bb12
   ]
 
 sw.bb22:                                          ; preds = %if.end20
-  %cmp24 = icmp ult i8 %2, -96
+  %cmp24 = icmp samesign ult i8 %2, -96
   br i1 %cmp24, label %return, label %sw.epilog54
 
 sw.bb27:                                          ; preds = %if.end20
-  %cmp29 = icmp ugt i8 %2, -97
+  %cmp29 = icmp samesign ugt i8 %2, -97
   br i1 %cmp29, label %return, label %sw.epilog54
 
 sw.bb32:                                          ; preds = %if.end20
-  %cmp34 = icmp ult i8 %2, -112
+  %cmp34 = icmp samesign ult i8 %2, -112
   br i1 %cmp34, label %return, label %sw.epilog54
 
 sw.bb37:                                          ; preds = %if.end20
-  %cmp39 = icmp ugt i8 %2, -113
+  %cmp39 = icmp samesign ugt i8 %2, -113
   br i1 %cmp39, label %return, label %sw.epilog54
 
 sw.bb47:                                          ; preds = %entry.sw.bb47_crit_edge, %if.end20

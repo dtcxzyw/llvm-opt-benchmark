@@ -340,7 +340,7 @@ define dso_local noundef range(i32 -22, 1) i32 @acpi_video_get_levels(ptr nocapt
   %118 = getelementptr i32, ptr %112, i64 %111
   store i32 %117, ptr %118, align 4
   %119 = add nsw i64 %111, -1
-  %120 = icmp ugt i64 %111, 2
+  %120 = icmp samesign ugt i64 %111, 2
   br i1 %120, label %110, label %.loopexit, !llvm.loop !9
 
 .loopexit:                                        ; preds = %110, %.thread12

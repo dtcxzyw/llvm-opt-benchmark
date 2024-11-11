@@ -1147,7 +1147,7 @@ do.end40:                                         ; preds = %for.end
 
 if.end.i:                                         ; preds = %do.end40
   %add.i = add nuw nsw i64 %sub41, 48
-  %cmp1.i = icmp ult i64 %sub41, 4611686018427387855
+  %cmp1.i = icmp samesign ult i64 %sub41, 4611686018427387855
   br i1 %cmp1.i, label %while.cond.i, label %if.end.i.i
 
 while.cond.i:                                     ; preds = %if.end.i, %while.cond.i
@@ -1232,7 +1232,7 @@ do.end80:                                         ; preds = %for.body73, %if.end
 
 if.end.i59:                                       ; preds = %do.end80
   %add.i60 = add nuw nsw i64 %sub81, 48
-  %cmp1.i61 = icmp ult i64 %sub81, 4611686018427387855
+  %cmp1.i61 = icmp samesign ult i64 %sub81, 4611686018427387855
   br i1 %cmp1.i61, label %while.cond.i73, label %if.end.i.i62
 
 while.cond.i73:                                   ; preds = %if.end.i59, %while.cond.i73
@@ -1416,7 +1416,7 @@ if.end54:                                         ; preds = %if.end19, %land.lhs
 
 if.end.i:                                         ; preds = %if.end54
   %add.i = add nuw nsw i64 %to_alloc.1, 48
-  %cmp1.i = icmp ult i64 %to_alloc.1, 4611686018427387855
+  %cmp1.i = icmp samesign ult i64 %to_alloc.1, 4611686018427387855
   br i1 %cmp1.i, label %while.cond.i, label %if.end.i.i
 
 while.cond.i:                                     ; preds = %if.end.i, %while.cond.i
@@ -2572,7 +2572,7 @@ do.end15:                                         ; preds = %if.end6
 
 if.end.i:                                         ; preds = %do.end15
   %add.i = add nuw nsw i64 %8, 48
-  %cmp1.i = icmp ult i64 %8, 4611686018427387855
+  %cmp1.i = icmp samesign ult i64 %8, 4611686018427387855
   br i1 %cmp1.i, label %while.cond.i, label %if.end.i.i
 
 while.cond.i:                                     ; preds = %if.end.i, %while.cond.i
@@ -4099,7 +4099,7 @@ entry:
 
 if.end:                                           ; preds = %entry
   %add = add nuw nsw i64 %size, 48
-  %cmp1 = icmp ult i64 %size, 4611686018427387855
+  %cmp1 = icmp samesign ult i64 %size, 4611686018427387855
   br i1 %cmp1, label %while.cond, label %if.end.i
 
 while.cond:                                       ; preds = %if.end, %while.cond
@@ -4701,7 +4701,7 @@ entry:
 
 if.end.i:                                         ; preds = %entry
   %add.i = add nuw nsw i64 %datlen, 48
-  %cmp1.i = icmp ult i64 %datlen, 4611686018427387855
+  %cmp1.i = icmp samesign ult i64 %datlen, 4611686018427387855
   br i1 %cmp1.i, label %while.cond.i, label %if.end.i.i
 
 while.cond.i:                                     ; preds = %if.end.i, %while.cond.i
@@ -4928,7 +4928,7 @@ if.end60:                                         ; preds = %if.then39, %if.else
 
 if.end.i:                                         ; preds = %if.end60
   %add.i = add nuw nsw i64 %datlen.addr.0, 48
-  %cmp1.i = icmp ult i64 %datlen.addr.0, 4611686018427387855
+  %cmp1.i = icmp samesign ult i64 %datlen.addr.0, 4611686018427387855
   br i1 %cmp1.i, label %while.cond.i, label %if.end.i.i
 
 while.cond.i:                                     ; preds = %if.end.i, %while.cond.i

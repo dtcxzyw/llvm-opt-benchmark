@@ -1210,7 +1210,7 @@ Wln_ObjFanin.exit951:                             ; preds = %373, %376
   %391 = icmp eq i64 %indvars.iv1146, %390
   %392 = zext i1 %391 to i32
   %393 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %0, ptr noundef nonnull @.str.55, i32 noundef %392) #11
-  %394 = icmp ugt i32 %.0678.in1090, 2
+  %394 = icmp samesign ugt i32 %.0678.in1090, 2
   br i1 %394, label %.lr.ph1091, label %._crit_edge, !llvm.loop !15
 
 ._crit_edge:                                      ; preds = %.lr.ph1091, %381
@@ -1299,7 +1299,7 @@ Wln_ObjFanin.exit953:                             ; preds = %401, %404
   %.1679.in1097 = phi i32 [ %444, %.critedge6 ], [ %.1679, %445 ]
   %.1679 = add nsw i32 %.1679.in1097, -1
   %446 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %0, ptr noundef nonnull @.str.55, i32 noundef 0) #11
-  %447 = icmp ugt i32 %.1679.in1097, 1
+  %447 = icmp samesign ugt i32 %.1679.in1097, 1
   br i1 %447, label %445, label %448, !llvm.loop !17
 
 448:                                              ; preds = %445
@@ -1481,7 +1481,7 @@ Wln_ObjFanin.exit961:                             ; preds = %493, %503
   %552 = load i32, ptr %551, align 4
   %553 = sub nsw i32 %550, %552
   %554 = call range(i32 0, -2147483648) i32 @llvm.abs.i32(i32 %553, i1 true)
-  %.not1060 = icmp ugt i32 %.6.in1083, %554
+  %.not1060 = icmp samesign ugt i32 %.6.in1083, %554
   %555 = select i1 %.not1060, ptr @.str.14, ptr @.str.68
   %556 = call ptr @Wln_ObjName(ptr noundef nonnull %1, i32 noundef %475) #11
   %557 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %0, ptr noundef nonnull @.str.67, ptr noundef nonnull %555, ptr noundef %556) #11

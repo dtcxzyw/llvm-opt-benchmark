@@ -56000,7 +56000,7 @@ _ZN5prost8encoding10encode_key17h1071341dc09d10b7E.llvm.4489484971173406073.exit
   %60 = add nuw nsw i64 %.sroa.02.0.i.i, %.sroa.0.0.i
   %61 = add nuw nsw i64 %60, %.sroa.02.0.i6.i
   %62 = add nuw nsw i64 %61, %spec.select.i
-  %63 = icmp ult i64 %62, 128
+  %63 = icmp samesign ult i64 %62, 128
   %.pre10 = load i64, ptr %.phi.trans.insert.i, align 8, !noalias !8
   br i1 %63, label %._crit_edge, label %.lr.ph
 
@@ -80916,7 +80916,7 @@ _ZN5prost8encoding10encode_key17h1071341dc09d10b7E.llvm.4489484971173406073.exit
 "_ZN67_$LT$proto..ExcerptInsertion$u20$as$u20$prost..message..Message$GT$11encoded_len17h8ab38e1c1e1d7da4E.llvm.4489484971173406073.exit": ; preds = %"_ZN4core6option15Option$LT$T$GT$6map_or17hf9a75f0552d8c76cE.llvm.4489484971173406073.exit.i", %48
   %.sroa.02.0.i2.i = phi i64 [ %57, %48 ], [ 0, %"_ZN4core6option15Option$LT$T$GT$6map_or17hf9a75f0552d8c76cE.llvm.4489484971173406073.exit.i" ]
   %58 = add nuw nsw i64 %.sroa.02.0.i2.i, %.sroa.02.0.i.i
-  %59 = icmp ult i64 %58, 128
+  %59 = icmp samesign ult i64 %58, 128
   %.pre11 = load i64, ptr %.phi.trans.insert.i, align 8, !noalias !8
   br i1 %59, label %._crit_edge, label %.lr.ph
 
@@ -90212,7 +90212,7 @@ _ZN5prost8encoding10encode_key17h1071341dc09d10b7E.llvm.4489484971173406073.exit
 "_ZN63_$LT$proto..LocationLink$u20$as$u20$prost..message..Message$GT$11encoded_len17h4e542e98defeda2dE.llvm.4489484971173406073.exit": ; preds = %"_ZN4core6option15Option$LT$T$GT$6map_or17h69826f183f2466dbE.llvm.4489484971173406073.exit.i", %42
   %.sroa.02.0.i2.i = phi i64 [ %44, %42 ], [ 0, %"_ZN4core6option15Option$LT$T$GT$6map_or17h69826f183f2466dbE.llvm.4489484971173406073.exit.i" ]
   %45 = add nuw nsw i64 %.sroa.02.0.i2.i, %.sroa.02.0.i.i
-  %46 = icmp ult i64 %45, 128
+  %46 = icmp samesign ult i64 %45, 128
   %.pre10 = load i64, ptr %.phi.trans.insert.i, align 8, !noalias !8
   br i1 %46, label %._crit_edge, label %.lr.ph
 
@@ -93470,7 +93470,7 @@ _ZN5prost8encoding10encode_key17h1071341dc09d10b7E.llvm.4489484971173406073.exit
   %.sroa.02.0.i5.i = phi i64 [ %62, %53 ], [ 0, %"_ZN4core6option15Option$LT$T$GT$6map_or17h5e1b45ef00e203bfE.llvm.4489484971173406073.exit.i" ]
   %63 = add nuw nsw i64 %.sroa.02.0.i.i, %.sroa.0.0.i
   %64 = add nuw nsw i64 %63, %.sroa.02.0.i5.i
-  %65 = icmp ult i64 %64, 128
+  %65 = icmp samesign ult i64 %64, 128
   %.pre11 = load i64, ptr %.phi.trans.insert.i, align 8, !noalias !8
   br i1 %65, label %._crit_edge, label %.lr.ph
 

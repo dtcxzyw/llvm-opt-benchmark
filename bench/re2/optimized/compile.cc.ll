@@ -4430,7 +4430,7 @@ lor.lhs.false:                                    ; preds = %if.end121.lor.lhs.f
 
 lor.lhs.false134:                                 ; preds = %lor.lhs.false
   %cmp136 = icmp slt i32 %.pr.pre, 91
-  %cmp139 = icmp ugt i32 %71, 96
+  %cmp139 = icmp samesign ugt i32 %71, 96
   %or.cond.not = or i1 %cmp136, %cmp139
   %spec.select = select i1 %or.cond.not, i1 %tobool.i, i1 false
   br label %if.end141
@@ -4867,13 +4867,13 @@ if.end:                                           ; preds = %if.then, %entry
   br i1 %cmp, label %if.end15, label %if.else
 
 if.else:                                          ; preds = %if.end
-  %cmp3 = icmp ult i64 %max_mem, 433
+  %cmp3 = icmp samesign ult i64 %max_mem, 433
   br i1 %cmp3, label %if.end15, label %if.else6
 
 if.else6:                                         ; preds = %if.else
   %sub = add nsw i64 %max_mem, -432
   %div7 = lshr i64 %sub, 3
-  %cmp7 = icmp ugt i64 %sub, 134217727
+  %cmp7 = icmp samesign ugt i64 %sub, 134217727
   %0 = trunc i64 %div7 to i32
   %conv = select i1 %cmp7, i32 16777216, i32 %0
   br label %if.end15
@@ -4916,13 +4916,13 @@ if.end.i:                                         ; preds = %if.then.i, %entry
   br i1 %cmp.i, label %invoke.cont1, label %if.else.i
 
 if.else.i:                                        ; preds = %if.end.i
-  %cmp3.i = icmp ult i64 %max_mem, 433
+  %cmp3.i = icmp samesign ult i64 %max_mem, 433
   br i1 %cmp3.i, label %invoke.cont1, label %if.else6.i
 
 if.else6.i:                                       ; preds = %if.else.i
   %sub.i = add nsw i64 %max_mem, -432
   %div7.i = lshr i64 %sub.i, 3
-  %cmp7.i = icmp ugt i64 %sub.i, 134217727
+  %cmp7.i = icmp samesign ugt i64 %sub.i, 134217727
   %2 = trunc i64 %div7.i to i32
   %conv.i29 = select i1 %cmp7.i, i32 16777216, i32 %2
   br label %invoke.cont1
@@ -5837,13 +5837,13 @@ if.end.i:                                         ; preds = %if.then.i, %entry
   br i1 %cmp.i, label %invoke.cont1, label %if.else.i
 
 if.else.i:                                        ; preds = %if.end.i
-  %cmp3.i = icmp ult i64 %max_mem, 433
+  %cmp3.i = icmp samesign ult i64 %max_mem, 433
   br i1 %cmp3.i, label %invoke.cont1, label %if.else6.i
 
 if.else6.i:                                       ; preds = %if.else.i
   %sub.i = add nsw i64 %max_mem, -432
   %div7.i = lshr i64 %sub.i, 3
-  %cmp7.i = icmp ugt i64 %sub.i, 134217727
+  %cmp7.i = icmp samesign ugt i64 %sub.i, 134217727
   %2 = trunc i64 %div7.i to i32
   %conv.i14 = select i1 %cmp7.i, i32 16777216, i32 %2
   br label %invoke.cont1

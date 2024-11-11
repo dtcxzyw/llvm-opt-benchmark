@@ -676,7 +676,7 @@ proto_item_set_generated.exit270:                 ; preds = %175, %178, %181
   br i1 %.not259, label %.backedge, label %270
 
 270:                                              ; preds = %266
-  %271 = icmp ugt i32 %.0218285, 2
+  %271 = icmp samesign ugt i32 %.0218285, 2
   br i1 %271, label %272, label %280
 
 272:                                              ; preds = %270

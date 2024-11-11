@@ -250,7 +250,7 @@ define dso_local noundef ptr @ZSTD_initStaticCCtx(ptr noundef %0, i64 noundef %1
   br i1 %19, label %ZSTD_cwksp_reserve_object.exit.thread, label %20
 
 20:                                               ; preds = %10
-  %21 = icmp ult i64 %1, 10872
+  %21 = icmp samesign ult i64 %1, 10872
   br i1 %21, label %22, label %23
 
 22:                                               ; preds = %20
@@ -657,7 +657,7 @@ ZSTD_checkCParams.exit:                           ; preds = %18
 34:                                               ; preds = %27
   store i32 2, ptr %31, align 8
   %35 = getelementptr inbounds i8, ptr %0, i64 140
-  %36 = icmp ugt i32 %25, 6
+  %36 = icmp samesign ugt i32 %25, 6
   br i1 %36, label %40, label %.thread11
 
 .thread11:                                        ; preds = %34
@@ -665,7 +665,7 @@ ZSTD_checkCParams.exit:                           ; preds = %18
   br label %ZSTD_CCtxParams_init_internal.exit
 
 37:                                               ; preds = %27
-  %38 = icmp ugt i32 %4, 14
+  %38 = icmp samesign ugt i32 %4, 14
   %spec.select.i.i = select i1 %38, i32 1, i32 2
   store i32 %spec.select.i.i, ptr %31, align 8
   %39 = getelementptr inbounds i8, ptr %0, i64 140
@@ -673,10 +673,10 @@ ZSTD_checkCParams.exit:                           ; preds = %18
   br label %ZSTD_CCtxParams_init_internal.exit
 
 40:                                               ; preds = %34
-  %41 = icmp ugt i32 %4, 16
+  %41 = icmp samesign ugt i32 %4, 16
   %42 = select i1 %41, i32 1, i32 2
   store i32 %42, ptr %35, align 4
-  %43 = icmp ugt i32 %4, 26
+  %43 = icmp samesign ugt i32 %4, 26
   %44 = select i1 %43, i32 1, i32 2
   br label %ZSTD_CCtxParams_init_internal.exit
 
@@ -2336,7 +2336,7 @@ define dso_local void @ZSTD_adjustCParams(ptr dead_on_unwind noalias nocapture w
 
 15:                                               ; preds = %.sink.split.i
   %16 = add nuw nsw i64 %spec.store.select, %3
-  %17 = icmp ult i64 %16, 64
+  %17 = icmp samesign ult i64 %16, 64
   %18 = trunc nuw i64 %16 to i32
   %19 = add i32 %18, -1
   %20 = tail call range(i32 0, 32) i32 @llvm.ctlz.i32(i32 %19, i1 true)
@@ -2380,7 +2380,7 @@ ZSTD_dictAndWindowLog.exit.i:                     ; preds = %33, %31, %26, %.thr
   %39 = add nsw i32 %.sroa.6.0, %.neg.i.i
   %40 = add nuw nsw i32 %.0.i.i, 1
   %spec.store.select41.i = tail call i32 @llvm.umin.i32(i32 %.sroa.8.0, i32 %40)
-  %41 = icmp ugt i32 %39, %.0.i.i
+  %41 = icmp samesign ugt i32 %39, %.0.i.i
   %42 = sub nsw i32 %.0.i.i, %.neg.i.i
   %spec.select40 = select i1 %41, i32 %42, i32 %.sroa.6.0
   br label %43
@@ -2504,7 +2504,7 @@ ZSTD_overrideCParams.exit:                        ; preds = %8, %5
 
 41:                                               ; preds = %38
   %42 = add nuw nsw i64 %.0.i, %.030.i
-  %43 = icmp ult i64 %42, 64
+  %43 = icmp samesign ult i64 %42, 64
   %44 = trunc nuw i64 %42 to i32
   %45 = add i32 %44, -1
   %46 = tail call range(i32 0, 32) i32 @llvm.ctlz.i32(i32 %45, i1 true)
@@ -2685,7 +2685,7 @@ ZSTD_getCParamRowSize.exit:                       ; preds = %5, %8
 
 35:                                               ; preds = %32
   %36 = add nuw nsw i64 %.0.i, %.030.i
-  %37 = icmp ult i64 %36, 64
+  %37 = icmp samesign ult i64 %36, 64
   %38 = trunc nuw i64 %36 to i32
   %39 = add i32 %38, -1
   %40 = tail call range(i32 0, 32) i32 @llvm.ctlz.i32(i32 %39, i1 true)
@@ -5803,7 +5803,7 @@ ZSTD_shouldAttachDict.exit.thread17.i:            ; preds = %ZSTD_shouldAttachDi
   br i1 %61, label %62, label %69
 
 62:                                               ; preds = %ZSTD_shouldAttachDict.exit.thread17.i
-  %63 = icmp ult i64 %7, 64
+  %63 = icmp samesign ult i64 %7, 64
   %64 = trunc nuw i64 %7 to i32
   %65 = add nsw i32 %64, -1
   %66 = tail call range(i32 0, 32) i32 @llvm.ctlz.i32(i32 %65, i1 true)
@@ -6912,7 +6912,7 @@ ZSTD_checkCParams.exit:                           ; preds = %23
 40:                                               ; preds = %32
   store i32 2, ptr %37, align 8
   %41 = getelementptr inbounds i8, ptr %0, i64 572
-  %42 = icmp ugt i32 %30, 6
+  %42 = icmp samesign ugt i32 %30, 6
   br i1 %42, label %46, label %.thread16
 
 .thread16:                                        ; preds = %40
@@ -6920,7 +6920,7 @@ ZSTD_checkCParams.exit:                           ; preds = %23
   br label %ZSTD_CCtxParams_init_internal.exit
 
 43:                                               ; preds = %32
-  %44 = icmp ugt i32 %9, 14
+  %44 = icmp samesign ugt i32 %9, 14
   %spec.select.i.i = select i1 %44, i32 1, i32 2
   store i32 %spec.select.i.i, ptr %37, align 8
   %45 = getelementptr inbounds i8, ptr %0, i64 572
@@ -6928,10 +6928,10 @@ ZSTD_checkCParams.exit:                           ; preds = %23
   br label %ZSTD_CCtxParams_init_internal.exit
 
 46:                                               ; preds = %40
-  %47 = icmp ugt i32 %9, 16
+  %47 = icmp samesign ugt i32 %9, 16
   %48 = select i1 %47, i32 1, i32 2
   store i32 %48, ptr %41, align 4
-  %49 = icmp ugt i32 %9, 26
+  %49 = icmp samesign ugt i32 %9, 26
   %50 = select i1 %49, i32 1, i32 2
   br label %ZSTD_CCtxParams_init_internal.exit
 
@@ -11786,7 +11786,7 @@ ZSTD_cwksp_reserve_object.exit.thread:            ; preds = %117
   store ptr %129, ptr %120, align 8
   store ptr %.0.i.i, ptr %56, align 8
   %132 = getelementptr inbounds i8, ptr %.0.i.i, i64 11264
-  %133 = icmp ult i64 %78, 11264
+  %133 = icmp samesign ult i64 %78, 11264
   br i1 %133, label %ZSTD_cwksp_reserve_object.exit188.thread, label %135
 
 ZSTD_cwksp_reserve_object.exit188.thread:         ; preds = %131
@@ -11801,7 +11801,7 @@ ZSTD_cwksp_reserve_object.exit188.thread:         ; preds = %131
   store ptr %132, ptr %120, align 8
   %136 = getelementptr inbounds i8, ptr %0, i64 3184
   store ptr %129, ptr %136, align 8
-  %137 = icmp ult i64 %78, 20184
+  %137 = icmp samesign ult i64 %78, 20184
   br i1 %137, label %ZSTD_cwksp_reserve_object.exit191.thread, label %.thread
 
 ZSTD_cwksp_reserve_object.exit191.thread:         ; preds = %135
@@ -14025,7 +14025,7 @@ define internal fastcc void @ZSTD_overflowCorrectIfNeeded(ptr nocapture noundef 
   %26 = sub i64 %25, %11
   %27 = trunc i64 %26 to i32
   %28 = and i32 %24, %27
-  %29 = icmp ult i32 %28, 2
+  %29 = icmp samesign ult i32 %28, 2
   %30 = tail call i32 @llvm.umax.i32(i32 %23, i32 2)
   %31 = select i1 %29, i32 %30, i32 0
   %32 = tail call i32 @llvm.umax.i32(i32 %18, i32 %23)
@@ -16295,7 +16295,7 @@ ZSTD_window_update.exit115:                       ; preds = %ZSTD_window_update.
   %138 = load i32, ptr %137, align 4
   %139 = getelementptr inbounds i8, ptr %0, i64 136
   store i32 %138, ptr %139, align 8
-  %140 = icmp ult i64 %.1, 9
+  %140 = icmp samesign ult i64 %.1, 9
   br i1 %140, label %172, label %141
 
 141:                                              ; preds = %122

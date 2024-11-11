@@ -6566,7 +6566,7 @@ _ZN4llvm23SmallVectorTemplateBaseIPKNS_4SCEVELb1EE9push_backES3_.exit74.i: ; pre
   br i1 %2625, label %.backedge.i, label %2628
 
 2626:                                             ; preds = %2616
-  %2627 = icmp ult i8 %2619, 22
+  %2627 = icmp samesign ult i8 %2619, 22
   br i1 %2627, label %.backedge.i, label %2628
 
 2628:                                             ; preds = %2626, %2621
@@ -15670,7 +15670,7 @@ _ZNK12_GLOBAL__N_113RegUseTracker24isRegUsedByUsesOtherThanEPKN4llvm4SCEVEm.exit
   %1315 = and i64 %1256, %957
   %1316 = icmp ne i64 %1315, 0
   %.not.i15.i = icmp samesign ugt i64 %1253, %956
-  %or.cond.i.i314 = and i1 %.not.i15.i, %1316
+  %or.cond.i.i314 = select i1 %1316, i1 %.not.i15.i, i1 false
   br i1 %or.cond.i.i314, label %.loopexit.i150, label %_ZNK12_GLOBAL__N_113RegUseTracker24isRegUsedByUsesOtherThanEPKN4llvm4SCEVEm.exit.thread
 
 .loopexit.i150:                                   ; preds = %.thread.i312, %1285, %1308, %_ZNK12_GLOBAL__N_113RegUseTracker24isRegUsedByUsesOtherThanEPKN4llvm4SCEVEm.exit, %1214
@@ -16098,7 +16098,7 @@ _ZNK12_GLOBAL__N_113RegUseTracker24isRegUsedByUsesOtherThanEPKN4llvm4SCEVEm.exit
   %200 = and i64 %141, %76
   %201 = icmp ne i64 %200, 0
   %.not.i15.i = icmp samesign ugt i64 %138, %75
-  %or.cond.i.i = and i1 %.not.i15.i, %201
+  %or.cond.i.i = select i1 %201, i1 %.not.i15.i, i1 false
   br i1 %or.cond.i.i, label %_ZNK12_GLOBAL__N_113RegUseTracker24isRegUsedByUsesOtherThanEPKN4llvm4SCEVEm.exit.thread200, label %_ZNK12_GLOBAL__N_113RegUseTracker24isRegUsedByUsesOtherThanEPKN4llvm4SCEVEm.exit.thread
 
 _ZNK12_GLOBAL__N_113RegUseTracker24isRegUsedByUsesOtherThanEPKN4llvm4SCEVEm.exit.thread200: ; preds = %.thread.i, %170, %193, %_ZNK12_GLOBAL__N_113RegUseTracker24isRegUsedByUsesOtherThanEPKN4llvm4SCEVEm.exit
@@ -16305,7 +16305,7 @@ _ZNK12_GLOBAL__N_113RegUseTracker24isRegUsedByUsesOtherThanEPKN4llvm4SCEVEm.exit
   %310 = and i64 %251, %76
   %311 = icmp ne i64 %310, 0
   %.not.i15.i65 = icmp samesign ugt i64 %248, %75
-  %or.cond.i.i66 = and i1 %.not.i15.i65, %311
+  %or.cond.i.i66 = select i1 %311, i1 %.not.i15.i65, i1 false
   br i1 %or.cond.i.i66, label %_ZNK12_GLOBAL__N_113RegUseTracker24isRegUsedByUsesOtherThanEPKN4llvm4SCEVEm.exit84.thread204, label %_ZNK12_GLOBAL__N_113RegUseTracker24isRegUsedByUsesOtherThanEPKN4llvm4SCEVEm.exit84.thread
 
 _ZNK12_GLOBAL__N_113RegUseTracker24isRegUsedByUsesOtherThanEPKN4llvm4SCEVEm.exit84.thread204: ; preds = %.thread.i61, %280, %303, %_ZNK12_GLOBAL__N_113RegUseTracker24isRegUsedByUsesOtherThanEPKN4llvm4SCEVEm.exit84
@@ -25406,7 +25406,7 @@ _ZN4llvm9remove_ifIRNS_11SmallVectorISt4pairIjPNS_6MDNodeEELj2EEEZNS_13IRBuilder
   %1171 = getelementptr inbounds i8, ptr %.0910.i.i.i.i.i.i.i, i64 16
   %1172 = getelementptr inbounds i8, ptr %.0811.i.i.i.i.i.i.i, i64 16
   %1173 = add nsw i64 %.012.i.i.i.i.i.i.i, -1
-  %1174 = icmp ugt i64 %.012.i.i.i.i.i.i.i, 1
+  %1174 = icmp samesign ugt i64 %.012.i.i.i.i.i.i.i, 1
   br i1 %1174, label %.lr.ph.i.i.i.i.i.i.i173, label %_ZN4llvm8erase_ifINS_11SmallVectorISt4pairIjPNS_6MDNodeEELj2EEEZNS_13IRBuilderBase25AddOrRemoveMetadataToCopyEjS4_EUlRKS5_E_EEvRT_T0_.exit, !llvm.loop !337
 
 _ZN4llvm8erase_ifINS_11SmallVectorISt4pairIjPNS_6MDNodeEELj2EEEZNS_13IRBuilderBase25AddOrRemoveMetadataToCopyEjS4_EUlRKS5_E_EEvRT_T0_.exit: ; preds = %.lr.ph.i.i.i.i.i.i.i173, %_ZN4llvm9remove_ifIRNS_11SmallVectorISt4pairIjPNS_6MDNodeEELj2EEEZNS_13IRBuilderBase25AddOrRemoveMetadataToCopyEjS4_EUlRKS5_E_EEDaOT_T0_.exit.i
@@ -33441,7 +33441,7 @@ _ZN4llvm15SmallVectorImplIN12_GLOBAL__N_17FormulaEE12assignRemoteEOS3_.exit: ; p
   %41 = getelementptr inbounds i8, ptr %.0910.i.i.i.i.i, i64 112
   %42 = getelementptr inbounds i8, ptr %.0811.i.i.i.i.i, i64 112
   %43 = add nsw i64 %.012.i.i.i.i.i, -1
-  %44 = icmp ugt i64 %.012.i.i.i.i.i, 1
+  %44 = icmp samesign ugt i64 %.012.i.i.i.i.i, 1
   br i1 %44, label %.lr.ph.i.i.i.i.i, label %_ZSt4moveIPN12_GLOBAL__N_17FormulaES2_ET0_T_S4_S3_.exit, !llvm.loop !403
 
 _ZSt4moveIPN12_GLOBAL__N_17FormulaES2_ET0_T_S4_S3_.exit: ; preds = %.lr.ph.i.i.i.i.i, %33, %32
@@ -33570,7 +33570,7 @@ _ZN4llvm15SmallVectorImplIN12_GLOBAL__N_17FormulaEE5clearEv.exit58: ; preds = %_
   %86 = getelementptr inbounds i8, ptr %.0910.i.i.i.i.i64, i64 112
   %87 = getelementptr inbounds i8, ptr %.0811.i.i.i.i.i63, i64 112
   %88 = add nsw i64 %.012.i.i.i.i.i62, -1
-  %89 = icmp ugt i64 %.012.i.i.i.i.i62, 1
+  %89 = icmp samesign ugt i64 %.012.i.i.i.i.i62, 1
   br i1 %89, label %.lr.ph.i.i.i.i.i61, label %_ZSt4moveIPN12_GLOBAL__N_17FormulaES2_ET0_T_S4_S3_.exit65, !llvm.loop !403
 
 _ZSt4moveIPN12_GLOBAL__N_17FormulaES2_ET0_T_S4_S3_.exit65: ; preds = %.lr.ph.i.i.i.i.i61, %79, %78, %_ZN4llvm15SmallVectorImplIN12_GLOBAL__N_17FormulaEE5clearEv.exit58
@@ -39871,7 +39871,7 @@ _ZN4llvm8SmallSetISt4pairImN12_GLOBAL__N_19ImmediateEELj32ENS2_25KeyOrderSizeTAn
   %856 = and i64 %855, %851
   %857 = icmp ne i64 %856, 0
   %.not.i.i.i367 = icmp samesign ugt i64 %849, %853
-  %or.cond.i.i.i = and i1 %.not.i.i.i367, %857
+  %or.cond.i.i.i = select i1 %857, i1 %.not.i.i.i367, i1 false
   br i1 %or.cond.i.i.i, label %858, label %.loopexit
 
 858:                                              ; preds = %847
@@ -43636,7 +43636,7 @@ _ZNK4llvm14SmallBitVector10find_firstEv.exit:     ; preds = %55
   %72 = and i64 %38, %71
   %73 = icmp ne i64 %72, 0
   %.not.i15 = icmp samesign ugt i64 %35, %70
-  %or.cond.i = and i1 %.not.i15, %73
+  %or.cond.i = select i1 %73, i1 %.not.i15, i1 false
   br label %_ZNK4llvm14SmallBitVector10find_firstEv.exit.thread
 
 74:                                               ; preds = %67
@@ -49659,7 +49659,7 @@ _ZN4llvm9remove_ifIRNS_11SmallVectorISt4pairIjPNS_6MDNodeEELj2EEEZNS_13IRBuilder
   %68 = getelementptr inbounds i8, ptr %.0910.i.i.i.i.i.i, i64 16
   %69 = getelementptr inbounds i8, ptr %.0811.i.i.i.i.i.i, i64 16
   %70 = add nsw i64 %.012.i.i.i.i.i.i, -1
-  %71 = icmp ugt i64 %.012.i.i.i.i.i.i, 1
+  %71 = icmp samesign ugt i64 %.012.i.i.i.i.i.i, 1
   br i1 %71, label %.lr.ph.i.i.i.i.i.i, label %_ZN4llvm15SmallVectorImplISt4pairIjPNS_6MDNodeEEE5eraseEPKS4_S7_.exit, !llvm.loop !337
 
 _ZN4llvm15SmallVectorImplISt4pairIjPNS_6MDNodeEEE5eraseEPKS4_S7_.exit: ; preds = %.lr.ph.i.i.i.i.i.i, %_ZN4llvm9remove_ifIRNS_11SmallVectorISt4pairIjPNS_6MDNodeEELj2EEEZNS_13IRBuilderBase25AddOrRemoveMetadataToCopyEjS4_EUlRKS5_E_EEDaOT_T0_.exit

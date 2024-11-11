@@ -2350,7 +2350,7 @@ if.then.i.i:                                      ; preds = %for.end.i
 
 st_mult.exit.i:                                   ; preds = %for.end.i
   %mul.i.i = shl nuw i64 %inc.i, 4
-  %cmp.i63.i = icmp ugt i64 %inc.i, 1152921504606846973
+  %cmp.i63.i = icmp samesign ugt i64 %inc.i, 1152921504606846973
   br i1 %cmp.i63.i, label %if.then.i64.i, label %st_add.exit.i
 
 if.then.i64.i:                                    ; preds = %st_mult.exit.i

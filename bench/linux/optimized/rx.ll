@@ -6990,13 +6990,13 @@ define internal fastcc noundef range(i32 0, 131073) i32 @ieee80211_rx_h_mgmt(ptr
   %27 = and i16 %26, %24
   %28 = icmp eq i16 %27, -1
   %29 = add nsw i32 %9, -1
-  %30 = icmp ult i32 %29, 2
+  %30 = icmp samesign ult i32 %29, 2
   %31 = and i1 %30, %28
   br i1 %31, label %53, label %84
 
 32:                                               ; preds = %16
   %33 = add nsw i32 %9, -1
-  %34 = icmp ult i32 %33, 2
+  %34 = icmp samesign ult i32 %33, 2
   br i1 %34, label %53, label %84
 
 35:                                               ; preds = %10, %10, %10

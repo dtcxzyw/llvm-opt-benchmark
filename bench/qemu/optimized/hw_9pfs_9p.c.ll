@@ -3812,7 +3812,7 @@ trace_v9fs_xattrcreate.exit:                      ; preds = %if.end, %land.lhs.t
 
 if.end2:                                          ; preds = %trace_v9fs_xattrcreate.exit
   %and3 = and i32 %12, 1
-  %tobool8.not = icmp ult i32 %12, 2
+  %tobool8.not = icmp samesign ult i32 %12, 2
   %or10 = or i32 %12, 2
   %rflags.1 = select i1 %tobool8.not, i32 %and3, i32 %or10
   %13 = load i64, ptr %size, align 8
@@ -5394,7 +5394,7 @@ if.then16:                                        ; preds = %if.end13
   br label %out
 
 if.end17:                                         ; preds = %if.end13
-  %cmp19 = icmp ult i32 %12, 8193
+  %cmp19 = icmp samesign ult i32 %12, 8193
   br i1 %cmp19, label %land.lhs.true, label %marshal
 
 land.lhs.true:                                    ; preds = %if.end17
@@ -8559,7 +8559,7 @@ if.else.i:                                        ; preds = %land.lhs.true.i44, 
 
 v9mode_to_mode.exit:                              ; preds = %if.end27, %if.then23.i, %if.else.i
   %ret.4.i = phi i32 [ %or24.i, %if.then23.i ], [ %or25.i, %if.else.i ], [ %ret.3.i, %if.end27 ]
-  %tobool29.not.i = icmp ult i32 %ret.4.i, 512
+  %tobool29.not.i = icmp samesign ult i32 %ret.4.i, 512
   %or31.i = or disjoint i32 %ret.4.i, 32768
   %spec.select21.i = select i1 %tobool29.not.i, i32 %or31.i, i32 %ret.4.i
   %and33.i = lshr i32 %30, 8

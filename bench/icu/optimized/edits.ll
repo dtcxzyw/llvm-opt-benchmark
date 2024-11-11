@@ -912,7 +912,7 @@ _ZNK6icu_755Edits8lastUnitEv.exit:                ; preds = %if.end5
 if.then8:                                         ; preds = %_ZNK6icu_755Edits8lastUnitEv.exit
   %narrow = sub nuw nsw i16 4095, %5
   %sub = zext nneg i16 %narrow to i32
-  %cmp9.not = icmp ugt i32 %unchangedLength, %sub
+  %cmp9.not = icmp samesign ugt i32 %unchangedLength, %sub
   br i1 %cmp9.not, label %if.end11, label %if.then10
 
 if.then10:                                        ; preds = %if.then8
@@ -928,7 +928,7 @@ if.end11:                                         ; preds = %if.then8
 
 if.end13:                                         ; preds = %if.end5, %if.end11, %_ZNK6icu_755Edits8lastUnitEv.exit
   %unchangedLength.addr.0 = phi i32 [ %sub12, %if.end11 ], [ %unchangedLength, %_ZNK6icu_755Edits8lastUnitEv.exit ], [ %unchangedLength, %if.end5 ]
-  %cmp1469 = icmp ugt i32 %unchangedLength.addr.0, 4095
+  %cmp1469 = icmp samesign ugt i32 %unchangedLength.addr.0, 4095
   br i1 %cmp1469, label %while.body.lr.ph, label %while.end
 
 while.body.lr.ph:                                 ; preds = %if.end13
@@ -1265,7 +1265,7 @@ if.then11:                                        ; preds = %if.end9
 land.lhs.true13:                                  ; preds = %if.then11
   %cmp14 = icmp sgt i32 %3, -1
   %sub17 = sub nuw nsw i32 2147483647, %3
-  %cmp18 = icmp ugt i32 %sub, %sub17
+  %cmp18 = icmp samesign ugt i32 %sub, %sub17
   %or.cond = select i1 %cmp14, i1 %cmp18, i1 false
   br i1 %or.cond, label %if.then28, label %if.end30
 
@@ -1545,7 +1545,7 @@ if.then69:                                        ; preds = %if.then65
   br label %if.end96
 
 if.else72:                                        ; preds = %if.then65
-  %cmp73 = icmp ult i32 %oldLength, 32768
+  %cmp73 = icmp samesign ult i32 %oldLength, 32768
   br i1 %cmp73, label %if.then74, label %if.else78
 
 if.then74:                                        ; preds = %if.else72
@@ -1585,7 +1585,7 @@ if.end96:                                         ; preds = %if.then74, %if.else
   br i1 %cmp55, label %if.end128, label %if.else100
 
 if.else100:                                       ; preds = %if.end96
-  %cmp101 = icmp ult i32 %newLength, 32768
+  %cmp101 = icmp samesign ult i32 %newLength, 32768
   br i1 %cmp101, label %if.then102, label %if.else110
 
 if.then102:                                       ; preds = %if.else100
@@ -2341,7 +2341,7 @@ if.end61:                                         ; preds = %if.end56, %if.end28
   %u.0 = phi i32 [ %u.2, %if.end56 ], [ %conv31, %if.end28 ]
   %changed62 = getelementptr inbounds i8, ptr %this, i64 23
   store i8 1, ptr %changed62, align 1
-  %cmp63 = icmp ult i32 %u.0, 28672
+  %cmp63 = icmp samesign ult i32 %u.0, 28672
   br i1 %cmp63, label %if.then64, label %if.else81
 
 if.then64:                                        ; preds = %if.end61
@@ -2678,7 +2678,7 @@ if.then16:                                        ; preds = %if.end13
   %12 = load i16, ptr %arrayidx, align 2
   %13 = and i16 %12, 511
   %and = zext nneg i16 %13 to i32
-  %cmp20.not = icmp ugt i32 %9, %and
+  %cmp20.not = icmp samesign ugt i32 %9, %and
   br i1 %cmp20.not, label %if.end23, label %if.then21
 
 if.then21:                                        ; preds = %if.then16
@@ -3052,7 +3052,7 @@ _ZN6icu_755Edits8Iterator10readLengthEi.exit99:   ; preds = %_ZN6icu_755Edits8It
 if.end157:                                        ; preds = %if.else140, %_ZN6icu_755Edits8Iterator10readLengthEi.exit99, %if.then127
   %58 = phi i32 [ %42, %if.else140 ], [ %add154, %_ZN6icu_755Edits8Iterator10readLengthEi.exit99 ], [ %add139, %if.then127 ]
   %59 = phi i32 [ %43, %if.else140 ], [ %add150, %_ZN6icu_755Edits8Iterator10readLengthEi.exit99 ], [ %add134, %if.then127 ]
-  %cmp113 = icmp ugt i32 %add21.i117119, 1
+  %cmp113 = icmp samesign ugt i32 %add21.i117119, 1
   br i1 %cmp113, label %land.rhs114, label %while.end158, !llvm.loop !17
 
 while.end158:                                     ; preds = %land.rhs114, %if.end157, %if.end110.while.end158_crit_edge
@@ -3108,7 +3108,7 @@ if.end:                                           ; preds = %entry
 
 if.then6:                                         ; preds = %if.end
   %div37 = lshr i32 %spanStart.0, 1
-  %cmp7.not = icmp ult i32 %i, %div37
+  %cmp7.not = icmp samesign ult i32 %i, %div37
   br i1 %cmp7.not, label %if.end61, label %for.cond.preheader
 
 for.cond.preheader:                               ; preds = %if.then6

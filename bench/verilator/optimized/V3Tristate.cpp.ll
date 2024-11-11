@@ -14400,7 +14400,7 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZNK8V3Number4hasZEv(ptr nound
 .lr.ph:                                           ; preds = %.preheader
   %10 = add i8 %3, -1
   %spec.select.i.i = icmp ult i8 %10, 2
-  %11 = icmp ult i32 %6, 129
+  %11 = icmp samesign ult i32 %6, 129
   %12 = load ptr, ptr %0, align 8
   %spec.select.i = select i1 %11, ptr %0, ptr %12
   br i1 %spec.select.i.i, label %_ZNK12V3NumberData3numEv.exit.preheader, label %16

@@ -2015,7 +2015,7 @@ define dso_local range(i32 -22, 1) i32 @i915_gem_user_to_context_sseu(ptr nounde
   %40 = getelementptr inbounds i8, ptr %0, i64 5138
   %41 = load i8, ptr %40, align 2
   %42 = zext i8 %41 to i16
-  %43 = icmp ugt i16 %20, %42
+  %43 = icmp samesign ugt i16 %20, %42
   br i1 %43, label %98, label %44
 
 44:                                               ; preds = %39
@@ -3522,7 +3522,7 @@ define internal fastcc i32 @set_proto_ctx_param(ptr noundef %0, ptr nocapture no
   %117 = getelementptr inbounds i8, ptr %6, i64 2
   %118 = load i16, ptr %117, align 2
   %119 = zext i16 %118 to i32
-  %120 = icmp ugt i32 %111, %119
+  %120 = icmp samesign ugt i32 %111, %119
   br i1 %120, label %121, label %.thread13
 
 121:                                              ; preds = %116
@@ -3707,7 +3707,7 @@ define internal fastcc i32 @set_proto_ctx_param(ptr noundef %0, ptr nocapture no
   %225 = lshr exact i64 %224, 2
   %226 = trunc i64 %225 to i32
   store i32 %226, ptr %193, align 8
-  %227 = icmp ugt i32 %226, 64
+  %227 = icmp samesign ugt i32 %226, 64
   br i1 %227, label %297, label %228
 
 228:                                              ; preds = %223

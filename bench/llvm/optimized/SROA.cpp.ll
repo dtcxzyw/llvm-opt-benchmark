@@ -9800,7 +9800,7 @@ define internal fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_14SROA11splitAllocaER
 62:                                               ; preds = %46
   %63 = trunc nuw i64 %60 to i32
   %64 = add nuw nsw i32 %63, 1
-  %65 = icmp ult i64 %60, 57
+  %65 = icmp samesign ult i64 %60, 57
   br i1 %65, label %66, label %74
 
 66:                                               ; preds = %62
@@ -11960,7 +11960,7 @@ _ZN4llvm15SmallVectorImplISt4pairIPNS_10SelectInstENS_11SmallVectorISt7variantIJ
   %65 = getelementptr inbounds i8, ptr %.0910.i.i.i.i.i.i.i, i64 56
   %66 = getelementptr inbounds i8, ptr %.0811.i.i.i.i.i.i.i, i64 56
   %67 = add nsw i64 %.012.i.i.i.i.i.i.i, -1
-  %68 = icmp ugt i64 %.012.i.i.i.i.i.i.i, 1
+  %68 = icmp samesign ugt i64 %.012.i.i.i.i.i.i.i, 1
   br i1 %68, label %.lr.ph.i.i.i.i.i.i.i, label %_ZSt4moveIPSt4pairIPN4llvm10SelectInstENS1_11SmallVectorISt7variantIJNS1_14PointerIntPairIPNS1_8LoadInstELj2EN12_GLOBAL__N_123SelectHandSpeculativityENS1_21PointerLikeTypeTraitsIS8_EENS1_18PointerIntPairInfoIS8_Lj2ESC_EEEEPNS1_9StoreInstEEELj2EEEESL_ET0_T_SN_SM_.exit.i.i, !llvm.loop !238
 
 _ZSt4moveIPSt4pairIPN4llvm10SelectInstENS1_11SmallVectorISt7variantIJNS1_14PointerIntPairIPNS1_8LoadInstELj2EN12_GLOBAL__N_123SelectHandSpeculativityENS1_21PointerLikeTypeTraitsIS8_EENS1_18PointerIntPairInfoIS8_Lj2ESC_EEEEPNS1_9StoreInstEEELj2EEEESL_ET0_T_SN_SM_.exit.i.i: ; preds = %.lr.ph.i.i.i.i.i.i.i, %58, %57
@@ -12101,7 +12101,7 @@ _ZN4llvm23SmallVectorTemplateBaseISt4pairIPNS_10SelectInstENS_11SmallVectorISt7v
   %114 = getelementptr inbounds i8, ptr %.0910.i.i.i.i.i63.i.i, i64 56
   %115 = getelementptr inbounds i8, ptr %.0811.i.i.i.i.i62.i.i, i64 56
   %116 = add nsw i64 %.012.i.i.i.i.i61.i.i, -1
-  %117 = icmp ugt i64 %.012.i.i.i.i.i61.i.i, 1
+  %117 = icmp samesign ugt i64 %.012.i.i.i.i.i61.i.i, 1
   br i1 %117, label %.lr.ph.i.i.i.i.i60.i.i, label %_ZSt4moveIPSt4pairIPN4llvm10SelectInstENS1_11SmallVectorISt7variantIJNS1_14PointerIntPairIPNS1_8LoadInstELj2EN12_GLOBAL__N_123SelectHandSpeculativityENS1_21PointerLikeTypeTraitsIS8_EENS1_18PointerIntPairInfoIS8_Lj2ESC_EEEEPNS1_9StoreInstEEELj2EEEESL_ET0_T_SN_SM_.exit64.i.i, !llvm.loop !238
 
 _ZSt4moveIPSt4pairIPN4llvm10SelectInstENS1_11SmallVectorISt7variantIJNS1_14PointerIntPairIPNS1_8LoadInstELj2EN12_GLOBAL__N_123SelectHandSpeculativityENS1_21PointerLikeTypeTraitsIS8_EENS1_18PointerIntPairInfoIS8_Lj2ESC_EEEEPNS1_9StoreInstEEELj2EEEESL_ET0_T_SN_SM_.exit64.i.i: ; preds = %.lr.ph.i.i.i.i.i60.i.i, %108, %107, %_ZN4llvm23SmallVectorTemplateBaseISt4pairIPNS_10SelectInstENS_11SmallVectorISt7variantIJNS_14PointerIntPairIPNS_8LoadInstELj2EN12_GLOBAL__N_123SelectHandSpeculativityENS_21PointerLikeTypeTraitsIS8_EENS_18PointerIntPairInfoIS8_Lj2ESC_EEEEPNS_9StoreInstEEELj2EEEELb0EE4growEm.exit.i.i
@@ -12548,7 +12548,7 @@ _ZN4llvm9remove_ifIRNS_11SmallVectorISt4pairIjPNS_6MDNodeEELj2EEEZNS_13IRBuilder
   %68 = getelementptr inbounds i8, ptr %.0910.i.i.i.i.i.i, i64 16
   %69 = getelementptr inbounds i8, ptr %.0811.i.i.i.i.i.i, i64 16
   %70 = add nsw i64 %.012.i.i.i.i.i.i, -1
-  %71 = icmp ugt i64 %.012.i.i.i.i.i.i, 1
+  %71 = icmp samesign ugt i64 %.012.i.i.i.i.i.i, 1
   br i1 %71, label %.lr.ph.i.i.i.i.i.i, label %_ZN4llvm15SmallVectorImplISt4pairIjPNS_6MDNodeEEE5eraseEPKS4_S7_.exit, !llvm.loop !252
 
 _ZN4llvm15SmallVectorImplISt4pairIjPNS_6MDNodeEEE5eraseEPKS4_S7_.exit: ; preds = %.lr.ph.i.i.i.i.i.i, %_ZN4llvm9remove_ifIRNS_11SmallVectorISt4pairIjPNS_6MDNodeEELj2EEEZNS_13IRBuilderBase25AddOrRemoveMetadataToCopyEjS4_EUlRKS5_E_EEDaOT_T0_.exit
@@ -23996,7 +23996,7 @@ _ZN4llvm9remove_ifIRNS_11SmallVectorISt4pairIjPNS_6MDNodeEELj2EEEZNS_13IRBuilder
   %1412 = getelementptr inbounds i8, ptr %.0910.i.i.i.i.i.i.i, i64 16
   %1413 = getelementptr inbounds i8, ptr %.0811.i.i.i.i.i.i.i, i64 16
   %1414 = add nsw i64 %.012.i.i.i.i.i.i.i, -1
-  %1415 = icmp ugt i64 %.012.i.i.i.i.i.i.i, 1
+  %1415 = icmp samesign ugt i64 %.012.i.i.i.i.i.i.i, 1
   br i1 %1415, label %.lr.ph.i.i.i.i.i.i.i, label %_ZN4llvm8erase_ifINS_11SmallVectorISt4pairIjPNS_6MDNodeEELj2EEEZNS_13IRBuilderBase25AddOrRemoveMetadataToCopyEjS4_EUlRKS5_E_EEvRT_T0_.exit, !llvm.loop !252
 
 _ZN4llvm8erase_ifINS_11SmallVectorISt4pairIjPNS_6MDNodeEELj2EEEZNS_13IRBuilderBase25AddOrRemoveMetadataToCopyEjS4_EUlRKS5_E_EEvRT_T0_.exit: ; preds = %.lr.ph.i.i.i.i.i.i.i, %_ZN4llvm9remove_ifIRNS_11SmallVectorISt4pairIjPNS_6MDNodeEELj2EEEZNS_13IRBuilderBase25AddOrRemoveMetadataToCopyEjS4_EUlRKS5_E_EEDaOT_T0_.exit.i
@@ -25251,7 +25251,7 @@ _ZN4llvm9remove_ifIRNS_11SmallVectorISt4pairIjPNS_6MDNodeEELj2EEEZNS_13IRBuilder
   %1969 = getelementptr inbounds i8, ptr %.0910.i.i.i.i.i.i.i1059, i64 16
   %1970 = getelementptr inbounds i8, ptr %.0811.i.i.i.i.i.i.i1058, i64 16
   %1971 = add nsw i64 %.012.i.i.i.i.i.i.i1057, -1
-  %1972 = icmp ugt i64 %.012.i.i.i.i.i.i.i1057, 1
+  %1972 = icmp samesign ugt i64 %.012.i.i.i.i.i.i.i1057, 1
   br i1 %1972, label %.lr.ph.i.i.i.i.i.i.i1056, label %_ZN4llvm8erase_ifINS_11SmallVectorISt4pairIjPNS_6MDNodeEELj2EEEZNS_13IRBuilderBase25AddOrRemoveMetadataToCopyEjS4_EUlRKS5_E_EEvRT_T0_.exit1082, !llvm.loop !252
 
 _ZN4llvm8erase_ifINS_11SmallVectorISt4pairIjPNS_6MDNodeEELj2EEEZNS_13IRBuilderBase25AddOrRemoveMetadataToCopyEjS4_EUlRKS5_E_EEvRT_T0_.exit1082: ; preds = %.lr.ph.i.i.i.i.i.i.i1056, %_ZN4llvm9remove_ifIRNS_11SmallVectorISt4pairIjPNS_6MDNodeEELj2EEEZNS_13IRBuilderBase25AddOrRemoveMetadataToCopyEjS4_EUlRKS5_E_EEDaOT_T0_.exit.i1053
@@ -25873,7 +25873,7 @@ _ZN4llvm9remove_ifIRNS_11SmallVectorISt4pairIjPNS_6MDNodeEELj2EEEZNS_13IRBuilder
   %2231 = getelementptr inbounds i8, ptr %.0910.i.i.i.i.i.i.i1125, i64 16
   %2232 = getelementptr inbounds i8, ptr %.0811.i.i.i.i.i.i.i1124, i64 16
   %2233 = add nsw i64 %.012.i.i.i.i.i.i.i1123, -1
-  %2234 = icmp ugt i64 %.012.i.i.i.i.i.i.i1123, 1
+  %2234 = icmp samesign ugt i64 %.012.i.i.i.i.i.i.i1123, 1
   br i1 %2234, label %.lr.ph.i.i.i.i.i.i.i1122, label %_ZN4llvm8erase_ifINS_11SmallVectorISt4pairIjPNS_6MDNodeEELj2EEEZNS_13IRBuilderBase25AddOrRemoveMetadataToCopyEjS4_EUlRKS5_E_EEvRT_T0_.exit1148, !llvm.loop !252
 
 _ZN4llvm8erase_ifINS_11SmallVectorISt4pairIjPNS_6MDNodeEELj2EEEZNS_13IRBuilderBase25AddOrRemoveMetadataToCopyEjS4_EUlRKS5_E_EEvRT_T0_.exit1148: ; preds = %.lr.ph.i.i.i.i.i.i.i1122, %_ZN4llvm9remove_ifIRNS_11SmallVectorISt4pairIjPNS_6MDNodeEELj2EEEZNS_13IRBuilderBase25AddOrRemoveMetadataToCopyEjS4_EUlRKS5_E_EEDaOT_T0_.exit.i1119
@@ -39595,7 +39595,7 @@ _ZN4llvm15SmallVectorImplIiE7reserveEm.exit:      ; preds = %3, %9
   %16 = add i64 %.sroa.05.08.i.i.i.i.i.i.i.i, 1
   %17 = getelementptr inbounds i8, ptr %.049.i.i.i.i.i.i.i.i, i64 4
   %18 = add nsw i64 %.010.i.i.i.i.i.i.i.i, -1
-  %19 = icmp ugt i64 %.010.i.i.i.i.i.i.i.i, 1
+  %19 = icmp samesign ugt i64 %.010.i.i.i.i.i.i.i.i, 1
   br i1 %19, label %.lr.ph.i.i.i.i.i.i.i.i, label %_ZN4llvm23SmallVectorTemplateBaseIiLb1EE18uninitialized_copyINS_6detail15SafeIntIteratorIiLb0EEEPiEEvT_S7_T0_.exit, !llvm.loop !736
 
 _ZN4llvm23SmallVectorTemplateBaseIiLb1EE18uninitialized_copyINS_6detail15SafeIntIteratorIiLb0EEEPiEEvT_S7_T0_.exit: ; preds = %.lr.ph.i.i.i.i.i.i.i.i, %_ZN4llvm15SmallVectorImplIiE7reserveEm.exit

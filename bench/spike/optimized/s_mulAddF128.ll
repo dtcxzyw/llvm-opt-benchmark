@@ -332,7 +332,7 @@ define { i64, i64 } @softfloat_mulAddF128(i64 noundef %0, i64 noundef %1, i64 no
 
 157:                                              ; preds = %141
   call void @softfloat_sub256M(ptr noundef nonnull %8, ptr noundef nonnull %9, ptr noundef nonnull %8) #4
-  %158 = icmp ugt i64 %77, 1
+  %158 = icmp samesign ugt i64 %77, 1
   br i1 %158, label %159, label %thread-pre-split
 
 159:                                              ; preds = %157

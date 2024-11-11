@@ -2150,7 +2150,7 @@ proto_item_set_generated.exit.i:                  ; preds = %253, %250, %239
   %260 = call ptr @proto_tree_add_item(ptr noundef %249, i32 noundef %258, ptr noundef %259, i32 noundef %.082101.i, i32 noundef 4, i32 noundef 0) #7
   %261 = add nuw i32 %.082101.i, 4
   %262 = add nsw i32 %.0102.i, -4
-  %263 = icmp ugt i32 %.0102.i, 4
+  %263 = icmp samesign ugt i32 %.0102.i, 4
   br i1 %263, label %.lr.ph103.i, label %dissect_sdp_service_search_response.exit, !llvm.loop !8
 
 dissect_sdp_service_search_response.exit:         ; preds = %.lr.ph103.i, %.loopexit94.i, %proto_item_set_generated.exit.i

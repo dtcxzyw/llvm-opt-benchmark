@@ -35,7 +35,7 @@ if.then7:                                         ; preds = %if.end
   br label %return
 
 if.end12:                                         ; preds = %if.end
-  %cmp13 = icmp ult i32 %length, 5
+  %cmp13 = icmp samesign ult i32 %length, 5
   br i1 %cmp13, label %return, label %for.body.lr.ph
 
 for.body.lr.ph:                                   ; preds = %if.end12

@@ -3176,7 +3176,7 @@ SzReadSwitch.exit.preheader.i:                    ; preds = %336
 
 378:                                              ; preds = %.loopexit.i.i.i
   %379 = trunc nuw i64 %.1.ph.i.i.i to i32
-  %380 = icmp ugt i64 %.1.ph.i.i.i, 32
+  %380 = icmp samesign ugt i64 %.1.ph.i.i.i, 32
   br i1 %380, label %SzGetNextFolderItem.exit.thread.i, label %381
 
 381:                                              ; preds = %378
@@ -3406,8 +3406,8 @@ SzReadSwitch.exit.preheader.i:                    ; preds = %336
   store i32 %495, ptr %460, align 4
   %496 = load i32, ptr %392, align 8
   %497 = icmp ugt i32 %496, 32
-  %498 = icmp ugt i64 %.1.ph.i191.i.i, 32
-  %or.cond.i.i = or i1 %498, %497
+  %498 = icmp samesign ugt i64 %.1.ph.i191.i.i, 32
+  %or.cond.i.i = select i1 %497, i1 true, i1 %498
   br i1 %or.cond.i.i, label %SzGetNextFolderItem.exit.thread.i, label %501
 
 499:                                              ; preds = %.thread596.i.i

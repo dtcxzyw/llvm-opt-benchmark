@@ -2040,7 +2040,7 @@ spl_object_storage_free_hash.exit.thread:         ; preds = %93, %112, %spl_obje
   %118 = getelementptr inbounds i8, ptr %117, i64 8
   call void @var_replace(ptr noundef nonnull %8, ptr noundef nonnull %9, ptr noundef nonnull %118) #10
   call void @zval_ptr_dtor(ptr noundef nonnull %9) #10
-  %119 = icmp ugt i64 %.in, 1
+  %119 = icmp samesign ugt i64 %.in, 1
   br i1 %119, label %52, label %._crit_edge.loopexit
 
 ._crit_edge.loopexit:                             ; preds = %spl_object_storage_free_hash.exit.thread

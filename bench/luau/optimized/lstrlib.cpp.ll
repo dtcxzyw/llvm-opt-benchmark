@@ -1911,7 +1911,7 @@ define internal noundef range(i32 -2147483647, -2147483648) i32 @_ZL10str_unpack
   %49 = load i8, ptr %48, align 1
   %50 = zext i8 %49 to i64
   %51 = or disjoint i64 %44, %50
-  %52 = icmp ugt i64 %indvars.iv52.i, 1
+  %52 = icmp samesign ugt i64 %indvars.iv52.i, 1
   br i1 %52, label %.lr.ph.split.us.i, label %._crit_edge.i, !llvm.loop !26
 
 .lr.ph.split.i:                                   ; preds = %.lr.ph.i, %.lr.ph.split.i
@@ -1923,7 +1923,7 @@ define internal noundef range(i32 -2147483647, -2147483648) i32 @_ZL10str_unpack
   %55 = load i8, ptr %54, align 1
   %56 = zext i8 %55 to i64
   %57 = or disjoint i64 %53, %56
-  %58 = icmp ugt i64 %indvars.iv.i, 1
+  %58 = icmp samesign ugt i64 %indvars.iv.i, 1
   br i1 %58, label %.lr.ph.split.i, label %._crit_edge.i, !llvm.loop !26
 
 ._crit_edge.i:                                    ; preds = %.lr.ph.split.i, %.lr.ph.split.us.i
@@ -2025,7 +2025,7 @@ _ZL9unpackintP9lua_StatePKciii.exit:              ; preds = %78, %77, %._crit_ed
   %98 = load i8, ptr %97, align 1
   %99 = zext i8 %98 to i64
   %100 = or disjoint i64 %93, %99
-  %101 = icmp ugt i64 %indvars.iv52.i92, 1
+  %101 = icmp samesign ugt i64 %indvars.iv52.i92, 1
   br i1 %101, label %.lr.ph.split.us.i91, label %._crit_edge.i75, !llvm.loop !26
 
 .lr.ph.split.i71:                                 ; preds = %.lr.ph.i69, %.lr.ph.split.i71
@@ -2037,7 +2037,7 @@ _ZL9unpackintP9lua_StatePKciii.exit:              ; preds = %78, %77, %._crit_ed
   %104 = load i8, ptr %103, align 1
   %105 = zext i8 %104 to i64
   %106 = or disjoint i64 %102, %105
-  %107 = icmp ugt i64 %indvars.iv.i72, 1
+  %107 = icmp samesign ugt i64 %indvars.iv.i72, 1
   br i1 %107, label %.lr.ph.split.i71, label %._crit_edge.i75, !llvm.loop !26
 
 ._crit_edge.i75:                                  ; preds = %.lr.ph.split.i71, %.lr.ph.split.us.i91
@@ -2193,7 +2193,7 @@ _ZL14copywithendianPVcPVKcii.exit.thread:         ; preds = %132, %.preheader.i,
   %160 = load i8, ptr %159, align 1
   %161 = zext i8 %160 to i64
   %162 = or disjoint i64 %155, %161
-  %163 = icmp ugt i64 %indvars.iv52.i125, 1
+  %163 = icmp samesign ugt i64 %indvars.iv52.i125, 1
   br i1 %163, label %.lr.ph.split.us.i124, label %._crit_edge.i108, !llvm.loop !26
 
 .lr.ph.split.i104:                                ; preds = %.lr.ph.i102, %.lr.ph.split.i104
@@ -2205,7 +2205,7 @@ _ZL14copywithendianPVcPVKcii.exit.thread:         ; preds = %132, %.preheader.i,
   %166 = load i8, ptr %165, align 1
   %167 = zext i8 %166 to i64
   %168 = or disjoint i64 %164, %167
-  %169 = icmp ugt i64 %indvars.iv.i105, 1
+  %169 = icmp samesign ugt i64 %indvars.iv.i105, 1
   br i1 %169, label %.lr.ph.split.i104, label %._crit_edge.i108, !llvm.loop !26
 
 ._crit_edge.i108:                                 ; preds = %.lr.ph.split.i104, %.lr.ph.split.us.i124
@@ -3004,7 +3004,7 @@ _ZL17matchbracketclassiPKcS0_.exit118:            ; preds = %191, %200, %202, %2
 207:                                              ; preds = %98, %98, %98, %98, %98, %98, %98, %98, %98, %98
   %208 = zext nneg i8 %99 to i32
   %209 = add nsw i32 %208, -49
-  %210 = icmp ult i8 %99, 49
+  %210 = icmp samesign ult i8 %99, 49
   br i1 %210, label %218, label %211
 
 211:                                              ; preds = %207

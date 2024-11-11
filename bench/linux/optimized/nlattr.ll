@@ -345,7 +345,7 @@ define internal fastcc range(i32 -2147483648, 1) i32 @__nla_validate_parse(ptr n
   %38 = load i16, ptr %36, align 2
   %39 = icmp ult i16 %38, 4
   %40 = zext i16 %38 to i32
-  %.not.us.us.us = icmp ult i32 %37, %40
+  %.not.us.us.us = icmp samesign ult i32 %37, %40
   %or.cond.us.us.us = or i1 %39, %.not.us.us.us
   br i1 %or.cond.us.us.us, label %.critedge.thread, label %41
 
@@ -382,7 +382,7 @@ define internal fastcc range(i32 -2147483648, 1) i32 @__nla_validate_parse(ptr n
   %60 = load i16, ptr %58, align 2
   %61 = icmp ult i16 %60, 4
   %62 = zext i16 %60 to i32
-  %.not.us.us = icmp ult i32 %59, %62
+  %.not.us.us = icmp samesign ult i32 %59, %62
   %or.cond.us.us = or i1 %61, %.not.us.us
   br i1 %or.cond.us.us, label %.critedge.thread, label %63
 
@@ -418,7 +418,7 @@ define internal fastcc range(i32 -2147483648, 1) i32 @__nla_validate_parse(ptr n
   %83 = load i16, ptr %81, align 2
   %84 = icmp ult i16 %83, 4
   %85 = zext i16 %83 to i32
-  %.not.us.us115 = icmp ult i32 %82, %85
+  %.not.us.us115 = icmp samesign ult i32 %82, %85
   %or.cond.us.us116 = or i1 %84, %.not.us.us115
   br i1 %or.cond.us.us116, label %.critedge.thread, label %86
 
@@ -458,7 +458,7 @@ define internal fastcc range(i32 -2147483648, 1) i32 @__nla_validate_parse(ptr n
   %107 = load i16, ptr %105, align 2
   %108 = icmp ult i16 %107, 4
   %109 = zext i16 %107 to i32
-  %.not.us = icmp ult i32 %106, %109
+  %.not.us = icmp samesign ult i32 %106, %109
   %or.cond.us = or i1 %108, %.not.us
   br i1 %or.cond.us, label %.critedge.thread, label %110
 
@@ -494,7 +494,7 @@ define internal fastcc range(i32 -2147483648, 1) i32 @__nla_validate_parse(ptr n
   %132 = load i16, ptr %130, align 2
   %133 = icmp ult i16 %132, 4
   %134 = zext i16 %132 to i32
-  %.not = icmp ult i32 %131, %134
+  %.not = icmp samesign ult i32 %131, %134
   %or.cond = or i1 %133, %.not
   br i1 %or.cond, label %.critedge.thread, label %135
 
@@ -537,7 +537,7 @@ define internal fastcc range(i32 -2147483648, 1) i32 @__nla_validate_parse(ptr n
   %157 = icmp ult i16 %156, %154
   %158 = select i1 %157, i32 %26, i32 %4
   %159 = icmp eq i16 %154, 0
-  %160 = icmp ult i32 %2, %155
+  %160 = icmp samesign ult i32 %2, %155
   %161 = or i1 %159, %160
   br i1 %161, label %.thread49, label %162
 

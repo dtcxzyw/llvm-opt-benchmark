@@ -14490,7 +14490,7 @@ if.then46:                                        ; preds = %for.body39
   br label %for.inc48
 
 for.inc48:                                        ; preds = %for.body39, %if.then46
-  %cmp37 = icmp ugt i64 %indvars.iv50, 1
+  %cmp37 = icmp samesign ugt i64 %indvars.iv50, 1
   br i1 %cmp37, label %for.body39, label %for.cond51.preheader, !llvm.loop !57
 
 for.body55:                                       ; preds = %for.body55.lr.ph, %for.inc64
@@ -24783,7 +24783,7 @@ do.end:                                           ; preds = %do.body
   br i1 %cmp19.i, label %for.body.lr.ph.i, label %ggml_quantize_q4_0.exit
 
 for.body.lr.ph.i:                                 ; preds = %do.end
-  %cmp517.i = icmp ugt i32 %n, 31
+  %cmp517.i = icmp samesign ugt i32 %n, 31
   br i1 %cmp517.i, label %for.body.us.preheader.i, label %for.body.preheader.i
 
 for.body.preheader.i:                             ; preds = %for.body.lr.ph.i
@@ -24870,7 +24870,7 @@ do.end13:                                         ; preds = %do.body6
   br i1 %cmp19.i90, label %for.body.lr.ph.i94, label %ggml_quantize_q4_1.exit
 
 for.body.lr.ph.i94:                               ; preds = %do.end13
-  %cmp517.i95 = icmp ugt i32 %n, 31
+  %cmp517.i95 = icmp samesign ugt i32 %n, 31
   br i1 %cmp517.i95, label %for.body.us.preheader.i105, label %for.body.preheader.i96
 
 for.body.preheader.i96:                           ; preds = %for.body.lr.ph.i94
@@ -25003,7 +25003,7 @@ do.end61:                                         ; preds = %do.body54
   br i1 %cmp15.i, label %for.body.lr.ph.i135, label %ggml_quantize_q8_0.exit
 
 for.body.lr.ph.i135:                              ; preds = %do.end61
-  %cmp513.i = icmp ugt i32 %n, 31
+  %cmp513.i = icmp samesign ugt i32 %n, 31
   %invariant.gep.i = getelementptr i8, ptr %hist, i64 64
   br i1 %cmp513.i, label %for.body.us.preheader.i145, label %for.body.preheader.i136
 
@@ -52653,7 +52653,7 @@ for.inc334.i145:                                  ; preds = %if.else321.i, %if.e
   %indvars.iv.next268.i = add nuw nsw i64 %indvars.iv267.i, 1
   %cmp306.i = icmp samesign ult i64 %indvars.iv267.i, 3
   %270 = or disjoint i64 %indvars.iv.next268.i, %indvars.iv271.i
-  %cmp311.not.i = icmp ugt i64 %cond250.i, %270
+  %cmp311.not.i = icmp samesign ugt i64 %cond250.i, %270
   %or.cond.i = select i1 %cmp306.i, i1 %cmp311.not.i, i1 false
   br i1 %or.cond.i, label %if.else.i, label %for.inc337.i.loopexit, !llvm.loop !715
 
@@ -54620,7 +54620,7 @@ for.inc432.us.us.us.i:                            ; preds = %if.else419.us.us.us
   %indvars.iv.next563.i = add nuw nsw i64 %indvars.iv562.i, 1
   %cmp404.us.us.us.i = icmp samesign ult i64 %indvars.iv562.i, 3
   %172 = or disjoint i64 %indvars.iv.next563.i, %indvars.iv566.i
-  %cmp409.not.us.us.us.i = icmp ugt i64 %cond347.us.us.us.i, %172
+  %cmp409.not.us.us.us.i = icmp samesign ugt i64 %cond347.us.us.us.i, %172
   %or.cond.us.us.us.i = select i1 %cmp404.us.us.us.i, i1 %cmp409.not.us.us.us.i, i1 false
   br i1 %or.cond.us.us.us.i, label %if.else.us.us.us.i, label %for.inc435.us.us.us.i.loopexit, !llvm.loop !794
 

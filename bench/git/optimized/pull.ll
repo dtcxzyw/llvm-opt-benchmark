@@ -827,7 +827,7 @@ for.body.i.i:                                     ; preds = %if.end62, %for.body
   %verbosity.06.i.i = phi i32 [ %dec.i.i, %for.body.i.i ], [ %56, %if.end62 ]
   %call.i.i68 = call ptr @strvec_push(ptr noundef nonnull %cmd.i, ptr noundef nonnull @.str.148) #17
   %dec.i.i = add nsw i32 %verbosity.06.i.i, -1
-  %cmp.i.i = icmp ugt i32 %verbosity.06.i.i, 1
+  %cmp.i.i = icmp samesign ugt i32 %verbosity.06.i.i, 1
   br i1 %cmp.i.i, label %for.body.i.i, label %for.end.loopexit.i.i, !llvm.loop !8
 
 for.end.loopexit.i.i:                             ; preds = %for.body.i.i
@@ -891,7 +891,7 @@ while.body.i.i:                                   ; preds = %if.end17.i, %while.
   %force.02.i.i = phi i32 [ %dec.i19.i, %while.body.i.i ], [ %62, %if.end17.i ]
   %dec.i19.i = add nsw i32 %force.02.i.i, -1
   %call.i20.i = call ptr @strvec_push(ptr noundef nonnull %cmd.i, ptr noundef nonnull @.str.150) #17
-  %cmp.i21.i = icmp ugt i32 %force.02.i.i, 1
+  %cmp.i21.i = icmp samesign ugt i32 %force.02.i.i, 1
   br i1 %cmp.i21.i, label %while.body.i.i, label %argv_push_force.exit.i, !llvm.loop !10
 
 argv_push_force.exit.i:                           ; preds = %while.body.i.i, %if.end17.i
@@ -2149,7 +2149,7 @@ for.body.i:                                       ; preds = %entry, %for.body.i
   %verbosity.06.i = phi i32 [ %dec.i, %for.body.i ], [ %0, %entry ]
   %call.i = call ptr @strvec_push(ptr noundef nonnull %cmd, ptr noundef nonnull @.str.148) #17
   %dec.i = add nsw i32 %verbosity.06.i, -1
-  %cmp.i = icmp ugt i32 %verbosity.06.i, 1
+  %cmp.i = icmp samesign ugt i32 %verbosity.06.i, 1
   br i1 %cmp.i, label %for.body.i, label %for.end.loopexit.i, !llvm.loop !8
 
 for.end.loopexit.i:                               ; preds = %for.body.i
@@ -2328,7 +2328,7 @@ for.body.i:                                       ; preds = %entry, %for.body.i
   %verbosity.06.i = phi i32 [ %dec.i, %for.body.i ], [ %0, %entry ]
   %call.i = call ptr @strvec_push(ptr noundef nonnull %cmd, ptr noundef nonnull @.str.148) #17
   %dec.i = add nsw i32 %verbosity.06.i, -1
-  %cmp.i = icmp ugt i32 %verbosity.06.i, 1
+  %cmp.i = icmp samesign ugt i32 %verbosity.06.i, 1
   br i1 %cmp.i, label %for.body.i, label %for.end.loopexit.i, !llvm.loop !8
 
 for.end.loopexit.i:                               ; preds = %for.body.i
@@ -2462,7 +2462,7 @@ for.body.i:                                       ; preds = %entry, %for.body.i
   %verbosity.06.i = phi i32 [ %dec.i, %for.body.i ], [ %0, %entry ]
   %call.i = call ptr @strvec_push(ptr noundef nonnull %cp, ptr noundef nonnull @.str.148) #17
   %dec.i = add nsw i32 %verbosity.06.i, -1
-  %cmp.i = icmp ugt i32 %verbosity.06.i, 1
+  %cmp.i = icmp samesign ugt i32 %verbosity.06.i, 1
   br i1 %cmp.i, label %for.body.i, label %for.end.loopexit.i, !llvm.loop !8
 
 for.end.loopexit.i:                               ; preds = %for.body.i
@@ -2502,7 +2502,7 @@ for.body.i:                                       ; preds = %entry, %for.body.i
   %verbosity.06.i = phi i32 [ %dec.i, %for.body.i ], [ %0, %entry ]
   %call.i = call ptr @strvec_push(ptr noundef nonnull %cp, ptr noundef nonnull @.str.148) #17
   %dec.i = add nsw i32 %verbosity.06.i, -1
-  %cmp.i = icmp ugt i32 %verbosity.06.i, 1
+  %cmp.i = icmp samesign ugt i32 %verbosity.06.i, 1
   br i1 %cmp.i, label %for.body.i, label %for.end.loopexit.i, !llvm.loop !8
 
 for.end.loopexit.i:                               ; preds = %for.body.i

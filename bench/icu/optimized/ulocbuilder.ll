@@ -90,7 +90,7 @@ lpad:                                             ; preds = %if.end16, %do.body,
   resume { ptr, i32 } %1
 
 if.else:                                          ; preds = %lor.lhs.false
-  %cmp4 = icmp ugt i32 %length, 156
+  %cmp4 = icmp samesign ugt i32 %length, 156
   br i1 %cmp4, label %if.then5, label %do.body
 
 if.then5:                                         ; preds = %if.else

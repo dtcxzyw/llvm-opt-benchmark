@@ -144,7 +144,7 @@ entry:
   br i1 %cmp.i.i.i.i, label %land.lhs.true.i.i.i.i, label %cond.false.i.i.i.i
 
 land.lhs.true.i.i.i.i:                            ; preds = %entry
-  %cmp2.i.i.i.i = icmp ult i64 %add.i.i.i.i, 512
+  %cmp2.i.i.i.i = icmp samesign ult i64 %add.i.i.i.i, 512
   br i1 %cmp2.i.i.i.i, label %if.then.i.i.i.i, label %cond.true.i.i.i.i
 
 if.then.i.i.i.i:                                  ; preds = %land.lhs.true.i.i.i.i
@@ -252,7 +252,7 @@ while.body:                                       ; preds = %while.body.lr.ph, %
   br i1 %cmp.i.i.i.i.i, label %land.lhs.true.i.i.i.i.i, label %cond.false.i.i.i.i.i
 
 land.lhs.true.i.i.i.i.i:                          ; preds = %while.body
-  %cmp2.i.i.i.i.i = icmp ult i64 %add.i.i.i.i.i, 512
+  %cmp2.i.i.i.i.i = icmp samesign ult i64 %add.i.i.i.i.i, 512
   br i1 %cmp2.i.i.i.i.i, label %if.then.i.i.i.i.i, label %cond.true.i.i.i.i.i
 
 if.then.i.i.i.i.i:                                ; preds = %land.lhs.true.i.i.i.i.i
@@ -358,7 +358,7 @@ while.body.i:                                     ; preds = %_ZNK3net22QuicSentE
   br i1 %cmp.i.i.i.i.i.i, label %land.lhs.true.i.i.i.i.i.i, label %cond.false.i.i.i.i.i.i
 
 land.lhs.true.i.i.i.i.i.i:                        ; preds = %while.body.i
-  %cmp2.i.i.i.i.i.i = icmp ult i64 %add.i.i.i.i.i.i, 512
+  %cmp2.i.i.i.i.i.i = icmp samesign ult i64 %add.i.i.i.i.i.i, 512
   br i1 %cmp2.i.i.i.i.i.i, label %if.then.i.i.i.i.i.i, label %cond.true.i.i.i.i.i.i
 
 if.then.i.i.i.i.i.i:                              ; preds = %land.lhs.true.i.i.i.i.i.i
@@ -478,7 +478,7 @@ while.body.i:                                     ; preds = %_ZNK3net22QuicSentE
   br i1 %cmp.i.i.i.i.i.i, label %land.lhs.true.i.i.i.i.i.i, label %cond.false.i.i.i.i.i.i
 
 land.lhs.true.i.i.i.i.i.i:                        ; preds = %while.body.i
-  %cmp2.i.i.i.i.i.i = icmp ult i64 %add.i.i.i.i.i.i, 512
+  %cmp2.i.i.i.i.i.i = icmp samesign ult i64 %add.i.i.i.i.i.i, 512
   br i1 %cmp2.i.i.i.i.i.i, label %if.then.i.i.i.i.i.i, label %cond.true.i.i.i.i.i.i
 
 if.then.i.i.i.i.i.i:                              ; preds = %land.lhs.true.i.i.i.i.i.i
@@ -547,7 +547,7 @@ for.body23:                                       ; preds = %for.body, %_ZNK3net
   br i1 %cmp.i.i.i.i.i, label %land.lhs.true.i.i.i.i.i, label %cond.false.i.i.i.i.i
 
 land.lhs.true.i.i.i.i.i:                          ; preds = %for.body23
-  %cmp2.i.i.i.i.i = icmp ult i64 %add.i.i.i.i.i, 512
+  %cmp2.i.i.i.i.i = icmp samesign ult i64 %add.i.i.i.i.i, 512
   br i1 %cmp2.i.i.i.i.i, label %if.then.i.i.i.i.i, label %cond.true.i.i.i.i.i
 
 if.then.i.i.i.i.i:                                ; preds = %land.lhs.true.i.i.i.i.i
@@ -638,7 +638,7 @@ while.body.i:                                     ; preds = %_ZNK3net22QuicSentE
   br i1 %cmp.i.i.i.i.i.i, label %land.lhs.true.i.i.i.i.i.i, label %cond.false.i.i.i.i.i.i
 
 land.lhs.true.i.i.i.i.i.i:                        ; preds = %while.body.i
-  %cmp2.i.i.i.i.i.i = icmp ult i64 %add.i.i.i.i.i.i, 512
+  %cmp2.i.i.i.i.i.i = icmp samesign ult i64 %add.i.i.i.i.i.i, 512
   br i1 %cmp2.i.i.i.i.i.i, label %if.then.i.i.i.i.i.i, label %cond.true.i.i.i.i.i.i
 
 if.then.i.i.i.i.i.i:                              ; preds = %land.lhs.true.i.i.i.i.i.i
@@ -707,7 +707,7 @@ while.body.i13:                                   ; preds = %_ZNK3net22QuicSentE
   br i1 %cmp.i.i.i.i.i.i21, label %land.lhs.true.i.i.i.i.i.i34, label %cond.false.i.i.i.i.i.i22
 
 land.lhs.true.i.i.i.i.i.i34:                      ; preds = %while.body.i13
-  %cmp2.i.i.i.i.i.i35 = icmp ult i64 %add.i.i.i.i.i.i20, 512
+  %cmp2.i.i.i.i.i.i35 = icmp samesign ult i64 %add.i.i.i.i.i.i20, 512
   br i1 %cmp2.i.i.i.i.i.i35, label %if.then.i.i.i.i.i.i38, label %cond.true.i.i.i.i.i.i36
 
 if.then.i.i.i.i.i.i38:                            ; preds = %land.lhs.true.i.i.i.i.i.i34

@@ -9428,7 +9428,7 @@ define dso_local range(i32 -1, 1) i32 @load_step_state(ptr noundef %0, ptr nound
   br i1 %247, label %.sink.split, label %389
 
 248:                                              ; preds = %3
-  %249 = icmp ugt i16 %2, 9983
+  %249 = icmp samesign ugt i16 %2, 9983
   br i1 %249, label %250, label %387
 
 250:                                              ; preds = %248
@@ -13231,7 +13231,7 @@ define internal noundef i32 @_pack_ctld_job_step_info(ptr noundef %0, ptr nocapt
   br label %442
 
 232:                                              ; preds = %19
-  %233 = icmp ugt i16 %23, 9983
+  %233 = icmp samesign ugt i16 %23, 9983
   br i1 %233, label %234, label %440
 
 234:                                              ; preds = %232

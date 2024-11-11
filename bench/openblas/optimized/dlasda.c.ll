@@ -105,7 +105,7 @@ define void @dlasda_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
 
 84:                                               ; preds = %77
   store i32 %75, ptr %28, align 4, !tbaa !3
-  %85 = icmp ugt i32 %68, %65
+  %85 = icmp samesign ugt i32 %68, %65
   br i1 %85, label %90, label %86
 
 86:                                               ; preds = %84

@@ -1411,7 +1411,7 @@ if.then26:                                        ; preds = %if.end15, %if.end15
   br label %if.end58.thread
 
 if.else28:                                        ; preds = %if.end15
-  %cmp29 = icmp ult i32 %sub14, 2
+  %cmp29 = icmp samesign ult i32 %sub14, 2
   br i1 %cmp29, label %return, label %if.end32
 
 if.end32:                                         ; preds = %if.else28

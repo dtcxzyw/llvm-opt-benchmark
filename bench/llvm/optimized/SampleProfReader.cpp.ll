@@ -1998,7 +1998,7 @@ _ZNK4llvm9StringRef12getAsIntegerIjEEbjRT_.exit.thread.i: ; preds = %242, %_ZNK4
 244:                                              ; preds = %242
   %245 = trunc nuw i64 %243 to i32
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %10)
-  %246 = icmp ult i64 %243, 65536
+  %246 = icmp samesign ult i64 %243, 65536
   br i1 %246, label %260, label %_ZL9ParseLineRKN4llvm9StringRefER8LineTypeRjRmS5_S5_RS0_RNS_8DenseMapIS0_mNS_12DenseMapInfoIS0_vEENS_6detail12DenseMapPairIS0_mEEEES6_S5_Rb.exit.thread
 
 247:                                              ; preds = %_ZNK4llvm9StringRef4findEcm.exit84.i

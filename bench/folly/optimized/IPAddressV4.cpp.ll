@@ -2501,7 +2501,7 @@ if.then.i.i:                                      ; preds = %sw.bb.i
   unreachable
 
 _ZN3fmt2v96detail13specs_checkerINS1_21dynamic_specs_handlerINS0_26basic_format_parse_contextIcNS1_13error_handlerEEEEEE24require_numeric_argumentEv.exit.i: ; preds = %sw.bb.i
-  %11 = icmp ult i32 %9, 8
+  %11 = icmp samesign ult i32 %9, 8
   br i1 %11, label %switch.hole_check, label %sw.epilog.i.sink.split
 
 if.then.i51:                                      ; preds = %switch.hole_check
@@ -2519,7 +2519,7 @@ if.then.i.i53:                                    ; preds = %sw.bb20.i
   unreachable
 
 _ZN3fmt2v96detail13specs_checkerINS1_21dynamic_specs_handlerINS0_26basic_format_parse_contextIcNS1_13error_handlerEEEEEE24require_numeric_argumentEv.exit.i54: ; preds = %sw.bb20.i
-  %15 = icmp ult i32 %13, 8
+  %15 = icmp samesign ult i32 %13, 8
   br i1 %15, label %switch.hole_check99, label %sw.epilog.i.sink.split
 
 if.then.i60:                                      ; preds = %switch.hole_check99
@@ -2537,7 +2537,7 @@ if.then.i.i63:                                    ; preds = %sw.bb22.i
   unreachable
 
 _ZN3fmt2v96detail13specs_checkerINS1_21dynamic_specs_handlerINS0_26basic_format_parse_contextIcNS1_13error_handlerEEEEEE24require_numeric_argumentEv.exit.i64: ; preds = %sw.bb22.i
-  %19 = icmp ult i32 %17, 8
+  %19 = icmp samesign ult i32 %17, 8
   br i1 %19, label %switch.hole_check106, label %sw.epilog.i.sink.split
 
 if.then.i70:                                      ; preds = %switch.hole_check106
@@ -4028,7 +4028,7 @@ if.then3.i:                                       ; preds = %if.then.i
   br label %cond.end
 
 if.end4.i:                                        ; preds = %cond.true
-  %cmp5.i = icmp ugt i32 %6, 14
+  %cmp5.i = icmp samesign ugt i32 %6, 14
   br i1 %cmp5.i, label %cond.end, label %if.end7.i
 
 if.end7.i:                                        ; preds = %if.end4.i
@@ -8587,7 +8587,7 @@ if.end19.thread.i:                                ; preds = %while.body.preheade
   br label %if.then9.1.i
 
 if.end19.i:                                       ; preds = %while.body.preheader.i
-  %cmp8.not.1.i = icmp ult i8 %0, 10
+  %cmp8.not.1.i = icmp samesign ult i8 %0, 10
   br i1 %cmp8.not.1.i, label %if.end19.1.i, label %if.then9.1.i
 
 if.then9.1.i:                                     ; preds = %if.end19.i, %if.end19.thread.i
@@ -8641,7 +8641,7 @@ if.end19.thread.i13:                              ; preds = %while.body.preheade
   br label %if.then9.1.i17
 
 if.end19.i32:                                     ; preds = %while.body.preheader.i11
-  %cmp8.not.1.i33 = icmp ult i8 %4, 10
+  %cmp8.not.1.i33 = icmp samesign ult i8 %4, 10
   br i1 %cmp8.not.1.i33, label %if.end19.1.i23, label %if.then9.1.i17
 
 if.then9.1.i17:                                   ; preds = %if.end19.i32, %if.end19.thread.i13
@@ -8695,7 +8695,7 @@ if.end19.thread.i40:                              ; preds = %while.body.preheade
   br label %if.then9.1.i44
 
 if.end19.i59:                                     ; preds = %while.body.preheader.i38
-  %cmp8.not.1.i60 = icmp ult i8 %8, 10
+  %cmp8.not.1.i60 = icmp samesign ult i8 %8, 10
   br i1 %cmp8.not.1.i60, label %if.end19.1.i50, label %if.then9.1.i44
 
 if.then9.1.i44:                                   ; preds = %if.end19.i59, %if.end19.thread.i40
@@ -8749,7 +8749,7 @@ if.end19.thread.i67:                              ; preds = %while.body.preheade
   br label %if.then9.1.i71
 
 if.end19.i86:                                     ; preds = %while.body.preheader.i65
-  %cmp8.not.1.i87 = icmp ult i8 %12, 10
+  %cmp8.not.1.i87 = icmp samesign ult i8 %12, 10
   br i1 %cmp8.not.1.i87, label %if.end19.1.i77, label %if.then9.1.i71
 
 if.then9.1.i71:                                   ; preds = %if.end19.i86, %if.end19.thread.i67

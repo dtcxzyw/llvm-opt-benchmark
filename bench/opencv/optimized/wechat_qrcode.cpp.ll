@@ -1635,8 +1635,8 @@ _ZN2cv13wechat_qrcode12WeChatQRCode4Impl7cropObjERKNS_3MatES5_RNS0_5AlignE.exit:
           to label %.noexc62 unwind label %54
 
 .noexc62:                                         ; preds = %68
-  %70 = icmp ult i32 %61, 640
-  %71 = icmp ult i32 %62, 640
+  %70 = icmp samesign ult i32 %61, 640
+  %71 = icmp samesign ult i32 %62, 640
   %or.cond3.i = and i1 %70, %71
   %72 = getelementptr inbounds i8, ptr %69, i64 8
   %.sroa.227.0..sroa_idx.i = getelementptr inbounds i8, ptr %69, i64 4
@@ -2140,7 +2140,7 @@ _ZNSt16allocator_traitsISaISt6vectorIN2cv6Point_IfEESaIS3_EEEE9constructIS5_JRKS
   %259 = getelementptr inbounds i8, ptr %.0910.i.i.i.i.i.i.i, i64 32
   %260 = getelementptr inbounds i8, ptr %.0811.i.i.i.i.i.i.i, i64 32
   %261 = add nsw i64 %.012.i.i.i.i.i.i.i, -1
-  %262 = icmp ugt i64 %.012.i.i.i.i.i.i.i, 1
+  %262 = icmp samesign ugt i64 %.012.i.i.i.i.i.i.i, 1
   br i1 %262, label %.lr.ph.i.i.i.i.i.i.i, label %_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt6vectorIS7_SaIS7_EEEESC_ET0_T_SE_SD_.exit.loopexit.i.i, !llvm.loop !27
 
 _ZSt4moveIN9__gnu_cxx17__normal_iteratorIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt6vectorIS7_SaIS7_EEEESC_ET0_T_SE_SD_.exit.loopexit.i.i: ; preds = %.lr.ph.i.i.i.i.i.i.i
@@ -2619,8 +2619,8 @@ define void @_ZN2cv13wechat_qrcode12WeChatQRCode4Impl12getScaleListEii(ptr dead_
   br label %19
 
 11:                                               ; preds = %4
-  %12 = icmp ult i32 %2, 640
-  %13 = icmp ult i32 %3, 640
+  %12 = icmp samesign ult i32 %2, 640
+  %13 = icmp samesign ult i32 %3, 640
   %or.cond3 = and i1 %12, %13
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, i8 0, i64 24, i1 false)
   %14 = tail call noalias noundef nonnull dereferenceable(8) ptr @_Znwm(i64 noundef 8) #20

@@ -865,7 +865,7 @@ define hidden noundef ptr @_ZN13CodeInstaller15get_hotspot_regEiP8JVMCIEnv(i32 n
   br label %27
 
 13:                                               ; preds = %2
-  %14 = icmp ult i32 %0, 64
+  %14 = icmp samesign ult i32 %0, 64
   br i1 %14, label %15, label %26
 
 15:                                               ; preds = %13
@@ -904,7 +904,7 @@ define hidden noundef zeroext i1 @_ZN13CodeInstaller22is_general_purpose_regEP9V
   %8 = icmp slt i32 %7, 3
   %9 = icmp slt i32 %4, 80
   %10 = select i1 %8, i32 336, i32 592
-  %11 = icmp uge i32 %4, %10
+  %11 = icmp samesign uge i32 %4, %10
   %.not3 = select i1 %9, i1 true, i1 %11
   br label %12
 

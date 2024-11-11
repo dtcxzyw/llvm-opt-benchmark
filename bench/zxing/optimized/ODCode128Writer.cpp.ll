@@ -206,7 +206,7 @@ _ZN5ZXing4OneDL9FindCTypeERKNSt7__cxx1112basic_stringIwSt11char_traitsIwESaIwEEE
   br i1 %69, label %70, label %73
 
 70:                                               ; preds = %68
-  %71 = icmp ult i32 %66, 96
+  %71 = icmp samesign ult i32 %66, 96
   %72 = add nsw i32 %66, -241
   %or.cond.i = icmp ult i32 %72, 4
   %or.cond49.i = select i1 %71, i1 true, i1 %or.cond.i

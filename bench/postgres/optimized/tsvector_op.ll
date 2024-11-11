@@ -850,7 +850,7 @@ tsCompareString.exit.us.i:                        ; preds = %.lr.ph.i, %tsCompar
   br i1 %.not38.i, label %tsvector_bsearch.exit.thread58, label %tsCompareString.exit.thread25.us.i
 
 tsCompareString.exit.thread25.us.i:               ; preds = %tsCompareString.exit.us.i
-  %.not39.i = icmp ult i32 %.02032.us.i, 2
+  %.not39.i = icmp samesign ult i32 %.02032.us.i, 2
   br i1 %.not39.i, label %tsvector_bsearch.exit.thread, label %tsCompareString.exit.us.i, !llvm.loop !12
 
 .lr.ph.split.i:                                   ; preds = %tsCompareString.exit.thread25.i, %.lr.ph.split.preheader.i
@@ -1111,7 +1111,7 @@ tsvector_bsearch.exit.thread32:                   ; preds = %tsCompareString.exi
   br label %94
 
 tsCompareString.exit.thread25.us.i:               ; preds = %tsCompareString.exit.us.i
-  %.not39.i = icmp ult i32 %.02032.us.i, 2
+  %.not39.i = icmp samesign ult i32 %.02032.us.i, 2
   br i1 %.not39.i, label %tsvector_bsearch.exit.thread, label %tsCompareString.exit.us.i, !llvm.loop !12
 
 .lr.ph.split.i:                                   ; preds = %.lr.ph.split.preheader.i, %tsCompareString.exit.thread25.i
@@ -1442,7 +1442,7 @@ tsCompareString.exit.us.i:                        ; preds = %.lr.ph.i, %tsCompar
   br i1 %.not38.i, label %tsvector_bsearch.exit.thread31, label %tsCompareString.exit.thread25.us.i
 
 tsCompareString.exit.thread25.us.i:               ; preds = %tsCompareString.exit.us.i
-  %.not39.i = icmp ult i32 %.02032.us.i, 2
+  %.not39.i = icmp samesign ult i32 %.02032.us.i, 2
   br i1 %.not39.i, label %tsvector_bsearch.exit.thread, label %tsCompareString.exit.us.i, !llvm.loop !12
 
 .lr.ph.split.i:                                   ; preds = %tsCompareString.exit.thread25.i, %.lr.ph.split.preheader.i
@@ -4093,7 +4093,7 @@ tsCompareString.exit122.thread129:                ; preds = %96, %79
   %141 = zext nneg i32 %.096162 to i64
   tail call void @pg_qsort(ptr noundef %.099161, i64 noundef %141, i64 noundef 2, ptr noundef nonnull @compareWordEntryPos) #14
   %142 = load ptr, ptr %74, align 8
-  %143 = icmp ult i32 %.096162, 2
+  %143 = icmp samesign ult i32 %.096162, 2
   br i1 %143, label %qunique.exit, label %.preheader.i
 
 .preheader.i:                                     ; preds = %140, %155

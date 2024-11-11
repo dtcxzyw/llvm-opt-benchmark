@@ -1121,7 +1121,7 @@ while.body19.lr.ph:                               ; preds = %while.cond13.prehea
 
 while.body:                                       ; preds = %while.body.lr.ph, %vhost_backend_handle_iotlb_msg.exit
   %call29 = phi i64 [ %call27, %while.body.lr.ph ], [ %call, %vhost_backend_handle_iotlb_msg.exit ]
-  %cmp3 = icmp ult i64 %call29, 72
+  %cmp3 = icmp samesign ult i64 %call29, 72
   br i1 %cmp3, label %if.then5, label %if.end
 
 if.then5:                                         ; preds = %while.body
@@ -1180,7 +1180,7 @@ vhost_backend_handle_iotlb_msg.exit:              ; preds = %if.then.i, %sw.bb.i
 
 while.body19:                                     ; preds = %while.body19.lr.ph, %vhost_backend_handle_iotlb_msg.exit20
   %call1633 = phi i64 [ %call1631, %while.body19.lr.ph ], [ %call16, %vhost_backend_handle_iotlb_msg.exit20 ]
-  %cmp20 = icmp ult i64 %call1633, 72
+  %cmp20 = icmp samesign ult i64 %call1633, 72
   br i1 %cmp20, label %if.then22, label %if.end24
 
 if.then22:                                        ; preds = %while.body19

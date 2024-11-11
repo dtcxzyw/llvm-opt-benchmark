@@ -901,7 +901,7 @@ while.body:                                       ; preds = %entry, %while.body
   %x_count.05 = phi i32 [ %dec, %while.body ], [ %conv, %entry ]
   %dec = add nsw i32 %x_count.05, -1
   %call = tail call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKc(ptr noundef nonnull align 8 dereferenceable(32) %output, ptr noundef nonnull @.str.16)
-  %cmp = icmp ugt i32 %x_count.05, 1
+  %cmp = icmp samesign ugt i32 %x_count.05, 1
   br i1 %cmp, label %while.body, label %while.end, !llvm.loop !5
 
 while.end:                                        ; preds = %while.body

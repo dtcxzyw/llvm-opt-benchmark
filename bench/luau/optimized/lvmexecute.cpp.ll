@@ -2014,7 +2014,7 @@ thread-pre-split:                                 ; preds = %372, %367, %376, %3
   %1164 = getelementptr inbounds i8, ptr %.130613463, i64 16
   %1165 = getelementptr inbounds i8, ptr %.130613463, i64 12
   store i32 0, ptr %1165, align 4
-  %1166 = icmp ugt i32 %.130643462, 1
+  %1166 = icmp samesign ugt i32 %.130643462, 1
   br i1 %1166, label %.lr.ph3464, label %._crit_edge3465, !llvm.loop !9
 
 ._crit_edge3465:                                  ; preds = %.lr.ph3464, %.preheader
@@ -2119,7 +2119,7 @@ thread-pre-split:                                 ; preds = %372, %367, %376, %3
   %1220 = getelementptr inbounds i8, ptr %.130663451, i64 16
   %1221 = getelementptr inbounds i8, ptr %.130663451, i64 12
   store i32 0, ptr %1221, align 4
-  %1222 = icmp ugt i32 %.130693450, 1
+  %1222 = icmp samesign ugt i32 %.130693450, 1
   br i1 %1222, label %.lr.ph3452, label %._crit_edge3453, !llvm.loop !11
 
 ._crit_edge3453:                                  ; preds = %.lr.ph3452, %.preheader3367
@@ -8530,7 +8530,7 @@ thread-pre-split:                                 ; preds = %426, %421, %430, %4
   %1283 = getelementptr inbounds i8, ptr %.132443652, i64 16
   %1284 = getelementptr inbounds i8, ptr %.132443652, i64 12
   store i32 0, ptr %1284, align 4
-  %1285 = icmp ugt i32 %.132473651, 1
+  %1285 = icmp samesign ugt i32 %.132473651, 1
   br i1 %1285, label %.lr.ph3653, label %._crit_edge3654, !llvm.loop !24
 
 ._crit_edge3654:                                  ; preds = %.lr.ph3653, %.preheader
@@ -8637,7 +8637,7 @@ thread-pre-split:                                 ; preds = %426, %421, %430, %4
   %1343 = getelementptr inbounds i8, ptr %.132493640, i64 16
   %1344 = getelementptr inbounds i8, ptr %.132493640, i64 12
   store i32 0, ptr %1344, align 4
-  %1345 = icmp ugt i32 %.132523639, 1
+  %1345 = icmp samesign ugt i32 %.132523639, 1
   br i1 %1345, label %.lr.ph3641, label %._crit_edge3642, !llvm.loop !26
 
 ._crit_edge3642:                                  ; preds = %.lr.ph3641, %.preheader3551
@@ -13771,7 +13771,7 @@ define hidden noundef range(i32 0, 3) i32 @_Z12luau_precallP9lua_StateP10lua_TVa
   %98 = getelementptr inbounds i8, ptr %.17385, i64 16
   %99 = getelementptr inbounds i8, ptr %.17385, i64 12
   store i32 0, ptr %99, align 4
-  %100 = icmp ugt i32 %.186, 1
+  %100 = icmp samesign ugt i32 %.186, 1
   br i1 %100, label %.lr.ph87, label %._crit_edge, !llvm.loop !38
 
 ._crit_edge:                                      ; preds = %.lr.ph87, %.preheader
@@ -13836,7 +13836,7 @@ define hidden void @_Z12luau_poscallP9lua_StateP10lua_TValue(ptr nocapture nound
   %23 = getelementptr inbounds i8, ptr %.131, i64 16
   %24 = getelementptr inbounds i8, ptr %.131, i64 12
   store i32 0, ptr %24, align 4
-  %25 = icmp ugt i32 %.12530, 1
+  %25 = icmp samesign ugt i32 %.12530, 1
   br i1 %25, label %.lr.ph32, label %._crit_edge, !llvm.loop !40
 
 ._crit_edge:                                      ; preds = %.lr.ph32, %.preheader

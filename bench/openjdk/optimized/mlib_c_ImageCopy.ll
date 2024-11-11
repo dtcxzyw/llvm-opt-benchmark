@@ -206,7 +206,7 @@ define hidden void @mlib_ImageCopy_na(ptr noundef %0, ptr noundef %1, i32 nounde
   %14 = getelementptr inbounds i8, ptr %.03854, i64 1
   store i8 %13, ptr %.03854, align 1
   %15 = add nsw i32 %.04453, -1
-  %16 = icmp ugt i32 %.04453, 1
+  %16 = icmp samesign ugt i32 %.04453, 1
   %17 = ptrtoint ptr %14 to i64
   %18 = and i64 %17, 7
   %19 = icmp ne i64 %18, 0
@@ -248,7 +248,7 @@ define hidden void @mlib_ImageCopy_na(ptr noundef %0, ptr noundef %1, i32 nounde
   %36 = getelementptr inbounds i8, ptr %.13959, i64 8
   %37 = getelementptr inbounds i8, ptr %.162, i64 8
   %38 = add nsw i32 %.14558, -8
-  %39 = icmp ugt i32 %.14558, 16
+  %39 = icmp samesign ugt i32 %.14558, 16
   br i1 %39, label %31, label %.lr.ph86.preheader, !llvm.loop !11
 
 .preheader:                                       ; preds = %.lr.ph71, %.preheader50
@@ -267,7 +267,7 @@ define hidden void @mlib_ImageCopy_na(ptr noundef %0, ptr noundef %1, i32 nounde
   %43 = getelementptr inbounds i8, ptr %.34169, i64 1
   store i8 %42, ptr %.34169, align 1
   %44 = add nsw i32 %.34768, -1
-  %45 = icmp ugt i32 %.34768, 1
+  %45 = icmp samesign ugt i32 %.34768, 1
   %46 = ptrtoint ptr %43 to i64
   %47 = and i64 %46, 7
   %48 = icmp ne i64 %47, 0
@@ -283,7 +283,7 @@ define hidden void @mlib_ImageCopy_na(ptr noundef %0, ptr noundef %1, i32 nounde
   %51 = getelementptr inbounds i8, ptr %.44276, i64 8
   %52 = getelementptr inbounds i8, ptr %.477, i64 8
   %53 = add nsw i32 %.44875, -8
-  %54 = icmp ugt i32 %.44875, 16
+  %54 = icmp samesign ugt i32 %.44875, 16
   br i1 %54, label %.lr.ph78, label %.lr.ph86.preheader, !llvm.loop !13
 
 .loopexit:                                        ; preds = %._crit_edge, %.preheader
@@ -308,7 +308,7 @@ define hidden void @mlib_ImageCopy_na(ptr noundef %0, ptr noundef %1, i32 nounde
   %58 = getelementptr inbounds i8, ptr %.54383, i64 1
   store i8 %57, ptr %.54383, align 1
   %59 = add nsw i32 %.54982, -1
-  %60 = icmp ugt i32 %.54982, 1
+  %60 = icmp samesign ugt i32 %.54982, 1
   br i1 %60, label %.lr.ph86, label %._crit_edge87, !llvm.loop !14
 
 ._crit_edge87:                                    ; preds = %.lr.ph86, %.loopexit

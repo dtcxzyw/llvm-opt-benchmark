@@ -7784,7 +7784,7 @@ define dso_local void @__unmap_hugepage_range(ptr noundef %0, ptr nocapture noun
   br label %224
 
 208:                                              ; preds = %195
-  %209 = icmp ugt i64 %199, 1073741823
+  %209 = icmp samesign ugt i64 %199, 1073741823
   br i1 %209, label %210, label %217
 
 210:                                              ; preds = %208
@@ -7799,7 +7799,7 @@ define dso_local void @__unmap_hugepage_range(ptr noundef %0, ptr nocapture noun
   br label %224
 
 217:                                              ; preds = %208
-  %218 = icmp ugt i64 %199, 2097151
+  %218 = icmp samesign ugt i64 %199, 2097151
   %219 = add i64 %199, %82
   %220 = load i64, ptr %76, align 8
   %221 = tail call i64 @llvm.umin.i64(i64 %220, i64 %82)
@@ -11739,7 +11739,7 @@ define dso_local noundef zeroext i1 @hugetlb_reserve_pages(ptr nocapture noundef
   br label %162
 
 147:                                              ; preds = %139
-  %148 = icmp ugt i64 %68, %142
+  %148 = icmp samesign ugt i64 %68, %142
   br i1 %148, label %149, label %158, !prof !15
 
 149:                                              ; preds = %147

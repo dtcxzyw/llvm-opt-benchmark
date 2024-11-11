@@ -73,7 +73,7 @@ define dso_local i64 @select_estimate_accuracy(ptr nocapture noundef readonly %0
   %25 = add i32 %24, -120
   %26 = icmp sgt i32 %25, 0
   %27 = select i1 %26, i64 20, i64 100
-  %28 = icmp ugt i64 %18, %27
+  %28 = icmp samesign ugt i64 %18, %27
   br i1 %28, label %36, label %29
 
 29:                                               ; preds = %22
@@ -757,7 +757,7 @@ define internal fastcc i32 @do_select(i32 noundef %0, ptr nocapture noundef read
   %149 = add i32 %148, -120
   %150 = icmp sgt i32 %149, 0
   %151 = select i1 %150, i64 20, i64 100
-  %152 = icmp ugt i64 %142, %151
+  %152 = icmp samesign ugt i64 %142, %151
   br i1 %152, label %160, label %153
 
 153:                                              ; preds = %146
@@ -2420,7 +2420,7 @@ define internal fastcc i32 @do_sys_poll(ptr noundef %0, i32 noundef %1, ptr noun
   %87 = add i32 %86, -120
   %88 = icmp sgt i32 %87, 0
   %89 = select i1 %88, i64 20, i64 100
-  %90 = icmp ugt i64 %80, %89
+  %90 = icmp samesign ugt i64 %80, %89
   br i1 %90, label %98, label %91
 
 91:                                               ; preds = %84

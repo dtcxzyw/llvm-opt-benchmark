@@ -829,7 +829,7 @@ define hidden void @zif_func_get_arg(ptr nocapture noundef readonly %0, ptr noca
   %56 = getelementptr inbounds i8, ptr %19, i64 44
   %57 = load i32, ptr %56, align 4
   %58 = zext i32 %57 to i64
-  %.not62 = icmp ult i64 %12, %58
+  %.not62 = icmp samesign ult i64 %12, %58
   br i1 %.not62, label %62, label %59
 
 59:                                               ; preds = %.critedge
@@ -845,7 +845,7 @@ define hidden void @zif_func_get_arg(ptr nocapture noundef readonly %0, ptr noca
   %65 = getelementptr inbounds i8, ptr %64, i64 32
   %66 = load i32, ptr %65, align 8
   %67 = zext i32 %66 to i64
-  %.not63.not = icmp ult i64 %12, %67
+  %.not63.not = icmp samesign ult i64 %12, %67
   br i1 %.not63.not, label %79, label %68
 
 68:                                               ; preds = %62
@@ -6616,7 +6616,7 @@ define void @zend_fetch_debug_backtrace(ptr nocapture noundef %0, i32 noundef %1
   br i1 %183, label %421, label %184
 
 184:                                              ; preds = %175
-  %185 = icmp ugt i8 %172, -51
+  %185 = icmp samesign ugt i8 %172, -51
   br i1 %185, label %186, label %.thread1203
 
 186:                                              ; preds = %184

@@ -3467,7 +3467,7 @@ _ZN2cv10BriskLayerD2Ev.exit44:                    ; preds = %_ZNSt6vectorIN2cv10
   call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(416) %7) #23
   %255 = add nuw nsw i32 %149, 2
   %256 = and i32 %255, 255
-  %257 = icmp ult i32 %256, %.pre
+  %257 = icmp samesign ult i32 %256, %.pre
   br i1 %257, label %148, label %._crit_edge, !llvm.loop !43
 
 258:                                              ; preds = %167

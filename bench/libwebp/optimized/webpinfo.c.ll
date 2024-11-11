@@ -491,7 +491,7 @@ ReadFileToWebPData.exit.thread:                   ; preds = %90
   br label %ParseRIFFHeader.exit.i
 
 153:                                              ; preds = %143
-  %154 = icmp ugt i64 %138, %97
+  %154 = icmp samesign ugt i64 %138, %97
   br i1 %154, label %155, label %ParseRIFFHeader.exit.i
 
 155:                                              ; preds = %153

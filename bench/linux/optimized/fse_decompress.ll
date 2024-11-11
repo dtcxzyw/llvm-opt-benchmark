@@ -443,7 +443,7 @@ define dso_local noundef i64 @FSE_decompress_usingDTable(ptr noundef %0, i64 nou
   %97 = shl nsw i64 -1, %96
   %98 = xor i64 %97, -1
   %99 = and i64 %95, %98
-  %100 = icmp ugt i32 %91, 64
+  %100 = icmp samesign ugt i32 %91, 64
   br i1 %100, label %128, label %101
 
 101:                                              ; preds = %85
@@ -963,7 +963,7 @@ define dso_local noundef i64 @FSE_decompress_usingDTable(ptr noundef %0, i64 nou
   %488 = shl nsw i64 -1, %487
   %489 = xor i64 %488, -1
   %490 = and i64 %486, %489
-  %491 = icmp ugt i32 %482, 64
+  %491 = icmp samesign ugt i32 %482, 64
   br i1 %491, label %519, label %492
 
 492:                                              ; preds = %476

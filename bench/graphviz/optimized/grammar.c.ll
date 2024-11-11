@@ -155,7 +155,7 @@ define range(i32 0, 3) i32 @aagparse() local_unnamed_addr #0 {
   br label %573
 
 52:                                               ; preds = %49
-  %53 = icmp ult i32 %46, 269
+  %53 = icmp samesign ult i32 %46, 269
   br i1 %53, label %54, label %59
 
 54:                                               ; preds = %52

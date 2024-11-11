@@ -4852,7 +4852,7 @@ session_handle_invalid_connection.exit103.thread: ; preds = %124, %132, %session
   %137 = getelementptr i8, ptr %0, i64 2832
   %.val65 = load i32, ptr %137, align 8
   %138 = zext i32 %.val65 to i64
-  %.not142 = icmp ult i64 %.val, %138
+  %.not142 = icmp samesign ult i64 %.val, %138
   br i1 %.not142, label %141, label %139
 
 139:                                              ; preds = %136
@@ -5212,7 +5212,7 @@ session_handle_invalid_connection.exit50.thread:  ; preds = %61, %70, %session_h
   %78 = getelementptr i8, ptr %0, i64 2832
   %.val31 = load i32, ptr %78, align 8
   %79 = zext i32 %.val31 to i64
-  %.not73 = icmp ult i64 %.val, %79
+  %.not73 = icmp samesign ult i64 %.val, %79
   br i1 %.not73, label %90, label %80
 
 80:                                               ; preds = %77
@@ -9205,7 +9205,7 @@ inbound_frame_handle_pad.exit917:                 ; preds = %311
   br label %.thread1027.sink.split
 
 319:                                              ; preds = %307
-  %320 = icmp ult i64 %147, 4
+  %320 = icmp samesign ult i64 %147, 4
   br i1 %320, label %321, label %322
 
 321:                                              ; preds = %319
@@ -9241,7 +9241,7 @@ inbound_frame_handle_pad.exit917:                 ; preds = %311
 
 332:                                              ; preds = %155
   store i8 0, ptr %48, align 1
-  %333 = icmp ult i64 %147, 8
+  %333 = icmp samesign ult i64 %147, 8
   br i1 %333, label %334, label %335
 
 334:                                              ; preds = %332
@@ -9314,7 +9314,7 @@ inbound_frame_handle_pad.exit917:                 ; preds = %311
   br label %.thread1023
 
 364:                                              ; preds = %361
-  %365 = icmp ult i64 %147, 2
+  %365 = icmp samesign ult i64 %147, 2
   br i1 %365, label %366, label %367
 
 366:                                              ; preds = %364
@@ -9400,7 +9400,7 @@ inbound_frame_handle_pad.exit917:                 ; preds = %311
   br label %nghttp2_session_want_read.exit.thread
 
 398:                                              ; preds = %392
-  %399 = icmp ult i64 %147, 4
+  %399 = icmp samesign ult i64 %147, 4
   br i1 %399, label %400, label %401
 
 400:                                              ; preds = %398
@@ -9415,8 +9415,8 @@ inbound_frame_handle_pad.exit917:                 ; preds = %311
 session_no_rfc7540_pri_no_fallback.exit:          ; preds = %401
   %404 = load i8, ptr %77, align 1
   %.not.i918 = icmp ne i8 %404, 0
-  %405 = icmp ugt i64 %147, 32
-  %or.cond1103 = or i1 %405, %.not.i918
+  %405 = icmp samesign ugt i64 %147, 32
+  %or.cond1103 = select i1 %.not.i918, i1 true, i1 %405
   br i1 %or.cond1103, label %session_no_rfc7540_pri_no_fallback.exit.thread, label %406
 
 session_no_rfc7540_pri_no_fallback.exit.thread:   ; preds = %401, %session_no_rfc7540_pri_no_fallback.exit
@@ -12145,7 +12145,7 @@ define dso_local i32 @nghttp2_session_recv(ptr noundef %0) local_unnamed_addr #1
   br i1 %9, label %10, label %12
 
 10:                                               ; preds = %5
-  %11 = icmp ugt i64 %8, 16384
+  %11 = icmp samesign ugt i64 %8, 16384
   br i1 %11, label %session_recv.exit.thread16, label %13
 
 12:                                               ; preds = %5

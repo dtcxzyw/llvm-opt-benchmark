@@ -3667,7 +3667,7 @@ Vec_IntPush.exit:                                 ; preds = %.Vec_IntGrow.exit10
   %96 = sext i32 %71 to i64
   %97 = getelementptr inbounds i32, ptr %94, i64 %96
   store i32 %.reass, ptr %97, align 4
-  %98 = icmp ugt i32 %.0130.in294, 1
+  %98 = icmp samesign ugt i32 %.0130.in294, 1
   br i1 %98, label %.lr.ph, label %.loopexit, !llvm.loop !57
 
 .lr.ph296:                                        ; preds = %.preheader, %Vec_IntPush.exit189
@@ -5091,7 +5091,7 @@ Vec_IntPush.exit:                                 ; preds = %.Vec_IntGrow.exit10
   %111 = sext i32 %86 to i64
   %112 = getelementptr inbounds i32, ptr %109, i64 %111
   store i32 %.reass, ptr %112, align 4
-  %113 = icmp ugt i32 %.0164.in317, 1
+  %113 = icmp samesign ugt i32 %.0164.in317, 1
   br i1 %113, label %.lr.ph, label %.loopexit303, !llvm.loop !67
 
 .lr.ph319:                                        ; preds = %.preheader302, %Vec_IntPush.exit225
@@ -6348,7 +6348,7 @@ Vec_IntPush.exit:                                 ; preds = %.Vec_IntGrow.exit10
   %107 = sext i32 %82 to i64
   %108 = getelementptr inbounds i32, ptr %105, i64 %107
   store i32 %.reass, ptr %108, align 4
-  %109 = icmp ugt i32 %.0161.in313, 1
+  %109 = icmp samesign ugt i32 %.0161.in313, 1
   br i1 %109, label %.lr.ph, label %.loopexit299, !llvm.loop !75
 
 .lr.ph315:                                        ; preds = %.preheader298, %Vec_IntPush.exit221
@@ -7575,7 +7575,7 @@ Vec_IntPush.exit:                                 ; preds = %.Vec_IntGrow.exit10
   %87 = sext i32 %62 to i64
   %88 = getelementptr inbounds i32, ptr %85, i64 %87
   store i32 %61, ptr %88, align 4
-  %89 = icmp ugt i32 %.0139.in271, 1
+  %89 = icmp samesign ugt i32 %.0139.in271, 1
   br i1 %89, label %.lr.ph, label %.loopexit258, !llvm.loop !83
 
 .lr.ph273:                                        ; preds = %.preheader257, %Vec_IntPush.exit192
@@ -8579,7 +8579,7 @@ Vec_IntPush.exit:                                 ; preds = %.Vec_IntGrow.exit10
   %85 = sext i32 %60 to i64
   %86 = getelementptr inbounds i32, ptr %83, i64 %85
   store i32 %59, ptr %86, align 4
-  %87 = icmp ugt i32 %.0140.in272, 1
+  %87 = icmp samesign ugt i32 %.0140.in272, 1
   br i1 %87, label %.lr.ph, label %.loopexit259, !llvm.loop !90
 
 .lr.ph274:                                        ; preds = %.preheader258, %Vec_IntPush.exit193

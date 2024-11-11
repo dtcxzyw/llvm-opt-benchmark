@@ -423,7 +423,7 @@ define range(i32 0, 2) i32 @Wlc_NtkPairIsUifable(ptr nocapture noundef readonly 
   br i1 %18, label %.lr.ph, label %.loopexit
 
 .lr.ph:                                           ; preds = %.preheader
-  %19 = icmp ugt i32 %.val35, 2
+  %19 = icmp samesign ugt i32 %.val35, 2
   %20 = getelementptr inbounds i8, ptr %1, i64 16
   %21 = getelementptr i8, ptr %0, i64 640
   %.val.i = load ptr, ptr %21, align 8
@@ -809,7 +809,7 @@ define noalias noundef ptr @Wlc_NtkFindUifableMultiplierPairs(ptr nocapture noun
   br i1 %39, label %.lr.ph.i, label %Wlc_NtkPairIsUifable.exit
 
 .lr.ph.i:                                         ; preds = %.preheader.i
-  %40 = icmp ugt i32 %.val35.i, 2
+  %40 = icmp samesign ugt i32 %.val35.i, 2
   %41 = and i16 %.val32.i, 63
   %42 = getelementptr inbounds i8, ptr %25, i64 16
   br i1 %40, label %.lr.ph.split.us.i, label %.lr.ph.split.i

@@ -496,7 +496,7 @@ define hidden noundef zeroext i1 @_ZN15VM_GC_Operation13doit_prologueEv(ptr noun
   br i1 %6, label %_Z24byte_size_in_proper_unitImET_S0_.exit, label %7
 
 7:                                                ; preds = %4
-  %8 = icmp ugt i64 %5, 104857599
+  %8 = icmp samesign ugt i64 %5, 104857599
   br i1 %8, label %.thread, label %11
 
 .thread:                                          ; preds = %7
@@ -508,7 +508,7 @@ _Z24byte_size_in_proper_unitImET_S0_.exit:        ; preds = %4
   br label %_Z25proper_unit_for_byte_sizem.exit
 
 11:                                               ; preds = %7
-  %12 = icmp ugt i64 %5, 102399
+  %12 = icmp samesign ugt i64 %5, 102399
   %13 = lshr i64 %5, 10
   %spec.select.i = select i1 %12, i64 %13, i64 %5
   %.str.16..str.17.i = select i1 %12, ptr @.str.16, ptr @.str.17

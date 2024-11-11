@@ -6405,7 +6405,7 @@ for.body114:                                      ; preds = %_ZNSt6vectorIS_ItSa
 
 for.cond.cleanup121:                              ; preds = %for.inc135
   %inc138 = add i16 %i.0493, 1
-  %cmp112 = icmp ult i16 %inc138, %84
+  %cmp112 = icmp samesign ult i16 %inc138, %84
   br i1 %cmp112, label %for.body114, label %for.cond.cleanup113.loopexit, !llvm.loop !220
 
 for.body122:                                      ; preds = %for.inc135, %for.body114

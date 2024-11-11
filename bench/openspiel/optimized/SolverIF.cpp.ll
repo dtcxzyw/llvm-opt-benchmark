@@ -865,7 +865,7 @@ define noundef range(i32 -19, 2) i32 @_Z16BoardRangeChecksRK4dealiii(ptr noundef
   br i1 %10, label %.loopexit.sink.split, label %11
 
 11:                                               ; preds = %9
-  %12 = icmp ugt i32 %2, 3
+  %12 = icmp samesign ugt i32 %2, 3
   br i1 %12, label %.loopexit.sink.split, label %13
 
 13:                                               ; preds = %11
@@ -873,7 +873,7 @@ define noundef range(i32 -19, 2) i32 @_Z16BoardRangeChecksRK4dealiii(ptr noundef
   br i1 %14, label %.loopexit.sink.split, label %15
 
 15:                                               ; preds = %13
-  %16 = icmp ugt i32 %3, 2
+  %16 = icmp samesign ugt i32 %3, 2
   br i1 %16, label %.loopexit.sink.split, label %17
 
 17:                                               ; preds = %15

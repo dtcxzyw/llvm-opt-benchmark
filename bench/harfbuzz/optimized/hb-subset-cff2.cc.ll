@@ -710,7 +710,7 @@ _ZNK14hb_inc_bimap_t3hasEj.exit:                  ; preds = %while.body.i.i.i, %
 if.then6:                                         ; preds = %_ZNK14hb_inc_bimap_t3hasEj.exit
   %57 = load i32, ptr %length.i74, align 4
   %58 = zext i32 %57 to i64
-  %cmp.not.i = icmp ult i64 %indvars.iv, %58
+  %cmp.not.i = icmp samesign ult i64 %indvars.iv, %58
   br i1 %cmp.not.i, label %if.end.i76, label %if.then.i
 
 if.then.i:                                        ; preds = %if.then6
@@ -764,7 +764,7 @@ _ZN22hb_serialize_context_t4pushIN3CFF5SubrsIN2OT7IntTypeIjLj4EEEEEEEPT_v.exit: 
   %retval.0.i77 = load ptr, ptr %retval.0.in.i.i, align 8
   %66 = load i32, ptr %length.i74, align 4
   %67 = zext i32 %66 to i64
-  %cmp.not.i81 = icmp ult i64 %indvars.iv, %67
+  %cmp.not.i81 = icmp samesign ult i64 %indvars.iv, %67
   br i1 %cmp.not.i81, label %if.end.i84, label %if.then.i82
 
 if.then.i82:                                      ; preds = %_ZN22hb_serialize_context_t4pushIN3CFF5SubrsIN2OT7IntTypeIjLj4EEEEEEEPT_v.exit

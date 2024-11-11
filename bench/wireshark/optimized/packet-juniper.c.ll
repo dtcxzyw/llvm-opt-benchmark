@@ -1738,7 +1738,7 @@ define internal fastcc range(i32 -1, 65536) i32 @dissect_juniper_header(ptr noun
   %33 = zext i8 %32 to i32
   %34 = icmp eq i8 %32, 0
   %35 = add nsw i32 %28, -2
-  %36 = icmp ult i32 %35, %33
+  %36 = icmp samesign ult i32 %35, %33
   %or.cond = select i1 %34, i1 true, i1 %36
   br i1 %or.cond, label %.loopexit, label %37
 

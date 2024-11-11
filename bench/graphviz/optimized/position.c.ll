@@ -132,7 +132,7 @@ define void @dot_position(ptr noundef %0) local_unnamed_addr #0 {
   %69 = sext i32 %68 to i64
   %70 = getelementptr inbounds ptr, ptr %52, i64 %69
   store ptr %64, ptr %70, align 8
-  %71 = icmp ugt i64 %indvars.iv59.i.i, 1
+  %71 = icmp samesign ugt i64 %indvars.iv59.i.i, 1
   br i1 %71, label %.lr.ph52.i.i, label %._crit_edge53.loopexit.i.i
 
 ._crit_edge53.loopexit.i.i:                       ; preds = %.lr.ph52.i.i

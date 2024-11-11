@@ -4042,7 +4042,7 @@ while.body.i82:                                   ; preds = %while.body.i82, %wh
   %101 = load i32, ptr %arrayidx2.i, align 4
   store i32 %101, ptr %arrayidx.i85, align 4
   store i32 %100, ptr %arrayidx2.i, align 4
-  %cmp.i86 = icmp ugt i64 %indvars.iv.i83, 2
+  %cmp.i86 = icmp samesign ugt i64 %indvars.iv.i83, 2
   br i1 %cmp.i86, label %while.body.i82, label %if.end80, !llvm.loop !34
 
 if.end80:                                         ; preds = %while.body.i82, %for.body.i74, %if.then74, %_ZNK6vectorIjLb0EjE4sizeEv.exit, %_ZNK6vectorIjLb0EjE4sizeEv.exit.i71, %if.then, %for.end69

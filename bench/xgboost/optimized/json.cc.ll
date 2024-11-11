@@ -15817,11 +15817,11 @@ _ZNSt6vectorIcSaIcEE9push_backEOc.exit:           ; preds = %15, %_ZNSt6vectorIc
   br label %180
 
 49:                                               ; preds = %2
-  %50 = icmp ugt i64 %4, -32768
+  %50 = icmp samesign ugt i64 %4, -32768
   br i1 %50, label %.thread45, label %94
 
 51:                                               ; preds = %6
-  %52 = icmp ult i64 %4, 32767
+  %52 = icmp samesign ult i64 %4, 32767
   br i1 %52, label %.thread45, label %96
 
 .thread45:                                        ; preds = %49, %51
@@ -15911,11 +15911,11 @@ _ZNSt6vectorIcSaIcEE9push_backEOc.exit19:         ; preds = %59, %_ZNSt6vectorIc
   br label %180
 
 94:                                               ; preds = %49
-  %95 = icmp ugt i64 %4, -2147483648
+  %95 = icmp samesign ugt i64 %4, -2147483648
   br i1 %95, label %.thread47, label %139
 
 96:                                               ; preds = %51
-  %97 = icmp ult i64 %4, 2147483647
+  %97 = icmp samesign ult i64 %4, 2147483647
   br i1 %97, label %.thread47, label %139
 
 .thread47:                                        ; preds = %94, %96

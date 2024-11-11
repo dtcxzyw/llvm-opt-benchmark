@@ -137,7 +137,7 @@ if.end:                                           ; preds = %entry
   %target = getelementptr inbounds i8, ptr %node, i64 2
   %5 = load i16, ptr %target, align 2
   %conv8 = zext i16 %5 to i32
-  %cmp10 = icmp ult i32 %4, %conv8
+  %cmp10 = icmp samesign ult i32 %4, %conv8
   br i1 %cmp10, label %if.then12, label %if.end16
 
 if.then12:                                        ; preds = %if.end
@@ -571,7 +571,7 @@ if.then80:                                        ; preds = %land.lhs.true66
   br label %return
 
 if.end98:                                         ; preds = %land.lhs.true66
-  %cmp101 = icmp ult i8 %5, 3
+  %cmp101 = icmp samesign ult i8 %5, 3
   br i1 %cmp101, label %land.lhs.true103, label %if.end147
 
 land.lhs.true103:                                 ; preds = %if.end41, %if.end98

@@ -4569,7 +4569,7 @@ _ZN14DDBufferAccessIN3gmx11BasicVectorIfEEEC2ER8DDBufferIS2_Em.exit.i: ; preds =
   %1850 = getelementptr inbounds i8, ptr %.sroa.05.07.i.i.i.i.i.i.i, i64 12
   %1851 = getelementptr inbounds i8, ptr %.sroa.0.08.i.i.i.i.i.i.i, i64 12
   %1852 = add nsw i64 %.09.i.i.i.i.i.i.i, -1
-  %1853 = icmp ugt i64 %.09.i.i.i.i.i.i.i, 1
+  %1853 = icmp samesign ugt i64 %.09.i.i.i.i.i.i.i, 1
   br i1 %1853, label %.lr.ph.i.i.i.i.i.i.i, label %.loopexit103.i, !llvm.loop !35
 
 1854:                                             ; preds = %1959, %1934, %1901, %1836
@@ -4615,7 +4615,7 @@ _ZN14DDBufferAccessIN3gmx11BasicVectorIfEEEC2ER8DDBufferIS2_Em.exit.i: ; preds =
   %1868 = getelementptr inbounds i8, ptr %.sroa.05.07.i.i.i.i.i.i41.i, i64 12
   %1869 = getelementptr inbounds i8, ptr %.sroa.0.08.i.i.i.i.i.i40.i, i64 12
   %1870 = add nsw i64 %.09.i.i.i.i.i.i39.i, -1
-  %1871 = icmp ugt i64 %.09.i.i.i.i.i.i39.i, 1
+  %1871 = icmp samesign ugt i64 %.09.i.i.i.i.i.i39.i, 1
   br i1 %1871, label %.lr.ph.i.i.i.i.i.i38.i, label %.loopexit.i518, !llvm.loop !35
 
 .loopexit.i518:                                   ; preds = %.lr.ph.i.i.i.i.i.i38.i, %._crit_edge.i37.i, %1858, %.loopexit103.i
@@ -4655,7 +4655,7 @@ _ZN14DDBufferAccessIN3gmx11BasicVectorIfEEEC2ER8DDBufferIS2_Em.exit.i: ; preds =
   %1884 = getelementptr inbounds i8, ptr %.sroa.05.07.i.i.i.i.i.i54.i, i64 12
   %1885 = getelementptr inbounds i8, ptr %.sroa.0.08.i.i.i.i.i.i53.i, i64 12
   %1886 = add nsw i64 %.09.i.i.i.i.i.i52.i, -1
-  %1887 = icmp ugt i64 %.09.i.i.i.i.i.i52.i, 1
+  %1887 = icmp samesign ugt i64 %.09.i.i.i.i.i.i52.i, 1
   br i1 %1887, label %.lr.ph.i.i.i.i.i.i51.i, label %_ZL11orderVectorIN3gmx11BasicVectorIfEEEvNS0_8ArrayRefIK10gmx_cgsortEENS3_IT_EES8_.exit55.i, !llvm.loop !35
 
 _ZL11orderVectorIN3gmx11BasicVectorIfEEEvNS0_8ArrayRefIK10gmx_cgsortEENS3_IT_EES8_.exit55.i: ; preds = %.lr.ph.i.i.i.i.i.i51.i, %._crit_edge.i50.i, %1874, %.loopexit.i518
@@ -4730,7 +4730,7 @@ _ZNSt6vectorIiSaIiEE6resizeEm.exit.i.i:           ; preds = %1907, %1905, %1903,
   %1918 = getelementptr inbounds i8, ptr %.sroa.05.07.i.i.i.i.i.i.i.i, i64 4
   %1919 = getelementptr inbounds i8, ptr %.sroa.0.08.i.i.i.i.i.i.i.i, i64 4
   %1920 = add nsw i64 %.09.i.i.i.i.i.i.i.i, -1
-  %1921 = icmp ugt i64 %.09.i.i.i.i.i.i.i.i, 1
+  %1921 = icmp samesign ugt i64 %.09.i.i.i.i.i.i.i.i, 1
   br i1 %1921, label %.lr.ph.i.i.i.i.i.i.i.i, label %_ZL11orderVectorIiEvN3gmx8ArrayRefIK10gmx_cgsortEENS1_IT_EEPSt6vectorIS5_SaIS5_EE.exit.i, !llvm.loop !36
 
 _ZL11orderVectorIiEvN3gmx8ArrayRefIK10gmx_cgsortEENS1_IT_EEPSt6vectorIS5_SaIS5_EE.exit.i: ; preds = %.lr.ph.i.i.i.i.i.i.i.i, %._crit_edge.i.i.i522, %_ZNSt6vectorIiSaIiEE6resizeEm.exit.i.i
@@ -4803,7 +4803,7 @@ _ZNSt6vectorIlSaIlEE6resizeEm.exit.i.i:           ; preds = %1940, %1938, %1936,
   %1951 = getelementptr inbounds i8, ptr %.sroa.05.07.i.i.i.i.i.i.i66.i, i64 8
   %1952 = getelementptr inbounds i8, ptr %.sroa.0.08.i.i.i.i.i.i.i65.i, i64 8
   %1953 = add nsw i64 %.09.i.i.i.i.i.i.i64.i, -1
-  %1954 = icmp ugt i64 %.09.i.i.i.i.i.i.i64.i, 1
+  %1954 = icmp samesign ugt i64 %.09.i.i.i.i.i.i.i64.i, 1
   br i1 %1954, label %.lr.ph.i.i.i.i.i.i.i63.i, label %_ZL11orderVectorIlEvN3gmx8ArrayRefIK10gmx_cgsortEENS1_IT_EEPSt6vectorIS5_SaIS5_EE.exit.i, !llvm.loop !37
 
 _ZL11orderVectorIlEvN3gmx8ArrayRefIK10gmx_cgsortEENS1_IT_EEPSt6vectorIS5_SaIS5_EE.exit.i: ; preds = %.lr.ph.i.i.i.i.i.i.i63.i, %._crit_edge.i.i62.i, %_ZNSt6vectorIlSaIlEE6resizeEm.exit.i.i

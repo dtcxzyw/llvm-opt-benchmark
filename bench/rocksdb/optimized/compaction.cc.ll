@@ -4377,7 +4377,7 @@ if.then.i24:                                      ; preds = %_ZNK7rocksdb21UserC
   br i1 %cmp7.i30, label %_ZNK7rocksdb21InternalKeyComparator13CompareKeySeqERKNS_17ParsedInternalKeyERKNS_5SliceE.exit38, label %if.else.i31
 
 if.else.i31:                                      ; preds = %if.then.i24
-  %cmp9.i32 = icmp ult i64 %21, %shr.i29
+  %cmp9.i32 = icmp samesign ult i64 %21, %shr.i29
   %spec.select.i33 = zext i1 %cmp9.i32 to i32
   br label %_ZNK7rocksdb21InternalKeyComparator13CompareKeySeqERKNS_17ParsedInternalKeyERKNS_5SliceE.exit38
 

@@ -2371,7 +2371,7 @@ define internal fastcc i32 @icl_get_qgv_points(ptr noundef %0, ptr nocapture nou
   br label %.thread14
 
 30:                                               ; preds = %2
-  %31 = icmp ugt i16 %13, 11
+  %31 = icmp samesign ugt i16 %13, 11
   br i1 %31, label %32, label %52
 
 32:                                               ; preds = %30

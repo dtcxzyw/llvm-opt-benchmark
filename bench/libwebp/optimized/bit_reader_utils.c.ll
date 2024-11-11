@@ -258,7 +258,7 @@ VP8GetBit.exit:                                   ; preds = %48, %54
   %62 = add i32 %60, -1
   %63 = shl nuw i32 %57, %14
   %64 = or i32 %63, %.06
-  %65 = icmp ugt i32 %.045, 1
+  %65 = icmp samesign ugt i32 %.045, 1
   br i1 %65, label %10, label %._crit_edge, !llvm.loop !14
 
 ._crit_edge:                                      ; preds = %VP8GetBit.exit
@@ -386,7 +386,7 @@ VP8GetBit.exit.i:                                 ; preds = %54, %48
   %62 = add i32 %60, -1
   %63 = shl nuw i32 %57, %14
   %64 = or i32 %63, %.06.i
-  %65 = icmp ugt i32 %.045.i, 1
+  %65 = icmp samesign ugt i32 %.045.i, 1
   br i1 %65, label %10, label %._crit_edge.i, !llvm.loop !14
 
 ._crit_edge.i:                                    ; preds = %VP8GetBit.exit.i
@@ -712,7 +712,7 @@ define hidden i32 @VP8LReadBits(ptr nocapture noundef %0, i32 noundef %1) local_
   br i1 %38, label %23, label %ShiftBytes.exit, !llvm.loop !31
 
 .critedge.i:                                      ; preds = %23
-  %39 = icmp ult i32 %26, 65
+  %39 = icmp samesign ult i32 %26, 65
   %40 = icmp ne i64 %25, %21
   %or.cond.i = or i1 %39, %40
   br i1 %or.cond.i, label %ShiftBytes.exit, label %ShiftBytes.exit.sink.split

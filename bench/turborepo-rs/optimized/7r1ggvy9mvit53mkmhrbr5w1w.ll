@@ -483,7 +483,7 @@ _RINvMs_CscmPyG4XWoQZ_3vteNtB5_6Parser12osc_dispatchNtNtCs8mTrBI1stz4_15turborep
   br label %.thread
 
 199:                                              ; preds = %162
-  %200 = icmp ult i64 %45, 16
+  %200 = icmp samesign ult i64 %45, 16
   br i1 %200, label %165, label %202
 
 201:                                              ; preds = %162
@@ -540,7 +540,7 @@ _RNvMNtCs1LoaDTb72WA_4core6resultINtB2_6ResultuINtNtCslmLCWD9els8_8arrayvec6erro
   br label %13
 
 220:                                              ; preds = %213
-  %221 = icmp ult i64 %207, 16
+  %221 = icmp samesign ult i64 %207, 16
   br i1 %221, label %223, label %229
 
 222:                                              ; preds = %213

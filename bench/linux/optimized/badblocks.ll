@@ -825,7 +825,7 @@ default.unreachable87:                            ; preds = %195
   br i1 %344, label %403, label %380
 
 347:                                              ; preds = %339, %334
-  %348 = icmp ugt i64 %32, %337
+  %348 = icmp samesign ugt i64 %32, %337
   br i1 %348, label %349, label %350, !prof !5
 
 349:                                              ; preds = %347
@@ -844,7 +844,7 @@ default.unreachable87:                            ; preds = %195
   %.pre-phi83 = phi i64 [ %.pre82, %349 ], [ %337, %347 ]
   %.pre-phi79 = phi i64 [ %.pre78, %349 ], [ %335, %347 ]
   %351 = phi i64 [ %.pre69, %349 ], [ %136, %347 ]
-  %352 = icmp ult i64 %32, %.pre-phi83
+  %352 = icmp samesign ult i64 %32, %.pre-phi83
   br i1 %352, label %353, label %356
 
 353:                                              ; preds = %350
@@ -1271,7 +1271,7 @@ define dso_local noundef range(i32 0, 2) i32 @badblocks_clear(ptr noundef %0, i6
   %95 = load i64, ptr %94, align 8
   %96 = lshr i64 %95, 9
   %97 = and i64 %96, 18014398509481983
-  %98 = icmp ult i64 %97, %23
+  %98 = icmp samesign ult i64 %97, %23
   br i1 %98, label %99, label %132
 
 99:                                               ; preds = %93
@@ -1350,7 +1350,7 @@ define dso_local noundef range(i32 0, 2) i32 @badblocks_clear(ptr noundef %0, i6
   br label %167
 
 152:                                              ; preds = %132
-  %153 = icmp ugt i64 %23, %85
+  %153 = icmp samesign ugt i64 %23, %85
   br i1 %153, label %154, label %167
 
 154:                                              ; preds = %152

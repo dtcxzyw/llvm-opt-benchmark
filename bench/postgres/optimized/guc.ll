@@ -417,7 +417,7 @@ define dso_local ptr @ProcessConfigFileInternal(i32 noundef %0, i1 noundef zeroe
 
 68:                                               ; preds = %66
   %69 = zext nneg i32 %61 to i64
-  %memchr.bounds.i = icmp ugt i8 %60, 63
+  %memchr.bounds.i = icmp samesign ugt i8 %60, 63
   %70 = shl nuw i64 1, %69
   %71 = and i64 %70, 287948969894477825
   %memchr.bits.i = icmp eq i64 %71, 0
@@ -1106,7 +1106,7 @@ define internal fastcc void @InitializeGUCOptionsFromEnvironment() unnamed_addr 
 15:                                               ; preds = %13
   %16 = add nsw i64 %14, -524288
   %17 = lshr i64 %16, 10
-  %18 = icmp ult i64 %14, 2621440
+  %18 = icmp samesign ult i64 %14, 2621440
   %. = select i1 %18, i64 %17, i64 2048
   %.19 = select i1 %18, i32 2, i32 1
   %19 = call i32 (ptr, i64, ptr, ...) @pg_snprintf(ptr noundef nonnull %1, i64 noundef 16, ptr noundef nonnull @.str.106, i64 noundef %.) #29
@@ -1875,7 +1875,7 @@ define internal fastcc noundef zeroext i1 @assignable_custom_variable_name(ptr n
 
 18:                                               ; preds = %16
   %19 = zext nneg i32 %11 to i64
-  %memchr.bounds.i = icmp ugt i8 %10, 63
+  %memchr.bounds.i = icmp samesign ugt i8 %10, 63
   %20 = shl nuw i64 1, %19
   %21 = and i64 %20, 287948969894477825
   %memchr.bits.i = icmp eq i64 %21, 0

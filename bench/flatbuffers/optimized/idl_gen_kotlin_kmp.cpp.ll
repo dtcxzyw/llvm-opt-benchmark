@@ -27287,8 +27287,8 @@ land.lhs.true:                                    ; preds = %entry
   %enum_def.i = getelementptr inbounds i8, ptr %type, i64 16
   %3 = load ptr, ptr %enum_def.i, align 8
   %cmp.not.i = icmp ne ptr %3, null
-  %4 = icmp ult i32 %1, 10
-  %5 = and i1 %4, %cmp.not.i
+  %4 = icmp samesign ult i32 %1, 10
+  %5 = select i1 %cmp.not.i, i1 %4, i1 false
   br i1 %5, label %if.then5, label %if.then
 
 if.then:                                          ; preds = %land.lhs.true

@@ -936,7 +936,7 @@ switch.lookup:                                    ; preds = %PaPulseAudio_UnLock
   %.not = icmp ne i32 %6, 1
   %12 = zext i1 %.not to i32
   %spec.select = add nuw nsw i32 %.19, %12
-  %13 = icmp ult i32 %spec.select, 1000
+  %13 = icmp samesign ult i32 %spec.select, 1000
   br i1 %13, label %3, label %14, !llvm.loop !8
 
 14:                                               ; preds = %11

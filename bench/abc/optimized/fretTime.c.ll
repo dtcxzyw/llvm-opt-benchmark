@@ -753,7 +753,7 @@ Vec_IntFillExtra.exit298.i:                       ; preds = %._crit_edge.i288.i,
   %282 = load i32, ptr %281, align 4
   %283 = and i32 %282, -33
   store i32 %283, ptr %281, align 4
-  %284 = icmp ugt i64 %indvars.iv423.i, 1
+  %284 = icmp samesign ugt i64 %indvars.iv423.i, 1
   br i1 %284, label %278, label %.critedge12.i, !llvm.loop !15
 
 .critedge12.i:                                    ; preds = %278
@@ -2053,7 +2053,7 @@ Vec_IntFillExtra.exit301.i:                       ; preds = %._crit_edge.i291.i,
   %860 = load i32, ptr %859, align 4
   %861 = and i32 %860, -33
   store i32 %861, ptr %859, align 4
-  %862 = icmp ugt i64 %indvars.iv424.i, 1
+  %862 = icmp samesign ugt i64 %indvars.iv424.i, 1
   br i1 %862, label %856, label %.critedge12.i74, !llvm.loop !30
 
 .critedge12.i74:                                  ; preds = %856

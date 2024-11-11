@@ -347,7 +347,7 @@ land.lhs.true27:                                  ; preds = %if.end23
   br i1 %tobool29.not, label %if.end31, label %exit
 
 if.end31:                                         ; preds = %land.lhs.true27, %if.end23
-  %cmp32 = icmp ult i64 %nargs, 4
+  %cmp32 = icmp samesign ult i64 %nargs, 4
   br i1 %cmp32, label %skip_optional, label %if.end34
 
 if.end34:                                         ; preds = %if.end31

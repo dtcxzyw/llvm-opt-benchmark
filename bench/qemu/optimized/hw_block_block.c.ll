@@ -51,7 +51,7 @@ if.then3:                                         ; preds = %if.end
   br label %return
 
 if.end4:                                          ; preds = %if.end
-  %cmp5 = icmp ult i64 %size, 2147483137
+  %cmp5 = icmp samesign ult i64 %size, 2147483137
   br i1 %cmp5, label %if.end8, label %if.else
 
 if.else:                                          ; preds = %if.end4

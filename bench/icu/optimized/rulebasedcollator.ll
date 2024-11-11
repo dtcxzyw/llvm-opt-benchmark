@@ -1552,7 +1552,7 @@ while.body:                                       ; preds = %land.rhs
   %7 = load ptr, ptr %6, align 8
   %data32.i = getelementptr inbounds i8, ptr %7, i64 16
   %8 = load ptr, ptr %data32.i, align 8
-  %cmp.i6 = icmp ult i32 %5, 55296
+  %cmp.i6 = icmp samesign ult i32 %5, 55296
   br i1 %cmp.i6, label %cond.true.i, label %cond.false.i
 
 cond.true.i:                                      ; preds = %while.body
@@ -1568,12 +1568,12 @@ cond.true.i:                                      ; preds = %while.body
   br label %_ZNK6icu_7513CollationData7getCE32Ei.exit
 
 cond.false.i:                                     ; preds = %while.body
-  %cmp4.i = icmp ult i32 %5, 65536
+  %cmp4.i = icmp samesign ult i32 %5, 65536
   br i1 %cmp4.i, label %cond.true5.i, label %cond.false17.i
 
 cond.true5.i:                                     ; preds = %cond.false.i
   %11 = load ptr, ptr %7, align 8
-  %cmp8.i = icmp ult i32 %5, 56320
+  %cmp8.i = icmp samesign ult i32 %5, 56320
   %cond.i = select i1 %cmp8.i, i32 320, i32 0
   %shr9.i = lshr i32 %5, 5
   %add10.i = add nuw nsw i32 %cond.i, %shr9.i
@@ -1587,7 +1587,7 @@ cond.true5.i:                                     ; preds = %cond.false.i
   br label %_ZNK6icu_7513CollationData7getCE32Ei.exit
 
 cond.false17.i:                                   ; preds = %cond.false.i
-  %cmp18.i = icmp ugt i32 %5, 1114111
+  %cmp18.i = icmp samesign ugt i32 %5, 1114111
   br i1 %cmp18.i, label %_ZNK6icu_7513CollationData7getCE32Ei.exit, label %cond.false20.i
 
 cond.false20.i:                                   ; preds = %cond.false17.i
@@ -2887,7 +2887,7 @@ if.end31:                                         ; preds = %if.then24
   %13 = load ptr, ptr %12, align 8
   %data32.i = getelementptr inbounds i8, ptr %13, i64 16
   %14 = load ptr, ptr %data32.i, align 8
-  %cmp.i24 = icmp ult i32 %8, 55296
+  %cmp.i24 = icmp samesign ult i32 %8, 55296
   br i1 %cmp.i24, label %cond.true.i, label %cond.false.i
 
 cond.true.i:                                      ; preds = %if.end31
@@ -2903,12 +2903,12 @@ cond.true.i:                                      ; preds = %if.end31
   br label %_ZNK6icu_7513CollationData7getCE32Ei.exit
 
 cond.false.i:                                     ; preds = %if.end31
-  %cmp4.i = icmp ult i32 %8, 65536
+  %cmp4.i = icmp samesign ult i32 %8, 65536
   br i1 %cmp4.i, label %cond.true5.i, label %cond.false17.i
 
 cond.true5.i:                                     ; preds = %cond.false.i
   %17 = load ptr, ptr %13, align 8
-  %cmp8.i = icmp ult i32 %8, 56320
+  %cmp8.i = icmp samesign ult i32 %8, 56320
   %cond.i = select i1 %cmp8.i, i32 320, i32 0
   %shr9.i = lshr i32 %8, 5
   %add10.i = add nuw nsw i32 %cond.i, %shr9.i
@@ -2922,7 +2922,7 @@ cond.true5.i:                                     ; preds = %cond.false.i
   br label %_ZNK6icu_7513CollationData7getCE32Ei.exit
 
 cond.false17.i:                                   ; preds = %cond.false.i
-  %cmp18.i = icmp ugt i32 %8, 1114111
+  %cmp18.i = icmp samesign ugt i32 %8, 1114111
   br i1 %cmp18.i, label %_ZNK6icu_7513CollationData7getCE32Ei.exit, label %cond.false20.i
 
 cond.false20.i:                                   ; preds = %cond.false17.i
@@ -4353,11 +4353,11 @@ if.then67:                                        ; preds = %if.then60
   br i1 %cmp68.not, label %do.end, label %land.lhs.true69
 
 land.lhs.true69:                                  ; preds = %if.then67
-  %cmp70 = icmp ugt i8 %27, -33
+  %cmp70 = icmp samesign ugt i8 %27, -33
   br i1 %cmp70, label %cond.true, label %cond.false117
 
 cond.true:                                        ; preds = %land.lhs.true69
-  %cmp71 = icmp ult i8 %27, -16
+  %cmp71 = icmp samesign ult i8 %27, -16
   br i1 %cmp71, label %cond.true72, label %cond.false
 
 cond.true72:                                      ; preds = %cond.true
@@ -4382,7 +4382,7 @@ land.lhs.true81:                                  ; preds = %cond.true72
 
 cond.false:                                       ; preds = %cond.true
   %sub = add nsw i32 %conv65, -240
-  %cmp85 = icmp ult i8 %27, -11
+  %cmp85 = icmp samesign ult i8 %27, -11
   br i1 %cmp85, label %land.lhs.true86, label %do.end
 
 land.lhs.true86:                                  ; preds = %cond.false
@@ -4428,7 +4428,7 @@ land.lhs.true111:                                 ; preds = %land.lhs.true81, %l
   br i1 %cmp116.not, label %do.end, label %land.lhs.true121
 
 cond.false117:                                    ; preds = %land.lhs.true69
-  %cmp118 = icmp ugt i8 %27, -63
+  %cmp118 = icmp samesign ugt i8 %27, -63
   br i1 %cmp118, label %land.lhs.true119, label %do.end
 
 land.lhs.true119:                                 ; preds = %cond.false117
@@ -4477,11 +4477,11 @@ if.then153:                                       ; preds = %if.then143
   br i1 %cmp155.not, label %do.end232, label %land.lhs.true156
 
 land.lhs.true156:                                 ; preds = %if.then153
-  %cmp157 = icmp ugt i8 %37, -33
+  %cmp157 = icmp samesign ugt i8 %37, -33
   br i1 %cmp157, label %cond.true158, label %cond.false211
 
 cond.true158:                                     ; preds = %land.lhs.true156
-  %cmp159 = icmp ult i8 %37, -16
+  %cmp159 = icmp samesign ult i8 %37, -16
   br i1 %cmp159, label %cond.true160, label %cond.false176
 
 cond.true160:                                     ; preds = %cond.true158
@@ -4506,7 +4506,7 @@ land.lhs.true172:                                 ; preds = %cond.true160
 
 cond.false176:                                    ; preds = %cond.true158
   %sub177 = add nsw i32 %conv150, -240
-  %cmp178 = icmp ult i8 %37, -11
+  %cmp178 = icmp samesign ult i8 %37, -11
   br i1 %cmp178, label %land.lhs.true179, label %do.end232
 
 land.lhs.true179:                                 ; preds = %cond.false176
@@ -4552,7 +4552,7 @@ land.lhs.true205:                                 ; preds = %land.lhs.true172, %
   br i1 %cmp210.not, label %do.end232, label %land.lhs.true215
 
 cond.false211:                                    ; preds = %land.lhs.true156
-  %cmp212 = icmp ugt i8 %37, -63
+  %cmp212 = icmp samesign ugt i8 %37, -63
   br i1 %cmp212, label %land.lhs.true213, label %do.end232
 
 land.lhs.true213:                                 ; preds = %cond.false211
@@ -5138,7 +5138,7 @@ cond.false.i:                                     ; preds = %land.rhs
   %3 = load ptr, ptr %this, align 8
   %data32.i.i = getelementptr inbounds i8, ptr %3, i64 16
   %4 = load ptr, ptr %data32.i.i, align 8
-  %cmp.i.i = icmp ult i32 %c, 55296
+  %cmp.i.i = icmp samesign ult i32 %c, 55296
   br i1 %cmp.i.i, label %cond.true.i.i, label %cond.false.i.i
 
 cond.true.i.i:                                    ; preds = %cond.false.i
@@ -5154,12 +5154,12 @@ cond.true.i.i:                                    ; preds = %cond.false.i
   br label %_ZNK6icu_7513CollationData7getCE32Ei.exit.i
 
 cond.false.i.i:                                   ; preds = %cond.false.i
-  %cmp4.i.i = icmp ult i32 %c, 65536
+  %cmp4.i.i = icmp samesign ult i32 %c, 65536
   br i1 %cmp4.i.i, label %cond.true5.i.i, label %cond.false17.i.i
 
 cond.true5.i.i:                                   ; preds = %cond.false.i.i
   %7 = load ptr, ptr %3, align 8
-  %cmp8.i.i = icmp ult i32 %c, 56320
+  %cmp8.i.i = icmp samesign ult i32 %c, 56320
   %cond.i.i = select i1 %cmp8.i.i, i32 320, i32 0
   %shr9.i.i = lshr i32 %c, 5
   %add10.i.i = add nuw nsw i32 %cond.i.i, %shr9.i.i
@@ -5173,7 +5173,7 @@ cond.true5.i.i:                                   ; preds = %cond.false.i.i
   br label %_ZNK6icu_7513CollationData7getCE32Ei.exit.i
 
 cond.false17.i.i:                                 ; preds = %cond.false.i.i
-  %cmp18.i.i = icmp ugt i32 %c, 1114111
+  %cmp18.i.i = icmp samesign ugt i32 %c, 1114111
   br i1 %cmp18.i.i, label %_ZNK6icu_7513CollationData7getCE32Ei.exit.i, label %cond.false20.i.i
 
 cond.false20.i.i:                                 ; preds = %cond.false17.i.i
@@ -8589,11 +8589,11 @@ if.then12:                                        ; preds = %do.body
   br i1 %cmp15.not, label %return, label %land.lhs.true16
 
 land.lhs.true16:                                  ; preds = %if.then12
-  %cmp17 = icmp ugt i8 %4, -33
+  %cmp17 = icmp samesign ugt i8 %4, -33
   br i1 %cmp17, label %cond.true, label %cond.false74
 
 cond.true:                                        ; preds = %land.lhs.true16
-  %cmp18 = icmp ult i8 %4, -16
+  %cmp18 = icmp samesign ult i8 %4, -16
   br i1 %cmp18, label %cond.true19, label %cond.false
 
 cond.true19:                                      ; preds = %cond.true
@@ -8618,7 +8618,7 @@ land.lhs.true30:                                  ; preds = %cond.true19
 
 cond.false:                                       ; preds = %cond.true
   %sub = add nsw i32 %conv10, -240
-  %cmp34 = icmp ult i8 %4, -11
+  %cmp34 = icmp samesign ult i8 %4, -11
   br i1 %cmp34, label %land.lhs.true35, label %return
 
 land.lhs.true35:                                  ; preds = %cond.false
@@ -8666,7 +8666,7 @@ land.lhs.true66:                                  ; preds = %land.lhs.true30, %l
   br i1 %cmp73.not, label %return, label %land.lhs.true78
 
 cond.false74:                                     ; preds = %land.lhs.true16
-  %cmp75 = icmp ugt i8 %4, -63
+  %cmp75 = icmp samesign ugt i8 %4, -63
   br i1 %cmp75, label %land.lhs.true76, label %return
 
 land.lhs.true76:                                  ; preds = %cond.false74

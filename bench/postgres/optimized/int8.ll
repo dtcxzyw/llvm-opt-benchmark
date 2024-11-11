@@ -822,7 +822,7 @@ define dso_local range(i64 0, -9223372036854775808) i64 @int8lcm(ptr nocapture n
   %10 = sub i64 0, %9
   %11 = tail call i64 @llvm.abs.i64(i64 %5, i1 false)
   %12 = sub i64 0, %11
-  %13 = icmp ugt i64 %10, %12
+  %13 = icmp samesign ugt i64 %10, %12
   %spec.select.i = select i1 %13, i64 %3, i64 %5
   %spec.select28.i = select i1 %13, i64 %5, i64 %3
   %14 = icmp eq i64 %spec.select28.i, -9223372036854775808

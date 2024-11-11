@@ -1784,7 +1784,7 @@ define internal fastcc void @_ZN5ZXing4OneD7DataBarL24DecodeGeneralPurposeBitsB5
   br label %283
 
 76:                                               ; preds = %20
-  %77 = icmp ult i32 %23, 5
+  %77 = icmp samesign ult i32 %23, 5
   br i1 %77, label %78, label %96
 
 78:                                               ; preds = %76
@@ -1843,7 +1843,7 @@ define internal fastcc void @_ZN5ZXing4OneD7DataBarL24DecodeGeneralPurposeBitsB5
   br label %283
 
 111:                                              ; preds = %102
-  %112 = icmp ult i32 %101, 63
+  %112 = icmp samesign ult i32 %101, 63
   br i1 %112, label %113, label %119
 
 113:                                              ; preds = %111
@@ -1951,7 +1951,7 @@ define internal fastcc void @_ZN5ZXing4OneD7DataBarL24DecodeGeneralPurposeBitsB5
           to label %261 unwind label %25
 
 165:                                              ; preds = %20
-  %166 = icmp ult i32 %23, 5
+  %166 = icmp samesign ult i32 %23, 5
   br i1 %166, label %167, label %183
 
 167:                                              ; preds = %165
@@ -2049,7 +2049,7 @@ define internal fastcc void @_ZN5ZXing4OneD7DataBarL24DecodeGeneralPurposeBitsB5
   br label %283
 
 220:                                              ; preds = %189
-  %221 = icmp ult i32 %188, 29
+  %221 = icmp samesign ult i32 %188, 29
   br i1 %221, label %222, label %231
 
 222:                                              ; preds = %220
@@ -2424,7 +2424,7 @@ define linkonce_odr noundef signext i8 @_ZN5ZXing4GTIN17ComputeCheckDigitIcEET_R
   %31 = srem i32 %30, 10
   %32 = sub nsw i32 10, %31
   %33 = sub nsw i32 0, %31
-  %34 = icmp ult i32 %32, 10
+  %34 = icmp samesign ult i32 %32, 10
   %35 = select i1 %34, i32 %32, i32 %33
   %36 = tail call noundef signext i8 @_ZN5ZXing7ToDigitIcEET_i(i32 noundef %35) #15
   ret i8 %36

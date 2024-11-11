@@ -480,7 +480,7 @@ define hidden ptr @_crypt_extended_r(ptr nocapture noundef readonly %0, ptr noca
   %22 = load i8, ptr %21, align 1
   %23 = zext i8 %22 to i32
   %24 = icmp sgt i8 %22, 64
-  %25 = icmp ugt i8 %22, 96
+  %25 = icmp samesign ugt i8 %22, 96
   %spec.select.v.i = select i1 %25, i32 5, i32 11
   %.0.v.i = select i1 %24, i32 %spec.select.v.i, i32 18
   %.0.i = add nuw nsw i32 %.0.v.i, %23
@@ -530,7 +530,7 @@ define hidden ptr @_crypt_extended_r(ptr nocapture noundef readonly %0, ptr noca
   %49 = load i8, ptr %48, align 1
   %50 = zext i8 %49 to i32
   %51 = icmp sgt i8 %49, 64
-  %52 = icmp ugt i8 %49, 96
+  %52 = icmp samesign ugt i8 %49, 96
   %spec.select.v.i97 = select i1 %52, i32 5, i32 11
   %.0.v.i98 = select i1 %51, i32 %spec.select.v.i97, i32 18
   %.0.i99 = add nuw nsw i32 %.0.v.i98, %50
@@ -670,7 +670,7 @@ define hidden ptr @_crypt_extended_r(ptr nocapture noundef readonly %0, ptr noca
 125:                                              ; preds = %122
   %126 = zext i8 %124 to i32
   %127 = icmp sgt i8 %124, 64
-  %128 = icmp ugt i8 %124, 96
+  %128 = icmp samesign ugt i8 %124, 96
   %spec.select.v.i101 = select i1 %128, i32 5, i32 11
   %.0.v.i102 = select i1 %127, i32 %spec.select.v.i101, i32 18
   %.0.i103 = add nuw nsw i32 %.0.v.i102, %126
@@ -678,7 +678,7 @@ define hidden ptr @_crypt_extended_r(ptr nocapture noundef readonly %0, ptr noca
   %130 = and i32 %129, 4032
   %131 = zext i8 %20 to i32
   %132 = icmp sgt i8 %20, 64
-  %133 = icmp ugt i8 %20, 96
+  %133 = icmp samesign ugt i8 %20, 96
   %spec.select.v.i104 = select i1 %133, i32 5, i32 11
   %.0.v.i105 = select i1 %132, i32 %spec.select.v.i104, i32 18
   %.0.i106 = add nuw nsw i32 %.0.v.i105, %131

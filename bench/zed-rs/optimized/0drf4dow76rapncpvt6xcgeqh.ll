@@ -13271,7 +13271,7 @@ _ZN4gpui3app10entity_map9EntityMap5lease17h9f30d37168734a5eE.exit: ; preds = %4
   call void @llvm.lifetime.start.p0(i64 0, ptr nonnull %5), !noalias !2206
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6), !noalias !2209
   store ptr %5, ptr %6, align 8, !noalias !2209
-  %55 = icmp ult i64 %49, 2
+  %55 = icmp samesign ult i64 %49, 2
   br i1 %55, label %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$16sort_unstable_by17h2efd383e69c16533E.exit.i", label %.lr.ph.preheader.i.i.i
 
 .lr.ph.preheader.i.i.i:                           ; preds = %.thread.i, %54

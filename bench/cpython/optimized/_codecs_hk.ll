@@ -773,7 +773,7 @@ do.end15:                                         ; preds = %do.body10
   br i1 %or.cond, label %if.then30, label %lor.lhs.false22
 
 lor.lhs.false22:                                  ; preds = %do.end15
-  %cmp24 = icmp ult i8 %1, -57
+  %cmp24 = icmp samesign ult i8 %1, -57
   br i1 %cmp24, label %land.lhs.true, label %if.end87
 
 land.lhs.true:                                    ; preds = %lor.lhs.false22

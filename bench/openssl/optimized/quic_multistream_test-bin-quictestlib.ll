@@ -1544,7 +1544,7 @@ if.end:                                           ; preds = %entry
 
 lor.lhs.false5:                                   ; preds = %if.end
   %0 = load i8, ptr %call, align 1
-  %cmp.i.i = icmp ult i64 %msginlen, 4
+  %cmp.i.i = icmp samesign ult i64 %msginlen, 4
   br i1 %cmp.i.i, label %return, label %lor.lhs.false8
 
 lor.lhs.false8:                                   ; preds = %lor.lhs.false5

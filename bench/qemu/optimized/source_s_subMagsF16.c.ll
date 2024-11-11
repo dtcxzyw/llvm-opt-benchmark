@@ -96,7 +96,7 @@ if.end77:                                         ; preds = %if.then74
   br label %uiZ223
 
 if.end85:                                         ; preds = %if.then67
-  %cmp87 = icmp ult i8 %sub, -12
+  %cmp87 = icmp samesign ult i8 %sub, -12
   br i1 %cmp87, label %if.then89, label %if.end105
 
 if.then89:                                        ; preds = %if.end85
@@ -125,7 +125,7 @@ if.then120:                                       ; preds = %if.else116
   br i1 %tobool121.not, label %uiZ223, label %propagateNaN
 
 if.end124:                                        ; preds = %if.else116
-  %cmp126 = icmp ugt i8 %sub, 12
+  %cmp126 = icmp samesign ugt i8 %sub, 12
   br i1 %cmp126, label %if.then128, label %if.end134
 
 if.then128:                                       ; preds = %if.end124

@@ -4779,7 +4779,7 @@ define void @php_mktime(ptr noundef %0, ptr nocapture noundef writeonly %1, i1 n
 
 35:                                               ; preds = %.thread, %33
   %.3330 = phi i1 [ %.2, %.thread ], [ false, %33 ]
-  %36 = icmp ult i32 %14, 3
+  %36 = icmp samesign ult i32 %14, 3
   br i1 %36, label %.thread367, label %37
 
 37:                                               ; preds = %35
@@ -4835,7 +4835,7 @@ define void @php_mktime(ptr noundef %0, ptr nocapture noundef writeonly %1, i1 n
 
 55:                                               ; preds = %.thread335, %53
   %.3296338 = phi i1 [ %.2295, %.thread335 ], [ false, %53 ]
-  %56 = icmp ult i32 %14, 5
+  %56 = icmp samesign ult i32 %14, 5
   br i1 %56, label %.thread367, label %57
 
 57:                                               ; preds = %55
@@ -17542,7 +17542,7 @@ define internal fastcc void @php_do_date_sunrise_sunset(ptr noundef %0, ptr noca
   br i1 %36, label %37, label %.thread345
 
 37:                                               ; preds = %35, %.critedge288
-  %38 = icmp ult i32 %16, 3
+  %38 = icmp samesign ult i32 %16, 3
   br i1 %38, label %.thread380, label %39
 
 39:                                               ; preds = %37
@@ -17598,7 +17598,7 @@ define internal fastcc void @php_do_date_sunrise_sunset(ptr noundef %0, ptr noca
 
 57:                                               ; preds = %.thread294, %55
   %.3263297 = phi i1 [ %.2262, %.thread294 ], [ false, %55 ]
-  %58 = icmp ult i32 %16, 5
+  %58 = icmp samesign ult i32 %16, 5
   br i1 %58, label %.thread326, label %59
 
 59:                                               ; preds = %57

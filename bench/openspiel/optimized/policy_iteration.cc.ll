@@ -1030,11 +1030,11 @@ _ZN10open_spiel10algorithms12_GLOBAL__N_114InitializeMapsERKSt3mapINSt7__cxx1112
   unreachable
 
 _ZN4absl7debian218container_internal12raw_hash_setINS1_17FlatHashMapPolicyINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN10open_spiel10algorithms12_GLOBAL__N_18MDPStateEEENS1_10StringHashENS1_12StringHashEq2EqESaISt4pairIKS9_SD_EEE4findIS9_EENSM_8iteratorERKT_.exit.i: ; preds = %369
-  %374 = icmp ugt i64 %371, 16
+  %374 = icmp samesign ugt i64 %371, 16
   br i1 %374, label %375, label %381
 
 375:                                              ; preds = %_ZN4absl7debian218container_internal12raw_hash_setINS1_17FlatHashMapPolicyINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN10open_spiel10algorithms12_GLOBAL__N_18MDPStateEEENS1_10StringHashENS1_12StringHashEq2EqESaISt4pairIKS9_SD_EEE4findIS9_EENSM_8iteratorERKT_.exit.i
-  %376 = icmp ugt i64 %371, 1024
+  %376 = icmp samesign ugt i64 %371, 1024
   br i1 %376, label %377, label %379
 
 377:                                              ; preds = %375
@@ -1046,7 +1046,7 @@ _ZN4absl7debian218container_internal12raw_hash_setINS1_17FlatHashMapPolicyINSt7_
           to label %.noexc100 unwind label %.loopexit
 
 381:                                              ; preds = %_ZN4absl7debian218container_internal12raw_hash_setINS1_17FlatHashMapPolicyINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN10open_spiel10algorithms12_GLOBAL__N_18MDPStateEEENS1_10StringHashENS1_12StringHashEq2EqESaISt4pairIKS9_SD_EEE4findIS9_EENSM_8iteratorERKT_.exit.i
-  %382 = icmp ugt i64 %371, 8
+  %382 = icmp samesign ugt i64 %371, 8
   br i1 %382, label %383, label %395
 
 383:                                              ; preds = %381
@@ -1066,7 +1066,7 @@ _ZN4absl7debian218container_internal12raw_hash_setINS1_17FlatHashMapPolicyINSt7_
   br label %.noexc100
 
 395:                                              ; preds = %381
-  %396 = icmp ugt i64 %371, 3
+  %396 = icmp samesign ugt i64 %371, 3
   br i1 %396, label %397, label %406
 
 397:                                              ; preds = %395
@@ -1159,11 +1159,11 @@ _ZN4absl7debian218container_internal12raw_hash_setINS1_17FlatHashMapPolicyINSt7_
   unreachable
 
 _ZN4absl7debian218container_internal12raw_hash_setINS1_17FlatHashMapPolicyINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN10open_spiel10algorithms12_GLOBAL__N_18MDPStateEEENS1_10StringHashENS1_12StringHashEq2EqESaISt4pairIKS9_SD_EEE4findIS9_EENSM_8iteratorERKT_.exit.i65: ; preds = %449
-  %454 = icmp ugt i64 %451, 16
+  %454 = icmp samesign ugt i64 %451, 16
   br i1 %454, label %455, label %461
 
 455:                                              ; preds = %_ZN4absl7debian218container_internal12raw_hash_setINS1_17FlatHashMapPolicyINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN10open_spiel10algorithms12_GLOBAL__N_18MDPStateEEENS1_10StringHashENS1_12StringHashEq2EqESaISt4pairIKS9_SD_EEE4findIS9_EENSM_8iteratorERKT_.exit.i65
-  %456 = icmp ugt i64 %451, 1024
+  %456 = icmp samesign ugt i64 %451, 1024
   br i1 %456, label %457, label %459
 
 457:                                              ; preds = %455
@@ -1175,7 +1175,7 @@ _ZN4absl7debian218container_internal12raw_hash_setINS1_17FlatHashMapPolicyINSt7_
           to label %.noexc111 unwind label %.loopexit
 
 461:                                              ; preds = %_ZN4absl7debian218container_internal12raw_hash_setINS1_17FlatHashMapPolicyINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN10open_spiel10algorithms12_GLOBAL__N_18MDPStateEEENS1_10StringHashENS1_12StringHashEq2EqESaISt4pairIKS9_SD_EEE4findIS9_EENSM_8iteratorERKT_.exit.i65
-  %462 = icmp ugt i64 %451, 8
+  %462 = icmp samesign ugt i64 %451, 8
   br i1 %462, label %463, label %475
 
 463:                                              ; preds = %461
@@ -1195,7 +1195,7 @@ _ZN4absl7debian218container_internal12raw_hash_setINS1_17FlatHashMapPolicyINSt7_
   br label %.noexc111
 
 475:                                              ; preds = %461
-  %476 = icmp ugt i64 %451, 3
+  %476 = icmp samesign ugt i64 %451, 3
   br i1 %476, label %477, label %486
 
 477:                                              ; preds = %475
@@ -1462,11 +1462,11 @@ _ZN4absl7debian218container_internal12raw_hash_setINS1_17FlatHashMapPolicyINSt7_
   unreachable
 
 _ZN4absl7debian218container_internal12raw_hash_setINS1_17FlatHashMapPolicyINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN10open_spiel10algorithms12_GLOBAL__N_18MDPStateEEENS1_10StringHashENS1_12StringHashEq2EqESaISt4pairIKS9_SD_EEE4findIS9_EENSM_8iteratorERKT_.exit.i76: ; preds = %597
-  %602 = icmp ugt i64 %599, 16
+  %602 = icmp samesign ugt i64 %599, 16
   br i1 %602, label %603, label %609
 
 603:                                              ; preds = %_ZN4absl7debian218container_internal12raw_hash_setINS1_17FlatHashMapPolicyINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN10open_spiel10algorithms12_GLOBAL__N_18MDPStateEEENS1_10StringHashENS1_12StringHashEq2EqESaISt4pairIKS9_SD_EEE4findIS9_EENSM_8iteratorERKT_.exit.i76
-  %604 = icmp ugt i64 %599, 1024
+  %604 = icmp samesign ugt i64 %599, 1024
   br i1 %604, label %605, label %607
 
 605:                                              ; preds = %603
@@ -1478,7 +1478,7 @@ _ZN4absl7debian218container_internal12raw_hash_setINS1_17FlatHashMapPolicyINSt7_
           to label %.noexc123 unwind label %.loopexit.split-lp.loopexit
 
 609:                                              ; preds = %_ZN4absl7debian218container_internal12raw_hash_setINS1_17FlatHashMapPolicyINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN10open_spiel10algorithms12_GLOBAL__N_18MDPStateEEENS1_10StringHashENS1_12StringHashEq2EqESaISt4pairIKS9_SD_EEE4findIS9_EENSM_8iteratorERKT_.exit.i76
-  %610 = icmp ugt i64 %599, 8
+  %610 = icmp samesign ugt i64 %599, 8
   br i1 %610, label %611, label %623
 
 611:                                              ; preds = %609
@@ -1498,7 +1498,7 @@ _ZN4absl7debian218container_internal12raw_hash_setINS1_17FlatHashMapPolicyINSt7_
   br label %.noexc123
 
 623:                                              ; preds = %609
-  %624 = icmp ugt i64 %599, 3
+  %624 = icmp samesign ugt i64 %599, 3
   br i1 %624, label %625, label %634
 
 625:                                              ; preds = %623
@@ -1585,11 +1585,11 @@ _ZN4absl7debian218container_internal12raw_hash_setINS1_17FlatHashMapPolicyINSt7_
   unreachable
 
 _ZN4absl7debian218container_internal12raw_hash_setINS1_17FlatHashMapPolicyINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN10open_spiel10algorithms12_GLOBAL__N_18MDPStateEEENS1_10StringHashENS1_12StringHashEq2EqESaISt4pairIKS9_SD_EEE4findIS9_EENSM_8iteratorERKT_.exit.i81: ; preds = %672
-  %678 = icmp ugt i64 %675, 16
+  %678 = icmp samesign ugt i64 %675, 16
   br i1 %678, label %679, label %685
 
 679:                                              ; preds = %_ZN4absl7debian218container_internal12raw_hash_setINS1_17FlatHashMapPolicyINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN10open_spiel10algorithms12_GLOBAL__N_18MDPStateEEENS1_10StringHashENS1_12StringHashEq2EqESaISt4pairIKS9_SD_EEE4findIS9_EENSM_8iteratorERKT_.exit.i81
-  %680 = icmp ugt i64 %675, 1024
+  %680 = icmp samesign ugt i64 %675, 1024
   br i1 %680, label %681, label %683
 
 681:                                              ; preds = %679
@@ -1601,7 +1601,7 @@ _ZN4absl7debian218container_internal12raw_hash_setINS1_17FlatHashMapPolicyINSt7_
           to label %.noexc135 unwind label %.loopexit.split-lp.loopexit
 
 685:                                              ; preds = %_ZN4absl7debian218container_internal12raw_hash_setINS1_17FlatHashMapPolicyINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN10open_spiel10algorithms12_GLOBAL__N_18MDPStateEEENS1_10StringHashENS1_12StringHashEq2EqESaISt4pairIKS9_SD_EEE4findIS9_EENSM_8iteratorERKT_.exit.i81
-  %686 = icmp ugt i64 %675, 8
+  %686 = icmp samesign ugt i64 %675, 8
   br i1 %686, label %687, label %699
 
 687:                                              ; preds = %685
@@ -1621,7 +1621,7 @@ _ZN4absl7debian218container_internal12raw_hash_setINS1_17FlatHashMapPolicyINSt7_
   br label %.noexc135
 
 699:                                              ; preds = %685
-  %700 = icmp ugt i64 %675, 3
+  %700 = icmp samesign ugt i64 %675, 3
   br i1 %700, label %701, label %710
 
 701:                                              ; preds = %699
@@ -3317,7 +3317,7 @@ _ZNSt12_Vector_baseISt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE
   %43 = getelementptr inbounds i8, ptr %.0910.i.i.i.i.i, i64 40
   %44 = getelementptr inbounds i8, ptr %.0811.i.i.i.i.i, i64 40
   %45 = add nsw i64 %.012.i.i.i.i.i, -1
-  %46 = icmp ugt i64 %.012.i.i.i.i.i, 1
+  %46 = icmp samesign ugt i64 %.012.i.i.i.i.i, 1
   br i1 %46, label %.lr.ph.i.i.i.i.i, label %_ZSt4copyIN9__gnu_cxx17__normal_iteratorIPKSt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEdESt6vectorIS9_SaIS9_EEEENS1_IPS9_SE_EEET0_T_SJ_SI_.exit.loopexit, !llvm.loop !44
 
 _ZSt4copyIN9__gnu_cxx17__normal_iteratorIPKSt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEdESt6vectorIS9_SaIS9_EEEENS1_IPS9_SE_EEET0_T_SJ_SI_.exit.loopexit: ; preds = %.lr.ph.i.i.i.i.i
@@ -3364,7 +3364,7 @@ _ZSt4copyIN9__gnu_cxx17__normal_iteratorIPKSt4pairINSt7__cxx1112basic_stringIcSt
   %58 = getelementptr inbounds i8, ptr %.0910.i.i.i.i.i33, i64 40
   %59 = getelementptr inbounds i8, ptr %.0811.i.i.i.i.i32, i64 40
   %60 = add nsw i64 %.012.i.i.i.i.i31, -1
-  %61 = icmp ugt i64 %.012.i.i.i.i.i31, 1
+  %61 = icmp samesign ugt i64 %.012.i.i.i.i.i31, 1
   br i1 %61, label %.lr.ph.i.i.i.i.i30, label %_ZSt4copyIPSt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEdES8_ET0_T_SA_S9_.exit.loopexit, !llvm.loop !46
 
 _ZSt4copyIPSt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEdES8_ET0_T_SA_S9_.exit.loopexit: ; preds = %.lr.ph.i.i.i.i.i30
@@ -4351,7 +4351,7 @@ define linkonce_odr noundef i64 @_ZN4absl7debian213hash_internal9HashState21Comb
   br label %56
 
 11:                                               ; preds = %3
-  %12 = icmp ugt i64 %2, 8
+  %12 = icmp samesign ugt i64 %2, 8
   br i1 %12, label %13, label %25
 
 13:                                               ; preds = %11
@@ -4371,7 +4371,7 @@ define linkonce_odr noundef i64 @_ZN4absl7debian213hash_internal9HashState21Comb
   br label %56
 
 25:                                               ; preds = %11
-  %26 = icmp ugt i64 %2, 3
+  %26 = icmp samesign ugt i64 %2, 3
   br i1 %26, label %27, label %36
 
 27:                                               ; preds = %25

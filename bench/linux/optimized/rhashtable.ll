@@ -145,7 +145,7 @@ define dso_local ptr @rhashtable_insert_slow(ptr noundef %0, ptr noundef %1, ptr
   %72 = lshr i32 %55, %60
   %73 = load volatile ptr, ptr %71, align 8
   %74 = icmp ne ptr %73, null
-  %75 = icmp ugt i32 %67, 512
+  %75 = icmp samesign ugt i32 %67, 512
   %76 = select i1 %74, i1 %75, i1 false
   br i1 %76, label %.preheader31, label %.loopexit32
 

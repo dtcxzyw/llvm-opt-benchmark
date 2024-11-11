@@ -4886,7 +4886,7 @@ define internal fastcc void @"_ZN80_$LT$core..str..pattern..StrSearcher$u20$as$u
   %40 = and i8 %38, 63
   %41 = zext nneg i8 %40 to i32
   %42 = or disjoint i32 %39, %41
-  %43 = icmp ugt i8 %32, -33
+  %43 = icmp samesign ugt i8 %32, -33
   br i1 %43, label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h17fa3f5715acc23fE.exit15.i.i", label %_ZN4core3str11validations15next_code_point17h4166ad896431ca6aE.exit.thread.i
 
 44:                                               ; preds = %31
@@ -4904,7 +4904,7 @@ define internal fastcc void @"_ZN80_$LT$core..str..pattern..StrSearcher$u20$as$u
   %52 = or disjoint i32 %49, %51
   %53 = shl nuw nsw i32 %36, 12
   %54 = or disjoint i32 %52, %53
-  %55 = icmp ugt i8 %32, -17
+  %55 = icmp samesign ugt i8 %32, -17
   br i1 %55, label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h17fa3f5715acc23fE.exit17.i.i", label %_ZN4core3str11validations15next_code_point17h4166ad896431ca6aE.exit.thread.i
 
 "_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h17fa3f5715acc23fE.exit17.i.i": ; preds = %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h17fa3f5715acc23fE.exit15.i.i"
@@ -9149,7 +9149,7 @@ define hidden void @_ZN9hashbrown3raw5inner13RawTableInner22fallible_with_capaci
   br i1 %15, label %18, label %26
 
 16:                                               ; preds = %11
-  %17 = icmp ult i64 %4, 4
+  %17 = icmp samesign ult i64 %4, 4
   %..i = select i1 %17, i64 4, i64 8
   br label %32
 
@@ -9247,7 +9247,7 @@ define hidden void @_ZN9hashbrown3raw5inner13RawTableInner22fallible_with_capaci
   br label %72
 
 _ZN9hashbrown3raw5inner13RawTableInner17new_uninitialized17h389047ac6e6a10eaE.exit: ; preds = %51
-  %65 = icmp ult i64 %.sroa.6.053.ph, 9
+  %65 = icmp samesign ult i64 %.sroa.6.053.ph, 9
   %66 = add nsw i64 %.sroa.6.053.ph, -1
   %67 = lshr i64 %.sroa.6.053.ph, 3
   %68 = mul nuw nsw i64 %67, 7

@@ -11926,7 +11926,7 @@ _ZN2cv10AutoBufferImLm4EEC2Em.exit:               ; preds = %_ZN2cv10AutoBufferI
   %237 = load ptr, ptr %24, align 8
   %238 = getelementptr inbounds i64, ptr %237, i64 %indvars.iv.next
   store i64 %236, ptr %238, align 8
-  %239 = icmp ugt i64 %indvars.iv, 1
+  %239 = icmp samesign ugt i64 %indvars.iv, 1
   br i1 %239, label %226, label %._crit_edge.loopexit, !llvm.loop !29
 
 240:                                              ; preds = %206

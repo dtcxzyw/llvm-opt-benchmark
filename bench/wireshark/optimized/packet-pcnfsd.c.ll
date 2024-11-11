@@ -206,7 +206,7 @@ define internal i32 @dissect_pcnfsd2_auth_call(ptr noundef %0, ptr nocapture nou
   %30 = add nsw i32 %.01011.i, -1
   %31 = getelementptr i8, ptr %.0912.i, i64 1
   %32 = getelementptr i8, ptr %.013.i, i64 1
-  %33 = icmp ugt i32 %.01011.i, 1
+  %33 = icmp samesign ugt i32 %.01011.i, 1
   br i1 %33, label %.lr.ph.i, label %pcnfsd_decode_obscure.exit, !llvm.loop !4
 
 pcnfsd_decode_obscure.exit:                       ; preds = %.lr.ph.i, %19, %17
@@ -279,7 +279,7 @@ pcnfsd_decode_obscure.exit:                       ; preds = %.lr.ph.i, %19, %17
   %68 = add nsw i32 %.01011.i56, -1
   %69 = getelementptr i8, ptr %.0912.i55, i64 1
   %70 = getelementptr i8, ptr %.013.i54, i64 1
-  %71 = icmp ugt i32 %.01011.i56, 1
+  %71 = icmp samesign ugt i32 %.01011.i56, 1
   br i1 %71, label %.lr.ph.i53, label %pcnfsd_decode_obscure.exit57, !llvm.loop !4
 
 pcnfsd_decode_obscure.exit57:                     ; preds = %.lr.ph.i53, %57, %55

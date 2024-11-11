@@ -18027,7 +18027,7 @@ _ZN4CGAL4MpzfD2Ev.exit:                           ; preds = %34, %37
   br i1 %93, label %94, label %113
 
 94:                                               ; preds = %91
-  %.not225 = icmp ugt i32 %64, %.0200
+  %.not225 = icmp samesign ugt i32 %64, %.0200
   br i1 %.not225, label %108, label %95
 
 95:                                               ; preds = %94
@@ -18076,7 +18076,7 @@ _ZN4CGAL9Mpzf_impl10fill_n_ptrEPmii.exit:         ; preds = %.lr.ph.i.i.i.i.i, %
   br i1 %114, label %115, label %135
 
 115:                                              ; preds = %113
-  %.not223 = icmp ugt i32 %66, %.0201
+  %.not223 = icmp samesign ugt i32 %66, %.0201
   br i1 %.not223, label %129, label %116
 
 116:                                              ; preds = %115
@@ -18361,7 +18361,7 @@ _ZN4CGAL11Mpzf_abscmpERKNS_4MpzfES2_.exit.thread.thread: ; preds = %194, %168, %
   br i1 %240, label %241, label %271
 
 241:                                              ; preds = %239
-  %.not = icmp ugt i32 %206, %.0190
+  %.not = icmp samesign ugt i32 %206, %.0190
   br i1 %.not, label %264, label %242
 
 242:                                              ; preds = %241
@@ -52277,7 +52277,7 @@ define linkonce_odr void @_ZSt16__insertion_sortIN9__gnu_cxx17__normal_iteratorI
   %23 = getelementptr inbounds i8, ptr %.069.i.i.i.i.i, i64 -8
   store i64 %22, ptr %23, align 8
   %24 = add nsw i64 %.010.i.i.i.i.i, -1
-  %25 = icmp ugt i64 %.010.i.i.i.i.i, 1
+  %25 = icmp samesign ugt i64 %.010.i.i.i.i.i, 1
   br i1 %25, label %.lr.ph.i.i.i.i.i, label %_ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPN4CGAL14AABB_primitiveISt4pairImmENS2_20Compose_property_mapINS6_INS2_26First_of_pair_property_mapIS5_EENS2_13Alpha_wraps_38internal19Vector_property_mapImEEN5boost27read_write_property_map_tagEEENSB_INS2_10Triangle_3INS2_5EpickEEEEESE_EENS6_IS8_NSB_INS2_7Point_3ISH_EEEESE_EENS2_11Boolean_tagILb1EEENSP_ILb0EEEEESt6vectorISS_SaISS_EEEESX_ET0_T_SZ_SY_.exit, !llvm.loop !1139
 
 _ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPN4CGAL14AABB_primitiveISt4pairImmENS2_20Compose_property_mapINS6_INS2_26First_of_pair_property_mapIS5_EENS2_13Alpha_wraps_38internal19Vector_property_mapImEEN5boost27read_write_property_map_tagEEENSB_INS2_10Triangle_3INS2_5EpickEEEEESE_EENS6_IS8_NSB_INS2_7Point_3ISH_EEEESE_EENS2_11Boolean_tagILb1EEENSP_ILb0EEEEESt6vectorISS_SaISS_EEEESX_ET0_T_SZ_SY_.exit: ; preds = %.lr.ph.i.i.i.i.i, %12
@@ -53555,7 +53555,7 @@ define linkonce_odr void @_ZSt16__insertion_sortIN9__gnu_cxx17__normal_iteratorI
   %23 = getelementptr inbounds i8, ptr %.069.i.i.i.i.i, i64 -8
   store i64 %22, ptr %23, align 8
   %24 = add nsw i64 %.010.i.i.i.i.i, -1
-  %25 = icmp ugt i64 %.010.i.i.i.i.i, 1
+  %25 = icmp samesign ugt i64 %.010.i.i.i.i.i, 1
   br i1 %25, label %.lr.ph.i.i.i.i.i, label %_ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPN4CGAL14AABB_primitiveISt4pairImmENS2_20Compose_property_mapINS6_INS2_26First_of_pair_property_mapIS5_EENS2_13Alpha_wraps_38internal19Vector_property_mapImEEN5boost27read_write_property_map_tagEEENSB_INS2_10Triangle_3INS2_5EpickEEEEESE_EENS6_IS8_NSB_INS2_7Point_3ISH_EEEESE_EENS2_11Boolean_tagILb1EEENSP_ILb0EEEEESt6vectorISS_SaISS_EEEESX_ET0_T_SZ_SY_.exit, !llvm.loop !1139
 
 _ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPN4CGAL14AABB_primitiveISt4pairImmENS2_20Compose_property_mapINS6_INS2_26First_of_pair_property_mapIS5_EENS2_13Alpha_wraps_38internal19Vector_property_mapImEEN5boost27read_write_property_map_tagEEENSB_INS2_10Triangle_3INS2_5EpickEEEEESE_EENS6_IS8_NSB_INS2_7Point_3ISH_EEEESE_EENS2_11Boolean_tagILb1EEENSP_ILb0EEEEESt6vectorISS_SaISS_EEEESX_ET0_T_SZ_SY_.exit: ; preds = %.lr.ph.i.i.i.i.i, %12
@@ -54841,7 +54841,7 @@ define linkonce_odr void @_ZSt16__insertion_sortIN9__gnu_cxx17__normal_iteratorI
   %23 = getelementptr inbounds i8, ptr %.069.i.i.i.i.i, i64 -8
   store i64 %22, ptr %23, align 8
   %24 = add nsw i64 %.010.i.i.i.i.i, -1
-  %25 = icmp ugt i64 %.010.i.i.i.i.i, 1
+  %25 = icmp samesign ugt i64 %.010.i.i.i.i.i, 1
   br i1 %25, label %.lr.ph.i.i.i.i.i, label %_ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPN4CGAL14AABB_primitiveISt4pairImmENS2_20Compose_property_mapINS6_INS2_26First_of_pair_property_mapIS5_EENS2_13Alpha_wraps_38internal19Vector_property_mapImEEN5boost27read_write_property_map_tagEEENSB_INS2_10Triangle_3INS2_5EpickEEEEESE_EENS6_IS8_NSB_INS2_7Point_3ISH_EEEESE_EENS2_11Boolean_tagILb1EEENSP_ILb0EEEEESt6vectorISS_SaISS_EEEESX_ET0_T_SZ_SY_.exit, !llvm.loop !1139
 
 _ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPN4CGAL14AABB_primitiveISt4pairImmENS2_20Compose_property_mapINS6_INS2_26First_of_pair_property_mapIS5_EENS2_13Alpha_wraps_38internal19Vector_property_mapImEEN5boost27read_write_property_map_tagEEENSB_INS2_10Triangle_3INS2_5EpickEEEEESE_EENS6_IS8_NSB_INS2_7Point_3ISH_EEEESE_EENS2_11Boolean_tagILb1EEENSP_ILb0EEEEESt6vectorISS_SaISS_EEEESX_ET0_T_SZ_SY_.exit: ; preds = %.lr.ph.i.i.i.i.i, %12
@@ -88503,7 +88503,7 @@ _ZSt22__uninitialized_move_aIPN4CGAL19Add_decorated_pointINS0_11AABB_traitsINS0_
   %54 = and i8 %52, 1
   store i8 %54, ptr %53, align 8
   %55 = add nsw i64 %.010.i.i.i.i.i, -1
-  %56 = icmp ugt i64 %.010.i.i.i.i.i, 1
+  %56 = icmp samesign ugt i64 %.010.i.i.i.i.i, 1
   br i1 %56, label %.lr.ph.i.i.i.i.i51, label %_ZSt13move_backwardIPN4CGAL19Add_decorated_pointINS0_11AABB_traitsINS0_13Alpha_wraps_38internal27Alpha_wrap_AABB_geom_traitsINS0_5EpickEEENS0_14AABB_primitiveISt4pairImmENS0_20Compose_property_mapINSB_INS0_26First_of_pair_property_mapISA_EENS4_19Vector_property_mapImEEN5boost27read_write_property_map_tagEEENSE_INS0_10Triangle_3IS6_EEEESH_EENSB_ISD_NSE_INS0_7Point_3IS6_EEEESH_EENS0_11Boolean_tagILb1EEENSR_ILb0EEEEENSB_ISD_NSE_INS0_6Bbox_3EEESH_EEEESA_E15Decorated_pointES11_ET0_T_S13_S12_.exit, !llvm.loop !1693
 
 _ZSt13move_backwardIPN4CGAL19Add_decorated_pointINS0_11AABB_traitsINS0_13Alpha_wraps_38internal27Alpha_wrap_AABB_geom_traitsINS0_5EpickEEENS0_14AABB_primitiveISt4pairImmENS0_20Compose_property_mapINSB_INS0_26First_of_pair_property_mapISA_EENS4_19Vector_property_mapImEEN5boost27read_write_property_map_tagEEENSE_INS0_10Triangle_3IS6_EEEESH_EENSB_ISD_NSE_INS0_7Point_3IS6_EEEESH_EENS0_11Boolean_tagILb1EEENSR_ILb0EEEEENSB_ISD_NSE_INS0_6Bbox_3EEESH_EEEESA_E15Decorated_pointES11_ET0_T_S13_S12_.exit: ; preds = %.lr.ph.i.i.i.i.i51, %_ZSt22__uninitialized_move_aIPN4CGAL19Add_decorated_pointINS0_11AABB_traitsINS0_13Alpha_wraps_38internal27Alpha_wrap_AABB_geom_traitsINS0_5EpickEEENS0_14AABB_primitiveISt4pairImmENS0_20Compose_property_mapINSB_INS0_26First_of_pair_property_mapISA_EENS4_19Vector_property_mapImEEN5boost27read_write_property_map_tagEEENSE_INS0_10Triangle_3IS6_EEEESH_EENSB_ISD_NSE_INS0_7Point_3IS6_EEEESH_EENS0_11Boolean_tagILb1EEENSR_ILb0EEEEENSB_ISD_NSE_INS0_6Bbox_3EEESH_EEEESA_E15Decorated_pointES11_SaIS10_EET0_T_S14_S13_RT1_.exit
@@ -88535,7 +88535,7 @@ _ZSt13move_backwardIPN4CGAL19Add_decorated_pointINS0_11AABB_traitsINS0_13Alpha_w
   %69 = getelementptr inbounds i8, ptr %.0910.i.i.i.i.i, i64 48
   %70 = getelementptr inbounds i8, ptr %.0811.i.i.i.i.i, i64 48
   %71 = add nsw i64 %.012.i.i.i.i.i, -1
-  %72 = icmp ugt i64 %.012.i.i.i.i.i, 1
+  %72 = icmp samesign ugt i64 %.012.i.i.i.i.i, 1
   br i1 %72, label %.lr.ph.i.i.i.i.i53, label %_ZSt4copyIN9__gnu_cxx17__normal_iteratorIPN4CGAL19Add_decorated_pointINS2_11AABB_traitsINS2_13Alpha_wraps_38internal27Alpha_wrap_AABB_geom_traitsINS2_5EpickEEENS2_14AABB_primitiveISt4pairImmENS2_20Compose_property_mapINSD_INS2_26First_of_pair_property_mapISC_EENS6_19Vector_property_mapImEEN5boost27read_write_property_map_tagEEENSG_INS2_10Triangle_3IS8_EEEESJ_EENSD_ISF_NSG_INS2_7Point_3IS8_EEEESJ_EENS2_11Boolean_tagILb1EEENST_ILb0EEEEENSD_ISF_NSG_INS2_6Bbox_3EEESJ_EEEESC_E15Decorated_pointESt6vectorIS12_SaIS12_EEEES17_ET0_T_S19_S18_.exit, !llvm.loop !1694
 
 _ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPN4CGAL19Add_decorated_pointINS2_11AABB_traitsINS2_13Alpha_wraps_38internal27Alpha_wrap_AABB_geom_traitsINS2_5EpickEEENS2_14AABB_primitiveISt4pairImmENS2_20Compose_property_mapINSD_INS2_26First_of_pair_property_mapISC_EENS6_19Vector_property_mapImEEN5boost27read_write_property_map_tagEEENSG_INS2_10Triangle_3IS8_EEEESJ_EENSD_ISF_NSG_INS2_7Point_3IS8_EEEESJ_EENS2_11Boolean_tagILb1EEENST_ILb0EEEEENSD_ISF_NSG_INS2_6Bbox_3EEESJ_EEEESC_E15Decorated_pointESt6vectorIS12_SaIS12_EEEEmEvRT_T0_.exit: ; preds = %17
@@ -88651,7 +88651,7 @@ _ZSt22__uninitialized_move_aIPN4CGAL19Add_decorated_pointINS0_11AABB_traitsINS0_
   %119 = getelementptr inbounds i8, ptr %.0910.i.i.i.i.i67, i64 48
   %120 = getelementptr inbounds i8, ptr %.0811.i.i.i.i.i66, i64 48
   %121 = add nsw i64 %.012.i.i.i.i.i65, -1
-  %122 = icmp ugt i64 %.012.i.i.i.i.i65, 1
+  %122 = icmp samesign ugt i64 %.012.i.i.i.i.i65, 1
   br i1 %122, label %.lr.ph.i.i.i.i.i64, label %_ZSt4copyIN9__gnu_cxx17__normal_iteratorIPN4CGAL19Add_decorated_pointINS2_11AABB_traitsINS2_13Alpha_wraps_38internal27Alpha_wrap_AABB_geom_traitsINS2_5EpickEEENS2_14AABB_primitiveISt4pairImmENS2_20Compose_property_mapINSD_INS2_26First_of_pair_property_mapISC_EENS6_19Vector_property_mapImEEN5boost27read_write_property_map_tagEEENSG_INS2_10Triangle_3IS8_EEEESJ_EENSD_ISF_NSG_INS2_7Point_3IS8_EEEESJ_EENS2_11Boolean_tagILb1EEENST_ILb0EEEEENSD_ISF_NSG_INS2_6Bbox_3EEESJ_EEEESC_E15Decorated_pointESt6vectorIS12_SaIS12_EEEES17_ET0_T_S19_S18_.exit, !llvm.loop !1694
 
 123:                                              ; preds = %5
@@ -92479,7 +92479,7 @@ define linkonce_odr void @_ZN4CGAL8internal22bounded_priority_queueISt4pairIPKNS
   %74 = load double, ptr %73, align 8
   %75 = getelementptr inbounds i8, ptr %71, i64 8
   store double %74, ptr %75, align 8
-  %76 = icmp ugt i32 %.03444, 3
+  %76 = icmp samesign ugt i32 %.03444, 3
   br i1 %76, label %58, label %._crit_edge, !llvm.loop !1738
 
 ._crit_edge:                                      ; preds = %69, %58, %54
@@ -93145,7 +93145,7 @@ _ZSt25__unguarded_linear_insertIN9__gnu_cxx17__normal_iteratorIPSt4pairIPKN4CGAL
   %29 = getelementptr inbounds i8, ptr %.069.i.i.i.i.i.us, i64 -8
   store double %28, ptr %29, align 8
   %30 = add nsw i64 %.010.i.i.i.i.i.us, -1
-  %31 = icmp ugt i64 %.010.i.i.i.i.i.us, 1
+  %31 = icmp samesign ugt i64 %.010.i.i.i.i.i.us, 1
   br i1 %31, label %.lr.ph.i.i.i.i.i.us, label %_ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPSt4pairIPKN4CGAL19Add_decorated_pointINS3_11AABB_traitsINS3_13Alpha_wraps_38internal27Alpha_wrap_AABB_geom_traitsINS3_5EpickEEENS3_14AABB_primitiveIS2_ImmENS3_20Compose_property_mapINSD_INS3_26First_of_pair_property_mapISC_EENS7_19Vector_property_mapImEEN5boost27read_write_property_map_tagEEENSG_INS3_10Triangle_3IS9_EEEESJ_EENSD_ISF_NSG_INS3_7Point_3IS9_EEEESJ_EENS3_11Boolean_tagILb1EEENST_ILb0EEEEENSD_ISF_NSG_INS3_6Bbox_3EEESJ_EEEESC_E15Decorated_pointEdESt6vectorIS15_SaIS15_EEEES1A_ET0_T_S1C_S1B_.exit.us, !llvm.loop !1749
 
 _ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPSt4pairIPKN4CGAL19Add_decorated_pointINS3_11AABB_traitsINS3_13Alpha_wraps_38internal27Alpha_wrap_AABB_geom_traitsINS3_5EpickEEENS3_14AABB_primitiveIS2_ImmENS3_20Compose_property_mapINSD_INS3_26First_of_pair_property_mapISC_EENS7_19Vector_property_mapImEEN5boost27read_write_property_map_tagEEENSG_INS3_10Triangle_3IS9_EEEESJ_EENSD_ISF_NSG_INS3_7Point_3IS9_EEEESJ_EENS3_11Boolean_tagILb1EEENST_ILb0EEEEENSD_ISF_NSG_INS3_6Bbox_3EEESJ_EEEESC_E15Decorated_pointEdESt6vectorIS15_SaIS15_EEEES1A_ET0_T_S1C_S1B_.exit.us: ; preds = %.lr.ph.i.i.i.i.i.us, %18
@@ -93194,7 +93194,7 @@ _ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPSt4pairIPKN4CGAL19Add_decora
   %48 = getelementptr inbounds i8, ptr %.069.i.i.i.i.i, i64 -8
   store double %47, ptr %48, align 8
   %49 = add nsw i64 %.010.i.i.i.i.i, -1
-  %50 = icmp ugt i64 %.010.i.i.i.i.i, 1
+  %50 = icmp samesign ugt i64 %.010.i.i.i.i.i, 1
   br i1 %50, label %.lr.ph.i.i.i.i.i, label %_ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPSt4pairIPKN4CGAL19Add_decorated_pointINS3_11AABB_traitsINS3_13Alpha_wraps_38internal27Alpha_wrap_AABB_geom_traitsINS3_5EpickEEENS3_14AABB_primitiveIS2_ImmENS3_20Compose_property_mapINSD_INS3_26First_of_pair_property_mapISC_EENS7_19Vector_property_mapImEEN5boost27read_write_property_map_tagEEENSG_INS3_10Triangle_3IS9_EEEESJ_EENSD_ISF_NSG_INS3_7Point_3IS9_EEEESJ_EENS3_11Boolean_tagILb1EEENST_ILb0EEEEENSD_ISF_NSG_INS3_6Bbox_3EEESJ_EEEESC_E15Decorated_pointEdESt6vectorIS15_SaIS15_EEEES1A_ET0_T_S1C_S1B_.exit, !llvm.loop !1749
 
 _ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPSt4pairIPKN4CGAL19Add_decorated_pointINS3_11AABB_traitsINS3_13Alpha_wraps_38internal27Alpha_wrap_AABB_geom_traitsINS3_5EpickEEENS3_14AABB_primitiveIS2_ImmENS3_20Compose_property_mapINSD_INS3_26First_of_pair_property_mapISC_EENS7_19Vector_property_mapImEEN5boost27read_write_property_map_tagEEENSG_INS3_10Triangle_3IS9_EEEESJ_EENSD_ISF_NSG_INS3_7Point_3IS9_EEEESJ_EENS3_11Boolean_tagILb1EEENST_ILb0EEEEENSD_ISF_NSG_INS3_6Bbox_3EEESJ_EEEESC_E15Decorated_pointEdESt6vectorIS15_SaIS15_EEEES1A_ET0_T_S1C_S1B_.exit: ; preds = %.lr.ph.i.i.i.i.i, %37

@@ -641,7 +641,7 @@ if.end.i23:                                       ; preds = %BITv05_initDStream.
   %sh_prom2.i.i.i = zext nneg i32 %and1.i.i.i to i64
   %shr3.i.i.i = lshr i64 %shr.i.i.i, %sh_prom2.i.i.i
   %add.i.i.i = add nuw nsw i32 %bitD.i14.sroa.25.3896, %conv.i67
-  %cmp.i.i68 = icmp ugt i32 %add.i.i.i, 64
+  %cmp.i.i68 = icmp samesign ugt i32 %add.i.i.i, 64
   br i1 %cmp.i.i68, label %FSEv05_initDState.exit, label %if.end.i.i
 
 if.end.i.i:                                       ; preds = %if.end.i23
@@ -1180,7 +1180,7 @@ if.end.i:                                         ; preds = %BITv05_initDStream.
   %sh_prom2.i.i.i412 = zext nneg i32 %and1.i.i.i411 to i64
   %shr3.i.i.i413 = lshr i64 %shr.i.i.i410, %sh_prom2.i.i.i412
   %add.i.i.i414 = add nuw nsw i32 %bitD.i.sroa.25.3936, %conv.i404
-  %cmp.i.i415 = icmp ugt i32 %add.i.i.i414, 64
+  %cmp.i.i415 = icmp samesign ugt i32 %add.i.i.i414, 64
   br i1 %cmp.i.i415, label %FSEv05_initDState.exit450, label %if.end.i.i416
 
 if.end.i.i416:                                    ; preds = %if.end.i
@@ -1784,7 +1784,7 @@ if.end:                                           ; preds = %entry
   br i1 %cmp, label %if.then2, label %if.else37
 
 if.then2:                                         ; preds = %if.end
-  %cmp3 = icmp ugt i8 %0, -15
+  %cmp3 = icmp samesign ugt i8 %0, -15
   br i1 %cmp3, label %if.then5, label %if.else
 
 if.then5:                                         ; preds = %if.then2
@@ -1844,7 +1844,7 @@ if.end42:                                         ; preds = %if.else37
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %tableLog.i)
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %maxSymbolValue.i)
   store i32 255, ptr %maxSymbolValue.i, align 4
-  %cmp.i = icmp ult i8 %0, 2
+  %cmp.i = icmp samesign ult i8 %0, 2
   br i1 %cmp.i, label %FSEv05_decompress.exit.thread, label %if.end.i
 
 if.end.i:                                         ; preds = %if.end42
@@ -6523,7 +6523,7 @@ if.end19.i:                                       ; preds = %BITv05_initDStream.
   %sh_prom2.i.i.i.i = zext nneg i32 %and1.i.i.i.i to i64
   %shr3.i.i.i.i = lshr i64 %shr.i.i.i.i, %sh_prom2.i.i.i.i
   %add.i.i.i.i = add nuw nsw i32 %seqState.sroa.18.1281.i, %conv.i50.i
-  %cmp.i.i51.i = icmp ugt i32 %add.i.i.i.i, 64
+  %cmp.i.i51.i = icmp samesign ugt i32 %add.i.i.i.i, 64
   br i1 %cmp.i.i51.i, label %FSEv05_initDState.exit.i, label %if.end.i.i.i
 
 if.end.i.i.i:                                     ; preds = %if.end19.i

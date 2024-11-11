@@ -2243,7 +2243,7 @@ define hidden void @_ZN4core5slice4sort6shared9smallsort18small_sort_network17ha
 8:                                                ; preds = %6
   call void @llvm.lifetime.start.p0(i64 768, ptr nonnull %4)
   %9 = lshr i64 %1, 1
-  %10 = icmp ult i64 %1, 18
+  %10 = icmp samesign ult i64 %1, 18
   %. = select i1 %10, i64 %1, i64 %9
   %11 = getelementptr { i64, i64, i8, [7 x i8] }, ptr %0, i64 %9
   %12 = sub nuw nsw i64 %1, %9
@@ -2260,7 +2260,7 @@ define hidden void @_ZN4core5slice4sort6shared9smallsort18small_sort_network17ha
   br i1 %15, label %18, label %16
 
 16:                                               ; preds = %14
-  %17 = icmp ugt i64 %.sroa.9.0, 8
+  %17 = icmp samesign ugt i64 %.sroa.9.0, 8
   br i1 %17, label %19, label %20
 
 18:                                               ; preds = %14

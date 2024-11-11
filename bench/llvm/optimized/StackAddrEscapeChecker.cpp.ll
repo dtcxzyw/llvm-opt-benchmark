@@ -219,7 +219,7 @@ tailrecurse.i:                                    ; preds = %8, %2
 _ZL27getStackOrGlobalSpaceRegionPKN5clang4ento9MemRegionE.exit: ; preds = %tailrecurse.i, %tailrecurse.i, %tailrecurse.i, %tailrecurse.i, %tailrecurse.i, %tailrecurse.i
   %18 = icmp eq i32 %7, 4
   %19 = add nsw i32 %7, -1
-  %20 = icmp ult i32 %19, 4
+  %20 = icmp samesign ult i32 %19, 4
   %.str.2..str.3.i = select i1 %20, ptr @.str.2, ptr @.str.3
   %.0.i4 = select i1 %18, ptr @.str.1, ptr %.str.2..str.3.i
   %21 = load ptr, ptr %1, align 8
@@ -4178,7 +4178,7 @@ tailrecurse.i:                                    ; preds = %124, %116
 
 _ZN4llvm15isa_and_nonnullIJN5clang4ento18GlobalsSpaceRegionEEPKNS2_14MemSpaceRegionEEEbRKT0_.exit: ; preds = %tailrecurse.i, %tailrecurse.i, %tailrecurse.i, %tailrecurse.i, %tailrecurse.i, %tailrecurse.i
   %131 = add nsw i32 %119, -1
-  %132 = icmp ult i32 %131, 4
+  %132 = icmp samesign ult i32 %131, 4
   br i1 %132, label %133, label %_ZN4llvm15isa_and_nonnullIJN5clang4ento18GlobalsSpaceRegionEEPKNS2_14MemSpaceRegionEEEbRKT0_.exit.thread
 
 133:                                              ; preds = %_ZN4llvm15isa_and_nonnullIJN5clang4ento18GlobalsSpaceRegionEEPKNS2_14MemSpaceRegionEEEbRKT0_.exit

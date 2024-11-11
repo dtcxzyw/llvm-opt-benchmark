@@ -157,7 +157,7 @@ define hidden i32 @mbedtls_nist_kw_wrap(ptr noundef %0, i32 noundef %1, ptr noca
   %44 = add nuw nsw i64 %43, 1
   %45 = mul nuw nsw i64 %43, 6
   %46 = icmp eq i32 %1, 1
-  %47 = icmp ult i64 %3, 9
+  %47 = icmp samesign ult i64 %3, 9
   %or.cond5 = and i1 %46, %47
   br i1 %or.cond5, label %48, label %50
 
@@ -169,7 +169,7 @@ define hidden i32 @mbedtls_nist_kw_wrap(ptr noundef %0, i32 noundef %1, ptr noca
 
 50:                                               ; preds = %41
   %51 = getelementptr inbounds i8, ptr %4, i64 8
-  %52 = icmp ult i64 %42, 16
+  %52 = icmp samesign ult i64 %42, 16
   br i1 %52, label %.loopexit100, label %.lr.ph
 
 .lr.ph:                                           ; preds = %50

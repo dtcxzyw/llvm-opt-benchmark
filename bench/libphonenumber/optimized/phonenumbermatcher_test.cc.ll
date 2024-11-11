@@ -21664,7 +21664,7 @@ _ZSt22__uninitialized_move_aIPN4i18n12phonenumbers12_GLOBAL__N_110NumberTestES4_
   %40 = getelementptr inbounds i8, ptr %.078.i.i.i.i.i.i.i, i64 -32
   %41 = tail call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEOS4_(ptr noundef nonnull align 8 dereferenceable(32) %39, ptr noundef nonnull align 8 dereferenceable(32) %40) #17
   %42 = add nsw i64 %.010.i.i.i.i.i.i.i, -1
-  %43 = icmp ugt i64 %.010.i.i.i.i.i.i.i, 1
+  %43 = icmp samesign ugt i64 %.010.i.i.i.i.i.i.i, 1
   br i1 %43, label %.lr.ph.i.i.i.i.i59.i.i, label %_ZSt13move_backwardIPN4i18n12phonenumbers12_GLOBAL__N_110NumberTestES4_ET0_T_S6_S5_.exit.i.i, !llvm.loop !23
 
 _ZSt13move_backwardIPN4i18n12phonenumbers12_GLOBAL__N_110NumberTestES4_ET0_T_S6_S5_.exit.i.i: ; preds = %.lr.ph.i.i.i.i.i59.i.i, %_ZSt22__uninitialized_move_aIPN4i18n12phonenumbers12_GLOBAL__N_110NumberTestES4_SaIS3_EET0_T_S7_S6_RT1_.exit.i.i
@@ -21682,7 +21682,7 @@ _ZSt13move_backwardIPN4i18n12phonenumbers12_GLOBAL__N_110NumberTestES4_ET0_T_S6_
   %49 = getelementptr inbounds i8, ptr %.0910.i.i.i.i.i.i.i, i64 64
   %50 = getelementptr inbounds i8, ptr %.0811.i.i.i.i.i.i.i, i64 64
   %51 = add nsw i64 %.012.i.i.i.i.i.i.i, -1
-  %52 = icmp ugt i64 %.012.i.i.i.i.i.i.i, 1
+  %52 = icmp samesign ugt i64 %.012.i.i.i.i.i.i.i, 1
   br i1 %52, label %.lr.ph.i.i.i.i.i60.i.i, label %_ZNSt6vectorIN4i18n12phonenumbers12_GLOBAL__N_110NumberTestESaIS3_EE18_M_insert_dispatchIPKS3_EEvN9__gnu_cxx17__normal_iteratorIPS3_S5_EET_SD_St12__false_type.exit, !llvm.loop !24
 
 _ZSt7advanceIPKN4i18n12phonenumbers12_GLOBAL__N_110NumberTestEmEvRT_T0_.exit.i.i: ; preds = %21
@@ -21730,7 +21730,7 @@ _ZSt22__uninitialized_move_aIPN4i18n12phonenumbers12_GLOBAL__N_110NumberTestES4_
   %69 = getelementptr inbounds i8, ptr %.0910.i.i.i.i.i72.i.i, i64 64
   %70 = getelementptr inbounds i8, ptr %.0811.i.i.i.i.i71.i.i, i64 64
   %71 = add nsw i64 %.012.i.i.i.i.i70.i.i, -1
-  %72 = icmp ugt i64 %.012.i.i.i.i.i70.i.i, 1
+  %72 = icmp samesign ugt i64 %.012.i.i.i.i.i70.i.i, 1
   br i1 %72, label %.lr.ph.i.i.i.i.i69.i.i, label %_ZNSt6vectorIN4i18n12phonenumbers12_GLOBAL__N_110NumberTestESaIS3_EE18_M_insert_dispatchIPKS3_EEvN9__gnu_cxx17__normal_iteratorIPS3_S5_EET_SD_St12__false_type.exit, !llvm.loop !24
 
 73:                                               ; preds = %9

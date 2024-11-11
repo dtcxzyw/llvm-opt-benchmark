@@ -678,7 +678,7 @@ if.then5.i26.i.i:                                 ; preds = %if.end3.i24.i.i
 
 lor.lhs.false.i.i28.i.i:                          ; preds = %if.then5.i26.i.i
   %cmp3.i.i29.i.i = icmp eq i32 %8, 214748364
-  %cmp5.i.i30.i.i = icmp ugt i8 %10, 7
+  %cmp5.i.i30.i.i = icmp samesign ugt i8 %10, 7
   %or.cond.i.i31.i.i = and i1 %cmp3.i.i29.i.i, %cmp5.i.i30.i.i
   br i1 %or.cond.i.i31.i.i, label %if.end15.sink.split.i.i, label %if.end8.i32.i.i
 
@@ -766,7 +766,7 @@ if.then5.i.i.i:                                   ; preds = %if.end3.i.i.i
 
 lor.lhs.false.i.i.i.i:                            ; preds = %if.then5.i.i.i
   %cmp3.i.i.i.i = icmp eq i32 %3, -214748364
-  %cmp5.i.i.i.i = icmp ugt i8 %sub.i.i.i.i.i, 8
+  %cmp5.i.i.i.i = icmp samesign ugt i8 %sub.i.i.i.i.i, 8
   %or.cond.i.i.i.i = and i1 %cmp3.i.i.i.i, %cmp5.i.i.i.i
   br i1 %or.cond.i.i.i.i, label %if.end15.sink.split.i.i, label %if.end8.i.i.i
 
@@ -817,7 +817,7 @@ if.then5.i28.i.i:                                 ; preds = %if.end3.i24.i.i
 
 lor.lhs.false.i.i30.i.i:                          ; preds = %if.then5.i28.i.i
   %cmp3.i.i31.i.i = icmp eq i32 %7, 214748364
-  %cmp5.i.i32.i.i = icmp ugt i8 %sub.i.i.i26.i.i, 7
+  %cmp5.i.i32.i.i = icmp samesign ugt i8 %sub.i.i.i26.i.i, 7
   %or.cond.i.i33.i.i = and i1 %cmp3.i.i31.i.i, %cmp5.i.i32.i.i
   br i1 %or.cond.i.i33.i.i, label %if.end15.sink.split.i.i, label %if.end8.i34.i.i
 
@@ -917,7 +917,7 @@ if.then5.i.i.i:                                   ; preds = %if.end3.i.i.i
 
 lor.lhs.false.i.i.i.i:                            ; preds = %if.then5.i.i.i
   %cmp3.i.i.i.i = icmp eq i32 %3, 429496729
-  %cmp5.i.i.i.i = icmp ugt i8 %5, 5
+  %cmp5.i.i.i.i = icmp samesign ugt i8 %5, 5
   %or.cond.i.i.i.i = and i1 %cmp3.i.i.i.i, %cmp5.i.i.i.i
   br i1 %or.cond.i.i.i.i, label %_ZN4base12_GLOBAL__N_121IteratorRangeToNumberINS0_25StringPieceToNumberTraitsIjLi10EEEE8Positive11CheckBoundsEPjh.exit.i.i.i, label %if.end8.i.i.i
 
@@ -1019,7 +1019,7 @@ if.then5.i.i.i:                                   ; preds = %if.end3.i.i.i
 
 lor.lhs.false.i.i.i.i:                            ; preds = %if.then5.i.i.i
   %cmp3.i.i.i.i = icmp eq i32 %3, 429496729
-  %cmp5.i.i.i.i = icmp ugt i8 %sub.i.i.i.i.i, 5
+  %cmp5.i.i.i.i = icmp samesign ugt i8 %sub.i.i.i.i.i, 5
   %or.cond.i.i.i.i = and i1 %cmp3.i.i.i.i, %cmp5.i.i.i.i
   br i1 %or.cond.i.i.i.i, label %_ZN4base12_GLOBAL__N_121IteratorRangeToNumberINS0_27StringPiece16ToNumberTraitsIjLi10EEEE8Positive11CheckBoundsEPjh.exit.i.i.i, label %if.end8.i.i.i
 
@@ -1170,7 +1170,7 @@ if.then5.i26.i.i:                                 ; preds = %if.end3.i24.i.i
 
 lor.lhs.false.i.i28.i.i:                          ; preds = %if.then5.i26.i.i
   %cmp3.i.i29.i.i = icmp eq i64 %8, 922337203685477580
-  %cmp5.i.i30.i.i = icmp ugt i8 %10, 7
+  %cmp5.i.i30.i.i = icmp samesign ugt i8 %10, 7
   %or.cond.i.i31.i.i = and i1 %cmp3.i.i29.i.i, %cmp5.i.i30.i.i
   br i1 %or.cond.i.i31.i.i, label %if.end15.sink.split.i.i, label %if.end8.i32.i.i
 
@@ -1258,7 +1258,7 @@ if.then5.i.i.i:                                   ; preds = %if.end3.i.i.i
 
 lor.lhs.false.i.i.i.i:                            ; preds = %if.then5.i.i.i
   %cmp3.i.i.i.i = icmp eq i64 %3, -922337203685477580
-  %cmp5.i.i.i.i = icmp ugt i8 %sub.i.i.i.i.i, 8
+  %cmp5.i.i.i.i = icmp samesign ugt i8 %sub.i.i.i.i.i, 8
   %or.cond.i.i.i.i = and i1 %cmp3.i.i.i.i, %cmp5.i.i.i.i
   br i1 %or.cond.i.i.i.i, label %if.end15.sink.split.i.i, label %if.end8.i.i.i
 
@@ -1309,7 +1309,7 @@ if.then5.i28.i.i:                                 ; preds = %if.end3.i24.i.i
 
 lor.lhs.false.i.i30.i.i:                          ; preds = %if.then5.i28.i.i
   %cmp3.i.i31.i.i = icmp eq i64 %7, 922337203685477580
-  %cmp5.i.i32.i.i = icmp ugt i8 %sub.i.i.i26.i.i, 7
+  %cmp5.i.i32.i.i = icmp samesign ugt i8 %sub.i.i.i26.i.i, 7
   %or.cond.i.i33.i.i = and i1 %cmp3.i.i31.i.i, %cmp5.i.i32.i.i
   br i1 %or.cond.i.i33.i.i, label %if.end15.sink.split.i.i, label %if.end8.i34.i.i
 
@@ -1416,7 +1416,7 @@ if.then5.i.i:                                     ; preds = %if.end3.i.i
 
 lor.lhs.false.i.i.i:                              ; preds = %if.then5.i.i
   %cmp3.i.i.i = icmp eq i64 %3, 1844674407370955161
-  %cmp5.i.i.i = icmp ugt i8 %5, 5
+  %cmp5.i.i.i = icmp samesign ugt i8 %5, 5
   %or.cond.i.i.i = and i1 %cmp3.i.i.i, %cmp5.i.i.i
   br i1 %or.cond.i.i.i, label %_ZN4base12_GLOBAL__N_121IteratorRangeToNumberINS0_25StringPieceToNumberTraitsImLi10EEEE8Positive11CheckBoundsEPmh.exit.i.i, label %if.end8.i.i
 
@@ -1525,7 +1525,7 @@ if.then5.i.i:                                     ; preds = %if.end3.i.i
 
 lor.lhs.false.i.i.i:                              ; preds = %if.then5.i.i
   %cmp3.i.i.i = icmp eq i64 %3, 1844674407370955161
-  %cmp5.i.i.i = icmp ugt i8 %sub.i.i.i.i, 5
+  %cmp5.i.i.i = icmp samesign ugt i8 %sub.i.i.i.i, 5
   %or.cond.i.i.i = and i1 %cmp3.i.i.i, %cmp5.i.i.i
   br i1 %or.cond.i.i.i, label %_ZN4base12_GLOBAL__N_121IteratorRangeToNumberINS0_27StringPiece16ToNumberTraitsImLi10EEEE8Positive11CheckBoundsEPmh.exit.i.i, label %if.end8.i.i
 

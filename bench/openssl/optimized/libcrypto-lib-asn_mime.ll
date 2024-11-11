@@ -225,7 +225,7 @@ for.body.i.us.backedge:                           ; preds = %for.inc.i.us, %for.
   br label %for.body.i.us, !llvm.loop !7
 
 for.inc.i.us.thread:                              ; preds = %if.else38.i.us
-  %cmp24.i.us89 = icmp ugt i32 %len.126.i.us, 1
+  %cmp24.i.us89 = icmp samesign ugt i32 %len.126.i.us, 1
   br i1 %cmp24.i.us89, label %for.body.i.us.backedge, label %if.end51.us
 
 if.then47.us:                                     ; preds = %for.inc.i.us

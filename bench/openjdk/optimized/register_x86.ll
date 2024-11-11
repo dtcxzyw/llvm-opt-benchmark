@@ -107,18 +107,18 @@ define hidden noundef ptr @_ZNK8Register12RegisterImpl4nameEv(ptr noundef nonnul
   %2 = ptrtoint ptr %0 to i64
   %3 = trunc i64 %2 to i32
   %4 = sub i32 %3, ptrtoint (ptr getelementptr inbounds (i8, ptr @all_RegisterImpls, i64 1) to i32)
-  %5 = icmp ult i32 %4, 32
-  br i1 %5, label %6, label %10
+  %spec.select.i = icmp ult i32 %4, 32
+  br i1 %spec.select.i, label %5, label %9
 
-6:                                                ; preds = %1
-  %7 = zext nneg i32 %4 to i64
-  %8 = getelementptr inbounds [32 x ptr], ptr @_ZZNK8Register12RegisterImpl4nameEvE5names, i64 0, i64 %7
-  %9 = load ptr, ptr %8, align 8
-  br label %10
+5:                                                ; preds = %1
+  %6 = zext nneg i32 %4 to i64
+  %7 = getelementptr inbounds [32 x ptr], ptr @_ZZNK8Register12RegisterImpl4nameEvE5names, i64 0, i64 %6
+  %8 = load ptr, ptr %7, align 8
+  br label %9
 
-10:                                               ; preds = %1, %6
-  %11 = phi ptr [ %9, %6 ], [ @.str.35, %1 ]
-  ret ptr %11
+9:                                                ; preds = %1, %5
+  %10 = phi ptr [ %8, %5 ], [ @.str.35, %1 ]
+  ret ptr %10
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
@@ -126,18 +126,18 @@ define hidden noundef ptr @_ZNK13FloatRegister17FloatRegisterImpl4nameEv(ptr nou
   %2 = ptrtoint ptr %0 to i64
   %3 = trunc i64 %2 to i32
   %4 = sub i32 %3, ptrtoint (ptr getelementptr inbounds (i8, ptr @all_FloatRegisterImpls, i64 1) to i32)
-  %5 = icmp ult i32 %4, 8
-  br i1 %5, label %6, label %10
+  %spec.select.i = icmp ult i32 %4, 8
+  br i1 %spec.select.i, label %5, label %9
 
-6:                                                ; preds = %1
-  %7 = zext nneg i32 %4 to i64
-  %8 = getelementptr inbounds [8 x ptr], ptr @_ZZNK13FloatRegister17FloatRegisterImpl4nameEvE5names, i64 0, i64 %7
-  %9 = load ptr, ptr %8, align 8
-  br label %10
+5:                                                ; preds = %1
+  %6 = zext nneg i32 %4 to i64
+  %7 = getelementptr inbounds [8 x ptr], ptr @_ZZNK13FloatRegister17FloatRegisterImpl4nameEvE5names, i64 0, i64 %6
+  %8 = load ptr, ptr %7, align 8
+  br label %9
 
-10:                                               ; preds = %1, %6
-  %11 = phi ptr [ %9, %6 ], [ @.str.44, %1 ]
-  ret ptr %11
+9:                                                ; preds = %1, %5
+  %10 = phi ptr [ %8, %5 ], [ @.str.44, %1 ]
+  ret ptr %10
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
@@ -145,18 +145,18 @@ define hidden noundef ptr @_ZNK11XMMRegister15XMMRegisterImpl4nameEv(ptr noundef
   %2 = ptrtoint ptr %0 to i64
   %3 = trunc i64 %2 to i32
   %4 = sub i32 %3, ptrtoint (ptr getelementptr inbounds (i8, ptr @all_XMMRegisterImpls, i64 1) to i32)
-  %5 = icmp ult i32 %4, 32
-  br i1 %5, label %6, label %10
+  %spec.select.i = icmp ult i32 %4, 32
+  br i1 %spec.select.i, label %5, label %9
 
-6:                                                ; preds = %1
-  %7 = zext nneg i32 %4 to i64
-  %8 = getelementptr inbounds [32 x ptr], ptr @_ZZNK11XMMRegister15XMMRegisterImpl4nameEvE5names, i64 0, i64 %7
-  %9 = load ptr, ptr %8, align 8
-  br label %10
+5:                                                ; preds = %1
+  %6 = zext nneg i32 %4 to i64
+  %7 = getelementptr inbounds [32 x ptr], ptr @_ZZNK11XMMRegister15XMMRegisterImpl4nameEvE5names, i64 0, i64 %6
+  %8 = load ptr, ptr %7, align 8
+  br label %9
 
-10:                                               ; preds = %1, %6
-  %11 = phi ptr [ %9, %6 ], [ @.str.77, %1 ]
-  ret ptr %11
+9:                                                ; preds = %1, %5
+  %10 = phi ptr [ %8, %5 ], [ @.str.77, %1 ]
+  ret ptr %10
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
@@ -164,18 +164,18 @@ define hidden noundef ptr @_ZNK9KRegister13KRegisterImpl4nameEv(ptr noundef nonn
   %2 = ptrtoint ptr %0 to i64
   %3 = trunc i64 %2 to i32
   %4 = sub i32 %3, ptrtoint (ptr getelementptr inbounds (i8, ptr @all_KRegisterImpls, i64 1) to i32)
-  %5 = icmp ult i32 %4, 8
-  br i1 %5, label %6, label %10
+  %spec.select.i = icmp ult i32 %4, 8
+  br i1 %spec.select.i, label %5, label %9
 
-6:                                                ; preds = %1
-  %7 = zext nneg i32 %4 to i64
-  %8 = getelementptr inbounds [8 x ptr], ptr @__const._ZNK9KRegister13KRegisterImpl4nameEv.names, i64 0, i64 %7
-  %9 = load ptr, ptr %8, align 8
-  br label %10
+5:                                                ; preds = %1
+  %6 = zext nneg i32 %4 to i64
+  %7 = getelementptr inbounds [8 x ptr], ptr @__const._ZNK9KRegister13KRegisterImpl4nameEv.names, i64 0, i64 %6
+  %8 = load ptr, ptr %7, align 8
+  br label %9
 
-10:                                               ; preds = %1, %6
-  %11 = phi ptr [ %9, %6 ], [ @.str.86, %1 ]
-  ret ptr %11
+9:                                                ; preds = %1, %5
+  %10 = phi ptr [ %8, %5 ], [ @.str.86, %1 ]
+  ret ptr %10
 }
 
 attributes #0 = { mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

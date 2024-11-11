@@ -262,7 +262,7 @@ define internal range(i32 0, 65536) i32 @tt_cmap2_char_index(ptr nocapture nound
   %6 = load ptr, ptr %5, align 8
   %7 = getelementptr inbounds i8, ptr %6, i64 6
   %8 = getelementptr inbounds i8, ptr %6, i64 518
-  %9 = icmp ult i32 %1, 256
+  %9 = icmp samesign ult i32 %1, 256
   br i1 %9, label %10, label %21
 
 10:                                               ; preds = %4
@@ -377,7 +377,7 @@ define internal range(i32 0, 65536) i32 @tt_cmap2_char_next(ptr nocapture nounde
 
 10:                                               ; preds = %.lr.ph86, %.backedge
   %.06084 = phi i32 [ %4, %.lr.ph86 ], [ %.060.be, %.backedge ]
-  %11 = icmp ult i32 %.06084, 256
+  %11 = icmp samesign ult i32 %.06084, 256
   br i1 %11, label %12, label %23
 
 12:                                               ; preds = %10
@@ -2708,7 +2708,7 @@ define internal noundef i32 @tt_cmap12_validate(ptr noundef %0, ptr noundef %1) 
 
 119:                                              ; preds = %118, %62
   %.not = icmp eq i64 %.05868, 0
-  %.not62 = icmp ugt i64 %79, %.05769
+  %.not62 = icmp samesign ugt i64 %79, %.05769
   %or.cond65 = select i1 %.not, i1 true, i1 %.not62
   br i1 %or.cond65, label %121, label %120
 
@@ -3199,7 +3199,7 @@ define internal noundef i32 @tt_cmap13_validate(ptr noundef %0, ptr noundef %1) 
 
 119:                                              ; preds = %118, %62
   %.not = icmp eq i64 %.05359, 0
-  %.not55 = icmp ugt i64 %79, %.061
+  %.not55 = icmp samesign ugt i64 %79, %.061
   %or.cond58 = select i1 %.not, i1 true, i1 %.not55
   br i1 %or.cond58, label %121, label %120
 
@@ -5094,7 +5094,7 @@ define internal noundef i32 @tt_cmap14_validate(ptr noundef %0, ptr noundef %1) 
   br label %168
 
 168:                                              ; preds = %167, %.lr.ph
-  %169 = icmp ult i64 %161, %.0120131
+  %169 = icmp samesign ult i64 %161, %.0120131
   br i1 %169, label %170, label %171
 
 170:                                              ; preds = %168
@@ -10101,7 +10101,7 @@ load_post_names.exit:                             ; preds = %22, %40, %44
   %50 = getelementptr inbounds i8, ptr %0, i64 1026
   %51 = load i16, ptr %50, align 2
   %52 = zext i16 %51 to i32
-  %53 = icmp ult i32 %1, %52
+  %53 = icmp samesign ult i32 %1, %52
   br i1 %53, label %54, label %78
 
 54:                                               ; preds = %49
@@ -12304,7 +12304,7 @@ define internal zeroext range(i8 0, 2) i8 @tt_face_get_colr_layer(ptr nocapture 
   br label %36
 
 34:                                               ; preds = %.lr.ph.i
-  %35 = icmp ult i32 %1, %30
+  %35 = icmp samesign ult i32 %1, %30
   br i1 %35, label %36, label %38
 
 36:                                               ; preds = %34, %32
@@ -12494,7 +12494,7 @@ define internal zeroext range(i8 0, 2) i8 @tt_face_get_colr_glyph_paint(ptr noca
   br label %43
 
 41:                                               ; preds = %24
-  %42 = icmp ult i32 %1, %37
+  %42 = icmp samesign ult i32 %1, %37
   br i1 %42, label %43, label %45
 
 43:                                               ; preds = %41, %39
@@ -17832,7 +17832,7 @@ get_x_mins.exit:                                  ; preds = %571, %551, %546
 597:                                              ; preds = %591
   %598 = and i8 %595, 1
   %599 = icmp eq i8 %598, 0
-  %600 = icmp ult i8 %595, 2
+  %600 = icmp samesign ult i8 %595, 2
   %or.cond.i = icmp eq i8 %595, 0
   br i1 %or.cond.i, label %.loopexit.i172, label %601
 
@@ -19854,7 +19854,7 @@ define internal fastcc i32 @tt_sbit_decoder_load_image(ptr noundef %0, i32 nound
 316:                                              ; preds = %.thread, %177, %105
   %.081 = phi i64 [ %192, %177 ], [ %140, %105 ], [ %250, %.thread ]
   %.080 = phi i64 [ %185, %177 ], [ %123, %105 ], [ %242, %.thread ]
-  %317 = icmp ugt i64 %.080, %.081
+  %317 = icmp samesign ugt i64 %.080, %.081
   br i1 %317, label %.loopexit, label %.thread105
 
 .thread105:                                       ; preds = %155, %313, %316
@@ -20314,7 +20314,7 @@ define internal range(i32 0, 4) i32 @tt_sbit_decoder_load_byte_aligned(ptr nocap
   store i8 %105, ptr %100, align 1
   %106 = add nsw i32 %.190111.us115.us.lver.orig, -1
   %107 = getelementptr inbounds i8, ptr %.192110.us116.us.lver.orig, i64 %51
-  %108 = icmp ugt i32 %.190111.us115.us.lver.orig, 1
+  %108 = icmp samesign ugt i32 %.190111.us115.us.lver.orig, 1
   br i1 %108, label %.preheader100.us113.us.lver.orig, label %.loopexit, !llvm.loop !124
 
 .preheader100.us113.us.ph:                        ; preds = %.preheader100.us113.us.lver.check
@@ -20346,7 +20346,7 @@ define internal range(i32 0, 4) i32 @tt_sbit_decoder_load_byte_aligned(ptr nocap
   store i8 %123, ptr %118, align 1
   %124 = add nsw i32 %.190111.us115.us, -1
   %125 = getelementptr inbounds i8, ptr %.192110.us116.us, i64 %51
-  %126 = icmp ugt i32 %.190111.us115.us, 1
+  %126 = icmp samesign ugt i32 %.190111.us115.us, 1
   br i1 %126, label %.preheader100.us113.us, label %.loopexit, !llvm.loop !124
 
 .preheader100.lr.ph.split.split:                  ; preds = %.preheader100.lr.ph.split
@@ -20368,7 +20368,7 @@ define internal range(i32 0, 4) i32 @tt_sbit_decoder_load_byte_aligned(ptr nocap
   store i8 %134, ptr %.192110.us122, align 1
   %135 = add nsw i32 %.190111.us121, -1
   %136 = getelementptr inbounds i8, ptr %.192110.us122, i64 %51
-  %137 = icmp ugt i32 %.190111.us121, 1
+  %137 = icmp samesign ugt i32 %.190111.us121, 1
   br i1 %137, label %.preheader100.us119, label %.loopexit, !llvm.loop !124
 
 .preheader99:                                     ; preds = %42
@@ -20440,7 +20440,7 @@ define internal range(i32 0, 4) i32 @tt_sbit_decoder_load_byte_aligned(ptr nocap
   store i8 %167, ptr %.091130.us138, align 1
   %168 = add nsw i32 %.089131.us137, -1
   %169 = getelementptr inbounds i8, ptr %.091130.us138, i64 %139
-  %170 = icmp ugt i32 %.089131.us137, 1
+  %170 = icmp samesign ugt i32 %.089131.us137, 1
   br i1 %170, label %.preheader.us135, label %.loopexit, !llvm.loop !126
 
 .loopexit:                                        ; preds = %.preheader100.us119, %.preheader100.us113.us.lver.orig, %.preheader100.us113.us, %72, %.preheader.us135, %148, %.preheader.lr.ph.split, %.preheader100.lr.ph.split.split, %.preheader101, %.preheader99, %35, %16, %29, %6
@@ -20744,7 +20744,7 @@ define internal range(i32 0, 4) i32 @tt_sbit_decoder_load_bit_aligned(ptr nocapt
   store i8 %178, ptr %.198130, align 1
   %179 = shl nuw i16 %171, 8
   %180 = add nsw i32 %.1131, -8
-  %181 = icmp ugt i32 %.1131, 15
+  %181 = icmp samesign ugt i32 %.1131, 15
   br i1 %181, label %.lr.ph, label %._crit_edge, !llvm.loop !129
 
 ._crit_edge:                                      ; preds = %.lr.ph, %160
@@ -22937,7 +22937,7 @@ sfnt_get_name_id.exit216.i:                       ; preds = %._crit_edge.i211.i
   br i1 %305, label %.thread104.i.i, label %.thread70.i.i
 
 .thread104.i.i:                                   ; preds = %304, %.thread63.thread.i.i
-  %.not59.i.i = icmp ult i32 %.04383.i.i, 65536
+  %.not59.i.i = icmp samesign ult i32 %.04383.i.i, 65536
   br i1 %.not59.i.i, label %.lr.ph87.i.i.preheader, label %.thread70.sink.split.i.i
 
 .thread70.sink.split.i.i:                         ; preds = %.thread104.i.i, %302
@@ -24665,7 +24665,7 @@ define internal fastcc i32 @tt_cmap4_char_map_binary(ptr nocapture noundef %0, p
   %97 = load i8, ptr %96, align 1
   %98 = zext i8 %97 to i32
   %99 = or disjoint i32 %95, %98
-  %100 = icmp ugt i32 %12, %99
+  %100 = icmp samesign ugt i32 %12, %99
   br i1 %100, label %._crit_edge, label %.lr.ph441.preheader
 
 .lr.ph441.preheader:                              ; preds = %.lr.ph.preheader
@@ -24684,7 +24684,7 @@ define internal fastcc i32 @tt_cmap4_char_map_binary(ptr nocapture noundef %0, p
   %109 = load i8, ptr %108, align 1
   %110 = zext i8 %109 to i32
   %111 = or disjoint i32 %107, %110
-  %112 = icmp ugt i32 %12, %111
+  %112 = icmp samesign ugt i32 %12, %111
   br i1 %112, label %._crit_edge.loopexit, label %.lr.ph441, !llvm.loop !156
 
 .lr.ph441:                                        ; preds = %.lr.ph441.preheader, %.lr.ph
@@ -25250,7 +25250,7 @@ define internal fastcc void @tt_cmap4_next(ptr nocapture noundef %0) unnamed_add
   br i1 %59, label %.thread, label %60
 
 60:                                               ; preds = %58
-  %61 = icmp ult i32 %56, 65536
+  %61 = icmp samesign ult i32 %56, 65536
   %or.cond82 = and i1 %61, %30
   br i1 %or.cond82, label %.thread, label %.loopexit90
 

@@ -7852,7 +7852,7 @@ half_to_float.exit34.i.us:                        ; preds = %if.then10.i.i32.i.u
 
 for.cond.i.us:                                    ; preds = %half_to_float.exit34.i.us
   %incdec.ptr.i.us = getelementptr inbounds i8, ptr %closest.037.i.us, i64 2
-  %cmp.i108.us = icmp ugt i32 %targetNumSetBits.038.in.i.us, 1
+  %cmp.i108.us = icmp samesign ugt i32 %targetNumSetBits.038.in.i.us, 1
   br i1 %cmp.i108.us, label %for.body.i107.us, label %quantize.exit.us, !llvm.loop !75
 
 quantize.exit.us:                                 ; preds = %half_to_float.exit34.i.us, %for.cond.i.us, %half_to_float.exit.i.us
@@ -8483,7 +8483,7 @@ if.else138:                                       ; preds = %if.else
   br i1 %cmp139, label %for.inc171.sink.split, label %if.else142
 
 if.else142:                                       ; preds = %if.else138
-  %cmp143 = icmp ult i32 %lnz.125.i, 9
+  %cmp143 = icmp samesign ult i32 %lnz.125.i, 9
   br i1 %cmp143, label %for.inc171.sink.split, label %if.else146
 
 if.else146:                                       ; preds = %if.else142
@@ -8491,7 +8491,7 @@ if.else146:                                       ; preds = %if.else142
   br i1 %cmp147, label %for.inc171.sink.split, label %if.else150
 
 if.else150:                                       ; preds = %if.else146
-  %cmp151 = icmp ult i32 %lnz.125.i, 20
+  %cmp151 = icmp samesign ult i32 %lnz.125.i, 20
   br i1 %cmp151, label %for.inc171.sink.split, label %if.else154
 
 if.else154:                                       ; preds = %if.else150
@@ -8499,7 +8499,7 @@ if.else154:                                       ; preds = %if.else150
   br i1 %cmp155, label %for.inc171.sink.split, label %if.else158
 
 if.else158:                                       ; preds = %if.else154
-  %cmp159 = icmp ult i32 %lnz.125.i, 35
+  %cmp159 = icmp samesign ult i32 %lnz.125.i, 35
   %dctInverse8x8_1.dctInverse8x8_0 = select i1 %cmp159, ptr @dctInverse8x8_1, ptr @dctInverse8x8_0
   br label %for.inc171.sink.split
 
@@ -9267,7 +9267,7 @@ half_to_float.exit255:                            ; preds = %if.then10.i.i253, %
   %v.sroa.0.0.i.i247 = phi i32 [ %add.i.i254, %if.then10.i.i253 ], [ %or11.i.i252, %if.else.i.i251 ], [ %sub20.i.i246, %if.then15.i.i240 ], [ %shl3.i.i236, %if.else12.i.i238 ]
   %arrayidx529 = getelementptr inbounds float, ptr %238, i64 %indvars.iv.next409
   store i32 %v.sroa.0.0.i.i247, ptr %arrayidx529, align 4
-  %cmp520 = icmp ugt i64 %indvars.iv408, 1
+  %cmp520 = icmp samesign ugt i64 %indvars.iv408, 1
   br i1 %cmp520, label %for.body522, label %for.inc532.loopexit, !llvm.loop !101
 
 for.inc532.loopexit:                              ; preds = %half_to_float.exit255
@@ -9417,7 +9417,7 @@ if.then68:                                        ; preds = %for.end65
   %arrayidx70 = getelementptr inbounds i8, ptr %src0, i64 8
   %arrayidx71 = getelementptr inbounds i8, ptr %src1, i64 8
   %sub = add nsw i32 %numBytes, -8
-  %cmp75102.not = icmp ult i32 %sub, 16
+  %cmp75102.not = icmp samesign ult i32 %sub, 16
   br i1 %cmp75102.not, label %for.end97, label %for.body77.preheader
 
 for.body77.preheader:                             ; preds = %if.then68

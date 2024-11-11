@@ -27,11 +27,11 @@ define dso_local range(i32 0, 5) i32 @charntorune(ptr nocapture noundef writeonl
   br i1 %.not, label %16, label %58
 
 16:                                               ; preds = %11
-  %17 = icmp ult i8 %6, -32
+  %17 = icmp samesign ult i8 %6, -32
   br i1 %17, label %18, label %24
 
 18:                                               ; preds = %16
-  %19 = icmp ult i8 %6, -64
+  %19 = icmp samesign ult i8 %6, -64
   br i1 %19, label %58, label %20
 
 20:                                               ; preds = %18
@@ -42,7 +42,7 @@ define dso_local range(i32 0, 5) i32 @charntorune(ptr nocapture noundef writeonl
   br i1 %23, label %58, label %59
 
 24:                                               ; preds = %16
-  %25 = icmp ult i32 %2, 3
+  %25 = icmp samesign ult i32 %2, 3
   br i1 %25, label %59, label %26
 
 26:                                               ; preds = %24
@@ -54,7 +54,7 @@ define dso_local range(i32 0, 5) i32 @charntorune(ptr nocapture noundef writeonl
   br i1 %.not49, label %31, label %58
 
 31:                                               ; preds = %26
-  %32 = icmp ult i8 %6, -16
+  %32 = icmp samesign ult i8 %6, -16
   br i1 %32, label %33, label %40
 
 33:                                               ; preds = %31
@@ -81,7 +81,7 @@ define dso_local range(i32 0, 5) i32 @charntorune(ptr nocapture noundef writeonl
   %44 = load i8, ptr %43, align 1
   %45 = xor i8 %44, -128
   %46 = icmp ult i8 %45, 64
-  %47 = icmp ult i8 %6, -8
+  %47 = icmp samesign ult i8 %6, -8
   %or.cond5 = and i1 %47, %46
   br i1 %or.cond5, label %48, label %58
 
@@ -127,11 +127,11 @@ define dso_local range(i32 1, 5) i32 @chartorune(ptr nocapture noundef writeonly
   br i1 %.not, label %11, label %49
 
 11:                                               ; preds = %6
-  %12 = icmp ult i8 %3, -32
+  %12 = icmp samesign ult i8 %3, -32
   br i1 %12, label %13, label %19
 
 13:                                               ; preds = %11
-  %14 = icmp ult i8 %3, -64
+  %14 = icmp samesign ult i8 %3, -64
   br i1 %14, label %49, label %15
 
 15:                                               ; preds = %13
@@ -150,7 +150,7 @@ define dso_local range(i32 1, 5) i32 @chartorune(ptr nocapture noundef writeonly
   br i1 %.not43, label %24, label %49
 
 24:                                               ; preds = %19
-  %25 = icmp ult i8 %3, -16
+  %25 = icmp samesign ult i8 %3, -16
   br i1 %25, label %26, label %33
 
 26:                                               ; preds = %24
@@ -173,7 +173,7 @@ define dso_local range(i32 1, 5) i32 @chartorune(ptr nocapture noundef writeonly
   %35 = load i8, ptr %34, align 1
   %36 = xor i8 %35, -128
   %37 = icmp ult i8 %36, 64
-  %38 = icmp ult i8 %3, -8
+  %38 = icmp samesign ult i8 %3, -8
   %or.cond5 = and i1 %38, %37
   br i1 %or.cond5, label %39, label %49
 
@@ -337,11 +337,11 @@ define dso_local range(i32 -2147483647, -2147483648) i32 @runenlen(ptr nocapture
   br i1 %6, label %11, label %7
 
 7:                                                ; preds = %.lr.ph
-  %8 = icmp ult i32 %5, 2048
+  %8 = icmp samesign ult i32 %5, 2048
   br i1 %8, label %11, label %9
 
 9:                                                ; preds = %7
-  %10 = icmp ult i32 %5, 65536
+  %10 = icmp samesign ult i32 %5, 65536
   %. = select i1 %10, i32 3, i32 4
   br label %11
 
@@ -371,15 +371,15 @@ define dso_local range(i32 0, 2) i32 @fullrune(ptr nocapture noundef readonly %0
   br i1 %.not, label %15, label %8
 
 8:                                                ; preds = %7
-  %9 = icmp ult i8 %5, -32
+  %9 = icmp samesign ult i8 %5, -32
   br i1 %9, label %16, label %10
 
 10:                                               ; preds = %8
-  %11 = icmp ugt i32 %1, 2
+  %11 = icmp samesign ugt i32 %1, 2
   br i1 %11, label %12, label %15
 
 12:                                               ; preds = %10
-  %13 = icmp ult i8 %5, -16
+  %13 = icmp samesign ult i8 %5, -16
   %14 = icmp ne i32 %1, 3
   %or.cond = or i1 %14, %13
   br i1 %or.cond, label %16, label %15

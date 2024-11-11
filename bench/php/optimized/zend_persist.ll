@@ -3469,7 +3469,7 @@ define internal fastcc void @zend_hash_persist(ptr nocapture noundef %0) unnamed
 90:                                               ; preds = %90, %86
   %.0114 = phi i32 [ %83, %86 ], [ %93, %90 ]
   %91 = lshr i32 %.0114, 2
-  %92 = icmp ugt i32 %91, %33
+  %92 = icmp samesign ugt i32 %91, %33
   %93 = lshr i32 %.0114, 1
   br i1 %92, label %90, label %94
 

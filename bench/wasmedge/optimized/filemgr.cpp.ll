@@ -828,7 +828,7 @@ define void @_ZN8WasmEdge7FileMgr7readS33Ev(ptr dead_on_unwind noalias nocapture
 33:                                               ; preds = %.lr.ph
   %34 = tail call i64 @llvm.umin.i64(i64 %.02055.i11, i64 7)
   %35 = zext nneg i8 %19 to i64
-  %.not23.i = icmp ult i8 %19, 64
+  %.not23.i = icmp samesign ult i8 %19, 64
   %36 = trunc nuw nsw i64 %34 to i32
   %37 = add nsw i32 %36, -1
   br i1 %.not23.i, label %44, label %38
@@ -836,7 +836,7 @@ define void @_ZN8WasmEdge7FileMgr7readS33Ev(ptr dead_on_unwind noalias nocapture
 38:                                               ; preds = %33
   %.neg.i = shl nsw i32 -1, %37
   %39 = add nsw i32 %.neg.i, 128
-  %.not25.i = icmp ugt i32 %39, %20
+  %.not25.i = icmp samesign ugt i32 %39, %20
   br i1 %.not25.i, label %42, label %40
 
 40:                                               ; preds = %38
@@ -933,7 +933,7 @@ define void @_ZN8WasmEdge7FileMgr7readS32Ev(ptr dead_on_unwind noalias nocapture
 
 29:                                               ; preds = %.lr.ph
   %30 = tail call i64 @llvm.umin.i64(i64 %.02056.i11, i64 7)
-  %.not24.i = icmp ult i8 %16, 64
+  %.not24.i = icmp samesign ult i8 %16, 64
   %31 = trunc nuw nsw i64 %30 to i32
   %32 = add nsw i32 %31, -1
   br i1 %.not24.i, label %38, label %33
@@ -941,7 +941,7 @@ define void @_ZN8WasmEdge7FileMgr7readS32Ev(ptr dead_on_unwind noalias nocapture
 33:                                               ; preds = %29
   %.neg.i = shl nsw i32 -1, %32
   %34 = add nsw i32 %.neg.i, 128
-  %.not26.i = icmp ugt i32 %34, %17
+  %.not26.i = icmp samesign ugt i32 %34, %17
   br i1 %.not26.i, label %37, label %35
 
 35:                                               ; preds = %33
@@ -1048,7 +1048,7 @@ define void @_ZN8WasmEdge7FileMgr7readS64Ev(ptr dead_on_unwind noalias nocapture
 33:                                               ; preds = %.lr.ph
   %34 = tail call i64 @llvm.umin.i64(i64 %.02055.i11, i64 7)
   %35 = zext nneg i8 %19 to i64
-  %.not23.i = icmp ult i8 %19, 64
+  %.not23.i = icmp samesign ult i8 %19, 64
   %36 = trunc nuw nsw i64 %34 to i32
   %37 = add nsw i32 %36, -1
   br i1 %.not23.i, label %44, label %38
@@ -1056,7 +1056,7 @@ define void @_ZN8WasmEdge7FileMgr7readS64Ev(ptr dead_on_unwind noalias nocapture
 38:                                               ; preds = %33
   %.neg.i = shl nsw i32 -1, %37
   %39 = add nsw i32 %.neg.i, 128
-  %.not25.i = icmp ugt i32 %39, %20
+  %.not25.i = icmp samesign ugt i32 %39, %20
   br i1 %.not25.i, label %42, label %40
 
 40:                                               ; preds = %38
@@ -1644,7 +1644,7 @@ define noundef zeroext range(i8 0, 6) i8 @_ZN8WasmEdge7FileMgr13getHeaderTypeEv(
   br i1 %.not7.i.i.i.i6, label %20, label %.thread
 
 16:                                               ; preds = %1
-  %17 = icmp ugt i64 %8, 1
+  %17 = icmp samesign ugt i64 %8, 1
   br i1 %17, label %..thread_crit_edge, label %19
 
 ..thread_crit_edge:                               ; preds = %16

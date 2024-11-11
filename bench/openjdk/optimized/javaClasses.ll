@@ -2630,7 +2630,7 @@ _ZN16java_lang_String6lengthEP7oopDescP16typeArrayOopDesc.exit.i: ; preds = %13
   %41 = zext i8 %40 to i32
   %42 = add i32 %39, %41
   %43 = getelementptr inbounds i8, ptr %.056.i.i, i64 1
-  %44 = icmp ugt i32 %.047.i.i, 1
+  %44 = icmp samesign ugt i32 %.047.i.i, 1
   br i1 %44, label %.lr.ph.i.i, label %_ZN16java_lang_String9hash_codeEPKai.exit.i, !llvm.loop !16
 
 .lr.ph.i21.i:                                     ; preds = %32, %.lr.ph.i21.i
@@ -2643,7 +2643,7 @@ _ZN16java_lang_String6lengthEP7oopDescP16typeArrayOopDesc.exit.i: ; preds = %13
   %48 = zext i16 %47 to i32
   %49 = add i32 %46, %48
   %50 = getelementptr inbounds i8, ptr %.056.i24.i, i64 2
-  %51 = icmp ugt i32 %.047.i23.i, 1
+  %51 = icmp samesign ugt i32 %.047.i23.i, 1
   br i1 %51, label %.lr.ph.i21.i, label %_ZN16java_lang_String9hash_codeEPKai.exit.i, !llvm.loop !17
 
 _ZN16java_lang_String9hash_codeEPKai.exit.i:      ; preds = %.lr.ph.i21.i, %.lr.ph.i.i
@@ -2735,7 +2735,7 @@ _ZN16java_lang_String6lengthEP7oopDescP16typeArrayOopDesc.exit.i: ; preds = %13
   %41 = zext i8 %40 to i32
   %42 = add i32 %39, %41
   %43 = getelementptr inbounds i8, ptr %.056.i.i, i64 1
-  %44 = icmp ugt i32 %.047.i.i, 1
+  %44 = icmp samesign ugt i32 %.047.i.i, 1
   br i1 %44, label %.lr.ph.i.i, label %_ZN16java_lang_String14hash_code_implEP7oopDescb.exit, !llvm.loop !16
 
 .lr.ph.i21.i:                                     ; preds = %32, %.lr.ph.i21.i
@@ -2748,7 +2748,7 @@ _ZN16java_lang_String6lengthEP7oopDescP16typeArrayOopDesc.exit.i: ; preds = %13
   %48 = zext i16 %47 to i32
   %49 = add i32 %46, %48
   %50 = getelementptr inbounds i8, ptr %.056.i24.i, i64 2
-  %51 = icmp ugt i32 %.047.i23.i, 1
+  %51 = icmp samesign ugt i32 %.047.i23.i, 1
   br i1 %51, label %.lr.ph.i21.i, label %_ZN16java_lang_String14hash_code_implEP7oopDescb.exit, !llvm.loop !17
 
 _ZN16java_lang_String14hash_code_implEP7oopDescb.exit: ; preds = %.lr.ph.i21.i, %.lr.ph.i.i, %13, %_ZN16java_lang_String6lengthEP7oopDescP16typeArrayOopDesc.exit.i, %1, %_ZN16java_lang_String11hash_is_setEP7oopDesc.exit.i

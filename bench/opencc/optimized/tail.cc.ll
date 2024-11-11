@@ -4234,8 +4234,8 @@ define linkonce_odr void @_ZN6marisa8grimoire6vector6VectorImE5read_ERNS0_2io6Re
 
 16:                                               ; preds = %12
   %17 = lshr i64 %4, 4
-  %18 = icmp ugt i64 %15, %17
-  %19 = icmp ugt i64 %15, 1152921504606846975
+  %18 = icmp samesign ugt i64 %15, %17
+  %19 = icmp samesign ugt i64 %15, 1152921504606846975
   %20 = shl nuw nsw i64 %15, 1
   %spec.select.i.i = select i1 %19, i64 2305843009213693951, i64 %20
   %.0.i.i = select i1 %18, i64 %spec.select.i.i, i64 %13
@@ -4345,8 +4345,8 @@ define linkonce_odr void @_ZN6marisa8grimoire6vector6VectorINS1_9RankIndexEE5rea
 
 16:                                               ; preds = %13
   %17 = lshr i64 %6, 1
-  %18 = icmp ugt i64 %15, %17
-  %19 = icmp ugt i64 %15, 768614336404564650
+  %18 = icmp samesign ugt i64 %15, %17
+  %19 = icmp samesign ugt i64 %15, 768614336404564650
   %20 = shl nuw nsw i64 %15, 1
   %spec.select.i.i = select i1 %19, i64 1537228672809129301, i64 %20
   %.0.i.i = select i1 %18, i64 %spec.select.i.i, i64 %6
@@ -4477,8 +4477,8 @@ define linkonce_odr void @_ZN6marisa8grimoire6vector6VectorIjE5read_ERNS0_2io6Re
 
 16:                                               ; preds = %12
   %17 = lshr i64 %4, 3
-  %18 = icmp ugt i64 %15, %17
-  %19 = icmp ugt i64 %15, 2305843009213693951
+  %18 = icmp samesign ugt i64 %15, %17
+  %19 = icmp samesign ugt i64 %15, 2305843009213693951
   %20 = shl nuw nsw i64 %15, 1
   %spec.select.i.i = select i1 %19, i64 4611686018427387903, i64 %20
   %.0.i.i = select i1 %18, i64 %spec.select.i.i, i64 %13

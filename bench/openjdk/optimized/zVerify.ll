@@ -1256,7 +1256,7 @@ _ZNK5ZPage21object_from_bit_indexEm.exit.i.i.i.i.i.i.i.i: ; preds = %_ZNK5ZPage2
 120:                                              ; preds = %118
   %121 = call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %116, i1 true)
   %122 = add nuw nsw i64 %121, %49
-  %123 = icmp ult i64 %122, 64
+  %123 = icmp samesign ult i64 %122, 64
   br i1 %123, label %_ZNK8ZLiveMap17next_live_segmentEm.exit.i.i.i, label %"_ZN11ZForwarding14object_iterateIZN7ZVerify17before_relocationEPS_E3$_0EEvT_.exit"
 
 _ZNK8ZLiveMap17next_live_segmentEm.exit.i.i.i:    ; preds = %120, %114

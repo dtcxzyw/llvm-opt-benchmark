@@ -479,12 +479,12 @@ define internal fastcc range(i32 0, 4) i32 @mk_fvalue_from_val_string(ptr nounde
   %59 = getelementptr i8, ptr %.0139151, i64 40
   %60 = load ptr, ptr %59, align 8
   %61 = icmp ne ptr %60, null
-  %62 = icmp ult i64 %.1134, 2
+  %62 = icmp samesign ult i64 %.1134, 2
   %63 = select i1 %61, i1 %62, i1 false
   br i1 %63, label %.lr.ph, label %._crit_edge, !llvm.loop !4
 
 ._crit_edge:                                      ; preds = %57
-  %64 = icmp ugt i64 %.1134, 1
+  %64 = icmp samesign ugt i64 %.1134, 1
   br i1 %64, label %65, label %67
 
 65:                                               ; preds = %._crit_edge
@@ -566,12 +566,12 @@ define internal fastcc range(i32 0, 4) i32 @mk_fvalue_from_val_string(ptr nounde
   %99 = getelementptr i8, ptr %.1141157, i64 24
   %100 = load ptr, ptr %99, align 8
   %101 = icmp ne ptr %100, null
-  %102 = icmp ult i64 %.3136, 2
+  %102 = icmp samesign ult i64 %.3136, 2
   %103 = select i1 %101, i1 %102, i1 false
   br i1 %103, label %.lr.ph161, label %._crit_edge162, !llvm.loop !6
 
 ._crit_edge162:                                   ; preds = %97
-  %104 = icmp ugt i64 %.3136, 1
+  %104 = icmp samesign ugt i64 %.3136, 1
   br i1 %104, label %105, label %107
 
 105:                                              ; preds = %._crit_edge162
@@ -680,12 +680,12 @@ define internal fastcc range(i32 0, 4) i32 @mk_fvalue_from_val_string(ptr nounde
   %145 = getelementptr i8, ptr %.1167, i64 24
   %146 = load ptr, ptr %145, align 8
   %147 = icmp ne ptr %146, null
-  %148 = icmp ult i64 %.5138, 2
+  %148 = icmp samesign ult i64 %.5138, 2
   %149 = select i1 %147, i1 %148, i1 false
   br i1 %149, label %.lr.ph169, label %._crit_edge170, !llvm.loop !7
 
 ._crit_edge170:                                   ; preds = %143
-  %150 = icmp ugt i64 %.5138, 1
+  %150 = icmp samesign ugt i64 %.5138, 1
   br i1 %150, label %151, label %153
 
 151:                                              ; preds = %._crit_edge170

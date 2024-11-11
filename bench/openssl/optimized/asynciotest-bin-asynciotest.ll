@@ -483,7 +483,7 @@ lor.lhs.false42:                                  ; preds = %if.then36
   %conv2.i.i = zext i8 %9 to i32
   %or.i.i = or disjoint i32 %shl.i.i, %conv2.i.i
   %10 = add nsw i64 %or.i.i.i, -6
-  %or.cond273 = icmp ult i64 %10, 33
+  %or.cond273 = icmp samesign ult i64 %10, 33
   br i1 %or.cond273, label %return, label %lor.lhs.false.i67
 
 lor.lhs.false.i67:                                ; preds = %lor.lhs.false42
@@ -491,19 +491,19 @@ lor.lhs.false.i67:                                ; preds = %lor.lhs.false42
   %11 = load i8, ptr %add.ptr.i.i63, align 1
   %sub.i.i.i69 = add nsw i64 %or.i.i.i, -39
   %conv.i = zext i8 %11 to i64
-  %cmp.i.i.i70 = icmp ult i64 %sub.i.i.i69, %conv.i
+  %cmp.i.i.i70 = icmp samesign ult i64 %sub.i.i.i69, %conv.i
   br i1 %cmp.i.i.i70, label %return, label %lor.lhs.false48
 
 lor.lhs.false48:                                  ; preds = %lor.lhs.false.i67
   %sub.i.i6.i = sub nuw nsw i64 %sub.i.i.i69, %conv.i
-  %cmp.i76 = icmp ult i64 %sub.i.i6.i, 3
+  %cmp.i76 = icmp samesign ult i64 %sub.i.i6.i, 3
   br i1 %cmp.i76, label %return, label %lor.lhs.false51
 
 lor.lhs.false51:                                  ; preds = %lor.lhs.false48
   %add.ptr.i.i.i72 = getelementptr inbounds i8, ptr %pkt.sroa.0.0, i64 44
   %add.ptr.i.i5.i = getelementptr inbounds i8, ptr %add.ptr.i.i.i72, i64 %conv.i
   %sub.i.i79 = add nsw i64 %sub.i.i6.i, -3
-  %cmp.i.i.i84 = icmp ult i64 %sub.i.i79, 2
+  %cmp.i.i.i84 = icmp samesign ult i64 %sub.i.i79, 2
   br i1 %cmp.i.i.i84, label %return, label %lor.lhs.false.i85
 
 lor.lhs.false.i85:                                ; preds = %lor.lhs.false51
@@ -516,7 +516,7 @@ lor.lhs.false.i85:                                ; preds = %lor.lhs.false51
   %conv2.i.i.i90 = zext i8 %13 to i64
   %or.i.i.i91 = or disjoint i64 %shl.i.i.i88, %conv2.i.i.i90
   %sub.i.i.i92 = add nsw i64 %sub.i.i6.i, -5
-  %cmp.i.i4.i93 = icmp ult i64 %sub.i.i.i92, %or.i.i.i91
+  %cmp.i.i4.i93 = icmp samesign ult i64 %sub.i.i.i92, %or.i.i.i91
   br i1 %cmp.i.i4.i93, label %return, label %PACKET_get_length_prefixed_2.exit100
 
 PACKET_get_length_prefixed_2.exit100:             ; preds = %lor.lhs.false.i85

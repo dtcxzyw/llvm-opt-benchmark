@@ -282,7 +282,7 @@ define dso_local i32 @ieee80211_calc_tx_airtime(ptr nocapture noundef readonly %
   br i1 %27, label %28, label %33
 
 28:                                               ; preds = %26
-  %29 = icmp ult i16 %23, 16384
+  %29 = icmp samesign ult i16 %23, 16384
   br i1 %29, label %30, label %33
 
 30:                                               ; preds = %28
@@ -509,7 +509,7 @@ define dso_local i32 @ieee80211_calc_expected_tx_airtime(ptr nocapture noundef r
   br i1 %101, label %102, label %107
 
 102:                                              ; preds = %100
-  %103 = icmp ult i16 %97, 16384
+  %103 = icmp samesign ult i16 %97, 16384
   br i1 %103, label %104, label %107
 
 104:                                              ; preds = %102
@@ -581,20 +581,20 @@ define dso_local i32 @ieee80211_calc_expected_tx_airtime(ptr nocapture noundef r
   br i1 %145, label %157, label %146
 
 146:                                              ; preds = %143
-  %147 = icmp ugt i32 %144, 256000
+  %147 = icmp samesign ugt i32 %144, 256000
   br i1 %147, label %157, label %148
 
 148:                                              ; preds = %146
-  %149 = icmp ugt i32 %144, 153600
+  %149 = icmp samesign ugt i32 %144, 153600
   br i1 %149, label %157, label %150
 
 150:                                              ; preds = %148
-  %151 = icmp ugt i32 %144, 71680
+  %151 = icmp samesign ugt i32 %144, 71680
   br i1 %151, label %157, label %152
 
 152:                                              ; preds = %150
   %153 = icmp ne i8 %138, 3
-  %154 = icmp ugt i32 %144, 20480
+  %154 = icmp samesign ugt i32 %144, 20480
   %155 = or i1 %153, %154
   %156 = select i1 %155, i32 5, i32 6
   br label %157

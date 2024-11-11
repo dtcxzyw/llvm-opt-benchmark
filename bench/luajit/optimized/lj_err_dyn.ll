@@ -1620,7 +1620,7 @@ entry:
   br i1 %cmp, label %if.then, label %if.else20
 
 if.then:                                          ; preds = %entry
-  %cmp1 = icmp ugt i32 %narg, -10003
+  %cmp1 = icmp samesign ugt i32 %narg, -10003
   br i1 %cmp1, label %if.end52, label %if.else
 
 if.else:                                          ; preds = %if.then
@@ -1634,7 +1634,7 @@ if.else:                                          ; preds = %if.then
   %nupvalues = getelementptr inbounds i8, ptr %2, i64 11
   %3 = load i8, ptr %nupvalues, align 1
   %conv = zext i8 %3 to i32
-  %cmp3.not = icmp ugt i32 %sub, %conv
+  %cmp3.not = icmp samesign ugt i32 %sub, %conv
   br i1 %cmp3.not, label %if.end52, label %if.then5
 
 if.then5:                                         ; preds = %if.else

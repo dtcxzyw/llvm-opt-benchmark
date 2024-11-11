@@ -8329,7 +8329,7 @@ define noundef range(i32 0, 2) i32 @_ZNK6casadi15KinsolInterface8init_memEPv(ptr
   %431 = getelementptr inbounds i8, ptr %.0910.i.i.i.i.i, i64 8
   %432 = getelementptr inbounds i8, ptr %.0811.i.i.i.i.i, i64 8
   %433 = add nsw i64 %.012.i.i.i.i.i, -1
-  %434 = icmp ugt i64 %.012.i.i.i.i.i, 1
+  %434 = icmp samesign ugt i64 %.012.i.i.i.i.i, 1
   br i1 %434, label %.lr.ph.i.i.i.i.i, label %_ZSt4copyIN9__gnu_cxx17__normal_iteratorIPKxSt6vectorIxSaIxEEEEPdET0_T_SA_S9_.exit, !llvm.loop !91
 
 _ZSt4copyIN9__gnu_cxx17__normal_iteratorIPKxSt6vectorIxSaIxEEEEPdET0_T_SA_S9_.exit: ; preds = %.lr.ph.i.i.i.i.i, %416

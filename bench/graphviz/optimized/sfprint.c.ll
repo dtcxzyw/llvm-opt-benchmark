@@ -1342,17 +1342,17 @@ thread-pre-split:                                 ; preds = %150, %139, %143, %1
   br label %599
 
 588:                                              ; preds = %583
-  %589 = icmp ult i32 %spec.store.select47, 32
+  %589 = icmp samesign ult i32 %spec.store.select47, 32
   br i1 %589, label %590, label %593
 
 590:                                              ; preds = %588
-  %591 = icmp ult i32 %spec.store.select47, 16
+  %591 = icmp samesign ult i32 %spec.store.select47, 16
   %592 = select i1 %591, i32 3, i32 4
   store i32 %592, ptr %3, align 4
   br label %599
 
 593:                                              ; preds = %588
-  %594 = icmp ult i32 %spec.store.select47, 64
+  %594 = icmp samesign ult i32 %spec.store.select47, 64
   %595 = select i1 %594, i32 5, i32 6
   store i32 %595, ptr %3, align 4
   br label %599
@@ -1458,7 +1458,7 @@ thread-pre-split:                                 ; preds = %150, %139, %143, %1
   br label %661
 
 633:                                              ; preds = %626
-  %634 = icmp ult i64 %624, 3000
+  %634 = icmp samesign ult i64 %624, 3000
   br i1 %634, label %635, label %637
 
 635:                                              ; preds = %633
@@ -1467,7 +1467,7 @@ thread-pre-split:                                 ; preds = %150, %139, %143, %1
   br label %661
 
 637:                                              ; preds = %633
-  %638 = icmp ult i64 %624, 4000
+  %638 = icmp samesign ult i64 %624, 4000
   br i1 %638, label %639, label %641
 
 639:                                              ; preds = %637
@@ -1481,11 +1481,11 @@ thread-pre-split:                                 ; preds = %150, %139, %143, %1
   br label %661
 
 643:                                              ; preds = %.lr.ph1595
-  %644 = icmp ult i64 %624, 7000
+  %644 = icmp samesign ult i64 %624, 7000
   br i1 %644, label %645, label %651
 
 645:                                              ; preds = %643
-  %646 = icmp ult i64 %624, 6000
+  %646 = icmp samesign ult i64 %624, 6000
   br i1 %646, label %647, label %649
 
 647:                                              ; preds = %645
@@ -1499,7 +1499,7 @@ thread-pre-split:                                 ; preds = %150, %139, %143, %1
   br label %661
 
 651:                                              ; preds = %643
-  %652 = icmp ult i64 %624, 8000
+  %652 = icmp samesign ult i64 %624, 8000
   br i1 %652, label %653, label %655
 
 653:                                              ; preds = %651
@@ -1508,7 +1508,7 @@ thread-pre-split:                                 ; preds = %150, %139, %143, %1
   br label %661
 
 655:                                              ; preds = %651
-  %656 = icmp ult i64 %624, 9000
+  %656 = icmp samesign ult i64 %624, 9000
   br i1 %656, label %657, label %659
 
 657:                                              ; preds = %655
@@ -1545,7 +1545,7 @@ thread-pre-split:                                 ; preds = %150, %139, %143, %1
   br label %704
 
 671:                                              ; preds = %663
-  %672 = icmp ult i64 %.0931, 300
+  %672 = icmp samesign ult i64 %.0931, 300
   br i1 %672, label %673, label %676
 
 673:                                              ; preds = %671
@@ -1555,7 +1555,7 @@ thread-pre-split:                                 ; preds = %150, %139, %143, %1
   br label %704
 
 676:                                              ; preds = %671
-  %677 = icmp ult i64 %.0931, 400
+  %677 = icmp samesign ult i64 %.0931, 400
   %678 = getelementptr inbounds i8, ptr %.ptr1296, i64 1
   br i1 %677, label %679, label %681
 
@@ -1570,11 +1570,11 @@ thread-pre-split:                                 ; preds = %150, %139, %143, %1
   br label %704
 
 683:                                              ; preds = %661
-  %684 = icmp ult i64 %.0931, 700
+  %684 = icmp samesign ult i64 %.0931, 700
   br i1 %684, label %685, label %692
 
 685:                                              ; preds = %683
-  %686 = icmp ult i64 %.0931, 600
+  %686 = icmp samesign ult i64 %.0931, 600
   %687 = getelementptr inbounds i8, ptr %.ptr1296, i64 1
   br i1 %686, label %688, label %690
 
@@ -1589,7 +1589,7 @@ thread-pre-split:                                 ; preds = %150, %139, %143, %1
   br label %704
 
 692:                                              ; preds = %683
-  %693 = icmp ult i64 %.0931, 800
+  %693 = icmp samesign ult i64 %.0931, 800
   br i1 %693, label %694, label %697
 
 694:                                              ; preds = %692
@@ -1599,7 +1599,7 @@ thread-pre-split:                                 ; preds = %150, %139, %143, %1
   br label %704
 
 697:                                              ; preds = %692
-  %698 = icmp ult i64 %.0931, 900
+  %698 = icmp samesign ult i64 %.0931, 900
   %699 = getelementptr inbounds i8, ptr %.ptr1296, i64 1
   br i1 %698, label %700, label %702
 
@@ -1764,15 +1764,15 @@ thread-pre-split:                                 ; preds = %150, %139, %143, %1
   %.sink1905 = phi i64 [ -1000, %755 ], [ -2000, %757 ], [ %.1921, %759 ], [ %.1923, %763 ], [ -7000, %765 ], [ %.1925, %767 ]
   store i8 %.sink1906, ptr %.ptr1292, align 1
   %770 = add nsw i64 %.21090.lcssa, %.sink1905
-  %771 = icmp ult i64 %770, 500
+  %771 = icmp samesign ult i64 %770, 500
   br i1 %771, label %772, label %792
 
 772:                                              ; preds = %769
-  %773 = icmp ult i64 %770, 200
+  %773 = icmp samesign ult i64 %770, 200
   br i1 %773, label %774, label %780
 
 774:                                              ; preds = %772
-  %775 = icmp ult i64 %770, 100
+  %775 = icmp samesign ult i64 %770, 100
   %776 = getelementptr inbounds i8, ptr %.51070.ptr.le, i64 -3
   br i1 %775, label %777, label %778
 
@@ -1786,7 +1786,7 @@ thread-pre-split:                                 ; preds = %150, %139, %143, %1
   br label %813
 
 780:                                              ; preds = %772
-  %781 = icmp ult i64 %770, 300
+  %781 = icmp samesign ult i64 %770, 300
   br i1 %781, label %782, label %785
 
 782:                                              ; preds = %780
@@ -1796,7 +1796,7 @@ thread-pre-split:                                 ; preds = %150, %139, %143, %1
   br label %813
 
 785:                                              ; preds = %780
-  %786 = icmp ult i64 %770, 400
+  %786 = icmp samesign ult i64 %770, 400
   %787 = getelementptr inbounds i8, ptr %.51070.ptr.le, i64 -3
   br i1 %786, label %788, label %790
 
@@ -1811,11 +1811,11 @@ thread-pre-split:                                 ; preds = %150, %139, %143, %1
   br label %813
 
 792:                                              ; preds = %769
-  %793 = icmp ult i64 %770, 700
+  %793 = icmp samesign ult i64 %770, 700
   br i1 %793, label %794, label %801
 
 794:                                              ; preds = %792
-  %795 = icmp ult i64 %770, 600
+  %795 = icmp samesign ult i64 %770, 600
   %796 = getelementptr inbounds i8, ptr %.51070.ptr.le, i64 -3
   br i1 %795, label %797, label %799
 
@@ -1830,7 +1830,7 @@ thread-pre-split:                                 ; preds = %150, %139, %143, %1
   br label %813
 
 801:                                              ; preds = %792
-  %802 = icmp ult i64 %770, 800
+  %802 = icmp samesign ult i64 %770, 800
   br i1 %802, label %803, label %806
 
 803:                                              ; preds = %801
@@ -1840,7 +1840,7 @@ thread-pre-split:                                 ; preds = %150, %139, %143, %1
   br label %813
 
 806:                                              ; preds = %801
-  %807 = icmp ult i64 %770, 900
+  %807 = icmp samesign ult i64 %770, 900
   %808 = getelementptr inbounds i8, ptr %.51070.ptr.le, i64 -3
   br i1 %807, label %809, label %811
 
@@ -2068,7 +2068,7 @@ thread-pre-split:                                 ; preds = %150, %139, %143, %1
   br label %937
 
 909:                                              ; preds = %902
-  %910 = icmp ult i32 %900, 3000
+  %910 = icmp samesign ult i32 %900, 3000
   br i1 %910, label %911, label %913
 
 911:                                              ; preds = %909
@@ -2077,7 +2077,7 @@ thread-pre-split:                                 ; preds = %150, %139, %143, %1
   br label %937
 
 913:                                              ; preds = %909
-  %914 = icmp ult i32 %900, 4000
+  %914 = icmp samesign ult i32 %900, 4000
   br i1 %914, label %915, label %917
 
 915:                                              ; preds = %913
@@ -2091,11 +2091,11 @@ thread-pre-split:                                 ; preds = %150, %139, %143, %1
   br label %937
 
 919:                                              ; preds = %.lr.ph1587
-  %920 = icmp ult i32 %900, 7000
+  %920 = icmp samesign ult i32 %900, 7000
   br i1 %920, label %921, label %927
 
 921:                                              ; preds = %919
-  %922 = icmp ult i32 %900, 6000
+  %922 = icmp samesign ult i32 %900, 6000
   br i1 %922, label %923, label %925
 
 923:                                              ; preds = %921
@@ -2109,7 +2109,7 @@ thread-pre-split:                                 ; preds = %150, %139, %143, %1
   br label %937
 
 927:                                              ; preds = %919
-  %928 = icmp ult i32 %900, 8000
+  %928 = icmp samesign ult i32 %900, 8000
   br i1 %928, label %929, label %931
 
 929:                                              ; preds = %927
@@ -2118,7 +2118,7 @@ thread-pre-split:                                 ; preds = %150, %139, %143, %1
   br label %937
 
 931:                                              ; preds = %927
-  %932 = icmp ult i32 %900, 9000
+  %932 = icmp samesign ult i32 %900, 9000
   br i1 %932, label %933, label %935
 
 933:                                              ; preds = %931
@@ -2155,7 +2155,7 @@ thread-pre-split:                                 ; preds = %150, %139, %143, %1
   br label %981
 
 948:                                              ; preds = %940
-  %949 = icmp ult i32 %938, 300
+  %949 = icmp samesign ult i32 %938, 300
   br i1 %949, label %950, label %953
 
 950:                                              ; preds = %948
@@ -2165,7 +2165,7 @@ thread-pre-split:                                 ; preds = %150, %139, %143, %1
   br label %981
 
 953:                                              ; preds = %948
-  %954 = icmp ult i32 %938, 400
+  %954 = icmp samesign ult i32 %938, 400
   %955 = getelementptr inbounds i8, ptr %.91074.ptr1586, i64 -3
   br i1 %954, label %956, label %958
 
@@ -2180,11 +2180,11 @@ thread-pre-split:                                 ; preds = %150, %139, %143, %1
   br label %981
 
 960:                                              ; preds = %937
-  %961 = icmp ult i32 %938, 700
+  %961 = icmp samesign ult i32 %938, 700
   br i1 %961, label %962, label %969
 
 962:                                              ; preds = %960
-  %963 = icmp ult i32 %938, 600
+  %963 = icmp samesign ult i32 %938, 600
   %964 = getelementptr inbounds i8, ptr %.91074.ptr1586, i64 -3
   br i1 %963, label %965, label %967
 
@@ -2199,7 +2199,7 @@ thread-pre-split:                                 ; preds = %150, %139, %143, %1
   br label %981
 
 969:                                              ; preds = %960
-  %970 = icmp ult i32 %938, 800
+  %970 = icmp samesign ult i32 %938, 800
   br i1 %970, label %971, label %974
 
 971:                                              ; preds = %969
@@ -2209,7 +2209,7 @@ thread-pre-split:                                 ; preds = %150, %139, %143, %1
   br label %981
 
 974:                                              ; preds = %969
-  %975 = icmp ult i32 %938, 900
+  %975 = icmp samesign ult i32 %938, 900
   %976 = getelementptr inbounds i8, ptr %.91074.ptr1586, i64 -3
   br i1 %975, label %977, label %979
 
@@ -2381,15 +2381,15 @@ thread-pre-split:                                 ; preds = %150, %139, %143, %1
   %.sink1909 = phi i32 [ -1000, %1036 ], [ -2000, %1038 ], [ %.1935, %1040 ], [ %.1937, %1044 ], [ -7000, %1046 ], [ %.1939, %1048 ]
   store i8 %.sink1910, ptr %.ptr1286, align 1
   %1051 = add nsw i32 %.12.lcssa, %.sink1909
-  %1052 = icmp ult i32 %1051, 500
+  %1052 = icmp samesign ult i32 %1051, 500
   br i1 %1052, label %1053, label %1073
 
 1053:                                             ; preds = %1050
-  %1054 = icmp ult i32 %1051, 200
+  %1054 = icmp samesign ult i32 %1051, 200
   br i1 %1054, label %1055, label %1061
 
 1055:                                             ; preds = %1053
-  %1056 = icmp ult i32 %1051, 100
+  %1056 = icmp samesign ult i32 %1051, 100
   %1057 = getelementptr inbounds i8, ptr %.91074.ptr.lcssa, i64 -3
   br i1 %1056, label %1058, label %1059
 
@@ -2403,7 +2403,7 @@ thread-pre-split:                                 ; preds = %150, %139, %143, %1
   br label %1094
 
 1061:                                             ; preds = %1053
-  %1062 = icmp ult i32 %1051, 300
+  %1062 = icmp samesign ult i32 %1051, 300
   br i1 %1062, label %1063, label %1066
 
 1063:                                             ; preds = %1061
@@ -2413,7 +2413,7 @@ thread-pre-split:                                 ; preds = %150, %139, %143, %1
   br label %1094
 
 1066:                                             ; preds = %1061
-  %1067 = icmp ult i32 %1051, 400
+  %1067 = icmp samesign ult i32 %1051, 400
   %1068 = getelementptr inbounds i8, ptr %.91074.ptr.lcssa, i64 -3
   br i1 %1067, label %1069, label %1071
 
@@ -2428,11 +2428,11 @@ thread-pre-split:                                 ; preds = %150, %139, %143, %1
   br label %1094
 
 1073:                                             ; preds = %1050
-  %1074 = icmp ult i32 %1051, 700
+  %1074 = icmp samesign ult i32 %1051, 700
   br i1 %1074, label %1075, label %1082
 
 1075:                                             ; preds = %1073
-  %1076 = icmp ult i32 %1051, 600
+  %1076 = icmp samesign ult i32 %1051, 600
   %1077 = getelementptr inbounds i8, ptr %.91074.ptr.lcssa, i64 -3
   br i1 %1076, label %1078, label %1080
 
@@ -2447,7 +2447,7 @@ thread-pre-split:                                 ; preds = %150, %139, %143, %1
   br label %1094
 
 1082:                                             ; preds = %1073
-  %1083 = icmp ult i32 %1051, 800
+  %1083 = icmp samesign ult i32 %1051, 800
   br i1 %1083, label %1084, label %1087
 
 1084:                                             ; preds = %1082
@@ -2457,7 +2457,7 @@ thread-pre-split:                                 ; preds = %150, %139, %143, %1
   br label %1094
 
 1087:                                             ; preds = %1082
-  %1088 = icmp ult i32 %1051, 900
+  %1088 = icmp samesign ult i32 %1051, 900
   %1089 = getelementptr inbounds i8, ptr %.91074.ptr.lcssa, i64 -3
   br i1 %1088, label %1090, label %1092
 

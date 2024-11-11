@@ -27,7 +27,7 @@ define noundef i32 @dgemv_t(i64 noundef %0, i64 noundef %1, i64 noundef %2, doub
   %28 = icmp ne i64 %26, %24
   %29 = icmp eq i64 %7, 1
   %30 = shl i64 %5, 2
-  %31 = icmp ult i64 %1, 2048
+  %31 = icmp samesign ult i64 %1, 2048
   %32 = shl nuw nsw i64 %23, 2
   %33 = mul nsw i64 %30, %23
   %34 = and i64 %1, 2

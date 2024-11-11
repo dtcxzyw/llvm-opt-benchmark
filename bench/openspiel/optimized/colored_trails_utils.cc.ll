@@ -936,11 +936,11 @@ _ZNSt6vectorIiSaIiEED2Ev.exit46:                  ; preds = %.loopexit, %.loopex
   unreachable
 
 _ZN4absl7debian211string_viewC2ISaIcEEERKNSt7__cxx1112basic_stringIcSt11char_traitsIcET_EE.exit.i: ; preds = %110
-  %115 = icmp ugt i64 %112, 16
+  %115 = icmp samesign ugt i64 %112, 16
   br i1 %115, label %116, label %122
 
 116:                                              ; preds = %_ZN4absl7debian211string_viewC2ISaIcEEERKNSt7__cxx1112basic_stringIcSt11char_traitsIcET_EE.exit.i
-  %117 = icmp ugt i64 %112, 1024
+  %117 = icmp samesign ugt i64 %112, 1024
   br i1 %117, label %118, label %120
 
 118:                                              ; preds = %116
@@ -952,7 +952,7 @@ _ZN4absl7debian211string_viewC2ISaIcEEERKNSt7__cxx1112basic_stringIcSt11char_tra
           to label %.noexc60 unwind label %244
 
 122:                                              ; preds = %_ZN4absl7debian211string_viewC2ISaIcEEERKNSt7__cxx1112basic_stringIcSt11char_traitsIcET_EE.exit.i
-  %123 = icmp ugt i64 %112, 8
+  %123 = icmp samesign ugt i64 %112, 8
   br i1 %123, label %124, label %136
 
 124:                                              ; preds = %122
@@ -972,7 +972,7 @@ _ZN4absl7debian211string_viewC2ISaIcEEERKNSt7__cxx1112basic_stringIcSt11char_tra
   br label %.noexc60
 
 136:                                              ; preds = %122
-  %137 = icmp ugt i64 %112, 3
+  %137 = icmp samesign ugt i64 %112, 3
   br i1 %137, label %138, label %147
 
 138:                                              ; preds = %136
@@ -3014,7 +3014,7 @@ define linkonce_odr noundef i64 @_ZN4absl7debian213hash_internal9HashState21Comb
   br label %56
 
 11:                                               ; preds = %3
-  %12 = icmp ugt i64 %2, 8
+  %12 = icmp samesign ugt i64 %2, 8
   br i1 %12, label %13, label %25
 
 13:                                               ; preds = %11
@@ -3034,7 +3034,7 @@ define linkonce_odr noundef i64 @_ZN4absl7debian213hash_internal9HashState21Comb
   br label %56
 
 25:                                               ; preds = %11
-  %26 = icmp ugt i64 %2, 3
+  %26 = icmp samesign ugt i64 %2, 3
   br i1 %26, label %27, label %36
 
 27:                                               ; preds = %25

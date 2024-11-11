@@ -252,7 +252,7 @@ define noundef range(i32 1073741824, -2147483639) i32 @_ZN9dtNavMesh4initEPK15dt
   %64 = load ptr, ptr %39, align 8
   %65 = getelementptr inbounds %struct.dtMeshTile, ptr %64, i64 %indvars.iv.next
   store ptr %65, ptr %55, align 8
-  %66 = icmp ugt i64 %indvars.iv, 1
+  %66 = icmp samesign ugt i64 %indvars.iv, 1
   br i1 %66, label %.lr.ph, label %._crit_edge, !llvm.loop !6
 
 ._crit_edge:                                      ; preds = %.lr.ph, %46
@@ -1961,7 +1961,7 @@ _ZNK9dtNavMesh14getPolyRefBaseEPK10dtMeshTile.exit: ; preds = %2
   br label %_Z9allocLinkP10dtMeshTile.exit.thread
 
 _Z9allocLinkP10dtMeshTile.exit.thread:            ; preds = %41, %44, %38
-  %61 = icmp ugt i64 %indvars.iv, 1
+  %61 = icmp samesign ugt i64 %indvars.iv, 1
   br i1 %61, label %38, label %.loopexit, !llvm.loop !24
 
 .loopexit:                                        ; preds = %_Z9allocLinkP10dtMeshTile.exit.thread, %33, %27

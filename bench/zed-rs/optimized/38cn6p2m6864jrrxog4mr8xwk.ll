@@ -1169,7 +1169,7 @@ define hidden void @_ZN10image_webp8extended16read_alpha_chunk17h3cd10ef24a2dbb6
 
 34:                                               ; preds = %26
   %35 = lshr i8 %27, 4
-  %switch55 = icmp ult i8 %27, 32
+  %switch55 = icmp samesign ult i8 %27, 32
   br i1 %switch55, label %40, label %38
 
 36:                                               ; preds = %26
@@ -1855,7 +1855,7 @@ default.unreachable5.i.i.i.i:                     ; preds = %185
   %263 = add nsw i32 %261, -1
   %264 = add nsw i32 %263, %262
   %265 = lshr i32 %264, %.sroa.067.0.i.i
-  %266 = icmp ult i32 %265, 65536
+  %266 = icmp samesign ult i32 %265, 65536
   %267 = trunc nuw i32 %265 to i16
   %.sroa.5153.0.i.i = select i1 %266, i16 %267, i16 undef
   call void @llvm.lifetime.start.p0(i64 0, ptr nonnull %5), !noalias !233
@@ -3784,7 +3784,7 @@ default.unreachable5.i.i.i:                       ; preds = %209
   %287 = add nsw i32 %285, -1
   %288 = add nsw i32 %287, %286
   %289 = lshr i32 %288, %.sroa.067.0.i
-  %290 = icmp ult i32 %289, 65536
+  %290 = icmp samesign ult i32 %289, 65536
   %291 = trunc nuw i32 %289 to i16
   %.sroa.5153.0.i = select i1 %290, i16 %291, i16 undef
   call void @llvm.lifetime.start.p0(i64 0, ptr nonnull %8), !noalias !658
@@ -17475,7 +17475,7 @@ switch.lookup149:                                 ; preds = %1487
   br i1 %or.cond.i.i, label %2222, label %.lr.ph89.i.i
 
 2171:                                             ; preds = %2163
-  %2172 = icmp ugt i64 %2150, 2
+  %2172 = icmp samesign ugt i64 %2150, 2
   br i1 %2172, label %2297, label %2165
 
 2173:                                             ; preds = %2166
@@ -18404,7 +18404,7 @@ switch.lookup149:                                 ; preds = %1487
   br i1 %.not85.i.i, label %2488, label %2489
 
 2486:                                             ; preds = %2385
-  %2487 = icmp ult i64 %2150, 3
+  %2487 = icmp samesign ult i64 %2150, 3
   br i1 %2487, label %2515, label %2505
 
 2488:                                             ; preds = %2495, %2489, %2485
@@ -18771,7 +18771,7 @@ switch.lookup151:                                 ; preds = %2498
   br label %.thread
 
 2633:                                             ; preds = %2135
-  %2634 = icmp ult i64 %853, 16
+  %2634 = icmp samesign ult i64 %853, 16
   br i1 %2634, label %2139, label %2636
 
 2635:                                             ; preds = %2135
@@ -18826,7 +18826,7 @@ switch.lookup151:                                 ; preds = %2498
   br label %"_ZN66_$LT$vte..ansi..Performer$LT$H$C$T$GT$$u20$as$u20$vte..Perform$GT$6unhook17h8dcb0156c0b818b0E.exit"
 
 2656:                                             ; preds = %2648
-  %2657 = icmp ult i64 %2639, 16
+  %2657 = icmp samesign ult i64 %2639, 16
   br i1 %2657, label %2659, label %2666
 
 2658:                                             ; preds = %2648
@@ -23583,7 +23583,7 @@ define internal fastcc void @_ZN4core5slice4sort8unstable9quicksort9quicksort17h
   br i1 %16, label %19, label %17
 
 17:                                               ; preds = %15
-  %18 = icmp ugt i64 %.sroa.9.0.i, 8
+  %18 = icmp samesign ugt i64 %.sroa.9.0.i, 8
   br i1 %18, label %122, label %181
 
 19:                                               ; preds = %15
@@ -26186,7 +26186,7 @@ switch.lookup:                                    ; preds = %19
   br i1 %82, label %83, label %85
 
 83:                                               ; preds = %78
-  %84 = icmp ugt i8 %80, %74
+  %84 = icmp samesign ugt i8 %80, %74
   br i1 %84, label %112, label %87
 
 85:                                               ; preds = %78

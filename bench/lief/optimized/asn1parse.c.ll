@@ -52,7 +52,7 @@ define hidden range(i32 -100, 1) i32 @mbedtls_asn1_get_len(ptr nocapture noundef
   br label %80
 
 26:                                               ; preds = %16
-  %27 = icmp ult i64 %7, 3
+  %27 = icmp samesign ult i64 %7, 3
   br i1 %27, label %86, label %28
 
 28:                                               ; preds = %26
@@ -71,7 +71,7 @@ define hidden range(i32 -100, 1) i32 @mbedtls_asn1_get_len(ptr nocapture noundef
   br label %80
 
 39:                                               ; preds = %16
-  %40 = icmp ult i64 %7, 4
+  %40 = icmp samesign ult i64 %7, 4
   br i1 %40, label %86, label %41
 
 41:                                               ; preds = %39
@@ -95,7 +95,7 @@ define hidden range(i32 -100, 1) i32 @mbedtls_asn1_get_len(ptr nocapture noundef
   br label %80
 
 57:                                               ; preds = %16
-  %58 = icmp ult i64 %7, 5
+  %58 = icmp samesign ult i64 %7, 5
   br i1 %58, label %86, label %59
 
 59:                                               ; preds = %57

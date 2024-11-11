@@ -56,7 +56,7 @@ define range(i32 -1, 2) i32 @Fra_NodesAreEquiv(ptr noundef %0, ptr noundef %1, p
   %35 = load i32, ptr %34, align 8
   %36 = add nsw i32 %35, 1
   store i32 %36, ptr %34, align 8
-  %37 = icmp ult i32 %17, 11
+  %37 = icmp samesign ult i32 %17, 11
   br i1 %37, label %286, label %38
 
 38:                                               ; preds = %33

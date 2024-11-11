@@ -1128,7 +1128,7 @@ land.lhs.true145:                                 ; preds = %land.lhs.true136
   br i1 %cmp160.not, label %do.body164, label %do.body238
 
 do.body164:                                       ; preds = %if.else120, %land.lhs.true127, %land.lhs.true136, %land.lhs.true145
-  %cmp165 = icmp ult i64 %outleft.addr.089, 4
+  %cmp165 = icmp samesign ult i64 %outleft.addr.089, 4
   br i1 %cmp165, label %return, label %for.body
 
 for.body:                                         ; preds = %do.body164, %for.inc

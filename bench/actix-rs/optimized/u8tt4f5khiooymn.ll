@@ -5817,14 +5817,14 @@ _ZN19brotli_decompressor6decode26TakeDistanceFromRingBuffer17h0c55c4bb9ffce521E.
 879:                                              ; preds = %864
   %880 = lshr i32 %862, 1
   %881 = add nuw nsw i32 %880, 1
-  %882 = icmp ult i32 %862, 16
+  %882 = icmp samesign ult i32 %862, 16
   %883 = load i32, ptr %154, align 8, !alias.scope !512, !noalias !515
   %884 = icmp ugt i32 %883, 55
   %or.cond.i33.i = select i1 %882, i1 %884, i1 false
   br i1 %or.cond.i33.i, label %888, label %885
 
 885:                                              ; preds = %879
-  %886 = icmp ult i32 %862, 32
+  %886 = icmp samesign ult i32 %862, 32
   %887 = icmp ugt i32 %883, 47
   %or.cond5.i34.i = select i1 %886, i1 %887, i1 false
   br i1 %or.cond5.i34.i, label %914, label %912
@@ -5959,7 +5959,7 @@ _ZN19brotli_decompressor10bit_reader19BrotliFillBitWindow17h9c30226778025dc8E.ex
 
 _ZN19brotli_decompressor10bit_reader19BrotliFillBitWindow17h9c30226778025dc8E.exit35.i: ; preds = %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$15copy_from_slice17h2c304cd278eb72ebE.exit43.i", %912
   %957 = zext nneg i32 %881 to i64
-  %958 = icmp ult i32 %862, 64
+  %958 = icmp samesign ult i32 %862, 64
   br i1 %958, label %_ZN19brotli_decompressor10bit_reader19BrotliFillBitWindow17h9c30226778025dc8E.exit35.i._crit_edge, label %.invoke, !prof !466
 
 _ZN19brotli_decompressor10bit_reader19BrotliFillBitWindow17h9c30226778025dc8E.exit35.i._crit_edge: ; preds = %_ZN19brotli_decompressor10bit_reader19BrotliFillBitWindow17h9c30226778025dc8E.exit35.i
@@ -5990,14 +5990,14 @@ _ZN19brotli_decompressor10bit_reader19BrotliFillBitWindow17h9c30226778025dc8E.ex
   br label %867
 
 978:                                              ; preds = %872
-  %979 = icmp ult i32 %876, 16
+  %979 = icmp samesign ult i32 %876, 16
   %980 = load i32, ptr %154, align 8, !alias.scope !573, !noalias !576
   %981 = icmp ugt i32 %980, 55
   %or.cond.i.i259 = select i1 %979, i1 %981, i1 false
   br i1 %or.cond.i.i259, label %985, label %982
 
 982:                                              ; preds = %978
-  %983 = icmp ult i32 %876, 32
+  %983 = icmp samesign ult i32 %876, 32
   %984 = icmp ugt i32 %980, 47
   %or.cond5.i.i260 = select i1 %983, i1 %984, i1 false
   br i1 %or.cond5.i.i260, label %1011, label %1009
@@ -6126,7 +6126,7 @@ _ZN19brotli_decompressor10bit_reader19BrotliFillBitWindow17h9c30226778025dc8E.ex
 
 _ZN19brotli_decompressor10bit_reader19BrotliFillBitWindow17h9c30226778025dc8E.exit.i261: ; preds = %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$15copy_from_slice17h2c304cd278eb72ebE.exit50.i", %1009
   %1051 = zext nneg i32 %878 to i64
-  %1052 = icmp ult i32 %876, 64
+  %1052 = icmp samesign ult i32 %876, 64
   br i1 %1052, label %_ZN19brotli_decompressor10bit_reader19BrotliFillBitWindow17h9c30226778025dc8E.exit.i261._crit_edge, label %.invoke, !prof !466
 
 _ZN19brotli_decompressor10bit_reader19BrotliFillBitWindow17h9c30226778025dc8E.exit.i261._crit_edge: ; preds = %_ZN19brotli_decompressor10bit_reader19BrotliFillBitWindow17h9c30226778025dc8E.exit.i261
@@ -6261,7 +6261,7 @@ _ZN19brotli_decompressor6decode20ReadDistanceInternal17hc9b7fc14486266a3E.exit.t
   br i1 %1124, label %1125, label %thread-pre-split
 
 1125:                                             ; preds = %1123
-  %1126 = icmp ugt i32 %1090, 32
+  %1126 = icmp samesign ugt i32 %1090, 32
   %.val173 = load ptr, ptr %141, align 8, !nonnull !5, !align !6, !noundef !5
   %.val174 = load i64, ptr %142, align 8, !noundef !5
   br i1 %1126, label %1138, label %1127

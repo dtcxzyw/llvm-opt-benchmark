@@ -1317,7 +1317,7 @@ define void @process(ptr nocapture noundef readonly %0, ptr nocapture noundef re
   %873 = getelementptr i8, ptr %872, i64 12
   %874 = add nsw i32 %831, -4
   %875 = zext nneg i32 %874 to i64
-  %876 = icmp ult i32 %874, 16
+  %876 = icmp samesign ult i32 %874, 16
   %877 = icmp ult ptr %848, %865
   %878 = icmp ult ptr %861, %857
   %879 = and i1 %878, %877
@@ -1702,19 +1702,19 @@ define void @process(ptr nocapture noundef readonly %0, ptr nocapture noundef re
 1165:                                             ; preds = %1183
   %1166 = getelementptr inbounds i8, ptr %1106, i64 16
   store float %1184, ptr %1166, align 4, !tbaa !36
-  %1167 = icmp ugt i64 %1163, 6
+  %1167 = icmp samesign ugt i64 %1163, 6
   br i1 %1167, label %1168, label %1176
 
 1168:                                             ; preds = %1165
   %1169 = getelementptr inbounds i8, ptr %1106, i64 24
   store float %1184, ptr %1169, align 4, !tbaa !36
-  %1170 = icmp ugt i64 %1163, 8
+  %1170 = icmp samesign ugt i64 %1163, 8
   br i1 %1170, label %1171, label %1176
 
 1171:                                             ; preds = %1168
   %1172 = getelementptr inbounds i8, ptr %1106, i64 32
   store float %1184, ptr %1172, align 4, !tbaa !36
-  %1173 = icmp ugt i64 %1163, 10
+  %1173 = icmp samesign ugt i64 %1163, 10
   br i1 %1173, label %1174, label %1176
 
 1174:                                             ; preds = %1171
@@ -1735,7 +1735,7 @@ define void @process(ptr nocapture noundef readonly %0, ptr nocapture noundef re
   %1184 = load float, ptr %1107, align 4, !tbaa !36
   %1185 = getelementptr inbounds i8, ptr %1106, i64 8
   store float %1184, ptr %1185, align 4, !tbaa !36
-  %1186 = icmp ugt i64 %1163, 4
+  %1186 = icmp samesign ugt i64 %1163, 4
   br i1 %1186, label %1165, label %1176
 
 1187:                                             ; preds = %1176

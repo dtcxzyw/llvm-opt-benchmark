@@ -110,7 +110,7 @@ define noundef i32 @sgemm_otcopy(i64 noundef %0, i64 noundef %1, ptr noundef rea
   store float %64, ptr %83, align 4, !tbaa !3
   %84 = getelementptr inbounds i8, ptr %31, i64 %.idx4
   %85 = add nsw i64 %36, -1
-  %86 = icmp ugt i64 %36, 1
+  %86 = icmp samesign ugt i64 %36, 1
   br i1 %86, label %30, label %.loopexit11.us, !llvm.loop !7
 
 87:                                               ; preds = %.loopexit11.us
@@ -220,7 +220,7 @@ define noundef i32 @sgemm_otcopy(i64 noundef %0, i64 noundef %1, ptr noundef rea
   store float %146, ptr %149, align 4, !tbaa !3
   %150 = getelementptr inbounds i8, ptr %136, i64 16
   %151 = add nsw i64 %138, -1
-  %152 = icmp ugt i64 %138, 1
+  %152 = icmp samesign ugt i64 %138, 1
   br i1 %152, label %.split.split.us.split, label %.loopexit12.loopexit47, !llvm.loop !10
 
 .split.split:                                     ; preds = %.split
@@ -264,7 +264,7 @@ define noundef i32 @sgemm_otcopy(i64 noundef %0, i64 noundef %1, ptr noundef rea
   store float %172, ptr %179, align 4, !tbaa !3
   %180 = getelementptr inbounds i8, ptr %154, i64 32
   %181 = add nsw i64 %156, -1
-  %182 = icmp ugt i64 %156, 1
+  %182 = icmp samesign ugt i64 %156, 1
   br i1 %182, label %.split.split.split.us, label %.loopexit12.loopexit48, !llvm.loop !10
 
 .split.split.split:                               ; preds = %.split.split, %.split.split.split
@@ -321,7 +321,7 @@ define noundef i32 @sgemm_otcopy(i64 noundef %0, i64 noundef %1, ptr noundef rea
   store float %218, ptr %221, align 4, !tbaa !3
   %222 = getelementptr inbounds i8, ptr %184, i64 16
   %223 = add nsw i64 %186, -1
-  %224 = icmp ugt i64 %186, 1
+  %224 = icmp samesign ugt i64 %186, 1
   br i1 %224, label %.split.split.split, label %.loopexit12.loopexit49, !llvm.loop !10
 
 .loopexit12.loopexit47:                           ; preds = %.split.split.us.split
@@ -396,7 +396,7 @@ define noundef i32 @sgemm_otcopy(i64 noundef %0, i64 noundef %1, ptr noundef rea
   store float %255, ptr %264, align 4, !tbaa !3
   %265 = getelementptr inbounds i8, ptr %238, i64 %.idx6
   %266 = add nsw i64 %241, -1
-  %267 = icmp ugt i64 %241, 1
+  %267 = icmp samesign ugt i64 %241, 1
   br i1 %267, label %237, label %.loopexit9, !llvm.loop !11
 
 .loopexit9:                                       ; preds = %237, %231
@@ -481,7 +481,7 @@ define noundef i32 @sgemm_otcopy(i64 noundef %0, i64 noundef %1, ptr noundef rea
   store float %316, ptr %320, align 4, !tbaa !3
   %321 = getelementptr inbounds i8, ptr %307, i64 %.idx7
   %322 = add nsw i64 %309, -1
-  %323 = icmp ugt i64 %309, 1
+  %323 = icmp samesign ugt i64 %309, 1
   br i1 %323, label %306, label %.loopexit, !llvm.loop !12
 
 .loopexit:                                        ; preds = %306, %303

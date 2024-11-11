@@ -5607,7 +5607,7 @@ for.inc.1.1.i:                                    ; preds = %if.then19.1.1.i, %i
   %count.3.ph.1.1.i = phi i32 [ %count.3.ph.1111.i, %if.else.1.1.i ], [ %inc.1.1.i, %if.then19.1.1.i ]
   %air_count.3.ph.1.1.i = phi i32 [ %spec.select.1.1.i, %if.else.1.1.i ], [ %air_count.3.ph.1112.i, %if.then19.1.1.i ]
   %sum.3.ph.1.1.i = phi float [ %sum.3.ph.1113.i, %if.else.1.1.i ], [ %add20.1.1.i, %if.then19.1.1.i ]
-  %cmp36.i = icmp ugt i32 %air_count.3.ph.1.1.i, 1
+  %cmp36.i = icmp samesign ugt i32 %air_count.3.ph.1.1.i, 1
   br i1 %cmp36.i, label %_ZNK21MapblockMeshGenerator14getCornerLevelEii.exit, label %if.end38.i
 
 if.end38.i:                                       ; preds = %for.inc.1.1.i
@@ -5739,7 +5739,7 @@ for.inc.1.1.i.1:                                  ; preds = %if.then19.1.1.i.1, 
   %count.3.ph.1.1.i.1 = phi i32 [ %count.3.ph.1111.i.1, %if.else.1.1.i.1 ], [ %inc.1.1.i.1, %if.then19.1.1.i.1 ]
   %air_count.3.ph.1.1.i.1 = phi i32 [ %spec.select.1.1.i.1, %if.else.1.1.i.1 ], [ %air_count.3.ph.1112.i.1, %if.then19.1.1.i.1 ]
   %sum.3.ph.1.1.i.1 = phi float [ %sum.3.ph.1113.i.1, %if.else.1.1.i.1 ], [ %add20.1.1.i.1, %if.then19.1.1.i.1 ]
-  %cmp36.i.1 = icmp ugt i32 %air_count.3.ph.1.1.i.1, 1
+  %cmp36.i.1 = icmp samesign ugt i32 %air_count.3.ph.1.1.i.1, 1
   br i1 %cmp36.i.1, label %_ZNK21MapblockMeshGenerator14getCornerLevelEii.exit.1, label %if.end38.i.1
 
 if.end38.i.1:                                     ; preds = %for.inc.1.1.i.1
@@ -5872,7 +5872,7 @@ for.inc.1.1.i.194:                                ; preds = %if.then19.1.1.i.189
   %count.3.ph.1.1.i.190 = phi i32 [ %count.3.ph.1111.i.171, %if.else.1.1.i.186 ], [ %inc.1.1.i.188, %if.then19.1.1.i.189 ]
   %air_count.3.ph.1.1.i.191 = phi i32 [ %spec.select.1.1.i.185, %if.else.1.1.i.186 ], [ %air_count.3.ph.1112.i.172, %if.then19.1.1.i.189 ]
   %sum.3.ph.1.1.i.192 = phi float [ %sum.3.ph.1113.i.173, %if.else.1.1.i.186 ], [ %add20.1.1.i.187, %if.then19.1.1.i.189 ]
-  %cmp36.i.193 = icmp ugt i32 %air_count.3.ph.1.1.i.191, 1
+  %cmp36.i.193 = icmp samesign ugt i32 %air_count.3.ph.1.1.i.191, 1
   br i1 %cmp36.i.193, label %_ZNK21MapblockMeshGenerator14getCornerLevelEii.exit.1102, label %if.end38.i.196
 
 if.end38.i.196:                                   ; preds = %for.inc.1.1.i.194
@@ -6005,7 +6005,7 @@ for.inc.1.1.i.1.1:                                ; preds = %if.then19.1.1.i.1.1
   %count.3.ph.1.1.i.1.1 = phi i32 [ %count.3.ph.1111.i.1.1, %if.else.1.1.i.1.1 ], [ %inc.1.1.i.1.1, %if.then19.1.1.i.1.1 ]
   %air_count.3.ph.1.1.i.1.1 = phi i32 [ %spec.select.1.1.i.1.1, %if.else.1.1.i.1.1 ], [ %air_count.3.ph.1112.i.1.1, %if.then19.1.1.i.1.1 ]
   %sum.3.ph.1.1.i.1.1 = phi float [ %sum.3.ph.1113.i.1.1, %if.else.1.1.i.1.1 ], [ %add20.1.1.i.1.1, %if.then19.1.1.i.1.1 ]
-  %cmp36.i.1.1 = icmp ugt i32 %air_count.3.ph.1.1.i.1.1, 1
+  %cmp36.i.1.1 = icmp samesign ugt i32 %air_count.3.ph.1.1.i.1.1, 1
   br i1 %cmp36.i.1.1, label %_ZNK21MapblockMeshGenerator14getCornerLevelEii.exit.1.1, label %if.end38.i.1.1
 
 if.end38.i.1.1:                                   ; preds = %for.inc.1.1.i.1.1
@@ -6161,7 +6161,7 @@ for.inc.1.1:                                      ; preds = %if.then19.1.1, %if.
   %count.3.ph.1.1 = phi i32 [ %count.3.ph.1111, %if.else.1.1 ], [ %inc.1.1, %if.then19.1.1 ]
   %air_count.3.ph.1.1 = phi i32 [ %spec.select.1.1, %if.else.1.1 ], [ %air_count.3.ph.1112, %if.then19.1.1 ]
   %sum.3.ph.1.1 = phi float [ %sum.3.ph.1113, %if.else.1.1 ], [ %add20.1.1, %if.then19.1.1 ]
-  %cmp36 = icmp ugt i32 %air_count.3.ph.1.1, 1
+  %cmp36 = icmp samesign ugt i32 %air_count.3.ph.1.1, 1
   br i1 %cmp36, label %cleanup43, label %if.end38
 
 if.end38:                                         ; preds = %for.inc.1.1

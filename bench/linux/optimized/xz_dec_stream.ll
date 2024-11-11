@@ -144,7 +144,7 @@ define dso_local i32 @xz_dec_run(ptr noundef %0, ptr noundef %1) local_unnamed_a
 77:                                               ; preds = %74
   %78 = zext nneg i8 %75 to i32
   store i32 %78, ptr %25, align 4
-  %79 = icmp ugt i8 %75, 1
+  %79 = icmp samesign ugt i8 %75, 1
   br i1 %79, label %.thread, label %.loopexit121
 
 .loopexit121:                                     ; preds = %44, %77

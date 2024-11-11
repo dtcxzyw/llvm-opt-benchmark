@@ -12447,7 +12447,7 @@ if.end4:                                          ; preds = %if.end
   br i1 %cmp19, label %return, label %if.end21
 
 if.end21:                                         ; preds = %if.end4
-  %cmp.i.i = icmp ugt i64 %div, 10000
+  %cmp.i.i = icmp samesign ugt i64 %div, 10000
   br i1 %cmp.i.i, label %if.then23, label %if.end45
 
 if.then23:                                        ; preds = %if.end21

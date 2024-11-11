@@ -5358,7 +5358,7 @@ define internal range(i32 -1, 2) i32 @H5VL__file_open_find_connector_cb(i32 %0, 
   br label %100
 
 82:                                               ; preds = %75
-  %83 = icmp ugt i64 %76, %48
+  %83 = icmp samesign ugt i64 %76, %48
   br i1 %83, label %84, label %100
 
 84:                                               ; preds = %82

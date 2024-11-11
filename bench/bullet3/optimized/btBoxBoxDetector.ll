@@ -1046,7 +1046,7 @@ if.then717:                                       ; preds = %if.end715
 if.end733:                                        ; preds = %if.then717, %if.end715
   %fneg734 = fneg float %s.14935945
   store float %fneg734, ptr %depth, align 4
-  %cmp735 = icmp ugt i32 %code.14934947, 6
+  %cmp735 = icmp samesign ugt i32 %code.14934947, 6
   br i1 %cmp735, label %for.body.preheader, label %if.end870
 
 for.body.preheader:                               ; preds = %if.end733
@@ -1221,7 +1221,7 @@ for.end865:                                       ; preds = %for.body855
   br label %return.sink.split
 
 if.end870:                                        ; preds = %if.end733
-  %cmp873 = icmp ult i32 %code.14934947, 4
+  %cmp873 = icmp samesign ult i32 %code.14934947, 4
   %217 = load float, ptr %normal, align 4
   br i1 %cmp873, label %if.then885, label %if.else898
 
@@ -1563,7 +1563,7 @@ for.end1202:                                      ; preds = %for.inc1200
 if.end1205:                                       ; preds = %for.end1202
   %spec.select = call i32 @llvm.smin.i32(i32 %maxc, i32 %cnum.1)
   %spec.store.select = call i32 @llvm.smax.i32(i32 %spec.select, i32 1)
-  %cmp1212.not = icmp ugt i32 %cnum.1, %spec.store.select
+  %cmp1212.not = icmp samesign ugt i32 %cnum.1, %spec.store.select
   br i1 %cmp1212.not, label %for.body1291.preheader, label %if.then1213
 
 if.then1213:                                      ; preds = %if.end1205

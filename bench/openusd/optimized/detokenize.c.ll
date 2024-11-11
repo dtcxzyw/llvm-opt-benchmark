@@ -99,7 +99,7 @@ define hidden void @av1_decode_palette_tokens(ptr nocapture noundef readonly %0,
   %74 = tail call i32 @od_ec_decode_bool_q15(ptr noundef nonnull %72, i32 noundef 16384) #7
   %75 = shl i32 %74, %.0.i.i.i
   %76 = or i32 %75, %.067.i.i.i
-  %77 = icmp ugt i32 %.0.in8.i.i.i, 1
+  %77 = icmp samesign ugt i32 %.0.in8.i.i.i, 1
   br i1 %77, label %73, label %aom_read_literal_.exit.i.i, !llvm.loop !4
 
 aom_read_literal_.exit.i.i:                       ; preds = %73, %3

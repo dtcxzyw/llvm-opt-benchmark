@@ -713,7 +713,7 @@ Dec_GraphFree.exit:                               ; preds = %118, %121
   br label %122
 
 122:                                              ; preds = %.lr.ph118, %Dec_GraphFree.exit
-  %123 = icmp ugt i64 %indvars.iv121, 1
+  %123 = icmp samesign ugt i64 %indvars.iv121, 1
   br i1 %123, label %.lr.ph118, label %._crit_edge119.thread, !llvm.loop !16
 
 ._crit_edge119:                                   ; preds = %._crit_edge114

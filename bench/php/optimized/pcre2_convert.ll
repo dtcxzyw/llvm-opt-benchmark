@@ -83,7 +83,7 @@ define i32 @pcre2_pattern_convert_8(ptr noundef %0, i64 noundef %1, i32 noundef 
   %36 = getelementptr inbounds i8, ptr %0, i64 %.064
   %37 = and i32 %2, 32
   %38 = icmp eq i32 %37, 0
-  %.not.i = icmp ult i32 %2, 64
+  %.not.i = icmp samesign ult i32 %2, 64
   %.not114.i = icmp eq i32 %10, 0
   %39 = getelementptr inbounds i8, ptr %7, i64 8
   %40 = getelementptr inbounds i8, ptr %7, i64 16
@@ -92,7 +92,7 @@ define i32 @pcre2_pattern_convert_8(ptr noundef %0, i64 noundef %1, i32 noundef 
   %43 = getelementptr inbounds i8, ptr %7, i64 26
   %44 = getelementptr inbounds i8, ptr %7, i64 27
   %45 = icmp sgt i64 %.064, 0
-  %brmerge.not.i = icmp ult i32 %2, 32
+  %brmerge.not.i = icmp samesign ult i32 %2, 32
   %.not51.i = icmp eq i64 %.064, 1
   %46 = getelementptr inbounds i8, ptr %0, i64 1
   %47 = getelementptr inbounds i8, ptr %7, i64 28
@@ -1944,8 +1944,8 @@ convert_glob_write.exit328.i.i:                   ; preds = %720, %714
   br i1 %922, label %convert_glob_parse_range.exit.thread.i, label %923
 
 923:                                              ; preds = %921
-  %924 = icmp ult i32 %.1252374.i.i, %67
-  %925 = icmp ugt i32 %.3.i.i, %67
+  %924 = icmp samesign ult i32 %.1252374.i.i, %67
+  %925 = icmp samesign ugt i32 %.3.i.i, %67
   %or.cond305.i.i = and i1 %924, %925
   %.3272.i.i = select i1 %or.cond305.i.i, i32 1, i32 %.0269371.i.i
   br label %1024
@@ -2500,7 +2500,7 @@ convert_glob.exit:                                ; preds = %61, %convert_glob_p
   ]
 
 1216:                                             ; preds = %1215
-  %1217 = icmp ult i32 %.0193.fr.i, 128
+  %1217 = icmp samesign ult i32 %.0193.fr.i, 128
   br i1 %1217, label %1218, label %.loopexit12.i
 
 1218:                                             ; preds = %1216
@@ -2797,7 +2797,7 @@ thread-pre-split.i:                               ; preds = %1258
   br i1 %or.cond9.i, label %1294, label %1307
 
 1307:                                             ; preds = %1304, %.split
-  %1308 = icmp ult i32 %.us-phi227, 128
+  %1308 = icmp samesign ult i32 %.us-phi227, 128
   br i1 %1308, label %1309, label %.loopexit16.i
 
 1309:                                             ; preds = %1307

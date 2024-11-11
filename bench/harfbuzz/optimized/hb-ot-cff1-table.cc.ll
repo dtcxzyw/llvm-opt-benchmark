@@ -2126,7 +2126,7 @@ _ZN3CFF11cff_stack_tINS_8number_tELi513EEixEj.exit27: ; preds = %_ZN3CFF11cff_st
   %6 = bitcast i64 %5 to double
   %cff = getelementptr inbounds i8, ptr %param, i64 40
   %7 = load ptr, ptr %cff, align 8
-  %cmp.not.i29 = icmp ugt i32 %0, 1
+  %cmp.not.i29 = icmp samesign ugt i32 %0, 1
   br i1 %cmp.not.i29, label %if.end.i32, label %if.then.i30
 
 if.then.i30:                                      ; preds = %_ZN3CFF11cff_stack_tINS_8number_tELi513EEixEj.exit27
@@ -2178,7 +2178,7 @@ if.else.i:                                        ; preds = %_ZN2OT4cff132lookup
   %CharsetOffset.i = getelementptr inbounds i8, ptr %13, i64 244
   %20 = load i32, ptr %CharsetOffset.i, align 4
   %cmp7.i = icmp eq i32 %20, 0
-  %cmp8.i = icmp ult i32 %conv.i, 229
+  %cmp8.i = icmp samesign ult i32 %conv.i, 229
   %or.cond.i = and i1 %cmp8.i, %cmp7.i
   %call..i = select i1 %or.cond.i, i32 %conv.i.i, i32 0
   br label %_ZNK2OT4cff119accelerator_templ_tIN3CFF25cff1_private_dict_opset_tENS2_31cff1_private_dict_values_base_tINS2_10dict_val_tEEEE17std_code_to_glyphEj.exit
@@ -2231,7 +2231,7 @@ if.else.i59:                                      ; preds = %_ZN2OT4cff132lookup
   %CharsetOffset.i60 = getelementptr inbounds i8, ptr %22, i64 244
   %29 = load i32, ptr %CharsetOffset.i60, align 4
   %cmp7.i61 = icmp eq i32 %29, 0
-  %cmp8.i62 = icmp ult i32 %conv.i47, 229
+  %cmp8.i62 = icmp samesign ult i32 %conv.i47, 229
   %or.cond.i63 = and i1 %cmp8.i62, %cmp7.i61
   %call..i64 = select i1 %or.cond.i63, i32 %conv.i.i53, i32 0
   br label %_ZNK2OT4cff119accelerator_templ_tIN3CFF25cff1_private_dict_opset_tENS2_31cff1_private_dict_values_base_tINS2_10dict_val_tEEEE17std_code_to_glyphEj.exit65
@@ -2642,7 +2642,7 @@ _ZNK3CFF14biased_subrs_tINS_5SubrsIN2OT7IntTypeItLj2EEEEEE9get_countEv.exit.i.i:
   %24 = load i8, ptr %arrayidx3.i.i.i.i.i, align 1
   %conv4.i.i.i.i.i = zext i8 %24 to i32
   %add.i.i.i.i.i = or disjoint i32 %shl.i.i.i.i.i, %conv4.i.i.i.i.i
-  %cmp4.not.i.i = icmp ult i32 %add.i.i141, %add.i.i.i.i.i
+  %cmp4.not.i.i = icmp samesign ult i32 %add.i.i141, %add.i.i.i.i.i
   br i1 %cmp4.not.i.i, label %lor.lhs.false.i, label %if.then.i143
 
 lor.lhs.false.i:                                  ; preds = %_ZNK3CFF14biased_subrs_tINS_5SubrsIN2OT7IntTypeItLj2EEEEEE9get_countEv.exit.i.i
@@ -2680,7 +2680,7 @@ lor.lhs.false.i5.i:                               ; preds = %_ZN3CFF11cff_stack_
   %29 = load i8, ptr %arrayidx3.i.i.i.i, align 1
   %conv4.i.i.i.i = zext i8 %29 to i32
   %add.i.i.i.i = or disjoint i32 %shl.i.i.i.i, %conv4.i.i.i.i
-  %cmp.not.i.i151 = icmp ult i32 %add.i.i141, %add.i.i.i.i
+  %cmp.not.i.i151 = icmp samesign ult i32 %add.i.i141, %add.i.i.i.i
   br i1 %cmp.not.i.i151, label %if.else.i7.i, label %_ZNK3CFF14biased_subrs_tINS_5SubrsIN2OT7IntTypeItLj2EEEEEEixEj.exit.i
 
 if.else.i7.i:                                     ; preds = %lor.lhs.false.i5.i
@@ -2749,7 +2749,7 @@ _ZNK3CFF14biased_subrs_tINS_5SubrsIN2OT7IntTypeItLj2EEEEEE9get_countEv.exit.i.i1
   %40 = load i8, ptr %arrayidx3.i.i.i.i.i170, align 1
   %conv4.i.i.i.i.i171 = zext i8 %40 to i32
   %add.i.i.i.i.i172 = or disjoint i32 %shl.i.i.i.i.i169, %conv4.i.i.i.i.i171
-  %cmp4.not.i.i173 = icmp ult i32 %add.i.i162, %add.i.i.i.i.i172
+  %cmp4.not.i.i173 = icmp samesign ult i32 %add.i.i162, %add.i.i.i.i.i172
   br i1 %cmp4.not.i.i173, label %lor.lhs.false.i178, label %if.then.i174
 
 lor.lhs.false.i178:                               ; preds = %_ZNK3CFF14biased_subrs_tINS_5SubrsIN2OT7IntTypeItLj2EEEEEE9get_countEv.exit.i.i167
@@ -2787,7 +2787,7 @@ lor.lhs.false.i5.i188:                            ; preds = %_ZN3CFF11cff_stack_
   %45 = load i8, ptr %arrayidx3.i.i.i.i191, align 1
   %conv4.i.i.i.i192 = zext i8 %45 to i32
   %add.i.i.i.i193 = or disjoint i32 %shl.i.i.i.i190, %conv4.i.i.i.i192
-  %cmp.not.i.i194 = icmp ult i32 %add.i.i162, %add.i.i.i.i193
+  %cmp.not.i.i194 = icmp samesign ult i32 %add.i.i162, %add.i.i.i.i193
   br i1 %cmp.not.i.i194, label %if.else.i7.i201, label %_ZNK3CFF14biased_subrs_tINS_5SubrsIN2OT7IntTypeItLj2EEEEEEixEj.exit.i195
 
 if.else.i7.i201:                                  ; preds = %lor.lhs.false.i5.i188
@@ -7500,7 +7500,7 @@ _ZN3CFF11cff_stack_tINS_8number_tELi513EEixEj.exit30: ; preds = %_ZN3CFF11cff_st
   store i64 %16, ptr %y, align 8
   %cff = getelementptr inbounds i8, ptr %param, i64 24
   %17 = load ptr, ptr %cff, align 8
-  %cmp.not.i32 = icmp ugt i32 %13, 1
+  %cmp.not.i32 = icmp samesign ugt i32 %13, 1
   br i1 %cmp.not.i32, label %if.end.i35, label %if.then.i33
 
 if.then.i33:                                      ; preds = %_ZN3CFF11cff_stack_tINS_8number_tELi513EEixEj.exit30
@@ -7548,7 +7548,7 @@ if.else.i:                                        ; preds = %_ZN2OT4cff132lookup
   %CharsetOffset.i = getelementptr inbounds i8, ptr %21, i64 244
   %26 = load i32, ptr %CharsetOffset.i, align 4
   %cmp7.i = icmp eq i32 %26, 0
-  %cmp8.i = icmp ult i32 %conv.i, 229
+  %cmp8.i = icmp samesign ult i32 %conv.i, 229
   %or.cond.i = and i1 %cmp8.i, %cmp7.i
   %call..i = select i1 %or.cond.i, i32 %conv.i.i, i32 0
   br label %_ZNK2OT4cff119accelerator_templ_tIN3CFF25cff1_private_dict_opset_tENS2_31cff1_private_dict_values_base_tINS2_10dict_val_tEEEE17std_code_to_glyphEj.exit
@@ -7601,7 +7601,7 @@ if.else.i62:                                      ; preds = %_ZN2OT4cff132lookup
   %CharsetOffset.i63 = getelementptr inbounds i8, ptr %28, i64 244
   %35 = load i32, ptr %CharsetOffset.i63, align 4
   %cmp7.i64 = icmp eq i32 %35, 0
-  %cmp8.i65 = icmp ult i32 %conv.i50, 229
+  %cmp8.i65 = icmp samesign ult i32 %conv.i50, 229
   %or.cond.i66 = and i1 %cmp8.i65, %cmp7.i64
   %call..i67 = select i1 %or.cond.i66, i32 %conv.i.i56, i32 0
   br label %_ZNK2OT4cff119accelerator_templ_tIN3CFF25cff1_private_dict_opset_tENS2_31cff1_private_dict_values_base_tINS2_10dict_val_tEEEE17std_code_to_glyphEj.exit68
@@ -7875,7 +7875,7 @@ _ZNK3CFF14biased_subrs_tINS_5SubrsIN2OT7IntTypeItLj2EEEEEE9get_countEv.exit.i.i:
   %24 = load i8, ptr %arrayidx3.i.i.i.i.i, align 1
   %conv4.i.i.i.i.i = zext i8 %24 to i32
   %add.i.i.i.i.i = or disjoint i32 %shl.i.i.i.i.i, %conv4.i.i.i.i.i
-  %cmp4.not.i.i = icmp ult i32 %add.i.i141, %add.i.i.i.i.i
+  %cmp4.not.i.i = icmp samesign ult i32 %add.i.i141, %add.i.i.i.i.i
   br i1 %cmp4.not.i.i, label %lor.lhs.false.i, label %if.then.i143
 
 lor.lhs.false.i:                                  ; preds = %_ZNK3CFF14biased_subrs_tINS_5SubrsIN2OT7IntTypeItLj2EEEEEE9get_countEv.exit.i.i
@@ -7913,7 +7913,7 @@ lor.lhs.false.i5.i:                               ; preds = %_ZN3CFF11cff_stack_
   %29 = load i8, ptr %arrayidx3.i.i.i.i, align 1
   %conv4.i.i.i.i = zext i8 %29 to i32
   %add.i.i.i.i = or disjoint i32 %shl.i.i.i.i, %conv4.i.i.i.i
-  %cmp.not.i.i151 = icmp ult i32 %add.i.i141, %add.i.i.i.i
+  %cmp.not.i.i151 = icmp samesign ult i32 %add.i.i141, %add.i.i.i.i
   br i1 %cmp.not.i.i151, label %if.else.i7.i, label %_ZNK3CFF14biased_subrs_tINS_5SubrsIN2OT7IntTypeItLj2EEEEEEixEj.exit.i
 
 if.else.i7.i:                                     ; preds = %lor.lhs.false.i5.i
@@ -7982,7 +7982,7 @@ _ZNK3CFF14biased_subrs_tINS_5SubrsIN2OT7IntTypeItLj2EEEEEE9get_countEv.exit.i.i1
   %40 = load i8, ptr %arrayidx3.i.i.i.i.i170, align 1
   %conv4.i.i.i.i.i171 = zext i8 %40 to i32
   %add.i.i.i.i.i172 = or disjoint i32 %shl.i.i.i.i.i169, %conv4.i.i.i.i.i171
-  %cmp4.not.i.i173 = icmp ult i32 %add.i.i162, %add.i.i.i.i.i172
+  %cmp4.not.i.i173 = icmp samesign ult i32 %add.i.i162, %add.i.i.i.i.i172
   br i1 %cmp4.not.i.i173, label %lor.lhs.false.i178, label %if.then.i174
 
 lor.lhs.false.i178:                               ; preds = %_ZNK3CFF14biased_subrs_tINS_5SubrsIN2OT7IntTypeItLj2EEEEEE9get_countEv.exit.i.i167
@@ -8020,7 +8020,7 @@ lor.lhs.false.i5.i188:                            ; preds = %_ZN3CFF11cff_stack_
   %45 = load i8, ptr %arrayidx3.i.i.i.i191, align 1
   %conv4.i.i.i.i192 = zext i8 %45 to i32
   %add.i.i.i.i193 = or disjoint i32 %shl.i.i.i.i190, %conv4.i.i.i.i192
-  %cmp.not.i.i194 = icmp ult i32 %add.i.i162, %add.i.i.i.i193
+  %cmp.not.i.i194 = icmp samesign ult i32 %add.i.i162, %add.i.i.i.i193
   br i1 %cmp.not.i.i194, label %if.else.i7.i201, label %_ZNK3CFF14biased_subrs_tINS_5SubrsIN2OT7IntTypeItLj2EEEEEEixEj.exit.i195
 
 if.else.i7.i201:                                  ; preds = %lor.lhs.false.i5.i188
@@ -11815,7 +11815,7 @@ if.else.i:                                        ; preds = %_ZN2OT4cff132lookup
   %CharsetOffset.i = getelementptr inbounds i8, ptr %6, i64 244
   %10 = load i32, ptr %CharsetOffset.i, align 4
   %cmp7.i = icmp eq i32 %10, 0
-  %cmp8.i = icmp ult i32 %conv.i41, 229
+  %cmp8.i = icmp samesign ult i32 %conv.i41, 229
   %or.cond.i = and i1 %cmp8.i, %cmp7.i
   %call..i = select i1 %or.cond.i, i32 %conv.i.i, i32 0
   br label %_ZNK2OT4cff119accelerator_templ_tIN3CFF32cff1_private_dict_opset_subset_tENS2_31cff1_private_dict_values_base_tINS2_8op_str_tEEEE17std_code_to_glyphEj.exit
@@ -11848,7 +11848,7 @@ if.else.i30:                                      ; preds = %_ZN2OT4cff132lookup
   %CharsetOffset.i31 = getelementptr inbounds i8, ptr %11, i64 244
   %15 = load i32, ptr %CharsetOffset.i31, align 4
   %cmp7.i32 = icmp eq i32 %15, 0
-  %cmp8.i33 = icmp ult i32 %conv.i17, 229
+  %cmp8.i33 = icmp samesign ult i32 %conv.i17, 229
   %or.cond.i34 = and i1 %cmp8.i33, %cmp7.i32
   %call..i35 = select i1 %or.cond.i34, i32 %conv.i.i24, i32 0
   br label %_ZNK2OT4cff119accelerator_templ_tIN3CFF32cff1_private_dict_opset_subset_tENS2_31cff1_private_dict_values_base_tINS2_8op_str_tEEEE17std_code_to_glyphEj.exit36
@@ -12087,7 +12087,7 @@ _ZNK3CFF14biased_subrs_tINS_5SubrsIN2OT7IntTypeItLj2EEEEEE9get_countEv.exit.i.i:
   %24 = load i8, ptr %arrayidx3.i.i.i.i.i, align 1
   %conv4.i.i.i.i.i = zext i8 %24 to i32
   %add.i.i.i.i.i = or disjoint i32 %shl.i.i.i.i.i, %conv4.i.i.i.i.i
-  %cmp4.not.i.i = icmp ult i32 %add.i.i141, %add.i.i.i.i.i
+  %cmp4.not.i.i = icmp samesign ult i32 %add.i.i141, %add.i.i.i.i.i
   br i1 %cmp4.not.i.i, label %lor.lhs.false.i, label %if.then.i143
 
 lor.lhs.false.i:                                  ; preds = %_ZNK3CFF14biased_subrs_tINS_5SubrsIN2OT7IntTypeItLj2EEEEEE9get_countEv.exit.i.i
@@ -12125,7 +12125,7 @@ lor.lhs.false.i5.i:                               ; preds = %_ZN3CFF11cff_stack_
   %29 = load i8, ptr %arrayidx3.i.i.i.i, align 1
   %conv4.i.i.i.i = zext i8 %29 to i32
   %add.i.i.i.i = or disjoint i32 %shl.i.i.i.i, %conv4.i.i.i.i
-  %cmp.not.i.i151 = icmp ult i32 %add.i.i141, %add.i.i.i.i
+  %cmp.not.i.i151 = icmp samesign ult i32 %add.i.i141, %add.i.i.i.i
   br i1 %cmp.not.i.i151, label %if.else.i7.i, label %_ZNK3CFF14biased_subrs_tINS_5SubrsIN2OT7IntTypeItLj2EEEEEEixEj.exit.i
 
 if.else.i7.i:                                     ; preds = %lor.lhs.false.i5.i
@@ -12194,7 +12194,7 @@ _ZNK3CFF14biased_subrs_tINS_5SubrsIN2OT7IntTypeItLj2EEEEEE9get_countEv.exit.i.i1
   %40 = load i8, ptr %arrayidx3.i.i.i.i.i170, align 1
   %conv4.i.i.i.i.i171 = zext i8 %40 to i32
   %add.i.i.i.i.i172 = or disjoint i32 %shl.i.i.i.i.i169, %conv4.i.i.i.i.i171
-  %cmp4.not.i.i173 = icmp ult i32 %add.i.i162, %add.i.i.i.i.i172
+  %cmp4.not.i.i173 = icmp samesign ult i32 %add.i.i162, %add.i.i.i.i.i172
   br i1 %cmp4.not.i.i173, label %lor.lhs.false.i178, label %if.then.i174
 
 lor.lhs.false.i178:                               ; preds = %_ZNK3CFF14biased_subrs_tINS_5SubrsIN2OT7IntTypeItLj2EEEEEE9get_countEv.exit.i.i167
@@ -12232,7 +12232,7 @@ lor.lhs.false.i5.i188:                            ; preds = %_ZN3CFF11cff_stack_
   %45 = load i8, ptr %arrayidx3.i.i.i.i191, align 1
   %conv4.i.i.i.i192 = zext i8 %45 to i32
   %add.i.i.i.i193 = or disjoint i32 %shl.i.i.i.i190, %conv4.i.i.i.i192
-  %cmp.not.i.i194 = icmp ult i32 %add.i.i162, %add.i.i.i.i193
+  %cmp.not.i.i194 = icmp samesign ult i32 %add.i.i162, %add.i.i.i.i193
   br i1 %cmp.not.i.i194, label %if.else.i7.i201, label %_ZNK3CFF14biased_subrs_tINS_5SubrsIN2OT7IntTypeItLj2EEEEEEixEj.exit.i195
 
 if.else.i7.i201:                                  ; preds = %lor.lhs.false.i5.i188

@@ -2002,7 +2002,7 @@ define linkonce_odr hidden { ptr, i32 } @_ZN5boost8charconv6detail10fast_float19
 
 245:                                              ; preds = %234
   %246 = sub nsw i32 1, %243
-  %247 = icmp ugt i32 %246, 63
+  %247 = icmp samesign ugt i32 %246, 63
   br i1 %247, label %_ZN5boost8charconv6detail10fast_float13compute_floatINS2_13binary_formatIfEEEENS2_17adjusted_mantissaElm.exit, label %248
 
 248:                                              ; preds = %245
@@ -2036,7 +2036,7 @@ define linkonce_odr hidden { ptr, i32 } @_ZN5boost8charconv6detail10fast_float19
   %.sroa.19.0 = add nuw nsw i32 %243, %268
   %269 = and i64 %267, 58720255
   %270 = select i1 %.not21.i, i64 0, i64 %269
-  %.not22.i = icmp ult i32 %.sroa.19.0, 255
+  %.not22.i = icmp samesign ult i32 %.sroa.19.0, 255
   %spec.select203 = tail call i32 @llvm.umin.i32(i32 %.sroa.19.0, i32 255)
   %spec.select204 = select i1 %.not22.i, i64 %270, i64 0
   br label %_ZN5boost8charconv6detail10fast_float13compute_floatINS2_13binary_formatIfEEEENS2_17adjusted_mantissaElm.exit
@@ -2108,7 +2108,7 @@ _ZN5boost8charconv6detail10fast_float13compute_floatINS2_13binary_formatIfEEEENS
 
 315:                                              ; preds = %304
   %316 = sub nsw i32 1, %313
-  %317 = icmp ugt i32 %316, 63
+  %317 = icmp samesign ugt i32 %316, 63
   br i1 %317, label %_ZN5boost8charconv6detail10fast_float13compute_floatINS2_13binary_formatIfEEEENS2_17adjusted_mantissaElm.exit94, label %318
 
 318:                                              ; preds = %315
@@ -2142,7 +2142,7 @@ _ZN5boost8charconv6detail10fast_float13compute_floatINS2_13binary_formatIfEEEENS
   %.sroa.19159.0 = add nuw nsw i32 %313, %338
   %339 = and i64 %337, 58720255
   %340 = select i1 %.not21.i84, i64 0, i64 %339
-  %.not22.i85 = icmp ult i32 %.sroa.19159.0, 255
+  %.not22.i85 = icmp samesign ult i32 %.sroa.19159.0, 255
   %spec.select205 = tail call i32 @llvm.umin.i32(i32 %.sroa.19159.0, i32 255)
   %spec.select206 = select i1 %.not22.i85, i64 %340, i64 0
   br label %_ZN5boost8charconv6detail10fast_float13compute_floatINS2_13binary_formatIfEEEENS2_17adjusted_mantissaElm.exit94
@@ -2586,7 +2586,7 @@ _ZN5boost8charconv6detail10fast_float10skip_zerosIcEEvRPKT_S6_.exit: ; preds = %
   %56 = add nuw nsw i64 %.2251323, 1
   %57 = add nuw i64 %49, 1
   store i64 %57, ptr %3, align 8, !tbaa !7
-  %58 = icmp ult i64 %.2251323, 18
+  %58 = icmp samesign ult i64 %.2251323, 18
   %.not60 = icmp ne ptr %55, %9
   %or.cond.not268 = select i1 %58, i1 %.not60, i1 false
   %59 = icmp ult i64 %57, %2
@@ -3044,7 +3044,7 @@ _ZN5boost8charconv6detail10fast_float10skip_zerosIcEEvRPKT_S6_.exit71: ; preds =
   %235 = add nuw nsw i64 %.6255381, 1
   %236 = add nuw i64 %228, 1
   store i64 %236, ptr %3, align 8, !tbaa !7
-  %237 = icmp ult i64 %.6255381, 18
+  %237 = icmp samesign ult i64 %.6255381, 18
   %.not58 = icmp ne ptr %234, %185
   %or.cond64.not270 = select i1 %237, i1 %.not58, i1 false
   %238 = icmp ult i64 %236, %2
@@ -3494,7 +3494,7 @@ _ZZN5boost8charconv6detail10fast_float19positive_digit_compIfEENS2_17adjusted_ma
   %spec.select.v = select i1 %.not14.i, i32 126, i32 127
   %spec.select = add nsw i32 %spec.select.v, %76
   %78 = and i64 %77, 25165823
-  %.not15.i = icmp ult i32 %spec.select, 255
+  %.not15.i = icmp samesign ult i32 %spec.select, 255
   %.sroa.13.1 = tail call i32 @llvm.umin.i32(i32 %spec.select, i32 255)
   %79 = select i1 %.not15.i, i1 %.not14.i, i1 false
   %.sroa.0.1 = select i1 %79, i64 %78, i64 0
@@ -3784,7 +3784,7 @@ _ZZN5boost8charconv6detail10fast_float19negative_digit_compIfEENS2_17adjusted_ma
   %spec.select97.v = select i1 %.not14.i28, i32 40, i32 41
   %spec.select97 = add nsw i32 %spec.select97.v, %2
   %136 = and i64 %135, 25165823
-  %.not15.i29 = icmp ult i32 %spec.select97, 255
+  %.not15.i29 = icmp samesign ult i32 %spec.select97, 255
   %137 = call i32 @llvm.umin.i32(i32 %spec.select97, i32 255)
   %138 = select i1 %.not15.i29, i1 %.not14.i28, i1 false
   %spec.select100 = select i1 %138, i64 %136, i64 0
@@ -4096,7 +4096,7 @@ _ZN5boost8charconv6detail10fast_float8stackvecILt62EE8try_pushEm.exit.thread.i44
   br i1 %68, label %69, label %_ZN5boost8charconv6detail10fast_float8stackvecILt62EE10try_extendENS2_4spanImEE.exit
 
 69:                                               ; preds = %66
-  %70 = icmp ugt i64 %67, %62
+  %70 = icmp samesign ugt i64 %67, %62
   br i1 %70, label %_ZN5boost8charconv6detail10fast_float8stackvecILt62EE10try_resizeEmm.exit.i.us, label %.sink.split.i.us
 
 _ZN5boost8charconv6detail10fast_float8stackvecILt62EE10try_resizeEmm.exit.i.us: ; preds = %69
@@ -5133,61 +5133,61 @@ define linkonce_odr hidden noundef i32 @_ZN5boost8charconv6detail10num_digitsImE
   br label %39
 
 13:                                               ; preds = %5
-  %14 = icmp ugt i64 %0, 999999999999999
+  %14 = icmp samesign ugt i64 %0, 999999999999999
   %.21 = select i1 %14, i32 16, i32 15
   br label %39
 
 15:                                               ; preds = %3
-  %16 = icmp ugt i64 %0, 999999999999
+  %16 = icmp samesign ugt i64 %0, 999999999999
   br i1 %16, label %17, label %19
 
 17:                                               ; preds = %15
-  %18 = icmp ugt i64 %0, 9999999999999
+  %18 = icmp samesign ugt i64 %0, 9999999999999
   %.22 = select i1 %18, i32 14, i32 13
   br label %39
 
 19:                                               ; preds = %15
-  %20 = icmp ugt i64 %0, 99999999999
+  %20 = icmp samesign ugt i64 %0, 99999999999
   %.23 = select i1 %20, i32 12, i32 11
   br label %39
 
 21:                                               ; preds = %1
-  %22 = icmp ugt i64 %0, 99999
+  %22 = icmp samesign ugt i64 %0, 99999
   br i1 %22, label %23, label %31
 
 23:                                               ; preds = %21
-  %24 = icmp ugt i64 %0, 9999999
+  %24 = icmp samesign ugt i64 %0, 9999999
   br i1 %24, label %25, label %29
 
 25:                                               ; preds = %23
-  %26 = icmp ugt i64 %0, 99999999
+  %26 = icmp samesign ugt i64 %0, 99999999
   br i1 %26, label %27, label %39
 
 27:                                               ; preds = %25
-  %28 = icmp ugt i64 %0, 999999999
+  %28 = icmp samesign ugt i64 %0, 999999999
   %.24 = select i1 %28, i32 10, i32 9
   br label %39
 
 29:                                               ; preds = %23
-  %30 = icmp ugt i64 %0, 999999
+  %30 = icmp samesign ugt i64 %0, 999999
   %.25 = select i1 %30, i32 7, i32 6
   br label %39
 
 31:                                               ; preds = %21
-  %32 = icmp ugt i64 %0, 99
+  %32 = icmp samesign ugt i64 %0, 99
   br i1 %32, label %33, label %37
 
 33:                                               ; preds = %31
-  %34 = icmp ugt i64 %0, 999
+  %34 = icmp samesign ugt i64 %0, 999
   br i1 %34, label %35, label %39
 
 35:                                               ; preds = %33
-  %36 = icmp ugt i64 %0, 9999
+  %36 = icmp samesign ugt i64 %0, 9999
   %.26 = select i1 %36, i32 5, i32 4
   br label %39
 
 37:                                               ; preds = %31
-  %38 = icmp ugt i64 %0, 9
+  %38 = icmp samesign ugt i64 %0, 9
   %.27 = select i1 %38, i32 2, i32 1
   br label %39
 
@@ -6008,7 +6008,7 @@ define linkonce_odr hidden { ptr, i32 } @_ZN5boost8charconv6detail10fast_float19
 
 247:                                              ; preds = %236
   %248 = sub nsw i32 1, %245
-  %249 = icmp ugt i32 %248, 63
+  %249 = icmp samesign ugt i32 %248, 63
   br i1 %249, label %_ZN5boost8charconv6detail10fast_float13compute_floatINS2_13binary_formatIdEEEENS2_17adjusted_mantissaElm.exit, label %250
 
 250:                                              ; preds = %247
@@ -6042,7 +6042,7 @@ define linkonce_odr hidden { ptr, i32 } @_ZN5boost8charconv6detail10fast_float19
   %.sroa.19.0 = add nuw nsw i32 %245, %270
   %271 = and i64 %269, 9218868437227405311
   %272 = select i1 %.not21.i, i64 0, i64 %271
-  %.not22.i = icmp ult i32 %.sroa.19.0, 2047
+  %.not22.i = icmp samesign ult i32 %.sroa.19.0, 2047
   %spec.select194 = tail call i32 @llvm.umin.i32(i32 %.sroa.19.0, i32 2047)
   %spec.select195 = select i1 %.not22.i, i64 %272, i64 0
   br label %_ZN5boost8charconv6detail10fast_float13compute_floatINS2_13binary_formatIdEEEENS2_17adjusted_mantissaElm.exit
@@ -6114,7 +6114,7 @@ _ZN5boost8charconv6detail10fast_float13compute_floatINS2_13binary_formatIdEEEENS
 
 319:                                              ; preds = %308
   %320 = sub nsw i32 1, %317
-  %321 = icmp ugt i32 %320, 63
+  %321 = icmp samesign ugt i32 %320, 63
   br i1 %321, label %_ZN5boost8charconv6detail10fast_float13compute_floatINS2_13binary_formatIdEEEENS2_17adjusted_mantissaElm.exit96, label %322
 
 322:                                              ; preds = %319
@@ -6148,7 +6148,7 @@ _ZN5boost8charconv6detail10fast_float13compute_floatINS2_13binary_formatIdEEEENS
   %.sroa.19150.0 = add nuw nsw i32 %317, %342
   %343 = and i64 %341, 9218868437227405311
   %344 = select i1 %.not21.i86, i64 0, i64 %343
-  %.not22.i87 = icmp ult i32 %.sroa.19150.0, 2047
+  %.not22.i87 = icmp samesign ult i32 %.sroa.19150.0, 2047
   %spec.select196 = tail call i32 @llvm.umin.i32(i32 %.sroa.19150.0, i32 2047)
   %spec.select197 = select i1 %.not22.i87, i64 %344, i64 0
   br label %_ZN5boost8charconv6detail10fast_float13compute_floatINS2_13binary_formatIdEEEENS2_17adjusted_mantissaElm.exit96
@@ -6631,7 +6631,7 @@ _ZZN5boost8charconv6detail10fast_float19positive_digit_compIdEENS2_17adjusted_ma
   %spec.select.v = select i1 %.not14.i, i32 1022, i32 1023
   %spec.select = add nsw i32 %spec.select.v, %76
   %78 = and i64 %77, 13510798882111487
-  %.not15.i = icmp ult i32 %spec.select, 2047
+  %.not15.i = icmp samesign ult i32 %spec.select, 2047
   %.sroa.13.1 = tail call i32 @llvm.umin.i32(i32 %spec.select, i32 2047)
   %79 = select i1 %.not15.i, i1 %.not14.i, i1 false
   %.sroa.0.1 = select i1 %79, i64 %78, i64 0
@@ -6922,7 +6922,7 @@ _ZZN5boost8charconv6detail10fast_float19negative_digit_compIdEENS2_17adjusted_ma
   %spec.select97.v = select i1 %.not14.i28, i32 11, i32 12
   %spec.select97 = add nsw i32 %spec.select97.v, %2
   %137 = and i64 %136, 13510798882111487
-  %.not15.i29 = icmp ult i32 %spec.select97, 2047
+  %.not15.i29 = icmp samesign ult i32 %spec.select97, 2047
   %138 = call i32 @llvm.umin.i32(i32 %spec.select97, i32 2047)
   %139 = select i1 %.not15.i29, i1 %.not14.i28, i1 false
   %spec.select100 = select i1 %139, i64 %137, i64 0
@@ -7203,151 +7203,151 @@ define linkonce_odr hidden noundef i32 @_ZN5boost8charconv6detail10num_digitsEo(
   br i1 %3, label %61, label %4
 
 4:                                                ; preds = %2
-  %5 = icmp ugt i128 %.sroa.0.0.insert.insert, 9999999999999999999999999999999999999
+  %5 = icmp samesign ugt i128 %.sroa.0.0.insert.insert, 9999999999999999999999999999999999999
   br i1 %5, label %61, label %6
 
 6:                                                ; preds = %4
-  %7 = icmp ugt i128 %.sroa.0.0.insert.insert, 999999999999999999999999999999999999
+  %7 = icmp samesign ugt i128 %.sroa.0.0.insert.insert, 999999999999999999999999999999999999
   br i1 %7, label %61, label %8
 
 8:                                                ; preds = %6
-  %9 = icmp ugt i128 %.sroa.0.0.insert.insert, 99999999999999999999999999999999999
+  %9 = icmp samesign ugt i128 %.sroa.0.0.insert.insert, 99999999999999999999999999999999999
   br i1 %9, label %61, label %10
 
 10:                                               ; preds = %8
-  %11 = icmp ugt i128 %.sroa.0.0.insert.insert, 9999999999999999999999999999999999
+  %11 = icmp samesign ugt i128 %.sroa.0.0.insert.insert, 9999999999999999999999999999999999
   br i1 %11, label %61, label %12
 
 12:                                               ; preds = %10
-  %13 = icmp ugt i128 %.sroa.0.0.insert.insert, 999999999999999999999999999999999
+  %13 = icmp samesign ugt i128 %.sroa.0.0.insert.insert, 999999999999999999999999999999999
   br i1 %13, label %61, label %14
 
 14:                                               ; preds = %12
-  %15 = icmp ugt i128 %.sroa.0.0.insert.insert, 99999999999999999999999999999999
+  %15 = icmp samesign ugt i128 %.sroa.0.0.insert.insert, 99999999999999999999999999999999
   br i1 %15, label %61, label %16
 
 16:                                               ; preds = %14
-  %17 = icmp ugt i128 %.sroa.0.0.insert.insert, 9999999999999999999999999999999
+  %17 = icmp samesign ugt i128 %.sroa.0.0.insert.insert, 9999999999999999999999999999999
   br i1 %17, label %61, label %18
 
 18:                                               ; preds = %16
-  %19 = icmp ugt i128 %.sroa.0.0.insert.insert, 999999999999999999999999999999
+  %19 = icmp samesign ugt i128 %.sroa.0.0.insert.insert, 999999999999999999999999999999
   br i1 %19, label %61, label %20
 
 20:                                               ; preds = %18
-  %21 = icmp ugt i128 %.sroa.0.0.insert.insert, 99999999999999999999999999999
+  %21 = icmp samesign ugt i128 %.sroa.0.0.insert.insert, 99999999999999999999999999999
   br i1 %21, label %61, label %22
 
 22:                                               ; preds = %20
-  %23 = icmp ugt i128 %.sroa.0.0.insert.insert, 9999999999999999999999999999
+  %23 = icmp samesign ugt i128 %.sroa.0.0.insert.insert, 9999999999999999999999999999
   br i1 %23, label %61, label %24
 
 24:                                               ; preds = %22
-  %25 = icmp ugt i128 %.sroa.0.0.insert.insert, 999999999999999999999999999
+  %25 = icmp samesign ugt i128 %.sroa.0.0.insert.insert, 999999999999999999999999999
   br i1 %25, label %61, label %26
 
 26:                                               ; preds = %24
-  %27 = icmp ugt i128 %.sroa.0.0.insert.insert, 99999999999999999999999999
+  %27 = icmp samesign ugt i128 %.sroa.0.0.insert.insert, 99999999999999999999999999
   br i1 %27, label %61, label %28
 
 28:                                               ; preds = %26
-  %29 = icmp ugt i128 %.sroa.0.0.insert.insert, 9999999999999999999999999
+  %29 = icmp samesign ugt i128 %.sroa.0.0.insert.insert, 9999999999999999999999999
   br i1 %29, label %61, label %30
 
 30:                                               ; preds = %28
-  %31 = icmp ugt i128 %.sroa.0.0.insert.insert, 999999999999999999999999
+  %31 = icmp samesign ugt i128 %.sroa.0.0.insert.insert, 999999999999999999999999
   br i1 %31, label %61, label %32
 
 32:                                               ; preds = %30
-  %33 = icmp ugt i128 %.sroa.0.0.insert.insert, 99999999999999999999999
+  %33 = icmp samesign ugt i128 %.sroa.0.0.insert.insert, 99999999999999999999999
   br i1 %33, label %61, label %34
 
 34:                                               ; preds = %32
-  %35 = icmp ugt i128 %.sroa.0.0.insert.insert, 9999999999999999999999
+  %35 = icmp samesign ugt i128 %.sroa.0.0.insert.insert, 9999999999999999999999
   br i1 %35, label %61, label %36
 
 36:                                               ; preds = %34
-  %37 = icmp ugt i128 %.sroa.0.0.insert.insert, 999999999999999999999
+  %37 = icmp samesign ugt i128 %.sroa.0.0.insert.insert, 999999999999999999999
   br i1 %37, label %61, label %38
 
 38:                                               ; preds = %36
-  %39 = icmp ugt i128 %.sroa.0.0.insert.insert, 99999999999999999999
+  %39 = icmp samesign ugt i128 %.sroa.0.0.insert.insert, 99999999999999999999
   br i1 %39, label %61, label %40
 
 40:                                               ; preds = %38
-  %.not = icmp ult i128 %.sroa.0.0.insert.insert, 10000000000000000000
+  %.not = icmp samesign ult i128 %.sroa.0.0.insert.insert, 10000000000000000000
   br i1 %.not, label %41, label %61
 
 41:                                               ; preds = %40
-  %.not39 = icmp ult i128 %.sroa.0.0.insert.insert, 1000000000000000000
+  %.not39 = icmp samesign ult i128 %.sroa.0.0.insert.insert, 1000000000000000000
   br i1 %.not39, label %42, label %61
 
 42:                                               ; preds = %41
-  %.not40 = icmp ult i128 %.sroa.0.0.insert.insert, 100000000000000000
+  %.not40 = icmp samesign ult i128 %.sroa.0.0.insert.insert, 100000000000000000
   br i1 %.not40, label %43, label %61
 
 43:                                               ; preds = %42
-  %.not41 = icmp ult i128 %.sroa.0.0.insert.insert, 10000000000000000
+  %.not41 = icmp samesign ult i128 %.sroa.0.0.insert.insert, 10000000000000000
   br i1 %.not41, label %44, label %61
 
 44:                                               ; preds = %43
-  %.not42 = icmp ult i128 %.sroa.0.0.insert.insert, 1000000000000000
+  %.not42 = icmp samesign ult i128 %.sroa.0.0.insert.insert, 1000000000000000
   br i1 %.not42, label %45, label %61
 
 45:                                               ; preds = %44
-  %.not43 = icmp ult i128 %.sroa.0.0.insert.insert, 100000000000000
+  %.not43 = icmp samesign ult i128 %.sroa.0.0.insert.insert, 100000000000000
   br i1 %.not43, label %46, label %61
 
 46:                                               ; preds = %45
-  %.not44 = icmp ult i128 %.sroa.0.0.insert.insert, 10000000000000
+  %.not44 = icmp samesign ult i128 %.sroa.0.0.insert.insert, 10000000000000
   br i1 %.not44, label %47, label %61
 
 47:                                               ; preds = %46
-  %.not45 = icmp ult i128 %.sroa.0.0.insert.insert, 1000000000000
+  %.not45 = icmp samesign ult i128 %.sroa.0.0.insert.insert, 1000000000000
   br i1 %.not45, label %48, label %61
 
 48:                                               ; preds = %47
-  %.not46 = icmp ult i128 %.sroa.0.0.insert.insert, 100000000000
+  %.not46 = icmp samesign ult i128 %.sroa.0.0.insert.insert, 100000000000
   br i1 %.not46, label %49, label %61
 
 49:                                               ; preds = %48
-  %.not47 = icmp ult i128 %.sroa.0.0.insert.insert, 10000000000
+  %.not47 = icmp samesign ult i128 %.sroa.0.0.insert.insert, 10000000000
   br i1 %.not47, label %50, label %61
 
 50:                                               ; preds = %49
-  %.not48 = icmp ult i128 %.sroa.0.0.insert.insert, 1000000000
+  %.not48 = icmp samesign ult i128 %.sroa.0.0.insert.insert, 1000000000
   br i1 %.not48, label %51, label %61
 
 51:                                               ; preds = %50
-  %.not49 = icmp ult i128 %.sroa.0.0.insert.insert, 100000000
+  %.not49 = icmp samesign ult i128 %.sroa.0.0.insert.insert, 100000000
   br i1 %.not49, label %52, label %61
 
 52:                                               ; preds = %51
-  %.not50 = icmp ult i128 %.sroa.0.0.insert.insert, 10000000
+  %.not50 = icmp samesign ult i128 %.sroa.0.0.insert.insert, 10000000
   br i1 %.not50, label %53, label %61
 
 53:                                               ; preds = %52
-  %.not51 = icmp ult i128 %.sroa.0.0.insert.insert, 1000000
+  %.not51 = icmp samesign ult i128 %.sroa.0.0.insert.insert, 1000000
   br i1 %.not51, label %54, label %61
 
 54:                                               ; preds = %53
-  %.not52 = icmp ult i128 %.sroa.0.0.insert.insert, 100000
+  %.not52 = icmp samesign ult i128 %.sroa.0.0.insert.insert, 100000
   br i1 %.not52, label %55, label %61
 
 55:                                               ; preds = %54
-  %.not53 = icmp ult i128 %.sroa.0.0.insert.insert, 10000
+  %.not53 = icmp samesign ult i128 %.sroa.0.0.insert.insert, 10000
   br i1 %.not53, label %56, label %61
 
 56:                                               ; preds = %55
-  %.not54 = icmp ult i128 %.sroa.0.0.insert.insert, 1000
+  %.not54 = icmp samesign ult i128 %.sroa.0.0.insert.insert, 1000
   br i1 %.not54, label %57, label %61
 
 57:                                               ; preds = %56
-  %.not55 = icmp ult i128 %.sroa.0.0.insert.insert, 100
+  %.not55 = icmp samesign ult i128 %.sroa.0.0.insert.insert, 100
   br i1 %.not55, label %58, label %61
 
 58:                                               ; preds = %57
-  %.not56 = icmp ult i128 %.sroa.0.0.insert.insert, 10
+  %.not56 = icmp samesign ult i128 %.sroa.0.0.insert.insert, 10
   br i1 %.not56, label %59, label %61
 
 59:                                               ; preds = %58

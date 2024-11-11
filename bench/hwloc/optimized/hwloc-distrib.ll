@@ -839,7 +839,7 @@ hwloc_utils_disable_input_format.exit196:         ; preds = %230, %223, %222
   call void @hwloc_bitmap_free(ptr noundef %274) #18
   %278 = add i32 %.1133429.us.us, 1
   %279 = zext i32 %278 to i64
-  %280 = icmp ugt i64 %.0128.lcssa, %279
+  %280 = icmp samesign ugt i64 %.0128.lcssa, %279
   br i1 %280, label %.lr.ph431.split.us.split.us, label %._crit_edge432, !llvm.loop !8
 
 .lr.ph431.split.us.split:                         ; preds = %.lr.ph431.split.us, %.lr.ph431.split.us.split
@@ -856,7 +856,7 @@ hwloc_utils_disable_input_format.exit196:         ; preds = %230, %223, %222
   call void @hwloc_bitmap_free(ptr noundef %283) #18
   %287 = add i32 %.1133429.us, 1
   %288 = zext i32 %287 to i64
-  %289 = icmp ugt i64 %.0128.lcssa, %288
+  %289 = icmp samesign ugt i64 %.0128.lcssa, %288
   br i1 %289, label %.lr.ph431.split.us.split, label %._crit_edge432, !llvm.loop !8
 
 .lr.ph431.split:                                  ; preds = %.lr.ph431, %303
@@ -895,7 +895,7 @@ hwloc_utils_disable_input_format.exit196:         ; preds = %230, %223, %222
   call void @hwloc_bitmap_free(ptr noundef %292) #18
   %306 = add i32 %.1133429, 1
   %307 = zext i32 %306 to i64
-  %308 = icmp ugt i64 %.0128.lcssa, %307
+  %308 = icmp samesign ugt i64 %.0128.lcssa, %307
   br i1 %308, label %.lr.ph431.split, label %._crit_edge432, !llvm.loop !8
 
 ._crit_edge432:                                   ; preds = %303, %.lr.ph431.split.us.split, %.lr.ph431.split.us.split.us, %._crit_edge428

@@ -1774,7 +1774,7 @@ _ZN5alloc11collections5btree4node12slice_insert17he04a6bfe9be25271E.exit.i18.i.i
 .lr.ph.i.i19.i.i:                                 ; preds = %_ZN5alloc11collections5btree4node12slice_insert17he04a6bfe9be25271E.exit.i18.i.i, %.lr.ph.i.i19.i.i
   %.sroa.0.06.i.i20.i.i = phi i64 [ %197, %.lr.ph.i.i19.i.i ], [ %179, %_ZN5alloc11collections5btree4node12slice_insert17he04a6bfe9be25271E.exit.i18.i.i ]
   %197 = add nuw nsw i64 %.sroa.0.06.i.i20.i.i, 1
-  %198 = icmp ult i64 %.sroa.0.06.i.i20.i.i, 12
+  %198 = icmp samesign ult i64 %.sroa.0.06.i.i20.i.i, 12
   tail call void @llvm.assume(i1 %198)
   %199 = getelementptr inbounds ptr, ptr %187, i64 %.sroa.0.06.i.i20.i.i
   %200 = load ptr, ptr %199, align 8, !noalias !341, !nonnull !4, !noundef !4
@@ -2324,7 +2324,7 @@ _ZN5alloc11collections5btree4node12slice_insert17h66dd253e5f3b216eE.exit.i18.i.i
 .lr.ph.i.i19.i.i:                                 ; preds = %_ZN5alloc11collections5btree4node12slice_insert17h66dd253e5f3b216eE.exit.i18.i.i, %.lr.ph.i.i19.i.i
   %.sroa.0.06.i.i20.i.i = phi i64 [ %191, %.lr.ph.i.i19.i.i ], [ %174, %_ZN5alloc11collections5btree4node12slice_insert17h66dd253e5f3b216eE.exit.i18.i.i ]
   %191 = add nuw nsw i64 %.sroa.0.06.i.i20.i.i, 1
-  %192 = icmp ult i64 %.sroa.0.06.i.i20.i.i, 12
+  %192 = icmp samesign ult i64 %.sroa.0.06.i.i20.i.i, 12
   tail call void @llvm.assume(i1 %192)
   %193 = getelementptr inbounds ptr, ptr %181, i64 %.sroa.0.06.i.i20.i.i
   %194 = load ptr, ptr %193, align 8, !noalias !435, !nonnull !4, !noundef !4
@@ -4610,7 +4610,7 @@ define hidden void @"_ZN78_$LT$rustls_pki_types..server_name..ServerName$u20$as$
   %22 = and i8 %20, 63
   %23 = zext nneg i8 %22 to i32
   %24 = or disjoint i32 %21, %23
-  %25 = icmp ugt i8 %14, -33
+  %25 = icmp samesign ugt i8 %14, -33
   br i1 %25, label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h93b41e20ba2d2ab6E.exit15.i.i.i.i.i", label %"_ZN81_$LT$core..str..iter..Chars$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17he0b58399accd0681E.exit.thread.i.i.i"
 
 26:                                               ; preds = %.lr.ph.i.i.i
@@ -4628,7 +4628,7 @@ define hidden void @"_ZN78_$LT$rustls_pki_types..server_name..ServerName$u20$as$
   %34 = or disjoint i32 %31, %33
   %35 = shl nuw nsw i32 %17, 12
   %36 = or disjoint i32 %34, %35
-  %37 = icmp ugt i8 %14, -17
+  %37 = icmp samesign ugt i8 %14, -17
   br i1 %37, label %"_ZN81_$LT$core..str..iter..Chars$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17he0b58399accd0681E.exit.i.i.i", label %"_ZN81_$LT$core..str..iter..Chars$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17he0b58399accd0681E.exit.thread.i.i.i"
 
 "_ZN81_$LT$core..str..iter..Chars$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17he0b58399accd0681E.exit.i.i.i": ; preds = %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h93b41e20ba2d2ab6E.exit15.i.i.i.i.i"
@@ -4742,7 +4742,7 @@ define hidden void @"_ZN80_$LT$rustls_pki_types..server_name..DnsNameInner$u20$a
   %15 = and i8 %13, 63
   %16 = zext nneg i8 %15 to i32
   %17 = or disjoint i32 %14, %16
-  %18 = icmp ugt i8 %7, -33
+  %18 = icmp samesign ugt i8 %7, -33
   br i1 %18, label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h93b41e20ba2d2ab6E.exit15.i.i.i.i", label %"_ZN81_$LT$core..str..iter..Chars$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17he0b58399accd0681E.exit.thread.i.i"
 
 19:                                               ; preds = %.lr.ph.i.i
@@ -4760,7 +4760,7 @@ define hidden void @"_ZN80_$LT$rustls_pki_types..server_name..DnsNameInner$u20$a
   %27 = or disjoint i32 %24, %26
   %28 = shl nuw nsw i32 %10, 12
   %29 = or disjoint i32 %27, %28
-  %30 = icmp ugt i8 %7, -17
+  %30 = icmp samesign ugt i8 %7, -17
   br i1 %30, label %"_ZN81_$LT$core..str..iter..Chars$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17he0b58399accd0681E.exit.i.i", label %"_ZN81_$LT$core..str..iter..Chars$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17he0b58399accd0681E.exit.thread.i.i"
 
 "_ZN81_$LT$core..str..iter..Chars$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17he0b58399accd0681E.exit.i.i": ; preds = %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h93b41e20ba2d2ab6E.exit15.i.i.i.i"

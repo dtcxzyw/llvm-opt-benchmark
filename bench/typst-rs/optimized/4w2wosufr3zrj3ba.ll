@@ -415,7 +415,7 @@ define hidden void @"_ZN4ecow3vec15EcoVec$LT$T$GT$4grow17h5fa4c1543ef89d24E"(ptr
   unreachable
 
 5:                                                ; preds = %2
-  %6 = icmp ugt i64 %1, 9223372036854775782
+  %6 = icmp samesign ugt i64 %1, 9223372036854775782
   br i1 %6, label %7, label %"_ZN4ecow3vec15EcoVec$LT$T$GT$4size17h3dfbc7572ac67342E.exit"
 
 7:                                                ; preds = %5

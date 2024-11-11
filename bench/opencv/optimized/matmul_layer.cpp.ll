@@ -2921,7 +2921,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZNK2cv3dnn15MatMulLayerImpl15get
   unreachable
 
 29:                                               ; preds = %5
-  %30 = icmp ult i32 %26, 4
+  %30 = icmp samesign ult i32 %26, 4
   br i1 %30, label %32, label %31
 
 31:                                               ; preds = %29
@@ -4287,7 +4287,7 @@ _ZNSt6vectorImSaImEE6resizeEmRKm.exit95:          ; preds = %173, %175, %177, %1
   unreachable
 
 192:                                              ; preds = %190
-  %193 = icmp ult i32 %spec.store.select.i, %186
+  %193 = icmp samesign ult i32 %spec.store.select.i, %186
   br i1 %193, label %.lr.ph.preheader.i101, label %_ZN2cv3dnn14dnn4_v20240521L5totalERKSt6vectorIiSaIiEEii.exit106
 
 .lr.ph.preheader.i101:                            ; preds = %192

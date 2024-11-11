@@ -69148,7 +69148,7 @@ if.then205:                                       ; preds = %invoke.cont194
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %ref.tmp206) #33
   %add = add nuw nsw i32 %call188, 1
   call void @llvm.experimental.noalias.scope.decl(metadata !707)
-  %cmp39.i.i = icmp ult i32 %call188, 9
+  %cmp39.i.i = icmp samesign ult i32 %call188, 9
   br i1 %cmp39.i.i, label %_ZNSt8__detail14__to_chars_lenIjEEjT_i.exit.i, label %if.end.i.i843
 
 if.end.i.i843:                                    ; preds = %if.then205, %if.end14.i.i
@@ -69225,7 +69225,7 @@ while.body.i.i:                                   ; preds = %while.body.i.i, %wh
 
 while.end.i.i:                                    ; preds = %while.body.i.i, %invoke.cont.i
   %__val.addr.0.lcssa.i.i = phi i32 [ %add, %invoke.cont.i ], [ %div.i.i, %while.body.i.i ]
-  %cmp9.i.i = icmp ugt i32 %__val.addr.0.lcssa.i.i, 9
+  %cmp9.i.i = icmp samesign ugt i32 %__val.addr.0.lcssa.i.i, 9
   br i1 %cmp9.i.i, label %if.then.i.i847, label %if.else.i.i
 
 if.then.i.i847:                                   ; preds = %while.end.i.i
@@ -97067,7 +97067,7 @@ if.end45:                                         ; preds = %if.then22
 
 for.body.preheader:                               ; preds = %if.end45
   %add.ptr.i146 = getelementptr ptr, ptr %__p.sroa.0.0, i64 %__k.0
-  %min.iters.check = icmp ult i64 %sub20, 6
+  %min.iters.check = icmp samesign ult i64 %sub20, 6
   br i1 %min.iters.check, label %for.body.preheader27, label %vector.memcheck
 
 for.body.preheader27:                             ; preds = %middle.block, %vector.memcheck, %for.body.preheader
@@ -97172,7 +97172,7 @@ if.end91:                                         ; preds = %if.else61
   br i1 %cmp101208, label %for.body103.preheader, label %for.cond.cleanup102
 
 for.body103.preheader:                            ; preds = %if.end91
-  %min.iters.check258 = icmp ult i64 %__k.0, 30
+  %min.iters.check258 = icmp samesign ult i64 %__k.0, 30
   br i1 %min.iters.check258, label %for.body103.preheader320, label %vector.scevcheck
 
 vector.scevcheck:                                 ; preds = %for.body103.preheader
@@ -97185,7 +97185,7 @@ vector.scevcheck:                                 ; preds = %for.body103.prehead
   %24 = icmp ugt ptr %23, %scevgep245
   %25 = shl i64 %__n.0, 3
   %scevgep247 = getelementptr i8, ptr %scevgep244, i64 %25
-  %mul.overflow250 = icmp ugt i64 %21, 2305843009213693951
+  %mul.overflow250 = icmp samesign ugt i64 %21, 2305843009213693951
   %26 = getelementptr i8, ptr %scevgep247, i64 %mul.result.neg
   %27 = icmp ugt ptr %26, %scevgep247
   %28 = or i1 %mul.overflow250, %27

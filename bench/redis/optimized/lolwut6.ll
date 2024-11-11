@@ -373,7 +373,7 @@ if.end10:                                         ; preds = %land.lhs.true4, %if
   br i1 %cmp11, label %if.end16.sink.split, label %if.end13
 
 if.end13:                                         ; preds = %if.end10
-  %cmp14 = icmp ugt i64 %.pr18, 1000
+  %cmp14 = icmp samesign ugt i64 %.pr18, 1000
   br i1 %cmp14, label %if.end16.sink.split, label %if.end16
 
 if.end16.sink.split:                              ; preds = %if.end13, %if.end10
@@ -388,7 +388,7 @@ if.end16:                                         ; preds = %if.end16.sink.split
   br i1 %cmp17, label %if.end22.sink.split, label %if.end19
 
 if.end19:                                         ; preds = %if.end16
-  %cmp20 = icmp ugt i64 %.pr22, 1000
+  %cmp20 = icmp samesign ugt i64 %.pr22, 1000
   br i1 %cmp20, label %if.end22.sink.split, label %if.end22
 
 if.end22.sink.split:                              ; preds = %if.end19, %if.end16

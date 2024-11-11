@@ -8211,7 +8211,7 @@ cvAltSum.exit27.i.i:                              ; preds = %.preheader.i20.i.i
   %331 = tail call double @llvm.fmuladd.f64(double %329, double %316, double %330)
   store double %331, ptr %327, align 8
   %indvars.iv.next49.i.i.i = add nsw i64 %indvars.iv48.i.i.i, -1
-  %332 = icmp ugt i64 %indvars.iv48.i.i.i, 1
+  %332 = icmp samesign ugt i64 %indvars.iv48.i.i.i, 1
   br i1 %332, label %.lr.ph45.i.i.i, label %._crit_edge46.i.i.i, !llvm.loop !91
 
 ._crit_edge46.i.i.i:                              ; preds = %.lr.ph45.i.i.i, %.preheader.i35.i.i
@@ -11120,7 +11120,7 @@ cvQuadSensNorm.exit:                              ; preds = %.lr.ph.i263, %1893
   %1929 = load double, ptr %1928, align 8
   %1930 = getelementptr inbounds [14 x double], ptr %81, i64 0, i64 %indvars.iv.i273
   store double %1929, ptr %1930, align 8
-  %1931 = icmp ugt i64 %indvars.iv.i273, 2
+  %1931 = icmp samesign ugt i64 %indvars.iv.i273, 2
   br i1 %1931, label %1927, label %._crit_edge.i268, !llvm.loop !114
 
 ._crit_edge.i268:                                 ; preds = %1927, %.loopexit340

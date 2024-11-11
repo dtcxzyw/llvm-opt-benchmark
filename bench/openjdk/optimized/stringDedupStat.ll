@@ -272,14 +272,14 @@ define hidden void @_ZN11StringDedup4Stat11log_summaryEPKS0_S2_(ptr nocapture no
   br i1 %20, label %21, label %_Z24byte_size_in_proper_unitIdET_S0_.exit
 
 21:                                               ; preds = %14
-  %22 = icmp ult i64 %18, 104857600
+  %22 = icmp samesign ult i64 %18, 104857600
   br i1 %22, label %23, label %28
 
 23:                                               ; preds = %21
-  %24 = icmp ult i64 %18, 102400
+  %24 = icmp samesign ult i64 %18, 102400
   %25 = fmul double %19, 0x3F50000000000000
   %.0.i.ph.ph = select i1 %24, double %19, double %25
-  %26 = icmp ugt i64 %18, 102399
+  %26 = icmp samesign ugt i64 %18, 102399
   %.str.34..str.35.i = select i1 %26, ptr @.str.34, ptr @.str.35
   br label %_Z25proper_unit_for_byte_sizem.exit
 
@@ -303,14 +303,14 @@ _Z25proper_unit_for_byte_sizem.exit:              ; preds = %28, %_Z24byte_size_
   br i1 %35, label %36, label %_Z24byte_size_in_proper_unitIdET_S0_.exit17
 
 36:                                               ; preds = %_Z25proper_unit_for_byte_sizem.exit
-  %37 = icmp ult i64 %33, 104857600
+  %37 = icmp samesign ult i64 %33, 104857600
   br i1 %37, label %38, label %43
 
 38:                                               ; preds = %36
-  %39 = icmp ult i64 %33, 102400
+  %39 = icmp samesign ult i64 %33, 102400
   %40 = fmul double %34, 0x3F50000000000000
   %.0.i16.ph.ph = select i1 %39, double %34, double %40
-  %41 = icmp ugt i64 %33, 102399
+  %41 = icmp samesign ugt i64 %33, 102399
   %.str.34..str.35.i18 = select i1 %41, ptr @.str.34, ptr @.str.35
   br label %_Z25proper_unit_for_byte_sizem.exit20
 
@@ -944,14 +944,14 @@ define hidden void @_ZNK11StringDedup4Stat14log_statisticsEb(ptr nocapture nound
   br i1 %68, label %69, label %_Z24byte_size_in_proper_unitIdET_S0_.exit
 
 69:                                               ; preds = %64
-  %70 = icmp ult i64 %66, 104857600
+  %70 = icmp samesign ult i64 %66, 104857600
   br i1 %70, label %71, label %76
 
 71:                                               ; preds = %69
-  %72 = icmp ult i64 %66, 102400
+  %72 = icmp samesign ult i64 %66, 102400
   %73 = fmul double %67, 0x3F50000000000000
   %.0.i.ph.ph = select i1 %72, double %67, double %73
-  %74 = icmp ugt i64 %66, 102399
+  %74 = icmp samesign ugt i64 %66, 102399
   %.str.34..str.35.i = select i1 %74, ptr @.str.34, ptr @.str.35
   br label %_Z25proper_unit_for_byte_sizem.exit
 
@@ -1002,14 +1002,14 @@ _Z25proper_unit_for_byte_sizem.exit:              ; preds = %76, %_Z24byte_size_
   br i1 %92, label %93, label %_Z24byte_size_in_proper_unitIdET_S0_.exit16
 
 93:                                               ; preds = %88
-  %94 = icmp ult i64 %90, 104857600
+  %94 = icmp samesign ult i64 %90, 104857600
   br i1 %94, label %95, label %100
 
 95:                                               ; preds = %93
-  %96 = icmp ult i64 %90, 102400
+  %96 = icmp samesign ult i64 %90, 102400
   %97 = fmul double %91, 0x3F50000000000000
   %.0.i15.ph.ph = select i1 %96, double %91, double %97
-  %98 = icmp ugt i64 %90, 102399
+  %98 = icmp samesign ugt i64 %90, 102399
   %.str.34..str.35.i17 = select i1 %98, ptr @.str.34, ptr @.str.35
   br label %_Z25proper_unit_for_byte_sizem.exit19
 

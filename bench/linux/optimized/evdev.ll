@@ -181,7 +181,7 @@ define internal i32 @evdev_connect(ptr noundef %0, ptr noundef %1, ptr nocapture
   tail call void @__mutex_init(ptr noundef %16, ptr noundef nonnull @.str.2, ptr noundef nonnull @evdev_connect.__key) #14
   %17 = getelementptr inbounds i8, ptr %10, i64 976
   store i8 1, ptr %17, align 8
-  %18 = icmp ult i32 %4, 96
+  %18 = icmp samesign ult i32 %4, 96
   %19 = add nsw i32 %4, -64
   %20 = select i1 %18, i32 %19, i32 %4
   %21 = getelementptr inbounds i8, ptr %10, i64 144

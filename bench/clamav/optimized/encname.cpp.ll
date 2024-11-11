@@ -157,7 +157,7 @@ define void @_ZN14EncodeFileName6DecodeEPcmPhmPwm(ptr nocapture noundef nonnull 
   store i32 %76, ptr %77, align 4
   %78 = add nsw i32 %.07498, -1
   %79 = add nuw i64 %.27897, 1
-  %80 = icmp ugt i32 %.07498, 1
+  %80 = icmp samesign ugt i32 %.07498, 1
   %81 = icmp ult i64 %79, %invariant.umin
   %or.cond91 = select i1 %80, i1 %81, i1 false
   br i1 %or.cond91, label %.lr.ph, label %.critedge, !llvm.loop !4
@@ -180,7 +180,7 @@ define void @_ZN14EncodeFileName6DecodeEPcmPhmPwm(ptr nocapture noundef nonnull 
   store i32 %87, ptr %88, align 4
   %89 = add nsw i32 %.175101, -1
   %90 = add nuw i64 %.379100, 1
-  %91 = icmp ugt i32 %.175101, 1
+  %91 = icmp samesign ugt i32 %.175101, 1
   %92 = icmp ult i64 %90, %invariant.umin
   %or.cond93 = select i1 %91, i1 %92, i1 false
   br i1 %or.cond93, label %.lr.ph102, label %.critedge, !llvm.loop !6

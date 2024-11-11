@@ -20799,7 +20799,7 @@ for.body229:                                      ; preds = %for.body229.prehead
   store double %fneg236, ptr %add.ptr.i522, align 8
   %ref.tmp230.sroa.2.0.add.ptr.i522.sroa_idx = getelementptr inbounds i8, ptr %add.ptr.i522, i64 8
   store double %fneg242, ptr %ref.tmp230.sroa.2.0.add.ptr.i522.sroa_idx, align 8
-  %cmp228 = icmp ugt i64 %indvars.iv863, 1
+  %cmp228 = icmp samesign ugt i64 %indvars.iv863, 1
   br i1 %cmp228, label %for.body229, label %for.end247.loopexit, !llvm.loop !211
 
 for.end247.loopexit:                              ; preds = %for.body229
@@ -21165,7 +21165,7 @@ for.body360:                                      ; preds = %for.body360.prehead
   store double %fneg367, ptr %add.ptr.i643, align 8
   %ref.tmp361.sroa.2.0.add.ptr.i643.sroa_idx = getelementptr inbounds i8, ptr %add.ptr.i643, i64 8
   store double %fneg373, ptr %ref.tmp361.sroa.2.0.add.ptr.i643.sroa_idx, align 8
-  %cmp359 = icmp ugt i64 %indvars.iv868, 1
+  %cmp359 = icmp samesign ugt i64 %indvars.iv868, 1
   br i1 %cmp359, label %for.body360, label %for.end379, !llvm.loop !222
 
 for.end379:                                       ; preds = %for.body360, %if.end355
@@ -21192,7 +21192,7 @@ for.body396:                                      ; preds = %for.body396.lr.ph, 
   %192 = load i32, ptr %m_jointype397, align 8
   call void @_ZN10ClipperLib13ClipperOffset11OffsetPointEiRiNS_8JoinTypeE(ptr noundef nonnull align 8 dereferenceable(256) %this, i32 noundef %j392.0837, ptr noundef nonnull align 4 dereferenceable(4) %k267, i32 noundef %192)
   %dec399 = add nsw i32 %j392.0837, -1
-  %cmp395 = icmp ugt i32 %j392.0837, 1
+  %cmp395 = icmp samesign ugt i32 %j392.0837, 1
   br i1 %cmp395, label %for.body396, label %for.end400, !llvm.loop !223
 
 for.end400:                                       ; preds = %for.body396, %for.end379

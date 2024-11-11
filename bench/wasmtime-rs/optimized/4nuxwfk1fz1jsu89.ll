@@ -10063,7 +10063,7 @@ _ZN4rand3rng3Rng3gen17hb6e89deef2c681d7E.exit34.i: ; preds = %.noexc3, %_ZN4rand
   %20 = load i32, ptr %19, align 4, !alias.scope !1054, !noalias !1050, !noundef !5
   %21 = add nuw nsw i64 %18, 1
   store i64 %21, ptr %6, align 16, !alias.scope !1054, !noalias !1050
-  %22 = icmp ugt i64 %18, 62
+  %22 = icmp samesign ugt i64 %18, 62
   br i1 %22, label %23, label %_ZN4rand3rng3Rng3gen17hb6e89deef2c681d7E.exit36.i
 
 23:                                               ; preds = %_ZN4rand3rng3Rng3gen17hb6e89deef2c681d7E.exit34.i
@@ -10081,7 +10081,7 @@ _ZN4rand3rng3Rng3gen17hb6e89deef2c681d7E.exit36.i: ; preds = %.noexc5, %_ZN4rand
   %27 = load i32, ptr %26, align 4, !alias.scope !1057, !noalias !1050, !noundef !5
   %28 = add nuw nsw i64 %25, 1
   store i64 %28, ptr %6, align 16, !alias.scope !1057, !noalias !1050
-  %29 = icmp ugt i64 %25, 62
+  %29 = icmp samesign ugt i64 %25, 62
   br i1 %29, label %30, label %_ZN4rand3rng3Rng3gen17hb6e89deef2c681d7E.exit38.i
 
 30:                                               ; preds = %_ZN4rand3rng3Rng3gen17hb6e89deef2c681d7E.exit36.i
@@ -10099,7 +10099,7 @@ _ZN4rand3rng3Rng3gen17hb6e89deef2c681d7E.exit38.i: ; preds = %.noexc7, %_ZN4rand
   %34 = load i32, ptr %33, align 4, !alias.scope !1060, !noalias !1050, !noundef !5
   %35 = add nuw nsw i64 %32, 1
   store i64 %35, ptr %6, align 16, !alias.scope !1060, !noalias !1050
-  %36 = icmp ugt i64 %32, 62
+  %36 = icmp samesign ugt i64 %32, 62
   br i1 %36, label %37, label %_ZN4rand3rng3Rng3gen17hb6e89deef2c681d7E.exit40.i
 
 37:                                               ; preds = %_ZN4rand3rng3Rng3gen17hb6e89deef2c681d7E.exit38.i
@@ -10117,7 +10117,7 @@ _ZN4rand3rng3Rng3gen17hb6e89deef2c681d7E.exit40.i: ; preds = %.noexc9, %_ZN4rand
   %41 = load i32, ptr %40, align 4, !alias.scope !1063, !noalias !1050, !noundef !5
   %42 = add nuw nsw i64 %39, 1
   store i64 %42, ptr %6, align 16, !alias.scope !1063, !noalias !1050
-  %43 = icmp ugt i64 %39, 62
+  %43 = icmp samesign ugt i64 %39, 62
   br i1 %43, label %44, label %_ZN4rand3rng3Rng3gen17hb6e89deef2c681d7E.exit42.i
 
 44:                                               ; preds = %_ZN4rand3rng3Rng3gen17hb6e89deef2c681d7E.exit40.i
@@ -10135,7 +10135,7 @@ _ZN4rand3rng3Rng3gen17hb6e89deef2c681d7E.exit42.i: ; preds = %.noexc11, %_ZN4ran
   %48 = load i32, ptr %47, align 4, !alias.scope !1066, !noalias !1050, !noundef !5
   %49 = add nuw nsw i64 %46, 1
   store i64 %49, ptr %6, align 16, !alias.scope !1066, !noalias !1050
-  %50 = icmp ugt i64 %46, 62
+  %50 = icmp samesign ugt i64 %46, 62
   br i1 %50, label %51, label %_ZN4rand3rng3Rng3gen17hb6e89deef2c681d7E.exit44.i
 
 51:                                               ; preds = %_ZN4rand3rng3Rng3gen17hb6e89deef2c681d7E.exit42.i
@@ -10153,7 +10153,7 @@ _ZN4rand3rng3Rng3gen17hb6e89deef2c681d7E.exit44.i: ; preds = %.noexc13, %_ZN4ran
   %55 = load i32, ptr %54, align 4, !alias.scope !1069, !noalias !1050, !noundef !5
   %56 = add nuw nsw i64 %53, 1
   store i64 %56, ptr %6, align 16, !alias.scope !1069, !noalias !1050
-  %57 = icmp ugt i64 %53, 62
+  %57 = icmp samesign ugt i64 %53, 62
   br i1 %57, label %58, label %_ZN4rand3rng3Rng3gen17hb6e89deef2c681d7E.exit46.i
 
 58:                                               ; preds = %_ZN4rand3rng3Rng3gen17hb6e89deef2c681d7E.exit44.i
@@ -10171,7 +10171,7 @@ _ZN4rand3rng3Rng3gen17hb6e89deef2c681d7E.exit46.i: ; preds = %.noexc15, %_ZN4ran
   %62 = load i32, ptr %61, align 4, !alias.scope !1072, !noalias !1050, !noundef !5
   %63 = add nuw nsw i64 %60, 1
   store i64 %63, ptr %6, align 16, !alias.scope !1072, !noalias !1050
-  %64 = icmp ugt i64 %60, 62
+  %64 = icmp samesign ugt i64 %60, 62
   br i1 %64, label %65, label %_ZN4rand3rng3Rng3gen17hb6e89deef2c681d7E.exit48.i
 
 65:                                               ; preds = %_ZN4rand3rng3Rng3gen17hb6e89deef2c681d7E.exit46.i
@@ -10189,7 +10189,7 @@ _ZN4rand3rng3Rng3gen17hb6e89deef2c681d7E.exit48.i: ; preds = %.noexc17, %_ZN4ran
   %69 = load i32, ptr %68, align 4, !alias.scope !1075, !noalias !1050, !noundef !5
   %70 = add nuw nsw i64 %67, 1
   store i64 %70, ptr %6, align 16, !alias.scope !1075, !noalias !1050
-  %71 = icmp ugt i64 %67, 62
+  %71 = icmp samesign ugt i64 %67, 62
   br i1 %71, label %72, label %_ZN4rand3rng3Rng3gen17hb6e89deef2c681d7E.exit50.i
 
 72:                                               ; preds = %_ZN4rand3rng3Rng3gen17hb6e89deef2c681d7E.exit48.i
@@ -10207,7 +10207,7 @@ _ZN4rand3rng3Rng3gen17hb6e89deef2c681d7E.exit50.i: ; preds = %.noexc19, %_ZN4ran
   %76 = load i32, ptr %75, align 4, !alias.scope !1078, !noalias !1050, !noundef !5
   %77 = add nuw nsw i64 %74, 1
   store i64 %77, ptr %6, align 16, !alias.scope !1078, !noalias !1050
-  %78 = icmp ugt i64 %74, 62
+  %78 = icmp samesign ugt i64 %74, 62
   br i1 %78, label %79, label %_ZN4rand3rng3Rng3gen17hb6e89deef2c681d7E.exit52.i
 
 79:                                               ; preds = %_ZN4rand3rng3Rng3gen17hb6e89deef2c681d7E.exit50.i
@@ -10225,7 +10225,7 @@ _ZN4rand3rng3Rng3gen17hb6e89deef2c681d7E.exit52.i: ; preds = %.noexc21, %_ZN4ran
   %83 = load i32, ptr %82, align 4, !alias.scope !1081, !noalias !1050, !noundef !5
   %84 = add nuw nsw i64 %81, 1
   store i64 %84, ptr %6, align 16, !alias.scope !1081, !noalias !1050
-  %85 = icmp ugt i64 %81, 62
+  %85 = icmp samesign ugt i64 %81, 62
   br i1 %85, label %86, label %_ZN4rand3rng3Rng3gen17hb6e89deef2c681d7E.exit54.i
 
 86:                                               ; preds = %_ZN4rand3rng3Rng3gen17hb6e89deef2c681d7E.exit52.i
@@ -10243,7 +10243,7 @@ _ZN4rand3rng3Rng3gen17hb6e89deef2c681d7E.exit54.i: ; preds = %.noexc23, %_ZN4ran
   %90 = load i32, ptr %89, align 4, !alias.scope !1084, !noalias !1050, !noundef !5
   %91 = add nuw nsw i64 %88, 1
   store i64 %91, ptr %6, align 16, !alias.scope !1084, !noalias !1050
-  %92 = icmp ugt i64 %88, 62
+  %92 = icmp samesign ugt i64 %88, 62
   br i1 %92, label %93, label %_ZN4rand3rng3Rng3gen17hb6e89deef2c681d7E.exit56.i
 
 93:                                               ; preds = %_ZN4rand3rng3Rng3gen17hb6e89deef2c681d7E.exit54.i
@@ -10261,7 +10261,7 @@ _ZN4rand3rng3Rng3gen17hb6e89deef2c681d7E.exit56.i: ; preds = %.noexc25, %_ZN4ran
   %97 = load i32, ptr %96, align 4, !alias.scope !1087, !noalias !1050, !noundef !5
   %98 = add nuw nsw i64 %95, 1
   store i64 %98, ptr %6, align 16, !alias.scope !1087, !noalias !1050
-  %99 = icmp ugt i64 %95, 62
+  %99 = icmp samesign ugt i64 %95, 62
   br i1 %99, label %100, label %_ZN4rand3rng3Rng3gen17hb6e89deef2c681d7E.exit58.i
 
 100:                                              ; preds = %_ZN4rand3rng3Rng3gen17hb6e89deef2c681d7E.exit56.i
@@ -10279,7 +10279,7 @@ _ZN4rand3rng3Rng3gen17hb6e89deef2c681d7E.exit58.i: ; preds = %.noexc27, %_ZN4ran
   %104 = load i32, ptr %103, align 4, !alias.scope !1090, !noalias !1050, !noundef !5
   %105 = add nuw nsw i64 %102, 1
   store i64 %105, ptr %6, align 16, !alias.scope !1090, !noalias !1050
-  %106 = icmp ugt i64 %102, 62
+  %106 = icmp samesign ugt i64 %102, 62
   br i1 %106, label %107, label %_ZN4rand3rng3Rng3gen17hb6e89deef2c681d7E.exit60.i
 
 107:                                              ; preds = %_ZN4rand3rng3Rng3gen17hb6e89deef2c681d7E.exit58.i
@@ -10297,7 +10297,7 @@ _ZN4rand3rng3Rng3gen17hb6e89deef2c681d7E.exit60.i: ; preds = %.noexc29, %_ZN4ran
   %111 = load i32, ptr %110, align 4, !alias.scope !1093, !noalias !1050, !noundef !5
   %112 = add nuw nsw i64 %109, 1
   store i64 %112, ptr %6, align 16, !alias.scope !1093, !noalias !1050
-  %113 = icmp ugt i64 %109, 62
+  %113 = icmp samesign ugt i64 %109, 62
   br i1 %113, label %114, label %_ZN4rand3rng3Rng3gen17hb6e89deef2c681d7E.exit62.i
 
 114:                                              ; preds = %_ZN4rand3rng3Rng3gen17hb6e89deef2c681d7E.exit60.i
@@ -10315,7 +10315,7 @@ _ZN4rand3rng3Rng3gen17hb6e89deef2c681d7E.exit62.i: ; preds = %.noexc31, %_ZN4ran
   %118 = load i32, ptr %117, align 4, !alias.scope !1096, !noalias !1050, !noundef !5
   %119 = add nuw nsw i64 %116, 1
   store i64 %119, ptr %6, align 16, !alias.scope !1096, !noalias !1050
-  %120 = icmp ugt i64 %116, 62
+  %120 = icmp samesign ugt i64 %116, 62
   br i1 %120, label %121, label %_ZN4rand3rng3Rng3gen17hb6e89deef2c681d7E.exit64.i
 
 121:                                              ; preds = %_ZN4rand3rng3Rng3gen17hb6e89deef2c681d7E.exit62.i
@@ -10333,7 +10333,7 @@ _ZN4rand3rng3Rng3gen17hb6e89deef2c681d7E.exit64.i: ; preds = %.noexc33, %_ZN4ran
   %125 = load i32, ptr %124, align 4, !alias.scope !1099, !noalias !1050, !noundef !5
   %126 = add nuw nsw i64 %123, 1
   store i64 %126, ptr %6, align 16, !alias.scope !1099, !noalias !1050
-  %127 = icmp ugt i64 %123, 62
+  %127 = icmp samesign ugt i64 %123, 62
   br i1 %127, label %128, label %_ZN4rand3rng3Rng3gen17hb6e89deef2c681d7E.exit66.i
 
 128:                                              ; preds = %_ZN4rand3rng3Rng3gen17hb6e89deef2c681d7E.exit64.i
@@ -10351,7 +10351,7 @@ _ZN4rand3rng3Rng3gen17hb6e89deef2c681d7E.exit66.i: ; preds = %.noexc35, %_ZN4ran
   %132 = load i32, ptr %131, align 4, !alias.scope !1102, !noalias !1050, !noundef !5
   %133 = add nuw nsw i64 %130, 1
   store i64 %133, ptr %6, align 16, !alias.scope !1102, !noalias !1050
-  %134 = icmp ugt i64 %130, 62
+  %134 = icmp samesign ugt i64 %130, 62
   br i1 %134, label %135, label %_ZN4rand3rng3Rng3gen17hb6e89deef2c681d7E.exit68.i
 
 135:                                              ; preds = %_ZN4rand3rng3Rng3gen17hb6e89deef2c681d7E.exit66.i
@@ -10369,7 +10369,7 @@ _ZN4rand3rng3Rng3gen17hb6e89deef2c681d7E.exit68.i: ; preds = %.noexc37, %_ZN4ran
   %139 = load i32, ptr %138, align 4, !alias.scope !1105, !noalias !1050, !noundef !5
   %140 = add nuw nsw i64 %137, 1
   store i64 %140, ptr %6, align 16, !alias.scope !1105, !noalias !1050
-  %141 = icmp ugt i64 %137, 62
+  %141 = icmp samesign ugt i64 %137, 62
   br i1 %141, label %142, label %_ZN4rand3rng3Rng3gen17hb6e89deef2c681d7E.exit70.i
 
 142:                                              ; preds = %_ZN4rand3rng3Rng3gen17hb6e89deef2c681d7E.exit68.i
@@ -10387,7 +10387,7 @@ _ZN4rand3rng3Rng3gen17hb6e89deef2c681d7E.exit70.i: ; preds = %.noexc39, %_ZN4ran
   %146 = load i32, ptr %145, align 4, !alias.scope !1108, !noalias !1050, !noundef !5
   %147 = add nuw nsw i64 %144, 1
   store i64 %147, ptr %6, align 16, !alias.scope !1108, !noalias !1050
-  %148 = icmp ugt i64 %144, 62
+  %148 = icmp samesign ugt i64 %144, 62
   br i1 %148, label %149, label %_ZN4rand3rng3Rng3gen17hb6e89deef2c681d7E.exit72.i
 
 149:                                              ; preds = %_ZN4rand3rng3Rng3gen17hb6e89deef2c681d7E.exit70.i
@@ -10405,7 +10405,7 @@ _ZN4rand3rng3Rng3gen17hb6e89deef2c681d7E.exit72.i: ; preds = %.noexc41, %_ZN4ran
   %153 = load i32, ptr %152, align 4, !alias.scope !1111, !noalias !1050, !noundef !5
   %154 = add nuw nsw i64 %151, 1
   store i64 %154, ptr %6, align 16, !alias.scope !1111, !noalias !1050
-  %155 = icmp ugt i64 %151, 62
+  %155 = icmp samesign ugt i64 %151, 62
   br i1 %155, label %156, label %_ZN4rand3rng3Rng3gen17hb6e89deef2c681d7E.exit74.i
 
 156:                                              ; preds = %_ZN4rand3rng3Rng3gen17hb6e89deef2c681d7E.exit72.i
@@ -10423,7 +10423,7 @@ _ZN4rand3rng3Rng3gen17hb6e89deef2c681d7E.exit74.i: ; preds = %.noexc43, %_ZN4ran
   %160 = load i32, ptr %159, align 4, !alias.scope !1114, !noalias !1050, !noundef !5
   %161 = add nuw nsw i64 %158, 1
   store i64 %161, ptr %6, align 16, !alias.scope !1114, !noalias !1050
-  %162 = icmp ugt i64 %158, 62
+  %162 = icmp samesign ugt i64 %158, 62
   br i1 %162, label %163, label %_ZN4rand3rng3Rng3gen17hb6e89deef2c681d7E.exit76.i
 
 163:                                              ; preds = %_ZN4rand3rng3Rng3gen17hb6e89deef2c681d7E.exit74.i
@@ -10441,7 +10441,7 @@ _ZN4rand3rng3Rng3gen17hb6e89deef2c681d7E.exit76.i: ; preds = %.noexc45, %_ZN4ran
   %167 = load i32, ptr %166, align 4, !alias.scope !1117, !noalias !1050, !noundef !5
   %168 = add nuw nsw i64 %165, 1
   store i64 %168, ptr %6, align 16, !alias.scope !1117, !noalias !1050
-  %169 = icmp ugt i64 %165, 62
+  %169 = icmp samesign ugt i64 %165, 62
   br i1 %169, label %170, label %_ZN4rand3rng3Rng3gen17hb6e89deef2c681d7E.exit78.i
 
 170:                                              ; preds = %_ZN4rand3rng3Rng3gen17hb6e89deef2c681d7E.exit76.i
@@ -10459,7 +10459,7 @@ _ZN4rand3rng3Rng3gen17hb6e89deef2c681d7E.exit78.i: ; preds = %.noexc47, %_ZN4ran
   %174 = load i32, ptr %173, align 4, !alias.scope !1120, !noalias !1050, !noundef !5
   %175 = add nuw nsw i64 %172, 1
   store i64 %175, ptr %6, align 16, !alias.scope !1120, !noalias !1050
-  %176 = icmp ugt i64 %172, 62
+  %176 = icmp samesign ugt i64 %172, 62
   br i1 %176, label %177, label %_ZN4rand3rng3Rng3gen17hb6e89deef2c681d7E.exit80.i
 
 177:                                              ; preds = %_ZN4rand3rng3Rng3gen17hb6e89deef2c681d7E.exit78.i
@@ -10477,7 +10477,7 @@ _ZN4rand3rng3Rng3gen17hb6e89deef2c681d7E.exit80.i: ; preds = %.noexc49, %_ZN4ran
   %181 = load i32, ptr %180, align 4, !alias.scope !1123, !noalias !1050, !noundef !5
   %182 = add nuw nsw i64 %179, 1
   store i64 %182, ptr %6, align 16, !alias.scope !1123, !noalias !1050
-  %183 = icmp ugt i64 %179, 62
+  %183 = icmp samesign ugt i64 %179, 62
   br i1 %183, label %184, label %_ZN4rand3rng3Rng3gen17hb6e89deef2c681d7E.exit82.i
 
 184:                                              ; preds = %_ZN4rand3rng3Rng3gen17hb6e89deef2c681d7E.exit80.i
@@ -10495,7 +10495,7 @@ _ZN4rand3rng3Rng3gen17hb6e89deef2c681d7E.exit82.i: ; preds = %.noexc51, %_ZN4ran
   %188 = load i32, ptr %187, align 4, !alias.scope !1126, !noalias !1050, !noundef !5
   %189 = add nuw nsw i64 %186, 1
   store i64 %189, ptr %6, align 16, !alias.scope !1126, !noalias !1050
-  %190 = icmp ugt i64 %186, 62
+  %190 = icmp samesign ugt i64 %186, 62
   br i1 %190, label %191, label %_ZN4rand3rng3Rng3gen17hb6e89deef2c681d7E.exit84.i
 
 191:                                              ; preds = %_ZN4rand3rng3Rng3gen17hb6e89deef2c681d7E.exit82.i
@@ -10513,7 +10513,7 @@ _ZN4rand3rng3Rng3gen17hb6e89deef2c681d7E.exit84.i: ; preds = %.noexc53, %_ZN4ran
   %195 = load i32, ptr %194, align 4, !alias.scope !1129, !noalias !1050, !noundef !5
   %196 = add nuw nsw i64 %193, 1
   store i64 %196, ptr %6, align 16, !alias.scope !1129, !noalias !1050
-  %197 = icmp ugt i64 %193, 62
+  %197 = icmp samesign ugt i64 %193, 62
   br i1 %197, label %198, label %_ZN4rand3rng3Rng3gen17hb6e89deef2c681d7E.exit86.i
 
 198:                                              ; preds = %_ZN4rand3rng3Rng3gen17hb6e89deef2c681d7E.exit84.i
@@ -10531,7 +10531,7 @@ _ZN4rand3rng3Rng3gen17hb6e89deef2c681d7E.exit86.i: ; preds = %.noexc55, %_ZN4ran
   %202 = load i32, ptr %201, align 4, !alias.scope !1132, !noalias !1050, !noundef !5
   %203 = add nuw nsw i64 %200, 1
   store i64 %203, ptr %6, align 16, !alias.scope !1132, !noalias !1050
-  %204 = icmp ugt i64 %200, 62
+  %204 = icmp samesign ugt i64 %200, 62
   br i1 %204, label %205, label %_ZN4rand3rng3Rng3gen17hb6e89deef2c681d7E.exit88.i
 
 205:                                              ; preds = %_ZN4rand3rng3Rng3gen17hb6e89deef2c681d7E.exit86.i
@@ -10549,7 +10549,7 @@ _ZN4rand3rng3Rng3gen17hb6e89deef2c681d7E.exit88.i: ; preds = %.noexc57, %_ZN4ran
   %209 = load i32, ptr %208, align 4, !alias.scope !1135, !noalias !1050, !noundef !5
   %210 = add nuw nsw i64 %207, 1
   store i64 %210, ptr %6, align 16, !alias.scope !1135, !noalias !1050
-  %211 = icmp ugt i64 %207, 62
+  %211 = icmp samesign ugt i64 %207, 62
   br i1 %211, label %212, label %_ZN4rand3rng3Rng3gen17hb6e89deef2c681d7E.exit90.i
 
 212:                                              ; preds = %_ZN4rand3rng3Rng3gen17hb6e89deef2c681d7E.exit88.i
@@ -10567,7 +10567,7 @@ _ZN4rand3rng3Rng3gen17hb6e89deef2c681d7E.exit90.i: ; preds = %.noexc59, %_ZN4ran
   %216 = load i32, ptr %215, align 4, !alias.scope !1138, !noalias !1050, !noundef !5
   %217 = add nuw nsw i64 %214, 1
   store i64 %217, ptr %6, align 16, !alias.scope !1138, !noalias !1050
-  %218 = icmp ugt i64 %214, 62
+  %218 = icmp samesign ugt i64 %214, 62
   br i1 %218, label %219, label %_ZN4rand3rng3Rng3gen17hb6e89deef2c681d7E.exit92.i
 
 219:                                              ; preds = %_ZN4rand3rng3Rng3gen17hb6e89deef2c681d7E.exit90.i
@@ -10585,7 +10585,7 @@ _ZN4rand3rng3Rng3gen17hb6e89deef2c681d7E.exit92.i: ; preds = %.noexc61, %_ZN4ran
   %223 = load i32, ptr %222, align 4, !alias.scope !1141, !noalias !1050, !noundef !5
   %224 = add nuw nsw i64 %221, 1
   store i64 %224, ptr %6, align 16, !alias.scope !1141, !noalias !1050
-  %225 = icmp ugt i64 %221, 62
+  %225 = icmp samesign ugt i64 %221, 62
   br i1 %225, label %226, label %231
 
 226:                                              ; preds = %_ZN4rand3rng3Rng3gen17hb6e89deef2c681d7E.exit92.i

@@ -77881,7 +77881,7 @@ _ZN6duckdb10CountZerosINS_9hugeint_tEE7LeadingES1_.exit.i: ; preds = %if.then4.i
   %cmp.i.i20.i = icmp ult i32 %23, 13
   %cond.i23.i = select i1 %cmp.i.i20.i, ptr %invariant.gep, ptr %22
   %mul.i.i = shl nuw nsw i64 %sub.i, 2
-  %cmp26.i.i = icmp ult i64 %retval.0.i.i, 64
+  %cmp26.i.i = icmp samesign ult i64 %retval.0.i.i, 64
   br i1 %cmp26.i.i, label %for.body.i.i, label %for.body6.i.i.preheader
 
 if.then.i114:                                     ; preds = %if.else.i.i
@@ -78074,7 +78074,7 @@ _ZN6duckdb10CountZerosINS_9hugeint_tEE7LeadingES1_.exit.i118: ; preds = %if.then
   %cmp.i.i20.i123 = icmp ult i32 %50, 13
   %cond.i23.i125 = select i1 %cmp.i.i20.i123, ptr %invariant.gep190, ptr %49
   %mul.i.i126 = shl nuw nsw i64 %sub.i121, 2
-  %cmp26.i.i127 = icmp ult i64 %retval.0.i.i119, 64
+  %cmp26.i.i127 = icmp samesign ult i64 %retval.0.i.i119, 64
   br i1 %cmp26.i.i127, label %for.body.i.i154, label %for.body6.i.i131.preheader
 
 if.then.i168:                                     ; preds = %if.else.i.i164
@@ -78518,7 +78518,7 @@ _ZN6duckdb10CountZerosINS_9hugeint_tEE7LeadingES1_.exit: ; preds = %if.then4.i, 
   %inlined.i21 = getelementptr inbounds i8, ptr %retval, i64 4
   %cond.i23 = select i1 %cmp.i.i20, ptr %inlined.i21, ptr %4
   %mul.i = shl nuw nsw i64 %sub, 2
-  %cmp26.i = icmp ult i64 %retval.0.i, 64
+  %cmp26.i = icmp samesign ult i64 %retval.0.i, 64
   br i1 %cmp26.i, label %for.body.i, label %for.body6.i.preheader
 
 if.then:                                          ; preds = %if.else.i
@@ -82346,12 +82346,12 @@ if.end.i112:                                      ; preds = %if.then4.i.i, %if.t
   %30 = trunc i64 %28 to i32
   %cmp.i.i19.i = icmp ult i32 %30, 13
   %cond.i22.i = select i1 %cmp.i.i19.i, ptr %invariant.gep, ptr %29
-  %cmp25.i.i = icmp ult i64 %retval.0.i.ph.i, 64
+  %cmp25.i.i = icmp samesign ult i64 %retval.0.i.ph.i, 64
   br i1 %cmp25.i.i, label %for.body.i.i.preheader, label %iter.check
 
 for.body.i.i.preheader:                           ; preds = %if.end.i112
   %31 = sub nuw nsw i64 64, %retval.0.i.ph.i
-  %min.iters.check232 = icmp ugt i64 %retval.0.i.ph.i, 48
+  %min.iters.check232 = icmp samesign ugt i64 %retval.0.i.ph.i, 48
   br i1 %min.iters.check232, label %for.body.i.i.preheader41, label %vector.ph233
 
 for.body.i.i.preheader41:                         ; preds = %middle.block231, %for.body.i.i.preheader
@@ -82416,7 +82416,7 @@ middle.block231:                                  ; preds = %vector.body241.3, %
   br i1 %cmp.n240, label %vector.ph, label %for.body.i.i.preheader41
 
 iter.check:                                       ; preds = %if.end.i112
-  %min.iters.check = icmp ugt i64 %retval.0.i.ph.i, 120
+  %min.iters.check = icmp samesign ugt i64 %retval.0.i.ph.i, 120
   br i1 %min.iters.check, label %for.body6.i.i.preheader, label %vector.main.loop.iter.check
 
 for.body6.i.i.preheader:                          ; preds = %vec.epilog.middle.block, %vec.epilog.iter.check, %iter.check
@@ -82425,7 +82425,7 @@ for.body6.i.i.preheader:                          ; preds = %vec.epilog.middle.b
   br label %for.body6.i.i
 
 vector.main.loop.iter.check:                      ; preds = %iter.check
-  %min.iters.check211 = icmp ugt i64 %retval.0.i.ph.i, 112
+  %min.iters.check211 = icmp samesign ugt i64 %retval.0.i.ph.i, 112
   br i1 %min.iters.check211, label %vec.epilog.ph, label %vector.ph
 
 vector.ph:                                        ; preds = %for.body.i.i, %middle.block231, %vector.main.loop.iter.check
@@ -82634,12 +82634,12 @@ if.end.i118:                                      ; preds = %if.then4.i.i162, %i
   %86 = trunc i64 %84 to i32
   %cmp.i.i19.i122 = icmp ult i32 %86, 13
   %cond.i22.i124 = select i1 %cmp.i.i19.i122, ptr %invariant.gep186, ptr %85
-  %cmp25.i.i125 = icmp ult i64 %retval.0.i.ph.i119, 64
+  %cmp25.i.i125 = icmp samesign ult i64 %retval.0.i.ph.i119, 64
   br i1 %cmp25.i.i125, label %for.body.i.i151.preheader, label %iter.check256
 
 for.body.i.i151.preheader:                        ; preds = %if.end.i118
   %87 = sub nuw nsw i64 64, %retval.0.i.ph.i119
-  %min.iters.check305 = icmp ugt i64 %retval.0.i.ph.i119, 48
+  %min.iters.check305 = icmp samesign ugt i64 %retval.0.i.ph.i119, 48
   br i1 %min.iters.check305, label %for.body.i.i151.preheader42, label %vector.ph306
 
 for.body.i.i151.preheader42:                      ; preds = %middle.block303, %for.body.i.i151.preheader
@@ -82704,7 +82704,7 @@ middle.block303:                                  ; preds = %vector.body314.3, %
   br i1 %cmp.n313, label %vector.ph259, label %for.body.i.i151.preheader42
 
 iter.check256:                                    ; preds = %if.end.i118
-  %min.iters.check254 = icmp ugt i64 %retval.0.i.ph.i119, 120
+  %min.iters.check254 = icmp samesign ugt i64 %retval.0.i.ph.i119, 120
   br i1 %min.iters.check254, label %for.body6.i.i129.preheader, label %vector.main.loop.iter.check258
 
 for.body6.i.i129.preheader:                       ; preds = %vec.epilog.middle.block276, %vec.epilog.iter.check278, %iter.check256
@@ -82713,7 +82713,7 @@ for.body6.i.i129.preheader:                       ; preds = %vec.epilog.middle.b
   br label %for.body6.i.i129
 
 vector.main.loop.iter.check258:                   ; preds = %iter.check256
-  %min.iters.check257 = icmp ugt i64 %retval.0.i.ph.i119, 112
+  %min.iters.check257 = icmp samesign ugt i64 %retval.0.i.ph.i119, 112
   br i1 %min.iters.check257, label %vec.epilog.ph279, label %vector.ph259
 
 vector.ph259:                                     ; preds = %for.body.i.i151, %middle.block303, %vector.main.loop.iter.check258
@@ -83176,12 +83176,12 @@ if.end:                                           ; preds = %if.then4.i, %if.the
   %cmp.i.i19 = icmp ult i32 %14, 13
   %inlined.i20 = getelementptr inbounds i8, ptr %retval, i64 4
   %cond.i22 = select i1 %cmp.i.i19, ptr %inlined.i20, ptr %13
-  %cmp25.i = icmp ult i64 %retval.0.i.ph, 64
+  %cmp25.i = icmp samesign ult i64 %retval.0.i.ph, 64
   br i1 %cmp25.i, label %for.body.i.preheader, label %iter.check
 
 for.body.i.preheader:                             ; preds = %if.end
   %15 = sub nuw nsw i64 64, %retval.0.i.ph
-  %min.iters.check = icmp ugt i64 %retval.0.i.ph, 48
+  %min.iters.check = icmp samesign ugt i64 %retval.0.i.ph, 48
   br i1 %min.iters.check, label %for.body.i.preheader14, label %vector.ph
 
 for.body.i.preheader14:                           ; preds = %middle.block, %for.body.i.preheader
@@ -83249,7 +83249,7 @@ middle.block:                                     ; preds = %vector.body.3, %vec
   br i1 %cmp.n, label %vector.ph47, label %for.body.i.preheader14
 
 iter.check:                                       ; preds = %if.end
-  %min.iters.check44 = icmp ugt i64 %retval.0.i.ph, 120
+  %min.iters.check44 = icmp samesign ugt i64 %retval.0.i.ph, 120
   br i1 %min.iters.check44, label %for.body6.i.preheader, label %vector.main.loop.iter.check
 
 for.body6.i.preheader:                            ; preds = %vec.epilog.middle.block, %vec.epilog.iter.check, %iter.check
@@ -83258,7 +83258,7 @@ for.body6.i.preheader:                            ; preds = %vec.epilog.middle.b
   br label %for.body6.i
 
 vector.main.loop.iter.check:                      ; preds = %iter.check
-  %min.iters.check46 = icmp ugt i64 %retval.0.i.ph, 112
+  %min.iters.check46 = icmp samesign ugt i64 %retval.0.i.ph, 112
   br i1 %min.iters.check46, label %vec.epilog.ph, label %vector.ph47
 
 vector.ph47:                                      ; preds = %for.body.i, %middle.block, %vector.main.loop.iter.check
@@ -129576,7 +129576,7 @@ if.then73:                                        ; preds = %if.else
   %60 = load ptr, ptr %this, align 8, !tbaa !2617
   %idx.ext76 = zext nneg i32 %add to i64
   %add.ptr77 = getelementptr inbounds i8, ptr %60, i64 %idx.ext76
-  %min.iters.check376 = icmp ult i32 %add, 32
+  %min.iters.check376 = icmp samesign ult i32 %add, 32
   %61 = ptrtoint ptr %60 to i64
   %62 = sub i64 %it342, %61
   %diff.check373 = icmp ult i64 %62, 32

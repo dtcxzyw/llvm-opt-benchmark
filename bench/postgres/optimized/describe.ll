@@ -4192,7 +4192,7 @@ switch.lookup:                                    ; preds = %740
   br i1 %750, label %751, label %772
 
 751:                                              ; preds = %748
-  %752 = icmp ugt i32 %749, 149999
+  %752 = icmp samesign ugt i32 %749, 149999
   br i1 %752, label %753, label %754
 
 753:                                              ; preds = %751
@@ -7567,8 +7567,8 @@ define dso_local noundef zeroext i1 @describePublications(ptr noundef %0) local_
   br label %79
 
 13:                                               ; preds = %1
-  %14 = icmp ugt i32 %9, 109999
-  %15 = icmp ugt i32 %9, 129999
+  %14 = icmp samesign ugt i32 %9, 109999
+  %15 = icmp samesign ugt i32 %9, 129999
   call void @initPQExpBuffer(ptr noundef nonnull %4) #9
   call void (ptr, ptr, ...) @printfPQExpBuffer(ptr noundef nonnull %4, ptr noundef nonnull @.str.492) #9
   br i1 %14, label %16, label %.thread

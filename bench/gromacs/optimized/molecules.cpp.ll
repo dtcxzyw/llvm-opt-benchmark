@@ -8657,7 +8657,7 @@ define linkonce_odr void @_ZSt16__insertion_sortIN9__gnu_cxx17__normal_iteratorI
   %29 = load i32, ptr %21, align 4
   store i32 %29, ptr %22, align 4
   %30 = add nsw i64 %.010.i.i.i.i.i, -1
-  %31 = icmp ugt i64 %.010.i.i.i.i.i, 1
+  %31 = icmp samesign ugt i64 %.010.i.i.i.i.i, 1
   br i1 %31, label %.lr.ph.i.i.i.i.i, label %.loopexit, !llvm.loop !98
 
 .loopexit:                                        ; preds = %.lr.ph.i.i.i.i.i, %12
@@ -9017,7 +9017,7 @@ _ZNK9__gnu_cxx5__ops15_Iter_less_iterclINS_17__normal_iteratorIPSt5tupleIJiiEESt
   %24 = load i32, ptr %19, align 4
   store i32 %24, ptr %20, align 4
   %25 = add nsw i64 %.010.i.i.i.i.i.i, -1
-  %26 = icmp ugt i64 %.010.i.i.i.i.i.i, 1
+  %26 = icmp samesign ugt i64 %.010.i.i.i.i.i.i, 1
   br i1 %26, label %.lr.ph.i.i.i.i.i.i, label %_ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPSt5tupleIJiiEESt6vectorIS3_SaIS3_EEEES8_ET0_T_SA_S9_.exit.i, !llvm.loop !116
 
 _ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPSt5tupleIJiiEESt6vectorIS3_SaIS3_EEEES8_ET0_T_SA_S9_.exit.i: ; preds = %.lr.ph.i.i.i.i.i.i
@@ -9171,7 +9171,7 @@ _ZNK9__gnu_cxx5__ops15_Iter_less_iterclINS_17__normal_iteratorIPSt5tupleIJiiEESt
   %76 = load i32, ptr %71, align 4
   store i32 %76, ptr %72, align 4
   %77 = add nsw i64 %.010.i.i.i.i.i.i38, -1
-  %78 = icmp ugt i64 %.010.i.i.i.i.i.i38, 1
+  %78 = icmp samesign ugt i64 %.010.i.i.i.i.i.i38, 1
   br i1 %78, label %.lr.ph.i.i.i.i.i.i37, label %_ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPSt5tupleIJiiEESt6vectorIS3_SaIS3_EEEES8_ET0_T_SA_S9_.exit.i35, !llvm.loop !116
 
 _ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPSt5tupleIJiiEESt6vectorIS3_SaIS3_EEEES8_ET0_T_SA_S9_.exit.i35: ; preds = %.lr.ph.i.i.i.i.i.i37, %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclINS_17__normal_iteratorIPSt5tupleIJiiEESt6vectorIS5_SaIS5_EEEESA_EEbT_T0_.exit.thread.i34

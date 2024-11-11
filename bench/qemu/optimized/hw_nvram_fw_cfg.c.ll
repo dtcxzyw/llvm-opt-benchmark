@@ -229,7 +229,7 @@ if.then.i.i:                                      ; preds = %entry
   br label %trace_key_name.exit
 
 if.end.i.i:                                       ; preds = %entry
-  %cmp.i.i = icmp ult i16 %key, 32
+  %cmp.i.i = icmp samesign ult i16 %key, 32
   br i1 %cmp.i.i, label %if.then3.i.i, label %trace_key_name.exit
 
 if.then3.i.i:                                     ; preds = %if.end.i.i
@@ -343,7 +343,7 @@ if.then.i.i:                                      ; preds = %entry
   br label %trace_key_name.exit
 
 if.end.i.i:                                       ; preds = %entry
-  %cmp.i.i = icmp ult i16 %key, 32
+  %cmp.i.i = icmp samesign ult i16 %key, 32
   br i1 %cmp.i.i, label %if.then3.i.i, label %trace_key_name.exit
 
 if.then3.i.i:                                     ; preds = %if.end.i.i
@@ -466,7 +466,7 @@ if.then.i.i:                                      ; preds = %entry
   br label %trace_key_name.exit
 
 if.end.i.i:                                       ; preds = %entry
-  %cmp.i.i = icmp ult i16 %key, 32
+  %cmp.i.i = icmp samesign ult i16 %key, 32
   br i1 %cmp.i.i, label %if.then3.i.i, label %trace_key_name.exit
 
 if.then3.i.i:                                     ; preds = %if.end.i.i
@@ -579,7 +579,7 @@ if.then.i.i:                                      ; preds = %entry
   br label %trace_key_name.exit
 
 if.end.i.i:                                       ; preds = %entry
-  %cmp.i.i = icmp ult i16 %key, 32
+  %cmp.i.i = icmp samesign ult i16 %key, 32
   br i1 %cmp.i.i, label %if.then3.i.i, label %trace_key_name.exit
 
 if.then3.i.i:                                     ; preds = %if.end.i.i
@@ -687,7 +687,7 @@ if.then.i.i:                                      ; preds = %entry
   br label %trace_key_name.exit
 
 if.end.i.i:                                       ; preds = %entry
-  %cmp.i.i = icmp ult i16 %key, 32
+  %cmp.i.i = icmp samesign ult i16 %key, 32
   br i1 %cmp.i.i, label %if.then3.i.i, label %trace_key_name.exit
 
 if.then3.i.i:                                     ; preds = %if.end.i.i
@@ -1838,7 +1838,7 @@ if.then.i.i:                                      ; preds = %if.end13
   br label %trace_key_name.exit
 
 if.end.i.i:                                       ; preds = %if.end13
-  %cmp.i.i = icmp ult i16 %key, 32
+  %cmp.i.i = icmp samesign ult i16 %key, 32
   br i1 %cmp.i.i, label %if.then3.i.i, label %trace_key_name.exit
 
 if.then3.i.i:                                     ; preds = %if.end.i.i

@@ -42645,7 +42645,7 @@ define internal fastcc void @"_ZN28ra_ap_rustc_pattern_analysis10usefulness16Mat
 
 51:                                               ; preds = %.critedge
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %16)
-  %.not.i = icmp ult i64 %32, 64
+  %.not.i = icmp samesign ult i64 %32, 64
   br i1 %.not.i, label %._crit_edge.i, label %.lr.ph.preheader.i
 
 .lr.ph.preheader.i:                               ; preds = %51
@@ -43130,7 +43130,7 @@ define internal fastcc void @"_ZN28ra_ap_rustc_pattern_analysis10usefulness16Mat
 
 201:                                              ; preds = %179
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %8)
-  %.not.i49 = icmp ult i64 %186, 64
+  %.not.i49 = icmp samesign ult i64 %186, 64
   br i1 %.not.i49, label %._crit_edge.i51, label %.lr.ph.preheader.i50
 
 .lr.ph.preheader.i50:                             ; preds = %201

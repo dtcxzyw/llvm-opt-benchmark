@@ -9754,7 +9754,7 @@ lpad62.loopexit.split-lp:                         ; preds = %if.then67, %invoke.
   br label %ehcleanup299
 
 if.end69:                                         ; preds = %invoke.cont64
-  %cmp.i.i156 = icmp ult i64 %call65, 2147483647
+  %cmp.i.i156 = icmp samesign ult i64 %call65, 2147483647
   br i1 %cmp.i.i156, label %if.then.i.i161, label %if.else.i.i157
 
 if.then.i.i161:                                   ; preds = %if.end69
@@ -11693,7 +11693,7 @@ for.body:                                         ; preds = %for.body.preheader,
   %arrayidx.i30 = getelementptr inbounds i32, ptr %8, i64 %indvars.iv
   store i32 %retval.0.i.i, ptr %arrayidx.i30, align 4
   %indvars.iv.next = add nsw i64 %indvars.iv, -1
-  %cmp = icmp ugt i64 %indvars.iv, 1
+  %cmp = icmp samesign ugt i64 %indvars.iv, 1
   br i1 %cmp, label %for.body, label %for.end, !llvm.loop !45
 
 for.end:                                          ; preds = %for.body, %for.cond.preheader

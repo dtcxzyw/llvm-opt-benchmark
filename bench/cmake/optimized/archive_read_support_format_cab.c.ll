@@ -2146,7 +2146,7 @@ define internal fastcc i64 @cab_consume_cfdata(ptr noundef %0, i64 noundef %1) u
   ]
 
 32:                                               ; preds = %28, %28
-  %.not = icmp ult i64 %.0104, %24
+  %.not = icmp samesign ult i64 %.0104, %24
   br i1 %.not, label %55, label %33
 
 33:                                               ; preds = %32
@@ -2232,7 +2232,7 @@ define internal fastcc i64 @cab_consume_cfdata(ptr noundef %0, i64 noundef %1) u
   br i1 %79, label %.loopexit62, label %80
 
 80:                                               ; preds = %.preheader
-  %81 = icmp ugt i64 %78, %.150103
+  %81 = icmp samesign ugt i64 %78, %.150103
   br i1 %81, label %82, label %83
 
 82:                                               ; preds = %80
@@ -2412,7 +2412,7 @@ define internal fastcc i64 @cab_minimum_consume_cfdata(ptr noundef %0, i64 nound
 80:                                               ; preds = %.thread.i
   %81 = getelementptr inbounds i8, ptr %.val.val.val, i64 40
   %82 = load i32, ptr %81, align 8
-  %.not10.i.i = icmp ult i32 %75, 4
+  %.not10.i.i = icmp samesign ult i32 %75, 4
   br i1 %.not10.i.i, label %cab_checksum_cfdata_4.exit46.i, label %.lr.ph.preheader.i.i
 
 .lr.ph.preheader.i.i:                             ; preds = %80
@@ -2700,7 +2700,7 @@ define internal fastcc ptr @cab_read_ahead_cfdata(ptr noundef %0, ptr noundef no
   %31 = getelementptr inbounds i8, ptr %25, i64 10
   %32 = load i16, ptr %31, align 2
   %33 = zext i16 %32 to i64
-  %34 = icmp ugt i64 %27, %33
+  %34 = icmp samesign ugt i64 %27, %33
   br i1 %34, label %35, label %36
 
 35:                                               ; preds = %30
@@ -2859,7 +2859,7 @@ define internal fastcc ptr @cab_read_ahead_cfdata(ptr noundef %0, ptr noundef no
 122:                                              ; preds = %111
   %123 = load i16, ptr %92, align 2
   %124 = zext i16 %123 to i64
-  %125 = icmp ugt i64 %119, %124
+  %125 = icmp samesign ugt i64 %119, %124
   br i1 %125, label %126, label %thread-pre-split.i
 
 126:                                              ; preds = %122
@@ -2881,7 +2881,7 @@ thread-pre-split.i:                               ; preds = %126, %122
 
 132:                                              ; preds = %130
   %133 = zext nneg i32 %.1131161.i to i64
-  %.not149.i = icmp ugt i64 %127, %133
+  %.not149.i = icmp samesign ugt i64 %127, %133
   br i1 %.not149.i, label %151, label %134
 
 134:                                              ; preds = %132
@@ -3498,7 +3498,7 @@ cab_read_ahead_cfdata_deflate.exit:               ; preds = %55, %63, %87, %121,
 422:                                              ; preds = %412
   %423 = load i16, ptr %401, align 2
   %424 = zext i16 %423 to i64
-  %425 = icmp ugt i64 %419, %424
+  %425 = icmp samesign ugt i64 %419, %424
   br i1 %425, label %426, label %427
 
 426:                                              ; preds = %422
@@ -5756,7 +5756,7 @@ define internal fastcc range(i32 0, 2) i32 @lzx_make_huffman_table(ptr nocapture
   %indvars.iv.next89 = add nsw i64 %indvars.iv88, -1
   %60 = getelementptr inbounds i16, ptr %55, i64 %indvars.iv.next89
   store i16 %57, ptr %60, align 2
-  %61 = icmp ugt i64 %indvars.iv88, 1
+  %61 = icmp samesign ugt i64 %indvars.iv88, 1
   br i1 %61, label %59, label %.loopexit, !llvm.loop !36
 
 .loopexit:                                        ; preds = %59, %53, %.lr.ph78

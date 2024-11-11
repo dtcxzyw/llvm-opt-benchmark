@@ -2527,7 +2527,7 @@ Cec3_ManSimHashKey.exit:                          ; preds = %.lr.ph.i87, %.lr.ph
   br label %97
 
 97:                                               ; preds = %.lr.ph106, %90
-  %98 = icmp ugt i64 %indvars.iv117, 1
+  %98 = icmp samesign ugt i64 %indvars.iv117, 1
   br i1 %98, label %.lr.ph106, label %._crit_edge, !llvm.loop !37
 
 ._crit_edge:                                      ; preds = %97, %Abc_PrimeCudd.exit, %.critedge

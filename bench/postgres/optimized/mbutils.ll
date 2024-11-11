@@ -433,7 +433,7 @@ define dso_local ptr @pg_do_encoding_conversion(ptr noundef %0, i32 noundef %1, 
   %40 = ptrtoint ptr %0 to i64
   %41 = ptrtoint ptr %37 to i64
   %42 = tail call i64 @OidFunctionCall6Coll(i32 noundef %25, i32 noundef 0, i64 noundef %38, i64 noundef %39, i64 noundef %40, i64 noundef %41, i64 noundef %33, i64 noundef 0) #12
-  %43 = icmp ugt i32 %1, 1000000
+  %43 = icmp samesign ugt i32 %1, 1000000
   br i1 %43, label %44, label %pg_verify_mbstr.exit
 
 44:                                               ; preds = %32
@@ -1130,7 +1130,7 @@ define dso_local void @pg_unicode_to_server(i32 noundef %0, ptr noundef %1) loca
   unreachable
 
 10:                                               ; preds = %2
-  %11 = icmp ult i32 %0, 128
+  %11 = icmp samesign ult i32 %0, 128
   br i1 %11, label %12, label %15
 
 12:                                               ; preds = %10
@@ -1202,7 +1202,7 @@ define dso_local zeroext i1 @pg_unicode_to_server_noerror(i32 noundef %0, ptr no
   br i1 %5, label %6, label %36
 
 6:                                                ; preds = %2
-  %7 = icmp ult i32 %0, 128
+  %7 = icmp samesign ult i32 %0, 128
   br i1 %7, label %8, label %11
 
 8:                                                ; preds = %6
@@ -1876,7 +1876,7 @@ define internal noundef zeroext i1 @pg_eucjp_increment(ptr nocapture noundef %0,
   br label %.loopexit
 
 25:                                               ; preds = %.preheader42
-  %26 = icmp ult i8 %21, -2
+  %26 = icmp samesign ult i8 %21, -2
   br i1 %26, label %27, label %16
 
 27:                                               ; preds = %25
@@ -1912,7 +1912,7 @@ define internal noundef zeroext i1 @pg_eucjp_increment(ptr nocapture noundef %0,
   br label %.loopexit
 
 40:                                               ; preds = %.preheader
-  %41 = icmp ult i8 %36, -2
+  %41 = icmp samesign ult i8 %36, -2
   br i1 %41, label %42, label %32
 
 42:                                               ; preds = %40

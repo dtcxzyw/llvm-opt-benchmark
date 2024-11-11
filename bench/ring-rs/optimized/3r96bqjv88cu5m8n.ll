@@ -1626,7 +1626,7 @@ define hidden void @_ZN4ring2ec7suite_b3ops60scalar_parse_big_endian_partially_r
   %..i = zext i1 %19 to i64
   %21 = add nuw nsw i64 %20, %..i
   store i64 %21, ptr %7, align 8, !noalias !326
-  %22 = icmp ugt i64 %21, %12
+  %22 = icmp samesign ugt i64 %21, %12
   br i1 %22, label %_ZN4ring4limb34parse_big_endian_and_pad_consttime17he048a2e6bf7d0cd1E.exit.thread8, label %23
 
 _ZN4ring4limb34parse_big_endian_and_pad_consttime17he048a2e6bf7d0cd1E.exit.thread8: ; preds = %17

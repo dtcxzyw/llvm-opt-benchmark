@@ -17742,7 +17742,7 @@ for.body.i.i.i.i.i:                               ; preds = %for.body.i.i.i.i.i.
   %bf.set34.i.i22.i.i45.i107 = or disjoint i8 %bf.clear16.i.i13.i.i36.i98, %42
   store i8 %bf.set34.i.i22.i.i45.i107, ptr %m_owner4.i.i7.i.i30.i92, align 4
   %dec.i.i.i.i.i = add nsw i64 %__n.07.i.i.i.i.i, -1
-  %cmp.i.i.i.i.i = icmp ugt i64 %__n.07.i.i.i.i.i, 1
+  %cmp.i.i.i.i.i = icmp samesign ugt i64 %__n.07.i.i.i.i.i, 1
   br i1 %cmp.i.i.i.i.i, label %for.body.i.i.i.i.i, label %invoke.cont.loopexit, !llvm.loop !55
 
 invoke.cont.loopexit:                             ; preds = %for.body.i.i.i.i.i

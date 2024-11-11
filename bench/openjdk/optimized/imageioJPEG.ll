@@ -2732,7 +2732,7 @@ marker_is_icc.exit.i:                             ; preds = %272
   %286 = getelementptr inbounds i8, ptr %233, i64 12
   %287 = load i8, ptr %286, align 1
   %288 = zext i8 %287 to i32
-  %289 = icmp ult i32 %.1.i, %288
+  %289 = icmp samesign ult i32 %.1.i, %288
   br i1 %289, label %290, label %291
 
 290:                                              ; preds = %285
@@ -3039,13 +3039,13 @@ define zeroext i8 @Java_com_sun_imageio_plugins_jpeg_JPEGImageReader_readImage(p
   br i1 %or.cond9, label %54, label %45
 
 45:                                               ; preds = %40
-  %46 = icmp ugt i32 %10, %37
+  %46 = icmp samesign ugt i32 %10, %37
   %47 = icmp slt i32 %11, 1
   %or.cond11 = or i1 %47, %46
   br i1 %or.cond11, label %54, label %48
 
 48:                                               ; preds = %45
-  %49 = icmp ugt i32 %11, %42
+  %49 = icmp samesign ugt i32 %11, %42
   %50 = icmp slt i32 %12, 1
   %or.cond13 = or i1 %50, %49
   %51 = icmp slt i32 %13, 1

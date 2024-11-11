@@ -88,7 +88,7 @@ if.end26.i:                                       ; preds = %if.else.i, %if.end.
   %div.i = udiv i64 %size, %minsize.addr.0.i
   %mul.i = shl nuw nsw i64 %div.i, 1
   store i64 %mul.i, ptr getelementptr inbounds (i8, ptr @sh, i64 72), align 8
-  %cmp28.i = icmp ult i64 %div.i, 4
+  %cmp28.i = icmp samesign ult i64 %div.i, 4
   br i1 %cmp28.i, label %err.i, label %for.body.i
 
 for.body.i:                                       ; preds = %if.end26.i, %for.body.i

@@ -225,7 +225,7 @@ if.else10.i:                                      ; preds = %if.end.i
   br i1 %cmp14.i, label %land.lhs.true.i, label %err.i
 
 land.lhs.true.i:                                  ; preds = %if.else10.i
-  %cmp19.i = icmp ult i8 %37, -112
+  %cmp19.i = icmp samesign ult i8 %37, -112
   %cmp22.i = icmp ne i32 %sub23, 1
   %or.cond.i = and i1 %cmp22.i, %cmp19.i
   br i1 %or.cond.i, label %land.lhs.true24.i, label %err.i

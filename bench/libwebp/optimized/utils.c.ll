@@ -96,7 +96,7 @@ define void @WebPCopyPlane(ptr nocapture noundef readonly %0, i32 noundef %1, pt
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %.089, ptr align 1 %.0710, i64 %8, i1 false)
   %13 = getelementptr inbounds i8, ptr %.0710, i64 %9
   %14 = getelementptr inbounds i8, ptr %.089, i64 %10
-  %15 = icmp ugt i32 %.011, 1
+  %15 = icmp samesign ugt i32 %.011, 1
   br i1 %15, label %11, label %._crit_edge, !llvm.loop !4
 
 ._crit_edge:                                      ; preds = %11, %6
@@ -140,7 +140,7 @@ define void @WebPCopyPixels(ptr nocapture noundef readonly %0, ptr nocapture nou
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %.089.i, ptr align 1 %.0710.i, i64 %19, i1 false)
   %24 = getelementptr inbounds i8, ptr %.0710.i, i64 %20
   %25 = getelementptr inbounds i8, ptr %.089.i, i64 %21
-  %26 = icmp ugt i32 %.011.i, 1
+  %26 = icmp samesign ugt i32 %.011.i, 1
   br i1 %26, label %22, label %WebPCopyPlane.exit, !llvm.loop !4
 
 WebPCopyPlane.exit:                               ; preds = %22, %2

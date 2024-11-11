@@ -5889,7 +5889,7 @@ land.lhs.true81.i:                                ; preds = %for.body.i
   br i1 %or.cond240.i, label %for.inc.i72, label %if.then102.i
 
 for.inc.i72:                                      ; preds = %land.lhs.true81.i, %for.body.i
-  %cmp79.i = icmp ugt i64 %indvars.iv.i, 1
+  %cmp79.i = icmp samesign ugt i64 %indvars.iv.i, 1
   br i1 %cmp79.i, label %for.body.i, label %if.end111.i, !llvm.loop !35
 
 if.then102.i:                                     ; preds = %land.lhs.true81.i

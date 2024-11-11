@@ -1413,7 +1413,7 @@ define noundef zeroext i1 @_ZN11TransTableL7HarvestEv(ptr nocapture noundef nonn
 
 57:                                               ; preds = %20, %39
   %.3 = phi i32 [ %42, %39 ], [ %.242, %20 ]
-  %58 = icmp ugt i64 %indvars.iv, 1
+  %58 = icmp samesign ugt i64 %indvars.iv, 1
   br i1 %58, label %20, label %._crit_edge, !llvm.loop !21
 
 ._crit_edge:                                      ; preds = %57, %13

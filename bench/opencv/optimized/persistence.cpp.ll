@@ -3019,7 +3019,7 @@ _ZNSt5dequeIN2cv11FStructDataESaIS1_EE4backEv.exit: ; preds = %41, %45
   br i1 %93, label %94, label %100
 
 94:                                               ; preds = %85
-  %95 = icmp ult i64 %92, 12
+  %95 = icmp samesign ult i64 %92, 12
   br i1 %95, label %96, label %98
 
 96:                                               ; preds = %94
@@ -8300,7 +8300,7 @@ _ZNSt5dequeIN2cv11FStructDataESaIS1_EE9push_backERKS1_.exit: ; preds = %._ZNSt5d
   br i1 %116, label %117, label %123
 
 117:                                              ; preds = %108
-  %118 = icmp ult i64 %115, 12
+  %118 = icmp samesign ult i64 %115, 12
   br i1 %118, label %119, label %121
 
 119:                                              ; preds = %117
@@ -12691,7 +12691,7 @@ _ZNSt6vectorIcSaIcEE9push_backEOc.exit:           ; preds = %118, %_ZNSt6vectorI
 
 .preheader:                                       ; preds = %.loopexit
   %152 = add nsw i32 %150, -4
-  %.not71115 = icmp ult i32 %150, 4
+  %.not71115 = icmp samesign ult i32 %150, 4
   br i1 %.not71115, label %.thread, label %.lr.ph117
 
 .lr.ph117:                                        ; preds = %.preheader
@@ -17744,7 +17744,7 @@ _ZNK2cv11FileStorage4Impl10getNodePtrEmm.exit131.us: ; preds = %268
 
 286:                                              ; preds = %276
   %287 = add nsw i32 %280, -3
-  %or.cond3.i.us = icmp ult i32 %287, 3
+  %or.cond3.i.us = icmp samesign ult i32 %287, 3
   br i1 %or.cond3.i.us, label %288, label %.split186.us
 
 288:                                              ; preds = %286
@@ -18089,7 +18089,7 @@ _ZNK2cv8FileNode3ptrEv.exit:                      ; preds = %1
 
 19:                                               ; preds = %10
   %20 = add nsw i32 %13, -3
-  %or.cond3 = icmp ult i32 %20, 3
+  %or.cond3 = icmp samesign ult i32 %20, 3
   br i1 %or.cond3, label %29, label %21
 
 21:                                               ; preds = %19

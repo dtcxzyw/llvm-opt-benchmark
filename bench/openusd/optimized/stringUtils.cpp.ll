@@ -223,7 +223,7 @@ define noundef i64 @_ZN32pxrInternal_v0_24__pxrReserved__14TfStringToLongEPKcPb(
   %.01017.i = phi i64 [ %18, %14 ], [ 0, %5 ]
   %.01116.i = phi ptr [ %16, %14 ], [ %6, %5 ]
   %narrow.i = add nsw i8 %9, -48
-  %10 = icmp ugt i8 %narrow.i, 8
+  %10 = icmp samesign ugt i8 %narrow.i, 8
   %11 = select i1 %10, i64 -922337203685477579, i64 -922337203685477580
   %12 = icmp slt i64 %.01017.i, %11
   br i1 %12, label %13, label %14
@@ -252,7 +252,7 @@ define noundef i64 @_ZN32pxrInternal_v0_24__pxrReserved__14TfStringToLongEPKcPb(
   %.01017.i9 = phi i64 [ %32, %28 ], [ 0, %21 ]
   %.01116.i10 = phi ptr [ %30, %28 ], [ %0, %21 ]
   %narrow.i11 = add nsw i8 %23, -48
-  %24 = icmp ugt i8 %narrow.i11, 7
+  %24 = icmp samesign ugt i8 %narrow.i11, 7
   %25 = select i1 %24, i64 922337203685477579, i64 922337203685477580
   %26 = icmp sgt i64 %.01017.i9, %25
   br i1 %26, label %27, label %28
@@ -300,7 +300,7 @@ define noundef i64 @_ZN32pxrInternal_v0_24__pxrReserved__14TfStringToLongERKNSt7
   %.01017.i.i = phi i64 [ %19, %15 ], [ 0, %6 ]
   %.01116.i.i = phi ptr [ %17, %15 ], [ %7, %6 ]
   %narrow.i.i = add nsw i8 %10, -48
-  %11 = icmp ugt i8 %narrow.i.i, 8
+  %11 = icmp samesign ugt i8 %narrow.i.i, 8
   %12 = select i1 %11, i64 -922337203685477579, i64 -922337203685477580
   %13 = icmp slt i64 %.01017.i.i, %12
   br i1 %13, label %14, label %15
@@ -329,7 +329,7 @@ define noundef i64 @_ZN32pxrInternal_v0_24__pxrReserved__14TfStringToLongERKNSt7
   %.01017.i9.i = phi i64 [ %33, %29 ], [ 0, %22 ]
   %.01116.i10.i = phi ptr [ %31, %29 ], [ %3, %22 ]
   %narrow.i11.i = add nsw i8 %24, -48
-  %25 = icmp ugt i8 %narrow.i11.i, 7
+  %25 = icmp samesign ugt i8 %narrow.i11.i, 7
   %26 = select i1 %25, i64 922337203685477579, i64 922337203685477580
   %27 = icmp sgt i64 %.01017.i9.i, %26
   br i1 %27, label %28, label %29
@@ -370,7 +370,7 @@ define noundef i64 @_ZN32pxrInternal_v0_24__pxrReserved__15TfStringToULongEPKcPb
   %.01017.i = phi i64 [ %15, %11 ], [ 0, %2 ]
   %.01116.i = phi ptr [ %13, %11 ], [ %0, %2 ]
   %narrow.i = add nsw i8 %5, -48
-  %6 = icmp ugt i8 %narrow.i, 5
+  %6 = icmp samesign ugt i8 %narrow.i, 5
   %7 = select i1 %6, i64 1844674407370955160, i64 1844674407370955161
   %8 = icmp ugt i64 %.01017.i, %7
   br i1 %8, label %9, label %11
@@ -411,7 +411,7 @@ define noundef i64 @_ZN32pxrInternal_v0_24__pxrReserved__15TfStringToULongERKNSt
   %.01017.i.i = phi i64 [ %16, %12 ], [ 0, %2 ]
   %.01116.i.i = phi ptr [ %14, %12 ], [ %3, %2 ]
   %narrow.i.i = add nsw i8 %6, -48
-  %7 = icmp ugt i8 %narrow.i.i, 5
+  %7 = icmp samesign ugt i8 %narrow.i.i, 5
   %8 = select i1 %7, i64 1844674407370955160, i64 1844674407370955161
   %9 = icmp ugt i64 %.01017.i.i, %8
   br i1 %9, label %10, label %12
@@ -457,7 +457,7 @@ define noundef i64 @_ZN32pxrInternal_v0_24__pxrReserved__15TfStringToInt64EPKcPb
   %.01017.i = phi i64 [ %18, %14 ], [ 0, %5 ]
   %.01116.i = phi ptr [ %16, %14 ], [ %6, %5 ]
   %narrow.i = add nsw i8 %9, -48
-  %10 = icmp ugt i8 %narrow.i, 8
+  %10 = icmp samesign ugt i8 %narrow.i, 8
   %11 = select i1 %10, i64 -922337203685477579, i64 -922337203685477580
   %12 = icmp slt i64 %.01017.i, %11
   br i1 %12, label %13, label %14
@@ -486,7 +486,7 @@ define noundef i64 @_ZN32pxrInternal_v0_24__pxrReserved__15TfStringToInt64EPKcPb
   %.01017.i9 = phi i64 [ %32, %28 ], [ 0, %21 ]
   %.01116.i10 = phi ptr [ %30, %28 ], [ %0, %21 ]
   %narrow.i11 = add nsw i8 %23, -48
-  %24 = icmp ugt i8 %narrow.i11, 7
+  %24 = icmp samesign ugt i8 %narrow.i11, 7
   %25 = select i1 %24, i64 922337203685477579, i64 922337203685477580
   %26 = icmp sgt i64 %.01017.i9, %25
   br i1 %26, label %27, label %28
@@ -534,7 +534,7 @@ define noundef i64 @_ZN32pxrInternal_v0_24__pxrReserved__15TfStringToInt64ERKNSt
   %.01017.i.i = phi i64 [ %19, %15 ], [ 0, %6 ]
   %.01116.i.i = phi ptr [ %17, %15 ], [ %7, %6 ]
   %narrow.i.i = add nsw i8 %10, -48
-  %11 = icmp ugt i8 %narrow.i.i, 8
+  %11 = icmp samesign ugt i8 %narrow.i.i, 8
   %12 = select i1 %11, i64 -922337203685477579, i64 -922337203685477580
   %13 = icmp slt i64 %.01017.i.i, %12
   br i1 %13, label %14, label %15
@@ -563,7 +563,7 @@ define noundef i64 @_ZN32pxrInternal_v0_24__pxrReserved__15TfStringToInt64ERKNSt
   %.01017.i9.i = phi i64 [ %33, %29 ], [ 0, %22 ]
   %.01116.i10.i = phi ptr [ %31, %29 ], [ %3, %22 ]
   %narrow.i11.i = add nsw i8 %24, -48
-  %25 = icmp ugt i8 %narrow.i11.i, 7
+  %25 = icmp samesign ugt i8 %narrow.i11.i, 7
   %26 = select i1 %25, i64 922337203685477579, i64 922337203685477580
   %27 = icmp sgt i64 %.01017.i9.i, %26
   br i1 %27, label %28, label %29
@@ -604,7 +604,7 @@ define noundef i64 @_ZN32pxrInternal_v0_24__pxrReserved__16TfStringToUInt64EPKcP
   %.01017.i = phi i64 [ %15, %11 ], [ 0, %2 ]
   %.01116.i = phi ptr [ %13, %11 ], [ %0, %2 ]
   %narrow.i = add nsw i8 %5, -48
-  %6 = icmp ugt i8 %narrow.i, 5
+  %6 = icmp samesign ugt i8 %narrow.i, 5
   %7 = select i1 %6, i64 1844674407370955160, i64 1844674407370955161
   %8 = icmp ugt i64 %.01017.i, %7
   br i1 %8, label %9, label %11
@@ -645,7 +645,7 @@ define noundef i64 @_ZN32pxrInternal_v0_24__pxrReserved__16TfStringToUInt64ERKNS
   %.01017.i.i = phi i64 [ %16, %12 ], [ 0, %2 ]
   %.01116.i.i = phi ptr [ %14, %12 ], [ %3, %2 ]
   %narrow.i.i = add nsw i8 %6, -48
-  %7 = icmp ugt i8 %narrow.i.i, 5
+  %7 = icmp samesign ugt i8 %narrow.i.i, 5
   %8 = select i1 %7, i64 1844674407370955160, i64 1844674407370955161
   %9 = icmp ugt i64 %.01017.i.i, %8
   br i1 %9, label %10, label %12
@@ -2859,8 +2859,8 @@ define noundef zeroext i1 @_ZNK32pxrInternal_v0_24__pxrReserved__20TfDictionaryL
   br i1 %24, label %25, label %37
 
 25:                                               ; preds = %17
-  %26 = icmp ult i8 %18, 64
-  %27 = icmp ult i8 %19, 64
+  %26 = icmp samesign ult i8 %18, 64
+  %27 = icmp samesign ult i8 %19, 64
   %28 = xor i32 %22, %20
   %29 = and i32 %28, 95
   %.not = icmp eq i32 %29, 0

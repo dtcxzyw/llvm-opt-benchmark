@@ -301,7 +301,7 @@ define noundef i32 @pmix_ring_out(i32 noundef %0, ptr noundef %1, ptr noundef %2
   %37 = load ptr, ptr %36, align 8
   %.not91 = icmp eq ptr %37, null
   %spec.select93 = select i1 %.not91, ptr %.074103, ptr %37
-  %38 = icmp ugt i64 %indvars.iv118, 1
+  %38 = icmp samesign ugt i64 %indvars.iv118, 1
   br i1 %38, label %.lr.ph104, label %.preheader94, !llvm.loop !11
 
 .preheader:                                       ; preds = %73, %.preheader94

@@ -364,7 +364,7 @@ define linkonce_odr noundef i32 @_ZN3acd21ac_decomposition_impl3runEPmj(ptr noun
   br i1 %18, label %58, label %19
 
 19:                                               ; preds = %15
-  %20 = icmp ugt i32 %.fr12, 6
+  %20 = icmp samesign ugt i32 %.fr12, 6
   %21 = add nsw i32 %.fr12, -6
   %22 = getelementptr inbounds i8, ptr %0, i64 8
   br i1 %20, label %.split, label %.split.us

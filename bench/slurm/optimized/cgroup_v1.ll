@@ -1104,7 +1104,7 @@ define dso_local i32 @cgroup_p_constrain_set(i32 noundef %0, i32 noundef %1, ptr
   %.not88 = icmp ne i32 %12, 0
   %spec.select = sext i1 %.not88 to i32
   %.off = add nsw i32 %1, -2
-  %switch = icmp ult i32 %.off, 3
+  %switch = icmp samesign ult i32 %.off, 3
   br i1 %switch, label %13, label %.thread
 
 13:                                               ; preds = %7

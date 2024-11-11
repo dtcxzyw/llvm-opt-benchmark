@@ -910,7 +910,7 @@ if.then.i:                                        ; preds = %if.then4
   %add.i = add i32 %call2, 1
   %conv3.i = zext i32 %add.i to i64
   store ptr null, ptr %ref.tmp.i, align 8
-  %cmp.i.i = icmp ult i64 %sub.ptr.div.i.i, %conv3.i
+  %cmp.i.i = icmp samesign ult i64 %sub.ptr.div.i.i, %conv3.i
   br i1 %cmp.i.i, label %if.then.i.i, label %if.else.i.i
 
 if.then.i.i:                                      ; preds = %if.then.i
@@ -920,7 +920,7 @@ if.then.i.i:                                      ; preds = %if.then.i
   br label %_ZN7rocksdb25WriteBatchEntryComparator18SetComparatorForCFEjPKNS_10ComparatorE.exit
 
 if.else.i.i:                                      ; preds = %if.then.i
-  %cmp6.i.i = icmp ugt i64 %sub.ptr.div.i.i, %conv3.i
+  %cmp6.i.i = icmp samesign ugt i64 %sub.ptr.div.i.i, %conv3.i
   br i1 %cmp6.i.i, label %if.then7.i.i, label %_ZN7rocksdb25WriteBatchEntryComparator18SetComparatorForCFEjPKNS_10ComparatorE.exit
 
 if.then7.i.i:                                     ; preds = %if.else.i.i

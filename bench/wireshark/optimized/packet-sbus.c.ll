@@ -1260,7 +1260,7 @@ add_sbus_subrequest.exit:                         ; preds = %106
   %358 = call ptr @proto_tree_add_item(ptr noundef %355, i32 noundef %357, ptr noundef %0, i32 noundef %.310861172, i32 noundef 4, i32 noundef 0) #4
   %359 = add nuw nsw i32 %.310861172, 4
   %360 = add nsw i32 %.310791173, -1
-  %361 = icmp ugt i32 %.310791173, 1
+  %361 = icmp samesign ugt i32 %.310791173, 1
   br i1 %361, label %.lr.ph1174, label %.loopexit1145, !llvm.loop !9
 
 362:                                              ; preds = %.critedge1122
@@ -1917,7 +1917,7 @@ get_response_length.exit:                         ; preds = %703, %706, %708
   %764 = call ptr @proto_tree_add_item(ptr noundef %760, i32 noundef %763, ptr noundef %0, i32 noundef %.910921187, i32 noundef 1, i32 noundef 0) #4
   %765 = add i32 %.910921187, 1
   %766 = add nsw i32 %.121188, -1
-  %767 = icmp ugt i32 %.121188, 1
+  %767 = icmp samesign ugt i32 %.121188, 1
   br i1 %767, label %.lr.ph1189, label %.loopexit, !llvm.loop !18
 
 768:                                              ; preds = %602
@@ -2319,7 +2319,7 @@ define internal fastcc range(i32 -2147483647, -2147483648) i32 @add_media_access
   %34 = tail call ptr @proto_tree_add_item(ptr noundef %31, i32 noundef %33, ptr noundef %1, i32 noundef %.1113125, i32 noundef 4, i32 noundef 0) #4
   %35 = add nsw i32 %.1113125, 4
   %36 = add nsw i32 %.0114124, -1
-  %37 = icmp ugt i32 %.0114124, 1
+  %37 = icmp samesign ugt i32 %.0114124, 1
   br i1 %37, label %.lr.ph126, label %.loopexit, !llvm.loop !22
 
 38:                                               ; preds = %4, %4
@@ -2441,7 +2441,7 @@ define internal fastcc noundef i32 @add_media_response_to_tree(i32 noundef range
   %11 = tail call ptr @proto_tree_add_item(ptr noundef %9, i32 noundef %10, ptr noundef %2, i32 noundef %.13850, i32 noundef 4, i32 noundef 0) #4
   %12 = add i32 %.13850, 4
   %13 = add nsw i32 %.04049, -1
-  %14 = icmp ugt i32 %.04049, 1
+  %14 = icmp samesign ugt i32 %.04049, 1
   br i1 %14, label %.lr.ph51, label %.loopexit, !llvm.loop !25
 
 15:                                               ; preds = %5, %5, %5

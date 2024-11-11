@@ -583,7 +583,7 @@ define noundef double @_ZN3gmx25PullCoordExpressionParser8evaluateENS_8ArrayRefI
   %12 = getelementptr inbounds i8, ptr %.sroa.05.07.i.i.i.i.i, i64 8
   %13 = getelementptr inbounds i8, ptr %.09.i.i.i.i.i, i64 8
   %14 = add nsw i64 %.048.i.i.i.i.i, -1
-  %15 = icmp ugt i64 %.048.i.i.i.i.i, 1
+  %15 = icmp samesign ugt i64 %.048.i.i.i.i.i, 1
   br i1 %15, label %.lr.ph.i.i.i.i.i, label %_ZSt4copyIN3gmx12ArrayRefIterIKdEEN9__gnu_cxx17__normal_iteratorIPdSt6vectorIdSaIdEEEEET0_T_SC_SB_.exit, !llvm.loop !12
 
 _ZSt4copyIN3gmx12ArrayRefIterIKdEEN9__gnu_cxx17__normal_iteratorIPdSt6vectorIdSaIdEEEEET0_T_SC_SB_.exit: ; preds = %.lr.ph.i.i.i.i.i, %3

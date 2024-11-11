@@ -625,7 +625,7 @@ if.end16:                                         ; preds = %if.end13
   %conv21 = zext i8 %7 to i64
   %or22 = or disjoint i64 %shl19, %conv21
   %add24 = add nuw nsw i64 %or22, 2
-  %cmp25 = icmp ugt i64 %add24, %dec
+  %cmp25 = icmp samesign ugt i64 %add24, %dec
   %add.ptr28 = getelementptr inbounds i8, ptr %2, i64 5
   %spec.select = select i1 %cmp25, ptr null, ptr %add.ptr28
   br label %return

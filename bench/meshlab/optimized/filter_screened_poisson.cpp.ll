@@ -18251,7 +18251,7 @@ _ZN7OctNodeI12TreeNodeDataE12initChildrenEPFvRS1_E.exit: ; preds = %_ZN7OctNodeI
   br label %_ZNSt6vectorIiSaIiEE6resizeEmRKi.exit
 
 162:                                              ; preds = %156
-  %163 = icmp ugt i64 %155, %158
+  %163 = icmp samesign ugt i64 %155, %158
   br i1 %163, label %164, label %_ZNSt6vectorIiSaIiEE6resizeEmRKi.exit
 
 164:                                              ; preds = %162
@@ -19510,7 +19510,7 @@ _ZNSt6vectorIiSaIiEEC2ERKS1_.exit:                ; preds = %2, %12
           to label %_ZNSt6vectorIiSaIiEE6resizeEm.exit unwind label %43
 
 25:                                               ; preds = %_ZNSt6vectorIiSaIiEEC2ERKS1_.exit
-  %26 = icmp ult i64 %21, %9
+  %26 = icmp samesign ult i64 %21, %9
   br i1 %26, label %27, label %_ZNSt6vectorIiSaIiEE6resizeEm.exit
 
 27:                                               ; preds = %25
@@ -19630,7 +19630,7 @@ _ZNSt6vectorIiSaIiEEC2ERKS1_.exit:                ; preds = %2, %12
           to label %_ZNSt6vectorIiSaIiEE6resizeEm.exit unwind label %43
 
 25:                                               ; preds = %_ZNSt6vectorIiSaIiEEC2ERKS1_.exit
-  %26 = icmp ult i64 %21, %9
+  %26 = icmp samesign ult i64 %21, %9
   br i1 %26, label %27, label %_ZNSt6vectorIiSaIiEE6resizeEm.exit
 
 27:                                               ; preds = %25
@@ -20062,7 +20062,7 @@ define linkonce_odr void @_ZN6OctreeIfE11solveSystemILi2EL12BoundaryType2E16FEMS
   %58 = getelementptr inbounds i8, ptr %6, i64 8
   %59 = getelementptr inbounds i8, ptr %1, i64 24
   %60 = getelementptr inbounds i8, ptr %6, i64 24
-  %61 = icmp ult i32 %.sroa.speculated59, 10
+  %61 = icmp samesign ult i32 %.sroa.speculated59, 10
   %62 = getelementptr inbounds i8, ptr %11, i64 8
   %63 = getelementptr inbounds i8, ptr %11, i64 16
   %64 = getelementptr inbounds i8, ptr %1, i64 64
@@ -26457,7 +26457,7 @@ define linkonce_odr void @_ZN6OctreeIfE17_setValidityFlagsILi2EL12BoundaryType2E
   br i1 %or.cond.i, label %_ZNK6OctreeIfE16isValidSpaceNodeEPK7OctNodeI12TreeNodeDataE.exit, label %_ZNK6OctreeIfE16isValidSpaceNodeEPK7OctNodeI12TreeNodeDataE.exit.thread.thread
 
 _ZNK6OctreeIfE16isValidSpaceNodeEPK7OctNodeI12TreeNodeDataE.exit: ; preds = %52
-  %55 = icmp ult i32 %46, %50
+  %55 = icmp samesign ult i32 %46, %50
   %56 = icmp sgt i32 %47, -1
   %or.cond5.i = select i1 %55, i1 %56, i1 false
   %57 = icmp slt i32 %47, %50
@@ -27530,7 +27530,7 @@ _ZN7StencilI7Point3DIdELi5EED2Ev.exit86:          ; preds = %200, %204
   %.031.in207 = phi i32 [ %.031, %.lr.ph209 ], [ %.pre234, %._crit_edge206 ]
   %.031 = add nsw i32 %.031.in207, -1
   call void @_ZNK6OctreeIfE11_downSampleIfLi2EL12BoundaryType2EEEviR13DenseNodeDataIT_XT0_EE(ptr noundef nonnull align 8 dereferenceable(76) %0, i32 noundef %.031, ptr noundef nonnull align 8 dereferenceable(16) %32)
-  %209 = icmp ugt i32 %.031.in207, 2
+  %209 = icmp samesign ugt i32 %.031.in207, 2
   br i1 %209, label %.lr.ph209, label %._crit_edge210, !llvm.loop !362
 
 ._crit_edge210:                                   ; preds = %.lr.ph209, %._crit_edge237, %._crit_edge206
@@ -29128,20 +29128,20 @@ _ZN7OctNodeI12TreeNodeDataE11NeighborKeyILj1ELj2EE3setEi.exit: ; preds = %.noexc
   %58 = icmp sge i32 %47, %57
   %notmask.i.i = shl nsw i32 -1, %53
   %59 = xor i32 %notmask.i.i, -1
-  %.not.i.i = icmp ult i32 %47, %59
+  %.not.i.i = icmp samesign ult i32 %47, %59
   %60 = add nsw i32 %.neg.i.i, %notmask.i.i
   %61 = shl nuw i32 1, %53
   %62 = icmp sge i32 %47, %61
   %notmask.i.i37 = shl nsw i32 -1, %53
   %63 = xor i32 %notmask.i.i37, -1
-  %.not.i.i38 = icmp ult i32 %47, %63
+  %.not.i.i38 = icmp samesign ult i32 %47, %63
   %64 = add nsw i32 %.neg.i.i, %notmask.i.i37
   %65 = shl nuw i32 1, %53
   %66 = icmp sge i32 %47, %65
   %67 = select i1 %50, i1 true, i1 %66
   %notmask.i.i45 = shl nsw i32 -1, %53
   %68 = xor i32 %notmask.i.i45, -1
-  %.not.i.i46 = icmp ult i32 %47, %68
+  %.not.i.i46 = icmp samesign ult i32 %47, %68
   %69 = add nsw i32 %.neg.i.i, %notmask.i.i45
   %narrow = select i1 %.not.i.i, i32 1, i32 %60
   %narrow91 = select i1 %51, i32 0, i32 %narrow
@@ -29784,7 +29784,7 @@ _ZN7OctNodeI12TreeNodeDataE11NeighborKeyILj1ELj1EE3setEi.exit: ; preds = %.noexc
 114:                                              ; preds = %113
   %notmask.i.i = shl nsw i32 -1, %104
   %115 = xor i32 %notmask.i.i, -1
-  %.not.i.i = icmp ult i32 %.reass97, %115
+  %.not.i.i = icmp samesign ult i32 %.reass97, %115
   br i1 %.not.i.i, label %_ZN21BSplineEvaluationDataILi2EL12BoundaryType2EE13OffsetToIndexEii.exit.i, label %116
 
 116:                                              ; preds = %114
@@ -29817,7 +29817,7 @@ _ZNK21BSplineEvaluationDataILi2EL12BoundaryType2EE17UpSampleEvaluator5valueEii.e
 128:                                              ; preds = %127
   %notmask.i.i50 = shl nsw i32 -1, %104
   %129 = xor i32 %notmask.i.i50, -1
-  %.not.i.i51 = icmp ult i32 %.reass94, %129
+  %.not.i.i51 = icmp samesign ult i32 %.reass94, %129
   br i1 %.not.i.i51, label %_ZN21BSplineEvaluationDataILi2EL12BoundaryType2EE13OffsetToIndexEii.exit.i53, label %130
 
 130:                                              ; preds = %128
@@ -29858,7 +29858,7 @@ _ZNK21BSplineEvaluationDataILi2EL12BoundaryType2EE17UpSampleEvaluator5valueEii.e
 148:                                              ; preds = %146
   %notmask.i.i58 = shl nsw i32 -1, %104
   %149 = xor i32 %notmask.i.i58, -1
-  %.not.i.i59 = icmp ult i32 %.reass91, %149
+  %.not.i.i59 = icmp samesign ult i32 %.reass91, %149
   br i1 %.not.i.i59, label %_ZN21BSplineEvaluationDataILi2EL12BoundaryType2EE13OffsetToIndexEii.exit.i61, label %150
 
 150:                                              ; preds = %148
@@ -37257,7 +37257,7 @@ define linkonce_odr void @_ZNK22FEMVFConstraintFunctorILi2EL12BoundaryType2ELi2E
 
 14:                                               ; preds = %5
   %15 = icmp slt i32 %7, 0
-  %16 = icmp uge i32 %7, %11
+  %16 = icmp samesign uge i32 %7, %11
   %17 = select i1 %15, i1 true, i1 %16
   %18 = add i32 %8, -3
   %19 = icmp ult i32 %18, -5
@@ -37266,7 +37266,7 @@ define linkonce_odr void @_ZNK22FEMVFConstraintFunctorILi2EL12BoundaryType2ELi2E
 
 20:                                               ; preds = %14
   %21 = getelementptr inbounds i8, ptr %2, i64 8
-  %22 = icmp ult i32 %6, 3
+  %22 = icmp samesign ult i32 %6, 3
   br i1 %22, label %_ZN22BSplineIntegrationDataILi2EL12BoundaryType2ELi2ELS0_2EE13OffsetToIndexEii.exit.i, label %23
 
 23:                                               ; preds = %20
@@ -37302,7 +37302,7 @@ _ZNK22BSplineIntegrationDataILi2EL12BoundaryType2ELi2ELS0_2EE18FunctionIntegrato
 
 41:                                               ; preds = %_ZNK22BSplineIntegrationDataILi2EL12BoundaryType2ELi2ELS0_2EE18FunctionIntegrator10IntegratorILj2ELj2EE3dotEiiii.exit
   %42 = icmp slt i32 %36, 0
-  %43 = icmp uge i32 %36, %11
+  %43 = icmp samesign uge i32 %36, %11
   %44 = select i1 %42, i1 true, i1 %43
   %45 = add i32 %37, -3
   %46 = icmp ult i32 %45, -5
@@ -37311,7 +37311,7 @@ _ZNK22BSplineIntegrationDataILi2EL12BoundaryType2ELi2ELS0_2EE18FunctionIntegrato
 
 47:                                               ; preds = %41
   %48 = getelementptr inbounds i8, ptr %2, i64 8
-  %49 = icmp ult i32 %34, 3
+  %49 = icmp samesign ult i32 %34, 3
   br i1 %49, label %_ZN22BSplineIntegrationDataILi2EL12BoundaryType2ELi2ELS0_2EE13OffsetToIndexEii.exit.i74, label %50
 
 50:                                               ; preds = %47
@@ -37347,7 +37347,7 @@ _ZNK22BSplineIntegrationDataILi2EL12BoundaryType2ELi2ELS0_2EE18FunctionIntegrato
 
 67:                                               ; preds = %_ZNK22BSplineIntegrationDataILi2EL12BoundaryType2ELi2ELS0_2EE18FunctionIntegrator10IntegratorILj2ELj2EE3dotEiiii.exit77
   %68 = icmp slt i32 %62, 0
-  %69 = icmp uge i32 %62, %11
+  %69 = icmp samesign uge i32 %62, %11
   %70 = select i1 %68, i1 true, i1 %69
   %71 = add i32 %63, -3
   %72 = icmp ult i32 %71, -5
@@ -37356,7 +37356,7 @@ _ZNK22BSplineIntegrationDataILi2EL12BoundaryType2ELi2ELS0_2EE18FunctionIntegrato
 
 73:                                               ; preds = %67
   %74 = getelementptr inbounds i8, ptr %2, i64 8
-  %75 = icmp ult i32 %60, 3
+  %75 = icmp samesign ult i32 %60, 3
   br i1 %75, label %_ZN22BSplineIntegrationDataILi2EL12BoundaryType2ELi2ELS0_2EE13OffsetToIndexEii.exit.i80, label %76
 
 76:                                               ; preds = %73
@@ -37384,7 +37384,7 @@ _ZNK22BSplineIntegrationDataILi2EL12BoundaryType2ELi2ELS0_2EE18FunctionIntegrato
 
 85:                                               ; preds = %_ZNK22BSplineIntegrationDataILi2EL12BoundaryType2ELi2ELS0_2EE18FunctionIntegrator10IntegratorILj2ELj2EE3dotEiiii.exit83
   %86 = icmp slt i32 %7, 0
-  %87 = icmp uge i32 %7, %11
+  %87 = icmp samesign uge i32 %7, %11
   %88 = select i1 %86, i1 true, i1 %87
   %89 = add i32 %8, -3
   %90 = icmp ult i32 %89, -5
@@ -37392,7 +37392,7 @@ _ZNK22BSplineIntegrationDataILi2EL12BoundaryType2ELi2ELS0_2EE18FunctionIntegrato
   br i1 %or.cond3.i84, label %_ZNK22BSplineIntegrationDataILi2EL12BoundaryType2ELi2ELS0_2EE18FunctionIntegrator10IntegratorILj2ELj2EE3dotEiiii.exit89, label %91
 
 91:                                               ; preds = %85
-  %92 = icmp ult i32 %6, 3
+  %92 = icmp samesign ult i32 %6, 3
   br i1 %92, label %_ZN22BSplineIntegrationDataILi2EL12BoundaryType2ELi2ELS0_2EE13OffsetToIndexEii.exit.i86, label %93
 
 93:                                               ; preds = %91
@@ -37424,7 +37424,7 @@ _ZNK22BSplineIntegrationDataILi2EL12BoundaryType2ELi2ELS0_2EE18FunctionIntegrato
 
 105:                                              ; preds = %_ZNK22BSplineIntegrationDataILi2EL12BoundaryType2ELi2ELS0_2EE18FunctionIntegrator10IntegratorILj2ELj2EE3dotEiiii.exit89
   %106 = icmp slt i32 %36, 0
-  %107 = icmp uge i32 %36, %11
+  %107 = icmp samesign uge i32 %36, %11
   %108 = select i1 %106, i1 true, i1 %107
   %109 = add i32 %37, -3
   %110 = icmp ult i32 %109, -5
@@ -37432,7 +37432,7 @@ _ZNK22BSplineIntegrationDataILi2EL12BoundaryType2ELi2ELS0_2EE18FunctionIntegrato
   br i1 %or.cond3.i90, label %_ZNK22BSplineIntegrationDataILi2EL12BoundaryType2ELi2ELS0_2EE18FunctionIntegrator10IntegratorILj2ELj2EE3dotEiiii.exit95, label %111
 
 111:                                              ; preds = %105
-  %112 = icmp ult i32 %34, 3
+  %112 = icmp samesign ult i32 %34, 3
   br i1 %112, label %_ZN22BSplineIntegrationDataILi2EL12BoundaryType2ELi2ELS0_2EE13OffsetToIndexEii.exit.i92, label %113
 
 113:                                              ; preds = %111
@@ -37464,7 +37464,7 @@ _ZNK22BSplineIntegrationDataILi2EL12BoundaryType2ELi2ELS0_2EE18FunctionIntegrato
 
 124:                                              ; preds = %_ZNK22BSplineIntegrationDataILi2EL12BoundaryType2ELi2ELS0_2EE18FunctionIntegrator10IntegratorILj2ELj2EE3dotEiiii.exit95
   %125 = icmp slt i32 %62, 0
-  %126 = icmp uge i32 %62, %11
+  %126 = icmp samesign uge i32 %62, %11
   %127 = select i1 %125, i1 true, i1 %126
   %128 = add i32 %63, -3
   %129 = icmp ult i32 %128, -5
@@ -37472,7 +37472,7 @@ _ZNK22BSplineIntegrationDataILi2EL12BoundaryType2ELi2ELS0_2EE18FunctionIntegrato
   br i1 %or.cond3.i96, label %_ZNK22BSplineIntegrationDataILi2EL12BoundaryType2ELi2ELS0_2EE18FunctionIntegrator10IntegratorILj2ELj2EE3dotEiiii.exit101, label %130
 
 130:                                              ; preds = %124
-  %131 = icmp ult i32 %60, 3
+  %131 = icmp samesign ult i32 %60, 3
   br i1 %131, label %_ZN22BSplineIntegrationDataILi2EL12BoundaryType2ELi2ELS0_2EE13OffsetToIndexEii.exit.i98, label %132
 
 132:                                              ; preds = %130
@@ -37504,7 +37504,7 @@ _ZNK22BSplineIntegrationDataILi2EL12BoundaryType2ELi2ELS0_2EE18FunctionIntegrato
 
 143:                                              ; preds = %_ZNK22BSplineIntegrationDataILi2EL12BoundaryType2ELi2ELS0_2EE18FunctionIntegrator10IntegratorILj2ELj2EE3dotEiiii.exit101
   %144 = icmp slt i32 %7, 0
-  %145 = icmp uge i32 %7, %11
+  %145 = icmp samesign uge i32 %7, %11
   %146 = select i1 %144, i1 true, i1 %145
   %147 = add i32 %8, -3
   %148 = icmp ult i32 %147, -5
@@ -37512,7 +37512,7 @@ _ZNK22BSplineIntegrationDataILi2EL12BoundaryType2ELi2ELS0_2EE18FunctionIntegrato
   br i1 %or.cond3.i102, label %_ZNK22BSplineIntegrationDataILi2EL12BoundaryType2ELi2ELS0_2EE18FunctionIntegrator10IntegratorILj2ELj2EE3dotEiiii.exit107, label %149
 
 149:                                              ; preds = %143
-  %150 = icmp ult i32 %6, 3
+  %150 = icmp samesign ult i32 %6, 3
   br i1 %150, label %_ZN22BSplineIntegrationDataILi2EL12BoundaryType2ELi2ELS0_2EE13OffsetToIndexEii.exit.i104, label %151
 
 151:                                              ; preds = %149
@@ -37544,7 +37544,7 @@ _ZNK22BSplineIntegrationDataILi2EL12BoundaryType2ELi2ELS0_2EE18FunctionIntegrato
 
 163:                                              ; preds = %_ZNK22BSplineIntegrationDataILi2EL12BoundaryType2ELi2ELS0_2EE18FunctionIntegrator10IntegratorILj2ELj2EE3dotEiiii.exit107
   %164 = icmp slt i32 %36, 0
-  %165 = icmp uge i32 %36, %11
+  %165 = icmp samesign uge i32 %36, %11
   %166 = select i1 %164, i1 true, i1 %165
   %167 = add i32 %37, -3
   %168 = icmp ult i32 %167, -5
@@ -37552,7 +37552,7 @@ _ZNK22BSplineIntegrationDataILi2EL12BoundaryType2ELi2ELS0_2EE18FunctionIntegrato
   br i1 %or.cond3.i108, label %_ZNK22BSplineIntegrationDataILi2EL12BoundaryType2ELi2ELS0_2EE18FunctionIntegrator10IntegratorILj2ELj2EE3dotEiiii.exit113, label %169
 
 169:                                              ; preds = %163
-  %170 = icmp ult i32 %34, 3
+  %170 = icmp samesign ult i32 %34, 3
   br i1 %170, label %_ZN22BSplineIntegrationDataILi2EL12BoundaryType2ELi2ELS0_2EE13OffsetToIndexEii.exit.i110, label %171
 
 171:                                              ; preds = %169
@@ -37584,7 +37584,7 @@ _ZNK22BSplineIntegrationDataILi2EL12BoundaryType2ELi2ELS0_2EE18FunctionIntegrato
 
 182:                                              ; preds = %_ZNK22BSplineIntegrationDataILi2EL12BoundaryType2ELi2ELS0_2EE18FunctionIntegrator10IntegratorILj2ELj2EE3dotEiiii.exit113
   %183 = icmp slt i32 %62, 0
-  %184 = icmp uge i32 %62, %11
+  %184 = icmp samesign uge i32 %62, %11
   %185 = select i1 %183, i1 true, i1 %184
   %186 = add i32 %63, -3
   %187 = icmp ult i32 %186, -5
@@ -37592,7 +37592,7 @@ _ZNK22BSplineIntegrationDataILi2EL12BoundaryType2ELi2ELS0_2EE18FunctionIntegrato
   br i1 %or.cond3.i114, label %_ZNK22BSplineIntegrationDataILi2EL12BoundaryType2ELi2ELS0_2EE18FunctionIntegrator10IntegratorILj2ELj2EE3dotEiiii.exit119, label %188
 
 188:                                              ; preds = %182
-  %189 = icmp ult i32 %60, 3
+  %189 = icmp samesign ult i32 %60, 3
   br i1 %189, label %_ZN22BSplineIntegrationDataILi2EL12BoundaryType2ELi2ELS0_2EE13OffsetToIndexEii.exit.i116, label %190
 
 190:                                              ; preds = %188
@@ -37624,7 +37624,7 @@ _ZNK22BSplineIntegrationDataILi2EL12BoundaryType2ELi2ELS0_2EE18FunctionIntegrato
 
 201:                                              ; preds = %_ZNK22BSplineIntegrationDataILi2EL12BoundaryType2ELi2ELS0_2EE18FunctionIntegrator10IntegratorILj2ELj2EE3dotEiiii.exit119
   %202 = icmp slt i32 %7, 0
-  %203 = icmp uge i32 %7, %11
+  %203 = icmp samesign uge i32 %7, %11
   %204 = select i1 %202, i1 true, i1 %203
   %205 = add i32 %8, -3
   %206 = icmp ult i32 %205, -5
@@ -37632,7 +37632,7 @@ _ZNK22BSplineIntegrationDataILi2EL12BoundaryType2ELi2ELS0_2EE18FunctionIntegrato
   br i1 %or.cond3.i120, label %_ZNK22BSplineIntegrationDataILi2EL12BoundaryType2ELi2ELS0_2EE18FunctionIntegrator10IntegratorILj2ELj2EE3dotEiiii.exit125, label %207
 
 207:                                              ; preds = %201
-  %208 = icmp ult i32 %6, 3
+  %208 = icmp samesign ult i32 %6, 3
   br i1 %208, label %_ZN22BSplineIntegrationDataILi2EL12BoundaryType2ELi2ELS0_2EE13OffsetToIndexEii.exit.i122, label %209
 
 209:                                              ; preds = %207
@@ -37664,7 +37664,7 @@ _ZNK22BSplineIntegrationDataILi2EL12BoundaryType2ELi2ELS0_2EE18FunctionIntegrato
 
 221:                                              ; preds = %_ZNK22BSplineIntegrationDataILi2EL12BoundaryType2ELi2ELS0_2EE18FunctionIntegrator10IntegratorILj2ELj2EE3dotEiiii.exit125
   %222 = icmp slt i32 %36, 0
-  %223 = icmp uge i32 %36, %11
+  %223 = icmp samesign uge i32 %36, %11
   %224 = select i1 %222, i1 true, i1 %223
   %225 = add i32 %37, -3
   %226 = icmp ult i32 %225, -5
@@ -37672,7 +37672,7 @@ _ZNK22BSplineIntegrationDataILi2EL12BoundaryType2ELi2ELS0_2EE18FunctionIntegrato
   br i1 %or.cond3.i126, label %_ZNK22BSplineIntegrationDataILi2EL12BoundaryType2ELi2ELS0_2EE18FunctionIntegrator10IntegratorILj2ELj2EE3dotEiiii.exit131, label %227
 
 227:                                              ; preds = %221
-  %228 = icmp ult i32 %34, 3
+  %228 = icmp samesign ult i32 %34, 3
   br i1 %228, label %_ZN22BSplineIntegrationDataILi2EL12BoundaryType2ELi2ELS0_2EE13OffsetToIndexEii.exit.i128, label %229
 
 229:                                              ; preds = %227
@@ -37704,7 +37704,7 @@ _ZNK22BSplineIntegrationDataILi2EL12BoundaryType2ELi2ELS0_2EE18FunctionIntegrato
 
 240:                                              ; preds = %_ZNK22BSplineIntegrationDataILi2EL12BoundaryType2ELi2ELS0_2EE18FunctionIntegrator10IntegratorILj2ELj2EE3dotEiiii.exit131
   %241 = icmp slt i32 %62, 0
-  %242 = icmp uge i32 %62, %11
+  %242 = icmp samesign uge i32 %62, %11
   %243 = select i1 %241, i1 true, i1 %242
   %244 = add i32 %63, -3
   %245 = icmp ult i32 %244, -5
@@ -37712,7 +37712,7 @@ _ZNK22BSplineIntegrationDataILi2EL12BoundaryType2ELi2ELS0_2EE18FunctionIntegrato
   br i1 %or.cond3.i132, label %_ZNK22BSplineIntegrationDataILi2EL12BoundaryType2ELi2ELS0_2EE18FunctionIntegrator10IntegratorILj2ELj2EE3dotEiiii.exit137, label %246
 
 246:                                              ; preds = %240
-  %247 = icmp ult i32 %60, 3
+  %247 = icmp samesign ult i32 %60, 3
   br i1 %247, label %_ZN22BSplineIntegrationDataILi2EL12BoundaryType2ELi2ELS0_2EE13OffsetToIndexEii.exit.i134, label %248
 
 248:                                              ; preds = %246
@@ -37744,7 +37744,7 @@ _ZNK22BSplineIntegrationDataILi2EL12BoundaryType2ELi2ELS0_2EE18FunctionIntegrato
 
 259:                                              ; preds = %_ZNK22BSplineIntegrationDataILi2EL12BoundaryType2ELi2ELS0_2EE18FunctionIntegrator10IntegratorILj2ELj2EE3dotEiiii.exit137
   %260 = icmp slt i32 %7, 0
-  %261 = icmp uge i32 %7, %11
+  %261 = icmp samesign uge i32 %7, %11
   %262 = select i1 %260, i1 true, i1 %261
   %263 = add i32 %8, -3
   %264 = icmp ult i32 %263, -5
@@ -37752,7 +37752,7 @@ _ZNK22BSplineIntegrationDataILi2EL12BoundaryType2ELi2ELS0_2EE18FunctionIntegrato
   br i1 %or.cond3.i138, label %_ZNK22BSplineIntegrationDataILi2EL12BoundaryType2ELi2ELS0_2EE18FunctionIntegrator10IntegratorILj2ELj2EE3dotEiiii.exit143, label %265
 
 265:                                              ; preds = %259
-  %266 = icmp ult i32 %6, 3
+  %266 = icmp samesign ult i32 %6, 3
   br i1 %266, label %_ZN22BSplineIntegrationDataILi2EL12BoundaryType2ELi2ELS0_2EE13OffsetToIndexEii.exit.i140, label %267
 
 267:                                              ; preds = %265
@@ -37784,7 +37784,7 @@ _ZNK22BSplineIntegrationDataILi2EL12BoundaryType2ELi2ELS0_2EE18FunctionIntegrato
 
 279:                                              ; preds = %_ZNK22BSplineIntegrationDataILi2EL12BoundaryType2ELi2ELS0_2EE18FunctionIntegrator10IntegratorILj2ELj2EE3dotEiiii.exit143
   %280 = icmp slt i32 %36, 0
-  %281 = icmp uge i32 %36, %11
+  %281 = icmp samesign uge i32 %36, %11
   %282 = select i1 %280, i1 true, i1 %281
   %283 = add i32 %37, -3
   %284 = icmp ult i32 %283, -5
@@ -37792,7 +37792,7 @@ _ZNK22BSplineIntegrationDataILi2EL12BoundaryType2ELi2ELS0_2EE18FunctionIntegrato
   br i1 %or.cond3.i144, label %_ZNK22BSplineIntegrationDataILi2EL12BoundaryType2ELi2ELS0_2EE18FunctionIntegrator10IntegratorILj2ELj2EE3dotEiiii.exit149, label %285
 
 285:                                              ; preds = %279
-  %286 = icmp ult i32 %34, 3
+  %286 = icmp samesign ult i32 %34, 3
   br i1 %286, label %_ZN22BSplineIntegrationDataILi2EL12BoundaryType2ELi2ELS0_2EE13OffsetToIndexEii.exit.i146, label %287
 
 287:                                              ; preds = %285
@@ -37824,7 +37824,7 @@ _ZNK22BSplineIntegrationDataILi2EL12BoundaryType2ELi2ELS0_2EE18FunctionIntegrato
 
 298:                                              ; preds = %_ZNK22BSplineIntegrationDataILi2EL12BoundaryType2ELi2ELS0_2EE18FunctionIntegrator10IntegratorILj2ELj2EE3dotEiiii.exit149
   %299 = icmp slt i32 %62, 0
-  %300 = icmp uge i32 %62, %11
+  %300 = icmp samesign uge i32 %62, %11
   %301 = select i1 %299, i1 true, i1 %300
   %302 = add i32 %63, -3
   %303 = icmp ult i32 %302, -5
@@ -37832,7 +37832,7 @@ _ZNK22BSplineIntegrationDataILi2EL12BoundaryType2ELi2ELS0_2EE18FunctionIntegrato
   br i1 %or.cond3.i150, label %_ZNK22BSplineIntegrationDataILi2EL12BoundaryType2ELi2ELS0_2EE18FunctionIntegrator10IntegratorILj2ELj2EE3dotEiiii.exit155, label %304
 
 304:                                              ; preds = %298
-  %305 = icmp ult i32 %60, 3
+  %305 = icmp samesign ult i32 %60, 3
   br i1 %305, label %_ZN22BSplineIntegrationDataILi2EL12BoundaryType2ELi2ELS0_2EE13OffsetToIndexEii.exit.i152, label %306
 
 306:                                              ; preds = %304
@@ -37927,7 +37927,7 @@ define linkonce_odr void @_ZNK22FEMVFConstraintFunctorILi2EL12BoundaryType2ELi2E
 
 23:                                               ; preds = %15
   %24 = getelementptr inbounds i8, ptr %2, i64 8
-  %25 = icmp ult i32 %6, 3
+  %25 = icmp samesign ult i32 %6, 3
   br i1 %25, label %_ZN22BSplineIntegrationDataILi2EL12BoundaryType2ELi2ELS0_2EE13OffsetToIndexEii.exit.i, label %26
 
 26:                                               ; preds = %23
@@ -37975,7 +37975,7 @@ _ZNK22BSplineIntegrationDataILi2EL12BoundaryType2ELi2ELS0_2EE18FunctionIntegrato
 
 53:                                               ; preds = %45
   %54 = getelementptr inbounds i8, ptr %2, i64 8
-  %55 = icmp ult i32 %37, 3
+  %55 = icmp samesign ult i32 %37, 3
   br i1 %55, label %_ZN22BSplineIntegrationDataILi2EL12BoundaryType2ELi2ELS0_2EE13OffsetToIndexEii.exit.i74, label %56
 
 56:                                               ; preds = %53
@@ -38023,7 +38023,7 @@ _ZNK22BSplineIntegrationDataILi2EL12BoundaryType2ELi2ELS0_2EE18FunctionIntegrato
 
 82:                                               ; preds = %74
   %83 = getelementptr inbounds i8, ptr %2, i64 8
-  %84 = icmp ult i32 %66, 3
+  %84 = icmp samesign ult i32 %66, 3
   br i1 %84, label %_ZN22BSplineIntegrationDataILi2EL12BoundaryType2ELi2ELS0_2EE13OffsetToIndexEii.exit.i80, label %85
 
 85:                                               ; preds = %82
@@ -38061,7 +38061,7 @@ _ZNK22BSplineIntegrationDataILi2EL12BoundaryType2ELi2ELS0_2EE18FunctionIntegrato
   br i1 %or.cond3.i84, label %_ZNK22BSplineIntegrationDataILi2EL12BoundaryType2ELi2ELS0_2EE18FunctionIntegrator15ChildIntegratorILj2ELj2EE3dotEiiii.exit89, label %102
 
 102:                                              ; preds = %94
-  %103 = icmp ult i32 %6, 3
+  %103 = icmp samesign ult i32 %6, 3
   br i1 %103, label %_ZN22BSplineIntegrationDataILi2EL12BoundaryType2ELi2ELS0_2EE13OffsetToIndexEii.exit.i86, label %104
 
 104:                                              ; preds = %102
@@ -38103,7 +38103,7 @@ _ZNK22BSplineIntegrationDataILi2EL12BoundaryType2ELi2ELS0_2EE18FunctionIntegrato
   br i1 %or.cond3.i90, label %_ZNK22BSplineIntegrationDataILi2EL12BoundaryType2ELi2ELS0_2EE18FunctionIntegrator15ChildIntegratorILj2ELj2EE3dotEiiii.exit95, label %124
 
 124:                                              ; preds = %116
-  %125 = icmp ult i32 %37, 3
+  %125 = icmp samesign ult i32 %37, 3
   br i1 %125, label %_ZN22BSplineIntegrationDataILi2EL12BoundaryType2ELi2ELS0_2EE13OffsetToIndexEii.exit.i92, label %126
 
 126:                                              ; preds = %124
@@ -38145,7 +38145,7 @@ _ZNK22BSplineIntegrationDataILi2EL12BoundaryType2ELi2ELS0_2EE18FunctionIntegrato
   br i1 %or.cond3.i96, label %_ZNK22BSplineIntegrationDataILi2EL12BoundaryType2ELi2ELS0_2EE18FunctionIntegrator15ChildIntegratorILj2ELj2EE3dotEiiii.exit101, label %145
 
 145:                                              ; preds = %137
-  %146 = icmp ult i32 %66, 3
+  %146 = icmp samesign ult i32 %66, 3
   br i1 %146, label %_ZN22BSplineIntegrationDataILi2EL12BoundaryType2ELi2ELS0_2EE13OffsetToIndexEii.exit.i98, label %147
 
 147:                                              ; preds = %145
@@ -38187,7 +38187,7 @@ _ZNK22BSplineIntegrationDataILi2EL12BoundaryType2ELi2ELS0_2EE18FunctionIntegrato
   br i1 %or.cond3.i102, label %_ZNK22BSplineIntegrationDataILi2EL12BoundaryType2ELi2ELS0_2EE18FunctionIntegrator15ChildIntegratorILj2ELj2EE3dotEiiii.exit107, label %166
 
 166:                                              ; preds = %158
-  %167 = icmp ult i32 %6, 3
+  %167 = icmp samesign ult i32 %6, 3
   br i1 %167, label %_ZN22BSplineIntegrationDataILi2EL12BoundaryType2ELi2ELS0_2EE13OffsetToIndexEii.exit.i104, label %168
 
 168:                                              ; preds = %166
@@ -38229,7 +38229,7 @@ _ZNK22BSplineIntegrationDataILi2EL12BoundaryType2ELi2ELS0_2EE18FunctionIntegrato
   br i1 %or.cond3.i108, label %_ZNK22BSplineIntegrationDataILi2EL12BoundaryType2ELi2ELS0_2EE18FunctionIntegrator15ChildIntegratorILj2ELj2EE3dotEiiii.exit113, label %188
 
 188:                                              ; preds = %180
-  %189 = icmp ult i32 %37, 3
+  %189 = icmp samesign ult i32 %37, 3
   br i1 %189, label %_ZN22BSplineIntegrationDataILi2EL12BoundaryType2ELi2ELS0_2EE13OffsetToIndexEii.exit.i110, label %190
 
 190:                                              ; preds = %188
@@ -38271,7 +38271,7 @@ _ZNK22BSplineIntegrationDataILi2EL12BoundaryType2ELi2ELS0_2EE18FunctionIntegrato
   br i1 %or.cond3.i114, label %_ZNK22BSplineIntegrationDataILi2EL12BoundaryType2ELi2ELS0_2EE18FunctionIntegrator15ChildIntegratorILj2ELj2EE3dotEiiii.exit119, label %209
 
 209:                                              ; preds = %201
-  %210 = icmp ult i32 %66, 3
+  %210 = icmp samesign ult i32 %66, 3
   br i1 %210, label %_ZN22BSplineIntegrationDataILi2EL12BoundaryType2ELi2ELS0_2EE13OffsetToIndexEii.exit.i116, label %211
 
 211:                                              ; preds = %209
@@ -38313,7 +38313,7 @@ _ZNK22BSplineIntegrationDataILi2EL12BoundaryType2ELi2ELS0_2EE18FunctionIntegrato
   br i1 %or.cond3.i120, label %_ZNK22BSplineIntegrationDataILi2EL12BoundaryType2ELi2ELS0_2EE18FunctionIntegrator15ChildIntegratorILj2ELj2EE3dotEiiii.exit125, label %230
 
 230:                                              ; preds = %222
-  %231 = icmp ult i32 %6, 3
+  %231 = icmp samesign ult i32 %6, 3
   br i1 %231, label %_ZN22BSplineIntegrationDataILi2EL12BoundaryType2ELi2ELS0_2EE13OffsetToIndexEii.exit.i122, label %232
 
 232:                                              ; preds = %230
@@ -38355,7 +38355,7 @@ _ZNK22BSplineIntegrationDataILi2EL12BoundaryType2ELi2ELS0_2EE18FunctionIntegrato
   br i1 %or.cond3.i126, label %_ZNK22BSplineIntegrationDataILi2EL12BoundaryType2ELi2ELS0_2EE18FunctionIntegrator15ChildIntegratorILj2ELj2EE3dotEiiii.exit131, label %252
 
 252:                                              ; preds = %244
-  %253 = icmp ult i32 %37, 3
+  %253 = icmp samesign ult i32 %37, 3
   br i1 %253, label %_ZN22BSplineIntegrationDataILi2EL12BoundaryType2ELi2ELS0_2EE13OffsetToIndexEii.exit.i128, label %254
 
 254:                                              ; preds = %252
@@ -38397,7 +38397,7 @@ _ZNK22BSplineIntegrationDataILi2EL12BoundaryType2ELi2ELS0_2EE18FunctionIntegrato
   br i1 %or.cond3.i132, label %_ZNK22BSplineIntegrationDataILi2EL12BoundaryType2ELi2ELS0_2EE18FunctionIntegrator15ChildIntegratorILj2ELj2EE3dotEiiii.exit137, label %273
 
 273:                                              ; preds = %265
-  %274 = icmp ult i32 %66, 3
+  %274 = icmp samesign ult i32 %66, 3
   br i1 %274, label %_ZN22BSplineIntegrationDataILi2EL12BoundaryType2ELi2ELS0_2EE13OffsetToIndexEii.exit.i134, label %275
 
 275:                                              ; preds = %273
@@ -38439,7 +38439,7 @@ _ZNK22BSplineIntegrationDataILi2EL12BoundaryType2ELi2ELS0_2EE18FunctionIntegrato
   br i1 %or.cond3.i138, label %_ZNK22BSplineIntegrationDataILi2EL12BoundaryType2ELi2ELS0_2EE18FunctionIntegrator15ChildIntegratorILj2ELj2EE3dotEiiii.exit143, label %294
 
 294:                                              ; preds = %286
-  %295 = icmp ult i32 %6, 3
+  %295 = icmp samesign ult i32 %6, 3
   br i1 %295, label %_ZN22BSplineIntegrationDataILi2EL12BoundaryType2ELi2ELS0_2EE13OffsetToIndexEii.exit.i140, label %296
 
 296:                                              ; preds = %294
@@ -38481,7 +38481,7 @@ _ZNK22BSplineIntegrationDataILi2EL12BoundaryType2ELi2ELS0_2EE18FunctionIntegrato
   br i1 %or.cond3.i144, label %_ZNK22BSplineIntegrationDataILi2EL12BoundaryType2ELi2ELS0_2EE18FunctionIntegrator15ChildIntegratorILj2ELj2EE3dotEiiii.exit149, label %316
 
 316:                                              ; preds = %308
-  %317 = icmp ult i32 %37, 3
+  %317 = icmp samesign ult i32 %37, 3
   br i1 %317, label %_ZN22BSplineIntegrationDataILi2EL12BoundaryType2ELi2ELS0_2EE13OffsetToIndexEii.exit.i146, label %318
 
 318:                                              ; preds = %316
@@ -38523,7 +38523,7 @@ _ZNK22BSplineIntegrationDataILi2EL12BoundaryType2ELi2ELS0_2EE18FunctionIntegrato
   br i1 %or.cond3.i150, label %_ZNK22BSplineIntegrationDataILi2EL12BoundaryType2ELi2ELS0_2EE18FunctionIntegrator15ChildIntegratorILj2ELj2EE3dotEiiii.exit155, label %337
 
 337:                                              ; preds = %329
-  %338 = icmp ult i32 %66, 3
+  %338 = icmp samesign ult i32 %66, 3
   br i1 %338, label %_ZN22BSplineIntegrationDataILi2EL12BoundaryType2ELi2ELS0_2EE13OffsetToIndexEii.exit.i152, label %339
 
 339:                                              ; preds = %337
@@ -38897,19 +38897,19 @@ _ZNK6OctreeIfE15_isValidFEMNodeEPK7OctNodeI12TreeNodeDataE.exit: ; preds = %_Z12
   %132 = icmp eq i32 %70, %81
   %notmask.i.i = shl nsw i32 -1, %124
   %133 = xor i32 %notmask.i.i, -1
-  %.not.i.i79 = icmp ult i32 %82, %133
+  %.not.i.i79 = icmp samesign ult i32 %82, %133
   %.neg.i.i = add nuw nsw i32 %82, 3
   %134 = add i32 %.neg.i.i, %notmask.i.i
   %135 = icmp slt i32 %83, 0
   %136 = icmp sge i32 %83, %130
   %137 = icmp eq i32 %73, %81
-  %.not.i.i83 = icmp ult i32 %83, %133
+  %.not.i.i83 = icmp samesign ult i32 %83, %133
   %.neg.i.i84 = add nuw nsw i32 %83, 3
   %138 = add i32 %.neg.i.i84, %notmask.i.i
   %139 = icmp slt i32 %84, 0
   %140 = icmp sge i32 %84, %130
   %141 = icmp eq i32 %76, %81
-  %.not.i.i91 = icmp ult i32 %84, %133
+  %.not.i.i91 = icmp samesign ult i32 %84, %133
   %.neg.i.i92 = add nuw nsw i32 %84, 3
   %142 = add i32 %.neg.i.i92, %notmask.i.i
   %143 = sext i32 %123 to i64
@@ -39723,7 +39723,7 @@ _ZNK21BSplineEvaluationDataILi2EL12BoundaryType2EE17UpSampleEvaluator5valueEii.e
   br i1 %225, label %_ZN21BSplineEvaluationDataILi2EL12BoundaryType2EE13OffsetToIndexEii.exit.i, label %226
 
 226:                                              ; preds = %224
-  %.not.i.i113 = icmp ult i32 %.reass, %144
+  %.not.i.i113 = icmp samesign ult i32 %.reass, %144
   br i1 %.not.i.i113, label %_ZN21BSplineEvaluationDataILi2EL12BoundaryType2EE13OffsetToIndexEii.exit.i, label %227
 
 227:                                              ; preds = %226
@@ -39780,7 +39780,7 @@ _ZNK21BSplineEvaluationDataILi2EL12BoundaryType2EE17UpSampleEvaluator5valueEii.e
   br i1 %254, label %_ZN21BSplineEvaluationDataILi2EL12BoundaryType2EE13OffsetToIndexEii.exit.i119, label %255
 
 255:                                              ; preds = %253
-  %.not.i.i117 = icmp ult i32 %.reass160, %144
+  %.not.i.i117 = icmp samesign ult i32 %.reass160, %144
   br i1 %.not.i.i117, label %_ZN21BSplineEvaluationDataILi2EL12BoundaryType2EE13OffsetToIndexEii.exit.i119, label %256
 
 256:                                              ; preds = %255
@@ -39830,7 +39830,7 @@ _ZNK21BSplineEvaluationDataILi2EL12BoundaryType2EE17UpSampleEvaluator5valueEii.e
   br i1 %277, label %_ZN21BSplineEvaluationDataILi2EL12BoundaryType2EE13OffsetToIndexEii.exit.i127, label %278
 
 278:                                              ; preds = %276
-  %.not.i.i125 = icmp ult i32 %.reass165, %144
+  %.not.i.i125 = icmp samesign ult i32 %.reass165, %144
   br i1 %.not.i.i125, label %_ZN21BSplineEvaluationDataILi2EL12BoundaryType2EE13OffsetToIndexEii.exit.i127, label %279
 
 279:                                              ; preds = %278
@@ -40005,7 +40005,7 @@ define linkonce_odr void @_ZNK22FEMVFConstraintFunctorILi2EL12BoundaryType2ELi2E
 
 23:                                               ; preds = %15
   %24 = getelementptr inbounds i8, ptr %2, i64 8
-  %25 = icmp ult i32 %6, 3
+  %25 = icmp samesign ult i32 %6, 3
   br i1 %25, label %_ZN22BSplineIntegrationDataILi2EL12BoundaryType2ELi2ELS0_2EE13OffsetToIndexEii.exit.i, label %26
 
 26:                                               ; preds = %23
@@ -40053,7 +40053,7 @@ _ZNK22BSplineIntegrationDataILi2EL12BoundaryType2ELi2ELS0_2EE18FunctionIntegrato
 
 53:                                               ; preds = %45
   %54 = getelementptr inbounds i8, ptr %2, i64 8
-  %55 = icmp ult i32 %37, 3
+  %55 = icmp samesign ult i32 %37, 3
   br i1 %55, label %_ZN22BSplineIntegrationDataILi2EL12BoundaryType2ELi2ELS0_2EE13OffsetToIndexEii.exit.i74, label %56
 
 56:                                               ; preds = %53
@@ -40101,7 +40101,7 @@ _ZNK22BSplineIntegrationDataILi2EL12BoundaryType2ELi2ELS0_2EE18FunctionIntegrato
 
 82:                                               ; preds = %74
   %83 = getelementptr inbounds i8, ptr %2, i64 8
-  %84 = icmp ult i32 %66, 3
+  %84 = icmp samesign ult i32 %66, 3
   br i1 %84, label %_ZN22BSplineIntegrationDataILi2EL12BoundaryType2ELi2ELS0_2EE13OffsetToIndexEii.exit.i80, label %85
 
 85:                                               ; preds = %82
@@ -40139,7 +40139,7 @@ _ZNK22BSplineIntegrationDataILi2EL12BoundaryType2ELi2ELS0_2EE18FunctionIntegrato
   br i1 %or.cond3.i84, label %_ZNK22BSplineIntegrationDataILi2EL12BoundaryType2ELi2ELS0_2EE18FunctionIntegrator15ChildIntegratorILj2ELj2EE3dotEiiii.exit89, label %102
 
 102:                                              ; preds = %94
-  %103 = icmp ult i32 %6, 3
+  %103 = icmp samesign ult i32 %6, 3
   br i1 %103, label %_ZN22BSplineIntegrationDataILi2EL12BoundaryType2ELi2ELS0_2EE13OffsetToIndexEii.exit.i86, label %104
 
 104:                                              ; preds = %102
@@ -40181,7 +40181,7 @@ _ZNK22BSplineIntegrationDataILi2EL12BoundaryType2ELi2ELS0_2EE18FunctionIntegrato
   br i1 %or.cond3.i90, label %_ZNK22BSplineIntegrationDataILi2EL12BoundaryType2ELi2ELS0_2EE18FunctionIntegrator15ChildIntegratorILj2ELj2EE3dotEiiii.exit95, label %124
 
 124:                                              ; preds = %116
-  %125 = icmp ult i32 %37, 3
+  %125 = icmp samesign ult i32 %37, 3
   br i1 %125, label %_ZN22BSplineIntegrationDataILi2EL12BoundaryType2ELi2ELS0_2EE13OffsetToIndexEii.exit.i92, label %126
 
 126:                                              ; preds = %124
@@ -40223,7 +40223,7 @@ _ZNK22BSplineIntegrationDataILi2EL12BoundaryType2ELi2ELS0_2EE18FunctionIntegrato
   br i1 %or.cond3.i96, label %_ZNK22BSplineIntegrationDataILi2EL12BoundaryType2ELi2ELS0_2EE18FunctionIntegrator15ChildIntegratorILj2ELj2EE3dotEiiii.exit101, label %145
 
 145:                                              ; preds = %137
-  %146 = icmp ult i32 %66, 3
+  %146 = icmp samesign ult i32 %66, 3
   br i1 %146, label %_ZN22BSplineIntegrationDataILi2EL12BoundaryType2ELi2ELS0_2EE13OffsetToIndexEii.exit.i98, label %147
 
 147:                                              ; preds = %145
@@ -40265,7 +40265,7 @@ _ZNK22BSplineIntegrationDataILi2EL12BoundaryType2ELi2ELS0_2EE18FunctionIntegrato
   br i1 %or.cond3.i102, label %_ZNK22BSplineIntegrationDataILi2EL12BoundaryType2ELi2ELS0_2EE18FunctionIntegrator15ChildIntegratorILj2ELj2EE3dotEiiii.exit107, label %166
 
 166:                                              ; preds = %158
-  %167 = icmp ult i32 %6, 3
+  %167 = icmp samesign ult i32 %6, 3
   br i1 %167, label %_ZN22BSplineIntegrationDataILi2EL12BoundaryType2ELi2ELS0_2EE13OffsetToIndexEii.exit.i104, label %168
 
 168:                                              ; preds = %166
@@ -40307,7 +40307,7 @@ _ZNK22BSplineIntegrationDataILi2EL12BoundaryType2ELi2ELS0_2EE18FunctionIntegrato
   br i1 %or.cond3.i108, label %_ZNK22BSplineIntegrationDataILi2EL12BoundaryType2ELi2ELS0_2EE18FunctionIntegrator15ChildIntegratorILj2ELj2EE3dotEiiii.exit113, label %188
 
 188:                                              ; preds = %180
-  %189 = icmp ult i32 %37, 3
+  %189 = icmp samesign ult i32 %37, 3
   br i1 %189, label %_ZN22BSplineIntegrationDataILi2EL12BoundaryType2ELi2ELS0_2EE13OffsetToIndexEii.exit.i110, label %190
 
 190:                                              ; preds = %188
@@ -40349,7 +40349,7 @@ _ZNK22BSplineIntegrationDataILi2EL12BoundaryType2ELi2ELS0_2EE18FunctionIntegrato
   br i1 %or.cond3.i114, label %_ZNK22BSplineIntegrationDataILi2EL12BoundaryType2ELi2ELS0_2EE18FunctionIntegrator15ChildIntegratorILj2ELj2EE3dotEiiii.exit119, label %209
 
 209:                                              ; preds = %201
-  %210 = icmp ult i32 %66, 3
+  %210 = icmp samesign ult i32 %66, 3
   br i1 %210, label %_ZN22BSplineIntegrationDataILi2EL12BoundaryType2ELi2ELS0_2EE13OffsetToIndexEii.exit.i116, label %211
 
 211:                                              ; preds = %209
@@ -40391,7 +40391,7 @@ _ZNK22BSplineIntegrationDataILi2EL12BoundaryType2ELi2ELS0_2EE18FunctionIntegrato
   br i1 %or.cond3.i120, label %_ZNK22BSplineIntegrationDataILi2EL12BoundaryType2ELi2ELS0_2EE18FunctionIntegrator15ChildIntegratorILj2ELj2EE3dotEiiii.exit125, label %230
 
 230:                                              ; preds = %222
-  %231 = icmp ult i32 %6, 3
+  %231 = icmp samesign ult i32 %6, 3
   br i1 %231, label %_ZN22BSplineIntegrationDataILi2EL12BoundaryType2ELi2ELS0_2EE13OffsetToIndexEii.exit.i122, label %232
 
 232:                                              ; preds = %230
@@ -40433,7 +40433,7 @@ _ZNK22BSplineIntegrationDataILi2EL12BoundaryType2ELi2ELS0_2EE18FunctionIntegrato
   br i1 %or.cond3.i126, label %_ZNK22BSplineIntegrationDataILi2EL12BoundaryType2ELi2ELS0_2EE18FunctionIntegrator15ChildIntegratorILj2ELj2EE3dotEiiii.exit131, label %252
 
 252:                                              ; preds = %244
-  %253 = icmp ult i32 %37, 3
+  %253 = icmp samesign ult i32 %37, 3
   br i1 %253, label %_ZN22BSplineIntegrationDataILi2EL12BoundaryType2ELi2ELS0_2EE13OffsetToIndexEii.exit.i128, label %254
 
 254:                                              ; preds = %252
@@ -40475,7 +40475,7 @@ _ZNK22BSplineIntegrationDataILi2EL12BoundaryType2ELi2ELS0_2EE18FunctionIntegrato
   br i1 %or.cond3.i132, label %_ZNK22BSplineIntegrationDataILi2EL12BoundaryType2ELi2ELS0_2EE18FunctionIntegrator15ChildIntegratorILj2ELj2EE3dotEiiii.exit137, label %273
 
 273:                                              ; preds = %265
-  %274 = icmp ult i32 %66, 3
+  %274 = icmp samesign ult i32 %66, 3
   br i1 %274, label %_ZN22BSplineIntegrationDataILi2EL12BoundaryType2ELi2ELS0_2EE13OffsetToIndexEii.exit.i134, label %275
 
 275:                                              ; preds = %273
@@ -40517,7 +40517,7 @@ _ZNK22BSplineIntegrationDataILi2EL12BoundaryType2ELi2ELS0_2EE18FunctionIntegrato
   br i1 %or.cond3.i138, label %_ZNK22BSplineIntegrationDataILi2EL12BoundaryType2ELi2ELS0_2EE18FunctionIntegrator15ChildIntegratorILj2ELj2EE3dotEiiii.exit143, label %294
 
 294:                                              ; preds = %286
-  %295 = icmp ult i32 %6, 3
+  %295 = icmp samesign ult i32 %6, 3
   br i1 %295, label %_ZN22BSplineIntegrationDataILi2EL12BoundaryType2ELi2ELS0_2EE13OffsetToIndexEii.exit.i140, label %296
 
 296:                                              ; preds = %294
@@ -40559,7 +40559,7 @@ _ZNK22BSplineIntegrationDataILi2EL12BoundaryType2ELi2ELS0_2EE18FunctionIntegrato
   br i1 %or.cond3.i144, label %_ZNK22BSplineIntegrationDataILi2EL12BoundaryType2ELi2ELS0_2EE18FunctionIntegrator15ChildIntegratorILj2ELj2EE3dotEiiii.exit149, label %316
 
 316:                                              ; preds = %308
-  %317 = icmp ult i32 %37, 3
+  %317 = icmp samesign ult i32 %37, 3
   br i1 %317, label %_ZN22BSplineIntegrationDataILi2EL12BoundaryType2ELi2ELS0_2EE13OffsetToIndexEii.exit.i146, label %318
 
 318:                                              ; preds = %316
@@ -40601,7 +40601,7 @@ _ZNK22BSplineIntegrationDataILi2EL12BoundaryType2ELi2ELS0_2EE18FunctionIntegrato
   br i1 %or.cond3.i150, label %_ZNK22BSplineIntegrationDataILi2EL12BoundaryType2ELi2ELS0_2EE18FunctionIntegrator15ChildIntegratorILj2ELj2EE3dotEiiii.exit155, label %337
 
 337:                                              ; preds = %329
-  %338 = icmp ult i32 %66, 3
+  %338 = icmp samesign ult i32 %66, 3
   br i1 %338, label %_ZN22BSplineIntegrationDataILi2EL12BoundaryType2ELi2ELS0_2EE13OffsetToIndexEii.exit.i152, label %339
 
 339:                                              ; preds = %337
@@ -43857,7 +43857,7 @@ _ZN7OctNodeI12TreeNodeDataE11NeighborKeyILj1ELj1EE3setEi.exit: ; preds = %.noexc
 114:                                              ; preds = %113
   %notmask.i.i = shl nsw i32 -1, %104
   %115 = xor i32 %notmask.i.i, -1
-  %.not.i.i = icmp ult i32 %.reass97, %115
+  %.not.i.i = icmp samesign ult i32 %.reass97, %115
   br i1 %.not.i.i, label %_ZN21BSplineEvaluationDataILi2EL12BoundaryType2EE13OffsetToIndexEii.exit.i, label %116
 
 116:                                              ; preds = %114
@@ -43890,7 +43890,7 @@ _ZNK21BSplineEvaluationDataILi2EL12BoundaryType2EE17UpSampleEvaluator5valueEii.e
 128:                                              ; preds = %127
   %notmask.i.i50 = shl nsw i32 -1, %104
   %129 = xor i32 %notmask.i.i50, -1
-  %.not.i.i51 = icmp ult i32 %.reass94, %129
+  %.not.i.i51 = icmp samesign ult i32 %.reass94, %129
   br i1 %.not.i.i51, label %_ZN21BSplineEvaluationDataILi2EL12BoundaryType2EE13OffsetToIndexEii.exit.i53, label %130
 
 130:                                              ; preds = %128
@@ -43931,7 +43931,7 @@ _ZNK21BSplineEvaluationDataILi2EL12BoundaryType2EE17UpSampleEvaluator5valueEii.e
 148:                                              ; preds = %146
   %notmask.i.i58 = shl nsw i32 -1, %104
   %149 = xor i32 %notmask.i.i58, -1
-  %.not.i.i59 = icmp ult i32 %.reass91, %149
+  %.not.i.i59 = icmp samesign ult i32 %.reass91, %149
   br i1 %.not.i.i59, label %_ZN21BSplineEvaluationDataILi2EL12BoundaryType2EE13OffsetToIndexEii.exit.i61, label %150
 
 150:                                              ; preds = %148
@@ -46204,7 +46204,7 @@ _ZNK21BSplineEvaluationDataILi2EL12BoundaryType2EE17UpSampleEvaluator5valueEii.e
   br i1 %214, label %_ZN21BSplineEvaluationDataILi2EL12BoundaryType2EE13OffsetToIndexEii.exit.i, label %215
 
 215:                                              ; preds = %213
-  %.not.i.i97 = icmp ult i32 %.reass, %144
+  %.not.i.i97 = icmp samesign ult i32 %.reass, %144
   br i1 %.not.i.i97, label %_ZN21BSplineEvaluationDataILi2EL12BoundaryType2EE13OffsetToIndexEii.exit.i, label %216
 
 216:                                              ; preds = %215
@@ -46261,7 +46261,7 @@ _ZNK21BSplineEvaluationDataILi2EL12BoundaryType2EE17UpSampleEvaluator5valueEii.e
   br i1 %243, label %_ZN21BSplineEvaluationDataILi2EL12BoundaryType2EE13OffsetToIndexEii.exit.i103, label %244
 
 244:                                              ; preds = %242
-  %.not.i.i101 = icmp ult i32 %.reass133, %144
+  %.not.i.i101 = icmp samesign ult i32 %.reass133, %144
   br i1 %.not.i.i101, label %_ZN21BSplineEvaluationDataILi2EL12BoundaryType2EE13OffsetToIndexEii.exit.i103, label %245
 
 245:                                              ; preds = %244
@@ -46306,7 +46306,7 @@ _ZNK21BSplineEvaluationDataILi2EL12BoundaryType2EE17UpSampleEvaluator5valueEii.e
   br i1 %264, label %_ZN21BSplineEvaluationDataILi2EL12BoundaryType2EE13OffsetToIndexEii.exit.i111, label %265
 
 265:                                              ; preds = %263
-  %.not.i.i109 = icmp ult i32 %.reass138, %144
+  %.not.i.i109 = icmp samesign ult i32 %.reass138, %144
   br i1 %.not.i.i109, label %_ZN21BSplineEvaluationDataILi2EL12BoundaryType2EE13OffsetToIndexEii.exit.i111, label %266
 
 266:                                              ; preds = %265
@@ -48509,7 +48509,7 @@ define linkonce_odr noundef double @_ZNK16FEMSystemFunctorILi2EL12BoundaryType2E
 
 13:                                               ; preds = %4
   %14 = icmp slt i32 %6, 0
-  %15 = icmp uge i32 %6, %10
+  %15 = icmp samesign uge i32 %6, %10
   %16 = select i1 %14, i1 true, i1 %15
   %17 = add i32 %7, -3
   %18 = icmp ult i32 %17, -5
@@ -48518,7 +48518,7 @@ define linkonce_odr noundef double @_ZNK16FEMSystemFunctorILi2EL12BoundaryType2E
 
 19:                                               ; preds = %13
   %20 = getelementptr inbounds i8, ptr %1, i64 8
-  %21 = icmp ult i32 %5, 3
+  %21 = icmp samesign ult i32 %5, 3
   br i1 %21, label %_ZN22BSplineIntegrationDataILi2EL12BoundaryType2ELi2ELS0_2EE13OffsetToIndexEii.exit.i, label %22
 
 22:                                               ; preds = %19
@@ -48554,7 +48554,7 @@ _ZNK22BSplineIntegrationDataILi2EL12BoundaryType2ELi2ELS0_2EE18FunctionIntegrato
 
 40:                                               ; preds = %_ZNK22BSplineIntegrationDataILi2EL12BoundaryType2ELi2ELS0_2EE18FunctionIntegrator10IntegratorILj2ELj2EE3dotEiiii.exit
   %41 = icmp slt i32 %35, 0
-  %42 = icmp uge i32 %35, %10
+  %42 = icmp samesign uge i32 %35, %10
   %43 = select i1 %41, i1 true, i1 %42
   %44 = add i32 %36, -3
   %45 = icmp ult i32 %44, -5
@@ -48563,7 +48563,7 @@ _ZNK22BSplineIntegrationDataILi2EL12BoundaryType2ELi2ELS0_2EE18FunctionIntegrato
 
 46:                                               ; preds = %40
   %47 = getelementptr inbounds i8, ptr %1, i64 8
-  %48 = icmp ult i32 %33, 3
+  %48 = icmp samesign ult i32 %33, 3
   br i1 %48, label %_ZN22BSplineIntegrationDataILi2EL12BoundaryType2ELi2ELS0_2EE13OffsetToIndexEii.exit.i77, label %49
 
 49:                                               ; preds = %46
@@ -48599,7 +48599,7 @@ _ZNK22BSplineIntegrationDataILi2EL12BoundaryType2ELi2ELS0_2EE18FunctionIntegrato
 
 66:                                               ; preds = %_ZNK22BSplineIntegrationDataILi2EL12BoundaryType2ELi2ELS0_2EE18FunctionIntegrator10IntegratorILj2ELj2EE3dotEiiii.exit80
   %67 = icmp slt i32 %61, 0
-  %68 = icmp uge i32 %61, %10
+  %68 = icmp samesign uge i32 %61, %10
   %69 = select i1 %67, i1 true, i1 %68
   %70 = add i32 %62, -3
   %71 = icmp ult i32 %70, -5
@@ -48608,7 +48608,7 @@ _ZNK22BSplineIntegrationDataILi2EL12BoundaryType2ELi2ELS0_2EE18FunctionIntegrato
 
 72:                                               ; preds = %66
   %73 = getelementptr inbounds i8, ptr %1, i64 8
-  %74 = icmp ult i32 %59, 3
+  %74 = icmp samesign ult i32 %59, 3
   br i1 %74, label %_ZN22BSplineIntegrationDataILi2EL12BoundaryType2ELi2ELS0_2EE13OffsetToIndexEii.exit.i83, label %75
 
 75:                                               ; preds = %72
@@ -48636,7 +48636,7 @@ _ZNK22BSplineIntegrationDataILi2EL12BoundaryType2ELi2ELS0_2EE18FunctionIntegrato
 
 84:                                               ; preds = %_ZNK22BSplineIntegrationDataILi2EL12BoundaryType2ELi2ELS0_2EE18FunctionIntegrator10IntegratorILj2ELj2EE3dotEiiii.exit86
   %85 = icmp slt i32 %6, 0
-  %86 = icmp uge i32 %6, %10
+  %86 = icmp samesign uge i32 %6, %10
   %87 = select i1 %85, i1 true, i1 %86
   %88 = add i32 %7, -3
   %89 = icmp ult i32 %88, -5
@@ -48644,7 +48644,7 @@ _ZNK22BSplineIntegrationDataILi2EL12BoundaryType2ELi2ELS0_2EE18FunctionIntegrato
   br i1 %or.cond3.i87, label %_ZNK22BSplineIntegrationDataILi2EL12BoundaryType2ELi2ELS0_2EE18FunctionIntegrator10IntegratorILj2ELj2EE3dotEiiii.exit92, label %90
 
 90:                                               ; preds = %84
-  %91 = icmp ult i32 %5, 3
+  %91 = icmp samesign ult i32 %5, 3
   br i1 %91, label %_ZN22BSplineIntegrationDataILi2EL12BoundaryType2ELi2ELS0_2EE13OffsetToIndexEii.exit.i89, label %92
 
 92:                                               ; preds = %90
@@ -48676,7 +48676,7 @@ _ZNK22BSplineIntegrationDataILi2EL12BoundaryType2ELi2ELS0_2EE18FunctionIntegrato
 
 104:                                              ; preds = %_ZNK22BSplineIntegrationDataILi2EL12BoundaryType2ELi2ELS0_2EE18FunctionIntegrator10IntegratorILj2ELj2EE3dotEiiii.exit92
   %105 = icmp slt i32 %35, 0
-  %106 = icmp uge i32 %35, %10
+  %106 = icmp samesign uge i32 %35, %10
   %107 = select i1 %105, i1 true, i1 %106
   %108 = add i32 %36, -3
   %109 = icmp ult i32 %108, -5
@@ -48684,7 +48684,7 @@ _ZNK22BSplineIntegrationDataILi2EL12BoundaryType2ELi2ELS0_2EE18FunctionIntegrato
   br i1 %or.cond3.i93, label %_ZNK22BSplineIntegrationDataILi2EL12BoundaryType2ELi2ELS0_2EE18FunctionIntegrator10IntegratorILj2ELj2EE3dotEiiii.exit98, label %110
 
 110:                                              ; preds = %104
-  %111 = icmp ult i32 %33, 3
+  %111 = icmp samesign ult i32 %33, 3
   br i1 %111, label %_ZN22BSplineIntegrationDataILi2EL12BoundaryType2ELi2ELS0_2EE13OffsetToIndexEii.exit.i95, label %112
 
 112:                                              ; preds = %110
@@ -48716,7 +48716,7 @@ _ZNK22BSplineIntegrationDataILi2EL12BoundaryType2ELi2ELS0_2EE18FunctionIntegrato
 
 123:                                              ; preds = %_ZNK22BSplineIntegrationDataILi2EL12BoundaryType2ELi2ELS0_2EE18FunctionIntegrator10IntegratorILj2ELj2EE3dotEiiii.exit98
   %124 = icmp slt i32 %61, 0
-  %125 = icmp uge i32 %61, %10
+  %125 = icmp samesign uge i32 %61, %10
   %126 = select i1 %124, i1 true, i1 %125
   %127 = add i32 %62, -3
   %128 = icmp ult i32 %127, -5
@@ -48724,7 +48724,7 @@ _ZNK22BSplineIntegrationDataILi2EL12BoundaryType2ELi2ELS0_2EE18FunctionIntegrato
   br i1 %or.cond3.i99, label %_ZNK22BSplineIntegrationDataILi2EL12BoundaryType2ELi2ELS0_2EE18FunctionIntegrator10IntegratorILj2ELj2EE3dotEiiii.exit104, label %129
 
 129:                                              ; preds = %123
-  %130 = icmp ult i32 %59, 3
+  %130 = icmp samesign ult i32 %59, 3
   br i1 %130, label %_ZN22BSplineIntegrationDataILi2EL12BoundaryType2ELi2ELS0_2EE13OffsetToIndexEii.exit.i101, label %131
 
 131:                                              ; preds = %129
@@ -48756,7 +48756,7 @@ _ZNK22BSplineIntegrationDataILi2EL12BoundaryType2ELi2ELS0_2EE18FunctionIntegrato
 
 142:                                              ; preds = %_ZNK22BSplineIntegrationDataILi2EL12BoundaryType2ELi2ELS0_2EE18FunctionIntegrator10IntegratorILj2ELj2EE3dotEiiii.exit104
   %143 = icmp slt i32 %6, 0
-  %144 = icmp uge i32 %6, %10
+  %144 = icmp samesign uge i32 %6, %10
   %145 = select i1 %143, i1 true, i1 %144
   %146 = add i32 %7, -3
   %147 = icmp ult i32 %146, -5
@@ -48764,7 +48764,7 @@ _ZNK22BSplineIntegrationDataILi2EL12BoundaryType2ELi2ELS0_2EE18FunctionIntegrato
   br i1 %or.cond3.i105, label %_ZNK22BSplineIntegrationDataILi2EL12BoundaryType2ELi2ELS0_2EE18FunctionIntegrator10IntegratorILj2ELj2EE3dotEiiii.exit110, label %148
 
 148:                                              ; preds = %142
-  %149 = icmp ult i32 %5, 3
+  %149 = icmp samesign ult i32 %5, 3
   br i1 %149, label %_ZN22BSplineIntegrationDataILi2EL12BoundaryType2ELi2ELS0_2EE13OffsetToIndexEii.exit.i107, label %150
 
 150:                                              ; preds = %148
@@ -48796,7 +48796,7 @@ _ZNK22BSplineIntegrationDataILi2EL12BoundaryType2ELi2ELS0_2EE18FunctionIntegrato
 
 162:                                              ; preds = %_ZNK22BSplineIntegrationDataILi2EL12BoundaryType2ELi2ELS0_2EE18FunctionIntegrator10IntegratorILj2ELj2EE3dotEiiii.exit110
   %163 = icmp slt i32 %35, 0
-  %164 = icmp uge i32 %35, %10
+  %164 = icmp samesign uge i32 %35, %10
   %165 = select i1 %163, i1 true, i1 %164
   %166 = add i32 %36, -3
   %167 = icmp ult i32 %166, -5
@@ -48804,7 +48804,7 @@ _ZNK22BSplineIntegrationDataILi2EL12BoundaryType2ELi2ELS0_2EE18FunctionIntegrato
   br i1 %or.cond3.i111, label %_ZNK22BSplineIntegrationDataILi2EL12BoundaryType2ELi2ELS0_2EE18FunctionIntegrator10IntegratorILj2ELj2EE3dotEiiii.exit116, label %168
 
 168:                                              ; preds = %162
-  %169 = icmp ult i32 %33, 3
+  %169 = icmp samesign ult i32 %33, 3
   br i1 %169, label %_ZN22BSplineIntegrationDataILi2EL12BoundaryType2ELi2ELS0_2EE13OffsetToIndexEii.exit.i113, label %170
 
 170:                                              ; preds = %168
@@ -48836,7 +48836,7 @@ _ZNK22BSplineIntegrationDataILi2EL12BoundaryType2ELi2ELS0_2EE18FunctionIntegrato
 
 181:                                              ; preds = %_ZNK22BSplineIntegrationDataILi2EL12BoundaryType2ELi2ELS0_2EE18FunctionIntegrator10IntegratorILj2ELj2EE3dotEiiii.exit116
   %182 = icmp slt i32 %61, 0
-  %183 = icmp uge i32 %61, %10
+  %183 = icmp samesign uge i32 %61, %10
   %184 = select i1 %182, i1 true, i1 %183
   %185 = add i32 %62, -3
   %186 = icmp ult i32 %185, -5
@@ -48844,7 +48844,7 @@ _ZNK22BSplineIntegrationDataILi2EL12BoundaryType2ELi2ELS0_2EE18FunctionIntegrato
   br i1 %or.cond3.i117, label %_ZNK22BSplineIntegrationDataILi2EL12BoundaryType2ELi2ELS0_2EE18FunctionIntegrator10IntegratorILj2ELj2EE3dotEiiii.exit122, label %187
 
 187:                                              ; preds = %181
-  %188 = icmp ult i32 %59, 3
+  %188 = icmp samesign ult i32 %59, 3
   br i1 %188, label %_ZN22BSplineIntegrationDataILi2EL12BoundaryType2ELi2ELS0_2EE13OffsetToIndexEii.exit.i119, label %189
 
 189:                                              ; preds = %187
@@ -48876,7 +48876,7 @@ _ZNK22BSplineIntegrationDataILi2EL12BoundaryType2ELi2ELS0_2EE18FunctionIntegrato
 
 200:                                              ; preds = %_ZNK22BSplineIntegrationDataILi2EL12BoundaryType2ELi2ELS0_2EE18FunctionIntegrator10IntegratorILj2ELj2EE3dotEiiii.exit122
   %201 = icmp slt i32 %6, 0
-  %202 = icmp uge i32 %6, %10
+  %202 = icmp samesign uge i32 %6, %10
   %203 = select i1 %201, i1 true, i1 %202
   %204 = add i32 %7, -3
   %205 = icmp ult i32 %204, -5
@@ -48884,7 +48884,7 @@ _ZNK22BSplineIntegrationDataILi2EL12BoundaryType2ELi2ELS0_2EE18FunctionIntegrato
   br i1 %or.cond3.i123, label %_ZNK22BSplineIntegrationDataILi2EL12BoundaryType2ELi2ELS0_2EE18FunctionIntegrator10IntegratorILj2ELj2EE3dotEiiii.exit128, label %206
 
 206:                                              ; preds = %200
-  %207 = icmp ult i32 %5, 3
+  %207 = icmp samesign ult i32 %5, 3
   br i1 %207, label %_ZN22BSplineIntegrationDataILi2EL12BoundaryType2ELi2ELS0_2EE13OffsetToIndexEii.exit.i125, label %208
 
 208:                                              ; preds = %206
@@ -48916,7 +48916,7 @@ _ZNK22BSplineIntegrationDataILi2EL12BoundaryType2ELi2ELS0_2EE18FunctionIntegrato
 
 220:                                              ; preds = %_ZNK22BSplineIntegrationDataILi2EL12BoundaryType2ELi2ELS0_2EE18FunctionIntegrator10IntegratorILj2ELj2EE3dotEiiii.exit128
   %221 = icmp slt i32 %35, 0
-  %222 = icmp uge i32 %35, %10
+  %222 = icmp samesign uge i32 %35, %10
   %223 = select i1 %221, i1 true, i1 %222
   %224 = add i32 %36, -3
   %225 = icmp ult i32 %224, -5
@@ -48924,7 +48924,7 @@ _ZNK22BSplineIntegrationDataILi2EL12BoundaryType2ELi2ELS0_2EE18FunctionIntegrato
   br i1 %or.cond3.i129, label %_ZNK22BSplineIntegrationDataILi2EL12BoundaryType2ELi2ELS0_2EE18FunctionIntegrator10IntegratorILj2ELj2EE3dotEiiii.exit134, label %226
 
 226:                                              ; preds = %220
-  %227 = icmp ult i32 %33, 3
+  %227 = icmp samesign ult i32 %33, 3
   br i1 %227, label %_ZN22BSplineIntegrationDataILi2EL12BoundaryType2ELi2ELS0_2EE13OffsetToIndexEii.exit.i131, label %228
 
 228:                                              ; preds = %226
@@ -48956,7 +48956,7 @@ _ZNK22BSplineIntegrationDataILi2EL12BoundaryType2ELi2ELS0_2EE18FunctionIntegrato
 
 239:                                              ; preds = %_ZNK22BSplineIntegrationDataILi2EL12BoundaryType2ELi2ELS0_2EE18FunctionIntegrator10IntegratorILj2ELj2EE3dotEiiii.exit134
   %240 = icmp slt i32 %61, 0
-  %241 = icmp uge i32 %61, %10
+  %241 = icmp samesign uge i32 %61, %10
   %242 = select i1 %240, i1 true, i1 %241
   %243 = add i32 %62, -3
   %244 = icmp ult i32 %243, -5
@@ -48964,7 +48964,7 @@ _ZNK22BSplineIntegrationDataILi2EL12BoundaryType2ELi2ELS0_2EE18FunctionIntegrato
   br i1 %or.cond3.i135, label %_ZNK22BSplineIntegrationDataILi2EL12BoundaryType2ELi2ELS0_2EE18FunctionIntegrator10IntegratorILj2ELj2EE3dotEiiii.exit140, label %245
 
 245:                                              ; preds = %239
-  %246 = icmp ult i32 %59, 3
+  %246 = icmp samesign ult i32 %59, 3
   br i1 %246, label %_ZN22BSplineIntegrationDataILi2EL12BoundaryType2ELi2ELS0_2EE13OffsetToIndexEii.exit.i137, label %247
 
 247:                                              ; preds = %245
@@ -48996,7 +48996,7 @@ _ZNK22BSplineIntegrationDataILi2EL12BoundaryType2ELi2ELS0_2EE18FunctionIntegrato
 
 258:                                              ; preds = %_ZNK22BSplineIntegrationDataILi2EL12BoundaryType2ELi2ELS0_2EE18FunctionIntegrator10IntegratorILj2ELj2EE3dotEiiii.exit140
   %259 = icmp slt i32 %6, 0
-  %260 = icmp uge i32 %6, %10
+  %260 = icmp samesign uge i32 %6, %10
   %261 = select i1 %259, i1 true, i1 %260
   %262 = add i32 %7, -3
   %263 = icmp ult i32 %262, -5
@@ -49004,7 +49004,7 @@ _ZNK22BSplineIntegrationDataILi2EL12BoundaryType2ELi2ELS0_2EE18FunctionIntegrato
   br i1 %or.cond3.i141, label %_ZNK22BSplineIntegrationDataILi2EL12BoundaryType2ELi2ELS0_2EE18FunctionIntegrator10IntegratorILj2ELj2EE3dotEiiii.exit146, label %264
 
 264:                                              ; preds = %258
-  %265 = icmp ult i32 %5, 3
+  %265 = icmp samesign ult i32 %5, 3
   br i1 %265, label %_ZN22BSplineIntegrationDataILi2EL12BoundaryType2ELi2ELS0_2EE13OffsetToIndexEii.exit.i143, label %266
 
 266:                                              ; preds = %264
@@ -49036,7 +49036,7 @@ _ZNK22BSplineIntegrationDataILi2EL12BoundaryType2ELi2ELS0_2EE18FunctionIntegrato
 
 278:                                              ; preds = %_ZNK22BSplineIntegrationDataILi2EL12BoundaryType2ELi2ELS0_2EE18FunctionIntegrator10IntegratorILj2ELj2EE3dotEiiii.exit146
   %279 = icmp slt i32 %35, 0
-  %280 = icmp uge i32 %35, %10
+  %280 = icmp samesign uge i32 %35, %10
   %281 = select i1 %279, i1 true, i1 %280
   %282 = add i32 %36, -3
   %283 = icmp ult i32 %282, -5
@@ -49044,7 +49044,7 @@ _ZNK22BSplineIntegrationDataILi2EL12BoundaryType2ELi2ELS0_2EE18FunctionIntegrato
   br i1 %or.cond3.i147, label %_ZNK22BSplineIntegrationDataILi2EL12BoundaryType2ELi2ELS0_2EE18FunctionIntegrator10IntegratorILj2ELj2EE3dotEiiii.exit152, label %284
 
 284:                                              ; preds = %278
-  %285 = icmp ult i32 %33, 3
+  %285 = icmp samesign ult i32 %33, 3
   br i1 %285, label %_ZN22BSplineIntegrationDataILi2EL12BoundaryType2ELi2ELS0_2EE13OffsetToIndexEii.exit.i149, label %286
 
 286:                                              ; preds = %284
@@ -49076,7 +49076,7 @@ _ZNK22BSplineIntegrationDataILi2EL12BoundaryType2ELi2ELS0_2EE18FunctionIntegrato
 
 297:                                              ; preds = %_ZNK22BSplineIntegrationDataILi2EL12BoundaryType2ELi2ELS0_2EE18FunctionIntegrator10IntegratorILj2ELj2EE3dotEiiii.exit152
   %298 = icmp slt i32 %61, 0
-  %299 = icmp uge i32 %61, %10
+  %299 = icmp samesign uge i32 %61, %10
   %300 = select i1 %298, i1 true, i1 %299
   %301 = add i32 %62, -3
   %302 = icmp ult i32 %301, -5
@@ -49084,7 +49084,7 @@ _ZNK22BSplineIntegrationDataILi2EL12BoundaryType2ELi2ELS0_2EE18FunctionIntegrato
   br i1 %or.cond3.i153, label %_ZNK22BSplineIntegrationDataILi2EL12BoundaryType2ELi2ELS0_2EE18FunctionIntegrator10IntegratorILj2ELj2EE3dotEiiii.exit158, label %303
 
 303:                                              ; preds = %297
-  %304 = icmp ult i32 %59, 3
+  %304 = icmp samesign ult i32 %59, 3
   br i1 %304, label %_ZN22BSplineIntegrationDataILi2EL12BoundaryType2ELi2ELS0_2EE13OffsetToIndexEii.exit.i155, label %305
 
 305:                                              ; preds = %303
@@ -49172,7 +49172,7 @@ define linkonce_odr noundef double @_ZNK16FEMSystemFunctorILi2EL12BoundaryType2E
 
 22:                                               ; preds = %14
   %23 = getelementptr inbounds i8, ptr %1, i64 8
-  %24 = icmp ult i32 %5, 3
+  %24 = icmp samesign ult i32 %5, 3
   br i1 %24, label %_ZN22BSplineIntegrationDataILi2EL12BoundaryType2ELi2ELS0_2EE13OffsetToIndexEii.exit.i, label %25
 
 25:                                               ; preds = %22
@@ -49220,7 +49220,7 @@ _ZNK22BSplineIntegrationDataILi2EL12BoundaryType2ELi2ELS0_2EE18FunctionIntegrato
 
 52:                                               ; preds = %44
   %53 = getelementptr inbounds i8, ptr %1, i64 8
-  %54 = icmp ult i32 %36, 3
+  %54 = icmp samesign ult i32 %36, 3
   br i1 %54, label %_ZN22BSplineIntegrationDataILi2EL12BoundaryType2ELi2ELS0_2EE13OffsetToIndexEii.exit.i77, label %55
 
 55:                                               ; preds = %52
@@ -49268,7 +49268,7 @@ _ZNK22BSplineIntegrationDataILi2EL12BoundaryType2ELi2ELS0_2EE18FunctionIntegrato
 
 81:                                               ; preds = %73
   %82 = getelementptr inbounds i8, ptr %1, i64 8
-  %83 = icmp ult i32 %65, 3
+  %83 = icmp samesign ult i32 %65, 3
   br i1 %83, label %_ZN22BSplineIntegrationDataILi2EL12BoundaryType2ELi2ELS0_2EE13OffsetToIndexEii.exit.i83, label %84
 
 84:                                               ; preds = %81
@@ -49306,7 +49306,7 @@ _ZNK22BSplineIntegrationDataILi2EL12BoundaryType2ELi2ELS0_2EE18FunctionIntegrato
   br i1 %or.cond3.i87, label %_ZNK22BSplineIntegrationDataILi2EL12BoundaryType2ELi2ELS0_2EE18FunctionIntegrator15ChildIntegratorILj2ELj2EE3dotEiiii.exit92, label %101
 
 101:                                              ; preds = %93
-  %102 = icmp ult i32 %5, 3
+  %102 = icmp samesign ult i32 %5, 3
   br i1 %102, label %_ZN22BSplineIntegrationDataILi2EL12BoundaryType2ELi2ELS0_2EE13OffsetToIndexEii.exit.i89, label %103
 
 103:                                              ; preds = %101
@@ -49348,7 +49348,7 @@ _ZNK22BSplineIntegrationDataILi2EL12BoundaryType2ELi2ELS0_2EE18FunctionIntegrato
   br i1 %or.cond3.i93, label %_ZNK22BSplineIntegrationDataILi2EL12BoundaryType2ELi2ELS0_2EE18FunctionIntegrator15ChildIntegratorILj2ELj2EE3dotEiiii.exit98, label %123
 
 123:                                              ; preds = %115
-  %124 = icmp ult i32 %36, 3
+  %124 = icmp samesign ult i32 %36, 3
   br i1 %124, label %_ZN22BSplineIntegrationDataILi2EL12BoundaryType2ELi2ELS0_2EE13OffsetToIndexEii.exit.i95, label %125
 
 125:                                              ; preds = %123
@@ -49390,7 +49390,7 @@ _ZNK22BSplineIntegrationDataILi2EL12BoundaryType2ELi2ELS0_2EE18FunctionIntegrato
   br i1 %or.cond3.i99, label %_ZNK22BSplineIntegrationDataILi2EL12BoundaryType2ELi2ELS0_2EE18FunctionIntegrator15ChildIntegratorILj2ELj2EE3dotEiiii.exit104, label %144
 
 144:                                              ; preds = %136
-  %145 = icmp ult i32 %65, 3
+  %145 = icmp samesign ult i32 %65, 3
   br i1 %145, label %_ZN22BSplineIntegrationDataILi2EL12BoundaryType2ELi2ELS0_2EE13OffsetToIndexEii.exit.i101, label %146
 
 146:                                              ; preds = %144
@@ -49432,7 +49432,7 @@ _ZNK22BSplineIntegrationDataILi2EL12BoundaryType2ELi2ELS0_2EE18FunctionIntegrato
   br i1 %or.cond3.i105, label %_ZNK22BSplineIntegrationDataILi2EL12BoundaryType2ELi2ELS0_2EE18FunctionIntegrator15ChildIntegratorILj2ELj2EE3dotEiiii.exit110, label %165
 
 165:                                              ; preds = %157
-  %166 = icmp ult i32 %5, 3
+  %166 = icmp samesign ult i32 %5, 3
   br i1 %166, label %_ZN22BSplineIntegrationDataILi2EL12BoundaryType2ELi2ELS0_2EE13OffsetToIndexEii.exit.i107, label %167
 
 167:                                              ; preds = %165
@@ -49474,7 +49474,7 @@ _ZNK22BSplineIntegrationDataILi2EL12BoundaryType2ELi2ELS0_2EE18FunctionIntegrato
   br i1 %or.cond3.i111, label %_ZNK22BSplineIntegrationDataILi2EL12BoundaryType2ELi2ELS0_2EE18FunctionIntegrator15ChildIntegratorILj2ELj2EE3dotEiiii.exit116, label %187
 
 187:                                              ; preds = %179
-  %188 = icmp ult i32 %36, 3
+  %188 = icmp samesign ult i32 %36, 3
   br i1 %188, label %_ZN22BSplineIntegrationDataILi2EL12BoundaryType2ELi2ELS0_2EE13OffsetToIndexEii.exit.i113, label %189
 
 189:                                              ; preds = %187
@@ -49516,7 +49516,7 @@ _ZNK22BSplineIntegrationDataILi2EL12BoundaryType2ELi2ELS0_2EE18FunctionIntegrato
   br i1 %or.cond3.i117, label %_ZNK22BSplineIntegrationDataILi2EL12BoundaryType2ELi2ELS0_2EE18FunctionIntegrator15ChildIntegratorILj2ELj2EE3dotEiiii.exit122, label %208
 
 208:                                              ; preds = %200
-  %209 = icmp ult i32 %65, 3
+  %209 = icmp samesign ult i32 %65, 3
   br i1 %209, label %_ZN22BSplineIntegrationDataILi2EL12BoundaryType2ELi2ELS0_2EE13OffsetToIndexEii.exit.i119, label %210
 
 210:                                              ; preds = %208
@@ -49558,7 +49558,7 @@ _ZNK22BSplineIntegrationDataILi2EL12BoundaryType2ELi2ELS0_2EE18FunctionIntegrato
   br i1 %or.cond3.i123, label %_ZNK22BSplineIntegrationDataILi2EL12BoundaryType2ELi2ELS0_2EE18FunctionIntegrator15ChildIntegratorILj2ELj2EE3dotEiiii.exit128, label %229
 
 229:                                              ; preds = %221
-  %230 = icmp ult i32 %5, 3
+  %230 = icmp samesign ult i32 %5, 3
   br i1 %230, label %_ZN22BSplineIntegrationDataILi2EL12BoundaryType2ELi2ELS0_2EE13OffsetToIndexEii.exit.i125, label %231
 
 231:                                              ; preds = %229
@@ -49600,7 +49600,7 @@ _ZNK22BSplineIntegrationDataILi2EL12BoundaryType2ELi2ELS0_2EE18FunctionIntegrato
   br i1 %or.cond3.i129, label %_ZNK22BSplineIntegrationDataILi2EL12BoundaryType2ELi2ELS0_2EE18FunctionIntegrator15ChildIntegratorILj2ELj2EE3dotEiiii.exit134, label %251
 
 251:                                              ; preds = %243
-  %252 = icmp ult i32 %36, 3
+  %252 = icmp samesign ult i32 %36, 3
   br i1 %252, label %_ZN22BSplineIntegrationDataILi2EL12BoundaryType2ELi2ELS0_2EE13OffsetToIndexEii.exit.i131, label %253
 
 253:                                              ; preds = %251
@@ -49642,7 +49642,7 @@ _ZNK22BSplineIntegrationDataILi2EL12BoundaryType2ELi2ELS0_2EE18FunctionIntegrato
   br i1 %or.cond3.i135, label %_ZNK22BSplineIntegrationDataILi2EL12BoundaryType2ELi2ELS0_2EE18FunctionIntegrator15ChildIntegratorILj2ELj2EE3dotEiiii.exit140, label %272
 
 272:                                              ; preds = %264
-  %273 = icmp ult i32 %65, 3
+  %273 = icmp samesign ult i32 %65, 3
   br i1 %273, label %_ZN22BSplineIntegrationDataILi2EL12BoundaryType2ELi2ELS0_2EE13OffsetToIndexEii.exit.i137, label %274
 
 274:                                              ; preds = %272
@@ -49684,7 +49684,7 @@ _ZNK22BSplineIntegrationDataILi2EL12BoundaryType2ELi2ELS0_2EE18FunctionIntegrato
   br i1 %or.cond3.i141, label %_ZNK22BSplineIntegrationDataILi2EL12BoundaryType2ELi2ELS0_2EE18FunctionIntegrator15ChildIntegratorILj2ELj2EE3dotEiiii.exit146, label %293
 
 293:                                              ; preds = %285
-  %294 = icmp ult i32 %5, 3
+  %294 = icmp samesign ult i32 %5, 3
   br i1 %294, label %_ZN22BSplineIntegrationDataILi2EL12BoundaryType2ELi2ELS0_2EE13OffsetToIndexEii.exit.i143, label %295
 
 295:                                              ; preds = %293
@@ -49726,7 +49726,7 @@ _ZNK22BSplineIntegrationDataILi2EL12BoundaryType2ELi2ELS0_2EE18FunctionIntegrato
   br i1 %or.cond3.i147, label %_ZNK22BSplineIntegrationDataILi2EL12BoundaryType2ELi2ELS0_2EE18FunctionIntegrator15ChildIntegratorILj2ELj2EE3dotEiiii.exit152, label %315
 
 315:                                              ; preds = %307
-  %316 = icmp ult i32 %36, 3
+  %316 = icmp samesign ult i32 %36, 3
   br i1 %316, label %_ZN22BSplineIntegrationDataILi2EL12BoundaryType2ELi2ELS0_2EE13OffsetToIndexEii.exit.i149, label %317
 
 317:                                              ; preds = %315
@@ -49768,7 +49768,7 @@ _ZNK22BSplineIntegrationDataILi2EL12BoundaryType2ELi2ELS0_2EE18FunctionIntegrato
   br i1 %or.cond3.i153, label %_ZNK22BSplineIntegrationDataILi2EL12BoundaryType2ELi2ELS0_2EE18FunctionIntegrator15ChildIntegratorILj2ELj2EE3dotEiiii.exit158, label %336
 
 336:                                              ; preds = %328
-  %337 = icmp ult i32 %65, 3
+  %337 = icmp samesign ult i32 %65, 3
   br i1 %337, label %_ZN22BSplineIntegrationDataILi2EL12BoundaryType2ELi2ELS0_2EE13OffsetToIndexEii.exit.i155, label %338
 
 338:                                              ; preds = %336
@@ -54879,7 +54879,7 @@ _ZNK21BSplineEvaluationDataILi2EL12BoundaryType2EE9Evaluator11centerValueEiib.ex
   %125 = load i32, ptr %124, align 4
   %126 = sub nsw i32 %33, %125
   %127 = icmp slt i32 %125, 0
-  %128 = icmp uge i32 %125, %122
+  %128 = icmp samesign uge i32 %125, %122
   %129 = select i1 %127, i1 true, i1 %128
   %130 = add i32 %126, -2
   %131 = icmp ult i32 %130, -3
@@ -54896,7 +54896,7 @@ _ZNK21BSplineEvaluationDataILi2EL12BoundaryType2EE9Evaluator11centerValueEiib.ex
   br i1 %134, label %141, label %135
 
 135:                                              ; preds = %133
-  %.not.i.i.i.us = icmp ult i32 %125, %123
+  %.not.i.i.i.us = icmp samesign ult i32 %125, %123
   %.reass.us = add i32 %125, %invariant.op
   %narrow = select i1 %.not.i.i.i.us, i32 1, i32 %.reass.us
   %.0.i.i.i.us.ph = sext i32 %narrow to i64
@@ -54906,7 +54906,7 @@ _ZNK21BSplineEvaluationDataILi2EL12BoundaryType2EE9Evaluator11centerValueEiib.ex
   %139 = load double, ptr %138, align 8
   %140 = getelementptr inbounds [3 x double], ptr %4, i64 0, i64 %indvars.iv
   store double %139, ptr %140, align 8
-  %.not.i.i.i360.us = icmp ult i32 %125, %123
+  %.not.i.i.i360.us = icmp samesign ult i32 %125, %123
   br i1 %.not.i.i.i360.us, label %_ZN21BSplineEvaluationDataILi2EL12BoundaryType2EE13OffsetToIndexEii.exit.i.i362.us, label %147
 
 141:                                              ; preds = %133
@@ -55039,7 +55039,7 @@ _ZNK21BSplineEvaluationDataILi2EL12BoundaryType2EE9Evaluator11centerValueEiib.ex
 210:                                              ; preds = %209
   %notmask.i.i.i367 = shl nsw i32 -1, %201
   %211 = xor i32 %notmask.i.i.i367, -1
-  %.not.i.i.i368 = icmp ult i32 %59, %211
+  %.not.i.i.i368 = icmp samesign ult i32 %59, %211
   br i1 %.not.i.i.i368, label %_ZN21BSplineEvaluationDataILi2EL12BoundaryType2EE13OffsetToIndexEii.exit.i.i370, label %212
 
 212:                                              ; preds = %210
@@ -55063,7 +55063,7 @@ _ZNK21BSplineEvaluationDataILi2EL12BoundaryType2EE9Evaluator11cornerValueEiib.ex
   br i1 %or.cond.i.i374, label %220, label %_ZNK21BSplineEvaluationDataILi2EL12BoundaryType2EE9Evaluator11centerValueEiib.exit392
 
 220:                                              ; preds = %_ZNK21BSplineEvaluationDataILi2EL12BoundaryType2EE9Evaluator11cornerValueEiib.exit
-  %221 = icmp ule i32 %219, %99
+  %221 = icmp samesign ule i32 %219, %99
   %222 = select i1 %95, i1 true, i1 %221
   br i1 %222, label %231, label %223
 
@@ -55073,7 +55073,7 @@ _ZNK21BSplineEvaluationDataILi2EL12BoundaryType2EE9Evaluator11cornerValueEiib.ex
 224:                                              ; preds = %223
   %notmask.i.i.i377 = shl nsw i32 -1, %218
   %225 = xor i32 %notmask.i.i.i377, -1
-  %.not.i.i.i378 = icmp ult i32 %99, %225
+  %.not.i.i.i378 = icmp samesign ult i32 %99, %225
   br i1 %.not.i.i.i378, label %_ZN21BSplineEvaluationDataILi2EL12BoundaryType2EE13OffsetToIndexEii.exit.i.i380, label %226
 
 226:                                              ; preds = %224
@@ -55089,7 +55089,7 @@ _ZN21BSplineEvaluationDataILi2EL12BoundaryType2EE13OffsetToIndexEii.exit.i.i380:
 
 231:                                              ; preds = %220, %_ZN21BSplineEvaluationDataILi2EL12BoundaryType2EE13OffsetToIndexEii.exit.i.i380
   %.0.i.i375.ph = phi double [ 0.000000e+00, %220 ], [ %230, %_ZN21BSplineEvaluationDataILi2EL12BoundaryType2EE13OffsetToIndexEii.exit.i.i380 ]
-  %232 = icmp ule i32 %219, %120
+  %232 = icmp samesign ule i32 %219, %120
   %233 = select i1 %175, i1 true, i1 %232
   br i1 %233, label %_ZNK21BSplineEvaluationDataILi2EL12BoundaryType2EE9Evaluator11centerValueEiib.exit392, label %234
 
@@ -55099,7 +55099,7 @@ _ZN21BSplineEvaluationDataILi2EL12BoundaryType2EE13OffsetToIndexEii.exit.i.i380:
 235:                                              ; preds = %234
   %notmask.i.i.i387 = shl nsw i32 -1, %218
   %236 = xor i32 %notmask.i.i.i387, -1
-  %.not.i.i.i388 = icmp ult i32 %120, %236
+  %.not.i.i.i388 = icmp samesign ult i32 %120, %236
   br i1 %.not.i.i.i388, label %_ZN21BSplineEvaluationDataILi2EL12BoundaryType2EE13OffsetToIndexEii.exit.i.i390, label %237
 
 237:                                              ; preds = %235
@@ -55132,7 +55132,7 @@ _ZNK21BSplineEvaluationDataILi2EL12BoundaryType2EE9Evaluator11centerValueEiib.ex
 248:                                              ; preds = %247
   %notmask.i.i.i396 = shl nsw i32 -1, %201
   %249 = xor i32 %notmask.i.i.i396, -1
-  %.not.i.i.i397 = icmp ult i32 %59, %249
+  %.not.i.i.i397 = icmp samesign ult i32 %59, %249
   br i1 %.not.i.i.i397, label %_ZN21BSplineEvaluationDataILi2EL12BoundaryType2EE13OffsetToIndexEii.exit.i.i399, label %250
 
 250:                                              ; preds = %248
@@ -55156,7 +55156,7 @@ _ZNK21BSplineEvaluationDataILi2EL12BoundaryType2EE9Evaluator11cornerValueEiib.ex
   br i1 %or.cond.i.i374, label %259, label %_ZNK21BSplineEvaluationDataILi2EL12BoundaryType2EE9Evaluator11centerValueEiib.exit422
 
 259:                                              ; preds = %_ZNK21BSplineEvaluationDataILi2EL12BoundaryType2EE9Evaluator11cornerValueEiib.exit402
-  %260 = icmp ule i32 %219, %99
+  %260 = icmp samesign ule i32 %219, %99
   %261 = select i1 %95, i1 true, i1 %260
   br i1 %261, label %271, label %262
 
@@ -55166,7 +55166,7 @@ _ZNK21BSplineEvaluationDataILi2EL12BoundaryType2EE9Evaluator11cornerValueEiib.ex
 263:                                              ; preds = %262
   %notmask.i.i.i407 = shl nsw i32 -1, %218
   %264 = xor i32 %notmask.i.i.i407, -1
-  %.not.i.i.i408 = icmp ult i32 %99, %264
+  %.not.i.i.i408 = icmp samesign ult i32 %99, %264
   br i1 %.not.i.i.i408, label %_ZN21BSplineEvaluationDataILi2EL12BoundaryType2EE13OffsetToIndexEii.exit.i.i410, label %265
 
 265:                                              ; preds = %263
@@ -55184,7 +55184,7 @@ _ZN21BSplineEvaluationDataILi2EL12BoundaryType2EE13OffsetToIndexEii.exit.i.i410:
 
 271:                                              ; preds = %259, %_ZN21BSplineEvaluationDataILi2EL12BoundaryType2EE13OffsetToIndexEii.exit.i.i410
   %.0.i.i405.ph = phi double [ 0.000000e+00, %259 ], [ %270, %_ZN21BSplineEvaluationDataILi2EL12BoundaryType2EE13OffsetToIndexEii.exit.i.i410 ]
-  %272 = icmp ule i32 %219, %120
+  %272 = icmp samesign ule i32 %219, %120
   %273 = select i1 %175, i1 true, i1 %272
   br i1 %273, label %_ZNK21BSplineEvaluationDataILi2EL12BoundaryType2EE9Evaluator11centerValueEiib.exit422, label %274
 
@@ -55194,7 +55194,7 @@ _ZN21BSplineEvaluationDataILi2EL12BoundaryType2EE13OffsetToIndexEii.exit.i.i410:
 275:                                              ; preds = %274
   %notmask.i.i.i417 = shl nsw i32 -1, %218
   %276 = xor i32 %notmask.i.i.i417, -1
-  %.not.i.i.i418 = icmp ult i32 %120, %276
+  %.not.i.i.i418 = icmp samesign ult i32 %120, %276
   br i1 %.not.i.i.i418, label %_ZN21BSplineEvaluationDataILi2EL12BoundaryType2EE13OffsetToIndexEii.exit.i.i420, label %277
 
 277:                                              ; preds = %275
@@ -55216,7 +55216,7 @@ _ZN21BSplineEvaluationDataILi2EL12BoundaryType2EE13OffsetToIndexEii.exit.i.i420:
   %.not.i.i423 = icmp slt i32 %33, %285
   %or.cond.i.i424 = select i1 %36, i1 %.not.i.i423, i1 false
   %or.cond.i.i424.not = xor i1 %or.cond.i.i424, true
-  %286 = icmp ule i32 %285, %59
+  %286 = icmp samesign ule i32 %285, %59
   %287 = select i1 %or.cond.i.i424.not, i1 true, i1 %55
   %or.cond = select i1 %287, i1 true, i1 %286
   br i1 %or.cond, label %_ZNK21BSplineEvaluationDataILi2EL12BoundaryType2EE9Evaluator11centerValueEiib.exit432, label %288
@@ -55227,7 +55227,7 @@ _ZN21BSplineEvaluationDataILi2EL12BoundaryType2EE13OffsetToIndexEii.exit.i.i420:
 289:                                              ; preds = %288
   %notmask.i.i.i427 = shl nsw i32 -1, %284
   %290 = xor i32 %notmask.i.i.i427, -1
-  %.not.i.i.i428 = icmp ult i32 %59, %290
+  %.not.i.i.i428 = icmp samesign ult i32 %59, %290
   br i1 %.not.i.i.i428, label %_ZN21BSplineEvaluationDataILi2EL12BoundaryType2EE13OffsetToIndexEii.exit.i.i430, label %291
 
 291:                                              ; preds = %289
@@ -55267,7 +55267,7 @@ _ZNK21BSplineEvaluationDataILi2EL12BoundaryType2EE9Evaluator11centerValueEiib.ex
 308:                                              ; preds = %307
   %notmask.i.i.i436 = shl nsw i32 -1, %299
   %309 = xor i32 %notmask.i.i.i436, -1
-  %.not.i.i.i437 = icmp ult i32 %99, %309
+  %.not.i.i.i437 = icmp samesign ult i32 %99, %309
   br i1 %.not.i.i.i437, label %_ZN21BSplineEvaluationDataILi2EL12BoundaryType2EE13OffsetToIndexEii.exit.i.i439, label %310
 
 310:                                              ; preds = %308
@@ -55287,7 +55287,7 @@ _ZNK21BSplineEvaluationDataILi2EL12BoundaryType2EE9Evaluator11cornerValueEiib.ex
   br i1 %or.cond.i.i424, label %316, label %_ZNK21BSplineEvaluationDataILi2EL12BoundaryType2EE9Evaluator11centerValueEiib.exit462
 
 316:                                              ; preds = %_ZNK21BSplineEvaluationDataILi2EL12BoundaryType2EE9Evaluator11cornerValueEiib.exit442
-  %317 = icmp ule i32 %285, %120
+  %317 = icmp samesign ule i32 %285, %120
   %318 = select i1 %175, i1 true, i1 %317
   br i1 %318, label %327, label %319
 
@@ -55297,7 +55297,7 @@ _ZNK21BSplineEvaluationDataILi2EL12BoundaryType2EE9Evaluator11cornerValueEiib.ex
 320:                                              ; preds = %319
   %notmask.i.i.i447 = shl nsw i32 -1, %284
   %321 = xor i32 %notmask.i.i.i447, -1
-  %.not.i.i.i448 = icmp ult i32 %120, %321
+  %.not.i.i.i448 = icmp samesign ult i32 %120, %321
   br i1 %.not.i.i.i448, label %_ZN21BSplineEvaluationDataILi2EL12BoundaryType2EE13OffsetToIndexEii.exit.i.i450, label %322
 
 322:                                              ; preds = %320
@@ -55313,7 +55313,7 @@ _ZN21BSplineEvaluationDataILi2EL12BoundaryType2EE13OffsetToIndexEii.exit.i.i450:
 
 327:                                              ; preds = %316, %_ZN21BSplineEvaluationDataILi2EL12BoundaryType2EE13OffsetToIndexEii.exit.i.i450
   %.0.i.i445.ph = phi double [ 0.000000e+00, %316 ], [ %326, %_ZN21BSplineEvaluationDataILi2EL12BoundaryType2EE13OffsetToIndexEii.exit.i.i450 ]
-  %328 = icmp ule i32 %285, %59
+  %328 = icmp samesign ule i32 %285, %59
   %329 = select i1 %55, i1 true, i1 %328
   br i1 %329, label %_ZNK21BSplineEvaluationDataILi2EL12BoundaryType2EE9Evaluator11centerValueEiib.exit462, label %330
 
@@ -55323,7 +55323,7 @@ _ZN21BSplineEvaluationDataILi2EL12BoundaryType2EE13OffsetToIndexEii.exit.i.i450:
 331:                                              ; preds = %330
   %notmask.i.i.i457 = shl nsw i32 -1, %284
   %332 = xor i32 %notmask.i.i.i457, -1
-  %.not.i.i.i458 = icmp ult i32 %59, %332
+  %.not.i.i.i458 = icmp samesign ult i32 %59, %332
   br i1 %.not.i.i.i458, label %_ZN21BSplineEvaluationDataILi2EL12BoundaryType2EE13OffsetToIndexEii.exit.i.i460, label %333
 
 333:                                              ; preds = %331
@@ -55358,7 +55358,7 @@ _ZNK21BSplineEvaluationDataILi2EL12BoundaryType2EE9Evaluator11centerValueEiib.ex
 345:                                              ; preds = %344
   %notmask.i.i.i466 = shl nsw i32 -1, %299
   %346 = xor i32 %notmask.i.i.i466, -1
-  %.not.i.i.i467 = icmp ult i32 %99, %346
+  %.not.i.i.i467 = icmp samesign ult i32 %99, %346
   br i1 %.not.i.i.i467, label %_ZN21BSplineEvaluationDataILi2EL12BoundaryType2EE13OffsetToIndexEii.exit.i.i469, label %347
 
 347:                                              ; preds = %345
@@ -55380,7 +55380,7 @@ _ZN21BSplineEvaluationDataILi2EL12BoundaryType2EE13OffsetToIndexEii.exit.i.i469:
 _ZNK21BSplineEvaluationDataILi2EL12BoundaryType2EE9Evaluator11cornerValueEiib.exit472: ; preds = %_ZNK21BSplineEvaluationDataILi2EL12BoundaryType2EE9Evaluator11centerValueEiib.exit462, %339, %_ZN21BSplineEvaluationDataILi2EL12BoundaryType2EE13OffsetToIndexEii.exit.i.i469
   %.0.i.i471 = phi double [ %355, %_ZN21BSplineEvaluationDataILi2EL12BoundaryType2EE13OffsetToIndexEii.exit.i.i469 ], [ 0.000000e+00, %339 ], [ 0.000000e+00, %_ZNK21BSplineEvaluationDataILi2EL12BoundaryType2EE9Evaluator11centerValueEiib.exit462 ]
   %or.cond.i.i424.not1555 = xor i1 %or.cond.i.i424, true
-  %356 = icmp ule i32 %285, %120
+  %356 = icmp samesign ule i32 %285, %120
   %357 = select i1 %or.cond.i.i424.not1555, i1 true, i1 %175
   %or.cond1557 = select i1 %357, i1 true, i1 %356
   br i1 %or.cond1557, label %_ZNK21BSplineEvaluationDataILi2EL12BoundaryType2EE9Evaluator11centerValueEiib.exit422, label %358
@@ -55391,7 +55391,7 @@ _ZNK21BSplineEvaluationDataILi2EL12BoundaryType2EE9Evaluator11cornerValueEiib.ex
 359:                                              ; preds = %358
   %notmask.i.i.i477 = shl nsw i32 -1, %284
   %360 = xor i32 %notmask.i.i.i477, -1
-  %.not.i.i.i478 = icmp ult i32 %120, %360
+  %.not.i.i.i478 = icmp samesign ult i32 %120, %360
   br i1 %.not.i.i.i478, label %_ZN21BSplineEvaluationDataILi2EL12BoundaryType2EE13OffsetToIndexEii.exit.i.i480, label %361
 
 361:                                              ; preds = %359
@@ -55415,7 +55415,7 @@ _ZN21BSplineEvaluationDataILi2EL12BoundaryType2EE13OffsetToIndexEii.exit.i.i480:
   br i1 %or.cond.i.i484, label %370, label %_ZNK21BSplineEvaluationDataILi2EL12BoundaryType2EE9Evaluator11centerValueEiib.exit502
 
 370:                                              ; preds = %367
-  %371 = icmp ule i32 %369, %59
+  %371 = icmp samesign ule i32 %369, %59
   %372 = select i1 %55, i1 true, i1 %371
   br i1 %372, label %381, label %373
 
@@ -55425,7 +55425,7 @@ _ZN21BSplineEvaluationDataILi2EL12BoundaryType2EE13OffsetToIndexEii.exit.i.i480:
 374:                                              ; preds = %373
   %notmask.i.i.i487 = shl nsw i32 -1, %368
   %375 = xor i32 %notmask.i.i.i487, -1
-  %.not.i.i.i488 = icmp ult i32 %59, %375
+  %.not.i.i.i488 = icmp samesign ult i32 %59, %375
   br i1 %.not.i.i.i488, label %_ZN21BSplineEvaluationDataILi2EL12BoundaryType2EE13OffsetToIndexEii.exit.i.i490, label %376
 
 376:                                              ; preds = %374
@@ -55441,7 +55441,7 @@ _ZN21BSplineEvaluationDataILi2EL12BoundaryType2EE13OffsetToIndexEii.exit.i.i490:
 
 381:                                              ; preds = %370, %_ZN21BSplineEvaluationDataILi2EL12BoundaryType2EE13OffsetToIndexEii.exit.i.i490
   %.0.i.i485.ph = phi double [ 0.000000e+00, %370 ], [ %380, %_ZN21BSplineEvaluationDataILi2EL12BoundaryType2EE13OffsetToIndexEii.exit.i.i490 ]
-  %382 = icmp ule i32 %369, %99
+  %382 = icmp samesign ule i32 %369, %99
   %383 = select i1 %95, i1 true, i1 %382
   br i1 %383, label %_ZNK21BSplineEvaluationDataILi2EL12BoundaryType2EE9Evaluator11centerValueEiib.exit502, label %384
 
@@ -55451,7 +55451,7 @@ _ZN21BSplineEvaluationDataILi2EL12BoundaryType2EE13OffsetToIndexEii.exit.i.i490:
 385:                                              ; preds = %384
   %notmask.i.i.i497 = shl nsw i32 -1, %368
   %386 = xor i32 %notmask.i.i.i497, -1
-  %.not.i.i.i498 = icmp ult i32 %99, %386
+  %.not.i.i.i498 = icmp samesign ult i32 %99, %386
   br i1 %.not.i.i.i498, label %_ZN21BSplineEvaluationDataILi2EL12BoundaryType2EE13OffsetToIndexEii.exit.i.i500, label %387
 
 387:                                              ; preds = %385
@@ -55492,7 +55492,7 @@ _ZNK21BSplineEvaluationDataILi2EL12BoundaryType2EE9Evaluator11centerValueEiib.ex
 404:                                              ; preds = %403
   %notmask.i.i.i506 = shl nsw i32 -1, %395
   %405 = xor i32 %notmask.i.i.i506, -1
-  %.not.i.i.i507 = icmp ult i32 %120, %405
+  %.not.i.i.i507 = icmp samesign ult i32 %120, %405
   br i1 %.not.i.i.i507, label %_ZN21BSplineEvaluationDataILi2EL12BoundaryType2EE13OffsetToIndexEii.exit.i.i509, label %406
 
 406:                                              ; preds = %404
@@ -55512,7 +55512,7 @@ _ZNK21BSplineEvaluationDataILi2EL12BoundaryType2EE9Evaluator11cornerValueEiib.ex
   br i1 %or.cond.i.i484, label %412, label %_ZNK21BSplineEvaluationDataILi2EL12BoundaryType2EE9Evaluator11centerValueEiib.exit532
 
 412:                                              ; preds = %_ZNK21BSplineEvaluationDataILi2EL12BoundaryType2EE9Evaluator11cornerValueEiib.exit512
-  %413 = icmp ule i32 %369, %59
+  %413 = icmp samesign ule i32 %369, %59
   %414 = select i1 %55, i1 true, i1 %413
   br i1 %414, label %424, label %415
 
@@ -55522,7 +55522,7 @@ _ZNK21BSplineEvaluationDataILi2EL12BoundaryType2EE9Evaluator11cornerValueEiib.ex
 416:                                              ; preds = %415
   %notmask.i.i.i517 = shl nsw i32 -1, %368
   %417 = xor i32 %notmask.i.i.i517, -1
-  %.not.i.i.i518 = icmp ult i32 %59, %417
+  %.not.i.i.i518 = icmp samesign ult i32 %59, %417
   br i1 %.not.i.i.i518, label %_ZN21BSplineEvaluationDataILi2EL12BoundaryType2EE13OffsetToIndexEii.exit.i.i520, label %418
 
 418:                                              ; preds = %416
@@ -55540,7 +55540,7 @@ _ZN21BSplineEvaluationDataILi2EL12BoundaryType2EE13OffsetToIndexEii.exit.i.i520:
 
 424:                                              ; preds = %412, %_ZN21BSplineEvaluationDataILi2EL12BoundaryType2EE13OffsetToIndexEii.exit.i.i520
   %.0.i.i515.ph = phi double [ 0.000000e+00, %412 ], [ %423, %_ZN21BSplineEvaluationDataILi2EL12BoundaryType2EE13OffsetToIndexEii.exit.i.i520 ]
-  %425 = icmp ule i32 %369, %99
+  %425 = icmp samesign ule i32 %369, %99
   %426 = select i1 %95, i1 true, i1 %425
   br i1 %426, label %_ZNK21BSplineEvaluationDataILi2EL12BoundaryType2EE9Evaluator11centerValueEiib.exit532, label %427
 
@@ -55550,7 +55550,7 @@ _ZN21BSplineEvaluationDataILi2EL12BoundaryType2EE13OffsetToIndexEii.exit.i.i520:
 428:                                              ; preds = %427
   %notmask.i.i.i527 = shl nsw i32 -1, %368
   %429 = xor i32 %notmask.i.i.i527, -1
-  %.not.i.i.i528 = icmp ult i32 %99, %429
+  %.not.i.i.i528 = icmp samesign ult i32 %99, %429
   br i1 %.not.i.i.i528, label %_ZN21BSplineEvaluationDataILi2EL12BoundaryType2EE13OffsetToIndexEii.exit.i.i530, label %430
 
 430:                                              ; preds = %428
@@ -55585,7 +55585,7 @@ _ZNK21BSplineEvaluationDataILi2EL12BoundaryType2EE9Evaluator11centerValueEiib.ex
 442:                                              ; preds = %441
   %notmask.i.i.i536 = shl nsw i32 -1, %395
   %443 = xor i32 %notmask.i.i.i536, -1
-  %.not.i.i.i537 = icmp ult i32 %120, %443
+  %.not.i.i.i537 = icmp samesign ult i32 %120, %443
   br i1 %.not.i.i.i537, label %_ZN21BSplineEvaluationDataILi2EL12BoundaryType2EE13OffsetToIndexEii.exit.i.i539, label %444
 
 444:                                              ; preds = %442
@@ -55657,7 +55657,7 @@ _ZNK21BSplineEvaluationDataILi2EL12BoundaryType2EE9Evaluator11centerValueEiib.ex
   %.not.i.i543 = icmp slt i32 %33, %474
   %or.cond.i.i544 = select i1 %36, i1 %.not.i.i543, i1 false
   %or.cond.i.i544.not = xor i1 %or.cond.i.i544, true
-  %475 = icmp ule i32 %474, %59
+  %475 = icmp samesign ule i32 %474, %59
   %476 = select i1 %or.cond.i.i544.not, i1 true, i1 %55
   %or.cond1559 = select i1 %476, i1 true, i1 %475
   br i1 %or.cond1559, label %_ZNK21BSplineEvaluationDataILi2EL12BoundaryType2EE9Evaluator11centerValueEiib.exit552, label %477
@@ -55668,7 +55668,7 @@ _ZNK21BSplineEvaluationDataILi2EL12BoundaryType2EE9Evaluator11centerValueEiib.ex
 478:                                              ; preds = %477
   %notmask.i.i.i547 = shl nsw i32 -1, %473
   %479 = xor i32 %notmask.i.i.i547, -1
-  %.not.i.i.i548 = icmp ult i32 %59, %479
+  %.not.i.i.i548 = icmp samesign ult i32 %59, %479
   br i1 %.not.i.i.i548, label %_ZN21BSplineEvaluationDataILi2EL12BoundaryType2EE13OffsetToIndexEii.exit.i.i550, label %480
 
 480:                                              ; preds = %478
@@ -55708,7 +55708,7 @@ _ZNK21BSplineEvaluationDataILi2EL12BoundaryType2EE9Evaluator11centerValueEiib.ex
 497:                                              ; preds = %496
   %notmask.i.i.i556 = shl nsw i32 -1, %488
   %498 = xor i32 %notmask.i.i.i556, -1
-  %.not.i.i.i557 = icmp ult i32 %99, %498
+  %.not.i.i.i557 = icmp samesign ult i32 %99, %498
   br i1 %.not.i.i.i557, label %_ZN21BSplineEvaluationDataILi2EL12BoundaryType2EE13OffsetToIndexEii.exit.i.i559, label %499
 
 499:                                              ; preds = %497
@@ -55747,7 +55747,7 @@ _ZNK21BSplineEvaluationDataILi2EL12BoundaryType2EE9Evaluator11cornerValueEiib.ex
 515:                                              ; preds = %514
   %notmask.i.i.i566 = shl nsw i32 -1, %488
   %516 = xor i32 %notmask.i.i.i566, -1
-  %.not.i.i.i567 = icmp ult i32 %120, %516
+  %.not.i.i.i567 = icmp samesign ult i32 %120, %516
   br i1 %.not.i.i.i567, label %_ZN21BSplineEvaluationDataILi2EL12BoundaryType2EE13OffsetToIndexEii.exit.i.i569, label %517
 
 517:                                              ; preds = %515
@@ -55765,7 +55765,7 @@ _ZN21BSplineEvaluationDataILi2EL12BoundaryType2EE13OffsetToIndexEii.exit.i.i569:
 _ZNK21BSplineEvaluationDataILi2EL12BoundaryType2EE9Evaluator11cornerValueEiib.exit572: ; preds = %_ZNK21BSplineEvaluationDataILi2EL12BoundaryType2EE9Evaluator11cornerValueEiib.exit562, %509, %_ZN21BSplineEvaluationDataILi2EL12BoundaryType2EE13OffsetToIndexEii.exit.i.i569
   %.0.i.i571 = phi double [ %522, %_ZN21BSplineEvaluationDataILi2EL12BoundaryType2EE13OffsetToIndexEii.exit.i.i569 ], [ 0.000000e+00, %509 ], [ 0.000000e+00, %_ZNK21BSplineEvaluationDataILi2EL12BoundaryType2EE9Evaluator11cornerValueEiib.exit562 ]
   %or.cond.i.i544.not1560 = xor i1 %or.cond.i.i544, true
-  %523 = icmp ule i32 %474, %59
+  %523 = icmp samesign ule i32 %474, %59
   %524 = select i1 %or.cond.i.i544.not1560, i1 true, i1 %55
   %or.cond1562 = select i1 %524, i1 true, i1 %523
   br i1 %or.cond1562, label %_ZNK21BSplineEvaluationDataILi2EL12BoundaryType2EE9Evaluator11centerValueEiib.exit582, label %525
@@ -55776,7 +55776,7 @@ _ZNK21BSplineEvaluationDataILi2EL12BoundaryType2EE9Evaluator11cornerValueEiib.ex
 526:                                              ; preds = %525
   %notmask.i.i.i577 = shl nsw i32 -1, %473
   %527 = xor i32 %notmask.i.i.i577, -1
-  %.not.i.i.i578 = icmp ult i32 %59, %527
+  %.not.i.i.i578 = icmp samesign ult i32 %59, %527
   br i1 %.not.i.i.i578, label %_ZN21BSplineEvaluationDataILi2EL12BoundaryType2EE13OffsetToIndexEii.exit.i.i580, label %528
 
 528:                                              ; preds = %526
@@ -55810,7 +55810,7 @@ _ZNK21BSplineEvaluationDataILi2EL12BoundaryType2EE9Evaluator11centerValueEiib.ex
 540:                                              ; preds = %539
   %notmask.i.i.i586 = shl nsw i32 -1, %488
   %541 = xor i32 %notmask.i.i.i586, -1
-  %.not.i.i.i587 = icmp ult i32 %99, %541
+  %.not.i.i.i587 = icmp samesign ult i32 %99, %541
   br i1 %.not.i.i.i587, label %_ZN21BSplineEvaluationDataILi2EL12BoundaryType2EE13OffsetToIndexEii.exit.i.i589, label %542
 
 542:                                              ; preds = %540
@@ -55847,7 +55847,7 @@ _ZNK21BSplineEvaluationDataILi2EL12BoundaryType2EE9Evaluator11cornerValueEiib.ex
 557:                                              ; preds = %556
   %notmask.i.i.i596 = shl nsw i32 -1, %488
   %558 = xor i32 %notmask.i.i.i596, -1
-  %.not.i.i.i597 = icmp ult i32 %120, %558
+  %.not.i.i.i597 = icmp samesign ult i32 %120, %558
   br i1 %.not.i.i.i597, label %_ZN21BSplineEvaluationDataILi2EL12BoundaryType2EE13OffsetToIndexEii.exit.i.i599, label %559
 
 559:                                              ; preds = %557
@@ -55891,7 +55891,7 @@ _ZN21BSplineEvaluationDataILi2EL12BoundaryType2EE13OffsetToIndexEii.exit.i.i599:
 581:                                              ; preds = %580
   %notmask.i.i.i606 = shl nsw i32 -1, %572
   %582 = xor i32 %notmask.i.i.i606, -1
-  %.not.i.i.i607 = icmp ult i32 %59, %582
+  %.not.i.i.i607 = icmp samesign ult i32 %59, %582
   br i1 %.not.i.i.i607, label %_ZN21BSplineEvaluationDataILi2EL12BoundaryType2EE13OffsetToIndexEii.exit.i.i609, label %583
 
 583:                                              ; preds = %581
@@ -55913,7 +55913,7 @@ _ZNK21BSplineEvaluationDataILi2EL12BoundaryType2EE9Evaluator11cornerValueEiib.ex
   %.not.i.i613 = icmp slt i32 %33, %590
   %or.cond.i.i614 = select i1 %36, i1 %.not.i.i613, i1 false
   %or.cond.i.i614.not = xor i1 %or.cond.i.i614, true
-  %591 = icmp ule i32 %590, %99
+  %591 = icmp samesign ule i32 %590, %99
   %592 = select i1 %or.cond.i.i614.not, i1 true, i1 %95
   %or.cond1564 = select i1 %592, i1 true, i1 %591
   br i1 %or.cond1564, label %_ZNK21BSplineEvaluationDataILi2EL12BoundaryType2EE9Evaluator11centerValueEiib.exit622, label %593
@@ -55924,7 +55924,7 @@ _ZNK21BSplineEvaluationDataILi2EL12BoundaryType2EE9Evaluator11cornerValueEiib.ex
 594:                                              ; preds = %593
   %notmask.i.i.i617 = shl nsw i32 -1, %589
   %595 = xor i32 %notmask.i.i.i617, -1
-  %.not.i.i.i618 = icmp ult i32 %99, %595
+  %.not.i.i.i618 = icmp samesign ult i32 %99, %595
   br i1 %.not.i.i.i618, label %_ZN21BSplineEvaluationDataILi2EL12BoundaryType2EE13OffsetToIndexEii.exit.i.i620, label %596
 
 596:                                              ; preds = %594
@@ -55962,7 +55962,7 @@ _ZNK21BSplineEvaluationDataILi2EL12BoundaryType2EE9Evaluator11centerValueEiib.ex
 611:                                              ; preds = %610
   %notmask.i.i.i626 = shl nsw i32 -1, %572
   %612 = xor i32 %notmask.i.i.i626, -1
-  %.not.i.i.i627 = icmp ult i32 %120, %612
+  %.not.i.i.i627 = icmp samesign ult i32 %120, %612
   br i1 %.not.i.i.i627, label %_ZN21BSplineEvaluationDataILi2EL12BoundaryType2EE13OffsetToIndexEii.exit.i.i629, label %613
 
 613:                                              ; preds = %611
@@ -55995,7 +55995,7 @@ _ZNK21BSplineEvaluationDataILi2EL12BoundaryType2EE9Evaluator11cornerValueEiib.ex
 625:                                              ; preds = %624
   %notmask.i.i.i636 = shl nsw i32 -1, %572
   %626 = xor i32 %notmask.i.i.i636, -1
-  %.not.i.i.i637 = icmp ult i32 %59, %626
+  %.not.i.i.i637 = icmp samesign ult i32 %59, %626
   br i1 %.not.i.i.i637, label %_ZN21BSplineEvaluationDataILi2EL12BoundaryType2EE13OffsetToIndexEii.exit.i.i639, label %627
 
 627:                                              ; preds = %625
@@ -56017,7 +56017,7 @@ _ZN21BSplineEvaluationDataILi2EL12BoundaryType2EE13OffsetToIndexEii.exit.i.i639:
 _ZNK21BSplineEvaluationDataILi2EL12BoundaryType2EE9Evaluator11cornerValueEiib.exit642: ; preds = %_ZNK21BSplineEvaluationDataILi2EL12BoundaryType2EE9Evaluator11cornerValueEiib.exit632, %619, %_ZN21BSplineEvaluationDataILi2EL12BoundaryType2EE13OffsetToIndexEii.exit.i.i639
   %.0.i.i641 = phi double [ %635, %_ZN21BSplineEvaluationDataILi2EL12BoundaryType2EE13OffsetToIndexEii.exit.i.i639 ], [ 0.000000e+00, %619 ], [ 0.000000e+00, %_ZNK21BSplineEvaluationDataILi2EL12BoundaryType2EE9Evaluator11cornerValueEiib.exit632 ]
   %or.cond.i.i614.not1565 = xor i1 %or.cond.i.i614, true
-  %636 = icmp ule i32 %590, %99
+  %636 = icmp samesign ule i32 %590, %99
   %637 = select i1 %or.cond.i.i614.not1565, i1 true, i1 %95
   %or.cond1567 = select i1 %637, i1 true, i1 %636
   br i1 %or.cond1567, label %_ZNK21BSplineEvaluationDataILi2EL12BoundaryType2EE9Evaluator11centerValueEiib.exit652, label %638
@@ -56028,7 +56028,7 @@ _ZNK21BSplineEvaluationDataILi2EL12BoundaryType2EE9Evaluator11cornerValueEiib.ex
 639:                                              ; preds = %638
   %notmask.i.i.i647 = shl nsw i32 -1, %589
   %640 = xor i32 %notmask.i.i.i647, -1
-  %.not.i.i.i648 = icmp ult i32 %99, %640
+  %.not.i.i.i648 = icmp samesign ult i32 %99, %640
   br i1 %.not.i.i.i648, label %_ZN21BSplineEvaluationDataILi2EL12BoundaryType2EE13OffsetToIndexEii.exit.i.i650, label %641
 
 641:                                              ; preds = %639
@@ -56062,7 +56062,7 @@ _ZNK21BSplineEvaluationDataILi2EL12BoundaryType2EE9Evaluator11centerValueEiib.ex
 653:                                              ; preds = %652
   %notmask.i.i.i656 = shl nsw i32 -1, %572
   %654 = xor i32 %notmask.i.i.i656, -1
-  %.not.i.i.i657 = icmp ult i32 %120, %654
+  %.not.i.i.i657 = icmp samesign ult i32 %120, %654
   br i1 %.not.i.i.i657, label %_ZN21BSplineEvaluationDataILi2EL12BoundaryType2EE13OffsetToIndexEii.exit.i.i659, label %655
 
 655:                                              ; preds = %653
@@ -56106,7 +56106,7 @@ _ZN21BSplineEvaluationDataILi2EL12BoundaryType2EE13OffsetToIndexEii.exit.i.i659:
 677:                                              ; preds = %676
   %notmask.i.i.i666 = shl nsw i32 -1, %668
   %678 = xor i32 %notmask.i.i.i666, -1
-  %.not.i.i.i667 = icmp ult i32 %59, %678
+  %.not.i.i.i667 = icmp samesign ult i32 %59, %678
   br i1 %.not.i.i.i667, label %_ZN21BSplineEvaluationDataILi2EL12BoundaryType2EE13OffsetToIndexEii.exit.i.i669, label %679
 
 679:                                              ; preds = %677
@@ -56145,7 +56145,7 @@ _ZNK21BSplineEvaluationDataILi2EL12BoundaryType2EE9Evaluator11cornerValueEiib.ex
 695:                                              ; preds = %694
   %notmask.i.i.i676 = shl nsw i32 -1, %668
   %696 = xor i32 %notmask.i.i.i676, -1
-  %.not.i.i.i677 = icmp ult i32 %99, %696
+  %.not.i.i.i677 = icmp samesign ult i32 %99, %696
   br i1 %.not.i.i.i677, label %_ZN21BSplineEvaluationDataILi2EL12BoundaryType2EE13OffsetToIndexEii.exit.i.i679, label %697
 
 697:                                              ; preds = %695
@@ -56167,7 +56167,7 @@ _ZNK21BSplineEvaluationDataILi2EL12BoundaryType2EE9Evaluator11cornerValueEiib.ex
   %.not.i.i683 = icmp slt i32 %33, %704
   %or.cond.i.i684 = select i1 %36, i1 %.not.i.i683, i1 false
   %or.cond.i.i684.not = xor i1 %or.cond.i.i684, true
-  %705 = icmp ule i32 %704, %120
+  %705 = icmp samesign ule i32 %704, %120
   %706 = select i1 %or.cond.i.i684.not, i1 true, i1 %175
   %or.cond1569 = select i1 %706, i1 true, i1 %705
   br i1 %or.cond1569, label %_ZNK21BSplineEvaluationDataILi2EL12BoundaryType2EE9Evaluator11centerValueEiib.exit692, label %707
@@ -56178,7 +56178,7 @@ _ZNK21BSplineEvaluationDataILi2EL12BoundaryType2EE9Evaluator11cornerValueEiib.ex
 708:                                              ; preds = %707
   %notmask.i.i.i687 = shl nsw i32 -1, %703
   %709 = xor i32 %notmask.i.i.i687, -1
-  %.not.i.i.i688 = icmp ult i32 %120, %709
+  %.not.i.i.i688 = icmp samesign ult i32 %120, %709
   br i1 %.not.i.i.i688, label %_ZN21BSplineEvaluationDataILi2EL12BoundaryType2EE13OffsetToIndexEii.exit.i.i690, label %710
 
 710:                                              ; preds = %708
@@ -56210,7 +56210,7 @@ _ZNK21BSplineEvaluationDataILi2EL12BoundaryType2EE9Evaluator11centerValueEiib.ex
 721:                                              ; preds = %720
   %notmask.i.i.i696 = shl nsw i32 -1, %668
   %722 = xor i32 %notmask.i.i.i696, -1
-  %.not.i.i.i697 = icmp ult i32 %59, %722
+  %.not.i.i.i697 = icmp samesign ult i32 %59, %722
   br i1 %.not.i.i.i697, label %_ZN21BSplineEvaluationDataILi2EL12BoundaryType2EE13OffsetToIndexEii.exit.i.i699, label %723
 
 723:                                              ; preds = %721
@@ -56247,7 +56247,7 @@ _ZNK21BSplineEvaluationDataILi2EL12BoundaryType2EE9Evaluator11cornerValueEiib.ex
 738:                                              ; preds = %737
   %notmask.i.i.i706 = shl nsw i32 -1, %668
   %739 = xor i32 %notmask.i.i.i706, -1
-  %.not.i.i.i707 = icmp ult i32 %99, %739
+  %.not.i.i.i707 = icmp samesign ult i32 %99, %739
   br i1 %.not.i.i.i707, label %_ZN21BSplineEvaluationDataILi2EL12BoundaryType2EE13OffsetToIndexEii.exit.i.i709, label %740
 
 740:                                              ; preds = %738
@@ -56269,7 +56269,7 @@ _ZN21BSplineEvaluationDataILi2EL12BoundaryType2EE13OffsetToIndexEii.exit.i.i709:
 _ZNK21BSplineEvaluationDataILi2EL12BoundaryType2EE9Evaluator11cornerValueEiib.exit712: ; preds = %_ZNK21BSplineEvaluationDataILi2EL12BoundaryType2EE9Evaluator11cornerValueEiib.exit702, %732, %_ZN21BSplineEvaluationDataILi2EL12BoundaryType2EE13OffsetToIndexEii.exit.i.i709
   %.0.i.i711 = phi double [ %748, %_ZN21BSplineEvaluationDataILi2EL12BoundaryType2EE13OffsetToIndexEii.exit.i.i709 ], [ 0.000000e+00, %732 ], [ 0.000000e+00, %_ZNK21BSplineEvaluationDataILi2EL12BoundaryType2EE9Evaluator11cornerValueEiib.exit702 ]
   %or.cond.i.i684.not1570 = xor i1 %or.cond.i.i684, true
-  %749 = icmp ule i32 %704, %120
+  %749 = icmp samesign ule i32 %704, %120
   %750 = select i1 %or.cond.i.i684.not1570, i1 true, i1 %175
   %or.cond1572 = select i1 %750, i1 true, i1 %749
   br i1 %or.cond1572, label %_ZNK21BSplineEvaluationDataILi2EL12BoundaryType2EE9Evaluator11cornerValueEiib.exit602, label %751
@@ -56280,7 +56280,7 @@ _ZNK21BSplineEvaluationDataILi2EL12BoundaryType2EE9Evaluator11cornerValueEiib.ex
 752:                                              ; preds = %751
   %notmask.i.i.i717 = shl nsw i32 -1, %703
   %753 = xor i32 %notmask.i.i.i717, -1
-  %.not.i.i.i718 = icmp ult i32 %120, %753
+  %.not.i.i.i718 = icmp samesign ult i32 %120, %753
   br i1 %.not.i.i.i718, label %_ZN21BSplineEvaluationDataILi2EL12BoundaryType2EE13OffsetToIndexEii.exit.i.i720, label %754
 
 754:                                              ; preds = %752
@@ -56354,7 +56354,7 @@ _ZNK21BSplineEvaluationDataILi2EL12BoundaryType2EE9Evaluator11cornerValueEiib.ex
 787:                                              ; preds = %786
   %notmask.i.i.i726 = shl nsw i32 -1, %778
   %788 = xor i32 %notmask.i.i.i726, -1
-  %.not.i.i.i727 = icmp ult i32 %59, %788
+  %.not.i.i.i727 = icmp samesign ult i32 %59, %788
   br i1 %.not.i.i.i727, label %_ZN21BSplineEvaluationDataILi2EL12BoundaryType2EE13OffsetToIndexEii.exit.i.i729, label %789
 
 789:                                              ; preds = %787
@@ -56393,7 +56393,7 @@ _ZNK21BSplineEvaluationDataILi2EL12BoundaryType2EE9Evaluator11cornerValueEiib.ex
 805:                                              ; preds = %804
   %notmask.i.i.i736 = shl nsw i32 -1, %778
   %806 = xor i32 %notmask.i.i.i736, -1
-  %.not.i.i.i737 = icmp ult i32 %99, %806
+  %.not.i.i.i737 = icmp samesign ult i32 %99, %806
   br i1 %.not.i.i.i737, label %_ZN21BSplineEvaluationDataILi2EL12BoundaryType2EE13OffsetToIndexEii.exit.i.i739, label %807
 
 807:                                              ; preds = %805
@@ -56432,7 +56432,7 @@ _ZNK21BSplineEvaluationDataILi2EL12BoundaryType2EE9Evaluator11cornerValueEiib.ex
 823:                                              ; preds = %822
   %notmask.i.i.i746 = shl nsw i32 -1, %778
   %824 = xor i32 %notmask.i.i.i746, -1
-  %.not.i.i.i747 = icmp ult i32 %120, %824
+  %.not.i.i.i747 = icmp samesign ult i32 %120, %824
   br i1 %.not.i.i.i747, label %_ZN21BSplineEvaluationDataILi2EL12BoundaryType2EE13OffsetToIndexEii.exit.i.i749, label %825
 
 825:                                              ; preds = %823
@@ -56465,7 +56465,7 @@ _ZNK21BSplineEvaluationDataILi2EL12BoundaryType2EE9Evaluator11cornerValueEiib.ex
 837:                                              ; preds = %836
   %notmask.i.i.i756 = shl nsw i32 -1, %778
   %838 = xor i32 %notmask.i.i.i756, -1
-  %.not.i.i.i757 = icmp ult i32 %59, %838
+  %.not.i.i.i757 = icmp samesign ult i32 %59, %838
   br i1 %.not.i.i.i757, label %_ZN21BSplineEvaluationDataILi2EL12BoundaryType2EE13OffsetToIndexEii.exit.i.i759, label %839
 
 839:                                              ; preds = %837
@@ -56502,7 +56502,7 @@ _ZNK21BSplineEvaluationDataILi2EL12BoundaryType2EE9Evaluator11cornerValueEiib.ex
 854:                                              ; preds = %853
   %notmask.i.i.i766 = shl nsw i32 -1, %778
   %855 = xor i32 %notmask.i.i.i766, -1
-  %.not.i.i.i767 = icmp ult i32 %99, %855
+  %.not.i.i.i767 = icmp samesign ult i32 %99, %855
   br i1 %.not.i.i.i767, label %_ZN21BSplineEvaluationDataILi2EL12BoundaryType2EE13OffsetToIndexEii.exit.i.i769, label %856
 
 856:                                              ; preds = %854
@@ -56539,7 +56539,7 @@ _ZNK21BSplineEvaluationDataILi2EL12BoundaryType2EE9Evaluator11cornerValueEiib.ex
 871:                                              ; preds = %870
   %notmask.i.i.i776 = shl nsw i32 -1, %778
   %872 = xor i32 %notmask.i.i.i776, -1
-  %.not.i.i.i777 = icmp ult i32 %120, %872
+  %.not.i.i.i777 = icmp samesign ult i32 %120, %872
   br i1 %.not.i.i.i777, label %_ZN21BSplineEvaluationDataILi2EL12BoundaryType2EE13OffsetToIndexEii.exit.i.i779, label %873
 
 873:                                              ; preds = %871
@@ -56729,7 +56729,7 @@ _ZNK21BSplineEvaluationDataILi2EL12BoundaryType2EE9Evaluator11cornerValueEiib.ex
 997:                                              ; preds = %996
   %notmask.i.i.i786 = shl nsw i32 -1, %984
   %998 = xor i32 %notmask.i.i.i786, -1
-  %.not.i.i.i787 = icmp ult i32 %908, %998
+  %.not.i.i.i787 = icmp samesign ult i32 %908, %998
   br i1 %.not.i.i.i787, label %_ZN21BSplineEvaluationDataILi2EL12BoundaryType2EE13OffsetToIndexEii.exit.i.i789, label %999
 
 999:                                              ; preds = %997
@@ -56775,7 +56775,7 @@ _ZNK21BSplineEvaluationDataILi2EL12BoundaryType2EE14ChildEvaluator11centerValueE
 1021:                                             ; preds = %1020
   %notmask.i.i.i794 = shl nsw i32 -1, %984
   %1022 = xor i32 %notmask.i.i.i794, -1
-  %.not.i.i.i795 = icmp ult i32 %947, %1022
+  %.not.i.i.i795 = icmp samesign ult i32 %947, %1022
   br i1 %.not.i.i.i795, label %_ZN21BSplineEvaluationDataILi2EL12BoundaryType2EE13OffsetToIndexEii.exit.i.i797, label %1023
 
 1023:                                             ; preds = %1021
@@ -56826,7 +56826,7 @@ _ZNK21BSplineEvaluationDataILi2EL12BoundaryType2EE14ChildEvaluator11centerValueE
   %notmask.i.i.i803 = shl nsw i32 -1, %984
   %1049 = xor i32 %notmask.i.i.i803, -1
   %1050 = trunc nsw i64 %981 to i32
-  %.not.i.i.i804 = icmp ult i32 %1050, %1049
+  %.not.i.i.i804 = icmp samesign ult i32 %1050, %1049
   br i1 %.not.i.i.i804, label %_ZN21BSplineEvaluationDataILi2EL12BoundaryType2EE13OffsetToIndexEii.exit.i.i806, label %1051
 
 1051:                                             ; preds = %1048
@@ -56869,7 +56869,7 @@ _ZNK21BSplineEvaluationDataILi2EL12BoundaryType2EE14ChildEvaluator11centerValueE
 1070:                                             ; preds = %1069
   %notmask.i.i.i812 = shl nsw i32 -1, %984
   %1071 = xor i32 %notmask.i.i.i812, -1
-  %.not.i.i.i813 = icmp ult i32 %910, %1071
+  %.not.i.i.i813 = icmp samesign ult i32 %910, %1071
   br i1 %.not.i.i.i813, label %_ZN21BSplineEvaluationDataILi2EL12BoundaryType2EE13OffsetToIndexEii.exit.i.i815, label %1072
 
 1072:                                             ; preds = %1070
@@ -56915,7 +56915,7 @@ _ZNK21BSplineEvaluationDataILi2EL12BoundaryType2EE14ChildEvaluator11centerValueE
 1093:                                             ; preds = %1092
   %notmask.i.i.i821 = shl nsw i32 -1, %984
   %1094 = xor i32 %notmask.i.i.i821, -1
-  %.not.i.i.i822 = icmp ult i32 %949, %1094
+  %.not.i.i.i822 = icmp samesign ult i32 %949, %1094
   br i1 %.not.i.i.i822, label %_ZN21BSplineEvaluationDataILi2EL12BoundaryType2EE13OffsetToIndexEii.exit.i.i824, label %1095
 
 1095:                                             ; preds = %1093
@@ -56964,7 +56964,7 @@ _ZNK21BSplineEvaluationDataILi2EL12BoundaryType2EE14ChildEvaluator11centerValueE
   %notmask.i.i.i830 = shl nsw i32 -1, %984
   %1119 = xor i32 %notmask.i.i.i830, -1
   %1120 = trunc nsw i64 %981 to i32
-  %.not.i.i.i831 = icmp ult i32 %1120, %1119
+  %.not.i.i.i831 = icmp samesign ult i32 %1120, %1119
   br i1 %.not.i.i.i831, label %_ZN21BSplineEvaluationDataILi2EL12BoundaryType2EE13OffsetToIndexEii.exit.i.i833, label %1121
 
 1121:                                             ; preds = %1118
@@ -57080,7 +57080,7 @@ _ZNK21BSplineEvaluationDataILi2EL12BoundaryType2EE14ChildEvaluator11centerValueE
 1193:                                             ; preds = %1192
   %notmask.i.i.i838 = shl nsw i32 -1, %1180
   %1194 = xor i32 %notmask.i.i.i838, -1
-  %.not.i.i.i839 = icmp ult i32 %920, %1194
+  %.not.i.i.i839 = icmp samesign ult i32 %920, %1194
   br i1 %.not.i.i.i839, label %_ZN21BSplineEvaluationDataILi2EL12BoundaryType2EE13OffsetToIndexEii.exit.i.i841, label %1195
 
 1195:                                             ; preds = %1193
@@ -57127,7 +57127,7 @@ _ZNK21BSplineEvaluationDataILi2EL12BoundaryType2EE14ChildEvaluator11cornerValueE
 1218:                                             ; preds = %1217
   %notmask.i.i.i847 = shl nsw i32 -1, %1205
   %1219 = xor i32 %notmask.i.i.i847, -1
-  %.not.i.i.i848 = icmp ult i32 %959, %1219
+  %.not.i.i.i848 = icmp samesign ult i32 %959, %1219
   br i1 %.not.i.i.i848, label %_ZN21BSplineEvaluationDataILi2EL12BoundaryType2EE13OffsetToIndexEii.exit.i.i850, label %1220
 
 1220:                                             ; preds = %1218
@@ -57173,7 +57173,7 @@ _ZNK21BSplineEvaluationDataILi2EL12BoundaryType2EE14ChildEvaluator11centerValueE
 1242:                                             ; preds = %1241
   %notmask.i.i.i856 = shl nsw i32 -1, %1205
   %1243 = xor i32 %notmask.i.i.i856, -1
-  %.not.i.i.i857 = icmp ult i32 %1155, %1243
+  %.not.i.i.i857 = icmp samesign ult i32 %1155, %1243
   br i1 %.not.i.i.i857, label %_ZN21BSplineEvaluationDataILi2EL12BoundaryType2EE13OffsetToIndexEii.exit.i.i859, label %1244
 
 1244:                                             ; preds = %1242
@@ -57215,7 +57215,7 @@ _ZNK21BSplineEvaluationDataILi2EL12BoundaryType2EE14ChildEvaluator11centerValueE
 1262:                                             ; preds = %1261
   %notmask.i.i.i864 = shl nsw i32 -1, %1180
   %1263 = xor i32 %notmask.i.i.i864, -1
-  %.not.i.i.i865 = icmp ult i32 %922, %1263
+  %.not.i.i.i865 = icmp samesign ult i32 %922, %1263
   br i1 %.not.i.i.i865, label %_ZN21BSplineEvaluationDataILi2EL12BoundaryType2EE13OffsetToIndexEii.exit.i.i867, label %1264
 
 1264:                                             ; preds = %1262
@@ -57261,7 +57261,7 @@ _ZNK21BSplineEvaluationDataILi2EL12BoundaryType2EE14ChildEvaluator11cornerValueE
 1285:                                             ; preds = %1284
   %notmask.i.i.i874 = shl nsw i32 -1, %1205
   %1286 = xor i32 %notmask.i.i.i874, -1
-  %.not.i.i.i875 = icmp ult i32 %961, %1286
+  %.not.i.i.i875 = icmp samesign ult i32 %961, %1286
   br i1 %.not.i.i.i875, label %_ZN21BSplineEvaluationDataILi2EL12BoundaryType2EE13OffsetToIndexEii.exit.i.i877, label %1287
 
 1287:                                             ; preds = %1285
@@ -57307,7 +57307,7 @@ _ZNK21BSplineEvaluationDataILi2EL12BoundaryType2EE14ChildEvaluator11centerValueE
 1308:                                             ; preds = %1307
   %notmask.i.i.i883 = shl nsw i32 -1, %1205
   %1309 = xor i32 %notmask.i.i.i883, -1
-  %.not.i.i.i884 = icmp ult i32 %1157, %1309
+  %.not.i.i.i884 = icmp samesign ult i32 %1157, %1309
   br i1 %.not.i.i.i884, label %_ZN21BSplineEvaluationDataILi2EL12BoundaryType2EE13OffsetToIndexEii.exit.i.i886, label %1310
 
 1310:                                             ; preds = %1308
@@ -57357,7 +57357,7 @@ _ZN21BSplineEvaluationDataILi2EL12BoundaryType2EE13OffsetToIndexEii.exit.i.i886:
 1337:                                             ; preds = %1336
   %notmask.i.i.i892 = shl nsw i32 -1, %1324
   %1338 = xor i32 %notmask.i.i.i892, -1
-  %.not.i.i.i893 = icmp ult i32 %916, %1338
+  %.not.i.i.i893 = icmp samesign ult i32 %916, %1338
   br i1 %.not.i.i.i893, label %_ZN21BSplineEvaluationDataILi2EL12BoundaryType2EE13OffsetToIndexEii.exit.i.i895, label %1339
 
 1339:                                             ; preds = %1337
@@ -57406,7 +57406,7 @@ _ZNK21BSplineEvaluationDataILi2EL12BoundaryType2EE14ChildEvaluator11centerValueE
 1364:                                             ; preds = %1363
   %notmask.i.i.i900 = shl nsw i32 -1, %1351
   %1365 = xor i32 %notmask.i.i.i900, -1
-  %.not.i.i.i901 = icmp ult i32 %955, %1365
+  %.not.i.i.i901 = icmp samesign ult i32 %955, %1365
   br i1 %.not.i.i.i901, label %_ZN21BSplineEvaluationDataILi2EL12BoundaryType2EE13OffsetToIndexEii.exit.i.i903, label %1366
 
 1366:                                             ; preds = %1364
@@ -57452,7 +57452,7 @@ _ZNK21BSplineEvaluationDataILi2EL12BoundaryType2EE14ChildEvaluator11cornerValueE
 1388:                                             ; preds = %1387
   %notmask.i.i.i910 = shl nsw i32 -1, %1324
   %1389 = xor i32 %notmask.i.i.i910, -1
-  %.not.i.i.i911 = icmp ult i32 %1151, %1389
+  %.not.i.i.i911 = icmp samesign ult i32 %1151, %1389
   br i1 %.not.i.i.i911, label %_ZN21BSplineEvaluationDataILi2EL12BoundaryType2EE13OffsetToIndexEii.exit.i.i913, label %1390
 
 1390:                                             ; preds = %1388
@@ -57494,7 +57494,7 @@ _ZNK21BSplineEvaluationDataILi2EL12BoundaryType2EE14ChildEvaluator11centerValueE
 1408:                                             ; preds = %1407
   %notmask.i.i.i919 = shl nsw i32 -1, %1324
   %1409 = xor i32 %notmask.i.i.i919, -1
-  %.not.i.i.i920 = icmp ult i32 %918, %1409
+  %.not.i.i.i920 = icmp samesign ult i32 %918, %1409
   br i1 %.not.i.i.i920, label %_ZN21BSplineEvaluationDataILi2EL12BoundaryType2EE13OffsetToIndexEii.exit.i.i922, label %1410
 
 1410:                                             ; preds = %1408
@@ -57540,7 +57540,7 @@ _ZNK21BSplineEvaluationDataILi2EL12BoundaryType2EE14ChildEvaluator11centerValueE
 1431:                                             ; preds = %1430
   %notmask.i.i.i927 = shl nsw i32 -1, %1351
   %1432 = xor i32 %notmask.i.i.i927, -1
-  %.not.i.i.i928 = icmp ult i32 %957, %1432
+  %.not.i.i.i928 = icmp samesign ult i32 %957, %1432
   br i1 %.not.i.i.i928, label %_ZN21BSplineEvaluationDataILi2EL12BoundaryType2EE13OffsetToIndexEii.exit.i.i930, label %1433
 
 1433:                                             ; preds = %1431
@@ -57586,7 +57586,7 @@ _ZNK21BSplineEvaluationDataILi2EL12BoundaryType2EE14ChildEvaluator11cornerValueE
 1454:                                             ; preds = %1453
   %notmask.i.i.i937 = shl nsw i32 -1, %1324
   %1455 = xor i32 %notmask.i.i.i937, -1
-  %.not.i.i.i938 = icmp ult i32 %1153, %1455
+  %.not.i.i.i938 = icmp samesign ult i32 %1153, %1455
   br i1 %.not.i.i.i938, label %_ZN21BSplineEvaluationDataILi2EL12BoundaryType2EE13OffsetToIndexEii.exit.i.i940, label %1456
 
 1456:                                             ; preds = %1454
@@ -57636,7 +57636,7 @@ _ZN21BSplineEvaluationDataILi2EL12BoundaryType2EE13OffsetToIndexEii.exit.i.i940:
 1483:                                             ; preds = %1482
   %notmask.i.i.i946 = shl nsw i32 -1, %1470
   %1484 = xor i32 %notmask.i.i.i946, -1
-  %.not.i.i.i947 = icmp ult i32 %912, %1484
+  %.not.i.i.i947 = icmp samesign ult i32 %912, %1484
   br i1 %.not.i.i.i947, label %_ZN21BSplineEvaluationDataILi2EL12BoundaryType2EE13OffsetToIndexEii.exit.i.i949, label %1485
 
 1485:                                             ; preds = %1483
@@ -57682,7 +57682,7 @@ _ZNK21BSplineEvaluationDataILi2EL12BoundaryType2EE14ChildEvaluator11centerValueE
 1507:                                             ; preds = %1506
   %notmask.i.i.i955 = shl nsw i32 -1, %1470
   %1508 = xor i32 %notmask.i.i.i955, -1
-  %.not.i.i.i956 = icmp ult i32 %951, %1508
+  %.not.i.i.i956 = icmp samesign ult i32 %951, %1508
   br i1 %.not.i.i.i956, label %_ZN21BSplineEvaluationDataILi2EL12BoundaryType2EE13OffsetToIndexEii.exit.i.i958, label %1509
 
 1509:                                             ; preds = %1507
@@ -57731,7 +57731,7 @@ _ZNK21BSplineEvaluationDataILi2EL12BoundaryType2EE14ChildEvaluator11centerValueE
 1534:                                             ; preds = %1533
   %notmask.i.i.i963 = shl nsw i32 -1, %1521
   %1535 = xor i32 %notmask.i.i.i963, -1
-  %.not.i.i.i964 = icmp ult i32 %1147, %1535
+  %.not.i.i.i964 = icmp samesign ult i32 %1147, %1535
   br i1 %.not.i.i.i964, label %_ZN21BSplineEvaluationDataILi2EL12BoundaryType2EE13OffsetToIndexEii.exit.i.i966, label %1536
 
 1536:                                             ; preds = %1534
@@ -57773,7 +57773,7 @@ _ZNK21BSplineEvaluationDataILi2EL12BoundaryType2EE14ChildEvaluator11cornerValueE
 1554:                                             ; preds = %1553
   %notmask.i.i.i973 = shl nsw i32 -1, %1470
   %1555 = xor i32 %notmask.i.i.i973, -1
-  %.not.i.i.i974 = icmp ult i32 %914, %1555
+  %.not.i.i.i974 = icmp samesign ult i32 %914, %1555
   br i1 %.not.i.i.i974, label %_ZN21BSplineEvaluationDataILi2EL12BoundaryType2EE13OffsetToIndexEii.exit.i.i976, label %1556
 
 1556:                                             ; preds = %1554
@@ -57819,7 +57819,7 @@ _ZNK21BSplineEvaluationDataILi2EL12BoundaryType2EE14ChildEvaluator11centerValueE
 1577:                                             ; preds = %1576
   %notmask.i.i.i982 = shl nsw i32 -1, %1470
   %1578 = xor i32 %notmask.i.i.i982, -1
-  %.not.i.i.i983 = icmp ult i32 %953, %1578
+  %.not.i.i.i983 = icmp samesign ult i32 %953, %1578
   br i1 %.not.i.i.i983, label %_ZN21BSplineEvaluationDataILi2EL12BoundaryType2EE13OffsetToIndexEii.exit.i.i985, label %1579
 
 1579:                                             ; preds = %1577
@@ -57865,7 +57865,7 @@ _ZNK21BSplineEvaluationDataILi2EL12BoundaryType2EE14ChildEvaluator11centerValueE
 1600:                                             ; preds = %1599
   %notmask.i.i.i990 = shl nsw i32 -1, %1521
   %1601 = xor i32 %notmask.i.i.i990, -1
-  %.not.i.i.i991 = icmp ult i32 %1149, %1601
+  %.not.i.i.i991 = icmp samesign ult i32 %1149, %1601
   br i1 %.not.i.i.i991, label %_ZN21BSplineEvaluationDataILi2EL12BoundaryType2EE13OffsetToIndexEii.exit.i.i993, label %1602
 
 1602:                                             ; preds = %1600
@@ -57963,7 +57963,7 @@ _ZNK21BSplineEvaluationDataILi2EL12BoundaryType2EE14ChildEvaluator11centerValueE
 1649:                                             ; preds = %1648
   %notmask.i.i.i1000 = shl nsw i32 -1, %1636
   %1650 = xor i32 %notmask.i.i.i1000, -1
-  %.not.i.i.i1001 = icmp ult i32 %932, %1650
+  %.not.i.i.i1001 = icmp samesign ult i32 %932, %1650
   br i1 %.not.i.i.i1001, label %_ZN21BSplineEvaluationDataILi2EL12BoundaryType2EE13OffsetToIndexEii.exit.i.i1003, label %1651
 
 1651:                                             ; preds = %1649
@@ -58012,7 +58012,7 @@ _ZNK21BSplineEvaluationDataILi2EL12BoundaryType2EE14ChildEvaluator11centerValueE
 1676:                                             ; preds = %1675
   %notmask.i.i.i1008 = shl nsw i32 -1, %1663
   %1677 = xor i32 %notmask.i.i.i1008, -1
-  %.not.i.i.i1009 = icmp ult i32 %971, %1677
+  %.not.i.i.i1009 = icmp samesign ult i32 %971, %1677
   br i1 %.not.i.i.i1009, label %_ZN21BSplineEvaluationDataILi2EL12BoundaryType2EE13OffsetToIndexEii.exit.i.i1011, label %1678
 
 1678:                                             ; preds = %1676
@@ -58060,7 +58060,7 @@ _ZNK21BSplineEvaluationDataILi2EL12BoundaryType2EE14ChildEvaluator11cornerValueE
 1702:                                             ; preds = %1701
   %notmask.i.i.i1017 = shl nsw i32 -1, %1663
   %1703 = xor i32 %notmask.i.i.i1017, -1
-  %.not.i.i.i1018 = icmp ult i32 %1167, %1703
+  %.not.i.i.i1018 = icmp samesign ult i32 %1167, %1703
   br i1 %.not.i.i.i1018, label %_ZN21BSplineEvaluationDataILi2EL12BoundaryType2EE13OffsetToIndexEii.exit.i.i1020, label %1704
 
 1704:                                             ; preds = %1702
@@ -58102,7 +58102,7 @@ _ZNK21BSplineEvaluationDataILi2EL12BoundaryType2EE14ChildEvaluator11cornerValueE
 1722:                                             ; preds = %1721
   %notmask.i.i.i1027 = shl nsw i32 -1, %1636
   %1723 = xor i32 %notmask.i.i.i1027, -1
-  %.not.i.i.i1028 = icmp ult i32 %934, %1723
+  %.not.i.i.i1028 = icmp samesign ult i32 %934, %1723
   br i1 %.not.i.i.i1028, label %_ZN21BSplineEvaluationDataILi2EL12BoundaryType2EE13OffsetToIndexEii.exit.i.i1030, label %1724
 
 1724:                                             ; preds = %1722
@@ -58148,7 +58148,7 @@ _ZNK21BSplineEvaluationDataILi2EL12BoundaryType2EE14ChildEvaluator11centerValueE
 1745:                                             ; preds = %1744
   %notmask.i.i.i1035 = shl nsw i32 -1, %1663
   %1746 = xor i32 %notmask.i.i.i1035, -1
-  %.not.i.i.i1036 = icmp ult i32 %973, %1746
+  %.not.i.i.i1036 = icmp samesign ult i32 %973, %1746
   br i1 %.not.i.i.i1036, label %_ZN21BSplineEvaluationDataILi2EL12BoundaryType2EE13OffsetToIndexEii.exit.i.i1038, label %1747
 
 1747:                                             ; preds = %1745
@@ -58194,7 +58194,7 @@ _ZNK21BSplineEvaluationDataILi2EL12BoundaryType2EE14ChildEvaluator11cornerValueE
 1768:                                             ; preds = %1767
   %notmask.i.i.i1044 = shl nsw i32 -1, %1663
   %1769 = xor i32 %notmask.i.i.i1044, -1
-  %.not.i.i.i1045 = icmp ult i32 %1169, %1769
+  %.not.i.i.i1045 = icmp samesign ult i32 %1169, %1769
   br i1 %.not.i.i.i1045, label %_ZN21BSplineEvaluationDataILi2EL12BoundaryType2EE13OffsetToIndexEii.exit.i.i1047, label %1770
 
 1770:                                             ; preds = %1768
@@ -58246,7 +58246,7 @@ _ZN21BSplineEvaluationDataILi2EL12BoundaryType2EE13OffsetToIndexEii.exit.i.i1047
 1799:                                             ; preds = %1798
   %notmask.i.i.i1053 = shl nsw i32 -1, %1786
   %1800 = xor i32 %notmask.i.i.i1053, -1
-  %.not.i.i.i1054 = icmp ult i32 %928, %1800
+  %.not.i.i.i1054 = icmp samesign ult i32 %928, %1800
   br i1 %.not.i.i.i1054, label %_ZN21BSplineEvaluationDataILi2EL12BoundaryType2EE13OffsetToIndexEii.exit.i.i1056, label %1801
 
 1801:                                             ; preds = %1799
@@ -58293,7 +58293,7 @@ _ZNK21BSplineEvaluationDataILi2EL12BoundaryType2EE14ChildEvaluator11cornerValueE
 1824:                                             ; preds = %1823
   %notmask.i.i.i1063 = shl nsw i32 -1, %1811
   %1825 = xor i32 %notmask.i.i.i1063, -1
-  %.not.i.i.i1064 = icmp ult i32 %967, %1825
+  %.not.i.i.i1064 = icmp samesign ult i32 %967, %1825
   br i1 %.not.i.i.i1064, label %_ZN21BSplineEvaluationDataILi2EL12BoundaryType2EE13OffsetToIndexEii.exit.i.i1066, label %1826
 
 1826:                                             ; preds = %1824
@@ -58341,7 +58341,7 @@ _ZNK21BSplineEvaluationDataILi2EL12BoundaryType2EE14ChildEvaluator11centerValueE
 1850:                                             ; preds = %1849
   %notmask.i.i.i1071 = shl nsw i32 -1, %1786
   %1851 = xor i32 %notmask.i.i.i1071, -1
-  %.not.i.i.i1072 = icmp ult i32 %1163, %1851
+  %.not.i.i.i1072 = icmp samesign ult i32 %1163, %1851
   br i1 %.not.i.i.i1072, label %_ZN21BSplineEvaluationDataILi2EL12BoundaryType2EE13OffsetToIndexEii.exit.i.i1074, label %1852
 
 1852:                                             ; preds = %1850
@@ -58383,7 +58383,7 @@ _ZNK21BSplineEvaluationDataILi2EL12BoundaryType2EE14ChildEvaluator11cornerValueE
 1870:                                             ; preds = %1869
   %notmask.i.i.i1080 = shl nsw i32 -1, %1786
   %1871 = xor i32 %notmask.i.i.i1080, -1
-  %.not.i.i.i1081 = icmp ult i32 %930, %1871
+  %.not.i.i.i1081 = icmp samesign ult i32 %930, %1871
   br i1 %.not.i.i.i1081, label %_ZN21BSplineEvaluationDataILi2EL12BoundaryType2EE13OffsetToIndexEii.exit.i.i1083, label %1872
 
 1872:                                             ; preds = %1870
@@ -58429,7 +58429,7 @@ _ZNK21BSplineEvaluationDataILi2EL12BoundaryType2EE14ChildEvaluator11cornerValueE
 1893:                                             ; preds = %1892
   %notmask.i.i.i1090 = shl nsw i32 -1, %1811
   %1894 = xor i32 %notmask.i.i.i1090, -1
-  %.not.i.i.i1091 = icmp ult i32 %969, %1894
+  %.not.i.i.i1091 = icmp samesign ult i32 %969, %1894
   br i1 %.not.i.i.i1091, label %_ZN21BSplineEvaluationDataILi2EL12BoundaryType2EE13OffsetToIndexEii.exit.i.i1093, label %1895
 
 1895:                                             ; preds = %1893
@@ -58475,7 +58475,7 @@ _ZNK21BSplineEvaluationDataILi2EL12BoundaryType2EE14ChildEvaluator11centerValueE
 1916:                                             ; preds = %1915
   %notmask.i.i.i1098 = shl nsw i32 -1, %1786
   %1917 = xor i32 %notmask.i.i.i1098, -1
-  %.not.i.i.i1099 = icmp ult i32 %1165, %1917
+  %.not.i.i.i1099 = icmp samesign ult i32 %1165, %1917
   br i1 %.not.i.i.i1099, label %_ZN21BSplineEvaluationDataILi2EL12BoundaryType2EE13OffsetToIndexEii.exit.i.i1101, label %1918
 
 1918:                                             ; preds = %1916
@@ -58527,7 +58527,7 @@ _ZN21BSplineEvaluationDataILi2EL12BoundaryType2EE13OffsetToIndexEii.exit.i.i1101
 1947:                                             ; preds = %1946
   %notmask.i.i.i1107 = shl nsw i32 -1, %1934
   %1948 = xor i32 %notmask.i.i.i1107, -1
-  %.not.i.i.i1108 = icmp ult i32 %924, %1948
+  %.not.i.i.i1108 = icmp samesign ult i32 %924, %1948
   br i1 %.not.i.i.i1108, label %_ZN21BSplineEvaluationDataILi2EL12BoundaryType2EE13OffsetToIndexEii.exit.i.i1110, label %1949
 
 1949:                                             ; preds = %1947
@@ -58575,7 +58575,7 @@ _ZNK21BSplineEvaluationDataILi2EL12BoundaryType2EE14ChildEvaluator11cornerValueE
 1973:                                             ; preds = %1972
   %notmask.i.i.i1116 = shl nsw i32 -1, %1934
   %1974 = xor i32 %notmask.i.i.i1116, -1
-  %.not.i.i.i1117 = icmp ult i32 %963, %1974
+  %.not.i.i.i1117 = icmp samesign ult i32 %963, %1974
   br i1 %.not.i.i.i1117, label %_ZN21BSplineEvaluationDataILi2EL12BoundaryType2EE13OffsetToIndexEii.exit.i.i1119, label %1975
 
 1975:                                             ; preds = %1973
@@ -58622,7 +58622,7 @@ _ZNK21BSplineEvaluationDataILi2EL12BoundaryType2EE14ChildEvaluator11cornerValueE
 1998:                                             ; preds = %1997
   %notmask.i.i.i1126 = shl nsw i32 -1, %1985
   %1999 = xor i32 %notmask.i.i.i1126, -1
-  %.not.i.i.i1127 = icmp ult i32 %1159, %1999
+  %.not.i.i.i1127 = icmp samesign ult i32 %1159, %1999
   br i1 %.not.i.i.i1127, label %_ZN21BSplineEvaluationDataILi2EL12BoundaryType2EE13OffsetToIndexEii.exit.i.i1129, label %2000
 
 2000:                                             ; preds = %1998
@@ -58664,7 +58664,7 @@ _ZNK21BSplineEvaluationDataILi2EL12BoundaryType2EE14ChildEvaluator11centerValueE
 2018:                                             ; preds = %2017
   %notmask.i.i.i1134 = shl nsw i32 -1, %1934
   %2019 = xor i32 %notmask.i.i.i1134, -1
-  %.not.i.i.i1135 = icmp ult i32 %926, %2019
+  %.not.i.i.i1135 = icmp samesign ult i32 %926, %2019
   br i1 %.not.i.i.i1135, label %_ZN21BSplineEvaluationDataILi2EL12BoundaryType2EE13OffsetToIndexEii.exit.i.i1137, label %2020
 
 2020:                                             ; preds = %2018
@@ -58710,7 +58710,7 @@ _ZNK21BSplineEvaluationDataILi2EL12BoundaryType2EE14ChildEvaluator11cornerValueE
 2041:                                             ; preds = %2040
   %notmask.i.i.i1143 = shl nsw i32 -1, %1934
   %2042 = xor i32 %notmask.i.i.i1143, -1
-  %.not.i.i.i1144 = icmp ult i32 %965, %2042
+  %.not.i.i.i1144 = icmp samesign ult i32 %965, %2042
   br i1 %.not.i.i.i1144, label %_ZN21BSplineEvaluationDataILi2EL12BoundaryType2EE13OffsetToIndexEii.exit.i.i1146, label %2043
 
 2043:                                             ; preds = %2041
@@ -58756,7 +58756,7 @@ _ZNK21BSplineEvaluationDataILi2EL12BoundaryType2EE14ChildEvaluator11cornerValueE
 2064:                                             ; preds = %2063
   %notmask.i.i.i1153 = shl nsw i32 -1, %1985
   %2065 = xor i32 %notmask.i.i.i1153, -1
-  %.not.i.i.i1154 = icmp ult i32 %1161, %2065
+  %.not.i.i.i1154 = icmp samesign ult i32 %1161, %2065
   br i1 %.not.i.i.i1154, label %_ZN21BSplineEvaluationDataILi2EL12BoundaryType2EE13OffsetToIndexEii.exit.i.i1156, label %2066
 
 2066:                                             ; preds = %2064
@@ -58841,7 +58841,7 @@ _ZNK21BSplineEvaluationDataILi2EL12BoundaryType2EE14ChildEvaluator11cornerValueE
 2109:                                             ; preds = %2108
   %notmask.i.i.i1161 = shl nsw i32 -1, %2096
   %2110 = xor i32 %notmask.i.i.i1161, -1
-  %.not.i.i.i1162 = icmp ult i32 %936, %2110
+  %.not.i.i.i1162 = icmp samesign ult i32 %936, %2110
   br i1 %.not.i.i.i1162, label %_ZN21BSplineEvaluationDataILi2EL12BoundaryType2EE13OffsetToIndexEii.exit.i.i1164, label %2111
 
 2111:                                             ; preds = %2109
@@ -58889,7 +58889,7 @@ _ZNK21BSplineEvaluationDataILi2EL12BoundaryType2EE14ChildEvaluator11cornerValueE
 2135:                                             ; preds = %2134
   %notmask.i.i.i1170 = shl nsw i32 -1, %2096
   %2136 = xor i32 %notmask.i.i.i1170, -1
-  %.not.i.i.i1171 = icmp ult i32 %975, %2136
+  %.not.i.i.i1171 = icmp samesign ult i32 %975, %2136
   br i1 %.not.i.i.i1171, label %_ZN21BSplineEvaluationDataILi2EL12BoundaryType2EE13OffsetToIndexEii.exit.i.i1173, label %2137
 
 2137:                                             ; preds = %2135
@@ -58937,7 +58937,7 @@ _ZNK21BSplineEvaluationDataILi2EL12BoundaryType2EE14ChildEvaluator11cornerValueE
 2161:                                             ; preds = %2160
   %notmask.i.i.i1179 = shl nsw i32 -1, %2096
   %2162 = xor i32 %notmask.i.i.i1179, -1
-  %.not.i.i.i1180 = icmp ult i32 %1625, %2162
+  %.not.i.i.i1180 = icmp samesign ult i32 %1625, %2162
   br i1 %.not.i.i.i1180, label %_ZN21BSplineEvaluationDataILi2EL12BoundaryType2EE13OffsetToIndexEii.exit.i.i1182, label %2163
 
 2163:                                             ; preds = %2161
@@ -58979,7 +58979,7 @@ _ZNK21BSplineEvaluationDataILi2EL12BoundaryType2EE14ChildEvaluator11cornerValueE
 2181:                                             ; preds = %2180
   %notmask.i.i.i1188 = shl nsw i32 -1, %2096
   %2182 = xor i32 %notmask.i.i.i1188, -1
-  %.not.i.i.i1189 = icmp ult i32 %938, %2182
+  %.not.i.i.i1189 = icmp samesign ult i32 %938, %2182
   br i1 %.not.i.i.i1189, label %_ZN21BSplineEvaluationDataILi2EL12BoundaryType2EE13OffsetToIndexEii.exit.i.i1191, label %2183
 
 2183:                                             ; preds = %2181
@@ -59025,7 +59025,7 @@ _ZNK21BSplineEvaluationDataILi2EL12BoundaryType2EE14ChildEvaluator11cornerValueE
 2204:                                             ; preds = %2203
   %notmask.i.i.i1197 = shl nsw i32 -1, %2096
   %2205 = xor i32 %notmask.i.i.i1197, -1
-  %.not.i.i.i1198 = icmp ult i32 %977, %2205
+  %.not.i.i.i1198 = icmp samesign ult i32 %977, %2205
   br i1 %.not.i.i.i1198, label %_ZN21BSplineEvaluationDataILi2EL12BoundaryType2EE13OffsetToIndexEii.exit.i.i1200, label %2206
 
 2206:                                             ; preds = %2204
@@ -59071,7 +59071,7 @@ _ZNK21BSplineEvaluationDataILi2EL12BoundaryType2EE14ChildEvaluator11cornerValueE
 2227:                                             ; preds = %2226
   %notmask.i.i.i1206 = shl nsw i32 -1, %2096
   %2228 = xor i32 %notmask.i.i.i1206, -1
-  %.not.i.i.i1207 = icmp ult i32 %1627, %2228
+  %.not.i.i.i1207 = icmp samesign ult i32 %1627, %2228
   br i1 %.not.i.i.i1207, label %_ZN21BSplineEvaluationDataILi2EL12BoundaryType2EE13OffsetToIndexEii.exit.i.i1209, label %2229
 
 2229:                                             ; preds = %2227
@@ -66008,7 +66008,7 @@ _Z12IsActiveNodePK7OctNodeI12TreeNodeDataE.exit.thread: ; preds = %85, %96, %_Z1
   %notmask.i.i.i = shl nsw i32 -1, %123
   %135 = xor i32 %notmask.i.i.i, -1
   %.not.i.i109 = icmp sgt i32 %134, 0
-  %136 = icmp ult i32 %134, %135
+  %136 = icmp samesign ult i32 %134, %135
   %or.cond17.i.i = select i1 %.not.i.i109, i1 %136, i1 false
   br i1 %or.cond17.i.i, label %137, label %_ZNK6OctreeIfE22_isInteriorlySupportedILi2EEEbPK7OctNodeI12TreeNodeDataE.exit
 
@@ -66504,7 +66504,7 @@ _ZNK6OctreeIfE15_isValidFEMNodeEPK7OctNodeI12TreeNodeDataE.exit: ; preds = %_Z12
   br i1 %154, label %_ZN21BSplineEvaluationDataILi2EL12BoundaryType2EE13OffsetToIndexEii.exit.i.i, label %155
 
 155:                                              ; preds = %153
-  %.not.i.i.i = icmp ult i32 %144, %56
+  %.not.i.i.i = icmp samesign ult i32 %144, %56
   br i1 %.not.i.i.i, label %_ZN21BSplineEvaluationDataILi2EL12BoundaryType2EE13OffsetToIndexEii.exit.i.i, label %156
 
 156:                                              ; preds = %155
@@ -66537,7 +66537,7 @@ _ZNK21BSplineEvaluationDataILi2EL12BoundaryType2EE9Evaluator11cornerValueEiib.ex
   br i1 %169, label %_ZN21BSplineEvaluationDataILi2EL12BoundaryType2EE13OffsetToIndexEii.exit.i.i196, label %170
 
 170:                                              ; preds = %168
-  %.not.i.i.i194 = icmp ult i32 %145, %56
+  %.not.i.i.i194 = icmp samesign ult i32 %145, %56
   br i1 %.not.i.i.i194, label %_ZN21BSplineEvaluationDataILi2EL12BoundaryType2EE13OffsetToIndexEii.exit.i.i196, label %171
 
 171:                                              ; preds = %170
@@ -66570,7 +66570,7 @@ _ZNK21BSplineEvaluationDataILi2EL12BoundaryType2EE9Evaluator11cornerValueEiib.ex
   br i1 %184, label %_ZN21BSplineEvaluationDataILi2EL12BoundaryType2EE13OffsetToIndexEii.exit.i.i206, label %185
 
 185:                                              ; preds = %183
-  %.not.i.i.i204 = icmp ult i32 %146, %56
+  %.not.i.i.i204 = icmp samesign ult i32 %146, %56
   br i1 %.not.i.i.i204, label %_ZN21BSplineEvaluationDataILi2EL12BoundaryType2EE13OffsetToIndexEii.exit.i.i206, label %186
 
 186:                                              ; preds = %185
@@ -66602,7 +66602,7 @@ _ZNK21BSplineEvaluationDataILi2EL12BoundaryType2EE9Evaluator11cornerValueEiib.ex
   br i1 %198, label %_ZN21BSplineEvaluationDataILi2EL12BoundaryType2EE13OffsetToIndexEii.exit.i.i216, label %199
 
 199:                                              ; preds = %197
-  %.not.i.i.i214 = icmp ult i32 %144, %56
+  %.not.i.i.i214 = icmp samesign ult i32 %144, %56
   br i1 %.not.i.i.i214, label %_ZN21BSplineEvaluationDataILi2EL12BoundaryType2EE13OffsetToIndexEii.exit.i.i216, label %200
 
 200:                                              ; preds = %199
@@ -66638,7 +66638,7 @@ _ZNK21BSplineEvaluationDataILi2EL12BoundaryType2EE9Evaluator11cornerValueEiib.ex
   br i1 %215, label %_ZN21BSplineEvaluationDataILi2EL12BoundaryType2EE13OffsetToIndexEii.exit.i.i226, label %216
 
 216:                                              ; preds = %214
-  %.not.i.i.i224 = icmp ult i32 %145, %56
+  %.not.i.i.i224 = icmp samesign ult i32 %145, %56
   br i1 %.not.i.i.i224, label %_ZN21BSplineEvaluationDataILi2EL12BoundaryType2EE13OffsetToIndexEii.exit.i.i226, label %217
 
 217:                                              ; preds = %216
@@ -66674,7 +66674,7 @@ _ZNK21BSplineEvaluationDataILi2EL12BoundaryType2EE9Evaluator11cornerValueEiib.ex
   br i1 %232, label %_ZN21BSplineEvaluationDataILi2EL12BoundaryType2EE13OffsetToIndexEii.exit.i.i236, label %233
 
 233:                                              ; preds = %231
-  %.not.i.i.i234 = icmp ult i32 %146, %56
+  %.not.i.i.i234 = icmp samesign ult i32 %146, %56
   br i1 %.not.i.i.i234, label %_ZN21BSplineEvaluationDataILi2EL12BoundaryType2EE13OffsetToIndexEii.exit.i.i236, label %234
 
 234:                                              ; preds = %233
@@ -66997,7 +66997,7 @@ _ZNK6OctreeIfE15_isValidFEMNodeEPK7OctNodeI12TreeNodeDataE.exit243: ; preds = %_
   br i1 %398, label %_ZN21BSplineEvaluationDataILi2EL12BoundaryType2EE13OffsetToIndexEii.exit.i.i249, label %399
 
 399:                                              ; preds = %397
-  %.not.i.i.i247 = icmp ult i32 %386, %297
+  %.not.i.i.i247 = icmp samesign ult i32 %386, %297
   br i1 %.not.i.i.i247, label %_ZN21BSplineEvaluationDataILi2EL12BoundaryType2EE13OffsetToIndexEii.exit.i.i249, label %400
 
 400:                                              ; preds = %399
@@ -67033,7 +67033,7 @@ _ZNK21BSplineEvaluationDataILi2EL12BoundaryType2EE14ChildEvaluator11cornerValueE
   br i1 %416, label %_ZN21BSplineEvaluationDataILi2EL12BoundaryType2EE13OffsetToIndexEii.exit.i.i257, label %417
 
 417:                                              ; preds = %415
-  %.not.i.i.i255 = icmp ult i32 %387, %297
+  %.not.i.i.i255 = icmp samesign ult i32 %387, %297
   br i1 %.not.i.i.i255, label %_ZN21BSplineEvaluationDataILi2EL12BoundaryType2EE13OffsetToIndexEii.exit.i.i257, label %418
 
 418:                                              ; preds = %417
@@ -67069,7 +67069,7 @@ _ZNK21BSplineEvaluationDataILi2EL12BoundaryType2EE14ChildEvaluator11cornerValueE
   br i1 %434, label %_ZN21BSplineEvaluationDataILi2EL12BoundaryType2EE13OffsetToIndexEii.exit.i.i266, label %435
 
 435:                                              ; preds = %433
-  %.not.i.i.i264 = icmp ult i32 %388, %297
+  %.not.i.i.i264 = icmp samesign ult i32 %388, %297
   br i1 %.not.i.i.i264, label %_ZN21BSplineEvaluationDataILi2EL12BoundaryType2EE13OffsetToIndexEii.exit.i.i266, label %436
 
 436:                                              ; preds = %435
@@ -67103,7 +67103,7 @@ _ZNK21BSplineEvaluationDataILi2EL12BoundaryType2EE14ChildEvaluator11cornerValueE
   br i1 %450, label %_ZN21BSplineEvaluationDataILi2EL12BoundaryType2EE13OffsetToIndexEii.exit.i.i275, label %451
 
 451:                                              ; preds = %449
-  %.not.i.i.i273 = icmp ult i32 %386, %297
+  %.not.i.i.i273 = icmp samesign ult i32 %386, %297
   br i1 %.not.i.i.i273, label %_ZN21BSplineEvaluationDataILi2EL12BoundaryType2EE13OffsetToIndexEii.exit.i.i275, label %452
 
 452:                                              ; preds = %451
@@ -67141,7 +67141,7 @@ _ZNK21BSplineEvaluationDataILi2EL12BoundaryType2EE14ChildEvaluator11cornerValueE
   br i1 %469, label %_ZN21BSplineEvaluationDataILi2EL12BoundaryType2EE13OffsetToIndexEii.exit.i.i284, label %470
 
 470:                                              ; preds = %468
-  %.not.i.i.i282 = icmp ult i32 %387, %297
+  %.not.i.i.i282 = icmp samesign ult i32 %387, %297
   br i1 %.not.i.i.i282, label %_ZN21BSplineEvaluationDataILi2EL12BoundaryType2EE13OffsetToIndexEii.exit.i.i284, label %471
 
 471:                                              ; preds = %470
@@ -67179,7 +67179,7 @@ _ZNK21BSplineEvaluationDataILi2EL12BoundaryType2EE14ChildEvaluator11cornerValueE
   br i1 %488, label %_ZN21BSplineEvaluationDataILi2EL12BoundaryType2EE13OffsetToIndexEii.exit.i.i293, label %489
 
 489:                                              ; preds = %487
-  %.not.i.i.i291 = icmp ult i32 %388, %297
+  %.not.i.i.i291 = icmp samesign ult i32 %388, %297
   br i1 %.not.i.i.i291, label %_ZN21BSplineEvaluationDataILi2EL12BoundaryType2EE13OffsetToIndexEii.exit.i.i293, label %490
 
 490:                                              ; preds = %489
@@ -67491,7 +67491,7 @@ _ZNK6OctreeIfE15_isValidFEMNodeEPK7OctNodeI12TreeNodeDataE.exit: ; preds = %_Z12
   br i1 %142, label %_ZN21BSplineEvaluationDataILi2EL12BoundaryType2EE13OffsetToIndexEii.exit.i.i, label %143
 
 143:                                              ; preds = %141
-  %.not.i.i.i = icmp ult i32 %127, %58
+  %.not.i.i.i = icmp samesign ult i32 %127, %58
   br i1 %.not.i.i.i, label %_ZN21BSplineEvaluationDataILi2EL12BoundaryType2EE13OffsetToIndexEii.exit.i.i, label %144
 
 144:                                              ; preds = %143
@@ -67524,7 +67524,7 @@ _ZNK21BSplineEvaluationDataILi2EL12BoundaryType2EE9Evaluator11cornerValueEiib.ex
   br i1 %156, label %_ZN21BSplineEvaluationDataILi2EL12BoundaryType2EE13OffsetToIndexEii.exit.i.i151, label %157
 
 157:                                              ; preds = %155
-  %.not.i.i.i149 = icmp ult i32 %128, %58
+  %.not.i.i.i149 = icmp samesign ult i32 %128, %58
   br i1 %.not.i.i.i149, label %_ZN21BSplineEvaluationDataILi2EL12BoundaryType2EE13OffsetToIndexEii.exit.i.i151, label %158
 
 158:                                              ; preds = %157
@@ -67558,7 +67558,7 @@ _ZNK21BSplineEvaluationDataILi2EL12BoundaryType2EE9Evaluator11cornerValueEiib.ex
   br i1 %171, label %_ZN21BSplineEvaluationDataILi2EL12BoundaryType2EE13OffsetToIndexEii.exit.i.i161, label %172
 
 172:                                              ; preds = %170
-  %.not.i.i.i159 = icmp ult i32 %129, %58
+  %.not.i.i.i159 = icmp samesign ult i32 %129, %58
   br i1 %.not.i.i.i159, label %_ZN21BSplineEvaluationDataILi2EL12BoundaryType2EE13OffsetToIndexEii.exit.i.i161, label %173
 
 173:                                              ; preds = %172
@@ -67822,7 +67822,7 @@ _ZNK6OctreeIfE15_isValidFEMNodeEPK7OctNodeI12TreeNodeDataE.exit168: ; preds = %_
   br i1 %303, label %_ZN21BSplineEvaluationDataILi2EL12BoundaryType2EE13OffsetToIndexEii.exit.i.i174, label %304
 
 304:                                              ; preds = %302
-  %.not.i.i.i172 = icmp ult i32 %286, %216
+  %.not.i.i.i172 = icmp samesign ult i32 %286, %216
   br i1 %.not.i.i.i172, label %_ZN21BSplineEvaluationDataILi2EL12BoundaryType2EE13OffsetToIndexEii.exit.i.i174, label %305
 
 305:                                              ; preds = %304
@@ -67858,7 +67858,7 @@ _ZNK21BSplineEvaluationDataILi2EL12BoundaryType2EE14ChildEvaluator11cornerValueE
   br i1 %320, label %_ZN21BSplineEvaluationDataILi2EL12BoundaryType2EE13OffsetToIndexEii.exit.i.i182, label %321
 
 321:                                              ; preds = %319
-  %.not.i.i.i180 = icmp ult i32 %287, %216
+  %.not.i.i.i180 = icmp samesign ult i32 %287, %216
   br i1 %.not.i.i.i180, label %_ZN21BSplineEvaluationDataILi2EL12BoundaryType2EE13OffsetToIndexEii.exit.i.i182, label %322
 
 322:                                              ; preds = %321
@@ -67895,7 +67895,7 @@ _ZNK21BSplineEvaluationDataILi2EL12BoundaryType2EE14ChildEvaluator11cornerValueE
   br i1 %338, label %_ZN21BSplineEvaluationDataILi2EL12BoundaryType2EE13OffsetToIndexEii.exit.i.i191, label %339
 
 339:                                              ; preds = %337
-  %.not.i.i.i189 = icmp ult i32 %288, %216
+  %.not.i.i.i189 = icmp samesign ult i32 %288, %216
   br i1 %.not.i.i.i189, label %_ZN21BSplineEvaluationDataILi2EL12BoundaryType2EE13OffsetToIndexEii.exit.i.i191, label %340
 
 340:                                              ; preds = %339
@@ -74786,7 +74786,7 @@ _ZNK6OctreeIfE17_isValidSpaceNodeEPK7OctNodeI12TreeNodeDataE.exit: ; preds = %_Z
   br i1 %or.cond, label %166, label %.critedge
 
 166:                                              ; preds = %163
-  %167 = icmp ult i32 %160, %142
+  %167 = icmp samesign ult i32 %160, %142
   %168 = icmp sgt i32 %161, -1
   %or.cond5 = select i1 %167, i1 %168, i1 false
   %169 = icmp slt i32 %161, %142

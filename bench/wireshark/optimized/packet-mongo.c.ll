@@ -1188,7 +1188,7 @@ define internal fastcc noundef i32 @dissect_bson_document(ptr noundef %0, ptr no
   br label %180
 
 16:                                               ; preds = %5
-  %17 = icmp ugt i32 %7, 16000000
+  %17 = icmp samesign ugt i32 %7, 16000000
   br i1 %17, label %18, label %20
 
 18:                                               ; preds = %16

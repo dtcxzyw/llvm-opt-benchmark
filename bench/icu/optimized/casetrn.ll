@@ -81,7 +81,7 @@ if.then18:                                        ; preds = %if.then15
   br label %return
 
 if.else21:                                        ; preds = %if.then15
-  %cmp22 = icmp ult i32 %call.i, 65536
+  %cmp22 = icmp samesign ult i32 %call.i, 65536
   %cond.neg = select i1 %cmp22, i32 -1, i32 -2
   %9 = load i32, ptr %index13, align 4
   %sub24 = add i32 %9, %cond.neg
@@ -112,7 +112,7 @@ if.then34:                                        ; preds = %if.then30
   br label %return
 
 if.else37:                                        ; preds = %if.then30
-  %cmp38 = icmp ult i32 %call.i35, 65536
+  %cmp38 = icmp samesign ult i32 %call.i35, 65536
   %cond39 = select i1 %cmp38, i32 1, i32 2
   %14 = load i32, ptr %index28, align 4
   %add = add nsw i32 %14, %cond39
@@ -259,7 +259,7 @@ if.end14.if.end44_crit_edge:                      ; preds = %if.end14
   br label %if.end44
 
 if.then16:                                        ; preds = %if.end14
-  %cmp17 = icmp ult i32 %call9, 32
+  %cmp17 = icmp samesign ult i32 %call9, 32
   br i1 %cmp17, label %if.then18, label %if.else
 
 if.then18:                                        ; preds = %if.then16

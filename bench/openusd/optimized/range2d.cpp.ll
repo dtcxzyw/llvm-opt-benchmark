@@ -183,7 +183,7 @@ define { double, double } @_ZNK32pxrInternal_v0_24__pxrReserved__9GfRange2d9GetC
   %.val = load double, ptr %0, align 8
   %.val5 = load double, ptr %12, align 8
   %13 = select i1 %.not, double %.val, double %.val5
-  %.not4 = icmp ult i64 %1, 2
+  %.not4 = icmp samesign ult i64 %1, 2
   %14 = select i1 %.not4, ptr %0, ptr %12
   br label %15
 
@@ -225,7 +225,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__9GfRange2d9GetCornerEm.exit: ; preds = %3
   %.val.i = load double, ptr %1, align 8
   %.val5.i = load double, ptr %12, align 8
   %13 = select i1 %.not.i, double %.val.i, double %.val5.i
-  %.not4.i = icmp ult i64 %2, 2
+  %.not4.i = icmp samesign ult i64 %2, 2
   %14 = select i1 %.not4.i, ptr %1, ptr %12
   %.sroa.3.0.in.i = getelementptr inbounds i8, ptr %14, i64 8
   %.sroa.3.0.i = load double, ptr %.sroa.3.0.in.i, align 8

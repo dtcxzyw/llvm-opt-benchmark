@@ -145,9 +145,9 @@ define hidden void @_ZN8rawspeed22HasselbladDecompressorC2ENS_8RawImageERKNS0_18
 36:                                               ; preds = %28
   %37 = and i32 %30, 1
   %38 = icmp ne i32 %37, 0
-  %39 = icmp ugt i32 %30, 12000
+  %39 = icmp samesign ugt i32 %30, 12000
   %40 = or i1 %39, %38
-  %41 = icmp ugt i32 %33, 8842
+  %41 = icmp samesign ugt i32 %33, 8842
   %42 = select i1 %40, i1 true, i1 %41
   br i1 %42, label %43, label %45
 
@@ -614,7 +614,7 @@ define hidden noundef range(i32 -7, -2147483648) i32 @_ZN8rawspeed22HasselbladDe
   br label %266
 
 212:                                              ; preds = %207
-  %213 = icmp ugt i32 %202, 10
+  %213 = icmp samesign ugt i32 %202, 10
   call void @llvm.assume(i1 %213)
   %214 = add nsw i32 %202, -11
   %215 = shl i64 %204, 11
@@ -999,7 +999,7 @@ define hidden noundef range(i32 -7, -2147483648) i32 @_ZN8rawspeed22HasselbladDe
   %479 = phi i32 [ %451, %469 ], [ %439, %445 ]
   %480 = phi i64 [ %477, %469 ], [ %441, %445 ]
   %481 = phi i32 [ %473, %469 ], [ %440, %445 ]
-  %482 = icmp uge i32 %481, %388
+  %482 = icmp samesign uge i32 %481, %388
   call void @llvm.assume(i1 %482)
   %483 = sub nuw nsw i32 64, %388
   %484 = zext nneg i32 %483 to i64

@@ -236,7 +236,7 @@ entry:
 define hidden range(i32 0, -2147483648) i32 @RAND_load_file(ptr nocapture noundef readnone %path, i64 noundef %num) local_unnamed_addr #5 {
 entry:
   %cmp = icmp slt i64 %num, 0
-  %cmp1 = icmp ult i64 %num, 2147483648
+  %cmp1 = icmp samesign ult i64 %num, 2147483648
   %conv = trunc nuw nsw i64 %num to i32
   %spec.select = select i1 %cmp1, i32 %conv, i32 2147483647
   %retval.0 = select i1 %cmp, i32 1, i32 %spec.select

@@ -9078,7 +9078,7 @@ _ZSt27__uninitialized_default_n_aIPimiET_S1_T0_RSaIT1_E.exit.i148: ; preds = %_Z
   br label %_ZNSt6vectorIiSaIiEE6resizeEm.exit103
 
 142:                                              ; preds = %127
-  %143 = icmp ult i64 %134, %128
+  %143 = icmp samesign ult i64 %134, %128
   br i1 %143, label %.invoke, label %_ZNKSt6vectorIiSaIiEE12_M_check_lenEmPKc.exit.i150
 
 .invoke:                                          ; preds = %165, %142
@@ -16258,7 +16258,7 @@ _ZSt27__uninitialized_default_n_aIPimiET_S1_T0_RSaIT1_E.exit.i147: ; preds = %_Z
   br label %_ZNSt6vectorIiSaIiEE6resizeEm.exit103
 
 142:                                              ; preds = %127
-  %143 = icmp ult i64 %134, %128
+  %143 = icmp samesign ult i64 %134, %128
   br i1 %143, label %.invoke, label %_ZNKSt6vectorIiSaIiEE12_M_check_lenEmPKc.exit.i149
 
 .invoke:                                          ; preds = %165, %142

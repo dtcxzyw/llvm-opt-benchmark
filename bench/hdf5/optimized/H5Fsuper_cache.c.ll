@@ -1294,7 +1294,7 @@ define internal fastcc range(i32 -1, 1) i32 @H5F__superblock_prefix_decode(ptr n
   br label %108
 
 47:                                               ; preds = %38
-  %48 = icmp ult i8 %30, 2
+  %48 = icmp samesign ult i8 %30, 2
   %49 = icmp ugt ptr %29, %.ptr87
   br i1 %48, label %50, label %60
 

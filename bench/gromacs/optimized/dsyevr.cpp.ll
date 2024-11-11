@@ -144,8 +144,8 @@ define void @dsyevr_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
 78:                                               ; preds = %71, %71
   %79 = load i32, ptr %8, align 4
   %80 = icmp slt i32 %79, 1
-  %81 = icmp ugt i32 %79, %spec.select317
-  %or.cond = or i1 %80, %81
+  %81 = icmp samesign ugt i32 %79, %spec.select317
+  %or.cond = select i1 %80, i1 true, i1 %81
   br i1 %or.cond, label %82, label %83
 
 82:                                               ; preds = %78
@@ -156,8 +156,8 @@ define void @dsyevr_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
   %84 = load i32, ptr %9, align 4
   %. = tail call i32 @llvm.umin.i32(i32 %64, i32 %79)
   %85 = icmp slt i32 %84, %.
-  %86 = icmp ugt i32 %84, %64
-  %or.cond331 = or i1 %85, %86
+  %86 = icmp samesign ugt i32 %84, %64
+  %or.cond331 = select i1 %85, i1 true, i1 %86
   br i1 %or.cond331, label %87, label %88
 
 87:                                               ; preds = %83
@@ -176,7 +176,7 @@ define void @dsyevr_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
   ]
 
 92:                                               ; preds = %91, %91
-  %93 = icmp ult i32 %89, %64
+  %93 = icmp samesign ult i32 %89, %64
   br i1 %93, label %94, label %95
 
 94:                                               ; preds = %92, %88

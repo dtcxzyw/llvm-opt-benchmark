@@ -1667,7 +1667,7 @@ cond.false3:                                      ; preds = %cond.end
   unreachable
 
 cond.end4:                                        ; preds = %cond.end
-  %cmp6 = icmp ult i32 %opt, 2031
+  %cmp6 = icmp samesign ult i32 %opt, 2031
   br i1 %cmp6, label %cond.end9, label %cond.false8
 
 cond.false8:                                      ; preds = %cond.end4

@@ -389,7 +389,7 @@ for.body220:                                      ; preds = %if.then209, %for.bo
   %i.0 = add nsw i32 %i.0.in94, -1
   %47 = load ptr, ptr %fp210, align 8
   %48 = call i64 @fwrite(ptr nonnull @.str.17, i64 11, i64 1, ptr %47)
-  %cmp218 = icmp ugt i32 %i.0.in94, 2
+  %cmp218 = icmp samesign ugt i32 %i.0.in94, 2
   br i1 %cmp218, label %for.body220, label %for.end225, !llvm.loop !10
 
 for.end225:                                       ; preds = %for.body220, %if.then209

@@ -1726,7 +1726,7 @@ define dso_local void @_ZN5clang8internal22partitionIntoIntervalsERKSt5dequeINS0
   br i1 %21, label %22, label %26
 
 22:                                               ; preds = %2
-  %23 = icmp ult i64 %20, 4
+  %23 = icmp samesign ult i64 %20, 4
   br i1 %23, label %_ZNKSt5dequeIN5clang8internal15CFGIntervalNodeESaIS2_EEixEm.exit, label %24
 
 24:                                               ; preds = %22
@@ -2820,7 +2820,7 @@ define dso_local void @_ZN5clang14getIntervalWTOERKNS_3CFGE(ptr dead_on_unwind n
   br i1 %94, label %95, label %99
 
 95:                                               ; preds = %65
-  %96 = icmp ult i64 %93, 4
+  %96 = icmp samesign ult i64 %93, 4
   br i1 %96, label %_ZN5clang8internal22partitionIntoIntervalsERKSt5dequeINS0_15CFGIntervalNodeESaIS2_EE.exit, label %97
 
 97:                                               ; preds = %95
@@ -2998,7 +2998,7 @@ _ZNSt5dequeIN5clang8internal15CFGIntervalNodeESaIS2_EED2Ev.exit: ; preds = %_ZNS
   br i1 %177, label %178, label %182
 
 178:                                              ; preds = %170
-  %179 = icmp ult i64 %176, 4
+  %179 = icmp samesign ult i64 %176, 4
   br i1 %179, label %_ZNSt5dequeIN5clang8internal15CFGIntervalNodeESaIS2_EEixEm.exit, label %180
 
 180:                                              ; preds = %178

@@ -660,7 +660,7 @@ define dso_local i32 @ethnl_act_cable_test_tdr(ptr nocapture noundef readnone %0
   br label %.thread23
 
 102:                                              ; preds = %93
-  %103 = icmp ugt i32 %53, %61
+  %103 = icmp samesign ugt i32 %53, %61
   br i1 %103, label %104, label %108
 
 104:                                              ; preds = %102

@@ -868,7 +868,7 @@ define internal fastcc void @"_ZN5alloc3str21_$LT$impl$u20$str$GT$7replace17h9f8
   %156 = and i8 %154, 63
   %157 = zext nneg i8 %156 to i32
   %158 = or disjoint i32 %155, %157
-  %159 = icmp ugt i8 %148, -33
+  %159 = icmp samesign ugt i8 %148, -33
   br i1 %159, label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17ha8371554fa3d2f30E.exit15.i.i.i.i", label %_ZN4core3str11validations15next_code_point17hcba652dd4152b0b8E.exit.thread.i.i.i
 
 160:                                              ; preds = %147
@@ -886,7 +886,7 @@ define internal fastcc void @"_ZN5alloc3str21_$LT$impl$u20$str$GT$7replace17h9f8
   %168 = or disjoint i32 %165, %167
   %169 = shl nuw nsw i32 %152, 12
   %170 = or disjoint i32 %168, %169
-  %171 = icmp ugt i8 %148, -17
+  %171 = icmp samesign ugt i8 %148, -17
   br i1 %171, label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17ha8371554fa3d2f30E.exit17.i.i.i.i", label %_ZN4core3str11validations15next_code_point17hcba652dd4152b0b8E.exit.thread.i.i.i
 
 "_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17ha8371554fa3d2f30E.exit17.i.i.i.i": ; preds = %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17ha8371554fa3d2f30E.exit15.i.i.i.i"

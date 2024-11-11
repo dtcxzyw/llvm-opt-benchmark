@@ -764,7 +764,7 @@ define void @onig_snprintf_with_pattern(ptr noundef %0, i32 noundef %1, ptr noca
   %37 = load i8, ptr %.15479, align 1
   %38 = getelementptr inbounds i8, ptr %.15280, i64 1
   store i8 %37, ptr %.15280, align 1
-  %39 = icmp ugt i32 %.05878, 1
+  %39 = icmp samesign ugt i32 %.05878, 1
   br i1 %39, label %.lr.ph81, label %.loopexit65, !llvm.loop !7
 
 .loopexit:                                        ; preds = %.lr.ph, %.lr.ph75
@@ -825,7 +825,7 @@ define void @onig_snprintf_with_pattern(ptr noundef %0, i32 noundef %1, ptr noca
   %61 = load i8, ptr %.45786, align 1
   store i8 %61, ptr %.587, align 1
   %.5 = getelementptr inbounds i8, ptr %.587, i64 1
-  %62 = icmp ugt i32 %.26085, 1
+  %62 = icmp samesign ugt i32 %.26085, 1
   br i1 %62, label %.lr.ph88, label %.loopexit65, !llvm.loop !10
 
 63:                                               ; preds = %52

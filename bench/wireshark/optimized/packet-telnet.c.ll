@@ -1745,7 +1745,7 @@ dissect_ssl_authentication_data.exit.i:           ; preds = %29, %23
   tail call void @proto_tree_add_bitmask_list(ptr noundef %5, ptr noundef %2, i32 noundef %58, i32 noundef 1, ptr noundef nonnull @dissect_authentication_type_pair.auth_mods, i32 noundef 0) #5
   %59 = add i32 %.027, 2
   %60 = add nsw i32 %.02526, -2
-  %61 = icmp ugt i32 %.02526, 2
+  %61 = icmp samesign ugt i32 %.02526, 2
   br i1 %61, label %.lr.ph, label %dissect_authentication_data.exit, !llvm.loop !14
 
 62:                                               ; preds = %7
@@ -1805,7 +1805,7 @@ define internal void @dissect_encryption_subopt(ptr noundef %0, ptr nocapture re
   %29 = tail call ptr @proto_tree_add_uint(ptr noundef %5, i32 noundef %27, ptr noundef %2, i32 noundef %.047, i32 noundef 1, i32 noundef %28) #5
   %30 = add i32 %.047, 1
   %31 = add nsw i32 %.04446, -1
-  %32 = icmp ugt i32 %.04446, 1
+  %32 = icmp samesign ugt i32 %.04446, 1
   br i1 %32, label %.lr.ph, label %.loopexit, !llvm.loop !15
 
 33:                                               ; preds = %7
@@ -2514,7 +2514,7 @@ define internal void @dissect_vmware_subopt(ptr noundef %0, ptr noundef %1, ptr 
   %17 = tail call ptr @proto_tree_add_item(ptr noundef %5, i32 noundef %16, ptr noundef %2, i32 noundef %.085, i32 noundef 1, i32 noundef 0) #5
   %18 = add i32 %.085, 1
   %19 = add nsw i32 %.07984, -1
-  %20 = icmp ugt i32 %.07984, 1
+  %20 = icmp samesign ugt i32 %.07984, 1
   br i1 %20, label %.lr.ph, label %.thread, !llvm.loop !19
 
 21:                                               ; preds = %7, %7

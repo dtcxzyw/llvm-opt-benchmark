@@ -353,7 +353,7 @@ if.end.i102:                                      ; preds = %for.body.i
 
 lor.lhs.false.i:                                  ; preds = %if.end.i102
   %cmp5.i = icmp sle i64 %call3.i, %prev_fd.010.i
-  %cmp7.i = icmp ugt i64 %call3.i, 2147483647
+  %cmp7.i = icmp samesign ugt i64 %call3.i, 2147483647
   %or.cond.i = or i1 %cmp5.i, %cmp7.i
   br i1 %or.cond.i, label %if.then15, label %for.cond.i
 
@@ -535,7 +535,7 @@ if.end102:                                        ; preds = %if.then97
   br i1 %cmp104, label %Py_XDECREF.exit, label %if.end106
 
 if.end106:                                        ; preds = %if.end102
-  %cmp107 = icmp ugt i64 %call103, 65536
+  %cmp107 = icmp samesign ugt i64 %call103, 65536
   br i1 %cmp107, label %if.then108, label %if.end109
 
 if.then108:                                       ; preds = %if.end106

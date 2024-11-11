@@ -1276,7 +1276,7 @@ hashTableIterNext.exit.i:                         ; preds = %124
   br i1 %199, label %dtdCopy.exit.thread, label %200
 
 200:                                              ; preds = %._crit_edge.i235.i
-  %201 = icmp ult i32 %178, 1024
+  %201 = icmp samesign ult i32 %178, 1024
   br i1 %201, label %205, label %202
 
 202:                                              ; preds = %200
@@ -9812,7 +9812,7 @@ define internal fastcc zeroext range(i8 0, 2) i8 @poolGrow(ptr nocapture noundef
   br i1 %91, label %125, label %92
 
 92:                                               ; preds = %._crit_edge
-  %93 = icmp ult i32 %90, 1024
+  %93 = icmp samesign ult i32 %90, 1024
   br i1 %93, label %97, label %94
 
 94:                                               ; preds = %92
@@ -10010,7 +10010,7 @@ define internal fastcc ptr @lookup(ptr nocapture noundef readonly %0, ptr nocapt
   %75 = zext nneg i8 %71 to i64
   %76 = shl nuw i64 1, %75
   %77 = add i64 %76, -1
-  %78 = icmp ugt i8 %71, 60
+  %78 = icmp samesign ugt i8 %71, 60
   br i1 %78, label %keyeq.exit, label %79
 
 79:                                               ; preds = %73

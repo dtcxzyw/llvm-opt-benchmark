@@ -1203,7 +1203,7 @@ define internal range(i32 -1, 33) i32 @archive_read_format_zip_seekable_bid(ptr 
 15:                                               ; preds = %10
   %16 = tail call ptr @__archive_read_ahead(ptr noundef nonnull %0, i64 noundef %11, ptr noundef null) #21
   %17 = icmp ne ptr %16, null
-  %18 = icmp ugt i64 %8, 22
+  %18 = icmp samesign ugt i64 %8, 22
   %or.cond = and i1 %17, %18
   br i1 %or.cond, label %.lr.ph.preheader, label %.loopexit
 
@@ -1232,7 +1232,7 @@ define internal range(i32 -1, 33) i32 @archive_read_format_zip_seekable_bid(ptr 
 26:                                               ; preds = %24
   %27 = add nuw nsw i64 %13, %21
   %28 = tail call fastcc i32 @read_eocd(ptr noundef %5, ptr noundef %22, i64 noundef %27)
-  %29 = icmp ugt i32 %.03948, 19
+  %29 = icmp samesign ugt i32 %.03948, 19
   br i1 %29, label %30, label %.loopexit
 
 30:                                               ; preds = %26
@@ -3847,7 +3847,7 @@ thread-pre-split:                                 ; preds = %32, %45, %41
   br i1 %or.cond, label %77, label %80
 
 77:                                               ; preds = %71
-  %78 = icmp ult i64 %73, %57
+  %78 = icmp samesign ult i64 %73, %57
   %79 = sub nsw i64 %73, %57
   br i1 %78, label %.thread, label %80
 

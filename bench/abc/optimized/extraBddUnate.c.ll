@@ -666,7 +666,7 @@ define void @Extra_UnateInfoPrint(ptr nocapture noundef readonly %0) local_unnam
   %14 = getelementptr inbounds %struct.Extra_UnateVar_t_, ptr %12, i64 %indvars.iv
   %15 = load i32, ptr %14, align 4
   %.not24 = icmp sgt i32 %15, -1
-  %.not25 = icmp ult i32 %15, 1073741824
+  %.not25 = icmp samesign ult i32 %15, 1073741824
   %spec.select31 = select i1 %.not25, i8 46, i8 112
   %.sink = select i1 %.not24, i8 %spec.select31, i8 110
   %.sink30 = and i32 %15, 1073741823

@@ -359,7 +359,7 @@ if.end16:                                         ; preds = %if.end12
 
 if.then19:                                        ; preds = %if.end16
   %sub = sub nsw i64 9223372036854775807, %call
-  %cmp20 = icmp ugt i64 %2, %sub
+  %cmp20 = icmp samesign ugt i64 %2, %sub
   br i1 %cmp20, label %if.then22, label %if.end23
 
 if.then22:                                        ; preds = %if.then19

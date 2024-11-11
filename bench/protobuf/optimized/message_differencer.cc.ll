@@ -663,8 +663,8 @@ _ZNSt6vectorIiSaIiEE2atEm.exit:                   ; preds = %_ZNSt6vectorIiSaIiE
 
 if.end:                                           ; preds = %_ZNSt6vectorIiSaIiEE2atEm.exit
   %cmp3 = icmp slt i32 %last_matched_index.067, 0
-  %cmp5 = icmp ugt i32 %4, %last_matched_index.067
-  %or.cond = or i1 %cmp3, %cmp5
+  %cmp5 = icmp samesign ugt i32 %4, %last_matched_index.067
+  %or.cond = select i1 %cmp3, i1 true, i1 %cmp5
   br i1 %or.cond, label %for.inc, label %_ZNSt6vectorIiSaIiEE2atEm.exit39
 
 _ZNSt6vectorIiSaIiEE2atEm.exit39:                 ; preds = %if.end
@@ -19806,7 +19806,7 @@ if.end:                                           ; preds = %if.then
   br label %if.end27
 
 if.else:                                          ; preds = %entry
-  %cmp5 = icmp ugt i64 %len, 8
+  %cmp5 = icmp samesign ugt i64 %len, 8
   br i1 %cmp5, label %if.then6, label %if.else14
 
 if.then6:                                         ; preds = %if.else
@@ -19827,7 +19827,7 @@ if.then6:                                         ; preds = %if.else
   br label %return
 
 if.else14:                                        ; preds = %if.else
-  %cmp15 = icmp ugt i64 %len, 3
+  %cmp15 = icmp samesign ugt i64 %len, 3
   br i1 %cmp15, label %if.then16, label %if.else18
 
 if.then16:                                        ; preds = %if.else14
@@ -22469,7 +22469,7 @@ for.body.i.i.i.i.i.i:                             ; preds = %for.body.i.i.i.i.i.
   %second3.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__result.addr.06.i.i.i.i.i.i, i64 -8
   store ptr %7, ptr %second3.i.i.i.i.i.i.i, align 8
   %dec.i.i.i.i.i.i = add nsw i64 %__n.07.i.i.i.i.i.i, -1
-  %cmp.i.i.i.i.i.i = icmp ugt i64 %__n.07.i.i.i.i.i.i, 1
+  %cmp.i.i.i.i.i.i = icmp samesign ugt i64 %__n.07.i.i.i.i.i.i, 1
   br i1 %cmp.i.i.i.i.i.i, label %for.body.i.i.i.i.i.i, label %_ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPSt4pairIiPKN6google8protobuf12UnknownFieldEESt6vectorIS8_SaIS8_EEEESD_ET0_T_SF_SE_.exit.i, !llvm.loop !380
 
 _ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPSt4pairIiPKN6google8protobuf12UnknownFieldEESt6vectorIS8_SaIS8_EEEESD_ET0_T_SF_SE_.exit.i: ; preds = %for.body.i.i.i.i.i.i, %if.then9.i
@@ -22970,7 +22970,7 @@ for.body.i.i.i.i.i.i.i:                           ; preds = %for.body.i.i.i.i.i.
   %second3.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__result.addr.06.i.i.i.i.i.i.i, i64 -8
   store ptr %7, ptr %second3.i.i.i.i.i.i.i.i, align 8
   %dec.i.i.i.i.i.i.i = add nsw i64 %__n.07.i.i.i.i.i.i.i, -1
-  %cmp.i.i.i.i.i.i.i = icmp ugt i64 %__n.07.i.i.i.i.i.i.i, 1
+  %cmp.i.i.i.i.i.i.i = icmp samesign ugt i64 %__n.07.i.i.i.i.i.i.i, 1
   br i1 %cmp.i.i.i.i.i.i.i, label %for.body.i.i.i.i.i.i.i, label %_ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPSt4pairIiPKN6google8protobuf12UnknownFieldEESt6vectorIS8_SaIS8_EEEESD_ET0_T_SF_SE_.exit.i.i, !llvm.loop !380
 
 _ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPSt4pairIiPKN6google8protobuf12UnknownFieldEESt6vectorIS8_SaIS8_EEEESD_ET0_T_SF_SE_.exit.i.i: ; preds = %for.body.i.i.i.i.i.i.i, %if.then9.i.i
@@ -23093,7 +23093,7 @@ for.body.i.i.i.i.i.i53.i:                         ; preds = %for.body.i.i.i.i.i.
   %second3.i.i.i.i.i.i.i60.i = getelementptr inbounds i8, ptr %__result.addr.06.i.i.i.i.i.i55.i, i64 -8
   store ptr %21, ptr %second3.i.i.i.i.i.i.i60.i, align 8
   %dec.i.i.i.i.i.i61.i = add nsw i64 %__n.07.i.i.i.i.i.i54.i, -1
-  %cmp.i.i.i.i.i.i62.i = icmp ugt i64 %__n.07.i.i.i.i.i.i54.i, 1
+  %cmp.i.i.i.i.i.i62.i = icmp samesign ugt i64 %__n.07.i.i.i.i.i.i54.i, 1
   br i1 %cmp.i.i.i.i.i.i62.i, label %for.body.i.i.i.i.i.i53.i, label %_ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPSt4pairIiPKN6google8protobuf12UnknownFieldEESt6vectorIS8_SaIS8_EEEESD_ET0_T_SF_SE_.exit.i50.i, !llvm.loop !380
 
 _ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPSt4pairIiPKN6google8protobuf12UnknownFieldEESt6vectorIS8_SaIS8_EEEESD_ET0_T_SF_SE_.exit.i50.i: ; preds = %for.body.i.i.i.i.i.i53.i, %if.then9.i44.i
@@ -23240,7 +23240,7 @@ for.body.i.i.i.i.i.i.i29:                         ; preds = %while.end.i.i, %for
   %incdec.ptr.i.i.i.i.i.i.i32 = getelementptr inbounds i8, ptr %__first.addr.07.i.i.i.i.i.i.i, i64 16
   %incdec.ptr1.i.i.i.i.i.i.i33 = getelementptr inbounds i8, ptr %__result.addr.08.i.i.i.i.i.i.i, i64 16
   %dec.i.i.i.i.i.i.i34 = add nsw i64 %__n.09.i.i.i.i.i.i.i, -1
-  %cmp.i.i.i.i.i.i.i35 = icmp ugt i64 %__n.09.i.i.i.i.i.i.i, 1
+  %cmp.i.i.i.i.i.i.i35 = icmp samesign ugt i64 %__n.09.i.i.i.i.i.i.i, 1
   br i1 %cmp.i.i.i.i.i.i.i35, label %for.body.i.i.i.i.i.i.i29, label %_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPSt4pairIiPKN6google8protobuf12UnknownFieldEESt6vectorIS8_SaIS8_EEEES9_ET0_T_SF_SE_.exit.i.i, !llvm.loop !391
 
 _ZSt4moveIN9__gnu_cxx17__normal_iteratorIPSt4pairIiPKN6google8protobuf12UnknownFieldEESt6vectorIS8_SaIS8_EEEES9_ET0_T_SF_SE_.exit.i.i: ; preds = %for.body.i.i.i.i.i.i.i29, %while.end.i.i
@@ -23265,7 +23265,7 @@ for.body.i.i.i.i.i14.i.i:                         ; preds = %_ZSt4moveIN9__gnu_c
   %incdec.ptr.i.i.i.i.i20.i.i = getelementptr inbounds i8, ptr %__first.addr.07.i.i.i.i.i17.i.i, i64 16
   %incdec.ptr1.i.i.i.i.i21.i.i = getelementptr inbounds i8, ptr %__result.addr.08.i.i.i.i.i16.i.i, i64 16
   %dec.i.i.i.i.i22.i.i = add nsw i64 %__n.09.i.i.i.i.i15.i.i, -1
-  %cmp.i.i.i.i.i23.i.i = icmp ugt i64 %__n.09.i.i.i.i.i15.i.i, 1
+  %cmp.i.i.i.i.i23.i.i = icmp samesign ugt i64 %__n.09.i.i.i.i.i15.i.i, 1
   br i1 %cmp.i.i.i.i.i23.i.i, label %for.body.i.i.i.i.i14.i.i, label %_ZSt12__move_mergeIN9__gnu_cxx17__normal_iteratorIPSt4pairIiPKN6google8protobuf12UnknownFieldEESt6vectorIS8_SaIS8_EEEES9_NS0_5__ops15_Iter_comp_iterINS4_4util12_GLOBAL__N_120UnknownFieldOrderingEEEET0_T_SL_SL_SL_SK_T1_.exit.i, !llvm.loop !391
 
 _ZSt12__move_mergeIN9__gnu_cxx17__normal_iteratorIPSt4pairIiPKN6google8protobuf12UnknownFieldEESt6vectorIS8_SaIS8_EEEES9_NS0_5__ops15_Iter_comp_iterINS4_4util12_GLOBAL__N_120UnknownFieldOrderingEEEET0_T_SL_SL_SL_SK_T1_.exit.i: ; preds = %for.body.i.i.i.i.i14.i.i, %_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPSt4pairIiPKN6google8protobuf12UnknownFieldEESt6vectorIS8_SaIS8_EEEES9_ET0_T_SF_SE_.exit.i.i
@@ -23362,7 +23362,7 @@ for.body.i.i.i.i.i.i44.i:                         ; preds = %while.end.i17.i, %f
   %incdec.ptr.i.i.i.i.i.i50.i = getelementptr inbounds i8, ptr %__first.addr.07.i.i.i.i.i.i47.i, i64 16
   %incdec.ptr1.i.i.i.i.i.i51.i = getelementptr inbounds i8, ptr %__result.addr.08.i.i.i.i.i.i46.i, i64 16
   %dec.i.i.i.i.i.i52.i = add nsw i64 %__n.09.i.i.i.i.i.i45.i, -1
-  %cmp.i.i.i.i.i.i53.i = icmp ugt i64 %__n.09.i.i.i.i.i.i45.i, 1
+  %cmp.i.i.i.i.i.i53.i = icmp samesign ugt i64 %__n.09.i.i.i.i.i.i45.i, 1
   br i1 %cmp.i.i.i.i.i.i53.i, label %for.body.i.i.i.i.i.i44.i, label %_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPSt4pairIiPKN6google8protobuf12UnknownFieldEESt6vectorIS8_SaIS8_EEEES9_ET0_T_SF_SE_.exit.i26.i, !llvm.loop !391
 
 _ZSt4moveIN9__gnu_cxx17__normal_iteratorIPSt4pairIiPKN6google8protobuf12UnknownFieldEESt6vectorIS8_SaIS8_EEEES9_ET0_T_SF_SE_.exit.i26.i: ; preds = %for.body.i.i.i.i.i.i44.i, %while.end.i17.i
@@ -23386,7 +23386,7 @@ for.body.i.i.i.i.i14.i34.i:                       ; preds = %_ZSt4moveIN9__gnu_c
   %incdec.ptr.i.i.i.i.i20.i40.i = getelementptr inbounds i8, ptr %__first.addr.07.i.i.i.i.i17.i37.i, i64 16
   %incdec.ptr1.i.i.i.i.i21.i41.i = getelementptr inbounds i8, ptr %__result.addr.08.i.i.i.i.i16.i36.i, i64 16
   %dec.i.i.i.i.i22.i42.i = add nsw i64 %__n.09.i.i.i.i.i15.i35.i, -1
-  %cmp.i.i.i.i.i23.i43.i = icmp ugt i64 %__n.09.i.i.i.i.i15.i35.i, 1
+  %cmp.i.i.i.i.i23.i43.i = icmp samesign ugt i64 %__n.09.i.i.i.i.i15.i35.i, 1
   br i1 %cmp.i.i.i.i.i23.i43.i, label %for.body.i.i.i.i.i14.i34.i, label %_ZSt17__merge_sort_loopIN9__gnu_cxx17__normal_iteratorIPSt4pairIiPKN6google8protobuf12UnknownFieldEESt6vectorIS8_SaIS8_EEEES9_lNS0_5__ops15_Iter_comp_iterINS4_4util12_GLOBAL__N_120UnknownFieldOrderingEEEEvT_SK_T0_T1_T2_.exit, !llvm.loop !391
 
 _ZSt17__merge_sort_loopIN9__gnu_cxx17__normal_iteratorIPSt4pairIiPKN6google8protobuf12UnknownFieldEESt6vectorIS8_SaIS8_EEEES9_lNS0_5__ops15_Iter_comp_iterINS4_4util12_GLOBAL__N_120UnknownFieldOrderingEEEEvT_SK_T0_T1_T2_.exit: ; preds = %for.body.i.i.i.i.i14.i34.i, %_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPSt4pairIiPKN6google8protobuf12UnknownFieldEESt6vectorIS8_SaIS8_EEEES9_ET0_T_SF_SE_.exit.i26.i
@@ -23474,7 +23474,7 @@ for.body.i.i.i.i.i.i.i62:                         ; preds = %while.end.i.i50, %f
   %incdec.ptr.i.i.i.i.i.i.i68 = getelementptr inbounds i8, ptr %__first.addr.07.i.i.i.i.i.i.i65, i64 16
   %incdec.ptr1.i.i.i.i.i.i.i69 = getelementptr inbounds i8, ptr %__result.addr.08.i.i.i.i.i.i.i64, i64 16
   %dec.i.i.i.i.i.i.i70 = add nsw i64 %__n.09.i.i.i.i.i.i.i63, -1
-  %cmp.i.i.i.i.i.i.i71 = icmp ugt i64 %__n.09.i.i.i.i.i.i.i63, 1
+  %cmp.i.i.i.i.i.i.i71 = icmp samesign ugt i64 %__n.09.i.i.i.i.i.i.i63, 1
   br i1 %cmp.i.i.i.i.i.i.i71, label %for.body.i.i.i.i.i.i.i62, label %_ZSt4moveIPSt4pairIiPKN6google8protobuf12UnknownFieldEEN9__gnu_cxx17__normal_iteratorIS7_St6vectorIS6_SaIS6_EEEEET0_T_SF_SE_.exit.i.i, !llvm.loop !391
 
 _ZSt4moveIPSt4pairIiPKN6google8protobuf12UnknownFieldEEN9__gnu_cxx17__normal_iteratorIS7_St6vectorIS6_SaIS6_EEEEET0_T_SF_SE_.exit.i.i: ; preds = %for.body.i.i.i.i.i.i.i62, %while.end.i.i50
@@ -23503,7 +23503,7 @@ for.body.i.i.i.i.i23.i.i:                         ; preds = %_ZSt4moveIPSt4pairI
   %incdec.ptr.i.i.i.i.i29.i.i = getelementptr inbounds i8, ptr %__first.addr.07.i.i.i.i.i26.i.i, i64 16
   %incdec.ptr1.i.i.i.i.i30.i.i = getelementptr inbounds i8, ptr %__result.addr.08.i.i.i.i.i25.i.i, i64 16
   %dec.i.i.i.i.i31.i.i = add nsw i64 %__n.09.i.i.i.i.i24.i.i, -1
-  %cmp.i.i.i.i.i32.i.i = icmp ugt i64 %__n.09.i.i.i.i.i24.i.i, 1
+  %cmp.i.i.i.i.i32.i.i = icmp samesign ugt i64 %__n.09.i.i.i.i.i24.i.i, 1
   br i1 %cmp.i.i.i.i.i32.i.i, label %for.body.i.i.i.i.i23.i.i, label %_ZSt4moveIPSt4pairIiPKN6google8protobuf12UnknownFieldEEN9__gnu_cxx17__normal_iteratorIS7_St6vectorIS6_SaIS6_EEEEET0_T_SF_SE_.exit33.loopexit.i.i, !llvm.loop !391
 
 _ZSt4moveIPSt4pairIiPKN6google8protobuf12UnknownFieldEEN9__gnu_cxx17__normal_iteratorIS7_St6vectorIS6_SaIS6_EEEEET0_T_SF_SE_.exit33.loopexit.i.i: ; preds = %for.body.i.i.i.i.i23.i.i
@@ -23606,7 +23606,7 @@ for.body.i.i.i.i.i.i52.i:                         ; preds = %while.end.i18.i, %f
   %incdec.ptr.i.i.i.i.i.i58.i = getelementptr inbounds i8, ptr %__first.addr.07.i.i.i.i.i.i55.i, i64 16
   %incdec.ptr1.i.i.i.i.i.i59.i = getelementptr inbounds i8, ptr %__result.addr.08.i.i.i.i.i.i54.i, i64 16
   %dec.i.i.i.i.i.i60.i = add nsw i64 %__n.09.i.i.i.i.i.i53.i, -1
-  %cmp.i.i.i.i.i.i61.i = icmp ugt i64 %__n.09.i.i.i.i.i.i53.i, 1
+  %cmp.i.i.i.i.i.i61.i = icmp samesign ugt i64 %__n.09.i.i.i.i.i.i53.i, 1
   br i1 %cmp.i.i.i.i.i.i61.i, label %for.body.i.i.i.i.i.i52.i, label %_ZSt4moveIPSt4pairIiPKN6google8protobuf12UnknownFieldEEN9__gnu_cxx17__normal_iteratorIS7_St6vectorIS6_SaIS6_EEEEET0_T_SF_SE_.exit.i27.i, !llvm.loop !391
 
 _ZSt4moveIPSt4pairIiPKN6google8protobuf12UnknownFieldEEN9__gnu_cxx17__normal_iteratorIS7_St6vectorIS6_SaIS6_EEEEET0_T_SF_SE_.exit.i27.i: ; preds = %for.body.i.i.i.i.i.i52.i, %while.end.i18.i
@@ -23637,7 +23637,7 @@ for.body.i.i.i.i.i23.i41.i:                       ; preds = %for.body.i.i.i.i.i2
   %incdec.ptr.i.i.i.i.i29.i47.i = getelementptr inbounds i8, ptr %__first.addr.07.i.i.i.i.i26.i44.i, i64 16
   %incdec.ptr1.i.i.i.i.i30.i48.i = getelementptr inbounds i8, ptr %__result.addr.08.i.i.i.i.i25.i43.i, i64 16
   %dec.i.i.i.i.i31.i49.i = add nsw i64 %__n.09.i.i.i.i.i24.i42.i, -1
-  %cmp.i.i.i.i.i32.i50.i = icmp ugt i64 %__n.09.i.i.i.i.i24.i42.i, 1
+  %cmp.i.i.i.i.i32.i50.i = icmp samesign ugt i64 %__n.09.i.i.i.i.i24.i42.i, 1
   br i1 %cmp.i.i.i.i.i32.i50.i, label %for.body.i.i.i.i.i23.i41.i, label %_ZSt17__merge_sort_loopIPSt4pairIiPKN6google8protobuf12UnknownFieldEEN9__gnu_cxx17__normal_iteratorIS7_St6vectorIS6_SaIS6_EEEElNS8_5__ops15_Iter_comp_iterINS2_4util12_GLOBAL__N_120UnknownFieldOrderingEEEEvT_SK_T0_T1_T2_.exit, !llvm.loop !391
 
 _ZSt17__merge_sort_loopIPSt4pairIiPKN6google8protobuf12UnknownFieldEEN9__gnu_cxx17__normal_iteratorIS7_St6vectorIS6_SaIS6_EEEElNS8_5__ops15_Iter_comp_iterINS2_4util12_GLOBAL__N_120UnknownFieldOrderingEEEEvT_SK_T0_T1_T2_.exit: ; preds = %for.body.i.i.i.i.i23.i41.i, %_ZSt4moveIPSt4pairIiPKN6google8protobuf12UnknownFieldEEN9__gnu_cxx17__normal_iteratorIS7_St6vectorIS6_SaIS6_EEEEET0_T_SF_SE_.exit.i27.i
@@ -23683,7 +23683,7 @@ for.body.i.i.i.i.i:                               ; preds = %if.then, %for.body.
   %incdec.ptr.i.i.i.i.i = getelementptr inbounds i8, ptr %__first.addr.07.i.i.i.i.i, i64 16
   %incdec.ptr1.i.i.i.i.i = getelementptr inbounds i8, ptr %__result.addr.08.i.i.i.i.i, i64 16
   %dec.i.i.i.i.i = add nsw i64 %__n.09.i.i.i.i.i, -1
-  %cmp.i.i.i.i.i = icmp ugt i64 %__n.09.i.i.i.i.i, 1
+  %cmp.i.i.i.i.i = icmp samesign ugt i64 %__n.09.i.i.i.i.i, 1
   br i1 %cmp.i.i.i.i.i, label %for.body.i.i.i.i.i, label %land.rhs.i, !llvm.loop !391
 
 land.rhs.i:                                       ; preds = %for.body.i.i.i.i.i, %if.end.i
@@ -23761,7 +23761,7 @@ for.body.i.i.i.i.i.i:                             ; preds = %if.then13.i, %for.b
   %incdec.ptr.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__first.addr.07.i.i.i.i.i.i, i64 16
   %incdec.ptr1.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__result.addr.08.i.i.i.i.i.i, i64 16
   %dec.i.i.i.i.i.i = add nsw i64 %__n.09.i.i.i.i.i.i, -1
-  %cmp.i.i.i.i.i.i = icmp ugt i64 %__n.09.i.i.i.i.i.i, 1
+  %cmp.i.i.i.i.i.i = icmp samesign ugt i64 %__n.09.i.i.i.i.i.i, 1
   br i1 %cmp.i.i.i.i.i.i, label %for.body.i.i.i.i.i.i, label %if.end89, !llvm.loop !391
 
 if.else:                                          ; preds = %if.else.lr.ph, %if.end
@@ -23793,7 +23793,7 @@ for.body.i.i.i.i.i37:                             ; preds = %if.then15, %for.bod
   %incdec.ptr.i.i.i.i.i43 = getelementptr inbounds i8, ptr %__first.addr.07.i.i.i.i.i40, i64 16
   %incdec.ptr1.i.i.i.i.i44 = getelementptr inbounds i8, ptr %__result.addr.08.i.i.i.i.i39, i64 16
   %dec.i.i.i.i.i45 = add nsw i64 %__n.09.i.i.i.i.i38, -1
-  %cmp.i.i.i.i.i46 = icmp ugt i64 %__n.09.i.i.i.i.i38, 1
+  %cmp.i.i.i.i.i46 = icmp samesign ugt i64 %__n.09.i.i.i.i.i38, 1
   br i1 %cmp.i.i.i.i.i46, label %for.body.i.i.i.i.i37, label %_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPSt4pairIiPKN6google8protobuf12UnknownFieldEESt6vectorIS8_SaIS8_EEEES9_ET0_T_SF_SE_.exit47, !llvm.loop !391
 
 _ZSt4moveIN9__gnu_cxx17__normal_iteratorIPSt4pairIiPKN6google8protobuf12UnknownFieldEESt6vectorIS8_SaIS8_EEEES9_ET0_T_SF_SE_.exit47: ; preds = %for.body.i.i.i.i.i37, %if.then15
@@ -23822,7 +23822,7 @@ for.body.i.i.i.i.i.i65:                           ; preds = %if.then.i60, %for.b
   %second3.i.i.i.i.i.i.i69 = getelementptr inbounds i8, ptr %__result.addr.06.i.i.i.i.i.i, i64 -8
   store ptr %17, ptr %second3.i.i.i.i.i.i.i69, align 8
   %dec.i.i.i.i.i.i70 = add nsw i64 %__n.07.i.i.i.i.i.i, -1
-  %cmp.i.i.i.i.i.i71 = icmp ugt i64 %__n.07.i.i.i.i.i.i, 1
+  %cmp.i.i.i.i.i.i71 = icmp samesign ugt i64 %__n.07.i.i.i.i.i.i, 1
   br i1 %cmp.i.i.i.i.i.i71, label %for.body.i.i.i.i.i.i65, label %if.end89, !llvm.loop !380
 
 if.else.i48:                                      ; preds = %_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPSt4pairIiPKN6google8protobuf12UnknownFieldEESt6vectorIS8_SaIS8_EEEES9_ET0_T_SF_SE_.exit47
@@ -23897,7 +23897,7 @@ for.body.i.i.i.i.i23.i:                           ; preds = %if.then18.i, %for.b
   %second3.i.i.i.i.i.i30.i = getelementptr inbounds i8, ptr %__result.addr.06.i.i.i.i.i25.i, i64 -8
   store ptr %28, ptr %second3.i.i.i.i.i.i30.i, align 8
   %dec.i.i.i.i.i31.i = add nsw i64 %__n.07.i.i.i.i.i24.i, -1
-  %cmp.i.i.i.i.i32.i = icmp ugt i64 %__n.07.i.i.i.i.i24.i, 1
+  %cmp.i.i.i.i.i32.i = icmp samesign ugt i64 %__n.07.i.i.i.i.i24.i, 1
   br i1 %cmp.i.i.i.i.i32.i, label %for.body.i.i.i.i.i23.i, label %if.end89, !llvm.loop !380
 
 if.else27.i:                                      ; preds = %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN6google8protobuf4util12_GLOBAL__N_120UnknownFieldOrderingEEclIPSt4pairIiPKNS3_12UnknownFieldEENS_17__normal_iteratorISE_St6vectorISD_SaISD_EEEEEEbT_T0_.exit.i, %if.end.i.i.i54
@@ -24089,7 +24089,7 @@ for.body.i.i.i.i.i:                               ; preds = %if.then4, %for.body
   %incdec.ptr.i.i.i.i.i = getelementptr inbounds i8, ptr %__first.addr.07.i.i.i.i.i, i64 16
   %incdec.ptr1.i.i.i.i.i = getelementptr inbounds i8, ptr %__result.addr.08.i.i.i.i.i, i64 16
   %dec.i.i.i.i.i = add nsw i64 %__n.09.i.i.i.i.i, -1
-  %cmp.i.i.i.i.i = icmp ugt i64 %__n.09.i.i.i.i.i, 1
+  %cmp.i.i.i.i.i = icmp samesign ugt i64 %__n.09.i.i.i.i.i, 1
   br i1 %cmp.i.i.i.i.i, label %for.body.i.i.i.i.i, label %_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPSt4pairIiPKN6google8protobuf12UnknownFieldEESt6vectorIS8_SaIS8_EEEES9_ET0_T_SF_SE_.exit, !llvm.loop !391
 
 _ZSt4moveIN9__gnu_cxx17__normal_iteratorIPSt4pairIiPKN6google8protobuf12UnknownFieldEESt6vectorIS8_SaIS8_EEEES9_ET0_T_SF_SE_.exit: ; preds = %for.body.i.i.i.i.i, %if.then4
@@ -24113,7 +24113,7 @@ for.body.i.i.i.i.i15:                             ; preds = %_ZSt4moveIN9__gnu_c
   %second3.i.i.i.i.i.i19 = getelementptr inbounds i8, ptr %__result.addr.06.i.i.i.i.i, i64 -8
   store ptr %3, ptr %second3.i.i.i.i.i.i19, align 8
   %dec.i.i.i.i.i20 = add nsw i64 %__n.07.i.i.i.i.i, -1
-  %cmp.i.i.i.i.i21 = icmp ugt i64 %__n.07.i.i.i.i.i, 1
+  %cmp.i.i.i.i.i21 = icmp samesign ugt i64 %__n.07.i.i.i.i.i, 1
   br i1 %cmp.i.i.i.i.i21, label %for.body.i.i.i.i.i15, label %_ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPSt4pairIiPKN6google8protobuf12UnknownFieldEESt6vectorIS8_SaIS8_EEEESD_ET0_T_SF_SE_.exit, !llvm.loop !380
 
 _ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPSt4pairIiPKN6google8protobuf12UnknownFieldEESt6vectorIS8_SaIS8_EEEESD_ET0_T_SF_SE_.exit: ; preds = %for.body.i.i.i.i.i15, %_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPSt4pairIiPKN6google8protobuf12UnknownFieldEESt6vectorIS8_SaIS8_EEEES9_ET0_T_SF_SE_.exit
@@ -24137,7 +24137,7 @@ for.body.i.i.i.i.i32:                             ; preds = %_ZSt13move_backward
   %incdec.ptr.i.i.i.i.i38 = getelementptr inbounds i8, ptr %__first.addr.07.i.i.i.i.i35, i64 16
   %incdec.ptr1.i.i.i.i.i39 = getelementptr inbounds i8, ptr %__result.addr.08.i.i.i.i.i34, i64 16
   %dec.i.i.i.i.i40 = add nsw i64 %__n.09.i.i.i.i.i33, -1
-  %cmp.i.i.i.i.i41 = icmp ugt i64 %__n.09.i.i.i.i.i33, 1
+  %cmp.i.i.i.i.i41 = icmp samesign ugt i64 %__n.09.i.i.i.i.i33, 1
   br i1 %cmp.i.i.i.i.i41, label %for.body.i.i.i.i.i32, label %_ZSt4moveIPSt4pairIiPKN6google8protobuf12UnknownFieldEEN9__gnu_cxx17__normal_iteratorIS7_St6vectorIS6_SaIS6_EEEEET0_T_SF_SE_.exit.loopexit, !llvm.loop !391
 
 _ZSt4moveIPSt4pairIiPKN6google8protobuf12UnknownFieldEEN9__gnu_cxx17__normal_iteratorIS7_St6vectorIS6_SaIS6_EEEEET0_T_SF_SE_.exit.loopexit: ; preds = %for.body.i.i.i.i.i32
@@ -24179,7 +24179,7 @@ for.body.i.i.i.i.i48:                             ; preds = %if.then24, %for.bod
   %incdec.ptr.i.i.i.i.i54 = getelementptr inbounds i8, ptr %__first.addr.07.i.i.i.i.i51, i64 16
   %incdec.ptr1.i.i.i.i.i55 = getelementptr inbounds i8, ptr %__result.addr.08.i.i.i.i.i50, i64 16
   %dec.i.i.i.i.i56 = add nsw i64 %__n.09.i.i.i.i.i49, -1
-  %cmp.i.i.i.i.i57 = icmp ugt i64 %__n.09.i.i.i.i.i49, 1
+  %cmp.i.i.i.i.i57 = icmp samesign ugt i64 %__n.09.i.i.i.i.i49, 1
   br i1 %cmp.i.i.i.i.i57, label %for.body.i.i.i.i.i48, label %_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPSt4pairIiPKN6google8protobuf12UnknownFieldEESt6vectorIS8_SaIS8_EEEES9_ET0_T_SF_SE_.exit58, !llvm.loop !391
 
 _ZSt4moveIN9__gnu_cxx17__normal_iteratorIPSt4pairIiPKN6google8protobuf12UnknownFieldEESt6vectorIS8_SaIS8_EEEES9_ET0_T_SF_SE_.exit58: ; preds = %for.body.i.i.i.i.i48, %if.then24
@@ -24203,7 +24203,7 @@ for.body.i.i.i.i.i69:                             ; preds = %_ZSt4moveIN9__gnu_c
   %incdec.ptr.i.i.i.i.i75 = getelementptr inbounds i8, ptr %__first.addr.07.i.i.i.i.i72, i64 16
   %incdec.ptr1.i.i.i.i.i76 = getelementptr inbounds i8, ptr %__result.addr.08.i.i.i.i.i71, i64 16
   %dec.i.i.i.i.i77 = add nsw i64 %__n.09.i.i.i.i.i70, -1
-  %cmp.i.i.i.i.i78 = icmp ugt i64 %__n.09.i.i.i.i.i70, 1
+  %cmp.i.i.i.i.i78 = icmp samesign ugt i64 %__n.09.i.i.i.i.i70, 1
   br i1 %cmp.i.i.i.i.i78, label %for.body.i.i.i.i.i69, label %_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPSt4pairIiPKN6google8protobuf12UnknownFieldEESt6vectorIS8_SaIS8_EEEESD_ET0_T_SF_SE_.exit, !llvm.loop !391
 
 _ZSt4moveIN9__gnu_cxx17__normal_iteratorIPSt4pairIiPKN6google8protobuf12UnknownFieldEESt6vectorIS8_SaIS8_EEEESD_ET0_T_SF_SE_.exit: ; preds = %for.body.i.i.i.i.i69, %_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPSt4pairIiPKN6google8protobuf12UnknownFieldEESt6vectorIS8_SaIS8_EEEES9_ET0_T_SF_SE_.exit58
@@ -24227,7 +24227,7 @@ for.body.i.i.i.i.i89:                             ; preds = %_ZSt4moveIN9__gnu_c
   %second3.i.i.i.i.i.i96 = getelementptr inbounds i8, ptr %__result.addr.06.i.i.i.i.i91, i64 -8
   store ptr %11, ptr %second3.i.i.i.i.i.i96, align 8
   %dec.i.i.i.i.i97 = add nsw i64 %__n.07.i.i.i.i.i90, -1
-  %cmp.i.i.i.i.i98 = icmp ugt i64 %__n.07.i.i.i.i.i90, 1
+  %cmp.i.i.i.i.i98 = icmp samesign ugt i64 %__n.07.i.i.i.i.i90, 1
   br i1 %cmp.i.i.i.i.i98, label %for.body.i.i.i.i.i89, label %_ZSt13move_backwardIPSt4pairIiPKN6google8protobuf12UnknownFieldEEN9__gnu_cxx17__normal_iteratorIS7_St6vectorIS6_SaIS6_EEEEET0_T_SF_SE_.exit.loopexit, !llvm.loop !380
 
 _ZSt13move_backwardIPSt4pairIiPKN6google8protobuf12UnknownFieldEEN9__gnu_cxx17__normal_iteratorIS7_St6vectorIS6_SaIS6_EEEEET0_T_SF_SE_.exit.loopexit: ; preds = %for.body.i.i.i.i.i89

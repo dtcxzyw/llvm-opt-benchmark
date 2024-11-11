@@ -1942,7 +1942,7 @@ _ZNSt15__exception_ptr13exception_ptrC2ERKS0_.exit.i42: ; preds = %125
   br i1 %141, label %143, label %.preheader.i
 
 .preheader.i:                                     ; preds = %136
-  %142 = icmp ugt i64 %140, 1
+  %142 = icmp samesign ugt i64 %140, 1
   br i1 %142, label %.lr.ph.i, label %_ZN8LightGBM9ArrayArgsINS_9SplitInfoEE6ArgMaxERKSt6vectorIS1_SaIS1_EE.exit
 
 143:                                              ; preds = %136
@@ -2033,7 +2033,7 @@ _ZN8LightGBM9ArrayArgsINS_9SplitInfoEE6ArgMaxERKSt6vectorIS1_SaIS1_EE.exit: ; pr
   br i1 %192, label %194, label %.preheader.i50
 
 .preheader.i50:                                   ; preds = %187
-  %193 = icmp ugt i64 %191, 1
+  %193 = icmp samesign ugt i64 %191, 1
   br i1 %193, label %.lr.ph.i52, label %_ZN8LightGBM9ArrayArgsINS_9SplitInfoEE6ArgMaxERKSt6vectorIS1_SaIS1_EE.exit61
 
 194:                                              ; preds = %187
@@ -4054,7 +4054,7 @@ _ZNSt15__exception_ptr13exception_ptrC2ERKS0_.exit.i42: ; preds = %125
   br i1 %141, label %143, label %.preheader.i
 
 .preheader.i:                                     ; preds = %136
-  %142 = icmp ugt i64 %140, 1
+  %142 = icmp samesign ugt i64 %140, 1
   br i1 %142, label %.lr.ph.i, label %_ZN8LightGBM9ArrayArgsINS_9SplitInfoEE6ArgMaxERKSt6vectorIS1_SaIS1_EE.exit
 
 143:                                              ; preds = %136
@@ -4145,7 +4145,7 @@ _ZN8LightGBM9ArrayArgsINS_9SplitInfoEE6ArgMaxERKSt6vectorIS1_SaIS1_EE.exit: ; pr
   br i1 %192, label %194, label %.preheader.i50
 
 .preheader.i50:                                   ; preds = %187
-  %193 = icmp ugt i64 %191, 1
+  %193 = icmp samesign ugt i64 %191, 1
   br i1 %193, label %.lr.ph.i52, label %_ZN8LightGBM9ArrayArgsINS_9SplitInfoEE6ArgMaxERKSt6vectorIS1_SaIS1_EE.exit61
 
 194:                                              ; preds = %187

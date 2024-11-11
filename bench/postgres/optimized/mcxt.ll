@@ -958,7 +958,7 @@ define dso_local ptr @MemoryContextAllocExtended(ptr noundef %0, i64 noundef %1,
 21:                                               ; preds = %12
   %22 = and i64 %1, 7
   %23 = icmp eq i64 %22, 0
-  %24 = icmp ult i64 %1, 1025
+  %24 = icmp samesign ult i64 %1, 1025
   %or.cond3 = and i1 %24, %23
   br i1 %or.cond3, label %25, label %34
 
@@ -1511,7 +1511,7 @@ define internal void @MemoryContextStatsPrint(ptr nocapture noundef readonly %0,
   %28 = sext i32 %.02843 to i64
   %29 = getelementptr [110 x i8], ptr %5, i64 0, i64 %28
   store i8 %spec.store.select, ptr %29, align 1
-  %30 = icmp ugt i32 %.144, 1
+  %30 = icmp samesign ugt i32 %.144, 1
   br i1 %30, label %.lr.ph, label %._crit_edge, !llvm.loop !13
 
 ._crit_edge:                                      ; preds = %.lr.ph, %22

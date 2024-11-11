@@ -60,7 +60,7 @@ define void @_ZN7uu_head5parse14parse_obsolete17h8068d6f114ceb656E(ptr noalias n
   %39 = and i8 %37, 63
   %40 = zext nneg i8 %39 to i32
   %41 = or disjoint i32 %38, %40
-  %42 = icmp ugt i8 %31, -33
+  %42 = icmp samesign ugt i8 %31, -33
   br i1 %42, label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hc1e4810825771014E.exit15.i.i", label %"_ZN87_$LT$core..str..iter..CharIndices$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hbf461ba4ba35c2afE.exit"
 
 43:                                               ; preds = %29
@@ -78,7 +78,7 @@ define void @_ZN7uu_head5parse14parse_obsolete17h8068d6f114ceb656E(ptr noalias n
   %51 = or disjoint i32 %48, %50
   %52 = shl nuw nsw i32 %34, 12
   %53 = or disjoint i32 %51, %52
-  %54 = icmp ugt i8 %31, -17
+  %54 = icmp samesign ugt i8 %31, -17
   br i1 %54, label %55, label %"_ZN87_$LT$core..str..iter..CharIndices$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hbf461ba4ba35c2afE.exit"
 
 55:                                               ; preds = %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hc1e4810825771014E.exit15.i.i"
@@ -144,7 +144,7 @@ define void @_ZN7uu_head5parse14parse_obsolete17h8068d6f114ceb656E(ptr noalias n
   %85 = and i8 %83, 63
   %86 = zext nneg i8 %85 to i32
   %87 = or disjoint i32 %84, %86
-  %88 = icmp ugt i8 %77, -33
+  %88 = icmp samesign ugt i8 %77, -33
   br i1 %88, label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hc1e4810825771014E.exit15.i.i28", label %"_ZN87_$LT$core..str..iter..CharIndices$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hbf461ba4ba35c2afE.exit29.thread48"
 
 89:                                               ; preds = %.lr.ph
@@ -162,7 +162,7 @@ define void @_ZN7uu_head5parse14parse_obsolete17h8068d6f114ceb656E(ptr noalias n
   %97 = or disjoint i32 %94, %96
   %98 = shl nuw nsw i32 %80, 12
   %99 = or disjoint i32 %97, %98
-  %100 = icmp ugt i8 %77, -17
+  %100 = icmp samesign ugt i8 %77, -17
   br i1 %100, label %101, label %"_ZN87_$LT$core..str..iter..CharIndices$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hbf461ba4ba35c2afE.exit29.thread48"
 
 101:                                              ; preds = %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hc1e4810825771014E.exit15.i.i28"
@@ -335,7 +335,7 @@ define void @_ZN7uu_head5parse14parse_obsolete17h8068d6f114ceb656E(ptr noalias n
   %155 = and i8 %153, 63
   %156 = zext nneg i8 %155 to i32
   %157 = or disjoint i32 %154, %156
-  %158 = icmp ugt i8 %147, -33
+  %158 = icmp samesign ugt i8 %147, -33
   br i1 %158, label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hc1e4810825771014E.exit15.i.i.i", label %"_ZN87_$LT$core..str..iter..CharIndices$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hbf461ba4ba35c2afE.exit.i"
 
 159:                                              ; preds = %145
@@ -353,7 +353,7 @@ define void @_ZN7uu_head5parse14parse_obsolete17h8068d6f114ceb656E(ptr noalias n
   %167 = or disjoint i32 %164, %166
   %168 = shl nuw nsw i32 %150, 12
   %169 = or disjoint i32 %167, %168
-  %170 = icmp ugt i8 %147, -17
+  %170 = icmp samesign ugt i8 %147, -17
   br i1 %170, label %171, label %"_ZN87_$LT$core..str..iter..CharIndices$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hbf461ba4ba35c2afE.exit.i"
 
 171:                                              ; preds = %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hc1e4810825771014E.exit15.i.i.i"
@@ -831,7 +831,7 @@ define hidden void @_ZN7uu_head5parse9parse_num17h1eee6712adfff103E(ptr noalias 
   %22 = and i8 %20, 63
   %23 = zext nneg i8 %22 to i32
   %24 = or disjoint i32 %21, %23
-  %25 = icmp ugt i8 %14, -33
+  %25 = icmp samesign ugt i8 %14, -33
   br i1 %25, label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hc1e4810825771014E.exit15.i", label %48
 
 26:                                               ; preds = %13
@@ -849,7 +849,7 @@ define hidden void @_ZN7uu_head5parse9parse_num17h1eee6712adfff103E(ptr noalias 
   %34 = or disjoint i32 %31, %33
   %35 = shl nuw nsw i32 %18, 12
   %36 = or disjoint i32 %34, %35
-  %37 = icmp ugt i8 %14, -17
+  %37 = icmp samesign ugt i8 %14, -17
   br i1 %37, label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hc1e4810825771014E.exit17.i", label %48
 
 "_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hc1e4810825771014E.exit17.i": ; preds = %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hc1e4810825771014E.exit15.i"

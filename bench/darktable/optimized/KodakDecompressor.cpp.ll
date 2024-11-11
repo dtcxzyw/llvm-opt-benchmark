@@ -112,9 +112,9 @@ define hidden void @_ZN8rawspeed17KodakDecompressorC2ENS_8RawImageENS_10ByteStre
 37:                                               ; preds = %29
   %38 = and i32 %31, 3
   %39 = icmp ne i32 %38, 0
-  %40 = icmp ugt i32 %31, 4516
+  %40 = icmp samesign ugt i32 %31, 4516
   %41 = or i1 %40, %39
-  %42 = icmp ugt i32 %34, 3012
+  %42 = icmp samesign ugt i32 %34, 3012
   %43 = select i1 %41, i1 true, i1 %42
   br i1 %43, label %44, label %46
 
@@ -494,7 +494,7 @@ define hidden void @_ZN8rawspeed17KodakDecompressor13decodeSegmentEj(ptr dead_on
   %156 = load i8, ptr %155, align 1
   %157 = add nuw nsw i32 %144, 1
   store i32 %157, ptr %9, align 8, !tbaa !88
-  %158 = icmp ult i32 %157, %11
+  %158 = icmp samesign ult i32 %157, %11
   br i1 %158, label %160, label %159
 
 159:                                              ; preds = %153
@@ -944,7 +944,7 @@ define hidden void @_ZN8rawspeed17KodakDecompressor10decompressEv(ptr nocapture 
   %202 = load i8, ptr %201, align 1, !noalias !120
   %203 = add nuw nsw i32 %190, 1
   store i32 %203, ptr %37, align 8, !tbaa !88, !noalias !120
-  %204 = icmp ult i32 %203, %60
+  %204 = icmp samesign ult i32 %203, %60
   br i1 %204, label %206, label %205
 
 205:                                              ; preds = %199

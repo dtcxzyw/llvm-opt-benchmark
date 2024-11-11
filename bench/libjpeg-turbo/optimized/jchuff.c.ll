@@ -1099,7 +1099,7 @@ define internal range(i32 0, 2) i32 @encode_mcu_huff(ptr noundef %0, ptr nocaptu
   %.not69.i.i = icmp eq i64 %35, 255
   %.sroa.gep.i.i = getelementptr inbounds i8, ptr %.16076.i.i, i64 2
   %.neg70.sroa.sel.i.i = select i1 %.not69.i.i, ptr %.sroa.gep.i.i, ptr %34
-  %36 = icmp ugt i64 %indvars.iv.i.i, 15
+  %36 = icmp samesign ugt i64 %indvars.iv.i.i, 15
   br i1 %36, label %.lr.ph.i.i, label %._crit_edge.loopexit.i.i, !llvm.loop !28
 
 ._crit_edge.loopexit.i.i:                         ; preds = %.lr.ph.i.i
@@ -1537,7 +1537,7 @@ define internal void @finish_pass_huff(ptr noundef %0) #0 {
   %.not69.i = icmp eq i64 %17, 255
   %.sroa.gep.i = getelementptr inbounds i8, ptr %.16076.i, i64 2
   %.neg70.sroa.sel.i = select i1 %.not69.i, ptr %.sroa.gep.i, ptr %16
-  %18 = icmp ugt i64 %indvars.iv.i, 15
+  %18 = icmp samesign ugt i64 %indvars.iv.i, 15
   br i1 %18, label %.lr.ph.i, label %._crit_edge.loopexit.i, !llvm.loop !28
 
 ._crit_edge.loopexit.i:                           ; preds = %.lr.ph.i
@@ -4955,7 +4955,7 @@ define internal fastcc range(i32 0, 2) i32 @encode_one_block(ptr noundef nonnull
   br label %1938
 
 1938:                                             ; preds = %1931, %1921
-  %1939 = icmp ugt i32 %.30, 255
+  %1939 = icmp samesign ugt i32 %.30, 255
   br i1 %1939, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %1938
@@ -5300,7 +5300,7 @@ define internal fastcc range(i32 0, 2) i32 @encode_one_block(ptr noundef nonnull
   br label %2130
 
 2130:                                             ; preds = %2123, %2113
-  %2131 = icmp ugt i32 %.32, 255
+  %2131 = icmp samesign ugt i32 %.32, 255
   br i1 %2131, label %.lr.ph14749, label %._crit_edge14750
 
 .lr.ph14749:                                      ; preds = %2130
@@ -5652,7 +5652,7 @@ define internal fastcc range(i32 0, 2) i32 @encode_one_block(ptr noundef nonnull
   br label %2323
 
 2323:                                             ; preds = %2316, %2306
-  %2324 = icmp ugt i32 %.34, 255
+  %2324 = icmp samesign ugt i32 %.34, 255
   br i1 %2324, label %.lr.ph14760, label %._crit_edge14761
 
 .lr.ph14760:                                      ; preds = %2323
@@ -6004,7 +6004,7 @@ define internal fastcc range(i32 0, 2) i32 @encode_one_block(ptr noundef nonnull
   br label %2516
 
 2516:                                             ; preds = %2509, %2499
-  %2517 = icmp ugt i32 %.36, 255
+  %2517 = icmp samesign ugt i32 %.36, 255
   br i1 %2517, label %.lr.ph14771, label %._crit_edge14772
 
 .lr.ph14771:                                      ; preds = %2516
@@ -6356,7 +6356,7 @@ define internal fastcc range(i32 0, 2) i32 @encode_one_block(ptr noundef nonnull
   br label %2709
 
 2709:                                             ; preds = %2702, %2692
-  %2710 = icmp ugt i32 %.38, 255
+  %2710 = icmp samesign ugt i32 %.38, 255
   br i1 %2710, label %.lr.ph14782, label %._crit_edge14783
 
 .lr.ph14782:                                      ; preds = %2709
@@ -6708,7 +6708,7 @@ define internal fastcc range(i32 0, 2) i32 @encode_one_block(ptr noundef nonnull
   br label %2902
 
 2902:                                             ; preds = %2895, %2885
-  %2903 = icmp ugt i32 %.40, 255
+  %2903 = icmp samesign ugt i32 %.40, 255
   br i1 %2903, label %.lr.ph14793, label %._crit_edge14794
 
 .lr.ph14793:                                      ; preds = %2902
@@ -7060,7 +7060,7 @@ define internal fastcc range(i32 0, 2) i32 @encode_one_block(ptr noundef nonnull
   br label %3095
 
 3095:                                             ; preds = %3088, %3078
-  %3096 = icmp ugt i32 %.42, 255
+  %3096 = icmp samesign ugt i32 %.42, 255
   br i1 %3096, label %.lr.ph14804, label %._crit_edge14805
 
 .lr.ph14804:                                      ; preds = %3095
@@ -7412,7 +7412,7 @@ define internal fastcc range(i32 0, 2) i32 @encode_one_block(ptr noundef nonnull
   br label %3288
 
 3288:                                             ; preds = %3281, %3271
-  %3289 = icmp ugt i32 %.44, 255
+  %3289 = icmp samesign ugt i32 %.44, 255
   br i1 %3289, label %.lr.ph14815, label %._crit_edge14816
 
 .lr.ph14815:                                      ; preds = %3288
@@ -7764,7 +7764,7 @@ define internal fastcc range(i32 0, 2) i32 @encode_one_block(ptr noundef nonnull
   br label %3481
 
 3481:                                             ; preds = %3474, %3464
-  %3482 = icmp ugt i32 %.46, 255
+  %3482 = icmp samesign ugt i32 %.46, 255
   br i1 %3482, label %.lr.ph14826, label %._crit_edge14827
 
 .lr.ph14826:                                      ; preds = %3481
@@ -8116,7 +8116,7 @@ define internal fastcc range(i32 0, 2) i32 @encode_one_block(ptr noundef nonnull
   br label %3674
 
 3674:                                             ; preds = %3667, %3657
-  %3675 = icmp ugt i32 %.48, 255
+  %3675 = icmp samesign ugt i32 %.48, 255
   br i1 %3675, label %.lr.ph14837, label %._crit_edge14838
 
 .lr.ph14837:                                      ; preds = %3674
@@ -8468,7 +8468,7 @@ define internal fastcc range(i32 0, 2) i32 @encode_one_block(ptr noundef nonnull
   br label %3867
 
 3867:                                             ; preds = %3860, %3850
-  %3868 = icmp ugt i32 %.50, 255
+  %3868 = icmp samesign ugt i32 %.50, 255
   br i1 %3868, label %.lr.ph14848, label %._crit_edge14849
 
 .lr.ph14848:                                      ; preds = %3867
@@ -8820,7 +8820,7 @@ define internal fastcc range(i32 0, 2) i32 @encode_one_block(ptr noundef nonnull
   br label %4060
 
 4060:                                             ; preds = %4053, %4043
-  %4061 = icmp ugt i32 %.52, 255
+  %4061 = icmp samesign ugt i32 %.52, 255
   br i1 %4061, label %.lr.ph14859, label %._crit_edge14860
 
 .lr.ph14859:                                      ; preds = %4060
@@ -9172,7 +9172,7 @@ define internal fastcc range(i32 0, 2) i32 @encode_one_block(ptr noundef nonnull
   br label %4253
 
 4253:                                             ; preds = %4246, %4236
-  %4254 = icmp ugt i32 %.54, 255
+  %4254 = icmp samesign ugt i32 %.54, 255
   br i1 %4254, label %.lr.ph14870, label %._crit_edge14871
 
 .lr.ph14870:                                      ; preds = %4253
@@ -9524,7 +9524,7 @@ define internal fastcc range(i32 0, 2) i32 @encode_one_block(ptr noundef nonnull
   br label %4446
 
 4446:                                             ; preds = %4439, %4429
-  %4447 = icmp ugt i32 %.56, 255
+  %4447 = icmp samesign ugt i32 %.56, 255
   br i1 %4447, label %.lr.ph14881, label %._crit_edge14882
 
 .lr.ph14881:                                      ; preds = %4446
@@ -9876,7 +9876,7 @@ define internal fastcc range(i32 0, 2) i32 @encode_one_block(ptr noundef nonnull
   br label %4639
 
 4639:                                             ; preds = %4632, %4622
-  %4640 = icmp ugt i32 %.58, 255
+  %4640 = icmp samesign ugt i32 %.58, 255
   br i1 %4640, label %.lr.ph14892, label %._crit_edge14893
 
 .lr.ph14892:                                      ; preds = %4639
@@ -10228,7 +10228,7 @@ define internal fastcc range(i32 0, 2) i32 @encode_one_block(ptr noundef nonnull
   br label %4832
 
 4832:                                             ; preds = %4825, %4815
-  %4833 = icmp ugt i32 %.60, 255
+  %4833 = icmp samesign ugt i32 %.60, 255
   br i1 %4833, label %.lr.ph14903, label %._crit_edge14904
 
 .lr.ph14903:                                      ; preds = %4832
@@ -10580,7 +10580,7 @@ define internal fastcc range(i32 0, 2) i32 @encode_one_block(ptr noundef nonnull
   br label %5025
 
 5025:                                             ; preds = %5018, %5008
-  %5026 = icmp ugt i32 %.62, 255
+  %5026 = icmp samesign ugt i32 %.62, 255
   br i1 %5026, label %.lr.ph14914, label %._crit_edge14915
 
 .lr.ph14914:                                      ; preds = %5025
@@ -10740,7 +10740,7 @@ define internal fastcc range(i32 0, 2) i32 @encode_one_block(ptr noundef nonnull
   %.13111425 = phi i32 [ %5100, %5099 ], [ %5033, %5103 ]
   %.13111171 = phi i64 [ %5102, %5099 ], [ %5107, %5103 ]
   %.198 = phi ptr [ %.197, %5099 ], [ %.19614911, %5103 ]
-  %5109 = icmp ugt i32 %.6514912, 511
+  %5109 = icmp samesign ugt i32 %.6514912, 511
   br i1 %5109, label %5029, label %._crit_edge14915, !llvm.loop !34
 
 ._crit_edge14915:                                 ; preds = %5108, %5025
@@ -10940,7 +10940,7 @@ define internal fastcc range(i32 0, 2) i32 @encode_one_block(ptr noundef nonnull
   br label %5221
 
 5221:                                             ; preds = %5214, %5204
-  %5222 = icmp ugt i32 %.64, 255
+  %5222 = icmp samesign ugt i32 %.64, 255
   br i1 %5222, label %.lr.ph14925, label %._crit_edge14926
 
 .lr.ph14925:                                      ; preds = %5221
@@ -11100,7 +11100,7 @@ define internal fastcc range(i32 0, 2) i32 @encode_one_block(ptr noundef nonnull
   %.13511429 = phi i32 [ %5296, %5295 ], [ %5229, %5299 ]
   %.13511175 = phi i64 [ %5298, %5295 ], [ %5303, %5299 ]
   %.204 = phi ptr [ %.203, %5295 ], [ %.20214922, %5299 ]
-  %5305 = icmp ugt i32 %.6714923, 511
+  %5305 = icmp samesign ugt i32 %.6714923, 511
   br i1 %5305, label %5225, label %._crit_edge14926, !llvm.loop !35
 
 ._crit_edge14926:                                 ; preds = %5304, %5221
@@ -11300,7 +11300,7 @@ define internal fastcc range(i32 0, 2) i32 @encode_one_block(ptr noundef nonnull
   br label %5417
 
 5417:                                             ; preds = %5410, %5400
-  %5418 = icmp ugt i32 %.66, 255
+  %5418 = icmp samesign ugt i32 %.66, 255
   br i1 %5418, label %.lr.ph14936, label %._crit_edge14937
 
 .lr.ph14936:                                      ; preds = %5417
@@ -11460,7 +11460,7 @@ define internal fastcc range(i32 0, 2) i32 @encode_one_block(ptr noundef nonnull
   %.13911433 = phi i32 [ %5492, %5491 ], [ %5425, %5495 ]
   %.13911179 = phi i64 [ %5494, %5491 ], [ %5499, %5495 ]
   %.210 = phi ptr [ %.209, %5491 ], [ %.20814933, %5495 ]
-  %5501 = icmp ugt i32 %.6914934, 511
+  %5501 = icmp samesign ugt i32 %.6914934, 511
   br i1 %5501, label %5421, label %._crit_edge14937, !llvm.loop !36
 
 ._crit_edge14937:                                 ; preds = %5500, %5417
@@ -11660,7 +11660,7 @@ define internal fastcc range(i32 0, 2) i32 @encode_one_block(ptr noundef nonnull
   br label %5613
 
 5613:                                             ; preds = %5606, %5596
-  %5614 = icmp ugt i32 %.68, 255
+  %5614 = icmp samesign ugt i32 %.68, 255
   br i1 %5614, label %.lr.ph14947, label %._crit_edge14948
 
 .lr.ph14947:                                      ; preds = %5613
@@ -11820,7 +11820,7 @@ define internal fastcc range(i32 0, 2) i32 @encode_one_block(ptr noundef nonnull
   %.14311437 = phi i32 [ %5688, %5687 ], [ %5621, %5691 ]
   %.14311183 = phi i64 [ %5690, %5687 ], [ %5695, %5691 ]
   %.216 = phi ptr [ %.215, %5687 ], [ %.21414944, %5691 ]
-  %5697 = icmp ugt i32 %.7114945, 511
+  %5697 = icmp samesign ugt i32 %.7114945, 511
   br i1 %5697, label %5617, label %._crit_edge14948, !llvm.loop !37
 
 ._crit_edge14948:                                 ; preds = %5696, %5613
@@ -12020,7 +12020,7 @@ define internal fastcc range(i32 0, 2) i32 @encode_one_block(ptr noundef nonnull
   br label %5809
 
 5809:                                             ; preds = %5802, %5792
-  %5810 = icmp ugt i32 %.70, 255
+  %5810 = icmp samesign ugt i32 %.70, 255
   br i1 %5810, label %.lr.ph14958, label %._crit_edge14959
 
 .lr.ph14958:                                      ; preds = %5809
@@ -12180,7 +12180,7 @@ define internal fastcc range(i32 0, 2) i32 @encode_one_block(ptr noundef nonnull
   %.14711441 = phi i32 [ %5884, %5883 ], [ %5817, %5887 ]
   %.14711187 = phi i64 [ %5886, %5883 ], [ %5891, %5887 ]
   %.222 = phi ptr [ %.221, %5883 ], [ %.22014955, %5887 ]
-  %5893 = icmp ugt i32 %.7314956, 511
+  %5893 = icmp samesign ugt i32 %.7314956, 511
   br i1 %5893, label %5813, label %._crit_edge14959, !llvm.loop !38
 
 ._crit_edge14959:                                 ; preds = %5892, %5809
@@ -12380,7 +12380,7 @@ define internal fastcc range(i32 0, 2) i32 @encode_one_block(ptr noundef nonnull
   br label %6005
 
 6005:                                             ; preds = %5998, %5988
-  %6006 = icmp ugt i32 %.72, 255
+  %6006 = icmp samesign ugt i32 %.72, 255
   br i1 %6006, label %.lr.ph14969, label %._crit_edge14970
 
 .lr.ph14969:                                      ; preds = %6005
@@ -12540,7 +12540,7 @@ define internal fastcc range(i32 0, 2) i32 @encode_one_block(ptr noundef nonnull
   %.15111445 = phi i32 [ %6080, %6079 ], [ %6013, %6083 ]
   %.15111191 = phi i64 [ %6082, %6079 ], [ %6087, %6083 ]
   %.228 = phi ptr [ %.227, %6079 ], [ %.22614966, %6083 ]
-  %6089 = icmp ugt i32 %.7514967, 511
+  %6089 = icmp samesign ugt i32 %.7514967, 511
   br i1 %6089, label %6009, label %._crit_edge14970, !llvm.loop !39
 
 ._crit_edge14970:                                 ; preds = %6088, %6005
@@ -12740,7 +12740,7 @@ define internal fastcc range(i32 0, 2) i32 @encode_one_block(ptr noundef nonnull
   br label %6201
 
 6201:                                             ; preds = %6194, %6184
-  %6202 = icmp ugt i32 %.74, 255
+  %6202 = icmp samesign ugt i32 %.74, 255
   br i1 %6202, label %.lr.ph14980, label %._crit_edge14981
 
 .lr.ph14980:                                      ; preds = %6201
@@ -12900,7 +12900,7 @@ define internal fastcc range(i32 0, 2) i32 @encode_one_block(ptr noundef nonnull
   %.15511449 = phi i32 [ %6276, %6275 ], [ %6209, %6279 ]
   %.15511195 = phi i64 [ %6278, %6275 ], [ %6283, %6279 ]
   %.234 = phi ptr [ %.233, %6275 ], [ %.23214977, %6279 ]
-  %6285 = icmp ugt i32 %.7714978, 511
+  %6285 = icmp samesign ugt i32 %.7714978, 511
   br i1 %6285, label %6205, label %._crit_edge14981, !llvm.loop !40
 
 ._crit_edge14981:                                 ; preds = %6284, %6201
@@ -13100,7 +13100,7 @@ define internal fastcc range(i32 0, 2) i32 @encode_one_block(ptr noundef nonnull
   br label %6397
 
 6397:                                             ; preds = %6390, %6380
-  %6398 = icmp ugt i32 %.76, 255
+  %6398 = icmp samesign ugt i32 %.76, 255
   br i1 %6398, label %.lr.ph14991, label %._crit_edge14992
 
 .lr.ph14991:                                      ; preds = %6397
@@ -13260,7 +13260,7 @@ define internal fastcc range(i32 0, 2) i32 @encode_one_block(ptr noundef nonnull
   %.15911453 = phi i32 [ %6472, %6471 ], [ %6405, %6475 ]
   %.15911199 = phi i64 [ %6474, %6471 ], [ %6479, %6475 ]
   %.240 = phi ptr [ %.239, %6471 ], [ %.23814988, %6475 ]
-  %6481 = icmp ugt i32 %.7914989, 511
+  %6481 = icmp samesign ugt i32 %.7914989, 511
   br i1 %6481, label %6401, label %._crit_edge14992, !llvm.loop !41
 
 ._crit_edge14992:                                 ; preds = %6480, %6397
@@ -13460,7 +13460,7 @@ define internal fastcc range(i32 0, 2) i32 @encode_one_block(ptr noundef nonnull
   br label %6593
 
 6593:                                             ; preds = %6586, %6576
-  %6594 = icmp ugt i32 %.78, 255
+  %6594 = icmp samesign ugt i32 %.78, 255
   br i1 %6594, label %.lr.ph15002, label %._crit_edge15003
 
 .lr.ph15002:                                      ; preds = %6593
@@ -13620,7 +13620,7 @@ define internal fastcc range(i32 0, 2) i32 @encode_one_block(ptr noundef nonnull
   %.16311457 = phi i32 [ %6668, %6667 ], [ %6601, %6671 ]
   %.16311203 = phi i64 [ %6670, %6667 ], [ %6675, %6671 ]
   %.246 = phi ptr [ %.245, %6667 ], [ %.24414999, %6671 ]
-  %6677 = icmp ugt i32 %.8115000, 511
+  %6677 = icmp samesign ugt i32 %.8115000, 511
   br i1 %6677, label %6597, label %._crit_edge15003, !llvm.loop !42
 
 ._crit_edge15003:                                 ; preds = %6676, %6593
@@ -13820,7 +13820,7 @@ define internal fastcc range(i32 0, 2) i32 @encode_one_block(ptr noundef nonnull
   br label %6789
 
 6789:                                             ; preds = %6782, %6772
-  %6790 = icmp ugt i32 %.80, 255
+  %6790 = icmp samesign ugt i32 %.80, 255
   br i1 %6790, label %.lr.ph15013, label %._crit_edge15014
 
 .lr.ph15013:                                      ; preds = %6789
@@ -13980,7 +13980,7 @@ define internal fastcc range(i32 0, 2) i32 @encode_one_block(ptr noundef nonnull
   %.16711461 = phi i32 [ %6864, %6863 ], [ %6797, %6867 ]
   %.16711207 = phi i64 [ %6866, %6863 ], [ %6871, %6867 ]
   %.252 = phi ptr [ %.251, %6863 ], [ %.25015010, %6867 ]
-  %6873 = icmp ugt i32 %.8315011, 511
+  %6873 = icmp samesign ugt i32 %.8315011, 511
   br i1 %6873, label %6793, label %._crit_edge15014, !llvm.loop !43
 
 ._crit_edge15014:                                 ; preds = %6872, %6789
@@ -14180,7 +14180,7 @@ define internal fastcc range(i32 0, 2) i32 @encode_one_block(ptr noundef nonnull
   br label %6985
 
 6985:                                             ; preds = %6978, %6968
-  %6986 = icmp ugt i32 %.82, 255
+  %6986 = icmp samesign ugt i32 %.82, 255
   br i1 %6986, label %.lr.ph15024, label %._crit_edge15025
 
 .lr.ph15024:                                      ; preds = %6985
@@ -14340,7 +14340,7 @@ define internal fastcc range(i32 0, 2) i32 @encode_one_block(ptr noundef nonnull
   %.17111465 = phi i32 [ %7060, %7059 ], [ %6993, %7063 ]
   %.17111211 = phi i64 [ %7062, %7059 ], [ %7067, %7063 ]
   %.258 = phi ptr [ %.257, %7059 ], [ %.25615021, %7063 ]
-  %7069 = icmp ugt i32 %.8515022, 511
+  %7069 = icmp samesign ugt i32 %.8515022, 511
   br i1 %7069, label %6989, label %._crit_edge15025, !llvm.loop !44
 
 ._crit_edge15025:                                 ; preds = %7068, %6985
@@ -14540,7 +14540,7 @@ define internal fastcc range(i32 0, 2) i32 @encode_one_block(ptr noundef nonnull
   br label %7181
 
 7181:                                             ; preds = %7174, %7164
-  %7182 = icmp ugt i32 %.84, 255
+  %7182 = icmp samesign ugt i32 %.84, 255
   br i1 %7182, label %.lr.ph15035, label %._crit_edge15036
 
 .lr.ph15035:                                      ; preds = %7181
@@ -14700,7 +14700,7 @@ define internal fastcc range(i32 0, 2) i32 @encode_one_block(ptr noundef nonnull
   %.17511469 = phi i32 [ %7256, %7255 ], [ %7189, %7259 ]
   %.17511215 = phi i64 [ %7258, %7255 ], [ %7263, %7259 ]
   %.264 = phi ptr [ %.263, %7255 ], [ %.26215032, %7259 ]
-  %7265 = icmp ugt i32 %.8715033, 511
+  %7265 = icmp samesign ugt i32 %.8715033, 511
   br i1 %7265, label %7185, label %._crit_edge15036, !llvm.loop !45
 
 ._crit_edge15036:                                 ; preds = %7264, %7181
@@ -14900,7 +14900,7 @@ define internal fastcc range(i32 0, 2) i32 @encode_one_block(ptr noundef nonnull
   br label %7377
 
 7377:                                             ; preds = %7370, %7360
-  %7378 = icmp ugt i32 %.86, 255
+  %7378 = icmp samesign ugt i32 %.86, 255
   br i1 %7378, label %.lr.ph15046, label %._crit_edge15047
 
 .lr.ph15046:                                      ; preds = %7377
@@ -15060,7 +15060,7 @@ define internal fastcc range(i32 0, 2) i32 @encode_one_block(ptr noundef nonnull
   %.17911473 = phi i32 [ %7452, %7451 ], [ %7385, %7455 ]
   %.17911219 = phi i64 [ %7454, %7451 ], [ %7459, %7455 ]
   %.270 = phi ptr [ %.269, %7451 ], [ %.26815043, %7455 ]
-  %7461 = icmp ugt i32 %.8915044, 511
+  %7461 = icmp samesign ugt i32 %.8915044, 511
   br i1 %7461, label %7381, label %._crit_edge15047, !llvm.loop !46
 
 ._crit_edge15047:                                 ; preds = %7460, %7377
@@ -15260,7 +15260,7 @@ define internal fastcc range(i32 0, 2) i32 @encode_one_block(ptr noundef nonnull
   br label %7573
 
 7573:                                             ; preds = %7566, %7556
-  %7574 = icmp ugt i32 %.88, 255
+  %7574 = icmp samesign ugt i32 %.88, 255
   br i1 %7574, label %.lr.ph15057, label %._crit_edge15058
 
 .lr.ph15057:                                      ; preds = %7573
@@ -15420,7 +15420,7 @@ define internal fastcc range(i32 0, 2) i32 @encode_one_block(ptr noundef nonnull
   %.18311477 = phi i32 [ %7648, %7647 ], [ %7581, %7651 ]
   %.18311223 = phi i64 [ %7650, %7647 ], [ %7655, %7651 ]
   %.276 = phi ptr [ %.275, %7647 ], [ %.27415054, %7651 ]
-  %7657 = icmp ugt i32 %.9115055, 511
+  %7657 = icmp samesign ugt i32 %.9115055, 511
   br i1 %7657, label %7577, label %._crit_edge15058, !llvm.loop !47
 
 ._crit_edge15058:                                 ; preds = %7656, %7573
@@ -15620,7 +15620,7 @@ define internal fastcc range(i32 0, 2) i32 @encode_one_block(ptr noundef nonnull
   br label %7769
 
 7769:                                             ; preds = %7762, %7752
-  %7770 = icmp ugt i32 %.90, 255
+  %7770 = icmp samesign ugt i32 %.90, 255
   br i1 %7770, label %.lr.ph15068, label %._crit_edge15069
 
 .lr.ph15068:                                      ; preds = %7769
@@ -15780,7 +15780,7 @@ define internal fastcc range(i32 0, 2) i32 @encode_one_block(ptr noundef nonnull
   %.18711481 = phi i32 [ %7844, %7843 ], [ %7777, %7847 ]
   %.18711227 = phi i64 [ %7846, %7843 ], [ %7851, %7847 ]
   %.282 = phi ptr [ %.281, %7843 ], [ %.28015065, %7847 ]
-  %7853 = icmp ugt i32 %.9315066, 511
+  %7853 = icmp samesign ugt i32 %.9315066, 511
   br i1 %7853, label %7773, label %._crit_edge15069, !llvm.loop !48
 
 ._crit_edge15069:                                 ; preds = %7852, %7769
@@ -15980,7 +15980,7 @@ define internal fastcc range(i32 0, 2) i32 @encode_one_block(ptr noundef nonnull
   br label %7965
 
 7965:                                             ; preds = %7958, %7948
-  %7966 = icmp ugt i32 %.92, 255
+  %7966 = icmp samesign ugt i32 %.92, 255
   br i1 %7966, label %.lr.ph15079, label %._crit_edge15080
 
 .lr.ph15079:                                      ; preds = %7965
@@ -16140,7 +16140,7 @@ define internal fastcc range(i32 0, 2) i32 @encode_one_block(ptr noundef nonnull
   %.19111485 = phi i32 [ %8040, %8039 ], [ %7973, %8043 ]
   %.19111231 = phi i64 [ %8042, %8039 ], [ %8047, %8043 ]
   %.288 = phi ptr [ %.287, %8039 ], [ %.28615076, %8043 ]
-  %8049 = icmp ugt i32 %.9515077, 511
+  %8049 = icmp samesign ugt i32 %.9515077, 511
   br i1 %8049, label %7969, label %._crit_edge15080, !llvm.loop !49
 
 ._crit_edge15080:                                 ; preds = %8048, %7965
@@ -16340,7 +16340,7 @@ define internal fastcc range(i32 0, 2) i32 @encode_one_block(ptr noundef nonnull
   br label %8161
 
 8161:                                             ; preds = %8154, %8144
-  %8162 = icmp ugt i32 %.94, 255
+  %8162 = icmp samesign ugt i32 %.94, 255
   br i1 %8162, label %.lr.ph15090, label %._crit_edge15091
 
 .lr.ph15090:                                      ; preds = %8161
@@ -16500,7 +16500,7 @@ define internal fastcc range(i32 0, 2) i32 @encode_one_block(ptr noundef nonnull
   %.19511489 = phi i32 [ %8236, %8235 ], [ %8169, %8239 ]
   %.19511235 = phi i64 [ %8238, %8235 ], [ %8243, %8239 ]
   %.294 = phi ptr [ %.293, %8235 ], [ %.29215087, %8239 ]
-  %8245 = icmp ugt i32 %.9715088, 511
+  %8245 = icmp samesign ugt i32 %.9715088, 511
   br i1 %8245, label %8165, label %._crit_edge15091, !llvm.loop !50
 
 ._crit_edge15091:                                 ; preds = %8244, %8161
@@ -16700,7 +16700,7 @@ define internal fastcc range(i32 0, 2) i32 @encode_one_block(ptr noundef nonnull
   br label %8357
 
 8357:                                             ; preds = %8350, %8340
-  %8358 = icmp ugt i32 %.96, 255
+  %8358 = icmp samesign ugt i32 %.96, 255
   br i1 %8358, label %.lr.ph15101, label %._crit_edge15102
 
 .lr.ph15101:                                      ; preds = %8357
@@ -16860,7 +16860,7 @@ define internal fastcc range(i32 0, 2) i32 @encode_one_block(ptr noundef nonnull
   %.19911493 = phi i32 [ %8432, %8431 ], [ %8365, %8435 ]
   %.19911239 = phi i64 [ %8434, %8431 ], [ %8439, %8435 ]
   %.300 = phi ptr [ %.299, %8431 ], [ %.29815098, %8435 ]
-  %8441 = icmp ugt i32 %.9915099, 511
+  %8441 = icmp samesign ugt i32 %.9915099, 511
   br i1 %8441, label %8361, label %._crit_edge15102, !llvm.loop !51
 
 ._crit_edge15102:                                 ; preds = %8440, %8357
@@ -17060,7 +17060,7 @@ define internal fastcc range(i32 0, 2) i32 @encode_one_block(ptr noundef nonnull
   br label %8553
 
 8553:                                             ; preds = %8546, %8536
-  %8554 = icmp ugt i32 %.98, 255
+  %8554 = icmp samesign ugt i32 %.98, 255
   br i1 %8554, label %.lr.ph15112, label %._crit_edge15113
 
 .lr.ph15112:                                      ; preds = %8553
@@ -17220,7 +17220,7 @@ define internal fastcc range(i32 0, 2) i32 @encode_one_block(ptr noundef nonnull
   %.20311497 = phi i32 [ %8628, %8627 ], [ %8561, %8631 ]
   %.20311243 = phi i64 [ %8630, %8627 ], [ %8635, %8631 ]
   %.306 = phi ptr [ %.305, %8627 ], [ %.30415109, %8631 ]
-  %8637 = icmp ugt i32 %.10115110, 511
+  %8637 = icmp samesign ugt i32 %.10115110, 511
   br i1 %8637, label %8557, label %._crit_edge15113, !llvm.loop !52
 
 ._crit_edge15113:                                 ; preds = %8636, %8553
@@ -17420,7 +17420,7 @@ define internal fastcc range(i32 0, 2) i32 @encode_one_block(ptr noundef nonnull
   br label %8749
 
 8749:                                             ; preds = %8742, %8732
-  %8750 = icmp ugt i32 %.100, 255
+  %8750 = icmp samesign ugt i32 %.100, 255
   br i1 %8750, label %.lr.ph15123, label %._crit_edge15124
 
 .lr.ph15123:                                      ; preds = %8749
@@ -17580,7 +17580,7 @@ define internal fastcc range(i32 0, 2) i32 @encode_one_block(ptr noundef nonnull
   %.20711501 = phi i32 [ %8824, %8823 ], [ %8757, %8827 ]
   %.20711247 = phi i64 [ %8826, %8823 ], [ %8831, %8827 ]
   %.312 = phi ptr [ %.311, %8823 ], [ %.31015120, %8827 ]
-  %8833 = icmp ugt i32 %.10315121, 511
+  %8833 = icmp samesign ugt i32 %.10315121, 511
   br i1 %8833, label %8753, label %._crit_edge15124, !llvm.loop !53
 
 ._crit_edge15124:                                 ; preds = %8832, %8749
@@ -17780,7 +17780,7 @@ define internal fastcc range(i32 0, 2) i32 @encode_one_block(ptr noundef nonnull
   br label %8945
 
 8945:                                             ; preds = %8938, %8928
-  %8946 = icmp ugt i32 %.102, 255
+  %8946 = icmp samesign ugt i32 %.102, 255
   br i1 %8946, label %.lr.ph15134, label %._crit_edge15135
 
 .lr.ph15134:                                      ; preds = %8945
@@ -17940,7 +17940,7 @@ define internal fastcc range(i32 0, 2) i32 @encode_one_block(ptr noundef nonnull
   %.21111505 = phi i32 [ %9020, %9019 ], [ %8953, %9023 ]
   %.21111251 = phi i64 [ %9022, %9019 ], [ %9027, %9023 ]
   %.318 = phi ptr [ %.317, %9019 ], [ %.31615131, %9023 ]
-  %9029 = icmp ugt i32 %.10515132, 511
+  %9029 = icmp samesign ugt i32 %.10515132, 511
   br i1 %9029, label %8949, label %._crit_edge15135, !llvm.loop !54
 
 ._crit_edge15135:                                 ; preds = %9028, %8945
@@ -18140,7 +18140,7 @@ define internal fastcc range(i32 0, 2) i32 @encode_one_block(ptr noundef nonnull
   br label %9141
 
 9141:                                             ; preds = %9134, %9124
-  %9142 = icmp ugt i32 %.104, 255
+  %9142 = icmp samesign ugt i32 %.104, 255
   br i1 %9142, label %.lr.ph15145, label %._crit_edge15146
 
 .lr.ph15145:                                      ; preds = %9141
@@ -18300,7 +18300,7 @@ define internal fastcc range(i32 0, 2) i32 @encode_one_block(ptr noundef nonnull
   %.21511509 = phi i32 [ %9216, %9215 ], [ %9149, %9219 ]
   %.21511255 = phi i64 [ %9218, %9215 ], [ %9223, %9219 ]
   %.324 = phi ptr [ %.323, %9215 ], [ %.32215142, %9219 ]
-  %9225 = icmp ugt i32 %.10715143, 511
+  %9225 = icmp samesign ugt i32 %.10715143, 511
   br i1 %9225, label %9145, label %._crit_edge15146, !llvm.loop !55
 
 ._crit_edge15146:                                 ; preds = %9224, %9141
@@ -18500,7 +18500,7 @@ define internal fastcc range(i32 0, 2) i32 @encode_one_block(ptr noundef nonnull
   br label %9337
 
 9337:                                             ; preds = %9330, %9320
-  %9338 = icmp ugt i32 %.106, 255
+  %9338 = icmp samesign ugt i32 %.106, 255
   br i1 %9338, label %.lr.ph15156, label %._crit_edge15157
 
 .lr.ph15156:                                      ; preds = %9337
@@ -18660,7 +18660,7 @@ define internal fastcc range(i32 0, 2) i32 @encode_one_block(ptr noundef nonnull
   %.21911513 = phi i32 [ %9412, %9411 ], [ %9345, %9415 ]
   %.21911259 = phi i64 [ %9414, %9411 ], [ %9419, %9415 ]
   %.330 = phi ptr [ %.329, %9411 ], [ %.32815153, %9415 ]
-  %9421 = icmp ugt i32 %.10915154, 511
+  %9421 = icmp samesign ugt i32 %.10915154, 511
   br i1 %9421, label %9341, label %._crit_edge15157, !llvm.loop !56
 
 ._crit_edge15157:                                 ; preds = %9420, %9337
@@ -18860,7 +18860,7 @@ define internal fastcc range(i32 0, 2) i32 @encode_one_block(ptr noundef nonnull
   br label %9533
 
 9533:                                             ; preds = %9526, %9516
-  %9534 = icmp ugt i32 %.108, 255
+  %9534 = icmp samesign ugt i32 %.108, 255
   br i1 %9534, label %.lr.ph15167, label %._crit_edge15168
 
 .lr.ph15167:                                      ; preds = %9533
@@ -19020,7 +19020,7 @@ define internal fastcc range(i32 0, 2) i32 @encode_one_block(ptr noundef nonnull
   %.22311517 = phi i32 [ %9608, %9607 ], [ %9541, %9611 ]
   %.22311263 = phi i64 [ %9610, %9607 ], [ %9615, %9611 ]
   %.336 = phi ptr [ %.335, %9607 ], [ %.33415164, %9611 ]
-  %9617 = icmp ugt i32 %.11115165, 511
+  %9617 = icmp samesign ugt i32 %.11115165, 511
   br i1 %9617, label %9537, label %._crit_edge15168, !llvm.loop !57
 
 ._crit_edge15168:                                 ; preds = %9616, %9533
@@ -19220,7 +19220,7 @@ define internal fastcc range(i32 0, 2) i32 @encode_one_block(ptr noundef nonnull
   br label %9729
 
 9729:                                             ; preds = %9722, %9712
-  %9730 = icmp ugt i32 %.110, 255
+  %9730 = icmp samesign ugt i32 %.110, 255
   br i1 %9730, label %.lr.ph15178, label %._crit_edge15179
 
 .lr.ph15178:                                      ; preds = %9729
@@ -19380,7 +19380,7 @@ define internal fastcc range(i32 0, 2) i32 @encode_one_block(ptr noundef nonnull
   %.22711521 = phi i32 [ %9804, %9803 ], [ %9737, %9807 ]
   %.22711267 = phi i64 [ %9806, %9803 ], [ %9811, %9807 ]
   %.342 = phi ptr [ %.341, %9803 ], [ %.34015175, %9807 ]
-  %9813 = icmp ugt i32 %.11315176, 511
+  %9813 = icmp samesign ugt i32 %.11315176, 511
   br i1 %9813, label %9733, label %._crit_edge15179, !llvm.loop !58
 
 ._crit_edge15179:                                 ; preds = %9812, %9729
@@ -19580,7 +19580,7 @@ define internal fastcc range(i32 0, 2) i32 @encode_one_block(ptr noundef nonnull
   br label %9925
 
 9925:                                             ; preds = %9918, %9908
-  %9926 = icmp ugt i32 %.112, 255
+  %9926 = icmp samesign ugt i32 %.112, 255
   br i1 %9926, label %.lr.ph15189, label %._crit_edge15190
 
 .lr.ph15189:                                      ; preds = %9925
@@ -19740,7 +19740,7 @@ define internal fastcc range(i32 0, 2) i32 @encode_one_block(ptr noundef nonnull
   %.23111525 = phi i32 [ %10000, %9999 ], [ %9933, %10003 ]
   %.23111271 = phi i64 [ %10002, %9999 ], [ %10007, %10003 ]
   %.348 = phi ptr [ %.347, %9999 ], [ %.34615186, %10003 ]
-  %10009 = icmp ugt i32 %.11515187, 511
+  %10009 = icmp samesign ugt i32 %.11515187, 511
   br i1 %10009, label %9929, label %._crit_edge15190, !llvm.loop !59
 
 ._crit_edge15190:                                 ; preds = %10008, %9925
@@ -19940,7 +19940,7 @@ define internal fastcc range(i32 0, 2) i32 @encode_one_block(ptr noundef nonnull
   br label %10121
 
 10121:                                            ; preds = %10114, %10104
-  %10122 = icmp ugt i32 %.114, 255
+  %10122 = icmp samesign ugt i32 %.114, 255
   br i1 %10122, label %.lr.ph15200, label %._crit_edge15201
 
 .lr.ph15200:                                      ; preds = %10121
@@ -20100,7 +20100,7 @@ define internal fastcc range(i32 0, 2) i32 @encode_one_block(ptr noundef nonnull
   %.23511529 = phi i32 [ %10196, %10195 ], [ %10129, %10199 ]
   %.23511275 = phi i64 [ %10198, %10195 ], [ %10203, %10199 ]
   %.354 = phi ptr [ %.353, %10195 ], [ %.35215197, %10199 ]
-  %10205 = icmp ugt i32 %.11715198, 511
+  %10205 = icmp samesign ugt i32 %.11715198, 511
   br i1 %10205, label %10125, label %._crit_edge15201, !llvm.loop !60
 
 ._crit_edge15201:                                 ; preds = %10204, %10121
@@ -20300,7 +20300,7 @@ define internal fastcc range(i32 0, 2) i32 @encode_one_block(ptr noundef nonnull
   br label %10317
 
 10317:                                            ; preds = %10310, %10300
-  %10318 = icmp ugt i32 %.116, 255
+  %10318 = icmp samesign ugt i32 %.116, 255
   br i1 %10318, label %.lr.ph15211, label %._crit_edge15212
 
 .lr.ph15211:                                      ; preds = %10317
@@ -20460,7 +20460,7 @@ define internal fastcc range(i32 0, 2) i32 @encode_one_block(ptr noundef nonnull
   %.23911533 = phi i32 [ %10392, %10391 ], [ %10325, %10395 ]
   %.23911279 = phi i64 [ %10394, %10391 ], [ %10399, %10395 ]
   %.360 = phi ptr [ %.359, %10391 ], [ %.35815208, %10395 ]
-  %10401 = icmp ugt i32 %.11915209, 511
+  %10401 = icmp samesign ugt i32 %.11915209, 511
   br i1 %10401, label %10321, label %._crit_edge15212, !llvm.loop !61
 
 ._crit_edge15212:                                 ; preds = %10400, %10317
@@ -20660,7 +20660,7 @@ define internal fastcc range(i32 0, 2) i32 @encode_one_block(ptr noundef nonnull
   br label %10513
 
 10513:                                            ; preds = %10506, %10496
-  %10514 = icmp ugt i32 %.118, 255
+  %10514 = icmp samesign ugt i32 %.118, 255
   br i1 %10514, label %.lr.ph15222, label %._crit_edge15223
 
 .lr.ph15222:                                      ; preds = %10513
@@ -20820,7 +20820,7 @@ define internal fastcc range(i32 0, 2) i32 @encode_one_block(ptr noundef nonnull
   %.24311537 = phi i32 [ %10588, %10587 ], [ %10521, %10591 ]
   %.24311283 = phi i64 [ %10590, %10587 ], [ %10595, %10591 ]
   %.366 = phi ptr [ %.365, %10587 ], [ %.36415219, %10591 ]
-  %10597 = icmp ugt i32 %.12115220, 511
+  %10597 = icmp samesign ugt i32 %.12115220, 511
   br i1 %10597, label %10517, label %._crit_edge15223, !llvm.loop !62
 
 ._crit_edge15223:                                 ; preds = %10596, %10513
@@ -21020,7 +21020,7 @@ define internal fastcc range(i32 0, 2) i32 @encode_one_block(ptr noundef nonnull
   br label %10709
 
 10709:                                            ; preds = %10702, %10692
-  %10710 = icmp ugt i32 %.120, 255
+  %10710 = icmp samesign ugt i32 %.120, 255
   br i1 %10710, label %.lr.ph15233, label %._crit_edge15234
 
 .lr.ph15233:                                      ; preds = %10709
@@ -21180,7 +21180,7 @@ define internal fastcc range(i32 0, 2) i32 @encode_one_block(ptr noundef nonnull
   %.24711541 = phi i32 [ %10784, %10783 ], [ %10717, %10787 ]
   %.24711287 = phi i64 [ %10786, %10783 ], [ %10791, %10787 ]
   %.372 = phi ptr [ %.371, %10783 ], [ %.37015230, %10787 ]
-  %10793 = icmp ugt i32 %.12315231, 511
+  %10793 = icmp samesign ugt i32 %.12315231, 511
   br i1 %10793, label %10713, label %._crit_edge15234, !llvm.loop !63
 
 ._crit_edge15234:                                 ; preds = %10792, %10709
@@ -21376,7 +21376,7 @@ define internal fastcc range(i32 0, 2) i32 @encode_one_block(ptr noundef nonnull
   br label %10903
 
 10903:                                            ; preds = %10896, %10886
-  %10904 = icmp ugt i32 %.122, 255
+  %10904 = icmp samesign ugt i32 %.122, 255
   br i1 %10904, label %.lr.ph15244, label %._crit_edge15245
 
 .lr.ph15244:                                      ; preds = %10903
@@ -21536,7 +21536,7 @@ define internal fastcc range(i32 0, 2) i32 @encode_one_block(ptr noundef nonnull
   %.25111545 = phi i32 [ %10978, %10977 ], [ %10911, %10981 ]
   %.25111291 = phi i64 [ %10980, %10977 ], [ %10985, %10981 ]
   %.378 = phi ptr [ %.377, %10977 ], [ %.37615241, %10981 ]
-  %10987 = icmp ugt i32 %.12515242, 511
+  %10987 = icmp samesign ugt i32 %.12515242, 511
   br i1 %10987, label %10907, label %._crit_edge15245, !llvm.loop !64
 
 ._crit_edge15245:                                 ; preds = %10986, %10903

@@ -1734,7 +1734,7 @@ if.then.i:                                        ; preds = %if.end26
   br label %out
 
 if.end.i:                                         ; preds = %if.end26
-  %cmp10.i = icmp ult i64 %cluster_size.0, 16384
+  %cmp10.i = icmp samesign ult i64 %cluster_size.0, 16384
   %or.cond8.i = and i1 %cmp10.i, %tobool21170
   br i1 %or.cond8.i, label %if.then12.i, label %if.end31
 
@@ -5464,7 +5464,7 @@ if.then.i.i:                                      ; preds = %entry
   br label %qcow2_opt_get_cluster_size_del.exit
 
 if.end.i.i:                                       ; preds = %entry
-  %cmp10.i.i = icmp ult i64 %call.i, 16384
+  %cmp10.i.i = icmp samesign ult i64 %call.i, 16384
   %or.cond8.i.i = and i1 %call, %cmp10.i.i
   br i1 %or.cond8.i.i, label %if.then12.i.i, label %qcow2_opt_get_cluster_size_del.exit
 
@@ -6335,7 +6335,7 @@ if.then99.i:                                      ; preds = %lor.lhs.false.i, %i
 if.end5:                                          ; preds = %lor.lhs.false.i
   %div = udiv i64 %l2_cache_size.0.l2_cache_size.0., %l2_cache_entry_size.0
   %spec.store.select = call i64 @llvm.umax.i64(i64 %div, i64 2)
-  %cmp8 = icmp ugt i64 %div, 2147483647
+  %cmp8 = icmp samesign ugt i64 %div, 2147483647
   br i1 %cmp8, label %if.then9, label %if.end10
 
 if.then9:                                         ; preds = %if.end5
@@ -7169,7 +7169,7 @@ if.then82:                                        ; preds = %if.end78
   br label %fail
 
 if.end83:                                         ; preds = %if.end78
-  %cmp85 = icmp ugt i32 %40, 112
+  %cmp85 = icmp samesign ugt i32 %40, 112
   br i1 %cmp85, label %if.then87, label %if.end102
 
 if.then87:                                        ; preds = %if.end83
@@ -7271,7 +7271,7 @@ if.then156:                                       ; preds = %if.end147
   br label %fail
 
 if.end158:                                        ; preds = %if.end147
-  %tobool.i.not = icmp ult i64 %52, 16
+  %tobool.i.not = icmp samesign ult i64 %52, 16
   %cond = select i1 %tobool.i.not, i32 1, i32 32
   %subclusters_per_cluster = getelementptr inbounds i8, ptr %0, i64 20
   store i32 %cond, ptr %subclusters_per_cluster, align 4

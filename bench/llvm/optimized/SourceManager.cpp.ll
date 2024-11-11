@@ -398,7 +398,7 @@ _ZNK4llvm9StringRef11starts_withES0_.exit.i9:     ; preds = %_ZNK4llvm9StringRef
   br i1 %4, label %_ZN4llvm12StringSwitchIPKcS2_E10StartsWithENS_13StringLiteralES2_.exit60, label %_ZNK4llvm9StringRef11starts_withES0_.exit.i15
 
 _ZN4llvm12StringSwitchIPKcS2_E10StartsWithENS_13StringLiteralES2_.exit12: ; preds = %2
-  %.not.i.i13 = icmp ult i64 %1, 2
+  %.not.i.i13 = icmp samesign ult i64 %1, 2
   br i1 %.not.i.i13, label %_ZN4llvm12StringSwitchIPKcS2_E10StartsWithENS_13StringLiteralES2_.exit60, label %_ZNK4llvm9StringRef11starts_withES0_.exit.i15
 
 _ZNK4llvm9StringRef11starts_withES0_.exit.i15:    ; preds = %_ZNK4llvm9StringRef11starts_withES0_.exit.i9, %_ZN4llvm12StringSwitchIPKcS2_E10StartsWithENS_13StringLiteralES2_.exit12
@@ -3953,7 +3953,7 @@ define dso_local range(i32 0, -1) i32 @_ZNK5clang13SourceManager13getNextFileIDE
   br label %._crit_edge
 
 11:                                               ; preds = %4
-  %12 = icmp ugt i32 %1, -3
+  %12 = icmp samesign ugt i32 %1, -3
   %.pre = add nuw nsw i32 %1, 1
   %spec.select6 = select i1 %12, i32 0, i32 %.pre
   br label %._crit_edge
@@ -4586,7 +4586,7 @@ _ZN4llvm15SmallVectorImplISt4pairIPKN5clang9FileEntryEZNKS2_13SourceManager25not
   %69 = getelementptr inbounds i8, ptr %.0910.i.i.i.i.i.i.i.i, i64 32
   %70 = getelementptr inbounds i8, ptr %.0811.i.i.i.i.i.i.i.i, i64 32
   %71 = add nsw i64 %.012.i.i.i.i.i.i.i.i, -1
-  %72 = icmp ugt i64 %.012.i.i.i.i.i.i.i.i, 1
+  %72 = icmp samesign ugt i64 %.012.i.i.i.i.i.i.i.i, 1
   br i1 %72, label %.lr.ph.i.i.i.i.i.i.i.i, label %_ZSt4moveIPSt4pairIPKN5clang9FileEntryEZNKS1_13SourceManager25noteSLocAddressSpaceUsageERNS1_17DiagnosticsEngineESt8optionalIjEE4InfoESC_ET0_T_SE_SD_.exit.i.i.i, !llvm.loop !58
 
 _ZSt4moveIPSt4pairIPKN5clang9FileEntryEZNKS1_13SourceManager25noteSLocAddressSpaceUsageERNS1_17DiagnosticsEngineESt8optionalIjEE4InfoESC_ET0_T_SE_SD_.exit.i.i.i: ; preds = %.lr.ph.i.i.i.i.i.i.i.i, %63, %62
@@ -4634,7 +4634,7 @@ _ZSt4moveIPSt4pairIPKN5clang9FileEntryEZNKS1_13SourceManager25noteSLocAddressSpa
   %88 = getelementptr inbounds i8, ptr %.0910.i.i.i.i.i45.i.i.i, i64 32
   %89 = getelementptr inbounds i8, ptr %.0811.i.i.i.i.i44.i.i.i, i64 32
   %90 = add nsw i64 %.012.i.i.i.i.i43.i.i.i, -1
-  %91 = icmp ugt i64 %.012.i.i.i.i.i43.i.i.i, 1
+  %91 = icmp samesign ugt i64 %.012.i.i.i.i.i43.i.i.i, 1
   br i1 %91, label %.lr.ph.i.i.i.i.i42.i.i.i, label %_ZSt4moveIPSt4pairIPKN5clang9FileEntryEZNKS1_13SourceManager25noteSLocAddressSpaceUsageERNS1_17DiagnosticsEngineESt8optionalIjEE4InfoESC_ET0_T_SE_SD_.exit46.i.i.i, !llvm.loop !58
 
 _ZSt4moveIPSt4pairIPKN5clang9FileEntryEZNKS1_13SourceManager25noteSLocAddressSpaceUsageERNS1_17DiagnosticsEngineESt8optionalIjEE4InfoESC_ET0_T_SE_SD_.exit46.i.i.i: ; preds = %.lr.ph.i.i.i.i.i42.i.i.i, %83, %82, %79
@@ -4793,7 +4793,7 @@ _ZN4llvm9MapVectorIPKN5clang9FileEntryEZNKS1_13SourceManager25noteSLocAddressSpa
   %150 = getelementptr inbounds i8, ptr %.069.i.i.i.i.i.i.i.i, i64 -24
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %150, ptr noundef nonnull readonly align 8 dereferenceable(24) %149, i64 24, i1 false)
   %151 = add nsw i64 %.010.i.i.i.i.i.i.i.i, -1
-  %152 = icmp ugt i64 %.010.i.i.i.i.i.i.i.i, 1
+  %152 = icmp samesign ugt i64 %.010.i.i.i.i.i.i.i.i, 1
   br i1 %152, label %.lr.ph.i.i.i.i.i.i.i.i49, label %_ZSt13move_backwardIPSt4pairIPKN5clang9FileEntryEZNKS1_13SourceManager25noteSLocAddressSpaceUsageERNS1_17DiagnosticsEngineESt8optionalIjEE4InfoESC_ET0_T_SE_SD_.exit.i.i.i, !llvm.loop !60
 
 _ZSt13move_backwardIPSt4pairIPKN5clang9FileEntryEZNKS1_13SourceManager25noteSLocAddressSpaceUsageERNS1_17DiagnosticsEngineESt8optionalIjEE4InfoESC_ET0_T_SE_SD_.exit.i.i.i: ; preds = %.lr.ph.i.i.i.i.i.i.i.i49, %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZNK5clang13SourceManager25noteSLocAddressSpaceUsageERNS2_17DiagnosticsEngineESt8optionalIjEE3$_1EclIPSt4pairIPKNS2_9FileEntryEZNKS3_25noteSLocAddressSpaceUsageES5_S7_E4InfoESH_EEbT_T0_.exit.thread.i.i.i"
@@ -4913,7 +4913,7 @@ _ZSt13move_backwardIPSt4pairIPKN5clang9FileEntryEZNKS1_13SourceManager25noteSLoc
   %188 = getelementptr inbounds i8, ptr %.069.i.i.i.i.i.i.i.i.i, i64 -24
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %188, ptr noundef nonnull readonly align 8 dereferenceable(24) %187, i64 24, i1 false)
   %189 = add nsw i64 %.010.i.i.i.i.i.i.i.i.i, -1
-  %190 = icmp ugt i64 %.010.i.i.i.i.i.i.i.i.i, 1
+  %190 = icmp samesign ugt i64 %.010.i.i.i.i.i.i.i.i.i, 1
   br i1 %190, label %.lr.ph.i.i.i.i.i.i.i.i.i, label %_ZSt13move_backwardIPSt4pairIPKN5clang9FileEntryEZNKS1_13SourceManager25noteSLocAddressSpaceUsageERNS1_17DiagnosticsEngineESt8optionalIjEE4InfoESC_ET0_T_SE_SD_.exit.i.i.i.i, !llvm.loop !60
 
 _ZSt13move_backwardIPSt4pairIPKN5clang9FileEntryEZNKS1_13SourceManager25noteSLocAddressSpaceUsageERNS1_17DiagnosticsEngineESt8optionalIjEE4InfoESC_ET0_T_SE_SD_.exit.i.i.i.i: ; preds = %.lr.ph.i.i.i.i.i.i.i.i.i
@@ -5075,7 +5075,7 @@ _ZSt13move_backwardIPSt4pairIPKN5clang9FileEntryEZNKS1_13SourceManager25noteSLoc
   %230 = getelementptr inbounds i8, ptr %.069.i.i.i.i.i.i59.i.i.i, i64 -24
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %230, ptr noundef nonnull readonly align 8 dereferenceable(24) %229, i64 24, i1 false)
   %231 = add nsw i64 %.010.i.i.i.i.i.i58.i.i.i, -1
-  %232 = icmp ugt i64 %.010.i.i.i.i.i.i58.i.i.i, 1
+  %232 = icmp samesign ugt i64 %.010.i.i.i.i.i.i58.i.i.i, 1
   br i1 %232, label %.lr.ph.i.i.i.i.i.i57.i.i.i, label %_ZSt13move_backwardIPSt4pairIPKN5clang9FileEntryEZNKS1_13SourceManager25noteSLocAddressSpaceUsageERNS1_17DiagnosticsEngineESt8optionalIjEE4InfoESC_ET0_T_SE_SD_.exit.i55.i.i.i, !llvm.loop !60
 
 _ZSt13move_backwardIPSt4pairIPKN5clang9FileEntryEZNKS1_13SourceManager25noteSLocAddressSpaceUsageERNS1_17DiagnosticsEngineESt8optionalIjEE4InfoESC_ET0_T_SE_SD_.exit.i55.i.i.i: ; preds = %.lr.ph.i.i.i.i.i.i57.i.i.i, %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZNK5clang13SourceManager25noteSLocAddressSpaceUsageERNS2_17DiagnosticsEngineESt8optionalIjEE3$_1EclIPSt4pairIPKNS2_9FileEntryEZNKS3_25noteSLocAddressSpaceUsageES5_S7_E4InfoESH_EEbT_T0_.exit.thread.i53.i.i.i"
@@ -7190,7 +7190,7 @@ _ZNK5clang13SourceManager12getSLocEntryENS_6FileIDEPb.exit: ; preds = %_ZNK5clan
   br i1 %.not.i, label %_ZNK5clang13SourceManager13getNextFileIDENS_6FileIDE.exit, label %.critedge
 
 47:                                               ; preds = %41
-  %48 = icmp ugt i32 %6, -3
+  %48 = icmp samesign ugt i32 %6, -3
   br i1 %48, label %.critedge, label %_ZNK5clang13SourceManager13getNextFileIDENS_6FileIDE.exit
 
 _ZNK5clang13SourceManager13getNextFileIDENS_6FileIDE.exit: ; preds = %43, %47

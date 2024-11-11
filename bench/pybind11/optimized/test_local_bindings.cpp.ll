@@ -44613,7 +44613,7 @@ define linkonce_odr hidden noundef ptr @_ZZN8pybind116detail16vector_modifiersIS
           to label %_ZNSt6vectorI9LocalBaseILi0EESaIS1_EE7reserveEm.exit unwind label %86
 
 _ZN8pybind118len_hintENS_6handleE.exit:           ; preds = %.noexc
-  %11 = icmp ugt i64 %8, 2305843009213693951
+  %11 = icmp samesign ugt i64 %8, 2305843009213693951
   br i1 %11, label %12, label %13
 
 12:                                               ; preds = %_ZN8pybind118len_hintENS_6handleE.exit
@@ -72130,7 +72130,7 @@ define linkonce_odr hidden noundef ptr @_ZZN8pybind116detail16vector_modifiersIS
           to label %_ZNSt6vectorI9LocalBaseILi1EESaIS1_EE7reserveEm.exit unwind label %86
 
 _ZN8pybind118len_hintENS_6handleE.exit:           ; preds = %.noexc
-  %11 = icmp ugt i64 %8, 2305843009213693951
+  %11 = icmp samesign ugt i64 %8, 2305843009213693951
   br i1 %11, label %12, label %13
 
 12:                                               ; preds = %_ZN8pybind118len_hintENS_6handleE.exit
@@ -94716,7 +94716,7 @@ define linkonce_odr hidden noundef ptr @_ZZN8pybind116detail16vector_modifiersIS
           to label %_ZNSt6vectorI9LocalBaseILi2EESaIS1_EE7reserveEm.exit unwind label %86
 
 _ZN8pybind118len_hintENS_6handleE.exit:           ; preds = %.noexc
-  %11 = icmp ugt i64 %8, 2305843009213693951
+  %11 = icmp samesign ugt i64 %8, 2305843009213693951
   br i1 %11, label %12, label %13
 
 12:                                               ; preds = %_ZN8pybind118len_hintENS_6handleE.exit

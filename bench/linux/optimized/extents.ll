@@ -3530,7 +3530,7 @@ define dso_local i32 @ext4_ext_remove_space(ptr noundef %0, i32 noundef %1, i32 
   %163 = zext i16 %162 to i64
   %164 = add nuw nsw i64 %163, 1
   store i64 %164, ptr %158, align 8
-  %165 = icmp ugt i64 %155, 2
+  %165 = icmp samesign ugt i64 %155, 2
   br i1 %165, label %154, label %.loopexit74, !llvm.loop !68
 
 166:                                              ; preds = %145
@@ -8121,7 +8121,7 @@ define dso_local range(i64 -2147483648, 2147483648) i64 @ext4_fallocate(ptr noun
   br label %402
 
 169:                                              ; preds = %30
-  %170 = icmp ult i32 %1, 32
+  %170 = icmp samesign ult i32 %1, 32
   br i1 %170, label %340, label %171
 
 171:                                              ; preds = %169
@@ -8396,7 +8396,7 @@ define dso_local range(i64 -2147483648, 2147483648) i64 @ext4_fallocate(ptr noun
   br label %402
 
 340:                                              ; preds = %169
-  %341 = icmp ult i32 %1, 16
+  %341 = icmp samesign ult i32 %1, 16
   br i1 %341, label %345, label %342
 
 342:                                              ; preds = %340

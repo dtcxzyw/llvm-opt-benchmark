@@ -9672,7 +9672,7 @@ Vec_IntFindMax.exit:                              ; preds = %.lr.ph.i, %Vec_IntA
   %66 = zext nneg i32 %42 to i64
   %67 = shl nuw nsw i64 %66, 3
   %68 = getelementptr i8, ptr %4, i64 8
-  %69 = icmp ult i32 %.09.i, 6
+  %69 = icmp samesign ult i32 %.09.i, 6
   br label %121
 
 70:                                               ; preds = %.lr.ph, %Vec_IntPush.exit

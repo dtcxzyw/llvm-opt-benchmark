@@ -2003,7 +2003,7 @@ _ZNK4llvm25generic_gep_type_iteratorIPKNS_3UseEE26getSequentialElementStrideERKN
   %739 = xor i32 %738, 63
   %740 = zext nneg i32 %739 to i64
   %741 = lshr i64 -1, %740
-  %742 = icmp ult i32 %709, 256
+  %742 = icmp samesign ult i32 %709, 256
   %spec.store.select.i.i.i.i = select i1 %742, i64 0, i64 %741
   %743 = and i64 %734, %spec.store.select.i.i.i.i
   store i64 %743, ptr %38, align 8
@@ -2794,7 +2794,7 @@ _ZNK4llvm25generic_gep_type_iteratorIPKNS_3UseEE26getSequentialElementStrideERKN
   %1107 = xor i32 %1106, 63
   %1108 = zext nneg i32 %1107 to i64
   %1109 = lshr i64 -1, %1108
-  %1110 = icmp ult i32 %1077, 256
+  %1110 = icmp samesign ult i32 %1077, 256
   %spec.store.select.i.i.i = select i1 %1110, i64 0, i64 %1109
   %1111 = and i64 %1102, %spec.store.select.i.i.i
   store i64 %1111, ptr %9, align 8
@@ -6937,7 +6937,7 @@ _ZN4llvm9remove_ifIRNS_11SmallVectorISt4pairIjPNS_6MDNodeEELj2EEEZNS_13IRBuilder
   %68 = getelementptr inbounds i8, ptr %.0910.i.i.i.i.i.i, i64 16
   %69 = getelementptr inbounds i8, ptr %.0811.i.i.i.i.i.i, i64 16
   %70 = add nsw i64 %.012.i.i.i.i.i.i, -1
-  %71 = icmp ugt i64 %.012.i.i.i.i.i.i, 1
+  %71 = icmp samesign ugt i64 %.012.i.i.i.i.i.i, 1
   br i1 %71, label %.lr.ph.i.i.i.i.i.i, label %_ZN4llvm15SmallVectorImplISt4pairIjPNS_6MDNodeEEE5eraseEPKS4_S7_.exit, !llvm.loop !63
 
 _ZN4llvm15SmallVectorImplISt4pairIjPNS_6MDNodeEEE5eraseEPKS4_S7_.exit: ; preds = %.lr.ph.i.i.i.i.i.i, %_ZN4llvm9remove_ifIRNS_11SmallVectorISt4pairIjPNS_6MDNodeEELj2EEEZNS_13IRBuilderBase25AddOrRemoveMetadataToCopyEjS4_EUlRKS5_E_EEDaOT_T0_.exit

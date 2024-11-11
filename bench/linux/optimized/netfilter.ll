@@ -438,7 +438,7 @@ define dso_local i32 @br_ip6_fragment(ptr noundef %0, ptr noundef %1, ptr nounde
   %86 = getelementptr i8, ptr %81, i64 %.idx
   %87 = load i32, ptr %86, align 8
   %88 = add i32 %87, %84
-  %89 = icmp ugt i64 %83, 1
+  %89 = icmp samesign ugt i64 %83, 1
   br i1 %89, label %82, label %.loopexit17, !llvm.loop !9
 
 .loopexit17:                                      ; preds = %82, %71

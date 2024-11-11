@@ -14126,7 +14126,7 @@ _ZNKSt8functionIFddEEclEd.exit.i:                 ; preds = %for.body.i
   %call2.i.i = call noundef double %10(ptr noundef nonnull align 8 dereferenceable(32) %f, ptr noundef nonnull align 8 dereferenceable(8) %__args.addr.i.i)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %__args.addr.i.i)
   %11 = call double @llvm.fmuladd.f64(double %6, double %call2.i.i, double %sum.08.i)
-  %cmp.i = icmp ugt i64 %indvars.iv.i, 1
+  %cmp.i = icmp samesign ugt i64 %indvars.iv.i, 1
   br i1 %cmp.i, label %for.body.i, label %sw.epilog, !llvm.loop !218
 
 sw.bb3:                                           ; preds = %entry, %entry, %entry
@@ -14271,7 +14271,7 @@ _ZNK8QuantLib12_GLOBAL__N_110integrand1clEd.exit.i: ; preds = %call2.i.i.i.noexc
   %33 = phi double [ %32, %call2.i.i.i.noexc ], [ %24, %for.body.i43 ]
   %retval.0.i.i = phi double [ %div9.i.i, %call2.i.i.i.noexc ], [ 0.000000e+00, %for.body.i43 ]
   %34 = call double @llvm.fmuladd.f64(double %26, double %retval.0.i.i, double %sum.08.i45)
-  %cmp.i49 = icmp ugt i64 %indvars.iv.i44, 1
+  %cmp.i49 = icmp samesign ugt i64 %indvars.iv.i44, 1
   br i1 %cmp.i49, label %for.body.i43, label %invoke.cont7.loopexit, !llvm.loop !222
 
 invoke.cont7.loopexit:                            ; preds = %_ZNK8QuantLib12_GLOBAL__N_110integrand1clEd.exit.i
@@ -24364,7 +24364,7 @@ for.body.i.i.i.i.i:                               ; preds = %for.body.i.i.i.i.i,
   %incdec.ptr.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %__first.addr.07.i.i.i.i.i, i64 24
   %incdec.ptr1.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %__result.addr.08.i.i.i.i.i, i64 24
   %dec.i.i.i.i.i = add nsw i64 %__n.09.i.i.i.i.i, -1
-  %cmp.i.i.i.i.i = icmp ugt i64 %__n.09.i.i.i.i.i, 1
+  %cmp.i.i.i.i.i = icmp samesign ugt i64 %__n.09.i.i.i.i.i, 1
   br i1 %cmp.i.i.i.i.i, label %for.body.i.i.i.i.i, label %_ZSt4copyIPKSt6vectorIdSaIdEEPS2_ET0_T_S7_S6_.exit.loopexit, !llvm.loop !328
 
 _ZSt4copyIPKSt6vectorIdSaIdEEPS2_ET0_T_S7_S6_.exit.loopexit: ; preds = %for.body.i.i.i.i.i
@@ -24418,7 +24418,7 @@ for.body.i.i.i.i.i32:                             ; preds = %for.body.i.i.i.i.i3
   %incdec.ptr.i.i.i.i.i37 = getelementptr inbounds nuw i8, ptr %__first.addr.07.i.i.i.i.i35, i64 24
   %incdec.ptr1.i.i.i.i.i38 = getelementptr inbounds nuw i8, ptr %__result.addr.08.i.i.i.i.i34, i64 24
   %dec.i.i.i.i.i39 = add nsw i64 %__n.09.i.i.i.i.i33, -1
-  %cmp.i.i.i.i.i40 = icmp ugt i64 %__n.09.i.i.i.i.i33, 1
+  %cmp.i.i.i.i.i40 = icmp samesign ugt i64 %__n.09.i.i.i.i.i33, 1
   br i1 %cmp.i.i.i.i.i40, label %for.body.i.i.i.i.i32, label %_ZSt4copyIPKSt6vectorIdSaIdEEPS2_ET0_T_S7_S6_.exit41.loopexit, !llvm.loop !328
 
 _ZSt4copyIPKSt6vectorIdSaIdEEPS2_ET0_T_S7_S6_.exit41.loopexit: ; preds = %for.body.i.i.i.i.i32

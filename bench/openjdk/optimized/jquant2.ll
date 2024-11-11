@@ -70,7 +70,7 @@ define hidden void @jI2Quant(ptr noundef %0) local_unnamed_addr #0 {
   br i1 %36, label %.sink.split, label %37
 
 37:                                               ; preds = %33
-  %38 = icmp ugt i32 %35, 256
+  %38 = icmp samesign ugt i32 %35, 256
   br i1 %38, label %.sink.split, label %45
 
 .sink.split:                                      ; preds = %37, %33
@@ -213,7 +213,7 @@ define internal void @start_pass_2_quant(ptr noundef %0, i32 noundef %1) #0 {
   br i1 %18, label %.sink.split, label %19
 
 19:                                               ; preds = %13
-  %20 = icmp ugt i32 %17, 256
+  %20 = icmp samesign ugt i32 %17, 256
   br i1 %20, label %.sink.split, label %27
 
 .sink.split:                                      ; preds = %19, %13

@@ -1118,7 +1118,7 @@ _ZN6duckdb14FetchInternalsINS_9hugeint_tEEE14duckdb_hugeintPv.exit: ; preds = %i
   br label %if.end27
 
 if.else:                                          ; preds = %entry
-  %cmp9 = icmp ugt i8 %3, 9
+  %cmp9 = icmp samesign ugt i8 %3, 9
   br i1 %cmp9, label %if.then10, label %if.else14
 
 if.then10:                                        ; preds = %if.else
@@ -1156,7 +1156,7 @@ _ZN6duckdb14FetchInternalsIlEE14duckdb_hugeintPv.exit: ; preds = %if.then.i43, %
   br label %if.end27
 
 if.else14:                                        ; preds = %if.else
-  %cmp17 = icmp ugt i8 %3, 4
+  %cmp17 = icmp samesign ugt i8 %3, 4
   br i1 %cmp17, label %if.then18, label %if.else22
 
 if.then18:                                        ; preds = %if.else14

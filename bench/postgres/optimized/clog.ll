@@ -385,7 +385,7 @@ define internal fastcc void @TransactionIdSetPageStatus(i32 noundef %0, i32 noun
   %71 = add nsw i32 %.15577.i, -1
   %72 = load ptr, ptr %62, align 8
   tail call void @PGSemaphoreUnlock(ptr noundef %72) #9
-  %73 = icmp ugt i32 %.15577.i, 1
+  %73 = icmp samesign ugt i32 %.15577.i, 1
   br i1 %73, label %.lr.ph.i, label %TransactionGroupUpdateXidStatus.exit.thread, !llvm.loop !10
 
 74:                                               ; preds = %59

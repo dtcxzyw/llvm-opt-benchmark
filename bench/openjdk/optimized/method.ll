@@ -5139,7 +5139,7 @@ define hidden noundef i32 @_ZNK6Method20line_number_from_bciEi(ptr nocapture nou
   %9 = getelementptr inbounds i8, ptr %8, i64 34
   %10 = load i16, ptr %9, align 2
   %11 = zext i16 %10 to i32
-  %12 = icmp ult i32 %spec.store.select, %11
+  %12 = icmp samesign ult i32 %spec.store.select, %11
   br i1 %12, label %13, label %_ZN30CompressedLineNumberReadStream9read_pairEv.exit
 
 13:                                               ; preds = %6
@@ -7963,7 +7963,7 @@ define hidden void @_ZN6Method12sort_methodsEP5ArrayIPS_EbPFiS1_S1_E(ptr noundef
   store i16 %.017, ptr %17, align 2
   %18 = add i16 %.017, 1
   %19 = zext i16 %18 to i32
-  %20 = icmp ugt i32 %4, %19
+  %20 = icmp samesign ugt i32 %4, %19
   br i1 %20, label %.preheader, label %.loopexit, !llvm.loop !22
 
 .loopexit:                                        ; preds = %.preheader, %6, %3

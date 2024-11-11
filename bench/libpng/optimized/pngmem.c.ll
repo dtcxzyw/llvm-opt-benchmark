@@ -260,7 +260,7 @@ define noalias ptr @png_realloc_array(ptr noalias noundef %0, ptr noundef readon
 
 13:                                               ; preds = %9
   %14 = sub nuw nsw i32 2147483647, %2
-  %.not = icmp ugt i32 %3, %14
+  %.not = icmp samesign ugt i32 %3, %14
   br i1 %.not, label %png_malloc_array_checked.exit.thread, label %15
 
 15:                                               ; preds = %13

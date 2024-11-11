@@ -459,7 +459,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversion5DiyFp9NormalizeEv.e
   %175 = shl i64 %164, %174
   %176 = add nsw i32 %.19.lcssa.i65.i, 64
   %177 = icmp sgt i32 %.19.lcssa.i65.i, -1086
-  %178 = icmp ult i32 %176, -1073
+  %178 = icmp samesign ult i32 %176, -1073
   %179 = add nsw i32 %.19.lcssa.i65.i, 1138
   %spec.select.i74.i = select i1 %178, i32 0, i32 %179
   %.0.i.i = select i1 %177, i32 53, i32 %spec.select.i74.i

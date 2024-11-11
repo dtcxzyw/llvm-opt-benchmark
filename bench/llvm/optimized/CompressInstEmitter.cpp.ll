@@ -10571,7 +10571,7 @@ _ZN4llvm9StringRef13compareMemoryEPKcS2_m.exit.i.i29.i.i: ; preds = %20
   %37 = getelementptr inbounds i8, ptr %.069.i.i.i.i.i, i64 -608
   %38 = call fastcc noundef nonnull align 8 dereferenceable(601) ptr @_ZN12_GLOBAL__N_119CompressInstEmitter11CompressPataSEOS1_(ptr noundef nonnull align 8 dereferenceable(601) %37, ptr noundef nonnull align 8 dereferenceable(601) %36)
   %39 = add nsw i64 %.010.i.i.i.i.i, -1
-  %40 = icmp ugt i64 %.010.i.i.i.i.i, 1
+  %40 = icmp samesign ugt i64 %.010.i.i.i.i.i, 1
   br i1 %40, label %.lr.ph.i.i.i.i.i, label %_ZSt13move_backwardIPN12_GLOBAL__N_119CompressInstEmitter11CompressPatES3_ET0_T_S5_S4_.exit, !llvm.loop !111
 
 _ZSt13move_backwardIPN12_GLOBAL__N_119CompressInstEmitter11CompressPatES3_ET0_T_S5_S4_.exit: ; preds = %.lr.ph.i.i.i.i.i, %30
@@ -12891,7 +12891,7 @@ tailrecurse._crit_edge:                           ; preds = %_ZSt17__rotate_adap
   %16 = getelementptr inbounds i8, ptr %.0910.i.i.i.i.i, i64 608
   %17 = getelementptr inbounds i8, ptr %.0811.i.i.i.i.i, i64 608
   %18 = add nsw i64 %.012.i.i.i.i.i, -1
-  %19 = icmp ugt i64 %.012.i.i.i.i.i, 1
+  %19 = icmp samesign ugt i64 %.012.i.i.i.i.i, 1
   br i1 %19, label %.lr.ph.i.i.i.i.i, label %_ZSt4moveIPN12_GLOBAL__N_119CompressInstEmitter11CompressPatES3_ET0_T_S5_S4_.exit, !llvm.loop !123
 
 _ZSt4moveIPN12_GLOBAL__N_119CompressInstEmitter11CompressPatES3_ET0_T_S5_S4_.exit: ; preds = %.lr.ph.i.i.i.i.i
@@ -13040,7 +13040,7 @@ _ZN4llvm9StringRef13compareMemoryEPKcS2_m.exit.i.i29.i.i.i: ; preds = %.lr.ph.sp
   %66 = getelementptr inbounds i8, ptr %.0910.i.i.i.i.i.i, i64 608
   %67 = getelementptr inbounds i8, ptr %.0811.i.i.i.i.i.i, i64 608
   %68 = add nsw i64 %.012.i.i.i.i.i.i, -1
-  %69 = icmp ugt i64 %.012.i.i.i.i.i.i, 1
+  %69 = icmp samesign ugt i64 %.012.i.i.i.i.i.i, 1
   br i1 %69, label %.lr.ph.i.i.i.i.i.i, label %"_ZSt21__move_merge_adaptiveIPN12_GLOBAL__N_119CompressInstEmitter11CompressPatES3_S3_N9__gnu_cxx5__ops15_Iter_comp_iterIZNS1_23emitCompressInstEmitterERN4llvm11raw_ostreamENS1_11EmitterTypeEE3$_0EEEvT_SD_T0_SE_T1_T2_.exit", !llvm.loop !123
 
 70:                                               ; preds = %.lr.ph, %_ZSt17__rotate_adaptiveIPN12_GLOBAL__N_119CompressInstEmitter11CompressPatES3_lET_S4_S4_S4_T1_S5_T0_S5_.exit
@@ -13071,7 +13071,7 @@ _ZN4llvm9StringRef13compareMemoryEPKcS2_m.exit.i.i29.i.i.i: ; preds = %.lr.ph.sp
   %78 = getelementptr inbounds i8, ptr %.0910.i.i.i.i.i82, i64 608
   %79 = getelementptr inbounds i8, ptr %.0811.i.i.i.i.i81, i64 608
   %80 = add nsw i64 %.012.i.i.i.i.i80, -1
-  %81 = icmp ugt i64 %.012.i.i.i.i.i80, 1
+  %81 = icmp samesign ugt i64 %.012.i.i.i.i.i80, 1
   br i1 %81, label %.lr.ph.i.i.i.i.i79, label %_ZSt4moveIPN12_GLOBAL__N_119CompressInstEmitter11CompressPatES3_ET0_T_S5_S4_.exit83, !llvm.loop !123
 
 _ZSt4moveIPN12_GLOBAL__N_119CompressInstEmitter11CompressPatES3_ET0_T_S5_S4_.exit83: ; preds = %.lr.ph.i.i.i.i.i79, %71
@@ -13097,7 +13097,7 @@ _ZSt4moveIPN12_GLOBAL__N_119CompressInstEmitter11CompressPatES3_ET0_T_S5_S4_.exi
   %89 = getelementptr inbounds i8, ptr %.069.i.i.i.i.i.i, i64 -608
   %90 = tail call fastcc noundef nonnull align 8 dereferenceable(601) ptr @_ZN12_GLOBAL__N_119CompressInstEmitter11CompressPataSEOS1_(ptr noundef nonnull align 8 dereferenceable(601) %89, ptr noundef nonnull align 8 dereferenceable(601) %88)
   %91 = add nsw i64 %.010.i.i.i.i.i.i, -1
-  %92 = icmp ugt i64 %.010.i.i.i.i.i.i, 1
+  %92 = icmp samesign ugt i64 %.010.i.i.i.i.i.i, 1
   br i1 %92, label %.lr.ph.i.i.i.i.i.i111, label %"_ZSt21__move_merge_adaptiveIPN12_GLOBAL__N_119CompressInstEmitter11CompressPatES3_S3_N9__gnu_cxx5__ops15_Iter_comp_iterIZNS1_23emitCompressInstEmitterERN4llvm11raw_ostreamENS1_11EmitterTypeEE3$_0EEEvT_SD_T0_SE_T1_T2_.exit", !llvm.loop !111
 
 93:                                               ; preds = %_ZSt4moveIPN12_GLOBAL__N_119CompressInstEmitter11CompressPatES3_ET0_T_S5_S4_.exit83
@@ -13233,7 +13233,7 @@ _ZN4llvm9StringRef13compareMemoryEPKcS2_m.exit.i.i29.i.i.i103: ; preds = %.split
   %137 = getelementptr inbounds i8, ptr %.069.i.i.i.i.i38.i, i64 -608
   %138 = tail call fastcc noundef nonnull align 8 dereferenceable(601) ptr @_ZN12_GLOBAL__N_119CompressInstEmitter11CompressPataSEOS1_(ptr noundef nonnull align 8 dereferenceable(601) %137, ptr noundef nonnull align 8 dereferenceable(601) %136)
   %139 = add nsw i64 %.010.i.i.i.i.i37.i, -1
-  %140 = icmp ugt i64 %.010.i.i.i.i.i37.i, 1
+  %140 = icmp samesign ugt i64 %.010.i.i.i.i.i37.i, 1
   br i1 %140, label %.lr.ph.i.i.i.i.i36.i, label %"_ZSt21__move_merge_adaptiveIPN12_GLOBAL__N_119CompressInstEmitter11CompressPatES3_S3_N9__gnu_cxx5__ops15_Iter_comp_iterIZNS1_23emitCompressInstEmitterERN4llvm11raw_ostreamENS1_11EmitterTypeEE3$_0EEEvT_SD_T0_SE_T1_T2_.exit", !llvm.loop !111
 
 141:                                              ; preds = %127
@@ -13320,7 +13320,7 @@ _ZSt7advanceIPN12_GLOBAL__N_119CompressInstEmitter11CompressPatElEvRT_T0_.exit11
   %178 = getelementptr inbounds i8, ptr %.0910.i.i.i.i.i.i124, i64 608
   %179 = getelementptr inbounds i8, ptr %.0811.i.i.i.i.i.i123, i64 608
   %180 = add nsw i64 %.012.i.i.i.i.i.i122, -1
-  %181 = icmp ugt i64 %.012.i.i.i.i.i.i122, 1
+  %181 = icmp samesign ugt i64 %.012.i.i.i.i.i.i122, 1
   br i1 %181, label %.lr.ph.i.i.i.i.i.i121, label %_ZSt4moveIPN12_GLOBAL__N_119CompressInstEmitter11CompressPatES3_ET0_T_S5_S4_.exit.i, !llvm.loop !123
 
 _ZSt4moveIPN12_GLOBAL__N_119CompressInstEmitter11CompressPatES3_ET0_T_S5_S4_.exit.i: ; preds = %.lr.ph.i.i.i.i.i.i121, %171
@@ -13342,7 +13342,7 @@ _ZSt4moveIPN12_GLOBAL__N_119CompressInstEmitter11CompressPatES3_ET0_T_S5_S4_.exi
   %187 = getelementptr inbounds i8, ptr %.069.i.i.i.i.i.i118, i64 -608
   %188 = tail call fastcc noundef nonnull align 8 dereferenceable(601) ptr @_ZN12_GLOBAL__N_119CompressInstEmitter11CompressPataSEOS1_(ptr noundef nonnull align 8 dereferenceable(601) %187, ptr noundef nonnull align 8 dereferenceable(601) %186)
   %189 = add nsw i64 %.010.i.i.i.i.i.i117, -1
-  %190 = icmp ugt i64 %.010.i.i.i.i.i.i117, 1
+  %190 = icmp samesign ugt i64 %.010.i.i.i.i.i.i117, 1
   br i1 %190, label %.lr.ph.i.i.i.i.i37.i, label %_ZSt13move_backwardIPN12_GLOBAL__N_119CompressInstEmitter11CompressPatES3_ET0_T_S5_S4_.exit.i, !llvm.loop !111
 
 _ZSt13move_backwardIPN12_GLOBAL__N_119CompressInstEmitter11CompressPatES3_ET0_T_S5_S4_.exit.i: ; preds = %.lr.ph.i.i.i.i.i37.i, %_ZSt4moveIPN12_GLOBAL__N_119CompressInstEmitter11CompressPatES3_ET0_T_S5_S4_.exit.i
@@ -13363,7 +13363,7 @@ _ZSt13move_backwardIPN12_GLOBAL__N_119CompressInstEmitter11CompressPatES3_ET0_T_
   %196 = getelementptr inbounds i8, ptr %.0910.i.i.i.i.i43.i, i64 608
   %197 = getelementptr inbounds i8, ptr %.0811.i.i.i.i.i42.i, i64 608
   %198 = add nsw i64 %.012.i.i.i.i.i41.i, -1
-  %199 = icmp ugt i64 %.012.i.i.i.i.i41.i, 1
+  %199 = icmp samesign ugt i64 %.012.i.i.i.i.i41.i, 1
   br i1 %199, label %.lr.ph.i.i.i.i.i40.i, label %_ZSt17__rotate_adaptiveIPN12_GLOBAL__N_119CompressInstEmitter11CompressPatES3_lET_S4_S4_S4_T1_S5_T0_S5_.exit, !llvm.loop !123
 
 200:                                              ; preds = %167
@@ -13393,7 +13393,7 @@ _ZSt13move_backwardIPN12_GLOBAL__N_119CompressInstEmitter11CompressPatES3_ET0_T_
   %209 = getelementptr inbounds i8, ptr %.0910.i.i.i.i.i50.i, i64 608
   %210 = getelementptr inbounds i8, ptr %.0811.i.i.i.i.i49.i, i64 608
   %211 = add nsw i64 %.012.i.i.i.i.i48.i, -1
-  %212 = icmp ugt i64 %.012.i.i.i.i.i48.i, 1
+  %212 = icmp samesign ugt i64 %.012.i.i.i.i.i48.i, 1
   br i1 %212, label %.lr.ph.i.i.i.i.i47.i, label %_ZSt4moveIPN12_GLOBAL__N_119CompressInstEmitter11CompressPatES3_ET0_T_S5_S4_.exit51.i, !llvm.loop !123
 
 _ZSt4moveIPN12_GLOBAL__N_119CompressInstEmitter11CompressPatES3_ET0_T_S5_S4_.exit51.i: ; preds = %.lr.ph.i.i.i.i.i47.i, %202
@@ -13415,7 +13415,7 @@ _ZSt4moveIPN12_GLOBAL__N_119CompressInstEmitter11CompressPatES3_ET0_T_S5_S4_.exi
   %218 = getelementptr inbounds i8, ptr %.0910.i.i.i.i.i57.i, i64 608
   %219 = getelementptr inbounds i8, ptr %.0811.i.i.i.i.i56.i, i64 608
   %220 = add nsw i64 %.012.i.i.i.i.i55.i, -1
-  %221 = icmp ugt i64 %.012.i.i.i.i.i55.i, 1
+  %221 = icmp samesign ugt i64 %.012.i.i.i.i.i55.i, 1
   br i1 %221, label %.lr.ph.i.i.i.i.i54.i, label %_ZSt4moveIPN12_GLOBAL__N_119CompressInstEmitter11CompressPatES3_ET0_T_S5_S4_.exit58.i, !llvm.loop !123
 
 _ZSt4moveIPN12_GLOBAL__N_119CompressInstEmitter11CompressPatES3_ET0_T_S5_S4_.exit58.i: ; preds = %.lr.ph.i.i.i.i.i54.i, %_ZSt4moveIPN12_GLOBAL__N_119CompressInstEmitter11CompressPatES3_ET0_T_S5_S4_.exit51.i
@@ -13436,7 +13436,7 @@ _ZSt4moveIPN12_GLOBAL__N_119CompressInstEmitter11CompressPatES3_ET0_T_S5_S4_.exi
   %227 = getelementptr inbounds i8, ptr %.069.i.i.i.i.i63.i, i64 -608
   %228 = tail call fastcc noundef nonnull align 8 dereferenceable(601) ptr @_ZN12_GLOBAL__N_119CompressInstEmitter11CompressPataSEOS1_(ptr noundef nonnull align 8 dereferenceable(601) %227, ptr noundef nonnull align 8 dereferenceable(601) %226)
   %229 = add nsw i64 %.010.i.i.i.i.i62.i, -1
-  %230 = icmp ugt i64 %.010.i.i.i.i.i62.i, 1
+  %230 = icmp samesign ugt i64 %.010.i.i.i.i.i62.i, 1
   br i1 %230, label %.lr.ph.i.i.i.i.i61.i, label %_ZSt17__rotate_adaptiveIPN12_GLOBAL__N_119CompressInstEmitter11CompressPatES3_lET_S4_S4_S4_T1_S5_T0_S5_.exit, !llvm.loop !111
 
 231:                                              ; preds = %200
@@ -13600,7 +13600,7 @@ _ZN4llvm9StringRef13compareMemoryEPKcS2_m.exit.i.i29.i.i: ; preds = %.lr.ph.spli
   %56 = getelementptr inbounds i8, ptr %.0910.i.i.i.i.i, i64 608
   %57 = getelementptr inbounds i8, ptr %.0811.i.i.i.i.i, i64 608
   %58 = add nsw i64 %.012.i.i.i.i.i, -1
-  %59 = icmp ugt i64 %.012.i.i.i.i.i, 1
+  %59 = icmp samesign ugt i64 %.012.i.i.i.i.i, 1
   br i1 %59, label %.lr.ph.i.i.i.i.i, label %_ZSt4moveIPN12_GLOBAL__N_119CompressInstEmitter11CompressPatES3_ET0_T_S5_S4_.exit, !llvm.loop !123
 
 _ZSt4moveIPN12_GLOBAL__N_119CompressInstEmitter11CompressPatES3_ET0_T_S5_S4_.exit: ; preds = %.lr.ph.i.i.i.i.i, %._crit_edge
@@ -13623,7 +13623,7 @@ _ZSt4moveIPN12_GLOBAL__N_119CompressInstEmitter11CompressPatES3_ET0_T_S5_S4_.exi
   %66 = getelementptr inbounds i8, ptr %.0910.i.i.i.i.i28, i64 608
   %67 = getelementptr inbounds i8, ptr %.0811.i.i.i.i.i27, i64 608
   %68 = add nsw i64 %.012.i.i.i.i.i26, -1
-  %69 = icmp ugt i64 %.012.i.i.i.i.i26, 1
+  %69 = icmp samesign ugt i64 %.012.i.i.i.i.i26, 1
   br i1 %69, label %.lr.ph.i.i.i.i.i25, label %_ZSt4moveIPN12_GLOBAL__N_119CompressInstEmitter11CompressPatES3_ET0_T_S5_S4_.exit29, !llvm.loop !123
 
 _ZSt4moveIPN12_GLOBAL__N_119CompressInstEmitter11CompressPatES3_ET0_T_S5_S4_.exit29: ; preds = %.lr.ph.i.i.i.i.i25, %_ZSt4moveIPN12_GLOBAL__N_119CompressInstEmitter11CompressPatES3_ET0_T_S5_S4_.exit

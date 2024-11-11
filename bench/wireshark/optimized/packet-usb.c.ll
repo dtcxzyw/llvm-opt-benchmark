@@ -2197,7 +2197,7 @@ declare ptr @proto_item_add_subtree(ptr noundef, i32 noundef) local_unnamed_addr
 declare void @proto_item_append_text(ptr noundef, ptr noundef, ...) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef i32 @sanitize_usb_max_packet_size(i8 noundef zeroext %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #2 {
+define hidden i32 @sanitize_usb_max_packet_size(i8 noundef zeroext %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #2 {
   switch i32 %1, label %20 [
     i32 1, label %4
     i32 2, label %7
@@ -2230,11 +2230,11 @@ define hidden noundef i32 @sanitize_usb_max_packet_size(i8 noundef zeroext %0, i
   br i1 %9, label %20, label %10
 
 10:                                               ; preds = %8
-  %11 = icmp ugt i32 %2, 16
+  %11 = icmp samesign ugt i32 %2, 16
   br i1 %11, label %20, label %12
 
 12:                                               ; preds = %10
-  %13 = icmp ugt i32 %2, 8
+  %13 = icmp samesign ugt i32 %2, 8
   %. = select i1 %13, i32 16, i32 8
   br label %20
 
@@ -2478,11 +2478,11 @@ switch.early.test:                                ; preds = %106
   br i1 %126, label %sanitize_usb_max_packet_size.exit, label %127
 
 127:                                              ; preds = %125
-  %128 = icmp ugt i32 %121, 16
+  %128 = icmp samesign ugt i32 %121, 16
   br i1 %128, label %sanitize_usb_max_packet_size.exit, label %129
 
 129:                                              ; preds = %127
-  %130 = icmp ugt i32 %121, 8
+  %130 = icmp samesign ugt i32 %121, 8
   %..i = select i1 %130, i32 16, i32 8
   br label %sanitize_usb_max_packet_size.exit
 
@@ -3581,7 +3581,7 @@ usb_get_trans_info.exit:                          ; preds = %464, %467, %470, %4
   br label %proto_item_set_generated.exit
 
 proto_item_set_generated.exit:                    ; preds = %530, %536, %539
-  %switch = icmp ult i32 %3, 2
+  %switch = icmp samesign ult i32 %3, 2
   br i1 %switch, label %543, label %dissect_usb_setup_response.exit
 
 543:                                              ; preds = %proto_item_set_generated.exit
@@ -3925,7 +3925,7 @@ dissect_usb_setup_request.exit:                   ; preds = %670, %731, %732
   br label %dissect_usb_setup_response.exit
 
 735:                                              ; preds = %591
-  %switch283 = icmp ult i32 %3, 2
+  %switch283 = icmp samesign ult i32 %3, 2
   br i1 %switch283, label %736, label %dissect_usb_setup_response.exit
 
 736:                                              ; preds = %735
@@ -4569,7 +4569,7 @@ dissect_darwin_usb_iso_transfer.exit:             ; preds = %.lr.ph.i336, %1078,
   br label %dissect_usb_setup_response.exit
 
 1087:                                             ; preds = %521
-  %switch284 = icmp ult i32 %3, 2
+  %switch284 = icmp samesign ult i32 %3, 2
   br i1 %switch284, label %1088, label %dissect_usb_setup_response.exit
 
 1088:                                             ; preds = %1087
@@ -6539,11 +6539,11 @@ define internal i32 @dissect_usb_setup_get_descriptor_response(ptr noundef %0, p
   br i1 %74, label %sanitize_usb_max_packet_size.exit.i.i, label %75
 
 75:                                               ; preds = %73
-  %76 = icmp ugt i32 %72, 16
+  %76 = icmp samesign ugt i32 %72, 16
   br i1 %76, label %sanitize_usb_max_packet_size.exit.i.i, label %77
 
 77:                                               ; preds = %75
-  %78 = icmp ugt i32 %72, 8
+  %78 = icmp samesign ugt i32 %72, 8
   %..i.i.i = select i1 %78, i32 16, i32 8
   br label %sanitize_usb_max_packet_size.exit.i.i
 
@@ -7387,11 +7387,11 @@ dissect_usb_string_descriptor.exit:               ; preds = %501, %.critedge.i
   br i1 %587, label %sanitize_usb_max_packet_size.exit.i.i57, label %588
 
 588:                                              ; preds = %.thread.i.i
-  %589 = icmp ugt i32 %586, 16
+  %589 = icmp samesign ugt i32 %586, 16
   br i1 %589, label %sanitize_usb_max_packet_size.exit.i.i57, label %590
 
 590:                                              ; preds = %588
-  %591 = icmp ugt i32 %586, 8
+  %591 = icmp samesign ugt i32 %586, 8
   %..i.i.i61 = select i1 %591, i32 16, i32 8
   br label %sanitize_usb_max_packet_size.exit.i.i57
 

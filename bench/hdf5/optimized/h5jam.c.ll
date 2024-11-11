@@ -607,7 +607,7 @@ define dso_local i64 @copy_some_to_file(i32 noundef %0, i32 noundef %1, i64 noun
   br i1 %22, label %.lr.ph.preheader, label %._crit_edge
 
 .lr.ph.preheader:                                 ; preds = %21
-  %23 = icmp ugt i64 %.052, 512
+  %23 = icmp samesign ugt i64 %.052, 512
   %24 = add i64 %2, -512
   %25 = add i64 %24, %.052
   %.047 = select i1 %23, i64 %25, i64 %2

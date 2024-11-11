@@ -526,7 +526,7 @@ ReadHeader.exit.thread:                           ; preds = %5, %36, %182, %204,
   br label %229
 
 ReadHeader.exit:                                  ; preds = %222
-  %225 = icmp ugt i32 %223, 255
+  %225 = icmp samesign ugt i32 %223, 255
   %226 = zext i1 %225 to i32
   %227 = shl nuw nsw i32 %220, %226
   store i32 %227, ptr %18, align 8
@@ -554,8 +554,8 @@ ReadHeader.exit:                                  ; preds = %222
   br i1 %238, label %466, label %239
 
 239:                                              ; preds = %237
-  %240 = icmp ugt i32 %212, 16383
-  %241 = icmp ugt i32 %214, 16383
+  %240 = icmp samesign ugt i32 %212, 16383
+  %241 = icmp samesign ugt i32 %214, 16383
   %or.cond5 = select i1 %240, i1 true, i1 %241
   br i1 %or.cond5, label %242, label %245
 
@@ -580,7 +580,7 @@ ReadHeader.exit:                                  ; preds = %222
   br label %466
 
 256:                                              ; preds = %245
-  %257 = icmp ugt i32 %223, 255
+  %257 = icmp samesign ugt i32 %223, 255
   %258 = and i32 %220, 5
   %or.cond8 = icmp ne i32 %258, 1
   %259 = icmp ne i32 %3, 0

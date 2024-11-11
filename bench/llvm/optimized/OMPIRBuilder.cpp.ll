@@ -52755,7 +52755,7 @@ _ZL28computeHeuristicUnrollFactorPN4llvm17CanonicalLoopInfoE.exit: ; preds = %_Z
   %568 = xor i32 %567, 63
   %569 = zext nneg i32 %568 to i64
   %570 = lshr i64 -1, %569
-  %571 = icmp ult i32 %560, 256
+  %571 = icmp samesign ult i32 %560, 256
   %spec.store.select.i.i = select i1 %571, i64 0, i64 %570
   %572 = and i64 %spec.store.select.i.i, %562
   store i64 %572, ptr %45, align 8
@@ -66987,7 +66987,7 @@ _ZN4llvm9remove_ifIRNS_11SmallVectorISt4pairIjPNS_6MDNodeEELj2EEEZNS_13IRBuilder
   %68 = getelementptr inbounds i8, ptr %.0910.i.i.i.i.i.i, i64 16
   %69 = getelementptr inbounds i8, ptr %.0811.i.i.i.i.i.i, i64 16
   %70 = add nsw i64 %.012.i.i.i.i.i.i, -1
-  %71 = icmp ugt i64 %.012.i.i.i.i.i.i, 1
+  %71 = icmp samesign ugt i64 %.012.i.i.i.i.i.i, 1
   br i1 %71, label %.lr.ph.i.i.i.i.i.i, label %_ZN4llvm15SmallVectorImplISt4pairIjPNS_6MDNodeEEE5eraseEPKS4_S7_.exit, !llvm.loop !1148
 
 _ZN4llvm15SmallVectorImplISt4pairIjPNS_6MDNodeEEE5eraseEPKS4_S7_.exit: ; preds = %.lr.ph.i.i.i.i.i.i, %_ZN4llvm9remove_ifIRNS_11SmallVectorISt4pairIjPNS_6MDNodeEELj2EEEZNS_13IRBuilderBase25AddOrRemoveMetadataToCopyEjS4_EUlRKS5_E_EEDaOT_T0_.exit
@@ -69003,7 +69003,7 @@ _ZSt13move_backwardIPPN4llvm8MetadataES3_ET0_T_S5_S4_.exit: ; preds = %_ZN4llvm1
   %67 = getelementptr inbounds i8, ptr %.0910.i.i.i.i.i, i64 8
   %68 = getelementptr inbounds i8, ptr %.0811.i.i.i.i.i, i64 8
   %69 = add nsw i64 %.012.i.i.i.i.i, -1
-  %70 = icmp ugt i64 %.012.i.i.i.i.i, 1
+  %70 = icmp samesign ugt i64 %.012.i.i.i.i.i, 1
   br i1 %70, label %.lr.ph.i.i.i.i.i, label %_ZSt4copyIPKN4llvm9MDOperandEPPNS0_8MetadataEET0_T_S8_S7_.exit, !llvm.loop !1163
 
 71:                                               ; preds = %_ZN4llvm15SmallVectorImplIPNS_8MetadataEE7reserveEm.exit

@@ -4752,7 +4752,7 @@ define dso_local range(i32 -2147483648, 1) i32 @nf_conntrack_init_start() local_
   br i1 %7, label %.thread5, label %8
 
 8:                                                ; preds = %4
-  %9 = icmp ugt i64 %1, 262144
+  %9 = icmp samesign ugt i64 %1, 262144
   br i1 %9, label %.thread5, label %10
 
 10:                                               ; preds = %8

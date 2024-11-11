@@ -231,7 +231,7 @@ if.then:                                          ; preds = %land.lhs.true
   br label %if.end24
 
 if.else:                                          ; preds = %entry
-  %cmp5 = icmp ugt i64 %call2, 5
+  %cmp5 = icmp samesign ugt i64 %call2, 5
   br i1 %cmp5, label %land.lhs.true6, label %if.else11
 
 land.lhs.true6:                                   ; preds = %land.lhs.true, %if.else

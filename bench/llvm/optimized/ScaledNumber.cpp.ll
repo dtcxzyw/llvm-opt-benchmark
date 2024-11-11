@@ -327,12 +327,12 @@ define dso_local void @_ZN4llvm16ScaledNumberBase8toStringB5cxx11Emsij(ptr dead_
   %30 = zext nneg i16 %.sroa.speculated108 to i64
   %31 = shl i64 %1, %30
   %32 = sub nsw i16 %2, %.sroa.speculated108
-  %.not86.not = icmp ugt i16 %2, %29
+  %.not86.not = icmp samesign ugt i16 %2, %29
   %spec.select = select i1 %.not86.not, i64 0, i64 %31
   br label %54
 
 33:                                               ; preds = %24
-  %34 = icmp ugt i16 %2, -64
+  %34 = icmp samesign ugt i16 %2, -64
   br i1 %34, label %35, label %42
 
 35:                                               ; preds = %33
@@ -349,7 +349,7 @@ define dso_local void @_ZN4llvm16ScaledNumberBase8toStringB5cxx11Emsij(ptr dead_
   br i1 %43, label %.thread, label %44
 
 44:                                               ; preds = %42
-  %45 = icmp ugt i16 %2, -120
+  %45 = icmp samesign ugt i16 %2, -120
   br i1 %45, label %46, label %54
 
 46:                                               ; preds = %44

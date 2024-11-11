@@ -717,7 +717,7 @@ _ZNSt12_Vector_baseIiSaIiEE11_M_allocateEm.exit.i: ; preds = %if.end.i
 
 invoke.cont144:                                   ; preds = %_ZNSt12_Vector_baseIiSaIiEE11_M_allocateEm.exit.i
   %add.ptr21.i = getelementptr inbounds nuw i32, ptr %call5.i.i.i.i169, i64 %add142
-  %cmp.i171 = icmp ugt i64 %add142, 1152921504606846975
+  %cmp.i171 = icmp samesign ugt i64 %add142, 1152921504606846975
   br i1 %cmp.i171, label %if.then.i189, label %_ZNSt12_Vector_baseIdSaIdEE11_M_allocateEm.exit.i
 
 if.then.i189:                                     ; preds = %invoke.cont144

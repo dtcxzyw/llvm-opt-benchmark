@@ -4939,7 +4939,7 @@ entry:
   br i1 %cmp, label %cond.end11, label %cond.false
 
 cond.false:                                       ; preds = %entry
-  %cmp5 = icmp ugt i16 %1, 31007
+  %cmp5 = icmp samesign ugt i16 %1, 31007
   br i1 %cmp5, label %cond.end11, label %cond.false7
 
 cond.false7:                                      ; preds = %cond.false
@@ -5147,7 +5147,7 @@ if.end21:                                         ; preds = %_ZSt4endlIcSt11char
   br i1 %cmp.i, label %cond.end11.i, label %cond.false.i
 
 cond.false.i:                                     ; preds = %if.end21
-  %cmp5.i = icmp ugt i16 %30, 31007
+  %cmp5.i = icmp samesign ugt i16 %30, 31007
   br i1 %cmp5.i, label %cond.end11.i, label %cond.false7.i
 
 cond.false7.i:                                    ; preds = %cond.false.i
@@ -5184,7 +5184,7 @@ lor.lhs.false:                                    ; preds = %_ZN9ServerMap26bloc
   br i1 %cmp.i, label %cond.end11.i170, label %cond.false.i167
 
 cond.false.i167:                                  ; preds = %lor.lhs.false
-  %cmp5.i168 = icmp ugt i16 %30, 31007
+  %cmp5.i168 = icmp samesign ugt i16 %30, 31007
   br i1 %cmp5.i168, label %cond.end11.i170, label %cond.false7.i169
 
 cond.false7.i169:                                 ; preds = %cond.false.i167

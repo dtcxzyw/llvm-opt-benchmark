@@ -30295,7 +30295,7 @@ _ZNSt12_Vector_baseIN5Yosys7hashlib4poolINSt7__cxx1112basic_stringIcSt11char_tra
   %39 = getelementptr inbounds i8, ptr %.0910.i.i.i.i.i, i64 40
   %40 = getelementptr inbounds i8, ptr %.0811.i.i.i.i.i, i64 40
   %41 = add nsw i64 %.012.i.i.i.i.i, -1
-  %42 = icmp ugt i64 %.012.i.i.i.i.i, 1
+  %42 = icmp samesign ugt i64 %.012.i.i.i.i.i, 1
   br i1 %42, label %.lr.ph.i.i.i.i.i, label %_ZSt4copyIN9__gnu_cxx17__normal_iteratorIPKN5Yosys7hashlib4poolINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS3_8hash_opsISA_EEE7entry_tESt6vectorISE_SaISE_EEEENS1_IPSE_SJ_EEET0_T_SO_SN_.exit.loopexit, !llvm.loop !160
 
 _ZSt4copyIN9__gnu_cxx17__normal_iteratorIPKN5Yosys7hashlib4poolINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS3_8hash_opsISA_EEE7entry_tESt6vectorISE_SaISE_EEEENS1_IPSE_SJ_EEET0_T_SO_SN_.exit.loopexit: ; preds = %.lr.ph.i.i.i.i.i
@@ -30342,7 +30342,7 @@ _ZSt4copyIN9__gnu_cxx17__normal_iteratorIPKN5Yosys7hashlib4poolINSt7__cxx1112bas
   %54 = getelementptr inbounds i8, ptr %.0910.i.i.i.i.i33, i64 40
   %55 = getelementptr inbounds i8, ptr %.0811.i.i.i.i.i32, i64 40
   %56 = add nsw i64 %.012.i.i.i.i.i31, -1
-  %57 = icmp ugt i64 %.012.i.i.i.i.i31, 1
+  %57 = icmp samesign ugt i64 %.012.i.i.i.i.i31, 1
   br i1 %57, label %.lr.ph.i.i.i.i.i30, label %_ZSt4copyIPN5Yosys7hashlib4poolINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS1_8hash_opsIS8_EEE7entry_tESD_ET0_T_SF_SE_.exit.loopexit, !llvm.loop !162
 
 _ZSt4copyIPN5Yosys7hashlib4poolINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS1_8hash_opsIS8_EEE7entry_tESD_ET0_T_SF_SE_.exit.loopexit: ; preds = %.lr.ph.i.i.i.i.i30
@@ -46426,7 +46426,7 @@ _ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN5Yosys7hashlib4poolINSt7__cxx1112basic_st
   %29 = getelementptr inbounds i8, ptr %.069.i.i.i.i.i, i64 -8
   store i32 %28, ptr %29, align 8
   %30 = add nsw i64 %.010.i.i.i.i.i, -1
-  %31 = icmp ugt i64 %.010.i.i.i.i.i, 1
+  %31 = icmp samesign ugt i64 %.010.i.i.i.i.i, 1
   br i1 %31, label %.lr.ph.i.i.i.i.i, label %.loopexit, !llvm.loop !256
 
 .loopexit:                                        ; preds = %.lr.ph.i.i.i.i.i, %16

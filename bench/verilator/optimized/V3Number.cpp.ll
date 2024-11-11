@@ -2586,7 +2586,7 @@ _ZN8V3NumberC2EPKS_i.exit:                        ; preds = %318
   %340 = add i8 %.fr11.i, -3
   %spec.select.i.i.i350 = icmp ult i8 %340, -2
   %341 = load i32, ptr %286, align 8
-  %342 = icmp ult i32 %341, 129
+  %342 = icmp samesign ult i32 %341, 129
   %343 = load ptr, ptr %4, align 8
   %spec.select.i10.i.i = select i1 %342, ptr %4, ptr %343
   br i1 %spec.select.i.i.i350, label %_ZNK8V3Number9bitsValueEii.exit.thread, label %.lr.ph.split.i
@@ -3538,7 +3538,7 @@ tailrecurse.i:                                    ; preds = %.lr.ph.i, %tailrecu
   br i1 %.not.i371, label %_ZNK8V3Number7bitIsXZEi.exit, label %tailrecurse.i
 
 _ZNK8V3Number7bitIsXZEi.exit:                     ; preds = %tailrecurse.i
-  %703 = icmp ult i32 %.fr.i541, 129
+  %703 = icmp samesign ult i32 %.fr.i541, 129
   %704 = load ptr, ptr %0, align 8
   %spec.select.i7.i = select i1 %703, ptr %0, ptr %704
   %705 = lshr i32 %.tr811.i, 5
@@ -4200,7 +4200,7 @@ define linkonce_odr dso_local noundef i32 @_ZNK8V3Number9bitsValueEii(ptr nounde
   %spec.select.i.i = icmp ult i8 %7, -2
   %8 = getelementptr inbounds i8, ptr %0, i64 32
   %9 = load i32, ptr %8, align 8
-  %10 = icmp ult i32 %9, 129
+  %10 = icmp samesign ult i32 %9, 129
   %11 = load ptr, ptr %0, align 8
   %spec.select.i10.i = select i1 %10, ptr %0, ptr %11
   br i1 %spec.select.i.i, label %._crit_edge, label %.lr.ph.split
@@ -4439,7 +4439,7 @@ tailrecurse:                                      ; preds = %.lr.ph, %tailrecurs
   br i1 %.not, label %_ZNK12V3NumberData3numEv.exit, label %tailrecurse
 
 _ZNK12V3NumberData3numEv.exit:                    ; preds = %tailrecurse
-  %11 = icmp ult i32 %.fr, 129
+  %11 = icmp samesign ult i32 %.fr, 129
   %12 = load ptr, ptr %0, align 8
   %spec.select.i7 = select i1 %11, ptr %0, ptr %12
   %13 = lshr i32 %.tr811, 5
@@ -4742,7 +4742,7 @@ _ZN12V3NumberData3numEv.exit7:                    ; preds = %._crit_edge
 _ZN12V3NumberData3numEv.exit10:                   ; preds = %37
   %45 = lshr i64 %1, 32
   %46 = trunc nuw i64 %45 to i32
-  %47 = icmp ult i32 %35, 129
+  %47 = icmp samesign ult i32 %35, 129
   %48 = load ptr, ptr %0, align 8
   %spec.select.i9 = select i1 %47, ptr %0, ptr %48
   %49 = getelementptr inbounds i8, ptr %spec.select.i9, i64 8
@@ -5432,7 +5432,7 @@ define dso_local void @_ZNK8V3Number5asciiB5cxx11Ebb(ptr dead_on_unwind noalias 
   br i1 %.not.i83, label %_ZNK12V3NumberData3numEv.exit.i, label %.invoke78
 
 _ZNK12V3NumberData3numEv.exit.i:                  ; preds = %108
-  %110 = icmp ult i32 %.fr.i.i, 129
+  %110 = icmp samesign ult i32 %.fr.i.i, 129
   %111 = load ptr, ptr %1, align 8
   %spec.select.i10.i = select i1 %110, ptr %1, ptr %111
   %.sroa.0.0.copyload.i = load i32, ptr %spec.select.i10.i, align 4
@@ -5807,7 +5807,7 @@ _ZNK12V3NumberData3strB5cxx11Ev.exit:             ; preds = %9
   %22 = add i8 %.fr11.i, -3
   %spec.select.i.i.i = icmp ult i8 %22, -2
   %23 = load i32, ptr %14, align 8
-  %24 = icmp ult i32 %23, 129
+  %24 = icmp samesign ult i32 %23, 129
   %25 = load ptr, ptr %1, align 8
   %spec.select.i10.i.i = select i1 %24, ptr %1, ptr %25
   br i1 %spec.select.i.i.i, label %_ZNK8V3Number9bitsValueEii.exit.thread, label %.lr.ph.split.i
@@ -5944,7 +5944,7 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZNK8V3Number6bitIs0Ei(ptr nou
 
 _ZNK12V3NumberData3numEv.exit.i:                  ; preds = %10
   %.tr811.i = add nsw i32 %.fr.i, -1
-  %12 = icmp ult i32 %.fr.i, 129
+  %12 = icmp samesign ult i32 %.fr.i, 129
   %13 = load ptr, ptr %0, align 8
   %spec.select.i7.i = select i1 %12, ptr %0, ptr %13
   %14 = lshr i32 %.tr811.i, 5
@@ -5960,7 +5960,7 @@ _ZNK12V3NumberData3numEv.exit.i:                  ; preds = %10
   br label %_ZNK8V3Number7bitIsXZEi.exit
 
 _ZNK12V3NumberData3numEv.exit:                    ; preds = %7
-  %22 = icmp ult i32 %.fr.i, 129
+  %22 = icmp samesign ult i32 %.fr.i, 129
   %23 = load ptr, ptr %0, align 8
   %spec.select.i10 = select i1 %22, ptr %0, ptr %23
   %24 = lshr i32 %1, 5
@@ -6005,7 +6005,7 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZNK8V3Number6bitIs1Ei(ptr nou
   br i1 %.not, label %_ZNK12V3NumberData3numEv.exit, label %23
 
 _ZNK12V3NumberData3numEv.exit:                    ; preds = %7
-  %10 = icmp ult i32 %9, 129
+  %10 = icmp samesign ult i32 %9, 129
   %11 = load ptr, ptr %0, align 8
   %spec.select.i10 = select i1 %10, ptr %0, ptr %11
   %12 = lshr i32 %1, 5
@@ -6057,7 +6057,7 @@ tailrecurse:                                      ; preds = %.lr.ph, %tailrecurs
   br i1 %.not, label %_ZNK12V3NumberData3numEv.exit, label %tailrecurse
 
 _ZNK12V3NumberData3numEv.exit:                    ; preds = %tailrecurse
-  %11 = icmp ult i32 %.fr, 129
+  %11 = icmp samesign ult i32 %.fr, 129
   %12 = load ptr, ptr %0, align 8
   %spec.select.i9 = select i1 %11, ptr %0, ptr %12
   %13 = lshr i32 %.tr1013, 5
@@ -6114,7 +6114,7 @@ define dso_local noundef zeroext i1 @_ZNK8V3Number11isFourStateEv(ptr noundef no
 .lr.ph:                                           ; preds = %.preheader
   %10 = add i8 %3, -1
   %spec.select.i.i = icmp ult i8 %10, 2
-  %11 = icmp ult i32 %6, 129
+  %11 = icmp samesign ult i32 %6, 129
   %12 = load ptr, ptr %0, align 8
   %spec.select.i = select i1 %11, ptr %0, ptr %12
   br i1 %spec.select.i.i, label %_ZNK12V3NumberData3numEv.exit.preheader, label %15
@@ -6182,7 +6182,7 @@ define dso_local noundef zeroext i1 @_ZNK8V3Number8isEqZeroEv(ptr noundef nonnul
 .lr.ph:                                           ; preds = %.preheader
   %10 = add i8 %3, -1
   %spec.select.i.i = icmp ult i8 %10, 2
-  %11 = icmp ult i32 %6, 129
+  %11 = icmp samesign ult i32 %6, 129
   %12 = load ptr, ptr %0, align 8
   %spec.select.i = select i1 %11, ptr %0, ptr %12
   br i1 %spec.select.i.i, label %_ZNK12V3NumberData3numEv.exit.preheader, label %17
@@ -6512,7 +6512,7 @@ define dso_local void @_ZNK8V3Number9displayedEP8FileLineRKNSt7__cxx1112basic_st
   %.fr.i.i = freeze i32 %71
   %72 = icmp slt i32 %.fr.i.i, 1
   %.tr811.i.i = add nsw i32 %.fr.i.i, -1
-  %73 = icmp ult i32 %.fr.i.i, 129
+  %73 = icmp samesign ult i32 %.fr.i.i, 129
   %74 = load ptr, ptr %1, align 8
   %spec.select.i7.i.i = select i1 %73, ptr %1, ptr %74
   %75 = lshr i32 %.tr811.i.i, 5
@@ -6645,7 +6645,7 @@ _ZNK8V3Number6bitIs0Ei.exit.thread462:            ; preds = %82, %92, %_ZNK8V3Nu
   br i1 %107, label %_ZNK8V3Number6bitIsZEi.exit.thread.invoke, label %_ZNK8V3Number6bitIs0Ei.exit162
 
 _ZNK12V3NumberData3numEv.exit.i156:               ; preds = %104
-  %108 = icmp ult i32 %.fr.i.i148, 129
+  %108 = icmp samesign ult i32 %.fr.i.i148, 129
   %109 = load ptr, ptr %1, align 8
   %spec.select.i10.i157 = select i1 %108, ptr %1, ptr %109
   %110 = lshr i32 %.2117624, 5
@@ -6668,7 +6668,7 @@ _ZNK12V3NumberData3numEv.exit.i156:               ; preds = %104
 
 _ZNK8V3Number6bitIs0Ei.exit162:                   ; preds = %106
   %.tr811.i.i151 = add nsw i32 %.fr.i.i148, -1
-  %121 = icmp ult i32 %.fr.i.i148, 129
+  %121 = icmp samesign ult i32 %.fr.i.i148, 129
   %122 = load ptr, ptr %1, align 8
   %spec.select.i7.i.i152 = select i1 %121, ptr %1, ptr %122
   %123 = lshr i32 %.tr811.i.i151, 5
@@ -6694,7 +6694,7 @@ tailrecurse.i:                                    ; preds = %tailrecurse.i.prehe
   br i1 %.not.i174, label %_ZNK12V3NumberData3numEv.exit.i175, label %tailrecurse.i
 
 _ZNK12V3NumberData3numEv.exit.i175:               ; preds = %tailrecurse.i
-  %133 = icmp ult i32 %.fr.i.i148, 129
+  %133 = icmp samesign ult i32 %.fr.i.i148, 129
   %spec.select.i9.i = select i1 %133, ptr %1, ptr %131
   %134 = lshr i32 %.tr1013.i, 5
   %135 = zext nneg i32 %134 to i64
@@ -6754,7 +6754,7 @@ _ZNK8V3Number6bitIsZEi.exit.thread.invoke:        ; preds = %_ZNK12V3NumberData3
   %.fr24.i = freeze i8 %157
   %158 = add i8 %.fr24.i, -3
   %spec.select.i.i.i = icmp ult i8 %158, -2
-  %159 = icmp ult i32 %.fr.i.i.i, 129
+  %159 = icmp samesign ult i32 %.fr.i.i.i, 129
   %160 = load ptr, ptr %1, align 8
   %spec.select.i10.i.i = select i1 %159, ptr %1, ptr %160
   br i1 %spec.select.i.i.i, label %.thread476, label %.lr.ph.split.preheader.i
@@ -6954,7 +6954,7 @@ _ZNK8V3Number9bitsValueEii.exit.loopexit:         ; preds = %_ZNK8V3Number6bitIs
   %.fr24.i214 = freeze i8 %237
   %238 = add i8 %.fr24.i214, -3
   %spec.select.i.i.i215 = icmp ult i8 %238, -2
-  %239 = icmp ult i32 %.fr.i.i.i213, 129
+  %239 = icmp samesign ult i32 %.fr.i.i.i213, 129
   %240 = load ptr, ptr %1, align 8
   %spec.select.i10.i.i216 = select i1 %239, ptr %1, ptr %240
   br i1 %spec.select.i.i.i215, label %.thread505, label %.lr.ph.split.preheader.i217
@@ -7248,7 +7248,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit: ; pr
   %.fr11.i282 = freeze i8 %349
   %350 = add i8 %.fr11.i282, -3
   %spec.select.i.i.i283 = icmp ult i8 %350, -2
-  %351 = icmp ult i32 %347, 129
+  %351 = icmp samesign ult i32 %347, 129
   %352 = load ptr, ptr %1, align 8
   %spec.select.i10.i.i284 = select i1 %351, ptr %1, ptr %352
   br i1 %spec.select.i.i.i283, label %_ZNK8V3Number9bitsValueEii.exit300, label %.lr.ph.split.i285.preheader
@@ -7334,7 +7334,7 @@ _ZNK8V3Number9bitsValueEii.exit300:               ; preds = %_ZNK8V3Number9bitsV
   %381 = add i8 %.fr11.i302, -3
   %spec.select.i.i.i303 = icmp ult i8 %381, -2
   %382 = load i32, ptr %371, align 8
-  %383 = icmp ult i32 %382, 129
+  %383 = icmp samesign ult i32 %382, 129
   %384 = load ptr, ptr %1, align 8
   %spec.select.i10.i.i304 = select i1 %383, ptr %1, ptr %384
   br i1 %spec.select.i.i.i303, label %_ZNK8V3Number9bitsValueEii.exit320, label %.lr.ph.split.i305
@@ -7490,7 +7490,7 @@ _ZNK8V3Number9bitsValueEii.exit320:               ; preds = %_ZNK8V3Number6bitIs
   %447 = add i8 %444, -3
   %spec.select.i.i.i327 = icmp ult i8 %447, -2
   %448 = add nsw i32 %.fr.i.i324, -1
-  %449 = icmp ult i32 %.fr.i.i324, 129
+  %449 = icmp samesign ult i32 %.fr.i.i324, 129
   %450 = load ptr, ptr %1, align 8
   %spec.select.i9.i.i328 = select i1 %449, ptr %1, ptr %450
   br i1 %spec.select.i.i.i327, label %.critedge145, label %.lr.ph.i.i
@@ -7932,7 +7932,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit385: ;
   br i1 %632, label %_ZNK8V3Number6bitIs0Ei.exit417.thread540.invoke, label %_ZNK8V3Number6bitIs0Ei.exit417
 
 _ZNK12V3NumberData3numEv.exit.i411:               ; preds = %629
-  %633 = icmp ult i32 %.fr.i.i403, 129
+  %633 = icmp samesign ult i32 %.fr.i.i403, 129
   %634 = load ptr, ptr %1, align 8
   %spec.select.i10.i412 = select i1 %633, ptr %1, ptr %634
   %635 = lshr i32 %.0109599, 5
@@ -7955,7 +7955,7 @@ _ZNK12V3NumberData3numEv.exit.i411:               ; preds = %629
 
 _ZNK8V3Number6bitIs0Ei.exit417:                   ; preds = %631
   %.tr811.i.i406 = add nsw i32 %.fr.i.i403, -1
-  %646 = icmp ult i32 %.fr.i.i403, 129
+  %646 = icmp samesign ult i32 %.fr.i.i403, 129
   %647 = load ptr, ptr %1, align 8
   %spec.select.i7.i.i407 = select i1 %646, ptr %1, ptr %647
   %648 = lshr i32 %.tr811.i.i406, 5
@@ -7986,7 +7986,7 @@ tailrecurse.i434:                                 ; preds = %tailrecurse.i434.pr
   br i1 %.not.i436, label %_ZNK12V3NumberData3numEv.exit.i437, label %tailrecurse.i434
 
 _ZNK12V3NumberData3numEv.exit.i437:               ; preds = %tailrecurse.i434
-  %660 = icmp ult i32 %.fr.i.i403, 129
+  %660 = icmp samesign ult i32 %.fr.i.i403, 129
   %spec.select.i9.i438 = select i1 %660, ptr %1, ptr %658
   %661 = lshr i32 %.tr1013.i435, 5
   %662 = zext nneg i32 %661 to i64
@@ -8122,7 +8122,7 @@ define dso_local noundef i32 @_ZNK8V3Number6countXEii(ptr nocapture noundef nonn
   %.fr24 = freeze i8 %8
   %9 = add i8 %.fr24, -3
   %spec.select.i.i = icmp ult i8 %9, -2
-  %10 = icmp ult i32 %.fr.i.i, 129
+  %10 = icmp samesign ult i32 %.fr.i.i, 129
   %11 = load ptr, ptr %0, align 8
   %spec.select.i10.i = select i1 %10, ptr %0, ptr %11
   br i1 %spec.select.i.i, label %._crit_edge, label %.lr.ph.split.preheader
@@ -8192,7 +8192,7 @@ define dso_local noundef i32 @_ZNK8V3Number6countZEii(ptr nocapture noundef nonn
   %.fr24 = freeze i8 %8
   %9 = add i8 %.fr24, -3
   %spec.select.i.i = icmp ult i8 %9, -2
-  %10 = icmp ult i32 %.fr.i, 129
+  %10 = icmp samesign ult i32 %.fr.i, 129
   %11 = load ptr, ptr %0, align 8
   %spec.select.i9.i = select i1 %10, ptr %0, ptr %11
   br i1 %spec.select.i.i, label %._crit_edge, label %.lr.ph.split.preheader
@@ -8360,7 +8360,7 @@ define dso_local noundef zeroext i1 @_ZNK8V3Number6isAllZEv(ptr nocapture nounde
   %8 = add i8 %3, -3
   %spec.select.i.i = icmp ult i8 %8, -2
   %9 = add nsw i32 %.fr.i, -1
-  %10 = icmp ult i32 %.fr.i, 129
+  %10 = icmp samesign ult i32 %.fr.i, 129
   %11 = load ptr, ptr %0, align 8
   %spec.select.i9.i = select i1 %10, ptr %0, ptr %11
   br i1 %spec.select.i.i, label %_ZNK8V3Number6bitIsZEi.exit.thread, label %.lr.ph.i
@@ -8424,7 +8424,7 @@ define dso_local noundef zeroext i1 @_ZNK8V3Number6isAnyXEv(ptr nocapture nounde
 .lr.ph:                                           ; preds = %.preheader
   %8 = add i8 %3, -3
   %spec.select.i.i = icmp ult i8 %8, -2
-  %9 = icmp ult i32 %.fr.i.i, 129
+  %9 = icmp samesign ult i32 %.fr.i.i, 129
   %10 = load ptr, ptr %0, align 8
   %spec.select.i10.i = select i1 %9, ptr %0, ptr %10
   br i1 %spec.select.i.i, label %.loopexit, label %_ZNK12V3NumberData3numEv.exit.i
@@ -8480,7 +8480,7 @@ define dso_local noundef zeroext i1 @_ZNK8V3Number6isAnyZEv(ptr nocapture nounde
   %8 = add i8 %3, -3
   %spec.select.i.i = icmp ult i8 %8, -2
   %9 = add nsw i32 %.fr.i, -1
-  %10 = icmp ult i32 %.fr.i, 129
+  %10 = icmp samesign ult i32 %.fr.i, 129
   %11 = load ptr, ptr %0, align 8
   %spec.select.i9.i = select i1 %10, ptr %0, ptr %11
   br i1 %spec.select.i.i, label %.loopexit, label %.lr.ph.i
@@ -8548,7 +8548,7 @@ define dso_local void @_ZNK8V3Number10toDecimalSB5cxx11Ev(ptr dead_on_unwind noa
 
 _ZNK12V3NumberData3numEv.exit.i.i:                ; preds = %10
   %15 = add nsw i32 %12, -1
-  %16 = icmp ult i32 %12, 129
+  %16 = icmp samesign ult i32 %12, 129
   %17 = load ptr, ptr %1, align 8
   %spec.select.i10.i.i = select i1 %16, ptr %1, ptr %17
   %18 = lshr i32 %15, 5
@@ -8844,7 +8844,7 @@ _ZN8V3NumberC2EPKS_i.exit:                        ; preds = %2
 
 .lr.ph:                                           ; preds = %39
   %.026164 = add nsw i32 %.fr.i.i, -1
-  %44 = icmp ult i32 %.fr.i.i, 129
+  %44 = icmp samesign ult i32 %.fr.i.i, 129
   %45 = getelementptr inbounds i8, ptr %1, i64 36
   %46 = load i8, ptr %45, align 4
   %47 = add i8 %46, -3
@@ -8936,7 +8936,7 @@ _ZNK8V3Number6bitIs0Ei.exit.backedge:             ; preds = %66, %_ZNK12V3Number
   %79 = add i8 %.fr11.i, -3
   %spec.select.i.i.i = icmp ult i8 %79, -2
   %80 = load i32, ptr %13, align 8
-  %81 = icmp ult i32 %80, 129
+  %81 = icmp samesign ult i32 %80, 129
   %82 = load ptr, ptr %3, align 8
   %spec.select.i10.i.i = select i1 %81, ptr %3, ptr %82
   br i1 %spec.select.i.i.i, label %_ZNK8V3Number9bitsValueEii.exit.thread, label %.lr.ph.split.i.preheader
@@ -9217,7 +9217,7 @@ _ZN8V3NumberD2Ev.exit:                            ; preds = %180, %181, %186, %1
   br i1 %.not.i75, label %_ZNK12V3NumberData3numEv.exit.i77, label %_ZN8V3Number6setBitEic.exit92
 
 _ZNK12V3NumberData3numEv.exit.i77:                ; preds = %191
-  %193 = icmp ult i32 %192, 129
+  %193 = icmp samesign ult i32 %192, 129
   %194 = load ptr, ptr %1, align 8
   %spec.select.i10.i78 = select i1 %193, ptr %1, ptr %194
   %195 = lshr i32 %.127179, 5
@@ -9277,7 +9277,7 @@ _ZNK8V3Number6bitIs1Ei.exit:                      ; preds = %_ZNK12V3NumberData3
   unreachable
 
 _ZN12V3NumberData3numEv.exit.i85:                 ; preds = %207
-  %217 = icmp ult i32 %206, 129
+  %217 = icmp samesign ult i32 %206, 129
   %218 = load ptr, ptr %3, align 8
   %spec.select.i.i86 = select i1 %217, ptr %3, ptr %218
   %219 = load i32, ptr %spec.select.i.i86, align 4
@@ -9314,7 +9314,7 @@ _ZN8V3Number6setBitEic.exit92:                    ; preds = %_ZNK12V3NumberData3
   %231 = add i8 %.fr11.i94, -3
   %spec.select.i.i.i95 = icmp ult i8 %231, -2
   %232 = load i32, ptr %13, align 8
-  %233 = icmp ult i32 %232, 129
+  %233 = icmp samesign ult i32 %232, 129
   %234 = load ptr, ptr %3, align 8
   %spec.select.i10.i.i96 = select i1 %233, ptr %3, ptr %234
   br i1 %spec.select.i.i.i95, label %_ZNK8V3Number9bitsValueEii.exit112.thread.us.preheader, label %.lr.ph.split.i97.preheader
@@ -9397,7 +9397,7 @@ _ZNK8V3Number9bitsValueEii.exit112._crit_edge:    ; preds = %_ZNK8V3Number9bitsV
   %263 = add i8 %.fr11.i114, -3
   %spec.select.i.i.i115 = icmp ult i8 %263, -2
   %264 = load i32, ptr %13, align 8
-  %265 = icmp ult i32 %264, 129
+  %265 = icmp samesign ult i32 %264, 129
   %266 = load ptr, ptr %3, align 8
   %spec.select.i10.i.i116 = select i1 %265, ptr %3, ptr %266
   br i1 %spec.select.i.i.i115, label %_ZNK8V3Number9bitsValueEii.exit132, label %.lr.ph.split.i117
@@ -9602,7 +9602,7 @@ define dso_local noundef i64 @_ZNK8V3Number7toUQuadEv(ptr noundef nonnull align 
 .lr.ph:                                           ; preds = %.preheader
   %18 = add i8 %11, -1
   %spec.select.i.i = icmp ult i8 %18, 2
-  %19 = icmp ult i32 %14, 129
+  %19 = icmp samesign ult i32 %14, 129
   %20 = load ptr, ptr %0, align 8
   %spec.select.i = select i1 %19, ptr %0, ptr %20
   br i1 %spec.select.i.i, label %_ZNK12V3NumberData3numEv.exit.preheader, label %33
@@ -9702,7 +9702,7 @@ _ZlsRSoRK8V3Number.exit:                          ; preds = %38
   unreachable
 
 _ZNK12V3NumberData3numEv.exit10:                  ; preds = %50
-  %58 = icmp ult i32 %45, 129
+  %58 = icmp samesign ult i32 %45, 129
   %59 = load ptr, ptr %0, align 8
   %spec.select.i6 = select i1 %58, ptr %0, ptr %59
   %60 = getelementptr inbounds i8, ptr %spec.select.i6, i64 8
@@ -9792,7 +9792,7 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZNK8V3Number10isNegativeEv(pt
 
 _ZNK12V3NumberData3numEv.exit.i:                  ; preds = %5
   %10 = add nsw i32 %7, -1
-  %11 = icmp ult i32 %7, 129
+  %11 = icmp samesign ult i32 %7, 129
   %12 = load ptr, ptr %0, align 8
   %spec.select.i10.i = select i1 %11, ptr %0, ptr %12
   %13 = lshr i32 %10, 5
@@ -10174,7 +10174,7 @@ _ZN8V3Number11setAllBitsXEv.exit:                 ; preds = %_ZN12V3NumberData3n
   %56 = load i8, ptr %20, align 4
   %57 = add i8 %56, -3
   %spec.select.i.i = icmp ult i8 %57, -2
-  %58 = icmp ult i32 %54, 129
+  %58 = icmp samesign ult i32 %54, 129
   %59 = load ptr, ptr %2, align 8
   %spec.select.i10.i = select i1 %58, ptr %2, ptr %59
   br i1 %spec.select.i.i, label %._crit_edge, label %_ZNK12V3NumberData3numEv.exit.i
@@ -10254,7 +10254,7 @@ define dso_local noundef zeroext i1 @_ZNK8V3Number10fitsInUIntEv(ptr noundef non
   %9 = load i8, ptr %8, align 4
   %10 = add i8 %9, -1
   %spec.select.i.i = icmp ult i8 %10, 2
-  %11 = icmp ult i32 %4, 129
+  %11 = icmp samesign ult i32 %4, 129
   %12 = load ptr, ptr %0, align 8
   %spec.select.i = select i1 %11, ptr %0, ptr %12
   br i1 %spec.select.i.i, label %_ZNK12V3NumberData3numEv.exit.preheader, label %15
@@ -10417,7 +10417,7 @@ define dso_local i32 @_ZNK8V3Number6toHashEv(ptr noundef nonnull align 8 derefer
 .lr.ph:                                           ; preds = %.preheader
   %11 = add i8 %6, -1
   %spec.select.i.i = icmp ult i8 %11, 2
-  %12 = icmp ult i32 %4, 129
+  %12 = icmp samesign ult i32 %4, 129
   %13 = load ptr, ptr %0, align 8
   %spec.select.i = select i1 %12, ptr %0, ptr %13
   br i1 %spec.select.i.i, label %_ZNK12V3NumberData3numEv.exit.preheader, label %29
@@ -10537,7 +10537,7 @@ define dso_local noundef zeroext i1 @_ZNK8V3Number9isNeqZeroEv(ptr noundef nonnu
 .lr.ph:                                           ; preds = %.preheader
   %10 = add i8 %3, -1
   %spec.select.i.i = icmp ult i8 %10, 2
-  %11 = icmp ult i32 %6, 129
+  %11 = icmp samesign ult i32 %6, 129
   %12 = load ptr, ptr %0, align 8
   %spec.select.i = select i1 %11, ptr %0, ptr %12
   br i1 %spec.select.i.i, label %_ZNK12V3NumberData3numEv.exit.preheader, label %18
@@ -10594,7 +10594,7 @@ define dso_local noundef zeroext i1 @_ZNK8V3Number10isBitsZeroEii(ptr nocapture 
   %8 = load i32, ptr %7, align 8
   %.fr.i.i = freeze i32 %8
   %.tr811.i.i = add nsw i32 %.fr.i.i, -1
-  %9 = icmp ult i32 %.fr.i.i, 129
+  %9 = icmp samesign ult i32 %.fr.i.i, 129
   %10 = load ptr, ptr %0, align 8
   %spec.select.i7.i.i = select i1 %9, ptr %0, ptr %10
   %11 = lshr i32 %.tr811.i.i, 5
@@ -10765,7 +10765,7 @@ define dso_local noundef zeroext i1 @_ZNK8V3Number11isEqAllOnesEi(ptr nocapture 
   %7 = load i8, ptr %6, align 4
   %8 = add i8 %7, -3
   %spec.select.i.i = icmp ult i8 %8, -2
-  %9 = icmp ult i32 %4, 129
+  %9 = icmp samesign ult i32 %4, 129
   %10 = load ptr, ptr %0, align 8
   %spec.select.i10.i = select i1 %9, ptr %0, ptr %10
   br i1 %spec.select.i.i, label %_ZNK8V3Number6bitIs1Ei.exit.thread, label %.lr.ph.split.preheader
@@ -10833,7 +10833,7 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZNK8V3Number6bitIsXEi(ptr nou
 
 _ZNK12V3NumberData3numEv.exit.i:                  ; preds = %10
   %.tr1013.i = add nsw i32 %.fr.i, -1
-  %12 = icmp ult i32 %.fr.i, 129
+  %12 = icmp samesign ult i32 %.fr.i, 129
   %13 = load ptr, ptr %0, align 8
   %spec.select.i9.i = select i1 %12, ptr %0, ptr %13
   %14 = lshr i32 %.tr1013.i, 5
@@ -10850,7 +10850,7 @@ _ZNK12V3NumberData3numEv.exit.i:                  ; preds = %10
   br i1 %.not7.i, label %_ZNK8V3Number6bitIsZEi.exit, label %_ZNK8V3Number6bitIsZEi.exit.sink.split
 
 _ZNK12V3NumberData3numEv.exit:                    ; preds = %7
-  %23 = icmp ult i32 %.fr.i, 129
+  %23 = icmp samesign ult i32 %.fr.i, 129
   %24 = load ptr, ptr %0, align 8
   %spec.select.i10 = select i1 %23, ptr %0, ptr %24
   %25 = lshr i32 %1, 5
@@ -10898,7 +10898,7 @@ define dso_local noundef zeroext i1 @_ZNK8V3Number7isAnyXZEv(ptr nocapture nound
 .lr.ph.i:                                         ; preds = %.preheader.i
   %8 = add i8 %3, -3
   %spec.select.i.i.i = icmp ult i8 %8, -2
-  %9 = icmp ult i32 %.fr.i.i.i, 129
+  %9 = icmp samesign ult i32 %.fr.i.i.i, 129
   %10 = load ptr, ptr %0, align 8
   %spec.select.i10.i.i = select i1 %9, ptr %0, ptr %10
   br i1 %spec.select.i.i.i, label %_ZNK8V3Number6isAnyXEv.exit, label %_ZNK12V3NumberData3numEv.exit.i.i
@@ -10934,7 +10934,7 @@ _ZNK8V3Number6bitIsXEi.exit.thread.i:             ; preds = %_ZNK8V3Number6bitIs
   %22 = add nsw i8 %3, -3
   %spec.select.i.i.i5 = icmp ult i8 %22, -2
   %23 = add nsw i32 %.fr.i.i.i, -1
-  %24 = icmp ult i32 %.fr.i.i.i, 129
+  %24 = icmp samesign ult i32 %.fr.i.i.i, 129
   %25 = load ptr, ptr %0, align 8
   %spec.select.i9.i.i = select i1 %24, ptr %0, ptr %25
   br i1 %spec.select.i.i.i5, label %_ZNK8V3Number6isAnyXEv.exit, label %.lr.ph.i.i
@@ -10997,7 +10997,7 @@ define dso_local noundef zeroext i1 @_ZNK8V3Number6isLtXZERKS_(ptr nocapture nou
   %9 = load i8, ptr %8, align 4
   %10 = add i8 %9, -1
   %spec.select.i.i = icmp ult i8 %10, 2
-  %11 = icmp ult i32 %.fr.i.i35, 129
+  %11 = icmp samesign ult i32 %.fr.i.i35, 129
   %12 = load ptr, ptr %0, align 8
   %spec.select.i10.i = select i1 %11, ptr %0, ptr %12
   %13 = getelementptr inbounds i8, ptr %1, i64 36
@@ -11006,7 +11006,7 @@ define dso_local noundef zeroext i1 @_ZNK8V3Number6isLtXZERKS_(ptr nocapture nou
   %spec.select.i.i14 = icmp ult i8 %15, -2
   %16 = icmp sgt i32 %.fr.i.i, 0
   %.tr811.i.i = add nsw i32 %.fr.i.i, -1
-  %17 = icmp ult i32 %.fr.i.i, 129
+  %17 = icmp samesign ult i32 %.fr.i.i, 129
   %18 = load ptr, ptr %1, align 8
   %spec.select.i7.i.i = select i1 %17, ptr %1, ptr %18
   %19 = lshr i32 %.tr811.i.i, 5
@@ -11226,7 +11226,7 @@ define dso_local noundef range(i32 1, -2147483648) i32 @_ZNK8V3Number8widthMinEv
   br i1 %4, label %.lr.ph, label %_ZNK8V3Number6bitIs0Ei.exit.thread
 
 .lr.ph:                                           ; preds = %1
-  %5 = icmp ult i32 %.fr.i.i, 129
+  %5 = icmp samesign ult i32 %.fr.i.i, 129
   %.tr811.i.i = add nsw i32 %.fr.i.i, -1
   %6 = getelementptr inbounds i8, ptr %0, i64 36
   %7 = load i8, ptr %6, align 4
@@ -11277,7 +11277,7 @@ _ZNK12V3NumberData3numEv.exit.i:                  ; preds = %.lr.ph.split.split
   br i1 %.not7.i, label %_ZNK8V3Number6bitIs0Ei.exit.backedge, label %_ZNK8V3Number6bitIs0Ei.exit.thread
 
 _ZNK8V3Number6bitIs0Ei.exit.backedge:             ; preds = %27, %_ZNK12V3NumberData3numEv.exit.i.i
-  %30 = icmp ugt i32 %.0.in8, 2
+  %30 = icmp samesign ugt i32 %.0.in8, 2
   br i1 %30, label %.lr.ph.split.split, label %_ZNK8V3Number6bitIs0Ei.exit.thread, !llvm.loop !102
 
 _ZNK8V3Number6bitIs0Ei.exit.thread:               ; preds = %_ZNK8V3Number6bitIs0Ei.exit.backedge, %27, %_ZNK12V3NumberData3numEv.exit.i.i, %_ZNK12V3NumberData3numEv.exit.i, %.lr.ph, %1
@@ -11297,7 +11297,7 @@ define dso_local noundef i32 @_ZNK8V3Number9countBitsERKS_(ptr nocapture noundef
   %6 = getelementptr inbounds i8, ptr %1, i64 32
   %7 = load i32, ptr %6, align 8
   %8 = icmp slt i32 %7, 1
-  %9 = icmp ult i32 %7, 129
+  %9 = icmp samesign ult i32 %7, 129
   %10 = load ptr, ptr %1, align 8
   %spec.select.i.i = select i1 %9, ptr %1, ptr %10
   %.sroa.2.0..sroa_idx.i = getelementptr inbounds i8, ptr %spec.select.i.i, i64 4
@@ -11306,7 +11306,7 @@ define dso_local noundef i32 @_ZNK8V3Number9countBitsERKS_(ptr nocapture noundef
   %13 = add i8 %12, -3
   %spec.select.i.i41 = icmp ult i8 %13, -2
   %14 = add nsw i32 %.fr.i, -1
-  %15 = icmp ult i32 %.fr.i, 129
+  %15 = icmp samesign ult i32 %.fr.i, 129
   %16 = load ptr, ptr %0, align 8
   %spec.select.i9.i = select i1 %15, ptr %0, ptr %16
   br i1 %8, label %.lr.ph.split.us, label %.lr.ph.split
@@ -11556,7 +11556,7 @@ define dso_local noundef i32 @_ZNK8V3Number9countBitsERKS_S1_S1_(ptr nocapture n
   unreachable
 
 _ZNK12V3NumberData3numEv.exit.i:                  ; preds = %9
-  %18 = icmp ult i32 %7, 129
+  %18 = icmp samesign ult i32 %7, 129
   %19 = load ptr, ptr %2, align 8
   %spec.select.i.i = select i1 %18, ptr %2, ptr %19
   %.sroa.0.0.copyload.i = load i32, ptr %spec.select.i.i, align 4
@@ -11594,7 +11594,7 @@ _ZNK8V3Number5bitIsEi.exit:                       ; preds = %4, %_ZNK12V3NumberD
   unreachable
 
 _ZNK12V3NumberData3numEv.exit.i15:                ; preds = %30
-  %39 = icmp ult i32 %28, 129
+  %39 = icmp samesign ult i32 %28, 129
   %40 = load ptr, ptr %1, align 8
   %spec.select.i.i16 = select i1 %39, ptr %1, ptr %40
   %.sroa.0.0.copyload.i17 = load i32, ptr %spec.select.i.i16, align 4
@@ -11642,7 +11642,7 @@ _ZNK8V3Number5bitIsEi.exit22:                     ; preds = %_ZNK8V3Number5bitIs
   unreachable
 
 _ZNK12V3NumberData3numEv.exit.i24:                ; preds = %55
-  %64 = icmp ult i32 %53, 129
+  %64 = icmp samesign ult i32 %53, 129
   %65 = load ptr, ptr %3, align 8
   %spec.select.i.i25 = select i1 %64, ptr %3, ptr %65
   %.sroa.0.0.copyload.i26 = load i32, ptr %spec.select.i.i25, align 4
@@ -11679,7 +11679,7 @@ _ZNK8V3Number5bitIsEi.exit31:                     ; preds = %51, %_ZNK12V3Number
   unreachable
 
 _ZNK12V3NumberData3numEv.exit.i33:                ; preds = %75
-  %84 = icmp ult i32 %73, 129
+  %84 = icmp samesign ult i32 %73, 129
   %85 = load ptr, ptr %1, align 8
   %spec.select.i.i34 = select i1 %84, ptr %1, ptr %85
   %.sroa.0.0.copyload.i35 = load i32, ptr %spec.select.i.i34, align 4
@@ -11718,7 +11718,7 @@ _ZNK8V3Number5bitIsEi.exit40:                     ; preds = %_ZNK8V3Number5bitIs
   unreachable
 
 _ZNK12V3NumberData3numEv.exit.i42:                ; preds = %94
-  %103 = icmp ult i32 %53, 129
+  %103 = icmp samesign ult i32 %53, 129
   %104 = load ptr, ptr %3, align 8
   %spec.select.i.i43 = select i1 %103, ptr %3, ptr %104
   %.sroa.0.0.copyload.i44 = load i32, ptr %spec.select.i.i43, align 4
@@ -11755,7 +11755,7 @@ _ZNK8V3Number5bitIsEi.exit49:                     ; preds = %93, %_ZNK12V3Number
   unreachable
 
 _ZNK12V3NumberData3numEv.exit.i51:                ; preds = %114
-  %123 = icmp ult i32 %112, 129
+  %123 = icmp samesign ult i32 %112, 129
   %124 = load ptr, ptr %2, align 8
   %spec.select.i.i52 = select i1 %123, ptr %2, ptr %124
   %.sroa.0.0.copyload.i53 = load i32, ptr %spec.select.i.i52, align 4
@@ -11797,7 +11797,7 @@ define dso_local noundef i32 @_ZNK8V3Number9countOnesEv(ptr nocapture noundef no
   %6 = load i8, ptr %5, align 4
   %7 = add i8 %6, -3
   %spec.select.i.i = icmp ult i8 %7, -2
-  %8 = icmp ult i32 %3, 129
+  %8 = icmp samesign ult i32 %3, 129
   %9 = load ptr, ptr %0, align 8
   %spec.select.i10.i = select i1 %8, ptr %0, ptr %9
   br i1 %spec.select.i.i, label %._crit_edge, label %_ZNK12V3NumberData3numEv.exit.i
@@ -11847,7 +11847,7 @@ define dso_local noundef range(i32 0, -2147483648) i32 @_ZNK8V3Number12mostSetBi
   br i1 %4, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %1
-  %5 = icmp ult i32 %3, 129
+  %5 = icmp samesign ult i32 %3, 129
   %6 = getelementptr inbounds i8, ptr %0, i64 36
   %7 = load i8, ptr %6, align 4
   %.fr11 = freeze i8 %7
@@ -11885,7 +11885,7 @@ _ZNK12V3NumberData3numEv.exit.i:                  ; preds = %.lr.ph.split
   br i1 %.not8.i, label %._crit_edge, label %.backedge
 
 .backedge:                                        ; preds = %_ZNK12V3NumberData3numEv.exit.i, %.lr.ph.split, %18
-  %21 = icmp ugt i32 %.0.in7, 1
+  %21 = icmp samesign ugt i32 %.0.in7, 1
   br i1 %21, label %.lr.ph.split, label %._crit_edge, !llvm.loop !105
 
 ._crit_edge:                                      ; preds = %.backedge, %18, %.lr.ph, %1
@@ -11950,7 +11950,7 @@ define dso_local noundef nonnull align 8 dereferenceable(56) ptr @_ZN8V3Number10
   br i1 %29, label %_ZNK8V3Number6bitIs0Ei.exit.thread22, label %_ZNK8V3Number6bitIs0Ei.exit
 
 _ZNK12V3NumberData3numEv.exit.i:                  ; preds = %26
-  %30 = icmp ult i32 %.fr.i.i, 129
+  %30 = icmp samesign ult i32 %.fr.i.i, 129
   %31 = load ptr, ptr %1, align 8
   %spec.select.i10.i = select i1 %30, ptr %1, ptr %31
   %32 = lshr i32 %.026, 5
@@ -11975,7 +11975,7 @@ _ZNK12V3NumberData3numEv.exit.i:                  ; preds = %26
 
 _ZNK8V3Number6bitIs0Ei.exit:                      ; preds = %28
   %.tr811.i.i = add nsw i32 %.fr.i.i, -1
-  %44 = icmp ult i32 %.fr.i.i, 129
+  %44 = icmp samesign ult i32 %.fr.i.i, 129
   %45 = load ptr, ptr %1, align 8
   %spec.select.i7.i.i = select i1 %44, ptr %1, ptr %45
   %46 = lshr i32 %.tr811.i.i, 5
@@ -11996,7 +11996,7 @@ _ZNK8V3Number6bitIs0Ei.exit:                      ; preds = %28
   br i1 %.not.i12, label %_ZNK12V3NumberData3numEv.exit.i14, label %_ZNK8V3Number6bitIs1Ei.exit.thread
 
 _ZNK12V3NumberData3numEv.exit.i14:                ; preds = %.thread
-  %55 = icmp ult i32 %.fr.i.i, 129
+  %55 = icmp samesign ult i32 %.fr.i.i, 129
   %spec.select.i10.i15 = select i1 %55, ptr %1, ptr %54
   %56 = lshr i32 %.026, 5
   %57 = zext nneg i32 %56 to i64
@@ -12092,7 +12092,7 @@ define dso_local noundef nonnull align 8 dereferenceable(56) ptr @_ZN8V3Number9o
   br i1 %.not.i, label %_ZNK12V3NumberData3numEv.exit.i, label %_ZNK8V3Number6bitIs1Ei.exit.thread
 
 _ZNK12V3NumberData3numEv.exit.i:                  ; preds = %26
-  %28 = icmp ult i32 %27, 129
+  %28 = icmp samesign ult i32 %27, 129
   %29 = load ptr, ptr %1, align 8
   %spec.select.i10.i = select i1 %28, ptr %1, ptr %29
   %30 = lshr i32 %.011, 5
@@ -12189,7 +12189,7 @@ tailrecurse.i:                                    ; preds = %.lr.ph.i, %tailrecu
   br i1 %.not.i, label %_ZNK8V3Number7bitIsXZEi.exit, label %tailrecurse.i
 
 _ZNK8V3Number7bitIsXZEi.exit:                     ; preds = %tailrecurse.i
-  %29 = icmp ult i32 %.fr.i, 129
+  %29 = icmp samesign ult i32 %.fr.i, 129
   %30 = load ptr, ptr %1, align 8
   %spec.select.i7.i = select i1 %29, ptr %1, ptr %30
   %31 = lshr i32 %.tr811.i, 5
@@ -12278,7 +12278,7 @@ tailrecurse.i:                                    ; preds = %.lr.ph.i, %tailrecu
   br i1 %.not.i, label %_ZNK12V3NumberData3numEv.exit.i, label %tailrecurse.i
 
 _ZNK12V3NumberData3numEv.exit.i:                  ; preds = %tailrecurse.i
-  %29 = icmp ult i32 %.fr.i, 129
+  %29 = icmp samesign ult i32 %.fr.i, 129
   %30 = load ptr, ptr %1, align 8
   %spec.select.i9.i = select i1 %29, ptr %1, ptr %30
   %31 = lshr i32 %.tr1013.i, 5
@@ -12376,7 +12376,7 @@ tailrecurse.i:                                    ; preds = %.lr.ph.i, %tailrecu
   br i1 %.not.i, label %_ZNK12V3NumberData3numEv.exit.i, label %tailrecurse.i
 
 _ZNK12V3NumberData3numEv.exit.i:                  ; preds = %tailrecurse.i
-  %29 = icmp ult i32 %.fr.i, 129
+  %29 = icmp samesign ult i32 %.fr.i, 129
   %30 = load ptr, ptr %1, align 8
   %spec.select.i9.i = select i1 %29, ptr %1, ptr %30
   %31 = lshr i32 %.tr1013.i, 5
@@ -12441,7 +12441,7 @@ define dso_local noundef nonnull align 8 dereferenceable(56) ptr @_ZN8V3Number7o
   br i1 %12, label %_ZNK12V3NumberData3numEv.exit.i.lr.ph, label %._crit_edge
 
 _ZNK12V3NumberData3numEv.exit.i.lr.ph:            ; preds = %.preheader
-  %13 = icmp ult i32 %.fr.i.i, 129
+  %13 = icmp samesign ult i32 %.fr.i.i, 129
   %14 = load ptr, ptr %1, align 8
   %spec.select.i10.i = select i1 %13, ptr %1, ptr %14
   br label %_ZNK12V3NumberData3numEv.exit.i
@@ -12521,7 +12521,7 @@ define dso_local noundef nonnull align 8 dereferenceable(56) ptr @_ZN8V3Number8o
   br i1 %12, label %_ZNK12V3NumberData3numEv.exit.i.lr.ph, label %_ZNK8V3Number6bitIs0Ei.exit.thread26
 
 _ZNK12V3NumberData3numEv.exit.i.lr.ph:            ; preds = %.preheader
-  %13 = icmp ult i32 %.fr.i.i, 129
+  %13 = icmp samesign ult i32 %.fr.i.i, 129
   %14 = load ptr, ptr %1, align 8
   %spec.select.i10.i = select i1 %13, ptr %1, ptr %14
   br label %_ZNK12V3NumberData3numEv.exit.i
@@ -12601,7 +12601,7 @@ define dso_local noundef nonnull align 8 dereferenceable(56) ptr @_ZN8V3Number8o
   br i1 %12, label %_ZNK12V3NumberData3numEv.exit.i.lr.ph, label %._crit_edge
 
 _ZNK12V3NumberData3numEv.exit.i.lr.ph:            ; preds = %.preheader
-  %13 = icmp ult i32 %.fr.i.i, 129
+  %13 = icmp samesign ult i32 %.fr.i.i, 129
   %14 = load ptr, ptr %1, align 8
   %spec.select.i10.i = select i1 %13, ptr %1, ptr %14
   br label %_ZNK12V3NumberData3numEv.exit.i
@@ -12815,7 +12815,7 @@ define dso_local noundef nonnull align 8 dereferenceable(56) ptr @_ZN8V3Number11
   %25 = load i8, ptr %8, align 4
   %26 = add i8 %25, -3
   %spec.select.i.i.i = icmp ult i8 %26, -2
-  %27 = icmp ult i32 %23, 129
+  %27 = icmp samesign ult i32 %23, 129
   %28 = load ptr, ptr %1, align 8
   %spec.select.i10.i.i = select i1 %27, ptr %1, ptr %28
   br i1 %spec.select.i.i.i, label %_ZNK8V3Number9countOnesEv.exit, label %_ZNK12V3NumberData3numEv.exit.i.i
@@ -12911,7 +12911,7 @@ define dso_local noundef nonnull align 8 dereferenceable(56) ptr @_ZN8V3Number11
 .lr.ph.i.i:                                       ; preds = %.preheader.i.i
   %14 = add i8 %9, -3
   %spec.select.i.i.i.i = icmp ult i8 %14, -2
-  %15 = icmp ult i32 %.fr.i.i.i.i, 129
+  %15 = icmp samesign ult i32 %.fr.i.i.i.i, 129
   %16 = load ptr, ptr %1, align 8
   %spec.select.i10.i.i.i = select i1 %15, ptr %1, ptr %16
   br i1 %spec.select.i.i.i.i, label %_ZNK8V3Number7isAnyXZEv.exit, label %_ZNK12V3NumberData3numEv.exit.i.i.i
@@ -13020,7 +13020,7 @@ define dso_local noundef nonnull align 8 dereferenceable(56) ptr @_ZN8V3Number8o
   %16 = load i8, ptr %15, align 4
   %17 = add i8 %16, -3
   %spec.select.i.i.i = icmp ult i8 %17, -2
-  %18 = icmp ult i32 %13, 129
+  %18 = icmp samesign ult i32 %13, 129
   %19 = load ptr, ptr %1, align 8
   %spec.select.i10.i.i = select i1 %18, ptr %1, ptr %19
   br i1 %spec.select.i.i.i, label %_ZNK8V3Number9countOnesEv.exit, label %_ZNK12V3NumberData3numEv.exit.i.i
@@ -13102,7 +13102,7 @@ define dso_local noundef nonnull align 8 dereferenceable(56) ptr @_ZN8V3Number9o
   %16 = load i8, ptr %15, align 4
   %17 = add i8 %16, -3
   %spec.select.i.i.i = icmp ult i8 %17, -2
-  %18 = icmp ult i32 %13, 129
+  %18 = icmp samesign ult i32 %13, 129
   %19 = load ptr, ptr %1, align 8
   %spec.select.i10.i.i = select i1 %18, ptr %1, ptr %19
   br i1 %spec.select.i.i.i, label %_ZNK8V3Number9countOnesEv.exit, label %_ZNK12V3NumberData3numEv.exit.i.i
@@ -13198,7 +13198,7 @@ define dso_local noundef nonnull align 8 dereferenceable(56) ptr @_ZN8V3Number7o
   %24 = load i8, ptr %8, align 4
   %25 = add i8 %24, -3
   %spec.select.i.i.i = icmp ult i8 %25, -2
-  %26 = icmp ult i32 %22, 129
+  %26 = icmp samesign ult i32 %22, 129
   %27 = load ptr, ptr %1, align 8
   %spec.select.i10.i.i = select i1 %26, ptr %1, ptr %27
   br i1 %spec.select.i.i.i, label %.lr.ph, label %_ZNK12V3NumberData3numEv.exit.i.i
@@ -13246,7 +13246,7 @@ _ZNK8V3Number9countOnesEv.exit:                   ; preds = %_ZNK8V3Number6bitIs
   %.fr20 = freeze i8 %43
   %44 = add i8 %.fr20, -1
   %spec.select.i.i = icmp ult i8 %44, 2
-  %45 = icmp ult i32 %22, 129
+  %45 = icmp samesign ult i32 %22, 129
   %46 = load ptr, ptr %1, align 8
   %spec.select.i10.i = select i1 %45, ptr %1, ptr %46
   br i1 %spec.select.i.i, label %.lr.ph.split, label %._crit_edge
@@ -13279,7 +13279,7 @@ _ZNK12V3NumberData3numEv.exit.i:                  ; preds = %.lr.ph.split
   br i1 %.not8.i, label %59, label %.backedge
 
 .backedge:                                        ; preds = %_ZNK12V3NumberData3numEv.exit.i, %.lr.ph.split, %55
-  %58 = icmp ugt i32 %.0.in18, 1
+  %58 = icmp samesign ugt i32 %.0.in18, 1
   br i1 %58, label %.lr.ph.split, label %._crit_edge, !llvm.loop !114
 
 59:                                               ; preds = %55
@@ -13321,7 +13321,7 @@ define dso_local noundef nonnull align 8 dereferenceable(56) ptr @_ZN8V3Number8o
   br i1 %12, label %_ZNK12V3NumberData3numEv.exit.i.lr.ph, label %_ZNK8V3Number6bitIs1Ei.exit._crit_edge
 
 _ZNK12V3NumberData3numEv.exit.i.lr.ph:            ; preds = %.preheader
-  %13 = icmp ult i32 %.fr.i.i, 129
+  %13 = icmp samesign ult i32 %.fr.i.i, 129
   %14 = load ptr, ptr %1, align 8
   %spec.select.i10.i = select i1 %13, ptr %1, ptr %14
   br label %_ZNK12V3NumberData3numEv.exit.i
@@ -13431,7 +13431,7 @@ define dso_local noundef nonnull align 8 dereferenceable(56) ptr @_ZN8V3Number5o
   br i1 %28, label %_ZNK8V3Number7bitIsXZEi.exit.thread.sink.split, label %_ZNK8V3Number6bitIs0Ei.exit
 
 _ZNK12V3NumberData3numEv.exit.i:                  ; preds = %25
-  %29 = icmp ult i32 %.fr.i.i, 129
+  %29 = icmp samesign ult i32 %.fr.i.i, 129
   %30 = load ptr, ptr %1, align 8
   %spec.select.i10.i = select i1 %29, ptr %1, ptr %30
   %31 = lshr i32 %.023, 5
@@ -13456,7 +13456,7 @@ _ZNK12V3NumberData3numEv.exit.i:                  ; preds = %25
 
 _ZNK8V3Number6bitIs0Ei.exit:                      ; preds = %27
   %.tr811.i.i = add nsw i32 %.fr.i.i, -1
-  %43 = icmp ult i32 %.fr.i.i, 129
+  %43 = icmp samesign ult i32 %.fr.i.i, 129
   %44 = load ptr, ptr %1, align 8
   %spec.select.i7.i.i = select i1 %43, ptr %1, ptr %44
   %45 = lshr i32 %.tr811.i.i, 5
@@ -13486,7 +13486,7 @@ tailrecurse.i:                                    ; preds = %tailrecurse.i.prehe
   br i1 %.not.i13, label %_ZNK8V3Number7bitIsXZEi.exit, label %tailrecurse.i
 
 _ZNK8V3Number7bitIsXZEi.exit:                     ; preds = %tailrecurse.i
-  %56 = icmp ult i32 %.fr.i.i, 129
+  %56 = icmp samesign ult i32 %.fr.i.i, 129
   %spec.select.i7.i = select i1 %56, ptr %1, ptr %54
   %57 = lshr i32 %.tr811.i, 5
   %58 = zext nneg i32 %57 to i64
@@ -13585,7 +13585,7 @@ define dso_local noundef nonnull align 8 dereferenceable(56) ptr @_ZN8V3Number5o
   br i1 %.not.i, label %_ZNK12V3NumberData3numEv.exit.i, label %.thread
 
 _ZNK12V3NumberData3numEv.exit.i:                  ; preds = %38
-  %40 = icmp ult i32 %.fr.i.i, 129
+  %40 = icmp samesign ult i32 %.fr.i.i, 129
   %41 = load ptr, ptr %1, align 8
   %spec.select.i10.i = select i1 %40, ptr %1, ptr %41
   %42 = lshr i32 %.069, 5
@@ -13620,7 +13620,7 @@ _ZNK8V3Number6bitIs1Ei.exit:                      ; preds = %_ZNK12V3NumberData3
   br i1 %.not.i22, label %_ZNK12V3NumberData3numEv.exit.i24, label %.thread
 
 _ZNK12V3NumberData3numEv.exit.i24:                ; preds = %55
-  %57 = icmp ult i32 %56, 129
+  %57 = icmp samesign ult i32 %56, 129
   %58 = load ptr, ptr %2, align 8
   %spec.select.i10.i25 = select i1 %57, ptr %2, ptr %58
   %59 = getelementptr inbounds %"struct.V3NumberData::ValueAndX", ptr %spec.select.i10.i25, i64 %43
@@ -13647,7 +13647,7 @@ _ZNK8V3Number6bitIs1Ei.exit31:                    ; preds = %_ZNK12V3NumberData3
   br i1 %65, label %_ZNK8V3Number6bitIs0Ei.exit.thread64, label %_ZNK8V3Number6bitIs0Ei.exit
 
 _ZNK12V3NumberData3numEv.exit.i35:                ; preds = %.thread
-  %66 = icmp ult i32 %.fr.i.i, 129
+  %66 = icmp samesign ult i32 %.fr.i.i, 129
   %67 = load ptr, ptr %1, align 8
   %spec.select.i10.i36 = select i1 %66, ptr %1, ptr %67
   %68 = lshr i32 %.069, 5
@@ -13672,7 +13672,7 @@ _ZNK12V3NumberData3numEv.exit.i35:                ; preds = %.thread
 
 _ZNK8V3Number6bitIs0Ei.exit:                      ; preds = %64
   %.tr811.i.i = add nsw i32 %.fr.i.i, -1
-  %80 = icmp ult i32 %.fr.i.i, 129
+  %80 = icmp samesign ult i32 %.fr.i.i, 129
   %81 = load ptr, ptr %1, align 8
   %spec.select.i7.i.i = select i1 %80, ptr %1, ptr %81
   %82 = lshr i32 %.tr811.i.i, 5
@@ -13704,7 +13704,7 @@ _ZNK8V3Number6bitIs0Ei.exit.thread:               ; preds = %35, %_ZNK12V3Number
   br i1 %95, label %_ZNK8V3Number6bitIs0Ei.exit.thread64, label %_ZNK8V3Number6bitIs0Ei.exit56
 
 _ZNK12V3NumberData3numEv.exit.i50:                ; preds = %92
-  %96 = icmp ult i32 %.fr.i.i42, 129
+  %96 = icmp samesign ult i32 %.fr.i.i42, 129
   %97 = load ptr, ptr %2, align 8
   %spec.select.i10.i51 = select i1 %96, ptr %2, ptr %97
   %98 = lshr i32 %.069, 5
@@ -13729,7 +13729,7 @@ _ZNK12V3NumberData3numEv.exit.i50:                ; preds = %92
 
 _ZNK8V3Number6bitIs0Ei.exit56:                    ; preds = %94
   %.tr811.i.i45 = add nsw i32 %.fr.i.i42, -1
-  %110 = icmp ult i32 %.fr.i.i42, 129
+  %110 = icmp samesign ult i32 %.fr.i.i42, 129
   %111 = load ptr, ptr %2, align 8
   %spec.select.i7.i.i46 = select i1 %110, ptr %2, ptr %111
   %112 = lshr i32 %.tr811.i.i45, 5
@@ -13828,7 +13828,7 @@ define dso_local noundef nonnull align 8 dereferenceable(56) ptr @_ZN8V3Number4o
   br i1 %.not.i, label %_ZNK12V3NumberData3numEv.exit.i, label %_ZNK8V3Number6bitIs1Ei.exit.thread
 
 _ZNK12V3NumberData3numEv.exit.i:                  ; preds = %38
-  %40 = icmp ult i32 %39, 129
+  %40 = icmp samesign ult i32 %39, 129
   %41 = load ptr, ptr %1, align 8
   %spec.select.i10.i = select i1 %40, ptr %1, ptr %41
   %42 = lshr i32 %.069, 5
@@ -13863,7 +13863,7 @@ _ZNK8V3Number6bitIs1Ei.exit.thread:               ; preds = %_ZNK12V3NumberData3
   br i1 %.not.i22, label %_ZNK12V3NumberData3numEv.exit.i24, label %_ZNK8V3Number6bitIs1Ei.exit31.thread
 
 _ZNK12V3NumberData3numEv.exit.i24:                ; preds = %54
-  %56 = icmp ult i32 %55, 129
+  %56 = icmp samesign ult i32 %55, 129
   %57 = load ptr, ptr %2, align 8
   %spec.select.i10.i25 = select i1 %56, ptr %2, ptr %57
   %58 = lshr i32 %.069, 5
@@ -13902,7 +13902,7 @@ _ZNK8V3Number6bitIs1Ei.exit31.thread:             ; preds = %_ZNK12V3NumberData3
   br i1 %71, label %_ZNK8V3Number6bitIs0Ei.exit.thread62, label %_ZNK8V3Number6bitIs0Ei.exit
 
 _ZNK12V3NumberData3numEv.exit.i35:                ; preds = %68
-  %72 = icmp ult i32 %.fr.i.i, 129
+  %72 = icmp samesign ult i32 %.fr.i.i, 129
   %73 = load ptr, ptr %1, align 8
   %spec.select.i10.i36 = select i1 %72, ptr %1, ptr %73
   %74 = lshr i32 %.069, 5
@@ -13928,7 +13928,7 @@ _ZNK12V3NumberData3numEv.exit.i35:                ; preds = %68
 
 _ZNK8V3Number6bitIs0Ei.exit:                      ; preds = %70
   %.tr811.i.i = add nsw i32 %.fr.i.i, -1
-  %86 = icmp ult i32 %.fr.i.i, 129
+  %86 = icmp samesign ult i32 %.fr.i.i, 129
   %87 = load ptr, ptr %1, align 8
   %spec.select.i7.i.i = select i1 %86, ptr %1, ptr %87
   %88 = lshr i32 %.tr811.i.i, 5
@@ -13958,7 +13958,7 @@ _ZNK8V3Number6bitIs0Ei.exit.thread62:             ; preds = %70
   br i1 %99, label %_ZNK8V3Number6bitIs0Ei.exit56.thread65, label %_ZNK8V3Number6bitIs0Ei.exit56
 
 _ZNK12V3NumberData3numEv.exit.i50:                ; preds = %96
-  %100 = icmp ult i32 %.fr.i.i42, 129
+  %100 = icmp samesign ult i32 %.fr.i.i42, 129
   %101 = load ptr, ptr %2, align 8
   %spec.select.i10.i51 = select i1 %100, ptr %2, ptr %101
   %102 = lshr i32 %.069, 5
@@ -13983,7 +13983,7 @@ _ZNK12V3NumberData3numEv.exit.i50:                ; preds = %96
 
 _ZNK8V3Number6bitIs0Ei.exit56:                    ; preds = %98
   %.tr811.i.i45 = add nsw i32 %.fr.i.i42, -1
-  %114 = icmp ult i32 %.fr.i.i42, 129
+  %114 = icmp samesign ult i32 %.fr.i.i42, 129
   %115 = load ptr, ptr %2, align 8
   %spec.select.i7.i.i46 = select i1 %114, ptr %2, ptr %115
   %116 = lshr i32 %.tr811.i.i45, 5
@@ -14083,7 +14083,7 @@ define dso_local noundef nonnull align 8 dereferenceable(56) ptr @_ZN8V3Number5o
   br i1 %.not.i, label %_ZNK12V3NumberData3numEv.exit.i, label %.thread
 
 _ZNK12V3NumberData3numEv.exit.i:                  ; preds = %38
-  %40 = icmp ult i32 %.fr.i.i36, 129
+  %40 = icmp samesign ult i32 %.fr.i.i36, 129
   %41 = load ptr, ptr %1, align 8
   %spec.select.i10.i = select i1 %40, ptr %1, ptr %41
   %42 = lshr i32 %.097, 5
@@ -14123,7 +14123,7 @@ _ZNK8V3Number6bitIs1Ei.exit:                      ; preds = %_ZNK12V3NumberData3
   br i1 %58, label %_ZNK8V3Number7bitIsXZEi.exit77.thread.sink.split, label %_ZNK8V3Number6bitIs0Ei.exit
 
 _ZNK12V3NumberData3numEv.exit.i29:                ; preds = %55
-  %59 = icmp ult i32 %.fr.i.i, 129
+  %59 = icmp samesign ult i32 %.fr.i.i, 129
   %60 = load ptr, ptr %2, align 8
   %spec.select.i10.i30 = select i1 %59, ptr %2, ptr %60
   %61 = getelementptr inbounds %"struct.V3NumberData::ValueAndX", ptr %spec.select.i10.i30, i64 %43
@@ -14143,7 +14143,7 @@ _ZNK12V3NumberData3numEv.exit.i29:                ; preds = %55
 
 _ZNK8V3Number6bitIs0Ei.exit:                      ; preds = %57
   %.tr811.i.i = add nsw i32 %.fr.i.i, -1
-  %68 = icmp ult i32 %.fr.i.i, 129
+  %68 = icmp samesign ult i32 %.fr.i.i, 129
   %69 = load ptr, ptr %2, align 8
   %spec.select.i7.i.i = select i1 %68, ptr %2, ptr %69
   %70 = lshr i32 %.tr811.i.i, 5
@@ -14167,7 +14167,7 @@ _ZNK8V3Number6bitIs0Ei.exit:                      ; preds = %57
   br i1 %79, label %_ZNK8V3Number6bitIs0Ei.exit50.thread87, label %_ZNK8V3Number6bitIs0Ei.exit50
 
 _ZNK12V3NumberData3numEv.exit.i44:                ; preds = %.thread
-  %80 = icmp ult i32 %.fr.i.i36, 129
+  %80 = icmp samesign ult i32 %.fr.i.i36, 129
   %81 = load ptr, ptr %1, align 8
   %spec.select.i10.i45 = select i1 %80, ptr %1, ptr %81
   %82 = lshr i32 %.097, 5
@@ -14192,7 +14192,7 @@ _ZNK12V3NumberData3numEv.exit.i44:                ; preds = %.thread
 
 _ZNK8V3Number6bitIs0Ei.exit50:                    ; preds = %78
   %.tr811.i.i39 = add nsw i32 %.fr.i.i36, -1
-  %94 = icmp ult i32 %.fr.i.i36, 129
+  %94 = icmp samesign ult i32 %.fr.i.i36, 129
   %95 = load ptr, ptr %1, align 8
   %spec.select.i7.i.i40 = select i1 %94, ptr %1, ptr %95
   %96 = lshr i32 %.tr811.i.i39, 5
@@ -14219,7 +14219,7 @@ _ZNK8V3Number6bitIs0Ei.exit50.thread87:           ; preds = %78, %91, %_ZNK8V3Nu
   br i1 %.not.i52, label %_ZNK12V3NumberData3numEv.exit.i54, label %.lr.ph.i
 
 _ZNK12V3NumberData3numEv.exit.i54:                ; preds = %106
-  %108 = icmp ult i32 %107, 129
+  %108 = icmp samesign ult i32 %107, 129
   %109 = load ptr, ptr %2, align 8
   %spec.select.i10.i55 = select i1 %108, ptr %2, ptr %109
   %110 = lshr i32 %.097, 5
@@ -14256,7 +14256,7 @@ tailrecurse.i:                                    ; preds = %tailrecurse.i.prehe
   br i1 %.not.i63, label %_ZNK8V3Number7bitIsXZEi.exit, label %tailrecurse.i
 
 _ZNK8V3Number7bitIsXZEi.exit:                     ; preds = %tailrecurse.i
-  %122 = icmp ult i32 %.fr.i.i36, 129
+  %122 = icmp samesign ult i32 %.fr.i.i36, 129
   %123 = load ptr, ptr %1, align 8
   %spec.select.i7.i = select i1 %122, ptr %1, ptr %123
   %124 = lshr i32 %.tr811.i, 5
@@ -14290,7 +14290,7 @@ tailrecurse.i69:                                  ; preds = %.lr.ph.i67, %tailre
   br i1 %.not.i71, label %_ZNK8V3Number7bitIsXZEi.exit77, label %tailrecurse.i69
 
 _ZNK8V3Number7bitIsXZEi.exit77:                   ; preds = %tailrecurse.i69
-  %136 = icmp ult i32 %.fr.i68, 129
+  %136 = icmp samesign ult i32 %.fr.i68, 129
   %137 = load ptr, ptr %2, align 8
   %spec.select.i7.i73 = select i1 %136, ptr %2, ptr %137
   %138 = lshr i32 %.tr811.i70, 5
@@ -14559,7 +14559,7 @@ define dso_local noundef nonnull align 8 dereferenceable(56) ptr @_ZN8V3Number6o
   br i1 %18, label %.thread, label %19
 
 19:                                               ; preds = %17
-  %20 = icmp ugt i32 %2, 8192
+  %20 = icmp samesign ugt i32 %2, 8192
   br i1 %20, label %.thread, label %26
 
 .thread:                                          ; preds = %19, %17
@@ -15008,7 +15008,7 @@ define dso_local noundef nonnull align 8 dereferenceable(56) ptr @_ZN8V3Number8o
   br i1 %24, label %_ZNK12V3NumberData3numEv.exit.i.lr.ph, label %_ZNK8V3Number6bitIs1Ei.exit._crit_edge
 
 _ZNK12V3NumberData3numEv.exit.i.lr.ph:            ; preds = %.preheader
-  %25 = icmp ult i32 %.fr.i, 129
+  %25 = icmp samesign ult i32 %.fr.i, 129
   %26 = load ptr, ptr %1, align 8
   %spec.select.i10.i = select i1 %25, ptr %1, ptr %26
   %27 = add nsw i32 %.fr.i, -1
@@ -15081,7 +15081,7 @@ _ZNK8V3Number6bitIs1Ei.exit._crit_edge:           ; preds = %_ZNK12V3NumberData3
   br i1 %56, label %_ZNK12V3NumberData3numEv.exit.i55.lr.ph, label %_ZNK8V3Number6bitIs1Ei.exit62._crit_edge
 
 _ZNK12V3NumberData3numEv.exit.i55.lr.ph:          ; preds = %_ZNK8V3Number6bitIs1Ei.exit._crit_edge
-  %57 = icmp ult i32 %.fr.i65, 129
+  %57 = icmp samesign ult i32 %.fr.i65, 129
   %58 = load ptr, ptr %2, align 8
   %spec.select.i10.i56 = select i1 %57, ptr %2, ptr %58
   %59 = add nsw i32 %.fr.i65, -1
@@ -15193,7 +15193,7 @@ define dso_local noundef nonnull align 8 dereferenceable(56) ptr @_ZN8V3Number7o
   br i1 %24, label %_ZNK12V3NumberData3numEv.exit.i.lr.ph, label %.preheader
 
 _ZNK12V3NumberData3numEv.exit.i.lr.ph:            ; preds = %.preheader68
-  %25 = icmp ult i32 %.fr.i, 129
+  %25 = icmp samesign ult i32 %.fr.i, 129
   %26 = load ptr, ptr %1, align 8
   %spec.select.i10.i = select i1 %25, ptr %1, ptr %26
   %27 = add nsw i32 %.fr.i, -1
@@ -15217,7 +15217,7 @@ _ZNK12V3NumberData3numEv.exit.i.lr.ph:            ; preds = %.preheader68
   br i1 %36, label %_ZNK12V3NumberData3numEv.exit.i41.lr.ph, label %.loopexit
 
 _ZNK12V3NumberData3numEv.exit.i41.lr.ph:          ; preds = %.preheader
-  %37 = icmp ult i32 %.fr.i51, 129
+  %37 = icmp samesign ult i32 %.fr.i51, 129
   %38 = load ptr, ptr %2, align 8
   %spec.select.i10.i42 = select i1 %37, ptr %2, ptr %38
   %39 = add nsw i32 %.fr.i51, -1
@@ -16330,7 +16330,7 @@ define dso_local noundef nonnull align 8 dereferenceable(56) ptr @_ZN8V3Number4o
 .lr.ph:                                           ; preds = %.preheader
   %18 = add i8 %12, -3
   %spec.select.i.i = icmp ult i8 %18, -2
-  %19 = icmp ult i32 %.fr.i.i40, 129
+  %19 = icmp samesign ult i32 %.fr.i.i40, 129
   %20 = load ptr, ptr %1, align 8
   %spec.select.i10.i = select i1 %19, ptr %1, ptr %20
   %21 = getelementptr inbounds i8, ptr %2, i64 36
@@ -16339,7 +16339,7 @@ define dso_local noundef nonnull align 8 dereferenceable(56) ptr @_ZN8V3Number4o
   %spec.select.i.i30 = icmp ult i8 %23, -2
   %24 = icmp slt i32 %.fr.i.i, 1
   %.tr811.i.i = add nsw i32 %.fr.i.i, -1
-  %25 = icmp ult i32 %.fr.i.i, 129
+  %25 = icmp samesign ult i32 %.fr.i.i, 129
   %26 = load ptr, ptr %2, align 8
   %spec.select.i7.i.i = select i1 %25, ptr %2, ptr %26
   %27 = lshr i32 %.tr811.i.i, 5
@@ -16808,7 +16808,7 @@ define dso_local noundef nonnull align 8 dereferenceable(56) ptr @_ZN8V3Number5o
 .lr.ph:                                           ; preds = %.preheader
   %18 = add i8 %12, -3
   %spec.select.i.i = icmp ult i8 %18, -2
-  %19 = icmp ult i32 %.fr.i.i40, 129
+  %19 = icmp samesign ult i32 %.fr.i.i40, 129
   %20 = load ptr, ptr %1, align 8
   %spec.select.i10.i = select i1 %19, ptr %1, ptr %20
   %21 = getelementptr inbounds i8, ptr %2, i64 36
@@ -16817,7 +16817,7 @@ define dso_local noundef nonnull align 8 dereferenceable(56) ptr @_ZN8V3Number5o
   %spec.select.i.i30 = icmp ult i8 %23, -2
   %24 = icmp slt i32 %.fr.i.i, 1
   %.tr811.i.i = add nsw i32 %.fr.i.i, -1
-  %25 = icmp ult i32 %.fr.i.i, 129
+  %25 = icmp samesign ult i32 %.fr.i.i, 129
   %26 = load ptr, ptr %2, align 8
   %spec.select.i7.i.i = select i1 %25, ptr %2, ptr %26
   %27 = lshr i32 %.tr811.i.i, 5
@@ -17363,7 +17363,7 @@ _ZNK8V3Number8toDoubleEv.exit18:                  ; preds = %_ZNK8V3Number8toDou
 .lr.ph:                                           ; preds = %.preheader
   %54 = add i8 %6, -1
   %spec.select.i.i = icmp ult i8 %54, 2
-  %55 = icmp ult i32 %48, 129
+  %55 = icmp samesign ult i32 %48, 129
   %56 = load ptr, ptr %0, align 8
   %spec.select.i = select i1 %55, ptr %0, ptr %56
   %57 = load ptr, ptr %1, align 8
@@ -17598,7 +17598,7 @@ tailrecurse.i:                                    ; preds = %.lr.ph.i, %tailrecu
   br i1 %.not.i, label %_ZNK8V3Number7bitIsXZEi.exit, label %tailrecurse.i
 
 _ZNK8V3Number7bitIsXZEi.exit:                     ; preds = %tailrecurse.i
-  %38 = icmp ult i32 %.fr.i51, 129
+  %38 = icmp samesign ult i32 %.fr.i51, 129
   %39 = load ptr, ptr %2, align 8
   %spec.select.i7.i = select i1 %38, ptr %2, ptr %39
   %40 = lshr i32 %.tr811.i, 5
@@ -17643,7 +17643,7 @@ tailrecurse.i27:                                  ; preds = %.lr.ph.i25, %tailre
   br i1 %.not.i29, label %_ZNK8V3Number7bitIsXZEi.exit35, label %tailrecurse.i27
 
 _ZNK8V3Number7bitIsXZEi.exit35:                   ; preds = %tailrecurse.i27
-  %54 = icmp ult i32 %.fr.i26, 129
+  %54 = icmp samesign ult i32 %.fr.i26, 129
   %55 = load ptr, ptr %1, align 8
   %spec.select.i7.i31 = select i1 %54, ptr %1, ptr %55
   %56 = lshr i32 %.tr811.i28, 5
@@ -17751,7 +17751,7 @@ tailrecurse.i:                                    ; preds = %.lr.ph.i, %tailrecu
   br i1 %.not.i, label %_ZNK8V3Number7bitIsXZEi.exit, label %tailrecurse.i
 
 _ZNK8V3Number7bitIsXZEi.exit:                     ; preds = %tailrecurse.i
-  %38 = icmp ult i32 %.fr.i51, 129
+  %38 = icmp samesign ult i32 %.fr.i51, 129
   %39 = load ptr, ptr %2, align 8
   %spec.select.i7.i = select i1 %38, ptr %2, ptr %39
   %40 = lshr i32 %.tr811.i, 5
@@ -17796,7 +17796,7 @@ tailrecurse.i27:                                  ; preds = %.lr.ph.i25, %tailre
   br i1 %.not.i29, label %_ZNK8V3Number7bitIsXZEi.exit35, label %tailrecurse.i27
 
 _ZNK8V3Number7bitIsXZEi.exit35:                   ; preds = %tailrecurse.i27
-  %54 = icmp ult i32 %.fr.i26, 129
+  %54 = icmp samesign ult i32 %.fr.i26, 129
   %55 = load ptr, ptr %1, align 8
   %spec.select.i7.i31 = select i1 %54, ptr %1, ptr %55
   %56 = lshr i32 %.tr811.i28, 5
@@ -17875,12 +17875,12 @@ define dso_local noundef nonnull align 8 dereferenceable(56) ptr @_ZN8V3Number4o
   br i1 %26, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %.preheader
-  %27 = icmp ult i32 %.fr.i.i50, 129
+  %27 = icmp samesign ult i32 %.fr.i.i50, 129
   %28 = load ptr, ptr %1, align 8
   %spec.select.i10.i = select i1 %27, ptr %1, ptr %28
   %29 = icmp slt i32 %.fr.i.i, 1
   %.tr811.i.i = add nsw i32 %.fr.i.i, -1
-  %30 = icmp ult i32 %.fr.i.i, 129
+  %30 = icmp samesign ult i32 %.fr.i.i, 129
   %31 = load ptr, ptr %2, align 8
   %spec.select.i7.i.i = select i1 %30, ptr %2, ptr %31
   %32 = lshr i32 %.tr811.i.i, 5
@@ -18161,7 +18161,7 @@ tailrecurse.i:                                    ; preds = %.lr.ph.i, %tailrecu
   br i1 %.not.i, label %_ZNK8V3Number7bitIsXZEi.exit, label %tailrecurse.i
 
 _ZNK8V3Number7bitIsXZEi.exit:                     ; preds = %tailrecurse.i
-  %37 = icmp ult i32 %.fr.i, 129
+  %37 = icmp samesign ult i32 %.fr.i, 129
   %38 = load ptr, ptr %1, align 8
   %spec.select.i7.i = select i1 %37, ptr %1, ptr %38
   %39 = lshr i32 %.tr811.i, 5
@@ -18187,7 +18187,7 @@ tailrecurse.i47:                                  ; preds = %.lr.ph.i45, %tailre
   br i1 %.not.i49, label %_ZNK8V3Number7bitIsXZEi.exit55, label %tailrecurse.i47
 
 _ZNK8V3Number7bitIsXZEi.exit55:                   ; preds = %tailrecurse.i47
-  %48 = icmp ult i32 %.fr.i46, 129
+  %48 = icmp samesign ult i32 %.fr.i46, 129
   %49 = load ptr, ptr %2, align 8
   %spec.select.i7.i51 = select i1 %48, ptr %2, ptr %49
   %50 = lshr i32 %.tr811.i48, 5
@@ -18210,7 +18210,7 @@ _ZNK8V3Number7bitIsXZEi.exit55.thread:            ; preds = %_ZNK8V3Number7bitIs
   br i1 %36, label %.lr.ph.i61, label %_ZNK8V3Number6bitIs0Ei.exit
 
 _ZNK12V3NumberData3numEv.exit.i59:                ; preds = %_ZNK8V3Number7bitIsXZEi.exit55.thread
-  %58 = icmp ult i32 %.fr.i, 129
+  %58 = icmp samesign ult i32 %.fr.i, 129
   %59 = load ptr, ptr %1, align 8
   %spec.select.i10.i = select i1 %58, ptr %1, ptr %59
   %60 = lshr i32 %.sroa.speculated201, 5
@@ -18235,7 +18235,7 @@ _ZNK12V3NumberData3numEv.exit.i59:                ; preds = %_ZNK8V3Number7bitIs
   br i1 %brmerge, label %.lr.ph.i74, label %tailrecurse.i63.preheader
 
 _ZNK8V3Number6bitIs0Ei.exit:                      ; preds = %57
-  %72 = icmp ult i32 %.fr.i, 129
+  %72 = icmp samesign ult i32 %.fr.i, 129
   %73 = load ptr, ptr %1, align 8
   %spec.select.i7.i.i = select i1 %72, ptr %1, ptr %73
   %74 = lshr i32 %35, 5
@@ -18262,7 +18262,7 @@ tailrecurse.i63:                                  ; preds = %tailrecurse.i63.pre
   br i1 %.not.i64, label %_ZNK12V3NumberData3numEv.exit.i65, label %tailrecurse.i63
 
 _ZNK12V3NumberData3numEv.exit.i65:                ; preds = %tailrecurse.i63
-  %81 = icmp ult i32 %.fr.i46, 129
+  %81 = icmp samesign ult i32 %.fr.i46, 129
   %82 = load ptr, ptr %2, align 8
   %spec.select.i10.i66 = select i1 %81, ptr %2, ptr %82
   %83 = lshr i32 %.tr1114.i, 5
@@ -18297,7 +18297,7 @@ tailrecurse.i76:                                  ; preds = %tailrecurse.i76.pre
   br i1 %.not.i78, label %_ZNK12V3NumberData3numEv.exit.i79, label %tailrecurse.i76
 
 _ZNK12V3NumberData3numEv.exit.i79:                ; preds = %tailrecurse.i76
-  %93 = icmp ult i32 %.fr.i, 129
+  %93 = icmp samesign ult i32 %.fr.i, 129
   %94 = load ptr, ptr %1, align 8
   %spec.select.i10.i80 = select i1 %93, ptr %1, ptr %94
   %95 = lshr i32 %.tr1114.i77, 5
@@ -18328,7 +18328,7 @@ _ZNK8V3Number12bitIs1ExtendEi.exit87:             ; preds = %_ZNK12V3NumberData3
   br i1 %47, label %_ZNK8V3Number6bitIs0Ei.exit104.thread216, label %_ZNK8V3Number6bitIs0Ei.exit104
 
 _ZNK12V3NumberData3numEv.exit.i98:                ; preds = %105
-  %107 = icmp ult i32 %.fr.i46, 129
+  %107 = icmp samesign ult i32 %.fr.i46, 129
   %108 = load ptr, ptr %2, align 8
   %spec.select.i10.i99 = select i1 %107, ptr %2, ptr %108
   %109 = lshr i32 %.sroa.speculated201, 5
@@ -18354,7 +18354,7 @@ _ZNK12V3NumberData3numEv.exit.i98:                ; preds = %105
   br i1 %or.cond, label %.lr.ph.i108.lr.ph, label %_ZNK8V3Number6bitIs0Ei.exit104.thread216
 
 _ZNK8V3Number6bitIs0Ei.exit104:                   ; preds = %106
-  %122 = icmp ult i32 %.fr.i46, 129
+  %122 = icmp samesign ult i32 %.fr.i46, 129
   %123 = load ptr, ptr %2, align 8
   %spec.select.i7.i.i94 = select i1 %122, ptr %2, ptr %123
   %124 = lshr i32 %46, 5
@@ -18388,10 +18388,10 @@ _ZNK8V3Number12bitIs1ExtendEi.exit87.thread..lr.ph.i108.lr.ph_crit_edge: ; preds
   %132 = phi ptr [ %.pre275, %_ZNK8V3Number12bitIs1ExtendEi.exit87.thread..lr.ph.i108.lr.ph_crit_edge ], [ %123, %_ZNK8V3Number6bitIs0Ei.exit104 ], [ %108, %118 ]
   %133 = phi ptr [ %.pre, %_ZNK8V3Number12bitIs1ExtendEi.exit87.thread..lr.ph.i108.lr.ph_crit_edge ], [ %94, %_ZNK8V3Number6bitIs0Ei.exit104 ], [ %94, %118 ]
   %134 = icmp slt i32 %.fr.i, 1
-  %135 = icmp ult i32 %.fr.i, 129
+  %135 = icmp samesign ult i32 %.fr.i, 129
   %spec.select.i10.i114 = select i1 %135, ptr %1, ptr %133
   %136 = icmp slt i32 %.fr.i46, 1
-  %137 = icmp ult i32 %.fr.i46, 129
+  %137 = icmp samesign ult i32 %.fr.i46, 129
   %spec.select.i7.i.i128 = select i1 %137, ptr %2, ptr %132
   %138 = lshr i32 %.tr811.i.i127.pre-phi, 5
   %139 = zext nneg i32 %138 to i64
@@ -18758,7 +18758,7 @@ define dso_local noundef nonnull align 8 dereferenceable(56) ptr @_ZN8V3Number8o
   %37 = load i8, ptr %20, align 4
   %38 = add i8 %37, -3
   %spec.select.i.i = icmp ult i8 %38, -2
-  %39 = icmp ult i32 %35, 129
+  %39 = icmp samesign ult i32 %35, 129
   %40 = load ptr, ptr %2, align 8
   %spec.select.i10.i = select i1 %39, ptr %2, ptr %40
   br i1 %spec.select.i.i, label %._crit_edge, label %_ZNK12V3NumberData3numEv.exit.i
@@ -18906,7 +18906,7 @@ define dso_local noundef nonnull align 8 dereferenceable(56) ptr @_ZN8V3Number9o
   br i1 %.not.i, label %_ZNK12V3NumberData3numEv.exit.i, label %_ZNK8V3Number6bitIs1Ei.exit.thread
 
 _ZNK12V3NumberData3numEv.exit.i:                  ; preds = %49
-  %51 = icmp ult i32 %50, 129
+  %51 = icmp samesign ult i32 %50, 129
   %52 = load ptr, ptr %2, align 8
   %spec.select.i10.i = select i1 %51, ptr %2, ptr %52
   %53 = lshr i32 %41, 5
@@ -19276,7 +19276,7 @@ define dso_local noundef nonnull align 8 dereferenceable(56) ptr @_ZN8V3Number6o
 
 _ZNK12V3NumberData3numEv.exit.i.i:                ; preds = %42
   %47 = add nsw i32 %44, -1
-  %48 = icmp ult i32 %44, 129
+  %48 = icmp samesign ult i32 %44, 129
   %49 = load ptr, ptr %1, align 8
   %spec.select.i10.i.i = select i1 %48, ptr %1, ptr %49
   %50 = lshr i32 %47, 5
@@ -19331,7 +19331,7 @@ _ZNK8V3Number10isNegativeEv.exit.thread:          ; preds = %_ZNK12V3NumberData3
 
 _ZNK12V3NumberData3numEv.exit.i.i31:              ; preds = %69
   %74 = add nsw i32 %71, -1
-  %75 = icmp ult i32 %71, 129
+  %75 = icmp samesign ult i32 %71, 129
   %76 = load ptr, ptr %2, align 8
   %spec.select.i10.i.i32 = select i1 %75, ptr %2, ptr %76
   %77 = lshr i32 %74, 5
@@ -19390,7 +19390,7 @@ _ZNK8V3Number10isNegativeEv.exit38.thread:        ; preds = %_ZNK12V3NumberData3
 
 _ZNK12V3NumberData3numEv.exit.i.i42:              ; preds = %98
   %103 = add nsw i32 %100, -1
-  %104 = icmp ult i32 %100, 129
+  %104 = icmp samesign ult i32 %100, 129
   %105 = load ptr, ptr %1, align 8
   %spec.select.i10.i.i43 = select i1 %104, ptr %1, ptr %105
   %106 = lshr i32 %103, 5
@@ -19429,7 +19429,7 @@ _ZNK8V3Number10isNegativeEv.exit49:               ; preds = %_ZNK12V3NumberData3
 
 _ZNK12V3NumberData3numEv.exit.i.i52:              ; preds = %119
   %124 = add nsw i32 %121, -1
-  %125 = icmp ult i32 %121, 129
+  %125 = icmp samesign ult i32 %121, 129
   %126 = load ptr, ptr %2, align 8
   %spec.select.i10.i.i53 = select i1 %125, ptr %2, ptr %126
   %127 = lshr i32 %124, 5
@@ -19454,7 +19454,7 @@ _ZNK8V3Number10isNegativeEv.exit59:               ; preds = %_ZNK12V3NumberData3
 
 _ZNK12V3NumberData3numEv.exit.i.i62:              ; preds = %_ZNK12V3NumberData3numEv.exit.i.i42, %_ZNK8V3Number10isNegativeEv.exit49, %_ZNK8V3Number10isNegativeEv.exit59
   %137 = add nsw i32 %100, -1
-  %138 = icmp ult i32 %100, 129
+  %138 = icmp samesign ult i32 %100, 129
   %139 = load ptr, ptr %1, align 8
   %spec.select.i10.i.i63 = select i1 %138, ptr %1, ptr %139
   %140 = lshr i32 %137, 5
@@ -19493,7 +19493,7 @@ _ZNK8V3Number10isNegativeEv.exit69.thread:        ; preds = %98, %93, %_ZNK12V3N
 
 _ZNK12V3NumberData3numEv.exit.i.i72:              ; preds = %152
   %157 = add nsw i32 %154, -1
-  %158 = icmp ult i32 %154, 129
+  %158 = icmp samesign ult i32 %154, 129
   %159 = load ptr, ptr %2, align 8
   %spec.select.i10.i.i73 = select i1 %158, ptr %2, ptr %159
   %160 = lshr i32 %157, 5
@@ -19808,7 +19808,7 @@ define dso_local noundef nonnull align 8 dereferenceable(56) ptr @_ZN8V3Number12
   br i1 %53, label %.lr.ph.i, label %_ZNK8V3Number12mostSetBitP1Ev.exit
 
 .lr.ph.i:                                         ; preds = %47
-  %54 = icmp ult i32 %50, 129
+  %54 = icmp samesign ult i32 %50, 129
   %55 = load i8, ptr %30, align 4
   %.fr11.i = freeze i8 %55
   %56 = add i8 %.fr11.i, -1
@@ -19845,7 +19845,7 @@ _ZNK12V3NumberData3numEv.exit.i.i:                ; preds = %.lr.ph.split.i
   br i1 %.not8.i.i, label %_ZNK8V3Number12mostSetBitP1Ev.exit, label %.backedge.i
 
 .backedge.i:                                      ; preds = %66, %_ZNK12V3NumberData3numEv.exit.i.i, %.lr.ph.split.i
-  %69 = icmp ugt i32 %.0.in7.i, 1
+  %69 = icmp samesign ugt i32 %.0.in7.i, 1
   br i1 %69, label %.lr.ph.split.i, label %_ZNK8V3Number12mostSetBitP1Ev.exit, !llvm.loop !105
 
 _ZNK8V3Number12mostSetBitP1Ev.exit:               ; preds = %66, %.backedge.i, %47, %.lr.ph.i
@@ -19856,7 +19856,7 @@ _ZNK8V3Number12mostSetBitP1Ev.exit:               ; preds = %66, %.backedge.i, %
   br i1 %72, label %.lr.ph.i191, label %_ZNK8V3Number12mostSetBitP1Ev.exit206.thread
 
 .lr.ph.i191:                                      ; preds = %_ZNK8V3Number12mostSetBitP1Ev.exit
-  %73 = icmp ult i32 %71, 129
+  %73 = icmp samesign ult i32 %71, 129
   %74 = load i8, ptr %39, align 4
   %.fr11.i192 = freeze i8 %74
   %75 = add i8 %.fr11.i192, -1
@@ -19898,7 +19898,7 @@ _ZNK12V3NumberData3numEv.exit.i.i199:             ; preds = %.lr.ph.split.i195
   br i1 %.not8.i.i204, label %_ZNK8V3Number12mostSetBitP1Ev.exit206, label %.backedge.i205
 
 .backedge.i205:                                   ; preds = %86, %_ZNK12V3NumberData3numEv.exit.i.i199, %.lr.ph.split.i195
-  %89 = icmp ugt i32 %.0.in7.i196, 1
+  %89 = icmp samesign ugt i32 %.0.in7.i196, 1
   %indvars.iv.next374 = add i32 %indvars.iv373, -1
   br i1 %89, label %.lr.ph.split.i195, label %_ZNK8V3Number12mostSetBitP1Ev.exit206.thread, !llvm.loop !105
 
@@ -20130,7 +20130,7 @@ _ZNK12V3NumberData3numEv.exit225:                 ; preds = %_ZN12V3NumberData3n
   %196 = zext i32 %195 to i64
   %197 = mul nuw i64 %196, %191
   %198 = sub i64 %149, %197
-  %199 = icmp ugt i64 %indvars.iv399, 1
+  %199 = icmp samesign ugt i64 %indvars.iv399, 1
   br i1 %199, label %131, label %._crit_edge357, !llvm.loop !146
 
 ._crit_edge357:                                   ; preds = %_ZNK12V3NumberData3numEv.exit225
@@ -20451,7 +20451,7 @@ _ZNK12V3NumberData3numEv.exit261:                 ; preds = %_ZNK12V3NumberData3
   %341 = or i32 %340, %337
   %342 = getelementptr inbounds [129 x i32], ptr %19, i64 0, i64 %indvars.iv.next380
   store i32 %341, ptr %342, align 4
-  %343 = icmp ugt i64 %indvars.iv379, 2
+  %343 = icmp samesign ugt i64 %indvars.iv379, 2
   br i1 %343, label %_ZNK12V3NumberData3numEv.exit261, label %._crit_edge334, !llvm.loop !149
 
 344:                                              ; preds = %.lr.ph333
@@ -21055,7 +21055,7 @@ _ZN8V3Number18setAllBitsXRemovedEv.exit:          ; preds = %47, %52, %54
 
 _ZNK12V3NumberData3numEv.exit.i.i:                ; preds = %61
   %66 = add nsw i32 %63, -1
-  %67 = icmp ult i32 %63, 129
+  %67 = icmp samesign ult i32 %63, 129
   %68 = load ptr, ptr %1, align 8
   %spec.select.i10.i.i = select i1 %67, ptr %1, ptr %68
   %69 = lshr i32 %66, 5
@@ -21110,7 +21110,7 @@ _ZNK8V3Number10isNegativeEv.exit.thread:          ; preds = %_ZNK12V3NumberData3
 
 _ZNK12V3NumberData3numEv.exit.i.i36:              ; preds = %88
   %93 = add nsw i32 %90, -1
-  %94 = icmp ult i32 %90, 129
+  %94 = icmp samesign ult i32 %90, 129
   %95 = load ptr, ptr %2, align 8
   %spec.select.i10.i.i37 = select i1 %94, ptr %2, ptr %95
   %96 = lshr i32 %93, 5
@@ -21169,7 +21169,7 @@ _ZNK8V3Number10isNegativeEv.exit43.thread:        ; preds = %_ZNK12V3NumberData3
 
 _ZNK12V3NumberData3numEv.exit.i.i47:              ; preds = %117
   %122 = add nsw i32 %119, -1
-  %123 = icmp ult i32 %119, 129
+  %123 = icmp samesign ult i32 %119, 129
   %124 = load ptr, ptr %1, align 8
   %spec.select.i10.i.i48 = select i1 %123, ptr %1, ptr %124
   %125 = lshr i32 %122, 5
@@ -21208,7 +21208,7 @@ _ZNK8V3Number10isNegativeEv.exit54:               ; preds = %_ZNK12V3NumberData3
 
 _ZNK12V3NumberData3numEv.exit.i.i57:              ; preds = %138
   %143 = add nsw i32 %140, -1
-  %144 = icmp ult i32 %140, 129
+  %144 = icmp samesign ult i32 %140, 129
   %145 = load ptr, ptr %2, align 8
   %spec.select.i10.i.i58 = select i1 %144, ptr %2, ptr %145
   %146 = lshr i32 %143, 5
@@ -21233,7 +21233,7 @@ _ZNK8V3Number10isNegativeEv.exit64:               ; preds = %_ZNK12V3NumberData3
 
 _ZNK12V3NumberData3numEv.exit.i.i67:              ; preds = %_ZNK12V3NumberData3numEv.exit.i.i47, %_ZNK8V3Number10isNegativeEv.exit54, %_ZNK8V3Number10isNegativeEv.exit64
   %156 = add nsw i32 %119, -1
-  %157 = icmp ult i32 %119, 129
+  %157 = icmp samesign ult i32 %119, 129
   %158 = load ptr, ptr %1, align 8
   %spec.select.i10.i.i68 = select i1 %157, ptr %1, ptr %158
   %159 = lshr i32 %156, 5
@@ -21272,7 +21272,7 @@ _ZNK8V3Number10isNegativeEv.exit74.thread:        ; preds = %117, %112, %_ZNK12V
 
 _ZNK12V3NumberData3numEv.exit.i.i77:              ; preds = %171
   %176 = add nsw i32 %173, -1
-  %177 = icmp ult i32 %173, 129
+  %177 = icmp samesign ult i32 %173, 129
   %178 = load ptr, ptr %2, align 8
   %spec.select.i10.i.i78 = select i1 %177, ptr %2, ptr %178
   %179 = lshr i32 %176, 5
@@ -21872,7 +21872,7 @@ _ZN8V3Number18setAllBitsXRemovedEv.exit:          ; preds = %43, %48, %50
 
 _ZNK12V3NumberData3numEv.exit.i.i:                ; preds = %57
   %62 = add nsw i32 %59, -1
-  %63 = icmp ult i32 %59, 129
+  %63 = icmp samesign ult i32 %59, 129
   %64 = load ptr, ptr %1, align 8
   %spec.select.i10.i.i = select i1 %63, ptr %1, ptr %64
   %65 = lshr i32 %62, 5
@@ -21927,7 +21927,7 @@ _ZNK8V3Number10isNegativeEv.exit.thread:          ; preds = %_ZNK12V3NumberData3
 
 _ZNK12V3NumberData3numEv.exit.i.i29:              ; preds = %84
   %89 = add nsw i32 %86, -1
-  %90 = icmp ult i32 %86, 129
+  %90 = icmp samesign ult i32 %86, 129
   %91 = load ptr, ptr %2, align 8
   %spec.select.i10.i.i30 = select i1 %90, ptr %2, ptr %91
   %92 = lshr i32 %89, 5
@@ -21986,7 +21986,7 @@ _ZNK8V3Number10isNegativeEv.exit36.thread:        ; preds = %_ZNK12V3NumberData3
 
 _ZNK12V3NumberData3numEv.exit.i.i40:              ; preds = %113
   %118 = add nsw i32 %115, -1
-  %119 = icmp ult i32 %115, 129
+  %119 = icmp samesign ult i32 %115, 129
   %120 = load ptr, ptr %1, align 8
   %spec.select.i10.i.i41 = select i1 %119, ptr %1, ptr %120
   %121 = lshr i32 %118, 5
@@ -22228,7 +22228,7 @@ define dso_local noundef nonnull align 8 dereferenceable(56) ptr @_ZN8V3Number5o
 
 _ZNK12V3NumberData3numEv.exit.i.i:                ; preds = %47
   %52 = add nsw i32 %49, -1
-  %53 = icmp ult i32 %49, 129
+  %53 = icmp samesign ult i32 %49, 129
   %54 = load ptr, ptr %2, align 8
   %spec.select.i10.i.i = select i1 %53, ptr %2, ptr %54
   %55 = lshr i32 %52, 5
@@ -22448,7 +22448,7 @@ _ZN8V3NumberD2Ev.exit:                            ; preds = %147, %145, %140, %1
   br i1 %.not.i, label %_ZNK12V3NumberData3numEv.exit.i, label %_ZN8V3NumberD2Ev.exit46
 
 _ZNK12V3NumberData3numEv.exit.i:                  ; preds = %154
-  %156 = icmp ult i32 %155, 129
+  %156 = icmp samesign ult i32 %155, 129
   %157 = load ptr, ptr %2, align 8
   %spec.select.i10.i = select i1 %156, ptr %2, ptr %157
   %158 = lshr i32 %.052, 5
@@ -22655,7 +22655,7 @@ define dso_local noundef nonnull align 8 dereferenceable(56) ptr @_ZN8V3Number8o
   br i1 %.not.i, label %_ZNK12V3NumberData3numEv.exit.i, label %_ZNK8V3Number6bitIs1Ei.exit.thread
 
 _ZNK12V3NumberData3numEv.exit.i:                  ; preds = %37
-  %39 = icmp ult i32 %38, 129
+  %39 = icmp samesign ult i32 %38, 129
   %40 = load ptr, ptr %1, align 8
   %spec.select.i10.i = select i1 %39, ptr %1, ptr %40
   %41 = lshr i32 %.020, 5
@@ -22799,7 +22799,7 @@ _ZN12V3NumberData3strB5cxx11Ev.exit24:            ; preds = %19
   br i1 %.not.i.us, label %_ZNK12V3NumberData3numEv.exit.i.us, label %_ZNK8V3Number6bitIs1Ei.exit.us
 
 _ZNK12V3NumberData3numEv.exit.i.us:               ; preds = %40
-  %42 = icmp ult i32 %41, 129
+  %42 = icmp samesign ult i32 %41, 129
   %43 = load ptr, ptr %1, align 8
   %spec.select.i10.i.us = select i1 %42, ptr %1, ptr %43
   %44 = lshr i32 %.028.us, 5
@@ -23416,7 +23416,7 @@ define dso_local noundef nonnull align 8 dereferenceable(56) ptr @_ZN8V3Number7o
 
 _ZNK12V3NumberData3numEv.exit.i.i:                ; preds = %28
   %33 = add nsw i32 %30, -1
-  %34 = icmp ult i32 %30, 129
+  %34 = icmp samesign ult i32 %30, 129
   %35 = load ptr, ptr %4, align 8
   %spec.select.i10.i.i = select i1 %34, ptr %4, ptr %35
   %36 = lshr i32 %33, 5
@@ -23513,7 +23513,7 @@ _ZN8V3NumberD2Ev.exit:                            ; preds = %_ZNK12V3NumberData3
   br i1 %.not.i.not, label %_ZNK8V3Number6bitIs1Ei.exit.thread, label %_ZNK12V3NumberData3numEv.exit.i
 
 _ZNK12V3NumberData3numEv.exit.i:                  ; preds = %76
-  %78 = icmp ult i32 %77, 129
+  %78 = icmp samesign ult i32 %77, 129
   %79 = load ptr, ptr %4, align 8
   %spec.select.i10.i = select i1 %78, ptr %4, ptr %79
   %80 = lshr i32 %.029, 5
@@ -23544,7 +23544,7 @@ _ZNK8V3Number6bitIs1Ei.exit:                      ; preds = %_ZNK12V3NumberData3
 
 _ZNK8V3Number6bitIs1Ei.exit.thread:               ; preds = %_ZNK12V3NumberData3numEv.exit.i, %76, %73, %_ZNK8V3Number6bitIs1Ei.exit, %90
   %.1 = phi double [ %93, %90 ], [ %.01827, %_ZNK8V3Number6bitIs1Ei.exit ], [ %.01827, %73 ], [ %.01827, %76 ], [ %.01827, %_ZNK12V3NumberData3numEv.exit.i ]
-  %94 = icmp ugt i32 %.0.in28, 1
+  %94 = icmp samesign ugt i32 %.0.in28, 1
   br i1 %94, label %73, label %._crit_edge, !llvm.loop !164
 
 ._crit_edge:                                      ; preds = %_ZNK8V3Number6bitIs1Ei.exit.thread, %_ZN8V3NumberD2Ev.exit

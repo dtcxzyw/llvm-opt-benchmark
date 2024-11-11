@@ -601,7 +601,7 @@ out.exit:                                         ; preds = %44, %43, %36, %35
   br label %out.exit51
 
 57:                                               ; preds = %24
-  %58 = icmp ugt i32 %7, 3
+  %58 = icmp samesign ugt i32 %7, 3
   %.not44 = icmp eq ptr %26, null
   %59 = load volatile i8, ptr @ompi_rte_initialized, align 1
   %60 = trunc i8 %59 to i1

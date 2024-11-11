@@ -813,7 +813,7 @@ proto_item_set_generated.exit.i:                  ; preds = %349, %346, %.lr.ph.
   br i1 %408, label %.lr.ph.i76.i, label %dissect_shim6_opt_loc_pref.exit.i
 
 .lr.ph.i76.i:                                     ; preds = %406
-  %409 = icmp ugt i8 %.fr42.i.i, 1
+  %409 = icmp samesign ugt i8 %.fr42.i.i, 1
   br i1 %409, label %.lr.ph.split.us.i.i, label %.thread.i.i
 
 .lr.ph.split.us.i.i:                              ; preds = %.lr.ph.i76.i

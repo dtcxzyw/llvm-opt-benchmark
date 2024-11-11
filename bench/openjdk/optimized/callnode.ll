@@ -1259,7 +1259,7 @@ define hidden noundef ptr @_ZNK8JVMState8of_depthEi(ptr noundef nonnull readonly
   %.056 = phi ptr [ %7, %.lr.ph ], [ %0, %2 ]
   %7 = load ptr, ptr %.056, align 8
   %8 = add nsw i32 %.07, -1
-  %9 = icmp ugt i32 %.07, 1
+  %9 = icmp samesign ugt i32 %.07, 1
   br i1 %9, label %.lr.ph, label %._crit_edge, !llvm.loop !6
 
 ._crit_edge:                                      ; preds = %.lr.ph, %2
@@ -1334,7 +1334,7 @@ define hidden noundef i32 @_ZNK8JVMState11debug_startEv(ptr nocapture noundef no
   %.056.i = phi ptr [ %6, %.lr.ph.i ], [ %0, %1 ]
   %6 = load ptr, ptr %.056.i, align 8
   %7 = add nsw i32 %.07.i, -1
-  %8 = icmp ugt i32 %.07.i, 1
+  %8 = icmp samesign ugt i32 %.07.i, 1
   br i1 %8, label %.lr.ph.i, label %_ZNK8JVMState8of_depthEi.exit, !llvm.loop !6
 
 _ZNK8JVMState8of_depthEi.exit:                    ; preds = %.lr.ph.i, %1
@@ -6688,7 +6688,7 @@ define hidden noundef zeroext i1 @_ZN8LockNode21is_nested_lock_regionEP7Compile(
   %.056.i = phi ptr [ %34, %.lr.ph.i ], [ %28, %.lr.ph40 ]
   %34 = load ptr, ptr %.056.i, align 8
   %35 = add nsw i32 %.07.i, -1
-  %36 = icmp ugt i32 %.07.i, 1
+  %36 = icmp samesign ugt i32 %.07.i, 1
   br i1 %36, label %.lr.ph.i, label %_ZNK8JVMState8of_depthEi.exit, !llvm.loop !6
 
 _ZNK8JVMState8of_depthEi.exit:                    ; preds = %.lr.ph.i, %.lr.ph40

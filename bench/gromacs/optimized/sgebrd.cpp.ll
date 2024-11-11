@@ -56,7 +56,7 @@ define void @sgebrd_(ptr nocapture noundef readonly %0, ptr nocapture noundef re
   br i1 %41, label %42, label %54
 
 42:                                               ; preds = %39
-  %43 = icmp ugt i32 %., 128
+  %43 = icmp samesign ugt i32 %., 128
   br i1 %43, label %44, label %54
 
 44:                                               ; preds = %42

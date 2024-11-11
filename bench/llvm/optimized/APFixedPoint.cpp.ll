@@ -6431,7 +6431,7 @@ _ZN4llvm6APSIntD2Ev.exit:                         ; preds = %109, %106, %_ZNK4ll
   br label %135
 
 110:                                              ; preds = %_ZN4llvm6APSInt11getMaxValueEjb.exit
-  %111 = icmp ugt i32 %21, %2
+  %111 = icmp samesign ugt i32 %21, %2
   br i1 %111, label %112, label %135
 
 112:                                              ; preds = %110

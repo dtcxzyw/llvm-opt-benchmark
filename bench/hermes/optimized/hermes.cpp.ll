@@ -4293,7 +4293,7 @@ _ZN8facebook3jsi6StringD2Ev.exit:                 ; preds = %if.else17
   br label %return
 
 _ZN8facebook3jsi6ObjectD2Ev.exit:                 ; preds = %if.else17
-  %cmp.i48 = icmp ugt i64 %hv.coerce, -281474976710657
+  %cmp.i48 = icmp samesign ugt i64 %hv.coerce, -281474976710657
   tail call void @llvm.assume(i1 %cmp.i48)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %hv.i49)
   store i64 %hv.coerce, ptr %hv.i49, align 8, !noalias !51
@@ -4973,7 +4973,7 @@ lpad:                                             ; preds = %_ZNK6hermes2vm10Str
 
 if.end:                                           ; preds = %entry
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %agg.result) #39
-  %tobool.not.i5 = icmp ult i32 %view.sroa.3.8.extract.trunc, 1073741824
+  %tobool.not.i5 = icmp samesign ult i32 %view.sroa.3.8.extract.trunc, 1073741824
   br i1 %tobool.not.i5, label %invoke.cont5, label %if.end.i6
 
 if.end.i6:                                        ; preds = %if.end
@@ -18326,7 +18326,7 @@ _ZN6hermes2vm11TwineChar16C2EN4llvh9StringRefE.exit: ; preds = %_ZNK6hermes2vm10
   br label %return
 
 if.end:                                           ; preds = %entry
-  %tobool.not.i5 = icmp ult i32 %bf.load.i, 1073741824
+  %tobool.not.i5 = icmp samesign ult i32 %bf.load.i, 1073741824
   %6 = load ptr, ptr %this, align 8
   br i1 %tobool.not.i5, label %_ZNK6hermes2vm10StringView15castToChar16PtrEv.exit, label %if.end.i6
 

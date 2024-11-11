@@ -352,7 +352,7 @@ define dso_local noundef range(i32 -22, 1) i32 @set_blocksize(ptr noundef readon
   %24 = load i8, ptr %23, align 2
   %25 = zext i8 %24 to i32
   %26 = lshr i32 %1, 9
-  %27 = icmp ugt i32 %1, 1023
+  %27 = icmp samesign ugt i32 %1, 1023
   br i1 %27, label %28, label %33
 
 28:                                               ; preds = %20

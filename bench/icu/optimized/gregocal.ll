@@ -1343,7 +1343,7 @@ _ZNK6icu_7517GregorianCalendar10isLeapYearEi.exit.thread.i: ; preds = %_ZNK6icu_
 
 _ZNK6icu_7517GregorianCalendar10yearLengthEv.exit: ; preds = %land.rhs.i.i, %_ZNK6icu_7517GregorianCalendar10isLeapYearEi.exit.i, %_ZNK6icu_7517GregorianCalendar10isLeapYearEi.exit.thread.i
   %13 = phi i32 [ 366, %_ZNK6icu_7517GregorianCalendar10isLeapYearEi.exit.thread.i ], [ 365, %_ZNK6icu_7517GregorianCalendar10isLeapYearEi.exit.i ], [ 365, %land.rhs.i.i ]
-  %cmp32 = icmp ugt i32 %10, %13
+  %cmp32 = icmp samesign ugt i32 %10, %13
   br i1 %cmp32, label %return, label %if.end35
 
 if.end35:                                         ; preds = %_ZNK6icu_7517GregorianCalendar10yearLengthEv.exit, %if.end24

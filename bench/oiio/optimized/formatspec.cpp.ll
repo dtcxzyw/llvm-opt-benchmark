@@ -3123,7 +3123,7 @@ if.end:                                           ; preds = %lor.lhs.false3
   %mul5.i10 = mul nuw nsw i64 %conv7, %conv
   %tobool.not.i = icmp eq i32 %1, 0
   %retval.0.i = select i1 %tobool.not.i, i64 0, i64 %mul5.i10
-  %cmp9 = icmp ugt i32 %2, 1
+  %cmp9 = icmp samesign ugt i32 %2, 1
   br i1 %cmp9, label %if.then10, label %return
 
 if.then10:                                        ; preds = %if.end
@@ -3165,7 +3165,7 @@ if.end.i:                                         ; preds = %lor.lhs.false3.i
   %mul5.i10.i = mul nuw nsw i64 %conv7.i, %conv.i
   %tobool.not.i.i = icmp eq i32 %1, 0
   %retval.0.i.i = select i1 %tobool.not.i.i, i64 0, i64 %mul5.i10.i
-  %cmp9.i = icmp ugt i32 %2, 1
+  %cmp9.i = icmp samesign ugt i32 %2, 1
   br i1 %cmp9.i, label %if.then10.i, label %_ZNK18OpenImageIO_v2_6_09ImageSpec12image_pixelsEv.exit
 
 if.then10.i:                                      ; preds = %if.end.i
@@ -19574,7 +19574,7 @@ if.end.i:                                         ; preds = %if.then32
   br i1 %cmp1.i133, label %if.then37, label %if.end3.i
 
 if.end3.i:                                        ; preds = %if.end.i
-  %cmp4.i = icmp ugt i32 %exponent.0, 39
+  %cmp4.i = icmp samesign ugt i32 %exponent.0, 39
   br i1 %cmp4.i, label %if.end49, label %_ZN3fmt2v86detail9dragonbox19is_endpoint_integerIfEEbNS2_10float_infoIT_E12carrier_uintEii.exit
 
 _ZN3fmt2v86detail9dragonbox19is_endpoint_integerIfEEbNS2_10float_infoIT_E12carrier_uintEii.exit: ; preds = %if.end3.i
@@ -19602,7 +19602,7 @@ if.end.i135:                                      ; preds = %if.else40
   br i1 %cmp1.i136, label %if.end49, label %if.end3.i137
 
 if.end3.i137:                                     ; preds = %if.end.i135
-  %cmp4.i138 = icmp ugt i32 %exponent.0, 39
+  %cmp4.i138 = icmp samesign ugt i32 %exponent.0, 39
   br i1 %cmp4.i138, label %land.lhs.true44, label %_ZN3fmt2v86detail9dragonbox19is_endpoint_integerIfEEbNS2_10float_infoIT_E12carrier_uintEii.exit146
 
 _ZN3fmt2v86detail9dragonbox19is_endpoint_integerIfEEbNS2_10float_infoIT_E12carrier_uintEii.exit146: ; preds = %if.end3.i137
@@ -20940,7 +20940,7 @@ for.body.i:                                       ; preds = %for.body.i, %for.bo
   store i16 %6, ptr %add.ptr2.i, align 1
   %div4.i = udiv i32 %significand.addr.048.i, 100
   %dec.i = add nsw i32 %i.049.i, -1
-  %cmp.i = icmp ugt i32 %i.049.i, 1
+  %cmp.i = icmp samesign ugt i32 %i.049.i, 1
   br i1 %cmp.i, label %for.body.i, label %for.end.i, !llvm.loop !265
 
 for.end.i:                                        ; preds = %for.body.i, %if.end.i
@@ -21118,7 +21118,7 @@ _ZNSt20back_insert_iteratorIN3fmt2v86detail6bufferIcEEEaSEOc.exit23: ; preds = %
 
 if.end:                                           ; preds = %_ZNSt20back_insert_iteratorIN3fmt2v86detail6bufferIcEEEaSEOc.exit23, %_ZNSt20back_insert_iteratorIN3fmt2v86detail6bufferIcEEEaSEOc.exit
   %exp.addr.0 = phi i32 [ %sub, %_ZNSt20back_insert_iteratorIN3fmt2v86detail6bufferIcEEEaSEOc.exit ], [ %exp, %_ZNSt20back_insert_iteratorIN3fmt2v86detail6bufferIcEEEaSEOc.exit23 ]
-  %cmp17 = icmp ugt i32 %exp.addr.0, 99
+  %cmp17 = icmp samesign ugt i32 %exp.addr.0, 99
   br i1 %cmp17, label %if.then18, label %if.end39
 
 if.then18:                                        ; preds = %if.end
@@ -21127,7 +21127,7 @@ if.then18:                                        ; preds = %if.end
   %8 = shl nuw nsw i32 %div, 1
   %mul.i = zext nneg i32 %8 to i64
   %arrayidx.i = getelementptr inbounds [201 x i8], ptr @.str.146, i64 0, i64 %mul.i
-  %cmp21 = icmp ugt i32 %exp.addr.0, 999
+  %cmp21 = icmp samesign ugt i32 %exp.addr.0, 999
   br i1 %cmp21, label %if.then22, label %if.end30
 
 if.then22:                                        ; preds = %if.then18
@@ -23331,7 +23331,7 @@ if.end.i292:                                      ; preds = %if.then33
   br i1 %cmp1.i293, label %if.then38, label %if.end3.i
 
 if.end3.i:                                        ; preds = %if.end.i292
-  %cmp4.i = icmp ugt i32 %exponent.0, 86
+  %cmp4.i = icmp samesign ugt i32 %exponent.0, 86
   br i1 %cmp4.i, label %if.end50, label %_ZN3fmt2v86detail9dragonbox19is_endpoint_integerIdEEbNS2_10float_infoIT_E12carrier_uintEii.exit
 
 _ZN3fmt2v86detail9dragonbox19is_endpoint_integerIdEEbNS2_10float_infoIT_E12carrier_uintEii.exit: ; preds = %if.end3.i
@@ -23359,7 +23359,7 @@ if.end.i296:                                      ; preds = %if.else41
   br i1 %cmp1.i297, label %if.end50, label %if.end3.i298
 
 if.end3.i298:                                     ; preds = %if.end.i296
-  %cmp4.i299 = icmp ugt i32 %exponent.0, 86
+  %cmp4.i299 = icmp samesign ugt i32 %exponent.0, 86
   br i1 %cmp4.i299, label %land.lhs.true45, label %_ZN3fmt2v86detail9dragonbox19is_endpoint_integerIdEEbNS2_10float_infoIT_E12carrier_uintEii.exit307
 
 _ZN3fmt2v86detail9dragonbox19is_endpoint_integerIdEEbNS2_10float_infoIT_E12carrier_uintEii.exit307: ; preds = %if.end3.i298
@@ -24516,7 +24516,7 @@ for.body.i:                                       ; preds = %for.body.i, %for.bo
   store i16 %3, ptr %add.ptr2.i, align 1
   %div4.i = udiv i64 %significand.addr.048.i, 100
   %dec.i = add nsw i32 %i.049.i, -1
-  %cmp.i = icmp ugt i32 %i.049.i, 1
+  %cmp.i = icmp samesign ugt i32 %i.049.i, 1
   br i1 %cmp.i, label %for.body.i, label %for.end.i, !llvm.loop !267
 
 for.end.i:                                        ; preds = %for.body.i, %if.end.i
@@ -33222,7 +33222,7 @@ if.then.i.i.i:                                    ; preds = %_ZZN3fmt2v86detail1
   br i1 %cmp.i.i.i, label %_ZNK3fmt2v820basic_format_contextINS0_8appenderEcE3argEi.exit.i, label %_ZN3fmt2v86detail7get_argINS0_20basic_format_contextINS0_8appenderEcEEiEENT_10format_argERS6_T0_.exit.thread
 
 if.end4.i.i.i:                                    ; preds = %_ZZN3fmt2v86detail10vformat_toIcEEvRNS1_6bufferIT_EENS0_17basic_string_viewIS4_EENS0_17basic_format_argsINS0_20basic_format_contextINSt11conditionalIXsr3std7is_sameINS0_13type_identityIS4_E4typeEcEE5valueENS0_8appenderESt20back_insert_iteratorINS3_ISE_EEEE4typeESE_EEEENS1_10locale_refEEN14format_handler9on_arg_idEv.exit
-  %cmp5.i.i.i = icmp ugt i32 %1, 14
+  %cmp5.i.i.i = icmp samesign ugt i32 %1, 14
   br i1 %cmp5.i.i.i, label %_ZN3fmt2v86detail7get_argINS0_20basic_format_contextINS0_8appenderEcEEiEENT_10format_argERS6_T0_.exit.thread, label %if.end7.i.i.i
 
 if.end7.i.i.i:                                    ; preds = %_ZZN3fmt2v86detail10vformat_toIcEEvRNS1_6bufferIT_EENS0_17basic_string_viewIS4_EENS0_17basic_format_argsINS0_20basic_format_contextINSt11conditionalIXsr3std7is_sameINS0_13type_identityIS4_E4typeEcEE5valueENS0_8appenderESt20back_insert_iteratorINS3_ISE_EEEE4typeESE_EEEENS1_10locale_refEEN14format_handler9on_arg_idEv.exit.thread, %if.end4.i.i.i
@@ -36037,7 +36037,7 @@ if.then3.i:                                       ; preds = %if.then.i
   br label %cond.end
 
 if.end4.i:                                        ; preds = %cond.true
-  %cmp5.i = icmp ugt i32 %7, 14
+  %cmp5.i = icmp samesign ugt i32 %7, 14
   br i1 %cmp5.i, label %cond.end, label %if.end7.i
 
 if.end7.i:                                        ; preds = %if.end4.i
@@ -36118,7 +36118,7 @@ if.then.i.i.i:                                    ; preds = %_ZN3fmt2v826basic_f
   br i1 %cmp.i.i.i, label %_ZNK3fmt2v820basic_format_contextINS0_8appenderEcE3argEi.exit.i, label %if.then.i2
 
 if.end4.i.i.i:                                    ; preds = %_ZN3fmt2v826basic_format_parse_contextIcNS0_6detail13error_handlerEE11next_arg_idEv.exit
-  %cmp5.i.i.i = icmp ugt i32 %2, 14
+  %cmp5.i.i.i = icmp samesign ugt i32 %2, 14
   br i1 %cmp5.i.i.i, label %if.then.i2, label %if.end7.i.i.i
 
 if.end7.i.i.i:                                    ; preds = %_ZN3fmt2v826basic_format_parse_contextIcNS0_6detail13error_handlerEE11next_arg_idEv.exit.thread, %if.end4.i.i.i
@@ -43415,7 +43415,7 @@ for.body.i:                                       ; preds = %land.rhs32.i
   %37 = load i8, ptr %gep, align 1
   %inc45.i = add i8 %37, 1
   store i8 %inc45.i, ptr %gep, align 1
-  %cmp31.i = icmp ugt i64 %indvars.iv.i, 2
+  %cmp31.i = icmp samesign ugt i64 %indvars.iv.i, 2
   br i1 %cmp31.i, label %land.rhs32.i, label %for.end.i, !llvm.loop !414
 
 for.end.i:                                        ; preds = %for.body.i, %land.rhs32.i, %if.end22.i
@@ -43514,7 +43514,7 @@ for.body.i173:                                    ; preds = %land.rhs32.i168
   %47 = load i8, ptr %gep350, align 1
   %inc45.i175 = add i8 %47, 1
   store i8 %inc45.i175, ptr %gep350, align 1
-  %cmp31.i176 = icmp ugt i64 %indvars.iv.i169, 2
+  %cmp31.i176 = icmp samesign ugt i64 %indvars.iv.i169, 2
   br i1 %cmp31.i176, label %land.rhs32.i168, label %for.end.i155, !llvm.loop !414
 
 for.end.i155:                                     ; preds = %for.body.i173, %land.rhs32.i168
@@ -45168,7 +45168,7 @@ _ZN3fmt2v816visit_format_argINS0_6detail11get_cstringIcEENS0_20basic_printf_cont
   %add.ptr83 = getelementptr inbounds i8, ptr %45, i64 %idx.ext
   %sub.ptr.lhs.cast.i.i.i = ptrtoint ptr %add.ptr83 to i64
   %sub.ptr.rhs.cast.i.i.i = ptrtoint ptr %45 to i64
-  %cmp48.i.i.i.not = icmp ult i32 %41, 4
+  %cmp48.i.i.i.not = icmp samesign ult i32 %41, 4
   br i1 %cmp48.i.i.i.not, label %for.end.i.i.i, label %for.body.lr.ph.i.i.i
 
 for.body.lr.ph.i.i.i:                             ; preds = %_ZN3fmt2v816visit_format_argINS0_6detail11get_cstringIcEENS0_20basic_printf_contextINS0_8appenderEcEEEEDTclfp_Li0EEEOT_RKNS0_16basic_format_argIT0_EE.exit
@@ -49806,7 +49806,7 @@ _ZN18OpenImageIO_v2_6_04pugi4impl19xml_buffered_writer5writeEcccc.exit: ; preds 
   br i1 %tobool42.not, label %if.end45, label %if.then43
 
 if.then43:                                        ; preds = %_ZN18OpenImageIO_v2_6_04pugi4impl19xml_buffered_writer5writeEcccc.exit
-  %cmp.i93 = icmp ugt i64 %offset.0.i83, 2043
+  %cmp.i93 = icmp samesign ugt i64 %offset.0.i83, 2043
   br i1 %cmp.i93, label %if.then.i97, label %_ZN18OpenImageIO_v2_6_04pugi4impl19xml_buffered_writer5writeEc.exit98
 
 if.then.i97:                                      ; preds = %if.then43
@@ -50900,7 +50900,7 @@ while.body:                                       ; preds = %entry, %while.body
   store i8 %3, ptr %arrayidx, align 1
   %4 = load i8, ptr %incdec.ptr, align 1
   %tobool = icmp ne i8 %4, 0
-  %cmp = icmp ult i64 %offset.018, 2047
+  %cmp = icmp samesign ult i64 %offset.018, 2047
   %5 = and i1 %tobool, %cmp
   br i1 %5, label %while.body, label %while.end, !llvm.loop !451
 
@@ -56243,7 +56243,7 @@ if.end54:                                         ; preds = %if.else45, %if.else
   br i1 %cmp.i, label %cond.true.i, label %cond.false.i
 
 cond.true.i:                                      ; preds = %if.end54
-  %cmp.i.i = icmp ult i32 %ucsc.2, 128
+  %cmp.i.i = icmp samesign ult i32 %ucsc.2, 128
   br i1 %cmp.i.i, label %if.then.i.i, label %if.else.i.i
 
 if.then.i.i:                                      ; preds = %cond.true.i
@@ -56252,7 +56252,7 @@ if.then.i.i:                                      ; preds = %cond.true.i
   br label %_ZN18OpenImageIO_v2_6_04pugi4impl11utf8_writer3anyEPhj.exit
 
 if.else.i.i:                                      ; preds = %cond.true.i
-  %cmp1.i.i = icmp ult i32 %ucsc.2, 2048
+  %cmp1.i.i = icmp samesign ult i32 %ucsc.2, 2048
   br i1 %cmp1.i.i, label %if.then2.i.i, label %if.else8.i.i
 
 if.then2.i.i:                                     ; preds = %if.else.i.i
@@ -84441,7 +84441,7 @@ for.body.i.i.i.i.i:                               ; preds = %for.body.i.i.i.i.i,
   %incdec.ptr.i.i.i.i.i = getelementptr inbounds i8, ptr %__first.addr.07.i.i.i.i.i, i64 24
   %incdec.ptr1.i.i.i.i.i = getelementptr inbounds i8, ptr %__result.addr.08.i.i.i.i.i, i64 24
   %dec.i.i.i.i.i = add nsw i64 %__n.09.i.i.i.i.i, -1
-  %cmp.i.i.i.i.i = icmp ugt i64 %__n.09.i.i.i.i.i, 1
+  %cmp.i.i.i.i.i = icmp samesign ugt i64 %__n.09.i.i.i.i.i, 1
   br i1 %cmp.i.i.i.i.i, label %for.body.i.i.i.i.i, label %if.end69, !llvm.loop !849
 
 if.else49:                                        ; preds = %if.else
@@ -84470,7 +84470,7 @@ for.body.i.i.i.i.i38:                             ; preds = %for.body.i.i.i.i.i3
   %incdec.ptr.i.i.i.i.i47 = getelementptr inbounds i8, ptr %__first.addr.07.i.i.i.i.i41, i64 24
   %incdec.ptr1.i.i.i.i.i48 = getelementptr inbounds i8, ptr %__result.addr.08.i.i.i.i.i40, i64 24
   %dec.i.i.i.i.i49 = add nsw i64 %__n.09.i.i.i.i.i39, -1
-  %cmp.i.i.i.i.i50 = icmp ugt i64 %__n.09.i.i.i.i.i39, 1
+  %cmp.i.i.i.i.i50 = icmp samesign ugt i64 %__n.09.i.i.i.i.i39, 1
   br i1 %cmp.i.i.i.i.i50, label %for.body.i.i.i.i.i38, label %_ZSt4copyIPNSt7__cxx119sub_matchIN9__gnu_cxx17__normal_iteratorIPKcNS0_12basic_stringIcSt11char_traitsIcESaIcEEEEEEESD_ET0_T_SF_SE_.exit.loopexit, !llvm.loop !850
 
 _ZSt4copyIPNSt7__cxx119sub_matchIN9__gnu_cxx17__normal_iteratorIPKcNS0_12basic_stringIcSt11char_traitsIcESaIcEEEEEEESD_ET0_T_SF_SE_.exit.loopexit: ; preds = %for.body.i.i.i.i.i38

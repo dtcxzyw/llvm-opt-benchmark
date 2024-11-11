@@ -2277,7 +2277,7 @@ _ZNK17QArrayDataPointerIP17_dissector_info_tE11needsDetachEv.exit.thread.i.i.i25
   %487 = getelementptr i8, ptr %.sroa.0.09.i.i.i.i.i.i.i.i.i, i64 -8
   store ptr %486, ptr %487, align 8
   %488 = add nsw i64 %.010.i.i.i.i.i.i.i.i.i, -1
-  %489 = icmp ugt i64 %.010.i.i.i.i.i.i.i.i.i, 1
+  %489 = icmp samesign ugt i64 %.010.i.i.i.i.i.i.i.i.i, 1
   br i1 %489, label %.lr.ph.i.i.i.i.i.i.i.i.i, label %_ZSt13move_backwardIN5QListIP17_dissector_info_tE8iteratorES4_ET0_T_S6_S5_.exit.i.i.i.i, !llvm.loop !38
 
 490:                                              ; preds = %.noexc263
@@ -2384,7 +2384,7 @@ _ZSt13move_backwardIN5QListIP17_dissector_info_tE8iteratorES4_ET0_T_S6_S5_.exit.
   %521 = getelementptr i8, ptr %.sroa.0.09.i.i.i.i.i.i36.i.i.i, i64 -8
   store ptr %520, ptr %521, align 8
   %522 = add nsw i64 %.010.i.i.i.i.i.i35.i.i.i, -1
-  %523 = icmp ugt i64 %.010.i.i.i.i.i.i35.i.i.i, 1
+  %523 = icmp samesign ugt i64 %.010.i.i.i.i.i.i35.i.i.i, 1
   br i1 %523, label %.lr.ph.i.i.i.i.i.i34.i.i.i, label %_ZSt13move_backwardIN5QListIP17_dissector_info_tE8iteratorES4_ET0_T_S6_S5_.exit.i25.i.i.i, !llvm.loop !38
 
 524:                                              ; preds = %.noexc268
@@ -8191,7 +8191,7 @@ define linkonce_odr void @_ZSt16__insertion_sortIN5QListI7QStringE8iteratorEN9__
   store i64 %34, ptr %31, align 8
   store i64 %33, ptr %32, align 8
   %35 = add nsw i64 %.010.i.i.i.i.i, -1
-  %36 = icmp ugt i64 %.010.i.i.i.i.i, 1
+  %36 = icmp samesign ugt i64 %.010.i.i.i.i.i, 1
   br i1 %36, label %.lr.ph.i.i.i.i.i, label %_ZSt13move_backwardIN5QListI7QStringE8iteratorES3_ET0_T_S5_S4_.exit, !llvm.loop !77
 
 _ZSt13move_backwardIN5QListI7QStringE8iteratorES3_ET0_T_S5_S4_.exit: ; preds = %.lr.ph.i.i.i.i.i, %16

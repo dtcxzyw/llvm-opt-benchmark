@@ -1051,7 +1051,7 @@ CreatePredXact.exit.thread:                       ; preds = %15, %CreatePredXact
   br label %SerialPagePrecedesLogically.exit.i.i
 
 87:                                               ; preds = %66
-  %88 = icmp ugt i32 %81, 4194302
+  %88 = icmp samesign ugt i32 %81, 4194302
   %89 = add nuw nsw i32 %81, 1
   %narrow.i.i = select i1 %88, i32 0, i32 %89
   %90 = shl i32 %81, 10

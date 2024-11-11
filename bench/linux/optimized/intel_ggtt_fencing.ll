@@ -1261,7 +1261,7 @@ define dso_local void @intel_ggtt_init_fences(ptr noundef %0) local_unnamed_addr
   br i1 %21, label %22, label %94
 
 22:                                               ; preds = %16
-  %23 = icmp ugt i8 %14, 5
+  %23 = icmp samesign ugt i8 %14, 5
   br i1 %23, label %24, label %44
 
 24:                                               ; preds = %22
@@ -1429,7 +1429,7 @@ default.unreachable9:                             ; preds = %58
   br label %.thread5
 
 127:                                              ; preds = %119
-  %128 = icmp ugt i8 %120, 3
+  %128 = icmp samesign ugt i8 %120, 3
   br i1 %128, label %.thread5, label %129
 
 129:                                              ; preds = %127

@@ -559,7 +559,7 @@ define dso_local range(i64 -2147483648, 2147483648) i64 @ptp_ioctl(ptr nocapture
   br i1 %143, label %.thread, label %144
 
 144:                                              ; preds = %116, %138, %136
-  %145 = icmp ult i32 %110, 4
+  %145 = icmp samesign ult i32 %110, 4
   br i1 %145, label %161, label %146
 
 146:                                              ; preds = %144

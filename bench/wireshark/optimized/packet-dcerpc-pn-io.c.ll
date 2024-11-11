@@ -5817,7 +5817,7 @@ dissect_ProfiDriveParameterRequest.exit.i:        ; preds = %._crit_edge93.i.i, 
   ]
 
 226:                                              ; preds = %224
-  %227 = icmp ugt i16 %41, -1025
+  %227 = icmp samesign ugt i16 %41, -1025
   br i1 %227, label %select.unfold.i, label %indexReservedForProfiles.exit.i
 
 .fold.split.i.i:                                  ; preds = %222
@@ -10964,7 +10964,7 @@ define internal fastcc void @dissect_PDIRGlobalData_block(ptr noundef %0, i32 no
 
 .lr.ph:                                           ; preds = %22
   %31 = add i32 %30, -1
-  %32 = icmp ugt i8 %7, 1
+  %32 = icmp samesign ugt i8 %7, 1
   br i1 %32, label %.lr.ph.split.us, label %.lr.ph.split
 
 .lr.ph.split.us:                                  ; preds = %.lr.ph, %.lr.ph.split.us
@@ -11911,7 +11911,7 @@ define internal fastcc void @dissect_PDInterfaceMrpDataReal_block(ptr noundef %0
   br label %.loopexit
 
 29:                                               ; preds = %9
-  %30 = icmp ult i8 %7, 2
+  %30 = icmp samesign ult i8 %7, 2
   br i1 %30, label %31, label %62
 
 31:                                               ; preds = %29
@@ -14774,7 +14774,7 @@ define internal fastcc void @dissect_RecordDataReadQuery_block(ptr noundef %0, i
   ]
 
 25:                                               ; preds = %23
-  %26 = icmp ugt i16 %7, -1025
+  %26 = icmp samesign ugt i16 %7, -1025
   br i1 %26, label %select.unfold, label %indexReservedForProfiles.exit
 
 .fold.split.i:                                    ; preds = %21
@@ -18461,7 +18461,7 @@ dissect_ProfiDriveParameterResponse.exit.i:       ; preds = %.loopexit.i.i, %.lo
   ]
 
 186:                                              ; preds = %184
-  %187 = icmp ugt i16 %33, -1025
+  %187 = icmp samesign ugt i16 %33, -1025
   br i1 %187, label %select.unfold.i, label %indexReservedForProfiles.exit.i
 
 .fold.split.i.i:                                  ; preds = %182

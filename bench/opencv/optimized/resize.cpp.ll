@@ -1408,7 +1408,7 @@ _ZN2cv10AutoBufferINS_13DecimateAlphaELm93EEC2Em.exit: ; preds = %.noexc461, %33
   %360 = getelementptr inbounds i8, ptr %35, i64 16
   store ptr %360, ptr %35, align 8
   %361 = getelementptr inbounds i8, ptr %35, i64 8
-  %.not.i.i462 = icmp ugt i32 %79, 263
+  %.not.i.i462 = icmp samesign ugt i32 %79, 263
   store i64 %359, ptr %361, align 8
   br i1 %.not.i.i462, label %362, label %_ZN2cv10AutoBufferIiLm264EEC2Em.exit464
 
@@ -22089,7 +22089,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_119interpolationLinearIhE9getCoeffs
 
 21:                                               ; preds = %17
   %22 = add nsw i32 %19, -1
-  %23 = icmp ult i32 %15, %22
+  %23 = icmp samesign ult i32 %15, %22
   br i1 %23, label %24, label %32
 
 24:                                               ; preds = %21
@@ -23631,7 +23631,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_119interpolationLinearIaE9getCoeffs
 
 21:                                               ; preds = %17
   %22 = add nsw i32 %19, -1
-  %23 = icmp ult i32 %15, %22
+  %23 = icmp samesign ult i32 %15, %22
   br i1 %23, label %24, label %32
 
 24:                                               ; preds = %21
@@ -25712,7 +25712,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_119interpolationLinearItE9getCoeffs
 
 21:                                               ; preds = %17
   %22 = add nsw i32 %19, -1
-  %23 = icmp ult i32 %15, %22
+  %23 = icmp samesign ult i32 %15, %22
   br i1 %23, label %24, label %31
 
 24:                                               ; preds = %21
@@ -27234,7 +27234,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_119interpolationLinearIsE9getCoeffs
 
 21:                                               ; preds = %17
   %22 = add nsw i32 %19, -1
-  %23 = icmp ult i32 %15, %22
+  %23 = icmp samesign ult i32 %15, %22
   br i1 %23, label %24, label %32
 
 24:                                               ; preds = %21
@@ -29639,7 +29639,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_119interpolationLinearIiE9getCoeffs
 
 21:                                               ; preds = %17
   %22 = add nsw i32 %19, -1
-  %23 = icmp ult i32 %15, %22
+  %23 = icmp samesign ult i32 %15, %22
   br i1 %23, label %24, label %33
 
 24:                                               ; preds = %21

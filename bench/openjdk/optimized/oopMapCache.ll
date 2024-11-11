@@ -940,7 +940,7 @@ _ZN16OopMapCacheEntry17allocate_bit_maskEv.exit:  ; preds = %._ZN16OopMapCacheEn
   %58 = and i64 %indvars.iv.next.i, 4294967295
   %59 = getelementptr inbounds i64, ptr %57, i64 %58
   store i64 0, ptr %59, align 8
-  %60 = icmp ugt i64 %indvars.iv.i, 1
+  %60 = icmp samesign ugt i64 %indvars.iv.i, 1
   br i1 %60, label %.lr.ph.i, label %_ZN19MaskFillerForNativeC2ERK12methodHandlePmi.exit, !llvm.loop !12
 
 _ZN19MaskFillerForNativeC2ERK12methodHandlePmi.exit: ; preds = %.lr.ph.i, %_ZN16OopMapCacheEntry17allocate_bit_maskEv.exit

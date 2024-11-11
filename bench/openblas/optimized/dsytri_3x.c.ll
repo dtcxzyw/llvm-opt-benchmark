@@ -1495,7 +1495,7 @@ thread-pre-split82:                               ; preds = %thread-pre-split82.
   br i1 %963, label %thread-pre-split92, label %964
 
 964:                                              ; preds = %.preheader
-  %965 = icmp ult i32 %958, %962
+  %965 = icmp samesign ult i32 %958, %962
   br i1 %965, label %966, label %967
 
 966:                                              ; preds = %964

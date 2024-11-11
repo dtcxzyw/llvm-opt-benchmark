@@ -3689,7 +3689,7 @@ define hidden void @"_ZN7rfc697917HmacDrbg$LT$D$GT$3new17h6d92fe29c86a4cd3E"(ptr
   call void @llvm.experimental.noalias.scope.decl(metadata !1244)
   call void @llvm.experimental.noalias.scope.decl(metadata !1247)
   %95 = and i64 %storemerge.in.i.i.i32, 63
-  %96 = icmp ult i8 %storemerge.i.i.i33, 64
+  %96 = icmp samesign ult i8 %storemerge.i.i.i33, 64
   call void @llvm.assume(i1 %96)
   %97 = sub nuw nsw i64 64, %95
   %98 = icmp ult i64 %4, %97
@@ -3746,7 +3746,7 @@ define hidden void @"_ZN7rfc697917HmacDrbg$LT$D$GT$3new17h6d92fe29c86a4cd3E"(ptr
   call void @llvm.experimental.noalias.scope.decl(metadata !1299)
   call void @llvm.experimental.noalias.scope.decl(metadata !1302)
   %117 = and i64 %storemerge.in.i.i.i40, 63
-  %118 = icmp ult i8 %storemerge.i.i.i41, 64
+  %118 = icmp samesign ult i8 %storemerge.i.i.i41, 64
   call void @llvm.assume(i1 %118)
   %119 = sub nuw nsw i64 64, %117
   %120 = icmp ult i64 %6, %119

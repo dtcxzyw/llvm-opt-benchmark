@@ -1574,7 +1574,7 @@ define dso_local noundef range(i32 -22, 1) i32 @xt_check_entry_offsets(ptr nound
 
 64:                                               ; preds = %61
   %65 = zext i16 %62 to i32
-  %66 = icmp ult i32 %55, %65
+  %66 = icmp samesign ult i32 %55, %65
   br i1 %66, label %.loopexit, label %67
 
 67:                                               ; preds = %64

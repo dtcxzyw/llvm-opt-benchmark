@@ -640,7 +640,7 @@ if.end11:                                         ; preds = %if.end7
   br i1 %cmp, label %return, label %if.then13
 
 if.then13:                                        ; preds = %if.end11
-  %cmp14 = icmp ugt i32 %4, %rulesCapacity
+  %cmp14 = icmp samesign ugt i32 %4, %rulesCapacity
   br i1 %cmp14, label %if.then15, label %do.body
 
 if.then15:                                        ; preds = %if.then13

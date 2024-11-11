@@ -10421,7 +10421,7 @@ define internal fastcc i32 @dissect_eir_ad_data(ptr noundef %0, ptr noundef %1, 
 
 697:                                              ; preds = %.loopexit
   %698 = zext i8 %.0791 to i32
-  %699 = icmp ult i32 %695, %698
+  %699 = icmp samesign ult i32 %695, %698
   br i1 %699, label %700, label %706
 
 700:                                              ; preds = %697

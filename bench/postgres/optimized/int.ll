@@ -1901,7 +1901,7 @@ define dso_local range(i64 0, 2147483648) i64 @int4lcm(ptr nocapture noundef rea
   %12 = sub i32 0, %11
   %13 = tail call i32 @llvm.abs.i32(i32 %7, i1 false)
   %14 = sub i32 0, %13
-  %15 = icmp ugt i32 %12, %14
+  %15 = icmp samesign ugt i32 %12, %14
   %spec.select.i = select i1 %15, i32 %4, i32 %7
   %spec.select28.i = select i1 %15, i32 %7, i32 %4
   %16 = icmp eq i32 %spec.select28.i, -2147483648

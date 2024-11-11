@@ -649,7 +649,7 @@ define range(i32 -1, 1) i32 @H5B2__split_root(ptr noundef %0) local_unnamed_addr
   br label %H5VM_limit_enc_size.exit
 
 94:                                               ; preds = %80
-  %.not27.i.i = icmp ult i64 %78, 1099511627776
+  %.not27.i.i = icmp samesign ult i64 %78, 1099511627776
   br i1 %.not27.i.i, label %101, label %95
 
 95:                                               ; preds = %94
@@ -669,11 +669,11 @@ define range(i32 -1, 1) i32 @H5B2__split_root(ptr noundef %0) local_unnamed_addr
 
 106:                                              ; preds = %17
   %107 = lshr i64 %78, 16
-  %.not23.i.i = icmp ult i64 %78, 65536
+  %.not23.i.i = icmp samesign ult i64 %78, 65536
   br i1 %.not23.i.i, label %120, label %108
 
 108:                                              ; preds = %106
-  %.not25.i.i = icmp ult i64 %78, 16777216
+  %.not25.i.i = icmp samesign ult i64 %78, 16777216
   br i1 %.not25.i.i, label %115, label %109
 
 109:                                              ; preds = %108
@@ -692,7 +692,7 @@ define range(i32 -1, 1) i32 @H5B2__split_root(ptr noundef %0) local_unnamed_addr
   br label %H5VM_limit_enc_size.exit
 
 120:                                              ; preds = %106
-  %.not24.i.i = icmp ult i64 %78, 256
+  %.not24.i.i = icmp samesign ult i64 %78, 256
   br i1 %.not24.i.i, label %127, label %121
 
 121:                                              ; preds = %120
@@ -1533,7 +1533,7 @@ define range(i32 -1, 1) i32 @H5B2__redistribute3(ptr noundef %0, i16 noundef zer
   %147 = add nsw i32 %124, -1
   %148 = load i16, ptr %.0461, align 2
   %149 = zext i16 %148 to i32
-  %150 = icmp ugt i32 %147, %149
+  %150 = icmp samesign ugt i32 %147, %149
   br i1 %150, label %151, label %167
 
 151:                                              ; preds = %129

@@ -443,7 +443,7 @@ define range(i32 0, 3) i32 @yyparse(ptr nocapture noundef writeonly %0, ptr noca
   br label %2067
 
 83:                                               ; preds = %80
-  %84 = icmp ult i32 %.5, 304
+  %84 = icmp samesign ult i32 %.5, 304
   br i1 %84, label %85, label %90
 
 85:                                               ; preds = %83

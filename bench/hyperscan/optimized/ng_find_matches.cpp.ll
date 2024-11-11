@@ -1787,7 +1787,7 @@ call5.i.i.i.i4.i20.i.i.i.noexc:                   ; preds = %for.body.i.preheade
   call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %call5.i.i.i.i4.i20.i.i.i382, ptr align 8 %157, i64 %sub.ptr.sub.i.i.i.i371, i1 false), !noalias !69
   %sub.ptr.div.i.i.i7.i = lshr i64 %sub.ptr.sub.i.i.i.i371, 3
   %umax.i374 = call i64 @llvm.umax.i64(i64 %sub.ptr.div.i.i.i7.i, i64 1)
-  %min.iters.check.i = icmp ult i64 %sub.ptr.sub.i.i.i.i371, 64
+  %min.iters.check.i = icmp samesign ult i64 %sub.ptr.sub.i.i.i.i371, 64
   br i1 %min.iters.check.i, label %for.body.i.preheader81.i, label %vector.memcheck.i
 
 vector.memcheck.i:                                ; preds = %call5.i.i.i.i4.i20.i.i.i.noexc
@@ -1983,7 +1983,7 @@ call5.i.i.i.i4.i20.i.i.i.noexc462:                ; preds = %for.body.i.preheade
   call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %call5.i.i.i.i4.i20.i.i.i463, ptr align 8 %184, i64 %sub.ptr.sub.i.i.i.i386, i1 false), !noalias !85
   %sub.ptr.div.i.i.i7.i392 = lshr i64 %sub.ptr.sub.i.i.i.i386, 3
   %umax.i393 = call i64 @llvm.umax.i64(i64 %sub.ptr.div.i.i.i7.i392, i64 1)
-  %min.iters.check.i394 = icmp ult i64 %sub.ptr.sub.i.i.i.i386, 64
+  %min.iters.check.i394 = icmp samesign ult i64 %sub.ptr.sub.i.i.i.i386, 64
   br i1 %min.iters.check.i394, label %for.body.i.preheader81.i412, label %vector.memcheck.i395
 
 vector.memcheck.i395:                             ; preds = %call5.i.i.i.i4.i20.i.i.i.noexc462

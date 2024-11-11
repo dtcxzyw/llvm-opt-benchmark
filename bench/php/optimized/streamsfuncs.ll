@@ -306,7 +306,7 @@ define hidden void @zif_stream_socket_client(ptr noundef %0, ptr nocapture nound
 
 24:                                               ; preds = %22
   %25 = getelementptr inbounds i8, ptr %0, i64 96
-  %26 = icmp ult i32 %11, 3
+  %26 = icmp samesign ult i32 %11, 3
   br i1 %26, label %.thread341, label %27
 
 27:                                               ; preds = %24
@@ -339,7 +339,7 @@ define hidden void @zif_stream_socket_client(ptr noundef %0, ptr nocapture nound
 
 38:                                               ; preds = %.thread, %36
   %.3313 = phi i1 [ %.2273, %.thread ], [ false, %36 ]
-  %39 = icmp ult i32 %11, 5
+  %39 = icmp samesign ult i32 %11, 5
   br i1 %39, label %.thread322, label %40
 
 40:                                               ; preds = %38
@@ -766,7 +766,7 @@ define hidden void @zif_stream_socket_server(ptr noundef %0, ptr nocapture nound
 
 26:                                               ; preds = %20
   %27 = getelementptr inbounds i8, ptr %0, i64 96
-  %28 = icmp ult i32 %9, 3
+  %28 = icmp samesign ult i32 %9, 3
   br i1 %28, label %.thread319, label %29
 
 29:                                               ; preds = %26
@@ -4991,7 +4991,7 @@ define hidden void @zif_stream_set_chunk_size(ptr noundef %0, ptr nocapture noun
   br label %41
 
 24:                                               ; preds = %.thread124
-  %25 = icmp ugt i64 %19, 2147483647
+  %25 = icmp samesign ugt i64 %19, 2147483647
   br i1 %25, label %26, label %29
 
 26:                                               ; preds = %24

@@ -2870,7 +2870,7 @@ _ZNK5folly12small_vectorINS_5RangeIPKcEELm1EvE14computeNewSizeEv.exit: ; preds =
   %7 = tail call i64 @llvm.umin.i64(i64 %div5.i, i64 4611686018427387902)
   %.sroa.speculated.i = add nuw nsw i64 %7, 1
   %.sroa.speculated105 = tail call i64 @llvm.umax.i64(i64 %.sroa.speculated.i, i64 %newSize)
-  %8 = icmp ugt i64 %.sroa.speculated105, 1152921504606846975
+  %8 = icmp samesign ugt i64 %.sroa.speculated105, 1152921504606846975
   br i1 %8, label %if.then7, label %if.end8, !prof !98
 
 if.then7:                                         ; preds = %_ZNK5folly12small_vectorINS_5RangeIPKcEELm1EvE14computeNewSizeEv.exit
@@ -2879,7 +2879,7 @@ if.then7:                                         ; preds = %_ZNK5folly12small_v
 
 if.end8:                                          ; preds = %_ZNK5folly12small_vectorINS_5RangeIPKcEELm1EvE14computeNewSizeEv.exit
   %9 = shl nuw i64 %.sroa.speculated105, 4
-  %cmp9 = icmp ult i64 %.sroa.speculated105, 50
+  %cmp9 = icmp samesign ult i64 %.sroa.speculated105, 50
   %cond = select i1 %cmp9, i64 0, i64 8
   %10 = or disjoint i64 %cond, %9
   %11 = load atomic i8, ptr @_ZGVZN5folly6detail14FastStaticBoolIZNS0_23usingJEMallocOrTCMallocEvE11InitializerE3getESt12memory_orderE2rv acquire, align 8
@@ -4017,7 +4017,7 @@ _ZNK5folly12small_vectorINS_5RangeIPKcEELm2EvE14computeNewSizeEv.exit: ; preds =
   %5 = tail call i64 @llvm.umin.i64(i64 %div5.i, i64 4611686018427387902)
   %.sroa.speculated.i = add nuw nsw i64 %5, 1
   %.sroa.speculated91 = tail call i64 @llvm.umax.i64(i64 %.sroa.speculated.i, i64 %newSize)
-  %6 = icmp ugt i64 %.sroa.speculated91, 1152921504606846975
+  %6 = icmp samesign ugt i64 %.sroa.speculated91, 1152921504606846975
   br i1 %6, label %if.then7, label %if.end8, !prof !98
 
 if.then7:                                         ; preds = %_ZNK5folly12small_vectorINS_5RangeIPKcEELm2EvE14computeNewSizeEv.exit
@@ -4974,7 +4974,7 @@ _ZNK5folly12small_vectorINS_5RangeIPKcEELm3EvE14computeNewSizeEv.exit: ; preds =
   %5 = tail call i64 @llvm.umin.i64(i64 %div5.i, i64 4611686018427387902)
   %.sroa.speculated.i = add nuw nsw i64 %5, 1
   %.sroa.speculated91 = tail call i64 @llvm.umax.i64(i64 %.sroa.speculated.i, i64 %newSize)
-  %6 = icmp ugt i64 %.sroa.speculated91, 1152921504606846975
+  %6 = icmp samesign ugt i64 %.sroa.speculated91, 1152921504606846975
   br i1 %6, label %if.then7, label %if.end8, !prof !98
 
 if.then7:                                         ; preds = %_ZNK5folly12small_vectorINS_5RangeIPKcEELm3EvE14computeNewSizeEv.exit
@@ -5931,7 +5931,7 @@ _ZNK5folly12small_vectorINS_5RangeIPKcEELm4EvE14computeNewSizeEv.exit: ; preds =
   %5 = tail call i64 @llvm.umin.i64(i64 %div5.i, i64 4611686018427387902)
   %.sroa.speculated.i = add nuw nsw i64 %5, 1
   %.sroa.speculated91 = tail call i64 @llvm.umax.i64(i64 %.sroa.speculated.i, i64 %newSize)
-  %6 = icmp ugt i64 %.sroa.speculated91, 1152921504606846975
+  %6 = icmp samesign ugt i64 %.sroa.speculated91, 1152921504606846975
   br i1 %6, label %if.then7, label %if.end8, !prof !98
 
 if.then7:                                         ; preds = %_ZNK5folly12small_vectorINS_5RangeIPKcEELm4EvE14computeNewSizeEv.exit
@@ -6888,7 +6888,7 @@ _ZNK5folly12small_vectorINS_5RangeIPKcEELm5EvE14computeNewSizeEv.exit: ; preds =
   %5 = tail call i64 @llvm.umin.i64(i64 %div5.i, i64 4611686018427387902)
   %.sroa.speculated.i = add nuw nsw i64 %5, 1
   %.sroa.speculated91 = tail call i64 @llvm.umax.i64(i64 %.sroa.speculated.i, i64 %newSize)
-  %6 = icmp ugt i64 %.sroa.speculated91, 1152921504606846975
+  %6 = icmp samesign ugt i64 %.sroa.speculated91, 1152921504606846975
   br i1 %6, label %if.then7, label %if.end8, !prof !98
 
 if.then7:                                         ; preds = %_ZNK5folly12small_vectorINS_5RangeIPKcEELm5EvE14computeNewSizeEv.exit
@@ -7845,7 +7845,7 @@ _ZNK5folly12small_vectorINS_5RangeIPKcEELm6EvE14computeNewSizeEv.exit: ; preds =
   %5 = tail call i64 @llvm.umin.i64(i64 %div5.i, i64 4611686018427387902)
   %.sroa.speculated.i = add nuw nsw i64 %5, 1
   %.sroa.speculated91 = tail call i64 @llvm.umax.i64(i64 %.sroa.speculated.i, i64 %newSize)
-  %6 = icmp ugt i64 %.sroa.speculated91, 1152921504606846975
+  %6 = icmp samesign ugt i64 %.sroa.speculated91, 1152921504606846975
   br i1 %6, label %if.then7, label %if.end8, !prof !98
 
 if.then7:                                         ; preds = %_ZNK5folly12small_vectorINS_5RangeIPKcEELm6EvE14computeNewSizeEv.exit
@@ -8802,7 +8802,7 @@ _ZNK5folly12small_vectorINS_5RangeIPKcEELm7EvE14computeNewSizeEv.exit: ; preds =
   %5 = tail call i64 @llvm.umin.i64(i64 %div5.i, i64 4611686018427387902)
   %.sroa.speculated.i = add nuw nsw i64 %5, 1
   %.sroa.speculated91 = tail call i64 @llvm.umax.i64(i64 %.sroa.speculated.i, i64 %newSize)
-  %6 = icmp ugt i64 %.sroa.speculated91, 1152921504606846975
+  %6 = icmp samesign ugt i64 %.sroa.speculated91, 1152921504606846975
   br i1 %6, label %if.then7, label %if.end8, !prof !98
 
 if.then7:                                         ; preds = %_ZNK5folly12small_vectorINS_5RangeIPKcEELm7EvE14computeNewSizeEv.exit
@@ -9759,7 +9759,7 @@ _ZNK5folly12small_vectorINS_5RangeIPKcEELm8EvE14computeNewSizeEv.exit: ; preds =
   %5 = tail call i64 @llvm.umin.i64(i64 %div5.i, i64 4611686018427387902)
   %.sroa.speculated.i = add nuw nsw i64 %5, 1
   %.sroa.speculated91 = tail call i64 @llvm.umax.i64(i64 %.sroa.speculated.i, i64 %newSize)
-  %6 = icmp ugt i64 %.sroa.speculated91, 1152921504606846975
+  %6 = icmp samesign ugt i64 %.sroa.speculated91, 1152921504606846975
   br i1 %6, label %if.then7, label %if.end8, !prof !98
 
 if.then7:                                         ; preds = %_ZNK5folly12small_vectorINS_5RangeIPKcEELm8EvE14computeNewSizeEv.exit
@@ -12556,7 +12556,7 @@ _ZNK5folly12small_vectorISt17basic_string_viewIcSt11char_traitsIcEELm1EvE14compu
   %7 = tail call i64 @llvm.umin.i64(i64 %div5.i, i64 4611686018427387902)
   %.sroa.speculated.i = add nuw nsw i64 %7, 1
   %.sroa.speculated105 = tail call i64 @llvm.umax.i64(i64 %.sroa.speculated.i, i64 %newSize)
-  %8 = icmp ugt i64 %.sroa.speculated105, 1152921504606846975
+  %8 = icmp samesign ugt i64 %.sroa.speculated105, 1152921504606846975
   br i1 %8, label %if.then7, label %if.end8, !prof !98
 
 if.then7:                                         ; preds = %_ZNK5folly12small_vectorISt17basic_string_viewIcSt11char_traitsIcEELm1EvE14computeNewSizeEv.exit
@@ -12565,7 +12565,7 @@ if.then7:                                         ; preds = %_ZNK5folly12small_v
 
 if.end8:                                          ; preds = %_ZNK5folly12small_vectorISt17basic_string_viewIcSt11char_traitsIcEELm1EvE14computeNewSizeEv.exit
   %9 = shl nuw i64 %.sroa.speculated105, 4
-  %cmp9 = icmp ult i64 %.sroa.speculated105, 50
+  %cmp9 = icmp samesign ult i64 %.sroa.speculated105, 50
   %cond = select i1 %cmp9, i64 0, i64 8
   %10 = or disjoint i64 %cond, %9
   %11 = load atomic i8, ptr @_ZGVZN5folly6detail14FastStaticBoolIZNS0_23usingJEMallocOrTCMallocEvE11InitializerE3getESt12memory_orderE2rv acquire, align 8
@@ -13632,7 +13632,7 @@ _ZNK5folly12small_vectorISt17basic_string_viewIcSt11char_traitsIcEELm2EvE14compu
   %5 = tail call i64 @llvm.umin.i64(i64 %div5.i, i64 4611686018427387902)
   %.sroa.speculated.i = add nuw nsw i64 %5, 1
   %.sroa.speculated91 = tail call i64 @llvm.umax.i64(i64 %.sroa.speculated.i, i64 %newSize)
-  %6 = icmp ugt i64 %.sroa.speculated91, 1152921504606846975
+  %6 = icmp samesign ugt i64 %.sroa.speculated91, 1152921504606846975
   br i1 %6, label %if.then7, label %if.end8, !prof !98
 
 if.then7:                                         ; preds = %_ZNK5folly12small_vectorISt17basic_string_viewIcSt11char_traitsIcEELm2EvE14computeNewSizeEv.exit
@@ -14572,7 +14572,7 @@ _ZNK5folly12small_vectorISt17basic_string_viewIcSt11char_traitsIcEELm3EvE14compu
   %5 = tail call i64 @llvm.umin.i64(i64 %div5.i, i64 4611686018427387902)
   %.sroa.speculated.i = add nuw nsw i64 %5, 1
   %.sroa.speculated91 = tail call i64 @llvm.umax.i64(i64 %.sroa.speculated.i, i64 %newSize)
-  %6 = icmp ugt i64 %.sroa.speculated91, 1152921504606846975
+  %6 = icmp samesign ugt i64 %.sroa.speculated91, 1152921504606846975
   br i1 %6, label %if.then7, label %if.end8, !prof !98
 
 if.then7:                                         ; preds = %_ZNK5folly12small_vectorISt17basic_string_viewIcSt11char_traitsIcEELm3EvE14computeNewSizeEv.exit
@@ -15512,7 +15512,7 @@ _ZNK5folly12small_vectorISt17basic_string_viewIcSt11char_traitsIcEELm4EvE14compu
   %5 = tail call i64 @llvm.umin.i64(i64 %div5.i, i64 4611686018427387902)
   %.sroa.speculated.i = add nuw nsw i64 %5, 1
   %.sroa.speculated91 = tail call i64 @llvm.umax.i64(i64 %.sroa.speculated.i, i64 %newSize)
-  %6 = icmp ugt i64 %.sroa.speculated91, 1152921504606846975
+  %6 = icmp samesign ugt i64 %.sroa.speculated91, 1152921504606846975
   br i1 %6, label %if.then7, label %if.end8, !prof !98
 
 if.then7:                                         ; preds = %_ZNK5folly12small_vectorISt17basic_string_viewIcSt11char_traitsIcEELm4EvE14computeNewSizeEv.exit
@@ -16452,7 +16452,7 @@ _ZNK5folly12small_vectorISt17basic_string_viewIcSt11char_traitsIcEELm5EvE14compu
   %5 = tail call i64 @llvm.umin.i64(i64 %div5.i, i64 4611686018427387902)
   %.sroa.speculated.i = add nuw nsw i64 %5, 1
   %.sroa.speculated91 = tail call i64 @llvm.umax.i64(i64 %.sroa.speculated.i, i64 %newSize)
-  %6 = icmp ugt i64 %.sroa.speculated91, 1152921504606846975
+  %6 = icmp samesign ugt i64 %.sroa.speculated91, 1152921504606846975
   br i1 %6, label %if.then7, label %if.end8, !prof !98
 
 if.then7:                                         ; preds = %_ZNK5folly12small_vectorISt17basic_string_viewIcSt11char_traitsIcEELm5EvE14computeNewSizeEv.exit
@@ -17392,7 +17392,7 @@ _ZNK5folly12small_vectorISt17basic_string_viewIcSt11char_traitsIcEELm6EvE14compu
   %5 = tail call i64 @llvm.umin.i64(i64 %div5.i, i64 4611686018427387902)
   %.sroa.speculated.i = add nuw nsw i64 %5, 1
   %.sroa.speculated91 = tail call i64 @llvm.umax.i64(i64 %.sroa.speculated.i, i64 %newSize)
-  %6 = icmp ugt i64 %.sroa.speculated91, 1152921504606846975
+  %6 = icmp samesign ugt i64 %.sroa.speculated91, 1152921504606846975
   br i1 %6, label %if.then7, label %if.end8, !prof !98
 
 if.then7:                                         ; preds = %_ZNK5folly12small_vectorISt17basic_string_viewIcSt11char_traitsIcEELm6EvE14computeNewSizeEv.exit
@@ -18332,7 +18332,7 @@ _ZNK5folly12small_vectorISt17basic_string_viewIcSt11char_traitsIcEELm7EvE14compu
   %5 = tail call i64 @llvm.umin.i64(i64 %div5.i, i64 4611686018427387902)
   %.sroa.speculated.i = add nuw nsw i64 %5, 1
   %.sroa.speculated91 = tail call i64 @llvm.umax.i64(i64 %.sroa.speculated.i, i64 %newSize)
-  %6 = icmp ugt i64 %.sroa.speculated91, 1152921504606846975
+  %6 = icmp samesign ugt i64 %.sroa.speculated91, 1152921504606846975
   br i1 %6, label %if.then7, label %if.end8, !prof !98
 
 if.then7:                                         ; preds = %_ZNK5folly12small_vectorISt17basic_string_viewIcSt11char_traitsIcEELm7EvE14computeNewSizeEv.exit
@@ -19272,7 +19272,7 @@ _ZNK5folly12small_vectorISt17basic_string_viewIcSt11char_traitsIcEELm8EvE14compu
   %5 = tail call i64 @llvm.umin.i64(i64 %div5.i, i64 4611686018427387902)
   %.sroa.speculated.i = add nuw nsw i64 %5, 1
   %.sroa.speculated91 = tail call i64 @llvm.umax.i64(i64 %.sroa.speculated.i, i64 %newSize)
-  %6 = icmp ugt i64 %.sroa.speculated91, 1152921504606846975
+  %6 = icmp samesign ugt i64 %.sroa.speculated91, 1152921504606846975
   br i1 %6, label %if.then7, label %if.end8, !prof !98
 
 if.then7:                                         ; preds = %_ZNK5folly12small_vectorISt17basic_string_viewIcSt11char_traitsIcEELm8EvE14computeNewSizeEv.exit

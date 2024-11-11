@@ -547,7 +547,7 @@ define internal i32 @addidata_apci7800_setup(ptr nocapture noundef readonly %0, 
   br label %34
 
 14:                                               ; preds = %4
-  %15 = icmp ult i32 %3, 4
+  %15 = icmp samesign ult i32 %3, 4
   br i1 %15, label %16, label %22
 
 16:                                               ; preds = %14
@@ -559,7 +559,7 @@ define internal i32 @addidata_apci7800_setup(ptr nocapture noundef readonly %0, 
   br label %34
 
 22:                                               ; preds = %14
-  %23 = icmp ult i32 %3, 6
+  %23 = icmp samesign ult i32 %3, 6
   %24 = getelementptr inbounds i8, ptr %1, i64 12
   %25 = load i32, ptr %24, align 4
   br i1 %23, label %26, label %30
@@ -1872,7 +1872,7 @@ define internal i32 @sbs_setup(ptr nocapture noundef readonly %0, ptr nocapture 
   br label %19
 
 12:                                               ; preds = %4
-  %13 = icmp ult i32 %3, 8
+  %13 = icmp samesign ult i32 %3, 8
   br i1 %13, label %14, label %26
 
 14:                                               ; preds = %12

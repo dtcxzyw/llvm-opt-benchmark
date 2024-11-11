@@ -3262,7 +3262,7 @@ define hidden void @_ZN10BlockBegin16iterate_preorderER13GrowableArrayIbEP12Bloc
   %24 = getelementptr inbounds ptr, ptr %23, i64 %indvars.iv.next
   %25 = load ptr, ptr %24, align 8
   tail call void @_ZN10BlockBegin16iterate_preorderER13GrowableArrayIbEP12BlockClosure(ptr noundef nonnull align 8 dereferenceable(408) %25, ptr noundef nonnull align 8 dereferenceable(24) %1, ptr noundef nonnull %2)
-  %26 = icmp ugt i64 %indvars.iv, 1
+  %26 = icmp samesign ugt i64 %indvars.iv, 1
   br i1 %26, label %22, label %._crit_edge, !llvm.loop !20
 
 ._crit_edge:                                      ; preds = %22, %12
@@ -3289,7 +3289,7 @@ _ZNK8BlockEnd13number_of_suxEv.exit:              ; preds = %._crit_edge
   %35 = getelementptr inbounds ptr, ptr %34, i64 %indvars.iv.next21
   %36 = load ptr, ptr %35, align 8
   tail call void @_ZN10BlockBegin16iterate_preorderER13GrowableArrayIbEP12BlockClosure(ptr noundef nonnull align 8 dereferenceable(408) %36, ptr noundef nonnull align 8 dereferenceable(24) %1, ptr noundef nonnull %2)
-  %37 = icmp ugt i64 %indvars.iv20, 1
+  %37 = icmp samesign ugt i64 %indvars.iv20, 1
   br i1 %37, label %.lr.ph18, label %.loopexit, !llvm.loop !21
 
 .loopexit:                                        ; preds = %.lr.ph18, %._crit_edge, %_ZNK8BlockEnd13number_of_suxEv.exit, %3
@@ -3329,7 +3329,7 @@ define hidden void @_ZN10BlockBegin17iterate_postorderER13GrowableArrayIbEP12Blo
   %22 = getelementptr inbounds ptr, ptr %21, i64 %indvars.iv.next
   %23 = load ptr, ptr %22, align 8
   tail call void @_ZN10BlockBegin17iterate_postorderER13GrowableArrayIbEP12BlockClosure(ptr noundef nonnull align 8 dereferenceable(408) %23, ptr noundef nonnull align 8 dereferenceable(24) %1, ptr noundef %2)
-  %24 = icmp ugt i64 %indvars.iv, 1
+  %24 = icmp samesign ugt i64 %indvars.iv, 1
   br i1 %24, label %20, label %._crit_edge, !llvm.loop !22
 
 ._crit_edge:                                      ; preds = %20, %12
@@ -3356,7 +3356,7 @@ _ZNK8BlockEnd13number_of_suxEv.exit:              ; preds = %._crit_edge
   %33 = getelementptr inbounds ptr, ptr %32, i64 %indvars.iv.next22
   %34 = load ptr, ptr %33, align 8
   tail call void @_ZN10BlockBegin17iterate_postorderER13GrowableArrayIbEP12BlockClosure(ptr noundef nonnull align 8 dereferenceable(408) %34, ptr noundef nonnull align 8 dereferenceable(24) %1, ptr noundef %2)
-  %35 = icmp ugt i64 %indvars.iv21, 1
+  %35 = icmp samesign ugt i64 %indvars.iv21, 1
   br i1 %35, label %.lr.ph18, label %._crit_edge19, !llvm.loop !23
 
 ._crit_edge19:                                    ; preds = %.lr.ph18, %._crit_edge, %_ZNK8BlockEnd13number_of_suxEv.exit
@@ -4066,7 +4066,7 @@ define hidden void @_ZN9BlockList16iterate_backwardEP12BlockClosure(ptr nocaptur
   %11 = load ptr, ptr %1, align 8
   %12 = load ptr, ptr %11, align 8
   tail call void %12(ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef %10) #14
-  %13 = icmp ugt i64 %indvars.iv, 1
+  %13 = icmp samesign ugt i64 %indvars.iv, 1
   br i1 %13, label %7, label %._crit_edge, !llvm.loop !32
 
 ._crit_edge:                                      ; preds = %7, %2

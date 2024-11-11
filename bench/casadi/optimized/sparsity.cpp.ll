@@ -1149,7 +1149,7 @@ define void @_ZN6casadi8SparsityC2Exx(ptr noundef nonnull align 8 dereferenceabl
 97:                                               ; preds = %61
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %24, i8 0, i64 24, i1 false)
   %98 = add nuw nsw i64 %2, 1
-  %99 = icmp ugt i64 %2, 1152921504606846974
+  %99 = icmp samesign ugt i64 %2, 1152921504606846974
   br i1 %99, label %100, label %_ZNSt6vectorIxSaIxEE17_S_check_init_lenEmRKS0_.exit.i
 
 100:                                              ; preds = %97
@@ -1818,7 +1818,7 @@ define void @_ZN6casadi8SparsityC2ERKSt4pairIxxE(ptr noundef nonnull align 8 der
 99:                                               ; preds = %61
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %23, i8 0, i64 24, i1 false)
   %100 = add nuw nsw i64 %63, 1
-  %101 = icmp ugt i64 %63, 1152921504606846974
+  %101 = icmp samesign ugt i64 %63, 1152921504606846974
   br i1 %101, label %102, label %103
 
 102:                                              ; preds = %99
@@ -2912,7 +2912,7 @@ define void @_ZN6casadi8Sparsity5denseExx(ptr dead_on_unwind noalias writable sr
   br label %_ZNSt6vectorIxSaIxEED2Ev.exit95
 
 97:                                               ; preds = %61
-  %98 = icmp ugt i64 %2, 1152921504606846974
+  %98 = icmp samesign ugt i64 %2, 1152921504606846974
   br i1 %98, label %.noexc, label %_ZNSt6vectorIxSaIxEE17_S_check_init_lenEmRKS0_.exit.i
 
 .noexc:                                           ; preds = %97
@@ -9354,7 +9354,7 @@ _ZNSt6vectorIxSaIxEE6resizeEm.exit:               ; preds = %106, %104, %102, %1
   %107 = mul nuw nsw i64 %30, 7
   %108 = add nuw nsw i64 %107, %25
   %109 = add nuw nsw i64 %108, 1
-  %110 = icmp ugt i64 %108, 1152921504606846974
+  %110 = icmp samesign ugt i64 %108, 1152921504606846974
   br i1 %110, label %111, label %_ZNSt6vectorIxSaIxEE17_S_check_init_lenEmRKS0_.exit.i69
 
 111:                                              ; preds = %_ZNSt6vectorIxSaIxEE6resizeEm.exit
@@ -12532,7 +12532,7 @@ define void @_ZN6casadi8Sparsity5upperEx(ptr dead_on_unwind noalias writable sre
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %13, i8 0, i64 24, i1 false)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %14, i8 0, i64 24, i1 false)
   %51 = add nuw nsw i64 %1, 1
-  %52 = icmp ugt i64 %1, 1152921504606846974
+  %52 = icmp samesign ugt i64 %1, 1152921504606846974
   br i1 %52, label %.invoke, label %_ZNSt12_Vector_baseIxSaIxEE11_M_allocateEm.exit.i
 
 _ZNSt12_Vector_baseIxSaIxEE11_M_allocateEm.exit.i: ; preds = %50
@@ -12549,12 +12549,12 @@ _ZNSt6vectorIxSaIxEE7reserveEm.exit:              ; preds = %_ZNSt12_Vector_base
   store ptr %57, ptr %53, align 8
   %58 = mul nuw nsw i64 %51, %1
   %59 = lshr i64 %58, 1
-  %60 = icmp ugt i64 %58, 2305843009213693951
+  %60 = icmp samesign ugt i64 %58, 2305843009213693951
   br i1 %60, label %.invoke, label %61
 
 61:                                               ; preds = %_ZNSt6vectorIxSaIxEE7reserveEm.exit
   %62 = getelementptr inbounds i8, ptr %14, i64 16
-  %.not = icmp ult i64 %58, 2
+  %.not = icmp samesign ult i64 %58, 2
   br i1 %.not, label %_ZNSt6vectorIxSaIxEE9push_backEOx.exit, label %_ZNSt12_Vector_baseIxSaIxEE11_M_allocateEm.exit.i42
 
 _ZNSt12_Vector_baseIxSaIxEE11_M_allocateEm.exit.i42: ; preds = %61
@@ -12958,7 +12958,7 @@ define void @_ZN6casadi8Sparsity5lowerEx(ptr dead_on_unwind noalias writable sre
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %13, i8 0, i64 24, i1 false)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %14, i8 0, i64 24, i1 false)
   %51 = add nuw nsw i64 %1, 1
-  %52 = icmp ugt i64 %1, 1152921504606846974
+  %52 = icmp samesign ugt i64 %1, 1152921504606846974
   br i1 %52, label %.invoke, label %_ZNSt12_Vector_baseIxSaIxEE11_M_allocateEm.exit.i
 
 _ZNSt12_Vector_baseIxSaIxEE11_M_allocateEm.exit.i: ; preds = %50
@@ -12975,12 +12975,12 @@ _ZNSt6vectorIxSaIxEE7reserveEm.exit:              ; preds = %_ZNSt12_Vector_base
   store ptr %57, ptr %53, align 8
   %58 = mul nuw nsw i64 %51, %1
   %59 = lshr i64 %58, 1
-  %60 = icmp ugt i64 %58, 2305843009213693951
+  %60 = icmp samesign ugt i64 %58, 2305843009213693951
   br i1 %60, label %.invoke, label %61
 
 61:                                               ; preds = %_ZNSt6vectorIxSaIxEE7reserveEm.exit
   %62 = getelementptr inbounds i8, ptr %14, i64 16
-  %.not = icmp ult i64 %58, 2
+  %.not = icmp samesign ult i64 %58, 2
   br i1 %.not, label %_ZNSt6vectorIxSaIxEE9push_backEOx.exit, label %_ZNSt12_Vector_baseIxSaIxEE11_M_allocateEm.exit.i43
 
 _ZNSt12_Vector_baseIxSaIxEE11_M_allocateEm.exit.i43: ; preds = %61
@@ -13392,7 +13392,7 @@ define void @_ZN6casadi8Sparsity4bandExx(ptr dead_on_unwind noalias writable sre
 
 61:                                               ; preds = %3
   %62 = tail call i64 @llvm.abs.i64(i64 %2, i1 true)
-  %63 = icmp ult i64 %62, %1
+  %63 = icmp samesign ult i64 %62, %1
   br i1 %63, label %98, label %64
 
 64:                                               ; preds = %61
@@ -13526,7 +13526,7 @@ define void @_ZN6casadi8Sparsity4bandExx(ptr dead_on_unwind noalias writable sre
 
 98:                                               ; preds = %61
   %99 = sub nuw nsw i64 %1, %62
-  %100 = icmp ugt i64 %99, 1152921504606846975
+  %100 = icmp samesign ugt i64 %99, 1152921504606846975
   br i1 %100, label %.noexc, label %_ZNSt6vectorIxSaIxEE17_S_check_init_lenEmRKS0_.exit.i
 
 .noexc:                                           ; preds = %98
@@ -14968,7 +14968,7 @@ define void @_ZN6casadi8Sparsity7tripletExxRKSt6vectorIxSaIxEES5_RS3_b(ptr dead_
   br label %_ZNSt6vectorIxSaIxEED2Ev.exit370
 
 189:                                              ; preds = %141
-  %190 = icmp ugt i64 %2, 1152921504606846974
+  %190 = icmp samesign ugt i64 %2, 1152921504606846974
   br i1 %190, label %.noexc, label %.noexc312
 
 .noexc:                                           ; preds = %189

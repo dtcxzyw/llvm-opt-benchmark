@@ -1159,7 +1159,7 @@ _ZN10decode_env5matchEPKcS1_.exit31:              ; preds = %18, %18, %18, %18
   br label %_ZN10decode_env5matchEPKcS1_.exit
 
 45:                                               ; preds = %11
-  %46 = icmp ult i64 %4, 4
+  %46 = icmp samesign ult i64 %4, 4
   br i1 %46, label %_ZN10decode_env8end_insnEPh.exit46, label %.thread70
 
 .thread70:                                        ; preds = %16, %18, %45

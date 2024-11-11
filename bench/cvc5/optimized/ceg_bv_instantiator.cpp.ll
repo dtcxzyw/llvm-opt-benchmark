@@ -21104,7 +21104,7 @@ for.body.i.i.i.i.i.i:                             ; preds = %if.then4.i, %for.bo
   %incdec.ptr.i3.i.i.i.i.i.i = getelementptr inbounds i8, ptr %agg.tmp2.sroa.0.0.i.i.i.i.i, i64 4
   store i32 %2, ptr %agg.tmp2.sroa.0.0.i.i.i.i.i, align 4, !noalias !247
   %dec.i.i.i.i.i.i = add nsw i64 %__n.06.i.i.i.i.i.i, -1
-  %cmp.i.i.i.i.i.i = icmp ugt i64 %__n.06.i.i.i.i.i.i, 1
+  %cmp.i.i.i.i.i.i = icmp samesign ugt i64 %__n.06.i.i.i.i.i.i, 1
   br i1 %cmp.i.i.i.i.i.i, label %for.body.i.i.i.i.i.i, label %for.inc.i, !llvm.loop !258
 
 if.else.i:                                        ; preds = %for.body.i
@@ -21193,7 +21193,7 @@ for.body.i.i.i.i.i.i39:                           ; preds = %if.then4.i35, %for.
   %incdec.ptr.i3.i.i.i.i.i.i44 = getelementptr inbounds i8, ptr %agg.tmp2.sroa.0.0.i.i.i.i.i41, i64 4
   store i32 %14, ptr %agg.tmp2.sroa.0.0.i.i.i.i.i41, align 4, !noalias !265
   %dec.i.i.i.i.i.i45 = add nsw i64 %__n.06.i.i.i.i.i.i42, -1
-  %cmp.i.i.i.i.i.i46 = icmp ugt i64 %__n.06.i.i.i.i.i.i42, 1
+  %cmp.i.i.i.i.i.i46 = icmp samesign ugt i64 %__n.06.i.i.i.i.i.i42, 1
   br i1 %cmp.i.i.i.i.i.i46, label %for.body.i.i.i.i.i.i39, label %for.inc.i25, !llvm.loop !258
 
 if.else.i23:                                      ; preds = %for.body.i18

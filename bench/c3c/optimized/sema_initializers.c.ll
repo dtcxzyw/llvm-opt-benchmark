@@ -908,7 +908,7 @@ type_flatten.exit.i.i.i:                          ; preds = %45
   br i1 %92, label %sema_expr_analyse_designator.exit.thread.i, label %93
 
 93:                                               ; preds = %88
-  %94 = icmp ugt i32 %72, %91
+  %94 = icmp samesign ugt i32 %72, %91
   br i1 %94, label %95, label %100
 
 95:                                               ; preds = %93
@@ -920,7 +920,7 @@ type_flatten.exit.i.i.i:                          ; preds = %45
   br label %sema_expr_analyse_designator.exit.thread.i
 
 100:                                              ; preds = %93
-  %101 = icmp ugt i32 %91, %75
+  %101 = icmp samesign ugt i32 %91, %75
   br i1 %101, label %102, label %107
 
 102:                                              ; preds = %100

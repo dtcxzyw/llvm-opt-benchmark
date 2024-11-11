@@ -2749,7 +2749,7 @@ define hidden noundef range(i32 -4, 2147483647) i32 @_ZN11klassVtable16index_of_
   br i1 %54, label %._crit_edge.loopexit.split.loop.exit17, label %_ZN11klassVtable19is_miranda_entry_atEi.exit
 
 _ZN11klassVtable19is_miranda_entry_atEi.exit:     ; preds = %25, %9, %37, %48
-  %55 = icmp ugt i64 %indvars.iv, 1
+  %55 = icmp samesign ugt i64 %indvars.iv, 1
   br i1 %55, label %9, label %._crit_edge, !llvm.loop !24
 
 ._crit_edge.loopexit.split.loop.exit17:           ; preds = %48
@@ -4629,7 +4629,7 @@ _Z35interface_method_needs_itable_indexP6Method.exit.i: ; preds = %21
 
 _Z35interface_method_needs_itable_indexP6Method.exit.thread.i: ; preds = %_Z35interface_method_needs_itable_indexP6Method.exit.i, %21, %16
   %26 = phi i32 [ %.124.i, %16 ], [ %.124.i, %21 ], [ %spec.select.i, %_Z35interface_method_needs_itable_indexP6Method.exit.i ]
-  %27 = icmp ugt i64 %indvars.iv.i, 1
+  %27 = icmp samesign ugt i64 %indvars.iv.i, 1
   br i1 %27, label %16, label %28, !llvm.loop !37
 
 28:                                               ; preds = %_Z35interface_method_needs_itable_indexP6Method.exit.thread.i
@@ -4737,7 +4737,7 @@ _Z35interface_method_needs_itable_indexP6Method.exit.i: ; preds = %28
 
 _Z35interface_method_needs_itable_indexP6Method.exit.thread.i: ; preds = %_Z35interface_method_needs_itable_indexP6Method.exit.i, %28, %23
   %33 = phi i32 [ %.124.i, %23 ], [ %.124.i, %28 ], [ %spec.select.i, %_Z35interface_method_needs_itable_indexP6Method.exit.i ]
-  %34 = icmp ugt i64 %indvars.iv.i, 1
+  %34 = icmp samesign ugt i64 %indvars.iv.i, 1
   br i1 %34, label %23, label %35, !llvm.loop !37
 
 35:                                               ; preds = %_Z35interface_method_needs_itable_indexP6Method.exit.thread.i
@@ -4833,7 +4833,7 @@ _Z35interface_method_needs_itable_indexP6Method.exit.i23: ; preds = %74
 
 _Z35interface_method_needs_itable_indexP6Method.exit.thread.i22: ; preds = %_Z35interface_method_needs_itable_indexP6Method.exit.i23, %74, %69
   %79 = phi i32 [ %.124.i18, %69 ], [ %.124.i18, %74 ], [ %spec.select.i26, %_Z35interface_method_needs_itable_indexP6Method.exit.i23 ]
-  %80 = icmp ugt i64 %indvars.iv.i17, 1
+  %80 = icmp samesign ugt i64 %indvars.iv.i17, 1
   br i1 %80, label %69, label %81, !llvm.loop !37
 
 81:                                               ; preds = %_Z35interface_method_needs_itable_indexP6Method.exit.thread.i22

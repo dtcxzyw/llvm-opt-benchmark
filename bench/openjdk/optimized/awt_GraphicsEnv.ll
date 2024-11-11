@@ -2513,7 +2513,7 @@ define ptr @Java_sun_awt_X11GraphicsDevice_pGetBounds(ptr noundef %0, ptr nocapt
   br label %.thread
 
 90:                                               ; preds = %77
-  %.not104 = icmp ult i32 %2, %79
+  %.not104 = icmp samesign ult i32 %2, %79
   %spec.store.select = select i1 %.not104, i32 %2, i32 0
   %91 = load ptr, ptr %0, align 8
   %92 = getelementptr inbounds i8, ptr %91, i64 224
@@ -3532,7 +3532,7 @@ define zeroext range(i8 0, 2) i8 @Java_sun_awt_X11GraphicsDevice_initXrandrExten
   br label %X11GD_InitXrandrFuncs.exit
 
 60:                                               ; preds = %55
-  %61 = icmp ult i32 %.pre.i, 3
+  %61 = icmp samesign ult i32 %.pre.i, 3
   %62 = load i32, ptr @awt_numScreens, align 4
   %63 = icmp sgt i32 %62, 1
   %or.cond5.i = select i1 %61, i1 %63, i1 false

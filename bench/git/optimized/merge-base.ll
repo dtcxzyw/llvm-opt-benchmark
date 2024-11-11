@@ -291,7 +291,7 @@ if.then3.i.i29:                                   ; preds = %if.end.i.i25
 get_commit_reference.exit.i28:                    ; preds = %if.end.i.i25
   call void @llvm.lifetime.end.p0(i64 36, ptr nonnull %revkey.i.i20)
   %call1.i = call ptr @commit_list_insert(ptr noundef nonnull %call1.i.i26, ptr noundef nonnull %revs.i) #8
-  %cmp.i = icmp ugt i64 %indvars.iv.i, 1
+  %cmp.i = icmp samesign ugt i64 %indvars.iv.i, 1
   br i1 %cmp.i, label %for.body.i, label %for.end.loopexit.i, !llvm.loop !5
 
 for.end.loopexit.i:                               ; preds = %get_commit_reference.exit.i28
@@ -383,7 +383,7 @@ if.then3.i.i54:                                   ; preds = %if.end.i.i48
 get_commit_reference.exit.i51:                    ; preds = %if.end.i.i48
   call void @llvm.lifetime.end.p0(i64 36, ptr nonnull %revkey.i.i30)
   %call1.i52 = call ptr @commit_list_insert(ptr noundef nonnull %call1.i.i49, ptr noundef nonnull %revs.i31) #8
-  %cmp.i53 = icmp ugt i64 %indvars.iv.i42, 1
+  %cmp.i53 = icmp samesign ugt i64 %indvars.iv.i42, 1
   br i1 %cmp.i53, label %for.body.i41, label %for.end.i33, !llvm.loop !8
 
 for.end.i33:                                      ; preds = %get_commit_reference.exit.i51, %if.then83

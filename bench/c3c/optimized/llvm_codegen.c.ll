@@ -1169,7 +1169,7 @@ expand_.exit398:                                  ; preds = %174, %178
   %381 = lshr i64 %380, 32
   %382 = add nuw nsw i64 %381, %377
   %383 = and i64 %380, 4294967295
-  %384 = icmp ult i64 %382, %383
+  %384 = icmp samesign ult i64 %382, %383
   br i1 %384, label %385, label %425
 
 385:                                              ; preds = %376

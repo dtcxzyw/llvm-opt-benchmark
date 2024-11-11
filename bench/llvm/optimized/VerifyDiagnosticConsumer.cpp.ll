@@ -8053,7 +8053,7 @@ _ZNSt6vectorIPN5clang24VerifyDiagnosticConsumer9DirectiveESaIS3_EE17_M_realloc_i
   %890 = getelementptr inbounds i8, ptr %.0910.i.i.i.i.i.i.i, i64 40
   %891 = getelementptr inbounds i8, ptr %.0811.i.i.i.i.i.i.i, i64 40
   %892 = add nsw i64 %.012.i.i.i.i.i.i.i, -1
-  %893 = icmp ugt i64 %.012.i.i.i.i.i.i.i, 1
+  %893 = icmp samesign ugt i64 %.012.i.i.i.i.i.i.i, 1
   br i1 %893, label %.lr.ph.i.i.i.i.i.i.i, label %_ZNSt6vectorISt4pairIN5clang14SourceLocationENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEESaIS9_EE5eraseEN9__gnu_cxx17__normal_iteratorIPKS9_SB_EE.exit, !llvm.loop !120
 
 _ZNSt6vectorISt4pairIN5clang14SourceLocationENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEESaIS9_EE5eraseEN9__gnu_cxx17__normal_iteratorIPKS9_SB_EE.exit: ; preds = %.lr.ph.i.i.i.i.i.i.i, %875, %880

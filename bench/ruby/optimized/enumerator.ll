@@ -1667,7 +1667,7 @@ RARRAY_AREF.exit.i:                               ; preds = %71, %67
   br i1 %.not13.i, label %lazy_precheck.exit, label %82
 
 82:                                               ; preds = %80, %RARRAY_AREF.exit.i
-  %83 = icmp ugt i64 %.in.i, 1
+  %83 = icmp samesign ugt i64 %.in.i, 1
   br i1 %83, label %67, label %.loopexit, !llvm.loop !7
 
 .loopexit:                                        ; preds = %82, %50, %rb_array_len.exit.i
@@ -2370,7 +2370,7 @@ rb_check_arity.exit:                              ; preds = %3
 
 9:                                                ; preds = %rb_check_arity.exit
   %10 = load i64, ptr %1, align 8
-  %11 = icmp ugt i32 %0, 1
+  %11 = icmp samesign ugt i32 %0, 1
   br i1 %11, label %12, label %15
 
 12:                                               ; preds = %9
@@ -3651,7 +3651,7 @@ rb_array_len.exit:                                ; preds = %14
 rb_array_len.exit.thread:                         ; preds = %14
   %19 = lshr i64 %15, 15
   %20 = and i64 %19, 127
-  %21 = icmp ult i64 %.012, %20
+  %21 = icmp samesign ult i64 %.012, %20
   br i1 %21, label %RARRAY_AREF.exit, label %.critedge
 
 22:                                               ; preds = %rb_array_len.exit
@@ -4249,7 +4249,7 @@ rb_long2num_inline.exit:                          ; preds = %65, %68
   %71 = tail call i64 @rb_ary_push(i64 noundef %54, i64 noundef %.0141220) #17
   %72 = tail call i64 @rb_big_plus(i64 noundef %.0141220, i64 noundef %10) #17
   %73 = add nsw i64 %.1145219, -1
-  %74 = icmp ugt i64 %.1145219, 1
+  %74 = icmp samesign ugt i64 %.1145219, 1
   br i1 %74, label %.lr.ph221, label %.loopexit, !llvm.loop !18
 
 75:                                               ; preds = %49
@@ -4286,7 +4286,7 @@ rb_long2num_inline.exit:                          ; preds = %65, %68
   %93 = tail call i64 @rb_ary_push(i64 noundef %89, i64 noundef %92) #17
   %94 = add nsw i64 %.0147210, %83
   %95 = add nsw i64 %.2211, -1
-  %96 = icmp ugt i64 %.2211, 1
+  %96 = icmp samesign ugt i64 %.2211, 1
   %97 = icmp slt i64 %94, %spec.select
   %98 = select i1 %96, i1 %97, i1 false
   br i1 %98, label %.lr.ph212, label %.loopexit, !llvm.loop !19
@@ -4309,7 +4309,7 @@ rb_long2num_inline.exit:                          ; preds = %65, %68
   %107 = tail call i64 @rb_ary_push(i64 noundef %103, i64 noundef %106) #17
   %108 = add nsw i64 %.1148208, %83
   %109 = add nsw i64 %.3209, -1
-  %110 = icmp ugt i64 %.3209, 1
+  %110 = icmp samesign ugt i64 %.3209, 1
   %111 = icmp sgt i64 %108, %spec.select165
   %112 = select i1 %110, i1 %111, i1 false
   br i1 %112, label %.lr.ph, label %.loopexit, !llvm.loop !20
@@ -6362,7 +6362,7 @@ define internal noundef i64 @lazy_init_iterator(i64 noundef %0, i64 noundef %1, 
   %13 = sext i32 %2 to i64
   %14 = add nsw i64 %13, 1
   %15 = add nsw i64 %13, 2147483649
-  %.not.i = icmp ult i64 %15, 4294967296
+  %.not.i = icmp samesign ult i64 %15, 4294967296
   br i1 %.not.i, label %rb_long2int_inline.exit, label %16
 
 16:                                               ; preds = %12

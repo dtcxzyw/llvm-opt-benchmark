@@ -434,13 +434,13 @@ define noundef i64 @_ZNK6marisa8grimoire6vector9BitVector7select1Em(ptr nocaptur
   %46 = lshr i32 %41, 7
   %47 = and i32 %46, 255
   %48 = zext nneg i32 %47 to i64
-  %49 = icmp ult i64 %38, %48
+  %49 = icmp samesign ult i64 %38, %48
   br i1 %49, label %50, label %56
 
 50:                                               ; preds = %45
   %51 = and i32 %41, 127
   %52 = zext nneg i32 %51 to i64
-  %.not70 = icmp ult i64 %38, %52
+  %.not70 = icmp samesign ult i64 %38, %52
   br i1 %.not70, label %95, label %53
 
 53:                                               ; preds = %50
@@ -452,7 +452,7 @@ define noundef i64 @_ZNK6marisa8grimoire6vector9BitVector7select1Em(ptr nocaptur
   %57 = lshr i32 %41, 15
   %58 = and i32 %57, 255
   %59 = zext nneg i32 %58 to i64
-  %60 = icmp ult i64 %38, %59
+  %60 = icmp samesign ult i64 %38, %59
   br i1 %60, label %61, label %64
 
 61:                                               ; preds = %56
@@ -477,7 +477,7 @@ define noundef i64 @_ZNK6marisa8grimoire6vector9BitVector7select1Em(ptr nocaptur
 74:                                               ; preds = %67
   %75 = and i32 %69, 511
   %76 = zext nneg i32 %75 to i64
-  %77 = icmp ult i64 %38, %76
+  %77 = icmp samesign ult i64 %38, %76
   br i1 %77, label %78, label %81
 
 78:                                               ; preds = %74
@@ -569,7 +569,7 @@ define void @_ZN6marisa8grimoire6vector9BitVector11build_indexERKS2_bb(ptr nound
 
 15:                                               ; preds = %4
   %16 = lshr i64 %12, 1
-  %17 = icmp ugt i64 %14, %16
+  %17 = icmp samesign ugt i64 %14, %16
   %18 = shl nuw nsw i64 %14, 1
   %.0.i.i = select i1 %17, i64 %18, i64 %12
   %19 = mul nuw nsw i64 %.0.i.i, 12

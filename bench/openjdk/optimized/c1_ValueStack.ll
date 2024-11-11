@@ -798,7 +798,7 @@ define hidden void @_ZN10ValueStack12clear_localsEv(ptr nocapture noundef nonnul
   %8 = load ptr, ptr %5, align 8
   %9 = getelementptr inbounds ptr, ptr %8, i64 %indvars.iv.next
   store ptr null, ptr %9, align 8
-  %10 = icmp ugt i64 %indvars.iv, 1
+  %10 = icmp samesign ugt i64 %indvars.iv, 1
   br i1 %10, label %7, label %._crit_edge, !llvm.loop !13
 
 ._crit_edge:                                      ; preds = %7, %1

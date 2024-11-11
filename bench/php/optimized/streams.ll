@@ -1523,7 +1523,7 @@ define ptr @php_stream_read_to_str(ptr noundef %0, i64 noundef %1) local_unnamed
   %14 = getelementptr inbounds [1 x i8], ptr %9, i64 0, i64 %10
   store i8 0, ptr %14, align 1
   %15 = lshr i64 %1, 1
-  %16 = icmp ult i64 %10, %15
+  %16 = icmp samesign ult i64 %10, %15
   br i1 %16, label %17, label %49
 
 17:                                               ; preds = %13

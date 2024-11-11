@@ -200,7 +200,7 @@ if.end16:                                         ; preds = %if.then12, %land.lh
   %minCompNoMaybeCP.i = getelementptr inbounds i8, ptr %5, i64 10
   %6 = load i16, ptr %minCompNoMaybeCP.i, align 2
   %conv.i = zext i16 %6 to i32
-  %cmp.i = icmp ult i32 %c.0, %conv.i
+  %cmp.i = icmp samesign ult i32 %c.0, %conv.i
   %and.i.i = and i32 %c.0, -1024
   %cmp.i.i = icmp eq i32 %and.i.i, 55296
   %or.cond.i = or i1 %cmp.i.i, %cmp.i
@@ -211,7 +211,7 @@ cond.false.i.i:                                   ; preds = %if.end16
   %7 = load ptr, ptr %normTrie.i.i, align 8
   %data.i.i = getelementptr inbounds i8, ptr %7, i64 8
   %8 = load ptr, ptr %data.i.i, align 8
-  %cmp2.i.i = icmp ult i32 %c.0, 65536
+  %cmp2.i.i = icmp samesign ult i32 %c.0, 65536
   br i1 %cmp2.i.i, label %cond.true3.i.i, label %cond.false6.i.i
 
 cond.true3.i.i:                                   ; preds = %cond.false.i.i
@@ -226,7 +226,7 @@ cond.true3.i.i:                                   ; preds = %cond.false.i.i
   br label %_ZNK6icu_7515Normalizer2Impl9getNorm16Ei.exit.i
 
 cond.false6.i.i:                                  ; preds = %cond.false.i.i
-  %cmp7.i.i = icmp ult i32 %c.0, 1114112
+  %cmp7.i.i = icmp samesign ult i32 %c.0, 1114112
   br i1 %cmp7.i.i, label %cond.true8.i.i, label %cond.false15.i.i
 
 cond.true8.i.i:                                   ; preds = %cond.false6.i.i
@@ -371,7 +371,7 @@ do.body25:                                        ; preds = %if.then18, %do.body
   br i1 %cmp31, label %do.end87, label %if.then32
 
 if.then32:                                        ; preds = %do.body25
-  %cmp33 = icmp ult i8 %4, -32
+  %cmp33 = icmp samesign ult i8 %4, -32
   br i1 %cmp33, label %if.then34, label %if.else42
 
 if.then34:                                        ; preds = %if.then32
@@ -387,7 +387,7 @@ if.then34:                                        ; preds = %if.then32
   br label %do.end87
 
 if.else42:                                        ; preds = %if.then32
-  %cmp43 = icmp ult i8 %4, -16
+  %cmp43 = icmp samesign ult i8 %4, -16
   br i1 %cmp43, label %if.then44, label %if.else61
 
 if.then44:                                        ; preds = %if.else42
@@ -1081,7 +1081,7 @@ if.then78:                                        ; preds = %if.then76
   %37 = load ptr, ptr %normTrie.i, align 8
   %data.i = getelementptr inbounds i8, ptr %37, i64 8
   %38 = load ptr, ptr %data.i, align 8
-  %cmp.i43 = icmp ult i32 %c.1, 65536
+  %cmp.i43 = icmp samesign ult i32 %c.1, 65536
   br i1 %cmp.i43, label %cond.true.i, label %cond.false.i
 
 cond.true.i:                                      ; preds = %if.then78
@@ -1096,7 +1096,7 @@ cond.true.i:                                      ; preds = %if.then78
   br label %_ZNK6icu_7515Normalizer2Impl12getRawNorm16Ei.exit
 
 cond.false.i:                                     ; preds = %if.then78
-  %cmp3.i44 = icmp ult i32 %c.1, 1114112
+  %cmp3.i44 = icmp samesign ult i32 %c.1, 1114112
   br i1 %cmp3.i44, label %cond.true4.i, label %cond.false11.i
 
 cond.true4.i:                                     ; preds = %cond.false.i
@@ -1142,7 +1142,7 @@ cond.false.i54:                                   ; preds = %if.else81
   %46 = load ptr, ptr %normTrie.i55, align 8
   %data.i56 = getelementptr inbounds i8, ptr %46, i64 8
   %47 = load ptr, ptr %data.i56, align 8
-  %cmp2.i = icmp ult i32 %c.1, 65536
+  %cmp2.i = icmp samesign ult i32 %c.1, 65536
   br i1 %cmp2.i, label %cond.true3.i, label %cond.false6.i
 
 cond.true3.i:                                     ; preds = %cond.false.i54
@@ -1157,7 +1157,7 @@ cond.true3.i:                                     ; preds = %cond.false.i54
   br label %_ZNK6icu_7515Normalizer2Impl9getNorm16Ei.exit
 
 cond.false6.i:                                    ; preds = %cond.false.i54
-  %cmp7.i = icmp ult i32 %c.1, 1114112
+  %cmp7.i = icmp samesign ult i32 %c.1, 1114112
   br i1 %cmp7.i, label %cond.true8.i, label %cond.false15.i
 
 cond.true8.i:                                     ; preds = %cond.false6.i
@@ -1225,7 +1225,7 @@ if.then.i.i69:                                    ; preds = %if.end9.i
 
 if.end88:                                         ; preds = %if.then.i.i69, %if.end9.i, %if.end.i, %if.then.i72, %do.end74, %_ZNK6icu_7515Normalizer2Impl12getRawNorm16Ei.exit
   %leadCC.addr.0 = phi i8 [ %cond.i51, %_ZNK6icu_7515Normalizer2Impl12getRawNorm16Ei.exit ], [ %trailCC, %do.end74 ], [ %conv1.i.i73, %if.then.i72 ], [ 0, %if.end.i ], [ %conv2.i.i71, %if.then.i.i69 ], [ 0, %if.end9.i ]
-  %cmp.i74 = icmp ult i32 %c.1, 65536
+  %cmp.i74 = icmp samesign ult i32 %c.1, 65536
   br i1 %cmp.i74, label %cond.true.i77, label %cond.false.i75
 
 cond.true.i77:                                    ; preds = %if.end88
@@ -1715,19 +1715,19 @@ while.body:                                       ; preds = %while.body.lr.ph, %
 if.else:                                          ; preds = %while.body
   %2 = load i16, ptr %minNoNoCompNoMaybeCC, align 2
   %conv = zext i16 %2 to i32
-  %cmp5.not = icmp ult i32 %1, %conv
+  %cmp5.not = icmp samesign ult i32 %1, %conv
   %3 = load i16, ptr %limitNoNo, align 2
   %conv7 = zext i16 %3 to i32
-  %cmp8 = icmp uge i32 %1, %conv7
+  %cmp8 = icmp samesign uge i32 %1, %conv7
   %or.cond7.not11 = select i1 %cmp5.not, i1 true, i1 %cmp8
   %4 = load i16, ptr %minDecompNoCP.i, align 8
   %conv.i = zext i16 %4 to i32
-  %cmp.i = icmp ult i32 %start.014, %conv.i
+  %cmp.i = icmp samesign ult i32 %start.014, %conv.i
   %or.cond10 = select i1 %or.cond7.not11, i1 true, i1 %cmp.i
   br i1 %or.cond10, label %if.end16, label %if.else.i
 
 if.else.i:                                        ; preds = %if.else
-  %cmp2.i = icmp ult i32 %start.014, 65536
+  %cmp2.i = icmp samesign ult i32 %start.014, 65536
   br i1 %cmp2.i, label %if.then3.i, label %_ZNK6icu_7515Normalizer2Impl8getFCD16Ei.exit
 
 if.then3.i:                                       ; preds = %if.else.i
@@ -1821,7 +1821,7 @@ if.then:                                          ; preds = %land.lhs.true
   br i1 %cmp.i, label %_ZNK6icu_7515Normalizer2Impl8getFCD16Ei.exit, label %if.else.i
 
 if.else.i:                                        ; preds = %if.then
-  %cmp2.i = icmp ult i32 %start.048, 65536
+  %cmp2.i = icmp samesign ult i32 %start.048, 65536
   br i1 %cmp2.i, label %if.then3.i, label %if.end6.i
 
 if.then3.i:                                       ; preds = %if.else.i
@@ -1859,7 +1859,7 @@ while.body9:                                      ; preds = %_ZNK6icu_7515Normal
   br i1 %cmp.i24, label %_ZNK6icu_7515Normalizer2Impl8getFCD16Ei.exit41, label %if.else.i25
 
 if.else.i25:                                      ; preds = %while.body9
-  %cmp2.i26 = icmp ult i32 %inc45, 65536
+  %cmp2.i26 = icmp samesign ult i32 %inc45, 65536
   br i1 %cmp2.i26, label %if.then3.i30, label %if.end6.i27
 
 if.then3.i30:                                     ; preds = %if.else.i25
@@ -2392,7 +2392,7 @@ if.then53:                                        ; preds = %if.then51
   br i1 %brmerge, label %return, label %if.end63.thread127
 
 if.end63.thread127:                               ; preds = %if.then53
-  %cmp64131 = icmp ult i32 %c.2, 65536
+  %cmp64131 = icmp samesign ult i32 %c.2, 65536
   %cond65132 = select i1 %cmp64131, i64 1, i64 2
   %add.ptr66133 = getelementptr inbounds i16, ptr %src.addr.2.lcssa, i64 %cond65132
   br label %if.then68
@@ -2404,13 +2404,13 @@ if.end60.thread:                                  ; preds = %if.then51
   br i1 %cmp7.not.lcssa, label %return, label %if.end63.thread
 
 if.end63.thread:                                  ; preds = %if.end60.thread
-  %cmp6462 = icmp ult i32 %c.2, 65536
+  %cmp6462 = icmp samesign ult i32 %c.2, 65536
   %cond6563 = select i1 %cmp6462, i64 1, i64 2
   %add.ptr6664 = getelementptr inbounds i16, ptr %src.addr.2.lcssa, i64 %cond6563
   br label %if.else73
 
 if.end63:                                         ; preds = %if.end60
-  %cmp64 = icmp ult i32 %c.2, 65536
+  %cmp64 = icmp samesign ult i32 %c.2, 65536
   %cond65 = select i1 %cmp64, i64 1, i64 2
   %add.ptr66 = getelementptr inbounds i16, ptr %src.addr.2.lcssa, i64 %cond65
   br i1 %cmp52.not, label %if.else73, label %if.then68
@@ -2991,11 +2991,11 @@ if.then16:                                        ; preds = %if.else
   br i1 %cmp17.not, label %if.else105, label %land.lhs.true18
 
 land.lhs.true18:                                  ; preds = %if.then16
-  %cmp19 = icmp ugt i8 %2, -33
+  %cmp19 = icmp samesign ugt i8 %2, -33
   br i1 %cmp19, label %cond.true, label %cond.false86
 
 cond.true:                                        ; preds = %land.lhs.true18
-  %cmp20 = icmp ult i8 %2, -16
+  %cmp20 = icmp samesign ult i8 %2, -16
   br i1 %cmp20, label %cond.true21, label %cond.false
 
 cond.true21:                                      ; preds = %cond.true
@@ -3039,7 +3039,7 @@ land.lhs.true34:                                  ; preds = %land.lhs.true29
 
 cond.false:                                       ; preds = %cond.true
   %sub43 = add nsw i32 %conv9, -240
-  %cmp44 = icmp ult i8 %2, -11
+  %cmp44 = icmp samesign ult i8 %2, -11
   br i1 %cmp44, label %land.lhs.true45, label %if.else105
 
 land.lhs.true45:                                  ; preds = %cond.false
@@ -3099,7 +3099,7 @@ cond.false82:                                     ; preds = %land.lhs.true75
           to label %if.then103 unwind label %lpad.loopexit
 
 cond.false86:                                     ; preds = %land.lhs.true18
-  %cmp87 = icmp ugt i8 %2, -63
+  %cmp87 = icmp samesign ugt i8 %2, -63
   br i1 %cmp87, label %land.lhs.true88, label %if.else105
 
 land.lhs.true88:                                  ; preds = %cond.false86
@@ -3470,11 +3470,11 @@ if.then3:                                         ; preds = %while.body
   br i1 %cmp4.not, label %if.else, label %land.lhs.true
 
 land.lhs.true:                                    ; preds = %if.then3
-  %cmp5 = icmp ugt i8 %1, -33
+  %cmp5 = icmp samesign ugt i8 %1, -33
   br i1 %cmp5, label %cond.true, label %cond.false72
 
 cond.true:                                        ; preds = %land.lhs.true
-  %cmp6 = icmp ult i8 %1, -16
+  %cmp6 = icmp samesign ult i8 %1, -16
   br i1 %cmp6, label %cond.true7, label %cond.false
 
 cond.true7:                                       ; preds = %cond.true
@@ -3518,7 +3518,7 @@ land.lhs.true21:                                  ; preds = %land.lhs.true16
 
 cond.false:                                       ; preds = %cond.true
   %sub30 = add nsw i32 %conv, -240
-  %cmp31 = icmp ult i8 %1, -11
+  %cmp31 = icmp samesign ult i8 %1, -11
   br i1 %cmp31, label %land.lhs.true32, label %if.else
 
 land.lhs.true32:                                  ; preds = %cond.false
@@ -3578,7 +3578,7 @@ cond.false69:                                     ; preds = %land.lhs.true62
   br label %if.then89
 
 cond.false72:                                     ; preds = %land.lhs.true
-  %cmp73 = icmp ugt i8 %1, -63
+  %cmp73 = icmp samesign ugt i8 %1, -63
   br i1 %cmp73, label %land.lhs.true74, label %if.else
 
 land.lhs.true74:                                  ; preds = %cond.false72
@@ -3951,7 +3951,7 @@ sw.default.i177:                                  ; preds = %if.then146
 if.end148:                                        ; preds = %sw.bb19.i143, %if.then144
   %norm16.0248252 = phi i16 [ %67, %if.then144 ], [ %norm16.0248253, %sw.bb19.i143 ]
   %c.1 = phi i32 [ %sub.i, %if.then144 ], [ %or36.i156, %sw.bb19.i143 ]
-  %cmp.i179 = icmp ult i32 %c.1, 65536
+  %cmp.i179 = icmp samesign ult i32 %c.1, 65536
   br i1 %cmp.i179, label %cond.true.i183, label %cond.false.i180
 
 cond.true.i183:                                   ; preds = %sw.bb.i175, %sw.bb1.i169, %sw.bb5.i158, %if.end148
@@ -4202,7 +4202,7 @@ cond.false.i:                                     ; preds = %lor.lhs.false
   %1 = load ptr, ptr %normTrie.i, align 8
   %data.i = getelementptr inbounds i8, ptr %1, i64 8
   %2 = load ptr, ptr %data.i, align 8
-  %cmp2.i = icmp ult i32 %c, 65536
+  %cmp2.i = icmp samesign ult i32 %c, 65536
   br i1 %cmp2.i, label %cond.true3.i, label %cond.false6.i
 
 cond.true3.i:                                     ; preds = %cond.false.i
@@ -4217,7 +4217,7 @@ cond.true3.i:                                     ; preds = %cond.false.i
   br label %cond.end21.i
 
 cond.false6.i:                                    ; preds = %cond.false.i
-  %cmp7.i = icmp ult i32 %c, 1114112
+  %cmp7.i = icmp samesign ult i32 %c, 1114112
   br i1 %cmp7.i, label %cond.true8.i, label %cond.false15.i
 
 cond.true8.i:                                     ; preds = %cond.false6.i
@@ -4428,7 +4428,7 @@ cond.false.i:                                     ; preds = %lor.lhs.false
   %1 = load ptr, ptr %normTrie.i, align 8
   %data.i = getelementptr inbounds i8, ptr %1, i64 8
   %2 = load ptr, ptr %data.i, align 8
-  %cmp2.i = icmp ult i32 %c, 65536
+  %cmp2.i = icmp samesign ult i32 %c, 65536
   br i1 %cmp2.i, label %cond.true3.i, label %cond.false6.i
 
 cond.true3.i:                                     ; preds = %cond.false.i
@@ -4443,7 +4443,7 @@ cond.true3.i:                                     ; preds = %cond.false.i
   br label %cond.end21.i
 
 cond.false6.i:                                    ; preds = %cond.false.i
-  %cmp7.i = icmp ult i32 %c, 1114112
+  %cmp7.i = icmp samesign ult i32 %c, 1114112
   br i1 %cmp7.i, label %cond.true8.i, label %cond.false15.i
 
 cond.true8.i:                                     ; preds = %cond.false6.i
@@ -4834,7 +4834,7 @@ entry:
   br i1 %cmp, label %lor.end, label %lor.lhs.false
 
 lor.lhs.false:                                    ; preds = %entry
-  %cmp2 = icmp ult i32 %c, 65536
+  %cmp2 = icmp samesign ult i32 %c, 65536
   br i1 %cmp2, label %land.lhs.true, label %lor.rhs.thread
 
 land.lhs.true:                                    ; preds = %lor.lhs.false
@@ -4884,7 +4884,7 @@ cond.false6.i:                                    ; preds = %lor.rhs.thread
   %9 = load ptr, ptr %normTrie.i16, align 8
   %data.i17 = getelementptr inbounds i8, ptr %9, i64 8
   %10 = load ptr, ptr %data.i17, align 8
-  %cmp7.i = icmp ult i32 %c, 1114112
+  %cmp7.i = icmp samesign ult i32 %c, 1114112
   br i1 %cmp7.i, label %cond.true8.i, label %cond.false15.i
 
 cond.true8.i:                                     ; preds = %cond.false6.i
@@ -4973,7 +4973,7 @@ entry:
   br i1 %cmp, label %return, label %if.end
 
 if.end:                                           ; preds = %entry
-  %cmp2 = icmp ult i32 %c, 65536
+  %cmp2 = icmp samesign ult i32 %c, 65536
   br i1 %cmp2, label %land.lhs.true, label %if.end4.thread
 
 land.lhs.true:                                    ; preds = %if.end
@@ -5023,7 +5023,7 @@ cond.false6.i:                                    ; preds = %if.end4.thread
   %9 = load ptr, ptr %normTrie.i15, align 8
   %data.i16 = getelementptr inbounds i8, ptr %9, i64 8
   %10 = load ptr, ptr %data.i16, align 8
-  %cmp7.i = icmp ult i32 %c, 1114112
+  %cmp7.i = icmp samesign ult i32 %c, 1114112
   br i1 %cmp7.i, label %cond.true8.i, label %cond.false15.i
 
 cond.true8.i:                                     ; preds = %cond.false6.i
@@ -5104,7 +5104,7 @@ if.end19.i:                                       ; preds = %if.end.i
   br i1 %cmp22.i, label %_ZNK6icu_7515Normalizer2Impl28norm16HasDecompBoundaryAfterEt.exit, label %if.end24.i
 
 if.end24.i:                                       ; preds = %if.end19.i
-  %cmp26.i = icmp ult i16 %25, 256
+  %cmp26.i = icmp samesign ult i16 %25, 256
   %26 = and i16 %25, 128
   %cmp31.i = icmp eq i16 %26, 0
   %or.cond.i = or i1 %cmp26.i, %cmp31.i
@@ -5175,7 +5175,7 @@ if.end19:                                         ; preds = %if.end
   br i1 %cmp22, label %return, label %if.end24
 
 if.end24:                                         ; preds = %if.end19
-  %cmp26 = icmp ult i16 %9, 256
+  %cmp26 = icmp samesign ult i16 %9, 256
   %10 = and i16 %9, 128
   %cmp31 = icmp eq i16 %10, 0
   %or.cond = or i1 %cmp26, %cmp31
@@ -5351,7 +5351,7 @@ if.then11:                                        ; preds = %if.end
   %5 = load ptr, ptr %normTrie.i, align 8
   %data.i = getelementptr inbounds i8, ptr %5, i64 8
   %6 = load ptr, ptr %data.i, align 8
-  %cmp.i = icmp ult i32 %compositeAndFwd.0, 131072
+  %cmp.i = icmp samesign ult i32 %compositeAndFwd.0, 131072
   br i1 %cmp.i, label %cond.true.i, label %cond.false.i
 
 cond.true.i:                                      ; preds = %if.then11
@@ -5366,7 +5366,7 @@ cond.true.i:                                      ; preds = %if.then11
   br label %_ZNK6icu_7515Normalizer2Impl12getRawNorm16Ei.exit
 
 cond.false.i:                                     ; preds = %if.then11
-  %cmp3.i = icmp ult i32 %compositeAndFwd.0, 2228224
+  %cmp3.i = icmp samesign ult i32 %compositeAndFwd.0, 2228224
   br i1 %cmp3.i, label %cond.true4.i, label %cond.false11.i
 
 cond.true4.i:                                     ; preds = %cond.false.i
@@ -5568,7 +5568,7 @@ if.then43:                                        ; preds = %if.end29
   br i1 %cmp.i91.not, label %if.then46, label %if.else84
 
 if.then46:                                        ; preds = %if.then43
-  %cmp47 = icmp ult i32 %c.0, 4519
+  %cmp47 = icmp samesign ult i32 %c.0, 4519
   br i1 %cmp47, label %if.then48, label %if.end80
 
 if.then48:                                        ; preds = %if.then46
@@ -5624,7 +5624,7 @@ if.end80:                                         ; preds = %while.body, %if.the
 
 if.else84:                                        ; preds = %if.then43
   %p.1.lcssa234251 = ptrtoint ptr %p.1 to i64
-  %cmp.i92 = icmp ult i32 %c.0, 13312
+  %cmp.i92 = icmp samesign ult i32 %c.0, 13312
   br i1 %cmp.i92, label %if.then.i, label %if.else19.i
 
 if.then.i:                                        ; preds = %if.else84
@@ -6110,7 +6110,7 @@ if.end47:                                         ; preds = %if.else43, %if.then
   br i1 %or.cond3, label %return, label %if.end52
 
 if.end52:                                         ; preds = %if.end47
-  %cmp.i35 = icmp ult i32 %b, 13312
+  %cmp.i35 = icmp samesign ult i32 %b, 13312
   br i1 %cmp.i35, label %if.then.i, label %if.else19.i
 
 if.then.i:                                        ; preds = %if.end52
@@ -6629,7 +6629,7 @@ if.else145:                                       ; preds = %for.end
 if.then150:                                       ; preds = %if.else145
   %add.ptr151 = getelementptr inbounds i8, ptr %src.addr.2361, i64 -2
   %48 = load i16, ptr %add.ptr151, align 2
-  %cmp152 = icmp ult i32 %c.0, 4519
+  %cmp152 = icmp samesign ult i32 %c.0, 4519
   br i1 %cmp152, label %if.then153, label %if.else201
 
 if.then153:                                       ; preds = %if.then150
@@ -7473,11 +7473,11 @@ do.end:                                           ; preds = %if.end, %if.then11,
   %minDecompNoCP.i = getelementptr inbounds i8, ptr %this, i64 8
   %2 = load i16, ptr %minDecompNoCP.i, align 8
   %conv.i = zext i16 %2 to i32
-  %cmp.i = icmp ult i32 %c.0, %conv.i
+  %cmp.i = icmp samesign ult i32 %c.0, %conv.i
   br i1 %cmp.i, label %return, label %if.else.i
 
 if.else.i:                                        ; preds = %do.end
-  %cmp2.i = icmp ult i32 %c.0, 65536
+  %cmp2.i = icmp samesign ult i32 %c.0, 65536
   br i1 %cmp2.i, label %if.then3.i, label %if.end6.i
 
 if.then3.i:                                       ; preds = %if.else.i
@@ -8245,7 +8245,7 @@ if.end25:                                         ; preds = %cond.true, %cond.fa
   %11 = load i16, ptr %arrayidx28, align 2
   %12 = load i16, ptr %minCompNoMaybeCP.i, align 2
   %conv.i = zext i16 %12 to i32
-  %cmp.i = icmp ult i32 %c.0, %conv.i
+  %cmp.i = icmp samesign ult i32 %c.0, %conv.i
   %13 = load i16, ptr %minNoNoCompNoMaybeCC.i.i, align 2
   %cmp.i.i = icmp ult i16 %11, %13
   %or.cond.i = select i1 %cmp.i, i1 true, i1 %cmp.i.i
@@ -8429,7 +8429,7 @@ _ZNK6icu_7515Normalizer2Impl26norm16HasCompBoundaryAfterEta.exit: ; preds = %lor
 if.end31:                                         ; preds = %cond.true.i.i, %if.end25, %_ZNK6icu_7515Normalizer2Impl26norm16HasCompBoundaryAfterEta.exit
   %18 = load i16, ptr %minCompNoMaybeCP.i, align 2
   %conv.i = zext i16 %18 to i32
-  %cmp.i = icmp ult i32 %c.0, %conv.i
+  %cmp.i = icmp samesign ult i32 %c.0, %conv.i
   %19 = load i16, ptr %minNoNoCompNoMaybeCC.i.i, align 2
   %cmp.i.i17 = icmp ult i16 %11, %19
   %or.cond.i = select i1 %cmp.i, i1 true, i1 %cmp.i.i17
@@ -8576,11 +8576,11 @@ if.then16:                                        ; preds = %if.else
   br i1 %cmp17.not, label %if.else105, label %land.lhs.true18
 
 land.lhs.true18:                                  ; preds = %if.then16
-  %cmp19 = icmp ugt i8 %4, -33
+  %cmp19 = icmp samesign ugt i8 %4, -33
   br i1 %cmp19, label %cond.true, label %cond.false86
 
 cond.true:                                        ; preds = %land.lhs.true18
-  %cmp20 = icmp ult i8 %4, -16
+  %cmp20 = icmp samesign ult i8 %4, -16
   br i1 %cmp20, label %cond.true21, label %cond.false
 
 cond.true21:                                      ; preds = %cond.true
@@ -8624,7 +8624,7 @@ land.lhs.true34:                                  ; preds = %land.lhs.true29
 
 cond.false:                                       ; preds = %cond.true
   %sub43 = add nsw i32 %conv9, -240
-  %cmp44 = icmp ult i8 %4, -11
+  %cmp44 = icmp samesign ult i8 %4, -11
   br i1 %cmp44, label %land.lhs.true45, label %if.else105
 
 land.lhs.true45:                                  ; preds = %cond.false
@@ -8684,7 +8684,7 @@ cond.false82:                                     ; preds = %land.lhs.true75
           to label %if.then103 unwind label %lpad.loopexit.split-lp.loopexit
 
 cond.false86:                                     ; preds = %land.lhs.true18
-  %cmp87 = icmp ugt i8 %4, -63
+  %cmp87 = icmp samesign ugt i8 %4, -63
   br i1 %cmp87, label %land.lhs.true88, label %if.else105
 
 land.lhs.true88:                                  ; preds = %cond.false86
@@ -9128,8 +9128,8 @@ land.lhs.true9.i:                                 ; preds = %land.lhs.true4.i
   br i1 %cmp15.i, label %land.lhs.true16.i, label %_ZN6icu_7512_GLOBAL__N_120previousHangulOrJamoEPKhS2_.exit
 
 land.lhs.true16.i:                                ; preds = %land.lhs.true9.i
-  %cmp18.i297 = icmp ult i8 %79, -19
-  %cmp20.i = icmp ult i8 %sub.i296, 32
+  %cmp18.i297 = icmp samesign ult i8 %79, -19
+  %cmp20.i = icmp samesign ult i8 %sub.i296, 32
   %or.cond1.i = or i1 %cmp18.i297, %cmp20.i
   br i1 %or.cond1.i, label %if.then21.i, label %_ZN6icu_7512_GLOBAL__N_120previousHangulOrJamoEPKhS2_.exit
 
@@ -9352,7 +9352,7 @@ do.end.i356:                                      ; preds = %if.then4.i355, %if.
   br i1 %cmp.i.i358, label %invoke.cont288.thread, label %if.else.i.i
 
 if.else.i.i:                                      ; preds = %do.end.i356
-  %cmp2.i.i = icmp ult i32 %c.0.i, 65536
+  %cmp2.i.i = icmp samesign ult i32 %c.0.i, 65536
   br i1 %cmp2.i.i, label %if.then3.i.i, label %if.end6.i.i
 
 if.then3.i.i:                                     ; preds = %if.else.i.i
@@ -9409,11 +9409,11 @@ if.then313:                                       ; preds = %if.end306
   br i1 %cmp317.not, label %if.else421, label %land.lhs.true318
 
 land.lhs.true318:                                 ; preds = %if.then313
-  %cmp319 = icmp ugt i8 %105, -33
+  %cmp319 = icmp samesign ugt i8 %105, -33
   br i1 %cmp319, label %cond.true320, label %cond.false402
 
 cond.true320:                                     ; preds = %land.lhs.true318
-  %cmp321 = icmp ult i8 %105, -16
+  %cmp321 = icmp samesign ult i8 %105, -16
   br i1 %cmp321, label %cond.true322, label %cond.false353
 
 cond.true322:                                     ; preds = %cond.true320
@@ -9457,7 +9457,7 @@ land.lhs.true341:                                 ; preds = %land.lhs.true335
 
 cond.false353:                                    ; preds = %cond.true320
   %sub354 = add nsw i32 %conv310, -240
-  %cmp355 = icmp ult i8 %105, -11
+  %cmp355 = icmp samesign ult i8 %105, -11
   br i1 %cmp355, label %land.lhs.true356, label %if.else421
 
 land.lhs.true356:                                 ; preds = %cond.false353
@@ -9517,7 +9517,7 @@ cond.false396:                                    ; preds = %land.lhs.true387
           to label %if.then419 unwind label %lpad.loopexit
 
 cond.false402:                                    ; preds = %land.lhs.true318
-  %cmp403 = icmp ugt i8 %105, -63
+  %cmp403 = icmp samesign ugt i8 %105, -63
   br i1 %cmp403, label %land.lhs.true404, label %if.else421
 
 land.lhs.true404:                                 ; preds = %cond.false402
@@ -9818,11 +9818,11 @@ if.then3:                                         ; preds = %do.body
   br i1 %cmp4.not, label %if.else, label %land.lhs.true
 
 land.lhs.true:                                    ; preds = %if.then3
-  %cmp5 = icmp ugt i8 %0, -33
+  %cmp5 = icmp samesign ugt i8 %0, -33
   br i1 %cmp5, label %cond.true, label %cond.false70
 
 cond.true:                                        ; preds = %land.lhs.true
-  %cmp6 = icmp ult i8 %0, -16
+  %cmp6 = icmp samesign ult i8 %0, -16
   br i1 %cmp6, label %cond.true7, label %cond.false
 
 cond.true7:                                       ; preds = %cond.true
@@ -9867,7 +9867,7 @@ land.lhs.true20:                                  ; preds = %land.lhs.true15
 
 cond.false:                                       ; preds = %cond.true
   %sub29 = add nsw i32 %conv, -240
-  %cmp30 = icmp ult i8 %0, -11
+  %cmp30 = icmp samesign ult i8 %0, -11
   br i1 %cmp30, label %land.lhs.true31, label %if.else
 
 land.lhs.true31:                                  ; preds = %cond.false
@@ -9928,7 +9928,7 @@ cond.false68:                                     ; preds = %land.lhs.true61
   br label %if.end93
 
 cond.false70:                                     ; preds = %land.lhs.true
-  %cmp71 = icmp ugt i8 %0, -63
+  %cmp71 = icmp samesign ugt i8 %0, -63
   br i1 %cmp71, label %land.lhs.true72, label %if.else
 
 land.lhs.true72:                                  ; preds = %cond.false70
@@ -10096,7 +10096,7 @@ do.end:                                           ; preds = %if.end, %if.then4
   br i1 %cmp.i, label %return, label %if.else.i
 
 if.else.i:                                        ; preds = %do.end
-  %cmp2.i = icmp ult i32 %c.0, 65536
+  %cmp2.i = icmp samesign ult i32 %c.0, 65536
   br i1 %cmp2.i, label %if.then3.i, label %if.end6.i
 
 if.then3.i:                                       ; preds = %if.else.i
@@ -10498,7 +10498,7 @@ cond.false.i.i:                                   ; preds = %if.end38
   %18 = load ptr, ptr %normTrie.i.i, align 8
   %data.i.i = getelementptr inbounds i8, ptr %18, i64 8
   %19 = load ptr, ptr %data.i.i, align 8
-  %cmp2.i.i = icmp ult i32 %c.4, 65536
+  %cmp2.i.i = icmp samesign ult i32 %c.4, 65536
   br i1 %cmp2.i.i, label %cond.true3.i.i, label %cond.false6.i.i
 
 cond.true3.i.i:                                   ; preds = %cond.false.i.i
@@ -10513,7 +10513,7 @@ cond.true3.i.i:                                   ; preds = %cond.false.i.i
   br label %_ZNK6icu_7515Normalizer2Impl9getNorm16Ei.exit.i
 
 cond.false6.i.i:                                  ; preds = %cond.false.i.i
-  %cmp7.i.i = icmp ult i32 %c.4, 1114112
+  %cmp7.i.i = icmp samesign ult i32 %c.4, 1114112
   br i1 %cmp7.i.i, label %cond.true8.i.i, label %cond.false15.i.i
 
 cond.true8.i.i:                                   ; preds = %cond.false6.i.i
@@ -10673,7 +10673,7 @@ _ZNK6icu_7515Normalizer2Impl20getFCD16FromNormDataEi.exit: ; preds = %if.then5.i
 if.then42:                                        ; preds = %if.end33.i, %if.end27.i, %lor.lhs.false.i, %if.else.i88, %if.then20.i, %_ZNK6icu_7515Normalizer2Impl20getFCD16FromNormDataEi.exit
   %retval.0.i89107 = phi i16 [ %retval.0.i89, %_ZNK6icu_7515Normalizer2Impl20getFCD16FromNormDataEi.exit ], [ %shr36.i, %if.end33.i ], [ 0, %if.end27.i ], [ 0, %lor.lhs.false.i ], [ 0, %if.else.i88 ], [ %32, %if.then20.i ]
   %conv40 = zext nneg i16 %retval.0.i89107 to i32
-  %cmp44 = icmp ult i32 %c.4, 65536
+  %cmp44 = icmp samesign ult i32 %c.4, 65536
   %cond = select i1 %cmp44, i64 1, i64 2
   %add.ptr45 = getelementptr inbounds i16, ptr %src.addr.2147, i64 %cond
   br label %if.end49
@@ -10713,7 +10713,7 @@ if.then62:                                        ; preds = %if.end60
   %not63 = xor i32 %prevFCD16.3145, -1
   %52 = load i16, ptr %minDecompNoCP, align 8
   %conv64 = zext i16 %52 to i32
-  %cmp65 = icmp ult i32 %not63, %conv64
+  %cmp65 = icmp samesign ult i32 %not63, %conv64
   br i1 %cmp65, label %if.end107, label %if.else67
 
 if.else67:                                        ; preds = %if.then62
@@ -10753,7 +10753,7 @@ if.then87:                                        ; preds = %land.lhs.true82
 if.end98:                                         ; preds = %if.then87, %land.lhs.true82, %if.else75
   %prevFCD16.6 = phi i32 [ %conv97, %if.then87 ], [ %prevFCD16.3145, %land.lhs.true82 ], [ %prevFCD16.3145, %if.else75 ]
   %p.0 = phi ptr [ %add.ptr83, %if.then87 ], [ %add.ptr76, %land.lhs.true82 ], [ %add.ptr76, %if.else75 ]
-  %cmp99 = icmp ugt i32 %prevFCD16.6, 1
+  %cmp99 = icmp samesign ugt i32 %prevFCD16.6, 1
   %spec.select77 = select i1 %cmp99, ptr %p.0, ptr %src.addr.2147
   br label %if.end107
 
@@ -10761,7 +10761,7 @@ if.end107:                                        ; preds = %for.end.thread, %if
   %prevBoundary.4 = phi ptr [ %src.addr.2147, %if.then62 ], [ %spec.select75, %if.else67 ], [ %spec.select77, %if.end98 ], [ %prevBoundary.2178, %for.end.thread ]
   %prevFCD16.7 = phi i32 [ 0, %if.then62 ], [ %conv69, %if.else67 ], [ %prevFCD16.6, %if.end98 ], [ %prevFCD16.3145, %for.end.thread ]
   %prevSrc.0 = phi ptr [ %src.addr.2147, %if.then62 ], [ %src.addr.2147, %if.else67 ], [ %src.addr.2147, %if.end98 ], [ %src.addr.1180, %for.end.thread ]
-  %cmp108 = icmp ult i32 %c.4, 65536
+  %cmp108 = icmp samesign ult i32 %c.4, 65536
   %cond109 = select i1 %cmp108, i64 1, i64 2
   %add.ptr111 = getelementptr inbounds i16, ptr %src.addr.2147, i64 %cond109
   %and112 = and i32 %prevFCD16.7, 255
@@ -10942,7 +10942,7 @@ if.end25:                                         ; preds = %cond.true, %cond.fa
   %11 = load i16, ptr %arrayidx28, align 2
   %12 = load i16, ptr %minLcccCP, align 4
   %conv29 = zext i16 %12 to i32
-  %cmp30 = icmp ult i32 %c.0, %conv29
+  %cmp30 = icmp samesign ult i32 %c.0, %conv29
   %13 = load i16, ptr %minNoNoCompNoMaybeCC.i, align 2
   %cmp.i = icmp ult i16 %11, %13
   %or.cond33 = select i1 %cmp30, i1 true, i1 %cmp.i
@@ -11015,7 +11015,7 @@ if.end19.i:                                       ; preds = %if.end.i19
   br i1 %cmp22.i, label %while.cond.backedge, label %if.end24.i
 
 if.end24.i:                                       ; preds = %if.end19.i
-  %cmp26.i = icmp ult i16 %29, 256
+  %cmp26.i = icmp samesign ult i16 %29, 256
   %30 = and i16 %29, 128
   %cmp31.i = icmp eq i16 %30, 0
   %or.cond.i = or i1 %cmp26.i, %cmp31.i
@@ -11304,7 +11304,7 @@ if.end25:                                         ; preds = %cond.true, %cond.fa
   %11 = load i16, ptr %arrayidx28, align 2
   %12 = load i16, ptr %minDecompNoCP, align 8
   %conv29 = zext i16 %12 to i32
-  %cmp30 = icmp uge i32 %c.0, %conv29
+  %cmp30 = icmp samesign uge i32 %c.0, %conv29
   %13 = load i16, ptr %minYesNo.i, align 2
   %cmp.not.i = icmp ugt i16 %11, %13
   %or.cond37 = select i1 %cmp30, i1 %cmp.not.i, i1 false
@@ -11347,7 +11347,7 @@ if.end19.i:                                       ; preds = %if.end.i
   br i1 %cmp22.i, label %if.end33, label %if.end24.i
 
 if.end24.i:                                       ; preds = %if.end19.i
-  %cmp26.i = icmp ult i16 %22, 256
+  %cmp26.i = icmp samesign ult i16 %22, 256
   %23 = and i16 %22, 128
   %cmp31.i = icmp eq i16 %23, 0
   %or.cond.i = or i1 %cmp26.i, %cmp31.i

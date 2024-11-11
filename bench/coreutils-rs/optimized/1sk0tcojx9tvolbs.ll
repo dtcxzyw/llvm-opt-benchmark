@@ -121,7 +121,7 @@ thread-pre-split:                                 ; preds = %302, %"_ZN3std2io5i
   %89 = and i8 %87, 63
   %90 = zext nneg i8 %89 to i32
   %91 = or disjoint i32 %88, %90
-  %92 = icmp ugt i8 %81, -33
+  %92 = icmp samesign ugt i8 %81, -33
   br i1 %92, label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h9b5763eb2ad3b950E.exit15.i", label %_ZN4core3str11validations15next_code_point17h8b5abcbc5d7edfa9E.exit.thread.thread
 
 93:                                               ; preds = %79
@@ -140,7 +140,7 @@ thread-pre-split:                                 ; preds = %302, %"_ZN3std2io5i
   %101 = or disjoint i32 %98, %100
   %102 = shl nuw nsw i32 %84, 12
   %103 = or disjoint i32 %101, %102
-  %104 = icmp ugt i8 %81, -17
+  %104 = icmp samesign ugt i8 %81, -17
   br i1 %104, label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h9b5763eb2ad3b950E.exit17.i", label %_ZN4core3str11validations15next_code_point17h8b5abcbc5d7edfa9E.exit.thread.thread
 
 "_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h9b5763eb2ad3b950E.exit17.i": ; preds = %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h9b5763eb2ad3b950E.exit15.i"
@@ -206,7 +206,7 @@ _ZN4core3str11validations15next_code_point17h8b5abcbc5d7edfa9E.exit.thread.threa
   %131 = and i8 %129, 63
   %132 = zext nneg i8 %131 to i32
   %133 = or disjoint i32 %130, %132
-  %134 = icmp ugt i8 %123, -33
+  %134 = icmp samesign ugt i8 %123, -33
   br i1 %134, label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h9b5763eb2ad3b950E.exit15.i.i.i.i", label %"_ZN4core6option15Option$LT$T$GT$18get_or_insert_with17h77f28f8e4cbe858bE.exit.thread"
 
 135:                                              ; preds = %121
@@ -225,7 +225,7 @@ _ZN4core3str11validations15next_code_point17h8b5abcbc5d7edfa9E.exit.thread.threa
   %143 = or disjoint i32 %140, %142
   %144 = shl nuw nsw i32 %126, 12
   %145 = or disjoint i32 %143, %144
-  %146 = icmp ugt i8 %123, -17
+  %146 = icmp samesign ugt i8 %123, -17
   br i1 %146, label %"_ZN4core6option15Option$LT$T$GT$18get_or_insert_with17h77f28f8e4cbe858bE.exit", label %"_ZN4core6option15Option$LT$T$GT$18get_or_insert_with17h77f28f8e4cbe858bE.exit.thread"
 
 "_ZN4core6option15Option$LT$T$GT$18get_or_insert_with17h77f28f8e4cbe858bE.exit.thread": ; preds = %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h9b5763eb2ad3b950E.exit13.i.i.i.i", %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h9b5763eb2ad3b950E.exit15.i.i.i.i", %135
@@ -443,7 +443,7 @@ select.unfold144:                                 ; preds = %183
   %208 = and i8 %206, 63
   %209 = zext nneg i8 %208 to i32
   %210 = or disjoint i32 %207, %209
-  %211 = icmp ugt i8 %200, -33
+  %211 = icmp samesign ugt i8 %200, -33
   br i1 %211, label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h9b5763eb2ad3b950E.exit15.i103", label %_ZN4core3str11validations15next_code_point17h8b5abcbc5d7edfa9E.exit105.thread.thread
 
 212:                                              ; preds = %198
@@ -462,7 +462,7 @@ select.unfold144:                                 ; preds = %183
   %220 = or disjoint i32 %217, %219
   %221 = shl nuw nsw i32 %203, 12
   %222 = or disjoint i32 %220, %221
-  %223 = icmp ugt i8 %200, -17
+  %223 = icmp samesign ugt i8 %200, -17
   br i1 %223, label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h9b5763eb2ad3b950E.exit17.i104", label %_ZN4core3str11validations15next_code_point17h8b5abcbc5d7edfa9E.exit105.thread.thread
 
 "_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h9b5763eb2ad3b950E.exit17.i104": ; preds = %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h9b5763eb2ad3b950E.exit15.i103"

@@ -78,7 +78,7 @@ define internal fastcc void @idt_setup_from_table(ptr nocapture noundef readonly
   tail call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock;  btsq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) @system_vectors, i64 %28) #4, !srcloc !6
   %29 = getelementptr i8, ptr %4, i64 24
   %30 = add nsw i32 %5, -1
-  %31 = icmp ugt i32 %5, 1
+  %31 = icmp samesign ugt i32 %5, 1
   br i1 %31, label %3, label %32, !llvm.loop !7
 
 32:                                               ; preds = %3

@@ -866,7 +866,7 @@ define linkonce_odr noundef zeroext i1 @_ZN5ZXing4GTIN17IsCheckDigitValidIcEEbRK
   %11 = add i32 %.01617.i, -48
   %12 = add i32 %11, %10
   %indvars.iv.next.i = add nsw i64 %indvars.iv.i, -2
-  %13 = icmp ugt i64 %indvars.iv.i, 1
+  %13 = icmp samesign ugt i64 %indvars.iv.i, 1
   br i1 %13, label %.lr.ph.i, label %._crit_edge.i, !llvm.loop !12
 
 ._crit_edge.i:                                    ; preds = %.lr.ph.i
@@ -888,7 +888,7 @@ define linkonce_odr noundef zeroext i1 @_ZN5ZXing4GTIN17IsCheckDigitValidIcEEbRK
   %18 = sext i8 %.fr26.i to i32
   %19 = add i32 %.1.fr21.i, -48
   %20 = add i32 %19, %18
-  %21 = icmp ugt i64 %indvars.iv29.i, 3
+  %21 = icmp samesign ugt i64 %indvars.iv29.i, 3
   br i1 %21, label %.lr.ph23.i, label %_ZN5ZXing4GTIN17ComputeCheckDigitIcEET_RKNSt7__cxx1112basic_stringIS2_St11char_traitsIS2_ESaIS2_EEEb.exit, !llvm.loop !13
 
 _ZN5ZXing4GTIN17ComputeCheckDigitIcEET_RKNSt7__cxx1112basic_stringIS2_St11char_traitsIS2_ESaIS2_EEEb.exit: ; preds = %.lr.ph23.i, %1, %._crit_edge.i
@@ -896,7 +896,7 @@ _ZN5ZXing4GTIN17ComputeCheckDigitIcEET_RKNSt7__cxx1112basic_stringIS2_St11char_t
   %22 = srem i32 %.1.fr.lcssa.i, 10
   %23 = sub nsw i32 10, %22
   %.urem.i = sub nsw i32 0, %22
-  %.cmp.i = icmp ult i32 %23, 10
+  %.cmp.i = icmp samesign ult i32 %23, 10
   %24 = select i1 %.cmp.i, i32 %23, i32 %.urem.i
   %25 = tail call noundef signext i8 @_ZN5ZXing7ToDigitIcEET_i(i32 noundef %24)
   %26 = tail call noundef nonnull align 1 dereferenceable(1) ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4backEv(ptr noundef nonnull align 8 dereferenceable(32) %0) #15

@@ -1473,15 +1473,15 @@ define linkonce_odr hidden noundef i32 @_ZN5boost6locale3utf10utf_traitsIcLi1EE6
   br i1 %8, label %19, label %9
 
 9:                                                ; preds = %5
-  %10 = icmp ult i8 %7, -62
+  %10 = icmp samesign ult i8 %7, -62
   br i1 %10, label %_ZN5boost6locale3utf10utf_traitsIcLi1EE12trail_lengthEc.exit, label %11, !prof !30
 
 11:                                               ; preds = %9
-  %12 = icmp ult i8 %7, -32
+  %12 = icmp samesign ult i8 %7, -32
   br i1 %12, label %21, label %13
 
 13:                                               ; preds = %11
-  %14 = icmp ult i8 %7, -16
+  %14 = icmp samesign ult i8 %7, -16
   br i1 %14, label %.thread55, label %17
 
 .thread55:                                        ; preds = %13
@@ -1490,7 +1490,7 @@ define linkonce_odr hidden noundef i32 @_ZN5boost6locale3utf10utf_traitsIcLi1EE6
   br label %37
 
 17:                                               ; preds = %13
-  %18 = icmp ult i8 %7, -11
+  %18 = icmp samesign ult i8 %7, -11
   br i1 %18, label %24, label %_ZN5boost6locale3utf10utf_traitsIcLi1EE12trail_lengthEc.exit, !prof !55
 
 19:                                               ; preds = %5
@@ -1562,22 +1562,22 @@ define linkonce_odr hidden noundef i32 @_ZN5boost6locale3utf10utf_traitsIcLi1EE6
   %58 = and i8 %54, 63
   %59 = zext nneg i8 %58 to i32
   %60 = or disjoint i32 %57, %59
-  %61 = icmp ult i32 %.2, 17408
+  %61 = icmp samesign ult i32 %.2, 17408
   %62 = and i32 %.2, 32736
   %or.cond.i = icmp ne i32 %62, 864
   %.0.i41 = and i1 %61, %or.cond.i
   br i1 %.0.i41, label %63, label %_ZN5boost6locale3utf10utf_traitsIcLi1EE12trail_lengthEc.exit, !prof !55
 
 63:                                               ; preds = %56
-  %64 = icmp ult i32 %.2, 2
+  %64 = icmp samesign ult i32 %.2, 2
   br i1 %64, label %_ZN5boost6locale3utf10utf_traitsIcLi1EE5widthEj.exit, label %65
 
 65:                                               ; preds = %63
-  %66 = icmp ult i32 %.2, 32
+  %66 = icmp samesign ult i32 %.2, 32
   br i1 %66, label %_ZN5boost6locale3utf10utf_traitsIcLi1EE5widthEj.exit, label %67
 
 67:                                               ; preds = %65
-  %68 = icmp ult i32 %.2, 1024
+  %68 = icmp samesign ult i32 %.2, 1024
   %..i42 = select i1 %68, i32 3, i32 4, !prof !55
   br label %_ZN5boost6locale3utf10utf_traitsIcLi1EE5widthEj.exit
 

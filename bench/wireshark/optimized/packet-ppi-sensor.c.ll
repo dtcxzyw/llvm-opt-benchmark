@@ -281,16 +281,16 @@ define internal i32 @dissect_ppi_sensor(ptr noundef %0, ptr noundef %1, ptr noun
   br label %56
 
 51:                                               ; preds = %45
-  %.not312 = icmp ult i32 %43, 67108864
+  %.not312 = icmp samesign ult i32 %43, 67108864
   br i1 %.not312, label %54, label %52
 
 52:                                               ; preds = %51
-  %.not314 = icmp ugt i32 %43, 134217727
+  %.not314 = icmp samesign ugt i32 %43, 134217727
   %53 = select i1 %.not314, i32 3, i32 2
   br label %56
 
 54:                                               ; preds = %51
-  %.not313 = icmp ugt i32 %43, 33554431
+  %.not313 = icmp samesign ugt i32 %43, 33554431
   %55 = zext i1 %.not313 to i32
   br label %56
 
@@ -300,30 +300,30 @@ define internal i32 @dissect_ppi_sensor(ptr noundef %0, ptr noundef %1, ptr noun
   br label %70
 
 59:                                               ; preds = %44
-  %.not304 = icmp ult i32 %43, 1048576
+  %.not304 = icmp samesign ult i32 %43, 1048576
   br i1 %.not304, label %65, label %60
 
 60:                                               ; preds = %59
-  %.not308 = icmp ult i32 %43, 4194304
-  %.not310 = icmp ugt i32 %43, 8388607
+  %.not308 = icmp samesign ult i32 %43, 4194304
+  %.not310 = icmp samesign ugt i32 %43, 8388607
   %61 = select i1 %.not310, i32 3, i32 2
-  %.not309 = icmp ugt i32 %43, 2097151
+  %.not309 = icmp samesign ugt i32 %43, 2097151
   %62 = zext i1 %.not309 to i32
   %63 = select i1 %.not308, i32 %62, i32 %61
   %64 = or disjoint i32 %63, 4
   br label %70
 
 65:                                               ; preds = %59
-  %.not305 = icmp ult i32 %43, 262144
+  %.not305 = icmp samesign ult i32 %43, 262144
   br i1 %.not305, label %68, label %66
 
 66:                                               ; preds = %65
-  %.not307 = icmp ugt i32 %43, 524287
+  %.not307 = icmp samesign ugt i32 %43, 524287
   %67 = select i1 %.not307, i32 3, i32 2
   br label %70
 
 68:                                               ; preds = %65
-  %.not306 = icmp ugt i32 %43, 131071
+  %.not306 = icmp samesign ugt i32 %43, 131071
   %69 = zext i1 %.not306 to i32
   br label %70
 
@@ -333,34 +333,34 @@ define internal i32 @dissect_ppi_sensor(ptr noundef %0, ptr noundef %1, ptr noun
   br label %99
 
 73:                                               ; preds = %40
-  %.not288 = icmp ult i32 %43, 256
+  %.not288 = icmp samesign ult i32 %43, 256
   br i1 %.not288, label %88, label %74
 
 74:                                               ; preds = %73
-  %.not296 = icmp ult i32 %43, 4096
+  %.not296 = icmp samesign ult i32 %43, 4096
   br i1 %.not296, label %80, label %75
 
 75:                                               ; preds = %74
-  %.not300 = icmp ult i32 %43, 16384
-  %.not302 = icmp ugt i32 %43, 32767
+  %.not300 = icmp samesign ult i32 %43, 16384
+  %.not302 = icmp samesign ugt i32 %43, 32767
   %76 = select i1 %.not302, i32 3, i32 2
-  %.not301 = icmp ugt i32 %43, 8191
+  %.not301 = icmp samesign ugt i32 %43, 8191
   %77 = zext i1 %.not301 to i32
   %78 = select i1 %.not300, i32 %77, i32 %76
   %79 = or disjoint i32 %78, 4
   br label %85
 
 80:                                               ; preds = %74
-  %.not297 = icmp ult i32 %43, 1024
+  %.not297 = icmp samesign ult i32 %43, 1024
   br i1 %.not297, label %83, label %81
 
 81:                                               ; preds = %80
-  %.not299 = icmp ugt i32 %43, 2047
+  %.not299 = icmp samesign ugt i32 %43, 2047
   %82 = select i1 %.not299, i32 3, i32 2
   br label %85
 
 83:                                               ; preds = %80
-  %.not298 = icmp ugt i32 %43, 511
+  %.not298 = icmp samesign ugt i32 %43, 511
   %84 = zext i1 %.not298 to i32
   br label %85
 
@@ -370,30 +370,30 @@ define internal i32 @dissect_ppi_sensor(ptr noundef %0, ptr noundef %1, ptr noun
   br label %99
 
 88:                                               ; preds = %73
-  %.not289 = icmp ult i32 %43, 16
+  %.not289 = icmp samesign ult i32 %43, 16
   br i1 %.not289, label %94, label %89
 
 89:                                               ; preds = %88
-  %.not293 = icmp ult i32 %43, 64
-  %.not295 = icmp ugt i32 %43, 127
+  %.not293 = icmp samesign ult i32 %43, 64
+  %.not295 = icmp samesign ugt i32 %43, 127
   %90 = select i1 %.not295, i32 3, i32 2
-  %.not294 = icmp ugt i32 %43, 31
+  %.not294 = icmp samesign ugt i32 %43, 31
   %91 = zext i1 %.not294 to i32
   %92 = select i1 %.not293, i32 %91, i32 %90
   %93 = or disjoint i32 %92, 4
   br label %99
 
 94:                                               ; preds = %88
-  %.not290 = icmp ult i32 %43, 4
+  %.not290 = icmp samesign ult i32 %43, 4
   br i1 %.not290, label %97, label %95
 
 95:                                               ; preds = %94
-  %.not292 = icmp ugt i32 %43, 7
+  %.not292 = icmp samesign ugt i32 %43, 7
   %96 = icmp ult i32 %.0259354, 4
   br i1 %.not292, label %.thread340, label %.thread
 
 97:                                               ; preds = %94
-  %.not291 = icmp ugt i32 %43, 1
+  %.not291 = icmp samesign ugt i32 %43, 1
   %98 = zext i1 %.not291 to i32
   br label %99
 
@@ -471,7 +471,7 @@ define internal i32 @dissect_ppi_sensor(ptr noundef %0, ptr noundef %1, ptr noun
   %.113.i = phi i32 [ %spec.select.i, %130 ], [ %134, %132 ]
   %133 = fmul double %.0914.i, 1.000000e+01
   %134 = add nsw i32 %.113.i, -1
-  %135 = icmp ugt i32 %.113.i, 1
+  %135 = icmp samesign ugt i32 %.113.i, 1
   br i1 %135, label %132, label %136, !llvm.loop !4
 
 136:                                              ; preds = %132
@@ -518,7 +518,7 @@ base_10_expt.exit:                                ; preds = %126, %136, %138
   %.113.i327 = phi i32 [ %spec.select.i325, %151 ], [ %155, %153 ]
   %154 = fmul double %.0914.i326, 1.000000e+01
   %155 = add nsw i32 %.113.i327, -1
-  %156 = icmp ugt i32 %.113.i327, 1
+  %156 = icmp samesign ugt i32 %.113.i327, 1
   br i1 %156, label %153, label %157, !llvm.loop !4
 
 157:                                              ; preds = %153
@@ -566,7 +566,7 @@ base_10_expt.exit329:                             ; preds = %147, %157, %159
   %.113.i332 = phi i32 [ %spec.select.i330, %174 ], [ %178, %176 ]
   %177 = fmul double %.0914.i331, 1.000000e+01
   %178 = add nsw i32 %.113.i332, -1
-  %179 = icmp ugt i32 %.113.i332, 1
+  %179 = icmp samesign ugt i32 %.113.i332, 1
   br i1 %179, label %176, label %180, !llvm.loop !4
 
 180:                                              ; preds = %176
@@ -614,7 +614,7 @@ base_10_expt.exit334:                             ; preds = %170, %180, %182
   %.113.i337 = phi i32 [ %spec.select.i335, %197 ], [ %201, %199 ]
   %200 = fmul double %.0914.i336, 1.000000e+01
   %201 = add nsw i32 %.113.i337, -1
-  %202 = icmp ugt i32 %.113.i337, 1
+  %202 = icmp samesign ugt i32 %.113.i337, 1
   br i1 %202, label %199, label %203, !llvm.loop !4
 
 203:                                              ; preds = %199

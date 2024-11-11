@@ -671,7 +671,7 @@ define internal i32 @dissect_wifi_p2p_ie(ptr noundef %0, ptr noundef %1, ptr nou
 9:                                                ; preds = %.lr.ph, %dissect_channel_list.exit
   %.0149 = phi i32 [ %6, %.lr.ph ], [ %519, %dissect_channel_list.exit ]
   %.0121148 = phi i32 [ 0, %.lr.ph ], [ %518, %dissect_channel_list.exit ]
-  %10 = icmp ult i32 %.0149, 3
+  %10 = icmp samesign ult i32 %.0149, 3
   br i1 %10, label %11, label %13
 
 11:                                               ; preds = %9
@@ -1187,7 +1187,7 @@ define internal i32 @dissect_wifi_p2p_ie(ptr noundef %0, ptr noundef %1, ptr nou
   %374 = call ptr @proto_tree_add_item(ptr noundef %315, i32 noundef %373, ptr noundef %0, i32 noundef %.1147.i, i32 noundef 8, i32 noundef 0) #4
   %375 = add i32 %.1147.i, 8
   %376 = add nsw i32 %.0134146.i, -1
-  %377 = icmp ugt i32 %.0134146.i, 1
+  %377 = icmp samesign ugt i32 %.0134146.i, 1
   br i1 %377, label %.lr.ph.i126, label %._crit_edge.i127, !llvm.loop !9
 
 ._crit_edge.i127:                                 ; preds = %.lr.ph.i126, %.preheader.i

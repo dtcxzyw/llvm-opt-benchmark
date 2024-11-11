@@ -280,7 +280,7 @@ serialize_more.exit485:                           ; preds = %if.then.i483, %if.t
   br label %if.end365
 
 if.else15:                                        ; preds = %if.else
-  %cmp18 = icmp ugt i64 %shr, -4
+  %cmp18 = icmp samesign ugt i64 %shr, -4
   br i1 %cmp18, label %if.then20, label %if.else27
 
 if.then20:                                        ; preds = %if.else15
@@ -1167,7 +1167,7 @@ if.end59:                                         ; preds = %if.then48
   br label %if.end417
 
 if.else66:                                        ; preds = %if.else
-  %cmp67 = icmp ult i32 %tp.0, 3
+  %cmp67 = icmp samesign ult i32 %tp.0, 3
   br i1 %cmp67, label %if.then69, label %if.else73
 
 if.then69:                                        ; preds = %if.else66
@@ -1406,7 +1406,7 @@ if.end191:                                        ; preds = %if.end183, %if.end1
   %tp.1 = phi i32 [ %tp.2, %if.end183 ], [ %tp.0, %if.end125 ]
   %r.addr.1 = phi ptr [ %retval.i442.0, %if.end183 ], [ %retval.i505.0, %if.end125 ]
   %mt.0 = phi i64 [ %and166, %if.end183 ], [ 0, %if.end125 ]
-  %cmp192 = icmp ugt i32 %tp.1, 9
+  %cmp192 = icmp samesign ugt i32 %tp.1, 9
   br i1 %cmp192, label %if.then194, label %if.end207
 
 if.then194:                                       ; preds = %if.end191
@@ -1532,7 +1532,7 @@ if.then241:                                       ; preds = %cond.end233
   %array242 = getelementptr inbounds i8, ptr %call235, i64 16
   %50 = load i64, ptr %array242, align 8
   %51 = inttoptr i64 %50 to ptr
-  %cmp244 = icmp ugt i32 %tp.1, 11
+  %cmp244 = icmp samesign ugt i32 %tp.1, 11
   %idx.ext246 = zext i1 %cmp244 to i64
   %idx.ext250 = zext i32 %narray.0 to i64
   %add.ptr251 = getelementptr inbounds %union.TValue, ptr %51, i64 %idx.ext250
@@ -1654,7 +1654,7 @@ if.end359:                                        ; preds = %if.end350, %if.then
   br label %if.end417
 
 if.else363:                                       ; preds = %if.else284
-  %cmp364 = icmp ult i32 %tp.0, 6
+  %cmp364 = icmp samesign ult i32 %tp.0, 6
   br i1 %cmp364, label %if.then366, label %badtag
 
 if.then366:                                       ; preds = %if.else363

@@ -708,7 +708,7 @@ land.rhs:                                         ; preds = %land.rhs.lr.ph, %wh
 
 while.body:                                       ; preds = %land.rhs
   store i8 0, ptr %arrayidx17, align 1
-  %cmp12 = icmp ugt i64 %indvars.iv, 1
+  %cmp12 = icmp samesign ugt i64 %indvars.iv, 1
   br i1 %cmp12, label %land.rhs, label %return, !llvm.loop !12
 
 return:                                           ; preds = %while.body, %land.rhs, %while.cond.preheader, %if.then9, %if.else, %entry

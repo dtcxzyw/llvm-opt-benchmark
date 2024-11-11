@@ -5010,7 +5010,7 @@ define internal void @dequeue_task_fair(ptr noundef %0, ptr noundef %1, i32 noun
 
 415:                                              ; preds = %410
   %416 = sub nuw nsw i32 %408, %413
-  %417 = icmp ult i32 %416, 10
+  %417 = icmp samesign ult i32 %416, 10
   br i1 %417, label %430, label %418
 
 418:                                              ; preds = %415

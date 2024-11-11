@@ -1002,7 +1002,7 @@ define internal ptr @H5O__fill_new_shared_decode(ptr noundef %0, ptr noundef %1,
   store i32 %141, ptr %142, align 4
   %143 = and i32 %137, 16
   %.not134.i = icmp eq i32 %143, 0
-  %.not135.i = icmp ult i8 %131, 32
+  %.not135.i = icmp samesign ult i8 %131, 32
   br i1 %.not134.i, label %151, label %144
 
 144:                                              ; preds = %136

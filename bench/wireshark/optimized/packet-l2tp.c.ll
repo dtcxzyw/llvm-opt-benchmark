@@ -2837,7 +2837,7 @@ dissect_l2tp_ericsson_avps.exit:                  ; preds = %.lr.ph.i98.i, %312,
   br label %store_ccid.exit
 
 463:                                              ; preds = %451
-  %464 = icmp ult i16 %456, 2
+  %464 = icmp samesign ult i16 %456, 2
   br i1 %464, label %store_ccid.exit, label %465
 
 465:                                              ; preds = %463
@@ -2848,7 +2848,7 @@ dissect_l2tp_ericsson_avps.exit:                  ; preds = %.lr.ph.i98.i, %312,
   %467 = call ptr @proto_tree_add_item(ptr noundef %435, i32 noundef %466, ptr noundef %0, i32 noundef %455, i32 noundef 2, i32 noundef 0) #8
   %468 = add nsw i32 %.0677, 8
   %469 = add nsw i16 %27, -8
-  %470 = icmp ult i16 %469, 2
+  %470 = icmp samesign ult i16 %469, 2
   br i1 %470, label %store_ccid.exit, label %471
 
 471:                                              ; preds = %465
@@ -2931,7 +2931,7 @@ dissect_l2tp_ericsson_avps.exit:                  ; preds = %.lr.ph.i98.i, %312,
   br label %store_ccid.exit
 
 524:                                              ; preds = %451
-  %525 = icmp ult i16 %456, 2
+  %525 = icmp samesign ult i16 %456, 2
   br i1 %525, label %store_ccid.exit, label %526
 
 526:                                              ; preds = %524
@@ -3103,13 +3103,13 @@ dissect_l2tp_ericsson_avps.exit:                  ; preds = %.lr.ph.i98.i, %312,
   br label %store_ccid.exit
 
 640:                                              ; preds = %451
-  %641 = icmp ult i16 %456, 2
+  %641 = icmp samesign ult i16 %456, 2
   br i1 %641, label %store_ccid.exit, label %642
 
 642:                                              ; preds = %640
   %643 = add nsw i32 %.0677, 8
   %644 = add nsw i16 %27, -8
-  %645 = icmp ult i16 %644, 4
+  %645 = icmp samesign ult i16 %644, 4
   br i1 %645, label %store_ccid.exit, label %646
 
 646:                                              ; preds = %642
@@ -3117,7 +3117,7 @@ dissect_l2tp_ericsson_avps.exit:                  ; preds = %.lr.ph.i98.i, %312,
   %648 = call ptr @proto_tree_add_item(ptr noundef %435, i32 noundef %647, ptr noundef %0, i32 noundef %643, i32 noundef 4, i32 noundef 0) #8
   %649 = add nsw i32 %.0677, 12
   %650 = add nsw i16 %27, -12
-  %651 = icmp ult i16 %650, 4
+  %651 = icmp samesign ult i16 %650, 4
   br i1 %651, label %store_ccid.exit, label %652
 
 652:                                              ; preds = %646
@@ -3125,7 +3125,7 @@ dissect_l2tp_ericsson_avps.exit:                  ; preds = %.lr.ph.i98.i, %312,
   %654 = call ptr @proto_tree_add_item(ptr noundef %435, i32 noundef %653, ptr noundef %0, i32 noundef %649, i32 noundef 4, i32 noundef 0) #8
   %655 = add nsw i32 %.0677, 16
   %656 = add nsw i16 %27, -16
-  %657 = icmp ult i16 %656, 4
+  %657 = icmp samesign ult i16 %656, 4
   br i1 %657, label %store_ccid.exit, label %658
 
 658:                                              ; preds = %652
@@ -3133,7 +3133,7 @@ dissect_l2tp_ericsson_avps.exit:                  ; preds = %.lr.ph.i98.i, %312,
   %660 = call ptr @proto_tree_add_item(ptr noundef %435, i32 noundef %659, ptr noundef %0, i32 noundef %655, i32 noundef 4, i32 noundef 0) #8
   %661 = add nsw i32 %.0677, 20
   %662 = add nsw i16 %27, -20
-  %663 = icmp ult i16 %662, 4
+  %663 = icmp samesign ult i16 %662, 4
   br i1 %663, label %store_ccid.exit, label %664
 
 664:                                              ; preds = %658
@@ -3141,7 +3141,7 @@ dissect_l2tp_ericsson_avps.exit:                  ; preds = %.lr.ph.i98.i, %312,
   %666 = call ptr @proto_tree_add_item(ptr noundef %435, i32 noundef %665, ptr noundef %0, i32 noundef %661, i32 noundef 4, i32 noundef 0) #8
   %667 = add nsw i32 %.0677, 24
   %668 = add nsw i16 %27, -24
-  %669 = icmp ult i16 %668, 4
+  %669 = icmp samesign ult i16 %668, 4
   br i1 %669, label %store_ccid.exit, label %670
 
 670:                                              ; preds = %664
@@ -3149,7 +3149,7 @@ dissect_l2tp_ericsson_avps.exit:                  ; preds = %.lr.ph.i98.i, %312,
   %672 = call ptr @proto_tree_add_item(ptr noundef %435, i32 noundef %671, ptr noundef %0, i32 noundef %667, i32 noundef 4, i32 noundef 0) #8
   %673 = add nsw i32 %.0677, 28
   %674 = add nsw i16 %27, -28
-  %675 = icmp ult i16 %674, 4
+  %675 = icmp samesign ult i16 %674, 4
   br i1 %675, label %store_ccid.exit, label %676
 
 676:                                              ; preds = %670
@@ -3160,13 +3160,13 @@ dissect_l2tp_ericsson_avps.exit:                  ; preds = %.lr.ph.i98.i, %312,
   br label %store_ccid.exit
 
 681:                                              ; preds = %451
-  %682 = icmp ult i16 %456, 2
+  %682 = icmp samesign ult i16 %456, 2
   br i1 %682, label %store_ccid.exit, label %683
 
 683:                                              ; preds = %681
   %684 = add nsw i32 %.0677, 8
   %685 = add nsw i16 %27, -8
-  %686 = icmp ult i16 %685, 4
+  %686 = icmp samesign ult i16 %685, 4
   br i1 %686, label %store_ccid.exit, label %687
 
 687:                                              ; preds = %683
@@ -3174,7 +3174,7 @@ dissect_l2tp_ericsson_avps.exit:                  ; preds = %.lr.ph.i98.i, %312,
   %689 = call ptr @proto_tree_add_item(ptr noundef %435, i32 noundef %688, ptr noundef %0, i32 noundef %684, i32 noundef 4, i32 noundef 0) #8
   %690 = add nsw i32 %.0677, 12
   %691 = add nsw i16 %27, -12
-  %692 = icmp ult i16 %691, 4
+  %692 = icmp samesign ult i16 %691, 4
   br i1 %692, label %store_ccid.exit, label %693
 
 693:                                              ; preds = %687
@@ -3202,7 +3202,7 @@ dissect_l2tp_ericsson_avps.exit:                  ; preds = %.lr.ph.i98.i, %312,
   br label %store_ccid.exit
 
 709:                                              ; preds = %451
-  %710 = icmp ult i16 %456, 2
+  %710 = icmp samesign ult i16 %456, 2
   br i1 %710, label %store_ccid.exit, label %711
 
 711:                                              ; preds = %709
@@ -3210,7 +3210,7 @@ dissect_l2tp_ericsson_avps.exit:                  ; preds = %.lr.ph.i98.i, %312,
   %713 = call ptr @proto_tree_add_item(ptr noundef %435, i32 noundef %712, ptr noundef %0, i32 noundef %455, i32 noundef 2, i32 noundef 0) #8
   %714 = add nsw i32 %.0677, 8
   %715 = add nsw i16 %27, -8
-  %716 = icmp ult i16 %715, 2
+  %716 = icmp samesign ult i16 %715, 2
   br i1 %716, label %store_ccid.exit, label %717
 
 717:                                              ; preds = %711
@@ -3270,7 +3270,7 @@ dissect_l2tp_ericsson_avps.exit:                  ; preds = %.lr.ph.i98.i, %312,
   %747 = zext nneg i16 %456 to i32
   %748 = load i32, ptr @ett_l2tp_avp_sub, align 4
   %749 = call ptr @proto_tree_add_subtree(ptr noundef %435, ptr noundef %0, i32 noundef %455, i32 noundef %747, i32 noundef %748, ptr noundef null, ptr noundef nonnull @.str.464) #8
-  %750 = icmp ugt i16 %456, 1
+  %750 = icmp samesign ugt i16 %456, 1
   br i1 %750, label %.lr.ph, label %store_ccid.exit
 
 .lr.ph:                                           ; preds = %746, %.lr.ph
@@ -3593,7 +3593,7 @@ default.unreachable.i:                            ; preds = %851
   br label %store_ccid.exit
 
 890:                                              ; preds = %451
-  %891 = icmp ult i16 %456, 8
+  %891 = icmp samesign ult i16 %456, 8
   br i1 %891, label %store_ccid.exit, label %892
 
 892:                                              ; preds = %890
@@ -3602,7 +3602,7 @@ default.unreachable.i:                            ; preds = %851
   br label %store_ccid.exit
 
 895:                                              ; preds = %451
-  %896 = icmp ult i16 %456, 8
+  %896 = icmp samesign ult i16 %456, 8
   br i1 %896, label %store_ccid.exit, label %897
 
 897:                                              ; preds = %895

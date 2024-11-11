@@ -3049,7 +3049,7 @@ if.end14.thread:                                  ; preds = %if.then2, %if.end, 
 
 if.end14:                                         ; preds = %land.lhs.true9
   %call15 = call i32 @fclose(ptr noundef nonnull %call)
-  %cmp16 = icmp ult i64 %call4, 100
+  %cmp16 = icmp samesign ult i64 %call4, 100
   br i1 %cmp16, label %if.then17, label %return
 
 if.then17:                                        ; preds = %if.end14

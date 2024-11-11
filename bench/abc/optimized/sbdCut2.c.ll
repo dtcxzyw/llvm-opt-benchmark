@@ -925,7 +925,7 @@ Vec_IntPushUniqueOrder.exit:                      ; preds = %89, %._crit_edge.i6
   br label %.critedge
 
 103:                                              ; preds = %53, %25, %48, %19
-  %104 = icmp ugt i64 %indvars.iv, 1
+  %104 = icmp samesign ugt i64 %indvars.iv, 1
   br i1 %104, label %19, label %.critedge, !llvm.loop !15
 
 .critedge:                                        ; preds = %103, %99, %7, %._crit_edge.i73, %Vec_IntPushUniqueOrder.exit
@@ -1418,7 +1418,7 @@ Vec_IntGrow.exit23:                               ; preds = %Vec_IntGrow.exit23t
 38:                                               ; preds = %.lr.ph
   %39 = getelementptr inbounds i32, ptr %34, i64 %indvars.iv
   store i32 %36, ptr %39, align 4
-  %40 = icmp ugt i64 %indvars.iv, 1
+  %40 = icmp samesign ugt i64 %indvars.iv, 1
   br i1 %40, label %.lr.ph, label %._crit_edge, !llvm.loop !17
 
 ._crit_edge.loopexit.split.loop.exit:             ; preds = %.lr.ph

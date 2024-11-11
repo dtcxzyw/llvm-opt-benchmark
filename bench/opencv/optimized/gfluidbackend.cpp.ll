@@ -16168,7 +16168,7 @@ _ZNSt6vectorIiSaIiEE17_S_check_init_lenEmRKS0_.exit.i: ; preds = %2
   call void @llvm.memset.p0.i64(ptr align 4 %53, i8 0, i64 %56, i1 false)
   %57 = getelementptr inbounds i8, ptr %21, i64 8
   store ptr %51, ptr %57, align 8
-  %58 = icmp ugt i64 %46, 576460752303423487
+  %58 = icmp samesign ugt i64 %46, 576460752303423487
   br i1 %58, label %59, label %.lr.ph.preheader.i.i.i.i.i
 
 59:                                               ; preds = %55

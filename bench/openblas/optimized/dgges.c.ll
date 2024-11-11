@@ -154,17 +154,17 @@ define void @dgges_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocaptur
 95:                                               ; preds = %92
   %96 = load i32, ptr %14, align 4, !tbaa !3
   %97 = icmp slt i32 %96, 1
-  %98 = icmp ult i32 %96, %86
+  %98 = icmp samesign ult i32 %96, %86
   %99 = and i1 %98, %64
-  %or.cond = or i1 %97, %99
+  %or.cond = select i1 %97, i1 true, i1 %99
   br i1 %or.cond, label %.thread23.sink.split, label %100
 
 100:                                              ; preds = %95
   %101 = load i32, ptr %16, align 4, !tbaa !3
   %102 = icmp slt i32 %101, 1
-  %103 = icmp ult i32 %101, %86
+  %103 = icmp samesign ult i32 %101, %86
   %104 = and i1 %103, %73
-  %or.cond46 = or i1 %102, %104
+  %or.cond46 = select i1 %102, i1 true, i1 %104
   br i1 %or.cond46, label %.thread23.sink.split, label %105
 
 105:                                              ; preds = %100

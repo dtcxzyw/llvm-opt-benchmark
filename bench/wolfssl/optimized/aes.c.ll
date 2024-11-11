@@ -1725,7 +1725,7 @@ if.end4:                                          ; preds = %entry
   %arrayidx908.i = getelementptr inbounds i8, ptr %aes, i64 156
   %185 = load i32, ptr %arrayidx908.i, align 4
   %xor909.i = xor i32 %xor907.i, %185
-  %cmp.i = icmp ugt i32 %0, 11
+  %cmp.i = icmp samesign ugt i32 %0, 11
   br i1 %cmp.i, label %if.then.i, label %AesEncrypt_C.exit
 
 if.then.i:                                        ; preds = %if.end4
@@ -3203,7 +3203,7 @@ if.end4.i:                                        ; preds = %while.body
   %xor907.i.i = xor i32 %xor901.i.i, %186
   %187 = load i32, ptr %arrayidx908.i.i, align 4
   %xor909.i.i = xor i32 %xor907.i.i, %187
-  %cmp.i.i = icmp ugt i32 %2, 11
+  %cmp.i.i = icmp samesign ugt i32 %2, 11
   br i1 %cmp.i.i, label %if.then.i.i, label %if.end12
 
 if.then.i.i:                                      ; preds = %if.end4.i

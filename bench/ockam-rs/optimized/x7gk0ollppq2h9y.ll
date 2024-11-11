@@ -788,7 +788,7 @@ define hidden void @"_ZN78_$LT$tinyvec..tinyvec..TinyVec$LT$A$GT$$u20$as$u20$ock
   unreachable
 
 24:                                               ; preds = %11
-  %25 = icmp ult i64 %14, %13
+  %25 = icmp samesign ult i64 %14, %13
   br i1 %25, label %26, label %"_ZN7tinyvec8arrayvec17ArrayVec$LT$A$GT$7set_len17h676620c15527aed5E.exit.i.i"
 
 26:                                               ; preds = %24

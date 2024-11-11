@@ -4898,7 +4898,7 @@ define internal noundef i32 @dissect_usb_hid_boot_keyboard_input_report(ptr noun
   br i1 %.not, label %25, label %.thread
 
 25:                                               ; preds = %4
-  %.not136 = icmp ult i8 %21, 64
+  %.not136 = icmp samesign ult i8 %21, 64
   br i1 %.not136, label %.thread165, label %30
 
 .thread:                                          ; preds = %4
@@ -4924,7 +4924,7 @@ define internal noundef i32 @dissect_usb_hid_boot_keyboard_input_report(ptr noun
   br i1 %.not138, label %37, label %34
 
 .thread165:                                       ; preds = %25
-  %.not138167 = icmp ult i8 %21, 32
+  %.not138167 = icmp samesign ult i8 %21, 32
   br i1 %.not138167, label %.thread172, label %.thread169
 
 34:                                               ; preds = %32
@@ -4943,7 +4943,7 @@ define internal noundef i32 @dissect_usb_hid_boot_keyboard_input_report(ptr noun
   br i1 %.not140, label %42, label %39
 
 .thread172:                                       ; preds = %.thread165
-  %.not140174 = icmp ult i8 %21, 16
+  %.not140174 = icmp samesign ult i8 %21, 16
   br i1 %.not140174, label %.thread179, label %.thread176
 
 39:                                               ; preds = %37
@@ -4962,7 +4962,7 @@ define internal noundef i32 @dissect_usb_hid_boot_keyboard_input_report(ptr noun
   br i1 %.not142, label %47, label %44
 
 .thread179:                                       ; preds = %.thread172
-  %.not142181 = icmp ult i8 %21, 8
+  %.not142181 = icmp samesign ult i8 %21, 8
   br i1 %.not142181, label %.thread186, label %.thread183
 
 44:                                               ; preds = %42
@@ -4981,7 +4981,7 @@ define internal noundef i32 @dissect_usb_hid_boot_keyboard_input_report(ptr noun
   br i1 %.not144, label %52, label %49
 
 .thread186:                                       ; preds = %.thread179
-  %.not144188 = icmp ult i8 %21, 4
+  %.not144188 = icmp samesign ult i8 %21, 4
   br i1 %.not144188, label %.thread193, label %.thread190
 
 49:                                               ; preds = %47
@@ -5000,7 +5000,7 @@ define internal noundef i32 @dissect_usb_hid_boot_keyboard_input_report(ptr noun
   br i1 %.not146, label %57, label %54
 
 .thread193:                                       ; preds = %.thread186
-  %.not146195 = icmp ult i8 %21, 2
+  %.not146195 = icmp samesign ult i8 %21, 2
   br i1 %.not146195, label %.thread200, label %.thread197
 
 54:                                               ; preds = %52

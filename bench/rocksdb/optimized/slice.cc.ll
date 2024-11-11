@@ -1449,14 +1449,14 @@ entry:
   br i1 %cmp6, label %return, label %lor.lhs.false
 
 lor.lhs.false:                                    ; preds = %entry
-  %cmp8 = icmp ugt i8 %spec.select, 57
+  %cmp8 = icmp samesign ugt i8 %spec.select, 57
   %1 = add nsw i8 %spec.select, -71
   %or.cond1 = icmp ult i8 %1, -6
   %or.cond11 = select i1 %cmp8, i1 %or.cond1, i1 false
   br i1 %or.cond11, label %return, label %if.end16
 
 if.end16:                                         ; preds = %lor.lhs.false
-  %cmp18 = icmp ult i8 %spec.select, 58
+  %cmp18 = icmp samesign ult i8 %spec.select, 58
   br i1 %cmp18, label %if.then19, label %if.end22
 
 if.then19:                                        ; preds = %if.end16
@@ -1643,14 +1643,14 @@ for.body:                                         ; preds = %if.end4, %if.end14
   br i1 %cmp6.i, label %return, label %lor.lhs.false.i
 
 lor.lhs.false.i:                                  ; preds = %for.body
-  %cmp8.i = icmp ugt i8 %spec.select.i, 57
+  %cmp8.i = icmp samesign ugt i8 %spec.select.i, 57
   %4 = add nsw i8 %spec.select.i, -71
   %or.cond1.i = icmp ult i8 %4, -6
   %or.cond11.i = select i1 %cmp8.i, i1 %or.cond1.i, i1 false
   br i1 %or.cond11.i, label %return, label %if.end16.i
 
 if.end16.i:                                       ; preds = %lor.lhs.false.i
-  %cmp18.i = icmp ult i8 %spec.select.i, 58
+  %cmp18.i = icmp samesign ult i8 %spec.select.i, 58
   %retval.0.i.v = select i1 %cmp18.i, i32 -48, i32 -55
   %retval.0.i = add nsw i32 %retval.0.i.v, %conv5.i
   %cmp5 = icmp slt i32 %retval.0.i, 0
@@ -1669,14 +1669,14 @@ if.end7:                                          ; preds = %if.end16.i
   br i1 %cmp6.i15, label %return, label %lor.lhs.false.i16
 
 lor.lhs.false.i16:                                ; preds = %if.end7
-  %cmp8.i17 = icmp ugt i8 %spec.select.i13, 57
+  %cmp8.i17 = icmp samesign ugt i8 %spec.select.i13, 57
   %7 = add nsw i8 %spec.select.i13, -71
   %or.cond1.i18 = icmp ult i8 %7, -6
   %or.cond11.i19 = select i1 %cmp8.i17, i1 %or.cond1.i18, i1 false
   br i1 %or.cond11.i19, label %return, label %if.end16.i20
 
 if.end16.i20:                                     ; preds = %lor.lhs.false.i16
-  %cmp18.i21 = icmp ult i8 %spec.select.i13, 58
+  %cmp18.i21 = icmp samesign ult i8 %spec.select.i13, 58
   %retval.0.i24.v = select i1 %cmp18.i21, i32 -48, i32 -55
   %retval.0.i24 = add nsw i32 %retval.0.i24.v, %conv5.i14
   %cmp12 = icmp slt i32 %retval.0.i24, 0

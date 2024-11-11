@@ -2217,7 +2217,7 @@ define dso_local i32 @drm_mode_page_flip_ioctl(ptr noundef %0, ptr nocapture nou
 
 20:                                               ; preds = %16
   %21 = icmp ne i32 %6, 0
-  %22 = icmp ult i32 %18, 4
+  %22 = icmp samesign ult i32 %18, 4
   %23 = and i1 %21, %22
   %24 = and i32 %18, 12
   %25 = icmp eq i32 %24, 12

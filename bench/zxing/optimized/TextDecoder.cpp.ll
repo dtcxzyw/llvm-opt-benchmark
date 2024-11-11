@@ -292,7 +292,7 @@ define noundef zeroext i8 @_ZN5ZXing11TextDecoder13GuessEncodingEPKhmNS_12Charac
   br i1 %53, label %54, label %59
 
 54:                                               ; preds = %52
-  %55 = icmp ult i8 %.fr, -64
+  %55 = icmp samesign ult i8 %.fr, -64
   %56 = and i8 %.fr, -33
   %57 = icmp eq i8 %56, -41
   %or.cond7 = or i1 %55, %57

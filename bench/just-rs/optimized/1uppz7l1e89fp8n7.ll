@@ -6509,7 +6509,7 @@ define internal void @_ZN4just8function10capitalize17h19a41238f770bca4E(ptr noal
   %26 = and i8 %24, 63
   %27 = zext nneg i8 %26 to i32
   %28 = or disjoint i32 %25, %27
-  %29 = icmp ugt i8 %18, -33
+  %29 = icmp samesign ugt i8 %18, -33
   br i1 %29, label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h8b7bbdcfba47b7a7E.exit15.i.i.i", label %.thread35
 
 30:                                               ; preds = %16
@@ -6527,7 +6527,7 @@ define internal void @_ZN4just8function10capitalize17h19a41238f770bca4E(ptr noal
   %38 = or disjoint i32 %35, %37
   %39 = shl nuw nsw i32 %21, 12
   %40 = or disjoint i32 %38, %39
-  %41 = icmp ugt i8 %18, -17
+  %41 = icmp samesign ugt i8 %18, -17
   br i1 %41, label %"_ZN81_$LT$core..str..iter..Chars$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17ha3bb299ebebfcc3aE.exit.i", label %.thread35
 
 "_ZN81_$LT$core..str..iter..Chars$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17ha3bb299ebebfcc3aE.exit.i": ; preds = %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h8b7bbdcfba47b7a7E.exit15.i.i.i"
@@ -9365,7 +9365,7 @@ define internal void @_ZN4just8function7replace17h859b6ed58051aa11E(ptr noalias 
   %158 = and i8 %156, 63
   %159 = zext nneg i8 %158 to i32
   %160 = or disjoint i32 %157, %159
-  %161 = icmp ugt i8 %150, -33
+  %161 = icmp samesign ugt i8 %150, -33
   br i1 %161, label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h8b7bbdcfba47b7a7E.exit15.i.i.i.i.i", label %_ZN4core3str11validations15next_code_point17h56de14856462d818E.exit.thread.i.i.i.i
 
 162:                                              ; preds = %149
@@ -9383,7 +9383,7 @@ define internal void @_ZN4just8function7replace17h859b6ed58051aa11E(ptr noalias 
   %170 = or disjoint i32 %167, %169
   %171 = shl nuw nsw i32 %154, 12
   %172 = or disjoint i32 %170, %171
-  %173 = icmp ugt i8 %150, -17
+  %173 = icmp samesign ugt i8 %150, -17
   br i1 %173, label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h8b7bbdcfba47b7a7E.exit17.i.i.i.i.i", label %_ZN4core3str11validations15next_code_point17h56de14856462d818E.exit.thread.i.i.i.i
 
 "_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h8b7bbdcfba47b7a7E.exit17.i.i.i.i.i": ; preds = %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h8b7bbdcfba47b7a7E.exit15.i.i.i.i.i"

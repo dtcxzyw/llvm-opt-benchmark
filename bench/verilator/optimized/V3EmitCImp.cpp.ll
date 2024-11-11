@@ -9902,7 +9902,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit48: ; 
   br label %.body
 
 62:                                               ; preds = %47
-  %63 = icmp ult i32 %49, 17
+  %63 = icmp samesign ult i32 %49, 17
   br i1 %63, label %64, label %75
 
 64:                                               ; preds = %62
@@ -9943,7 +9943,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit55: ; 
   br label %.body
 
 75:                                               ; preds = %62
-  %76 = icmp ult i32 %49, 33
+  %76 = icmp samesign ult i32 %49, 33
   br i1 %76, label %77, label %88
 
 77:                                               ; preds = %75
@@ -36576,7 +36576,7 @@ _ZZN7AstNode11foreachImplIKS_ZNKS_9nodeCountEvEUlPS1_E_EEvPNSt11conditionalIXsr3
   br label %.lr.ph.preheader
 
 _ZZN7AstNode11foreachImplIKS_ZNKS_9nodeCountEvEUlPS1_E_EEvPNSt11conditionalIXsr3std8is_constIT_EE5valueES1_S_E4typeERKT0_bENKUlS2_E_clES2_.exit: ; preds = %33
-  %36 = icmp ugt i64 %.6.idx, 16
+  %36 = icmp samesign ugt i64 %.6.idx, 16
   br i1 %36, label %.lr.ph.preheader, label %._crit_edge
 
 .lr.ph.preheader:                                 ; preds = %_ZZN7AstNode11foreachImplIKS_ZNKS_9nodeCountEvEUlPS1_E_EEvPNSt11conditionalIXsr3std8is_constIT_EE5valueES1_S_E4typeERKT0_bENKUlS2_E_clES2_.exit.thread, %_ZZN7AstNode11foreachImplIKS_ZNKS_9nodeCountEvEUlPS1_E_EEvPNSt11conditionalIXsr3std8is_constIT_EE5valueES1_S_E4typeERKT0_bENKUlS2_E_clES2_.exit
@@ -51074,7 +51074,7 @@ _ZN8FileLine9singletonEv.exit:                    ; preds = %2, %5, %8
   br i1 %23, label %24, label %30
 
 24:                                               ; preds = %_ZN8FileLine9singletonEv.exit
-  %25 = icmp ult i64 %22, 16
+  %25 = icmp samesign ult i64 %22, 16
   br i1 %25, label %26, label %28
 
 26:                                               ; preds = %24
@@ -51166,7 +51166,7 @@ define linkonce_odr dso_local void @_ZNK17FileLineSingleton12numberToNameB5cxx11
   br i1 %16, label %17, label %23
 
 17:                                               ; preds = %3
-  %18 = icmp ult i64 %15, 16
+  %18 = icmp samesign ult i64 %15, 16
   br i1 %18, label %19, label %21
 
 19:                                               ; preds = %17

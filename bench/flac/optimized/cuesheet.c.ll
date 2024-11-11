@@ -574,7 +574,7 @@ if.end96.i:                                       ; preds = %local__parse_int64_
   br i1 %cmp98.i, label %if.then100.i, label %if.else105.i
 
 if.then100.i:                                     ; preds = %if.end96.i
-  %cmp101.i = icmp ugt i64 %add.i.fr.i.i, 1
+  %cmp101.i = icmp samesign ugt i64 %add.i.fr.i.i, 1
   br i1 %cmp101.i, label %if.then2, label %if.end122.i
 
 if.else105.i:                                     ; preds = %if.end96.i
@@ -591,7 +591,7 @@ if.else105.i:                                     ; preds = %if.end96.i
   br i1 %cmp112.not.i, label %if.end116.i, label %if.then2
 
 if.end116.i:                                      ; preds = %if.else105.i
-  %cmp119.i = icmp ugt i64 %add.i.fr.i.i, 99
+  %cmp119.i = icmp samesign ugt i64 %add.i.fr.i.i, 99
   %or.cond2.i = and i1 %tobool.i, %cmp119.i
   br i1 %or.cond2.i, label %if.then2, label %if.end122.i
 
@@ -778,7 +778,7 @@ if.then119.i.i:                                   ; preds = %if.then111.i.i
 if.end128.i.i:                                    ; preds = %if.then119.i.i, %if.then101.i.i
   %field.2.i.i = phi i64 [ %add124.i.i, %if.then119.i.i ], [ %conv104.i.i, %if.then101.i.i ]
   %c.0.i.i = phi i1 [ %98, %if.then119.i.i ], [ false, %if.then101.i.i ]
-  %cmp134.i.i = icmp ugt i64 %field.2.i.i, 74
+  %cmp134.i.i = icmp samesign ugt i64 %field.2.i.i, 74
   %or.cond55.i.i = select i1 %c.0.i.i, i1 true, i1 %cmp134.i.i
   br i1 %or.cond55.i.i, label %if.then131.i, label %local__parse_msf_.exit.i
 
@@ -1308,7 +1308,7 @@ if.end360.i:                                      ; preds = %if.end356.i
   br i1 %tobool.i, label %if.then362.i, label %if.else367.i
 
 if.then362.i:                                     ; preds = %if.end360.i
-  %cmp363.i = icmp ugt i64 %add.i.fr.i471.i, 99
+  %cmp363.i = icmp samesign ugt i64 %add.i.fr.i471.i, 99
   br i1 %cmp363.i, label %if.then2, label %land.lhs.true379.i
 
 if.else367.i:                                     ; preds = %if.end360.i
@@ -1316,7 +1316,7 @@ if.else367.i:                                     ; preds = %if.end360.i
   br i1 %cmp368.i, label %if.then2, label %if.else371.i
 
 if.else371.i:                                     ; preds = %if.else367.i
-  %cmp372.i = icmp ugt i64 %add.i.fr.i471.i, 255
+  %cmp372.i = icmp samesign ugt i64 %add.i.fr.i471.i, 255
   br i1 %cmp372.i, label %if.then2, label %if.end395.i
 
 land.lhs.true379.i:                               ; preds = %if.then362.i

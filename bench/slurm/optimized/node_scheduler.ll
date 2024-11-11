@@ -4176,7 +4176,7 @@ _valid_features.exit:                             ; preds = %254, %._crit_edge.i
   %662 = phi ptr [ %616, %.lr.ph471 ], [ %616, %628 ], [ %634, %630 ]
   %663 = phi ptr [ %617, %.lr.ph471 ], [ %616, %628 ], [ %634, %630 ]
   %.7 = phi i32 [ %.5469, %.lr.ph471 ], [ %.5469, %628 ], [ %658, %630 ]
-  %664 = icmp ugt i64 %indvars.iv517, 1
+  %664 = icmp samesign ugt i64 %indvars.iv517, 1
   br i1 %664, label %.lr.ph471, label %.loopexit406, !llvm.loop !28
 
 .loopexit406:                                     ; preds = %661, %613, %659
@@ -4391,7 +4391,7 @@ _find_grp_node_bitmap.exit:                       ; preds = %_find_grp_node_bitm
   %752 = phi ptr [ %697, %704 ], [ %697, %709 ], [ %747, %714 ]
   %753 = phi ptr [ %703, %704 ], [ %703, %709 ], [ %744, %714 ]
   %.9 = phi i32 [ %.8474, %704 ], [ %.8474, %709 ], [ %748, %714 ]
-  %754 = icmp ugt i64 %indvars.iv520, 1
+  %754 = icmp samesign ugt i64 %indvars.iv520, 1
   br i1 %754, label %.lr.ph476, label %.loopexit, !llvm.loop !30
 
 .loopexit:                                        ; preds = %751, %749

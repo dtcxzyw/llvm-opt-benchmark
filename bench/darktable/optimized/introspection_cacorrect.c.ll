@@ -8702,7 +8702,7 @@ define void @process(ptr nocapture noundef readnone %0, ptr nocapture noundef re
   %6618 = sext i32 %6616 to i64
   %6619 = call i32 @llvm.smax.i32(i32 %50, i32 1)
   %6620 = zext nneg i32 %6619 to i64
-  %6621 = icmp ult i32 %42, 47
+  %6621 = icmp samesign ult i32 %42, 47
   br i1 %6621, label %6661, label %6622
 
 6622:                                             ; preds = %6612
@@ -9039,7 +9039,7 @@ define void @process(ptr nocapture noundef readnone %0, ptr nocapture noundef re
   %6867 = call i32 @llvm.smax.i32(i32 %52, i32 1)
   %6868 = zext nneg i32 %6867 to i64
   %6869 = and i64 %6868, 7
-  %6870 = icmp ult i32 %45, 15
+  %6870 = icmp samesign ult i32 %45, 15
   br i1 %6870, label %.loopexit254, label %6871
 
 6871:                                             ; preds = %6866

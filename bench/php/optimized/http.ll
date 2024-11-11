@@ -1152,7 +1152,7 @@ define hidden void @zif_http_build_query(ptr noundef %0, ptr nocapture noundef w
   %28 = getelementptr inbounds i8, ptr %27, i64 16
   %29 = load i64, ptr %28, align 8
   %30 = getelementptr inbounds i8, ptr %27, i64 24
-  %31 = icmp ult i32 %8, 3
+  %31 = icmp samesign ult i32 %8, 3
   br i1 %31, label %.thread352, label %32
 
 32:                                               ; preds = %26

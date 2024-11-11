@@ -138,7 +138,7 @@ _ZNKSt7__cxx1112basic_stringIDsSt11char_traitsIDsESaIDsEE8capacityEv.exit.i.i.i:
 
 _ZNSt7__cxx1112basic_stringIDsSt11char_traitsIDsESaIDsEE9_M_createERmm.exit.i.i.i: ; preds = %19
   %22 = shl nuw nsw i64 %17, 1
-  %23 = icmp ult i64 %8, %22
+  %23 = icmp samesign ult i64 %8, %22
   %spec.store.select.i.i.i.i = tail call i64 @llvm.umin.i64(i64 %22, i64 2305843009213693951)
   %.0.i.i.i = select i1 %23, i64 %spec.store.select.i.i.i.i, i64 %8
   %24 = shl nuw nsw i64 %.0.i.i.i, 1

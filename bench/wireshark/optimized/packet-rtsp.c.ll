@@ -1373,7 +1373,7 @@ rtsp_get_content_length.exit.i:                   ; preds = %542, %537, %.crited
   br label %592
 
 544:                                              ; preds = %.critedge.i
-  %545 = icmp ugt i32 %163, 8
+  %545 = icmp samesign ugt i32 %163, 8
   br i1 %545, label %.thread331.i, label %.thread332.i
 
 .thread331.i:                                     ; preds = %544, %509, %507, %486
@@ -1654,19 +1654,19 @@ define internal noundef i32 @rtsp_stats_tree_packet(ptr noundef %0, ptr nocaptur
   br i1 %or.cond, label %21, label %13
 
 13:                                               ; preds = %9
-  %14 = icmp ult i32 %7, 200
+  %14 = icmp samesign ult i32 %7, 200
   br i1 %14, label %21, label %15
 
 15:                                               ; preds = %13
-  %16 = icmp ult i32 %7, 300
+  %16 = icmp samesign ult i32 %7, 300
   br i1 %16, label %21, label %17
 
 17:                                               ; preds = %15
-  %18 = icmp ult i32 %7, 400
+  %18 = icmp samesign ult i32 %7, 400
   br i1 %18, label %21, label %19
 
 19:                                               ; preds = %17
-  %20 = icmp ult i32 %7, 500
+  %20 = icmp samesign ult i32 %7, 500
   %st_node_resp_400.st_node_resp_500 = select i1 %20, ptr @st_node_resp_400, ptr @st_node_resp_500
   %.str.148..str.149 = select i1 %20, ptr @.str.148, ptr @.str.149
   br label %21

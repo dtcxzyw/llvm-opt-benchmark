@@ -1362,7 +1362,7 @@ _ZNSt6vectorIS_IN2cv8KeyPointESaIS1_EESaIS3_EE17_S_check_init_lenEmRKS4_.exit.i:
   %59 = getelementptr inbounds i8, ptr %11, i64 16
   store ptr %57, ptr %59, align 8
   store ptr %scevgep.i.i.i.i.i, ptr %58, align 8
-  %60 = icmp ugt i64 %51, 96076792050570581
+  %60 = icmp samesign ugt i64 %51, 96076792050570581
   br i1 %60, label %61, label %_ZNSt12_Vector_baseIN2cv3MatESaIS1_EEC2EmRKS2_.exit.i
 
 61:                                               ; preds = %56

@@ -1260,7 +1260,7 @@ Cloud_bddAnd.exit:                                ; preds = %40, %42
 
 45:                                               ; preds = %18, %Cloud_bddAnd.exit
   %.2 = phi ptr [ %.0.i, %Cloud_bddAnd.exit ], [ %.01930, %18 ]
-  %46 = icmp ugt i64 %indvars.iv, 1
+  %46 = icmp samesign ugt i64 %indvars.iv, 1
   br i1 %46, label %18, label %.thread, !llvm.loop !11
 
 ._crit_edge:                                      ; preds = %2

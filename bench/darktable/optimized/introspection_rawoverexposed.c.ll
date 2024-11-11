@@ -185,7 +185,7 @@ define void @process(ptr nocapture noundef readonly %0, ptr nocapture noundef re
   %104 = add nsw i32 %103, %99
   %105 = sitofp i32 %104 to float
   %106 = zext nneg i32 %98 to i64
-  %107 = icmp ult i32 %98, 8
+  %107 = icmp samesign ult i32 %98, 8
   br i1 %107, label %136, label %108
 
 108:                                              ; preds = %101

@@ -209,7 +209,7 @@ _ZNK9__gnu_cxx5__ops15_Iter_less_iterclIPSt4pairImiES5_EEbT_T0_.exit.i.i: ; pred
   %54 = getelementptr inbounds i8, ptr %.069.i.i.i.i.i.i.i, i64 -8
   store i32 %53, ptr %54, align 8
   %55 = add nsw i64 %.010.i.i.i.i.i.i.i, -1
-  %56 = icmp ugt i64 %.010.i.i.i.i.i.i.i, 1
+  %56 = icmp samesign ugt i64 %.010.i.i.i.i.i.i.i, 1
   br i1 %56, label %.lr.ph.i.i.i.i.i.i.i, label %_ZSt13move_backwardIPSt4pairImiES2_ET0_T_S4_S3_.exit.i.i, !llvm.loop !8
 
 _ZSt13move_backwardIPSt4pairImiES2_ET0_T_S4_S3_.exit.i.i: ; preds = %.lr.ph.i.i.i.i.i.i.i

@@ -916,7 +916,7 @@ emit_table_size.exit53:                           ; preds = %count_encoded_lengt
   br i1 %exitcond.not.i.i, label %name_hash.exit.i, label %.lr.ph.i.i55, !llvm.loop !12
 
 84:                                               ; preds = %69
-  %85 = icmp ult i32 %75, 61
+  %85 = icmp samesign ult i32 %75, 61
   br i1 %85, label %86, label %name_hash.exit.i
 
 86:                                               ; preds = %84
@@ -1208,7 +1208,7 @@ count_encoded_length.exit.thread.thread.i.i:      ; preds = %search_hd_table.exi
 
 202:                                              ; preds = %search_hd_table.exit.thread87.i
   %203 = add nsw i64 %.sroa.024.0.i93.i, -126
-  %204 = icmp ugt i64 %203, 127
+  %204 = icmp samesign ugt i64 %203, 127
   br i1 %204, label %.lr.ph.i.i73.i, label %count_encoded_length.exit.thread.thread17.thread.i.i
 
 count_encoded_length.exit.thread.thread17.thread.i.i: ; preds = %202

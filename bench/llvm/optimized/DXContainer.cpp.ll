@@ -709,7 +709,7 @@ define dso_local void @_ZN4llvm6object7DirectX9Signature10initializeENS_9StringR
   %27 = shl i64 %26, 5
   %28 = and i64 %27, 137438953440
   %29 = add nuw nsw i64 %28, %.sroa.245.0.extract.shift
-  %30 = icmp ult i64 %3, %29
+  %30 = icmp samesign ult i64 %3, %29
   br i1 %30, label %31, label %37
 
 31:                                               ; preds = %25
@@ -1401,11 +1401,11 @@ _ZN4llvm5ErrorD2Ev.exit:
   br i1 %59, label %_ZNK4llvm6object7DirectX14PSVRuntimeInfo10getVersionEv.exit.thread, label %60
 
 60:                                               ; preds = %58
-  %61 = icmp ugt i32 %45, 47
+  %61 = icmp samesign ugt i32 %45, 47
   br i1 %61, label %_ZNK4llvm6object7DirectX14PSVRuntimeInfo10getVersionEv.exit.thread303, label %_ZNK4llvm6object7DirectX14PSVRuntimeInfo10getVersionEv.exit
 
 _ZNK4llvm6object7DirectX14PSVRuntimeInfo10getVersionEv.exit: ; preds = %60
-  %62 = icmp ugt i32 %45, 35
+  %62 = icmp samesign ugt i32 %45, 35
   %63 = icmp ult ptr %44, %49
   %64 = getelementptr inbounds i8, ptr %49, i64 %.sroa.speculated.i
   br i1 %62, label %97, label %112

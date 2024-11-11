@@ -732,7 +732,7 @@ while.body:                                       ; preds = %while.cond.preheade
   call fastcc void @append_one_rev(ptr noundef %42)
   %dec = add nsw i32 %ac.addr.2294, -1
   %incdec.ptr = getelementptr inbounds i8, ptr %av.addr.2293, i64 8
-  %cmp294 = icmp ugt i32 %ac.addr.2294, 1
+  %cmp294 = icmp samesign ugt i32 %ac.addr.2294, 1
   br i1 %cmp294, label %while.body, label %while.end.loopexit, !llvm.loop !7
 
 while.end.loopexit:                               ; preds = %while.body

@@ -4742,7 +4742,7 @@ common.resume:                                    ; preds = %34, %"_ZN63_$LT$all
   %205 = and i8 %203, 63
   %206 = zext nneg i8 %205 to i32
   %207 = or disjoint i32 %204, %206
-  %208 = icmp ugt i8 %197, -33
+  %208 = icmp samesign ugt i8 %197, -33
   br i1 %208, label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hdb427d3e6a705e7fE.exit14.i.i.i.i", label %232
 
 209:                                              ; preds = %196
@@ -4760,7 +4760,7 @@ common.resume:                                    ; preds = %34, %"_ZN63_$LT$all
   %217 = or disjoint i32 %214, %216
   %218 = shl nuw nsw i32 %201, 12
   %219 = or disjoint i32 %217, %218
-  %220 = icmp ugt i8 %197, -17
+  %220 = icmp samesign ugt i8 %197, -17
   br i1 %220, label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hdb427d3e6a705e7fE.exit16.i.i.i.i", label %232
 
 "_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hdb427d3e6a705e7fE.exit16.i.i.i.i": ; preds = %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hdb427d3e6a705e7fE.exit14.i.i.i.i"
@@ -4782,7 +4782,7 @@ common.resume:                                    ; preds = %34, %"_ZN63_$LT$all
 
 232:                                              ; preds = %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hdb427d3e6a705e7fE.exit16.i.i.i.i", %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hdb427d3e6a705e7fE.exit14.i.i.i.i", %209, %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hdb427d3e6a705e7fE.exit12.i.i.i.i"
   %.sroa.4.0.i.ph.i.i.i = phi i32 [ %207, %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hdb427d3e6a705e7fE.exit12.i.i.i.i" ], [ %219, %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hdb427d3e6a705e7fE.exit14.i.i.i.i" ], [ %230, %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hdb427d3e6a705e7fE.exit16.i.i.i.i" ], [ %210, %209 ]
-  %233 = icmp ult i32 %.sroa.4.0.i.ph.i.i.i, 1114112
+  %233 = icmp samesign ult i32 %.sroa.4.0.i.ph.i.i.i, 1114112
   call void @llvm.assume(i1 %233)
   br i1 %182, label %.loopexit.i.i, label %234
 

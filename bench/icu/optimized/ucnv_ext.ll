@@ -700,7 +700,7 @@ if.then6:                                         ; preds = %if.else
   store i32 %cp, ptr %preFromUFirstCP, align 8
   %10 = load ptr, ptr %src, align 8
   %sub8 = sub nsw i32 -2, %call
-  %cmp924 = icmp ult i32 %call, -2
+  %cmp924 = icmp samesign ult i32 %call, -2
   br i1 %cmp924, label %for.body.lr.ph, label %for.end
 
 for.body.lr.ph:                                   ; preds = %if.then6

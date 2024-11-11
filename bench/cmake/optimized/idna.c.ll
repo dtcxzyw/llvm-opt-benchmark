@@ -16,7 +16,7 @@ define dso_local range(i32 -1, 2097152) i32 @uv__utf8_decode1(ptr nocapture noun
   br i1 %7, label %uv__utf8_decode1_slow.exit, label %8
 
 8:                                                ; preds = %2
-  %9 = icmp ugt i8 %5, -9
+  %9 = icmp samesign ugt i8 %5, -9
   br i1 %9, label %uv__utf8_decode1_slow.exit, label %10
 
 10:                                               ; preds = %8
@@ -30,7 +30,7 @@ define dso_local range(i32 -1, 2097152) i32 @uv__utf8_decode1(ptr nocapture noun
   ]
 
 14:                                               ; preds = %10
-  %15 = icmp ugt i8 %5, -17
+  %15 = icmp samesign ugt i8 %5, -17
   br i1 %15, label %16, label %26
 
 16:                                               ; preds = %14
@@ -49,7 +49,7 @@ define dso_local range(i32 -1, 2097152) i32 @uv__utf8_decode1(ptr nocapture noun
   br label %39
 
 26:                                               ; preds = %14, %10
-  %27 = icmp ugt i8 %5, -33
+  %27 = icmp samesign ugt i8 %5, -33
   br i1 %27, label %28, label %34
 
 28:                                               ; preds = %26
@@ -63,7 +63,7 @@ define dso_local range(i32 -1, 2097152) i32 @uv__utf8_decode1(ptr nocapture noun
   br label %39
 
 34:                                               ; preds = %26, %10
-  %35 = icmp ugt i8 %5, -65
+  %35 = icmp samesign ugt i8 %5, -65
   br i1 %35, label %36, label %uv__utf8_decode1_slow.exit
 
 36:                                               ; preds = %34
@@ -137,7 +137,7 @@ define dso_local i64 @uv__idna_toascii(ptr noundef %0, ptr noundef %1, ptr nound
   br i1 %14, label %uv__utf8_decode1.exit, label %15
 
 15:                                               ; preds = %10
-  %16 = icmp ugt i8 %12, -9
+  %16 = icmp samesign ugt i8 %12, -9
   br i1 %16, label %uv__utf8_decode1.exit.thread, label %17
 
 17:                                               ; preds = %15
@@ -150,7 +150,7 @@ define dso_local i64 @uv__idna_toascii(ptr noundef %0, ptr noundef %1, ptr nound
   ]
 
 20:                                               ; preds = %17
-  %21 = icmp ugt i8 %12, -17
+  %21 = icmp samesign ugt i8 %12, -17
   br i1 %21, label %22, label %32
 
 22:                                               ; preds = %20
@@ -166,7 +166,7 @@ define dso_local i64 @uv__idna_toascii(ptr noundef %0, ptr noundef %1, ptr nound
   br label %45
 
 32:                                               ; preds = %20, %17
-  %33 = icmp ugt i8 %12, -33
+  %33 = icmp samesign ugt i8 %12, -33
   br i1 %33, label %34, label %40
 
 34:                                               ; preds = %32
@@ -178,7 +178,7 @@ define dso_local i64 @uv__idna_toascii(ptr noundef %0, ptr noundef %1, ptr nound
   br label %45
 
 40:                                               ; preds = %32, %17
-  %41 = icmp ugt i8 %12, -65
+  %41 = icmp samesign ugt i8 %12, -65
   br i1 %41, label %42, label %uv__utf8_decode1.exit.thread
 
 42:                                               ; preds = %40
@@ -316,7 +316,7 @@ define internal fastcc i32 @uv__idna_toascii_label(ptr noundef %0, ptr noundef %
   br i1 %11, label %uv__utf8_decode1.exit, label %12
 
 12:                                               ; preds = %7
-  %13 = icmp ugt i8 %9, -9
+  %13 = icmp samesign ugt i8 %9, -9
   br i1 %13, label %uv__utf8_decode1.exit.thread, label %14
 
 14:                                               ; preds = %12
@@ -329,7 +329,7 @@ define internal fastcc i32 @uv__idna_toascii_label(ptr noundef %0, ptr noundef %
   ]
 
 17:                                               ; preds = %14
-  %18 = icmp ugt i8 %9, -17
+  %18 = icmp samesign ugt i8 %9, -17
   br i1 %18, label %19, label %29
 
 19:                                               ; preds = %17
@@ -345,7 +345,7 @@ define internal fastcc i32 @uv__idna_toascii_label(ptr noundef %0, ptr noundef %
   br label %42
 
 29:                                               ; preds = %17, %14
-  %30 = icmp ugt i8 %9, -33
+  %30 = icmp samesign ugt i8 %9, -33
   br i1 %30, label %31, label %37
 
 31:                                               ; preds = %29
@@ -357,7 +357,7 @@ define internal fastcc i32 @uv__idna_toascii_label(ptr noundef %0, ptr noundef %
   br label %42
 
 37:                                               ; preds = %29, %14
-  %38 = icmp ugt i8 %9, -65
+  %38 = icmp samesign ugt i8 %9, -65
   br i1 %38, label %39, label %uv__utf8_decode1.exit.thread
 
 39:                                               ; preds = %37
@@ -403,7 +403,7 @@ define internal fastcc i32 @uv__idna_toascii_label(ptr noundef %0, ptr noundef %
 uv__utf8_decode1.exit:                            ; preds = %7, %57
   %.5 = phi ptr [ %8, %7 ], [ %.4195, %57 ]
   %.0.i = phi i32 [ %10, %7 ], [ %54, %57 ]
-  %60 = icmp ult i32 %.0.i, 128
+  %60 = icmp samesign ult i32 %.0.i, 128
   %61 = zext i1 %60 to i32
   %.1121 = add i32 %.0120216, %61
   %not. = xor i1 %60, true
@@ -488,7 +488,7 @@ uv__utf8_decode1.exit:                            ; preds = %7, %57
   br i1 %91, label %uv__utf8_decode1.exit158, label %92
 
 92:                                               ; preds = %87
-  %93 = icmp ugt i8 %89, -9
+  %93 = icmp samesign ugt i8 %89, -9
   br i1 %93, label %uv__utf8_decode1.exit158, label %94
 
 94:                                               ; preds = %92
@@ -501,7 +501,7 @@ uv__utf8_decode1.exit:                            ; preds = %7, %57
   ]
 
 97:                                               ; preds = %94
-  %98 = icmp ugt i8 %89, -17
+  %98 = icmp samesign ugt i8 %89, -17
   br i1 %98, label %99, label %109
 
 99:                                               ; preds = %97
@@ -517,7 +517,7 @@ uv__utf8_decode1.exit:                            ; preds = %7, %57
   br label %122
 
 109:                                              ; preds = %97, %94
-  %110 = icmp ugt i8 %89, -33
+  %110 = icmp samesign ugt i8 %89, -33
   br i1 %110, label %111, label %117
 
 111:                                              ; preds = %109
@@ -529,7 +529,7 @@ uv__utf8_decode1.exit:                            ; preds = %7, %57
   br label %122
 
 117:                                              ; preds = %109, %94
-  %118 = icmp ugt i8 %89, -65
+  %118 = icmp samesign ugt i8 %89, -65
   br i1 %118, label %119, label %uv__utf8_decode1.exit158
 
 119:                                              ; preds = %117
@@ -636,7 +636,7 @@ uv__utf8_decode1.exit158:                         ; preds = %87, %92, %94, %117,
   br i1 %159, label %uv__utf8_decode1.exit171, label %160
 
 160:                                              ; preds = %.lr.ph221
-  %161 = icmp ugt i8 %157, -9
+  %161 = icmp samesign ugt i8 %157, -9
   br i1 %161, label %uv__utf8_decode1.exit171, label %162
 
 162:                                              ; preds = %160
@@ -649,7 +649,7 @@ uv__utf8_decode1.exit158:                         ; preds = %87, %92, %94, %117,
   ]
 
 165:                                              ; preds = %162
-  %166 = icmp ugt i8 %157, -17
+  %166 = icmp samesign ugt i8 %157, -17
   br i1 %166, label %167, label %177
 
 167:                                              ; preds = %165
@@ -665,7 +665,7 @@ uv__utf8_decode1.exit158:                         ; preds = %87, %92, %94, %117,
   br label %190
 
 177:                                              ; preds = %165, %162
-  %178 = icmp ugt i8 %157, -33
+  %178 = icmp samesign ugt i8 %157, -33
   br i1 %178, label %179, label %185
 
 179:                                              ; preds = %177
@@ -677,7 +677,7 @@ uv__utf8_decode1.exit158:                         ; preds = %87, %92, %94, %117,
   br label %190
 
 185:                                              ; preds = %177, %162
-  %186 = icmp ugt i8 %157, -65
+  %186 = icmp samesign ugt i8 %157, -65
   br i1 %186, label %187, label %uv__utf8_decode1.exit171
 
 187:                                              ; preds = %185
@@ -767,7 +767,7 @@ uv__utf8_decode1.exit171:                         ; preds = %.lr.ph221, %160, %1
   br i1 %224, label %uv__utf8_decode1.exit184, label %225
 
 225:                                              ; preds = %220
-  %226 = icmp ugt i8 %222, -9
+  %226 = icmp samesign ugt i8 %222, -9
   br i1 %226, label %uv__utf8_decode1.exit184.thread, label %227
 
 227:                                              ; preds = %225
@@ -780,7 +780,7 @@ uv__utf8_decode1.exit171:                         ; preds = %.lr.ph221, %160, %1
   ]
 
 230:                                              ; preds = %227
-  %231 = icmp ugt i8 %222, -17
+  %231 = icmp samesign ugt i8 %222, -17
   br i1 %231, label %232, label %242
 
 232:                                              ; preds = %230
@@ -796,7 +796,7 @@ uv__utf8_decode1.exit171:                         ; preds = %.lr.ph221, %160, %1
   br label %255
 
 242:                                              ; preds = %230, %227
-  %243 = icmp ugt i8 %222, -33
+  %243 = icmp samesign ugt i8 %222, -33
   br i1 %243, label %244, label %250
 
 244:                                              ; preds = %242
@@ -808,7 +808,7 @@ uv__utf8_decode1.exit171:                         ; preds = %.lr.ph221, %160, %1
   br label %255
 
 250:                                              ; preds = %242, %227
-  %251 = icmp ugt i8 %222, -65
+  %251 = icmp samesign ugt i8 %222, -65
   br i1 %251, label %252, label %uv__utf8_decode1.exit184.thread
 
 252:                                              ; preds = %250
@@ -906,7 +906,7 @@ uv__utf8_decode1.exit184.thread:                  ; preds = %259, %255, %227, %2
   %296 = sub nuw i32 %294, %.1111.ph
   %297 = tail call i32 @llvm.umin.i32(i32 %296, i32 26)
   %spec.store.select = select i1 %295, i32 %297, i32 1
-  %298 = icmp ult i32 %283, %spec.store.select
+  %298 = icmp samesign ult i32 %283, %spec.store.select
   br i1 %298, label %._crit_edge229, label %.lr.ph228
 
 ._crit_edge229:                                   ; preds = %293, %.preheader

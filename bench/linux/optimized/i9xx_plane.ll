@@ -575,7 +575,7 @@ define dso_local ptr @intel_primary_plane_create(ptr noundef %0, i32 noundef %1)
   br i1 %128, label %131, label %129
 
 129:                                              ; preds = %126
-  %130 = icmp ugt i16 %127, 4
+  %130 = icmp samesign ugt i16 %127, 4
   br i1 %130, label %131, label %138
 
 131:                                              ; preds = %129, %126, %124, %111

@@ -2762,11 +2762,11 @@ if.then.i:                                        ; preds = %if.end7
   br i1 %cmp.i16.i, label %if.then.i.i, label %if.else11.i.i
 
 if.then.i.i:                                      ; preds = %if.then.i
-  %cmp4.i.i = icmp ult i64 %.sroa.speculated.i, 3
+  %cmp4.i.i = icmp samesign ult i64 %.sroa.speculated.i, 3
   br i1 %cmp4.i.i, label %_ZN5folly3f146detail8F14TableINS1_21VectorContainerPolicyImSt10unique_ptrIvPFvPvEEvvvSt17integral_constantIbLb1EEEEE20reserveForInsertImplEmmmm.exit, label %if.else.i.i
 
 if.else.i.i:                                      ; preds = %if.then.i.i
-  %cmp6.inv.i.i = icmp ugt i64 %.sroa.speculated.i, 6
+  %cmp6.inv.i.i = icmp samesign ugt i64 %.sroa.speculated.i, 6
   %spec.select.i.i = select i1 %cmp6.inv.i.i, i64 12, i64 6
   br label %_ZN5folly3f146detail8F14TableINS1_21VectorContainerPolicyImSt10unique_ptrIvPFvPvEEvvvSt17integral_constantIbLb1EEEEE20reserveForInsertImplEmmmm.exit
 
@@ -4064,11 +4064,11 @@ if.then.i:                                        ; preds = %if.end5
   br i1 %cmp.i16.i, label %if.then.i.i6, label %if.else11.i.i
 
 if.then.i.i6:                                     ; preds = %if.then.i
-  %cmp4.i.i = icmp ult i64 %.sroa.speculated.i, 3
+  %cmp4.i.i = icmp samesign ult i64 %.sroa.speculated.i, 3
   br i1 %cmp4.i.i, label %_ZN5folly3f146detail8F14TableINS1_20ValueContainerPolicyIPNS_6detail18EventBaseLocalBaseEvvvvEEE20reserveForInsertImplEmmmm.exit, label %if.else.i.i
 
 if.else.i.i:                                      ; preds = %if.then.i.i6
-  %cmp6.inv.i.i = icmp ugt i64 %.sroa.speculated.i, 6
+  %cmp6.inv.i.i = icmp samesign ugt i64 %.sroa.speculated.i, 6
   %spec.select.i.i = select i1 %cmp6.inv.i.i, i64 14, i64 6
   br label %_ZN5folly3f146detail8F14TableINS1_20ValueContainerPolicyIPNS_6detail18EventBaseLocalBaseEvvvvEEE20reserveForInsertImplEmmmm.exit
 

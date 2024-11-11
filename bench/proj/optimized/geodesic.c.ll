@@ -141,7 +141,7 @@ Init.exit:                                        ; preds = %3
   %61 = add nsw i32 %.0610.i.i, -1
   %62 = load double, ptr %.19.i.i, align 8
   %63 = tail call double @llvm.fmuladd.f64(double %.011.i.i, double %53, double %62)
-  %64 = icmp ugt i32 %.0610.i.i, 1
+  %64 = icmp samesign ugt i32 %.0610.i.i, 1
   br i1 %64, label %.lr.ph.i.i, label %polyvalx.exit.i
 
 polyvalx.exit.i:                                  ; preds = %.lr.ph.i.i, %55
@@ -195,7 +195,7 @@ A3coeff.exit:                                     ; preds = %polyvalx.exit.i
   %83 = add nsw i32 %.0610.i.i36, -1
   %84 = load double, ptr %.19.i.i38, align 8
   %85 = tail call double @llvm.fmuladd.f64(double %.011.i.i35, double %79, double %84)
-  %86 = icmp ugt i32 %.0610.i.i36, 1
+  %86 = icmp samesign ugt i32 %.0610.i.i36, 1
   br i1 %86, label %.lr.ph.i.i34, label %polyvalx.exit.i39
 
 polyvalx.exit.i39:                                ; preds = %.lr.ph.i.i34, %76
@@ -263,7 +263,7 @@ C3coeff.exit:                                     ; preds = %96
   %109 = add nsw i32 %.0610.i.i48, -1
   %110 = load double, ptr %.19.i.i50, align 8
   %111 = tail call double @llvm.fmuladd.f64(double %.011.i.i47, double %103, double %110)
-  %112 = icmp ugt i32 %.0610.i.i48, 1
+  %112 = icmp samesign ugt i32 %.0610.i.i48, 1
   br i1 %112, label %.lr.ph.i.i46, label %polyvalx.exit.i51
 
 polyvalx.exit.i51:                                ; preds = %.lr.ph.i.i46, %102
@@ -584,7 +584,7 @@ sincosdx.exit:                                    ; preds = %AngRound.exit, %57,
   %113 = add nsw i32 %.0610.i.i, -1
   %114 = load double, ptr %.19.i.i, align 8
   %115 = tail call double @llvm.fmuladd.f64(double %.011.i.i, double %112, double %114)
-  %116 = icmp ugt i32 %.0610.i.i, 1
+  %116 = icmp samesign ugt i32 %.0610.i.i, 1
   br i1 %116, label %.lr.ph.i.i, label %A1m1f.exit
 
 A1m1f.exit:                                       ; preds = %.lr.ph.i.i
@@ -618,7 +618,7 @@ A1m1f.exit:                                       ; preds = %.lr.ph.i.i
   %130 = add nsw i32 %.0610.i.i114, -1
   %131 = load double, ptr %.19.i.i116, align 8
   %132 = tail call double @llvm.fmuladd.f64(double %.011.i.i113, double %112, double %131)
-  %133 = icmp ugt i32 %.0610.i.i114, 1
+  %133 = icmp samesign ugt i32 %.0610.i.i114, 1
   br i1 %133, label %.lr.ph.i.i112, label %polyvalx.exit.i
 
 polyvalx.exit.i:                                  ; preds = %.lr.ph.i.i112, %123
@@ -722,7 +722,7 @@ SinCosSeries.exit:                                ; preds = %151
   %192 = add nsw i32 %.0610.i.i123, -1
   %193 = load double, ptr %.19.i.i125, align 8
   %194 = tail call double @llvm.fmuladd.f64(double %.011.i.i122, double %184, double %193)
-  %195 = icmp ugt i32 %.0610.i.i123, 1
+  %195 = icmp samesign ugt i32 %.0610.i.i123, 1
   br i1 %195, label %.lr.ph.i.i121, label %polyvalx.exit.i126
 
 polyvalx.exit.i126:                               ; preds = %.lr.ph.i.i121, %185
@@ -764,7 +764,7 @@ C1pf.exit:                                        ; preds = %C1pf.exit.loopexit,
   %210 = add nsw i32 %.0610.i.i132, -1
   %211 = load double, ptr %.19.i.i134, align 8
   %212 = tail call double @llvm.fmuladd.f64(double %.011.i.i131, double %209, double %211)
-  %213 = icmp ugt i32 %.0610.i.i132, 1
+  %213 = icmp samesign ugt i32 %.0610.i.i132, 1
   br i1 %213, label %.lr.ph.i.i130, label %A2m1f.exit
 
 A2m1f.exit:                                       ; preds = %.lr.ph.i.i130
@@ -798,7 +798,7 @@ A2m1f.exit:                                       ; preds = %.lr.ph.i.i130
   %227 = add nsw i32 %.0610.i.i142, -1
   %228 = load double, ptr %.19.i.i144, align 8
   %229 = tail call double @llvm.fmuladd.f64(double %.011.i.i141, double %209, double %228)
-  %230 = icmp ugt i32 %.0610.i.i142, 1
+  %230 = icmp samesign ugt i32 %.0610.i.i142, 1
   br i1 %230, label %.lr.ph.i.i140, label %polyvalx.exit.i145
 
 polyvalx.exit.i145:                               ; preds = %.lr.ph.i.i140, %220
@@ -896,7 +896,7 @@ polyvalx.exit.thread.i:                           ; preds = %polyvalx.exit.i162
   %281 = add nsw i32 %.0610.i.i159, -1
   %282 = load double, ptr %.19.i.i161, align 8
   %283 = tail call double @llvm.fmuladd.f64(double %.011.i.i158, double %108, double %282)
-  %284 = icmp ugt i32 %.0610.i.i159, 1
+  %284 = icmp samesign ugt i32 %.0610.i.i159, 1
   br i1 %284, label %.lr.ph.i.i157, label %polyvalx.exit.i162
 
 polyvalx.exit.i162:                               ; preds = %.lr.ph.i.i157
@@ -921,7 +921,7 @@ polyvalx.exit.i162:                               ; preds = %.lr.ph.i.i157
   %292 = add nsw i32 %.0610.i.i167, -1
   %293 = load double, ptr %.19.i.i169, align 8
   %294 = tail call double @llvm.fmuladd.f64(double %.011.i.i166, double %108, double %293)
-  %295 = icmp ugt i32 %.0610.i.i167, 1
+  %295 = icmp samesign ugt i32 %.0610.i.i167, 1
   br i1 %295, label %.lr.ph.i.i165, label %A3f.exit
 
 A3f.exit:                                         ; preds = %.lr.ph.i.i165
@@ -1001,7 +1001,7 @@ SinCosSeries.exit176:                             ; preds = %307
   %335 = add nsw i32 %.0610.i.i184, -1
   %336 = load double, ptr %.19.i.i186, align 8
   %337 = tail call double @llvm.fmuladd.f64(double %.011.i.i183, double %108, double %336)
-  %338 = icmp ugt i32 %.0610.i.i184, 1
+  %338 = icmp samesign ugt i32 %.0610.i.i184, 1
   br i1 %338, label %.lr.ph.i.i182, label %polyvalx.exit.i187
 
 polyvalx.exit.i187:                               ; preds = %.lr.ph.i.i182, %329
@@ -2681,7 +2681,7 @@ sincosdx.exit276:                                 ; preds = %sincosdx.exit, %149
   %342 = add nsw i32 %.0610.i.i.i, -1
   %343 = load double, ptr %.19.i.i.i, align 8
   %344 = call double @llvm.fmuladd.f64(double %.011.i.i.i, double %338, double %343)
-  %345 = icmp ugt i32 %.0610.i.i.i, 1
+  %345 = icmp samesign ugt i32 %.0610.i.i.i, 1
   br i1 %345, label %.lr.ph.i.i.i, label %A3f.exit.i
 
 A3f.exit.i:                                       ; preds = %.lr.ph.i.i.i
@@ -3046,7 +3046,7 @@ polyvalx.exit.thread.i.i:                         ; preds = %polyvalx.exit.i.i
   %590 = add nsw i32 %.0610.i.i.i281, -1
   %591 = load double, ptr %.19.i.i.i283, align 8
   %592 = call double @llvm.fmuladd.f64(double %.011.i.i.i280, double %578, double %591)
-  %593 = icmp ugt i32 %.0610.i.i.i281, 1
+  %593 = icmp samesign ugt i32 %.0610.i.i.i281, 1
   br i1 %593, label %.lr.ph.i.i.i279, label %polyvalx.exit.i.i
 
 polyvalx.exit.i.i:                                ; preds = %.lr.ph.i.i.i279
@@ -3124,7 +3124,7 @@ SinCosSeries.exit113.i:                           ; preds = %618
   %634 = add nsw i32 %.0610.i.i116.i, -1
   %635 = load double, ptr %.19.i.i118.i, align 8
   %636 = call double @llvm.fmuladd.f64(double %.011.i.i115.i, double %578, double %635)
-  %637 = icmp ugt i32 %.0610.i.i116.i, 1
+  %637 = icmp samesign ugt i32 %.0610.i.i116.i, 1
   br i1 %637, label %.lr.ph.i.i114.i, label %A3f.exit.i284
 
 A3f.exit.i284:                                    ; preds = %.lr.ph.i.i114.i
@@ -3412,7 +3412,7 @@ Lambda12.exit:                                    ; preds = %A3f.exit.i284, %649
   %797 = add nsw i32 %.0610.i.i, -1
   %798 = load double, ptr %.19.i.i, align 8
   %799 = call double @llvm.fmuladd.f64(double %.011.i.i, double %780, double %798)
-  %800 = icmp ugt i32 %.0610.i.i, 1
+  %800 = icmp samesign ugt i32 %.0610.i.i, 1
   br i1 %800, label %.lr.ph.i.i, label %polyvalx.exit.i
 
 polyvalx.exit.i:                                  ; preds = %.lr.ph.i.i, %791
@@ -5334,7 +5334,7 @@ define internal fastcc void @Lengths(ptr nocapture noundef readonly %0, double n
   %21 = add nsw i32 %.0610.i.i, -1
   %22 = load double, ptr %.19.i.i, align 8
   %23 = tail call double @llvm.fmuladd.f64(double %.011.i.i, double %20, double %22)
-  %24 = icmp ugt i32 %.0610.i.i, 1
+  %24 = icmp samesign ugt i32 %.0610.i.i, 1
   br i1 %24, label %.lr.ph.i.i, label %A1m1f.exit
 
 A1m1f.exit:                                       ; preds = %.lr.ph.i.i
@@ -5364,7 +5364,7 @@ A1m1f.exit:                                       ; preds = %.lr.ph.i.i
   %34 = add nsw i32 %.0610.i.i117, -1
   %35 = load double, ptr %.19.i.i119, align 8
   %36 = tail call double @llvm.fmuladd.f64(double %.011.i.i116, double %20, double %35)
-  %37 = icmp ugt i32 %.0610.i.i117, 1
+  %37 = icmp samesign ugt i32 %.0610.i.i117, 1
   br i1 %37, label %.lr.ph.i.i115, label %polyvalx.exit.i
 
 polyvalx.exit.i:                                  ; preds = %.lr.ph.i.i115, %27
@@ -5396,7 +5396,7 @@ polyvalx.exit.i:                                  ; preds = %.lr.ph.i.i115, %27
   %49 = add nsw i32 %.0610.i.i122, -1
   %50 = load double, ptr %.19.i.i124, align 8
   %51 = tail call double @llvm.fmuladd.f64(double %.011.i.i121, double %20, double %50)
-  %52 = icmp ugt i32 %.0610.i.i122, 1
+  %52 = icmp samesign ugt i32 %.0610.i.i122, 1
   br i1 %52, label %.lr.ph.i.i120, label %A2m1f.exit
 
 A2m1f.exit:                                       ; preds = %.lr.ph.i.i120
@@ -5426,7 +5426,7 @@ A2m1f.exit:                                       ; preds = %.lr.ph.i.i120
   %62 = add nsw i32 %.0610.i.i132, -1
   %63 = load double, ptr %.19.i.i134, align 8
   %64 = tail call double @llvm.fmuladd.f64(double %.011.i.i131, double %20, double %63)
-  %65 = icmp ugt i32 %.0610.i.i132, 1
+  %65 = icmp samesign ugt i32 %.0610.i.i132, 1
   br i1 %65, label %.lr.ph.i.i130, label %polyvalx.exit.i135
 
 polyvalx.exit.i135:                               ; preds = %.lr.ph.i.i130, %55

@@ -1534,7 +1534,7 @@ if.end.i.i:                                       ; preds = %if.end4.i
 
 PyUnicode_DATA.exit.i:                            ; preds = %if.end.i.i, %if.then.i.i
   %retval.0.i.i = phi ptr [ %retval.0.i.i.i, %if.then.i.i ], [ %op.val3.i.i, %if.end.i.i ]
-  %cmp6.i = icmp ugt i64 %call.i, 2
+  %cmp6.i = icmp samesign ugt i64 %call.i, 2
   br i1 %cmp6.i, label %land.lhs.true.i, label %if.else.i
 
 land.lhs.true.i:                                  ; preds = %PyUnicode_DATA.exit.i

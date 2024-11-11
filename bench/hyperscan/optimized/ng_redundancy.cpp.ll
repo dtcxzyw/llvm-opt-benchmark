@@ -577,7 +577,7 @@ _ZNK5boost9container19vector_alloc_holderINS0_22small_vector_allocatorIN3ue212gr
   br i1 %cmp3.i.i.i, label %if.then.i5.i226.i.invoke, label %if.end.i4.i.i
 
 if.end.i4.i.i:                                    ; preds = %_ZNK5boost9container19vector_alloc_holderINS0_22small_vector_allocatorIN3ue212graph_detail17vertex_descriptorINS3_9ue2_graphINS3_8NGHolderENS3_19NFAGraphVertexPropsENS3_17NFAGraphEdgePropsEEEEESaIvEvEEmNS_11move_detail17integral_constantIjLj1EEEE13next_capacityINS0_16growth_factor_60EEEmm.exit.i.i
-  %cmp.i.i.i.i.i.i.i165.i = icmp ugt i64 %35, 576460752303423487
+  %cmp.i.i.i.i.i.i.i165.i = icmp samesign ugt i64 %35, 576460752303423487
   br i1 %cmp.i.i.i.i.i.i.i165.i, label %if.end.i.i.i.i.i.i.i225.i.invoke, label %_ZN5boost9container19vector_alloc_holderINS0_22small_vector_allocatorIN3ue212graph_detail17vertex_descriptorINS3_9ue2_graphINS3_8NGHolderENS3_19NFAGraphVertexPropsENS3_17NFAGraphEdgePropsEEEEESaIvEvEEmNS_11move_detail17integral_constantIjLj1EEEE8allocateEm.exit.i.i
 
 _ZN5boost9container19vector_alloc_holderINS0_22small_vector_allocatorIN3ue212graph_detail17vertex_descriptorINS3_9ue2_graphINS3_8NGHolderENS3_19NFAGraphVertexPropsENS3_17NFAGraphEdgePropsEEEEESaIvEvEEmNS_11move_detail17integral_constantIjLj1EEEE8allocateEm.exit.i.i: ; preds = %if.end.i4.i.i
@@ -813,7 +813,7 @@ if.then.i5.i226.i.cont:                           ; preds = %if.then.i5.i226.i.i
   unreachable
 
 if.end.i4.i191.i:                                 ; preds = %_ZNK5boost9container19vector_alloc_holderINS0_22small_vector_allocatorIN3ue212graph_detail17vertex_descriptorINS3_9ue2_graphINS3_8NGHolderENS3_19NFAGraphVertexPropsENS3_17NFAGraphEdgePropsEEEEESaIvEvEEmNS_11move_detail17integral_constantIjLj1EEEE13next_capacityINS0_16growth_factor_60EEEmm.exit.i187.i
-  %cmp.i.i.i.i.i.i.i192.i = icmp ugt i64 %53, 576460752303423487
+  %cmp.i.i.i.i.i.i.i192.i = icmp samesign ugt i64 %53, 576460752303423487
   br i1 %cmp.i.i.i.i.i.i.i192.i, label %if.end.i.i.i.i.i.i.i225.i.invoke, label %_ZN5boost9container19vector_alloc_holderINS0_22small_vector_allocatorIN3ue212graph_detail17vertex_descriptorINS3_9ue2_graphINS3_8NGHolderENS3_19NFAGraphVertexPropsENS3_17NFAGraphEdgePropsEEEEESaIvEvEEmNS_11move_detail17integral_constantIjLj1EEEE8allocateEm.exit.i193.i
 
 if.end.i.i.i.i.i.i.i225.i.invoke:                 ; preds = %if.end.i4.i.i, %if.end.i4.i191.i
@@ -6132,7 +6132,7 @@ for.body.i.i.i.i.i26:                             ; preds = %for.body.i.i.i.i.i2
   %incdec.ptr.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %agg.tmp.sroa.0.0.i.i.i.i, i64 16
   %incdec.ptr.i.i.i.i.i27 = getelementptr inbounds i8, ptr %__result.addr.05.i.i.i.i.i, i64 16
   %dec.i.i.i.i.i = add nsw i64 %__n.06.i.i.i.i.i, -1
-  %cmp.i.i.i.i.i = icmp ugt i64 %__n.06.i.i.i.i.i, 1
+  %cmp.i.i.i.i.i = icmp samesign ugt i64 %__n.06.i.i.i.i.i, 1
   br i1 %cmp.i.i.i.i.i, label %for.body.i.i.i.i.i26, label %if.end97, !llvm.loop !278
 
 _ZSt7advanceIN3ue211flat_detail12iter_wrapperIN5boost9container12vec_iteratorIPNS0_12graph_detail17vertex_descriptorINS0_9ue2_graphINS0_8NGHolderENS0_19NFAGraphVertexPropsENS0_17NFAGraphEdgePropsEEEEELb1EEEKSD_EEmEvRT_T0_.exit: ; preds = %if.then5
@@ -6198,7 +6198,7 @@ for.body.i.i.i.i.i50:                             ; preds = %for.body.i.i.i.i.i5
   %incdec.ptr.i.i.i.i.i.i.i.i.i54 = getelementptr inbounds i8, ptr %agg.tmp.sroa.0.0.i.i.i.i51, i64 16
   %incdec.ptr.i.i.i.i.i55 = getelementptr inbounds i8, ptr %__result.addr.05.i.i.i.i.i53, i64 16
   %dec.i.i.i.i.i56 = add nsw i64 %__n.06.i.i.i.i.i52, -1
-  %cmp.i.i.i.i.i57 = icmp ugt i64 %__n.06.i.i.i.i.i52, 1
+  %cmp.i.i.i.i.i57 = icmp samesign ugt i64 %__n.06.i.i.i.i.i52, 1
   br i1 %cmp.i.i.i.i.i57, label %for.body.i.i.i.i.i50, label %if.end97, !llvm.loop !278
 
 if.else58:                                        ; preds = %if.then

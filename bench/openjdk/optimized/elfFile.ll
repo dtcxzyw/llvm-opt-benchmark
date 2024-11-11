@@ -4658,15 +4658,15 @@ define hidden noundef zeroext i1 @_ZN9DwarfFile17LineNumberProgram21apply_standa
     i8 1, label %9
     i8 2, label %25
     i8 3, label %82
-    i8 4, label %118
-    i8 5, label %145
-    i8 6, label %172
-    i8 7, label %179
-    i8 8, label %183
-    i8 9, label %224
-    i8 10, label %241
-    i8 11, label %245
-    i8 12, label %249
+    i8 4, label %117
+    i8 5, label %144
+    i8 6, label %171
+    i8 7, label %178
+    i8 8, label %182
+    i8 9, label %223
+    i8 10, label %240
+    i8 11, label %244
+    i8 12, label %248
   ]
 
 9:                                                ; preds = %2
@@ -4828,308 +4828,308 @@ _ZN9DwarfFile17LineNumberProgram22LineNumberProgramState23add_to_address_registe
   br i1 %or.cond5.i.i10, label %85, label %103, !llvm.loop !15
 
 103:                                              ; preds = %91
-  %104 = icmp samesign ugt i8 %.0.i.i8, 3
-  br i1 %104, label %_ZN9DwarfFile21MarkedDwarfFileReader12read_sleb128EPla.exit.thread, label %105
+  %or.cond.not = icmp samesign ult i8 %.0.i.i8, 4
+  br i1 %or.cond.not, label %104, label %_ZN9DwarfFile21MarkedDwarfFileReader12read_sleb128EPla.exit.thread
 
-105:                                              ; preds = %103
-  %106 = and i32 %100, 255
-  %107 = icmp samesign ugt i32 %106, 63
-  %108 = and i8 %93, 64
-  %.not27.i.i = icmp eq i8 %108, 0
-  %or.cond30.i.i = or i1 %107, %.not27.i.i
-  %109 = zext nneg i32 %106 to i64
-  %110 = shl nsw i64 -1, %109
-  %111 = select i1 %or.cond30.i.i, i64 0, i64 %110
-  %.144 = or i64 %99, %111
+104:                                              ; preds = %103
+  %105 = and i32 %100, 255
+  %106 = icmp samesign ugt i32 %105, 63
+  %107 = and i8 %93, 64
+  %.not27.i.i = icmp eq i8 %107, 0
+  %or.cond30.i.i = or i1 %106, %.not27.i.i
+  %108 = zext nneg i32 %105 to i64
+  %109 = shl nsw i64 -1, %108
+  %110 = select i1 %or.cond30.i.i, i64 0, i64 %109
+  %.144 = or i64 %99, %110
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %6)
-  %112 = trunc i64 %.144 to i32
-  %113 = getelementptr inbounds i8, ptr %0, i64 88
-  %114 = load ptr, ptr %113, align 8
-  %115 = getelementptr inbounds i8, ptr %114, i64 16
-  %116 = load i32, ptr %115, align 8
-  %117 = add i32 %116, %112
-  store i32 %117, ptr %115, align 8
+  %111 = trunc i64 %.144 to i32
+  %112 = getelementptr inbounds i8, ptr %0, i64 88
+  %113 = load ptr, ptr %112, align 8
+  %114 = getelementptr inbounds i8, ptr %113, i64 16
+  %115 = load i32, ptr %114, align 8
+  %116 = add i32 %115, %111
+  store i32 %116, ptr %114, align 8
   br label %_ZN9DwarfFile17LineNumberProgram22LineNumberProgramState23add_to_address_registerEjRKNS0_23LineNumberProgramHeaderE.exit.thread
 
 _ZN9DwarfFile21MarkedDwarfFileReader12read_sleb128EPla.exit.thread: ; preds = %85, %103
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %6)
   br label %_ZN9DwarfFile17LineNumberProgram22LineNumberProgramState23add_to_address_registerEjRKNS0_23LineNumberProgramHeaderE.exit.thread
 
-118:                                              ; preds = %2
+117:                                              ; preds = %2
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %5)
-  %119 = getelementptr inbounds i8, ptr %0, i64 32
-  %120 = getelementptr inbounds i8, ptr %0, i64 16
-  br label %121
+  %118 = getelementptr inbounds i8, ptr %0, i64 32
+  %119 = getelementptr inbounds i8, ptr %0, i64 16
+  br label %120
 
-121:                                              ; preds = %127, %118
-  %.041 = phi i32 [ 0, %118 ], [ %134, %127 ]
-  %.021.i.i11 = phi i32 [ 0, %118 ], [ %135, %127 ]
-  %.0.i.i12 = phi i8 [ 0, %118 ], [ %128, %127 ]
-  %122 = load i64, ptr %119, align 8
-  %123 = add nsw i64 %122, 1
-  store i64 %123, ptr %119, align 8
-  %124 = load ptr, ptr %120, align 8
-  %125 = call i64 @fread(ptr noundef nonnull %5, i64 noundef 1, i64 noundef 1, ptr noundef %124)
-  %126 = icmp eq i64 %125, 1
-  br i1 %126, label %127, label %_ZN9DwarfFile21MarkedDwarfFileReader12read_uleb128EPma.exit15.thread
+120:                                              ; preds = %126, %117
+  %.041 = phi i32 [ 0, %117 ], [ %133, %126 ]
+  %.021.i.i11 = phi i32 [ 0, %117 ], [ %134, %126 ]
+  %.0.i.i12 = phi i8 [ 0, %117 ], [ %127, %126 ]
+  %121 = load i64, ptr %118, align 8
+  %122 = add nsw i64 %121, 1
+  store i64 %122, ptr %118, align 8
+  %123 = load ptr, ptr %119, align 8
+  %124 = call i64 @fread(ptr noundef nonnull %5, i64 noundef 1, i64 noundef 1, ptr noundef %123)
+  %125 = icmp eq i64 %124, 1
+  br i1 %125, label %126, label %_ZN9DwarfFile21MarkedDwarfFileReader12read_uleb128EPma.exit15.thread
 
-127:                                              ; preds = %121
-  %128 = add nuw nsw i8 %.0.i.i12, 1
-  %129 = load i8, ptr %5, align 1
-  %130 = and i8 %129, 127
-  %131 = zext nneg i8 %130 to i32
-  %132 = and i32 %.021.i.i11, 255
-  %133 = shl i32 %131, %132
-  %134 = or i32 %133, %.041
-  %135 = add nuw nsw i32 %132, 7
-  %136 = icmp slt i8 %129, 0
-  %137 = icmp samesign ult i8 %.0.i.i12, 7
-  %or.cond5.i.i14 = select i1 %136, i1 %137, i1 false
-  br i1 %or.cond5.i.i14, label %121, label %138, !llvm.loop !15
+126:                                              ; preds = %120
+  %127 = add nuw nsw i8 %.0.i.i12, 1
+  %128 = load i8, ptr %5, align 1
+  %129 = and i8 %128, 127
+  %130 = zext nneg i8 %129 to i32
+  %131 = and i32 %.021.i.i11, 255
+  %132 = shl i32 %130, %131
+  %133 = or i32 %132, %.041
+  %134 = add nuw nsw i32 %131, 7
+  %135 = icmp slt i8 %128, 0
+  %136 = icmp samesign ult i8 %.0.i.i12, 7
+  %or.cond5.i.i14 = select i1 %135, i1 %136, i1 false
+  br i1 %or.cond5.i.i14, label %120, label %137, !llvm.loop !15
 
-138:                                              ; preds = %127
-  %139 = icmp samesign ugt i8 %.0.i.i12, 7
-  br i1 %139, label %_ZN9DwarfFile21MarkedDwarfFileReader12read_uleb128EPma.exit15.thread, label %_ZN9DwarfFile21MarkedDwarfFileReader12read_uleb128EPma.exit15
+137:                                              ; preds = %126
+  %138 = icmp samesign ugt i8 %.0.i.i12, 7
+  br i1 %138, label %_ZN9DwarfFile21MarkedDwarfFileReader12read_uleb128EPma.exit15.thread, label %_ZN9DwarfFile21MarkedDwarfFileReader12read_uleb128EPma.exit15
 
-_ZN9DwarfFile21MarkedDwarfFileReader12read_uleb128EPma.exit15.thread: ; preds = %121, %138
+_ZN9DwarfFile21MarkedDwarfFileReader12read_uleb128EPma.exit15.thread: ; preds = %120, %137
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %5)
   br label %_ZN9DwarfFile17LineNumberProgram22LineNumberProgramState23add_to_address_registerEjRKNS0_23LineNumberProgramHeaderE.exit.thread
 
-_ZN9DwarfFile21MarkedDwarfFileReader12read_uleb128EPma.exit15: ; preds = %138
-  %140 = icmp samesign ult i8 %.0.i.i12, 4
+_ZN9DwarfFile21MarkedDwarfFileReader12read_uleb128EPma.exit15: ; preds = %137
+  %139 = icmp samesign ult i8 %.0.i.i12, 4
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %5)
-  br i1 %140, label %141, label %_ZN9DwarfFile17LineNumberProgram22LineNumberProgramState23add_to_address_registerEjRKNS0_23LineNumberProgramHeaderE.exit.thread
+  br i1 %139, label %140, label %_ZN9DwarfFile17LineNumberProgram22LineNumberProgramState23add_to_address_registerEjRKNS0_23LineNumberProgramHeaderE.exit.thread
 
-141:                                              ; preds = %_ZN9DwarfFile21MarkedDwarfFileReader12read_uleb128EPma.exit15
-  %142 = getelementptr inbounds i8, ptr %0, i64 88
-  %143 = load ptr, ptr %142, align 8
-  %144 = getelementptr inbounds i8, ptr %143, i64 12
-  store i32 %134, ptr %144, align 4
+140:                                              ; preds = %_ZN9DwarfFile21MarkedDwarfFileReader12read_uleb128EPma.exit15
+  %141 = getelementptr inbounds i8, ptr %0, i64 88
+  %142 = load ptr, ptr %141, align 8
+  %143 = getelementptr inbounds i8, ptr %142, i64 12
+  store i32 %133, ptr %143, align 4
   br label %_ZN9DwarfFile17LineNumberProgram22LineNumberProgramState23add_to_address_registerEjRKNS0_23LineNumberProgramHeaderE.exit.thread
 
-145:                                              ; preds = %2
+144:                                              ; preds = %2
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %4)
-  %146 = getelementptr inbounds i8, ptr %0, i64 32
-  %147 = getelementptr inbounds i8, ptr %0, i64 16
-  br label %148
+  %145 = getelementptr inbounds i8, ptr %0, i64 32
+  %146 = getelementptr inbounds i8, ptr %0, i64 16
+  br label %147
 
-148:                                              ; preds = %154, %145
-  %.039 = phi i32 [ 0, %145 ], [ %161, %154 ]
-  %.021.i.i16 = phi i32 [ 0, %145 ], [ %162, %154 ]
-  %.0.i.i17 = phi i8 [ 0, %145 ], [ %155, %154 ]
-  %149 = load i64, ptr %146, align 8
-  %150 = add nsw i64 %149, 1
-  store i64 %150, ptr %146, align 8
-  %151 = load ptr, ptr %147, align 8
-  %152 = call i64 @fread(ptr noundef nonnull %4, i64 noundef 1, i64 noundef 1, ptr noundef %151)
-  %153 = icmp eq i64 %152, 1
-  br i1 %153, label %154, label %_ZN9DwarfFile21MarkedDwarfFileReader12read_uleb128EPma.exit20.thread
+147:                                              ; preds = %153, %144
+  %.039 = phi i32 [ 0, %144 ], [ %160, %153 ]
+  %.021.i.i16 = phi i32 [ 0, %144 ], [ %161, %153 ]
+  %.0.i.i17 = phi i8 [ 0, %144 ], [ %154, %153 ]
+  %148 = load i64, ptr %145, align 8
+  %149 = add nsw i64 %148, 1
+  store i64 %149, ptr %145, align 8
+  %150 = load ptr, ptr %146, align 8
+  %151 = call i64 @fread(ptr noundef nonnull %4, i64 noundef 1, i64 noundef 1, ptr noundef %150)
+  %152 = icmp eq i64 %151, 1
+  br i1 %152, label %153, label %_ZN9DwarfFile21MarkedDwarfFileReader12read_uleb128EPma.exit20.thread
 
-154:                                              ; preds = %148
-  %155 = add nuw nsw i8 %.0.i.i17, 1
-  %156 = load i8, ptr %4, align 1
-  %157 = and i8 %156, 127
-  %158 = zext nneg i8 %157 to i32
-  %159 = and i32 %.021.i.i16, 255
-  %160 = shl i32 %158, %159
-  %161 = or i32 %160, %.039
-  %162 = add nuw nsw i32 %159, 7
-  %163 = icmp slt i8 %156, 0
-  %164 = icmp samesign ult i8 %.0.i.i17, 7
-  %or.cond5.i.i19 = select i1 %163, i1 %164, i1 false
-  br i1 %or.cond5.i.i19, label %148, label %165, !llvm.loop !15
+153:                                              ; preds = %147
+  %154 = add nuw nsw i8 %.0.i.i17, 1
+  %155 = load i8, ptr %4, align 1
+  %156 = and i8 %155, 127
+  %157 = zext nneg i8 %156 to i32
+  %158 = and i32 %.021.i.i16, 255
+  %159 = shl i32 %157, %158
+  %160 = or i32 %159, %.039
+  %161 = add nuw nsw i32 %158, 7
+  %162 = icmp slt i8 %155, 0
+  %163 = icmp samesign ult i8 %.0.i.i17, 7
+  %or.cond5.i.i19 = select i1 %162, i1 %163, i1 false
+  br i1 %or.cond5.i.i19, label %147, label %164, !llvm.loop !15
 
-165:                                              ; preds = %154
-  %166 = icmp samesign ugt i8 %.0.i.i17, 7
-  br i1 %166, label %_ZN9DwarfFile21MarkedDwarfFileReader12read_uleb128EPma.exit20.thread, label %_ZN9DwarfFile21MarkedDwarfFileReader12read_uleb128EPma.exit20
+164:                                              ; preds = %153
+  %165 = icmp samesign ugt i8 %.0.i.i17, 7
+  br i1 %165, label %_ZN9DwarfFile21MarkedDwarfFileReader12read_uleb128EPma.exit20.thread, label %_ZN9DwarfFile21MarkedDwarfFileReader12read_uleb128EPma.exit20
 
-_ZN9DwarfFile21MarkedDwarfFileReader12read_uleb128EPma.exit20.thread: ; preds = %148, %165
+_ZN9DwarfFile21MarkedDwarfFileReader12read_uleb128EPma.exit20.thread: ; preds = %147, %164
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %4)
   br label %_ZN9DwarfFile17LineNumberProgram22LineNumberProgramState23add_to_address_registerEjRKNS0_23LineNumberProgramHeaderE.exit.thread
 
-_ZN9DwarfFile21MarkedDwarfFileReader12read_uleb128EPma.exit20: ; preds = %165
-  %167 = icmp samesign ult i8 %.0.i.i17, 4
+_ZN9DwarfFile21MarkedDwarfFileReader12read_uleb128EPma.exit20: ; preds = %164
+  %166 = icmp samesign ult i8 %.0.i.i17, 4
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %4)
-  br i1 %167, label %168, label %_ZN9DwarfFile17LineNumberProgram22LineNumberProgramState23add_to_address_registerEjRKNS0_23LineNumberProgramHeaderE.exit.thread
+  br i1 %166, label %167, label %_ZN9DwarfFile17LineNumberProgram22LineNumberProgramState23add_to_address_registerEjRKNS0_23LineNumberProgramHeaderE.exit.thread
 
-168:                                              ; preds = %_ZN9DwarfFile21MarkedDwarfFileReader12read_uleb128EPma.exit20
-  %169 = getelementptr inbounds i8, ptr %0, i64 88
-  %170 = load ptr, ptr %169, align 8
-  %171 = getelementptr inbounds i8, ptr %170, i64 20
-  store i32 %161, ptr %171, align 4
+167:                                              ; preds = %_ZN9DwarfFile21MarkedDwarfFileReader12read_uleb128EPma.exit20
+  %168 = getelementptr inbounds i8, ptr %0, i64 88
+  %169 = load ptr, ptr %168, align 8
+  %170 = getelementptr inbounds i8, ptr %169, i64 20
+  store i32 %160, ptr %170, align 4
   br label %_ZN9DwarfFile17LineNumberProgram22LineNumberProgramState23add_to_address_registerEjRKNS0_23LineNumberProgramHeaderE.exit.thread
 
-172:                                              ; preds = %2
-  %173 = getelementptr inbounds i8, ptr %0, i64 88
-  %174 = load ptr, ptr %173, align 8
-  %175 = getelementptr inbounds i8, ptr %174, i64 24
-  %176 = load i8, ptr %175, align 8
-  %177 = and i8 %176, 1
-  %178 = xor i8 %177, 1
-  store i8 %178, ptr %175, align 8
+171:                                              ; preds = %2
+  %172 = getelementptr inbounds i8, ptr %0, i64 88
+  %173 = load ptr, ptr %172, align 8
+  %174 = getelementptr inbounds i8, ptr %173, i64 24
+  %175 = load i8, ptr %174, align 8
+  %176 = and i8 %175, 1
+  %177 = xor i8 %176, 1
+  store i8 %177, ptr %174, align 8
   br label %_ZN9DwarfFile17LineNumberProgram22LineNumberProgramState23add_to_address_registerEjRKNS0_23LineNumberProgramHeaderE.exit.thread
 
-179:                                              ; preds = %2
-  %180 = getelementptr inbounds i8, ptr %0, i64 88
-  %181 = load ptr, ptr %180, align 8
-  %182 = getelementptr inbounds i8, ptr %181, i64 25
-  store i8 1, ptr %182, align 1
+178:                                              ; preds = %2
+  %179 = getelementptr inbounds i8, ptr %0, i64 88
+  %180 = load ptr, ptr %179, align 8
+  %181 = getelementptr inbounds i8, ptr %180, i64 25
+  store i8 1, ptr %181, align 1
   br label %_ZN9DwarfFile17LineNumberProgram22LineNumberProgramState23add_to_address_registerEjRKNS0_23LineNumberProgramHeaderE.exit.thread
 
-183:                                              ; preds = %2
-  %184 = getelementptr inbounds i8, ptr %0, i64 65
-  %185 = load i8, ptr %184, align 1
-  %186 = xor i8 %185, -1
-  %187 = getelementptr inbounds i8, ptr %0, i64 64
-  %188 = load i8, ptr %187, align 8
-  %189 = udiv i8 %186, %188
-  %190 = getelementptr inbounds i8, ptr %0, i64 88
-  %191 = load ptr, ptr %190, align 8
-  %192 = zext i8 %189 to i32
-  %193 = getelementptr inbounds i8, ptr %191, i64 40
-  %194 = load i16, ptr %193, align 8
-  switch i16 %194, label %_ZN9DwarfFile17LineNumberProgram22LineNumberProgramState23add_to_address_registerEjRKNS0_23LineNumberProgramHeaderE.exit.thread [
-    i16 2, label %195
-    i16 3, label %195
-    i16 4, label %200
+182:                                              ; preds = %2
+  %183 = getelementptr inbounds i8, ptr %0, i64 65
+  %184 = load i8, ptr %183, align 1
+  %185 = xor i8 %184, -1
+  %186 = getelementptr inbounds i8, ptr %0, i64 64
+  %187 = load i8, ptr %186, align 8
+  %188 = udiv i8 %185, %187
+  %189 = getelementptr inbounds i8, ptr %0, i64 88
+  %190 = load ptr, ptr %189, align 8
+  %191 = zext i8 %188 to i32
+  %192 = getelementptr inbounds i8, ptr %190, i64 40
+  %193 = load i16, ptr %192, align 8
+  switch i16 %193, label %_ZN9DwarfFile17LineNumberProgram22LineNumberProgramState23add_to_address_registerEjRKNS0_23LineNumberProgramHeaderE.exit.thread [
+    i16 2, label %194
+    i16 3, label %194
+    i16 4, label %199
   ]
 
-195:                                              ; preds = %183, %183
-  %196 = getelementptr inbounds i8, ptr %0, i64 60
-  %197 = load i8, ptr %196, align 4
-  %198 = zext i8 %197 to i32
-  %199 = mul nuw nsw i32 %198, %192
+194:                                              ; preds = %182, %182
+  %195 = getelementptr inbounds i8, ptr %0, i64 60
+  %196 = load i8, ptr %195, align 4
+  %197 = zext i8 %196 to i32
+  %198 = mul nuw nsw i32 %197, %191
   br label %_ZN9DwarfFile17LineNumberProgram22LineNumberProgramState23add_to_address_registerEjRKNS0_23LineNumberProgramHeaderE.exit23
 
-200:                                              ; preds = %183
-  %201 = getelementptr inbounds i8, ptr %0, i64 60
-  %202 = load i8, ptr %201, align 4
-  %203 = zext i8 %202 to i32
-  %204 = getelementptr inbounds i8, ptr %191, i64 8
-  %205 = load i32, ptr %204, align 8
-  %206 = add i32 %205, %192
-  %207 = getelementptr inbounds i8, ptr %0, i64 61
-  %208 = load i8, ptr %207, align 1
-  %209 = zext i8 %208 to i32
-  %210 = udiv i32 %206, %209
-  %211 = mul i32 %210, %203
+199:                                              ; preds = %182
+  %200 = getelementptr inbounds i8, ptr %0, i64 60
+  %201 = load i8, ptr %200, align 4
+  %202 = zext i8 %201 to i32
+  %203 = getelementptr inbounds i8, ptr %190, i64 8
+  %204 = load i32, ptr %203, align 8
+  %205 = add i32 %204, %191
+  %206 = getelementptr inbounds i8, ptr %0, i64 61
+  %207 = load i8, ptr %206, align 1
+  %208 = zext i8 %207 to i32
+  %209 = udiv i32 %205, %208
+  %210 = mul i32 %209, %202
   br label %_ZN9DwarfFile17LineNumberProgram22LineNumberProgramState23add_to_address_registerEjRKNS0_23LineNumberProgramHeaderE.exit23
 
-_ZN9DwarfFile17LineNumberProgram22LineNumberProgramState23add_to_address_registerEjRKNS0_23LineNumberProgramHeaderE.exit23: ; preds = %195, %200
-  %.sink.i22 = phi i32 [ %211, %200 ], [ %199, %195 ]
-  %212 = zext i32 %.sink.i22 to i64
-  %213 = load i64, ptr %191, align 8
-  %214 = add i64 %213, %212
-  store i64 %214, ptr %191, align 8
-  %.pre = load ptr, ptr %190, align 8
+_ZN9DwarfFile17LineNumberProgram22LineNumberProgramState23add_to_address_registerEjRKNS0_23LineNumberProgramHeaderE.exit23: ; preds = %194, %199
+  %.sink.i22 = phi i32 [ %210, %199 ], [ %198, %194 ]
+  %211 = zext i32 %.sink.i22 to i64
+  %212 = load i64, ptr %190, align 8
+  %213 = add i64 %212, %211
+  store i64 %213, ptr %190, align 8
+  %.pre = load ptr, ptr %189, align 8
   %.phi.trans.insert = getelementptr inbounds i8, ptr %.pre, i64 40
   %.pre79 = load i16, ptr %.phi.trans.insert, align 8
-  %215 = icmp eq i16 %.pre79, 4
-  br i1 %215, label %216, label %_ZN9DwarfFile17LineNumberProgram22LineNumberProgramState23add_to_address_registerEjRKNS0_23LineNumberProgramHeaderE.exit.thread
+  %214 = icmp eq i16 %.pre79, 4
+  br i1 %214, label %215, label %_ZN9DwarfFile17LineNumberProgram22LineNumberProgramState23add_to_address_registerEjRKNS0_23LineNumberProgramHeaderE.exit.thread
 
-216:                                              ; preds = %_ZN9DwarfFile17LineNumberProgram22LineNumberProgramState23add_to_address_registerEjRKNS0_23LineNumberProgramHeaderE.exit23
-  %217 = getelementptr inbounds i8, ptr %.pre, i64 8
-  %218 = load i32, ptr %217, align 8
-  %219 = add i32 %218, %192
-  %220 = getelementptr inbounds i8, ptr %0, i64 61
-  %221 = load i8, ptr %220, align 1
-  %222 = zext i8 %221 to i32
-  %223 = urem i32 %219, %222
-  store i32 %223, ptr %217, align 8
+215:                                              ; preds = %_ZN9DwarfFile17LineNumberProgram22LineNumberProgramState23add_to_address_registerEjRKNS0_23LineNumberProgramHeaderE.exit23
+  %216 = getelementptr inbounds i8, ptr %.pre, i64 8
+  %217 = load i32, ptr %216, align 8
+  %218 = add i32 %217, %191
+  %219 = getelementptr inbounds i8, ptr %0, i64 61
+  %220 = load i8, ptr %219, align 1
+  %221 = zext i8 %220 to i32
+  %222 = urem i32 %218, %221
+  store i32 %222, ptr %216, align 8
   br label %_ZN9DwarfFile17LineNumberProgram22LineNumberProgramState23add_to_address_registerEjRKNS0_23LineNumberProgramHeaderE.exit.thread
 
-224:                                              ; preds = %2
-  %225 = getelementptr inbounds i8, ptr %0, i64 32
-  %226 = load i64, ptr %225, align 8
-  %227 = add nsw i64 %226, 2
-  store i64 %227, ptr %225, align 8
-  %228 = getelementptr inbounds i8, ptr %0, i64 16
-  %229 = load ptr, ptr %228, align 8
-  %230 = call i64 @fread(ptr noundef nonnull %8, i64 noundef 2, i64 noundef 1, ptr noundef %229)
-  %231 = icmp eq i64 %230, 1
-  br i1 %231, label %232, label %_ZN9DwarfFile17LineNumberProgram22LineNumberProgramState23add_to_address_registerEjRKNS0_23LineNumberProgramHeaderE.exit.thread
+223:                                              ; preds = %2
+  %224 = getelementptr inbounds i8, ptr %0, i64 32
+  %225 = load i64, ptr %224, align 8
+  %226 = add nsw i64 %225, 2
+  store i64 %226, ptr %224, align 8
+  %227 = getelementptr inbounds i8, ptr %0, i64 16
+  %228 = load ptr, ptr %227, align 8
+  %229 = call i64 @fread(ptr noundef nonnull %8, i64 noundef 2, i64 noundef 1, ptr noundef %228)
+  %230 = icmp eq i64 %229, 1
+  br i1 %230, label %231, label %_ZN9DwarfFile17LineNumberProgram22LineNumberProgramState23add_to_address_registerEjRKNS0_23LineNumberProgramHeaderE.exit.thread
 
-232:                                              ; preds = %224
-  %233 = load i16, ptr %8, align 2
-  %234 = zext i16 %233 to i64
-  %235 = getelementptr inbounds i8, ptr %0, i64 88
-  %236 = load ptr, ptr %235, align 8
-  %237 = load i64, ptr %236, align 8
-  %238 = add i64 %237, %234
-  store i64 %238, ptr %236, align 8
-  %239 = load ptr, ptr %235, align 8
-  %240 = getelementptr inbounds i8, ptr %239, i64 8
-  store i32 0, ptr %240, align 8
+231:                                              ; preds = %223
+  %232 = load i16, ptr %8, align 2
+  %233 = zext i16 %232 to i64
+  %234 = getelementptr inbounds i8, ptr %0, i64 88
+  %235 = load ptr, ptr %234, align 8
+  %236 = load i64, ptr %235, align 8
+  %237 = add i64 %236, %233
+  store i64 %237, ptr %235, align 8
+  %238 = load ptr, ptr %234, align 8
+  %239 = getelementptr inbounds i8, ptr %238, i64 8
+  store i32 0, ptr %239, align 8
   br label %_ZN9DwarfFile17LineNumberProgram22LineNumberProgramState23add_to_address_registerEjRKNS0_23LineNumberProgramHeaderE.exit.thread
 
-241:                                              ; preds = %2
-  %242 = getelementptr inbounds i8, ptr %0, i64 88
-  %243 = load ptr, ptr %242, align 8
-  %244 = getelementptr inbounds i8, ptr %243, i64 27
-  store i8 1, ptr %244, align 1
+240:                                              ; preds = %2
+  %241 = getelementptr inbounds i8, ptr %0, i64 88
+  %242 = load ptr, ptr %241, align 8
+  %243 = getelementptr inbounds i8, ptr %242, i64 27
+  store i8 1, ptr %243, align 1
   br label %_ZN9DwarfFile17LineNumberProgram22LineNumberProgramState23add_to_address_registerEjRKNS0_23LineNumberProgramHeaderE.exit.thread
 
-245:                                              ; preds = %2
-  %246 = getelementptr inbounds i8, ptr %0, i64 88
-  %247 = load ptr, ptr %246, align 8
-  %248 = getelementptr inbounds i8, ptr %247, i64 28
-  store i8 1, ptr %248, align 4
+244:                                              ; preds = %2
+  %245 = getelementptr inbounds i8, ptr %0, i64 88
+  %246 = load ptr, ptr %245, align 8
+  %247 = getelementptr inbounds i8, ptr %246, i64 28
+  store i8 1, ptr %247, align 4
   br label %_ZN9DwarfFile17LineNumberProgram22LineNumberProgramState23add_to_address_registerEjRKNS0_23LineNumberProgramHeaderE.exit.thread
 
-249:                                              ; preds = %2
+248:                                              ; preds = %2
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %3)
-  %250 = getelementptr inbounds i8, ptr %0, i64 32
-  %251 = getelementptr inbounds i8, ptr %0, i64 16
-  br label %252
+  %249 = getelementptr inbounds i8, ptr %0, i64 32
+  %250 = getelementptr inbounds i8, ptr %0, i64 16
+  br label %251
 
-252:                                              ; preds = %258, %249
-  %.038 = phi i32 [ 0, %249 ], [ %265, %258 ]
-  %.021.i.i24 = phi i32 [ 0, %249 ], [ %266, %258 ]
-  %.0.i.i25 = phi i8 [ 0, %249 ], [ %259, %258 ]
-  %253 = load i64, ptr %250, align 8
-  %254 = add nsw i64 %253, 1
-  store i64 %254, ptr %250, align 8
-  %255 = load ptr, ptr %251, align 8
-  %256 = call i64 @fread(ptr noundef nonnull %3, i64 noundef 1, i64 noundef 1, ptr noundef %255)
-  %257 = icmp eq i64 %256, 1
-  br i1 %257, label %258, label %_ZN9DwarfFile21MarkedDwarfFileReader12read_uleb128EPma.exit28.thread
+251:                                              ; preds = %257, %248
+  %.038 = phi i32 [ 0, %248 ], [ %264, %257 ]
+  %.021.i.i24 = phi i32 [ 0, %248 ], [ %265, %257 ]
+  %.0.i.i25 = phi i8 [ 0, %248 ], [ %258, %257 ]
+  %252 = load i64, ptr %249, align 8
+  %253 = add nsw i64 %252, 1
+  store i64 %253, ptr %249, align 8
+  %254 = load ptr, ptr %250, align 8
+  %255 = call i64 @fread(ptr noundef nonnull %3, i64 noundef 1, i64 noundef 1, ptr noundef %254)
+  %256 = icmp eq i64 %255, 1
+  br i1 %256, label %257, label %_ZN9DwarfFile21MarkedDwarfFileReader12read_uleb128EPma.exit28.thread
 
-258:                                              ; preds = %252
-  %259 = add nuw nsw i8 %.0.i.i25, 1
-  %260 = load i8, ptr %3, align 1
-  %261 = and i8 %260, 127
-  %262 = zext nneg i8 %261 to i32
-  %263 = and i32 %.021.i.i24, 255
-  %264 = shl i32 %262, %263
-  %265 = or i32 %264, %.038
-  %266 = add nuw nsw i32 %263, 7
-  %267 = icmp slt i8 %260, 0
-  %268 = icmp samesign ult i8 %.0.i.i25, 7
-  %or.cond5.i.i27 = select i1 %267, i1 %268, i1 false
-  br i1 %or.cond5.i.i27, label %252, label %269, !llvm.loop !15
+257:                                              ; preds = %251
+  %258 = add nuw nsw i8 %.0.i.i25, 1
+  %259 = load i8, ptr %3, align 1
+  %260 = and i8 %259, 127
+  %261 = zext nneg i8 %260 to i32
+  %262 = and i32 %.021.i.i24, 255
+  %263 = shl i32 %261, %262
+  %264 = or i32 %263, %.038
+  %265 = add nuw nsw i32 %262, 7
+  %266 = icmp slt i8 %259, 0
+  %267 = icmp samesign ult i8 %.0.i.i25, 7
+  %or.cond5.i.i27 = select i1 %266, i1 %267, i1 false
+  br i1 %or.cond5.i.i27, label %251, label %268, !llvm.loop !15
 
-269:                                              ; preds = %258
-  %270 = icmp samesign ugt i8 %.0.i.i25, 7
-  br i1 %270, label %_ZN9DwarfFile21MarkedDwarfFileReader12read_uleb128EPma.exit28.thread, label %_ZN9DwarfFile21MarkedDwarfFileReader12read_uleb128EPma.exit28
+268:                                              ; preds = %257
+  %269 = icmp samesign ugt i8 %.0.i.i25, 7
+  br i1 %269, label %_ZN9DwarfFile21MarkedDwarfFileReader12read_uleb128EPma.exit28.thread, label %_ZN9DwarfFile21MarkedDwarfFileReader12read_uleb128EPma.exit28
 
-_ZN9DwarfFile21MarkedDwarfFileReader12read_uleb128EPma.exit28.thread: ; preds = %252, %269
+_ZN9DwarfFile21MarkedDwarfFileReader12read_uleb128EPma.exit28.thread: ; preds = %251, %268
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %3)
   br label %_ZN9DwarfFile17LineNumberProgram22LineNumberProgramState23add_to_address_registerEjRKNS0_23LineNumberProgramHeaderE.exit.thread
 
-_ZN9DwarfFile21MarkedDwarfFileReader12read_uleb128EPma.exit28: ; preds = %269
-  %271 = icmp samesign ult i8 %.0.i.i25, 4
+_ZN9DwarfFile21MarkedDwarfFileReader12read_uleb128EPma.exit28: ; preds = %268
+  %270 = icmp samesign ult i8 %.0.i.i25, 4
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %3)
-  br i1 %271, label %272, label %_ZN9DwarfFile17LineNumberProgram22LineNumberProgramState23add_to_address_registerEjRKNS0_23LineNumberProgramHeaderE.exit.thread
+  br i1 %270, label %271, label %_ZN9DwarfFile17LineNumberProgram22LineNumberProgramState23add_to_address_registerEjRKNS0_23LineNumberProgramHeaderE.exit.thread
 
-272:                                              ; preds = %_ZN9DwarfFile21MarkedDwarfFileReader12read_uleb128EPma.exit28
-  %273 = getelementptr inbounds i8, ptr %0, i64 88
-  %274 = load ptr, ptr %273, align 8
-  %275 = getelementptr inbounds i8, ptr %274, i64 32
-  store i32 %265, ptr %275, align 8
+271:                                              ; preds = %_ZN9DwarfFile21MarkedDwarfFileReader12read_uleb128EPma.exit28
+  %272 = getelementptr inbounds i8, ptr %0, i64 88
+  %273 = load ptr, ptr %272, align 8
+  %274 = getelementptr inbounds i8, ptr %273, i64 32
+  store i32 %264, ptr %274, align 8
   br label %_ZN9DwarfFile17LineNumberProgram22LineNumberProgramState23add_to_address_registerEjRKNS0_23LineNumberProgramHeaderE.exit.thread
 
-_ZN9DwarfFile17LineNumberProgram22LineNumberProgramState23add_to_address_registerEjRKNS0_23LineNumberProgramHeaderE.exit.thread: ; preds = %183, %48, %_ZN9DwarfFile21MarkedDwarfFileReader12read_uleb128EPma.exit28.thread, %_ZN9DwarfFile21MarkedDwarfFileReader12read_uleb128EPma.exit20.thread, %_ZN9DwarfFile21MarkedDwarfFileReader12read_uleb128EPma.exit15.thread, %_ZN9DwarfFile21MarkedDwarfFileReader12read_sleb128EPla.exit.thread, %_ZN9DwarfFile21MarkedDwarfFileReader12read_uleb128EPma.exit.thread, %105, %141, %168, %172, %179, %232, %241, %245, %272, %23, %9, %74, %_ZN9DwarfFile17LineNumberProgram22LineNumberProgramState23add_to_address_registerEjRKNS0_23LineNumberProgramHeaderE.exit, %216, %_ZN9DwarfFile17LineNumberProgram22LineNumberProgramState23add_to_address_registerEjRKNS0_23LineNumberProgramHeaderE.exit23, %2, %_ZN9DwarfFile21MarkedDwarfFileReader12read_uleb128EPma.exit28, %224, %_ZN9DwarfFile21MarkedDwarfFileReader12read_uleb128EPma.exit20, %_ZN9DwarfFile21MarkedDwarfFileReader12read_uleb128EPma.exit15, %_ZN9DwarfFile21MarkedDwarfFileReader12read_uleb128EPma.exit
-  %.0 = phi i1 [ false, %_ZN9DwarfFile21MarkedDwarfFileReader12read_uleb128EPma.exit ], [ false, %_ZN9DwarfFile21MarkedDwarfFileReader12read_uleb128EPma.exit15 ], [ false, %_ZN9DwarfFile21MarkedDwarfFileReader12read_uleb128EPma.exit20 ], [ false, %224 ], [ false, %_ZN9DwarfFile21MarkedDwarfFileReader12read_uleb128EPma.exit28 ], [ false, %2 ], [ true, %_ZN9DwarfFile17LineNumberProgram22LineNumberProgramState23add_to_address_registerEjRKNS0_23LineNumberProgramHeaderE.exit23 ], [ true, %216 ], [ true, %_ZN9DwarfFile17LineNumberProgram22LineNumberProgramState23add_to_address_registerEjRKNS0_23LineNumberProgramHeaderE.exit ], [ true, %74 ], [ true, %9 ], [ true, %23 ], [ true, %272 ], [ true, %245 ], [ true, %241 ], [ true, %232 ], [ true, %179 ], [ true, %172 ], [ true, %168 ], [ true, %141 ], [ true, %105 ], [ false, %_ZN9DwarfFile21MarkedDwarfFileReader12read_uleb128EPma.exit.thread ], [ false, %_ZN9DwarfFile21MarkedDwarfFileReader12read_sleb128EPla.exit.thread ], [ false, %_ZN9DwarfFile21MarkedDwarfFileReader12read_uleb128EPma.exit15.thread ], [ false, %_ZN9DwarfFile21MarkedDwarfFileReader12read_uleb128EPma.exit20.thread ], [ false, %_ZN9DwarfFile21MarkedDwarfFileReader12read_uleb128EPma.exit28.thread ], [ true, %48 ], [ true, %183 ]
+_ZN9DwarfFile17LineNumberProgram22LineNumberProgramState23add_to_address_registerEjRKNS0_23LineNumberProgramHeaderE.exit.thread: ; preds = %182, %48, %_ZN9DwarfFile21MarkedDwarfFileReader12read_uleb128EPma.exit28.thread, %_ZN9DwarfFile21MarkedDwarfFileReader12read_uleb128EPma.exit20.thread, %_ZN9DwarfFile21MarkedDwarfFileReader12read_uleb128EPma.exit15.thread, %_ZN9DwarfFile21MarkedDwarfFileReader12read_sleb128EPla.exit.thread, %_ZN9DwarfFile21MarkedDwarfFileReader12read_uleb128EPma.exit.thread, %104, %140, %167, %171, %178, %231, %240, %244, %271, %23, %9, %74, %_ZN9DwarfFile17LineNumberProgram22LineNumberProgramState23add_to_address_registerEjRKNS0_23LineNumberProgramHeaderE.exit, %215, %_ZN9DwarfFile17LineNumberProgram22LineNumberProgramState23add_to_address_registerEjRKNS0_23LineNumberProgramHeaderE.exit23, %2, %_ZN9DwarfFile21MarkedDwarfFileReader12read_uleb128EPma.exit28, %223, %_ZN9DwarfFile21MarkedDwarfFileReader12read_uleb128EPma.exit20, %_ZN9DwarfFile21MarkedDwarfFileReader12read_uleb128EPma.exit15, %_ZN9DwarfFile21MarkedDwarfFileReader12read_uleb128EPma.exit
+  %.0 = phi i1 [ false, %_ZN9DwarfFile21MarkedDwarfFileReader12read_uleb128EPma.exit ], [ false, %_ZN9DwarfFile21MarkedDwarfFileReader12read_uleb128EPma.exit15 ], [ false, %_ZN9DwarfFile21MarkedDwarfFileReader12read_uleb128EPma.exit20 ], [ false, %223 ], [ false, %_ZN9DwarfFile21MarkedDwarfFileReader12read_uleb128EPma.exit28 ], [ false, %2 ], [ true, %_ZN9DwarfFile17LineNumberProgram22LineNumberProgramState23add_to_address_registerEjRKNS0_23LineNumberProgramHeaderE.exit23 ], [ true, %215 ], [ true, %_ZN9DwarfFile17LineNumberProgram22LineNumberProgramState23add_to_address_registerEjRKNS0_23LineNumberProgramHeaderE.exit ], [ true, %74 ], [ true, %9 ], [ true, %23 ], [ true, %271 ], [ true, %244 ], [ true, %240 ], [ true, %231 ], [ true, %178 ], [ true, %171 ], [ true, %167 ], [ true, %140 ], [ true, %104 ], [ false, %_ZN9DwarfFile21MarkedDwarfFileReader12read_uleb128EPma.exit.thread ], [ false, %_ZN9DwarfFile21MarkedDwarfFileReader12read_sleb128EPla.exit.thread ], [ false, %_ZN9DwarfFile21MarkedDwarfFileReader12read_uleb128EPma.exit15.thread ], [ false, %_ZN9DwarfFile21MarkedDwarfFileReader12read_uleb128EPma.exit20.thread ], [ false, %_ZN9DwarfFile21MarkedDwarfFileReader12read_uleb128EPma.exit28.thread ], [ true, %48 ], [ true, %182 ]
   ret i1 %.0
 }
 

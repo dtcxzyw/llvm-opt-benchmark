@@ -854,7 +854,7 @@ cond.false.i:                                     ; preds = %if.end8
   unreachable
 
 cond.end.i:                                       ; preds = %if.end8
-  %cmp2.i = icmp ult i32 %11, 101
+  %cmp2.i = icmp samesign ult i32 %11, 101
   br i1 %cmp2.i, label %cond.end12.i, label %cond.false11.i
 
 cond.false11.i:                                   ; preds = %cond.end.i
@@ -863,7 +863,7 @@ cond.false11.i:                                   ; preds = %cond.end.i
   unreachable
 
 cond.end12.i:                                     ; preds = %cond.end.i
-  %cmp13.i = icmp ult i32 %11, 11
+  %cmp13.i = icmp samesign ult i32 %11, 11
   br i1 %cmp13.i, label %if.then.i, label %if.end.i101
 
 if.then.i:                                        ; preds = %cond.end12.i

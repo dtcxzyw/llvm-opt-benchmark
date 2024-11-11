@@ -5085,7 +5085,7 @@ define linkonce_odr ptr @_ZSt4copyIPKhSt20back_insert_iteratorI5QListIhEEET0_T_S
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %4)
   %13 = getelementptr i8, ptr %.056.i.i.i.i, i64 1
   %14 = add nsw i64 %.07.i.i.i.i, -1
-  %15 = icmp ugt i64 %.07.i.i.i.i, 1
+  %15 = icmp samesign ugt i64 %.07.i.i.i.i, 1
   br i1 %15, label %10, label %_ZSt13__copy_move_aILb0EPKhSt20back_insert_iteratorI5QListIhEEET1_T0_S7_S6_.exit, !llvm.loop !10
 
 _ZSt13__copy_move_aILb0EPKhSt20back_insert_iteratorI5QListIhEEET1_T0_S7_S6_.exit: ; preds = %10, %3

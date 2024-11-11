@@ -375,7 +375,7 @@ define dso_local void @e1000e_update_mc_addr_list_generic(ptr noundef %0, ptr no
   %61 = getelementptr [128 x i32], ptr %4, i64 0, i64 %58
   %62 = load i32, ptr %61, align 4
   tail call void @__ew32(ptr noundef %0, i64 noundef %60, i32 noundef %62) #6
-  %63 = icmp ugt i64 %57, 1
+  %63 = icmp samesign ugt i64 %57, 1
   br i1 %63, label %56, label %.loopexit, !llvm.loop !14
 
 .loopexit:                                        ; preds = %56, %.loopexit3

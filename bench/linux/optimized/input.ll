@@ -4981,7 +4981,7 @@ define internal fastcc i32 @input_print_bitmap(ptr nocapture noundef writeonly %
   br label %.outer, !llvm.loop !59
 
 .thread:                                          ; preds = %54
-  %68 = icmp ugt i64 %14, 1
+  %68 = icmp samesign ugt i64 %14, 1
   br i1 %68, label %13, label %.thread8, !llvm.loop !59
 
 .thread8:                                         ; preds = %.thread
@@ -5902,7 +5902,7 @@ define internal fastcc void @input_seq_print_bitmap(ptr noundef %0, ptr noundef 
 
 .thread:                                          ; preds = %44, %30, %52, %49
   %55 = phi i8 [ 0, %52 ], [ %14, %49 ], [ %14, %30 ], [ %14, %44 ]
-  %56 = icmp ugt i64 %13, 1
+  %56 = icmp samesign ugt i64 %13, 1
   br i1 %56, label %12, label %57, !llvm.loop !61
 
 57:                                               ; preds = %.thread

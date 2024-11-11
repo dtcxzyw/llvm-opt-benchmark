@@ -13286,7 +13286,7 @@ _ZNSt6vectorIN5ceres8internal4CellESaIS2_EE12emplace_backIJEEERS2_DpOT_.exit: ; 
   store double %484, ptr %.057.i, align 8
   %485 = add nsw i32 %.08.i, -1
   %486 = getelementptr inbounds i8, ptr %.057.i, i64 8
-  %487 = icmp ugt i32 %.08.i, 1
+  %487 = icmp samesign ugt i32 %.08.i, 1
   br i1 %487, label %.lr.ph.i, label %_ZNSt10unique_ptrIN5ceres8internal27CompressedRowBlockStructureESt14default_deleteIS2_EED2Ev.exit, !llvm.loop !190
 
 488:                                              ; preds = %.lr.ph.i
@@ -20427,7 +20427,7 @@ define linkonce_odr hidden void @_ZN5Eigen12DenseStorageIdLin1ELin1ELin1ELi1EE6r
   br i1 %12, label %13, label %.sink.split
 
 13:                                               ; preds = %10
-  %14 = icmp ugt i64 %1, 2305843009213693951
+  %14 = icmp samesign ugt i64 %1, 2305843009213693951
   br i1 %14, label %15, label %17
 
 15:                                               ; preds = %13

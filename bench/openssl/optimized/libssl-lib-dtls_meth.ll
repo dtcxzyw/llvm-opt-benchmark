@@ -232,7 +232,7 @@ if.end78:                                         ; preds = %if.end71
   %28 = load i32, ptr %max_frag_len, align 4
   %add = add i32 %28, 320
   %conv80 = zext i32 %add to i64
-  %cmp81 = icmp ugt i64 %27, %conv80
+  %cmp81 = icmp samesign ugt i64 %27, %conv80
   br i1 %cmp81, label %again.backedge.sink.split.sink.split, label %if.end78.if.end87_crit_edge
 
 if.end78.if.end87_crit_edge:                      ; preds = %if.end78
@@ -374,7 +374,7 @@ if.end66.i.i:                                     ; preds = %if.else.i.i
 if.end.i:                                         ; preds = %if.end66.i.i, %if.else.i.i
   %retval.0.i13.i = phi i32 [ -128, %if.else.i.i ], [ %spec.select.i.i, %if.end66.i.i ]
   %sub.i = sub nsw i32 0, %retval.0.i13.i
-  %cmp3.i = icmp ugt i32 %sub.i, 63
+  %cmp3.i = icmp samesign ugt i32 %sub.i, 63
   br i1 %cmp3.i, label %again.backedge.sink.split.sink.split, label %if.else.i99
 
 if.else.i99:                                      ; preds = %if.end.i
@@ -747,7 +747,7 @@ satsub64be.exit.i.i:                              ; preds = %if.end66.i.i.i
   br i1 %cmp2.i.i, label %if.then.i.i, label %if.else10.i.i
 
 if.then.i.i:                                      ; preds = %satsub64be.exit.i.i
-  %cmp3.i.i = icmp ult i32 %spec.select.i.i.i, 64
+  %cmp3.i.i = icmp samesign ult i32 %spec.select.i.i.i, 64
   br i1 %cmp3.i.i, label %if.then5.i.i, label %if.end.i.i
 
 if.then5.i.i:                                     ; preds = %if.then.i.i
@@ -767,7 +767,7 @@ if.end.i.i:                                       ; preds = %if.then5.i.i, %if.t
 if.else10.i.i:                                    ; preds = %satsub64be.exit.i.i, %if.else.i.i.i
   %retval.0.i18.i.i = phi i32 [ %spec.select.i.i.i, %satsub64be.exit.i.i ], [ -128, %if.else.i.i.i ]
   %sub.i.i121 = sub nsw i32 0, %retval.0.i18.i.i
-  %cmp12.i.i = icmp ult i32 %sub.i.i121, 64
+  %cmp12.i.i = icmp samesign ult i32 %sub.i.i121, 64
   br i1 %cmp12.i.i, label %if.then14.i.i, label %end.i
 
 if.then14.i.i:                                    ; preds = %if.else10.i.i

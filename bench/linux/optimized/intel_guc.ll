@@ -1590,7 +1590,7 @@ define dso_local range(i32 -2147483648, 1) i32 @intel_guc_self_cfg32(ptr noundef
   br i1 %13, label %select.unfold, label %14, !prof !17
 
 14:                                               ; preds = %3
-  %15 = icmp ugt i32 %12, 1
+  %15 = icmp samesign ugt i32 %12, 1
   br i1 %15, label %select.unfold, label %16, !prof !17
 
 16:                                               ; preds = %14
@@ -1650,7 +1650,7 @@ define dso_local range(i32 -2147483648, 1) i32 @intel_guc_self_cfg64(ptr noundef
   br i1 %15, label %select.unfold, label %16, !prof !17
 
 16:                                               ; preds = %3
-  %17 = icmp ugt i32 %14, 1
+  %17 = icmp samesign ugt i32 %14, 1
   br i1 %17, label %select.unfold, label %18, !prof !17
 
 18:                                               ; preds = %16

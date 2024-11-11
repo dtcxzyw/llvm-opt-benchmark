@@ -2585,7 +2585,7 @@ lor.lhs.false12:                                  ; preds = %if.end
 if.end18:                                         ; preds = %lor.lhs.false12
   %dec = add nsw i64 %add, -1
   store i64 %dec, ptr %remaining, align 8
-  %cmp19 = icmp ult i64 %dec, 3
+  %cmp19 = icmp samesign ult i64 %dec, 3
   br i1 %cmp19, label %return, label %if.end22
 
 if.end22:                                         ; preds = %if.end18
@@ -2600,7 +2600,7 @@ if.end22:                                         ; preds = %if.end18
   %conv28 = zext i8 %7 to i64
   %add29 = or disjoint i64 %shl25, %conv28
   %add30 = add nuw nsw i64 %add29, 2
-  %cmp31 = icmp ugt i64 %add30, %dec
+  %cmp31 = icmp samesign ugt i64 %add30, %dec
   br i1 %cmp31, label %return, label %if.end34
 
 if.end34:                                         ; preds = %if.end22

@@ -6996,7 +6996,7 @@ define hidden void @"_ZN5alloc11collections5btree4node210Handle$LT$alloc..collec
 .lr.ph.i.i26.i:                                   ; preds = %299, %.lr.ph.i.i26.i
   %.sroa.0.06.i.i27.i = phi i64 [ %302, %.lr.ph.i.i26.i ], [ %278, %299 ]
   %302 = add nuw nsw i64 %.sroa.0.06.i.i27.i, 1
-  %303 = icmp ult i64 %.sroa.0.06.i.i27.i, 12
+  %303 = icmp samesign ult i64 %.sroa.0.06.i.i27.i, 12
   tail call void @llvm.assume(i1 %303)
   %304 = getelementptr inbounds ptr, ptr %291, i64 %.sroa.0.06.i.i27.i
   %305 = load ptr, ptr %304, align 8, !noalias !1104, !nonnull !9, !noundef !9
@@ -7869,7 +7869,7 @@ define hidden void @"_ZN5alloc11collections5btree4node210Handle$LT$alloc..collec
 .lr.ph.i.i25.i:                                   ; preds = %302, %.lr.ph.i.i25.i
   %.sroa.0.06.i.i26.i = phi i64 [ %305, %.lr.ph.i.i25.i ], [ %281, %302 ]
   %305 = add nuw nsw i64 %.sroa.0.06.i.i26.i, 1
-  %306 = icmp ult i64 %.sroa.0.06.i.i26.i, 12
+  %306 = icmp samesign ult i64 %.sroa.0.06.i.i26.i, 12
   tail call void @llvm.assume(i1 %306)
   %307 = getelementptr inbounds ptr, ptr %294, i64 %.sroa.0.06.i.i26.i
   %308 = load ptr, ptr %307, align 8, !noalias !1268, !nonnull !9, !noundef !9

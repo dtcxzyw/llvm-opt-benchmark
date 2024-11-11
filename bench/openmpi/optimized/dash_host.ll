@@ -444,7 +444,7 @@ pmix_pointer_array_get_item.exit:                 ; preds = %.lr.ph355
   %126 = xor i8 %125, 1
   %127 = zext nneg i8 %126 to i32
   %spec.select = add nuw nsw i32 %127, %111
-  %.not.i292 = icmp ugt i32 %116, %spec.select
+  %.not.i292 = icmp samesign ugt i32 %116, %spec.select
   br i1 %.not.i292, label %pmix_pointer_array_get_item.exit294, label %pmix_pointer_array_get_item.exit294.thread
 
 pmix_pointer_array_get_item.exit294:              ; preds = %123
@@ -1911,7 +1911,7 @@ define internal fastcc range(i32 -43, 1) i32 @parse_dash_host(ptr noundef nonnul
   %36 = xor i8 %35, 1
   %37 = zext nneg i8 %36 to i32
   %spec.select = add nuw nsw i32 %37, %23
-  %.not.i = icmp ugt i32 %28, %spec.select
+  %.not.i = icmp samesign ugt i32 %28, %spec.select
   br i1 %.not.i, label %pmix_pointer_array_get_item.exit, label %pmix_pointer_array_get_item.exit.thread
 
 pmix_pointer_array_get_item.exit:                 ; preds = %33

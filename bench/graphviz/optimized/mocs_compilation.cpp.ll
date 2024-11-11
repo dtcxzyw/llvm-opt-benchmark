@@ -382,7 +382,7 @@ define noundef i32 @_ZN12CFrmSettings11qt_metacallEN11QMetaObject4CallEiPPv(ptr 
   ]
 
 8:                                                ; preds = %7
-  %9 = icmp ult i32 %5, 9
+  %9 = icmp samesign ult i32 %5, 9
   br i1 %9, label %10, label %11
 
 10:                                               ; preds = %8
@@ -394,7 +394,7 @@ define noundef i32 @_ZN12CFrmSettings11qt_metacallEN11QMetaObject4CallEiPPv(ptr 
   br label %19
 
 13:                                               ; preds = %7
-  %14 = icmp ult i32 %5, 9
+  %14 = icmp samesign ult i32 %5, 9
   br i1 %14, label %15, label %17
 
 15:                                               ; preds = %13
@@ -598,7 +598,7 @@ define noundef i32 @_ZN11ImageViewer11qt_metacallEN11QMetaObject4CallEiPPv(ptr n
   ]
 
 8:                                                ; preds = %7
-  %9 = icmp ult i32 %5, 7
+  %9 = icmp samesign ult i32 %5, 7
   br i1 %9, label %10, label %11
 
 10:                                               ; preds = %8
@@ -610,7 +610,7 @@ define noundef i32 @_ZN11ImageViewer11qt_metacallEN11QMetaObject4CallEiPPv(ptr n
   br label %19
 
 13:                                               ; preds = %7
-  %14 = icmp ult i32 %5, 7
+  %14 = icmp samesign ult i32 %5, 7
   br i1 %14, label %15, label %17
 
 15:                                               ; preds = %13
@@ -841,7 +841,7 @@ define noundef i32 @_ZN11CMainWindow11qt_metacallEN11QMetaObject4CallEiPPv(ptr n
   ]
 
 8:                                                ; preds = %7
-  %9 = icmp ult i32 %5, 16
+  %9 = icmp samesign ult i32 %5, 16
   br i1 %9, label %10, label %11
 
 10:                                               ; preds = %8
@@ -853,7 +853,7 @@ define noundef i32 @_ZN11CMainWindow11qt_metacallEN11QMetaObject4CallEiPPv(ptr n
   br label %26
 
 13:                                               ; preds = %7
-  %14 = icmp ult i32 %5, 16
+  %14 = icmp samesign ult i32 %5, 16
   br i1 %14, label %15, label %_ZN11CMainWindow18qt_static_metacallEP7QObjectN11QMetaObject4CallEiPPv.exit
 
 15:                                               ; preds = %13

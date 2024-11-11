@@ -7117,7 +7117,7 @@ if.then:                                          ; preds = %entry
 if.end:                                           ; preds = %if.then, %entry
   %s.addr.0 = phi ptr [ %incdec.ptr, %if.then ], [ %s, %entry ]
   %n.addr.0 = phi i64 [ %sub, %if.then ], [ %n, %entry ]
-  %cmp1 = icmp ult i64 %n.addr.0, 1024
+  %cmp1 = icmp samesign ult i64 %n.addr.0, 1024
   br i1 %cmp1, label %if.then2, label %if.else
 
 if.then2:                                         ; preds = %if.end
@@ -7125,7 +7125,7 @@ if.then2:                                         ; preds = %if.end
   br label %if.end23
 
 if.else:                                          ; preds = %if.end
-  %cmp3 = icmp ult i64 %n.addr.0, 1048576
+  %cmp3 = icmp samesign ult i64 %n.addr.0, 1048576
   br i1 %cmp3, label %if.then4, label %if.else6
 
 if.then4:                                         ; preds = %if.else
@@ -7135,7 +7135,7 @@ if.then4:                                         ; preds = %if.else
   br label %if.end23
 
 if.else6:                                         ; preds = %if.else
-  %cmp7 = icmp ult i64 %n.addr.0, 1073741824
+  %cmp7 = icmp samesign ult i64 %n.addr.0, 1073741824
   br i1 %cmp7, label %if.then9, label %if.else13
 
 if.then9:                                         ; preds = %if.else6
@@ -7145,7 +7145,7 @@ if.then9:                                         ; preds = %if.else6
   br label %if.end23
 
 if.else13:                                        ; preds = %if.else6
-  %cmp14 = icmp ult i64 %n.addr.0, 1099511627776
+  %cmp14 = icmp samesign ult i64 %n.addr.0, 1099511627776
   br i1 %cmp14, label %if.then16, label %if.end23
 
 if.then16:                                        ; preds = %if.else13
@@ -7474,7 +7474,7 @@ while.body.i:                                     ; preds = %if.end78.i, %while.
   %dec79.i = add nsw i32 %args62.147.i, -1
   %call84.i = call ptr @hi_sdscat(ptr noundef %40, ptr noundef nonnull @.str.463) #34
   store ptr %call84.i, ptr %params.i, align 8
-  %cmp80.i = icmp ugt i32 %args62.147.i, 1
+  %cmp80.i = icmp samesign ugt i32 %args62.147.i, 1
   br i1 %cmp80.i, label %while.body.i, label %while.end.i, !llvm.loop !79
 
 while.end.i:                                      ; preds = %while.body.i, %if.end78.i
@@ -11209,7 +11209,7 @@ if.then.i52.i:                                    ; preds = %getLongInfoField.ex
 if.end.i49.i:                                     ; preds = %if.then.i52.i, %getLongInfoField.exit47.i
   %s.addr.0.i.i = phi ptr [ %incdec.ptr.i.i, %if.then.i52.i ], [ %buf.i, %getLongInfoField.exit47.i ]
   %n.addr.0.i.i = phi i64 [ %sub.i.i182, %if.then.i52.i ], [ %call1.i45.i, %getLongInfoField.exit47.i ]
-  %cmp1.i.i = icmp ult i64 %n.addr.0.i.i, 1024
+  %cmp1.i.i = icmp samesign ult i64 %n.addr.0.i.i, 1024
   br i1 %cmp1.i.i, label %if.then2.i.i, label %if.else.i50.i
 
 if.then2.i.i:                                     ; preds = %if.end.i49.i
@@ -11217,7 +11217,7 @@ if.then2.i.i:                                     ; preds = %if.end.i49.i
   br label %bytesToHuman.exit.i
 
 if.else.i50.i:                                    ; preds = %if.end.i49.i
-  %cmp3.i.i = icmp ult i64 %n.addr.0.i.i, 1048576
+  %cmp3.i.i = icmp samesign ult i64 %n.addr.0.i.i, 1048576
   br i1 %cmp3.i.i, label %if.then4.i.i, label %if.else6.i.i
 
 if.then4.i.i:                                     ; preds = %if.else.i50.i
@@ -11227,7 +11227,7 @@ if.then4.i.i:                                     ; preds = %if.else.i50.i
   br label %bytesToHuman.exit.i
 
 if.else6.i.i:                                     ; preds = %if.else.i50.i
-  %cmp7.i.i = icmp ult i64 %n.addr.0.i.i, 1073741824
+  %cmp7.i.i = icmp samesign ult i64 %n.addr.0.i.i, 1073741824
   br i1 %cmp7.i.i, label %if.then9.i.i, label %if.else13.i.i
 
 if.then9.i.i:                                     ; preds = %if.else6.i.i
@@ -11237,7 +11237,7 @@ if.then9.i.i:                                     ; preds = %if.else6.i.i
   br label %bytesToHuman.exit.i
 
 if.else13.i.i:                                    ; preds = %if.else6.i.i
-  %cmp14.i.i = icmp ult i64 %n.addr.0.i.i, 1099511627776
+  %cmp14.i.i = icmp samesign ult i64 %n.addr.0.i.i, 1099511627776
   br i1 %cmp14.i.i, label %if.then16.i.i, label %bytesToHuman.exit.i
 
 if.then16.i.i:                                    ; preds = %if.else13.i.i
@@ -14079,7 +14079,7 @@ lor.lhs.false46.i:                                ; preds = %lor.lhs.false41.i
   br i1 %tobool50.not.i, label %isSensitiveCommand.exit, label %for.cond.i
 
 if.else52.i:                                      ; preds = %land.lhs.true22.i, %land.lhs.true18.i
-  %cmp53.i = icmp ugt i32 %sub, 4
+  %cmp53.i = icmp samesign ugt i32 %sub, 4
   br i1 %cmp53.i, label %land.lhs.true54.i, label %if.end170.i
 
 land.lhs.true54.i:                                ; preds = %if.else52.i
@@ -14114,7 +14114,7 @@ if.else71.i:                                      ; preds = %for.body62.i
   br i1 %or.cond1.i, label %for.cond60.i, label %isSensitiveCommand.exit
 
 if.else85.i:                                      ; preds = %land.lhs.true54.i
-  %cmp86.i = icmp ugt i32 %sub, 7
+  %cmp86.i = icmp samesign ugt i32 %sub, 7
   br i1 %cmp86.i, label %land.lhs.true87.i, label %land.lhs.true130.i
 
 land.lhs.true87.i:                                ; preds = %if.else85.i

@@ -36533,7 +36533,7 @@ _ZL24isValidAsScaledImmediateljj.exit.thread117:  ; preds = %47, %_ZL24isValidAs
 _ZL14isPreferredADDl.exit:                        ; preds = %_ZL24isValidAsScaledImmediateljj.exit.thread117
   %56 = and i64 %.0.i.i.i.i, 61440
   %57 = icmp ne i64 %56, 0
-  %58 = icmp ugt i64 %.0.i.i.i.i, 65535
+  %58 = icmp samesign ugt i64 %.0.i.i.i.i, 65535
   %59 = and i1 %58, %57
   br i1 %59, label %_ZL24isValidAsScaledImmediateljj.exit.thread, label %_ZL14isPreferredADDl.exit.thread119
 
@@ -36550,7 +36550,7 @@ _ZL14isPreferredADDl.exit.thread119:              ; preds = %_ZL24isValidAsScale
 _ZL14isPreferredADDl.exit67:                      ; preds = %62
   %65 = and i64 %60, 61440
   %66 = icmp ne i64 %65, 0
-  %67 = icmp ugt i64 %60, 65535
+  %67 = icmp samesign ugt i64 %60, 65535
   %68 = and i1 %67, %66
   br i1 %68, label %_ZL24isValidAsScaledImmediateljj.exit.thread, label %_ZL14isPreferredADDl.exit67.thread122
 
@@ -37120,7 +37120,7 @@ _ZN4llvm5SDLocC2ENS_7SDValueE.exit.i:             ; preds = %77, %71
 102:                                              ; preds = %97
   %103 = zext i32 %99 to i64
   %104 = add nuw nsw i64 %95, %103
-  %105 = icmp ugt i64 %96, %104
+  %105 = icmp samesign ugt i64 %96, %104
   br i1 %105, label %122, label %106
 
 106:                                              ; preds = %102
@@ -38252,7 +38252,7 @@ _ZN4llvm5APIntD2Ev.exit:                          ; preds = %_ZNK4llvm5APInt12ge
   br label %.sink.split
 
 47:                                               ; preds = %40, %40, %40
-  %48 = icmp ult i64 %spec.select, 256
+  %48 = icmp samesign ult i64 %spec.select, 256
   br i1 %48, label %49, label %55
 
 49:                                               ; preds = %47
@@ -38269,7 +38269,7 @@ _ZN4llvm5APIntD2Ev.exit:                          ; preds = %_ZNK4llvm5APInt12ge
   br label %.sink.split
 
 55:                                               ; preds = %47
-  %56 = icmp ult i64 %spec.select, 65281
+  %56 = icmp samesign ult i64 %spec.select, 65281
   %57 = and i64 %spec.select, 255
   %58 = icmp eq i64 %57, 0
   %or.cond = and i1 %56, %58

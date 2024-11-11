@@ -1790,7 +1790,7 @@ define hidden noundef zeroext i1 @"_ZN8sum_tree6cursor19Cursor$LT$T$C$D$GT$13see
   %93 = getelementptr inbounds i8, ptr %62, i64 128
   %94 = load i32, ptr %93, align 8, !noundef !21
   %95 = zext i32 %94 to i64
-  %96 = icmp ugt i64 %82, %95
+  %96 = icmp samesign ugt i64 %82, %95
   br i1 %96, label %107, label %98
 
 97:                                               ; preds = %._crit_edge177
@@ -1919,7 +1919,7 @@ define hidden noundef zeroext i1 @"_ZN8sum_tree6cursor19Cursor$LT$T$C$D$GT$13see
   %139 = getelementptr inbounds i8, ptr %62, i64 7336
   %140 = load i32, ptr %139, align 8, !noundef !21
   %141 = zext i32 %140 to i64
-  %142 = icmp ugt i64 %80, %141
+  %142 = icmp samesign ugt i64 %80, %141
   br i1 %142, label %150, label %144
 
 143:                                              ; preds = %75
@@ -2237,7 +2237,7 @@ define hidden noundef zeroext i1 @"_ZN8sum_tree6cursor19Cursor$LT$T$C$D$GT$13see
   %101 = getelementptr inbounds i8, ptr %67, i64 128
   %102 = load i32, ptr %101, align 8, !noundef !21
   %103 = zext i32 %102 to i64
-  %104 = icmp ugt i64 %90, %103
+  %104 = icmp samesign ugt i64 %90, %103
   br i1 %104, label %114, label %106
 
 105:                                              ; preds = %._crit_edge187
@@ -2382,7 +2382,7 @@ define hidden noundef zeroext i1 @"_ZN8sum_tree6cursor19Cursor$LT$T$C$D$GT$13see
   %149 = getelementptr inbounds i8, ptr %67, i64 7336
   %150 = load i32, ptr %149, align 8, !noundef !21
   %151 = zext i32 %150 to i64
-  %152 = icmp ugt i64 %88, %151
+  %152 = icmp samesign ugt i64 %88, %151
   br i1 %152, label %160, label %154
 
 153:                                              ; preds = %83
@@ -2715,7 +2715,7 @@ define hidden noundef zeroext i1 @"_ZN8sum_tree6cursor19Cursor$LT$T$C$D$GT$13see
   %101 = getelementptr inbounds i8, ptr %67, i64 128
   %102 = load i32, ptr %101, align 8, !noundef !21
   %103 = zext i32 %102 to i64
-  %104 = icmp ugt i64 %90, %103
+  %104 = icmp samesign ugt i64 %90, %103
   br i1 %104, label %114, label %106
 
 105:                                              ; preds = %._crit_edge187
@@ -2858,7 +2858,7 @@ define hidden noundef zeroext i1 @"_ZN8sum_tree6cursor19Cursor$LT$T$C$D$GT$13see
   %148 = getelementptr inbounds i8, ptr %67, i64 7336
   %149 = load i32, ptr %148, align 8, !noundef !21
   %150 = zext i32 %149 to i64
-  %151 = icmp ugt i64 %88, %150
+  %151 = icmp samesign ugt i64 %88, %150
   br i1 %151, label %159, label %153
 
 152:                                              ; preds = %83
@@ -3173,7 +3173,7 @@ define hidden noundef zeroext i1 @"_ZN8sum_tree6cursor19Cursor$LT$T$C$D$GT$13see
   %95 = getelementptr inbounds i8, ptr %64, i64 128
   %96 = load i32, ptr %95, align 8, !noundef !21
   %97 = zext i32 %96 to i64
-  %98 = icmp ugt i64 %84, %97
+  %98 = icmp samesign ugt i64 %84, %97
   br i1 %98, label %109, label %100
 
 99:                                               ; preds = %._crit_edge178
@@ -3307,7 +3307,7 @@ define hidden noundef zeroext i1 @"_ZN8sum_tree6cursor19Cursor$LT$T$C$D$GT$13see
   %141 = getelementptr inbounds i8, ptr %64, i64 7336
   %142 = load i32, ptr %141, align 8, !noundef !21
   %143 = zext i32 %142 to i64
-  %144 = icmp ugt i64 %82, %143
+  %144 = icmp samesign ugt i64 %82, %143
   br i1 %144, label %152, label %146
 
 145:                                              ; preds = %77
@@ -3647,7 +3647,7 @@ define hidden noundef zeroext i1 @"_ZN8sum_tree6cursor19Cursor$LT$T$C$D$GT$13see
   %106 = getelementptr inbounds i8, ptr %70, i64 224
   %107 = load i32, ptr %106, align 8, !noundef !21
   %108 = zext i32 %107 to i64
-  %109 = icmp ugt i64 %94, %108
+  %109 = icmp samesign ugt i64 %94, %108
   br i1 %109, label %119, label %111
 
 110:                                              ; preds = %._crit_edge194
@@ -3781,7 +3781,7 @@ define hidden noundef zeroext i1 @"_ZN8sum_tree6cursor19Cursor$LT$T$C$D$GT$13see
   %151 = getelementptr inbounds i8, ptr %70, i64 2056
   %152 = load i32, ptr %151, align 8, !noundef !21
   %153 = zext i32 %152 to i64
-  %154 = icmp ugt i64 %92, %153
+  %154 = icmp samesign ugt i64 %92, %153
   br i1 %154, label %162, label %156
 
 155:                                              ; preds = %87
@@ -4075,7 +4075,7 @@ define hidden noundef zeroext i1 @"_ZN8sum_tree6cursor19Cursor$LT$T$C$D$GT$13see
   %93 = getelementptr inbounds i8, ptr %62, i64 128
   %94 = load i32, ptr %93, align 8, !noundef !21
   %95 = zext i32 %94 to i64
-  %96 = icmp ugt i64 %82, %95
+  %96 = icmp samesign ugt i64 %82, %95
   br i1 %96, label %107, label %98
 
 97:                                               ; preds = %._crit_edge177
@@ -4202,7 +4202,7 @@ define hidden noundef zeroext i1 @"_ZN8sum_tree6cursor19Cursor$LT$T$C$D$GT$13see
   %138 = getelementptr inbounds i8, ptr %62, i64 7336
   %139 = load i32, ptr %138, align 8, !noundef !21
   %140 = zext i32 %139 to i64
-  %141 = icmp ugt i64 %80, %140
+  %141 = icmp samesign ugt i64 %80, %140
   br i1 %141, label %149, label %143
 
 142:                                              ; preds = %75
@@ -4489,7 +4489,7 @@ define hidden noundef zeroext i1 @"_ZN8sum_tree6cursor19Cursor$LT$T$C$D$GT$13see
   %87 = getelementptr inbounds i8, ptr %59, i64 32
   %88 = load i32, ptr %87, align 8, !noundef !21
   %89 = zext i32 %88 to i64
-  %90 = icmp ugt i64 %77, %89
+  %90 = icmp samesign ugt i64 %77, %89
   br i1 %90, label %100, label %92
 
 91:                                               ; preds = %._crit_edge175
@@ -4607,7 +4607,7 @@ define hidden noundef zeroext i1 @"_ZN8sum_tree6cursor19Cursor$LT$T$C$D$GT$13see
   %128 = getelementptr inbounds i8, ptr %59, i64 616
   %129 = load i32, ptr %128, align 8, !noundef !21
   %130 = zext i32 %129 to i64
-  %131 = icmp ugt i64 %75, %130
+  %131 = icmp samesign ugt i64 %75, %130
   br i1 %131, label %148, label %133
 
 132:                                              ; preds = %70
@@ -5273,7 +5273,7 @@ common.resume:                                    ; preds = %442, %253, %.thread
   %256 = getelementptr inbounds i8, ptr %156, i64 128
   %257 = load i32, ptr %256, align 8, !noundef !21
   %258 = zext i32 %257 to i64
-  %259 = icmp ugt i64 %212, %258
+  %259 = icmp samesign ugt i64 %212, %258
   br i1 %259, label %272, label %261
 
 260:                                              ; preds = %207
@@ -5826,7 +5826,7 @@ _ZN8arrayvec13arrayvec_impl12ArrayVecImpl3pop17h94408e72093174e8E.exit: ; preds 
   %421 = getelementptr inbounds i8, ptr %156, i64 7336
   %422 = load i32, ptr %421, align 8, !noundef !21
   %423 = zext i32 %422 to i64
-  %424 = icmp ugt i64 %205, %423
+  %424 = icmp samesign ugt i64 %205, %423
   br i1 %424, label %432, label %426
 
 425:                                              ; preds = %200
@@ -6368,7 +6368,7 @@ define hidden noundef zeroext i1 @"_ZN8sum_tree6cursor19Cursor$LT$T$C$D$GT$13see
   %101 = getelementptr inbounds i8, ptr %67, i64 128
   %102 = load i32, ptr %101, align 8, !noundef !21
   %103 = zext i32 %102 to i64
-  %104 = icmp ugt i64 %90, %103
+  %104 = icmp samesign ugt i64 %90, %103
   br i1 %104, label %114, label %106
 
 105:                                              ; preds = %._crit_edge187
@@ -6512,7 +6512,7 @@ define hidden noundef zeroext i1 @"_ZN8sum_tree6cursor19Cursor$LT$T$C$D$GT$13see
   %149 = getelementptr inbounds i8, ptr %67, i64 7336
   %150 = load i32, ptr %149, align 8, !noundef !21
   %151 = zext i32 %150 to i64
-  %152 = icmp ugt i64 %88, %151
+  %152 = icmp samesign ugt i64 %88, %151
   br i1 %152, label %160, label %154
 
 153:                                              ; preds = %83
@@ -6839,7 +6839,7 @@ define hidden noundef zeroext i1 @"_ZN8sum_tree6cursor19Cursor$LT$T$C$D$GT$13see
   %97 = getelementptr inbounds i8, ptr %66, i64 224
   %98 = load i32, ptr %97, align 8, !noundef !21
   %99 = zext i32 %98 to i64
-  %100 = icmp ugt i64 %86, %99
+  %100 = icmp samesign ugt i64 %86, %99
   br i1 %100, label %111, label %102
 
 101:                                              ; preds = %._crit_edge178
@@ -6964,7 +6964,7 @@ define hidden noundef zeroext i1 @"_ZN8sum_tree6cursor19Cursor$LT$T$C$D$GT$13see
   %139 = getelementptr inbounds i8, ptr %66, i64 2056
   %140 = load i32, ptr %139, align 8, !noundef !21
   %141 = zext i32 %140 to i64
-  %142 = icmp ugt i64 %84, %141
+  %142 = icmp samesign ugt i64 %84, %141
   br i1 %142, label %150, label %144
 
 143:                                              ; preds = %79
@@ -7257,7 +7257,7 @@ define hidden noundef zeroext i1 @"_ZN8sum_tree6cursor19Cursor$LT$T$C$D$GT$13see
   %89 = getelementptr inbounds i8, ptr %61, i64 24
   %90 = load i32, ptr %89, align 8, !noundef !21
   %91 = zext i32 %90 to i64
-  %92 = icmp ugt i64 %79, %91
+  %92 = icmp samesign ugt i64 %79, %91
   br i1 %92, label %102, label %94
 
 93:                                               ; preds = %._crit_edge152
@@ -7368,7 +7368,7 @@ define hidden noundef zeroext i1 @"_ZN8sum_tree6cursor19Cursor$LT$T$C$D$GT$13see
   %128 = getelementptr inbounds i8, ptr %61, i64 704
   %129 = load i32, ptr %128, align 8, !noundef !21
   %130 = zext i32 %129 to i64
-  %131 = icmp ugt i64 %77, %130
+  %131 = icmp samesign ugt i64 %77, %130
   br i1 %131, label %139, label %133
 
 132:                                              ; preds = %72
@@ -7645,7 +7645,7 @@ define internal fastcc void @"_ZN8sum_tree6cursor19Cursor$LT$T$C$D$GT$13seek_int
   %83 = getelementptr inbounds i8, ptr %52, i64 128
   %84 = load i32, ptr %83, align 8, !noundef !21
   %85 = zext i32 %84 to i64
-  %86 = icmp ugt i64 %72, %85
+  %86 = icmp samesign ugt i64 %72, %85
   br i1 %86, label %97, label %88
 
 87:                                               ; preds = %._crit_edge133
@@ -7786,7 +7786,7 @@ define internal fastcc void @"_ZN8sum_tree6cursor19Cursor$LT$T$C$D$GT$13seek_int
   %132 = getelementptr inbounds i8, ptr %52, i64 7336
   %133 = load i32, ptr %132, align 8, !noundef !21
   %134 = zext i32 %133 to i64
-  %135 = icmp ugt i64 %70, %134
+  %135 = icmp samesign ugt i64 %70, %134
   br i1 %135, label %143, label %137
 
 136:                                              ; preds = %65
@@ -8093,7 +8093,7 @@ define internal fastcc void @"_ZN8sum_tree6cursor19Cursor$LT$T$C$D$GT$13seek_int
   %90 = getelementptr inbounds i8, ptr %55, i64 224
   %91 = load i32, ptr %90, align 8, !noundef !21
   %92 = zext i32 %91 to i64
-  %93 = icmp ugt i64 %77, %92
+  %93 = icmp samesign ugt i64 %77, %92
   br i1 %93, label %104, label %95
 
 94:                                               ; preds = %._crit_edge139
@@ -8228,7 +8228,7 @@ define internal fastcc void @"_ZN8sum_tree6cursor19Cursor$LT$T$C$D$GT$13seek_int
   %142 = getelementptr inbounds i8, ptr %55, i64 2056
   %143 = load i32, ptr %142, align 8, !noundef !21
   %144 = zext i32 %143 to i64
-  %145 = icmp ugt i64 %75, %144
+  %145 = icmp samesign ugt i64 %75, %144
   br i1 %145, label %153, label %147
 
 146:                                              ; preds = %70
@@ -8508,7 +8508,7 @@ define hidden noundef zeroext i1 @"_ZN8sum_tree6cursor19Cursor$LT$T$C$D$GT$13see
   %89 = getelementptr inbounds i8, ptr %59, i64 128
   %90 = load i32, ptr %89, align 8, !noundef !21
   %91 = zext i32 %90 to i64
-  %92 = icmp ugt i64 %78, %91
+  %92 = icmp samesign ugt i64 %78, %91
   br i1 %92, label %102, label %94
 
 93:                                               ; preds = %._crit_edge157
@@ -8625,7 +8625,7 @@ define hidden noundef zeroext i1 @"_ZN8sum_tree6cursor19Cursor$LT$T$C$D$GT$13see
   %134 = getelementptr inbounds i8, ptr %59, i64 7336
   %135 = load i32, ptr %134, align 8, !noundef !21
   %136 = zext i32 %135 to i64
-  %137 = icmp ugt i64 %76, %136
+  %137 = icmp samesign ugt i64 %76, %136
   br i1 %137, label %145, label %139
 
 138:                                              ; preds = %71
@@ -8916,7 +8916,7 @@ define hidden noundef zeroext i1 @"_ZN8sum_tree6cursor19Cursor$LT$T$C$D$GT$13see
   %91 = getelementptr inbounds i8, ptr %61, i64 24
   %92 = load i32, ptr %91, align 8, !noundef !21
   %93 = zext i32 %92 to i64
-  %94 = icmp ugt i64 %80, %93
+  %94 = icmp samesign ugt i64 %80, %93
   br i1 %94, label %104, label %96
 
 95:                                               ; preds = %._crit_edge158
@@ -9029,7 +9029,7 @@ define hidden noundef zeroext i1 @"_ZN8sum_tree6cursor19Cursor$LT$T$C$D$GT$13see
   %134 = getelementptr inbounds i8, ptr %61, i64 1608
   %135 = load i32, ptr %134, align 8, !noundef !21
   %136 = zext i32 %135 to i64
-  %137 = icmp ugt i64 %78, %136
+  %137 = icmp samesign ugt i64 %78, %136
   br i1 %137, label %145, label %139
 
 138:                                              ; preds = %73
@@ -9333,7 +9333,7 @@ define hidden noundef zeroext i1 @"_ZN8sum_tree6cursor19Cursor$LT$T$C$D$GT$13see
   %101 = getelementptr inbounds i8, ptr %67, i64 128
   %102 = load i32, ptr %101, align 8, !noundef !21
   %103 = zext i32 %102 to i64
-  %104 = icmp ugt i64 %90, %103
+  %104 = icmp samesign ugt i64 %90, %103
   br i1 %104, label %114, label %106
 
 105:                                              ; preds = %._crit_edge187
@@ -9479,7 +9479,7 @@ define hidden noundef zeroext i1 @"_ZN8sum_tree6cursor19Cursor$LT$T$C$D$GT$13see
   %150 = getelementptr inbounds i8, ptr %67, i64 7336
   %151 = load i32, ptr %150, align 8, !noundef !21
   %152 = zext i32 %151 to i64
-  %153 = icmp ugt i64 %88, %152
+  %153 = icmp samesign ugt i64 %88, %152
   br i1 %153, label %161, label %155
 
 154:                                              ; preds = %83
@@ -9824,7 +9824,7 @@ define hidden noundef zeroext i1 @"_ZN8sum_tree6cursor19Cursor$LT$T$C$D$GT$13see
   %104 = getelementptr inbounds i8, ptr %70, i64 128
   %105 = load i32, ptr %104, align 8, !noundef !21
   %106 = zext i32 %105 to i64
-  %107 = icmp ugt i64 %94, %106
+  %107 = icmp samesign ugt i64 %94, %106
   br i1 %107, label %117, label %109
 
 108:                                              ; preds = %._crit_edge203
@@ -9977,7 +9977,7 @@ define hidden noundef zeroext i1 @"_ZN8sum_tree6cursor19Cursor$LT$T$C$D$GT$13see
   %150 = getelementptr inbounds i8, ptr %70, i64 7336
   %151 = load i32, ptr %150, align 8, !noundef !21
   %152 = zext i32 %151 to i64
-  %153 = icmp ugt i64 %92, %152
+  %153 = icmp samesign ugt i64 %92, %152
   br i1 %153, label %161, label %155
 
 154:                                              ; preds = %87
@@ -10281,7 +10281,7 @@ define hidden noundef zeroext i1 @"_ZN8sum_tree6cursor19Cursor$LT$T$C$D$GT$13see
   %87 = getelementptr inbounds i8, ptr %59, i64 128
   %88 = load i32, ptr %87, align 8, !noundef !21
   %89 = zext i32 %88 to i64
-  %90 = icmp ugt i64 %77, %89
+  %90 = icmp samesign ugt i64 %77, %89
   br i1 %90, label %100, label %92
 
 91:                                               ; preds = %._crit_edge160
@@ -10397,7 +10397,7 @@ define hidden noundef zeroext i1 @"_ZN8sum_tree6cursor19Cursor$LT$T$C$D$GT$13see
   %129 = getelementptr inbounds i8, ptr %59, i64 7336
   %130 = load i32, ptr %129, align 8, !noundef !21
   %131 = zext i32 %130 to i64
-  %132 = icmp ugt i64 %75, %131
+  %132 = icmp samesign ugt i64 %75, %131
   br i1 %132, label %140, label %134
 
 133:                                              ; preds = %70
@@ -10680,7 +10680,7 @@ define hidden noundef zeroext i1 @"_ZN8sum_tree6cursor19Cursor$LT$T$C$D$GT$13see
   %87 = getelementptr inbounds i8, ptr %59, i64 128
   %88 = load i32, ptr %87, align 8, !noundef !21
   %89 = zext i32 %88 to i64
-  %90 = icmp ugt i64 %77, %89
+  %90 = icmp samesign ugt i64 %77, %89
   br i1 %90, label %109, label %92
 
 91:                                               ; preds = %._crit_edge168
@@ -10812,7 +10812,7 @@ define hidden noundef zeroext i1 @"_ZN8sum_tree6cursor19Cursor$LT$T$C$D$GT$13see
   %134 = getelementptr inbounds i8, ptr %59, i64 7336
   %135 = load i32, ptr %134, align 8, !noundef !21
   %136 = zext i32 %135 to i64
-  %137 = icmp ugt i64 %75, %136
+  %137 = icmp samesign ugt i64 %75, %136
   br i1 %137, label %145, label %139
 
 138:                                              ; preds = %70
@@ -11102,7 +11102,7 @@ define hidden noundef zeroext i1 @"_ZN8sum_tree6cursor19Cursor$LT$T$C$D$GT$13see
   %95 = getelementptr inbounds i8, ptr %64, i64 128
   %96 = load i32, ptr %95, align 8, !noundef !21
   %97 = zext i32 %96 to i64
-  %98 = icmp ugt i64 %84, %97
+  %98 = icmp samesign ugt i64 %84, %97
   br i1 %98, label %109, label %100
 
 99:                                               ; preds = %._crit_edge178
@@ -11237,7 +11237,7 @@ define hidden noundef zeroext i1 @"_ZN8sum_tree6cursor19Cursor$LT$T$C$D$GT$13see
   %142 = getelementptr inbounds i8, ptr %64, i64 7336
   %143 = load i32, ptr %142, align 8, !noundef !21
   %144 = zext i32 %143 to i64
-  %145 = icmp ugt i64 %82, %144
+  %145 = icmp samesign ugt i64 %82, %144
   br i1 %145, label %153, label %147
 
 146:                                              ; preds = %77
@@ -13458,7 +13458,7 @@ define hidden void @"_ZN8sum_tree6cursor19Cursor$LT$T$C$D$GT$14search_forward17h
   store i64 %63, ptr %38, align 8
   %64 = load i32, ptr %39, align 8, !noundef !21
   %65 = zext i32 %64 to i64
-  %66 = icmp ult i64 %63, %65
+  %66 = icmp samesign ult i64 %63, %65
   br i1 %66, label %.lr.ph35, label %"_ZN4core3ops8function5impls79_$LT$impl$u20$core..ops..function..FnMut$LT$A$GT$$u20$for$u20$$RF$mut$u20$F$GT$8call_mut17h43d945e18c1c3bc7E.exit.thread"
 
 67:                                               ; preds = %34
@@ -13517,7 +13517,7 @@ define hidden void @"_ZN8sum_tree6cursor19Cursor$LT$T$C$D$GT$14search_forward17h
   store i64 %94, ptr %77, align 8
   %95 = load i32, ptr %76, align 8, !noundef !21
   %96 = zext i32 %95 to i64
-  %.not = icmp ult i64 %94, %96
+  %.not = icmp samesign ult i64 %94, %96
   br i1 %.not, label %.lr.ph, label %_ZN8arrayvec13arrayvec_impl12ArrayVecImpl3pop17ha9b27233e4ddc1c0E.exit
 
 97:                                               ; preds = %"_ZN4core3ops8function5impls79_$LT$impl$u20$core..ops..function..FnMut$LT$A$GT$$u20$for$u20$$RF$mut$u20$F$GT$8call_mut17h43d945e18c1c3bc7E.exit.thread"
@@ -13805,7 +13805,7 @@ _ZN8arrayvec13arrayvec_impl12ArrayVecImpl3pop17h329159bd2025d544E.exit: ; preds 
   %93 = getelementptr inbounds i8, ptr %84, i64 224
   %94 = load i32, ptr %93, align 8, !noundef !21
   %95 = zext i32 %94 to i64
-  %96 = icmp ult i64 %81, %95
+  %96 = icmp samesign ult i64 %81, %95
   br i1 %96, label %97, label %110
 
 97:                                               ; preds = %92
@@ -14086,7 +14086,7 @@ _ZN8arrayvec13arrayvec_impl12ArrayVecImpl3pop17h6268f9e4f71bee62E.exit: ; preds 
   %92 = getelementptr inbounds i8, ptr %79, i64 1384
   %93 = load i32, ptr %92, align 8, !noundef !21
   %94 = zext i32 %93 to i64
-  %95 = icmp ult i64 %78, %94
+  %95 = icmp samesign ult i64 %78, %94
   br i1 %95, label %96, label %106
 
 96:                                               ; preds = %91
@@ -14358,7 +14358,7 @@ _ZN8arrayvec13arrayvec_impl12ArrayVecImpl3pop17h85090083df27ff4aE.exit: ; preds 
   %97 = getelementptr inbounds i8, ptr %84, i64 1384
   %98 = load i32, ptr %97, align 8, !noundef !21
   %99 = zext i32 %98 to i64
-  %100 = icmp ult i64 %80, %99
+  %100 = icmp samesign ult i64 %80, %99
   br i1 %100, label %101, label %122
 
 101:                                              ; preds = %96

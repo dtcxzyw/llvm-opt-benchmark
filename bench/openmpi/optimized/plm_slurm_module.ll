@@ -1395,7 +1395,7 @@ pmix_obj_new_tma.exit:                            ; preds = %.lr.ph.i.i, %26, %2
   br label %128
 
 128:                                              ; preds = %125, %122, %119, %114
-  %129 = icmp ugt i32 %112, 2
+  %129 = icmp samesign ugt i32 %112, 2
   br i1 %129, label %130, label %132
 
 130:                                              ; preds = %128

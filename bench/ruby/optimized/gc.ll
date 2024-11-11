@@ -11465,7 +11465,7 @@ gc_mark.exit211:                                  ; preds = %.lr.ph293, %147
   br i1 %169, label %170, label %RTYPEDDATA_GET_DATA.exit.thread
 
 170:                                              ; preds = %165
-  %.not.i215 = icmp ult i64 %167, 2
+  %.not.i215 = icmp samesign ult i64 %167, 2
   %171 = getelementptr i8, ptr %4, i64 32
   br i1 %.not.i215, label %172, label %RTYPEDDATA_GET_DATA.exit
 
@@ -18555,7 +18555,7 @@ gc_object_moved_p.exit266.thread.i.i.i.i:         ; preds = %630, %gc_object_mov
   br i1 %647, label %648, label %update_cc_tbl.exit258.i.i.i.i
 
 648:                                              ; preds = %643
-  %.not.i268.i.i.i.i = icmp ult i64 %645, 2
+  %.not.i268.i.i.i.i = icmp samesign ult i64 %645, 2
   %649 = getelementptr i8, ptr %256, i64 32
   br i1 %.not.i268.i.i.i.i, label %650, label %RTYPEDDATA_GET_DATA.exit.i.i.i.i
 
@@ -23613,7 +23613,7 @@ ruby_xfree.exit:                                  ; preds = %.preheader.i.i.i, %
   br i1 %166, label %168, label %RTYPEDDATA_GET_DATA.exit.thread.i
 
 168:                                              ; preds = %162
-  %.not.i.i114 = icmp ult i64 %164, 2
+  %.not.i.i114 = icmp samesign ult i64 %164, 2
   br i1 %.not.i.i114, label %169, label %RTYPEDDATA_GET_DATA.exit.i
 
 169:                                              ; preds = %168
@@ -26351,7 +26351,7 @@ define internal fastcc i64 @rb_objspace_data_type_memsize(i64 noundef %0) unname
 7:                                                ; preds = %1
   %8 = getelementptr inbounds i8, ptr %2, i64 16
   %9 = load ptr, ptr %8, align 8
-  %.not.i = icmp ult i64 %4, 2
+  %.not.i = icmp samesign ult i64 %4, 2
   %10 = getelementptr i8, ptr %2, i64 32
   br i1 %.not.i, label %RTYPEDDATA_GET_DATA.exit.thread, label %RTYPEDDATA_GET_DATA.exit
 

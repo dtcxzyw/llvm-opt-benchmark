@@ -1211,7 +1211,7 @@ define hidden noundef range(i32 0, 2) i32 @lut3d_read_gmz(ptr nocapture noundef 
   %173 = getelementptr inbounds i8, ptr %94, i64 24
   %174 = zext nneg i32 %172 to i64
   %175 = and i64 %174, 7
-  %176 = icmp ult i32 %93, 3
+  %176 = icmp samesign ult i32 %93, 3
   br i1 %176, label %.loopexit22, label %177
 
 177:                                              ; preds = %171

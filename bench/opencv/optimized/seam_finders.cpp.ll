@@ -715,7 +715,7 @@ _ZNSt12_Vector_baseIN2cv4UMatESaIS1_EE13_M_deallocateEPS1_m.exit: ; preds = %_ZS
   %36 = getelementptr inbounds i8, ptr %.0910.i.i.i.i.i, i64 80
   %37 = getelementptr inbounds i8, ptr %.0811.i.i.i.i.i, i64 80
   %38 = add nsw i64 %.012.i.i.i.i.i, -1
-  %39 = icmp ugt i64 %.012.i.i.i.i.i, 1
+  %39 = icmp samesign ugt i64 %.012.i.i.i.i.i, 1
   br i1 %39, label %.lr.ph.i.i.i.i.i, label %_ZSt4copyIN9__gnu_cxx17__normal_iteratorIPKN2cv4UMatESt6vectorIS3_SaIS3_EEEENS1_IPS3_S8_EEET0_T_SD_SC_.exit.loopexit, !llvm.loop !24
 
 _ZSt4copyIN9__gnu_cxx17__normal_iteratorIPKN2cv4UMatESt6vectorIS3_SaIS3_EEEENS1_IPS3_S8_EEET0_T_SD_SC_.exit.loopexit: ; preds = %.lr.ph.i.i.i.i.i
@@ -758,7 +758,7 @@ _ZSt4copyIN9__gnu_cxx17__normal_iteratorIPKN2cv4UMatESt6vectorIS3_SaIS3_EEEENS1_
   %48 = getelementptr inbounds i8, ptr %.0910.i.i.i.i.i33, i64 80
   %49 = getelementptr inbounds i8, ptr %.0811.i.i.i.i.i32, i64 80
   %50 = add nsw i64 %.012.i.i.i.i.i31, -1
-  %51 = icmp ugt i64 %.012.i.i.i.i.i31, 1
+  %51 = icmp samesign ugt i64 %.012.i.i.i.i.i31, 1
   br i1 %51, label %.lr.ph.i.i.i.i.i30, label %_ZSt4copyIPN2cv4UMatES2_ET0_T_S4_S3_.exit.loopexit, !llvm.loop !26
 
 _ZSt4copyIPN2cv4UMatES2_ET0_T_S4_S3_.exit.loopexit: ; preds = %.lr.ph.i.i.i.i.i30
@@ -12660,8 +12660,8 @@ define linkonce_odr hidden void @_ZN2cv6detail7GCGraphIfE8addEdgesEiiff(ptr noun
 
 32:                                               ; preds = %15
   %33 = icmp sgt i32 %2, -1
-  %34 = icmp ult i32 %2, %23
-  %or.cond59 = and i1 %33, %34
+  %34 = icmp samesign ult i32 %2, %23
+  %or.cond59 = select i1 %33, i1 %34, i1 false
   br i1 %or.cond59, label %42, label %35
 
 35:                                               ; preds = %32
@@ -17432,7 +17432,7 @@ define linkonce_odr hidden void @_ZSt16__insertion_sortIN9__gnu_cxx17__normal_it
   %72 = getelementptr inbounds i8, ptr %.069.i.i.i.i.i, i64 -8
   store i64 %71, ptr %72, align 8
   %73 = add nsw i64 %.010.i.i.i.i.i, -1
-  %74 = icmp ugt i64 %.010.i.i.i.i.i, 1
+  %74 = icmp samesign ugt i64 %.010.i.i.i.i.i, 1
   br i1 %74, label %.lr.ph.i.i.i.i.i, label %_ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPSt4pairImmESt6vectorIS3_SaIS3_EEEES8_ET0_T_SA_S9_.exit, !llvm.loop !235
 
 _ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPSt4pairImmESt6vectorIS3_SaIS3_EEEES8_ET0_T_SA_S9_.exit: ; preds = %.lr.ph.i.i.i.i.i, %61

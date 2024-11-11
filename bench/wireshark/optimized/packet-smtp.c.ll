@@ -1368,7 +1368,7 @@ proto_item_set_hidden.exit.i:                     ; preds = %425, %422, %416
   %563 = add i32 %.1299347.i, 5
   %564 = add nsw i32 %417, -5
   %565 = call ptr @proto_tree_add_item(ptr noundef %553, i32 noundef %562, ptr noundef %375, i32 noundef %563, i32 noundef %564, i32 noundef 0) #7
-  %566 = icmp ugt i32 %417, 10
+  %566 = icmp samesign ugt i32 %417, 10
   br i1 %566, label %567, label %dissect_ntlm_auth.exit
 
 567:                                              ; preds = %561
@@ -1442,7 +1442,7 @@ proto_item_set_hidden.exit.i:                     ; preds = %425, %422, %416
   %602 = add i32 %.1299347.i, 5
   %603 = add nsw i32 %417, -5
   %604 = call ptr @proto_tree_add_item(ptr noundef %553, i32 noundef %601, ptr noundef %375, i32 noundef %602, i32 noundef %603, i32 noundef 0) #7
-  %605 = icmp ugt i32 %417, 9
+  %605 = icmp samesign ugt i32 %417, 9
   br i1 %605, label %606, label %dissect_ntlm_auth.exit
 
 606:                                              ; preds = %600

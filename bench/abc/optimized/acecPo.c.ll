@@ -1467,9 +1467,9 @@ Vec_IntStart.exit64:                              ; preds = %Vec_IntAlloc.exit.i
   %30 = load i32, ptr %.val54, align 4
   %31 = icmp sgt i32 %30, 0
   %.sink = tail call i32 @llvm.abs.i32(i32 %30, i1 true)
-  %.sink95 = select i1 %31, ptr %19, ptr %22
+  %.sink96 = select i1 %31, ptr %19, ptr %22
   %32 = zext nneg i32 %.sink to i64
-  %33 = getelementptr inbounds i32, ptr %.sink95, i64 %32
+  %33 = getelementptr inbounds i32, ptr %.sink96, i64 %32
   %34 = load i32, ptr %33, align 4
   %35 = add nsw i32 %34, 1
   store i32 %35, ptr %33, align 4
@@ -4678,7 +4678,7 @@ Vec_IntGrow.exit23.i.i:                           ; preds = %Vec_IntGrow.exit23t
 132:                                              ; preds = %.lr.ph.i.i
   %133 = getelementptr inbounds i32, ptr %128, i64 %indvars.iv.i.i
   store i32 %130, ptr %133, align 4
-  %134 = icmp ugt i64 %indvars.iv.i.i, 1
+  %134 = icmp samesign ugt i64 %indvars.iv.i.i, 1
   br i1 %134, label %.lr.ph.i.i, label %Vec_IntPushOrder.exit.i, !llvm.loop !54
 
 ._crit_edge.loopexit.split.loop.exit.i.i:         ; preds = %.lr.ph.i.i
@@ -5179,7 +5179,7 @@ Vec_IntGrow.exit26.i37.i:                         ; preds = %Vec_IntGrow.exit26t
 380:                                              ; preds = %374
   %381 = getelementptr inbounds i32, ptr %375, i64 %indvars.iv.i40.i
   store i32 %377, ptr %381, align 4
-  %382 = icmp ugt i64 %indvars.iv.i40.i, 1
+  %382 = icmp samesign ugt i64 %indvars.iv.i40.i, 1
   br i1 %382, label %374, label %Vec_IntPushOrderAbs.exit49.i, !llvm.loop !59
 
 ._crit_edge.loopexit.split.loop.exit.i42.i:       ; preds = %374
@@ -5272,7 +5272,7 @@ Vec_IntGrow.exit26.i.i:                           ; preds = %Vec_IntGrow.exit26t
 421:                                              ; preds = %415
   %422 = getelementptr inbounds i32, ptr %416, i64 %indvars.iv.i33.i
   store i32 %418, ptr %422, align 4
-  %423 = icmp ugt i64 %indvars.iv.i33.i, 1
+  %423 = icmp samesign ugt i64 %indvars.iv.i33.i, 1
   br i1 %423, label %415, label %Vec_IntPushOrderAbs.exit.i, !llvm.loop !59
 
 ._crit_edge.loopexit.split.loop.exit.i.i334:      ; preds = %415
@@ -5512,7 +5512,7 @@ Vec_IntGrow.exit23.i.i420:                        ; preds = %Vec_IntGrow.exit23t
 515:                                              ; preds = %.lr.ph.i.i426
   %516 = getelementptr inbounds i32, ptr %511, i64 %indvars.iv.i.i427
   store i32 %513, ptr %516, align 4
-  %517 = icmp ugt i64 %indvars.iv.i.i427, 1
+  %517 = icmp samesign ugt i64 %indvars.iv.i.i427, 1
   br i1 %517, label %.lr.ph.i.i426, label %Vec_IntPushOrder.exit.i421, !llvm.loop !54
 
 ._crit_edge.loopexit.split.loop.exit.i.i429:      ; preds = %.lr.ph.i.i426
@@ -5632,7 +5632,7 @@ Vec_IntGrow.exit23.i.i397:                        ; preds = %Vec_IntGrow.exit23t
 566:                                              ; preds = %.lr.ph.i.i403
   %567 = getelementptr inbounds i32, ptr %562, i64 %indvars.iv.i.i404
   store i32 %564, ptr %567, align 4
-  %568 = icmp ugt i64 %indvars.iv.i.i404, 1
+  %568 = icmp samesign ugt i64 %indvars.iv.i.i404, 1
   br i1 %568, label %.lr.ph.i.i403, label %Vec_IntPushOrder.exit.i398, !llvm.loop !54
 
 ._crit_edge.loopexit.split.loop.exit.i.i406:      ; preds = %.lr.ph.i.i403
@@ -5752,7 +5752,7 @@ Vec_IntGrow.exit23.i.i374:                        ; preds = %Vec_IntGrow.exit23t
 617:                                              ; preds = %.lr.ph.i.i380
   %618 = getelementptr inbounds i32, ptr %613, i64 %indvars.iv.i.i381
   store i32 %615, ptr %618, align 4
-  %619 = icmp ugt i64 %indvars.iv.i.i381, 1
+  %619 = icmp samesign ugt i64 %indvars.iv.i.i381, 1
   br i1 %619, label %.lr.ph.i.i380, label %Vec_IntPushOrder.exit.i375, !llvm.loop !54
 
 ._crit_edge.loopexit.split.loop.exit.i.i383:      ; preds = %.lr.ph.i.i380
@@ -5871,7 +5871,7 @@ Vec_IntGrow.exit23.i.i351:                        ; preds = %Vec_IntGrow.exit23t
 666:                                              ; preds = %.lr.ph.i.i357
   %667 = getelementptr inbounds i32, ptr %662, i64 %indvars.iv.i.i358
   store i32 %664, ptr %667, align 4
-  %668 = icmp ugt i64 %indvars.iv.i.i358, 1
+  %668 = icmp samesign ugt i64 %indvars.iv.i.i358, 1
   br i1 %668, label %.lr.ph.i.i357, label %Vec_IntPushOrder.exit.i352, !llvm.loop !54
 
 ._crit_edge.loopexit.split.loop.exit.i.i360:      ; preds = %.lr.ph.i.i357
@@ -6213,7 +6213,7 @@ Vec_IntGrow.exit23.i:                             ; preds = %Vec_IntGrow.exit23t
 46:                                               ; preds = %.lr.ph.i
   %47 = getelementptr inbounds i32, ptr %42, i64 %indvars.iv.i
   store i32 %44, ptr %47, align 4
-  %48 = icmp ugt i64 %indvars.iv.i, 1
+  %48 = icmp samesign ugt i64 %indvars.iv.i, 1
   br i1 %48, label %.lr.ph.i, label %Vec_IntPushOrder.exit, !llvm.loop !54
 
 ._crit_edge.loopexit.split.loop.exit.i:           ; preds = %.lr.ph.i
@@ -7022,7 +7022,7 @@ Vec_IntGrow.exit26:                               ; preds = %Vec_IntGrow.exit26t
 41:                                               ; preds = %35
   %42 = getelementptr inbounds i32, ptr %36, i64 %indvars.iv
   store i32 %38, ptr %42, align 4
-  %43 = icmp ugt i64 %indvars.iv, 1
+  %43 = icmp samesign ugt i64 %indvars.iv, 1
   br i1 %43, label %35, label %._crit_edge, !llvm.loop !59
 
 ._crit_edge.loopexit.split.loop.exit:             ; preds = %35

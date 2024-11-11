@@ -2063,7 +2063,7 @@ define dso_local range(i64 -2147483648, 2147483648) i64 @regexp_instr(ptr nocapt
   unreachable
 
 42:                                               ; preds = %33
-  %43 = icmp ugt i16 %20, 4
+  %43 = icmp samesign ugt i16 %20, 4
   br i1 %43, label %44, label %.thread67
 
 44:                                               ; preds = %42
@@ -2082,7 +2082,7 @@ define dso_local range(i64 -2147483648, 2147483648) i64 @regexp_instr(ptr nocapt
   unreachable
 
 52:                                               ; preds = %44
-  %53 = icmp ugt i16 %20, 6
+  %53 = icmp samesign ugt i16 %20, 6
   br i1 %53, label %54, label %.thread67
 
 54:                                               ; preds = %52
@@ -2927,7 +2927,7 @@ define dso_local i64 @regexp_substr(ptr nocapture noundef %0) local_unnamed_addr
   unreachable
 
 42:                                               ; preds = %33
-  %43 = icmp ugt i16 %20, 5
+  %43 = icmp samesign ugt i16 %20, 5
   br i1 %43, label %44, label %.thread61
 
 44:                                               ; preds = %42

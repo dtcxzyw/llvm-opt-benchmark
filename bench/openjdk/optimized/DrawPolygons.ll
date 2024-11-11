@@ -300,7 +300,7 @@ define internal fastcc void @RefineBounds(ptr nocapture noundef nonnull %0, i32 
   %.153 = tail call i32 @llvm.smin.i32(i32 %.05269, i32 %17)
   %.150 = tail call i32 @llvm.smax.i32(i32 %.04970, i32 %15)
   %.1 = tail call i32 @llvm.smax.i32(i32 %.04871, i32 %17)
-  %18 = icmp ugt i32 %.05667, 2
+  %18 = icmp samesign ugt i32 %.05667, 2
   br i1 %18, label %.lr.ph, label %._crit_edge, !llvm.loop !8
 
 ._crit_edge:                                      ; preds = %.lr.ph, %8
@@ -534,7 +534,7 @@ define internal fastcc void @ProcessPoly(ptr noundef nonnull %0, ptr nocapture n
 104:                                              ; preds = %56, %68, %53, %51, %90, %95, %71, %73, %88, %76
   %.1186 = getelementptr inbounds i8, ptr %.1186253, i64 4
   %.1183 = getelementptr inbounds i8, ptr %.1183254, i64 4
-  %105 = icmp ugt i32 %.0192249, 2
+  %105 = icmp samesign ugt i32 %.0192249, 2
   br i1 %105, label %43, label %106, !llvm.loop !9
 
 106:                                              ; preds = %104

@@ -742,7 +742,7 @@ land.lhs.true20.i:                                ; preds = %if.then13.i
   br i1 %or.cond51.i, label %if.end33.thread101, label %if.end12
 
 if.end12:                                         ; preds = %land.lhs.true20.i
-  %cmp15 = icmp ugt i64 %sub.i, 1024
+  %cmp15 = icmp samesign ugt i64 %sub.i, 1024
   br i1 %cmp15, label %do.end18, label %if.end33
 
 do.end18:                                         ; preds = %if.end12
@@ -2574,7 +2574,7 @@ wolfSSL_GetMaxOutputSize.exit:                    ; preds = %if.end.i
   br i1 %cmp1, label %return, label %if.end3
 
 if.end3:                                          ; preds = %wolfSSL_GetMaxOutputSize.exit
-  %cmp4 = icmp ugt i32 %inSz, %call.i
+  %cmp4 = icmp samesign ugt i32 %inSz, %call.i
   br i1 %cmp4, label %return, label %if.end6
 
 if.end6:                                          ; preds = %if.end3
@@ -6195,7 +6195,7 @@ do.end:                                           ; preds = %if.end15
   br label %return
 
 if.end20:                                         ; preds = %if.end15
-  %cmp21 = icmp ult i64 %call10, 1025
+  %cmp21 = icmp samesign ult i64 %call10, 1025
   br i1 %cmp21, label %if.end30, label %do.end24
 
 do.end24:                                         ; preds = %if.end20
@@ -6700,7 +6700,7 @@ do.end:                                           ; preds = %if.end15
   br label %return
 
 if.end21:                                         ; preds = %if.end15
-  %cmp22 = icmp ult i64 %call10, 1025
+  %cmp22 = icmp samesign ult i64 %call10, 1025
   br i1 %cmp22, label %if.end31, label %do.end25
 
 do.end25:                                         ; preds = %if.end21
@@ -7668,7 +7668,7 @@ entry:
   br i1 %or.cond1, label %return, label %if.end
 
 if.end:                                           ; preds = %entry
-  %cmp4 = icmp ugt i32 %len, 20
+  %cmp4 = icmp samesign ugt i32 %len, 20
   br i1 %cmp4, label %if.then5, label %if.end10
 
 if.then5:                                         ; preds = %if.end

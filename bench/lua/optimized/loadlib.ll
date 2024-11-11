@@ -240,7 +240,7 @@ for.body:                                         ; preds = %entry, %for.body
   %call2 = tail call ptr @lua_touserdata(ptr noundef %L, i32 noundef -1) #6
   tail call void @lua_settop(ptr noundef %L, i32 noundef -2) #6
   %dec = add nsw i64 %n.07, -1
-  %cmp = icmp ugt i64 %n.07, 1
+  %cmp = icmp samesign ugt i64 %n.07, 1
   br i1 %cmp, label %for.body, label %for.end, !llvm.loop !7
 
 for.end:                                          ; preds = %for.body, %entry

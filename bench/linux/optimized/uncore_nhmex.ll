@@ -896,7 +896,7 @@ define internal noundef ptr @nhmex_mbox_get_constraint(ptr noundef %0, ptr nocap
 
 53:                                               ; preds = %35
   %54 = add nsw i32 %.pr70, -7
-  %55 = icmp ugt i32 %.pr70, 10
+  %55 = icmp samesign ugt i32 %.pr70, 10
   br i1 %55, label %nhmex_mbox_get_shared_reg.exit.thread, label %56, !prof !8
 
 nhmex_mbox_get_shared_reg.exit.thread:            ; preds = %53
@@ -1031,7 +1031,7 @@ nhmex_mbox_get_shared_reg.exit:                   ; preds = %82
 
 133:                                              ; preds = %116
   %134 = add nsw i32 %108, -7
-  %135 = icmp ugt i32 %108, 10
+  %135 = icmp samesign ugt i32 %108, 10
   br i1 %135, label %nhmex_mbox_get_shared_reg.exit11.thread, label %136, !prof !8
 
 nhmex_mbox_get_shared_reg.exit11.thread:          ; preds = %133

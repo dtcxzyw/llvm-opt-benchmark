@@ -828,7 +828,7 @@ define internal noundef i32 @dissect_mgcp(ptr noundef %0, ptr noundef %1, ptr no
   %.not17.i = icmp ne i16 %48, 0
   %.lobit.i = lshr exact i16 %48, 3
   %spec.select18.i = zext nneg i16 %.lobit.i to i32
-  %49 = icmp ugt i32 %21, 3
+  %49 = icmp samesign ugt i32 %21, 3
   %or.cond.i = and i1 %49, %.not17.i
   br i1 %or.cond.i, label %50, label %is_mgcp_rspcode.exit
 
@@ -1004,7 +1004,7 @@ tvb_find_dot_line.exit:                           ; preds = %.critedge.i, %.thre
   %.not17.i.i = icmp ne i16 %136, 0
   %.lobit.i.i = lshr exact i16 %136, 3
   %spec.select18.i.i = zext nneg i16 %.lobit.i.i to i32
-  %137 = icmp ugt i32 %112, 3
+  %137 = icmp samesign ugt i32 %112, 3
   %or.cond.i.i = and i1 %137, %.not17.i.i
   br i1 %or.cond.i.i, label %138, label %is_mgcp_rspcode.exit.i
 
@@ -1145,7 +1145,7 @@ is_mgcp_rspcode.exit.i:                           ; preds = %138, %131
   %.not17.i.i.i = icmp ne i16 %199, 0
   %.lobit.i.i.i = lshr exact i16 %199, 3
   %spec.select18.i.i.i = zext nneg i16 %.lobit.i.i.i to i32
-  %200 = icmp ugt i32 %154, 3
+  %200 = icmp samesign ugt i32 %154, 3
   %or.cond.i.i.i = and i1 %200, %.not17.i.i.i
   br i1 %or.cond.i.i.i, label %201, label %is_mgcp_rspcode.exit.i.i
 
@@ -2265,7 +2265,7 @@ define internal fastcc range(i32 0, 2) i32 @is_mgcp_verb(ptr noundef %0, i32 nou
 66:                                               ; preds = %59, %38, %35, %32, %29, %26, %23, %20, %17, %14, %11
   %.str.438.sink = phi ptr [ @.str.419, %11 ], [ @.str.421, %14 ], [ @.str.423, %17 ], [ @.str.425, %20 ], [ @.str.427, %23 ], [ @.str.429, %26 ], [ @.str.431, %29 ], [ @.str.433, %32 ], [ @.str.435, %35 ], [ @.str.437, %38 ], [ @.str.438, %59 ]
   store ptr %.str.438.sink, ptr %3, align 8
-  %67 = icmp ugt i32 %2, 4
+  %67 = icmp samesign ugt i32 %2, 4
   br i1 %67, label %68, label %.thread
 
 68:                                               ; preds = %66
@@ -2432,7 +2432,7 @@ define internal fastcc void @dissect_mgcp_params(ptr noundef %0, ptr noundef %1,
 
 51:                                               ; preds = %47
   %52 = add i32 %16, 4
-  %53 = icmp ugt i32 %20, 4
+  %53 = icmp samesign ugt i32 %20, 4
   br i1 %53, label %54, label %tvb_parse_param.exit
 
 54:                                               ; preds = %51
@@ -2456,7 +2456,7 @@ define internal fastcc void @dissect_mgcp_params(ptr noundef %0, ptr noundef %1,
 
 64:                                               ; preds = %62, %62
   %65 = add i32 %16, 2
-  %66 = icmp ugt i32 %20, 2
+  %66 = icmp samesign ugt i32 %20, 2
   br i1 %66, label %.lr.ph.i, label %tvb_parse_param.exit
 
 .lr.ph.i:                                         ; preds = %64
@@ -2564,7 +2564,7 @@ define internal fastcc void @dissect_mgcp_params(ptr noundef %0, ptr noundef %1,
 
 107:                                              ; preds = %104
   %108 = add i32 %16, 5
-  %109 = icmp ugt i32 %20, 5
+  %109 = icmp samesign ugt i32 %20, 5
   br i1 %109, label %110, label %134
 
 110:                                              ; preds = %107

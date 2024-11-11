@@ -9718,7 +9718,7 @@ switch.lookup131:                                 ; preds = %1489
   br i1 %or.cond.i.i, label %2211, label %.lr.ph89.i.i
 
 2160:                                             ; preds = %2152
-  %2161 = icmp ugt i64 %2139, 2
+  %2161 = icmp samesign ugt i64 %2139, 2
   br i1 %2161, label %2286, label %2154
 
 2162:                                             ; preds = %2155
@@ -10647,7 +10647,7 @@ switch.lookup131:                                 ; preds = %1489
   br i1 %.not85.i.i, label %2477, label %2478
 
 2475:                                             ; preds = %2374
-  %2476 = icmp ult i64 %2139, 3
+  %2476 = icmp samesign ult i64 %2139, 3
   br i1 %2476, label %2504, label %2494
 
 2477:                                             ; preds = %2484, %2478, %2474
@@ -11014,7 +11014,7 @@ switch.lookup133:                                 ; preds = %2487
   br label %.thread
 
 2622:                                             ; preds = %2124
-  %2623 = icmp ult i64 %868, 16
+  %2623 = icmp samesign ult i64 %868, 16
   br i1 %2623, label %2128, label %2625
 
 2624:                                             ; preds = %2124
@@ -11069,7 +11069,7 @@ switch.lookup133:                                 ; preds = %2487
   br label %"_ZN66_$LT$vte..ansi..Performer$LT$H$C$T$GT$$u20$as$u20$vte..Perform$GT$6unhook17h25cdefaa7f309bbcE.exit"
 
 2645:                                             ; preds = %2637
-  %2646 = icmp ult i64 %2628, 16
+  %2646 = icmp samesign ult i64 %2628, 16
   br i1 %2646, label %2648, label %2655
 
 2647:                                             ; preds = %2637

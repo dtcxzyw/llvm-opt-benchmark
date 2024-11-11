@@ -29,7 +29,7 @@ lor.rhs:                                          ; preds = %entry
   br i1 %or.cond, label %return, label %if.end12
 
 if.end12:                                         ; preds = %lor.rhs
-  %cmp13 = icmp ult i64 %size, 1025
+  %cmp13 = icmp samesign ult i64 %size, 1025
   %cmp15 = icmp ule i64 %alignment, %size
   %1 = and i1 %cmp13, %cmp15
   %sub = add i64 %alignment, -1

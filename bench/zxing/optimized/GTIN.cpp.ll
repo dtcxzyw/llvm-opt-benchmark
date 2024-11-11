@@ -586,7 +586,7 @@ define void @_ZN5ZXing4GTIN23LookupCountryIdentifierERKNSt7__cxx1112basic_string
   %269 = getelementptr inbounds i8, ptr %260, i64 2
   %270 = load i16, ptr %269, align 2, !tbaa !3
   %271 = zext i16 %270 to i32
-  %272 = icmp ugt i32 %222, %271
+  %272 = icmp samesign ugt i32 %222, %271
   br i1 %272, label %278, label %273
 
 273:                                              ; preds = %268

@@ -8589,7 +8589,7 @@ define internal fastcc noundef zeroext i1 @"_ZZN4llvm13BasicAAResult8aliasGEPEPK
   %34 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %35 = getelementptr inbounds nuw i8, ptr %5, i64 8
   store i32 %31, ptr %35, align 8, !alias.scope !130
-  %36 = icmp ult i32 %31, 65
+  %36 = icmp samesign ult i32 %31, 65
   br i1 %36, label %37, label %43
 
 37:                                               ; preds = %33
@@ -10169,7 +10169,7 @@ _ZL13getObjectSizePKN4llvm5ValueERKNS_10DataLayoutERKNS_17TargetLibraryInfoEbb.e
   %98 = load i64, ptr %10, align 8, !noalias !157
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %10)
   %99 = icmp eq i64 %98, %97
-  %100 = icmp ult i64 %2, 4611686018427387904
+  %100 = icmp samesign ult i64 %2, 4611686018427387904
   %or.cond117 = and i1 %100, %99
   br i1 %or.cond117, label %109, label %_ZL12isObjectSizePKN4llvm5ValueENS_8TypeSizeERKNS_10DataLayoutERKNS_17TargetLibraryInfoEb.exit.thread
 
@@ -10189,7 +10189,7 @@ _ZL13getObjectSizePKN4llvm5ValueERKNS_10DataLayoutERKNS_17TargetLibraryInfoEbb.e
   %106 = load i64, ptr %9, align 8, !noalias !160
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %9)
   %107 = icmp eq i64 %106, %105
-  %108 = icmp ult i64 %4, 4611686018427387904
+  %108 = icmp samesign ult i64 %4, 4611686018427387904
   %or.cond118 = and i1 %108, %107
   br i1 %or.cond118, label %109, label %_ZL12isObjectSizePKN4llvm5ValueENS_8TypeSizeERKNS_10DataLayoutERKNS_17TargetLibraryInfoEb.exit86.thread
 
@@ -13855,7 +13855,7 @@ _ZSt13move_backwardIPPKN4llvm5ValueES4_ET0_T_S6_S5_.exit: ; preds = %_ZN4llvm15S
   %68 = getelementptr inbounds i8, ptr %.0910.i.i.i.i.i, i64 32
   %69 = getelementptr inbounds i8, ptr %.0811.i.i.i.i.i, i64 8
   %70 = add nsw i64 %.012.i.i.i.i.i, -1
-  %71 = icmp ugt i64 %.012.i.i.i.i.i, 1
+  %71 = icmp samesign ugt i64 %.012.i.i.i.i.i, 1
   br i1 %71, label %.lr.ph.i.i.i.i.i, label %_ZSt4copyIPKN4llvm3UseEPPKNS0_5ValueEET0_T_S9_S8_.exit, !llvm.loop !186
 
 72:                                               ; preds = %_ZN4llvm15SmallVectorImplIPKNS_5ValueEE7reserveEm.exit

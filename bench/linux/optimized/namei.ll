@@ -1108,7 +1108,7 @@ define internal fastcc ptr @dx_probe(ptr noundef %0, ptr noundef %1, ptr nocaptu
   %39 = select i1 %37, ptr %2, ptr %38
   %40 = getelementptr inbounds i8, ptr %39, i64 8
   store i32 %14, ptr %40, align 8
-  %41 = icmp ult i8 %13, 3
+  %41 = icmp samesign ult i8 %13, 3
   %42 = getelementptr inbounds i8, ptr %1, i64 40
   %43 = load ptr, ptr %42, align 8
   %44 = getelementptr inbounds i8, ptr %43, i64 872
@@ -1841,7 +1841,7 @@ define dso_local void @ext4_insert_dentry(ptr noundef readonly %0, ptr nocapture
   %38 = trunc i32 %29 to i16
   %39 = getelementptr inbounds i8, ptr %28, i64 4
   store i16 %38, ptr %39, align 4
-  %40 = icmp ugt i32 %20, %3
+  %40 = icmp samesign ugt i32 %20, %3
   br i1 %40, label %41, label %42, !prof !6
 
 41:                                               ; preds = %37
@@ -2230,7 +2230,7 @@ define dso_local i32 @ext4_init_new_dir(ptr noundef %0, ptr noundef %1, ptr noun
   %77 = getelementptr i8, ptr %49, i64 18
   store i8 2, ptr %77, align 2
   %78 = select i1 %28, i32 12, i32 24
-  %79 = icmp ugt i32 %78, %9
+  %79 = icmp samesign ugt i32 %78, %9
   %80 = and i32 %9, 3
   %81 = icmp ne i32 %80, 0
   %82 = or i1 %81, %79
@@ -4319,7 +4319,7 @@ thread-pre-split:                                 ; preds = %102, %311, %select.
   %510 = getelementptr i8, ptr %509, i64 %447
   %511 = getelementptr i8, ptr %510, i64 -12
   call void @llvm.memset.p0.i64(ptr noundef align 4 dereferenceable(12) %511, i8 0, i64 12, i1 false)
-  %512 = icmp ult i32 %434, 12
+  %512 = icmp samesign ult i32 %434, 12
   br i1 %512, label %513, label %514, !prof !6
 
 513:                                              ; preds = %506
@@ -4335,7 +4335,7 @@ thread-pre-split:                                 ; preds = %102, %311, %select.
   br label %517
 
 517:                                              ; preds = %514, %503
-  %518 = icmp ult i32 %434, 12
+  %518 = icmp samesign ult i32 %434, 12
   %519 = and i32 %434, 3
   %520 = icmp ne i32 %519, 0
   %521 = or i1 %518, %520
@@ -4603,7 +4603,7 @@ thread-pre-split:                                 ; preds = %102, %311, %select.
   %669 = getelementptr i8, ptr %667, i64 %668
   %670 = getelementptr i8, ptr %669, i64 -12
   call void @llvm.memset.p0.i64(ptr noundef align 4 dereferenceable(12) %670, i8 0, i64 12, i1 false)
-  %671 = icmp ult i32 %41, 12
+  %671 = icmp samesign ult i32 %41, 12
   br i1 %671, label %672, label %673, !prof !6
 
 672:                                              ; preds = %666
@@ -6624,7 +6624,7 @@ define internal i32 @ext4_rename2(ptr noundef %0, ptr noundef %1, ptr noundef %2
   %505 = phi i32 [ 6, %482 ], [ %503, %499 ]
   %506 = or disjoint i32 %505, %494
   %507 = add nuw nsw i32 %506, 14
-  %508 = icmp ult i32 %5, 4
+  %508 = icmp samesign ult i32 %5, 4
   br i1 %508, label %509, label %518
 
 509:                                              ; preds = %504
@@ -8754,7 +8754,7 @@ define internal fastcc ptr @do_split(ptr noundef %0, ptr noundef %1, ptr nocaptu
   %146 = sub nsw i64 0, %145
   %147 = getelementptr %struct.dx_map_entry, ptr %56, i64 %146
   %148 = getelementptr i8, ptr %56, i64 -8
-  %149 = icmp ugt i32 %136, 2
+  %149 = icmp samesign ugt i32 %136, 2
   br i1 %149, label %.preheader54, label %.loopexit55
 
 .loopexit53:                                      ; preds = %173, %.preheader54
@@ -9111,7 +9111,7 @@ define internal fastcc ptr @do_split(ptr noundef %0, ptr noundef %1, ptr nocaptu
   %374 = getelementptr i8, ptr %373, i64 %55
   %375 = getelementptr i8, ptr %374, i64 -12
   call void @llvm.memset.p0.i64(ptr noundef align 4 dereferenceable(12) %375, i8 0, i64 12, i1 false)
-  %376 = icmp ult i32 %12, 12
+  %376 = icmp samesign ult i32 %12, 12
   br i1 %376, label %377, label %378, !prof !6
 
 377:                                              ; preds = %370

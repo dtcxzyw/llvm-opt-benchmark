@@ -710,7 +710,7 @@ define internal range(i64 -2147483648, 4294967296) i64 @vcs_write(ptr nocapture 
 
 64:                                               ; preds = %62
   %65 = zext nneg i32 %58 to i64
-  %66 = icmp ugt i64 %17, %65
+  %66 = icmp samesign ugt i64 %17, %65
   br i1 %66, label %.thread38, label %67
 
 67:                                               ; preds = %64

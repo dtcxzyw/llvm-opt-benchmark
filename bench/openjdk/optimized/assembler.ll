@@ -290,7 +290,7 @@ _ZNK10CodeBuffer15locator_addressEi.exit:         ; preds = %2, %9
   %26 = phi i32 [ %19, %.lr.ph ], [ %52, %.backedge ]
   %27 = add nsw i32 %26, -1
   store i32 %27, ptr %18, align 4
-  %28 = icmp ugt i32 %26, 4
+  %28 = icmp samesign ugt i32 %26, 4
   br i1 %28, label %29, label %37
 
 29:                                               ; preds = %25

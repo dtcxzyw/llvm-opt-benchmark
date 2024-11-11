@@ -192,7 +192,7 @@ define internal i32 @lzma2_decode(ptr noundef %0, ptr noalias noundef %1, ptr no
   %42 = and i64 %41, 2031616
   store i64 %42, ptr %15, align 8
   store i32 1, ptr %0, align 8
-  %43 = icmp ugt i8 %26, -65
+  %43 = icmp samesign ugt i8 %26, -65
   br i1 %43, label %44, label %45
 
 44:                                               ; preds = %40
@@ -207,7 +207,7 @@ define internal i32 @lzma2_decode(ptr noundef %0, ptr noalias noundef %1, ptr no
 
 48:                                               ; preds = %45
   store i32 6, ptr %14, align 4
-  %49 = icmp ugt i8 %26, -97
+  %49 = icmp samesign ugt i8 %26, -97
   br i1 %49, label %50, label %56
 
 50:                                               ; preds = %48
@@ -218,7 +218,7 @@ define internal i32 @lzma2_decode(ptr noundef %0, ptr noalias noundef %1, ptr no
   br label %56
 
 53:                                               ; preds = %37
-  %54 = icmp ugt i8 %26, 2
+  %54 = icmp samesign ugt i8 %26, 2
   br i1 %54, label %.loopexit, label %55
 
 55:                                               ; preds = %53

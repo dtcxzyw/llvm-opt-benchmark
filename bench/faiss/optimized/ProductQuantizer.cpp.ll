@@ -2252,7 +2252,7 @@ define void @_ZNK5faiss16ProductQuantizer6decodeEPKhPf(ptr nocapture noundef non
   %75 = getelementptr inbounds i8, ptr %.sroa.0.016.i, i64 1
   %76 = add nsw i32 %70, -8
   %77 = lshr i32 %76, 3
-  %78 = icmp ugt i32 %70, 15
+  %78 = icmp samesign ugt i32 %70, 15
   br i1 %78, label %.lr.ph.i.preheader.i, label %._crit_edge.i.i
 
 .lr.ph.i.preheader.i:                             ; preds = %72
@@ -4968,7 +4968,7 @@ _ZN5faiss16heap_replace_topINS_4CMaxIflEEEEvmPNT_1TEPNS3_2TIES4_S6_.exit.i71: ; 
   %621 = getelementptr inbounds i8, ptr %.sroa.0.036.i, i64 1
   %622 = add nsw i32 %616, -8
   %623 = lshr i32 %622, 3
-  %624 = icmp ugt i32 %616, 15
+  %624 = icmp samesign ugt i32 %616, 15
   br i1 %624, label %.lr.ph.i.preheader.i, label %._crit_edge.i.i169
 
 .lr.ph.i.preheader.i:                             ; preds = %618
@@ -6628,7 +6628,7 @@ _ZN5faiss16heap_replace_topINS_4CMinIflEEEEvmPNT_1TEPNS3_2TIES4_S6_.exit.i71: ; 
   %621 = getelementptr inbounds i8, ptr %.sroa.0.036.i, i64 1
   %622 = add nsw i32 %616, -8
   %623 = lshr i32 %622, 3
-  %624 = icmp ugt i32 %616, 15
+  %624 = icmp samesign ugt i32 %616, 15
   br i1 %624, label %.lr.ph.i.preheader.i, label %._crit_edge.i.i169
 
 .lr.ph.i.preheader.i:                             ; preds = %618

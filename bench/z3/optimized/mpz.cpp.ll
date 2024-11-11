@@ -4962,7 +4962,7 @@ if.then:                                          ; preds = %land.lhs.true
   %div = sdiv i64 %conv.i, %conv.i13
   %rem = srem i64 %conv.i, %conv.i13
   %2 = add nsw i64 %div, 2147483648
-  %or.cond.i = icmp ult i64 %2, 4294967296
+  %or.cond.i = icmp samesign ult i64 %2, 4294967296
   br i1 %or.cond.i, label %if.then.i, label %if.else.i
 
 if.then.i:                                        ; preds = %if.then
@@ -5097,7 +5097,7 @@ if.then10:                                        ; preds = %if.end
   %conv.i18 = sext i32 %0 to i64
   %div = sdiv i64 %conv.i17, %conv.i18
   %4 = add nsw i64 %div, 2147483648
-  %or.cond.i = icmp ult i64 %4, 4294967296
+  %or.cond.i = icmp samesign ult i64 %4, 4294967296
   br i1 %or.cond.i, label %if.then.i, label %if.else.i
 
 if.then.i:                                        ; preds = %if.then10
@@ -19510,7 +19510,7 @@ if.then:                                          ; preds = %land.lhs.true
   %div = sdiv i64 %conv.i, %conv.i13
   %rem = srem i64 %conv.i, %conv.i13
   %2 = add nsw i64 %div, 2147483648
-  %or.cond.i = icmp ult i64 %2, 4294967296
+  %or.cond.i = icmp samesign ult i64 %2, 4294967296
   br i1 %or.cond.i, label %if.then.i, label %if.else.i
 
 if.then.i:                                        ; preds = %if.then
@@ -19645,7 +19645,7 @@ if.then10:                                        ; preds = %if.end
   %conv.i18 = sext i32 %0 to i64
   %div = sdiv i64 %conv.i17, %conv.i18
   %4 = add nsw i64 %div, 2147483648
-  %or.cond.i = icmp ult i64 %4, 4294967296
+  %or.cond.i = icmp samesign ult i64 %4, 4294967296
   br i1 %or.cond.i, label %if.then.i, label %if.else.i
 
 if.then.i:                                        ; preds = %if.then10

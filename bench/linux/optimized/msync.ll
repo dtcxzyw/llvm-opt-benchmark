@@ -44,7 +44,7 @@ define internal fastcc range(i64 -2147483648, 2147483648) i64 @__se_sys_msync(i6
 13:                                               ; preds = %3
   %14 = and i32 %4, 1
   %15 = icmp eq i32 %14, 0
-  %16 = icmp ult i32 %4, 4
+  %16 = icmp samesign ult i32 %4, 4
   %17 = or i1 %16, %15
   br i1 %17, label %18, label %.thread15
 
@@ -86,7 +86,7 @@ define internal fastcc range(i64 -2147483648, 2147483648) i64 @__se_sys_msync(i6
   br i1 %35, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %30
-  %36 = icmp ugt i32 %4, 3
+  %36 = icmp samesign ugt i32 %4, 3
   br i1 %36, label %.lr.ph.split, label %.lr.ph.split.us
 
 .lr.ph.split.us:                                  ; preds = %.lr.ph

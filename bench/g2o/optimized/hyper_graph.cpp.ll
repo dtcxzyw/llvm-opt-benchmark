@@ -627,7 +627,7 @@ define noundef zeroext i1 @_ZN3g2o10HyperGraph7addEdgeEPNS0_4EdgeE(ptr noundef n
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3)
   %41 = getelementptr inbounds i8, ptr %.056.i.i.i.i.i, i64 8
   %42 = add nsw i64 %.07.i.i.i.i.i, -1
-  %43 = icmp ugt i64 %.07.i.i.i.i.i, 1
+  %43 = icmp samesign ugt i64 %.07.i.i.i.i.i, 1
   br i1 %43, label %.lr.ph.i.i.i.i.i, label %_ZSt4copyIN9__gnu_cxx17__normal_iteratorIPPN3g2o10HyperGraph6VertexESt6vectorIS5_SaIS5_EEEESt15insert_iteratorISt13unordered_setIS5_St4hashIS5_ESt8equal_toIS5_ES8_EEET0_T_SK_SJ_.exit, !llvm.loop !9
 
 _ZSt4copyIN9__gnu_cxx17__normal_iteratorIPPN3g2o10HyperGraph6VertexESt6vectorIS5_SaIS5_EEEESt15insert_iteratorISt13unordered_setIS5_St4hashIS5_ESt8equal_toIS5_ES8_EEET0_T_SK_SJ_.exit: ; preds = %.noexc

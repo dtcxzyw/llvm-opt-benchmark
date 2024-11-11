@@ -7478,7 +7478,7 @@ dissect_hostname_parameter.exit:                  ; preds = %109, %118, %120
   br label %139
 
 139:                                              ; preds = %137, %136, %135, %134
-  %140 = icmp ugt i32 %129, %indvars.iv.i
+  %140 = icmp samesign ugt i32 %129, %indvars.iv.i
   br i1 %140, label %141, label %142
 
 141:                                              ; preds = %139
@@ -7509,7 +7509,7 @@ dissect_supported_address_types_parameter.exit:   ; preds = %142, %122
 153:                                              ; preds = %144
   %154 = zext i16 %151 to i32
   %155 = add nsw i32 %154, -16
-  %.not.i113 = icmp ult i32 %155, 2
+  %.not.i113 = icmp samesign ult i32 %155, 2
   br i1 %.not.i113, label %dissect_ipv4_parameter.exit, label %.lr.ph.preheader.i
 
 .lr.ph.preheader.i:                               ; preds = %153
@@ -7536,7 +7536,7 @@ dissect_supported_address_types_parameter.exit:   ; preds = %142, %122
 166:                                              ; preds = %161
   %167 = zext i16 %164 to i32
   %168 = add nsw i32 %167, -8
-  %.not.i116 = icmp ult i32 %168, 2
+  %.not.i116 = icmp samesign ult i32 %168, 2
   br i1 %.not.i116, label %dissect_ipv4_parameter.exit, label %.lr.ph.preheader.i117
 
 .lr.ph.preheader.i117:                            ; preds = %166
@@ -7640,7 +7640,7 @@ dissect_supported_address_types_parameter.exit:   ; preds = %142, %122
   %230 = zext i8 %229 to i32
   %231 = call ptr @val_to_str_const(i32 noundef %230, ptr noundef nonnull @chunk_type_values, ptr noundef nonnull @.str.503) #17
   call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %220, ptr noundef nonnull @.str.507, ptr noundef %231) #17
-  %232 = icmp ugt i32 %224, %indvars.iv.i123
+  %232 = icmp samesign ugt i32 %224, %indvars.iv.i123
   br i1 %232, label %233, label %234
 
 233:                                              ; preds = %225
@@ -7682,7 +7682,7 @@ dissect_chunks_parameter.exit:                    ; preds = %234, %219
   %249 = zext i16 %248 to i32
   %250 = call ptr @val_to_str_const(i32 noundef %249, ptr noundef nonnull @hmac_id_values, ptr noundef nonnull @.str.503) #17
   call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %237, ptr noundef nonnull @.str.507, ptr noundef %250) #17
-  %251 = icmp ugt i32 %243, %indvars.iv.i128
+  %251 = icmp samesign ugt i32 %243, %indvars.iv.i128
   br i1 %251, label %252, label %253
 
 252:                                              ; preds = %244
@@ -7722,7 +7722,7 @@ dissect_hmac_algo_parameter.exit:                 ; preds = %253, %236
   %266 = zext i8 %265 to i32
   %267 = call ptr @val_to_str_const(i32 noundef %266, ptr noundef nonnull @chunk_type_values, ptr noundef nonnull @.str.503) #17
   call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %256, ptr noundef nonnull @.str.507, ptr noundef %267) #17
-  %268 = icmp ugt i32 %260, %indvars.iv.i134
+  %268 = icmp samesign ugt i32 %260, %indvars.iv.i134
   br i1 %268, label %269, label %270
 
 269:                                              ; preds = %261

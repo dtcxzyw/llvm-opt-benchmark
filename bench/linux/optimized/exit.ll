@@ -2046,7 +2046,7 @@ kill_orphaned_pgrp.exit41:                        ; preds = %529, %556, %563, %.
   call void @_raw_spin_lock(ptr noundef nonnull @check_stack_usage.low_water_lock) #15
   %690 = load i32, ptr @check_stack_usage.lowest_to_date, align 4
   %691 = zext nneg i32 %690 to i64
-  %692 = icmp ult i64 %685, %691
+  %692 = icmp samesign ult i64 %685, %691
   br i1 %692, label %693, label %699
 
 693:                                              ; preds = %689

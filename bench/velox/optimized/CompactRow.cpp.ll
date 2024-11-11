@@ -8299,7 +8299,7 @@ if.then.i.i.i53:                                  ; preds = %if.else.i
   unreachable
 
 if.end.i.i.i:                                     ; preds = %if.else.i
-  %cmp.i.i.i.i.i49 = icmp ult i32 %buffer.val.i.i, 13
+  %cmp.i.i.i.i.i49 = icmp samesign ult i32 %buffer.val.i.i, 13
   br i1 %cmp.i.i.i.i.i49, label %if.then2.i.i.i, label %if.else.i.i.i50
 
 if.then2.i.i.i:                                   ; preds = %if.end.i.i.i
@@ -13862,7 +13862,7 @@ if.then.i.i.i266:                                 ; preds = %if.else.i
   unreachable
 
 if.end.i.i.i262:                                  ; preds = %if.else.i
-  %cmp.i.i.i.i.i263 = icmp ult i32 %buffer.val.i.i, 13
+  %cmp.i.i.i.i.i263 = icmp samesign ult i32 %buffer.val.i.i, 13
   br i1 %cmp.i.i.i.i.i263, label %if.then2.i.i.i, label %if.else.i.i.i264
 
 if.then2.i.i.i:                                   ; preds = %if.end.i.i.i262

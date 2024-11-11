@@ -2349,7 +2349,7 @@ _ZN3fmt3v106detail11parse_alignEc.exit53:         ; preds = %_ZZN3fmt3v106detail
   unreachable
 
 33:                                               ; preds = %21
-  %.not.i58 = icmp ult i32 %.sroa.0158.0, 4
+  %.not.i58 = icmp samesign ult i32 %.sroa.0158.0, 4
   br i1 %.not.i58, label %_ZZN3fmt3v106detail18parse_format_specsIcEEPKT_S5_S5_RNS1_20dynamic_format_specsIS3_EERNS0_26basic_format_parse_contextIS3_EENS1_4typeEENUt_clENS1_5stateEb.exit59, label %34
 
 34:                                               ; preds = %33
@@ -2361,7 +2361,7 @@ _ZZN3fmt3v106detail18parse_format_specsIcEEPKT_S5_S5_RNS1_20dynamic_format_specs
   unreachable
 
 35:                                               ; preds = %21, %21, %21, %21, %21, %21, %21, %21, %21, %21
-  %.not.i60 = icmp ult i32 %.sroa.0158.0, 5
+  %.not.i60 = icmp samesign ult i32 %.sroa.0158.0, 5
   br i1 %.not.i60, label %_ZZN3fmt3v106detail18parse_format_specsIcEEPKT_S5_S5_RNS1_20dynamic_format_specsIS3_EERNS0_26basic_format_parse_contextIS3_EENS1_4typeEENUt_clENS1_5stateEb.exit61, label %36
 
 36:                                               ; preds = %35
@@ -2373,7 +2373,7 @@ _ZZN3fmt3v106detail18parse_format_specsIcEEPKT_S5_S5_RNS1_20dynamic_format_specs
   br label %95
 
 38:                                               ; preds = %21
-  %.not.i62 = icmp ult i32 %.sroa.0158.0, 6
+  %.not.i62 = icmp samesign ult i32 %.sroa.0158.0, 6
   br i1 %.not.i62, label %_ZZN3fmt3v106detail18parse_format_specsIcEEPKT_S5_S5_RNS1_20dynamic_format_specsIS3_EERNS0_26basic_format_parse_contextIS3_EENS1_4typeEENUt_clENS1_5stateEb.exit63, label %39
 
 39:                                               ; preds = %38
@@ -3241,7 +3241,7 @@ _ZNK3fmt3v1017basic_format_argsINS0_20basic_format_contextINS0_8appenderEcEEE6ge
   br label %_ZNK3fmt3v1017basic_format_argsINS0_20basic_format_contextINS0_8appenderEcEEE3getEi.exit
 
 35:                                               ; preds = %26
-  %36 = icmp ugt i32 %24, 14
+  %36 = icmp samesign ugt i32 %24, 14
   br i1 %36, label %_ZNK3fmt3v1017basic_format_argsINS0_20basic_format_contextINS0_8appenderEcEEE3getEi.exit, label %37
 
 37:                                               ; preds = %35
@@ -5828,7 +5828,7 @@ define linkonce_odr dso_local void @_ZSt16__insertion_sortIN9__gnu_cxx17__normal
   %16 = getelementptr inbounds i8, ptr %.069.i.i.i.i.i, i64 -32
   %17 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEOS4_(ptr noundef nonnull align 8 dereferenceable(32) %16, ptr noundef nonnull align 8 dereferenceable(32) %15) #19
   %18 = add nsw i64 %.010.i.i.i.i.i, -1
-  %19 = icmp ugt i64 %.010.i.i.i.i.i, 1
+  %19 = icmp samesign ugt i64 %.010.i.i.i.i.i, 1
   br i1 %19, label %.lr.ph.i.i.i.i.i, label %.loopexit, !llvm.loop !101
 
 .loopexit:                                        ; preds = %.lr.ph.i.i.i.i.i, %9

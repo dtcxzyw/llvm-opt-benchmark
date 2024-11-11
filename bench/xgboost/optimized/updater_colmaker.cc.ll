@@ -4192,7 +4192,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
   br label %172
 
 153:                                              ; preds = %145
-  %154 = icmp ugt i32 %136, 7
+  %154 = icmp samesign ugt i32 %136, 7
   br i1 %154, label %.lr.ph197.preheader, label %.preheader
 
 .lr.ph197.preheader:                              ; preds = %147, %153
@@ -23378,7 +23378,7 @@ _ZNSt12_Vector_baseIN7xgboost4tree8ColMaker11ThreadEntryESaIS3_EE13_M_deallocate
   %54 = getelementptr inbounds i8, ptr %.0910.i.i.i.i.i, i64 104
   %55 = getelementptr inbounds i8, ptr %.0811.i.i.i.i.i, i64 104
   %56 = add nsw i64 %.012.i.i.i.i.i, -1
-  %57 = icmp ugt i64 %.012.i.i.i.i.i, 1
+  %57 = icmp samesign ugt i64 %.012.i.i.i.i.i, 1
   br i1 %57, label %.lr.ph.i.i.i.i.i, label %_ZSt4copyIN9__gnu_cxx17__normal_iteratorIPKN7xgboost4tree8ColMaker11ThreadEntryESt6vectorIS5_SaIS5_EEEENS1_IPS5_SA_EEET0_T_SF_SE_.exit.loopexit, !llvm.loop !226
 
 _ZSt4copyIN9__gnu_cxx17__normal_iteratorIPKN7xgboost4tree8ColMaker11ThreadEntryESt6vectorIS5_SaIS5_EEEENS1_IPS5_SA_EEET0_T_SF_SE_.exit.loopexit: ; preds = %.lr.ph.i.i.i.i.i
@@ -23444,7 +23444,7 @@ _ZSt8_DestroyIN7xgboost4tree8ColMaker11ThreadEntryEEvPT_.exit.i.i.i28: ; preds =
   %80 = getelementptr inbounds i8, ptr %.0910.i.i.i.i.i35, i64 104
   %81 = getelementptr inbounds i8, ptr %.0811.i.i.i.i.i34, i64 104
   %82 = add nsw i64 %.012.i.i.i.i.i33, -1
-  %83 = icmp ugt i64 %.012.i.i.i.i.i33, 1
+  %83 = icmp samesign ugt i64 %.012.i.i.i.i.i33, 1
   br i1 %83, label %.lr.ph.i.i.i.i.i32, label %_ZSt4copyIPN7xgboost4tree8ColMaker11ThreadEntryES4_ET0_T_S6_S5_.exit.loopexit, !llvm.loop !228
 
 _ZSt4copyIPN7xgboost4tree8ColMaker11ThreadEntryES4_ET0_T_S6_S5_.exit.loopexit: ; preds = %.lr.ph.i.i.i.i.i32

@@ -7855,7 +7855,7 @@ if.then75.i:                                      ; preds = %sw.bb72.i
   br label %for.inc.i
 
 for.inc.i:                                        ; preds = %if.then75.i, %sw.bb72.i, %sw.bb67.i, %sw.bb64.i, %if.then60.i, %sw.bb57.i, %sw.bb54.i, %sw.bb51.i, %send_ext_audio_ack.exit.i, %sw.bb46.i, %send_ext_key_event_ack.exit.i, %sw.bb42.i, %sw.bb39.i, %sw.bb36.i, %sw.bb33.i, %sw.bb30.i, %sw.bb26.i, %sw.bb22.i, %if.then.i, %sw.bb15.i, %sw.bb11.i, %sw.bb7.i, %sw.bb4.i, %sw.bb.i, %for.body.i
-  %cmp.i172 = icmp ugt i64 %indvars.iv.i, 1
+  %cmp.i172 = icmp samesign ugt i64 %indvars.iv.i, 1
   br i1 %cmp.i172, label %for.body.i, label %set_encodings.exit, !llvm.loop !32
 
 set_encodings.exit:                               ; preds = %for.inc.i, %for.end

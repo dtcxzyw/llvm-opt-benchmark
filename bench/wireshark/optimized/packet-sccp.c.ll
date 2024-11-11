@@ -4744,7 +4744,7 @@ proto_item_set_generated.exit:                    ; preds = %153, %156, %159
 169:                                              ; preds = %proto_item_set_hidden.exit, %proto_item_set_generated.exit, %167, %165, %151, %114
   %.1 = phi i32 [ %148, %167 ], [ %148, %165 ], [ %148, %proto_item_set_generated.exit ], [ %148, %151 ], [ %148, %proto_item_set_hidden.exit ], [ %.0, %114 ]
   %.not281 = icmp eq i8 %46, 0
-  %170 = icmp ult i32 %3, %.1
+  %170 = icmp samesign ult i32 %3, %.1
   %or.cond = select i1 %.not281, i1 true, i1 %170
   br i1 %or.cond, label %252, label %171
 
@@ -4899,7 +4899,7 @@ proto_item_set_hidden.exit287:                    ; preds = %227, %224, %217, %.
 247:                                              ; preds = %231, %proto_item_set_hidden.exit287
   %.3 = phi i32 [ %246, %231 ], [ %.2, %proto_item_set_hidden.exit287 ]
   %.not272 = icmp eq i8 %46, 0
-  %248 = icmp ult i32 %3, %.3
+  %248 = icmp samesign ult i32 %3, %.3
   %or.cond282 = select i1 %.not272, i1 true, i1 %248
   br i1 %or.cond282, label %252, label %249
 

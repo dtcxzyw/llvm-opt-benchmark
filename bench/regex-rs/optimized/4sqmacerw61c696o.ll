@@ -532,7 +532,7 @@ define internal fastcc { i32, i32 } @_ZN4core3str11validations15next_code_point1
   %16 = and i8 %14, 63
   %17 = zext nneg i8 %16 to i32
   %18 = or disjoint i32 %15, %17
-  %19 = icmp ugt i8 %8, -33
+  %19 = icmp samesign ugt i8 %8, -33
   br i1 %19, label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h1cd0e3781ef68c91E.exit15", label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h1cd0e3781ef68c91E.exit.thread"
 
 20:                                               ; preds = %6
@@ -551,7 +551,7 @@ define internal fastcc { i32, i32 } @_ZN4core3str11validations15next_code_point1
   %28 = or disjoint i32 %25, %27
   %29 = shl nuw nsw i32 %11, 12
   %30 = or disjoint i32 %28, %29
-  %31 = icmp ugt i8 %8, -17
+  %31 = icmp samesign ugt i8 %8, -17
   br i1 %31, label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h1cd0e3781ef68c91E.exit17", label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h1cd0e3781ef68c91E.exit.thread"
 
 "_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h1cd0e3781ef68c91E.exit17": ; preds = %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h1cd0e3781ef68c91E.exit15"
@@ -9277,19 +9277,19 @@ define internal fastcc noundef range(i8 0, 2) i8 @_ZN14regex_automata4util4look1
   br i1 %28, label %_ZN14regex_automata4util4utf86decode17hd69cc87f474d359bE.exit.i.thread.thread68, label %29
 
 29:                                               ; preds = %._crit_edge.thread.thread
-  %30 = icmp ult i8 %27, -64
+  %30 = icmp samesign ult i8 %27, -64
   br i1 %30, label %_ZN14regex_automata4util4utf811decode_last17h4128c193d6e9ba16E.exit.thread, label %31
 
 31:                                               ; preds = %29
-  %32 = icmp ult i8 %27, -32
+  %32 = icmp samesign ult i8 %27, -32
   br i1 %32, label %select.unfold, label %33
 
 33:                                               ; preds = %31
-  %34 = icmp ult i8 %27, -16
+  %34 = icmp samesign ult i8 %27, -16
   br i1 %34, label %select.unfold, label %35
 
 35:                                               ; preds = %33
-  %36 = icmp ult i8 %27, -8
+  %36 = icmp samesign ult i8 %27, -8
   br i1 %36, label %select.unfold, label %_ZN14regex_automata4util4utf811decode_last17h4128c193d6e9ba16E.exit.thread
 
 select.unfold:                                    ; preds = %35, %31, %33
@@ -9332,7 +9332,7 @@ _ZN14regex_automata4util4utf86decode17hd69cc87f474d359bE.exit.i.thread.thread68:
   %54 = and i8 %52, 63
   %55 = zext nneg i8 %54 to i32
   %56 = or disjoint i32 %53, %55
-  %57 = icmp ugt i8 %46, -33
+  %57 = icmp samesign ugt i8 %46, -33
   br i1 %57, label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h1cd0e3781ef68c91E.exit15.i", label %_ZN14regex_automata4util4utf86decode17hd69cc87f474d359bE.exit.i.thread.thread73
 
 58:                                               ; preds = %45
@@ -9350,7 +9350,7 @@ _ZN14regex_automata4util4utf86decode17hd69cc87f474d359bE.exit.i.thread.thread68:
   %66 = or disjoint i32 %63, %65
   %67 = shl nuw nsw i32 %50, 12
   %68 = or disjoint i32 %66, %67
-  %69 = icmp ugt i8 %46, -17
+  %69 = icmp samesign ugt i8 %46, -17
   br i1 %69, label %70, label %_ZN14regex_automata4util4utf86decode17hd69cc87f474d359bE.exit.i.thread.thread73
 
 70:                                               ; preds = %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h1cd0e3781ef68c91E.exit15.i"
@@ -9414,19 +9414,19 @@ _ZN14regex_automata4util4utf811decode_last17h4128c193d6e9ba16E.exit.thread: ; pr
   br i1 %91, label %103, label %92
 
 92:                                               ; preds = %89
-  %93 = icmp ult i8 %90, -64
+  %93 = icmp samesign ult i8 %90, -64
   br i1 %93, label %101, label %94
 
 94:                                               ; preds = %92
-  %95 = icmp ult i8 %90, -32
+  %95 = icmp samesign ult i8 %90, -32
   br i1 %95, label %select.unfold24, label %96
 
 96:                                               ; preds = %94
-  %97 = icmp ult i8 %90, -16
+  %97 = icmp samesign ult i8 %90, -16
   br i1 %97, label %select.unfold24, label %98
 
 98:                                               ; preds = %96
-  %99 = icmp ult i8 %90, -8
+  %99 = icmp samesign ult i8 %90, -8
   br i1 %99, label %select.unfold24, label %101
 
 select.unfold24:                                  ; preds = %98, %94, %96
@@ -9474,7 +9474,7 @@ select.unfold24:                                  ; preds = %98, %94, %96
   %119 = and i8 %117, 63
   %120 = zext nneg i8 %119 to i32
   %121 = or disjoint i32 %118, %120
-  %122 = icmp ugt i8 %111, -33
+  %122 = icmp samesign ugt i8 %111, -33
   br i1 %122, label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h1cd0e3781ef68c91E.exit15.i35", label %.thread39
 
 123:                                              ; preds = %110
@@ -9492,7 +9492,7 @@ select.unfold24:                                  ; preds = %98, %94, %96
   %131 = or disjoint i32 %128, %130
   %132 = shl nuw nsw i32 %115, 12
   %133 = or disjoint i32 %131, %132
-  %134 = icmp ugt i8 %111, -17
+  %134 = icmp samesign ugt i8 %111, -17
   br i1 %134, label %135, label %.thread39
 
 135:                                              ; preds = %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h1cd0e3781ef68c91E.exit15.i35"
@@ -9632,19 +9632,19 @@ define internal fastcc noundef range(i8 0, 2) i8 @_ZN14regex_automata4util4look1
   br i1 %36, label %.critedge, label %37
 
 37:                                               ; preds = %34
-  %38 = icmp ult i8 %35, -64
+  %38 = icmp samesign ult i8 %35, -64
   br i1 %38, label %_ZN14regex_automata4util4utf811decode_last17h4128c193d6e9ba16E.exit106.thread, label %39
 
 39:                                               ; preds = %37
-  %40 = icmp ult i8 %35, -32
+  %40 = icmp samesign ult i8 %35, -32
   br i1 %40, label %select.unfold, label %41
 
 41:                                               ; preds = %39
-  %42 = icmp ult i8 %35, -16
+  %42 = icmp samesign ult i8 %35, -16
   br i1 %42, label %select.unfold, label %43
 
 43:                                               ; preds = %41
-  %44 = icmp ult i8 %35, -8
+  %44 = icmp samesign ult i8 %35, -8
   br i1 %44, label %select.unfold, label %_ZN14regex_automata4util4utf811decode_last17h4128c193d6e9ba16E.exit106.thread
 
 select.unfold:                                    ; preds = %43, %39, %41
@@ -9739,19 +9739,19 @@ _ZN14regex_automata4util4look12is_word_char3rev17haa1e71ab59be6165E.exit: ; pred
   br i1 %75, label %_ZN14regex_automata4util4utf86decode17hd69cc87f474d359bE.exit.i.thread.thread92, label %76
 
 76:                                               ; preds = %._crit_edge.thread.thread
-  %77 = icmp ult i8 %74, -64
+  %77 = icmp samesign ult i8 %74, -64
   br i1 %77, label %_ZN14regex_automata4util4look12is_word_char3rev17haa1e71ab59be6165E.exit, label %78
 
 78:                                               ; preds = %76
-  %79 = icmp ult i8 %74, -32
+  %79 = icmp samesign ult i8 %74, -32
   br i1 %79, label %select.unfold9, label %80
 
 80:                                               ; preds = %78
-  %81 = icmp ult i8 %74, -16
+  %81 = icmp samesign ult i8 %74, -16
   br i1 %81, label %select.unfold9, label %82
 
 82:                                               ; preds = %80
-  %83 = icmp ult i8 %74, -8
+  %83 = icmp samesign ult i8 %74, -8
   br i1 %83, label %select.unfold9, label %_ZN14regex_automata4util4look12is_word_char3rev17haa1e71ab59be6165E.exit
 
 select.unfold9:                                   ; preds = %82, %78, %80
@@ -9832,19 +9832,19 @@ _ZN14regex_automata4util4utf811decode_last17h4128c193d6e9ba16E.exit: ; preds = %
   br i1 %110, label %_ZN14regex_automata4util4utf86decode17hd69cc87f474d359bE.exit.thread74, label %111
 
 111:                                              ; preds = %106
-  %112 = icmp ult i8 %109, -64
+  %112 = icmp samesign ult i8 %109, -64
   br i1 %112, label %_ZN14regex_automata4util4utf811decode_last17h4128c193d6e9ba16E.exit106.thread, label %113
 
 113:                                              ; preds = %111
-  %114 = icmp ult i8 %109, -32
+  %114 = icmp samesign ult i8 %109, -32
   br i1 %114, label %select.unfold19, label %115
 
 115:                                              ; preds = %113
-  %116 = icmp ult i8 %109, -16
+  %116 = icmp samesign ult i8 %109, -16
   br i1 %116, label %select.unfold19, label %117
 
 117:                                              ; preds = %115
-  %118 = icmp ult i8 %109, -8
+  %118 = icmp samesign ult i8 %109, -8
   br i1 %118, label %select.unfold19, label %_ZN14regex_automata4util4utf811decode_last17h4128c193d6e9ba16E.exit106.thread
 
 select.unfold19:                                  ; preds = %117, %113, %115
@@ -9893,8 +9893,8 @@ _ZN14regex_automata4util4look12is_word_char3fwd17h9b311c8ef074a7d9E.exit: ; pred
 select.unfold29:                                  ; preds = %121
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %9), !noalias !1890
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %10), !noalias !1890
-  %133 = icmp ult i8 %109, -32
-  %134 = icmp ult i8 %109, -16
+  %133 = icmp samesign ult i8 %109, -32
+  %134 = icmp samesign ult i8 %109, -16
   %spec.select = select i1 %134, i64 3, i64 4
   %.sroa.7.0.i117.ph = select i1 %133, i64 2, i64 %spec.select
   %135 = icmp ugt i64 %.sroa.7.0.i117.ph, %107
@@ -10031,19 +10031,19 @@ define internal fastcc noundef range(i8 0, 2) i8 @_ZN14regex_automata4util4look1
   br i1 %28, label %_ZN14regex_automata4util4utf86decode17hd69cc87f474d359bE.exit.i.thread.thread68, label %29
 
 29:                                               ; preds = %._crit_edge.thread.thread
-  %30 = icmp ult i8 %27, -64
+  %30 = icmp samesign ult i8 %27, -64
   br i1 %30, label %_ZN14regex_automata4util4utf811decode_last17h4128c193d6e9ba16E.exit.thread, label %31
 
 31:                                               ; preds = %29
-  %32 = icmp ult i8 %27, -32
+  %32 = icmp samesign ult i8 %27, -32
   br i1 %32, label %select.unfold, label %33
 
 33:                                               ; preds = %31
-  %34 = icmp ult i8 %27, -16
+  %34 = icmp samesign ult i8 %27, -16
   br i1 %34, label %select.unfold, label %35
 
 35:                                               ; preds = %33
-  %36 = icmp ult i8 %27, -8
+  %36 = icmp samesign ult i8 %27, -8
   br i1 %36, label %select.unfold, label %_ZN14regex_automata4util4utf811decode_last17h4128c193d6e9ba16E.exit.thread
 
 select.unfold:                                    ; preds = %35, %31, %33
@@ -10086,7 +10086,7 @@ _ZN14regex_automata4util4utf86decode17hd69cc87f474d359bE.exit.i.thread.thread68:
   %54 = and i8 %52, 63
   %55 = zext nneg i8 %54 to i32
   %56 = or disjoint i32 %53, %55
-  %57 = icmp ugt i8 %46, -33
+  %57 = icmp samesign ugt i8 %46, -33
   br i1 %57, label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h1cd0e3781ef68c91E.exit15.i", label %_ZN14regex_automata4util4utf86decode17hd69cc87f474d359bE.exit.i.thread.thread73
 
 58:                                               ; preds = %45
@@ -10104,7 +10104,7 @@ _ZN14regex_automata4util4utf86decode17hd69cc87f474d359bE.exit.i.thread.thread68:
   %66 = or disjoint i32 %63, %65
   %67 = shl nuw nsw i32 %50, 12
   %68 = or disjoint i32 %66, %67
-  %69 = icmp ugt i8 %46, -17
+  %69 = icmp samesign ugt i8 %46, -17
   br i1 %69, label %70, label %_ZN14regex_automata4util4utf86decode17hd69cc87f474d359bE.exit.i.thread.thread73
 
 70:                                               ; preds = %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h1cd0e3781ef68c91E.exit15.i"
@@ -10169,19 +10169,19 @@ _ZN14regex_automata4util4utf811decode_last17h4128c193d6e9ba16E.exit.thread: ; pr
   br i1 %92, label %104, label %93
 
 93:                                               ; preds = %90
-  %94 = icmp ult i8 %91, -64
+  %94 = icmp samesign ult i8 %91, -64
   br i1 %94, label %102, label %95
 
 95:                                               ; preds = %93
-  %96 = icmp ult i8 %91, -32
+  %96 = icmp samesign ult i8 %91, -32
   br i1 %96, label %select.unfold24, label %97
 
 97:                                               ; preds = %95
-  %98 = icmp ult i8 %91, -16
+  %98 = icmp samesign ult i8 %91, -16
   br i1 %98, label %select.unfold24, label %99
 
 99:                                               ; preds = %97
-  %100 = icmp ult i8 %91, -8
+  %100 = icmp samesign ult i8 %91, -8
   br i1 %100, label %select.unfold24, label %102
 
 select.unfold24:                                  ; preds = %99, %95, %97
@@ -10229,7 +10229,7 @@ select.unfold24:                                  ; preds = %99, %95, %97
   %120 = and i8 %118, 63
   %121 = zext nneg i8 %120 to i32
   %122 = or disjoint i32 %119, %121
-  %123 = icmp ugt i8 %112, -33
+  %123 = icmp samesign ugt i8 %112, -33
   br i1 %123, label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h1cd0e3781ef68c91E.exit15.i37", label %.thread39
 
 124:                                              ; preds = %111
@@ -10247,7 +10247,7 @@ select.unfold24:                                  ; preds = %99, %95, %97
   %132 = or disjoint i32 %129, %131
   %133 = shl nuw nsw i32 %116, 12
   %134 = or disjoint i32 %132, %133
-  %135 = icmp ugt i8 %112, -17
+  %135 = icmp samesign ugt i8 %112, -17
   br i1 %135, label %136, label %.thread39
 
 136:                                              ; preds = %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h1cd0e3781ef68c91E.exit15.i37"
@@ -10381,19 +10381,19 @@ define internal fastcc noundef range(i8 0, 2) i8 @_ZN14regex_automata4util4look1
   br i1 %28, label %_ZN14regex_automata4util4utf86decode17hd69cc87f474d359bE.exit.i.thread.thread68, label %29
 
 29:                                               ; preds = %._crit_edge.thread.thread
-  %30 = icmp ult i8 %27, -64
+  %30 = icmp samesign ult i8 %27, -64
   br i1 %30, label %_ZN14regex_automata4util4utf811decode_last17h4128c193d6e9ba16E.exit.thread, label %31
 
 31:                                               ; preds = %29
-  %32 = icmp ult i8 %27, -32
+  %32 = icmp samesign ult i8 %27, -32
   br i1 %32, label %select.unfold, label %33
 
 33:                                               ; preds = %31
-  %34 = icmp ult i8 %27, -16
+  %34 = icmp samesign ult i8 %27, -16
   br i1 %34, label %select.unfold, label %35
 
 35:                                               ; preds = %33
-  %36 = icmp ult i8 %27, -8
+  %36 = icmp samesign ult i8 %27, -8
   br i1 %36, label %select.unfold, label %_ZN14regex_automata4util4utf811decode_last17h4128c193d6e9ba16E.exit.thread
 
 select.unfold:                                    ; preds = %35, %31, %33
@@ -10436,7 +10436,7 @@ _ZN14regex_automata4util4utf86decode17hd69cc87f474d359bE.exit.i.thread.thread68:
   %54 = and i8 %52, 63
   %55 = zext nneg i8 %54 to i32
   %56 = or disjoint i32 %53, %55
-  %57 = icmp ugt i8 %46, -33
+  %57 = icmp samesign ugt i8 %46, -33
   br i1 %57, label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h1cd0e3781ef68c91E.exit15.i", label %_ZN14regex_automata4util4utf86decode17hd69cc87f474d359bE.exit.i.thread.thread73
 
 58:                                               ; preds = %45
@@ -10454,7 +10454,7 @@ _ZN14regex_automata4util4utf86decode17hd69cc87f474d359bE.exit.i.thread.thread68:
   %66 = or disjoint i32 %63, %65
   %67 = shl nuw nsw i32 %50, 12
   %68 = or disjoint i32 %66, %67
-  %69 = icmp ugt i8 %46, -17
+  %69 = icmp samesign ugt i8 %46, -17
   br i1 %69, label %70, label %_ZN14regex_automata4util4utf86decode17hd69cc87f474d359bE.exit.i.thread.thread73
 
 70:                                               ; preds = %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h1cd0e3781ef68c91E.exit15.i"
@@ -10519,19 +10519,19 @@ _ZN14regex_automata4util4utf811decode_last17h4128c193d6e9ba16E.exit.thread: ; pr
   br i1 %92, label %104, label %93
 
 93:                                               ; preds = %90
-  %94 = icmp ult i8 %91, -64
+  %94 = icmp samesign ult i8 %91, -64
   br i1 %94, label %102, label %95
 
 95:                                               ; preds = %93
-  %96 = icmp ult i8 %91, -32
+  %96 = icmp samesign ult i8 %91, -32
   br i1 %96, label %select.unfold24, label %97
 
 97:                                               ; preds = %95
-  %98 = icmp ult i8 %91, -16
+  %98 = icmp samesign ult i8 %91, -16
   br i1 %98, label %select.unfold24, label %99
 
 99:                                               ; preds = %97
-  %100 = icmp ult i8 %91, -8
+  %100 = icmp samesign ult i8 %91, -8
   br i1 %100, label %select.unfold24, label %102
 
 select.unfold24:                                  ; preds = %99, %95, %97
@@ -10579,7 +10579,7 @@ select.unfold24:                                  ; preds = %99, %95, %97
   %120 = and i8 %118, 63
   %121 = zext nneg i8 %120 to i32
   %122 = or disjoint i32 %119, %121
-  %123 = icmp ugt i8 %112, -33
+  %123 = icmp samesign ugt i8 %112, -33
   br i1 %123, label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h1cd0e3781ef68c91E.exit15.i37", label %.thread39
 
 124:                                              ; preds = %111
@@ -10597,7 +10597,7 @@ select.unfold24:                                  ; preds = %99, %95, %97
   %132 = or disjoint i32 %129, %131
   %133 = shl nuw nsw i32 %116, 12
   %134 = or disjoint i32 %132, %133
-  %135 = icmp ugt i8 %112, -17
+  %135 = icmp samesign ugt i8 %112, -17
   br i1 %135, label %136, label %.thread39
 
 136:                                              ; preds = %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h1cd0e3781ef68c91E.exit15.i37"
@@ -10733,19 +10733,19 @@ define internal fastcc noundef range(i8 0, 2) i8 @_ZN14regex_automata4util4look1
   br i1 %32, label %.critedge, label %33
 
 33:                                               ; preds = %30
-  %34 = icmp ult i8 %31, -64
+  %34 = icmp samesign ult i8 %31, -64
   br i1 %34, label %_ZN14regex_automata4util4look12is_word_char3rev17haa1e71ab59be6165E.exit, label %35
 
 35:                                               ; preds = %33
-  %36 = icmp ult i8 %31, -32
+  %36 = icmp samesign ult i8 %31, -32
   br i1 %36, label %select.unfold, label %37
 
 37:                                               ; preds = %35
-  %38 = icmp ult i8 %31, -16
+  %38 = icmp samesign ult i8 %31, -16
   br i1 %38, label %select.unfold, label %39
 
 39:                                               ; preds = %37
-  %40 = icmp ult i8 %31, -8
+  %40 = icmp samesign ult i8 %31, -8
   br i1 %40, label %select.unfold, label %_ZN14regex_automata4util4look12is_word_char3rev17haa1e71ab59be6165E.exit
 
 select.unfold:                                    ; preds = %39, %35, %37
@@ -10835,19 +10835,19 @@ _ZN14regex_automata4util4utf86decode17hd69cc87f474d359bE.exit.i26: ; preds = %43
   br i1 %70, label %_ZN14regex_automata4util4utf86decode17hd69cc87f474d359bE.exit.i.thread.thread53, label %71
 
 71:                                               ; preds = %._crit_edge.thread.thread
-  %72 = icmp ult i8 %69, -64
+  %72 = icmp samesign ult i8 %69, -64
   br i1 %72, label %_ZN14regex_automata4util4look12is_word_char3rev17haa1e71ab59be6165E.exit, label %73
 
 73:                                               ; preds = %71
-  %74 = icmp ult i8 %69, -32
+  %74 = icmp samesign ult i8 %69, -32
   br i1 %74, label %select.unfold9, label %75
 
 75:                                               ; preds = %73
-  %76 = icmp ult i8 %69, -16
+  %76 = icmp samesign ult i8 %69, -16
   br i1 %76, label %select.unfold9, label %77
 
 77:                                               ; preds = %75
-  %78 = icmp ult i8 %69, -8
+  %78 = icmp samesign ult i8 %69, -8
   br i1 %78, label %select.unfold9, label %_ZN14regex_automata4util4look12is_word_char3rev17haa1e71ab59be6165E.exit
 
 select.unfold9:                                   ; preds = %77, %73, %75
@@ -10947,19 +10947,19 @@ define internal fastcc noundef range(i8 0, 2) i8 @_ZN14regex_automata4util4look1
   br i1 %14, label %_ZN14regex_automata4util4utf86decode17hd69cc87f474d359bE.exit.thread26, label %15
 
 15:                                               ; preds = %10
-  %16 = icmp ult i8 %13, -64
+  %16 = icmp samesign ult i8 %13, -64
   br i1 %16, label %_ZN14regex_automata4util4look12is_word_char3fwd17h9b311c8ef074a7d9E.exit, label %17
 
 17:                                               ; preds = %15
-  %18 = icmp ult i8 %13, -32
+  %18 = icmp samesign ult i8 %13, -32
   br i1 %18, label %select.unfold, label %19
 
 19:                                               ; preds = %17
-  %20 = icmp ult i8 %13, -16
+  %20 = icmp samesign ult i8 %13, -16
   br i1 %20, label %select.unfold, label %21
 
 21:                                               ; preds = %19
-  %22 = icmp ult i8 %13, -8
+  %22 = icmp samesign ult i8 %13, -8
   br i1 %22, label %select.unfold, label %_ZN14regex_automata4util4look12is_word_char3fwd17h9b311c8ef074a7d9E.exit
 
 select.unfold:                                    ; preds = %21, %17, %19
@@ -11003,8 +11003,8 @@ _ZN14regex_automata4util4utf86decode17hd69cc87f474d359bE.exit43.thread22: ; pred
 select.unfold9:                                   ; preds = %25
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5), !noalias !1951
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %6), !noalias !1951
-  %36 = icmp ult i8 %13, -32
-  %37 = icmp ult i8 %13, -16
+  %36 = icmp samesign ult i8 %13, -32
+  %37 = icmp samesign ult i8 %13, -16
   %spec.select = select i1 %37, i64 3, i64 4
   %.sroa.7.0.i46.ph = select i1 %36, i64 2, i64 %spec.select
   %38 = icmp ugt i64 %.sroa.7.0.i46.ph, %11

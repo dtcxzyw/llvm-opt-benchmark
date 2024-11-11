@@ -341,7 +341,7 @@ onigenc_mbclen.exit:                              ; preds = %12, %21, %25
   %.017.i = phi i32 [ %.0.i, %12 ], [ %24, %21 ], [ %27, %25 ]
   %28 = sext i32 %.017.i to i64
   %29 = getelementptr i8, ptr %.010, i64 %28
-  %30 = icmp ugt i32 %.089, 1
+  %30 = icmp samesign ugt i32 %.089, 1
   br i1 %30, label %7, label %._crit_edge, !llvm.loop !9
 
 ._crit_edge:                                      ; preds = %onigenc_mbclen.exit, %4
@@ -1173,11 +1173,11 @@ define dso_local range(i32 1, 5) i32 @onigenc_mb4_code_to_mbclen(i32 noundef %0,
   br i1 %.not, label %3, label %5
 
 3:                                                ; preds = %2
-  %.not4 = icmp ult i32 %0, 65536
+  %.not4 = icmp samesign ult i32 %0, 65536
   br i1 %.not4, label %4, label %5
 
 4:                                                ; preds = %3
-  %.not5 = icmp ult i32 %0, 256
+  %.not5 = icmp samesign ult i32 %0, 256
   %. = select i1 %.not5, i32 1, i32 2
   br label %5
 
@@ -1274,7 +1274,7 @@ define dso_local i32 @onigenc_mb4_code_to_mbc(ptr noundef %0, i32 noundef %1, pt
   br label %8
 
 7:                                                ; preds = %3
-  %.not31 = icmp ult i32 %1, 65536
+  %.not31 = icmp samesign ult i32 %1, 65536
   br i1 %.not31, label %12, label %8
 
 8:                                                ; preds = %.thread, %7
@@ -1606,7 +1606,7 @@ onigenc_mbclen.exit:                              ; preds = %50, %41, %48, %32
   %54 = phi i32 [ %34, %32 ], [ %.0.i, %41 ], [ %53, %50 ], [ 1, %48 ]
   %55 = sext i32 %54 to i64
   %56 = getelementptr i8, ptr %.02734, i64 %55
-  %57 = icmp ugt i32 %.in, 1
+  %57 = icmp samesign ugt i32 %.in, 1
   br i1 %57, label %11, label %.loopexit, !llvm.loop !18
 
 .loopexit:                                        ; preds = %25, %onigenc_mbclen.exit, %5, %13
@@ -1753,7 +1753,7 @@ onigenc_mbclen.exit:                              ; preds = %40, %31, %38, %22
   %44 = phi i32 [ %24, %22 ], [ %.0.i, %31 ], [ %43, %40 ], [ 1, %38 ]
   %45 = sext i32 %44 to i64
   %46 = getelementptr i8, ptr %.02231, i64 %45
-  %47 = icmp ugt i32 %.in, 1
+  %47 = icmp samesign ugt i32 %.in, 1
   br i1 %47, label %11, label %.loopexit, !llvm.loop !20
 
 .loopexit:                                        ; preds = %16, %onigenc_mbclen.exit, %5, %13

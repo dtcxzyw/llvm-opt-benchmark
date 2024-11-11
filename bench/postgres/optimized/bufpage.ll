@@ -277,7 +277,7 @@ define dso_local zeroext i16 @PageAddItemExtended(ptr nocapture noundef %0, ptr 
   br i1 %.not83, label %51, label %40
 
 40:                                               ; preds = %38
-  %.not85 = icmp ugt i16 %3, %.0.i
+  %.not85 = icmp samesign ugt i16 %3, %.0.i
   br i1 %.not85, label %.loopexit, label %41
 
 41:                                               ; preds = %40
@@ -299,7 +299,7 @@ define dso_local zeroext i16 @PageAddItemExtended(ptr nocapture noundef %0, ptr 
   br label %104
 
 51:                                               ; preds = %38
-  %.not84 = icmp ule i16 %3, %.0.i
+  %.not84 = icmp samesign ule i16 %3, %.0.i
   br label %.loopexit
 
 52:                                               ; preds = %30
@@ -1686,7 +1686,7 @@ define dso_local void @PageIndexTupleDeleteNoCompact(ptr nocapture noundef %0, i
 66:                                               ; preds = %59
   %67 = add nuw nsw i64 %51, 7
   %68 = and i64 %67, 65528
-  %69 = icmp ult i16 %1, %37
+  %69 = icmp samesign ult i16 %1, %37
   br i1 %69, label %70, label %71
 
 70:                                               ; preds = %66

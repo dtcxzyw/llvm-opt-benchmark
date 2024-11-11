@@ -2164,8 +2164,8 @@ switch.lookup:                                    ; preds = %switch.hole_check
   %284 = getelementptr inbounds i8, ptr %2, i64 68
   %285 = load i32, ptr %284, align 4
   %286 = icmp sgt i32 %285, 0
-  %287 = icmp ugt i32 %283, %285
-  %or.cond1497 = and i1 %286, %287
+  %287 = icmp samesign ugt i32 %283, %285
+  %or.cond1497 = select i1 %286, i1 %287, i1 false
   %.phi.trans.insert = getelementptr inbounds i8, ptr %2, i64 396
   %.pre1436 = load i32, ptr %.phi.trans.insert, align 4
   %288 = icmp eq i32 %.pre1436, 0
@@ -2178,8 +2178,8 @@ switch.lookup:                                    ; preds = %switch.hole_check
   %291 = load ptr, ptr %30, align 8
   %292 = load i32, ptr %291, align 8
   %293 = icmp sgt i32 %292, 0
-  %294 = icmp ugt i32 %283, %292
-  %or.cond1498 = and i1 %293, %294
+  %294 = icmp samesign ugt i32 %283, %292
+  %or.cond1498 = select i1 %293, i1 %294, i1 false
   br i1 %or.cond1498, label %.thread1477, label %305
 
 295:                                              ; preds = %282
@@ -4169,7 +4169,7 @@ _ZL10_low_checkbPKcP14WarningHandler.exit1090:    ; preds = %1251, %.thread1314
   %1271 = getelementptr inbounds i8, ptr %2, i64 32
   %1272 = load i32, ptr %1271, align 8
   %1273 = icmp sgt i32 %1272, 0
-  %1274 = icmp ult i32 %1270, %1272
+  %1274 = icmp samesign ult i32 %1270, %1272
   %or.cond1503 = select i1 %1273, i1 %1274, i1 false
   br i1 %or.cond1503, label %1275, label %1278
 

@@ -274,7 +274,7 @@ define hidden i64 @ruby_marshal_read_long(ptr nocapture noundef %0, i64 noundef 
   br i1 %12, label %13, label %26
 
 13:                                               ; preds = %11
-  %14 = icmp ugt i32 %9, 4
+  %14 = icmp samesign ugt i32 %9, 4
   br i1 %14, label %16, label %.preheader.i
 
 .preheader.i:                                     ; preds = %13
@@ -4500,7 +4500,7 @@ define internal fastcc range(i64 37, 36) i64 @r_object_for(ptr noundef %0, i1 no
   br i1 %36, label %37, label %50
 
 37:                                               ; preds = %35
-  %38 = icmp ugt i32 %33, 4
+  %38 = icmp samesign ugt i32 %33, 4
   br i1 %38, label %40, label %.preheader.i
 
 .preheader.i:                                     ; preds = %37
@@ -4895,7 +4895,7 @@ RB_FL_TEST.exit573:                               ; preds = %169
   br i1 %217, label %218, label %231
 
 218:                                              ; preds = %216
-  %219 = icmp ugt i32 %214, 4
+  %219 = icmp samesign ugt i32 %214, 4
   br i1 %219, label %221, label %.preheader.i580
 
 .preheader.i580:                                  ; preds = %218
@@ -4968,7 +4968,7 @@ r_long.exit584:                                   ; preds = %239, %224, %212, %2
   br i1 %257, label %258, label %271
 
 258:                                              ; preds = %256
-  %259 = icmp ugt i32 %254, 4
+  %259 = icmp samesign ugt i32 %254, 4
   br i1 %259, label %261, label %.preheader.i591
 
 .preheader.i591:                                  ; preds = %258
@@ -5136,7 +5136,7 @@ r_entry0.exit:                                    ; preds = %rb_float_new_inline
   br i1 %349, label %350, label %363
 
 350:                                              ; preds = %348
-  %351 = icmp ugt i32 %346, 4
+  %351 = icmp samesign ugt i32 %346, 4
   br i1 %351, label %353, label %.preheader.i604
 
 .preheader.i604:                                  ; preds = %350
@@ -5333,7 +5333,7 @@ r_entry0.exit619:                                 ; preds = %432, %440
   br i1 %455, label %456, label %469
 
 456:                                              ; preds = %454
-  %457 = icmp ugt i32 %452, 4
+  %457 = icmp samesign ugt i32 %452, 4
   br i1 %457, label %459, label %.preheader.i626
 
 .preheader.i626:                                  ; preds = %456
@@ -5483,7 +5483,7 @@ RSTRING_PTR.exit634:                              ; preds = %.thread, %499
   %510 = getelementptr i8, ptr %.0508907, i64 1
   %511 = getelementptr i8, ptr %.2507, i64 1
   store i8 %504, ptr %.2507, align 1
-  %512 = icmp ugt i64 %.in, 1
+  %512 = icmp samesign ugt i64 %.in, 1
   br i1 %512, label %.lr.ph909, label %._crit_edge910, !llvm.loop !72
 
 ._crit_edge910:                                   ; preds = %509, %RSTRING_PTR.exit634
@@ -5533,7 +5533,7 @@ r_entry0.exit637:                                 ; preds = %516, %520
   br i1 %535, label %536, label %549
 
 536:                                              ; preds = %534
-  %537 = icmp ugt i32 %532, 4
+  %537 = icmp samesign ugt i32 %532, 4
   br i1 %537, label %539, label %.preheader.i644
 
 .preheader.i644:                                  ; preds = %536
@@ -5657,7 +5657,7 @@ r_entry0.exit651:                                 ; preds = %r_long.exit648, %57
   br i1 %601, label %602, label %615
 
 602:                                              ; preds = %600
-  %603 = icmp ugt i32 %598, 4
+  %603 = icmp samesign ugt i32 %598, 4
   br i1 %603, label %605, label %.preheader.i658
 
 .preheader.i658:                                  ; preds = %602
@@ -5853,7 +5853,7 @@ path2class.exit667:                               ; preds = %691
   br i1 %701, label %702, label %715
 
 702:                                              ; preds = %700
-  %703 = icmp ugt i32 %698, 4
+  %703 = icmp samesign ugt i32 %698, 4
   br i1 %703, label %705, label %.preheader.i674
 
 .preheader.i674:                                  ; preds = %702
@@ -6680,7 +6680,7 @@ check_load_arg.exit715:                           ; preds = %1076
   br i1 %1090, label %1091, label %1104
 
 1091:                                             ; preds = %1089
-  %1092 = icmp ugt i32 %1087, 4
+  %1092 = icmp samesign ugt i32 %1087, 4
   br i1 %1092, label %1094, label %.preheader.i722
 
 .preheader.i722:                                  ; preds = %1091
@@ -6793,7 +6793,7 @@ r_entry0.exit729:                                 ; preds = %1128, %1135
   br i1 %1150, label %1151, label %1164
 
 1151:                                             ; preds = %1149
-  %1152 = icmp ugt i32 %1147, 4
+  %1152 = icmp samesign ugt i32 %1147, 4
   br i1 %1152, label %1154, label %.preheader.i736
 
 .preheader.i736:                                  ; preds = %1151
@@ -6925,7 +6925,7 @@ r_entry0.exit745:                                 ; preds = %1198, %1205
   br i1 %1220, label %1221, label %1234
 
 1221:                                             ; preds = %1219
-  %1222 = icmp ugt i32 %1217, 4
+  %1222 = icmp samesign ugt i32 %1217, 4
   br i1 %1222, label %1224, label %.preheader.i752
 
 .preheader.i752:                                  ; preds = %1221
@@ -7132,7 +7132,7 @@ define internal fastcc void @r_ivar(i64 noundef %0, ptr noundef writeonly %1, pt
   br i1 %8, label %9, label %22
 
 9:                                                ; preds = %7
-  %10 = icmp ugt i32 %5, 4
+  %10 = icmp samesign ugt i32 %5, 4
   br i1 %10, label %12, label %.preheader.i
 
 .preheader.i:                                     ; preds = %9
@@ -7813,7 +7813,7 @@ define internal fastcc i64 @r_string(ptr nocapture noundef %0) unnamed_addr #0 {
   br i1 %6, label %7, label %20
 
 7:                                                ; preds = %5
-  %8 = icmp ugt i32 %3, 4
+  %8 = icmp samesign ugt i32 %3, 4
   br i1 %8, label %10, label %.preheader.i
 
 .preheader.i:                                     ; preds = %7
@@ -7990,7 +7990,7 @@ RARRAY_AREF.exit:                                 ; preds = %15, %19
   %21 = getelementptr i64, ptr %.0.i.i, i64 %16
   %22 = load i64, ptr %21, align 8
   tail call void @rb_extend_object(i64 noundef %0, i64 noundef %22) #21
-  %23 = icmp ugt i64 %.07, 1
+  %23 = icmp samesign ugt i64 %.07, 1
   br i1 %23, label %15, label %._crit_edge, !llvm.loop !88
 
 ._crit_edge:                                      ; preds = %RARRAY_AREF.exit, %rb_array_len.exit
@@ -8085,7 +8085,7 @@ define internal fastcc noundef i64 @r_symreal(ptr noundef %0, i32 noundef %1) un
   br i1 %7, label %8, label %21
 
 8:                                                ; preds = %6
-  %9 = icmp ugt i32 %4, 4
+  %9 = icmp samesign ugt i32 %4, 4
   br i1 %9, label %11, label %.preheader.i
 
 .preheader.i:                                     ; preds = %8
@@ -8172,7 +8172,7 @@ r_long.exit:                                      ; preds = %29, %14, %2, %11, %
   br i1 %55, label %56, label %69
 
 56:                                               ; preds = %54
-  %57 = icmp ugt i32 %52, 4
+  %57 = icmp samesign ugt i32 %52, 4
   br i1 %57, label %59, label %.preheader.i28
 
 .preheader.i28:                                   ; preds = %56
@@ -8307,7 +8307,7 @@ define internal fastcc i64 @r_symlink(ptr nocapture noundef %0) unnamed_addr #0 
   br i1 %7, label %8, label %21
 
 8:                                                ; preds = %6
-  %9 = icmp ugt i32 %4, 4
+  %9 = icmp samesign ugt i32 %4, 4
   br i1 %9, label %11, label %.preheader.i
 
 .preheader.i:                                     ; preds = %8

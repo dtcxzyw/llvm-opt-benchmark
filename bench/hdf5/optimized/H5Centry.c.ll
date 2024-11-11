@@ -929,7 +929,7 @@ define range(i32 -1, 1) i32 @H5C__flush_single_entry(ptr noundef %0, ptr noundef
   br i1 %463, label %466, label %464
 
 464:                                              ; preds = %461, %447
-  %465 = icmp ugt i64 %indvars.iv.i, 1
+  %465 = icmp samesign ugt i64 %indvars.iv.i, 1
   br i1 %465, label %447, label %.sink.split
 
 466:                                              ; preds = %461
@@ -1725,7 +1725,7 @@ define internal fastcc range(i32 -1, 1) i32 @H5C__generate_image(ptr noundef %0,
   br i1 %386, label %389, label %387
 
 387:                                              ; preds = %384, %370
-  %388 = icmp ugt i64 %indvars.iv.i, 1
+  %388 = icmp samesign ugt i64 %indvars.iv.i, 1
   br i1 %388, label %370, label %H5C__mark_flush_dep_serialized.exit.thread
 
 389:                                              ; preds = %384
@@ -2912,7 +2912,7 @@ define range(i32 -1, 1) i32 @H5C_mark_entry_clean(ptr noundef %0) local_unnamed_
   br i1 %119, label %122, label %120
 
 120:                                              ; preds = %117, %103
-  %121 = icmp ugt i64 %indvars.iv.i, 1
+  %121 = icmp samesign ugt i64 %indvars.iv.i, 1
   br i1 %121, label %103, label %H5C__mark_flush_dep_clean.exit.thread
 
 122:                                              ; preds = %117
@@ -3079,7 +3079,7 @@ define range(i32 -1, 1) i32 @H5C_mark_entry_serialized(ptr nocapture noundef %0)
   br i1 %39, label %42, label %40
 
 40:                                               ; preds = %37, %23
-  %41 = icmp ugt i64 %indvars.iv.i, 1
+  %41 = icmp samesign ugt i64 %indvars.iv.i, 1
   br i1 %41, label %23, label %H5C__mark_flush_dep_serialized.exit.thread
 
 42:                                               ; preds = %37
@@ -4432,7 +4432,7 @@ define ptr @H5C_protect(ptr noundef %0, ptr noundef %1, i64 noundef %2, ptr noun
   %84 = load ptr, ptr %71, align 8
   %85 = getelementptr inbounds i64, ptr %84, i64 %indvars.iv.next.i
   store i64 -1, ptr %85, align 8
-  %86 = icmp ugt i64 %indvars.iv.i, 1
+  %86 = icmp samesign ugt i64 %indvars.iv.i, 1
   br i1 %86, label %73, label %._crit_edge.i
 
 ._crit_edge.i:                                    ; preds = %83, %65
@@ -6811,7 +6811,7 @@ H5C__mark_flush_dep_unserialized.exit:            ; preds = %124, %.thread228, %
   br i1 %219, label %222, label %220
 
 220:                                              ; preds = %217, %203
-  %221 = icmp ugt i64 %indvars.iv.i219, 1
+  %221 = icmp samesign ugt i64 %indvars.iv.i219, 1
   br i1 %221, label %203, label %H5C__mark_flush_dep_clean.exit.thread
 
 222:                                              ; preds = %217

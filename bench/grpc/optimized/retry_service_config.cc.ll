@@ -1135,7 +1135,7 @@ lpad:                                             ; preds = %if.then7, %if.then2
   br label %eh.resume
 
 if.else:                                          ; preds = %if.then
-  %cmp6 = icmp ugt i32 %0, 5
+  %cmp6 = icmp samesign ugt i32 %0, 5
   br i1 %cmp6, label %if.then7, label %if.then.i
 
 if.then7:                                         ; preds = %if.else

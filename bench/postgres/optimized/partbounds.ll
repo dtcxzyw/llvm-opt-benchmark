@@ -2819,7 +2819,7 @@ is_dummy_partition.exit170.thread.i:              ; preds = %is_dummy_partition.
   br i1 %brmerge.i.i, label %merge_list_bounds.exit, label %167
 
 167:                                              ; preds = %166
-  %168 = icmp ult i32 %152, %158
+  %168 = icmp samesign ult i32 %152, %158
   br i1 %168, label %169, label %171
 
 169:                                              ; preds = %167
@@ -2924,7 +2924,7 @@ merge_matching_partitions.exit.thread.i:          ; preds = %merge_matching_part
   br i1 %brmerge.i197.i, label %merge_list_bounds.exit, label %207
 
 207:                                              ; preds = %206
-  %208 = icmp ult i32 %195, %199
+  %208 = icmp samesign ult i32 %195, %199
   br i1 %208, label %209, label %210
 
 209:                                              ; preds = %207
@@ -3053,7 +3053,7 @@ process_outer_partition.exit.thread.i:            ; preds = %process_outer_parti
   br i1 %brmerge.i206.i, label %merge_list_bounds.exit, label %259
 
 259:                                              ; preds = %258
-  %260 = icmp ult i32 %245, %250
+  %260 = icmp samesign ult i32 %245, %250
   br i1 %260, label %261, label %263
 
 261:                                              ; preds = %259
@@ -3304,7 +3304,7 @@ is_dummy_partition.exit177.thread.i:              ; preds = %302, %301
   br i1 %brmerge.i215.i, label %merge_null_partitions.exit.i, label %362
 
 362:                                              ; preds = %361
-  %363 = icmp ult i32 %347, %353
+  %363 = icmp samesign ult i32 %347, %353
   br i1 %363, label %364, label %366
 
 364:                                              ; preds = %362
@@ -3425,7 +3425,7 @@ merge_null_partitions.exit.i:                     ; preds = %376, %375, %374, %3
   br i1 %brmerge.i224.i, label %merge_default_partitions.exit.i, label %400
 
 400:                                              ; preds = %399
-  %401 = icmp ult i32 %389, %392
+  %401 = icmp samesign ult i32 %389, %392
   br i1 %401, label %402, label %403
 
 402:                                              ; preds = %400
@@ -4253,7 +4253,7 @@ partition_rbound_cmp.exit77.i.i:                  ; preds = %685, %695, %.loopex
   br i1 %brmerge.i.i43, label %merge_matching_partitions.exit.i37, label %752
 
 752:                                              ; preds = %751
-  %753 = icmp ult i32 %734, %742
+  %753 = icmp samesign ult i32 %734, %742
   br i1 %753, label %754, label %757
 
 754:                                              ; preds = %752
@@ -4717,7 +4717,7 @@ partition_rbound_cmp.exit198.thread.i:            ; preds = %partition_rbound_cm
   br i1 %brmerge.i256.i, label %merge_range_bounds.exit, label %929
 
 929:                                              ; preds = %928
-  %930 = icmp ult i32 %912, %919
+  %930 = icmp samesign ult i32 %912, %919
   br i1 %930, label %931, label %934
 
 931:                                              ; preds = %929
@@ -4917,7 +4917,7 @@ is_dummy_partition.exit.backedge.i208.i:          ; preds = %.is_dummy_partition
   br i1 %brmerge.i265.i, label %merge_range_bounds.exit, label %1014
 
 1014:                                             ; preds = %1013
-  %1015 = icmp ult i32 %996, %1004
+  %1015 = icmp samesign ult i32 %996, %1004
   br i1 %1015, label %1016, label %1019
 
 1016:                                             ; preds = %1014
@@ -5307,7 +5307,7 @@ add_merged_range_bounds.exit.i:                   ; preds = %1104, %1094, %.crit
   br i1 %brmerge.i274.i, label %merge_default_partitions.exit.i24, label %1169
 
 1169:                                             ; preds = %1168
-  %1170 = icmp ult i32 %1151, %1159
+  %1170 = icmp samesign ult i32 %1151, %1159
   br i1 %1170, label %1171, label %1174
 
 1171:                                             ; preds = %1169
@@ -6999,7 +6999,7 @@ define dso_local range(i64 0, 2) i64 @satisfies_hash_partition(ptr nocapture nou
   unreachable
 
 37:                                               ; preds = %31
-  %.not = icmp ult i32 %25, %23
+  %.not = icmp samesign ult i32 %25, %23
   br i1 %.not, label %42, label %38
 
 38:                                               ; preds = %37

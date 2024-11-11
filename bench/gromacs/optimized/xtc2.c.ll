@@ -448,7 +448,7 @@ positive_int.exit466:                             ; preds = %142, %145, %147
   unreachable
 
 172:                                              ; preds = %167
-  %173 = icmp ult i32 %.0380725, 3
+  %173 = icmp samesign ult i32 %.0380725, 3
   br i1 %173, label %.preheader642, label %.lr.ph.i
 
 .preheader642:                                    ; preds = %172
@@ -1361,11 +1361,11 @@ Ptngc_find_magic_index.exit544:                   ; preds = %518
   br i1 %523, label %498, label %524, !llvm.loop !32
 
 524:                                              ; preds = %Ptngc_find_magic_index.exit544
-  %525 = icmp ult i32 %.0352, 3
+  %525 = icmp samesign ult i32 %.0352, 3
   br i1 %.not732, label %526, label %534
 
 526:                                              ; preds = %524
-  %527 = icmp ult i32 %.0352, 6
+  %527 = icmp samesign ult i32 %.0352, 6
   %spec.select427 = select i1 %527, i32 3, i32 0
   %.0349 = select i1 %525, i32 6, i32 %spec.select427
   %528 = add nsw i32 %.0373727, 6
@@ -2277,7 +2277,7 @@ readbits.exit.i.thread:                           ; preds = %173
   %181 = lshr i32 128, %178
   %182 = and i32 %181, %176
   %.not.i194 = icmp eq i32 %182, 0
-  %.not21.i22.i = icmp ugt i32 %178, 6
+  %.not21.i22.i = icmp samesign ugt i32 %178, 6
   br i1 %.not21.i22.i, label %183, label %readbits.exit27.i
 
 183:                                              ; preds = %.lr.ph.i17.i
@@ -2529,7 +2529,7 @@ readmanybits.exit:                                ; preds = %._crit_edge.i, %rea
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(76) %9, ptr noundef nonnull align 16 dereferenceable(76) %10, i64 76, i1 false)
   %271 = getelementptr inbounds i32, ptr %15, i64 %indvars.iv.next30.i
   store i32 %270, ptr %271, align 4
-  %272 = icmp ugt i64 %indvars.iv29.i, 1
+  %272 = icmp samesign ugt i64 %indvars.iv29.i, 1
   br i1 %272, label %.lr.ph.i202, label %273, !llvm.loop !46
 
 273:                                              ; preds = %.lr.ph.i202
@@ -2723,7 +2723,7 @@ readmanybits.exit234:                             ; preds = %._crit_edge.i204, %
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(76) %7, ptr noundef nonnull align 16 dereferenceable(76) %8, i64 76, i1 false)
   %342 = getelementptr inbounds i32, ptr %15, i64 %indvars.iv.next30.i247
   store i32 %341, ptr %342, align 4
-  %343 = icmp ugt i64 %indvars.iv29.i246, 1
+  %343 = icmp samesign ugt i64 %indvars.iv29.i246, 1
   br i1 %343, label %.lr.ph.i245, label %trajcoder_base_decompress.exit249, !llvm.loop !46
 
 trajcoder_base_decompress.exit249:                ; preds = %.lr.ph.i245, %330
@@ -3125,7 +3125,7 @@ readmanybits.exit301:                             ; preds = %._crit_edge.i271, %
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(76) %5, ptr noundef nonnull align 16 dereferenceable(76) %6, i64 76, i1 false)
   %510 = getelementptr inbounds i32, ptr %15, i64 %indvars.iv.next30.i314
   store i32 %509, ptr %510, align 4
-  %511 = icmp ugt i64 %indvars.iv29.i313, 1
+  %511 = icmp samesign ugt i64 %indvars.iv29.i313, 1
   br i1 %511, label %.lr.ph.i312, label %trajcoder_base_decompress.exit316, !llvm.loop !46
 
 trajcoder_base_decompress.exit316:                ; preds = %.lr.ph.i312

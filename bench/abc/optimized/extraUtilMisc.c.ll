@@ -4991,7 +4991,7 @@ define void @Extra_NtkPrintBin(ptr nocapture noundef readonly %0, i32 noundef %1
   %7 = trunc i64 %6 to i32
   %8 = and i32 %7, 1
   %9 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.20, i32 noundef %8)
-  %10 = icmp ugt i64 %indvars.iv, 1
+  %10 = icmp samesign ugt i64 %indvars.iv, 1
   br i1 %10, label %.lr.ph, label %._crit_edge, !llvm.loop !84
 
 ._crit_edge:                                      ; preds = %.lr.ph, %2
@@ -5031,7 +5031,7 @@ define void @Extra_NtkPowerTest() local_unnamed_addr #22 {
   %7 = trunc nuw nsw i64 %6 to i32
   %8 = and i32 %7, 1
   %9 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.20, i32 noundef %8)
-  %10 = icmp ugt i64 %indvars.iv.i, 1
+  %10 = icmp samesign ugt i64 %indvars.iv.i, 1
   br i1 %10, label %.lr.ph.i, label %.lr.ph.i8, !llvm.loop !84
 
 .lr.ph.i8:                                        ; preds = %.lr.ph.i, %.lr.ph.i8
@@ -5041,7 +5041,7 @@ define void @Extra_NtkPowerTest() local_unnamed_addr #22 {
   %12 = trunc nuw nsw i64 %11 to i32
   %13 = and i32 %12, 1
   %14 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.20, i32 noundef %13)
-  %15 = icmp ugt i64 %indvars.iv.i9, 1
+  %15 = icmp samesign ugt i64 %indvars.iv.i9, 1
   br i1 %15, label %.lr.ph.i8, label %Extra_NtkPrintBin.exit11, !llvm.loop !84
 
 Extra_NtkPrintBin.exit11:                         ; preds = %.lr.ph.i8
@@ -5055,7 +5055,7 @@ Extra_NtkPrintBin.exit11:                         ; preds = %.lr.ph.i8
   %17 = trunc i64 %16 to i32
   %18 = and i32 %17, 1
   %19 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.20, i32 noundef %18)
-  %20 = icmp ugt i64 %indvars.iv.i13, 1
+  %20 = icmp samesign ugt i64 %indvars.iv.i13, 1
   br i1 %20, label %.lr.ph.i12, label %Extra_NtkPrintBin.exit15, !llvm.loop !84
 
 Extra_NtkPrintBin.exit15:                         ; preds = %.lr.ph.i12

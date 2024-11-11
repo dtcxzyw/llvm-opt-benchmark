@@ -6179,11 +6179,11 @@ if.end:                                           ; preds = %entry
   br i1 %cmp.i, label %if.then.i, label %if.else11.i
 
 if.then.i:                                        ; preds = %if.end
-  %cmp4.i = icmp ult i64 %0, 768
+  %cmp4.i = icmp samesign ult i64 %0, 768
   br i1 %cmp4.i, label %_ZNK5folly3f146detail8F14TableINS1_19NodeContainerPolicyINS_7dynamicES4_NS_6detail13DynamicHasherENS5_15DynamicKeyEqualEvEEE25computeChunkCountAndScaleEmbb.exit, label %if.else.i
 
 if.else.i:                                        ; preds = %if.then.i
-  %cmp6.inv.i = icmp ugt i64 %0, 1791
+  %cmp6.inv.i = icmp samesign ugt i64 %0, 1791
   %spec.select.i = select i1 %cmp6.inv.i, i64 14, i64 6
   br label %_ZNK5folly3f146detail8F14TableINS1_19NodeContainerPolicyINS_7dynamicES4_NS_6detail13DynamicHasherENS5_15DynamicKeyEqualEvEEE25computeChunkCountAndScaleEmbb.exit
 
@@ -10064,11 +10064,11 @@ if.then.i:                                        ; preds = %if.end7
   br i1 %cmp.i16.i, label %if.then.i.i, label %if.else11.i.i
 
 if.then.i.i:                                      ; preds = %if.then.i
-  %cmp4.i.i = icmp ult i64 %.sroa.speculated.i, 3
+  %cmp4.i.i = icmp samesign ult i64 %.sroa.speculated.i, 3
   br i1 %cmp4.i.i, label %_ZN5folly3f146detail8F14TableINS1_19NodeContainerPolicyINS_7dynamicES4_NS_6detail13DynamicHasherENS5_15DynamicKeyEqualEvEEE20reserveForInsertImplEmmmm.exit, label %if.else.i.i
 
 if.else.i.i:                                      ; preds = %if.then.i.i
-  %cmp6.inv.i.i = icmp ugt i64 %.sroa.speculated.i, 6
+  %cmp6.inv.i.i = icmp samesign ugt i64 %.sroa.speculated.i, 6
   %spec.select.i.i = select i1 %cmp6.inv.i.i, i64 14, i64 6
   br label %_ZN5folly3f146detail8F14TableINS1_19NodeContainerPolicyINS_7dynamicES4_NS_6detail13DynamicHasherENS5_15DynamicKeyEqualEvEEE20reserveForInsertImplEmmmm.exit
 
@@ -12420,21 +12420,21 @@ if.then.i:                                        ; preds = %if.end7
   %shr5.i = lshr i64 %mul.i11.i, 5
   %add6.i = add nuw nsw i64 %add4.i, %shr5.i
   %.sroa.speculated.i = tail call i64 @llvm.umax.i64(i64 %add.i4, i64 %add6.i)
-  %cmp.i16.i = icmp ult i64 %.sroa.speculated.i, 15
+  %cmp.i16.i = icmp samesign ult i64 %.sroa.speculated.i, 15
   br i1 %cmp.i16.i, label %if.then.i.i, label %if.else11.i.i
 
 if.then.i.i:                                      ; preds = %if.then.i
-  %cmp4.i.i = icmp ult i64 %.sroa.speculated.i, 3
+  %cmp4.i.i = icmp samesign ult i64 %.sroa.speculated.i, 3
   br i1 %cmp4.i.i, label %_ZN5folly3f146detail8F14TableINS1_19NodeContainerPolicyINS_7dynamicES4_NS_6detail13DynamicHasherENS5_15DynamicKeyEqualEvEEE20reserveForInsertImplEmmmm.exit, label %if.else.i.i
 
 if.else.i.i:                                      ; preds = %if.then.i.i
-  %cmp6.inv.i.i = icmp ugt i64 %.sroa.speculated.i, 6
+  %cmp6.inv.i.i = icmp samesign ugt i64 %.sroa.speculated.i, 6
   %spec.select.i.i = select i1 %cmp6.inv.i.i, i64 14, i64 6
   br label %_ZN5folly3f146detail8F14TableINS1_19NodeContainerPolicyINS_7dynamicES4_NS_6detail13DynamicHasherENS5_15DynamicKeyEqualEvEEE20reserveForInsertImplEmmmm.exit
 
 if.else11.i.i:                                    ; preds = %if.then.i
   %sub.i.i = add nsw i64 %.sroa.speculated.i, -1
-  %cmp32.i.i = icmp ugt i64 %sub.i.i, 54043195528445951
+  %cmp32.i.i = icmp samesign ugt i64 %sub.i.i, 54043195528445951
   br i1 %cmp32.i.i, label %if.then33.i.i, label %if.end34.i.i
 
 if.then33.i.i:                                    ; preds = %if.else11.i.i
@@ -13380,11 +13380,11 @@ if.then.i.i50:                                    ; preds = %if.end10
   br i1 %cmp12, label %_ZNK5folly3f146detail8F14TableINS1_19NodeContainerPolicyINS_7dynamicES4_NS_6detail13DynamicHasherENS5_15DynamicKeyEqualEvEEE25computeChunkCountAndScaleEmbb.exit.i42, label %if.then3.i.i
 
 if.then3.i.i:                                     ; preds = %if.then.i.i50
-  %cmp4.i.i = icmp ult i64 %.sroa.speculated, 3
+  %cmp4.i.i = icmp samesign ult i64 %.sroa.speculated, 3
   br i1 %cmp4.i.i, label %_ZNK5folly3f146detail8F14TableINS1_19NodeContainerPolicyINS_7dynamicES4_NS_6detail13DynamicHasherENS5_15DynamicKeyEqualEvEEE25computeChunkCountAndScaleEmbb.exit.i42, label %if.else.i.i
 
 if.else.i.i:                                      ; preds = %if.then3.i.i
-  %cmp6.inv.i.i = icmp ugt i64 %.sroa.speculated, 6
+  %cmp6.inv.i.i = icmp samesign ugt i64 %.sroa.speculated, 6
   %spec.select.i.i = select i1 %cmp6.inv.i.i, i64 14, i64 6
   br label %_ZNK5folly3f146detail8F14TableINS1_19NodeContainerPolicyINS_7dynamicES4_NS_6detail13DynamicHasherENS5_15DynamicKeyEqualEvEEE25computeChunkCountAndScaleEmbb.exit.i42
 

@@ -282,7 +282,7 @@ Gia_ManTreeCountNodes.exit:                       ; preds = %3
   %.val = load i32, ptr %22, align 4
   %23 = trunc nuw nsw i64 %indvars.iv.next to i32
   %24 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.1, i32 noundef %23, i32 noundef %16, ptr noundef nonnull %19, i32 noundef %21, i32 noundef %.val)
-  %25 = icmp ugt i64 %indvars.iv, 1
+  %25 = icmp samesign ugt i64 %indvars.iv, 1
   br i1 %25, label %14, label %._crit_edge, !llvm.loop !9
 
 ._crit_edge:                                      ; preds = %14, %Gia_ManTreeCountNodes.exit
@@ -768,7 +768,7 @@ Abc_TtDup.exit:                                   ; preds = %4, %.lr.ph18.prehea
   %34 = tail call i32 @Gia_ManProcessLevel(ptr noundef nonnull %5, i32 noundef %33)
   %35 = getelementptr inbounds [16 x i32], ptr %23, i64 0, i64 %indvars.iv.next47
   store i32 %34, ptr %35, align 4
-  %36 = icmp ugt i64 %indvars.iv46, 1
+  %36 = icmp samesign ugt i64 %indvars.iv46, 1
   br i1 %36, label %32, label %._crit_edge, !llvm.loop !17
 
 ._crit_edge:                                      ; preds = %32, %.preheader
@@ -854,7 +854,7 @@ define i32 @Gia_ManSwapTree(ptr nocapture noundef %0, i32 noundef %1) local_unna
   %20 = select i1 %15, i32 0, i32 %16
   %21 = icmp slt i32 %1, 5
   %22 = sext i32 %18 to i64
-  %23 = icmp ult i32 %1, 7
+  %23 = icmp samesign ult i32 %1, 7
   %24 = add nsw i32 %1, -6
   %25 = shl nuw i32 1, %24
   %26 = select i1 %23, i32 1, i32 %25
@@ -1096,7 +1096,7 @@ Gia_ManTreeCountNodes.exit.i:                     ; preds = %.preheader
   %.val.i = load i32, ptr %33, align 4
   %34 = trunc nuw nsw i64 %indvars.iv.next.i59 to i32
   %35 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.1, i32 noundef %34, i32 noundef %27, ptr noundef nonnull %30, i32 noundef %32, i32 noundef %.val.i)
-  %36 = icmp ugt i64 %indvars.iv.i58, 1
+  %36 = icmp samesign ugt i64 %indvars.iv.i58, 1
   br i1 %36, label %25, label %Gia_ManTreePrint.exit, !llvm.loop !9
 
 Gia_ManTreePrint.exit:                            ; preds = %25, %Gia_ManTreeCountNodes.exit.i, %Gia_ManTreeCountNodes.exit
@@ -1348,7 +1348,7 @@ define void @Gia_ManPermStats(i32 noundef %0, ptr nocapture noundef readonly %1,
   %9 = load i32, ptr %8, align 4
   %10 = trunc nuw nsw i64 %indvars.iv.next to i32
   %11 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.7, i32 noundef %10, i32 noundef %7, i32 noundef %9)
-  %12 = icmp ugt i64 %indvars.iv, 1
+  %12 = icmp samesign ugt i64 %indvars.iv, 1
   br i1 %12, label %.lr.ph, label %._crit_edge, !llvm.loop !26
 
 ._crit_edge:                                      ; preds = %.lr.ph, %3
@@ -1563,7 +1563,7 @@ Abc_TtCopy.exit:                                  ; preds = %.lr.ph18.i.preheade
   %82 = load i32, ptr %81, align 4
   %83 = trunc nuw nsw i64 %indvars.iv.next.i105 to i32
   %84 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.7, i32 noundef %83, i32 noundef %80, i32 noundef %82)
-  %85 = icmp ugt i64 %indvars.iv.i104, 1
+  %85 = icmp samesign ugt i64 %indvars.iv.i104, 1
   br i1 %85, label %.lr.ph.i, label %Gia_ManPermStats.exit, !llvm.loop !26
 
 Gia_ManPermStats.exit:                            ; preds = %.lr.ph.i
@@ -5825,7 +5825,7 @@ define i32 @Gia_ManBuildMuxes_rec(ptr noundef %0, ptr noundef %1, i32 noundef %2
 22:                                               ; preds = %.lr.ph, %Abc_TtHasVar.exit
   %indvars.iv = phi i64 [ %21, %.lr.ph ], [ %indvars.iv.next, %Abc_TtHasVar.exit ]
   %indvars.iv.next = add nsw i64 %indvars.iv, -1
-  %23 = icmp ult i64 %indvars.iv, 7
+  %23 = icmp samesign ult i64 %indvars.iv, 7
   br i1 %23, label %.lr.ph.i57, label %.preheader.lr.ph.i
 
 .lr.ph.i57:                                       ; preds = %22
@@ -7011,7 +7011,7 @@ Abc_TtDup.exit:                                   ; preds = %Abc_Clock.exit, %.l
   br label %60
 
 60:                                               ; preds = %48, %.lr.ph34.i
-  %61 = icmp ugt i64 %indvars.iv36.i, 1
+  %61 = icmp samesign ugt i64 %indvars.iv36.i, 1
   br i1 %61, label %.lr.ph34.i, label %Abc_TtPermute.exit, !llvm.loop !79
 
 Abc_TtPermute.exit:                               ; preds = %60, %34

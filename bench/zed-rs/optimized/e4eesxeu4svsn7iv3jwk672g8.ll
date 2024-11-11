@@ -29429,7 +29429,7 @@ define hidden void @"_ZN6chrono8datetime40DateTime$LT$chrono..offset..utc..Utc$G
   br label %19
 
 21:                                               ; preds = %15
-  %22 = icmp ult i32 %2, 1000000000
+  %22 = icmp samesign ult i32 %2, 1000000000
   %23 = urem i32 %16, 60
   %24 = icmp eq i32 %23, 59
   %or.cond3 = or i1 %22, %24

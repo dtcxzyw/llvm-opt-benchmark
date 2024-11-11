@@ -189921,7 +189921,7 @@ _ZNSt12_Vector_baseINSt7__cxx119sub_matchIN9__gnu_cxx17__normal_iteratorIPKcNS0_
   %45 = getelementptr inbounds i8, ptr %.0910.i.i.i.i.i, i64 24
   %46 = getelementptr inbounds i8, ptr %.0811.i.i.i.i.i, i64 24
   %47 = add nsw i64 %.012.i.i.i.i.i, -1
-  %48 = icmp ugt i64 %.012.i.i.i.i.i, 1
+  %48 = icmp samesign ugt i64 %.012.i.i.i.i.i, 1
   br i1 %48, label %.lr.ph.i.i.i.i.i, label %_ZSt22__uninitialized_copy_aIPNSt7__cxx119sub_matchIN9__gnu_cxx17__normal_iteratorIPKcNS0_12basic_stringIcSt11char_traitsIcESaIcEEEEEEESD_SC_ET0_T_SF_SE_RSaIT1_E.exit, !llvm.loop !1824
 
 49:                                               ; preds = %29
@@ -189950,7 +189950,7 @@ _ZNSt12_Vector_baseINSt7__cxx119sub_matchIN9__gnu_cxx17__normal_iteratorIPKcNS0_
   %60 = getelementptr inbounds i8, ptr %.0910.i.i.i.i.i30, i64 24
   %61 = getelementptr inbounds i8, ptr %.0811.i.i.i.i.i29, i64 24
   %62 = add nsw i64 %.012.i.i.i.i.i28, -1
-  %63 = icmp ugt i64 %.012.i.i.i.i.i28, 1
+  %63 = icmp samesign ugt i64 %.012.i.i.i.i.i28, 1
   br i1 %63, label %.lr.ph.i.i.i.i.i27, label %_ZSt4copyIPNSt7__cxx119sub_matchIN9__gnu_cxx17__normal_iteratorIPKcNS0_12basic_stringIcSt11char_traitsIcESaIcEEEEEEESD_ET0_T_SF_SE_.exit.loopexit, !llvm.loop !1825
 
 _ZSt4copyIPNSt7__cxx119sub_matchIN9__gnu_cxx17__normal_iteratorIPKcNS0_12basic_stringIcSt11char_traitsIcESaIcEEEEEEESD_ET0_T_SF_SE_.exit.loopexit: ; preds = %.lr.ph.i.i.i.i.i27
@@ -200077,7 +200077,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__9UsdObject7GetPathEv.exit: ; preds = %_ZN3
   br i1 %114, label %115, label %121
 
 115:                                              ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__9UsdObject7GetPathEv.exit
-  %116 = icmp ult i64 %113, 64
+  %116 = icmp samesign ult i64 %113, 64
   br i1 %116, label %117, label %119
 
 117:                                              ; preds = %115
@@ -200451,7 +200451,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7UsdPrimD2Ev.exit: ; preds = %_ZN32pxrInter
   br i1 %318, label %319, label %325
 
 319:                                              ; preds = %306
-  %320 = icmp ult i64 %317, 64
+  %320 = icmp samesign ult i64 %317, 64
   br i1 %320, label %321, label %323
 
 321:                                              ; preds = %319
@@ -200536,7 +200536,7 @@ _ZNKSt16reverse_iteratorISt15_Deque_iteratorIN32pxrInternal_v0_24__pxrReserved__
   br i1 %365, label %366, label %372
 
 366:                                              ; preds = %354
-  %367 = icmp ult i64 %364, 64
+  %367 = icmp samesign ult i64 %364, 64
   br i1 %367, label %368, label %370
 
 368:                                              ; preds = %366
@@ -200708,7 +200708,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7UsdPrimD2Ev.exit69: ; preds = %_ZN32pxrInt
   br i1 %455, label %456, label %462
 
 456:                                              ; preds = %446
-  %457 = icmp ult i64 %454, 64
+  %457 = icmp samesign ult i64 %454, 64
   br i1 %457, label %458, label %460
 
 458:                                              ; preds = %456

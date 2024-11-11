@@ -15293,7 +15293,7 @@ define internal fastcc void @_ZN8terminal8mappings5mouse19normal_mouse_report17h
   store ptr %11, ptr %19, align 8, !alias.scope !3303, !noalias !3306
   %20 = getelementptr inbounds i8, ptr %6, i64 16
   store i64 4, ptr %20, align 8, !alias.scope !3303, !noalias !3306
-  %switch10 = icmp ugt i64 %1, 94
+  %switch10 = icmp samesign ugt i64 %1, 94
   %or.cond = and i1 %switch10, %4
   br i1 %or.cond, label %27, label %22
 

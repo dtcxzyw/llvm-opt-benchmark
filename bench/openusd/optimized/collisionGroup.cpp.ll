@@ -5456,7 +5456,7 @@ _ZNSt14_Bit_referenceaSEb.exit:                   ; preds = %1370, %1373
   %1387 = phi ptr [ %1051, %.preheader ], [ %1379, %_ZNSt14_Bit_referenceaSEb.exit ]
   %1388 = add i32 %storemerge576, 1
   %1389 = zext i32 %1388 to i64
-  %1390 = icmp ugt i64 %.pre-phi616, %1389
+  %1390 = icmp samesign ugt i64 %.pre-phi616, %1389
   br i1 %1390, label %.preheader, label %._crit_edge577, !llvm.loop !45
 
 ._crit_edge577:                                   ; preds = %._crit_edge575, %_ZNSt6vectorIbSaIbEE6resizeEmb.exit220

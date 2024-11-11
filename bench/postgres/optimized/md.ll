@@ -1096,7 +1096,7 @@ define dso_local void @mdzeroextend(ptr nocapture noundef %0, i32 noundef %1, i3
   %17 = sub nuw nsw i32 131072, %12
   %.040.us = select i1 %16, i32 %17, i32 %.03943.us
   %18 = tail call fastcc ptr @_mdfd_getseg(ptr noundef %0, i32 noundef %1, i32 noundef %.044.us, i1 noundef zeroext true, i32 noundef 4)
-  %19 = icmp ugt i32 %.040.us, 8
+  %19 = icmp samesign ugt i32 %.040.us, 8
   %20 = load i32, ptr %18, align 4
   %21 = shl nuw nsw i32 %.040.us, 13
   %22 = zext nneg i32 %21 to i64
@@ -1145,7 +1145,7 @@ define dso_local void @mdzeroextend(ptr nocapture noundef %0, i32 noundef %1, i3
   %49 = sub nuw nsw i32 131072, %44
   %.040 = select i1 %48, i32 %49, i32 %.03943
   %50 = tail call fastcc ptr @_mdfd_getseg(ptr noundef %0, i32 noundef %1, i32 noundef %.044, i1 noundef zeroext false, i32 noundef 4)
-  %51 = icmp ugt i32 %.040, 8
+  %51 = icmp samesign ugt i32 %.040, 8
   %52 = load i32, ptr %50, align 4
   %53 = shl nuw nsw i32 %.040, 13
   %54 = zext nneg i32 %53 to i64
@@ -1948,7 +1948,7 @@ _fdvec_resize.exit:                               ; preds = %_fdvec_resize.exit.
   br label %87
 
 87:                                               ; preds = %86, %84, %_fdvec_resize.exit
-  %88 = icmp ugt i64 %indvars.iv, 1
+  %88 = icmp samesign ugt i64 %indvars.iv, 1
   br i1 %88, label %32, label %.loopexit, !llvm.loop !15
 
 .loopexit:                                        ; preds = %87, %68, %22, %20, %6
@@ -2035,7 +2035,7 @@ _fdvec_resize.exit:                               ; preds = %_fdvec_resize.exit.
   br label %38
 
 38:                                               ; preds = %_fdvec_resize.exit, %16
-  %39 = icmp ugt i64 %indvars.iv, 1
+  %39 = icmp samesign ugt i64 %indvars.iv, 1
   br i1 %39, label %16, label %._crit_edge, !llvm.loop !17
 
 ._crit_edge:                                      ; preds = %38, %.preheader
@@ -2138,7 +2138,7 @@ _fdvec_resize.exit:                               ; preds = %_fdvec_resize.exit.
   br label %50
 
 50:                                               ; preds = %_fdvec_resize.exit, %30
-  %51 = icmp ugt i64 %indvars.iv, 1
+  %51 = icmp samesign ugt i64 %indvars.iv, 1
   br i1 %51, label %16, label %._crit_edge, !llvm.loop !19
 
 ._crit_edge:                                      ; preds = %50, %.preheader

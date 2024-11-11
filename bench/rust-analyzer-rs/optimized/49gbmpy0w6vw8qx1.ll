@@ -746,7 +746,7 @@ _ZN8lz4_flex5block8compress16count_same_bytes17he8ecf976d2e556bfE.exit: ; preds 
 137:                                              ; preds = %_ZN8lz4_flex5block8compress16count_same_bytes17he8ecf976d2e556bfE.exit
   tail call void @llvm.experimental.noalias.scope.decl(metadata !122)
   %138 = getelementptr inbounds i8, ptr %0, i64 %.0102
-  %139 = icmp ult i64 %74, 9
+  %139 = icmp samesign ult i64 %74, 9
   br i1 %139, label %148, label %.thread81
 
 ._crit_edge.i53:                                  ; preds = %162, %165
@@ -1138,7 +1138,7 @@ _ZN8lz4_flex5block8compress16count_same_bytes17he8ecf976d2e556bfE.exit: ; preds 
 139:                                              ; preds = %_ZN8lz4_flex5block8compress16count_same_bytes17he8ecf976d2e556bfE.exit
   tail call void @llvm.experimental.noalias.scope.decl(metadata !173)
   %140 = getelementptr inbounds i8, ptr %0, i64 %.0102
-  %141 = icmp ult i64 %75, 9
+  %141 = icmp samesign ult i64 %75, 9
   br i1 %141, label %150, label %.thread81
 
 ._crit_edge.i53:                                  ; preds = %164, %167
@@ -2869,7 +2869,7 @@ define hidden void @_ZN9hashbrown3raw5inner13RawTableInner22fallible_with_capaci
   br i1 %15, label %18, label %26
 
 16:                                               ; preds = %11
-  %17 = icmp ult i64 %4, 4
+  %17 = icmp samesign ult i64 %4, 4
   %..i = select i1 %17, i64 4, i64 8
   br label %32
 
@@ -2967,7 +2967,7 @@ define hidden void @_ZN9hashbrown3raw5inner13RawTableInner22fallible_with_capaci
   br label %72
 
 _ZN9hashbrown3raw5inner13RawTableInner17new_uninitialized17hca0e499454b8b2bdE.exit: ; preds = %51
-  %65 = icmp ult i64 %.sroa.6.053.ph, 9
+  %65 = icmp samesign ult i64 %.sroa.6.053.ph, 9
   %66 = add nsw i64 %.sroa.6.053.ph, -1
   %67 = lshr i64 %.sroa.6.053.ph, 3
   %68 = mul nuw nsw i64 %67, 7

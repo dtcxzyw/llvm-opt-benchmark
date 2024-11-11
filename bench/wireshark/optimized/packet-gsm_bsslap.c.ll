@@ -382,15 +382,15 @@ define internal i32 @dissect_gsm_bsslap(ptr noundef %0, ptr noundef %1, ptr noun
   %13 = load i32, ptr @hf_gsm_bsslap_msg_type, align 4
   %14 = tail call ptr @proto_tree_add_item(ptr noundef %12, i32 noundef %13, ptr noundef %0, i32 noundef 0, i32 noundef 1, i32 noundef 0) #2
   switch i8 %8, label %dissect_gsm_bsslap_ta_res.exit [
-    i8 18, label %290
+    i8 18, label %292
     i8 2, label %15
     i8 10, label %54
     i8 11, label %62
-    i8 12, label %181
-    i8 13, label %189
-    i8 15, label %217
-    i8 16, label %236
-    i8 17, label %281
+    i8 12, label %182
+    i8 13, label %190
+    i8 15, label %218
+    i8 16, label %237
+    i8 17, label %282
   ]
 
 15:                                               ; preds = %7
@@ -660,358 +660,364 @@ define internal i32 @dissect_gsm_bsslap(ptr noundef %0, ptr noundef %1, ptr noun
 174:                                              ; preds = %168
   %175 = add nuw nsw i32 %169, %171
   %176 = tail call zeroext i16 @elem_tv(ptr noundef %0, ptr noundef %12, ptr noundef nonnull %1, i8 noundef zeroext 37, i32 noundef 6, i32 noundef 23, i32 noundef %175, ptr noundef null) #2
+  %.not225.i = icmp ne i16 %176, 0
   %177 = zext i16 %176 to i32
-  %.not227.i = icmp ugt i32 %172, %177
-  br i1 %.not227.i, label %178, label %dissect_gsm_bsslap_ta_res.exit
+  %178 = icmp samesign ule i32 %172, %177
+  %.15.i = select i1 %.not225.i, i1 %178, i1 false
+  br i1 %.15.i, label %dissect_gsm_bsslap_ta_res.exit, label %179
 
-178:                                              ; preds = %174
-  %179 = add nuw nsw i32 %175, %177
-  %180 = tail call zeroext i16 @elem_tv(ptr noundef %0, ptr noundef %12, ptr noundef nonnull %1, i8 noundef zeroext 38, i32 noundef 3, i32 noundef 18, i32 noundef %179, ptr noundef null) #2
+179:                                              ; preds = %174
+  %180 = add nuw nsw i32 %175, %177
+  %181 = tail call zeroext i16 @elem_tv(ptr noundef %0, ptr noundef %12, ptr noundef nonnull %1, i8 noundef zeroext 38, i32 noundef 3, i32 noundef 18, i32 noundef %180, ptr noundef null) #2
   br label %dissect_gsm_bsslap_ta_res.exit
 
-181:                                              ; preds = %7
-  %182 = tail call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef 1) #2
-  %183 = icmp sgt i32 %182, 0
-  br i1 %183, label %184, label %186
+182:                                              ; preds = %7
+  %183 = tail call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef 1) #2
+  %184 = icmp sgt i32 %183, 0
+  br i1 %184, label %185, label %187
 
-184:                                              ; preds = %181
-  %185 = tail call zeroext i16 @elem_tv(ptr noundef %0, ptr noundef %12, ptr noundef nonnull %1, i8 noundef zeroext 24, i32 noundef 6, i32 noundef 13, i32 noundef 1, ptr noundef null) #2
-  %.not.i52 = icmp eq i16 %185, 0
-  br i1 %.not.i52, label %186, label %dissect_gsm_bsslap_ta_res.exit
+185:                                              ; preds = %182
+  %186 = tail call zeroext i16 @elem_tv(ptr noundef %0, ptr noundef %12, ptr noundef nonnull %1, i8 noundef zeroext 24, i32 noundef 6, i32 noundef 13, i32 noundef 1, ptr noundef null) #2
+  %.not.i52 = icmp eq i16 %186, 0
+  br i1 %.not.i52, label %187, label %dissect_gsm_bsslap_ta_res.exit
 
-186:                                              ; preds = %184, %181
-  %187 = tail call ptr @get_gsm_a_msg_string(i32 noundef 6, i32 noundef 13) #2
-  %188 = tail call ptr (ptr, ptr, ptr, ptr, i32, i32, ptr, ...) @proto_tree_add_expert_format(ptr noundef %12, ptr noundef nonnull %1, ptr noundef nonnull @ei_gsm_bsslap_missing_mandatory_element, ptr noundef %0, i32 noundef 1, i32 noundef 0, ptr noundef nonnull @.str.79, i32 noundef 24, ptr noundef %187, ptr noundef nonnull @.str.80) #2
+187:                                              ; preds = %185, %182
+  %188 = tail call ptr @get_gsm_a_msg_string(i32 noundef 6, i32 noundef 13) #2
+  %189 = tail call ptr (ptr, ptr, ptr, ptr, i32, i32, ptr, ...) @proto_tree_add_expert_format(ptr noundef %12, ptr noundef nonnull %1, ptr noundef nonnull @ei_gsm_bsslap_missing_mandatory_element, ptr noundef %0, i32 noundef 1, i32 noundef 0, ptr noundef nonnull @.str.79, i32 noundef 24, ptr noundef %188, ptr noundef nonnull @.str.80) #2
   br label %dissect_gsm_bsslap_ta_res.exit
 
-189:                                              ; preds = %7
-  %190 = tail call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef 1) #2
-  %191 = icmp sgt i32 %190, 0
-  br i1 %191, label %192, label %198
+190:                                              ; preds = %7
+  %191 = tail call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef 1) #2
+  %192 = icmp sgt i32 %191, 0
+  br i1 %192, label %193, label %199
 
-192:                                              ; preds = %189
-  %193 = tail call zeroext i16 @elem_tv(ptr noundef %0, ptr noundef %12, ptr noundef nonnull %1, i8 noundef zeroext 1, i32 noundef 6, i32 noundef 1, i32 noundef 1, ptr noundef null) #2
-  %.not.i54 = icmp eq i16 %193, 0
-  br i1 %.not.i54, label %198, label %194
+193:                                              ; preds = %190
+  %194 = tail call zeroext i16 @elem_tv(ptr noundef %0, ptr noundef %12, ptr noundef nonnull %1, i8 noundef zeroext 1, i32 noundef 6, i32 noundef 1, i32 noundef 1, ptr noundef null) #2
+  %.not.i54 = icmp eq i16 %194, 0
+  br i1 %.not.i54, label %199, label %195
 
-194:                                              ; preds = %192
-  %195 = zext i16 %193 to i32
-  %196 = add nuw nsw i32 %195, 1
-  %197 = sub nsw i32 %190, %195
-  br label %201
+195:                                              ; preds = %193
+  %196 = zext i16 %194 to i32
+  %197 = add nuw nsw i32 %196, 1
+  %198 = sub nsw i32 %191, %196
+  br label %202
 
-198:                                              ; preds = %192, %189
-  %199 = tail call ptr @get_gsm_a_msg_string(i32 noundef 6, i32 noundef 1) #2
-  %200 = tail call ptr (ptr, ptr, ptr, ptr, i32, i32, ptr, ...) @proto_tree_add_expert_format(ptr noundef %12, ptr noundef nonnull %1, ptr noundef nonnull @ei_gsm_bsslap_missing_mandatory_element, ptr noundef %0, i32 noundef 1, i32 noundef 0, ptr noundef nonnull @.str.79, i32 noundef 1, ptr noundef %199, ptr noundef nonnull @.str.80) #2
-  br label %201
+199:                                              ; preds = %193, %190
+  %200 = tail call ptr @get_gsm_a_msg_string(i32 noundef 6, i32 noundef 1) #2
+  %201 = tail call ptr (ptr, ptr, ptr, ptr, i32, i32, ptr, ...) @proto_tree_add_expert_format(ptr noundef %12, ptr noundef nonnull %1, ptr noundef nonnull @ei_gsm_bsslap_missing_mandatory_element, ptr noundef %0, i32 noundef 1, i32 noundef 0, ptr noundef nonnull @.str.79, i32 noundef 1, ptr noundef %200, ptr noundef nonnull @.str.80) #2
+  br label %202
 
-201:                                              ; preds = %198, %194
-  %.045.i = phi i32 [ %196, %194 ], [ 1, %198 ]
-  %.0.i53 = phi i32 [ %197, %194 ], [ %190, %198 ]
-  %202 = icmp slt i32 %.0.i53, 1
-  br i1 %202, label %dissect_gsm_bsslap_ta_res.exit, label %203
+202:                                              ; preds = %199, %195
+  %.045.i = phi i32 [ %197, %195 ], [ 1, %199 ]
+  %.0.i53 = phi i32 [ %198, %195 ], [ %191, %199 ]
+  %203 = icmp slt i32 %.0.i53, 1
+  br i1 %203, label %dissect_gsm_bsslap_ta_res.exit, label %204
 
-203:                                              ; preds = %201
-  %204 = tail call zeroext i16 @elem_tlv(ptr noundef %0, ptr noundef %12, ptr noundef nonnull %1, i8 noundef zeroext 20, i32 noundef 6, i32 noundef 11, i32 noundef %.045.i, i32 noundef %.0.i53, ptr noundef nonnull @.str.81) #2
-  %205 = zext i16 %204 to i32
-  %206 = sub nsw i32 %.0.i53, %205
-  %207 = icmp slt i32 %206, 1
-  br i1 %207, label %dissect_gsm_bsslap_ta_res.exit, label %208
+204:                                              ; preds = %202
+  %205 = tail call zeroext i16 @elem_tlv(ptr noundef %0, ptr noundef %12, ptr noundef nonnull %1, i8 noundef zeroext 20, i32 noundef 6, i32 noundef 11, i32 noundef %.045.i, i32 noundef %.0.i53, ptr noundef nonnull @.str.81) #2
+  %206 = zext i16 %205 to i32
+  %207 = sub nsw i32 %.0.i53, %206
+  %208 = icmp slt i32 %207, 1
+  br i1 %208, label %dissect_gsm_bsslap_ta_res.exit, label %209
 
-208:                                              ; preds = %203
-  %209 = add nuw nsw i32 %.045.i, %205
-  %210 = tail call zeroext i16 @elem_tlv(ptr noundef %0, ptr noundef %12, ptr noundef nonnull %1, i8 noundef zeroext 29, i32 noundef 6, i32 noundef 17, i32 noundef %209, i32 noundef %206, ptr noundef null) #2
-  %211 = zext i16 %210 to i32
-  %212 = sub nsw i32 %206, %211
-  %213 = icmp slt i32 %212, 1
-  br i1 %213, label %dissect_gsm_bsslap_ta_res.exit, label %214
+209:                                              ; preds = %204
+  %210 = add nuw nsw i32 %.045.i, %206
+  %211 = tail call zeroext i16 @elem_tlv(ptr noundef %0, ptr noundef %12, ptr noundef nonnull %1, i8 noundef zeroext 29, i32 noundef 6, i32 noundef 17, i32 noundef %210, i32 noundef %207, ptr noundef null) #2
+  %212 = zext i16 %211 to i32
+  %213 = sub nsw i32 %207, %212
+  %214 = icmp slt i32 %213, 1
+  br i1 %214, label %dissect_gsm_bsslap_ta_res.exit, label %215
 
-214:                                              ; preds = %208
-  %215 = add nuw nsw i32 %209, %211
-  %216 = tail call zeroext i16 @elem_tlv(ptr noundef %0, ptr noundef %12, ptr noundef nonnull %1, i8 noundef zeroext 28, i32 noundef 6, i32 noundef 16, i32 noundef %215, i32 noundef %212, ptr noundef nonnull @.str.82) #2
+215:                                              ; preds = %209
+  %216 = add nuw nsw i32 %210, %212
+  %217 = tail call zeroext i16 @elem_tlv(ptr noundef %0, ptr noundef %12, ptr noundef nonnull %1, i8 noundef zeroext 28, i32 noundef 6, i32 noundef 16, i32 noundef %216, i32 noundef %213, ptr noundef nonnull @.str.82) #2
   br label %dissect_gsm_bsslap_ta_res.exit
 
-217:                                              ; preds = %7
-  %218 = tail call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef 1) #2
-  %219 = icmp sgt i32 %218, 0
-  br i1 %219, label %220, label %226
+218:                                              ; preds = %7
+  %219 = tail call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef 1) #2
+  %220 = icmp sgt i32 %219, 0
+  br i1 %220, label %221, label %227
 
-220:                                              ; preds = %217
-  %221 = tail call zeroext i16 @elem_tv(ptr noundef %0, ptr noundef %12, ptr noundef nonnull %1, i8 noundef zeroext 25, i32 noundef 6, i32 noundef 14, i32 noundef 1, ptr noundef nonnull @.str.84) #2
-  %.not.i56 = icmp eq i16 %221, 0
-  br i1 %.not.i56, label %226, label %222
+221:                                              ; preds = %218
+  %222 = tail call zeroext i16 @elem_tv(ptr noundef %0, ptr noundef %12, ptr noundef nonnull %1, i8 noundef zeroext 25, i32 noundef 6, i32 noundef 14, i32 noundef 1, ptr noundef nonnull @.str.84) #2
+  %.not.i56 = icmp eq i16 %222, 0
+  br i1 %.not.i56, label %227, label %223
 
-222:                                              ; preds = %220
-  %223 = zext i16 %221 to i32
-  %224 = add nuw nsw i32 %223, 1
-  %225 = sub nsw i32 %218, %223
-  br label %229
+223:                                              ; preds = %221
+  %224 = zext i16 %222 to i32
+  %225 = add nuw nsw i32 %224, 1
+  %226 = sub nsw i32 %219, %224
+  br label %230
 
-226:                                              ; preds = %220, %217
-  %227 = tail call ptr @get_gsm_a_msg_string(i32 noundef 6, i32 noundef 14) #2
-  %228 = tail call ptr (ptr, ptr, ptr, ptr, i32, i32, ptr, ...) @proto_tree_add_expert_format(ptr noundef %12, ptr noundef nonnull %1, ptr noundef nonnull @ei_gsm_bsslap_missing_mandatory_element, ptr noundef %0, i32 noundef 1, i32 noundef 0, ptr noundef nonnull @.str.79, i32 noundef 25, ptr noundef %227, ptr noundef nonnull @.str.84) #2
-  br label %229
+227:                                              ; preds = %221, %218
+  %228 = tail call ptr @get_gsm_a_msg_string(i32 noundef 6, i32 noundef 14) #2
+  %229 = tail call ptr (ptr, ptr, ptr, ptr, i32, i32, ptr, ...) @proto_tree_add_expert_format(ptr noundef %12, ptr noundef nonnull %1, ptr noundef nonnull @ei_gsm_bsslap_missing_mandatory_element, ptr noundef %0, i32 noundef 1, i32 noundef 0, ptr noundef nonnull @.str.79, i32 noundef 25, ptr noundef %228, ptr noundef nonnull @.str.84) #2
+  br label %230
 
-229:                                              ; preds = %226, %222
-  %.028.i = phi i32 [ %224, %222 ], [ 1, %226 ]
-  %.0.i55 = phi i32 [ %225, %222 ], [ %218, %226 ]
-  %230 = icmp sgt i32 %.0.i55, 0
-  br i1 %230, label %231, label %233
+230:                                              ; preds = %227, %223
+  %.028.i = phi i32 [ %225, %223 ], [ 1, %227 ]
+  %.0.i55 = phi i32 [ %226, %223 ], [ %219, %227 ]
+  %231 = icmp sgt i32 %.0.i55, 0
+  br i1 %231, label %232, label %234
 
-231:                                              ; preds = %229
-  %232 = tail call zeroext i16 @elem_tv(ptr noundef %0, ptr noundef %12, ptr noundef nonnull %1, i8 noundef zeroext 27, i32 noundef 6, i32 noundef 15, i32 noundef %.028.i, ptr noundef nonnull @.str.85) #2
-  %.not31.i = icmp eq i16 %232, 0
-  br i1 %.not31.i, label %233, label %dissect_gsm_bsslap_ta_res.exit
+232:                                              ; preds = %230
+  %233 = tail call zeroext i16 @elem_tv(ptr noundef %0, ptr noundef %12, ptr noundef nonnull %1, i8 noundef zeroext 27, i32 noundef 6, i32 noundef 15, i32 noundef %.028.i, ptr noundef nonnull @.str.85) #2
+  %.not31.i = icmp eq i16 %233, 0
+  br i1 %.not31.i, label %234, label %dissect_gsm_bsslap_ta_res.exit
 
-233:                                              ; preds = %231, %229
-  %234 = tail call ptr @get_gsm_a_msg_string(i32 noundef 6, i32 noundef 15) #2
-  %235 = tail call ptr (ptr, ptr, ptr, ptr, i32, i32, ptr, ...) @proto_tree_add_expert_format(ptr noundef %12, ptr noundef nonnull %1, ptr noundef nonnull @ei_gsm_bsslap_missing_mandatory_element, ptr noundef %0, i32 noundef %.028.i, i32 noundef 0, ptr noundef nonnull @.str.79, i32 noundef 27, ptr noundef %234, ptr noundef nonnull @.str.85) #2
+234:                                              ; preds = %232, %230
+  %235 = tail call ptr @get_gsm_a_msg_string(i32 noundef 6, i32 noundef 15) #2
+  %236 = tail call ptr (ptr, ptr, ptr, ptr, i32, i32, ptr, ...) @proto_tree_add_expert_format(ptr noundef %12, ptr noundef nonnull %1, ptr noundef nonnull @ei_gsm_bsslap_missing_mandatory_element, ptr noundef %0, i32 noundef %.028.i, i32 noundef 0, ptr noundef nonnull @.str.79, i32 noundef 27, ptr noundef %235, ptr noundef nonnull @.str.85) #2
   br label %dissect_gsm_bsslap_ta_res.exit
 
-236:                                              ; preds = %7
-  %237 = tail call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef 1) #2
-  %238 = icmp sgt i32 %237, 0
-  br i1 %238, label %239, label %245
+237:                                              ; preds = %7
+  %238 = tail call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef 1) #2
+  %239 = icmp sgt i32 %238, 0
+  br i1 %239, label %240, label %246
 
-239:                                              ; preds = %236
-  %240 = tail call zeroext i16 @elem_tv(ptr noundef %0, ptr noundef %12, ptr noundef nonnull %1, i8 noundef zeroext 25, i32 noundef 6, i32 noundef 14, i32 noundef 1, ptr noundef nonnull @.str.84) #2
-  %.not.i59 = icmp eq i16 %240, 0
-  br i1 %.not.i59, label %245, label %241
+240:                                              ; preds = %237
+  %241 = tail call zeroext i16 @elem_tv(ptr noundef %0, ptr noundef %12, ptr noundef nonnull %1, i8 noundef zeroext 25, i32 noundef 6, i32 noundef 14, i32 noundef 1, ptr noundef nonnull @.str.84) #2
+  %.not.i59 = icmp eq i16 %241, 0
+  br i1 %.not.i59, label %246, label %242
 
-241:                                              ; preds = %239
-  %242 = zext i16 %240 to i32
-  %243 = add nuw nsw i32 %242, 1
-  %244 = sub nsw i32 %237, %242
-  br label %248
+242:                                              ; preds = %240
+  %243 = zext i16 %241 to i32
+  %244 = add nuw nsw i32 %243, 1
+  %245 = sub nsw i32 %238, %243
+  br label %249
 
-245:                                              ; preds = %239, %236
-  %246 = tail call ptr @get_gsm_a_msg_string(i32 noundef 6, i32 noundef 14) #2
-  %247 = tail call ptr (ptr, ptr, ptr, ptr, i32, i32, ptr, ...) @proto_tree_add_expert_format(ptr noundef %12, ptr noundef nonnull %1, ptr noundef nonnull @ei_gsm_bsslap_missing_mandatory_element, ptr noundef %0, i32 noundef 1, i32 noundef 0, ptr noundef nonnull @.str.79, i32 noundef 25, ptr noundef %246, ptr noundef nonnull @.str.84) #2
-  br label %248
+246:                                              ; preds = %240, %237
+  %247 = tail call ptr @get_gsm_a_msg_string(i32 noundef 6, i32 noundef 14) #2
+  %248 = tail call ptr (ptr, ptr, ptr, ptr, i32, i32, ptr, ...) @proto_tree_add_expert_format(ptr noundef %12, ptr noundef nonnull %1, ptr noundef nonnull @ei_gsm_bsslap_missing_mandatory_element, ptr noundef %0, i32 noundef 1, i32 noundef 0, ptr noundef nonnull @.str.79, i32 noundef 25, ptr noundef %247, ptr noundef nonnull @.str.84) #2
+  br label %249
 
-248:                                              ; preds = %245, %241
-  %.067.i = phi i32 [ %243, %241 ], [ 1, %245 ]
-  %.0.i57 = phi i32 [ %244, %241 ], [ %237, %245 ]
-  %249 = icmp sgt i32 %.0.i57, 0
-  br i1 %249, label %250, label %256
+249:                                              ; preds = %246, %242
+  %.067.i = phi i32 [ %244, %242 ], [ 1, %246 ]
+  %.0.i57 = phi i32 [ %245, %242 ], [ %238, %246 ]
+  %250 = icmp sgt i32 %.0.i57, 0
+  br i1 %250, label %251, label %257
 
-250:                                              ; preds = %248
-  %251 = tail call zeroext i16 @elem_tv(ptr noundef %0, ptr noundef %12, ptr noundef nonnull %1, i8 noundef zeroext 27, i32 noundef 6, i32 noundef 15, i32 noundef %.067.i, ptr noundef nonnull @.str.85) #2
-  %.not78.i = icmp eq i16 %251, 0
-  br i1 %.not78.i, label %256, label %252
+251:                                              ; preds = %249
+  %252 = tail call zeroext i16 @elem_tv(ptr noundef %0, ptr noundef %12, ptr noundef nonnull %1, i8 noundef zeroext 27, i32 noundef 6, i32 noundef 15, i32 noundef %.067.i, ptr noundef nonnull @.str.85) #2
+  %.not78.i = icmp eq i16 %252, 0
+  br i1 %.not78.i, label %257, label %253
 
-252:                                              ; preds = %250
-  %253 = zext i16 %251 to i32
-  %254 = add nuw nsw i32 %.067.i, %253
-  %255 = sub nsw i32 %.0.i57, %253
-  br label %259
+253:                                              ; preds = %251
+  %254 = zext i16 %252 to i32
+  %255 = add nuw nsw i32 %.067.i, %254
+  %256 = sub nsw i32 %.0.i57, %254
+  br label %260
 
-256:                                              ; preds = %250, %248
-  %257 = tail call ptr @get_gsm_a_msg_string(i32 noundef 6, i32 noundef 15) #2
-  %258 = tail call ptr (ptr, ptr, ptr, ptr, i32, i32, ptr, ...) @proto_tree_add_expert_format(ptr noundef %12, ptr noundef nonnull %1, ptr noundef nonnull @ei_gsm_bsslap_missing_mandatory_element, ptr noundef %0, i32 noundef %.067.i, i32 noundef 0, ptr noundef nonnull @.str.79, i32 noundef 27, ptr noundef %257, ptr noundef nonnull @.str.85) #2
-  br label %259
+257:                                              ; preds = %251, %249
+  %258 = tail call ptr @get_gsm_a_msg_string(i32 noundef 6, i32 noundef 15) #2
+  %259 = tail call ptr (ptr, ptr, ptr, ptr, i32, i32, ptr, ...) @proto_tree_add_expert_format(ptr noundef %12, ptr noundef nonnull %1, ptr noundef nonnull @ei_gsm_bsslap_missing_mandatory_element, ptr noundef %0, i32 noundef %.067.i, i32 noundef 0, ptr noundef nonnull @.str.79, i32 noundef 27, ptr noundef %258, ptr noundef nonnull @.str.85) #2
+  br label %260
 
-259:                                              ; preds = %256, %252
-  %.168.i = phi i32 [ %254, %252 ], [ %.067.i, %256 ]
-  %.1.i58 = phi i32 [ %255, %252 ], [ %.0.i57, %256 ]
-  %260 = icmp slt i32 %.1.i58, 1
-  br i1 %260, label %dissect_gsm_bsslap_ta_res.exit, label %261
+260:                                              ; preds = %257, %253
+  %.168.i = phi i32 [ %255, %253 ], [ %.067.i, %257 ]
+  %.1.i58 = phi i32 [ %256, %253 ], [ %.0.i57, %257 ]
+  %261 = icmp slt i32 %.1.i58, 1
+  br i1 %261, label %dissect_gsm_bsslap_ta_res.exit, label %262
 
-261:                                              ; preds = %259
-  %262 = tail call zeroext i16 @elem_tv(ptr noundef %0, ptr noundef %12, ptr noundef nonnull %1, i8 noundef zeroext 1, i32 noundef 6, i32 noundef 1, i32 noundef %.168.i, ptr noundef null) #2
-  %263 = zext i16 %262 to i32
-  %264 = sub nsw i32 %.1.i58, %263
-  %265 = icmp slt i32 %264, 1
-  br i1 %265, label %dissect_gsm_bsslap_ta_res.exit, label %266
+262:                                              ; preds = %260
+  %263 = tail call zeroext i16 @elem_tv(ptr noundef %0, ptr noundef %12, ptr noundef nonnull %1, i8 noundef zeroext 1, i32 noundef 6, i32 noundef 1, i32 noundef %.168.i, ptr noundef null) #2
+  %264 = zext i16 %263 to i32
+  %265 = sub nsw i32 %.1.i58, %264
+  %266 = icmp slt i32 %265, 1
+  br i1 %266, label %dissect_gsm_bsslap_ta_res.exit, label %267
 
-266:                                              ; preds = %261
-  %267 = add nuw nsw i32 %.168.i, %263
-  %268 = tail call zeroext i16 @elem_tlv(ptr noundef %0, ptr noundef %12, ptr noundef nonnull %1, i8 noundef zeroext 20, i32 noundef 6, i32 noundef 11, i32 noundef %267, i32 noundef %264, ptr noundef nonnull @.str.81) #2
-  %269 = zext i16 %268 to i32
-  %270 = sub nsw i32 %264, %269
-  %271 = icmp slt i32 %270, 1
-  br i1 %271, label %dissect_gsm_bsslap_ta_res.exit, label %272
+267:                                              ; preds = %262
+  %268 = add nuw nsw i32 %.168.i, %264
+  %269 = tail call zeroext i16 @elem_tlv(ptr noundef %0, ptr noundef %12, ptr noundef nonnull %1, i8 noundef zeroext 20, i32 noundef 6, i32 noundef 11, i32 noundef %268, i32 noundef %265, ptr noundef nonnull @.str.81) #2
+  %270 = zext i16 %269 to i32
+  %271 = sub nsw i32 %265, %270
+  %272 = icmp slt i32 %271, 1
+  br i1 %272, label %dissect_gsm_bsslap_ta_res.exit, label %273
 
-272:                                              ; preds = %266
-  %273 = add nuw nsw i32 %267, %269
-  %274 = tail call zeroext i16 @elem_tlv(ptr noundef %0, ptr noundef %12, ptr noundef nonnull %1, i8 noundef zeroext 29, i32 noundef 6, i32 noundef 17, i32 noundef %273, i32 noundef %270, ptr noundef null) #2
-  %275 = zext i16 %274 to i32
-  %276 = sub nsw i32 %270, %275
-  %277 = icmp slt i32 %276, 1
-  br i1 %277, label %dissect_gsm_bsslap_ta_res.exit, label %278
+273:                                              ; preds = %267
+  %274 = add nuw nsw i32 %268, %270
+  %275 = tail call zeroext i16 @elem_tlv(ptr noundef %0, ptr noundef %12, ptr noundef nonnull %1, i8 noundef zeroext 29, i32 noundef 6, i32 noundef 17, i32 noundef %274, i32 noundef %271, ptr noundef null) #2
+  %276 = zext i16 %275 to i32
+  %277 = sub nsw i32 %271, %276
+  %278 = icmp slt i32 %277, 1
+  br i1 %278, label %dissect_gsm_bsslap_ta_res.exit, label %279
 
-278:                                              ; preds = %272
-  %279 = add nuw nsw i32 %273, %275
-  %280 = tail call zeroext i16 @elem_tlv(ptr noundef %0, ptr noundef %12, ptr noundef nonnull %1, i8 noundef zeroext 28, i32 noundef 6, i32 noundef 16, i32 noundef %279, i32 noundef %276, ptr noundef nonnull @.str.82) #2
+279:                                              ; preds = %273
+  %280 = add nuw nsw i32 %274, %276
+  %281 = tail call zeroext i16 @elem_tlv(ptr noundef %0, ptr noundef %12, ptr noundef nonnull %1, i8 noundef zeroext 28, i32 noundef 6, i32 noundef 16, i32 noundef %280, i32 noundef %277, ptr noundef nonnull @.str.82) #2
   br label %dissect_gsm_bsslap_ta_res.exit
 
-281:                                              ; preds = %7
-  %282 = tail call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef 1) #2
-  %283 = icmp slt i32 %282, 1
-  br i1 %283, label %dissect_gsm_bsslap_ta_res.exit, label %284
+282:                                              ; preds = %7
+  %283 = tail call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef 1) #2
+  %284 = icmp slt i32 %283, 1
+  br i1 %284, label %dissect_gsm_bsslap_ta_res.exit, label %285
 
-284:                                              ; preds = %281
-  %285 = tail call zeroext i16 @elem_tv(ptr noundef %0, ptr noundef %12, ptr noundef nonnull %1, i8 noundef zeroext 35, i32 noundef 6, i32 noundef 21, i32 noundef 1, ptr noundef null) #2
-  %286 = zext i16 %285 to i32
-  %.not.i60 = icmp ugt i32 %282, %286
-  br i1 %.not.i60, label %287, label %dissect_gsm_bsslap_ta_res.exit
+285:                                              ; preds = %282
+  %286 = tail call zeroext i16 @elem_tv(ptr noundef %0, ptr noundef %12, ptr noundef nonnull %1, i8 noundef zeroext 35, i32 noundef 6, i32 noundef 21, i32 noundef 1, ptr noundef null) #2
+  %.not.i60 = icmp ne i16 %286, 0
+  %287 = zext i16 %286 to i32
+  %288 = icmp samesign ule i32 %283, %287
+  %.0.i61 = select i1 %.not.i60, i1 %288, i1 false
+  br i1 %.0.i61, label %dissect_gsm_bsslap_ta_res.exit, label %289
 
-287:                                              ; preds = %284
-  %288 = add nuw nsw i32 %286, 1
-  %289 = tail call zeroext i16 @elem_tv(ptr noundef %0, ptr noundef %12, ptr noundef nonnull %1, i8 noundef zeroext 41, i32 noundef 6, i32 noundef 26, i32 noundef %288, ptr noundef null) #2
+289:                                              ; preds = %285
+  %290 = add nuw nsw i32 %287, 1
+  %291 = tail call zeroext i16 @elem_tv(ptr noundef %0, ptr noundef %12, ptr noundef nonnull %1, i8 noundef zeroext 41, i32 noundef 6, i32 noundef 26, i32 noundef %290, ptr noundef null) #2
   br label %dissect_gsm_bsslap_ta_res.exit
 
-290:                                              ; preds = %7
-  %291 = tail call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef 1) #2
-  %292 = icmp sgt i32 %291, 0
-  br i1 %292, label %293, label %299
+292:                                              ; preds = %7
+  %293 = tail call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef 1) #2
+  %294 = icmp sgt i32 %293, 0
+  br i1 %294, label %295, label %301
 
-293:                                              ; preds = %290
-  %294 = tail call zeroext i16 @elem_tv(ptr noundef %0, ptr noundef %12, ptr noundef nonnull %1, i8 noundef zeroext 16, i32 noundef 3, i32 noundef 9, i32 noundef 1, ptr noundef null) #2
-  %.not.i63 = icmp eq i16 %294, 0
-  br i1 %.not.i63, label %299, label %295
+295:                                              ; preds = %292
+  %296 = tail call zeroext i16 @elem_tv(ptr noundef %0, ptr noundef %12, ptr noundef nonnull %1, i8 noundef zeroext 16, i32 noundef 3, i32 noundef 9, i32 noundef 1, ptr noundef null) #2
+  %.not.i64 = icmp eq i16 %296, 0
+  br i1 %.not.i64, label %301, label %297
 
-295:                                              ; preds = %293
-  %296 = zext i16 %294 to i32
-  %297 = add nuw nsw i32 %296, 1
-  %298 = sub nsw i32 %291, %296
-  br label %302
+297:                                              ; preds = %295
+  %298 = zext i16 %296 to i32
+  %299 = add nuw nsw i32 %298, 1
+  %300 = sub nsw i32 %293, %298
+  br label %304
 
-299:                                              ; preds = %293, %290
-  %300 = tail call ptr @get_gsm_a_msg_string(i32 noundef 3, i32 noundef 9) #2
-  %301 = tail call ptr (ptr, ptr, ptr, ptr, i32, i32, ptr, ...) @proto_tree_add_expert_format(ptr noundef %12, ptr noundef nonnull %1, ptr noundef nonnull @ei_gsm_bsslap_missing_mandatory_element, ptr noundef %0, i32 noundef 1, i32 noundef 0, ptr noundef nonnull @.str.79, i32 noundef 16, ptr noundef %300, ptr noundef nonnull @.str.80) #2
-  br label %302
+301:                                              ; preds = %295, %292
+  %302 = tail call ptr @get_gsm_a_msg_string(i32 noundef 3, i32 noundef 9) #2
+  %303 = tail call ptr (ptr, ptr, ptr, ptr, i32, i32, ptr, ...) @proto_tree_add_expert_format(ptr noundef %12, ptr noundef nonnull %1, ptr noundef nonnull @ei_gsm_bsslap_missing_mandatory_element, ptr noundef %0, i32 noundef 1, i32 noundef 0, ptr noundef nonnull @.str.79, i32 noundef 16, ptr noundef %302, ptr noundef nonnull @.str.80) #2
+  br label %304
 
-302:                                              ; preds = %299, %295
-  %.0151.i = phi i32 [ %297, %295 ], [ 1, %299 ]
-  %.0.i61 = phi i32 [ %298, %295 ], [ %291, %299 ]
-  %303 = icmp sgt i32 %.0.i61, 0
-  br i1 %303, label %304, label %310
-
-304:                                              ; preds = %302
-  %305 = tail call zeroext i16 @elem_tlv(ptr noundef %0, ptr noundef %12, ptr noundef nonnull %1, i8 noundef zeroext 36, i32 noundef 0, i32 noundef 5, i32 noundef %.0151.i, i32 noundef %.0.i61, ptr noundef null) #2
-  %.not180.i = icmp eq i16 %305, 0
-  br i1 %.not180.i, label %310, label %306
+304:                                              ; preds = %301, %297
+  %.0151.i = phi i32 [ %299, %297 ], [ 1, %301 ]
+  %.0.i62 = phi i32 [ %300, %297 ], [ %293, %301 ]
+  %305 = icmp sgt i32 %.0.i62, 0
+  br i1 %305, label %306, label %312
 
 306:                                              ; preds = %304
-  %307 = zext i16 %305 to i32
-  %308 = add nuw nsw i32 %.0151.i, %307
-  %309 = sub nsw i32 %.0.i61, %307
-  br label %313
+  %307 = tail call zeroext i16 @elem_tlv(ptr noundef %0, ptr noundef %12, ptr noundef nonnull %1, i8 noundef zeroext 36, i32 noundef 0, i32 noundef 5, i32 noundef %.0151.i, i32 noundef %.0.i62, ptr noundef null) #2
+  %.not180.i = icmp eq i16 %307, 0
+  br i1 %.not180.i, label %312, label %308
 
-310:                                              ; preds = %304, %302
-  %311 = tail call ptr @get_gsm_a_msg_string(i32 noundef 0, i32 noundef 5) #2
-  %312 = tail call ptr (ptr, ptr, ptr, ptr, i32, i32, ptr, ...) @proto_tree_add_expert_format(ptr noundef %12, ptr noundef nonnull %1, ptr noundef nonnull @ei_gsm_bsslap_missing_mandatory_element, ptr noundef %0, i32 noundef %.0151.i, i32 noundef 0, ptr noundef nonnull @.str.79, i32 noundef 36, ptr noundef %311, ptr noundef nonnull @.str.80) #2
-  br label %313
+308:                                              ; preds = %306
+  %309 = zext i16 %307 to i32
+  %310 = add nuw nsw i32 %.0151.i, %309
+  %311 = sub nsw i32 %.0.i62, %309
+  br label %315
 
-313:                                              ; preds = %310, %306
-  %.1152.i = phi i32 [ %308, %306 ], [ %.0151.i, %310 ]
-  %.1.i62 = phi i32 [ %309, %306 ], [ %.0.i61, %310 ]
-  %314 = icmp slt i32 %.1.i62, 1
-  br i1 %314, label %dissect_gsm_bsslap_ta_res.exit, label %315
+312:                                              ; preds = %306, %304
+  %313 = tail call ptr @get_gsm_a_msg_string(i32 noundef 0, i32 noundef 5) #2
+  %314 = tail call ptr (ptr, ptr, ptr, ptr, i32, i32, ptr, ...) @proto_tree_add_expert_format(ptr noundef %12, ptr noundef nonnull %1, ptr noundef nonnull @ei_gsm_bsslap_missing_mandatory_element, ptr noundef %0, i32 noundef %.0151.i, i32 noundef 0, ptr noundef nonnull @.str.79, i32 noundef 36, ptr noundef %313, ptr noundef nonnull @.str.80) #2
+  br label %315
 
-315:                                              ; preds = %313
-  %316 = tail call zeroext i16 @elem_tlv(ptr noundef %0, ptr noundef %12, ptr noundef nonnull %1, i8 noundef zeroext 33, i32 noundef 3, i32 noundef 24, i32 noundef %.1152.i, i32 noundef %.1.i62, ptr noundef null) #2
-  %317 = zext i16 %316 to i32
-  %318 = sub nsw i32 %.1.i62, %317
-  %319 = icmp slt i32 %318, 1
-  br i1 %319, label %dissect_gsm_bsslap_ta_res.exit, label %320
+315:                                              ; preds = %312, %308
+  %.1152.i = phi i32 [ %310, %308 ], [ %.0151.i, %312 ]
+  %.1.i63 = phi i32 [ %311, %308 ], [ %.0.i62, %312 ]
+  %316 = icmp slt i32 %.1.i63, 1
+  br i1 %316, label %dissect_gsm_bsslap_ta_res.exit, label %317
 
-320:                                              ; preds = %315
-  %321 = add nuw nsw i32 %.1152.i, %317
-  %322 = tail call zeroext i16 @elem_tv(ptr noundef %0, ptr noundef %12, ptr noundef nonnull %1, i8 noundef zeroext 1, i32 noundef 6, i32 noundef 1, i32 noundef %321, ptr noundef null) #2
-  %323 = zext i16 %322 to i32
-  %324 = sub nsw i32 %318, %323
-  %325 = icmp slt i32 %324, 1
-  br i1 %325, label %dissect_gsm_bsslap_ta_res.exit, label %326
+317:                                              ; preds = %315
+  %318 = tail call zeroext i16 @elem_tlv(ptr noundef %0, ptr noundef %12, ptr noundef nonnull %1, i8 noundef zeroext 33, i32 noundef 3, i32 noundef 24, i32 noundef %.1152.i, i32 noundef %.1.i63, ptr noundef null) #2
+  %319 = zext i16 %318 to i32
+  %320 = sub nsw i32 %.1.i63, %319
+  %321 = icmp slt i32 %320, 1
+  br i1 %321, label %dissect_gsm_bsslap_ta_res.exit, label %322
 
-326:                                              ; preds = %320
-  %327 = add nuw nsw i32 %321, %323
-  %328 = tail call zeroext i16 @elem_tv(ptr noundef %0, ptr noundef %12, ptr noundef nonnull %1, i8 noundef zeroext 34, i32 noundef 6, i32 noundef 20, i32 noundef %327, ptr noundef null) #2
-  %329 = zext i16 %328 to i32
-  %330 = sub nsw i32 %324, %329
-  %331 = icmp slt i32 %330, 1
-  br i1 %331, label %dissect_gsm_bsslap_ta_res.exit, label %332
+322:                                              ; preds = %317
+  %323 = add nuw nsw i32 %.1152.i, %319
+  %324 = tail call zeroext i16 @elem_tv(ptr noundef %0, ptr noundef %12, ptr noundef nonnull %1, i8 noundef zeroext 1, i32 noundef 6, i32 noundef 1, i32 noundef %323, ptr noundef null) #2
+  %325 = zext i16 %324 to i32
+  %326 = sub nsw i32 %320, %325
+  %327 = icmp slt i32 %326, 1
+  br i1 %327, label %dissect_gsm_bsslap_ta_res.exit, label %328
 
-332:                                              ; preds = %326
-  %333 = add nuw nsw i32 %327, %329
-  %334 = tail call zeroext i16 @elem_tlv(ptr noundef %0, ptr noundef %12, ptr noundef nonnull %1, i8 noundef zeroext 20, i32 noundef 6, i32 noundef 11, i32 noundef %333, i32 noundef %330, ptr noundef nonnull @.str.81) #2
-  %335 = zext i16 %334 to i32
-  %336 = sub nsw i32 %330, %335
-  %337 = icmp slt i32 %336, 1
-  br i1 %337, label %dissect_gsm_bsslap_ta_res.exit, label %338
+328:                                              ; preds = %322
+  %329 = add nuw nsw i32 %323, %325
+  %330 = tail call zeroext i16 @elem_tv(ptr noundef %0, ptr noundef %12, ptr noundef nonnull %1, i8 noundef zeroext 34, i32 noundef 6, i32 noundef 20, i32 noundef %329, ptr noundef null) #2
+  %331 = zext i16 %330 to i32
+  %332 = sub nsw i32 %326, %331
+  %333 = icmp slt i32 %332, 1
+  br i1 %333, label %dissect_gsm_bsslap_ta_res.exit, label %334
 
-338:                                              ; preds = %332
-  %339 = add nuw nsw i32 %333, %335
-  %340 = tail call zeroext i16 @elem_tv(ptr noundef %0, ptr noundef %12, ptr noundef nonnull %1, i8 noundef zeroext 37, i32 noundef 6, i32 noundef 23, i32 noundef %339, ptr noundef null) #2
-  %341 = zext i16 %340 to i32
-  %342 = sub nsw i32 %336, %341
-  %343 = icmp slt i32 %342, 1
-  br i1 %343, label %dissect_gsm_bsslap_ta_res.exit, label %344
+334:                                              ; preds = %328
+  %335 = add nuw nsw i32 %329, %331
+  %336 = tail call zeroext i16 @elem_tlv(ptr noundef %0, ptr noundef %12, ptr noundef nonnull %1, i8 noundef zeroext 20, i32 noundef 6, i32 noundef 11, i32 noundef %335, i32 noundef %332, ptr noundef nonnull @.str.81) #2
+  %337 = zext i16 %336 to i32
+  %338 = sub nsw i32 %332, %337
+  %339 = icmp slt i32 %338, 1
+  br i1 %339, label %dissect_gsm_bsslap_ta_res.exit, label %340
 
-344:                                              ; preds = %338
-  %345 = add nuw nsw i32 %339, %341
-  %346 = tail call zeroext i16 @elem_tv(ptr noundef %0, ptr noundef %12, ptr noundef nonnull %1, i8 noundef zeroext 38, i32 noundef 3, i32 noundef 18, i32 noundef %345, ptr noundef null) #2
-  %347 = zext i16 %346 to i32
-  %348 = sub nsw i32 %342, %347
-  %349 = icmp slt i32 %348, 1
-  br i1 %349, label %dissect_gsm_bsslap_ta_res.exit, label %350
+340:                                              ; preds = %334
+  %341 = add nuw nsw i32 %335, %337
+  %342 = tail call zeroext i16 @elem_tv(ptr noundef %0, ptr noundef %12, ptr noundef nonnull %1, i8 noundef zeroext 37, i32 noundef 6, i32 noundef 23, i32 noundef %341, ptr noundef null) #2
+  %343 = zext i16 %342 to i32
+  %344 = sub nsw i32 %338, %343
+  %345 = icmp slt i32 %344, 1
+  br i1 %345, label %dissect_gsm_bsslap_ta_res.exit, label %346
 
-350:                                              ; preds = %344
-  %351 = add nuw nsw i32 %345, %347
-  %352 = tail call zeroext i16 @elem_tv(ptr noundef %0, ptr noundef %12, ptr noundef nonnull %1, i8 noundef zeroext 39, i32 noundef 3, i32 noundef 12, i32 noundef %351, ptr noundef null) #2
-  %353 = zext i16 %352 to i32
-  %354 = sub nsw i32 %348, %353
-  %355 = icmp slt i32 %354, 1
-  br i1 %355, label %dissect_gsm_bsslap_ta_res.exit, label %356
+346:                                              ; preds = %340
+  %347 = add nuw nsw i32 %341, %343
+  %348 = tail call zeroext i16 @elem_tv(ptr noundef %0, ptr noundef %12, ptr noundef nonnull %1, i8 noundef zeroext 38, i32 noundef 3, i32 noundef 18, i32 noundef %347, ptr noundef null) #2
+  %349 = zext i16 %348 to i32
+  %350 = sub nsw i32 %344, %349
+  %351 = icmp slt i32 %350, 1
+  br i1 %351, label %dissect_gsm_bsslap_ta_res.exit, label %352
 
-356:                                              ; preds = %350
-  %357 = add nuw nsw i32 %351, %353
-  %358 = tail call zeroext i16 @elem_tlv(ptr noundef %0, ptr noundef %12, ptr noundef nonnull %1, i8 noundef zeroext 40, i32 noundef 3, i32 noundef 37, i32 noundef %357, i32 noundef %354, ptr noundef null) #2
-  %359 = zext i16 %358 to i32
-  %360 = sub nsw i32 %354, %359
-  %361 = icmp slt i32 %360, 1
-  br i1 %361, label %dissect_gsm_bsslap_ta_res.exit, label %362
+352:                                              ; preds = %346
+  %353 = add nuw nsw i32 %347, %349
+  %354 = tail call zeroext i16 @elem_tv(ptr noundef %0, ptr noundef %12, ptr noundef nonnull %1, i8 noundef zeroext 39, i32 noundef 3, i32 noundef 12, i32 noundef %353, ptr noundef null) #2
+  %355 = zext i16 %354 to i32
+  %356 = sub nsw i32 %350, %355
+  %357 = icmp slt i32 %356, 1
+  br i1 %357, label %dissect_gsm_bsslap_ta_res.exit, label %358
 
-362:                                              ; preds = %356
-  %363 = add nuw nsw i32 %357, %359
-  %364 = tail call zeroext i16 @elem_tlv(ptr noundef %0, ptr noundef %12, ptr noundef nonnull %1, i8 noundef zeroext 28, i32 noundef 6, i32 noundef 16, i32 noundef %363, i32 noundef %360, ptr noundef nonnull @.str.82) #2
-  %365 = zext i16 %364 to i32
-  %366 = sub nsw i32 %360, %365
-  %367 = icmp slt i32 %366, 1
-  br i1 %367, label %dissect_gsm_bsslap_ta_res.exit, label %368
+358:                                              ; preds = %352
+  %359 = add nuw nsw i32 %353, %355
+  %360 = tail call zeroext i16 @elem_tlv(ptr noundef %0, ptr noundef %12, ptr noundef nonnull %1, i8 noundef zeroext 40, i32 noundef 3, i32 noundef 37, i32 noundef %359, i32 noundef %356, ptr noundef null) #2
+  %361 = zext i16 %360 to i32
+  %362 = sub nsw i32 %356, %361
+  %363 = icmp slt i32 %362, 1
+  br i1 %363, label %dissect_gsm_bsslap_ta_res.exit, label %364
 
-368:                                              ; preds = %362
-  %369 = add nuw nsw i32 %363, %365
-  %370 = tail call zeroext i16 @elem_tlv(ptr noundef %0, ptr noundef %12, ptr noundef nonnull %1, i8 noundef zeroext 42, i32 noundef 6, i32 noundef 27, i32 noundef %369, i32 noundef %366, ptr noundef null) #2
-  %371 = zext i16 %370 to i32
-  %372 = sub nsw i32 %366, %371
-  %373 = icmp slt i32 %372, 1
-  br i1 %373, label %dissect_gsm_bsslap_ta_res.exit, label %374
+364:                                              ; preds = %358
+  %365 = add nuw nsw i32 %359, %361
+  %366 = tail call zeroext i16 @elem_tlv(ptr noundef %0, ptr noundef %12, ptr noundef nonnull %1, i8 noundef zeroext 28, i32 noundef 6, i32 noundef 16, i32 noundef %365, i32 noundef %362, ptr noundef nonnull @.str.82) #2
+  %367 = zext i16 %366 to i32
+  %368 = sub nsw i32 %362, %367
+  %369 = icmp slt i32 %368, 1
+  br i1 %369, label %dissect_gsm_bsslap_ta_res.exit, label %370
 
-374:                                              ; preds = %368
-  %375 = add nuw nsw i32 %369, %371
-  %376 = tail call zeroext i16 @elem_tv(ptr noundef %0, ptr noundef %12, ptr noundef nonnull %1, i8 noundef zeroext 43, i32 noundef 3, i32 noundef 68, i32 noundef %375, ptr noundef null) #2
-  %377 = zext i16 %376 to i32
-  %378 = sub nsw i32 %372, %377
-  %379 = icmp slt i32 %378, 1
-  br i1 %379, label %dissect_gsm_bsslap_ta_res.exit, label %380
+370:                                              ; preds = %364
+  %371 = add nuw nsw i32 %365, %367
+  %372 = tail call zeroext i16 @elem_tlv(ptr noundef %0, ptr noundef %12, ptr noundef nonnull %1, i8 noundef zeroext 42, i32 noundef 6, i32 noundef 27, i32 noundef %371, i32 noundef %368, ptr noundef null) #2
+  %373 = zext i16 %372 to i32
+  %374 = sub nsw i32 %368, %373
+  %375 = icmp slt i32 %374, 1
+  br i1 %375, label %dissect_gsm_bsslap_ta_res.exit, label %376
 
-380:                                              ; preds = %374
-  %381 = add nuw nsw i32 %375, %377
-  %382 = tail call zeroext i16 @elem_tv(ptr noundef %0, ptr noundef %12, ptr noundef nonnull %1, i8 noundef zeroext 44, i32 noundef 6, i32 noundef 29, i32 noundef %381, ptr noundef null) #2
-  %383 = zext i16 %382 to i32
-  %.not194.i = icmp ugt i32 %378, %383
-  br i1 %.not194.i, label %384, label %dissect_gsm_bsslap_ta_res.exit
+376:                                              ; preds = %370
+  %377 = add nuw nsw i32 %371, %373
+  %378 = tail call zeroext i16 @elem_tv(ptr noundef %0, ptr noundef %12, ptr noundef nonnull %1, i8 noundef zeroext 43, i32 noundef 3, i32 noundef 68, i32 noundef %377, ptr noundef null) #2
+  %379 = zext i16 %378 to i32
+  %380 = sub nsw i32 %374, %379
+  %381 = icmp slt i32 %380, 1
+  br i1 %381, label %dissect_gsm_bsslap_ta_res.exit, label %382
 
-384:                                              ; preds = %380
-  %385 = add nuw nsw i32 %381, %383
-  %386 = tail call zeroext i16 @elem_tv(ptr noundef %0, ptr noundef %12, ptr noundef nonnull %1, i8 noundef zeroext 45, i32 noundef 3, i32 noundef 65, i32 noundef %385, ptr noundef nonnull @.str.83) #2
+382:                                              ; preds = %376
+  %383 = add nuw nsw i32 %377, %379
+  %384 = tail call zeroext i16 @elem_tv(ptr noundef %0, ptr noundef %12, ptr noundef nonnull %1, i8 noundef zeroext 44, i32 noundef 6, i32 noundef 29, i32 noundef %383, ptr noundef null) #2
+  %.not192.i = icmp ne i16 %384, 0
+  %385 = zext i16 %384 to i32
+  %386 = icmp samesign ule i32 %380, %385
+  %.13.i = select i1 %.not192.i, i1 %386, i1 false
+  br i1 %.13.i, label %dissect_gsm_bsslap_ta_res.exit, label %387
+
+387:                                              ; preds = %382
+  %388 = add nuw nsw i32 %383, %385
+  %389 = tail call zeroext i16 @elem_tv(ptr noundef %0, ptr noundef %12, ptr noundef nonnull %1, i8 noundef zeroext 45, i32 noundef 3, i32 noundef 65, i32 noundef %388, ptr noundef nonnull @.str.83) #2
   br label %dissect_gsm_bsslap_ta_res.exit
 
-dissect_gsm_bsslap_ta_res.exit:                   ; preds = %384, %380, %374, %368, %362, %356, %350, %344, %338, %332, %326, %320, %315, %313, %287, %284, %281, %278, %272, %266, %261, %259, %233, %231, %214, %208, %203, %201, %186, %184, %178, %174, %168, %162, %156, %150, %144, %138, %132, %126, %120, %114, %109, %107, %59, %57, %51, %45, %40, %38, %7, %4
-  %387 = tail call i32 @tvb_captured_length(ptr noundef %0) #2
-  ret i32 %387
+dissect_gsm_bsslap_ta_res.exit:                   ; preds = %387, %382, %376, %370, %364, %358, %352, %346, %340, %334, %328, %322, %317, %315, %289, %285, %282, %279, %273, %267, %262, %260, %234, %232, %215, %209, %204, %202, %187, %185, %179, %174, %168, %162, %156, %150, %144, %138, %132, %126, %120, %114, %109, %107, %59, %57, %51, %45, %40, %38, %7, %4
+  %390 = tail call i32 @tvb_captured_length(ptr noundef %0) #2
+  ret i32 %390
 }
 
 declare ptr @proto_tree_add_item(ptr noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #0

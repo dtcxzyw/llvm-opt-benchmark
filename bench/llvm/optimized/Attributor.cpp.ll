@@ -15255,7 +15255,7 @@ _ZN4llvm15SmallVectorImplIPNS_17AbstractAttributeEE7reserveEm.exit.i: ; preds = 
   %1201 = getelementptr inbounds i8, ptr %.sroa.05.08.i.i.i.i.i.i.i.i.i, i64 8
   %1202 = getelementptr inbounds i8, ptr %.049.i.i.i.i.i.i.i.i.i, i64 8
   %1203 = add nsw i64 %.010.i.i.i.i.i.i.i.i.i, -1
-  %1204 = icmp ugt i64 %.010.i.i.i.i.i.i.i.i.i, 1
+  %1204 = icmp samesign ugt i64 %.010.i.i.i.i.i.i.i.i.i, 1
   br i1 %1204, label %.lr.ph.i.i.i.i.i.i.i.i.i, label %_ZN4llvm15SmallVectorImplIPNS_17AbstractAttributeEE6appendINS_15mapped_iteratorIPKNS_14PointerIntPairIPNS_14AADepGraphNodeELj1EjNS_21PointerLikeTypeTraitsIS8_EENS_18PointerIntPairInfoIS8_Lj1ESA_EEEEPFS2_RSE_ES2_EEvEEvT_SK_.exit, !llvm.loop !103
 
 _ZN4llvm15SmallVectorImplIPNS_17AbstractAttributeEE6appendINS_15mapped_iteratorIPKNS_14PointerIntPairIPNS_14AADepGraphNodeELj1EjNS_21PointerLikeTypeTraitsIS8_EENS_18PointerIntPairInfoIS8_Lj1ESA_EEEEPFS2_RSE_ES2_EEvEEvT_SK_.exit: ; preds = %.lr.ph.i.i.i.i.i.i.i.i.i, %_ZN4llvm15SmallVectorImplIPNS_17AbstractAttributeEE7reserveEm.exit.i
@@ -42410,7 +42410,7 @@ define linkonce_odr hidden void @_ZN4llvm6detail12DenseSetImplIPKcNS_8DenseMapIS
 
 _ZN4llvm12PowerOf2CeilEm.exit:                    ; preds = %3
   %4 = add nsw i64 %2, -1
-  %5 = icmp ugt i64 %4, 2147483647
+  %5 = icmp samesign ugt i64 %4, 2147483647
   br i1 %5, label %_ZN4llvm12PowerOf2CeilEm.exit.thread, label %6
 
 6:                                                ; preds = %_ZN4llvm12PowerOf2CeilEm.exit
@@ -57530,7 +57530,7 @@ define linkonce_odr noundef nonnull align 8 dereferenceable(16) ptr @_ZN4llvm15S
   %17 = getelementptr inbounds i8, ptr %.0910.i.i.i.i.i, i64 80
   %18 = getelementptr inbounds i8, ptr %.0811.i.i.i.i.i, i64 80
   %19 = add nsw i64 %.012.i.i.i.i.i, -1
-  %20 = icmp ugt i64 %.012.i.i.i.i.i, 1
+  %20 = icmp samesign ugt i64 %.012.i.i.i.i.i, 1
   br i1 %20, label %.lr.ph.i.i.i.i.i, label %_ZSt4copyIPKN4llvm30DiagnosticInfoOptimizationBase8ArgumentEPS2_ET0_T_S7_S6_.exit.loopexit, !llvm.loop !714
 
 _ZSt4copyIPKN4llvm30DiagnosticInfoOptimizationBase8ArgumentEPS2_ET0_T_S7_S6_.exit.loopexit: ; preds = %.lr.ph.i.i.i.i.i
@@ -57611,7 +57611,7 @@ _ZN4llvm15SmallVectorImplINS_30DiagnosticInfoOptimizationBase8ArgumentEE5clearEv
   %47 = getelementptr inbounds i8, ptr %.0910.i.i.i.i.i35, i64 80
   %48 = getelementptr inbounds i8, ptr %.0811.i.i.i.i.i34, i64 80
   %49 = add nsw i64 %.012.i.i.i.i.i33, -1
-  %50 = icmp ugt i64 %.012.i.i.i.i.i33, 1
+  %50 = icmp samesign ugt i64 %.012.i.i.i.i.i33, 1
   br i1 %50, label %.lr.ph.i.i.i.i.i32, label %_ZSt4copyIPKN4llvm30DiagnosticInfoOptimizationBase8ArgumentEPS2_ET0_T_S7_S6_.exit36, !llvm.loop !714
 
 _ZSt4copyIPKN4llvm30DiagnosticInfoOptimizationBase8ArgumentEPS2_ET0_T_S7_S6_.exit36: ; preds = %.lr.ph.i.i.i.i.i32, %37, %36, %_ZN4llvm15SmallVectorImplINS_30DiagnosticInfoOptimizationBase8ArgumentEE5clearEv.exit

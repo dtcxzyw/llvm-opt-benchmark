@@ -958,7 +958,7 @@ define i32 @cli_bcapi_file_find_limit(ptr nocapture noundef readonly %0, ptr nou
   br i1 %.not.i.us, label %fmap_readn.exit.thread, label %46
 
 46:                                               ; preds = %42
-  %47 = icmp ult i64 %spec.select.i.us, 2147483648
+  %47 = icmp samesign ult i64 %spec.select.i.us, 2147483648
   %48 = select i1 %47, i64 %spec.select.i.us, i64 -1
   br label %fmap_readn.exit.us
 
@@ -1011,7 +1011,7 @@ fmap_readn.exit.us:                               ; preds = %46, %36
 
 70:                                               ; preds = %66
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 16 %5, ptr nonnull align 1 %69, i64 %spec.select.i.us71, i1 false)
-  %71 = icmp ult i64 %spec.select.i.us71, 2147483648
+  %71 = icmp samesign ult i64 %spec.select.i.us71, 2147483648
   %72 = select i1 %71, i64 %spec.select.i.us71, i64 -1
   br label %fmap_readn.exit.us73
 
@@ -1067,7 +1067,7 @@ cli_memmem.exit.us:                               ; preds = %fmap_readn.exit.us7
 
 96:                                               ; preds = %92
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 16 %5, ptr nonnull align 1 %95, i64 %spec.select.i, i1 false)
-  %97 = icmp ult i64 %spec.select.i, 2147483648
+  %97 = icmp samesign ult i64 %spec.select.i, 2147483648
   %98 = select i1 %97, i64 %spec.select.i, i64 -1
   br label %fmap_readn.exit
 
@@ -1318,7 +1318,7 @@ define range(i32 -1, -2147483648) i32 @cli_bcapi_fill_buffer(ptr nocapture nound
 
 41:                                               ; preds = %40, %23
   %42 = sub nsw i32 %2, %24
-  %or.cond107.not = icmp ult i32 %24, %2
+  %or.cond107.not = icmp samesign ult i32 %24, %2
   br i1 %or.cond107.not, label %43, label %54
 
 43:                                               ; preds = %41

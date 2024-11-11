@@ -334,7 +334,7 @@ while.body:                                       ; preds = %while.cond.preheade
   store i64 %or, ptr %p.017, align 8
   %incdec.ptr = getelementptr i8, ptr %p.017, i64 8
   %sub5 = add nsw i64 %sub519, -64
-  %cmp6 = icmp ugt i64 %sub519, 63
+  %cmp6 = icmp samesign ugt i64 %sub519, 63
   br i1 %cmp6, label %while.body, label %while.end, !llvm.loop !14
 
 while.end:                                        ; preds = %while.body, %while.cond.preheader
@@ -469,7 +469,7 @@ while.body:                                       ; preds = %while.body.preheade
   store i64 %and8, ptr %p.017, align 8
   %incdec.ptr = getelementptr i8, ptr %p.017, i64 8
   %sub5 = add nsw i64 %sub519, -64
-  %cmp6 = icmp ugt i64 %sub519, 63
+  %cmp6 = icmp samesign ugt i64 %sub519, 63
   br i1 %cmp6, label %while.body, label %while.end, !llvm.loop !16
 
 while.end:                                        ; preds = %while.body, %while.cond.preheader
@@ -695,7 +695,7 @@ while.end:                                        ; preds = %entry, %while.end
   %incdec.ptr = getelementptr i8, ptr %dst.addr.07, i64 8
   %incdec.ptr4 = getelementptr i8, ptr %src.addr.06, i64 8
   %sub = add nsw i64 %nr.addr.05, -64
-  %cmp = icmp ugt i64 %nr.addr.05, 64
+  %cmp = icmp samesign ugt i64 %nr.addr.05, 64
   br i1 %cmp, label %while.end, label %while.end5, !llvm.loop !18
 
 while.end5:                                       ; preds = %while.end, %entry

@@ -64,7 +64,7 @@ if.then.i8:                                       ; preds = %_ZN8facebook5velox1
   unreachable
 
 if.end.i:                                         ; preds = %_ZN8facebook5velox12StlAllocatorIaEC2EPNS0_19HashStringAllocatorE.exit7
-  %cmp4.i = icmp ugt i8 %indexBitLength, 16
+  %cmp4.i = icmp samesign ugt i8 %indexBitLength, 16
   br i1 %cmp4.i, label %if.then7.i, label %if.then.i.i
 
 if.then7.i:                                       ; preds = %if.end.i
@@ -108,7 +108,7 @@ if.then:                                          ; preds = %entry
   unreachable
 
 if.end:                                           ; preds = %entry
-  %cmp4 = icmp ugt i8 %indexBitLength, 16
+  %cmp4 = icmp samesign ugt i8 %indexBitLength, 16
   br i1 %cmp4, label %if.then7, label %if.end8
 
 if.then7:                                         ; preds = %if.end
@@ -1671,7 +1671,7 @@ if.then.i16:                                      ; preds = %invoke.cont7
   unreachable
 
 if.end.i14:                                       ; preds = %invoke.cont7
-  %cmp4.i = icmp ugt i8 %5, 16
+  %cmp4.i = icmp samesign ugt i8 %5, 16
   br i1 %cmp4.i, label %if.then7.i, label %if.then.i.i
 
 if.then7.i:                                       ; preds = %if.end.i14
@@ -2070,7 +2070,7 @@ _ZNKSt6vectorItN8facebook5velox12StlAllocatorItEEE12_M_check_lenEmPKc.exit.i: ; 
   %.sroa.speculated.i.i65 = tail call i64 @llvm.umax.i64(i64 %sub.ptr.div.i.i.i.i, i64 %sub.i.i.i)
   %add.i.i66 = add nuw nsw i64 %.sroa.speculated.i.i65, %sub.ptr.div.i.i.i.i
   %24 = tail call i64 @llvm.umin.i64(i64 %add.i.i66, i64 4611686018427387903)
-  %cmp.i.i.i.i67 = icmp ugt i64 %add.i.i66, 1536
+  %cmp.i.i.i.i67 = icmp samesign ugt i64 %add.i.i66, 1536
   %25 = load ptr, ptr %overflowBuckets_.i.i, align 8
   br i1 %cmp.i.i.i.i67, label %if.then.i.i.i.i90, label %if.end.i.i.i.i68
 
@@ -2821,7 +2821,7 @@ _ZNKSt6vectorItN8facebook5velox12StlAllocatorItEEE12_M_check_lenEmPKc.exit: ; pr
   %.sroa.speculated.i = tail call i64 @llvm.umax.i64(i64 %sub.ptr.div.i, i64 %__n)
   %add.i = add nuw nsw i64 %.sroa.speculated.i, %sub.ptr.div.i
   %4 = tail call i64 @llvm.umin.i64(i64 %add.i, i64 4611686018427387903)
-  %cmp.i.i.i = icmp ugt i64 %add.i, 1536
+  %cmp.i.i.i = icmp samesign ugt i64 %add.i, 1536
   %5 = load ptr, ptr %this, align 8
   br i1 %cmp.i.i.i, label %if.then.i.i.i, label %if.end.i.i.i
 

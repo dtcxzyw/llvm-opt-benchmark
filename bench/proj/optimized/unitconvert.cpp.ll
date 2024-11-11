@@ -919,7 +919,7 @@ _ZL12is_leap_yearl.exit:                          ; preds = %.lr.ph
 
 26:                                               ; preds = %_ZL12is_leap_yearl.exit.thread, %_ZL12is_leap_yearl.exit, %25
   %27 = phi double [ %.023, %25 ], [ %24, %_ZL12is_leap_yearl.exit ], [ %22, %_ZL12is_leap_yearl.exit.thread ]
-  %28 = icmp ugt i64 %.01724.in, 1860
+  %28 = icmp samesign ugt i64 %.01724.in, 1860
   br i1 %28, label %.lr.ph, label %.loopexit, !llvm.loop !15
 
 .loopexit:                                        ; preds = %26, %_ZL12days_in_yearl.exit, %1
@@ -1113,7 +1113,7 @@ _ZL12is_leap_yearl.exit.i:                        ; preds = %.lr.ph
 _ZL12days_in_yearl.exit:                          ; preds = %.lr.ph, %_ZL12is_leap_yearl.exit.i
   %54 = phi double [ 3.660000e+02, %.lr.ph ], [ %53, %_ZL12is_leap_yearl.exit.i ]
   %55 = fadd double %.019, %54
-  %56 = icmp ugt i64 %.014.in18, 1860
+  %56 = icmp samesign ugt i64 %.014.in18, 1860
   br i1 %56, label %.lr.ph, label %._crit_edge, !llvm.loop !18
 
 ._crit_edge:                                      ; preds = %_ZL12days_in_yearl.exit, %_ZL17daynumber_in_yearmmm.exit

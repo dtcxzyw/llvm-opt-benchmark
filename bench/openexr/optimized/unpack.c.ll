@@ -544,7 +544,7 @@ if.end.i.us.us:                                   ; preds = %for.body78.us.us
 
 if.end11.i.us.us:                                 ; preds = %if.end.i.us.us
   %35 = shl nuw nsw i32 %conv.i.us.us, 13
-  %cmp.i.i.i.us.us = icmp ugt i16 %src73.0.val.us.us, 1023
+  %cmp.i.i.i.us.us = icmp samesign ugt i16 %src73.0.val.us.us, 1023
   br i1 %cmp.i.i.i.us.us, label %if.then.i.i.i.us.us, label %if.else12.i.i.i.us.us
 
 if.else12.i.i.i.us.us:                            ; preds = %if.end11.i.us.us
@@ -561,7 +561,7 @@ if.then15.i.i.i.us.us:                            ; preds = %if.else12.i.i.i.us.
   br label %half_to_float.exit.i.us.us
 
 if.then.i.i.i.us.us:                              ; preds = %if.end11.i.us.us
-  %cmp6.i.i.i.us.us = icmp ult i16 %src73.0.val.us.us, 31744
+  %cmp6.i.i.i.us.us = icmp samesign ult i16 %src73.0.val.us.us, 31744
   br i1 %cmp6.i.i.i.us.us, label %if.then10.i.i.i.us.us, label %if.else.i.i.i.us.us
 
 if.else.i.i.i.us.us:                              ; preds = %if.then.i.i.i.us.us
@@ -1122,7 +1122,7 @@ if.end.i.us.us:                                   ; preds = %for.body82.us.us
 
 if.end11.i.us.us:                                 ; preds = %if.end.i.us.us
   %33 = shl nuw nsw i32 %conv.i.us.us, 13
-  %cmp.i.i.i.us.us = icmp ugt i16 %src77.0.val.us.us, 1023
+  %cmp.i.i.i.us.us = icmp samesign ugt i16 %src77.0.val.us.us, 1023
   br i1 %cmp.i.i.i.us.us, label %if.then.i.i.i.us.us, label %if.else12.i.i.i.us.us
 
 if.else12.i.i.i.us.us:                            ; preds = %if.end11.i.us.us
@@ -1139,7 +1139,7 @@ if.then15.i.i.i.us.us:                            ; preds = %if.else12.i.i.i.us.
   br label %half_to_float.exit.i.us.us
 
 if.then.i.i.i.us.us:                              ; preds = %if.end11.i.us.us
-  %cmp6.i.i.i.us.us = icmp ult i16 %src77.0.val.us.us, 31744
+  %cmp6.i.i.i.us.us = icmp samesign ult i16 %src77.0.val.us.us, 31744
   br i1 %cmp6.i.i.i.us.us, label %if.then10.i.i.i.us.us, label %if.else.i.i.i.us.us
 
 if.else.i.i.i.us.us:                              ; preds = %if.then.i.i.i.us.us
@@ -2463,11 +2463,11 @@ if.then4.i:                                       ; preds = %if.end.i
 
 if.end11.i:                                       ; preds = %if.end.i
   %21 = shl nuw nsw i32 %conv.i, 13
-  %cmp.i.i.i = icmp ugt i16 %src61.0.val, 1023
+  %cmp.i.i.i = icmp samesign ugt i16 %src61.0.val, 1023
   br i1 %cmp.i.i.i, label %if.then.i.i.i, label %if.else12.i.i.i
 
 if.then.i.i.i:                                    ; preds = %if.end11.i
-  %cmp6.i.i.i = icmp ult i16 %src61.0.val, 31744
+  %cmp6.i.i.i = icmp samesign ult i16 %src61.0.val, 31744
   br i1 %cmp6.i.i.i, label %if.then10.i.i.i, label %if.else.i.i.i
 
 if.then10.i.i.i:                                  ; preds = %if.then.i.i.i
@@ -3681,7 +3681,7 @@ while.body:                                       ; preds = %entry, %while.body
   %add.ptr = getelementptr inbounds i8, ptr %out.addr.0291, i64 32
   %add.ptr1 = getelementptr inbounds i8, ptr %in.addr.0292, i64 16
   %sub = add nsw i32 %w.addr.0293, -8
-  %cmp = icmp ugt i32 %w.addr.0293, 15
+  %cmp = icmp samesign ugt i32 %w.addr.0293, 15
   br i1 %cmp, label %while.body, label %while.end, !llvm.loop !77
 
 while.end:                                        ; preds = %while.body, %entry

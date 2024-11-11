@@ -1233,7 +1233,7 @@ ehcleanup243:                                     ; preds = %ehcleanup242, %lpad
   br label %ehcleanup336
 
 do.body247:                                       ; preds = %do.body202
-  %cmp249.not = icmp ult i64 %numeraire, %alive
+  %cmp249.not = icmp samesign ult i64 %numeraire, %alive
   br i1 %cmp249.not, label %if.then250, label %for.cond.preheader
 
 for.cond.preheader:                               ; preds = %do.body247
@@ -1460,7 +1460,7 @@ for.body.i.i.i.i.i.us.i:                          ; preds = %for.body.i.i.i.i.i.
   %incdec.ptr.i.i.i.i.i.us.i = getelementptr inbounds nuw i8, ptr %__first.addr.08.i.i.i.i.i.us.i, i64 8
   %add.ptr.i.i.i.i.i.i.us.i = getelementptr inbounds double, ptr %__result.sroa.0.07.i.i.i.i.i.us.i, i64 %5
   %dec.i.i.i.i.i.us.i = add nsw i64 %__n.09.i.i.i.i.i.us.i, -1
-  %cmp.i.i.i.i.i.us.i = icmp ugt i64 %__n.09.i.i.i.i.i.us.i, 1
+  %cmp.i.i.i.i.i.us.i = icmp samesign ugt i64 %__n.09.i.i.i.i.i.us.i, 1
   br i1 %cmp.i.i.i.i.i.us.i, label %for.body.i.i.i.i.i.us.i, label %invoke.cont8.loopexit.us.i, !llvm.loop !49
 
 invoke.cont8.loopexit.us.i:                       ; preds = %for.body.i.i.i.i.i.us.i

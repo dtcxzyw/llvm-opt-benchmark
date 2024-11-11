@@ -387,7 +387,7 @@ Abc_Clock.exit130:                                ; preds = %57, %87
   %112 = call i32 @Gia_ManRandom(i32 noundef 0) #16
   %113 = getelementptr inbounds i32, ptr %111, i64 %indvars.iv.next.i.i
   store i32 %112, ptr %113, align 4
-  %114 = icmp ugt i64 %indvars.iv.i.i, 1
+  %114 = icmp samesign ugt i64 %indvars.iv.i.i, 1
   br i1 %114, label %.lr.ph.i.i, label %Gia_ManSwiSimInfoRandom.exit.i, !llvm.loop !4
 
 Gia_ManSwiSimInfoRandom.exit.i:                   ; preds = %.lr.ph.i.i
@@ -498,7 +498,7 @@ Gia_ManSwiSimInfoZero.exit.i134:                  ; preds = %.lr.ph.preheader.i.
   %165 = xor i32 %164, -1
   %166 = getelementptr inbounds i32, ptr %145, i64 %indvars.iv.next.i.i138
   store i32 %165, ptr %166, align 4
-  %167 = icmp ugt i64 %indvars.iv.i.i137, 1
+  %167 = icmp samesign ugt i64 %indvars.iv.i.i137, 1
   br i1 %167, label %.lr.ph.i.i136, label %Gia_ManSwiSimulateNode.exit.i, !llvm.loop !9
 
 .lr.ph9.i.i:                                      ; preds = %.preheader3.i.i, %.lr.ph9.i.i
@@ -512,7 +512,7 @@ Gia_ManSwiSimInfoZero.exit.i134:                  ; preds = %.lr.ph.preheader.i.
   %173 = and i32 %172, %170
   %174 = getelementptr inbounds i32, ptr %145, i64 %indvars.iv.next19.i.i
   store i32 %173, ptr %174, align 4
-  %175 = icmp ugt i64 %indvars.iv18.i.i, 1
+  %175 = icmp samesign ugt i64 %indvars.iv18.i.i, 1
   br i1 %175, label %.lr.ph9.i.i, label %Gia_ManSwiSimulateNode.exit.i, !llvm.loop !10
 
 176:                                              ; preds = %141
@@ -535,7 +535,7 @@ Gia_ManSwiSimInfoZero.exit.i134:                  ; preds = %.lr.ph.preheader.i.
   %182 = and i32 %178, %181
   %183 = getelementptr inbounds i32, ptr %145, i64 %indvars.iv.next22.i.i
   store i32 %182, ptr %183, align 4
-  %184 = icmp ugt i64 %indvars.iv21.i.i, 1
+  %184 = icmp samesign ugt i64 %indvars.iv21.i.i, 1
   br i1 %184, label %.lr.ph11.i.i, label %Gia_ManSwiSimulateNode.exit.i, !llvm.loop !11
 
 .lr.ph13.i.i:                                     ; preds = %.preheader.i.i, %.lr.ph13.i.i
@@ -548,7 +548,7 @@ Gia_ManSwiSimInfoZero.exit.i134:                  ; preds = %.lr.ph.preheader.i.
   %189 = and i32 %188, %186
   %190 = getelementptr inbounds i32, ptr %145, i64 %indvars.iv.next25.i.i
   store i32 %189, ptr %190, align 4
-  %191 = icmp ugt i64 %indvars.iv24.i.i, 1
+  %191 = icmp samesign ugt i64 %indvars.iv24.i.i, 1
   br i1 %191, label %.lr.ph13.i.i, label %Gia_ManSwiSimulateNode.exit.i, !llvm.loop !12
 
 192:                                              ; preds = %.lr.ph.i135
@@ -587,7 +587,7 @@ Gia_ManSwiSimInfoZero.exit.i134:                  ; preds = %.lr.ph.preheader.i.
   %209 = xor i32 %208, -1
   %210 = getelementptr inbounds i32, ptr %200, i64 %indvars.iv.next.i61.i
   store i32 %209, ptr %210, align 4
-  %211 = icmp ugt i64 %indvars.iv.i60.i, 1
+  %211 = icmp samesign ugt i64 %indvars.iv.i60.i, 1
   br i1 %211, label %.lr.ph.i59.i, label %Gia_ManSwiSimulateNode.exit.i, !llvm.loop !13
 
 .lr.ph5.i.i:                                      ; preds = %.preheader.i62.i, %.lr.ph5.i.i
@@ -597,7 +597,7 @@ Gia_ManSwiSimInfoZero.exit.i134:                  ; preds = %.lr.ph.preheader.i.
   %213 = load i32, ptr %212, align 4
   %214 = getelementptr inbounds i32, ptr %200, i64 %indvars.iv.next9.i.i
   store i32 %213, ptr %214, align 4
-  %215 = icmp ugt i64 %indvars.iv8.i.i, 1
+  %215 = icmp samesign ugt i64 %indvars.iv8.i.i, 1
   br i1 %215, label %.lr.ph5.i.i, label %Gia_ManSwiSimulateNode.exit.i, !llvm.loop !14
 
 216:                                              ; preds = %192
@@ -619,7 +619,7 @@ Gia_ManSwiSimInfoZero.exit.i134:                  ; preds = %.lr.ph.preheader.i.
   %225 = load i32, ptr %224, align 4
   %226 = getelementptr inbounds i32, ptr %220, i64 %indvars.iv.next.i66.i
   store i32 %225, ptr %226, align 4
-  %227 = icmp ugt i64 %indvars.iv.i65.i, 1
+  %227 = icmp samesign ugt i64 %indvars.iv.i65.i, 1
   br i1 %227, label %.lr.ph.i64.i, label %Gia_ManSwiSimulateNode.exit.i, !llvm.loop !15
 
 Gia_ManSwiSimulateNode.exit.i:                    ; preds = %.lr.ph.i59.i, %.lr.ph5.i.i, %.lr.ph.i64.i, %.lr.ph.i.i136, %.lr.ph9.i.i, %.lr.ph11.i.i, %.lr.ph13.i.i, %216, %.preheader.i62.i, %.preheader1.i57.i, %.preheader.i.i, %.preheader1.i.i, %.preheader3.i.i, %.preheader5.i.i
@@ -674,7 +674,7 @@ Gia_ManSwiSimulateNode.exit.i:                    ; preds = %.lr.ph.i59.i, %.lr.
   %259 = add nuw nsw i32 %258, %257
   %260 = shl nuw nsw i32 %259, 1
   %261 = add nuw nsw i32 %260, %.02.i.i
-  %262 = icmp ugt i64 %indvars.iv.i71.i, 1
+  %262 = icmp samesign ugt i64 %indvars.iv.i71.i, 1
   br i1 %262, label %.lr.ph.i70.i, label %.sink.split.i, !llvm.loop !16
 
 263:                                              ; preds = %232
@@ -706,7 +706,7 @@ Gia_ManSwiSimulateNode.exit.i:                    ; preds = %.lr.ph.i59.i, %.lr.
   %283 = lshr i32 %281, 16
   %284 = add nuw nsw i32 %283, %.02.i77.i
   %285 = add nuw nsw i32 %284, %282
-  %286 = icmp ugt i64 %indvars.iv.i76.i, 1
+  %286 = icmp samesign ugt i64 %indvars.iv.i76.i, 1
   br i1 %286, label %.lr.ph.i75.i, label %.sink.split.i, !llvm.loop !17
 
 .sink.split.i:                                    ; preds = %.lr.ph.i70.i, %.lr.ph.i75.i, %263, %240
@@ -782,7 +782,7 @@ Gia_ManSwiSimulateRound.exit:                     ; preds = %290, %Gia_ManSwiSim
   %321 = and i32 %320, 65535
   %322 = or disjoint i32 %321, %319
   store i32 %322, ptr %317, align 4
-  %323 = icmp ugt i64 %indvars.iv.i.us.i, 1
+  %323 = icmp samesign ugt i64 %indvars.iv.i.us.i, 1
   br i1 %323, label %.lr.ph21.i.us.i, label %Gia_ManSwiSimInfoRandomShift.exit.us.i, !llvm.loop !19
 
 Gia_ManSwiSimInfoRandomShift.exit.us.i:           ; preds = %.lr.ph21.i.us.i, %.loopexit.i.us.i
@@ -834,7 +834,7 @@ Gia_ManSwiSimInfoRandomShift.exit.us.i:           ; preds = %.lr.ph21.i.us.i, %.
   %339 = and i32 %338, 65535
   %340 = or disjoint i32 %339, %337
   store i32 %340, ptr %335, align 4
-  %341 = icmp ugt i64 %indvars.iv.i.us44.i, 1
+  %341 = icmp samesign ugt i64 %indvars.iv.i.us44.i, 1
   br i1 %341, label %.lr.ph21.i.us43.i, label %Gia_ManSwiSimInfoRandomShift.exit.us46.i, !llvm.loop !19
 
 Gia_ManSwiSimInfoRandomShift.exit.us46.i:         ; preds = %.lr.ph21.i.us43.i, %.loopexit.i.us40.i
@@ -896,7 +896,7 @@ Gia_ManSwiSimInfoRandomShift.exit.us46.i:         ; preds = %.lr.ph21.i.us43.i, 
   %357 = and i32 %355, 65535
   %358 = or disjoint i32 %357, %356
   store i32 %358, ptr %354, align 4
-  %359 = icmp ugt i64 %indvars.iv.i.i150, 1
+  %359 = icmp samesign ugt i64 %indvars.iv.i.i150, 1
   br i1 %359, label %.lr.ph21.i.i, label %Gia_ManSwiSimInfoRandomShift.exit.i, !llvm.loop !19
 
 Gia_ManSwiSimInfoRandomShift.exit.i:              ; preds = %.lr.ph21.i.i
@@ -930,7 +930,7 @@ Gia_ManSwiSimInfoRandomShift.exit.i:              ; preds = %.lr.ph21.i.i
   %374 = and i32 %373, 65535
   %375 = or disjoint i32 %374, %371
   store i32 %375, ptr %369, align 4
-  %376 = icmp ugt i64 %indvars.iv.i31.i, 1
+  %376 = icmp samesign ugt i64 %indvars.iv.i31.i, 1
   br i1 %376, label %.lr.ph.i30.i, label %Gia_ManSwiSimInfoCopyShift.exit.i.loopexit, !llvm.loop !23
 
 Gia_ManSwiSimInfoCopyShift.exit.i.loopexit:       ; preds = %.lr.ph.i30.i
@@ -976,7 +976,7 @@ Gia_ManSwiSimInfoCopyShift.exit.i.loopexit:       ; preds = %.lr.ph.i30.i
   %395 = load i32, ptr %394, align 4
   %396 = xor i32 %395, %393
   store i32 %396, ptr %394, align 4
-  %397 = icmp ugt i64 %indvars.iv41.i.us.i, 1
+  %397 = icmp samesign ugt i64 %indvars.iv41.i.us.i, 1
   br i1 %397, label %.lr.ph34.i.us.i, label %Gia_ManSwiSimInfoRandom.exit.us.i, !llvm.loop !25
 
 Gia_ManSwiSimInfoRandom.exit.us.i:                ; preds = %.lr.ph34.i.us.i, %.lr.ph.split.us.i185
@@ -1024,7 +1024,7 @@ Gia_ManSwiSimInfoRandom.exit.us.i:                ; preds = %.lr.ph34.i.us.i, %.
   %412 = load i32, ptr %411, align 4
   %413 = xor i32 %412, %407
   store i32 %413, ptr %411, align 4
-  %414 = icmp ugt i64 %indvars.iv38.i.us.i, 1
+  %414 = icmp samesign ugt i64 %indvars.iv38.i.us.i, 1
   br i1 %414, label %.lr.ph32.i.us.i, label %Gia_ManSwiSimInfoRandom.exit.us43.i, !llvm.loop !28
 
 Gia_ManSwiSimInfoRandom.exit.us43.i:              ; preds = %.lr.ph32.i.us.i, %409
@@ -1091,7 +1091,7 @@ Gia_ManSwiSimInfoRandom.exit.us43.i:              ; preds = %.lr.ph32.i.us.i, %4
   %428 = call i32 @Gia_ManRandom(i32 noundef 0) #16
   %429 = getelementptr inbounds i32, ptr %427, i64 %indvars.iv.next.i.i180
   store i32 %428, ptr %429, align 4
-  %430 = icmp ugt i64 %indvars.iv.i.i179, 1
+  %430 = icmp samesign ugt i64 %indvars.iv.i.i179, 1
   br i1 %430, label %.lr.ph.i.i178, label %Gia_ManSwiSimInfoRandom.exit.i172, !llvm.loop !4
 
 Gia_ManSwiSimInfoRandom.exit.i172:                ; preds = %.lr.ph.i.i178
@@ -1121,7 +1121,7 @@ Gia_ManSwiSimInfoRandom.exit.i172:                ; preds = %.lr.ph.i.i178
   %441 = load i32, ptr %440, align 4
   %442 = getelementptr inbounds i32, ptr %436, i64 %indvars.iv.next.i33.i
   store i32 %441, ptr %442, align 4
-  %443 = icmp ugt i64 %indvars.iv.i32.i, 1
+  %443 = icmp samesign ugt i64 %indvars.iv.i32.i, 1
   br i1 %443, label %.lr.ph.i31.i, label %Gia_ManSwiSimInfoCopy.exit.i.loopexit, !llvm.loop !30
 
 Gia_ManSwiSimInfoCopy.exit.i.loopexit:            ; preds = %.lr.ph.i31.i

@@ -468,7 +468,7 @@ do.body195:                                       ; preds = %do.body195.preheade
   %125 = xor i32 %124, %xor424
   %xor443 = xor i32 %125, %xor427
   %rk.0 = getelementptr inbounds i8, ptr %rk.0260, i64 32
-  %cmp192 = icmp ugt i32 %Nr.0258, 4
+  %cmp192 = icmp samesign ugt i32 %Nr.0258, 4
   br i1 %cmp192, label %do.body195, label %while.end, !llvm.loop !4
 
 while.end:                                        ; preds = %do.body195
@@ -862,7 +862,7 @@ if.end7:                                          ; preds = %if.end, %if.end, %i
   %xor181 = xor i32 %xor167, %or
   %xor182 = xor i32 %or, %xor178
   %xor183 = xor i32 %xor181, %xor158
-  %cmp189 = icmp ugt i32 %bits, 128
+  %cmp189 = icmp samesign ugt i32 %bits, 128
   br i1 %cmp189, label %if.then191, label %if.end263
 
 if.then191:                                       ; preds = %if.end7
@@ -902,7 +902,7 @@ if.then191:                                       ; preds = %if.end7
   %59 = load i8, ptr %arrayidx218, align 1
   %conv219 = zext i8 %59 to i32
   %xor220 = or disjoint i32 %xor217, %conv219
-  %cmp222 = icmp ugt i32 %bits, 192
+  %cmp222 = icmp samesign ugt i32 %bits, 192
   br i1 %cmp222, label %if.then224, label %if.end263
 
 if.then224:                                       ; preds = %if.then191
@@ -1444,7 +1444,7 @@ if.end1072:                                       ; preds = %if.end263
   %xor1069 = xor i32 %194, %xor406
   %arrayidx1070 = getelementptr inbounds i8, ptr %key, i64 236
   store i32 %xor1069, ptr %arrayidx1070, align 4
-  %cmp1073 = icmp ugt i32 %bits, 192
+  %cmp1073 = icmp samesign ugt i32 %bits, 192
   br i1 %cmp1073, label %if.then1075, label %return
 
 if.then1075:                                      ; preds = %if.end1072

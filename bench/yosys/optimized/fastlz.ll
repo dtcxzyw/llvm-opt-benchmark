@@ -546,7 +546,7 @@ define internal fastcc noundef i32 @_ZL16fastlz2_compressPKviPv(ptr noundef %0, 
   br i1 %.not205, label %67, label %238
 
 67:                                               ; preds = %60
-  %68 = icmp ugt i32 %51, 8190
+  %68 = icmp samesign ugt i32 %51, 8190
   br i1 %68, label %69, label %80
 
 69:                                               ; preds = %67
@@ -1064,7 +1064,7 @@ define i32 @fastlz_decompress(ptr noundef readonly %0, i32 noundef %1, ptr nound
   %.298.i = phi i32 [ %69, %65 ], [ %.096.i, %57 ]
   %71 = getelementptr inbounds i8, ptr %.2111.i, i64 %.pre-phi.i
   %72 = lshr i32 %.298.i, 1
-  %73 = icmp ugt i32 %.298.i, 9
+  %73 = icmp samesign ugt i32 %.298.i, 9
   br i1 %73, label %.lr.ph147.i, label %.preheader.i
 
 .preheader.i:                                     ; preds = %.lr.ph147.i, %70

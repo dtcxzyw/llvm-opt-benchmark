@@ -4238,7 +4238,7 @@ define dso_local noundef i64 @_ZN4llvm13WinCOFFWriter11writeObjectERNS_11MCAssem
   unreachable
 
 49:                                               ; preds = %2
-  %50 = icmp ugt i64 %46, 65279
+  %50 = icmp samesign ugt i64 %46, 65279
   %51 = getelementptr inbounds nuw i8, ptr %0, i64 208
   %52 = zext i1 %50 to i8
   store i8 %52, ptr %51, align 8

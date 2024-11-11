@@ -3793,7 +3793,7 @@ mtree_range_walk.exit:                            ; preds = %126, %130
 309:                                              ; preds = %301, %286
   %310 = phi ptr [ %302, %301 ], [ null, %286 ]
   %.off = add nsw i32 %138, -1
-  %switch = icmp ult i32 %.off, 2
+  %switch = icmp samesign ult i32 %.off, 2
   %311 = getelementptr inbounds i8, ptr %287, i64 8
   %spec.select = select i1 %switch, ptr %311, ptr null
   %312 = load ptr, ptr %154, align 8
@@ -3919,7 +3919,7 @@ mtree_range_walk.exit:                            ; preds = %126, %130
   %387 = shl nuw nsw i64 %386, 3
   call void @llvm.memcpy.p0.p0.i64(ptr align 8 %374, ptr align 8 %385, i64 %387, i1 false)
   %.off76 = add nsw i32 %138, -1
-  %switch77 = icmp ult i32 %.off76, 2
+  %switch77 = icmp samesign ult i32 %.off76, 2
   %388 = getelementptr inbounds i8, ptr %291, i64 8
   %spec.select78 = select i1 %switch77, ptr %388, ptr null
   br label %389
@@ -4234,7 +4234,7 @@ mtree_range_walk.exit:                            ; preds = %126, %130
 568:                                              ; preds = %565, %555
   %569 = phi ptr [ %566, %565 ], [ null, %555 ]
   %.off79 = add nsw i32 %562, -1
-  %switch80 = icmp ult i32 %.off79, 2
+  %switch80 = icmp samesign ult i32 %.off79, 2
   %570 = getelementptr inbounds i8, ptr %556, i64 8
   %spec.select81 = select i1 %switch80, ptr %570, ptr null
   br label %571
@@ -9531,7 +9531,7 @@ define internal fastcc void @mas_dup_free(ptr nocapture noundef %0) unnamed_addr
 121:                                              ; preds = %118, %107
   %122 = phi ptr [ %119, %118 ], [ null, %107 ]
   %.off = add nsw i32 %114, -1
-  %switch = icmp ult i32 %.off, 2
+  %switch = icmp samesign ult i32 %.off, 2
   %123 = getelementptr inbounds i8, ptr %111, i64 8
   %spec.select = select i1 %switch, ptr %123, ptr null
   br label %124
@@ -10477,7 +10477,7 @@ define internal fastcc noundef range(i32 0, 2) i32 @mas_ascend(ptr nocapture nou
   %139 = getelementptr [4 x i8], ptr @mt_pivots, i64 0, i64 %138
   %140 = load i8, ptr %139, align 1
   %141 = zext i8 %140 to i32
-  %142 = icmp ult i32 %107, %141
+  %142 = icmp samesign ult i32 %107, %141
   br i1 %142, label %143, label %146
 
 143:                                              ; preds = %137
@@ -14148,7 +14148,7 @@ mtree_range_walk.exit:                            ; preds = %1285, %1287
 1332:                                             ; preds = %1329, %1318
   %1333 = phi ptr [ %1330, %1329 ], [ null, %1318 ]
   %.off.i = add nsw i32 %1324, -1
-  %switch.i = icmp ult i32 %.off.i, 2
+  %switch.i = icmp samesign ult i32 %.off.i, 2
   %1334 = getelementptr inbounds i8, ptr %1326, i64 8
   %spec.select.i = select i1 %switch.i, ptr %1334, ptr null
   br label %1335
@@ -14457,7 +14457,7 @@ mtree_range_walk.exit:                            ; preds = %1285, %1287
 1520:                                             ; preds = %1517, %1489
   %1521 = phi ptr [ %1518, %1517 ], [ null, %1489 ]
   %.off.i70 = add nsw i32 %1512, -1
-  %switch.i71 = icmp ult i32 %.off.i70, 2
+  %switch.i71 = icmp samesign ult i32 %.off.i70, 2
   %1522 = getelementptr inbounds i8, ptr %1514, i64 8
   %spec.select.i72 = select i1 %switch.i71, ptr %1522, ptr null
   br label %1523
@@ -16411,7 +16411,7 @@ mas_set_split_parent.exit41:                      ; preds = %mas_set_split_paren
 480:                                              ; preds = %477, %464
   %481 = phi ptr [ %478, %477 ], [ null, %464 ]
   %.off.i = add nsw i32 %472, -1
-  %switch.i = icmp ult i32 %.off.i, 2
+  %switch.i = icmp samesign ult i32 %.off.i, 2
   %482 = getelementptr inbounds i8, ptr %474, i64 8
   %spec.select.i = select i1 %switch.i, ptr %482, ptr null
   br label %483
@@ -16613,7 +16613,7 @@ mab_mas_cp.exit:                                  ; preds = %559, %.loopexit.i
 611:                                              ; preds = %608, %592
   %612 = phi ptr [ %609, %608 ], [ null, %592 ]
   %.off.i48 = add nsw i32 %603, -1
-  %switch.i49 = icmp ult i32 %.off.i48, 2
+  %switch.i49 = icmp samesign ult i32 %.off.i48, 2
   %613 = getelementptr inbounds i8, ptr %605, i64 8
   %spec.select.i50 = select i1 %switch.i49, ptr %613, ptr null
   br label %614
@@ -17383,7 +17383,7 @@ mab_mas_cp.exit52:                                ; preds = %693, %.loopexit.i47
 1112:                                             ; preds = %1109, %1084
   %1113 = phi ptr [ %1110, %1109 ], [ null, %1084 ]
   %.off.i59 = add nsw i32 %1104, -1
-  %switch.i60 = icmp ult i32 %.off.i59, 2
+  %switch.i60 = icmp samesign ult i32 %.off.i59, 2
   %1114 = getelementptr inbounds i8, ptr %1106, i64 8
   %spec.select.i61 = select i1 %switch.i60, ptr %1114, ptr null
   br label %1115
@@ -18987,7 +18987,7 @@ define internal fastcc void @mab_mas_cp(ptr nocapture noundef readonly %0, i8 no
 19:                                               ; preds = %16, %5
   %20 = phi ptr [ %17, %16 ], [ null, %5 ]
   %.off = add nsw i32 %11, -1
-  %switch = icmp ult i32 %.off, 2
+  %switch = icmp samesign ult i32 %.off, 2
   %21 = getelementptr inbounds i8, ptr %13, i64 8
   %spec.select = select i1 %switch, ptr %21, ptr null
   br label %22
@@ -20426,7 +20426,7 @@ define internal fastcc range(i32 -256, 256) i32 @mab_calc_split(ptr nocapture no
   %44 = load ptr, ptr %43, align 8
   %45 = icmp eq ptr %44, null
   %46 = add nsw i32 %38, -1
-  %47 = icmp ule i32 %46, %7
+  %47 = icmp samesign ule i32 %46, %7
   %48 = select i1 %45, i1 %47, i1 false
   br i1 %48, label %49, label %52, !prof !12
 
@@ -21977,7 +21977,7 @@ define internal fastcc void @mas_split_final_node(ptr nocapture noundef readonly
 157:                                              ; preds = %154, %98
   %158 = phi ptr [ %155, %154 ], [ null, %98 ]
   %.off.i = add nsw i32 %149, -1
-  %switch.i = icmp ult i32 %.off.i, 2
+  %switch.i = icmp samesign ult i32 %.off.i, 2
   %159 = getelementptr inbounds i8, ptr %151, i64 8
   %spec.select.i = select i1 %switch.i, ptr %159, ptr null
   br label %160
@@ -22797,7 +22797,7 @@ define internal fastcc void @mast_split_data(ptr nocapture noundef readonly %0, 
 21:                                               ; preds = %18, %3
   %22 = phi ptr [ %19, %18 ], [ null, %3 ]
   %.off.i = add nsw i32 %13, -1
-  %switch.i = icmp ult i32 %.off.i, 2
+  %switch.i = icmp samesign ult i32 %.off.i, 2
   %23 = getelementptr inbounds i8, ptr %15, i64 8
   %spec.select.i = select i1 %switch.i, ptr %23, ptr null
   br label %24
@@ -22997,7 +22997,7 @@ mab_mas_cp.exit:                                  ; preds = %98, %.loopexit.i
 141:                                              ; preds = %138, %127
   %142 = phi ptr [ %139, %138 ], [ null, %127 ]
   %.off.i6 = add nsw i32 %133, -1
-  %switch.i7 = icmp ult i32 %.off.i6, 2
+  %switch.i7 = icmp samesign ult i32 %.off.i6, 2
   %143 = getelementptr inbounds i8, ptr %135, i64 8
   %spec.select.i8 = select i1 %switch.i7, ptr %143, ptr null
   br label %144
@@ -23936,7 +23936,7 @@ define internal fastcc noundef range(i32 0, 2) i32 @mas_next_node(ptr nocapture 
   br label %81
 
 79:                                               ; preds = %97
-  %80 = icmp ugt i32 %82, 2
+  %80 = icmp samesign ugt i32 %82, 2
   br i1 %80, label %81, label %.critedge, !prof !189, !llvm.loop !190
 
 81:                                               ; preds = %78, %79
@@ -24279,7 +24279,7 @@ define internal fastcc noundef range(i32 0, 2) i32 @mas_prev_node(ptr nocapture 
   %112 = load volatile ptr, ptr %111, align 8
   store ptr %112, ptr %3, align 8
   %.off = add nsw i32 %41, -1
-  %switch = icmp ult i32 %.off, 2
+  %switch = icmp samesign ult i32 %.off, 2
   %113 = getelementptr inbounds i8, ptr %44, i64 8
   %spec.select = select i1 %switch, ptr %113, ptr null
   br label %114

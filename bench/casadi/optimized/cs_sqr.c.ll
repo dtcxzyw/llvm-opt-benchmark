@@ -308,7 +308,7 @@ define internal fastcc range(i32 0, 2) i32 @cs_vcount(ptr nocapture noundef nonn
   br label %75
 
 75:                                               ; preds = %.lr.ph165, %71
-  %76 = icmp ugt i64 %indvars.iv181, 1
+  %76 = icmp samesign ugt i64 %indvars.iv181, 1
   br i1 %76, label %.lr.ph165, label %._crit_edge, !llvm.loop !8
 
 ._crit_edge:                                      ; preds = %75, %.preheader145

@@ -169,7 +169,7 @@ for.body:                                         ; preds = %for.body.preheader,
   %indvars.iv = phi i64 [ %0, %for.body.preheader ], [ %indvars.iv.next, %for.body ]
   tail call void @lua_seti(ptr noundef %L, i32 noundef 1, i64 noundef %indvars.iv) #4
   %indvars.iv.next = add nsw i64 %indvars.iv, -1
-  %cmp = icmp ugt i64 %indvars.iv, 1
+  %cmp = icmp samesign ugt i64 %indvars.iv, 1
   br i1 %cmp, label %for.body, label %for.end, !llvm.loop !8
 
 for.end:                                          ; preds = %for.body, %entry
@@ -414,7 +414,7 @@ entry:
   br i1 %cmp, label %if.then, label %if.end12
 
 if.then:                                          ; preds = %entry
-  %cmp1 = icmp ult i64 %call, 2147483647
+  %cmp1 = icmp samesign ult i64 %call, 2147483647
   br i1 %cmp1, label %lor.end, label %lor.rhs
 
 lor.rhs:                                          ; preds = %if.then

@@ -2873,7 +2873,7 @@ for.body:                                         ; preds = %if.then17, %for.bod
   %14 = trunc i64 %indvars.iv.next97 to i32
   %15 = add i32 %sub22, %14
   tail call void @_ZN7Imf_3_213RgbaInputFile7FromYca15readYCAScanLineEiPNS_4RgbaE(ptr noundef nonnull align 8 dereferenceable(392) %this, i32 noundef %15, ptr noundef %13)
-  %cmp24 = icmp ugt i64 %indvars.iv96, 1
+  %cmp24 = icmp samesign ugt i64 %indvars.iv96, 1
   br i1 %cmp24, label %for.body, label %for.body33.lr.ph, !llvm.loop !21
 
 for.body33.lr.ph:                                 ; preds = %for.body
@@ -2938,7 +2938,7 @@ for.body69:                                       ; preds = %for.body69.lr.ph, %
   %arrayidx74 = getelementptr inbounds [29 x ptr], ptr %_buf171, i64 0, i64 %28
   %29 = load ptr, ptr %arrayidx74, align 8
   tail call void @_ZN7Imf_3_213RgbaInputFile7FromYca15readYCAScanLineEiPNS_4RgbaE(ptr noundef nonnull align 8 dereferenceable(392) %this, i32 noundef %sub70, ptr noundef %29)
-  %cmp68 = icmp ugt i64 %indvars.iv, 1
+  %cmp68 = icmp samesign ugt i64 %indvars.iv, 1
   br i1 %cmp68, label %for.body69, label %for.body85.lr.ph, !llvm.loop !23
 
 for.body85.lr.ph:                                 ; preds = %for.body69

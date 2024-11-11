@@ -743,7 +743,7 @@ do.body24:                                        ; preds = %if.then10, %land.lh
   br i1 %tobool.not, label %cond.end, label %cond.end.thread
 
 cond.end:                                         ; preds = %do.body24
-  %cmp26 = icmp ult i32 %c.0, 65536
+  %cmp26 = icmp samesign ult i32 %c.0, 65536
   br i1 %cmp26, label %cond.end32, label %cond.end42
 
 cond.end.thread:                                  ; preds = %do.body24

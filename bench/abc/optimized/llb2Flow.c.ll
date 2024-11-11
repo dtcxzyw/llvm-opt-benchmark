@@ -2183,7 +2183,7 @@ define void @Llb_ManResultPrint(ptr noundef %0, ptr nocapture noundef readonly %
   br label %13
 
 13:                                               ; preds = %12, %7
-  %14 = icmp ugt i64 %indvars.iv, 1
+  %14 = icmp samesign ugt i64 %indvars.iv, 1
   br i1 %14, label %7, label %.critedge, !llvm.loop !30
 
 .critedge:                                        ; preds = %13, %2
@@ -4849,7 +4849,7 @@ Vec_PtrPush.exit94:                               ; preds = %Vec_PtrPush.exit94.
   br label %96
 
 96:                                               ; preds = %95, %91
-  %97 = icmp ugt i64 %indvars.iv.i99, 1
+  %97 = icmp samesign ugt i64 %indvars.iv.i99, 1
   br i1 %97, label %91, label %Llb_ManResultPrint.exit, !llvm.loop !30
 
 Llb_ManResultPrint.exit:                          ; preds = %96, %.critedge.thread

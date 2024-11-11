@@ -3459,7 +3459,7 @@ Abc_Tt6IsOrType.exit.thread:                      ; preds = %Abc_Tt6IsAndType.ex
   br i1 %133, label %.lr.ph.i, label %Abc_TtSwapAdjacent.exit, !llvm.loop !46
 
 134:                                              ; preds = %122
-  %135 = icmp ult i32 %99, 7
+  %135 = icmp samesign ult i32 %99, 7
   %136 = add nsw i32 %99, -6
   %137 = shl nuw i32 1, %136
   %138 = select i1 %135, i32 1, i32 %137
@@ -4138,7 +4138,7 @@ Abc_TtCopy.exit:                                  ; preds = %Sfm_LibTruth8Two.ex
   br i1 %456, label %.lr.ph.i184, label %Abc_TtSwapAdjacent.exit191, !llvm.loop !46
 
 457:                                              ; preds = %445
-  %458 = icmp ult i32 %422, 7
+  %458 = icmp samesign ult i32 %422, 7
   %459 = add nsw i32 %422, -6
   %460 = shl nuw i32 1, %459
   %461 = select i1 %458, i32 1, i32 %460
@@ -4486,7 +4486,7 @@ define void @Sfm_LibPrint(ptr nocapture noundef readonly %0) local_unnamed_addr 
   br i1 %36, label %.lr.ph.i, label %Abc_TtSupportSize.exit
 
 .lr.ph.i:                                         ; preds = %34
-  %37 = icmp ult i32 %35, 7
+  %37 = icmp samesign ult i32 %35, 7
   %38 = add nsw i32 %35, -6
   %39 = shl nuw i32 1, %38
   %40 = sext i32 %39 to i64

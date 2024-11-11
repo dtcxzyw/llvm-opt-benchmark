@@ -122,7 +122,7 @@ define noundef ptr @H5O__shared_decode(ptr noundef %0, ptr noundef %1, ptr nound
   br label %250
 
 41:                                               ; preds = %32
-  %42 = icmp ugt i8 %26, 1
+  %42 = icmp samesign ugt i8 %26, 1
   br i1 %42, label %95, label %43
 
 43:                                               ; preds = %41

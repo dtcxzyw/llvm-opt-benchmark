@@ -36,7 +36,7 @@ define dso_local i32 @virtio_gpu_execbuffer_ioctl(ptr noundef %0, ptr noundef %1
   br i1 %20, label %21, label %416
 
 21:                                               ; preds = %18
-  %22 = icmp ult i32 %19, 4
+  %22 = icmp samesign ult i32 %19, 4
   br i1 %22, label %33, label %23
 
 23:                                               ; preds = %21

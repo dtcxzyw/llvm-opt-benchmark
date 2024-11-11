@@ -417,7 +417,7 @@ proto_item_set_generated.exit:                    ; preds = %17, %30, %33
   %67 = load i32, ptr @ett_lbmpdm_segments, align 4
   %68 = tail call ptr @proto_item_add_subtree(ptr noundef %66, i32 noundef %67) #7
   %69 = icmp ne i8 %60, -1
-  %70 = icmp ugt i32 %61, 7
+  %70 = icmp samesign ugt i32 %61, 7
   %71 = and i1 %69, %70
   br i1 %71, label %.lr.ph, label %.loopexit
 
@@ -1369,7 +1369,7 @@ proto_item_set_generated.exit76:                  ; preds = %proto_item_set_gene
   %.0137145.i = phi i8 [ %125, %.lr.ph147.i ], [ %119, %.preheader.i ]
   %124 = mul i64 %.0146.i, 10
   %125 = add nsw i8 %.0137145.i, -1
-  %126 = icmp ugt i8 %.0137145.i, 1
+  %126 = icmp samesign ugt i8 %.0137145.i, 1
   br i1 %126, label %.lr.ph147.i, label %._crit_edge148.i, !llvm.loop !11
 
 ._crit_edge148.i:                                 ; preds = %.lr.ph147.i, %.preheader.i
@@ -1389,7 +1389,7 @@ proto_item_set_generated.exit76:                  ; preds = %proto_item_set_gene
   %.1138143.i = phi i8 [ %134, %.lr.ph.i ], [ %131, %129 ]
   %133 = mul i64 %.0136144.i, 10
   %134 = add nsw i8 %.1138143.i, -1
-  %135 = icmp ugt i8 %.1138143.i, 1
+  %135 = icmp samesign ugt i8 %.1138143.i, 1
   br i1 %135, label %.lr.ph.i, label %._crit_edge.i, !llvm.loop !12
 
 ._crit_edge.i:                                    ; preds = %.lr.ph.i, %129

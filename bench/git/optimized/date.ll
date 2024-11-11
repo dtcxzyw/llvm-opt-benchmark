@@ -191,7 +191,7 @@ entry:
 if.end6:                                          ; preds = %entry
   %tm_mday = getelementptr inbounds i8, ptr %tm, i64 12
   %3 = load i32, ptr %tm_mday, align 4
-  %cmp7 = icmp ult i32 %1, 2
+  %cmp7 = icmp samesign ult i32 %1, 2
   %rem = and i32 %0, 3
   %tobool.not = icmp ne i32 %rem, 0
   %or.cond22.not = or i1 %cmp7, %tobool.not
@@ -1027,7 +1027,7 @@ entry:
 if.end6.i:                                        ; preds = %entry
   %tm_mday.i = getelementptr inbounds i8, ptr %tm, i64 12
   %3 = load i32, ptr %tm_mday.i, align 4
-  %cmp7.i = icmp ult i32 %1, 2
+  %cmp7.i = icmp samesign ult i32 %1, 2
   %rem.i = and i32 %0, 3
   %tobool.not.i = icmp ne i32 %rem.i, 0
   %or.cond22.not.i = or i1 %cmp7.i, %tobool.not.i
@@ -2054,7 +2054,7 @@ for.end:                                          ; preds = %for.cond, %for.cond
 
 if.end6.i:                                        ; preds = %for.end
   %125 = load i32, ptr %tm_mday, align 4
-  %cmp7.i = icmp ult i32 %123, 2
+  %cmp7.i = icmp samesign ult i32 %123, 2
   %rem.i80 = and i32 %122, 3
   %tobool.not.i81 = icmp ne i32 %rem.i80, 0
   %or.cond22.not.i = or i1 %cmp7.i, %tobool.not.i81
@@ -3730,7 +3730,7 @@ entry:
 if.end6.i:                                        ; preds = %entry
   %tm_mday.i = getelementptr inbounds i8, ptr %call1, i64 12
   %3 = load i32, ptr %tm_mday.i, align 4
-  %cmp7.i = icmp ult i32 %1, 2
+  %cmp7.i = icmp samesign ult i32 %1, 2
   %rem.i = and i32 %0, 3
   %tobool.not.i = icmp ne i32 %rem.i, 0
   %or.cond22.not.i = or i1 %cmp7.i, %tobool.not.i
@@ -4000,7 +4000,7 @@ if.end55:                                         ; preds = %if.else23.i, %if.th
   br i1 %or.cond2.i35, label %if.then.i37, label %if.end64
 
 if.end55.thread:                                  ; preds = %if.then.i32
-  %or.cond.i3466 = icmp ult i32 %16, 12
+  %or.cond.i3466 = icmp samesign ult i32 %16, 12
   br i1 %or.cond.i3466, label %if.then.i37.thread, label %if.end64
 
 if.then.i37.thread:                               ; preds = %if.end55.thread
@@ -4183,7 +4183,7 @@ if.end6.i.cont.cont:                              ; preds = %if.end34.cont.cont
   br i1 %or.cond181, label %if.end40.cont.cont, label %tm_to_time_t.exit
 
 tm_to_time_t.exit:                                ; preds = %if.end6.i.cont.cont
-  %cmp7.i = icmp ult i32 %0, 2
+  %cmp7.i = icmp samesign ult i32 %0, 2
   %rem.i = and i32 %check.sroa.8.0.ph, 3
   %tobool.not.i = icmp ne i32 %rem.i, 0
   %or.cond22.not.i = or i1 %cmp7.i, %tobool.not.i

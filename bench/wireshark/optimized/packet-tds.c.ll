@@ -3758,12 +3758,12 @@ dissect_tds7_login.exit:                          ; preds = %680, %684
 
 698:                                              ; preds = %692
   %699 = add nsw i32 %694, -28672
-  %or.cond18.i = icmp ult i32 %699, 1025
+  %or.cond18.i = icmp samesign ult i32 %699, 1025
   br i1 %or.cond18.i, label %dissect_tds_query_packet.exit, label %702
 
 700:                                              ; preds = %696
   %701 = add nsw i32 %690, -28672
-  %or.cond.i203 = icmp ult i32 %701, 1025
+  %or.cond.i203 = icmp samesign ult i32 %701, 1025
   br i1 %or.cond.i203, label %dissect_tds_query_packet.exit, label %702
 
 702:                                              ; preds = %700, %698
@@ -7161,7 +7161,7 @@ dissect_tds_type_info_minimal.exit.i:             ; preds = %.sink.split.i.i, %1
 
 1262:                                             ; preds = %dissect_tds_type_info_minimal.exit.i, %._crit_edge31.i
   %indvars.iv.next.pre-phi.i = phi i64 [ %.pre32.i, %._crit_edge31.i ], [ %1259, %dissect_tds_type_info_minimal.exit.i ]
-  %1263 = icmp ult i64 %indvars.iv.next.pre-phi.i, %1236
+  %1263 = icmp samesign ult i64 %indvars.iv.next.pre-phi.i, %1236
   br i1 %1263, label %1237, label %._crit_edge.loopexit.i288, !llvm.loop !23
 
 ._crit_edge.loopexit.i288:                        ; preds = %1262
@@ -7541,19 +7541,19 @@ set_tds_version.exit:                             ; preds = %24, %28
   br i1 %82, label %91, label %83
 
 83:                                               ; preds = %81
-  %84 = icmp ugt i32 %.0.i80, 171048959
+  %84 = icmp samesign ugt i32 %.0.i80, 171048959
   br i1 %84, label %91, label %85
 
 85:                                               ; preds = %83
-  %86 = icmp ugt i32 %.0.i80, 167772159
+  %86 = icmp samesign ugt i32 %.0.i80, 167772159
   br i1 %86, label %91, label %87
 
 87:                                               ; preds = %85
-  %88 = icmp ugt i32 %.0.i80, 150994943
+  %88 = icmp samesign ugt i32 %.0.i80, 150994943
   br i1 %88, label %91, label %89
 
 89:                                               ; preds = %87
-  %90 = icmp ugt i32 %.0.i80, 134217727
+  %90 = icmp samesign ugt i32 %.0.i80, 134217727
   %.2.i = select i1 %90, i32 28928, i32 28672
   br label %91
 
@@ -8464,7 +8464,7 @@ proto_item_set_generated.exit:                    ; preds = %44, %41, %37, %35, 
   %385 = zext i8 %384 to i64
   %386 = or disjoint i64 %.0564667, %385
   %387 = shl i64 %386, 8
-  %388 = icmp ugt i32 %.0565668.in, 2
+  %388 = icmp samesign ugt i32 %.0565668.in, 2
   br i1 %388, label %.lr.ph669, label %._crit_edge670.loopexit, !llvm.loop !28
 
 ._crit_edge670.loopexit:                          ; preds = %.lr.ph669
@@ -8577,7 +8577,7 @@ proto_item_set_generated.exit:                    ; preds = %44, %41, %37, %35, 
   %441 = zext i8 %440 to i64
   %442 = or disjoint i64 %.0557655, %441
   %443 = shl i64 %442, 8
-  %444 = icmp ugt i32 %.0561.in654, 2
+  %444 = icmp samesign ugt i32 %.0561.in654, 2
   br i1 %444, label %.lr.ph657, label %._crit_edge658.loopexit, !llvm.loop !30
 
 ._crit_edge658.loopexit:                          ; preds = %.lr.ph657
@@ -8679,7 +8679,7 @@ proto_item_set_generated.exit:                    ; preds = %44, %41, %37, %35, 
   %503 = zext i8 %502 to i64
   %504 = or disjoint i64 %.0552643, %503
   %505 = shl i64 %504, 8
-  %506 = icmp ugt i32 %.0554.in642, 2
+  %506 = icmp samesign ugt i32 %.0554.in642, 2
   br i1 %506, label %.lr.ph645, label %._crit_edge646.loopexit, !llvm.loop !32
 
 ._crit_edge646.loopexit:                          ; preds = %.lr.ph645

@@ -768,7 +768,7 @@ define internal void @sky2_remove(ptr noundef %0) #2 align 16 {
   %19 = getelementptr [2 x ptr], ptr %14, i64 0, i64 %18
   %20 = load ptr, ptr %19, align 8
   tail call void @unregister_netdev(ptr noundef %20) #23
-  %21 = icmp ugt i64 %17, 1
+  %21 = icmp samesign ugt i64 %17, 1
   br i1 %21, label %16, label %.loopexit3, !llvm.loop !9
 
 .loopexit3:                                       ; preds = %16, %5
@@ -882,7 +882,7 @@ define internal void @sky2_remove(ptr noundef %0) #2 align 16 {
   %92 = getelementptr [2 x ptr], ptr %87, i64 0, i64 %91
   %93 = load ptr, ptr %92, align 8
   tail call void @free_netdev(ptr noundef %93) #23
-  %94 = icmp ugt i64 %90, 1
+  %94 = icmp samesign ugt i64 %90, 1
   br i1 %94, label %89, label %.loopexit, !llvm.loop !14
 
 .loopexit:                                        ; preds = %89, %74
@@ -10773,7 +10773,7 @@ define internal fastcc noundef range(i32 -5, 1) i32 @sky2_rx_map_skb(ptr noundef
   %90 = load i32, ptr %89, align 8
   %91 = zext i32 %90 to i64
   tail call void @dma_unmap_page_attrs(ptr noundef %5, i64 noundef %83, i64 noundef %91, i32 noundef 2, i64 noundef 0) #23
-  %92 = icmp ugt i64 %indvars.iv, 1
+  %92 = icmp samesign ugt i64 %indvars.iv, 1
   br i1 %92, label %.preheader, label %.loopexit, !llvm.loop !71
 
 .loopexit:                                        ; preds = %.preheader, %69
@@ -13760,7 +13760,7 @@ __gm_phy_read.exit6.thread:                       ; preds = %147, %156, %__gm_ph
 230:                                              ; preds = %226, %220, %217
   %231 = phi i1 [ %229, %226 ], [ true, %220 ], [ true, %217 ]
   %232 = icmp eq i8 %201, 0
-  %233 = icmp ult i16 %197, 1000
+  %233 = icmp samesign ult i16 %197, 1000
   %234 = and i1 %232, %233
   br i1 %234, label %235, label %245
 

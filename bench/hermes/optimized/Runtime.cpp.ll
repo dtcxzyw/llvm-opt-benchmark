@@ -11241,7 +11241,7 @@ if.else13.i.i.i:                                  ; preds = %if.else.i.i.i
   br label %if.end.i.i36
 
 if.end.i:                                         ; preds = %sw.bb25
-  %tobool.not.i4.i = icmp ult i32 %strView.sroa.5.8.extract.trunc, 1073741824
+  %tobool.not.i4.i = icmp samesign ult i32 %strView.sroa.5.8.extract.trunc, 1073741824
   br i1 %tobool.not.i4.i, label %if.end.i5, label %if.end.i5.i
 
 if.end.i5.i:                                      ; preds = %if.end.i
@@ -11692,7 +11692,7 @@ if.then4.i.i13:                                   ; preds = %if.end
 _ZN4llvh11raw_ostreamlsEPKc.exit18:               ; preds = %if.then.i.i16, %if.then4.i.i13
   %4 = phi ptr [ %.pre, %if.then.i.i16 ], [ %add.ptr.i.i14, %if.then4.i.i13 ]
   %phi.call.i15 = phi ptr [ %call3.i.i17, %if.then.i.i16 ], [ %OS, %if.then4.i.i13 ]
-  %tobool.i.not = icmp ult i32 %format.coerce1, 268435456
+  %tobool.i.not = icmp samesign ult i32 %format.coerce1, 268435456
   %.str.150..str.151 = select i1 %tobool.i.not, ptr @.str.151, ptr @.str.150
   %OutBufEnd.i5.i20 = getelementptr inbounds i8, ptr %phi.call.i15, i64 16
   %5 = load ptr, ptr %OutBufEnd.i5.i20, align 8

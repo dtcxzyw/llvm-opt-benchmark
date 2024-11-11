@@ -1800,7 +1800,7 @@ if.then:                                          ; preds = %entry
   br label %return
 
 if.end:                                           ; preds = %entry
-  %cmp1 = icmp ult i64 %call, 4
+  %cmp1 = icmp samesign ult i64 %call, 4
   br i1 %cmp1, label %if.then3, label %if.end4
 
 if.then3:                                         ; preds = %if.end

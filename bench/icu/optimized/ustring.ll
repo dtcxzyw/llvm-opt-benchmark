@@ -1738,7 +1738,7 @@ do.end:                                           ; preds = %do.body, %if.then81
   br i1 %cmp89, label %if.then90, label %for.cond64, !llvm.loop !28
 
 if.then90:                                        ; preds = %do.end
-  %cmp91 = icmp ult i32 %stringCh.0, 65536
+  %cmp91 = icmp samesign ult i32 %stringCh.0, 65536
   %cond.neg = select i1 %cmp91, i32 -1, i32 -2
   %sub92 = add i32 %cond.neg, %strItr.2
   br label %return
@@ -2080,7 +2080,7 @@ if.end77:                                         ; preds = %if.end11, %for.cond
   br i1 %or.cond2, label %if.then85, label %if.end137
 
 if.then85:                                        ; preds = %if.end77
-  %cmp87 = icmp ult i16 %c1.0, -9216
+  %cmp87 = icmp samesign ult i16 %c1.0, -9216
   br i1 %cmp87, label %land.lhs.true88, label %lor.lhs.false
 
 land.lhs.true88:                                  ; preds = %if.then85
@@ -2114,7 +2114,7 @@ if.else106:                                       ; preds = %land.lhs.true100, %
 
 if.end109:                                        ; preds = %land.lhs.true91, %land.lhs.true100, %if.else106
   %c1.2 = phi i16 [ %c1.0, %land.lhs.true91 ], [ %c1.0, %land.lhs.true100 ], [ %sub, %if.else106 ]
-  %cmp111 = icmp ult i16 %c2.0, -9216
+  %cmp111 = icmp samesign ult i16 %c2.0, -9216
   br i1 %cmp111, label %land.lhs.true112, label %lor.lhs.false120
 
 land.lhs.true112:                                 ; preds = %if.end109
@@ -2201,7 +2201,7 @@ for.end:                                          ; preds = %for.cond
   br i1 %or.cond2, label %if.then19, label %if.end55
 
 if.then19:                                        ; preds = %for.end
-  %cmp20 = icmp ult i32 %call7, 56320
+  %cmp20 = icmp samesign ult i32 %call7, 56320
   br i1 %cmp20, label %land.lhs.true21, label %lor.lhs.false24
 
 land.lhs.true21:                                  ; preds = %if.then19
@@ -2233,7 +2233,7 @@ if.else:                                          ; preds = %land.lhs.true27, %l
 
 if.end34:                                         ; preds = %land.lhs.true21, %land.lhs.true27, %if.else
   %c1.1 = phi i32 [ %call7, %land.lhs.true21 ], [ %call7, %land.lhs.true27 ], [ %sub, %if.else ]
-  %cmp35 = icmp ult i32 %call9, 56320
+  %cmp35 = icmp samesign ult i32 %call9, 56320
   br i1 %cmp35, label %land.lhs.true36, label %lor.lhs.false41
 
 land.lhs.true36:                                  ; preds = %if.end34
@@ -2333,7 +2333,7 @@ if.end77.i:                                       ; preds = %if.end11.i, %for.co
   br i1 %or.cond1.i, label %if.then85.i, label %if.end137.i
 
 if.then85.i:                                      ; preds = %if.end77.i
-  %cmp87.i = icmp ult i16 %c1.0.i, -9216
+  %cmp87.i = icmp samesign ult i16 %c1.0.i, -9216
   br i1 %cmp87.i, label %land.lhs.true88.i, label %lor.lhs.false.i
 
 land.lhs.true88.i:                                ; preds = %if.then85.i
@@ -2363,7 +2363,7 @@ if.else106.i:                                     ; preds = %land.lhs.true100.i,
 
 if.end109.i:                                      ; preds = %if.else106.i, %land.lhs.true100.i, %land.lhs.true88.i
   %c1.2.i = phi i16 [ %c1.0.i, %land.lhs.true88.i ], [ %c1.0.i, %land.lhs.true100.i ], [ %sub.i, %if.else106.i ]
-  %cmp111.i = icmp ult i16 %c2.0.i, -9216
+  %cmp111.i = icmp samesign ult i16 %c2.0.i, -9216
   br i1 %cmp111.i, label %land.lhs.true112.i, label %lor.lhs.false120.i
 
 land.lhs.true112.i:                               ; preds = %if.end109.i
@@ -2489,7 +2489,7 @@ land.rhs:                                         ; preds = %entry, %land.rhs
   %incdec.ptr1 = getelementptr inbounds i8, ptr %dst.addr.06, i64 2
   %incdec.ptr = getelementptr inbounds i8, ptr %src.addr.04, i64 2
   %dec = add nsw i32 %n.addr.05, -1
-  %cmp = icmp ugt i32 %n.addr.05, 1
+  %cmp = icmp samesign ugt i32 %n.addr.05, 1
   %or.cond = select i1 %cmp2.not, i1 %cmp, i1 false
   br i1 %or.cond, label %land.rhs, label %while.end, !llvm.loop !40
 
@@ -2629,7 +2629,7 @@ if.end20:                                         ; preds = %land.lhs.true, %if.
 if.else:                                          ; preds = %if.end4
   %add = add nuw nsw i32 %length, 1
   %div22 = lshr i32 %add, 1
-  %cmp21 = icmp ugt i32 %div22, %number
+  %cmp21 = icmp samesign ugt i32 %div22, %number
   br i1 %cmp21, label %return, label %if.end23
 
 if.end23:                                         ; preds = %if.else

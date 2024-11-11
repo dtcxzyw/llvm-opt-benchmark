@@ -190,7 +190,7 @@ if.end11.i.i:                                     ; preds = %if.end.i.i
   %sub.i.i = add nsw i64 %conv46.i, -32
   %conv.i.i = zext i32 %bf.sroa.9.0.copyload.i.i to i64
   %mul.i.i = shl nuw nsw i64 %conv.i.i, 3
-  %cmp13.i.i = icmp ugt i64 %mul.i.i, %sub.i.i
+  %cmp13.i.i = icmp samesign ugt i64 %mul.i.i, %sub.i.i
   br i1 %cmp13.i.i, label %if.then15.i.i, label %if.end16.i.i
 
 if.then15.i.i:                                    ; preds = %if.end11.i.i

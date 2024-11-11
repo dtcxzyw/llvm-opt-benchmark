@@ -941,7 +941,7 @@ var_push.exit:                                    ; preds = %15, %20
   br i1 %113, label %114, label %119
 
 114:                                              ; preds = %110
-  %115 = icmp ult i8 %112, 45
+  %115 = icmp samesign ult i8 %112, 45
   br i1 %115, label %116, label %118
 
 116:                                              ; preds = %114
@@ -959,7 +959,7 @@ var_push.exit:                                    ; preds = %15, %20
   br i1 %120, label %121, label %124
 
 121:                                              ; preds = %119
-  %122 = icmp ult i8 %112, 58
+  %122 = icmp samesign ult i8 %112, 58
   br i1 %122, label %.preheader1277.preheader, label %123
 
 123:                                              ; preds = %121
@@ -1153,7 +1153,7 @@ var_push.exit:                                    ; preds = %15, %20
   br i1 %215, label %216, label %220
 
 216:                                              ; preds = %.preheader1277
-  %217 = icmp ult i8 %214, 47
+  %217 = icmp samesign ult i8 %214, 47
   br i1 %217, label %218, label %219
 
 218:                                              ; preds = %216
@@ -1409,11 +1409,11 @@ parse_uiv.exit:                                   ; preds = %.lr.ph.i
   br i1 %338, label %339, label %344
 
 339:                                              ; preds = %.preheader1275
-  %340 = icmp ult i8 %337, 48
+  %340 = icmp samesign ult i8 %337, 48
   br i1 %340, label %.critedge1190, label %341
 
 341:                                              ; preds = %339
-  %342 = icmp ult i8 %337, 58
+  %342 = icmp samesign ult i8 %337, 58
   br i1 %342, label %.preheader1275, label %343
 
 343:                                              ; preds = %341

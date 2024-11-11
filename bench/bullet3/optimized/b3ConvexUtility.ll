@@ -2852,7 +2852,7 @@ while.body.lr.ph:                                 ; preds = %land.rhs.preheader
 
 land.rhs.critedge:                                ; preds = %while.body
   store i32 %sub59, ptr %m_size.i.i90, align 4
-  %cmp54.old = icmp ugt i32 %66, 2
+  %cmp54.old = icmp samesign ugt i32 %66, 2
   br i1 %cmp54.old, label %while.body, label %for.inc80.loopexit
 
 while.body:                                       ; preds = %land.rhs.critedge, %while.body.lr.ph

@@ -1196,7 +1196,7 @@ define dso_local void @x64_classify_array(ptr noundef %0, i64 noundef %1, ptr no
 
 24:                                               ; preds = %16
   store i32 0, ptr %2, align 4
-  %25 = icmp ugt i32 %9, 16
+  %25 = icmp samesign ugt i32 %9, 16
   br i1 %25, label %26, label %32
 
 26:                                               ; preds = %24

@@ -5064,7 +5064,7 @@ define linkonce_odr noundef nonnull align 8 dereferenceable(16) ptr @_ZN4llvm15S
   %14 = getelementptr inbounds i8, ptr %.0910.i.i.i.i.i, i64 48
   %15 = getelementptr inbounds i8, ptr %.0811.i.i.i.i.i, i64 48
   %16 = add nsw i64 %.012.i.i.i.i.i, -1
-  %17 = icmp ugt i64 %.012.i.i.i.i.i, 1
+  %17 = icmp samesign ugt i64 %.012.i.i.i.i.i, 1
   br i1 %17, label %.lr.ph.i.i.i.i.i, label %_ZSt4copyIPKN5clang10ThreadFlowEPS1_ET0_T_S6_S5_.exit.loopexit, !llvm.loop !92
 
 _ZSt4copyIPKN5clang10ThreadFlowEPS1_ET0_T_S6_S5_.exit.loopexit: ; preds = %.lr.ph.i.i.i.i.i
@@ -5140,7 +5140,7 @@ _ZN4llvm15SmallVectorImplIN5clang10ThreadFlowEE5clearEv.exit: ; preds = %.lr.ph.
   %41 = getelementptr inbounds i8, ptr %.0910.i.i.i.i.i35, i64 48
   %42 = getelementptr inbounds i8, ptr %.0811.i.i.i.i.i34, i64 48
   %43 = add nsw i64 %.012.i.i.i.i.i33, -1
-  %44 = icmp ugt i64 %.012.i.i.i.i.i33, 1
+  %44 = icmp samesign ugt i64 %.012.i.i.i.i.i33, 1
   br i1 %44, label %.lr.ph.i.i.i.i.i32, label %_ZSt4copyIPKN5clang10ThreadFlowEPS1_ET0_T_S6_S5_.exit36, !llvm.loop !92
 
 _ZSt4copyIPKN5clang10ThreadFlowEPS1_ET0_T_S6_S5_.exit36: ; preds = %.lr.ph.i.i.i.i.i32, %34, %33, %_ZN4llvm15SmallVectorImplIN5clang10ThreadFlowEE5clearEv.exit

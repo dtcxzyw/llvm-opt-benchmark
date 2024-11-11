@@ -70,7 +70,7 @@ if.end21:                                         ; preds = %if.then19, %if.end1
   br i1 %cmp26, label %if.then28, label %if.else
 
 if.then28:                                        ; preds = %if.end21
-  %cmp29 = icmp ult i32 %windowBits, -15
+  %cmp29 = icmp samesign ult i32 %windowBits, -15
   br i1 %cmp29, label %return, label %if.end32
 
 if.end32:                                         ; preds = %if.then28
@@ -78,7 +78,7 @@ if.end32:                                         ; preds = %if.then28
   br label %if.end38
 
 if.else:                                          ; preds = %if.end21
-  %cmp33 = icmp ugt i32 %windowBits, 15
+  %cmp33 = icmp samesign ugt i32 %windowBits, 15
   br i1 %cmp33, label %if.then35, label %if.end38
 
 if.then35:                                        ; preds = %if.else
@@ -1766,7 +1766,7 @@ lor.lhs.false61:                                  ; preds = %if.then57
   br i1 %cmp62, label %if.end75, label %if.else64
 
 if.else64:                                        ; preds = %lor.lhs.false61
-  %cmp66 = icmp ult i32 %33, 6
+  %cmp66 = icmp samesign ult i32 %33, 6
   br i1 %cmp66, label %if.end75, label %if.else68
 
 if.else68:                                        ; preds = %if.else64

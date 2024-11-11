@@ -7269,7 +7269,7 @@ _ZNSt6vectorIiSaIiEE9push_backEOi.exit:           ; preds = %_ZNSt6vectorIiSaIiE
 .noexc73:                                         ; preds = %.lr.ph.i.i.i.i.i.i.i
   %189 = getelementptr inbounds i8, ptr %.056.i.i.i.i.i.i.i, i64 4
   %190 = add nsw i64 %.07.i.i.i.i.i.i.i, -1
-  %191 = icmp ugt i64 %.07.i.i.i.i.i.i.i, 1
+  %191 = icmp samesign ugt i64 %.07.i.i.i.i.i.i.i, 1
   br i1 %191, label %.lr.ph.i.i.i.i.i.i.i, label %_ZSt14set_differenceIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEESt23_Rb_tree_const_iteratorIiESt20back_insert_iteratorIN32pxrInternal_v0_24__pxrReserved__7VtArrayIiEEEET1_T_SF_T0_SG_SE_.exit, !llvm.loop !79
 
 _ZSt14set_differenceIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEESt23_Rb_tree_const_iteratorIiESt20back_insert_iteratorIN32pxrInternal_v0_24__pxrReserved__7VtArrayIiEEEET1_T_SF_T0_SG_SE_.exit: ; preds = %.noexc73, %.critedge.i.i
@@ -7359,7 +7359,7 @@ _ZNSt6vectorIiSaIiEED2Ev.exit:                    ; preds = %.loopexit, %.loopex
 .noexc76:                                         ; preds = %.lr.ph.i.i.i.i.i
   %223 = getelementptr inbounds i8, ptr %.056.i.i.i.i.i, i64 8
   %224 = add nsw i64 %.07.i.i.i.i.i, -1
-  %225 = icmp ugt i64 %.07.i.i.i.i.i, 1
+  %225 = icmp samesign ugt i64 %.07.i.i.i.i.i, 1
   br i1 %225, label %.lr.ph.i.i.i.i.i, label %_ZSt4copyIPN32pxrInternal_v0_24__pxrReserved__7GfVec2iESt20back_insert_iteratorINS0_7VtArrayIS1_EEEET0_T_S8_S7_.exit, !llvm.loop !80
 
 _ZSt4copyIPN32pxrInternal_v0_24__pxrReserved__7GfVec2iESt20back_insert_iteratorINS0_7VtArrayIS1_EEEET0_T_S8_S7_.exit: ; preds = %.noexc76, %217
@@ -10995,7 +10995,7 @@ _ZNSt6vectorIiSaIiEE9push_backEOi.exit:           ; preds = %_ZNSt6vectorIiSaIiE
 .noexc37:                                         ; preds = %.lr.ph.i.i.i.i.i.i.i
   %156 = getelementptr inbounds i8, ptr %.056.i.i.i.i.i.i.i, i64 4
   %157 = add nsw i64 %.07.i.i.i.i.i.i.i, -1
-  %158 = icmp ugt i64 %.07.i.i.i.i.i.i.i, 1
+  %158 = icmp samesign ugt i64 %.07.i.i.i.i.i.i.i, 1
   br i1 %158, label %.lr.ph.i.i.i.i.i.i.i, label %_ZSt14set_differenceIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEESt23_Rb_tree_const_iteratorIiESt20back_insert_iteratorIN32pxrInternal_v0_24__pxrReserved__7VtArrayIiEEEET1_T_SF_T0_SG_SE_.exit, !llvm.loop !79
 
 _ZSt14set_differenceIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEESt23_Rb_tree_const_iteratorIiESt20back_insert_iteratorIN32pxrInternal_v0_24__pxrReserved__7VtArrayIiEEEET1_T_SF_T0_SG_SE_.exit: ; preds = %.noexc37, %.critedge.i.i
@@ -11598,7 +11598,7 @@ _ZNSt6vectorIdSaIdEED2Ev.exit136:                 ; preds = %279, %277, %221, %2
   unreachable
 
 297:                                              ; preds = %.noexc140
-  %298 = icmp ugt i64 %294, 1
+  %298 = icmp samesign ugt i64 %294, 1
   br i1 %298, label %_ZNSt12_Vector_baseIN32pxrInternal_v0_24__pxrReserved__11UsdTimeCodeESaIS1_EE11_M_allocateEm.exit.i, label %_ZNSt6vectorIN32pxrInternal_v0_24__pxrReserved__11UsdTimeCodeESaIS1_EE7reserveEm.exit
 
 _ZNSt12_Vector_baseIN32pxrInternal_v0_24__pxrReserved__11UsdTimeCodeESaIS1_EE11_M_allocateEm.exit.i: ; preds = %297
@@ -13390,7 +13390,7 @@ _ZNSt6vectorIdSaIdEED2Ev.exit309:                 ; preds = %389, %387, %331, %3
   unreachable
 
 407:                                              ; preds = %.noexc313
-  %408 = icmp ugt i64 %404, 1
+  %408 = icmp samesign ugt i64 %404, 1
   br i1 %408, label %_ZNSt12_Vector_baseIN32pxrInternal_v0_24__pxrReserved__11UsdTimeCodeESaIS1_EE11_M_allocateEm.exit.i, label %_ZNSt6vectorIN32pxrInternal_v0_24__pxrReserved__11UsdTimeCodeESaIS1_EE7reserveEm.exit
 
 _ZNSt12_Vector_baseIN32pxrInternal_v0_24__pxrReserved__11UsdTimeCodeESaIS1_EE11_M_allocateEm.exit.i: ; preds = %407

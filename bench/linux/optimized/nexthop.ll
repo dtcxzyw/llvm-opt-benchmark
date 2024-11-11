@@ -2449,7 +2449,7 @@ define internal i32 @rtm_new_nexthop(ptr nocapture noundef readonly %0, ptr noun
   br label %.thread105
 
 .thread105:                                       ; preds = %495, %497, %498
-  %500 = icmp ugt i64 %483, 1
+  %500 = icmp samesign ugt i64 %483, 1
   br i1 %500, label %482, label %.loopexit155, !llvm.loop !49
 
 .loopexit155:                                     ; preds = %.thread105, %475

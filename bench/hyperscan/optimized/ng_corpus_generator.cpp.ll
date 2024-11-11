@@ -984,7 +984,7 @@ for.body.i.i.i.i15.i.i:                           ; preds = %for.cond.i.i.i.i.i.
   br i1 %tobool17.not.i.i.i.i.i.i, label %for.cond.i.i.i.i.i.i.1, label %if.then18.i.i.i.i.i.i, !llvm.loop !19
 
 for.cond.i.i.i.i.i.i.1:                           ; preds = %for.body.i.i.i.i15.i.i
-  %cmp14.i.i.i.i.i.i.1 = icmp ult i64 %i.0.in11.i.i.i.i, 128
+  %cmp14.i.i.i.i.i.i.1 = icmp samesign ult i64 %i.0.in11.i.i.i.i, 128
   br i1 %cmp14.i.i.i.i.i.i.1, label %for.body.i.i.i.i15.i.i.1, label %while.cond.backedge.i.i.i
 
 for.body.i.i.i.i15.i.i.1:                         ; preds = %for.cond.i.i.i.i.i.i.1
@@ -995,7 +995,7 @@ for.body.i.i.i.i15.i.i.1:                         ; preds = %for.cond.i.i.i.i.i.
   br i1 %tobool17.not.i.i.i.i.i.i.1, label %for.cond.i.i.i.i.i.i.2, label %if.then18.i.i.i.i.i.i, !llvm.loop !19
 
 for.cond.i.i.i.i.i.i.2:                           ; preds = %for.body.i.i.i.i15.i.i.1
-  %cmp14.i.i.i.i.i.i.2 = icmp ult i64 %i.0.in11.i.i.i.i, 64
+  %cmp14.i.i.i.i.i.i.2 = icmp samesign ult i64 %i.0.in11.i.i.i.i, 64
   br i1 %cmp14.i.i.i.i.i.i.2, label %for.body.i.i.i.i15.i.i.2, label %while.cond.backedge.i.i.i
 
 for.body.i.i.i.i15.i.i.2:                         ; preds = %for.cond.i.i.i.i.i.i.2
@@ -1196,7 +1196,7 @@ for.body.i.i.i141.i.i.i:                          ; preds = %for.cond.i.i.i138.i
   br i1 %tobool17.not.i.i.i144.i.i.i, label %for.cond.i.i.i138.i.i.i.1, label %if.then18.i.i.i145.i.i.i, !llvm.loop !19
 
 for.cond.i.i.i138.i.i.i.1:                        ; preds = %for.body.i.i.i141.i.i.i
-  %cmp14.i.i.i140.i.i.i.1 = icmp ult i64 %i.0.in11.i120.i.i.i, 128
+  %cmp14.i.i.i140.i.i.i.1 = icmp samesign ult i64 %i.0.in11.i120.i.i.i, 128
   br i1 %cmp14.i.i.i140.i.i.i.1, label %for.body.i.i.i141.i.i.i.1, label %_ZN12_GLOBAL__N_116fillCodePointSetERKN3ue29CharReachEPNS0_12CodePointSetEh.exit157.i.i.i
 
 for.body.i.i.i141.i.i.i.1:                        ; preds = %for.cond.i.i.i138.i.i.i.1
@@ -1207,7 +1207,7 @@ for.body.i.i.i141.i.i.i.1:                        ; preds = %for.cond.i.i.i138.i
   br i1 %tobool17.not.i.i.i144.i.i.i.1, label %for.cond.i.i.i138.i.i.i.2, label %if.then18.i.i.i145.i.i.i, !llvm.loop !19
 
 for.cond.i.i.i138.i.i.i.2:                        ; preds = %for.body.i.i.i141.i.i.i.1
-  %cmp14.i.i.i140.i.i.i.2 = icmp ult i64 %i.0.in11.i120.i.i.i, 64
+  %cmp14.i.i.i140.i.i.i.2 = icmp samesign ult i64 %i.0.in11.i120.i.i.i, 64
   br i1 %cmp14.i.i.i140.i.i.i.2, label %for.body.i.i.i141.i.i.i.2, label %_ZN12_GLOBAL__N_116fillCodePointSetERKN3ue29CharReachEPNS0_12CodePointSetEh.exit157.i.i.i
 
 for.body.i.i.i141.i.i.i.2:                        ; preds = %for.cond.i.i.i138.i.i.i.2
@@ -1414,7 +1414,7 @@ for.body.i.i.i190.i.i.i:                          ; preds = %for.cond.i.i.i187.i
   br i1 %tobool17.not.i.i.i193.i.i.i, label %for.cond.i.i.i187.i.i.i.1, label %if.then18.i.i.i194.i.i.i, !llvm.loop !19
 
 for.cond.i.i.i187.i.i.i.1:                        ; preds = %for.body.i.i.i190.i.i.i
-  %cmp14.i.i.i189.i.i.i.1 = icmp ult i64 %i.0.in11.i169.i.i.i, 128
+  %cmp14.i.i.i189.i.i.i.1 = icmp samesign ult i64 %i.0.in11.i169.i.i.i, 128
   br i1 %cmp14.i.i.i189.i.i.i.1, label %for.body.i.i.i190.i.i.i.1, label %_ZN12_GLOBAL__N_116fillCodePointSetERKN3ue29CharReachEPNS0_12CodePointSetEh.exit206.i.i.i
 
 for.body.i.i.i190.i.i.i.1:                        ; preds = %for.cond.i.i.i187.i.i.i.1
@@ -1425,7 +1425,7 @@ for.body.i.i.i190.i.i.i.1:                        ; preds = %for.cond.i.i.i187.i
   br i1 %tobool17.not.i.i.i193.i.i.i.1, label %for.cond.i.i.i187.i.i.i.2, label %if.then18.i.i.i194.i.i.i, !llvm.loop !19
 
 for.cond.i.i.i187.i.i.i.2:                        ; preds = %for.body.i.i.i190.i.i.i.1
-  %cmp14.i.i.i189.i.i.i.2 = icmp ult i64 %i.0.in11.i169.i.i.i, 64
+  %cmp14.i.i.i189.i.i.i.2 = icmp samesign ult i64 %i.0.in11.i169.i.i.i, 64
   br i1 %cmp14.i.i.i189.i.i.i.2, label %for.body.i.i.i190.i.i.i.2, label %_ZN12_GLOBAL__N_116fillCodePointSetERKN3ue29CharReachEPNS0_12CodePointSetEh.exit206.i.i.i
 
 for.body.i.i.i190.i.i.i.2:                        ; preds = %for.cond.i.i.i187.i.i.i.2
@@ -1639,7 +1639,7 @@ for.body.i.i.i241.i.i.i:                          ; preds = %for.cond.i.i.i238.i
   br i1 %tobool17.not.i.i.i244.i.i.i, label %for.cond.i.i.i238.i.i.i.1, label %if.then18.i.i.i245.i.i.i, !llvm.loop !19
 
 for.cond.i.i.i238.i.i.i.1:                        ; preds = %for.body.i.i.i241.i.i.i
-  %cmp14.i.i.i240.i.i.i.1 = icmp ult i64 %i.0.in11.i220.i.i.i, 128
+  %cmp14.i.i.i240.i.i.i.1 = icmp samesign ult i64 %i.0.in11.i220.i.i.i, 128
   br i1 %cmp14.i.i.i240.i.i.i.1, label %for.body.i.i.i241.i.i.i.1, label %_ZN12_GLOBAL__N_116fillCodePointSetERKN3ue29CharReachEPNS0_12CodePointSetEh.exit257.i.i.i
 
 for.body.i.i.i241.i.i.i.1:                        ; preds = %for.cond.i.i.i238.i.i.i.1
@@ -1650,7 +1650,7 @@ for.body.i.i.i241.i.i.i.1:                        ; preds = %for.cond.i.i.i238.i
   br i1 %tobool17.not.i.i.i244.i.i.i.1, label %for.cond.i.i.i238.i.i.i.2, label %if.then18.i.i.i245.i.i.i, !llvm.loop !19
 
 for.cond.i.i.i238.i.i.i.2:                        ; preds = %for.body.i.i.i241.i.i.i.1
-  %cmp14.i.i.i240.i.i.i.2 = icmp ult i64 %i.0.in11.i220.i.i.i, 64
+  %cmp14.i.i.i240.i.i.i.2 = icmp samesign ult i64 %i.0.in11.i220.i.i.i, 64
   br i1 %cmp14.i.i.i240.i.i.i.2, label %for.body.i.i.i241.i.i.i.2, label %_ZN12_GLOBAL__N_116fillCodePointSetERKN3ue29CharReachEPNS0_12CodePointSetEh.exit257.i.i.i
 
 for.body.i.i.i241.i.i.i.2:                        ; preds = %for.cond.i.i.i238.i.i.i.2
@@ -5636,7 +5636,7 @@ for.body.i.i:                                     ; preds = %for.cond.i.i
   br i1 %tobool17.not.i.i, label %for.cond.i.i.1, label %if.then18.i.i, !llvm.loop !19
 
 for.cond.i.i.1:                                   ; preds = %for.body.i.i
-  %cmp14.i.i.1 = icmp ult i64 %i.0.in64, 128
+  %cmp14.i.i.1 = icmp samesign ult i64 %i.0.in64, 128
   br i1 %cmp14.i.i.1, label %for.body.i.i.1, label %for.cond.cleanup
 
 for.body.i.i.1:                                   ; preds = %for.cond.i.i.1
@@ -5647,7 +5647,7 @@ for.body.i.i.1:                                   ; preds = %for.cond.i.i.1
   br i1 %tobool17.not.i.i.1, label %for.cond.i.i.2, label %if.then18.i.i, !llvm.loop !19
 
 for.cond.i.i.2:                                   ; preds = %for.body.i.i.1
-  %cmp14.i.i.2 = icmp ugt i64 %i.0.in64, 63
+  %cmp14.i.i.2 = icmp samesign ugt i64 %i.0.in64, 63
   %20 = load i64, ptr %arrayidx.i.i37.i.i.2, align 8
   %tobool17.not.i.i.2 = icmp eq i64 %20, 0
   %or.cond = select i1 %cmp14.i.i.2, i1 true, i1 %tobool17.not.i.i.2
@@ -8239,7 +8239,7 @@ for.cond6.preheader.i.i.i:                        ; preds = %for.inc13.2.i.i.i, 
   %sum.042.lcssa.i.i.i = phi i64 [ 0, %call13.i.noexc ], [ %51, %for.inc13.i.i.i ], [ %add.1.i.i.i, %for.inc13.1.i.i.i ], [ %add.2.i.i.i, %for.inc13.2.i.i.i ]
   %i.041.lcssa.i.i.i = phi i64 [ 0, %call13.i.noexc ], [ 64, %for.inc13.i.i.i ], [ 128, %for.inc13.1.i.i.i ], [ 192, %for.inc13.2.i.i.i ]
   %.lcssa.i.i26.i = phi i64 [ %50, %call13.i.noexc ], [ %56, %for.inc13.i.i.i ], [ %58, %for.inc13.1.i.i.i ], [ %60, %for.inc13.2.i.i.i ]
-  %cmp735.i.i.i = icmp ult i64 %sum.042.lcssa.i.i.i, %conv14.i
+  %cmp735.i.i.i = icmp samesign ult i64 %sum.042.lcssa.i.i.i, %conv14.i
   br i1 %cmp735.i.i.i, label %for.body8.i.i.preheader.i, label %cleanup15.split.loop.exit39.i.i.i
 
 for.body8.i.i.preheader.i:                        ; preds = %for.cond6.preheader.i.i.i
@@ -8392,7 +8392,7 @@ for.cond6.preheader.i.i.i80:                      ; preds = %for.inc13.2.i.i.i77
   %sum.042.lcssa.i.i.i81 = phi i64 [ 0, %call13.i.noexc126 ], [ %74, %for.inc13.i.i.i71 ], [ %add.1.i.i.i72, %for.inc13.1.i.i.i74 ], [ %add.2.i.i.i75, %for.inc13.2.i.i.i77 ]
   %i.041.lcssa.i.i.i82 = phi i64 [ 0, %call13.i.noexc126 ], [ 64, %for.inc13.i.i.i71 ], [ 128, %for.inc13.1.i.i.i74 ], [ 192, %for.inc13.2.i.i.i77 ]
   %.lcssa.i.i26.i83 = phi i64 [ %ref.tmp.i.i.i.i.sroa.0.0.vec.extract202, %call13.i.noexc126 ], [ %ref.tmp.i.i.i.i.sroa.0.8.vec.extract, %for.inc13.i.i.i71 ], [ %ref.tmp.i.i.i.i.sroa.0.16.vec.extract205, %for.inc13.1.i.i.i74 ], [ %ref.tmp.i.i.i.i.sroa.0.24.vec.extract, %for.inc13.2.i.i.i77 ]
-  %cmp735.i.i.i84 = icmp ult i64 %sum.042.lcssa.i.i.i81, %conv14.i69
+  %cmp735.i.i.i84 = icmp samesign ult i64 %sum.042.lcssa.i.i.i81, %conv14.i69
   br i1 %cmp735.i.i.i84, label %for.body8.i.i.preheader.i88, label %cleanup15.split.loop.exit39.i.i.i85
 
 for.body8.i.i.preheader.i88:                      ; preds = %for.cond6.preheader.i.i.i80
@@ -9002,7 +9002,7 @@ if.then:                                          ; preds = %land.lhs.true2
   %rem.zext = zext i32 %rem219 to i64
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %newdata) #26
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %newdata, i8 0, i64 24, i1 false)
-  %cmp11174.not = icmp ugt i64 %sub.ptr.div.i, %sub
+  %cmp11174.not = icmp samesign ugt i64 %sub.ptr.div.i, %sub
   br i1 %cmp11174.not, label %for.cond.cleanup, label %invoke.cont.lr.ph
 
 invoke.cont.lr.ph:                                ; preds = %if.then

@@ -1898,7 +1898,7 @@ define ptr @Abc_NtkFraigRestore(i32 noundef %0, i32 noundef %1, i32 noundef %2) 
   br i1 %20, label %Vec_PtrPush.exit.sink.split, label %Vec_PtrPush.exit
 
 Vec_PtrPush.exit.sink.split:                      ; preds = %13
-  %21 = icmp ult i32 %.val23, 17
+  %21 = icmp samesign ult i32 %.val23, 17
   %22 = shl nuw nsw i32 %14, 1
   %23 = zext nneg i32 %22 to i64
   %24 = shl nuw nsw i64 %23, 3

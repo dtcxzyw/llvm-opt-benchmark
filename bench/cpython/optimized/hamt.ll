@@ -3656,7 +3656,7 @@ if.then1.i.i:                                     ; preds = %if.end.i.i
   br label %Py_XDECREF.exit
 
 Py_XDECREF.exit:                                  ; preds = %while.body, %if.then.i, %if.end.i.i, %if.then1.i.i
-  %cmp12 = icmp ugt i64 %i.014, 1
+  %cmp12 = icmp samesign ugt i64 %i.014, 1
   br i1 %cmp12, label %while.body, label %if.end13, !llvm.loop !21
 
 if.end13:                                         ; preds = %Py_XDECREF.exit, %if.end9
@@ -3761,7 +3761,7 @@ if.then1.i.i:                                     ; preds = %if.end.i.i
   br label %Py_XDECREF.exit
 
 Py_XDECREF.exit:                                  ; preds = %while.body, %if.then.i, %if.end.i.i, %if.then1.i.i
-  %cmp8 = icmp ugt i64 %len.012, 1
+  %cmp8 = icmp samesign ugt i64 %len.012, 1
   br i1 %cmp8, label %while.body, label %if.end9, !llvm.loop !23
 
 if.end9:                                          ; preds = %Py_XDECREF.exit, %if.end6

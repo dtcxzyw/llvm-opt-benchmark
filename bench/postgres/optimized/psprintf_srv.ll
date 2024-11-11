@@ -64,7 +64,7 @@ define dso_local range(i64 0, 2147483648) i64 @pvsnprintf(ptr noundef %0, i64 no
   br i1 %12, label %22, label %13
 
 13:                                               ; preds = %10
-  %14 = icmp ugt i32 %5, 1073741822
+  %14 = icmp samesign ugt i32 %5, 1073741822
   br i1 %14, label %15, label %19
 
 15:                                               ; preds = %13

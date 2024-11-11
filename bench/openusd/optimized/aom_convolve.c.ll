@@ -454,7 +454,7 @@ define hidden void @aom_convolve_copy_c(ptr nocapture noundef readonly %0, i64 n
   %10 = getelementptr inbounds i8, ptr %.0912, i64 %1
   %11 = getelementptr inbounds i8, ptr %.01011, i64 %3
   %12 = add nsw i32 %.013, -1
-  %13 = icmp ugt i32 %.013, 1
+  %13 = icmp samesign ugt i32 %.013, 1
   br i1 %13, label %9, label %._crit_edge, !llvm.loop !11
 
 ._crit_edge:                                      ; preds = %9, %6

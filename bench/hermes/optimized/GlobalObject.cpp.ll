@@ -228,7 +228,7 @@ if.else13.i.i.i:                                  ; preds = %if.else.i.i.i
   br label %if.end.i.i58
 
 if.end.i:                                         ; preds = %if.end44
-  %tobool.not.i4.i = icmp ult i32 %strView.sroa.8.8.extract.trunc, 1073741824
+  %tobool.not.i4.i = icmp samesign ult i32 %strView.sroa.8.8.extract.trunc, 1073741824
   br i1 %tobool.not.i4.i, label %if.end.i27, label %if.end.i5.i
 
 if.end.i5.i:                                      ; preds = %if.end.i
@@ -816,7 +816,7 @@ _ZNK6hermes2vm10StringView13castToCharPtrEv.exit.i277: ; preds = %if.then.i.i.i2
   br label %_ZNK6hermes2vm10StringView5beginEv.exit294
 
 if.end.i234:                                      ; preds = %if.end108
-  %tobool.not.i4.i235 = icmp ult i32 %strView.sroa.8.8.extract.trunc, 1073741824
+  %tobool.not.i4.i235 = icmp samesign ult i32 %strView.sroa.8.8.extract.trunc, 1073741824
   br i1 %tobool.not.i4.i235, label %_ZNK6hermes2vm10StringView15castToChar16PtrEv.exit.i245, label %if.end.i5.i236
 
 if.end.i5.i236:                                   ; preds = %if.end.i234
@@ -999,7 +999,7 @@ if.else13.i.i.i:                                  ; preds = %if.else.i.i.i
   br label %if.end.i.i61
 
 if.end.i:                                         ; preds = %_ZN6hermes2vm15HandleRootOwner10makeHandleINS0_15StringPrimitiveEEENS0_6HandleIT_EEONS0_12PseudoHandleIS5_EE.exit
-  %tobool.not.i4.i = icmp ult i32 %origStr.sroa.8.8.extract.trunc, 1073741824
+  %tobool.not.i4.i = icmp samesign ult i32 %origStr.sroa.8.8.extract.trunc, 1073741824
   br i1 %tobool.not.i4.i, label %if.end.i30, label %if.end.i5.i
 
 if.end.i5.i:                                      ; preds = %if.end.i
@@ -1272,7 +1272,7 @@ _ZNK6hermes2vm10StringView13castToCharPtrEv.exit.i323: ; preds = %if.then.i.i.i3
   br label %_ZNK6hermes2vm10StringView5beginEv.exit340
 
 if.end.i280:                                      ; preds = %while.end
-  %tobool.not.i4.i281 = icmp ult i32 %origStr.sroa.8.8.extract.trunc, 1073741824
+  %tobool.not.i4.i281 = icmp samesign ult i32 %origStr.sroa.8.8.extract.trunc, 1073741824
   br i1 %tobool.not.i4.i281, label %_ZNK6hermes2vm10StringView15castToChar16PtrEv.exit.i291, label %if.end.i5.i282
 
 if.end.i5.i282:                                   ; preds = %if.end.i280
@@ -1733,7 +1733,7 @@ if.else13.i.i.i:                                  ; preds = %if.else.i.i.i
   br label %if.end.i.i37
 
 if.end.i:                                         ; preds = %if.end
-  %tobool.not.i4.i = icmp ult i32 %str1.sroa.5.8.extract.trunc, 1073741824
+  %tobool.not.i4.i = icmp samesign ult i32 %str1.sroa.5.8.extract.trunc, 1073741824
   br i1 %tobool.not.i4.i, label %if.end.i6, label %if.end.i5.i
 
 if.end.i5.i:                                      ; preds = %if.end.i
@@ -1925,7 +1925,7 @@ _ZNK6hermes2vm10StringView13castToCharPtrEv.exit.i113: ; preds = %if.then.i.i.i1
   br label %for.cond.preheader
 
 if.end.i70:                                       ; preds = %_ZNK6hermes2vm10StringView3endEv.exit
-  %tobool.not.i4.i71 = icmp ult i32 %str2.sroa.3.8.extract.trunc, 1073741824
+  %tobool.not.i4.i71 = icmp samesign ult i32 %str2.sroa.3.8.extract.trunc, 1073741824
   br i1 %tobool.not.i4.i71, label %_ZNK6hermes2vm10StringView15castToChar16PtrEv.exit.i81, label %if.end.i5.i72
 
 if.end.i5.i72:                                    ; preds = %if.end.i70

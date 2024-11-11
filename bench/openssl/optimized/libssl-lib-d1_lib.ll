@@ -1056,7 +1056,7 @@ if.then32:                                        ; preds = %do.body
   br label %end
 
 if.end41:                                         ; preds = %do.body
-  %cmp42 = icmp ult i32 %call30, 13
+  %cmp42 = icmp samesign ult i32 %call30, 13
   br i1 %cmp42, label %if.then44, label %lor.lhs.false48
 
 if.then44:                                        ; preds = %if.end41
@@ -1113,7 +1113,7 @@ lor.lhs.false.i:                                  ; preds = %if.end63
   %conv2.i.i.i = zext i8 %10 to i64
   %or.i.i.i = or disjoint i64 %shl.i.i.i, %conv2.i.i.i
   %sub.i.i.i = add nsw i64 %conv, -13
-  %cmp.i.i4.i = icmp ult i64 %sub.i.i.i, %or.i.i.i
+  %cmp.i.i4.i = icmp samesign ult i64 %sub.i.i.i, %or.i.i.i
   br i1 %cmp.i.i4.i, label %if.then73, label %if.end74
 
 if.then73:                                        ; preds = %lor.lhs.false.i
@@ -1165,7 +1165,7 @@ lor.lhs.false94:                                  ; preds = %lor.lhs.false91
   %conv2.i.i = zext i8 %18 to i32
   %or.i.i = or disjoint i32 %shl.i.i, %conv2.i.i
   %sub.i.i135 = add nsw i64 %or.i.i.i, -6
-  %cmp.i.i.i138 = icmp ult i64 %sub.i.i135, 3
+  %cmp.i.i.i138 = icmp samesign ult i64 %sub.i.i135, 3
   br i1 %cmp.i.i.i138, label %if.then107, label %lor.lhs.false97
 
 lor.lhs.false97:                                  ; preds = %lor.lhs.false94
@@ -1180,7 +1180,7 @@ lor.lhs.false97:                                  ; preds = %lor.lhs.false94
   %conv6.i.i.i147 = zext i8 %21 to i64
   %or7.i.i.i148 = or disjoint i64 %or.i.i.i145, %conv6.i.i.i147
   %sub.i.i.i150 = add nsw i64 %or.i.i.i, -9
-  %cmp.i.i.i155 = icmp ult i64 %sub.i.i.i150, 3
+  %cmp.i.i.i155 = icmp samesign ult i64 %sub.i.i.i150, 3
   br i1 %cmp.i.i.i155, label %if.then107, label %lor.lhs.false100
 
 lor.lhs.false100:                                 ; preds = %lor.lhs.false97
@@ -1284,14 +1284,14 @@ if.then156:                                       ; preds = %if.end134
 
 if.end157:                                        ; preds = %if.end134
   %32 = add nsw i64 %or7.i.i.i165, -2
-  %or.cond334 = icmp ult i64 %32, 33
+  %or.cond334 = icmp samesign ult i64 %32, 33
   br i1 %or.cond334, label %if.then166, label %lor.lhs.false.i194
 
 lor.lhs.false.i194:                               ; preds = %if.end157
   %33 = load i8, ptr %add.ptr.i.i191, align 1
   %sub.i.i.i196 = add nsw i64 %or7.i.i.i165, -35
   %conv.i = zext i8 %33 to i64
-  %cmp.i.i.i197 = icmp ult i64 %sub.i.i.i196, %conv.i
+  %cmp.i.i.i197 = icmp samesign ult i64 %sub.i.i.i196, %conv.i
   br i1 %cmp.i.i.i197, label %if.then166, label %lor.lhs.false163
 
 lor.lhs.false163:                                 ; preds = %lor.lhs.false.i194
@@ -1304,7 +1304,7 @@ lor.lhs.false.i205:                               ; preds = %lor.lhs.false163
   %35 = xor i64 %conv.i, -1
   %sub.i.i.i207 = add nsw i64 %sub.i.i.i196, %35
   %conv.i208 = zext i8 %34 to i64
-  %cmp.i.i.i209 = icmp ult i64 %sub.i.i.i207, %conv.i208
+  %cmp.i.i.i209 = icmp samesign ult i64 %sub.i.i.i207, %conv.i208
   br i1 %cmp.i.i.i209, label %if.then166, label %if.end167
 
 if.then166:                                       ; preds = %lor.lhs.false.i205, %lor.lhs.false163, %lor.lhs.false.i194, %if.end157

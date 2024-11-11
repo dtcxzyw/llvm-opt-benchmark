@@ -942,7 +942,7 @@ define hidden noundef ptr @_ZN11StringTable6lookupEP6Symbol(ptr noundef nonnull 
   %21 = zext i16 %20 to i32
   %22 = add i32 %19, %21
   %23 = getelementptr inbounds i8, ptr %.056.i.i, i64 2
-  %24 = icmp ugt i32 %.047.i.i, 1
+  %24 = icmp samesign ugt i32 %.047.i.i, 1
   br i1 %24, label %.lr.ph.i.i, label %_ZN16java_lang_String9hash_codeEPKti.exit.i, !llvm.loop !12
 
 _ZN16java_lang_String9hash_codeEPKti.exit.i:      ; preds = %.lr.ph.i.i, %1
@@ -1010,7 +1010,7 @@ define hidden noundef ptr @_ZN11StringTable6lookupEPKti(ptr noundef %0, i32 noun
   %7 = zext i16 %6 to i32
   %8 = add i32 %5, %7
   %9 = getelementptr inbounds i8, ptr %.056.i, i64 2
-  %10 = icmp ugt i32 %.047.i, 1
+  %10 = icmp samesign ugt i32 %.047.i, 1
   br i1 %10, label %.lr.ph.i, label %_ZN16java_lang_String9hash_codeEPKti.exit, !llvm.loop !12
 
 _ZN16java_lang_String9hash_codeEPKti.exit:        ; preds = %.lr.ph.i, %2
@@ -1203,7 +1203,7 @@ define hidden noundef ptr @_ZN11StringTable6internEP6SymbolP10JavaThread(ptr nou
   %22 = zext i16 %21 to i32
   %23 = add i32 %20, %22
   %24 = getelementptr inbounds i8, ptr %.056.i.i, i64 2
-  %25 = icmp ugt i32 %.047.i.i, 1
+  %25 = icmp samesign ugt i32 %.047.i.i, 1
   br i1 %25, label %.lr.ph.i.i, label %_ZN16java_lang_String9hash_codeEPKti.exit.i, !llvm.loop !12
 
 _ZN16java_lang_String9hash_codeEPKti.exit.i:      ; preds = %.lr.ph.i.i, %5
@@ -1279,7 +1279,7 @@ define hidden noundef ptr @_ZN11StringTable6internE6HandlePKtiP10JavaThread(ptr 
   %9 = zext i16 %8 to i32
   %10 = add i32 %7, %9
   %11 = getelementptr inbounds i8, ptr %.056.i, i64 2
-  %12 = icmp ugt i32 %.047.i, 1
+  %12 = icmp samesign ugt i32 %.047.i, 1
   br i1 %12, label %.lr.ph.i, label %_ZN16java_lang_String9hash_codeEPKti.exit, !llvm.loop !12
 
 _ZN16java_lang_String9hash_codeEPKti.exit:        ; preds = %.lr.ph.i, %4
@@ -1379,7 +1379,7 @@ _ZN6HandleC2EP6ThreadP7oopDesc.exit:              ; preds = %25, %27
   %38 = zext i16 %37 to i32
   %39 = add i32 %36, %38
   %40 = getelementptr inbounds i8, ptr %.056.i.i, i64 2
-  %41 = icmp ugt i32 %.047.i.i, 1
+  %41 = icmp samesign ugt i32 %.047.i.i, 1
   br i1 %41, label %.lr.ph.i.i, label %_ZN16java_lang_String9hash_codeEPKti.exit.i, !llvm.loop !12
 
 _ZN16java_lang_String9hash_codeEPKti.exit.i:      ; preds = %.lr.ph.i.i, %32
@@ -1485,7 +1485,7 @@ define hidden noundef ptr @_ZN11StringTable6internEPKcP10JavaThread(ptr noundef 
   %25 = zext i16 %24 to i32
   %26 = add i32 %23, %25
   %27 = getelementptr inbounds i8, ptr %.056.i.i, i64 2
-  %28 = icmp ugt i32 %.047.i.i, 1
+  %28 = icmp samesign ugt i32 %.047.i.i, 1
   br i1 %28, label %.lr.ph.i.i, label %_ZN16java_lang_String9hash_codeEPKti.exit.i, !llvm.loop !12
 
 _ZN16java_lang_String9hash_codeEPKti.exit.i:      ; preds = %.lr.ph.i.i, %6
@@ -2613,7 +2613,7 @@ _ZN19ConcurrentHashTableI17StringTableConfigL8MEMFLAGS11EE6Bucket9cas_firstEPNS2
   %57 = zext i16 %56 to i32
   %58 = add i32 %55, %57
   %59 = getelementptr inbounds i8, ptr %.056.i.i.i, i64 2
-  %60 = icmp ugt i32 %.047.i.i.i, 1
+  %60 = icmp samesign ugt i32 %.047.i.i.i, 1
   br i1 %60, label %.lr.ph.i.i.i, label %_ZL11hash_stringPKtib.exit.i, !llvm.loop !12
 
 _ZL11hash_stringPKtib.exit.i:                     ; preds = %.lr.ph.i.i.i, %52, %49
@@ -3669,7 +3669,7 @@ define hidden noundef ptr @_ZN11StringTable13lookup_sharedEPKti(ptr noundef %0, 
   %7 = zext i16 %6 to i32
   %8 = add i32 %5, %7
   %9 = getelementptr inbounds i8, ptr %.056.i, i64 2
-  %10 = icmp ugt i32 %.047.i, 1
+  %10 = icmp samesign ugt i32 %.047.i, 1
   br i1 %10, label %.lr.ph.i, label %_ZN16java_lang_String9hash_codeEPKti.exit, !llvm.loop !12
 
 _ZN16java_lang_String9hash_codeEPKti.exit:        ; preds = %.lr.ph.i, %2
@@ -9077,7 +9077,7 @@ define linkonce_odr hidden noundef i64 @_ZN17StringTableConfig8get_hashERK10Weak
   %35 = zext i16 %34 to i32
   %36 = add i32 %33, %35
   %37 = getelementptr inbounds i8, ptr %.056.i.i, i64 2
-  %38 = icmp ugt i32 %.047.i.i, 1
+  %38 = icmp samesign ugt i32 %.047.i.i, 1
   br i1 %38, label %.lr.ph.i.i, label %_ZL11hash_stringPKtib.exit, !llvm.loop !12
 
 _ZL11hash_stringPKtib.exit:                       ; preds = %.lr.ph.i.i, %27, %30

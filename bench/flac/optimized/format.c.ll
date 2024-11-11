@@ -171,7 +171,7 @@ entry:
   br i1 %cmp, label %return, label %lor.lhs.false1
 
 lor.lhs.false1:                                   ; preds = %entry
-  %cmp2 = icmp ult i32 %sample_rate, 65536
+  %cmp2 = icmp samesign ult i32 %sample_rate, 65536
   %rem = urem i32 %sample_rate, 10
   %cmp3.not = icmp eq i32 %rem, 0
   %or.cond4 = or i1 %cmp2, %cmp3.not

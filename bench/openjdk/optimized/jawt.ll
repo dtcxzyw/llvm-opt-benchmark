@@ -22,7 +22,7 @@ define zeroext range(i8 0, 2) i8 @JAWT_GetAWT(ptr nocapture noundef readnone %0,
   store ptr @awt_GetDrawingSurface, ptr %7, align 8
   %8 = getelementptr inbounds i8, ptr %1, i64 16
   store ptr @awt_FreeDrawingSurface, ptr %8, align 8
-  %9 = icmp ugt i32 %5, 65539
+  %9 = icmp samesign ugt i32 %5, 65539
   br i1 %9, label %10, label %19
 
 10:                                               ; preds = %6
@@ -32,7 +32,7 @@ define zeroext range(i8 0, 2) i8 @JAWT_GetAWT(ptr nocapture noundef readnone %0,
   store ptr @awt_Unlock, ptr %12, align 8
   %13 = getelementptr inbounds i8, ptr %1, i64 40
   store ptr @awt_GetComponent, ptr %13, align 8
-  %14 = icmp ugt i32 %5, 589823
+  %14 = icmp samesign ugt i32 %5, 589823
   br i1 %14, label %15, label %19
 
 15:                                               ; preds = %10

@@ -529,7 +529,7 @@ define internal fastcc void @OGLBlitToSurfaceViaTexture(ptr noundef %0, ptr noca
   %152 = add nsw i64 %151, %149
   %153 = inttoptr i64 %152 to ptr
   %154 = add nsw i32 %.0139155.us, -1
-  %155 = icmp ugt i32 %.0139155.us, 1
+  %155 = icmp samesign ugt i32 %.0139155.us, 1
   br i1 %155, label %.lr.ph.us, label %.loopexit.us, !llvm.loop !9
 
 156:                                              ; preds = %123
@@ -944,7 +944,7 @@ define internal fastcc void @OGLBlitSwToTexture(ptr nocapture noundef nonnull re
   %40 = add nsw i64 %39, %37
   %41 = inttoptr i64 %40 to ptr
   %42 = add nsw i32 %.03437, -1
-  %43 = icmp ugt i32 %.03437, 1
+  %43 = icmp samesign ugt i32 %.03437, 1
   br i1 %43, label %31, label %.loopexit, !llvm.loop !10
 
 44:                                               ; preds = %18
@@ -1063,7 +1063,7 @@ define internal fastcc void @OGLBlitSwToSurface(ptr nocapture noundef readonly %
   %68 = add nsw i64 %67, %65
   %69 = inttoptr i64 %68 to ptr
   %70 = add nsw i32 %.049, -1
-  %71 = icmp ugt i32 %.049, 1
+  %71 = icmp samesign ugt i32 %.049, 1
   br i1 %71, label %60, label %.loopexit, !llvm.loop !11
 
 72:                                               ; preds = %32

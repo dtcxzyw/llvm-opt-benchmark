@@ -3127,7 +3127,7 @@ tailrecurse.backedge:                             ; preds = %131, %162, %121, %1
   br label %197
 
 188:                                              ; preds = %.loopexit169
-  %189 = icmp ugt i8 %169, 21
+  %189 = icmp samesign ugt i8 %169, 21
   br i1 %189, label %197, label %190
 
 190:                                              ; preds = %188

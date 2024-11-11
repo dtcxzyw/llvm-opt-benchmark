@@ -21,7 +21,7 @@ define dso_local range(i64 0, -9222949824389710820) i64 @lzma_block_buffer_bound
   %5 = lshr i64 %4, 16
   %6 = mul nuw nsw i64 %5, 3
   %7 = sub nuw nsw i64 9223372036854774715, %6
-  %8 = icmp ult i64 %7, %0
+  %8 = icmp samesign ult i64 %7, %0
   br i1 %8, label %lzma2_bound.exit.thread, label %lzma2_bound.exit
 
 lzma2_bound.exit:                                 ; preds = %3
@@ -46,7 +46,7 @@ define dso_local range(i64 0, -9222949824389710820) i64 @lzma_block_buffer_bound
   %5 = lshr i64 %4, 16
   %6 = mul nuw nsw i64 %5, 3
   %7 = sub nuw nsw i64 9223372036854774715, %6
-  %8 = icmp ult i64 %7, %0
+  %8 = icmp samesign ult i64 %7, %0
   br i1 %8, label %lzma_block_buffer_bound64.exit, label %lzma2_bound.exit.i
 
 lzma2_bound.exit.i:                               ; preds = %3
@@ -135,7 +135,7 @@ define internal fastcc i32 @block_buffer_encode(ptr noundef %0, ptr noundef %1, 
   %46 = lshr i64 %45, 16
   %47 = mul nuw nsw i64 %46, 3
   %48 = sub nuw nsw i64 9223372036854774715, %47
-  %49 = icmp ult i64 %48, %3
+  %49 = icmp samesign ult i64 %48, %3
   br i1 %49, label %lzma2_bound.exit.thread, label %lzma2_bound.exit
 
 lzma2_bound.exit.thread:                          ; preds = %40, %44

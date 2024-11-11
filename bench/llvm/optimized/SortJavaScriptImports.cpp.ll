@@ -4238,7 +4238,7 @@ define linkonce_odr noundef nonnull align 8 dereferenceable(16) ptr @_ZN4llvm15S
   %17 = getelementptr inbounds i8, ptr %.0910.i.i.i.i.i, i64 136
   %18 = getelementptr inbounds i8, ptr %.0811.i.i.i.i.i, i64 136
   %19 = add nsw i64 %.012.i.i.i.i.i, -1
-  %20 = icmp ugt i64 %.012.i.i.i.i.i, 1
+  %20 = icmp samesign ugt i64 %.012.i.i.i.i.i, 1
   br i1 %20, label %.lr.ph.i.i.i.i.i, label %_ZSt4copyIPKN5clang6format17JsModuleReferenceEPS2_ET0_T_S7_S6_.exit.loopexit, !llvm.loop !23
 
 _ZSt4copyIPKN5clang6format17JsModuleReferenceEPS2_ET0_T_S7_S6_.exit.loopexit: ; preds = %.lr.ph.i.i.i.i.i
@@ -4356,7 +4356,7 @@ _ZN4llvm23SmallVectorTemplateBaseIN5clang6format17JsModuleReferenceELb0EE4growEm
   %62 = getelementptr inbounds i8, ptr %.0910.i.i.i.i.i35, i64 136
   %63 = getelementptr inbounds i8, ptr %.0811.i.i.i.i.i34, i64 136
   %64 = add nsw i64 %.012.i.i.i.i.i33, -1
-  %65 = icmp ugt i64 %.012.i.i.i.i.i33, 1
+  %65 = icmp samesign ugt i64 %.012.i.i.i.i.i33, 1
   br i1 %65, label %.lr.ph.i.i.i.i.i32, label %_ZSt4copyIPKN5clang6format17JsModuleReferenceEPS2_ET0_T_S7_S6_.exit36, !llvm.loop !23
 
 _ZSt4copyIPKN5clang6format17JsModuleReferenceEPS2_ET0_T_S7_S6_.exit36: ; preds = %.lr.ph.i.i.i.i.i32, %53, %52, %_ZN4llvm23SmallVectorTemplateBaseIN5clang6format17JsModuleReferenceELb0EE4growEm.exit
@@ -4798,7 +4798,7 @@ _ZN4llvm15SmallVectorImplIN5clang6format17JsModuleReferenceEE7reserveEm.exit: ; 
   %63 = getelementptr inbounds i8, ptr %.078.i.i.i.i.i, i64 -24
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %62, ptr noundef nonnull align 8 dereferenceable(20) %63, i64 20, i1 false)
   %64 = add nsw i64 %.010.i.i.i.i.i, -1
-  %65 = icmp ugt i64 %.010.i.i.i.i.i, 1
+  %65 = icmp samesign ugt i64 %.010.i.i.i.i.i, 1
   br i1 %65, label %.lr.ph.i.i.i.i.i, label %_ZSt13move_backwardIPN5clang6format17JsModuleReferenceES3_ET0_T_S5_S4_.exit, !llvm.loop !27
 
 _ZSt13move_backwardIPN5clang6format17JsModuleReferenceES3_ET0_T_S5_S4_.exit: ; preds = %.lr.ph.i.i.i.i.i, %43
@@ -4823,7 +4823,7 @@ _ZSt13move_backwardIPN5clang6format17JsModuleReferenceES3_ET0_T_S5_S4_.exit: ; p
   %73 = getelementptr inbounds i8, ptr %.0910.i.i.i.i.i, i64 136
   %74 = getelementptr inbounds i8, ptr %.0811.i.i.i.i.i, i64 136
   %75 = add nsw i64 %.012.i.i.i.i.i, -1
-  %76 = icmp ugt i64 %.012.i.i.i.i.i, 1
+  %76 = icmp samesign ugt i64 %.012.i.i.i.i.i, 1
   br i1 %76, label %.lr.ph.i.i.i.i.i46, label %_ZSt4copyIPN5clang6format17JsModuleReferenceES3_ET0_T_S5_S4_.exit, !llvm.loop !28
 
 77:                                               ; preds = %_ZN4llvm15SmallVectorImplIN5clang6format17JsModuleReferenceEE7reserveEm.exit
@@ -5175,7 +5175,7 @@ _ZN5clang6format17JsModuleReferenceC2EOS1_.exit:  ; preds = %13, %16
   %30 = getelementptr inbounds i8, ptr %.078.i.i.i.i.i, i64 -24
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %29, ptr noundef nonnull align 8 dereferenceable(20) %30, i64 20, i1 false)
   %31 = add nsw i64 %.010.i.i.i.i.i, -1
-  %32 = icmp ugt i64 %.010.i.i.i.i.i, 1
+  %32 = icmp samesign ugt i64 %.010.i.i.i.i.i, 1
   br i1 %32, label %.lr.ph.i.i.i.i.i, label %_ZSt13move_backwardIPN5clang6format17JsModuleReferenceES3_ET0_T_S5_S4_.exit, !llvm.loop !27
 
 _ZSt13move_backwardIPN5clang6format17JsModuleReferenceES3_ET0_T_S5_S4_.exit: ; preds = %.lr.ph.i.i.i.i.i, %_ZN5clang6format17JsModuleReferenceC2EOS1_.exit
@@ -5836,7 +5836,7 @@ _ZN5clang6formatltERKNS0_17JsModuleReferenceES3_.exit: ; preds = %_ZN4llvmneENS_
   %114 = getelementptr inbounds i8, ptr %.0910.i.i.i.i.i.i, i64 136
   %115 = getelementptr inbounds i8, ptr %.0811.i.i.i.i.i.i, i64 136
   %116 = add nsw i64 %.012.i.i.i.i.i.i, -1
-  %117 = icmp ugt i64 %.012.i.i.i.i.i.i, 1
+  %117 = icmp samesign ugt i64 %.012.i.i.i.i.i.i, 1
   br i1 %117, label %.lr.ph.i.i.i.i.i.i, label %_ZSt4moveIPN5clang6format17JsModuleReferenceES3_ET0_T_S5_S4_.exit.i, !llvm.loop !44
 
 _ZSt4moveIPN5clang6format17JsModuleReferenceES3_ET0_T_S5_S4_.exit.i: ; preds = %.lr.ph.i.i.i.i.i.i, %._crit_edge.i
@@ -5865,7 +5865,7 @@ _ZSt4moveIPN5clang6format17JsModuleReferenceES3_ET0_T_S5_S4_.exit.i: ; preds = %
   %128 = getelementptr inbounds i8, ptr %.0910.i.i.i.i.i26.i, i64 136
   %129 = getelementptr inbounds i8, ptr %.0811.i.i.i.i.i25.i, i64 136
   %130 = add nsw i64 %.012.i.i.i.i.i24.i, -1
-  %131 = icmp ugt i64 %.012.i.i.i.i.i24.i, 1
+  %131 = icmp samesign ugt i64 %.012.i.i.i.i.i24.i, 1
   br i1 %131, label %.lr.ph.i.i.i.i.i23.i, label %_ZSt12__move_mergeIPN5clang6format17JsModuleReferenceES3_N9__gnu_cxx5__ops15_Iter_less_iterEET0_T_S8_S8_S8_S7_T1_.exit, !llvm.loop !44
 
 _ZSt12__move_mergeIPN5clang6format17JsModuleReferenceES3_N9__gnu_cxx5__ops15_Iter_less_iterEET0_T_S8_S8_S8_S7_T1_.exit: ; preds = %.lr.ph.i.i.i.i.i23.i, %_ZSt4moveIPN5clang6format17JsModuleReferenceES3_ET0_T_S5_S4_.exit.i
@@ -6086,7 +6086,7 @@ _ZN5clang6formatltERKNS0_17JsModuleReferenceES3_.exit76: ; preds = %_ZN4llvmneEN
   %235 = getelementptr inbounds i8, ptr %.0910.i.i.i.i.i.i49, i64 136
   %236 = getelementptr inbounds i8, ptr %.0811.i.i.i.i.i.i48, i64 136
   %237 = add nsw i64 %.012.i.i.i.i.i.i47, -1
-  %238 = icmp ugt i64 %.012.i.i.i.i.i.i47, 1
+  %238 = icmp samesign ugt i64 %.012.i.i.i.i.i.i47, 1
   br i1 %238, label %.lr.ph.i.i.i.i.i.i46, label %_ZSt4moveIPN5clang6format17JsModuleReferenceES3_ET0_T_S5_S4_.exit.i37, !llvm.loop !44
 
 _ZSt4moveIPN5clang6format17JsModuleReferenceES3_ET0_T_S5_S4_.exit.i37: ; preds = %.lr.ph.i.i.i.i.i.i46, %._crit_edge.i33
@@ -6115,7 +6115,7 @@ _ZSt4moveIPN5clang6format17JsModuleReferenceES3_ET0_T_S5_S4_.exit.i37: ; preds =
   %249 = getelementptr inbounds i8, ptr %.0910.i.i.i.i.i26.i44, i64 136
   %250 = getelementptr inbounds i8, ptr %.0811.i.i.i.i.i25.i43, i64 136
   %251 = add nsw i64 %.012.i.i.i.i.i24.i42, -1
-  %252 = icmp ugt i64 %.012.i.i.i.i.i24.i42, 1
+  %252 = icmp samesign ugt i64 %.012.i.i.i.i.i24.i42, 1
   br i1 %252, label %.lr.ph.i.i.i.i.i23.i41, label %_ZSt12__move_mergeIPN5clang6format17JsModuleReferenceES3_N9__gnu_cxx5__ops15_Iter_less_iterEET0_T_S8_S8_S8_S7_T1_.exit56, !llvm.loop !44
 
 _ZSt12__move_mergeIPN5clang6format17JsModuleReferenceES3_N9__gnu_cxx5__ops15_Iter_less_iterEET0_T_S8_S8_S8_S7_T1_.exit56: ; preds = %.lr.ph.i.i.i.i.i23.i41, %_ZSt4moveIPN5clang6format17JsModuleReferenceES3_ET0_T_S5_S4_.exit.i37
@@ -6177,7 +6177,7 @@ tailrecurse._crit_edge:                           ; preds = %tailrecurse, %7
   %19 = getelementptr inbounds i8, ptr %.0910.i.i.i.i.i, i64 136
   %20 = getelementptr inbounds i8, ptr %.0811.i.i.i.i.i, i64 136
   %21 = add nsw i64 %.012.i.i.i.i.i, -1
-  %22 = icmp ugt i64 %.012.i.i.i.i.i, 1
+  %22 = icmp samesign ugt i64 %.012.i.i.i.i.i, 1
   br i1 %22, label %.lr.ph.i.i.i.i.i, label %_ZSt4moveIPN5clang6format17JsModuleReferenceES3_ET0_T_S5_S4_.exit, !llvm.loop !44
 
 _ZSt4moveIPN5clang6format17JsModuleReferenceES3_ET0_T_S5_S4_.exit: ; preds = %.lr.ph.i.i.i.i.i
@@ -6250,7 +6250,7 @@ _ZSt4moveIPN5clang6format17JsModuleReferenceES3_ET0_T_S5_S4_.exit: ; preds = %.l
   %51 = getelementptr inbounds i8, ptr %.0910.i.i.i.i.i.i, i64 136
   %52 = getelementptr inbounds i8, ptr %.0811.i.i.i.i.i.i, i64 136
   %53 = add nsw i64 %.012.i.i.i.i.i.i, -1
-  %54 = icmp ugt i64 %.012.i.i.i.i.i.i, 1
+  %54 = icmp samesign ugt i64 %.012.i.i.i.i.i.i, 1
   br i1 %54, label %.lr.ph.i.i.i.i.i.i, label %_ZSt21__move_merge_adaptiveIPN5clang6format17JsModuleReferenceES3_S3_N9__gnu_cxx5__ops15_Iter_less_iterEEvT_S7_T0_S8_T1_T2_.exit, !llvm.loop !44
 
 55:                                               ; preds = %.lr.ph, %tailrecurse
@@ -6286,7 +6286,7 @@ _ZSt4moveIPN5clang6format17JsModuleReferenceES3_ET0_T_S5_S4_.exit: ; preds = %.l
   %66 = getelementptr inbounds i8, ptr %.0910.i.i.i.i.i66, i64 136
   %67 = getelementptr inbounds i8, ptr %.0811.i.i.i.i.i65, i64 136
   %68 = add nsw i64 %.012.i.i.i.i.i64, -1
-  %69 = icmp ugt i64 %.012.i.i.i.i.i64, 1
+  %69 = icmp samesign ugt i64 %.012.i.i.i.i.i64, 1
   br i1 %69, label %.lr.ph.i.i.i.i.i63, label %_ZSt4moveIPN5clang6format17JsModuleReferenceES3_ET0_T_S5_S4_.exit67, !llvm.loop !44
 
 _ZSt4moveIPN5clang6format17JsModuleReferenceES3_ET0_T_S5_S4_.exit67: ; preds = %.lr.ph.i.i.i.i.i63, %57
@@ -6459,7 +6459,7 @@ define linkonce_odr noundef ptr @_ZSt12__move_mergeIPN5clang6format17JsModuleRef
   %37 = getelementptr inbounds i8, ptr %.0910.i.i.i.i.i, i64 136
   %38 = getelementptr inbounds i8, ptr %.0811.i.i.i.i.i, i64 136
   %39 = add nsw i64 %.012.i.i.i.i.i, -1
-  %40 = icmp ugt i64 %.012.i.i.i.i.i, 1
+  %40 = icmp samesign ugt i64 %.012.i.i.i.i.i, 1
   br i1 %40, label %.lr.ph.i.i.i.i.i, label %_ZSt4moveIPN5clang6format17JsModuleReferenceES3_ET0_T_S5_S4_.exit, !llvm.loop !44
 
 _ZSt4moveIPN5clang6format17JsModuleReferenceES3_ET0_T_S5_S4_.exit: ; preds = %.lr.ph.i.i.i.i.i, %._crit_edge
@@ -6488,7 +6488,7 @@ _ZSt4moveIPN5clang6format17JsModuleReferenceES3_ET0_T_S5_S4_.exit: ; preds = %.l
   %51 = getelementptr inbounds i8, ptr %.0910.i.i.i.i.i26, i64 136
   %52 = getelementptr inbounds i8, ptr %.0811.i.i.i.i.i25, i64 136
   %53 = add nsw i64 %.012.i.i.i.i.i24, -1
-  %54 = icmp ugt i64 %.012.i.i.i.i.i24, 1
+  %54 = icmp samesign ugt i64 %.012.i.i.i.i.i24, 1
   br i1 %54, label %.lr.ph.i.i.i.i.i23, label %_ZSt4moveIPN5clang6format17JsModuleReferenceES3_ET0_T_S5_S4_.exit27, !llvm.loop !44
 
 _ZSt4moveIPN5clang6format17JsModuleReferenceES3_ET0_T_S5_S4_.exit27: ; preds = %.lr.ph.i.i.i.i.i23, %_ZSt4moveIPN5clang6format17JsModuleReferenceES3_ET0_T_S5_S4_.exit
@@ -6526,7 +6526,7 @@ define linkonce_odr void @_ZSt30__move_merge_adaptive_backwardIPN5clang6format17
   %19 = getelementptr inbounds i8, ptr %.078.i.i.i.i.i, i64 -24
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %18, ptr noundef nonnull align 8 dereferenceable(20) %19, i64 20, i1 false)
   %20 = add nsw i64 %.010.i.i.i.i.i, -1
-  %21 = icmp ugt i64 %.010.i.i.i.i.i, 1
+  %21 = icmp samesign ugt i64 %.010.i.i.i.i.i, 1
   br i1 %21, label %.lr.ph.i.i.i.i.i, label %_ZSt13move_backwardIPN5clang6format17JsModuleReferenceES3_ET0_T_S5_S4_.exit, !llvm.loop !27
 
 22:                                               ; preds = %5
@@ -6588,7 +6588,7 @@ define linkonce_odr void @_ZSt30__move_merge_adaptive_backwardIPN5clang6format17
   %49 = getelementptr inbounds i8, ptr %.078.i.i.i.i.i37, i64 -24
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %48, ptr noundef nonnull align 8 dereferenceable(20) %49, i64 20, i1 false)
   %50 = add nsw i64 %.010.i.i.i.i.i35, -1
-  %51 = icmp ugt i64 %.010.i.i.i.i.i35, 1
+  %51 = icmp samesign ugt i64 %.010.i.i.i.i.i35, 1
   br i1 %51, label %.lr.ph.i.i.i.i.i34, label %_ZSt13move_backwardIPN5clang6format17JsModuleReferenceES3_ET0_T_S5_S4_.exit, !llvm.loop !27
 
 52:                                               ; preds = %26
@@ -6644,7 +6644,7 @@ define linkonce_odr noundef ptr @_ZSt17__rotate_adaptiveIPN5clang6format17JsModu
   %21 = getelementptr inbounds i8, ptr %.0910.i.i.i.i.i, i64 136
   %22 = getelementptr inbounds i8, ptr %.0811.i.i.i.i.i, i64 136
   %23 = add nsw i64 %.012.i.i.i.i.i, -1
-  %24 = icmp ugt i64 %.012.i.i.i.i.i, 1
+  %24 = icmp samesign ugt i64 %.012.i.i.i.i.i, 1
   br i1 %24, label %.lr.ph.i.i.i.i.i, label %_ZSt4moveIPN5clang6format17JsModuleReferenceES3_ET0_T_S5_S4_.exit, !llvm.loop !44
 
 _ZSt4moveIPN5clang6format17JsModuleReferenceES3_ET0_T_S5_S4_.exit: ; preds = %.lr.ph.i.i.i.i.i, %10
@@ -6672,7 +6672,7 @@ _ZSt4moveIPN5clang6format17JsModuleReferenceES3_ET0_T_S5_S4_.exit: ; preds = %.l
   %35 = getelementptr inbounds i8, ptr %.078.i.i.i.i.i, i64 -24
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %34, ptr noundef nonnull align 8 dereferenceable(20) %35, i64 20, i1 false)
   %36 = add nsw i64 %.010.i.i.i.i.i, -1
-  %37 = icmp ugt i64 %.010.i.i.i.i.i, 1
+  %37 = icmp samesign ugt i64 %.010.i.i.i.i.i, 1
   br i1 %37, label %.lr.ph.i.i.i.i.i37, label %_ZSt13move_backwardIPN5clang6format17JsModuleReferenceES3_ET0_T_S5_S4_.exit, !llvm.loop !27
 
 _ZSt13move_backwardIPN5clang6format17JsModuleReferenceES3_ET0_T_S5_S4_.exit: ; preds = %.lr.ph.i.i.i.i.i37, %_ZSt4moveIPN5clang6format17JsModuleReferenceES3_ET0_T_S5_S4_.exit
@@ -6700,7 +6700,7 @@ _ZSt13move_backwardIPN5clang6format17JsModuleReferenceES3_ET0_T_S5_S4_.exit: ; p
   %48 = getelementptr inbounds i8, ptr %.0910.i.i.i.i.i43, i64 136
   %49 = getelementptr inbounds i8, ptr %.0811.i.i.i.i.i42, i64 136
   %50 = add nsw i64 %.012.i.i.i.i.i41, -1
-  %51 = icmp ugt i64 %.012.i.i.i.i.i41, 1
+  %51 = icmp samesign ugt i64 %.012.i.i.i.i.i41, 1
   br i1 %51, label %.lr.ph.i.i.i.i.i40, label %_ZSt4moveIPN5clang6format17JsModuleReferenceES3_ET0_T_S5_S4_.exit44, !llvm.loop !44
 
 52:                                               ; preds = %7
@@ -6736,7 +6736,7 @@ _ZSt13move_backwardIPN5clang6format17JsModuleReferenceES3_ET0_T_S5_S4_.exit: ; p
   %65 = getelementptr inbounds i8, ptr %.0910.i.i.i.i.i50, i64 136
   %66 = getelementptr inbounds i8, ptr %.0811.i.i.i.i.i49, i64 136
   %67 = add nsw i64 %.012.i.i.i.i.i48, -1
-  %68 = icmp ugt i64 %.012.i.i.i.i.i48, 1
+  %68 = icmp samesign ugt i64 %.012.i.i.i.i.i48, 1
   br i1 %68, label %.lr.ph.i.i.i.i.i47, label %_ZSt4moveIPN5clang6format17JsModuleReferenceES3_ET0_T_S5_S4_.exit51, !llvm.loop !44
 
 _ZSt4moveIPN5clang6format17JsModuleReferenceES3_ET0_T_S5_S4_.exit51: ; preds = %.lr.ph.i.i.i.i.i47, %54
@@ -6764,7 +6764,7 @@ _ZSt4moveIPN5clang6format17JsModuleReferenceES3_ET0_T_S5_S4_.exit51: ; preds = %
   %78 = getelementptr inbounds i8, ptr %.0910.i.i.i.i.i57, i64 136
   %79 = getelementptr inbounds i8, ptr %.0811.i.i.i.i.i56, i64 136
   %80 = add nsw i64 %.012.i.i.i.i.i55, -1
-  %81 = icmp ugt i64 %.012.i.i.i.i.i55, 1
+  %81 = icmp samesign ugt i64 %.012.i.i.i.i.i55, 1
   br i1 %81, label %.lr.ph.i.i.i.i.i54, label %_ZSt4moveIPN5clang6format17JsModuleReferenceES3_ET0_T_S5_S4_.exit58, !llvm.loop !44
 
 _ZSt4moveIPN5clang6format17JsModuleReferenceES3_ET0_T_S5_S4_.exit58: ; preds = %.lr.ph.i.i.i.i.i54, %_ZSt4moveIPN5clang6format17JsModuleReferenceES3_ET0_T_S5_S4_.exit51
@@ -6792,7 +6792,7 @@ _ZSt4moveIPN5clang6format17JsModuleReferenceES3_ET0_T_S5_S4_.exit58: ; preds = %
   %93 = getelementptr inbounds i8, ptr %.078.i.i.i.i.i64, i64 -24
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %92, ptr noundef nonnull align 8 dereferenceable(20) %93, i64 20, i1 false)
   %94 = add nsw i64 %.010.i.i.i.i.i62, -1
-  %95 = icmp ugt i64 %.010.i.i.i.i.i62, 1
+  %95 = icmp samesign ugt i64 %.010.i.i.i.i.i62, 1
   br i1 %95, label %.lr.ph.i.i.i.i.i61, label %_ZSt4moveIPN5clang6format17JsModuleReferenceES3_ET0_T_S5_S4_.exit44, !llvm.loop !27
 
 96:                                               ; preds = %52
@@ -6834,7 +6834,7 @@ define linkonce_odr hidden noundef ptr @_ZN4llvm15SmallVectorImplIN5clang6format
   %17 = getelementptr inbounds i8, ptr %.0910.i.i.i.i.i, i64 136
   %18 = getelementptr inbounds i8, ptr %.0811.i.i.i.i.i, i64 136
   %19 = add nsw i64 %.012.i.i.i.i.i, -1
-  %20 = icmp ugt i64 %.012.i.i.i.i.i, 1
+  %20 = icmp samesign ugt i64 %.012.i.i.i.i.i, 1
   br i1 %20, label %.lr.ph.i.i.i.i.i, label %_ZSt4moveIPN5clang6format17JsModuleReferenceES3_ET0_T_S5_S4_.exit, !llvm.loop !44
 
 _ZSt4moveIPN5clang6format17JsModuleReferenceES3_ET0_T_S5_S4_.exit: ; preds = %.lr.ph.i.i.i.i.i, %2
@@ -7153,7 +7153,7 @@ _ZN4llvm15SmallVectorImplIN5clang6format17JsModuleReferenceEE12assignRemoteEOS4_
   %45 = getelementptr inbounds i8, ptr %.0910.i.i.i.i.i, i64 136
   %46 = getelementptr inbounds i8, ptr %.0811.i.i.i.i.i, i64 136
   %47 = add nsw i64 %.012.i.i.i.i.i, -1
-  %48 = icmp ugt i64 %.012.i.i.i.i.i, 1
+  %48 = icmp samesign ugt i64 %.012.i.i.i.i.i, 1
   br i1 %48, label %.lr.ph.i.i.i.i.i, label %_ZSt4moveIPN5clang6format17JsModuleReferenceES3_ET0_T_S5_S4_.exit, !llvm.loop !44
 
 _ZSt4moveIPN5clang6format17JsModuleReferenceES3_ET0_T_S5_S4_.exit: ; preds = %.lr.ph.i.i.i.i.i, %36, %34
@@ -7297,7 +7297,7 @@ _ZN4llvm23SmallVectorTemplateBaseIN5clang6format17JsModuleReferenceELb0EE4growEm
   %101 = getelementptr inbounds i8, ptr %.0910.i.i.i.i.i54, i64 136
   %102 = getelementptr inbounds i8, ptr %.0811.i.i.i.i.i53, i64 136
   %103 = add nsw i64 %.012.i.i.i.i.i52, -1
-  %104 = icmp ugt i64 %.012.i.i.i.i.i52, 1
+  %104 = icmp samesign ugt i64 %.012.i.i.i.i.i52, 1
   br i1 %104, label %.lr.ph.i.i.i.i.i51, label %_ZSt4moveIPN5clang6format17JsModuleReferenceES3_ET0_T_S5_S4_.exit55, !llvm.loop !44
 
 _ZSt4moveIPN5clang6format17JsModuleReferenceES3_ET0_T_S5_S4_.exit55: ; preds = %.lr.ph.i.i.i.i.i51, %92, %91, %_ZN4llvm23SmallVectorTemplateBaseIN5clang6format17JsModuleReferenceELb0EE4growEm.exit

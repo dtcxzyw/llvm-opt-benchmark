@@ -9251,7 +9251,7 @@ define linkonce_odr hidden ptr @_ZN3fmt2v96detail17write_significandINS0_8append
   store i16 %40, ptr %35, align 1
   %41 = udiv i32 %.03350.i, 100
   %42 = add nsw i32 %.03251.i, -1
-  %43 = icmp ugt i32 %.03251.i, 1
+  %43 = icmp samesign ugt i32 %.03251.i, 1
   br i1 %43, label %.lr.ph.i, label %._crit_edge.i, !llvm.loop !42
 
 ._crit_edge.i:                                    ; preds = %.lr.ph.i, %30
@@ -9428,7 +9428,7 @@ _ZNSt20back_insert_iteratorIN3fmt2v96detail6bufferIcEEEaSEOc.exit18: ; preds = %
 
 27:                                               ; preds = %_ZNSt20back_insert_iteratorIN3fmt2v96detail6bufferIcEEEaSEOc.exit18, %_ZNSt20back_insert_iteratorIN3fmt2v96detail6bufferIcEEEaSEOc.exit
   %.0 = phi i32 [ %18, %_ZNSt20back_insert_iteratorIN3fmt2v96detail6bufferIcEEEaSEOc.exit ], [ %0, %_ZNSt20back_insert_iteratorIN3fmt2v96detail6bufferIcEEEaSEOc.exit18 ]
-  %28 = icmp ugt i32 %.0, 99
+  %28 = icmp samesign ugt i32 %.0, 99
   br i1 %28, label %29, label %67
 
 29:                                               ; preds = %27
@@ -9437,7 +9437,7 @@ _ZNSt20back_insert_iteratorIN3fmt2v96detail6bufferIcEEEaSEOc.exit18: ; preds = %
   %32 = shl nuw nsw i32 %30, 1
   %33 = zext nneg i32 %32 to i64
   %34 = getelementptr inbounds [201 x i8], ptr @.str.4, i64 0, i64 %33
-  %35 = icmp ugt i32 %.0, 999
+  %35 = icmp samesign ugt i32 %.0, 999
   br i1 %35, label %36, label %51
 
 36:                                               ; preds = %29
@@ -12507,7 +12507,7 @@ define linkonce_odr hidden ptr @_ZN3fmt2v96detail17write_significandINS0_8append
   store i16 %37, ptr %33, align 1
   %38 = udiv i64 %.03350.i, 100
   %39 = add nsw i32 %.03251.i, -1
-  %40 = icmp ugt i32 %.03251.i, 1
+  %40 = icmp samesign ugt i32 %.03251.i, 1
   br i1 %40, label %.lr.ph.i, label %._crit_edge.i, !llvm.loop !45
 
 ._crit_edge.i:                                    ; preds = %.lr.ph.i, %28
@@ -21247,7 +21247,7 @@ _ZZN3fmt2v96detail10vformat_toIcEEvRNS1_6bufferIT_EENS0_17basic_string_viewIS4_E
   br i1 %38, label %_ZNK3fmt2v920basic_format_contextINS0_8appenderEcE3argEi.exit.i, label %_ZNK3fmt2v920basic_format_contextINS0_8appenderEcE3argEi.exit.thread.i
 
 39:                                               ; preds = %_ZZN3fmt2v96detail10vformat_toIcEEvRNS1_6bufferIT_EENS0_17basic_string_viewIS4_EENS0_17basic_format_argsINS0_20basic_format_contextINSt11conditionalIXsr3std7is_sameINS0_13type_identityIS4_E4typeEcEE5valueENS0_8appenderESt20back_insert_iteratorINS3_ISE_EEEE4typeESE_EEEENS1_10locale_refEEN14format_handler9on_arg_idEv.exit
-  %40 = icmp ugt i32 %28, 14
+  %40 = icmp samesign ugt i32 %28, 14
   br i1 %40, label %_ZNK3fmt2v920basic_format_contextINS0_8appenderEcE3argEi.exit.thread.i, label %41
 
 41:                                               ; preds = %39
@@ -22432,7 +22432,7 @@ _ZN3fmt2v96detail11parse_alignIcRNS1_13specs_checkerINS1_13specs_handlerIcEEEEEE
   unreachable
 
 _ZN3fmt2v96detail13specs_checkerINS1_13specs_handlerIcEEE24require_numeric_argumentEv.exit.i: ; preds = %115
-  %118 = icmp ult i32 %42, 9
+  %118 = icmp samesign ult i32 %42, 9
   br i1 %118, label %switch.hole_check, label %.sink.split
 
 119:                                              ; preds = %switch.hole_check
@@ -22448,7 +22448,7 @@ _ZN3fmt2v96detail13specs_checkerINS1_13specs_handlerIcEEE24require_numeric_argum
   unreachable
 
 _ZN3fmt2v96detail13specs_checkerINS1_13specs_handlerIcEEE24require_numeric_argumentEv.exit.i351: ; preds = %120
-  %123 = icmp ult i32 %42, 9
+  %123 = icmp samesign ult i32 %42, 9
   br i1 %123, label %switch.hole_check481, label %.sink.split
 
 124:                                              ; preds = %switch.hole_check481
@@ -22464,7 +22464,7 @@ _ZN3fmt2v96detail13specs_checkerINS1_13specs_handlerIcEEE24require_numeric_argum
   unreachable
 
 _ZN3fmt2v96detail13specs_checkerINS1_13specs_handlerIcEEE24require_numeric_argumentEv.exit.i353: ; preds = %125
-  %128 = icmp ult i32 %42, 9
+  %128 = icmp samesign ult i32 %42, 9
   br i1 %128, label %switch.hole_check488, label %.sink.split
 
 129:                                              ; preds = %switch.hole_check488
@@ -23338,7 +23338,7 @@ _ZN3fmt2v926basic_format_parse_contextIcNS0_6detail13error_handlerEE11next_arg_i
   br i1 %62, label %_ZNK3fmt2v920basic_format_contextINS0_8appenderEcE3argEi.exit.i.i.i.i, label %_ZNK3fmt2v920basic_format_contextINS0_8appenderEcE3argEi.exit.thread.i.i.i.i
 
 63:                                               ; preds = %_ZN3fmt2v926basic_format_parse_contextIcNS0_6detail13error_handlerEE11next_arg_idEv.exit.i.i.i
-  %64 = icmp ugt i32 %52, 14
+  %64 = icmp samesign ugt i32 %52, 14
   br i1 %64, label %_ZNK3fmt2v920basic_format_contextINS0_8appenderEcE3argEi.exit.thread.i.i.i.i, label %65
 
 65:                                               ; preds = %63
@@ -23536,7 +23536,7 @@ _ZN3fmt2v926basic_format_parse_contextIcNS0_6detail13error_handlerEE11next_arg_i
   br i1 %66, label %_ZNK3fmt2v920basic_format_contextINS0_8appenderEcE3argEi.exit.i.i.i.i, label %_ZNK3fmt2v920basic_format_contextINS0_8appenderEcE3argEi.exit.thread.i.i.i.i
 
 67:                                               ; preds = %_ZN3fmt2v926basic_format_parse_contextIcNS0_6detail13error_handlerEE11next_arg_idEv.exit.i.i.i
-  %68 = icmp ugt i32 %56, 14
+  %68 = icmp samesign ugt i32 %56, 14
   br i1 %68, label %_ZNK3fmt2v920basic_format_contextINS0_8appenderEcE3argEi.exit.thread.i.i.i.i, label %69
 
 69:                                               ; preds = %67
@@ -24043,7 +24043,7 @@ _ZNK3fmt2v917basic_format_argsINS0_20basic_format_contextINS0_8appenderEcEEE6get
   br label %_ZNK3fmt2v917basic_format_argsINS0_20basic_format_contextINS0_8appenderEcEEE3getEi.exit
 
 35:                                               ; preds = %26
-  %36 = icmp ugt i32 %24, 14
+  %36 = icmp samesign ugt i32 %24, 14
   br i1 %36, label %_ZNK3fmt2v917basic_format_argsINS0_20basic_format_contextINS0_8appenderEcEEE3getEi.exit, label %37
 
 37:                                               ; preds = %35
@@ -31140,7 +31140,7 @@ _ZN3fmt2v96detail19get_round_directionEmmm.exit.i: ; preds = %.thread258
   %202 = load i8, ptr %gep, align 1
   %203 = add i8 %202, 1
   store i8 %203, ptr %gep, align 1
-  %204 = icmp ugt i64 %indvars.iv.i, 2
+  %204 = icmp samesign ugt i64 %indvars.iv.i, 2
   br i1 %204, label %.lr.ph.i137, label %.critedge.i, !llvm.loop !201
 
 .critedge.i:                                      ; preds = %201, %.lr.ph.i137, %_ZN3fmt2v96detail19get_round_directionEmmm.exit.i
@@ -31239,7 +31239,7 @@ _ZN3fmt2v96detail19get_round_directionEmmm.exit.i145: ; preds = %234
   %246 = load i8, ptr %gep326, align 1
   %247 = add i8 %246, 1
   store i8 %247, ptr %gep326, align 1
-  %248 = icmp ugt i64 %indvars.iv.i149, 2
+  %248 = icmp samesign ugt i64 %indvars.iv.i149, 2
   br i1 %248, label %.lr.ph.i148, label %.critedge.i146, !llvm.loop !201
 
 .critedge.i146:                                   ; preds = %245, %.lr.ph.i148

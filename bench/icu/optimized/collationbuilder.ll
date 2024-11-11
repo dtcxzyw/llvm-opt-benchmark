@@ -2657,7 +2657,7 @@ if.then47:                                        ; preds = %if.then44
 if.then50:                                        ; preds = %if.then47
   %shr.i112 = lshr i32 %conv.i107, 8
   %and.i113 = and i32 %shr.i112, 1048575
-  %cmp2.i116 = icmp ult i32 %and.i113, %38
+  %cmp2.i116 = icmp samesign ult i32 %and.i113, %38
   br i1 %cmp2.i116, label %cond.true.i119, label %if.end55
 
 cond.true.i119:                                   ; preds = %if.then50
@@ -3791,7 +3791,7 @@ _ZNK6icu_759UVector6410elementAtiEi.exit60:       ; preds = %while.body, %cond.t
   br i1 %cmp37.not, label %if.end53, label %if.then38
 
 if.then38:                                        ; preds = %_ZNK6icu_759UVector6410elementAtiEi.exit60
-  %cmp39 = icmp ult i32 %and.i62, %level
+  %cmp39 = icmp samesign ult i32 %and.i62, %level
   br i1 %cmp39, label %while.end, label %if.end41
 
 if.end41:                                         ; preds = %if.then38

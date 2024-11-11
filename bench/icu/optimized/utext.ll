@@ -2926,11 +2926,11 @@ if.then259:                                       ; preds = %if.end251
   br i1 %cmp260.not, label %if.then340, label %land.lhs.true261
 
 land.lhs.true261:                                 ; preds = %if.then259
-  %cmp262 = icmp ugt i8 %65, -33
+  %cmp262 = icmp samesign ugt i8 %65, -33
   br i1 %cmp262, label %cond.true, label %cond.false311
 
 cond.true:                                        ; preds = %land.lhs.true261
-  %cmp263 = icmp ult i8 %65, -16
+  %cmp263 = icmp samesign ult i8 %65, -16
   br i1 %cmp263, label %cond.true264, label %cond.false
 
 cond.true264:                                     ; preds = %cond.true
@@ -2955,7 +2955,7 @@ land.lhs.true274:                                 ; preds = %cond.true264
 
 cond.false:                                       ; preds = %cond.true
   %sub278 = add nsw i32 %conv256, -240
-  %cmp279 = icmp ult i8 %65, -11
+  %cmp279 = icmp samesign ult i8 %65, -11
   br i1 %cmp279, label %land.lhs.true280, label %if.then340
 
 land.lhs.true280:                                 ; preds = %cond.false
@@ -3001,7 +3001,7 @@ land.lhs.true305:                                 ; preds = %land.lhs.true274, %
   br i1 %cmp310.not, label %if.then340, label %land.lhs.true315
 
 cond.false311:                                    ; preds = %land.lhs.true261
-  %cmp312 = icmp ugt i8 %65, -63
+  %cmp312 = icmp samesign ugt i8 %65, -63
   br i1 %cmp312, label %land.lhs.true313, label %if.then340
 
 land.lhs.true313:                                 ; preds = %cond.false311
@@ -5255,7 +5255,7 @@ if.else11:                                        ; preds = %if.else
   br i1 %cmp12, label %breakout, label %if.else15
 
 if.else15:                                        ; preds = %if.else11
-  %cmp18 = icmp ugt i64 %index, 2147483615
+  %cmp18 = icmp samesign ugt i64 %index, 2147483615
   %conv16 = trunc i64 %index to i32
   %add = add nsw i32 %conv16, 32
   %scanLimit.0 = select i1 %cmp18, i32 2147483647, i32 %add

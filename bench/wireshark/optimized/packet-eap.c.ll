@@ -1523,7 +1523,7 @@ switch.lookup545:                                 ; preds = %368
 387:                                              ; preds = %383
   %388 = load i32, ptr @hf_eap_aka_reserved, align 4
   %389 = call ptr @proto_tree_add_item(ptr noundef %108, i32 noundef %388, ptr noundef %0, i32 noundef 6, i32 noundef 2, i32 noundef 0) #6
-  %390 = icmp ugt i32 %157, 4
+  %390 = icmp samesign ugt i32 %157, 4
   br i1 %390, label %.lr.ph.preheader.i, label %dissect_eap_aka.exit
 
 .lr.ph.preheader.i:                               ; preds = %387
@@ -2315,7 +2315,7 @@ define internal fastcc void @dissect_eap_mschapv2(ptr noundef %0, ptr noundef %1
   ]
 
 22:                                               ; preds = %20
-  %23 = icmp ult i32 %3, 5
+  %23 = icmp samesign ult i32 %3, 5
   br i1 %23, label %80, label %24
 
 24:                                               ; preds = %22
@@ -2337,7 +2337,7 @@ define internal fastcc void @dissect_eap_mschapv2(ptr noundef %0, ptr noundef %1
   br label %80
 
 38:                                               ; preds = %20
-  %39 = icmp ult i32 %3, 5
+  %39 = icmp samesign ult i32 %3, 5
   br i1 %39, label %80, label %40
 
 40:                                               ; preds = %38
@@ -2380,7 +2380,7 @@ define internal fastcc void @dissect_eap_mschapv2(ptr noundef %0, ptr noundef %1
   br label %80
 
 67:                                               ; preds = %20
-  %68 = icmp ult i32 %3, 5
+  %68 = icmp samesign ult i32 %3, 5
   br i1 %68, label %80, label %69
 
 69:                                               ; preds = %67
@@ -2389,7 +2389,7 @@ define internal fastcc void @dissect_eap_mschapv2(ptr noundef %0, ptr noundef %1
   br label %80
 
 72:                                               ; preds = %20
-  %73 = icmp ult i32 %3, 5
+  %73 = icmp samesign ult i32 %3, 5
   br i1 %73, label %80, label %74
 
 74:                                               ; preds = %72
@@ -2416,7 +2416,7 @@ define internal fastcc void @dissect_eap_sim(ptr noundef %0, ptr noundef %1, ptr
 8:                                                ; preds = %4
   %9 = load i32, ptr @hf_eap_sim_reserved, align 4
   %10 = tail call ptr @proto_tree_add_item(ptr noundef %0, i32 noundef %9, ptr noundef %1, i32 noundef 6, i32 noundef 2, i32 noundef 0) #6
-  %11 = icmp ugt i32 %3, 4
+  %11 = icmp samesign ugt i32 %3, 4
   br i1 %11, label %.lr.ph.preheader, label %.loopexit
 
 .lr.ph.preheader:                                 ; preds = %8

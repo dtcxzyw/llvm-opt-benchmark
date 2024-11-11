@@ -28077,7 +28077,7 @@ define internal fastcc void @"_ZN67_$LT$util..arc_cow..ArcCow$LT$T$GT$$u20$as$u2
   %.sroa.027.1.i.i.i = phi i64 [ %17, %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17h59f224b5b49da5faE.exit.i.i.i" ], [ %.sroa.027.0.lcssa.i.i.i, %._crit_edge.i.i.i ]
   %.sroa.11.1.i.i.i = phi i64 [ %18, %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17h59f224b5b49da5faE.exit.i.i.i" ], [ %.sroa.11.0.lcssa.i.i.i, %._crit_edge.i.i.i ]
   %.sroa.0.1.i.i.i = phi ptr [ %19, %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17h59f224b5b49da5faE.exit.i.i.i" ], [ %.sroa.0.0.lcssa.i.i.i, %._crit_edge.i.i.i ]
-  %13 = icmp ugt i64 %.sroa.11.1.i.i.i, 1
+  %13 = icmp samesign ugt i64 %.sroa.11.1.i.i.i, 1
   br i1 %13, label %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17h1b78cfa2c041a59eE.exit.i.i.i", label %20
 
 "_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17h59f224b5b49da5faE.exit.i.i.i": ; preds = %._crit_edge.i.i.i
@@ -28156,7 +28156,7 @@ define internal fastcc void @"_ZN67_$LT$util..arc_cow..ArcCow$LT$T$GT$$u20$as$u2
   %.sroa.027.1.i.i.i5 = phi i64 [ %50, %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17h59f224b5b49da5faE.exit.i.i.i15" ], [ %.sroa.027.0.lcssa.i.i.i2, %._crit_edge.i.i.i1 ]
   %.sroa.11.1.i.i.i6 = phi i64 [ %51, %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17h59f224b5b49da5faE.exit.i.i.i15" ], [ %.sroa.11.0.lcssa.i.i.i3, %._crit_edge.i.i.i1 ]
   %.sroa.0.1.i.i.i7 = phi ptr [ %52, %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17h59f224b5b49da5faE.exit.i.i.i15" ], [ %.sroa.0.0.lcssa.i.i.i4, %._crit_edge.i.i.i1 ]
-  %46 = icmp ugt i64 %.sroa.11.1.i.i.i6, 1
+  %46 = icmp samesign ugt i64 %.sroa.11.1.i.i.i6, 1
   br i1 %46, label %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17h1b78cfa2c041a59eE.exit.i.i.i13", label %53
 
 "_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17h59f224b5b49da5faE.exit.i.i.i15": ; preds = %._crit_edge.i.i.i1

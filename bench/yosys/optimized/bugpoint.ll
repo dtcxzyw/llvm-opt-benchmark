@@ -3670,7 +3670,7 @@ _ZNSt4pairIN5Yosys5RTLIL7SigSpecES2_EaSEOS3_.exit222: ; preds = %_ZNSt6vectorIN5
   %1291 = getelementptr inbounds i8, ptr %.0910.i.i.i.i.i.i.i.i, i64 128
   %1292 = getelementptr inbounds i8, ptr %.0811.i.i.i.i.i.i.i.i, i64 128
   %1293 = add nsw i64 %.012.i.i.i.i.i.i.i.i, -1
-  %1294 = icmp ugt i64 %.012.i.i.i.i.i.i.i.i, 1
+  %1294 = icmp samesign ugt i64 %.012.i.i.i.i.i.i.i.i, 1
   br i1 %1294, label %.lr.ph.i.i.i.i.i.i.i.i, label %_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPSt4pairIN5Yosys5RTLIL7SigSpecES5_ESt6vectorIS6_SaIS6_EEEESB_ET0_T_SD_SC_.exit.loopexit.i.i.i, !llvm.loop !50
 
 _ZSt4moveIN9__gnu_cxx17__normal_iteratorIPSt4pairIN5Yosys5RTLIL7SigSpecES5_ESt6vectorIS6_SaIS6_EEEESB_ET0_T_SD_SC_.exit.loopexit.i.i.i: ; preds = %_ZNSt4pairIN5Yosys5RTLIL7SigSpecES2_EaSEOS3_.exit222
@@ -4256,7 +4256,7 @@ _ZNSt4pairIN5Yosys5RTLIL7SigSpecES2_EaSEOS3_.exit: ; preds = %_ZNSt6vectorIN5Yos
   %1511 = getelementptr inbounds i8, ptr %.0910.i.i.i.i.i.i.i667.i, i64 128
   %1512 = getelementptr inbounds i8, ptr %.0811.i.i.i.i.i.i.i666.i, i64 128
   %1513 = add nsw i64 %.012.i.i.i.i.i.i.i665.i, -1
-  %1514 = icmp ugt i64 %.012.i.i.i.i.i.i.i665.i, 1
+  %1514 = icmp samesign ugt i64 %.012.i.i.i.i.i.i.i665.i, 1
   br i1 %1514, label %.lr.ph.i.i.i.i.i.i.i664.i, label %_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPSt4pairIN5Yosys5RTLIL7SigSpecES5_ESt6vectorIS6_SaIS6_EEEESB_ET0_T_SD_SC_.exit.loopexit.i.i668.i, !llvm.loop !50
 
 _ZSt4moveIN9__gnu_cxx17__normal_iteratorIPSt4pairIN5Yosys5RTLIL7SigSpecES5_ESt6vectorIS6_SaIS6_EEEESB_ET0_T_SD_SC_.exit.loopexit.i.i668.i: ; preds = %_ZNSt4pairIN5Yosys5RTLIL7SigSpecES2_EaSEOS3_.exit
@@ -4366,7 +4366,7 @@ _ZN5YosysL6log_idINS_5RTLIL6ModuleEEEPKcPT_S4_.exit672.i: ; preds = %1541
   %1564 = getelementptr inbounds i8, ptr %.0910.i.i.i.i.i.i.i677.i, i64 288
   %1565 = getelementptr inbounds i8, ptr %.0811.i.i.i.i.i.i.i676.i, i64 288
   %1566 = add nsw i64 %.012.i.i.i.i.i.i.i675.i, -1
-  %1567 = icmp ugt i64 %.012.i.i.i.i.i.i.i675.i, 1
+  %1567 = icmp samesign ugt i64 %.012.i.i.i.i.i.i.i675.i, 1
   br i1 %1567, label %.lr.ph.i.i.i.i.i.i.i674.i, label %_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPN5Yosys5RTLIL14MemWriteActionESt6vectorIS4_SaIS4_EEEES9_ET0_T_SB_SA_.exit.loopexit.i.i.i, !llvm.loop !56
 
 _ZSt4moveIN9__gnu_cxx17__normal_iteratorIPN5Yosys5RTLIL14MemWriteActionESt6vectorIS4_SaIS4_EEEES9_ET0_T_SB_SA_.exit.loopexit.i.i.i: ; preds = %.noexc679.i

@@ -1607,7 +1607,7 @@ define dso_local i32 @cbuf_peek_line(ptr noundef %0, ptr noundef writeonly %1, i
 16:                                               ; preds = %12
   %17 = add nsw i32 %2, -1
   %18 = icmp slt i32 %3, 0
-  %19 = icmp ult i32 %2, 2
+  %19 = icmp samesign ult i32 %2, 2
   %or.cond.i = and i1 %19, %18
   br i1 %or.cond.i, label %cbuf_find_unread_line.exit.thread, label %20
 
@@ -1679,7 +1679,7 @@ cbuf_find_unread_line.exit:                       ; preds = %._crit_edge.i
 
 52:                                               ; preds = %cbuf_find_unread_line.exit
   %53 = tail call i32 @llvm.umin.i32(i32 %.134.i, i32 %17)
-  %54 = icmp ugt i32 %2, 1
+  %54 = icmp samesign ugt i32 %2, 1
   %.old1.i = icmp sgt i32 %22, 0
   %or.cond46 = and i1 %54, %.old1.i
   br i1 %or.cond46, label %.preheader.i, label %cbuf_reader.exit
@@ -1776,7 +1776,7 @@ define dso_local i32 @cbuf_read_line(ptr noundef %0, ptr noundef writeonly %1, i
 16:                                               ; preds = %12
   %17 = add nsw i32 %2, -1
   %18 = icmp slt i32 %3, 0
-  %19 = icmp ult i32 %2, 2
+  %19 = icmp samesign ult i32 %2, 2
   %or.cond.i = and i1 %19, %18
   br i1 %or.cond.i, label %cbuf_find_unread_line.exit.thread48, label %20
 

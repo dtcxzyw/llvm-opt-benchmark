@@ -1007,7 +1007,7 @@ if.end27:                                         ; preds = %if.then21
   ]
 
 sw.bb29:                                          ; preds = %if.end27
-  %cmp30 = icmp ult i64 %val, 4294967296
+  %cmp30 = icmp samesign ult i64 %val, 4294967296
   br i1 %cmp30, label %if.then32, label %if.end36
 
 if.then32:                                        ; preds = %sw.bb29

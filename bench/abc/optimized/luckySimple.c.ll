@@ -459,7 +459,7 @@ define void @simpleMinimal(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr n
   br label %minWord3.exit
 
 minWord3.exit:                                    ; preds = %22, %26, %29
-  %30 = icmp ugt i64 %indvars.iv, 1
+  %30 = icmp samesign ugt i64 %indvars.iv, 1
   br i1 %30, label %13, label %._crit_edge, !llvm.loop !10
 
 ._crit_edge:                                      ; preds = %minWord3.exit, %5
@@ -556,7 +556,7 @@ minWord3.exit61:                                  ; preds = %47, %51, %54
   br label %minWord3.exit62
 
 minWord3.exit62:                                  ; preds = %66, %70, %73
-  %74 = icmp ugt i64 %indvars.iv72, 1
+  %74 = icmp samesign ugt i64 %indvars.iv72, 1
   br i1 %74, label %.lr.ph65, label %.loopexit, !llvm.loop !12
 
 ._crit_edge70:                                    ; preds = %.loopexit, %._crit_edge

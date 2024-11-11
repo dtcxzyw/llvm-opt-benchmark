@@ -8512,7 +8512,7 @@ _ZL19skipMetadataWrapperPKN4llvm5ValueE.exit.i.i.i: ; preds = %155, %.lr.ph164.i
   br i1 %159, label %160, label %161
 
 160:                                              ; preds = %_ZL19skipMetadataWrapperPKN4llvm5ValueE.exit.i.i.i
-  %switch.selectcmp.i.i.i.i.i.i.i.i = icmp ult i8 %158, 4
+  %switch.selectcmp.i.i.i.i.i.i.i.i = icmp samesign ult i8 %158, 4
   br i1 %switch.selectcmp.i.i.i.i.i.i.i.i, label %.thread.i.i.i, label %163
 
 161:                                              ; preds = %_ZL19skipMetadataWrapperPKN4llvm5ValueE.exit.i.i.i
@@ -14029,7 +14029,7 @@ define internal fastcc noundef ptr @_ZL16getModuleFromValPKN4llvm5ValueE(ptr noc
   br i1 %.not38, label %.thread, label %.thread.sink.split
 
 17:                                               ; preds = %9
-  %switch.selectcmp.i.i.i.i.i.i.i = icmp ugt i8 %2, 3
+  %switch.selectcmp.i.i.i.i.i.i.i = icmp samesign ugt i8 %2, 3
   br i1 %switch.selectcmp.i.i.i.i.i.i.i, label %18, label %.thread.sink.split
 
 18:                                               ; preds = %17
@@ -14306,7 +14306,7 @@ _ZN4llvm11SlotTracker13purgeFunctionEv.exit.i.i71: ; preds = %._crit_edge.i.i.i.
   br label %154
 
 111:                                              ; preds = %70
-  %switch.selectcmp.i.i.i.i.i.i.i = icmp ugt i8 %25, 3
+  %switch.selectcmp.i.i.i.i.i.i.i = icmp samesign ugt i8 %25, 3
   br i1 %switch.selectcmp.i.i.i.i.i.i.i, label %122, label %112
 
 112:                                              ; preds = %111
@@ -14354,7 +14354,7 @@ _ZN4llvm11SlotTracker13purgeFunctionEv.exit.i.i71: ; preds = %._crit_edge.i.i.i.
   br label %154
 
 127:                                              ; preds = %122
-  %128 = icmp ugt i8 %25, 21
+  %128 = icmp samesign ugt i8 %25, 21
   br i1 %128, label %150, label %129
 
 129:                                              ; preds = %127
@@ -30539,8 +30539,8 @@ _ZNK4llvm9MapVectorIPKNS_5ValueEjNS_8DenseMapIS3_jNS_12DenseMapInfoIS3_vEENS_6de
   %44 = load i32, ptr %43, align 4
   %45 = and i32 %44, 134217727
   %.not12 = icmp eq i32 %45, 0
-  %switch.selectcmp.i.i.i.i.i.i.i.i = icmp ult i8 %40, 4
-  %or.cond = or i1 %.not12, %switch.selectcmp.i.i.i.i.i.i.i.i
+  %switch.selectcmp.i.i.i.i.i.i.i.i = icmp samesign ult i8 %40, 4
+  %or.cond = select i1 %.not12, i1 true, i1 %switch.selectcmp.i.i.i.i.i.i.i.i
   br i1 %or.cond, label %.loopexit, label %46
 
 46:                                               ; preds = %42
@@ -31879,7 +31879,7 @@ define internal fastcc void @"_ZSt16__insertion_sortIPSt4pairIPKN4llvm3UseEjEN9_
   %20 = getelementptr inbounds i8, ptr %.069.i.i.i.i.i, i64 -8
   store i32 %19, ptr %20, align 8
   %21 = add nsw i64 %.010.i.i.i.i.i, -1
-  %22 = icmp ugt i64 %.010.i.i.i.i.i, 1
+  %22 = icmp samesign ugt i64 %.010.i.i.i.i.i, 1
   br i1 %22, label %.lr.ph.i.i.i.i.i, label %_ZSt13move_backwardIPSt4pairIPKN4llvm3UseEjES6_ET0_T_S8_S7_.exit, !llvm.loop !247
 
 _ZSt13move_backwardIPSt4pairIPKN4llvm3UseEjES6_ET0_T_S8_S7_.exit: ; preds = %.lr.ph.i.i.i.i.i, %9

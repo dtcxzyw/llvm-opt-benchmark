@@ -110,7 +110,7 @@ define internal fastcc noundef i32 @_ZN5ZXingL12ReadBitsImplEiRKNS_9ByteArrayEiR
 .preheader:                                       ; preds = %13, %37
   %.059 = phi i32 [ %31, %37 ], [ %0, %13 ]
   %.04758 = phi i32 [ %30, %37 ], [ 0, %13 ]
-  %39 = icmp ugt i32 %.059, 7
+  %39 = icmp samesign ugt i32 %.059, 7
   br i1 %39, label %.lr.ph.preheader, label %._crit_edge.thread
 
 .lr.ph.preheader:                                 ; preds = %.preheader
@@ -131,7 +131,7 @@ define internal fastcc noundef i32 @_ZN5ZXingL12ReadBitsImplEiRKNS_9ByteArrayEiR
   %48 = add nsw i32 %40, 1
   store i32 %48, ptr %3, align 4
   %49 = add nsw i32 %.153, -8
-  %50 = icmp ugt i32 %49, 7
+  %50 = icmp samesign ugt i32 %49, 7
   br i1 %50, label %.lr.ph, label %._crit_edge, !llvm.loop !4
 
 ._crit_edge:                                      ; preds = %.lr.ph

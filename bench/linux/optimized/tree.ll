@@ -1487,7 +1487,7 @@ rcu_qs.exit:                                      ; preds = %129, %102, %150, %1
   br i1 %237, label %240, label %238
 
 238:                                              ; preds = %234
-  %239 = icmp ugt i32 %236, 300
+  %239 = icmp samesign ugt i32 %236, 300
   br i1 %239, label %240, label %242
 
 240:                                              ; preds = %238, %234
@@ -5927,7 +5927,7 @@ define internal fastcc void @sanitize_kthread_prio() unnamed_addr #9 section ".i
   br i1 %2, label %5, label %3
 
 3:                                                ; preds = %0
-  %4 = icmp ugt i32 %1, 99
+  %4 = icmp samesign ugt i32 %1, 99
   br i1 %4, label %5, label %.thread
 
 5:                                                ; preds = %0, %3
@@ -5951,7 +5951,7 @@ define internal fastcc void @rcu_init_one() unnamed_addr #9 section ".init.text"
 
 5:                                                ; preds = %0
   store i64 0, ptr %1, align 8, !annotation !21
-  %6 = icmp ugt i32 %2, 1
+  %6 = icmp samesign ugt i32 %2, 1
   br i1 %6, label %.critedge, label %.critedge.thread
 
 7:                                                ; preds = %0
@@ -6368,7 +6368,7 @@ define dso_local i32 @rcu_exp_jiffies_till_stall_check() #1 align 16 {
   br i1 %5, label %8, label %6
 
 6:                                                ; preds = %3
-  %7 = icmp ugt i32 %4, 300
+  %7 = icmp samesign ugt i32 %4, 300
   br i1 %7, label %8, label %10
 
 8:                                                ; preds = %6, %3
@@ -6418,7 +6418,7 @@ define dso_local range(i32 3000, 300001) i32 @rcu_jiffies_till_stall_check() #14
   br i1 %2, label %5, label %3
 
 3:                                                ; preds = %0
-  %4 = icmp ugt i32 %1, 300
+  %4 = icmp samesign ugt i32 %1, 300
   br i1 %4, label %5, label %7
 
 5:                                                ; preds = %3, %0
@@ -6439,7 +6439,7 @@ define dso_local zeroext i1 @rcu_gp_might_be_stalled() local_unnamed_addr #1 ali
   br i1 %2, label %5, label %3
 
 3:                                                ; preds = %0
-  %4 = icmp ugt i32 %1, 300
+  %4 = icmp samesign ugt i32 %1, 300
   br i1 %4, label %5, label %7
 
 5:                                                ; preds = %3, %0
@@ -7412,7 +7412,7 @@ define internal fastcc void @rcu_exp_sel_wait_wake(i64 noundef %0) unnamed_addr 
   br i1 %206, label %209, label %207
 
 207:                                              ; preds = %204
-  %208 = icmp ugt i32 %205, 300
+  %208 = icmp samesign ugt i32 %205, 300
   br i1 %208, label %209, label %211
 
 209:                                              ; preds = %207, %204
@@ -8036,7 +8036,7 @@ define internal fastcc void @rcu_exp_sel_wait_wake(i64 noundef %0) unnamed_addr 
   br i1 %610, label %613, label %611
 
 611:                                              ; preds = %608
-  %612 = icmp ugt i32 %609, 300
+  %612 = icmp samesign ugt i32 %609, 300
   br i1 %612, label %613, label %615
 
 613:                                              ; preds = %611, %608
@@ -11138,7 +11138,7 @@ define internal fastcc void @print_cpu_stall(i64 noundef %0) unnamed_addr #1 ali
   br i1 %124, label %127, label %125
 
 125:                                              ; preds = %121
-  %126 = icmp ugt i32 %123, 300
+  %126 = icmp samesign ugt i32 %123, 300
   br i1 %126, label %127, label %129
 
 127:                                              ; preds = %125, %121
@@ -11652,7 +11652,7 @@ define internal fastcc void @print_other_cpu_stall(i64 noundef %0, i64 noundef %
   br i1 %303, label %306, label %304
 
 304:                                              ; preds = %300
-  %305 = icmp ugt i32 %302, 300
+  %305 = icmp samesign ugt i32 %302, 300
   br i1 %305, label %306, label %308
 
 306:                                              ; preds = %304, %300
@@ -12600,7 +12600,7 @@ define internal noundef i32 @rcu_gp_kthread(ptr nocapture readnone %0) #22 align
   br i1 %59, label %62, label %60
 
 60:                                               ; preds = %56
-  %61 = icmp ugt i32 %58, 300
+  %61 = icmp samesign ugt i32 %58, 300
   br i1 %61, label %62, label %64
 
 62:                                               ; preds = %60, %56
@@ -13605,7 +13605,7 @@ rcu_cleanup_dead_rnp.exit:                        ; preds = %235, %232, %219, %2
   br i1 %611, label %614, label %612
 
 612:                                              ; preds = %608
-  %613 = icmp ugt i32 %610, 300
+  %613 = icmp samesign ugt i32 %610, 300
   br i1 %613, label %614, label %616
 
 614:                                              ; preds = %612, %608
@@ -15729,7 +15729,7 @@ define internal fastcc void @rcu_core() unnamed_addr #1 align 16 {
   br i1 %139, label %142, label %140
 
 140:                                              ; preds = %137
-  %141 = icmp ugt i32 %138, 300
+  %141 = icmp samesign ugt i32 %138, 300
   br i1 %141, label %142, label %144
 
 142:                                              ; preds = %140, %137

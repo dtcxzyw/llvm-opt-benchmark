@@ -10221,8 +10221,8 @@ _ZN4llvm8ICmpInstC2ENS_7CmpInst9PredicateEPNS_5ValueES4_RKNS_5TwineE.exit85: ; p
 121:                                              ; preds = %117
   %122 = load i64, ptr %3, align 8
   %123 = icmp eq i64 %122, 1
-  %124 = icmp ugt i32 %119, 1
-  %or.cond = and i1 %124, %123
+  %124 = icmp samesign ugt i32 %119, 1
+  %or.cond = select i1 %123, i1 %124, i1 false
   %125 = icmp eq i16 %44, 40
   %or.cond188 = select i1 %or.cond, i1 %125, i1 false
   br i1 %or.cond188, label %129, label %.critedge
@@ -15188,7 +15188,7 @@ _ZN4llvm12PatternMatch12match_unlessINS0_18constantexpr_matchEE5matchINS_5ValueE
 
 _ZN4llvm12PatternMatch5matchINS_5ValueENS0_17match_combine_andINS0_11class_matchINS_8ConstantEEENS0_12match_unlessINS0_18constantexpr_matchEEEEEEEbPT_RKT0_.exit: ; preds = %_ZN4llvm12PatternMatch12match_unlessINS0_18constantexpr_matchEE5matchINS_5ValueEEEbPT_.exit.i.i, %_ZNK4llvm5Value9hasOneUseEv.exit148.thread
   %483 = phi i32 [ 3, %_ZNK4llvm5Value9hasOneUseEv.exit148.thread ], [ %spec.select207, %_ZN4llvm12PatternMatch12match_unlessINS0_18constantexpr_matchEE5matchINS_5ValueEEEbPT_.exit.i.i ]
-  %.not91 = icmp ult i32 %478, %483
+  %.not91 = icmp samesign ult i32 %478, %483
   br i1 %.not91, label %.critedge8, label %484
 
 484:                                              ; preds = %_ZN4llvm12PatternMatch5matchINS_5ValueENS0_17match_combine_andINS0_11class_matchINS_8ConstantEEENS0_12match_unlessINS0_18constantexpr_matchEEEEEEEbPT_RKT0_.exit
@@ -45711,7 +45711,7 @@ _ZN4llvm8dyn_castINS_16PtrToIntOperatorENS_5ValueEEEDcPT0_.exit: ; preds = %_ZN4
   br i1 %102, label %.thread68, label %.thread
 
 103:                                              ; preds = %90
-  %104 = icmp ugt i8 %88, 21
+  %104 = icmp samesign ugt i8 %88, 21
   br i1 %104, label %.thread, label %.thread78
 
 .thread78:                                        ; preds = %92, %103
@@ -61424,7 +61424,7 @@ _ZN4llvm9remove_ifIRNS_11SmallVectorISt4pairIjPNS_6MDNodeEELj2EEEZNS_13IRBuilder
   %68 = getelementptr inbounds i8, ptr %.0910.i.i.i.i.i.i, i64 16
   %69 = getelementptr inbounds i8, ptr %.0811.i.i.i.i.i.i, i64 16
   %70 = add nsw i64 %.012.i.i.i.i.i.i, -1
-  %71 = icmp ugt i64 %.012.i.i.i.i.i.i, 1
+  %71 = icmp samesign ugt i64 %.012.i.i.i.i.i.i, 1
   br i1 %71, label %.lr.ph.i.i.i.i.i.i, label %_ZN4llvm15SmallVectorImplISt4pairIjPNS_6MDNodeEEE5eraseEPKS4_S7_.exit, !llvm.loop !868
 
 _ZN4llvm15SmallVectorImplISt4pairIjPNS_6MDNodeEEE5eraseEPKS4_S7_.exit: ; preds = %.lr.ph.i.i.i.i.i.i, %_ZN4llvm9remove_ifIRNS_11SmallVectorISt4pairIjPNS_6MDNodeEELj2EEEZNS_13IRBuilderBase25AddOrRemoveMetadataToCopyEjS4_EUlRKS5_E_EEDaOT_T0_.exit

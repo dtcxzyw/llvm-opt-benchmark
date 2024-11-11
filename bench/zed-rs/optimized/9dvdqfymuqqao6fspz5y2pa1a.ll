@@ -13389,8 +13389,8 @@ default.unreachable17:                            ; preds = %"_ZN4core3ptr144dro
 .thread.i.i.i.i.i:                                ; preds = %87
   %95 = getelementptr inbounds i8, ptr %6, i64 16
   %96 = load i8, ptr %95, align 8, !range !124, !alias.scope !2742, !noalias !2745, !noundef !9
-  %switch.i.i3454.i.i.i.i.i = icmp samesign ult i8 %96, 3
-  br i1 %switch.i.i3454.i.i.i.i.i, label %83, label %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17he2debabd90ff5e33E.exit.i.i.i.i.i"
+  %or.cond55.i.i.i.i.i = icmp samesign ult i8 %96, 3
+  br i1 %or.cond55.i.i.i.i.i, label %83, label %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17he2debabd90ff5e33E.exit.i.i.i.i.i"
 
 ._crit_edge.i.i.i.i.i:                            ; preds = %91
   br i1 %switch.i.i.i.i.i.i.i, label %83, label %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17he2debabd90ff5e33E.exit.i.i.i.i.i"
@@ -23846,7 +23846,7 @@ _ZN3log13__private_api3log17h8283b0c56fbdbfabE.exit123: ; preds = %496
   %.sroa.5.0..sroa_idx.i.i.i = getelementptr inbounds i8, ptr %64, i64 16
   %.sroa.5.0.copyload.i.i.i = load i64, ptr %.sroa.5.0..sroa_idx.i.i.i, align 8, !alias.scope !4175, !noalias !4178
   %562 = getelementptr inbounds { ptr, ptr, i8, [63 x i8] }, ptr %.sroa.4.0.copyload.i.i.i, i64 %.sroa.5.0.copyload.i.i.i
-  %563 = icmp ult i64 %.sroa.5.0.copyload.i.i.i, 31
+  %563 = icmp samesign ult i64 %.sroa.5.0.copyload.i.i.i, 31
   br i1 %563, label %.noexc.i.i141, label %564
 
 564:                                              ; preds = %561

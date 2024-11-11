@@ -387,7 +387,7 @@ define dso_local range(i64 -70, 262149) i64 @ZSTD_decodeLiteralsBlock(ptr nounde
   br i1 %207, label %208, label %223
 
 208:                                              ; preds = %198
-  %209 = icmp ugt i64 %205, %2
+  %209 = icmp samesign ugt i64 %205, %2
   br i1 %209, label %298, label %210
 
 210:                                              ; preds = %208
@@ -2442,7 +2442,7 @@ define dso_local i64 @ZSTD_decompressBlock_internal(ptr noundef %0, ptr noundef 
 808:                                              ; preds = %794
   %809 = getelementptr i8, ptr %796, i64 -32
   %810 = icmp uge ptr %809, %586
-  %811 = icmp ult i64 %795, -16
+  %811 = icmp samesign ult i64 %795, -16
   %812 = and i1 %811, %810
   br i1 %812, label %813, label %828
 
@@ -2608,7 +2608,7 @@ thread-pre-split:                                 ; preds = %785, %.loopexit143
   br i1 %907, label %900, label %.loopexit137, !llvm.loop !33
 
 908:                                              ; preds = %890
-  %909 = icmp ult i64 %845, 8
+  %909 = icmp samesign ult i64 %845, 8
   br i1 %909, label %910, label %932
 
 910:                                              ; preds = %908
@@ -2823,7 +2823,7 @@ thread-pre-split:                                 ; preds = %785, %.loopexit143
   br i1 %1042, label %1035, label %.loopexit147, !llvm.loop !33
 
 1043:                                             ; preds = %1025
-  %1044 = icmp ult i64 %980, 8
+  %1044 = icmp samesign ult i64 %980, 8
   br i1 %1044, label %1045, label %1067
 
 1045:                                             ; preds = %1043
@@ -3022,7 +3022,7 @@ thread-pre-split:                                 ; preds = %785, %.loopexit143
   br i1 %1171, label %1164, label %.loopexit147, !llvm.loop !33
 
 1172:                                             ; preds = %1154
-  %1173 = icmp ult i64 %1107, 8
+  %1173 = icmp samesign ult i64 %1107, 8
   br i1 %1173, label %1174, label %1196
 
 1174:                                             ; preds = %1172
@@ -3225,7 +3225,7 @@ thread-pre-split:                                 ; preds = %785, %.loopexit143
 1305:                                             ; preds = %1291
   %1306 = getelementptr i8, ptr %1293, i64 -32
   %1307 = icmp uge ptr %1306, %1270
-  %1308 = icmp ult i64 %1292, -16
+  %1308 = icmp samesign ult i64 %1292, -16
   %1309 = and i1 %1308, %1307
   br i1 %1309, label %1310, label %1325
 
@@ -3391,7 +3391,7 @@ thread-pre-split99:                               ; preds = %1282, %.loopexit121
   br i1 %1404, label %1397, label %.loopexit, !llvm.loop !33
 
 1405:                                             ; preds = %1387
-  %1406 = icmp ult i64 %1342, 8
+  %1406 = icmp samesign ult i64 %1342, 8
   br i1 %1406, label %1407, label %1429
 
 1407:                                             ; preds = %1405
@@ -3592,7 +3592,7 @@ thread-pre-split99:                               ; preds = %1282, %.loopexit121
   br i1 %1532, label %1525, label %.loopexit125, !llvm.loop !33
 
 1533:                                             ; preds = %1515
-  %1534 = icmp ult i64 %1470, 8
+  %1534 = icmp samesign ult i64 %1470, 8
   br i1 %1534, label %1535, label %1557
 
 1535:                                             ; preds = %1533
@@ -3788,7 +3788,7 @@ thread-pre-split99:                               ; preds = %1282, %.loopexit121
   br i1 %1658, label %1651, label %.loopexit125, !llvm.loop !33
 
 1659:                                             ; preds = %1641
-  %1660 = icmp ult i64 %1594, 8
+  %1660 = icmp samesign ult i64 %1594, 8
   br i1 %1660, label %1661, label %1683
 
 1661:                                             ; preds = %1659
@@ -4734,7 +4734,7 @@ define internal fastcc i64 @ZSTD_decompressSequencesSplitLitBuffer(ptr noundef %
   br i1 %505, label %498, label %.loopexit127, !llvm.loop !33
 
 506:                                              ; preds = %488
-  %507 = icmp ult i64 %440, 8
+  %507 = icmp samesign ult i64 %440, 8
   br i1 %507, label %508, label %530
 
 508:                                              ; preds = %506
@@ -5143,7 +5143,7 @@ define internal fastcc i64 @ZSTD_decompressSequencesSplitLitBuffer(ptr noundef %
 790:                                              ; preds = %776
   %791 = getelementptr i8, ptr %778, i64 -32
   %792 = icmp uge ptr %791, %.lcssa136
-  %793 = icmp ult i64 %777, -16
+  %793 = icmp samesign ult i64 %777, -16
   %794 = and i1 %793, %792
   br i1 %794, label %795, label %810
 
@@ -5319,7 +5319,7 @@ define internal fastcc i64 @ZSTD_decompressSequencesSplitLitBuffer(ptr noundef %
   br i1 %892, label %885, label %.loopexit117, !llvm.loop !33
 
 893:                                              ; preds = %875
-  %894 = icmp ult i64 %.lcssa144, 8
+  %894 = icmp samesign ult i64 %.lcssa144, 8
   br i1 %894, label %895, label %917
 
 895:                                              ; preds = %893
@@ -5799,7 +5799,7 @@ define internal fastcc i64 @ZSTD_decompressSequencesSplitLitBuffer(ptr noundef %
   br i1 %1215, label %1208, label %.loopexit, !llvm.loop !33
 
 1216:                                             ; preds = %1198
-  %1217 = icmp ult i64 %1085, 8
+  %1217 = icmp samesign ult i64 %1085, 8
   br i1 %1217, label %1218, label %1240
 
 1218:                                             ; preds = %1216
@@ -6811,7 +6811,7 @@ define internal fastcc i64 @ZSTD_decompressSequences(ptr nocapture noundef %0, p
   br i1 %508, label %501, label %.loopexit, !llvm.loop !33
 
 509:                                              ; preds = %491
-  %510 = icmp ult i64 %378, 8
+  %510 = icmp samesign ult i64 %378, 8
   br i1 %510, label %511, label %533
 
 511:                                              ; preds = %509
@@ -8187,7 +8187,7 @@ define internal fastcc i64 @ZSTD_decompressSequencesLong_bmi2(ptr noundef %0, pt
 749:                                              ; preds = %735
   %750 = getelementptr i8, ptr %737, i64 -32
   %751 = icmp uge ptr %750, %525
-  %752 = icmp ult i64 %736, -16
+  %752 = icmp samesign ult i64 %736, -16
   %753 = and i1 %752, %751
   br i1 %753, label %754, label %769
 
@@ -8353,7 +8353,7 @@ thread-pre-split:                                 ; preds = %726, %.loopexit139
   br i1 %848, label %841, label %.loopexit133, !llvm.loop !33
 
 849:                                              ; preds = %831
-  %850 = icmp ult i64 %786, 8
+  %850 = icmp samesign ult i64 %786, 8
   br i1 %850, label %851, label %873
 
 851:                                              ; preds = %849
@@ -8568,7 +8568,7 @@ thread-pre-split:                                 ; preds = %726, %.loopexit139
   br i1 %983, label %976, label %.loopexit143, !llvm.loop !33
 
 984:                                              ; preds = %966
-  %985 = icmp ult i64 %921, 8
+  %985 = icmp samesign ult i64 %921, 8
   br i1 %985, label %986, label %1008
 
 986:                                              ; preds = %984
@@ -8767,7 +8767,7 @@ thread-pre-split:                                 ; preds = %726, %.loopexit139
   br i1 %1112, label %1105, label %.loopexit143, !llvm.loop !33
 
 1113:                                             ; preds = %1095
-  %1114 = icmp ult i64 %1048, 8
+  %1114 = icmp samesign ult i64 %1048, 8
   br i1 %1114, label %1115, label %1137
 
 1115:                                             ; preds = %1113
@@ -8970,7 +8970,7 @@ thread-pre-split:                                 ; preds = %726, %.loopexit139
 1246:                                             ; preds = %1232
   %1247 = getelementptr i8, ptr %1234, i64 -32
   %1248 = icmp uge ptr %1247, %1211
-  %1249 = icmp ult i64 %1233, -16
+  %1249 = icmp samesign ult i64 %1233, -16
   %1250 = and i1 %1249, %1248
   br i1 %1250, label %1251, label %1266
 
@@ -9136,7 +9136,7 @@ thread-pre-split95:                               ; preds = %1223, %.loopexit117
   br i1 %1345, label %1338, label %.loopexit, !llvm.loop !33
 
 1346:                                             ; preds = %1328
-  %1347 = icmp ult i64 %1283, 8
+  %1347 = icmp samesign ult i64 %1283, 8
   br i1 %1347, label %1348, label %1370
 
 1348:                                             ; preds = %1346
@@ -9337,7 +9337,7 @@ thread-pre-split95:                               ; preds = %1223, %.loopexit117
   br i1 %1473, label %1466, label %.loopexit121, !llvm.loop !33
 
 1474:                                             ; preds = %1456
-  %1475 = icmp ult i64 %1411, 8
+  %1475 = icmp samesign ult i64 %1411, 8
   br i1 %1475, label %1476, label %1498
 
 1476:                                             ; preds = %1474
@@ -9533,7 +9533,7 @@ thread-pre-split95:                               ; preds = %1223, %.loopexit117
   br i1 %1599, label %1592, label %.loopexit121, !llvm.loop !33
 
 1600:                                             ; preds = %1582
-  %1601 = icmp ult i64 %1535, 8
+  %1601 = icmp samesign ult i64 %1535, 8
   br i1 %1601, label %1602, label %1624
 
 1602:                                             ; preds = %1600
@@ -9832,7 +9832,7 @@ define internal fastcc i64 @ZSTD_execSequenceEnd(ptr noundef %0, ptr noundef %1,
 
 42:                                               ; preds = %40
   tail call void @llvm.memmove.p0.p0.i64(ptr noundef align 1 dereferenceable(16) %0, ptr noundef align 1 dereferenceable(16) %14, i64 16, i1 false)
-  %43 = icmp ult i64 %9, 17
+  %43 = icmp samesign ult i64 %9, 17
   br i1 %43, label %.loopexit, label %44
 
 44:                                               ; preds = %42
@@ -10031,7 +10031,7 @@ define internal fastcc void @ZSTD_safecopy(ptr noundef %0, ptr noundef %1, ptr n
 
 60:                                               ; preds = %49
   tail call void @llvm.memmove.p0.p0.i64(ptr noundef align 1 dereferenceable(16) %47, ptr noundef align 1 dereferenceable(16) %46, i64 16, i1 false)
-  %61 = icmp ult i64 %3, 25
+  %61 = icmp samesign ult i64 %3, 25
   br i1 %61, label %.loopexit, label %62
 
 62:                                               ; preds = %60
@@ -10175,7 +10175,7 @@ define internal fastcc i64 @ZSTD_execSequenceEndSplitLitBuffer(ptr noundef %0, p
 47:                                               ; preds = %34
   %48 = getelementptr i8, ptr %11, i64 -32
   %49 = icmp uge ptr %48, %0
-  %50 = icmp ult i64 %35, -16
+  %50 = icmp samesign ult i64 %35, -16
   %51 = and i1 %49, %50
   br i1 %51, label %52, label %67
 
@@ -10989,7 +10989,7 @@ define internal fastcc i64 @ZSTD_decompressSequencesSplitLitBuffer_bmi2(ptr noun
   br i1 %498, label %491, label %.loopexit127, !llvm.loop !33
 
 499:                                              ; preds = %481
-  %500 = icmp ult i64 %433, 8
+  %500 = icmp samesign ult i64 %433, 8
   br i1 %500, label %501, label %523
 
 501:                                              ; preds = %499
@@ -11404,7 +11404,7 @@ define internal fastcc i64 @ZSTD_decompressSequencesSplitLitBuffer_bmi2(ptr noun
 785:                                              ; preds = %771
   %786 = getelementptr i8, ptr %773, i64 -32
   %787 = icmp uge ptr %786, %.lcssa136
-  %788 = icmp ult i64 %772, -16
+  %788 = icmp samesign ult i64 %772, -16
   %789 = and i1 %788, %787
   br i1 %789, label %790, label %805
 
@@ -11580,7 +11580,7 @@ define internal fastcc i64 @ZSTD_decompressSequencesSplitLitBuffer_bmi2(ptr noun
   br i1 %887, label %880, label %.loopexit117, !llvm.loop !33
 
 888:                                              ; preds = %870
-  %889 = icmp ult i64 %.lcssa144, 8
+  %889 = icmp samesign ult i64 %.lcssa144, 8
   br i1 %889, label %890, label %912
 
 890:                                              ; preds = %888
@@ -12066,7 +12066,7 @@ define internal fastcc i64 @ZSTD_decompressSequencesSplitLitBuffer_bmi2(ptr noun
   br i1 %1212, label %1205, label %.loopexit, !llvm.loop !33
 
 1213:                                             ; preds = %1195
-  %1214 = icmp ult i64 %.sink245, 8
+  %1214 = icmp samesign ult i64 %.sink245, 8
   br i1 %1214, label %1215, label %1237
 
 1215:                                             ; preds = %1213
@@ -13070,7 +13070,7 @@ define internal fastcc i64 @ZSTD_decompressSequences_bmi2(ptr nocapture noundef 
   br i1 %504, label %497, label %.loopexit, !llvm.loop !33
 
 505:                                              ; preds = %487
-  %506 = icmp ult i64 %.sink77, 8
+  %506 = icmp samesign ult i64 %.sink77, 8
   br i1 %506, label %507, label %529
 
 507:                                              ; preds = %505

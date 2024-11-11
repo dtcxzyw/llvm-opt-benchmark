@@ -1651,7 +1651,7 @@ default.unreachable:                              ; preds = %101
   %161 = getelementptr inbounds i8, ptr %26, i64 %31
   store ptr %160, ptr %1, align 8
   store ptr %161, ptr %27, align 8
-  %switch = icmp ult i64 %157, 2
+  %switch = icmp samesign ult i64 %157, 2
   br i1 %switch, label %163, label %184
 
 162:                                              ; preds = %"_ZN71_$LT$tt..buffer..Cursor$LT$Span$GT$$u20$as$u20$core..cmp..PartialEq$GT$2eq17he0dfba8bc329212bE.exit.thread"

@@ -492,7 +492,7 @@ define linkonce_odr hidden void @_ZNSt6vectorIN2cv3ccm9OperationESaIS2_EE15_M_ra
   %33 = getelementptr inbounds i8, ptr %.069.i.i.i.i.i, i64 -144
   %34 = tail call noundef nonnull align 8 dereferenceable(144) ptr @_ZN2cv3ccm9OperationaSERKS1_(ptr noundef nonnull align 8 dereferenceable(144) %33, ptr noundef nonnull align 8 dereferenceable(144) %32)
   %35 = add nsw i64 %.010.i.i.i.i.i, -1
-  %36 = icmp ugt i64 %.010.i.i.i.i.i, 1
+  %36 = icmp samesign ugt i64 %.010.i.i.i.i.i, 1
   br i1 %36, label %.lr.ph.i.i.i.i.i, label %_ZSt13move_backwardIPN2cv3ccm9OperationES3_ET0_T_S5_S4_.exit, !llvm.loop !7
 
 _ZSt13move_backwardIPN2cv3ccm9OperationES3_ET0_T_S5_S4_.exit: ; preds = %.lr.ph.i.i.i.i.i, %22
@@ -511,7 +511,7 @@ _ZSt13move_backwardIPN2cv3ccm9OperationES3_ET0_T_S5_S4_.exit: ; preds = %.lr.ph.
   %40 = getelementptr inbounds i8, ptr %.0910.i.i.i.i.i, i64 144
   %41 = getelementptr inbounds i8, ptr %.0811.i.i.i.i.i, i64 144
   %42 = add nsw i64 %.012.i.i.i.i.i, -1
-  %43 = icmp ugt i64 %.012.i.i.i.i.i, 1
+  %43 = icmp samesign ugt i64 %.012.i.i.i.i.i, 1
   br i1 %43, label %.lr.ph.i.i.i.i.i52, label %_ZSt4copyIN9__gnu_cxx17__normal_iteratorIPKN2cv3ccm9OperationESt6vectorIS4_SaIS4_EEEENS1_IPS4_S9_EEET0_T_SE_SD_.exit, !llvm.loop !9
 
 _ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPKN2cv3ccm9OperationESt6vectorIS4_SaIS4_EEEEmEvRT_T0_.exit: ; preds = %17
@@ -540,7 +540,7 @@ _ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPKN2cv3ccm9OperationESt6vectorIS4_Sa
   %55 = getelementptr inbounds i8, ptr %.0910.i.i.i.i.i58, i64 144
   %56 = getelementptr inbounds i8, ptr %.0811.i.i.i.i.i57, i64 144
   %57 = add nsw i64 %.012.i.i.i.i.i56, -1
-  %58 = icmp ugt i64 %.012.i.i.i.i.i56, 1
+  %58 = icmp samesign ugt i64 %.012.i.i.i.i.i56, 1
   br i1 %58, label %.lr.ph.i.i.i.i.i55, label %_ZSt4copyIN9__gnu_cxx17__normal_iteratorIPKN2cv3ccm9OperationESt6vectorIS4_SaIS4_EEEENS1_IPS4_S9_EEET0_T_SE_SD_.exit, !llvm.loop !9
 
 59:                                               ; preds = %5

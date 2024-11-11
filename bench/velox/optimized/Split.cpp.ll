@@ -8385,7 +8385,7 @@ if.then.i.i:                                      ; preds = %if.end.i
   unreachable
 
 if.end.i.i:                                       ; preds = %if.end.i
-  %cmp.i.i.i.i = icmp ult i32 %conv.i, 13
+  %cmp.i.i.i.i = icmp samesign ult i32 %conv.i, 13
   %prefix_.i.i = getelementptr inbounds i8, ptr %ref.tmp16.i, i64 4
   br i1 %cmp.i.i.i.i, label %if.then2.i.i, label %if.else.i.i
 
@@ -11334,11 +11334,11 @@ if.then.i:                                        ; preds = %if.end8
   br i1 %lnot, label %_ZNK5folly3f146detail8F14TableINS1_20ValueContainerPolicyIPKN8facebook5velox6BufferEvvvvEEE25computeChunkCountAndScaleEmbb.exit, label %if.then3.i
 
 if.then3.i:                                       ; preds = %if.then.i
-  %cmp4.i = icmp ult i64 %.sroa.speculated, 3
+  %cmp4.i = icmp samesign ult i64 %.sroa.speculated, 3
   br i1 %cmp4.i, label %_ZNK5folly3f146detail8F14TableINS1_20ValueContainerPolicyIPKN8facebook5velox6BufferEvvvvEEE25computeChunkCountAndScaleEmbb.exit, label %if.else.i
 
 if.else.i:                                        ; preds = %if.then3.i
-  %cmp6.inv.i = icmp ugt i64 %.sroa.speculated, 6
+  %cmp6.inv.i = icmp samesign ugt i64 %.sroa.speculated, 6
   %spec.select.i = select i1 %cmp6.inv.i, i64 14, i64 6
   br label %_ZNK5folly3f146detail8F14TableINS1_20ValueContainerPolicyIPKN8facebook5velox6BufferEvvvvEEE25computeChunkCountAndScaleEmbb.exit
 
@@ -11964,11 +11964,11 @@ if.then.i:                                        ; preds = %if.end5
   br i1 %cmp.i4.i.i, label %if.then.i.i.i, label %if.else11.i.i.i
 
 if.then.i.i.i:                                    ; preds = %if.then.i
-  %cmp4.i.i.i = icmp ult i64 %.sroa.speculated.i.i, 3
+  %cmp4.i.i.i = icmp samesign ult i64 %.sroa.speculated.i.i, 3
   br i1 %cmp4.i.i.i, label %_ZN5folly3f146detail8F14TableINS1_20ValueContainerPolicyIPKN8facebook5velox6BufferEvvvvEEE20reserveForInsertImplEmmmm.exit.i, label %if.else.i.i.i
 
 if.else.i.i.i:                                    ; preds = %if.then.i.i.i
-  %cmp6.inv.i.i.i = icmp ugt i64 %.sroa.speculated.i.i, 6
+  %cmp6.inv.i.i.i = icmp samesign ugt i64 %.sroa.speculated.i.i, 6
   %spec.select.i.i.i = select i1 %cmp6.inv.i.i.i, i64 14, i64 6
   br label %_ZN5folly3f146detail8F14TableINS1_20ValueContainerPolicyIPKN8facebook5velox6BufferEvvvvEEE20reserveForInsertImplEmmmm.exit.i
 
@@ -12258,7 +12258,7 @@ if.then.i:                                        ; preds = %_ZN8facebook5velox4
   unreachable
 
 if.end.i:                                         ; preds = %_ZN8facebook5velox4exec11ArrayWriterINS0_7VarcharEE8add_itemEv.exit
-  %cmp.i.i.i19 = icmp ult i32 %conv, 13
+  %cmp.i.i.i19 = icmp samesign ult i32 %conv, 13
   br i1 %cmp.i.i.i19, label %if.then2.i, label %if.else.i
 
 if.then2.i:                                       ; preds = %if.end.i
@@ -12346,7 +12346,7 @@ if.then.i64:                                      ; preds = %_ZN8facebook5velox4
   unreachable
 
 if.end.i54:                                       ; preds = %_ZN8facebook5velox4exec11ArrayWriterINS0_7VarcharEE8add_itemEv.exit51
-  %cmp.i.i.i55 = icmp ult i32 %conv21, 13
+  %cmp.i.i.i55 = icmp samesign ult i32 %conv21, 13
   %prefix_.i56 = getelementptr inbounds i8, ptr %ref.tmp18, i64 4
   br i1 %cmp.i.i.i55, label %if.then2.i59, label %if.else.i57
 
@@ -12740,7 +12740,7 @@ if.then.i:                                        ; preds = %_ZN8facebook5velox4
   unreachable
 
 if.end.i:                                         ; preds = %_ZN8facebook5velox4exec11ArrayWriterINS0_7VarcharEE8add_itemEv.exit59
-  %cmp.i.i.i62 = icmp ult i32 %conv, 13
+  %cmp.i.i.i62 = icmp samesign ult i32 %conv, 13
   br i1 %cmp.i.i.i62, label %if.then2.i, label %if.else.i
 
 if.then2.i:                                       ; preds = %if.end.i
@@ -12837,7 +12837,7 @@ if.then.i110:                                     ; preds = %_ZN8facebook5velox4
   unreachable
 
 if.end.i100:                                      ; preds = %_ZN8facebook5velox4exec11ArrayWriterINS0_7VarcharEE8add_itemEv.exit97
-  %cmp.i.i.i101 = icmp ult i32 %conv30, 13
+  %cmp.i.i.i101 = icmp samesign ult i32 %conv30, 13
   %prefix_.i102 = getelementptr inbounds i8, ptr %ref.tmp27, i64 4
   br i1 %cmp.i.i.i101, label %if.then2.i105, label %if.else.i103
 
@@ -13382,7 +13382,7 @@ if.then.i:                                        ; preds = %_ZN8facebook5velox4
   unreachable
 
 if.end.i:                                         ; preds = %_ZN8facebook5velox4exec11ArrayWriterINS0_7VarcharEE8add_itemEv.exit
-  %cmp.i.i.i19 = icmp ult i32 %conv, 13
+  %cmp.i.i.i19 = icmp samesign ult i32 %conv, 13
   br i1 %cmp.i.i.i19, label %if.then2.i, label %if.else.i
 
 if.then2.i:                                       ; preds = %if.end.i
@@ -13470,7 +13470,7 @@ if.then.i64:                                      ; preds = %_ZN8facebook5velox4
   unreachable
 
 if.end.i54:                                       ; preds = %_ZN8facebook5velox4exec11ArrayWriterINS0_7VarcharEE8add_itemEv.exit51
-  %cmp.i.i.i55 = icmp ult i32 %conv21, 13
+  %cmp.i.i.i55 = icmp samesign ult i32 %conv21, 13
   %prefix_.i56 = getelementptr inbounds i8, ptr %ref.tmp18, i64 4
   br i1 %cmp.i.i.i55, label %if.then2.i59, label %if.else.i57
 
@@ -13855,7 +13855,7 @@ if.then.i:                                        ; preds = %_ZN8facebook5velox4
   unreachable
 
 if.end.i:                                         ; preds = %_ZN8facebook5velox4exec11ArrayWriterINS0_7VarcharEE8add_itemEv.exit59
-  %cmp.i.i.i62 = icmp ult i32 %conv, 13
+  %cmp.i.i.i62 = icmp samesign ult i32 %conv, 13
   br i1 %cmp.i.i.i62, label %if.then2.i, label %if.else.i
 
 if.then2.i:                                       ; preds = %if.end.i
@@ -13952,7 +13952,7 @@ if.then.i110:                                     ; preds = %_ZN8facebook5velox4
   unreachable
 
 if.end.i100:                                      ; preds = %_ZN8facebook5velox4exec11ArrayWriterINS0_7VarcharEE8add_itemEv.exit97
-  %cmp.i.i.i101 = icmp ult i32 %conv31, 13
+  %cmp.i.i.i101 = icmp samesign ult i32 %conv31, 13
   %prefix_.i102 = getelementptr inbounds i8, ptr %ref.tmp28, i64 4
   br i1 %cmp.i.i.i101, label %if.then2.i105, label %if.else.i103
 

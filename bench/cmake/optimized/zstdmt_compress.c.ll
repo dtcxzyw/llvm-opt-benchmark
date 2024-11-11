@@ -1969,7 +1969,7 @@ ZSTDMT_tryGetInputRange.exit.thread:              ; preds = %ZSTDMT_tryGetInputR
 
 149:                                              ; preds = %147
   %150 = sub nuw nsw i64 131072, %138
-  %151 = icmp ult i64 %138, 131041
+  %151 = icmp samesign ult i64 %138, 131041
   br i1 %151, label %152, label %163
 
 152:                                              ; preds = %149

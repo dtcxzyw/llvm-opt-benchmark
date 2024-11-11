@@ -1994,7 +1994,7 @@ define noundef ptr @Abc_NtkLutmin(ptr noundef %0, i32 noundef %1, i32 noundef %2
   br label %53
 
 7:                                                ; preds = %3
-  %8 = icmp ugt i32 %1, 6
+  %8 = icmp samesign ugt i32 %1, 6
   br i1 %8, label %9, label %11
 
 9:                                                ; preds = %7

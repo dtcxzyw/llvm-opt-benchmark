@@ -60,7 +60,7 @@ while.body10:                                     ; preds = %while.cond7.prehead
   %len.addr.198 = phi i64 [ %sub, %for.end ], [ %len.addr.0.lcssa, %while.cond7.preheader ]
   %n.197 = phi i32 [ 0, %for.end ], [ %n.0.lcssa, %while.cond7.preheader ]
   tail call void %block(ptr noundef %ivec, ptr noundef %ivec, ptr noundef %key) #4
-  %cmp1194 = icmp ult i32 %n.197, 16
+  %cmp1194 = icmp samesign ult i32 %n.197, 16
   br i1 %cmp1194, label %for.body.preheader, label %for.end
 
 for.body.preheader:                               ; preds = %while.body10
@@ -154,7 +154,7 @@ while.body86:                                     ; preds = %while.cond83.prehea
   %len.addr.4121 = phi i64 [ %sub105, %for.end104 ], [ %len.addr.3.lcssa, %while.cond83.preheader ]
   %n.6120 = phi i32 [ 0, %for.end104 ], [ %n.5.lcssa, %while.cond83.preheader ]
   tail call void %block(ptr noundef %ivec, ptr noundef %ivec, ptr noundef %key) #4
-  %cmp88117 = icmp ult i32 %n.6120, 16
+  %cmp88117 = icmp samesign ult i32 %n.6120, 16
   br i1 %cmp88117, label %for.body90.preheader, label %for.end104
 
 for.body90.preheader:                             ; preds = %while.body86

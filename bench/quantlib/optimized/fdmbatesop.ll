@@ -4967,7 +4967,7 @@ for.body.i254:                                    ; preds = %call6.i.noexc, %for
 
 call6.i.noexc:                                    ; preds = %for.body.i254
   %140 = call double @llvm.fmuladd.f64(double %137, double %call6.i256, double %sum.07.i)
-  %cmp.i255 = icmp ugt i64 %indvars.iv.i, 1
+  %cmp.i255 = icmp samesign ugt i64 %indvars.iv.i, 1
   br i1 %cmp.i255, label %for.body.i254, label %invoke.cont190.loopexit, !llvm.loop !183
 
 invoke.cont190.loopexit:                          ; preds = %call6.i.noexc

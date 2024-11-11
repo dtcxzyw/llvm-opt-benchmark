@@ -5247,7 +5247,7 @@ type_flatten.exit34:                              ; preds = %type_flatten.exit, 
 
 65:                                               ; preds = %62
   %66 = add nsw i32 %51, -3
-  %67 = icmp ult i32 %66, 5
+  %67 = icmp samesign ult i32 %66, 5
   br i1 %67, label %68, label %type_is_matching_int.exit
 
 68:                                               ; preds = %65
@@ -5772,7 +5772,7 @@ define dso_local ptr @type_find_max_num_type(ptr noundef readonly %0, ptr nounde
   br i1 %or.cond, label %28, label %6
 
 6:                                                ; preds = %2
-  %7 = icmp ugt i32 %4, 12
+  %7 = icmp samesign ugt i32 %4, 12
   br i1 %7, label %8, label %10
 
 8:                                                ; preds = %6
@@ -5791,7 +5791,7 @@ define dso_local ptr @type_find_max_num_type(ptr noundef readonly %0, ptr nounde
   %11 = getelementptr inbounds i8, ptr %1, i64 56
   %12 = load i32, ptr %11, align 8
   %13 = and i32 %12, 255
-  %14 = icmp ugt i32 %4, 7
+  %14 = icmp samesign ugt i32 %4, 7
   %15 = add i32 %3, -3
   %16 = icmp ult i32 %15, 5
   %or.cond28 = select i1 %14, i1 %16, i1 false

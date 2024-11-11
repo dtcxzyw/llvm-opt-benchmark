@@ -6286,7 +6286,7 @@ _ZNSt12_Vector_baseIlSaIlEE11_M_allocateEm.exit.i.i: ; preds = %_ZNSt6vectorIlSa
   %25 = getelementptr inbounds i8, ptr %.0910.i.i.i.i.i.i.i.i.i.i, i64 4
   %26 = getelementptr inbounds i8, ptr %.0811.i.i.i.i.i.i.i.i.i.i, i64 8
   %27 = add nsw i64 %.012.i.i.i.i.i.i.i.i.i.i, -1
-  %28 = icmp ugt i64 %.012.i.i.i.i.i.i.i.i.i.i, 1
+  %28 = icmp samesign ugt i64 %.012.i.i.i.i.i.i.i.i.i.i, 1
   br i1 %28, label %.lr.ph.i.i.i.i.i.i.i.i.i.i, label %.loopexit, !llvm.loop !23
 
 .loopexit:                                        ; preds = %.lr.ph.i.i.i.i.i.i.i.i.i.i, %_ZNSt12_Vector_baseIlSaIlEE11_M_allocateEm.exit.thread.i.i
@@ -10187,7 +10187,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit62: ; 
 176:                                              ; preds = %133
   store i32 %134, ptr %26, align 4
   store i32 10, ptr %27, align 4
-  %177 = icmp ult i32 %134, 11
+  %177 = icmp samesign ult i32 %134, 11
   br i1 %177, label %183, label %178
 
 178:                                              ; preds = %176
@@ -10236,7 +10236,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit62: ; 
 191:                                              ; preds = %183
   store i32 %184, ptr %34, align 4
   store i32 13, ptr %35, align 4
-  %192 = icmp ult i32 %184, 14
+  %192 = icmp samesign ult i32 %184, 14
   br i1 %192, label %198, label %193
 
 193:                                              ; preds = %191
@@ -10285,7 +10285,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit62: ; 
 206:                                              ; preds = %198
   store i32 %199, ptr %42, align 4
   store i32 4, ptr %43, align 4
-  %207 = icmp ult i32 %199, 5
+  %207 = icmp samesign ult i32 %199, 5
   br i1 %207, label %213, label %208
 
 208:                                              ; preds = %206
@@ -10333,7 +10333,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit62: ; 
 220:                                              ; preds = %213
   store i32 %132, ptr %50, align 4
   store i32 10, ptr %51, align 4
-  %221 = icmp ult i32 %132, 11
+  %221 = icmp samesign ult i32 %132, 11
   br i1 %221, label %227, label %222
 
 222:                                              ; preds = %220
@@ -10360,7 +10360,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit62: ; 
   %229 = shl nuw nsw i32 %132, 1
   %230 = add nuw nsw i32 %229, 3
   store i32 %230, ptr %55, align 4
-  %.not = icmp ult i32 %228, %230
+  %.not = icmp samesign ult i32 %228, %230
   br i1 %.not, label %231, label %236
 
 231:                                              ; preds = %227

@@ -7189,7 +7189,7 @@ _ZNKSt14default_deleteISt9once_flagEclEPS0_.exit.i.i.i.i.i: ; preds = %_ZNSt6vec
 
 _ZN4date9time_zoneaSEOS0_.exit:                   ; preds = %_ZNSt6vectorIN4date6detail15expanded_ttinfoESaIS2_EEaSEOS4_.exit.i, %_ZNKSt14default_deleteISt9once_flagEclEPS0_.exit.i.i.i.i.i
   %dec.i.i.i.i.i = add nsw i64 %__n.07.i.i.i.i.i, -1
-  %cmp.i.i.i.i.i = icmp ugt i64 %__n.07.i.i.i.i.i, 1
+  %cmp.i.i.i.i.i = icmp samesign ugt i64 %__n.07.i.i.i.i.i, 1
   br i1 %cmp.i.i.i.i.i, label %for.body.i.i.i.i.i, label %invoke.cont, !llvm.loop !94
 
 invoke.cont:                                      ; preds = %_ZN4date9time_zoneaSEOS0_.exit, %if.then9

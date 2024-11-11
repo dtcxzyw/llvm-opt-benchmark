@@ -11407,7 +11407,7 @@ define linkonce_odr dso_local noundef ptr @_ZN4Luau16LintFormatString15checkStri
   %45 = sext i8 %44 to i32
   %46 = add nsw i32 %45, -48
   %47 = icmp ult i32 %46, 10
-  %48 = icmp ult i32 %52, 214748364
+  %48 = icmp samesign ult i32 %52, 214748364
   %or.cond3 = select i1 %47, i1 %48, i1 false
   br i1 %or.cond3, label %.lr.ph115, label %.critedge, !llvm.loop !75
 
@@ -11867,7 +11867,7 @@ define linkonce_odr dso_local noundef ptr @_ZN4Luau16LintFormatString18checkStri
   br i1 %32, label %33, label %._crit_edge
 
 33:                                               ; preds = %29
-  %34 = icmp ugt i32 %31, %3
+  %34 = icmp samesign ugt i32 %31, %3
   br i1 %34, label %._crit_edge, label %.thread
 
 .thread:                                          ; preds = %26, %.lr.ph.split, %33
@@ -19539,7 +19539,7 @@ _ZN9__gnu_cxx5__ops15_Iter_comp_iterIN4Luau17WarningComparatorEEclINS_17__normal
   %48 = getelementptr inbounds i8, ptr %.078.i.i.i.i.i, i64 -32
   %49 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEOS4_(ptr noundef nonnull align 8 dereferenceable(32) %47, ptr noundef nonnull align 8 dereferenceable(32) %48) #20
   %50 = add nsw i64 %.010.i.i.i.i.i, -1
-  %51 = icmp ugt i64 %.010.i.i.i.i.i, 1
+  %51 = icmp samesign ugt i64 %.010.i.i.i.i.i, 1
   br i1 %51, label %.lr.ph.i.i.i.i.i, label %.loopexit, !llvm.loop !125
 
 .loopexit:                                        ; preds = %.lr.ph.i.i.i.i.i, %38

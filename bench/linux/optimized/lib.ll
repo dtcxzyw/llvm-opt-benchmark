@@ -200,7 +200,7 @@ define dso_local range(i32 -22, 1) i32 @rtc_valid_tm(ptr nocapture noundef reado
   %31 = and i1 %30, %28
   %32 = zext i1 %31 to i32
   %33 = add nuw nsw i32 %32, %29
-  %34 = icmp ugt i32 %12, %33
+  %34 = icmp samesign ugt i32 %12, %33
   br i1 %34, label %47, label %35
 
 35:                                               ; preds = %27

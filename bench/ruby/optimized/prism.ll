@@ -1503,7 +1503,7 @@ define hidden void @pm_parser_errors_format(ptr noundef %0, ptr noundef %1, i1 n
   br label %78
 
 68:                                               ; preds = %.loopexit
-  %69 = icmp ult i32 %65, 100
+  %69 = icmp samesign ult i32 %65, 100
   br i1 %69, label %70, label %71
 
 70:                                               ; preds = %68
@@ -1513,7 +1513,7 @@ define hidden void @pm_parser_errors_format(ptr noundef %0, ptr noundef %1, i1 n
   br label %78
 
 71:                                               ; preds = %68
-  %72 = icmp ult i32 %65, 1000
+  %72 = icmp samesign ult i32 %65, 1000
   br i1 %72, label %73, label %74
 
 73:                                               ; preds = %71
@@ -1523,7 +1523,7 @@ define hidden void @pm_parser_errors_format(ptr noundef %0, ptr noundef %1, i1 n
   br label %78
 
 74:                                               ; preds = %71
-  %75 = icmp ult i32 %65, 10000
+  %75 = icmp samesign ult i32 %65, 10000
   %.str.21..str.24 = select i1 %2, ptr @.str.21, ptr @.str.24
   br i1 %75, label %76, label %77
 
@@ -1571,7 +1571,7 @@ define hidden void @pm_parser_errors_format(ptr noundef %0, ptr noundef %1, i1 n
 
 94:                                               ; preds = %93
   %.not159 = icmp ne i64 %.0154191, 0
-  %95 = icmp ugt i32 %91, 3
+  %95 = icmp samesign ugt i32 %91, 3
   %or.cond = and i1 %.not159, %95
   br i1 %or.cond, label %96, label %97
 
@@ -1759,7 +1759,7 @@ pm_parser_errors_format_line.exit179:             ; preds = %pm_parser_errors_fo
 
 .lr.ph.split.us:                                  ; preds = %.lr.ph, %193
   %.0189.us = phi i64 [ %202, %193 ], [ 0, %.lr.ph ]
-  %190 = icmp ult i64 %.0189.us, %189
+  %190 = icmp samesign ult i64 %.0189.us, %189
   br i1 %190, label %192, label %191
 
 191:                                              ; preds = %.lr.ph.split.us
@@ -1785,7 +1785,7 @@ pm_parser_errors_format_line.exit179:             ; preds = %pm_parser_errors_fo
 
 .lr.ph.split:                                     ; preds = %.lr.ph, %.lr.ph.split
   %.0189 = phi i64 [ %213, %.lr.ph.split ], [ 0, %.lr.ph ]
-  %204 = icmp ult i64 %.0189, %189
+  %204 = icmp samesign ult i64 %.0189, %189
   %. = select i1 %204, i8 32, i8 94
   tail call void @pm_buffer_append_byte(ptr noundef %1, i8 noundef zeroext %.) #27
   %205 = load ptr, ptr %82, align 8

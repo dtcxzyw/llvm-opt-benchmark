@@ -1617,7 +1617,7 @@ define internal range(i32 0, 3) i32 @synaptics_process_byte(ptr nocapture nounde
   %302 = phi i32 [ %287, %260 ], [ %154, %241 ], [ %154, %235 ], [ %154, %229 ]
   %303 = phi i32 [ %278, %260 ], [ %150, %241 ], [ %150, %235 ], [ %150, %229 ]
   %304 = phi i32 [ %269, %260 ], [ %139, %241 ], [ %139, %235 ], [ %139, %229 ]
-  %305 = icmp ugt i32 %304, 8176
+  %305 = icmp samesign ugt i32 %304, 8176
   br i1 %305, label %306, label %308
 
 306:                                              ; preds = %298
@@ -1636,7 +1636,7 @@ define internal range(i32 0, 3) i32 @synaptics_process_byte(ptr nocapture nounde
 310:                                              ; preds = %.sink.split, %308
   %311 = phi i32 [ %304, %308 ], [ %.sink, %.sink.split ]
   %312 = getelementptr inbounds i8, ptr %2, i64 4
-  %313 = icmp ugt i32 %303, 8176
+  %313 = icmp samesign ugt i32 %303, 8176
   br i1 %313, label %314, label %316
 
 314:                                              ; preds = %310
@@ -1665,7 +1665,7 @@ define internal range(i32 0, 3) i32 @synaptics_process_byte(ptr nocapture nounde
   br i1 %327, label %337, label %328
 
 328:                                              ; preds = %325
-  %329 = icmp ugt i32 %301, 3
+  %329 = icmp samesign ugt i32 %301, 3
   br i1 %329, label %337, label %330
 
 330:                                              ; preds = %328

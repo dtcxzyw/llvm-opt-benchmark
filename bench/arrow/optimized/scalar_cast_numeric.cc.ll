@@ -90083,7 +90083,7 @@ if.end26.i:                                       ; preds = %if.then12.i
   br i1 %cmp33.not.i, label %if.end36, label %if.then34.i
 
 if.then34.i:                                      ; preds = %if.end26.i
-  %cmp38.i = icmp ugt i8 %add29.i, 25
+  %cmp38.i = icmp samesign ugt i8 %add29.i, 25
   br i1 %cmp38.i, label %return, label %if.end43.i
 
 if.end43.i:                                       ; preds = %if.then34.i
@@ -111309,7 +111309,7 @@ if.end26.i:                                       ; preds = %if.then12.i
   br i1 %cmp33.not.i, label %return.sink.split, label %if.then34.i
 
 if.then34.i:                                      ; preds = %if.end26.i
-  %cmp38.i = icmp ugt i8 %add29.i, 25
+  %cmp38.i = icmp samesign ugt i8 %add29.i, 25
   br i1 %cmp38.i, label %return, label %if.end43.i
 
 if.end43.i:                                       ; preds = %if.then34.i

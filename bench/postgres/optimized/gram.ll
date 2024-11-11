@@ -450,7 +450,7 @@ define dso_local range(i32 0, 2) i32 @base_yyparse(ptr noundef %0) local_unnamed
   br label %15169
 
 63:                                               ; preds = %59
-  %64 = icmp ult i32 %.4, 759
+  %64 = icmp samesign ult i32 %.4, 759
   br i1 %64, label %65, label %70
 
 65:                                               ; preds = %63
@@ -22795,7 +22795,7 @@ sub_1:                                            ; preds = %sub_0
   unreachable
 
 11940:                                            ; preds = %11929
-  %11941 = icmp ult i32 %11931, 25
+  %11941 = icmp samesign ult i32 %11931, 25
   br i1 %11941, label %11942, label %11944
 
 11942:                                            ; preds = %11940
@@ -22803,7 +22803,7 @@ sub_1:                                            ; preds = %sub_0
   br label %.thread9658
 
 11944:                                            ; preds = %11940
-  %11945 = icmp ult i32 %11931, 54
+  %11945 = icmp samesign ult i32 %11931, 54
   br i1 %11945, label %11946, label %11948
 
 11946:                                            ; preds = %11944

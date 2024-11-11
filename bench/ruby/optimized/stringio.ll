@@ -2517,7 +2517,7 @@ define internal i64 @strio_write_m(i32 noundef %0, ptr nocapture noundef readonl
   %7 = load i64, ptr %.056, align 8
   %8 = tail call fastcc i64 @strio_write(i64 noundef %2, i64 noundef %7)
   %9 = add nsw i64 %8, %.08
-  %10 = icmp ugt i32 %.047, 1
+  %10 = icmp samesign ugt i32 %.047, 1
   br i1 %10, label %.lr.ph, label %._crit_edge, !llvm.loop !39
 
 ._crit_edge:                                      ; preds = %.lr.ph
@@ -3376,7 +3376,7 @@ rbimpl_rstring_getmem.exit.i:                     ; preds = %7, %1
   %14 = getelementptr inbounds i8, ptr %.sroa.3.0.i, i64 1
   %15 = load i8, ptr %14, align 1
   %16 = icmp eq i8 %15, -69
-  %17 = icmp ugt i64 %.sroa.1.0.i, 2
+  %17 = icmp samesign ugt i64 %.sroa.1.0.i, 2
   %or.cond.i = and i1 %17, %16
   br i1 %or.cond.i, label %18, label %detect_bom.exit.thread
 
@@ -3415,7 +3415,7 @@ rbimpl_rstring_getmem.exit.i:                     ; preds = %7, %1
   br i1 %37, label %38, label %detect_bom.exit.thread
 
 38:                                               ; preds = %34
-  %39 = icmp ugt i64 %.sroa.1.0.i, 3
+  %39 = icmp samesign ugt i64 %.sroa.1.0.i, 3
   br i1 %39, label %40, label %50
 
 40:                                               ; preds = %38
@@ -3439,7 +3439,7 @@ rbimpl_rstring_getmem.exit.i:                     ; preds = %7, %1
   br label %detect_bom.exit
 
 52:                                               ; preds = %9
-  %53 = icmp ult i64 %.sroa.1.0.i, 4
+  %53 = icmp samesign ult i64 %.sroa.1.0.i, 4
   br i1 %53, label %detect_bom.exit.thread, label %54
 
 54:                                               ; preds = %52

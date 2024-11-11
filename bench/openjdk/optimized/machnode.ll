@@ -1305,7 +1305,7 @@ define hidden noundef zeroext i1 @_ZNK8MachNode13rematerializeEv(ptr noundef non
   br i1 %32, label %85, label %33
 
 33:                                               ; preds = %25
-  %34 = icmp ugt i32 %27, 1
+  %34 = icmp samesign ugt i32 %27, 1
   br i1 %34, label %35, label %58
 
 35:                                               ; preds = %33

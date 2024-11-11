@@ -841,7 +841,7 @@ _ZN2cv3hal11normHammingEPKhii.exit203:            ; preds = %.lr.ph.i197, %196
   %or.cond11 = and i1 %29, %235
   %236 = icmp samesign ult i32 %64, 2
   %or.cond15 = and i1 %34, %236
-  %or.cond246 = or i1 %or.cond11, %or.cond15
+  %or.cond246 = select i1 %or.cond11, i1 true, i1 %or.cond15
   br i1 %or.cond246, label %237, label %290
 
 237:                                              ; preds = %234
@@ -2220,7 +2220,7 @@ _ZN2cv3hal11normHammingEPKhS2_ii.exit:            ; preds = %.lr.ph.i, %260, %25
   %or.cond11 = and i1 %94, %303
   %304 = icmp samesign ult i32 %88, 2
   %or.cond15 = and i1 %99, %304
-  %or.cond277 = or i1 %or.cond11, %or.cond15
+  %or.cond277 = select i1 %or.cond11, i1 true, i1 %or.cond15
   br i1 %or.cond277, label %305, label %362
 
 305:                                              ; preds = %302

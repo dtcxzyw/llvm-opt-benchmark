@@ -43541,7 +43541,7 @@ _ZNSt12_Vector_baseIN3vcg3tri2io8MaterialESaIS3_EE13_M_deallocateEPS3_m.exit: ; 
   %46 = getelementptr inbounds i8, ptr %.0910.i.i.i.i.i, i64 120
   %47 = getelementptr inbounds i8, ptr %.0811.i.i.i.i.i, i64 120
   %48 = add nsw i64 %.012.i.i.i.i.i, -1
-  %49 = icmp ugt i64 %.012.i.i.i.i.i, 1
+  %49 = icmp samesign ugt i64 %.012.i.i.i.i.i, 1
   br i1 %49, label %.lr.ph.i.i.i.i.i, label %_ZSt4copyIN9__gnu_cxx17__normal_iteratorIPKN3vcg3tri2io8MaterialESt6vectorIS5_SaIS5_EEEENS1_IPS5_SA_EEET0_T_SF_SE_.exit.loopexit, !llvm.loop !333
 
 _ZSt4copyIN9__gnu_cxx17__normal_iteratorIPKN3vcg3tri2io8MaterialESt6vectorIS5_SaIS5_EEEENS1_IPS5_SA_EEET0_T_SF_SE_.exit.loopexit: ; preds = %.lr.ph.i.i.i.i.i
@@ -43597,7 +43597,7 @@ _ZSt4copyIN9__gnu_cxx17__normal_iteratorIPKN3vcg3tri2io8MaterialESt6vectorIS5_Sa
   %68 = getelementptr inbounds i8, ptr %.0910.i.i.i.i.i33, i64 120
   %69 = getelementptr inbounds i8, ptr %.0811.i.i.i.i.i32, i64 120
   %70 = add nsw i64 %.012.i.i.i.i.i31, -1
-  %71 = icmp ugt i64 %.012.i.i.i.i.i31, 1
+  %71 = icmp samesign ugt i64 %.012.i.i.i.i.i31, 1
   br i1 %71, label %.lr.ph.i.i.i.i.i30, label %_ZSt4copyIPN3vcg3tri2io8MaterialES4_ET0_T_S6_S5_.exit.loopexit, !llvm.loop !335
 
 _ZSt4copyIPN3vcg3tri2io8MaterialES4_ET0_T_S6_S5_.exit.loopexit: ; preds = %.lr.ph.i.i.i.i.i30
@@ -48848,7 +48848,7 @@ define linkonce_odr noundef i32 @_ZN3vcg3tri2io11ImporterOFFI6CMeshOE10OpenStrea
   %84 = getelementptr inbounds i8, ptr %.0910.i.i.i.i.i.i.i, i64 32
   %85 = getelementptr inbounds i8, ptr %.0811.i.i.i.i.i.i.i, i64 32
   %86 = add nsw i64 %.012.i.i.i.i.i.i.i, -1
-  %87 = icmp ugt i64 %.012.i.i.i.i.i.i.i, 1
+  %87 = icmp samesign ugt i64 %.012.i.i.i.i.i.i.i, 1
   br i1 %87, label %.lr.ph.i.i.i.i.i.i.i, label %_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt6vectorIS7_SaIS7_EEEESC_ET0_T_SE_SD_.exit.loopexit.i.i, !llvm.loop !409
 
 _ZSt4moveIN9__gnu_cxx17__normal_iteratorIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt6vectorIS7_SaIS7_EEEESC_ET0_T_SE_SD_.exit.loopexit.i.i: ; preds = %.lr.ph.i.i.i.i.i.i.i
@@ -101857,7 +101857,7 @@ _ZN10FileFormatC2E7QStringS0_.exit.i:             ; preds = %_ZN7QStringC2ERKS_.
 .noexc8.i.i.i.i:                                  ; preds = %.lr.ph.i.i.i.i.i.i.i.i.i
   %141 = getelementptr inbounds i8, ptr %.056.i.i.i.i.i.i.i.i.i, i64 8
   %142 = add nsw i64 %.07.i.i.i.i.i.i.i.i.i, -1
-  %143 = icmp ugt i64 %.07.i.i.i.i.i.i.i.i.i, 1
+  %143 = icmp samesign ugt i64 %.07.i.i.i.i.i.i.i.i.i, 1
   br i1 %143, label %.lr.ph.i.i.i.i.i.i.i.i.i, label %_ZN11QStringListC2ESt16initializer_listI7QStringE.exit.i, !llvm.loop !736
 
 .loopexit.i.i.i.i:                                ; preds = %.lr.ph.i.i.i.i.i.i.i.i.i
@@ -102081,7 +102081,7 @@ _ZN10FileFormatC2E7QStringS0_.exit105.i:          ; preds = %_ZN7QStringC2ERKS_.
 .noexc8.i.i.i116.i:                               ; preds = %.lr.ph.i.i.i.i.i.i.i.i110.i
   %221 = getelementptr inbounds i8, ptr %.056.i.i.i.i.i.i.i.i112.i, i64 8
   %222 = add nsw i64 %.07.i.i.i.i.i.i.i.i111.i, -1
-  %223 = icmp ugt i64 %.07.i.i.i.i.i.i.i.i111.i, 1
+  %223 = icmp samesign ugt i64 %.07.i.i.i.i.i.i.i.i111.i, 1
   br i1 %223, label %.lr.ph.i.i.i.i.i.i.i.i110.i, label %_ZN11QStringListC2ESt16initializer_listI7QStringE.exit121.i, !llvm.loop !736
 
 .loopexit.i.i.i113.i:                             ; preds = %.lr.ph.i.i.i.i.i.i.i.i110.i
@@ -103081,7 +103081,7 @@ _ZN10FileFormatC2E7QStringS0_.exit.i22:           ; preds = %_ZN7QStringC2ERKS_.
 .noexc8.i.i.i.i37:                                ; preds = %.lr.ph.i.i.i.i.i.i.i.i.i28
   %478 = getelementptr inbounds i8, ptr %.056.i.i.i.i.i.i.i.i.i30, i64 8
   %479 = add nsw i64 %.07.i.i.i.i.i.i.i.i.i29, -1
-  %480 = icmp ugt i64 %.07.i.i.i.i.i.i.i.i.i29, 1
+  %480 = icmp samesign ugt i64 %.07.i.i.i.i.i.i.i.i.i29, 1
   br i1 %480, label %.lr.ph.i.i.i.i.i.i.i.i.i28, label %_ZN11QStringListC2ESt16initializer_listI7QStringE.exit.i38, !llvm.loop !736
 
 .loopexit.i.i.i.i31:                              ; preds = %.lr.ph.i.i.i.i.i.i.i.i.i28
@@ -103270,7 +103270,7 @@ _ZN10FileFormatC2E7QStringS0_.exit89.i:           ; preds = %_ZN7QStringC2ERKS_.
 .noexc8.i.i.i100.i:                               ; preds = %.lr.ph.i.i.i.i.i.i.i.i94.i
   %547 = getelementptr inbounds i8, ptr %.056.i.i.i.i.i.i.i.i96.i, i64 8
   %548 = add nsw i64 %.07.i.i.i.i.i.i.i.i95.i, -1
-  %549 = icmp ugt i64 %.07.i.i.i.i.i.i.i.i95.i, 1
+  %549 = icmp samesign ugt i64 %.07.i.i.i.i.i.i.i.i95.i, 1
   br i1 %549, label %.lr.ph.i.i.i.i.i.i.i.i94.i, label %_ZN11QStringListC2ESt16initializer_listI7QStringE.exit105.i, !llvm.loop !736
 
 .loopexit.i.i.i97.i:                              ; preds = %.lr.ph.i.i.i.i.i.i.i.i94.i

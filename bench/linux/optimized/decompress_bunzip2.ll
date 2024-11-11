@@ -517,7 +517,7 @@ define internal fastcc i32 @get_bits(ptr nocapture noundef %0, i8 noundef zeroex
   %55 = or disjoint i32 %49, %54
   store i32 %55, ptr %13, align 4
   store i32 %46, ptr %3, align 8
-  %56 = icmp ult i32 %46, %.pre-phi
+  %56 = icmp samesign ult i32 %46, %.pre-phi
   br i1 %56, label %14, label %.loopexit5, !llvm.loop !13
 
 .loopexit5:                                       ; preds = %45, %..loopexit5_crit_edge

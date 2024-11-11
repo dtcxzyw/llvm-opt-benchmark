@@ -129,7 +129,7 @@ softfloat_le128.exit.thread:                      ; preds = %43, %softfloat_le12
   %57 = lshr i64 %32, 19
   %58 = and i64 %57, 4294967295
   %59 = mul nuw i64 %58, %55
-  %60 = icmp ult i64 %34, 30
+  %60 = icmp samesign ult i64 %34, 30
   %.pre = lshr i64 %.sroa.091.0, 32
   br i1 %60, label %._crit_edge, label %.lr.ph
 

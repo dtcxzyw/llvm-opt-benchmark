@@ -1194,7 +1194,7 @@ define hidden void @"_ZN105_$LT$$RF$mut$u20$postcard..de..deserializer..Deserial
 
 25:                                               ; preds = %14
   %26 = icmp eq i64 %.sroa.02.0.i.i.i.i, 4
-  %27 = icmp ugt i8 %16, 15
+  %27 = icmp samesign ugt i8 %16, 15
   %or.cond.i.i.i.i = and i1 %26, %27
   br i1 %or.cond.i.i.i.i, label %.loopexit.i, label %28
 
@@ -4955,7 +4955,7 @@ define hidden void @"_ZN14icu_properties8provider1_110_$LT$impl$u20$serde..de..D
 
 21:                                               ; preds = %10
   %22 = icmp eq i64 %.sroa.02.0.i.i.i.i.i, 4
-  %23 = icmp ugt i8 %12, 15
+  %23 = icmp samesign ugt i8 %12, 15
   %or.cond.i.i.i.i.i = and i1 %22, %23
   br i1 %or.cond.i.i.i.i.i, label %.loopexit.i.i, label %24
 
@@ -5501,7 +5501,7 @@ define hidden void @"_ZN210_$LT$icu_properties..provider.._..$LT$impl$u20$serde.
 
 21:                                               ; preds = %10
   %22 = icmp eq i64 %.sroa.02.0.i.i.i, 4
-  %23 = icmp ugt i8 %12, 15
+  %23 = icmp samesign ugt i8 %12, 15
   %or.cond.i.i.i = and i1 %22, %23
   br i1 %or.cond.i.i.i, label %.loopexit, label %24
 
@@ -56795,8 +56795,8 @@ _ZN5typst6layout4grid6layout8CellGrid4cell17hb2ec4616d3e359f5E.exit.i.i: ; preds
   %206 = xor i64 %storemerge.i.i, -1
   %207 = add nsw i64 %203, %206
   %208 = icmp ult i64 %207, %203
-  %.not.i.not.i.i.i.i.i = icmp ult i64 %207, %122
-  %or.cond.i.i = and i1 %208, %.not.i.not.i.i.i.i.i
+  %.not.i.not.i.i.i.i.i = icmp samesign ult i64 %207, %122
+  %or.cond.i.i = select i1 %208, i1 %.not.i.not.i.i.i.i.i, i1 false
   br i1 %or.cond.i.i, label %"._ZN115_$LT$core..iter..adapters..skip..Skip$LT$I$GT$$u20$as$u20$core..iter..traits..double_ended..DoubleEndedIterator$GT$8nth_back17hffaa88832cf580d7E.exit_crit_edge.i.i.i", label %.critedge.i.i
 
 "._ZN115_$LT$core..iter..adapters..skip..Skip$LT$I$GT$$u20$as$u20$core..iter..traits..double_ended..DoubleEndedIterator$GT$8nth_back17hffaa88832cf580d7E.exit_crit_edge.i.i.i": ; preds = %205
@@ -63706,8 +63706,8 @@ _ZN5typst6layout4grid6layout8CellGrid4cell17hb2ec4616d3e359f5E.exit: ; preds = %
   %628 = xor i64 %.0115, -1
   %629 = add nsw i64 %625, %628
   %630 = icmp ult i64 %629, %625
-  %.not.i.not.i.i.i = icmp ult i64 %629, %160
-  %or.cond601 = and i1 %630, %.not.i.not.i.i.i
+  %.not.i.not.i.i.i = icmp samesign ult i64 %629, %160
+  %or.cond601 = select i1 %630, i1 %.not.i.not.i.i.i, i1 false
   br i1 %or.cond601, label %"._ZN115_$LT$core..iter..adapters..skip..Skip$LT$I$GT$$u20$as$u20$core..iter..traits..double_ended..DoubleEndedIterator$GT$8nth_back17hffaa88832cf580d7E.exit_crit_edge.i", label %.backedge
 
 "._ZN115_$LT$core..iter..adapters..skip..Skip$LT$I$GT$$u20$as$u20$core..iter..traits..double_ended..DoubleEndedIterator$GT$8nth_back17hffaa88832cf580d7E.exit_crit_edge.i": ; preds = %627
@@ -131042,7 +131042,7 @@ define void @"_ZN87_$LT$typst..loading..csv_..Delimiter$u20$as$u20$typst..founda
   %53 = and i8 %51, 63
   %54 = zext nneg i8 %53 to i32
   %55 = or disjoint i32 %52, %54
-  %56 = icmp ugt i8 %46, -33
+  %56 = icmp samesign ugt i8 %46, -33
   br i1 %56, label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h56b22c765953e12eE.exit15.i", label %.thread85.thread
 
 57:                                               ; preds = %45
@@ -131061,7 +131061,7 @@ define void @"_ZN87_$LT$typst..loading..csv_..Delimiter$u20$as$u20$typst..founda
   %64 = or disjoint i32 %61, %63
   %65 = shl nuw nsw i32 %49, 12
   %66 = or disjoint i32 %64, %65
-  %67 = icmp ugt i8 %46, -17
+  %67 = icmp samesign ugt i8 %46, -17
   br i1 %67, label %.thread85, label %.thread85.thread
 
 .thread85:                                        ; preds = %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h56b22c765953e12eE.exit15.i"
@@ -131102,7 +131102,7 @@ define void @"_ZN87_$LT$typst..loading..csv_..Delimiter$u20$as$u20$typst..founda
   %87 = and i8 %85, 63
   %88 = zext nneg i8 %87 to i32
   %89 = or disjoint i32 %86, %88
-  %90 = icmp ugt i8 %79, -33
+  %90 = icmp samesign ugt i8 %79, -33
   br i1 %90, label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h56b22c765953e12eE.exit15.i62", label %.critedge
 
 91:                                               ; preds = %78
@@ -131120,7 +131120,7 @@ define void @"_ZN87_$LT$typst..loading..csv_..Delimiter$u20$as$u20$typst..founda
   %99 = or disjoint i32 %96, %98
   %100 = shl nuw nsw i32 %83, 12
   %101 = or disjoint i32 %99, %100
-  %102 = icmp ugt i8 %79, -17
+  %102 = icmp samesign ugt i8 %79, -17
   br i1 %102, label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h56b22c765953e12eE.exit17.i63", label %.critedge
 
 "_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h56b22c765953e12eE.exit17.i63": ; preds = %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h56b22c765953e12eE.exit15.i62"
@@ -131155,7 +131155,7 @@ define void @"_ZN87_$LT$typst..loading..csv_..Delimiter$u20$as$u20$typst..founda
 
 .critedge:                                        ; preds = %91, %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h56b22c765953e12eE.exit17.i63", %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h56b22c765953e12eE.exit15.i62", %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h56b22c765953e12eE.exit13.i59"
   %.sroa.4.0.i60.ph = phi i32 [ %89, %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h56b22c765953e12eE.exit13.i59" ], [ %101, %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h56b22c765953e12eE.exit15.i62" ], [ %112, %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h56b22c765953e12eE.exit17.i63" ], [ %92, %91 ]
-  %118 = icmp ult i32 %.sroa.4.0.i60.ph, 1114112
+  %118 = icmp samesign ult i32 %.sroa.4.0.i60.ph, 1114112
   call void @llvm.assume(i1 %118)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %.sroa.016)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %9)
@@ -131176,7 +131176,7 @@ define void @"_ZN87_$LT$typst..loading..csv_..Delimiter$u20$as$u20$typst..founda
           to label %131 unwind label %126
 
 124:                                              ; preds = %.thread85.thread
-  %125 = icmp ult i32 %narrow111, 128
+  %125 = icmp samesign ult i32 %narrow111, 128
   br i1 %125, label %143, label %137
 
 126:                                              ; preds = %132, %.critedge

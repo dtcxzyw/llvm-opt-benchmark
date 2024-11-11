@@ -13627,11 +13627,11 @@ _ZNK2cv8FileNodecvNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEv.exit: ;
   br label %.loopexit.split-lp
 
 81:                                               ; preds = %70
-  %82 = icmp ult i32 %71, 1000001
+  %82 = icmp samesign ult i32 %71, 1000001
   br i1 %82, label %83, label %.invoke196
 
 83:                                               ; preds = %81
-  %84 = icmp ult i32 %66, 1000001
+  %84 = icmp samesign ult i32 %66, 1000001
   br i1 %84, label %87, label %.invoke196
 
 .invoke196:                                       ; preds = %83, %81

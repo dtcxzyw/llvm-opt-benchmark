@@ -884,7 +884,7 @@ define void @process(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
   %158 = add nsw i64 %157, %149
   %159 = shl i64 %158, 2
   %160 = getelementptr i8, ptr %2, i64 %159
-  %161 = icmp ult i32 %143, 24
+  %161 = icmp samesign ult i32 %143, 24
   %162 = shl nuw nsw i64 %149, 4
   %163 = add nsw i64 %162, -16
   %164 = icmp ult ptr %134, %160
@@ -2014,7 +2014,7 @@ define void @process(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
   %1035 = getelementptr i8, ptr %955, i64 %981
   %1036 = getelementptr i8, ptr %957, i64 %982
   %1037 = and i64 %978, 7
-  %1038 = icmp ult i64 %979, 7
+  %1038 = icmp samesign ult i64 %979, 7
   %1039 = and i64 %978, -8
   %1040 = icmp eq i64 %1037, 0
   br label %1041
@@ -12757,7 +12757,7 @@ define internal fastcc void @vng_interpolate(ptr nocapture noundef %0, ptr nocap
 
 1971:                                             ; preds = %.loopexit189
   %1972 = zext nneg i32 %1959 to i64
-  %1973 = icmp ult i32 %1959, 32
+  %1973 = icmp samesign ult i32 %1959, 32
   br i1 %1973, label %2004, label %1974
 
 1974:                                             ; preds = %1971
@@ -12982,7 +12982,7 @@ define internal fastcc void @vng_interpolate(ptr nocapture noundef %0, ptr nocap
 
 2119:                                             ; preds = %2116
   %2120 = zext nneg i32 %2117 to i64
-  %2121 = icmp ult i32 %2117, 9
+  %2121 = icmp samesign ult i32 %2117, 9
   br i1 %2121, label %.loopexit175.preheader, label %2122
 
 .loopexit175.preheader:                           ; preds = %2127, %2119
@@ -17968,7 +17968,7 @@ define internal fastcc void @lmmse_demosaic(ptr nocapture noundef readonly %0, p
   %572 = add nsw i64 %reass.sub, -3
   %573 = lshr i64 %572, 1
   %574 = add nuw nsw i64 %573, 1
-  %575 = icmp ult i64 %572, 16
+  %575 = icmp samesign ult i64 %572, 16
   br i1 %575, label %.loopexit152.preheader, label %577
 
 .loopexit152.preheader:                           ; preds = %.loopexit152.loopexit, %577, %562
@@ -18158,7 +18158,7 @@ define internal fastcc void @lmmse_demosaic(ptr nocapture noundef readonly %0, p
   %737 = add nsw i64 %reass.sub222, -3
   %738 = lshr i64 %737, 1
   %739 = add nuw nsw i64 %738, 1
-  %740 = icmp ult i64 %737, 16
+  %740 = icmp samesign ult i64 %737, 16
   br i1 %740, label %.loopexit150.preheader, label %742
 
 .loopexit150.preheader:                           ; preds = %.loopexit150.loopexit, %742, %727
@@ -18538,7 +18538,7 @@ define internal fastcc void @lmmse_demosaic(ptr nocapture noundef readonly %0, p
   %1035 = add nsw i64 %reass.sub223, -3
   %1036 = lshr i64 %1035, 1
   %1037 = add nuw nsw i64 %1036, 1
-  %1038 = icmp ult i64 %1035, 16
+  %1038 = icmp samesign ult i64 %1035, 16
   br i1 %1038, label %.loopexit146.preheader, label %1040
 
 .loopexit146.preheader:                           ; preds = %.loopexit146.loopexit, %1040, %1023
@@ -19235,7 +19235,7 @@ define internal fastcc void @lmmse_demosaic(ptr nocapture noundef readonly %0, p
   %1630 = add nsw i64 %reass.sub224, -2
   %1631 = lshr i64 %1630, 1
   %1632 = add nuw nsw i64 %1631, 1
-  %1633 = icmp ult i64 %1630, 16
+  %1633 = icmp samesign ult i64 %1630, 16
   br i1 %1633, label %.loopexit142.preheader, label %1635
 
 .loopexit142.preheader:                           ; preds = %.loopexit142.loopexit, %1635, %1609
@@ -23563,14 +23563,14 @@ define internal fastcc void @color_smoothing(ptr nocapture noundef %0, ptr nocap
   %118 = getelementptr i8, ptr %90, i64 24
   %119 = getelementptr i8, ptr %100, i64 28
   %120 = getelementptr i8, ptr %94, i64 24
-  %121 = icmp ult i32 %5, 33
+  %121 = icmp samesign ult i32 %5, 33
   %122 = and i64 %109, 31
   %123 = icmp eq i64 %122, 0
   %124 = select i1 %123, i64 32, i64 %122
   %125 = sub nsw i64 %109, %124
   %126 = shl nsw i64 %125, 4
   %127 = trunc nsw i64 %125 to i32
-  %128 = icmp ult i32 %107, 25
+  %128 = icmp samesign ult i32 %107, 25
   %129 = getelementptr i8, ptr %0, i64 %52
   %130 = getelementptr i8, ptr %129, i64 36
   %131 = getelementptr i8, ptr %129, i64 44
@@ -24701,7 +24701,7 @@ define internal fastcc void @color_smoothing(ptr nocapture noundef %0, ptr nocap
 
 1065:                                             ; preds = %1062
   %1066 = zext nneg i32 %5 to i64
-  %1067 = icmp ult i32 %5, 33
+  %1067 = icmp samesign ult i32 %5, 33
   %1068 = and i64 %1066, 31
   %1069 = icmp eq i64 %1068, 0
   %1070 = select i1 %1069, i64 32, i64 %1068

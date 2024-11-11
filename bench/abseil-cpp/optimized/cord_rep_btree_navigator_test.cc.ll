@@ -3530,7 +3530,7 @@ invoke.cont19:                                    ; preds = %invoke.cont15
   %14 = extractvalue { i64, ptr } %call18, 1
   %15 = getelementptr inbounds i8, ptr %call4.i.i.i4, i64 8
   store i64 2, ptr %15, align 8
-  %cmp.i.i.i.i.i = icmp ult i64 %and.i.i.i.i.i, 513
+  %cmp.i.i.i.i.i = icmp samesign ult i64 %and.i.i.i.i.i, 513
   %.sink8.i.i.i.i.i = select i1 %cmp.i.i.i.i.i, i64 3, i64 6
   %.sink.i.i.i.i.i = select i1 %cmp.i.i.i.i.i, i64 2, i64 58
   %div36.i.i.i.i.i = lshr i64 %and.i.i.i.i.i, %.sink8.i.i.i.i.i
@@ -3606,7 +3606,7 @@ invoke.cont31:                                    ; preds = %invoke.cont27
   %23 = extractvalue { i64, ptr } %call30, 1
   %24 = getelementptr inbounds i8, ptr %call4.i.i.i34, i64 8
   store i64 2, ptr %24, align 8
-  %cmp.i.i.i.i.i26 = icmp ult i64 %and.i.i.i.i.i24, 513
+  %cmp.i.i.i.i.i26 = icmp samesign ult i64 %and.i.i.i.i.i24, 513
   %.sink8.i.i.i.i.i27 = select i1 %cmp.i.i.i.i.i26, i64 3, i64 6
   %.sink.i.i.i.i.i28 = select i1 %cmp.i.i.i.i.i26, i64 2, i64 58
   %div36.i.i.i.i.i29 = lshr i64 %and.i.i.i.i.i24, %.sink8.i.i.i.i.i27
@@ -3790,7 +3790,7 @@ while.body.i.i:                                   ; preds = %entry, %while.body.
   %arrayidx14.i.i = getelementptr inbounds [12 x i8], ptr %index_.i.i, i64 0, i64 %indvars.iv.next.i.i
   store i8 %4, ptr %arrayidx14.i.i, align 1
   %index.0.i.i = zext i8 %4 to i64
-  %cmp.i.i = icmp ugt i64 %indvars.iv.i.i, 1
+  %cmp.i.i = icmp samesign ugt i64 %indvars.iv.i.i, 1
   br i1 %cmp.i.i, label %while.body.i.i, label %_ZN4absl13cord_internal21CordRepBtreeNavigator9InitFirstEPNS0_12CordRepBtreeE.exit.loopexit, !llvm.loop !40
 
 _ZN4absl13cord_internal21CordRepBtreeNavigator9InitFirstEPNS0_12CordRepBtreeE.exit.loopexit: ; preds = %while.body.i.i
@@ -4400,7 +4400,7 @@ invoke.cont:                                      ; preds = %invoke.cont.lr.ph, 
 invoke.cont2:                                     ; preds = %invoke.cont
   %2 = getelementptr inbounds i8, ptr %call4.i.i.i2, i64 8
   store i64 2, ptr %2, align 8
-  %cmp.i.i.i.i.i = icmp ult i64 %and.i.i.i.i.i, 513
+  %cmp.i.i.i.i.i = icmp samesign ult i64 %and.i.i.i.i.i, 513
   %.sink8.i.i.i.i.i = select i1 %cmp.i.i.i.i.i, i64 3, i64 6
   %.sink.i.i.i.i.i = select i1 %cmp.i.i.i.i.i, i64 2, i64 58
   %div36.i.i.i.i.i = lshr i64 %and.i.i.i.i.i, %.sink8.i.i.i.i.i
@@ -6218,7 +6218,7 @@ while.body.i.i:                                   ; preds = %entry, %while.body.
   %conv11.i.i = trunc i64 %sub.i.i17.i.i to i8
   %arrayidx14.i.i = getelementptr inbounds [12 x i8], ptr %index_.i.i, i64 0, i64 %indvars.iv.next.i.i
   store i8 %conv11.i.i, ptr %arrayidx14.i.i, align 1
-  %cmp.i.i = icmp ugt i64 %indvars.iv.i.i, 1
+  %cmp.i.i = icmp samesign ugt i64 %indvars.iv.i.i, 1
   br i1 %cmp.i.i, label %while.body.i.i, label %_ZN4absl13cord_internal21CordRepBtreeNavigator8InitLastEPNS0_12CordRepBtreeE.exit.loopexit, !llvm.loop !72
 
 _ZN4absl13cord_internal21CordRepBtreeNavigator8InitLastEPNS0_12CordRepBtreeE.exit.loopexit: ; preds = %while.body.i.i
@@ -6947,7 +6947,7 @@ while.body.i.i:                                   ; preds = %entry, %while.body.
   %4 = load i8, ptr %arrayidx.i.i13.i.i, align 1
   %arrayidx14.i.i = getelementptr inbounds [12 x i8], ptr %index_.i.i, i64 0, i64 %indvars.iv.next.i.i
   store i8 %4, ptr %arrayidx14.i.i, align 1
-  %cmp.i.i = icmp ugt i64 %indvars.iv.i.i, 1
+  %cmp.i.i = icmp samesign ugt i64 %indvars.iv.i.i, 1
   br i1 %cmp.i.i, label %while.body.i.i, label %_ZN4absl13cord_internal21CordRepBtreeNavigator9InitFirstEPNS0_12CordRepBtreeE.exit, !llvm.loop !40
 
 _ZN4absl13cord_internal21CordRepBtreeNavigator9InitFirstEPNS0_12CordRepBtreeE.exit: ; preds = %while.body.i.i, %entry
@@ -9036,7 +9036,7 @@ while.body.i.i:                                   ; preds = %entry, %while.body.
   %conv11.i.i = trunc i64 %sub.i.i17.i.i to i8
   %arrayidx14.i.i = getelementptr inbounds [12 x i8], ptr %index_.i.i, i64 0, i64 %indvars.iv.next.i.i
   store i8 %conv11.i.i, ptr %arrayidx14.i.i, align 1
-  %cmp.i.i = icmp ugt i64 %indvars.iv.i.i, 1
+  %cmp.i.i = icmp samesign ugt i64 %indvars.iv.i.i, 1
   br i1 %cmp.i.i, label %while.body.i.i, label %_ZN4absl13cord_internal21CordRepBtreeNavigator8InitLastEPNS0_12CordRepBtreeE.exit, !llvm.loop !72
 
 _ZN4absl13cord_internal21CordRepBtreeNavigator8InitLastEPNS0_12CordRepBtreeE.exit: ; preds = %while.body.i.i, %entry
@@ -10952,7 +10952,7 @@ while.body.i.i:                                   ; preds = %entry, %while.body.
   %5 = load i8, ptr %arrayidx.i.i13.i.i, align 1
   %arrayidx14.i.i = getelementptr inbounds [12 x i8], ptr %index_.i.i, i64 0, i64 %indvars.iv.next.i.i
   store i8 %5, ptr %arrayidx14.i.i, align 1
-  %cmp.i.i = icmp ugt i64 %indvars.iv.i.i, 1
+  %cmp.i.i = icmp samesign ugt i64 %indvars.iv.i.i, 1
   br i1 %cmp.i.i, label %while.body.i.i, label %_ZN4absl13cord_internal21CordRepBtreeNavigator9InitFirstEPNS0_12CordRepBtreeE.exit, !llvm.loop !40
 
 _ZN4absl13cord_internal21CordRepBtreeNavigator9InitFirstEPNS0_12CordRepBtreeE.exit: ; preds = %while.body.i.i, %entry
@@ -11316,7 +11316,7 @@ while.body.i.i118:                                ; preds = %for.body94, %while.
   %49 = load i8, ptr %arrayidx.i.i13.i.i126, align 1
   %arrayidx14.i.i127 = getelementptr inbounds [12 x i8], ptr %index_.i.i114, i64 0, i64 %indvars.iv.next.i.i122
   store i8 %49, ptr %arrayidx14.i.i127, align 1
-  %cmp.i.i129 = icmp ugt i64 %indvars.iv.i.i119, 1
+  %cmp.i.i129 = icmp samesign ugt i64 %indvars.iv.i.i119, 1
   br i1 %cmp.i.i129, label %while.body.i.i118, label %_ZN4absl13cord_internal21CordRepBtreeNavigator9InitFirstEPNS0_12CordRepBtreeE.exit133, !llvm.loop !40
 
 _ZN4absl13cord_internal21CordRepBtreeNavigator9InitFirstEPNS0_12CordRepBtreeE.exit133: ; preds = %while.body.i.i118, %for.body94
@@ -12991,7 +12991,7 @@ while.body.i.i:                                   ; preds = %entry, %while.body.
   %5 = load i8, ptr %arrayidx.i.i13.i.i, align 1
   %arrayidx14.i.i = getelementptr inbounds [12 x i8], ptr %index_.i.i, i64 0, i64 %indvars.iv.next.i.i
   store i8 %5, ptr %arrayidx14.i.i, align 1
-  %cmp.i.i = icmp ugt i64 %indvars.iv.i.i, 1
+  %cmp.i.i = icmp samesign ugt i64 %indvars.iv.i.i, 1
   br i1 %cmp.i.i, label %while.body.i.i, label %_ZN4absl13cord_internal21CordRepBtreeNavigator9InitFirstEPNS0_12CordRepBtreeE.exit, !llvm.loop !40
 
 _ZN4absl13cord_internal21CordRepBtreeNavigator9InitFirstEPNS0_12CordRepBtreeE.exit: ; preds = %while.body.i.i, %entry
@@ -16373,7 +16373,7 @@ while.body.i.i:                                   ; preds = %for.body7, %while.b
   %5 = load i8, ptr %arrayidx.i.i13.i.i, align 1
   %arrayidx14.i.i = getelementptr inbounds [12 x i8], ptr %index_.i.i, i64 0, i64 %indvars.iv.next.i.i
   store i8 %5, ptr %arrayidx14.i.i, align 1
-  %cmp.i.i = icmp ugt i64 %indvars.iv.i.i, 1
+  %cmp.i.i = icmp samesign ugt i64 %indvars.iv.i.i, 1
   br i1 %cmp.i.i, label %while.body.i.i, label %_ZN4absl13cord_internal21CordRepBtreeNavigator9InitFirstEPNS0_12CordRepBtreeE.exit, !llvm.loop !40
 
 _ZN4absl13cord_internal21CordRepBtreeNavigator9InitFirstEPNS0_12CordRepBtreeE.exit: ; preds = %while.body.i.i, %for.body7
@@ -18638,7 +18638,7 @@ while.body.i.i:                                   ; preds = %entry, %while.body.
   %4 = load i8, ptr %arrayidx.i.i13.i.i, align 1
   %arrayidx14.i.i = getelementptr inbounds [12 x i8], ptr %index_.i.i, i64 0, i64 %indvars.iv.next.i.i
   store i8 %4, ptr %arrayidx14.i.i, align 1
-  %cmp.i.i = icmp ugt i64 %indvars.iv.i.i, 1
+  %cmp.i.i = icmp samesign ugt i64 %indvars.iv.i.i, 1
   br i1 %cmp.i.i, label %while.body.i.i, label %_ZN4absl13cord_internal21CordRepBtreeNavigator9InitFirstEPNS0_12CordRepBtreeE.exit, !llvm.loop !40
 
 _ZN4absl13cord_internal21CordRepBtreeNavigator9InitFirstEPNS0_12CordRepBtreeE.exit: ; preds = %while.body.i.i, %entry
@@ -19011,7 +19011,7 @@ while.body.i.i:                                   ; preds = %while.end, %while.b
   %arrayidx14.i.i = getelementptr inbounds [12 x i8], ptr %index_.i.i, i64 0, i64 %indvars.iv.next.i.i
   store i8 %7, ptr %arrayidx14.i.i, align 1
   %index.0.i.i = zext i8 %7 to i64
-  %cmp.i.i59 = icmp ugt i64 %indvars.iv.i.i, 1
+  %cmp.i.i59 = icmp samesign ugt i64 %indvars.iv.i.i, 1
   br i1 %cmp.i.i59, label %while.body.i.i, label %_ZN4absl13cord_internal21CordRepBtreeNavigator9InitFirstEPNS0_12CordRepBtreeE.exit, !llvm.loop !40
 
 _ZN4absl13cord_internal21CordRepBtreeNavigator9InitFirstEPNS0_12CordRepBtreeE.exit: ; preds = %while.body.i.i

@@ -3005,7 +3005,7 @@ if.then:                                          ; preds = %entry
   br label %if.end20
 
 if.else:                                          ; preds = %entry
-  %cmp3 = icmp ugt i64 %0, 1048575
+  %cmp3 = icmp samesign ugt i64 %0, 1048575
   br i1 %cmp3, label %if.then4, label %if.else8
 
 if.then4:                                         ; preds = %if.else
@@ -3019,7 +3019,7 @@ if.then4:                                         ; preds = %if.else
   br label %if.end20
 
 if.else8:                                         ; preds = %if.else
-  %cmp10 = icmp ugt i64 %0, 1023
+  %cmp10 = icmp samesign ugt i64 %0, 1023
   br i1 %cmp10, label %if.then11, label %if.else15
 
 if.then11:                                        ; preds = %if.else8
@@ -5118,7 +5118,7 @@ if.else62:                                        ; preds = %if.else58
   br i1 %cmp.i65, label %if.end.i.i77, label %if.else66
 
 if.else66:                                        ; preds = %if.else62
-  %cmp.i66 = icmp ugt i64 %2, -281474976710657
+  %cmp.i66 = icmp samesign ugt i64 %2, -281474976710657
   br i1 %cmp.i66, label %if.end.i.i77, label %if.else70
 
 if.else70:                                        ; preds = %if.else66

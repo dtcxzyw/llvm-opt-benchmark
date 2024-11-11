@@ -126,7 +126,7 @@ define void @dlasd7_(ptr nocapture noundef readonly %0, ptr noundef %1, ptr noun
   %107 = getelementptr i32, ptr %17, i64 %92
   store i32 %106, ptr %107, align 4, !tbaa !3
   %108 = add nsw i64 %92, -1
-  %109 = icmp ugt i64 %92, 1
+  %109 = icmp samesign ugt i64 %92, 1
   br i1 %109, label %91, label %.loopexit23, !llvm.loop !9
 
 .loopexit23:                                      ; preds = %91, %79

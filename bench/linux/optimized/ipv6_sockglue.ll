@@ -1631,7 +1631,7 @@ define internal fastcc i32 @ipv6_set_opt_hdr(ptr noundef %0, i32 noundef %1, ptr
 31:                                               ; preds = %28
   %32 = and i32 %4, 7
   %33 = icmp ne i32 %32, 0
-  %34 = icmp ugt i32 %4, 2040
+  %34 = icmp samesign ugt i32 %4, 2040
   %35 = or i1 %34, %33
   br i1 %35, label %.thread13, label %36
 
@@ -1677,7 +1677,7 @@ define internal fastcc i32 @ipv6_set_opt_hdr(ptr noundef %0, i32 noundef %1, ptr
   %58 = zext i8 %57 to i32
   %59 = shl nuw nsw i32 %58, 3
   %60 = add nuw nsw i32 %59, 8
-  %61 = icmp ugt i32 %60, %4
+  %61 = icmp samesign ugt i32 %60, %4
   br i1 %61, label %62, label %63, !prof !13
 
 62:                                               ; preds = %55

@@ -6694,7 +6694,7 @@ while.body:                                       ; preds = %entry, %while.body
   %arrayidx.i.i = getelementptr inbounds %"struct.dd::pdd_manager::node", ptr %2, i64 %idxprom.i.i
   %bf.load.i = load i32, ptr %arrayidx.i.i, align 4
   %bf.lshr.i = lshr i32 %bf.load.i, 10
-  %cmp = icmp ugt i32 %bf.lshr.i, %1
+  %cmp = icmp samesign ugt i32 %bf.lshr.i, %1
   br i1 %cmp, label %while.body, label %while.end, !llvm.loop !87
 
 while.end:                                        ; preds = %while.body, %entry
@@ -15602,7 +15602,7 @@ if.end27:                                         ; preds = %if.end12
   %arrayidx.i.i180 = getelementptr inbounds %"struct.dd::pdd_manager::node", ptr %23, i64 %idxprom.i.i179
   %bf.load.i181 = load i32, ptr %arrayidx.i.i180, align 4
   %bf.lshr.i182 = lshr i32 %bf.load.i181, 10
-  %cmp30 = icmp ugt i32 %bf.lshr.i182, %1
+  %cmp30 = icmp samesign ugt i32 %bf.lshr.i182, %1
   br i1 %cmp30, label %if.then31, label %if.else
 
 if.then31:                                        ; preds = %if.end27
@@ -36888,7 +36888,7 @@ for.body:                                         ; preds = %for.body.preheader,
   %bf.set34.i.i22.i.i.i = or disjoint i8 %bf.clear33.i.i21.i.i.i, %bf.clear19.i.i16.i.i.i
   store i8 %bf.set34.i.i22.i.i.i, ptr %m_owner4.i.i7.i.i.i, align 4
   %dec = add nsw i64 %__n.07, -1
-  %cmp = icmp ugt i64 %__n.07, 1
+  %cmp = icmp samesign ugt i64 %__n.07, 1
   br i1 %cmp, label %for.body, label %for.end, !llvm.loop !412
 
 for.end:                                          ; preds = %for.body, %entry

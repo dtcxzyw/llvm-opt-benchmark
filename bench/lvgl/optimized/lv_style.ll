@@ -270,7 +270,7 @@ define void @lv_style_set_prop(ptr nocapture noundef %0, i8 noundef zeroext %1, 
   %30 = load i8, ptr %29, align 1, !tbaa !23
   %31 = getelementptr inbounds i8, ptr %29, i64 8
   store i8 %30, ptr %31, align 1, !tbaa !23
-  %32 = icmp ugt i64 %indvars.iv48, 1
+  %32 = icmp samesign ugt i64 %indvars.iv48, 1
   br i1 %32, label %.lr.ph, label %._crit_edge.loopexit, !llvm.loop !28
 
 ._crit_edge.loopexit:                             ; preds = %.lr.ph

@@ -9091,7 +9091,7 @@ _ZNSt19_Bit_const_iteratorppEv.exit.i.i.i.i.i.i.i.i: ; preds = %13, %_ZNSt19_Bit
   %spec.select10.i.i.i.i.i.i.i.i = select i1 %33, i32 0, i32 %32
   %34 = getelementptr inbounds i8, ptr %.0413.i.i.i.i.i.i.i.i, i64 1
   %35 = add nsw i64 %.014.i.i.i.i.i.i.i.i, -1
-  %36 = icmp ugt i64 %.014.i.i.i.i.i.i.i.i, 1
+  %36 = icmp samesign ugt i64 %.014.i.i.i.i.i.i.i.i, 1
   br i1 %36, label %_ZNSt19_Bit_const_iteratorppEv.exit.i.i.i.i.i.i.i.i, label %_ZZN32pxrInternal_v0_24__pxrReserved__7VtArrayIbE6assignISt19_Bit_const_iteratorEENSt9enable_ifIXntsr3std11is_integralIT_EE5valueEvE4typeES5_S5_ENK7_CopierclEPbS9_.exit, !llvm.loop !53
 
 37:                                               ; preds = %9
@@ -9156,7 +9156,7 @@ _ZNSt19_Bit_const_iteratorppEv.exit.i.i.i.i.i.i.i.i51: ; preds = %_ZNSt19_Bit_co
   %spec.select10.i.i.i.i.i.i.i.i58 = select i1 %67, i32 0, i32 %66
   %68 = getelementptr inbounds i8, ptr %.0413.i.i.i.i.i.i.i.i53, i64 1
   %69 = add nsw i64 %.014.i.i.i.i.i.i.i.i52, -1
-  %70 = icmp ugt i64 %.014.i.i.i.i.i.i.i.i52, 1
+  %70 = icmp samesign ugt i64 %.014.i.i.i.i.i.i.i.i52, 1
   br i1 %70, label %_ZNSt19_Bit_const_iteratorppEv.exit.i.i.i.i.i.i.i.i51, label %_ZZN32pxrInternal_v0_24__pxrReserved__7VtArrayIbE6assignISt19_Bit_const_iteratorEENSt9enable_ifIXntsr3std11is_integralIT_EE5valueEvE4typeES5_S5_ENK7_CopierclEPbS9_.exit, !llvm.loop !53
 
 71:                                               ; preds = %37
@@ -9208,7 +9208,7 @@ _ZNSt19_Bit_const_iteratorppEv.exit.i.i.i.i.i.i.i.i66: ; preds = %_ZNSt19_Bit_co
   %spec.select10.i.i.i.i.i.i.i.i73 = select i1 %95, i32 0, i32 %94
   %96 = getelementptr inbounds i8, ptr %.0413.i.i.i.i.i.i.i.i68, i64 1
   %97 = add nsw i64 %.014.i.i.i.i.i.i.i.i67, -1
-  %98 = icmp ugt i64 %.014.i.i.i.i.i.i.i.i67, 1
+  %98 = icmp samesign ugt i64 %.014.i.i.i.i.i.i.i.i67, 1
   br i1 %98, label %_ZNSt19_Bit_const_iteratorppEv.exit.i.i.i.i.i.i.i.i66, label %_ZZN32pxrInternal_v0_24__pxrReserved__7VtArrayIbE6assignISt19_Bit_const_iteratorEENSt9enable_ifIXntsr3std11is_integralIT_EE5valueEvE4typeES5_S5_ENK7_CopierclEPbS9_.exit, !llvm.loop !53
 
 _ZZN32pxrInternal_v0_24__pxrReserved__7VtArrayIbE6assignISt19_Bit_const_iteratorEENSt9enable_ifIXntsr3std11is_integralIT_EE5valueEvE4typeES5_S5_ENK7_CopierclEPbS9_.exit: ; preds = %_ZNSt19_Bit_const_iteratorppEv.exit.i.i.i.i.i.i.i.i66, %_ZNSt19_Bit_const_iteratorppEv.exit.i.i.i.i.i.i.i.i51, %_ZNSt19_Bit_const_iteratorppEv.exit.i.i.i.i.i.i.i.i, %39, %75, %47, %13, %71

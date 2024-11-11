@@ -9782,7 +9782,7 @@ define void @_ZN17FilterIONXSPlugin17initParameterListEPK7QActionRK9MeshModel(pt
 .noexc8.i.i.i:                                    ; preds = %.lr.ph.i.i.i.i.i.i.i.i
   %69 = getelementptr inbounds i8, ptr %.056.i.i.i.i.i.i.i.i, i64 8
   %70 = add nsw i64 %.07.i.i.i.i.i.i.i.i, -1
-  %71 = icmp ugt i64 %.07.i.i.i.i.i.i.i.i, 1
+  %71 = icmp samesign ugt i64 %.07.i.i.i.i.i.i.i.i, 1
   br i1 %71, label %.lr.ph.i.i.i.i.i.i.i.i, label %_ZN11QStringListC2ESt16initializer_listI7QStringE.exit, !llvm.loop !45
 
 .loopexit.i.i.i:                                  ; preds = %.lr.ph.i.i.i.i.i.i.i.i

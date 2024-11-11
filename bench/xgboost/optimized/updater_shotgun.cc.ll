@@ -6122,7 +6122,7 @@ define linkonce_odr void @_ZN7xgboost6linear22ShuffleFeatureSelector5SetupEPKNS_
   %21 = getelementptr inbounds i8, ptr %20, i64 24
   %22 = load i32, ptr %21, align 8
   %23 = zext i32 %22 to i64
-  %24 = icmp ult i64 %16, %23
+  %24 = icmp samesign ult i64 %16, %23
   br i1 %24, label %25, label %_ZNSt6vectorIjSaIjEE6resizeEm.exit
 
 25:                                               ; preds = %18
@@ -6724,7 +6724,7 @@ define linkonce_odr void @_ZN7xgboost6linear22ThriftyFeatureSelector5SetupEPKNS_
 33:                                               ; preds = %8
   %34 = mul i32 %23, %21
   %35 = zext i32 %34 to i64
-  %36 = icmp ult i64 %31, %35
+  %36 = icmp samesign ult i64 %31, %35
   br i1 %36, label %37, label %_ZNSt6vectorIfSaIfEE6resizeEm.exit
 
 37:                                               ; preds = %33
@@ -9759,7 +9759,7 @@ define linkonce_odr void @_ZN7xgboost6linear21GreedyFeatureSelector5SetupEPKNS_7
 
 24:                                               ; preds = %8
   %25 = zext i32 %13 to i64
-  %26 = icmp ult i64 %22, %25
+  %26 = icmp samesign ult i64 %22, %25
   br i1 %26, label %27, label %_ZNSt6vectorIjSaIjEE6resizeEm.exit
 
 27:                                               ; preds = %24

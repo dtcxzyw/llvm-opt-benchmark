@@ -7437,8 +7437,8 @@ invoke.cont67:                                    ; preds = %for.end
   store i32 64, ptr %nSamples, align 4
   %nStored.i.i35 = getelementptr inbounds i8, ptr %this, i64 1120
   %55 = load i64, ptr %nStored.i.i35, align 8
-  %cmp11.i = icmp ult i64 %55, 64
-  br i1 %cmp11.i, label %if.then12.i, label %invoke.cont75
+  %or.cond = icmp ult i64 %55, 64
+  br i1 %or.cond, label %if.then12.i, label %invoke.cont75
 
 if.then12.i:                                      ; preds = %invoke.cont67
   %nAlloc.i.i37 = getelementptr inbounds i8, ptr %this, i64 1112

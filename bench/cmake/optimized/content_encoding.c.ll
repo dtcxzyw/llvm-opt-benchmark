@@ -1003,14 +1003,14 @@ define internal i32 @gzip_do_write(ptr noundef %0, ptr noundef %1, i32 noundef %
   br i1 %.not56.i, label %46, label %36
 
 36:                                               ; preds = %32
-  %37 = icmp ult i64 %4, 12
+  %37 = icmp samesign ult i64 %4, 12
   br i1 %37, label %.loopexit, label %38
 
 38:                                               ; preds = %36
   %39 = load i16, ptr %34, align 1
   %40 = zext i16 %39 to i64
   %41 = add nuw nsw i64 %40, 2
-  %42 = icmp ult i64 %33, %41
+  %42 = icmp samesign ult i64 %33, %41
   br i1 %42, label %.loopexit, label %43
 
 43:                                               ; preds = %38
@@ -1234,7 +1234,7 @@ process_zlib_error.exit:                          ; preds = %78, %79
   %134 = load i16, ptr %129, align 1
   %135 = zext i16 %134 to i64
   %136 = add nuw nsw i64 %135, 2
-  %137 = icmp ult i64 %128, %136
+  %137 = icmp samesign ult i64 %128, %136
   br i1 %137, label %exit_zlib.exit, label %138
 
 138:                                              ; preds = %133

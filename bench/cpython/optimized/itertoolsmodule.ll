@@ -5054,7 +5054,7 @@ if.then3:                                         ; preds = %if.end
   br label %if.then.i
 
 if.end4:                                          ; preds = %if.end
-  %cmp5 = icmp ugt i64 %r, 1152921504606846975
+  %cmp5 = icmp samesign ugt i64 %r, 1152921504606846975
   br i1 %cmp5, label %if.then8, label %cond.end
 
 cond.end:                                         ; preds = %if.end4
@@ -6649,7 +6649,7 @@ if.then3:                                         ; preds = %if.end
   br label %if.then.i
 
 if.end4:                                          ; preds = %if.end
-  %cmp5 = icmp ugt i64 %r, 1152921504606846975
+  %cmp5 = icmp samesign ugt i64 %r, 1152921504606846975
   br i1 %cmp5, label %if.then8, label %cond.end
 
 cond.end:                                         ; preds = %if.end4
@@ -10364,7 +10364,7 @@ cond.false.i:                                     ; preds = %if.end17.i
 
 cond.end.i:                                       ; preds = %cond.false.i, %if.end17.i
   %cond.i = phi ptr [ %call19.i, %cond.false.i ], [ null, %if.end17.i ]
-  %cmp20.i = icmp ugt i64 %r.0.i, 1152921504606846975
+  %cmp20.i = icmp samesign ugt i64 %r.0.i, 1152921504606846975
   br i1 %cmp20.i, label %if.then29.i, label %cond.end25.i
 
 cond.end25.i:                                     ; preds = %cond.end.i

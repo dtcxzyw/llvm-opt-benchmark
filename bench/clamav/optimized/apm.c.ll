@@ -116,7 +116,7 @@ fmap_readn.exit.thread:                           ; preds = %12, %9, %fmap_readn
   br i1 %29, label %30, label %39
 
 30:                                               ; preds = %27
-  %or.cond161 = icmp ult i64 %22, 513
+  %or.cond161 = icmp samesign ult i64 %22, 513
   br i1 %or.cond161, label %fmap_readn.exit137.thread, label %31
 
 31:                                               ; preds = %30
@@ -130,7 +130,7 @@ fmap_readn.exit.thread:                           ; preds = %12, %9, %fmap_readn
 
 fmap_readn.exit137:                               ; preds = %31
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 2 %3, ptr nonnull align 1 %35, i64 %spec.select.i134, i1 false)
-  %.not73 = icmp ugt i64 %32, 135
+  %.not73 = icmp samesign ugt i64 %32, 135
   br i1 %.not73, label %36, label %fmap_readn.exit137.thread
 
 fmap_readn.exit137.thread:                        ; preds = %31, %30, %fmap_readn.exit137

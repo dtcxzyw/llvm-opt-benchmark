@@ -864,7 +864,7 @@ Vec_IntPush.exit209:                              ; preds = %.Vec_IntGrow.exit10
   br label %277
 
 277:                                              ; preds = %247, %Vec_IntPush.exit209
-  %278 = icmp ugt i64 %indvars.iv, 1
+  %278 = icmp samesign ugt i64 %indvars.iv, 1
   br i1 %278, label %234, label %.critedge6.preheader.loopexit, !llvm.loop !8
 
 279:                                              ; preds = %.lr.ph250, %.critedge10
@@ -1149,7 +1149,7 @@ Vec_IntFree.exit226:                              ; preds = %.critedge12, %409
   br label %.critedge10
 
 Kit_DsdNtkObj.exit217.thread:                     ; preds = %347, %349, %352, %332, %355, %344, %Kit_DsdNtkObj.exit217
-  %410 = icmp ugt i64 %indvars.iv264, 1
+  %410 = icmp samesign ugt i64 %indvars.iv264, 1
   br i1 %410, label %332, label %.critedge10, !llvm.loop !10
 
 .critedge10:                                      ; preds = %Kit_DsdNtkObj.exit217.thread, %323, %Vec_IntFree.exit226, %Vec_IntPush.exit216
@@ -1608,7 +1608,7 @@ select.unfold.i:                                  ; preds = %select.unfold.i, %s
   %76 = load i32, ptr %75, align 4
   %77 = xor i32 %76, -1
   store i32 %77, ptr %75, align 4
-  %78 = icmp ugt i64 %indvars.iv.i, 1
+  %78 = icmp samesign ugt i64 %indvars.iv.i, 1
   br i1 %78, label %select.unfold.i, label %Kit_TruthNot.exit, !llvm.loop !21
 
 Kit_TruthNot.exit:                                ; preds = %select.unfold.i, %69, %.lr.ph
@@ -1709,7 +1709,7 @@ select.unfold.i42:                                ; preds = %select.unfold.i42, 
   %122 = load i32, ptr %121, align 4
   %123 = xor i32 %122, -1
   store i32 %123, ptr %121, align 4
-  %124 = icmp ugt i64 %indvars.iv.i43, 1
+  %124 = icmp samesign ugt i64 %indvars.iv.i43, 1
   br i1 %124, label %select.unfold.i42, label %Kit_TruthNot.exit45.loopexit, !llvm.loop !21
 
 Kit_TruthNot.exit45.loopexit:                     ; preds = %select.unfold.i42

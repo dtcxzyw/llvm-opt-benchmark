@@ -185,7 +185,7 @@ while.body:                                       ; preds = %if.else55, %while.b
   %n.0 = getelementptr inbounds i8, ptr %n.073, i64 -1
   %14 = load i8, ptr %n.0, align 1
   %tobool63.not = icmp eq i8 %14, 0
-  %cmp64 = icmp ugt i32 %i.171, 2
+  %cmp64 = icmp samesign ugt i32 %i.171, 2
   %15 = select i1 %tobool63.not, i1 %cmp64, i1 false
   br i1 %15, label %while.body, label %while.end, !llvm.loop !9
 
@@ -209,7 +209,7 @@ for.body77:                                       ; preds = %while.end, %for.bod
   %16 = load i8, ptr %n.1, align 1
   %17 = xor i8 %16, -1
   store i8 %17, ptr %p.2, align 1
-  %cmp75 = icmp ugt i32 %i.2.in79, 2
+  %cmp75 = icmp samesign ugt i32 %i.2.in79, 2
   br i1 %cmp75, label %for.body77, label %if.end87, !llvm.loop !10
 
 if.end87:                                         ; preds = %for.body77, %while.end, %if.then51, %if.then47
@@ -346,7 +346,7 @@ for.body:                                         ; preds = %if.else37, %for.bod
   %8 = load i8, ptr %p.2, align 1
   %9 = xor i8 %8, -1
   store i8 %9, ptr %to.1, align 1
-  %cmp44 = icmp ugt i32 %i.1.in74, 2
+  %cmp44 = icmp samesign ugt i32 %i.1.in74, 2
   br i1 %cmp44, label %for.body, label %if.end68, !llvm.loop !12
 
 if.else53:                                        ; preds = %if.else13

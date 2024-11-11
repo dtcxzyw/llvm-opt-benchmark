@@ -510,7 +510,7 @@ Gia_ObjIsPi.exit95:                               ; preds = %69
   %71 = lshr i64 %.val85.pre164.pre, 32
   %72 = trunc nuw i64 %71 to i32
   %73 = and i32 %72, 536870911
-  %74 = icmp uge i32 %73, %68
+  %74 = icmp samesign uge i32 %73, %68
   %.not63 = icmp eq ptr %59, %62
   %or.cond = select i1 %74, i1 true, i1 %.not63
   br i1 %or.cond, label %108, label %75

@@ -2059,7 +2059,7 @@ if.end116:                                        ; preds = %if.else107, %if.the
 
 for.inc:                                          ; preds = %if.end91, %if.end116
   %contp.2 = phi i32 [ %inc117, %if.end116 ], [ %contp.1136, %if.end91 ]
-  %cmp42 = icmp ugt i32 %i.1137.in, 1
+  %cmp42 = icmp samesign ugt i32 %i.1137.in, 1
   br i1 %cmp42, label %for.body, label %for.end, !llvm.loop !40
 
 for.end:                                          ; preds = %for.inc, %if.end41

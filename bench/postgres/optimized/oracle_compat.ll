@@ -1843,8 +1843,8 @@ define dso_local range(i64 -2147483648, 2147483648) i64 @ascii(ptr nocapture nou
 
 35:                                               ; preds = %32
   %36 = zext i8 %33 to i32
-  %37 = icmp ugt i8 %33, -17
-  %38 = icmp ugt i8 %33, -33
+  %37 = icmp samesign ugt i8 %33, -17
+  %38 = icmp samesign ugt i8 %33, -33
   %. = select i1 %38, i32 15, i32 31
   %.40 = select i1 %38, i64 3, i64 2
   %.sink = select i1 %37, i32 7, i32 %.
@@ -1929,12 +1929,12 @@ define dso_local noundef i64 @chr(ptr nocapture noundef readonly %0) local_unnam
 
 17:                                               ; preds = %11
   %18 = icmp eq i32 %5, 6
-  %19 = icmp ugt i32 %4, 127
+  %19 = icmp samesign ugt i32 %4, 127
   %or.cond = select i1 %18, i1 %19, i1 false
-  br i1 %or.cond, label %20, label %82
+  br i1 %or.cond, label %20, label %83
 
 20:                                               ; preds = %17
-  %21 = icmp ugt i32 %4, 1114111
+  %21 = icmp samesign ugt i32 %4, 1114111
   br i1 %21, label %22, label %26
 
 22:                                               ; preds = %20
@@ -1946,117 +1946,119 @@ define dso_local noundef i64 @chr(ptr nocapture noundef readonly %0) local_unnam
   unreachable
 
 26:                                               ; preds = %20
-  %27 = icmp ult i32 %4, 65536
-  %28 = icmp ugt i32 %4, 2047
+  %27 = icmp samesign ugt i32 %4, 65535
+  %28 = icmp samesign ugt i32 %4, 2047
   %.55 = select i1 %28, i32 3, i32 2
-  %.051 = select i1 %27, i32 %.55, i32 4
+  %.051 = select i1 %27, i32 4, i32 %.55
   %29 = add nuw nsw i32 %.051, 4
   %30 = zext nneg i32 %29 to i64
   %31 = tail call ptr @palloc(i64 noundef %30) #8
   %32 = shl nuw nsw i32 %29, 2
   store i32 %32, ptr %31, align 4
   %33 = getelementptr inbounds i8, ptr %31, i64 4
-  br i1 %28, label %42, label %34
+  %34 = and i64 %3, 2095104
+  %.not = icmp eq i64 %34, 0
+  br i1 %.not, label %35, label %43
 
-34:                                               ; preds = %26
-  %35 = lshr i64 %3, 6
-  %36 = trunc i64 %35 to i8
-  %37 = or disjoint i8 %36, -64
-  store i8 %37, ptr %33, align 1
-  %38 = trunc i64 %3 to i8
-  %39 = and i8 %38, 63
-  %40 = or disjoint i8 %39, -128
-  %41 = getelementptr i8, ptr %31, i64 5
-  store i8 %40, ptr %41, align 1
-  br label %76
+35:                                               ; preds = %26
+  %36 = lshr i64 %3, 6
+  %37 = trunc i64 %36 to i8
+  %38 = or disjoint i8 %37, -64
+  store i8 %38, ptr %33, align 1
+  %39 = trunc i64 %3 to i8
+  %40 = and i8 %39, 63
+  %41 = or disjoint i8 %40, -128
+  %42 = getelementptr i8, ptr %31, i64 5
+  store i8 %41, ptr %42, align 1
+  br label %77
 
-42:                                               ; preds = %26
-  %43 = add nsw i32 %4, -2048
-  %44 = icmp ult i32 %43, 63488
-  %45 = getelementptr i8, ptr %31, i64 6
-  br i1 %44, label %46, label %59
+43:                                               ; preds = %26
+  %44 = add nsw i32 %4, -2048
+  %45 = icmp ult i32 %44, 63488
+  %46 = getelementptr i8, ptr %31, i64 6
+  br i1 %45, label %47, label %60
 
-46:                                               ; preds = %42
-  %47 = lshr i64 %3, 12
-  %48 = trunc i64 %47 to i8
-  %49 = and i8 %48, 15
-  %50 = or disjoint i8 %49, -32
-  store i8 %50, ptr %33, align 1
-  %51 = lshr i64 %3, 6
-  %52 = trunc i64 %51 to i8
-  %53 = and i8 %52, 63
-  %54 = or disjoint i8 %53, -128
-  %55 = getelementptr i8, ptr %31, i64 5
-  store i8 %54, ptr %55, align 1
-  %56 = trunc i64 %3 to i8
-  %57 = and i8 %56, 63
-  %58 = or disjoint i8 %57, -128
-  store i8 %58, ptr %45, align 1
-  br label %76
+47:                                               ; preds = %43
+  %48 = lshr i64 %3, 12
+  %49 = trunc i64 %48 to i8
+  %50 = and i8 %49, 15
+  %51 = or disjoint i8 %50, -32
+  store i8 %51, ptr %33, align 1
+  %52 = lshr i64 %3, 6
+  %53 = trunc i64 %52 to i8
+  %54 = and i8 %53, 63
+  %55 = or disjoint i8 %54, -128
+  %56 = getelementptr i8, ptr %31, i64 5
+  store i8 %55, ptr %56, align 1
+  %57 = trunc i64 %3 to i8
+  %58 = and i8 %57, 63
+  %59 = or disjoint i8 %58, -128
+  store i8 %59, ptr %46, align 1
+  br label %77
 
-59:                                               ; preds = %42
-  %60 = lshr i64 %3, 18
-  %61 = trunc i64 %60 to i8
-  %62 = or disjoint i8 %61, -16
-  store i8 %62, ptr %33, align 1
-  %63 = lshr i64 %3, 12
-  %64 = trunc i64 %63 to i8
-  %65 = and i8 %64, 63
-  %66 = or disjoint i8 %65, -128
-  %67 = getelementptr i8, ptr %31, i64 5
-  store i8 %66, ptr %67, align 1
-  %68 = lshr i64 %3, 6
-  %69 = trunc i64 %68 to i8
-  %70 = and i8 %69, 63
-  %71 = or disjoint i8 %70, -128
-  store i8 %71, ptr %45, align 1
-  %72 = trunc i64 %3 to i8
-  %73 = and i8 %72, 63
-  %74 = or disjoint i8 %73, -128
-  %75 = getelementptr i8, ptr %31, i64 7
-  store i8 %74, ptr %75, align 1
-  br label %76
+60:                                               ; preds = %43
+  %61 = lshr i64 %3, 18
+  %62 = trunc i64 %61 to i8
+  %63 = or disjoint i8 %62, -16
+  store i8 %63, ptr %33, align 1
+  %64 = lshr i64 %3, 12
+  %65 = trunc i64 %64 to i8
+  %66 = and i8 %65, 63
+  %67 = or disjoint i8 %66, -128
+  %68 = getelementptr i8, ptr %31, i64 5
+  store i8 %67, ptr %68, align 1
+  %69 = lshr i64 %3, 6
+  %70 = trunc i64 %69 to i8
+  %71 = and i8 %70, 63
+  %72 = or disjoint i8 %71, -128
+  store i8 %72, ptr %46, align 1
+  %73 = trunc i64 %3 to i8
+  %74 = and i8 %73, 63
+  %75 = or disjoint i8 %74, -128
+  %76 = getelementptr i8, ptr %31, i64 7
+  store i8 %75, ptr %76, align 1
+  br label %77
 
-76:                                               ; preds = %46, %59, %34
-  %77 = tail call zeroext i1 @pg_utf8_islegal(ptr noundef nonnull %33, i32 noundef %.051) #8
-  br i1 %77, label %94, label %78
+77:                                               ; preds = %47, %60, %35
+  %78 = tail call zeroext i1 @pg_utf8_islegal(ptr noundef nonnull %33, i32 noundef %.051) #8
+  br i1 %78, label %95, label %79
 
-78:                                               ; preds = %76
-  %79 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #9
-  tail call void @llvm.assume(i1 %79)
-  %80 = tail call i32 @errcode(i32 noundef 261) #8
-  %81 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.7, i32 noundef %4) #8
+79:                                               ; preds = %77
+  %80 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #9
+  tail call void @llvm.assume(i1 %80)
+  %81 = tail call i32 @errcode(i32 noundef 261) #8
+  %82 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.7, i32 noundef %4) #8
   tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 1084, ptr noundef nonnull @__func__.chr) #8
   unreachable
 
-82:                                               ; preds = %17
-  %83 = tail call i32 @pg_encoding_max_length(i32 noundef %5) #8
-  %84 = icmp sgt i32 %83, 1
-  %85 = icmp ult i32 %4, 256
+83:                                               ; preds = %17
+  %84 = tail call i32 @pg_encoding_max_length(i32 noundef %5) #8
+  %85 = icmp sgt i32 %84, 1
+  %86 = icmp samesign ult i32 %4, 256
   %not. = xor i1 %19, true
-  %or.cond56 = select i1 %84, i1 %not., i1 %85
-  br i1 %or.cond56, label %90, label %86
+  %or.cond56 = select i1 %85, i1 %not., i1 %86
+  br i1 %or.cond56, label %91, label %87
 
-86:                                               ; preds = %82
-  %87 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #9
-  tail call void @llvm.assume(i1 %87)
-  %88 = tail call i32 @errcode(i32 noundef 261) #8
-  %89 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.6, i32 noundef %4) #8
+87:                                               ; preds = %83
+  %88 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #9
+  tail call void @llvm.assume(i1 %88)
+  %89 = tail call i32 @errcode(i32 noundef 261) #8
+  %90 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.6, i32 noundef %4) #8
   tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 1096, ptr noundef nonnull @__func__.chr) #8
   unreachable
 
-90:                                               ; preds = %82
-  %91 = tail call ptr @palloc(i64 noundef 5) #8
-  store i32 20, ptr %91, align 4
-  %92 = trunc i64 %3 to i8
-  %93 = getelementptr inbounds i8, ptr %91, i64 4
-  store i8 %92, ptr %93, align 4
-  br label %94
+91:                                               ; preds = %83
+  %92 = tail call ptr @palloc(i64 noundef 5) #8
+  store i32 20, ptr %92, align 4
+  %93 = trunc i64 %3 to i8
+  %94 = getelementptr inbounds i8, ptr %92, i64 4
+  store i8 %93, ptr %94, align 4
+  br label %95
 
-94:                                               ; preds = %76, %90
-  %.0 = phi ptr [ %31, %76 ], [ %91, %90 ]
-  %95 = ptrtoint ptr %.0 to i64
-  ret i64 %95
+95:                                               ; preds = %77, %91
+  %.0 = phi ptr [ %31, %77 ], [ %92, %91 ]
+  %96 = ptrtoint ptr %.0 to i64
+  ret i64 %96
 }
 
 declare zeroext i1 @pg_utf8_islegal(ptr noundef, i32 noundef) local_unnamed_addr #1

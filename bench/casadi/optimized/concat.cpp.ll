@@ -381,7 +381,7 @@ _ZNK6casadi6MXNode3depEx.exit:                    ; preds = %11
   %26 = getelementptr inbounds i8, ptr %.0910.i.i.i.i.i, i64 8
   %27 = getelementptr inbounds i8, ptr %.0811.i.i.i.i.i, i64 8
   %28 = add nsw i64 %.012.i.i.i.i.i, -1
-  %29 = icmp ugt i64 %.012.i.i.i.i.i, 1
+  %29 = icmp samesign ugt i64 %.012.i.i.i.i.i, 1
   br i1 %29, label %.lr.ph.i.i.i.i.i, label %_ZSt4copyIPKN6casadi6SXElemEPS1_ET0_T_S6_S5_.exit, !llvm.loop !6
 
 _ZSt4copyIPKN6casadi6SXElemEPS1_ET0_T_S6_S5_.exit: ; preds = %.lr.ph.i.i.i.i.i, %_ZNK6casadi6MXNode3depEx.exit

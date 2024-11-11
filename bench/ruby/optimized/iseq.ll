@@ -2130,7 +2130,7 @@ define dso_local ptr @rb_iseq_new_with_opt(ptr noundef readonly %0, i64 noundef 
   br i1 %32, label %38, label %33
 
 33:                                               ; preds = %29
-  %34 = icmp ugt i8 %31, 63
+  %34 = icmp samesign ugt i8 %31, 63
   %35 = select i1 %34, i16 256, i16 0
   %36 = and i16 %30, -257
   %37 = or disjoint i16 %36, %35

@@ -2716,7 +2716,7 @@ remove_vlan_info.exit:                            ; preds = %987, %979, %977, %9
 1114:                                             ; preds = %1103
   %1115 = udiv i32 %1104, 119304648
   %1116 = add nsw i32 %1115, -5
-  %1117 = icmp ult i32 %1116, 5
+  %1117 = icmp samesign ult i32 %1116, 5
   br i1 %1117, label %.thread630, label %1123
 
 .thread630:                                       ; preds = %1114
@@ -2730,7 +2730,7 @@ remove_vlan_info.exit:                            ; preds = %987, %979, %977, %9
 
 1123:                                             ; preds = %1114
   %1124 = add nsw i32 %1115, -10
-  %1125 = icmp ult i32 %1124, 5
+  %1125 = icmp samesign ult i32 %1124, 5
   br i1 %1125, label %.thread635, label %1133
 
 .thread635:                                       ; preds = %1123
@@ -2746,7 +2746,7 @@ remove_vlan_info.exit:                            ; preds = %987, %979, %977, %9
 
 1133:                                             ; preds = %1123
   %1134 = add nsw i32 %1115, -15
-  %1135 = icmp ult i32 %1134, 2
+  %1135 = icmp samesign ult i32 %1134, 2
   br i1 %1135, label %1142, label %.preheader654
 
 .preheader654:                                    ; preds = %1133

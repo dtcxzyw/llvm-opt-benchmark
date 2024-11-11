@@ -1291,7 +1291,7 @@ sapi_remove_header.exit:                          ; preds = %100, %72
   store ptr %31, ptr %3, align 8
   %113 = getelementptr inbounds i8, ptr %3, i64 8
   store i64 %.0185, ptr %113, align 8
-  %114 = icmp ugt i64 %.0185, 4
+  %114 = icmp samesign ugt i64 %.0185, 4
   br i1 %114, label %115, label %125
 
 115:                                              ; preds = %._crit_edge

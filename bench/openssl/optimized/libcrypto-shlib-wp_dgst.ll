@@ -373,7 +373,7 @@ if.end17.thread:                                  ; preds = %if.then7, %if.then1
   br label %if.then20
 
 if.end17:                                         ; preds = %if.end
-  %cmp18 = icmp ult i32 %0, 248
+  %cmp18 = icmp samesign ult i32 %0, 248
   br i1 %cmp18, label %if.then20, label %if.end26
 
 if.then20:                                        ; preds = %if.end17.thread, %if.end17
@@ -511,7 +511,7 @@ if.end17.thread.i:                                ; preds = %if.then10.i, %if.th
   br label %if.then20.i
 
 if.end17.i:                                       ; preds = %if.end.i
-  %cmp18.i = icmp ult i32 %0, 248
+  %cmp18.i = icmp samesign ult i32 %0, 248
   br i1 %cmp18.i, label %if.then20.i, label %if.end26.i
 
 if.then20.i:                                      ; preds = %if.end17.i, %if.end17.thread.i

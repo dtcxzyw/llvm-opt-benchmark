@@ -3966,7 +3966,7 @@ if.else35:                                        ; preds = %if.then30
   br i1 %cmp37, label %if.then38, label %if.end57
 
 if.then38:                                        ; preds = %if.else35
-  %cmp39 = icmp ugt i64 %call36, 576460752303423487
+  %cmp39 = icmp samesign ugt i64 %call36, 576460752303423487
   br i1 %cmp39, label %if.then47, label %cond.end45
 
 cond.end45:                                       ; preds = %if.then38

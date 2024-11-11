@@ -421,7 +421,7 @@ cleanup.action:                                   ; preds = %ehcleanup, %_ZNKSt7
 
 if.end:                                           ; preds = %entry
   %conv = zext nneg i32 %call.i to i64
-  %cmp7 = icmp ult i32 %call.i, 128
+  %cmp7 = icmp samesign ult i32 %call.i, 128
   br i1 %cmp7, label %if.then8, label %if.end12
 
 if.then8:                                         ; preds = %if.end

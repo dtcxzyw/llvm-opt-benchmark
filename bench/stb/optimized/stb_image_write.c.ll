@@ -3056,7 +3056,7 @@ cond.end.i646:                                    ; preds = %if.end.i.i644, %con
   store i8 %conv.i648, ptr %arrayidx7.i652, align 1
   %shr.i653 = lshr i32 %bitbuf.26, 8
   %sub.i654 = add nsw i32 %bitcount.26, -8
-  %cmp.i655 = icmp ugt i32 %bitcount.26, 15
+  %cmp.i655 = icmp samesign ugt i32 %bitcount.26, 15
   br i1 %cmp.i655, label %while.body.i624, label %for.inc365, !llvm.loop !23
 
 cond.false352:                                    ; preds = %for.body336
@@ -3138,7 +3138,7 @@ cond.end.i695:                                    ; preds = %if.end.i.i693, %con
   store i8 %conv.i697, ptr %arrayidx7.i701, align 1
   %shr.i702 = lshr i32 %bitbuf.28, 8
   %sub.i703 = add nsw i32 %bitcount.28, -8
-  %cmp.i704 = icmp ugt i32 %bitcount.28, 15
+  %cmp.i704 = icmp samesign ugt i32 %bitcount.28, 15
   br i1 %cmp.i704, label %while.body.i673, label %for.inc365, !llvm.loop !23
 
 for.inc365:                                       ; preds = %cond.end.i695, %cond.end.i646, %stbiw__zlib_bitrev.exit669, %stbiw__zlib_bitrev.exit620
@@ -3283,7 +3283,7 @@ cond.end.i782:                                    ; preds = %if.end.i.i780, %con
   store i8 %conv.i784, ptr %arrayidx7.i788, align 1
   %shr.i789 = lshr i32 %bitbuf.32, 8
   %sub.i790 = add nsw i32 %bitcount.32, -8
-  %cmp.i791 = icmp ugt i32 %bitcount.32, 15
+  %cmp.i791 = icmp samesign ugt i32 %bitcount.32, 15
   br i1 %cmp.i791, label %while.body.i760, label %stbiw__zlib_flushf.exit794, !llvm.loop !23
 
 stbiw__zlib_flushf.exit794:                       ; preds = %cond.end.i782, %while.body375

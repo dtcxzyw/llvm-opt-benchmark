@@ -4865,7 +4865,7 @@ if.then.i.i.i.i.i.i.i.i:                          ; preds = %invoke.cont.i.i.i.i
   unreachable
 
 if.end.i.i25.i.i.i.i.i.i:                         ; preds = %invoke.cont.i.i.i.i.i.i
-  %cmp.i.i.i.i26.i.i.i.i.i.i = icmp ult i32 %conv.i24.i.i.i.i.i.i, 13
+  %cmp.i.i.i.i26.i.i.i.i.i.i = icmp samesign ult i32 %conv.i24.i.i.i.i.i.i, 13
   br i1 %cmp.i.i.i.i26.i.i.i.i.i.i, label %if.then2.i.i.i.i.i.i.i.i, label %if.else.i.i.i.i.i.i.i.i
 
 if.then2.i.i.i.i.i.i.i.i:                         ; preds = %if.end.i.i25.i.i.i.i.i.i
@@ -6904,7 +6904,7 @@ if.then.i.i:                                      ; preds = %invoke.cont
   unreachable
 
 if.end.i.i25:                                     ; preds = %invoke.cont
-  %cmp.i.i.i.i26 = icmp ult i32 %conv.i24, 13
+  %cmp.i.i.i.i26 = icmp samesign ult i32 %conv.i24, 13
   %prefix_.i.i27 = getelementptr inbounds i8, ptr %ref.tmp.i, i64 4
   br i1 %cmp.i.i.i.i26, label %if.then2.i.i, label %if.else.i.i
 
@@ -7107,7 +7107,7 @@ if.then.i.i34:                                    ; preds = %.noexc35
   unreachable
 
 if.end.i.i31:                                     ; preds = %.noexc35
-  %cmp.i.i.i.i = icmp ult i32 %conv.i29, 13
+  %cmp.i.i.i.i = icmp samesign ult i32 %conv.i29, 13
   %prefix_.i.i = getelementptr inbounds i8, ptr %ref.tmp16.i, i64 4
   br i1 %cmp.i.i.i.i, label %if.then2.i.i, label %if.else.i.i32
 
@@ -7371,7 +7371,7 @@ if.then36.i:                                      ; preds = %if.end29.i
   br label %_ZL18utf8proc_codepointPKcS0_Ri.exit
 
 if.end47.i:                                       ; preds = %if.end29.i
-  %cmp51.i = icmp ugt i64 %gepdiff, 3
+  %cmp51.i = icmp samesign ugt i64 %gepdiff, 3
   %22 = and i8 %16, -8
   %or.cond2.i = icmp eq i8 %22, -16
   %or.cond31.i = and i1 %cmp51.i, %or.cond2.i
@@ -7471,7 +7471,7 @@ if.else.i:                                        ; preds = %call14.i.noexc.thre
   %cond.i4292 = phi i32 [ %cond.i42.ph, %call14.i.noexc.thread ], [ %retval.0.i7984, %call14.i.noexc ]
   %idxprom15.i89.pn = sext i32 %outputIdx.i.099 to i64
   %arrayidx16.i95 = getelementptr inbounds i8, ptr %15, i64 %idxprom15.i89.pn
-  %cmp1.i44 = icmp ult i32 %cond.i4292, 128
+  %cmp1.i44 = icmp samesign ult i32 %cond.i4292, 128
   br i1 %cmp1.i44, label %if.then2.i, label %if.else3.i
 
 if.then2.i:                                       ; preds = %if.else.i
@@ -7480,7 +7480,7 @@ if.then2.i:                                       ; preds = %if.else.i
   br label %_ZL20utf8proc_encode_chariPh.exit
 
 if.else3.i:                                       ; preds = %if.else.i
-  %cmp4.i = icmp ult i32 %cond.i4292, 2048
+  %cmp4.i = icmp samesign ult i32 %cond.i4292, 2048
   br i1 %cmp4.i, label %if.then5.i, label %if.else11.i
 
 if.then5.i:                                       ; preds = %if.else3.i
@@ -7496,7 +7496,7 @@ if.then5.i:                                       ; preds = %if.else3.i
   br label %_ZL20utf8proc_encode_chariPh.exit
 
 if.else11.i:                                      ; preds = %if.else3.i
-  %cmp12.i = icmp ult i32 %cond.i4292, 65536
+  %cmp12.i = icmp samesign ult i32 %cond.i4292, 65536
   br i1 %cmp12.i, label %if.then13.i, label %if.else27.i
 
 if.then13.i:                                      ; preds = %if.else11.i
@@ -7518,7 +7518,7 @@ if.then13.i:                                      ; preds = %if.else11.i
   br label %_ZL20utf8proc_encode_chariPh.exit
 
 if.else27.i:                                      ; preds = %if.else11.i
-  %cmp28.i = icmp ult i32 %cond.i4292, 1114112
+  %cmp28.i = icmp samesign ult i32 %cond.i4292, 1114112
   br i1 %cmp28.i, label %if.then29.i, label %_ZL20utf8proc_encode_chariPh.exit
 
 if.then29.i:                                      ; preds = %if.else27.i
@@ -7612,7 +7612,7 @@ if.then.i.i:                                      ; preds = %.noexc67
   unreachable
 
 if.end.i.i66:                                     ; preds = %.noexc67
-  %cmp.i.i.i.i = icmp ult i32 %conv.i65, 13
+  %cmp.i.i.i.i = icmp samesign ult i32 %conv.i65, 13
   %prefix_.i.i = getelementptr inbounds i8, ptr %ref.tmp16.i, i64 4
   br i1 %cmp.i.i.i.i, label %if.then2.i.i, label %if.else.i.i
 
@@ -8214,7 +8214,7 @@ if.then.i.i.i.i.i.i.i.i:                          ; preds = %invoke.cont.i.i.i.i
   unreachable
 
 if.end.i.i25.i.i.i.i.i.i:                         ; preds = %invoke.cont.i.i.i.i.i.i
-  %cmp.i.i.i.i26.i.i.i.i.i.i = icmp ult i32 %conv.i24.i.i.i.i.i.i, 13
+  %cmp.i.i.i.i26.i.i.i.i.i.i = icmp samesign ult i32 %conv.i24.i.i.i.i.i.i, 13
   br i1 %cmp.i.i.i.i26.i.i.i.i.i.i, label %if.then2.i.i.i.i.i.i.i.i, label %if.else.i.i.i.i.i.i.i.i
 
 if.then2.i.i.i.i.i.i.i.i:                         ; preds = %if.end.i.i25.i.i.i.i.i.i
@@ -9216,7 +9216,7 @@ if.then.i.i:                                      ; preds = %invoke.cont
   unreachable
 
 if.end.i.i25:                                     ; preds = %invoke.cont
-  %cmp.i.i.i.i26 = icmp ult i32 %conv.i24, 13
+  %cmp.i.i.i.i26 = icmp samesign ult i32 %conv.i24, 13
   %prefix_.i.i27 = getelementptr inbounds i8, ptr %ref.tmp.i, i64 4
   br i1 %cmp.i.i.i.i26, label %if.then2.i.i, label %if.else.i.i
 
@@ -9388,7 +9388,7 @@ if.then.i.i34:                                    ; preds = %.noexc35
   unreachable
 
 if.end.i.i31:                                     ; preds = %.noexc35
-  %cmp.i.i.i.i = icmp ult i32 %conv.i29, 13
+  %cmp.i.i.i.i = icmp samesign ult i32 %conv.i29, 13
   %prefix_.i.i = getelementptr inbounds i8, ptr %ref.tmp16.i, i64 4
   br i1 %cmp.i.i.i.i, label %if.then2.i.i, label %if.else.i.i32
 
@@ -9572,7 +9572,7 @@ if.then36.i:                                      ; preds = %if.end29.i
   br label %_ZL18utf8proc_codepointPKcS0_Ri.exit
 
 if.end47.i:                                       ; preds = %if.end29.i
-  %cmp51.i = icmp ugt i64 %gepdiff, 3
+  %cmp51.i = icmp samesign ugt i64 %gepdiff, 3
   %22 = and i8 %16, -8
   %or.cond2.i = icmp eq i8 %22, -16
   %or.cond31.i = and i1 %cmp51.i, %or.cond2.i
@@ -9672,7 +9672,7 @@ if.else.i:                                        ; preds = %call14.i.noexc.thre
   %cond.i4292 = phi i32 [ %cond.i42.ph, %call14.i.noexc.thread ], [ %retval.0.i7984, %call14.i.noexc ]
   %idxprom15.i89.pn = sext i32 %outputIdx.i.099 to i64
   %arrayidx16.i95 = getelementptr inbounds i8, ptr %15, i64 %idxprom15.i89.pn
-  %cmp1.i44 = icmp ult i32 %cond.i4292, 128
+  %cmp1.i44 = icmp samesign ult i32 %cond.i4292, 128
   br i1 %cmp1.i44, label %if.then2.i, label %if.else3.i
 
 if.then2.i:                                       ; preds = %if.else.i
@@ -9681,7 +9681,7 @@ if.then2.i:                                       ; preds = %if.else.i
   br label %_ZL20utf8proc_encode_chariPh.exit
 
 if.else3.i:                                       ; preds = %if.else.i
-  %cmp4.i = icmp ult i32 %cond.i4292, 2048
+  %cmp4.i = icmp samesign ult i32 %cond.i4292, 2048
   br i1 %cmp4.i, label %if.then5.i, label %if.else11.i
 
 if.then5.i:                                       ; preds = %if.else3.i
@@ -9697,7 +9697,7 @@ if.then5.i:                                       ; preds = %if.else3.i
   br label %_ZL20utf8proc_encode_chariPh.exit
 
 if.else11.i:                                      ; preds = %if.else3.i
-  %cmp12.i = icmp ult i32 %cond.i4292, 65536
+  %cmp12.i = icmp samesign ult i32 %cond.i4292, 65536
   br i1 %cmp12.i, label %if.then13.i, label %if.else27.i
 
 if.then13.i:                                      ; preds = %if.else11.i
@@ -9719,7 +9719,7 @@ if.then13.i:                                      ; preds = %if.else11.i
   br label %_ZL20utf8proc_encode_chariPh.exit
 
 if.else27.i:                                      ; preds = %if.else11.i
-  %cmp28.i = icmp ult i32 %cond.i4292, 1114112
+  %cmp28.i = icmp samesign ult i32 %cond.i4292, 1114112
   br i1 %cmp28.i, label %if.then29.i, label %_ZL20utf8proc_encode_chariPh.exit
 
 if.then29.i:                                      ; preds = %if.else27.i
@@ -9813,7 +9813,7 @@ if.then.i.i:                                      ; preds = %.noexc67
   unreachable
 
 if.end.i.i66:                                     ; preds = %.noexc67
-  %cmp.i.i.i.i = icmp ult i32 %conv.i65, 13
+  %cmp.i.i.i.i = icmp samesign ult i32 %conv.i65, 13
   %prefix_.i.i = getelementptr inbounds i8, ptr %ref.tmp16.i, i64 4
   br i1 %cmp.i.i.i.i, label %if.then2.i.i, label %if.else.i.i
 
@@ -10279,7 +10279,7 @@ if.then.i94.i.i.i.i.i:                            ; preds = %for.body70.i.i.i.i.
   unreachable
 
 if.end.i93.i.i.i.i.i:                             ; preds = %for.body70.i.i.i.i.i
-  %cmp.i.i.i.i.i.i.i.i = icmp ult i32 %conv76.i.i.i.i.i, 13
+  %cmp.i.i.i.i.i.i.i.i = icmp samesign ult i32 %conv76.i.i.i.i.i, 13
   br i1 %cmp.i.i.i.i.i.i.i.i, label %if.then2.i.i.i.i.i.i, label %if.else.i.i.i.i.i.i
 
 if.then2.i.i.i.i.i.i:                             ; preds = %if.end.i93.i.i.i.i.i
@@ -12293,7 +12293,7 @@ if.then.i.i.i.i.i.i146:                           ; preds = %for.end.i.i.i.i.i
   unreachable
 
 if.end.i.i.i.i.i.i:                               ; preds = %for.end.i.i.i.i.i
-  %cmp.i.i.i13.i.i.i.i.i = icmp ult i32 %conv19.i.i.i.i.i, 13
+  %cmp.i.i.i13.i.i.i.i.i = icmp samesign ult i32 %conv19.i.i.i.i.i, 13
   br i1 %cmp.i.i.i13.i.i.i.i.i, label %if.then2.i.i.i.i.i.i, label %if.else.i.i.i.i.i.i144
 
 if.then2.i.i.i.i.i.i:                             ; preds = %if.end.i.i.i.i.i.i
@@ -13077,7 +13077,7 @@ if.then.i:                                        ; preds = %for.end
   unreachable
 
 if.end.i:                                         ; preds = %for.end
-  %cmp.i.i.i13 = icmp ult i32 %conv19, 13
+  %cmp.i.i.i13 = icmp samesign ult i32 %conv19, 13
   %prefix_.i14 = getelementptr inbounds i8, ptr %ref.tmp18, i64 4
   br i1 %cmp.i.i.i13, label %if.then2.i, label %if.else.i
 
@@ -14468,7 +14468,7 @@ if.then.i.i:                                      ; preds = %invoke.cont7
   unreachable
 
 if.end.i.i:                                       ; preds = %invoke.cont7
-  %cmp.i.i.i.i63 = icmp ult i32 %conv.i62, 13
+  %cmp.i.i.i.i63 = icmp samesign ult i32 %conv.i62, 13
   %prefix_.i.i64 = getelementptr inbounds i8, ptr %ref.tmp.i57, i64 4
   br i1 %cmp.i.i.i.i63, label %if.then2.i.i, label %if.else.i.i
 
@@ -14991,7 +14991,7 @@ if.then.i.i:                                      ; preds = %.noexc98
   unreachable
 
 if.end.i.i:                                       ; preds = %.noexc98
-  %cmp.i.i.i.i = icmp ult i32 %conv.i97, 13
+  %cmp.i.i.i.i = icmp samesign ult i32 %conv.i97, 13
   %prefix_.i.i = getelementptr inbounds i8, ptr %ref.tmp16.i, i64 4
   br i1 %cmp.i.i.i.i, label %if.then2.i.i, label %if.else.i.i
 

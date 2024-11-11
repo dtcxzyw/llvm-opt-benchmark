@@ -2605,7 +2605,7 @@ if.end39.i.i.i.i.i:                               ; preds = %if.end29.i.i.i.i.i
   %118 = getelementptr i8, ptr %parent.2.i.i.i.i.i, i64 10
   %parent.2.val.i.i.i.i.i = load i8, ptr %118, align 1, !noalias !75
   %conv47.i.i.i.i.i = zext i8 %parent.2.val.i.i.i.i.i to i64
-  %cmp48.not.not.i.i.i.i.i = icmp ult i64 %pos.2.i.i.i.i.i, %conv47.i.i.i.i.i
+  %cmp48.not.not.i.i.i.i.i = icmp samesign ult i64 %pos.2.i.i.i.i.i, %conv47.i.i.i.i.i
   br i1 %cmp48.not.not.i.i.i.i.i, label %do.body.i.i.i.i.i.backedge, label %do.body49.i.i.i.i.i
 
 do.body.i.i.i.i.i.backedge:                       ; preds = %if.end61.i.i.i.i.i, %if.end39.i.i.i.i.i
@@ -3953,7 +3953,7 @@ if.then15:                                        ; preds = %if.then7
   %conv27 = zext nneg i8 %.sroa.speculated113 to i32
   %cmp31.not = icmp samesign uge i32 %conv26, %conv27
   %narrow = add nuw nsw i8 %.sroa.speculated113, %call11.val90
-  %cmp36 = icmp ult i8 %narrow, 6
+  %cmp36 = icmp samesign ult i8 %narrow, 6
   %or.cond = select i1 %cmp31.not, i1 true, i1 %cmp36
   br i1 %or.cond, label %if.then37, label %if.end53
 
@@ -4005,7 +4005,7 @@ if.then68:                                        ; preds = %if.then59
   %sub87 = sub nsw i32 %conv85, %conv86
   %cmp88.not = icmp sle i32 %conv83, %sub87
   %narrow120 = add nuw nsw i8 %.sroa.speculated, %call64.val87
-  %cmp94 = icmp ult i8 %narrow120, 6
+  %cmp94 = icmp samesign ult i8 %narrow120, 6
   %or.cond119 = select i1 %cmp88.not, i1 true, i1 %cmp94
   br i1 %or.cond119, label %if.then95, label %if.end108
 
@@ -7472,7 +7472,7 @@ for.body.i.i.i.i.i39:                             ; preds = %_ZSt13move_backward
   %incdec.ptr.i.i.i.i.i40 = getelementptr inbounds i8, ptr %__first.addr.09.i.i.i.i.i, i64 16
   %incdec.ptr1.i.i.i.i.i = getelementptr inbounds i8, ptr %__result.addr.08.i.i.i.i.i, i64 16
   %dec.i.i.i.i.i = add nsw i64 %__n.07.i.i.i.i.i, -1
-  %cmp.i.i.i.i.i = icmp ugt i64 %__n.07.i.i.i.i.i, 1
+  %cmp.i.i.i.i.i = icmp samesign ugt i64 %__n.07.i.i.i.i.i, 1
   br i1 %cmp.i.i.i.i.i, label %for.body.i.i.i.i.i39, label %if.end87, !llvm.loop !150
 
 _ZSt7advanceIPZNK4absl12lts_2023080216strings_internal8SplitterINS1_6ByCharENS1_10AllowEmptyESt17basic_string_viewIcSt11char_traitsIcEEE18ConvertToContainerISt6vectorIS9_SaIS9_EES9_Lb0EEclERKSA_E8raw_viewmEvRT_T0_.exit: ; preds = %if.then4
@@ -7540,7 +7540,7 @@ for.body.i.i.i.i.i61:                             ; preds = %_ZSt22__uninitializ
   %incdec.ptr.i.i.i.i.i67 = getelementptr inbounds i8, ptr %__first.addr.09.i.i.i.i.i62, i64 16
   %incdec.ptr1.i.i.i.i.i68 = getelementptr inbounds i8, ptr %__result.addr.08.i.i.i.i.i63, i64 16
   %dec.i.i.i.i.i69 = add nsw i64 %__n.07.i.i.i.i.i64, -1
-  %cmp.i.i.i.i.i70 = icmp ugt i64 %__n.07.i.i.i.i.i64, 1
+  %cmp.i.i.i.i.i70 = icmp samesign ugt i64 %__n.07.i.i.i.i.i64, 1
   br i1 %cmp.i.i.i.i.i70, label %for.body.i.i.i.i.i61, label %if.end87, !llvm.loop !150
 
 if.else50:                                        ; preds = %if.then

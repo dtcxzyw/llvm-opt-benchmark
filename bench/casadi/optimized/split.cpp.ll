@@ -1419,7 +1419,7 @@ define noundef i32 @_ZNK6casadi5Split7eval_sxEPPKNS_6SXElemEPPS1_PxS5_(ptr nocap
   %30 = getelementptr inbounds i8, ptr %.0910.i.i.i.i.i.i, i64 8
   %31 = getelementptr inbounds i8, ptr %.0811.i.i.i.i.i.i, i64 8
   %32 = add nsw i64 %.012.i.i.i.i.i.i, -1
-  %33 = icmp ugt i64 %.012.i.i.i.i.i.i, 1
+  %33 = icmp samesign ugt i64 %.012.i.i.i.i.i.i, 1
   br i1 %33, label %.lr.ph.i.i.i.i.i.i, label %_ZSt4copyIPKN6casadi6SXElemEPS1_ET0_T_S6_S5_.exit.i, !llvm.loop !13
 
 _ZSt4copyIPKN6casadi6SXElemEPS1_ET0_T_S6_S5_.exit.i: ; preds = %.lr.ph.i.i.i.i.i.i, %19, %.lr.ph.i

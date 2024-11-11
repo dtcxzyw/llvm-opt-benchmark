@@ -492,7 +492,7 @@ define internal i32 @dissect_pppoed(ptr noundef %0, ptr noundef %1, ptr noundef 
   %90 = call ptr @proto_item_add_subtree(ptr noundef %88, i32 noundef %89) #5
   %91 = add nuw nsw i32 %.0195.i, 6
   %92 = add nuw nsw i32 %91, %86
-  %.not233.i.i = icmp ugt i32 %85, %92
+  %.not233.i.i = icmp samesign ugt i32 %85, %92
   br i1 %.not233.i.i, label %dissect_pppoe_subtags_dslf.exit.i, label %.lr.ph.i.i
 
 .lr.ph.i.i:                                       ; preds = %84, %295

@@ -408,7 +408,7 @@ Fraig_NodeVecPush.exit:                           ; preds = %.Fraig_NodeVecGrow.
   %45 = load ptr, ptr %35, align 8
   %46 = getelementptr inbounds ptr, ptr %45, i64 %41
   store ptr %40, ptr %46, align 8
-  %47 = icmp ugt i64 %indvars.iv, 2
+  %47 = icmp samesign ugt i64 %indvars.iv, 2
   br i1 %47, label %.lr.ph, label %._crit_edge, !llvm.loop !6
 
 ._crit_edge:                                      ; preds = %44, %.lr.ph, %Fraig_NodeVecPush.exit
@@ -553,7 +553,7 @@ Fraig_NodeVecPush.exit:                           ; preds = %.Fraig_NodeVecGrow.
   %55 = load ptr, ptr %35, align 8
   %56 = getelementptr inbounds ptr, ptr %55, i64 %41
   store ptr %40, ptr %56, align 8
-  %57 = icmp ugt i64 %indvars.iv, 2
+  %57 = icmp samesign ugt i64 %indvars.iv, 2
   br i1 %57, label %.lr.ph, label %._crit_edge, !llvm.loop !8
 
 ._crit_edge:                                      ; preds = %54, %.lr.ph, %Fraig_NodeVecPush.exit

@@ -1993,7 +1993,7 @@ if.end22:                                         ; preds = %if.then9, %if.then1
   br i1 %or.cond, label %if.then28, label %return
 
 if.then28:                                        ; preds = %if.end22
-  %cmp29 = icmp ult i64 %10, 508
+  %cmp29 = icmp samesign ult i64 %10, 508
   %sub32 = sub nuw nsw i64 508, %10
   %storemerge = select i1 %cmp29, i64 %sub32, i64 1
   store i64 %storemerge, ptr %hlen, align 8

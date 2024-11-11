@@ -2540,7 +2540,7 @@ _ZN4llvm23SmallVectorTemplateBaseIcLb1EE9push_backEc.exit64: ; preds = %_ZN4llvm
   %.sroa.045.0.extract.trunc.mask = and i24 %1, 255
   %80 = zext nneg i24 %.sroa.045.0.extract.trunc.mask to i64
   %81 = add nuw nsw i64 %78, %80
-  %82 = icmp ugt i64 %81, 255
+  %82 = icmp samesign ugt i64 %81, 255
   br i1 %82, label %83, label %111
 
 83:                                               ; preds = %79, %76
@@ -2784,7 +2784,7 @@ _ZN4llvm15SmallVectorImplIcE7reserveEm.exit:      ; preds = %3, %11
   %18 = getelementptr inbounds i8, ptr %.0910.i.i.i.i.i.i.i.i, i64 1
   %19 = getelementptr inbounds i8, ptr %.0811.i.i.i.i.i.i.i.i, i64 1
   %20 = add nsw i64 %.012.i.i.i.i.i.i.i.i, -1
-  %21 = icmp ugt i64 %.012.i.i.i.i.i.i.i.i, 1
+  %21 = icmp samesign ugt i64 %.012.i.i.i.i.i.i.i.i, 1
   br i1 %21, label %.lr.ph.i.i.i.i.i.i.i.i, label %_ZN4llvm23SmallVectorTemplateBaseIcLb1EE18uninitialized_copyIPhPcEEvT_S5_T0_.exit, !llvm.loop !42
 
 _ZN4llvm23SmallVectorTemplateBaseIcLb1EE18uninitialized_copyIPhPcEEvT_S5_T0_.exit: ; preds = %.lr.ph.i.i.i.i.i.i.i.i, %_ZN4llvm15SmallVectorImplIcE7reserveEm.exit

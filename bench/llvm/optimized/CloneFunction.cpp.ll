@@ -12111,7 +12111,7 @@ _ZSt13move_backwardIPPKN4llvm10BasicBlockES4_ET0_T_S6_S5_.exit: ; preds = %_ZSt2
   %37 = add nsw i32 %.sroa.2.08.i.i.i.i.i, 1
   %38 = getelementptr inbounds i8, ptr %.049.i.i.i.i.i, i64 8
   %39 = add nsw i32 %.010.i.i.i.i.i, -1
-  %40 = icmp ugt i32 %.010.i.i.i.i.i, 1
+  %40 = icmp samesign ugt i32 %.010.i.i.i.i.i, 1
   br i1 %40, label %.lr.ph.i.i.i.i.i, label %_ZSt4copyIN4llvm12SuccIteratorIKNS0_11InstructionEKNS0_10BasicBlockEEEN9__gnu_cxx17__normal_iteratorIPPS5_St6vectorIS9_SaIS9_EEEEET0_T_SG_SF_.exit, !llvm.loop !222
 
 _ZSt7advanceIN4llvm12SuccIteratorIKNS0_11InstructionEKNS0_10BasicBlockEEEmEvRT_T0_.exit: ; preds = %18
@@ -12163,7 +12163,7 @@ _ZSt22__uninitialized_move_aIPPKN4llvm10BasicBlockES4_SaIS3_EET0_T_S7_S6_RT1_.ex
   %54 = add nsw i32 %.sroa.2.08.i.i.i.i.i67, 1
   %55 = getelementptr inbounds i8, ptr %.049.i.i.i.i.i66, i64 8
   %56 = add nsw i32 %.010.i.i.i.i.i65, -1
-  %57 = icmp ugt i32 %.010.i.i.i.i.i65, 1
+  %57 = icmp samesign ugt i32 %.010.i.i.i.i.i65, 1
   br i1 %57, label %.lr.ph.i.i.i.i.i64, label %_ZSt4copyIN4llvm12SuccIteratorIKNS0_11InstructionEKNS0_10BasicBlockEEEN9__gnu_cxx17__normal_iteratorIPPS5_St6vectorIS9_SaIS9_EEEEET0_T_SG_SF_.exit, !llvm.loop !222
 
 58:                                               ; preds = %7
@@ -13713,7 +13713,7 @@ _ZSt13move_backwardIPPN4llvm10BasicBlockES3_ET0_T_S5_S4_.exit: ; preds = %_ZN4ll
   %68 = add nsw i32 %.sroa.2.08.i.i.i.i.i, 1
   %69 = getelementptr inbounds i8, ptr %.049.i.i.i.i.i, i64 8
   %70 = add nsw i32 %.010.i.i.i.i.i, -1
-  %71 = icmp ugt i32 %.010.i.i.i.i.i, 1
+  %71 = icmp samesign ugt i32 %.010.i.i.i.i.i, 1
   br i1 %71, label %.lr.ph.i.i.i.i.i, label %_ZSt4copyIN4llvm12SuccIteratorINS0_11InstructionENS0_10BasicBlockEEEPPS3_ET0_T_S8_S7_.exit, !llvm.loop !251
 
 72:                                               ; preds = %_ZN4llvm15SmallVectorImplIPNS_10BasicBlockEE7reserveEm.exit

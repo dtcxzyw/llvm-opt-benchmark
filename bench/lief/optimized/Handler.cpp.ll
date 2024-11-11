@@ -1252,49 +1252,8 @@ define range(i64 5, 4294967302) i64 @_ZN4LIEF3ELF11DataHandler7Handler9make_hole
   %5 = alloca i8, align 1
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %4)
   %6 = add nsw i64 %2, %1
-  %7 = icmp ugt i64 %6, 6442450944
-  br i1 %7, label %17, label %8
-
-8:                                                ; preds = %3
-  %9 = getelementptr inbounds i8, ptr %0, i64 8
-  %10 = load ptr, ptr %9, align 8
-  %11 = load ptr, ptr %0, align 8
-  %12 = ptrtoint ptr %10 to i64
-  %13 = ptrtoint ptr %11 to i64
-  %14 = sub i64 %12, %13
-  %15 = icmp ult i64 %14, %6
-  br i1 %15, label %_ZNSt6vectorIhSaIhEE6resizeEmRKh.exit.i, label %18
-
-_ZNSt6vectorIhSaIhEE6resizeEmRKh.exit.i:          ; preds = %8
-  store i8 0, ptr %4, align 1
-  %16 = sub nuw nsw i64 %6, %14
-  call void @_ZNSt6vectorIhSaIhEE14_M_fill_insertEN9__gnu_cxx17__normal_iteratorIPhS1_EEmRKh(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr %10, i64 noundef %16, ptr noundef nonnull align 1 dereferenceable(1) %4)
-  %.pre = load ptr, ptr %0, align 8
-  br label %18
-
-17:                                               ; preds = %3
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %4)
-  br label %21
-
-18:                                               ; preds = %_ZNSt6vectorIhSaIhEE6resizeEmRKh.exit.i, %8
-  %19 = phi ptr [ %.pre, %_ZNSt6vectorIhSaIhEE6resizeEmRKh.exit.i ], [ %11, %8 ]
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %4)
-  %20 = getelementptr inbounds i8, ptr %19, i64 %1
-  store i8 0, ptr %5, align 1
-  call void @_ZNSt6vectorIhSaIhEE14_M_fill_insertEN9__gnu_cxx17__normal_iteratorIPhS1_EEmRKh(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr %20, i64 noundef %2, ptr noundef nonnull align 1 dereferenceable(1) %5)
-  br label %21
-
-21:                                               ; preds = %18, %17
-  %.sroa.28.0 = phi i64 [ 4294967301, %18 ], [ 5, %17 ]
-  ret i64 %.sroa.28.0
-}
-
-; Function Attrs: mustprogress uwtable
-define range(i64 5, 4294967302) i64 @_ZN4LIEF3ELF11DataHandler7Handler7reserveEmm(ptr noundef nonnull align 8 dereferenceable(48) %0, i64 noundef %1, i64 noundef %2) local_unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
-  %4 = alloca i8, align 1
-  %5 = add nsw i64 %2, %1
-  %6 = icmp ugt i64 %5, 6442450944
-  br i1 %6, label %16, label %7
+  %or.cond.i = icmp ugt i64 %6, 6442450944
+  br i1 %or.cond.i, label %16, label %7
 
 7:                                                ; preds = %3
   %8 = getelementptr inbounds i8, ptr %0, i64 8
@@ -1303,17 +1262,58 @@ define range(i64 5, 4294967302) i64 @_ZN4LIEF3ELF11DataHandler7Handler7reserveEm
   %11 = ptrtoint ptr %9 to i64
   %12 = ptrtoint ptr %10 to i64
   %13 = sub i64 %11, %12
-  %14 = icmp ult i64 %13, %5
-  br i1 %14, label %_ZNSt6vectorIhSaIhEE6resizeEmRKh.exit, label %16
+  %14 = icmp ult i64 %13, %6
+  br i1 %14, label %_ZNSt6vectorIhSaIhEE6resizeEmRKh.exit.i, label %17
 
-_ZNSt6vectorIhSaIhEE6resizeEmRKh.exit:            ; preds = %7
+_ZNSt6vectorIhSaIhEE6resizeEmRKh.exit.i:          ; preds = %7
   store i8 0, ptr %4, align 1
-  %15 = sub nuw nsw i64 %5, %13
-  call void @_ZNSt6vectorIhSaIhEE14_M_fill_insertEN9__gnu_cxx17__normal_iteratorIPhS1_EEmRKh(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr %9, i64 noundef %15, ptr noundef nonnull align 1 dereferenceable(1) %4)
-  br label %16
+  %15 = sub nuw nsw i64 %6, %13
+  call void @_ZNSt6vectorIhSaIhEE14_M_fill_insertEN9__gnu_cxx17__normal_iteratorIPhS1_EEmRKh(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr %9, i64 noundef %15, ptr noundef nonnull align 1 dereferenceable(1) %4)
+  %.pre = load ptr, ptr %0, align 8
+  br label %17
 
-16:                                               ; preds = %7, %3, %_ZNSt6vectorIhSaIhEE6resizeEmRKh.exit
-  %.sroa.4.0 = phi i64 [ 4294967301, %_ZNSt6vectorIhSaIhEE6resizeEmRKh.exit ], [ 5, %3 ], [ 4294967301, %7 ]
+16:                                               ; preds = %3
+  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %4)
+  br label %20
+
+17:                                               ; preds = %_ZNSt6vectorIhSaIhEE6resizeEmRKh.exit.i, %7
+  %18 = phi ptr [ %.pre, %_ZNSt6vectorIhSaIhEE6resizeEmRKh.exit.i ], [ %10, %7 ]
+  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %4)
+  %19 = getelementptr inbounds i8, ptr %18, i64 %1
+  store i8 0, ptr %5, align 1
+  call void @_ZNSt6vectorIhSaIhEE14_M_fill_insertEN9__gnu_cxx17__normal_iteratorIPhS1_EEmRKh(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr %19, i64 noundef %2, ptr noundef nonnull align 1 dereferenceable(1) %5)
+  br label %20
+
+20:                                               ; preds = %17, %16
+  %.sroa.28.0 = phi i64 [ 4294967301, %17 ], [ 5, %16 ]
+  ret i64 %.sroa.28.0
+}
+
+; Function Attrs: mustprogress uwtable
+define range(i64 5, 4294967302) i64 @_ZN4LIEF3ELF11DataHandler7Handler7reserveEmm(ptr noundef nonnull align 8 dereferenceable(48) %0, i64 noundef %1, i64 noundef %2) local_unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+  %4 = alloca i8, align 1
+  %5 = add nsw i64 %2, %1
+  %or.cond = icmp ugt i64 %5, 6442450944
+  br i1 %or.cond, label %15, label %6
+
+6:                                                ; preds = %3
+  %7 = getelementptr inbounds i8, ptr %0, i64 8
+  %8 = load ptr, ptr %7, align 8
+  %9 = load ptr, ptr %0, align 8
+  %10 = ptrtoint ptr %8 to i64
+  %11 = ptrtoint ptr %9 to i64
+  %12 = sub i64 %10, %11
+  %13 = icmp ult i64 %12, %5
+  br i1 %13, label %_ZNSt6vectorIhSaIhEE6resizeEmRKh.exit, label %15
+
+_ZNSt6vectorIhSaIhEE6resizeEmRKh.exit:            ; preds = %6
+  store i8 0, ptr %4, align 1
+  %14 = sub nuw nsw i64 %5, %12
+  call void @_ZNSt6vectorIhSaIhEE14_M_fill_insertEN9__gnu_cxx17__normal_iteratorIPhS1_EEmRKh(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr %8, i64 noundef %14, ptr noundef nonnull align 1 dereferenceable(1) %4)
+  br label %15
+
+15:                                               ; preds = %6, %3, %_ZNSt6vectorIhSaIhEE6resizeEmRKh.exit
+  %.sroa.4.0 = phi i64 [ 4294967301, %_ZNSt6vectorIhSaIhEE6resizeEmRKh.exit ], [ 5, %3 ], [ 4294967301, %6 ]
   ret i64 %.sroa.4.0
 }
 

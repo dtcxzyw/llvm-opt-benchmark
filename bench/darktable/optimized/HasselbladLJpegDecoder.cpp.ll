@@ -208,9 +208,9 @@ define hidden void @_ZN8rawspeed22HasselbladLJpegDecoderC2ENS_10ByteStreamERKNS_
 75:                                               ; preds = %67
   %76 = and i32 %69, 1
   %77 = icmp ne i32 %76, 0
-  %78 = icmp ugt i32 %69, 12000
+  %78 = icmp samesign ugt i32 %69, 12000
   %79 = or i1 %78, %77
-  %80 = icmp ugt i32 %72, 8842
+  %80 = icmp samesign ugt i32 %72, 8842
   %81 = select i1 %79, i1 true, i1 %80
   br i1 %81, label %82, label %84
 

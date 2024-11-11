@@ -55864,7 +55864,7 @@ if.then4.i47:                                     ; preds = %for.body.i30
   br i1 %cmp9.i.i.i.i.i.i50, label %for.body.i.i.i.i.i.i51.preheader, label %for.inc.i39
 
 for.body.i.i.i.i.i.i51.preheader:                 ; preds = %if.then4.i47
-  %min.iters.check = icmp ult i64 %sub.ptr.div.i.i.i.i.i.i.i49, 8
+  %min.iters.check = icmp samesign ult i64 %sub.ptr.div.i.i.i.i.i.i.i49, 8
   br i1 %min.iters.check, label %for.body.i.i.i.i.i.i51, label %vector.ph
 
 vector.ph:                                        ; preds = %for.body.i.i.i.i.i.i51.preheader

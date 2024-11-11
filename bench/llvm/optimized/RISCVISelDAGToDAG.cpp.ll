@@ -922,7 +922,7 @@ _ZSt7advanceIPKN4llvm5RISCV9VSEPseudoElEvRT_T0_.exit.i.i: ; preds = %.thread27.i
   br i1 %7, label %.thread.i.i, label %8
 
 8:                                                ; preds = %_ZSt7advanceIPKN4llvm5RISCV9VSEPseudoElEvRT_T0_.exit.i.i
-  %9 = icmp ugt i8 %6, %0
+  %9 = icmp samesign ugt i8 %6, %0
   br i1 %9, label %.thread27.i.i, label %10
 
 10:                                               ; preds = %8
@@ -932,7 +932,7 @@ _ZSt7advanceIPKN4llvm5RISCV9VSEPseudoElEvRT_T0_.exit.i.i: ; preds = %.thread27.i
   br i1 %13, label %.thread.i.i, label %14
 
 14:                                               ; preds = %10
-  %15 = icmp ugt i8 %12, %1
+  %15 = icmp samesign ugt i8 %12, %1
   br i1 %15, label %.thread27.i.i, label %16
 
 16:                                               ; preds = %14
@@ -942,7 +942,7 @@ _ZSt7advanceIPKN4llvm5RISCV9VSEPseudoElEvRT_T0_.exit.i.i: ; preds = %.thread27.i
   br i1 %19, label %.thread.i.i, label %20
 
 20:                                               ; preds = %16
-  %21 = icmp ugt i8 %18, %2
+  %21 = icmp samesign ugt i8 %18, %2
   br i1 %21, label %.thread27.i.i, label %_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN4llvm5RISCV12getVSEPseudoEhhhhE4CompEclIPKNS3_9VSEPseudoEKZNS3_12getVSEPseudoEhhhhE7KeyTypeEEbT_RT0_.exit.i.i
 
 .thread.i.i:                                      ; preds = %16, %10, %_ZSt7advanceIPKN4llvm5RISCV9VSEPseudoElEvRT_T0_.exit.i.i
@@ -9198,7 +9198,7 @@ _ZNK4llvm3MVT19getScalarSizeInBitsEv.exit1692:    ; preds = %1772, %1776
   %1844 = or i1 %1842, %1843
   %1845 = zext i1 %1844 to i8
   %1846 = add nsw i32 %1824, -10809
-  %1847 = icmp ult i32 %1846, 2
+  %1847 = icmp samesign ult i32 %1846, 2
   %1848 = zext i1 %1847 to i8
   %1849 = getelementptr inbounds i8, ptr %1814, i64 80
   %1850 = load ptr, ptr %1849, align 8
@@ -10869,7 +10869,7 @@ _ZNK4llvm14ConstantSDNode12getSExtValueEv.exit:   ; preds = %96, %103
 108:                                              ; preds = %_ZNK4llvm14ConstantSDNode12getSExtValueEv.exit
   %109 = or disjoint i64 %81, 2048
   %110 = add nsw i64 %109, %.0.i.i.i157
-  %111 = icmp ult i64 %110, 4096
+  %111 = icmp samesign ult i64 %110, 4096
   br i1 %111, label %112, label %181
 
 112:                                              ; preds = %108

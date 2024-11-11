@@ -1468,7 +1468,7 @@ define dso_local noundef zeroext i1 @tuplestore_skiptuples(ptr noundef %0, i64 n
   br label %57
 
 57:                                               ; preds = %54, %56
-  %58 = icmp ugt i64 %.in, 1
+  %58 = icmp samesign ugt i64 %.in, 1
   br i1 %58, label %.lr.ph, label %.loopexit, !llvm.loop !14
 
 .loopexit:                                        ; preds = %.lr.ph, %57, %18, %3, %47, %44, %29, %26

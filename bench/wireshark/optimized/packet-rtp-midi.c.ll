@@ -2299,7 +2299,7 @@ switch.lookup411:                                 ; preds = %45
   br i1 %68, label %decodemidi.exit.thread222, label %73
 
 69:                                               ; preds = %65
-  %70 = icmp ult i8 %53, -16
+  %70 = icmp samesign ult i8 %53, -16
   %spec.select = select i1 %70, i32 %.3215, i32 %.0202267
   %spec.select229 = select i1 %70, i8 %53, i8 0
   %71 = add i32 %.3215, 1
@@ -2313,7 +2313,7 @@ switch.lookup411:                                 ; preds = %45
   %.0144.i = phi i32 [ 0, %67 ], [ 1, %69 ]
   %.0142.i = phi i8 [ %.0207266, %67 ], [ %53, %69 ]
   %.0140.i = phi i32 [ %.3215, %67 ], [ %71, %69 ]
-  %74 = icmp ult i8 %.0142.i, -16
+  %74 = icmp samesign ult i8 %.0142.i, -16
   br i1 %74, label %75, label %286
 
 75:                                               ; preds = %73
@@ -2911,7 +2911,7 @@ decode_sysex_common_nrt_sd_packet.exit.i.i:       ; preds = %352, %346
   br i1 %442, label %443, label %450
 
 443:                                              ; preds = %435
-  %444 = icmp ult i32 %441, 2
+  %444 = icmp samesign ult i32 %441, 2
   br i1 %444, label %decode_sysex_common_nrt_mtc.exit.thread.i.i, label %445
 
 445:                                              ; preds = %443
@@ -2925,7 +2925,7 @@ decode_sysex_common_nrt_sd_packet.exit.i.i:       ; preds = %352, %346
   %.058.i.i.i = phi i32 [ %449, %445 ], [ %441, %435 ]
   %.057.i.i.i = phi i32 [ %448, %445 ], [ %440, %435 ]
   %.1.i.i.i181 = phi i32 [ 4, %445 ], [ 2, %435 ]
-  %451 = icmp ult i32 %.058.i.i.i, 2
+  %451 = icmp samesign ult i32 %.058.i.i.i, 2
   br i1 %451, label %decode_sysex_common_nrt_mtc.exit.thread.i.i, label %452
 
 452:                                              ; preds = %450
@@ -3282,7 +3282,7 @@ decode_sysex_common_nrt_mtc.exit.thread.i.i:      ; preds = %decode_sysex_common
   %666 = tail call ptr @proto_tree_add_item(ptr noundef %581, i32 noundef %665, ptr noundef %0, i32 noundef %664, i32 noundef 1, i32 noundef 0) #2
   %667 = add i32 %.11.i.i.i, 2
   %668 = add nsw i32 %.02.i.i.i, -2
-  %669 = icmp ugt i32 %.02.i.i.i, 2
+  %669 = icmp samesign ugt i32 %.02.i.i.i, 2
   br i1 %669, label %.lr.ph.i.i.i, label %.loopexit.i.i.i, !llvm.loop !7
 
 .loopexit.i.i.i:                                  ; preds = %.lr.ph.i.i.i, %642, %640, %636
@@ -3392,7 +3392,7 @@ decode_sysex_common_rt_mtc.exit.thread.i.i:       ; preds = %decode_sysex_common
   br label %decode_sysex_common_nrt.exit.thread.i
 
 723:                                              ; preds = %302
-  %724 = icmp ugt i32 %308, 2
+  %724 = icmp samesign ugt i32 %308, 2
   br i1 %724, label %725, label %decodemidi.exit
 
 725:                                              ; preds = %723

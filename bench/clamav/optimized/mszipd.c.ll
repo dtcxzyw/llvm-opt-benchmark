@@ -485,7 +485,7 @@ define internal fastcc range(i32 -14, 4) i32 @inflate(ptr noundef %0) unnamed_ad
   %62 = and i32 %.1346.lcssa, 1
   %63 = lshr i32 %.1346.lcssa, 1
   %64 = add nsw i32 %.1334.lcssa, -1
-  %65 = icmp ult i32 %.1334.lcssa, 3
+  %65 = icmp samesign ult i32 %.1334.lcssa, 3
   br i1 %65, label %.lr.ph641, label %._crit_edge642
 
 .lr.ph641:                                        ; preds = %._crit_edge, %91
@@ -805,7 +805,7 @@ default.unreachable:                              ; preds = %._crit_edge642
   call void @llvm.lifetime.start.p0(i64 256, ptr nonnull %2)
   call void @llvm.lifetime.start.p0(i64 19, ptr nonnull %3)
   call void @llvm.lifetime.start.p0(i64 320, ptr nonnull %4)
-  %201 = icmp ult i32 %101, 5
+  %201 = icmp samesign ult i32 %101, 5
   br i1 %201, label %.lr.ph.i, label %._crit_edge.i
 
 .lr.ph.i:                                         ; preds = %200, %223
@@ -875,7 +875,7 @@ default.unreachable:                              ; preds = %._crit_edge642
   %232 = lshr i32 %.0184.lcssa.i, 5
   %233 = add nsw i32 %.0177.lcssa.i, -5
   %234 = add nuw nsw i32 %231, 257
-  %235 = icmp ult i32 %.0177.lcssa.i, 10
+  %235 = icmp samesign ult i32 %.0177.lcssa.i, 10
   br i1 %235, label %.lr.ph424.i, label %._crit_edge425.i
 
 .lr.ph424.i:                                      ; preds = %._crit_edge.i, %257
@@ -2237,7 +2237,7 @@ define range(i32 -14, 12) i32 @mszipd_decompress_kwaj(ptr noundef %0) local_unna
   %52 = and i32 %.091.lcssa, 255
   %53 = lshr i32 %.091.lcssa, 8
   %54 = add nsw i32 %.090.lcssa, -8
-  %55 = icmp ult i32 %.090.lcssa, 16
+  %55 = icmp samesign ult i32 %.090.lcssa, 16
   br i1 %55, label %.lr.ph185, label %._crit_edge186
 
 .lr.ph185:                                        ; preds = %._crit_edge, %77

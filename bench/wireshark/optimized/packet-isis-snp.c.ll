@@ -419,7 +419,7 @@ define internal void @dissect_snp_lsp_entries_clv(ptr noundef %0, ptr noundef %1
   %.03135 = phi i32 [ %5, %.lr.ph ], [ %42, %16 ]
   %11 = zext i8 %10 to i32
   %12 = add nuw nsw i32 %11, 10
-  %13 = icmp ult i32 %.03135, %12
+  %13 = icmp samesign ult i32 %.03135, %12
   br i1 %13, label %14, label %16
 
 14:                                               ; preds = %9

@@ -1262,7 +1262,7 @@ define hidden range(i32 0, 2) i32 @hb_buffer_deserialize_glyphs(ptr noundef %0, 
   %95 = getelementptr inbounds i8, ptr %81, i64 1
   %96 = load i8, ptr %95, align 1
   %97 = zext i8 %96 to i32
-  %.not223.i = icmp ugt i32 %93, %97
+  %.not223.i = icmp samesign ugt i32 %93, %97
   %98 = sub nsw i32 %93, %91
   %spec.select233.i = select i1 %.not223.i, i32 %89, i32 %98
   br label %99
@@ -2143,7 +2143,7 @@ define internal fastcc noundef range(i32 0, 2) i32 @_ZL27_hb_buffer_deserialize_
   %73 = getelementptr inbounds i8, ptr %58, i64 1
   %74 = load i8, ptr %73, align 1
   %75 = zext i8 %74 to i32
-  %.not150 = icmp ugt i32 %71, %75
+  %.not150 = icmp samesign ugt i32 %71, %75
   %76 = sub nsw i32 %71, %69
   %spec.select = select i1 %.not150, i32 %66, i32 %76
   br label %77
@@ -2887,7 +2887,7 @@ define hidden range(i32 0, 2) i32 @hb_buffer_deserialize_unicode(ptr noundef %0,
   %72 = getelementptr inbounds i8, ptr %58, i64 1
   %73 = load i8, ptr %72, align 1
   %74 = zext i8 %73 to i32
-  %.not118.i = icmp ugt i32 %70, %74
+  %.not118.i = icmp samesign ugt i32 %70, %74
   %75 = sub nsw i32 %70, %68
   %spec.select122.i = select i1 %.not118.i, i32 %66, i32 %75
   br label %76

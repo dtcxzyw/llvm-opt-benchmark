@@ -1400,7 +1400,7 @@ if.else.i193:                                     ; preds = %invoke.cont52
   br i1 %cmp3.i, label %if.then4.i, label %if.end56
 
 if.then4.i:                                       ; preds = %if.else.i193
-  %cmp.i.i199 = icmp ult i32 %call2.i176, 1024
+  %cmp.i.i199 = icmp samesign ult i32 %call2.i176, 1024
   br i1 %cmp.i.i199, label %if.then.i.i201, label %if.else.i.i200
 
 if.then.i.i201:                                   ; preds = %if.then4.i
@@ -5048,7 +5048,7 @@ entry:
   br i1 %or.cond, label %land.rhs, label %land.end
 
 land.rhs:                                         ; preds = %entry
-  %cmp2 = icmp ult i32 %c, 48
+  %cmp2 = icmp samesign ult i32 %c, 48
   br i1 %cmp2, label %land.end, label %switch.early.test
 
 switch.early.test:                                ; preds = %land.rhs
@@ -5069,7 +5069,7 @@ switch.early.test:                                ; preds = %land.rhs
   ]
 
 lor.rhs:                                          ; preds = %switch.early.test
-  %cmp10 = icmp ugt i32 %c, 122
+  %cmp10 = icmp samesign ugt i32 %c, 122
   %1 = zext i1 %cmp10 to i8
   br label %land.end
 

@@ -916,7 +916,7 @@ cborencoder_put_unsigned.exit.i:                  ; preds = %141, %135
   %149 = getelementptr [85 x i8], ptr %2, i64 0, i64 %148
   %150 = trunc nuw nsw i32 %..i.i to i8
   store i8 %150, ptr %149, align 1
-  %151 = icmp ult i32 %143, 80
+  %151 = icmp samesign ult i32 %143, 80
   br i1 %151, label %153, label %152
 
 152:                                              ; preds = %cborencoder_put_unsigned.exit.i
@@ -1056,7 +1056,7 @@ cborencoder_put_unsigned.exit136.i:               ; preds = %217, %211
   %224 = zext nneg i32 %223 to i64
   %225 = getelementptr [85 x i8], ptr %2, i64 0, i64 %224
   store i8 %150, ptr %225, align 1
-  %226 = icmp ult i32 %219, 80
+  %226 = icmp samesign ult i32 %219, 80
   br i1 %226, label %228, label %227
 
 227:                                              ; preds = %cborencoder_put_unsigned.exit136.i
@@ -1154,7 +1154,7 @@ cborencoder_put_unsigned.exit147.i:               ; preds = %267, %261
   %275 = getelementptr [85 x i8], ptr %2, i64 0, i64 %274
   %276 = trunc nuw nsw i32 %..i108.i to i8
   store i8 %276, ptr %275, align 1
-  %277 = icmp ult i32 %269, 81
+  %277 = icmp samesign ult i32 %269, 81
   br i1 %277, label %oscore_context_derive_params.exit, label %278
 
 278:                                              ; preds = %cborencoder_put_unsigned.exit147.i

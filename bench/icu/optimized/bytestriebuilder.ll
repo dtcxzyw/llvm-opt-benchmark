@@ -2053,7 +2053,7 @@ if.then5:                                         ; preds = %if.end
   br label %if.end43
 
 if.else:                                          ; preds = %if.end
-  %cmp16 = icmp ult i32 %i, 6912
+  %cmp16 = icmp samesign ult i32 %i, 6912
   br i1 %cmp16, label %if.then17, label %if.else22
 
 if.then17:                                        ; preds = %if.else
@@ -2063,7 +2063,7 @@ if.then17:                                        ; preds = %if.else
   br label %if.end38
 
 if.else22:                                        ; preds = %if.else
-  %cmp23 = icmp ult i32 %i, 1179648
+  %cmp23 = icmp samesign ult i32 %i, 1179648
   %shr25 = lshr i32 %i, 16
   %2 = trunc nuw i32 %shr25 to i8
   br i1 %cmp23, label %if.then24, label %if.else29
@@ -2214,7 +2214,7 @@ if.then:                                          ; preds = %entry
   br label %return
 
 if.end.i:                                         ; preds = %entry
-  %cmp1.i = icmp ult i32 %sub, 12288
+  %cmp1.i = icmp samesign ult i32 %sub, 12288
   br i1 %cmp1.i, label %if.then2.i, label %if.else.i
 
 if.then2.i:                                       ; preds = %if.end.i
@@ -2225,7 +2225,7 @@ if.then2.i:                                       ; preds = %if.end.i
   br label %_ZN6icu_7516BytesTrieBuilder19internalEncodeDeltaEiPc.exit
 
 if.else.i:                                        ; preds = %if.end.i
-  %cmp5.i = icmp ult i32 %sub, 917504
+  %cmp5.i = icmp samesign ult i32 %sub, 917504
   br i1 %cmp5.i, label %if.then6.i, label %if.else11.i
 
 if.then6.i:                                       ; preds = %if.else.i
@@ -2236,7 +2236,7 @@ if.then6.i:                                       ; preds = %if.else.i
   br label %if.end24.i
 
 if.else11.i:                                      ; preds = %if.else.i
-  %cmp12.i = icmp ult i32 %sub, 16777216
+  %cmp12.i = icmp samesign ult i32 %sub, 16777216
   br i1 %cmp12.i, label %if.end20.i, label %if.else15.i
 
 if.else15.i:                                      ; preds = %if.else11.i
@@ -2355,7 +2355,7 @@ if.then:                                          ; preds = %entry
   br label %return
 
 if.end:                                           ; preds = %entry
-  %cmp1 = icmp ult i32 %i, 12288
+  %cmp1 = icmp samesign ult i32 %i, 12288
   br i1 %cmp1, label %if.then2, label %if.else
 
 if.then2:                                         ; preds = %if.end
@@ -2366,7 +2366,7 @@ if.then2:                                         ; preds = %if.end
   br label %if.end30
 
 if.else:                                          ; preds = %if.end
-  %cmp5 = icmp ult i32 %i, 917504
+  %cmp5 = icmp samesign ult i32 %i, 917504
   br i1 %cmp5, label %if.then6, label %if.else11
 
 if.then6:                                         ; preds = %if.else
@@ -2377,7 +2377,7 @@ if.then6:                                         ; preds = %if.else
   br label %if.end24
 
 if.else11:                                        ; preds = %if.else
-  %cmp12 = icmp ult i32 %i, 16777216
+  %cmp12 = icmp samesign ult i32 %i, 16777216
   br i1 %cmp12, label %if.end20, label %if.else15
 
 if.else15:                                        ; preds = %if.else11

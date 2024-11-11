@@ -662,7 +662,7 @@ _ZN12_GLOBAL__N_122MempoolSelelemReserverC2ERKSt10shared_ptrIN3gmx20SelectionTre
   %.sink = load i32, ptr %.sink.in, align 4
   %153 = getelementptr inbounds i32, ptr %.sink190, i64 %indvars.iv.next176
   store i32 %.sink, ptr %153, align 4
-  %154 = icmp ugt i64 %indvars.iv175, 1
+  %154 = icmp samesign ugt i64 %indvars.iv175, 1
   br i1 %154, label %122, label %.loopexit, !llvm.loop !5
 
 155:                                              ; preds = %111
@@ -733,7 +733,7 @@ _ZN12_GLOBAL__N_122MempoolSelelemReserverC2ERKSt10shared_ptrIN3gmx20SelectionTre
   %.sink191 = load float, ptr %.sink191.in, align 4
   %191 = getelementptr inbounds float, ptr %.sink193, i64 %indvars.iv.next173
   store float %.sink191, ptr %191, align 4
-  %192 = icmp ugt i64 %indvars.iv172, 1
+  %192 = icmp samesign ugt i64 %indvars.iv172, 1
   br i1 %192, label %160, label %.loopexit, !llvm.loop !7
 
 193:                                              ; preds = %111
@@ -804,7 +804,7 @@ _ZN12_GLOBAL__N_122MempoolSelelemReserverC2ERKSt10shared_ptrIN3gmx20SelectionTre
   %.sink194 = load ptr, ptr %.sink194.in, align 8
   %229 = getelementptr inbounds ptr, ptr %.sink196, i64 %indvars.iv.next
   store ptr %.sink194, ptr %229, align 8
-  %230 = icmp ugt i64 %indvars.iv, 1
+  %230 = icmp samesign ugt i64 %indvars.iv, 1
   br i1 %230, label %198, label %.loopexit, !llvm.loop !8
 
 231:                                              ; preds = %111

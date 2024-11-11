@@ -325,7 +325,7 @@ define void @Abc_ObjRemoveFanins(ptr nocapture noundef %0) local_unnamed_addr #1
   %15 = getelementptr inbounds ptr, ptr %.val.val, i64 %14
   %16 = load ptr, ptr %15, align 8
   tail call void @Abc_ObjDeleteFanin(ptr noundef nonnull %0, ptr noundef %16)
-  %17 = icmp ugt i64 %indvars.iv, 1
+  %17 = icmp samesign ugt i64 %indvars.iv, 1
   br i1 %17, label %7, label %._crit_edge, !llvm.loop !8
 
 ._crit_edge:                                      ; preds = %7, %1

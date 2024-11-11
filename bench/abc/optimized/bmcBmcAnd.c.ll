@@ -3254,7 +3254,7 @@ define i32 @Gia_ManBmcAssignVarIds(ptr nocapture noundef %0, ptr nocapture nound
   %44 = sext i32 %39 to i64
   %45 = getelementptr inbounds i32, ptr %.val42, i64 %44
   store i32 %41, ptr %45, align 4
-  %46 = icmp ugt i64 %indvars.iv52, 1
+  %46 = icmp samesign ugt i64 %indvars.iv52, 1
   br i1 %46, label %37, label %.critedge2.preheader, !llvm.loop !32
 
 .critedge2:                                       ; preds = %.lr.ph50, %.critedge2

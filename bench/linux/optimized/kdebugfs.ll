@@ -240,7 +240,7 @@ define internal noundef range(i64 -22, 2147483648) i64 @setup_data_read(ptr noca
   %10 = getelementptr inbounds i8, ptr %6, i64 12
   %11 = load i32, ptr %10, align 4
   %12 = zext i32 %11 to i64
-  %13 = icmp ult i64 %7, %12
+  %13 = icmp samesign ult i64 %7, %12
   br i1 %13, label %14, label %34
 
 14:                                               ; preds = %9

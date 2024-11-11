@@ -14063,7 +14063,7 @@ _ZNSt12_Vector_baseIPKN4Luau4TypeESaIS3_EE11_M_allocateEm.exit.i: ; preds = %40
   %43 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %42) #28
   %44 = getelementptr inbounds ptr, ptr %43, i64 %38
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %7, i8 0, i64 24, i1 false)
-  %45 = icmp ugt i64 %38, 576460752303423487
+  %45 = icmp samesign ugt i64 %38, 576460752303423487
   br i1 %45, label %46, label %_ZNSt12_Vector_baseISt8optionalIPKN4Luau4TypeEESaIS5_EE11_M_allocateEm.exit.i
 
 46:                                               ; preds = %_ZNSt12_Vector_baseIPKN4Luau4TypeESaIS3_EE11_M_allocateEm.exit.i
@@ -58903,7 +58903,7 @@ define linkonce_odr dso_local void @_ZN4Luau8VecDequeISt4pairIPKNS_9UnionTypeEmE
   unreachable
 
 11:                                               ; preds = %1
-  %12 = icmp ugt i64 %7, 576460752303423487
+  %12 = icmp samesign ugt i64 %7, 576460752303423487
   br i1 %12, label %13, label %_ZNSt15__new_allocatorISt4pairIPKN4Luau9UnionTypeEmEE8allocateEmPKv.exit
 
 13:                                               ; preds = %11
@@ -61108,7 +61108,7 @@ define linkonce_odr dso_local void @_ZN4Luau8VecDequeIPKNS_4TypeESaIS3_EE4growEv
   unreachable
 
 11:                                               ; preds = %1
-  %12 = icmp ugt i64 %7, 1152921504606846975
+  %12 = icmp samesign ugt i64 %7, 1152921504606846975
   br i1 %12, label %13, label %_ZNSt15__new_allocatorIPKN4Luau4TypeEE8allocateEmPKv.exit
 
 13:                                               ; preds = %11
@@ -61652,7 +61652,7 @@ define linkonce_odr dso_local void @_ZN4Luau8VecDequeISt4pairIPKNS_16Intersectio
   unreachable
 
 11:                                               ; preds = %1
-  %12 = icmp ugt i64 %7, 576460752303423487
+  %12 = icmp samesign ugt i64 %7, 576460752303423487
   br i1 %12, label %13, label %_ZNSt15__new_allocatorISt4pairIPKN4Luau16IntersectionTypeEmEE8allocateEmPKv.exit
 
 13:                                               ; preds = %11

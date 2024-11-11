@@ -46207,7 +46207,7 @@ define hidden void @"_ZN59_$LT$rustc_hash..FxHasher$u20$as$u20$core..hash..Hashe
   %.sroa.027.1 = phi i64 [ %12, %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17hc5eb36739929e45bE.exit" ], [ %.sroa.027.0.lcssa, %._crit_edge ]
   %.sroa.11.1 = phi i64 [ %13, %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17hc5eb36739929e45bE.exit" ], [ %.sroa.11.0.lcssa, %._crit_edge ]
   %.sroa.0.1 = phi ptr [ %14, %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17hc5eb36739929e45bE.exit" ], [ %.sroa.0.0.lcssa, %._crit_edge ]
-  %8 = icmp ugt i64 %.sroa.11.1, 1
+  %8 = icmp samesign ugt i64 %.sroa.11.1, 1
   br i1 %8, label %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17h23389a619d9588b1E.exit", label %15
 
 "_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17hc5eb36739929e45bE.exit": ; preds = %._crit_edge
@@ -129284,8 +129284,8 @@ _ZN4gpui3app10entity_map9EntityMap4read17h13caafb75fea8173E.exit: ; preds = %"_Z
 .thread.i.i:                                      ; preds = %68
   %76 = getelementptr inbounds i8, ptr %16, i64 16
   %77 = load i8, ptr %76, align 8, !range !18992, !alias.scope !26933, !noalias !26930, !noundef !7
-  %switch.i.i3453.i.i = icmp samesign ult i8 %77, 3
-  br i1 %switch.i.i3453.i.i, label %64, label %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h0d9d7352c34dcec1E.exit.i.i"
+  %or.cond54.i.i = icmp samesign ult i8 %77, 3
+  br i1 %or.cond54.i.i, label %64, label %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h0d9d7352c34dcec1E.exit.i.i"
 
 ._crit_edge.i.i:                                  ; preds = %72
   br i1 %switch.i.i.i.i, label %64, label %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h0d9d7352c34dcec1E.exit.i.i"

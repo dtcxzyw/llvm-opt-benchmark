@@ -140,7 +140,7 @@ if.then.i:                                        ; preds = %if.end16
   br label %dmg_find_koly_offset.exit.thread
 
 if.else.i:                                        ; preds = %if.end16
-  %cmp1.i = icmp ult i64 %call.i, 512
+  %cmp1.i = icmp samesign ult i64 %call.i, 512
   br i1 %cmp1.i, label %if.then3.i, label %if.end4.i
 
 if.then3.i:                                       ; preds = %if.else.i

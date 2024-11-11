@@ -1230,7 +1230,7 @@ define internal noundef i32 @_lib_timeline_draw_callback(ptr noundef %0, ptr nou
   %225 = srem i32 %224, 6
   %226 = sub nsw i32 %224, %225
   store i32 %226, ptr %222, align 4, !tbaa !38
-  %227 = icmp ult i32 %216, 5
+  %227 = icmp samesign ult i32 %216, 5
   br i1 %227, label %228, label %249
 
 228:                                              ; preds = %221
@@ -1246,7 +1246,7 @@ define internal noundef i32 @_lib_timeline_draw_callback(ptr noundef %0, ptr nou
   %235 = srem i32 %234, 10
   %236 = sub i32 %233, %235
   store i32 %236, ptr %231, align 8, !tbaa !37
-  %237 = icmp ult i32 %216, 3
+  %237 = icmp samesign ult i32 %216, 3
   br i1 %237, label %238, label %249
 
 238:                                              ; preds = %230
@@ -2962,7 +2962,7 @@ define internal noundef i32 @_lib_timeline_button_release_callback(ptr nocapture
 47:                                               ; preds = %42
   %48 = getelementptr inbounds i8, ptr %6, i64 192
   store i32 59, ptr %48, align 8, !tbaa !96
-  %49 = icmp ult i32 %45, 3
+  %49 = icmp samesign ult i32 %45, 3
   br i1 %49, label %50, label %71
 
 50:                                               ; preds = %47
@@ -3566,13 +3566,13 @@ define internal void @_selection_stop(ptr noundef readonly %0) #1 {
 49:                                               ; preds = %44
   %50 = getelementptr inbounds i8, ptr %13, i64 192
   store i32 59, ptr %50, align 8, !tbaa !96
-  %51 = icmp ult i32 %47, 4
+  %51 = icmp samesign ult i32 %47, 4
   br i1 %51, label %52, label %73
 
 52:                                               ; preds = %49
   %53 = getelementptr inbounds i8, ptr %13, i64 188
   store i32 23, ptr %53, align 4, !tbaa !97
-  %54 = icmp ult i32 %47, 2
+  %54 = icmp samesign ult i32 %47, 2
   br i1 %54, label %55, label %73
 
 55:                                               ; preds = %52

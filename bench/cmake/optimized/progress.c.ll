@@ -92,7 +92,7 @@ define dso_local range(i32 268435458, 268435457) i32 @Curl_pgrsUpdate(ptr nounde
   br label %35
 
 24:                                               ; preds = %19
-  %25 = icmp ugt i64 %14, 999999
+  %25 = icmp samesign ugt i64 %14, 999999
   br i1 %25, label %26, label %35
 
 26:                                               ; preds = %24
@@ -124,7 +124,7 @@ define dso_local range(i32 268435458, 268435457) i32 @Curl_pgrsUpdate(ptr nounde
   br label %trspeed.exit51.i
 
 43:                                               ; preds = %35
-  %44 = icmp ugt i64 %14, 999999
+  %44 = icmp samesign ugt i64 %14, 999999
   br i1 %44, label %45, label %trspeed.exit51.i
 
 45:                                               ; preds = %43
@@ -395,7 +395,7 @@ progress_calc.exit:                               ; preds = %trspeed.exit51.i, %
   br label %time2str.exit.i
 
 198:                                              ; preds = %191
-  %199 = icmp ult i64 %195, 360000
+  %199 = icmp samesign ult i64 %195, 360000
   br i1 %199, label %200, label %206
 
 200:                                              ; preds = %198
@@ -414,7 +414,7 @@ progress_calc.exit:                               ; preds = %trspeed.exit51.i, %
 
 206:                                              ; preds = %198
   %207 = udiv i64 %195, 86400
-  %208 = icmp ult i64 %195, 86400000
+  %208 = icmp samesign ult i64 %195, 86400000
   br i1 %208, label %209, label %213
 
 209:                                              ; preds = %206
@@ -437,7 +437,7 @@ time2str.exit.i:                                  ; preds = %213, %209, %200, %1
   br label %time2str.exit85.i
 
 217:                                              ; preds = %time2str.exit.i
-  %218 = icmp ult i64 %192, 360000
+  %218 = icmp samesign ult i64 %192, 360000
   br i1 %218, label %219, label %225
 
 219:                                              ; preds = %217
@@ -456,7 +456,7 @@ time2str.exit.i:                                  ; preds = %213, %209, %200, %1
 
 225:                                              ; preds = %217
   %226 = udiv i64 %192, 86400
-  %227 = icmp ult i64 %192, 86400000
+  %227 = icmp samesign ult i64 %192, 86400000
   br i1 %227, label %228, label %232
 
 228:                                              ; preds = %225
@@ -479,7 +479,7 @@ time2str.exit85.i:                                ; preds = %232, %228, %219, %2
   br label %time2str.exit93.i
 
 236:                                              ; preds = %time2str.exit85.i
-  %237 = icmp ult i64 %131, 360000
+  %237 = icmp samesign ult i64 %131, 360000
   br i1 %237, label %238, label %244
 
 238:                                              ; preds = %236
@@ -498,7 +498,7 @@ time2str.exit85.i:                                ; preds = %232, %228, %219, %2
 
 244:                                              ; preds = %236
   %245 = udiv i64 %131, 86400
-  %246 = icmp ult i64 %131, 86400000
+  %246 = icmp samesign ult i64 %131, 86400000
   br i1 %246, label %247, label %251
 
 247:                                              ; preds = %244
@@ -969,7 +969,7 @@ define internal fastcc noundef nonnull ptr @max5data(i64 noundef %0, ptr noundef
   br label %43
 
 6:                                                ; preds = %2
-  %7 = icmp ult i64 %0, 10240000
+  %7 = icmp samesign ult i64 %0, 10240000
   br i1 %7, label %8, label %11
 
 8:                                                ; preds = %6
@@ -978,7 +978,7 @@ define internal fastcc noundef nonnull ptr @max5data(i64 noundef %0, ptr noundef
   br label %43
 
 11:                                               ; preds = %6
-  %12 = icmp ult i64 %0, 104857600
+  %12 = icmp samesign ult i64 %0, 104857600
   br i1 %12, label %13, label %18
 
 13:                                               ; preds = %11
@@ -991,7 +991,7 @@ define internal fastcc noundef nonnull ptr @max5data(i64 noundef %0, ptr noundef
   br label %43
 
 18:                                               ; preds = %11
-  %19 = icmp ult i64 %0, 10485760000
+  %19 = icmp samesign ult i64 %0, 10485760000
   br i1 %19, label %20, label %23
 
 20:                                               ; preds = %18
@@ -1000,7 +1000,7 @@ define internal fastcc noundef nonnull ptr @max5data(i64 noundef %0, ptr noundef
   br label %43
 
 23:                                               ; preds = %18
-  %24 = icmp ult i64 %0, 107374182400
+  %24 = icmp samesign ult i64 %0, 107374182400
   br i1 %24, label %25, label %30
 
 25:                                               ; preds = %23
@@ -1013,7 +1013,7 @@ define internal fastcc noundef nonnull ptr @max5data(i64 noundef %0, ptr noundef
   br label %43
 
 30:                                               ; preds = %23
-  %31 = icmp ult i64 %0, 10737418240000
+  %31 = icmp samesign ult i64 %0, 10737418240000
   br i1 %31, label %32, label %35
 
 32:                                               ; preds = %30
@@ -1022,7 +1022,7 @@ define internal fastcc noundef nonnull ptr @max5data(i64 noundef %0, ptr noundef
   br label %43
 
 35:                                               ; preds = %30
-  %36 = icmp ult i64 %0, 10995116277760000
+  %36 = icmp samesign ult i64 %0, 10995116277760000
   br i1 %36, label %37, label %40
 
 37:                                               ; preds = %35

@@ -94,8 +94,8 @@ define void @sstegr_(ptr nocapture noundef readonly %0, ptr noundef %1, ptr noun
 62:                                               ; preds = %61, %55, %55
   %63 = load i32, ptr %7, align 4
   %64 = icmp slt i32 %63, 1
-  %65 = icmp ugt i32 %63, %53
-  %or.cond = or i1 %64, %65
+  %65 = icmp samesign ugt i32 %63, %53
+  %or.cond = select i1 %64, i1 true, i1 %65
   br i1 %or.cond, label %.thread280.sink.split, label %66
 
 66:                                               ; preds = %62
@@ -107,8 +107,8 @@ define void @sstegr_(ptr nocapture noundef readonly %0, ptr noundef %1, ptr noun
 67:                                               ; preds = %66, %66
   %68 = load i32, ptr %8, align 4
   %69 = icmp slt i32 %68, %63
-  %70 = icmp ugt i32 %68, %53
-  %or.cond284 = or i1 %69, %70
+  %70 = icmp samesign ugt i32 %68, %53
+  %or.cond284 = select i1 %69, i1 true, i1 %70
   br i1 %or.cond284, label %.thread280.sink.split, label %71
 
 71:                                               ; preds = %61, %67, %55, %66
@@ -123,7 +123,7 @@ define void @sstegr_(ptr nocapture noundef readonly %0, ptr noundef %1, ptr noun
   ]
 
 75:                                               ; preds = %74, %74
-  %76 = icmp ult i32 %72, %53
+  %76 = icmp samesign ult i32 %72, %53
   br i1 %76, label %.thread280.sink.split, label %77
 
 77:                                               ; preds = %74, %75

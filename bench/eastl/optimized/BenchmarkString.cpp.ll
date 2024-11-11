@@ -942,7 +942,7 @@ if.then.i.i7.i.i.cont:                            ; preds = %if.then.i.i7.i.i.in
 
 land.lhs.true.i.i.i.i:                            ; preds = %_ZNKSt7__cxx1112basic_stringIDsSt11char_traitsIDsESaIDsEE8capacityEv.exit.i.i.i
   %mul.i.i.i5.i102 = shl nuw nsw i64 %cond.i1113.i.i, 1
-  %cmp3.i.i6.i.i = icmp ult i64 %add.i.i, %mul.i.i.i5.i102
+  %cmp3.i.i6.i.i = icmp samesign ult i64 %add.i.i, %mul.i.i.i5.i102
   %spec.store.select.i.i.i.i = call i64 @llvm.umin.i64(i64 %mul.i.i.i5.i102, i64 2305843009213693951)
   %__new_capacity.0.i.i.i = select i1 %cmp3.i.i6.i.i, i64 %spec.store.select.i.i.i.i, i64 %add.i.i
   %add.i.i.i6.i = shl nuw nsw i64 %__new_capacity.0.i.i.i, 1
@@ -970,7 +970,7 @@ if.end19.i.i.i:                                   ; preds = %if.end.i.i.i.i.i, %
   br i1 %cmp.i.i.i4.i, label %_ZNKSt7__cxx1112basic_stringIDsSt11char_traitsIDsESaIDsEE11_M_is_localEv.exit.thread.i.i.i.i, label %if.then.i30.i.i.i
 
 _ZNKSt7__cxx1112basic_stringIDsSt11char_traitsIDsESaIDsEE11_M_is_localEv.exit.thread.i.i.i.i: ; preds = %if.end19.i.i.i
-  %cmp3.i.i33.i.i.i = icmp ult i64 %45, 8
+  %cmp3.i.i33.i.i.i = icmp samesign ult i64 %45, 8
   call void @llvm.assume(i1 %cmp3.i.i33.i.i.i)
   br label %_ZNSt7__cxx1112basic_stringIDsSt11char_traitsIDsESaIDsEE9_M_mutateEmmPKDsm.exit.i.i
 
@@ -1632,7 +1632,7 @@ _ZNKSt7__cxx1112basic_stringIDsSt11char_traitsIDsESaIDsEE8capacityEv.exit.i2888:
   br i1 %cmp.i.i2890, label %if.then.i.i7.i.i.invoke, label %land.lhs.true.i.i
 
 land.lhs.true.i.i:                                ; preds = %_ZNKSt7__cxx1112basic_stringIDsSt11char_traitsIDsESaIDsEE8capacityEv.exit.i2888
-  %cmp3.i.i2902 = icmp ult i64 %sub.i2533, %cond.i.i253629672970
+  %cmp3.i.i2902 = icmp samesign ult i64 %sub.i2533, %cond.i.i253629672970
   %spec.store.select.i.i = call i64 @llvm.umin.i64(i64 %cond.i.i253629672970, i64 2305843009213693951)
   %__new_capacity.0.i = select i1 %cmp3.i.i2902, i64 %spec.store.select.i.i, i64 %sub.i2533
   %add.i.i2892 = shl nuw nsw i64 %__new_capacity.0.i, 1
@@ -2647,7 +2647,7 @@ _ZNKSt7__cxx1112basic_stringIDsSt11char_traitsIDsESaIDsEE8capacityEv.exit.i2913:
   br i1 %cmp.i.i2915, label %if.then.i.i7.i.i.invoke, label %land.lhs.true.i.i2944
 
 land.lhs.true.i.i2944:                            ; preds = %_ZNKSt7__cxx1112basic_stringIDsSt11char_traitsIDsESaIDsEE8capacityEv.exit.i2913
-  %cmp3.i.i2946 = icmp ult i64 %sub.i2608, %cond.i.i261129742977
+  %cmp3.i.i2946 = icmp samesign ult i64 %sub.i2608, %cond.i.i261129742977
   %spec.store.select.i.i2948 = call i64 @llvm.umin.i64(i64 %cond.i.i261129742977, i64 2305843009213693951)
   %__new_capacity.0.i2919 = select i1 %cmp3.i.i2946, i64 %spec.store.select.i.i2948, i64 %sub.i2608
   %add.i.i2920 = shl nuw nsw i64 %__new_capacity.0.i2919, 1
@@ -3238,7 +3238,7 @@ if.end.i.i:                                       ; preds = %_ZNKSt7__cxx1112bas
 
 land.lhs.true.i.i.i:                              ; preds = %if.end.i.i
   %mul.i.i.i656 = shl nuw nsw i64 %cond.i.i.i652, 1
-  %cmp3.i.i9.i = icmp ult i64 %add.i650, %mul.i.i.i656
+  %cmp3.i.i9.i = icmp samesign ult i64 %add.i650, %mul.i.i.i656
   %spec.store.select.i.i.i = call i64 @llvm.umin.i64(i64 %mul.i.i.i656, i64 2305843009213693951)
   %__res.addr.0.i.i = select i1 %cmp3.i.i9.i, i64 %spec.store.select.i.i.i, i64 %add.i650
   %add.i.i.i657 = shl nuw nsw i64 %__res.addr.0.i.i, 1

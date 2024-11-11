@@ -5136,7 +5136,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit333: ;
   br label %862
 
 704:                                              ; preds = %669
-  %.not = icmp ugt i32 %636, %671
+  %.not = icmp samesign ugt i32 %636, %671
   br i1 %.not, label %705, label %757
 
 705:                                              ; preds = %704

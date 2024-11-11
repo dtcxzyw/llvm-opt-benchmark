@@ -2136,7 +2136,7 @@ define dso_local i32 @uv_udp_init_ex(ptr noundef %0, ptr noundef %1, i32 noundef
 7:                                                ; preds = %3
   %8 = tail call i32 @uv__udp_init_ex(ptr noundef %0, ptr noundef %1, i32 noundef %2, i32 noundef %4) #25
   %9 = icmp ne i32 %8, 0
-  %.not17 = icmp ult i32 %2, 256
+  %.not17 = icmp samesign ult i32 %2, 256
   %or.cond18 = or i1 %.not17, %9
   br i1 %or.cond18, label %14, label %10
 

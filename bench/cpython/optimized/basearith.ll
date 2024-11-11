@@ -1080,7 +1080,7 @@ entry:
   br i1 %cmp, label %if.then, label %if.else37
 
 if.then:                                          ; preds = %entry
-  %cmp1 = icmp ult i64 %exp, 5
+  %cmp1 = icmp samesign ult i64 %exp, 5
   br i1 %cmp1, label %if.then2, label %if.else
 
 if.then2:                                         ; preds = %if.then

@@ -160,7 +160,7 @@ define range(i32 0, 2) i32 @cuddExact(ptr noundef %0, i32 noundef %1, i32 nounde
   br i1 %or.cond.i, label %.thread433, label %83
 
 83:                                               ; preds = %._crit_edge
-  %84 = icmp ult i32 %82, 2
+  %84 = icmp samesign ult i32 %82, 2
   br i1 %84, label %getMaxBinomial.exit.thread346, label %85
 
 85:                                               ; preds = %83

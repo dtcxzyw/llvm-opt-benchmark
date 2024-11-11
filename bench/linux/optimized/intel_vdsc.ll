@@ -272,7 +272,7 @@ define dso_local i32 @intel_dsc_compute_params(ptr noundef %0) local_unnamed_add
   br i1 %140, label %157, label %141
 
 141:                                              ; preds = %139
-  %142 = icmp ugt i16 %.fr13, 159
+  %142 = icmp samesign ugt i16 %.fr13, 159
   br i1 %142, label %143, label %149
 
 143:                                              ; preds = %141
@@ -284,7 +284,7 @@ define dso_local i32 @intel_dsc_compute_params(ptr noundef %0) local_unnamed_add
   br label %157
 
 149:                                              ; preds = %141
-  %150 = icmp ugt i16 %.fr13, 127
+  %150 = icmp samesign ugt i16 %.fr13, 127
   br i1 %150, label %151, label %157
 
 151:                                              ; preds = %149

@@ -306,7 +306,7 @@ define range(i32 0, 3) i32 @yara_yyparse(ptr noundef %0, ptr noundef %1) local_u
   br i1 %67, label %75, label %68
 
 68:                                               ; preds = %66
-  %69 = icmp ult i32 %.5, 310
+  %69 = icmp samesign ult i32 %.5, 310
   br i1 %69, label %70, label %75
 
 70:                                               ; preds = %68

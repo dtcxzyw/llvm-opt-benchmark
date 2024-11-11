@@ -471,7 +471,7 @@ define void @_ZN14debug_module_t5resetEv(ptr nocapture noundef nonnull align 8 d
   br label %.thread11
 
 41:                                               ; preds = %37
-  %42 = icmp ugt i32 %36, 31
+  %42 = icmp samesign ugt i32 %36, 31
   br i1 %42, label %.thread11, label %44
 
 .thread11:                                        ; preds = %41, %.thread9
@@ -480,7 +480,7 @@ define void @_ZN14debug_module_t5resetEv(ptr nocapture noundef nonnull align 8 d
   br label %.thread13
 
 44:                                               ; preds = %41
-  %45 = icmp ugt i32 %36, 15
+  %45 = icmp samesign ugt i32 %36, 15
   br i1 %45, label %.thread13, label %47
 
 .thread13:                                        ; preds = %44, %.thread11
@@ -489,7 +489,7 @@ define void @_ZN14debug_module_t5resetEv(ptr nocapture noundef nonnull align 8 d
   br label %49
 
 47:                                               ; preds = %44
-  %48 = icmp ugt i32 %36, 7
+  %48 = icmp samesign ugt i32 %36, 7
   br i1 %48, label %49, label %.thread14
 
 49:                                               ; preds = %.thread13, %47

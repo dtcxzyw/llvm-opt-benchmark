@@ -2120,7 +2120,7 @@ _ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit: ; preds = %7, 
   %.0.i = phi ptr [ %11, %10 ], [ %1, %7 ]
   store i8 10, ptr %.0.i, align 1
   %.092111 = getelementptr inbounds i8, ptr %.0.i, i64 1
-  %12 = icmp ugt i32 %5, 127
+  %12 = icmp samesign ugt i32 %5, 127
   br i1 %12, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %_ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit, %.lr.ph
@@ -18659,7 +18659,7 @@ define hidden noundef zeroext i1 @_ZNK12opencv_caffe12NetParameter13IsInitialize
   br i1 %.not.i.i.i, label %_ZNK12opencv_caffe14LayerParameter13IsInitializedEv.exit.i, label %_ZN6google8protobuf8internal17AllAreInitializedIN12opencv_caffe14LayerParameterEEEbRKNS0_16RepeatedPtrFieldIT_EE.exit
 
 _ZNK12opencv_caffe14LayerParameter13IsInitializedEv.exit.i: ; preds = %19, %9
-  %23 = icmp ult i64 %indvars.iv.i, 2
+  %23 = icmp samesign ult i64 %indvars.iv.i, 2
   br i1 %23, label %_ZN6google8protobuf8internal17AllAreInitializedIN12opencv_caffe14LayerParameterEEEbRKNS0_16RepeatedPtrFieldIT_EE.exit, label %9, !llvm.loop !62
 
 _ZN6google8protobuf8internal17AllAreInitializedIN12opencv_caffe14LayerParameterEEEbRKNS0_16RepeatedPtrFieldIT_EE.exit: ; preds = %19, %_ZNK12opencv_caffe14LayerParameter13IsInitializedEv.exit.i, %1
@@ -25566,7 +25566,7 @@ define hidden noundef zeroext i1 @_ZNK12opencv_caffe15SolverParameter13IsInitial
   br i1 %.not.i.i.i.i.i, label %_ZNK12opencv_caffe14LayerParameter13IsInitializedEv.exit.i.i.i, label %_ZN6google8protobuf8internal17AllAreInitializedIN12opencv_caffe12NetParameterEEEbRKNS0_16RepeatedPtrFieldIT_EE.exit
 
 _ZNK12opencv_caffe14LayerParameter13IsInitializedEv.exit.i.i.i: ; preds = %29, %19
-  %33 = icmp ult i64 %indvars.iv.i.i.i, 2
+  %33 = icmp samesign ult i64 %indvars.iv.i.i.i, 2
   br i1 %33, label %_ZNK12opencv_caffe12NetParameter13IsInitializedEv.exit.i, label %19, !llvm.loop !62
 
 _ZNK12opencv_caffe12NetParameter13IsInitializedEv.exit.i: ; preds = %_ZNK12opencv_caffe14LayerParameter13IsInitializedEv.exit.i.i.i, %9
@@ -25622,7 +25622,7 @@ _ZNK12opencv_caffe12NetParameter13IsInitializedEv.exit.i: ; preds = %_ZNK12openc
   br i1 %.not.i.i.i.i2, label %_ZNK12opencv_caffe14LayerParameter13IsInitializedEv.exit.i.i, label %_ZN6google8protobuf8internal17AllAreInitializedIN12opencv_caffe12NetParameterEEEbRKNS0_16RepeatedPtrFieldIT_EE.exit
 
 _ZNK12opencv_caffe14LayerParameter13IsInitializedEv.exit.i.i: ; preds = %60, %50
-  %64 = icmp ult i64 %indvars.iv.i.i, 2
+  %64 = icmp samesign ult i64 %indvars.iv.i.i, 2
   br i1 %64, label %_ZNK12opencv_caffe12NetParameter13IsInitializedEv.exit.thread, label %50, !llvm.loop !62
 
 _ZNK12opencv_caffe12NetParameter13IsInitializedEv.exit.thread: ; preds = %_ZNK12opencv_caffe14LayerParameter13IsInitializedEv.exit.i.i, %42, %.loopexit
@@ -25672,7 +25672,7 @@ _ZNK12opencv_caffe12NetParameter13IsInitializedEv.exit.thread: ; preds = %_ZNK12
   br i1 %.not.i.i.i.i8, label %_ZNK12opencv_caffe14LayerParameter13IsInitializedEv.exit.i.i10, label %_ZN6google8protobuf8internal17AllAreInitializedIN12opencv_caffe12NetParameterEEEbRKNS0_16RepeatedPtrFieldIT_EE.exit
 
 _ZNK12opencv_caffe14LayerParameter13IsInitializedEv.exit.i.i10: ; preds = %88, %78
-  %92 = icmp ult i64 %indvars.iv.i.i5, 2
+  %92 = icmp samesign ult i64 %indvars.iv.i.i5, 2
   br i1 %92, label %_ZN6google8protobuf8internal17AllAreInitializedIN12opencv_caffe12NetParameterEEEbRKNS0_16RepeatedPtrFieldIT_EE.exit, label %78, !llvm.loop !62
 
 _ZN6google8protobuf8internal17AllAreInitializedIN12opencv_caffe12NetParameterEEEbRKNS0_16RepeatedPtrFieldIT_EE.exit: ; preds = %29, %60, %_ZNK12opencv_caffe14LayerParameter13IsInitializedEv.exit.i.i10, %88, %70, %_ZNK12opencv_caffe12NetParameter13IsInitializedEv.exit.thread

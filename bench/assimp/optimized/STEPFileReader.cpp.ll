@@ -3903,7 +3903,7 @@ if.end.i:                                         ; preds = %for.body.i
   br i1 %cmp14.i, label %land.lhs.true.i, label %lor.lhs.false.i
 
 lor.lhs.false.i:                                  ; preds = %if.end.i
-  %cmp17.i = icmp ugt i8 %32, 57
+  %cmp17.i = icmp samesign ugt i8 %32, 57
   br i1 %cmp17.i, label %if.then110, label %for.inc.i
 
 land.lhs.true.i:                                  ; preds = %if.end.i
@@ -4086,7 +4086,7 @@ if.end.i152:                                      ; preds = %for.body.i149
   br i1 %cmp14.i153, label %land.lhs.true.i160, label %lor.lhs.false.i154
 
 lor.lhs.false.i154:                               ; preds = %if.end.i152
-  %cmp17.i155 = icmp ugt i8 %43, 57
+  %cmp17.i155 = icmp samesign ugt i8 %43, 57
   br i1 %cmp17.i155, label %if.then169, label %for.inc.i156
 
 land.lhs.true.i160:                               ; preds = %if.end.i152

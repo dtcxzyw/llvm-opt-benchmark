@@ -1574,7 +1574,7 @@ _ZN3syn4expr10precedence10Precedence2of17h3991decb90ba0367E.exit.i: ; preds = %"
 163:                                              ; preds = %157, %154
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %19)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %20)
-  %164 = icmp ule i8 %.010.i, %.0.i129
+  %164 = icmp samesign ule i8 %.010.i, %.0.i129
   %165 = icmp ne i8 %.010.i, %.0.i129
   %brmerge = or i1 %.not258, %165
   %or.cond = and i1 %164, %brmerge

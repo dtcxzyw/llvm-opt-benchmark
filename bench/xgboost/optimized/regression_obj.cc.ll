@@ -4225,7 +4225,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
   br label %172
 
 153:                                              ; preds = %145
-  %154 = icmp ugt i32 %136, 7
+  %154 = icmp samesign ugt i32 %136, 7
   br i1 %154, label %.lr.ph197.preheader, label %.preheader
 
 .lr.ph197.preheader:                              ; preds = %147, %153

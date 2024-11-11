@@ -2550,7 +2550,7 @@ define ptr @Abc_NtkFromDarSeqSweep(ptr noundef %0, ptr noundef %1) local_unnamed
   %21 = tail call ptr @Abc_ObjName(ptr noundef %20) #19
   %22 = tail call ptr @Abc_ObjAssignName(ptr noundef %20, ptr noundef %21, ptr noundef null) #19
   %23 = add nsw i32 %.0113171, -1
-  %24 = icmp ugt i32 %.0113171, 1
+  %24 = icmp samesign ugt i32 %.0113171, 1
   br i1 %24, label %.lr.ph, label %._crit_edge, !llvm.loop !32
 
 ._crit_edge:                                      ; preds = %.lr.ph, %16

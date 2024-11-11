@@ -1352,7 +1352,7 @@ _ZN3gmx14LogWriteHelperaSERKNS_14LogEntryWriterE.exit: ; preds = %144
   br label %152
 
 150:                                              ; preds = %135
-  %151 = icmp ult i32 %106, 6
+  %151 = icmp samesign ult i32 %106, 6
   br i1 %151, label %152, label %165
 
 152:                                              ; preds = %150, %.thread
@@ -1430,7 +1430,7 @@ _ZN3gmx14LogWriteHelperaSERKNS_14LogEntryWriterE.exit92: ; preds = %174
   br label %182
 
 180:                                              ; preds = %165
-  %181 = icmp ult i32 %106, 8
+  %181 = icmp samesign ult i32 %106, 8
   br i1 %181, label %182, label %257
 
 182:                                              ; preds = %180, %.thread227
@@ -5935,7 +5935,7 @@ _ZN17PreprocessResidueC2EOS_.exit:                ; preds = %42
   %64 = getelementptr inbounds i8, ptr %.069.i.i.i.i.i, i64 -344
   %65 = call noundef nonnull align 8 dereferenceable(344) ptr @_ZN17PreprocessResidueaSEOS_(ptr noundef nonnull align 8 dereferenceable(344) %64, ptr noundef nonnull align 8 dereferenceable(344) %63) #20
   %66 = add nsw i64 %.010.i.i.i.i.i, -1
-  %67 = icmp ugt i64 %.010.i.i.i.i.i, 1
+  %67 = icmp samesign ugt i64 %.010.i.i.i.i.i, 1
   br i1 %67, label %.lr.ph.i.i.i.i.i, label %.loopexit, !llvm.loop !70
 
 .loopexit:                                        ; preds = %.lr.ph.i.i.i.i.i, %_ZN17PreprocessResidueC2EOS_.exit

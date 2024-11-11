@@ -2468,7 +2468,7 @@ Vec_IntStart.exit:                                ; preds = %Vec_IntAlloc.exit.t
   %.mux = select i1 %.not35, i1 true, i1 %31
   %33 = trunc nuw nsw i64 %indvars.iv65 to i32
   %.mux63 = select i1 %.not35, i32 %11, i32 %33
-  %34 = icmp ult i32 %.mux63, 7
+  %34 = icmp samesign ult i32 %.mux63, 7
   %35 = add nsw i32 %.mux63, -6
   %36 = shl nuw i32 1, %35
   %37 = select i1 %34, i32 1, i32 %36
@@ -2750,7 +2750,7 @@ If_DsdManComputeTruthPtr.exit:                    ; preds = %.lr.ph18.i.i, %26, 
 
 47:                                               ; preds = %If_DsdManComputeTruthPtr.exit
   %48 = load i32, ptr %12, align 8
-  %49 = icmp ugt i32 %48, 5
+  %49 = icmp samesign ugt i32 %48, 5
   %50 = icmp slt i32 %48, 2
   br i1 %50, label %51, label %.thread
 
@@ -3195,7 +3195,7 @@ define void @If_DsdManPrintDecs(ptr nocapture noundef %0, ptr nocapture noundef 
 .preheader.lr.ph:                                 ; preds = %2
   %9 = getelementptr inbounds i8, ptr %1, i64 240
   %10 = getelementptr inbounds i8, ptr %1, i64 112
-  %11 = icmp ult i32 %8, 7
+  %11 = icmp samesign ult i32 %8, 7
   %12 = add nsw i32 %8, -6
   %13 = shl nuw i32 1, %12
   %14 = sext i32 %13 to i64
@@ -11939,7 +11939,7 @@ Abc_TtCopy.exit:                                  ; preds = %.lr.ph18.preheader.
   br i1 %21, label %Abc_TtStretch6.exit, label %22
 
 22:                                               ; preds = %18
-  %23 = icmp ult i32 %16, 7
+  %23 = icmp samesign ult i32 %16, 7
   %24 = add nsw i32 %16, -6
   %25 = shl nuw i32 1, %24
   %26 = select i1 %23, i32 1, i32 %25
@@ -12325,7 +12325,7 @@ If_DsdObjTruthId.exit:                            ; preds = %108
   %123 = getelementptr i8, ptr %113, i64 8
   %.val90 = load ptr, ptr %123, align 8
   %124 = getelementptr inbounds i8, ptr %.val90, i64 -16
-  %.not154 = icmp ult i32 %.val86, 134217728
+  %.not154 = icmp samesign ult i32 %.val86, 134217728
   br i1 %.not154, label %.critedge2, label %.lr.ph.preheader
 
 .lr.ph.preheader:                                 ; preds = %If_DsdObjTruthId.exit.thread, %If_DsdObjTruthId.exit
@@ -13137,7 +13137,7 @@ If_LogCreateAndXor.exit.us.i:                     ; preds = %.lr.ph.i, %If_LogCr
   %187 = load i32, ptr %gep.us.i, align 4
   %188 = call fastcc i32 @If_LogCreateAnd(ptr noundef nonnull %4, i32 noundef %186, i32 noundef %187, i32 noundef %6)
   store i32 %188, ptr %gep.us.i, align 4
-  %189 = icmp ugt i64 %indvars.iv15.i, 2
+  %189 = icmp samesign ugt i64 %indvars.iv15.i, 2
   br i1 %189, label %If_LogCreateAndXor.exit.us.i, label %If_LogCreateAndXorMulti.exit, !llvm.loop !147
 
 If_LogCreateAndXor.exit.i:                        ; preds = %.lr.ph.i, %If_LogCreateAndXor.exit.i
@@ -13156,7 +13156,7 @@ If_LogCreateAndXor.exit.i:                        ; preds = %.lr.ph.i, %If_LogCr
   %199 = call fastcc i32 @If_LogCreateAnd(ptr noundef nonnull %4, i32 noundef %197, i32 noundef %198, i32 noundef %6)
   %200 = xor i32 %199, 1
   store i32 %200, ptr %gep.i, align 4
-  %201 = icmp ugt i64 %indvars.iv.i, 2
+  %201 = icmp samesign ugt i64 %indvars.iv.i, 2
   br i1 %201, label %If_LogCreateAndXor.exit.i, label %If_LogCreateAndXorMulti.exit, !llvm.loop !147
 
 If_LogCreateAndXorMulti.exit:                     ; preds = %If_LogCreateAndXor.exit.us.i, %If_LogCreateAndXor.exit.i, %181

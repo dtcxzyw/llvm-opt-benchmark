@@ -1622,7 +1622,7 @@ define internal fastcc void @aes_256cbc_decrypt(ptr noundef %0, ptr nocapture no
   %48 = zext nneg i8 %41 to i64
   %49 = sub nsw i64 0, %48
   %50 = getelementptr inbounds i8, ptr %34, i64 %49
-  %51 = icmp ugt i8 %41, 1
+  %51 = icmp samesign ugt i8 %41, 1
   br i1 %51, label %.lr.ph84, label %._crit_edge85
 
 52:                                               ; preds = %.lr.ph84
@@ -1960,7 +1960,7 @@ thread-pre-split:                                 ; preds = %.lr.ph, %135
   store i32 %153, ptr %8, align 4
   %154 = load i8, ptr %152, align 1
   %155 = icmp ne i8 %154, 60
-  %156 = icmp ugt i32 %151, 1
+  %156 = icmp samesign ugt i32 %151, 1
   %157 = select i1 %155, i1 %156, i1 false
   br i1 %157, label %.lr.ph423, label %._crit_edge
 
@@ -2952,7 +2952,7 @@ define internal fastcc ptr @pdf_readstring(ptr noundef %0, i32 noundef %1, ptr n
   %.ptr = getelementptr inbounds i8, ptr %12, i64 1
   %storemerge120126 = add nsw i32 %14, -1
   store i32 %storemerge120126, ptr %7, align 4
-  %20 = icmp ugt i32 %14, 1
+  %20 = icmp samesign ugt i32 %14, 1
   br i1 %20, label %.lr.ph, label %._crit_edge.thread
 
 .lr.ph:                                           ; preds = %19, %29
@@ -3165,7 +3165,7 @@ define internal fastcc ptr @pdf_readstring(ptr noundef %0, i32 noundef %1, ptr n
 
 101:                                              ; preds = %16
   %102 = icmp eq i8 %17, 60
-  %103 = icmp ugt i32 %14, 2
+  %103 = icmp samesign ugt i32 %14, 2
   %or.cond3 = select i1 %102, i1 %103, i1 false
   br i1 %or.cond3, label %.preheader124.preheader, label %133
 
@@ -3305,7 +3305,7 @@ define internal fastcc noundef ptr @pdf_nextobject(ptr noundef %0, i64 noundef %
 
 .preheader21.i:                                   ; preds = %.lr.ph, %.lr.ph, %.lr.ph
   %4 = zext nneg i8 %3 to i16
-  %memchr.bounds25.i = icmp ugt i8 %3, 15
+  %memchr.bounds25.i = icmp samesign ugt i8 %3, 15
   %5 = shl nuw i16 1, %4
   %6 = and i16 %5, 9217
   %memchr.bits26.i = icmp eq i16 %6, 0
@@ -3938,7 +3938,7 @@ find_stream_bounds.exit.thread:                   ; preds = %61, %63, %58, %.thr
 
 .preheader439:                                    ; preds = %.split.us
   %.ptr545 = getelementptr inbounds i8, ptr %.us-phi, i64 %183
-  %186 = icmp ugt i64 %183, 2
+  %186 = icmp samesign ugt i64 %183, 2
   br i1 %186, label %.lr.ph457, label %.critedge383.thread
 
 .lr.ph457:                                        ; preds = %.preheader439
@@ -4953,7 +4953,7 @@ define internal fastcc ptr @pdf_readval(ptr noundef %0, i32 noundef %1, ptr noun
   %20 = getelementptr inbounds i8, ptr %.03355, i64 1
   %storemerge58 = add nsw i32 %12, -1
   store i32 %storemerge58, ptr %4, align 4
-  %21 = icmp ugt i32 %12, 1
+  %21 = icmp samesign ugt i32 %12, 1
   br i1 %21, label %.lr.ph.preheader, label %.critedge3
 
 .lr.ph.preheader:                                 ; preds = %19
@@ -4987,7 +4987,7 @@ define internal fastcc ptr @pdf_readval(ptr noundef %0, i32 noundef %1, ptr noun
   %29 = getelementptr inbounds i8, ptr %.03460, i64 1
   %storemerge = add nsw i32 %storemerge61, -1
   store i32 %storemerge, ptr %4, align 4
-  %30 = icmp ugt i32 %storemerge61, 1
+  %30 = icmp samesign ugt i32 %storemerge61, 1
   br i1 %30, label %.lr.ph, label %.critedge3
 
 .critedge3:                                       ; preds = %26, %.critedge49, %.lr.ph, %.lr.ph, %.thread, %19
@@ -5317,7 +5317,7 @@ pdf_readint.exit207:                              ; preds = %101, %104, %._crit_
   %109 = phi i32 [ %108, %._crit_edge.i205 ], [ -1, %101 ], [ -1, %104 ]
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %2)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3)
-  %110 = icmp ult i32 %95, 6
+  %110 = icmp samesign ult i32 %95, 6
   %111 = icmp eq i32 %109, -1
   %or.cond9 = select i1 %110, i1 %111, i1 false
   br i1 %or.cond9, label %112, label %113
@@ -5327,7 +5327,7 @@ pdf_readint.exit207:                              ; preds = %101, %104, %._crit_
   br label %190
 
 113:                                              ; preds = %pdf_readint.exit207
-  %114 = icmp ult i32 %95, 5
+  %114 = icmp samesign ult i32 %95, 5
   %. = select i1 %114, i32 32, i32 48
   %115 = and i32 %95, 6
   %or.cond3 = icmp eq i32 %115, 2

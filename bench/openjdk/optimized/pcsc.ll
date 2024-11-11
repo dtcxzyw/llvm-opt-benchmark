@@ -288,7 +288,7 @@ define hidden ptr @pcsc_multi2jstring(ptr noundef %0, ptr noundef %1) local_unna
   %68 = getelementptr inbounds i8, ptr %67, i64 184
   %69 = load ptr, ptr %68, align 8
   tail call void %69(ptr noundef nonnull %0, ptr noundef %50) #7
-  %70 = icmp ugt i64 %indvars.iv68, 1
+  %70 = icmp samesign ugt i64 %indvars.iv68, 1
   br i1 %70, label %.lr.ph64, label %.loopexit, !llvm.loop !9
 
 .loopexit:                                        ; preds = %66, %38

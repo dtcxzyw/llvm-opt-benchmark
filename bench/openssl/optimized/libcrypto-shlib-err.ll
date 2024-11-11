@@ -1616,7 +1616,7 @@ if.end51:                                         ; preds = %vaarg.end.if.end51_
   %size.2 = phi i32 [ %size.135, %vaarg.end.if.end51_crit_edge ], [ %add44, %if.then43 ]
   %str.2 = phi ptr [ %str.136, %vaarg.end.if.end51_crit_edge ], [ %call46, %if.then43 ]
   %call53 = tail call i64 @OPENSSL_strlcat(ptr noundef %str.2, ptr noundef nonnull %spec.store.select, i64 noundef %conv52.pre-phi) #9
-  %cmp32 = icmp ugt i32 %dec38.in, 1
+  %cmp32 = icmp samesign ugt i32 %dec38.in, 1
   br i1 %cmp32, label %while.body, label %while.end, !llvm.loop !11
 
 while.end:                                        ; preds = %if.end51, %if.end29.while.end_crit_edge

@@ -3775,7 +3775,7 @@ while.body105:                                    ; preds = %if.then42, %if.end1
 
 if.end113:                                        ; preds = %while.body105
   %incdec.ptr = getelementptr inbounds i8, ptr %cp.087, i64 -8
-  %cmp103 = icmp ugt i32 %i.088.in, 1
+  %cmp103 = icmp samesign ugt i32 %i.088.in, 1
   br i1 %cmp103, label %while.body105, label %if.end136, !llvm.loop !17
 
 if.then116:                                       ; preds = %while.body105

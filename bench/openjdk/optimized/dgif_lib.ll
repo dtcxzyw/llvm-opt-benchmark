@@ -2823,7 +2823,7 @@ DGifGetRecordType.exit.thread:                    ; preds = %26, %InternalRead.e
 
 44:                                               ; preds = %40
   %45 = udiv i32 2147483647, %42
-  %46 = icmp ugt i32 %38, %45
+  %46 = icmp samesign ugt i32 %38, %45
   br i1 %46, label %47, label %57
 
 47:                                               ; preds = %44, %40, %32

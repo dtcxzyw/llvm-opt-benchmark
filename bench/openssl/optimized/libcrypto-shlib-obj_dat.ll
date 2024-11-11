@@ -2512,7 +2512,7 @@ if.else95:                                        ; preds = %if.then88
   br label %if.end101
 
 if.else97:                                        ; preds = %if.then85
-  %div.cmp = icmp ugt i64 %l.1, 39
+  %div.cmp = icmp samesign ugt i64 %l.1, 39
   %conv98 = zext i1 %div.cmp to i8
   %mul.neg = select i1 %div.cmp, i64 -40, i64 0
   %sub100 = add nsw i64 %mul.neg, %l.1

@@ -4418,7 +4418,7 @@ define hidden void @zif_session_set_cookie_params(ptr noundef %0, ptr nocapture 
   br label %34
 
 34:                                               ; preds = %32, %.critedge
-  %35 = icmp ult i32 %12, 3
+  %35 = icmp samesign ult i32 %12, 3
   br i1 %35, label %.thread871, label %36
 
 36:                                               ; preds = %34
@@ -11188,7 +11188,7 @@ define internal range(i32 -1, 1) i32 @OnUpdateRfc1867Freq(ptr nocapture readnone
   br i1 %19, label %20, label %25
 
 20:                                               ; preds = %15
-  %21 = icmp ugt i32 %9, 100
+  %21 = icmp samesign ugt i32 %9, 100
   br i1 %21, label %22, label %23
 
 22:                                               ; preds = %20

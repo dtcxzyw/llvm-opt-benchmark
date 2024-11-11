@@ -3157,7 +3157,7 @@ define void @gui_init(ptr noundef %0) local_unnamed_addr #1 {
 32:                                               ; preds = %5
   %33 = getelementptr inbounds i8, ptr %21, i64 24
   %34 = zext nneg i32 %30 to i64
-  %35 = icmp ult i32 %30, 16
+  %35 = icmp samesign ult i32 %30, 16
   %36 = add nsw i64 %34, -257
   %37 = icmp ult i64 %36, -256
   %38 = select i1 %35, i1 true, i1 %37
@@ -3263,7 +3263,7 @@ define void @gui_init(ptr noundef %0) local_unnamed_addr #1 {
 96:                                               ; preds = %78
   %97 = getelementptr inbounds i8, ptr %81, i64 24
   %98 = zext nneg i32 %94 to i64
-  %99 = icmp ult i32 %94, 16
+  %99 = icmp samesign ult i32 %94, 16
   %100 = add nsw i64 %98, -257
   %101 = icmp ult i64 %100, -256
   %102 = select i1 %99, i1 true, i1 %101
@@ -3429,7 +3429,7 @@ define void @gui_init(ptr noundef %0) local_unnamed_addr #1 {
 205:                                              ; preds = %187
   %206 = getelementptr inbounds i8, ptr %190, i64 24
   %207 = zext nneg i32 %203 to i64
-  %208 = icmp ult i32 %203, 16
+  %208 = icmp samesign ult i32 %203, 16
   %209 = add nsw i64 %207, -257
   %210 = icmp ult i64 %209, -256
   %211 = select i1 %208, i1 true, i1 %210
@@ -4182,14 +4182,14 @@ define internal noundef i32 @_area_draw_callback(ptr noundef %0, ptr noundef %1,
 
 73:                                               ; preds = %42
   %74 = zext nneg i32 %60 to i64
-  %75 = icmp ult i32 %60, 16
+  %75 = icmp samesign ult i32 %60, 16
   br i1 %75, label %102, label %76
 
 76:                                               ; preds = %73
   %77 = add nsw i64 %74, -1
   %78 = and i64 %77, 255
   %79 = icmp eq i64 %78, 255
-  %80 = icmp ugt i64 %77, 255
+  %80 = icmp samesign ugt i64 %77, 255
   %81 = or i1 %80, %79
   br i1 %81, label %102, label %82
 
@@ -4348,7 +4348,7 @@ define internal noundef i32 @_area_draw_callback(ptr noundef %0, ptr noundef %1,
 
 183:                                              ; preds = %166
   %184 = zext nneg i32 %38 to i64
-  %185 = icmp ult i32 %38, 16
+  %185 = icmp samesign ult i32 %38, 16
   br i1 %185, label %.preheader668, label %186
 
 .preheader668:                                    ; preds = %201, %183
@@ -4668,7 +4668,7 @@ define internal noundef i32 @_area_draw_callback(ptr noundef %0, ptr noundef %1,
 422:                                              ; preds = %420
   %423 = getelementptr inbounds i8, ptr %415, i64 24
   %424 = zext nneg i32 %409 to i64
-  %425 = icmp ult i32 %409, 16
+  %425 = icmp samesign ult i32 %409, 16
   br i1 %425, label %.preheader671, label %426
 
 .preheader671:                                    ; preds = %439, %422
@@ -4732,7 +4732,7 @@ define internal noundef i32 @_area_draw_callback(ptr noundef %0, ptr noundef %1,
 459:                                              ; preds = %441
   %460 = getelementptr i8, ptr %447, i64 24
   %461 = zext nneg i32 %457 to i64
-  %462 = icmp ult i32 %457, 16
+  %462 = icmp samesign ult i32 %457, 16
   %463 = add nsw i64 %461, -257
   %464 = icmp ult i64 %463, -256
   %465 = select i1 %462, i1 true, i1 %464
@@ -5881,7 +5881,7 @@ dt_XYZ_to_sRGB.exit:                              ; preds = %919, %921
 1315:                                             ; preds = %1311
   %1316 = getelementptr inbounds i8, ptr %1314, i64 24
   %1317 = zext nneg i32 %1267 to i64
-  %1318 = icmp ult i32 %1267, 16
+  %1318 = icmp samesign ult i32 %1267, 16
   br i1 %1318, label %.preheader665, label %1319
 
 .preheader665:                                    ; preds = %1332, %1315
@@ -5936,7 +5936,7 @@ dt_XYZ_to_sRGB.exit:                              ; preds = %919, %921
 
 1351:                                             ; preds = %1334
   %1352 = zext nneg i32 %1267 to i64
-  %1353 = icmp ult i32 %1267, 16
+  %1353 = icmp samesign ult i32 %1267, 16
   br i1 %1353, label %.preheader663, label %1354
 
 .preheader663:                                    ; preds = %1369, %1351
@@ -6291,7 +6291,7 @@ dt_XYZ_to_sRGB.exit:                              ; preds = %919, %921
 1618:                                             ; preds = %1614
   %1619 = getelementptr inbounds i8, ptr %1617, i64 24
   %1620 = zext nneg i32 %1267 to i64
-  %1621 = icmp ult i32 %1267, 16
+  %1621 = icmp samesign ult i32 %1267, 16
   br i1 %1621, label %.preheader661, label %1622
 
 .preheader661:                                    ; preds = %1635, %1618
@@ -6346,7 +6346,7 @@ dt_XYZ_to_sRGB.exit:                              ; preds = %919, %921
 
 1654:                                             ; preds = %1637
   %1655 = zext nneg i32 %1267 to i64
-  %1656 = icmp ult i32 %1267, 16
+  %1656 = icmp samesign ult i32 %1267, 16
   br i1 %1656, label %.preheader660, label %1657
 
 .preheader660:                                    ; preds = %1672, %1654
@@ -7165,7 +7165,7 @@ define internal noundef range(i32 0, 2) i32 @_area_button_press_callback(ptr nou
   %238 = getelementptr inbounds i8, ptr %8, i64 5308
   %239 = load float, ptr %238, align 4, !tbaa !153
   %240 = zext nneg i32 %23 to i64
-  %241 = icmp ult i32 %23, 17
+  %241 = icmp samesign ult i32 %23, 17
   br i1 %241, label %.loopexit33, label %264
 
 .loopexit33:                                      ; preds = %313, %264, %236
@@ -7397,7 +7397,7 @@ define internal noundef range(i32 0, 2) i32 @_area_button_press_callback(ptr nou
 
 393:                                              ; preds = %389
   %394 = uitofp nneg i32 %383 to float
-  %395 = icmp ult i32 %383, 32
+  %395 = icmp samesign ult i32 %383, 32
   br i1 %395, label %434, label %396
 
 396:                                              ; preds = %393
@@ -7636,7 +7636,7 @@ define internal noundef range(i32 0, 2) i32 @_area_button_press_callback(ptr nou
 
 548:                                              ; preds = %545
   %549 = add nsw i32 %546, -1
-  %550 = icmp ugt i32 %549, %506
+  %550 = icmp samesign ugt i32 %549, %506
   br i1 %550, label %553, label %551
 
 551:                                              ; preds = %548
@@ -8084,7 +8084,7 @@ define internal noundef i32 @_area_motion_notify_callback(ptr noundef %0, ptr no
   %243 = add nsw i64 %242, -1
   %244 = add nsw i64 %242, -2
   %245 = and i64 %243, 3
-  %246 = icmp ult i64 %244, 3
+  %246 = icmp samesign ult i64 %244, 3
   br i1 %246, label %.loopexit31, label %247
 
 247:                                              ; preds = %237
@@ -8200,7 +8200,7 @@ define internal noundef i32 @_area_motion_notify_callback(ptr noundef %0, ptr no
   %321 = insertelement <2 x float> poison, float %144, i64 0
   %322 = shufflevector <2 x float> %321, <2 x float> poison, <2 x i32> zeroinitializer
   %323 = and i64 %316, 3
-  %324 = icmp ult i32 %106, 4
+  %324 = icmp samesign ult i32 %106, 4
   br i1 %324, label %.loopexit28, label %325
 
 325:                                              ; preds = %312
@@ -9209,14 +9209,14 @@ define void @commit_params(ptr nocapture noundef readonly %0, ptr nocapture noun
 
 90:                                               ; preds = %53
   %91 = zext nneg i32 %72 to i64
-  %92 = icmp ult i32 %72, 16
+  %92 = icmp samesign ult i32 %72, 16
   br i1 %92, label %133, label %93
 
 93:                                               ; preds = %90
   %94 = add nsw i64 %91, -1
   %95 = and i64 %94, 255
   %96 = icmp eq i64 %95, 255
-  %97 = icmp ugt i64 %94, 255
+  %97 = icmp samesign ugt i64 %94, 255
   %98 = or i1 %97, %96
   br i1 %98, label %133, label %99
 
@@ -9411,7 +9411,7 @@ define void @commit_params(ptr nocapture noundef readonly %0, ptr nocapture noun
 
 232:                                              ; preds = %210
   %233 = zext nneg i32 %49 to i64
-  %234 = icmp ult i32 %49, 16
+  %234 = icmp samesign ult i32 %49, 16
   br i1 %234, label %.preheader61, label %235
 
 .preheader61:                                     ; preds = %264, %232
@@ -9620,7 +9620,7 @@ define void @commit_params(ptr nocapture noundef readonly %0, ptr nocapture noun
   %382 = fmul reassoc nsz arcp contract afn float %381, 0x3F847AE140000000
   %383 = getelementptr inbounds i8, ptr %373, i64 24
   %384 = zext nneg i32 %367 to i64
-  %385 = icmp ult i32 %367, 16
+  %385 = icmp samesign ult i32 %367, 16
   br i1 %385, label %.preheader63, label %386
 
 .preheader63:                                     ; preds = %413, %380
@@ -9701,7 +9701,7 @@ define void @commit_params(ptr nocapture noundef readonly %0, ptr nocapture noun
   %436 = fmul reassoc nsz arcp contract afn float %435, 0x3F847AE140000000
   %437 = getelementptr inbounds i8, ptr %421, i64 24
   %438 = zext nneg i32 %432 to i64
-  %439 = icmp ult i32 %432, 16
+  %439 = icmp samesign ult i32 %432, 16
   %440 = add nsw i64 %438, -257
   %441 = icmp ult i64 %440, -256
   %442 = select i1 %439, i1 true, i1 %441
@@ -10018,7 +10018,7 @@ define void @init_pipe(ptr nocapture noundef readonly %0, ptr nocapture noundef 
 23:                                               ; preds = %3
   %24 = getelementptr inbounds i8, ptr %14, i64 24
   %25 = zext nneg i32 %21 to i64
-  %26 = icmp ult i32 %21, 16
+  %26 = icmp samesign ult i32 %21, 16
   %27 = add nsw i64 %25, -257
   %28 = icmp ult i64 %27, -256
   %29 = select i1 %26, i1 true, i1 %28
@@ -10122,7 +10122,7 @@ define void @init_pipe(ptr nocapture noundef readonly %0, ptr nocapture noundef 
 85:                                               ; preds = %69
   %86 = getelementptr inbounds i8, ptr %72, i64 24
   %87 = zext nneg i32 %81 to i64
-  %88 = icmp ult i32 %81, 16
+  %88 = icmp samesign ult i32 %81, 16
   %89 = add nsw i64 %87, -257
   %90 = icmp ult i64 %89, -256
   %91 = select i1 %88, i1 true, i1 %90
@@ -10286,7 +10286,7 @@ define void @init_pipe(ptr nocapture noundef readonly %0, ptr nocapture noundef 
 192:                                              ; preds = %176
   %193 = getelementptr inbounds i8, ptr %179, i64 24
   %194 = zext nneg i32 %188 to i64
-  %195 = icmp ult i32 %188, 16
+  %195 = icmp samesign ult i32 %188, 16
   %196 = add nsw i64 %194, -257
   %197 = icmp ult i64 %196, -256
   %198 = select i1 %195, i1 true, i1 %197
@@ -11703,7 +11703,7 @@ define internal fastcc void @dt_iop_colorzones_get_params(ptr nocapture noundef 
   %37 = fmul reassoc nsz arcp contract afn float %23, %23
   %38 = zext nneg i32 %31 to i64
   %39 = add nsw i64 %38, -1
-  %40 = icmp ult i64 %39, 8
+  %40 = icmp samesign ult i64 %39, 8
   br i1 %40, label %.preheader, label %42
 
 .preheader:                                       ; preds = %69, %35
@@ -11806,7 +11806,7 @@ define internal fastcc void @dt_iop_colorzones_get_params(ptr nocapture noundef 
   %116 = getelementptr inbounds i8, ptr %0, i64 4
   %117 = fmul reassoc nsz arcp contract afn float %23, %23
   %118 = zext nneg i32 %10 to i64
-  %119 = icmp ult i32 %10, 8
+  %119 = icmp samesign ult i32 %10, 8
   br i1 %119, label %.preheader6, label %120
 
 120:                                              ; preds = %115

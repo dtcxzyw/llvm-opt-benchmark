@@ -162,7 +162,7 @@ define internal fastcc { ptr, i64 } @"_ZN100_$LT$unicode_segmentation..grapheme.
   %42 = and i8 %40, 63
   %43 = zext nneg i8 %42 to i32
   %44 = or disjoint i32 %41, %43
-  %45 = icmp ugt i8 %34, -33
+  %45 = icmp samesign ugt i8 %34, -33
   br i1 %45, label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h41003f3b62a7d8caE.exit15.i.i", label %.preheader.i
 
 46:                                               ; preds = %32
@@ -180,7 +180,7 @@ define internal fastcc { ptr, i64 } @"_ZN100_$LT$unicode_segmentation..grapheme.
   %54 = or disjoint i32 %51, %53
   %55 = shl nuw nsw i32 %37, 12
   %56 = or disjoint i32 %54, %55
-  %57 = icmp ugt i8 %34, -17
+  %57 = icmp samesign ugt i8 %34, -17
   br i1 %57, label %58, label %.preheader.i
 
 58:                                               ; preds = %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h41003f3b62a7d8caE.exit15.i.i"
@@ -292,7 +292,7 @@ define internal fastcc { ptr, i64 } @"_ZN100_$LT$unicode_segmentation..grapheme.
   %111 = and i8 %109, 63
   %112 = zext nneg i8 %111 to i32
   %113 = or disjoint i32 %110, %112
-  %114 = icmp ugt i8 %103, -33
+  %114 = icmp samesign ugt i8 %103, -33
   br i1 %114, label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h41003f3b62a7d8caE.exit15.i60.i", label %.thread80.i
 
 115:                                              ; preds = %101
@@ -310,7 +310,7 @@ define internal fastcc { ptr, i64 } @"_ZN100_$LT$unicode_segmentation..grapheme.
   %123 = or disjoint i32 %120, %122
   %124 = shl nuw nsw i32 %106, 12
   %125 = or disjoint i32 %123, %124
-  %126 = icmp ugt i8 %103, -17
+  %126 = icmp samesign ugt i8 %103, -17
   br i1 %126, label %127, label %.thread80.i
 
 127:                                              ; preds = %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h41003f3b62a7d8caE.exit15.i60.i"
@@ -451,7 +451,7 @@ default.unreachable:                              ; preds = %_ZN20unicode_segmen
   %186 = and i8 %184, 63
   %187 = zext nneg i8 %186 to i32
   %188 = or disjoint i32 %185, %187
-  %189 = icmp ugt i8 %178, -33
+  %189 = icmp samesign ugt i8 %178, -33
   br i1 %189, label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h41003f3b62a7d8caE.exit15.i.i.i", label %.thread99.i.i
 
 190:                                              ; preds = %177
@@ -469,7 +469,7 @@ default.unreachable:                              ; preds = %_ZN20unicode_segmen
   %198 = or disjoint i32 %195, %197
   %199 = shl nuw nsw i32 %182, 12
   %200 = or disjoint i32 %198, %199
-  %201 = icmp ugt i8 %178, -17
+  %201 = icmp samesign ugt i8 %178, -17
   br i1 %201, label %202, label %.thread99.i.i
 
 202:                                              ; preds = %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h41003f3b62a7d8caE.exit15.i.i.i"
@@ -21833,7 +21833,7 @@ define internal fastcc { ptr, i64 } @"_ZN91_$LT$core..str..iter..SplitWhitespace
   %29 = and i8 %27, 63
   %30 = zext nneg i8 %29 to i32
   %31 = or disjoint i32 %28, %30
-  %32 = icmp ugt i8 %21, -33
+  %32 = icmp samesign ugt i8 %21, -33
   br i1 %32, label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h41003f3b62a7d8caE.exit15.i.i.i.i.i.i.i", label %"_ZN87_$LT$core..str..iter..CharIndices$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hf7e5a3ea120b44ecE.exit.thread11.i.i.i.i.i"
 
 33:                                               ; preds = %.lr.ph.i.i.i.i
@@ -21851,7 +21851,7 @@ define internal fastcc { ptr, i64 } @"_ZN91_$LT$core..str..iter..SplitWhitespace
   %41 = or disjoint i32 %38, %40
   %42 = shl nuw nsw i32 %24, 12
   %43 = or disjoint i32 %41, %42
-  %44 = icmp ugt i8 %21, -17
+  %44 = icmp samesign ugt i8 %21, -17
   br i1 %44, label %45, label %"_ZN87_$LT$core..str..iter..CharIndices$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hf7e5a3ea120b44ecE.exit.thread11.i.i.i.i.i"
 
 45:                                               ; preds = %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h41003f3b62a7d8caE.exit15.i.i.i.i.i.i.i"

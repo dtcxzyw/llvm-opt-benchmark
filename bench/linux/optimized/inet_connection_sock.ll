@@ -3601,7 +3601,7 @@ define internal void @reqsk_timer_handler(ptr noundef %0) #0 align 16 {
   %51 = phi i32 [ %39, %47 ], [ %57, %50 ]
   %52 = phi i32 [ %49, %47 ], [ %53, %50 ]
   %53 = shl i32 %52, 1
-  %54 = icmp ult i32 %51, 3
+  %54 = icmp samesign ult i32 %51, 3
   %55 = icmp slt i32 %41, %53
   %56 = select i1 %54, i1 true, i1 %55
   %57 = add nsw i32 %51, -1
@@ -3619,12 +3619,12 @@ define internal void @reqsk_timer_handler(ptr noundef %0) #0 align 16 {
   br i1 %61, label %66, label %69
 
 66:                                               ; preds = %.loopexit
-  %67 = icmp ule i32 %58, %65
+  %67 = icmp samesign ule i32 %58, %65
   %68 = zext i1 %67 to i32
   br label %.thread11
 
 69:                                               ; preds = %.loopexit
-  %70 = icmp ugt i32 %58, %65
+  %70 = icmp samesign ugt i32 %58, %65
   %.phi.trans.insert = getelementptr inbounds i8, ptr %28, i64 232
   %.pre = load i16, ptr %.phi.trans.insert, align 8
   %.pre10 = and i16 %.pre, 4096
@@ -3646,7 +3646,7 @@ define internal void @reqsk_timer_handler(ptr noundef %0) #0 align 16 {
   %77 = phi i32 [ %74, %.thread13 ], [ 0, %75 ]
   %78 = zext i8 %60 to i32
   %79 = add nsw i32 %78, -1
-  %80 = icmp ugt i32 %79, %65
+  %80 = icmp samesign ugt i32 %79, %65
   br label %.thread11
 
 .thread11:                                        ; preds = %72, %76, %75, %66

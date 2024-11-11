@@ -496,7 +496,7 @@ _ZN9Stockfish12_GLOBAL__N_18TBTables5clearEv.exit: ; preds = %.lr.ph.i.i.i1.i, %
 75:                                               ; preds = %.preheader329
   %.not89 = icmp eq i32 %67, %68
   %76 = icmp samesign ult i32 %68, 4
-  %or.cond312 = and i1 %.not89, %76
+  %or.cond312 = select i1 %.not89, i1 %76, i1 false
   br i1 %or.cond312, label %77, label %_ZNSt6vectorIN9Stockfish6SquareESaIS1_EE9push_backERKS1_.exit
 
 77:                                               ; preds = %75

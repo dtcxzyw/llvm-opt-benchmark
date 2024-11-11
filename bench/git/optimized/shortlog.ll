@@ -994,17 +994,21 @@ if.end19:                                         ; preds = %lor.lhs.false
   br i1 %tobool21.not, label %return, label %land.lhs.true
 
 land.lhs.true:                                    ; preds = %if.end19
-  %cmp27.not = icmp ugt i32 %7, %8
-  %cmp34.not = icmp ugt i32 %7, %retval.0.i51
-  %or.cond60 = select i1 %cmp27.not, i1 %cmp34.not, i1 false
-  br i1 %or.cond60, label %return, label %if.then35
+  %cmp27.not = icmp samesign ugt i32 %7, %8
+  br i1 %cmp27.not, label %lor.lhs.false28, label %if.then35
 
-if.then35:                                        ; preds = %land.lhs.true
+lor.lhs.false28:                                  ; preds = %land.lhs.true
+  %tobool30.not = icmp eq i32 %retval.0.i51, 0
+  %cmp34.not = icmp samesign ugt i32 %7, %retval.0.i51
+  %or.cond59 = select i1 %tobool30.not, i1 true, i1 %cmp34.not
+  br i1 %or.cond59, label %return, label %if.then35
+
+if.then35:                                        ; preds = %lor.lhs.false28, %land.lhs.true
   %call36 = tail call i32 (ptr, ...) @error(ptr noundef nonnull @wrap_arg_usage) #16
   br label %return
 
-return:                                           ; preds = %land.lhs.true, %if.end19, %entry, %if.then35, %if.then16, %if.then3
-  %retval.0 = phi i32 [ -1, %if.then16 ], [ -1, %if.then35 ], [ 0, %if.then3 ], [ 0, %entry ], [ 0, %if.end19 ], [ 0, %land.lhs.true ]
+return:                                           ; preds = %if.end19, %lor.lhs.false28, %entry, %if.then35, %if.then16, %if.then3
+  %retval.0 = phi i32 [ -1, %if.then16 ], [ -1, %if.then35 ], [ 0, %if.then3 ], [ 0, %entry ], [ 0, %lor.lhs.false28 ], [ 0, %if.end19 ]
   ret i32 %retval.0
 }
 

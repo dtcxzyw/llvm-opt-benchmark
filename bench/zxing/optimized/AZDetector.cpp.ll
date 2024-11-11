@@ -1293,7 +1293,7 @@ _ZNK5ZXing9BitMatrix3getENS_6PointTIdEE.exit.us.i.i: ; preds = %458
   %485 = getelementptr inbounds i32, ptr %478, i64 %indvars.iv.next.i.i
   store i32 %484, ptr %485, align 4
   %486 = lshr i64 %.3140.i.i, 4
-  %487 = icmp ugt i64 %indvars.iv.i.i, 1
+  %487 = icmp samesign ugt i64 %indvars.iv.i.i, 1
   br i1 %487, label %482, label %488, !llvm.loop !44
 
 488:                                              ; preds = %482

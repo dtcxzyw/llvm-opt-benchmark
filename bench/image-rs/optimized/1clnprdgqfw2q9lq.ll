@@ -1429,7 +1429,7 @@ common.resume.i.i:                                ; preds = %189, %140, %60
 "_ZN8smallvec17SmallVec$LT$A$GT$6triple17hdc9f8cac38000f87E.llvm.6924994955228445577.exit.thread.i.i.i": ; preds = %.thread.i.i.i
   %82 = icmp eq i64 %78, 0
   call void @llvm.assume(i1 %82)
-  %.not512.i.i.i = icmp ugt i64 %76, %74
+  %.not512.i.i.i = icmp samesign ugt i64 %76, %74
   br i1 %.not512.i.i.i, label %84, label %100
 
 83:                                               ; preds = %71
@@ -2465,7 +2465,7 @@ common.resume.i.i:                                ; preds = %189, %140, %60
 "_ZN8smallvec17SmallVec$LT$A$GT$6triple17hdc9f8cac38000f87E.llvm.6924994955228445577.exit.thread.i.i.i": ; preds = %.thread.i.i.i
   %82 = icmp eq i64 %78, 0
   call void @llvm.assume(i1 %82)
-  %.not512.i.i.i = icmp ugt i64 %76, %74
+  %.not512.i.i.i = icmp samesign ugt i64 %76, %74
   br i1 %.not512.i.i.i, label %84, label %100
 
 83:                                               ; preds = %71
@@ -37602,7 +37602,7 @@ default.unreachable19.i:                          ; preds = %40
   br i1 %41, label %"_ZN65_$LT$image..flat..NormalForm$u20$as$u20$core..cmp..PartialOrd$GT$11partial_cmp17h1cc101ee97cf367eE.exit.thread56", label %_ZN5image4flat12SampleLayout19has_aliased_samples17h77b933853ff0f0c7E.exit.thread
 
 "_ZN65_$LT$image..flat..NormalForm$u20$as$u20$core..cmp..PartialOrd$GT$11partial_cmp17h1cc101ee97cf367eE.exit.thread56": ; preds = %"_ZN65_$LT$image..flat..NormalForm$u20$as$u20$core..cmp..PartialOrd$GT$11partial_cmp17h1cc101ee97cf367eE.exit"
-  %switch = icmp ult i8 %1, 2
+  %switch = icmp samesign ult i8 %1, 2
   br i1 %switch, label %_ZN5image4flat12SampleLayout19has_aliased_samples17h77b933853ff0f0c7E.exit.thread, label %.critedge
 
 .critedge:                                        ; preds = %"_ZN65_$LT$image..flat..NormalForm$u20$as$u20$core..cmp..PartialOrd$GT$11partial_cmp17h1cc101ee97cf367eE.exit.thread56", %40
@@ -38133,13 +38133,13 @@ default.unreachable19:                            ; preds = %10, %9, %8, %7, %2
 
 13:                                               ; preds = %10, %8, %7
   %.off = add nsw i8 %3, -1
-  %switch = icmp ult i8 %.off, 2
+  %switch = icmp samesign ult i8 %.off, 2
   %spec.select = select i1 %switch, i8 -1, i8 2
   br label %11
 
 14:                                               ; preds = %9, %8, %7
   %.off12 = add nsw i8 %3, -1
-  %switch13 = icmp ult i8 %.off12, 2
+  %switch13 = icmp samesign ult i8 %.off12, 2
   %spec.select15 = select i1 %switch13, i8 -1, i8 2
   br label %11
 

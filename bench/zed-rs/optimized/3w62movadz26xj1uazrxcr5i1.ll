@@ -158853,7 +158853,7 @@ define hidden { ptr, ptr } @_ZN5alloc11collections5btree3mem7replace17hdf6ae3169
   %.sroa.8.017.ph.i = phi i64 [ %.sroa.3.0.copyload, %2 ], [ %18, %17 ]
   %.sroa.5.015.ph.i = phi i64 [ %.sroa.2.0.copyload, %2 ], [ %19, %17 ]
   %.sroa.0.0.ph.i = phi ptr [ %.sroa.04.0.copyload, %2 ], [ %15, %17 ]
-  %25 = icmp ult i64 %.sroa.8.017.ph.i, 11
+  %25 = icmp samesign ult i64 %.sroa.8.017.ph.i, 11
   tail call void @llvm.assume(i1 %25)
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %5), !noalias !34284
   store ptr %.sroa.0.0.ph.i, ptr %5, align 8, !noalias !34284
@@ -158984,7 +158984,7 @@ define hidden { ptr, ptr } @"_ZN5alloc11collections5btree8navigate35LeafRange$LT
   %.sroa.8.017.ph.i.i = phi i64 [ %14, %"_ZN5alloc11collections5btree8navigate35LeafRange$LT$BorrowType$C$K$C$V$GT$8is_empty17h9d37e846c5eac71cE.llvm.15282627734019538225.exit.thread" ], [ %30, %29 ]
   %.sroa.5.015.ph.i.i = phi i64 [ %.sroa.2.0.copyload.i, %"_ZN5alloc11collections5btree8navigate35LeafRange$LT$BorrowType$C$K$C$V$GT$8is_empty17h9d37e846c5eac71cE.llvm.15282627734019538225.exit.thread" ], [ %31, %29 ]
   %.sroa.0.0.ph.i.i = phi ptr [ %7, %"_ZN5alloc11collections5btree8navigate35LeafRange$LT$BorrowType$C$K$C$V$GT$8is_empty17h9d37e846c5eac71cE.llvm.15282627734019538225.exit.thread" ], [ %27, %29 ]
-  %37 = icmp ult i64 %.sroa.8.017.ph.i.i, 11
+  %37 = icmp samesign ult i64 %.sroa.8.017.ph.i.i, 11
   tail call void @llvm.assume(i1 %37)
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %4), !noalias !34298
   store ptr %.sroa.0.0.ph.i.i, ptr %4, align 8, !noalias !34298
@@ -159088,7 +159088,7 @@ define hidden void @"_ZN5alloc11collections5btree8navigate35LeafRange$LT$BorrowT
   %.sroa.8.017.ph = phi i64 [ %10, %3 ], [ %21, %20 ]
   %.sroa.5.015.ph = phi i64 [ %7, %3 ], [ %22, %20 ]
   %.sroa.0.0.ph = phi ptr [ %8, %3 ], [ %18, %20 ]
-  %28 = icmp ult i64 %.sroa.8.017.ph, 11
+  %28 = icmp samesign ult i64 %.sroa.8.017.ph, 11
   tail call void @llvm.assume(i1 %28)
   %29 = getelementptr inbounds { [2 x i64] }, ptr %.sroa.0.0.ph, i64 %.sroa.8.017.ph
   %30 = getelementptr inbounds i8, ptr %.sroa.0.0.ph, i64 184

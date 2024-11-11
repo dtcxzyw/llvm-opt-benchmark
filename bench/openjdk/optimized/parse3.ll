@@ -1659,7 +1659,7 @@ switch.lookup:                                    ; preds = %130
   %142 = load ptr, ptr %141, align 8
   %143 = getelementptr inbounds i8, ptr %15, i64 16
   %144 = load ptr, ptr %143, align 8
-  %145 = icmp ugt i8 %9, 2
+  %145 = icmp samesign ugt i8 %9, 2
   br i1 %145, label %146, label %.thread101
 
 146:                                              ; preds = %133

@@ -1477,7 +1477,7 @@ _ZNK2cv11_InputArray6getMatEi.exit:               ; preds = %25, %28
   %69 = getelementptr inbounds i8, ptr %14, i64 16
   store ptr %69, ptr %14, align 8
   %70 = getelementptr inbounds i8, ptr %14, i64 8
-  %.not.i.i = icmp ugt i32 %.sroa.speculated223, 128
+  %.not.i.i = icmp samesign ugt i32 %.sroa.speculated223, 128
   store i64 %68, ptr %70, align 8
   br i1 %.not.i.i, label %71, label %_ZN2cv10AutoBufferIhLm1032EEC2Em.exit
 

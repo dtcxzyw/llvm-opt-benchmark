@@ -1054,7 +1054,7 @@ _ZNSt10unique_ptrIN5draco17AttributeMetadataESt14default_deleteIS1_EED2Ev.exit12
 .invoke:                                          ; preds = %282
   %283 = load i32, ptr %277, align 4
   %284 = icmp slt i32 %283, 256
-  %285 = icmp ult i32 %283, 65536
+  %285 = icmp samesign ult i32 %283, 65536
   %. = select i1 %285, i32 4, i32 6
   %.232 = select i1 %285, i64 2, i64 4
   %286 = select i1 %284, i32 2, i32 %.

@@ -1803,7 +1803,7 @@ match_argopt.exit.thread:                         ; preds = %368, %match_argopt.
   br label %568
 
 563:                                              ; preds = %557
-  %564 = icmp ugt i32 %559, 65535
+  %564 = icmp samesign ugt i32 %559, 65535
   br i1 %564, label %565, label %568
 
 565:                                              ; preds = %563

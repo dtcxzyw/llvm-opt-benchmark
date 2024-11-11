@@ -603,7 +603,7 @@ _ZN8facebook5velox4simd6detail12copyNextWordIN5xsimd5batchIaNS4_4fma3INS4_4avx2E
   %7 = ptrtoint ptr %to.addr.096.i to i64
   %add.i7.i.i = add i64 %7, 32
   %8 = inttoptr i64 %add.i7.i.i to ptr
-  %cmp.not.i = icmp ult i32 %bytes.addr.098.i, 64
+  %cmp.not.i = icmp samesign ult i32 %bytes.addr.098.i, 64
   br i1 %cmp.not.i, label %while.cond2.preheader.i, label %if.then.i.i, !llvm.loop !9
 
 if.then.i3.i:                                     ; preds = %while.cond2.preheader.i, %_ZN8facebook5velox4simd6detail12copyNextWordIlN5xsimd4fma3INS4_4avx2EEEEEbRPvRPKvRi.exit.i
@@ -653,7 +653,7 @@ if.end11.i:                                       ; preds = %if.end.i14.i, %whil
   %to.addr.4.ph.i = phi ptr [ %to.addr.1.lcssa.i, %while.end8.i ], [ %18, %if.end.i14.i ]
   %from.addr.4.ph.i = phi ptr [ %from.addr.1.lcssa.i, %while.end8.i ], [ %16, %if.end.i14.i ]
   %bytes.addr.4.ph.i = phi i32 [ %bytes.addr.1.lcssa.i, %while.end8.i ], [ %sub.i12.i, %if.end.i14.i ]
-  %cmp.i17.i = icmp ugt i32 %bytes.addr.4.ph.i, 1
+  %cmp.i17.i = icmp samesign ugt i32 %bytes.addr.4.ph.i, 1
   br i1 %cmp.i17.i, label %if.then.i19.i, label %if.end14.i
 
 if.then.i19.i:                                    ; preds = %if.end11.i
@@ -1100,7 +1100,7 @@ _ZNSt6vectorIN8facebook5velox9ByteRangeESaIS2_EE12emplace_backIJEEERS2_DpOT_.exi
   br i1 %cmp.i, label %_ZNK8facebook5velox16ByteOutputStream12newRangeSizeEi.exit, label %if.end.i
 
 if.end.i:                                         ; preds = %_ZNSt6vectorIN8facebook5velox9ByteRangeESaIS2_EE12emplace_backIJEEERS2_DpOT_.exit
-  %cmp3.i = icmp ult i32 %conv2.i, 512
+  %cmp3.i = icmp samesign ult i32 %conv2.i, 512
   br i1 %cmp3.i, label %if.then4.i, label %if.end5.i
 
 if.then4.i:                                       ; preds = %if.end.i
@@ -1110,7 +1110,7 @@ if.then4.i:                                       ; preds = %if.end.i
   br label %_ZNK8facebook5velox16ByteOutputStream12newRangeSizeEi.exit
 
 if.end5.i:                                        ; preds = %if.end.i
-  %cmp7.i = icmp ult i32 %conv2.i, 4096
+  %cmp7.i = icmp samesign ult i32 %conv2.i, 4096
   br i1 %cmp7.i, label %if.then8.i, label %if.end10.i
 
 if.then8.i:                                       ; preds = %if.end5.i
@@ -1630,7 +1630,7 @@ _ZN8facebook5velox4simd6detail12copyNextWordIN5xsimd5batchIaNS4_4fma3INS4_4avx2E
   %7 = ptrtoint ptr %to.addr.096.i to i64
   %add.i7.i.i = add i64 %7, 32
   %8 = inttoptr i64 %add.i7.i.i to ptr
-  %cmp.not.i = icmp ult i32 %bytes.addr.098.i, 64
+  %cmp.not.i = icmp samesign ult i32 %bytes.addr.098.i, 64
   br i1 %cmp.not.i, label %while.cond2.preheader.i, label %if.then.i.i, !llvm.loop !9
 
 if.then.i3.i:                                     ; preds = %while.cond2.preheader.i, %_ZN8facebook5velox4simd6detail12copyNextWordIlN5xsimd4fma3INS4_4avx2EEEEEbRPvRPKvRi.exit.i
@@ -1680,7 +1680,7 @@ if.end11.i:                                       ; preds = %if.end.i14.i, %whil
   %to.addr.4.ph.i = phi ptr [ %to.addr.1.lcssa.i, %while.end8.i ], [ %18, %if.end.i14.i ]
   %from.addr.4.ph.i = phi ptr [ %from.addr.1.lcssa.i, %while.end8.i ], [ %16, %if.end.i14.i ]
   %bytes.addr.4.ph.i = phi i32 [ %bytes.addr.1.lcssa.i, %while.end8.i ], [ %sub.i12.i, %if.end.i14.i ]
-  %cmp.i17.i = icmp ugt i32 %bytes.addr.4.ph.i, 1
+  %cmp.i17.i = icmp samesign ugt i32 %bytes.addr.4.ph.i, 1
   br i1 %cmp.i17.i, label %if.then.i19.i, label %if.end14.i
 
 if.then.i19.i:                                    ; preds = %if.end11.i
@@ -2016,7 +2016,7 @@ entry:
   br i1 %cmp, label %return, label %if.end
 
 if.end:                                           ; preds = %entry
-  %cmp3 = icmp ult i32 %conv2, 512
+  %cmp3 = icmp samesign ult i32 %conv2, 512
   br i1 %cmp3, label %if.then4, label %if.end5
 
 if.then4:                                         ; preds = %if.end
@@ -2026,7 +2026,7 @@ if.then4:                                         ; preds = %if.end
   br label %return
 
 if.end5:                                          ; preds = %if.end
-  %cmp7 = icmp ult i32 %conv2, 4096
+  %cmp7 = icmp samesign ult i32 %conv2, 4096
   br i1 %cmp7, label %if.then8, label %if.end10
 
 if.then8:                                         ; preds = %if.end5

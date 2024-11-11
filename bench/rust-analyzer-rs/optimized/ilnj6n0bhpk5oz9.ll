@@ -911,7 +911,7 @@ _ZN6parser6parser6Parser2at17h7ee6f9696108a2acE.exit16: ; preds = %85
   br i1 %.not55, label %_ZN6parser6parser6Parser7current17h253e83d9718dc8dbE.exit.thread, label %102
 
 102:                                              ; preds = %_ZN6parser6parser6Parser2at17h7ee6f9696108a2acE.exit16
-  %103 = icmp ult i32 %74, 15000001
+  %103 = icmp samesign ult i32 %74, 15000001
   br i1 %103, label %104, label %108
 
 104:                                              ; preds = %102

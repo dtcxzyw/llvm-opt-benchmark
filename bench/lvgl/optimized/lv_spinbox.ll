@@ -77,7 +77,7 @@ define internal void @lv_spinbox_event(ptr nocapture readnone %0, ptr noundef %1
 
 27:                                               ; preds = %25
   %28 = udiv i32 %24, 10
-  %29 = icmp ugt i32 %24, 9
+  %29 = icmp samesign ugt i32 %24, 9
   %30 = select i1 %29, i32 %28, i32 1
   store i32 %30, ptr %23, align 4, !tbaa !14
   tail call fastcc void @lv_spinbox_updatevalue(ptr noundef nonnull %6)

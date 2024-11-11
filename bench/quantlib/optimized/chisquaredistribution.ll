@@ -351,7 +351,7 @@ for.cond36:                                       ; preds = %L10, %for.cond
   %inc = add nuw nsw i64 %n.2, 1
   %add43 = fadd double %f_2n.2, 2.000000e+00
   %add44 = fadd double %f_x_2n.2, 2.000000e+00
-  %cmp46 = icmp ugt i64 %n.2, 9999
+  %cmp46 = icmp samesign ugt i64 %n.2, 9999
   %or.cond.not = select i1 %flag.2, i1 true, i1 %cmp46
   br i1 %or.cond.not, label %L10, label %for.cond, !llvm.loop !22
 
@@ -367,7 +367,7 @@ L10:                                              ; preds = %for.cond, %for.cond
   %mul49 = fmul double %x, %t.2
   %div50 = fdiv double %mul49, %f_x_2n.1
   %cmp51 = fcmp ole double %div50, 0x3D719799812DEA11
-  %cmp52 = icmp ugt i64 %n.1, 10000
+  %cmp52 = icmp samesign ugt i64 %n.1, 10000
   %or.cond1 = select i1 %cmp51, i1 true, i1 %cmp52
   br i1 %or.cond1, label %L_End, label %for.cond36, !llvm.loop !24
 

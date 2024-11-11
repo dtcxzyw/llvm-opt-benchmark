@@ -2093,7 +2093,7 @@ gen_bitlen.exit:                                  ; preds = %.outer.split.us.i, 
   %388 = lshr i16 %.07.i.i, 1
   %389 = shl i16 %387, 1
   %390 = add nsw i32 %.06.i.i, -1
-  %391 = icmp ugt i32 %.06.i.i, 1
+  %391 = icmp samesign ugt i32 %.06.i.i, 1
   br i1 %391, label %385, label %bi_reverse.exit.i, !llvm.loop !25
 
 bi_reverse.exit.i:                                ; preds = %385

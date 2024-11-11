@@ -1854,7 +1854,7 @@ if.end.i612:                                      ; preds = %entry
   br i1 %0, label %_ZN4llvh12StringSwitchINS_6Triple15EnvironmentTypeES2_E7DefaultES2_.exit, label %if.end.i603
 
 _ZN4llvh12StringSwitchINS_6Triple15EnvironmentTypeES2_E10StartsWithENS_13StringLiteralES2_.exit261: ; preds = %entry
-  %cmp.i276.not = icmp ult i64 %EnvironmentName.coerce1, 4
+  %cmp.i276.not = icmp samesign ult i64 %EnvironmentName.coerce1, 4
   br i1 %cmp.i276.not, label %_ZN4llvh12StringSwitchINS_6Triple15EnvironmentTypeES2_E10StartsWithENS_13StringLiteralES2_.exit170, label %if.end.i603
 
 if.end.i603:                                      ; preds = %if.end.i612, %_ZN4llvh12StringSwitchINS_6Triple15EnvironmentTypeES2_E10StartsWithENS_13StringLiteralES2_.exit261
@@ -1889,7 +1889,7 @@ if.end.i576:                                      ; preds = %_ZN4llvh12StringSwi
   br i1 %4, label %_ZN4llvh12StringSwitchINS_6Triple15EnvironmentTypeES2_E7DefaultES2_.exit, label %if.end.i567
 
 _ZN4llvh12StringSwitchINS_6Triple15EnvironmentTypeES2_E10StartsWithENS_13StringLiteralES2_.exit209: ; preds = %_ZN4llvh12StringSwitchINS_6Triple15EnvironmentTypeES2_E10StartsWithENS_13StringLiteralES2_.exit235
-  %cmp.i320.not = icmp ult i64 %EnvironmentName.coerce1, 7
+  %cmp.i320.not = icmp samesign ult i64 %EnvironmentName.coerce1, 7
   br i1 %cmp.i320.not, label %_ZN4llvh12StringSwitchINS_6Triple15EnvironmentTypeES2_E10StartsWithENS_13StringLiteralES2_.exit196, label %if.end.i567
 
 if.end.i567:                                      ; preds = %_ZN4llvh12StringSwitchINS_6Triple15EnvironmentTypeES2_E10StartsWithENS_13StringLiteralES2_.exit222, %if.end.i576, %_ZN4llvh12StringSwitchINS_6Triple15EnvironmentTypeES2_E10StartsWithENS_13StringLiteralES2_.exit209

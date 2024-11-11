@@ -2179,7 +2179,7 @@ _ZN4llvm13AllocatorBaseINS_20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm
   %154 = getelementptr inbounds i8, ptr %.0910.i.i.i.i.i.i.i.i.i, i64 4
   %155 = getelementptr inbounds i8, ptr %.0811.i.i.i.i.i.i.i.i.i, i64 4
   %156 = add nsw i64 %.012.i.i.i.i.i.i.i.i.i, -1
-  %157 = icmp ugt i64 %.012.i.i.i.i.i.i.i.i.i, 1
+  %157 = icmp samesign ugt i64 %.012.i.i.i.i.i.i.i.i.i, 1
   br i1 %157, label %.lr.ph.i.i.i.i.i.i.i.i.i, label %_ZSt20uninitialized_copy_nIN9__gnu_cxx17__normal_iteratorIPjSt6vectorIjSaIjEEEEjPN4llvm7support6detail31packed_endian_specific_integralIjLNS7_10endiannessE1ELm1ELm1EEEET1_T_T0_SE_.exit, !llvm.loop !81
 
 _ZSt20uninitialized_copy_nIN9__gnu_cxx17__normal_iteratorIPjSt6vectorIjSaIjEEEEjPN4llvm7support6detail31packed_endian_specific_integralIjLNS7_10endiannessE1ELm1ELm1EEEET1_T_T0_SE_.exit: ; preds = %.lr.ph.i.i.i.i.i.i.i.i.i, %_ZN4llvm13AllocatorBaseINS_20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EEEE8AllocateINS_7support6detail31packed_endian_specific_integralIjLNS_10endiannessE1ELm1ELm1EEEEEPT_m.exit
@@ -2397,7 +2397,7 @@ _ZN4llvm13AllocatorBaseINS_20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm
   %265 = getelementptr inbounds i8, ptr %.0910.i.i.i.i.i.i.i.i.i83, i64 4
   %266 = getelementptr inbounds i8, ptr %.0811.i.i.i.i.i.i.i.i.i82, i64 4
   %267 = add nsw i64 %.012.i.i.i.i.i.i.i.i.i81, -1
-  %268 = icmp ugt i64 %.012.i.i.i.i.i.i.i.i.i81, 1
+  %268 = icmp samesign ugt i64 %.012.i.i.i.i.i.i.i.i.i81, 1
   br i1 %268, label %.lr.ph.i.i.i.i.i.i.i.i.i80, label %_ZSt20uninitialized_copy_nIN9__gnu_cxx17__normal_iteratorIPjSt6vectorIjSaIjEEEEmPN4llvm7support6detail31packed_endian_specific_integralIjLNS7_10endiannessE1ELm1ELm1EEEET1_T_T0_SE_.exit.loopexit, !llvm.loop !81
 
 _ZSt20uninitialized_copy_nIN9__gnu_cxx17__normal_iteratorIPjSt6vectorIjSaIjEEEEmPN4llvm7support6detail31packed_endian_specific_integralIjLNS7_10endiannessE1ELm1ELm1EEEET1_T_T0_SE_.exit.loopexit: ; preds = %.lr.ph.i.i.i.i.i.i.i.i.i80

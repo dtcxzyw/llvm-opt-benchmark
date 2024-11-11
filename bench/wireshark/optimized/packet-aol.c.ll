@@ -438,7 +438,7 @@ dissect_aol_init.exit:                            ; preds = %143, %132, %45, %.t
   %.3 = phi i32 [ %156, %.thread105 ], [ %122, %45 ], [ %141, %132 ], [ %151, %143 ]
   %157 = zext i16 %.291 to i32
   %158 = add nuw nsw i32 %37, %157
-  %159 = icmp ult i32 %.3, %158
+  %159 = icmp samesign ult i32 %.3, %158
   br i1 %159, label %160, label %.thread
 
 160:                                              ; preds = %dissect_aol_init.exit

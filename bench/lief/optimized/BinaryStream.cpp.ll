@@ -399,7 +399,7 @@ _ZNK4LIEF12BinaryStream4readIhEEN2tl8expectedIT_11lief_errorsEEv.exit.i7: ; pred
   br i1 %80, label %65, label %81, !llvm.loop !6
 
 81:                                               ; preds = %_ZNK4LIEF12BinaryStream4readIhEEN2tl8expectedIT_11lief_errorsEEv.exit.i7
-  %.not.i8 = icmp ult i8 %72, 64
+  %.not.i8 = icmp samesign ult i8 %72, 64
   %82 = zext nneg i32 %79 to i64
   %83 = shl nsw i64 -1, %82
   %84 = select i1 %.not.i8, i64 0, i64 %83
@@ -503,7 +503,7 @@ _ZNK4LIEF12BinaryStream4readIhEEN2tl8expectedIT_11lief_errorsEEv.exit: ; preds =
   br i1 %19, label %4, label %.critedge, !llvm.loop !6
 
 .critedge:                                        ; preds = %_ZNK4LIEF12BinaryStream4readIhEEN2tl8expectedIT_11lief_errorsEEv.exit
-  %.not = icmp ult i8 %11, 64
+  %.not = icmp samesign ult i8 %11, 64
   %20 = zext nneg i32 %18 to i64
   %21 = shl nsw i64 -1, %20
   %22 = select i1 %.not, i64 0, i64 %21
@@ -799,7 +799,7 @@ _ZN2tl8expectedINSt7__cxx1112basic_stringIDsSt11char_traitsIDsESaIDsEEE11lief_er
   br i1 %42, label %_ZNKSt7__cxx1112basic_stringIDsSt11char_traitsIDsESaIDsEE11_M_is_localEv.exit.thread.i.i.i.i.i.i.i.i.i4, label %_ZNKSt7__cxx1112basic_stringIDsSt11char_traitsIDsESaIDsEE11_M_is_localEv.exit.i.i.i.i.i.i.i.i.i3
 
 _ZNKSt7__cxx1112basic_stringIDsSt11char_traitsIDsESaIDsEE11_M_is_localEv.exit.thread.i.i.i.i.i.i.i.i.i4: ; preds = %37
-  %43 = icmp ult i64 %9, 8
+  %43 = icmp samesign ult i64 %9, 8
   call void @llvm.assume(i1 %43)
   br label %_ZN2tl8expectedINSt7__cxx1112basic_stringIDsSt11char_traitsIDsESaIDsEEE11lief_errorsED2Ev.exit5
 
@@ -971,7 +971,7 @@ _ZNKSt7__cxx1112basic_stringIDsSt11char_traitsIDsESaIDsEE8capacityEv.exit.i.i: ;
 
 _ZNSt7__cxx1112basic_stringIDsSt11char_traitsIDsESaIDsEE9_M_createERmm.exit.i.i: ; preds = %_ZNKSt7__cxx1112basic_stringIDsSt11char_traitsIDsESaIDsEE8capacityEv.exit.i.i
   %62 = shl nuw nsw i64 %60, 1
-  %63 = icmp ult i64 %54, %62
+  %63 = icmp samesign ult i64 %54, %62
   %spec.store.select.i.i.i = call i64 @llvm.umin.i64(i64 %62, i64 2305843009213693951)
   %.0.i.i = select i1 %63, i64 %spec.store.select.i.i.i, i64 %54
   %64 = shl nuw nsw i64 %.0.i.i, 1
@@ -999,7 +999,7 @@ _ZNSt7__cxx1112basic_stringIDsSt11char_traitsIDsESaIDsEE7_S_copyEPDsPKDsm.exit27
   br i1 %56, label %_ZNKSt7__cxx1112basic_stringIDsSt11char_traitsIDsESaIDsEE11_M_is_localEv.exit.thread.i.i.i, label %_ZNKSt7__cxx1112basic_stringIDsSt11char_traitsIDsESaIDsEE11_M_is_localEv.exit.i.i.i
 
 _ZNKSt7__cxx1112basic_stringIDsSt11char_traitsIDsESaIDsEE11_M_is_localEv.exit.thread.i.i.i: ; preds = %_ZNSt7__cxx1112basic_stringIDsSt11char_traitsIDsESaIDsEE7_S_copyEPDsPKDsm.exit27.i.i
-  %71 = icmp ult i64 %53, 8
+  %71 = icmp samesign ult i64 %53, 8
   call void @llvm.assume(i1 %71)
   br label %_ZNSt7__cxx1112basic_stringIDsSt11char_traitsIDsESaIDsEE9_M_mutateEmmPKDsm.exit.i
 
@@ -1474,7 +1474,7 @@ _ZNKSt7__cxx1112basic_stringIDiSt11char_traitsIDiESaIDiEE8capacityEv.exit.i.i: ;
 
 _ZNSt7__cxx1112basic_stringIDiSt11char_traitsIDiESaIDiEE9_M_createERmm.exit.i.i: ; preds = %_ZNKSt7__cxx1112basic_stringIDiSt11char_traitsIDiESaIDiEE8capacityEv.exit.i.i
   %37 = shl nuw nsw i64 %35, 1
-  %38 = icmp ult i64 %29, %37
+  %38 = icmp samesign ult i64 %29, %37
   %spec.store.select.i.i.i = call i64 @llvm.umin.i64(i64 %37, i64 1152921504606846975)
   %.0.i.i = select i1 %38, i64 %spec.store.select.i.i.i, i64 %29
   %39 = shl nuw nsw i64 %.0.i.i, 2
@@ -1502,7 +1502,7 @@ _ZNSt7__cxx1112basic_stringIDiSt11char_traitsIDiESaIDiEE7_S_copyEPDiPKDim.exit27
   br i1 %31, label %_ZNKSt7__cxx1112basic_stringIDiSt11char_traitsIDiESaIDiEE11_M_is_localEv.exit.thread.i.i.i, label %_ZNKSt7__cxx1112basic_stringIDiSt11char_traitsIDiESaIDiEE11_M_is_localEv.exit.i.i.i
 
 _ZNKSt7__cxx1112basic_stringIDiSt11char_traitsIDiESaIDiEE11_M_is_localEv.exit.thread.i.i.i: ; preds = %_ZNSt7__cxx1112basic_stringIDiSt11char_traitsIDiESaIDiEE7_S_copyEPDiPKDim.exit27.i.i
-  %46 = icmp ult i64 %28, 4
+  %46 = icmp samesign ult i64 %28, 4
   call void @llvm.assume(i1 %46)
   br label %_ZNSt7__cxx1112basic_stringIDiSt11char_traitsIDiESaIDiEE9_M_mutateEmmPKDim.exit.i
 
@@ -1584,7 +1584,7 @@ _ZNKSt7__cxx1112basic_stringIDiSt11char_traitsIDiESaIDiEE8capacityEv.exit.i.i36:
 
 _ZNSt7__cxx1112basic_stringIDiSt11char_traitsIDiESaIDiEE9_M_createERmm.exit.i.i37: ; preds = %_ZNKSt7__cxx1112basic_stringIDiSt11char_traitsIDiESaIDiEE8capacityEv.exit.i.i36
   %77 = shl nuw nsw i64 %75, 1
-  %78 = icmp ult i64 %69, %77
+  %78 = icmp samesign ult i64 %69, %77
   %spec.store.select.i.i.i38 = call i64 @llvm.umin.i64(i64 %77, i64 1152921504606846975)
   %.0.i.i39 = select i1 %78, i64 %spec.store.select.i.i.i38, i64 %69
   %79 = shl nuw nsw i64 %.0.i.i39, 2
@@ -1612,7 +1612,7 @@ _ZNSt7__cxx1112basic_stringIDiSt11char_traitsIDiESaIDiEE7_S_copyEPDiPKDim.exit27
   br i1 %71, label %_ZNKSt7__cxx1112basic_stringIDiSt11char_traitsIDiESaIDiEE11_M_is_localEv.exit.thread.i.i.i43, label %_ZNKSt7__cxx1112basic_stringIDiSt11char_traitsIDiESaIDiEE11_M_is_localEv.exit.i.i.i41
 
 _ZNKSt7__cxx1112basic_stringIDiSt11char_traitsIDiESaIDiEE11_M_is_localEv.exit.thread.i.i.i43: ; preds = %_ZNSt7__cxx1112basic_stringIDiSt11char_traitsIDiESaIDiEE7_S_copyEPDiPKDim.exit27.i.i40
-  %86 = icmp ult i64 %68, 4
+  %86 = icmp samesign ult i64 %68, 4
   call void @llvm.assume(i1 %86)
   br label %_ZNSt7__cxx1112basic_stringIDiSt11char_traitsIDiESaIDiEE9_M_mutateEmmPKDim.exit.i42
 
@@ -1749,7 +1749,7 @@ _ZNKSt7__cxx1112basic_stringIDiSt11char_traitsIDiESaIDiEE8capacityEv.exit.i.i56:
 
 _ZNSt7__cxx1112basic_stringIDiSt11char_traitsIDiESaIDiEE9_M_createERmm.exit.i.i57: ; preds = %_ZNKSt7__cxx1112basic_stringIDiSt11char_traitsIDiESaIDiEE8capacityEv.exit.i.i56
   %141 = shl nuw nsw i64 %139, 1
-  %142 = icmp ult i64 %133, %141
+  %142 = icmp samesign ult i64 %133, %141
   %spec.store.select.i.i.i58 = call i64 @llvm.umin.i64(i64 %141, i64 1152921504606846975)
   %.0.i.i59 = select i1 %142, i64 %spec.store.select.i.i.i58, i64 %133
   %143 = shl nuw nsw i64 %.0.i.i59, 2
@@ -1777,7 +1777,7 @@ _ZNSt7__cxx1112basic_stringIDiSt11char_traitsIDiESaIDiEE7_S_copyEPDiPKDim.exit27
   br i1 %135, label %_ZNKSt7__cxx1112basic_stringIDiSt11char_traitsIDiESaIDiEE11_M_is_localEv.exit.thread.i.i.i63, label %_ZNKSt7__cxx1112basic_stringIDiSt11char_traitsIDiESaIDiEE11_M_is_localEv.exit.i.i.i61
 
 _ZNKSt7__cxx1112basic_stringIDiSt11char_traitsIDiESaIDiEE11_M_is_localEv.exit.thread.i.i.i63: ; preds = %_ZNSt7__cxx1112basic_stringIDiSt11char_traitsIDiESaIDiEE7_S_copyEPDiPKDim.exit27.i.i60
-  %150 = icmp ult i64 %132, 4
+  %150 = icmp samesign ult i64 %132, 4
   call void @llvm.assume(i1 %150)
   br label %_ZNSt7__cxx1112basic_stringIDiSt11char_traitsIDiESaIDiEE9_M_mutateEmmPKDim.exit.i62
 

@@ -4309,7 +4309,7 @@ _ZN4NodenwEm.exit125:                             ; preds = %165, %167
   br i1 %181, label %182, label %273
 
 182:                                              ; preds = %178
-  %183 = icmp ugt i32 %4, %144
+  %183 = icmp samesign ugt i32 %4, %144
   br i1 %183, label %184, label %238
 
 184:                                              ; preds = %182
@@ -5337,7 +5337,7 @@ _ZN4NodenwEm.exit123:                             ; preds = %166, %168
   br i1 %183, label %184, label %277
 
 184:                                              ; preds = %180
-  %185 = icmp ugt i32 %4, %145
+  %185 = icmp samesign ugt i32 %4, %145
   br i1 %185, label %186, label %241
 
 186:                                              ; preds = %184

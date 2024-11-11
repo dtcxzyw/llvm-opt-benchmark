@@ -766,7 +766,7 @@ if.end90:                                         ; preds = %land.lhs.true82.if.
   br label %while.cond.backedge
 
 while.cond.backedge:                              ; preds = %while.body, %if.end90, %land.lhs.true82
-  %cmp69 = icmp ugt i64 %indvars.iv63, 1
+  %cmp69 = icmp samesign ugt i64 %indvars.iv63, 1
   br i1 %cmp69, label %while.body, label %return, !llvm.loop !12
 
 return:                                           ; preds = %while.cond.backedge, %err1, %if.then17, %for.end64
@@ -804,7 +804,7 @@ for.body:                                         ; preds = %for.body.preheader,
   %arrayidx = getelementptr inbounds ptr, ptr %3, i64 %indvars.iv.next
   %4 = load ptr, ptr %arrayidx, align 8
   tail call void @OPENSSL_LH_free(ptr noundef %4) #5
-  %cmp3 = icmp ugt i64 %indvars.iv, 1
+  %cmp3 = icmp samesign ugt i64 %indvars.iv, 1
   br i1 %cmp3, label %for.body, label %for.end.loopexit, !llvm.loop !13
 
 for.end.loopexit:                                 ; preds = %for.body

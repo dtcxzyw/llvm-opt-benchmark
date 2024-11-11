@@ -225,7 +225,7 @@ if.end35:                                         ; preds = %if.end24, %if.then2
 
 if.end11.i:                                       ; preds = %if.end35
   %6 = load i64, ptr %custom_len, align 8
-  %cmp12.i = icmp ult i32 %call21, 256
+  %cmp12.i = icmp samesign ult i32 %call21, 256
   br i1 %cmp12.i, label %if.end19.i, label %land.end
 
 if.end19.i:                                       ; preds = %if.end11.i
@@ -361,7 +361,7 @@ for.body.i:                                       ; preds = %for.body.i, %for.bo
   %arrayidx.i = getelementptr inbounds i8, ptr %encoded_outlen, i64 %indvars.iv.next.i
   store i8 %conv4.i, ptr %arrayidx.i, align 1
   %shr.i = lshr i64 %bits.addr.010.i, 8
-  %cmp2.i = icmp ugt i64 %indvars.iv.i, 1
+  %cmp2.i = icmp samesign ugt i64 %indvars.iv.i, 1
   br i1 %cmp2.i, label %for.body.i, label %land.lhs.true, !llvm.loop !6
 
 land.lhs.true:                                    ; preds = %for.body.i

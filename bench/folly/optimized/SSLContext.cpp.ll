@@ -7511,7 +7511,7 @@ call5.i.i.i.i.noexc.i:                            ; preds = %_ZNSt12_Vector_base
   %add.ptr.i.i = getelementptr inbounds double, ptr %call5.i.i.i.i9.i, i64 %sub.ptr.div.i.i.i.i.i
   %_M_end_of_storage.i.i = getelementptr inbounds i8, ptr %this, i64 16
   store ptr %add.ptr.i.i, ptr %_M_end_of_storage.i.i, align 8, !tbaa !227
-  %min.iters.check = icmp ult i64 %sub.ptr.div.i.i.i.i.i, 4
+  %min.iters.check = icmp samesign ult i64 %sub.ptr.div.i.i.i.i.i, 4
   br i1 %min.iters.check, label %for.body.i.i.i.i.i.i.i.i.i.i.preheader, label %vector.ph
 
 vector.ph:                                        ; preds = %call5.i.i.i.i.noexc.i

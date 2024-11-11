@@ -12,7 +12,7 @@ define noalias ptr @mm_memalign(ptr noundef %0, i64 noundef %1, i64 noundef %2) 
   br i1 %or.cond98, label %6, label %84
 
 6:                                                ; preds = %3
-  %7 = icmp ult i64 %1, 17
+  %7 = icmp samesign ult i64 %1, 17
   br i1 %7, label %8, label %10
 
 8:                                                ; preds = %6

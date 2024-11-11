@@ -254,7 +254,7 @@ _ZN13GrowableArrayIP13ValueMapEntryEC2EiiRKS1_.exit: ; preds = %.lr.ph.preheader
   %35 = load ptr, ptr %10, align 8
   %36 = getelementptr inbounds ptr, ptr %35, i64 %indvars.iv.next
   store ptr %34, ptr %36, align 8
-  %37 = icmp ugt i64 %indvars.iv, 1
+  %37 = icmp samesign ugt i64 %indvars.iv, 1
   br i1 %37, label %31, label %._crit_edge, !llvm.loop !6
 
 ._crit_edge:                                      ; preds = %31, %_ZN13GrowableArrayIP13ValueMapEntryEC2EiiRKS1_.exit
@@ -1049,7 +1049,7 @@ define hidden void @_ZN8ValueMap8kill_allEv(ptr nocapture noundef nonnull align 
   %8 = load ptr, ptr %5, align 8
   %9 = getelementptr inbounds ptr, ptr %8, i64 %indvars.iv.next
   store ptr null, ptr %9, align 8
-  %10 = icmp ugt i64 %indvars.iv, 1
+  %10 = icmp samesign ugt i64 %indvars.iv, 1
   br i1 %10, label %7, label %._crit_edge, !llvm.loop !19
 
 ._crit_edge:                                      ; preds = %7, %1
@@ -1136,7 +1136,7 @@ _ZNK10BlockBegin14is_predecessorEPS_.exit:        ; preds = %24, %25, %15
   %42 = getelementptr inbounds ptr, ptr %41, i64 %indvars.iv.next
   %43 = load ptr, ptr %42, align 8
   tail call void @_ZN23LoopInvariantCodeMotion13process_blockEP10BlockBegin(ptr noundef nonnull align 8 dereferenceable(33) %0, ptr noundef %43)
-  %44 = icmp ugt i64 %indvars.iv, 2
+  %44 = icmp samesign ugt i64 %indvars.iv, 2
   br i1 %44, label %40, label %.loopexit, !llvm.loop !21
 
 .loopexit:                                        ; preds = %40, %35, %5
@@ -2021,7 +2021,7 @@ _ZNK10BlockBegin14is_predecessorEPS_.exit.i:      ; preds = %151, %150, %140
   %167 = getelementptr inbounds ptr, ptr %166, i64 %indvars.iv.next.i31
   %168 = load ptr, ptr %167, align 8
   call void @_ZN23LoopInvariantCodeMotion13process_blockEP10BlockBegin(ptr noundef nonnull align 8 dereferenceable(33) %3, ptr noundef %168)
-  %169 = icmp ugt i64 %indvars.iv.i30, 2
+  %169 = icmp samesign ugt i64 %indvars.iv.i30, 2
   br i1 %169, label %165, label %_ZN23LoopInvariantCodeMotionC2EP18ShortLoopOptimizerP20GlobalValueNumberingP10BlockBeginP9BlockList.exit, !llvm.loop !21
 
 _ZN23LoopInvariantCodeMotionC2EP18ShortLoopOptimizerP20GlobalValueNumberingP10BlockBeginP9BlockList.exit: ; preds = %19, %.loopexit, %32, %80, %165, %108, %._crit_edge, %_ZN14CompilerConfig10is_c1_onlyEv.exit.i.i, %_ZN11Compilation12is_profilingEv.exit.i, %119, %161, %130, %_ZN11Compilation13is_optimisticEv.exit
@@ -2391,7 +2391,7 @@ _ZN13GrowableArrayIP13ValueMapEntryEC2EiiRKS1_.exit.i: ; preds = %.lr.ph.prehead
   %215 = load ptr, ptr %191, align 8
   %216 = getelementptr inbounds ptr, ptr %215, i64 %indvars.iv.next.i
   store ptr %214, ptr %216, align 8
-  %217 = icmp ugt i64 %indvars.iv.i, 1
+  %217 = icmp samesign ugt i64 %indvars.iv.i, 1
   br i1 %217, label %211, label %_ZN8ValueMapC2EPS_.exit, !llvm.loop !6
 
 _ZN8ValueMapC2EPS_.exit:                          ; preds = %211, %_ZN13GrowableArrayIP13ValueMapEntryEC2EiiRKS1_.exit.i

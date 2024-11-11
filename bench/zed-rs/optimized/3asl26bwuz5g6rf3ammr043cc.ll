@@ -23181,7 +23181,7 @@ _ZN4gpui8executor5Scope5spawn17hc54fb4a1c0512c30E.exit.i.i: ; preds = %293, %289
   %.sroa.6154.0.copyload = load i64, ptr %.sroa.6154.0..sroa_idx, align 8
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %.sroa.5.sroa.0.i)
   %381 = getelementptr inbounds { i64, [1 x i64] }, ptr %.sroa.5153.0.copyload, i64 %.sroa.6154.0.copyload
-  %382 = icmp ult i64 %.sroa.6154.0.copyload, 31
+  %382 = icmp samesign ult i64 %.sroa.6154.0.copyload, 31
   br i1 %382, label %.noexc.i80, label %383
 
 383:                                              ; preds = %378
@@ -24821,7 +24821,7 @@ common.ret:                                       ; preds = %"_ZN4core3ptr77drop
   %.sroa.682.0.copyload = load i64, ptr %.sroa.682.0..sroa_idx, align 8
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %.sroa.5.sroa.0.i)
   %208 = getelementptr inbounds { i64, [1 x i64] }, ptr %.sroa.581.0.copyload, i64 %.sroa.682.0.copyload
-  %209 = icmp ult i64 %.sroa.682.0.copyload, 31
+  %209 = icmp samesign ult i64 %.sroa.682.0.copyload, 31
   br i1 %209, label %.noexc.i33, label %210
 
 210:                                              ; preds = %206

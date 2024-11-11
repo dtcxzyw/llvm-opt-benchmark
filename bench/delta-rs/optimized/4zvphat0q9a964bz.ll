@@ -29733,7 +29733,7 @@ define hidden void @"_ZN3url13path_segments15PathSegmentsMut6extend28_$u7b$$u7b$
   %50 = and i8 %48, 63
   %51 = zext nneg i8 %50 to i32
   %52 = or disjoint i32 %49, %51
-  %53 = icmp ugt i8 %42, -33
+  %53 = icmp samesign ugt i8 %42, -33
   br i1 %53, label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hab6db8ca774f487dE.exit15.i.i.i.i.i.i", label %_ZN4core3str11validations15next_code_point17hf2dfa5df22a8986bE.exit.thread.i.i.i.i.i
 
 54:                                               ; preds = %41
@@ -29751,7 +29751,7 @@ define hidden void @"_ZN3url13path_segments15PathSegmentsMut6extend28_$u7b$$u7b$
   %62 = or disjoint i32 %59, %61
   %63 = shl nuw nsw i32 %46, 12
   %64 = or disjoint i32 %62, %63
-  %65 = icmp ugt i8 %42, -17
+  %65 = icmp samesign ugt i8 %42, -17
   br i1 %65, label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hab6db8ca774f487dE.exit17.i.i.i.i.i.i", label %_ZN4core3str11validations15next_code_point17hf2dfa5df22a8986bE.exit.thread.i.i.i.i.i
 
 "_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hab6db8ca774f487dE.exit17.i.i.i.i.i.i": ; preds = %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hab6db8ca774f487dE.exit15.i.i.i.i.i.i"
@@ -74126,7 +74126,7 @@ define internal fastcc void @"_ZN6chrono8datetime40DateTime$LT$chrono..offset..u
   br label %24
 
 19:                                               ; preds = %15
-  %20 = icmp ugt i32 %2, 999999999
+  %20 = icmp samesign ugt i32 %2, 999999999
   %21 = urem i32 %16, 60
   %22 = icmp ne i32 %21, 59
   %or.cond3.not = and i1 %20, %22
@@ -114845,7 +114845,7 @@ common.ret:                                       ; preds = %4573, %4366, %3830,
   %.sroa.6309.0.copyload.i.i = load i64, ptr %3259, align 16, !noalias !17973
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %.sroa.5.sroa.0.i.i.i1115)
   %3314 = getelementptr inbounds ptr, ptr %.sroa.5308.0.copyload.i.i, i64 %.sroa.6309.0.copyload.i.i
-  %3315 = icmp ult i64 %.sroa.6309.0.copyload.i.i, 31
+  %3315 = icmp samesign ult i64 %.sroa.6309.0.copyload.i.i, 31
   br i1 %3315, label %.noexc.i.i.i1142, label %3316
 
 3316:                                             ; preds = %"_ZN4core3ptr73drop_in_place$LT$datafusion_physical_expr..partitioning..Partitioning$GT$17h8ac1c8c25b78a859E.exit.i.i1138"
@@ -144469,7 +144469,7 @@ define noundef zeroext i1 @"_ZN96_$LT$deltalake_core..delta_datafusion..expr..Sc
 
 423:                                              ; preds = %420
   %424 = trunc nuw nsw i64 %spec.select.i.i to i32
-  %425 = icmp ugt i32 %409, 999999999
+  %425 = icmp samesign ugt i32 %409, 999999999
   %426 = urem i32 %424, 60
   %427 = icmp ne i32 %426, 59
   %or.cond3.not.i = and i1 %425, %427

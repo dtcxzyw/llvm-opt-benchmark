@@ -297,7 +297,7 @@ define internal i32 @dissect_collectd(ptr noundef %0, ptr noundef %1, ptr nounde
   %.0241.ph498 = phi i32 [ %.2243, %stats_account_string.exit349 ], [ 0, %.lr.ph.lr.ph ]
   %.0244.ph497 = phi ptr [ %.3247, %stats_account_string.exit349 ], [ null, %.lr.ph.lr.ph ]
   %.0248.ph496 = phi i32 [ %610, %stats_account_string.exit349 ], [ %16, %.lr.ph.lr.ph ]
-  %50 = icmp ult i32 %.0248.ph496, 4
+  %50 = icmp samesign ult i32 %.0248.ph496, 4
   br i1 %50, label %139, label %143
 
 .lr.ph.split.us:                                  ; preds = %.lr.ph.lr.ph, %stats_account_string.exit320.us
@@ -308,7 +308,7 @@ define internal i32 @dissect_collectd(ptr noundef %0, ptr noundef %1, ptr nounde
   %.0241409.us = phi i32 [ %.1242.us, %stats_account_string.exit320.us ], [ 0, %.lr.ph.lr.ph ]
   %.0244408.us = phi ptr [ %.1245.us, %stats_account_string.exit320.us ], [ null, %.lr.ph.lr.ph ]
   %.0248407.us = phi i32 [ %137, %stats_account_string.exit320.us ], [ %16, %.lr.ph.lr.ph ]
-  %51 = icmp ult i32 %.0248407.us, 4
+  %51 = icmp samesign ult i32 %.0248407.us, 4
   br i1 %51, label %.loopexit, label %52
 
 52:                                               ; preds = %.lr.ph.split.us
@@ -317,7 +317,7 @@ define internal i32 @dissect_collectd(ptr noundef %0, ptr noundef %1, ptr nounde
   %55 = tail call zeroext i16 @tvb_get_ntohs(ptr noundef %0, i32 noundef %54) #5
   %56 = zext i16 %55 to i32
   %57 = icmp ult i16 %55, 4
-  %58 = icmp ult i32 %.0248407.us, %56
+  %58 = icmp samesign ult i32 %.0248407.us, %56
   %or.cond286.us = or i1 %57, %58
   br i1 %or.cond286.us, label %.loopexit, label %59
 
@@ -523,7 +523,7 @@ stats_account_string.exit320.us:                  ; preds = %134, %128, %122, %1
   %147 = call zeroext i16 @tvb_get_ntohs(ptr noundef %0, i32 noundef %146) #5
   %148 = zext i16 %147 to i32
   %149 = icmp ult i16 %147, 4
-  %150 = icmp ult i32 %.0248.ph496, %148
+  %150 = icmp samesign ult i32 %.0248.ph496, %148
   %or.cond287 = or i1 %149, %150
   br i1 %or.cond287, label %151, label %165
 
@@ -660,7 +660,7 @@ stats_account_string.exit320.us:                  ; preds = %134, %128, %122, %1
   %208 = zext i16 %207 to i32
   %209 = call zeroext i16 @tvb_get_ntohs(ptr noundef %0, i32 noundef %146) #5
   %210 = zext i16 %209 to i32
-  %211 = icmp ult i32 %204, 15
+  %211 = icmp samesign ult i32 %204, 15
   br i1 %211, label %212, label %223
 
 212:                                              ; preds = %206
@@ -1138,7 +1138,7 @@ collectd_proto_tree_add_assembled_notification.exit: ; preds = %432, %441, %444
   %486 = zext i16 %485 to i32
   %487 = call zeroext i16 @tvb_get_ntohs(ptr noundef %0, i32 noundef %146) #5
   %488 = zext i16 %487 to i32
-  %489 = icmp ult i32 %482, 36
+  %489 = icmp samesign ult i32 %482, 36
   br i1 %489, label %490, label %501
 
 490:                                              ; preds = %484
@@ -1198,7 +1198,7 @@ dissect_collectd_signature.exit.thread:           ; preds = %481, %490, %505
   %531 = zext i16 %530 to i32
   %532 = call zeroext i16 @tvb_get_ntohs(ptr noundef %0, i32 noundef %146) #5
   %533 = zext i16 %532 to i32
-  %534 = icmp ult i32 %527, 42
+  %534 = icmp samesign ult i32 %527, 42
   br i1 %534, label %535, label %546
 
 535:                                              ; preds = %529
@@ -1459,7 +1459,7 @@ define internal fastcc range(i32 -1, 1) i32 @dissect_collectd_string(ptr noundef
   %19 = load i32, ptr @ett_collectd_string, align 4
   %20 = tail call ptr @val_to_str_const(i32 noundef %15, ptr noundef nonnull @part_names, ptr noundef nonnull @.str.81) #5
   %21 = call ptr (ptr, ptr, i32, i32, i32, ptr, ptr, ...) @proto_tree_add_subtree_format(ptr noundef %7, ptr noundef %0, i32 noundef %3, i32 noundef %18, i32 noundef %19, ptr noundef nonnull %10, ptr noundef nonnull @.str.97, ptr noundef %20) #5
-  %22 = icmp ult i32 %11, %18
+  %22 = icmp samesign ult i32 %11, %18
   br i1 %22, label %23, label %25
 
 23:                                               ; preds = %13
@@ -1512,7 +1512,7 @@ define internal fastcc range(i32 -1, 1) i32 @dissect_collectd_integer(ptr nounde
   %18 = add i32 %3, 2
   %19 = tail call zeroext i16 @tvb_get_ntohs(ptr noundef %0, i32 noundef %18) #5
   %20 = zext i16 %19 to i32
-  %21 = icmp ult i32 %13, 12
+  %21 = icmp samesign ult i32 %13, 12
   br i1 %21, label %22, label %33
 
 22:                                               ; preds = %15

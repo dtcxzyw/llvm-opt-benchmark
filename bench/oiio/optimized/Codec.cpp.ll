@@ -1123,7 +1123,7 @@ for.body44:                                       ; preds = %for.body44.preheade
   %19 = lshr i32 %shr, 2
   %conv1.i = trunc i32 %19 to i8
   store i8 %conv1.i, ptr %arrayidx54, align 1
-  %cmp43 = icmp ugt i64 %indvars.iv, 1
+  %cmp43 = icmp samesign ugt i64 %indvars.iv, 1
   br i1 %cmp43, label %for.body44, label %for.inc55, !llvm.loop !15
 
 for.inc55:                                        ; preds = %for.body44, %for.body
@@ -1232,7 +1232,7 @@ for.body44:                                       ; preds = %for.body44.preheade
   %19 = lshr i32 %shr, 2
   %conv1.i = trunc i32 %19 to i8
   store i8 %conv1.i, ptr %arrayidx54, align 1
-  %cmp43 = icmp ugt i64 %indvars.iv, 1
+  %cmp43 = icmp samesign ugt i64 %indvars.iv, 1
   br i1 %cmp43, label %for.body44, label %for.inc55, !llvm.loop !17
 
 for.inc55:                                        ; preds = %for.body44, %for.body
@@ -1980,7 +1980,7 @@ for.body44:                                       ; preds = %for.body44.preheade
   %or.i = or disjoint i16 %shl.i, %shr.i
   %arrayidx54 = getelementptr inbounds i16, ptr %add.ptr, i64 %indvars.iv.next
   store i16 %or.i, ptr %arrayidx54, align 2
-  %cmp43 = icmp ugt i64 %indvars.iv, 1
+  %cmp43 = icmp samesign ugt i64 %indvars.iv, 1
   br i1 %cmp43, label %for.body44, label %for.inc55, !llvm.loop !29
 
 for.inc55:                                        ; preds = %for.body44, %for.body
@@ -2092,7 +2092,7 @@ for.body44:                                       ; preds = %for.body44.preheade
   %or.i = or disjoint i16 %shl.i, %shr.i
   %arrayidx54 = getelementptr inbounds i16, ptr %add.ptr, i64 %indvars.iv.next
   store i16 %or.i, ptr %arrayidx54, align 2
-  %cmp43 = icmp ugt i64 %indvars.iv, 1
+  %cmp43 = icmp samesign ugt i64 %indvars.iv, 1
   br i1 %cmp43, label %for.body44, label %for.inc55, !llvm.loop !31
 
 for.inc55:                                        ; preds = %for.body44, %for.body
@@ -2848,7 +2848,7 @@ for.body44:                                       ; preds = %for.body44.preheade
   %conv.i = zext i16 %or.i to i32
   %shl.i33 = shl nuw i32 %conv.i, 16
   store i32 %shl.i33, ptr %arrayidx54, align 4
-  %cmp43 = icmp ugt i64 %indvars.iv, 1
+  %cmp43 = icmp samesign ugt i64 %indvars.iv, 1
   br i1 %cmp43, label %for.body44, label %for.inc55, !llvm.loop !43
 
 for.inc55:                                        ; preds = %for.body44, %for.body
@@ -2962,7 +2962,7 @@ for.body44:                                       ; preds = %for.body44.preheade
   %conv.i = zext i16 %or.i to i32
   %shl.i33 = shl nuw i32 %conv.i, 16
   store i32 %shl.i33, ptr %arrayidx54, align 4
-  %cmp43 = icmp ugt i64 %indvars.iv, 1
+  %cmp43 = icmp samesign ugt i64 %indvars.iv, 1
   br i1 %cmp43, label %for.body44, label %for.inc55, !llvm.loop !45
 
 for.inc55:                                        ; preds = %for.body44, %for.body
@@ -3723,7 +3723,7 @@ for.body44:                                       ; preds = %for.body44.preheade
   %conv.i = zext i16 %or.i to i64
   %shl.i33 = shl nuw i64 %conv.i, 48
   store i64 %shl.i33, ptr %arrayidx54, align 8
-  %cmp43 = icmp ugt i64 %indvars.iv, 1
+  %cmp43 = icmp samesign ugt i64 %indvars.iv, 1
   br i1 %cmp43, label %for.body44, label %for.inc55, !llvm.loop !57
 
 for.inc55:                                        ; preds = %for.body44, %for.body
@@ -3837,7 +3837,7 @@ for.body44:                                       ; preds = %for.body44.preheade
   %conv.i = zext i16 %or.i to i64
   %shl.i33 = shl nuw i64 %conv.i, 48
   store i64 %shl.i33, ptr %arrayidx54, align 8
-  %cmp43 = icmp ugt i64 %indvars.iv, 1
+  %cmp43 = icmp samesign ugt i64 %indvars.iv, 1
   br i1 %cmp43, label %for.body44, label %for.inc55, !llvm.loop !59
 
 for.inc55:                                        ; preds = %for.body44, %for.body

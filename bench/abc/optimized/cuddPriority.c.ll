@@ -118,7 +118,7 @@ define ptr @Cudd_PrioritySelect(ptr noundef %0, ptr noundef %1, ptr noundef %2, 
   %63 = add i32 %62, 1
   store i32 %63, ptr %61, align 4
   tail call void @Cudd_RecursiveDeref(ptr noundef %0, ptr noundef %.189138) #6
-  %64 = icmp ugt i64 %indvars.iv144, 1
+  %64 = icmp samesign ugt i64 %indvars.iv144, 1
   br i1 %64, label %.lr.ph140, label %._crit_edge, !llvm.loop !6
 
 ._crit_edge:                                      ; preds = %57, %42
@@ -1850,7 +1850,7 @@ define ptr @Cudd_bddInterval(ptr noundef %0, i32 noundef %1, ptr nocapture nound
   store i32 %47, ptr %45, align 4
   tail call void @Cudd_IterDerefBdd(ptr noundef %0, ptr noundef %.06479) #6
   %48 = lshr i32 %.06677, 1
-  %49 = icmp ugt i64 %indvars.iv, 1
+  %49 = icmp samesign ugt i64 %indvars.iv, 1
   br i1 %49, label %.lr.ph, label %._crit_edge, !llvm.loop !16
 
 ._crit_edge:                                      ; preds = %40, %5

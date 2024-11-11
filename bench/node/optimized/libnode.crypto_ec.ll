@@ -7001,7 +7001,7 @@ if.then130:                                       ; preds = %if.end5.i, %lor.lhs
   br label %cleanup202
 
 _ZNK2v85Value13QuickIsStringEv.exit371:           ; preds = %if.end.i357, %if.end5.i
-  %cmp.i370 = icmp ult i16 %45, 128
+  %cmp.i370 = icmp samesign ult i16 %45, 128
   %cond = select i1 %cmp.i370, i32 2, i32 1
   %call134 = call ptr @EC_KEY_new_by_curve_name(i32 noundef %nid.0.i88) #21
   %cmp.i56.not = icmp eq ptr %call134, null

@@ -3247,7 +3247,7 @@ _ZNK6HandleclEv.exit:                             ; preds = %24, %38
   %55 = getelementptr inbounds i8, ptr %.09.i, i64 8
   %56 = load volatile ptr, ptr %55, align 8
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #21, !srcloc !9
-  %57 = icmp ugt i32 %.048.i, 2
+  %57 = icmp samesign ugt i32 %.048.i, 2
   br i1 %57, label %.lr.ph.i, label %_ZN11ClassLoader15classpath_entryEi.exit, !llvm.loop !20
 
 _ZN11ClassLoader15classpath_entryEi.exit:         ; preds = %.lr.ph.i, %48, %50

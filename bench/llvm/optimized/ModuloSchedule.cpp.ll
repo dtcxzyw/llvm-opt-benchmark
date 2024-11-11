@@ -31214,7 +31214,7 @@ define linkonce_odr void @_ZSt22__final_insertion_sortIPSt4pairIN4llvm9SlotIndex
   %34 = getelementptr inbounds i8, ptr %.069.i.i.i.i.i.i, i64 -8
   store ptr %33, ptr %34, align 8
   %35 = add nsw i64 %.010.i.i.i.i.i.i, -1
-  %36 = icmp ugt i64 %.010.i.i.i.i.i.i, 1
+  %36 = icmp samesign ugt i64 %.010.i.i.i.i.i.i, 1
   br i1 %36, label %.lr.ph.i.i.i.i.i.i, label %_ZSt13move_backwardIPSt4pairIN4llvm9SlotIndexEPNS1_17MachineBasicBlockEES6_ET0_T_S8_S7_.exit.i, !llvm.loop !379
 
 _ZSt13move_backwardIPSt4pairIN4llvm9SlotIndexEPNS1_17MachineBasicBlockEES6_ET0_T_S8_S7_.exit.i: ; preds = %.lr.ph.i.i.i.i.i.i
@@ -31398,7 +31398,7 @@ _ZSt25__unguarded_linear_insertIPSt4pairIN4llvm9SlotIndexEPNS1_17MachineBasicBlo
   %129 = getelementptr inbounds i8, ptr %.069.i.i.i.i.i.i46, i64 -8
   store ptr %128, ptr %129, align 8
   %130 = add nsw i64 %.010.i.i.i.i.i.i45, -1
-  %131 = icmp ugt i64 %.010.i.i.i.i.i.i45, 1
+  %131 = icmp samesign ugt i64 %.010.i.i.i.i.i.i45, 1
   br i1 %131, label %.lr.ph.i.i.i.i.i.i44, label %_ZSt13move_backwardIPSt4pairIN4llvm9SlotIndexEPNS1_17MachineBasicBlockEES6_ET0_T_S8_S7_.exit.i42, !llvm.loop !379
 
 _ZSt13move_backwardIPSt4pairIN4llvm9SlotIndexEPNS1_17MachineBasicBlockEES6_ET0_T_S8_S7_.exit.i42: ; preds = %.lr.ph.i.i.i.i.i.i44, %118

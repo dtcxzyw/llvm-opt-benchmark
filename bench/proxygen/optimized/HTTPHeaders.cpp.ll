@@ -2423,7 +2423,7 @@ land.rhs49.i.i:                                   ; preds = %while.body54.i.i, %
   ]
 
 while.body54.i.i:                                 ; preds = %land.rhs49.i.i, %land.rhs49.i.i, %land.rhs49.i.i, %land.rhs49.i.i
-  %cmp48.i.i = icmp ugt i64 %indvars.iv.i, 1
+  %cmp48.i.i = icmp samesign ugt i64 %indvars.iv.i, 1
   br i1 %cmp48.i.i, label %land.rhs49.i.i, label %while.cond107.i.i.preheader, !llvm.loop !21
 
 if.then57.i.i:                                    ; preds = %land.rhs49.i.i

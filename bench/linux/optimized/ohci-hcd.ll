@@ -6253,7 +6253,7 @@ define internal i32 @ohci_urb_enqueue(ptr noundef %0, ptr noundef %1, i32 nounde
   %144 = add i32 %143, 4095
   %145 = sdiv i32 %144, 4096
   %146 = sub i32 %130, %143
-  %147 = icmp ult i32 %134, 2
+  %147 = icmp samesign ult i32 %134, 2
   %148 = icmp slt i32 %146, 1
   %149 = select i1 %147, i1 true, i1 %148
   br i1 %149, label %.loopexit24, label %.preheader
@@ -6272,7 +6272,7 @@ define internal i32 @ohci_urb_enqueue(ptr noundef %0, ptr noundef %1, i32 nounde
   %160 = sdiv i32 %159, 4096
   %161 = add i32 %160, %151
   %162 = sub i32 %150, %158
-  %163 = icmp ult i32 %152, 3
+  %163 = icmp samesign ult i32 %152, 3
   %164 = icmp slt i32 %162, 1
   %165 = select i1 %163, i1 true, i1 %164
   br i1 %165, label %.loopexit24, label %.preheader, !llvm.loop !73

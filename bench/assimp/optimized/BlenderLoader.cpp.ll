@@ -4141,7 +4141,7 @@ for.body82:                                       ; preds = %for.body82.lr.ph, %
   br i1 %cmp.i.i.i.i204, label %land.lhs.true.i.i.i.i, label %cond.false.i.i.i.i
 
 land.lhs.true.i.i.i.i:                            ; preds = %for.body82
-  %cmp2.i.i.i.i = icmp ult i64 %add.i.i.i.i, 64
+  %cmp2.i.i.i.i = icmp samesign ult i64 %add.i.i.i.i, 64
   br i1 %cmp2.i.i.i.i, label %if.then.i.i.i.i205, label %cond.true.i.i.i.i
 
 if.then.i.i.i.i205:                               ; preds = %land.lhs.true.i.i.i.i
@@ -5765,7 +5765,7 @@ for.body42:                                       ; preds = %invoke.cont37, %inv
   br i1 %cmp.i.i.i.i199, label %land.lhs.true.i.i.i.i, label %cond.false.i.i.i.i
 
 land.lhs.true.i.i.i.i:                            ; preds = %for.body42
-  %cmp2.i.i.i.i = icmp ult i64 %add.i.i.i.i, 64
+  %cmp2.i.i.i.i = icmp samesign ult i64 %add.i.i.i.i, 64
   br i1 %cmp2.i.i.i.i, label %if.then.i.i.i.i200, label %cond.true.i.i.i.i
 
 if.then.i.i.i.i200:                               ; preds = %land.lhs.true.i.i.i.i
@@ -18818,7 +18818,7 @@ for.body.i.i.i.i.i:                               ; preds = %for.body.i.i.i.i.i,
   %size4.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__last.addr.05.i.i.i.i.i, i64 -32
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %size.i.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(32) %size4.i.i.i.i.i.i, i64 32, i1 false)
   %dec.i.i.i.i.i = add nsw i64 %__n.07.i.i.i.i.i, -1
-  %cmp.i.i.i.i.i = icmp ugt i64 %__n.07.i.i.i.i.i, 1
+  %cmp.i.i.i.i.i = icmp samesign ugt i64 %__n.07.i.i.i.i.i, 1
   br i1 %cmp.i.i.i.i.i, label %for.body.i.i.i.i.i, label %invoke.cont, !llvm.loop !176
 
 invoke.cont:                                      ; preds = %for.body.i.i.i.i.i, %if.then9

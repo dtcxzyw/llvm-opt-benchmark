@@ -1694,7 +1694,7 @@ _ZSt6fill_nIPfmfET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i: ; preds = %.noexc32
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %10)
   store ptr %92, ptr %5, align 8
   store i64 %1, ptr %6, align 8
-  %95 = icmp ult i64 %1, 1024
+  %95 = icmp samesign ult i64 %1, 1024
   %96 = select i1 %95, i64 1, i64 1024
   store i64 %96, ptr %7, align 8
   invoke void @_ZN5faiss15RandomGeneratorC1El(ptr noundef nonnull align 8 dereferenceable(5000) %8, i64 noundef %94)

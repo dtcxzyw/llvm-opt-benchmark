@@ -15092,7 +15092,7 @@ define linkonce_odr dso_local void @_ZN7msgpack2v16packerINS0_7sbufferEE14pack_i
   br i1 %3, label %4, label %77
 
 4:                                                ; preds = %2
-  %5 = icmp ult i32 %1, -32768
+  %5 = icmp samesign ult i32 %1, -32768
   br i1 %5, label %6, label %29
 
 6:                                                ; preds = %4
@@ -15158,7 +15158,7 @@ _ZN7msgpack2v16packerINS0_7sbufferEE13append_bufferEPKcm.exit: ; preds = %._crit
   br label %173
 
 29:                                               ; preds = %4
-  %30 = icmp ult i32 %1, -128
+  %30 = icmp samesign ult i32 %1, -128
   br i1 %30, label %31, label %55
 
 31:                                               ; preds = %29
@@ -15350,7 +15350,7 @@ _ZN7msgpack2v16packerINS0_7sbufferEE13append_bufferEPKcm.exit58: ; preds = %._cr
   br label %173
 
 100:                                              ; preds = %77
-  %101 = icmp ult i32 %1, 256
+  %101 = icmp samesign ult i32 %1, 256
   br i1 %101, label %102, label %124
 
 102:                                              ; preds = %100
@@ -15416,7 +15416,7 @@ _ZN7msgpack2v16packerINS0_7sbufferEE13append_bufferEPKcm.exit73: ; preds = %._cr
   br label %173
 
 124:                                              ; preds = %100
-  %125 = icmp ult i32 %1, 65536
+  %125 = icmp samesign ult i32 %1, 65536
   br i1 %125, label %126, label %150
 
 126:                                              ; preds = %124
@@ -16152,7 +16152,7 @@ define linkonce_odr dso_local void @_ZN7msgpack2v16packerINS0_7sbufferEE15pack_i
   br i1 %3, label %4, label %45
 
 4:                                                ; preds = %2
-  %5 = icmp ult i64 %1, 128
+  %5 = icmp samesign ult i64 %1, 128
   %.sroa.0.0.extract.trunc.i = trunc nuw i64 %1 to i8
   %6 = load ptr, ptr %0, align 8
   %7 = getelementptr inbounds i8, ptr %6, i64 16
@@ -16482,11 +16482,11 @@ define linkonce_odr dso_local void @_ZN7msgpack2v16packerINS0_7sbufferEE14pack_i
   br i1 %3, label %4, label %103
 
 4:                                                ; preds = %2
-  %5 = icmp ult i64 %1, -32768
+  %5 = icmp samesign ult i64 %1, -32768
   br i1 %5, label %6, label %55
 
 6:                                                ; preds = %4
-  %7 = icmp ult i64 %1, -2147483648
+  %7 = icmp samesign ult i64 %1, -2147483648
   br i1 %7, label %8, label %31
 
 8:                                                ; preds = %6
@@ -16615,7 +16615,7 @@ _ZN7msgpack2v16packerINS0_7sbufferEE13append_bufferEPKcm.exit35: ; preds = %._cr
   br label %225
 
 55:                                               ; preds = %4
-  %56 = icmp ult i64 %1, -128
+  %56 = icmp samesign ult i64 %1, -128
   br i1 %56, label %57, label %81
 
 57:                                               ; preds = %55
@@ -16807,11 +16807,11 @@ _ZN7msgpack2v16packerINS0_7sbufferEE13append_bufferEPKcm.exit78: ; preds = %._cr
   br label %225
 
 126:                                              ; preds = %103
-  %127 = icmp ult i64 %1, 65536
+  %127 = icmp samesign ult i64 %1, 65536
   br i1 %127, label %128, label %176
 
 128:                                              ; preds = %126
-  %129 = icmp ult i64 %1, 256
+  %129 = icmp samesign ult i64 %1, 256
   br i1 %129, label %130, label %152
 
 130:                                              ; preds = %128
@@ -16940,7 +16940,7 @@ _ZN7msgpack2v16packerINS0_7sbufferEE13append_bufferEPKcm.exit107: ; preds = %._c
   br label %225
 
 176:                                              ; preds = %126
-  %177 = icmp ult i64 %1, 4294967296
+  %177 = icmp samesign ult i64 %1, 4294967296
   br i1 %177, label %178, label %202
 
 178:                                              ; preds = %176
@@ -23441,7 +23441,7 @@ _ZN7msgpack2v26detail7contextINS0_8unpackerEE16after_visit_procEbRm.exit: ; pred
   br label %.loopexit
 
 92:                                               ; preds = %34
-  %93 = icmp ugt i8 %35, -33
+  %93 = icmp samesign ugt i8 %35, -33
   br i1 %93, label %94, label %149
 
 94:                                               ; preds = %92
@@ -23547,7 +23547,7 @@ _ZN7msgpack2v26detail7contextINS0_8unpackerEE16after_visit_procEbRm.exit331: ; p
   br label %.loopexit
 
 149:                                              ; preds = %92
-  %150 = icmp ugt i8 %35, -61
+  %150 = icmp samesign ugt i8 %35, -61
   br i1 %150, label %151, label %160
 
 151:                                              ; preds = %149
@@ -23700,7 +23700,7 @@ _ZN7msgpack2v26detail7contextINS0_8unpackerEE16after_visit_procEbRm.exit339: ; p
   br i1 %.not290, label %thread-pre-split, label %.loopexit
 
 227:                                              ; preds = %223
-  %228 = icmp ult i8 %35, -112
+  %228 = icmp samesign ult i8 %35, -112
   br i1 %228, label %229, label %231
 
 229:                                              ; preds = %227

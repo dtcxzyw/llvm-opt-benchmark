@@ -12550,7 +12550,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZNK2OT6Layout9GSUB_impl20SingleS
 
 46:                                               ; preds = %38, %34
   %.pre-phi27 = phi i32 [ %.pre26, %38 ], [ %33, %34 ]
-  %.not.i = icmp ult i32 %23, %.pre-phi27
+  %.not.i = icmp samesign ult i32 %23, %.pre-phi27
   br i1 %.not.i, label %47, label %_ZNK2OT7ArrayOfINS_11HBGlyphID16ENS_7IntTypeItLj2EEEEixEi.exit
 
 47:                                               ; preds = %46
@@ -13336,7 +13336,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZNK2OT6Layout9GSUB_impl12Alterna
   %57 = load i8, ptr %6, align 1
   %58 = zext i8 %57 to i32
   %59 = or disjoint i32 %56, %58
-  %.not.i = icmp ult i32 %40, %59
+  %.not.i = icmp samesign ult i32 %40, %59
   br i1 %.not.i, label %60, label %_ZNK2OT7ArrayOfINS_11HBGlyphID16ENS_7IntTypeItLj2EEEEixEi.exit
 
 60:                                               ; preds = %53
@@ -15350,7 +15350,7 @@ _ZN2OT33hb_accelerate_subtables_context_t10cache_costINS_16ContextFormat2_5INS_6
   %60 = zext i8 %59 to i32
   %61 = or disjoint i32 %57, %60
   %62 = mul nuw nsw i32 %61, %.0.i.i.i
-  %63 = icmp ugt i32 %62, 3
+  %63 = icmp samesign ugt i32 %62, 3
   %64 = select i1 %63, i32 %62, i32 0
   %65 = getelementptr inbounds i8, ptr %0, i64 24
   %66 = load i32, ptr %65, align 8
@@ -17353,7 +17353,7 @@ _ZNK2OT8ClassDef9get_classEj.exit:                ; preds = %_ZNK2OT17ClassDefFo
   %139 = load i8, ptr %138, align 1
   %140 = zext i8 %139 to i32
   %141 = or disjoint i32 %137, %140
-  %.not.i = icmp ult i32 %.013, %141
+  %.not.i = icmp samesign ult i32 %.013, %141
   br i1 %.not.i, label %142, label %_ZNK2OT7ArrayOfINS_8OffsetToINS_7RuleSetINS_6Layout10SmallTypesEEENS_7IntTypeItLj2EEELb1EEES7_EixEi.exit
 
 142:                                              ; preds = %_ZNK2OT8ClassDef9get_classEj.exit
@@ -18258,7 +18258,7 @@ _ZN2OT33hb_accelerate_subtables_context_t10cache_costINS_21ChainContextFormat2_5
   %60 = zext i8 %59 to i32
   %61 = or disjoint i32 %57, %60
   %62 = mul nuw nsw i32 %61, %.0.i.i.i
-  %63 = icmp ugt i32 %62, 3
+  %63 = icmp samesign ugt i32 %62, 3
   %64 = select i1 %63, i32 %62, i32 0
   %65 = getelementptr inbounds i8, ptr %0, i64 24
   %66 = load i32, ptr %65, align 8
@@ -20687,7 +20687,7 @@ _ZNK2OT8ClassDef9get_classEj.exit:                ; preds = %_ZNK2OT17ClassDefFo
   %169 = load i8, ptr %168, align 1
   %170 = zext i8 %169 to i32
   %171 = or disjoint i32 %167, %170
-  %.not.i = icmp ult i32 %.019, %171
+  %.not.i = icmp samesign ult i32 %.019, %171
   br i1 %.not.i, label %172, label %_ZNK2OT7ArrayOfINS_8OffsetToINS_12ChainRuleSetINS_6Layout10SmallTypesEEENS_7IntTypeItLj2EEELb1EEES7_EixEi.exit
 
 172:                                              ; preds = %_ZNK2OT8ClassDef9get_classEj.exit

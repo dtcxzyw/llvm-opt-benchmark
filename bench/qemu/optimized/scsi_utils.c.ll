@@ -323,11 +323,11 @@ if.end:                                           ; preds = %entry
   br i1 %cmp1, label %if.then3, label %if.else11
 
 if.then3:                                         ; preds = %if.end
-  %cmp4 = icmp ult i32 %in_len, 14
+  %cmp4 = icmp samesign ult i32 %in_len, 14
   br i1 %cmp4, label %return, label %if.end22
 
 if.else11:                                        ; preds = %if.end
-  %cmp12 = icmp ult i32 %in_len, 4
+  %cmp12 = icmp samesign ult i32 %in_len, 4
   br i1 %cmp12, label %return, label %if.end22
 
 if.end22:                                         ; preds = %if.else11, %if.then3
@@ -497,11 +497,11 @@ if.end.i:                                         ; preds = %if.else
   br i1 %cmp1.i, label %if.then3.i, label %if.else11.i
 
 if.then3.i:                                       ; preds = %if.end.i
-  %cmp4.i = icmp ult i32 %in_len, 14
+  %cmp4.i = icmp samesign ult i32 %in_len, 14
   br i1 %cmp4.i, label %scsi_parse_sense_buf.exit, label %if.end22.i
 
 if.else11.i:                                      ; preds = %if.end.i
-  %cmp12.i = icmp ult i32 %in_len, 4
+  %cmp12.i = icmp samesign ult i32 %in_len, 4
   br i1 %cmp12.i, label %scsi_parse_sense_buf.exit, label %if.end22.i
 
 if.end22.i:                                       ; preds = %if.else11.i, %if.then3.i
@@ -643,11 +643,11 @@ if.end.i:                                         ; preds = %if.end
   br i1 %cmp1.i, label %if.then3.i, label %if.else11.i
 
 if.then3.i:                                       ; preds = %if.end.i
-  %cmp4.i = icmp ult i32 %conv, 14
+  %cmp4.i = icmp samesign ult i32 %conv, 14
   br i1 %cmp4.i, label %sw.bb1.i, label %scsi_parse_sense_buf.exit
 
 if.else11.i:                                      ; preds = %if.end.i
-  %cmp12.i = icmp ult i32 %conv, 4
+  %cmp12.i = icmp samesign ult i32 %conv, 4
   br i1 %cmp12.i, label %sw.bb1.i, label %scsi_parse_sense_buf.exit
 
 scsi_parse_sense_buf.exit:                        ; preds = %if.then3.i, %if.else11.i
@@ -745,11 +745,11 @@ if.end.i:                                         ; preds = %if.end
   br i1 %cmp1.i, label %if.then3.i, label %if.else11.i
 
 if.then3.i:                                       ; preds = %if.end.i
-  %cmp4.i = icmp ult i32 %conv, 14
+  %cmp4.i = icmp samesign ult i32 %conv, 14
   br i1 %cmp4.i, label %return, label %scsi_parse_sense_buf.exit
 
 if.else11.i:                                      ; preds = %if.end.i
-  %cmp12.i = icmp ult i32 %conv, 4
+  %cmp12.i = icmp samesign ult i32 %conv, 4
   br i1 %cmp12.i, label %return, label %scsi_parse_sense_buf.exit
 
 scsi_parse_sense_buf.exit:                        ; preds = %if.then3.i, %if.else11.i

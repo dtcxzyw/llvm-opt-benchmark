@@ -4191,8 +4191,8 @@ _ZNK4llvm4User10getOperandEj.exit.i116:           ; preds = %2140, %2137
   br i1 %2152, label %2153, label %.critedge
 
 2153:                                             ; preds = %_ZNK4llvm4User10getOperandEj.exit.i116
-  %2154 = icmp ugt i32 %2124, 8
-  %2155 = icmp ugt i32 %2124, 6
+  %2154 = icmp samesign ugt i32 %2124, 8
+  %2155 = icmp samesign ugt i32 %2124, 6
   %2156 = select i1 %2155, i32 7468, i32 1420
   %2157 = select i1 %2154, i32 7459, i32 %2156
   %2158 = getelementptr inbounds nuw i8, ptr %0, i64 120
@@ -4252,8 +4252,8 @@ _ZNK4llvm4User10getOperandEj.exit.i119:           ; preds = %2185, %2182
   br i1 %2197, label %2198, label %.critedge
 
 2198:                                             ; preds = %_ZNK4llvm4User10getOperandEj.exit.i119
-  %2199 = icmp ugt i32 %2169, 8
-  %2200 = icmp ugt i32 %2169, 6
+  %2199 = icmp samesign ugt i32 %2169, 8
+  %2200 = icmp samesign ugt i32 %2169, 6
   %2201 = select i1 %2200, i32 7368, i32 1400
   %2202 = select i1 %2199, i32 7359, i32 %2201
   %2203 = getelementptr inbounds nuw i8, ptr %0, i64 120
@@ -7769,7 +7769,7 @@ _ZNK4llvm11ConstantInt5isOneEv.exit:              ; preds = %723, %726
 
 856:                                              ; preds = %2, %2, %2, %2
   %.off228 = add nsw i32 %37, -13921
-  %switch229 = icmp ult i32 %.off228, 2
+  %switch229 = icmp samesign ult i32 %.off228, 2
   %857 = getelementptr inbounds nuw i8, ptr %0, i64 176
   %858 = load ptr, ptr %857, align 8
   %859 = getelementptr inbounds nuw i8, ptr %858, i64 304
@@ -9503,7 +9503,7 @@ _ZN12_GLOBAL__N_111X86FastISel34fastEmit_ri_Predicate_i64immSExt32EN4llvm3MVTES2
   br i1 %98, label %99, label %_ZN12_GLOBAL__N_111X86FastISel19fastEmit_ISD_ADD_riEN4llvm3MVTES2_jm.exit
 
 99:                                               ; preds = %95
-  %100 = icmp ugt i32 %97, 6
+  %100 = icmp samesign ugt i32 %97, 6
   %..i.i89 = select i1 %100, i32 16705, i32 3116
   br label %.sink.split.i.i90
 
@@ -9531,7 +9531,7 @@ _ZN12_GLOBAL__N_111X86FastISel34fastEmit_ri_Predicate_i64immSExt32EN4llvm3MVTES2
   br i1 %112, label %113, label %_ZN12_GLOBAL__N_111X86FastISel19fastEmit_ISD_ADD_riEN4llvm3MVTES2_jm.exit
 
 113:                                              ; preds = %109
-  %114 = icmp ugt i32 %111, 6
+  %114 = icmp samesign ugt i32 %111, 6
   %..i11.i = select i1 %114, i32 16709, i32 3118
   br label %.sink.split.i12.i
 
@@ -17002,7 +17002,7 @@ define internal fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_111X86FastISel18TryEm
   br i1 %30, label %34, label %31
 
 31:                                               ; preds = %.lr.ph.split
-  %32 = icmp ugt i64 %.01427, 3
+  %32 = icmp samesign ugt i64 %.01427, 3
   br i1 %32, label %34, label %33
 
 33:                                               ; preds = %31
@@ -18159,7 +18159,7 @@ define internal fastcc noundef i32 @_ZN12_GLOBAL__N_111X86FastISel18fastEmit_ISD
   br i1 %21, label %22, label %_ZN12_GLOBAL__N_111X86FastISel28fastEmit_ISD_ABS_MVT_v16i8_rEN4llvm3MVTEj.exit
 
 22:                                               ; preds = %18
-  %23 = icmp ugt i32 %20, 6
+  %23 = icmp samesign ugt i32 %20, 6
   br i1 %23, label %26, label %24
 
 24:                                               ; preds = %22
@@ -18261,7 +18261,7 @@ define internal fastcc noundef i32 @_ZN12_GLOBAL__N_111X86FastISel18fastEmit_ISD
   br i1 %78, label %79, label %_ZN12_GLOBAL__N_111X86FastISel28fastEmit_ISD_ABS_MVT_v16i8_rEN4llvm3MVTEj.exit
 
 79:                                               ; preds = %75
-  %80 = icmp ugt i32 %77, 6
+  %80 = icmp samesign ugt i32 %77, 6
   br i1 %80, label %83, label %81
 
 81:                                               ; preds = %79
@@ -18361,7 +18361,7 @@ define internal fastcc noundef i32 @_ZN12_GLOBAL__N_111X86FastISel18fastEmit_ISD
   br i1 %133, label %134, label %_ZN12_GLOBAL__N_111X86FastISel28fastEmit_ISD_ABS_MVT_v16i8_rEN4llvm3MVTEj.exit
 
 134:                                              ; preds = %132
-  %135 = icmp ugt i32 %124, 6
+  %135 = icmp samesign ugt i32 %124, 6
   br i1 %135, label %..thread6_crit_edge.i, label %136
 
 ..thread6_crit_edge.i:                            ; preds = %134
@@ -18534,7 +18534,7 @@ define internal fastcc noundef i32 @_ZN12_GLOBAL__N_111X86FastISel22fastEmit_ISD
   br i1 %15, label %16, label %_ZN12_GLOBAL__N_111X86FastISel30fastEmit_ISD_BITCAST_MVT_i32_rEN4llvm3MVTEj.exit
 
 16:                                               ; preds = %14
-  %17 = icmp ugt i32 %10, 6
+  %17 = icmp samesign ugt i32 %10, 6
   br i1 %17, label %20, label %18
 
 18:                                               ; preds = %16
@@ -18568,7 +18568,7 @@ define internal fastcc noundef i32 @_ZN12_GLOBAL__N_111X86FastISel22fastEmit_ISD
   br i1 %32, label %33, label %_ZN12_GLOBAL__N_111X86FastISel30fastEmit_ISD_BITCAST_MVT_i32_rEN4llvm3MVTEj.exit
 
 33:                                               ; preds = %31
-  %34 = icmp ugt i32 %27, 6
+  %34 = icmp samesign ugt i32 %27, 6
   br i1 %34, label %37, label %35
 
 35:                                               ; preds = %33
@@ -18614,7 +18614,7 @@ define internal fastcc noundef i32 @_ZN12_GLOBAL__N_111X86FastISel22fastEmit_ISD
   br i1 %59, label %60, label %_ZN12_GLOBAL__N_111X86FastISel30fastEmit_ISD_BITCAST_MVT_i32_rEN4llvm3MVTEj.exit
 
 60:                                               ; preds = %58
-  %61 = icmp ugt i32 %56, 6
+  %61 = icmp samesign ugt i32 %56, 6
   %..i = select i1 %61, i32 13896, i32 2658
   br label %.sink.split.i
 
@@ -18642,7 +18642,7 @@ define internal fastcc noundef i32 @_ZN12_GLOBAL__N_111X86FastISel22fastEmit_ISD
   br i1 %71, label %72, label %_ZN12_GLOBAL__N_111X86FastISel30fastEmit_ISD_BITCAST_MVT_i32_rEN4llvm3MVTEj.exit
 
 72:                                               ; preds = %70
-  %73 = icmp ugt i32 %68, 6
+  %73 = icmp samesign ugt i32 %68, 6
   %..i.i = select i1 %73, i32 13836, i32 2651
   br label %.sink.split.i.i
 
@@ -19819,7 +19819,7 @@ define internal fastcc noundef i32 @_ZN12_GLOBAL__N_111X86FastISel25fastEmit_ISD
   br i1 %30, label %31, label %_ZN12_GLOBAL__N_111X86FastISel33fastEmit_ISD_FP_TO_SINT_MVT_f16_rEN4llvm3MVTEj.exit
 
 31:                                               ; preds = %29
-  %32 = icmp ugt i32 %27, 6
+  %32 = icmp samesign ugt i32 %27, 6
   %..i.i = select i1 %32, i32 8225, i32 1448
   br label %.sink.split.i.i
 
@@ -19841,7 +19841,7 @@ define internal fastcc noundef i32 @_ZN12_GLOBAL__N_111X86FastISel25fastEmit_ISD
   br i1 %41, label %42, label %_ZN12_GLOBAL__N_111X86FastISel33fastEmit_ISD_FP_TO_SINT_MVT_f16_rEN4llvm3MVTEj.exit
 
 42:                                               ; preds = %40
-  %43 = icmp ugt i32 %38, 6
+  %43 = icmp samesign ugt i32 %38, 6
   %..i4.i = select i1 %43, i32 8216, i32 1444
   br label %.sink.split.i5.i
 
@@ -19869,7 +19869,7 @@ define internal fastcc noundef i32 @_ZN12_GLOBAL__N_111X86FastISel25fastEmit_ISD
   br i1 %53, label %54, label %_ZN12_GLOBAL__N_111X86FastISel33fastEmit_ISD_FP_TO_SINT_MVT_f16_rEN4llvm3MVTEj.exit
 
 54:                                               ; preds = %52
-  %55 = icmp ugt i32 %50, 6
+  %55 = icmp samesign ugt i32 %50, 6
   %..i.i18 = select i1 %55, i32 8177, i32 1440
   br label %.sink.split.i.i19
 
@@ -19891,7 +19891,7 @@ define internal fastcc noundef i32 @_ZN12_GLOBAL__N_111X86FastISel25fastEmit_ISD
   br i1 %64, label %65, label %_ZN12_GLOBAL__N_111X86FastISel33fastEmit_ISD_FP_TO_SINT_MVT_f16_rEN4llvm3MVTEj.exit
 
 65:                                               ; preds = %63
-  %66 = icmp ugt i32 %61, 6
+  %66 = icmp samesign ugt i32 %61, 6
   %..i4.i15 = select i1 %66, i32 8168, i32 1436
   br label %.sink.split.i5.i16
 
@@ -20063,7 +20063,7 @@ define internal fastcc noundef i32 @_ZN12_GLOBAL__N_111X86FastISel20fastEmit_ISD
   br i1 %11, label %12, label %16
 
 12:                                               ; preds = %6
-  %13 = icmp ugt i32 %10, 6
+  %13 = icmp samesign ugt i32 %10, 6
   br i1 %13, label %_ZN12_GLOBAL__N_111X86FastISel28fastEmit_ISD_FSQRT_MVT_f32_rEN4llvm3MVTEj.exit, label %14
 
 14:                                               ; preds = %12
@@ -20087,7 +20087,7 @@ define internal fastcc noundef i32 @_ZN12_GLOBAL__N_111X86FastISel20fastEmit_ISD
   br i1 %24, label %25, label %29
 
 25:                                               ; preds = %19
-  %26 = icmp ugt i32 %23, 6
+  %26 = icmp samesign ugt i32 %23, 6
   br i1 %26, label %_ZN12_GLOBAL__N_111X86FastISel28fastEmit_ISD_FSQRT_MVT_f32_rEN4llvm3MVTEj.exit, label %27
 
 27:                                               ; preds = %25
@@ -20245,7 +20245,7 @@ define internal fastcc noundef i32 @_ZN12_GLOBAL__N_111X86FastISel20fastEmit_ISD
   br i1 %114, label %115, label %_ZN12_GLOBAL__N_111X86FastISel28fastEmit_ISD_FSQRT_MVT_f32_rEN4llvm3MVTEj.exit
 
 115:                                              ; preds = %111
-  %116 = icmp ugt i32 %113, 6
+  %116 = icmp samesign ugt i32 %113, 6
   br i1 %116, label %119, label %117
 
 117:                                              ; preds = %115
@@ -20321,7 +20321,7 @@ define internal fastcc noundef i32 @_ZN12_GLOBAL__N_111X86FastISel20fastEmit_ISD
   br i1 %157, label %158, label %_ZN12_GLOBAL__N_111X86FastISel28fastEmit_ISD_FSQRT_MVT_f32_rEN4llvm3MVTEj.exit
 
 158:                                              ; preds = %154
-  %159 = icmp ugt i32 %156, 6
+  %159 = icmp samesign ugt i32 %156, 6
   br i1 %159, label %162, label %160
 
 160:                                              ; preds = %158
@@ -20408,7 +20408,7 @@ define internal fastcc noundef i32 @_ZN12_GLOBAL__N_111X86FastISel21fastEmit_ISD
   br i1 %13, label %14, label %_ZN12_GLOBAL__N_111X86FastISel29fastEmit_ISD_LLRINT_MVT_f32_rEN4llvm3MVTEj.exit
 
 14:                                               ; preds = %12
-  %15 = icmp ugt i32 %10, 6
+  %15 = icmp samesign ugt i32 %10, 6
   %..i = select i1 %15, i32 7488, i32 1424
   br label %.sink.split.i
 
@@ -20434,7 +20434,7 @@ define internal fastcc noundef i32 @_ZN12_GLOBAL__N_111X86FastISel21fastEmit_ISD
   br i1 %25, label %26, label %_ZN12_GLOBAL__N_111X86FastISel29fastEmit_ISD_LLRINT_MVT_f32_rEN4llvm3MVTEj.exit
 
 26:                                               ; preds = %24
-  %27 = icmp ugt i32 %22, 6
+  %27 = icmp samesign ugt i32 %22, 6
   %..i24 = select i1 %27, i32 7344, i32 1392
   br label %.sink.split.i25
 
@@ -20578,7 +20578,7 @@ define internal fastcc noundef i32 @_ZN12_GLOBAL__N_111X86FastISel20fastEmit_ISD
   br i1 %13, label %14, label %_ZN12_GLOBAL__N_111X86FastISel28fastEmit_ISD_LRINT_MVT_f32_rEN4llvm3MVTEj.exit
 
 14:                                               ; preds = %12
-  %15 = icmp ugt i32 %10, 6
+  %15 = icmp samesign ugt i32 %10, 6
   %..i.i = select i1 %15, i32 7497, i32 1428
   br label %.sink.split.i.i
 
@@ -20600,7 +20600,7 @@ define internal fastcc noundef i32 @_ZN12_GLOBAL__N_111X86FastISel20fastEmit_ISD
   br i1 %24, label %25, label %_ZN12_GLOBAL__N_111X86FastISel28fastEmit_ISD_LRINT_MVT_f32_rEN4llvm3MVTEj.exit
 
 25:                                               ; preds = %23
-  %26 = icmp ugt i32 %21, 6
+  %26 = icmp samesign ugt i32 %21, 6
   %..i4.i = select i1 %26, i32 7488, i32 1424
   br label %.sink.split.i5.i
 
@@ -20628,7 +20628,7 @@ define internal fastcc noundef i32 @_ZN12_GLOBAL__N_111X86FastISel20fastEmit_ISD
   br i1 %36, label %37, label %_ZN12_GLOBAL__N_111X86FastISel28fastEmit_ISD_LRINT_MVT_f32_rEN4llvm3MVTEj.exit
 
 37:                                               ; preds = %35
-  %38 = icmp ugt i32 %33, 6
+  %38 = icmp samesign ugt i32 %33, 6
   %..i.i29 = select i1 %38, i32 7353, i32 1396
   br label %.sink.split.i.i30
 
@@ -20650,7 +20650,7 @@ define internal fastcc noundef i32 @_ZN12_GLOBAL__N_111X86FastISel20fastEmit_ISD
   br i1 %47, label %48, label %_ZN12_GLOBAL__N_111X86FastISel28fastEmit_ISD_LRINT_MVT_f32_rEN4llvm3MVTEj.exit
 
 48:                                               ; preds = %46
-  %49 = icmp ugt i32 %44, 6
+  %49 = icmp samesign ugt i32 %44, 6
   %..i4.i26 = select i1 %49, i32 7344, i32 1392
   br label %.sink.split.i5.i27
 
@@ -20684,7 +20684,7 @@ define internal fastcc noundef i32 @_ZN12_GLOBAL__N_111X86FastISel20fastEmit_ISD
   br i1 %63, label %64, label %_ZN12_GLOBAL__N_111X86FastISel28fastEmit_ISD_LRINT_MVT_f32_rEN4llvm3MVTEj.exit
 
 64:                                               ; preds = %60
-  %65 = icmp ugt i32 %62, 6
+  %65 = icmp samesign ugt i32 %62, 6
   br i1 %65, label %68, label %66
 
 66:                                               ; preds = %64
@@ -20884,7 +20884,7 @@ define internal fastcc noundef i32 @_ZN12_GLOBAL__N_111X86FastISel31fastEmit_ISD
   br i1 %15, label %16, label %_ZN12_GLOBAL__N_111X86FastISel39fastEmit_ISD_SCALAR_TO_VECTOR_MVT_i32_rEN4llvm3MVTEj.exit
 
 16:                                               ; preds = %14
-  %17 = icmp ugt i32 %10, 6
+  %17 = icmp samesign ugt i32 %10, 6
   br i1 %17, label %20, label %18
 
 18:                                               ; preds = %16
@@ -20916,7 +20916,7 @@ define internal fastcc noundef i32 @_ZN12_GLOBAL__N_111X86FastISel31fastEmit_ISD
   br i1 %32, label %33, label %_ZN12_GLOBAL__N_111X86FastISel39fastEmit_ISD_SCALAR_TO_VECTOR_MVT_i32_rEN4llvm3MVTEj.exit
 
 33:                                               ; preds = %31
-  %34 = icmp ugt i32 %27, 6
+  %34 = icmp samesign ugt i32 %27, 6
   br i1 %34, label %37, label %35
 
 35:                                               ; preds = %33
@@ -21443,7 +21443,7 @@ define internal fastcc noundef i32 @_ZN12_GLOBAL__N_111X86FastISel39fastEmit_ISD
   br label %26
 
 12:                                               ; preds = %6
-  %13 = icmp ugt i32 %10, 6
+  %13 = icmp samesign ugt i32 %10, 6
   br i1 %13, label %16, label %14
 
 14:                                               ; preds = %12
@@ -21490,7 +21490,7 @@ define internal fastcc noundef i32 @_ZN12_GLOBAL__N_111X86FastISel39fastEmit_ISD
   br i1 %40, label %41, label %_ZN12_GLOBAL__N_111X86FastISel49fastEmit_ISD_SIGN_EXTEND_VECTOR_INREG_MVT_v16i8_rEN4llvm3MVTEj.exit
 
 41:                                               ; preds = %35
-  %42 = icmp ugt i32 %39, 6
+  %42 = icmp samesign ugt i32 %39, 6
   br i1 %42, label %45, label %43
 
 43:                                               ; preds = %41
@@ -21508,7 +21508,7 @@ define internal fastcc noundef i32 @_ZN12_GLOBAL__N_111X86FastISel39fastEmit_ISD
   br label %_ZN12_GLOBAL__N_111X86FastISel49fastEmit_ISD_SIGN_EXTEND_VECTOR_INREG_MVT_v16i8_rEN4llvm3MVTEj.exit
 
 51:                                               ; preds = %45
-  %52 = icmp ugt i32 %39, 8
+  %52 = icmp samesign ugt i32 %39, 8
   br i1 %52, label %53, label %_ZN12_GLOBAL__N_111X86FastISel49fastEmit_ISD_SIGN_EXTEND_VECTOR_INREG_MVT_v16i8_rEN4llvm3MVTEj.exit
 
 53:                                               ; preds = %51
@@ -21550,7 +21550,7 @@ define internal fastcc noundef i32 @_ZN12_GLOBAL__N_111X86FastISel39fastEmit_ISD
   br i1 %75, label %76, label %_ZN12_GLOBAL__N_111X86FastISel49fastEmit_ISD_SIGN_EXTEND_VECTOR_INREG_MVT_v16i8_rEN4llvm3MVTEj.exit
 
 76:                                               ; preds = %70
-  %77 = icmp ugt i32 %74, 6
+  %77 = icmp samesign ugt i32 %74, 6
   br i1 %77, label %80, label %78
 
 78:                                               ; preds = %76
@@ -21568,7 +21568,7 @@ define internal fastcc noundef i32 @_ZN12_GLOBAL__N_111X86FastISel39fastEmit_ISD
   br label %_ZN12_GLOBAL__N_111X86FastISel49fastEmit_ISD_SIGN_EXTEND_VECTOR_INREG_MVT_v16i8_rEN4llvm3MVTEj.exit
 
 86:                                               ; preds = %80
-  %87 = icmp ugt i32 %74, 8
+  %87 = icmp samesign ugt i32 %74, 8
   br i1 %87, label %88, label %_ZN12_GLOBAL__N_111X86FastISel49fastEmit_ISD_SIGN_EXTEND_VECTOR_INREG_MVT_v16i8_rEN4llvm3MVTEj.exit
 
 88:                                               ; preds = %86
@@ -21629,7 +21629,7 @@ define internal fastcc noundef i32 @_ZN12_GLOBAL__N_111X86FastISel39fastEmit_ISD
   br i1 %119, label %120, label %_ZN12_GLOBAL__N_111X86FastISel49fastEmit_ISD_SIGN_EXTEND_VECTOR_INREG_MVT_v16i8_rEN4llvm3MVTEj.exit
 
 120:                                              ; preds = %114
-  %121 = icmp ugt i32 %118, 6
+  %121 = icmp samesign ugt i32 %118, 6
   br i1 %121, label %124, label %122
 
 122:                                              ; preds = %120
@@ -21647,7 +21647,7 @@ define internal fastcc noundef i32 @_ZN12_GLOBAL__N_111X86FastISel39fastEmit_ISD
   br label %_ZN12_GLOBAL__N_111X86FastISel49fastEmit_ISD_SIGN_EXTEND_VECTOR_INREG_MVT_v16i8_rEN4llvm3MVTEj.exit
 
 130:                                              ; preds = %124
-  %131 = icmp ugt i32 %118, 8
+  %131 = icmp samesign ugt i32 %118, 8
   br i1 %131, label %132, label %_ZN12_GLOBAL__N_111X86FastISel49fastEmit_ISD_SIGN_EXTEND_VECTOR_INREG_MVT_v16i8_rEN4llvm3MVTEj.exit
 
 132:                                              ; preds = %130
@@ -21663,7 +21663,7 @@ define internal fastcc noundef i32 @_ZN12_GLOBAL__N_111X86FastISel39fastEmit_ISD
   br i1 %139, label %140, label %_ZN12_GLOBAL__N_111X86FastISel49fastEmit_ISD_SIGN_EXTEND_VECTOR_INREG_MVT_v16i8_rEN4llvm3MVTEj.exit
 
 140:                                              ; preds = %134
-  %141 = icmp ugt i32 %138, 6
+  %141 = icmp samesign ugt i32 %138, 6
   br i1 %141, label %144, label %142
 
 142:                                              ; preds = %140
@@ -21681,7 +21681,7 @@ define internal fastcc noundef i32 @_ZN12_GLOBAL__N_111X86FastISel39fastEmit_ISD
   br label %_ZN12_GLOBAL__N_111X86FastISel49fastEmit_ISD_SIGN_EXTEND_VECTOR_INREG_MVT_v16i8_rEN4llvm3MVTEj.exit
 
 150:                                              ; preds = %144
-  %151 = icmp ugt i32 %138, 8
+  %151 = icmp samesign ugt i32 %138, 8
   br i1 %151, label %152, label %_ZN12_GLOBAL__N_111X86FastISel49fastEmit_ISD_SIGN_EXTEND_VECTOR_INREG_MVT_v16i8_rEN4llvm3MVTEj.exit
 
 152:                                              ; preds = %150
@@ -21727,7 +21727,7 @@ define internal fastcc noundef i32 @_ZN12_GLOBAL__N_111X86FastISel39fastEmit_ISD
   br i1 %175, label %176, label %_ZN12_GLOBAL__N_111X86FastISel49fastEmit_ISD_SIGN_EXTEND_VECTOR_INREG_MVT_v16i8_rEN4llvm3MVTEj.exit
 
 176:                                              ; preds = %170
-  %177 = icmp ugt i32 %174, 6
+  %177 = icmp samesign ugt i32 %174, 6
   br i1 %177, label %180, label %178
 
 178:                                              ; preds = %176
@@ -21745,7 +21745,7 @@ define internal fastcc noundef i32 @_ZN12_GLOBAL__N_111X86FastISel39fastEmit_ISD
   br label %_ZN12_GLOBAL__N_111X86FastISel49fastEmit_ISD_SIGN_EXTEND_VECTOR_INREG_MVT_v16i8_rEN4llvm3MVTEj.exit
 
 186:                                              ; preds = %180
-  %187 = icmp ugt i32 %174, 8
+  %187 = icmp samesign ugt i32 %174, 8
   br i1 %187, label %188, label %_ZN12_GLOBAL__N_111X86FastISel49fastEmit_ISD_SIGN_EXTEND_VECTOR_INREG_MVT_v16i8_rEN4llvm3MVTEj.exit
 
 188:                                              ; preds = %186
@@ -21922,7 +21922,7 @@ define internal fastcc noundef i32 @_ZN12_GLOBAL__N_111X86FastISel25fastEmit_ISD
   br i1 %86, label %87, label %_ZN12_GLOBAL__N_111X86FastISel33fastEmit_ISD_SINT_TO_FP_MVT_i32_rEN4llvm3MVTEj.exit
 
 87:                                               ; preds = %83
-  %88 = icmp ugt i32 %85, 6
+  %88 = icmp samesign ugt i32 %85, 6
   br i1 %88, label %91, label %89
 
 89:                                               ; preds = %87
@@ -22379,7 +22379,7 @@ define internal fastcc noundef i32 @_ZN12_GLOBAL__N_111X86FastISel32fastEmit_ISD
   br i1 %30, label %31, label %_ZN12_GLOBAL__N_111X86FastISel40fastEmit_ISD_STRICT_FP_TO_SINT_MVT_f16_rEN4llvm3MVTEj.exit
 
 31:                                               ; preds = %29
-  %32 = icmp ugt i32 %27, 6
+  %32 = icmp samesign ugt i32 %27, 6
   %..i.i = select i1 %32, i32 8225, i32 1448
   br label %.sink.split.i.i
 
@@ -22401,7 +22401,7 @@ define internal fastcc noundef i32 @_ZN12_GLOBAL__N_111X86FastISel32fastEmit_ISD
   br i1 %41, label %42, label %_ZN12_GLOBAL__N_111X86FastISel40fastEmit_ISD_STRICT_FP_TO_SINT_MVT_f16_rEN4llvm3MVTEj.exit
 
 42:                                               ; preds = %40
-  %43 = icmp ugt i32 %38, 6
+  %43 = icmp samesign ugt i32 %38, 6
   %..i4.i = select i1 %43, i32 8216, i32 1444
   br label %.sink.split.i5.i
 
@@ -22429,7 +22429,7 @@ define internal fastcc noundef i32 @_ZN12_GLOBAL__N_111X86FastISel32fastEmit_ISD
   br i1 %53, label %54, label %_ZN12_GLOBAL__N_111X86FastISel40fastEmit_ISD_STRICT_FP_TO_SINT_MVT_f16_rEN4llvm3MVTEj.exit
 
 54:                                               ; preds = %52
-  %55 = icmp ugt i32 %50, 6
+  %55 = icmp samesign ugt i32 %50, 6
   %..i.i18 = select i1 %55, i32 8177, i32 1440
   br label %.sink.split.i.i19
 
@@ -22451,7 +22451,7 @@ define internal fastcc noundef i32 @_ZN12_GLOBAL__N_111X86FastISel32fastEmit_ISD
   br i1 %64, label %65, label %_ZN12_GLOBAL__N_111X86FastISel40fastEmit_ISD_STRICT_FP_TO_SINT_MVT_f16_rEN4llvm3MVTEj.exit
 
 65:                                               ; preds = %63
-  %66 = icmp ugt i32 %61, 6
+  %66 = icmp samesign ugt i32 %61, 6
   %..i4.i15 = select i1 %66, i32 8168, i32 1436
   br label %.sink.split.i5.i16
 
@@ -22623,7 +22623,7 @@ define internal fastcc noundef i32 @_ZN12_GLOBAL__N_111X86FastISel27fastEmit_ISD
   br i1 %11, label %12, label %16
 
 12:                                               ; preds = %6
-  %13 = icmp ugt i32 %10, 6
+  %13 = icmp samesign ugt i32 %10, 6
   br i1 %13, label %_ZN12_GLOBAL__N_111X86FastISel35fastEmit_ISD_STRICT_FSQRT_MVT_f32_rEN4llvm3MVTEj.exit, label %14
 
 14:                                               ; preds = %12
@@ -22647,7 +22647,7 @@ define internal fastcc noundef i32 @_ZN12_GLOBAL__N_111X86FastISel27fastEmit_ISD
   br i1 %24, label %25, label %29
 
 25:                                               ; preds = %19
-  %26 = icmp ugt i32 %23, 6
+  %26 = icmp samesign ugt i32 %23, 6
   br i1 %26, label %_ZN12_GLOBAL__N_111X86FastISel35fastEmit_ISD_STRICT_FSQRT_MVT_f32_rEN4llvm3MVTEj.exit, label %27
 
 27:                                               ; preds = %25
@@ -22805,7 +22805,7 @@ define internal fastcc noundef i32 @_ZN12_GLOBAL__N_111X86FastISel27fastEmit_ISD
   br i1 %114, label %115, label %_ZN12_GLOBAL__N_111X86FastISel35fastEmit_ISD_STRICT_FSQRT_MVT_f32_rEN4llvm3MVTEj.exit
 
 115:                                              ; preds = %111
-  %116 = icmp ugt i32 %113, 6
+  %116 = icmp samesign ugt i32 %113, 6
   br i1 %116, label %119, label %117
 
 117:                                              ; preds = %115
@@ -22881,7 +22881,7 @@ define internal fastcc noundef i32 @_ZN12_GLOBAL__N_111X86FastISel27fastEmit_ISD
   br i1 %157, label %158, label %_ZN12_GLOBAL__N_111X86FastISel35fastEmit_ISD_STRICT_FSQRT_MVT_f32_rEN4llvm3MVTEj.exit
 
 158:                                              ; preds = %154
-  %159 = icmp ugt i32 %156, 6
+  %159 = icmp samesign ugt i32 %156, 6
   br i1 %159, label %162, label %160
 
 160:                                              ; preds = %158
@@ -23104,7 +23104,7 @@ define internal fastcc noundef i32 @_ZN12_GLOBAL__N_111X86FastISel32fastEmit_ISD
   br i1 %86, label %87, label %_ZN12_GLOBAL__N_111X86FastISel40fastEmit_ISD_STRICT_SINT_TO_FP_MVT_i32_rEN4llvm3MVTEj.exit
 
 87:                                               ; preds = %83
-  %88 = icmp ugt i32 %85, 6
+  %88 = icmp samesign ugt i32 %85, 6
   br i1 %88, label %91, label %89
 
 89:                                               ; preds = %87
@@ -24396,7 +24396,7 @@ define internal fastcc noundef i32 @_ZN12_GLOBAL__N_111X86FastISel39fastEmit_ISD
   br label %26
 
 12:                                               ; preds = %6
-  %13 = icmp ugt i32 %10, 6
+  %13 = icmp samesign ugt i32 %10, 6
   br i1 %13, label %16, label %14
 
 14:                                               ; preds = %12
@@ -24443,7 +24443,7 @@ define internal fastcc noundef i32 @_ZN12_GLOBAL__N_111X86FastISel39fastEmit_ISD
   br i1 %40, label %41, label %_ZN12_GLOBAL__N_111X86FastISel49fastEmit_ISD_ZERO_EXTEND_VECTOR_INREG_MVT_v16i8_rEN4llvm3MVTEj.exit
 
 41:                                               ; preds = %35
-  %42 = icmp ugt i32 %39, 6
+  %42 = icmp samesign ugt i32 %39, 6
   br i1 %42, label %45, label %43
 
 43:                                               ; preds = %41
@@ -24461,7 +24461,7 @@ define internal fastcc noundef i32 @_ZN12_GLOBAL__N_111X86FastISel39fastEmit_ISD
   br label %_ZN12_GLOBAL__N_111X86FastISel49fastEmit_ISD_ZERO_EXTEND_VECTOR_INREG_MVT_v16i8_rEN4llvm3MVTEj.exit
 
 51:                                               ; preds = %45
-  %52 = icmp ugt i32 %39, 8
+  %52 = icmp samesign ugt i32 %39, 8
   br i1 %52, label %53, label %_ZN12_GLOBAL__N_111X86FastISel49fastEmit_ISD_ZERO_EXTEND_VECTOR_INREG_MVT_v16i8_rEN4llvm3MVTEj.exit
 
 53:                                               ; preds = %51
@@ -24503,7 +24503,7 @@ define internal fastcc noundef i32 @_ZN12_GLOBAL__N_111X86FastISel39fastEmit_ISD
   br i1 %75, label %76, label %_ZN12_GLOBAL__N_111X86FastISel49fastEmit_ISD_ZERO_EXTEND_VECTOR_INREG_MVT_v16i8_rEN4llvm3MVTEj.exit
 
 76:                                               ; preds = %70
-  %77 = icmp ugt i32 %74, 6
+  %77 = icmp samesign ugt i32 %74, 6
   br i1 %77, label %80, label %78
 
 78:                                               ; preds = %76
@@ -24521,7 +24521,7 @@ define internal fastcc noundef i32 @_ZN12_GLOBAL__N_111X86FastISel39fastEmit_ISD
   br label %_ZN12_GLOBAL__N_111X86FastISel49fastEmit_ISD_ZERO_EXTEND_VECTOR_INREG_MVT_v16i8_rEN4llvm3MVTEj.exit
 
 86:                                               ; preds = %80
-  %87 = icmp ugt i32 %74, 8
+  %87 = icmp samesign ugt i32 %74, 8
   br i1 %87, label %88, label %_ZN12_GLOBAL__N_111X86FastISel49fastEmit_ISD_ZERO_EXTEND_VECTOR_INREG_MVT_v16i8_rEN4llvm3MVTEj.exit
 
 88:                                               ; preds = %86
@@ -24582,7 +24582,7 @@ define internal fastcc noundef i32 @_ZN12_GLOBAL__N_111X86FastISel39fastEmit_ISD
   br i1 %119, label %120, label %_ZN12_GLOBAL__N_111X86FastISel49fastEmit_ISD_ZERO_EXTEND_VECTOR_INREG_MVT_v16i8_rEN4llvm3MVTEj.exit
 
 120:                                              ; preds = %114
-  %121 = icmp ugt i32 %118, 6
+  %121 = icmp samesign ugt i32 %118, 6
   br i1 %121, label %124, label %122
 
 122:                                              ; preds = %120
@@ -24600,7 +24600,7 @@ define internal fastcc noundef i32 @_ZN12_GLOBAL__N_111X86FastISel39fastEmit_ISD
   br label %_ZN12_GLOBAL__N_111X86FastISel49fastEmit_ISD_ZERO_EXTEND_VECTOR_INREG_MVT_v16i8_rEN4llvm3MVTEj.exit
 
 130:                                              ; preds = %124
-  %131 = icmp ugt i32 %118, 8
+  %131 = icmp samesign ugt i32 %118, 8
   br i1 %131, label %132, label %_ZN12_GLOBAL__N_111X86FastISel49fastEmit_ISD_ZERO_EXTEND_VECTOR_INREG_MVT_v16i8_rEN4llvm3MVTEj.exit
 
 132:                                              ; preds = %130
@@ -24616,7 +24616,7 @@ define internal fastcc noundef i32 @_ZN12_GLOBAL__N_111X86FastISel39fastEmit_ISD
   br i1 %139, label %140, label %_ZN12_GLOBAL__N_111X86FastISel49fastEmit_ISD_ZERO_EXTEND_VECTOR_INREG_MVT_v16i8_rEN4llvm3MVTEj.exit
 
 140:                                              ; preds = %134
-  %141 = icmp ugt i32 %138, 6
+  %141 = icmp samesign ugt i32 %138, 6
   br i1 %141, label %144, label %142
 
 142:                                              ; preds = %140
@@ -24634,7 +24634,7 @@ define internal fastcc noundef i32 @_ZN12_GLOBAL__N_111X86FastISel39fastEmit_ISD
   br label %_ZN12_GLOBAL__N_111X86FastISel49fastEmit_ISD_ZERO_EXTEND_VECTOR_INREG_MVT_v16i8_rEN4llvm3MVTEj.exit
 
 150:                                              ; preds = %144
-  %151 = icmp ugt i32 %138, 8
+  %151 = icmp samesign ugt i32 %138, 8
   br i1 %151, label %152, label %_ZN12_GLOBAL__N_111X86FastISel49fastEmit_ISD_ZERO_EXTEND_VECTOR_INREG_MVT_v16i8_rEN4llvm3MVTEj.exit
 
 152:                                              ; preds = %150
@@ -24680,7 +24680,7 @@ define internal fastcc noundef i32 @_ZN12_GLOBAL__N_111X86FastISel39fastEmit_ISD
   br i1 %175, label %176, label %_ZN12_GLOBAL__N_111X86FastISel49fastEmit_ISD_ZERO_EXTEND_VECTOR_INREG_MVT_v16i8_rEN4llvm3MVTEj.exit
 
 176:                                              ; preds = %170
-  %177 = icmp ugt i32 %174, 6
+  %177 = icmp samesign ugt i32 %174, 6
   br i1 %177, label %180, label %178
 
 178:                                              ; preds = %176
@@ -24698,7 +24698,7 @@ define internal fastcc noundef i32 @_ZN12_GLOBAL__N_111X86FastISel39fastEmit_ISD
   br label %_ZN12_GLOBAL__N_111X86FastISel49fastEmit_ISD_ZERO_EXTEND_VECTOR_INREG_MVT_v16i8_rEN4llvm3MVTEj.exit
 
 186:                                              ; preds = %180
-  %187 = icmp ugt i32 %174, 8
+  %187 = icmp samesign ugt i32 %174, 8
   br i1 %187, label %188, label %_ZN12_GLOBAL__N_111X86FastISel49fastEmit_ISD_ZERO_EXTEND_VECTOR_INREG_MVT_v16i8_rEN4llvm3MVTEj.exit
 
 188:                                              ; preds = %186
@@ -25536,7 +25536,7 @@ define internal fastcc noundef i32 @_ZN12_GLOBAL__N_111X86FastISel25fastEmit_X86
   br i1 %116, label %117, label %_ZN12_GLOBAL__N_111X86FastISel35fastEmit_X86ISD_CVTP2SI_MVT_v8f16_rEN4llvm3MVTEj.exit
 
 117:                                              ; preds = %113
-  %118 = icmp ugt i32 %115, 6
+  %118 = icmp samesign ugt i32 %115, 6
   br i1 %118, label %121, label %119
 
 119:                                              ; preds = %117
@@ -25664,7 +25664,7 @@ define internal fastcc noundef i32 @_ZN12_GLOBAL__N_111X86FastISel25fastEmit_X86
   br i1 %191, label %192, label %_ZN12_GLOBAL__N_111X86FastISel35fastEmit_X86ISD_CVTP2SI_MVT_v8f16_rEN4llvm3MVTEj.exit
 
 192:                                              ; preds = %188
-  %193 = icmp ugt i32 %190, 6
+  %193 = icmp samesign ugt i32 %190, 6
   br i1 %193, label %196, label %194
 
 194:                                              ; preds = %192
@@ -26336,7 +26336,7 @@ define internal fastcc noundef i32 @_ZN12_GLOBAL__N_111X86FastISel25fastEmit_X86
   br i1 %30, label %31, label %_ZN12_GLOBAL__N_111X86FastISel35fastEmit_X86ISD_CVTS2SI_MVT_v8f16_rEN4llvm3MVTEj.exit
 
 31:                                               ; preds = %29
-  %32 = icmp ugt i32 %27, 6
+  %32 = icmp samesign ugt i32 %27, 6
   %..i.i = select i1 %32, i32 7498, i32 1429
   br label %.sink.split.i.i
 
@@ -26358,7 +26358,7 @@ define internal fastcc noundef i32 @_ZN12_GLOBAL__N_111X86FastISel25fastEmit_X86
   br i1 %41, label %42, label %_ZN12_GLOBAL__N_111X86FastISel35fastEmit_X86ISD_CVTS2SI_MVT_v8f16_rEN4llvm3MVTEj.exit
 
 42:                                               ; preds = %40
-  %43 = icmp ugt i32 %38, 6
+  %43 = icmp samesign ugt i32 %38, 6
   %..i4.i = select i1 %43, i32 7489, i32 1425
   br label %.sink.split.i5.i
 
@@ -26386,7 +26386,7 @@ define internal fastcc noundef i32 @_ZN12_GLOBAL__N_111X86FastISel25fastEmit_X86
   br i1 %53, label %54, label %_ZN12_GLOBAL__N_111X86FastISel35fastEmit_X86ISD_CVTS2SI_MVT_v8f16_rEN4llvm3MVTEj.exit
 
 54:                                               ; preds = %52
-  %55 = icmp ugt i32 %50, 6
+  %55 = icmp samesign ugt i32 %50, 6
   %..i.i15 = select i1 %55, i32 7354, i32 1397
   br label %.sink.split.i.i16
 
@@ -26408,7 +26408,7 @@ define internal fastcc noundef i32 @_ZN12_GLOBAL__N_111X86FastISel25fastEmit_X86
   br i1 %64, label %65, label %_ZN12_GLOBAL__N_111X86FastISel35fastEmit_X86ISD_CVTS2SI_MVT_v8f16_rEN4llvm3MVTEj.exit
 
 65:                                               ; preds = %63
-  %66 = icmp ugt i32 %61, 6
+  %66 = icmp samesign ugt i32 %61, 6
   %..i4.i12 = select i1 %66, i32 7345, i32 1393
   br label %.sink.split.i5.i13
 
@@ -26576,7 +26576,7 @@ define internal fastcc noundef i32 @_ZN12_GLOBAL__N_111X86FastISel25fastEmit_X86
   br i1 %29, label %30, label %_ZN12_GLOBAL__N_111X86FastISel35fastEmit_X86ISD_CVTSI2P_MVT_v4i32_rEN4llvm3MVTEj.exit
 
 30:                                               ; preds = %26
-  %31 = icmp ugt i32 %28, 6
+  %31 = icmp samesign ugt i32 %28, 6
   br i1 %31, label %34, label %32
 
 32:                                               ; preds = %30
@@ -27339,7 +27339,7 @@ define internal fastcc noundef i32 @_ZN12_GLOBAL__N_111X86FastISel26fastEmit_X86
   br i1 %116, label %117, label %_ZN12_GLOBAL__N_111X86FastISel36fastEmit_X86ISD_CVTTP2SI_MVT_v8f16_rEN4llvm3MVTEj.exit
 
 117:                                              ; preds = %113
-  %118 = icmp ugt i32 %115, 6
+  %118 = icmp samesign ugt i32 %115, 6
   br i1 %118, label %121, label %119
 
 119:                                              ; preds = %117
@@ -27467,7 +27467,7 @@ define internal fastcc noundef i32 @_ZN12_GLOBAL__N_111X86FastISel26fastEmit_X86
   br i1 %191, label %192, label %_ZN12_GLOBAL__N_111X86FastISel36fastEmit_X86ISD_CVTTP2SI_MVT_v8f16_rEN4llvm3MVTEj.exit
 
 192:                                              ; preds = %188
-  %193 = icmp ugt i32 %190, 6
+  %193 = icmp samesign ugt i32 %190, 6
   br i1 %193, label %196, label %194
 
 194:                                              ; preds = %192
@@ -28475,7 +28475,7 @@ define internal fastcc noundef i32 @_ZN12_GLOBAL__N_111X86FastISel26fastEmit_X86
   br i1 %30, label %31, label %_ZN12_GLOBAL__N_111X86FastISel36fastEmit_X86ISD_CVTTS2SI_MVT_v8f16_rEN4llvm3MVTEj.exit
 
 31:                                               ; preds = %29
-  %32 = icmp ugt i32 %27, 6
+  %32 = icmp samesign ugt i32 %27, 6
   %..i.i = select i1 %32, i32 8226, i32 1449
   br label %.sink.split.i.i
 
@@ -28497,7 +28497,7 @@ define internal fastcc noundef i32 @_ZN12_GLOBAL__N_111X86FastISel26fastEmit_X86
   br i1 %41, label %42, label %_ZN12_GLOBAL__N_111X86FastISel36fastEmit_X86ISD_CVTTS2SI_MVT_v8f16_rEN4llvm3MVTEj.exit
 
 42:                                               ; preds = %40
-  %43 = icmp ugt i32 %38, 6
+  %43 = icmp samesign ugt i32 %38, 6
   %..i4.i = select i1 %43, i32 8217, i32 1445
   br label %.sink.split.i5.i
 
@@ -28525,7 +28525,7 @@ define internal fastcc noundef i32 @_ZN12_GLOBAL__N_111X86FastISel26fastEmit_X86
   br i1 %53, label %54, label %_ZN12_GLOBAL__N_111X86FastISel36fastEmit_X86ISD_CVTTS2SI_MVT_v8f16_rEN4llvm3MVTEj.exit
 
 54:                                               ; preds = %52
-  %55 = icmp ugt i32 %50, 6
+  %55 = icmp samesign ugt i32 %50, 6
   %..i.i15 = select i1 %55, i32 8178, i32 1441
   br label %.sink.split.i.i16
 
@@ -28547,7 +28547,7 @@ define internal fastcc noundef i32 @_ZN12_GLOBAL__N_111X86FastISel26fastEmit_X86
   br i1 %64, label %65, label %_ZN12_GLOBAL__N_111X86FastISel36fastEmit_X86ISD_CVTTS2SI_MVT_v8f16_rEN4llvm3MVTEj.exit
 
 65:                                               ; preds = %63
-  %66 = icmp ugt i32 %61, 6
+  %66 = icmp samesign ugt i32 %61, 6
   %..i4.i12 = select i1 %66, i32 8169, i32 1437
   br label %.sink.split.i5.i13
 
@@ -29430,7 +29430,7 @@ define internal fastcc noundef i32 @_ZN12_GLOBAL__N_111X86FastISel22fastEmit_X86
   br i1 %20, label %.sink.split.i, label %_ZN12_GLOBAL__N_111X86FastISel30fastEmit_X86ISD_FRCP_MVT_f32_rEN4llvm3MVTEj.exit
 
 .sink.split.i:                                    ; preds = %15
-  %21 = icmp ugt i32 %19, 6
+  %21 = icmp samesign ugt i32 %19, 6
   %..i = select i1 %21, i32 20627, i32 3526
   %22 = tail call i32 @_ZN4llvm8FastISel14fastEmitInst_rEjPKNS_19TargetRegisterClassEj(ptr noundef nonnull align 8 dereferenceable(184) %0, i32 noundef %..i, ptr noundef nonnull @_ZN4llvm3X8613VR128RegClassE, i32 noundef %3) #18
   br label %_ZN12_GLOBAL__N_111X86FastISel30fastEmit_X86ISD_FRCP_MVT_f32_rEN4llvm3MVTEj.exit
@@ -29494,7 +29494,7 @@ define internal fastcc noundef i32 @_ZN12_GLOBAL__N_111X86FastISel24fastEmit_X86
   br i1 %20, label %.sink.split.i, label %_ZN12_GLOBAL__N_111X86FastISel32fastEmit_X86ISD_FRSQRT_MVT_f32_rEN4llvm3MVTEj.exit
 
 .sink.split.i:                                    ; preds = %15
-  %21 = icmp ugt i32 %19, 6
+  %21 = icmp samesign ugt i32 %19, 6
   %..i = select i1 %21, i32 21131, i32 3915
   %22 = tail call i32 @_ZN4llvm8FastISel14fastEmitInst_rEjPKNS_19TargetRegisterClassEj(ptr noundef nonnull align 8 dereferenceable(184) %0, i32 noundef %..i, ptr noundef nonnull @_ZN4llvm3X8613VR128RegClassE, i32 noundef %3) #18
   br label %_ZN12_GLOBAL__N_111X86FastISel32fastEmit_X86ISD_FRSQRT_MVT_f32_rEN4llvm3MVTEj.exit
@@ -29541,7 +29541,7 @@ define internal fastcc noundef i32 @_ZN12_GLOBAL__N_111X86FastISel25fastEmit_X86
   br i1 %11, label %12, label %_ZN12_GLOBAL__N_111X86FastISel35fastEmit_X86ISD_MOVDDUP_MVT_v2f64_rEN4llvm3MVTEj.exit
 
 12:                                               ; preds = %6
-  %13 = icmp ugt i32 %10, 6
+  %13 = icmp samesign ugt i32 %10, 6
   br i1 %13, label %14, label %.sink.split.i
 
 14:                                               ; preds = %12
@@ -29674,7 +29674,7 @@ define internal fastcc noundef i32 @_ZN12_GLOBAL__N_111X86FastISel24fastEmit_X86
   br i1 %11, label %.sink.split.i, label %_ZN12_GLOBAL__N_111X86FastISel34fastEmit_X86ISD_MOVMSK_MVT_v16i8_rEN4llvm3MVTEj.exit
 
 .sink.split.i:                                    ; preds = %6
-  %12 = icmp ugt i32 %10, 6
+  %12 = icmp samesign ugt i32 %10, 6
   %..i = select i1 %12, i32 17457, i32 3214
   br label %_ZN12_GLOBAL__N_111X86FastISel34fastEmit_X86ISD_MOVMSK_MVT_v16i8_rEN4llvm3MVTEj.exit.sink.split
 
@@ -29703,7 +29703,7 @@ define internal fastcc noundef i32 @_ZN12_GLOBAL__N_111X86FastISel24fastEmit_X86
   br i1 %26, label %.sink.split.i35, label %_ZN12_GLOBAL__N_111X86FastISel34fastEmit_X86ISD_MOVMSK_MVT_v16i8_rEN4llvm3MVTEj.exit
 
 .sink.split.i35:                                  ; preds = %21
-  %27 = icmp ugt i32 %25, 6
+  %27 = icmp samesign ugt i32 %25, 6
   %..i36 = select i1 %27, i32 13783, i32 2628
   br label %_ZN12_GLOBAL__N_111X86FastISel34fastEmit_X86ISD_MOVMSK_MVT_v16i8_rEN4llvm3MVTEj.exit.sink.split
 
@@ -29732,7 +29732,7 @@ define internal fastcc noundef i32 @_ZN12_GLOBAL__N_111X86FastISel24fastEmit_X86
   br i1 %41, label %.sink.split.i41, label %_ZN12_GLOBAL__N_111X86FastISel34fastEmit_X86ISD_MOVMSK_MVT_v16i8_rEN4llvm3MVTEj.exit
 
 .sink.split.i41:                                  ; preds = %36
-  %42 = icmp ugt i32 %40, 6
+  %42 = icmp samesign ugt i32 %40, 6
   %..i42 = select i1 %42, i32 13781, i32 2627
   br label %_ZN12_GLOBAL__N_111X86FastISel34fastEmit_X86ISD_MOVMSK_MVT_v16i8_rEN4llvm3MVTEj.exit.sink.split
 
@@ -29761,7 +29761,7 @@ define internal fastcc noundef i32 @_ZN12_GLOBAL__N_111X86FastISel24fastEmit_X86
   br i1 %56, label %.sink.split.i47, label %_ZN12_GLOBAL__N_111X86FastISel34fastEmit_X86ISD_MOVMSK_MVT_v16i8_rEN4llvm3MVTEj.exit
 
 .sink.split.i47:                                  ; preds = %51
-  %57 = icmp ugt i32 %55, 6
+  %57 = icmp samesign ugt i32 %55, 6
   %..i48 = select i1 %57, i32 13783, i32 2628
   br label %_ZN12_GLOBAL__N_111X86FastISel34fastEmit_X86ISD_MOVMSK_MVT_v16i8_rEN4llvm3MVTEj.exit.sink.split
 
@@ -29790,7 +29790,7 @@ define internal fastcc noundef i32 @_ZN12_GLOBAL__N_111X86FastISel24fastEmit_X86
   br i1 %71, label %.sink.split.i53, label %_ZN12_GLOBAL__N_111X86FastISel34fastEmit_X86ISD_MOVMSK_MVT_v16i8_rEN4llvm3MVTEj.exit
 
 .sink.split.i53:                                  ; preds = %66
-  %72 = icmp ugt i32 %70, 6
+  %72 = icmp samesign ugt i32 %70, 6
   %..i54 = select i1 %72, i32 13781, i32 2627
   br label %_ZN12_GLOBAL__N_111X86FastISel34fastEmit_X86ISD_MOVMSK_MVT_v16i8_rEN4llvm3MVTEj.exit.sink.split
 
@@ -29869,7 +29869,7 @@ define internal fastcc noundef i32 @_ZN12_GLOBAL__N_111X86FastISel26fastEmit_X86
   br i1 %11, label %12, label %_ZN12_GLOBAL__N_111X86FastISel36fastEmit_X86ISD_MOVSHDUP_MVT_v4i32_rEN4llvm3MVTEj.exit
 
 12:                                               ; preds = %6
-  %13 = icmp ugt i32 %10, 6
+  %13 = icmp samesign ugt i32 %10, 6
   br i1 %13, label %14, label %.sink.split.i
 
 14:                                               ; preds = %12
@@ -29932,7 +29932,7 @@ define internal fastcc noundef i32 @_ZN12_GLOBAL__N_111X86FastISel26fastEmit_X86
   br i1 %46, label %47, label %_ZN12_GLOBAL__N_111X86FastISel36fastEmit_X86ISD_MOVSHDUP_MVT_v4i32_rEN4llvm3MVTEj.exit
 
 47:                                               ; preds = %45
-  %48 = icmp ugt i32 %37, 6
+  %48 = icmp samesign ugt i32 %37, 6
   br i1 %48, label %..thread6_crit_edge.i, label %49
 
 ..thread6_crit_edge.i:                            ; preds = %47
@@ -30037,7 +30037,7 @@ define internal fastcc noundef i32 @_ZN12_GLOBAL__N_111X86FastISel26fastEmit_X86
   br i1 %11, label %12, label %_ZN12_GLOBAL__N_111X86FastISel36fastEmit_X86ISD_MOVSLDUP_MVT_v4i32_rEN4llvm3MVTEj.exit
 
 12:                                               ; preds = %6
-  %13 = icmp ugt i32 %10, 6
+  %13 = icmp samesign ugt i32 %10, 6
   br i1 %13, label %14, label %.sink.split.i
 
 14:                                               ; preds = %12
@@ -30100,7 +30100,7 @@ define internal fastcc noundef i32 @_ZN12_GLOBAL__N_111X86FastISel26fastEmit_X86
   br i1 %46, label %47, label %_ZN12_GLOBAL__N_111X86FastISel36fastEmit_X86ISD_MOVSLDUP_MVT_v4i32_rEN4llvm3MVTEj.exit
 
 47:                                               ; preds = %45
-  %48 = icmp ugt i32 %37, 6
+  %48 = icmp samesign ugt i32 %37, 6
   br i1 %48, label %..thread6_crit_edge.i, label %49
 
 ..thread6_crit_edge.i:                            ; preds = %47
@@ -30320,7 +30320,7 @@ define internal fastcc noundef i32 @_ZN12_GLOBAL__N_111X86FastISel26fastEmit_X86
   br i1 %10, label %.sink.split.i, label %_ZN12_GLOBAL__N_111X86FastISel36fastEmit_X86ISD_PHMINPOS_MVT_v8i16_rEN4llvm3MVTEj.exit
 
 .sink.split.i:                                    ; preds = %5
-  %11 = icmp ugt i32 %9, 6
+  %11 = icmp samesign ugt i32 %9, 6
   %..i = select i1 %11, i32 16773, i32 3167
   %12 = tail call i32 @_ZN4llvm8FastISel14fastEmitInst_rEjPKNS_19TargetRegisterClassEj(ptr noundef nonnull align 8 dereferenceable(184) %0, i32 noundef %..i, ptr noundef nonnull @_ZN4llvm3X8613VR128RegClassE, i32 noundef %3) #18
   br label %_ZN12_GLOBAL__N_111X86FastISel36fastEmit_X86ISD_PHMINPOS_MVT_v8i16_rEN4llvm3MVTEj.exit
@@ -31027,7 +31027,7 @@ define internal fastcc noundef i32 @_ZN12_GLOBAL__N_111X86FastISel32fastEmit_X86
   br i1 %29, label %30, label %_ZN12_GLOBAL__N_111X86FastISel42fastEmit_X86ISD_STRICT_CVTSI2P_MVT_v4i32_rEN4llvm3MVTEj.exit
 
 30:                                               ; preds = %26
-  %31 = icmp ugt i32 %28, 6
+  %31 = icmp samesign ugt i32 %28, 6
   br i1 %31, label %34, label %32
 
 32:                                               ; preds = %30
@@ -31308,7 +31308,7 @@ define internal fastcc noundef i32 @_ZN12_GLOBAL__N_111X86FastISel33fastEmit_X86
   br i1 %116, label %117, label %_ZN12_GLOBAL__N_111X86FastISel43fastEmit_X86ISD_STRICT_CVTTP2SI_MVT_v8f16_rEN4llvm3MVTEj.exit
 
 117:                                              ; preds = %113
-  %118 = icmp ugt i32 %115, 6
+  %118 = icmp samesign ugt i32 %115, 6
   br i1 %118, label %121, label %119
 
 119:                                              ; preds = %117
@@ -31436,7 +31436,7 @@ define internal fastcc noundef i32 @_ZN12_GLOBAL__N_111X86FastISel33fastEmit_X86
   br i1 %191, label %192, label %_ZN12_GLOBAL__N_111X86FastISel43fastEmit_X86ISD_STRICT_CVTTP2SI_MVT_v8f16_rEN4llvm3MVTEj.exit
 
 192:                                              ; preds = %188
-  %193 = icmp ugt i32 %190, 6
+  %193 = icmp samesign ugt i32 %190, 6
   br i1 %193, label %196, label %194
 
 194:                                              ; preds = %192
@@ -32122,7 +32122,7 @@ define internal fastcc noundef i32 @_ZN12_GLOBAL__N_111X86FastISel31fastEmit_X86
   br i1 %56, label %57, label %_ZN12_GLOBAL__N_111X86FastISel41fastEmit_X86ISD_STRICT_VFPEXT_MVT_v8f16_rEN4llvm3MVTEj.exit
 
 57:                                               ; preds = %55
-  %58 = icmp ugt i32 %47, 6
+  %58 = icmp samesign ugt i32 %47, 6
   br i1 %58, label %..thread6_crit_edge.i, label %59
 
 ..thread6_crit_edge.i:                            ; preds = %57
@@ -32266,7 +32266,7 @@ define internal fastcc noundef i32 @_ZN12_GLOBAL__N_111X86FastISel33fastEmit_X86
   br i1 %66, label %67, label %_ZN12_GLOBAL__N_111X86FastISel43fastEmit_X86ISD_STRICT_VFPROUND_MVT_v4f32_rEN4llvm3MVTEj.exit
 
 67:                                               ; preds = %65
-  %68 = icmp ugt i32 %57, 6
+  %68 = icmp samesign ugt i32 %57, 6
   br i1 %68, label %..thread6_crit_edge.i.i, label %69
 
 ..thread6_crit_edge.i.i:                          ; preds = %67
@@ -33100,7 +33100,7 @@ define internal fastcc noundef i32 @_ZN12_GLOBAL__N_111X86FastISel28fastEmit_X86
   br label %_ZN12_GLOBAL__N_111X86FastISel36fastEmit_X86ISD_VBROADCAST_MVT_i32_rEN4llvm3MVTEj.exit
 
 397:                                              ; preds = %391
-  %398 = icmp ugt i32 %389, 8
+  %398 = icmp samesign ugt i32 %389, 8
   br i1 %398, label %399, label %_ZN12_GLOBAL__N_111X86FastISel36fastEmit_X86ISD_VBROADCAST_MVT_i32_rEN4llvm3MVTEj.exit
 
 399:                                              ; preds = %397
@@ -33665,7 +33665,7 @@ define internal fastcc noundef i32 @_ZN12_GLOBAL__N_111X86FastISel24fastEmit_X86
   br i1 %56, label %57, label %_ZN12_GLOBAL__N_111X86FastISel34fastEmit_X86ISD_VFPEXT_MVT_v8f16_rEN4llvm3MVTEj.exit
 
 57:                                               ; preds = %55
-  %58 = icmp ugt i32 %47, 6
+  %58 = icmp samesign ugt i32 %47, 6
   br i1 %58, label %..thread6_crit_edge.i, label %59
 
 ..thread6_crit_edge.i:                            ; preds = %57
@@ -33955,7 +33955,7 @@ _ZN12_GLOBAL__N_111X86FastISel48fastEmit_X86ISD_VFPROUND_MVT_v16f32_MVT_v16f16_r
   br i1 %89, label %90, label %_ZN12_GLOBAL__N_111X86FastISel36fastEmit_X86ISD_VFPROUND_MVT_v4f32_rEN4llvm3MVTEj.exit
 
 90:                                               ; preds = %88
-  %91 = icmp ugt i32 %80, 6
+  %91 = icmp samesign ugt i32 %80, 6
   br i1 %91, label %..thread6_crit_edge.i.i, label %92
 
 ..thread6_crit_edge.i.i:                          ; preds = %90
@@ -34961,7 +34961,7 @@ define internal fastcc noundef i32 @_ZN12_GLOBAL__N_111X86FastISel28fastEmit_X86
   br i1 %15, label %16, label %_ZN12_GLOBAL__N_111X86FastISel38fastEmit_X86ISD_VZEXT_MOVL_MVT_v2i64_rEN4llvm3MVTEj.exit
 
 16:                                               ; preds = %14
-  %17 = icmp ugt i32 %10, 6
+  %17 = icmp samesign ugt i32 %10, 6
   br i1 %17, label %20, label %18
 
 18:                                               ; preds = %16
@@ -34993,7 +34993,7 @@ define internal fastcc noundef i32 @_ZN12_GLOBAL__N_111X86FastISel28fastEmit_X86
   br i1 %32, label %33, label %_ZN12_GLOBAL__N_111X86FastISel38fastEmit_X86ISD_VZEXT_MOVL_MVT_v2i64_rEN4llvm3MVTEj.exit
 
 33:                                               ; preds = %31
-  %34 = icmp ugt i32 %27, 6
+  %34 = icmp samesign ugt i32 %27, 6
   br i1 %34, label %37, label %35
 
 35:                                               ; preds = %33
@@ -35115,7 +35115,7 @@ define internal fastcc noundef i32 @_ZN12_GLOBAL__N_111X86FastISel19fastEmit_ISD
   br i1 %50, label %51, label %_ZN12_GLOBAL__N_111X86FastISel26fastEmit_ISD_ADD_MVT_i8_rrEN4llvm3MVTEjj.exit
 
 51:                                               ; preds = %47
-  %52 = icmp ugt i32 %49, 6
+  %52 = icmp samesign ugt i32 %49, 6
   br i1 %52, label %55, label %53
 
 53:                                               ; preds = %51
@@ -35217,7 +35217,7 @@ define internal fastcc noundef i32 @_ZN12_GLOBAL__N_111X86FastISel19fastEmit_ISD
   br i1 %107, label %108, label %_ZN12_GLOBAL__N_111X86FastISel26fastEmit_ISD_ADD_MVT_i8_rrEN4llvm3MVTEjj.exit
 
 108:                                              ; preds = %104
-  %109 = icmp ugt i32 %106, 6
+  %109 = icmp samesign ugt i32 %106, 6
   br i1 %109, label %112, label %110
 
 110:                                              ; preds = %108
@@ -35317,7 +35317,7 @@ define internal fastcc noundef i32 @_ZN12_GLOBAL__N_111X86FastISel19fastEmit_ISD
   br i1 %162, label %163, label %_ZN12_GLOBAL__N_111X86FastISel26fastEmit_ISD_ADD_MVT_i8_rrEN4llvm3MVTEjj.exit
 
 163:                                              ; preds = %161
-  %164 = icmp ugt i32 %153, 6
+  %164 = icmp samesign ugt i32 %153, 6
   br i1 %164, label %..thread9_crit_edge.i, label %165
 
 ..thread9_crit_edge.i:                            ; preds = %163
@@ -35421,7 +35421,7 @@ define internal fastcc noundef i32 @_ZN12_GLOBAL__N_111X86FastISel19fastEmit_ISD
   br i1 %213, label %214, label %_ZN12_GLOBAL__N_111X86FastISel26fastEmit_ISD_ADD_MVT_i8_rrEN4llvm3MVTEjj.exit
 
 214:                                              ; preds = %212
-  %215 = icmp ugt i32 %204, 6
+  %215 = icmp samesign ugt i32 %204, 6
   br i1 %215, label %..thread9_crit_edge.i104, label %216
 
 ..thread9_crit_edge.i104:                         ; preds = %214
@@ -35671,7 +35671,7 @@ define internal fastcc noundef i32 @_ZN12_GLOBAL__N_111X86FastISel19fastEmit_ISD
   br i1 %82, label %83, label %_ZN12_GLOBAL__N_111X86FastISel26fastEmit_ISD_AND_MVT_i8_rrEN4llvm3MVTEjj.exit
 
 83:                                               ; preds = %79
-  %84 = icmp ugt i32 %81, 6
+  %84 = icmp samesign ugt i32 %81, 6
   br i1 %84, label %87, label %85
 
 85:                                               ; preds = %83
@@ -35755,7 +35755,7 @@ define internal fastcc noundef i32 @_ZN12_GLOBAL__N_111X86FastISel19fastEmit_ISD
   br i1 %128, label %129, label %_ZN12_GLOBAL__N_111X86FastISel26fastEmit_ISD_AND_MVT_i8_rrEN4llvm3MVTEjj.exit
 
 129:                                              ; preds = %125
-  %130 = icmp ugt i32 %127, 6
+  %130 = icmp samesign ugt i32 %127, 6
   br i1 %130, label %133, label %131
 
 131:                                              ; preds = %129
@@ -35829,7 +35829,7 @@ define internal fastcc noundef i32 @_ZN12_GLOBAL__N_111X86FastISel19fastEmit_ISD
   br i1 %168, label %169, label %_ZN12_GLOBAL__N_111X86FastISel26fastEmit_ISD_AND_MVT_i8_rrEN4llvm3MVTEjj.exit
 
 169:                                              ; preds = %163
-  %170 = icmp ugt i32 %167, 6
+  %170 = icmp samesign ugt i32 %167, 6
   br i1 %170, label %173, label %171
 
 171:                                              ; preds = %169
@@ -35847,7 +35847,7 @@ define internal fastcc noundef i32 @_ZN12_GLOBAL__N_111X86FastISel19fastEmit_ISD
   br label %_ZN12_GLOBAL__N_111X86FastISel26fastEmit_ISD_AND_MVT_i8_rrEN4llvm3MVTEjj.exit
 
 179:                                              ; preds = %173
-  %180 = icmp ugt i32 %167, 8
+  %180 = icmp samesign ugt i32 %167, 8
   br i1 %180, label %181, label %_ZN12_GLOBAL__N_111X86FastISel26fastEmit_ISD_AND_MVT_i8_rrEN4llvm3MVTEjj.exit
 
 181:                                              ; preds = %179
@@ -35885,7 +35885,7 @@ define internal fastcc noundef i32 @_ZN12_GLOBAL__N_111X86FastISel19fastEmit_ISD
   br label %_ZN12_GLOBAL__N_111X86FastISel26fastEmit_ISD_AND_MVT_i8_rrEN4llvm3MVTEjj.exit
 
 199:                                              ; preds = %193
-  %200 = icmp ugt i32 %188, 8
+  %200 = icmp samesign ugt i32 %188, 8
   br i1 %200, label %201, label %_ZN12_GLOBAL__N_111X86FastISel26fastEmit_ISD_AND_MVT_i8_rrEN4llvm3MVTEjj.exit
 
 201:                                              ; preds = %199
@@ -35935,7 +35935,7 @@ define internal fastcc noundef i32 @_ZN12_GLOBAL__N_111X86FastISel19fastEmit_ISD
   br i1 %226, label %227, label %_ZN12_GLOBAL__N_111X86FastISel26fastEmit_ISD_AND_MVT_i8_rrEN4llvm3MVTEjj.exit
 
 227:                                              ; preds = %225
-  %228 = icmp ugt i32 %217, 6
+  %228 = icmp samesign ugt i32 %217, 6
   br i1 %228, label %..thread9_crit_edge.i, label %229
 
 ..thread9_crit_edge.i:                            ; preds = %227
@@ -35977,7 +35977,7 @@ define internal fastcc noundef i32 @_ZN12_GLOBAL__N_111X86FastISel19fastEmit_ISD
   br label %_ZN12_GLOBAL__N_111X86FastISel26fastEmit_ISD_AND_MVT_i8_rrEN4llvm3MVTEjj.exit
 
 245:                                              ; preds = %242
-  %246 = icmp ugt i32 %240, 8
+  %246 = icmp samesign ugt i32 %240, 8
   %247 = getelementptr inbounds nuw i8, ptr %238, i64 436
   %248 = load i8, ptr %247, align 4
   %249 = trunc i8 %248 to i1
@@ -36058,7 +36058,7 @@ define internal fastcc noundef i32 @_ZN12_GLOBAL__N_111X86FastISel24fastEmit_ISD
   br i1 %22, label %23, label %_ZN12_GLOBAL__N_111X86FastISel34fastEmit_ISD_AVGCEILU_MVT_v16i8_rrEN4llvm3MVTEjj.exit
 
 23:                                               ; preds = %19
-  %24 = icmp ugt i32 %21, 6
+  %24 = icmp samesign ugt i32 %21, 6
   br i1 %24, label %27, label %25
 
 25:                                               ; preds = %23
@@ -36160,7 +36160,7 @@ define internal fastcc noundef i32 @_ZN12_GLOBAL__N_111X86FastISel24fastEmit_ISD
   br i1 %79, label %80, label %_ZN12_GLOBAL__N_111X86FastISel34fastEmit_ISD_AVGCEILU_MVT_v16i8_rrEN4llvm3MVTEjj.exit
 
 80:                                               ; preds = %76
-  %81 = icmp ugt i32 %78, 6
+  %81 = icmp samesign ugt i32 %78, 6
   br i1 %81, label %84, label %82
 
 82:                                               ; preds = %80
@@ -36296,7 +36296,7 @@ define internal fastcc noundef i32 @_ZN12_GLOBAL__N_111X86FastISel20fastEmit_ISD
   br i1 %25, label %26, label %32
 
 26:                                               ; preds = %24
-  %27 = icmp ugt i32 %20, 6
+  %27 = icmp samesign ugt i32 %20, 6
   br i1 %27, label %30, label %28
 
 28:                                               ; preds = %26
@@ -36332,7 +36332,7 @@ define internal fastcc noundef i32 @_ZN12_GLOBAL__N_111X86FastISel20fastEmit_ISD
   br i1 %44, label %45, label %51
 
 45:                                               ; preds = %43
-  %46 = icmp ugt i32 %39, 6
+  %46 = icmp samesign ugt i32 %39, 6
   br i1 %46, label %49, label %47
 
 47:                                               ; preds = %45
@@ -36498,7 +36498,7 @@ define internal fastcc noundef i32 @_ZN12_GLOBAL__N_111X86FastISel20fastEmit_ISD
   br i1 %138, label %139, label %_ZN12_GLOBAL__N_111X86FastISel28fastEmit_ISD_FADD_MVT_f16_rrEN4llvm3MVTEjj.exit
 
 139:                                              ; preds = %137
-  %140 = icmp ugt i32 %129, 6
+  %140 = icmp samesign ugt i32 %129, 6
   br i1 %140, label %..thread9_crit_edge.i, label %141
 
 ..thread9_crit_edge.i:                            ; preds = %139
@@ -36602,7 +36602,7 @@ define internal fastcc noundef i32 @_ZN12_GLOBAL__N_111X86FastISel20fastEmit_ISD
   br i1 %189, label %190, label %_ZN12_GLOBAL__N_111X86FastISel28fastEmit_ISD_FADD_MVT_f16_rrEN4llvm3MVTEjj.exit
 
 190:                                              ; preds = %188
-  %191 = icmp ugt i32 %180, 6
+  %191 = icmp samesign ugt i32 %180, 6
   br i1 %191, label %..thread9_crit_edge.i93, label %192
 
 ..thread9_crit_edge.i93:                          ; preds = %190
@@ -36742,7 +36742,7 @@ define internal fastcc noundef i32 @_ZN12_GLOBAL__N_111X86FastISel20fastEmit_ISD
   br i1 %25, label %26, label %32
 
 26:                                               ; preds = %24
-  %27 = icmp ugt i32 %20, 6
+  %27 = icmp samesign ugt i32 %20, 6
   br i1 %27, label %30, label %28
 
 28:                                               ; preds = %26
@@ -36778,7 +36778,7 @@ define internal fastcc noundef i32 @_ZN12_GLOBAL__N_111X86FastISel20fastEmit_ISD
   br i1 %44, label %45, label %51
 
 45:                                               ; preds = %43
-  %46 = icmp ugt i32 %39, 6
+  %46 = icmp samesign ugt i32 %39, 6
   br i1 %46, label %49, label %47
 
 47:                                               ; preds = %45
@@ -36944,7 +36944,7 @@ define internal fastcc noundef i32 @_ZN12_GLOBAL__N_111X86FastISel20fastEmit_ISD
   br i1 %138, label %139, label %_ZN12_GLOBAL__N_111X86FastISel28fastEmit_ISD_FDIV_MVT_f16_rrEN4llvm3MVTEjj.exit
 
 139:                                              ; preds = %137
-  %140 = icmp ugt i32 %129, 6
+  %140 = icmp samesign ugt i32 %129, 6
   br i1 %140, label %..thread9_crit_edge.i, label %141
 
 ..thread9_crit_edge.i:                            ; preds = %139
@@ -37048,7 +37048,7 @@ define internal fastcc noundef i32 @_ZN12_GLOBAL__N_111X86FastISel20fastEmit_ISD
   br i1 %189, label %190, label %_ZN12_GLOBAL__N_111X86FastISel28fastEmit_ISD_FDIV_MVT_f16_rrEN4llvm3MVTEjj.exit
 
 190:                                              ; preds = %188
-  %191 = icmp ugt i32 %180, 6
+  %191 = icmp samesign ugt i32 %180, 6
   br i1 %191, label %..thread9_crit_edge.i93, label %192
 
 ..thread9_crit_edge.i93:                          ; preds = %190
@@ -37188,7 +37188,7 @@ define internal fastcc noundef i32 @_ZN12_GLOBAL__N_111X86FastISel20fastEmit_ISD
   br i1 %25, label %26, label %32
 
 26:                                               ; preds = %24
-  %27 = icmp ugt i32 %20, 6
+  %27 = icmp samesign ugt i32 %20, 6
   br i1 %27, label %30, label %28
 
 28:                                               ; preds = %26
@@ -37224,7 +37224,7 @@ define internal fastcc noundef i32 @_ZN12_GLOBAL__N_111X86FastISel20fastEmit_ISD
   br i1 %44, label %45, label %51
 
 45:                                               ; preds = %43
-  %46 = icmp ugt i32 %39, 6
+  %46 = icmp samesign ugt i32 %39, 6
   br i1 %46, label %49, label %47
 
 47:                                               ; preds = %45
@@ -37390,7 +37390,7 @@ define internal fastcc noundef i32 @_ZN12_GLOBAL__N_111X86FastISel20fastEmit_ISD
   br i1 %138, label %139, label %_ZN12_GLOBAL__N_111X86FastISel28fastEmit_ISD_FMUL_MVT_f16_rrEN4llvm3MVTEjj.exit
 
 139:                                              ; preds = %137
-  %140 = icmp ugt i32 %129, 6
+  %140 = icmp samesign ugt i32 %129, 6
   br i1 %140, label %..thread9_crit_edge.i, label %141
 
 ..thread9_crit_edge.i:                            ; preds = %139
@@ -37494,7 +37494,7 @@ define internal fastcc noundef i32 @_ZN12_GLOBAL__N_111X86FastISel20fastEmit_ISD
   br i1 %189, label %190, label %_ZN12_GLOBAL__N_111X86FastISel28fastEmit_ISD_FMUL_MVT_f16_rrEN4llvm3MVTEjj.exit
 
 190:                                              ; preds = %188
-  %191 = icmp ugt i32 %180, 6
+  %191 = icmp samesign ugt i32 %180, 6
   br i1 %191, label %..thread9_crit_edge.i93, label %192
 
 ..thread9_crit_edge.i93:                          ; preds = %190
@@ -37634,7 +37634,7 @@ define internal fastcc noundef i32 @_ZN12_GLOBAL__N_111X86FastISel20fastEmit_ISD
   br i1 %25, label %26, label %32
 
 26:                                               ; preds = %24
-  %27 = icmp ugt i32 %20, 6
+  %27 = icmp samesign ugt i32 %20, 6
   br i1 %27, label %30, label %28
 
 28:                                               ; preds = %26
@@ -37670,7 +37670,7 @@ define internal fastcc noundef i32 @_ZN12_GLOBAL__N_111X86FastISel20fastEmit_ISD
   br i1 %44, label %45, label %51
 
 45:                                               ; preds = %43
-  %46 = icmp ugt i32 %39, 6
+  %46 = icmp samesign ugt i32 %39, 6
   br i1 %46, label %49, label %47
 
 47:                                               ; preds = %45
@@ -37836,7 +37836,7 @@ define internal fastcc noundef i32 @_ZN12_GLOBAL__N_111X86FastISel20fastEmit_ISD
   br i1 %138, label %139, label %_ZN12_GLOBAL__N_111X86FastISel28fastEmit_ISD_FSUB_MVT_f16_rrEN4llvm3MVTEjj.exit
 
 139:                                              ; preds = %137
-  %140 = icmp ugt i32 %129, 6
+  %140 = icmp samesign ugt i32 %129, 6
   br i1 %140, label %..thread9_crit_edge.i, label %141
 
 ..thread9_crit_edge.i:                            ; preds = %139
@@ -37940,7 +37940,7 @@ define internal fastcc noundef i32 @_ZN12_GLOBAL__N_111X86FastISel20fastEmit_ISD
   br i1 %189, label %190, label %_ZN12_GLOBAL__N_111X86FastISel28fastEmit_ISD_FSUB_MVT_f16_rrEN4llvm3MVTEjj.exit
 
 190:                                              ; preds = %188
-  %191 = icmp ugt i32 %180, 6
+  %191 = icmp samesign ugt i32 %180, 6
   br i1 %191, label %..thread9_crit_edge.i93, label %192
 
 ..thread9_crit_edge.i93:                          ; preds = %190
@@ -38145,7 +38145,7 @@ define internal fastcc noundef i32 @_ZN12_GLOBAL__N_111X86FastISel19fastEmit_ISD
   br i1 %64, label %65, label %_ZN12_GLOBAL__N_111X86FastISel26fastEmit_ISD_MUL_MVT_i8_rrEN4llvm3MVTEjj.exit
 
 65:                                               ; preds = %61
-  %66 = icmp ugt i32 %63, 6
+  %66 = icmp samesign ugt i32 %63, 6
   br i1 %66, label %69, label %67
 
 67:                                               ; preds = %65
@@ -38245,7 +38245,7 @@ define internal fastcc noundef i32 @_ZN12_GLOBAL__N_111X86FastISel19fastEmit_ISD
   br i1 %119, label %120, label %_ZN12_GLOBAL__N_111X86FastISel26fastEmit_ISD_MUL_MVT_i8_rrEN4llvm3MVTEjj.exit
 
 120:                                              ; preds = %118
-  %121 = icmp ugt i32 %110, 6
+  %121 = icmp samesign ugt i32 %110, 6
   br i1 %121, label %..thread9_crit_edge.i, label %122
 
 ..thread9_crit_edge.i:                            ; preds = %120
@@ -38424,7 +38424,7 @@ define internal fastcc noundef i32 @_ZN12_GLOBAL__N_111X86FastISel21fastEmit_ISD
   br i1 %22, label %23, label %_ZN12_GLOBAL__N_111X86FastISel31fastEmit_ISD_MULHS_MVT_v8i16_rrEN4llvm3MVTEjj.exit
 
 23:                                               ; preds = %19
-  %24 = icmp ugt i32 %21, 6
+  %24 = icmp samesign ugt i32 %21, 6
   br i1 %24, label %27, label %25
 
 25:                                               ; preds = %23
@@ -38539,7 +38539,7 @@ define internal fastcc noundef i32 @_ZN12_GLOBAL__N_111X86FastISel21fastEmit_ISD
   br i1 %22, label %23, label %_ZN12_GLOBAL__N_111X86FastISel31fastEmit_ISD_MULHU_MVT_v8i16_rrEN4llvm3MVTEjj.exit
 
 23:                                               ; preds = %19
-  %24 = icmp ugt i32 %21, 6
+  %24 = icmp samesign ugt i32 %21, 6
   br i1 %24, label %27, label %25
 
 25:                                               ; preds = %23
@@ -38785,7 +38785,7 @@ define internal fastcc noundef i32 @_ZN12_GLOBAL__N_111X86FastISel18fastEmit_ISD
   br i1 %82, label %83, label %_ZN12_GLOBAL__N_111X86FastISel25fastEmit_ISD_OR_MVT_i8_rrEN4llvm3MVTEjj.exit
 
 83:                                               ; preds = %79
-  %84 = icmp ugt i32 %81, 6
+  %84 = icmp samesign ugt i32 %81, 6
   br i1 %84, label %87, label %85
 
 85:                                               ; preds = %83
@@ -38869,7 +38869,7 @@ define internal fastcc noundef i32 @_ZN12_GLOBAL__N_111X86FastISel18fastEmit_ISD
   br i1 %128, label %129, label %_ZN12_GLOBAL__N_111X86FastISel25fastEmit_ISD_OR_MVT_i8_rrEN4llvm3MVTEjj.exit
 
 129:                                              ; preds = %125
-  %130 = icmp ugt i32 %127, 6
+  %130 = icmp samesign ugt i32 %127, 6
   br i1 %130, label %133, label %131
 
 131:                                              ; preds = %129
@@ -38943,7 +38943,7 @@ define internal fastcc noundef i32 @_ZN12_GLOBAL__N_111X86FastISel18fastEmit_ISD
   br i1 %168, label %169, label %_ZN12_GLOBAL__N_111X86FastISel25fastEmit_ISD_OR_MVT_i8_rrEN4llvm3MVTEjj.exit
 
 169:                                              ; preds = %163
-  %170 = icmp ugt i32 %167, 6
+  %170 = icmp samesign ugt i32 %167, 6
   br i1 %170, label %173, label %171
 
 171:                                              ; preds = %169
@@ -38961,7 +38961,7 @@ define internal fastcc noundef i32 @_ZN12_GLOBAL__N_111X86FastISel18fastEmit_ISD
   br label %_ZN12_GLOBAL__N_111X86FastISel25fastEmit_ISD_OR_MVT_i8_rrEN4llvm3MVTEjj.exit
 
 179:                                              ; preds = %173
-  %180 = icmp ugt i32 %167, 8
+  %180 = icmp samesign ugt i32 %167, 8
   br i1 %180, label %181, label %_ZN12_GLOBAL__N_111X86FastISel25fastEmit_ISD_OR_MVT_i8_rrEN4llvm3MVTEjj.exit
 
 181:                                              ; preds = %179
@@ -38999,7 +38999,7 @@ define internal fastcc noundef i32 @_ZN12_GLOBAL__N_111X86FastISel18fastEmit_ISD
   br label %_ZN12_GLOBAL__N_111X86FastISel25fastEmit_ISD_OR_MVT_i8_rrEN4llvm3MVTEjj.exit
 
 199:                                              ; preds = %193
-  %200 = icmp ugt i32 %188, 8
+  %200 = icmp samesign ugt i32 %188, 8
   br i1 %200, label %201, label %_ZN12_GLOBAL__N_111X86FastISel25fastEmit_ISD_OR_MVT_i8_rrEN4llvm3MVTEjj.exit
 
 201:                                              ; preds = %199
@@ -39049,7 +39049,7 @@ define internal fastcc noundef i32 @_ZN12_GLOBAL__N_111X86FastISel18fastEmit_ISD
   br i1 %226, label %227, label %_ZN12_GLOBAL__N_111X86FastISel25fastEmit_ISD_OR_MVT_i8_rrEN4llvm3MVTEjj.exit
 
 227:                                              ; preds = %225
-  %228 = icmp ugt i32 %217, 6
+  %228 = icmp samesign ugt i32 %217, 6
   br i1 %228, label %..thread9_crit_edge.i, label %229
 
 ..thread9_crit_edge.i:                            ; preds = %227
@@ -39091,7 +39091,7 @@ define internal fastcc noundef i32 @_ZN12_GLOBAL__N_111X86FastISel18fastEmit_ISD
   br label %_ZN12_GLOBAL__N_111X86FastISel25fastEmit_ISD_OR_MVT_i8_rrEN4llvm3MVTEjj.exit
 
 245:                                              ; preds = %242
-  %246 = icmp ugt i32 %240, 8
+  %246 = icmp samesign ugt i32 %240, 8
   %247 = getelementptr inbounds nuw i8, ptr %238, i64 436
   %248 = load i8, ptr %247, align 4
   %249 = trunc i8 %248 to i1
@@ -39662,7 +39662,7 @@ define internal fastcc noundef i32 @_ZN12_GLOBAL__N_111X86FastISel23fastEmit_ISD
   br i1 %22, label %23, label %_ZN12_GLOBAL__N_111X86FastISel33fastEmit_ISD_SADDSAT_MVT_v16i8_rrEN4llvm3MVTEjj.exit
 
 23:                                               ; preds = %19
-  %24 = icmp ugt i32 %21, 6
+  %24 = icmp samesign ugt i32 %21, 6
   br i1 %24, label %27, label %25
 
 25:                                               ; preds = %23
@@ -39764,7 +39764,7 @@ define internal fastcc noundef i32 @_ZN12_GLOBAL__N_111X86FastISel23fastEmit_ISD
   br i1 %79, label %80, label %_ZN12_GLOBAL__N_111X86FastISel33fastEmit_ISD_SADDSAT_MVT_v16i8_rrEN4llvm3MVTEjj.exit
 
 80:                                               ; preds = %76
-  %81 = icmp ugt i32 %78, 6
+  %81 = icmp samesign ugt i32 %78, 6
   br i1 %81, label %84, label %82
 
 82:                                               ; preds = %80
@@ -39977,7 +39977,7 @@ define internal fastcc noundef i32 @_ZN12_GLOBAL__N_111X86FastISel20fastEmit_ISD
   br i1 %22, label %23, label %_ZN12_GLOBAL__N_111X86FastISel30fastEmit_ISD_SMAX_MVT_v16i8_rrEN4llvm3MVTEjj.exit
 
 23:                                               ; preds = %19
-  %24 = icmp ugt i32 %21, 6
+  %24 = icmp samesign ugt i32 %21, 6
   br i1 %24, label %27, label %25
 
 25:                                               ; preds = %23
@@ -40079,7 +40079,7 @@ define internal fastcc noundef i32 @_ZN12_GLOBAL__N_111X86FastISel20fastEmit_ISD
   br i1 %79, label %80, label %_ZN12_GLOBAL__N_111X86FastISel30fastEmit_ISD_SMAX_MVT_v16i8_rrEN4llvm3MVTEjj.exit
 
 80:                                               ; preds = %76
-  %81 = icmp ugt i32 %78, 6
+  %81 = icmp samesign ugt i32 %78, 6
   br i1 %81, label %84, label %82
 
 82:                                               ; preds = %80
@@ -40179,7 +40179,7 @@ define internal fastcc noundef i32 @_ZN12_GLOBAL__N_111X86FastISel20fastEmit_ISD
   br i1 %134, label %135, label %_ZN12_GLOBAL__N_111X86FastISel30fastEmit_ISD_SMAX_MVT_v16i8_rrEN4llvm3MVTEjj.exit
 
 135:                                              ; preds = %133
-  %136 = icmp ugt i32 %125, 6
+  %136 = icmp samesign ugt i32 %125, 6
   br i1 %136, label %..thread9_crit_edge.i, label %137
 
 ..thread9_crit_edge.i:                            ; preds = %135
@@ -40367,7 +40367,7 @@ define internal fastcc noundef i32 @_ZN12_GLOBAL__N_111X86FastISel20fastEmit_ISD
   br i1 %22, label %23, label %_ZN12_GLOBAL__N_111X86FastISel30fastEmit_ISD_SMIN_MVT_v16i8_rrEN4llvm3MVTEjj.exit
 
 23:                                               ; preds = %19
-  %24 = icmp ugt i32 %21, 6
+  %24 = icmp samesign ugt i32 %21, 6
   br i1 %24, label %27, label %25
 
 25:                                               ; preds = %23
@@ -40469,7 +40469,7 @@ define internal fastcc noundef i32 @_ZN12_GLOBAL__N_111X86FastISel20fastEmit_ISD
   br i1 %79, label %80, label %_ZN12_GLOBAL__N_111X86FastISel30fastEmit_ISD_SMIN_MVT_v16i8_rrEN4llvm3MVTEjj.exit
 
 80:                                               ; preds = %76
-  %81 = icmp ugt i32 %78, 6
+  %81 = icmp samesign ugt i32 %78, 6
   br i1 %81, label %84, label %82
 
 82:                                               ; preds = %80
@@ -40569,7 +40569,7 @@ define internal fastcc noundef i32 @_ZN12_GLOBAL__N_111X86FastISel20fastEmit_ISD
   br i1 %134, label %135, label %_ZN12_GLOBAL__N_111X86FastISel30fastEmit_ISD_SMIN_MVT_v16i8_rrEN4llvm3MVTEjj.exit
 
 135:                                              ; preds = %133
-  %136 = icmp ugt i32 %125, 6
+  %136 = icmp samesign ugt i32 %125, 6
   br i1 %136, label %..thread9_crit_edge.i, label %137
 
 ..thread9_crit_edge.i:                            ; preds = %135
@@ -40929,7 +40929,7 @@ define internal fastcc noundef i32 @_ZN12_GLOBAL__N_111X86FastISel23fastEmit_ISD
   br i1 %22, label %23, label %_ZN12_GLOBAL__N_111X86FastISel33fastEmit_ISD_SSUBSAT_MVT_v16i8_rrEN4llvm3MVTEjj.exit
 
 23:                                               ; preds = %19
-  %24 = icmp ugt i32 %21, 6
+  %24 = icmp samesign ugt i32 %21, 6
   br i1 %24, label %27, label %25
 
 25:                                               ; preds = %23
@@ -41031,7 +41031,7 @@ define internal fastcc noundef i32 @_ZN12_GLOBAL__N_111X86FastISel23fastEmit_ISD
   br i1 %79, label %80, label %_ZN12_GLOBAL__N_111X86FastISel33fastEmit_ISD_SSUBSAT_MVT_v16i8_rrEN4llvm3MVTEjj.exit
 
 80:                                               ; preds = %76
-  %81 = icmp ugt i32 %78, 6
+  %81 = icmp samesign ugt i32 %78, 6
   br i1 %81, label %84, label %82
 
 82:                                               ; preds = %80
@@ -41164,7 +41164,7 @@ define internal fastcc noundef i32 @_ZN12_GLOBAL__N_111X86FastISel27fastEmit_ISD
   br i1 %25, label %26, label %32
 
 26:                                               ; preds = %24
-  %27 = icmp ugt i32 %20, 6
+  %27 = icmp samesign ugt i32 %20, 6
   br i1 %27, label %30, label %28
 
 28:                                               ; preds = %26
@@ -41200,7 +41200,7 @@ define internal fastcc noundef i32 @_ZN12_GLOBAL__N_111X86FastISel27fastEmit_ISD
   br i1 %44, label %45, label %51
 
 45:                                               ; preds = %43
-  %46 = icmp ugt i32 %39, 6
+  %46 = icmp samesign ugt i32 %39, 6
   br i1 %46, label %49, label %47
 
 47:                                               ; preds = %45
@@ -41318,7 +41318,7 @@ define internal fastcc noundef i32 @_ZN12_GLOBAL__N_111X86FastISel27fastEmit_ISD
   br i1 %111, label %112, label %_ZN12_GLOBAL__N_111X86FastISel35fastEmit_ISD_STRICT_FADD_MVT_f16_rrEN4llvm3MVTEjj.exit
 
 112:                                              ; preds = %110
-  %113 = icmp ugt i32 %102, 6
+  %113 = icmp samesign ugt i32 %102, 6
   br i1 %113, label %..thread9_crit_edge.i, label %114
 
 ..thread9_crit_edge.i:                            ; preds = %112
@@ -41422,7 +41422,7 @@ define internal fastcc noundef i32 @_ZN12_GLOBAL__N_111X86FastISel27fastEmit_ISD
   br i1 %162, label %163, label %_ZN12_GLOBAL__N_111X86FastISel35fastEmit_ISD_STRICT_FADD_MVT_f16_rrEN4llvm3MVTEjj.exit
 
 163:                                              ; preds = %161
-  %164 = icmp ugt i32 %153, 6
+  %164 = icmp samesign ugt i32 %153, 6
   br i1 %164, label %..thread9_crit_edge.i75, label %165
 
 ..thread9_crit_edge.i75:                          ; preds = %163
@@ -41559,7 +41559,7 @@ define internal fastcc noundef i32 @_ZN12_GLOBAL__N_111X86FastISel27fastEmit_ISD
   br i1 %25, label %26, label %32
 
 26:                                               ; preds = %24
-  %27 = icmp ugt i32 %20, 6
+  %27 = icmp samesign ugt i32 %20, 6
   br i1 %27, label %30, label %28
 
 28:                                               ; preds = %26
@@ -41595,7 +41595,7 @@ define internal fastcc noundef i32 @_ZN12_GLOBAL__N_111X86FastISel27fastEmit_ISD
   br i1 %44, label %45, label %51
 
 45:                                               ; preds = %43
-  %46 = icmp ugt i32 %39, 6
+  %46 = icmp samesign ugt i32 %39, 6
   br i1 %46, label %49, label %47
 
 47:                                               ; preds = %45
@@ -41713,7 +41713,7 @@ define internal fastcc noundef i32 @_ZN12_GLOBAL__N_111X86FastISel27fastEmit_ISD
   br i1 %111, label %112, label %_ZN12_GLOBAL__N_111X86FastISel35fastEmit_ISD_STRICT_FDIV_MVT_f16_rrEN4llvm3MVTEjj.exit
 
 112:                                              ; preds = %110
-  %113 = icmp ugt i32 %102, 6
+  %113 = icmp samesign ugt i32 %102, 6
   br i1 %113, label %..thread9_crit_edge.i, label %114
 
 ..thread9_crit_edge.i:                            ; preds = %112
@@ -41817,7 +41817,7 @@ define internal fastcc noundef i32 @_ZN12_GLOBAL__N_111X86FastISel27fastEmit_ISD
   br i1 %162, label %163, label %_ZN12_GLOBAL__N_111X86FastISel35fastEmit_ISD_STRICT_FDIV_MVT_f16_rrEN4llvm3MVTEjj.exit
 
 163:                                              ; preds = %161
-  %164 = icmp ugt i32 %153, 6
+  %164 = icmp samesign ugt i32 %153, 6
   br i1 %164, label %..thread9_crit_edge.i75, label %165
 
 ..thread9_crit_edge.i75:                          ; preds = %163
@@ -41954,7 +41954,7 @@ define internal fastcc noundef i32 @_ZN12_GLOBAL__N_111X86FastISel27fastEmit_ISD
   br i1 %25, label %26, label %32
 
 26:                                               ; preds = %24
-  %27 = icmp ugt i32 %20, 6
+  %27 = icmp samesign ugt i32 %20, 6
   br i1 %27, label %30, label %28
 
 28:                                               ; preds = %26
@@ -41990,7 +41990,7 @@ define internal fastcc noundef i32 @_ZN12_GLOBAL__N_111X86FastISel27fastEmit_ISD
   br i1 %44, label %45, label %51
 
 45:                                               ; preds = %43
-  %46 = icmp ugt i32 %39, 6
+  %46 = icmp samesign ugt i32 %39, 6
   br i1 %46, label %49, label %47
 
 47:                                               ; preds = %45
@@ -42108,7 +42108,7 @@ define internal fastcc noundef i32 @_ZN12_GLOBAL__N_111X86FastISel27fastEmit_ISD
   br i1 %111, label %112, label %_ZN12_GLOBAL__N_111X86FastISel35fastEmit_ISD_STRICT_FMUL_MVT_f16_rrEN4llvm3MVTEjj.exit
 
 112:                                              ; preds = %110
-  %113 = icmp ugt i32 %102, 6
+  %113 = icmp samesign ugt i32 %102, 6
   br i1 %113, label %..thread9_crit_edge.i, label %114
 
 ..thread9_crit_edge.i:                            ; preds = %112
@@ -42212,7 +42212,7 @@ define internal fastcc noundef i32 @_ZN12_GLOBAL__N_111X86FastISel27fastEmit_ISD
   br i1 %162, label %163, label %_ZN12_GLOBAL__N_111X86FastISel35fastEmit_ISD_STRICT_FMUL_MVT_f16_rrEN4llvm3MVTEjj.exit
 
 163:                                              ; preds = %161
-  %164 = icmp ugt i32 %153, 6
+  %164 = icmp samesign ugt i32 %153, 6
   br i1 %164, label %..thread9_crit_edge.i75, label %165
 
 ..thread9_crit_edge.i75:                          ; preds = %163
@@ -42349,7 +42349,7 @@ define internal fastcc noundef i32 @_ZN12_GLOBAL__N_111X86FastISel27fastEmit_ISD
   br i1 %25, label %26, label %32
 
 26:                                               ; preds = %24
-  %27 = icmp ugt i32 %20, 6
+  %27 = icmp samesign ugt i32 %20, 6
   br i1 %27, label %30, label %28
 
 28:                                               ; preds = %26
@@ -42385,7 +42385,7 @@ define internal fastcc noundef i32 @_ZN12_GLOBAL__N_111X86FastISel27fastEmit_ISD
   br i1 %44, label %45, label %51
 
 45:                                               ; preds = %43
-  %46 = icmp ugt i32 %39, 6
+  %46 = icmp samesign ugt i32 %39, 6
   br i1 %46, label %49, label %47
 
 47:                                               ; preds = %45
@@ -42503,7 +42503,7 @@ define internal fastcc noundef i32 @_ZN12_GLOBAL__N_111X86FastISel27fastEmit_ISD
   br i1 %111, label %112, label %_ZN12_GLOBAL__N_111X86FastISel35fastEmit_ISD_STRICT_FSUB_MVT_f16_rrEN4llvm3MVTEjj.exit
 
 112:                                              ; preds = %110
-  %113 = icmp ugt i32 %102, 6
+  %113 = icmp samesign ugt i32 %102, 6
   br i1 %113, label %..thread9_crit_edge.i, label %114
 
 ..thread9_crit_edge.i:                            ; preds = %112
@@ -42607,7 +42607,7 @@ define internal fastcc noundef i32 @_ZN12_GLOBAL__N_111X86FastISel27fastEmit_ISD
   br i1 %162, label %163, label %_ZN12_GLOBAL__N_111X86FastISel35fastEmit_ISD_STRICT_FSUB_MVT_f16_rrEN4llvm3MVTEjj.exit
 
 163:                                              ; preds = %161
-  %164 = icmp ugt i32 %153, 6
+  %164 = icmp samesign ugt i32 %153, 6
   br i1 %164, label %..thread9_crit_edge.i75, label %165
 
 ..thread9_crit_edge.i75:                          ; preds = %163
@@ -42795,7 +42795,7 @@ define internal fastcc noundef i32 @_ZN12_GLOBAL__N_111X86FastISel19fastEmit_ISD
   br i1 %50, label %51, label %_ZN12_GLOBAL__N_111X86FastISel26fastEmit_ISD_SUB_MVT_i8_rrEN4llvm3MVTEjj.exit
 
 51:                                               ; preds = %47
-  %52 = icmp ugt i32 %49, 6
+  %52 = icmp samesign ugt i32 %49, 6
   br i1 %52, label %55, label %53
 
 53:                                               ; preds = %51
@@ -42897,7 +42897,7 @@ define internal fastcc noundef i32 @_ZN12_GLOBAL__N_111X86FastISel19fastEmit_ISD
   br i1 %107, label %108, label %_ZN12_GLOBAL__N_111X86FastISel26fastEmit_ISD_SUB_MVT_i8_rrEN4llvm3MVTEjj.exit
 
 108:                                              ; preds = %104
-  %109 = icmp ugt i32 %106, 6
+  %109 = icmp samesign ugt i32 %106, 6
   br i1 %109, label %112, label %110
 
 110:                                              ; preds = %108
@@ -42997,7 +42997,7 @@ define internal fastcc noundef i32 @_ZN12_GLOBAL__N_111X86FastISel19fastEmit_ISD
   br i1 %162, label %163, label %_ZN12_GLOBAL__N_111X86FastISel26fastEmit_ISD_SUB_MVT_i8_rrEN4llvm3MVTEjj.exit
 
 163:                                              ; preds = %161
-  %164 = icmp ugt i32 %153, 6
+  %164 = icmp samesign ugt i32 %153, 6
   br i1 %164, label %..thread9_crit_edge.i, label %165
 
 ..thread9_crit_edge.i:                            ; preds = %163
@@ -43101,7 +43101,7 @@ define internal fastcc noundef i32 @_ZN12_GLOBAL__N_111X86FastISel19fastEmit_ISD
   br i1 %213, label %214, label %_ZN12_GLOBAL__N_111X86FastISel26fastEmit_ISD_SUB_MVT_i8_rrEN4llvm3MVTEjj.exit
 
 214:                                              ; preds = %212
-  %215 = icmp ugt i32 %204, 6
+  %215 = icmp samesign ugt i32 %204, 6
   br i1 %215, label %..thread9_crit_edge.i104, label %216
 
 ..thread9_crit_edge.i104:                         ; preds = %214
@@ -43223,7 +43223,7 @@ define internal fastcc noundef i32 @_ZN12_GLOBAL__N_111X86FastISel23fastEmit_ISD
   br i1 %22, label %23, label %_ZN12_GLOBAL__N_111X86FastISel33fastEmit_ISD_UADDSAT_MVT_v16i8_rrEN4llvm3MVTEjj.exit
 
 23:                                               ; preds = %19
-  %24 = icmp ugt i32 %21, 6
+  %24 = icmp samesign ugt i32 %21, 6
   br i1 %24, label %27, label %25
 
 25:                                               ; preds = %23
@@ -43325,7 +43325,7 @@ define internal fastcc noundef i32 @_ZN12_GLOBAL__N_111X86FastISel23fastEmit_ISD
   br i1 %79, label %80, label %_ZN12_GLOBAL__N_111X86FastISel33fastEmit_ISD_UADDSAT_MVT_v16i8_rrEN4llvm3MVTEjj.exit
 
 80:                                               ; preds = %76
-  %81 = icmp ugt i32 %78, 6
+  %81 = icmp samesign ugt i32 %78, 6
   br i1 %81, label %84, label %82
 
 82:                                               ; preds = %80
@@ -43449,7 +43449,7 @@ define internal fastcc noundef i32 @_ZN12_GLOBAL__N_111X86FastISel20fastEmit_ISD
   br i1 %22, label %23, label %_ZN12_GLOBAL__N_111X86FastISel30fastEmit_ISD_UMAX_MVT_v16i8_rrEN4llvm3MVTEjj.exit
 
 23:                                               ; preds = %19
-  %24 = icmp ugt i32 %21, 6
+  %24 = icmp samesign ugt i32 %21, 6
   br i1 %24, label %27, label %25
 
 25:                                               ; preds = %23
@@ -43551,7 +43551,7 @@ define internal fastcc noundef i32 @_ZN12_GLOBAL__N_111X86FastISel20fastEmit_ISD
   br i1 %79, label %80, label %_ZN12_GLOBAL__N_111X86FastISel30fastEmit_ISD_UMAX_MVT_v16i8_rrEN4llvm3MVTEjj.exit
 
 80:                                               ; preds = %76
-  %81 = icmp ugt i32 %78, 6
+  %81 = icmp samesign ugt i32 %78, 6
   br i1 %81, label %84, label %82
 
 82:                                               ; preds = %80
@@ -43651,7 +43651,7 @@ define internal fastcc noundef i32 @_ZN12_GLOBAL__N_111X86FastISel20fastEmit_ISD
   br i1 %134, label %135, label %_ZN12_GLOBAL__N_111X86FastISel30fastEmit_ISD_UMAX_MVT_v16i8_rrEN4llvm3MVTEjj.exit
 
 135:                                              ; preds = %133
-  %136 = icmp ugt i32 %125, 6
+  %136 = icmp samesign ugt i32 %125, 6
   br i1 %136, label %..thread9_crit_edge.i, label %137
 
 ..thread9_crit_edge.i:                            ; preds = %135
@@ -43839,7 +43839,7 @@ define internal fastcc noundef i32 @_ZN12_GLOBAL__N_111X86FastISel20fastEmit_ISD
   br i1 %22, label %23, label %_ZN12_GLOBAL__N_111X86FastISel30fastEmit_ISD_UMIN_MVT_v16i8_rrEN4llvm3MVTEjj.exit
 
 23:                                               ; preds = %19
-  %24 = icmp ugt i32 %21, 6
+  %24 = icmp samesign ugt i32 %21, 6
   br i1 %24, label %27, label %25
 
 25:                                               ; preds = %23
@@ -43941,7 +43941,7 @@ define internal fastcc noundef i32 @_ZN12_GLOBAL__N_111X86FastISel20fastEmit_ISD
   br i1 %79, label %80, label %_ZN12_GLOBAL__N_111X86FastISel30fastEmit_ISD_UMIN_MVT_v16i8_rrEN4llvm3MVTEjj.exit
 
 80:                                               ; preds = %76
-  %81 = icmp ugt i32 %78, 6
+  %81 = icmp samesign ugt i32 %78, 6
   br i1 %81, label %84, label %82
 
 82:                                               ; preds = %80
@@ -44041,7 +44041,7 @@ define internal fastcc noundef i32 @_ZN12_GLOBAL__N_111X86FastISel20fastEmit_ISD
   br i1 %134, label %135, label %_ZN12_GLOBAL__N_111X86FastISel30fastEmit_ISD_UMIN_MVT_v16i8_rrEN4llvm3MVTEjj.exit
 
 135:                                              ; preds = %133
-  %136 = icmp ugt i32 %125, 6
+  %136 = icmp samesign ugt i32 %125, 6
   br i1 %136, label %..thread9_crit_edge.i, label %137
 
 ..thread9_crit_edge.i:                            ; preds = %135
@@ -44223,7 +44223,7 @@ define internal fastcc noundef i32 @_ZN12_GLOBAL__N_111X86FastISel23fastEmit_ISD
   br i1 %22, label %23, label %_ZN12_GLOBAL__N_111X86FastISel33fastEmit_ISD_USUBSAT_MVT_v16i8_rrEN4llvm3MVTEjj.exit
 
 23:                                               ; preds = %19
-  %24 = icmp ugt i32 %21, 6
+  %24 = icmp samesign ugt i32 %21, 6
   br i1 %24, label %27, label %25
 
 25:                                               ; preds = %23
@@ -44325,7 +44325,7 @@ define internal fastcc noundef i32 @_ZN12_GLOBAL__N_111X86FastISel23fastEmit_ISD
   br i1 %79, label %80, label %_ZN12_GLOBAL__N_111X86FastISel33fastEmit_ISD_USUBSAT_MVT_v16i8_rrEN4llvm3MVTEjj.exit
 
 80:                                               ; preds = %76
-  %81 = icmp ugt i32 %78, 6
+  %81 = icmp samesign ugt i32 %78, 6
   br i1 %81, label %84, label %82
 
 82:                                               ; preds = %80
@@ -44571,7 +44571,7 @@ define internal fastcc noundef i32 @_ZN12_GLOBAL__N_111X86FastISel19fastEmit_ISD
   br i1 %82, label %83, label %_ZN12_GLOBAL__N_111X86FastISel26fastEmit_ISD_XOR_MVT_i8_rrEN4llvm3MVTEjj.exit
 
 83:                                               ; preds = %79
-  %84 = icmp ugt i32 %81, 6
+  %84 = icmp samesign ugt i32 %81, 6
   br i1 %84, label %87, label %85
 
 85:                                               ; preds = %83
@@ -44655,7 +44655,7 @@ define internal fastcc noundef i32 @_ZN12_GLOBAL__N_111X86FastISel19fastEmit_ISD
   br i1 %128, label %129, label %_ZN12_GLOBAL__N_111X86FastISel26fastEmit_ISD_XOR_MVT_i8_rrEN4llvm3MVTEjj.exit
 
 129:                                              ; preds = %125
-  %130 = icmp ugt i32 %127, 6
+  %130 = icmp samesign ugt i32 %127, 6
   br i1 %130, label %133, label %131
 
 131:                                              ; preds = %129
@@ -44729,7 +44729,7 @@ define internal fastcc noundef i32 @_ZN12_GLOBAL__N_111X86FastISel19fastEmit_ISD
   br i1 %168, label %169, label %_ZN12_GLOBAL__N_111X86FastISel26fastEmit_ISD_XOR_MVT_i8_rrEN4llvm3MVTEjj.exit
 
 169:                                              ; preds = %163
-  %170 = icmp ugt i32 %167, 6
+  %170 = icmp samesign ugt i32 %167, 6
   br i1 %170, label %173, label %171
 
 171:                                              ; preds = %169
@@ -44747,7 +44747,7 @@ define internal fastcc noundef i32 @_ZN12_GLOBAL__N_111X86FastISel19fastEmit_ISD
   br label %_ZN12_GLOBAL__N_111X86FastISel26fastEmit_ISD_XOR_MVT_i8_rrEN4llvm3MVTEjj.exit
 
 179:                                              ; preds = %173
-  %180 = icmp ugt i32 %167, 8
+  %180 = icmp samesign ugt i32 %167, 8
   br i1 %180, label %181, label %_ZN12_GLOBAL__N_111X86FastISel26fastEmit_ISD_XOR_MVT_i8_rrEN4llvm3MVTEjj.exit
 
 181:                                              ; preds = %179
@@ -44785,7 +44785,7 @@ define internal fastcc noundef i32 @_ZN12_GLOBAL__N_111X86FastISel19fastEmit_ISD
   br label %_ZN12_GLOBAL__N_111X86FastISel26fastEmit_ISD_XOR_MVT_i8_rrEN4llvm3MVTEjj.exit
 
 199:                                              ; preds = %193
-  %200 = icmp ugt i32 %188, 8
+  %200 = icmp samesign ugt i32 %188, 8
   br i1 %200, label %201, label %_ZN12_GLOBAL__N_111X86FastISel26fastEmit_ISD_XOR_MVT_i8_rrEN4llvm3MVTEjj.exit
 
 201:                                              ; preds = %199
@@ -44835,7 +44835,7 @@ define internal fastcc noundef i32 @_ZN12_GLOBAL__N_111X86FastISel19fastEmit_ISD
   br i1 %226, label %227, label %_ZN12_GLOBAL__N_111X86FastISel26fastEmit_ISD_XOR_MVT_i8_rrEN4llvm3MVTEjj.exit
 
 227:                                              ; preds = %225
-  %228 = icmp ugt i32 %217, 6
+  %228 = icmp samesign ugt i32 %217, 6
   br i1 %228, label %..thread9_crit_edge.i, label %229
 
 ..thread9_crit_edge.i:                            ; preds = %227
@@ -44877,7 +44877,7 @@ define internal fastcc noundef i32 @_ZN12_GLOBAL__N_111X86FastISel19fastEmit_ISD
   br label %_ZN12_GLOBAL__N_111X86FastISel26fastEmit_ISD_XOR_MVT_i8_rrEN4llvm3MVTEjj.exit
 
 245:                                              ; preds = %242
-  %246 = icmp ugt i32 %240, 8
+  %246 = icmp samesign ugt i32 %240, 8
   %247 = getelementptr inbounds nuw i8, ptr %238, i64 436
   %248 = load i8, ptr %247, align 4
   %249 = trunc i8 %248 to i1
@@ -44940,7 +44940,7 @@ define internal fastcc noundef i32 @_ZN12_GLOBAL__N_111X86FastISel25fastEmit_X86
   br i1 %12, label %.sink.split.i, label %_ZN12_GLOBAL__N_111X86FastISel35fastEmit_X86ISD_ADDSUB_MVT_v4f32_rrEN4llvm3MVTEjj.exit
 
 .sink.split.i:                                    ; preds = %7
-  %13 = icmp ugt i32 %11, 6
+  %13 = icmp samesign ugt i32 %11, 6
   %..i = select i1 %13, i32 5187, i32 689
   %14 = tail call i32 @_ZN4llvm8FastISel15fastEmitInst_rrEjPKNS_19TargetRegisterClassEjj(ptr noundef nonnull align 8 dereferenceable(184) %0, i32 noundef %..i, ptr noundef nonnull @_ZN4llvm3X8613VR128RegClassE, i32 noundef %3, i32 noundef %4) #18
   br label %_ZN12_GLOBAL__N_111X86FastISel35fastEmit_X86ISD_ADDSUB_MVT_v4f32_rrEN4llvm3MVTEjj.exit
@@ -44974,7 +44974,7 @@ define internal fastcc noundef i32 @_ZN12_GLOBAL__N_111X86FastISel25fastEmit_X86
   br i1 %30, label %.sink.split.i21, label %_ZN12_GLOBAL__N_111X86FastISel35fastEmit_X86ISD_ADDSUB_MVT_v4f32_rrEN4llvm3MVTEjj.exit
 
 .sink.split.i21:                                  ; preds = %25
-  %31 = icmp ugt i32 %29, 6
+  %31 = icmp samesign ugt i32 %29, 6
   %..i22 = select i1 %31, i32 5183, i32 687
   %32 = tail call i32 @_ZN4llvm8FastISel15fastEmitInst_rrEjPKNS_19TargetRegisterClassEjj(ptr noundef nonnull align 8 dereferenceable(184) %0, i32 noundef %..i22, ptr noundef nonnull @_ZN4llvm3X8613VR128RegClassE, i32 noundef %3, i32 noundef %4) #18
   br label %_ZN12_GLOBAL__N_111X86FastISel35fastEmit_X86ISD_ADDSUB_MVT_v4f32_rrEN4llvm3MVTEjj.exit
@@ -45040,7 +45040,7 @@ define internal fastcc noundef i32 @_ZN12_GLOBAL__N_111X86FastISel24fastEmit_X86
   br i1 %18, label %19, label %_ZN12_GLOBAL__N_111X86FastISel34fastEmit_X86ISD_ANDNP_MVT_v16i8_rrEN4llvm3MVTEjj.exit
 
 19:                                               ; preds = %15
-  %20 = icmp ugt i32 %17, 6
+  %20 = icmp samesign ugt i32 %17, 6
   br i1 %20, label %23, label %21
 
 21:                                               ; preds = %19
@@ -45124,7 +45124,7 @@ define internal fastcc noundef i32 @_ZN12_GLOBAL__N_111X86FastISel24fastEmit_X86
   br i1 %64, label %65, label %_ZN12_GLOBAL__N_111X86FastISel34fastEmit_X86ISD_ANDNP_MVT_v16i8_rrEN4llvm3MVTEjj.exit
 
 65:                                               ; preds = %61
-  %66 = icmp ugt i32 %63, 6
+  %66 = icmp samesign ugt i32 %63, 6
   br i1 %66, label %69, label %67
 
 67:                                               ; preds = %65
@@ -45198,7 +45198,7 @@ define internal fastcc noundef i32 @_ZN12_GLOBAL__N_111X86FastISel24fastEmit_X86
   br i1 %104, label %105, label %_ZN12_GLOBAL__N_111X86FastISel34fastEmit_X86ISD_ANDNP_MVT_v16i8_rrEN4llvm3MVTEjj.exit
 
 105:                                              ; preds = %99
-  %106 = icmp ugt i32 %103, 6
+  %106 = icmp samesign ugt i32 %103, 6
   br i1 %106, label %109, label %107
 
 107:                                              ; preds = %105
@@ -45216,7 +45216,7 @@ define internal fastcc noundef i32 @_ZN12_GLOBAL__N_111X86FastISel24fastEmit_X86
   br label %_ZN12_GLOBAL__N_111X86FastISel34fastEmit_X86ISD_ANDNP_MVT_v16i8_rrEN4llvm3MVTEjj.exit
 
 115:                                              ; preds = %109
-  %116 = icmp ugt i32 %103, 8
+  %116 = icmp samesign ugt i32 %103, 8
   br i1 %116, label %117, label %_ZN12_GLOBAL__N_111X86FastISel34fastEmit_X86ISD_ANDNP_MVT_v16i8_rrEN4llvm3MVTEjj.exit
 
 117:                                              ; preds = %115
@@ -45254,7 +45254,7 @@ define internal fastcc noundef i32 @_ZN12_GLOBAL__N_111X86FastISel24fastEmit_X86
   br label %_ZN12_GLOBAL__N_111X86FastISel34fastEmit_X86ISD_ANDNP_MVT_v16i8_rrEN4llvm3MVTEjj.exit
 
 135:                                              ; preds = %129
-  %136 = icmp ugt i32 %124, 8
+  %136 = icmp samesign ugt i32 %124, 8
   br i1 %136, label %137, label %_ZN12_GLOBAL__N_111X86FastISel34fastEmit_X86ISD_ANDNP_MVT_v16i8_rrEN4llvm3MVTEjj.exit
 
 137:                                              ; preds = %135
@@ -45304,7 +45304,7 @@ define internal fastcc noundef i32 @_ZN12_GLOBAL__N_111X86FastISel24fastEmit_X86
   br i1 %162, label %163, label %_ZN12_GLOBAL__N_111X86FastISel34fastEmit_X86ISD_ANDNP_MVT_v16i8_rrEN4llvm3MVTEjj.exit
 
 163:                                              ; preds = %161
-  %164 = icmp ugt i32 %153, 6
+  %164 = icmp samesign ugt i32 %153, 6
   br i1 %164, label %..thread9_crit_edge.i, label %165
 
 ..thread9_crit_edge.i:                            ; preds = %163
@@ -45346,7 +45346,7 @@ define internal fastcc noundef i32 @_ZN12_GLOBAL__N_111X86FastISel24fastEmit_X86
   br label %_ZN12_GLOBAL__N_111X86FastISel34fastEmit_X86ISD_ANDNP_MVT_v16i8_rrEN4llvm3MVTEjj.exit
 
 181:                                              ; preds = %178
-  %182 = icmp ugt i32 %176, 8
+  %182 = icmp samesign ugt i32 %176, 8
   %183 = getelementptr inbounds nuw i8, ptr %174, i64 436
   %184 = load i8, ptr %183, align 4
   %185 = trunc i8 %184 to i1
@@ -45672,7 +45672,7 @@ define internal fastcc noundef i32 @_ZN12_GLOBAL__N_111X86FastISel23fastEmit_X86
   br i1 %34, label %35, label %_ZN12_GLOBAL__N_111X86FastISel33fastEmit_X86ISD_COMI_MVT_v8f16_rrEN4llvm3MVTEjj.exit
 
 35:                                               ; preds = %33
-  %36 = icmp ugt i32 %29, 6
+  %36 = icmp samesign ugt i32 %29, 6
   br i1 %36, label %39, label %37
 
 37:                                               ; preds = %35
@@ -45704,7 +45704,7 @@ define internal fastcc noundef i32 @_ZN12_GLOBAL__N_111X86FastISel23fastEmit_X86
   br i1 %51, label %52, label %_ZN12_GLOBAL__N_111X86FastISel33fastEmit_X86ISD_COMI_MVT_v8f16_rrEN4llvm3MVTEjj.exit
 
 52:                                               ; preds = %50
-  %53 = icmp ugt i32 %46, 6
+  %53 = icmp samesign ugt i32 %46, 6
   br i1 %53, label %56, label %54
 
 54:                                               ; preds = %52
@@ -45874,7 +45874,7 @@ define internal fastcc noundef i32 @_ZN12_GLOBAL__N_111X86FastISel23fastEmit_X86
   br i1 %25, label %26, label %32
 
 26:                                               ; preds = %24
-  %27 = icmp ugt i32 %20, 6
+  %27 = icmp samesign ugt i32 %20, 6
   br i1 %27, label %30, label %28
 
 28:                                               ; preds = %26
@@ -45922,7 +45922,7 @@ _ZNK4llvm12X86Subtarget10canUseCMOVEv.exit.thread.i: ; preds = %_ZNK4llvm12X86Su
   br i1 %50, label %51, label %57
 
 51:                                               ; preds = %49
-  %52 = icmp ugt i32 %45, 6
+  %52 = icmp samesign ugt i32 %45, 6
   br i1 %52, label %55, label %53
 
 53:                                               ; preds = %51
@@ -46166,7 +46166,7 @@ define internal fastcc noundef i32 @_ZN12_GLOBAL__N_111X86FastISel24fastEmit_X86
   br i1 %12, label %.sink.split.i, label %_ZN12_GLOBAL__N_111X86FastISel34fastEmit_X86ISD_FHADD_MVT_v4f32_rrEN4llvm3MVTEjj.exit
 
 .sink.split.i:                                    ; preds = %7
-  %13 = icmp ugt i32 %11, 6
+  %13 = icmp samesign ugt i32 %11, 6
   %..i = select i1 %13, i32 12620, i32 1693
   %14 = tail call i32 @_ZN4llvm8FastISel15fastEmitInst_rrEjPKNS_19TargetRegisterClassEjj(ptr noundef nonnull align 8 dereferenceable(184) %0, i32 noundef %..i, ptr noundef nonnull @_ZN4llvm3X8613VR128RegClassE, i32 noundef %3, i32 noundef %4) #18
   br label %_ZN12_GLOBAL__N_111X86FastISel34fastEmit_X86ISD_FHADD_MVT_v4f32_rrEN4llvm3MVTEjj.exit
@@ -46200,7 +46200,7 @@ define internal fastcc noundef i32 @_ZN12_GLOBAL__N_111X86FastISel24fastEmit_X86
   br i1 %30, label %.sink.split.i21, label %_ZN12_GLOBAL__N_111X86FastISel34fastEmit_X86ISD_FHADD_MVT_v4f32_rrEN4llvm3MVTEjj.exit
 
 .sink.split.i21:                                  ; preds = %25
-  %31 = icmp ugt i32 %29, 6
+  %31 = icmp samesign ugt i32 %29, 6
   %..i22 = select i1 %31, i32 12616, i32 1691
   %32 = tail call i32 @_ZN4llvm8FastISel15fastEmitInst_rrEjPKNS_19TargetRegisterClassEjj(ptr noundef nonnull align 8 dereferenceable(184) %0, i32 noundef %..i22, ptr noundef nonnull @_ZN4llvm3X8613VR128RegClassE, i32 noundef %3, i32 noundef %4) #18
   br label %_ZN12_GLOBAL__N_111X86FastISel34fastEmit_X86ISD_FHADD_MVT_v4f32_rrEN4llvm3MVTEjj.exit
@@ -46248,7 +46248,7 @@ define internal fastcc noundef i32 @_ZN12_GLOBAL__N_111X86FastISel24fastEmit_X86
   br i1 %12, label %.sink.split.i, label %_ZN12_GLOBAL__N_111X86FastISel34fastEmit_X86ISD_FHSUB_MVT_v4f32_rrEN4llvm3MVTEjj.exit
 
 .sink.split.i:                                    ; preds = %7
-  %13 = icmp ugt i32 %11, 6
+  %13 = icmp samesign ugt i32 %11, 6
   %..i = select i1 %13, i32 12628, i32 1699
   %14 = tail call i32 @_ZN4llvm8FastISel15fastEmitInst_rrEjPKNS_19TargetRegisterClassEjj(ptr noundef nonnull align 8 dereferenceable(184) %0, i32 noundef %..i, ptr noundef nonnull @_ZN4llvm3X8613VR128RegClassE, i32 noundef %3, i32 noundef %4) #18
   br label %_ZN12_GLOBAL__N_111X86FastISel34fastEmit_X86ISD_FHSUB_MVT_v4f32_rrEN4llvm3MVTEjj.exit
@@ -46282,7 +46282,7 @@ define internal fastcc noundef i32 @_ZN12_GLOBAL__N_111X86FastISel24fastEmit_X86
   br i1 %30, label %.sink.split.i21, label %_ZN12_GLOBAL__N_111X86FastISel34fastEmit_X86ISD_FHSUB_MVT_v4f32_rrEN4llvm3MVTEjj.exit
 
 .sink.split.i21:                                  ; preds = %25
-  %31 = icmp ugt i32 %29, 6
+  %31 = icmp samesign ugt i32 %29, 6
   %..i22 = select i1 %31, i32 12624, i32 1697
   %32 = tail call i32 @_ZN4llvm8FastISel15fastEmitInst_rrEjPKNS_19TargetRegisterClassEjj(ptr noundef nonnull align 8 dereferenceable(184) %0, i32 noundef %..i22, ptr noundef nonnull @_ZN4llvm3X8613VR128RegClassE, i32 noundef %3, i32 noundef %4) #18
   br label %_ZN12_GLOBAL__N_111X86FastISel34fastEmit_X86ISD_FHSUB_MVT_v4f32_rrEN4llvm3MVTEjj.exit
@@ -46362,7 +46362,7 @@ define internal fastcc noundef i32 @_ZN12_GLOBAL__N_111X86FastISel23fastEmit_X86
   br i1 %25, label %26, label %_ZN12_GLOBAL__N_111X86FastISel31fastEmit_X86ISD_FMAX_MVT_f16_rrEN4llvm3MVTEjj.exit
 
 26:                                               ; preds = %24
-  %27 = icmp ugt i32 %20, 6
+  %27 = icmp samesign ugt i32 %20, 6
   br i1 %27, label %30, label %28
 
 28:                                               ; preds = %26
@@ -46394,7 +46394,7 @@ define internal fastcc noundef i32 @_ZN12_GLOBAL__N_111X86FastISel23fastEmit_X86
   br i1 %42, label %43, label %_ZN12_GLOBAL__N_111X86FastISel31fastEmit_X86ISD_FMAX_MVT_f16_rrEN4llvm3MVTEjj.exit
 
 43:                                               ; preds = %41
-  %44 = icmp ugt i32 %37, 6
+  %44 = icmp samesign ugt i32 %37, 6
   br i1 %44, label %47, label %45
 
 45:                                               ; preds = %43
@@ -46492,7 +46492,7 @@ define internal fastcc noundef i32 @_ZN12_GLOBAL__N_111X86FastISel23fastEmit_X86
   br i1 %98, label %99, label %_ZN12_GLOBAL__N_111X86FastISel31fastEmit_X86ISD_FMAX_MVT_f16_rrEN4llvm3MVTEjj.exit
 
 99:                                               ; preds = %97
-  %100 = icmp ugt i32 %89, 6
+  %100 = icmp samesign ugt i32 %89, 6
   br i1 %100, label %..thread9_crit_edge.i, label %101
 
 ..thread9_crit_edge.i:                            ; preds = %99
@@ -46596,7 +46596,7 @@ define internal fastcc noundef i32 @_ZN12_GLOBAL__N_111X86FastISel23fastEmit_X86
   br i1 %149, label %150, label %_ZN12_GLOBAL__N_111X86FastISel31fastEmit_X86ISD_FMAX_MVT_f16_rrEN4llvm3MVTEjj.exit
 
 150:                                              ; preds = %148
-  %151 = icmp ugt i32 %140, 6
+  %151 = icmp samesign ugt i32 %140, 6
   br i1 %151, label %..thread9_crit_edge.i69, label %152
 
 ..thread9_crit_edge.i69:                          ; preds = %150
@@ -46732,7 +46732,7 @@ define internal fastcc noundef i32 @_ZN12_GLOBAL__N_111X86FastISel24fastEmit_X86
   br i1 %25, label %26, label %_ZN12_GLOBAL__N_111X86FastISel32fastEmit_X86ISD_FMAXC_MVT_f16_rrEN4llvm3MVTEjj.exit
 
 26:                                               ; preds = %24
-  %27 = icmp ugt i32 %20, 6
+  %27 = icmp samesign ugt i32 %20, 6
   br i1 %27, label %30, label %28
 
 28:                                               ; preds = %26
@@ -46764,7 +46764,7 @@ define internal fastcc noundef i32 @_ZN12_GLOBAL__N_111X86FastISel24fastEmit_X86
   br i1 %42, label %43, label %_ZN12_GLOBAL__N_111X86FastISel32fastEmit_X86ISD_FMAXC_MVT_f16_rrEN4llvm3MVTEjj.exit
 
 43:                                               ; preds = %41
-  %44 = icmp ugt i32 %37, 6
+  %44 = icmp samesign ugt i32 %37, 6
   br i1 %44, label %47, label %45
 
 45:                                               ; preds = %43
@@ -46862,7 +46862,7 @@ define internal fastcc noundef i32 @_ZN12_GLOBAL__N_111X86FastISel24fastEmit_X86
   br i1 %98, label %99, label %_ZN12_GLOBAL__N_111X86FastISel32fastEmit_X86ISD_FMAXC_MVT_f16_rrEN4llvm3MVTEjj.exit
 
 99:                                               ; preds = %97
-  %100 = icmp ugt i32 %89, 6
+  %100 = icmp samesign ugt i32 %89, 6
   br i1 %100, label %..thread9_crit_edge.i, label %101
 
 ..thread9_crit_edge.i:                            ; preds = %99
@@ -46966,7 +46966,7 @@ define internal fastcc noundef i32 @_ZN12_GLOBAL__N_111X86FastISel24fastEmit_X86
   br i1 %149, label %150, label %_ZN12_GLOBAL__N_111X86FastISel32fastEmit_X86ISD_FMAXC_MVT_f16_rrEN4llvm3MVTEjj.exit
 
 150:                                              ; preds = %148
-  %151 = icmp ugt i32 %140, 6
+  %151 = icmp samesign ugt i32 %140, 6
   br i1 %151, label %..thread9_crit_edge.i69, label %152
 
 ..thread9_crit_edge.i69:                          ; preds = %150
@@ -47093,7 +47093,7 @@ define internal fastcc noundef i32 @_ZN12_GLOBAL__N_111X86FastISel24fastEmit_X86
   br i1 %25, label %26, label %_ZN12_GLOBAL__N_111X86FastISel34fastEmit_X86ISD_FMAXS_MVT_v8f16_rrEN4llvm3MVTEjj.exit
 
 26:                                               ; preds = %24
-  %27 = icmp ugt i32 %20, 6
+  %27 = icmp samesign ugt i32 %20, 6
   br i1 %27, label %30, label %28
 
 28:                                               ; preds = %26
@@ -47125,7 +47125,7 @@ define internal fastcc noundef i32 @_ZN12_GLOBAL__N_111X86FastISel24fastEmit_X86
   br i1 %42, label %43, label %_ZN12_GLOBAL__N_111X86FastISel34fastEmit_X86ISD_FMAXS_MVT_v8f16_rrEN4llvm3MVTEjj.exit
 
 43:                                               ; preds = %41
-  %44 = icmp ugt i32 %37, 6
+  %44 = icmp samesign ugt i32 %37, 6
   br i1 %44, label %47, label %45
 
 45:                                               ; preds = %43
@@ -47361,7 +47361,7 @@ define internal fastcc noundef i32 @_ZN12_GLOBAL__N_111X86FastISel23fastEmit_X86
   br i1 %25, label %26, label %_ZN12_GLOBAL__N_111X86FastISel31fastEmit_X86ISD_FMIN_MVT_f16_rrEN4llvm3MVTEjj.exit
 
 26:                                               ; preds = %24
-  %27 = icmp ugt i32 %20, 6
+  %27 = icmp samesign ugt i32 %20, 6
   br i1 %27, label %30, label %28
 
 28:                                               ; preds = %26
@@ -47393,7 +47393,7 @@ define internal fastcc noundef i32 @_ZN12_GLOBAL__N_111X86FastISel23fastEmit_X86
   br i1 %42, label %43, label %_ZN12_GLOBAL__N_111X86FastISel31fastEmit_X86ISD_FMIN_MVT_f16_rrEN4llvm3MVTEjj.exit
 
 43:                                               ; preds = %41
-  %44 = icmp ugt i32 %37, 6
+  %44 = icmp samesign ugt i32 %37, 6
   br i1 %44, label %47, label %45
 
 45:                                               ; preds = %43
@@ -47491,7 +47491,7 @@ define internal fastcc noundef i32 @_ZN12_GLOBAL__N_111X86FastISel23fastEmit_X86
   br i1 %98, label %99, label %_ZN12_GLOBAL__N_111X86FastISel31fastEmit_X86ISD_FMIN_MVT_f16_rrEN4llvm3MVTEjj.exit
 
 99:                                               ; preds = %97
-  %100 = icmp ugt i32 %89, 6
+  %100 = icmp samesign ugt i32 %89, 6
   br i1 %100, label %..thread9_crit_edge.i, label %101
 
 ..thread9_crit_edge.i:                            ; preds = %99
@@ -47595,7 +47595,7 @@ define internal fastcc noundef i32 @_ZN12_GLOBAL__N_111X86FastISel23fastEmit_X86
   br i1 %149, label %150, label %_ZN12_GLOBAL__N_111X86FastISel31fastEmit_X86ISD_FMIN_MVT_f16_rrEN4llvm3MVTEjj.exit
 
 150:                                              ; preds = %148
-  %151 = icmp ugt i32 %140, 6
+  %151 = icmp samesign ugt i32 %140, 6
   br i1 %151, label %..thread9_crit_edge.i69, label %152
 
 ..thread9_crit_edge.i69:                          ; preds = %150
@@ -47731,7 +47731,7 @@ define internal fastcc noundef i32 @_ZN12_GLOBAL__N_111X86FastISel24fastEmit_X86
   br i1 %25, label %26, label %_ZN12_GLOBAL__N_111X86FastISel32fastEmit_X86ISD_FMINC_MVT_f16_rrEN4llvm3MVTEjj.exit
 
 26:                                               ; preds = %24
-  %27 = icmp ugt i32 %20, 6
+  %27 = icmp samesign ugt i32 %20, 6
   br i1 %27, label %30, label %28
 
 28:                                               ; preds = %26
@@ -47763,7 +47763,7 @@ define internal fastcc noundef i32 @_ZN12_GLOBAL__N_111X86FastISel24fastEmit_X86
   br i1 %42, label %43, label %_ZN12_GLOBAL__N_111X86FastISel32fastEmit_X86ISD_FMINC_MVT_f16_rrEN4llvm3MVTEjj.exit
 
 43:                                               ; preds = %41
-  %44 = icmp ugt i32 %37, 6
+  %44 = icmp samesign ugt i32 %37, 6
   br i1 %44, label %47, label %45
 
 45:                                               ; preds = %43
@@ -47861,7 +47861,7 @@ define internal fastcc noundef i32 @_ZN12_GLOBAL__N_111X86FastISel24fastEmit_X86
   br i1 %98, label %99, label %_ZN12_GLOBAL__N_111X86FastISel32fastEmit_X86ISD_FMINC_MVT_f16_rrEN4llvm3MVTEjj.exit
 
 99:                                               ; preds = %97
-  %100 = icmp ugt i32 %89, 6
+  %100 = icmp samesign ugt i32 %89, 6
   br i1 %100, label %..thread9_crit_edge.i, label %101
 
 ..thread9_crit_edge.i:                            ; preds = %99
@@ -47965,7 +47965,7 @@ define internal fastcc noundef i32 @_ZN12_GLOBAL__N_111X86FastISel24fastEmit_X86
   br i1 %149, label %150, label %_ZN12_GLOBAL__N_111X86FastISel32fastEmit_X86ISD_FMINC_MVT_f16_rrEN4llvm3MVTEjj.exit
 
 150:                                              ; preds = %148
-  %151 = icmp ugt i32 %140, 6
+  %151 = icmp samesign ugt i32 %140, 6
   br i1 %151, label %..thread9_crit_edge.i69, label %152
 
 ..thread9_crit_edge.i69:                          ; preds = %150
@@ -48092,7 +48092,7 @@ define internal fastcc noundef i32 @_ZN12_GLOBAL__N_111X86FastISel24fastEmit_X86
   br i1 %25, label %26, label %_ZN12_GLOBAL__N_111X86FastISel34fastEmit_X86ISD_FMINS_MVT_v8f16_rrEN4llvm3MVTEjj.exit
 
 26:                                               ; preds = %24
-  %27 = icmp ugt i32 %20, 6
+  %27 = icmp samesign ugt i32 %20, 6
   br i1 %27, label %30, label %28
 
 28:                                               ; preds = %26
@@ -48124,7 +48124,7 @@ define internal fastcc noundef i32 @_ZN12_GLOBAL__N_111X86FastISel24fastEmit_X86
   br i1 %42, label %43, label %_ZN12_GLOBAL__N_111X86FastISel34fastEmit_X86ISD_FMINS_MVT_v8f16_rrEN4llvm3MVTEjj.exit
 
 43:                                               ; preds = %41
-  %44 = icmp ugt i32 %37, 6
+  %44 = icmp samesign ugt i32 %37, 6
   br i1 %44, label %47, label %45
 
 45:                                               ; preds = %43
@@ -48706,7 +48706,7 @@ define internal fastcc noundef i32 @_ZN12_GLOBAL__N_111X86FastISel23fastEmit_X86
   br i1 %12, label %.sink.split.i, label %_ZN12_GLOBAL__N_111X86FastISel33fastEmit_X86ISD_HADD_MVT_v8i16_rrEN4llvm3MVTEjj.exit
 
 .sink.split.i:                                    ; preds = %7
-  %13 = icmp ugt i32 %11, 6
+  %13 = icmp samesign ugt i32 %11, 6
   %..i = select i1 %13, i32 16771, i32 3165
   %14 = tail call i32 @_ZN4llvm8FastISel15fastEmitInst_rrEjPKNS_19TargetRegisterClassEjj(ptr noundef nonnull align 8 dereferenceable(184) %0, i32 noundef %..i, ptr noundef nonnull @_ZN4llvm3X8613VR128RegClassE, i32 noundef %3, i32 noundef %4) #18
   br label %_ZN12_GLOBAL__N_111X86FastISel33fastEmit_X86ISD_HADD_MVT_v8i16_rrEN4llvm3MVTEjj.exit
@@ -48740,7 +48740,7 @@ define internal fastcc noundef i32 @_ZN12_GLOBAL__N_111X86FastISel23fastEmit_X86
   br i1 %30, label %.sink.split.i21, label %_ZN12_GLOBAL__N_111X86FastISel33fastEmit_X86ISD_HADD_MVT_v8i16_rrEN4llvm3MVTEjj.exit
 
 .sink.split.i21:                                  ; preds = %25
-  %31 = icmp ugt i32 %29, 6
+  %31 = icmp samesign ugt i32 %29, 6
   %..i22 = select i1 %31, i32 16747, i32 3161
   %32 = tail call i32 @_ZN4llvm8FastISel15fastEmitInst_rrEjPKNS_19TargetRegisterClassEjj(ptr noundef nonnull align 8 dereferenceable(184) %0, i32 noundef %..i22, ptr noundef nonnull @_ZN4llvm3X8613VR128RegClassE, i32 noundef %3, i32 noundef %4) #18
   br label %_ZN12_GLOBAL__N_111X86FastISel33fastEmit_X86ISD_HADD_MVT_v8i16_rrEN4llvm3MVTEjj.exit
@@ -48788,7 +48788,7 @@ define internal fastcc noundef i32 @_ZN12_GLOBAL__N_111X86FastISel23fastEmit_X86
   br i1 %12, label %.sink.split.i, label %_ZN12_GLOBAL__N_111X86FastISel33fastEmit_X86ISD_HSUB_MVT_v8i16_rrEN4llvm3MVTEjj.exit
 
 .sink.split.i:                                    ; preds = %7
-  %13 = icmp ugt i32 %11, 6
+  %13 = icmp samesign ugt i32 %11, 6
   %..i = select i1 %13, i32 16791, i32 3173
   %14 = tail call i32 @_ZN4llvm8FastISel15fastEmitInst_rrEjPKNS_19TargetRegisterClassEjj(ptr noundef nonnull align 8 dereferenceable(184) %0, i32 noundef %..i, ptr noundef nonnull @_ZN4llvm3X8613VR128RegClassE, i32 noundef %3, i32 noundef %4) #18
   br label %_ZN12_GLOBAL__N_111X86FastISel33fastEmit_X86ISD_HSUB_MVT_v8i16_rrEN4llvm3MVTEjj.exit
@@ -48822,7 +48822,7 @@ define internal fastcc noundef i32 @_ZN12_GLOBAL__N_111X86FastISel23fastEmit_X86
   br i1 %30, label %.sink.split.i21, label %_ZN12_GLOBAL__N_111X86FastISel33fastEmit_X86ISD_HSUB_MVT_v8i16_rrEN4llvm3MVTEjj.exit
 
 .sink.split.i21:                                  ; preds = %25
-  %31 = icmp ugt i32 %29, 6
+  %31 = icmp samesign ugt i32 %29, 6
   %..i22 = select i1 %31, i32 16781, i32 3169
   %32 = tail call i32 @_ZN4llvm8FastISel15fastEmitInst_rrEjPKNS_19TargetRegisterClassEjj(ptr noundef nonnull align 8 dereferenceable(184) %0, i32 noundef %..i22, ptr noundef nonnull @_ZN4llvm3X8613VR128RegClassE, i32 noundef %3, i32 noundef %4) #18
   br label %_ZN12_GLOBAL__N_111X86FastISel33fastEmit_X86ISD_HSUB_MVT_v8i16_rrEN4llvm3MVTEjj.exit
@@ -49106,7 +49106,7 @@ define internal fastcc noundef i32 @_ZN12_GLOBAL__N_111X86FastISel26fastEmit_X86
   br i1 %15, label %16, label %_ZN12_GLOBAL__N_111X86FastISel36fastEmit_X86ISD_MOVHLPS_MVT_v4f32_rrEN4llvm3MVTEjj.exit
 
 16:                                               ; preds = %14
-  %17 = icmp ugt i32 %10, 6
+  %17 = icmp samesign ugt i32 %10, 6
   br i1 %17, label %20, label %18
 
 18:                                               ; preds = %16
@@ -49146,7 +49146,7 @@ define internal fastcc noundef i32 @_ZN12_GLOBAL__N_111X86FastISel26fastEmit_X86
   br i1 %15, label %16, label %_ZN12_GLOBAL__N_111X86FastISel36fastEmit_X86ISD_MOVLHPS_MVT_v4f32_rrEN4llvm3MVTEjj.exit
 
 16:                                               ; preds = %14
-  %17 = icmp ugt i32 %10, 6
+  %17 = icmp samesign ugt i32 %10, 6
   br i1 %17, label %20, label %18
 
 18:                                               ; preds = %16
@@ -49381,7 +49381,7 @@ define internal fastcc noundef i32 @_ZN12_GLOBAL__N_111X86FastISel25fastEmit_X86
   br i1 %22, label %23, label %_ZN12_GLOBAL__N_111X86FastISel35fastEmit_X86ISD_MULHRS_MVT_v8i16_rrEN4llvm3MVTEjj.exit
 
 23:                                               ; preds = %19
-  %24 = icmp ugt i32 %21, 6
+  %24 = icmp samesign ugt i32 %21, 6
   br i1 %24, label %27, label %25
 
 25:                                               ; preds = %23
@@ -49572,7 +49572,7 @@ define internal fastcc noundef i32 @_ZN12_GLOBAL__N_111X86FastISel25fastEmit_X86
   br i1 %22, label %23, label %_ZN12_GLOBAL__N_111X86FastISel35fastEmit_X86ISD_PACKSS_MVT_v8i16_rrEN4llvm3MVTEjj.exit
 
 23:                                               ; preds = %19
-  %24 = icmp ugt i32 %21, 6
+  %24 = icmp samesign ugt i32 %21, 6
   br i1 %24, label %27, label %25
 
 25:                                               ; preds = %23
@@ -49674,7 +49674,7 @@ define internal fastcc noundef i32 @_ZN12_GLOBAL__N_111X86FastISel25fastEmit_X86
   br i1 %79, label %80, label %_ZN12_GLOBAL__N_111X86FastISel35fastEmit_X86ISD_PACKSS_MVT_v8i16_rrEN4llvm3MVTEjj.exit
 
 80:                                               ; preds = %76
-  %81 = icmp ugt i32 %78, 6
+  %81 = icmp samesign ugt i32 %78, 6
   br i1 %81, label %84, label %82
 
 82:                                               ; preds = %80
@@ -49792,7 +49792,7 @@ define internal fastcc noundef i32 @_ZN12_GLOBAL__N_111X86FastISel25fastEmit_X86
   br i1 %22, label %23, label %_ZN12_GLOBAL__N_111X86FastISel35fastEmit_X86ISD_PACKUS_MVT_v8i16_rrEN4llvm3MVTEjj.exit
 
 23:                                               ; preds = %19
-  %24 = icmp ugt i32 %21, 6
+  %24 = icmp samesign ugt i32 %21, 6
   br i1 %24, label %27, label %25
 
 25:                                               ; preds = %23
@@ -49894,7 +49894,7 @@ define internal fastcc noundef i32 @_ZN12_GLOBAL__N_111X86FastISel25fastEmit_X86
   br i1 %79, label %80, label %_ZN12_GLOBAL__N_111X86FastISel35fastEmit_X86ISD_PACKUS_MVT_v8i16_rrEN4llvm3MVTEjj.exit
 
 80:                                               ; preds = %76
-  %81 = icmp ugt i32 %78, 6
+  %81 = icmp samesign ugt i32 %78, 6
   br i1 %81, label %84, label %82
 
 82:                                               ; preds = %80
@@ -49998,7 +49998,7 @@ define internal fastcc noundef i32 @_ZN12_GLOBAL__N_111X86FastISel25fastEmit_X86
   br i1 %12, label %.sink.split.i, label %_ZN12_GLOBAL__N_111X86FastISel35fastEmit_X86ISD_PCMPEQ_MVT_v16i8_rrEN4llvm3MVTEjj.exit
 
 .sink.split.i:                                    ; preds = %7
-  %13 = icmp ugt i32 %11, 6
+  %13 = icmp samesign ugt i32 %11, 6
   %..i = select i1 %13, i32 15181, i32 3073
   %14 = tail call i32 @_ZN4llvm8FastISel15fastEmitInst_rrEjPKNS_19TargetRegisterClassEjj(ptr noundef nonnull align 8 dereferenceable(184) %0, i32 noundef %..i, ptr noundef nonnull @_ZN4llvm3X8613VR128RegClassE, i32 noundef %3, i32 noundef %4) #18
   br label %_ZN12_GLOBAL__N_111X86FastISel35fastEmit_X86ISD_PCMPEQ_MVT_v16i8_rrEN4llvm3MVTEjj.exit
@@ -50032,7 +50032,7 @@ define internal fastcc noundef i32 @_ZN12_GLOBAL__N_111X86FastISel25fastEmit_X86
   br i1 %30, label %.sink.split.i37, label %_ZN12_GLOBAL__N_111X86FastISel35fastEmit_X86ISD_PCMPEQ_MVT_v16i8_rrEN4llvm3MVTEjj.exit
 
 .sink.split.i37:                                  ; preds = %25
-  %31 = icmp ugt i32 %29, 6
+  %31 = icmp samesign ugt i32 %29, 6
   %..i38 = select i1 %31, i32 15241, i32 3079
   %32 = tail call i32 @_ZN4llvm8FastISel15fastEmitInst_rrEjPKNS_19TargetRegisterClassEjj(ptr noundef nonnull align 8 dereferenceable(184) %0, i32 noundef %..i38, ptr noundef nonnull @_ZN4llvm3X8613VR128RegClassE, i32 noundef %3, i32 noundef %4) #18
   br label %_ZN12_GLOBAL__N_111X86FastISel35fastEmit_X86ISD_PCMPEQ_MVT_v16i8_rrEN4llvm3MVTEjj.exit
@@ -50066,7 +50066,7 @@ define internal fastcc noundef i32 @_ZN12_GLOBAL__N_111X86FastISel25fastEmit_X86
   br i1 %48, label %.sink.split.i43, label %_ZN12_GLOBAL__N_111X86FastISel35fastEmit_X86ISD_PCMPEQ_MVT_v16i8_rrEN4llvm3MVTEjj.exit
 
 .sink.split.i43:                                  ; preds = %43
-  %49 = icmp ugt i32 %47, 6
+  %49 = icmp samesign ugt i32 %47, 6
   %..i44 = select i1 %49, i32 15203, i32 3075
   %50 = tail call i32 @_ZN4llvm8FastISel15fastEmitInst_rrEjPKNS_19TargetRegisterClassEjj(ptr noundef nonnull align 8 dereferenceable(184) %0, i32 noundef %..i44, ptr noundef nonnull @_ZN4llvm3X8613VR128RegClassE, i32 noundef %3, i32 noundef %4) #18
   br label %_ZN12_GLOBAL__N_111X86FastISel35fastEmit_X86ISD_PCMPEQ_MVT_v16i8_rrEN4llvm3MVTEjj.exit
@@ -50100,7 +50100,7 @@ define internal fastcc noundef i32 @_ZN12_GLOBAL__N_111X86FastISel25fastEmit_X86
   br i1 %66, label %.sink.split.i49, label %_ZN12_GLOBAL__N_111X86FastISel35fastEmit_X86ISD_PCMPEQ_MVT_v16i8_rrEN4llvm3MVTEjj.exit
 
 .sink.split.i49:                                  ; preds = %61
-  %67 = icmp ugt i32 %65, 6
+  %67 = icmp samesign ugt i32 %65, 6
   %..i50 = select i1 %67, i32 15225, i32 3077
   %68 = tail call i32 @_ZN4llvm8FastISel15fastEmitInst_rrEjPKNS_19TargetRegisterClassEjj(ptr noundef nonnull align 8 dereferenceable(184) %0, i32 noundef %..i50, ptr noundef nonnull @_ZN4llvm3X8613VR128RegClassE, i32 noundef %3, i32 noundef %4) #18
   br label %_ZN12_GLOBAL__N_111X86FastISel35fastEmit_X86ISD_PCMPEQ_MVT_v16i8_rrEN4llvm3MVTEjj.exit
@@ -50152,7 +50152,7 @@ define internal fastcc noundef i32 @_ZN12_GLOBAL__N_111X86FastISel25fastEmit_X86
   br i1 %12, label %.sink.split.i, label %_ZN12_GLOBAL__N_111X86FastISel35fastEmit_X86ISD_PCMPGT_MVT_v16i8_rrEN4llvm3MVTEjj.exit
 
 .sink.split.i:                                    ; preds = %7
-  %13 = icmp ugt i32 %11, 6
+  %13 = icmp samesign ugt i32 %11, 6
   %..i = select i1 %13, i32 15261, i32 3085
   %14 = tail call i32 @_ZN4llvm8FastISel15fastEmitInst_rrEjPKNS_19TargetRegisterClassEjj(ptr noundef nonnull align 8 dereferenceable(184) %0, i32 noundef %..i, ptr noundef nonnull @_ZN4llvm3X8613VR128RegClassE, i32 noundef %3, i32 noundef %4) #18
   br label %_ZN12_GLOBAL__N_111X86FastISel35fastEmit_X86ISD_PCMPGT_MVT_v16i8_rrEN4llvm3MVTEjj.exit
@@ -50186,7 +50186,7 @@ define internal fastcc noundef i32 @_ZN12_GLOBAL__N_111X86FastISel25fastEmit_X86
   br i1 %30, label %.sink.split.i37, label %_ZN12_GLOBAL__N_111X86FastISel35fastEmit_X86ISD_PCMPGT_MVT_v16i8_rrEN4llvm3MVTEjj.exit
 
 .sink.split.i37:                                  ; preds = %25
-  %31 = icmp ugt i32 %29, 6
+  %31 = icmp samesign ugt i32 %29, 6
   %..i38 = select i1 %31, i32 15321, i32 3091
   %32 = tail call i32 @_ZN4llvm8FastISel15fastEmitInst_rrEjPKNS_19TargetRegisterClassEjj(ptr noundef nonnull align 8 dereferenceable(184) %0, i32 noundef %..i38, ptr noundef nonnull @_ZN4llvm3X8613VR128RegClassE, i32 noundef %3, i32 noundef %4) #18
   br label %_ZN12_GLOBAL__N_111X86FastISel35fastEmit_X86ISD_PCMPGT_MVT_v16i8_rrEN4llvm3MVTEjj.exit
@@ -50220,7 +50220,7 @@ define internal fastcc noundef i32 @_ZN12_GLOBAL__N_111X86FastISel25fastEmit_X86
   br i1 %48, label %.sink.split.i43, label %_ZN12_GLOBAL__N_111X86FastISel35fastEmit_X86ISD_PCMPGT_MVT_v16i8_rrEN4llvm3MVTEjj.exit
 
 .sink.split.i43:                                  ; preds = %43
-  %49 = icmp ugt i32 %47, 6
+  %49 = icmp samesign ugt i32 %47, 6
   %..i44 = select i1 %49, i32 15283, i32 3087
   %50 = tail call i32 @_ZN4llvm8FastISel15fastEmitInst_rrEjPKNS_19TargetRegisterClassEjj(ptr noundef nonnull align 8 dereferenceable(184) %0, i32 noundef %..i44, ptr noundef nonnull @_ZN4llvm3X8613VR128RegClassE, i32 noundef %3, i32 noundef %4) #18
   br label %_ZN12_GLOBAL__N_111X86FastISel35fastEmit_X86ISD_PCMPGT_MVT_v16i8_rrEN4llvm3MVTEjj.exit
@@ -50419,7 +50419,7 @@ define internal fastcc noundef i32 @_ZN12_GLOBAL__N_111X86FastISel25fastEmit_X86
   br i1 %20, label %21, label %_ZN12_GLOBAL__N_111X86FastISel35fastEmit_X86ISD_PMULDQ_MVT_v2i64_rrEN4llvm3MVTEjj.exit
 
 21:                                               ; preds = %19
-  %22 = icmp ugt i32 %11, 6
+  %22 = icmp samesign ugt i32 %11, 6
   br i1 %22, label %..thread9_crit_edge.i, label %23
 
 ..thread9_crit_edge.i:                            ; preds = %21
@@ -50536,7 +50536,7 @@ define internal fastcc noundef i32 @_ZN12_GLOBAL__N_111X86FastISel26fastEmit_X86
   br i1 %20, label %21, label %_ZN12_GLOBAL__N_111X86FastISel36fastEmit_X86ISD_PMULUDQ_MVT_v2i64_rrEN4llvm3MVTEjj.exit
 
 21:                                               ; preds = %19
-  %22 = icmp ugt i32 %11, 6
+  %22 = icmp samesign ugt i32 %11, 6
   br i1 %22, label %..thread9_crit_edge.i, label %23
 
 ..thread9_crit_edge.i:                            ; preds = %21
@@ -50655,7 +50655,7 @@ define internal fastcc noundef i32 @_ZN12_GLOBAL__N_111X86FastISel25fastEmit_X86
   br i1 %22, label %23, label %_ZN12_GLOBAL__N_111X86FastISel35fastEmit_X86ISD_PSADBW_MVT_v16i8_rrEN4llvm3MVTEjj.exit
 
 23:                                               ; preds = %19
-  %24 = icmp ugt i32 %21, 6
+  %24 = icmp samesign ugt i32 %21, 6
   br i1 %24, label %27, label %25
 
 25:                                               ; preds = %23
@@ -50770,7 +50770,7 @@ define internal fastcc noundef i32 @_ZN12_GLOBAL__N_111X86FastISel25fastEmit_X86
   br i1 %22, label %23, label %_ZN12_GLOBAL__N_111X86FastISel35fastEmit_X86ISD_PSHUFB_MVT_v16i8_rrEN4llvm3MVTEjj.exit
 
 23:                                               ; preds = %19
-  %24 = icmp ugt i32 %21, 6
+  %24 = icmp samesign ugt i32 %21, 6
   br i1 %24, label %27, label %25
 
 25:                                               ; preds = %23
@@ -50868,7 +50868,7 @@ define internal fastcc noundef i32 @_ZN12_GLOBAL__N_111X86FastISel24fastEmit_X86
   br i1 %12, label %.sink.split.i, label %_ZN12_GLOBAL__N_111X86FastISel34fastEmit_X86ISD_PTEST_MVT_v2i64_rrEN4llvm3MVTEjj.exit
 
 .sink.split.i:                                    ; preds = %7
-  %13 = icmp ugt i32 %11, 6
+  %13 = icmp samesign ugt i32 %11, 6
   %..i = select i1 %13, i32 20107, i32 3387
   %14 = tail call i32 @_ZN4llvm8FastISel15fastEmitInst_rrEjPKNS_19TargetRegisterClassEjj(ptr noundef nonnull align 8 dereferenceable(184) %0, i32 noundef %..i, ptr noundef nonnull @_ZN4llvm3X8613VR128RegClassE, i32 noundef %3, i32 noundef %4) #18
   br label %_ZN12_GLOBAL__N_111X86FastISel34fastEmit_X86ISD_PTEST_MVT_v2i64_rrEN4llvm3MVTEjj.exit
@@ -51328,7 +51328,7 @@ define internal fastcc noundef i32 @_ZN12_GLOBAL__N_111X86FastISel30fastEmit_X86
   br i1 %25, label %26, label %32
 
 26:                                               ; preds = %24
-  %27 = icmp ugt i32 %20, 6
+  %27 = icmp samesign ugt i32 %20, 6
   br i1 %27, label %30, label %28
 
 28:                                               ; preds = %26
@@ -51376,7 +51376,7 @@ _ZNK4llvm12X86Subtarget10canUseCMOVEv.exit.thread.i: ; preds = %_ZNK4llvm12X86Su
   br i1 %50, label %51, label %57
 
 51:                                               ; preds = %49
-  %52 = icmp ugt i32 %45, 6
+  %52 = icmp samesign ugt i32 %45, 6
   br i1 %52, label %55, label %53
 
 53:                                               ; preds = %51
@@ -51482,7 +51482,7 @@ define internal fastcc noundef i32 @_ZN12_GLOBAL__N_111X86FastISel31fastEmit_X86
   br i1 %25, label %26, label %32
 
 26:                                               ; preds = %24
-  %27 = icmp ugt i32 %20, 6
+  %27 = icmp samesign ugt i32 %20, 6
   br i1 %27, label %30, label %28
 
 28:                                               ; preds = %26
@@ -51530,7 +51530,7 @@ _ZNK4llvm12X86Subtarget10canUseCMOVEv.exit.thread.i: ; preds = %_ZNK4llvm12X86Su
   br i1 %50, label %51, label %57
 
 51:                                               ; preds = %49
-  %52 = icmp ugt i32 %45, 6
+  %52 = icmp samesign ugt i32 %45, 6
   br i1 %52, label %55, label %53
 
 53:                                               ; preds = %51
@@ -51713,7 +51713,7 @@ define internal fastcc noundef i32 @_ZN12_GLOBAL__N_111X86FastISel24fastEmit_X86
   br i1 %25, label %26, label %_ZN12_GLOBAL__N_111X86FastISel34fastEmit_X86ISD_UCOMI_MVT_v8f16_rrEN4llvm3MVTEjj.exit
 
 26:                                               ; preds = %24
-  %27 = icmp ugt i32 %20, 6
+  %27 = icmp samesign ugt i32 %20, 6
   br i1 %27, label %30, label %28
 
 28:                                               ; preds = %26
@@ -51745,7 +51745,7 @@ define internal fastcc noundef i32 @_ZN12_GLOBAL__N_111X86FastISel24fastEmit_X86
   br i1 %42, label %43, label %_ZN12_GLOBAL__N_111X86FastISel34fastEmit_X86ISD_UCOMI_MVT_v8f16_rrEN4llvm3MVTEjj.exit
 
 43:                                               ; preds = %41
-  %44 = icmp ugt i32 %37, 6
+  %44 = icmp samesign ugt i32 %37, 6
   br i1 %44, label %47, label %45
 
 45:                                               ; preds = %43
@@ -51813,7 +51813,7 @@ define internal fastcc noundef i32 @_ZN12_GLOBAL__N_111X86FastISel25fastEmit_X86
   br i1 %22, label %23, label %_ZN12_GLOBAL__N_111X86FastISel35fastEmit_X86ISD_UNPCKH_MVT_v16i8_rrEN4llvm3MVTEjj.exit
 
 23:                                               ; preds = %19
-  %24 = icmp ugt i32 %21, 6
+  %24 = icmp samesign ugt i32 %21, 6
   br i1 %24, label %27, label %25
 
 25:                                               ; preds = %23
@@ -51915,7 +51915,7 @@ define internal fastcc noundef i32 @_ZN12_GLOBAL__N_111X86FastISel25fastEmit_X86
   br i1 %79, label %80, label %_ZN12_GLOBAL__N_111X86FastISel35fastEmit_X86ISD_UNPCKH_MVT_v16i8_rrEN4llvm3MVTEjj.exit
 
 80:                                               ; preds = %76
-  %81 = icmp ugt i32 %78, 6
+  %81 = icmp samesign ugt i32 %78, 6
   br i1 %81, label %84, label %82
 
 82:                                               ; preds = %80
@@ -52015,7 +52015,7 @@ define internal fastcc noundef i32 @_ZN12_GLOBAL__N_111X86FastISel25fastEmit_X86
   br i1 %134, label %135, label %_ZN12_GLOBAL__N_111X86FastISel35fastEmit_X86ISD_UNPCKH_MVT_v16i8_rrEN4llvm3MVTEjj.exit
 
 135:                                              ; preds = %133
-  %136 = icmp ugt i32 %125, 6
+  %136 = icmp samesign ugt i32 %125, 6
   br i1 %136, label %..thread9_crit_edge.i, label %137
 
 ..thread9_crit_edge.i:                            ; preds = %135
@@ -52057,7 +52057,7 @@ define internal fastcc noundef i32 @_ZN12_GLOBAL__N_111X86FastISel25fastEmit_X86
   br label %_ZN12_GLOBAL__N_111X86FastISel35fastEmit_X86ISD_UNPCKH_MVT_v16i8_rrEN4llvm3MVTEjj.exit
 
 153:                                              ; preds = %150
-  %154 = icmp ugt i32 %148, 8
+  %154 = icmp samesign ugt i32 %148, 8
   %155 = getelementptr inbounds nuw i8, ptr %146, i64 436
   %156 = load i8, ptr %155, align 4
   %157 = trunc i8 %156 to i1
@@ -52120,7 +52120,7 @@ define internal fastcc noundef i32 @_ZN12_GLOBAL__N_111X86FastISel25fastEmit_X86
   br i1 %185, label %186, label %_ZN12_GLOBAL__N_111X86FastISel35fastEmit_X86ISD_UNPCKH_MVT_v16i8_rrEN4llvm3MVTEjj.exit
 
 186:                                              ; preds = %184
-  %187 = icmp ugt i32 %176, 6
+  %187 = icmp samesign ugt i32 %176, 6
   br i1 %187, label %..thread9_crit_edge.i96, label %188
 
 ..thread9_crit_edge.i96:                          ; preds = %186
@@ -52162,7 +52162,7 @@ define internal fastcc noundef i32 @_ZN12_GLOBAL__N_111X86FastISel25fastEmit_X86
   br label %_ZN12_GLOBAL__N_111X86FastISel35fastEmit_X86ISD_UNPCKH_MVT_v16i8_rrEN4llvm3MVTEjj.exit
 
 204:                                              ; preds = %201
-  %205 = icmp ugt i32 %199, 8
+  %205 = icmp samesign ugt i32 %199, 8
   %206 = getelementptr inbounds nuw i8, ptr %197, i64 436
   %207 = load i8, ptr %206, align 4
   %208 = trunc i8 %207 to i1
@@ -52225,7 +52225,7 @@ define internal fastcc noundef i32 @_ZN12_GLOBAL__N_111X86FastISel25fastEmit_X86
   br i1 %236, label %237, label %_ZN12_GLOBAL__N_111X86FastISel35fastEmit_X86ISD_UNPCKH_MVT_v16i8_rrEN4llvm3MVTEjj.exit
 
 237:                                              ; preds = %235
-  %238 = icmp ugt i32 %227, 6
+  %238 = icmp samesign ugt i32 %227, 6
   br i1 %238, label %..thread9_crit_edge.i108, label %239
 
 ..thread9_crit_edge.i108:                         ; preds = %237
@@ -52329,7 +52329,7 @@ define internal fastcc noundef i32 @_ZN12_GLOBAL__N_111X86FastISel25fastEmit_X86
   br i1 %287, label %288, label %_ZN12_GLOBAL__N_111X86FastISel35fastEmit_X86ISD_UNPCKH_MVT_v16i8_rrEN4llvm3MVTEjj.exit
 
 288:                                              ; preds = %286
-  %289 = icmp ugt i32 %278, 6
+  %289 = icmp samesign ugt i32 %278, 6
   br i1 %289, label %..thread9_crit_edge.i120, label %290
 
 ..thread9_crit_edge.i120:                         ; preds = %288
@@ -52463,7 +52463,7 @@ define internal fastcc noundef i32 @_ZN12_GLOBAL__N_111X86FastISel25fastEmit_X86
   br i1 %22, label %23, label %_ZN12_GLOBAL__N_111X86FastISel35fastEmit_X86ISD_UNPCKL_MVT_v16i8_rrEN4llvm3MVTEjj.exit
 
 23:                                               ; preds = %19
-  %24 = icmp ugt i32 %21, 6
+  %24 = icmp samesign ugt i32 %21, 6
   br i1 %24, label %27, label %25
 
 25:                                               ; preds = %23
@@ -52565,7 +52565,7 @@ define internal fastcc noundef i32 @_ZN12_GLOBAL__N_111X86FastISel25fastEmit_X86
   br i1 %79, label %80, label %_ZN12_GLOBAL__N_111X86FastISel35fastEmit_X86ISD_UNPCKL_MVT_v16i8_rrEN4llvm3MVTEjj.exit
 
 80:                                               ; preds = %76
-  %81 = icmp ugt i32 %78, 6
+  %81 = icmp samesign ugt i32 %78, 6
   br i1 %81, label %84, label %82
 
 82:                                               ; preds = %80
@@ -52665,7 +52665,7 @@ define internal fastcc noundef i32 @_ZN12_GLOBAL__N_111X86FastISel25fastEmit_X86
   br i1 %134, label %135, label %_ZN12_GLOBAL__N_111X86FastISel35fastEmit_X86ISD_UNPCKL_MVT_v16i8_rrEN4llvm3MVTEjj.exit
 
 135:                                              ; preds = %133
-  %136 = icmp ugt i32 %125, 6
+  %136 = icmp samesign ugt i32 %125, 6
   br i1 %136, label %..thread9_crit_edge.i, label %137
 
 ..thread9_crit_edge.i:                            ; preds = %135
@@ -52707,7 +52707,7 @@ define internal fastcc noundef i32 @_ZN12_GLOBAL__N_111X86FastISel25fastEmit_X86
   br label %_ZN12_GLOBAL__N_111X86FastISel35fastEmit_X86ISD_UNPCKL_MVT_v16i8_rrEN4llvm3MVTEjj.exit
 
 153:                                              ; preds = %150
-  %154 = icmp ugt i32 %148, 8
+  %154 = icmp samesign ugt i32 %148, 8
   %155 = getelementptr inbounds nuw i8, ptr %146, i64 436
   %156 = load i8, ptr %155, align 4
   %157 = trunc i8 %156 to i1
@@ -52770,7 +52770,7 @@ define internal fastcc noundef i32 @_ZN12_GLOBAL__N_111X86FastISel25fastEmit_X86
   br i1 %185, label %186, label %_ZN12_GLOBAL__N_111X86FastISel35fastEmit_X86ISD_UNPCKL_MVT_v16i8_rrEN4llvm3MVTEjj.exit
 
 186:                                              ; preds = %184
-  %187 = icmp ugt i32 %176, 6
+  %187 = icmp samesign ugt i32 %176, 6
   br i1 %187, label %..thread9_crit_edge.i96, label %188
 
 ..thread9_crit_edge.i96:                          ; preds = %186
@@ -52812,7 +52812,7 @@ define internal fastcc noundef i32 @_ZN12_GLOBAL__N_111X86FastISel25fastEmit_X86
   br label %_ZN12_GLOBAL__N_111X86FastISel35fastEmit_X86ISD_UNPCKL_MVT_v16i8_rrEN4llvm3MVTEjj.exit
 
 204:                                              ; preds = %201
-  %205 = icmp ugt i32 %199, 8
+  %205 = icmp samesign ugt i32 %199, 8
   %206 = getelementptr inbounds nuw i8, ptr %197, i64 436
   %207 = load i8, ptr %206, align 4
   %208 = trunc i8 %207 to i1
@@ -52875,7 +52875,7 @@ define internal fastcc noundef i32 @_ZN12_GLOBAL__N_111X86FastISel25fastEmit_X86
   br i1 %236, label %237, label %_ZN12_GLOBAL__N_111X86FastISel35fastEmit_X86ISD_UNPCKL_MVT_v16i8_rrEN4llvm3MVTEjj.exit
 
 237:                                              ; preds = %235
-  %238 = icmp ugt i32 %227, 6
+  %238 = icmp samesign ugt i32 %227, 6
   br i1 %238, label %..thread9_crit_edge.i108, label %239
 
 ..thread9_crit_edge.i108:                         ; preds = %237
@@ -52979,7 +52979,7 @@ define internal fastcc noundef i32 @_ZN12_GLOBAL__N_111X86FastISel25fastEmit_X86
   br i1 %287, label %288, label %_ZN12_GLOBAL__N_111X86FastISel35fastEmit_X86ISD_UNPCKL_MVT_v16i8_rrEN4llvm3MVTEjj.exit
 
 288:                                              ; preds = %286
-  %289 = icmp ugt i32 %278, 6
+  %289 = icmp samesign ugt i32 %278, 6
   br i1 %289, label %..thread9_crit_edge.i120, label %290
 
 ..thread9_crit_edge.i120:                         ; preds = %288
@@ -54000,7 +54000,7 @@ define internal fastcc noundef i32 @_ZN12_GLOBAL__N_111X86FastISel29fastEmit_X86
   br i1 %22, label %23, label %_ZN12_GLOBAL__N_111X86FastISel39fastEmit_X86ISD_VPMADDUBSW_MVT_v16i8_rrEN4llvm3MVTEjj.exit
 
 23:                                               ; preds = %19
-  %24 = icmp ugt i32 %21, 6
+  %24 = icmp samesign ugt i32 %21, 6
   br i1 %24, label %27, label %25
 
 25:                                               ; preds = %23
@@ -54115,7 +54115,7 @@ define internal fastcc noundef i32 @_ZN12_GLOBAL__N_111X86FastISel27fastEmit_X86
   br i1 %22, label %23, label %_ZN12_GLOBAL__N_111X86FastISel37fastEmit_X86ISD_VPMADDWD_MVT_v8i16_rrEN4llvm3MVTEjj.exit
 
 23:                                               ; preds = %19
-  %24 = icmp ugt i32 %21, 6
+  %24 = icmp samesign ugt i32 %21, 6
   br i1 %24, label %27, label %25
 
 25:                                               ; preds = %23
@@ -54437,7 +54437,7 @@ define internal fastcc noundef i32 @_ZN12_GLOBAL__N_111X86FastISel23fastEmit_X86
   br i1 %22, label %23, label %_ZN12_GLOBAL__N_111X86FastISel33fastEmit_X86ISD_VSHL_MVT_v8i16_rrEN4llvm3MVTEjj.exit
 
 23:                                               ; preds = %19
-  %24 = icmp ugt i32 %21, 6
+  %24 = icmp samesign ugt i32 %21, 6
   br i1 %24, label %27, label %25
 
 25:                                               ; preds = %23
@@ -54482,7 +54482,7 @@ define internal fastcc noundef i32 @_ZN12_GLOBAL__N_111X86FastISel23fastEmit_X86
   br i1 %46, label %47, label %_ZN12_GLOBAL__N_111X86FastISel33fastEmit_X86ISD_VSHL_MVT_v8i16_rrEN4llvm3MVTEjj.exit
 
 47:                                               ; preds = %45
-  %48 = icmp ugt i32 %37, 6
+  %48 = icmp samesign ugt i32 %37, 6
   br i1 %48, label %..thread9_crit_edge.i, label %49
 
 ..thread9_crit_edge.i:                            ; preds = %47
@@ -54530,7 +54530,7 @@ define internal fastcc noundef i32 @_ZN12_GLOBAL__N_111X86FastISel23fastEmit_X86
   br i1 %69, label %70, label %_ZN12_GLOBAL__N_111X86FastISel33fastEmit_X86ISD_VSHL_MVT_v8i16_rrEN4llvm3MVTEjj.exit
 
 70:                                               ; preds = %68
-  %71 = icmp ugt i32 %60, 6
+  %71 = icmp samesign ugt i32 %60, 6
   br i1 %71, label %..thread9_crit_edge.i17, label %72
 
 ..thread9_crit_edge.i17:                          ; preds = %70
@@ -54864,7 +54864,7 @@ define internal fastcc noundef i32 @_ZN12_GLOBAL__N_111X86FastISel23fastEmit_X86
   br i1 %22, label %23, label %_ZN12_GLOBAL__N_111X86FastISel33fastEmit_X86ISD_VSRA_MVT_v8i16_rrEN4llvm3MVTEjj.exit
 
 23:                                               ; preds = %19
-  %24 = icmp ugt i32 %21, 6
+  %24 = icmp samesign ugt i32 %21, 6
   br i1 %24, label %27, label %25
 
 25:                                               ; preds = %23
@@ -54909,7 +54909,7 @@ define internal fastcc noundef i32 @_ZN12_GLOBAL__N_111X86FastISel23fastEmit_X86
   br i1 %46, label %47, label %_ZN12_GLOBAL__N_111X86FastISel33fastEmit_X86ISD_VSRA_MVT_v8i16_rrEN4llvm3MVTEjj.exit
 
 47:                                               ; preds = %45
-  %48 = icmp ugt i32 %37, 6
+  %48 = icmp samesign ugt i32 %37, 6
   br i1 %48, label %..thread9_crit_edge.i, label %49
 
 ..thread9_crit_edge.i:                            ; preds = %47
@@ -55229,7 +55229,7 @@ define internal fastcc noundef i32 @_ZN12_GLOBAL__N_111X86FastISel23fastEmit_X86
   br i1 %22, label %23, label %_ZN12_GLOBAL__N_111X86FastISel33fastEmit_X86ISD_VSRL_MVT_v8i16_rrEN4llvm3MVTEjj.exit
 
 23:                                               ; preds = %19
-  %24 = icmp ugt i32 %21, 6
+  %24 = icmp samesign ugt i32 %21, 6
   br i1 %24, label %27, label %25
 
 25:                                               ; preds = %23
@@ -55274,7 +55274,7 @@ define internal fastcc noundef i32 @_ZN12_GLOBAL__N_111X86FastISel23fastEmit_X86
   br i1 %46, label %47, label %_ZN12_GLOBAL__N_111X86FastISel33fastEmit_X86ISD_VSRL_MVT_v8i16_rrEN4llvm3MVTEjj.exit
 
 47:                                               ; preds = %45
-  %48 = icmp ugt i32 %37, 6
+  %48 = icmp samesign ugt i32 %37, 6
   br i1 %48, label %..thread9_crit_edge.i, label %49
 
 ..thread9_crit_edge.i:                            ; preds = %47
@@ -55322,7 +55322,7 @@ define internal fastcc noundef i32 @_ZN12_GLOBAL__N_111X86FastISel23fastEmit_X86
   br i1 %69, label %70, label %_ZN12_GLOBAL__N_111X86FastISel33fastEmit_X86ISD_VSRL_MVT_v8i16_rrEN4llvm3MVTEjj.exit
 
 70:                                               ; preds = %68
-  %71 = icmp ugt i32 %60, 6
+  %71 = icmp samesign ugt i32 %60, 6
   br i1 %71, label %..thread9_crit_edge.i17, label %72
 
 ..thread9_crit_edge.i17:                          ; preds = %70

@@ -517,7 +517,7 @@ define internal range(i64 -2147483648, 2147483648) i64 @proc_scsi_write(ptr noca
   br i1 %15, label %16, label %.thread
 
 16:                                               ; preds = %13
-  %17 = icmp ult i64 %2, 4096
+  %17 = icmp samesign ult i64 %2, 4096
   br i1 %17, label %18, label %20
 
 18:                                               ; preds = %16

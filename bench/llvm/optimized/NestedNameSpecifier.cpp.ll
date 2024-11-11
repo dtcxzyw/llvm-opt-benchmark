@@ -1723,7 +1723,7 @@ _ZN5clang22NestedNameSpecifierLoc13getDataLengthEPNS_19NestedNameSpecifierE.exit
   br i1 %.not.i10.i, label %_ZNK5clang19NestedNameSpecifier7getKindEv.exit.i, label %11
 
 11:                                               ; preds = %_ZN5clang22NestedNameSpecifierLoc13getDataLengthEPNS_19NestedNameSpecifierE.exit.i
-  %switch.not.not.i = icmp ult i64 %.0.copyload.i.i.i.i.i, 4
+  %switch.not.not.i = icmp samesign ult i64 %.0.copyload.i.i.i.i.i, 4
   br i1 %switch.not.not.i, label %select.unfold.i, label %12
 
 _ZNK5clang19NestedNameSpecifier7getKindEv.exit.i: ; preds = %_ZN5clang22NestedNameSpecifierLoc13getDataLengthEPNS_19NestedNameSpecifierE.exit.i

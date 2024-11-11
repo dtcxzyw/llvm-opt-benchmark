@@ -11236,7 +11236,7 @@ for.body.i.i:                                     ; preds = %for.body.i.i, %entr
   %shr15.i.i = lshr i32 %xor13.i.i, 11
   %add16.i.i = add i32 %shr15.i.i, %xor13.i.i
   %dec.i.i = add nsw i32 %len.addr.026.i.i, -1
-  %cmp.i.i = icmp ugt i32 %len.addr.026.i.i, 1
+  %cmp.i.i = icmp samesign ugt i32 %len.addr.026.i.i, 1
   br i1 %cmp.i.i, label %for.body.i.i, label %_ZN11btSparseSdfILi3EE4HashEiiiPK16btCollisionShape.exit, !llvm.loop !84
 
 _ZN11btSparseSdfILi3EE4HashEiiiPK16btCollisionShape.exit: ; preds = %for.body.i.i

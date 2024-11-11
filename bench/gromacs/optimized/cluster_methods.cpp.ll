@@ -3733,7 +3733,7 @@ define void @_Z14jarvis_patrickiPPfiifP10t_clusters(i32 noundef %0, ptr nocaptur
   %17 = tail call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %11, i1 true)
   %18 = shl nuw nsw i64 %17, 1
   %19 = xor i64 %18, 126
-  %20 = icmp ugt i32 %0, 16
+  %20 = icmp samesign ugt i32 %0, 16
   %.017.i18.i = getelementptr inbounds i8, ptr %13, i64 12
   %.not18.i.i = icmp eq i32 %0, 1
   %21 = getelementptr inbounds i8, ptr %13, i64 8

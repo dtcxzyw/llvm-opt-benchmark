@@ -151,7 +151,7 @@ _ZN2cv3dnn14dnn4_v20240521L5shapeERKNS_3MatE.exit.thread: ; preds = %5, %_ZNSt12
   br i1 %.not.i, label %.invoke, label %24
 
 24:                                               ; preds = %21
-  %.not28.i = icmp ugt i32 %spec.select.i, %.val
+  %.not28.i = icmp samesign ugt i32 %spec.select.i, %.val
   br i1 %.not28.i, label %.invoke, label %.preheader.i
 
 .preheader.i:                                     ; preds = %24
@@ -193,7 +193,7 @@ _ZN2cv3dnn14dnn4_v20240521L5totalERKSt6vectorIiSaIiEEii.exit.thread66: ; preds =
   unreachable
 
 33:                                               ; preds = %29
-  %34 = icmp ult i32 %spec.store.select.i, %.val
+  %34 = icmp samesign ult i32 %spec.store.select.i, %.val
   br i1 %34, label %.lr.ph.preheader.i25, label %_ZN2cv3dnn14dnn4_v20240521L5totalERKSt6vectorIiSaIiEEii.exit32
 
 .lr.ph.preheader.i25:                             ; preds = %33
@@ -524,7 +524,7 @@ _ZN2cv3dnn14dnn4_v20240521L5shapeERKNS_3MatE.exit.thread: ; preds = %5, %_ZNSt12
   br i1 %.not.i, label %.invoke, label %22
 
 22:                                               ; preds = %19
-  %.not28.i = icmp ugt i32 %spec.select.i, %.val
+  %.not28.i = icmp samesign ugt i32 %spec.select.i, %.val
   br i1 %.not28.i, label %.invoke, label %.preheader.i
 
 .preheader.i:                                     ; preds = %22
@@ -566,7 +566,7 @@ _ZN2cv3dnn14dnn4_v20240521L5totalERKSt6vectorIiSaIiEEii.exit.thread67: ; preds =
   unreachable
 
 31:                                               ; preds = %27
-  %32 = icmp ult i32 %spec.store.select.i, %.val
+  %32 = icmp samesign ult i32 %spec.store.select.i, %.val
   br i1 %32, label %.lr.ph.preheader.i26, label %_ZN2cv3dnn14dnn4_v20240521L5totalERKSt6vectorIiSaIiEEii.exit33
 
 .lr.ph.preheader.i26:                             ; preds = %31
@@ -817,7 +817,7 @@ _ZN2cv3dnn14dnn4_v20240521L5totalERKSt6vectorIiSaIiEEii.exit.thread58: ; preds =
   unreachable
 
 55:                                               ; preds = %51
-  %56 = icmp ult i32 %spec.store.select.i, %44
+  %56 = icmp samesign ult i32 %spec.store.select.i, %44
   br i1 %56, label %.lr.ph.preheader.i31, label %_ZN2cv3dnn14dnn4_v20240521L5totalERKSt6vectorIiSaIiEEii.exit38
 
 .lr.ph.preheader.i31:                             ; preds = %55
@@ -1022,7 +1022,7 @@ _ZNSt12_Vector_baseIiSaIiEE11_M_allocateEm.exit.i.i: ; preds = %5
   br i1 %44, label %45, label %.invoke
 
 45:                                               ; preds = %42
-  %.not.i = icmp ult i32 %.val, 2
+  %.not.i = icmp samesign ult i32 %.val, 2
   br i1 %.not.i, label %.invoke, label %49
 
 .invoke:                                          ; preds = %45, %42
@@ -1232,7 +1232,7 @@ _ZNSt12_Vector_baseIiSaIiEE11_M_allocateEm.exit.i.i: ; preds = %6
 48:                                               ; preds = %45
   %49 = udiv i64 %24, %5
   store i64 %49, ptr %9, align 8
-  %.not.i = icmp ult i32 %.val, 2
+  %.not.i = icmp samesign ult i32 %.val, 2
   br i1 %.not.i, label %.invoke, label %53
 
 .invoke:                                          ; preds = %48, %45

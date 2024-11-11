@@ -334,7 +334,7 @@ define noundef i64 @_ZN14htif_pthread_t4readEPvm(ptr noundef nonnull align 8 der
   br i1 %45, label %46, label %50
 
 46:                                               ; preds = %38
-  %47 = icmp ult i64 %44, 512
+  %47 = icmp samesign ult i64 %44, 512
   br i1 %47, label %64, label %48
 
 48:                                               ; preds = %46
@@ -408,7 +408,7 @@ _ZSt4copyISt15_Deque_iteratorIcRcPcES2_ET0_T_S5_S4_.exit: ; preds = %64, %65, %.
   br i1 %73, label %74, label %80
 
 74:                                               ; preds = %_ZSt4copyISt15_Deque_iteratorIcRcPcES2_ET0_T_S5_S4_.exit
-  %75 = icmp ult i64 %72, 512
+  %75 = icmp samesign ult i64 %72, 512
   br i1 %75, label %76, label %78
 
 76:                                               ; preds = %74
@@ -581,7 +581,7 @@ define noundef zeroext i1 @_ZN14htif_pthread_t16recv_nonblockingEPvm(ptr noundef
   br i1 %44, label %45, label %49
 
 45:                                               ; preds = %38
-  %46 = icmp ult i64 %43, 512
+  %46 = icmp samesign ult i64 %43, 512
   br i1 %46, label %63, label %47
 
 47:                                               ; preds = %45
@@ -655,7 +655,7 @@ _ZSt4copyISt15_Deque_iteratorIcRcPcES2_ET0_T_S5_S4_.exit: ; preds = %63, %64, %.
   br i1 %72, label %73, label %79
 
 73:                                               ; preds = %_ZSt4copyISt15_Deque_iteratorIcRcPcES2_ET0_T_S5_S4_.exit
-  %74 = icmp ult i64 %71, 512
+  %74 = icmp samesign ult i64 %71, 512
   br i1 %74, label %75, label %77
 
 75:                                               ; preds = %73
@@ -1116,7 +1116,7 @@ _ZNSt5dequeIcSaIcEE5clearEv.exit:                 ; preds = %.lr.ph.i.i.i, %40
   br i1 %133, label %134, label %_ZStplRKSt15_Deque_iteratorIcRcPcEl.exit
 
 134:                                              ; preds = %125
-  %135 = icmp ult i64 %132, 512
+  %135 = icmp samesign ult i64 %132, 512
   br i1 %135, label %_ZStplRKSt15_Deque_iteratorIcRcPcEl.exit.thread, label %_ZStplRKSt15_Deque_iteratorIcRcPcEl.exit.thread113
 
 _ZStplRKSt15_Deque_iteratorIcRcPcEl.exit.thread:  ; preds = %134
@@ -1219,7 +1219,7 @@ _ZNSt5dequeIcSaIcEE17_M_erase_at_beginESt15_Deque_iteratorIcRcPcE.exit: ; preds 
   br i1 %175, label %176, label %_ZStmiRKSt15_Deque_iteratorIcRcPcEl.exit.thread114
 
 176:                                              ; preds = %168
-  %177 = icmp ult i64 %174, 512
+  %177 = icmp samesign ult i64 %174, 512
   br i1 %177, label %_ZStmiRKSt15_Deque_iteratorIcRcPcEl.exit.thread, label %_ZStmiRKSt15_Deque_iteratorIcRcPcEl.exit
 
 _ZStmiRKSt15_Deque_iteratorIcRcPcEl.exit.thread:  ; preds = %176
@@ -1287,7 +1287,7 @@ _ZNSt5dequeIcSaIcEE15_M_erase_at_endESt15_Deque_iteratorIcRcPcE.exit: ; preds = 
   br i1 %205, label %206, label %212
 
 206:                                              ; preds = %193
-  %207 = icmp ult i64 %204, 512
+  %207 = icmp samesign ult i64 %204, 512
   br i1 %207, label %208, label %210
 
 208:                                              ; preds = %206
@@ -1383,7 +1383,7 @@ _ZSt23__copy_move_backward_a1ILb1EPcS0_ET1_T0_S2_S1_.exit.i: ; preds = %28, %.lr
   br i1 %37, label %38, label %44
 
 38:                                               ; preds = %_ZSt23__copy_move_backward_a1ILb1EPcS0_ET1_T0_S2_S1_.exit.i
-  %39 = icmp ult i64 %36, 512
+  %39 = icmp samesign ult i64 %36, 512
   br i1 %39, label %40, label %42
 
 40:                                               ; preds = %38
@@ -1475,7 +1475,7 @@ _ZSt23__copy_move_backward_a1ILb1EPcS0_ET1_T0_S2_S1_.exit.i13: ; preds = %71, %6
   br i1 %80, label %81, label %87
 
 81:                                               ; preds = %_ZSt23__copy_move_backward_a1ILb1EPcS0_ET1_T0_S2_S1_.exit.i13
-  %82 = icmp ult i64 %79, 512
+  %82 = icmp samesign ult i64 %79, 512
   br i1 %82, label %83, label %85
 
 83:                                               ; preds = %81
@@ -1566,7 +1566,7 @@ _ZSt23__copy_move_backward_a1ILb1EPcS0_ET1_T0_S2_S1_.exit.i32: ; preds = %115, %
   br i1 %124, label %125, label %131
 
 125:                                              ; preds = %_ZSt23__copy_move_backward_a1ILb1EPcS0_ET1_T0_S2_S1_.exit.i32
-  %126 = icmp ult i64 %123, 512
+  %126 = icmp samesign ult i64 %123, 512
   br i1 %126, label %127, label %129
 
 127:                                              ; preds = %125
@@ -1649,7 +1649,7 @@ _ZSt23__copy_move_backward_a1ILb1EPcS0_ET1_T0_S2_S1_.exit.i51: ; preds = %161, %
   br i1 %170, label %171, label %177
 
 171:                                              ; preds = %_ZSt23__copy_move_backward_a1ILb1EPcS0_ET1_T0_S2_S1_.exit.i51
-  %172 = icmp ult i64 %169, 512
+  %172 = icmp samesign ult i64 %169, 512
   br i1 %172, label %173, label %175
 
 173:                                              ; preds = %171
@@ -1751,7 +1751,7 @@ _ZSt14__copy_move_a1ILb1EPcS0_ET1_T0_S2_S1_.exit.i: ; preds = %28, %.lr.ph.i
   br i1 %32, label %33, label %39
 
 33:                                               ; preds = %_ZSt14__copy_move_a1ILb1EPcS0_ET1_T0_S2_S1_.exit.i
-  %34 = icmp ult i64 %31, 512
+  %34 = icmp samesign ult i64 %31, 512
   br i1 %34, label %35, label %37
 
 35:                                               ; preds = %33
@@ -1836,7 +1836,7 @@ _ZSt14__copy_move_a1ILb1EPcS0_ET1_T0_S2_S1_.exit.i16: ; preds = %65, %60
   br i1 %69, label %70, label %76
 
 70:                                               ; preds = %_ZSt14__copy_move_a1ILb1EPcS0_ET1_T0_S2_S1_.exit.i16
-  %71 = icmp ult i64 %68, 512
+  %71 = icmp samesign ult i64 %68, 512
   br i1 %71, label %72, label %74
 
 72:                                               ; preds = %70
@@ -1921,7 +1921,7 @@ _ZSt14__copy_move_a1ILb1EPcS0_ET1_T0_S2_S1_.exit.i32: ; preds = %104, %.lr.ph.i2
   br i1 %108, label %109, label %115
 
 109:                                              ; preds = %_ZSt14__copy_move_a1ILb1EPcS0_ET1_T0_S2_S1_.exit.i32
-  %110 = icmp ult i64 %107, 512
+  %110 = icmp samesign ult i64 %107, 512
   br i1 %110, label %111, label %113
 
 111:                                              ; preds = %109
@@ -1996,7 +1996,7 @@ _ZSt14__copy_move_a1ILb1EPcS0_ET1_T0_S2_S1_.exit.i48: ; preds = %143, %.lr.ph.i4
   br i1 %147, label %148, label %154
 
 148:                                              ; preds = %_ZSt14__copy_move_a1ILb1EPcS0_ET1_T0_S2_S1_.exit.i48
-  %149 = icmp ult i64 %146, 512
+  %149 = icmp samesign ult i64 %146, 512
   br i1 %149, label %150, label %152
 
 150:                                              ; preds = %148
@@ -2091,7 +2091,7 @@ define linkonce_odr void @_ZNSt5dequeIcSaIcEE19_M_range_insert_auxIPKcEEvSt15_De
   br i1 %32, label %33, label %39
 
 33:                                               ; preds = %23
-  %34 = icmp ult i64 %31, 512
+  %34 = icmp samesign ult i64 %31, 512
   br i1 %34, label %35, label %37
 
 35:                                               ; preds = %33
@@ -2151,7 +2151,7 @@ _ZSt14__copy_move_a1ILb0EPKcPcET1_T0_S4_S3_.exit.i.i.i.i.i.i: ; preds = %54, %.l
   br i1 %58, label %59, label %65
 
 59:                                               ; preds = %_ZSt14__copy_move_a1ILb0EPKcPcET1_T0_S4_S3_.exit.i.i.i.i.i.i
-  %60 = icmp ult i64 %57, 512
+  %60 = icmp samesign ult i64 %57, 512
   br i1 %60, label %61, label %63
 
 61:                                               ; preds = %59
@@ -2231,7 +2231,7 @@ _ZSt22__uninitialized_copy_aIPKcSt15_Deque_iteratorIcRcPcEcET0_T_S7_S6_RSaIT1_E.
   br i1 %101, label %102, label %108
 
 102:                                              ; preds = %91
-  %103 = icmp ult i64 %100, 512
+  %103 = icmp samesign ult i64 %100, 512
   br i1 %103, label %104, label %106
 
 104:                                              ; preds = %102
@@ -2291,7 +2291,7 @@ _ZSt14__copy_move_a1ILb0EPKcPcET1_T0_S4_S3_.exit.i.i.i.i.i.i32: ; preds = %123, 
   br i1 %127, label %128, label %134
 
 128:                                              ; preds = %_ZSt14__copy_move_a1ILb0EPKcPcET1_T0_S4_S3_.exit.i.i.i.i.i.i32
-  %129 = icmp ult i64 %126, 512
+  %129 = icmp samesign ult i64 %126, 512
   br i1 %129, label %130, label %132
 
 130:                                              ; preds = %128
@@ -2462,7 +2462,7 @@ define linkonce_odr void @_ZNSt5dequeIcSaIcEE13_M_insert_auxIPKcEEvSt15_Deque_it
   br i1 %92, label %93, label %99
 
 93:                                               ; preds = %85
-  %94 = icmp ult i64 %91, 512
+  %94 = icmp samesign ult i64 %91, 512
   br i1 %94, label %95, label %97
 
 95:                                               ; preds = %93
@@ -2500,7 +2500,7 @@ _ZNSt5dequeIcSaIcEE28_M_reserve_elements_at_frontEm.exit: ; preds = %95, %101
   br i1 %113, label %114, label %120
 
 114:                                              ; preds = %_ZNSt5dequeIcSaIcEE28_M_reserve_elements_at_frontEm.exit
-  %115 = icmp ult i64 %112, 512
+  %115 = icmp samesign ult i64 %112, 512
   br i1 %115, label %116, label %118
 
 116:                                              ; preds = %114
@@ -2551,7 +2551,7 @@ _ZStplRKSt15_Deque_iteratorIcRcPcEl.exit:         ; preds = %116, %122
   br i1 %139, label %140, label %146
 
 140:                                              ; preds = %130
-  %141 = icmp ult i64 %138, 512
+  %141 = icmp samesign ult i64 %138, 512
   br i1 %141, label %142, label %144
 
 142:                                              ; preds = %140
@@ -2667,7 +2667,7 @@ _ZStplRKSt15_Deque_iteratorIcRcPcEl.exit39:       ; preds = %142, %148
   br i1 %188, label %189, label %195
 
 189:                                              ; preds = %179
-  %190 = icmp ult i64 %187, 512
+  %190 = icmp samesign ult i64 %187, 512
   br i1 %190, label %191, label %193
 
 191:                                              ; preds = %189
@@ -2730,7 +2730,7 @@ _ZSt14__copy_move_a1ILb0EPKcPcET1_T0_S4_S3_.exit.i.i.i: ; preds = %213, %.lr.ph.
   br i1 %217, label %218, label %224
 
 218:                                              ; preds = %_ZSt14__copy_move_a1ILb0EPKcPcET1_T0_S4_S3_.exit.i.i.i
-  %219 = icmp ult i64 %216, 512
+  %219 = icmp samesign ult i64 %216, 512
   br i1 %219, label %220, label %222
 
 220:                                              ; preds = %218
@@ -2863,7 +2863,7 @@ _ZSt14__copy_move_a1ILb0EPKcPcET1_T0_S4_S3_.exit.i.i.i.i.i.i.i: ; preds = %273, 
   br i1 %277, label %278, label %284
 
 278:                                              ; preds = %_ZSt14__copy_move_a1ILb0EPKcPcET1_T0_S4_S3_.exit.i.i.i.i.i.i.i
-  %279 = icmp ult i64 %276, 512
+  %279 = icmp samesign ult i64 %276, 512
   br i1 %279, label %280, label %282
 
 280:                                              ; preds = %278
@@ -2934,7 +2934,7 @@ _ZSt14__copy_move_a1ILb0EPKcPcET1_T0_S4_S3_.exit.i.i.i52: ; preds = %303, %.lr.p
   br i1 %307, label %308, label %314
 
 308:                                              ; preds = %_ZSt14__copy_move_a1ILb0EPKcPcET1_T0_S4_S3_.exit.i.i.i52
-  %309 = icmp ult i64 %306, 512
+  %309 = icmp samesign ult i64 %306, 512
   br i1 %309, label %310, label %312
 
 310:                                              ; preds = %308
@@ -3007,7 +3007,7 @@ _ZNSt15_Deque_iteratorIcRcPcEpLEl.exit.i.i.i53:   ; preds = %316, %310
   br i1 %344, label %345, label %351
 
 345:                                              ; preds = %337
-  %346 = icmp ult i64 %343, 512
+  %346 = icmp samesign ult i64 %343, 512
   br i1 %346, label %347, label %349
 
 347:                                              ; preds = %345
@@ -3046,7 +3046,7 @@ _ZNSt5dequeIcSaIcEE27_M_reserve_elements_at_backEm.exit: ; preds = %347, %353
   br i1 %366, label %367, label %373
 
 367:                                              ; preds = %_ZNSt5dequeIcSaIcEE27_M_reserve_elements_at_backEm.exit
-  %368 = icmp ult i64 %365, 512
+  %368 = icmp samesign ult i64 %365, 512
   br i1 %368, label %369, label %371
 
 369:                                              ; preds = %367
@@ -3097,7 +3097,7 @@ _ZStmiRKSt15_Deque_iteratorIcRcPcEl.exit64:       ; preds = %369, %375
   br i1 %393, label %394, label %400
 
 394:                                              ; preds = %384
-  %395 = icmp ult i64 %392, 512
+  %395 = icmp samesign ult i64 %392, 512
   br i1 %395, label %396, label %398
 
 396:                                              ; preds = %394
@@ -3241,7 +3241,7 @@ _ZSt14__copy_move_a1ILb0EPKcPcET1_T0_S4_S3_.exit.i.i.i81: ; preds = %446, %.lr.p
   br i1 %450, label %451, label %457
 
 451:                                              ; preds = %_ZSt14__copy_move_a1ILb0EPKcPcET1_T0_S4_S3_.exit.i.i.i81
-  %452 = icmp ult i64 %449, 512
+  %452 = icmp samesign ult i64 %449, 512
   br i1 %452, label %453, label %455
 
 453:                                              ; preds = %451
@@ -3368,7 +3368,7 @@ _ZSt14__copy_move_a1ILb0EPKcPcET1_T0_S4_S3_.exit.i.i.i106: ; preds = %501, %.lr.
   br i1 %505, label %506, label %512
 
 506:                                              ; preds = %_ZSt14__copy_move_a1ILb0EPKcPcET1_T0_S4_S3_.exit.i.i.i106
-  %507 = icmp ult i64 %504, 512
+  %507 = icmp samesign ult i64 %504, 512
   br i1 %507, label %508, label %510
 
 508:                                              ; preds = %506
@@ -3825,7 +3825,7 @@ _ZSt14__copy_move_a1ILb0EPKcPcET1_T0_S4_S3_.exit.i.i.i.i.i.i: ; preds = %27, %.l
   br i1 %31, label %32, label %38
 
 32:                                               ; preds = %_ZSt14__copy_move_a1ILb0EPKcPcET1_T0_S4_S3_.exit.i.i.i.i.i.i
-  %33 = icmp ult i64 %30, 512
+  %33 = icmp samesign ult i64 %30, 512
   br i1 %33, label %34, label %36
 
 34:                                               ; preds = %32

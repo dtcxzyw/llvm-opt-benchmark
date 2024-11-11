@@ -66,7 +66,7 @@ define hidden range(i32 0, 2) i32 @avifGetRGBColorSpaceInfo(ptr noundef %0, ptr 
 
 .thread78:                                        ; preds = %16, %17
   %21 = phi ptr [ %19, %17 ], [ %10, %16 ]
-  %22 = icmp ugt i32 %4, 8
+  %22 = icmp samesign ugt i32 %4, 8
   %23 = select i1 %22, i32 2, i32 1
   store i32 %23, ptr %1, align 4
   %24 = tail call i32 @avifRGBImagePixelSize(ptr noundef nonnull %0) #10
@@ -345,7 +345,7 @@ define hidden i32 @avifImageRGBToYUV(ptr noundef %0, ptr noundef %1) local_unnam
   br i1 %or.cond485, label %avifPrepareReformatState.exit.thread, label %.thread78.i
 
 .thread78.i:                                      ; preds = %15
-  %19 = icmp ugt i32 %14, 8
+  %19 = icmp samesign ugt i32 %14, 8
   %20 = select i1 %19, i32 2, i32 1
   store i32 %20, ptr %3, align 4
   %21 = tail call i32 @avifRGBImagePixelSize(ptr noundef nonnull %1) #10
@@ -1397,7 +1397,7 @@ define hidden i32 @avifImageYUVToRGB(ptr noundef %0, ptr noundef %1) local_unnam
 
 .thread78.i:                                      ; preds = %27, %26
   %31 = phi ptr [ %29, %27 ], [ %20, %26 ]
-  %32 = icmp ugt i32 %14, 8
+  %32 = icmp samesign ugt i32 %14, 8
   %33 = select i1 %32, i32 2, i32 1
   store i32 %33, ptr %3, align 4
   %34 = tail call i32 @avifRGBImagePixelSize(ptr noundef nonnull %1) #10

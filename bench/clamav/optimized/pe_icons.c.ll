@@ -537,13 +537,13 @@ fmap_readn.exit.thread.i:                         ; preds = %fmap_readn.exit.i, 
 88:                                               ; preds = %76
   %89 = mul nuw nsw i32 %78, 3
   %90 = lshr i32 %89, 2
-  %91 = icmp ult i32 %.4..4..4..4..4..i, %90
+  %91 = icmp samesign ult i32 %.4..4..4..4..4..i, %90
   br i1 %91, label %96, label %92
 
 92:                                               ; preds = %88
   %93 = mul nuw nsw i32 %.4..4..4..4..4..i, 3
   %94 = lshr i32 %93, 2
-  %95 = icmp ult i32 %78, %94
+  %95 = icmp samesign ult i32 %78, %94
   br i1 %95, label %96, label %100
 
 96:                                               ; preds = %92, %88
@@ -2009,13 +2009,13 @@ hsv.exit1032:                                     ; preds = %hsv.exit1026, %145
   %156 = icmp ugt i32 %storemerge.i1031, 85
   %or.cond5 = and i1 %155, %156
   %157 = icmp samesign ugt i32 %143, 85
-  %or.cond1101 = and i1 %157, %or.cond5
+  %or.cond1101 = select i1 %or.cond5, i1 %157, i1 false
   br i1 %or.cond1101, label %159, label %180
 
 158:                                              ; preds = %hsv.exit1032
   %.old4 = icmp ugt i32 %storemerge.i1031, 85
   %.old = icmp samesign ugt i32 %143, 85
-  %or.cond1102 = and i1 %.old, %.old4
+  %or.cond1102 = select i1 %.old4, i1 %.old, i1 false
   br i1 %or.cond1102, label %159, label %180
 
 159:                                              ; preds = %158, %154

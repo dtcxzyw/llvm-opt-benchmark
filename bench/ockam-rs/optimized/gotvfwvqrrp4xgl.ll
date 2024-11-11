@@ -11970,7 +11970,7 @@ define hidden void @"_ZN126_$LT$kafka_protocol..messages..metadata_response..Met
 54:                                               ; preds = %51
   %55 = tail call noundef i32 @_ZN5bytes3buf8buf_impl3Buf7get_i3217h7ef98718b2516ce3E.llvm.6961039930124626028(ptr noalias noundef nonnull align 8 dereferenceable(32) %1), !noalias !1840
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %26)
-  %56 = icmp ugt i16 %2, 8
+  %56 = icmp samesign ugt i16 %2, 8
   br i1 %56, label %72, label %60
 
 57:                                               ; preds = %51
@@ -12647,7 +12647,7 @@ define hidden noundef ptr @"_ZN126_$LT$kafka_protocol..messages..metadata_respon
   store i32 %27, ptr %4, align 4, !noalias !1960
   call void @"_ZN74_$LT$bytes..bytes_mut..BytesMut$u20$as$u20$bytes..buf..buf_mut..BufMut$GT$9put_slice17h9bd64ff34b6c4b6fE"(ptr noalias noundef nonnull align 8 dereferenceable(32) %1, ptr noalias noundef nonnull readonly align 1 %4, i64 noundef 4), !noalias !1955
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %4), !noalias !1960
-  %28 = icmp ugt i16 %2, 8
+  %28 = icmp samesign ugt i16 %2, 8
   br i1 %28, label %34, label %.thread
 
 .thread:                                          ; preds = %3, %24
@@ -103703,7 +103703,7 @@ define hidden void @_ZN9ockam_api5kafka14protocol_aware5utils11decode_body17hfb2
 50:                                               ; preds = %46
   %51 = tail call noundef i32 @_ZN5bytes3buf8buf_impl3Buf7get_i3217h7ef98718b2516ce3E.llvm.6961039930124626028(ptr noalias noundef nonnull align 8 dereferenceable(32) %1), !noalias !16169
   call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %32), !noalias !16162
-  %52 = icmp ugt i16 %2, 8
+  %52 = icmp samesign ugt i16 %2, 8
   br i1 %52, label %67, label %55
 
 "_ZN117_$LT$kafka_protocol..messages..metadata_response..MetadataResponse$u20$as$u20$kafka_protocol..protocol..Decodable$GT$6decode17hac255249b267db3eE.exit.thread": ; preds = %46
@@ -105146,7 +105146,7 @@ define hidden void @_ZN9ockam_api5kafka14protocol_aware5utils15encode_response17
 
 .noexc20:                                         ; preds = %46
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %9), !noalias !16332
-  %50 = icmp ugt i16 %3, 8
+  %50 = icmp samesign ugt i16 %3, 8
   br i1 %50, label %53, label %.thread.i
 
 .thread.i:                                        ; preds = %.noexc20, %44

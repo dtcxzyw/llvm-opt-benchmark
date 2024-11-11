@@ -284,7 +284,7 @@ define hidden void @"_ZN52_$LT$std..path..Path$u20$as$u20$core..hash..Hash$GT$4h
   %.sroa.027.1.i = phi i64 [ %20, %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17h6778e98816bb418dE.exit.i" ], [ %.sroa.027.0.lcssa.i, %._crit_edge.i ]
   %.sroa.11.1.i = phi i64 [ %21, %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17h6778e98816bb418dE.exit.i" ], [ %.sroa.11.0.lcssa.i, %._crit_edge.i ]
   %.sroa.0.1.i = phi ptr [ %22, %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17h6778e98816bb418dE.exit.i" ], [ %.sroa.0.0.lcssa.i, %._crit_edge.i ]
-  %16 = icmp ugt i64 %.sroa.11.1.i, 1
+  %16 = icmp samesign ugt i64 %.sroa.11.1.i, 1
   br i1 %16, label %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17h9dc27ca610bc1cceE.exit.i", label %23
 
 "_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17h6778e98816bb418dE.exit.i": ; preds = %._crit_edge.i
@@ -376,7 +376,7 @@ define hidden void @"_ZN52_$LT$std..path..Path$u20$as$u20$core..hash..Hash$GT$4h
   %.sroa.027.1.i24 = phi i64 [ %60, %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17h6778e98816bb418dE.exit.i34" ], [ %.sroa.027.0.lcssa.i21, %._crit_edge.i20 ]
   %.sroa.11.1.i25 = phi i64 [ %61, %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17h6778e98816bb418dE.exit.i34" ], [ %.sroa.11.0.lcssa.i22, %._crit_edge.i20 ]
   %.sroa.0.1.i26 = phi ptr [ %62, %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17h6778e98816bb418dE.exit.i34" ], [ %.sroa.0.0.lcssa.i23, %._crit_edge.i20 ]
-  %56 = icmp ugt i64 %.sroa.11.1.i25, 1
+  %56 = icmp samesign ugt i64 %.sroa.11.1.i25, 1
   br i1 %56, label %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17h9dc27ca610bc1cceE.exit.i32", label %63
 
 "_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17h6778e98816bb418dE.exit.i34": ; preds = %._crit_edge.i20
@@ -1005,7 +1005,7 @@ define hidden void @"_ZN5alloc3str21_$LT$impl$u20$str$GT$7replace17hfbd90518baf3
   %156 = and i8 %154, 63
   %157 = zext nneg i8 %156 to i32
   %158 = or disjoint i32 %155, %157
-  %159 = icmp ugt i8 %148, -33
+  %159 = icmp samesign ugt i8 %148, -33
   br i1 %159, label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h08409df48261281bE.exit14.i.i.i", label %183
 
 160:                                              ; preds = %147
@@ -1023,7 +1023,7 @@ define hidden void @"_ZN5alloc3str21_$LT$impl$u20$str$GT$7replace17hfbd90518baf3
   %168 = or disjoint i32 %165, %167
   %169 = shl nuw nsw i32 %152, 12
   %170 = or disjoint i32 %168, %169
-  %171 = icmp ugt i8 %148, -17
+  %171 = icmp samesign ugt i8 %148, -17
   br i1 %171, label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h08409df48261281bE.exit16.i.i.i", label %183
 
 "_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h08409df48261281bE.exit16.i.i.i": ; preds = %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h08409df48261281bE.exit14.i.i.i"
@@ -1045,7 +1045,7 @@ define hidden void @"_ZN5alloc3str21_$LT$impl$u20$str$GT$7replace17hfbd90518baf3
 
 183:                                              ; preds = %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h08409df48261281bE.exit16.i.i.i", %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h08409df48261281bE.exit14.i.i.i", %160, %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h08409df48261281bE.exit12.i.i.i"
   %.sroa.4.0.i.ph.i.i = phi i32 [ %158, %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h08409df48261281bE.exit12.i.i.i" ], [ %170, %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h08409df48261281bE.exit14.i.i.i" ], [ %181, %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h08409df48261281bE.exit16.i.i.i" ], [ %161, %160 ]
-  %184 = icmp ult i32 %.sroa.4.0.i.ph.i.i, 1114112
+  %184 = icmp samesign ult i32 %.sroa.4.0.i.ph.i.i, 1114112
   call void @llvm.assume(i1 %184)
   br i1 %132, label %.loopexit.i, label %185
 
@@ -1240,8 +1240,8 @@ define hidden noundef zeroext i1 @"_ZN62_$LT$std..path..Components$u20$as$u20$co
 .thread:                                          ; preds = %29
   %37 = getelementptr inbounds i8, ptr %1, i64 16
   %38 = load i8, ptr %37, align 8, !range !143, !noundef !4
-  %switch.i.i3453 = icmp samesign ult i8 %38, 3
-  br i1 %switch.i.i3453, label %25, label %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h1736d6434c247b7fE.exit"
+  %or.cond54 = icmp samesign ult i8 %38, 3
+  br i1 %or.cond54, label %25, label %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h1736d6434c247b7fE.exit"
 
 ._crit_edge:                                      ; preds = %33
   br i1 %switch.i.i, label %25, label %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h1736d6434c247b7fE.exit"

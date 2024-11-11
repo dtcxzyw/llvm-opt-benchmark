@@ -72,7 +72,7 @@ define internal fastcc double @asum_compute(i64 noundef %0, ptr noundef %1, i64 
   br i1 %8, label %9, label %133
 
 9:                                                ; preds = %7
-  %10 = icmp ugt i64 %0, 255
+  %10 = icmp samesign ugt i64 %0, 255
   br i1 %10, label %12, label %.thread
 
 .thread:                                          ; preds = %9

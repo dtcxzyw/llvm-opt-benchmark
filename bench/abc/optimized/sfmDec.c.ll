@@ -3060,7 +3060,7 @@ Vec_IntGrow.exit23.i:                             ; preds = %Vec_IntTwoMerge2Int
 91:                                               ; preds = %.lr.ph.i64
   %92 = getelementptr inbounds i32, ptr %.sroa.10.0131, i64 %indvars.iv.i65
   store i32 %89, ptr %92, align 4
-  %93 = icmp ugt i64 %indvars.iv.i65, 1
+  %93 = icmp samesign ugt i64 %indvars.iv.i65, 1
   br i1 %93, label %.lr.ph.i64, label %Vec_IntPushOrder.exit, !llvm.loop !45
 
 Vec_IntPushOrder.exit:                            ; preds = %.lr.ph.i64, %91, %Vec_IntGrow.exit23.i
@@ -3366,7 +3366,7 @@ define internal fastcc void @Abc_TtExpand(ptr noundef %0, i32 noundef %1, ptr no
   br i1 %22, label %45, label %23
 
 23:                                               ; preds = %.lr.ph.split.us
-  %24 = icmp ugt i64 %indvars.iv30, %19
+  %24 = icmp samesign ugt i64 %indvars.iv30, %19
   br i1 %24, label %25, label %Abc_TtSwapVars.exit.us
 
 25:                                               ; preds = %23
@@ -3417,7 +3417,7 @@ Abc_TtSwapVars.exit.us:                           ; preds = %25, %23
   br i1 %54, label %133, label %55
 
 55:                                               ; preds = %.lr.ph.split
-  %56 = icmp ugt i64 %indvars.iv, %51
+  %56 = icmp samesign ugt i64 %indvars.iv, %51
   br i1 %56, label %57, label %Abc_TtSwapVars.exit
 
 57:                                               ; preds = %55
@@ -6715,8 +6715,8 @@ define void @Abc_NtkDfsReverseOne_rec(ptr nocapture noundef %0, ptr nocapture no
   %39 = add nsw i32 %38, -3
   %narrow.i50 = icmp ult i32 %39, 2
   %40 = lshr i32 %.val45, 12
-  %41 = icmp ugt i32 %40, %2
-  %or.cond53 = or i1 %41, %narrow.i50
+  %41 = icmp samesign ugt i32 %40, %2
+  %or.cond53 = select i1 %narrow.i50, i1 true, i1 %41
   br i1 %or.cond53, label %.critedge.loopexit, label %42
 
 42:                                               ; preds = %31
@@ -12116,7 +12116,7 @@ Abc_Clock.exit116:                                ; preds = %133, %136
   br label %153
 
 151:                                              ; preds = %153
-  %152 = icmp ugt i64 %indvars.iv, 1
+  %152 = icmp samesign ugt i64 %indvars.iv, 1
   br i1 %152, label %153, label %.critedge, !llvm.loop !145
 
 153:                                              ; preds = %.lr.ph, %151
@@ -13133,7 +13133,7 @@ Abc_Clock.exit196:                                ; preds = %203, %206
   br label %.lr.ph
 
 216:                                              ; preds = %.lr.ph
-  %217 = icmp ugt i64 %indvars.iv, 1
+  %217 = icmp samesign ugt i64 %indvars.iv, 1
   br i1 %217, label %.lr.ph, label %.critedge5, !llvm.loop !152
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %216

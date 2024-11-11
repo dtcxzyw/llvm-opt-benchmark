@@ -1295,7 +1295,7 @@ for.body:                                         ; preds = %entry, %for.body
   %0 = load ptr, ptr %vfn, align 8
   %call = tail call noundef i32 %0(ptr noundef nonnull align 8 dereferenceable(745) %this)
   %dec = add nsw i32 %n.addr.010, -1
-  %cmp2 = icmp ugt i32 %n.addr.010, 1
+  %cmp2 = icmp samesign ugt i32 %n.addr.010, 1
   %cmp3 = icmp ne i32 %call, -1
   %1 = and i1 %cmp2, %cmp3
   br i1 %1, label %for.body, label %if.end21, !llvm.loop !5

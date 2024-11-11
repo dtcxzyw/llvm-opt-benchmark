@@ -2294,20 +2294,22 @@ define internal void @gmr1_rr_msg_ciph_mode_cmd(ptr noundef %0, ptr noundef %1, 
 ; Function Attrs: nounwind uwtable
 define internal void @gmr1_rr_msg_ciph_mode_complete(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %4) #1 {
   %6 = icmp slt i32 %4, 1
-  br i1 %6, label %13, label %7
+  br i1 %6, label %14, label %7
 
 7:                                                ; preds = %5
   %8 = tail call zeroext i16 @elem_tlv(ptr noundef %0, ptr noundef %1, ptr noundef %2, i8 noundef zeroext 23, i32 noundef 4, i32 noundef 3, i32 noundef %3, i32 noundef %4, ptr noundef null) #7
+  %.not = icmp ne i16 %8, 0
   %9 = zext i16 %8 to i32
-  %.not = icmp ugt i32 %4, %9
-  br i1 %.not, label %10, label %13
+  %10 = icmp samesign ule i32 %4, %9
+  %.0 = select i1 %.not, i1 %10, i1 false
+  br i1 %.0, label %14, label %11
 
-10:                                               ; preds = %7
-  %11 = add i32 %3, %9
-  %12 = tail call zeroext i16 @elem_tv(ptr noundef %0, ptr noundef %1, ptr noundef %2, i8 noundef zeroext 118, i32 noundef 15, i32 noundef 18, i32 noundef %11, ptr noundef null) #7
-  br label %13
+11:                                               ; preds = %7
+  %12 = add i32 %3, %9
+  %13 = tail call zeroext i16 @elem_tv(ptr noundef %0, ptr noundef %1, ptr noundef %2, i8 noundef zeroext 118, i32 noundef 15, i32 noundef 18, i32 noundef %12, ptr noundef null) #7
+  br label %14
 
-13:                                               ; preds = %10, %7, %5
+14:                                               ; preds = %11, %7, %5
   ret void
 }
 
@@ -2336,14 +2338,14 @@ define internal void @gmr1_rr_msg_ass_cmd_1(ptr noundef %0, ptr noundef %1, ptr 
   %.059 = phi i32 [ %11, %9 ], [ %3, %13 ]
   %.0 = phi i32 [ %12, %9 ], [ %4, %13 ]
   %17 = icmp slt i32 %.0, 1
-  br i1 %17, label %42, label %18
+  br i1 %17, label %43, label %18
 
 18:                                               ; preds = %16
   %19 = tail call zeroext i16 @elem_tv(ptr noundef %0, ptr noundef %1, ptr noundef %2, i8 noundef zeroext 125, i32 noundef 15, i32 noundef 8, i32 noundef %.059, ptr noundef null) #7
   %20 = zext i16 %19 to i32
   %21 = sub nsw i32 %.0, %20
   %22 = icmp slt i32 %21, 1
-  br i1 %22, label %42, label %23
+  br i1 %22, label %43, label %23
 
 23:                                               ; preds = %18
   %24 = add i32 %.059, %20
@@ -2351,7 +2353,7 @@ define internal void @gmr1_rr_msg_ass_cmd_1(ptr noundef %0, ptr noundef %1, ptr 
   %26 = zext i16 %25 to i32
   %27 = sub nsw i32 %21, %26
   %28 = icmp slt i32 %27, 1
-  br i1 %28, label %42, label %29
+  br i1 %28, label %43, label %29
 
 29:                                               ; preds = %23
   %30 = add i32 %24, %26
@@ -2359,21 +2361,23 @@ define internal void @gmr1_rr_msg_ass_cmd_1(ptr noundef %0, ptr noundef %1, ptr 
   %32 = zext i16 %31 to i32
   %33 = sub nsw i32 %27, %32
   %34 = icmp slt i32 %33, 1
-  br i1 %34, label %42, label %35
+  br i1 %34, label %43, label %35
 
 35:                                               ; preds = %29
   %36 = add i32 %30, %32
   %37 = tail call zeroext i16 @elem_tv(ptr noundef %0, ptr noundef %1, ptr noundef %2, i8 noundef zeroext 113, i32 noundef 15, i32 noundef 19, i32 noundef %36, ptr noundef null) #7
+  %.not73 = icmp ne i16 %37, 0
   %38 = zext i16 %37 to i32
-  %.not75 = icmp ugt i32 %33, %38
-  br i1 %.not75, label %39, label %42
+  %39 = icmp samesign ule i32 %33, %38
+  %.4 = select i1 %.not73, i1 %39, i1 false
+  br i1 %.4, label %43, label %40
 
-39:                                               ; preds = %35
-  %40 = add i32 %36, %38
-  %41 = tail call zeroext i16 @elem_tv_short(ptr noundef %0, ptr noundef %1, ptr noundef %2, i8 noundef zeroext -112, i32 noundef 15, i32 noundef 2, i32 noundef %40, ptr noundef null) #7
-  br label %42
+40:                                               ; preds = %35
+  %41 = add i32 %36, %38
+  %42 = tail call zeroext i16 @elem_tv_short(ptr noundef %0, ptr noundef %1, ptr noundef %2, i8 noundef zeroext -112, i32 noundef 15, i32 noundef 2, i32 noundef %41, ptr noundef null) #7
+  br label %43
 
-42:                                               ; preds = %39, %35, %29, %23, %18, %16
+43:                                               ; preds = %40, %35, %29, %23, %18, %16
   ret void
 }
 

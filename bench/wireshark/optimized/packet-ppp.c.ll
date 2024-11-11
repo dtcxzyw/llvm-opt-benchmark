@@ -2340,7 +2340,7 @@ define hidden ptr @decode_fcs(ptr noundef %0, ptr noundef %1, ptr noundef %2, i3
   br label %59
 
 15:                                               ; preds = %8
-  %16 = icmp ult i32 %9, %10
+  %16 = icmp samesign ult i32 %9, %10
   br i1 %16, label %17, label %20
 
 17:                                               ; preds = %15
@@ -4001,13 +4001,13 @@ define internal i32 @dissect_lcp_multilink_ep_disc_opt(ptr noundef %0, ptr nound
 
 27:                                               ; preds = %24
   %28 = load i32, ptr @hf_lcp_opt_data, align 4
-  %29 = icmp ult i32 %8, 24
+  %29 = icmp samesign ult i32 %8, 24
   %30 = select i1 %29, i32 %25, i32 20
   %31 = call ptr @proto_tree_add_item(ptr noundef %15, i32 noundef %28, ptr noundef %0, i32 noundef 3, i32 noundef %30, i32 noundef 0) #6
   br label %.loopexit
 
 32:                                               ; preds = %24
-  %33 = icmp ugt i32 %8, 6
+  %33 = icmp samesign ugt i32 %8, 6
   br i1 %33, label %34, label %37
 
 34:                                               ; preds = %32
@@ -4021,7 +4021,7 @@ define internal i32 @dissect_lcp_multilink_ep_disc_opt(ptr noundef %0, ptr nound
   br label %.loopexit
 
 40:                                               ; preds = %24
-  %41 = icmp ugt i32 %8, 8
+  %41 = icmp samesign ugt i32 %8, 8
   br i1 %41, label %42, label %45
 
 42:                                               ; preds = %40
@@ -4046,12 +4046,12 @@ define internal i32 @dissect_lcp_multilink_ep_disc_opt(ptr noundef %0, ptr nound
 
 53:                                               ; preds = %48
   %54 = load i32, ptr @hf_lcp_opt_magic_block, align 4
-  %55 = icmp ult i32 %8, 24
+  %55 = icmp samesign ult i32 %8, 24
   %56 = select i1 %55, i32 %25, i32 20
   %57 = call ptr @proto_tree_add_item(ptr noundef %15, i32 noundef %54, ptr noundef %0, i32 noundef 3, i32 noundef %56, i32 noundef 0) #6
   %58 = load i32, ptr @ett_lcp_magic_block, align 4
   %59 = call ptr @proto_item_add_subtree(ptr noundef %57, i32 noundef %58) #6
-  %60 = icmp ugt i32 %8, 6
+  %60 = icmp samesign ugt i32 %8, 6
   br i1 %60, label %.lr.ph, label %.loopexit
 
 .lr.ph:                                           ; preds = %53, %.lr.ph
@@ -4061,7 +4061,7 @@ define internal i32 @dissect_lcp_multilink_ep_disc_opt(ptr noundef %0, ptr nound
   %62 = call ptr @proto_tree_add_item(ptr noundef %59, i32 noundef %61, ptr noundef %0, i32 noundef %.05055, i32 noundef 4, i32 noundef 0) #6
   %63 = add nsw i32 %.056, -4
   %64 = add nuw nsw i32 %.05055, 4
-  %65 = icmp ugt i32 %.056, 7
+  %65 = icmp samesign ugt i32 %.056, 7
   br i1 %65, label %.lr.ph, label %.loopexit, !llvm.loop !8
 
 66:                                               ; preds = %24
@@ -4253,14 +4253,14 @@ define internal i32 @dissect_lcp_prefix_elision_opt(ptr noundef %0, ptr noundef 
   %16 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef 3) #6
   %17 = zext i8 %16 to i32
   %18 = add nuw nsw i32 %17, 2
-  %.not23 = icmp ugt i32 %18, %.024
+  %.not23 = icmp samesign ugt i32 %18, %.024
   br i1 %.not23, label %.loopexit, label %19
 
 19:                                               ; preds = %13
   %20 = load i32, ptr @hf_lcp_opt_prefix, align 4
   %21 = tail call ptr @proto_tree_add_item(ptr noundef %12, i32 noundef %20, ptr noundef %0, i32 noundef 4, i32 noundef 1, i32 noundef 0) #6
   %22 = sub nuw nsw i32 %.024, %18
-  %23 = icmp ugt i32 %22, 1
+  %23 = icmp samesign ugt i32 %22, 1
   br i1 %23, label %13, label %.loopexit, !llvm.loop !9
 
 .loopexit:                                        ; preds = %19, %13, %4
@@ -4531,7 +4531,7 @@ define internal i32 @dissect_vsncp_apname_opt(ptr noundef %0, ptr nocapture noun
   %37 = add nuw nsw i32 %22, 1
   %38 = add nuw nsw i32 %37, %26
   %39 = and i32 %38, 255
-  %40 = icmp ult i32 %39, %19
+  %40 = icmp samesign ult i32 %39, %19
   br i1 %40, label %21, label %.loopexit, !llvm.loop !10
 
 .loopexit:                                        ; preds = %21, %4
@@ -4715,7 +4715,7 @@ define internal i32 @dissect_vsncp_pco_opt(ptr noundef %0, ptr nocapture readnon
   %34 = add i32 %33, %.02629
   %35 = add nuw nsw i32 %33, %20
   %36 = and i32 %35, 255
-  %37 = icmp ult i32 %36, %18
+  %37 = icmp samesign ult i32 %36, %18
   br i1 %37, label %.lr.ph, label %._crit_edge, !llvm.loop !11
 
 ._crit_edge:                                      ; preds = %32, %4
@@ -5319,7 +5319,7 @@ define internal i32 @dissect_ipcp_rohc_profiles_opt(ptr noundef %0, ptr nocaptur
   %18 = load i32, ptr @hf_ipcp_opt_rohc_profile, align 4
   %19 = tail call ptr @proto_tree_add_item(ptr noundef %9, i32 noundef %18, ptr noundef %0, i32 noundef %.024, i32 noundef 2, i32 noundef 0) #6
   %20 = add nuw nsw i32 %.024, 2
-  %21 = icmp ugt i32 %.020.in23, 5
+  %21 = icmp samesign ugt i32 %.020.in23, 5
   br i1 %21, label %.lr.ph, label %._crit_edge, !llvm.loop !12
 
 ._crit_edge:                                      ; preds = %.lr.ph, %4
@@ -6303,7 +6303,7 @@ define internal i32 @dissect_ccp_v44lzjh_opt(ptr noundef %0, ptr noundef %1, ptr
 16:                                               ; preds = %11
   %17 = load i32, ptr @hf_ccp_opt_dict_size, align 4
   %18 = tail call ptr @proto_tree_add_item(ptr noundef %12, i32 noundef %17, ptr noundef %0, i32 noundef 4, i32 noundef 2, i32 noundef 0) #6
-  %19 = icmp ugt i32 %7, 6
+  %19 = icmp samesign ugt i32 %7, 6
   br i1 %19, label %20, label %23
 
 20:                                               ; preds = %16
@@ -6773,7 +6773,7 @@ define internal i32 @dissect_bap_phone_delta_opt(ptr noundef %0, ptr noundef %1,
   br label %.loopexit
 
 31:                                               ; preds = %15
-  %32 = icmp ult i32 %.06977, %19
+  %32 = icmp samesign ult i32 %.06977, %19
   br i1 %32, label %33, label %35
 
 33:                                               ; preds = %31
@@ -7719,7 +7719,7 @@ define internal i32 @dissect_iphc_crtp_fh(ptr noundef %0, ptr noundef %1, ptr no
   %53 = add nuw nsw i32 %26, 5
   %54 = load i32, ptr @hf_iphc_crtp_cid8, align 4
   %55 = tail call ptr @proto_tree_add_item(ptr noundef %17, i32 noundef %54, ptr noundef %0, i32 noundef 3, i32 noundef 1, i32 noundef 0) #6
-  %.not96 = icmp ult i8 %11, 64
+  %.not96 = icmp samesign ult i8 %11, 64
   br i1 %.not96, label %59, label %56
 
 56:                                               ; preds = %52

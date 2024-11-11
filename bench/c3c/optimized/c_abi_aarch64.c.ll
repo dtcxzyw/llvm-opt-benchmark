@@ -542,7 +542,7 @@ define dso_local ptr @aarch64_classify_return_type(ptr nocapture noundef readonl
   br i1 %63, label %64, label %89
 
 64:                                               ; preds = %62
-  %65 = icmp ult i32 %23, 9
+  %65 = icmp samesign ult i32 %23, 9
   br i1 %65, label %66, label %74
 
 66:                                               ; preds = %64

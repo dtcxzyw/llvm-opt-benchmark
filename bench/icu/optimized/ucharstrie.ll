@@ -103,11 +103,11 @@ if.else13.us.i.i:                                 ; preds = %if.else.us.i.i
   br i1 %tobool.not.us.i.i, label %if.else15.us.i.i, label %for.end.i.i
 
 if.else15.us.i.i:                                 ; preds = %if.else13.us.i.i
-  %cmp.i.us.i.i = icmp ugt i16 %.fr.i.i, 16447
+  %cmp.i.us.i.i = icmp samesign ugt i16 %.fr.i.i, 16447
   br i1 %cmp.i.us.i.i, label %if.then.i.us.i.i, label %if.then.i.i
 
 if.then.i.us.i.i:                                 ; preds = %if.else15.us.i.i
-  %cmp1.i.us.i.i = icmp ult i16 %.fr.i.i, 32704
+  %cmp1.i.us.i.i = icmp samesign ult i16 %.fr.i.i, 32704
   br i1 %cmp1.i.us.i.i, label %if.then2.i.us.i.i, label %if.else.i.us.i.i
 
 if.else.i.us.i.i:                                 ; preds = %if.then.i.us.i.i
@@ -126,11 +126,11 @@ if.else13.us30.i.i:                               ; preds = %if.else.lr.ph.split
   br i1 %tobool.not.us31.i.i, label %if.else15.us32.i.i, label %for.end.i.i
 
 if.else15.us32.i.i:                               ; preds = %if.else13.us30.i.i
-  %cmp.i.us33.i.i = icmp ugt i16 %.fr.i.i, 16447
+  %cmp.i.us33.i.i = icmp samesign ugt i16 %.fr.i.i, 16447
   br i1 %cmp.i.us33.i.i, label %if.then.i.us34.i.i, label %if.then3.i.i
 
 if.then.i.us34.i.i:                               ; preds = %if.else15.us32.i.i
-  %cmp1.i.us35.i.i = icmp ult i16 %.fr.i.i, 32704
+  %cmp1.i.us35.i.i = icmp samesign ult i16 %.fr.i.i, 32704
   br i1 %cmp1.i.us35.i.i, label %if.then2.i.us38.i.i, label %if.else.i.us36.i.i
 
 if.else.i.us36.i.i:                               ; preds = %if.then.i.us34.i.i
@@ -209,11 +209,11 @@ if.else13.us.i.i43:                               ; preds = %if.else.us.i.i42
   br i1 %tobool.not.us.i.i44, label %if.else15.us.i.i45, label %_ZN6icu_7510UCharsTrie5firstEi.exit57.thread61
 
 if.else15.us.i.i45:                               ; preds = %if.else13.us.i.i43
-  %cmp.i.us.i.i46 = icmp ugt i16 %.fr.i.i7, 16447
+  %cmp.i.us.i.i46 = icmp samesign ugt i16 %.fr.i.i7, 16447
   br i1 %cmp.i.us.i.i46, label %if.then.i.us.i.i51, label %if.then.i.i47
 
 if.then.i.us.i.i51:                               ; preds = %if.else15.us.i.i45
-  %cmp1.i.us.i.i52 = icmp ult i16 %.fr.i.i7, 32704
+  %cmp1.i.us.i.i52 = icmp samesign ult i16 %.fr.i.i7, 32704
   br i1 %cmp1.i.us.i.i52, label %if.then2.i.us.i.i55, label %if.else.i.us.i.i53
 
 if.else.i.us.i.i53:                               ; preds = %if.then.i.us.i.i51
@@ -232,11 +232,11 @@ if.else13.us30.i.i15:                             ; preds = %if.else.lr.ph.split
   br i1 %tobool.not.us31.i.i16, label %if.else15.us32.i.i20, label %_ZN6icu_7510UCharsTrie5firstEi.exit57.thread61
 
 if.else15.us32.i.i20:                             ; preds = %if.else13.us30.i.i15
-  %cmp.i.us33.i.i21 = icmp ugt i16 %.fr.i.i7, 16447
+  %cmp.i.us33.i.i21 = icmp samesign ugt i16 %.fr.i.i7, 16447
   br i1 %cmp.i.us33.i.i21, label %if.then.i.us34.i.i36, label %if.then3.i.i22
 
 if.then.i.us34.i.i36:                             ; preds = %if.else15.us32.i.i20
-  %cmp1.i.us35.i.i37 = icmp ult i16 %.fr.i.i7, 32704
+  %cmp1.i.us35.i.i37 = icmp samesign ult i16 %.fr.i.i7, 32704
   br i1 %cmp1.i.us35.i.i37, label %if.then2.i.us38.i.i40, label %if.else.i.us36.i.i38
 
 if.else.i.us36.i.i38:                             ; preds = %if.then.i.us34.i.i36
@@ -365,11 +365,11 @@ if.else13.us.i:                                   ; preds = %if.else.us.i
   br i1 %tobool.not.us.i, label %if.else15.us.i, label %for.end.i
 
 if.else15.us.i:                                   ; preds = %if.else13.us.i
-  %cmp.i.us.i = icmp ugt i16 %.fr.i, 16447
+  %cmp.i.us.i = icmp samesign ugt i16 %.fr.i, 16447
   br i1 %cmp.i.us.i, label %if.then.i.us.i, label %if.then.i
 
 if.then.i.us.i:                                   ; preds = %if.else15.us.i
-  %cmp1.i.us.i = icmp ult i16 %.fr.i, 32704
+  %cmp1.i.us.i = icmp samesign ult i16 %.fr.i, 32704
   br i1 %cmp1.i.us.i, label %if.then2.i.us.i, label %if.else.i.us.i
 
 if.else.i.us.i:                                   ; preds = %if.then.i.us.i
@@ -388,11 +388,11 @@ if.else13.us30.i:                                 ; preds = %if.else.lr.ph.split
   br i1 %tobool.not.us31.i, label %if.else15.us32.i, label %for.end.i
 
 if.else15.us32.i:                                 ; preds = %if.else13.us30.i
-  %cmp.i.us33.i = icmp ugt i16 %.fr.i, 16447
+  %cmp.i.us33.i = icmp samesign ugt i16 %.fr.i, 16447
   br i1 %cmp.i.us33.i, label %if.then.i.us34.i, label %if.then3.i
 
 if.then.i.us34.i:                                 ; preds = %if.else15.us32.i
-  %cmp1.i.us35.i = icmp ult i16 %.fr.i, 32704
+  %cmp1.i.us35.i = icmp samesign ult i16 %.fr.i, 32704
   br i1 %cmp1.i.us35.i, label %if.then2.i.us38.i, label %if.else.i.us36.i
 
 if.else.i.us36.i:                                 ; preds = %if.then.i.us34.i
@@ -589,7 +589,7 @@ if.then13:                                        ; preds = %do.body
 
 if.else16:                                        ; preds = %if.then13
   %incdec.ptr17 = getelementptr inbounds i8, ptr %pos.addr.3, i64 4
-  %cmp18 = icmp ult i16 %8, 16384
+  %cmp18 = icmp samesign ult i16 %8, 16384
   br i1 %cmp18, label %if.end33, label %if.else20
 
 if.else20:                                        ; preds = %if.else16
@@ -717,11 +717,11 @@ if.else13.us:                                     ; preds = %if.else.us
   br i1 %tobool.not.us, label %if.else15.us, label %for.end
 
 if.else15.us:                                     ; preds = %if.else13.us
-  %cmp.i.us = icmp ugt i16 %.fr, 16447
+  %cmp.i.us = icmp samesign ugt i16 %.fr, 16447
   br i1 %cmp.i.us, label %if.then.i.us, label %if.then
 
 if.then.i.us:                                     ; preds = %if.else15.us
-  %cmp1.i.us = icmp ult i16 %.fr, 32704
+  %cmp1.i.us = icmp samesign ult i16 %.fr, 32704
   br i1 %cmp1.i.us, label %if.then2.i.us, label %if.else.i.us
 
 if.else.i.us:                                     ; preds = %if.then.i.us
@@ -740,11 +740,11 @@ if.else13.us30:                                   ; preds = %if.else.lr.ph.split
   br i1 %tobool.not.us31, label %if.else15.us32, label %for.end
 
 if.else15.us32:                                   ; preds = %if.else13.us30
-  %cmp.i.us33 = icmp ugt i16 %.fr, 16447
+  %cmp.i.us33 = icmp samesign ugt i16 %.fr, 16447
   br i1 %cmp.i.us33, label %if.then.i.us34, label %if.then3
 
 if.then.i.us34:                                   ; preds = %if.else15.us32
-  %cmp1.i.us35 = icmp ult i16 %.fr, 32704
+  %cmp1.i.us35 = icmp samesign ult i16 %.fr, 32704
   br i1 %cmp1.i.us35, label %if.then2.i.us38, label %if.else.i.us36
 
 if.else.i.us36:                                   ; preds = %if.then.i.us34
@@ -1443,11 +1443,11 @@ if.then6:                                         ; preds = %if.end4
   br i1 %tobool.not, label %if.else, label %return
 
 if.else:                                          ; preds = %if.then6
-  %cmp.i = icmp ugt i16 %4, 16447
+  %cmp.i = icmp samesign ugt i16 %4, 16447
   br i1 %cmp.i, label %if.then.i, label %_ZN6icu_7510UCharsTrie13skipNodeValueEPKDsi.exit
 
 if.then.i:                                        ; preds = %if.else
-  %cmp1.i = icmp ult i16 %4, 32704
+  %cmp1.i = icmp samesign ult i16 %4, 32704
   br i1 %cmp1.i, label %if.then2.i, label %if.else.i
 
 if.then2.i:                                       ; preds = %if.then.i

@@ -1915,7 +1915,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit.th
 
 93:                                               ; preds = %88
   call void @llvm.lifetime.end.p0(i64 0, ptr nonnull %4)
-  %.not19 = icmp ugt i64 %85, %89
+  %.not19 = icmp samesign ugt i64 %85, %89
   br i1 %.not19, label %94, label %95
 
 94:                                               ; preds = %93
@@ -8115,7 +8115,7 @@ _ZN6syntax10validation21validate_numeric_name9int_token17he2955e0a5476c1a0E.exit
   %88 = and i8 %86, 63
   %89 = zext nneg i8 %88 to i32
   %90 = or disjoint i32 %87, %89
-  %91 = icmp ugt i8 %80, -33
+  %91 = icmp samesign ugt i8 %80, -33
   br i1 %91, label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17ha20c69c52a784c76E.exit15.i.i.i", label %"_ZN81_$LT$core..str..iter..Chars$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17ha3bb299ebebfcc3aE.exit.thread.i"
 
 92:                                               ; preds = %78
@@ -8133,7 +8133,7 @@ _ZN6syntax10validation21validate_numeric_name9int_token17he2955e0a5476c1a0E.exit
   %100 = or disjoint i32 %97, %99
   %101 = shl nuw nsw i32 %83, 12
   %102 = or disjoint i32 %100, %101
-  %103 = icmp ugt i8 %80, -17
+  %103 = icmp samesign ugt i8 %80, -17
   br i1 %103, label %"_ZN81_$LT$core..str..iter..Chars$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17ha3bb299ebebfcc3aE.exit.i", label %"_ZN81_$LT$core..str..iter..Chars$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17ha3bb299ebebfcc3aE.exit.thread.i"
 
 "_ZN81_$LT$core..str..iter..Chars$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17ha3bb299ebebfcc3aE.exit.i": ; preds = %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17ha20c69c52a784c76E.exit15.i.i.i"

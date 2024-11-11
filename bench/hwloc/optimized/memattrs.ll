@@ -2834,7 +2834,7 @@ define range(i32 -1, 1) i32 @hwloc_get_local_numanode_objs(ptr noundef %0, ptr n
   br i1 %.not36, label %16, label %19
 
 16:                                               ; preds = %15
-  %.not37 = icmp ult i64 %4, 4
+  %.not37 = icmp samesign ult i64 %4, 4
   br i1 %.not37, label %17, label %.loopexit
 
 17:                                               ; preds = %16

@@ -60,7 +60,7 @@ define dso_local noundef zeroext i1 @_ZN13DepfileParser5ParseEPNSt7__cxx1112basi
   br i1 %20, label %21, label %25
 
 21:                                               ; preds = %19
-  %22 = icmp ult i8 %15, 10
+  %22 = icmp samesign ult i8 %15, 10
   br i1 %22, label %23, label %24
 
 23:                                               ; preds = %21
@@ -151,7 +151,7 @@ define dso_local noundef zeroext i1 @_ZN13DepfileParser5ParseEPNSt7__cxx1112basi
   br i1 %58, label %59, label %63
 
 59:                                               ; preds = %55
-  %60 = icmp ult i8 %57, 11
+  %60 = icmp samesign ult i8 %57, 11
   br i1 %60, label %61, label %62
 
 61:                                               ; preds = %59
@@ -315,7 +315,7 @@ define dso_local noundef zeroext i1 @_ZN13DepfileParser5ParseEPNSt7__cxx1112basi
 
 133:                                              ; preds = %.preheader
   %134 = getelementptr inbounds i8, ptr %.11, i64 1
-  %135 = icmp ult i8 %131, 11
+  %135 = icmp samesign ult i8 %131, 11
   br i1 %135, label %136, label %137
 
 136:                                              ; preds = %133
@@ -393,7 +393,7 @@ define dso_local noundef zeroext i1 @_ZN13DepfileParser5ParseEPNSt7__cxx1112basi
   br i1 %169, label %170, label %174
 
 170:                                              ; preds = %166
-  %171 = icmp ult i8 %168, 11
+  %171 = icmp samesign ult i8 %168, 11
   br i1 %171, label %172, label %173
 
 172:                                              ; preds = %170

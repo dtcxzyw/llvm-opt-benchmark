@@ -10634,7 +10634,7 @@ _ZNSt8optionalINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEC2EOS6_.exit
   %459 = getelementptr inbounds i8, ptr %.069.i.i.i.i.i.i86.i.i, i64 -328
   %460 = call noundef nonnull align 8 dereferenceable(328) ptr @_ZN5clang9api_notes7TagInfoaSEOS1_(ptr noundef nonnull align 8 dereferenceable(328) %459, ptr noundef nonnull align 8 dereferenceable(328) %458) #16
   %461 = add nsw i64 %.010.i.i.i.i.i.i85.i.i, -1
-  %462 = icmp ugt i64 %.010.i.i.i.i.i.i85.i.i, 1
+  %462 = icmp samesign ugt i64 %.010.i.i.i.i.i.i85.i.i, 1
   br i1 %462, label %.lr.ph.i.i.i.i.i.i84.i.i, label %_ZSt13move_backwardIPSt4pairIN4llvm12VersionTupleEN5clang9api_notes7TagInfoEES7_ET0_T_S9_S8_.exit.i82.i.i, !llvm.loop !94
 
 _ZSt13move_backwardIPSt4pairIN4llvm12VersionTupleEN5clang9api_notes7TagInfoEES7_ET0_T_S9_S8_.exit.i82.i.i: ; preds = %.lr.ph.i.i.i.i.i.i84.i.i
@@ -11340,7 +11340,7 @@ _ZN5clang9api_notes7TagInfoC2EOS1_.exit.i.i:      ; preds = %737, %_ZNSt8optiona
   %749 = getelementptr inbounds i8, ptr %.069.i.i.i.i.i.i.i.i, i64 -328
   %750 = call noundef nonnull align 8 dereferenceable(328) ptr @_ZN5clang9api_notes7TagInfoaSEOS1_(ptr noundef nonnull align 8 dereferenceable(328) %749, ptr noundef nonnull align 8 dereferenceable(328) %748) #16
   %751 = add nsw i64 %.010.i.i.i.i.i.i.i.i, -1
-  %752 = icmp ugt i64 %.010.i.i.i.i.i.i.i.i, 1
+  %752 = icmp samesign ugt i64 %.010.i.i.i.i.i.i.i.i, 1
   br i1 %752, label %.lr.ph.i.i.i.i.i.i61.i.i, label %_ZSt13move_backwardIPSt4pairIN4llvm12VersionTupleEN5clang9api_notes7TagInfoEES7_ET0_T_S9_S8_.exit.i.i.i, !llvm.loop !94
 
 _ZSt13move_backwardIPSt4pairIN4llvm12VersionTupleEN5clang9api_notes7TagInfoEES7_ET0_T_S9_S8_.exit.i.i.i: ; preds = %.lr.ph.i.i.i.i.i.i61.i.i, %_ZN5clang9api_notes7TagInfoC2EOS1_.exit.i.i
@@ -18396,7 +18396,7 @@ _ZN4llvm15SmallVectorImplIcE7reserveEm.exit:      ; preds = %3, %11
   %18 = getelementptr inbounds i8, ptr %.0910.i.i.i.i.i.i.i.i, i64 1
   %19 = getelementptr inbounds i8, ptr %.0811.i.i.i.i.i.i.i.i, i64 1
   %20 = add nsw i64 %.012.i.i.i.i.i.i.i.i, -1
-  %21 = icmp ugt i64 %.012.i.i.i.i.i.i.i.i, 1
+  %21 = icmp samesign ugt i64 %.012.i.i.i.i.i.i.i.i, 1
   br i1 %21, label %.lr.ph.i.i.i.i.i.i.i.i, label %_ZN4llvm23SmallVectorTemplateBaseIcLb1EE18uninitialized_copyIPKhPcEEvT_S6_T0_.exit, !llvm.loop !161
 
 _ZN4llvm23SmallVectorTemplateBaseIcLb1EE18uninitialized_copyIPKhPcEEvT_S6_T0_.exit: ; preds = %.lr.ph.i.i.i.i.i.i.i.i, %_ZN4llvm15SmallVectorImplIcE7reserveEm.exit
@@ -18443,7 +18443,7 @@ _ZN4llvm15SmallVectorImplIcE7reserveEm.exit:      ; preds = %3, %12
   %20 = getelementptr inbounds i8, ptr %.0910.i.i.i.i.i.i.i.i, i64 4
   %21 = getelementptr inbounds i8, ptr %.0811.i.i.i.i.i.i.i.i, i64 1
   %22 = add nsw i64 %.012.i.i.i.i.i.i.i.i, -1
-  %23 = icmp ugt i64 %.012.i.i.i.i.i.i.i.i, 1
+  %23 = icmp samesign ugt i64 %.012.i.i.i.i.i.i.i.i, 1
   br i1 %23, label %.lr.ph.i.i.i.i.i.i.i.i, label %_ZN4llvm23SmallVectorTemplateBaseIcLb1EE18uninitialized_copyIPKjPcEEvT_S6_T0_.exit, !llvm.loop !162
 
 _ZN4llvm23SmallVectorTemplateBaseIcLb1EE18uninitialized_copyIPKjPcEEvT_S6_T0_.exit: ; preds = %.lr.ph.i.i.i.i.i.i.i.i, %_ZN4llvm15SmallVectorImplIcE7reserveEm.exit
@@ -20265,7 +20265,7 @@ define linkonce_odr noundef nonnull align 8 dereferenceable(16) ptr @_ZN4llvm15S
   %25 = getelementptr inbounds i8, ptr %.0910.i.i.i.i.i, i64 176
   %26 = getelementptr inbounds i8, ptr %.0811.i.i.i.i.i, i64 176
   %27 = add nsw i64 %.012.i.i.i.i.i, -1
-  %28 = icmp ugt i64 %.012.i.i.i.i.i, 1
+  %28 = icmp samesign ugt i64 %.012.i.i.i.i.i, 1
   br i1 %28, label %.lr.ph.i.i.i.i.i, label %_ZSt4moveIPSt4pairIN4llvm12VersionTupleEN5clang9api_notes11ContextInfoEES7_ET0_T_S9_S8_.exit, !llvm.loop !180
 
 _ZSt4moveIPSt4pairIN4llvm12VersionTupleEN5clang9api_notes11ContextInfoEES7_ET0_T_S9_S8_.exit: ; preds = %.lr.ph.i.i.i.i.i, %15, %13
@@ -20458,7 +20458,7 @@ _ZN4llvm23SmallVectorTemplateBaseISt4pairINS_12VersionTupleEN5clang9api_notes11C
   %100 = getelementptr inbounds i8, ptr %.0910.i.i.i.i.i47, i64 176
   %101 = getelementptr inbounds i8, ptr %.0811.i.i.i.i.i46, i64 176
   %102 = add nsw i64 %.012.i.i.i.i.i45, -1
-  %103 = icmp ugt i64 %.012.i.i.i.i.i45, 1
+  %103 = icmp samesign ugt i64 %.012.i.i.i.i.i45, 1
   br i1 %103, label %.lr.ph.i.i.i.i.i44, label %_ZSt4moveIPSt4pairIN4llvm12VersionTupleEN5clang9api_notes11ContextInfoEES7_ET0_T_S9_S8_.exit48, !llvm.loop !180
 
 _ZSt4moveIPSt4pairIN4llvm12VersionTupleEN5clang9api_notes11ContextInfoEES7_ET0_T_S9_S8_.exit48: ; preds = %.lr.ph.i.i.i.i.i44, %90, %89, %_ZN4llvm23SmallVectorTemplateBaseISt4pairINS_12VersionTupleEN5clang9api_notes11ContextInfoEELb0EE4growEm.exit
@@ -20888,7 +20888,7 @@ define linkonce_odr noundef nonnull align 8 dereferenceable(16) ptr @_ZN4llvm15S
   %18 = getelementptr inbounds i8, ptr %.0910.i.i.i.i.i, i64 176
   %19 = getelementptr inbounds i8, ptr %.0811.i.i.i.i.i, i64 176
   %20 = add nsw i64 %.012.i.i.i.i.i, -1
-  %21 = icmp ugt i64 %.012.i.i.i.i.i, 1
+  %21 = icmp samesign ugt i64 %.012.i.i.i.i.i, 1
   br i1 %21, label %.lr.ph.i.i.i.i.i, label %_ZSt4copyIPKSt4pairIN4llvm12VersionTupleEN5clang9api_notes11ContextInfoEEPS6_ET0_T_SB_SA_.exit.loopexit, !llvm.loop !182
 
 _ZSt4copyIPKSt4pairIN4llvm12VersionTupleEN5clang9api_notes11ContextInfoEEPS6_ET0_T_SB_SA_.exit.loopexit: ; preds = %.lr.ph.i.i.i.i.i
@@ -21039,7 +21039,7 @@ _ZN4llvm23SmallVectorTemplateBaseISt4pairINS_12VersionTupleEN5clang9api_notes11C
   %76 = getelementptr inbounds i8, ptr %.0910.i.i.i.i.i35, i64 176
   %77 = getelementptr inbounds i8, ptr %.0811.i.i.i.i.i34, i64 176
   %78 = add nsw i64 %.012.i.i.i.i.i33, -1
-  %79 = icmp ugt i64 %.012.i.i.i.i.i33, 1
+  %79 = icmp samesign ugt i64 %.012.i.i.i.i.i33, 1
   br i1 %79, label %.lr.ph.i.i.i.i.i32, label %_ZSt4copyIPKSt4pairIN4llvm12VersionTupleEN5clang9api_notes11ContextInfoEEPS6_ET0_T_SB_SA_.exit36, !llvm.loop !182
 
 _ZSt4copyIPKSt4pairIN4llvm12VersionTupleEN5clang9api_notes11ContextInfoEEPS6_ET0_T_SB_SA_.exit36: ; preds = %.lr.ph.i.i.i.i.i32, %66, %65, %_ZN4llvm23SmallVectorTemplateBaseISt4pairINS_12VersionTupleEN5clang9api_notes11ContextInfoEELb0EE4growEm.exit
@@ -24432,7 +24432,7 @@ _ZN4llvm15SmallVectorImplIcE7reserveEm.exit:      ; preds = %3, %12
   %20 = getelementptr inbounds i8, ptr %.0910.i.i.i.i.i.i.i.i, i64 8
   %21 = getelementptr inbounds i8, ptr %.0811.i.i.i.i.i.i.i.i, i64 1
   %22 = add nsw i64 %.012.i.i.i.i.i.i.i.i, -1
-  %23 = icmp ugt i64 %.012.i.i.i.i.i.i.i.i, 1
+  %23 = icmp samesign ugt i64 %.012.i.i.i.i.i.i.i.i, 1
   br i1 %23, label %.lr.ph.i.i.i.i.i.i.i.i, label %_ZN4llvm23SmallVectorTemplateBaseIcLb1EE18uninitialized_copyIPKmPcEEvT_S6_T0_.exit, !llvm.loop !252
 
 _ZN4llvm23SmallVectorTemplateBaseIcLb1EE18uninitialized_copyIPKmPcEEvT_S6_T0_.exit: ; preds = %.lr.ph.i.i.i.i.i.i.i.i, %_ZN4llvm15SmallVectorImplIcE7reserveEm.exit
@@ -27066,7 +27066,7 @@ _ZN5clang9api_notes14CommonTypeInfoaSEOS1_.exit:  ; preds = %102, %.thread.i.i.i
   %108 = load i8, ptr %107, align 8
   store i8 %108, ptr %106, align 8
   %109 = add nsw i64 %.010.i.i.i.i.i, -1
-  %110 = icmp ugt i64 %.010.i.i.i.i.i, 1
+  %110 = icmp samesign ugt i64 %.010.i.i.i.i.i, 1
   br i1 %110, label %.lr.ph.i.i.i.i.i, label %_ZSt13move_backwardIPSt4pairIN4llvm12VersionTupleEN5clang9api_notes11ContextInfoEES7_ET0_T_S9_S8_.exit, !llvm.loop !285
 
 _ZSt13move_backwardIPSt4pairIN4llvm12VersionTupleEN5clang9api_notes11ContextInfoEES7_ET0_T_S9_S8_.exit: ; preds = %_ZN5clang9api_notes14CommonTypeInfoaSEOS1_.exit, %_ZNSt4pairIN4llvm12VersionTupleEN5clang9api_notes11ContextInfoEEC2EOS5_.exit
@@ -27706,7 +27706,7 @@ define linkonce_odr noundef nonnull align 8 dereferenceable(16) ptr @_ZN4llvm15S
   %30 = getelementptr inbounds i8, ptr %.0910.i.i.i.i.i, i64 136
   %31 = getelementptr inbounds i8, ptr %.0811.i.i.i.i.i, i64 136
   %32 = add nsw i64 %.012.i.i.i.i.i, -1
-  %33 = icmp ugt i64 %.012.i.i.i.i.i, 1
+  %33 = icmp samesign ugt i64 %.012.i.i.i.i.i, 1
   br i1 %33, label %.lr.ph.i.i.i.i.i, label %_ZSt4copyIPKSt4pairIN4llvm12VersionTupleEN5clang9api_notes16ObjCPropertyInfoEEPS6_ET0_T_SB_SA_.exit.loopexit, !llvm.loop !296
 
 _ZSt4copyIPKSt4pairIN4llvm12VersionTupleEN5clang9api_notes16ObjCPropertyInfoEEPS6_ET0_T_SB_SA_.exit.loopexit: ; preds = %.lr.ph.i.i.i.i.i
@@ -27827,7 +27827,7 @@ _ZN4llvm23SmallVectorTemplateBaseISt4pairINS_12VersionTupleEN5clang9api_notes16O
   %82 = getelementptr inbounds i8, ptr %.0910.i.i.i.i.i35, i64 136
   %83 = getelementptr inbounds i8, ptr %.0811.i.i.i.i.i34, i64 136
   %84 = add nsw i64 %.012.i.i.i.i.i33, -1
-  %85 = icmp ugt i64 %.012.i.i.i.i.i33, 1
+  %85 = icmp samesign ugt i64 %.012.i.i.i.i.i33, 1
   br i1 %85, label %.lr.ph.i.i.i.i.i32, label %_ZSt4copyIPKSt4pairIN4llvm12VersionTupleEN5clang9api_notes16ObjCPropertyInfoEEPS6_ET0_T_SB_SA_.exit36, !llvm.loop !296
 
 _ZSt4copyIPKSt4pairIN4llvm12VersionTupleEN5clang9api_notes16ObjCPropertyInfoEEPS6_ET0_T_SB_SA_.exit36: ; preds = %.lr.ph.i.i.i.i.i32, %60, %59, %_ZN4llvm23SmallVectorTemplateBaseISt4pairINS_12VersionTupleEN5clang9api_notes16ObjCPropertyInfoEELb0EE4growEm.exit
@@ -28991,7 +28991,7 @@ _ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN5clang9api_notes12_GLOBAL__N_117emitVersi
   %83 = load i8, ptr %82, align 8
   store i8 %83, ptr %81, align 8
   %84 = add nsw i64 %.010.i.i.i.i.i, -1
-  %85 = icmp ugt i64 %.010.i.i.i.i.i, 1
+  %85 = icmp samesign ugt i64 %.010.i.i.i.i.i, 1
   br i1 %85, label %.lr.ph.i.i.i.i.i, label %_ZSt13move_backwardIPSt4pairIN4llvm12VersionTupleEN5clang9api_notes16ObjCPropertyInfoEES7_ET0_T_S9_S8_.exit, !llvm.loop !306
 
 _ZSt13move_backwardIPSt4pairIN4llvm12VersionTupleEN5clang9api_notes16ObjCPropertyInfoEES7_ET0_T_S9_S8_.exit: ; preds = %.lr.ph.i.i.i.i.i, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN5clang9api_notes12_GLOBAL__N_117emitVersionedInfoINS3_16ObjCPropertyInfoEEEvRN4llvm11raw_ostreamERNS7_15SmallVectorImplISt4pairINS7_12VersionTupleET_EEENS7_12function_refIFvS9_RKNS4_13MakeDependentISD_E4TypeEEEEEUlRKSB_ISC_S6_ESR_E_EclIPSP_SV_EEbSD_T0_.exit.thread
@@ -29406,7 +29406,7 @@ define linkonce_odr noundef nonnull align 8 dereferenceable(16) ptr @_ZN4llvm15S
   %32 = getelementptr inbounds i8, ptr %.0910.i.i.i.i.i, i64 168
   %33 = getelementptr inbounds i8, ptr %.0811.i.i.i.i.i, i64 168
   %34 = add nsw i64 %.012.i.i.i.i.i, -1
-  %35 = icmp ugt i64 %.012.i.i.i.i.i, 1
+  %35 = icmp samesign ugt i64 %.012.i.i.i.i.i, 1
   br i1 %35, label %.lr.ph.i.i.i.i.i, label %_ZSt4copyIPKSt4pairIN4llvm12VersionTupleEN5clang9api_notes14ObjCMethodInfoEEPS6_ET0_T_SB_SA_.exit.loopexit, !llvm.loop !313
 
 _ZSt4copyIPKSt4pairIN4llvm12VersionTupleEN5clang9api_notes14ObjCMethodInfoEEPS6_ET0_T_SB_SA_.exit.loopexit: ; preds = %.lr.ph.i.i.i.i.i
@@ -29521,7 +29521,7 @@ _ZN4llvm23SmallVectorTemplateBaseISt4pairINS_12VersionTupleEN5clang9api_notes14O
   %82 = getelementptr inbounds i8, ptr %.0910.i.i.i.i.i35, i64 168
   %83 = getelementptr inbounds i8, ptr %.0811.i.i.i.i.i34, i64 168
   %84 = add nsw i64 %.012.i.i.i.i.i33, -1
-  %85 = icmp ugt i64 %.012.i.i.i.i.i33, 1
+  %85 = icmp samesign ugt i64 %.012.i.i.i.i.i33, 1
   br i1 %85, label %.lr.ph.i.i.i.i.i32, label %_ZSt4copyIPKSt4pairIN4llvm12VersionTupleEN5clang9api_notes14ObjCMethodInfoEEPS6_ET0_T_SB_SA_.exit36, !llvm.loop !313
 
 _ZSt4copyIPKSt4pairIN4llvm12VersionTupleEN5clang9api_notes14ObjCMethodInfoEEPS6_ET0_T_SB_SA_.exit36: ; preds = %.lr.ph.i.i.i.i.i32, %58, %57, %_ZN4llvm23SmallVectorTemplateBaseISt4pairINS_12VersionTupleEN5clang9api_notes14ObjCMethodInfoEELb0EE4growEm.exit
@@ -29684,7 +29684,7 @@ _ZNSt12_Vector_baseIN5clang9api_notes9ParamInfoESaIS2_EE13_M_deallocateEPS2_m.ex
   %57 = getelementptr inbounds i8, ptr %.0910.i.i.i.i.i, i64 120
   %58 = getelementptr inbounds i8, ptr %.0811.i.i.i.i.i, i64 120
   %59 = add nsw i64 %.012.i.i.i.i.i, -1
-  %60 = icmp ugt i64 %.012.i.i.i.i.i, 1
+  %60 = icmp samesign ugt i64 %.012.i.i.i.i.i, 1
   br i1 %60, label %.lr.ph.i.i.i.i.i, label %_ZSt4copyIN9__gnu_cxx17__normal_iteratorIPKN5clang9api_notes9ParamInfoESt6vectorIS4_SaIS4_EEEENS1_IPS4_S9_EEET0_T_SE_SD_.exit.loopexit, !llvm.loop !315
 
 _ZSt4copyIN9__gnu_cxx17__normal_iteratorIPKN5clang9api_notes9ParamInfoESt6vectorIS4_SaIS4_EEEENS1_IPS4_S9_EEET0_T_SE_SD_.exit.loopexit: ; preds = %.lr.ph.i.i.i.i.i
@@ -29749,7 +29749,7 @@ _ZSt4copyIN9__gnu_cxx17__normal_iteratorIPKN5clang9api_notes9ParamInfoESt6vector
   %86 = getelementptr inbounds i8, ptr %.0910.i.i.i.i.i33, i64 120
   %87 = getelementptr inbounds i8, ptr %.0811.i.i.i.i.i32, i64 120
   %88 = add nsw i64 %.012.i.i.i.i.i31, -1
-  %89 = icmp ugt i64 %.012.i.i.i.i.i31, 1
+  %89 = icmp samesign ugt i64 %.012.i.i.i.i.i31, 1
   br i1 %89, label %.lr.ph.i.i.i.i.i30, label %_ZSt4copyIPN5clang9api_notes9ParamInfoES3_ET0_T_S5_S4_.exit.loopexit, !llvm.loop !317
 
 _ZSt4copyIPN5clang9api_notes9ParamInfoES3_ET0_T_S5_S4_.exit.loopexit: ; preds = %.lr.ph.i.i.i.i.i30
@@ -31295,7 +31295,7 @@ _ZN5clang9api_notes12FunctionInfoaSEOS1_.exit:    ; preds = %_ZSt8_DestroyIPN5cl
   %105 = load i8, ptr %104, align 8
   store i8 %105, ptr %103, align 8
   %106 = add nsw i64 %.010.i.i.i.i.i, -1
-  %107 = icmp ugt i64 %.010.i.i.i.i.i, 1
+  %107 = icmp samesign ugt i64 %.010.i.i.i.i.i, 1
   br i1 %107, label %.lr.ph.i.i.i.i.i, label %_ZSt13move_backwardIPSt4pairIN4llvm12VersionTupleEN5clang9api_notes14ObjCMethodInfoEES7_ET0_T_S9_S8_.exit, !llvm.loop !327
 
 _ZSt13move_backwardIPSt4pairIN4llvm12VersionTupleEN5clang9api_notes14ObjCMethodInfoEES7_ET0_T_S9_S8_.exit: ; preds = %_ZN5clang9api_notes12FunctionInfoaSEOS1_.exit, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN5clang9api_notes12_GLOBAL__N_117emitVersionedInfoINS3_14ObjCMethodInfoEEEvRN4llvm11raw_ostreamERNS7_15SmallVectorImplISt4pairINS7_12VersionTupleET_EEENS7_12function_refIFvS9_RKNS4_13MakeDependentISD_E4TypeEEEEEUlRKSB_ISC_S6_ESR_E_EclIPSP_SV_EEbSD_T0_.exit.thread
@@ -31757,7 +31757,7 @@ define linkonce_odr noundef nonnull align 8 dereferenceable(16) ptr @_ZN4llvm15S
   %29 = getelementptr inbounds i8, ptr %.0910.i.i.i.i.i, i64 160
   %30 = getelementptr inbounds i8, ptr %.0811.i.i.i.i.i, i64 160
   %31 = add nsw i64 %.012.i.i.i.i.i, -1
-  %32 = icmp ugt i64 %.012.i.i.i.i.i, 1
+  %32 = icmp samesign ugt i64 %.012.i.i.i.i.i, 1
   br i1 %32, label %.lr.ph.i.i.i.i.i, label %_ZSt4copyIPKSt4pairIN4llvm12VersionTupleEN5clang9api_notes13CXXMethodInfoEEPS6_ET0_T_SB_SA_.exit.loopexit, !llvm.loop !333
 
 _ZSt4copyIPKSt4pairIN4llvm12VersionTupleEN5clang9api_notes13CXXMethodInfoEEPS6_ET0_T_SB_SA_.exit.loopexit: ; preds = %.lr.ph.i.i.i.i.i
@@ -31868,7 +31868,7 @@ _ZN4llvm23SmallVectorTemplateBaseISt4pairINS_12VersionTupleEN5clang9api_notes13C
   %76 = getelementptr inbounds i8, ptr %.0910.i.i.i.i.i35, i64 160
   %77 = getelementptr inbounds i8, ptr %.0811.i.i.i.i.i34, i64 160
   %78 = add nsw i64 %.012.i.i.i.i.i33, -1
-  %79 = icmp ugt i64 %.012.i.i.i.i.i33, 1
+  %79 = icmp samesign ugt i64 %.012.i.i.i.i.i33, 1
   br i1 %79, label %.lr.ph.i.i.i.i.i32, label %_ZSt4copyIPKSt4pairIN4llvm12VersionTupleEN5clang9api_notes13CXXMethodInfoEEPS6_ET0_T_SB_SA_.exit36, !llvm.loop !333
 
 _ZSt4copyIPKSt4pairIN4llvm12VersionTupleEN5clang9api_notes13CXXMethodInfoEEPS6_ET0_T_SB_SA_.exit36: ; preds = %.lr.ph.i.i.i.i.i32, %55, %54, %_ZN4llvm23SmallVectorTemplateBaseISt4pairINS_12VersionTupleEN5clang9api_notes13CXXMethodInfoEELb0EE4growEm.exit
@@ -33172,7 +33172,7 @@ _ZSt8_DestroyIPN5clang9api_notes9ParamInfoES2_EvT_S4_RSaIT0_E.exit.i.i.i.i: ; pr
 
 _ZN5clang9api_notes12FunctionInfoaSEOS1_.exit:    ; preds = %_ZSt8_DestroyIPN5clang9api_notes9ParamInfoES2_EvT_S4_RSaIT0_E.exit.i.i.i.i, %95
   %99 = add nsw i64 %.010.i.i.i.i.i, -1
-  %100 = icmp ugt i64 %.010.i.i.i.i.i, 1
+  %100 = icmp samesign ugt i64 %.010.i.i.i.i.i, 1
   br i1 %100, label %.lr.ph.i.i.i.i.i, label %_ZSt13move_backwardIPSt4pairIN4llvm12VersionTupleEN5clang9api_notes13CXXMethodInfoEES7_ET0_T_S9_S8_.exit, !llvm.loop !343
 
 _ZSt13move_backwardIPSt4pairIN4llvm12VersionTupleEN5clang9api_notes13CXXMethodInfoEES7_ET0_T_S9_S8_.exit: ; preds = %_ZN5clang9api_notes12FunctionInfoaSEOS1_.exit, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN5clang9api_notes12_GLOBAL__N_117emitVersionedInfoINS3_13CXXMethodInfoEEEvRN4llvm11raw_ostreamERNS7_15SmallVectorImplISt4pairINS7_12VersionTupleET_EEENS7_12function_refIFvS9_RKNS4_13MakeDependentISD_E4TypeEEEEEUlRKSB_ISC_S6_ESR_E_EclIPSP_SV_EEbSD_T0_.exit.thread
@@ -33425,7 +33425,7 @@ define linkonce_odr noundef nonnull align 8 dereferenceable(16) ptr @_ZN4llvm15S
   %27 = getelementptr inbounds i8, ptr %.0910.i.i.i.i.i, i64 128
   %28 = getelementptr inbounds i8, ptr %.0811.i.i.i.i.i, i64 128
   %29 = add nsw i64 %.012.i.i.i.i.i, -1
-  %30 = icmp ugt i64 %.012.i.i.i.i.i, 1
+  %30 = icmp samesign ugt i64 %.012.i.i.i.i.i, 1
   br i1 %30, label %.lr.ph.i.i.i.i.i, label %_ZSt4copyIPKSt4pairIN4llvm12VersionTupleEN5clang9api_notes9FieldInfoEEPS6_ET0_T_SB_SA_.exit.loopexit, !llvm.loop !347
 
 _ZSt4copyIPKSt4pairIN4llvm12VersionTupleEN5clang9api_notes9FieldInfoEEPS6_ET0_T_SB_SA_.exit.loopexit: ; preds = %.lr.ph.i.i.i.i.i
@@ -33542,7 +33542,7 @@ _ZN4llvm23SmallVectorTemplateBaseISt4pairINS_12VersionTupleEN5clang9api_notes9Fi
   %76 = getelementptr inbounds i8, ptr %.0910.i.i.i.i.i34, i64 128
   %77 = getelementptr inbounds i8, ptr %.0811.i.i.i.i.i33, i64 128
   %78 = add nsw i64 %.012.i.i.i.i.i32, -1
-  %79 = icmp ugt i64 %.012.i.i.i.i.i32, 1
+  %79 = icmp samesign ugt i64 %.012.i.i.i.i.i32, 1
   br i1 %79, label %.lr.ph.i.i.i.i.i31, label %_ZSt4copyIPKSt4pairIN4llvm12VersionTupleEN5clang9api_notes9FieldInfoEEPS6_ET0_T_SB_SA_.exit35, !llvm.loop !347
 
 _ZSt4copyIPKSt4pairIN4llvm12VersionTupleEN5clang9api_notes9FieldInfoEEPS6_ET0_T_SB_SA_.exit35: ; preds = %.lr.ph.i.i.i.i.i31, %57, %56, %_ZN4llvm23SmallVectorTemplateBaseISt4pairINS_12VersionTupleEN5clang9api_notes9FieldInfoEELb0EE4growEm.exit
@@ -34635,7 +34635,7 @@ _ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN5clang9api_notes12_GLOBAL__N_117emitVersi
   %75 = getelementptr inbounds i8, ptr %.078.i.i.i.i.i, i64 -32
   %76 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEOS4_(ptr noundef nonnull align 8 dereferenceable(32) %74, ptr noundef nonnull align 8 dereferenceable(32) %75) #16
   %77 = add nsw i64 %.010.i.i.i.i.i, -1
-  %78 = icmp ugt i64 %.010.i.i.i.i.i, 1
+  %78 = icmp samesign ugt i64 %.010.i.i.i.i.i, 1
   br i1 %78, label %.lr.ph.i.i.i.i.i, label %_ZSt13move_backwardIPSt4pairIN4llvm12VersionTupleEN5clang9api_notes9FieldInfoEES7_ET0_T_S9_S8_.exit, !llvm.loop !357
 
 _ZSt13move_backwardIPSt4pairIN4llvm12VersionTupleEN5clang9api_notes9FieldInfoEES7_ET0_T_S9_S8_.exit: ; preds = %.lr.ph.i.i.i.i.i, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN5clang9api_notes12_GLOBAL__N_117emitVersionedInfoINS3_9FieldInfoEEEvRN4llvm11raw_ostreamERNS7_15SmallVectorImplISt4pairINS7_12VersionTupleET_EEENS7_12function_refIFvS9_RKNS4_13MakeDependentISD_E4TypeEEEEEUlRKSB_ISC_S6_ESR_E_EclIPSP_SV_EEbSD_T0_.exit.thread
@@ -34994,7 +34994,7 @@ define linkonce_odr noundef nonnull align 8 dereferenceable(16) ptr @_ZN4llvm15S
   %27 = getelementptr inbounds i8, ptr %.0910.i.i.i.i.i, i64 128
   %28 = getelementptr inbounds i8, ptr %.0811.i.i.i.i.i, i64 128
   %29 = add nsw i64 %.012.i.i.i.i.i, -1
-  %30 = icmp ugt i64 %.012.i.i.i.i.i, 1
+  %30 = icmp samesign ugt i64 %.012.i.i.i.i.i, 1
   br i1 %30, label %.lr.ph.i.i.i.i.i, label %_ZSt4copyIPKSt4pairIN4llvm12VersionTupleEN5clang9api_notes18GlobalVariableInfoEEPS6_ET0_T_SB_SA_.exit.loopexit, !llvm.loop !364
 
 _ZSt4copyIPKSt4pairIN4llvm12VersionTupleEN5clang9api_notes18GlobalVariableInfoEEPS6_ET0_T_SB_SA_.exit.loopexit: ; preds = %.lr.ph.i.i.i.i.i
@@ -35111,7 +35111,7 @@ _ZN4llvm23SmallVectorTemplateBaseISt4pairINS_12VersionTupleEN5clang9api_notes18G
   %76 = getelementptr inbounds i8, ptr %.0910.i.i.i.i.i34, i64 128
   %77 = getelementptr inbounds i8, ptr %.0811.i.i.i.i.i33, i64 128
   %78 = add nsw i64 %.012.i.i.i.i.i32, -1
-  %79 = icmp ugt i64 %.012.i.i.i.i.i32, 1
+  %79 = icmp samesign ugt i64 %.012.i.i.i.i.i32, 1
   br i1 %79, label %.lr.ph.i.i.i.i.i31, label %_ZSt4copyIPKSt4pairIN4llvm12VersionTupleEN5clang9api_notes18GlobalVariableInfoEEPS6_ET0_T_SB_SA_.exit35, !llvm.loop !364
 
 _ZSt4copyIPKSt4pairIN4llvm12VersionTupleEN5clang9api_notes18GlobalVariableInfoEEPS6_ET0_T_SB_SA_.exit35: ; preds = %.lr.ph.i.i.i.i.i31, %57, %56, %_ZN4llvm23SmallVectorTemplateBaseISt4pairINS_12VersionTupleEN5clang9api_notes18GlobalVariableInfoEELb0EE4growEm.exit
@@ -36204,7 +36204,7 @@ _ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN5clang9api_notes12_GLOBAL__N_117emitVersi
   %75 = getelementptr inbounds i8, ptr %.078.i.i.i.i.i, i64 -32
   %76 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEOS4_(ptr noundef nonnull align 8 dereferenceable(32) %74, ptr noundef nonnull align 8 dereferenceable(32) %75) #16
   %77 = add nsw i64 %.010.i.i.i.i.i, -1
-  %78 = icmp ugt i64 %.010.i.i.i.i.i, 1
+  %78 = icmp samesign ugt i64 %.010.i.i.i.i.i, 1
   br i1 %78, label %.lr.ph.i.i.i.i.i, label %_ZSt13move_backwardIPSt4pairIN4llvm12VersionTupleEN5clang9api_notes18GlobalVariableInfoEES7_ET0_T_S9_S8_.exit, !llvm.loop !374
 
 _ZSt13move_backwardIPSt4pairIN4llvm12VersionTupleEN5clang9api_notes18GlobalVariableInfoEES7_ET0_T_S9_S8_.exit: ; preds = %.lr.ph.i.i.i.i.i, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN5clang9api_notes12_GLOBAL__N_117emitVersionedInfoINS3_18GlobalVariableInfoEEEvRN4llvm11raw_ostreamERNS7_15SmallVectorImplISt4pairINS7_12VersionTupleET_EEENS7_12function_refIFvS9_RKNS4_13MakeDependentISD_E4TypeEEEEEUlRKSB_ISC_S6_ESR_E_EclIPSP_SV_EEbSD_T0_.exit.thread
@@ -36568,7 +36568,7 @@ define linkonce_odr noundef nonnull align 8 dereferenceable(16) ptr @_ZN4llvm15S
   %29 = getelementptr inbounds i8, ptr %.0910.i.i.i.i.i, i64 160
   %30 = getelementptr inbounds i8, ptr %.0811.i.i.i.i.i, i64 160
   %31 = add nsw i64 %.012.i.i.i.i.i, -1
-  %32 = icmp ugt i64 %.012.i.i.i.i.i, 1
+  %32 = icmp samesign ugt i64 %.012.i.i.i.i.i, 1
   br i1 %32, label %.lr.ph.i.i.i.i.i, label %_ZSt4copyIPKSt4pairIN4llvm12VersionTupleEN5clang9api_notes18GlobalFunctionInfoEEPS6_ET0_T_SB_SA_.exit.loopexit, !llvm.loop !381
 
 _ZSt4copyIPKSt4pairIN4llvm12VersionTupleEN5clang9api_notes18GlobalFunctionInfoEEPS6_ET0_T_SB_SA_.exit.loopexit: ; preds = %.lr.ph.i.i.i.i.i
@@ -36679,7 +36679,7 @@ _ZN4llvm23SmallVectorTemplateBaseISt4pairINS_12VersionTupleEN5clang9api_notes18G
   %76 = getelementptr inbounds i8, ptr %.0910.i.i.i.i.i35, i64 160
   %77 = getelementptr inbounds i8, ptr %.0811.i.i.i.i.i34, i64 160
   %78 = add nsw i64 %.012.i.i.i.i.i33, -1
-  %79 = icmp ugt i64 %.012.i.i.i.i.i33, 1
+  %79 = icmp samesign ugt i64 %.012.i.i.i.i.i33, 1
   br i1 %79, label %.lr.ph.i.i.i.i.i32, label %_ZSt4copyIPKSt4pairIN4llvm12VersionTupleEN5clang9api_notes18GlobalFunctionInfoEEPS6_ET0_T_SB_SA_.exit36, !llvm.loop !381
 
 _ZSt4copyIPKSt4pairIN4llvm12VersionTupleEN5clang9api_notes18GlobalFunctionInfoEEPS6_ET0_T_SB_SA_.exit36: ; preds = %.lr.ph.i.i.i.i.i32, %55, %54, %_ZN4llvm23SmallVectorTemplateBaseISt4pairINS_12VersionTupleEN5clang9api_notes18GlobalFunctionInfoEELb0EE4growEm.exit
@@ -37983,7 +37983,7 @@ _ZSt8_DestroyIPN5clang9api_notes9ParamInfoES2_EvT_S4_RSaIT0_E.exit.i.i.i.i: ; pr
 
 _ZN5clang9api_notes12FunctionInfoaSEOS1_.exit:    ; preds = %_ZSt8_DestroyIPN5clang9api_notes9ParamInfoES2_EvT_S4_RSaIT0_E.exit.i.i.i.i, %95
   %99 = add nsw i64 %.010.i.i.i.i.i, -1
-  %100 = icmp ugt i64 %.010.i.i.i.i.i, 1
+  %100 = icmp samesign ugt i64 %.010.i.i.i.i.i, 1
   br i1 %100, label %.lr.ph.i.i.i.i.i, label %_ZSt13move_backwardIPSt4pairIN4llvm12VersionTupleEN5clang9api_notes18GlobalFunctionInfoEES7_ET0_T_S9_S8_.exit, !llvm.loop !391
 
 _ZSt13move_backwardIPSt4pairIN4llvm12VersionTupleEN5clang9api_notes18GlobalFunctionInfoEES7_ET0_T_S9_S8_.exit: ; preds = %_ZN5clang9api_notes12FunctionInfoaSEOS1_.exit, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN5clang9api_notes12_GLOBAL__N_117emitVersionedInfoINS3_18GlobalFunctionInfoEEEvRN4llvm11raw_ostreamERNS7_15SmallVectorImplISt4pairINS7_12VersionTupleET_EEENS7_12function_refIFvS9_RKNS4_13MakeDependentISD_E4TypeEEEEEUlRKSB_ISC_S6_ESR_E_EclIPSP_SV_EEbSD_T0_.exit.thread
@@ -38229,7 +38229,7 @@ define linkonce_odr noundef nonnull align 8 dereferenceable(16) ptr @_ZN4llvm15S
   %21 = getelementptr inbounds i8, ptr %.0910.i.i.i.i.i, i64 88
   %22 = getelementptr inbounds i8, ptr %.0811.i.i.i.i.i, i64 88
   %23 = add nsw i64 %.012.i.i.i.i.i, -1
-  %24 = icmp ugt i64 %.012.i.i.i.i.i, 1
+  %24 = icmp samesign ugt i64 %.012.i.i.i.i.i, 1
   br i1 %24, label %.lr.ph.i.i.i.i.i, label %_ZSt4copyIPKSt4pairIN4llvm12VersionTupleEN5clang9api_notes16EnumConstantInfoEEPS6_ET0_T_SB_SA_.exit.loopexit, !llvm.loop !395
 
 _ZSt4copyIPKSt4pairIN4llvm12VersionTupleEN5clang9api_notes16EnumConstantInfoEEPS6_ET0_T_SB_SA_.exit.loopexit: ; preds = %.lr.ph.i.i.i.i.i
@@ -38335,7 +38335,7 @@ _ZN4llvm23SmallVectorTemplateBaseISt4pairINS_12VersionTupleEN5clang9api_notes16E
   %62 = getelementptr inbounds i8, ptr %.0910.i.i.i.i.i35, i64 88
   %63 = getelementptr inbounds i8, ptr %.0811.i.i.i.i.i34, i64 88
   %64 = add nsw i64 %.012.i.i.i.i.i33, -1
-  %65 = icmp ugt i64 %.012.i.i.i.i.i33, 1
+  %65 = icmp samesign ugt i64 %.012.i.i.i.i.i33, 1
   br i1 %65, label %.lr.ph.i.i.i.i.i32, label %_ZSt4copyIPKSt4pairIN4llvm12VersionTupleEN5clang9api_notes16EnumConstantInfoEEPS6_ET0_T_SB_SA_.exit36, !llvm.loop !395
 
 _ZSt4copyIPKSt4pairIN4llvm12VersionTupleEN5clang9api_notes16EnumConstantInfoEEPS6_ET0_T_SB_SA_.exit36: ; preds = %.lr.ph.i.i.i.i.i32, %49, %48, %_ZN4llvm23SmallVectorTemplateBaseISt4pairINS_12VersionTupleEN5clang9api_notes16EnumConstantInfoEELb0EE4growEm.exit
@@ -39397,7 +39397,7 @@ _ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN5clang9api_notes12_GLOBAL__N_117emitVersi
   %62 = getelementptr inbounds i8, ptr %.078.i.i.i.i.i, i64 -32
   %63 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEOS4_(ptr noundef nonnull align 8 dereferenceable(32) %61, ptr noundef nonnull align 8 dereferenceable(32) %62) #16
   %64 = add nsw i64 %.010.i.i.i.i.i, -1
-  %65 = icmp ugt i64 %.010.i.i.i.i.i, 1
+  %65 = icmp samesign ugt i64 %.010.i.i.i.i.i, 1
   br i1 %65, label %.lr.ph.i.i.i.i.i, label %_ZSt13move_backwardIPSt4pairIN4llvm12VersionTupleEN5clang9api_notes16EnumConstantInfoEES7_ET0_T_S9_S8_.exit, !llvm.loop !405
 
 _ZSt13move_backwardIPSt4pairIN4llvm12VersionTupleEN5clang9api_notes16EnumConstantInfoEES7_ET0_T_S9_S8_.exit: ; preds = %.lr.ph.i.i.i.i.i, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN5clang9api_notes12_GLOBAL__N_117emitVersionedInfoINS3_16EnumConstantInfoEEEvRN4llvm11raw_ostreamERNS7_15SmallVectorImplISt4pairINS7_12VersionTupleET_EEENS7_12function_refIFvS9_RKNS4_13MakeDependentISD_E4TypeEEEEEUlRKSB_ISC_S6_ESR_E_EclIPSP_SV_EEbSD_T0_.exit.thread
@@ -39753,7 +39753,7 @@ define linkonce_odr noundef nonnull align 8 dereferenceable(16) ptr @_ZN4llvm15S
   %14 = getelementptr inbounds i8, ptr %.0910.i.i.i.i.i, i64 344
   %15 = getelementptr inbounds i8, ptr %.0811.i.i.i.i.i, i64 344
   %16 = add nsw i64 %.012.i.i.i.i.i, -1
-  %17 = icmp ugt i64 %.012.i.i.i.i.i, 1
+  %17 = icmp samesign ugt i64 %.012.i.i.i.i.i, 1
   br i1 %17, label %.lr.ph.i.i.i.i.i, label %_ZSt4copyIPKSt4pairIN4llvm12VersionTupleEN5clang9api_notes7TagInfoEEPS6_ET0_T_SB_SA_.exit.loopexit, !llvm.loop !411
 
 _ZSt4copyIPKSt4pairIN4llvm12VersionTupleEN5clang9api_notes7TagInfoEEPS6_ET0_T_SB_SA_.exit.loopexit: ; preds = %.lr.ph.i.i.i.i.i
@@ -39829,7 +39829,7 @@ _ZN4llvm15SmallVectorImplISt4pairINS_12VersionTupleEN5clang9api_notes7TagInfoEEE
   %41 = getelementptr inbounds i8, ptr %.0910.i.i.i.i.i35, i64 344
   %42 = getelementptr inbounds i8, ptr %.0811.i.i.i.i.i34, i64 344
   %43 = add nsw i64 %.012.i.i.i.i.i33, -1
-  %44 = icmp ugt i64 %.012.i.i.i.i.i33, 1
+  %44 = icmp samesign ugt i64 %.012.i.i.i.i.i33, 1
   br i1 %44, label %.lr.ph.i.i.i.i.i32, label %_ZSt4copyIPKSt4pairIN4llvm12VersionTupleEN5clang9api_notes7TagInfoEEPS6_ET0_T_SB_SA_.exit36, !llvm.loop !411
 
 _ZSt4copyIPKSt4pairIN4llvm12VersionTupleEN5clang9api_notes7TagInfoEEPS6_ET0_T_SB_SA_.exit36: ; preds = %.lr.ph.i.i.i.i.i32, %34, %33, %_ZN4llvm15SmallVectorImplISt4pairINS_12VersionTupleEN5clang9api_notes7TagInfoEEE5clearEv.exit
@@ -41296,7 +41296,7 @@ define linkonce_odr noundef nonnull align 8 dereferenceable(16) ptr @_ZN4llvm15S
   %18 = getelementptr inbounds i8, ptr %.0910.i.i.i.i.i, i64 176
   %19 = getelementptr inbounds i8, ptr %.0811.i.i.i.i.i, i64 176
   %20 = add nsw i64 %.012.i.i.i.i.i, -1
-  %21 = icmp ugt i64 %.012.i.i.i.i.i, 1
+  %21 = icmp samesign ugt i64 %.012.i.i.i.i.i, 1
   br i1 %21, label %.lr.ph.i.i.i.i.i, label %_ZSt4copyIPKSt4pairIN4llvm12VersionTupleEN5clang9api_notes11TypedefInfoEEPS6_ET0_T_SB_SA_.exit.loopexit, !llvm.loop !424
 
 _ZSt4copyIPKSt4pairIN4llvm12VersionTupleEN5clang9api_notes11TypedefInfoEEPS6_ET0_T_SB_SA_.exit.loopexit: ; preds = %.lr.ph.i.i.i.i.i
@@ -41447,7 +41447,7 @@ _ZN4llvm23SmallVectorTemplateBaseISt4pairINS_12VersionTupleEN5clang9api_notes11T
   %76 = getelementptr inbounds i8, ptr %.0910.i.i.i.i.i35, i64 176
   %77 = getelementptr inbounds i8, ptr %.0811.i.i.i.i.i34, i64 176
   %78 = add nsw i64 %.012.i.i.i.i.i33, -1
-  %79 = icmp ugt i64 %.012.i.i.i.i.i33, 1
+  %79 = icmp samesign ugt i64 %.012.i.i.i.i.i33, 1
   br i1 %79, label %.lr.ph.i.i.i.i.i32, label %_ZSt4copyIPKSt4pairIN4llvm12VersionTupleEN5clang9api_notes11TypedefInfoEEPS6_ET0_T_SB_SA_.exit36, !llvm.loop !424
 
 _ZSt4copyIPKSt4pairIN4llvm12VersionTupleEN5clang9api_notes11TypedefInfoEEPS6_ET0_T_SB_SA_.exit36: ; preds = %.lr.ph.i.i.i.i.i32, %66, %65, %_ZN4llvm23SmallVectorTemplateBaseISt4pairINS_12VersionTupleEN5clang9api_notes11TypedefInfoEELb0EE4growEm.exit
@@ -43075,7 +43075,7 @@ _ZN5clang9api_notes14CommonTypeInfoaSEOS1_.exit:  ; preds = %102, %.thread.i.i.i
   %108 = load i64, ptr %107, align 8
   store i64 %108, ptr %106, align 8
   %109 = add nsw i64 %.010.i.i.i.i.i, -1
-  %110 = icmp ugt i64 %.010.i.i.i.i.i, 1
+  %110 = icmp samesign ugt i64 %.010.i.i.i.i.i, 1
   br i1 %110, label %.lr.ph.i.i.i.i.i, label %_ZSt13move_backwardIPSt4pairIN4llvm12VersionTupleEN5clang9api_notes11TypedefInfoEES7_ET0_T_S9_S8_.exit, !llvm.loop !434
 
 _ZSt13move_backwardIPSt4pairIN4llvm12VersionTupleEN5clang9api_notes11TypedefInfoEES7_ET0_T_S9_S8_.exit: ; preds = %_ZN5clang9api_notes14CommonTypeInfoaSEOS1_.exit, %_ZNSt4pairIN4llvm12VersionTupleEN5clang9api_notes11TypedefInfoEEC2EOS5_.exit
@@ -45837,7 +45837,7 @@ _ZN4llvm15SmallVectorImplISt4pairINS_12VersionTupleEN5clang9api_notes16ObjCPrope
   %55 = getelementptr inbounds i8, ptr %.0910.i.i.i.i.i, i64 136
   %56 = getelementptr inbounds i8, ptr %.0811.i.i.i.i.i, i64 136
   %57 = add nsw i64 %.012.i.i.i.i.i, -1
-  %58 = icmp ugt i64 %.012.i.i.i.i.i, 1
+  %58 = icmp samesign ugt i64 %.012.i.i.i.i.i, 1
   br i1 %58, label %.lr.ph.i.i.i.i.i, label %_ZSt4moveIPSt4pairIN4llvm12VersionTupleEN5clang9api_notes16ObjCPropertyInfoEES7_ET0_T_S9_S8_.exit, !llvm.loop !466
 
 _ZSt4moveIPSt4pairIN4llvm12VersionTupleEN5clang9api_notes16ObjCPropertyInfoEES7_ET0_T_S9_S8_.exit: ; preds = %.lr.ph.i.i.i.i.i, %33, %31
@@ -45978,7 +45978,7 @@ _ZN4llvm23SmallVectorTemplateBaseISt4pairINS_12VersionTupleEN5clang9api_notes16O
   %115 = getelementptr inbounds i8, ptr %.0910.i.i.i.i.i52, i64 136
   %116 = getelementptr inbounds i8, ptr %.0811.i.i.i.i.i51, i64 136
   %117 = add nsw i64 %.012.i.i.i.i.i50, -1
-  %118 = icmp ugt i64 %.012.i.i.i.i.i50, 1
+  %118 = icmp samesign ugt i64 %.012.i.i.i.i.i50, 1
   br i1 %118, label %.lr.ph.i.i.i.i.i49, label %_ZSt4moveIPSt4pairIN4llvm12VersionTupleEN5clang9api_notes16ObjCPropertyInfoEES7_ET0_T_S9_S8_.exit53, !llvm.loop !466
 
 _ZSt4moveIPSt4pairIN4llvm12VersionTupleEN5clang9api_notes16ObjCPropertyInfoEES7_ET0_T_S9_S8_.exit53: ; preds = %.lr.ph.i.i.i.i.i49, %93, %92, %_ZN4llvm23SmallVectorTemplateBaseISt4pairINS_12VersionTupleEN5clang9api_notes16ObjCPropertyInfoEELb0EE4growEm.exit
@@ -46874,7 +46874,7 @@ _ZN4llvm15SmallVectorImplISt4pairINS_12VersionTupleEN5clang9api_notes14ObjCMetho
   %41 = getelementptr inbounds i8, ptr %.0910.i.i.i.i.i, i64 168
   %42 = getelementptr inbounds i8, ptr %.0811.i.i.i.i.i, i64 168
   %43 = add nsw i64 %.012.i.i.i.i.i, -1
-  %44 = icmp ugt i64 %.012.i.i.i.i.i, 1
+  %44 = icmp samesign ugt i64 %.012.i.i.i.i.i, 1
   br i1 %44, label %.lr.ph.i.i.i.i.i, label %_ZSt4moveIPSt4pairIN4llvm12VersionTupleEN5clang9api_notes14ObjCMethodInfoEES7_ET0_T_S9_S8_.exit, !llvm.loop !470
 
 _ZSt4moveIPSt4pairIN4llvm12VersionTupleEN5clang9api_notes14ObjCMethodInfoEES7_ET0_T_S9_S8_.exit: ; preds = %.lr.ph.i.i.i.i.i, %31, %29
@@ -46989,7 +46989,7 @@ _ZN4llvm23SmallVectorTemplateBaseISt4pairINS_12VersionTupleEN5clang9api_notes14O
   %83 = getelementptr inbounds i8, ptr %.0910.i.i.i.i.i52, i64 168
   %84 = getelementptr inbounds i8, ptr %.0811.i.i.i.i.i51, i64 168
   %85 = add nsw i64 %.012.i.i.i.i.i50, -1
-  %86 = icmp ugt i64 %.012.i.i.i.i.i50, 1
+  %86 = icmp samesign ugt i64 %.012.i.i.i.i.i50, 1
   br i1 %86, label %.lr.ph.i.i.i.i.i49, label %_ZSt4moveIPSt4pairIN4llvm12VersionTupleEN5clang9api_notes14ObjCMethodInfoEES7_ET0_T_S9_S8_.exit53, !llvm.loop !470
 
 _ZSt4moveIPSt4pairIN4llvm12VersionTupleEN5clang9api_notes14ObjCMethodInfoEES7_ET0_T_S9_S8_.exit53: ; preds = %.lr.ph.i.i.i.i.i49, %73, %72, %_ZN4llvm23SmallVectorTemplateBaseISt4pairINS_12VersionTupleEN5clang9api_notes14ObjCMethodInfoEELb0EE4growEm.exit
@@ -47811,7 +47811,7 @@ _ZN4llvm15SmallVectorImplISt4pairINS_12VersionTupleEN5clang9api_notes13CXXMethod
   %38 = getelementptr inbounds i8, ptr %.0910.i.i.i.i.i, i64 160
   %39 = getelementptr inbounds i8, ptr %.0811.i.i.i.i.i, i64 160
   %40 = add nsw i64 %.012.i.i.i.i.i, -1
-  %41 = icmp ugt i64 %.012.i.i.i.i.i, 1
+  %41 = icmp samesign ugt i64 %.012.i.i.i.i.i, 1
   br i1 %41, label %.lr.ph.i.i.i.i.i, label %_ZSt4moveIPSt4pairIN4llvm12VersionTupleEN5clang9api_notes13CXXMethodInfoEES7_ET0_T_S9_S8_.exit, !llvm.loop !474
 
 _ZSt4moveIPSt4pairIN4llvm12VersionTupleEN5clang9api_notes13CXXMethodInfoEES7_ET0_T_S9_S8_.exit: ; preds = %.lr.ph.i.i.i.i.i, %31, %29
@@ -47922,7 +47922,7 @@ _ZN4llvm23SmallVectorTemplateBaseISt4pairINS_12VersionTupleEN5clang9api_notes13C
   %77 = getelementptr inbounds i8, ptr %.0910.i.i.i.i.i52, i64 160
   %78 = getelementptr inbounds i8, ptr %.0811.i.i.i.i.i51, i64 160
   %79 = add nsw i64 %.012.i.i.i.i.i50, -1
-  %80 = icmp ugt i64 %.012.i.i.i.i.i50, 1
+  %80 = icmp samesign ugt i64 %.012.i.i.i.i.i50, 1
   br i1 %80, label %.lr.ph.i.i.i.i.i49, label %_ZSt4moveIPSt4pairIN4llvm12VersionTupleEN5clang9api_notes13CXXMethodInfoEES7_ET0_T_S9_S8_.exit53, !llvm.loop !474
 
 _ZSt4moveIPSt4pairIN4llvm12VersionTupleEN5clang9api_notes13CXXMethodInfoEES7_ET0_T_S9_S8_.exit53: ; preds = %.lr.ph.i.i.i.i.i49, %70, %69, %_ZN4llvm23SmallVectorTemplateBaseISt4pairINS_12VersionTupleEN5clang9api_notes13CXXMethodInfoEELb0EE4growEm.exit
@@ -48721,7 +48721,7 @@ _ZN4llvm15SmallVectorImplISt4pairINS_12VersionTupleEN5clang9api_notes9FieldInfoE
   %52 = getelementptr inbounds i8, ptr %.0910.i.i.i.i.i, i64 128
   %53 = getelementptr inbounds i8, ptr %.0811.i.i.i.i.i, i64 128
   %54 = add nsw i64 %.012.i.i.i.i.i, -1
-  %55 = icmp ugt i64 %.012.i.i.i.i.i, 1
+  %55 = icmp samesign ugt i64 %.012.i.i.i.i.i, 1
   br i1 %55, label %.lr.ph.i.i.i.i.i, label %_ZSt4moveIPSt4pairIN4llvm12VersionTupleEN5clang9api_notes9FieldInfoEES7_ET0_T_S9_S8_.exit, !llvm.loop !478
 
 _ZSt4moveIPSt4pairIN4llvm12VersionTupleEN5clang9api_notes9FieldInfoEES7_ET0_T_S9_S8_.exit: ; preds = %.lr.ph.i.i.i.i.i, %33, %31
@@ -48858,7 +48858,7 @@ _ZN4llvm23SmallVectorTemplateBaseISt4pairINS_12VersionTupleEN5clang9api_notes9Fi
   %109 = getelementptr inbounds i8, ptr %.0910.i.i.i.i.i51, i64 128
   %110 = getelementptr inbounds i8, ptr %.0811.i.i.i.i.i50, i64 128
   %111 = add nsw i64 %.012.i.i.i.i.i49, -1
-  %112 = icmp ugt i64 %.012.i.i.i.i.i49, 1
+  %112 = icmp samesign ugt i64 %.012.i.i.i.i.i49, 1
   br i1 %112, label %.lr.ph.i.i.i.i.i48, label %_ZSt4moveIPSt4pairIN4llvm12VersionTupleEN5clang9api_notes9FieldInfoEES7_ET0_T_S9_S8_.exit52, !llvm.loop !478
 
 _ZSt4moveIPSt4pairIN4llvm12VersionTupleEN5clang9api_notes9FieldInfoEES7_ET0_T_S9_S8_.exit52: ; preds = %.lr.ph.i.i.i.i.i48, %90, %89, %_ZN4llvm23SmallVectorTemplateBaseISt4pairINS_12VersionTupleEN5clang9api_notes9FieldInfoEELb0EE4growEm.exit
@@ -49649,7 +49649,7 @@ _ZN4llvm15SmallVectorImplISt4pairINS_12VersionTupleEN5clang9api_notes18GlobalVar
   %52 = getelementptr inbounds i8, ptr %.0910.i.i.i.i.i, i64 128
   %53 = getelementptr inbounds i8, ptr %.0811.i.i.i.i.i, i64 128
   %54 = add nsw i64 %.012.i.i.i.i.i, -1
-  %55 = icmp ugt i64 %.012.i.i.i.i.i, 1
+  %55 = icmp samesign ugt i64 %.012.i.i.i.i.i, 1
   br i1 %55, label %.lr.ph.i.i.i.i.i, label %_ZSt4moveIPSt4pairIN4llvm12VersionTupleEN5clang9api_notes18GlobalVariableInfoEES7_ET0_T_S9_S8_.exit, !llvm.loop !482
 
 _ZSt4moveIPSt4pairIN4llvm12VersionTupleEN5clang9api_notes18GlobalVariableInfoEES7_ET0_T_S9_S8_.exit: ; preds = %.lr.ph.i.i.i.i.i, %33, %31
@@ -49786,7 +49786,7 @@ _ZN4llvm23SmallVectorTemplateBaseISt4pairINS_12VersionTupleEN5clang9api_notes18G
   %109 = getelementptr inbounds i8, ptr %.0910.i.i.i.i.i51, i64 128
   %110 = getelementptr inbounds i8, ptr %.0811.i.i.i.i.i50, i64 128
   %111 = add nsw i64 %.012.i.i.i.i.i49, -1
-  %112 = icmp ugt i64 %.012.i.i.i.i.i49, 1
+  %112 = icmp samesign ugt i64 %.012.i.i.i.i.i49, 1
   br i1 %112, label %.lr.ph.i.i.i.i.i48, label %_ZSt4moveIPSt4pairIN4llvm12VersionTupleEN5clang9api_notes18GlobalVariableInfoEES7_ET0_T_S9_S8_.exit52, !llvm.loop !482
 
 _ZSt4moveIPSt4pairIN4llvm12VersionTupleEN5clang9api_notes18GlobalVariableInfoEES7_ET0_T_S9_S8_.exit52: ; preds = %.lr.ph.i.i.i.i.i48, %90, %89, %_ZN4llvm23SmallVectorTemplateBaseISt4pairINS_12VersionTupleEN5clang9api_notes18GlobalVariableInfoEELb0EE4growEm.exit
@@ -50596,7 +50596,7 @@ _ZN4llvm15SmallVectorImplISt4pairINS_12VersionTupleEN5clang9api_notes18GlobalFun
   %38 = getelementptr inbounds i8, ptr %.0910.i.i.i.i.i, i64 160
   %39 = getelementptr inbounds i8, ptr %.0811.i.i.i.i.i, i64 160
   %40 = add nsw i64 %.012.i.i.i.i.i, -1
-  %41 = icmp ugt i64 %.012.i.i.i.i.i, 1
+  %41 = icmp samesign ugt i64 %.012.i.i.i.i.i, 1
   br i1 %41, label %.lr.ph.i.i.i.i.i, label %_ZSt4moveIPSt4pairIN4llvm12VersionTupleEN5clang9api_notes18GlobalFunctionInfoEES7_ET0_T_S9_S8_.exit, !llvm.loop !486
 
 _ZSt4moveIPSt4pairIN4llvm12VersionTupleEN5clang9api_notes18GlobalFunctionInfoEES7_ET0_T_S9_S8_.exit: ; preds = %.lr.ph.i.i.i.i.i, %31, %29
@@ -50707,7 +50707,7 @@ _ZN4llvm23SmallVectorTemplateBaseISt4pairINS_12VersionTupleEN5clang9api_notes18G
   %77 = getelementptr inbounds i8, ptr %.0910.i.i.i.i.i52, i64 160
   %78 = getelementptr inbounds i8, ptr %.0811.i.i.i.i.i51, i64 160
   %79 = add nsw i64 %.012.i.i.i.i.i50, -1
-  %80 = icmp ugt i64 %.012.i.i.i.i.i50, 1
+  %80 = icmp samesign ugt i64 %.012.i.i.i.i.i50, 1
   br i1 %80, label %.lr.ph.i.i.i.i.i49, label %_ZSt4moveIPSt4pairIN4llvm12VersionTupleEN5clang9api_notes18GlobalFunctionInfoEES7_ET0_T_S9_S8_.exit53, !llvm.loop !486
 
 _ZSt4moveIPSt4pairIN4llvm12VersionTupleEN5clang9api_notes18GlobalFunctionInfoEES7_ET0_T_S9_S8_.exit53: ; preds = %.lr.ph.i.i.i.i.i49, %70, %69, %_ZN4llvm23SmallVectorTemplateBaseISt4pairINS_12VersionTupleEN5clang9api_notes18GlobalFunctionInfoEELb0EE4growEm.exit
@@ -51304,7 +51304,7 @@ _ZN4llvm15SmallVectorImplISt4pairINS_12VersionTupleEN5clang9api_notes16EnumConst
   %45 = getelementptr inbounds i8, ptr %.0910.i.i.i.i.i, i64 88
   %46 = getelementptr inbounds i8, ptr %.0811.i.i.i.i.i, i64 88
   %47 = add nsw i64 %.012.i.i.i.i.i, -1
-  %48 = icmp ugt i64 %.012.i.i.i.i.i, 1
+  %48 = icmp samesign ugt i64 %.012.i.i.i.i.i, 1
   br i1 %48, label %.lr.ph.i.i.i.i.i, label %_ZSt4moveIPSt4pairIN4llvm12VersionTupleEN5clang9api_notes16EnumConstantInfoEES7_ET0_T_S9_S8_.exit, !llvm.loop !489
 
 _ZSt4moveIPSt4pairIN4llvm12VersionTupleEN5clang9api_notes16EnumConstantInfoEES7_ET0_T_S9_S8_.exit: ; preds = %.lr.ph.i.i.i.i.i, %32, %30
@@ -51428,7 +51428,7 @@ _ZN4llvm23SmallVectorTemplateBaseISt4pairINS_12VersionTupleEN5clang9api_notes16E
   %93 = getelementptr inbounds i8, ptr %.0910.i.i.i.i.i52, i64 88
   %94 = getelementptr inbounds i8, ptr %.0811.i.i.i.i.i51, i64 88
   %95 = add nsw i64 %.012.i.i.i.i.i50, -1
-  %96 = icmp ugt i64 %.012.i.i.i.i.i50, 1
+  %96 = icmp samesign ugt i64 %.012.i.i.i.i.i50, 1
   br i1 %96, label %.lr.ph.i.i.i.i.i49, label %_ZSt4moveIPSt4pairIN4llvm12VersionTupleEN5clang9api_notes16EnumConstantInfoEES7_ET0_T_S9_S8_.exit53, !llvm.loop !489
 
 _ZSt4moveIPSt4pairIN4llvm12VersionTupleEN5clang9api_notes16EnumConstantInfoEES7_ET0_T_S9_S8_.exit53: ; preds = %.lr.ph.i.i.i.i.i49, %80, %79, %_ZN4llvm23SmallVectorTemplateBaseISt4pairINS_12VersionTupleEN5clang9api_notes16EnumConstantInfoEELb0EE4growEm.exit
@@ -52261,7 +52261,7 @@ _ZN4llvm15SmallVectorImplISt4pairINS_12VersionTupleEN5clang9api_notes7TagInfoEEE
   %37 = getelementptr inbounds i8, ptr %.0910.i.i.i.i.i, i64 344
   %38 = getelementptr inbounds i8, ptr %.0811.i.i.i.i.i, i64 344
   %39 = add nsw i64 %.012.i.i.i.i.i, -1
-  %40 = icmp ugt i64 %.012.i.i.i.i.i, 1
+  %40 = icmp samesign ugt i64 %.012.i.i.i.i.i, 1
   br i1 %40, label %.lr.ph.i.i.i.i.i, label %_ZSt4moveIPSt4pairIN4llvm12VersionTupleEN5clang9api_notes7TagInfoEES7_ET0_T_S9_S8_.exit, !llvm.loop !493
 
 _ZSt4moveIPSt4pairIN4llvm12VersionTupleEN5clang9api_notes7TagInfoEES7_ET0_T_S9_S8_.exit: ; preds = %.lr.ph.i.i.i.i.i, %30, %28
@@ -52357,7 +52357,7 @@ _ZN4llvm15SmallVectorImplISt4pairINS_12VersionTupleEN5clang9api_notes7TagInfoEEE
   %70 = getelementptr inbounds i8, ptr %.0910.i.i.i.i.i52, i64 344
   %71 = getelementptr inbounds i8, ptr %.0811.i.i.i.i.i51, i64 344
   %72 = add nsw i64 %.012.i.i.i.i.i50, -1
-  %73 = icmp ugt i64 %.012.i.i.i.i.i50, 1
+  %73 = icmp samesign ugt i64 %.012.i.i.i.i.i50, 1
   br i1 %73, label %.lr.ph.i.i.i.i.i49, label %_ZSt4moveIPSt4pairIN4llvm12VersionTupleEN5clang9api_notes7TagInfoEES7_ET0_T_S9_S8_.exit53, !llvm.loop !493
 
 _ZSt4moveIPSt4pairIN4llvm12VersionTupleEN5clang9api_notes7TagInfoEES7_ET0_T_S9_S8_.exit53: ; preds = %.lr.ph.i.i.i.i.i49, %63, %62, %_ZN4llvm15SmallVectorImplISt4pairINS_12VersionTupleEN5clang9api_notes7TagInfoEEE5clearEv.exit46
@@ -52992,7 +52992,7 @@ define linkonce_odr noundef nonnull align 8 dereferenceable(16) ptr @_ZN4llvm15S
   %25 = getelementptr inbounds i8, ptr %.0910.i.i.i.i.i, i64 176
   %26 = getelementptr inbounds i8, ptr %.0811.i.i.i.i.i, i64 176
   %27 = add nsw i64 %.012.i.i.i.i.i, -1
-  %28 = icmp ugt i64 %.012.i.i.i.i.i, 1
+  %28 = icmp samesign ugt i64 %.012.i.i.i.i.i, 1
   br i1 %28, label %.lr.ph.i.i.i.i.i, label %_ZSt4moveIPSt4pairIN4llvm12VersionTupleEN5clang9api_notes11TypedefInfoEES7_ET0_T_S9_S8_.exit, !llvm.loop !497
 
 _ZSt4moveIPSt4pairIN4llvm12VersionTupleEN5clang9api_notes11TypedefInfoEES7_ET0_T_S9_S8_.exit: ; preds = %.lr.ph.i.i.i.i.i, %15, %13
@@ -53185,7 +53185,7 @@ _ZN4llvm23SmallVectorTemplateBaseISt4pairINS_12VersionTupleEN5clang9api_notes11T
   %100 = getelementptr inbounds i8, ptr %.0910.i.i.i.i.i47, i64 176
   %101 = getelementptr inbounds i8, ptr %.0811.i.i.i.i.i46, i64 176
   %102 = add nsw i64 %.012.i.i.i.i.i45, -1
-  %103 = icmp ugt i64 %.012.i.i.i.i.i45, 1
+  %103 = icmp samesign ugt i64 %.012.i.i.i.i.i45, 1
   br i1 %103, label %.lr.ph.i.i.i.i.i44, label %_ZSt4moveIPSt4pairIN4llvm12VersionTupleEN5clang9api_notes11TypedefInfoEES7_ET0_T_S9_S8_.exit48, !llvm.loop !497
 
 _ZSt4moveIPSt4pairIN4llvm12VersionTupleEN5clang9api_notes11TypedefInfoEES7_ET0_T_S9_S8_.exit48: ; preds = %.lr.ph.i.i.i.i.i44, %90, %89, %_ZN4llvm23SmallVectorTemplateBaseISt4pairINS_12VersionTupleEN5clang9api_notes11TypedefInfoEELb0EE4growEm.exit

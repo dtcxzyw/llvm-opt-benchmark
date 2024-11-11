@@ -16445,7 +16445,7 @@ _ZSt22__uninitialized_move_aIPN32pxrInternal_v0_24__pxrReserved__22SdfPredicateE
   %44 = getelementptr inbounds i8, ptr %.069.i.i.i.i.i, i64 -64
   %45 = tail call noundef nonnull align 8 dereferenceable(64) ptr @_ZN32pxrInternal_v0_24__pxrReserved__22SdfPredicateExpression6FnCallaSEOS1_(ptr noundef nonnull align 8 dereferenceable(64) %44, ptr noundef nonnull align 8 dereferenceable(64) %43) #22
   %46 = add nsw i64 %.010.i.i.i.i.i, -1
-  %47 = icmp ugt i64 %.010.i.i.i.i.i, 1
+  %47 = icmp samesign ugt i64 %.010.i.i.i.i.i, 1
   br i1 %47, label %.lr.ph.i.i.i.i.i51, label %_ZSt13move_backwardIPN32pxrInternal_v0_24__pxrReserved__22SdfPredicateExpression6FnCallES3_ET0_T_S5_S4_.exit, !llvm.loop !138
 
 _ZSt13move_backwardIPN32pxrInternal_v0_24__pxrReserved__22SdfPredicateExpression6FnCallES3_ET0_T_S5_S4_.exit: ; preds = %.lr.ph.i.i.i.i.i51, %_ZSt22__uninitialized_move_aIPN32pxrInternal_v0_24__pxrReserved__22SdfPredicateExpression6FnCallES3_SaIS2_EET0_T_S6_S5_RT1_.exit
@@ -16460,7 +16460,7 @@ _ZSt13move_backwardIPN32pxrInternal_v0_24__pxrReserved__22SdfPredicateExpression
   %50 = getelementptr inbounds i8, ptr %.0910.i.i.i.i.i, i64 64
   %51 = getelementptr inbounds i8, ptr %.0811.i.i.i.i.i, i64 64
   %52 = add nsw i64 %.012.i.i.i.i.i, -1
-  %53 = icmp ugt i64 %.012.i.i.i.i.i, 1
+  %53 = icmp samesign ugt i64 %.012.i.i.i.i.i, 1
   br i1 %53, label %.lr.ph.i.i.i.i.i52, label %_ZSt4copyISt13move_iteratorIN9__gnu_cxx17__normal_iteratorIPN32pxrInternal_v0_24__pxrReserved__22SdfPredicateExpression6FnCallESt6vectorIS5_SaIS5_EEEEESA_ET0_T_SD_SC_.exit, !llvm.loop !139
 
 _ZSt7advanceISt13move_iteratorIN9__gnu_cxx17__normal_iteratorIPN32pxrInternal_v0_24__pxrReserved__22SdfPredicateExpression6FnCallESt6vectorIS5_SaIS5_EEEEEmEvRT_T0_.exit: ; preds = %17
@@ -16552,7 +16552,7 @@ _ZSt22__uninitialized_move_aIPN32pxrInternal_v0_24__pxrReserved__22SdfPredicateE
   %91 = getelementptr inbounds i8, ptr %.0910.i.i.i.i.i64, i64 64
   %92 = getelementptr inbounds i8, ptr %.0811.i.i.i.i.i63, i64 64
   %93 = add nsw i64 %.012.i.i.i.i.i62, -1
-  %94 = icmp ugt i64 %.012.i.i.i.i.i62, 1
+  %94 = icmp samesign ugt i64 %.012.i.i.i.i.i62, 1
   br i1 %94, label %.lr.ph.i.i.i.i.i61, label %_ZSt4copyISt13move_iteratorIN9__gnu_cxx17__normal_iteratorIPN32pxrInternal_v0_24__pxrReserved__22SdfPredicateExpression6FnCallESt6vectorIS5_SaIS5_EEEEESA_ET0_T_SD_SC_.exit, !llvm.loop !139
 
 95:                                               ; preds = %5

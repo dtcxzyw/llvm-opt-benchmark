@@ -668,7 +668,7 @@ define hidden void @_ZN9StubQueue12remove_firstEi(ptr nocapture noundef nonnull 
 
 _ZN9StubQueue12remove_firstEv.exit:               ; preds = %.lr.ph.split, %43
   %46 = phi i32 [ 0, %.lr.ph.split ], [ %45, %43 ]
-  %47 = icmp ugt i32 %.02, 1
+  %47 = icmp samesign ugt i32 %.02, 1
   br i1 %47, label %.lr.ph.split, label %._crit_edge, !llvm.loop !6
 
 ._crit_edge:                                      ; preds = %_ZN9StubQueue12remove_firstEv.exit, %.lr.ph, %2
@@ -747,7 +747,7 @@ define hidden void @_ZN9StubQueue10remove_allEv(ptr nocapture noundef nonnull al
 
 _ZN9StubQueue12remove_firstEv.exit.i:             ; preds = %40, %.lr.ph.split.i
   %43 = phi i32 [ 0, %.lr.ph.split.i ], [ %42, %40 ]
-  %44 = icmp ugt i32 %.02.i, 1
+  %44 = icmp samesign ugt i32 %.02.i, 1
   br i1 %44, label %.lr.ph.split.i, label %_ZN9StubQueue12remove_firstEi.exit, !llvm.loop !6
 
 _ZN9StubQueue12remove_firstEi.exit:               ; preds = %_ZN9StubQueue12remove_firstEv.exit.i, %1

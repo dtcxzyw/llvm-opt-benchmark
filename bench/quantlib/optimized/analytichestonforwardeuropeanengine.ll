@@ -5121,7 +5121,7 @@ for.body.i:                                       ; preds = %call6.i.noexc, %for
 
 call6.i.noexc:                                    ; preds = %for.body.i
   %10 = call double @llvm.fmuladd.f64(double %7, double %call6.i19, double %sum.07.i)
-  %cmp.i = icmp ugt i64 %indvars.iv.i, 1
+  %cmp.i = icmp samesign ugt i64 %indvars.iv.i, 1
   br i1 %cmp.i, label %for.body.i, label %invoke.cont14, !llvm.loop !150
 
 invoke.cont14:                                    ; preds = %call6.i.noexc
@@ -5150,7 +5150,7 @@ for.body.i26:                                     ; preds = %call6.i.noexc33, %f
 
 call6.i.noexc33:                                  ; preds = %for.body.i26
   %17 = call double @llvm.fmuladd.f64(double %14, double %call6.i34, double %sum.07.i28)
-  %cmp.i32 = icmp ugt i64 %indvars.iv.i27, 1
+  %cmp.i32 = icmp samesign ugt i64 %indvars.iv.i27, 1
   br i1 %cmp.i32, label %for.body.i26, label %invoke.cont17, !llvm.loop !150
 
 invoke.cont17:                                    ; preds = %call6.i.noexc33, %invoke.cont12, %invoke.cont14
@@ -5470,7 +5470,7 @@ for.body.i:                                       ; preds = %call6.i.noexc, %for
 
 call6.i.noexc:                                    ; preds = %for.body.i
   %22 = call double @llvm.fmuladd.f64(double %19, double %call6.i28, double %sum.07.i)
-  %cmp.i = icmp ugt i64 %indvars.iv.i, 1
+  %cmp.i = icmp samesign ugt i64 %indvars.iv.i, 1
   br i1 %cmp.i, label %for.body.i, label %invoke.cont11, !llvm.loop !160
 
 invoke.cont11:                                    ; preds = %call6.i.noexc
@@ -5499,7 +5499,7 @@ for.body.i35:                                     ; preds = %call6.i.noexc42, %f
 
 call6.i.noexc42:                                  ; preds = %for.body.i35
   %29 = call double @llvm.fmuladd.f64(double %26, double %call6.i43, double %sum.07.i37)
-  %cmp.i41 = icmp ugt i64 %indvars.iv.i36, 1
+  %cmp.i41 = icmp samesign ugt i64 %indvars.iv.i36, 1
   br i1 %cmp.i41, label %for.body.i35, label %invoke.cont17, !llvm.loop !160
 
 invoke.cont17:                                    ; preds = %call6.i.noexc42, %invoke.cont8, %invoke.cont11
@@ -12162,7 +12162,7 @@ for.body.i:                                       ; preds = %call6.i.noexc, %for
 
 call6.i.noexc:                                    ; preds = %for.body.i
   %14 = call double @llvm.fmuladd.f64(double %11, double %call6.i4, double %sum.07.i)
-  %cmp.i = icmp ugt i64 %indvars.iv.i, 1
+  %cmp.i = icmp samesign ugt i64 %indvars.iv.i, 1
   br i1 %cmp.i, label %for.body.i, label %invoke.cont3, !llvm.loop !150
 
 invoke.cont3:                                     ; preds = %call6.i.noexc, %invoke.cont

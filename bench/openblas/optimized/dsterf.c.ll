@@ -46,7 +46,7 @@ define void @dsterf_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
   br label %.loopexit
 
 19:                                               ; preds = %4
-  %20 = icmp ult i32 %15, 2
+  %20 = icmp samesign ult i32 %15, 2
   br i1 %20, label %.loopexit, label %21
 
 21:                                               ; preds = %19

@@ -67,7 +67,7 @@ define void @dgesdd_(ptr nocapture noundef readonly %0, ptr noundef %1, ptr noun
   br i1 %or.cond682, label %51, label %124
 
 51:                                               ; preds = %14
-  %52 = icmp ult i32 %40, %41
+  %52 = icmp samesign ult i32 %40, %41
   br i1 %52, label %88, label %53
 
 53:                                               ; preds = %51

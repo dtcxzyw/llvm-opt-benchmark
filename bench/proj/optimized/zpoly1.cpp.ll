@@ -33,7 +33,7 @@ define hidden { double, double } @_Z9pj_zpoly17COMPLEXPKS_i(double %0, double %1
   %16 = load double, ptr %15, align 8
   %17 = tail call double @llvm.fmuladd.f64(double %0, double %.sroa.6.019, double %16)
   %18 = tail call double @llvm.fmuladd.f64(double %1, double %.sroa.012.018, double %17)
-  %19 = icmp ugt i32 %.021, 1
+  %19 = icmp samesign ugt i32 %.021, 1
   br i1 %19, label %9, label %._crit_edge, !llvm.loop !4
 
 ._crit_edge:                                      ; preds = %9, %4
@@ -92,7 +92,7 @@ define hidden { double, double } @_Z10pj_zpolyd17COMPLEXPKS_iPS_(double %0, doub
   %22 = load double, ptr %21, align 8
   %23 = tail call double @llvm.fmuladd.f64(double %0, double %.sroa.936.046, double %22)
   %24 = tail call double @llvm.fmuladd.f64(double %1, double %.sroa.032.044, double %23)
-  %25 = icmp ugt i32 %.in, 1
+  %25 = icmp samesign ugt i32 %.in, 1
   br i1 %25, label %.lr.ph, label %._crit_edge, !llvm.loop !6
 
 ._crit_edge:                                      ; preds = %16, %5

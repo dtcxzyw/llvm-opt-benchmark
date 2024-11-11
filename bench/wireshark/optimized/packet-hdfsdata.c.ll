@@ -579,7 +579,7 @@ define internal fastcc void @dissect_variable_int_string(ptr noundef %0, ptr nou
   br i1 %7, label %dissect_variable_length_long.exit, label %decode_vint_size.exit.i
 
 decode_vint_size.exit.i:                          ; preds = %3
-  %8 = icmp ult i8 %5, -120
+  %8 = icmp samesign ult i8 %5, -120
   %.0.i.v.i = select i1 %8, i32 -119, i32 -111
   %.0.i.i = sub nuw nsw i32 %.0.i.v.i, %6
   %9 = icmp eq i32 %.0.i.i, 1

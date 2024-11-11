@@ -3171,7 +3171,7 @@ _ZN5alloc11collections5btree4node12slice_insert17h114e9a61b6422e4aE.exit.i19.i.i
 .lr.ph.i.i20.i.i:                                 ; preds = %_ZN5alloc11collections5btree4node12slice_insert17h114e9a61b6422e4aE.exit.i19.i.i, %.lr.ph.i.i20.i.i
   %.sroa.0.06.i.i21.i.i = phi i64 [ %243, %.lr.ph.i.i20.i.i ], [ %219, %_ZN5alloc11collections5btree4node12slice_insert17h114e9a61b6422e4aE.exit.i19.i.i ]
   %243 = add nuw nsw i64 %.sroa.0.06.i.i21.i.i, 1
-  %244 = icmp ult i64 %.sroa.0.06.i.i21.i.i, 12
+  %244 = icmp samesign ult i64 %.sroa.0.06.i.i21.i.i, 12
   tail call void @llvm.assume(i1 %244)
   %245 = getelementptr inbounds ptr, ptr %233, i64 %.sroa.0.06.i.i21.i.i
   %246 = load ptr, ptr %245, align 8, !noalias !689, !nonnull !9, !noundef !9
@@ -3795,7 +3795,7 @@ _ZN5alloc11collections5btree4node12slice_insert17h897e469fd39733cbE.exit.i19.i.i
 .lr.ph.i.i20.i.i:                                 ; preds = %_ZN5alloc11collections5btree4node12slice_insert17h897e469fd39733cbE.exit.i19.i.i, %.lr.ph.i.i20.i.i
   %.sroa.0.06.i.i21.i.i = phi i64 [ %232, %.lr.ph.i.i20.i.i ], [ %209, %_ZN5alloc11collections5btree4node12slice_insert17h897e469fd39733cbE.exit.i19.i.i ]
   %232 = add nuw nsw i64 %.sroa.0.06.i.i21.i.i, 1
-  %233 = icmp ult i64 %.sroa.0.06.i.i21.i.i, 12
+  %233 = icmp samesign ult i64 %.sroa.0.06.i.i21.i.i, 12
   tail call void @llvm.assume(i1 %233)
   %234 = getelementptr inbounds ptr, ptr %222, i64 %.sroa.0.06.i.i21.i.i
   %235 = load ptr, ptr %234, align 8, !noalias !806, !nonnull !9, !noundef !9

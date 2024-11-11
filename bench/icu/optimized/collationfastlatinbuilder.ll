@@ -381,7 +381,7 @@ _ZNK6icu_7513CollationData7getCE32Ei.exit:        ; preds = %if.end7, %if.end7.t
 
 _ZNK6icu_7513CollationData7getCE32Ei.exit.thread: ; preds = %if.end7
   %10 = load ptr, ptr %3, align 8
-  %cmp8.i = icmp ult i16 %c.0, -9216
+  %cmp8.i = icmp samesign ult i16 %c.0, -9216
   %cond.i = select i1 %cmp8.i, i32 320, i32 0
   %shr9.i = lshr i32 %conv8, 5
   %add10.i = add nuw nsw i32 %cond.i, %shr9.i

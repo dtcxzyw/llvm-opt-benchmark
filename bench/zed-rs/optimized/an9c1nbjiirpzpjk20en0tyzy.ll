@@ -8611,7 +8611,7 @@ define hidden void @_ZN4core5slice4sort8unstable9quicksort9quicksort17h4e077f64b
   br i1 %16, label %19, label %17
 
 17:                                               ; preds = %15
-  %18 = icmp ugt i64 %.sroa.9.0.i, 8
+  %18 = icmp samesign ugt i64 %.sroa.9.0.i, 8
   br i1 %18, label %122, label %181
 
 19:                                               ; preds = %15

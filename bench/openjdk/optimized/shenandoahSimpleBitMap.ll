@@ -153,7 +153,7 @@ define hidden noundef zeroext i1 @_ZNK22ShenandoahSimpleBitMap27is_forward_conse
   %14 = xor i64 %13, -1
   %15 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %14, i1 true)
   %.0 = select i1 %.not, i64 %12, i64 %15
-  %.not25 = icmp ult i64 %.0, %.02226
+  %.not25 = icmp samesign ult i64 %.0, %.02226
   br i1 %.not25, label %16, label %._crit_edge
 
 16:                                               ; preds = %7
@@ -195,7 +195,7 @@ define hidden noundef zeroext i1 @_ZNK22ShenandoahSimpleBitMap28is_backward_cons
   %15 = xor i64 %14, -1
   %16 = tail call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %15, i1 true)
   %.0 = select i1 %.not, i64 %12, i64 %16
-  %.not24 = icmp ult i64 %.0, %.02225
+  %.not24 = icmp samesign ult i64 %.0, %.02225
   br i1 %.not24, label %17, label %._crit_edge
 
 17:                                               ; preds = %7

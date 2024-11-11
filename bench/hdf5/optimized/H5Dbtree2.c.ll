@@ -162,7 +162,7 @@ define internal range(i32 -1, 1) i32 @H5D__bt2_idx_create(ptr nocapture noundef 
   br label %H5VM_log2_gen.exit
 
 34:                                               ; preds = %19
-  %.not23.i = icmp ult i32 %.pre, 256
+  %.not23.i = icmp samesign ult i32 %.pre, 256
   br i1 %.not23.i, label %41, label %35
 
 35:                                               ; preds = %34
@@ -1130,7 +1130,7 @@ define internal noalias ptr @H5D__bt2_crt_context(ptr nocapture noundef readonly
   br label %H5VM_log2_gen.exit
 
 43:                                               ; preds = %24
-  %.not23.i = icmp ult i32 %28, 256
+  %.not23.i = icmp samesign ult i32 %28, 256
   br i1 %.not23.i, label %50, label %44
 
 44:                                               ; preds = %43

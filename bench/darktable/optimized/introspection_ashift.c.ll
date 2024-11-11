@@ -3589,7 +3589,7 @@ define void @gui_post_expose(ptr noundef %0, ptr noundef %1, float noundef %2, f
   %791 = load <2 x float>, ptr %790, align 4, !tbaa !10
   %792 = fpext <2 x float> %791 to <2 x double>
   %793 = and i32 %786, 3
-  %794 = icmp ult i32 %786, 4
+  %794 = icmp samesign ult i32 %786, 4
   br i1 %794, label %.loopexit29, label %795
 
 795:                                              ; preds = %788
@@ -3701,7 +3701,7 @@ define void @gui_post_expose(ptr noundef %0, ptr noundef %1, float noundef %2, f
 
 863:                                              ; preds = %859
   %864 = zext nneg i32 %861 to i64
-  %865 = icmp ult i32 %861, 8
+  %865 = icmp samesign ult i32 %861, 8
   br i1 %865, label %.preheader91, label %866
 
 .preheader91:                                     ; preds = %877, %863
@@ -4208,7 +4208,7 @@ define internal fastcc void @_update_colors(i32 %0, ptr nocapture noundef nonnul
   %10 = select i1 %6, i32 1, i32 3
   %11 = zext nneg i32 %2 to i64
   %12 = and i64 %11, 3
-  %13 = icmp ult i32 %2, 4
+  %13 = icmp samesign ult i32 %2, 4
   br i1 %13, label %.loopexit3, label %14
 
 14:                                               ; preds = %5
@@ -5510,7 +5510,7 @@ define range(i32 0, 2) i32 @mouse_moved(ptr nocapture noundef readonly %0, float
   %855 = load ptr, ptr %775, align 8, !tbaa !187
   %856 = zext nneg i32 %852 to i64
   %857 = and i64 %856, 3
-  %858 = icmp ult i32 %852, 4
+  %858 = icmp samesign ult i32 %852, 4
   br i1 %858, label %.loopexit24, label %859
 
 859:                                              ; preds = %854
@@ -5840,7 +5840,7 @@ define internal fastcc void @_get_near(ptr nocapture noundef readonly %0, ptr no
 
 12:                                               ; preds = %7
   %13 = zext nneg i32 %2 to i64
-  %14 = icmp ult i32 %2, 32
+  %14 = icmp samesign ult i32 %2, 32
   br i1 %14, label %.preheader27, label %15
 
 .preheader27:                                     ; preds = %30, %12
@@ -6068,7 +6068,7 @@ define internal fastcc void @_update_lines_count(ptr noundef readonly %0, i32 no
 8:                                                ; preds = %4
   %9 = zext nneg i32 %1 to i64
   %10 = and i64 %9, 3
-  %11 = icmp ult i32 %1, 4
+  %11 = icmp samesign ult i32 %1, 4
   br i1 %11, label %.loopexit4, label %12
 
 12:                                               ; preds = %8
@@ -6493,7 +6493,7 @@ define range(i32 0, 2) i32 @button_pressed(ptr nocapture noundef readonly %0, fl
   %197 = zext nneg i32 %192 to i64
   %198 = add nsw i64 %197, -1
   %199 = and i64 %197, 3
-  %200 = icmp ult i64 %198, 3
+  %200 = icmp samesign ult i64 %198, 3
   br i1 %200, label %.loopexit22, label %201
 
 201:                                              ; preds = %196
@@ -6789,7 +6789,7 @@ define range(i32 0, 2) i32 @button_pressed(ptr nocapture noundef readonly %0, fl
 380:                                              ; preds = %373
   %381 = zext nneg i32 %374 to i64
   %382 = and i64 %381, 3
-  %383 = icmp ult i32 %374, 4
+  %383 = icmp samesign ult i32 %374, 4
   br i1 %383, label %.loopexit18, label %384
 
 384:                                              ; preds = %380
@@ -7550,7 +7550,7 @@ define noundef range(i32 0, 2) i32 @scrolled(ptr nocapture noundef readonly %0, 
 
 65:                                               ; preds = %50
   %66 = zext nneg i32 %56 to i64
-  %67 = icmp ult i32 %56, 32
+  %67 = icmp samesign ult i32 %56, 32
   br i1 %67, label %.preheader51, label %68
 
 68:                                               ; preds = %65
@@ -7837,7 +7837,7 @@ define noundef range(i32 0, 2) i32 @scrolled(ptr nocapture noundef readonly %0, 
 243:                                              ; preds = %.thread
   %244 = zext nneg i32 %237 to i64
   %245 = and i64 %244, 3
-  %246 = icmp ult i32 %237, 4
+  %246 = icmp samesign ult i32 %237, 4
   br i1 %246, label %.loopexit14, label %247
 
 247:                                              ; preds = %243
@@ -11715,7 +11715,7 @@ define internal void @crop_constraint(ptr nocapture noundef %0, i32 noundef %1) 
   %10 = load double, ptr %9, align 8, !tbaa !161
   %11 = tail call reassoc nsz arcp contract afn double @llvm.fabs.f64(double %10)
   store double %11, ptr %9, align 8, !tbaa !161
-  %12 = icmp ugt i32 %1, 2
+  %12 = icmp samesign ugt i32 %1, 2
   br i1 %12, label %13, label %17
 
 13:                                               ; preds = %8
@@ -16456,7 +16456,7 @@ define internal fastcc void @edge_enhance_1d(ptr nocapture noundef nonnull reado
   %51 = getelementptr i8, ptr %0, i64 %50
   %52 = getelementptr i8, ptr %51, i64 24
   %53 = zext nneg i32 %23 to i64
-  %54 = icmp ult i32 %23, 4
+  %54 = icmp samesign ult i32 %23, 4
   %55 = icmp ult ptr %26, %42
   %56 = icmp ult ptr %37, %35
   %57 = and i1 %55, %56
@@ -16819,7 +16819,7 @@ define internal fastcc void @edge_enhance_1d(ptr nocapture noundef nonnull reado
   %347 = zext nneg i32 %2 to i64
   %348 = zext nneg i32 %7 to i64
   %349 = zext nneg i32 %3 to i64
-  %350 = icmp ult i32 %2, 16
+  %350 = icmp samesign ult i32 %2, 16
   %351 = and i32 %2, 2147483632
   %352 = icmp eq i32 %351, %2
   %353 = zext nneg i32 %351 to i64
@@ -17297,7 +17297,7 @@ define internal fastcc void @region2rect(ptr nocapture noundef nonnull readonly 
   %13 = getelementptr inbounds i8, ptr %2, i64 8
   %14 = load i32, ptr %13, align 8, !tbaa !377
   %15 = zext nneg i32 %1 to i64
-  %16 = icmp ult i32 %1, 16
+  %16 = icmp samesign ult i32 %1, 16
   br i1 %16, label %.preheader171, label %17
 
 17:                                               ; preds = %12
@@ -19641,7 +19641,7 @@ define internal double @model_fitness(ptr nocapture noundef readonly %0, ptr noc
   %130 = getelementptr inbounds i8, ptr %3, i64 32
   %131 = load float, ptr %130, align 16
   %132 = zext nneg i32 %7 to i64
-  %133 = icmp ult i32 %7, 4
+  %133 = icmp samesign ult i32 %7, 4
   br i1 %133, label %.preheader, label %134
 
 .preheader:                                       ; preds = %281, %110
@@ -20683,7 +20683,7 @@ define internal fastcc noundef range(i32 0, 2) i32 @_draw_retrieve_lines_from_pa
 
 184:                                              ; preds = %179
   %185 = zext nneg i32 %180 to i64
-  %186 = icmp ult i32 %180, 8
+  %186 = icmp samesign ult i32 %180, 8
   br i1 %186, label %.preheader32, label %187
 
 .preheader32:                                     ; preds = %258, %184

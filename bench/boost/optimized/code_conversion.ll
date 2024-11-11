@@ -1995,7 +1995,7 @@ _ZNKSt7__cxx1112basic_stringIDsSt11char_traitsIDsESaIDsEE8capacityEv.exit: ; pre
 
 23:                                               ; preds = %21
   %24 = shl nuw nsw i64 %18, 1
-  %25 = icmp ult i64 %11, %24
+  %25 = icmp samesign ult i64 %11, %24
   br i1 %25, label %26, label %_ZNSt7__cxx1112basic_stringIDsSt11char_traitsIDsESaIDsEE9_M_createERmm.exit
 
 26:                                               ; preds = %23
@@ -2564,7 +2564,7 @@ _ZNKSt7__cxx1112basic_stringIDiSt11char_traitsIDiESaIDiEE8capacityEv.exit: ; pre
 
 23:                                               ; preds = %21
   %24 = shl nuw nsw i64 %18, 1
-  %25 = icmp ult i64 %11, %24
+  %25 = icmp samesign ult i64 %11, %24
   br i1 %25, label %26, label %_ZNSt7__cxx1112basic_stringIDiSt11char_traitsIDiESaIDiEE9_M_createERmm.exit
 
 26:                                               ; preds = %23

@@ -2460,7 +2460,7 @@ define internal void @add_response_header(ptr nocapture noundef readonly %0, ptr
 
 17:                                               ; preds = %13
   %18 = add nuw nsw i64 %.07182, 1
-  %19 = icmp ugt i64 %.07182, 32767
+  %19 = icmp samesign ugt i64 %.07182, 32767
   br i1 %19, label %20, label %22
 
 20:                                               ; preds = %17
@@ -5974,7 +5974,7 @@ define internal void @php_cli_server_client_dtor_wrapper(ptr nocapture noundef r
 .lr.ph.i:                                         ; preds = %.preheader.i, %.lr.ph.i.backedge
   %.031.i = phi i32 [ %32, %.lr.ph.i.backedge ], [ %10, %.preheader.i ]
   %32 = add nsw i32 %.031.i, -1
-  %33 = icmp ult i32 %.031.i, 1025
+  %33 = icmp samesign ult i32 %.031.i, 1025
   br i1 %33, label %34, label %.lr.ph.i.backedge
 
 34:                                               ; preds = %.lr.ph.i
@@ -5994,7 +5994,7 @@ define internal void @php_cli_server_client_dtor_wrapper(ptr nocapture noundef r
   %45 = load i64, ptr %44, align 8
   %46 = and i64 %45, %41
   %.not30.i = icmp eq i64 %46, 0
-  %47 = icmp ugt i32 %.031.i, 1
+  %47 = icmp samesign ugt i32 %.031.i, 1
   %or.cond36.i = and i1 %47, %.not30.i
   br i1 %or.cond36.i, label %.lr.ph.i.backedge, label %._crit_edge.i
 
@@ -6412,7 +6412,7 @@ php_cli_server_client_read_request.exit:          ; preds = %32
 .lr.ph.i:                                         ; preds = %.preheader.i, %.lr.ph.i.backedge
   %.031.i = phi i32 [ %101, %.lr.ph.i.backedge ], [ %83, %.preheader.i ]
   %101 = add nsw i32 %.031.i, -1
-  %102 = icmp ult i32 %.031.i, 1025
+  %102 = icmp samesign ult i32 %.031.i, 1025
   br i1 %102, label %103, label %.lr.ph.i.backedge
 
 103:                                              ; preds = %.lr.ph.i
@@ -6432,7 +6432,7 @@ php_cli_server_client_read_request.exit:          ; preds = %32
   %114 = load i64, ptr %113, align 8
   %115 = and i64 %114, %110
   %.not30.i = icmp eq i64 %115, 0
-  %116 = icmp ugt i32 %.031.i, 1
+  %116 = icmp samesign ugt i32 %.031.i, 1
   %or.cond36.i = and i1 %116, %.not30.i
   br i1 %or.cond36.i, label %.lr.ph.i.backedge, label %._crit_edge.i
 

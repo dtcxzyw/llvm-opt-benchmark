@@ -54,7 +54,7 @@ define dso_local void @print_tar_number(ptr nocapture noundef writeonly %0, i32 
   %23 = getelementptr i8, ptr %0, i64 %indvars.iv.next
   store i8 %22, ptr %23, align 1
   %24 = lshr i64 %.120, 8
-  %25 = icmp ugt i64 %indvars.iv, 2
+  %25 = icmp samesign ugt i64 %indvars.iv, 2
   br i1 %25, label %.lr.ph, label %.loopexit, !llvm.loop !7
 
 .loopexit:                                        ; preds = %.lr.ph, %.lr.ph24, %19, %8
@@ -236,7 +236,7 @@ print_tar_number.exit:                            ; preds = %.lr.ph24.i
   %46 = getelementptr i8, ptr %35, i64 %indvars.iv.next.i53
   store i8 %45, ptr %46, align 1
   %47 = lshr i32 %.120.i52, 8
-  %48 = icmp ugt i64 %indvars.iv.i51, 2
+  %48 = icmp samesign ugt i64 %indvars.iv.i51, 2
   br i1 %48, label %.lr.ph.i50, label %print_tar_number.exit58, !llvm.loop !7
 
 print_tar_number.exit58:                          ; preds = %.lr.ph.i50, %.lr.ph24.i54
@@ -274,7 +274,7 @@ print_tar_number.exit58:                          ; preds = %.lr.ph.i50, %.lr.ph
   %60 = getelementptr i8, ptr %49, i64 %indvars.iv.next.i63
   store i8 %59, ptr %60, align 1
   %61 = lshr i32 %.120.i62, 8
-  %62 = icmp ugt i64 %indvars.iv.i61, 2
+  %62 = icmp samesign ugt i64 %indvars.iv.i61, 2
   br i1 %62, label %.lr.ph.i60, label %print_tar_number.exit68, !llvm.loop !7
 
 print_tar_number.exit68:                          ; preds = %.lr.ph.i60, %.lr.ph24.i64
@@ -324,7 +324,7 @@ print_tar_number.exit73.loopexit:                 ; preds = %print_tar_number.ex
   %78 = getelementptr i8, ptr %65, i64 %indvars.iv.next.i78
   store i8 %77, ptr %78, align 1
   %79 = lshr i64 %.120.i77, 8
-  %80 = icmp ugt i64 %indvars.iv.i76, 2
+  %80 = icmp samesign ugt i64 %indvars.iv.i76, 2
   br i1 %80, label %.lr.ph.i75, label %print_tar_number.exit73, !llvm.loop !7
 
 print_tar_number.exit73:                          ; preds = %.lr.ph.i75, %.lr.ph24.i79, %print_tar_number.exit73.loopexit
@@ -362,7 +362,7 @@ print_tar_number.exit73:                          ; preds = %.lr.ph.i75, %.lr.ph
   %92 = getelementptr i8, ptr %81, i64 %indvars.iv.next.i88
   store i8 %91, ptr %92, align 1
   %93 = lshr i64 %.120.i87, 8
-  %94 = icmp ugt i64 %indvars.iv.i86, 2
+  %94 = icmp samesign ugt i64 %indvars.iv.i86, 2
   br i1 %94, label %.lr.ph.i85, label %print_tar_number.exit93, !llvm.loop !7
 
 print_tar_number.exit93:                          ; preds = %.lr.ph.i85, %.lr.ph24.i89
@@ -462,7 +462,7 @@ tarChecksum.exit:                                 ; preds = %118
   %131 = getelementptr i8, ptr %119, i64 %indvars.iv.next.i110
   store i8 %130, ptr %131, align 1
   %132 = lshr i64 %.120.i109, 8
-  %133 = icmp ugt i64 %indvars.iv.i108, 2
+  %133 = icmp samesign ugt i64 %indvars.iv.i108, 2
   br i1 %133, label %.lr.ph.i107, label %print_tar_number.exit115, !llvm.loop !7
 
 print_tar_number.exit115:                         ; preds = %.lr.ph.i107, %.lr.ph24.i111, %12, %8

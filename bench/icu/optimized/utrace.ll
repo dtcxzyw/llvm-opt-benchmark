@@ -585,7 +585,7 @@ if.then22.i.i:                                    ; preds = %for.body.i155
 
 if.then28.i.i:                                    ; preds = %if.then22.i.i, %for.body.i155
   %indvars.iv.next882 = add nsw i64 %indvars.iv881, 1
-  %cmp.i158 = icmp ugt i64 %indvars.iv.i156, 7
+  %cmp.i158 = icmp samesign ugt i64 %indvars.iv.i156, 7
   br i1 %cmp.i158, label %for.body.i155, label %sw.epilog182.loopexit728, !llvm.loop !8
 
 sw.bb58:                                          ; preds = %if.end4
@@ -632,7 +632,7 @@ if.then22.i.i169:                                 ; preds = %for.body.i162
 
 if.then28.i.i166:                                 ; preds = %if.then22.i.i169, %for.body.i162
   %indvars.iv.next879 = add nsw i64 %indvars.iv878, 1
-  %cmp.i168 = icmp ugt i64 %indvars.iv.i163, 7
+  %cmp.i168 = icmp samesign ugt i64 %indvars.iv.i163, 7
   br i1 %cmp.i168, label %for.body.i162, label %sw.epilog182.loopexit729, !llvm.loop !8
 
 sw.bb71:                                          ; preds = %if.end4
@@ -679,7 +679,7 @@ if.then22.i.i186:                                 ; preds = %for.body.i179
 
 if.then28.i.i183:                                 ; preds = %if.then22.i.i186, %for.body.i179
   %indvars.iv.next876 = add nsw i64 %indvars.iv875, 1
-  %cmp.i185 = icmp ugt i64 %indvars.iv.i180, 7
+  %cmp.i185 = icmp samesign ugt i64 %indvars.iv.i180, 7
   br i1 %cmp.i185, label %for.body.i179, label %sw.epilog182.loopexit730, !llvm.loop !8
 
 sw.bb84:                                          ; preds = %if.end4
@@ -725,7 +725,7 @@ if.then22.i.i203:                                 ; preds = %for.body.i196
 
 if.then28.i.i200:                                 ; preds = %if.then22.i.i203, %for.body.i196
   %indvars.iv.next873 = add nsw i64 %indvars.iv872, 1
-  %cmp.i202 = icmp ugt i64 %indvars.iv.i197, 7
+  %cmp.i202 = icmp samesign ugt i64 %indvars.iv.i197, 7
   br i1 %cmp.i202, label %for.body.i196, label %sw.epilog182.loopexit731, !llvm.loop !8
 
 sw.bb96:                                          ; preds = %if.end4
@@ -781,7 +781,7 @@ if.then22.i.i.i:                                  ; preds = %for.body.i.i
 
 if.then28.i.i.i:                                  ; preds = %if.then22.i.i.i, %for.body.i.i
   %indvars.iv.next870 = add nsw i64 %indvars.iv869, 1
-  %cmp.i.i = icmp ugt i64 %indvars.iv.i.i, 7
+  %cmp.i.i = icmp samesign ugt i64 %indvars.iv.i.i, 7
   br i1 %cmp.i.i, label %for.body.i.i, label %_ZL14outputHexBytesliPcPii.exit.i, !llvm.loop !8
 
 _ZL14outputHexBytesliPcPii.exit.i:                ; preds = %if.then28.i.i.i
@@ -1088,7 +1088,7 @@ if.then22.i.i.i322:                               ; preds = %for.body.i.i311
 
 if.then28.i.i.i315:                               ; preds = %if.then22.i.i.i322, %for.body.i.i311
   %indvars.iv.next860 = add nsw i64 %indvars.iv859, 1
-  %cmp.i.i317 = icmp ugt i64 %indvars.iv.i.i312, 7
+  %cmp.i.i317 = icmp samesign ugt i64 %indvars.iv.i.i312, 7
   br i1 %cmp.i.i317, label %for.body.i.i311, label %_ZL14outputHexBytesliPcPii.exit.i318, !llvm.loop !8
 
 _ZL14outputHexBytesliPcPii.exit.i318:             ; preds = %if.then28.i.i.i315
@@ -1439,7 +1439,7 @@ if.then22.i.i494:                                 ; preds = %for.body.i487
 
 if.then28.i.i491:                                 ; preds = %if.then22.i.i494, %for.body.i487
   %indvars.iv.next863 = add nsw i64 %indvars.iv862, 1
-  %cmp.i493 = icmp ugt i64 %indvars.iv.i488, 7
+  %cmp.i493 = icmp samesign ugt i64 %indvars.iv.i488, 7
   br i1 %cmp.i493, label %for.body.i487, label %_ZL14outputHexBytesliPcPii.exit501, !llvm.loop !8
 
 _ZL14outputHexBytesliPcPii.exit501:               ; preds = %if.then28.i.i491
@@ -1595,7 +1595,7 @@ if.then22.i.i581:                                 ; preds = %for.body.i574
 
 if.then28.i.i578:                                 ; preds = %if.then22.i.i581, %for.body.i574
   %indvars.iv.next867 = add nsw i64 %indvars.iv866, 1
-  %cmp.i580 = icmp ugt i64 %indvars.iv.i575, 7
+  %cmp.i580 = icmp samesign ugt i64 %indvars.iv.i575, 7
   br i1 %cmp.i580, label %for.body.i574, label %_ZL14outputHexBytesliPcPii.exit588, !llvm.loop !8
 
 _ZL14outputHexBytesliPcPii.exit588:               ; preds = %if.then28.i.i578
@@ -1976,7 +1976,7 @@ if.then28.i.i:                                    ; preds = %if.then22.i.i, %for
   %17 = phi i32 [ %15, %for.body.i ], [ %.pre6.i, %if.then22.i.i ]
   %inc29.i.i = add nsw i32 %17, 1
   store i32 %inc29.i.i, ptr %outIx, align 4
-  %cmp.i = icmp ugt i64 %indvars.iv.i14, 7
+  %cmp.i = icmp samesign ugt i64 %indvars.iv.i14, 7
   br i1 %cmp.i, label %for.body.i, label %_ZL14outputHexBytesliPcPii.exit, !llvm.loop !8
 
 _ZL14outputHexBytesliPcPii.exit:                  ; preds = %if.then28.i.i

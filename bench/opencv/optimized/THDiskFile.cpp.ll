@@ -1376,7 +1376,7 @@ _ZN2THL24THDiskFile_reverseMemoryEPvPKvll.exit115: ; preds = %._crit_edge.us.i11
   %72 = sext i32 %71 to i64
   %73 = getelementptr inbounds i64, ptr %1, i64 %69
   store i64 %72, ptr %73, align 8
-  %74 = icmp ugt i64 %.088127, 1
+  %74 = icmp samesign ugt i64 %.088127, 1
   br i1 %74, label %.lr.ph, label %_ZN2THL24THDiskFile_reverseMemoryEPvPKvll.exit, !llvm.loop !9
 
 75:                                               ; preds = %36
@@ -1413,7 +1413,7 @@ _ZN2THL24THDiskFile_reverseMemoryEPvPKvll.exit115: ; preds = %._crit_edge.us.i11
   %88 = sext i32 %87 to i64
   %89 = getelementptr inbounds i64, ptr %1, i64 %85
   store i64 %88, ptr %89, align 8
-  %90 = icmp ugt i64 %.084128, 1
+  %90 = icmp samesign ugt i64 %.084128, 1
   br i1 %90, label %.lr.ph129, label %._crit_edge, !llvm.loop !10
 
 ._crit_edge:                                      ; preds = %.lr.ph129, %82

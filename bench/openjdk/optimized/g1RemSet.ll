@@ -3788,7 +3788,7 @@ define linkonce_odr hidden noundef ptr @_ZN12G1HeapRegion25oops_on_memregion_ite
   %23 = getelementptr inbounds i8, ptr %.014.i.i, i64 %.neg.i.i
   %.010.i.i = load volatile i8, ptr %23, align 1
   %24 = zext i8 %.010.i.i to i32
-  %.not.i.i = icmp ugt i32 %17, %24
+  %.not.i.i = icmp samesign ugt i32 %17, %24
   br i1 %.not.i.i, label %_ZNK18G1BlockOffsetTable30block_start_reaching_into_cardEPKv.exit.i, label %.lr.ph.i.i, !llvm.loop !30
 
 _ZNK18G1BlockOffsetTable30block_start_reaching_into_cardEPKv.exit.i: ; preds = %.lr.ph.i.i, %4
@@ -26893,7 +26893,7 @@ define linkonce_odr hidden noundef ptr @_ZN12G1HeapRegion25oops_on_memregion_ite
   %23 = getelementptr inbounds i8, ptr %.014.i.i, i64 %.neg.i.i
   %.010.i.i = load volatile i8, ptr %23, align 1
   %24 = zext i8 %.010.i.i to i32
-  %.not.i.i = icmp ugt i32 %17, %24
+  %.not.i.i = icmp samesign ugt i32 %17, %24
   br i1 %.not.i.i, label %_ZNK18G1BlockOffsetTable30block_start_reaching_into_cardEPKv.exit.i, label %.lr.ph.i.i, !llvm.loop !30
 
 _ZNK18G1BlockOffsetTable30block_start_reaching_into_cardEPKv.exit.i: ; preds = %.lr.ph.i.i, %4

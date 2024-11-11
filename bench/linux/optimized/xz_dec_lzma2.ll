@@ -114,7 +114,7 @@ define dso_local noundef range(i32 0, 8) i32 @xz_dec_lzma2_run(ptr noundef %0, p
   %70 = and i32 %69, 2031616
   store i32 %70, ptr %26, align 8
   store i32 1, ptr %3, align 8
-  %71 = icmp ugt i8 %45, -65
+  %71 = icmp samesign ugt i8 %45, -65
   br i1 %71, label %72, label %73
 
 72:                                               ; preds = %68
@@ -129,7 +129,7 @@ define dso_local noundef range(i32 0, 8) i32 @xz_dec_lzma2_run(ptr noundef %0, p
 
 76:                                               ; preds = %73
   store i32 6, ptr %33, align 4
-  %77 = icmp ugt i8 %45, -97
+  %77 = icmp samesign ugt i8 %45, -97
   br i1 %77, label %78, label %.backedge
 
 78:                                               ; preds = %76
@@ -151,7 +151,7 @@ define dso_local noundef range(i32 0, 8) i32 @xz_dec_lzma2_run(ptr noundef %0, p
   br label %.backedge
 
 85:                                               ; preds = %66
-  %86 = icmp ugt i8 %45, 2
+  %86 = icmp samesign ugt i8 %45, 2
   br i1 %86, label %.loopexit, label %87
 
 87:                                               ; preds = %85
@@ -432,7 +432,7 @@ define dso_local noundef range(i32 0, 8) i32 @xz_dec_lzma2_run(ptr noundef %0, p
   %254 = sub i32 %252, %253
   store i32 %254, ptr %4, align 4
   %255 = zext i32 %247 to i64
-  %256 = icmp ult i64 %246, %255
+  %256 = icmp samesign ult i64 %246, %255
   br i1 %256, label %257, label %261
 
 257:                                              ; preds = %251

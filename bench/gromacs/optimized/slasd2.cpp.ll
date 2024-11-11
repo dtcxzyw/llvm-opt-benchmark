@@ -90,7 +90,7 @@ define void @slasd2_(ptr noundef %0, ptr noundef %1, ptr nocapture noundef reado
   %82 = getelementptr i32, ptr %20, i64 %indvars.iv
   store i32 %81, ptr %82, align 4
   %indvars.iv.next = add nsw i64 %indvars.iv, -1
-  %83 = icmp ugt i64 %indvars.iv, 1
+  %83 = icmp samesign ugt i64 %indvars.iv, 1
   br i1 %83, label %.lr.ph, label %._crit_edge, !llvm.loop !4
 
 ._crit_edge:                                      ; preds = %.lr.ph, %23

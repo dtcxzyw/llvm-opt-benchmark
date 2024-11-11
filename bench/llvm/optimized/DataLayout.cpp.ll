@@ -1687,7 +1687,7 @@ _ZN4llvm10to_integerIjEEbNS_9StringRefERT_j.exit.thread: ; preds = %28, %26
 30:                                               ; preds = %28
   %31 = trunc nuw i64 %29 to i32
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %11)
-  %32 = icmp ult i64 %29, 65536
+  %32 = icmp samesign ult i64 %29, 65536
   br i1 %32, label %41, label %33
 
 33:                                               ; preds = %_ZN4llvm10to_integerIjEEbNS_9StringRefERT_j.exit.thread, %30
@@ -2280,7 +2280,7 @@ _ZN4llvm10to_integerIjEEbNS_9StringRefERT_j.exit.thread: ; preds = %18, %16
   %21 = trunc nuw i64 %19 to i32
   store i32 %21, ptr %3, align 4
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %9)
-  %22 = icmp ult i64 %19, 16777216
+  %22 = icmp samesign ult i64 %19, 16777216
   br i1 %22, label %_ZN4llvm12ErrorSuccessD2Ev.exit, label %23
 
 23:                                               ; preds = %_ZN4llvm10to_integerIjEEbNS_9StringRefERT_j.exit.thread, %20

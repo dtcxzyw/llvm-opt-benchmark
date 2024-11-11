@@ -2897,7 +2897,7 @@ _ZN4absl7debian28AlphaNumC2El.exit:               ; preds = %_ZN4absl7debian28Al
 33:                                               ; preds = %27
   store i64 %3, ptr %11, align 8
   store i32 5, ptr %12, align 4
-  %34 = icmp ult i64 %3, 5
+  %34 = icmp samesign ult i64 %3, 5
   br i1 %34, label %39, label %35
 
 35:                                               ; preds = %33

@@ -4874,7 +4874,7 @@ define internal fastcc void @dissect_pfcp_ies_common(ptr noundef %0, ptr noundef
 31:                                               ; preds = %.lr.ph
   %32 = zext nneg i16 %15 to i32
   %33 = zext nneg i16 %15 to i64
-  %34 = icmp ult i16 %15, 346
+  %34 = icmp samesign ult i16 %15, 346
   %35 = getelementptr [346 x i32], ptr @ett_pfcp_elem, i64 0, i64 %33
   %.0.in = select i1 %34, ptr %35, ptr @ett_pfcp_ie
   %.0 = load i32, ptr %.0.in, align 4
@@ -5341,7 +5341,7 @@ define internal void @dissect_pfcp_f_teid(ptr noundef %0, ptr noundef %1, ptr no
 43:                                               ; preds = %38, %41, %11, %13
   %.0 = phi i32 [ 2, %13 ], [ 1, %11 ], [ %.2, %41 ], [ %.2, %38 ]
   %44 = zext i16 %4 to i32
-  %45 = icmp ult i32 %.0, %44
+  %45 = icmp samesign ult i32 %.0, %44
   br i1 %45, label %46, label %48
 
 46:                                               ; preds = %43
@@ -5687,7 +5687,7 @@ define internal void @dissect_pfcp_volume_threshold(ptr noundef %0, ptr noundef 
 28:                                               ; preds = %24, %21
   %.2 = phi i32 [ %27, %24 ], [ %.1, %21 ]
   %29 = zext i16 %4 to i32
-  %30 = icmp ult i32 %.2, %29
+  %30 = icmp samesign ult i32 %.2, %29
   br i1 %30, label %31, label %33
 
 31:                                               ; preds = %28
@@ -5781,7 +5781,7 @@ define internal void @dissect_pfcp_subseq_volume_threshold(ptr noundef %0, ptr n
 28:                                               ; preds = %24, %21
   %.2 = phi i32 [ %27, %24 ], [ %.1, %21 ]
   %29 = zext i16 %4 to i32
-  %30 = icmp ult i32 %.2, %29
+  %30 = icmp samesign ult i32 %.2, %29
   br i1 %30, label %31, label %33
 
 31:                                               ; preds = %28
@@ -6099,7 +6099,7 @@ define internal void @dissect_pfcp_dl_data_service_inf(ptr noundef %0, ptr nound
 25:                                               ; preds = %19, %16
   %.1 = phi i32 [ %24, %19 ], [ %.0, %16 ]
   %26 = zext i16 %4 to i32
-  %27 = icmp ult i32 %.1, %26
+  %27 = icmp samesign ult i32 %.1, %26
   br i1 %27, label %28, label %30
 
 28:                                               ; preds = %25
@@ -7195,7 +7195,7 @@ define internal void @dissect_pfcp_volume_measurement(ptr noundef %0, ptr nounde
 49:                                               ; preds = %45, %42
   %.5 = phi i32 [ %48, %45 ], [ %.4, %42 ]
   %50 = zext i16 %4 to i32
-  %51 = icmp ult i32 %.5, %50
+  %51 = icmp samesign ult i32 %.5, %50
   br i1 %51, label %52, label %54
 
 52:                                               ; preds = %49
@@ -7313,7 +7313,7 @@ define internal void @dissect_pfcp_dropped_dl_traffic_threshold(ptr noundef %0, 
 21:                                               ; preds = %17, %14
   %.1 = phi i32 [ %20, %17 ], [ %.0, %14 ]
   %22 = zext i16 %4 to i32
-  %23 = icmp ult i32 %.1, %22
+  %23 = icmp samesign ult i32 %.1, %22
   br i1 %23, label %24, label %26
 
 24:                                               ; preds = %21
@@ -7369,7 +7369,7 @@ define internal void @dissect_pfcp_volume_quota(ptr noundef %0, ptr noundef %1, 
 28:                                               ; preds = %24, %21
   %.2 = phi i32 [ %27, %24 ], [ %.1, %21 ]
   %29 = zext i16 %4 to i32
-  %30 = icmp ult i32 %.2, %29
+  %30 = icmp samesign ult i32 %.2, %29
   br i1 %30, label %31, label %33
 
 31:                                               ; preds = %28
@@ -7634,7 +7634,7 @@ define internal void @dissect_pfcp_outer_header_creation(ptr noundef %0, ptr nou
 61:                                               ; preds = %51, %48
   %.5 = phi i32 [ %60, %51 ], [ %.4, %48 ]
   %62 = zext i16 %4 to i32
-  %63 = icmp ult i32 %.5, %62
+  %63 = icmp samesign ult i32 %.5, %62
   br i1 %63, label %64, label %66
 
 64:                                               ; preds = %61
@@ -7849,7 +7849,7 @@ define internal void @dissect_pfcp_ue_ip_address(ptr noundef %0, ptr noundef %1,
 35:                                               ; preds = %31, %28
   %.3 = phi i32 [ %34, %31 ], [ %.2, %28 ]
   %36 = zext i16 %4 to i32
-  %37 = icmp ult i32 %.3, %36
+  %37 = icmp samesign ult i32 %.3, %36
   br i1 %37, label %38, label %40
 
 38:                                               ; preds = %35
@@ -7943,7 +7943,7 @@ define internal void @dissect_pfcp_packet_rate(ptr noundef %0, ptr noundef %1, p
 56:                                               ; preds = %44, %47, %30
   %.2 = phi i32 [ %55, %47 ], [ %.3, %44 ], [ %.1, %30 ]
   %57 = zext i16 %4 to i32
-  %58 = icmp ult i32 %.2, %57
+  %58 = icmp samesign ult i32 %.2, %57
   br i1 %58, label %59, label %61
 
 59:                                               ; preds = %56
@@ -8036,7 +8036,7 @@ define internal void @dissect_pfcp_dl_flow_level_marking(ptr noundef %0, ptr nou
 23:                                               ; preds = %19, %16
   %.1 = phi i32 [ %22, %19 ], [ %.0, %16 ]
   %24 = zext i16 %4 to i32
-  %25 = icmp ult i32 %.1, %24
+  %25 = icmp samesign ult i32 %.1, %24
   br i1 %25, label %26, label %28
 
 26:                                               ; preds = %23
@@ -8732,7 +8732,7 @@ define internal void @dissect_pfcp_subsequent_volume_quota(ptr noundef %0, ptr n
 28:                                               ; preds = %24, %21
   %.2 = phi i32 [ %27, %24 ], [ %.1, %21 ]
   %29 = zext i16 %4 to i32
-  %30 = icmp ult i32 %.2, %29
+  %30 = icmp samesign ult i32 %.2, %29
   br i1 %30, label %31, label %33
 
 31:                                               ; preds = %28
@@ -8898,7 +8898,7 @@ define internal void @dissect_pfcp_mac_address(ptr noundef %0, ptr noundef %1, p
 35:                                               ; preds = %31, %28
   %.3 = phi i32 [ %34, %31 ], [ %.2, %28 ]
   %36 = zext i16 %4 to i32
-  %37 = icmp ult i32 %.3, %36
+  %37 = icmp samesign ult i32 %.3, %36
   br i1 %37, label %38, label %40
 
 38:                                               ; preds = %35
@@ -9880,7 +9880,7 @@ define internal void @dissect_pfcp_alternative_smf_ip_address(ptr noundef %0, pt
 27:                                               ; preds = %20, %17
   %.1 = phi i32 [ %26, %20 ], [ %.0, %17 ]
   %28 = zext i16 %4 to i32
-  %29 = icmp ult i32 %.1, %28
+  %29 = icmp samesign ult i32 %.1, %28
   br i1 %29, label %30, label %32
 
 30:                                               ; preds = %27
@@ -10031,7 +10031,7 @@ define internal void @dissect_pfcp_cp_pfcp_entity_ip_address(ptr noundef %0, ptr
 27:                                               ; preds = %20, %17
   %.1 = phi i32 [ %26, %20 ], [ %.0, %17 ]
   %28 = zext i16 %4 to i32
-  %29 = icmp ult i32 %.1, %28
+  %29 = icmp samesign ult i32 %.1, %28
   br i1 %29, label %30, label %32
 
 30:                                               ; preds = %27
@@ -10125,7 +10125,7 @@ define internal void @dissect_pfcp_ip_multicast_address(ptr noundef %0, ptr noun
 39:                                               ; preds = %23, %35, %32, %7
   %.0 = phi i32 [ 1, %7 ], [ %38, %35 ], [ %.3, %32 ], [ %.2, %23 ]
   %40 = zext i16 %4 to i32
-  %41 = icmp ult i32 %.0, %40
+  %41 = icmp samesign ult i32 %.0, %40
   br i1 %41, label %42, label %44
 
 42:                                               ; preds = %39
@@ -10193,7 +10193,7 @@ define internal void @dissect_pfcp_source_ip_address(ptr noundef %0, ptr noundef
 37:                                               ; preds = %30, %27
   %.2 = phi i32 [ %36, %30 ], [ %.1, %27 ]
   %38 = zext i16 %4 to i32
-  %39 = icmp ult i32 %.2, %38
+  %39 = icmp samesign ult i32 %.2, %38
   br i1 %39, label %40, label %42
 
 40:                                               ; preds = %37
@@ -10252,7 +10252,7 @@ define internal void @dissect_pfcp_packet_rate_status(ptr noundef %0, ptr nounde
 32:                                               ; preds = %22, %28, %19
   %.1 = phi i32 [ %31, %28 ], [ %25, %22 ], [ %.0, %19 ]
   %33 = zext i16 %4 to i32
-  %34 = icmp ult i32 %.1, %33
+  %34 = icmp samesign ult i32 %.1, %33
   br i1 %34, label %35, label %39
 
 35:                                               ; preds = %32
@@ -10263,7 +10263,7 @@ define internal void @dissect_pfcp_packet_rate_status(ptr noundef %0, ptr nounde
 
 39:                                               ; preds = %35, %32
   %.2 = phi i32 [ %38, %35 ], [ %.1, %32 ]
-  %40 = icmp ult i32 %.2, %33
+  %40 = icmp samesign ult i32 %.2, %33
   br i1 %40, label %41, label %43
 
 41:                                               ; preds = %39
@@ -10654,7 +10654,7 @@ define internal void @dissect_pfcp_mptcp_address_information(ptr noundef %0, ptr
 31:                                               ; preds = %24, %21
   %.1 = phi i32 [ %30, %24 ], [ %.0, %21 ]
   %32 = zext i16 %4 to i32
-  %33 = icmp ult i32 %.1, %32
+  %33 = icmp samesign ult i32 %.1, %32
   br i1 %33, label %34, label %36
 
 34:                                               ; preds = %31
@@ -10724,7 +10724,7 @@ define internal void @dissect_pfcp_link_specific_multipath_ip_address(ptr nounde
 35:                                               ; preds = %31, %28
   %.3 = phi i32 [ %34, %31 ], [ %.2, %28 ]
   %36 = zext i16 %4 to i32
-  %37 = icmp ult i32 %.3, %36
+  %37 = icmp samesign ult i32 %.3, %36
   br i1 %37, label %38, label %40
 
 38:                                               ; preds = %35
@@ -10794,7 +10794,7 @@ define internal void @dissect_pfcp_pmf_address_information(ptr noundef %0, ptr n
 .thread:                                          ; preds = %21, %35, %30
   %.3 = phi i32 [ %38, %35 ], [ %33, %30 ], [ %27, %21 ]
   %39 = zext i16 %4 to i32
-  %40 = icmp ult i32 %.3, %39
+  %40 = icmp samesign ult i32 %.3, %39
   br i1 %40, label %41, label %43
 
 41:                                               ; preds = %.thread
@@ -10981,7 +10981,7 @@ define internal void @dissect_pfcp_packet_delay_thresholds(ptr noundef %0, ptr n
 28:                                               ; preds = %24, %21
   %.2 = phi i32 [ %27, %24 ], [ %.1, %21 ]
   %29 = zext i16 %4 to i32
-  %30 = icmp ult i32 %.2, %29
+  %30 = icmp samesign ult i32 %.2, %29
   br i1 %30, label %31, label %33
 
 31:                                               ; preds = %28
@@ -11109,7 +11109,7 @@ define internal void @dissect_pfcp_qos_monitoring_measurement(ptr noundef %0, pt
 56:                                               ; preds = %52, %49
   %.6 = phi i32 [ %55, %52 ], [ %.5, %49 ]
   %57 = zext i16 %4 to i32
-  %58 = icmp ult i32 %.6, %57
+  %58 = icmp samesign ult i32 %.6, %57
   br i1 %58, label %59, label %61
 
 59:                                               ; preds = %56
@@ -11299,7 +11299,7 @@ define internal void @dissect_pfcp_number_of_ue_ip_addresses(ptr noundef %0, ptr
 21:                                               ; preds = %17, %14
   %.1 = phi i32 [ %20, %17 ], [ %.0, %14 ]
   %22 = zext i16 %4 to i32
-  %23 = icmp ult i32 %.1, %22
+  %23 = icmp samesign ult i32 %.1, %22
   br i1 %23, label %24, label %26
 
 24:                                               ; preds = %21
@@ -11596,7 +11596,7 @@ define internal void @dissect_pfcp_thresholds(ptr noundef %0, ptr noundef %1, pt
 21:                                               ; preds = %17, %14
   %.1 = phi i32 [ %20, %17 ], [ %.0, %14 ]
   %22 = zext i16 %4 to i32
-  %23 = icmp ult i32 %.1, %22
+  %23 = icmp samesign ult i32 %.1, %22
   br i1 %23, label %24, label %26
 
 24:                                               ; preds = %21
@@ -11668,7 +11668,7 @@ define internal void @dissect_pfcp_cp_ip_address(ptr noundef %0, ptr noundef %1,
 27:                                               ; preds = %20, %17
   %.1 = phi i32 [ %26, %20 ], [ %.0, %17 ]
   %28 = zext i16 %4 to i32
-  %29 = icmp ult i32 %.1, %28
+  %29 = icmp samesign ult i32 %.1, %28
   br i1 %29, label %30, label %32
 
 30:                                               ; preds = %27
@@ -11766,7 +11766,7 @@ define internal void @dissect_pfcp_ip_address_and_port_number_replacement(ptr no
 49:                                               ; preds = %45, %42
   %.5 = phi i32 [ %48, %45 ], [ %.4, %42 ]
   %50 = zext i16 %4 to i32
-  %51 = icmp ult i32 %.5, %50
+  %51 = icmp samesign ult i32 %.5, %50
   br i1 %51, label %52, label %54
 
 52:                                               ; preds = %49
@@ -12063,7 +12063,7 @@ define internal void @dissect_pfcp_local_ingress_tunnel(ptr noundef %0, ptr noun
 26:                                               ; preds = %19, %22, %7
   %.0 = phi i32 [ %25, %22 ], [ %.1, %19 ], [ 1, %7 ]
   %27 = zext i16 %4 to i32
-  %28 = icmp ult i32 %.0, %27
+  %28 = icmp samesign ult i32 %.0, %27
   br i1 %28, label %29, label %31
 
 29:                                               ; preds = %26
@@ -12379,7 +12379,7 @@ define internal void @dissect_pfcp_mpquic_address_information(ptr noundef %0, pt
 25:                                               ; preds = %21, %18
   %.1 = phi i32 [ %24, %21 ], [ %.0, %18 ]
   %26 = zext i16 %4 to i32
-  %27 = icmp ult i32 %.1, %26
+  %27 = icmp samesign ult i32 %.1, %26
   br i1 %27, label %28, label %30
 
 28:                                               ; preds = %25

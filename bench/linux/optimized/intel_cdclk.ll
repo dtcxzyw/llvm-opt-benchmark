@@ -2552,7 +2552,7 @@ default.unreachable:                              ; preds = %58
   br label %138
 
 130:                                              ; preds = %124
-  %131 = icmp ult i16 %113, 4
+  %131 = icmp samesign ult i16 %113, 4
   br i1 %131, label %132, label %135
 
 132:                                              ; preds = %130
@@ -2827,7 +2827,7 @@ define dso_local void @intel_init_cdclk_hooks(ptr noundef %0) local_unnamed_addr
   br label %.thread
 
 8:                                                ; preds = %1
-  %9 = icmp ugt i16 %3, 13
+  %9 = icmp samesign ugt i16 %3, 13
   br i1 %9, label %10, label %13
 
 10:                                               ; preds = %8
@@ -2935,7 +2935,7 @@ define dso_local void @intel_init_cdclk_hooks(ptr noundef %0) local_unnamed_addr
   br label %.thread
 
 65:                                               ; preds = %59
-  %66 = icmp ugt i16 %3, 11
+  %66 = icmp samesign ugt i16 %3, 11
   br i1 %66, label %67, label %70
 
 67:                                               ; preds = %65
@@ -3337,7 +3337,7 @@ define internal void @bxt_set_cdclk(ptr noundef %0, ptr nocapture noundef readon
   br i1 %12, label %13, label %.thread
 
 13:                                               ; preds = %8
-  %14 = icmp ugt i16 %6, 10
+  %14 = icmp samesign ugt i16 %6, 10
   %15 = getelementptr inbounds i8, ptr %0, i64 7368
   br i1 %14, label %16, label %18
 
@@ -6057,15 +6057,15 @@ define internal range(i32 -2147483648, 1) i32 @bdw_modeset_calc_cdclk(ptr nounde
   br i1 %3, label %42, label %4
 
 4:                                                ; preds = %1
-  %5 = icmp ugt i32 %2, 540000
+  %5 = icmp samesign ugt i32 %2, 540000
   br i1 %5, label %14, label %6
 
 6:                                                ; preds = %4
-  %7 = icmp ugt i32 %2, 450000
+  %7 = icmp samesign ugt i32 %2, 450000
   br i1 %7, label %12, label %8
 
 8:                                                ; preds = %6
-  %9 = icmp ugt i32 %2, 337500
+  %9 = icmp samesign ugt i32 %2, 337500
   %10 = getelementptr inbounds i8, ptr %0, i64 24
   br i1 %9, label %11, label %.thread
 
@@ -6364,12 +6364,12 @@ define internal range(i32 -2147483648, 1) i32 @vlv_modeset_calc_cdclk(ptr nounde
   %16 = load i32, ptr %15, align 4
   %17 = and i32 %16, 2097152
   %18 = icmp ne i32 %17, 0
-  %19 = icmp ult i32 %14, %6
+  %19 = icmp samesign ult i32 %14, %6
   %20 = select i1 %18, i1 %19, i1 false
   br i1 %20, label %.thread, label %21
 
 21:                                               ; preds = %8
-  %22 = icmp ugt i32 %6, 266667
+  %22 = icmp samesign ugt i32 %6, 266667
   %23 = icmp ne i32 %6, 0
   %24 = select i1 %23, i32 266667, i32 200000
   %25 = select i1 %22, i32 %14, i32 %24

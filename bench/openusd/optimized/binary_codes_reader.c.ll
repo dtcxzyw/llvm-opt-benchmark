@@ -23,7 +23,7 @@ define hidden zeroext i16 @aom_read_primitive_quniform_(ptr noundef %0, i16 noun
   %10 = tail call i32 @od_ec_decode_bool_q15(ptr noundef nonnull %8, i32 noundef 16384) #3
   %11 = shl i32 %10, %.0.i
   %12 = or i32 %11, %.067.i
-  %13 = icmp ugt i32 %.0.in8.i, 1
+  %13 = icmp samesign ugt i32 %.0.in8.i, 1
   br i1 %13, label %9, label %aom_read_literal_.exit, !llvm.loop !4
 
 aom_read_literal_.exit:                           ; preds = %9
@@ -84,7 +84,7 @@ define hidden zeroext i16 @aom_read_primitive_subexpfin_(ptr noundef %0, i16 nou
   %16 = tail call i32 @od_ec_decode_bool_q15(ptr noundef nonnull %14, i32 noundef 16384) #3
   %17 = shl i32 %16, %.0.i.i
   %18 = or i32 %17, %.067.i.i
-  %19 = icmp ugt i32 %.0.in8.i.i, 1
+  %19 = icmp samesign ugt i32 %.0.in8.i.i, 1
   br i1 %19, label %15, label %aom_read_literal_.exit.i, !llvm.loop !4
 
 aom_read_literal_.exit.i:                         ; preds = %15
@@ -129,7 +129,7 @@ aom_read_primitive_quniform_.exit:                ; preds = %._crit_edge, %28
   %37 = tail call i32 @od_ec_decode_bool_q15(ptr noundef nonnull %7, i32 noundef 16384) #3
   %38 = shl i32 %37, %.0.i24
   %39 = or i32 %38, %.067.i
-  %40 = icmp ugt i32 %.0.in8.i, 1
+  %40 = icmp samesign ugt i32 %.0.in8.i, 1
   br i1 %40, label %.lr.ph.i, label %aom_read_literal_.exit, !llvm.loop !4
 
 aom_read_literal_.exit:                           ; preds = %.lr.ph.i, %35

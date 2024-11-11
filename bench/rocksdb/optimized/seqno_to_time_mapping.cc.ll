@@ -160,7 +160,7 @@ while.body.i.i:                                   ; preds = %entry, %if.end.i.i
   br i1 %cmp.i15.i.i.i.i, label %land.lhs.true.i.i.i.i.i, label %cond.false.i.i.i.i.i
 
 land.lhs.true.i.i.i.i.i:                          ; preds = %while.body.i.i
-  %cmp2.i.i.i.i.i = icmp ult i64 %add.i.i.i21.i.i, 32
+  %cmp2.i.i.i.i.i = icmp samesign ult i64 %add.i.i.i21.i.i, 32
   br i1 %cmp2.i.i.i.i.i, label %if.then.i19.i.i.i.i, label %cond.true.i.i.i.i.i
 
 if.then.i19.i.i.i.i:                              ; preds = %land.lhs.true.i.i.i.i.i
@@ -295,7 +295,7 @@ while.body.i.i:                                   ; preds = %entry, %if.end.i.i
   br i1 %cmp.i15.i.i.i.i, label %land.lhs.true.i.i.i.i.i, label %cond.false.i.i.i.i.i
 
 land.lhs.true.i.i.i.i.i:                          ; preds = %while.body.i.i
-  %cmp2.i.i.i.i.i = icmp ult i64 %add.i.i.i21.i.i, 32
+  %cmp2.i.i.i.i.i = icmp samesign ult i64 %add.i.i.i21.i.i, 32
   br i1 %cmp2.i.i.i.i.i, label %if.then.i19.i.i.i.i, label %cond.true.i.i.i.i.i
 
 if.then.i19.i.i.i.i:                              ; preds = %land.lhs.true.i.i.i.i.i
@@ -429,7 +429,7 @@ while.body.i.i:                                   ; preds = %entry, %if.end.i.i
   br i1 %cmp.i15.i.i.i.i, label %land.lhs.true.i.i.i.i.i, label %cond.false.i.i.i.i.i
 
 land.lhs.true.i.i.i.i.i:                          ; preds = %while.body.i.i
-  %cmp2.i.i.i.i.i = icmp ult i64 %add.i.i.i21.i.i, 32
+  %cmp2.i.i.i.i.i = icmp samesign ult i64 %add.i.i.i21.i.i, 32
   br i1 %cmp2.i.i.i.i.i, label %if.then.i19.i.i.i.i, label %cond.true.i.i.i.i.i
 
 if.then.i19.i.i.i.i:                              ; preds = %land.lhs.true.i.i.i.i.i
@@ -564,7 +564,7 @@ while.body.i.i.i:                                 ; preds = %while.body.i.i.i.pr
   br i1 %cmp.i15.i.i.i.i.i, label %land.lhs.true.i.i.i.i.i.i, label %cond.false.i.i.i.i.i.i
 
 land.lhs.true.i.i.i.i.i.i:                        ; preds = %while.body.i.i.i
-  %cmp2.i.i.i.i.i.i = icmp ult i64 %add.i.i.i21.i.i.i, 32
+  %cmp2.i.i.i.i.i.i = icmp samesign ult i64 %add.i.i.i21.i.i.i, 32
   br i1 %cmp2.i.i.i.i.i.i, label %if.then.i19.i.i.i.i.i, label %cond.true.i.i.i.i.i.i
 
 if.then.i19.i.i.i.i.i:                            ; preds = %land.lhs.true.i.i.i.i.i.i
@@ -758,7 +758,7 @@ while.body.i.i.i:                                 ; preds = %while.body.i.i.i.pr
   br i1 %cmp.i15.i.i.i.i.i, label %land.lhs.true.i.i.i.i.i.i, label %cond.false.i.i.i.i.i.i
 
 land.lhs.true.i.i.i.i.i.i:                        ; preds = %while.body.i.i.i
-  %cmp2.i.i.i.i.i.i = icmp ult i64 %add.i.i.i21.i.i.i, 32
+  %cmp2.i.i.i.i.i.i = icmp samesign ult i64 %add.i.i.i21.i.i.i, 32
   br i1 %cmp2.i.i.i.i.i.i, label %if.then.i19.i.i.i.i.i, label %cond.true.i.i.i.i.i.i
 
 if.then.i19.i.i.i.i.i:                            ; preds = %land.lhs.true.i.i.i.i.i.i
@@ -929,7 +929,7 @@ while.body.i.i.i:                                 ; preds = %while.body.i.i.i.pr
   br i1 %cmp.i15.i.i.i.i.i, label %land.lhs.true.i.i.i.i.i.i, label %cond.false.i.i.i.i.i.i
 
 land.lhs.true.i.i.i.i.i.i:                        ; preds = %while.body.i.i.i
-  %cmp2.i.i.i.i.i.i = icmp ult i64 %add.i.i.i21.i.i.i, 32
+  %cmp2.i.i.i.i.i.i = icmp samesign ult i64 %add.i.i.i21.i.i.i, 32
   br i1 %cmp2.i.i.i.i.i.i, label %if.then.i19.i.i.i.i.i, label %cond.true.i.i.i.i.i.i
 
 if.then.i19.i.i.i.i.i:                            ; preds = %land.lhs.true.i.i.i.i.i.i
@@ -1079,7 +1079,7 @@ while.body.i.i.i:                                 ; preds = %if.end, %if.end.i.i
   br i1 %cmp.i15.i.i.i.i.i, label %land.lhs.true.i.i.i.i.i.i, label %cond.false.i.i.i.i.i.i
 
 land.lhs.true.i.i.i.i.i.i:                        ; preds = %while.body.i.i.i
-  %cmp2.i.i.i.i.i.i = icmp ult i64 %add.i.i.i21.i.i.i, 32
+  %cmp2.i.i.i.i.i.i = icmp samesign ult i64 %add.i.i.i21.i.i.i, 32
   br i1 %cmp2.i.i.i.i.i.i, label %if.then.i19.i.i.i.i.i, label %cond.true.i.i.i.i.i.i
 
 if.then.i19.i.i.i.i.i:                            ; preds = %land.lhs.true.i.i.i.i.i.i
@@ -1187,7 +1187,7 @@ while.body.i.i.i48:                               ; preds = %if.end3, %if.end.i.
   br i1 %cmp.i15.i.i.i.i.i63, label %land.lhs.true.i.i.i.i.i.i98, label %cond.false.i.i.i.i.i.i64
 
 land.lhs.true.i.i.i.i.i.i98:                      ; preds = %while.body.i.i.i48
-  %cmp2.i.i.i.i.i.i99 = icmp ult i64 %add.i.i.i21.i.i.i62, 32
+  %cmp2.i.i.i.i.i.i99 = icmp samesign ult i64 %add.i.i.i21.i.i.i62, 32
   br i1 %cmp2.i.i.i.i.i.i99, label %if.then.i19.i.i.i.i.i102, label %cond.true.i.i.i.i.i.i100
 
 if.then.i19.i.i.i.i.i102:                         ; preds = %land.lhs.true.i.i.i.i.i.i98
@@ -2255,7 +2255,7 @@ if.then4:                                         ; preds = %if.else
   br i1 %cmp.i.i, label %land.lhs.true.i.i, label %cond.false.i.i
 
 land.lhs.true.i.i:                                ; preds = %if.then4
-  %cmp2.i.i = icmp ult i64 %add.i.i49, 32
+  %cmp2.i.i = icmp samesign ult i64 %add.i.i49, 32
   br i1 %cmp2.i.i, label %if.then.i.i, label %cond.true.i.i
 
 if.then.i.i:                                      ; preds = %land.lhs.true.i.i
@@ -2852,7 +2852,7 @@ while.body.i.i.i:                                 ; preds = %entry, %if.end.i.i.
   br i1 %cmp.i15.i.i.i.i.i, label %land.lhs.true.i.i.i.i.i.i, label %cond.false.i.i.i.i.i.i
 
 land.lhs.true.i.i.i.i.i.i:                        ; preds = %while.body.i.i.i
-  %cmp2.i.i.i.i.i.i = icmp ult i64 %add.i.i.i21.i.i.i, 32
+  %cmp2.i.i.i.i.i.i = icmp samesign ult i64 %add.i.i.i21.i.i.i, 32
   br i1 %cmp2.i.i.i.i.i.i, label %if.then.i19.i.i.i.i.i, label %cond.true.i.i.i.i.i.i
 
 if.then.i19.i.i.i.i.i:                            ; preds = %land.lhs.true.i.i.i.i.i.i
@@ -3590,7 +3590,7 @@ if.end:                                           ; preds = %if.then14, %if.then
   br i1 %cmp.i.i104, label %land.lhs.true.i.i, label %_ZStplRKSt15_Deque_iteratorIN7rocksdb18SeqnoToTimeMapping13SeqnoTimePairERS2_PS2_El.exit
 
 land.lhs.true.i.i:                                ; preds = %if.end
-  %cmp2.i.i = icmp ult i64 %add.i.i103, 32
+  %cmp2.i.i = icmp samesign ult i64 %add.i.i103, 32
   br i1 %cmp2.i.i, label %_ZStplRKSt15_Deque_iteratorIN7rocksdb18SeqnoToTimeMapping13SeqnoTimePairERS2_PS2_El.exit.thread, label %_ZStplRKSt15_Deque_iteratorIN7rocksdb18SeqnoToTimeMapping13SeqnoTimePairERS2_PS2_El.exit.thread256
 
 _ZStplRKSt15_Deque_iteratorIN7rocksdb18SeqnoToTimeMapping13SeqnoTimePairERS2_PS2_El.exit.thread: ; preds = %land.lhs.true.i.i
@@ -3693,7 +3693,7 @@ if.end27:                                         ; preds = %if.then22, %if.else
   br i1 %cmp.i.i.i179, label %land.lhs.true.i.i.i, label %_ZStmiRKSt15_Deque_iteratorIN7rocksdb18SeqnoToTimeMapping13SeqnoTimePairERS2_PS2_El.exit.thread267
 
 land.lhs.true.i.i.i:                              ; preds = %if.end27
-  %cmp2.i.i.i = icmp ult i64 %add.i.i.i, 32
+  %cmp2.i.i.i = icmp samesign ult i64 %add.i.i.i, 32
   br i1 %cmp2.i.i.i, label %_ZStmiRKSt15_Deque_iteratorIN7rocksdb18SeqnoToTimeMapping13SeqnoTimePairERS2_PS2_El.exit.thread, label %_ZStmiRKSt15_Deque_iteratorIN7rocksdb18SeqnoToTimeMapping13SeqnoTimePairERS2_PS2_El.exit
 
 _ZStmiRKSt15_Deque_iteratorIN7rocksdb18SeqnoToTimeMapping13SeqnoTimePairERS2_PS2_El.exit.thread: ; preds = %land.lhs.true.i.i.i
@@ -3762,7 +3762,7 @@ if.end30:                                         ; preds = %_ZNSt5dequeIN7rocks
   br i1 %cmp.i.i205, label %land.lhs.true.i.i216, label %cond.false.i.i206
 
 land.lhs.true.i.i216:                             ; preds = %if.end30
-  %cmp2.i.i217 = icmp ult i64 %add.i.i204, 32
+  %cmp2.i.i217 = icmp samesign ult i64 %add.i.i204, 32
   br i1 %cmp2.i.i217, label %if.then.i.i220, label %cond.true.i.i218
 
 if.then.i.i220:                                   ; preds = %land.lhs.true.i.i216
@@ -3870,7 +3870,7 @@ if.then.i.i.i.i:                                  ; preds = %if.end.i, %if.end.t
   br i1 %cmp.i.i.i, label %land.lhs.true.i.i.i, label %cond.false.i.i.i
 
 land.lhs.true.i.i.i:                              ; preds = %if.then.i.i.i.i
-  %cmp2.i.i.i = icmp ult i64 %add.i.i.i, 32
+  %cmp2.i.i.i = icmp samesign ult i64 %add.i.i.i, 32
   br i1 %cmp2.i.i.i, label %if.then.i.i.i, label %cond.true.i.i.i
 
 if.then.i.i.i:                                    ; preds = %land.lhs.true.i.i.i
@@ -3972,7 +3972,7 @@ if.then.i.i.i.i40:                                ; preds = %if.end.i34, %if.end
   br i1 %cmp.i.i.i55, label %land.lhs.true.i.i.i69, label %cond.false.i.i.i56
 
 land.lhs.true.i.i.i69:                            ; preds = %if.then.i.i.i.i40
-  %cmp2.i.i.i70 = icmp ult i64 %add.i.i.i54, 32
+  %cmp2.i.i.i70 = icmp samesign ult i64 %add.i.i.i54, 32
   br i1 %cmp2.i.i.i70, label %if.then.i.i.i73, label %cond.true.i.i.i71
 
 if.then.i.i.i73:                                  ; preds = %land.lhs.true.i.i.i69
@@ -4074,7 +4074,7 @@ if.then.i.i.i.i113:                               ; preds = %if.end.i107, %if.en
   br i1 %cmp.i.i.i128, label %land.lhs.true.i.i.i142, label %cond.false.i.i.i129
 
 land.lhs.true.i.i.i142:                           ; preds = %if.then.i.i.i.i113
-  %cmp2.i.i.i143 = icmp ult i64 %add.i.i.i127, 32
+  %cmp2.i.i.i143 = icmp samesign ult i64 %add.i.i.i127, 32
   br i1 %cmp2.i.i.i143, label %if.then.i.i.i146, label %cond.true.i.i.i144
 
 if.then.i.i.i146:                                 ; preds = %land.lhs.true.i.i.i142
@@ -4168,7 +4168,7 @@ if.then.i.i.i.i186:                               ; preds = %if.end.i180, %if.en
   br i1 %cmp.i.i.i201, label %land.lhs.true.i.i.i215, label %cond.false.i.i.i202
 
 land.lhs.true.i.i.i215:                           ; preds = %if.then.i.i.i.i186
-  %cmp2.i.i.i216 = icmp ult i64 %add.i.i.i200, 32
+  %cmp2.i.i.i216 = icmp samesign ult i64 %add.i.i.i200, 32
   br i1 %cmp2.i.i.i216, label %if.then.i.i.i219, label %cond.true.i.i.i217
 
 if.then.i.i.i219:                                 ; preds = %land.lhs.true.i.i.i215
@@ -4275,7 +4275,7 @@ _ZSt14__copy_move_a1ILb1EPN7rocksdb18SeqnoToTimeMapping13SeqnoTimePairES3_ET1_T0
   br i1 %cmp.i7.i, label %land.lhs.true.i.i, label %cond.false.i.i
 
 land.lhs.true.i.i:                                ; preds = %_ZSt14__copy_move_a1ILb1EPN7rocksdb18SeqnoToTimeMapping13SeqnoTimePairES3_ET1_T0_S5_S4_.exit.i
-  %cmp2.i.i = icmp ult i64 %add.i.i, 32
+  %cmp2.i.i = icmp samesign ult i64 %add.i.i, 32
   br i1 %cmp2.i.i, label %if.then.i.i, label %cond.true.i.i
 
 if.then.i.i:                                      ; preds = %land.lhs.true.i.i
@@ -4363,7 +4363,7 @@ _ZSt14__copy_move_a1ILb1EPN7rocksdb18SeqnoToTimeMapping13SeqnoTimePairES3_ET1_T0
   br i1 %cmp.i7.i49, label %land.lhs.true.i.i63, label %cond.false.i.i50
 
 land.lhs.true.i.i63:                              ; preds = %_ZSt14__copy_move_a1ILb1EPN7rocksdb18SeqnoToTimeMapping13SeqnoTimePairES3_ET1_T0_S5_S4_.exit.i43
-  %cmp2.i.i64 = icmp ult i64 %add.i.i48, 32
+  %cmp2.i.i64 = icmp samesign ult i64 %add.i.i48, 32
   br i1 %cmp2.i.i64, label %if.then.i.i67, label %cond.true.i.i65
 
 if.then.i.i67:                                    ; preds = %land.lhs.true.i.i63
@@ -4452,7 +4452,7 @@ _ZSt14__copy_move_a1ILb1EPN7rocksdb18SeqnoToTimeMapping13SeqnoTimePairES3_ET1_T0
   br i1 %cmp.i7.i114, label %land.lhs.true.i.i128, label %cond.false.i.i115
 
 land.lhs.true.i.i128:                             ; preds = %_ZSt14__copy_move_a1ILb1EPN7rocksdb18SeqnoToTimeMapping13SeqnoTimePairES3_ET1_T0_S5_S4_.exit.i108
-  %cmp2.i.i129 = icmp ult i64 %add.i.i113, 32
+  %cmp2.i.i129 = icmp samesign ult i64 %add.i.i113, 32
   br i1 %cmp2.i.i129, label %if.then.i.i132, label %cond.true.i.i130
 
 if.then.i.i132:                                   ; preds = %land.lhs.true.i.i128
@@ -4531,7 +4531,7 @@ _ZSt14__copy_move_a1ILb1EPN7rocksdb18SeqnoToTimeMapping13SeqnoTimePairES3_ET1_T0
   br i1 %cmp.i7.i179, label %land.lhs.true.i.i193, label %cond.false.i.i180
 
 land.lhs.true.i.i193:                             ; preds = %_ZSt14__copy_move_a1ILb1EPN7rocksdb18SeqnoToTimeMapping13SeqnoTimePairES3_ET1_T0_S5_S4_.exit.i173
-  %cmp2.i.i194 = icmp ult i64 %add.i.i178, 32
+  %cmp2.i.i194 = icmp samesign ult i64 %add.i.i178, 32
   br i1 %cmp2.i.i194, label %if.then.i.i197, label %cond.true.i.i195
 
 if.then.i.i197:                                   ; preds = %land.lhs.true.i.i193
@@ -4924,7 +4924,7 @@ if.then:                                          ; preds = %entry
   br i1 %cmp.i.i, label %land.lhs.true.i.i, label %cond.false.i.i
 
 land.lhs.true.i.i:                                ; preds = %if.then
-  %cmp2.i.i = icmp ult i64 %add.i.i, 32
+  %cmp2.i.i = icmp samesign ult i64 %add.i.i, 32
   br i1 %cmp2.i.i, label %if.then.i.i, label %cond.true.i.i
 
 if.then.i.i:                                      ; preds = %land.lhs.true.i.i
@@ -4969,7 +4969,7 @@ _ZStplRKSt15_Deque_iteratorIN7rocksdb18SeqnoToTimeMapping13SeqnoTimePairERS2_PS2
   br i1 %cmp.i.i15, label %land.lhs.true.i.i26, label %cond.false.i.i16
 
 land.lhs.true.i.i26:                              ; preds = %_ZStplRKSt15_Deque_iteratorIN7rocksdb18SeqnoToTimeMapping13SeqnoTimePairERS2_PS2_El.exit
-  %cmp2.i.i27 = icmp ult i64 %add.i.i14, 32
+  %cmp2.i.i27 = icmp samesign ult i64 %add.i.i14, 32
   br i1 %cmp2.i.i27, label %if.then.i.i30, label %cond.true.i.i28
 
 if.then.i.i30:                                    ; preds = %land.lhs.true.i.i26
@@ -5298,7 +5298,7 @@ entry:
   br i1 %cmp.i.i, label %land.lhs.true.i.i, label %cond.false.i.i
 
 land.lhs.true.i.i:                                ; preds = %entry
-  %cmp2.i.i = icmp ult i64 %add.i.i, 32
+  %cmp2.i.i = icmp samesign ult i64 %add.i.i, 32
   br i1 %cmp2.i.i, label %if.then.i.i, label %cond.true.i.i
 
 if.then.i.i:                                      ; preds = %land.lhs.true.i.i
@@ -5347,7 +5347,7 @@ _ZStplRKSt15_Deque_iteratorIN7rocksdb18SeqnoToTimeMapping13SeqnoTimePairERS2_PS2
   br i1 %cmp.i.i15, label %land.lhs.true.i.i26, label %cond.false.i.i16
 
 land.lhs.true.i.i26:                              ; preds = %_ZStplRKSt15_Deque_iteratorIN7rocksdb18SeqnoToTimeMapping13SeqnoTimePairERS2_PS2_El.exit
-  %cmp2.i.i27 = icmp ult i64 %add.i.i14, 32
+  %cmp2.i.i27 = icmp samesign ult i64 %add.i.i14, 32
   br i1 %cmp2.i.i27, label %if.then.i.i30, label %cond.true.i.i28
 
 if.then.i.i30:                                    ; preds = %land.lhs.true.i.i26
@@ -5399,7 +5399,7 @@ _ZStplRKSt15_Deque_iteratorIN7rocksdb18SeqnoToTimeMapping13SeqnoTimePairERS2_PS2
   br i1 %cmp.i.i.i, label %land.lhs.true.i.i.i, label %cond.false.i.i.i
 
 land.lhs.true.i.i.i:                              ; preds = %_ZStplRKSt15_Deque_iteratorIN7rocksdb18SeqnoToTimeMapping13SeqnoTimePairERS2_PS2_El.exit32
-  %cmp2.i.i.i = icmp ult i64 %sub.ptr.div6.i, 33
+  %cmp2.i.i.i = icmp samesign ult i64 %sub.ptr.div6.i, 33
   br i1 %cmp2.i.i.i, label %if.then.i.i.i, label %cond.true.i.i.i
 
 if.then.i.i.i:                                    ; preds = %land.lhs.true.i.i.i
@@ -5444,7 +5444,7 @@ _ZStmiRKSt15_Deque_iteratorIN7rocksdb18SeqnoToTimeMapping13SeqnoTimePairERS2_PS2
   br i1 %cmp.i.i57, label %land.lhs.true.i.i68, label %cond.false.i.i58
 
 land.lhs.true.i.i68:                              ; preds = %_ZStmiRKSt15_Deque_iteratorIN7rocksdb18SeqnoToTimeMapping13SeqnoTimePairERS2_PS2_El.exit
-  %cmp2.i.i69 = icmp ult i64 %add.i.i56, 32
+  %cmp2.i.i69 = icmp samesign ult i64 %add.i.i56, 32
   br i1 %cmp2.i.i69, label %if.then.i.i72, label %cond.true.i.i70
 
 if.then.i.i72:                                    ; preds = %land.lhs.true.i.i68
@@ -5801,7 +5801,7 @@ if.end:                                           ; preds = %entry
   br i1 %cmp.i.i, label %land.lhs.true.i.i, label %cond.false.i.i
 
 land.lhs.true.i.i:                                ; preds = %if.end
-  %cmp2.i.i = icmp ult i64 %add.i.i, 32
+  %cmp2.i.i = icmp samesign ult i64 %add.i.i, 32
   br i1 %cmp2.i.i, label %if.then.i.i, label %cond.true.i.i
 
 if.then.i.i:                                      ; preds = %land.lhs.true.i.i
@@ -5856,7 +5856,7 @@ if.end7.split:                                    ; preds = %_ZStplRKSt15_Deque_
   br i1 %cmp.i.i41, label %land.lhs.true.i.i52, label %cond.false.i.i42
 
 land.lhs.true.i.i52:                              ; preds = %if.end7.split
-  %cmp2.i.i53 = icmp ult i64 %add.i.i40, 32
+  %cmp2.i.i53 = icmp samesign ult i64 %add.i.i40, 32
   br i1 %cmp2.i.i53, label %if.then.i.i56, label %cond.true.i.i54
 
 if.then.i.i56:                                    ; preds = %land.lhs.true.i.i52
@@ -5929,7 +5929,7 @@ while.body:                                       ; preds = %while.body.lr.ph, %
   br i1 %cmp.i.i, label %land.lhs.true.i.i, label %cond.false.i.i
 
 land.lhs.true.i.i:                                ; preds = %while.body
-  %cmp2.i.i = icmp ult i64 %add.i.i, 32
+  %cmp2.i.i = icmp samesign ult i64 %add.i.i, 32
   br i1 %cmp2.i.i, label %if.then.i.i, label %cond.true.i.i
 
 if.then.i.i:                                      ; preds = %land.lhs.true.i.i
@@ -5961,7 +5961,7 @@ _ZStplRKSt15_Deque_iteratorIN7rocksdb18SeqnoToTimeMapping13SeqnoTimePairERS2_PS2
   br i1 %cmp.i.i28, label %land.lhs.true.i.i39, label %cond.false.i.i29
 
 land.lhs.true.i.i39:                              ; preds = %_ZStplRKSt15_Deque_iteratorIN7rocksdb18SeqnoToTimeMapping13SeqnoTimePairERS2_PS2_El.exit
-  %cmp2.i.i40 = icmp ult i64 %add.i.i27, 32
+  %cmp2.i.i40 = icmp samesign ult i64 %add.i.i27, 32
   br i1 %cmp2.i.i40, label %if.then.i.i43, label %cond.true.i.i41
 
 if.then.i.i43:                                    ; preds = %land.lhs.true.i.i39
@@ -6015,7 +6015,7 @@ _ZNK9__gnu_cxx5__ops15_Iter_less_iterclISt15_Deque_iteratorIN7rocksdb18SeqnoToTi
   br i1 %cmp.i.i57, label %land.lhs.true.i.i68, label %cond.false.i.i58
 
 land.lhs.true.i.i68:                              ; preds = %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclISt15_Deque_iteratorIN7rocksdb18SeqnoToTimeMapping13SeqnoTimePairERS6_PS6_ES9_EEbT_T0_.exit.thread163
-  %cmp2.i.i69 = icmp ult i64 %add.i.i56.pre-phi, 32
+  %cmp2.i.i69 = icmp samesign ult i64 %add.i.i56.pre-phi, 32
   br i1 %cmp2.i.i69, label %if.then.i.i72, label %cond.true.i.i70
 
 if.then.i.i72:                                    ; preds = %land.lhs.true.i.i68
@@ -6046,7 +6046,7 @@ _ZStplRKSt15_Deque_iteratorIN7rocksdb18SeqnoToTimeMapping13SeqnoTimePairERS2_PS2
   br i1 %cmp.i.i86, label %land.lhs.true.i.i97, label %cond.false.i.i87
 
 land.lhs.true.i.i97:                              ; preds = %_ZStplRKSt15_Deque_iteratorIN7rocksdb18SeqnoToTimeMapping13SeqnoTimePairERS2_PS2_El.exit74
-  %cmp2.i.i98 = icmp ult i64 %add.i.i85, 32
+  %cmp2.i.i98 = icmp samesign ult i64 %add.i.i85, 32
   br i1 %cmp2.i.i98, label %if.then.i.i101, label %cond.true.i.i99
 
 if.then.i.i101:                                   ; preds = %land.lhs.true.i.i97
@@ -6105,7 +6105,7 @@ if.then10:                                        ; preds = %land.lhs.true
   br i1 %cmp.i.i115, label %land.lhs.true.i.i126, label %cond.false.i.i116
 
 land.lhs.true.i.i126:                             ; preds = %if.then10
-  %cmp2.i.i127 = icmp ult i64 %add.i.i114, 32
+  %cmp2.i.i127 = icmp samesign ult i64 %add.i.i114, 32
   br i1 %cmp2.i.i127, label %if.then.i.i130, label %cond.true.i.i128
 
 if.then.i.i130:                                   ; preds = %land.lhs.true.i.i126
@@ -6136,7 +6136,7 @@ _ZStplRKSt15_Deque_iteratorIN7rocksdb18SeqnoToTimeMapping13SeqnoTimePairERS2_PS2
   br i1 %cmp.i.i144, label %land.lhs.true.i.i155, label %cond.false.i.i145
 
 land.lhs.true.i.i155:                             ; preds = %_ZStplRKSt15_Deque_iteratorIN7rocksdb18SeqnoToTimeMapping13SeqnoTimePairERS2_PS2_El.exit132
-  %cmp2.i.i156 = icmp ult i64 %add.i.i143, 32
+  %cmp2.i.i156 = icmp samesign ult i64 %add.i.i143, 32
   br i1 %cmp2.i.i156, label %if.then.i.i159, label %cond.true.i.i157
 
 if.then.i.i159:                                   ; preds = %land.lhs.true.i.i155
@@ -6212,7 +6212,7 @@ land.rhs:                                         ; preds = %land.rhs.lr.ph, %_Z
   br i1 %cmp.i.i, label %land.lhs.true.i.i, label %cond.false.i.i
 
 land.lhs.true.i.i:                                ; preds = %land.rhs
-  %cmp2.i.i = icmp ult i64 %add.i.i, 32
+  %cmp2.i.i = icmp samesign ult i64 %add.i.i, 32
   br i1 %cmp2.i.i, label %if.then.i.i, label %cond.true.i.i
 
 if.then.i.i:                                      ; preds = %land.lhs.true.i.i
@@ -6256,7 +6256,7 @@ while.body:                                       ; preds = %_ZStplRKSt15_Deque_
   br i1 %cmp.i.i, label %land.lhs.true.i.i29, label %cond.false.i.i19
 
 land.lhs.true.i.i29:                              ; preds = %while.body
-  %cmp2.i.i30 = icmp ult i64 %add.i.i, 32
+  %cmp2.i.i30 = icmp samesign ult i64 %add.i.i, 32
   br i1 %cmp2.i.i30, label %if.then.i.i33, label %cond.true.i.i31
 
 if.then.i.i33:                                    ; preds = %land.lhs.true.i.i29
@@ -6287,7 +6287,7 @@ _ZStplRKSt15_Deque_iteratorIN7rocksdb18SeqnoToTimeMapping13SeqnoTimePairERS2_PS2
   br i1 %cmp.i.i47, label %land.lhs.true.i.i58, label %cond.false.i.i48
 
 land.lhs.true.i.i58:                              ; preds = %_ZStplRKSt15_Deque_iteratorIN7rocksdb18SeqnoToTimeMapping13SeqnoTimePairERS2_PS2_El.exit35
-  %cmp2.i.i59 = icmp ult i64 %add.i.i46, 32
+  %cmp2.i.i59 = icmp samesign ult i64 %add.i.i46, 32
   br i1 %cmp2.i.i59, label %if.then.i.i62, label %cond.true.i.i60
 
 if.then.i.i62:                                    ; preds = %land.lhs.true.i.i58
@@ -6333,7 +6333,7 @@ while.end:                                        ; preds = %_ZNK9__gnu_cxx5__op
   br i1 %cmp.i.i76, label %land.lhs.true.i.i87, label %cond.false.i.i77
 
 land.lhs.true.i.i87:                              ; preds = %while.end
-  %cmp2.i.i88 = icmp ult i64 %add.i.i75, 32
+  %cmp2.i.i88 = icmp samesign ult i64 %add.i.i75, 32
   br i1 %cmp2.i.i88, label %if.then.i.i91, label %cond.true.i.i89
 
 if.then.i.i91:                                    ; preds = %land.lhs.true.i.i87
@@ -6545,7 +6545,7 @@ if.end:                                           ; preds = %entry
   br i1 %cmp.i.i, label %land.lhs.true.i.i, label %cond.false.i.i
 
 land.lhs.true.i.i:                                ; preds = %if.end
-  %cmp2.i.i = icmp ult i64 %add.i.i, 32
+  %cmp2.i.i = icmp samesign ult i64 %add.i.i, 32
   br i1 %cmp2.i.i, label %if.then.i.i, label %cond.true.i.i
 
 if.then.i.i:                                      ; preds = %land.lhs.true.i.i
@@ -6627,7 +6627,7 @@ if.then4:                                         ; preds = %for.body, %_ZNK9__g
   br i1 %cmp.i.i31, label %land.lhs.true.i.i42, label %cond.false.i.i32
 
 land.lhs.true.i.i42:                              ; preds = %if.then4
-  %cmp2.i.i43 = icmp ult i64 %add.i.i30, 32
+  %cmp2.i.i43 = icmp samesign ult i64 %add.i.i30, 32
   br i1 %cmp2.i.i43, label %if.then.i.i46, label %cond.true.i.i44
 
 if.then.i.i46:                                    ; preds = %land.lhs.true.i.i42

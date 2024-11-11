@@ -174,7 +174,7 @@ _ZNK4llvm5APInt12getSExtValueEv.exit.thread22:    ; preds = %22
 
 _ZNK4llvm5APInt12getSExtValueEv.exit20:           ; preds = %_ZNK4llvm5APInt12getSExtValueEv.exit.thread22, %.thread
   %.0.i18 = phi i64 [ %36, %.thread ], [ %34, %_ZNK4llvm5APInt12getSExtValueEv.exit.thread22 ]
-  %37 = icmp ult i64 %.0.i18, 256
+  %37 = icmp samesign ult i64 %.0.i18, 256
   br i1 %37, label %_ZNK4llvm5APInt12getSExtValueEv.exit20.thread, label %44
 
 _ZNK4llvm5APInt12getSExtValueEv.exit20.thread:    ; preds = %26, %_ZNK4llvm5APInt12getSExtValueEv.exit20

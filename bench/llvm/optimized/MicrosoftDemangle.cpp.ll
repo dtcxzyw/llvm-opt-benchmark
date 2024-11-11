@@ -4640,7 +4640,7 @@ _ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i44: ; preds = %80
   br i1 %82, label %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i46, label %_ZL14isFunctionTypeSt17basic_string_viewIcSt11char_traitsIcEE.exit.thread66
 
 83:                                               ; preds = %80
-  %84 = icmp ult i64 %.pr, 4
+  %84 = icmp samesign ult i64 %.pr, 4
   br i1 %84, label %_ZL14isFunctionTypeSt17basic_string_viewIcSt11char_traitsIcEE.exit.thread63, label %_ZL14isFunctionTypeSt17basic_string_viewIcSt11char_traitsIcEE.exit
 
 _ZL14isFunctionTypeSt17basic_string_viewIcSt11char_traitsIcEE.exit: ; preds = %83
@@ -8916,7 +8916,7 @@ _ZL15startsWithDigitSt17basic_string_viewIcSt11char_traitsIcEE.exit: ; preds = %
   br i1 %38, label %39, label %48
 
 39:                                               ; preds = %37
-  %40 = icmp ult i8 %9, 123
+  %40 = icmp samesign ult i8 %9, 123
   br i1 %40, label %41, label %.thread33
 
 41:                                               ; preds = %39

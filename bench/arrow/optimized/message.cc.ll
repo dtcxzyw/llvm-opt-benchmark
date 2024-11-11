@@ -1279,7 +1279,7 @@ if.then14:                                        ; preds = %do.end11, %_ZNK22ar
   br label %return
 
 _ZNK3org6apache5arrow7flatbuf7Message7versionEv.exit53: ; preds = %_ZNK3org6apache5arrow7flatbuf7Message7versionEv.exit
-  %cmp18 = icmp ugt i16 %10, 4
+  %cmp18 = icmp samesign ugt i16 %10, 4
   br i1 %cmp18, label %_ZNK3org6apache5arrow7flatbuf7Message7versionEv.exit65, label %if.end23
 
 _ZNK3org6apache5arrow7flatbuf7Message7versionEv.exit65: ; preds = %_ZNK3org6apache5arrow7flatbuf7Message7versionEv.exit53
@@ -20079,7 +20079,7 @@ cond.true.i.i.i153:                               ; preds = %_ZNK22arrow_vendore
   br label %_ZNK22arrow_vendored_private11flatbuffers5Table22GetOptionalFieldOffsetEt.exit.i.i163
 
 _ZNK3org6apache5arrow7flatbuf12SparseTensor11sparseIndexEv.exit: ; preds = %land.lhs.true23
-  %cmp.i.i.i161 = icmp ugt i16 %42, 12
+  %cmp.i.i.i161 = icmp samesign ugt i16 %42, 12
   br i1 %cmp.i.i.i161, label %_ZNK22arrow_vendored_private11flatbuffers5Table22GetOptionalFieldOffsetEt.exit.i.i163, label %_ZNK3org6apache5arrow7flatbuf12SparseTensor16sparseIndex_typeEv.exit
 
 _ZNK22arrow_vendored_private11flatbuffers5Table22GetOptionalFieldOffsetEt.exit.i.i163: ; preds = %cond.true.i.i.i153, %_ZNK22arrow_vendored_private11flatbuffers5Table22GetOptionalFieldOffsetEt.exit.i.i.i150, %_ZNK3org6apache5arrow7flatbuf12SparseTensor11sparseIndexEv.exit

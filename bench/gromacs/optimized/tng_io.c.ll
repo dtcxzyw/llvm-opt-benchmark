@@ -7671,7 +7671,7 @@ define range(i32 0, 3) i32 @tng_implicit_num_particles_set(ptr nocapture noundef
   br i1 %19, label %.lr.ph.i42, label %20
 
 20:                                               ; preds = %.lr.ph.split.us.i
-  %21 = icmp ugt i64 %.01417.us.i.in, 1
+  %21 = icmp samesign ugt i64 %.01417.us.i.in, 1
   br i1 %21, label %.lr.ph.split.us.i, label %.thread, !llvm.loop !7
 
 .lr.ph.i42:                                       ; preds = %.lr.ph.split.us.i, %23
@@ -12493,7 +12493,7 @@ tng_block_destroy.exit325:                        ; preds = %163, %166
   %279 = phi i64 [ %.pre496, %._crit_edge495 ], [ %254, %261 ]
   %280 = tail call noundef i64 @llvm.smax.i64(i64 %279, i64 0)
   %281 = add nsw i64 %280, %278
-  %.not273 = icmp uge i64 %1, %280
+  %.not273 = icmp samesign uge i64 %1, %280
   %.not274.not = icmp slt i64 %1, %281
   %or.cond291 = select i1 %.not273, i1 %.not274.not, i1 false
   br i1 %or.cond291, label %282, label %252, !llvm.loop !94
@@ -12766,7 +12766,7 @@ tng_block_destroy.exit325:                        ; preds = %163, %166
   %388 = tail call noundef i64 @llvm.smax.i64(i64 %387, i64 0)
   %389 = add nsw i64 %388, %386
   %390 = add nsw i64 %389, -1
-  %.not257 = icmp uge i64 %1, %388
+  %.not257 = icmp samesign uge i64 %1, %388
   %.not258.not = icmp slt i64 %1, %389
   %or.cond299 = select i1 %.not257, i1 %.not258.not, i1 false
   br i1 %or.cond299, label %391, label %.critedge10, !llvm.loop !98
@@ -33313,12 +33313,12 @@ define internal fastcc range(i32 0, 2) i32 @tng_compress(ptr nocapture noundef %
   br i1 %76, label %77, label %106
 
 77:                                               ; preds = %73
-  %78 = icmp ugt i64 %1, 6
+  %78 = icmp samesign ugt i64 %1, 6
   %. = select i1 %78, i64 5, i64 %1
   br label %85
 
 79:                                               ; preds = %70
-  %80 = icmp ugt i64 %1, 6
+  %80 = icmp samesign ugt i64 %1, 6
   %.1 = select i1 %80, i64 5, i64 %1
   %81 = tail call i32 @tng_compress_nalgo() #24
   %82 = sext i32 %81 to i64
@@ -33335,7 +33335,7 @@ define internal fastcc range(i32 0, 2) i32 @tng_compress(ptr nocapture noundef %
   %88 = load ptr, ptr %4, align 8
   %89 = trunc i64 %2 to i32
   %90 = trunc nuw nsw i64 %.3 to i32
-  %91 = icmp ult i64 %.3, %1
+  %91 = icmp samesign ult i64 %.3, %1
   br i1 %87, label %92, label %99
 
 92:                                               ; preds = %85
@@ -33463,12 +33463,12 @@ define internal fastcc range(i32 0, 2) i32 @tng_compress(ptr nocapture noundef %
   br i1 %162, label %163, label %192
 
 163:                                              ; preds = %159
-  %164 = icmp ugt i64 %1, 6
+  %164 = icmp samesign ugt i64 %1, 6
   %.214 = select i1 %164, i64 5, i64 %1
   br label %171
 
 165:                                              ; preds = %156
-  %166 = icmp ugt i64 %1, 6
+  %166 = icmp samesign ugt i64 %1, 6
   %.2146 = select i1 %166, i64 5, i64 %1
   %167 = tail call i32 @tng_compress_nalgo() #24
   %168 = sext i32 %167 to i64
@@ -33485,7 +33485,7 @@ define internal fastcc range(i32 0, 2) i32 @tng_compress(ptr nocapture noundef %
   %174 = load ptr, ptr %4, align 8
   %175 = trunc i64 %2 to i32
   %176 = trunc nuw nsw i64 %.2147 to i32
-  %177 = icmp ult i64 %.2147, %1
+  %177 = icmp samesign ult i64 %.2147, %1
   br i1 %173, label %178, label %185
 
 178:                                              ; preds = %171

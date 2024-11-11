@@ -11155,7 +11155,7 @@ _ZN10TestObjectaSEOS_.exit.i.i.i.i.i:             ; preds = %_ZN10TestObjectaSEO
   %dec.i.i.i.i.i6965 = add nsw i64 %n.09.i.i.i.i.i, -1
   %incdec.ptr.i.i.i.i.i = getelementptr inbounds i8, ptr %first.addr.07.i.i.i.i.i, i64 24
   %incdec.ptr2.i.i.i.i.i = getelementptr inbounds i8, ptr %result.addr.08.i.i.i.i.i, i64 24
-  %cmp.i.i.i.i22.i = icmp ugt i64 %n.09.i.i.i.i.i, 1
+  %cmp.i.i.i.i22.i = icmp samesign ugt i64 %n.09.i.i.i.i.i, 1
   br i1 %cmp.i.i.i.i22.i, label %_ZN10TestObjectaSEOS_.exit.i.i.i.i.i, label %if.end.i.i.i.i24.i, !llvm.loop !355
 
 if.end.i.i.i.i24.i:                               ; preds = %_ZN10TestObjectaSEOS_.exit.i.i.i.i.i, %_ZN5eastl4moveIPbS1_EET0_T_S3_S2_.exit.i
@@ -11450,7 +11450,7 @@ _ZN10TestObjectaSEOS_.exit.i.i.i.i.i13743:        ; preds = %_ZN10TestObjectaSEO
   %dec.i.i.i.i.i13744 = add nsw i64 %n.09.i.i.i.i.i13730, -1
   %incdec.ptr.i.i.i.i.i13745 = getelementptr inbounds i8, ptr %first.addr.07.i.i.i.i.i13732, i64 24
   %incdec.ptr2.i.i.i.i.i13746 = getelementptr inbounds i8, ptr %result.addr.08.i.i.i.i.i13731, i64 24
-  %cmp.i.i.i.i22.i13747 = icmp ugt i64 %n.09.i.i.i.i.i13730, 1
+  %cmp.i.i.i.i22.i13747 = icmp samesign ugt i64 %n.09.i.i.i.i.i13730, 1
   br i1 %cmp.i.i.i.i22.i13747, label %_ZN10TestObjectaSEOS_.exit.i.i.i.i.i13743, label %if.end.i.i.i.i24.i13694, !llvm.loop !355
 
 if.end.i.i.i.i24.i13694:                          ; preds = %_ZN10TestObjectaSEOS_.exit.i.i.i.i.i13743, %_ZN5eastl4moveIPbS1_EET0_T_S3_S2_.exit.i13688
@@ -12443,7 +12443,7 @@ _ZN10TestObjectaSEOS_.exit.i.i.i.i.i.i:           ; preds = %_ZN10TestObjectaSEO
   %dec.i.i.i.i.i.i = add nsw i64 %n.09.i.i.i.i.i.i, -1
   %incdec.ptr.i.i.i.i.i.i = getelementptr inbounds i8, ptr %first.addr.07.i.i.i.i.i.i, i64 24
   %incdec.ptr2.i.i.i.i.i.i = getelementptr inbounds i8, ptr %result.addr.08.i.i.i.i.i.i, i64 24
-  %cmp.i.i.i.i22.i.i = icmp ugt i64 %n.09.i.i.i.i.i.i, 1
+  %cmp.i.i.i.i22.i.i = icmp samesign ugt i64 %n.09.i.i.i.i.i.i, 1
   br i1 %cmp.i.i.i.i22.i.i, label %_ZN10TestObjectaSEOS_.exit.i.i.i.i.i.i, label %if.end.i.i.i.i24.i.i, !llvm.loop !355
 
 if.end.i.i.i.i24.i.i:                             ; preds = %_ZN10TestObjectaSEOS_.exit.i.i.i.i.i.i
@@ -33418,7 +33418,7 @@ _ZN10TestObjectaSEOS_.exit.i.i.i.i.i:             ; preds = %_ZN10TestObjectaSEO
   %dec.i.i.i.i.i6965 = add nsw i64 %n.09.i.i.i.i.i, -1
   %incdec.ptr.i.i.i.i.i = getelementptr inbounds i8, ptr %first.addr.07.i.i.i.i.i, i64 24
   %incdec.ptr2.i.i.i.i.i = getelementptr inbounds i8, ptr %result.addr.08.i.i.i.i.i, i64 24
-  %cmp.i.i.i.i22.i = icmp ugt i64 %n.09.i.i.i.i.i, 1
+  %cmp.i.i.i.i22.i = icmp samesign ugt i64 %n.09.i.i.i.i.i, 1
   br i1 %cmp.i.i.i.i22.i, label %_ZN10TestObjectaSEOS_.exit.i.i.i.i.i, label %if.end.i.i.i.i24.i, !llvm.loop !355
 
 if.end.i.i.i.i24.i:                               ; preds = %_ZN10TestObjectaSEOS_.exit.i.i.i.i.i, %_ZN5eastl4moveIPbS1_EET0_T_S3_S2_.exit.i
@@ -33713,7 +33713,7 @@ _ZN10TestObjectaSEOS_.exit.i.i.i.i.i13743:        ; preds = %_ZN10TestObjectaSEO
   %dec.i.i.i.i.i13744 = add nsw i64 %n.09.i.i.i.i.i13730, -1
   %incdec.ptr.i.i.i.i.i13745 = getelementptr inbounds i8, ptr %first.addr.07.i.i.i.i.i13732, i64 24
   %incdec.ptr2.i.i.i.i.i13746 = getelementptr inbounds i8, ptr %result.addr.08.i.i.i.i.i13731, i64 24
-  %cmp.i.i.i.i22.i13747 = icmp ugt i64 %n.09.i.i.i.i.i13730, 1
+  %cmp.i.i.i.i22.i13747 = icmp samesign ugt i64 %n.09.i.i.i.i.i13730, 1
   br i1 %cmp.i.i.i.i22.i13747, label %_ZN10TestObjectaSEOS_.exit.i.i.i.i.i13743, label %if.end.i.i.i.i24.i13694, !llvm.loop !355
 
 if.end.i.i.i.i24.i13694:                          ; preds = %_ZN10TestObjectaSEOS_.exit.i.i.i.i.i13743, %_ZN5eastl4moveIPbS1_EET0_T_S3_S2_.exit.i13688
@@ -34706,7 +34706,7 @@ _ZN10TestObjectaSEOS_.exit.i.i.i.i.i.i:           ; preds = %_ZN10TestObjectaSEO
   %dec.i.i.i.i.i.i = add nsw i64 %n.09.i.i.i.i.i.i, -1
   %incdec.ptr.i.i.i.i.i.i = getelementptr inbounds i8, ptr %first.addr.07.i.i.i.i.i.i, i64 24
   %incdec.ptr2.i.i.i.i.i.i = getelementptr inbounds i8, ptr %result.addr.08.i.i.i.i.i.i, i64 24
-  %cmp.i.i.i.i22.i.i = icmp ugt i64 %n.09.i.i.i.i.i.i, 1
+  %cmp.i.i.i.i22.i.i = icmp samesign ugt i64 %n.09.i.i.i.i.i.i, 1
   br i1 %cmp.i.i.i.i22.i.i, label %_ZN10TestObjectaSEOS_.exit.i.i.i.i.i.i, label %if.end.i.i.i.i24.i.i, !llvm.loop !355
 
 if.end.i.i.i.i24.i.i:                             ; preds = %_ZN10TestObjectaSEOS_.exit.i.i.i.i.i.i
@@ -54980,7 +54980,7 @@ _ZN10TestObjectaSEOS_.exit.i.i.i.i.i:             ; preds = %_ZN10TestObjectaSEO
   %dec.i.i.i.i.i7116 = add nsw i64 %n.09.i.i.i.i.i, -1
   %incdec.ptr.i.i.i.i.i = getelementptr inbounds i8, ptr %first.addr.07.i.i.i.i.i, i64 24
   %incdec.ptr2.i.i.i.i.i = getelementptr inbounds i8, ptr %result.addr.08.i.i.i.i.i, i64 24
-  %cmp.i.i.i.i22.i = icmp ugt i64 %n.09.i.i.i.i.i, 1
+  %cmp.i.i.i.i22.i = icmp samesign ugt i64 %n.09.i.i.i.i.i, 1
   br i1 %cmp.i.i.i.i22.i, label %_ZN10TestObjectaSEOS_.exit.i.i.i.i.i, label %if.end.i.i.i.i24.i, !llvm.loop !355
 
 if.end.i.i.i.i24.i:                               ; preds = %_ZN10TestObjectaSEOS_.exit.i.i.i.i.i, %_ZN5eastl4moveIPbS1_EET0_T_S3_S2_.exit.i
@@ -55275,7 +55275,7 @@ _ZN10TestObjectaSEOS_.exit.i.i.i.i.i13449:        ; preds = %_ZN10TestObjectaSEO
   %dec.i.i.i.i.i13450 = add nsw i64 %n.09.i.i.i.i.i13436, -1
   %incdec.ptr.i.i.i.i.i13451 = getelementptr inbounds i8, ptr %first.addr.07.i.i.i.i.i13438, i64 24
   %incdec.ptr2.i.i.i.i.i13452 = getelementptr inbounds i8, ptr %result.addr.08.i.i.i.i.i13437, i64 24
-  %cmp.i.i.i.i22.i13453 = icmp ugt i64 %n.09.i.i.i.i.i13436, 1
+  %cmp.i.i.i.i22.i13453 = icmp samesign ugt i64 %n.09.i.i.i.i.i13436, 1
   br i1 %cmp.i.i.i.i22.i13453, label %_ZN10TestObjectaSEOS_.exit.i.i.i.i.i13449, label %if.end.i.i.i.i24.i13400, !llvm.loop !355
 
 if.end.i.i.i.i24.i13400:                          ; preds = %_ZN10TestObjectaSEOS_.exit.i.i.i.i.i13449, %_ZN5eastl4moveIPbS1_EET0_T_S3_S2_.exit.i13394
@@ -56231,7 +56231,7 @@ _ZN10TestObjectaSEOS_.exit.i.i.i.i.i.i:           ; preds = %_ZN10TestObjectaSEO
   %dec.i.i.i.i.i.i = add nsw i64 %n.09.i.i.i.i.i.i, -1
   %incdec.ptr.i.i.i.i.i.i8060 = getelementptr inbounds i8, ptr %first.addr.07.i.i.i.i.i.i, i64 24
   %incdec.ptr2.i.i.i.i.i.i = getelementptr inbounds i8, ptr %result.addr.08.i.i.i.i.i.i, i64 24
-  %cmp.i.i.i.i22.i.i = icmp ugt i64 %n.09.i.i.i.i.i.i, 1
+  %cmp.i.i.i.i22.i.i = icmp samesign ugt i64 %n.09.i.i.i.i.i.i, 1
   br i1 %cmp.i.i.i.i22.i.i, label %_ZN10TestObjectaSEOS_.exit.i.i.i.i.i.i, label %if.end.i.i.i.i24.i.i, !llvm.loop !355
 
 if.end.i.i.i.i24.i.i:                             ; preds = %_ZN10TestObjectaSEOS_.exit.i.i.i.i.i.i
@@ -67819,7 +67819,7 @@ for.body.i.i.i.i.i:                               ; preds = %_ZN5eastl16TupleVec
   store i32 %46, ptr %incdec.ptr1.i.i.i.i.i, align 4
   store i32 0, ptr %incdec.ptr.i.i.i.i.i110, align 4
   %dec.i.i.i.i.i = add nsw i64 %n.07.i.i.i.i.i, -1
-  %cmp.i.i.i.i.i = icmp ugt i64 %n.07.i.i.i.i.i, 1
+  %cmp.i.i.i.i.i = icmp samesign ugt i64 %n.07.i.i.i.i.i, 1
   br i1 %cmp.i.i.i.i.i, label %for.body.i.i.i.i.i, label %_ZN5eastl16TupleVecInternal12TupleVecLeafILm1E12MoveOnlyTypeE13DoInsertValueEmmOS2_.exit, !llvm.loop !2197
 
 _ZN5eastl16TupleVecInternal12TupleVecLeafILm1E12MoveOnlyTypeE13DoInsertValueEmmOS2_.exit: ; preds = %for.body.i.i.i.i.i, %_ZN5eastl16TupleVecInternal12TupleVecLeafILm0EiE13DoInsertValueEmmOi.exit
@@ -70705,7 +70705,7 @@ _ZN10TestObjectaSEOS_.exit.i.i.i.i:               ; preds = %_ZN10TestObjectaSEO
   store i8 %frombool3.i.i.i.i.i.i, ptr %mbThrowOnCopy.i.i.i.i.i, align 1
   store i8 %frombool.i.i.i.i.i.i, ptr %mbThrowOnCopy4.i.i.i.i.i, align 1
   %dec.i.i.i.i = add nsw i64 %n.07.i.i.i.i, -1
-  %cmp.i.i.i.i = icmp ugt i64 %n.07.i.i.i.i, 1
+  %cmp.i.i.i.i = icmp samesign ugt i64 %n.07.i.i.i.i, 1
   br i1 %cmp.i.i.i.i, label %_ZN10TestObjectaSEOS_.exit.i.i.i.i, label %_ZN5eastl13move_backwardIP10TestObjectS2_EET0_T_S4_S3_.exit, !llvm.loop !2207
 
 _ZN5eastl13move_backwardIP10TestObjectS2_EET0_T_S4_S3_.exit: ; preds = %_ZN10TestObjectaSEOS_.exit.i.i.i.i, %entry
@@ -74456,7 +74456,7 @@ for.body.i.i.i.i.i:                               ; preds = %_ZN5eastl16TupleVec
   store i32 %46, ptr %incdec.ptr1.i.i.i.i.i, align 4
   store i32 0, ptr %incdec.ptr.i.i.i.i.i110, align 4
   %dec.i.i.i.i.i = add nsw i64 %n.07.i.i.i.i.i, -1
-  %cmp.i.i.i.i.i = icmp ugt i64 %n.07.i.i.i.i.i, 1
+  %cmp.i.i.i.i.i = icmp samesign ugt i64 %n.07.i.i.i.i.i, 1
   br i1 %cmp.i.i.i.i.i, label %for.body.i.i.i.i.i, label %_ZN5eastl16TupleVecInternal12TupleVecLeafILm1E12MoveOnlyTypeE13DoInsertValueEmmOS2_.exit, !llvm.loop !2197
 
 _ZN5eastl16TupleVecInternal12TupleVecLeafILm1E12MoveOnlyTypeE13DoInsertValueEmmOS2_.exit: ; preds = %for.body.i.i.i.i.i, %_ZN5eastl16TupleVecInternal12TupleVecLeafILm0EiE13DoInsertValueEmmOi.exit
@@ -79214,7 +79214,7 @@ for.body.i.i.i.i.i:                               ; preds = %_ZN5eastl16TupleVec
   store i32 %24, ptr %incdec.ptr1.i.i.i.i.i, align 4
   store i32 0, ptr %incdec.ptr.i.i.i.i.i110, align 4
   %dec.i.i.i.i.i = add nsw i64 %n.07.i.i.i.i.i, -1
-  %cmp.i.i.i.i.i = icmp ugt i64 %n.07.i.i.i.i.i, 1
+  %cmp.i.i.i.i.i = icmp samesign ugt i64 %n.07.i.i.i.i.i, 1
   br i1 %cmp.i.i.i.i.i, label %for.body.i.i.i.i.i, label %_ZN5eastl16TupleVecInternal12TupleVecLeafILm1E12MoveOnlyTypeE13DoInsertValueEmmOS2_.exit, !llvm.loop !2197
 
 _ZN5eastl16TupleVecInternal12TupleVecLeafILm1E12MoveOnlyTypeE13DoInsertValueEmmOS2_.exit: ; preds = %for.body.i.i.i.i.i, %_ZN5eastl16TupleVecInternal12TupleVecLeafILm0EiE13DoInsertValueEmmOi.exit

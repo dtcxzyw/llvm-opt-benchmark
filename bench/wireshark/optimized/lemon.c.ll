@@ -4636,7 +4636,7 @@ Action_add.exit92:                                ; preds = %102, %116
   br label %resolve_conflict.exit
 
 165:                                              ; preds = %160
-  %166 = icmp ugt i32 %158, %162
+  %166 = icmp samesign ugt i32 %158, %162
   br i1 %166, label %167, label %168
 
 167:                                              ; preds = %165
@@ -4644,7 +4644,7 @@ Action_add.exit92:                                ; preds = %102, %116
   br label %resolve_conflict.exit
 
 168:                                              ; preds = %165
-  %169 = icmp ult i32 %158, %162
+  %169 = icmp samesign ult i32 %158, %162
   br i1 %169, label %170, label %171
 
 170:                                              ; preds = %168
@@ -4716,7 +4716,7 @@ Action_add.exit92:                                ; preds = %102, %116
   br label %resolve_conflict.exit
 
 204:                                              ; preds = %197
-  %205 = icmp ugt i32 %195, %199
+  %205 = icmp samesign ugt i32 %195, %199
   br i1 %205, label %206, label %207
 
 206:                                              ; preds = %204
@@ -4724,7 +4724,7 @@ Action_add.exit92:                                ; preds = %102, %116
   br label %resolve_conflict.exit
 
 207:                                              ; preds = %204
-  %208 = icmp ult i32 %195, %199
+  %208 = icmp samesign ult i32 %195, %199
   br i1 %208, label %209, label %resolve_conflict.exit
 
 209:                                              ; preds = %207
@@ -11661,7 +11661,7 @@ minimum_size_type.exit:                           ; preds = %215, %210
   %231 = getelementptr inbounds i8, ptr %0, i64 40
   %232 = load i32, ptr %231, align 8
   %233 = icmp slt i32 %232, 256
-  %234 = icmp ult i32 %232, 65535
+  %234 = icmp samesign ult i32 %232, 65535
   %.str.345..str.346.i = select i1 %234, ptr @.str.345, ptr @.str.346
   %.013.i = select i1 %233, ptr @.str.344, ptr %.str.345..str.346.i
   %235 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %29, ptr noundef nonnull @.str.182, ptr noundef nonnull %.013.i) #42
@@ -11675,7 +11675,7 @@ minimum_size_type.exit:                           ; preds = %215, %210
   store i32 %241, ptr %5, align 4
   %242 = load i32, ptr %20, align 4
   %243 = icmp slt i32 %242, 256
-  %244 = icmp ult i32 %242, 65535
+  %244 = icmp samesign ult i32 %242, 65535
   %.str.345..str.346.i946 = select i1 %244, ptr @.str.345, ptr @.str.346
   %.013.i948 = select i1 %243, ptr @.str.344, ptr %.str.345..str.346.i946
   %245 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %29, ptr noundef nonnull @.str.184, ptr noundef nonnull %.013.i948) #42
@@ -12757,19 +12757,19 @@ acttab_action_size.exit:                          ; preds = %669, %673, %._crit_
   br i1 %803, label %minimum_size_type.exit962, label %804
 
 804:                                              ; preds = %802
-  %805 = icmp ult i32 %800, 65535
+  %805 = icmp samesign ult i32 %800, 65535
   %.str.345..str.346.i960 = select i1 %805, ptr @.str.345, ptr @.str.346
   %..i961 = select i1 %805, i32 2, i32 4
   br label %minimum_size_type.exit962
 
 806:                                              ; preds = %.critedge14
-  %807 = icmp ugt i32 %.0824.lcssa, -128
+  %807 = icmp samesign ugt i32 %.0824.lcssa, -128
   %808 = icmp slt i32 %800, 128
   %or.cond.i = and i1 %807, %808
   br i1 %or.cond.i, label %minimum_size_type.exit962, label %809
 
 809:                                              ; preds = %806
-  %810 = icmp ugt i32 %.0824.lcssa, -32768
+  %810 = icmp samesign ugt i32 %.0824.lcssa, -32768
   %811 = icmp slt i32 %800, 32767
   %or.cond3.i = and i1 %810, %811
   %spec.select.i = select i1 %or.cond3.i, ptr @.str.348, ptr @.str.343
@@ -12897,19 +12897,19 @@ minimum_size_type.exit962:                        ; preds = %802, %804, %806, %8
   br i1 %871, label %minimum_size_type.exit971, label %872
 
 872:                                              ; preds = %870
-  %873 = icmp ult i32 %.0834.lcssa, 65535
+  %873 = icmp samesign ult i32 %.0834.lcssa, 65535
   %.str.345..str.346.i969 = select i1 %873, ptr @.str.345, ptr @.str.346
   %..i970 = select i1 %873, i32 2, i32 4
   br label %minimum_size_type.exit971
 
 874:                                              ; preds = %.critedge16
-  %875 = icmp ugt i32 %868, -128
+  %875 = icmp samesign ugt i32 %868, -128
   %876 = icmp slt i32 %.0834.lcssa, 128
   %or.cond.i963 = and i1 %876, %875
   br i1 %or.cond.i963, label %minimum_size_type.exit971, label %877
 
 877:                                              ; preds = %874
-  %878 = icmp ugt i32 %868, -32768
+  %878 = icmp samesign ugt i32 %868, -32768
   %879 = icmp slt i32 %.0834.lcssa, 32767
   %or.cond3.i964 = and i1 %879, %878
   %spec.select.i965 = select i1 %or.cond3.i964, ptr @.str.348, ptr @.str.343
@@ -14932,7 +14932,7 @@ lemon_addtext.exit._crit_edge.i:                  ; preds = %lemon_addtext.exit.
   %106 = getelementptr i8, ptr %0, i64 %105
   store i8 32, ptr %106, align 1
   %107 = add nsw i32 %.025.i99.i, -1
-  %108 = icmp ugt i32 %107, 1
+  %108 = icmp samesign ugt i32 %107, 1
   br i1 %108, label %.lr.ph.i98.i, label %._crit_edge.i91.thread.i, !llvm.loop !208
 
 ._crit_edge.i91.thread.i:                         ; preds = %.lr.ph.i98.i
@@ -14978,7 +14978,7 @@ lemon_addtext.exit._crit_edge.i:                  ; preds = %lemon_addtext.exit.
   %126 = getelementptr i8, ptr %0, i64 %125
   store i8 32, ptr %126, align 1
   %127 = add nsw i32 %.025.i111.i, -1
-  %128 = icmp ugt i32 %127, 1
+  %128 = icmp samesign ugt i32 %127, 1
   br i1 %128, label %.lr.ph.i110.i, label %._crit_edge.i103.thread.i, !llvm.loop !208
 
 ._crit_edge.i103.thread.i:                        ; preds = %.lr.ph.i110.i
@@ -15202,7 +15202,7 @@ lemon_addtext.exit._crit_edge.i:                  ; preds = %lemon_addtext.exit.
   %229 = add nuw nsw i32 %.ph28, 8
   store i32 %229, ptr %4, align 16
   %230 = load i32, ptr %228, align 4
-  %231 = icmp ult i32 %.ph28, 33
+  %231 = icmp samesign ult i32 %.ph28, 33
   br i1 %231, label %232, label %236
 
 232:                                              ; preds = %226

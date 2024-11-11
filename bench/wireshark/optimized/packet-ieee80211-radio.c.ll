@@ -1697,7 +1697,7 @@ ieee80211_he_ofdm_rate.exit.thread:               ; preds = %475, %476, %468, %1
 
 704:                                              ; preds = %697
   %705 = add nsw i32 %702, -1
-  %706 = icmp ugt i32 %705, 3
+  %706 = icmp samesign ugt i32 %705, 3
   br i1 %706, label %proto_item_set_generated.exit791, label %707
 
 707:                                              ; preds = %704

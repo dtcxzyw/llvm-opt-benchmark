@@ -228595,7 +228595,7 @@ if.end.i:                                         ; preds = %entry
   %3 = load i32, ptr %gep2, align 4, !tbaa !182
   store i64 %0, ptr %agg.tmp.i, align 8, !tbaa !24
   call void @_ZSt13__adjust_heapISt16reverse_iteratorIN9__gnu_cxx17__normal_iteratorIPN4entt6entityESt6vectorIS4_SaIS4_EEEEElS4_NS1_5__ops15_Iter_comp_iterIZNS3_14basic_registryIS4_S7_E4sortIiSt4lessIiENS3_8std_sortEJEEEvT0_T1_DpOT2_EUlT_SJ_E_EEEvSO_SJ_SJ_SK_T2_(ptr noundef nonnull %agg.tmp.i, i64 noundef %div2021.i, i64 noundef %sub.ptr.div.i.i.i, i32 noundef %3, ptr %__comp.coerce)
-  %cmp5.not.i5 = icmp ult i64 %sub.i, 2
+  %cmp5.not.i5 = icmp samesign ult i64 %sub.i, 2
   br i1 %cmp5.not.i5, label %_ZSt11__make_heapISt16reverse_iteratorIN9__gnu_cxx17__normal_iteratorIPN4entt6entityESt6vectorIS4_SaIS4_EEEEENS1_5__ops15_Iter_comp_iterIZNS3_14basic_registryIS4_S7_E4sortIiSt4lessIiENS3_8std_sortEJEEEvT0_T1_DpOT2_EUlT_SJ_E_EEEvSO_SO_RSJ_.exit.loopexit, label %while.cond.i.split, !llvm.loop !3040
 
 while.cond.i.split:                               ; preds = %if.end.i, %while.cond.i.split
@@ -229071,7 +229071,7 @@ if.then5:                                         ; preds = %for.body
   br i1 %cmp9.i.i.i.i.i, label %for.body.i.i.i.i.i.preheader, label %for.inc
 
 for.body.i.i.i.i.i.preheader:                     ; preds = %if.then5
-  %min.iters.check = icmp ult i64 %sub.ptr.div.i.i.i.i.i.i, 8
+  %min.iters.check = icmp samesign ult i64 %sub.ptr.div.i.i.i.i.i.i, 8
   br i1 %min.iters.check, label %for.body.i.i.i.i.i, label %vector.ph
 
 vector.ph:                                        ; preds = %for.body.i.i.i.i.i.preheader
@@ -229648,7 +229648,7 @@ if.end.i:                                         ; preds = %entry
   %3 = load i32, ptr %gep2, align 4, !tbaa !182
   store i64 %0, ptr %agg.tmp.i, align 8, !tbaa !24
   call void @_ZSt13__adjust_heapISt16reverse_iteratorIN9__gnu_cxx17__normal_iteratorIPN4entt6entityESt6vectorIS4_SaIS4_EEEEElS4_NS1_5__ops15_Iter_comp_iterIZNS3_14basic_registryIS4_S7_E4sortIjSt4lessIjENS3_8std_sortEJEEEvT0_T1_DpOT2_EUlT_SJ_E_EEEvSO_SJ_SJ_SK_T2_(ptr noundef nonnull %agg.tmp.i, i64 noundef %div2021.i, i64 noundef %sub.ptr.div.i.i.i, i32 noundef %3, ptr %__comp.coerce)
-  %cmp5.not.i5 = icmp ult i64 %sub.i, 2
+  %cmp5.not.i5 = icmp samesign ult i64 %sub.i, 2
   br i1 %cmp5.not.i5, label %_ZSt11__make_heapISt16reverse_iteratorIN9__gnu_cxx17__normal_iteratorIPN4entt6entityESt6vectorIS4_SaIS4_EEEEENS1_5__ops15_Iter_comp_iterIZNS3_14basic_registryIS4_S7_E4sortIjSt4lessIjENS3_8std_sortEJEEEvT0_T1_DpOT2_EUlT_SJ_E_EEEvSO_SO_RSJ_.exit.loopexit, label %while.cond.i.split, !llvm.loop !3085
 
 while.cond.i.split:                               ; preds = %if.end.i, %while.cond.i.split
@@ -230121,7 +230121,7 @@ if.then5:                                         ; preds = %for.body
   br i1 %cmp9.i.i.i.i.i, label %for.body.i.i.i.i.i.preheader, label %for.inc
 
 for.body.i.i.i.i.i.preheader:                     ; preds = %if.then5
-  %min.iters.check = icmp ult i64 %sub.ptr.div.i.i.i.i.i.i, 8
+  %min.iters.check = icmp samesign ult i64 %sub.ptr.div.i.i.i.i.i.i, 8
   br i1 %min.iters.check, label %for.body.i.i.i.i.i, label %vector.ph
 
 vector.ph:                                        ; preds = %for.body.i.i.i.i.i.preheader
@@ -230840,7 +230840,7 @@ if.then4.i46:                                     ; preds = %for.body.i29
   br i1 %cmp9.i.i.i.i.i.i49, label %for.body.i.i.i.i.i.i50.preheader, label %for.inc.i38
 
 for.body.i.i.i.i.i.i50.preheader:                 ; preds = %if.then4.i46
-  %min.iters.check = icmp ult i64 %sub.ptr.div.i.i.i.i.i.i.i48, 8
+  %min.iters.check = icmp samesign ult i64 %sub.ptr.div.i.i.i.i.i.i.i48, 8
   br i1 %min.iters.check, label %for.body.i.i.i.i.i.i50, label %vector.ph
 
 vector.ph:                                        ; preds = %for.body.i.i.i.i.i.i50.preheader
@@ -233758,7 +233758,7 @@ if.end.i:                                         ; preds = %entry
   %3 = load i32, ptr %gep2, align 4, !tbaa !182
   store i64 %0, ptr %agg.tmp.i, align 8, !tbaa !24
   call void @_ZSt13__adjust_heapISt16reverse_iteratorIN9__gnu_cxx17__normal_iteratorIPN4entt6entityESt6vectorIS4_SaIS4_EEEEElS4_NS1_5__ops15_Iter_comp_iterIZNS3_14basic_registryIS4_S7_E4sortIiSt7greaterIvENS3_8std_sortEJEEEvT0_T1_DpOT2_EUlT_SJ_E_EEEvSO_SJ_SJ_SK_T2_(ptr noundef nonnull %agg.tmp.i, i64 noundef %div2021.i, i64 noundef %sub.ptr.div.i.i.i, i32 noundef %3, ptr %__comp.coerce)
-  %cmp5.not.i5 = icmp ult i64 %sub.i, 2
+  %cmp5.not.i5 = icmp samesign ult i64 %sub.i, 2
   br i1 %cmp5.not.i5, label %_ZSt11__make_heapISt16reverse_iteratorIN9__gnu_cxx17__normal_iteratorIPN4entt6entityESt6vectorIS4_SaIS4_EEEEENS1_5__ops15_Iter_comp_iterIZNS3_14basic_registryIS4_S7_E4sortIiSt7greaterIvENS3_8std_sortEJEEEvT0_T1_DpOT2_EUlT_SJ_E_EEEvSO_SO_RSJ_.exit.loopexit, label %while.cond.i.split, !llvm.loop !3196
 
 while.cond.i.split:                               ; preds = %if.end.i, %while.cond.i.split
@@ -234231,7 +234231,7 @@ if.then5:                                         ; preds = %for.body
   br i1 %cmp9.i.i.i.i.i, label %for.body.i.i.i.i.i.preheader, label %for.inc
 
 for.body.i.i.i.i.i.preheader:                     ; preds = %if.then5
-  %min.iters.check = icmp ult i64 %sub.ptr.div.i.i.i.i.i.i, 8
+  %min.iters.check = icmp samesign ult i64 %sub.ptr.div.i.i.i.i.i.i, 8
   br i1 %min.iters.check, label %for.body.i.i.i.i.i, label %vector.ph
 
 vector.ph:                                        ; preds = %for.body.i.i.i.i.i.preheader
@@ -234808,7 +234808,7 @@ if.end.i:                                         ; preds = %entry
   %3 = load i32, ptr %gep2, align 4, !tbaa !182
   store i64 %0, ptr %agg.tmp.i, align 8, !tbaa !24
   call void @_ZSt13__adjust_heapISt16reverse_iteratorIN9__gnu_cxx17__normal_iteratorIPN4entt6entityESt6vectorIS4_SaIS4_EEEEElS4_NS1_5__ops15_Iter_comp_iterIZNS3_14basic_registryIS4_S7_E4sortIcSt4lessIvENS3_8std_sortEJEEEvT0_T1_DpOT2_EUlT_SJ_E_EEEvSO_SJ_SJ_SK_T2_(ptr noundef nonnull %agg.tmp.i, i64 noundef %div2021.i, i64 noundef %sub.ptr.div.i.i.i, i32 noundef %3, ptr %__comp.coerce)
-  %cmp5.not.i5 = icmp ult i64 %sub.i, 2
+  %cmp5.not.i5 = icmp samesign ult i64 %sub.i, 2
   br i1 %cmp5.not.i5, label %_ZSt11__make_heapISt16reverse_iteratorIN9__gnu_cxx17__normal_iteratorIPN4entt6entityESt6vectorIS4_SaIS4_EEEEENS1_5__ops15_Iter_comp_iterIZNS3_14basic_registryIS4_S7_E4sortIcSt4lessIvENS3_8std_sortEJEEEvT0_T1_DpOT2_EUlT_SJ_E_EEEvSO_SO_RSJ_.exit.loopexit, label %while.cond.i.split, !llvm.loop !3241
 
 while.cond.i.split:                               ; preds = %if.end.i, %while.cond.i.split
@@ -235281,7 +235281,7 @@ if.then5:                                         ; preds = %for.body
   br i1 %cmp9.i.i.i.i.i, label %for.body.i.i.i.i.i.preheader, label %for.inc
 
 for.body.i.i.i.i.i.preheader:                     ; preds = %if.then5
-  %min.iters.check = icmp ult i64 %sub.ptr.div.i.i.i.i.i.i, 8
+  %min.iters.check = icmp samesign ult i64 %sub.ptr.div.i.i.i.i.i.i, 8
   br i1 %min.iters.check, label %for.body.i.i.i.i.i, label %vector.ph
 
 vector.ph:                                        ; preds = %for.body.i.i.i.i.i.preheader
@@ -237289,7 +237289,7 @@ if.end.i:                                         ; preds = %entry
   %3 = load i32, ptr %gep2, align 4, !tbaa !182
   store i64 %0, ptr %agg.tmp.i, align 8, !tbaa !24
   call void @_ZSt13__adjust_heapISt16reverse_iteratorIN9__gnu_cxx17__normal_iteratorIPN4entt6entityESt6vectorIS4_SaIS4_EEEEElS4_NS1_5__ops15_Iter_comp_iterIZNS3_14basic_registryIS4_S7_E4sortIiZN8listener4sortIiEEvRSE_EUlT_T0_E_NS3_8std_sortEJEEEvSK_T1_DpOT2_EUlSJ_SK_E_EEEvSJ_SK_SK_SN_T2_(ptr noundef nonnull %agg.tmp.i, i64 noundef %div2021.i, i64 noundef %sub.ptr.div.i.i.i, i32 noundef %3, ptr %__comp.coerce)
-  %cmp5.not.i5 = icmp ult i64 %sub.i, 2
+  %cmp5.not.i5 = icmp samesign ult i64 %sub.i, 2
   br i1 %cmp5.not.i5, label %_ZSt11__make_heapISt16reverse_iteratorIN9__gnu_cxx17__normal_iteratorIPN4entt6entityESt6vectorIS4_SaIS4_EEEEENS1_5__ops15_Iter_comp_iterIZNS3_14basic_registryIS4_S7_E4sortIiZN8listener4sortIiEEvRSE_EUlT_T0_E_NS3_8std_sortEJEEEvSK_T1_DpOT2_EUlSJ_SK_E_EEEvSJ_SJ_RSK_.exit.loopexit, label %while.cond.i.split, !llvm.loop !3300
 
 while.cond.i.split:                               ; preds = %if.end.i, %while.cond.i.split
@@ -237762,7 +237762,7 @@ if.then5:                                         ; preds = %for.body
   br i1 %cmp9.i.i.i.i.i, label %for.body.i.i.i.i.i.preheader, label %for.inc
 
 for.body.i.i.i.i.i.preheader:                     ; preds = %if.then5
-  %min.iters.check = icmp ult i64 %sub.ptr.div.i.i.i.i.i.i, 8
+  %min.iters.check = icmp samesign ult i64 %sub.ptr.div.i.i.i.i.i.i, 8
   br i1 %min.iters.check, label %for.body.i.i.i.i.i, label %vector.ph
 
 vector.ph:                                        ; preds = %for.body.i.i.i.i.i.preheader

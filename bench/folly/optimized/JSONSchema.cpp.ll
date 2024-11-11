@@ -24883,7 +24883,7 @@ if.end.i:                                         ; preds = %if.then.i, %if.then
   br i1 %cmp.i.i.i.i, label %land.lhs.true.i.i.i.i, label %cond.false.i.i.i.i
 
 land.lhs.true.i.i.i.i:                            ; preds = %if.end.i
-  %cmp2.i.i.i.i = icmp ult i64 %add.i.i.i.i, 512
+  %cmp2.i.i.i.i = icmp samesign ult i64 %add.i.i.i.i, 512
   br i1 %cmp2.i.i.i.i, label %if.then.i.i.i.i, label %cond.true.i.i.i.i
 
 if.then.i.i.i.i:                                  ; preds = %land.lhs.true.i.i.i.i
@@ -24943,7 +24943,7 @@ _ZSt14__copy_move_a1ILb0EPKcPcET1_T0_S4_S3_.exit.i.i.i.i.i.i: ; preds = %if.then
   br i1 %cmp.i14.i.i.i.i.i.i, label %land.lhs.true.i.i.i.i.i.i.i, label %cond.false.i.i.i.i.i.i.i
 
 land.lhs.true.i.i.i.i.i.i.i:                      ; preds = %_ZSt14__copy_move_a1ILb0EPKcPcET1_T0_S4_S3_.exit.i.i.i.i.i.i
-  %cmp2.i.i.i.i.i.i.i = icmp ult i64 %add.i.i.i.i.i.i.i, 512
+  %cmp2.i.i.i.i.i.i.i = icmp samesign ult i64 %add.i.i.i.i.i.i.i, 512
   br i1 %cmp2.i.i.i.i.i.i.i, label %if.then.i.i.i.i.i.i.i, label %cond.true.i.i.i.i.i.i.i
 
 if.then.i.i.i.i.i.i.i:                            ; preds = %land.lhs.true.i.i.i.i.i.i.i
@@ -25023,7 +25023,7 @@ if.end.i56:                                       ; preds = %if.then.i62, %if.th
   br i1 %cmp.i.i.i, label %land.lhs.true.i.i.i, label %cond.false.i.i.i
 
 land.lhs.true.i.i.i:                              ; preds = %if.end.i56
-  %cmp2.i.i.i = icmp ult i64 %add.i.i.i, 512
+  %cmp2.i.i.i = icmp samesign ult i64 %add.i.i.i, 512
   br i1 %cmp2.i.i.i, label %if.then.i.i.i, label %cond.true.i.i.i
 
 if.then.i.i.i:                                    ; preds = %land.lhs.true.i.i.i
@@ -25083,7 +25083,7 @@ _ZSt14__copy_move_a1ILb0EPKcPcET1_T0_S4_S3_.exit.i.i.i.i.i.i98: ; preds = %if.th
   br i1 %cmp.i14.i.i.i.i.i.i102, label %land.lhs.true.i.i.i.i.i.i.i119, label %cond.false.i.i.i.i.i.i.i103
 
 land.lhs.true.i.i.i.i.i.i.i119:                   ; preds = %_ZSt14__copy_move_a1ILb0EPKcPcET1_T0_S4_S3_.exit.i.i.i.i.i.i98
-  %cmp2.i.i.i.i.i.i.i120 = icmp ult i64 %add.i.i.i.i.i.i.i101, 512
+  %cmp2.i.i.i.i.i.i.i120 = icmp samesign ult i64 %add.i.i.i.i.i.i.i101, 512
   br i1 %cmp2.i.i.i.i.i.i.i120, label %if.then.i.i.i.i.i.i.i123, label %cond.true.i.i.i.i.i.i.i121
 
 if.then.i.i.i.i.i.i.i123:                         ; preds = %land.lhs.true.i.i.i.i.i.i.i119
@@ -25251,7 +25251,7 @@ if.end.i:                                         ; preds = %if.then.i, %if.then
   br i1 %cmp.i.i.i.i, label %land.lhs.true.i.i.i.i, label %cond.false.i.i.i.i
 
 land.lhs.true.i.i.i.i:                            ; preds = %if.end.i
-  %cmp2.i.i.i.i = icmp ult i64 %add.i.i.i.i, 512
+  %cmp2.i.i.i.i = icmp samesign ult i64 %add.i.i.i.i, 512
   br i1 %cmp2.i.i.i.i, label %if.then.i.i.i.i, label %cond.true.i.i.i.i
 
 if.then.i.i.i.i:                                  ; preds = %land.lhs.true.i.i.i.i
@@ -25289,7 +25289,7 @@ _ZNSt5dequeIcSaIcEE28_M_reserve_elements_at_frontEm.exit: ; preds = %cond.end.i.
   br i1 %cmp.i.i, label %land.lhs.true.i.i, label %cond.false.i.i
 
 land.lhs.true.i.i:                                ; preds = %_ZNSt5dequeIcSaIcEE28_M_reserve_elements_at_frontEm.exit
-  %cmp2.i.i = icmp ult i64 %add.i.i180, 512
+  %cmp2.i.i = icmp samesign ult i64 %add.i.i180, 512
   br i1 %cmp2.i.i, label %if.then.i.i, label %cond.true.i.i
 
 if.then.i.i:                                      ; preds = %land.lhs.true.i.i
@@ -25340,7 +25340,7 @@ if.then8:                                         ; preds = %_ZStplRKSt15_Deque_
   br i1 %cmp.i.i192, label %land.lhs.true.i.i203, label %cond.false.i.i193
 
 land.lhs.true.i.i203:                             ; preds = %if.then8
-  %cmp2.i.i204 = icmp ult i64 %add.i.i191, 512
+  %cmp2.i.i204 = icmp samesign ult i64 %add.i.i191, 512
   br i1 %cmp2.i.i204, label %if.then.i.i207, label %cond.true.i.i205
 
 if.then.i.i207:                                   ; preds = %land.lhs.true.i.i203
@@ -25450,7 +25450,7 @@ invoke.cont23:                                    ; preds = %invoke.cont
   br i1 %cmp.i.i.i, label %land.lhs.true.i.i.i, label %cond.false.i.i.i
 
 land.lhs.true.i.i.i:                              ; preds = %invoke.cont23
-  %cmp2.i.i.i = icmp ult i64 %add.i.i.i, 512
+  %cmp2.i.i.i = icmp samesign ult i64 %add.i.i.i, 512
   br i1 %cmp2.i.i.i, label %if.then.i.i.i, label %cond.true.i.i.i
 
 if.then.i.i.i:                                    ; preds = %land.lhs.true.i.i.i
@@ -25513,7 +25513,7 @@ _ZSt14__copy_move_a1ILb0EPKcPcET1_T0_S4_S3_.exit.i.i.i: ; preds = %if.then.i.i.i
   br i1 %cmp.i14.i.i.i, label %land.lhs.true.i.i.i.i286, label %cond.false.i.i.i.i274
 
 land.lhs.true.i.i.i.i286:                         ; preds = %_ZSt14__copy_move_a1ILb0EPKcPcET1_T0_S4_S3_.exit.i.i.i
-  %cmp2.i.i.i.i287 = icmp ult i64 %add.i.i.i.i273, 512
+  %cmp2.i.i.i.i287 = icmp samesign ult i64 %add.i.i.i.i273, 512
   br i1 %cmp2.i.i.i.i287, label %if.then.i.i.i.i290, label %cond.true.i.i.i.i288
 
 if.then.i.i.i.i290:                               ; preds = %land.lhs.true.i.i.i.i286
@@ -25629,7 +25629,7 @@ _ZSt14__copy_move_a1ILb0EPKcPcET1_T0_S4_S3_.exit.i.i.i.i.i.i.i: ; preds = %if.th
   br i1 %cmp.i14.i.i.i.i.i.i.i, label %land.lhs.true.i.i.i.i.i.i.i.i, label %cond.false.i.i.i.i.i.i.i.i
 
 land.lhs.true.i.i.i.i.i.i.i.i:                    ; preds = %_ZSt14__copy_move_a1ILb0EPKcPcET1_T0_S4_S3_.exit.i.i.i.i.i.i.i
-  %cmp2.i.i.i.i.i.i.i.i = icmp ult i64 %add.i.i.i.i.i.i.i.i, 512
+  %cmp2.i.i.i.i.i.i.i.i = icmp samesign ult i64 %add.i.i.i.i.i.i.i.i, 512
   br i1 %cmp2.i.i.i.i.i.i.i.i, label %if.then.i.i.i.i.i.i.i.i, label %cond.true.i.i.i.i.i.i.i.i
 
 if.then.i.i.i.i.i.i.i.i:                          ; preds = %land.lhs.true.i.i.i.i.i.i.i.i
@@ -25700,7 +25700,7 @@ _ZSt14__copy_move_a1ILb0EPKcPcET1_T0_S4_S3_.exit.i.i.i350: ; preds = %if.then.i.
   br i1 %cmp.i14.i.i.i354, label %land.lhs.true.i.i.i.i371, label %cond.false.i.i.i.i355
 
 land.lhs.true.i.i.i.i371:                         ; preds = %_ZSt14__copy_move_a1ILb0EPKcPcET1_T0_S4_S3_.exit.i.i.i350
-  %cmp2.i.i.i.i372 = icmp ult i64 %add.i.i.i.i353, 512
+  %cmp2.i.i.i.i372 = icmp samesign ult i64 %add.i.i.i.i353, 512
   br i1 %cmp2.i.i.i.i372, label %if.then.i.i.i.i375, label %cond.true.i.i.i.i373
 
 if.then.i.i.i.i375:                               ; preds = %land.lhs.true.i.i.i.i371
@@ -25798,7 +25798,7 @@ if.end.i385:                                      ; preds = %if.then.i410, %if.e
   br i1 %cmp.i.i.i393, label %land.lhs.true.i.i.i404, label %cond.false.i.i.i394
 
 land.lhs.true.i.i.i404:                           ; preds = %if.end.i385
-  %cmp2.i.i.i405 = icmp ult i64 %add.i.i.i392, 512
+  %cmp2.i.i.i405 = icmp samesign ult i64 %add.i.i.i392, 512
   br i1 %cmp2.i.i.i405, label %if.then.i.i.i408, label %cond.true.i.i.i406
 
 if.then.i.i.i408:                                 ; preds = %land.lhs.true.i.i.i404
@@ -25837,7 +25837,7 @@ _ZNSt5dequeIcSaIcEE27_M_reserve_elements_at_backEm.exit: ; preds = %cond.end.i.i
   br i1 %cmp.i.i.i430, label %land.lhs.true.i.i.i441, label %cond.false.i.i.i431
 
 land.lhs.true.i.i.i441:                           ; preds = %_ZNSt5dequeIcSaIcEE27_M_reserve_elements_at_backEm.exit
-  %cmp2.i.i.i442 = icmp ult i64 %add.i.i.i429, 512
+  %cmp2.i.i.i442 = icmp samesign ult i64 %add.i.i.i429, 512
   br i1 %cmp2.i.i.i442, label %if.then.i.i.i445, label %cond.true.i.i.i443
 
 if.then.i.i.i445:                                 ; preds = %land.lhs.true.i.i.i441
@@ -25888,7 +25888,7 @@ if.then63:                                        ; preds = %_ZStmiRKSt15_Deque_
   br i1 %cmp.i.i.i458, label %land.lhs.true.i.i.i469, label %cond.false.i.i.i459
 
 land.lhs.true.i.i.i469:                           ; preds = %if.then63
-  %cmp2.i.i.i470 = icmp ult i64 %add.i.i.i457, 512
+  %cmp2.i.i.i470 = icmp samesign ult i64 %add.i.i.i457, 512
   br i1 %cmp2.i.i.i470, label %if.then.i.i.i473, label %cond.true.i.i.i471
 
 if.then.i.i.i473:                                 ; preds = %land.lhs.true.i.i.i469
@@ -26026,7 +26026,7 @@ _ZSt14__copy_move_a1ILb0EPKcPcET1_T0_S4_S3_.exit.i.i.i603: ; preds = %if.then.i.
   br i1 %cmp.i14.i.i.i607, label %land.lhs.true.i.i.i.i624, label %cond.false.i.i.i.i608
 
 land.lhs.true.i.i.i.i624:                         ; preds = %_ZSt14__copy_move_a1ILb0EPKcPcET1_T0_S4_S3_.exit.i.i.i603
-  %cmp2.i.i.i.i625 = icmp ult i64 %add.i.i.i.i606, 512
+  %cmp2.i.i.i.i625 = icmp samesign ult i64 %add.i.i.i.i606, 512
   br i1 %cmp2.i.i.i.i625, label %if.then.i.i.i.i628, label %cond.true.i.i.i.i626
 
 if.then.i.i.i.i628:                               ; preds = %land.lhs.true.i.i.i.i624
@@ -26117,7 +26117,7 @@ _ZSt14__copy_move_a1ILb0EPKcPcET1_T0_S4_S3_.exit.i.i.i.i.i.i.i27: ; preds = %if.
   br i1 %cmp.i14.i.i.i.i.i.i.i31, label %land.lhs.true.i.i.i.i.i.i.i.i48, label %cond.false.i.i.i.i.i.i.i.i32
 
 land.lhs.true.i.i.i.i.i.i.i.i48:                  ; preds = %_ZSt14__copy_move_a1ILb0EPKcPcET1_T0_S4_S3_.exit.i.i.i.i.i.i.i27
-  %cmp2.i.i.i.i.i.i.i.i49 = icmp ult i64 %add.i.i.i.i.i.i.i.i30, 512
+  %cmp2.i.i.i.i.i.i.i.i49 = icmp samesign ult i64 %add.i.i.i.i.i.i.i.i30, 512
   br i1 %cmp2.i.i.i.i.i.i.i.i49, label %if.then.i.i.i.i.i.i.i.i52, label %cond.true.i.i.i.i.i.i.i.i50
 
 if.then.i.i.i.i.i.i.i.i52:                        ; preds = %land.lhs.true.i.i.i.i.i.i.i.i48
@@ -26246,7 +26246,7 @@ _ZSt14__copy_move_a1ILb0EPKcPcET1_T0_S4_S3_.exit.i.i.i694: ; preds = %if.then.i.
   br i1 %cmp.i14.i.i.i698, label %land.lhs.true.i.i.i.i715, label %cond.false.i.i.i.i699
 
 land.lhs.true.i.i.i.i715:                         ; preds = %_ZSt14__copy_move_a1ILb0EPKcPcET1_T0_S4_S3_.exit.i.i.i694
-  %cmp2.i.i.i.i716 = icmp ult i64 %add.i.i.i.i697, 512
+  %cmp2.i.i.i.i716 = icmp samesign ult i64 %add.i.i.i.i697, 512
   br i1 %cmp2.i.i.i.i716, label %if.then.i.i.i.i719, label %cond.true.i.i.i.i717
 
 if.then.i.i.i.i719:                               ; preds = %land.lhs.true.i.i.i.i715
@@ -26613,7 +26613,7 @@ _ZSt14__copy_move_a1ILb1EPcS0_ET1_T0_S2_S1_.exit.i: ; preds = %if.then.i.i.i.i, 
   br i1 %cmp.i14.i, label %land.lhs.true.i.i, label %cond.false.i.i
 
 land.lhs.true.i.i:                                ; preds = %_ZSt14__copy_move_a1ILb1EPcS0_ET1_T0_S2_S1_.exit.i
-  %cmp2.i.i = icmp ult i64 %add.i.i, 512
+  %cmp2.i.i = icmp samesign ult i64 %add.i.i, 512
   br i1 %cmp2.i.i, label %if.then.i.i, label %cond.true.i.i
 
 if.then.i.i:                                      ; preds = %land.lhs.true.i.i
@@ -26703,7 +26703,7 @@ _ZSt14__copy_move_a1ILb1EPcS0_ET1_T0_S2_S1_.exit.i52: ; preds = %if.then.i.i.i.i
   br i1 %cmp.i14.i57, label %land.lhs.true.i.i71, label %cond.false.i.i58
 
 land.lhs.true.i.i71:                              ; preds = %_ZSt14__copy_move_a1ILb1EPcS0_ET1_T0_S2_S1_.exit.i52
-  %cmp2.i.i72 = icmp ult i64 %add.i.i56, 512
+  %cmp2.i.i72 = icmp samesign ult i64 %add.i.i56, 512
   br i1 %cmp2.i.i72, label %if.then.i.i75, label %cond.true.i.i73
 
 if.then.i.i75:                                    ; preds = %land.lhs.true.i.i71
@@ -26773,7 +26773,7 @@ _ZSt14__copy_move_a1ILb1EPcS0_ET1_T0_S2_S1_.exit.i103: ; preds = %if.then.i.i.i.
   br i1 %cmp.i14.i108, label %land.lhs.true.i.i127, label %cond.false.i.i109
 
 land.lhs.true.i.i127:                             ; preds = %_ZSt14__copy_move_a1ILb1EPcS0_ET1_T0_S2_S1_.exit.i103
-  %cmp2.i.i128 = icmp ult i64 %add.i.i107, 512
+  %cmp2.i.i128 = icmp samesign ult i64 %add.i.i107, 512
   br i1 %cmp2.i.i128, label %if.then.i.i131, label %cond.true.i.i129
 
 if.then.i.i131:                                   ; preds = %land.lhs.true.i.i127
@@ -26858,7 +26858,7 @@ _ZSt14__copy_move_a1ILb1EPcS0_ET1_T0_S2_S1_.exit.i169: ; preds = %if.then.i.i.i.
   br i1 %cmp.i14.i174, label %land.lhs.true.i.i188, label %cond.false.i.i175
 
 land.lhs.true.i.i188:                             ; preds = %_ZSt14__copy_move_a1ILb1EPcS0_ET1_T0_S2_S1_.exit.i169
-  %cmp2.i.i189 = icmp ult i64 %add.i.i173, 512
+  %cmp2.i.i189 = icmp samesign ult i64 %add.i.i173, 512
   br i1 %cmp2.i.i189, label %if.then.i.i192, label %cond.true.i.i190
 
 if.then.i.i192:                                   ; preds = %land.lhs.true.i.i188
@@ -26974,7 +26974,7 @@ if.then.i.i.i.i:                                  ; preds = %if.end.i, %if.end.t
   br i1 %cmp.i.i.i, label %land.lhs.true.i.i.i, label %cond.false.i.i.i
 
 land.lhs.true.i.i.i:                              ; preds = %if.then.i.i.i.i
-  %cmp2.i.i.i = icmp ult i64 %add.i.i.i, 512
+  %cmp2.i.i.i = icmp samesign ult i64 %add.i.i.i, 512
   br i1 %cmp2.i.i.i, label %if.then.i.i.i, label %cond.true.i.i.i
 
 if.then.i.i.i:                                    ; preds = %land.lhs.true.i.i.i
@@ -27077,7 +27077,7 @@ if.then.i.i.i.i50:                                ; preds = %if.end.i45, %if.end
   br i1 %cmp.i.i.i61, label %land.lhs.true.i.i.i75, label %cond.false.i.i.i62
 
 land.lhs.true.i.i.i75:                            ; preds = %if.then.i.i.i.i50
-  %cmp2.i.i.i76 = icmp ult i64 %add.i.i.i60, 512
+  %cmp2.i.i.i76 = icmp samesign ult i64 %add.i.i.i60, 512
   br i1 %cmp2.i.i.i76, label %if.then.i.i.i79, label %cond.true.i.i.i77
 
 if.then.i.i.i79:                                  ; preds = %land.lhs.true.i.i.i75
@@ -27161,7 +27161,7 @@ if.then.i.i.i.i108:                               ; preds = %if.end.i103, %if.en
   br i1 %cmp.i.i.i119, label %land.lhs.true.i.i.i138, label %cond.false.i.i.i120
 
 land.lhs.true.i.i.i138:                           ; preds = %if.then.i.i.i.i108
-  %cmp2.i.i.i139 = icmp ult i64 %add.i.i.i118, 512
+  %cmp2.i.i.i139 = icmp samesign ult i64 %add.i.i.i118, 512
   br i1 %cmp2.i.i.i139, label %if.then.i.i.i142, label %cond.true.i.i.i140
 
 if.then.i.i.i142:                                 ; preds = %land.lhs.true.i.i.i138
@@ -27261,7 +27261,7 @@ if.then.i.i.i.i180:                               ; preds = %if.end.i175, %if.en
   br i1 %cmp.i.i.i191, label %land.lhs.true.i.i.i205, label %cond.false.i.i.i192
 
 land.lhs.true.i.i.i205:                           ; preds = %if.then.i.i.i.i180
-  %cmp2.i.i.i206 = icmp ult i64 %add.i.i.i190, 512
+  %cmp2.i.i.i206 = icmp samesign ult i64 %add.i.i.i190, 512
   br i1 %cmp2.i.i.i206, label %if.then.i.i.i209, label %cond.true.i.i.i207
 
 if.then.i.i.i209:                                 ; preds = %land.lhs.true.i.i.i205
@@ -42110,7 +42110,7 @@ if.then377:                                       ; preds = %land.lhs.true372, %
   %m_max_backref = getelementptr inbounds i8, ptr %this, i64 184
   %244 = load i32, ptr %m_max_backref, align 8, !tbaa !1538
   %conv388 = zext i32 %244 to i64
-  %cmp389 = icmp ugt i64 %i.1, %conv388
+  %cmp389 = icmp samesign ugt i64 %i.1, %conv388
   %or.cond466 = and i1 %cmp367, %cmp389
   br i1 %or.cond466, label %if.then392, label %if.end395
 
@@ -46032,7 +46032,7 @@ if.end136:                                        ; preds = %lor.lhs.false102
   %101 = load i32, ptr %m_mark_count, align 8, !tbaa !1704
   %conv139 = zext i32 %101 to i64
   %sub = xor i64 %conv139, 9223372036854775807
-  %cmp140 = icmp ult i64 %sub, %call100
+  %cmp140 = icmp samesign ult i64 %sub, %call100
   br i1 %cmp140, label %if.then141, label %if.end157
 
 if.then141:                                       ; preds = %if.end136
@@ -58545,7 +58545,7 @@ invoke.cont305:                                   ; preds = %if.end289
   %120 = load ptr, ptr %m290, align 8, !tbaa !46
   %121 = load i8, ptr %120, align 1, !tbaa !16
   store i8 %121, ptr %d, align 1, !tbaa !2060
-  %cmp308 = icmp ugt i64 %116, 1
+  %cmp308 = icmp samesign ugt i64 %116, 1
   br i1 %cmp308, label %if.then309, label %if.end313
 
 if.then309:                                       ; preds = %invoke.cont305
@@ -59029,7 +59029,7 @@ if.end123:                                        ; preds = %if.end110
   %65 = load ptr, ptr %s, align 8, !tbaa !46
   %66 = load i8, ptr %65, align 1, !tbaa !16
   store i8 %66, ptr %agg.result, align 1, !tbaa !2060
-  %cmp127 = icmp ugt i64 %58, 1
+  %cmp127 = icmp samesign ugt i64 %58, 1
   br i1 %cmp127, label %if.then128, label %if.else
 
 if.then128:                                       ; preds = %if.end123
@@ -73830,7 +73830,7 @@ if.else:                                          ; preds = %entry
   br i1 %cmp3, label %if.then4, label %if.else24
 
 if.then4:                                         ; preds = %if.else
-  %cmp5 = icmp ugt i32 %1, 1073741823
+  %cmp5 = icmp samesign ugt i32 %1, 1073741823
   br i1 %cmp5, label %if.then6, label %if.else16
 
 if.then6:                                         ; preds = %if.then4

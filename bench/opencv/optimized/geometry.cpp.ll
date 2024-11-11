@@ -1023,7 +1023,7 @@ _ZNK2cv11_InputArray6getMatEi.exit157:            ; preds = %35, %38
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(1088) %scevgep.i, i8 0, i64 1088, i1 false)
   store ptr %scevgep.i, ptr %14, align 8
   %92 = getelementptr inbounds i8, ptr %14, i64 8
-  %.not.i.i = icmp ugt i32 %88, 66
+  %.not.i.i = icmp samesign ugt i32 %88, 66
   store i64 %91, ptr %92, align 8
   br i1 %.not.i.i, label %93, label %_ZN2cv10AutoBufferINS_6Point_IfEELm136EEC2Em.exit
 

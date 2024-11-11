@@ -1361,13 +1361,13 @@ do.end487:                                        ; preds = %land.lhs.true473
   %shl = shl nuw nsw i32 %conv467, 10
   %add482 = add nsw i32 %shl, -56613888
   %sub483 = add nuw nsw i32 %add482, %conv476
-  %cmp488 = icmp ugt i32 %sub483, 1048575
+  %cmp488 = icmp samesign ugt i32 %sub483, 1048575
   br i1 %cmp488, label %if.then489, label %if.then498
 
 if.then489:                                       ; preds = %do.end487
   %shr490 = lshr i32 %sub483, 20
   %conv491 = trunc nuw i32 %shr490 to i8
-  %cmp.i243 = icmp ult i32 %sub483, 10485760
+  %cmp.i243 = icmp samesign ult i32 %sub483, 10485760
   %146 = or disjoint i8 %conv491, 48
   %narrow.i244 = add nuw nsw i8 %conv491, 87
   %cond.v.i245 = select i1 %cmp.i243, i8 %146, i8 %narrow.i244

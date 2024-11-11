@@ -4846,7 +4846,7 @@ define internal fastcc noundef range(i32 0, 2097152) i32 @"_ZN116_$LT$core..iter
   %24 = load i8, ptr %17, align 1, !noalias !868, !noundef !9
   %25 = and i8 %24, 63
   %26 = zext nneg i8 %25 to i32
-  %27 = icmp ugt i8 %18, -33
+  %27 = icmp samesign ugt i8 %18, -33
   br i1 %27, label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h16f59da09d4a4f0bE.exit14.i.i.i.i", label %_ZN4core4iter8adapters7flatten17and_then_or_clear17h994a4e096039ec86E.exit11.loopexit.split.loop.exit19
 
 28:                                               ; preds = %16
@@ -4863,7 +4863,7 @@ define internal fastcc noundef range(i32 0, 2097152) i32 @"_ZN116_$LT$core..iter
   %34 = and i8 %32, 63
   %35 = zext nneg i8 %34 to i32
   %36 = or disjoint i32 %33, %35
-  %37 = icmp ugt i8 %18, -17
+  %37 = icmp samesign ugt i8 %18, -17
   br i1 %37, label %_ZN4core3ops8function6FnOnce9call_once17he030689b95f45f85E.exit.i, label %_ZN4core4iter8adapters7flatten17and_then_or_clear17h994a4e096039ec86E.exit11.loopexit.split.loop.exit
 
 _ZN4core3ops8function6FnOnce9call_once17he030689b95f45f85E.exit.i: ; preds = %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h16f59da09d4a4f0bE.exit14.i.i.i.i"
@@ -5009,7 +5009,7 @@ _ZN4core4iter8adapters7flatten17and_then_or_clear17h994a4e096039ec86E.exit11: ; 
   %96 = and i8 %94, 63
   %97 = zext nneg i8 %96 to i32
   %98 = or disjoint i32 %95, %97
-  %99 = icmp ugt i8 %88, -33
+  %99 = icmp samesign ugt i8 %88, -33
   br i1 %99, label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h16f59da09d4a4f0bE.exit14.i.i.i.i8", label %_ZN4core4iter8adapters7flatten17and_then_or_clear17h994a4e096039ec86E.exit11
 
 100:                                              ; preds = %86
@@ -5028,7 +5028,7 @@ _ZN4core4iter8adapters7flatten17and_then_or_clear17h994a4e096039ec86E.exit11: ; 
   %108 = or disjoint i32 %105, %107
   %109 = shl nuw nsw i32 %91, 12
   %110 = or disjoint i32 %108, %109
-  %111 = icmp ugt i8 %88, -17
+  %111 = icmp samesign ugt i8 %88, -17
   br i1 %111, label %_ZN4core3ops8function6FnOnce9call_once17he030689b95f45f85E.exit.i9, label %_ZN4core4iter8adapters7flatten17and_then_or_clear17h994a4e096039ec86E.exit11
 
 _ZN4core3ops8function6FnOnce9call_once17he030689b95f45f85E.exit.i9: ; preds = %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h16f59da09d4a4f0bE.exit14.i.i.i.i8"
@@ -93211,7 +93211,7 @@ define hidden noundef i32 @"_ZN4gpui11bounds_tree19BoundsTree$LT$U$GT$6insert17h
   %.1.i.i.i.i.i = sext i1 %58 to i8
   %.sroa.0.0.i.i.i.i.i = select i1 %57, i8 %..i.i.i.i.i, i8 %.1.i.i.i.i.i
   %59 = add nsw i8 %.sroa.0.0.i.i.i.i.i, -3
-  %switch.i.i.i = icmp ult i8 %59, -2
+  %switch.i.i.i = icmp samesign ult i8 %59, -2
   %..i.i = select i1 %switch.i.i.i, float %56, float %15
   %60 = getelementptr inbounds i8, ptr %50, i64 28
   %61 = load float, ptr %60, align 4, !alias.scope !21220, !noalias !21223, !noundef !9
@@ -93221,7 +93221,7 @@ define hidden noundef i32 @"_ZN4gpui11bounds_tree19BoundsTree$LT$U$GT$6insert17h
   %.1.i.i.i4.i.i = sext i1 %63 to i8
   %.sroa.0.0.i.i.i5.i.i = select i1 %62, i8 %..i.i.i3.i.i, i8 %.1.i.i.i4.i.i
   %64 = add nsw i8 %.sroa.0.0.i.i.i5.i.i, -3
-  %switch.i6.i.i = icmp ult i8 %64, -2
+  %switch.i6.i.i = icmp samesign ult i8 %64, -2
   %.sroa.01.0.i.i = select i1 %switch.i6.i.i, float %61, float %17
   %65 = getelementptr inbounds i8, ptr %50, i64 32
   %66 = load float, ptr %65, align 4, !alias.scope !21226, !noalias !21223, !noundef !9
@@ -93271,7 +93271,7 @@ define hidden noundef i32 @"_ZN4gpui11bounds_tree19BoundsTree$LT$U$GT$6insert17h
   %.1.i.i.i.i.i66 = sext i1 %88 to i8
   %.sroa.0.0.i.i.i.i.i67 = select i1 %87, i8 %..i.i.i.i.i65, i8 %.1.i.i.i.i.i66
   %89 = add nsw i8 %.sroa.0.0.i.i.i.i.i67, -3
-  %switch.i.i.i68 = icmp ult i8 %89, -2
+  %switch.i.i.i68 = icmp samesign ult i8 %89, -2
   %..i.i69 = select i1 %switch.i.i.i68, float %15, float %86
   %90 = getelementptr inbounds i8, ptr %.sroa.06.0, i64 4
   %91 = load float, ptr %90, align 4, !alias.scope !21238, !noalias !21241, !noundef !9
@@ -93281,7 +93281,7 @@ define hidden noundef i32 @"_ZN4gpui11bounds_tree19BoundsTree$LT$U$GT$6insert17h
   %.1.i.i.i4.i.i71 = sext i1 %93 to i8
   %.sroa.0.0.i.i.i5.i.i72 = select i1 %92, i8 %..i.i.i3.i.i70, i8 %.1.i.i.i4.i.i71
   %94 = add nsw i8 %.sroa.0.0.i.i.i5.i.i72, -3
-  %switch.i6.i.i73 = icmp ult i8 %94, -2
+  %switch.i6.i.i73 = icmp samesign ult i8 %94, -2
   %.sroa.01.0.i.i74 = select i1 %switch.i6.i.i73, float %17, float %91
   %95 = getelementptr inbounds i8, ptr %.sroa.06.0, i64 8
   %96 = load float, ptr %95, align 4, !alias.scope !21244, !noalias !21241, !noundef !9
@@ -93322,7 +93322,7 @@ define hidden noundef i32 @"_ZN4gpui11bounds_tree19BoundsTree$LT$U$GT$6insert17h
   %.1.i.i.i.i.i78 = sext i1 %115 to i8
   %.sroa.0.0.i.i.i.i.i79 = select i1 %114, i8 %..i.i.i.i.i77, i8 %.1.i.i.i.i.i78
   %116 = add nsw i8 %.sroa.0.0.i.i.i.i.i79, -3
-  %switch.i.i.i80 = icmp ult i8 %116, -2
+  %switch.i.i.i80 = icmp samesign ult i8 %116, -2
   %..i.i81 = select i1 %switch.i.i.i80, float %15, float %113
   %117 = getelementptr inbounds i8, ptr %.sroa.07.0, i64 4
   %118 = load float, ptr %117, align 4, !alias.scope !21261, !noalias !21264, !noundef !9
@@ -93332,7 +93332,7 @@ define hidden noundef i32 @"_ZN4gpui11bounds_tree19BoundsTree$LT$U$GT$6insert17h
   %.1.i.i.i4.i.i83 = sext i1 %120 to i8
   %.sroa.0.0.i.i.i5.i.i84 = select i1 %119, i8 %..i.i.i3.i.i82, i8 %.1.i.i.i4.i.i83
   %121 = add nsw i8 %.sroa.0.0.i.i.i5.i.i84, -3
-  %switch.i6.i.i85 = icmp ult i8 %121, -2
+  %switch.i6.i.i85 = icmp samesign ult i8 %121, -2
   %.sroa.01.0.i.i86 = select i1 %switch.i6.i.i85, float %17, float %118
   %122 = getelementptr inbounds i8, ptr %.sroa.07.0, i64 8
   %123 = load float, ptr %122, align 4, !alias.scope !21267, !noalias !21264, !noundef !9
@@ -93447,7 +93447,7 @@ define hidden noundef i32 @"_ZN4gpui11bounds_tree19BoundsTree$LT$U$GT$6insert17h
   %.1.i.i.i.i.i.i = sext i1 %174 to i8
   %.sroa.0.0.i.i.i.i.i.i = select i1 %173, i8 %..i.i.i.i.i.i, i8 %.1.i.i.i.i.i.i
   %175 = add nsw i8 %.sroa.0.0.i.i.i.i.i.i, -3
-  %switch.i.i.i.i = icmp ult i8 %175, -2
+  %switch.i.i.i.i = icmp samesign ult i8 %175, -2
   %..i.i.i = select i1 %switch.i.i.i.i, float %171, float %172
   %176 = getelementptr inbounds i8, ptr %.sroa.0.0.i90, i64 4
   %177 = getelementptr inbounds i8, ptr %.sroa.01.0.i, i64 4
@@ -93459,7 +93459,7 @@ define hidden noundef i32 @"_ZN4gpui11bounds_tree19BoundsTree$LT$U$GT$6insert17h
   %.1.i.i.i4.i.i.i = sext i1 %181 to i8
   %.sroa.0.0.i.i.i5.i.i.i = select i1 %180, i8 %..i.i.i3.i.i.i, i8 %.1.i.i.i4.i.i.i
   %182 = add nsw i8 %.sroa.0.0.i.i.i5.i.i.i, -3
-  %switch.i6.i.i.i = icmp ult i8 %182, -2
+  %switch.i6.i.i.i = icmp samesign ult i8 %182, -2
   %.sroa.01.0.i.i.i = select i1 %switch.i6.i.i.i, float %178, float %179
   %183 = getelementptr inbounds i8, ptr %.sroa.0.0.i90, i64 8
   %184 = load float, ptr %183, align 4, !alias.scope !21313, !noalias !21310, !noundef !9

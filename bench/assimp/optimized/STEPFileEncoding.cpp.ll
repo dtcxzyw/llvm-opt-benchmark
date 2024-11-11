@@ -873,7 +873,7 @@ if.then:                                          ; preds = %entry
   unreachable
 
 if.end:                                           ; preds = %entry
-  %cmp.i.i = icmp ult i32 %cp, 128
+  %cmp.i.i = icmp samesign ult i32 %cp, 128
   br i1 %cmp.i.i, label %if.then.i.i, label %if.else.i.i
 
 if.then.i.i:                                      ; preds = %if.end
@@ -883,7 +883,7 @@ if.then.i.i:                                      ; preds = %if.end
   br label %_ZN4utf88internal6appendIPhEET_jS3_.exit
 
 if.else.i.i:                                      ; preds = %if.end
-  %cmp1.i.i = icmp ult i32 %cp, 2048
+  %cmp1.i.i = icmp samesign ult i32 %cp, 2048
   br i1 %cmp1.i.i, label %if.then2.i.i, label %if.else8.i.i
 
 if.then2.i.i:                                     ; preds = %if.else.i.i
@@ -900,7 +900,7 @@ if.then2.i.i:                                     ; preds = %if.else.i.i
   br label %_ZN4utf88internal6appendIPhEET_jS3_.exit
 
 if.else8.i.i:                                     ; preds = %if.else.i.i
-  %cmp9.i.i = icmp ult i32 %cp, 65536
+  %cmp9.i.i = icmp samesign ult i32 %cp, 65536
   %incdec.ptr14.i.i = getelementptr inbounds i8, ptr %result, i64 1
   %incdec.ptr19.i.i = getelementptr inbounds i8, ptr %result, i64 2
   br i1 %cmp9.i.i, label %if.then10.i.i, label %if.else24.i.i

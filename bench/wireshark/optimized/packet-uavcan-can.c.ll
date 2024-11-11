@@ -880,7 +880,7 @@ define internal i32 @UAVCAN_addr_to_str(ptr nocapture noundef readonly %0, ptr n
   br label %20
 
 10:                                               ; preds = %3
-  %.not12 = icmp ult i16 %6, 16384
+  %.not12 = icmp samesign ult i16 %6, 16384
   br i1 %.not12, label %14, label %11
 
 11:                                               ; preds = %10

@@ -12064,7 +12064,7 @@ if.then8.i:                                       ; preds = %if.end.i
   br label %if.end28.i
 
 if.else.i:                                        ; preds = %if.end.i
-  %cmp10.i = icmp ugt i64 %div.i, 29
+  %cmp10.i = icmp samesign ugt i64 %div.i, 29
   %brmerge.i = select i1 %cmp10.i, i1 true, i1 %cmp.i
   br i1 %brmerge.i, label %if.then30.i, label %if.then11.i
 

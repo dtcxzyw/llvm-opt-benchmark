@@ -618,7 +618,7 @@ define range(i32 -1, 1) i32 @H5HF__man_dblock_new(ptr noundef %0, i64 noundef %1
   br label %H5VM_log2_gen.exit
 
 27:                                               ; preds = %13
-  %.not27.i = icmp ult i64 %1, 1099511627776
+  %.not27.i = icmp samesign ult i64 %1, 1099511627776
   br i1 %.not27.i, label %34, label %28
 
 28:                                               ; preds = %27
@@ -638,11 +638,11 @@ define range(i32 -1, 1) i32 @H5HF__man_dblock_new(ptr noundef %0, i64 noundef %1
 
 39:                                               ; preds = %11
   %40 = lshr i64 %1, 16
-  %.not23.i = icmp ult i64 %1, 65536
+  %.not23.i = icmp samesign ult i64 %1, 65536
   br i1 %.not23.i, label %53, label %41
 
 41:                                               ; preds = %39
-  %.not25.i = icmp ult i64 %1, 16777216
+  %.not25.i = icmp samesign ult i64 %1, 16777216
   br i1 %.not25.i, label %48, label %42
 
 42:                                               ; preds = %41
@@ -661,7 +661,7 @@ define range(i32 -1, 1) i32 @H5HF__man_dblock_new(ptr noundef %0, i64 noundef %1
   br label %H5VM_log2_gen.exit
 
 53:                                               ; preds = %39
-  %.not24.i = icmp ult i64 %1, 256
+  %.not24.i = icmp samesign ult i64 %1, 256
   br i1 %.not24.i, label %60, label %54
 
 54:                                               ; preds = %53
@@ -986,7 +986,7 @@ define range(i32 -1, 1) i32 @H5HF__man_dblock_locate(ptr noundef %0, i64 noundef
   br label %H5VM_log2_gen.exit
 
 56:                                               ; preds = %42
-  %.not27.i = icmp ult i64 %40, 1099511627776
+  %.not27.i = icmp samesign ult i64 %40, 1099511627776
   br i1 %.not27.i, label %63, label %57
 
 57:                                               ; preds = %56
@@ -1006,11 +1006,11 @@ define range(i32 -1, 1) i32 @H5HF__man_dblock_locate(ptr noundef %0, i64 noundef
 
 68:                                               ; preds = %36
   %69 = lshr i64 %40, 16
-  %.not23.i = icmp ult i64 %40, 65536
+  %.not23.i = icmp samesign ult i64 %40, 65536
   br i1 %.not23.i, label %82, label %70
 
 70:                                               ; preds = %68
-  %.not25.i = icmp ult i64 %40, 16777216
+  %.not25.i = icmp samesign ult i64 %40, 16777216
   br i1 %.not25.i, label %77, label %71
 
 71:                                               ; preds = %70
@@ -1029,7 +1029,7 @@ define range(i32 -1, 1) i32 @H5HF__man_dblock_locate(ptr noundef %0, i64 noundef
   br label %H5VM_log2_gen.exit
 
 82:                                               ; preds = %68
-  %.not24.i = icmp ult i64 %40, 256
+  %.not24.i = icmp samesign ult i64 %40, 256
   br i1 %.not24.i, label %89, label %83
 
 83:                                               ; preds = %82

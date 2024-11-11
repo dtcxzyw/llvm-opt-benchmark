@@ -108,7 +108,7 @@ define hidden void @_ZN9LockStack8print_onEP12outputStream(ptr nocapture noundef
   br label %17
 
 17:                                               ; preds = %15, %14
-  %18 = icmp ugt i64 %indvars.iv, 1
+  %18 = icmp samesign ugt i64 %indvars.iv, 1
   br i1 %18, label %9, label %._crit_edge, !llvm.loop !6
 
 ._crit_edge:                                      ; preds = %17, %2

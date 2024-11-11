@@ -1282,7 +1282,7 @@ if.end4:                                          ; preds = %if.end
   %idxprom = zext nneg i32 %0 to i64
   %arrayidx = getelementptr inbounds i8, ptr %buffer, i64 %idxprom
   store i8 -128, ptr %arrayidx, align 1
-  %cmp7 = icmp ugt i32 %0, 55
+  %cmp7 = icmp samesign ugt i32 %0, 55
   br i1 %cmp7, label %if.then8, label %if.end4.if.end25_crit_edge
 
 if.end4.if.end25_crit_edge:                       ; preds = %if.end4

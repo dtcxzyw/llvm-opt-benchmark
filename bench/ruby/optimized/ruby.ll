@@ -4143,7 +4143,7 @@ define internal fastcc i64 @proc_options(i64 noundef range(i64 -2147483648, 2305
   br i1 %or.cond, label %.preheader257, label %780
 
 .preheader257:                                    ; preds = %4
-  %16 = icmp ugt i64 %0, 1
+  %16 = icmp samesign ugt i64 %0, 1
   br i1 %16, label %.lr.ph, label %.loopexit258
 
 .lr.ph:                                           ; preds = %.preheader257

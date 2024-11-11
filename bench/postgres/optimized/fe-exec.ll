@@ -4292,7 +4292,7 @@ define i32 @PQgetline(ptr noundef %0, ptr noundef %1, i32 noundef %2) local_unna
 
 6:                                                ; preds = %3
   store i8 0, ptr %1, align 1
-  %7 = icmp ult i32 %2, 3
+  %7 = icmp samesign ult i32 %2, 3
   %.not = icmp eq ptr %0, null
   %or.cond12 = or i1 %.not, %7
   br i1 %or.cond12, label %10, label %8

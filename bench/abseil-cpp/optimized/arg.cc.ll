@@ -4195,7 +4195,7 @@ if.else11:                                        ; preds = %if.else
   %add.ptr = getelementptr inbounds i8, ptr %v, i64 %idx.ext
   %sub.ptr.lhs.cast.i.i.i9 = ptrtoint ptr %add.ptr to i64
   %sub.ptr.rhs.cast.i.i.i10 = ptrtoint ptr %v to i64
-  %cmp48.i.i.i.not = icmp ult i32 %conv.coerce1, 4
+  %cmp48.i.i.i.not = icmp samesign ult i32 %conv.coerce1, 4
   br i1 %cmp48.i.i.i.not, label %for.end.i.i.i, label %for.body.lr.ph.i.i.i
 
 for.body.lr.ph.i.i.i:                             ; preds = %if.else11
@@ -4760,7 +4760,7 @@ if.else11:                                        ; preds = %if.else
   %add.ptr.idx29 = shl nuw nsw i64 %idx.ext, 2
   %add.ptr = getelementptr inbounds i8, ptr %v, i64 %add.ptr.idx29
   %sub.ptr.rhs.cast.i.i.i10 = ptrtoint ptr %v to i64
-  %cmp48.i.i.i.not = icmp ult i32 %conv.coerce1, 4
+  %cmp48.i.i.i.not = icmp samesign ult i32 %conv.coerce1, 4
   br i1 %cmp48.i.i.i.not, label %for.end.i.i.i, label %for.body.lr.ph.i.i.i
 
 for.body.lr.ph.i.i.i:                             ; preds = %if.else11

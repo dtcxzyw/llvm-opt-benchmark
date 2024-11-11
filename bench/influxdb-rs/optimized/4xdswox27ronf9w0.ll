@@ -4979,7 +4979,7 @@ define hidden void @"_ZN5alloc11collections5btree6remove259_$LT$impl$u20$alloc..
   %169 = getelementptr inbounds ptr, ptr %167, i64 %168
   %170 = getelementptr i8, ptr %169, i64 8
   tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %169, ptr align 8 %170, i64 %155, i1 false), !alias.scope !745, !noalias !726
-  %171 = icmp ult i64 %168, %146
+  %171 = icmp samesign ult i64 %168, %146
   br i1 %171, label %.lr.ph.i.i, label %"_ZN5alloc11collections5btree4node119NodeRef$LT$alloc..collections..btree..node..marker..Mut$C$K$C$V$C$alloc..collections..btree..node..marker..Internal$GT$30correct_childrens_parent_links17ha49301340b022c9bE.exit.i"
 
 .lr.ph.i.i:                                       ; preds = %._crit_edge166.thread, %.lr.ph.i.i

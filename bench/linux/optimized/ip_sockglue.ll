@@ -2227,7 +2227,7 @@ define dso_local i32 @do_ip_setsockopt(ptr noundef %0, i32 %1, i32 noundef %2, p
   br label %393
 
 372:                                              ; preds = %362
-  %373 = icmp ugt i32 %5, 7
+  %373 = icmp samesign ugt i32 %5, 7
   br i1 %373, label %374, label %383
 
 374:                                              ; preds = %372

@@ -96,7 +96,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7pxr_lz417LZ4_compressBoundEi.exit: ; preds
   store i32 %34, ptr %19, align 8
   %35 = getelementptr inbounds nuw i8, ptr %.0.i, i64 16390
   store i16 3, ptr %35, align 2
-  %36 = icmp ult i32 %3, 13
+  %36 = icmp samesign ult i32 %3, 13
   br i1 %36, label %.loopexit2975, label %37
 
 37:                                               ; preds = %30
@@ -979,7 +979,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7pxr_lz4L13LZ4_wildCopy8EPvPKvS1_.exit2934:
   store i32 %459, ptr %19, align 8
   %460 = getelementptr inbounds nuw i8, ptr %.0.i, i64 16390
   store i16 3, ptr %460, align 2
-  %461 = icmp ult i32 %3, 13
+  %461 = icmp samesign ult i32 %3, 13
   br i1 %461, label %.loopexit2966, label %462
 
 462:                                              ; preds = %455
@@ -2008,7 +2008,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7pxr_lz417LZ4_compressBoundEi.exit: ; preds
   store i32 %41, ptr %32, align 8
   %42 = getelementptr inbounds nuw i8, ptr %0, i64 16390
   store i16 3, ptr %42, align 2
-  %43 = icmp ult i32 %3, 13
+  %43 = icmp samesign ult i32 %3, 13
   br i1 %43, label %.loopexit4637, label %.lr.ph4759.lr.ph
 
 .lr.ph4759.lr.ph:                                 ; preds = %39
@@ -2461,7 +2461,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7pxr_lz4L13LZ4_wildCopy8EPvPKvS1_.exit: ; p
   store i32 %3, ptr %254, align 8
   %261 = getelementptr inbounds nuw i8, ptr %0, i64 16390
   store i16 3, ptr %261, align 2
-  %262 = icmp ult i32 %3, 13
+  %262 = icmp samesign ult i32 %3, 13
   br i1 %262, label %.loopexit4633, label %263
 
 263:                                              ; preds = %259
@@ -3426,7 +3426,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7pxr_lz4L13LZ4_wildCopy8EPvPKvS1_.exit4570:
   store i32 %712, ptr %701, align 8
   %713 = getelementptr inbounds nuw i8, ptr %0, i64 16390
   store i16 3, ptr %713, align 2
-  %714 = icmp ult i32 %3, 13
+  %714 = icmp samesign ult i32 %3, 13
   br i1 %714, label %.loopexit4624, label %.lr.ph4883.lr.ph
 
 .lr.ph4883.lr.ph:                                 ; preds = %710
@@ -3909,7 +3909,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7pxr_lz4L13LZ4_wildCopy8EPvPKvS1_.exit4575:
   store i32 %3, ptr %948, align 8
   %957 = getelementptr inbounds nuw i8, ptr %0, i64 16390
   store i16 3, ptr %957, align 2
-  %958 = icmp ult i32 %3, 13
+  %958 = icmp samesign ult i32 %3, 13
   br i1 %958, label %.loopexit4619, label %959
 
 959:                                              ; preds = %955
@@ -4913,7 +4913,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7pxr_lz414LZ4_initStreamEPvm.exit:
   store i32 %2, ptr %17, align 8
   %19 = getelementptr inbounds nuw i8, ptr %6, i64 16390
   store i16 3, ptr %19, align 2
-  %20 = icmp ult i32 %2, 13
+  %20 = icmp samesign ult i32 %2, 13
   br i1 %20, label %.loopexit1466, label %21
 
 21:                                               ; preds = %16
@@ -5877,7 +5877,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7pxr_lz417LZ4_compressBoundEi.exit.i: ; pre
   store i32 %5, ptr %16, align 8
   %27 = getelementptr inbounds nuw i8, ptr %4, i64 16390
   store i16 3, ptr %27, align 2
-  %28 = icmp ult i32 %5, 13
+  %28 = icmp samesign ult i32 %5, 13
   br i1 %28, label %.loopexit1480.i, label %29
 
 29:                                               ; preds = %25
@@ -6997,7 +6997,7 @@ define noundef i32 @_ZN32pxrInternal_v0_24__pxrReserved__7pxr_lz412LZ4_loadDictE
   %7 = zext nneg i32 %2 to i64
   %8 = getelementptr inbounds i8, ptr %1, i64 %7
   %9 = ptrtoint ptr %8 to i64
-  %10 = icmp ugt i32 %2, 65536
+  %10 = icmp samesign ugt i32 %2, 65536
   %11 = getelementptr inbounds i8, ptr %8, i64 -65536
   %spec.select = select i1 %10, ptr %11, ptr %1
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 16392
@@ -7242,7 +7242,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7pxr_lz4L15LZ4_renormDictTEPNS0_21LZ4_strea
   store i32 %77, ptr %17, align 8
   %78 = getelementptr inbounds nuw i8, ptr %0, i64 16390
   store i16 2, ptr %78, align 2
-  %79 = icmp ult i32 %3, 13
+  %79 = icmp samesign ult i32 %3, 13
   br i1 %79, label %.loopexit4562, label %.lr.ph4990.lr.ph
 
 .lr.ph4990.lr.ph:                                 ; preds = %72
@@ -7726,7 +7726,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7pxr_lz4L13LZ4_wildCopy8EPvPKvS1_.exit: ; p
   store i32 %318, ptr %17, align 8
   %319 = getelementptr inbounds nuw i8, ptr %0, i64 16390
   store i16 2, ptr %319, align 2
-  %320 = icmp ult i32 %3, 13
+  %320 = icmp samesign ult i32 %3, 13
   br i1 %320, label %.loopexit4566, label %.lr.ph4943.lr.ph
 
 .lr.ph4943.lr.ph:                                 ; preds = %313
@@ -8213,7 +8213,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7pxr_lz4L13LZ4_wildCopy8EPvPKvS1_.exit4516:
   %563 = getelementptr inbounds i8, ptr %561, i64 %556
   %564 = sext i32 %4 to i64
   %565 = getelementptr inbounds i8, ptr %2, i64 %564
-  %566 = icmp ugt i32 %3, 2113929216
+  %566 = icmp samesign ugt i32 %3, 2113929216
   br i1 %566, label %.loopexit4570, label %.lr.ph4755.lr.ph
 
 .lr.ph4755.lr.ph:                                 ; preds = %553
@@ -8976,7 +8976,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7pxr_lz4L13LZ4_wildCopy8EPvPKvS1_.exit4521:
   store i32 %945, ptr %17, align 8
   %946 = getelementptr inbounds nuw i8, ptr %0, i64 16390
   store i16 2, ptr %946, align 2
-  %947 = icmp ult i32 %3, 13
+  %947 = icmp samesign ult i32 %3, 13
   br i1 %947, label %.loopexit4583, label %.lr.ph.lr.ph
 
 .lr.ph.lr.ph:                                     ; preds = %944
@@ -9764,7 +9764,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7pxr_lz4L13LZ4_wildCopy8EPvPKvS1_.exit4527:
   store i32 %1336, ptr %17, align 8
   %1337 = getelementptr inbounds nuw i8, ptr %0, i64 16390
   store i16 2, ptr %1337, align 2
-  %1338 = icmp ult i32 %3, 13
+  %1338 = icmp samesign ult i32 %3, 13
   br i1 %1338, label %.loopexit4571, label %.lr.ph4881.lr.ph
 
 .lr.ph4881.lr.ph:                                 ; preds = %1334
@@ -10517,7 +10517,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7pxr_lz4L13LZ4_wildCopy8EPvPKvS1_.exit4533:
   store i32 %1703, ptr %17, align 8
   %1704 = getelementptr inbounds nuw i8, ptr %0, i64 16390
   store i16 2, ptr %1704, align 2
-  %1705 = icmp ult i32 %3, 13
+  %1705 = icmp samesign ult i32 %3, 13
   br i1 %1705, label %.loopexit4575, label %.lr.ph4818.lr.ph
 
 .lr.ph4818.lr.ph:                                 ; preds = %1701
@@ -11339,7 +11339,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7pxr_lz4L15LZ4_renormDictTEPNS0_21LZ4_strea
   store i32 %46, ptr %6, align 8
   %47 = getelementptr inbounds nuw i8, ptr %0, i64 16390
   store i16 2, ptr %47, align 2
-  %48 = icmp ult i32 %3, 13
+  %48 = icmp samesign ult i32 %3, 13
   br i1 %48, label %.loopexit, label %.lr.ph1592.lr.ph
 
 .lr.ph1592.lr.ph:                                 ; preds = %44
@@ -12063,7 +12063,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7pxr_lz4L13LZ4_wildCopy8EPvPKvS1_.exit: ; p
   store i32 %390, ptr %6, align 8
   %391 = getelementptr inbounds nuw i8, ptr %0, i64 16390
   store i16 2, ptr %391, align 2
-  %392 = icmp ult i32 %3, 13
+  %392 = icmp samesign ult i32 %3, 13
   br i1 %392, label %.loopexit1500, label %.lr.ph.lr.ph
 
 .lr.ph.lr.ph:                                     ; preds = %388
@@ -13026,7 +13026,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7pxr_lz4L14LZ4_wildCopy32EPvPKvS1_.exit: ; 
   br label %149
 
 116:                                              ; preds = %110
-  %117 = icmp ult i16 %.6563.val, 8
+  %117 = icmp samesign ult i16 %.6563.val, 8
   br i1 %117, label %118, label %140
 
 118:                                              ; preds = %116
@@ -13084,7 +13084,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7pxr_lz4L14LZ4_wildCopy32EPvPKvS1_.exit: ; 
   store i32 %.sroa.7.0.i, ptr %.3, align 1
   %.sroa.7.0..sroa_idx.i = getelementptr inbounds i8, ptr %.3, i64 4
   store i32 %.sroa.7.0.i, ptr %.sroa.7.0..sroa_idx.i, align 1
-  %150 = icmp ugt i64 %.2491, 8
+  %150 = icmp samesign ugt i64 %.2491, 8
   br i1 %150, label %.lr.ph.i.preheader, label %.backedge
 
 .lr.ph.i.preheader:                               ; preds = %149
@@ -13393,7 +13393,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7pxr_lz4L13LZ4_wildCopy8EPvPKvS1_.exit668: 
 297:                                              ; preds = %273
   %298 = load i64, ptr %.3483, align 1
   store i64 %298, ptr %274, align 1
-  %299 = icmp ugt i64 %.1490, 16
+  %299 = icmp samesign ugt i64 %.1490, 16
   br i1 %299, label %300, label %_ZN32pxrInternal_v0_24__pxrReserved__7pxr_lz4L13LZ4_wildCopy8EPvPKvS1_.exit671
 
 300:                                              ; preds = %297
@@ -13640,7 +13640,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7pxr_lz4L14LZ4_wildCopy32EPvPKvS1_.exit: ; 
   br label %142
 
 109:                                              ; preds = %103
-  %110 = icmp ult i16 %.6567.val, 8
+  %110 = icmp samesign ult i16 %.6567.val, 8
   br i1 %110, label %111, label %133
 
 111:                                              ; preds = %109
@@ -13698,7 +13698,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7pxr_lz4L14LZ4_wildCopy32EPvPKvS1_.exit: ; 
   store i32 %.sroa.7.0.i, ptr %.3, align 1
   %.sroa.7.0..sroa_idx.i = getelementptr inbounds i8, ptr %.3, i64 4
   store i32 %.sroa.7.0.i, ptr %.sroa.7.0..sroa_idx.i, align 1
-  %143 = icmp ugt i64 %.2495, 8
+  %143 = icmp samesign ugt i64 %.2495, 8
   br i1 %143, label %.lr.ph.i.preheader, label %.backedge
 
 .lr.ph.i.preheader:                               ; preds = %142
@@ -14016,7 +14016,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7pxr_lz4L13LZ4_wildCopy8EPvPKvS1_.exit: ; p
   %290 = getelementptr inbounds i8, ptr %.4, i64 8
   %291 = load i64, ptr %.3486, align 1
   store i64 %291, ptr %290, align 1
-  %292 = icmp ugt i64 %.1494, 16
+  %292 = icmp samesign ugt i64 %.1494, 16
   br i1 %292, label %293, label %_ZN32pxrInternal_v0_24__pxrReserved__7pxr_lz4L13LZ4_wildCopy8EPvPKvS1_.exit675
 
 293:                                              ; preds = %289
@@ -14247,7 +14247,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7pxr_lz4L13LZ4_wildCopy8EPvPKvS1_.exit: ; p
   br label %124
 
 91:                                               ; preds = %.thread
-  %92 = icmp ult i16 %.6562.val, 8
+  %92 = icmp samesign ult i16 %.6562.val, 8
   br i1 %92, label %93, label %115
 
 93:                                               ; preds = %91
@@ -14305,7 +14305,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7pxr_lz4L13LZ4_wildCopy8EPvPKvS1_.exit: ; p
   store i32 %.sroa.7.0.i, ptr %.3, align 1
   %.sroa.7.0..sroa_idx.i = getelementptr inbounds i8, ptr %.3, i64 4
   store i32 %.sroa.7.0.i, ptr %.sroa.7.0..sroa_idx.i, align 1
-  %125 = icmp ugt i64 %.idx, 8
+  %125 = icmp samesign ugt i64 %.idx, 8
   br i1 %125, label %.lr.ph.i.preheader, label %.backedge
 
 .lr.ph.i.preheader:                               ; preds = %124
@@ -14580,7 +14580,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7pxr_lz4L13LZ4_wildCopy8EPvPKvS1_.exit630: 
 254:                                              ; preds = %230
   %255 = load i64, ptr %.3482, align 1
   store i64 %255, ptr %231, align 1
-  %256 = icmp ugt i64 %.1488, 16
+  %256 = icmp samesign ugt i64 %.1488, 16
   br i1 %256, label %257, label %_ZN32pxrInternal_v0_24__pxrReserved__7pxr_lz4L13LZ4_wildCopy8EPvPKvS1_.exit633
 
 257:                                              ; preds = %254
@@ -14849,7 +14849,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7pxr_lz4L14LZ4_wildCopy32EPvPKvS1_.exit: ; 
   br label %141
 
 108:                                              ; preds = %102
-  %109 = icmp ult i16 %.6563.val, 8
+  %109 = icmp samesign ult i16 %.6563.val, 8
   br i1 %109, label %110, label %132
 
 110:                                              ; preds = %108
@@ -15220,7 +15220,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7pxr_lz4L13LZ4_wildCopy8EPvPKvS1_.exit681: 
 281:                                              ; preds = %257
   %282 = load i64, ptr %.3483, align 1
   store i64 %282, ptr %258, align 1
-  %283 = icmp ugt i64 %.1490, 16
+  %283 = icmp samesign ugt i64 %.1490, 16
   br i1 %283, label %284, label %_ZN32pxrInternal_v0_24__pxrReserved__7pxr_lz4L13LZ4_wildCopy8EPvPKvS1_.exit684
 
 284:                                              ; preds = %281
@@ -15502,7 +15502,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7pxr_lz4L14LZ4_wildCopy32EPvPKvS1_.exit: ; 
   br i1 %133, label %.preheader698, label %139
 
 .preheader698:                                    ; preds = %126
-  %134 = icmp ult i64 %122, %.2493
+  %134 = icmp samesign ult i64 %122, %.2493
   br i1 %134, label %.lr.ph, label %.backedge
 
 .lr.ph:                                           ; preds = %.preheader698, %.lr.ph
@@ -15549,7 +15549,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7pxr_lz4L14LZ4_wildCopy32EPvPKvS1_.exit: ; 
   br label %181
 
 148:                                              ; preds = %142
-  %149 = icmp ult i16 %.6565.val, 8
+  %149 = icmp samesign ult i16 %.6565.val, 8
   br i1 %149, label %150, label %172
 
 150:                                              ; preds = %148
@@ -15607,7 +15607,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7pxr_lz4L14LZ4_wildCopy32EPvPKvS1_.exit: ; 
   store i32 %.sroa.7.0.i, ptr %.3, align 1
   %.sroa.7.0..sroa_idx.i = getelementptr inbounds i8, ptr %.3, i64 4
   store i32 %.sroa.7.0.i, ptr %.sroa.7.0..sroa_idx.i, align 1
-  %182 = icmp ugt i64 %.2493, 8
+  %182 = icmp samesign ugt i64 %.2493, 8
   br i1 %182, label %.lr.ph.i.preheader, label %.backedge
 
 .lr.ph.i.preheader:                               ; preds = %181
@@ -15858,7 +15858,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7pxr_lz4L13LZ4_wildCopy8EPvPKvS1_.exit: ; p
   br i1 %297, label %.preheader, label %303
 
 .preheader:                                       ; preds = %290
-  %298 = icmp ult i64 %286, %.1492
+  %298 = icmp samesign ult i64 %286, %.1492
   br i1 %298, label %.lr.ph755, label %.loopexit
 
 .lr.ph755:                                        ; preds = %.preheader, %.lr.ph755
@@ -15972,7 +15972,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7pxr_lz4L13LZ4_wildCopy8EPvPKvS1_.exit681: 
 355:                                              ; preds = %331
   %356 = load i64, ptr %.3484, align 1
   store i64 %356, ptr %332, align 1
-  %357 = icmp ugt i64 %.1492, 16
+  %357 = icmp samesign ugt i64 %.1492, 16
   br i1 %357, label %358, label %_ZN32pxrInternal_v0_24__pxrReserved__7pxr_lz4L13LZ4_wildCopy8EPvPKvS1_.exit684
 
 358:                                              ; preds = %355
@@ -16338,7 +16338,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7pxr_lz4L14LZ4_wildCopy32EPvPKvS1_.exit: ; 
   br i1 %161, label %.preheader766, label %167
 
 .preheader766:                                    ; preds = %154
-  %162 = icmp ult i64 %150, %.2554
+  %162 = icmp samesign ult i64 %150, %.2554
   br i1 %162, label %.lr.ph, label %.backedge
 
 .lr.ph:                                           ; preds = %.preheader766, %.lr.ph
@@ -16598,7 +16598,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7pxr_lz4L13LZ4_wildCopy8EPvPKvS1_.exit: ; p
   br i1 %285, label %.preheader, label %291
 
 .preheader:                                       ; preds = %278
-  %286 = icmp ult i64 %274, %.1553
+  %286 = icmp samesign ult i64 %274, %.1553
   br i1 %286, label %.lr.ph821, label %.loopexit
 
 .lr.ph821:                                        ; preds = %.preheader, %.lr.ph821
@@ -16712,7 +16712,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7pxr_lz4L13LZ4_wildCopy8EPvPKvS1_.exit748: 
 343:                                              ; preds = %319
   %344 = load i64, ptr %.3546, align 1
   store i64 %344, ptr %320, align 1
-  %345 = icmp ugt i64 %.1553, 16
+  %345 = icmp samesign ugt i64 %.1553, 16
   br i1 %345, label %346, label %_ZN32pxrInternal_v0_24__pxrReserved__7pxr_lz4L13LZ4_wildCopy8EPvPKvS1_.exit751
 
 346:                                              ; preds = %343
@@ -17011,7 +17011,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7pxr_lz4L14LZ4_wildCopy32EPvPKvS1_.exit: ; 
   br label %152
 
 119:                                              ; preds = %113
-  %120 = icmp ult i16 %.6564.val, 8
+  %120 = icmp samesign ult i16 %.6564.val, 8
   br i1 %120, label %121, label %143
 
 121:                                              ; preds = %119
@@ -17069,7 +17069,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7pxr_lz4L14LZ4_wildCopy32EPvPKvS1_.exit: ; 
   store i32 %.sroa.7.0.i, ptr %.3, align 1
   %.sroa.7.0..sroa_idx.i = getelementptr inbounds i8, ptr %.3, i64 4
   store i32 %.sroa.7.0.i, ptr %.sroa.7.0..sroa_idx.i, align 1
-  %153 = icmp ugt i64 %.2492, 8
+  %153 = icmp samesign ugt i64 %.2492, 8
   br i1 %153, label %.lr.ph.i.preheader, label %.backedge
 
 .lr.ph.i.preheader:                               ; preds = %152
@@ -17378,7 +17378,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7pxr_lz4L13LZ4_wildCopy8EPvPKvS1_.exit669: 
 300:                                              ; preds = %276
   %301 = load i64, ptr %.3483, align 1
   store i64 %301, ptr %277, align 1
-  %302 = icmp ugt i64 %.1491, 16
+  %302 = icmp samesign ugt i64 %.1491, 16
   br i1 %302, label %303, label %_ZN32pxrInternal_v0_24__pxrReserved__7pxr_lz4L13LZ4_wildCopy8EPvPKvS1_.exit672
 
 303:                                              ; preds = %300
@@ -17653,7 +17653,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7pxr_lz4L13LZ4_wildCopy8EPvPKvS1_.exit: ; p
   br i1 %135, label %.preheader716, label %141
 
 .preheader716:                                    ; preds = %128
-  %136 = icmp ult i64 %124, %.2544
+  %136 = icmp samesign ult i64 %124, %.2544
   br i1 %136, label %.lr.ph, label %.backedge
 
 .lr.ph:                                           ; preds = %.preheader716, %.lr.ph
@@ -17700,7 +17700,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7pxr_lz4L13LZ4_wildCopy8EPvPKvS1_.exit: ; p
   br label %183
 
 150:                                              ; preds = %144
-  %151 = icmp ult i16 %.6618.val, 8
+  %151 = icmp samesign ult i16 %.6618.val, 8
   br i1 %151, label %152, label %174
 
 152:                                              ; preds = %150
@@ -17758,7 +17758,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7pxr_lz4L13LZ4_wildCopy8EPvPKvS1_.exit: ; p
   store i32 %.sroa.7.0.i, ptr %.3, align 1
   %.sroa.7.0..sroa_idx.i = getelementptr inbounds i8, ptr %.3, i64 4
   store i32 %.sroa.7.0.i, ptr %.sroa.7.0..sroa_idx.i, align 1
-  %184 = icmp ugt i64 %.2544, 8
+  %184 = icmp samesign ugt i64 %.2544, 8
   br i1 %184, label %.lr.ph.i.preheader, label %.backedge
 
 .lr.ph.i.preheader:                               ; preds = %183
@@ -17976,7 +17976,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7pxr_lz4L13LZ4_wildCopy8EPvPKvS1_.exit695: 
   br i1 %281, label %.preheader, label %287
 
 .preheader:                                       ; preds = %274
-  %282 = icmp ult i64 %270, %.1543
+  %282 = icmp samesign ult i64 %270, %.1543
   br i1 %282, label %.lr.ph778, label %.loopexit
 
 .lr.ph778:                                        ; preds = %.preheader, %.lr.ph778
@@ -18090,7 +18090,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7pxr_lz4L13LZ4_wildCopy8EPvPKvS1_.exit698: 
 339:                                              ; preds = %315
   %340 = load i64, ptr %.3536, align 1
   store i64 %340, ptr %316, align 1
-  %341 = icmp ugt i64 %.1543, 16
+  %341 = icmp samesign ugt i64 %.1543, 16
   br i1 %341, label %342, label %_ZN32pxrInternal_v0_24__pxrReserved__7pxr_lz4L13LZ4_wildCopy8EPvPKvS1_.exit701
 
 342:                                              ; preds = %339
@@ -18363,7 +18363,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7pxr_lz4L13LZ4_wildCopy8EPvPKvS1_.exit: ; p
   br i1 %111, label %.preheader650, label %117
 
 .preheader650:                                    ; preds = %104
-  %112 = icmp ult i64 %100, %.2492
+  %112 = icmp samesign ult i64 %100, %.2492
   br i1 %112, label %.lr.ph, label %.backedge
 
 .lr.ph:                                           ; preds = %.preheader650, %.lr.ph
@@ -18410,7 +18410,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7pxr_lz4L13LZ4_wildCopy8EPvPKvS1_.exit: ; p
   br label %159
 
 126:                                              ; preds = %120
-  %127 = icmp ult i16 %.6564.val, 8
+  %127 = icmp samesign ult i16 %.6564.val, 8
   br i1 %127, label %128, label %150
 
 128:                                              ; preds = %126
@@ -18468,7 +18468,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7pxr_lz4L13LZ4_wildCopy8EPvPKvS1_.exit: ; p
   store i32 %.sroa.7.0.i, ptr %.3, align 1
   %.sroa.7.0..sroa_idx.i = getelementptr inbounds i8, ptr %.3, i64 4
   store i32 %.sroa.7.0.i, ptr %.sroa.7.0..sroa_idx.i, align 1
-  %160 = icmp ugt i64 %.2492, 8
+  %160 = icmp samesign ugt i64 %.2492, 8
   br i1 %160, label %.lr.ph.i.preheader, label %.backedge
 
 .lr.ph.i.preheader:                               ; preds = %159
@@ -18685,7 +18685,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7pxr_lz4L13LZ4_wildCopy8EPvPKvS1_.exit633: 
   br i1 %256, label %.preheader, label %262
 
 .preheader:                                       ; preds = %249
-  %257 = icmp ult i64 %245, %.1491
+  %257 = icmp samesign ult i64 %245, %.1491
   br i1 %257, label %.lr.ph712, label %.loopexit
 
 .lr.ph712:                                        ; preds = %.preheader, %.lr.ph712
@@ -18799,7 +18799,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7pxr_lz4L13LZ4_wildCopy8EPvPKvS1_.exit636: 
 314:                                              ; preds = %290
   %315 = load i64, ptr %.3483, align 1
   store i64 %315, ptr %291, align 1
-  %316 = icmp ugt i64 %.1491, 16
+  %316 = icmp samesign ugt i64 %.1491, 16
   br i1 %316, label %317, label %_ZN32pxrInternal_v0_24__pxrReserved__7pxr_lz4L13LZ4_wildCopy8EPvPKvS1_.exit639
 
 317:                                              ; preds = %314

@@ -51678,7 +51678,7 @@ for.body.i.i.i.i.i37:                             ; preds = %for.body.i.i.i.i.i3
   %incdec.ptr.i.i.i.i.i38 = getelementptr inbounds i8, ptr %__first.addr.07.i.i.i.i.i, i64 24
   %incdec.ptr1.i.i.i.i.i39 = getelementptr inbounds i8, ptr %__result.addr.08.i.i.i.i.i, i64 24
   %dec.i.i.i.i.i40 = add nsw i64 %__n.09.i.i.i.i.i, -1
-  %cmp.i.i.i.i.i41 = icmp ugt i64 %__n.09.i.i.i.i.i, 1
+  %cmp.i.i.i.i.i41 = icmp samesign ugt i64 %__n.09.i.i.i.i.i, 1
   br i1 %cmp.i.i.i.i.i41, label %for.body.i.i.i.i.i37, label %if.end109, !llvm.loop !399
 
 _ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPSt6vectorIN4cvc58internal12NodeTemplateILb1EEESaIS6_EES2_IS8_SaIS8_EEEEmEvRT_T0_.exit: ; preds = %if.then9
@@ -51733,7 +51733,7 @@ for.body.i.i.i.i.i66:                             ; preds = %for.body.i.i.i.i.i6
   %incdec.ptr.i.i.i.i.i71 = getelementptr inbounds i8, ptr %__first.addr.07.i.i.i.i.i69, i64 24
   %incdec.ptr1.i.i.i.i.i72 = getelementptr inbounds i8, ptr %__result.addr.08.i.i.i.i.i68, i64 24
   %dec.i.i.i.i.i73 = add nsw i64 %__n.09.i.i.i.i.i67, -1
-  %cmp.i.i.i.i.i74 = icmp ugt i64 %__n.09.i.i.i.i.i67, 1
+  %cmp.i.i.i.i.i74 = icmp samesign ugt i64 %__n.09.i.i.i.i.i67, 1
   br i1 %cmp.i.i.i.i.i74, label %for.body.i.i.i.i.i66, label %if.end109, !llvm.loop !399
 
 if.else68:                                        ; preds = %if.then

@@ -1720,11 +1720,11 @@ if.end5.i598:                                     ; preds = %if.end.i900
 
 if.then11.i:                                      ; preds = %if.end5.i598
   %conv13.i = zext nneg i8 %163 to i64
-  %cmp14.not.i = icmp ult i64 %149, %conv13.i
+  %cmp14.not.i = icmp samesign ult i64 %149, %conv13.i
   br i1 %cmp14.not.i, label %for.cond.backedge, label %return.sink.split.sink.split.i
 
 if.end21.i:                                       ; preds = %if.end5.i598
-  %cmp22.i = icmp ult i64 %149, 9
+  %cmp22.i = icmp samesign ult i64 %149, 9
   br i1 %cmp22.i, label %for.cond.backedge, label %BitMask.exit.i603
 
 BitMask.exit.i603:                                ; preds = %if.end21.i
@@ -1741,7 +1741,7 @@ BitMask.exit.i603:                                ; preds = %if.end21.i
   %add.ptr32.i = getelementptr inbounds %struct.HuffmanCode, ptr %166, i64 %conv31.i606
   %167 = load i8, ptr %add.ptr32.i, align 2
   %conv34.i = zext i8 %167 to i64
-  %cmp35.i = icmp ult i64 %sub.i605, %conv34.i
+  %cmp35.i = icmp samesign ult i64 %sub.i605, %conv34.i
   br i1 %cmp35.i, label %for.cond.backedge, label %if.end38.i
 
 if.end38.i:                                       ; preds = %BitMask.exit.i603
@@ -3842,7 +3842,7 @@ ReadSymbol.exit.i1348.i:                          ; preds = %if.then.i.i45.i.i, 
 if.then6.i.i:                                     ; preds = %ReadSymbol.exit.i1348.i
   %conv.i1376.i = zext nneg i16 %538 to i32
   store i32 %conv.i1376.i, ptr %distance_code6.i.i, align 8
-  %cmp.i1826.i = icmp ult i16 %538, 4
+  %cmp.i1826.i = icmp samesign ult i16 %538, 4
   br i1 %cmp.i1826.i, label %if.then.i1854.i, label %if.else.i1827.i
 
 if.then.i1854.i:                                  ; preds = %if.then6.i.i
@@ -3861,7 +3861,7 @@ if.then.i1854.i:                                  ; preds = %if.then6.i.i
   br label %if.end223.i.i
 
 if.else.i1827.i:                                  ; preds = %if.then6.i.i
-  %cmp11.i1831.i = icmp ult i16 %538, 10
+  %cmp11.i1831.i = icmp samesign ult i16 %538, 10
   %base.i1822.0.v.i = select i1 %cmp11.i1831.i, i32 -4, i32 -10
   %base.i1822.0.i = add nsw i32 %base.i1822.0.v.i, %conv.i1376.i
   %index_delta.i1820.0.i = select i1 %cmp11.i1831.i, i32 3, i32 2
@@ -4380,7 +4380,7 @@ if.end501.i.i:                                    ; preds = %if.end492.i.i
   br i1 %cmp503.i.i, label %if.then505.i.i, label %if.end518.i.ithread-pre-split
 
 if.then505.i.i:                                   ; preds = %if.end501.i.i
-  %cmp506.i.i = icmp ugt i32 %555, 32
+  %cmp506.i.i = icmp samesign ugt i32 %555, 32
   %add.ptr509.i.i = getelementptr inbounds i8, ptr %arrayidx470.i.i, i64 16
   %add.ptr510.i.i = getelementptr inbounds i8, ptr %arrayidx473.i.i, i64 16
   br i1 %cmp506.i.i, label %if.then508.i.i, label %if.else513.i.i
@@ -4835,11 +4835,11 @@ if.end5.i.i.i:                                    ; preds = %if.end.i113.i.i.i
 
 if.then11.i.i.i:                                  ; preds = %if.end5.i.i.i
   %conv13.i.i.i = zext nneg i8 %704 to i64
-  %cmp14.not.i.i.i = icmp ult i64 %692, %conv13.i.i.i
+  %cmp14.not.i.i.i = icmp samesign ult i64 %692, %conv13.i.i.i
   br i1 %cmp14.not.i.i.i, label %saveStateAndReturn.i.i950, label %return.sink.split.sink.split.i.i.i
 
 if.end21.i.i.i:                                   ; preds = %if.end5.i.i.i
-  %cmp22.i.i.i = icmp ult i64 %692, 9
+  %cmp22.i.i.i = icmp samesign ult i64 %692, 9
   br i1 %cmp22.i.i.i, label %saveStateAndReturn.i.i950, label %BitMask.exit.i.i1416.i
 
 BitMask.exit.i.i1416.i:                           ; preds = %if.end21.i.i.i
@@ -4856,7 +4856,7 @@ BitMask.exit.i.i1416.i:                           ; preds = %if.end21.i.i.i
   %add.ptr32.i.i.i = getelementptr inbounds %struct.HuffmanCode, ptr %707, i64 %conv31.i.i.i
   %708 = load i8, ptr %add.ptr32.i.i.i, align 2
   %conv34.i.i.i = zext i8 %708 to i64
-  %cmp35.i.i.i = icmp ult i64 %sub.i281.i.i, %conv34.i.i.i
+  %cmp35.i.i.i = icmp samesign ult i64 %sub.i281.i.i, %conv34.i.i.i
   br i1 %cmp35.i.i.i, label %saveStateAndReturn.i.i950, label %if.end38.i.i.i
 
 if.end38.i.i.i:                                   ; preds = %BitMask.exit.i.i1416.i
@@ -5009,7 +5009,7 @@ BitMask.exit.i295.i.i:                            ; preds = %if.end21.i289.i.i
   %add.ptr32.i302.i.i = getelementptr inbounds %struct.HuffmanCode, ptr %732, i64 %conv31.i301.i.i
   %733 = load i8, ptr %add.ptr32.i302.i.i, align 2
   %conv34.i303.i.i = zext i8 %733 to i64
-  %cmp35.i304.i.i = icmp ult i64 %sub.i299.i.i, %conv34.i303.i.i
+  %cmp35.i304.i.i = icmp samesign ult i64 %sub.i299.i.i, %conv34.i303.i.i
   br i1 %cmp35.i304.i.i, label %SafeDecodeCommandBlockSwitch.exit.thread1848.loopexit.i, label %if.end38.i305.i.i
 
 if.end38.i305.i.i:                                ; preds = %BitMask.exit.i295.i.i
@@ -5247,11 +5247,11 @@ if.end5.i.i1278:                                  ; preds = %if.end.i.i631.i
 
 if.then11.i.i:                                    ; preds = %if.end5.i.i1278
   %conv13.i.i = zext nneg i8 %769 to i64
-  %cmp14.not.i.i = icmp ult i64 %758, %conv13.i.i
+  %cmp14.not.i.i = icmp samesign ult i64 %758, %conv13.i.i
   br i1 %cmp14.not.i.i, label %saveStateAndReturn.i.i950, label %return.sink.split.sink.split.i.i
 
 if.end21.i.i1279:                                 ; preds = %if.end5.i.i1278
-  %cmp22.i.i = icmp ult i64 %758, 9
+  %cmp22.i.i = icmp samesign ult i64 %758, 9
   br i1 %cmp22.i.i, label %saveStateAndReturn.i.i950, label %BitMask.exit.i1425.i
 
 BitMask.exit.i1425.i:                             ; preds = %if.end21.i.i1279
@@ -5268,7 +5268,7 @@ BitMask.exit.i1425.i:                             ; preds = %if.end21.i.i1279
   %add.ptr32.i.i = getelementptr inbounds %struct.HuffmanCode, ptr %772, i64 %conv31.i.i
   %773 = load i8, ptr %add.ptr32.i.i, align 2
   %conv34.i.i = zext i8 %773 to i64
-  %cmp35.i.i = icmp ult i64 %sub.i1428.i, %conv34.i.i
+  %cmp35.i.i = icmp samesign ult i64 %sub.i1428.i, %conv34.i.i
   br i1 %cmp35.i.i, label %saveStateAndReturn.i.i950, label %if.end38.i.i
 
 if.end38.i.i:                                     ; preds = %BitMask.exit.i1425.i
@@ -5565,11 +5565,11 @@ if.end5.i1434.i:                                  ; preds = %if.end.i607.i.i
 
 if.then11.i1469.i:                                ; preds = %if.end5.i1434.i
   %conv13.i1470.i = zext nneg i8 %812 to i64
-  %cmp14.not.i1471.i = icmp ult i64 %799, %conv13.i1470.i
+  %cmp14.not.i1471.i = icmp samesign ult i64 %799, %conv13.i1470.i
   br i1 %cmp14.not.i1471.i, label %saveStateAndReturn.i.loopexit2193.i, label %return.sink.split.sink.split.i1456.i
 
 if.end21.i1438.i:                                 ; preds = %if.end5.i1434.i
-  %cmp22.i1439.i = icmp ult i64 %799, 9
+  %cmp22.i1439.i = icmp samesign ult i64 %799, 9
   br i1 %cmp22.i1439.i, label %saveStateAndReturn.i.loopexit2193.i, label %BitMask.exit.i1444.i
 
 BitMask.exit.i1444.i:                             ; preds = %if.end21.i1438.i
@@ -5586,7 +5586,7 @@ BitMask.exit.i1444.i:                             ; preds = %if.end21.i1438.i
   %add.ptr32.i1451.i = getelementptr inbounds %struct.HuffmanCode, ptr %815, i64 %conv31.i1450.i
   %816 = load i8, ptr %add.ptr32.i1451.i, align 2
   %conv34.i1452.i = zext i8 %816 to i64
-  %cmp35.i1453.i = icmp ult i64 %sub.i1448.i, %conv34.i1452.i
+  %cmp35.i1453.i = icmp samesign ult i64 %sub.i1448.i, %conv34.i1452.i
   br i1 %cmp35.i1453.i, label %saveStateAndReturn.i.loopexit2193.i, label %if.end38.i1454.i
 
 if.end38.i1454.i:                                 ; preds = %BitMask.exit.i1444.i
@@ -5770,11 +5770,11 @@ if.end5.i1477.i:                                  ; preds = %if.end.i.i.i1274
 
 if.then11.i1512.i:                                ; preds = %if.end5.i1477.i
   %conv13.i1513.i = zext nneg i8 %848 to i64
-  %cmp14.not.i1514.i = icmp ult i64 %835, %conv13.i1513.i
+  %cmp14.not.i1514.i = icmp samesign ult i64 %835, %conv13.i1513.i
   br i1 %cmp14.not.i1514.i, label %saveStateAndReturn.i.loopexit.i, label %return.sink.split.sink.split.i1499.i
 
 if.end21.i1481.i:                                 ; preds = %if.end5.i1477.i
-  %cmp22.i1482.i = icmp ult i64 %835, 9
+  %cmp22.i1482.i = icmp samesign ult i64 %835, 9
   br i1 %cmp22.i1482.i, label %saveStateAndReturn.i.loopexit.i, label %BitMask.exit.i1487.i
 
 BitMask.exit.i1487.i:                             ; preds = %if.end21.i1481.i
@@ -5791,7 +5791,7 @@ BitMask.exit.i1487.i:                             ; preds = %if.end21.i1481.i
   %add.ptr32.i1494.i = getelementptr inbounds %struct.HuffmanCode, ptr %851, i64 %conv31.i1493.i
   %852 = load i8, ptr %add.ptr32.i1494.i, align 2
   %conv34.i1495.i = zext i8 %852 to i64
-  %cmp35.i1496.i = icmp ult i64 %sub.i1491.i, %conv34.i1495.i
+  %cmp35.i1496.i = icmp samesign ult i64 %sub.i1491.i, %conv34.i1495.i
   br i1 %cmp35.i1496.i, label %saveStateAndReturn.i.loopexit.i, label %if.end38.i1497.i
 
 if.end38.i1497.i:                                 ; preds = %BitMask.exit.i1487.i
@@ -5984,11 +5984,11 @@ if.end5.i.i1545.i:                                ; preds = %if.end.i113.i.i.i.i
 
 if.then11.i.i1572.i:                              ; preds = %if.end5.i.i1545.i
   %conv13.i.i1573.i = zext nneg i8 %881 to i64
-  %cmp14.not.i.i1574.i = icmp ult i64 %870, %conv13.i.i1573.i
+  %cmp14.not.i.i1574.i = icmp samesign ult i64 %870, %conv13.i.i1573.i
   br i1 %cmp14.not.i.i1574.i, label %saveStateAndReturn.i.i950, label %return.sink.split.sink.split.i.i1564.i
 
 if.end21.i.i1548.i:                               ; preds = %if.end5.i.i1545.i
-  %cmp22.i.i1549.i = icmp ult i64 %870, 9
+  %cmp22.i.i1549.i = icmp samesign ult i64 %870, 9
   br i1 %cmp22.i.i1549.i, label %saveStateAndReturn.i.i950, label %BitMask.exit.i.i1552.i
 
 BitMask.exit.i.i1552.i:                           ; preds = %if.end21.i.i1548.i
@@ -6005,7 +6005,7 @@ BitMask.exit.i.i1552.i:                           ; preds = %if.end21.i.i1548.i
   %add.ptr32.i.i1559.i = getelementptr inbounds %struct.HuffmanCode, ptr %884, i64 %conv31.i.i1558.i
   %885 = load i8, ptr %add.ptr32.i.i1559.i, align 2
   %conv34.i.i1560.i = zext i8 %885 to i64
-  %cmp35.i.i1561.i = icmp ult i64 %sub.i.i1556.i, %conv34.i.i1560.i
+  %cmp35.i.i1561.i = icmp samesign ult i64 %sub.i.i1556.i, %conv34.i.i1560.i
   br i1 %cmp35.i.i1561.i, label %saveStateAndReturn.i.i950, label %if.end38.i.i1562.i
 
 if.end38.i.i1562.i:                               ; preds = %BitMask.exit.i.i1552.i
@@ -6159,7 +6159,7 @@ BitMask.exit.i297.i.i:                            ; preds = %if.end21.i291.i.i
   %add.ptr32.i304.i.i = getelementptr inbounds %struct.HuffmanCode, ptr %905, i64 %conv31.i303.i.i
   %906 = load i8, ptr %add.ptr32.i304.i.i, align 2
   %conv34.i305.i.i = zext i8 %906 to i64
-  %cmp35.i306.i.i = icmp ult i64 %sub.i301.i.i, %conv34.i305.i.i
+  %cmp35.i306.i.i = icmp samesign ult i64 %sub.i301.i.i, %conv34.i305.i.i
   br i1 %cmp35.i306.i.i, label %if.then23.i.i.i.i, label %if.end38.i307.i.i
 
 if.end38.i307.i.i:                                ; preds = %BitMask.exit.i297.i.i
@@ -6400,11 +6400,11 @@ if.end5.i1579.i:                                  ; preds = %if.end.i.i1739.i
 
 if.then11.i1614.i:                                ; preds = %if.end5.i1579.i
   %conv13.i1615.i = zext nneg i8 %946 to i64
-  %cmp14.not.i1616.i = icmp ult i64 %935, %conv13.i1615.i
+  %cmp14.not.i1616.i = icmp samesign ult i64 %935, %conv13.i1615.i
   br i1 %cmp14.not.i1616.i, label %saveStateAndReturn.i.i950, label %return.sink.split.sink.split.i1601.i
 
 if.end21.i1583.i:                                 ; preds = %if.end5.i1579.i
-  %cmp22.i1584.i = icmp ult i64 %935, 9
+  %cmp22.i1584.i = icmp samesign ult i64 %935, 9
   br i1 %cmp22.i1584.i, label %saveStateAndReturn.i.i950, label %BitMask.exit.i1589.i
 
 BitMask.exit.i1589.i:                             ; preds = %if.end21.i1583.i
@@ -6421,7 +6421,7 @@ BitMask.exit.i1589.i:                             ; preds = %if.end21.i1583.i
   %add.ptr32.i1596.i = getelementptr inbounds %struct.HuffmanCode, ptr %949, i64 %conv31.i1595.i
   %950 = load i8, ptr %add.ptr32.i1596.i, align 2
   %conv34.i1597.i = zext i8 %950 to i64
-  %cmp35.i1598.i = icmp ult i64 %sub.i1593.i, %conv34.i1597.i
+  %cmp35.i1598.i = icmp samesign ult i64 %sub.i1593.i, %conv34.i1597.i
   br i1 %cmp35.i1598.i, label %saveStateAndReturn.i.i950, label %if.end38.i1599.i
 
 if.end38.i1599.i:                                 ; preds = %BitMask.exit.i1589.i
@@ -6461,7 +6461,7 @@ if.end4.i1601.i:                                  ; preds = %if.end4.i1601.sink.
 if.then6.i1656.i:                                 ; preds = %if.end4.i1601.i
   %conv.i1657.i = zext nneg i16 %code.i1572.5.in.i to i32
   store i32 %conv.i1657.i, ptr %distance_code6.i.i, align 8
-  %cmp.i1803.i = icmp ult i16 %code.i1572.5.in.i, 4
+  %cmp.i1803.i = icmp samesign ult i16 %code.i1572.5.in.i, 4
   br i1 %cmp.i1803.i, label %if.then.i1810.i, label %if.else.i1804.i
 
 if.then.i1810.i:                                  ; preds = %if.then6.i1656.i
@@ -6480,7 +6480,7 @@ if.then.i1810.i:                                  ; preds = %if.then6.i1656.i
   br label %if.end223.i.i907
 
 if.else.i1804.i:                                  ; preds = %if.then6.i1656.i
-  %cmp11.i.i = icmp ult i16 %code.i1572.5.in.i, 10
+  %cmp11.i.i = icmp samesign ult i16 %code.i1572.5.in.i, 10
   %base.i.0.v.i = select i1 %cmp11.i.i, i32 -4, i32 -10
   %base.i.0.i = add nsw i32 %base.i.0.v.i, %conv.i1657.i
   %index_delta.i.0.i = select i1 %cmp11.i.i, i32 3, i32 2
@@ -7036,7 +7036,7 @@ if.end501.i.i943:                                 ; preds = %if.end492.i.i938
   br i1 %cmp503.i.i944, label %if.then505.i.i955, label %if.end518.i.i945thread-pre-split
 
 if.then505.i.i955:                                ; preds = %if.end501.i.i943
-  %cmp506.i.i956 = icmp ugt i32 %971, 32
+  %cmp506.i.i956 = icmp samesign ugt i32 %971, 32
   %add.ptr509.i.i957 = getelementptr inbounds i8, ptr %arrayidx470.i.i922, i64 16
   %add.ptr510.i.i958 = getelementptr inbounds i8, ptr %arrayidx473.i.i924, i64 16
   br i1 %cmp506.i.i956, label %if.then508.i.i960, label %if.else513.i.i959
@@ -7211,11 +7211,11 @@ if.end5.i.i1812.i:                                ; preds = %if.end.i113.i.i.i18
 
 if.then11.i.i1839.i:                              ; preds = %if.end5.i.i1812.i
   %conv13.i.i1840.i = zext nneg i8 %1071 to i64
-  %cmp14.not.i.i1841.i = icmp ult i64 %1060, %conv13.i.i1840.i
+  %cmp14.not.i.i1841.i = icmp samesign ult i64 %1060, %conv13.i.i1840.i
   br i1 %cmp14.not.i.i1841.i, label %saveStateAndReturn.i.i950, label %return.sink.split.sink.split.i.i1832.i
 
 if.end21.i.i1816.i:                               ; preds = %if.end5.i.i1812.i
-  %cmp22.i.i1817.i = icmp ult i64 %1060, 9
+  %cmp22.i.i1817.i = icmp samesign ult i64 %1060, 9
   br i1 %cmp22.i.i1817.i, label %saveStateAndReturn.i.i950, label %BitMask.exit.i.i1820.i
 
 BitMask.exit.i.i1820.i:                           ; preds = %if.end21.i.i1816.i
@@ -7232,7 +7232,7 @@ BitMask.exit.i.i1820.i:                           ; preds = %if.end21.i.i1816.i
   %add.ptr32.i.i1827.i = getelementptr inbounds %struct.HuffmanCode, ptr %1074, i64 %conv31.i.i1826.i
   %1075 = load i8, ptr %add.ptr32.i.i1827.i, align 2
   %conv34.i.i1828.i = zext i8 %1075 to i64
-  %cmp35.i.i1829.i = icmp ult i64 %sub.i.i1824.i, %conv34.i.i1828.i
+  %cmp35.i.i1829.i = icmp samesign ult i64 %sub.i.i1824.i, %conv34.i.i1828.i
   br i1 %cmp35.i.i1829.i, label %saveStateAndReturn.i.i950, label %if.end38.i.i1830.i
 
 if.end38.i.i1830.i:                               ; preds = %BitMask.exit.i.i1820.i
@@ -7386,7 +7386,7 @@ BitMask.exit.i304.i.i:                            ; preds = %if.end21.i298.i.i
   %add.ptr32.i311.i.i = getelementptr inbounds %struct.HuffmanCode, ptr %1095, i64 %conv31.i310.i.i
   %1096 = load i8, ptr %add.ptr32.i311.i.i, align 2
   %conv34.i312.i.i = zext i8 %1096 to i64
-  %cmp35.i313.i.i = icmp ult i64 %sub.i308.i.i, %conv34.i312.i.i
+  %cmp35.i313.i.i = icmp samesign ult i64 %sub.i308.i.i, %conv34.i312.i.i
   br i1 %cmp35.i313.i.i, label %SafeDecodeLiteralBlockSwitch.exit.thread1901.loopexit.i, label %if.end38.i314.i.i
 
 if.end38.i314.i.i:                                ; preds = %BitMask.exit.i304.i.i
@@ -8606,7 +8606,7 @@ if.end.i128:                                      ; preds = %if.then7.i, %if.the
   %arrayidx9.i = getelementptr inbounds [16 x i8], ptr @kCodeLengthPrefixLength, i64 0, i64 %ix.3.i
   %36 = load i8, ptr %arrayidx9.i, align 1
   %conv10.i = zext i8 %36 to i64
-  %cmp11.i = icmp ult i64 %sub.i65.i, %conv10.i
+  %cmp11.i = icmp samesign ult i64 %sub.i65.i, %conv10.i
   br i1 %cmp11.i, label %if.then13.i, label %if.end.if.end18_crit_edge.i
 
 if.end.if.end18_crit_edge.i:                      ; preds = %if.end.i128
@@ -9387,11 +9387,11 @@ if.end5.i:                                        ; preds = %if.end.i199
 
 if.then11.i:                                      ; preds = %if.end5.i
   %conv13.i = zext nneg i8 %31 to i64
-  %cmp14.not.i = icmp ult i64 %18, %conv13.i
+  %cmp14.not.i = icmp samesign ult i64 %18, %conv13.i
   br i1 %cmp14.not.i, label %if.then44, label %return.sink.split.sink.split.i
 
 if.end21.i:                                       ; preds = %if.end5.i
-  %cmp22.i = icmp ult i64 %18, 9
+  %cmp22.i = icmp samesign ult i64 %18, 9
   br i1 %cmp22.i, label %if.then44, label %BitMask.exit.i
 
 BitMask.exit.i:                                   ; preds = %if.end21.i
@@ -9408,7 +9408,7 @@ BitMask.exit.i:                                   ; preds = %if.end21.i
   %add.ptr32.i = getelementptr inbounds %struct.HuffmanCode, ptr %34, i64 %conv31.i
   %35 = load i8, ptr %add.ptr32.i, align 2
   %conv34.i = zext i8 %35 to i64
-  %cmp35.i = icmp ult i64 %sub.i155, %conv34.i
+  %cmp35.i = icmp samesign ult i64 %sub.i155, %conv34.i
   br i1 %cmp35.i, label %if.then44, label %if.end38.i
 
 if.end38.i:                                       ; preds = %BitMask.exit.i

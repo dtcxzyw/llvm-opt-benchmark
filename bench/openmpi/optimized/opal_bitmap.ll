@@ -158,7 +158,7 @@ define range(i32 -5, 1) i32 @opal_bitmap_set_bit(ptr noundef %0, i32 noundef %1)
 
 14:                                               ; preds = %9
   %15 = add nuw nsw i32 %10, 1
-  %.not33 = icmp ult i32 %10, %7
+  %.not33 = icmp samesign ult i32 %10, %7
   %spec.select = select i1 %.not33, i32 %15, i32 %7
   %16 = getelementptr inbounds i8, ptr %0, i64 16
   %17 = load ptr, ptr %16, align 8
@@ -353,7 +353,7 @@ define range(i32 -5, 1) i32 @opal_bitmap_find_and_set_first_unset_bit(ptr nounde
 
 26:                                               ; preds = %23
   %27 = add nuw nsw i32 %24, 1
-  %.not33.i = icmp ult i32 %24, %21
+  %.not33.i = icmp samesign ult i32 %24, %21
   %spec.select.i = select i1 %.not33.i, i32 %27, i32 %21
   %28 = getelementptr inbounds i8, ptr %0, i64 16
   %29 = load ptr, ptr %28, align 8

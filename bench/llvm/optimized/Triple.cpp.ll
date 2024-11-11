@@ -3095,7 +3095,7 @@ _ZNK4llvm9StringRef11starts_withES0_.exit.i:      ; preds = %2
   br i1 %3, label %_ZN4llvm12StringSwitchINS_6Triple15EnvironmentTypeES2_E10StartsWithENS_13StringLiteralES2_.exit248, label %_ZNK4llvm9StringRef11starts_withES0_.exit.i5
 
 _ZN4llvm12StringSwitchINS_6Triple15EnvironmentTypeES2_E10StartsWithENS_13StringLiteralES2_.exit: ; preds = %2
-  %.not.i.i3 = icmp ult i64 %1, 4
+  %.not.i.i3 = icmp samesign ult i64 %1, 4
   br i1 %.not.i.i3, label %_ZN4llvm12StringSwitchINS_6Triple15EnvironmentTypeES2_E10StartsWithENS_13StringLiteralES2_.exit68, label %_ZNK4llvm9StringRef11starts_withES0_.exit.i5
 
 _ZNK4llvm9StringRef11starts_withES0_.exit.i5:     ; preds = %_ZNK4llvm9StringRef11starts_withES0_.exit.i, %_ZN4llvm12StringSwitchINS_6Triple15EnvironmentTypeES2_E10StartsWithENS_13StringLiteralES2_.exit
@@ -3130,7 +3130,7 @@ _ZNK4llvm9StringRef11starts_withES0_.exit.i23:    ; preds = %_ZN4llvm12StringSwi
   br i1 %7, label %_ZN4llvm12StringSwitchINS_6Triple15EnvironmentTypeES2_E10StartsWithENS_13StringLiteralES2_.exit248, label %_ZNK4llvm9StringRef11starts_withES0_.exit.i29
 
 _ZN4llvm12StringSwitchINS_6Triple15EnvironmentTypeES2_E10StartsWithENS_13StringLiteralES2_.exit26: ; preds = %_ZN4llvm12StringSwitchINS_6Triple15EnvironmentTypeES2_E10StartsWithENS_13StringLiteralES2_.exit14
-  %.not.i.i27 = icmp ult i64 %1, 7
+  %.not.i.i27 = icmp samesign ult i64 %1, 7
   br i1 %.not.i.i27, label %_ZN4llvm12StringSwitchINS_6Triple15EnvironmentTypeES2_E10StartsWithENS_13StringLiteralES2_.exit32, label %_ZNK4llvm9StringRef11starts_withES0_.exit.i29
 
 _ZNK4llvm9StringRef11starts_withES0_.exit.i29:    ; preds = %_ZNK4llvm9StringRef11starts_withES0_.exit.i23, %_ZN4llvm12StringSwitchINS_6Triple15EnvironmentTypeES2_E10StartsWithENS_13StringLiteralES2_.exit20, %_ZN4llvm12StringSwitchINS_6Triple15EnvironmentTypeES2_E10StartsWithENS_13StringLiteralES2_.exit26
@@ -3471,7 +3471,7 @@ _ZNK4llvm9StringRef9ends_withES0_.exit.i4:        ; preds = %_ZNK4llvm9StringRef
   br i1 %9, label %_ZN4llvm12StringSwitchINS_6Triple16ObjectFormatTypeES2_E8EndsWithENS_13StringLiteralES2_.exit32.thread, label %_ZNK4llvm9StringRef9ends_withES0_.exit.i9
 
 _ZN4llvm12StringSwitchINS_6Triple16ObjectFormatTypeES2_E8EndsWithENS_13StringLiteralES2_.exit7: ; preds = %6
-  %.not.i.i8 = icmp ult i64 %1, 3
+  %.not.i.i8 = icmp samesign ult i64 %1, 3
   br i1 %.not.i.i8, label %_ZN4llvm12StringSwitchINS_6Triple16ObjectFormatTypeES2_E8EndsWithENS_13StringLiteralES2_.exit32.thread128, label %_ZNK4llvm9StringRef9ends_withES0_.exit.i9.thread
 
 _ZNK4llvm9StringRef9ends_withES0_.exit.i9:        ; preds = %_ZNK4llvm9StringRef9ends_withES0_.exit.i4

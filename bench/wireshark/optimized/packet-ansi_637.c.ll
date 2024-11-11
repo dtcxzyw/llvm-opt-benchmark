@@ -2775,7 +2775,7 @@ define internal fastcc void @tele_param_timestamp_rel(ptr noundef %0, ptr nounde
   br label %29
 
 13:                                               ; preds = %8
-  %14 = icmp ult i8 %5, -88
+  %14 = icmp samesign ult i8 %5, -88
   br i1 %14, label %15, label %18
 
 15:                                               ; preds = %13
@@ -2784,7 +2784,7 @@ define internal fastcc void @tele_param_timestamp_rel(ptr noundef %0, ptr nounde
   br label %29
 
 18:                                               ; preds = %13
-  %19 = icmp ult i8 %5, -59
+  %19 = icmp samesign ult i8 %5, -59
   br i1 %19, label %20, label %22
 
 20:                                               ; preds = %18
@@ -2792,7 +2792,7 @@ define internal fastcc void @tele_param_timestamp_rel(ptr noundef %0, ptr nounde
   br label %29
 
 22:                                               ; preds = %18
-  %23 = icmp ult i8 %5, -11
+  %23 = icmp samesign ult i8 %5, -11
   br i1 %23, label %24, label %27
 
 24:                                               ; preds = %22

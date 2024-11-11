@@ -5224,7 +5224,7 @@ if.end18:                                         ; preds = %if.end
   br i1 %cmp19, label %if.then20, label %return
 
 if.then20:                                        ; preds = %if.end18
-  %cmp21.not = icmp ult i32 %idx, %conv
+  %cmp21.not = icmp samesign ult i32 %idx, %conv
   br i1 %cmp21.not, label %if.end24, label %return
 
 if.end24:                                         ; preds = %if.then20

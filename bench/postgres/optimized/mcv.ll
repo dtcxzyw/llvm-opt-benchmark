@@ -835,7 +835,7 @@ define dso_local ptr @statext_mcv_deserialize(ptr noundef readonly %0) local_unn
 
 131:                                              ; preds = %128, %113
   %132 = phi i64 [ %120, %113 ], [ %130, %128 ]
-  %133 = icmp ult i64 %132, %109
+  %133 = icmp samesign ult i64 %132, %109
   br i1 %133, label %134, label %.lr.ph.preheader
 
 134:                                              ; preds = %131

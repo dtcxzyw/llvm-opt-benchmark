@@ -10026,7 +10026,7 @@ _ZNSt8functionIFvRN6duckdb9DataChunkERNS0_15ExpressionStateERNS0_6VectorEEEaSIRS
 
 if.else:                                          ; preds = %invoke.cont61
   %conv = zext i8 %call62 to i32
-  %cmp75.not = icmp ult i32 %call56, %conv
+  %cmp75.not = icmp samesign ult i32 %call56, %conv
   br i1 %cmp75.not, label %if.else79, label %if.then76
 
 if.then76:                                        ; preds = %if.else

@@ -45,11 +45,11 @@ define hidden range(i32 0, 8) i32 @phar_path_check(ptr nocapture noundef %0, ptr
   br i1 %17, label %18, label %30
 
 18:                                               ; preds = %.thread
-  %19 = icmp ult i8 %16, 42
+  %19 = icmp samesign ult i8 %16, 42
   br i1 %19, label %20, label %25
 
 20:                                               ; preds = %18
-  %21 = icmp ult i8 %16, 13
+  %21 = icmp samesign ult i8 %16, 13
   br i1 %21, label %22, label %23
 
 22:                                               ; preds = %20
@@ -57,11 +57,11 @@ define hidden range(i32 0, 8) i32 @phar_path_check(ptr nocapture noundef %0, ptr
   br i1 %.not144, label %49, label %.loopexit
 
 23:                                               ; preds = %20
-  %24 = icmp ult i8 %16, 26
+  %24 = icmp samesign ult i8 %16, 26
   br i1 %24, label %.loopexit, label %64
 
 25:                                               ; preds = %18
-  %26 = icmp ult i8 %16, 48
+  %26 = icmp samesign ult i8 %16, 48
   br i1 %26, label %27, label %28
 
 27:                                               ; preds = %25
@@ -91,7 +91,7 @@ define hidden range(i32 0, 8) i32 @phar_path_check(ptr nocapture noundef %0, ptr
   br i1 %37, label %64, label %.loopexit
 
 38:                                               ; preds = %32
-  %39 = icmp ult i8 %16, -32
+  %39 = icmp samesign ult i8 %16, -32
   br i1 %39, label %86, label %40
 
 40:                                               ; preds = %38
@@ -99,7 +99,7 @@ define hidden range(i32 0, 8) i32 @phar_path_check(ptr nocapture noundef %0, ptr
   br i1 %41, label %89, label %93
 
 42:                                               ; preds = %30
-  %43 = icmp ult i8 %16, -15
+  %43 = icmp samesign ult i8 %16, -15
   br i1 %43, label %44, label %45
 
 44:                                               ; preds = %42
@@ -109,7 +109,7 @@ define hidden range(i32 0, 8) i32 @phar_path_check(ptr nocapture noundef %0, ptr
   ]
 
 45:                                               ; preds = %42
-  %46 = icmp ult i8 %16, -12
+  %46 = icmp samesign ult i8 %16, -12
   br i1 %46, label %103, label %47
 
 47:                                               ; preds = %45

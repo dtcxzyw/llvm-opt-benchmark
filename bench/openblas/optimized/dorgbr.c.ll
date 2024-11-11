@@ -55,7 +55,7 @@ define void @dorgbr_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
   br i1 %25, label %42, label %36
 
 36:                                               ; preds = %35
-  %37 = icmp ugt i32 %33, %30
+  %37 = icmp samesign ugt i32 %33, %30
   br i1 %37, label %.thread, label %38
 
 38:                                               ; preds = %36
@@ -65,7 +65,7 @@ define void @dorgbr_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
   br i1 %41, label %.thread, label %48
 
 42:                                               ; preds = %35
-  %43 = icmp ugt i32 %30, %33
+  %43 = icmp samesign ugt i32 %30, %33
   br i1 %43, label %.thread, label %44
 
 44:                                               ; preds = %42
@@ -107,7 +107,7 @@ define void @dorgbr_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
   br i1 %25, label %71, label %64
 
 64:                                               ; preds = %63
-  %65 = icmp ult i32 %30, %49
+  %65 = icmp samesign ult i32 %30, %49
   br i1 %65, label %67, label %66
 
 66:                                               ; preds = %64
@@ -115,7 +115,7 @@ define void @dorgbr_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
   br label %78
 
 67:                                               ; preds = %64
-  %68 = icmp ugt i32 %30, 1
+  %68 = icmp samesign ugt i32 %30, 1
   br i1 %68, label %69, label %78
 
 69:                                               ; preds = %67
@@ -127,7 +127,7 @@ define void @dorgbr_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
   br label %78
 
 71:                                               ; preds = %63
-  %72 = icmp ult i32 %49, %33
+  %72 = icmp samesign ult i32 %49, %33
   br i1 %72, label %73, label %74
 
 73:                                               ; preds = %71
@@ -135,7 +135,7 @@ define void @dorgbr_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
   br label %78
 
 74:                                               ; preds = %71
-  %75 = icmp ugt i32 %33, 1
+  %75 = icmp samesign ugt i32 %33, 1
   br i1 %75, label %76, label %78
 
 76:                                               ; preds = %74

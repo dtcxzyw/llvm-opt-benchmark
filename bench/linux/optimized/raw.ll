@@ -1621,7 +1621,7 @@ define internal i32 @rawv6_sendmsg(ptr noundef %0, ptr noundef %1, i64 noundef %
 
 103:                                              ; preds = %91, %87
   %104 = phi ptr [ %73, %87 ], [ %102, %91 ]
-  %105 = icmp ugt i32 %23, 27
+  %105 = icmp samesign ugt i32 %23, 27
   br i1 %105, label %106, label %thread-pre-split.thread
 
 106:                                              ; preds = %103
@@ -2385,7 +2385,7 @@ define internal range(i32 -99, 1) i32 @rawv6_bind(ptr noundef %0, ptr noundef %1
   br i1 %34, label %35, label %47
 
 35:                                               ; preds = %29
-  %36 = icmp ugt i32 %2, 27
+  %36 = icmp samesign ugt i32 %2, 27
   br i1 %36, label %37, label %43
 
 37:                                               ; preds = %35

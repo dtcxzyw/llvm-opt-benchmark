@@ -631,7 +631,7 @@ define hidden void @_ZN2cv9parseYoloERKNS_3MatERKNS_5Size_IiEEffRKSt6vectorIfSaI
   br i1 %59, label %.preheader1.i, label %61
 
 .preheader1.i:                                    ; preds = %54
-  %60 = icmp ugt i32 %26, 3
+  %60 = icmp samesign ugt i32 %26, 3
   br i1 %60, label %.lr.ph.i, label %.lr.ph.preheader
 
 61:                                               ; preds = %54

@@ -282,7 +282,7 @@ define dso_local i32 @__intel_gt_reset(ptr noundef %0, i32 noundef %1) local_unn
   br i1 %7, label %select.unfold, label %8
 
 8:                                                ; preds = %2
-  %9 = icmp ugt i8 %6, 5
+  %9 = icmp samesign ugt i8 %6, 5
   br i1 %9, label %select.unfold, label %10
 
 10:                                               ; preds = %8
@@ -303,7 +303,7 @@ define dso_local i32 @__intel_gt_reset(ptr noundef %0, i32 noundef %1) local_unn
   br i1 %20, label %21, label %select.unfold
 
 21:                                               ; preds = %18
-  %22 = icmp ugt i8 %6, 2
+  %22 = icmp samesign ugt i8 %6, 2
   br i1 %22, label %select.unfold, label %133
 
 select.unfold:                                    ; preds = %21, %2, %8, %10, %12, %18
@@ -488,7 +488,7 @@ define dso_local zeroext i1 @intel_has_gpu_reset(ptr nocapture noundef readonly 
   %12 = load i32, ptr %11, align 4
   %13 = and i32 %12, 208896
   %14 = icmp ne i32 %13, 0
-  %15 = icmp ugt i8 %8, 2
+  %15 = icmp samesign ugt i8 %8, 2
   %16 = or i1 %15, %14
   br label %17
 
@@ -1099,7 +1099,7 @@ define dso_local void @intel_gt_reset(ptr noundef %0, i32 noundef %1, ptr nounde
   %111 = load i32, ptr %110, align 4
   %112 = and i32 %111, 208896
   %113 = icmp ne i32 %112, 0
-  %114 = icmp ugt i8 %107, 2
+  %114 = icmp samesign ugt i8 %107, 2
   %115 = or i1 %114, %113
   br i1 %115, label %134, label %116
 

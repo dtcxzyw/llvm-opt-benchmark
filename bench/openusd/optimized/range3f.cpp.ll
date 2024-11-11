@@ -231,7 +231,7 @@ define { <2 x float>, float } @_ZNK32pxrInternal_v0_24__pxrReserved__9GfRange3f9
   %15 = select i1 %.not5, ptr %0, ptr %12
   %16 = getelementptr inbounds i8, ptr %15, i64 4
   %17 = load float, ptr %16, align 4
-  %.not6 = icmp ult i64 %1, 4
+  %.not6 = icmp samesign ult i64 %1, 4
   %18 = select i1 %.not6, ptr %0, ptr %12
   %.sroa.0.0.vec.insert = insertelement <2 x float> poison, float %13, i64 0
   %.sroa.0.4.vec.insert = insertelement <2 x float> %.sroa.0.0.vec.insert, float %17, i64 1
@@ -280,7 +280,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__9GfRange3f9GetCornerEm.exit: ; preds = %3
   %15 = select i1 %.not5.i, ptr %1, ptr %12
   %16 = getelementptr inbounds i8, ptr %15, i64 4
   %17 = load float, ptr %16, align 4
-  %.not6.i = icmp ult i64 %2, 4
+  %.not6.i = icmp samesign ult i64 %2, 4
   %18 = select i1 %.not6.i, ptr %1, ptr %12
   %.sroa.4.0.in.i = getelementptr inbounds i8, ptr %18, i64 8
   %.sroa.4.0.i = load float, ptr %.sroa.4.0.in.i, align 4

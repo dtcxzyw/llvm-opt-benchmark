@@ -1533,7 +1533,7 @@ _ZN7msgpack2v26detail7contextINS1_12parse_helperINS1_21create_object_visitorEEEE
   br label %.loopexit
 
 101:                                              ; preds = %33
-  %102 = icmp ugt i8 %34, -33
+  %102 = icmp samesign ugt i8 %34, -33
   br i1 %102, label %103, label %168
 
 103:                                              ; preds = %101
@@ -1650,7 +1650,7 @@ _ZN7msgpack2v26detail7contextINS1_12parse_helperINS1_21create_object_visitorEEEE
   br label %.loopexit
 
 168:                                              ; preds = %101
-  %169 = icmp ugt i8 %34, -61
+  %169 = icmp samesign ugt i8 %34, -61
   br i1 %169, label %170, label %179
 
 170:                                              ; preds = %168
@@ -1813,7 +1813,7 @@ _ZN7msgpack2v26detail7contextINS1_12parse_helperINS1_21create_object_visitorEEEE
   br i1 %.not290, label %thread-pre-split, label %.loopexit
 
 255:                                              ; preds = %251
-  %256 = icmp ult i8 %34, -112
+  %256 = icmp samesign ult i8 %34, -112
   br i1 %256, label %257, label %259
 
 257:                                              ; preds = %255
@@ -8320,7 +8320,7 @@ _ZN7msgpack2v126checked_get_container_sizeImEEjT_.exit: ; preds = %3
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %4)
   call void @llvm.lifetime.start.p0(i64 3, ptr nonnull %5)
   call void @llvm.lifetime.start.p0(i64 5, ptr nonnull %6)
-  %21 = icmp ult i64 %13, 16
+  %21 = icmp samesign ult i64 %13, 16
   br i1 %21, label %22, label %28
 
 22:                                               ; preds = %_ZN7msgpack2v126checked_get_container_sizeImEEjT_.exit
@@ -8333,7 +8333,7 @@ _ZN7msgpack2v126checked_get_container_sizeImEEjT_.exit: ; preds = %3
   br label %_ZN7msgpack2v16packerINSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEEEE10pack_arrayEj.exit
 
 28:                                               ; preds = %_ZN7msgpack2v126checked_get_container_sizeImEEjT_.exit
-  %29 = icmp ult i64 %13, 65536
+  %29 = icmp samesign ult i64 %13, 65536
   br i1 %29, label %30, label %37
 
 30:                                               ; preds = %28
@@ -8393,7 +8393,7 @@ define linkonce_odr dso_local void @_ZN7msgpack2v16packerINSt7__cxx1118basic_str
   br i1 %10, label %11, label %33
 
 11:                                               ; preds = %2
-  %12 = icmp ult i32 %1, -32768
+  %12 = icmp samesign ult i32 %1, -32768
   br i1 %12, label %13, label %19
 
 13:                                               ; preds = %11
@@ -8407,7 +8407,7 @@ define linkonce_odr dso_local void @_ZN7msgpack2v16packerINSt7__cxx1118basic_str
   br label %61
 
 19:                                               ; preds = %11
-  %20 = icmp ult i32 %1, -128
+  %20 = icmp samesign ult i32 %1, -128
   br i1 %20, label %21, label %28
 
 21:                                               ; preds = %19
@@ -8444,7 +8444,7 @@ define linkonce_odr dso_local void @_ZN7msgpack2v16packerINSt7__cxx1118basic_str
   br label %61
 
 39:                                               ; preds = %33
-  %40 = icmp ult i32 %1, 256
+  %40 = icmp samesign ult i32 %1, 256
   br i1 %40, label %41, label %46
 
 41:                                               ; preds = %39
@@ -8458,7 +8458,7 @@ define linkonce_odr dso_local void @_ZN7msgpack2v16packerINSt7__cxx1118basic_str
   br label %61
 
 46:                                               ; preds = %39
-  %47 = icmp ult i32 %1, 65536
+  %47 = icmp samesign ult i32 %1, 65536
   br i1 %47, label %48, label %55
 
 48:                                               ; preds = %46

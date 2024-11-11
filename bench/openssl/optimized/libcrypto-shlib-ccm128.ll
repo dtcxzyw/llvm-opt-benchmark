@@ -238,7 +238,7 @@ for.body:                                         ; preds = %do.body, %for.body
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %incdec.ptr = getelementptr inbounds i8, ptr %aad.addr.156, i64 1
   %dec = add i64 %alen.addr.154, -1
-  %cmp141 = icmp ult i64 %indvars.iv, 15
+  %cmp141 = icmp samesign ult i64 %indvars.iv, 15
   %tobool = icmp ne i64 %dec, 0
   %34 = select i1 %cmp141, i1 %tobool, i1 false
   br i1 %34, label %for.body, label %for.end, !llvm.loop !4

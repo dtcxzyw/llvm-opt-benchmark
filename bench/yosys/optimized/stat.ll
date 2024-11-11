@@ -2202,7 +2202,7 @@ _ZN6json114JsonD2Ev.exit:                         ; preds = %537, %556, %569, %_
 .noexc161:                                        ; preds = %.noexc160
   %585 = getelementptr inbounds i8, ptr %.056.i.i.i.i.i, i64 32
   %586 = add nsw i64 %.07.i.i.i.i.i, -1
-  %587 = icmp ugt i64 %.07.i.i.i.i.i, 1
+  %587 = icmp samesign ugt i64 %.07.i.i.i.i.i, 1
   br i1 %587, label %.lr.ph.i.i.i.i.i, label %_ZSt4copyIN9__gnu_cxx17__normal_iteratorIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt6vectorIS7_SaIS7_EEEESt16ostream_iteratorIS7_cS5_EET0_T_SG_SF_.exit, !llvm.loop !18
 
 _ZSt4copyIN9__gnu_cxx17__normal_iteratorIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt6vectorIS7_SaIS7_EEEESt16ostream_iteratorIS7_cS5_EET0_T_SG_SF_.exit: ; preds = %.noexc161, %574

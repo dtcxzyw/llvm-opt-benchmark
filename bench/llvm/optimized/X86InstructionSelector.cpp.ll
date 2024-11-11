@@ -271,7 +271,7 @@ _ZNK4llvm12X86Subtarget10canUseCMOVEv.exit151.i.i: ; preds = %_ZNK4llvm12X86Subt
   br i1 %34, label %48, label %70
 
 48:                                               ; preds = %43
-  %49 = icmp ugt i32 %33, 6
+  %49 = icmp samesign ugt i32 %33, 6
   br i1 %49, label %64, label %50
 
 50:                                               ; preds = %48
@@ -282,7 +282,7 @@ _ZNK4llvm12X86Subtarget10canUseCMOVEv.exit151.i.i: ; preds = %_ZNK4llvm12X86Subt
 52:                                               ; preds = %50
   %53 = or i64 %28, 27127151148924928
   store i64 %53, ptr %13, align 8, !alias.scope !4
-  %54 = icmp ugt i32 %33, 2
+  %54 = icmp samesign ugt i32 %33, 2
   br i1 %54, label %55, label %70
 
 55:                                               ; preds = %52
@@ -292,7 +292,7 @@ _ZNK4llvm12X86Subtarget10canUseCMOVEv.exit151.i.i: ; preds = %_ZNK4llvm12X86Subt
 
 57:                                               ; preds = %55
   %58 = or disjoint i64 %spec.select83.i.i, 17592186044417
-  %59 = icmp ugt i32 %33, 4
+  %59 = icmp samesign ugt i32 %33, 4
   br i1 %59, label %60, label %70
 
 60:                                               ; preds = %57
@@ -14547,7 +14547,7 @@ _ZNK4llvm17MachineMemOperand13getSizeInBitsEv.exit1523.thread: ; preds = %1837, 
 
 _ZN4llvm7details23FixedOrScalableQuantityINS_8TypeSizeEmE9isKnownLEERKS3_S5_.exit: ; preds = %_ZNK4llvm17MachineMemOperand13getSizeInBitsEv.exit1523.thread3287, %_ZNK4llvm17MachineMemOperand13getSizeInBitsEv.exit1523, %_ZNK4llvm17MachineMemOperand13getSizeInBitsEv.exit1523.thread
   %1867 = phi i64 [ %1865, %_ZNK4llvm17MachineMemOperand13getSizeInBitsEv.exit1523.thread ], [ %.sroa.012.0.i.i1518, %_ZNK4llvm17MachineMemOperand13getSizeInBitsEv.exit1523 ], [ %.sroa.012.0.i.i15183290, %_ZNK4llvm17MachineMemOperand13getSizeInBitsEv.exit1523.thread3287 ]
-  %.not2626 = icmp ugt i64 %1867, %.sroa.012.0.i
+  %.not2626 = icmp samesign ugt i64 %1867, %.sroa.012.0.i
   br i1 %.not2626, label %.critedge4, label %1868
 
 1868:                                             ; preds = %_ZN4llvm7details23FixedOrScalableQuantityINS_8TypeSizeEmE9isKnownLEERKS3_S5_.exit

@@ -123,7 +123,7 @@ define i64 @crc32_pclmul_batch(ptr nocapture noundef %0, ptr nocapture noundef r
   %.0217 = phi <2 x i64> [ %77, %._crit_edge ], [ %14, %._crit_edge255 ]
   %.0214 = phi i64 [ %.1215.lcssa, %._crit_edge ], [ %16, %._crit_edge255 ]
   %.0213 = phi ptr [ %.1.lcssa, %._crit_edge ], [ %15, %._crit_edge255 ]
-  %80 = icmp ugt i64 %.0214, 15
+  %80 = icmp samesign ugt i64 %.0214, 15
   br i1 %80, label %.lr.ph244, label %._crit_edge245
 
 .lr.ph244:                                        ; preds = %78, %.lr.ph244
@@ -278,7 +278,7 @@ define i64 @crc32_pclmul_reflected_batch(ptr nocapture noundef %0, ptr nocapture
   %.0176 = phi <2 x i64> [ %60, %._crit_edge ], [ %11, %._crit_edge214 ]
   %.0173 = phi i64 [ %.1174.lcssa, %._crit_edge ], [ %13, %._crit_edge214 ]
   %.0172 = phi ptr [ %.1.lcssa, %._crit_edge ], [ %12, %._crit_edge214 ]
-  %63 = icmp ugt i64 %.0173, 15
+  %63 = icmp samesign ugt i64 %.0173, 15
   br i1 %63, label %.lr.ph203, label %._crit_edge204
 
 .lr.ph203:                                        ; preds = %61, %.lr.ph203

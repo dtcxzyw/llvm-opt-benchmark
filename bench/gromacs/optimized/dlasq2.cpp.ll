@@ -272,7 +272,7 @@ define void @dlasq2_(ptr noundef %0, ptr noundef %1, ptr nocapture noundef write
   %143 = getelementptr i8, ptr %136, i64 -24
   store double %142, ptr %143, align 8
   %indvars.iv.next720 = add nsw i64 %indvars.iv719, -2
-  %144 = icmp ugt i64 %indvars.iv719, 3
+  %144 = icmp samesign ugt i64 %indvars.iv719, 3
   br i1 %144, label %.lr.ph598, label %._crit_edge599.loopexit, !llvm.loop !7
 
 ._crit_edge599.loopexit:                          ; preds = %.lr.ph598
@@ -917,7 +917,7 @@ define void @dlasq2_(ptr noundef %0, ptr noundef %1, ptr nocapture noundef write
   %452 = load double, ptr %451, align 8
   %453 = fadd double %.1518700, %452
   %indvars.iv.next754 = add nsw i64 %indvars.iv753, -1
-  %454 = icmp ugt i64 %indvars.iv753, 1
+  %454 = icmp samesign ugt i64 %indvars.iv753, 1
   br i1 %454, label %.lr.ph702, label %._crit_edge703, !llvm.loop !20
 
 ._crit_edge703:                                   ; preds = %.lr.ph702, %._crit_edge698

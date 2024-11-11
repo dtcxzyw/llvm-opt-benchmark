@@ -68,7 +68,7 @@ if.end.i:                                         ; preds = %land.lhs.true
 
 lor.lhs.false.i:                                  ; preds = %if.end.i
   %cmp2.i = icmp eq i32 %unit, 0
-  %cmp3.i = icmp ugt i64 %0, 9223372036854775
+  %cmp3.i = icmp samesign ugt i64 %0, 9223372036854775
   %or.cond.i = and i1 %cmp2.i, %cmp3.i
   br i1 %or.cond.i, label %return.sink.split.i, label %if.end5.i
 
@@ -932,7 +932,7 @@ if.end.i:                                         ; preds = %land.lhs.true
 
 lor.lhs.false.i:                                  ; preds = %if.end.i
   %cmp2.i = icmp eq i32 %5, 0
-  %cmp3.i = icmp ugt i64 %6, 9223372036854775
+  %cmp3.i = icmp samesign ugt i64 %6, 9223372036854775
   %or.cond.i = and i1 %cmp2.i, %cmp3.i
   br i1 %or.cond.i, label %return.sink.split.i, label %if.end5.i
 

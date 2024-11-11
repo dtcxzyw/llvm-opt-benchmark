@@ -17654,7 +17654,7 @@ _ZStplIcSt11char_traitsIcESaIcEENSt7__cxx1112basic_stringIT_T0_T1_EEOS8_S9_.exit
   br label %44
 
 40:                                               ; preds = %22
-  %.not.i.i4 = icmp ult i64 %24, 7
+  %.not.i.i4 = icmp samesign ult i64 %24, 7
   br i1 %.not.i.i4, label %_ZN4llvm9StringRef13consume_frontES0_.exit9.thread, label %_ZNK4llvm9StringRef11starts_withES0_.exit.i6
 
 _ZNK4llvm9StringRef11starts_withES0_.exit.i6:     ; preds = %_ZNK4llvm9StringRef11starts_withES0_.exit.i, %40
@@ -21142,7 +21142,7 @@ _ZNSt12_Vector_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE
   %43 = getelementptr inbounds i8, ptr %.0910.i.i.i.i.i, i64 32
   %44 = getelementptr inbounds i8, ptr %.0811.i.i.i.i.i, i64 32
   %45 = add nsw i64 %.012.i.i.i.i.i, -1
-  %46 = icmp ugt i64 %.012.i.i.i.i.i, 1
+  %46 = icmp samesign ugt i64 %.012.i.i.i.i.i, 1
   br i1 %46, label %.lr.ph.i.i.i.i.i25, label %_ZSt4copyIN9__gnu_cxx17__normal_iteratorIPKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt6vectorIS7_SaIS7_EEEENS1_IPS7_SC_EEET0_T_SH_SG_.exit.loopexit, !llvm.loop !310
 
 _ZSt4copyIN9__gnu_cxx17__normal_iteratorIPKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt6vectorIS7_SaIS7_EEEENS1_IPS7_SC_EEET0_T_SH_SG_.exit.loopexit: ; preds = %.lr.ph.i.i.i.i.i25
@@ -21182,7 +21182,7 @@ _ZSt4copyIN9__gnu_cxx17__normal_iteratorIPKNSt7__cxx1112basic_stringIcSt11char_t
   %55 = getelementptr inbounds i8, ptr %.0910.i.i.i.i.i33, i64 32
   %56 = getelementptr inbounds i8, ptr %.0811.i.i.i.i.i32, i64 32
   %57 = add nsw i64 %.012.i.i.i.i.i31, -1
-  %58 = icmp ugt i64 %.012.i.i.i.i.i31, 1
+  %58 = icmp samesign ugt i64 %.012.i.i.i.i.i31, 1
   br i1 %58, label %.lr.ph.i.i.i.i.i30, label %_ZSt4copyIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES6_ET0_T_S8_S7_.exit.loopexit, !llvm.loop !312
 
 _ZSt4copyIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES6_ET0_T_S8_S7_.exit.loopexit: ; preds = %.lr.ph.i.i.i.i.i30
@@ -38359,7 +38359,7 @@ define linkonce_odr hidden noundef ptr @_ZN4llvm15SmallVectorImplIN5clang7CodeGe
   %18 = getelementptr inbounds i8, ptr %.0910.i.i.i.i.i, i64 168
   %19 = getelementptr inbounds i8, ptr %.0811.i.i.i.i.i, i64 168
   %20 = add nsw i64 %.012.i.i.i.i.i, -1
-  %21 = icmp ugt i64 %.012.i.i.i.i.i, 1
+  %21 = icmp samesign ugt i64 %.012.i.i.i.i.i, 1
   br i1 %21, label %.lr.ph.i.i.i.i.i, label %_ZSt4moveIPN5clang7CodeGen15CodeGenFunction26MultiVersionResolverOptionES4_ET0_T_S6_S5_.exit, !llvm.loop !531
 
 _ZSt4moveIPN5clang7CodeGen15CodeGenFunction26MultiVersionResolverOptionES4_ET0_T_S6_S5_.exit: ; preds = %.lr.ph.i.i.i.i.i, %2
@@ -56721,7 +56721,7 @@ define linkonce_odr void @_ZSt16__insertion_sortIN9__gnu_cxx17__normal_iteratorI
   %17 = getelementptr inbounds i8, ptr %.069.i.i.i.i.i, i64 -32
   %18 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEOS4_(ptr noundef nonnull align 8 dereferenceable(32) %17, ptr noundef nonnull align 8 dereferenceable(32) %16) #25
   %19 = add nsw i64 %.010.i.i.i.i.i, -1
-  %20 = icmp ugt i64 %.010.i.i.i.i.i, 1
+  %20 = icmp samesign ugt i64 %.010.i.i.i.i.i, 1
   br i1 %20, label %.lr.ph.i.i.i.i.i, label %_ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt6vectorIS7_SaIS7_EEEESC_ET0_T_SE_SD_.exit, !llvm.loop !723
 
 _ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt6vectorIS7_SaIS7_EEEESC_ET0_T_SE_SD_.exit: ; preds = %.lr.ph.i.i.i.i.i, %10
@@ -101389,7 +101389,7 @@ _ZN5clang7CodeGen15CodeGenFunction26MultiVersionResolverOptionC2EOS2_.exit: ; pr
   %39 = getelementptr inbounds i8, ptr %.078.i.i.i.i.i, i64 -144
   %40 = call noundef nonnull align 8 dereferenceable(16) ptr @_ZN4llvm15SmallVectorImplINS_9StringRefEEaSEOS2_(ptr noundef nonnull align 8 dereferenceable(144) %38, ptr noundef nonnull align 8 dereferenceable(144) %39)
   %41 = add nsw i64 %.010.i.i.i.i.i, -1
-  %42 = icmp ugt i64 %.010.i.i.i.i.i, 1
+  %42 = icmp samesign ugt i64 %.010.i.i.i.i.i, 1
   br i1 %42, label %.lr.ph.i.i.i.i.i, label %_ZSt13move_backwardIPN5clang7CodeGen15CodeGenFunction26MultiVersionResolverOptionES4_ET0_T_S6_S5_.exit, !llvm.loop !847
 
 _ZSt13move_backwardIPN5clang7CodeGen15CodeGenFunction26MultiVersionResolverOptionES4_ET0_T_S6_S5_.exit: ; preds = %.lr.ph.i.i.i.i.i, %_ZN5clang7CodeGen15CodeGenFunction26MultiVersionResolverOptionC2EOS2_.exit
@@ -102251,7 +102251,7 @@ _ZL16TargetMVPriorityRKN5clang10TargetInfoERKNS_7CodeGen15CodeGenFunction26Multi
   %99 = getelementptr inbounds i8, ptr %.0910.i.i.i.i.i.i, i64 168
   %100 = getelementptr inbounds i8, ptr %.0811.i.i.i.i.i.i, i64 168
   %101 = add nsw i64 %.012.i.i.i.i.i.i, -1
-  %102 = icmp ugt i64 %.012.i.i.i.i.i.i, 1
+  %102 = icmp samesign ugt i64 %.012.i.i.i.i.i.i, 1
   br i1 %102, label %.lr.ph.i.i.i.i.i.i, label %_ZSt4moveIPN5clang7CodeGen15CodeGenFunction26MultiVersionResolverOptionES4_ET0_T_S6_S5_.exit.i, !llvm.loop !531
 
 _ZSt4moveIPN5clang7CodeGen15CodeGenFunction26MultiVersionResolverOptionES4_ET0_T_S6_S5_.exit.i: ; preds = %.lr.ph.i.i.i.i.i.i, %._crit_edge.i
@@ -102281,7 +102281,7 @@ _ZSt4moveIPN5clang7CodeGen15CodeGenFunction26MultiVersionResolverOptionES4_ET0_T
   %114 = getelementptr inbounds i8, ptr %.0910.i.i.i.i.i26.i, i64 168
   %115 = getelementptr inbounds i8, ptr %.0811.i.i.i.i.i25.i, i64 168
   %116 = add nsw i64 %.012.i.i.i.i.i24.i, -1
-  %117 = icmp ugt i64 %.012.i.i.i.i.i24.i, 1
+  %117 = icmp samesign ugt i64 %.012.i.i.i.i.i24.i, 1
   br i1 %117, label %.lr.ph.i.i.i.i.i23.i, label %"_ZSt12__move_mergeIPN5clang7CodeGen15CodeGenFunction26MultiVersionResolverOptionES4_N9__gnu_cxx5__ops15_Iter_comp_iterIZNS1_13CodeGenModule25emitMultiVersionFunctionsEvE3$_1EEET0_T_SC_SC_SC_SB_T1_.exit", !llvm.loop !531
 
 "_ZSt12__move_mergeIPN5clang7CodeGen15CodeGenFunction26MultiVersionResolverOptionES4_N9__gnu_cxx5__ops15_Iter_comp_iterIZNS1_13CodeGenModule25emitMultiVersionFunctionsEvE3$_1EEET0_T_SC_SC_SC_SB_T1_.exit": ; preds = %.lr.ph.i.i.i.i.i23.i, %_ZSt4moveIPN5clang7CodeGen15CodeGenFunction26MultiVersionResolverOptionES4_ET0_T_S6_S5_.exit.i
@@ -102476,7 +102476,7 @@ _ZL16TargetMVPriorityRKN5clang10TargetInfoERKNS_7CodeGen15CodeGenFunction26Multi
   %201 = getelementptr inbounds i8, ptr %.0910.i.i.i.i.i.i52, i64 168
   %202 = getelementptr inbounds i8, ptr %.0811.i.i.i.i.i.i51, i64 168
   %203 = add nsw i64 %.012.i.i.i.i.i.i50, -1
-  %204 = icmp ugt i64 %.012.i.i.i.i.i.i50, 1
+  %204 = icmp samesign ugt i64 %.012.i.i.i.i.i.i50, 1
   br i1 %204, label %.lr.ph.i.i.i.i.i.i49, label %_ZSt4moveIPN5clang7CodeGen15CodeGenFunction26MultiVersionResolverOptionES4_ET0_T_S6_S5_.exit.i40, !llvm.loop !531
 
 _ZSt4moveIPN5clang7CodeGen15CodeGenFunction26MultiVersionResolverOptionES4_ET0_T_S6_S5_.exit.i40: ; preds = %.lr.ph.i.i.i.i.i.i49, %._crit_edge.i36
@@ -102506,7 +102506,7 @@ _ZSt4moveIPN5clang7CodeGen15CodeGenFunction26MultiVersionResolverOptionES4_ET0_T
   %216 = getelementptr inbounds i8, ptr %.0910.i.i.i.i.i26.i47, i64 168
   %217 = getelementptr inbounds i8, ptr %.0811.i.i.i.i.i25.i46, i64 168
   %218 = add nsw i64 %.012.i.i.i.i.i24.i45, -1
-  %219 = icmp ugt i64 %.012.i.i.i.i.i24.i45, 1
+  %219 = icmp samesign ugt i64 %.012.i.i.i.i.i24.i45, 1
   br i1 %219, label %.lr.ph.i.i.i.i.i23.i44, label %"_ZSt12__move_mergeIPN5clang7CodeGen15CodeGenFunction26MultiVersionResolverOptionES4_N9__gnu_cxx5__ops15_Iter_comp_iterIZNS1_13CodeGenModule25emitMultiVersionFunctionsEvE3$_1EEET0_T_SC_SC_SC_SB_T1_.exit59", !llvm.loop !531
 
 "_ZSt12__move_mergeIPN5clang7CodeGen15CodeGenFunction26MultiVersionResolverOptionES4_N9__gnu_cxx5__ops15_Iter_comp_iterIZNS1_13CodeGenModule25emitMultiVersionFunctionsEvE3$_1EEET0_T_SC_SC_SC_SB_T1_.exit59": ; preds = %.lr.ph.i.i.i.i.i23.i44, %_ZSt4moveIPN5clang7CodeGen15CodeGenFunction26MultiVersionResolverOptionES4_ET0_T_S6_S5_.exit.i40
@@ -102578,7 +102578,7 @@ tailrecurse._crit_edge:                           ; preds = %tailrecurse, %8
   %26 = getelementptr inbounds i8, ptr %.0910.i.i.i.i.i, i64 168
   %27 = getelementptr inbounds i8, ptr %.0811.i.i.i.i.i, i64 168
   %28 = add nsw i64 %.012.i.i.i.i.i, -1
-  %29 = icmp ugt i64 %.012.i.i.i.i.i, 1
+  %29 = icmp samesign ugt i64 %.012.i.i.i.i.i, 1
   br i1 %29, label %.lr.ph.i.i.i.i.i, label %_ZSt4moveIPN5clang7CodeGen15CodeGenFunction26MultiVersionResolverOptionES4_ET0_T_S6_S5_.exit, !llvm.loop !531
 
 _ZSt4moveIPN5clang7CodeGen15CodeGenFunction26MultiVersionResolverOptionES4_ET0_T_S6_S5_.exit: ; preds = %.lr.ph.i.i.i.i.i
@@ -102656,7 +102656,7 @@ _ZSt4moveIPN5clang7CodeGen15CodeGenFunction26MultiVersionResolverOptionES4_ET0_T
   %61 = getelementptr inbounds i8, ptr %.0910.i.i.i.i.i.i, i64 168
   %62 = getelementptr inbounds i8, ptr %.0811.i.i.i.i.i.i, i64 168
   %63 = add nsw i64 %.012.i.i.i.i.i.i, -1
-  %64 = icmp ugt i64 %.012.i.i.i.i.i.i, 1
+  %64 = icmp samesign ugt i64 %.012.i.i.i.i.i.i, 1
   br i1 %64, label %.lr.ph.i.i.i.i.i.i, label %"_ZSt21__move_merge_adaptiveIPN5clang7CodeGen15CodeGenFunction26MultiVersionResolverOptionES4_S4_N9__gnu_cxx5__ops15_Iter_comp_iterIZNS1_13CodeGenModule25emitMultiVersionFunctionsEvE3$_1EEEvT_SB_T0_SC_T1_T2_.exit", !llvm.loop !531
 
 "_ZSt21__move_merge_adaptiveIPN5clang7CodeGen15CodeGenFunction26MultiVersionResolverOptionES4_S4_N9__gnu_cxx5__ops15_Iter_comp_iterIZNS1_13CodeGenModule25emitMultiVersionFunctionsEvE3$_1EEEvT_SB_T0_SC_T1_T2_.exit": ; preds = %.lr.ph.i.i.i.i.i.i, %._crit_edge.i.thread, %._crit_edge.i, %._crit_edge.i.thread157
@@ -102697,7 +102697,7 @@ _ZSt4moveIPN5clang7CodeGen15CodeGenFunction26MultiVersionResolverOptionES4_ET0_T
   %77 = getelementptr inbounds i8, ptr %.0910.i.i.i.i.i74, i64 168
   %78 = getelementptr inbounds i8, ptr %.0811.i.i.i.i.i73, i64 168
   %79 = add nsw i64 %.012.i.i.i.i.i72, -1
-  %80 = icmp ugt i64 %.012.i.i.i.i.i72, 1
+  %80 = icmp samesign ugt i64 %.012.i.i.i.i.i72, 1
   br i1 %80, label %.lr.ph.i.i.i.i.i71, label %_ZSt4moveIPN5clang7CodeGen15CodeGenFunction26MultiVersionResolverOptionES4_ET0_T_S6_S5_.exit75, !llvm.loop !531
 
 _ZSt4moveIPN5clang7CodeGen15CodeGenFunction26MultiVersionResolverOptionES4_ET0_T_S6_S5_.exit75: ; preds = %.lr.ph.i.i.i.i.i71, %67
@@ -102733,7 +102733,7 @@ _ZSt4moveIPN5clang7CodeGen15CodeGenFunction26MultiVersionResolverOptionES4_ET0_T
   %94 = getelementptr inbounds i8, ptr %.078.i.i.i.i.i.i, i64 -144
   %95 = tail call noundef nonnull align 8 dereferenceable(16) ptr @_ZN4llvm15SmallVectorImplINS_9StringRefEEaSEOS2_(ptr noundef nonnull align 8 dereferenceable(144) %93, ptr noundef nonnull align 8 dereferenceable(144) %94)
   %96 = add nsw i64 %.010.i.i.i.i.i.i, -1
-  %97 = icmp ugt i64 %.010.i.i.i.i.i.i, 1
+  %97 = icmp samesign ugt i64 %.010.i.i.i.i.i.i, 1
   br i1 %97, label %.lr.ph.i.i.i.i.i.i78, label %"_ZSt30__move_merge_adaptive_backwardIPN5clang7CodeGen15CodeGenFunction26MultiVersionResolverOptionES4_S4_N9__gnu_cxx5__ops15_Iter_comp_iterIZNS1_13CodeGenModule25emitMultiVersionFunctionsEvE3$_1EEEvT_SB_T0_SC_T1_T2_.exit", !llvm.loop !847
 
 98:                                               ; preds = %_ZSt4moveIPN5clang7CodeGen15CodeGenFunction26MultiVersionResolverOptionES4_ET0_T_S6_S5_.exit75
@@ -102797,7 +102797,7 @@ _ZSt4moveIPN5clang7CodeGen15CodeGenFunction26MultiVersionResolverOptionES4_ET0_T
   %126 = getelementptr inbounds i8, ptr %.078.i.i.i.i.i37.i, i64 -144
   %127 = tail call noundef nonnull align 8 dereferenceable(16) ptr @_ZN4llvm15SmallVectorImplINS_9StringRefEEaSEOS2_(ptr noundef nonnull align 8 dereferenceable(144) %125, ptr noundef nonnull align 8 dereferenceable(144) %126)
   %128 = add nsw i64 %.010.i.i.i.i.i35.i, -1
-  %129 = icmp ugt i64 %.010.i.i.i.i.i35.i, 1
+  %129 = icmp samesign ugt i64 %.010.i.i.i.i.i35.i, 1
   br i1 %129, label %.lr.ph.i.i.i.i.i34.i, label %"_ZSt30__move_merge_adaptive_backwardIPN5clang7CodeGen15CodeGenFunction26MultiVersionResolverOptionES4_S4_N9__gnu_cxx5__ops15_Iter_comp_iterIZNS1_13CodeGenModule25emitMultiVersionFunctionsEvE3$_1EEEvT_SB_T0_SC_T1_T2_.exit", !llvm.loop !847
 
 130:                                              ; preds = %102
@@ -102994,7 +102994,7 @@ define internal fastcc void @"_ZSt12__move_mergeIPN5clang7CodeGen15CodeGenFuncti
   %42 = getelementptr inbounds i8, ptr %.0910.i.i.i.i.i, i64 168
   %43 = getelementptr inbounds i8, ptr %.0811.i.i.i.i.i, i64 168
   %44 = add nsw i64 %.012.i.i.i.i.i, -1
-  %45 = icmp ugt i64 %.012.i.i.i.i.i, 1
+  %45 = icmp samesign ugt i64 %.012.i.i.i.i.i, 1
   br i1 %45, label %.lr.ph.i.i.i.i.i, label %_ZSt4moveIPN5clang7CodeGen15CodeGenFunction26MultiVersionResolverOptionES4_ET0_T_S6_S5_.exit, !llvm.loop !531
 
 _ZSt4moveIPN5clang7CodeGen15CodeGenFunction26MultiVersionResolverOptionES4_ET0_T_S6_S5_.exit: ; preds = %.lr.ph.i.i.i.i.i, %._crit_edge
@@ -103024,7 +103024,7 @@ _ZSt4moveIPN5clang7CodeGen15CodeGenFunction26MultiVersionResolverOptionES4_ET0_T
   %57 = getelementptr inbounds i8, ptr %.0910.i.i.i.i.i26, i64 168
   %58 = getelementptr inbounds i8, ptr %.0811.i.i.i.i.i25, i64 168
   %59 = add nsw i64 %.012.i.i.i.i.i24, -1
-  %60 = icmp ugt i64 %.012.i.i.i.i.i24, 1
+  %60 = icmp samesign ugt i64 %.012.i.i.i.i.i24, 1
   br i1 %60, label %.lr.ph.i.i.i.i.i23, label %_ZSt4moveIPN5clang7CodeGen15CodeGenFunction26MultiVersionResolverOptionES4_ET0_T_S6_S5_.exit27, !llvm.loop !531
 
 _ZSt4moveIPN5clang7CodeGen15CodeGenFunction26MultiVersionResolverOptionES4_ET0_T_S6_S5_.exit27: ; preds = %.lr.ph.i.i.i.i.i23, %_ZSt4moveIPN5clang7CodeGen15CodeGenFunction26MultiVersionResolverOptionES4_ET0_T_S6_S5_.exit
@@ -103068,7 +103068,7 @@ define linkonce_odr noundef ptr @_ZSt17__rotate_adaptiveIPN5clang7CodeGen15CodeG
   %22 = getelementptr inbounds i8, ptr %.0910.i.i.i.i.i, i64 168
   %23 = getelementptr inbounds i8, ptr %.0811.i.i.i.i.i, i64 168
   %24 = add nsw i64 %.012.i.i.i.i.i, -1
-  %25 = icmp ugt i64 %.012.i.i.i.i.i, 1
+  %25 = icmp samesign ugt i64 %.012.i.i.i.i.i, 1
   br i1 %25, label %.lr.ph.i.i.i.i.i, label %_ZSt4moveIPN5clang7CodeGen15CodeGenFunction26MultiVersionResolverOptionES4_ET0_T_S6_S5_.exit, !llvm.loop !531
 
 _ZSt4moveIPN5clang7CodeGen15CodeGenFunction26MultiVersionResolverOptionES4_ET0_T_S6_S5_.exit: ; preds = %.lr.ph.i.i.i.i.i, %10
@@ -103097,7 +103097,7 @@ _ZSt4moveIPN5clang7CodeGen15CodeGenFunction26MultiVersionResolverOptionES4_ET0_T
   %36 = getelementptr inbounds i8, ptr %.078.i.i.i.i.i, i64 -144
   %37 = tail call noundef nonnull align 8 dereferenceable(16) ptr @_ZN4llvm15SmallVectorImplINS_9StringRefEEaSEOS2_(ptr noundef nonnull align 8 dereferenceable(144) %35, ptr noundef nonnull align 8 dereferenceable(144) %36)
   %38 = add nsw i64 %.010.i.i.i.i.i, -1
-  %39 = icmp ugt i64 %.010.i.i.i.i.i, 1
+  %39 = icmp samesign ugt i64 %.010.i.i.i.i.i, 1
   br i1 %39, label %.lr.ph.i.i.i.i.i37, label %_ZSt13move_backwardIPN5clang7CodeGen15CodeGenFunction26MultiVersionResolverOptionES4_ET0_T_S6_S5_.exit, !llvm.loop !847
 
 _ZSt13move_backwardIPN5clang7CodeGen15CodeGenFunction26MultiVersionResolverOptionES4_ET0_T_S6_S5_.exit: ; preds = %.lr.ph.i.i.i.i.i37, %_ZSt4moveIPN5clang7CodeGen15CodeGenFunction26MultiVersionResolverOptionES4_ET0_T_S6_S5_.exit
@@ -103126,7 +103126,7 @@ _ZSt13move_backwardIPN5clang7CodeGen15CodeGenFunction26MultiVersionResolverOptio
   %51 = getelementptr inbounds i8, ptr %.0910.i.i.i.i.i43, i64 168
   %52 = getelementptr inbounds i8, ptr %.0811.i.i.i.i.i42, i64 168
   %53 = add nsw i64 %.012.i.i.i.i.i41, -1
-  %54 = icmp ugt i64 %.012.i.i.i.i.i41, 1
+  %54 = icmp samesign ugt i64 %.012.i.i.i.i.i41, 1
   br i1 %54, label %.lr.ph.i.i.i.i.i40, label %_ZSt4moveIPN5clang7CodeGen15CodeGenFunction26MultiVersionResolverOptionES4_ET0_T_S6_S5_.exit44, !llvm.loop !531
 
 55:                                               ; preds = %7
@@ -103163,7 +103163,7 @@ _ZSt13move_backwardIPN5clang7CodeGen15CodeGenFunction26MultiVersionResolverOptio
   %69 = getelementptr inbounds i8, ptr %.0910.i.i.i.i.i50, i64 168
   %70 = getelementptr inbounds i8, ptr %.0811.i.i.i.i.i49, i64 168
   %71 = add nsw i64 %.012.i.i.i.i.i48, -1
-  %72 = icmp ugt i64 %.012.i.i.i.i.i48, 1
+  %72 = icmp samesign ugt i64 %.012.i.i.i.i.i48, 1
   br i1 %72, label %.lr.ph.i.i.i.i.i47, label %_ZSt4moveIPN5clang7CodeGen15CodeGenFunction26MultiVersionResolverOptionES4_ET0_T_S6_S5_.exit51, !llvm.loop !531
 
 _ZSt4moveIPN5clang7CodeGen15CodeGenFunction26MultiVersionResolverOptionES4_ET0_T_S6_S5_.exit51: ; preds = %.lr.ph.i.i.i.i.i47, %57
@@ -103192,7 +103192,7 @@ _ZSt4moveIPN5clang7CodeGen15CodeGenFunction26MultiVersionResolverOptionES4_ET0_T
   %83 = getelementptr inbounds i8, ptr %.0910.i.i.i.i.i57, i64 168
   %84 = getelementptr inbounds i8, ptr %.0811.i.i.i.i.i56, i64 168
   %85 = add nsw i64 %.012.i.i.i.i.i55, -1
-  %86 = icmp ugt i64 %.012.i.i.i.i.i55, 1
+  %86 = icmp samesign ugt i64 %.012.i.i.i.i.i55, 1
   br i1 %86, label %.lr.ph.i.i.i.i.i54, label %_ZSt4moveIPN5clang7CodeGen15CodeGenFunction26MultiVersionResolverOptionES4_ET0_T_S6_S5_.exit58, !llvm.loop !531
 
 _ZSt4moveIPN5clang7CodeGen15CodeGenFunction26MultiVersionResolverOptionES4_ET0_T_S6_S5_.exit58: ; preds = %.lr.ph.i.i.i.i.i54, %_ZSt4moveIPN5clang7CodeGen15CodeGenFunction26MultiVersionResolverOptionES4_ET0_T_S6_S5_.exit51
@@ -103221,7 +103221,7 @@ _ZSt4moveIPN5clang7CodeGen15CodeGenFunction26MultiVersionResolverOptionES4_ET0_T
   %98 = getelementptr inbounds i8, ptr %.078.i.i.i.i.i64, i64 -144
   %99 = tail call noundef nonnull align 8 dereferenceable(16) ptr @_ZN4llvm15SmallVectorImplINS_9StringRefEEaSEOS2_(ptr noundef nonnull align 8 dereferenceable(144) %97, ptr noundef nonnull align 8 dereferenceable(144) %98)
   %100 = add nsw i64 %.010.i.i.i.i.i62, -1
-  %101 = icmp ugt i64 %.010.i.i.i.i.i62, 1
+  %101 = icmp samesign ugt i64 %.010.i.i.i.i.i62, 1
   br i1 %101, label %.lr.ph.i.i.i.i.i61, label %_ZSt4moveIPN5clang7CodeGen15CodeGenFunction26MultiVersionResolverOptionES4_ET0_T_S6_S5_.exit44, !llvm.loop !847
 
 102:                                              ; preds = %55
@@ -103447,7 +103447,7 @@ _ZN5clang7CodeGen15CodeGenFunction26MultiVersionResolverOptionC2EOS2_.exit: ; pr
   %57 = getelementptr inbounds i8, ptr %.078.i.i.i.i.i, i64 -144
   %58 = call noundef nonnull align 8 dereferenceable(16) ptr @_ZN4llvm15SmallVectorImplINS_9StringRefEEaSEOS2_(ptr noundef nonnull align 8 dereferenceable(144) %56, ptr noundef nonnull align 8 dereferenceable(144) %57)
   %59 = add nsw i64 %.010.i.i.i.i.i, -1
-  %60 = icmp ugt i64 %.010.i.i.i.i.i, 1
+  %60 = icmp samesign ugt i64 %.010.i.i.i.i.i, 1
   br i1 %60, label %.lr.ph.i.i.i.i.i, label %_ZSt13move_backwardIPN5clang7CodeGen15CodeGenFunction26MultiVersionResolverOptionES4_ET0_T_S6_S5_.exit, !llvm.loop !847
 
 _ZSt13move_backwardIPN5clang7CodeGen15CodeGenFunction26MultiVersionResolverOptionES4_ET0_T_S6_S5_.exit: ; preds = %.lr.ph.i.i.i.i.i, %_ZN5clang7CodeGen15CodeGenFunction26MultiVersionResolverOptionC2EOS2_.exit
@@ -103975,7 +103975,7 @@ define internal fastcc void @"_ZSt24__merge_sort_with_bufferIPN5clang7CodeGen15C
   %77 = getelementptr inbounds i8, ptr %.0910.i.i.i.i.i.i, i64 168
   %78 = getelementptr inbounds i8, ptr %.0811.i.i.i.i.i.i, i64 168
   %79 = add nsw i64 %.012.i.i.i.i.i.i, -1
-  %80 = icmp ugt i64 %.012.i.i.i.i.i.i, 1
+  %80 = icmp samesign ugt i64 %.012.i.i.i.i.i.i, 1
   br i1 %80, label %.lr.ph.i.i.i.i.i.i, label %_ZSt4moveIPN5clang7CodeGen15CodeGenFunction26MultiVersionResolverOptionES4_ET0_T_S6_S5_.exit.i, !llvm.loop !531
 
 _ZSt4moveIPN5clang7CodeGen15CodeGenFunction26MultiVersionResolverOptionES4_ET0_T_S6_S5_.exit.i: ; preds = %.lr.ph.i.i.i.i.i.i, %._crit_edge.i
@@ -104005,7 +104005,7 @@ _ZSt4moveIPN5clang7CodeGen15CodeGenFunction26MultiVersionResolverOptionES4_ET0_T
   %92 = getelementptr inbounds i8, ptr %.0910.i.i.i.i.i26.i, i64 168
   %93 = getelementptr inbounds i8, ptr %.0811.i.i.i.i.i25.i, i64 168
   %94 = add nsw i64 %.012.i.i.i.i.i24.i, -1
-  %95 = icmp ugt i64 %.012.i.i.i.i.i24.i, 1
+  %95 = icmp samesign ugt i64 %.012.i.i.i.i.i24.i, 1
   br i1 %95, label %.lr.ph.i.i.i.i.i23.i, label %"_ZSt12__move_mergeIPN5clang7CodeGen15CodeGenFunction26MultiVersionResolverOptionES4_N9__gnu_cxx5__ops15_Iter_comp_iterIZNS1_13CodeGenModule25emitCPUDispatchDefinitionENS0_10GlobalDeclEE3$_2EEET0_T_SD_SD_SD_SC_T1_.exit", !llvm.loop !531
 
 "_ZSt12__move_mergeIPN5clang7CodeGen15CodeGenFunction26MultiVersionResolverOptionES4_N9__gnu_cxx5__ops15_Iter_comp_iterIZNS1_13CodeGenModule25emitCPUDispatchDefinitionENS0_10GlobalDeclEE3$_2EEET0_T_SD_SD_SD_SC_T1_.exit": ; preds = %.lr.ph.i.i.i.i.i23.i, %_ZSt4moveIPN5clang7CodeGen15CodeGenFunction26MultiVersionResolverOptionES4_ET0_T_S6_S5_.exit.i
@@ -104141,7 +104141,7 @@ _ZSt4moveIPN5clang7CodeGen15CodeGenFunction26MultiVersionResolverOptionES4_ET0_T
   %149 = getelementptr inbounds i8, ptr %.0910.i.i.i.i.i.i53, i64 168
   %150 = getelementptr inbounds i8, ptr %.0811.i.i.i.i.i.i52, i64 168
   %151 = add nsw i64 %.012.i.i.i.i.i.i51, -1
-  %152 = icmp ugt i64 %.012.i.i.i.i.i.i51, 1
+  %152 = icmp samesign ugt i64 %.012.i.i.i.i.i.i51, 1
   br i1 %152, label %.lr.ph.i.i.i.i.i.i50, label %_ZSt4moveIPN5clang7CodeGen15CodeGenFunction26MultiVersionResolverOptionES4_ET0_T_S6_S5_.exit.i41, !llvm.loop !531
 
 _ZSt4moveIPN5clang7CodeGen15CodeGenFunction26MultiVersionResolverOptionES4_ET0_T_S6_S5_.exit.i41: ; preds = %.lr.ph.i.i.i.i.i.i50, %._crit_edge.i37
@@ -104171,7 +104171,7 @@ _ZSt4moveIPN5clang7CodeGen15CodeGenFunction26MultiVersionResolverOptionES4_ET0_T
   %164 = getelementptr inbounds i8, ptr %.0910.i.i.i.i.i26.i48, i64 168
   %165 = getelementptr inbounds i8, ptr %.0811.i.i.i.i.i25.i47, i64 168
   %166 = add nsw i64 %.012.i.i.i.i.i24.i46, -1
-  %167 = icmp ugt i64 %.012.i.i.i.i.i24.i46, 1
+  %167 = icmp samesign ugt i64 %.012.i.i.i.i.i24.i46, 1
   br i1 %167, label %.lr.ph.i.i.i.i.i23.i45, label %"_ZSt12__move_mergeIPN5clang7CodeGen15CodeGenFunction26MultiVersionResolverOptionES4_N9__gnu_cxx5__ops15_Iter_comp_iterIZNS1_13CodeGenModule25emitCPUDispatchDefinitionENS0_10GlobalDeclEE3$_2EEET0_T_SD_SD_SD_SC_T1_.exit67", !llvm.loop !531
 
 "_ZSt12__move_mergeIPN5clang7CodeGen15CodeGenFunction26MultiVersionResolverOptionES4_N9__gnu_cxx5__ops15_Iter_comp_iterIZNS1_13CodeGenModule25emitCPUDispatchDefinitionENS0_10GlobalDeclEE3$_2EEET0_T_SD_SD_SD_SC_T1_.exit67": ; preds = %.lr.ph.i.i.i.i.i23.i45, %_ZSt4moveIPN5clang7CodeGen15CodeGenFunction26MultiVersionResolverOptionES4_ET0_T_S6_S5_.exit.i41
@@ -104234,7 +104234,7 @@ tailrecurse._crit_edge:                           ; preds = %tailrecurse, %7
   %23 = getelementptr inbounds i8, ptr %.0910.i.i.i.i.i, i64 168
   %24 = getelementptr inbounds i8, ptr %.0811.i.i.i.i.i, i64 168
   %25 = add nsw i64 %.012.i.i.i.i.i, -1
-  %26 = icmp ugt i64 %.012.i.i.i.i.i, 1
+  %26 = icmp samesign ugt i64 %.012.i.i.i.i.i, 1
   br i1 %26, label %.lr.ph.i.i.i.i.i, label %_ZSt4moveIPN5clang7CodeGen15CodeGenFunction26MultiVersionResolverOptionES4_ET0_T_S6_S5_.exit, !llvm.loop !531
 
 _ZSt4moveIPN5clang7CodeGen15CodeGenFunction26MultiVersionResolverOptionES4_ET0_T_S6_S5_.exit: ; preds = %.lr.ph.i.i.i.i.i
@@ -104352,7 +104352,7 @@ _ZSt4moveIPN5clang7CodeGen15CodeGenFunction26MultiVersionResolverOptionES4_ET0_T
   %77 = getelementptr inbounds i8, ptr %.0910.i.i.i.i.i.i, i64 168
   %78 = getelementptr inbounds i8, ptr %.0811.i.i.i.i.i.i, i64 168
   %79 = add nsw i64 %.012.i.i.i.i.i.i, -1
-  %80 = icmp ugt i64 %.012.i.i.i.i.i.i, 1
+  %80 = icmp samesign ugt i64 %.012.i.i.i.i.i.i, 1
   br i1 %80, label %.lr.ph.i.i.i.i.i.i, label %"_ZSt21__move_merge_adaptiveIPN5clang7CodeGen15CodeGenFunction26MultiVersionResolverOptionES4_S4_N9__gnu_cxx5__ops15_Iter_comp_iterIZNS1_13CodeGenModule25emitCPUDispatchDefinitionENS0_10GlobalDeclEE3$_2EEEvT_SC_T0_SD_T1_T2_.exit", !llvm.loop !531
 
 .lr.ph:                                           ; preds = %7, %tailrecurse
@@ -104390,7 +104390,7 @@ _ZSt4moveIPN5clang7CodeGen15CodeGenFunction26MultiVersionResolverOptionES4_ET0_T
   %93 = getelementptr inbounds i8, ptr %.0910.i.i.i.i.i77, i64 168
   %94 = getelementptr inbounds i8, ptr %.0811.i.i.i.i.i76, i64 168
   %95 = add nsw i64 %.012.i.i.i.i.i75, -1
-  %96 = icmp ugt i64 %.012.i.i.i.i.i75, 1
+  %96 = icmp samesign ugt i64 %.012.i.i.i.i.i75, 1
   br i1 %96, label %.lr.ph.i.i.i.i.i74, label %_ZSt4moveIPN5clang7CodeGen15CodeGenFunction26MultiVersionResolverOptionES4_ET0_T_S6_S5_.exit78, !llvm.loop !531
 
 _ZSt4moveIPN5clang7CodeGen15CodeGenFunction26MultiVersionResolverOptionES4_ET0_T_S6_S5_.exit78: ; preds = %.lr.ph.i.i.i.i.i74, %81
@@ -104424,7 +104424,7 @@ _ZSt4moveIPN5clang7CodeGen15CodeGenFunction26MultiVersionResolverOptionES4_ET0_T
   %110 = getelementptr inbounds i8, ptr %.078.i.i.i.i.i.i, i64 -144
   %111 = tail call noundef nonnull align 8 dereferenceable(16) ptr @_ZN4llvm15SmallVectorImplINS_9StringRefEEaSEOS2_(ptr noundef nonnull align 8 dereferenceable(144) %109, ptr noundef nonnull align 8 dereferenceable(144) %110)
   %112 = add nsw i64 %.010.i.i.i.i.i.i, -1
-  %113 = icmp ugt i64 %.010.i.i.i.i.i.i, 1
+  %113 = icmp samesign ugt i64 %.010.i.i.i.i.i.i, 1
   br i1 %113, label %.lr.ph.i.i.i.i.i.i89, label %"_ZSt21__move_merge_adaptiveIPN5clang7CodeGen15CodeGenFunction26MultiVersionResolverOptionES4_S4_N9__gnu_cxx5__ops15_Iter_comp_iterIZNS1_13CodeGenModule25emitCPUDispatchDefinitionENS0_10GlobalDeclEE3$_2EEEvT_SC_T0_SD_T1_T2_.exit", !llvm.loop !847
 
 114:                                              ; preds = %_ZSt4moveIPN5clang7CodeGen15CodeGenFunction26MultiVersionResolverOptionES4_ET0_T_S6_S5_.exit78
@@ -104524,7 +104524,7 @@ _ZSt4moveIPN5clang7CodeGen15CodeGenFunction26MultiVersionResolverOptionES4_ET0_T
   %159 = getelementptr inbounds i8, ptr %.078.i.i.i.i.i37.i, i64 -144
   %160 = tail call noundef nonnull align 8 dereferenceable(16) ptr @_ZN4llvm15SmallVectorImplINS_9StringRefEEaSEOS2_(ptr noundef nonnull align 8 dereferenceable(144) %158, ptr noundef nonnull align 8 dereferenceable(144) %159)
   %161 = add nsw i64 %.010.i.i.i.i.i35.i, -1
-  %162 = icmp ugt i64 %.010.i.i.i.i.i35.i, 1
+  %162 = icmp samesign ugt i64 %.010.i.i.i.i.i35.i, 1
   br i1 %162, label %.lr.ph.i.i.i.i.i34.i, label %"_ZSt21__move_merge_adaptiveIPN5clang7CodeGen15CodeGenFunction26MultiVersionResolverOptionES4_S4_N9__gnu_cxx5__ops15_Iter_comp_iterIZNS1_13CodeGenModule25emitCPUDispatchDefinitionENS0_10GlobalDeclEE3$_2EEEvT_SC_T0_SD_T1_T2_.exit", !llvm.loop !847
 
 163:                                              ; preds = %136
@@ -104704,7 +104704,7 @@ define internal fastcc void @"_ZSt12__move_mergeIPN5clang7CodeGen15CodeGenFuncti
   %61 = getelementptr inbounds i8, ptr %.0910.i.i.i.i.i, i64 168
   %62 = getelementptr inbounds i8, ptr %.0811.i.i.i.i.i, i64 168
   %63 = add nsw i64 %.012.i.i.i.i.i, -1
-  %64 = icmp ugt i64 %.012.i.i.i.i.i, 1
+  %64 = icmp samesign ugt i64 %.012.i.i.i.i.i, 1
   br i1 %64, label %.lr.ph.i.i.i.i.i, label %_ZSt4moveIPN5clang7CodeGen15CodeGenFunction26MultiVersionResolverOptionES4_ET0_T_S6_S5_.exit, !llvm.loop !531
 
 _ZSt4moveIPN5clang7CodeGen15CodeGenFunction26MultiVersionResolverOptionES4_ET0_T_S6_S5_.exit: ; preds = %.lr.ph.i.i.i.i.i, %._crit_edge
@@ -104734,7 +104734,7 @@ _ZSt4moveIPN5clang7CodeGen15CodeGenFunction26MultiVersionResolverOptionES4_ET0_T
   %76 = getelementptr inbounds i8, ptr %.0910.i.i.i.i.i26, i64 168
   %77 = getelementptr inbounds i8, ptr %.0811.i.i.i.i.i25, i64 168
   %78 = add nsw i64 %.012.i.i.i.i.i24, -1
-  %79 = icmp ugt i64 %.012.i.i.i.i.i24, 1
+  %79 = icmp samesign ugt i64 %.012.i.i.i.i.i24, 1
   br i1 %79, label %.lr.ph.i.i.i.i.i23, label %_ZSt4moveIPN5clang7CodeGen15CodeGenFunction26MultiVersionResolverOptionES4_ET0_T_S6_S5_.exit27, !llvm.loop !531
 
 _ZSt4moveIPN5clang7CodeGen15CodeGenFunction26MultiVersionResolverOptionES4_ET0_T_S6_S5_.exit27: ; preds = %.lr.ph.i.i.i.i.i23, %_ZSt4moveIPN5clang7CodeGen15CodeGenFunction26MultiVersionResolverOptionES4_ET0_T_S6_S5_.exit
@@ -106970,7 +106970,7 @@ _ZN4llvm15SmallVectorImplISt4pairIPKN5clang4DeclEbEE12assignRemoteEOS7_.exit: ; 
   %35 = getelementptr inbounds i8, ptr %.0910.i.i.i.i.i, i64 16
   %36 = getelementptr inbounds i8, ptr %.0811.i.i.i.i.i, i64 16
   %37 = add nsw i64 %.012.i.i.i.i.i, -1
-  %38 = icmp ugt i64 %.012.i.i.i.i.i, 1
+  %38 = icmp samesign ugt i64 %.012.i.i.i.i.i, 1
   br i1 %38, label %.lr.ph.i.i.i.i.i, label %_ZSt4moveIPSt4pairIPKN5clang4DeclEbES6_ET0_T_S8_S7_.exit, !llvm.loop !896
 
 _ZSt4moveIPSt4pairIPKN5clang4DeclEbES6_ET0_T_S8_S7_.exit: ; preds = %.lr.ph.i.i.i.i.i, %25, %24
@@ -107021,7 +107021,7 @@ _ZSt4moveIPSt4pairIPKN5clang4DeclEbES6_ET0_T_S8_S7_.exit: ; preds = %.lr.ph.i.i.
   %59 = getelementptr inbounds i8, ptr %.0910.i.i.i.i.i38, i64 16
   %60 = getelementptr inbounds i8, ptr %.0811.i.i.i.i.i37, i64 16
   %61 = add nsw i64 %.012.i.i.i.i.i36, -1
-  %62 = icmp ugt i64 %.012.i.i.i.i.i36, 1
+  %62 = icmp samesign ugt i64 %.012.i.i.i.i.i36, 1
   br i1 %62, label %.lr.ph.i.i.i.i.i35, label %_ZSt4moveIPSt4pairIPKN5clang4DeclEbES6_ET0_T_S8_S7_.exit39, !llvm.loop !896
 
 _ZSt4moveIPSt4pairIPKN5clang4DeclEbES6_ET0_T_S8_S7_.exit39: ; preds = %.lr.ph.i.i.i.i.i35, %50, %49, %45
@@ -107546,7 +107546,7 @@ _ZN4llvm15SmallVectorImplISt4pairIPvmEE12assignRemoteEOS4_.exit: ; preds = %8, %
   %34 = getelementptr inbounds i8, ptr %.0910.i.i.i.i.i, i64 16
   %35 = getelementptr inbounds i8, ptr %.0811.i.i.i.i.i, i64 16
   %36 = add nsw i64 %.012.i.i.i.i.i, -1
-  %37 = icmp ugt i64 %.012.i.i.i.i.i, 1
+  %37 = icmp samesign ugt i64 %.012.i.i.i.i.i, 1
   br i1 %37, label %.lr.ph.i.i.i.i.i, label %_ZSt4moveIPSt4pairIPvmES3_ET0_T_S5_S4_.exit, !llvm.loop !899
 
 _ZSt4moveIPSt4pairIPvmES3_ET0_T_S5_S4_.exit:      ; preds = %.lr.ph.i.i.i.i.i, %25, %24
@@ -107596,7 +107596,7 @@ _ZSt4moveIPSt4pairIPvmES3_ET0_T_S5_S4_.exit:      ; preds = %.lr.ph.i.i.i.i.i, %
   %57 = getelementptr inbounds i8, ptr %.0910.i.i.i.i.i38, i64 16
   %58 = getelementptr inbounds i8, ptr %.0811.i.i.i.i.i37, i64 16
   %59 = add nsw i64 %.012.i.i.i.i.i36, -1
-  %60 = icmp ugt i64 %.012.i.i.i.i.i36, 1
+  %60 = icmp samesign ugt i64 %.012.i.i.i.i.i36, 1
   br i1 %60, label %.lr.ph.i.i.i.i.i35, label %_ZSt4moveIPSt4pairIPvmES3_ET0_T_S5_S4_.exit39, !llvm.loop !899
 
 _ZSt4moveIPSt4pairIPvmES3_ET0_T_S5_S4_.exit39:    ; preds = %.lr.ph.i.i.i.i.i35, %49, %48, %44

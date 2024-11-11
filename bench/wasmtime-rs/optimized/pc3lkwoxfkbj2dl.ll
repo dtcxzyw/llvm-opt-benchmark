@@ -178,7 +178,7 @@ define void @_ZN4core5slice4sort10merge_sort17hcc30410b81815c73E(ptr align 8 %0,
   br label %37
 
 28:                                               ; preds = %3
-  %29 = icmp ugt i64 %13, 1
+  %29 = icmp samesign ugt i64 %13, 1
   br i1 %29, label %.preheader.i50, label %36
 
 30:                                               ; preds = %.body, %31
@@ -1557,7 +1557,7 @@ define { i64, i1 } @_ZN4core5slice4sort12choose_pivot17h27c318ad51ec58d0E(ptr al
   br i1 %7, label %10, label %.thread173
 
 8:                                                ; preds = %"_ZN4core5slice4sort12choose_pivot28_$u7b$$u7b$closure$u7d$$u7d$17hf56199e6e61b64dcE.exit29"
-  %9 = icmp ult i64 %.3164, 11
+  %9 = icmp samesign ult i64 %.3164, 11
   br i1 %9, label %.thread173, label %79
 
 10:                                               ; preds = %3
@@ -1711,7 +1711,7 @@ define { i64, i1 } @_ZN4core5slice4sort12choose_pivot17h4c6ae112a7dbf2c3E(ptr al
   br i1 %7, label %10, label %.thread173
 
 8:                                                ; preds = %"_ZN4core5slice4sort12choose_pivot28_$u7b$$u7b$closure$u7d$$u7d$17h8280b795bd966837E.exit29"
-  %9 = icmp ult i64 %.3164, 11
+  %9 = icmp samesign ult i64 %.3164, 11
   br i1 %9, label %.thread173, label %79
 
 10:                                               ; preds = %3
@@ -1865,7 +1865,7 @@ define { i64, i1 } @_ZN4core5slice4sort12choose_pivot17h8a76eebdfbf4a6c3E(ptr al
   br i1 %7, label %10, label %.thread173
 
 8:                                                ; preds = %"_ZN4core5slice4sort12choose_pivot28_$u7b$$u7b$closure$u7d$$u7d$17hbed8d0dfe85d8410E.exit29"
-  %9 = icmp ult i64 %.3164, 11
+  %9 = icmp samesign ult i64 %.3164, 11
   br i1 %9, label %.thread173, label %79
 
 10:                                               ; preds = %3
@@ -2019,7 +2019,7 @@ define { i64, i1 } @_ZN4core5slice4sort12choose_pivot17h8c01800e084ed486E(ptr al
   br i1 %7, label %10, label %.thread173
 
 8:                                                ; preds = %"_ZN4core5slice4sort12choose_pivot28_$u7b$$u7b$closure$u7d$$u7d$17hcd715ae596ea37beE.exit29"
-  %9 = icmp ult i64 %.3164, 11
+  %9 = icmp samesign ult i64 %.3164, 11
   br i1 %9, label %.thread173, label %79
 
 10:                                               ; preds = %3
@@ -2173,7 +2173,7 @@ define { i64, i1 } @_ZN4core5slice4sort12choose_pivot17hcb9066415bfbd13eE(ptr al
   br i1 %7, label %10, label %.thread173
 
 8:                                                ; preds = %"_ZN4core5slice4sort12choose_pivot28_$u7b$$u7b$closure$u7d$$u7d$17h2a2ecac312fd73abE.exit29"
-  %9 = icmp ult i64 %.3164, 11
+  %9 = icmp samesign ult i64 %.3164, 11
   br i1 %9, label %.thread173, label %79
 
 10:                                               ; preds = %3
@@ -4966,7 +4966,7 @@ define zeroext i1 @_ZN4core5slice4sort22partial_insertion_sort17h1afc1aabe1d5884
 
 .split.us:                                        ; preds = %3
   %19 = tail call i64 @"_ZN49_$LT$usize$u20$as$u20$core..iter..range..Step$GT$17forward_unchecked17h8e316fd5971b3f4bE"(i64 0, i64 1)
-  %20 = icmp ugt i64 %.fr37, 1
+  %20 = icmp samesign ugt i64 %.fr37, 1
   br i1 %20, label %.lr.ph.us, label %._crit_edge.us
 
 21:                                               ; preds = %.lr.ph.us, %24
@@ -5252,7 +5252,7 @@ define zeroext i1 @_ZN4core5slice4sort22partial_insertion_sort17h2167b454218c752
 
 .split.us:                                        ; preds = %3
   %19 = tail call i64 @"_ZN49_$LT$usize$u20$as$u20$core..iter..range..Step$GT$17forward_unchecked17h8e316fd5971b3f4bE"(i64 0, i64 1)
-  %20 = icmp ugt i64 %.fr37, 1
+  %20 = icmp samesign ugt i64 %.fr37, 1
   br i1 %20, label %.lr.ph.us, label %._crit_edge.us
 
 21:                                               ; preds = %.lr.ph.us, %24
@@ -5544,7 +5544,7 @@ define zeroext i1 @_ZN4core5slice4sort22partial_insertion_sort17hb0e1927809514f7
 
 .split.us:                                        ; preds = %3
   %19 = tail call i64 @"_ZN49_$LT$usize$u20$as$u20$core..iter..range..Step$GT$17forward_unchecked17h8e316fd5971b3f4bE"(i64 0, i64 1)
-  %20 = icmp ugt i64 %.fr37, 1
+  %20 = icmp samesign ugt i64 %.fr37, 1
   br i1 %20, label %.lr.ph.us, label %._crit_edge.us
 
 21:                                               ; preds = %.lr.ph.us, %24
@@ -5836,7 +5836,7 @@ define zeroext i1 @_ZN4core5slice4sort22partial_insertion_sort17hb52a11968cf64fc
 
 .split.us:                                        ; preds = %3
   %19 = tail call i64 @"_ZN49_$LT$usize$u20$as$u20$core..iter..range..Step$GT$17forward_unchecked17h8e316fd5971b3f4bE"(i64 0, i64 1)
-  %20 = icmp ugt i64 %.fr37, 1
+  %20 = icmp samesign ugt i64 %.fr37, 1
   br i1 %20, label %.lr.ph.us, label %._crit_edge.us
 
 21:                                               ; preds = %.lr.ph.us, %24
@@ -6128,7 +6128,7 @@ define zeroext i1 @_ZN4core5slice4sort22partial_insertion_sort17hf259ec1d172baf6
 
 .split.us:                                        ; preds = %3
   %19 = tail call i64 @"_ZN49_$LT$usize$u20$as$u20$core..iter..range..Step$GT$17forward_unchecked17h8e316fd5971b3f4bE"(i64 0, i64 1)
-  %20 = icmp ugt i64 %.fr37, 1
+  %20 = icmp samesign ugt i64 %.fr37, 1
   br i1 %20, label %.lr.ph.us, label %._crit_edge.us
 
 21:                                               ; preds = %.lr.ph.us, %24

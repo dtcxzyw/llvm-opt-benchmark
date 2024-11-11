@@ -336,7 +336,7 @@ define hidden range(i32 0, 2) i32 @plpgsql_yyparse() local_unnamed_addr #0 {
   br label %.preheader1893
 
 78:                                               ; preds = %74
-  %79 = icmp ult i32 %71, 386
+  %79 = icmp samesign ult i32 %71, 386
   br i1 %79, label %80, label %85
 
 80:                                               ; preds = %78

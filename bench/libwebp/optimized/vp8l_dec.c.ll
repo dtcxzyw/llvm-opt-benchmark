@@ -632,7 +632,7 @@ VP8LFillBitWindow.exit.i:                         ; preds = %55, %52
   %indvars.iv.next.i = add nsw i64 %indvars.iv.i, 1
   %93 = getelementptr inbounds i32, ptr %2, i64 %indvars.iv.i
   store i32 %89, ptr %93, align 4
-  %94 = icmp ugt i32 %.04360.i, 1
+  %94 = icmp samesign ugt i32 %.04360.i, 1
   br i1 %94, label %.lr.ph.i, label %.loopexit.loopexit.i, !llvm.loop !11
 
 .loopexit.loopexit.i:                             ; preds = %.lr.ph.i
@@ -2712,7 +2712,7 @@ VP8LIsEndOfStream.exit254.thread:                 ; preds = %275
   br i1 %302, label %.lr.ph305, label %.loopexit, !llvm.loop !26
 
 303:                                              ; preds = %VP8LIsEndOfStream.exit233.thread
-  %304 = icmp ult i32 %.0182363, 280
+  %304 = icmp samesign ult i32 %.0182363, 280
   br i1 %304, label %305, label %461
 
 305:                                              ; preds = %303
@@ -2856,7 +2856,7 @@ VP8LIsEndOfStream.exit266.thread:                 ; preds = %373, %VP8LIsEndOfSt
 389:                                              ; preds = %384
   %390 = sub nsw i64 0, %382
   %391 = getelementptr inbounds i32, ptr %.0171310, i64 %390
-  %392 = icmp ult i32 %.0.i264, 3
+  %392 = icmp samesign ult i32 %.0.i264, 3
   %393 = icmp sgt i32 %.0.i.i255, 3
   %or.cond.i = and i1 %393, %392
   %394 = and i64 %379, 3
@@ -3212,7 +3212,7 @@ define internal void @ExtractAlphaRows(ptr noundef %0, i32 noundef %1) #1 {
   %indvars.iv.next.i = add nsw i64 %indvars.iv.i, -1
   %38 = getelementptr inbounds [4 x %struct.VP8LTransform], ptr %17, i64 0, i64 %indvars.iv.next.i
   tail call void @VP8LInverseTransform(ptr noundef nonnull %38, i32 noundef %.047, i32 noundef %34, ptr noundef %.02022.i, ptr noundef %31) #7
-  %39 = icmp ugt i64 %indvars.iv.i, 1
+  %39 = icmp samesign ugt i64 %indvars.iv.i, 1
   br i1 %39, label %37, label %ApplyInverseTransforms.exit, !llvm.loop !33
 
 ._crit_edge.i:                                    ; preds = %18
@@ -3611,7 +3611,7 @@ define internal void @ProcessRows(ptr noundef %0, i32 noundef %1) #1 {
   %indvars.iv.next.i = add nsw i64 %indvars.iv.i, -1
   %28 = getelementptr inbounds [4 x %struct.VP8LTransform], ptr %25, i64 0, i64 %indvars.iv.next.i
   tail call void @VP8LInverseTransform(ptr noundef nonnull %28, i32 noundef %4, i32 noundef %1, ptr noundef %.02022.i, ptr noundef %18) #7
-  %29 = icmp ugt i64 %indvars.iv.i, 1
+  %29 = icmp samesign ugt i64 %indvars.iv.i, 1
   br i1 %29, label %27, label %ApplyInverseTransforms.exit, !llvm.loop !33
 
 ._crit_edge.i:                                    ; preds = %7
@@ -3764,7 +3764,7 @@ Export.exit.i:                                    ; preds = %102, %WebPRescalerH
   tail call void @VP8LConvertFromBGRA(ptr noundef %.01213.i, i32 noundef %51, i32 noundef %57, ptr noundef %.015.i) #7
   %112 = getelementptr inbounds i8, ptr %.01213.i, i64 %109
   %113 = getelementptr inbounds i8, ptr %.015.i, i64 %67
-  %114 = icmp ugt i32 %.01114.i, 1
+  %114 = icmp samesign ugt i32 %.01114.i, 1
   br i1 %114, label %110, label %EmitRescaledRowsRGBA.exit, !llvm.loop !37
 
 EmitRescaledRowsRGBA.exit:                        ; preds = %Export.exit.i, %110, %108, %73
@@ -3953,7 +3953,7 @@ ExportYUVA.exit.i:                                ; preds = %ConvertToYUVA.exit.
 ConvertToYUVA.exit.i:                             ; preds = %226, %195
   %235 = getelementptr inbounds i8, ptr %.01011.i, i64 %194
   %236 = add nsw i32 %.013.i, 1
-  %237 = icmp ugt i32 %.0912.i, 1
+  %237 = icmp samesign ugt i32 %.0912.i, 1
   br i1 %237, label %195, label %EmitRescaledRowsYUVA.exit, !llvm.loop !40
 
 EmitRescaledRowsYUVA.exit:                        ; preds = %ExportYUVA.exit.i, %ConvertToYUVA.exit.i, %193, %124

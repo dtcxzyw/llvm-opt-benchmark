@@ -5441,7 +5441,7 @@ _ZN4llvm15SmallVectorImplINS_30DiagnosticInfoOptimizationBase8ArgumentEE12assign
   %40 = getelementptr inbounds i8, ptr %.0910.i.i.i.i.i, i64 80
   %41 = getelementptr inbounds i8, ptr %.0811.i.i.i.i.i, i64 80
   %42 = add nsw i64 %.012.i.i.i.i.i, -1
-  %43 = icmp ugt i64 %.012.i.i.i.i.i, 1
+  %43 = icmp samesign ugt i64 %.012.i.i.i.i.i, 1
   br i1 %43, label %.lr.ph.i.i.i.i.i, label %_ZSt4moveIPN4llvm30DiagnosticInfoOptimizationBase8ArgumentES3_ET0_T_S5_S4_.exit, !llvm.loop !81
 
 _ZSt4moveIPN4llvm30DiagnosticInfoOptimizationBase8ArgumentES3_ET0_T_S5_S4_.exit: ; preds = %.lr.ph.i.i.i.i.i, %30, %28
@@ -5543,7 +5543,7 @@ _ZN4llvm15SmallVectorImplINS_30DiagnosticInfoOptimizationBase8ArgumentEE5clearEv
   %76 = getelementptr inbounds i8, ptr %.0910.i.i.i.i.i52, i64 80
   %77 = getelementptr inbounds i8, ptr %.0811.i.i.i.i.i51, i64 80
   %78 = add nsw i64 %.012.i.i.i.i.i50, -1
-  %79 = icmp ugt i64 %.012.i.i.i.i.i50, 1
+  %79 = icmp samesign ugt i64 %.012.i.i.i.i.i50, 1
   br i1 %79, label %.lr.ph.i.i.i.i.i49, label %_ZSt4moveIPN4llvm30DiagnosticInfoOptimizationBase8ArgumentES3_ET0_T_S5_S4_.exit53, !llvm.loop !81
 
 _ZSt4moveIPN4llvm30DiagnosticInfoOptimizationBase8ArgumentES3_ET0_T_S5_S4_.exit53: ; preds = %.lr.ph.i.i.i.i.i49, %66, %65, %_ZN4llvm15SmallVectorImplINS_30DiagnosticInfoOptimizationBase8ArgumentEE5clearEv.exit46

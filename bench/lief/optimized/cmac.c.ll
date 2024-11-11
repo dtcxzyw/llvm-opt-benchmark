@@ -393,7 +393,7 @@ define internal fastcc i32 @cmac_generate_subkeys(ptr noundef nonnull %0, ptr no
   %17 = getelementptr inbounds i8, ptr %1, i64 %indvars.iv.next.i
   store i8 %16, ptr %17, align 1
   %18 = lshr i8 %14, 7
-  %19 = icmp ugt i64 %indvars.iv.i, 1
+  %19 = icmp samesign ugt i64 %indvars.iv.i, 1
   br i1 %19, label %.lr.ph.i, label %20, !llvm.loop !8
 
 20:                                               ; preds = %.lr.ph.i
@@ -429,7 +429,7 @@ define internal fastcc i32 @cmac_generate_subkeys(ptr noundef nonnull %0, ptr no
   store i8 %31, ptr %32, align 1
   %33 = load i8, ptr %28, align 1
   %34 = lshr i8 %33, 7
-  %35 = icmp ugt i64 %indvars.iv.i14, 1
+  %35 = icmp samesign ugt i64 %indvars.iv.i14, 1
   br i1 %35, label %.lr.ph.i13, label %._crit_edge.i17, !llvm.loop !8
 
 ._crit_edge.i17:                                  ; preds = %.lr.ph.i13

@@ -7022,7 +7022,7 @@ sw.default691.i:                                  ; preds = %if.then511.i
 if.then695.i:                                     ; preds = %lor.lhs.false680.i, %if.then657.i, %if.then657.i, %lor.lhs.false596.i, %if.then574.i, %if.then574.i
   %104 = phi i32 [ %add586.i, %lor.lhs.false596.i ], [ %add586.i, %if.then574.i ], [ %add586.i, %if.then574.i ], [ %add670.i, %lor.lhs.false680.i ], [ %add670.i, %if.then657.i ], [ %add670.i, %if.then657.i ]
   %httpversion499.0.ph.i = phi i32 [ %add543.i, %lor.lhs.false596.i ], [ %add543.i, %if.then574.i ], [ %add543.i, %if.then574.i ], [ %mul626.i, %lor.lhs.false680.i ], [ %mul626.i, %if.then657.i ], [ %mul626.i, %if.then657.i ]
-  %cmp697.i = icmp ult i32 %104, 100
+  %cmp697.i = icmp samesign ult i32 %104, 100
   br i1 %cmp697.i, label %if.then699.i, label %if.end700.i
 
 if.then699.i:                                     ; preds = %if.then695.i

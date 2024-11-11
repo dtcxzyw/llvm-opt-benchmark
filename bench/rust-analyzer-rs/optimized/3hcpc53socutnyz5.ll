@@ -1263,7 +1263,7 @@ define hidden void @_ZN4stdx13to_snake_case17h30f59952f9ea95abE(ptr noalias noca
   %60 = and i8 %58, 63
   %61 = zext nneg i8 %60 to i32
   %62 = or disjoint i32 %59, %61
-  %63 = icmp ugt i8 %52, -33
+  %63 = icmp samesign ugt i8 %52, -33
   br i1 %63, label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hbdd77eb0f2817061E.llvm.1874857069127499908.exit15.i", label %.thread77
 
 64:                                               ; preds = %.lr.ph
@@ -1281,7 +1281,7 @@ define hidden void @_ZN4stdx13to_snake_case17h30f59952f9ea95abE(ptr noalias noca
   %72 = or disjoint i32 %69, %71
   %73 = shl nuw nsw i32 %55, 12
   %74 = or disjoint i32 %72, %73
-  %75 = icmp ugt i8 %52, -17
+  %75 = icmp samesign ugt i8 %52, -17
   br i1 %75, label %76, label %.thread77
 
 76:                                               ; preds = %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hbdd77eb0f2817061E.llvm.1874857069127499908.exit15.i"
@@ -1685,7 +1685,7 @@ define hidden void @_ZN4stdx13to_snake_case17h34d72628df4af1caE(ptr noalias noca
   %60 = and i8 %58, 63
   %61 = zext nneg i8 %60 to i32
   %62 = or disjoint i32 %59, %61
-  %63 = icmp ugt i8 %52, -33
+  %63 = icmp samesign ugt i8 %52, -33
   br i1 %63, label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hbdd77eb0f2817061E.llvm.1874857069127499908.exit15.i", label %.thread77
 
 64:                                               ; preds = %.lr.ph
@@ -1703,7 +1703,7 @@ define hidden void @_ZN4stdx13to_snake_case17h34d72628df4af1caE(ptr noalias noca
   %72 = or disjoint i32 %69, %71
   %73 = shl nuw nsw i32 %55, 12
   %74 = or disjoint i32 %72, %73
-  %75 = icmp ugt i8 %52, -17
+  %75 = icmp samesign ugt i8 %52, -17
   br i1 %75, label %76, label %.thread77
 
 76:                                               ; preds = %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hbdd77eb0f2817061E.llvm.1874857069127499908.exit15.i"

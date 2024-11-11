@@ -1741,7 +1741,7 @@ _ZNK4llvm9StringRef11starts_withES0_.exit4.thread: ; preds = %_ZNK4llvm9StringRe
   br i1 %23, label %24, label %34
 
 24:                                               ; preds = %.lr.ph.i
-  %25 = icmp ult i8 %22, 91
+  %25 = icmp samesign ult i8 %22, 91
   br i1 %25, label %26, label %29
 
 26:                                               ; preds = %24
@@ -1764,7 +1764,7 @@ _ZNK4llvm9StringRef11starts_withES0_.exit4.thread: ; preds = %_ZNK4llvm9StringRe
   br i1 %35, label %36, label %40
 
 36:                                               ; preds = %34
-  %37 = icmp ult i8 %22, 58
+  %37 = icmp samesign ult i8 %22, 58
   br i1 %37, label %38, label %_ZN4llvm5ErrorD2Ev.exit
 
 38:                                               ; preds = %36

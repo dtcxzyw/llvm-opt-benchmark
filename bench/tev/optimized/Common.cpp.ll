@@ -3693,7 +3693,7 @@ define linkonce_odr dso_local ptr @_ZN4utf86appendINSt3__120back_insert_iterator
   unreachable
 
 10:                                               ; preds = %2
-  %11 = icmp ult i32 %0, 128
+  %11 = icmp samesign ult i32 %0, 128
   br i1 %11, label %12, label %14
 
 12:                                               ; preds = %10
@@ -3701,7 +3701,7 @@ define linkonce_odr dso_local ptr @_ZN4utf86appendINSt3__120back_insert_iterator
   br label %51
 
 14:                                               ; preds = %10
-  %15 = icmp ult i32 %0, 2048
+  %15 = icmp samesign ult i32 %0, 2048
   br i1 %15, label %16, label %23
 
 16:                                               ; preds = %14
@@ -3715,7 +3715,7 @@ define linkonce_odr dso_local ptr @_ZN4utf86appendINSt3__120back_insert_iterator
   br label %51
 
 23:                                               ; preds = %14
-  %24 = icmp ult i32 %0, 65536
+  %24 = icmp samesign ult i32 %0, 65536
   br i1 %24, label %25, label %36
 
 25:                                               ; preds = %23
@@ -3892,28 +3892,28 @@ _ZN4utf88internal14get_sequence_1INSt3__111__wrap_iterIPKcEEEENS0_9utf_errorERT_
   %75 = phi i1 [ true, %6 ], [ true, %_ZN4utf88internal15increase_safelyINSt3__111__wrap_iterIPKcEEEENS0_9utf_errorERT_S8_.exit.i ], [ false, %_ZN4utf88internal15increase_safelyINSt3__111__wrap_iterIPKcEEEENS0_9utf_errorERT_S8_.exit20.i ], [ true, %_ZN4utf88internal15increase_safelyINSt3__111__wrap_iterIPKcEEEENS0_9utf_errorERT_S8_.exit31.i ]
   %.not.i = phi i1 [ false, %6 ], [ true, %_ZN4utf88internal15increase_safelyINSt3__111__wrap_iterIPKcEEEENS0_9utf_errorERT_S8_.exit.i ], [ false, %_ZN4utf88internal15increase_safelyINSt3__111__wrap_iterIPKcEEEENS0_9utf_errorERT_S8_.exit20.i ], [ false, %_ZN4utf88internal15increase_safelyINSt3__111__wrap_iterIPKcEEEENS0_9utf_errorERT_S8_.exit31.i ]
   %.036 = phi i32 [ %8, %6 ], [ %26, %_ZN4utf88internal15increase_safelyINSt3__111__wrap_iterIPKcEEEENS0_9utf_errorERT_S8_.exit.i ], [ %46, %_ZN4utf88internal15increase_safelyINSt3__111__wrap_iterIPKcEEEENS0_9utf_errorERT_S8_.exit20.i ], [ %74, %_ZN4utf88internal15increase_safelyINSt3__111__wrap_iterIPKcEEEENS0_9utf_errorERT_S8_.exit31.i ]
-  %76 = icmp ult i32 %.036, 1114112
+  %76 = icmp samesign ult i32 %.036, 1114112
   %77 = and i32 %.036, -2048
   %78 = icmp ne i32 %77, 55296
   %79 = and i1 %76, %78
   br i1 %79, label %80, label %_ZN4utf88internal15sequence_lengthINSt3__111__wrap_iterIPKcEEEENS2_15iterator_traitsIT_E15difference_typeES8_.exit.thread.sink.split
 
 80:                                               ; preds = %_ZN4utf88internal14get_sequence_1INSt3__111__wrap_iterIPKcEEEENS0_9utf_errorERT_S8_Rj.exit
-  %81 = icmp ult i32 %.036, 128
+  %81 = icmp samesign ult i32 %.036, 128
   br i1 %81, label %82, label %83
 
 82:                                               ; preds = %80
   br i1 %9, label %_ZN4utf88internal20is_overlong_sequenceIlEEbjT_.exit, label %_ZN4utf88internal15sequence_lengthINSt3__111__wrap_iterIPKcEEEENS2_15iterator_traitsIT_E15difference_typeES8_.exit.thread.sink.split
 
 83:                                               ; preds = %80
-  %84 = icmp ult i32 %.036, 2048
+  %84 = icmp samesign ult i32 %.036, 2048
   br i1 %84, label %85, label %86
 
 85:                                               ; preds = %83
   br i1 %.not.i, label %_ZN4utf88internal20is_overlong_sequenceIlEEbjT_.exit, label %_ZN4utf88internal15sequence_lengthINSt3__111__wrap_iterIPKcEEEENS2_15iterator_traitsIT_E15difference_typeES8_.exit.thread.sink.split
 
 86:                                               ; preds = %83
-  %87 = icmp ult i32 %.036, 65536
+  %87 = icmp samesign ult i32 %.036, 65536
   %or.cond.i = and i1 %75, %87
   br i1 %or.cond.i, label %_ZN4utf88internal15sequence_lengthINSt3__111__wrap_iterIPKcEEEENS2_15iterator_traitsIT_E15difference_typeES8_.exit.thread.sink.split, label %_ZN4utf88internal20is_overlong_sequenceIlEEbjT_.exit
 
@@ -4163,7 +4163,7 @@ define linkonce_odr dso_local ptr @_ZN4utf86appendINSt3__120back_insert_iterator
   unreachable
 
 10:                                               ; preds = %2
-  %11 = icmp ult i32 %0, 128
+  %11 = icmp samesign ult i32 %0, 128
   br i1 %11, label %12, label %14
 
 12:                                               ; preds = %10
@@ -4171,7 +4171,7 @@ define linkonce_odr dso_local ptr @_ZN4utf86appendINSt3__120back_insert_iterator
   br label %51
 
 14:                                               ; preds = %10
-  %15 = icmp ult i32 %0, 2048
+  %15 = icmp samesign ult i32 %0, 2048
   br i1 %15, label %16, label %23
 
 16:                                               ; preds = %14
@@ -4185,7 +4185,7 @@ define linkonce_odr dso_local ptr @_ZN4utf86appendINSt3__120back_insert_iterator
   br label %51
 
 23:                                               ; preds = %14
-  %24 = icmp ult i32 %0, 65536
+  %24 = icmp samesign ult i32 %0, 65536
   br i1 %24, label %25, label %36
 
 25:                                               ; preds = %23
@@ -4362,28 +4362,28 @@ _ZN4utf88internal14get_sequence_1INSt3__111__wrap_iterIPKDuEEEENS0_9utf_errorERT
   %75 = phi i1 [ true, %6 ], [ true, %_ZN4utf88internal15increase_safelyINSt3__111__wrap_iterIPKDuEEEENS0_9utf_errorERT_S8_.exit.i ], [ false, %_ZN4utf88internal15increase_safelyINSt3__111__wrap_iterIPKDuEEEENS0_9utf_errorERT_S8_.exit20.i ], [ true, %_ZN4utf88internal15increase_safelyINSt3__111__wrap_iterIPKDuEEEENS0_9utf_errorERT_S8_.exit31.i ]
   %.not.i = phi i1 [ false, %6 ], [ true, %_ZN4utf88internal15increase_safelyINSt3__111__wrap_iterIPKDuEEEENS0_9utf_errorERT_S8_.exit.i ], [ false, %_ZN4utf88internal15increase_safelyINSt3__111__wrap_iterIPKDuEEEENS0_9utf_errorERT_S8_.exit20.i ], [ false, %_ZN4utf88internal15increase_safelyINSt3__111__wrap_iterIPKDuEEEENS0_9utf_errorERT_S8_.exit31.i ]
   %.036 = phi i32 [ %8, %6 ], [ %26, %_ZN4utf88internal15increase_safelyINSt3__111__wrap_iterIPKDuEEEENS0_9utf_errorERT_S8_.exit.i ], [ %46, %_ZN4utf88internal15increase_safelyINSt3__111__wrap_iterIPKDuEEEENS0_9utf_errorERT_S8_.exit20.i ], [ %74, %_ZN4utf88internal15increase_safelyINSt3__111__wrap_iterIPKDuEEEENS0_9utf_errorERT_S8_.exit31.i ]
-  %76 = icmp ult i32 %.036, 1114112
+  %76 = icmp samesign ult i32 %.036, 1114112
   %77 = and i32 %.036, -2048
   %78 = icmp ne i32 %77, 55296
   %79 = and i1 %76, %78
   br i1 %79, label %80, label %_ZN4utf88internal15sequence_lengthINSt3__111__wrap_iterIPKDuEEEENS2_15iterator_traitsIT_E15difference_typeES8_.exit.thread.sink.split
 
 80:                                               ; preds = %_ZN4utf88internal14get_sequence_1INSt3__111__wrap_iterIPKDuEEEENS0_9utf_errorERT_S8_Rj.exit
-  %81 = icmp ult i32 %.036, 128
+  %81 = icmp samesign ult i32 %.036, 128
   br i1 %81, label %82, label %83
 
 82:                                               ; preds = %80
   br i1 %9, label %_ZN4utf88internal20is_overlong_sequenceIlEEbjT_.exit, label %_ZN4utf88internal15sequence_lengthINSt3__111__wrap_iterIPKDuEEEENS2_15iterator_traitsIT_E15difference_typeES8_.exit.thread.sink.split
 
 83:                                               ; preds = %80
-  %84 = icmp ult i32 %.036, 2048
+  %84 = icmp samesign ult i32 %.036, 2048
   br i1 %84, label %85, label %86
 
 85:                                               ; preds = %83
   br i1 %.not.i, label %_ZN4utf88internal20is_overlong_sequenceIlEEbjT_.exit, label %_ZN4utf88internal15sequence_lengthINSt3__111__wrap_iterIPKDuEEEENS2_15iterator_traitsIT_E15difference_typeES8_.exit.thread.sink.split
 
 86:                                               ; preds = %83
-  %87 = icmp ult i32 %.036, 65536
+  %87 = icmp samesign ult i32 %.036, 65536
   %or.cond.i = and i1 %75, %87
   br i1 %or.cond.i, label %_ZN4utf88internal15sequence_lengthINSt3__111__wrap_iterIPKDuEEEENS2_15iterator_traitsIT_E15difference_typeES8_.exit.thread.sink.split, label %_ZN4utf88internal20is_overlong_sequenceIlEEbjT_.exit
 
@@ -9091,7 +9091,7 @@ define linkonce_odr dso_local ptr @_ZNSt3__111basic_regexIcNS_12regex_traitsIcEE
   br i1 %41, label %42, label %.thread
 
 42:                                               ; preds = %39
-  %43 = icmp ult i8 %40, 91
+  %43 = icmp samesign ult i8 %40, 91
   %44 = add nsw i8 %40, -97
   %or.cond = icmp ult i8 %44, 26
   %or.cond109 = select i1 %43, i1 true, i1 %or.cond
@@ -28382,7 +28382,7 @@ define linkonce_odr dso_local ptr @_ZN3fmt2v96detail17write_significandINS0_8app
   store i16 %40, ptr %35, align 1
   %41 = udiv i32 %.03350.i, 100
   %42 = add nsw i32 %.03251.i, -1
-  %43 = icmp ugt i32 %.03251.i, 1
+  %43 = icmp samesign ugt i32 %.03251.i, 1
   br i1 %43, label %.lr.ph.i, label %._crit_edge.i, !llvm.loop !159
 
 ._crit_edge.i:                                    ; preds = %.lr.ph.i, %30
@@ -28573,7 +28573,7 @@ _ZNSt3__120back_insert_iteratorIN3fmt2v96detail6bufferIcEEEaSB8ne190000EOc.exit1
 
 27:                                               ; preds = %_ZNSt3__120back_insert_iteratorIN3fmt2v96detail6bufferIcEEEaSB8ne190000EOc.exit18, %_ZNSt3__120back_insert_iteratorIN3fmt2v96detail6bufferIcEEEaSB8ne190000EOc.exit
   %.0 = phi i32 [ %18, %_ZNSt3__120back_insert_iteratorIN3fmt2v96detail6bufferIcEEEaSB8ne190000EOc.exit ], [ %0, %_ZNSt3__120back_insert_iteratorIN3fmt2v96detail6bufferIcEEEaSB8ne190000EOc.exit18 ]
-  %28 = icmp ugt i32 %.0, 99
+  %28 = icmp samesign ugt i32 %.0, 99
   br i1 %28, label %29, label %67
 
 29:                                               ; preds = %27
@@ -28582,7 +28582,7 @@ _ZNSt3__120back_insert_iteratorIN3fmt2v96detail6bufferIcEEEaSB8ne190000EOc.exit1
   %32 = shl nuw nsw i32 %30, 1
   %33 = zext nneg i32 %32 to i64
   %34 = getelementptr inbounds [201 x i8], ptr @.str.27, i64 0, i64 %33
-  %35 = icmp ugt i32 %.0, 999
+  %35 = icmp samesign ugt i32 %.0, 999
   br i1 %35, label %36, label %51
 
 36:                                               ; preds = %29
@@ -31844,7 +31844,7 @@ define linkonce_odr dso_local ptr @_ZN3fmt2v96detail17write_significandINS0_8app
   store i16 %37, ptr %33, align 1
   %38 = udiv i64 %.03350.i, 100
   %39 = add nsw i32 %.03251.i, -1
-  %40 = icmp ugt i32 %.03251.i, 1
+  %40 = icmp samesign ugt i32 %.03251.i, 1
   br i1 %40, label %.lr.ph.i, label %._crit_edge.i, !llvm.loop !162
 
 ._crit_edge.i:                                    ; preds = %.lr.ph.i, %28
@@ -40992,7 +40992,7 @@ _ZZN3fmt2v96detail10vformat_toIcEEvRNS1_6bufferIT_EENS0_17basic_string_viewIS4_E
   br i1 %38, label %_ZNK3fmt2v920basic_format_contextINS0_8appenderEcE3argEi.exit.i, label %_ZNK3fmt2v920basic_format_contextINS0_8appenderEcE3argEi.exit.thread.i
 
 39:                                               ; preds = %_ZZN3fmt2v96detail10vformat_toIcEEvRNS1_6bufferIT_EENS0_17basic_string_viewIS4_EENS0_17basic_format_argsINS0_20basic_format_contextINSt3__111conditionalIXsr3std7is_sameINS0_13type_identityIS4_E4typeEcEE5valueENS0_8appenderENSB_20back_insert_iteratorINS3_ISF_EEEEE4typeESF_EEEENS1_10locale_refEEN14format_handler9on_arg_idEv.exit
-  %40 = icmp ugt i32 %28, 14
+  %40 = icmp samesign ugt i32 %28, 14
   br i1 %40, label %_ZNK3fmt2v920basic_format_contextINS0_8appenderEcE3argEi.exit.thread.i, label %41
 
 41:                                               ; preds = %39
@@ -42249,7 +42249,7 @@ _ZN3fmt2v96detail11parse_alignIcRNS1_13specs_checkerINS1_13specs_handlerIcEEEEEE
   unreachable
 
 _ZN3fmt2v96detail13specs_checkerINS1_13specs_handlerIcEEE24require_numeric_argumentEv.exit.i: ; preds = %116
-  %119 = icmp ult i32 %42, 9
+  %119 = icmp samesign ult i32 %42, 9
   br i1 %119, label %switch.hole_check, label %.sink.split
 
 120:                                              ; preds = %switch.hole_check
@@ -42265,7 +42265,7 @@ _ZN3fmt2v96detail13specs_checkerINS1_13specs_handlerIcEEE24require_numeric_argum
   unreachable
 
 _ZN3fmt2v96detail13specs_checkerINS1_13specs_handlerIcEEE24require_numeric_argumentEv.exit.i351: ; preds = %121
-  %124 = icmp ult i32 %42, 9
+  %124 = icmp samesign ult i32 %42, 9
   br i1 %124, label %switch.hole_check481, label %.sink.split
 
 125:                                              ; preds = %switch.hole_check481
@@ -42281,7 +42281,7 @@ _ZN3fmt2v96detail13specs_checkerINS1_13specs_handlerIcEEE24require_numeric_argum
   unreachable
 
 _ZN3fmt2v96detail13specs_checkerINS1_13specs_handlerIcEEE24require_numeric_argumentEv.exit.i353: ; preds = %126
-  %129 = icmp ult i32 %42, 9
+  %129 = icmp samesign ult i32 %42, 9
   br i1 %129, label %switch.hole_check488, label %.sink.split
 
 130:                                              ; preds = %switch.hole_check488
@@ -43147,7 +43147,7 @@ _ZN3fmt2v926basic_format_parse_contextIcNS0_6detail13error_handlerEE11next_arg_i
   br i1 %62, label %_ZNK3fmt2v920basic_format_contextINS0_8appenderEcE3argEi.exit.i.i.i.i, label %_ZNK3fmt2v920basic_format_contextINS0_8appenderEcE3argEi.exit.thread.i.i.i.i
 
 63:                                               ; preds = %_ZN3fmt2v926basic_format_parse_contextIcNS0_6detail13error_handlerEE11next_arg_idEv.exit.i.i.i
-  %64 = icmp ugt i32 %52, 14
+  %64 = icmp samesign ugt i32 %52, 14
   br i1 %64, label %_ZNK3fmt2v920basic_format_contextINS0_8appenderEcE3argEi.exit.thread.i.i.i.i, label %65
 
 65:                                               ; preds = %63
@@ -43345,7 +43345,7 @@ _ZN3fmt2v926basic_format_parse_contextIcNS0_6detail13error_handlerEE11next_arg_i
   br i1 %66, label %_ZNK3fmt2v920basic_format_contextINS0_8appenderEcE3argEi.exit.i.i.i.i, label %_ZNK3fmt2v920basic_format_contextINS0_8appenderEcE3argEi.exit.thread.i.i.i.i
 
 67:                                               ; preds = %_ZN3fmt2v926basic_format_parse_contextIcNS0_6detail13error_handlerEE11next_arg_idEv.exit.i.i.i
-  %68 = icmp ugt i32 %56, 14
+  %68 = icmp samesign ugt i32 %56, 14
   br i1 %68, label %_ZNK3fmt2v920basic_format_contextINS0_8appenderEcE3argEi.exit.thread.i.i.i.i, label %69
 
 69:                                               ; preds = %67
@@ -43828,7 +43828,7 @@ _ZNK3fmt2v917basic_format_argsINS0_20basic_format_contextINS0_8appenderEcEEE6get
   br i1 %33, label %_ZN3fmt2v920basic_format_contextINS0_8appenderEcE3argENS0_17basic_string_viewIcEE.exit, label %_ZN3fmt2v920basic_format_contextINS0_8appenderEcE3argENS0_17basic_string_viewIcEE.exit.thread
 
 34:                                               ; preds = %28
-  %35 = icmp ugt i32 %26, 14
+  %35 = icmp samesign ugt i32 %26, 14
   br i1 %35, label %_ZN3fmt2v920basic_format_contextINS0_8appenderEcE3argENS0_17basic_string_viewIcEE.exit.thread, label %36
 
 36:                                               ; preds = %34
@@ -51090,7 +51090,7 @@ _ZN3fmt2v96detail19get_round_directionEmmm.exit.i: ; preds = %.thread258
   %202 = load i8, ptr %gep, align 1
   %203 = add i8 %202, 1
   store i8 %203, ptr %gep, align 1
-  %204 = icmp ugt i64 %indvars.iv.i, 2
+  %204 = icmp samesign ugt i64 %indvars.iv.i, 2
   br i1 %204, label %.lr.ph.i137, label %.critedge.i, !llvm.loop !320
 
 .critedge.i:                                      ; preds = %201, %.lr.ph.i137, %_ZN3fmt2v96detail19get_round_directionEmmm.exit.i
@@ -51189,7 +51189,7 @@ _ZN3fmt2v96detail19get_round_directionEmmm.exit.i145: ; preds = %234
   %246 = load i8, ptr %gep326, align 1
   %247 = add i8 %246, 1
   store i8 %247, ptr %gep326, align 1
-  %248 = icmp ugt i64 %indvars.iv.i149, 2
+  %248 = icmp samesign ugt i64 %indvars.iv.i149, 2
   br i1 %248, label %.lr.ph.i148, label %.critedge.i146, !llvm.loop !320
 
 .critedge.i146:                                   ; preds = %245, %.lr.ph.i148

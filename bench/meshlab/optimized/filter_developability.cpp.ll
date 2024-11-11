@@ -2193,7 +2193,7 @@ define void @_ZN26FilterDevelopabilityPlugin17initParameterListEPK7QActionRK9Mes
 .noexc8.i.i:                                      ; preds = %.lr.ph.i.i.i.i.i.i.i
   %71 = getelementptr inbounds i8, ptr %.056.i.i.i.i.i.i.i, i64 8
   %72 = add nsw i64 %.07.i.i.i.i.i.i.i, -1
-  %73 = icmp ugt i64 %.07.i.i.i.i.i.i.i, 1
+  %73 = icmp samesign ugt i64 %.07.i.i.i.i.i.i.i, 1
   br i1 %73, label %.lr.ph.i.i.i.i.i.i.i, label %_ZN5QListI7QStringEC2ESt16initializer_listIS0_E.exit, !llvm.loop !26
 
 .loopexit.i.i:                                    ; preds = %.lr.ph.i.i.i.i.i.i.i

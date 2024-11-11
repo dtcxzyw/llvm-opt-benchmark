@@ -56236,7 +56236,7 @@ define void @_ZN14language_model8registry21LanguageModelRegistry9providers17h507
 
 "_ZN110_$LT$alloc..collections..btree..map..Values$LT$K$C$V$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17he92dcf8579978c42E.exit.i.i.i.i.i": ; preds = %.loopexit.i.i.i.i.i.i.i.i.i
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %7), !noalias !13363
-  %86 = icmp ult i64 %.sroa.8.013.ph.i.i.i.i.i.i.i.i.i, 11
+  %86 = icmp samesign ult i64 %.sroa.8.013.ph.i.i.i.i.i.i.i.i.i, 11
   call void @llvm.assume(i1 %86)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %9, ptr noundef nonnull align 8 dereferenceable(24) %8, i64 24, i1 false), !noalias !13353
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %8), !noalias !13353

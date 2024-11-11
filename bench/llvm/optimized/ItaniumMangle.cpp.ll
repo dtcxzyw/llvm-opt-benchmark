@@ -7027,7 +7027,7 @@ switch.early.test.i.i:                            ; preds = %_ZNK5clang4Type11is
 
 _ZNK5clang4Type35isOCLIntelSubgroupAVCMcePayloadTypeEv.exit.i.i.i: ; preds = %switch.early.test.i.i
   %51 = add nsw i32 %50, -18874368
-  %switch.i20.i.i = icmp ult i32 %51, 6291456
+  %switch.i20.i.i = icmp samesign ult i32 %51, 6291456
   br i1 %switch.i20.i.i, label %_ZNK5clang4Type5getAsINS_33DeducedTemplateSpecializationTypeEEEPKT_v.exit.thread.i, label %53
 
 _ZNK5clang4Type20isOpenCLSpecificTypeEv.exit.i:   ; preds = %40

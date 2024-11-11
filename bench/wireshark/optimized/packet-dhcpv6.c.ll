@@ -2113,7 +2113,7 @@ define internal fastcc range(i32 0, 65540) i32 @dhcpv6_option(ptr noundef %0, pt
   %25 = tail call zeroext i16 @tvb_get_ntohs(ptr noundef %0, i32 noundef %24) #6
   %26 = zext i16 %25 to i32
   %27 = add nuw nsw i32 %26, 4
-  %28 = icmp ult i32 %19, %27
+  %28 = icmp samesign ult i32 %19, %27
   br i1 %28, label %29, label %30
 
 29:                                               ; preds = %22
@@ -3823,7 +3823,7 @@ switch.lookup:                                    ; preds = %switch.hole_check, 
   %903 = tail call ptr @proto_tree_add_item(ptr noundef %37, i32 noundef %902, ptr noundef %0, i32 noundef %.011961360, i32 noundef 2, i32 noundef 0) #6
   %904 = add nsw i32 %.201359, -2
   %905 = add i32 %.011961360, 2
-  %906 = icmp ugt i32 %.201359, 3
+  %906 = icmp samesign ugt i32 %.201359, 3
   br i1 %906, label %.lr.ph, label %proto_item_set_url.exit, !llvm.loop !36
 
 907:                                              ; preds = %30

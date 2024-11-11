@@ -673,7 +673,7 @@ _ZN5alloc11collections5btree4node12slice_insert17hae2af9abdc4c303aE.exit.i64.i: 
   %163 = add i16 %161, 1
   %164 = getelementptr inbounds i8, ptr %.sroa.0.0.i, i64 8
   %165 = add nuw nsw i64 %.sroa.14.0.i, 1
-  %.not.i69.not.i = icmp ult i64 %.sroa.14.0.i, %162
+  %.not.i69.not.i = icmp samesign ult i64 %.sroa.14.0.i, %162
   %166 = getelementptr inbounds double, ptr %164, i64 %.sroa.14.0.i
   br i1 %.not.i69.not.i, label %169, label %_ZN5alloc11collections5btree4node12slice_insert17h2c8e14c6b2752b22E.exit.i70.i
 
@@ -708,7 +708,7 @@ _ZN5alloc11collections5btree4node12slice_insert17hae2af9abdc4c303aE.exit.i71.i: 
   %182 = getelementptr inbounds ptr, ptr %180, i64 %165
   store ptr %.sroa.7.0137, ptr %182, align 8, !alias.scope !98, !noalias !89
   store i16 %163, ptr %160, align 2, !noalias !89
-  %183 = icmp ult i64 %165, %181
+  %183 = icmp samesign ult i64 %165, %181
   br i1 %183, label %.lr.ph.i.i72.i, label %"_ZN5alloc11collections5btree4node214Handle$LT$alloc..collections..btree..node..NodeRef$LT$alloc..collections..btree..node..marker..Mut$C$K$C$V$C$alloc..collections..btree..node..marker..Internal$GT$$C$alloc..collections..btree..node..marker..Edge$GT$10insert_fit17h77429069a21d15b8E.exit75.i"
 
 .lr.ph.i.i72.i:                                   ; preds = %_ZN5alloc11collections5btree4node12slice_insert17hae2af9abdc4c303aE.exit.i71.i, %.lr.ph.i.i72.i
@@ -1848,7 +1848,7 @@ _ZN5alloc11collections5btree4node13move_to_slice17h667d6feae92a23c6E.exit.i: ; p
   %164 = getelementptr inbounds ptr, ptr %162, i64 %163
   %165 = getelementptr i8, ptr %164, i64 8
   tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %164, ptr align 8 %165, i64 %148, i1 false), !alias.scope !318, !noalias !301
-  %166 = icmp ult i64 %163, %139
+  %166 = icmp samesign ult i64 %163, %139
   br i1 %166, label %.lr.ph.i.i, label %"_ZN5alloc11collections5btree4node119NodeRef$LT$alloc..collections..btree..node..marker..Mut$C$K$C$V$C$alloc..collections..btree..node..marker..Internal$GT$30correct_childrens_parent_links17h52c2c32abc8293faE.exit.i"
 
 .lr.ph.i.i:                                       ; preds = %_ZN5alloc11collections5btree4node13move_to_slice17h667d6feae92a23c6E.exit.i, %.lr.ph.i.i

@@ -202,7 +202,7 @@ define hidden noundef zeroext i1 @_ZN2cv17MotionJpegCapture11setPropertyEid(ptr 
   br i1 %61, label %62, label %68
 
 62:                                               ; preds = %51
-  %63 = icmp ult i64 %60, 32
+  %63 = icmp samesign ult i64 %60, 32
   br i1 %63, label %64, label %66
 
 64:                                               ; preds = %62

@@ -3263,7 +3263,7 @@ Vec_IntStart.exit120:                             ; preds = %Vec_IntAlloc.exit.t
   br label %111
 
 111:                                              ; preds = %105, %.lr.ph
-  %112 = icmp ugt i64 %indvars.iv, 2
+  %112 = icmp samesign ugt i64 %indvars.iv, 2
   br i1 %112, label %.lr.ph, label %.loopexit, !llvm.loop !25
 
 113:                                              ; preds = %Vec_IntStart.exit120
@@ -3298,7 +3298,7 @@ Vec_IntStart.exit120:                             ; preds = %Vec_IntAlloc.exit.t
   br label %125
 
 125:                                              ; preds = %119, %.lr.ph135
-  %126 = icmp ugt i64 %indvars.iv143, 2
+  %126 = icmp samesign ugt i64 %indvars.iv143, 2
   br i1 %126, label %.lr.ph135, label %.loopexit, !llvm.loop !26
 
 .loopexit:                                        ; preds = %111, %125, %.preheader129, %113

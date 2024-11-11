@@ -2599,7 +2599,7 @@ for.body.lr.ph:                                   ; preds = %entry
   %result33 = getelementptr inbounds i8, ptr %12, i64 80
   %13 = load ptr, ptr %result33, align 8, !tbaa !82
   %wide.trip.count = zext nneg i32 %mul to i64
-  %min.iters.check = icmp ult i32 %mul, 20
+  %min.iters.check = icmp samesign ult i32 %mul, 20
   br i1 %min.iters.check, label %for.body.preheader, label %vector.memcheck
 
 vector.memcheck:                                  ; preds = %for.body.lr.ph

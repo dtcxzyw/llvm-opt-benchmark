@@ -1358,7 +1358,7 @@ define void @_ZN5ZXing10DataMatrix6EncodeERKNSt7__cxx1112basic_stringIwSt11char_
   %634 = trunc i64 %632 to i32
   %635 = sub i32 %634, %633
   %636 = icmp sge i32 %631, %635
-  %637 = icmp ult i64 %582, 4
+  %637 = icmp samesign ult i64 %582, 4
   %638 = and i1 %637, %636
   br i1 %637, label %639, label %672
 
@@ -1666,7 +1666,7 @@ define void @_ZN5ZXing10DataMatrix6EncodeERKNSt7__cxx1112basic_stringIwSt11char_
   br label %871
 
 791:                                              ; preds = %777
-  %792 = icmp ult i32 %756, 1557
+  %792 = icmp samesign ult i32 %756, 1557
   br i1 %792, label %793, label %807
 
 793:                                              ; preds = %791
@@ -3544,7 +3544,7 @@ define internal noundef range(i32 -2147483647, -2147483648) i32 @_ZN5ZXing10Data
   br label %.loopexit
 
 26:                                               ; preds = %21
-  %27 = icmp ult i32 %4, 65
+  %27 = icmp samesign ult i32 %4, 65
   br i1 %27, label %28, label %31
 
 28:                                               ; preds = %26
@@ -3554,7 +3554,7 @@ define internal noundef range(i32 -2147483647, -2147483648) i32 @_ZN5ZXing10Data
   br label %.loopexit
 
 31:                                               ; preds = %26
-  %32 = icmp ult i32 %4, 96
+  %32 = icmp samesign ult i32 %4, 96
   br i1 %32, label %33, label %36
 
 33:                                               ; preds = %31
@@ -3564,7 +3564,7 @@ define internal noundef range(i32 -2147483647, -2147483648) i32 @_ZN5ZXing10Data
   br label %.loopexit
 
 36:                                               ; preds = %31
-  %37 = icmp ult i32 %4, 128
+  %37 = icmp samesign ult i32 %4, 128
   br i1 %37, label %38, label %41
 
 38:                                               ; preds = %36
@@ -3846,7 +3846,7 @@ define internal noundef range(i32 -2147483647, -2147483648) i32 @_ZN5ZXing10Data
   br label %.loopexit
 
 26:                                               ; preds = %21
-  %27 = icmp ult i32 %4, 65
+  %27 = icmp samesign ult i32 %4, 65
   br i1 %27, label %28, label %31
 
 28:                                               ; preds = %26
@@ -3875,7 +3875,7 @@ define internal noundef range(i32 -2147483647, -2147483648) i32 @_ZN5ZXing10Data
   br label %.loopexit
 
 40:                                               ; preds = %37
-  %41 = icmp ult i32 %4, 91
+  %41 = icmp samesign ult i32 %4, 91
   br i1 %41, label %42, label %45
 
 42:                                               ; preds = %40
@@ -3885,7 +3885,7 @@ define internal noundef range(i32 -2147483647, -2147483648) i32 @_ZN5ZXing10Data
   br label %.loopexit
 
 45:                                               ; preds = %40
-  %46 = icmp ult i32 %4, 128
+  %46 = icmp samesign ult i32 %4, 128
   br i1 %46, label %47, label %50
 
 47:                                               ; preds = %45
@@ -4029,7 +4029,7 @@ define internal fastcc void @_ZN5ZXing10DataMatrix14EdifactEncoderL17EncodeToCod
   %24 = load i8, ptr %23, align 1, !tbaa !30
   %25 = sext i8 %24 to i32
   %26 = shl nsw i32 %25, 6
-  %27 = icmp ugt i32 %5, 3
+  %27 = icmp samesign ugt i32 %5, 3
   br i1 %27, label %28, label %32
 
 28:                                               ; preds = %22

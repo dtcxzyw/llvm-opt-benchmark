@@ -243,7 +243,7 @@ define hidden range(i32 0, 2) i32 @decode_as_command_option(ptr noundef %0) loca
   br label %146
 
 88:                                               ; preds = %78
-  %89 = icmp ult i64 %71, %61
+  %89 = icmp samesign ult i64 %71, %61
   br i1 %89, label %90, label %.thread170
 
 90:                                               ; preds = %88

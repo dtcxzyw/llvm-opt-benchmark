@@ -831,7 +831,7 @@ define hidden void @_ZN4core5slice4sort10merge_sort17h28a0b9b92b4cdd42E(ptr noal
   br label %41
 
 23:                                               ; preds = %3
-  %24 = icmp ugt i64 %1, 1
+  %24 = icmp samesign ugt i64 %1, 1
   br i1 %24, label %245, label %40
 
 25:                                               ; preds = %.body, %26
@@ -1563,7 +1563,7 @@ define hidden void @_ZN4core5slice4sort10merge_sort17h2b49461e03f1c8a4E(ptr noal
   br label %70
 
 52:                                               ; preds = %3
-  %53 = icmp ugt i64 %1, 1
+  %53 = icmp samesign ugt i64 %1, 1
   br i1 %53, label %590, label %69
 
 54:                                               ; preds = %.body, %55
@@ -8581,7 +8581,7 @@ define internal fastcc i64 @"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$14reserve_r
   br i1 %33, label %36, label %44
 
 34:                                               ; preds = %28
-  %35 = icmp ult i64 %.0.sroa.speculated.i, 4
+  %35 = icmp samesign ult i64 %.0.sroa.speculated.i, 4
   %..i.i.i = select i1 %35, i64 4, i64 8
   br label %.thread.i.i.thread
 
@@ -8988,7 +8988,7 @@ define internal fastcc i64 @"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$14reserve_r
   br i1 %33, label %36, label %44
 
 34:                                               ; preds = %28
-  %35 = icmp ult i64 %.0.sroa.speculated.i, 4
+  %35 = icmp samesign ult i64 %.0.sroa.speculated.i, 4
   %..i.i.i = select i1 %35, i64 4, i64 8
   br label %.thread.i.i.thread
 
@@ -9381,7 +9381,7 @@ define internal fastcc i64 @"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$14reserve_r
   br i1 %32, label %35, label %43
 
 33:                                               ; preds = %27
-  %34 = icmp ult i64 %.0.sroa.speculated.i, 4
+  %34 = icmp samesign ult i64 %.0.sroa.speculated.i, 4
   %..i.i.i = select i1 %34, i64 4, i64 8
   br label %.thread.i.i.thread
 
@@ -9775,7 +9775,7 @@ define hidden { i64, i64 } @"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$14reserve_r
   br i1 %35, label %38, label %46
 
 36:                                               ; preds = %30
-  %37 = icmp ult i64 %.0.sroa.speculated.i, 4
+  %37 = icmp samesign ult i64 %.0.sroa.speculated.i, 4
   %..i.i.i = select i1 %37, i64 4, i64 8
   br label %.thread.i.i.thread
 

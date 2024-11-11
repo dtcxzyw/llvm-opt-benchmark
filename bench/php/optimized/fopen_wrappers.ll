@@ -1230,7 +1230,7 @@ tsrm_realpath_str.exit309.backedge:               ; preds = %127, %144, %111, %1
   %118 = icmp ugt i64 %117, 4096
   %or.cond7 = select i1 %55, i1 true, i1 %118
   %119 = add nuw nsw i64 %57, %117
-  %120 = icmp ugt i64 %119, 4094
+  %120 = icmp samesign ugt i64 %119, 4094
   %or.cond328 = select i1 %or.cond7, i1 true, i1 %120
   br i1 %or.cond328, label %.critedge3, label %121
 

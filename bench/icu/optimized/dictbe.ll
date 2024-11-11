@@ -5985,7 +5985,7 @@ invoke.cont496:                                   ; preds = %if.then.i.i, %call.
 
 if.end501:                                        ; preds = %cond.end478, %lor.lhs.false483, %invoke.cont492, %invoke.cont496
   %correctedNumBreaks.1 = phi i32 [ %inc498, %invoke.cont496 ], [ %correctedNumBreaks.0888, %invoke.cont492 ], [ %correctedNumBreaks.0888, %lor.lhs.false483 ], [ %correctedNumBreaks.0888, %cond.end478 ]
-  %cmp464 = icmp ugt i64 %indvars.iv904, 1
+  %cmp464 = icmp samesign ugt i64 %indvars.iv904, 1
   br i1 %cmp464, label %for.body465, label %for.end504, !llvm.loop !39
 
 for.end504:                                       ; preds = %if.end501, %if.end460

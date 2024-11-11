@@ -1515,7 +1515,7 @@ if.else.i:                                        ; preds = %if.then
   br i1 %cmp3.i, label %if.then4.i, label %_ZN6icu_7513UnicodeString8truncateEi.exit
 
 if.then4.i:                                       ; preds = %if.else.i
-  %cmp.i.i = icmp ult i32 %call2.i, 1024
+  %cmp.i.i = icmp samesign ult i32 %call2.i, 1024
   br i1 %cmp.i.i, label %if.then.i.i, label %if.else.i.i
 
 if.then.i.i:                                      ; preds = %if.then4.i

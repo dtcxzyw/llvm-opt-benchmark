@@ -2611,7 +2611,7 @@ Vec_PtrFree.exit378.i:                            ; preds = %127, %.critedge6.i
   %160 = call ptr @Abc_NtkCreateObj(ptr noundef %35, i32 noundef 4) #19
   call void @Abc_ObjAddFanin(ptr noundef nonnull %21, ptr noundef %160) #19
   call void @Abc_ObjAddFanin(ptr noundef %160, ptr noundef %159) #19
-  %161 = icmp ugt i64 %indvars.iv577.i, 1
+  %161 = icmp samesign ugt i64 %indvars.iv577.i, 1
   br i1 %161, label %.lr.ph488.i, label %.critedge10.loopexit.loopexit.i, !llvm.loop !32
 
 .critedge8.loopexit.loopexit.i:                   ; preds = %.lr.ph498.i
@@ -2662,7 +2662,7 @@ Vec_PtrFree.exit378.i:                            ; preds = %127, %.critedge6.i
   %177 = call ptr @Abc_NtkCreateObj(ptr noundef %35, i32 noundef 5) #19
   call void @Abc_ObjAddFanin(ptr noundef %177, ptr noundef nonnull %21) #19
   call void @Abc_ObjAddFanin(ptr noundef %176, ptr noundef %177) #19
-  %178 = icmp ugt i64 %indvars.iv583.i, 1
+  %178 = icmp samesign ugt i64 %indvars.iv583.i, 1
   br i1 %178, label %.lr.ph498.i, label %.critedge8.loopexit.loopexit.i, !llvm.loop !34
 
 .lr.ph507.i:                                      ; preds = %.critedge12.preheader.i, %Ver_ParseFreeBundle.exit384.i
@@ -2907,7 +2907,7 @@ Ver_ParseFreeBundle.exit384.i:                    ; preds = %188, %183
   %280 = call ptr @Abc_NtkCreateObj(ptr noundef %35, i32 noundef 4) #19
   call void @Abc_ObjAddFanin(ptr noundef nonnull %21, ptr noundef %280) #19
   call void @Abc_ObjAddFanin(ptr noundef %280, ptr noundef %279) #19
-  %281 = icmp ugt i64 %indvars.iv543.i, 1
+  %281 = icmp samesign ugt i64 %indvars.iv543.i, 1
   br i1 %281, label %.lr.ph439.i, label %.critedge24.loopexit.loopexit.i, !llvm.loop !40
 
 .critedge26.preheader.i:                          ; preds = %.critedge32.i, %.critedge18.preheader.i
@@ -3170,7 +3170,7 @@ Vec_PtrFree.exit394.i:                            ; preds = %379, %.critedge34.i
   %397 = call ptr @Abc_NtkCreateObj(ptr noundef %35, i32 noundef 5) #19
   call void @Abc_ObjAddFanin(ptr noundef %397, ptr noundef nonnull %21) #19
   call void @Abc_ObjAddFanin(ptr noundef %351, ptr noundef %397) #19
-  %398 = icmp ugt i64 %indvars.iv560.i, 1
+  %398 = icmp samesign ugt i64 %indvars.iv560.i, 1
   br i1 %398, label %.lr.ph465.i, label %.critedge32.i, !llvm.loop !45
 
 .critedge32.i:                                    ; preds = %396, %341, %.thread406.i
@@ -4390,7 +4390,7 @@ define range(i32 0, 2) i32 @Ver_ParseDriveFormal(ptr noundef %0, ptr noundef %1,
   %97 = call ptr @Abc_NtkCreateObj(ptr noundef %96, i32 noundef 5) #19
   call void @Abc_ObjAddFanin(ptr noundef %97, ptr noundef %41) #19
   call void @Abc_ObjAddFanin(ptr noundef nonnull %95, ptr noundef %97) #19
-  %98 = icmp ugt i64 %indvars.iv123, 1
+  %98 = icmp samesign ugt i64 %indvars.iv123, 1
   br i1 %98, label %.critedge6, label %.critedge8, !llvm.loop !65
 
 .critedge8:                                       ; preds = %.critedge6, %.preheader
@@ -4716,7 +4716,7 @@ define range(i32 0, 2) i32 @Ver_ParseDriveInputs(ptr noundef %0, ptr nocapture n
   %123 = call ptr @Abc_NtkCreateObj(ptr noundef %122, i32 noundef 4) #19
   call void @Abc_ObjAddFanin(ptr noundef %102, ptr noundef %123) #19
   call void @Abc_ObjAddFanin(ptr noundef %123, ptr noundef nonnull %121) #19
-  %124 = icmp ugt i64 %indvars.iv179, 1
+  %124 = icmp samesign ugt i64 %indvars.iv179, 1
   br i1 %124, label %.lr.ph151, label %.critedge14, !llvm.loop !71
 
 .critedge14:                                      ; preds = %.lr.ph151, %112

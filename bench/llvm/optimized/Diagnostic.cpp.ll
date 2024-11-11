@@ -984,7 +984,7 @@ define linkonce_odr noundef nonnull align 8 dereferenceable(16) ptr @_ZN4llvm15S
   %15 = getelementptr inbounds i8, ptr %.0910.i.i.i.i.i, i64 40
   %16 = getelementptr inbounds i8, ptr %.0811.i.i.i.i.i, i64 40
   %17 = add nsw i64 %.012.i.i.i.i.i, -1
-  %18 = icmp ugt i64 %.012.i.i.i.i.i, 1
+  %18 = icmp samesign ugt i64 %.012.i.i.i.i.i, 1
   br i1 %18, label %.lr.ph.i.i.i.i.i, label %_ZSt4copyIPKN5clang7tooling13FileByteRangeEPS2_ET0_T_S7_S6_.exit.loopexit, !llvm.loop !11
 
 _ZSt4copyIPKN5clang7tooling13FileByteRangeEPS2_ET0_T_S7_S6_.exit.loopexit: ; preds = %.lr.ph.i.i.i.i.i
@@ -1059,7 +1059,7 @@ _ZN4llvm15SmallVectorImplIN5clang7tooling13FileByteRangeEE5clearEv.exit: ; preds
   %41 = getelementptr inbounds i8, ptr %.0910.i.i.i.i.i35, i64 40
   %42 = getelementptr inbounds i8, ptr %.0811.i.i.i.i.i34, i64 40
   %43 = add nsw i64 %.012.i.i.i.i.i33, -1
-  %44 = icmp ugt i64 %.012.i.i.i.i.i33, 1
+  %44 = icmp samesign ugt i64 %.012.i.i.i.i.i33, 1
   br i1 %44, label %.lr.ph.i.i.i.i.i32, label %_ZSt4copyIPKN5clang7tooling13FileByteRangeEPS2_ET0_T_S7_S6_.exit36, !llvm.loop !11
 
 _ZSt4copyIPKN5clang7tooling13FileByteRangeEPS2_ET0_T_S7_S6_.exit36: ; preds = %.lr.ph.i.i.i.i.i32, %33, %32, %_ZN4llvm15SmallVectorImplIN5clang7tooling13FileByteRangeEE5clearEv.exit
@@ -1204,7 +1204,7 @@ define linkonce_odr noundef nonnull align 8 dereferenceable(16) ptr @_ZN4llvm15S
   %13 = getelementptr inbounds i8, ptr %.0910.i.i.i.i.i, i64 152
   %14 = getelementptr inbounds i8, ptr %.0811.i.i.i.i.i, i64 152
   %15 = add nsw i64 %.012.i.i.i.i.i, -1
-  %16 = icmp ugt i64 %.012.i.i.i.i.i, 1
+  %16 = icmp samesign ugt i64 %.012.i.i.i.i.i, 1
   br i1 %16, label %.lr.ph.i.i.i.i.i, label %_ZSt4copyIPKN5clang7tooling17DiagnosticMessageEPS2_ET0_T_S7_S6_.exit.loopexit, !llvm.loop !15
 
 _ZSt4copyIPKN5clang7tooling17DiagnosticMessageEPS2_ET0_T_S7_S6_.exit.loopexit: ; preds = %.lr.ph.i.i.i.i.i
@@ -1294,7 +1294,7 @@ _ZN4llvm23SmallVectorTemplateBaseIN5clang7tooling17DiagnosticMessageELb0EE4growE
   %42 = getelementptr inbounds i8, ptr %.0910.i.i.i.i.i35, i64 152
   %43 = getelementptr inbounds i8, ptr %.0811.i.i.i.i.i34, i64 152
   %44 = add nsw i64 %.012.i.i.i.i.i33, -1
-  %45 = icmp ugt i64 %.012.i.i.i.i.i33, 1
+  %45 = icmp samesign ugt i64 %.012.i.i.i.i.i33, 1
   br i1 %45, label %.lr.ph.i.i.i.i.i32, label %_ZSt4copyIPKN5clang7tooling17DiagnosticMessageEPS2_ET0_T_S7_S6_.exit36, !llvm.loop !15
 
 _ZSt4copyIPKN5clang7tooling17DiagnosticMessageEPS2_ET0_T_S7_S6_.exit36: ; preds = %.lr.ph.i.i.i.i.i32, %37, %36, %_ZN4llvm23SmallVectorTemplateBaseIN5clang7tooling17DiagnosticMessageELb0EE4growEm.exit
@@ -1705,7 +1705,7 @@ _ZN4llvm15SmallVectorImplIN5clang7tooling13FileByteRangeEE12assignRemoteEOS4_.ex
   %37 = getelementptr inbounds i8, ptr %.0910.i.i.i.i.i, i64 40
   %38 = getelementptr inbounds i8, ptr %.0811.i.i.i.i.i, i64 40
   %39 = add nsw i64 %.012.i.i.i.i.i, -1
-  %40 = icmp ugt i64 %.012.i.i.i.i.i, 1
+  %40 = icmp samesign ugt i64 %.012.i.i.i.i.i, 1
   br i1 %40, label %.lr.ph.i.i.i.i.i, label %_ZSt4moveIPN5clang7tooling13FileByteRangeES3_ET0_T_S5_S4_.exit, !llvm.loop !21
 
 _ZSt4moveIPN5clang7tooling13FileByteRangeES3_ET0_T_S5_S4_.exit: ; preds = %.lr.ph.i.i.i.i.i, %29, %27
@@ -1799,7 +1799,7 @@ _ZN4llvm15SmallVectorImplIN5clang7tooling13FileByteRangeEE5clearEv.exit46: ; pre
   %68 = getelementptr inbounds i8, ptr %.0910.i.i.i.i.i52, i64 40
   %69 = getelementptr inbounds i8, ptr %.0811.i.i.i.i.i51, i64 40
   %70 = add nsw i64 %.012.i.i.i.i.i50, -1
-  %71 = icmp ugt i64 %.012.i.i.i.i.i50, 1
+  %71 = icmp samesign ugt i64 %.012.i.i.i.i.i50, 1
   br i1 %71, label %.lr.ph.i.i.i.i.i49, label %_ZSt4moveIPN5clang7tooling13FileByteRangeES3_ET0_T_S5_S4_.exit53, !llvm.loop !21
 
 _ZSt4moveIPN5clang7tooling13FileByteRangeES3_ET0_T_S5_S4_.exit53: ; preds = %.lr.ph.i.i.i.i.i49, %60, %59, %_ZN4llvm15SmallVectorImplIN5clang7tooling13FileByteRangeEE5clearEv.exit46

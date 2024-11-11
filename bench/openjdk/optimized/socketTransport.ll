@@ -110,7 +110,7 @@ define range(i32 -5, 1) i32 @jdwpTransport_OnLoad(ptr noundef %0, ptr noundef %1
   store ptr @socketTransport_readPacket, ptr getelementptr inbounds (i8, ptr @interface, i64 64), align 8
   store ptr @socketTransport_writePacket, ptr getelementptr inbounds (i8, ptr @interface, i64 72), align 8
   store ptr @socketTransport_getLastError, ptr getelementptr inbounds (i8, ptr @interface, i64 80), align 8
-  %9 = icmp ugt i32 %2, 65536
+  %9 = icmp samesign ugt i32 %2, 65536
   br i1 %9, label %10, label %11
 
 10:                                               ; preds = %8
@@ -1599,7 +1599,7 @@ setLastError.exit31:                              ; preds = %29, %33
 56:                                               ; preds = %49, %44
   %57 = getelementptr inbounds i8, ptr %1, i64 16
   %58 = load ptr, ptr %57, align 8
-  %59 = icmp ult i32 %19, 1012
+  %59 = icmp samesign ult i32 %19, 1012
   %60 = getelementptr inbounds i8, ptr %3, i64 11
   br i1 %59, label %61, label %76
 

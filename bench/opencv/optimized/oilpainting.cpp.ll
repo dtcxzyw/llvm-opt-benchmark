@@ -310,7 +310,7 @@ define void @_ZN2cv6xphoto11oilPaintingERKNS_11_InputArrayERKNS_12_OutputArrayEi
   unreachable
 
 60:                                               ; preds = %57
-  %61 = icmp ult i32 %3, 128
+  %61 = icmp samesign ult i32 %3, 128
   br i1 %61, label %63, label %62
 
 62:                                               ; preds = %60

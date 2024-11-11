@@ -695,7 +695,7 @@ define hidden noundef ptr @_ZN12NativeLookup21lookup_entry_prefixedERK12methodHa
   %36 = icmp eq i32 %35, 0
   %spec.select.idx = select i1 %36, i64 %34, i64 0
   %spec.select = getelementptr inbounds i8, ptr %.02964, i64 %spec.select.idx
-  %37 = icmp ugt i64 %indvars.iv, 1
+  %37 = icmp samesign ugt i64 %indvars.iv, 1
   br i1 %37, label %.lr.ph, label %._crit_edge, !llvm.loop !11
 
 ._crit_edge:                                      ; preds = %.lr.ph

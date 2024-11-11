@@ -21,7 +21,7 @@ define hidden noalias noundef ptr @_Z7pj_enfnd(double noundef %0) local_unnamed_
   %5 = getelementptr inbounds double, ptr @_ZZ7pj_enfndE9coeff_rad, i64 %indvars.iv.next.i
   %6 = load double, ptr %5, align 8
   %7 = tail call double @llvm.fmuladd.f64(double %.011.i, double %2, double %6)
-  %8 = icmp ugt i64 %indvars.iv.i, 1
+  %8 = icmp samesign ugt i64 %indvars.iv.i, 1
   br i1 %8, label %.lr.ph.i, label %_ZL7polyvaldPKdi.exit, !llvm.loop !4
 
 _ZL7polyvaldPKdi.exit:                            ; preds = %.lr.ph.i
@@ -63,7 +63,7 @@ _ZL7polyvaldPKdi.exit35.thread:                   ; preds = %11
   %26 = getelementptr inbounds double, ptr %15, i64 %indvars.iv.next.i34
   %27 = load double, ptr %26, align 8
   %28 = tail call double @llvm.fmuladd.f64(double %.011.i33, double %2, double %27)
-  %29 = icmp ugt i64 %indvars.iv.i32, 1
+  %29 = icmp samesign ugt i64 %indvars.iv.i32, 1
   br i1 %29, label %.lr.ph.i31, label %_ZL7polyvaldPKdi.exit35, !llvm.loop !4
 
 _ZL7polyvaldPKdi.exit35:                          ; preds = %.lr.ph.i31
@@ -84,7 +84,7 @@ _ZL7polyvaldPKdi.exit35:                          ; preds = %.lr.ph.i31
   %37 = getelementptr inbounds double, ptr %34, i64 %indvars.iv.next.i40
   %38 = load double, ptr %37, align 8
   %39 = tail call double @llvm.fmuladd.f64(double %.011.i39, double %2, double %38)
-  %40 = icmp ugt i64 %indvars.iv.i38, 1
+  %40 = icmp samesign ugt i64 %indvars.iv.i38, 1
   br i1 %40, label %.lr.ph.i37, label %_ZL7polyvaldPKdi.exit42, !llvm.loop !4
 
 _ZL7polyvaldPKdi.exit42:                          ; preds = %.lr.ph.i37, %_ZL7polyvaldPKdi.exit35.thread

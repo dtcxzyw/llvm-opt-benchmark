@@ -2168,7 +2168,7 @@ define internal void @_ZN12_GLOBAL__N_116AnalysisConsumer21HandleTranslationUnit
   br i1 %168, label %169, label %175
 
 169:                                              ; preds = %159
-  %170 = icmp ult i64 %167, 64
+  %170 = icmp samesign ult i64 %167, 64
   br i1 %170, label %171, label %173
 
 171:                                              ; preds = %169
@@ -2238,7 +2238,7 @@ _ZNSt5dequeIPN5clang4DeclESaIS2_EEixEm.exit.i:    ; preds = %177, %171
   br i1 %201, label %202, label %208
 
 202:                                              ; preds = %192
-  %203 = icmp ult i64 %200, 64
+  %203 = icmp samesign ult i64 %200, 64
   br i1 %203, label %204, label %206
 
 204:                                              ; preds = %202
@@ -64165,7 +64165,7 @@ _ZN4llvm15SmallVectorImplISt5tupleIJPN5clang13CallGraphNodeEPNS3_10CallRecordES6
   %37 = getelementptr inbounds i8, ptr %.0910.i.i.i.i.i, i64 24
   %38 = getelementptr inbounds i8, ptr %.0811.i.i.i.i.i, i64 24
   %39 = add nsw i64 %.012.i.i.i.i.i, -1
-  %40 = icmp ugt i64 %.012.i.i.i.i.i, 1
+  %40 = icmp samesign ugt i64 %.012.i.i.i.i.i, 1
   br i1 %40, label %.lr.ph.i.i.i.i.i, label %_ZSt4moveIPSt5tupleIJPN5clang13CallGraphNodeEPNS2_10CallRecordES5_EES7_ET0_T_S9_S8_.exit, !llvm.loop !315
 
 _ZSt4moveIPSt5tupleIJPN5clang13CallGraphNodeEPNS2_10CallRecordES5_EES7_ET0_T_S9_S8_.exit: ; preds = %.lr.ph.i.i.i.i.i, %25, %24
@@ -64218,7 +64218,7 @@ _ZSt4moveIPSt5tupleIJPN5clang13CallGraphNodeEPNS2_10CallRecordES5_EES7_ET0_T_S9_
   %62 = getelementptr inbounds i8, ptr %.0910.i.i.i.i.i39, i64 24
   %63 = getelementptr inbounds i8, ptr %.0811.i.i.i.i.i38, i64 24
   %64 = add nsw i64 %.012.i.i.i.i.i37, -1
-  %65 = icmp ugt i64 %.012.i.i.i.i.i37, 1
+  %65 = icmp samesign ugt i64 %.012.i.i.i.i.i37, 1
   br i1 %65, label %.lr.ph.i.i.i.i.i36, label %_ZSt4moveIPSt5tupleIJPN5clang13CallGraphNodeEPNS2_10CallRecordES5_EES7_ET0_T_S9_S8_.exit40, !llvm.loop !315
 
 _ZSt4moveIPSt5tupleIJPN5clang13CallGraphNodeEPNS2_10CallRecordES5_EES7_ET0_T_S9_S8_.exit40: ; preds = %.lr.ph.i.i.i.i.i36, %51, %50, %47
@@ -64348,7 +64348,7 @@ define linkonce_odr noundef nonnull align 8 dereferenceable(16) ptr @_ZN4llvm15S
   %18 = getelementptr inbounds i8, ptr %.0910.i.i.i.i.i, i64 24
   %19 = getelementptr inbounds i8, ptr %.0811.i.i.i.i.i, i64 24
   %20 = add nsw i64 %.012.i.i.i.i.i, -1
-  %21 = icmp ugt i64 %.012.i.i.i.i.i, 1
+  %21 = icmp samesign ugt i64 %.012.i.i.i.i.i, 1
   br i1 %21, label %.lr.ph.i.i.i.i.i, label %_ZSt4copyIPKSt5tupleIJPN5clang13CallGraphNodeEPNS2_10CallRecordES5_EEPS6_ET0_T_SB_SA_.exit, !llvm.loop !316
 
 _ZSt4copyIPKSt5tupleIJPN5clang13CallGraphNodeEPNS2_10CallRecordES5_EEPS6_ET0_T_SB_SA_.exit: ; preds = %.lr.ph.i.i.i.i.i, %7
@@ -64397,7 +64397,7 @@ _ZSt4copyIPKSt5tupleIJPN5clang13CallGraphNodeEPNS2_10CallRecordES5_EEPS6_ET0_T_S
   %41 = getelementptr inbounds i8, ptr %.0910.i.i.i.i.i35, i64 24
   %42 = getelementptr inbounds i8, ptr %.0811.i.i.i.i.i34, i64 24
   %43 = add nsw i64 %.012.i.i.i.i.i33, -1
-  %44 = icmp ugt i64 %.012.i.i.i.i.i33, 1
+  %44 = icmp samesign ugt i64 %.012.i.i.i.i.i33, 1
   br i1 %44, label %.lr.ph.i.i.i.i.i32, label %_ZSt4copyIPKSt5tupleIJPN5clang13CallGraphNodeEPNS2_10CallRecordES5_EEPS6_ET0_T_SB_SA_.exit36, !llvm.loop !316
 
 _ZSt4copyIPKSt5tupleIJPN5clang13CallGraphNodeEPNS2_10CallRecordES5_EEPS6_ET0_T_SB_SA_.exit36: ; preds = %.lr.ph.i.i.i.i.i32, %30, %29, %26

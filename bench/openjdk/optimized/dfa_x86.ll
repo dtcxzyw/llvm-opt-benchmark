@@ -42418,7 +42418,7 @@ define hidden void @_ZN5State12_sub_Op_ConNEPK4Node(ptr nocapture noundef nonnul
   br label %41
 
 41:                                               ; preds = %40, %36
-  %42 = icmp ugt i32 %37, 125
+  %42 = icmp samesign ugt i32 %37, 125
   br i1 %42, label %43, label %44
 
 43:                                               ; preds = %41
@@ -43014,7 +43014,7 @@ _ZNK4Node7get_intEv.exit106:                      ; preds = %.thread
 
 184:                                              ; preds = %174, %183
   %185 = phi i32 [ %181, %174 ], [ 110, %183 ]
-  %186 = icmp ugt i32 %105, 100
+  %186 = icmp samesign ugt i32 %105, 100
   br i1 %186, label %187, label %188
 
 187:                                              ; preds = %184
@@ -43023,7 +43023,7 @@ _ZNK4Node7get_intEv.exit106:                      ; preds = %.thread
   br label %188
 
 188:                                              ; preds = %187, %184
-  %189 = icmp ugt i32 %115, 200
+  %189 = icmp samesign ugt i32 %115, 200
   br i1 %189, label %190, label %191
 
 190:                                              ; preds = %188
@@ -43032,7 +43032,7 @@ _ZNK4Node7get_intEv.exit106:                      ; preds = %.thread
   br label %191
 
 191:                                              ; preds = %190, %188
-  %192 = icmp ugt i32 %125, 100
+  %192 = icmp samesign ugt i32 %125, 100
   br i1 %192, label %193, label %194
 
 193:                                              ; preds = %191
@@ -43041,7 +43041,7 @@ _ZNK4Node7get_intEv.exit106:                      ; preds = %.thread
   br label %194
 
 194:                                              ; preds = %193, %191
-  %195 = icmp ugt i32 %135, 100
+  %195 = icmp samesign ugt i32 %135, 100
   br i1 %195, label %196, label %197
 
 196:                                              ; preds = %194
@@ -43050,7 +43050,7 @@ _ZNK4Node7get_intEv.exit106:                      ; preds = %.thread
   br label %197
 
 197:                                              ; preds = %196, %194
-  %198 = icmp ugt i32 %145, 100
+  %198 = icmp samesign ugt i32 %145, 100
   br i1 %198, label %199, label %200
 
 199:                                              ; preds = %197
@@ -43059,7 +43059,7 @@ _ZNK4Node7get_intEv.exit106:                      ; preds = %.thread
   br label %200
 
 200:                                              ; preds = %199, %197
-  %201 = icmp ugt i32 %155, 100
+  %201 = icmp samesign ugt i32 %155, 100
   br i1 %201, label %202, label %203
 
 202:                                              ; preds = %200
@@ -43068,7 +43068,7 @@ _ZNK4Node7get_intEv.exit106:                      ; preds = %.thread
   br label %203
 
 203:                                              ; preds = %202, %200
-  %204 = icmp ugt i32 %165, 100
+  %204 = icmp samesign ugt i32 %165, 100
   br i1 %204, label %205, label %206
 
 205:                                              ; preds = %203
@@ -43077,7 +43077,7 @@ _ZNK4Node7get_intEv.exit106:                      ; preds = %.thread
   br label %206
 
 206:                                              ; preds = %205, %203
-  %207 = icmp ugt i32 %175, 100
+  %207 = icmp samesign ugt i32 %175, 100
   br i1 %207, label %208, label %209
 
 208:                                              ; preds = %206
@@ -43086,7 +43086,7 @@ _ZNK4Node7get_intEv.exit106:                      ; preds = %.thread
   br label %209
 
 209:                                              ; preds = %208, %206
-  %210 = icmp ugt i32 %185, 100
+  %210 = icmp samesign ugt i32 %185, 100
   br i1 %210, label %211, label %212
 
 211:                                              ; preds = %209
@@ -43674,7 +43674,7 @@ _Z13is_power_of_2ImTnNSt9enable_ifIXcvbsr3std11is_integralIT_EE5valueEiE4typeELi
 
 300:                                              ; preds = %290, %299
   %301 = phi i32 [ %297, %290 ], [ 170, %299 ]
-  %302 = icmp ugt i32 %231, 150
+  %302 = icmp samesign ugt i32 %231, 150
   br i1 %302, label %303, label %304
 
 303:                                              ; preds = %300
@@ -43683,7 +43683,7 @@ _Z13is_power_of_2ImTnNSt9enable_ifIXcvbsr3std11is_integralIT_EE5valueEiE4typeELi
   br label %304
 
 304:                                              ; preds = %303, %300
-  %305 = icmp ugt i32 %241, 250
+  %305 = icmp samesign ugt i32 %241, 250
   br i1 %305, label %306, label %307
 
 306:                                              ; preds = %304
@@ -43692,7 +43692,7 @@ _Z13is_power_of_2ImTnNSt9enable_ifIXcvbsr3std11is_integralIT_EE5valueEiE4typeELi
   br label %307
 
 307:                                              ; preds = %306, %304
-  %308 = icmp ugt i32 %251, 150
+  %308 = icmp samesign ugt i32 %251, 150
   br i1 %308, label %309, label %310
 
 309:                                              ; preds = %307
@@ -43701,7 +43701,7 @@ _Z13is_power_of_2ImTnNSt9enable_ifIXcvbsr3std11is_integralIT_EE5valueEiE4typeELi
   br label %310
 
 310:                                              ; preds = %309, %307
-  %311 = icmp ugt i32 %261, 150
+  %311 = icmp samesign ugt i32 %261, 150
   br i1 %311, label %312, label %313
 
 312:                                              ; preds = %310
@@ -43710,7 +43710,7 @@ _Z13is_power_of_2ImTnNSt9enable_ifIXcvbsr3std11is_integralIT_EE5valueEiE4typeELi
   br label %313
 
 313:                                              ; preds = %312, %310
-  %314 = icmp ugt i32 %271, 150
+  %314 = icmp samesign ugt i32 %271, 150
   br i1 %314, label %315, label %316
 
 315:                                              ; preds = %313
@@ -43719,7 +43719,7 @@ _Z13is_power_of_2ImTnNSt9enable_ifIXcvbsr3std11is_integralIT_EE5valueEiE4typeELi
   br label %316
 
 316:                                              ; preds = %315, %313
-  %317 = icmp ugt i32 %281, 150
+  %317 = icmp samesign ugt i32 %281, 150
   br i1 %317, label %318, label %319
 
 318:                                              ; preds = %316
@@ -43728,7 +43728,7 @@ _Z13is_power_of_2ImTnNSt9enable_ifIXcvbsr3std11is_integralIT_EE5valueEiE4typeELi
   br label %319
 
 319:                                              ; preds = %318, %316
-  %320 = icmp ugt i32 %291, 150
+  %320 = icmp samesign ugt i32 %291, 150
   br i1 %320, label %321, label %322
 
 321:                                              ; preds = %319
@@ -43737,7 +43737,7 @@ _Z13is_power_of_2ImTnNSt9enable_ifIXcvbsr3std11is_integralIT_EE5valueEiE4typeELi
   br label %322
 
 322:                                              ; preds = %321, %319
-  %323 = icmp ugt i32 %301, 150
+  %323 = icmp samesign ugt i32 %301, 150
   br i1 %323, label %324, label %325
 
 324:                                              ; preds = %322
@@ -44286,7 +44286,7 @@ define hidden void @_ZN5State12_sub_Op_ConPEPK4Node(ptr noundef nonnull align 8 
   br label %302
 
 302:                                              ; preds = %301, %297
-  %303 = icmp ugt i32 %188, 200
+  %303 = icmp samesign ugt i32 %188, 200
   br i1 %303, label %304, label %305
 
 304:                                              ; preds = %302
@@ -44295,7 +44295,7 @@ define hidden void @_ZN5State12_sub_Op_ConPEPK4Node(ptr noundef nonnull align 8 
   br label %305
 
 305:                                              ; preds = %304, %302
-  %306 = icmp ugt i32 %198, 100
+  %306 = icmp samesign ugt i32 %198, 100
   br i1 %306, label %307, label %308
 
 307:                                              ; preds = %305
@@ -44304,7 +44304,7 @@ define hidden void @_ZN5State12_sub_Op_ConPEPK4Node(ptr noundef nonnull align 8 
   br label %308
 
 308:                                              ; preds = %307, %305
-  %309 = icmp ugt i32 %208, 100
+  %309 = icmp samesign ugt i32 %208, 100
   br i1 %309, label %310, label %311
 
 310:                                              ; preds = %308
@@ -44313,7 +44313,7 @@ define hidden void @_ZN5State12_sub_Op_ConPEPK4Node(ptr noundef nonnull align 8 
   br label %311
 
 311:                                              ; preds = %310, %308
-  %312 = icmp ugt i32 %218, 100
+  %312 = icmp samesign ugt i32 %218, 100
   br i1 %312, label %313, label %314
 
 313:                                              ; preds = %311
@@ -44322,7 +44322,7 @@ define hidden void @_ZN5State12_sub_Op_ConPEPK4Node(ptr noundef nonnull align 8 
   br label %314
 
 314:                                              ; preds = %313, %311
-  %315 = icmp ugt i32 %228, 100
+  %315 = icmp samesign ugt i32 %228, 100
   br i1 %315, label %316, label %317
 
 316:                                              ; preds = %314
@@ -44331,7 +44331,7 @@ define hidden void @_ZN5State12_sub_Op_ConPEPK4Node(ptr noundef nonnull align 8 
   br label %317
 
 317:                                              ; preds = %316, %314
-  %318 = icmp ugt i32 %238, 100
+  %318 = icmp samesign ugt i32 %238, 100
   br i1 %318, label %319, label %320
 
 319:                                              ; preds = %317
@@ -44340,7 +44340,7 @@ define hidden void @_ZN5State12_sub_Op_ConPEPK4Node(ptr noundef nonnull align 8 
   br label %320
 
 320:                                              ; preds = %319, %317
-  %321 = icmp ugt i32 %248, 100
+  %321 = icmp samesign ugt i32 %248, 100
   br i1 %321, label %322, label %323
 
 322:                                              ; preds = %320
@@ -44349,7 +44349,7 @@ define hidden void @_ZN5State12_sub_Op_ConPEPK4Node(ptr noundef nonnull align 8 
   br label %323
 
 323:                                              ; preds = %322, %320
-  %324 = icmp ugt i32 %258, 100
+  %324 = icmp samesign ugt i32 %258, 100
   br i1 %324, label %325, label %326
 
 325:                                              ; preds = %323
@@ -44358,7 +44358,7 @@ define hidden void @_ZN5State12_sub_Op_ConPEPK4Node(ptr noundef nonnull align 8 
   br label %326
 
 326:                                              ; preds = %325, %323
-  %327 = icmp ugt i32 %268, 100
+  %327 = icmp samesign ugt i32 %268, 100
   br i1 %327, label %328, label %329
 
 328:                                              ; preds = %326
@@ -44367,7 +44367,7 @@ define hidden void @_ZN5State12_sub_Op_ConPEPK4Node(ptr noundef nonnull align 8 
   br label %329
 
 329:                                              ; preds = %328, %326
-  %330 = icmp ugt i32 %278, 100
+  %330 = icmp samesign ugt i32 %278, 100
   br i1 %330, label %331, label %332
 
 331:                                              ; preds = %329
@@ -44376,7 +44376,7 @@ define hidden void @_ZN5State12_sub_Op_ConPEPK4Node(ptr noundef nonnull align 8 
   br label %332
 
 332:                                              ; preds = %331, %329
-  %333 = icmp ugt i32 %288, 100
+  %333 = icmp samesign ugt i32 %288, 100
   br i1 %333, label %334, label %335
 
 334:                                              ; preds = %332
@@ -44385,7 +44385,7 @@ define hidden void @_ZN5State12_sub_Op_ConPEPK4Node(ptr noundef nonnull align 8 
   br label %335
 
 335:                                              ; preds = %334, %332
-  %336 = icmp ugt i32 %298, 100
+  %336 = icmp samesign ugt i32 %298, 100
   br i1 %336, label %337, label %338
 
 337:                                              ; preds = %335

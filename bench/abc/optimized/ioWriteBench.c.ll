@@ -778,7 +778,7 @@ select.unfold.i.i.i:                              ; preds = %select.unfold.i.i.i
   %159 = load i32, ptr %158, align 4
   %160 = xor i32 %159, -1
   store i32 %160, ptr %158, align 4
-  %161 = icmp ugt i64 %indvars.iv.i.i.i, 1
+  %161 = icmp samesign ugt i64 %indvars.iv.i.i.i, 1
   br i1 %161, label %select.unfold.i.i.i, label %Extra_TruthNot.exit.i.i, !llvm.loop !14
 
 Extra_TruthNot.exit.i.i:                          ; preds = %select.unfold.i.i.i, %152, %.Extra_TruthNot.exit_crit_edge.i.i

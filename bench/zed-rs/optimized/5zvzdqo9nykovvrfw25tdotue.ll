@@ -5524,7 +5524,7 @@ define hidden void @_ZN4text6Buffer16apply_local_edit17h6fb23886750ec473E.llvm.1
   %405 = getelementptr inbounds i8, ptr %379, i64 224
   %406 = load i32, ptr %405, align 8, !noalias !1346, !noundef !15
   %407 = zext i32 %406 to i64
-  %408 = icmp ugt i64 %395, %407
+  %408 = icmp samesign ugt i64 %395, %407
   br i1 %408, label %.invoke1287, label %411
 
 .invoke1287:                                      ; preds = %446, %388, %404, %._crit_edge134.i
@@ -5655,7 +5655,7 @@ define hidden void @_ZN4text6Buffer16apply_local_edit17h6fb23886750ec473E.llvm.1
   %447 = getelementptr inbounds i8, ptr %379, i64 2056
   %448 = load i32, ptr %447, align 8, !noalias !1346, !noundef !15
   %449 = zext i32 %448 to i64
-  %450 = icmp ugt i64 %393, %449
+  %450 = icmp samesign ugt i64 %393, %449
   br i1 %450, label %.invoke1287, label %451
 
 451:                                              ; preds = %446
@@ -7090,7 +7090,7 @@ define hidden void @_ZN4text6Buffer16apply_local_edit17h6fb23886750ec473E.llvm.1
   br i1 %943, label %950, label %944
 
 944:                                              ; preds = %937
-  %945 = icmp ult i64 %909, %942
+  %945 = icmp samesign ult i64 %909, %942
   br i1 %945, label %946, label %.invoke1295
 
 946:                                              ; preds = %944
@@ -10234,7 +10234,7 @@ define internal fastcc void @"_ZN8sum_tree6cursor19Cursor$LT$T$C$D$GT$13seek_int
   %73 = getelementptr inbounds i8, ptr %44, i64 224
   %74 = load i32, ptr %73, align 8, !noundef !15
   %75 = zext i32 %74 to i64
-  %76 = icmp ugt i64 %62, %75
+  %76 = icmp samesign ugt i64 %62, %75
   br i1 %76, label %87, label %78
 
 77:                                               ; preds = %._crit_edge134
@@ -10361,7 +10361,7 @@ define internal fastcc void @"_ZN8sum_tree6cursor19Cursor$LT$T$C$D$GT$13seek_int
   %115 = getelementptr inbounds i8, ptr %44, i64 2056
   %116 = load i32, ptr %115, align 8, !noundef !15
   %117 = zext i32 %116 to i64
-  %118 = icmp ugt i64 %60, %117
+  %118 = icmp samesign ugt i64 %60, %117
   br i1 %118, label %126, label %120
 
 119:                                              ; preds = %55
@@ -10582,7 +10582,7 @@ define hidden noundef zeroext i1 @"_ZN8sum_tree6cursor19Cursor$LT$T$C$D$GT$13see
   %89 = getelementptr inbounds i8, ptr %61, i64 24
   %90 = load i32, ptr %89, align 8, !noundef !15
   %91 = zext i32 %90 to i64
-  %92 = icmp ugt i64 %79, %91
+  %92 = icmp samesign ugt i64 %79, %91
   br i1 %92, label %102, label %94
 
 93:                                               ; preds = %._crit_edge152
@@ -10693,7 +10693,7 @@ define hidden noundef zeroext i1 @"_ZN8sum_tree6cursor19Cursor$LT$T$C$D$GT$13see
   %128 = getelementptr inbounds i8, ptr %61, i64 704
   %129 = load i32, ptr %128, align 8, !noundef !15
   %130 = zext i32 %129 to i64
-  %131 = icmp ugt i64 %77, %130
+  %131 = icmp samesign ugt i64 %77, %130
   br i1 %131, label %139, label %133
 
 132:                                              ; preds = %72
@@ -10974,7 +10974,7 @@ define hidden noundef zeroext i1 @"_ZN8sum_tree6cursor19Cursor$LT$T$C$D$GT$13see
   %91 = getelementptr inbounds i8, ptr %61, i64 128
   %92 = load i32, ptr %91, align 8, !noundef !15
   %93 = zext i32 %92 to i64
-  %94 = icmp ugt i64 %80, %93
+  %94 = icmp samesign ugt i64 %80, %93
   br i1 %94, label %104, label %96
 
 95:                                               ; preds = %._crit_edge158
@@ -11087,7 +11087,7 @@ define hidden noundef zeroext i1 @"_ZN8sum_tree6cursor19Cursor$LT$T$C$D$GT$13see
   %134 = getelementptr inbounds i8, ptr %61, i64 7336
   %135 = load i32, ptr %134, align 8, !noundef !15
   %136 = zext i32 %135 to i64
-  %137 = icmp ugt i64 %78, %136
+  %137 = icmp samesign ugt i64 %78, %136
   br i1 %137, label %145, label %139
 
 138:                                              ; preds = %73
@@ -11417,7 +11417,7 @@ _ZN8arrayvec13arrayvec_impl12ArrayVecImpl8try_push17hd77ec873d5ca2b0cE.exit: ; p
   %109 = getelementptr inbounds i8, ptr %72, i64 128
   %110 = load i32, ptr %109, align 8, !noundef !15
   %111 = zext i32 %110 to i64
-  %112 = icmp ugt i64 %97, %111
+  %112 = icmp samesign ugt i64 %97, %111
   br i1 %112, label %121, label %114
 
 113:                                              ; preds = %._crit_edge199
@@ -11556,7 +11556,7 @@ _ZN8arrayvec13arrayvec_impl12ArrayVecImpl8try_push17hd77ec873d5ca2b0cE.exit: ; p
   %156 = getelementptr inbounds i8, ptr %72, i64 7336
   %157 = load i32, ptr %156, align 8, !noundef !15
   %158 = zext i32 %157 to i64
-  %159 = icmp ugt i64 %95, %158
+  %159 = icmp samesign ugt i64 %95, %158
   br i1 %159, label %167, label %161
 
 160:                                              ; preds = %90
@@ -12147,7 +12147,7 @@ define hidden void @"_ZN8sum_tree6cursor19Cursor$LT$T$C$D$GT$14search_forward17h
   store i64 %63, ptr %38, align 8
   %64 = load i32, ptr %39, align 8, !noundef !15
   %65 = zext i32 %64 to i64
-  %66 = icmp ult i64 %63, %65
+  %66 = icmp samesign ult i64 %63, %65
   br i1 %66, label %.lr.ph35, label %"_ZN4core3ops8function5impls79_$LT$impl$u20$core..ops..function..FnMut$LT$A$GT$$u20$for$u20$$RF$mut$u20$F$GT$8call_mut17h53582256c236c69bE.exit.thread"
 
 67:                                               ; preds = %34
@@ -12206,7 +12206,7 @@ define hidden void @"_ZN8sum_tree6cursor19Cursor$LT$T$C$D$GT$14search_forward17h
   store i64 %94, ptr %77, align 8
   %95 = load i32, ptr %76, align 8, !noundef !15
   %96 = zext i32 %95 to i64
-  %.not = icmp ult i64 %94, %96
+  %.not = icmp samesign ult i64 %94, %96
   br i1 %.not, label %.lr.ph, label %_ZN8arrayvec13arrayvec_impl12ArrayVecImpl3pop17h08538d492f269f62E.exit
 
 97:                                               ; preds = %"_ZN4core3ops8function5impls79_$LT$impl$u20$core..ops..function..FnMut$LT$A$GT$$u20$for$u20$$RF$mut$u20$F$GT$8call_mut17h53582256c236c69bE.exit.thread"
@@ -12752,7 +12752,7 @@ _ZN8arrayvec13arrayvec_impl12ArrayVecImpl3pop17h36ab79cc7751b4c1E.exit: ; preds 
   %141 = getelementptr inbounds i8, ptr %132, i64 1384
   %142 = load i32, ptr %141, align 8, !noundef !15
   %143 = zext i32 %142 to i64
-  %144 = icmp ult i64 %127, %143
+  %144 = icmp samesign ult i64 %127, %143
   br i1 %144, label %145, label %164
 
 145:                                              ; preds = %140
@@ -13034,7 +13034,7 @@ _ZN8arrayvec13arrayvec_impl12ArrayVecImpl3pop17hc3ed15393cfae0e9E.exit: ; preds 
   %82 = getelementptr inbounds i8, ptr %72, i64 1384
   %83 = load i32, ptr %82, align 8, !noundef !15
   %84 = zext i32 %83 to i64
-  %85 = icmp ult i64 %75, %84
+  %85 = icmp samesign ult i64 %75, %84
   br i1 %85, label %86, label %100
 
 86:                                               ; preds = %81

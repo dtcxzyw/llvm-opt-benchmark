@@ -3567,7 +3567,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit23: ; 
   br label %73
 
 58:                                               ; preds = %45
-  %59 = icmp ult i64 %3, 58
+  %59 = icmp samesign ult i64 %3, 58
   br i1 %59, label %_ZN4absl7debian219str_format_internal18FormatSpecTemplateIJLNS0_23FormatConversionCharSetE131067EEEC2EUa9enable_ifIXclL_ZNS1_15ValidFormatImplIJLS3_131067EEEEbNS0_11string_viewEEfL0p_EEEPKc.exit24, label %_ZN4absl7debian219str_format_internal18FormatSpecTemplateIJLNS0_23FormatConversionCharSetE131067ELS3_131067EEEC2EUa9enable_ifIXclL_ZNS1_15ValidFormatImplIJLS3_131067ELS3_131067EEEEbNS0_11string_viewEEfL0p_EEEPKc.exit
 
 _ZN4absl7debian219str_format_internal18FormatSpecTemplateIJLNS0_23FormatConversionCharSetE131067EEEC2EUa9enable_ifIXclL_ZNS1_15ValidFormatImplIJLS3_131067EEEEbNS0_11string_viewEEfL0p_EEEPKc.exit24: ; preds = %58
@@ -3653,7 +3653,7 @@ define internal fastcc void @_ZN10open_spiel12crazy_eights12_GLOBAL__N_110GetCar
 18:                                               ; preds = %2
   store i32 %1, ptr %7, align 4
   store i32 52, ptr %8, align 4
-  %19 = icmp ult i32 %1, 52
+  %19 = icmp samesign ult i32 %1, 52
   br i1 %19, label %24, label %20
 
 20:                                               ; preds = %18
@@ -5079,7 +5079,7 @@ _ZN4absl7debian28AlphaNumC2ISaIcEEERKNSt7__cxx1112basic_stringIcSt11char_traitsI
   br i1 %160, label %161, label %175
 
 161:                                              ; preds = %159
-  %162 = icmp ult i64 %142, 58
+  %162 = icmp samesign ult i64 %142, 58
   br i1 %162, label %_ZN4absl7debian219str_format_internal18FormatSpecTemplateIJLNS0_23FormatConversionCharSetE131067ELS3_131067EEEC2EUa9enable_ifIXclL_ZNS1_15ValidFormatImplIJLS3_131067ELS3_131067EEEEbNS0_11string_viewEEfL0p_EEEPKc.exit, label %182
 
 _ZN4absl7debian219str_format_internal18FormatSpecTemplateIJLNS0_23FormatConversionCharSetE131067ELS3_131067EEEC2EUa9enable_ifIXclL_ZNS1_15ValidFormatImplIJLS3_131067ELS3_131067EEEEbNS0_11string_viewEEfL0p_EEEPKc.exit: ; preds = %161
@@ -8174,7 +8174,7 @@ define void @_ZN10open_spiel12crazy_eights16CrazyEightsState15ApplyDealActionEi(
 48:                                               ; preds = %42
   store i32 %1, ptr %7, align 4
   store i32 52, ptr %8, align 4
-  %49 = icmp ult i32 %1, 52
+  %49 = icmp samesign ult i32 %1, 52
   br i1 %49, label %54, label %50
 
 50:                                               ; preds = %48
@@ -9489,7 +9489,7 @@ define internal fastcc noundef range(i32 0, 13) i32 @_ZN10open_spiel12crazy_eigh
 15:                                               ; preds = %1
   store i32 %0, ptr %6, align 4
   store i32 52, ptr %7, align 4
-  %16 = icmp ult i32 %0, 52
+  %16 = icmp samesign ult i32 %0, 52
   br i1 %16, label %21, label %17
 
 17:                                               ; preds = %15
@@ -9549,7 +9549,7 @@ define internal fastcc noundef range(i32 0, 4) i32 @_ZN10open_spiel12crazy_eight
 15:                                               ; preds = %1
   store i32 %0, ptr %6, align 4
   store i32 52, ptr %7, align 4
-  %16 = icmp ult i32 %0, 52
+  %16 = icmp samesign ult i32 %0, 52
   br i1 %16, label %21, label %17
 
 17:                                               ; preds = %15

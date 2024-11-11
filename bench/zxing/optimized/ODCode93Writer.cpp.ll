@@ -108,7 +108,7 @@ define void @_ZNK5ZXing4OneD12Code93Writer6encodeERKNSt7__cxx1112basic_stringIwS
           to label %99 unwind label %.loopexit.i
 
 26:                                               ; preds = %19
-  %27 = icmp ult i32 %.fr63.i, 32
+  %27 = icmp samesign ult i32 %.fr63.i, 32
   br i1 %27, label %28, label %32
 
 28:                                               ; preds = %26
@@ -136,7 +136,7 @@ switch.early.test.i:                              ; preds = %32
   br label %.invoke68.i
 
 36:                                               ; preds = %switch.early.test.i
-  %37 = icmp ult i32 %.fr63.i, 45
+  %37 = icmp samesign ult i32 %.fr63.i, 45
   br i1 %37, label %38, label %42
 
 38:                                               ; preds = %36
@@ -149,7 +149,7 @@ switch.early.test.i:                              ; preds = %32
   br label %.invoke68.i
 
 42:                                               ; preds = %36
-  %43 = icmp ult i32 %.fr63.i, 58
+  %43 = icmp samesign ult i32 %.fr63.i, 58
   br i1 %43, label %44, label %46
 
 44:                                               ; preds = %42
@@ -161,7 +161,7 @@ switch.early.test.i:                              ; preds = %32
   br i1 %47, label %.invoke.i, label %48
 
 48:                                               ; preds = %46
-  %49 = icmp ult i32 %.fr63.i, 64
+  %49 = icmp samesign ult i32 %.fr63.i, 64
   br i1 %49, label %50, label %54
 
 50:                                               ; preds = %48
@@ -178,7 +178,7 @@ switch.early.test.i:                              ; preds = %32
   br i1 %55, label %.invoke.i, label %56
 
 56:                                               ; preds = %54
-  %57 = icmp ult i32 %.fr63.i, 91
+  %57 = icmp samesign ult i32 %.fr63.i, 91
   br i1 %57, label %58, label %60
 
 58:                                               ; preds = %56
@@ -186,7 +186,7 @@ switch.early.test.i:                              ; preds = %32
   br label %.invoke68.i
 
 60:                                               ; preds = %56
-  %61 = icmp ult i32 %.fr63.i, 96
+  %61 = icmp samesign ult i32 %.fr63.i, 96
   br i1 %61, label %62, label %66
 
 62:                                               ; preds = %60
@@ -203,7 +203,7 @@ switch.early.test.i:                              ; preds = %32
   br i1 %67, label %.invoke.i, label %68
 
 68:                                               ; preds = %66
-  %69 = icmp ult i32 %.fr63.i, 123
+  %69 = icmp samesign ult i32 %.fr63.i, 123
   br i1 %69, label %70, label %74
 
 70:                                               ; preds = %68
@@ -216,7 +216,7 @@ switch.early.test.i:                              ; preds = %32
   br label %.invoke68.i
 
 74:                                               ; preds = %68
-  %75 = icmp ult i32 %.fr63.i, 128
+  %75 = icmp samesign ult i32 %.fr63.i, 128
   br i1 %75, label %76, label %80
 
 76:                                               ; preds = %74
@@ -562,7 +562,7 @@ _ZN5ZXing4OneDL13AppendPatternERSt6vectorIbSaIbEEii.exit43: ; preds = %_ZNSt14_B
   %211 = add nsw i32 %.014.i, 1
   %.not.i48 = icmp slt i32 %.014.i, 20
   %spec.store.select.i = select i1 %.not.i48, i32 %211, i32 1
-  %212 = icmp ugt i64 %indvars.iv.i45, 1
+  %212 = icmp samesign ugt i64 %indvars.iv.i45, 1
   br i1 %212, label %.lr.ph.i44, label %._crit_edge.loopexit.i, !llvm.loop !11
 
 ._crit_edge.loopexit.i:                           ; preds = %.lr.ph.i44
@@ -647,7 +647,7 @@ _ZN5ZXing4OneDL13AppendPatternERSt6vectorIbSaIbEEii.exit58: ; preds = %_ZNSt14_B
   %254 = add nsw i32 %.014.i63, 1
   %.not.i68 = icmp slt i32 %.014.i63, 15
   %spec.store.select.i69 = select i1 %.not.i68, i32 %254, i32 1
-  %255 = icmp ugt i64 %indvars.iv.i62, 1
+  %255 = icmp samesign ugt i64 %indvars.iv.i62, 1
   br i1 %255, label %.lr.ph.i61, label %._crit_edge.loopexit.i70, !llvm.loop !11
 
 ._crit_edge.loopexit.i70:                         ; preds = %.lr.ph.i61

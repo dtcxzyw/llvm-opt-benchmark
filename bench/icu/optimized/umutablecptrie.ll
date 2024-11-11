@@ -2173,7 +2173,7 @@ if.then.i.i.i.i:                                  ; preds = %for.end.i88.i.i
   br label %if.then17.i.i.i.i
 
 if.else.i.i.i.i:                                  ; preds = %for.end.i88.i.i
-  %cmp2.i.i90.i.i = icmp ult i32 %sub.i.i.i.i, 32767
+  %cmp2.i.i90.i.i = icmp samesign ult i32 %sub.i.i.i.i, 32767
   %mask5.i.i.i.i = getelementptr inbounds i8, ptr %mixedBlocks.i.i, i64 20
   br i1 %cmp2.i.i90.i.i, label %if.then3.i.i.i.i, label %if.else6.i.i.i.i
 
@@ -2184,7 +2184,7 @@ if.then3.i.i.i.i:                                 ; preds = %if.else.i.i.i.i
   br label %if.then17.i.i.i.i
 
 if.else6.i.i.i.i:                                 ; preds = %if.else.i.i.i.i
-  %cmp7.i.i.i.i = icmp ult i32 %sub.i.i.i.i, 131071
+  %cmp7.i.i.i.i = icmp samesign ult i32 %sub.i.i.i.i, 131071
   %shift9.i.i.i.i = getelementptr inbounds i8, ptr %mixedBlocks.i.i, i64 16
   br i1 %cmp7.i.i.i.i, label %if.then8.i.i.i.i, label %if.else11.i.i.i.i
 
@@ -2234,7 +2234,7 @@ for.body6.lr.ph.i.i.i:                            ; preds = %if.end.i91.i.i
   %sub.i79.i.i.i = add nsw i32 %retval.0.i63207.i.i, -16
   %cmp.i80.i.i.i = icmp samesign ult i32 %retval.0.i63207.i.i, 4111
   %mask5.i83.i.i.i = getelementptr inbounds i8, ptr %mixedBlocks.i.i, i64 20
-  %cmp7.i85.i.i.i = icmp ult i32 %sub.i79.i.i.i, 131071
+  %cmp7.i85.i.i.i = icmp samesign ult i32 %sub.i79.i.i.i, 131071
   %shift9.i86.i.i.i = getelementptr inbounds i8, ptr %mixedBlocks.i.i, i64 16
   %86 = zext nneg i32 %shr.i to i64
   %invariant.gep.i.i.i.i = getelementptr i8, ptr %call26.i.i, i64 -4
@@ -2493,7 +2493,7 @@ if.then32.i.i.i:                                  ; preds = %_ZN6icu_7512_GLOBAL
 if.else.i106.i.i:                                 ; preds = %while.body.i113.i.i, %for.inc12.i.i.i.i, %while.end.i.i.i
   %sub.neg.i.i.i.i = add nuw i32 %newDataLength.1236.i.i.i, 1
   %sub1.i.i.i.i = sub i32 %sub.neg.i.i.i.i, %blockLength.1.i.i.i
-  %cmp6.i.i.i.i = icmp ult i32 %sub1.i.i.i.i, %newDataLength.1236.i.i.i
+  %cmp6.i.i.i.i = icmp samesign ult i32 %sub1.i.i.i.i, %newDataLength.1236.i.i.i
   br i1 %cmp6.i.i.i.i, label %land.rhs.preheader.i.i.i.i, label %_ZN6icu_7512_GLOBAL__N_117getAllSameOverlapEPKjiji.exit.i.i.i
 
 land.rhs.preheader.i.i.i.i:                       ; preds = %if.else.i106.i.i
@@ -3007,11 +3007,11 @@ do.body102.i.i.i:                                 ; preds = %call97.i.noexc.i.i
   br i1 %cmp.i185.i.i.i, label %if.end15.i193.i.i.i, label %if.else.i186.i.i.i
 
 if.else.i186.i.i.i:                               ; preds = %do.body102.i.i.i
-  %cmp2.i187.i.i.i = icmp ult i32 %sub.i184.i.i.i, 32767
+  %cmp2.i187.i.i.i = icmp samesign ult i32 %sub.i184.i.i.i, 32767
   br i1 %cmp2.i187.i.i.i, label %if.end15.i193.i.i.i, label %if.else6.i189.i.i.i
 
 if.else6.i189.i.i.i:                              ; preds = %if.else.i186.i.i.i
-  %cmp7.i190.i.i.i = icmp ult i32 %sub.i184.i.i.i, 131071
+  %cmp7.i190.i.i.i = icmp samesign ult i32 %sub.i184.i.i.i, 131071
   %..i147.i.i = select i1 %cmp7.i190.i.i.i, i32 17, i32 21
   %.448.i.i.i = select i1 %cmp7.i190.i.i.i, i32 131071, i32 2097151
   %.449.i.i.i = select i1 %cmp7.i190.i.i.i, i32 200003, i32 1500007
@@ -3076,7 +3076,7 @@ if.then.i250.i.i.i:                               ; preds = %if.then113.i.i.i
   br label %if.then17.i241.i.i.i
 
 if.else.i221.i.i.i:                               ; preds = %if.then113.i.i.i
-  %cmp2.i222.i.i.i = icmp ult i32 %sub.i219.i.i.i, 32767
+  %cmp2.i222.i.i.i = icmp samesign ult i32 %sub.i219.i.i.i, 32767
   %mask5.i223.i.i.i = getelementptr inbounds i8, ptr %longI3Blocks.i.i.i, i64 20
   br i1 %cmp2.i222.i.i.i, label %if.then3.i248.i.i.i, label %if.else6.i224.i.i.i
 
@@ -3087,7 +3087,7 @@ if.then3.i248.i.i.i:                              ; preds = %if.else.i221.i.i.i
   br label %if.then17.i241.i.i.i
 
 if.else6.i224.i.i.i:                              ; preds = %if.else.i221.i.i.i
-  %cmp7.i225.i.i.i = icmp ult i32 %sub.i219.i.i.i, 131071
+  %cmp7.i225.i.i.i = icmp samesign ult i32 %sub.i219.i.i.i, 131071
   %shift9.i226.i.i.i = getelementptr inbounds i8, ptr %longI3Blocks.i.i.i, i64 16
   br i1 %cmp7.i225.i.i.i, label %if.then8.i247.i.i.i, label %if.else11.i227.i.i.i
 
@@ -3442,7 +3442,7 @@ if.end315.i.i.i:                                  ; preds = %while.body.i.i268.i
   br i1 %cmp319.i.i.i, label %while.cond321.preheader.i.i.i, label %if.else334.i.i.i
 
 while.cond321.preheader.i.i.i:                    ; preds = %if.end315.i.i.i
-  %cmp322336.i.i.i = icmp ult i64 %indvars.iv.i259.i.i.i, 36
+  %cmp322336.i.i.i = icmp samesign ult i64 %indvars.iv.i259.i.i.i, 36
   br i1 %cmp322336.i.i.i, label %while.body323.i.i.i, label %if.end336.i.i.i
 
 while.body323.i.i.i:                              ; preds = %while.cond321.preheader.i.i.i, %while.body323.i.i.i
@@ -4151,7 +4151,7 @@ for.body218.i:                                    ; preds = %sw.bb212.i, %for.bo
   %incdec.ptr221.i = getelementptr inbounds i8, ptr %dest16.2194.i, i64 2
   store i16 %conv220.i, ptr %dest16.2194.i, align 2
   %dec.i = add nsw i32 %i214.0196.i, -1
-  %cmp217.i = icmp ugt i32 %i214.0196.i, 1
+  %cmp217.i = icmp samesign ugt i32 %i214.0196.i, 1
   br i1 %cmp217.i, label %for.body218.i, label %sw.epilog245.i, !llvm.loop !57
 
 sw.bb224.i:                                       ; preds = %if.end207.i
@@ -4176,7 +4176,7 @@ for.body237.i:                                    ; preds = %sw.bb231.i, %for.bo
   %incdec.ptr240.i = getelementptr inbounds i8, ptr %bytes.0190.i, i64 1
   store i8 %conv239.i, ptr %bytes.0190.i, align 1
   %dec242.i = add nsw i32 %i233.0192.i, -1
-  %cmp236.i = icmp ugt i32 %i233.0192.i, 1
+  %cmp236.i = icmp samesign ugt i32 %i233.0192.i, 1
   br i1 %cmp236.i, label %for.body237.i, label %sw.epilog245.i, !llvm.loop !58
 
 default.unreachable.i:                            ; preds = %if.end207.i
@@ -4262,7 +4262,7 @@ if.then.i:                                        ; preds = %if.then5
   br i1 %cmp3.i, label %if.end9.i, label %if.else.i
 
 if.else.i:                                        ; preds = %if.then.i
-  %cmp6.i = icmp ult i32 %4, 1114112
+  %cmp6.i = icmp samesign ult i32 %4, 1114112
   br i1 %cmp6.i, label %if.end9.i, label %return
 
 if.end9.i:                                        ; preds = %if.else.i, %if.then.i
@@ -4345,7 +4345,7 @@ if.then.i27:                                      ; preds = %if.else
   br i1 %cmp3.i28, label %if.end9.i31, label %if.else.i29
 
 if.else.i29:                                      ; preds = %if.then.i27
-  %cmp6.i30 = icmp ult i32 %4, 1114112
+  %cmp6.i30 = icmp samesign ult i32 %4, 1114112
   br i1 %cmp6.i30, label %if.end9.i31, label %return
 
 if.end9.i31:                                      ; preds = %if.else.i29, %if.then.i27

@@ -4042,7 +4042,7 @@ _ZNSt6vectorIfSaIfEEC2EmRKS0_.exit:               ; preds = %_ZSt6fill_nIPfmfET_
   %68 = zext i8 %60 to i64
   %69 = and i64 %58, 2147483647
   %70 = add nsw i32 %59, -8
-  %71 = icmp ugt i32 %70, 8
+  %71 = icmp samesign ugt i32 %70, 8
   br i1 %71, label %.lr.ph.i, label %._crit_edge.i
 
 .lr.ph.i:                                         ; preds = %67, %.lr.ph.i
@@ -4058,7 +4058,7 @@ _ZNSt6vectorIfSaIfEEC2EmRKS0_.exit:               ; preds = %_ZSt6fill_nIPfmfET_
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 8
   %77 = add nsw i32 %.02732.i, -8
   %.024.i = add nuw nsw i64 %.02435.i, 1
-  %78 = icmp ugt i32 %.02732.i, 16
+  %78 = icmp samesign ugt i32 %.02732.i, 16
   br i1 %78, label %.lr.ph.i, label %._crit_edge.loopexit.i, !llvm.loop !24
 
 ._crit_edge.loopexit.i:                           ; preds = %.lr.ph.i
@@ -4150,7 +4150,7 @@ _ZN5faiss15BitstringReader4readEi.exit:           ; preds = %61, %._crit_edge.i
   %indvars.iv.next.i62 = add nuw nsw i64 %indvars.iv.i58, 8
   %121 = add nsw i32 %.02732.i61, -8
   %.024.i63 = add nuw nsw i64 %.02435.i59, 1
-  %122 = icmp ugt i32 %.02732.i61, 16
+  %122 = icmp samesign ugt i32 %.02732.i61, 16
   br i1 %122, label %.lr.ph.i57, label %._crit_edge.loopexit.i64, !llvm.loop !24
 
 ._crit_edge.loopexit.i64:                         ; preds = %.lr.ph.i57

@@ -2011,7 +2011,7 @@ define dso_local noundef i32 @_ZN6asmjit9_abi_1_1011BaseBuilder5_emitEjRKNS0_8Op
 
 77:                                               ; preds = %75, %31
   %78 = phi i32 [ %76, %75 ], [ %37, %31 ]
-  %79 = icmp ugt i32 %32, 4
+  %79 = icmp samesign ugt i32 %32, 4
   %80 = select i1 %79, i32 6, i32 4
   %81 = getelementptr inbounds i8, ptr %0, i64 240
   %82 = shl nuw nsw i32 %80, 4
@@ -2068,11 +2068,11 @@ define dso_local noundef i32 @_ZN6asmjit9_abi_1_1011BaseBuilder5_emitEjRKNS0_8Op
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %111, ptr noundef nonnull align 4 dereferenceable(16) %3, i64 16, i1 false)
   %112 = getelementptr inbounds i8, ptr %85, i64 96
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %112, ptr noundef nonnull align 4 dereferenceable(16) %4, i64 16, i1 false)
-  %113 = icmp ugt i32 %32, 3
+  %113 = icmp samesign ugt i32 %32, 3
   br i1 %113, label %128, label %114
 
 114:                                              ; preds = %135, %131, %128, %93
-  %115 = icmp ult i32 %32, %80
+  %115 = icmp samesign ult i32 %32, %80
   br i1 %115, label %116, label %126
 
 116:                                              ; preds = %114
@@ -2961,7 +2961,7 @@ define dso_local noundef i32 @_ZN6asmjit9_abi_1_1011BaseBuilder11serializeToEPNS
   %53 = zext i8 %46 to i64
   %54 = add nsw i64 %53, -5
   %55 = and i64 %53, 3
-  %56 = icmp ult i64 %54, 3
+  %56 = icmp samesign ult i64 %54, 3
   br i1 %56, label %.loopexit3, label %57
 
 57:                                               ; preds = %52

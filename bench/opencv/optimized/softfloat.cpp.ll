@@ -120,7 +120,7 @@ define void @_ZN2cv9softfloatC2Ej(ptr nocapture noundef nonnull writeonly align 
 
 15:                                               ; preds = %3
   %16 = zext nneg i32 %1 to i64
-  %17 = icmp ult i32 %1, 65536
+  %17 = icmp samesign ult i32 %1, 65536
   %18 = shl nuw i32 %1, 16
   %spec.select.i.i = select i1 %17, i32 %18, i32 %1
   %spec.select12.i.i = select i1 %17, i8 16, i8 0
@@ -139,7 +139,7 @@ define void @_ZN2cv9softfloatC2Ej(ptr nocapture noundef nonnull writeonly align 
   %29 = sub nsw i64 156, %28
   %30 = sext i8 %27 to i32
   %31 = icmp sgt i8 %27, 6
-  %32 = icmp ult i64 %29, 253
+  %32 = icmp samesign ult i64 %29, 253
   %or.cond.i = select i1 %31, i1 %32, i1 false
   br i1 %or.cond.i, label %33, label %39
 
@@ -154,7 +154,7 @@ define void @_ZN2cv9softfloatC2Ej(ptr nocapture noundef nonnull writeonly align 
 39:                                               ; preds = %15
   %40 = zext nneg i32 %30 to i64
   %41 = shl i64 %16, %40
-  %42 = icmp ugt i64 %29, 252
+  %42 = icmp samesign ugt i64 %29, 252
   br i1 %42, label %43, label %47
 
 43:                                               ; preds = %39
@@ -254,7 +254,7 @@ define void @_ZN2cv9softfloatC2Em(ptr nocapture noundef nonnull writeonly align 
   %42 = phi i64 [ %37, %29 ], [ %40, %38 ]
   %43 = sub nsw i32 156, %27
   %44 = zext nneg i32 %43 to i64
-  %45 = icmp ugt i32 %43, 252
+  %45 = icmp samesign ugt i32 %43, 252
   br i1 %45, label %46, label %50
 
 46:                                               ; preds = %41
@@ -384,7 +384,7 @@ define void @_ZN2cv9softfloatC2El(ptr nocapture noundef nonnull writeonly align 
   %46 = phi i64 [ %41, %33 ], [ %44, %42 ]
   %47 = sub nsw i32 156, %31
   %48 = zext nneg i32 %47 to i64
-  %49 = icmp ugt i32 %47, 252
+  %49 = icmp samesign ugt i32 %47, 252
   br i1 %49, label %50, label %56
 
 50:                                               ; preds = %45
@@ -1195,7 +1195,7 @@ define void @_ZNK2cv9softfloatrmERKS0_(ptr dead_on_unwind noalias nocapture writ
   %89 = mul nuw i64 %84, %88
   %90 = lshr i64 %89, 32
   %91 = trunc nuw i64 %90 to i32
-  %92 = icmp ult i64 %66, 31
+  %92 = icmp samesign ult i64 %66, 31
   %.pre.i = trunc i64 %87 to i32
   br i1 %92, label %._crit_edge.i, label %.lr.ph.i
 
@@ -1209,7 +1209,7 @@ define void @_ZNK2cv9softfloatrmERKS0_(ptr dead_on_unwind noalias nocapture writ
   %98 = mul nuw i64 %84, %97
   %99 = lshr i64 %98, 32
   %100 = trunc nuw i64 %99 to i32
-  %101 = icmp ult i64 %.0844.i, 29
+  %101 = icmp samesign ult i64 %.0844.i, 29
   br i1 %101, label %._crit_edge.i, label %.lr.ph.i, !llvm.loop !40
 
 ._crit_edge.i:                                    ; preds = %.lr.ph.i, %81
@@ -1790,7 +1790,7 @@ _ZN2cvL25softfloat_shiftRightJam64Emm.exit.i.thread: ; preds = %14
 
 _ZN2cvL25softfloat_shiftRightJam64Emm.exit.i:     ; preds = %16, %1
   %.017.i = phi i64 [ %12, %1 ], [ %23, %16 ]
-  %.not.i.i = icmp ult i64 %.017.i, 17592186042368
+  %.not.i.i = icmp samesign ult i64 %.017.i, 17592186042368
   br i1 %.not.i.i, label %26, label %37
 
 26:                                               ; preds = %_ZN2cvL25softfloat_shiftRightJam64Emm.exit.i.thread, %_ZN2cvL25softfloat_shiftRightJam64Emm.exit.i
@@ -1865,7 +1865,7 @@ _ZN2cvL25softfloat_shiftRightJam64Emm.exit.i:     ; preds = %24, %16, %1
   %.017.i = phi i64 [ %12, %1 ], [ %23, %16 ], [ %26, %24 ]
   %27 = select i1 %spec.select.i, i64 4095, i64 0
   %28 = add nuw nsw i64 %.017.i, %27
-  %.not.i.i = icmp ult i64 %28, 17592186044416
+  %.not.i.i = icmp samesign ult i64 %28, 17592186044416
   br i1 %.not.i.i, label %29, label %35
 
 29:                                               ; preds = %_ZN2cvL25softfloat_shiftRightJam64Emm.exit.i
@@ -1933,7 +1933,7 @@ _ZN2cvL25softfloat_shiftRightJam64Emm.exit.i:     ; preds = %24, %16, %1
   %.017.i = phi i64 [ %12, %1 ], [ %23, %16 ], [ %26, %24 ]
   %27 = select i1 %spec.select.i, i64 0, i64 4095
   %28 = add nuw nsw i64 %.017.i, %27
-  %.not.i.i = icmp ult i64 %28, 17592186044416
+  %.not.i.i = icmp samesign ult i64 %28, 17592186044416
   br i1 %.not.i.i, label %29, label %35
 
 29:                                               ; preds = %_ZN2cvL25softfloat_shiftRightJam64Emm.exit.i
@@ -2040,7 +2040,7 @@ _ZN2cvL25softfloat_shiftRightJam64Emm.exit.i.thread: ; preds = %11
 
 _ZN2cvL25softfloat_shiftRightJam64Emm.exit.i:     ; preds = %13, %1
   %.1.i = phi i64 [ %.016.i, %1 ], [ %20, %13 ]
-  %.not.i.i = icmp ult i64 %.1.i, 17592186042368
+  %.not.i.i = icmp samesign ult i64 %.1.i, 17592186042368
   br i1 %.not.i.i, label %23, label %34
 
 23:                                               ; preds = %_ZN2cvL25softfloat_shiftRightJam64Emm.exit.i.thread, %_ZN2cvL25softfloat_shiftRightJam64Emm.exit.i
@@ -2113,7 +2113,7 @@ _ZN2cvL25softfloat_shiftRightJam64Emm.exit.i:     ; preds = %21, %13, %1
   %.1.i = phi i64 [ %.016.i, %1 ], [ %20, %13 ], [ %23, %21 ]
   %24 = select i1 %spec.select.i, i64 4095, i64 0
   %25 = add nuw nsw i64 %.1.i, %24
-  %.not.i.i = icmp ult i64 %25, 17592186044416
+  %.not.i.i = icmp samesign ult i64 %25, 17592186044416
   br i1 %.not.i.i, label %26, label %32
 
 26:                                               ; preds = %_ZN2cvL25softfloat_shiftRightJam64Emm.exit.i
@@ -2179,7 +2179,7 @@ _ZN2cvL25softfloat_shiftRightJam64Emm.exit.i:     ; preds = %21, %13, %1
   %.1.i = phi i64 [ %.016.i, %1 ], [ %20, %13 ], [ %23, %21 ]
   %24 = select i1 %spec.select.i, i64 0, i64 4095
   %25 = add nuw nsw i64 %.1.i, %24
-  %.not.i.i = icmp ult i64 %25, 17592186044416
+  %.not.i.i = icmp samesign ult i64 %25, 17592186044416
   br i1 %.not.i.i, label %26, label %32
 
 26:                                               ; preds = %_ZN2cvL25softfloat_shiftRightJam64Emm.exit.i
@@ -2616,7 +2616,7 @@ define void @_ZNK2cv10softdoublemlERKS0_(ptr dead_on_unwind noalias nocapture wr
   br label %_ZN2cvL25softfloat_shiftRightJam64Emm.exit.i.i
 
 112:                                              ; preds = %97
-  %113 = icmp ugt i64 %.058.i, 2045
+  %113 = icmp samesign ugt i64 %.058.i, 2045
   %114 = add i64 %.057.i, 512
   %115 = icmp slt i64 %114, 0
   %or.cond.i.i = or i1 %113, %115
@@ -2893,7 +2893,7 @@ define void @_ZNK2cv10softdoubledvERKS0_(ptr dead_on_unwind noalias nocapture wr
   br label %_ZN2cvL25softfloat_shiftRightJam64Emm.exit.i.i
 
 126:                                              ; preds = %111
-  %127 = icmp ugt i64 %.076.i, 2045
+  %127 = icmp samesign ugt i64 %.076.i, 2045
   %128 = add i64 %.075.i, 512
   %129 = icmp slt i64 %128, 0
   %or.cond.i.i = or i1 %127, %129
@@ -3131,7 +3131,7 @@ define internal fastcc void @_ZN2cvL7f64_remENS_10softdoubleES0_(ptr dead_on_unw
   %87 = shl i64 %66, 9
   %88 = lshr i64 %85, 32
   %89 = mul nuw i64 %88, %84
-  %90 = icmp ult i64 %67, 30
+  %90 = icmp samesign ult i64 %67, 30
   br i1 %90, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %81, %.lr.ph
@@ -3149,7 +3149,7 @@ define internal fastcc void @_ZN2cvL7f64_remENS_10softdoubleES0_(ptr dead_on_unw
   %98 = add nsw i64 %.0977, -29
   %99 = lshr i64 %spec.select121, 32
   %100 = mul nuw i64 %99, %84
-  %101 = icmp ult i64 %.0977, 29
+  %101 = icmp samesign ult i64 %.0977, 29
   br i1 %101, label %._crit_edge, label %.lr.ph, !llvm.loop !73
 
 ._crit_edge:                                      ; preds = %.lr.ph, %81
@@ -3903,7 +3903,7 @@ _ZN2cvL25softfloat_shiftRightJam32Ejm.exit.i.i.i: ; preds = %239, %230
   br label %251
 
 245:                                              ; preds = %224
-  %246 = icmp ugt i64 %.0132.i.i, 253
+  %246 = icmp samesign ugt i64 %.0132.i.i, 253
   %247 = add i64 %.0130.i.i, -2147483584
   %248 = icmp ult i64 %247, -2147483648
   %or.cond.i.i.i = or i1 %246, %248
@@ -4480,7 +4480,7 @@ _ZN2cvL25softfloat_shiftRightJam64Emm.exit.i.i:   ; preds = %169, %167, %162, %1
   br label %_ZN2cvL25softfloat_shiftRightJam64Emm.exit.i.i.i
 
 274:                                              ; preds = %259
-  %275 = icmp ugt i64 %.1170.i.i, 2045
+  %275 = icmp samesign ugt i64 %.1170.i.i, 2045
   %276 = add i64 %.0171.i.i, 512
   %277 = icmp slt i64 %276, 0
   %or.cond.i.i.i = or i1 %275, %277
@@ -5238,7 +5238,7 @@ _ZN2cvL25softfloat_shiftRightJam64Emm.exit.i.thread: ; preds = %114
 
 _ZN2cvL25softfloat_shiftRightJam64Emm.exit.i:     ; preds = %116, %105
   %.1.i = phi i64 [ %.016.i, %105 ], [ %123, %116 ]
-  %.not.i.i15 = icmp ult i64 %.1.i, 17592186042368
+  %.not.i.i15 = icmp samesign ult i64 %.1.i, 17592186042368
   br i1 %.not.i.i15, label %126, label %137
 
 126:                                              ; preds = %_ZN2cvL25softfloat_shiftRightJam64Emm.exit.i.thread, %_ZN2cvL25softfloat_shiftRightJam64Emm.exit.i
@@ -5638,7 +5638,7 @@ _ZN2cvL25softfloat_shiftRightJam64Emm.exit.i.thread.i: ; preds = %87
 
 _ZN2cvL25softfloat_shiftRightJam64Emm.exit.i.i:   ; preds = %89, %78
   %.1.i.i = phi i64 [ %.016.i.i, %78 ], [ %96, %89 ]
-  %.not.i.i.i = icmp ult i64 %.1.i.i, 17592186042368
+  %.not.i.i.i = icmp samesign ult i64 %.1.i.i, 17592186042368
   br i1 %.not.i.i.i, label %99, label %110
 
 99:                                               ; preds = %_ZN2cvL25softfloat_shiftRightJam64Emm.exit.i.i, %_ZN2cvL25softfloat_shiftRightJam64Emm.exit.i.thread.i
@@ -6729,7 +6729,7 @@ _ZNK2cv9softfloatgtERKS0_.exit.i:                 ; preds = %68, %67, %64, %62, 
   br label %_ZNK2cv9softfloatgtERKS0_.exit23.i
 
 86:                                               ; preds = %82
-  %87 = icmp ult i32 %72, %44
+  %87 = icmp samesign ult i32 %72, %44
   br label %_ZNK2cv9softfloatgtERKS0_.exit23.i
 
 _ZNK2cv9softfloatgtERKS0_.exit23.i:               ; preds = %86, %83, %77, %_ZNK2cv9softfloatgtERKS0_.exit.i
@@ -6993,7 +6993,7 @@ _ZN2cvL25softfloat_shiftRightJam64Emm.exit.i.thread: ; preds = %187
 
 _ZN2cvL25softfloat_shiftRightJam64Emm.exit.i:     ; preds = %189, %180
   %.017.i = phi i64 [ %185, %180 ], [ %196, %189 ]
-  %.not.i.i11 = icmp ult i64 %.017.i, 17592186042368
+  %.not.i.i11 = icmp samesign ult i64 %.017.i, 17592186042368
   br i1 %.not.i.i11, label %199, label %210
 
 199:                                              ; preds = %_ZN2cvL25softfloat_shiftRightJam64Emm.exit.i.thread, %_ZN2cvL25softfloat_shiftRightJam64Emm.exit.i
@@ -7350,7 +7350,7 @@ _ZNK2cv10softdoublegtERKS0_.exit.i:               ; preds = %67, %66, %62, %60, 
   br label %_ZNK2cv10softdoublegtERKS0_.exit22.i
 
 84:                                               ; preds = %79
-  %85 = icmp ult i64 %71, %44
+  %85 = icmp samesign ult i64 %71, %44
   br label %_ZNK2cv10softdoublegtERKS0_.exit22.i
 
 _ZNK2cv10softdoublegtERKS0_.exit22.i:             ; preds = %84, %80, %75, %_ZNK2cv10softdoublegtERKS0_.exit.i
@@ -7605,7 +7605,7 @@ _ZN2cvL25softfloat_shiftRightJam64Emm.exit.i.thread: ; preds = %183
 
 _ZN2cvL25softfloat_shiftRightJam64Emm.exit.i:     ; preds = %185, %178
   %.1.i = phi i64 [ %.016.i, %178 ], [ %192, %185 ]
-  %.not.i.i10 = icmp ult i64 %.1.i, 17592186042368
+  %.not.i.i10 = icmp samesign ult i64 %.1.i, 17592186042368
   br i1 %.not.i.i10, label %195, label %206
 
 195:                                              ; preds = %_ZN2cvL25softfloat_shiftRightJam64Emm.exit.i.thread, %_ZN2cvL25softfloat_shiftRightJam64Emm.exit.i
@@ -8828,7 +8828,7 @@ _ZN2cvL25softfloat_shiftRightJam64Emm.exit:       ; preds = %60, %52, %42, %35
   %.1 = phi i64 [ %9, %35 ], [ %9, %42 ], [ %6, %52 ], [ %6, %60 ]
   %63 = add nuw nsw i64 %.054, 2305843009213693952
   %64 = add nuw nsw i64 %63, %.153
-  %65 = icmp ult i64 %64, 4611686018427387904
+  %65 = icmp samesign ult i64 %64, 4611686018427387904
   br i1 %65, label %66, label %69
 
 66:                                               ; preds = %_ZN2cvL25softfloat_shiftRightJam64Emm.exit
@@ -8858,7 +8858,7 @@ _ZN2cvL25softfloat_shiftRightJam64Emm.exit:       ; preds = %60, %52, %42, %35
   br label %_ZN2cvL25softfloat_shiftRightJam64Emm.exit.i
 
 82:                                               ; preds = %72
-  %83 = icmp ugt i64 %.050, 2045
+  %83 = icmp samesign ugt i64 %.050, 2045
   %84 = add nuw i64 %.0, 512
   %85 = icmp slt i64 %84, 0
   %or.cond.i = or i1 %83, %85
@@ -8953,7 +8953,7 @@ define internal fastcc void @_ZN2cvL20softfloat_subMagsF64Emmb(ptr dead_on_unwin
   %.065 = phi i1 [ %21, %20 ], [ %3, %18 ]
   %.063 = phi i64 [ %22, %20 ], [ %17, %18 ]
   %24 = lshr i64 %.063, 32
-  %.not.i = icmp ult i64 %.063, 4294967296
+  %.not.i = icmp samesign ult i64 %.063, 4294967296
   %spec.select.i = select i1 %.not.i, i8 32, i8 0
   %spec.select16.i = select i1 %.not.i, i64 %.063, i64 %24
   %.0.i = trunc nuw i64 %spec.select16.i to i32
@@ -9174,7 +9174,7 @@ define internal fastcc void @_ZN2cvL28softfloat_normRoundPackToF64Eblm(ptr dead_
   br label %_ZN2cvL25softfloat_shiftRightJam64Emm.exit.i
 
 52:                                               ; preds = %37
-  %53 = icmp ugt i64 %19, 2045
+  %53 = icmp samesign ugt i64 %19, 2045
   %54 = add i64 %34, 512
   %55 = icmp slt i64 %54, 0
   %or.cond.i = or i1 %53, %55
@@ -9307,7 +9307,7 @@ _ZNK2cv10softdoublemiERKS0_.exit:                 ; preds = %30, %31
   br i1 %.not22.i.i23, label %_ZNK2cv10softdoubleleERKS0_.exit.thread68, label %_ZNK2cv10softdoubleleERKS0_.exit.thread
 
 44:                                               ; preds = %41
-  %or.cond75.not = icmp ugt i64 %33, %13
+  %or.cond75.not = icmp samesign ugt i64 %33, %13
   br i1 %or.cond75.not, label %_ZNK2cv10softdoubleleERKS0_.exit.thread, label %_ZNK2cv10softdoubleleERKS0_.exit.thread68
 
 _ZNK2cv10softdoubleleERKS0_.exit.thread68:        ; preds = %44, %42
@@ -9339,7 +9339,7 @@ _ZNK2cv10softdoubleleERKS0_.exit.thread:          ; preds = %44, %_ZNK2cv10softd
   br i1 %.not22.i.i34, label %_ZNK2cv10softdoubleleERKS0_.exit35.thread71, label %_ZNK2cv10softdoubleleERKS0_.exit35.thread
 
 53:                                               ; preds = %50
-  %or.cond76.not = icmp ugt i64 %33, %45
+  %or.cond76.not = icmp samesign ugt i64 %33, %45
   br i1 %or.cond76.not, label %_ZNK2cv10softdoubleleERKS0_.exit35.thread, label %_ZNK2cv10softdoubleleERKS0_.exit35.thread71
 
 _ZNK2cv10softdoubleleERKS0_.exit35.thread71:      ; preds = %53, %51

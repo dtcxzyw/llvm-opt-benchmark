@@ -5495,7 +5495,7 @@ _ZSt13move_backwardIPiS0_ET0_T_S2_S1_.exit:       ; preds = %_ZSt22__uninitializ
   %33 = getelementptr inbounds i8, ptr %.sroa.05.07.i.i.i.i.i, i64 4
   %34 = getelementptr inbounds i8, ptr %.09.i.i.i.i.i, i64 4
   %35 = add nsw i64 %.048.i.i.i.i.i, -1
-  %36 = icmp ugt i64 %.048.i.i.i.i.i, 1
+  %36 = icmp samesign ugt i64 %.048.i.i.i.i.i, 1
   br i1 %36, label %.lr.ph.i.i.i.i.i, label %_ZSt4copyIN3gmx12ArrayRefIterIKiEEN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEET0_T_SC_SB_.exit, !llvm.loop !35
 
 _ZSt7advanceIN3gmx12ArrayRefIterIKiEEmEvRT_T0_.exit: ; preds = %17
@@ -5515,7 +5515,7 @@ _ZSt7advanceIN3gmx12ArrayRefIterIKiEEmEvRT_T0_.exit: ; preds = %17
   %43 = getelementptr inbounds i8, ptr %.sroa.05.07.i.i.i.i.i.i.i.i, i64 4
   %44 = getelementptr inbounds i8, ptr %.09.i.i.i.i.i.i.i.i, i64 4
   %45 = add nsw i64 %.048.i.i.i.i.i.i.i.i, -1
-  %46 = icmp ugt i64 %.048.i.i.i.i.i.i.i.i, 1
+  %46 = icmp samesign ugt i64 %.048.i.i.i.i.i.i.i.i, 1
   br i1 %46, label %.lr.ph.i.i.i.i.i.i.i.i, label %_ZSt22__uninitialized_copy_aIN3gmx12ArrayRefIterIKiEEPiiET0_T_S6_S5_RSaIT1_E.exit.loopexit, !llvm.loop !35
 
 _ZSt22__uninitialized_copy_aIN3gmx12ArrayRefIterIKiEEPiiET0_T_S6_S5_RSaIT1_E.exit.loopexit: ; preds = %.lr.ph.i.i.i.i.i.i.i.i
@@ -5552,7 +5552,7 @@ _ZSt22__uninitialized_move_aIPiS0_SaIiEET0_T_S3_S2_RT1_.exit56: ; preds = %_ZSt2
   %56 = getelementptr inbounds i8, ptr %.sroa.05.07.i.i.i.i.i61, i64 4
   %57 = getelementptr inbounds i8, ptr %.09.i.i.i.i.i59, i64 4
   %58 = add nsw i64 %.048.i.i.i.i.i60, -1
-  %59 = icmp ugt i64 %.048.i.i.i.i.i60, 1
+  %59 = icmp samesign ugt i64 %.048.i.i.i.i.i60, 1
   br i1 %59, label %.lr.ph.i.i.i.i.i58, label %_ZSt4copyIN3gmx12ArrayRefIterIKiEEN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEET0_T_SC_SB_.exit, !llvm.loop !35
 
 60:                                               ; preds = %5
@@ -11547,7 +11547,7 @@ _ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN5nblib6detail30eliminateDuplicateInteract
   %28 = load i64, ptr %23, align 8
   store i64 %28, ptr %24, align 8
   %29 = add nsw i64 %.010.i.i.i.i.i.i, -1
-  %30 = icmp ugt i64 %.010.i.i.i.i.i.i, 1
+  %30 = icmp samesign ugt i64 %.010.i.i.i.i.i.i, 1
   br i1 %30, label %.lr.ph.i.i.i.i.i.i, label %_ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPSt5tupleIJN5nblib23TwoParameterInteractionINS3_25HarmonicBondTypeParameterEEEmEESt6vectorIS7_SaIS7_EEEESC_ET0_T_SE_SD_.exit.i, !llvm.loop !88
 
 _ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPSt5tupleIJN5nblib23TwoParameterInteractionINS3_25HarmonicBondTypeParameterEEEmEESt6vectorIS7_SaIS7_EEEESC_ET0_T_SE_SD_.exit.i: ; preds = %.lr.ph.i.i.i.i.i.i
@@ -11710,7 +11710,7 @@ _ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN5nblib6detail30eliminateDuplicateInteract
   %93 = load i64, ptr %88, align 8
   store i64 %93, ptr %89, align 8
   %94 = add nsw i64 %.010.i.i.i.i.i.i41, -1
-  %95 = icmp ugt i64 %.010.i.i.i.i.i.i41, 1
+  %95 = icmp samesign ugt i64 %.010.i.i.i.i.i.i41, 1
   br i1 %95, label %.lr.ph.i.i.i.i.i.i40, label %_ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPSt5tupleIJN5nblib23TwoParameterInteractionINS3_25HarmonicBondTypeParameterEEEmEESt6vectorIS7_SaIS7_EEEESC_ET0_T_SE_SD_.exit.i38, !llvm.loop !88
 
 _ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPSt5tupleIJN5nblib23TwoParameterInteractionINS3_25HarmonicBondTypeParameterEEEmEESt6vectorIS7_SaIS7_EEEESC_ET0_T_SE_SD_.exit.i38: ; preds = %.lr.ph.i.i.i.i.i.i40, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN5nblib6detail30eliminateDuplicateInteractionsINS2_23TwoParameterInteractionINS2_25HarmonicBondTypeParameterEEEEESt5tupleIJSt6vectorImSaImEES9_IT_SaISC_EEEERKSE_EUlRKSC_RKT0_E_EclINS_17__normal_iteratorIPS8_IJS7_mEES9_ISR_SaISR_EEEESV_EEbSC_SK_.exit.thread.i37
@@ -13613,7 +13613,7 @@ _ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN5nblib6detail30eliminateDuplicateInteract
   %28 = load i64, ptr %23, align 8
   store i64 %28, ptr %24, align 8
   %29 = add nsw i64 %.010.i.i.i.i.i.i, -1
-  %30 = icmp ugt i64 %.010.i.i.i.i.i.i, 1
+  %30 = icmp samesign ugt i64 %.010.i.i.i.i.i.i, 1
   br i1 %30, label %.lr.ph.i.i.i.i.i.i, label %_ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPSt5tupleIJN5nblib11G96BondTypeEmEESt6vectorIS5_SaIS5_EEEESA_ET0_T_SC_SB_.exit.i, !llvm.loop !110
 
 _ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPSt5tupleIJN5nblib11G96BondTypeEmEESt6vectorIS5_SaIS5_EEEESA_ET0_T_SC_SB_.exit.i: ; preds = %.lr.ph.i.i.i.i.i.i
@@ -13776,7 +13776,7 @@ _ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN5nblib6detail30eliminateDuplicateInteract
   %93 = load i64, ptr %88, align 8
   store i64 %93, ptr %89, align 8
   %94 = add nsw i64 %.010.i.i.i.i.i.i41, -1
-  %95 = icmp ugt i64 %.010.i.i.i.i.i.i41, 1
+  %95 = icmp samesign ugt i64 %.010.i.i.i.i.i.i41, 1
   br i1 %95, label %.lr.ph.i.i.i.i.i.i40, label %_ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPSt5tupleIJN5nblib11G96BondTypeEmEESt6vectorIS5_SaIS5_EEEESA_ET0_T_SC_SB_.exit.i38, !llvm.loop !110
 
 _ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPSt5tupleIJN5nblib11G96BondTypeEmEESt6vectorIS5_SaIS5_EEEESA_ET0_T_SC_SB_.exit.i38: ; preds = %.lr.ph.i.i.i.i.i.i40, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN5nblib6detail30eliminateDuplicateInteractionsINS2_11G96BondTypeEEESt5tupleIJSt6vectorImSaImEES7_IT_SaISA_EEEERKSC_EUlRKSA_RKT0_E_EclINS_17__normal_iteratorIPS6_IJS5_mEES7_ISP_SaISP_EEEEST_EEbSA_SI_.exit.thread.i37
@@ -15445,7 +15445,7 @@ _ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN5nblib6detail30eliminateDuplicateInteract
   %40 = load i64, ptr %36, align 8
   store i64 %40, ptr %37, align 8
   %41 = add nsw i64 %.010.i.i.i.i.i.i, -1
-  %42 = icmp ugt i64 %.010.i.i.i.i.i.i, 1
+  %42 = icmp samesign ugt i64 %.010.i.i.i.i.i.i, 1
   br i1 %42, label %.lr.ph.i.i.i.i.i.i, label %_ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPSt5tupleIJN5nblib13CubicBondTypeEmEESt6vectorIS5_SaIS5_EEEESA_ET0_T_SC_SB_.exit.i, !llvm.loop !126
 
 _ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPSt5tupleIJN5nblib13CubicBondTypeEmEESt6vectorIS5_SaIS5_EEEESA_ET0_T_SC_SB_.exit.i: ; preds = %.lr.ph.i.i.i.i.i.i
@@ -16191,7 +16191,7 @@ _ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN5nblib6detail30eliminateDuplicateInteract
   %35 = load i64, ptr %31, align 8
   store i64 %35, ptr %32, align 8
   %36 = add nsw i64 %.010.i.i.i.i.i, -1
-  %37 = icmp ugt i64 %.010.i.i.i.i.i, 1
+  %37 = icmp samesign ugt i64 %.010.i.i.i.i.i, 1
   br i1 %37, label %.lr.ph.i.i.i.i.i, label %_ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPSt5tupleIJN5nblib13CubicBondTypeEmEESt6vectorIS5_SaIS5_EEEESA_ET0_T_SC_SB_.exit, !llvm.loop !126
 
 _ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPSt5tupleIJN5nblib13CubicBondTypeEmEESt6vectorIS5_SaIS5_EEEESA_ET0_T_SC_SB_.exit: ; preds = %.lr.ph.i.i.i.i.i, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN5nblib6detail30eliminateDuplicateInteractionsINS2_13CubicBondTypeEEESt5tupleIJSt6vectorImSaImEES7_IT_SaISA_EEEERKSC_EUlRKSA_RKT0_E_EclINS_17__normal_iteratorIPS6_IJS5_mEES7_ISP_SaISP_EEEEST_EEbSA_SI_.exit.thread
@@ -17648,7 +17648,7 @@ _ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN5nblib6detail30eliminateDuplicateInteract
   %40 = load i64, ptr %36, align 8
   store i64 %40, ptr %37, align 8
   %41 = add nsw i64 %.010.i.i.i.i.i.i, -1
-  %42 = icmp ugt i64 %.010.i.i.i.i.i.i, 1
+  %42 = icmp samesign ugt i64 %.010.i.i.i.i.i.i, 1
   br i1 %42, label %.lr.ph.i.i.i.i.i.i, label %_ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPSt5tupleIJN5nblib13MorseBondTypeEmEESt6vectorIS5_SaIS5_EEEESA_ET0_T_SC_SB_.exit.i, !llvm.loop !148
 
 _ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPSt5tupleIJN5nblib13MorseBondTypeEmEESt6vectorIS5_SaIS5_EEEESA_ET0_T_SC_SB_.exit.i: ; preds = %.lr.ph.i.i.i.i.i.i
@@ -18394,7 +18394,7 @@ _ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN5nblib6detail30eliminateDuplicateInteract
   %35 = load i64, ptr %31, align 8
   store i64 %35, ptr %32, align 8
   %36 = add nsw i64 %.010.i.i.i.i.i, -1
-  %37 = icmp ugt i64 %.010.i.i.i.i.i, 1
+  %37 = icmp samesign ugt i64 %.010.i.i.i.i.i, 1
   br i1 %37, label %.lr.ph.i.i.i.i.i, label %_ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPSt5tupleIJN5nblib13MorseBondTypeEmEESt6vectorIS5_SaIS5_EEEESA_ET0_T_SC_SB_.exit, !llvm.loop !148
 
 _ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPSt5tupleIJN5nblib13MorseBondTypeEmEESt6vectorIS5_SaIS5_EEEESA_ET0_T_SC_SB_.exit: ; preds = %.lr.ph.i.i.i.i.i, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN5nblib6detail30eliminateDuplicateInteractionsINS2_13MorseBondTypeEEESt5tupleIJSt6vectorImSaImEES7_IT_SaISA_EEEERKSC_EUlRKSA_RKT0_E_EclINS_17__normal_iteratorIPS6_IJS5_mEES7_ISP_SaISP_EEEEST_EEbSA_SI_.exit.thread
@@ -19973,7 +19973,7 @@ _ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN5nblib6detail30eliminateDuplicateInteract
   %28 = load i64, ptr %23, align 8
   store i64 %28, ptr %24, align 8
   %29 = add nsw i64 %.010.i.i.i.i.i.i, -1
-  %30 = icmp ugt i64 %.010.i.i.i.i.i.i, 1
+  %30 = icmp samesign ugt i64 %.010.i.i.i.i.i.i, 1
   br i1 %30, label %.lr.ph.i.i.i.i.i.i, label %_ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPSt5tupleIJN5nblib23TwoParameterInteractionINS3_21FENEBondTypeParameterEEEmEESt6vectorIS7_SaIS7_EEEESC_ET0_T_SE_SD_.exit.i, !llvm.loop !175
 
 _ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPSt5tupleIJN5nblib23TwoParameterInteractionINS3_21FENEBondTypeParameterEEEmEESt6vectorIS7_SaIS7_EEEESC_ET0_T_SE_SD_.exit.i: ; preds = %.lr.ph.i.i.i.i.i.i
@@ -20136,7 +20136,7 @@ _ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN5nblib6detail30eliminateDuplicateInteract
   %93 = load i64, ptr %88, align 8
   store i64 %93, ptr %89, align 8
   %94 = add nsw i64 %.010.i.i.i.i.i.i41, -1
-  %95 = icmp ugt i64 %.010.i.i.i.i.i.i41, 1
+  %95 = icmp samesign ugt i64 %.010.i.i.i.i.i.i41, 1
   br i1 %95, label %.lr.ph.i.i.i.i.i.i40, label %_ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPSt5tupleIJN5nblib23TwoParameterInteractionINS3_21FENEBondTypeParameterEEEmEESt6vectorIS7_SaIS7_EEEESC_ET0_T_SE_SD_.exit.i38, !llvm.loop !175
 
 _ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPSt5tupleIJN5nblib23TwoParameterInteractionINS3_21FENEBondTypeParameterEEEmEESt6vectorIS7_SaIS7_EEEESC_ET0_T_SE_SD_.exit.i38: ; preds = %.lr.ph.i.i.i.i.i.i40, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN5nblib6detail30eliminateDuplicateInteractionsINS2_23TwoParameterInteractionINS2_21FENEBondTypeParameterEEEEESt5tupleIJSt6vectorImSaImEES9_IT_SaISC_EEEERKSE_EUlRKSC_RKT0_E_EclINS_17__normal_iteratorIPS8_IJS7_mEES9_ISR_SaISR_EEEESV_EEbSC_SK_.exit.thread.i37
@@ -21927,7 +21927,7 @@ _ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN5nblib6detail30eliminateDuplicateInteract
   %28 = load i64, ptr %23, align 8
   store i64 %28, ptr %24, align 8
   %29 = add nsw i64 %.010.i.i.i.i.i.i, -1
-  %30 = icmp ugt i64 %.010.i.i.i.i.i.i, 1
+  %30 = icmp samesign ugt i64 %.010.i.i.i.i.i.i, 1
   br i1 %30, label %.lr.ph.i.i.i.i.i.i, label %_ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPSt5tupleIJN5nblib23TwoParameterInteractionINS3_38HalfAttractiveQuarticBondTypeParameterEEEmEESt6vectorIS7_SaIS7_EEEESC_ET0_T_SE_SD_.exit.i, !llvm.loop !196
 
 _ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPSt5tupleIJN5nblib23TwoParameterInteractionINS3_38HalfAttractiveQuarticBondTypeParameterEEEmEESt6vectorIS7_SaIS7_EEEESC_ET0_T_SE_SD_.exit.i: ; preds = %.lr.ph.i.i.i.i.i.i
@@ -22090,7 +22090,7 @@ _ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN5nblib6detail30eliminateDuplicateInteract
   %93 = load i64, ptr %88, align 8
   store i64 %93, ptr %89, align 8
   %94 = add nsw i64 %.010.i.i.i.i.i.i41, -1
-  %95 = icmp ugt i64 %.010.i.i.i.i.i.i41, 1
+  %95 = icmp samesign ugt i64 %.010.i.i.i.i.i.i41, 1
   br i1 %95, label %.lr.ph.i.i.i.i.i.i40, label %_ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPSt5tupleIJN5nblib23TwoParameterInteractionINS3_38HalfAttractiveQuarticBondTypeParameterEEEmEESt6vectorIS7_SaIS7_EEEESC_ET0_T_SE_SD_.exit.i38, !llvm.loop !196
 
 _ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPSt5tupleIJN5nblib23TwoParameterInteractionINS3_38HalfAttractiveQuarticBondTypeParameterEEEmEESt6vectorIS7_SaIS7_EEEESC_ET0_T_SE_SD_.exit.i38: ; preds = %.lr.ph.i.i.i.i.i.i40, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN5nblib6detail30eliminateDuplicateInteractionsINS2_23TwoParameterInteractionINS2_38HalfAttractiveQuarticBondTypeParameterEEEEESt5tupleIJSt6vectorImSaImEES9_IT_SaISC_EEEERKSE_EUlRKSC_RKT0_E_EclINS_17__normal_iteratorIPS8_IJS7_mEES9_ISR_SaISR_EEEESV_EEbSC_SK_.exit.thread.i37
@@ -23900,7 +23900,7 @@ _ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN5nblib6detail30eliminateDuplicateInteract
   %28 = load i64, ptr %23, align 8
   store i64 %28, ptr %24, align 8
   %29 = add nsw i64 %.010.i.i.i.i.i.i, -1
-  %30 = icmp ugt i64 %.010.i.i.i.i.i.i, 1
+  %30 = icmp samesign ugt i64 %.010.i.i.i.i.i.i, 1
   br i1 %30, label %.lr.ph.i.i.i.i.i.i, label %_ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPSt5tupleIJN5nblib10PairLJTypeEmEESt6vectorIS5_SaIS5_EEEESA_ET0_T_SC_SB_.exit.i, !llvm.loop !229
 
 _ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPSt5tupleIJN5nblib10PairLJTypeEmEESt6vectorIS5_SaIS5_EEEESA_ET0_T_SC_SB_.exit.i: ; preds = %.lr.ph.i.i.i.i.i.i
@@ -24063,7 +24063,7 @@ _ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN5nblib6detail30eliminateDuplicateInteract
   %93 = load i64, ptr %88, align 8
   store i64 %93, ptr %89, align 8
   %94 = add nsw i64 %.010.i.i.i.i.i.i41, -1
-  %95 = icmp ugt i64 %.010.i.i.i.i.i.i41, 1
+  %95 = icmp samesign ugt i64 %.010.i.i.i.i.i.i41, 1
   br i1 %95, label %.lr.ph.i.i.i.i.i.i40, label %_ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPSt5tupleIJN5nblib10PairLJTypeEmEESt6vectorIS5_SaIS5_EEEESA_ET0_T_SC_SB_.exit.i38, !llvm.loop !229
 
 _ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPSt5tupleIJN5nblib10PairLJTypeEmEESt6vectorIS5_SaIS5_EEEESA_ET0_T_SC_SB_.exit.i38: ; preds = %.lr.ph.i.i.i.i.i.i40, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN5nblib6detail30eliminateDuplicateInteractionsINS2_10PairLJTypeEEESt5tupleIJSt6vectorImSaImEES7_IT_SaISA_EEEERKSC_EUlRKSA_RKT0_E_EclINS_17__normal_iteratorIPS6_IJS5_mEES7_ISP_SaISP_EEEEST_EEbSA_SI_.exit.thread.i37
@@ -25864,7 +25864,7 @@ _ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN5nblib6detail30eliminateDuplicateInteract
   %28 = load i64, ptr %23, align 8
   store i64 %28, ptr %24, align 8
   %29 = add nsw i64 %.010.i.i.i.i.i.i, -1
-  %30 = icmp ugt i64 %.010.i.i.i.i.i.i, 1
+  %30 = icmp samesign ugt i64 %.010.i.i.i.i.i.i, 1
   br i1 %30, label %.lr.ph.i.i.i.i.i.i, label %_ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPSt5tupleIJN5nblib20AngleInteractionTypeINS3_22HarmonicAngleParameterEEEmEESt6vectorIS7_SaIS7_EEEESC_ET0_T_SE_SD_.exit.i, !llvm.loop !250
 
 _ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPSt5tupleIJN5nblib20AngleInteractionTypeINS3_22HarmonicAngleParameterEEEmEESt6vectorIS7_SaIS7_EEEESC_ET0_T_SE_SD_.exit.i: ; preds = %.lr.ph.i.i.i.i.i.i
@@ -26027,7 +26027,7 @@ _ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN5nblib6detail30eliminateDuplicateInteract
   %93 = load i64, ptr %88, align 8
   store i64 %93, ptr %89, align 8
   %94 = add nsw i64 %.010.i.i.i.i.i.i41, -1
-  %95 = icmp ugt i64 %.010.i.i.i.i.i.i41, 1
+  %95 = icmp samesign ugt i64 %.010.i.i.i.i.i.i41, 1
   br i1 %95, label %.lr.ph.i.i.i.i.i.i40, label %_ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPSt5tupleIJN5nblib20AngleInteractionTypeINS3_22HarmonicAngleParameterEEEmEESt6vectorIS7_SaIS7_EEEESC_ET0_T_SE_SD_.exit.i38, !llvm.loop !250
 
 _ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPSt5tupleIJN5nblib20AngleInteractionTypeINS3_22HarmonicAngleParameterEEEmEESt6vectorIS7_SaIS7_EEEESC_ET0_T_SE_SD_.exit.i38: ; preds = %.lr.ph.i.i.i.i.i.i40, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN5nblib6detail30eliminateDuplicateInteractionsINS2_20AngleInteractionTypeINS2_22HarmonicAngleParameterEEEEESt5tupleIJSt6vectorImSaImEES9_IT_SaISC_EEEERKSE_EUlRKSC_RKT0_E_EclINS_17__normal_iteratorIPS8_IJS7_mEES9_ISR_SaISR_EEEESV_EEbSC_SK_.exit.thread.i37
@@ -27935,7 +27935,7 @@ _ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN5nblib6detail30eliminateDuplicateInteract
   %28 = load i64, ptr %23, align 8
   store i64 %28, ptr %24, align 8
   %29 = add nsw i64 %.010.i.i.i.i.i.i, -1
-  %30 = icmp ugt i64 %.010.i.i.i.i.i.i, 1
+  %30 = icmp samesign ugt i64 %.010.i.i.i.i.i.i, 1
   br i1 %30, label %.lr.ph.i.i.i.i.i.i, label %_ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPSt5tupleIJN5nblib16CosineParamAngleINS3_17G96AngleParameterEEEmEESt6vectorIS7_SaIS7_EEEESC_ET0_T_SE_SD_.exit.i, !llvm.loop !272
 
 _ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPSt5tupleIJN5nblib16CosineParamAngleINS3_17G96AngleParameterEEEmEESt6vectorIS7_SaIS7_EEEESC_ET0_T_SE_SD_.exit.i: ; preds = %.lr.ph.i.i.i.i.i.i
@@ -28098,7 +28098,7 @@ _ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN5nblib6detail30eliminateDuplicateInteract
   %93 = load i64, ptr %88, align 8
   store i64 %93, ptr %89, align 8
   %94 = add nsw i64 %.010.i.i.i.i.i.i41, -1
-  %95 = icmp ugt i64 %.010.i.i.i.i.i.i41, 1
+  %95 = icmp samesign ugt i64 %.010.i.i.i.i.i.i41, 1
   br i1 %95, label %.lr.ph.i.i.i.i.i.i40, label %_ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPSt5tupleIJN5nblib16CosineParamAngleINS3_17G96AngleParameterEEEmEESt6vectorIS7_SaIS7_EEEESC_ET0_T_SE_SD_.exit.i38, !llvm.loop !272
 
 _ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPSt5tupleIJN5nblib16CosineParamAngleINS3_17G96AngleParameterEEEmEESt6vectorIS7_SaIS7_EEEESC_ET0_T_SE_SD_.exit.i38: ; preds = %.lr.ph.i.i.i.i.i.i40, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN5nblib6detail30eliminateDuplicateInteractionsINS2_16CosineParamAngleINS2_17G96AngleParameterEEEEESt5tupleIJSt6vectorImSaImEES9_IT_SaISC_EEEERKSE_EUlRKSC_RKT0_E_EclINS_17__normal_iteratorIPS8_IJS7_mEES9_ISR_SaISR_EEEESV_EEbSC_SK_.exit.thread.i37
@@ -29964,7 +29964,7 @@ _ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN5nblib6detail30eliminateDuplicateInteract
   %30 = load i64, ptr %26, align 8
   store i64 %30, ptr %27, align 8
   %31 = add nsw i64 %.010.i.i.i.i.i.i, -1
-  %32 = icmp ugt i64 %.010.i.i.i.i.i.i, 1
+  %32 = icmp samesign ugt i64 %.010.i.i.i.i.i.i, 1
   br i1 %32, label %.lr.ph.i.i.i.i.i.i, label %_ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPSt5tupleIJN5nblib12QuarticAngleEmEESt6vectorIS5_SaIS5_EEEESA_ET0_T_SC_SB_.exit.i, !llvm.loop !304
 
 _ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPSt5tupleIJN5nblib12QuarticAngleEmEESt6vectorIS5_SaIS5_EEEESA_ET0_T_SC_SB_.exit.i: ; preds = %.lr.ph.i.i.i.i.i.i
@@ -30161,7 +30161,7 @@ _ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN5nblib6detail30eliminateDuplicateInteract
   %94 = load i64, ptr %90, align 8
   store i64 %94, ptr %91, align 8
   %95 = add nsw i64 %.010.i.i.i.i.i.i63, -1
-  %96 = icmp ugt i64 %.010.i.i.i.i.i.i63, 1
+  %96 = icmp samesign ugt i64 %.010.i.i.i.i.i.i63, 1
   br i1 %96, label %.lr.ph.i.i.i.i.i.i62, label %_ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPSt5tupleIJN5nblib12QuarticAngleEmEESt6vectorIS5_SaIS5_EEEESA_ET0_T_SC_SB_.exit.i60, !llvm.loop !304
 
 _ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPSt5tupleIJN5nblib12QuarticAngleEmEESt6vectorIS5_SaIS5_EEEESA_ET0_T_SC_SB_.exit.i60: ; preds = %.lr.ph.i.i.i.i.i.i62, %83
@@ -32106,7 +32106,7 @@ _ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN5nblib6detail30eliminateDuplicateInteract
   %28 = load i64, ptr %23, align 8
   store i64 %28, ptr %24, align 8
   %29 = add nsw i64 %.010.i.i.i.i.i.i, -1
-  %30 = icmp ugt i64 %.010.i.i.i.i.i.i, 1
+  %30 = icmp samesign ugt i64 %.010.i.i.i.i.i.i, 1
   br i1 %30, label %.lr.ph.i.i.i.i.i.i, label %_ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPSt5tupleIJN5nblib16CosineParamAngleINS3_24RestrictedAngleParameterEEEmEESt6vectorIS7_SaIS7_EEEESC_ET0_T_SE_SD_.exit.i, !llvm.loop !325
 
 _ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPSt5tupleIJN5nblib16CosineParamAngleINS3_24RestrictedAngleParameterEEEmEESt6vectorIS7_SaIS7_EEEESC_ET0_T_SE_SD_.exit.i: ; preds = %.lr.ph.i.i.i.i.i.i
@@ -32269,7 +32269,7 @@ _ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN5nblib6detail30eliminateDuplicateInteract
   %93 = load i64, ptr %88, align 8
   store i64 %93, ptr %89, align 8
   %94 = add nsw i64 %.010.i.i.i.i.i.i41, -1
-  %95 = icmp ugt i64 %.010.i.i.i.i.i.i41, 1
+  %95 = icmp samesign ugt i64 %.010.i.i.i.i.i.i41, 1
   br i1 %95, label %.lr.ph.i.i.i.i.i.i40, label %_ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPSt5tupleIJN5nblib16CosineParamAngleINS3_24RestrictedAngleParameterEEEmEESt6vectorIS7_SaIS7_EEEESC_ET0_T_SE_SD_.exit.i38, !llvm.loop !325
 
 _ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPSt5tupleIJN5nblib16CosineParamAngleINS3_24RestrictedAngleParameterEEEmEESt6vectorIS7_SaIS7_EEEESC_ET0_T_SE_SD_.exit.i38: ; preds = %.lr.ph.i.i.i.i.i.i40, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN5nblib6detail30eliminateDuplicateInteractionsINS2_16CosineParamAngleINS2_24RestrictedAngleParameterEEEEESt5tupleIJSt6vectorImSaImEES9_IT_SaISC_EEEERKSE_EUlRKSC_RKT0_E_EclINS_17__normal_iteratorIPS8_IJS7_mEES9_ISR_SaISR_EEEESV_EEbSC_SK_.exit.thread.i37
@@ -33948,7 +33948,7 @@ _ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN5nblib6detail30eliminateDuplicateInteract
   %40 = load i64, ptr %36, align 8
   store i64 %40, ptr %37, align 8
   %41 = add nsw i64 %.010.i.i.i.i.i.i, -1
-  %42 = icmp ugt i64 %.010.i.i.i.i.i.i, 1
+  %42 = icmp samesign ugt i64 %.010.i.i.i.i.i.i, 1
   br i1 %42, label %.lr.ph.i.i.i.i.i.i, label %_ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPSt5tupleIJN5nblib13CrossBondBondEmEESt6vectorIS5_SaIS5_EEEESA_ET0_T_SC_SB_.exit.i, !llvm.loop !341
 
 _ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPSt5tupleIJN5nblib13CrossBondBondEmEESt6vectorIS5_SaIS5_EEEESA_ET0_T_SC_SB_.exit.i: ; preds = %.lr.ph.i.i.i.i.i.i
@@ -34694,7 +34694,7 @@ _ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN5nblib6detail30eliminateDuplicateInteract
   %35 = load i64, ptr %31, align 8
   store i64 %35, ptr %32, align 8
   %36 = add nsw i64 %.010.i.i.i.i.i, -1
-  %37 = icmp ugt i64 %.010.i.i.i.i.i, 1
+  %37 = icmp samesign ugt i64 %.010.i.i.i.i.i, 1
   br i1 %37, label %.lr.ph.i.i.i.i.i, label %_ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPSt5tupleIJN5nblib13CrossBondBondEmEESt6vectorIS5_SaIS5_EEEESA_ET0_T_SC_SB_.exit, !llvm.loop !341
 
 _ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPSt5tupleIJN5nblib13CrossBondBondEmEESt6vectorIS5_SaIS5_EEEESA_ET0_T_SC_SB_.exit: ; preds = %.lr.ph.i.i.i.i.i, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN5nblib6detail30eliminateDuplicateInteractionsINS2_13CrossBondBondEEESt5tupleIJSt6vectorImSaImEES7_IT_SaISA_EEEERKSC_EUlRKSA_RKT0_E_EclINS_17__normal_iteratorIPS6_IJS5_mEES7_ISP_SaISP_EEEEST_EEbSA_SI_.exit.thread
@@ -36934,7 +36934,7 @@ _ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN5nblib6detail30eliminateDuplicateInteract
   %43 = load i64, ptr %39, align 8
   store i64 %43, ptr %40, align 8
   %44 = add nsw i64 %.010.i.i.i.i.i, -1
-  %45 = icmp ugt i64 %.010.i.i.i.i.i, 1
+  %45 = icmp samesign ugt i64 %.010.i.i.i.i.i, 1
   br i1 %45, label %.lr.ph.i.i.i.i.i, label %_ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPSt5tupleIJN5nblib14CrossBondAngleEmEESt6vectorIS5_SaIS5_EEEESA_ET0_T_SC_SB_.exit, !llvm.loop !372
 
 _ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPSt5tupleIJN5nblib14CrossBondAngleEmEESt6vectorIS5_SaIS5_EEEESA_ET0_T_SC_SB_.exit: ; preds = %.lr.ph.i.i.i.i.i, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN5nblib6detail30eliminateDuplicateInteractionsINS2_14CrossBondAngleEEESt5tupleIJSt6vectorImSaImEES7_IT_SaISA_EEEERKSC_EUlRKSA_RKT0_E_EclINS_17__normal_iteratorIPS6_IJS5_mEES7_ISP_SaISP_EEEEST_EEbSA_SI_.exit.thread
@@ -38577,7 +38577,7 @@ _ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN5nblib6detail30eliminateDuplicateInteract
   %28 = load i64, ptr %23, align 8
   store i64 %28, ptr %24, align 8
   %29 = add nsw i64 %.010.i.i.i.i.i.i, -1
-  %30 = icmp ugt i64 %.010.i.i.i.i.i.i, 1
+  %30 = icmp samesign ugt i64 %.010.i.i.i.i.i.i, 1
   br i1 %30, label %.lr.ph.i.i.i.i.i.i, label %_ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPSt5tupleIJN5nblib23TwoParameterInteractionINS3_20LinearAngleParameterEEEmEESt6vectorIS7_SaIS7_EEEESC_ET0_T_SE_SD_.exit.i, !llvm.loop !389
 
 _ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPSt5tupleIJN5nblib23TwoParameterInteractionINS3_20LinearAngleParameterEEEmEESt6vectorIS7_SaIS7_EEEESC_ET0_T_SE_SD_.exit.i: ; preds = %.lr.ph.i.i.i.i.i.i
@@ -38740,7 +38740,7 @@ _ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN5nblib6detail30eliminateDuplicateInteract
   %93 = load i64, ptr %88, align 8
   store i64 %93, ptr %89, align 8
   %94 = add nsw i64 %.010.i.i.i.i.i.i41, -1
-  %95 = icmp ugt i64 %.010.i.i.i.i.i.i41, 1
+  %95 = icmp samesign ugt i64 %.010.i.i.i.i.i.i41, 1
   br i1 %95, label %.lr.ph.i.i.i.i.i.i40, label %_ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPSt5tupleIJN5nblib23TwoParameterInteractionINS3_20LinearAngleParameterEEEmEESt6vectorIS7_SaIS7_EEEESC_ET0_T_SE_SD_.exit.i38, !llvm.loop !389
 
 _ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPSt5tupleIJN5nblib23TwoParameterInteractionINS3_20LinearAngleParameterEEEmEESt6vectorIS7_SaIS7_EEEESC_ET0_T_SE_SD_.exit.i38: ; preds = %.lr.ph.i.i.i.i.i.i40, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN5nblib6detail30eliminateDuplicateInteractionsINS2_23TwoParameterInteractionINS2_20LinearAngleParameterEEEEESt5tupleIJSt6vectorImSaImEES9_IT_SaISC_EEEERKSE_EUlRKSC_RKT0_E_EclINS_17__normal_iteratorIPS8_IJS7_mEES9_ISR_SaISR_EEEESV_EEbSC_SK_.exit.thread.i37
@@ -40427,7 +40427,7 @@ _ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN5nblib6detail30eliminateDuplicateInteract
   %40 = load i64, ptr %36, align 8
   store i64 %40, ptr %37, align 8
   %41 = add nsw i64 %.010.i.i.i.i.i.i, -1
-  %42 = icmp ugt i64 %.010.i.i.i.i.i.i, 1
+  %42 = icmp samesign ugt i64 %.010.i.i.i.i.i.i, 1
   br i1 %42, label %.lr.ph.i.i.i.i.i.i, label %_ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPSt5tupleIJN5nblib14ProperDihedralEmEESt6vectorIS5_SaIS5_EEEESA_ET0_T_SC_SB_.exit.i, !llvm.loop !405
 
 _ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPSt5tupleIJN5nblib14ProperDihedralEmEESt6vectorIS5_SaIS5_EEEESA_ET0_T_SC_SB_.exit.i: ; preds = %.lr.ph.i.i.i.i.i.i
@@ -41173,7 +41173,7 @@ _ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN5nblib6detail30eliminateDuplicateInteract
   %35 = load i64, ptr %31, align 8
   store i64 %35, ptr %32, align 8
   %36 = add nsw i64 %.010.i.i.i.i.i, -1
-  %37 = icmp ugt i64 %.010.i.i.i.i.i, 1
+  %37 = icmp samesign ugt i64 %.010.i.i.i.i.i, 1
   br i1 %37, label %.lr.ph.i.i.i.i.i, label %_ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPSt5tupleIJN5nblib14ProperDihedralEmEESt6vectorIS5_SaIS5_EEEESA_ET0_T_SC_SB_.exit, !llvm.loop !405
 
 _ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPSt5tupleIJN5nblib14ProperDihedralEmEESt6vectorIS5_SaIS5_EEEESA_ET0_T_SC_SB_.exit: ; preds = %.lr.ph.i.i.i.i.i, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN5nblib6detail30eliminateDuplicateInteractionsINS2_14ProperDihedralEEESt5tupleIJSt6vectorImSaImEES7_IT_SaISA_EEEERKSC_EUlRKSA_RKT0_E_EclINS_17__normal_iteratorIPS6_IJS5_mEES7_ISP_SaISP_EEEEST_EEbSA_SI_.exit.thread
@@ -42877,7 +42877,7 @@ _ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN5nblib6detail30eliminateDuplicateInteract
   %28 = load i64, ptr %23, align 8
   store i64 %28, ptr %24, align 8
   %29 = add nsw i64 %.010.i.i.i.i.i.i, -1
-  %30 = icmp ugt i64 %.010.i.i.i.i.i.i, 1
+  %30 = icmp samesign ugt i64 %.010.i.i.i.i.i.i, 1
   br i1 %30, label %.lr.ph.i.i.i.i.i.i, label %_ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPSt5tupleIJN5nblib16ImproperDihedralEmEESt6vectorIS5_SaIS5_EEEESA_ET0_T_SC_SB_.exit.i, !llvm.loop !433
 
 _ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPSt5tupleIJN5nblib16ImproperDihedralEmEESt6vectorIS5_SaIS5_EEEESA_ET0_T_SC_SB_.exit.i: ; preds = %.lr.ph.i.i.i.i.i.i
@@ -43040,7 +43040,7 @@ _ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN5nblib6detail30eliminateDuplicateInteract
   %93 = load i64, ptr %88, align 8
   store i64 %93, ptr %89, align 8
   %94 = add nsw i64 %.010.i.i.i.i.i.i41, -1
-  %95 = icmp ugt i64 %.010.i.i.i.i.i.i41, 1
+  %95 = icmp samesign ugt i64 %.010.i.i.i.i.i.i41, 1
   br i1 %95, label %.lr.ph.i.i.i.i.i.i40, label %_ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPSt5tupleIJN5nblib16ImproperDihedralEmEESt6vectorIS5_SaIS5_EEEESA_ET0_T_SC_SB_.exit.i38, !llvm.loop !433
 
 _ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPSt5tupleIJN5nblib16ImproperDihedralEmEESt6vectorIS5_SaIS5_EEEESA_ET0_T_SC_SB_.exit.i38: ; preds = %.lr.ph.i.i.i.i.i.i40, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN5nblib6detail30eliminateDuplicateInteractionsINS2_16ImproperDihedralEEESt5tupleIJSt6vectorImSaImEES7_IT_SaISA_EEEERKSC_EUlRKSA_RKT0_E_EclINS_17__normal_iteratorIPS6_IJS5_mEES7_ISP_SaISP_EEEEST_EEbSA_SI_.exit.thread.i37
@@ -44867,7 +44867,7 @@ define linkonce_odr void @_ZSt22__final_insertion_sortIN9__gnu_cxx17__normal_ite
   %26 = load i64, ptr %22, align 8
   store i64 %26, ptr %23, align 8
   %27 = add nsw i64 %.010.i.i.i.i.i.i, -1
-  %28 = icmp ugt i64 %.010.i.i.i.i.i.i, 1
+  %28 = icmp samesign ugt i64 %.010.i.i.i.i.i.i, 1
   br i1 %28, label %.lr.ph.i.i.i.i.i.i, label %_ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPSt5tupleIJN5nblib24RyckaertBellemanDihedralEmEESt6vectorIS5_SaIS5_EEEESA_ET0_T_SC_SB_.exit.i, !llvm.loop !454
 
 _ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPSt5tupleIJN5nblib24RyckaertBellemanDihedralEmEESt6vectorIS5_SaIS5_EEEESA_ET0_T_SC_SB_.exit.i: ; preds = %.lr.ph.i.i.i.i.i.i
@@ -45040,7 +45040,7 @@ _ZSt25__unguarded_linear_insertIN9__gnu_cxx17__normal_iteratorIPSt5tupleIJN5nbli
   %81 = load i64, ptr %77, align 8
   store i64 %81, ptr %78, align 8
   %82 = add nsw i64 %.010.i.i.i.i.i.i54, -1
-  %83 = icmp ugt i64 %.010.i.i.i.i.i.i54, 1
+  %83 = icmp samesign ugt i64 %.010.i.i.i.i.i.i54, 1
   br i1 %83, label %.lr.ph.i.i.i.i.i.i53, label %_ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPSt5tupleIJN5nblib24RyckaertBellemanDihedralEmEESt6vectorIS5_SaIS5_EEEESA_ET0_T_SC_SB_.exit.i51, !llvm.loop !454
 
 _ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPSt5tupleIJN5nblib24RyckaertBellemanDihedralEmEESt6vectorIS5_SaIS5_EEEESA_ET0_T_SC_SB_.exit.i51: ; preds = %.lr.ph.i.i.i.i.i.i53, %70
@@ -47564,7 +47564,7 @@ _ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN5nblib6detail30eliminateDuplicateInteract
   %43 = load i64, ptr %39, align 8
   store i64 %43, ptr %40, align 8
   %44 = add nsw i64 %.010.i.i.i.i.i, -1
-  %45 = icmp ugt i64 %.010.i.i.i.i.i, 1
+  %45 = icmp samesign ugt i64 %.010.i.i.i.i.i, 1
   br i1 %45, label %.lr.ph.i.i.i.i.i, label %_ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPSt5tupleIJN5nblib14Default5CenterEmEESt6vectorIS5_SaIS5_EEEESA_ET0_T_SC_SB_.exit, !llvm.loop !492
 
 _ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPSt5tupleIJN5nblib14Default5CenterEmEESt6vectorIS5_SaIS5_EEEESA_ET0_T_SC_SB_.exit: ; preds = %.lr.ph.i.i.i.i.i, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN5nblib6detail30eliminateDuplicateInteractionsINS2_14Default5CenterEEESt5tupleIJSt6vectorImSaImEES7_IT_SaISA_EEEERKSC_EUlRKSA_RKT0_E_EclINS_17__normal_iteratorIPS6_IJS5_mEES7_ISP_SaISP_EEEEST_EEbSA_SI_.exit.thread

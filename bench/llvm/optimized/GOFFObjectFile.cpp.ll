@@ -1328,7 +1328,7 @@ _ZN4llvm5ErrorD2Ev.exit:                          ; preds = %3
   br label %70
 
 38:                                               ; preds = %3
-  %switch = icmp ult i8 %.0.copyload.i.i.i.i.i.i, 2
+  %switch = icmp samesign ult i8 %.0.copyload.i.i.i.i.i.i, 2
   br i1 %switch, label %39, label %43
 
 39:                                               ; preds = %38
@@ -2192,7 +2192,7 @@ _ZN4llvm5ErrorD2Ev.exit32:                        ; preds = %_ZN4llvm15SmallVect
   %107 = getelementptr inbounds i8, ptr %.0910.i.i.i.i.i, i64 1
   %108 = getelementptr inbounds i8, ptr %.0811.i.i.i.i.i, i64 1
   %109 = add nsw i64 %.012.i.i.i.i.i, -1
-  %110 = icmp ugt i64 %.012.i.i.i.i.i, 1
+  %110 = icmp samesign ugt i64 %.012.i.i.i.i.i, 1
   br i1 %110, label %.lr.ph.i.i.i.i.i, label %_ZSt4copyIPcPhET0_T_S3_S2_.exit, !llvm.loop !120
 
 _ZSt4copyIPcPhET0_T_S3_S2_.exit:                  ; preds = %.lr.ph.i.i.i.i.i, %_ZN4llvm5ErrorD2Ev.exit32
@@ -2660,7 +2660,7 @@ _ZN4llvm15SmallVectorImplIcE7reserveEm.exit:      ; preds = %3, %11
   %18 = getelementptr inbounds i8, ptr %.0910.i.i.i.i.i.i.i.i, i64 1
   %19 = getelementptr inbounds i8, ptr %.0811.i.i.i.i.i.i.i.i, i64 1
   %20 = add nsw i64 %.012.i.i.i.i.i.i.i.i, -1
-  %21 = icmp ugt i64 %.012.i.i.i.i.i.i.i.i, 1
+  %21 = icmp samesign ugt i64 %.012.i.i.i.i.i.i.i.i, 1
   br i1 %21, label %.lr.ph.i.i.i.i.i.i.i.i, label %_ZN4llvm23SmallVectorTemplateBaseIcLb1EE18uninitialized_copyIPKhPcEEvT_S6_T0_.exit, !llvm.loop !126
 
 _ZN4llvm23SmallVectorTemplateBaseIcLb1EE18uninitialized_copyIPKhPcEEvT_S6_T0_.exit: ; preds = %.lr.ph.i.i.i.i.i.i.i.i, %_ZN4llvm15SmallVectorImplIcE7reserveEm.exit

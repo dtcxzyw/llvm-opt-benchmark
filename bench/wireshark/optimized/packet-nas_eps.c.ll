@@ -2216,7 +2216,7 @@ calc_bitrate.exit175:                             ; preds = %38, %42, %45
 
 70:                                               ; preds = %66
   %71 = add nsw i8 %56, 69
-  %or.cond8.i = icmp ult i8 %71, 64
+  %or.cond8.i = icmp samesign ult i8 %71, 64
   br i1 %or.cond8.i, label %72, label %calc_bitrate_ext.exit
 
 72:                                               ; preds = %70
@@ -2291,7 +2291,7 @@ calc_bitrate_ext.exit:                            ; preds = %63, %68, %70, %72
 
 110:                                              ; preds = %106
   %111 = add nsw i8 %96, 69
-  %or.cond8.i181 = icmp ult i8 %111, 64
+  %or.cond8.i181 = icmp samesign ult i8 %111, 64
   br i1 %or.cond8.i181, label %112, label %calc_bitrate_ext.exit183
 
 112:                                              ; preds = %110
@@ -2614,7 +2614,7 @@ calc_bitrate.exit226:                             ; preds = %85, %89, %92
 
 114:                                              ; preds = %110
   %115 = add nsw i8 %99, 69
-  %or.cond8.i = icmp ult i8 %115, 64
+  %or.cond8.i = icmp samesign ult i8 %115, 64
   br i1 %or.cond8.i, label %116, label %calc_bitrate_ext.exit
 
 116:                                              ; preds = %114
@@ -2666,7 +2666,7 @@ calc_bitrate_ext.exit:                            ; preds = %107, %112, %114, %1
 
 141:                                              ; preds = %137
   %142 = add nsw i8 %126, 69
-  %or.cond8.i232 = icmp ult i8 %142, 64
+  %or.cond8.i232 = icmp samesign ult i8 %142, 64
   br i1 %or.cond8.i232, label %143, label %calc_bitrate_ext.exit234
 
 143:                                              ; preds = %141
@@ -2718,7 +2718,7 @@ calc_bitrate_ext.exit234:                         ; preds = %134, %139, %141, %1
 
 168:                                              ; preds = %164
   %169 = add nsw i8 %153, 69
-  %or.cond8.i237 = icmp ult i8 %169, 64
+  %or.cond8.i237 = icmp samesign ult i8 %169, 64
   br i1 %or.cond8.i237, label %170, label %calc_bitrate_ext.exit239
 
 170:                                              ; preds = %168
@@ -2770,7 +2770,7 @@ calc_bitrate_ext.exit239:                         ; preds = %161, %166, %168, %1
 
 195:                                              ; preds = %191
   %196 = add nsw i8 %180, 69
-  %or.cond8.i242 = icmp ult i8 %196, 64
+  %or.cond8.i242 = icmp samesign ult i8 %196, 64
   br i1 %or.cond8.i242, label %197, label %calc_bitrate_ext.exit244
 
 197:                                              ; preds = %195
@@ -2894,7 +2894,7 @@ define internal fastcc range(i32 260, 10001) i32 @calc_bitrate_ext2(i8 noundef z
 
 12:                                               ; preds = %7
   %13 = add nsw i8 %0, 94
-  %or.cond8 = icmp ult i8 %13, 85
+  %or.cond8 = icmp samesign ult i8 %13, 85
   br i1 %or.cond8, label %14, label %17
 
 14:                                               ; preds = %12

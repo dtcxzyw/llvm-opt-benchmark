@@ -1518,7 +1518,7 @@ _fill_diag_values.exit174.i:                      ; preds = %.lr.ph.split.us.i17
   %453 = load i64, ptr %452, align 8
   store i64 %453, ptr %451, align 8
   %indvars.iv.next.i.i = add nsw i64 %indvars.iv.i.i, -1
-  %454 = icmp ugt i64 %indvars.iv.i.i, 1
+  %454 = icmp samesign ugt i64 %indvars.iv.i.i, 1
   br i1 %454, label %449, label %_adj_assemble_csc.exit, !llvm.loop !19
 
 _adj_assemble_csc.exit:                           ; preds = %449, %_fill_diag_values.exit174.i

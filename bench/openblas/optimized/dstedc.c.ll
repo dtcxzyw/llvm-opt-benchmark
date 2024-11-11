@@ -76,9 +76,9 @@ define void @dstedc_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
 44:                                               ; preds = %39
   %45 = load i32, ptr %5, align 4, !tbaa !3
   %46 = icmp slt i32 %45, 1
-  %47 = icmp ugt i32 %42, %45
+  %47 = icmp samesign ugt i32 %42, %45
   %48 = and i1 %32, %47
-  %or.cond = or i1 %46, %48
+  %or.cond = select i1 %46, i1 true, i1 %48
   br i1 %or.cond, label %.thread31.sink.split, label %49
 
 49:                                               ; preds = %44

@@ -10,11 +10,11 @@ entry:
   br i1 %cmp, label %if.then, label %if.end
 
 if.then:                                          ; preds = %entry
-  %cmp1 = icmp ult i64 %len, 13
+  %cmp1 = icmp samesign ult i64 %len, 13
   br i1 %cmp1, label %cond.true, label %cond.false5
 
 cond.true:                                        ; preds = %if.then
-  %cmp2 = icmp ult i64 %len, 5
+  %cmp2 = icmp samesign ult i64 %len, 5
   br i1 %cmp2, label %cond.true3, label %cond.false
 
 cond.true3:                                       ; preds = %cond.true
@@ -317,7 +317,7 @@ entry:
   br i1 %cmp, label %if.then, label %if.else4
 
 if.then:                                          ; preds = %entry
-  %cmp1 = icmp ult i64 %len, 17
+  %cmp1 = icmp samesign ult i64 %len, 17
   br i1 %cmp1, label %if.then2, label %if.else
 
 if.then2:                                         ; preds = %if.then

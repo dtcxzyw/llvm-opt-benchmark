@@ -856,11 +856,11 @@ define internal i32 @dissect_pn_rt(ptr noundef %0, ptr noundef %1, ptr noundef %
   br i1 %53, label %100, label %54
 
 54:                                               ; preds = %52
-  %55 = icmp ult i16 %27, -16384
+  %55 = icmp samesign ult i16 %27, -16384
   br i1 %55, label %100, label %56
 
 56:                                               ; preds = %54
-  %57 = icmp ult i16 %27, -2048
+  %57 = icmp samesign ult i16 %27, -2048
   br i1 %57, label %58, label %62
 
 58:                                               ; preds = %56
@@ -873,7 +873,7 @@ define internal i32 @dissect_pn_rt(ptr noundef %0, ptr noundef %1, ptr noundef %
   br label %100
 
 62:                                               ; preds = %56
-  %63 = icmp ult i16 %27, -1024
+  %63 = icmp samesign ult i16 %27, -1024
   br i1 %63, label %64, label %68
 
 64:                                               ; preds = %62
@@ -886,7 +886,7 @@ define internal i32 @dissect_pn_rt(ptr noundef %0, ptr noundef %1, ptr noundef %
   br label %100
 
 68:                                               ; preds = %62
-  %69 = icmp ult i16 %27, -512
+  %69 = icmp samesign ult i16 %27, -512
   br i1 %69, label %70, label %72
 
 70:                                               ; preds = %68
@@ -896,7 +896,7 @@ define internal i32 @dissect_pn_rt(ptr noundef %0, ptr noundef %1, ptr noundef %
   br label %119
 
 72:                                               ; preds = %68
-  %73 = icmp ult i16 %27, -256
+  %73 = icmp samesign ult i16 %27, -256
   br i1 %73, label %74, label %86
 
 74:                                               ; preds = %72
@@ -924,15 +924,15 @@ define internal i32 @dissect_pn_rt(ptr noundef %0, ptr noundef %1, ptr noundef %
   br label %119
 
 86:                                               ; preds = %72
-  %87 = icmp ult i16 %27, -254
+  %87 = icmp samesign ult i16 %27, -254
   br i1 %87, label %119, label %88
 
 88:                                               ; preds = %86
-  %89 = icmp ult i16 %27, -224
+  %89 = icmp samesign ult i16 %27, -224
   br i1 %89, label %119, label %90
 
 90:                                               ; preds = %88
-  %91 = icmp ult i16 %27, -222
+  %91 = icmp samesign ult i16 %27, -222
   br i1 %91, label %119, label %92
 
 92:                                               ; preds = %90
@@ -940,15 +940,15 @@ define internal i32 @dissect_pn_rt(ptr noundef %0, ptr noundef %1, ptr noundef %
   br i1 %93, label %119, label %94
 
 94:                                               ; preds = %92
-  %95 = icmp ult i16 %27, -188
+  %95 = icmp samesign ult i16 %27, -188
   br i1 %95, label %119, label %96
 
 96:                                               ; preds = %94
-  %97 = icmp ult i16 %27, -128
+  %97 = icmp samesign ult i16 %27, -128
   br i1 %97, label %119, label %98
 
 98:                                               ; preds = %96
-  %99 = icmp ult i16 %27, -112
+  %99 = icmp samesign ult i16 %27, -112
   %.str.155..str.146 = select i1 %99, ptr @.str.155, ptr @.str.146
   %.str.170..str.113 = select i1 %99, ptr @.str.170, ptr @.str.113
   %.str.171..str.172 = select i1 %99, ptr @.str.171, ptr @.str.172

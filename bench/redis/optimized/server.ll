@@ -2633,7 +2633,7 @@ land.lhs.true:                                    ; preds = %if.end
   br i1 %cmp2, label %if.end21.thread32, label %if.else
 
 if.end21.thread32:                                ; preds = %land.lhs.true
-  %cmp5 = icmp ult i64 %2, 1023
+  %cmp5 = icmp samesign ult i64 %2, 1023
   %add = add nuw nsw i64 %2, 1
   %spec.select = select i1 %cmp5, i64 1024, i64 %add
   %3 = load i64, ptr getelementptr inbounds (i8, ptr @server, i64 3552), align 8
@@ -17830,7 +17830,7 @@ if.then105:                                       ; preds = %if.end99
 
 if.end111:                                        ; preds = %if.then105, %if.end99
   %j.1 = phi i32 [ 2, %if.then105 ], [ 1, %if.end99 ]
-  %cmp112175 = icmp ult i32 %j.1, %argc
+  %cmp112175 = icmp samesign ult i32 %j.1, %argc
   br i1 %cmp112175, label %while.body.lr.ph, label %while.end
 
 while.body.lr.ph:                                 ; preds = %if.end111

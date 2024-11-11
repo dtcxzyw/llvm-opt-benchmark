@@ -491,7 +491,7 @@ if.then115:                                       ; preds = %if.then104
   br label %return
 
 if.end118:                                        ; preds = %if.end96
-  %cmp119 = icmp ugt i64 %nlen.0.lcssa, 6
+  %cmp119 = icmp samesign ugt i64 %nlen.0.lcssa, 6
   %cmp124 = icmp eq i8 %3, 95
   %or.cond471 = and i1 %cmp124, %cmp119
   br i1 %or.cond471, label %land.lhs.true126, label %if.end147
@@ -830,7 +830,7 @@ land.lhs.true343:                                 ; preds = %land.lhs.true306
 if.then346:                                       ; preds = %land.lhs.true343
   %43 = load i64, ptr %expires, align 8
   %tobool348 = icmp eq i64 %43, 0
-  %cmp350 = icmp ult i64 %vlen.2, 128
+  %cmp350 = icmp samesign ult i64 %vlen.2, 128
   %or.cond2 = and i1 %cmp350, %tobool348
   br i1 %or.cond2, label %if.then352, label %if.end378
 

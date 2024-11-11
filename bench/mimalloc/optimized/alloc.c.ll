@@ -3082,7 +3082,7 @@ entry.split.us.split:                             ; preds = %entry.split.us
   %6 = load ptr, ptr %0, align 8
   %call.i.i.i.us47 = tail call fastcc i64 @_mi_usable_size(ptr noundef nonnull %p) #15
   %div24.i.i.i.us48 = lshr i64 %call.i.i.i.us47, 1
-  %cmp1.not.i.i.i.us49 = icmp ult i64 %newsize, %div24.i.i.i.us48
+  %cmp1.not.i.i.i.us49 = icmp samesign ult i64 %newsize, %div24.i.i.i.us48
   %7 = icmp uge i64 %1, %call.i.i.i.us47
   %or.cond26.not.i.i.i.us50 = or i1 %7, %cmp1.not.i.i.i.us49
   br i1 %or.cond26.not.i.i.i.us50, label %if.end.i.i.i.us, label %do.end

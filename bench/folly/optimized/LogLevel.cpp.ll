@@ -2003,7 +2003,7 @@ if.then44:                                        ; preds = %entry
   br label %return
 
 land.lhs.true:                                    ; preds = %for.body.preheader
-  %cmp59 = icmp ugt i32 %level, 1000
+  %cmp59 = icmp samesign ugt i32 %level, 1000
   br i1 %cmp59, label %if.then60, label %for.inc.1
 
 if.then60:                                        ; preds = %for.inc, %land.lhs.true

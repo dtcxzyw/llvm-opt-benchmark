@@ -10215,7 +10215,7 @@ select.unfold:                                    ; preds = %840, %836, %832, %8
   %1416 = and i64 %1415, 8796093022208
   %1417 = icmp ne i64 %1416, 0
   %1418 = add nsw i32 %1409, -12289
-  %1419 = icmp ult i32 %1418, 2
+  %1419 = icmp samesign ult i32 %1418, 2
   %1420 = and i1 %1419, %1417
   br i1 %1420, label %1431, label %1421
 
@@ -23700,7 +23700,7 @@ define internal i32 @tg3_set_ringparam(ptr noundef %0, ptr nocapture noundef rea
   %24 = load volatile i64, ptr %23, align 8
   %25 = and i64 %24, 17592186044416
   %26 = icmp ne i64 %25, 0
-  %27 = icmp ult i32 %19, 52
+  %27 = icmp samesign ult i32 %19, 52
   %28 = and i1 %27, %26
   br i1 %28, label %tg3_phy_start.exit, label %29
 

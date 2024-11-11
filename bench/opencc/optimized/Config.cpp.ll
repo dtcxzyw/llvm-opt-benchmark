@@ -9719,7 +9719,7 @@ define linkonce_odr void @_ZN9rapidjson13GenericReaderINS_4UTF8IcEES2_NS_12CrtAl
   br i1 %.not210, label %29, label %.loopexit
 
 29:                                               ; preds = %28
-  %30 = icmp ugt i8 %26, 56
+  %30 = icmp samesign ugt i8 %26, 56
   br i1 %30, label %.loopexit, label %31
 
 31:                                               ; preds = %29, %.lr.ph514
@@ -9747,7 +9747,7 @@ define linkonce_odr void @_ZN9rapidjson13GenericReaderINS_4UTF8IcEES2_NS_12CrtAl
   br i1 %.not, label %43, label %.loopexit
 
 43:                                               ; preds = %42
-  %44 = icmp ugt i8 %40, 53
+  %44 = icmp samesign ugt i8 %40, 53
   br i1 %44, label %.loopexit, label %45
 
 45:                                               ; preds = %43, %.lr.ph
@@ -9789,8 +9789,8 @@ define linkonce_odr void @_ZN9rapidjson13GenericReaderINS_4UTF8IcEES2_NS_12CrtAl
 
 62:                                               ; preds = %.lr.ph530
   %.not212 = icmp ne i64 %.2188528, 922337203685477580
-  %63 = icmp ugt i8 %60, 56
-  %or.cond461 = or i1 %.not212, %63
+  %63 = icmp samesign ugt i8 %60, 56
+  %or.cond461 = select i1 %.not212, i1 true, i1 %63
   br i1 %or.cond461, label %.critedge223, label %64
 
 64:                                               ; preds = %62, %.lr.ph530
@@ -9815,8 +9815,8 @@ define linkonce_odr void @_ZN9rapidjson13GenericReaderINS_4UTF8IcEES2_NS_12CrtAl
 
 75:                                               ; preds = %.lr.ph522
   %.not211 = icmp ne i64 %.3189520, 1844674407370955161
-  %76 = icmp ugt i8 %73, 53
-  %or.cond463 = or i1 %.not211, %76
+  %76 = icmp samesign ugt i8 %73, 53
+  %or.cond463 = select i1 %.not211, i1 true, i1 %76
   br i1 %or.cond463, label %.critedge223, label %77
 
 77:                                               ; preds = %75, %.lr.ph522
@@ -10132,7 +10132,7 @@ define linkonce_odr void @_ZN9rapidjson13GenericReaderINS_4UTF8IcEES2_NS_12CrtAl
   br i1 %204, label %205, label %214
 
 205:                                              ; preds = %.critedge242.thread
-  %206 = icmp ult i32 %203, -616
+  %206 = icmp samesign ult i32 %203, -616
   br i1 %206, label %_ZN9rapidjson8internal21StrtodNormalPrecisionEdi.exit, label %207
 
 207:                                              ; preds = %205
@@ -10338,7 +10338,7 @@ _ZN9rapidjson15GenericDocumentINS_4UTF8IcEENS_19MemoryPoolAllocatorINS_12CrtAllo
   %.not.i10.i = icmp sgt i64 %.7193443, -1
   %spec.select.i11.i = select i1 %.not.i10.i, i16 406, i16 278
   %.not4.i.i = icmp ult i64 %.7193443, 4294967296
-  %.not5.i.i = icmp ult i64 %.7193443, 2147483648
+  %.not5.i.i = icmp samesign ult i64 %.7193443, 2147483648
   %spec.store.select.i.i = select i1 %.not5.i.i, i16 502, i16 470
   %storemerge.i.i = select i1 %.not4.i.i, i16 %spec.store.select.i.i, i16 %spec.select.i11.i
   %313 = getelementptr inbounds i8, ptr %310, i64 14
@@ -10835,14 +10835,14 @@ _ZN9rapidjson8internal5StackINS_12CrtAllocatorEE6ExpandINS_12GenericValueINS_4UT
   br i1 %44, label %45, label %46
 
 45:                                               ; preds = %39
-  %.not.i10 = icmp ult i64 %1, 4294967296
+  %.not.i10 = icmp samesign ult i64 %1, 4294967296
   %spec.select.i11 = select i1 %.not.i10, i16 470, i16 406
-  %.not5.i = icmp ult i64 %1, 2147483648
+  %.not5.i = icmp samesign ult i64 %1, 2147483648
   %spec.store.select.i = select i1 %.not5.i, i16 502, i16 %spec.select.i11
   br label %.sink.split.i
 
 46:                                               ; preds = %39
-  %47 = icmp ugt i64 %1, -2147483649
+  %47 = icmp samesign ugt i64 %1, -2147483649
   br i1 %47, label %.sink.split.i, label %_ZN9rapidjson12GenericValueINS_4UTF8IcEENS_19MemoryPoolAllocatorINS_12CrtAllocatorEEEEC2El.exit
 
 .sink.split.i:                                    ; preds = %46, %45

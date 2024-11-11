@@ -1019,7 +1019,7 @@ select.unfold.i:                                  ; preds = %select.unfold.i, %s
   %42 = load i32, ptr %41, align 4
   %43 = getelementptr inbounds i32, ptr %38, i64 %indvars.iv.next.i
   store i32 %42, ptr %43, align 4
-  %44 = icmp ugt i64 %indvars.iv.i, 1
+  %44 = icmp samesign ugt i64 %indvars.iv.i, 1
   br i1 %44, label %select.unfold.i, label %Kit_TruthCopy.exit, !llvm.loop !29
 
 Kit_TruthCopy.exit:                               ; preds = %select.unfold.i, %34

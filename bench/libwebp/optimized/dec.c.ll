@@ -2397,7 +2397,7 @@ Hev.exit:                                         ; preds = %27
   %41 = getelementptr inbounds i8, ptr %15, i64 %40
   %42 = load i8, ptr %41, align 1
   %43 = zext i8 %42 to i32
-  %.not17 = icmp ult i32 %6, %43
+  %.not17 = icmp samesign ult i32 %6, %43
   br i1 %.not17, label %Hev.exit.thread, label %73
 
 Hev.exit.thread:                                  ; preds = %27, %Hev.exit
@@ -2500,7 +2500,7 @@ Hev.exit.thread:                                  ; preds = %27, %Hev.exit
 
 129:                                              ; preds = %Hev.exit.thread, %73, %24
   %130 = getelementptr inbounds i8, ptr %.018, i64 %10
-  %131 = icmp ugt i32 %.in, 1
+  %131 = icmp samesign ugt i32 %.in, 1
   br i1 %131, label %24, label %132, !llvm.loop !36
 
 132:                                              ; preds = %129
@@ -2576,7 +2576,7 @@ define internal fastcc range(i32 0, 2) i32 @NeedsFilter2_C(ptr nocapture noundef
   %64 = getelementptr inbounds i8, ptr %36, i64 %63
   %65 = load i8, ptr %64, align 1
   %66 = zext i8 %65 to i32
-  %.not39 = icmp ult i32 %3, %66
+  %.not39 = icmp samesign ult i32 %3, %66
   br i1 %.not39, label %93, label %67
 
 67:                                               ; preds = %61
@@ -2585,7 +2585,7 @@ define internal fastcc range(i32 0, 2) i32 @NeedsFilter2_C(ptr nocapture noundef
   %70 = getelementptr inbounds i8, ptr %36, i64 %69
   %71 = load i8, ptr %70, align 1
   %72 = zext i8 %71 to i32
-  %.not40 = icmp ult i32 %3, %72
+  %.not40 = icmp samesign ult i32 %3, %72
   br i1 %.not40, label %93, label %73
 
 73:                                               ; preds = %67
@@ -2594,7 +2594,7 @@ define internal fastcc range(i32 0, 2) i32 @NeedsFilter2_C(ptr nocapture noundef
   %76 = getelementptr inbounds i8, ptr %36, i64 %75
   %77 = load i8, ptr %76, align 1
   %78 = zext i8 %77 to i32
-  %.not41 = icmp ult i32 %3, %78
+  %.not41 = icmp samesign ult i32 %3, %78
   br i1 %.not41, label %93, label %79
 
 79:                                               ; preds = %73
@@ -2603,7 +2603,7 @@ define internal fastcc range(i32 0, 2) i32 @NeedsFilter2_C(ptr nocapture noundef
   %82 = getelementptr inbounds i8, ptr %36, i64 %81
   %83 = load i8, ptr %82, align 1
   %84 = zext i8 %83 to i32
-  %.not42 = icmp ult i32 %3, %84
+  %.not42 = icmp samesign ult i32 %3, %84
   br i1 %.not42, label %93, label %85
 
 85:                                               ; preds = %79
@@ -2612,7 +2612,7 @@ define internal fastcc range(i32 0, 2) i32 @NeedsFilter2_C(ptr nocapture noundef
   %88 = getelementptr inbounds i8, ptr %36, i64 %87
   %89 = load i8, ptr %88, align 1
   %90 = zext i8 %89 to i32
-  %91 = icmp uge i32 %3, %90
+  %91 = icmp samesign uge i32 %3, %90
   %92 = zext i1 %91 to i32
   br label %93
 
@@ -2669,7 +2669,7 @@ Hev.exit:                                         ; preds = %23
   %37 = getelementptr inbounds i8, ptr %15, i64 %36
   %38 = load i8, ptr %37, align 1
   %39 = zext i8 %38 to i32
-  %.not17 = icmp ult i32 %6, %39
+  %.not17 = icmp samesign ult i32 %6, %39
   br i1 %.not17, label %Hev.exit.thread, label %69
 
 Hev.exit.thread:                                  ; preds = %23, %Hev.exit
@@ -2751,7 +2751,7 @@ Hev.exit.thread:                                  ; preds = %23, %Hev.exit
 
 106:                                              ; preds = %Hev.exit.thread, %69, %20
   %107 = getelementptr inbounds i8, ptr %.018, i64 %10
-  %108 = icmp ugt i32 %.in, 1
+  %108 = icmp samesign ugt i32 %.in, 1
   br i1 %108, label %20, label %109, !llvm.loop !37
 
 109:                                              ; preds = %106

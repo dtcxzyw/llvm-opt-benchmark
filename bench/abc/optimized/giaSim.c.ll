@@ -1046,7 +1046,7 @@ define void @Gia_ManSimInfoInit(ptr nocapture noundef readonly %0) local_unnamed
   %26 = tail call i32 @Gia_ManRandom(i32 noundef 0) #25
   %27 = getelementptr inbounds i32, ptr %23, i64 %indvars.iv.next.i
   store i32 %26, ptr %27, align 4
-  %28 = icmp ugt i64 %indvars.iv.i, 1
+  %28 = icmp samesign ugt i64 %indvars.iv.i, 1
   br i1 %28, label %.lr.ph.i, label %Gia_ManSimInfoRandom.exit, !llvm.loop !10
 
 29:                                               ; preds = %8
@@ -1128,7 +1128,7 @@ define void @Gia_ManSimInfoTransfer(ptr nocapture noundef readonly %0) local_unn
   %27 = tail call i32 @Gia_ManRandom(i32 noundef 0) #25
   %28 = getelementptr inbounds i32, ptr %23, i64 %indvars.iv.next.i
   store i32 %27, ptr %28, align 4
-  %29 = icmp ugt i64 %indvars.iv.i, 1
+  %29 = icmp samesign ugt i64 %indvars.iv.i, 1
   br i1 %29, label %.lr.ph.i, label %Gia_ManSimInfoRandom.exit, !llvm.loop !10
 
 30:                                               ; preds = %9
@@ -1156,7 +1156,7 @@ define void @Gia_ManSimInfoTransfer(ptr nocapture noundef readonly %0) local_unn
   %41 = load i32, ptr %40, align 4
   %42 = getelementptr inbounds i32, ptr %23, i64 %indvars.iv.next.i35
   store i32 %41, ptr %42, align 4
-  %43 = icmp ugt i64 %indvars.iv.i34, 1
+  %43 = icmp samesign ugt i64 %indvars.iv.i34, 1
   br i1 %43, label %.lr.ph.i33, label %Gia_ManSimInfoRandom.exit, !llvm.loop !12
 
 Gia_ManSimInfoRandom.exit:                        ; preds = %.lr.ph.i33, %.lr.ph.i, %30, %24
@@ -1266,7 +1266,7 @@ Gia_ManSimInfoZero.exit:                          ; preds = %1, %.lr.ph.preheade
   %45 = xor i32 %44, -1
   %46 = getelementptr inbounds i32, ptr %22, i64 %indvars.iv.next.i
   store i32 %45, ptr %46, align 4
-  %47 = icmp ugt i64 %indvars.iv.i, 1
+  %47 = icmp samesign ugt i64 %indvars.iv.i, 1
   br i1 %47, label %.lr.ph.i, label %Gia_ManSimulateNode.exit, !llvm.loop !14
 
 .lr.ph9.i:                                        ; preds = %.lr.ph9.i, %.lr.ph9.preheader.i
@@ -1280,7 +1280,7 @@ Gia_ManSimInfoZero.exit:                          ; preds = %1, %.lr.ph.preheade
   %53 = and i32 %52, %50
   %54 = getelementptr inbounds i32, ptr %22, i64 %indvars.iv.next19.i
   store i32 %53, ptr %54, align 4
-  %55 = icmp ugt i64 %indvars.iv18.i, 1
+  %55 = icmp samesign ugt i64 %indvars.iv18.i, 1
   br i1 %55, label %.lr.ph9.i, label %Gia_ManSimulateNode.exit, !llvm.loop !15
 
 56:                                               ; preds = %18
@@ -1311,7 +1311,7 @@ Gia_ManSimInfoZero.exit:                          ; preds = %1, %.lr.ph.preheade
   %64 = and i32 %60, %63
   %65 = getelementptr inbounds i32, ptr %22, i64 %indvars.iv.next22.i
   store i32 %64, ptr %65, align 4
-  %66 = icmp ugt i64 %indvars.iv21.i, 1
+  %66 = icmp samesign ugt i64 %indvars.iv21.i, 1
   br i1 %66, label %.lr.ph11.i, label %Gia_ManSimulateNode.exit, !llvm.loop !16
 
 .lr.ph13.i:                                       ; preds = %.lr.ph13.i, %.lr.ph13.preheader.i
@@ -1324,7 +1324,7 @@ Gia_ManSimInfoZero.exit:                          ; preds = %1, %.lr.ph.preheade
   %71 = and i32 %70, %68
   %72 = getelementptr inbounds i32, ptr %22, i64 %indvars.iv.next25.i
   store i32 %71, ptr %72, align 4
-  %73 = icmp ugt i64 %indvars.iv24.i, 1
+  %73 = icmp samesign ugt i64 %indvars.iv24.i, 1
   br i1 %73, label %.lr.ph13.i, label %Gia_ManSimulateNode.exit, !llvm.loop !17
 
 74:                                               ; preds = %13
@@ -1372,7 +1372,7 @@ Gia_ManSimInfoZero.exit:                          ; preds = %1, %.lr.ph.preheade
   %92 = xor i32 %91, -1
   %93 = getelementptr inbounds i32, ptr %80, i64 %indvars.iv.next.i41
   store i32 %92, ptr %93, align 4
-  %94 = icmp ugt i64 %indvars.iv.i40, 1
+  %94 = icmp samesign ugt i64 %indvars.iv.i40, 1
   br i1 %94, label %.lr.ph.i39, label %Gia_ManSimulateNode.exit, !llvm.loop !18
 
 .lr.ph5.i:                                        ; preds = %.lr.ph5.i, %.lr.ph5.preheader.i
@@ -1382,7 +1382,7 @@ Gia_ManSimInfoZero.exit:                          ; preds = %1, %.lr.ph.preheade
   %96 = load i32, ptr %95, align 4
   %97 = getelementptr inbounds i32, ptr %80, i64 %indvars.iv.next9.i
   store i32 %96, ptr %97, align 4
-  %98 = icmp ugt i64 %indvars.iv8.i, 1
+  %98 = icmp samesign ugt i64 %indvars.iv8.i, 1
   br i1 %98, label %.lr.ph5.i, label %Gia_ManSimulateNode.exit, !llvm.loop !19
 
 99:                                               ; preds = %74
@@ -1412,7 +1412,7 @@ Gia_ManSimInfoZero.exit:                          ; preds = %1, %.lr.ph.preheade
   %111 = load i32, ptr %110, align 4
   %112 = getelementptr inbounds i32, ptr %104, i64 %indvars.iv.next.i46
   store i32 %111, ptr %112, align 4
-  %113 = icmp ugt i64 %indvars.iv.i45, 1
+  %113 = icmp samesign ugt i64 %indvars.iv.i45, 1
   br i1 %113, label %.lr.ph.i44, label %Gia_ManSimulateNode.exit, !llvm.loop !20
 
 Gia_ManSimulateNode.exit:                         ; preds = %.lr.ph.i39, %.lr.ph5.i, %.lr.ph.i44, %.lr.ph.i, %.lr.ph9.i, %.lr.ph11.i, %.lr.ph13.i, %99, %.preheader.i42, %.preheader1.i37, %.preheader.i, %.preheader1.i, %.preheader3.i, %.preheader5.i
@@ -1789,7 +1789,7 @@ Gia_ManResetRandom.exit:                          ; preds = %.lr.ph.i, %45
   %79 = call i32 @Gia_ManRandom(i32 noundef 0) #25
   %80 = getelementptr inbounds i32, ptr %76, i64 %indvars.iv.next.i.i
   store i32 %79, ptr %80, align 4
-  %81 = icmp ugt i64 %indvars.iv.i.i, 1
+  %81 = icmp samesign ugt i64 %indvars.iv.i.i, 1
   br i1 %81, label %.lr.ph.i.i, label %Gia_ManSimInfoRandom.exit.i, !llvm.loop !10
 
 82:                                               ; preds = %61
@@ -2047,7 +2047,7 @@ Abc_Clock.exit73:                                 ; preds = %Gia_ManCheckPos.exi
   %198 = call i32 @Gia_ManRandom(i32 noundef 0) #25
   %199 = getelementptr inbounds i32, ptr %194, i64 %indvars.iv.next.i.i82
   store i32 %198, ptr %199, align 4
-  %200 = icmp ugt i64 %indvars.iv.i.i81, 1
+  %200 = icmp samesign ugt i64 %indvars.iv.i.i81, 1
   br i1 %200, label %.lr.ph.i.i80, label %Gia_ManSimInfoRandom.exit.i77, !llvm.loop !10
 
 201:                                              ; preds = %.lr.ph.i74
@@ -2075,7 +2075,7 @@ Abc_Clock.exit73:                                 ; preds = %Gia_ManCheckPos.exi
   %212 = load i32, ptr %211, align 4
   %213 = getelementptr inbounds i32, ptr %194, i64 %indvars.iv.next.i35.i
   store i32 %212, ptr %213, align 4
-  %214 = icmp ugt i64 %indvars.iv.i34.i, 1
+  %214 = icmp samesign ugt i64 %indvars.iv.i34.i, 1
   br i1 %214, label %.lr.ph.i33.i, label %Gia_ManSimInfoRandom.exit.i77, !llvm.loop !12
 
 Gia_ManSimInfoRandom.exit.i77:                    ; preds = %.lr.ph.i33.i, %.lr.ph.i.i80, %201, %195

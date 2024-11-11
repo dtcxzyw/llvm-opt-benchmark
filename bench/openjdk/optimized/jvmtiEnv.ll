@@ -8661,7 +8661,7 @@ define hidden noundef range(i32 0, 41) i32 @_ZN8JvmtiEnv13SetBreakpointEP6Method
   %11 = getelementptr inbounds i8, ptr %10, i64 34
   %12 = load i16, ptr %11, align 2
   %13 = zext i16 %12 to i64
-  %.not = icmp ult i64 %2, %13
+  %.not = icmp samesign ult i64 %2, %13
   br i1 %.not, label %14, label %_ZN12ResourceMarkD2Ev.exit
 
 14:                                               ; preds = %8
@@ -8733,7 +8733,7 @@ define hidden noundef range(i32 0, 42) i32 @_ZN8JvmtiEnv15ClearBreakpointEP6Meth
   %11 = getelementptr inbounds i8, ptr %10, i64 34
   %12 = load i16, ptr %11, align 2
   %13 = zext i16 %12 to i64
-  %.not = icmp ult i64 %2, %13
+  %.not = icmp samesign ult i64 %2, %13
   br i1 %.not, label %14, label %18
 
 14:                                               ; preds = %8

@@ -6354,7 +6354,7 @@ _ZNSt12_Vector_baseISt4pairIN32pxrInternal_v0_24__pxrReserved__7SdfPathES2_ESaIS
   %74 = getelementptr inbounds i8, ptr %.0910.i.i.i.i.i, i64 16
   %75 = getelementptr inbounds i8, ptr %.0811.i.i.i.i.i, i64 16
   %76 = add nsw i64 %.012.i.i.i.i.i, -1
-  %77 = icmp ugt i64 %.012.i.i.i.i.i, 1
+  %77 = icmp samesign ugt i64 %.012.i.i.i.i.i, 1
   br i1 %77, label %.lr.ph.i.i.i.i.i25, label %_ZSt4copyIN9__gnu_cxx17__normal_iteratorIPKSt4pairIN32pxrInternal_v0_24__pxrReserved__7SdfPathES4_ESt6vectorIS5_SaIS5_EEEENS1_IPS5_SA_EEET0_T_SF_SE_.exit.loopexit, !llvm.loop !72
 
 _ZSt4copyIN9__gnu_cxx17__normal_iteratorIPKSt4pairIN32pxrInternal_v0_24__pxrReserved__7SdfPathES4_ESt6vectorIS5_SaIS5_EEEENS1_IPS5_SA_EEET0_T_SF_SE_.exit.loopexit: ; preds = %.lr.ph.i.i.i.i.i25
@@ -6383,7 +6383,7 @@ _ZSt4copyIN9__gnu_cxx17__normal_iteratorIPKSt4pairIN32pxrInternal_v0_24__pxrRese
   %85 = getelementptr inbounds i8, ptr %.0910.i.i.i.i.i30, i64 16
   %86 = getelementptr inbounds i8, ptr %.0811.i.i.i.i.i29, i64 16
   %87 = add nsw i64 %.012.i.i.i.i.i28, -1
-  %88 = icmp ugt i64 %.012.i.i.i.i.i28, 1
+  %88 = icmp samesign ugt i64 %.012.i.i.i.i.i28, 1
   br i1 %88, label %.lr.ph.i.i.i.i.i27, label %_ZSt4copyIPSt4pairIN32pxrInternal_v0_24__pxrReserved__7SdfPathES2_ES4_ET0_T_S6_S5_.exit.loopexit, !llvm.loop !73
 
 _ZSt4copyIPSt4pairIN32pxrInternal_v0_24__pxrReserved__7SdfPathES2_ES4_ET0_T_S6_S5_.exit.loopexit: ; preds = %.lr.ph.i.i.i.i.i27

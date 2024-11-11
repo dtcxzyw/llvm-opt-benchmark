@@ -25162,7 +25162,7 @@ switch.lookup:                                    ; preds = %switch.hole_check
   %857 = icmp slt i32 %.sroa.01145.0, 129
   %858 = icmp slt i32 %.sroa.29.0, 129
   %or.cond16 = and i1 %858, %857
-  %859 = icmp ult i32 %.01229, 129
+  %859 = icmp samesign ult i32 %.01229, 129
   %or.cond18 = select i1 %or.cond16, i1 %859, i1 false
   br i1 %or.cond18, label %860, label %871
 
@@ -26741,7 +26741,7 @@ _ZN2cv10AutoBufferIfLm264EE8allocateEm.exit.i:    ; preds = %.noexc.i, %18, %9
   %33 = zext nneg i32 %32 to i64
   %wide.trip.count312.i = and i64 %.0176.in.i, 2147483647
   %wide.trip.count323.i = and i64 %7, 2147483647
-  %34 = icmp ult i32 %32, %.0176.i
+  %34 = icmp samesign ult i32 %32, %.0176.i
   br label %.lr.ph227.split.us.split.i
 
 .lr.ph227.split.us.split.us.preheader.i:          ; preds = %.lr.ph227.split.us.i
@@ -28183,7 +28183,7 @@ _ZN2cv10AutoBufferIdLm136EE8allocateEm.exit.i:    ; preds = %.noexc.i, %18, %9
   %33 = zext nneg i32 %32 to i64
   %wide.trip.count312.i = and i64 %.0176.in.i, 2147483647
   %wide.trip.count323.i = and i64 %7, 2147483647
-  %34 = icmp ult i32 %32, %.0176.i
+  %34 = icmp samesign ult i32 %32, %.0176.i
   br i1 %34, label %.lr.ph227.split.us.split.i.us, label %.lr.ph227.split.us.split.i
 
 .lr.ph227.split.us.split.i.us:                    ; preds = %.lr.ph227.split.us.split.preheader.i, %._crit_edge217.split.us230.i.split.us.us

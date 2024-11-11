@@ -934,7 +934,7 @@ Vec_IntPush.exit159:                              ; preds = %.Vec_IntGrow.exit10
   %236 = sext i32 %211 to i64
   %237 = getelementptr inbounds i32, ptr %234, i64 %236
   store i32 %210, ptr %237, align 4
-  %238 = icmp ugt i64 %indvars.iv179, 1
+  %238 = icmp samesign ugt i64 %indvars.iv179, 1
   br i1 %238, label %.lr.ph171, label %._crit_edge.thread, !llvm.loop !8
 
 ._crit_edge:                                      ; preds = %Vec_IntAlloc.exit

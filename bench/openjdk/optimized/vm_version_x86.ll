@@ -635,7 +635,7 @@ _ZN10VM_Version12L1_line_sizeEv.exit:             ; preds = %16, %20, %24, %27
   br i1 %82, label %83, label %93
 
 83:                                               ; preds = %81
-  %84 = icmp ugt i32 %66, 3
+  %84 = icmp samesign ugt i32 %66, 3
   %85 = load i64, ptr @_ZN19Abstract_VM_Version9_featuresE, align 8
   br i1 %84, label %86, label %88
 
@@ -693,7 +693,7 @@ _ZN10VM_Version12L1_line_sizeEv.exit:             ; preds = %16, %20, %24, %27
   br i1 %or.cond90, label %117, label %104
 
 104:                                              ; preds = %99
-  %105 = icmp ugt i32 %101, 2
+  %105 = icmp samesign ugt i32 %101, 2
   br i1 %105, label %106, label %109
 
 106:                                              ; preds = %104

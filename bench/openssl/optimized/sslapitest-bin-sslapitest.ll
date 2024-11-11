@@ -9453,7 +9453,7 @@ lor.lhs.false143:                                 ; preds = %lor.lhs.false138
   br i1 %tobool147.not, label %end, label %if.end149
 
 if.end149:                                        ; preds = %lor.lhs.false143
-  %cmp150 = icmp ult i32 %tst, 3
+  %cmp150 = icmp samesign ult i32 %tst, 3
   br i1 %cmp150, label %land.lhs.true152, label %land.lhs.true160
 
 land.lhs.true152:                                 ; preds = %if.end149
@@ -10589,8 +10589,8 @@ lor.lhs.false.i:                                  ; preds = %if.end.i
 PACKET_buf_init.exit.i:                           ; preds = %lor.lhs.false.i
   %call6.i = call i32 @test_true(ptr noundef nonnull @.str.14, i32 noundef 7068, ptr noundef nonnull @.str.724, i32 noundef 1) #23
   %tobool7.not.i = icmp eq i32 %call6.i, 0
-  %cmp.i2.i = icmp ult i64 %call.i, 5
-  %or.cond.i = or i1 %cmp.i2.i, %tobool7.not.i
+  %cmp.i2.i = icmp samesign ult i64 %call.i, 5
+  %or.cond.i = select i1 %tobool7.not.i, i1 true, i1 %cmp.i2.i
   br i1 %or.cond.i, label %get_MFL_from_client_hello.exit, label %lor.lhs.false11.i
 
 PACKET_buf_init.exit.thread.i:                    ; preds = %lor.lhs.false.i
@@ -10599,7 +10599,7 @@ PACKET_buf_init.exit.thread.i:                    ; preds = %lor.lhs.false.i
 
 lor.lhs.false11.i:                                ; preds = %PACKET_buf_init.exit.i
   %sub.i.i.i = add nsw i64 %call.i, -5
-  %cmp.i6.i = icmp ugt i64 %sub.i.i.i, 3
+  %cmp.i6.i = icmp samesign ugt i64 %sub.i.i.i, 3
   %retval.0.i10.i = zext i1 %cmp.i6.i to i32
   %call15.i = call i32 @test_true(ptr noundef nonnull @.str.14, i32 noundef 7072, ptr noundef nonnull @.str.725, i32 noundef %retval.0.i10.i) #23
   %tobool16.not.i = icmp eq i32 %call15.i, 0
@@ -10628,7 +10628,7 @@ lor.lhs.false.i.i:                                ; preds = %lor.lhs.false23.i
   %5 = load i8, ptr %pkt.sroa.0.3.i, align 1
   %sub.i.i.i.i = add nsw i64 %pkt.sroa.16.3.i, -1
   %conv.i.i = zext i8 %5 to i64
-  %cmp.i.i.i.i = icmp ult i64 %sub.i.i.i.i, %conv.i.i
+  %cmp.i.i.i.i = icmp samesign ult i64 %sub.i.i.i.i, %conv.i.i
   br i1 %cmp.i.i.i.i, label %PACKET_get_length_prefixed_1.exit.i, label %if.end.i19.i
 
 if.end.i19.i:                                     ; preds = %lor.lhs.false.i.i
@@ -10653,7 +10653,7 @@ PACKET_get_length_prefixed_1.exit.thread.i:       ; preds = %lor.lhs.false23.i
   br i1 %tobool28.not126.i, label %get_MFL_from_client_hello.exit, label %PACKET_get_length_prefixed_2.exit.thread.i
 
 lor.lhs.false29.i:                                ; preds = %PACKET_get_length_prefixed_1.exit.i
-  %cmp.i.i.i22.i = icmp ult i64 %pkt.sroa.16.4.i, 2
+  %cmp.i.i.i22.i = icmp samesign ult i64 %pkt.sroa.16.4.i, 2
   br i1 %cmp.i.i.i22.i, label %PACKET_get_length_prefixed_2.exit.i, label %lor.lhs.false.i23.i
 
 lor.lhs.false.i23.i:                              ; preds = %lor.lhs.false29.i
@@ -10665,7 +10665,7 @@ lor.lhs.false.i23.i:                              ; preds = %lor.lhs.false29.i
   %conv2.i.i.i.i = zext i8 %7 to i64
   %or.i.i.i.i = or disjoint i64 %shl.i.i.i.i, %conv2.i.i.i.i
   %sub.i.i.i26.i = add nsw i64 %pkt.sroa.16.4.i, -2
-  %cmp.i.i4.i.i = icmp ult i64 %sub.i.i.i26.i, %or.i.i.i.i
+  %cmp.i.i4.i.i = icmp samesign ult i64 %sub.i.i.i26.i, %or.i.i.i.i
   br i1 %cmp.i.i4.i.i, label %PACKET_get_length_prefixed_2.exit.i, label %if.end.i27.i
 
 if.end.i27.i:                                     ; preds = %lor.lhs.false.i23.i
@@ -10697,7 +10697,7 @@ lor.lhs.false.i33.i:                              ; preds = %lor.lhs.false35.i
   %8 = load i8, ptr %pkt.sroa.0.5.i, align 1
   %sub.i.i.i35.i = add nsw i64 %pkt.sroa.16.5.i, -1
   %conv.i36.i = zext i8 %8 to i64
-  %cmp.i.i.i37.i = icmp ult i64 %sub.i.i.i35.i, %conv.i36.i
+  %cmp.i.i.i37.i = icmp samesign ult i64 %sub.i.i.i35.i, %conv.i36.i
   br i1 %cmp.i.i.i37.i, label %PACKET_get_length_prefixed_1.exit44.i, label %if.end.i38.i
 
 if.end.i38.i:                                     ; preds = %lor.lhs.false.i33.i
@@ -10717,7 +10717,7 @@ PACKET_get_length_prefixed_1.exit44.i:            ; preds = %if.end.i38.i, %lor.
   br i1 %tobool40.not.i, label %get_MFL_from_client_hello.exit, label %lor.lhs.false41.i
 
 lor.lhs.false41.i:                                ; preds = %PACKET_get_length_prefixed_1.exit44.i
-  %cmp.i.i.i47.i = icmp ult i64 %pkt.sroa.16.6.i, 2
+  %cmp.i.i.i47.i = icmp samesign ult i64 %pkt.sroa.16.6.i, 2
   br i1 %cmp.i.i.i47.i, label %PACKET_as_length_prefixed_2.exit.i, label %lor.lhs.false.i48.i
 
 lor.lhs.false.i48.i:                              ; preds = %lor.lhs.false41.i

@@ -20800,7 +20800,7 @@ _ZNK4llvm9StringRef5splitEc.exit:                 ; preds = %72, %73
   br label %_ZNK4llvm9StringRef11starts_withES0_.exit.thread
 
 _ZNK4llvm9StringRef11starts_withES0_.exit52.thread168: ; preds = %56
-  %.not.i59 = icmp ult i64 %.sroa.speculated.i.i.i.i, 5
+  %.not.i59 = icmp samesign ult i64 %.sroa.speculated.i.i.i.i, 5
   br i1 %.not.i59, label %_ZNK4llvm9StringRef11starts_withES0_.exit61.thread169, label %_ZNK4llvm9StringRef11starts_withES0_.exit61
 
 _ZNK4llvm9StringRef11starts_withES0_.exit61:      ; preds = %_ZNK4llvm9StringRef11starts_withES0_.exit52, %_ZNK4llvm9StringRef11starts_withES0_.exit.thread167, %_ZNK4llvm9StringRef11starts_withES0_.exit52.thread168
@@ -22439,7 +22439,7 @@ define hidden noundef range(i32 0, 256) i32 @_ZNK5clang7targets24MicrosoftARM64T
   br label %15
 
 9:                                                ; preds = %3
-  %10 = icmp ugt i64 %1, 63
+  %10 = icmp samesign ugt i64 %1, 63
   br i1 %10, label %11, label %12
 
 11:                                               ; preds = %9
@@ -22447,7 +22447,7 @@ define hidden noundef range(i32 0, 256) i32 @_ZNK5clang7targets24MicrosoftARM64T
   br label %15
 
 12:                                               ; preds = %9
-  %13 = icmp ugt i64 %1, 15
+  %13 = icmp samesign ugt i64 %1, 15
   br i1 %13, label %14, label %15
 
 14:                                               ; preds = %12
@@ -23055,7 +23055,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZNK5clang10TargetInfo16hasBuilti
   br i1 %or.cond, label %_ZN4llvm13isPowerOf2_64Em.exit, label %7
 
 7:                                                ; preds = %3
-  %.not6 = icmp ugt i64 %1, 8
+  %.not6 = icmp samesign ugt i64 %1, 8
   br i1 %.not6, label %8, label %_ZN4llvm13isPowerOf2_64Em.exit
 
 8:                                                ; preds = %7

@@ -362,7 +362,7 @@ _Z13is_power_of_2IiTnNSt9enable_ifIXcvbsr3std11is_integralIT_EE5valueEiE4typeELi
   %79 = sub nsw i32 0, %74
   %80 = tail call range(i32 1, 32) i32 @llvm.ctpop.i32(i32 %79)
   %81 = icmp samesign ugt i32 %80, 1
-  %.not107 = icmp ugt i32 %5, %79
+  %.not107 = icmp samesign ugt i32 %5, %79
   %or.cond = or i1 %.not107, %81
   br i1 %or.cond, label %_Z13is_power_of_2IiTnNSt9enable_ifIXcvbsr3std11is_integralIT_EE5valueEiE4typeELi0EEbS1_.exit111.thread, label %82
 
@@ -1630,7 +1630,7 @@ _Z13is_power_of_2IlTnNSt9enable_ifIXcvbsr3std11is_integralIT_EE5valueEiE4typeELi
   %80 = sub nsw i64 0, %75
   %81 = tail call range(i64 1, 64) i64 @llvm.ctpop.i64(i64 %80)
   %82 = icmp samesign ugt i64 %81, 1
-  %.not90 = icmp ugt i64 %5, %80
+  %.not90 = icmp samesign ugt i64 %5, %80
   %or.cond = or i1 %.not90, %82
   br i1 %or.cond, label %_Z13is_power_of_2IlTnNSt9enable_ifIXcvbsr3std11is_integralIT_EE5valueEiE4typeELi0EEbS1_.exit94.thread, label %83
 

@@ -1414,7 +1414,7 @@ for.body60.i.i:                                   ; preds = %for.body60.i.i, %fo
   %arrayidx68.i.i = getelementptr inbounds i32, ptr %47, i64 %indvars.iv165.i.i
   store i32 %48, ptr %arrayidx68.i.i, align 4
   %dec70.i.i = add nsw i32 %i.3123.i.i, -1
-  %cmp59.i.i = icmp ugt i32 %i.3123.i.i, 1
+  %cmp59.i.i = icmp samesign ugt i32 %i.3123.i.i, 1
   br i1 %cmp59.i.i, label %for.body60.i.i, label %if.end84.loopexit.i.i, !llvm.loop !26
 
 for.body75.i.i:                                   ; preds = %lor.lhs.false.critedge.i.i, %for.body75.i.i
@@ -1659,7 +1659,7 @@ for.body37.i.i:                                   ; preds = %for.body37.i.i.preh
   %arrayidx45.i.i = getelementptr inbounds [35488 x i32], ptr %index2.i.i, i64 0, i64 %indvars.iv105.i.i
   store i32 %78, ptr %arrayidx45.i.i, align 4
   %dec47.i.i = add nsw i32 %i.177.i.i, -1
-  %cmp36.i.i = icmp ugt i32 %i.177.i.i, 1
+  %cmp36.i.i = icmp samesign ugt i32 %i.177.i.i, 1
   br i1 %cmp36.i.i, label %for.body37.i.i, label %if.end54.loopexit.i.i, !llvm.loop !35
 
 if.else.i.i:                                      ; preds = %lor.lhs.false.critedge.i71.i
@@ -1935,7 +1935,7 @@ if.then112:                                       ; preds = %for.end110
   %sub113 = add nsw i32 %96, -65536
   %shr114 = lshr i32 %sub113, 11
   %add115 = add nuw nsw i32 %shr114, 2112
-  %cmp119209.not = icmp ult i32 %sub113, 2048
+  %cmp119209.not = icmp samesign ult i32 %sub113, 2048
   br i1 %cmp119209.not, label %for.end127, label %for.body120.preheader
 
 for.body120.preheader:                            ; preds = %if.then112
@@ -1952,7 +1952,7 @@ for.body120:                                      ; preds = %for.body120.prehead
   %incdec.ptr124 = getelementptr inbounds i8, ptr %dest16.4211, i64 2
   store i16 %conv123, ptr %dest16.4211, align 2
   %dec126 = add nsw i32 %i.3210, -1
-  %cmp119 = icmp ugt i32 %i.3210, 1
+  %cmp119 = icmp samesign ugt i32 %i.3210, 1
   br i1 %cmp119, label %for.body120, label %for.end127, !llvm.loop !42
 
 for.end127:                                       ; preds = %for.body120, %if.then112
@@ -1980,7 +1980,7 @@ for.body135:                                      ; preds = %for.body135.prehead
   %incdec.ptr140 = getelementptr inbounds i8, ptr %dest16.5215, i64 2
   store i16 %conv139, ptr %dest16.5215, align 2
   %dec142 = add nsw i32 %i.4214, -1
-  %cmp134 = icmp ugt i32 %i.4214, 1
+  %cmp134 = icmp samesign ugt i32 %i.4214, 1
   br i1 %cmp134, label %for.body135, label %if.end144, !llvm.loop !43
 
 if.end144:                                        ; preds = %for.body135, %for.end127, %for.end110
@@ -2012,7 +2012,7 @@ for.body149:                                      ; preds = %for.body149.prehead
   %incdec.ptr152 = getelementptr inbounds i8, ptr %dest16.6220, i64 2
   store i16 %conv151, ptr %dest16.6220, align 2
   %dec154 = add nsw i32 %i.5219, -1
-  %cmp148 = icmp ugt i32 %i.5219, 1
+  %cmp148 = icmp samesign ugt i32 %i.5219, 1
   br i1 %cmp148, label %for.body149, label %sw.epilog, !llvm.loop !44
 
 sw.bb156:                                         ; preds = %if.end144
@@ -2089,7 +2089,7 @@ if.then17:                                        ; preds = %if.end15
 if.end21:                                         ; preds = %if.then17
   %add22 = add nuw nsw i32 %start, 31
   %and23 = and i32 %add22, 4194272
-  %cmp24.not = icmp ugt i32 %and23, %add
+  %cmp24.not = icmp samesign ugt i32 %and23, %add
   %data28 = getelementptr inbounds i8, ptr %1, i64 144128
   %4 = load ptr, ptr %data28, align 8
   %idx.ext29 = zext nneg i32 %call18 to i64
@@ -2555,7 +2555,7 @@ if.then4.i:                                       ; preds = %if.else.i
   br i1 %cmp6.i, label %if.end13.i, label %if.else8.i
 
 if.else8.i:                                       ; preds = %if.then4.i
-  %cmp10.i = icmp ult i32 %9, 1115264
+  %cmp10.i = icmp samesign ult i32 %9, 1115264
   br i1 %cmp10.i, label %if.end13.i, label %return
 
 if.end13.i:                                       ; preds = %if.else8.i, %if.then4.i

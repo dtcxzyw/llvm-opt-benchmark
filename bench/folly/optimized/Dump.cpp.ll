@@ -330,7 +330,7 @@ if.end:                                           ; preds = %invoke.cont11
   store i16 256, ptr %hdrbuf, align 2
   %add.ptr = getelementptr inbounds i8, ptr %hdrbuf, i64 2
   %add.ptr22 = getelementptr inbounds i8, ptr %hdrbuf, i64 3
-  %cmp24 = icmp ugt i64 %add.i, 2147483647
+  %cmp24 = icmp samesign ugt i64 %add.i, 2147483647
   br i1 %cmp24, label %if.then25, label %if.else
 
 if.then25:                                        ; preds = %if.end
@@ -339,7 +339,7 @@ if.then25:                                        ; preds = %if.end
   br label %if.end44
 
 if.else:                                          ; preds = %if.end
-  %cmp28 = icmp ugt i64 %add.i, 32767
+  %cmp28 = icmp samesign ugt i64 %add.i, 32767
   br i1 %cmp28, label %if.then29, label %if.else32
 
 if.then29:                                        ; preds = %if.else
@@ -349,7 +349,7 @@ if.then29:                                        ; preds = %if.else
   br label %if.end44
 
 if.else32:                                        ; preds = %if.else
-  %cmp35 = icmp ugt i64 %add.i, 127
+  %cmp35 = icmp samesign ugt i64 %add.i, 127
   br i1 %cmp35, label %if.then36, label %if.else39
 
 if.then36:                                        ; preds = %if.else32

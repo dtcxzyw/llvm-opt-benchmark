@@ -17772,7 +17772,7 @@ if.then26:                                        ; preds = %if.then24
   br label %if.end63
 
 if.else32:                                        ; preds = %if.then24
-  %cmp33 = icmp ugt i32 %call22, 255
+  %cmp33 = icmp samesign ugt i32 %call22, 255
   %14 = load ptr, ptr %BCFGen_21, align 8
   %conv36 = zext i32 %retval.0.i31 to i64
   %conv37 = zext i32 %retval.0.i to i64
@@ -20457,7 +20457,7 @@ if.then7:                                         ; preds = %if.then
   br label %return
 
 if.else:                                          ; preds = %if.then
-  %cmp14 = icmp ugt i32 %call6, 255
+  %cmp14 = icmp samesign ugt i32 %call6, 255
   %12 = load ptr, ptr %BCFGen_, align 8
   %conv17 = zext i32 %retval.0.i to i64
   %conv18 = zext i32 %retval.0.i21 to i64
@@ -49338,7 +49338,7 @@ for.body.i.i.i.i.i.i.i.i.i.i:                     ; preds = %for.body.i.i.i.i.i.
   store ptr %6, ptr %__result.addr.06.i.i.i.i.i.i.i.i.i.i, align 8
   %incdec.ptr.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__result.addr.06.i.i.i.i.i.i.i.i.i.i, i64 8
   %dec.i.i.i.i.i.i.i.i.i.i = add nsw i64 %__n.07.i.i.i.i.i.i.i.i.i.i, -1
-  %cmp.i.i.i.i.i.i.i.i.i.i = icmp ugt i64 %__n.07.i.i.i.i.i.i.i.i.i.i, 1
+  %cmp.i.i.i.i.i.i.i.i.i.i = icmp samesign ugt i64 %__n.07.i.i.i.i.i.i.i.i.i.i, 1
   br i1 %cmp.i.i.i.i.i.i.i.i.i.i, label %for.body.i.i.i.i.i.i.i.i.i.i, label %_ZN4llvh23SmallVectorTemplateBaseIPN6hermes10BasicBlockELb1EE18uninitialized_copyISt16reverse_iteratorIN9__gnu_cxx17__normal_iteratorIPS3_St6vectorIS3_SaIS3_EEEEES9_EEvT_SF_T0_.exit.loopexit.i.i, !llvm.loop !54
 
 _ZN4llvh23SmallVectorTemplateBaseIPN6hermes10BasicBlockELb1EE18uninitialized_copyISt16reverse_iteratorIN9__gnu_cxx17__normal_iteratorIPS3_St6vectorIS3_SaIS3_EEEEES9_EEvT_SF_T0_.exit.loopexit.i.i: ; preds = %for.body.i.i.i.i.i.i.i.i.i.i

@@ -1474,7 +1474,7 @@ if.else.i.i263.i:                                 ; preds = %_ZNK6hermes2vm10Str
   br label %36
 
 if.end.i258.i:                                    ; preds = %if.end59.i
-  %tobool.not.i5.i.i = icmp ult i32 %propName.sroa.3.8.extract.trunc.i, 1073741824
+  %tobool.not.i5.i.i = icmp samesign ult i32 %propName.sroa.3.8.extract.trunc.i, 1073741824
   br i1 %tobool.not.i5.i.i, label %_ZNK6hermes2vm10StringView15castToChar16PtrEv.exit.i.i, label %if.end.i6.i.i
 
 if.end.i6.i.i:                                    ; preds = %if.end.i258.i

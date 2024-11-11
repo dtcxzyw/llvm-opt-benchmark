@@ -854,7 +854,7 @@ define hidden void @_ZN8rawspeed7CiffIFDC2EPS0_NS_10ByteStreamE(ptr noundef nonn
 
 64:                                               ; preds = %56
   %65 = add nuw nsw i32 %51, 2
-  %66 = icmp ule i32 %65, %33
+  %66 = icmp samesign ule i32 %65, %33
   tail call void @llvm.assume(i1 %66)
   %67 = getelementptr inbounds i8, ptr %46, i64 %52
   %68 = load i16, ptr %67, align 1
@@ -880,7 +880,7 @@ define hidden void @_ZN8rawspeed7CiffIFDC2EPS0_NS_10ByteStreamE(ptr noundef nonn
 
 79:                                               ; preds = %64
   %80 = add nuw nsw i32 %72, %65
-  %81 = icmp ule i32 %80, %33
+  %81 = icmp samesign ule i32 %80, %33
   tail call void @llvm.assume(i1 %81)
   %82 = getelementptr inbounds i8, ptr %46, i64 %73
   %83 = or disjoint i64 %58, %74

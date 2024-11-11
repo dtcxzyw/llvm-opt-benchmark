@@ -2987,7 +2987,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__16ArchGetDemangledB5cxx11ERKSt9type_info.ex
   %.01.i.i.i.i.i.i = phi i32 [ %92, %.lr.ph.i.i.i.i.i.i ], [ %.sroa.0.02.i.i.i.i, %90 ]
   %92 = add nsw i32 %.01.i.i.i.i.i.i, -1
   call void @llvm.x86.sse2.pause()
-  %93 = icmp ugt i32 %.01.i.i.i.i.i.i, 1
+  %93 = icmp samesign ugt i32 %.01.i.i.i.i.i.i, 1
   br i1 %93, label %.lr.ph.i.i.i.i.i.i, label %_ZN3tbb6detail2d0L13machine_pauseEi.exit.i.i.i.i.i, !llvm.loop !65
 
 _ZN3tbb6detail2d0L13machine_pauseEi.exit.i.i.i.i.i: ; preds = %.lr.ph.i.i.i.i.i.i, %90
@@ -3142,7 +3142,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__17TfSafeTypeCompareERKSt9type_infoS2_.exit.
   %.01.i.i.i.i.i28.i = phi i32 [ %142, %.lr.ph.i.i.i.i.i27.i ], [ %.sroa.0.02.i.i.i23.i, %140 ]
   %142 = add nsw i32 %.01.i.i.i.i.i28.i, -1
   call void @llvm.x86.sse2.pause()
-  %143 = icmp ugt i32 %.01.i.i.i.i.i28.i, 1
+  %143 = icmp samesign ugt i32 %.01.i.i.i.i.i28.i, 1
   br i1 %143, label %.lr.ph.i.i.i.i.i27.i, label %_ZN3tbb6detail2d0L13machine_pauseEi.exit.i.i.i.i26.i, !llvm.loop !65
 
 _ZN3tbb6detail2d0L13machine_pauseEi.exit.i.i.i.i26.i: ; preds = %.lr.ph.i.i.i.i.i27.i, %140
@@ -6618,19 +6618,19 @@ define internal void @_ZN32pxrInternal_v0_24__pxrReserved__L12_NumericCastIcbEEN
 _ZNKR32pxrInternal_v0_24__pxrReserved__7VtValue12UncheckedGetIcEERKT_v.exit: ; preds = %2, %7
   %.0.i.i = phi ptr [ %12, %7 ], [ %1, %2 ]
   %13 = load i8, ptr %.0.i.i, align 1
-  %14 = icmp ult i8 %13, 2
-  br i1 %14, label %_ZNRSt8optionalIbE5valueEv.exit, label %17
+  %.not = icmp ult i8 %13, 2
+  br i1 %.not, label %_ZNRSt8optionalIbE5valueEv.exit, label %16
 
 _ZNRSt8optionalIbE5valueEv.exit:                  ; preds = %_ZNKR32pxrInternal_v0_24__pxrReserved__7VtValue12UncheckedGetIcEERKT_v.exit
-  %15 = or disjoint i64 3, ptrtoint (ptr @_ZZN32pxrInternal_v0_24__pxrReserved__7VtValue11GetTypeInfoIbEENS_16TfPointerAndBitsIKNS0_9_TypeInfoEEEvE2ti to i64)
-  %16 = inttoptr i64 %15 to ptr
+  %14 = or disjoint i64 3, ptrtoint (ptr @_ZZN32pxrInternal_v0_24__pxrReserved__7VtValue11GetTypeInfoIbEENS_16TfPointerAndBitsIKNS0_9_TypeInfoEEEvE2ti to i64)
+  %15 = inttoptr i64 %14 to ptr
   store i8 %13, ptr %0, align 8
-  br label %17
+  br label %16
 
-17:                                               ; preds = %_ZNKR32pxrInternal_v0_24__pxrReserved__7VtValue12UncheckedGetIcEERKT_v.exit, %_ZNRSt8optionalIbE5valueEv.exit
-  %.sink = phi ptr [ %16, %_ZNRSt8optionalIbE5valueEv.exit ], [ null, %_ZNKR32pxrInternal_v0_24__pxrReserved__7VtValue12UncheckedGetIcEERKT_v.exit ]
-  %18 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store ptr %.sink, ptr %18, align 8
+16:                                               ; preds = %_ZNKR32pxrInternal_v0_24__pxrReserved__7VtValue12UncheckedGetIcEERKT_v.exit, %_ZNRSt8optionalIbE5valueEv.exit
+  %.sink = phi ptr [ %15, %_ZNRSt8optionalIbE5valueEv.exit ], [ null, %_ZNKR32pxrInternal_v0_24__pxrReserved__7VtValue12UncheckedGetIcEERKT_v.exit ]
+  %17 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  store ptr %.sink, ptr %17, align 8
   ret void
 }
 
@@ -6989,19 +6989,19 @@ define internal void @_ZN32pxrInternal_v0_24__pxrReserved__L12_NumericCastIabEEN
 _ZNKR32pxrInternal_v0_24__pxrReserved__7VtValue12UncheckedGetIaEERKT_v.exit: ; preds = %2, %7
   %.0.i.i = phi ptr [ %12, %7 ], [ %1, %2 ]
   %13 = load i8, ptr %.0.i.i, align 1
-  %14 = icmp ult i8 %13, 2
-  br i1 %14, label %_ZNRSt8optionalIbE5valueEv.exit, label %17
+  %.not = icmp ult i8 %13, 2
+  br i1 %.not, label %_ZNRSt8optionalIbE5valueEv.exit, label %16
 
 _ZNRSt8optionalIbE5valueEv.exit:                  ; preds = %_ZNKR32pxrInternal_v0_24__pxrReserved__7VtValue12UncheckedGetIaEERKT_v.exit
-  %15 = or disjoint i64 3, ptrtoint (ptr @_ZZN32pxrInternal_v0_24__pxrReserved__7VtValue11GetTypeInfoIbEENS_16TfPointerAndBitsIKNS0_9_TypeInfoEEEvE2ti to i64)
-  %16 = inttoptr i64 %15 to ptr
+  %14 = or disjoint i64 3, ptrtoint (ptr @_ZZN32pxrInternal_v0_24__pxrReserved__7VtValue11GetTypeInfoIbEENS_16TfPointerAndBitsIKNS0_9_TypeInfoEEEvE2ti to i64)
+  %15 = inttoptr i64 %14 to ptr
   store i8 %13, ptr %0, align 8
-  br label %17
+  br label %16
 
-17:                                               ; preds = %_ZNKR32pxrInternal_v0_24__pxrReserved__7VtValue12UncheckedGetIaEERKT_v.exit, %_ZNRSt8optionalIbE5valueEv.exit
-  %.sink = phi ptr [ %16, %_ZNRSt8optionalIbE5valueEv.exit ], [ null, %_ZNKR32pxrInternal_v0_24__pxrReserved__7VtValue12UncheckedGetIaEERKT_v.exit ]
-  %18 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store ptr %.sink, ptr %18, align 8
+16:                                               ; preds = %_ZNKR32pxrInternal_v0_24__pxrReserved__7VtValue12UncheckedGetIaEERKT_v.exit, %_ZNRSt8optionalIbE5valueEv.exit
+  %.sink = phi ptr [ %15, %_ZNRSt8optionalIbE5valueEv.exit ], [ null, %_ZNKR32pxrInternal_v0_24__pxrReserved__7VtValue12UncheckedGetIaEERKT_v.exit ]
+  %17 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  store ptr %.sink, ptr %17, align 8
   ret void
 }
 
@@ -7416,25 +7416,26 @@ define internal void @_ZN32pxrInternal_v0_24__pxrReserved__L12_NumericCastIsbEEN
 _ZNKR32pxrInternal_v0_24__pxrReserved__7VtValue12UncheckedGetIsEERKT_v.exit: ; preds = %2, %7
   %.0.i.i = phi ptr [ %12, %7 ], [ %1, %2 ]
   %13 = load i16, ptr %.0.i.i, align 2
-  %14 = icmp ugt i16 %13, 1
-  %15 = or i16 %13, 256
-  %.sroa.06.0.insert.insert.i = select i1 %14, i16 0, i16 %15
-  %16 = and i16 %.sroa.06.0.insert.insert.i, 256
-  %.not = icmp eq i16 %16, 0
-  br i1 %.not, label %20, label %_ZNRSt8optionalIbE5valueEv.exit
+  %.not = icmp ult i16 %13, 2
+  %.sroa.06.0.i = select i1 %.not, i16 %13, i16 0
+  %.sroa.2.0.i = select i1 %.not, i16 256, i16 2
+  %.sroa.06.0.insert.insert.i = or i16 %.sroa.2.0.i, %.sroa.06.0.i
+  %14 = and i16 %.sroa.06.0.insert.insert.i, 256
+  %.not4 = icmp eq i16 %14, 0
+  br i1 %.not4, label %18, label %_ZNRSt8optionalIbE5valueEv.exit
 
 _ZNRSt8optionalIbE5valueEv.exit:                  ; preds = %_ZNKR32pxrInternal_v0_24__pxrReserved__7VtValue12UncheckedGetIsEERKT_v.exit
-  %.sroa.0.0.extract.trunc = trunc i16 %.sroa.06.0.insert.insert.i to i8
-  %17 = or disjoint i64 3, ptrtoint (ptr @_ZZN32pxrInternal_v0_24__pxrReserved__7VtValue11GetTypeInfoIbEENS_16TfPointerAndBitsIKNS0_9_TypeInfoEEEvE2ti to i64)
-  %18 = inttoptr i64 %17 to ptr
-  %19 = and i8 %.sroa.0.0.extract.trunc, 1
-  store i8 %19, ptr %0, align 8
-  br label %20
+  %.sroa.0.0.extract.trunc = trunc i16 %.sroa.06.0.i to i8
+  %15 = or disjoint i64 3, ptrtoint (ptr @_ZZN32pxrInternal_v0_24__pxrReserved__7VtValue11GetTypeInfoIbEENS_16TfPointerAndBitsIKNS0_9_TypeInfoEEEvE2ti to i64)
+  %16 = inttoptr i64 %15 to ptr
+  %17 = and i8 %.sroa.0.0.extract.trunc, 1
+  store i8 %17, ptr %0, align 8
+  br label %18
 
-20:                                               ; preds = %_ZNKR32pxrInternal_v0_24__pxrReserved__7VtValue12UncheckedGetIsEERKT_v.exit, %_ZNRSt8optionalIbE5valueEv.exit
-  %.sink = phi ptr [ %18, %_ZNRSt8optionalIbE5valueEv.exit ], [ null, %_ZNKR32pxrInternal_v0_24__pxrReserved__7VtValue12UncheckedGetIsEERKT_v.exit ]
-  %21 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store ptr %.sink, ptr %21, align 8
+18:                                               ; preds = %_ZNKR32pxrInternal_v0_24__pxrReserved__7VtValue12UncheckedGetIsEERKT_v.exit, %_ZNRSt8optionalIbE5valueEv.exit
+  %.sink = phi ptr [ %16, %_ZNRSt8optionalIbE5valueEv.exit ], [ null, %_ZNKR32pxrInternal_v0_24__pxrReserved__7VtValue12UncheckedGetIsEERKT_v.exit ]
+  %19 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  store ptr %.sink, ptr %19, align 8
   ret void
 }
 
@@ -7858,26 +7859,26 @@ define internal void @_ZN32pxrInternal_v0_24__pxrReserved__L12_NumericCastIibEEN
 _ZNKR32pxrInternal_v0_24__pxrReserved__7VtValue12UncheckedGetIiEERKT_v.exit: ; preds = %2, %7
   %.0.i.i = phi ptr [ %12, %7 ], [ %1, %2 ]
   %13 = load i32, ptr %.0.i.i, align 4
-  %14 = icmp ugt i32 %13, 1
-  %15 = trunc nuw i32 %13 to i16
-  %16 = or i16 %15, 256
-  %.sroa.06.0.insert.insert.i = select i1 %14, i16 0, i16 %16
-  %17 = and i16 %.sroa.06.0.insert.insert.i, 256
-  %.not = icmp eq i16 %17, 0
-  br i1 %.not, label %21, label %_ZNRSt8optionalIbE5valueEv.exit
+  %or.cond.not = icmp ult i32 %13, 2
+  %14 = trunc nuw i32 %13 to i16
+  %15 = or i16 %14, 256
+  %.sroa.06.0.insert.insert.i = select i1 %or.cond.not, i16 %15, i16 0
+  %16 = and i16 %.sroa.06.0.insert.insert.i, 256
+  %.not = icmp eq i16 %16, 0
+  br i1 %.not, label %20, label %_ZNRSt8optionalIbE5valueEv.exit
 
 _ZNRSt8optionalIbE5valueEv.exit:                  ; preds = %_ZNKR32pxrInternal_v0_24__pxrReserved__7VtValue12UncheckedGetIiEERKT_v.exit
   %.sroa.0.0.extract.trunc = trunc i16 %.sroa.06.0.insert.insert.i to i8
-  %18 = or disjoint i64 3, ptrtoint (ptr @_ZZN32pxrInternal_v0_24__pxrReserved__7VtValue11GetTypeInfoIbEENS_16TfPointerAndBitsIKNS0_9_TypeInfoEEEvE2ti to i64)
-  %19 = inttoptr i64 %18 to ptr
-  %20 = and i8 %.sroa.0.0.extract.trunc, 1
-  store i8 %20, ptr %0, align 8
-  br label %21
+  %17 = or disjoint i64 3, ptrtoint (ptr @_ZZN32pxrInternal_v0_24__pxrReserved__7VtValue11GetTypeInfoIbEENS_16TfPointerAndBitsIKNS0_9_TypeInfoEEEvE2ti to i64)
+  %18 = inttoptr i64 %17 to ptr
+  %19 = and i8 %.sroa.0.0.extract.trunc, 1
+  store i8 %19, ptr %0, align 8
+  br label %20
 
-21:                                               ; preds = %_ZNKR32pxrInternal_v0_24__pxrReserved__7VtValue12UncheckedGetIiEERKT_v.exit, %_ZNRSt8optionalIbE5valueEv.exit
-  %.sink = phi ptr [ %19, %_ZNRSt8optionalIbE5valueEv.exit ], [ null, %_ZNKR32pxrInternal_v0_24__pxrReserved__7VtValue12UncheckedGetIiEERKT_v.exit ]
-  %22 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store ptr %.sink, ptr %22, align 8
+20:                                               ; preds = %_ZNKR32pxrInternal_v0_24__pxrReserved__7VtValue12UncheckedGetIiEERKT_v.exit, %_ZNRSt8optionalIbE5valueEv.exit
+  %.sink = phi ptr [ %18, %_ZNRSt8optionalIbE5valueEv.exit ], [ null, %_ZNKR32pxrInternal_v0_24__pxrReserved__7VtValue12UncheckedGetIiEERKT_v.exit ]
+  %21 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  store ptr %.sink, ptr %21, align 8
   ret void
 }
 
@@ -8302,26 +8303,26 @@ define internal void @_ZN32pxrInternal_v0_24__pxrReserved__L12_NumericCastIlbEEN
 _ZNKR32pxrInternal_v0_24__pxrReserved__7VtValue12UncheckedGetIlEERKT_v.exit: ; preds = %2, %7
   %.0.i.i = phi ptr [ %12, %7 ], [ %1, %2 ]
   %13 = load i64, ptr %.0.i.i, align 8
-  %14 = icmp ugt i64 %13, 1
-  %15 = trunc nuw i64 %13 to i16
-  %16 = or i16 %15, 256
-  %.sroa.06.0.insert.insert.i = select i1 %14, i16 0, i16 %16
-  %17 = and i16 %.sroa.06.0.insert.insert.i, 256
-  %.not = icmp eq i16 %17, 0
-  br i1 %.not, label %21, label %_ZNRSt8optionalIbE5valueEv.exit
+  %or.cond.not = icmp ult i64 %13, 2
+  %14 = trunc nuw i64 %13 to i16
+  %15 = or i16 %14, 256
+  %.sroa.06.0.insert.insert.i = select i1 %or.cond.not, i16 %15, i16 0
+  %16 = and i16 %.sroa.06.0.insert.insert.i, 256
+  %.not = icmp eq i16 %16, 0
+  br i1 %.not, label %20, label %_ZNRSt8optionalIbE5valueEv.exit
 
 _ZNRSt8optionalIbE5valueEv.exit:                  ; preds = %_ZNKR32pxrInternal_v0_24__pxrReserved__7VtValue12UncheckedGetIlEERKT_v.exit
   %.sroa.0.0.extract.trunc = trunc i16 %.sroa.06.0.insert.insert.i to i8
-  %18 = or disjoint i64 3, ptrtoint (ptr @_ZZN32pxrInternal_v0_24__pxrReserved__7VtValue11GetTypeInfoIbEENS_16TfPointerAndBitsIKNS0_9_TypeInfoEEEvE2ti to i64)
-  %19 = inttoptr i64 %18 to ptr
-  %20 = and i8 %.sroa.0.0.extract.trunc, 1
-  store i8 %20, ptr %0, align 8
-  br label %21
+  %17 = or disjoint i64 3, ptrtoint (ptr @_ZZN32pxrInternal_v0_24__pxrReserved__7VtValue11GetTypeInfoIbEENS_16TfPointerAndBitsIKNS0_9_TypeInfoEEEvE2ti to i64)
+  %18 = inttoptr i64 %17 to ptr
+  %19 = and i8 %.sroa.0.0.extract.trunc, 1
+  store i8 %19, ptr %0, align 8
+  br label %20
 
-21:                                               ; preds = %_ZNKR32pxrInternal_v0_24__pxrReserved__7VtValue12UncheckedGetIlEERKT_v.exit, %_ZNRSt8optionalIbE5valueEv.exit
-  %.sink = phi ptr [ %19, %_ZNRSt8optionalIbE5valueEv.exit ], [ null, %_ZNKR32pxrInternal_v0_24__pxrReserved__7VtValue12UncheckedGetIlEERKT_v.exit ]
-  %22 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store ptr %.sink, ptr %22, align 8
+20:                                               ; preds = %_ZNKR32pxrInternal_v0_24__pxrReserved__7VtValue12UncheckedGetIlEERKT_v.exit, %_ZNRSt8optionalIbE5valueEv.exit
+  %.sink = phi ptr [ %18, %_ZNRSt8optionalIbE5valueEv.exit ], [ null, %_ZNKR32pxrInternal_v0_24__pxrReserved__7VtValue12UncheckedGetIlEERKT_v.exit ]
+  %21 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  store ptr %.sink, ptr %21, align 8
   ret void
 }
 
@@ -8744,26 +8745,26 @@ define internal void @_ZN32pxrInternal_v0_24__pxrReserved__L12_NumericCastIxbEEN
 _ZNKR32pxrInternal_v0_24__pxrReserved__7VtValue12UncheckedGetIxEERKT_v.exit: ; preds = %2, %7
   %.0.i.i = phi ptr [ %12, %7 ], [ %1, %2 ]
   %13 = load i64, ptr %.0.i.i, align 8
-  %14 = icmp ugt i64 %13, 1
-  %15 = trunc nuw i64 %13 to i16
-  %16 = or i16 %15, 256
-  %.sroa.06.0.insert.insert.i = select i1 %14, i16 0, i16 %16
-  %17 = and i16 %.sroa.06.0.insert.insert.i, 256
-  %.not = icmp eq i16 %17, 0
-  br i1 %.not, label %21, label %_ZNRSt8optionalIbE5valueEv.exit
+  %or.cond.not = icmp ult i64 %13, 2
+  %14 = trunc nuw i64 %13 to i16
+  %15 = or i16 %14, 256
+  %.sroa.06.0.insert.insert.i = select i1 %or.cond.not, i16 %15, i16 0
+  %16 = and i16 %.sroa.06.0.insert.insert.i, 256
+  %.not = icmp eq i16 %16, 0
+  br i1 %.not, label %20, label %_ZNRSt8optionalIbE5valueEv.exit
 
 _ZNRSt8optionalIbE5valueEv.exit:                  ; preds = %_ZNKR32pxrInternal_v0_24__pxrReserved__7VtValue12UncheckedGetIxEERKT_v.exit
   %.sroa.0.0.extract.trunc = trunc i16 %.sroa.06.0.insert.insert.i to i8
-  %18 = or disjoint i64 3, ptrtoint (ptr @_ZZN32pxrInternal_v0_24__pxrReserved__7VtValue11GetTypeInfoIbEENS_16TfPointerAndBitsIKNS0_9_TypeInfoEEEvE2ti to i64)
-  %19 = inttoptr i64 %18 to ptr
-  %20 = and i8 %.sroa.0.0.extract.trunc, 1
-  store i8 %20, ptr %0, align 8
-  br label %21
+  %17 = or disjoint i64 3, ptrtoint (ptr @_ZZN32pxrInternal_v0_24__pxrReserved__7VtValue11GetTypeInfoIbEENS_16TfPointerAndBitsIKNS0_9_TypeInfoEEEvE2ti to i64)
+  %18 = inttoptr i64 %17 to ptr
+  %19 = and i8 %.sroa.0.0.extract.trunc, 1
+  store i8 %19, ptr %0, align 8
+  br label %20
 
-21:                                               ; preds = %_ZNKR32pxrInternal_v0_24__pxrReserved__7VtValue12UncheckedGetIxEERKT_v.exit, %_ZNRSt8optionalIbE5valueEv.exit
-  %.sink = phi ptr [ %19, %_ZNRSt8optionalIbE5valueEv.exit ], [ null, %_ZNKR32pxrInternal_v0_24__pxrReserved__7VtValue12UncheckedGetIxEERKT_v.exit ]
-  %22 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store ptr %.sink, ptr %22, align 8
+20:                                               ; preds = %_ZNKR32pxrInternal_v0_24__pxrReserved__7VtValue12UncheckedGetIxEERKT_v.exit, %_ZNRSt8optionalIbE5valueEv.exit
+  %.sink = phi ptr [ %18, %_ZNRSt8optionalIbE5valueEv.exit ], [ null, %_ZNKR32pxrInternal_v0_24__pxrReserved__7VtValue12UncheckedGetIxEERKT_v.exit ]
+  %21 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  store ptr %.sink, ptr %21, align 8
   ret void
 }
 
@@ -12322,24 +12323,27 @@ define internal void @_ZN32pxrInternal_v0_24__pxrReserved__L12_NumericCastIshEEN
 _ZNKR32pxrInternal_v0_24__pxrReserved__7VtValue12UncheckedGetIsEERKT_v.exit: ; preds = %2, %7
   %.0.i.i = phi ptr [ %12, %7 ], [ %1, %2 ]
   %13 = load i16, ptr %.0.i.i, align 2
-  %14 = icmp ugt i16 %13, 255
-  %15 = or i16 %13, 256
-  %.sroa.06.0.insert.insert.i = select i1 %14, i16 0, i16 %15
-  %16 = and i16 %.sroa.06.0.insert.insert.i, 256
-  %.not = icmp eq i16 %16, 0
-  br i1 %.not, label %19, label %_ZNRSt8optionalIhE5valueEv.exit
+  %14 = icmp slt i16 %13, 0
+  %.inv = icmp ult i16 %13, 256
+  %spec.select2 = select i1 %.inv, i16 256, i16 0
+  %.sroa.06.0.i = select i1 %.inv, i16 %13, i16 0
+  %.sroa.2.0.i = select i1 %14, i16 0, i16 %spec.select2
+  %.sroa.06.0.i.masked = and i16 %.sroa.06.0.i, 256
+  %15 = or i16 %.sroa.2.0.i, %.sroa.06.0.i.masked
+  %.not3 = icmp eq i16 %15, 0
+  br i1 %.not3, label %18, label %_ZNRSt8optionalIhE5valueEv.exit
 
 _ZNRSt8optionalIhE5valueEv.exit:                  ; preds = %_ZNKR32pxrInternal_v0_24__pxrReserved__7VtValue12UncheckedGetIsEERKT_v.exit
-  %.sroa.0.0.extract.trunc = trunc i16 %.sroa.06.0.insert.insert.i to i8
-  %17 = or disjoint i64 3, ptrtoint (ptr @_ZZN32pxrInternal_v0_24__pxrReserved__7VtValue11GetTypeInfoIhEENS_16TfPointerAndBitsIKNS0_9_TypeInfoEEEvE2ti to i64)
-  %18 = inttoptr i64 %17 to ptr
+  %.sroa.0.0.extract.trunc = trunc i16 %.sroa.06.0.i to i8
+  %16 = or disjoint i64 3, ptrtoint (ptr @_ZZN32pxrInternal_v0_24__pxrReserved__7VtValue11GetTypeInfoIhEENS_16TfPointerAndBitsIKNS0_9_TypeInfoEEEvE2ti to i64)
+  %17 = inttoptr i64 %16 to ptr
   store i8 %.sroa.0.0.extract.trunc, ptr %0, align 8
-  br label %19
+  br label %18
 
-19:                                               ; preds = %_ZNKR32pxrInternal_v0_24__pxrReserved__7VtValue12UncheckedGetIsEERKT_v.exit, %_ZNRSt8optionalIhE5valueEv.exit
-  %.sink = phi ptr [ %18, %_ZNRSt8optionalIhE5valueEv.exit ], [ null, %_ZNKR32pxrInternal_v0_24__pxrReserved__7VtValue12UncheckedGetIsEERKT_v.exit ]
-  %20 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store ptr %.sink, ptr %20, align 8
+18:                                               ; preds = %_ZNKR32pxrInternal_v0_24__pxrReserved__7VtValue12UncheckedGetIsEERKT_v.exit, %_ZNRSt8optionalIhE5valueEv.exit
+  %.sink = phi ptr [ %17, %_ZNRSt8optionalIhE5valueEv.exit ], [ null, %_ZNKR32pxrInternal_v0_24__pxrReserved__7VtValue12UncheckedGetIsEERKT_v.exit ]
+  %19 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  store ptr %.sink, ptr %19, align 8
   ret void
 }
 
@@ -12462,25 +12466,25 @@ define internal void @_ZN32pxrInternal_v0_24__pxrReserved__L12_NumericCastIihEEN
 _ZNKR32pxrInternal_v0_24__pxrReserved__7VtValue12UncheckedGetIiEERKT_v.exit: ; preds = %2, %7
   %.0.i.i = phi ptr [ %12, %7 ], [ %1, %2 ]
   %13 = load i32, ptr %.0.i.i, align 4
-  %14 = icmp ugt i32 %13, 255
-  %15 = trunc nuw i32 %13 to i16
-  %16 = or i16 %15, 256
-  %.sroa.06.0.insert.insert.i = select i1 %14, i16 0, i16 %16
-  %17 = and i16 %.sroa.06.0.insert.insert.i, 256
-  %.not = icmp eq i16 %17, 0
-  br i1 %.not, label %20, label %_ZNRSt8optionalIhE5valueEv.exit
+  %or.cond.not = icmp ult i32 %13, 256
+  %14 = trunc nuw i32 %13 to i16
+  %15 = or i16 %14, 256
+  %.sroa.06.0.insert.insert.i = select i1 %or.cond.not, i16 %15, i16 0
+  %16 = and i16 %.sroa.06.0.insert.insert.i, 256
+  %.not = icmp eq i16 %16, 0
+  br i1 %.not, label %19, label %_ZNRSt8optionalIhE5valueEv.exit
 
 _ZNRSt8optionalIhE5valueEv.exit:                  ; preds = %_ZNKR32pxrInternal_v0_24__pxrReserved__7VtValue12UncheckedGetIiEERKT_v.exit
   %.sroa.0.0.extract.trunc = trunc i16 %.sroa.06.0.insert.insert.i to i8
-  %18 = or disjoint i64 3, ptrtoint (ptr @_ZZN32pxrInternal_v0_24__pxrReserved__7VtValue11GetTypeInfoIhEENS_16TfPointerAndBitsIKNS0_9_TypeInfoEEEvE2ti to i64)
-  %19 = inttoptr i64 %18 to ptr
+  %17 = or disjoint i64 3, ptrtoint (ptr @_ZZN32pxrInternal_v0_24__pxrReserved__7VtValue11GetTypeInfoIhEENS_16TfPointerAndBitsIKNS0_9_TypeInfoEEEvE2ti to i64)
+  %18 = inttoptr i64 %17 to ptr
   store i8 %.sroa.0.0.extract.trunc, ptr %0, align 8
-  br label %20
+  br label %19
 
-20:                                               ; preds = %_ZNKR32pxrInternal_v0_24__pxrReserved__7VtValue12UncheckedGetIiEERKT_v.exit, %_ZNRSt8optionalIhE5valueEv.exit
-  %.sink = phi ptr [ %19, %_ZNRSt8optionalIhE5valueEv.exit ], [ null, %_ZNKR32pxrInternal_v0_24__pxrReserved__7VtValue12UncheckedGetIiEERKT_v.exit ]
-  %21 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store ptr %.sink, ptr %21, align 8
+19:                                               ; preds = %_ZNKR32pxrInternal_v0_24__pxrReserved__7VtValue12UncheckedGetIiEERKT_v.exit, %_ZNRSt8optionalIhE5valueEv.exit
+  %.sink = phi ptr [ %18, %_ZNRSt8optionalIhE5valueEv.exit ], [ null, %_ZNKR32pxrInternal_v0_24__pxrReserved__7VtValue12UncheckedGetIiEERKT_v.exit ]
+  %20 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  store ptr %.sink, ptr %20, align 8
   ret void
 }
 
@@ -12604,25 +12608,25 @@ define internal void @_ZN32pxrInternal_v0_24__pxrReserved__L12_NumericCastIlhEEN
 _ZNKR32pxrInternal_v0_24__pxrReserved__7VtValue12UncheckedGetIlEERKT_v.exit: ; preds = %2, %7
   %.0.i.i = phi ptr [ %12, %7 ], [ %1, %2 ]
   %13 = load i64, ptr %.0.i.i, align 8
-  %14 = icmp ugt i64 %13, 255
-  %15 = trunc nuw i64 %13 to i16
-  %16 = or i16 %15, 256
-  %.sroa.06.0.insert.insert.i = select i1 %14, i16 0, i16 %16
-  %17 = and i16 %.sroa.06.0.insert.insert.i, 256
-  %.not = icmp eq i16 %17, 0
-  br i1 %.not, label %20, label %_ZNRSt8optionalIhE5valueEv.exit
+  %or.cond.not = icmp ult i64 %13, 256
+  %14 = trunc nuw i64 %13 to i16
+  %15 = or i16 %14, 256
+  %.sroa.06.0.insert.insert.i = select i1 %or.cond.not, i16 %15, i16 0
+  %16 = and i16 %.sroa.06.0.insert.insert.i, 256
+  %.not = icmp eq i16 %16, 0
+  br i1 %.not, label %19, label %_ZNRSt8optionalIhE5valueEv.exit
 
 _ZNRSt8optionalIhE5valueEv.exit:                  ; preds = %_ZNKR32pxrInternal_v0_24__pxrReserved__7VtValue12UncheckedGetIlEERKT_v.exit
   %.sroa.0.0.extract.trunc = trunc i16 %.sroa.06.0.insert.insert.i to i8
-  %18 = or disjoint i64 3, ptrtoint (ptr @_ZZN32pxrInternal_v0_24__pxrReserved__7VtValue11GetTypeInfoIhEENS_16TfPointerAndBitsIKNS0_9_TypeInfoEEEvE2ti to i64)
-  %19 = inttoptr i64 %18 to ptr
+  %17 = or disjoint i64 3, ptrtoint (ptr @_ZZN32pxrInternal_v0_24__pxrReserved__7VtValue11GetTypeInfoIhEENS_16TfPointerAndBitsIKNS0_9_TypeInfoEEEvE2ti to i64)
+  %18 = inttoptr i64 %17 to ptr
   store i8 %.sroa.0.0.extract.trunc, ptr %0, align 8
-  br label %20
+  br label %19
 
-20:                                               ; preds = %_ZNKR32pxrInternal_v0_24__pxrReserved__7VtValue12UncheckedGetIlEERKT_v.exit, %_ZNRSt8optionalIhE5valueEv.exit
-  %.sink = phi ptr [ %19, %_ZNRSt8optionalIhE5valueEv.exit ], [ null, %_ZNKR32pxrInternal_v0_24__pxrReserved__7VtValue12UncheckedGetIlEERKT_v.exit ]
-  %21 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store ptr %.sink, ptr %21, align 8
+19:                                               ; preds = %_ZNKR32pxrInternal_v0_24__pxrReserved__7VtValue12UncheckedGetIlEERKT_v.exit, %_ZNRSt8optionalIhE5valueEv.exit
+  %.sink = phi ptr [ %18, %_ZNRSt8optionalIhE5valueEv.exit ], [ null, %_ZNKR32pxrInternal_v0_24__pxrReserved__7VtValue12UncheckedGetIlEERKT_v.exit ]
+  %20 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  store ptr %.sink, ptr %20, align 8
   ret void
 }
 
@@ -12746,25 +12750,25 @@ define internal void @_ZN32pxrInternal_v0_24__pxrReserved__L12_NumericCastIxhEEN
 _ZNKR32pxrInternal_v0_24__pxrReserved__7VtValue12UncheckedGetIxEERKT_v.exit: ; preds = %2, %7
   %.0.i.i = phi ptr [ %12, %7 ], [ %1, %2 ]
   %13 = load i64, ptr %.0.i.i, align 8
-  %14 = icmp ugt i64 %13, 255
-  %15 = trunc nuw i64 %13 to i16
-  %16 = or i16 %15, 256
-  %.sroa.06.0.insert.insert.i = select i1 %14, i16 0, i16 %16
-  %17 = and i16 %.sroa.06.0.insert.insert.i, 256
-  %.not = icmp eq i16 %17, 0
-  br i1 %.not, label %20, label %_ZNRSt8optionalIhE5valueEv.exit
+  %or.cond.not = icmp ult i64 %13, 256
+  %14 = trunc nuw i64 %13 to i16
+  %15 = or i16 %14, 256
+  %.sroa.06.0.insert.insert.i = select i1 %or.cond.not, i16 %15, i16 0
+  %16 = and i16 %.sroa.06.0.insert.insert.i, 256
+  %.not = icmp eq i16 %16, 0
+  br i1 %.not, label %19, label %_ZNRSt8optionalIhE5valueEv.exit
 
 _ZNRSt8optionalIhE5valueEv.exit:                  ; preds = %_ZNKR32pxrInternal_v0_24__pxrReserved__7VtValue12UncheckedGetIxEERKT_v.exit
   %.sroa.0.0.extract.trunc = trunc i16 %.sroa.06.0.insert.insert.i to i8
-  %18 = or disjoint i64 3, ptrtoint (ptr @_ZZN32pxrInternal_v0_24__pxrReserved__7VtValue11GetTypeInfoIhEENS_16TfPointerAndBitsIKNS0_9_TypeInfoEEEvE2ti to i64)
-  %19 = inttoptr i64 %18 to ptr
+  %17 = or disjoint i64 3, ptrtoint (ptr @_ZZN32pxrInternal_v0_24__pxrReserved__7VtValue11GetTypeInfoIhEENS_16TfPointerAndBitsIKNS0_9_TypeInfoEEEvE2ti to i64)
+  %18 = inttoptr i64 %17 to ptr
   store i8 %.sroa.0.0.extract.trunc, ptr %0, align 8
-  br label %20
+  br label %19
 
-20:                                               ; preds = %_ZNKR32pxrInternal_v0_24__pxrReserved__7VtValue12UncheckedGetIxEERKT_v.exit, %_ZNRSt8optionalIhE5valueEv.exit
-  %.sink = phi ptr [ %19, %_ZNRSt8optionalIhE5valueEv.exit ], [ null, %_ZNKR32pxrInternal_v0_24__pxrReserved__7VtValue12UncheckedGetIxEERKT_v.exit ]
-  %21 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store ptr %.sink, ptr %21, align 8
+19:                                               ; preds = %_ZNKR32pxrInternal_v0_24__pxrReserved__7VtValue12UncheckedGetIxEERKT_v.exit, %_ZNRSt8optionalIhE5valueEv.exit
+  %.sink = phi ptr [ %18, %_ZNRSt8optionalIhE5valueEv.exit ], [ null, %_ZNKR32pxrInternal_v0_24__pxrReserved__7VtValue12UncheckedGetIxEERKT_v.exit ]
+  %20 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  store ptr %.sink, ptr %20, align 8
   ret void
 }
 
@@ -14269,24 +14273,27 @@ define internal void @_ZN32pxrInternal_v0_24__pxrReserved__L12_NumericCastIitEEN
 _ZNKR32pxrInternal_v0_24__pxrReserved__7VtValue12UncheckedGetIiEERKT_v.exit: ; preds = %2, %7
   %.0.i.i = phi ptr [ %12, %7 ], [ %1, %2 ]
   %13 = load i32, ptr %.0.i.i, align 4
-  %14 = icmp ugt i32 %13, 65535
-  %15 = or i32 %13, 65536
-  %.sroa.06.0.insert.insert.i = select i1 %14, i32 0, i32 %15
-  %16 = and i32 %.sroa.06.0.insert.insert.i, 65536
-  %.not = icmp eq i32 %16, 0
-  br i1 %.not, label %19, label %_ZNRSt8optionalItE5valueEv.exit
+  %14 = icmp slt i32 %13, 0
+  %.inv = icmp ult i32 %13, 65536
+  %spec.select2 = select i1 %.inv, i32 65536, i32 0
+  %.sroa.06.0.i = select i1 %.inv, i32 %13, i32 0
+  %.sroa.2.0.i = select i1 %14, i32 0, i32 %spec.select2
+  %.sroa.06.0.i.masked = and i32 %.sroa.06.0.i, 65536
+  %15 = or i32 %.sroa.2.0.i, %.sroa.06.0.i.masked
+  %.not3 = icmp eq i32 %15, 0
+  br i1 %.not3, label %18, label %_ZNRSt8optionalItE5valueEv.exit
 
 _ZNRSt8optionalItE5valueEv.exit:                  ; preds = %_ZNKR32pxrInternal_v0_24__pxrReserved__7VtValue12UncheckedGetIiEERKT_v.exit
-  %.sroa.0.0.extract.trunc = trunc i32 %.sroa.06.0.insert.insert.i to i16
-  %17 = or disjoint i64 3, ptrtoint (ptr @_ZZN32pxrInternal_v0_24__pxrReserved__7VtValue11GetTypeInfoItEENS_16TfPointerAndBitsIKNS0_9_TypeInfoEEEvE2ti to i64)
-  %18 = inttoptr i64 %17 to ptr
+  %.sroa.0.0.extract.trunc = trunc i32 %.sroa.06.0.i to i16
+  %16 = or disjoint i64 3, ptrtoint (ptr @_ZZN32pxrInternal_v0_24__pxrReserved__7VtValue11GetTypeInfoItEENS_16TfPointerAndBitsIKNS0_9_TypeInfoEEEvE2ti to i64)
+  %17 = inttoptr i64 %16 to ptr
   store i16 %.sroa.0.0.extract.trunc, ptr %0, align 8
-  br label %19
+  br label %18
 
-19:                                               ; preds = %_ZNKR32pxrInternal_v0_24__pxrReserved__7VtValue12UncheckedGetIiEERKT_v.exit, %_ZNRSt8optionalItE5valueEv.exit
-  %.sink = phi ptr [ %18, %_ZNRSt8optionalItE5valueEv.exit ], [ null, %_ZNKR32pxrInternal_v0_24__pxrReserved__7VtValue12UncheckedGetIiEERKT_v.exit ]
-  %20 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store ptr %.sink, ptr %20, align 8
+18:                                               ; preds = %_ZNKR32pxrInternal_v0_24__pxrReserved__7VtValue12UncheckedGetIiEERKT_v.exit, %_ZNRSt8optionalItE5valueEv.exit
+  %.sink = phi ptr [ %17, %_ZNRSt8optionalItE5valueEv.exit ], [ null, %_ZNKR32pxrInternal_v0_24__pxrReserved__7VtValue12UncheckedGetIiEERKT_v.exit ]
+  %19 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  store ptr %.sink, ptr %19, align 8
   ret void
 }
 
@@ -14409,25 +14416,25 @@ define internal void @_ZN32pxrInternal_v0_24__pxrReserved__L12_NumericCastIltEEN
 _ZNKR32pxrInternal_v0_24__pxrReserved__7VtValue12UncheckedGetIlEERKT_v.exit: ; preds = %2, %7
   %.0.i.i = phi ptr [ %12, %7 ], [ %1, %2 ]
   %13 = load i64, ptr %.0.i.i, align 8
-  %14 = icmp ugt i64 %13, 65535
-  %15 = trunc nuw i64 %13 to i32
-  %16 = or i32 %15, 65536
-  %.sroa.06.0.insert.insert.i = select i1 %14, i32 0, i32 %16
-  %17 = and i32 %.sroa.06.0.insert.insert.i, 65536
-  %.not = icmp eq i32 %17, 0
-  br i1 %.not, label %20, label %_ZNRSt8optionalItE5valueEv.exit
+  %or.cond.not = icmp ult i64 %13, 65536
+  %14 = trunc nuw i64 %13 to i32
+  %15 = or i32 %14, 65536
+  %.sroa.06.0.insert.insert.i = select i1 %or.cond.not, i32 %15, i32 0
+  %16 = and i32 %.sroa.06.0.insert.insert.i, 65536
+  %.not = icmp eq i32 %16, 0
+  br i1 %.not, label %19, label %_ZNRSt8optionalItE5valueEv.exit
 
 _ZNRSt8optionalItE5valueEv.exit:                  ; preds = %_ZNKR32pxrInternal_v0_24__pxrReserved__7VtValue12UncheckedGetIlEERKT_v.exit
   %.sroa.0.0.extract.trunc = trunc i32 %.sroa.06.0.insert.insert.i to i16
-  %18 = or disjoint i64 3, ptrtoint (ptr @_ZZN32pxrInternal_v0_24__pxrReserved__7VtValue11GetTypeInfoItEENS_16TfPointerAndBitsIKNS0_9_TypeInfoEEEvE2ti to i64)
-  %19 = inttoptr i64 %18 to ptr
+  %17 = or disjoint i64 3, ptrtoint (ptr @_ZZN32pxrInternal_v0_24__pxrReserved__7VtValue11GetTypeInfoItEENS_16TfPointerAndBitsIKNS0_9_TypeInfoEEEvE2ti to i64)
+  %18 = inttoptr i64 %17 to ptr
   store i16 %.sroa.0.0.extract.trunc, ptr %0, align 8
-  br label %20
+  br label %19
 
-20:                                               ; preds = %_ZNKR32pxrInternal_v0_24__pxrReserved__7VtValue12UncheckedGetIlEERKT_v.exit, %_ZNRSt8optionalItE5valueEv.exit
-  %.sink = phi ptr [ %19, %_ZNRSt8optionalItE5valueEv.exit ], [ null, %_ZNKR32pxrInternal_v0_24__pxrReserved__7VtValue12UncheckedGetIlEERKT_v.exit ]
-  %21 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store ptr %.sink, ptr %21, align 8
+19:                                               ; preds = %_ZNKR32pxrInternal_v0_24__pxrReserved__7VtValue12UncheckedGetIlEERKT_v.exit, %_ZNRSt8optionalItE5valueEv.exit
+  %.sink = phi ptr [ %18, %_ZNRSt8optionalItE5valueEv.exit ], [ null, %_ZNKR32pxrInternal_v0_24__pxrReserved__7VtValue12UncheckedGetIlEERKT_v.exit ]
+  %20 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  store ptr %.sink, ptr %20, align 8
   ret void
 }
 
@@ -14551,25 +14558,25 @@ define internal void @_ZN32pxrInternal_v0_24__pxrReserved__L12_NumericCastIxtEEN
 _ZNKR32pxrInternal_v0_24__pxrReserved__7VtValue12UncheckedGetIxEERKT_v.exit: ; preds = %2, %7
   %.0.i.i = phi ptr [ %12, %7 ], [ %1, %2 ]
   %13 = load i64, ptr %.0.i.i, align 8
-  %14 = icmp ugt i64 %13, 65535
-  %15 = trunc nuw i64 %13 to i32
-  %16 = or i32 %15, 65536
-  %.sroa.06.0.insert.insert.i = select i1 %14, i32 0, i32 %16
-  %17 = and i32 %.sroa.06.0.insert.insert.i, 65536
-  %.not = icmp eq i32 %17, 0
-  br i1 %.not, label %20, label %_ZNRSt8optionalItE5valueEv.exit
+  %or.cond.not = icmp ult i64 %13, 65536
+  %14 = trunc nuw i64 %13 to i32
+  %15 = or i32 %14, 65536
+  %.sroa.06.0.insert.insert.i = select i1 %or.cond.not, i32 %15, i32 0
+  %16 = and i32 %.sroa.06.0.insert.insert.i, 65536
+  %.not = icmp eq i32 %16, 0
+  br i1 %.not, label %19, label %_ZNRSt8optionalItE5valueEv.exit
 
 _ZNRSt8optionalItE5valueEv.exit:                  ; preds = %_ZNKR32pxrInternal_v0_24__pxrReserved__7VtValue12UncheckedGetIxEERKT_v.exit
   %.sroa.0.0.extract.trunc = trunc i32 %.sroa.06.0.insert.insert.i to i16
-  %18 = or disjoint i64 3, ptrtoint (ptr @_ZZN32pxrInternal_v0_24__pxrReserved__7VtValue11GetTypeInfoItEENS_16TfPointerAndBitsIKNS0_9_TypeInfoEEEvE2ti to i64)
-  %19 = inttoptr i64 %18 to ptr
+  %17 = or disjoint i64 3, ptrtoint (ptr @_ZZN32pxrInternal_v0_24__pxrReserved__7VtValue11GetTypeInfoItEENS_16TfPointerAndBitsIKNS0_9_TypeInfoEEEvE2ti to i64)
+  %18 = inttoptr i64 %17 to ptr
   store i16 %.sroa.0.0.extract.trunc, ptr %0, align 8
-  br label %20
+  br label %19
 
-20:                                               ; preds = %_ZNKR32pxrInternal_v0_24__pxrReserved__7VtValue12UncheckedGetIxEERKT_v.exit, %_ZNRSt8optionalItE5valueEv.exit
-  %.sink = phi ptr [ %19, %_ZNRSt8optionalItE5valueEv.exit ], [ null, %_ZNKR32pxrInternal_v0_24__pxrReserved__7VtValue12UncheckedGetIxEERKT_v.exit ]
-  %21 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store ptr %.sink, ptr %21, align 8
+19:                                               ; preds = %_ZNKR32pxrInternal_v0_24__pxrReserved__7VtValue12UncheckedGetIxEERKT_v.exit, %_ZNRSt8optionalItE5valueEv.exit
+  %.sink = phi ptr [ %18, %_ZNRSt8optionalItE5valueEv.exit ], [ null, %_ZNKR32pxrInternal_v0_24__pxrReserved__7VtValue12UncheckedGetIxEERKT_v.exit ]
+  %20 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  store ptr %.sink, ptr %20, align 8
   ret void
 }
 
@@ -15923,24 +15930,27 @@ define internal void @_ZN32pxrInternal_v0_24__pxrReserved__L12_NumericCastIljEEN
 _ZNKR32pxrInternal_v0_24__pxrReserved__7VtValue12UncheckedGetIlEERKT_v.exit: ; preds = %2, %7
   %.0.i.i = phi ptr [ %12, %7 ], [ %1, %2 ]
   %13 = load i64, ptr %.0.i.i, align 8
-  %14 = icmp ugt i64 %13, 4294967295
-  %15 = or i64 %13, 4294967296
-  %.sroa.06.0.insert.insert.i = select i1 %14, i64 0, i64 %15
-  %16 = and i64 %.sroa.06.0.insert.insert.i, 4294967296
-  %.not = icmp eq i64 %16, 0
-  br i1 %.not, label %19, label %_ZNRSt8optionalIjE5valueEv.exit
+  %14 = icmp slt i64 %13, 0
+  %.inv = icmp ult i64 %13, 4294967296
+  %spec.select2 = select i1 %.inv, i64 4294967296, i64 0
+  %.sroa.06.0.i = select i1 %.inv, i64 %13, i64 0
+  %.sroa.2.0.i = select i1 %14, i64 0, i64 %spec.select2
+  %.sroa.06.0.i.masked = and i64 %.sroa.06.0.i, 4294967296
+  %15 = or i64 %.sroa.2.0.i, %.sroa.06.0.i.masked
+  %.not3 = icmp eq i64 %15, 0
+  br i1 %.not3, label %18, label %_ZNRSt8optionalIjE5valueEv.exit
 
 _ZNRSt8optionalIjE5valueEv.exit:                  ; preds = %_ZNKR32pxrInternal_v0_24__pxrReserved__7VtValue12UncheckedGetIlEERKT_v.exit
-  %.sroa.0.0.extract.trunc = trunc i64 %.sroa.06.0.insert.insert.i to i32
-  %17 = or disjoint i64 3, ptrtoint (ptr @_ZZN32pxrInternal_v0_24__pxrReserved__7VtValue11GetTypeInfoIjEENS_16TfPointerAndBitsIKNS0_9_TypeInfoEEEvE2ti to i64)
-  %18 = inttoptr i64 %17 to ptr
+  %.sroa.0.0.extract.trunc = trunc i64 %.sroa.06.0.i to i32
+  %16 = or disjoint i64 3, ptrtoint (ptr @_ZZN32pxrInternal_v0_24__pxrReserved__7VtValue11GetTypeInfoIjEENS_16TfPointerAndBitsIKNS0_9_TypeInfoEEEvE2ti to i64)
+  %17 = inttoptr i64 %16 to ptr
   store i32 %.sroa.0.0.extract.trunc, ptr %0, align 8
-  br label %19
+  br label %18
 
-19:                                               ; preds = %_ZNKR32pxrInternal_v0_24__pxrReserved__7VtValue12UncheckedGetIlEERKT_v.exit, %_ZNRSt8optionalIjE5valueEv.exit
-  %.sink = phi ptr [ %18, %_ZNRSt8optionalIjE5valueEv.exit ], [ null, %_ZNKR32pxrInternal_v0_24__pxrReserved__7VtValue12UncheckedGetIlEERKT_v.exit ]
-  %20 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store ptr %.sink, ptr %20, align 8
+18:                                               ; preds = %_ZNKR32pxrInternal_v0_24__pxrReserved__7VtValue12UncheckedGetIlEERKT_v.exit, %_ZNRSt8optionalIjE5valueEv.exit
+  %.sink = phi ptr [ %17, %_ZNRSt8optionalIjE5valueEv.exit ], [ null, %_ZNKR32pxrInternal_v0_24__pxrReserved__7VtValue12UncheckedGetIlEERKT_v.exit ]
+  %19 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  store ptr %.sink, ptr %19, align 8
   ret void
 }
 
@@ -16063,24 +16073,27 @@ define internal void @_ZN32pxrInternal_v0_24__pxrReserved__L12_NumericCastIxjEEN
 _ZNKR32pxrInternal_v0_24__pxrReserved__7VtValue12UncheckedGetIxEERKT_v.exit: ; preds = %2, %7
   %.0.i.i = phi ptr [ %12, %7 ], [ %1, %2 ]
   %13 = load i64, ptr %.0.i.i, align 8
-  %14 = icmp ugt i64 %13, 4294967295
-  %15 = or i64 %13, 4294967296
-  %.sroa.06.0.insert.insert.i = select i1 %14, i64 0, i64 %15
-  %16 = and i64 %.sroa.06.0.insert.insert.i, 4294967296
-  %.not = icmp eq i64 %16, 0
-  br i1 %.not, label %19, label %_ZNRSt8optionalIjE5valueEv.exit
+  %14 = icmp slt i64 %13, 0
+  %.inv = icmp ult i64 %13, 4294967296
+  %spec.select2 = select i1 %.inv, i64 4294967296, i64 0
+  %.sroa.06.0.i = select i1 %.inv, i64 %13, i64 0
+  %.sroa.2.0.i = select i1 %14, i64 0, i64 %spec.select2
+  %.sroa.06.0.i.masked = and i64 %.sroa.06.0.i, 4294967296
+  %15 = or i64 %.sroa.2.0.i, %.sroa.06.0.i.masked
+  %.not3 = icmp eq i64 %15, 0
+  br i1 %.not3, label %18, label %_ZNRSt8optionalIjE5valueEv.exit
 
 _ZNRSt8optionalIjE5valueEv.exit:                  ; preds = %_ZNKR32pxrInternal_v0_24__pxrReserved__7VtValue12UncheckedGetIxEERKT_v.exit
-  %.sroa.0.0.extract.trunc = trunc i64 %.sroa.06.0.insert.insert.i to i32
-  %17 = or disjoint i64 3, ptrtoint (ptr @_ZZN32pxrInternal_v0_24__pxrReserved__7VtValue11GetTypeInfoIjEENS_16TfPointerAndBitsIKNS0_9_TypeInfoEEEvE2ti to i64)
-  %18 = inttoptr i64 %17 to ptr
+  %.sroa.0.0.extract.trunc = trunc i64 %.sroa.06.0.i to i32
+  %16 = or disjoint i64 3, ptrtoint (ptr @_ZZN32pxrInternal_v0_24__pxrReserved__7VtValue11GetTypeInfoIjEENS_16TfPointerAndBitsIKNS0_9_TypeInfoEEEvE2ti to i64)
+  %17 = inttoptr i64 %16 to ptr
   store i32 %.sroa.0.0.extract.trunc, ptr %0, align 8
-  br label %19
+  br label %18
 
-19:                                               ; preds = %_ZNKR32pxrInternal_v0_24__pxrReserved__7VtValue12UncheckedGetIxEERKT_v.exit, %_ZNRSt8optionalIjE5valueEv.exit
-  %.sink = phi ptr [ %18, %_ZNRSt8optionalIjE5valueEv.exit ], [ null, %_ZNKR32pxrInternal_v0_24__pxrReserved__7VtValue12UncheckedGetIxEERKT_v.exit ]
-  %20 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store ptr %.sink, ptr %20, align 8
+18:                                               ; preds = %_ZNKR32pxrInternal_v0_24__pxrReserved__7VtValue12UncheckedGetIxEERKT_v.exit, %_ZNRSt8optionalIjE5valueEv.exit
+  %.sink = phi ptr [ %17, %_ZNRSt8optionalIjE5valueEv.exit ], [ null, %_ZNKR32pxrInternal_v0_24__pxrReserved__7VtValue12UncheckedGetIxEERKT_v.exit ]
+  %19 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  store ptr %.sink, ptr %19, align 8
   ret void
 }
 

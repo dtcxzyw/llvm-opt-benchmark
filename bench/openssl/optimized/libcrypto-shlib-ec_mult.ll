@@ -673,16 +673,16 @@ cond.end:                                         ; preds = %for.body, %cond.tru
   br i1 %cmp92, label %cond.end117, label %cond.false95
 
 cond.false95:                                     ; preds = %cond.end
-  %cmp96 = icmp ugt i32 %call90, 799
+  %cmp96 = icmp samesign ugt i32 %call90, 799
   br i1 %cmp96, label %cond.end117, label %cond.false99
 
 cond.false99:                                     ; preds = %cond.false95
-  %cmp100 = icmp ugt i32 %call90, 299
+  %cmp100 = icmp samesign ugt i32 %call90, 299
   br i1 %cmp100, label %cond.end117, label %cond.false103
 
 cond.false103:                                    ; preds = %cond.false99
-  %cmp104 = icmp ugt i32 %call90, 69
-  %cmp108 = icmp ugt i32 %call90, 19
+  %cmp104 = icmp samesign ugt i32 %call90, 69
+  %cmp108 = icmp samesign ugt i32 %call90, 19
   %cond110 = select i1 %cmp108, i64 2, i64 1
   %cond112 = select i1 %cmp104, i64 3, i64 %cond110
   br label %cond.end117

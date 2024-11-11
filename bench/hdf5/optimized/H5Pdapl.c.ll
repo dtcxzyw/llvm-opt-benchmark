@@ -1415,7 +1415,7 @@ define internal noundef i32 @H5P__encode_chunk_cache_nslots(ptr nocapture nounde
   br label %59
 
 22:                                               ; preds = %8
-  %.not27.i.i = icmp ult i64 %4, 1099511627776
+  %.not27.i.i = icmp samesign ult i64 %4, 1099511627776
   br i1 %.not27.i.i, label %29, label %23
 
 23:                                               ; preds = %22
@@ -1435,11 +1435,11 @@ define internal noundef i32 @H5P__encode_chunk_cache_nslots(ptr nocapture nounde
 
 34:                                               ; preds = %6
   %35 = lshr i64 %4, 16
-  %.not23.i.i = icmp ult i64 %4, 65536
+  %.not23.i.i = icmp samesign ult i64 %4, 65536
   br i1 %.not23.i.i, label %48, label %36
 
 36:                                               ; preds = %34
-  %.not25.i.i = icmp ult i64 %4, 16777216
+  %.not25.i.i = icmp samesign ult i64 %4, 16777216
   br i1 %.not25.i.i, label %43, label %37
 
 37:                                               ; preds = %36
@@ -1458,7 +1458,7 @@ define internal noundef i32 @H5P__encode_chunk_cache_nslots(ptr nocapture nounde
   br label %59
 
 48:                                               ; preds = %34
-  %.not24.i.i = icmp ult i64 %4, 256
+  %.not24.i.i = icmp samesign ult i64 %4, 256
   br i1 %.not24.i.i, label %55, label %49
 
 49:                                               ; preds = %48
@@ -1608,7 +1608,7 @@ define internal noundef i32 @H5P__encode_chunk_cache_nbytes(ptr nocapture nounde
   br label %59
 
 22:                                               ; preds = %8
-  %.not27.i.i = icmp ult i64 %4, 1099511627776
+  %.not27.i.i = icmp samesign ult i64 %4, 1099511627776
   br i1 %.not27.i.i, label %29, label %23
 
 23:                                               ; preds = %22
@@ -1628,11 +1628,11 @@ define internal noundef i32 @H5P__encode_chunk_cache_nbytes(ptr nocapture nounde
 
 34:                                               ; preds = %6
   %35 = lshr i64 %4, 16
-  %.not23.i.i = icmp ult i64 %4, 65536
+  %.not23.i.i = icmp samesign ult i64 %4, 65536
   br i1 %.not23.i.i, label %48, label %36
 
 36:                                               ; preds = %34
-  %.not25.i.i = icmp ult i64 %4, 16777216
+  %.not25.i.i = icmp samesign ult i64 %4, 16777216
   br i1 %.not25.i.i, label %43, label %37
 
 37:                                               ; preds = %36
@@ -1651,7 +1651,7 @@ define internal noundef i32 @H5P__encode_chunk_cache_nbytes(ptr nocapture nounde
   br label %59
 
 48:                                               ; preds = %34
-  %.not24.i.i = icmp ult i64 %4, 256
+  %.not24.i.i = icmp samesign ult i64 %4, 256
   br i1 %.not24.i.i, label %55, label %49
 
 49:                                               ; preds = %48
@@ -1858,7 +1858,7 @@ define internal noundef i32 @H5P__dapl_vds_file_pref_enc(ptr nocapture noundef r
   br label %H5VM_limit_enc_size.exit
 
 22:                                               ; preds = %8
-  %.not27.i.i = icmp ult i64 %6, 1099511627776
+  %.not27.i.i = icmp samesign ult i64 %6, 1099511627776
   br i1 %.not27.i.i, label %29, label %23
 
 23:                                               ; preds = %22
@@ -1878,11 +1878,11 @@ define internal noundef i32 @H5P__dapl_vds_file_pref_enc(ptr nocapture noundef r
 
 34:                                               ; preds = %5
   %35 = lshr i64 %6, 16
-  %.not23.i.i = icmp ult i64 %6, 65536
+  %.not23.i.i = icmp samesign ult i64 %6, 65536
   br i1 %.not23.i.i, label %48, label %36
 
 36:                                               ; preds = %34
-  %.not25.i.i = icmp ult i64 %6, 16777216
+  %.not25.i.i = icmp samesign ult i64 %6, 16777216
   br i1 %.not25.i.i, label %43, label %37
 
 37:                                               ; preds = %36
@@ -1901,7 +1901,7 @@ define internal noundef i32 @H5P__dapl_vds_file_pref_enc(ptr nocapture noundef r
   br label %H5VM_limit_enc_size.exit
 
 48:                                               ; preds = %34
-  %.not24.i.i = icmp ult i64 %6, 256
+  %.not24.i.i = icmp samesign ult i64 %6, 256
   br i1 %.not24.i.i, label %.thread45, label %49
 
 49:                                               ; preds = %48
@@ -2143,7 +2143,7 @@ define internal noundef i32 @H5P__dapl_efile_pref_enc(ptr nocapture noundef read
   br label %H5VM_limit_enc_size.exit
 
 22:                                               ; preds = %8
-  %.not27.i.i = icmp ult i64 %6, 1099511627776
+  %.not27.i.i = icmp samesign ult i64 %6, 1099511627776
   br i1 %.not27.i.i, label %29, label %23
 
 23:                                               ; preds = %22
@@ -2163,11 +2163,11 @@ define internal noundef i32 @H5P__dapl_efile_pref_enc(ptr nocapture noundef read
 
 34:                                               ; preds = %5
   %35 = lshr i64 %6, 16
-  %.not23.i.i = icmp ult i64 %6, 65536
+  %.not23.i.i = icmp samesign ult i64 %6, 65536
   br i1 %.not23.i.i, label %48, label %36
 
 36:                                               ; preds = %34
-  %.not25.i.i = icmp ult i64 %6, 16777216
+  %.not25.i.i = icmp samesign ult i64 %6, 16777216
   br i1 %.not25.i.i, label %43, label %37
 
 37:                                               ; preds = %36
@@ -2186,7 +2186,7 @@ define internal noundef i32 @H5P__dapl_efile_pref_enc(ptr nocapture noundef read
   br label %H5VM_limit_enc_size.exit
 
 48:                                               ; preds = %34
-  %.not24.i.i = icmp ult i64 %6, 256
+  %.not24.i.i = icmp samesign ult i64 %6, 256
   br i1 %.not24.i.i, label %.thread45, label %49
 
 49:                                               ; preds = %48

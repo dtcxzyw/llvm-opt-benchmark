@@ -7669,7 +7669,7 @@ _ZN4llvm15SmallVectorImplINS_11SmallStringILj2EEEE12assignRemoteEOS3_.exit: ; pr
   %40 = getelementptr inbounds i8, ptr %.0910.i.i.i.i.i, i64 32
   %41 = getelementptr inbounds i8, ptr %.0811.i.i.i.i.i, i64 32
   %42 = add nsw i64 %.012.i.i.i.i.i, -1
-  %43 = icmp ugt i64 %.012.i.i.i.i.i, 1
+  %43 = icmp samesign ugt i64 %.012.i.i.i.i.i, 1
   br i1 %43, label %.lr.ph.i.i.i.i.i, label %_ZSt4moveIPN4llvm11SmallStringILj2EEES3_ET0_T_S5_S4_.exit, !llvm.loop !92
 
 _ZSt4moveIPN4llvm11SmallStringILj2EEES3_ET0_T_S5_S4_.exit: ; preds = %.lr.ph.i.i.i.i.i, %35, %33
@@ -7804,7 +7804,7 @@ _ZN4llvm23SmallVectorTemplateBaseINS_11SmallStringILj2EEELb0EE4growEm.exit: ; pr
   %89 = getelementptr inbounds i8, ptr %.0910.i.i.i.i.i53, i64 32
   %90 = getelementptr inbounds i8, ptr %.0811.i.i.i.i.i52, i64 32
   %91 = add nsw i64 %.012.i.i.i.i.i51, -1
-  %92 = icmp ugt i64 %.012.i.i.i.i.i51, 1
+  %92 = icmp samesign ugt i64 %.012.i.i.i.i.i51, 1
   br i1 %92, label %.lr.ph.i.i.i.i.i50, label %_ZSt4moveIPN4llvm11SmallStringILj2EEES3_ET0_T_S5_S4_.exit54, !llvm.loop !92
 
 _ZSt4moveIPN4llvm11SmallStringILj2EEES3_ET0_T_S5_S4_.exit54: ; preds = %.lr.ph.i.i.i.i.i50, %84, %83, %_ZN4llvm23SmallVectorTemplateBaseINS_11SmallStringILj2EEELb0EE4growEm.exit
@@ -8396,7 +8396,7 @@ define linkonce_odr noundef nonnull align 8 dereferenceable(16) ptr @_ZN4llvm15S
   %13 = getelementptr inbounds i8, ptr %.0910.i.i.i.i.i, i64 32
   %14 = getelementptr inbounds i8, ptr %.0811.i.i.i.i.i, i64 32
   %15 = add nsw i64 %.012.i.i.i.i.i, -1
-  %16 = icmp ugt i64 %.012.i.i.i.i.i, 1
+  %16 = icmp samesign ugt i64 %.012.i.i.i.i.i, 1
   br i1 %16, label %.lr.ph.i.i.i.i.i, label %_ZSt4copyIPKN4llvm11SmallStringILj2EEEPS2_ET0_T_S7_S6_.exit.loopexit, !llvm.loop !96
 
 _ZSt4copyIPKN4llvm11SmallStringILj2EEEPS2_ET0_T_S7_S6_.exit.loopexit: ; preds = %.lr.ph.i.i.i.i.i
@@ -8506,7 +8506,7 @@ _ZN4llvm23SmallVectorTemplateBaseINS_11SmallStringILj2EEELb0EE4growEm.exit: ; pr
   %52 = getelementptr inbounds i8, ptr %.0910.i.i.i.i.i34, i64 32
   %53 = getelementptr inbounds i8, ptr %.0811.i.i.i.i.i33, i64 32
   %54 = add nsw i64 %.012.i.i.i.i.i32, -1
-  %55 = icmp ugt i64 %.012.i.i.i.i.i32, 1
+  %55 = icmp samesign ugt i64 %.012.i.i.i.i.i32, 1
   br i1 %55, label %.lr.ph.i.i.i.i.i31, label %_ZSt4copyIPKN4llvm11SmallStringILj2EEEPS2_ET0_T_S7_S6_.exit35, !llvm.loop !96
 
 _ZSt4copyIPKN4llvm11SmallStringILj2EEEPS2_ET0_T_S7_S6_.exit35: ; preds = %.lr.ph.i.i.i.i.i31, %47, %46, %_ZN4llvm23SmallVectorTemplateBaseINS_11SmallStringILj2EEELb0EE4growEm.exit

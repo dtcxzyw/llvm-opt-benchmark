@@ -6792,7 +6792,7 @@ IDAQuadSensWrmsNormUpdate.exit.i.i:               ; preds = %.lr.ph.i.i222.i, %.
   %1879 = getelementptr inbounds [6 x ptr], ptr %295, i64 0, i64 %indvars.iv316.i.i
   %1880 = load ptr, ptr %1879, align 8
   tail call void @N_VLinearSum(double noundef 1.000000e+00, ptr noundef %1878, double noundef 1.000000e+00, ptr noundef %1880, ptr noundef %1878) #13
-  %1881 = icmp ugt i64 %indvars.iv316.i.i, 1
+  %1881 = icmp samesign ugt i64 %indvars.iv316.i.i, 1
   br i1 %1881, label %.lr.ph288.i.i, label %._crit_edge289.i.i, !llvm.loop !72
 
 ._crit_edge289.i.i:                               ; preds = %.lr.ph288.i.i, %.loopexit273.i.i
@@ -6823,7 +6823,7 @@ IDAQuadSensWrmsNormUpdate.exit.i.i:               ; preds = %.lr.ph.i.i222.i, %.
   %1894 = getelementptr inbounds [6 x ptr], ptr %300, i64 0, i64 %indvars.iv319.i.i
   %1895 = load ptr, ptr %1894, align 8
   tail call void @N_VLinearSum(double noundef 1.000000e+00, ptr noundef %1893, double noundef 1.000000e+00, ptr noundef %1895, ptr noundef %1893) #13
-  %1896 = icmp ugt i64 %indvars.iv319.i.i, 1
+  %1896 = icmp samesign ugt i64 %indvars.iv319.i.i, 1
   br i1 %1896, label %.lr.ph292.i.i, label %.loopexit271.i.i, !llvm.loop !73
 
 .loopexit271.i.i:                                 ; preds = %.lr.ph292.i.i, %1883, %._crit_edge289.i.i
@@ -6868,7 +6868,7 @@ IDAQuadSensWrmsNormUpdate.exit.i.i:               ; preds = %.lr.ph.i.i222.i, %.
   %1918 = getelementptr inbounds ptr, ptr %1917, i64 %indvars.iv325.i.i
   %1919 = load ptr, ptr %1918, align 8
   tail call void @N_VLinearSum(double noundef 1.000000e+00, ptr noundef %1915, double noundef 1.000000e+00, ptr noundef %1919, ptr noundef %1915) #13
-  %1920 = icmp ugt i64 %indvars.iv322.i.i, 1
+  %1920 = icmp samesign ugt i64 %indvars.iv322.i.i, 1
   br i1 %1920, label %.lr.ph295.i.i, label %._crit_edge296.i.i, !llvm.loop !74
 
 ._crit_edge296.i.i:                               ; preds = %.lr.ph295.i.i, %.lr.ph298.i.i
@@ -6920,7 +6920,7 @@ IDAQuadSensWrmsNormUpdate.exit.i.i:               ; preds = %.lr.ph.i.i222.i, %.
   %1945 = getelementptr inbounds ptr, ptr %1944, i64 %indvars.iv331.i.i
   %1946 = load ptr, ptr %1945, align 8
   tail call void @N_VLinearSum(double noundef 1.000000e+00, ptr noundef %1942, double noundef 1.000000e+00, ptr noundef %1946, ptr noundef %1942) #13
-  %1947 = icmp ugt i64 %indvars.iv328.i.i, 1
+  %1947 = icmp samesign ugt i64 %indvars.iv328.i.i, 1
   br i1 %1947, label %.lr.ph301.i.i, label %._crit_edge302.i.i, !llvm.loop !76
 
 ._crit_edge302.i.i:                               ; preds = %.lr.ph301.i.i, %.lr.ph304.i.i

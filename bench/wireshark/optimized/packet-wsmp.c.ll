@@ -203,7 +203,7 @@ define internal i32 @dissect_wsmp(ptr noundef %0, ptr noundef %1, ptr noundef %2
   br i1 %.not.i.i, label %39, label %30
 
 30:                                               ; preds = %25
-  %31 = icmp ult i8 %29, -64
+  %31 = icmp samesign ult i8 %29, -64
   br i1 %31, label %32, label %35
 
 32:                                               ; preds = %30
@@ -247,7 +247,7 @@ dissect_wsmp_length_and_count.exit.i:             ; preds = %39, %35, %32
   br i1 %.not.i78.i, label %63, label %54
 
 54:                                               ; preds = %.lr.ph.i
-  %55 = icmp ult i8 %53, -64
+  %55 = icmp samesign ult i8 %53, -64
   br i1 %55, label %56, label %59
 
 56:                                               ; preds = %54
@@ -306,7 +306,7 @@ dissect_wsmp_length_and_count.exit81.i:           ; preds = %63, %59, %56
   br i1 %.not.i82.i, label %95, label %86
 
 86:                                               ; preds = %83
-  %87 = icmp ult i8 %85, -64
+  %87 = icmp samesign ult i8 %85, -64
   br i1 %87, label %88, label %91
 
 88:                                               ; preds = %86

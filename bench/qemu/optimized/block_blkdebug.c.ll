@@ -1119,7 +1119,7 @@ if.end41:                                         ; preds = %if.end32
 
 land.lhs.true:                                    ; preds = %if.end41
   %conv42 = zext i32 %0 to i64
-  %cmp43.not = icmp ult i64 %bytes, %conv42
+  %cmp43.not = icmp samesign ult i64 %bytes, %conv42
   br i1 %cmp43.not, label %if.end60, label %if.then45
 
 if.then45:                                        ; preds = %land.lhs.true
@@ -1419,7 +1419,7 @@ while.body:                                       ; preds = %qemu_lockable_auto_
   %dec1719 = phi i32 [ %dec, %while.body ], [ %arrayidx10.promoted.pre, %qemu_lockable_auto_unlock.exit ]
   tail call void @qemu_coroutine_yield() #13
   %dec = add nsw i32 %dec1719, -1
-  %cmp11 = icmp ugt i32 %dec1719, 1
+  %cmp11 = icmp samesign ugt i32 %dec1719, 1
   br i1 %cmp11, label %while.body, label %while.end, !llvm.loop !13
 
 while.end:                                        ; preds = %while.body, %qemu_lockable_auto_unlock.exit.thread, %qemu_lockable_auto_unlock.exit

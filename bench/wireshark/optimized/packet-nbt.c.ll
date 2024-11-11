@@ -570,7 +570,7 @@ dissect_nbns_query.exit.us.us.i:                  ; preds = %.lr.ph.split.us.i, 
   %67 = call ptr @val_to_str_const(i32 noundef %64, ptr noundef nonnull @nb_type_name_vals, ptr noundef nonnull @.str.251) #8
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5)
   %68 = add i32 %62, 4
-  %69 = icmp ugt i32 %.01516.us.us.i, 1
+  %69 = icmp samesign ugt i32 %.01516.us.us.i, 1
   br i1 %69, label %dissect_nbns_query.exit.us.us.i, label %dissect_query_records.exit, !llvm.loop !4
 
 dissect_nbns_query.exit.us.i:                     ; preds = %.lr.ph.split.us.i, %dissect_nbns_query.exit.us.i
@@ -590,7 +590,7 @@ dissect_nbns_query.exit.us.i:                     ; preds = %.lr.ph.split.us.i, 
   call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef nonnull %54, i32 noundef 25, ptr noundef nonnull @.str.252, ptr noundef %79, ptr noundef %72) #8
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5)
   %80 = add i32 %74, 4
-  %81 = icmp ugt i32 %.01516.us.i, 1
+  %81 = icmp samesign ugt i32 %.01516.us.i, 1
   br i1 %81, label %dissect_nbns_query.exit.us.i, label %dissect_query_records.exit, !llvm.loop !4
 
 .lr.ph.split.i:                                   ; preds = %.lr.ph.i, %add_name_and_type.exit.i.i
@@ -640,7 +640,7 @@ add_name_and_type.exit.i.i:                       ; preds = %104, %101
   %109 = call ptr @proto_tree_add_uint(ptr noundef %98, i32 noundef %108, ptr noundef %0, i32 noundef %89, i32 noundef 2, i32 noundef %91) #8
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5)
   %110 = add i32 %92, %.017.i
-  %111 = icmp ugt i32 %.01516.i, 1
+  %111 = icmp samesign ugt i32 %.01516.i, 1
   br i1 %111, label %.lr.ph.split.i, label %dissect_query_records.exit, !llvm.loop !4
 
 dissect_query_records.exit:                       ; preds = %add_name_and_type.exit.i.i, %dissect_nbns_query.exit.us.i, %dissect_nbns_query.exit.us.us.i, %53

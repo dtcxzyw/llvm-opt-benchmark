@@ -3842,7 +3842,7 @@ define internal fastcc range(i32 -1, 1) i32 @zend_parse_arg(i32 noundef %0, ptr 
   %165 = add nuw nsw i32 %154, 8
   store i32 %165, ptr %2, align 8
   %166 = load ptr, ptr %164, align 8
-  %167 = icmp ult i32 %154, 33
+  %167 = icmp samesign ult i32 %154, 33
   br i1 %167, label %168, label %._crit_edge31
 
 ._crit_edge31:                                    ; preds = %160
@@ -3935,7 +3935,7 @@ define internal fastcc range(i32 -1, 1) i32 @zend_parse_arg(i32 noundef %0, ptr 
   %209 = add nuw nsw i32 %198, 8
   store i32 %209, ptr %2, align 8
   %210 = load ptr, ptr %208, align 8
-  %211 = icmp ult i32 %198, 33
+  %211 = icmp samesign ult i32 %198, 33
   br i1 %211, label %212, label %._crit_edge28
 
 ._crit_edge28:                                    ; preds = %204
@@ -4486,7 +4486,7 @@ thread-pre-split631.i:                            ; preds = %269
   %491 = add nuw nsw i32 %480, 8
   store i32 %491, ptr %2, align 8
   %492 = load ptr, ptr %490, align 8
-  %493 = icmp ult i32 %480, 33
+  %493 = icmp samesign ult i32 %480, 33
   br i1 %493, label %494, label %._crit_edge25
 
 ._crit_edge25:                                    ; preds = %486
@@ -4682,7 +4682,7 @@ thread-pre-split631.i:                            ; preds = %269
   %592 = add nuw nsw i32 %581, 8
   store i32 %592, ptr %2, align 8
   %593 = load ptr, ptr %591, align 8
-  %594 = icmp ult i32 %581, 33
+  %594 = icmp samesign ult i32 %581, 33
   br i1 %594, label %595, label %._crit_edge
 
 ._crit_edge:                                      ; preds = %587
@@ -13166,7 +13166,7 @@ define range(i32 -1, 1) i32 @zend_set_hash_symbol(ptr noundef %0, ptr noundef %1
   br label %45
 
 45:                                               ; preds = %36, %41
-  %46 = icmp ugt i32 %.in, 1
+  %46 = icmp samesign ugt i32 %.in, 1
   br i1 %46, label %24, label %._crit_edge
 
 ._crit_edge:                                      ; preds = %45

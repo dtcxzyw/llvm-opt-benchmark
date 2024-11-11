@@ -43,7 +43,7 @@ define noalias noundef ptr @Wln_ConstFromBits(ptr nocapture noundef readonly %0,
   %indvars.iv.next = add nsw i64 %indvars.iv, 1
   %19 = getelementptr inbounds i8, ptr %5, i64 %indvars.iv
   store i8 %18, ptr %19, align 1
-  %20 = icmp ugt i32 %.013.in14, 1
+  %20 = icmp samesign ugt i32 %.013.in14, 1
   br i1 %20, label %.lr.ph, label %._crit_edge, !llvm.loop !4
 
 ._crit_edge:                                      ; preds = %.lr.ph, %2
@@ -1364,7 +1364,7 @@ Wlc_ObjConstValue.exit:                           ; preds = %.critedge8
   %indvars.iv.next.i341 = add nsw i64 %indvars.iv.i340, 1
   %607 = getelementptr inbounds i8, ptr %594, i64 %indvars.iv.i340
   store i8 %606, ptr %607, align 1
-  %608 = icmp ugt i32 %.013.in14.i, 1
+  %608 = icmp samesign ugt i32 %.013.in14.i, 1
   br i1 %608, label %.lr.ph.i339, label %609, !llvm.loop !4
 
 609:                                              ; preds = %.lr.ph.i339

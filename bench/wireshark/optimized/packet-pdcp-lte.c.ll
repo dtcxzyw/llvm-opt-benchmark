@@ -588,7 +588,7 @@ switch.early.test.i:                              ; preds = %15
   %.1.i = phi i32 [ %.04554.i, %.preheader.i ], [ %18, %17 ], [ %.04554.i, %.preheader.i ]
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %25 = icmp samesign ult i64 %indvars.iv.next.i, %9
-  %26 = icmp ult i32 %.1.i, 32
+  %26 = icmp samesign ult i32 %.1.i, 32
   %27 = select i1 %25, i1 %26, i1 false
   br i1 %27, label %.preheader.i, label %28, !llvm.loop !4
 
@@ -3411,7 +3411,7 @@ define internal fastcc void @checkChannelSequenceInfo(ptr noundef %0, ptr nounde
   %95 = sub i32 %.090, %3
   %96 = add i32 %95, %88
   %97 = and i32 %96, %87
-  %98 = icmp ugt i32 %97, 15
+  %98 = icmp samesign ugt i32 %97, 15
   %99 = getelementptr inbounds i8, ptr %66, i64 28
   %100 = getelementptr inbounds i8, ptr %66, i64 16
   br i1 %98, label %101, label %112
@@ -3920,7 +3920,7 @@ proto_item_set_generated.exit160:                 ; preds = %108, %115, %118
   br label %181
 
 181:                                              ; preds = %.sink.split.i, %173, %165, %157, %155, %150
-  %182 = icmp ugt i64 %indvars.iv.i, 1
+  %182 = icmp samesign ugt i64 %indvars.iv.i, 1
   br i1 %182, label %150, label %look_up_keys_record.exit.thread182, !llvm.loop !10
 
 183:                                              ; preds = %184

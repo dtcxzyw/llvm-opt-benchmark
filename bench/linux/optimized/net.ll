@@ -1437,7 +1437,7 @@ define dso_local noundef range(i32 -22, 1) i32 @io_recvmsg_prep(ptr nocapture no
   br label %39
 
 39:                                               ; preds = %35, %32
-  %40 = icmp ult i16 %19, 2
+  %40 = icmp samesign ult i16 %19, 2
   br i1 %40, label %60, label %41
 
 41:                                               ; preds = %39

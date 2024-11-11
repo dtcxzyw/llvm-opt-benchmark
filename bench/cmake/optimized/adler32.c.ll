@@ -352,7 +352,7 @@ define dso_local range(i64 0, 8589934592) i64 @cm_zlib_adler32_combine(i64 nound
   %21 = icmp samesign ugt i64 %12, 65520
   %22 = add nsw i64 %12, -65521
   %spec.select.i = select i1 %21, i64 %22, i64 65520
-  %23 = icmp ugt i64 %spec.select.i, 65520
+  %23 = icmp samesign ugt i64 %spec.select.i, 65520
   %24 = add nsw i64 %spec.select.i, -65521
   %.126.i = select i1 %23, i64 %24, i64 %spec.select.i
   %25 = icmp samesign ugt i64 %20, 131041
@@ -396,7 +396,7 @@ define dso_local range(i64 0, 8589934592) i64 @cm_zlib_adler32_combine64(i64 nou
   %21 = icmp samesign ugt i64 %12, 65520
   %22 = add nsw i64 %12, -65521
   %spec.select.i = select i1 %21, i64 %22, i64 65520
-  %23 = icmp ugt i64 %spec.select.i, 65520
+  %23 = icmp samesign ugt i64 %spec.select.i, 65520
   %24 = add nsw i64 %spec.select.i, -65521
   %.126.i = select i1 %23, i64 %24, i64 %spec.select.i
   %25 = icmp samesign ugt i64 %20, 131041

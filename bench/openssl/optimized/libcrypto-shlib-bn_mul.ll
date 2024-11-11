@@ -52,7 +52,7 @@ if.end26:                                         ; preds = %if.end14
   store i64 %sub29, ptr %arrayidx31, align 8
   %cmp32.not = icmp eq i64 %4, 0
   %spec.select94 = select i1 %cmp32.not, i64 %spec.select93, i64 1
-  %cmp36 = icmp ugt i32 %dl.addr.0132, -4
+  %cmp36 = icmp samesign ugt i32 %dl.addr.0132, -4
   br i1 %cmp36, label %return, label %if.end38
 
 if.end38:                                         ; preds = %if.end26
@@ -117,7 +117,7 @@ if.end73:                                         ; preds = %if.end62
   store i64 %sub75, ptr %arrayidx77, align 8
   %cmp78.not = icmp eq i64 %12, 0
   %spec.select98 = select i1 %cmp78.not, i64 %spec.select97, i64 0
-  %cmp82 = icmp ult i32 %save_dl.0119, 4
+  %cmp82 = icmp samesign ult i32 %save_dl.0119, 4
   br i1 %cmp82, label %return, label %if.end84
 
 if.end84:                                         ; preds = %if.end73
@@ -163,7 +163,7 @@ if.end141:                                        ; preds = %if.end135
   %16 = load i64, ptr %arrayidx142, align 8
   %arrayidx143 = getelementptr inbounds i8, ptr %r.addr.3123, i64 16
   store i64 %16, ptr %arrayidx143, align 8
-  %cmp145 = icmp ult i32 %dl.addr.7125, 4
+  %cmp145 = icmp samesign ult i32 %dl.addr.7125, 4
   br i1 %cmp145, label %return, label %if.end147
 
 if.end147:                                        ; preds = %if.end141
@@ -180,7 +180,7 @@ if.end153:                                        ; preds = %if.end147
   %add.ptr155 = getelementptr inbounds i8, ptr %r.addr.3123, i64 32
   %18 = load i64, ptr %add.ptr154, align 8
   store i64 %18, ptr %add.ptr155, align 8
-  %cmp133 = icmp ult i32 %dec150, 2
+  %cmp133 = icmp samesign ult i32 %dec150, 2
   br i1 %cmp133, label %return, label %if.end135
 
 return:                                           ; preds = %while.body, %if.end62, %if.end73, %if.end84, %if.end147, %if.end141, %if.end135, %if.end153, %if.end50, %if.end14, %if.end26, %if.end38, %for.cond129.preheader, %for.cond.preheader, %entry
@@ -470,7 +470,7 @@ if.end17:                                         ; preds = %if.end9
   %call20 = tail call i64 @bn_mul_add_words(ptr noundef nonnull %arrayidx18, ptr noundef %a.addr.0, i32 noundef %na.addr.0, i64 noundef %2) #4
   %arrayidx21 = getelementptr inbounds i8, ptr %rr.042, i64 16
   store i64 %call20, ptr %arrayidx21, align 8
-  %cmp23 = icmp ult i32 %nb.addr.141, 4
+  %cmp23 = icmp samesign ult i32 %nb.addr.141, 4
   br i1 %cmp23, label %return, label %if.end25
 
 if.end25:                                         ; preds = %if.end17
@@ -491,7 +491,7 @@ if.end33:                                         ; preds = %if.end25
   %call36 = tail call i64 @bn_mul_add_words(ptr noundef nonnull %arrayidx34, ptr noundef %a.addr.0, i32 noundef %na.addr.0, i64 noundef %4) #4
   %arrayidx37 = getelementptr inbounds i8, ptr %rr.042, i64 32
   store i64 %call36, ptr %arrayidx37, align 8
-  %cmp7 = icmp ult i32 %dec30, 2
+  %cmp7 = icmp samesign ult i32 %dec30, 2
   br i1 %cmp7, label %return, label %if.end9
 
 return:                                           ; preds = %if.end33, %if.end9, %if.end17, %if.end25, %if.else, %if.then2
@@ -812,7 +812,7 @@ if.end21:                                         ; preds = %if.end14
   %arrayidx23 = getelementptr inbounds i8, ptr %b.addr.025, i64 32
   %4 = load i64, ptr %arrayidx23, align 8
   %call24 = tail call i64 @bn_mul_add_words(ptr noundef nonnull %arrayidx22, ptr noundef %a, i32 noundef %dec18, i64 noundef %4) #4
-  %cmp = icmp ult i32 %n.addr.026, 6
+  %cmp = icmp samesign ult i32 %n.addr.026, 6
   br i1 %cmp, label %return, label %if.end
 
 return:                                           ; preds = %if.end21, %if.end, %if.end7, %if.end14, %entry

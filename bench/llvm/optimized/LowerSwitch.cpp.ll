@@ -1150,7 +1150,7 @@ _ZN4llvm5APIntC2Ejmbb.exit.i:                     ; preds = %_ZN12_GLOBAL__N_110
   %353 = xor i32 %352, 63
   %354 = zext nneg i32 %353 to i64
   %355 = lshr i64 -1, %354
-  %356 = icmp ult i32 %345, 256
+  %356 = icmp samesign ult i32 %345, 256
   %spec.store.select.i.i.i.i.i = select i1 %356, i64 0, i64 %355
   store i64 %spec.store.select.i.i.i.i.i, ptr %9, align 8, !alias.scope !40
   br label %_ZN4llvm5APInt11getMaxValueEj.exit.i

@@ -1044,8 +1044,8 @@ define i32 @php_pcre2_dfa_match(ptr noundef %0, ptr noundef %1, i64 noundef %2, 
   br i1 %or.cond680, label %529, label %543
 
 529:                                              ; preds = %526
-  %530 = icmp ugt i64 %522, 4999
-  %531 = icmp ugt i64 %522, 4999999
+  %530 = icmp samesign ugt i64 %522, 4999
+  %531 = icmp samesign ugt i64 %522, 4999999
   %or.cond29.not = or i1 %spec.select, %531
   %or.cond681 = and i1 %530, %or.cond29.not
   br i1 %or.cond681, label %543, label %532
@@ -3471,7 +3471,7 @@ define internal fastcc i32 @internal_dfa_match(ptr noundef nonnull %0, ptr nound
   br label %1191
 
 1183:                                             ; preds = %1159
-  %1184 = icmp ult i32 %.22723, 256
+  %1184 = icmp samesign ult i32 %.22723, 256
   br i1 %1184, label %1185, label %1191
 
 1185:                                             ; preds = %1183
@@ -6796,7 +6796,7 @@ switch.early.test3061:                            ; preds = %.thread3474, %1689
   %2871 = icmp eq i32 %.02713.fr, %.12722
   %2872 = icmp eq i32 %.02713.fr, %.02719
   %2873 = select i1 %2871, i1 true, i1 %2872
-  %2874 = icmp ugt i32 %.12762, 58
+  %2874 = icmp samesign ugt i32 %.12762, 58
   %2875 = xor i1 %2874, %2873
   br i1 %2875, label %2876, label %.loopexit3163
 
@@ -6888,7 +6888,7 @@ switch.early.test3061:                            ; preds = %.thread3474, %1689
   %2924 = icmp eq i32 %.02713.fr, %.12722
   %2925 = icmp eq i32 %.02713.fr, %.02718
   %2926 = select i1 %2924, i1 true, i1 %2925
-  %2927 = icmp ugt i32 %.22763, 58
+  %2927 = icmp samesign ugt i32 %.22763, 58
   %2928 = xor i1 %2927, %2926
   br i1 %2928, label %2929, label %.loopexit3163
 
@@ -6974,7 +6974,7 @@ switch.early.test3061:                            ; preds = %.thread3474, %1689
   %2973 = icmp eq i32 %.02713.fr, %.12722
   %2974 = icmp eq i32 %.02713.fr, %.02717
   %2975 = select i1 %2973, i1 true, i1 %2974
-  %2976 = icmp ugt i32 %.32764, 58
+  %2976 = icmp samesign ugt i32 %.32764, 58
   %2977 = xor i1 %2976, %2975
   br i1 %2977, label %2978, label %.loopexit3163
 
@@ -7051,7 +7051,7 @@ switch.early.test3061:                            ; preds = %.thread3474, %1689
   %3019 = icmp eq i32 %.02713.fr, %.12722
   %3020 = icmp eq i32 %.02713.fr, %.02716
   %3021 = select i1 %3019, i1 true, i1 %3020
-  %3022 = icmp ugt i32 %.4276531263132, 58
+  %3022 = icmp samesign ugt i32 %.4276531263132, 58
   %3023 = xor i1 %3022, %3021
   br i1 %3023, label %3024, label %.loopexit3163
 
@@ -7154,7 +7154,7 @@ switch.early.test3061:                            ; preds = %.thread3474, %1689
   %3085 = icmp eq i32 %.02713.fr, %.12722
   %3086 = icmp eq i32 %.02713.fr, %.02715
   %3087 = select i1 %3085, i1 true, i1 %3086
-  %3088 = icmp ugt i32 %.52766, 58
+  %3088 = icmp samesign ugt i32 %.52766, 58
   %3089 = xor i1 %3088, %3087
   br i1 %3089, label %3090, label %.loopexit3163
 

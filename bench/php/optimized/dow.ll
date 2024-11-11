@@ -549,7 +549,7 @@ timelib_daynr_from_weeknr.exit:                   ; preds = %11, %13
   %.032.lcssa = phi i64 [ %56, %..preheader_crit_edge ], [ %38, %41 ]
   %.0.lcssa = phi i1 [ %54, %..preheader_crit_edge ], [ %42, %41 ]
   %44 = select i1 %.0.lcssa, i64 366, i64 365
-  %45 = icmp ugt i64 %.032.lcssa, %44
+  %45 = icmp samesign ugt i64 %.032.lcssa, %44
   br i1 %45, label %.lr.ph47, label %72
 
 .lr.ph:                                           ; preds = %41, %.thread39

@@ -1456,7 +1456,7 @@ define internal fastcc void @run_test(i32 noundef range(i32 0, 2) %0, ptr nounde
   %7 = load ptr, ptr @output, align 8
   %8 = tail call i32 @fputc(i32 noundef 32, ptr noundef %7)
   %9 = add nsw i32 %.03.i, -1
-  %10 = icmp ugt i32 %.03.i, 1
+  %10 = icmp samesign ugt i32 %.03.i, 1
   br i1 %10, label %.lr.ph.i, label %print_indent.exit
 
 print_indent.exit:                                ; preds = %.lr.ph.i
@@ -1602,7 +1602,7 @@ print_indent.exit:                                ; preds = %.lr.ph.i
   %64 = load ptr, ptr @output, align 8
   %65 = call i32 @fputc(i32 noundef 32, ptr noundef %64)
   %66 = add nsw i32 %.03.i73, -1
-  %67 = icmp ugt i32 %.03.i73, 1
+  %67 = icmp samesign ugt i32 %.03.i73, 1
   br i1 %67, label %.lr.ph.i72, label %print_indent.exit74
 
 print_indent.exit74:                              ; preds = %.lr.ph.i72
@@ -1627,7 +1627,7 @@ print_indent.exit74:                              ; preds = %.lr.ph.i72
   %74 = load ptr, ptr @output, align 8
   %75 = call i32 @fputc(i32 noundef 32, ptr noundef %74)
   %76 = add nsw i32 %.03.i76, -1
-  %77 = icmp ugt i32 %.03.i76, 1
+  %77 = icmp samesign ugt i32 %.03.i76, 1
   br i1 %77, label %.lr.ph.i75, label %print_indent.exit77
 
 print_indent.exit77:                              ; preds = %.lr.ph.i75
@@ -1648,7 +1648,7 @@ print_indent.exit77:                              ; preds = %.lr.ph.i75
   %83 = load ptr, ptr @output, align 8
   %84 = call i32 @fputc(i32 noundef 32, ptr noundef %83)
   %85 = add nsw i32 %.03.i79, -1
-  %86 = icmp ugt i32 %.03.i79, 1
+  %86 = icmp samesign ugt i32 %.03.i79, 1
   br i1 %86, label %.lr.ph.i78, label %print_indent.exit80
 
 print_indent.exit80:                              ; preds = %.lr.ph.i78
@@ -1679,7 +1679,7 @@ print_indent.exit80:                              ; preds = %.lr.ph.i78
   %96 = load ptr, ptr @output, align 8
   %97 = call i32 @fputc(i32 noundef 32, ptr noundef %96)
   %98 = add nsw i32 %.03.i82, -1
-  %99 = icmp ugt i32 %.03.i82, 1
+  %99 = icmp samesign ugt i32 %.03.i82, 1
   br i1 %99, label %.lr.ph.i81, label %print_indent.exit83
 
 print_indent.exit83:                              ; preds = %.lr.ph.i81
@@ -1703,7 +1703,7 @@ print_indent.exit83:                              ; preds = %.lr.ph.i81
   %106 = load ptr, ptr @output, align 8
   %107 = call i32 @fputc(i32 noundef 32, ptr noundef %106)
   %108 = add nsw i32 %.03.i85, -1
-  %109 = icmp ugt i32 %.03.i85, 1
+  %109 = icmp samesign ugt i32 %.03.i85, 1
   br i1 %109, label %.lr.ph.i84, label %print_indent.exit86
 
 print_indent.exit86:                              ; preds = %.lr.ph.i84
@@ -1724,7 +1724,7 @@ print_indent.exit86:                              ; preds = %.lr.ph.i84
   %115 = load ptr, ptr @output, align 8
   %116 = call i32 @fputc(i32 noundef 32, ptr noundef %115)
   %117 = add nsw i32 %.03.i88, -1
-  %118 = icmp ugt i32 %.03.i88, 1
+  %118 = icmp samesign ugt i32 %.03.i88, 1
   br i1 %118, label %.lr.ph.i87, label %print_indent.exit89
 
 print_indent.exit89:                              ; preds = %.lr.ph.i87
@@ -1802,7 +1802,7 @@ define internal fastcc void @output_all_info(ptr nocapture noundef readonly %0, 
   %4 = load ptr, ptr @output, align 8
   %5 = tail call i32 @fputc(i32 noundef 32, ptr noundef %4)
   %6 = add nsw i32 %.03.i, -1
-  %7 = icmp ugt i32 %.03.i, 1
+  %7 = icmp samesign ugt i32 %.03.i, 1
   br i1 %7, label %.lr.ph.i, label %print_indent.exit
 
 print_indent.exit:                                ; preds = %.lr.ph.i
@@ -1816,7 +1816,7 @@ print_indent.exit:                                ; preds = %.lr.ph.i
   %9 = load ptr, ptr @output, align 8
   %10 = tail call i32 @fputc(i32 noundef 32, ptr noundef %9)
   %11 = add nsw i32 %.03.i11, -1
-  %12 = icmp ugt i32 %.03.i11, 1
+  %12 = icmp samesign ugt i32 %.03.i11, 1
   br i1 %12, label %.lr.ph.i10, label %print_indent.exit12
 
 print_indent.exit12:                              ; preds = %.lr.ph.i10
@@ -1830,7 +1830,7 @@ print_indent.exit12:                              ; preds = %.lr.ph.i10
   %15 = load ptr, ptr @output, align 8
   %16 = tail call i32 @fputc(i32 noundef 32, ptr noundef %15)
   %17 = add nsw i32 %.03.i14, -1
-  %18 = icmp ugt i32 %.03.i14, 1
+  %18 = icmp samesign ugt i32 %.03.i14, 1
   br i1 %18, label %.lr.ph.i13, label %print_indent.exit15
 
 print_indent.exit15:                              ; preds = %.lr.ph.i13
@@ -1884,7 +1884,7 @@ accumulate_minmax_stuff.exit:                     ; preds = %7, %5
   %18 = load ptr, ptr @output, align 8
   %19 = tail call i32 @fputc(i32 noundef 32, ptr noundef %18)
   %20 = add nsw i32 %.03.i, -1
-  %21 = icmp ugt i32 %.03.i, 1
+  %21 = icmp samesign ugt i32 %.03.i, 1
   br i1 %21, label %.lr.ph.i11, label %print_indent.exit
 
 print_indent.exit:                                ; preds = %.lr.ph.i11
@@ -1896,7 +1896,7 @@ print_indent.exit:                                ; preds = %.lr.ph.i11
   %22 = load ptr, ptr @output, align 8
   %23 = tail call i32 @fputc(i32 noundef 32, ptr noundef %22)
   %24 = add nsw i32 %.03.i13, -1
-  %25 = icmp ugt i32 %.03.i13, 1
+  %25 = icmp samesign ugt i32 %.03.i13, 1
   br i1 %25, label %.lr.ph.i12, label %print_indent.exit14
 
 print_indent.exit14:                              ; preds = %.lr.ph.i12
@@ -1928,7 +1928,7 @@ print_indent.exit14:                              ; preds = %.lr.ph.i12
   %36 = load ptr, ptr @output, align 8
   %37 = tail call i32 @fputc(i32 noundef 32, ptr noundef %36)
   %38 = add nsw i32 %.03.i16, -1
-  %39 = icmp ugt i32 %.03.i16, 1
+  %39 = icmp samesign ugt i32 %.03.i16, 1
   br i1 %39, label %.lr.ph.i15, label %print_indent.exit17
 
 print_indent.exit17:                              ; preds = %.lr.ph.i15
@@ -1959,7 +1959,7 @@ print_indent.exit17:                              ; preds = %.lr.ph.i15
   %49 = load ptr, ptr @output, align 8
   %50 = tail call i32 @fputc(i32 noundef 32, ptr noundef %49)
   %51 = add nsw i32 %.03.i19, -1
-  %52 = icmp ugt i32 %.03.i19, 1
+  %52 = icmp samesign ugt i32 %.03.i19, 1
   br i1 %52, label %.lr.ph.i18, label %print_indent.exit20
 
 print_indent.exit20:                              ; preds = %.lr.ph.i18
@@ -1998,14 +1998,14 @@ define internal fastcc void @recover_size_and_print(i64 noundef %0) unnamed_addr
   br i1 %or.cond, label %5, label %24
 
 5:                                                ; preds = %1
-  %6 = icmp ugt i64 %0, 1048575
+  %6 = icmp samesign ugt i64 %0, 1048575
   %7 = and i64 %0, 1047552
   %8 = icmp eq i64 %7, 0
   %or.cond15 = and i1 %6, %8
   br i1 %or.cond15, label %9, label %20
 
 9:                                                ; preds = %5
-  %10 = icmp ugt i64 %0, 1073741823
+  %10 = icmp samesign ugt i64 %0, 1073741823
   %11 = and i64 %0, 1072693248
   %12 = icmp eq i64 %11, 0
   %or.cond17 = and i1 %10, %12

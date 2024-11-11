@@ -5172,7 +5172,7 @@ define dso_local void @ata_eh_report(ptr noundef %0) local_unnamed_addr #0 align
   br label %532
 
 516:                                              ; preds = %502
-  %517 = icmp ult i8 %498, 64
+  %517 = icmp samesign ult i8 %498, 64
   %518 = select i1 %517, ptr @.str.3, ptr @.str.180
   %519 = and i32 %499, 32
   %520 = icmp eq i32 %519, 0

@@ -5896,7 +5896,7 @@ define hidden range(i32 0, 9) i32 @cgltf_load_buffer_base64(ptr nocapture nounde
   %33 = shl i32 %.14055, 6
   %34 = or i32 %32, %33
   %35 = add nuw nsw i32 %.13856, 6
-  %36 = icmp ult i32 %.13856, 2
+  %36 = icmp samesign ult i32 %.13856, 2
   br i1 %36, label %.lr.ph, label %._crit_edge
 
 ._crit_edge:                                      ; preds = %.thread, %.preheader
@@ -6034,7 +6034,7 @@ cgltf_unhex.exit:                                 ; preds = %.preheader, %35, %3
   br label %73
 
 50:                                               ; preds = %45
-  %51 = icmp ult i32 %43, 2048
+  %51 = icmp samesign ult i32 %43, 2048
   br i1 %51, label %52, label %60
 
 52:                                               ; preds = %50
@@ -6361,7 +6361,7 @@ define hidden i32 @cgltf_load_buffers(ptr noundef %0, ptr nocapture noundef read
   %91 = shl i32 %.14055.i, 6
   %92 = or i32 %90, %91
   %93 = add nuw nsw i32 %.13856.i, 6
-  %94 = icmp ult i32 %.13856.i, 2
+  %94 = icmp samesign ult i32 %.13856.i, 2
   br i1 %94, label %.lr.ph.i, label %._crit_edge.i
 
 ._crit_edge.i:                                    ; preds = %.thread.i, %.preheader.i
@@ -12263,7 +12263,7 @@ _m3dstbi__zreceive.exit.i.i:                      ; preds = %_m3dstbi__zget8.exi
   store i32 %77, ptr %39, align 4
   %78 = add nsw i32 %74, -1
   store i32 %78, ptr %38, align 8
-  %79 = icmp ult i32 %78, 2
+  %79 = icmp samesign ult i32 %78, 2
   br i1 %79, label %80, label %_m3dstbi__zreceive.exit31.i.i
 
 80:                                               ; preds = %_m3dstbi__zreceive.exit.i.i
@@ -12485,7 +12485,7 @@ default.unreachable:                              ; preds = %_m3dstbi__zreceive.
   call void @llvm.lifetime.start.p0(i64 2020, ptr nonnull %6)
   call void @llvm.lifetime.start.p0(i64 455, ptr nonnull %7)
   call void @llvm.lifetime.start.p0(i64 19, ptr nonnull %8)
-  %174 = icmp ult i32 %99, 5
+  %174 = icmp samesign ult i32 %99, 5
   br i1 %174, label %175, label %_m3dstbi__zreceive.exit.i40.i.i
 
 175:                                              ; preds = %173
@@ -12527,7 +12527,7 @@ _m3dstbi__zreceive.exit.i40.i.i:                  ; preds = %_m3dstbi__zget8.exi
   %194 = add nsw i32 %190, -5
   store i32 %194, ptr %38, align 8
   %195 = add nuw nsw i32 %192, 257
-  %196 = icmp ult i32 %194, 5
+  %196 = icmp samesign ult i32 %194, 5
   br i1 %196, label %197, label %_m3dstbi__zreceive.exit60.i.i.i
 
 197:                                              ; preds = %_m3dstbi__zreceive.exit.i40.i.i
@@ -12569,7 +12569,7 @@ _m3dstbi__zreceive.exit60.i.i.i:                  ; preds = %_m3dstbi__zget8.exi
   %216 = add nsw i32 %212, -5
   store i32 %216, ptr %38, align 8
   %217 = add nuw nsw i32 %214, 1
-  %218 = icmp ult i32 %216, 4
+  %218 = icmp samesign ult i32 %216, 4
   br i1 %218, label %219, label %_m3dstbi__zreceive.exit60.i.i.i._m3dstbi__zreceive.exit69.i.i.i_crit_edge
 
 _m3dstbi__zreceive.exit60.i.i.i._m3dstbi__zreceive.exit69.i.i.i_crit_edge: ; preds = %_m3dstbi__zreceive.exit60.i.i.i
@@ -14454,20 +14454,20 @@ _m3dstbi__get8.exit265.thread.i.i:                ; preds = %_m3dstbi__get8.exit
 198:                                              ; preds = %197
   %199 = and i32 %181, 2
   %200 = or disjoint i32 %199, 1
-  %.not243.i.i = icmp ugt i8 %.0.i258295297.i.i, 3
+  %.not243.i.i = icmp samesign ugt i8 %.0.i258295297.i.i, 3
   %201 = zext i1 %.not243.i.i to i32
   %202 = add nuw nsw i32 %200, %201
   store i32 %202, ptr %18, align 8
   %203 = udiv i32 1073741824, %130
   %204 = udiv i32 %203, %202
-  %205 = icmp ult i32 %204, %162
+  %205 = icmp samesign ult i32 %204, %162
   br i1 %205, label %_m3dstbi__parse_png_file.exit.thread.sink.split.i, label %_m3dstbi__skip.exit.i.i
 
 206:                                              ; preds = %197
   store i32 1, ptr %18, align 8
   %207 = udiv i32 1073741824, %130
   %208 = lshr i32 %207, 2
-  %209 = icmp ult i32 %208, %162
+  %209 = icmp samesign ult i32 %208, %162
   br i1 %209, label %_m3dstbi__parse_png_file.exit.thread.sink.split.i, label %_m3dstbi__skip.exit.i.i
 
 210:                                              ; preds = %_m3dstbi__get_chunk_header.exit.i.i
@@ -14485,7 +14485,7 @@ _m3dstbi__get8.exit265.thread.i.i:                ; preds = %_m3dstbi__get8.exit
   br i1 %.not228.i.i, label %.preheader.i.i, label %_m3dstbi__parse_png_file.exit.thread.sink.split.i
 
 .preheader.i.i:                                   ; preds = %212
-  %.not544.i.i = icmp ult i32 %.sroa.0.0.insert.ext.i.i.i, 3
+  %.not544.i.i = icmp samesign ult i32 %.sroa.0.0.insert.ext.i.i.i, 3
   br i1 %.not544.i.i, label %_m3dstbi__skip.exit.i.i, label %.lr.ph542.i.i
 
 .lr.ph542.i.i:                                    ; preds = %.preheader.i.i
@@ -19172,7 +19172,7 @@ _m3d_getidx.exit2437.thread:                      ; preds = %1706, %1730, %1727,
 1752:                                             ; preds = %1745, %1739
   %1753 = phi i16 [ %1751, %1745 ], [ %1742, %1739 ]
   %.31 = phi ptr [ %1747, %1745 ], [ %1740, %1739 ]
-  %1754 = icmp ugt i16 %1753, 37
+  %1754 = icmp samesign ugt i16 %1753, 37
   br i1 %1754, label %1755, label %1756
 
 1755:                                             ; preds = %1752
@@ -63409,7 +63409,7 @@ _m3dstbi__mad3sizes_valid.exit._crit_edge:        ; preds = %39, %_m3dstbi__mul2
   store i8 %344, ptr %341, align 1
   %346 = add nsw i32 %.14848, -2
   %347 = getelementptr inbounds i8, ptr %.0523850, i64 1
-  %348 = icmp ugt i32 %.14848, 3
+  %348 = icmp samesign ugt i32 %.14848, 3
   br i1 %348, label %.lr.ph851, label %._crit_edge852
 
 ._crit_edge852:                                   ; preds = %.lr.ph851, %.preheader698
@@ -63454,7 +63454,7 @@ _m3dstbi__mad3sizes_valid.exit._crit_edge:        ; preds = %39, %_m3dstbi__mul2
   store i8 %370, ptr %367, align 1
   %372 = add nsw i32 %.15840, -4
   %373 = getelementptr inbounds i8, ptr %.1524842, i64 1
-  %374 = icmp ugt i32 %.15840, 7
+  %374 = icmp samesign ugt i32 %.15840, 7
   br i1 %374, label %.lr.ph843, label %._crit_edge844
 
 ._crit_edge844:                                   ; preds = %.lr.ph843, %.preheader699
@@ -63543,7 +63543,7 @@ _m3dstbi__mad3sizes_valid.exit._crit_edge:        ; preds = %39, %_m3dstbi__mul2
   store i8 %422, ptr %419, align 1
   %424 = add nsw i32 %.16832, -8
   %425 = getelementptr inbounds i8, ptr %.2834, i64 1
-  %426 = icmp ugt i32 %.16832, 15
+  %426 = icmp samesign ugt i32 %.16832, 15
   br i1 %426, label %.lr.ph835, label %._crit_edge836
 
 ._crit_edge836:                                   ; preds = %.lr.ph835, %.preheader700
@@ -63568,7 +63568,7 @@ _m3dstbi__mad3sizes_valid.exit._crit_edge:        ; preds = %39, %_m3dstbi__mul2
   %.not591 = icmp eq i8 %434, 0
   %435 = select i1 %.not591, i8 0, i8 %337
   store i8 %435, ptr %432, align 1
-  %436 = icmp ugt i32 %.16.lcssa, 2
+  %436 = icmp samesign ugt i32 %.16.lcssa, 2
   br i1 %436, label %437, label %.thread670
 
 437:                                              ; preds = %431
@@ -63588,7 +63588,7 @@ _m3dstbi__mad3sizes_valid.exit._crit_edge:        ; preds = %39, %_m3dstbi__mul2
   %.not593 = icmp eq i8 %445, 0
   %446 = select i1 %.not593, i8 0, i8 %337
   store i8 %446, ptr %443, align 1
-  %447 = icmp ugt i32 %.16.lcssa, 4
+  %447 = icmp samesign ugt i32 %.16.lcssa, 4
   br i1 %447, label %448, label %.thread670
 
 448:                                              ; preds = %442

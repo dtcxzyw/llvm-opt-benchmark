@@ -259,7 +259,7 @@ define range(i32 -1, 1) i32 @H5ES_insert(i64 noundef %0, ptr noundef %1, ptr nou
   %59 = or disjoint i32 %22, 32
   store i32 %59, ptr %6, align 16
   %60 = load ptr, ptr %58, align 8
-  %61 = icmp ult i32 %59, 41
+  %61 = icmp samesign ult i32 %59, 41
   br i1 %61, label %67, label %.thread68
 
 .thread68:                                        ; preds = %54, %.thread65

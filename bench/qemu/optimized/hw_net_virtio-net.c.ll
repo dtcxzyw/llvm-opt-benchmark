@@ -3469,7 +3469,7 @@ if.end5.i.i:                                      ; preds = %if.end.i.i
 if.end8.i.i:                                      ; preds = %if.end5.i.i
   %sub.i.i = add nsw i32 %call1.i.i, -1
   tail call void @virtio_del_queue(ptr noundef %call.i.i.i, i32 noundef %sub.i.i) #19
-  %cmp1119.i.i = icmp ult i32 %cond.i, %sub.i.i
+  %cmp1119.i.i = icmp samesign ult i32 %cond.i, %sub.i.i
   br i1 %cmp1119.i.i, label %for.body.i.i, label %for.cond14.preheader.i.i
 
 for.cond14.preheader.i.i:                         ; preds = %for.body.i.i, %if.end8.i.i

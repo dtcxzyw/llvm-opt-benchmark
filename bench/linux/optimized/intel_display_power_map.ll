@@ -473,7 +473,7 @@ define dso_local noundef range(i32 -12, 1) i32 @intel_display_power_map_init(ptr
   br label %93
 
 13:                                               ; preds = %7
-  %14 = icmp ugt i16 %9, 13
+  %14 = icmp samesign ugt i16 %9, 13
   br i1 %14, label %15, label %17
 
 15:                                               ; preds = %13

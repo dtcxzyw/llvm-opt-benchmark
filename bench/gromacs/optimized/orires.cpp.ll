@@ -511,7 +511,7 @@ _ZN12_GLOBAL__N_120fitGlobalAtomIndicesERK10gmx_mtop_t.exit: ; preds = %_ZN12_GL
   br i1 %101, label %102, label %.invoke
 
 102:                                              ; preds = %82
-  %103 = icmp ult i32 %100, 6
+  %103 = icmp samesign ult i32 %100, 6
   br i1 %103, label %104, label %123
 
 104:                                              ; preds = %102

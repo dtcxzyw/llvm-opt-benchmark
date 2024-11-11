@@ -115,7 +115,7 @@ if.end12:                                         ; preds = %if.end6
   br i1 %cmp17, label %if.then18, label %if.end22
 
 if.then18:                                        ; preds = %if.end12
-  %cmp19 = icmp ult i32 %7, -156
+  %cmp19 = icmp samesign ult i32 %7, -156
   %sub = sub nuw nsw i32 -125, %7
   %shr = lshr i32 %conv16, %sub
   %cond20 = select i1 %cmp19, i32 0, i32 %shr

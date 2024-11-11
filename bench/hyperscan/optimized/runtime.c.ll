@@ -1634,7 +1634,7 @@ if.end.i91:                                       ; preds = %if.end.i78
   br i1 %cmp.i.i, label %while.cond.i.preheader, label %if.end.i95
 
 while.cond.i.preheader:                           ; preds = %if.end.i91
-  %cmp.i101164 = icmp ugt i32 %32, 64
+  %cmp.i101164 = icmp samesign ugt i32 %32, 64
   br i1 %cmp.i101164, label %while.body.i, label %while.cond6.i.preheader
 
 while.cond6.i.preheader:                          ; preds = %if.end.i104, %while.cond.i.preheader
@@ -2100,7 +2100,7 @@ if.end.i.i:                                       ; preds = %land.lhs.true.i
   br i1 %cmp.i.i.i, label %while.cond.i.i.preheader, label %if.end.i10.i
 
 while.cond.i.i.preheader:                         ; preds = %if.end.i.i
-  %cmp.i.i291 = icmp ugt i32 %22, 64
+  %cmp.i.i291 = icmp samesign ugt i32 %22, 64
   br i1 %cmp.i.i291, label %while.body.i.i, label %while.cond6.i.i.preheader
 
 while.cond6.i.i.preheader:                        ; preds = %if.end.i17.i, %while.cond.i.i.preheader
@@ -2362,7 +2362,7 @@ if.end.i17.i246:                                  ; preds = %land.lhs.true.i236
   br i1 %cmp.i.i.i248, label %while.cond.i.i281.preheader, label %if.end.i20.i
 
 while.cond.i.i281.preheader:                      ; preds = %if.end.i17.i246
-  %cmp.i.i282274 = icmp ugt i32 %61, 64
+  %cmp.i.i282274 = icmp samesign ugt i32 %61, 64
   br i1 %cmp.i.i282274, label %while.body.i.i303, label %while.cond6.i.i284.preheader
 
 while.cond6.i.i284.preheader:                     ; preds = %if.end.i27.i, %while.cond.i.i281.preheader
@@ -2932,7 +2932,7 @@ if.end.i77:                                       ; preds = %if.end.i64
   br i1 %cmp.i.i, label %while.cond.i.preheader, label %if.end.i81
 
 while.cond.i.preheader:                           ; preds = %if.end.i77
-  %cmp.i87154 = icmp ugt i32 %31, 64
+  %cmp.i87154 = icmp samesign ugt i32 %31, 64
   br i1 %cmp.i87154, label %while.body.i, label %while.cond6.i.preheader
 
 while.cond6.i.preheader:                          ; preds = %if.end.i90, %while.cond.i.preheader
@@ -3359,7 +3359,7 @@ if.end.i172:                                      ; preds = %if.end.i156
   br i1 %cmp.i.i178, label %while.cond.i.preheader, label %if.end.i180
 
 while.cond.i.preheader:                           ; preds = %if.end.i172
-  %cmp.i186210 = icmp ugt i32 %31, 64
+  %cmp.i186210 = icmp samesign ugt i32 %31, 64
   br i1 %cmp.i186210, label %while.body.i, label %while.cond6.i.preheader
 
 while.cond6.i.preheader:                          ; preds = %if.end.i189, %while.cond.i.preheader
@@ -4120,7 +4120,7 @@ if.end.i253:                                      ; preds = %if.end.i237
   br i1 %cmp.i.i259, label %while.cond.i.preheader, label %if.end.i261
 
 while.cond.i.preheader:                           ; preds = %if.end.i253
-  %cmp.i267236 = icmp ugt i32 %50, 64
+  %cmp.i267236 = icmp samesign ugt i32 %50, 64
   br i1 %cmp.i267236, label %while.body.i, label %while.cond6.i.preheader
 
 while.cond6.i.preheader:                          ; preds = %if.end.i270, %while.cond.i.preheader
@@ -4655,7 +4655,7 @@ if.end.i90:                                       ; preds = %if.end.i77
   br i1 %cmp.i.i, label %while.cond.i.preheader, label %if.end.i94
 
 while.cond.i.preheader:                           ; preds = %if.end.i90
-  %cmp.i100156 = icmp ugt i32 %32, 64
+  %cmp.i100156 = icmp samesign ugt i32 %32, 64
   br i1 %cmp.i100156, label %while.body.i, label %while.cond6.i.preheader
 
 while.cond6.i.preheader:                          ; preds = %if.end.i103, %while.cond.i.preheader
@@ -4929,7 +4929,7 @@ if.end.i:                                         ; preds = %if.end
   br i1 %cmp.i.i, label %while.cond.i.preheader, label %if.end.i48
 
 while.cond.i.preheader:                           ; preds = %if.end.i
-  %cmp.i22 = icmp ugt i32 %4, 64
+  %cmp.i22 = icmp samesign ugt i32 %4, 64
   br i1 %cmp.i22, label %while.body.i, label %while.cond6.i.preheader
 
 while.cond6.i.preheader:                          ; preds = %if.end.i55, %while.cond.i.preheader

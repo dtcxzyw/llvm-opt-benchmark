@@ -404,7 +404,7 @@ define range(i32 0, 2) i32 @If_Dec10Perform(ptr noundef %0, i32 noundef %1, i32 
 
 .lr.ph296:                                        ; preds = %.lr.ph
   %16 = add nsw i32 %1, -1
-  %17 = icmp ult i32 %1, 7
+  %17 = icmp samesign ult i32 %1, 7
   %18 = add nsw i32 %1, -6
   %19 = shl nuw i32 1, %18
   %20 = select i1 %17, i32 1, i32 %19

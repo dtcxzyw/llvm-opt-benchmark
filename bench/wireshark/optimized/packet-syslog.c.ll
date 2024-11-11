@@ -417,7 +417,7 @@ mtp3_msu_present.exit:                            ; preds = %58
   br label %dissect_syslog_message.exit
 
 153:                                              ; preds = %99
-  %154 = icmp ugt i32 %36, 15
+  %154 = icmp samesign ugt i32 %36, 15
   br i1 %154, label %155, label %dissect_syslog_message.exit
 
 155:                                              ; preds = %153

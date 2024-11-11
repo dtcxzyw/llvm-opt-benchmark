@@ -310,7 +310,7 @@ land.lhs.true.i:                                  ; preds = %if.end.i
 if.end6.i:                                        ; preds = %if.end.i
   %mul.old.i = mul i32 %17, 6
   %conv8.old.i = zext i32 %mul.old.i to i64
-  %cmp10.old.i = icmp ugt i64 %sub.ptr.div.i.i, %conv8.old.i
+  %cmp10.old.i = icmp samesign ugt i64 %sub.ptr.div.i.i, %conv8.old.i
   br i1 %cmp10.old.i, label %for.inc, label %if.end14.i
 
 if.end14.i:                                       ; preds = %if.end6.i, %land.lhs.true.i
@@ -321,7 +321,7 @@ if.end14.i:                                       ; preds = %if.end6.i, %land.lh
   br i1 %cmp16.i, label %for.inc, label %if.end20.i
 
 if.end20.i:                                       ; preds = %if.end14.i
-  %cmp22.i = icmp ult i64 %sub.ptr.div.i.i, 41
+  %cmp22.i = icmp samesign ult i64 %sub.ptr.div.i.i, 41
   %cmp.i.not31.i = icmp eq ptr %19, %18
   %or.cond.i = or i1 %cmp.i.not31.i, %cmp22.i
   br i1 %or.cond.i, label %if.end, label %for.body.i29

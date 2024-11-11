@@ -2023,7 +2023,7 @@ _ZL5isEOLPKcS0_.exit25.thread.i.i:                ; preds = %_ZL5isEOLPKcS0_.exi
   br i1 %76, label %_ZL15skipLineCommentRPKcS0_.exit, label %.lr.ph.i.i, !llvm.loop !15
 
 77:                                               ; preds = %45
-  %78 = icmp ult i64 %14, 4
+  %78 = icmp samesign ult i64 %14, 4
   br i1 %78, label %.backedge.sink.split, label %79
 
 79:                                               ; preds = %77
@@ -2543,7 +2543,7 @@ _ZL5isEOLPKcS0_.exit25.thread.i.i:                ; preds = %_ZL5isEOLPKcS0_.exi
   br label %.backedge.sink.split
 
 195:                                              ; preds = %160
-  %196 = icmp ult i64 %156, 4
+  %196 = icmp samesign ult i64 %156, 4
   br i1 %196, label %.backedge.sink.split, label %197
 
 197:                                              ; preds = %195

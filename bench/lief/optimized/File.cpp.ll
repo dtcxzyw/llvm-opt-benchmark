@@ -14461,7 +14461,7 @@ define linkonce_odr hidden ptr @_ZN3fmt2v96detail17write_significandINS0_8append
   store i16 %40, ptr %35, align 1
   %41 = udiv i32 %.03350.i, 100
   %42 = add nsw i32 %.03251.i, -1
-  %43 = icmp ugt i32 %.03251.i, 1
+  %43 = icmp samesign ugt i32 %.03251.i, 1
   br i1 %43, label %.lr.ph.i, label %._crit_edge.i, !llvm.loop !59
 
 ._crit_edge.i:                                    ; preds = %.lr.ph.i, %30
@@ -14638,7 +14638,7 @@ _ZNSt20back_insert_iteratorIN3fmt2v96detail6bufferIcEEEaSEOc.exit18: ; preds = %
 
 27:                                               ; preds = %_ZNSt20back_insert_iteratorIN3fmt2v96detail6bufferIcEEEaSEOc.exit18, %_ZNSt20back_insert_iteratorIN3fmt2v96detail6bufferIcEEEaSEOc.exit
   %.0 = phi i32 [ %18, %_ZNSt20back_insert_iteratorIN3fmt2v96detail6bufferIcEEEaSEOc.exit ], [ %0, %_ZNSt20back_insert_iteratorIN3fmt2v96detail6bufferIcEEEaSEOc.exit18 ]
-  %28 = icmp ugt i32 %.0, 99
+  %28 = icmp samesign ugt i32 %.0, 99
   br i1 %28, label %29, label %67
 
 29:                                               ; preds = %27
@@ -14647,7 +14647,7 @@ _ZNSt20back_insert_iteratorIN3fmt2v96detail6bufferIcEEEaSEOc.exit18: ; preds = %
   %32 = shl nuw nsw i32 %30, 1
   %33 = zext nneg i32 %32 to i64
   %34 = getelementptr inbounds [201 x i8], ptr @.str.47, i64 0, i64 %33
-  %35 = icmp ugt i32 %.0, 999
+  %35 = icmp samesign ugt i32 %.0, 999
   br i1 %35, label %36, label %51
 
 36:                                               ; preds = %29
@@ -17790,7 +17790,7 @@ define linkonce_odr hidden ptr @_ZN3fmt2v96detail17write_significandINS0_8append
   store i16 %37, ptr %33, align 1
   %38 = udiv i64 %.03350.i, 100
   %39 = add nsw i32 %.03251.i, -1
-  %40 = icmp ugt i32 %.03251.i, 1
+  %40 = icmp samesign ugt i32 %.03251.i, 1
   br i1 %40, label %.lr.ph.i, label %._crit_edge.i, !llvm.loop !62
 
 ._crit_edge.i:                                    ; preds = %.lr.ph.i, %28
@@ -26530,7 +26530,7 @@ _ZZN3fmt2v96detail10vformat_toIcEEvRNS1_6bufferIT_EENS0_17basic_string_viewIS4_E
   br i1 %38, label %_ZNK3fmt2v920basic_format_contextINS0_8appenderEcE3argEi.exit.i, label %_ZNK3fmt2v920basic_format_contextINS0_8appenderEcE3argEi.exit.thread.i
 
 39:                                               ; preds = %_ZZN3fmt2v96detail10vformat_toIcEEvRNS1_6bufferIT_EENS0_17basic_string_viewIS4_EENS0_17basic_format_argsINS0_20basic_format_contextINSt11conditionalIXsr3std7is_sameINS0_13type_identityIS4_E4typeEcEE5valueENS0_8appenderESt20back_insert_iteratorINS3_ISE_EEEE4typeESE_EEEENS1_10locale_refEEN14format_handler9on_arg_idEv.exit
-  %40 = icmp ugt i32 %28, 14
+  %40 = icmp samesign ugt i32 %28, 14
   br i1 %40, label %_ZNK3fmt2v920basic_format_contextINS0_8appenderEcE3argEi.exit.thread.i, label %41
 
 41:                                               ; preds = %39
@@ -27715,7 +27715,7 @@ _ZN3fmt2v96detail11parse_alignIcRNS1_13specs_checkerINS1_13specs_handlerIcEEEEEE
   unreachable
 
 _ZN3fmt2v96detail13specs_checkerINS1_13specs_handlerIcEEE24require_numeric_argumentEv.exit.i: ; preds = %115
-  %118 = icmp ult i32 %42, 9
+  %118 = icmp samesign ult i32 %42, 9
   br i1 %118, label %switch.hole_check, label %.sink.split
 
 119:                                              ; preds = %switch.hole_check
@@ -27731,7 +27731,7 @@ _ZN3fmt2v96detail13specs_checkerINS1_13specs_handlerIcEEE24require_numeric_argum
   unreachable
 
 _ZN3fmt2v96detail13specs_checkerINS1_13specs_handlerIcEEE24require_numeric_argumentEv.exit.i351: ; preds = %120
-  %123 = icmp ult i32 %42, 9
+  %123 = icmp samesign ult i32 %42, 9
   br i1 %123, label %switch.hole_check481, label %.sink.split
 
 124:                                              ; preds = %switch.hole_check481
@@ -27747,7 +27747,7 @@ _ZN3fmt2v96detail13specs_checkerINS1_13specs_handlerIcEEE24require_numeric_argum
   unreachable
 
 _ZN3fmt2v96detail13specs_checkerINS1_13specs_handlerIcEEE24require_numeric_argumentEv.exit.i353: ; preds = %125
-  %128 = icmp ult i32 %42, 9
+  %128 = icmp samesign ult i32 %42, 9
   br i1 %128, label %switch.hole_check488, label %.sink.split
 
 129:                                              ; preds = %switch.hole_check488
@@ -28621,7 +28621,7 @@ _ZN3fmt2v926basic_format_parse_contextIcNS0_6detail13error_handlerEE11next_arg_i
   br i1 %62, label %_ZNK3fmt2v920basic_format_contextINS0_8appenderEcE3argEi.exit.i.i.i.i, label %_ZNK3fmt2v920basic_format_contextINS0_8appenderEcE3argEi.exit.thread.i.i.i.i
 
 63:                                               ; preds = %_ZN3fmt2v926basic_format_parse_contextIcNS0_6detail13error_handlerEE11next_arg_idEv.exit.i.i.i
-  %64 = icmp ugt i32 %52, 14
+  %64 = icmp samesign ugt i32 %52, 14
   br i1 %64, label %_ZNK3fmt2v920basic_format_contextINS0_8appenderEcE3argEi.exit.thread.i.i.i.i, label %65
 
 65:                                               ; preds = %63
@@ -28819,7 +28819,7 @@ _ZN3fmt2v926basic_format_parse_contextIcNS0_6detail13error_handlerEE11next_arg_i
   br i1 %66, label %_ZNK3fmt2v920basic_format_contextINS0_8appenderEcE3argEi.exit.i.i.i.i, label %_ZNK3fmt2v920basic_format_contextINS0_8appenderEcE3argEi.exit.thread.i.i.i.i
 
 67:                                               ; preds = %_ZN3fmt2v926basic_format_parse_contextIcNS0_6detail13error_handlerEE11next_arg_idEv.exit.i.i.i
-  %68 = icmp ugt i32 %56, 14
+  %68 = icmp samesign ugt i32 %56, 14
   br i1 %68, label %_ZNK3fmt2v920basic_format_contextINS0_8appenderEcE3argEi.exit.thread.i.i.i.i, label %69
 
 69:                                               ; preds = %67
@@ -29326,7 +29326,7 @@ _ZNK3fmt2v917basic_format_argsINS0_20basic_format_contextINS0_8appenderEcEEE6get
   br label %_ZNK3fmt2v917basic_format_argsINS0_20basic_format_contextINS0_8appenderEcEEE3getEi.exit
 
 35:                                               ; preds = %26
-  %36 = icmp ugt i32 %24, 14
+  %36 = icmp samesign ugt i32 %24, 14
   br i1 %36, label %_ZNK3fmt2v917basic_format_argsINS0_20basic_format_contextINS0_8appenderEcEEE3getEi.exit, label %37
 
 37:                                               ; preds = %35
@@ -36423,7 +36423,7 @@ _ZN3fmt2v96detail19get_round_directionEmmm.exit.i: ; preds = %.thread258
   %202 = load i8, ptr %gep, align 1
   %203 = add i8 %202, 1
   store i8 %203, ptr %gep, align 1
-  %204 = icmp ugt i64 %indvars.iv.i, 2
+  %204 = icmp samesign ugt i64 %indvars.iv.i, 2
   br i1 %204, label %.lr.ph.i137, label %.critedge.i, !llvm.loop !218
 
 .critedge.i:                                      ; preds = %201, %.lr.ph.i137, %_ZN3fmt2v96detail19get_round_directionEmmm.exit.i
@@ -36522,7 +36522,7 @@ _ZN3fmt2v96detail19get_round_directionEmmm.exit.i145: ; preds = %234
   %246 = load i8, ptr %gep326, align 1
   %247 = add i8 %246, 1
   store i8 %247, ptr %gep326, align 1
-  %248 = icmp ugt i64 %indvars.iv.i149, 2
+  %248 = icmp samesign ugt i64 %indvars.iv.i149, 2
   br i1 %248, label %.lr.ph.i148, label %.critedge.i146, !llvm.loop !218
 
 .critedge.i146:                                   ; preds = %245, %.lr.ph.i148
@@ -43946,7 +43946,7 @@ _ZN8nlohmann16json_abi_v3_11_26detail10serializerINS0_10basic_jsonISt3mapSt6vect
   br label %280
 
 ._crit_edge.i:                                    ; preds = %_ZN8nlohmann16json_abi_v3_11_26detail10serializerINS0_10basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES5_IhSaIhEEEEE12count_digitsEm.exit31.i
-  %272 = icmp ugt i8 %251, 9
+  %272 = icmp samesign ugt i8 %251, 9
   br i1 %272, label %273, label %280
 
 273:                                              ; preds = %._crit_edge.i
@@ -44029,7 +44029,7 @@ _ZN8nlohmann16json_abi_v3_11_26detail10serializerINS0_10basic_jsonISt3mapSt6vect
   br label %327
 
 ._crit_edge.i86:                                  ; preds = %_ZN8nlohmann16json_abi_v3_11_26detail10serializerINS0_10basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES5_IhSaIhEEEEE12count_digitsEm.exit31.i85
-  %319 = icmp ugt i8 %297, 9
+  %319 = icmp samesign ugt i8 %297, 9
   br i1 %319, label %320, label %327
 
 320:                                              ; preds = %._crit_edge.i86
@@ -44278,7 +44278,7 @@ _ZN8nlohmann16json_abi_v3_11_26detail10serializerINS0_10basic_jsonISt3mapSt6vect
   br label %466
 
 ._crit_edge.i95:                                  ; preds = %_ZN8nlohmann16json_abi_v3_11_26detail10serializerINS0_10basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES5_IhSaIhEEEEE12count_digitsEm.exit31.i94
-  %458 = icmp ugt i8 %437, 9
+  %458 = icmp samesign ugt i8 %437, 9
   br i1 %458, label %459, label %466
 
 459:                                              ; preds = %._crit_edge.i95
@@ -44360,7 +44360,7 @@ _ZN8nlohmann16json_abi_v3_11_26detail10serializerINS0_10basic_jsonISt3mapSt6vect
   br label %512
 
 ._crit_edge.i102:                                 ; preds = %_ZN8nlohmann16json_abi_v3_11_26detail10serializerINS0_10basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES5_IhSaIhEEEEE12count_digitsEm.exit31.i101
-  %504 = icmp ugt i8 %482, 9
+  %504 = icmp samesign ugt i8 %482, 9
   br i1 %504, label %505, label %512
 
 505:                                              ; preds = %._crit_edge.i102
@@ -45380,7 +45380,7 @@ _ZN8nlohmann16json_abi_v3_11_26detail10serializerINS0_10basic_jsonISt3mapSt6vect
   br label %_ZN8nlohmann16json_abi_v3_11_26detail10serializerINS0_10basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES5_IhSaIhEEEEE12count_digitsEm.exit32
 
 30:                                               ; preds = %8
-  %31 = icmp ult i64 %1, 10
+  %31 = icmp samesign ult i64 %1, 10
   br i1 %31, label %._crit_edge.thread, label %.lr.ph.i28
 
 ._crit_edge.thread:                               ; preds = %30
@@ -46135,35 +46135,35 @@ define linkonce_odr hidden void @_ZN8nlohmann16json_abi_v3_11_26detail9dtoa_impl
   br i1 %21, label %_ZN8nlohmann16json_abi_v3_11_26detail9dtoa_impl18find_largest_pow10EjRj.exit.preheader, label %22
 
 22:                                               ; preds = %7
-  %23 = icmp ugt i32 %18, 99999999
+  %23 = icmp samesign ugt i32 %18, 99999999
   br i1 %23, label %_ZN8nlohmann16json_abi_v3_11_26detail9dtoa_impl18find_largest_pow10EjRj.exit.preheader, label %24
 
 24:                                               ; preds = %22
-  %25 = icmp ugt i32 %18, 9999999
+  %25 = icmp samesign ugt i32 %18, 9999999
   br i1 %25, label %_ZN8nlohmann16json_abi_v3_11_26detail9dtoa_impl18find_largest_pow10EjRj.exit.preheader, label %26
 
 26:                                               ; preds = %24
-  %27 = icmp ugt i32 %18, 999999
+  %27 = icmp samesign ugt i32 %18, 999999
   br i1 %27, label %_ZN8nlohmann16json_abi_v3_11_26detail9dtoa_impl18find_largest_pow10EjRj.exit.preheader, label %28
 
 28:                                               ; preds = %26
-  %29 = icmp ugt i32 %18, 99999
+  %29 = icmp samesign ugt i32 %18, 99999
   br i1 %29, label %_ZN8nlohmann16json_abi_v3_11_26detail9dtoa_impl18find_largest_pow10EjRj.exit.preheader, label %30
 
 30:                                               ; preds = %28
-  %31 = icmp ugt i32 %18, 9999
+  %31 = icmp samesign ugt i32 %18, 9999
   br i1 %31, label %_ZN8nlohmann16json_abi_v3_11_26detail9dtoa_impl18find_largest_pow10EjRj.exit.preheader, label %32
 
 32:                                               ; preds = %30
-  %33 = icmp ugt i32 %18, 999
+  %33 = icmp samesign ugt i32 %18, 999
   br i1 %33, label %_ZN8nlohmann16json_abi_v3_11_26detail9dtoa_impl18find_largest_pow10EjRj.exit.preheader, label %34
 
 34:                                               ; preds = %32
-  %35 = icmp ugt i32 %18, 99
+  %35 = icmp samesign ugt i32 %18, 99
   br i1 %35, label %_ZN8nlohmann16json_abi_v3_11_26detail9dtoa_impl18find_largest_pow10EjRj.exit.preheader, label %36
 
 36:                                               ; preds = %34
-  %37 = icmp ugt i32 %18, 9
+  %37 = icmp samesign ugt i32 %18, 9
   %..i = select i1 %37, i32 10, i32 1
   %.20.i = select i1 %37, i32 2, i32 1
   br label %_ZN8nlohmann16json_abi_v3_11_26detail9dtoa_impl18find_largest_pow10EjRj.exit.preheader
@@ -46237,7 +46237,7 @@ _ZN8nlohmann16json_abi_v3_11_26detail9dtoa_impl18find_largest_pow10EjRj.exit: ; 
 
 70:                                               ; preds = %_ZN8nlohmann16json_abi_v3_11_26detail9dtoa_impl18find_largest_pow10EjRj.exit
   %71 = udiv i32 %.07381, 10
-  %72 = icmp ugt i32 %.04782, 1
+  %72 = icmp samesign ugt i32 %.04782, 1
   br i1 %72, label %_ZN8nlohmann16json_abi_v3_11_26detail9dtoa_impl18find_largest_pow10EjRj.exit, label %.preheader, !llvm.loop !311
 
 .preheader:                                       ; preds = %70, %.preheader

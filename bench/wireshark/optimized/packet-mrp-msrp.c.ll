@@ -338,7 +338,7 @@ define internal i32 @dissect_msrp(ptr noundef %0, ptr noundef %1, ptr noundef %2
   %87 = load i32, ptr @hf_msrp_three_packed_event, align 4
   %88 = tail call ptr @proto_tree_add_uint(ptr noundef %63, i32 noundef %87, ptr noundef %0, i32 noundef %.034.i.us, i32 noundef 1, i32 noundef %83) #2
   %89 = add nuw nsw i32 %.02833.i.us, 1
-  %90 = icmp ult i32 %89, %54
+  %90 = icmp samesign ult i32 %89, %54
   br i1 %90, label %91, label %96
 
 91:                                               ; preds = %.lr.ph.i.us
@@ -350,7 +350,7 @@ define internal i32 @dissect_msrp(ptr noundef %0, ptr noundef %1, ptr noundef %2
 
 96:                                               ; preds = %91, %.lr.ph.i.us
   %.1.i.us = phi i32 [ %95, %91 ], [ %89, %.lr.ph.i.us ]
-  %97 = icmp ult i32 %.1.i.us, %54
+  %97 = icmp samesign ult i32 %.1.i.us, %54
   br i1 %97, label %98, label %103
 
 98:                                               ; preds = %96
@@ -430,7 +430,7 @@ dissect_msrp_three_packed_event.exit.us:          ; preds = %103, %.lr.ph.split.
   %142 = load i32, ptr @hf_msrp_three_packed_event, align 4
   %143 = tail call ptr @proto_tree_add_uint(ptr noundef %121, i32 noundef %142, ptr noundef %0, i32 noundef %.034.i145, i32 noundef 1, i32 noundef %138) #2
   %144 = add nuw nsw i32 %.02833.i146, 1
-  %145 = icmp ult i32 %144, %112
+  %145 = icmp samesign ult i32 %144, %112
   br i1 %145, label %146, label %151
 
 146:                                              ; preds = %.lr.ph.i144
@@ -442,7 +442,7 @@ dissect_msrp_three_packed_event.exit.us:          ; preds = %103, %.lr.ph.split.
 
 151:                                              ; preds = %146, %.lr.ph.i144
   %.1.i149 = phi i32 [ %150, %146 ], [ %144, %.lr.ph.i144 ]
-  %152 = icmp ult i32 %.1.i149, %112
+  %152 = icmp samesign ult i32 %.1.i149, %112
   br i1 %152, label %153, label %158
 
 153:                                              ; preds = %151
@@ -470,7 +470,7 @@ dissect_msrp_three_packed_event.exit.us:          ; preds = %103, %.lr.ph.split.
   %167 = zext nneg i8 %162 to i32
   %168 = tail call ptr @proto_tree_add_uint(ptr noundef %121, i32 noundef %166, ptr noundef %0, i32 noundef %.036.i, i32 noundef 1, i32 noundef %167) #2
   %169 = add nuw nsw i32 %.03135.i, 1
-  %170 = icmp ult i32 %169, %112
+  %170 = icmp samesign ult i32 %169, %112
   br i1 %170, label %171, label %178
 
 171:                                              ; preds = %.lr.ph.i154
@@ -484,7 +484,7 @@ dissect_msrp_three_packed_event.exit.us:          ; preds = %103, %.lr.ph.split.
 
 178:                                              ; preds = %171, %.lr.ph.i154
   %.1.i155 = phi i32 [ %177, %171 ], [ %169, %.lr.ph.i154 ]
-  %179 = icmp ult i32 %.1.i155, %112
+  %179 = icmp samesign ult i32 %.1.i155, %112
   br i1 %179, label %180, label %185
 
 180:                                              ; preds = %178
@@ -496,7 +496,7 @@ dissect_msrp_three_packed_event.exit.us:          ; preds = %103, %.lr.ph.split.
 
 185:                                              ; preds = %180, %178
   %.2.i156 = phi i32 [ %184, %180 ], [ %.1.i155, %178 ]
-  %186 = icmp ult i32 %.2.i156, %112
+  %186 = icmp samesign ult i32 %.2.i156, %112
   br i1 %186, label %187, label %192
 
 187:                                              ; preds = %185
@@ -550,7 +550,7 @@ dissect_msrp_three_packed_event.exit.us:          ; preds = %103, %.lr.ph.split.
   %222 = load i32, ptr @hf_msrp_three_packed_event, align 4
   %223 = tail call ptr @proto_tree_add_uint(ptr noundef %121, i32 noundef %222, ptr noundef %0, i32 noundef %.034.i160, i32 noundef 1, i32 noundef %218) #2
   %224 = add nuw nsw i32 %.02833.i161, 1
-  %225 = icmp ult i32 %224, %112
+  %225 = icmp samesign ult i32 %224, %112
   br i1 %225, label %226, label %231
 
 226:                                              ; preds = %.lr.ph.i159
@@ -562,7 +562,7 @@ dissect_msrp_three_packed_event.exit.us:          ; preds = %103, %.lr.ph.split.
 
 231:                                              ; preds = %226, %.lr.ph.i159
   %.1.i164 = phi i32 [ %230, %226 ], [ %224, %.lr.ph.i159 ]
-  %232 = icmp ult i32 %.1.i164, %112
+  %232 = icmp samesign ult i32 %.1.i164, %112
   br i1 %232, label %233, label %238
 
 233:                                              ; preds = %231
@@ -622,7 +622,7 @@ dissect_msrp_three_packed_event.exit.us:          ; preds = %103, %.lr.ph.split.
   %274 = load i32, ptr @hf_msrp_three_packed_event, align 4
   %275 = tail call ptr @proto_tree_add_uint(ptr noundef %121, i32 noundef %274, ptr noundef %0, i32 noundef %.034.i170, i32 noundef 1, i32 noundef %270) #2
   %276 = add nuw nsw i32 %.02833.i171, 1
-  %277 = icmp ult i32 %276, %112
+  %277 = icmp samesign ult i32 %276, %112
   br i1 %277, label %278, label %283
 
 278:                                              ; preds = %.lr.ph.i169
@@ -634,7 +634,7 @@ dissect_msrp_three_packed_event.exit.us:          ; preds = %103, %.lr.ph.split.
 
 283:                                              ; preds = %278, %.lr.ph.i169
   %.1.i174 = phi i32 [ %282, %278 ], [ %276, %.lr.ph.i169 ]
-  %284 = icmp ult i32 %.1.i174, %112
+  %284 = icmp samesign ult i32 %.1.i174, %112
   br i1 %284, label %285, label %290
 
 285:                                              ; preds = %283

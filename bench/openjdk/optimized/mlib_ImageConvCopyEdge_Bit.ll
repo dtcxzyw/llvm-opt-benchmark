@@ -190,7 +190,7 @@ define hidden noundef i32 @mlib_ImageConvCopyEdge_Bit(ptr nocapture noundef read
   %113 = getelementptr inbounds i8, ptr %.val668, i64 %111
   %114 = and i32 %109, 7
   %115 = add nuw nsw i32 %114, %3
-  %116 = icmp ult i32 %115, 9
+  %116 = icmp samesign ult i32 %115, 9
   %117 = lshr i32 255, %114
   br i1 %116, label %118, label %144
 
@@ -691,7 +691,7 @@ define hidden noundef i32 @mlib_ImageConvCopyEdge_Bit(ptr nocapture noundef read
   %402 = and i32 %397, 7
   %403 = getelementptr inbounds i8, ptr %401, i64 %.0648.idx
   %404 = add nuw nsw i32 %402, %3
-  %405 = icmp ult i32 %404, 9
+  %405 = icmp samesign ult i32 %404, 9
   %406 = lshr i32 255, %402
   br i1 %405, label %407, label %439
 

@@ -9304,7 +9304,7 @@ define internal fastcc noundef range(i32 -1, 1) i32 @_ZL11doVectorLowIfSaIfE10St
   br i1 %23, label %24, label %.thread87
 
 24:                                               ; preds = %.thread86, %21
-  %.not70 = icmp ugt i64 %3, 4294967295
+  %.not70 = icmp samesign ugt i64 %3, 4294967295
   br i1 %.not70, label %25, label %.thread85.sink.split
 
 25:                                               ; preds = %24

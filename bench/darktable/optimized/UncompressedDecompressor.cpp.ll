@@ -1656,11 +1656,11 @@ define weak_odr hidden void @_ZN8rawspeed24UncompressedDecompressor33decode12Bit
   %79 = getelementptr i8, ptr %57, i64 %78
   %80 = getelementptr i8, ptr %79, i64 %74
   %81 = getelementptr i8, ptr %80, i64 %50
-  %82 = icmp ult i32 %3, 8
+  %82 = icmp samesign ult i32 %3, 8
   %83 = icmp ult ptr %29, %81
   %84 = icmp ult ptr %61, %77
   %85 = and i1 %84, %83
-  %86 = icmp ult i32 %3, 16
+  %86 = icmp samesign ult i32 %3, 16
   %87 = and i64 %71, 2147483632
   %88 = insertelement <16 x i64> poison, i64 %65, i64 0
   %89 = shufflevector <16 x i64> %88, <16 x i64> poison, <16 x i32> zeroinitializer
@@ -2147,11 +2147,11 @@ define weak_odr hidden void @_ZN8rawspeed24UncompressedDecompressor33decode12Bit
   %79 = getelementptr i8, ptr %57, i64 %78
   %80 = getelementptr i8, ptr %79, i64 %74
   %81 = getelementptr i8, ptr %80, i64 %50
-  %82 = icmp ult i32 %3, 8
+  %82 = icmp samesign ult i32 %3, 8
   %83 = icmp ult ptr %29, %81
   %84 = icmp ult ptr %61, %77
   %85 = and i1 %84, %83
-  %86 = icmp ult i32 %3, 16
+  %86 = icmp samesign ult i32 %3, 16
   %87 = and i64 %71, 2147483632
   %88 = insertelement <16 x i64> poison, i64 %65, i64 0
   %89 = shufflevector <16 x i64> %88, <16 x i64> poison, <16 x i32> zeroinitializer
@@ -2685,7 +2685,7 @@ define hidden void @_ZN8rawspeed24UncompressedDecompressorC2ENS_10ByteStreamENS_
   br i1 %83, label %90, label %84
 
 84:                                               ; preds = %81
-  %85 = icmp ugt i32 %5, 16
+  %85 = icmp samesign ugt i32 %5, 16
   br i1 %85, label %86, label %92
 
 86:                                               ; preds = %84
@@ -2738,11 +2738,11 @@ define hidden void @_ZN8rawspeed24UncompressedDecompressorC2ENS_10ByteStreamENS_
   %111 = icmp ne i32 %17, 0
   tail call void @llvm.assume(i1 %111)
   %112 = udiv i32 %17, %4
-  %113 = icmp ult i32 %112, %57
+  %113 = icmp samesign ult i32 %112, %57
   br i1 %113, label %114, label %120
 
 114:                                              ; preds = %110
-  %115 = icmp ult i32 %17, %4
+  %115 = icmp samesign ult i32 %17, %4
   br i1 %115, label %116, label %118
 
 116:                                              ; preds = %114
@@ -3722,7 +3722,7 @@ define linkonce_odr hidden void @_ZNK8rawspeed24UncompressedDecompressor14decode
   %166 = phi i32 [ %158, %153 ], [ %128, %133 ]
   %167 = icmp ult i32 %166, 65
   tail call void @llvm.assume(i1 %167)
-  %168 = icmp uge i32 %166, %131
+  %168 = icmp samesign uge i32 %166, %131
   tail call void @llvm.assume(i1 %168)
   %169 = sub nsw i32 %166, %131
   %170 = zext nneg i32 %131 to i64
@@ -4093,7 +4093,7 @@ define linkonce_odr hidden void @_ZNK8rawspeed24UncompressedDecompressor14decode
   %162 = phi i32 [ %155, %151 ], [ %126, %131 ]
   %163 = icmp ult i32 %162, 65
   tail call void @llvm.assume(i1 %163)
-  %164 = icmp uge i32 %162, %129
+  %164 = icmp samesign uge i32 %162, %129
   tail call void @llvm.assume(i1 %164)
   %165 = zext nneg i32 %129 to i64
   %166 = lshr i64 %161, %165
@@ -4465,7 +4465,7 @@ define linkonce_odr hidden void @_ZNK8rawspeed24UncompressedDecompressor14decode
   %166 = phi i32 [ %158, %153 ], [ %128, %133 ]
   %167 = icmp ult i32 %166, 65
   tail call void @llvm.assume(i1 %167)
-  %168 = icmp uge i32 %166, %131
+  %168 = icmp samesign uge i32 %166, %131
   tail call void @llvm.assume(i1 %168)
   %169 = sub nsw i32 %166, %131
   %170 = zext nneg i32 %131 to i64
@@ -4836,7 +4836,7 @@ define linkonce_odr hidden void @_ZNK8rawspeed24UncompressedDecompressor14decode
   %162 = phi i32 [ %155, %151 ], [ %126, %131 ]
   %163 = icmp ult i32 %162, 65
   tail call void @llvm.assume(i1 %163)
-  %164 = icmp uge i32 %162, %129
+  %164 = icmp samesign uge i32 %162, %129
   tail call void @llvm.assume(i1 %164)
   %165 = zext nneg i32 %129 to i64
   %166 = lshr i64 %161, %165
@@ -5214,7 +5214,7 @@ define linkonce_odr hidden void @_ZNK8rawspeed24UncompressedDecompressor15decode
   %170 = phi i32 [ %162, %157 ], [ %132, %137 ]
   %171 = icmp ult i32 %170, 65
   tail call void @llvm.assume(i1 %171)
-  %172 = icmp uge i32 %170, %135
+  %172 = icmp samesign uge i32 %170, %135
   tail call void @llvm.assume(i1 %172)
   %173 = sub nsw i32 %170, %135
   %174 = zext nneg i32 %135 to i64
@@ -5499,7 +5499,7 @@ define linkonce_odr hidden void @_ZNK8rawspeed24UncompressedDecompressor15decode
   %132 = phi i32 [ %98, %114 ], [ %93, %90 ]
   %133 = phi i64 [ %130, %114 ], [ %94, %90 ]
   %134 = phi i32 [ %126, %114 ], [ %92, %90 ]
-  %135 = icmp uge i32 %134, %73
+  %135 = icmp samesign uge i32 %134, %73
   call void @llvm.assume(i1 %135)
   %136 = lshr i64 %133, %81
   %137 = sub nsw i32 %134, %73
@@ -5792,7 +5792,7 @@ define linkonce_odr hidden void @_ZNK8rawspeed24UncompressedDecompressor15decode
   %168 = phi i32 [ %160, %156 ], [ %131, %136 ]
   %169 = icmp ult i32 %168, 65
   tail call void @llvm.assume(i1 %169)
-  %170 = icmp uge i32 %168, %134
+  %170 = icmp samesign uge i32 %168, %134
   tail call void @llvm.assume(i1 %170)
   %171 = sub nsw i32 %168, %134
   %172 = zext nneg i32 %134 to i64
@@ -6133,7 +6133,7 @@ define linkonce_odr hidden void @_ZNK8rawspeed24UncompressedDecompressor15decode
   %166 = phi i32 [ %159, %155 ], [ %130, %135 ]
   %167 = icmp ult i32 %166, 65
   tail call void @llvm.assume(i1 %167)
-  %168 = icmp uge i32 %166, %133
+  %168 = icmp samesign uge i32 %166, %133
   tail call void @llvm.assume(i1 %168)
   %169 = zext nneg i32 %133 to i64
   %170 = lshr i64 %165, %169
@@ -6498,7 +6498,7 @@ define linkonce_odr hidden void @_ZN8rawspeed11BitStreamerINS_16BitStreamerMSB16
   %117 = phi i32 [ %70, %75 ], [ %110, %97 ]
   %118 = icmp ult i32 %117, 65
   tail call void @llvm.assume(i1 %118)
-  %119 = icmp uge i32 %117, %71
+  %119 = icmp samesign uge i32 %117, %71
   tail call void @llvm.assume(i1 %119)
   %120 = sub nsw i32 %117, %71
   store i32 %120, ptr %3, align 8, !tbaa !253

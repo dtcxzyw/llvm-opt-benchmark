@@ -822,7 +822,7 @@ switch.lookup:                                    ; preds = %25
 
 .thread214:                                       ; preds = %switch.lookup, %29
   %.3217 = phi i1 [ false, %29 ], [ %switch.masked268, %switch.lookup ]
-  %33 = icmp ult i32 %8, 3
+  %33 = icmp samesign ult i32 %8, 3
   br i1 %33, label %.thread255.thread, label %34
 
 34:                                               ; preds = %.thread214
@@ -920,7 +920,7 @@ switch.lookup:                                    ; preds = %25
   br label %79
 
 66:                                               ; preds = %59
-  %67 = icmp ugt i64 %61, 2147483647
+  %67 = icmp samesign ugt i64 %61, 2147483647
   br i1 %67, label %68, label %71
 
 68:                                               ; preds = %66
@@ -1088,7 +1088,7 @@ define hidden void @zif_json_validate(ptr noundef %0, ptr nocapture noundef writ
   br label %71
 
 57:                                               ; preds = %51
-  %58 = icmp ugt i64 %52, 2147483647
+  %58 = icmp samesign ugt i64 %52, 2147483647
   br i1 %58, label %59, label %62
 
 59:                                               ; preds = %57

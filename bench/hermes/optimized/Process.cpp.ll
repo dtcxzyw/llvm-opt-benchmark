@@ -1117,7 +1117,7 @@ if.end.i.i.i:                                     ; preds = %_ZN4llvh12StringSwi
 
 _ZN4llvh12StringSwitchIbbE10StartsWithENS_13StringLiteralEb.exit100.thread149.i: ; preds = %if.end.i177.i, %if.end.i168.i, %if.end.i160.i
   %ref.tmp.sroa.28.3.ph.i = phi i1 [ true, %if.end.i168.i ], [ true, %if.end.i177.i ], [ %0, %if.end.i160.i ]
-  %cmp.i198.not153.i = icmp ult i64 %call.i.i, 5
+  %cmp.i198.not153.i = icmp samesign ult i64 %call.i.i, 5
   br label %_ZN4llvh12StringSwitchIbbE10StartsWithENS_13StringLiteralEb.exit87.i
 
 if.end.i.i202.i:                                  ; preds = %if.end.i.i.i, %if.end.i177.i
@@ -1128,7 +1128,7 @@ if.end.i.i202.i:                                  ; preds = %if.end.i.i.i, %if.e
 _ZN4llvh12StringSwitchIbbE10StartsWithENS_13StringLiteralEb.exit87.i: ; preds = %if.end.i.i202.i, %_ZN4llvh12StringSwitchIbbE10StartsWithENS_13StringLiteralEb.exit100.thread149.i
   %cmp.i198.not120.i = phi i1 [ false, %if.end.i.i202.i ], [ %cmp.i198.not153.i, %_ZN4llvh12StringSwitchIbbE10StartsWithENS_13StringLiteralEb.exit100.thread149.i ]
   %ref.tmp.sroa.28.4.i = phi i1 [ false, %if.end.i.i202.i ], [ %ref.tmp.sroa.28.3.ph.i, %_ZN4llvh12StringSwitchIbbE10StartsWithENS_13StringLiteralEb.exit100.thread149.i ]
-  %or.cond36.i = or i1 %cmp.i198.not120.i, %ref.tmp.sroa.28.4.i
+  %or.cond36.i = select i1 %ref.tmp.sroa.28.4.i, i1 true, i1 %cmp.i198.not120.i
   br i1 %or.cond36.i, label %_ZN4llvh12StringSwitchIbbE10StartsWithENS_13StringLiteralEb.exit74.i, label %if.end.i.i221.i
 
 if.end.i.i221.i:                                  ; preds = %_ZN4llvh12StringSwitchIbbE10StartsWithENS_13StringLiteralEb.exit87.i

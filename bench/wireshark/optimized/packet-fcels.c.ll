@@ -1770,7 +1770,7 @@ define internal fastcc void @dissect_fcels_rpl(ptr noundef %0, ptr noundef readn
   %34 = tail call ptr @proto_tree_add_item(ptr noundef %26, i32 noundef %32, ptr noundef %0, i32 noundef %33, i32 noundef 8, i32 noundef 0) #3
   %35 = add i32 %.0371, 16
   %36 = add nsw i32 %.02, -1
-  %37 = icmp ugt i32 %.02, 1
+  %37 = icmp samesign ugt i32 %.02, 1
   br i1 %37, label %.lr.ph, label %.loopexit, !llvm.loop !4
 
 .loopexit:                                        ; preds = %.lr.ph, %15, %10, %4

@@ -359,7 +359,7 @@ invoke.cont10:                                    ; preds = %_ZNSt6vectorI21llam
 if.then.i:                                        ; preds = %invoke.cont10
   %add.i = add i32 %rule_id, 1
   %conv2.i = zext i32 %add.i to i64
-  %cmp.i.i = icmp ult i64 %sub.ptr.div.i.i, %conv2.i
+  %cmp.i.i = icmp samesign ult i64 %sub.ptr.div.i.i, %conv2.i
   br i1 %cmp.i.i, label %if.then.i.i48, label %if.else.i.i46
 
 if.then.i.i48:                                    ; preds = %if.then.i
@@ -368,7 +368,7 @@ if.then.i.i48:                                    ; preds = %if.then.i
           to label %if.end.i unwind label %lpad.loopexit.split-lp
 
 if.else.i.i46:                                    ; preds = %if.then.i
-  %cmp4.i.i = icmp ugt i64 %sub.ptr.div.i.i, %conv2.i
+  %cmp4.i.i = icmp samesign ugt i64 %sub.ptr.div.i.i, %conv2.i
   br i1 %cmp4.i.i, label %if.then5.i.i, label %if.end.i
 
 if.then5.i.i:                                     ; preds = %if.else.i.i46
@@ -1620,7 +1620,7 @@ invoke.cont182:                                   ; preds = %_ZNSt6vectorI21llam
 if.then.i:                                        ; preds = %invoke.cont182
   %add.i = add i32 %call121, 1
   %conv2.i = zext i32 %add.i to i64
-  %cmp.i.i = icmp ult i64 %sub.ptr.div.i.i, %conv2.i
+  %cmp.i.i = icmp samesign ult i64 %sub.ptr.div.i.i, %conv2.i
   br i1 %cmp.i.i, label %if.then.i.i458, label %if.else.i.i454
 
 if.then.i.i458:                                   ; preds = %if.then.i
@@ -1629,7 +1629,7 @@ if.then.i.i458:                                   ; preds = %if.then.i
           to label %if.end.i455 unwind label %lpad136.loopexit
 
 if.else.i.i454:                                   ; preds = %if.then.i
-  %cmp4.i.i = icmp ugt i64 %sub.ptr.div.i.i, %conv2.i
+  %cmp4.i.i = icmp samesign ugt i64 %sub.ptr.div.i.i, %conv2.i
   br i1 %cmp4.i.i, label %if.then5.i.i, label %if.end.i455
 
 if.then5.i.i:                                     ; preds = %if.else.i.i454

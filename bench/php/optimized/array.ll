@@ -9551,7 +9551,7 @@ thread-pre-split:                                 ; preds = %22
   br i1 %28, label %29, label %104
 
 29:                                               ; preds = %25
-  %30 = icmp ugt i64 %26, 2147483647
+  %30 = icmp samesign ugt i64 %26, 2147483647
   br i1 %30, label %31, label %34
 
 31:                                               ; preds = %29
@@ -22299,7 +22299,7 @@ define noundef zeroext i1 @php_array_pick_keys(ptr nocapture readonly %0, ptr %1
 
 123:                                              ; preds = %121
   %124 = zext i32 %9 to i64
-  %125 = icmp ugt i64 %3, %124
+  %125 = icmp samesign ugt i64 %3, %124
   br i1 %125, label %126, label %128
 
 126:                                              ; preds = %123, %121
@@ -22317,7 +22317,7 @@ define noundef zeroext i1 @php_array_pick_keys(ptr nocapture readonly %0, ptr %1
   store i32 775, ptr %131, align 8
   %132 = lshr i32 %9, 1
   %133 = zext nneg i32 %132 to i64
-  %134 = icmp ugt i64 %3, %133
+  %134 = icmp samesign ugt i64 %3, %133
   %135 = sub nuw nsw i64 %124, %3
   %spec.select265 = select i1 %134, i64 %135, i64 %3
   %136 = add nuw nsw i64 %124, 63

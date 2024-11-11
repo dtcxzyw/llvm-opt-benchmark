@@ -928,7 +928,7 @@ _ZN5folly8OptionalISt4pairImmEEptEv.exit31:       ; preds = %_ZN5folly8OptionalI
   %6 = and i8 %5, 1
   %frombool = xor i8 %6, 1
   store i8 %frombool, ptr %request, align 1
-  %cmp29 = icmp ult i64 %4, 2
+  %cmp29 = icmp samesign ult i64 %4, 2
   %frombool30 = zext i1 %cmp29 to i8
   store i8 %frombool30, ptr %knownLength, align 1
   br i1 %cmp29, label %if.end44, label %if.then31
@@ -8134,7 +8134,7 @@ if.then3.i:                                       ; preds = %if.then.i
   br label %cond.end
 
 if.end4.i:                                        ; preds = %cond.true
-  %cmp5.i = icmp ugt i32 %7, 14
+  %cmp5.i = icmp samesign ugt i32 %7, 14
   br i1 %cmp5.i, label %cond.end, label %if.end7.i
 
 if.end7.i:                                        ; preds = %if.end4.i

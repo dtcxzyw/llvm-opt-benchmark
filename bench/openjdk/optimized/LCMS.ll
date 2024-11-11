@@ -149,7 +149,7 @@ define i64 @Java_sun_java2d_cmm_lcms_LCMS_createNativeTransform(ptr noundef %0, 
   br i1 %31, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %30
-  %32 = icmp ugt i32 %.fr76, 2
+  %32 = icmp samesign ugt i32 %.fr76, 2
   br i1 %32, label %.lr.ph.split.preheader, label %.lr.ph.split.us.preheader
 
 .lr.ph.split.us.preheader:                        ; preds = %.lr.ph

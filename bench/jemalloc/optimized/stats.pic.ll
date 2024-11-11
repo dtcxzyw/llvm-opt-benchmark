@@ -3487,9 +3487,9 @@ entry:
 
 if.else:                                          ; preds = %entry
   %cond = tail call i64 @llvm.umax.i64(i64 %0, i64 1)
-  %cmp2 = icmp ugt i64 %0, 268435519
+  %cmp2 = icmp samesign ugt i64 %0, 268435519
   %shr = lshr i64 %cond, 6
-  %cmp5 = icmp ult i64 %0, 64
+  %cmp5 = icmp samesign ult i64 %0, 64
   %spec.store.select = select i1 %cmp5, i64 1, i64 %shr
   %batch.0 = select i1 %cmp2, i64 4194304, i64 %spec.store.select
   br label %if.end8

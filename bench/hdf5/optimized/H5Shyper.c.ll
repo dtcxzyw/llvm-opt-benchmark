@@ -1716,7 +1716,7 @@ define internal range(i32 -1, 1) i32 @H5S__hyper_deserialize(ptr nocapture nound
   br label %612
 
 51:                                               ; preds = %32
-  %52 = icmp ugt i32 %44, 1
+  %52 = icmp samesign ugt i32 %44, 1
   br i1 %52, label %53, label %100
 
 53:                                               ; preds = %51
@@ -4907,7 +4907,7 @@ H5S__hyper_rebuild.exit:                          ; preds = %17, %18
 134:                                              ; preds = %88, %131
   %.2179 = phi i64 [ %89, %88 ], [ %.1178, %131 ]
   %.1 = phi i32 [ %.0169212, %88 ], [ %133, %131 ]
-  %135 = icmp ugt i64 %indvars.iv238, 1
+  %135 = icmp samesign ugt i64 %indvars.iv238, 1
   br i1 %135, label %80, label %.preheader198
 
 136:                                              ; preds = %.lr.ph217, %136
@@ -14345,7 +14345,7 @@ H5S__hyper_is_regular.exit:                       ; preds = %73, %H5S__hyper_reb
   br label %130
 
 124:                                              ; preds = %121
-  %125 = icmp ugt i64 %1, 3
+  %125 = icmp samesign ugt i64 %1, 3
   %or.cond = and i1 %125, %109
   br i1 %or.cond, label %126, label %130
 
@@ -14497,7 +14497,7 @@ H5S__hyper_is_regular.exit:                       ; preds = %73, %H5S__hyper_reb
 ._crit_edge:                                      ; preds = %.lr.ph116, %.preheader109
   %.0.lcssa = phi i64 [ %1, %.preheader109 ], [ %spec.select102, %.lr.ph116 ]
   %182 = icmp ugt i64 %.0.lcssa, 4294967295
-  %183 = icmp ugt i64 %.0.lcssa, 65535
+  %183 = icmp samesign ugt i64 %.0.lcssa, 65535
   %..i106 = select i1 %183, i8 4, i8 2
   %.0.i107 = select i1 %182, i8 8, i8 %..i106
   store i8 %.0.i107, ptr %3, align 1

@@ -1918,7 +1918,7 @@ _ZNK7AstNode5widthEv.exit.i:                      ; preds = %_ZNK7AstNode6isQuad
   br i1 %28, label %_ZN11CastVisitor8castSizeEP7AstNode.exit, label %_ZNK7AstNode5widthEv.exit4.i
 
 _ZNK7AstNode5widthEv.exit4.i:                     ; preds = %_ZNK7AstNode5widthEv.exit.i
-  %.inv.i = icmp ugt i32 %26, 16
+  %.inv.i = icmp samesign ugt i32 %26, 16
   %..i = select i1 %.inv.i, i32 32, i32 16
   br label %_ZN11CastVisitor8castSizeEP7AstNode.exit
 
@@ -2975,7 +2975,7 @@ _ZNK7AstNode5widthEv.exit.i:                      ; preds = %_ZNK7AstNode6isQuad
   br i1 %84, label %_ZN11CastVisitor8castSizeEP7AstNode.exit, label %_ZNK7AstNode5widthEv.exit4.i
 
 _ZNK7AstNode5widthEv.exit4.i:                     ; preds = %_ZNK7AstNode5widthEv.exit.i
-  %.inv.i = icmp ugt i32 %82, 16
+  %.inv.i = icmp samesign ugt i32 %82, 16
   %..i = select i1 %.inv.i, i32 32, i32 16
   br label %_ZN11CastVisitor8castSizeEP7AstNode.exit
 
@@ -2999,7 +2999,7 @@ _ZNK7AstNode5widthEv.exit.i51:                    ; preds = %_ZNK7AstNode6isQuad
   br i1 %91, label %_ZN11CastVisitor8castSizeEP7AstNode.exit56, label %_ZNK7AstNode5widthEv.exit4.i52
 
 _ZNK7AstNode5widthEv.exit4.i52:                   ; preds = %_ZNK7AstNode5widthEv.exit.i51
-  %.inv.i53 = icmp ugt i32 %89, 16
+  %.inv.i53 = icmp samesign ugt i32 %89, 16
   %..i54 = select i1 %.inv.i53, i32 32, i32 16
   br label %_ZN11CastVisitor8castSizeEP7AstNode.exit56
 
@@ -3023,7 +3023,7 @@ _ZNK7AstNode5widthEv.exit.i60:                    ; preds = %_ZNK7AstNode6isQuad
   br i1 %96, label %_ZN11CastVisitor8castSizeEP7AstNode.exit65, label %_ZNK7AstNode5widthEv.exit4.i61
 
 _ZNK7AstNode5widthEv.exit4.i61:                   ; preds = %_ZNK7AstNode5widthEv.exit.i60
-  %.inv.i62 = icmp ugt i32 %94, 16
+  %.inv.i62 = icmp samesign ugt i32 %94, 16
   %..i63 = select i1 %.inv.i62, i32 32, i32 16
   br label %_ZN11CastVisitor8castSizeEP7AstNode.exit65
 
@@ -3995,7 +3995,7 @@ _ZNK7AstNode5widthEv.exit.i:                      ; preds = %_ZNK7AstNode6isQuad
   br i1 %10, label %_ZN11CastVisitor8castSizeEP7AstNode.exit, label %_ZNK7AstNode5widthEv.exit4.i
 
 _ZNK7AstNode5widthEv.exit4.i:                     ; preds = %_ZNK7AstNode5widthEv.exit.i
-  %.inv.i = icmp ugt i32 %8, 16
+  %.inv.i = icmp samesign ugt i32 %8, 16
   %..i = select i1 %.inv.i, i32 32, i32 16
   br label %_ZN11CastVisitor8castSizeEP7AstNode.exit
 
@@ -4018,7 +4018,7 @@ _ZNK7AstNode5widthEv.exit.i11:                    ; preds = %_ZNK7AstNode6isQuad
   br i1 %16, label %_ZN11CastVisitor8castSizeEP7AstNode.exit16, label %_ZNK7AstNode5widthEv.exit4.i12
 
 _ZNK7AstNode5widthEv.exit4.i12:                   ; preds = %_ZNK7AstNode5widthEv.exit.i11
-  %.inv.i13 = icmp ugt i32 %14, 16
+  %.inv.i13 = icmp samesign ugt i32 %14, 16
   %..i14 = select i1 %.inv.i13, i32 32, i32 16
   br label %_ZN11CastVisitor8castSizeEP7AstNode.exit16
 
@@ -4067,7 +4067,7 @@ _ZNK7AstNode5widthEv.exit.i20:                    ; preds = %_ZNK7AstNode6isQuad
   br i1 %34, label %_ZN11CastVisitor8castSizeEP7AstNode.exit25, label %_ZNK7AstNode5widthEv.exit4.i21
 
 _ZNK7AstNode5widthEv.exit4.i21:                   ; preds = %_ZNK7AstNode5widthEv.exit.i20
-  %.inv.i22 = icmp ugt i32 %32, 16
+  %.inv.i22 = icmp samesign ugt i32 %32, 16
   %..i23 = select i1 %.inv.i22, i32 32, i32 16
   br label %_ZN11CastVisitor8castSizeEP7AstNode.exit25
 

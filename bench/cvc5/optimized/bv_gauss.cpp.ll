@@ -17555,7 +17555,7 @@ for.body.i.i.i.i.i49:                             ; preds = %invoke.cont, %call.
 
 call.i.i.i.i.i.noexc:                             ; preds = %for.body.i.i.i.i.i49
   %dec.i.i.i.i.i = add nsw i64 %__n.07.i.i.i.i.i, -1
-  %cmp.i.i.i.i.i = icmp ugt i64 %__n.07.i.i.i.i.i, 1
+  %cmp.i.i.i.i.i = icmp samesign ugt i64 %__n.07.i.i.i.i.i, 1
   br i1 %cmp.i.i.i.i.i, label %for.body.i.i.i.i.i49, label %invoke.cont20, !llvm.loop !186
 
 invoke.cont20:                                    ; preds = %call.i.i.i.i.i.noexc, %invoke.cont

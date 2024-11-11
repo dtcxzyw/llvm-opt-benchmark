@@ -227,7 +227,7 @@ while.end40:                                      ; preds = %_ZNSt5dequeIPN5foll
   br i1 %cmp.i.i.i.i, label %land.lhs.true.i.i.i.i, label %cond.false.i.i.i.i76
 
 land.lhs.true.i.i.i.i:                            ; preds = %while.end40
-  %cmp2.i.i.i.i = icmp ult i64 %add.i.i.i.i, 64
+  %cmp2.i.i.i.i = icmp samesign ult i64 %add.i.i.i.i, 64
   br i1 %cmp2.i.i.i.i, label %if.then.i.i.i.i89, label %cond.true.i.i.i.i87
 
 if.then.i.i.i.i89:                                ; preds = %land.lhs.true.i.i.i.i
@@ -359,7 +359,7 @@ _ZNSt6vectorI5iovecSaIS0_EE12emplace_backIJRS0_EEES4_DpOT_.exit: ; preds = %_ZNS
   br i1 %cmp.i.i.i.i109, label %land.lhs.true.i.i.i.i119, label %cond.false.i.i.i.i110
 
 land.lhs.true.i.i.i.i119:                         ; preds = %_ZNSt6vectorI5iovecSaIS0_EE12emplace_backIJRS0_EEES4_DpOT_.exit
-  %cmp2.i.i.i.i120 = icmp ult i64 %add.i.i.i.i108, 64
+  %cmp2.i.i.i.i120 = icmp samesign ult i64 %add.i.i.i.i108, 64
   br i1 %cmp2.i.i.i.i120, label %if.then.i.i.i.i123, label %cond.true.i.i.i.i121
 
 if.then.i.i.i.i123:                               ; preds = %land.lhs.true.i.i.i.i119

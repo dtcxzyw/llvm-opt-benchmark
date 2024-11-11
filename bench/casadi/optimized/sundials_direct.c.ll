@@ -100,7 +100,7 @@ define noalias noundef ptr @newDenseMat(i64 noundef %0, i64 noundef %1) local_un
   br i1 %13, label %15, label %.preheader
 
 .preheader:                                       ; preds = %9
-  %14 = icmp ugt i64 %1, 1
+  %14 = icmp samesign ugt i64 %1, 1
   br i1 %14, label %.lr.ph, label %.loopexit
 
 15:                                               ; preds = %9

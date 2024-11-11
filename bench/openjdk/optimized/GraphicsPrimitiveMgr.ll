@@ -642,7 +642,7 @@ define hidden void @GrPrim_RefineBounds(ptr nocapture noundef %0, i32 noundef %1
   %.151 = tail call i32 @llvm.smax.i32(i32 %.05067, i32 %25)
   %.1 = tail call i32 @llvm.smax.i32(i32 %.04968, i32 %30)
   %31 = add nsw i32 %.04869, -2
-  %32 = icmp ugt i32 %.04869, 3
+  %32 = icmp samesign ugt i32 %.04869, 3
   br i1 %32, label %19, label %33, !llvm.loop !11
 
 33:                                               ; preds = %19

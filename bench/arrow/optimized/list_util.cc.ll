@@ -401,7 +401,7 @@ if.then11.i.i:                                    ; preds = %if.then8.i.i
 
 for.inc.i42.i:                                    ; preds = %if.then11.i.i, %if.then8.i.i, %for.body.i40.i
   %max_end.1.i.i = phi i64 [ %max_end.052.i.i, %if.then8.i.i ], [ %max_end.052.i.i, %for.body.i40.i ], [ %add.i44.i, %if.then11.i.i ]
-  %cmp4.i.i = icmp ugt i64 %i.053.in.i.i, 1
+  %cmp4.i.i = icmp samesign ugt i64 %i.053.in.i.i, 1
   br i1 %cmp4.i.i, label %for.body.i40.i, label %_ZN5arrow9list_util8internal12_GLOBAL__N_110MaxViewEndIiEElRKNS_9ArraySpanE.exit.i, !llvm.loop !8
 
 if.else.i17.i:                                    ; preds = %if.end13.i
@@ -757,7 +757,7 @@ if.then10.i44.i:                                  ; preds = %if.then8.i.i128
 
 for.inc.i41.i:                                    ; preds = %if.then10.i44.i, %if.then8.i.i128, %for.body.i39.i
   %max_end.1.i.i126 = phi i64 [ %max_end.052.i.i123, %if.then8.i.i128 ], [ %max_end.052.i.i123, %for.body.i39.i ], [ %add.i42.i, %if.then10.i44.i ]
-  %cmp4.i.i127 = icmp ugt i64 %i.053.in.i.i122, 1
+  %cmp4.i.i127 = icmp samesign ugt i64 %i.053.in.i.i122, 1
   br i1 %cmp4.i.i127, label %for.body.i39.i, label %_ZN5arrow9list_util8internal12_GLOBAL__N_110MaxViewEndIlEElRKNS_9ArraySpanE.exit.i, !llvm.loop !14
 
 if.else.i17.i90:                                  ; preds = %if.end13.i84

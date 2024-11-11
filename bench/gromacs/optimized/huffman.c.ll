@@ -333,7 +333,7 @@ define void @Ptngc_comp_conv_to_huffman(ptr nocapture noundef readonly %0, i32 n
   store i8 %138, ptr %.11, align 1
   %139 = getelementptr inbounds i8, ptr %.11, i64 1
   %140 = and i32 %.2.i, %136
-  %141 = icmp ugt i32 %.8330, 15
+  %141 = icmp samesign ugt i32 %.8330, 15
   br i1 %141, label %.lr.ph.i.i, label %flush_8bits.exit.i, !llvm.loop !13
 
 flush_8bits.exit.i:                               ; preds = %.lr.ph.i.i, %.lr.ph.i
@@ -371,7 +371,7 @@ flush_8bits.exit.i:                               ; preds = %.lr.ph.i.i, %.lr.ph
   store i8 %153, ptr %.8, align 1
   %154 = getelementptr inbounds i8, ptr %.8, i64 1
   %155 = and i32 %.4.i, %151
-  %156 = icmp ugt i32 %.6328, 15
+  %156 = icmp samesign ugt i32 %.6328, 15
   br i1 %156, label %.lr.ph.i25.i, label %writebits.exit, !llvm.loop !13
 
 writebits.exit:                                   ; preds = %.lr.ph.i25.i, %._crit_edge.i, %144
@@ -418,7 +418,7 @@ writebits.exit:                                   ; preds = %.lr.ph.i25.i, %._cr
   store i8 %172, ptr %.17, align 1
   %173 = getelementptr inbounds i8, ptr %.17, i64 1
   %174 = and i32 %.2.i221, %170
-  %175 = icmp ugt i32 %.13335, 15
+  %175 = icmp samesign ugt i32 %.13335, 15
   br i1 %175, label %.lr.ph.i.i220, label %flush_8bits.exit.i218, !llvm.loop !13
 
 flush_8bits.exit.i218:                            ; preds = %.lr.ph.i.i220, %.lr.ph.i214
@@ -454,7 +454,7 @@ flush_8bits.exit.i218:                            ; preds = %.lr.ph.i.i220, %.lr
   store i8 %185, ptr %.14, align 1
   %186 = getelementptr inbounds i8, ptr %.14, i64 1
   %187 = and i32 %.4.i211, %183
-  %188 = icmp ugt i32 %.11333, 15
+  %188 = icmp samesign ugt i32 %.11333, 15
   br i1 %188, label %.lr.ph.i25.i210, label %writebits.exit222, !llvm.loop !13
 
 writebits.exit222:                                ; preds = %.lr.ph.i25.i210, %._crit_edge.i205, %177
@@ -546,7 +546,7 @@ writebits.exit222:                                ; preds = %.lr.ph.i25.i210, %.
   store i8 %234, ptr %.19, align 1
   %235 = getelementptr inbounds i8, ptr %.19, i64 1
   %236 = and i32 %.4.i229, %232
-  %237 = icmp ugt i32 %.14336, 15
+  %237 = icmp samesign ugt i32 %.14336, 15
   br i1 %237, label %.lr.ph.i25.i228, label %writebits.exit230, !llvm.loop !13
 
 writebits.exit230:                                ; preds = %.lr.ph.i25.i228, %223
@@ -576,7 +576,7 @@ writebits.exit230:                                ; preds = %.lr.ph.i25.i228, %2
   store i8 %250, ptr %.21, align 1
   %251 = getelementptr inbounds i8, ptr %.21, i64 1
   %252 = and i32 %.4.i237, %248
-  %253 = icmp ugt i32 %.16338, 15
+  %253 = icmp samesign ugt i32 %.16338, 15
   br i1 %253, label %.lr.ph.i25.i236, label %writebits.exit238, !llvm.loop !13
 
 writebits.exit238:                                ; preds = %.lr.ph.i25.i236, %writebits.exit230
@@ -608,7 +608,7 @@ writebits.exit238:                                ; preds = %.lr.ph.i25.i236, %w
   store i8 %265, ptr %.23, align 1
   %266 = getelementptr inbounds i8, ptr %.23, i64 1
   %267 = and i32 %.4.i245, %263
-  %268 = icmp ugt i32 %.18340, 15
+  %268 = icmp samesign ugt i32 %.18340, 15
   br i1 %268, label %.lr.ph.i25.i244, label %writebits.exit246, !llvm.loop !13
 
 writebits.exit246:                                ; preds = %.lr.ph.i25.i244, %.critedge
@@ -665,7 +665,7 @@ writebits.exit246:                                ; preds = %.lr.ph.i25.i244, %.
   store i8 %287, ptr %.29, align 1
   %288 = getelementptr inbounds i8, ptr %.29, i64 1
   %289 = and i32 %.2.i263, %285
-  %290 = icmp ugt i32 %.23345, 15
+  %290 = icmp samesign ugt i32 %.23345, 15
   br i1 %290, label %.lr.ph.i.i262, label %flush_8bits.exit.i260, !llvm.loop !13
 
 flush_8bits.exit.i260:                            ; preds = %.lr.ph.i.i262, %.lr.ph.i256
@@ -701,7 +701,7 @@ flush_8bits.exit.i260:                            ; preds = %.lr.ph.i.i262, %.lr
   store i8 %299, ptr %.26, align 1
   %300 = getelementptr inbounds i8, ptr %.26, i64 1
   %301 = and i32 %.4.i253, %297
-  %302 = icmp ugt i32 %.21343, 15
+  %302 = icmp samesign ugt i32 %.21343, 15
   br i1 %302, label %.lr.ph.i25.i252, label %writebits.exit264, !llvm.loop !13
 
 writebits.exit264:                                ; preds = %.lr.ph.i25.i252, %._crit_edge.i247, %._crit_edge.i247.thread

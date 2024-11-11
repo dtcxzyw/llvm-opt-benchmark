@@ -7755,8 +7755,8 @@ for.body:                                         ; preds = %_ZN4absl15random_in
   %coerce3.sroa.0.0.extract.trunc.i.i.i.i.i.i.i.i = trunc i128 %mul.i.i.i.i.i.i.i.i to i64
   %coerce3.sroa.2.0.extract.shift.i.i.i.i.i.i.i.i = lshr i128 %mul.i.i.i.i.i.i.i.i, 64
   %coerce3.sroa.2.0.extract.trunc.i.i.i.i.i.i.i.i = trunc nuw nsw i128 %coerce3.sroa.2.0.extract.shift.i.i.i.i.i.i.i.i to i64
-  %cmp1140.i.i.i.i.i.i = icmp ult i64 %coerce3.sroa.0.0.extract.trunc.i.i.i.i.i.i.i.i, 73691104872
-  br i1 %cmp1140.i.i.i.i.i.i, label %while.body.i.i.i.i.i.i, label %invoke.cont4
+  %or.cond = icmp ult i64 %coerce3.sroa.0.0.extract.trunc.i.i.i.i.i.i.i.i, 73691104872
+  br i1 %or.cond, label %while.body.i.i.i.i.i.i, label %invoke.cont4
 
 while.body.i.i.i.i.i.i:                           ; preds = %for.body, %while.body.i.i.i.i.i.i
   %coerce3.sroa.0.0.extract.trunc.i7.i.i.i.i.i243842.i.i.i.i.i.i = phi i64 [ %coerce3.sroa.0.0.extract.trunc.i7.i.i.i.i.i24.i.i.i.i.i.i, %while.body.i.i.i.i.i.i ], [ %coerce3.sroa.0.0.extract.trunc.i7.i.i.i.i.i.i.i.i.i.i.i, %for.body ]

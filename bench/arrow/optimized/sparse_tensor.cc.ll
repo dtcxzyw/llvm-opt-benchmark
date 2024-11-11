@@ -4367,7 +4367,7 @@ for.body.preheader.i.i.i.i.i:                     ; preds = %_ZNSt6vectorISt10sh
   %2 = getelementptr inbounds i8, ptr %indptr, i64 16
   store ptr %add.ptr.i.i.i, ptr %2, align 8
   store ptr %scevgep.i.i.i.i.i, ptr %_M_finish.i.i7.i, align 8
-  %cmp.i.i37 = icmp ugt i64 %sub.ptr.div.i, 576460752303423487
+  %cmp.i.i37 = icmp samesign ugt i64 %sub.ptr.div.i, 576460752303423487
   br i1 %cmp.i.i37, label %if.then.i.i48, label %for.body.preheader.i.i.i.i.i40
 
 if.then.i.i48:                                    ; preds = %for.body.preheader.i.i.i.i.i

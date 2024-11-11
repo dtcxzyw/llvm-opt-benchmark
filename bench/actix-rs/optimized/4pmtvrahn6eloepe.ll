@@ -5544,7 +5544,7 @@ _ZN6brotli3enc7command19GetInsertLengthCode17ha9109facbbd32153E.exit: ; preds = 
   %125 = trunc i64 %124 to i16
   %126 = add nuw nsw i16 %125, 2
   %127 = zext nneg i16 %126 to i64
-  %128 = icmp ult i16 %125, 22
+  %128 = icmp samesign ult i16 %125, 22
   br i1 %128, label %_ZN6brotli3enc19backward_references2hq30ZopfliCostModelGetLiteralCosts17h82ae77380cc67f69E.exit142, label %146, !prof !604
 
 _ZN6brotli3enc19backward_references2hq30ZopfliCostModelGetLiteralCosts17h82ae77380cc67f69E.exit142: ; preds = %_ZN6brotli3enc7command19GetInsertLengthCode17ha9109facbbd32153E.exit.thread, %_ZN6brotli3enc7command19GetInsertLengthCode17ha9109facbbd32153E.exit
@@ -5747,7 +5747,7 @@ _ZN6brotli3enc7command17GetCopyLengthCode17hab981e27915e86caE.exit: ; preds = %2
   br i1 %or.cond6.i, label %.thread, label %_ZN6brotli3enc7command18CombineLengthCodes17he28c5563882f5f20E.exit
 
 .thread:                                          ; preds = %_ZN6brotli3enc7command17GetCopyLengthCode17hab981e27915e86caE.exit
-  %235 = icmp ult i16 %.0.i143, 8
+  %235 = icmp samesign ult i16 %.0.i143, 8
   %236 = or disjoint i16 %233, 64
   %spec.select.i = select i1 %235, i16 %233, i16 %236
   %237 = zext nneg i16 %.0.i143 to i64
@@ -8099,7 +8099,7 @@ define hidden void @_ZN6brotli3enc19backward_references2hq38BrotliCreateHqZopfli
   %219 = load i32, ptr %218, align 4, !noalias !831, !noundef !13
   %220 = add i32 %219, 1
   store i32 %220, ptr %218, align 4, !noalias !831
-  %221 = icmp ugt i16 %214, 127
+  %221 = icmp samesign ugt i16 %214, 127
   br i1 %221, label %223, label %222
 
 222:                                              ; preds = %225, %217

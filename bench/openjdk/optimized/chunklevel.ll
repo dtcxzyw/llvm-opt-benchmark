@@ -37,7 +37,7 @@ define hidden void @_ZN9metaspace10chunklevel16print_chunk_sizeEP12outputStreama
 
 4:                                                ; preds = %2
   %5 = zext nneg i8 %1 to i64
-  %6 = icmp ugt i8 %1, 4
+  %6 = icmp samesign ugt i8 %1, 4
   br i1 %6, label %7, label %10
 
 7:                                                ; preds = %4

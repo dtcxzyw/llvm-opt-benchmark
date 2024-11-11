@@ -215,7 +215,7 @@ define float @Map_TimeCutComputeArrival(ptr nocapture noundef readonly %0, ptr n
 102:                                              ; preds = %87, %101, %99
   %103 = phi float [ %88, %87 ], [ %97, %101 ], [ %88, %99 ]
   %104 = phi float [ %89, %87 ], [ %97, %101 ], [ %88, %99 ]
-  %105 = icmp ugt i64 %indvars.iv, 1
+  %105 = icmp samesign ugt i64 %indvars.iv, 1
   br i1 %105, label %34, label %._crit_edge, !llvm.loop !6
 
 ._crit_edge:                                      ; preds = %102, %22
@@ -639,7 +639,7 @@ define void @Map_TimePropagateRequired(ptr nocapture noundef readonly %0) local_
   br label %99
 
 99:                                               ; preds = %92, %95, %98, %71, %9, %20
-  %100 = icmp ugt i64 %indvars.iv, 1
+  %100 = icmp samesign ugt i64 %indvars.iv, 1
   br i1 %100, label %9, label %._crit_edge, !llvm.loop !9
 
 ._crit_edge:                                      ; preds = %99, %1

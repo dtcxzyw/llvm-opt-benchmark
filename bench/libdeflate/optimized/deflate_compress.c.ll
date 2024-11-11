@@ -35,11 +35,11 @@ entry:
   br i1 %or.cond73, label %return, label %if.end4
 
 if.end4:                                          ; preds = %entry
-  %cmp5 = icmp ugt i32 %compression_level, 9
+  %cmp5 = icmp samesign ugt i32 %compression_level, 9
   br i1 %cmp5, label %if.end16, label %if.else
 
 if.else:                                          ; preds = %if.end4
-  %cmp7 = icmp ugt i32 %compression_level, 1
+  %cmp7 = icmp samesign ugt i32 %compression_level, 1
   br i1 %cmp7, label %if.end16, label %if.else10
 
 if.else10:                                        ; preds = %if.else
@@ -424,7 +424,7 @@ do.body3:                                         ; preds = %do.cond32, %do.body
 
 if.then:                                          ; preds = %do.body3
   %conv6 = trunc nuw nsw i64 %sub.ptr.sub to i32
-  %cmp7 = icmp ult i64 %sub.ptr.sub, 5
+  %cmp7 = icmp samesign ult i64 %sub.ptr.sub, 5
   br i1 %cmp7, label %do.body10, label %if.end
 
 do.body10:                                        ; preds = %if.then, %do.body10
@@ -1147,7 +1147,7 @@ if.end.i.i344:                                    ; preds = %for.end10.i
   br i1 %cmp3.i.i, label %if.then5.i.i, label %calculate_min_match_len.exit
 
 if.then5.i.i:                                     ; preds = %if.end.i.i344
-  %cmp6.i.i = icmp ult i32 %1, 5
+  %cmp6.i.i = icmp samesign ult i32 %1, 5
   br i1 %cmp6.i.i, label %if.then8.i.i, label %if.else.i.i
 
 if.then8.i.i:                                     ; preds = %if.then5.i.i
@@ -1157,7 +1157,7 @@ if.then8.i.i:                                     ; preds = %if.then5.i.i
   br label %calculate_min_match_len.exit
 
 if.else.i.i:                                      ; preds = %if.then5.i.i
-  %cmp11.i.i = icmp ult i32 %1, 10
+  %cmp11.i.i = icmp samesign ult i32 %1, 10
   br i1 %cmp11.i.i, label %if.then13.i.i, label %if.else20.i.i
 
 if.then13.i.i:                                    ; preds = %if.else.i.i
@@ -2026,7 +2026,7 @@ if.end.i.i:                                       ; preds = %for.end10.i
   br i1 %cmp3.i.i, label %if.then5.i.i, label %calculate_min_match_len.exit
 
 if.then5.i.i:                                     ; preds = %if.end.i.i
-  %cmp6.i.i = icmp ult i32 %1, 5
+  %cmp6.i.i = icmp samesign ult i32 %1, 5
   br i1 %cmp6.i.i, label %if.then8.i.i, label %if.else.i.i
 
 if.then8.i.i:                                     ; preds = %if.then5.i.i
@@ -2036,7 +2036,7 @@ if.then8.i.i:                                     ; preds = %if.then5.i.i
   br label %calculate_min_match_len.exit
 
 if.else.i.i:                                      ; preds = %if.then5.i.i
-  %cmp11.i.i = icmp ult i32 %1, 10
+  %cmp11.i.i = icmp samesign ult i32 %1, 10
   br i1 %cmp11.i.i, label %if.then13.i.i, label %if.else20.i.i
 
 if.then13.i.i:                                    ; preds = %if.else.i.i
@@ -2118,7 +2118,7 @@ if.end.i.i970:                                    ; preds = %for.end11.i
   br i1 %cmp3.i.i974, label %if.then5.i.i975, label %recalculate_min_match_len.exit
 
 if.then5.i.i975:                                  ; preds = %if.end.i.i970
-  %cmp6.i.i976 = icmp ult i32 %.pre, 5
+  %cmp6.i.i976 = icmp samesign ult i32 %.pre, 5
   br i1 %cmp6.i.i976, label %if.then8.i.i985, label %if.else.i.i977
 
 if.then8.i.i985:                                  ; preds = %if.then5.i.i975
@@ -2128,7 +2128,7 @@ if.then8.i.i985:                                  ; preds = %if.then5.i.i975
   br label %recalculate_min_match_len.exit
 
 if.else.i.i977:                                   ; preds = %if.then5.i.i975
-  %cmp11.i.i978 = icmp ult i32 %.pre, 10
+  %cmp11.i.i978 = icmp samesign ult i32 %.pre, 10
   br i1 %cmp11.i.i978, label %if.then13.i.i982, label %if.else20.i.i979
 
 if.then13.i.i982:                                 ; preds = %if.else.i.i977
@@ -3623,7 +3623,7 @@ if.end.i.i:                                       ; preds = %for.end10.i
   br i1 %cmp3.i.i, label %if.then5.i.i, label %calculate_min_match_len.exit
 
 if.then5.i.i:                                     ; preds = %if.end.i.i
-  %cmp6.i.i = icmp ult i32 %1, 5
+  %cmp6.i.i = icmp samesign ult i32 %1, 5
   br i1 %cmp6.i.i, label %if.then8.i.i, label %if.else.i.i972
 
 if.then8.i.i:                                     ; preds = %if.then5.i.i
@@ -3633,7 +3633,7 @@ if.then8.i.i:                                     ; preds = %if.then5.i.i
   br label %calculate_min_match_len.exit
 
 if.else.i.i972:                                   ; preds = %if.then5.i.i
-  %cmp11.i.i = icmp ult i32 %1, 10
+  %cmp11.i.i = icmp samesign ult i32 %1, 10
   br i1 %cmp11.i.i, label %if.then13.i.i, label %if.else20.i.i
 
 if.then13.i.i:                                    ; preds = %if.else.i.i972
@@ -3715,7 +3715,7 @@ if.end.i.i980:                                    ; preds = %for.end11.i
   br i1 %cmp3.i.i984, label %if.then5.i.i985, label %recalculate_min_match_len.exit
 
 if.then5.i.i985:                                  ; preds = %if.end.i.i980
-  %cmp6.i.i986 = icmp ult i32 %.pre, 5
+  %cmp6.i.i986 = icmp samesign ult i32 %.pre, 5
   br i1 %cmp6.i.i986, label %if.then8.i.i995, label %if.else.i.i987
 
 if.then8.i.i995:                                  ; preds = %if.then5.i.i985
@@ -3725,7 +3725,7 @@ if.then8.i.i995:                                  ; preds = %if.then5.i.i985
   br label %recalculate_min_match_len.exit
 
 if.else.i.i987:                                   ; preds = %if.then5.i.i985
-  %cmp11.i.i988 = icmp ult i32 %.pre, 10
+  %cmp11.i.i988 = icmp samesign ult i32 %.pre, 10
   br i1 %cmp11.i.i988, label %if.then13.i.i992, label %if.else20.i.i989
 
 if.then13.i.i992:                                 ; preds = %if.else.i.i987
@@ -5710,7 +5710,7 @@ if.end.i.i504:                                    ; preds = %for.end10.i
   br i1 %cmp3.i.i, label %if.then5.i.i, label %calculate_min_match_len.exit
 
 if.then5.i.i:                                     ; preds = %if.end.i.i504
-  %cmp6.i.i = icmp ult i32 %2, 5
+  %cmp6.i.i = icmp samesign ult i32 %2, 5
   br i1 %cmp6.i.i, label %if.then8.i.i, label %if.else.i.i
 
 if.then8.i.i:                                     ; preds = %if.then5.i.i
@@ -5720,7 +5720,7 @@ if.then8.i.i:                                     ; preds = %if.then5.i.i
   br label %calculate_min_match_len.exit
 
 if.else.i.i:                                      ; preds = %if.then5.i.i
-  %cmp11.i.i = icmp ult i32 %2, 10
+  %cmp11.i.i = icmp samesign ult i32 %2, 10
   br i1 %cmp11.i.i, label %if.then13.i.i, label %if.else20.i.i
 
 if.then13.i.i:                                    ; preds = %if.else.i.i
@@ -9009,7 +9009,7 @@ if.end.i.i.i:                                     ; preds = %for.end17.i.i
   br i1 %cmp3.i.i.i, label %if.then5.i.i.i, label %choose_min_match_len.exit.i.i
 
 if.then5.i.i.i:                                   ; preds = %if.end.i.i.i
-  %cmp6.i.i.i = icmp ult i32 %31, 5
+  %cmp6.i.i.i = icmp samesign ult i32 %31, 5
   br i1 %cmp6.i.i.i, label %if.then8.i.i.i, label %if.else.i.i.i
 
 if.then8.i.i.i:                                   ; preds = %if.then5.i.i.i
@@ -9019,7 +9019,7 @@ if.then8.i.i.i:                                   ; preds = %if.then5.i.i.i
   br label %choose_min_match_len.exit.i.i
 
 if.else.i.i.i:                                    ; preds = %if.then5.i.i.i
-  %cmp11.i.i.i = icmp ult i32 %31, 10
+  %cmp11.i.i.i = icmp samesign ult i32 %31, 10
   br i1 %cmp11.i.i.i, label %if.then13.i.i.i, label %if.else20.i.i.i
 
 if.then13.i.i.i:                                  ; preds = %if.else.i.i.i

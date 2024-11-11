@@ -3893,7 +3893,7 @@ define internal fastcc void @keystone_type_populate(ptr noundef %0, i32 noundef 
   br i1 %34, label %49, label %35
 
 35:                                               ; preds = %33
-  %36 = icmp ugt i32 %2, 10
+  %36 = icmp samesign ugt i32 %2, 10
   br i1 %36, label %37, label %45
 
 37:                                               ; preds = %35
@@ -4530,13 +4530,13 @@ define internal fastcc float @_ratio_get_aspect(ptr noundef %0, ptr noundef %1) 
   %22 = getelementptr inbounds i8, ptr %6, i64 80
   %23 = load i32, ptr %22, align 4, !tbaa !185
   %24 = icmp sgt i32 %23, 0
-  %25 = icmp ugt i32 %16, %18
+  %25 = icmp samesign ugt i32 %16, %18
   %26 = select i1 %24, i1 %25, i1 false
   br i1 %26, label %31, label %27
 
 27:                                               ; preds = %21
   %28 = icmp slt i32 %23, 0
-  %29 = icmp ult i32 %16, %18
+  %29 = icmp samesign ult i32 %16, %18
   %30 = select i1 %28, i1 %29, i1 false
   br i1 %30, label %31, label %35
 

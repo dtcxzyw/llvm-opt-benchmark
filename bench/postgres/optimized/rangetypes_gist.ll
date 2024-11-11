@@ -1800,7 +1800,7 @@ range_gist_consider_split.exit212.i:              ; preds = %.critedge.i208.i, %
   store i16 %.sink397.i, ptr %286, align 2
   %287 = add i16 %.2329.i, 1
   %288 = zext i16 %287 to i32
-  %289 = icmp ugt i32 %.1181.i, %288
+  %289 = icmp samesign ugt i32 %.1181.i, %288
   br i1 %289, label %255, label %.loopexit.i, !llvm.loop !15
 
 .loopexit.i:                                      ; preds = %284, %._crit_edge323.i

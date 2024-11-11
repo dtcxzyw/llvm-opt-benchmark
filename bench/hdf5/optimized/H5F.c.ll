@@ -1574,7 +1574,7 @@ define internal fastcc range(i64 -1, -9223372036854775808) i64 @H5F__open_api_co
 25:                                               ; preds = %19
   %26 = and i32 %1, 1
   %27 = icmp eq i32 %26, 0
-  %.not33 = icmp ult i32 %1, 64
+  %.not33 = icmp samesign ult i32 %1, 64
   %or.cond38 = or i1 %.not33, %27
   br i1 %or.cond38, label %32, label %28
 

@@ -7257,7 +7257,7 @@ entry:
 if.then:                                          ; preds = %entry
   %call1 = tail call i32 @strcasecmp(ptr noundef %2, ptr noundef nonnull @.str.42) #18
   %tobool2.not = icmp eq i32 %call1, 0
-  %cmp6190 = icmp ugt i32 %3, 5
+  %cmp6190 = icmp samesign ugt i32 %3, 5
   br i1 %cmp6190, label %while.body.lr.ph, label %while.end
 
 while.body.lr.ph:                                 ; preds = %if.then

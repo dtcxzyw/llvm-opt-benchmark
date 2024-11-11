@@ -184,7 +184,7 @@ define internal fastcc void @_ZL30try_initialize_global_cpu_infov() unnamed_addr
   %7 = alloca i32, align 4
   %8 = alloca [1024 x i8], align 16
   %.b = load i1, ptr @_ZL22g_cpu_info_initialized, align 4
-  br i1 %.b, label %257, label %9
+  br i1 %.b, label %256, label %9
 
 9:                                                ; preds = %0
   call void @llvm.lifetime.start.p0(i64 1024, ptr nonnull %8)
@@ -708,12 +708,12 @@ _ZL23get_cpu_support_x86_avxv.exit.i:             ; preds = %_ZL9x86_cpuidiPj.ex
   %.not4.i.i = icmp eq i32 %158, 6
   %..i.i = zext i1 %.not4.i.i to i32
   store i32 %..i.i, ptr @_ZL21g_cpu_support_x86_avx, align 4
-  %159 = icmp ult i32 %152, 7
+  %159 = icmp samesign ult i32 %152, 7
   br i1 %159, label %_ZL23get_cpu_support_x86_fmav.exit.i, label %_ZL9x86_cpuidiPj.exit6.i20.i
 
 _ZL23get_cpu_support_x86_avxv.exit.thread102.i:   ; preds = %_ZL9x86_cpuidiPj.exit6.i.i
   store i32 0, ptr @_ZL21g_cpu_support_x86_avx, align 4
-  %160 = icmp ult i32 %152, 7
+  %160 = icmp samesign ult i32 %152, 7
   br label %_ZL23get_cpu_support_x86_fmav.exit.i
 
 _ZL9x86_cpuidiPj.exit6.i20.i:                     ; preds = %_ZL23get_cpu_support_x86_avxv.exit.i
@@ -727,85 +727,85 @@ _ZL23get_cpu_support_x86_fmav.exit.i:             ; preds = %_ZL9x86_cpuidiPj.ex
   store i32 %.0.i22.i, ptr @_ZL21g_cpu_support_x86_fma, align 4
   %163 = call { i32, i32, i32, i32 } asm "  xchgq  %rbx,${1:q}\0A  cpuid\0A  xchgq  %rbx,${1:q}", "={ax},=r,={cx},={dx},0,~{dirflag},~{fpsr},~{flags}"(i32 range(i32 0, -2147483646) -2147483648) #27, !srcloc !15
   %164 = extractvalue { i32, i32, i32, i32 } %163, 0
-  %165 = icmp ult i32 %164, -2147483647
-  br i1 %165, label %_ZL23get_cpu_support_x86_xopv.exit.i, label %_ZL9x86_cpuidiPj.exit1.i.i
+  %or.cond.i.i = icmp ult i32 %164, -2147483647
+  br i1 %or.cond.i.i, label %_ZL23get_cpu_support_x86_xopv.exit.i, label %_ZL9x86_cpuidiPj.exit1.i.i
 
 _ZL9x86_cpuidiPj.exit1.i.i:                       ; preds = %_ZL23get_cpu_support_x86_fmav.exit.i
-  %166 = call { i32, i32, i32, i32 } asm "  xchgq  %rbx,${1:q}\0A  cpuid\0A  xchgq  %rbx,${1:q}", "={ax},=r,={cx},={dx},0,~{dirflag},~{fpsr},~{flags}"(i32 range(i32 0, -2147483646) -2147483647) #27, !srcloc !17
-  %167 = extractvalue { i32, i32, i32, i32 } %166, 2
-  %168 = and i32 %167, 2048
+  %165 = call { i32, i32, i32, i32 } asm "  xchgq  %rbx,${1:q}\0A  cpuid\0A  xchgq  %rbx,${1:q}", "={ax},=r,={cx},={dx},0,~{dirflag},~{fpsr},~{flags}"(i32 range(i32 0, -2147483646) -2147483647) #27, !srcloc !17
+  %166 = extractvalue { i32, i32, i32, i32 } %165, 2
+  %167 = and i32 %166, 2048
   br label %_ZL23get_cpu_support_x86_xopv.exit.i
 
 _ZL23get_cpu_support_x86_xopv.exit.i:             ; preds = %_ZL9x86_cpuidiPj.exit1.i.i, %_ZL23get_cpu_support_x86_fmav.exit.i
-  %.0.i25.i = phi i32 [ %168, %_ZL9x86_cpuidiPj.exit1.i.i ], [ 0, %_ZL23get_cpu_support_x86_fmav.exit.i ]
+  %.0.i25.i = phi i32 [ %167, %_ZL9x86_cpuidiPj.exit1.i.i ], [ 0, %_ZL23get_cpu_support_x86_fmav.exit.i ]
   store i32 %.0.i25.i, ptr @_ZL21g_cpu_support_x86_xop, align 4
   br i1 %153, label %_ZL24get_cpu_support_x86_f16cv.exit.i, label %_ZL9x86_cpuidiPj.exit2.i.i
 
 _ZL9x86_cpuidiPj.exit2.i.i:                       ; preds = %_ZL23get_cpu_support_x86_xopv.exit.i
-  %169 = call { i32, i32, i32, i32 } asm "  xchgq  %rbx,${1:q}\0A  cpuid\0A  xchgq  %rbx,${1:q}", "={ax},=r,={cx},={dx},0,~{dirflag},~{fpsr},~{flags}"(i32 range(i32 0, -2147483646) 1) #27, !srcloc !17
-  %170 = extractvalue { i32, i32, i32, i32 } %169, 2
-  %171 = and i32 %170, 536870912
+  %168 = call { i32, i32, i32, i32 } asm "  xchgq  %rbx,${1:q}\0A  cpuid\0A  xchgq  %rbx,${1:q}", "={ax},=r,={cx},={dx},0,~{dirflag},~{fpsr},~{flags}"(i32 range(i32 0, -2147483646) 1) #27, !srcloc !17
+  %169 = extractvalue { i32, i32, i32, i32 } %168, 2
+  %170 = and i32 %169, 536870912
   br label %_ZL24get_cpu_support_x86_f16cv.exit.i
 
 _ZL24get_cpu_support_x86_f16cv.exit.i:            ; preds = %_ZL9x86_cpuidiPj.exit2.i.i, %_ZL23get_cpu_support_x86_xopv.exit.i
-  %.0.i26.i = phi i32 [ %171, %_ZL9x86_cpuidiPj.exit2.i.i ], [ 0, %_ZL23get_cpu_support_x86_xopv.exit.i ]
+  %.0.i26.i = phi i32 [ %170, %_ZL9x86_cpuidiPj.exit2.i.i ], [ 0, %_ZL23get_cpu_support_x86_xopv.exit.i ]
   store i32 %.0.i26.i, ptr @_ZL22g_cpu_support_x86_f16c, align 4
   br i1 %162, label %_ZL31get_cpu_support_x86_avx512_bf16v.exit.i, label %_ZL9x86_cpuidiPj.exit6.i27.i
 
 _ZL9x86_cpuidiPj.exit6.i27.i:                     ; preds = %_ZL24get_cpu_support_x86_f16cv.exit.i
-  %172 = call { i32, i32, i32, i32 } asm "  xchgq  %rbx,${1:q}\0A  cpuid\0A  xchgq  %rbx,${1:q}", "={ax},=r,={cx},={dx},0,~{dirflag},~{fpsr},~{flags}"(i32 range(i32 0, -2147483646) 1) #27
-  %173 = extractvalue { i32, i32, i32, i32 } %172, 2
-  %174 = and i32 %173, 469762048
-  %or.cond5.not.i28.i = icmp eq i32 %174, 469762048
-  br i1 %or.cond5.not.i28.i, label %175, label %_ZL9x86_cpuidiPj.exit7.i41.i
+  %171 = call { i32, i32, i32, i32 } asm "  xchgq  %rbx,${1:q}\0A  cpuid\0A  xchgq  %rbx,${1:q}", "={ax},=r,={cx},={dx},0,~{dirflag},~{fpsr},~{flags}"(i32 range(i32 0, -2147483646) 1) #27
+  %172 = extractvalue { i32, i32, i32, i32 } %171, 2
+  %173 = and i32 %172, 469762048
+  %or.cond5.not.i28.i = icmp eq i32 %173, 469762048
+  br i1 %or.cond5.not.i28.i, label %174, label %_ZL9x86_cpuidiPj.exit7.i41.i
 
-175:                                              ; preds = %_ZL9x86_cpuidiPj.exit6.i27.i
-  %176 = call noundef i32 asm ".byte 0x0f, 0x01, 0xd0", "={ax},{cx},~{edx},~{dirflag},~{fpsr},~{flags}"(i32 0) #27, !srcloc !16
-  %177 = and i32 %176, 6
-  %.not4.i30.i = icmp eq i32 %177, 6
-  br i1 %.not4.i30.i, label %178, label %185
+174:                                              ; preds = %_ZL9x86_cpuidiPj.exit6.i27.i
+  %175 = call noundef i32 asm ".byte 0x0f, 0x01, 0xd0", "={ax},{cx},~{edx},~{dirflag},~{fpsr},~{flags}"(i32 0) #27, !srcloc !16
+  %176 = and i32 %175, 6
+  %.not4.i30.i = icmp eq i32 %176, 6
+  br i1 %.not4.i30.i, label %177, label %184
 
-178:                                              ; preds = %175
-  %179 = call { i32, i32, i32, i32 } asm "  xchgq  %rbx,${1:q}\0A  cpuid\0A  xchgq  %rbx,${1:q}", "={ax},=r,={cx},={dx},0,2,~{dirflag},~{fpsr},~{flags}"(i32 7, i32 0) #27, !srcloc !18
-  %180 = extractvalue { i32, i32, i32, i32 } %179, 1
-  %181 = and i32 %180, 32
-  %182 = call { i32, i32, i32, i32 } asm "  xchgq  %rbx,${1:q}\0A  cpuid\0A  xchgq  %rbx,${1:q}", "={ax},=r,={cx},={dx},0,2,~{dirflag},~{fpsr},~{flags}"(i32 7, i32 1) #27, !srcloc !18
-  %183 = extractvalue { i32, i32, i32, i32 } %182, 0
-  %184 = and i32 %183, 16
-  br label %185
+177:                                              ; preds = %174
+  %178 = call { i32, i32, i32, i32 } asm "  xchgq  %rbx,${1:q}\0A  cpuid\0A  xchgq  %rbx,${1:q}", "={ax},=r,={cx},={dx},0,2,~{dirflag},~{fpsr},~{flags}"(i32 7, i32 0) #27, !srcloc !18
+  %179 = extractvalue { i32, i32, i32, i32 } %178, 1
+  %180 = and i32 %179, 32
+  %181 = call { i32, i32, i32, i32 } asm "  xchgq  %rbx,${1:q}\0A  cpuid\0A  xchgq  %rbx,${1:q}", "={ax},=r,={cx},={dx},0,2,~{dirflag},~{fpsr},~{flags}"(i32 7, i32 1) #27, !srcloc !18
+  %182 = extractvalue { i32, i32, i32, i32 } %181, 0
+  %183 = and i32 %182, 16
+  br label %184
 
-185:                                              ; preds = %175, %178
-  %.sink = phi i32 [ %181, %178 ], [ 0, %175 ]
-  %.0.i33.ph.ph.i = phi i32 [ %184, %178 ], [ 0, %175 ]
+184:                                              ; preds = %174, %177
+  %.sink = phi i32 [ %180, %177 ], [ 0, %174 ]
+  %.0.i33.ph.ph.i = phi i32 [ %183, %177 ], [ 0, %174 ]
   store i32 %.sink, ptr @_ZL22g_cpu_support_x86_avx2, align 4
   store i32 %.0.i33.ph.ph.i, ptr @_ZL26g_cpu_support_x86_avx_vnni, align 4
-  %186 = and i32 %176, 230
-  %or.cond19.i.i = icmp eq i32 %186, 230
-  br i1 %or.cond19.i.i, label %187, label %194
+  %185 = and i32 %175, 230
+  %or.cond19.i.i = icmp eq i32 %185, 230
+  br i1 %or.cond19.i.i, label %186, label %193
 
-187:                                              ; preds = %185
-  %188 = call { i32, i32, i32, i32 } asm "  xchgq  %rbx,${1:q}\0A  cpuid\0A  xchgq  %rbx,${1:q}", "={ax},=r,={cx},={dx},0,2,~{dirflag},~{fpsr},~{flags}"(i32 7, i32 0) #27
-  %189 = extractvalue { i32, i32, i32, i32 } %188, 1
-  %190 = and i32 %189, 1342373888
-  %or.cond13.not.i.i = icmp eq i32 %190, 1342373888
-  %.lobit.i.i = lshr i32 %189, 31
-  %191 = select i1 %or.cond13.not.i.i, i32 %.lobit.i.i, i32 0
-  %192 = extractvalue { i32, i32, i32, i32 } %188, 2
-  %193 = and i32 %192, 2048
-  br label %194
+186:                                              ; preds = %184
+  %187 = call { i32, i32, i32, i32 } asm "  xchgq  %rbx,${1:q}\0A  cpuid\0A  xchgq  %rbx,${1:q}", "={ax},=r,={cx},={dx},0,2,~{dirflag},~{fpsr},~{flags}"(i32 7, i32 0) #27
+  %188 = extractvalue { i32, i32, i32, i32 } %187, 1
+  %189 = and i32 %188, 1342373888
+  %or.cond13.not.i.i = icmp eq i32 %189, 1342373888
+  %.lobit.i.i = lshr i32 %188, 31
+  %190 = select i1 %or.cond13.not.i.i, i32 %.lobit.i.i, i32 0
+  %191 = extractvalue { i32, i32, i32, i32 } %187, 2
+  %192 = and i32 %191, 2048
+  br label %193
 
-194:                                              ; preds = %185, %187
-  %.sink24 = phi i32 [ %191, %187 ], [ 0, %185 ]
-  %.0.i36.ph.ph.i = phi i32 [ %193, %187 ], [ 0, %185 ]
+193:                                              ; preds = %184, %186
+  %.sink24 = phi i32 [ %190, %186 ], [ 0, %184 ]
+  %.0.i36.ph.ph.i = phi i32 [ %192, %186 ], [ 0, %184 ]
   store i32 %.sink24, ptr @_ZL24g_cpu_support_x86_avx512, align 4
   store i32 %.0.i36.ph.ph.i, ptr @_ZL29g_cpu_support_x86_avx512_vnni, align 4
-  br i1 %.not4.i30.i, label %195, label %199
+  br i1 %.not4.i30.i, label %194, label %198
 
-195:                                              ; preds = %194
-  %196 = call { i32, i32, i32, i32 } asm "  xchgq  %rbx,${1:q}\0A  cpuid\0A  xchgq  %rbx,${1:q}", "={ax},=r,={cx},={dx},0,2,~{dirflag},~{fpsr},~{flags}"(i32 7, i32 1) #27, !srcloc !18
-  %197 = extractvalue { i32, i32, i32, i32 } %196, 0
-  %198 = and i32 %197, 32
-  br label %199
+194:                                              ; preds = %193
+  %195 = call { i32, i32, i32, i32 } asm "  xchgq  %rbx,${1:q}\0A  cpuid\0A  xchgq  %rbx,${1:q}", "={ax},=r,={cx},={dx},0,2,~{dirflag},~{fpsr},~{flags}"(i32 7, i32 1) #27, !srcloc !18
+  %196 = extractvalue { i32, i32, i32, i32 } %195, 0
+  %197 = and i32 %196, 32
+  br label %198
 
 _ZL31get_cpu_support_x86_avx512_bf16v.exit.i:     ; preds = %_ZL24get_cpu_support_x86_f16cv.exit.i
   store i32 0, ptr @_ZL22g_cpu_support_x86_avx2, align 4
@@ -823,67 +823,67 @@ _ZL9x86_cpuidiPj.exit7.i41.i:                     ; preds = %_ZL9x86_cpuidiPj.ex
   store i32 0, ptr @_ZL29g_cpu_support_x86_avx512_bf16, align 4
   br label %_ZL31get_cpu_support_x86_avx512_fp16v.exit.i
 
-199:                                              ; preds = %195, %194
-  %.0.i39.ph.ph.i = phi i32 [ %198, %195 ], [ 0, %194 ]
+198:                                              ; preds = %194, %193
+  %.0.i39.ph.ph.i = phi i32 [ %197, %194 ], [ 0, %193 ]
   store i32 %.0.i39.ph.ph.i, ptr @_ZL29g_cpu_support_x86_avx512_bf16, align 4
-  br i1 %or.cond19.i.i, label %200, label %_ZL31get_cpu_support_x86_avx512_fp16v.exit.i
+  br i1 %or.cond19.i.i, label %199, label %_ZL31get_cpu_support_x86_avx512_fp16v.exit.i
 
-200:                                              ; preds = %199
-  %201 = call { i32, i32, i32, i32 } asm "  xchgq  %rbx,${1:q}\0A  cpuid\0A  xchgq  %rbx,${1:q}", "={ax},=r,={cx},={dx},0,2,~{dirflag},~{fpsr},~{flags}"(i32 7, i32 0) #27, !srcloc !18
-  %202 = extractvalue { i32, i32, i32, i32 } %201, 3
-  %203 = and i32 %202, 8388608
+199:                                              ; preds = %198
+  %200 = call { i32, i32, i32, i32 } asm "  xchgq  %rbx,${1:q}\0A  cpuid\0A  xchgq  %rbx,${1:q}", "={ax},=r,={cx},={dx},0,2,~{dirflag},~{fpsr},~{flags}"(i32 7, i32 0) #27, !srcloc !18
+  %201 = extractvalue { i32, i32, i32, i32 } %200, 3
+  %202 = and i32 %201, 8388608
   br label %_ZL31get_cpu_support_x86_avx512_fp16v.exit.i
 
-_ZL31get_cpu_support_x86_avx512_fp16v.exit.i:     ; preds = %200, %199, %_ZL9x86_cpuidiPj.exit7.i41.i, %_ZL31get_cpu_support_x86_avx512_bf16v.exit.i
-  %.0.i43.i = phi i32 [ %203, %200 ], [ 0, %_ZL9x86_cpuidiPj.exit7.i41.i ], [ 0, %199 ], [ 0, %_ZL31get_cpu_support_x86_avx512_bf16v.exit.i ]
+_ZL31get_cpu_support_x86_avx512_fp16v.exit.i:     ; preds = %199, %198, %_ZL9x86_cpuidiPj.exit7.i41.i, %_ZL31get_cpu_support_x86_avx512_bf16v.exit.i
+  %.0.i43.i = phi i32 [ %202, %199 ], [ 0, %_ZL9x86_cpuidiPj.exit7.i41.i ], [ 0, %198 ], [ 0, %_ZL31get_cpu_support_x86_avx512_bf16v.exit.i ]
   store i32 %.0.i43.i, ptr @_ZL29g_cpu_support_x86_avx512_fp16, align 4
   br label %_ZNK4ncnn6CpuSet10is_enabledEi.exit.i.i.i.i
 
 _ZNK4ncnn6CpuSet10is_enabledEi.exit.i.i.i.i:      ; preds = %_ZNK4ncnn6CpuSet10is_enabledEi.exit.i.i.i.i, %_ZL31get_cpu_support_x86_avx512_fp16v.exit.i
   %indvars.iv.i.i.i.i = phi i64 [ 0, %_ZL31get_cpu_support_x86_avx512_fp16v.exit.i ], [ %indvars.iv.next.i.i.i.i, %_ZNK4ncnn6CpuSet10is_enabledEi.exit.i.i.i.i ]
   %.056.i.i.i.i = phi i32 [ 0, %_ZL31get_cpu_support_x86_avx512_fp16v.exit.i ], [ %spec.select.i.i.i.i, %_ZNK4ncnn6CpuSet10is_enabledEi.exit.i.i.i.i ]
-  %204 = lshr i64 %indvars.iv.i.i.i.i, 6
-  %205 = getelementptr inbounds i64, ptr @_ZL23g_cpu_affinity_mask_big, i64 %204
-  %206 = load i64, ptr %205, align 8
-  %207 = and i64 %indvars.iv.i.i.i.i, 63
-  %208 = lshr i64 %206, %207
-  %209 = trunc i64 %208 to i32
-  %210 = and i32 %209, 1
-  %spec.select.i.i.i.i = add nuw nsw i32 %210, %.056.i.i.i.i
+  %203 = lshr i64 %indvars.iv.i.i.i.i, 6
+  %204 = getelementptr inbounds i64, ptr @_ZL23g_cpu_affinity_mask_big, i64 %203
+  %205 = load i64, ptr %204, align 8
+  %206 = and i64 %indvars.iv.i.i.i.i, 63
+  %207 = lshr i64 %205, %206
+  %208 = trunc i64 %207 to i32
+  %209 = and i32 %208, 1
+  %spec.select.i.i.i.i = add nuw nsw i32 %209, %.056.i.i.i.i
   %indvars.iv.next.i.i.i.i = add nuw nsw i64 %indvars.iv.i.i.i.i, 1
   %exitcond.not.i.i.i.i = icmp eq i64 %indvars.iv.next.i.i.i.i, 1024
   br i1 %exitcond.not.i.i.i.i, label %_ZNK4ncnn6CpuSet11num_enabledEv.exit.i.i.i, label %_ZNK4ncnn6CpuSet10is_enabledEi.exit.i.i.i.i, !llvm.loop !4
 
 _ZNK4ncnn6CpuSet11num_enabledEv.exit.i.i.i:       ; preds = %_ZNK4ncnn6CpuSet10is_enabledEi.exit.i.i.i.i
-  %211 = icmp eq i32 %spec.select.i.i.i.i, 0
-  br i1 %211, label %_ZL27get_big_cpu_data_cache_sizei.exit.i.i, label %.preheader.i.i44.i
+  %210 = icmp eq i32 %spec.select.i.i.i.i, 0
+  br i1 %210, label %_ZL27get_big_cpu_data_cache_sizei.exit.i.i, label %.preheader.i.i44.i
 
 .preheader.i.i44.i:                               ; preds = %_ZNK4ncnn6CpuSet11num_enabledEv.exit.i.i.i
-  %212 = load i32, ptr @_ZL10g_cpucount, align 4
-  %213 = icmp sgt i32 %212, 0
-  br i1 %213, label %.lr.ph.preheader.i.i.i, label %_ZL27get_big_cpu_data_cache_sizei.exit.i.i
+  %211 = load i32, ptr @_ZL10g_cpucount, align 4
+  %212 = icmp sgt i32 %211, 0
+  br i1 %212, label %.lr.ph.preheader.i.i.i, label %_ZL27get_big_cpu_data_cache_sizei.exit.i.i
 
 .lr.ph.preheader.i.i.i:                           ; preds = %.preheader.i.i44.i
-  %wide.trip.count.i.i.i = zext nneg i32 %212 to i64
+  %wide.trip.count.i.i.i = zext nneg i32 %211 to i64
   br label %.lr.ph.i.i49.i
 
 .lr.ph.i.i49.i:                                   ; preds = %_ZNK4ncnn6CpuSet10is_enabledEi.exit.thread.i.i.i, %.lr.ph.preheader.i.i.i
   %indvars.iv.i.i.i = phi i64 [ 0, %.lr.ph.preheader.i.i.i ], [ %indvars.iv.next.i.i.i, %_ZNK4ncnn6CpuSet10is_enabledEi.exit.thread.i.i.i ]
-  %214 = icmp samesign ult i64 %indvars.iv.i.i.i, 1024
-  br i1 %214, label %_ZNK4ncnn6CpuSet10is_enabledEi.exit.i.i.i, label %_ZNK4ncnn6CpuSet10is_enabledEi.exit.thread.i.i.i
+  %213 = icmp samesign ult i64 %indvars.iv.i.i.i, 1024
+  br i1 %213, label %_ZNK4ncnn6CpuSet10is_enabledEi.exit.i.i.i, label %_ZNK4ncnn6CpuSet10is_enabledEi.exit.thread.i.i.i
 
 _ZNK4ncnn6CpuSet10is_enabledEi.exit.i.i.i:        ; preds = %.lr.ph.i.i49.i
-  %215 = lshr i64 %indvars.iv.i.i.i, 6
-  %216 = getelementptr inbounds i64, ptr @_ZL23g_cpu_affinity_mask_big, i64 %215
-  %217 = load i64, ptr %216, align 8
-  %218 = and i64 %indvars.iv.i.i.i, 63
-  %219 = shl nuw i64 1, %218
-  %220 = and i64 %217, %219
-  %.not.i.i50.i = icmp eq i64 %220, 0
-  br i1 %.not.i.i50.i, label %_ZNK4ncnn6CpuSet10is_enabledEi.exit.thread.i.i.i, label %221
+  %214 = lshr i64 %indvars.iv.i.i.i, 6
+  %215 = getelementptr inbounds i64, ptr @_ZL23g_cpu_affinity_mask_big, i64 %214
+  %216 = load i64, ptr %215, align 8
+  %217 = and i64 %indvars.iv.i.i.i, 63
+  %218 = shl nuw i64 1, %217
+  %219 = and i64 %216, %218
+  %.not.i.i50.i = icmp eq i64 %219, 0
+  br i1 %.not.i.i50.i, label %_ZNK4ncnn6CpuSet10is_enabledEi.exit.thread.i.i.i, label %220
 
-221:                                              ; preds = %_ZNK4ncnn6CpuSet10is_enabledEi.exit.i.i.i
-  %222 = trunc nuw nsw i64 %indvars.iv.i.i.i to i32
+220:                                              ; preds = %_ZNK4ncnn6CpuSet10is_enabledEi.exit.i.i.i
+  %221 = trunc nuw nsw i64 %indvars.iv.i.i.i to i32
   br label %_ZL27get_big_cpu_data_cache_sizei.exit.i.i
 
 _ZNK4ncnn6CpuSet10is_enabledEi.exit.thread.i.i.i: ; preds = %_ZNK4ncnn6CpuSet10is_enabledEi.exit.i.i.i, %.lr.ph.i.i49.i
@@ -891,80 +891,80 @@ _ZNK4ncnn6CpuSet10is_enabledEi.exit.thread.i.i.i: ; preds = %_ZNK4ncnn6CpuSet10i
   %exitcond.not.i.i.i = icmp eq i64 %indvars.iv.next.i.i.i, %wide.trip.count.i.i.i
   br i1 %exitcond.not.i.i.i, label %_ZL27get_big_cpu_data_cache_sizei.exit.i.i, label %.lr.ph.i.i49.i, !llvm.loop !19
 
-_ZL27get_big_cpu_data_cache_sizei.exit.i.i:       ; preds = %_ZNK4ncnn6CpuSet10is_enabledEi.exit.thread.i.i.i, %221, %.preheader.i.i44.i, %_ZNK4ncnn6CpuSet11num_enabledEv.exit.i.i.i
-  %.sink.i.i.i = phi i32 [ %222, %221 ], [ 0, %_ZNK4ncnn6CpuSet11num_enabledEv.exit.i.i.i ], [ 0, %.preheader.i.i44.i ], [ 0, %_ZNK4ncnn6CpuSet10is_enabledEi.exit.thread.i.i.i ]
-  %223 = call fastcc noundef range(i32 -2147483648, 2147482625) i32 @_ZL19get_data_cache_sizeii(i32 noundef %.sink.i.i.i, i32 noundef 2)
-  %224 = icmp slt i32 %223, 1
-  br i1 %224, label %225, label %_ZL24get_cpu_level2_cachesizev.exit.i
+_ZL27get_big_cpu_data_cache_sizei.exit.i.i:       ; preds = %_ZNK4ncnn6CpuSet10is_enabledEi.exit.thread.i.i.i, %220, %.preheader.i.i44.i, %_ZNK4ncnn6CpuSet11num_enabledEv.exit.i.i.i
+  %.sink.i.i.i = phi i32 [ %221, %220 ], [ 0, %_ZNK4ncnn6CpuSet11num_enabledEv.exit.i.i.i ], [ 0, %.preheader.i.i44.i ], [ 0, %_ZNK4ncnn6CpuSet10is_enabledEi.exit.thread.i.i.i ]
+  %222 = call fastcc noundef range(i32 -2147483648, 2147482625) i32 @_ZL19get_data_cache_sizeii(i32 noundef %.sink.i.i.i, i32 noundef 2)
+  %223 = icmp slt i32 %222, 1
+  br i1 %223, label %224, label %_ZL24get_cpu_level2_cachesizev.exit.i
 
-225:                                              ; preds = %_ZL27get_big_cpu_data_cache_sizei.exit.i.i
-  %226 = call i64 @sysconf(i32 noundef 191) #22
-  %227 = trunc i64 %226 to i32
-  %228 = icmp slt i32 %227, 1
-  br i1 %228, label %229, label %_ZL24get_cpu_level2_cachesizev.exit.i
+224:                                              ; preds = %_ZL27get_big_cpu_data_cache_sizei.exit.i.i
+  %225 = call i64 @sysconf(i32 noundef 191) #22
+  %226 = trunc i64 %225 to i32
+  %227 = icmp slt i32 %226, 1
+  br i1 %227, label %228, label %_ZL24get_cpu_level2_cachesizev.exit.i
 
-229:                                              ; preds = %225
-  %230 = load i32, ptr @_ZL21g_cpu_support_x86_avx, align 4
-  %.not.i47.i = icmp eq i32 %230, 0
+228:                                              ; preds = %224
+  %229 = load i32, ptr @_ZL21g_cpu_support_x86_avx, align 4
+  %.not.i47.i = icmp eq i32 %229, 0
   %spec.store.select.i48.i = select i1 %.not.i47.i, i32 65536, i32 131072
-  %231 = load i32, ptr @_ZL22g_cpu_support_x86_avx2, align 4
-  %.not6.i.i = icmp eq i32 %231, 0
+  %230 = load i32, ptr @_ZL22g_cpu_support_x86_avx2, align 4
+  %.not6.i.i = icmp eq i32 %230, 0
   %spec.store.select1.i.i = select i1 %.not6.i.i, i32 %spec.store.select.i48.i, i32 262144
-  %232 = load i32, ptr @_ZL24g_cpu_support_x86_avx512, align 4
-  %.not7.i.i = icmp eq i32 %232, 0
+  %231 = load i32, ptr @_ZL24g_cpu_support_x86_avx512, align 4
+  %.not7.i.i = icmp eq i32 %231, 0
   %spec.store.select2.i.i = select i1 %.not7.i.i, i32 %spec.store.select1.i.i, i32 1048576
   br label %_ZL24get_cpu_level2_cachesizev.exit.i
 
-_ZL24get_cpu_level2_cachesizev.exit.i:            ; preds = %229, %225, %_ZL27get_big_cpu_data_cache_sizei.exit.i.i
-  %.1.i46.i = phi i32 [ %spec.store.select2.i.i, %229 ], [ %227, %225 ], [ %223, %_ZL27get_big_cpu_data_cache_sizei.exit.i.i ]
+_ZL24get_cpu_level2_cachesizev.exit.i:            ; preds = %228, %224, %_ZL27get_big_cpu_data_cache_sizei.exit.i.i
+  %.1.i46.i = phi i32 [ %spec.store.select2.i.i, %228 ], [ %226, %224 ], [ %222, %_ZL27get_big_cpu_data_cache_sizei.exit.i.i ]
   store i32 %.1.i46.i, ptr @_ZL22g_cpu_level2_cachesize, align 4
   br label %_ZNK4ncnn6CpuSet10is_enabledEi.exit.i.i.i51.i
 
 _ZNK4ncnn6CpuSet10is_enabledEi.exit.i.i.i51.i:    ; preds = %_ZNK4ncnn6CpuSet10is_enabledEi.exit.i.i.i51.i, %_ZL24get_cpu_level2_cachesizev.exit.i
   %indvars.iv.i.i.i52.i = phi i64 [ 0, %_ZL24get_cpu_level2_cachesizev.exit.i ], [ %indvars.iv.next.i.i.i55.i, %_ZNK4ncnn6CpuSet10is_enabledEi.exit.i.i.i51.i ]
   %.056.i.i.i53.i = phi i32 [ 0, %_ZL24get_cpu_level2_cachesizev.exit.i ], [ %spec.select.i.i.i54.i, %_ZNK4ncnn6CpuSet10is_enabledEi.exit.i.i.i51.i ]
-  %233 = lshr i64 %indvars.iv.i.i.i52.i, 6
-  %234 = getelementptr inbounds i64, ptr @_ZL23g_cpu_affinity_mask_big, i64 %233
-  %235 = load i64, ptr %234, align 8
-  %236 = and i64 %indvars.iv.i.i.i52.i, 63
-  %237 = lshr i64 %235, %236
-  %238 = trunc i64 %237 to i32
-  %239 = and i32 %238, 1
-  %spec.select.i.i.i54.i = add nuw nsw i32 %239, %.056.i.i.i53.i
+  %232 = lshr i64 %indvars.iv.i.i.i52.i, 6
+  %233 = getelementptr inbounds i64, ptr @_ZL23g_cpu_affinity_mask_big, i64 %232
+  %234 = load i64, ptr %233, align 8
+  %235 = and i64 %indvars.iv.i.i.i52.i, 63
+  %236 = lshr i64 %234, %235
+  %237 = trunc i64 %236 to i32
+  %238 = and i32 %237, 1
+  %spec.select.i.i.i54.i = add nuw nsw i32 %238, %.056.i.i.i53.i
   %indvars.iv.next.i.i.i55.i = add nuw nsw i64 %indvars.iv.i.i.i52.i, 1
   %exitcond.not.i.i.i56.i = icmp eq i64 %indvars.iv.next.i.i.i55.i, 1024
   br i1 %exitcond.not.i.i.i56.i, label %_ZNK4ncnn6CpuSet11num_enabledEv.exit.i.i57.i, label %_ZNK4ncnn6CpuSet10is_enabledEi.exit.i.i.i51.i, !llvm.loop !4
 
 _ZNK4ncnn6CpuSet11num_enabledEv.exit.i.i57.i:     ; preds = %_ZNK4ncnn6CpuSet10is_enabledEi.exit.i.i.i51.i
-  %240 = icmp eq i32 %spec.select.i.i.i54.i, 0
-  br i1 %240, label %_ZL27get_big_cpu_data_cache_sizei.exit.i59.i, label %.preheader.i.i58.i
+  %239 = icmp eq i32 %spec.select.i.i.i54.i, 0
+  br i1 %239, label %_ZL27get_big_cpu_data_cache_sizei.exit.i59.i, label %.preheader.i.i58.i
 
 .preheader.i.i58.i:                               ; preds = %_ZNK4ncnn6CpuSet11num_enabledEv.exit.i.i57.i
-  %241 = load i32, ptr @_ZL10g_cpucount, align 4
-  %242 = icmp sgt i32 %241, 0
-  br i1 %242, label %.lr.ph.preheader.i.i62.i, label %_ZL27get_big_cpu_data_cache_sizei.exit.i59.i
+  %240 = load i32, ptr @_ZL10g_cpucount, align 4
+  %241 = icmp sgt i32 %240, 0
+  br i1 %241, label %.lr.ph.preheader.i.i62.i, label %_ZL27get_big_cpu_data_cache_sizei.exit.i59.i
 
 .lr.ph.preheader.i.i62.i:                         ; preds = %.preheader.i.i58.i
-  %wide.trip.count.i.i63.i = zext nneg i32 %241 to i64
+  %wide.trip.count.i.i63.i = zext nneg i32 %240 to i64
   br label %.lr.ph.i.i64.i
 
 .lr.ph.i.i64.i:                                   ; preds = %_ZNK4ncnn6CpuSet10is_enabledEi.exit.thread.i.i66.i, %.lr.ph.preheader.i.i62.i
   %indvars.iv.i.i65.i = phi i64 [ 0, %.lr.ph.preheader.i.i62.i ], [ %indvars.iv.next.i.i67.i, %_ZNK4ncnn6CpuSet10is_enabledEi.exit.thread.i.i66.i ]
-  %243 = icmp samesign ult i64 %indvars.iv.i.i65.i, 1024
-  br i1 %243, label %_ZNK4ncnn6CpuSet10is_enabledEi.exit.i.i69.i, label %_ZNK4ncnn6CpuSet10is_enabledEi.exit.thread.i.i66.i
+  %242 = icmp samesign ult i64 %indvars.iv.i.i65.i, 1024
+  br i1 %242, label %_ZNK4ncnn6CpuSet10is_enabledEi.exit.i.i69.i, label %_ZNK4ncnn6CpuSet10is_enabledEi.exit.thread.i.i66.i
 
 _ZNK4ncnn6CpuSet10is_enabledEi.exit.i.i69.i:      ; preds = %.lr.ph.i.i64.i
-  %244 = lshr i64 %indvars.iv.i.i65.i, 6
-  %245 = getelementptr inbounds i64, ptr @_ZL23g_cpu_affinity_mask_big, i64 %244
-  %246 = load i64, ptr %245, align 8
-  %247 = and i64 %indvars.iv.i.i65.i, 63
-  %248 = shl nuw i64 1, %247
-  %249 = and i64 %246, %248
-  %.not.i.i70.i = icmp eq i64 %249, 0
-  br i1 %.not.i.i70.i, label %_ZNK4ncnn6CpuSet10is_enabledEi.exit.thread.i.i66.i, label %250
+  %243 = lshr i64 %indvars.iv.i.i65.i, 6
+  %244 = getelementptr inbounds i64, ptr @_ZL23g_cpu_affinity_mask_big, i64 %243
+  %245 = load i64, ptr %244, align 8
+  %246 = and i64 %indvars.iv.i.i65.i, 63
+  %247 = shl nuw i64 1, %246
+  %248 = and i64 %245, %247
+  %.not.i.i70.i = icmp eq i64 %248, 0
+  br i1 %.not.i.i70.i, label %_ZNK4ncnn6CpuSet10is_enabledEi.exit.thread.i.i66.i, label %249
 
-250:                                              ; preds = %_ZNK4ncnn6CpuSet10is_enabledEi.exit.i.i69.i
-  %251 = trunc nuw nsw i64 %indvars.iv.i.i65.i to i32
+249:                                              ; preds = %_ZNK4ncnn6CpuSet10is_enabledEi.exit.i.i69.i
+  %250 = trunc nuw nsw i64 %indvars.iv.i.i65.i to i32
   br label %_ZL27get_big_cpu_data_cache_sizei.exit.i59.i
 
 _ZNK4ncnn6CpuSet10is_enabledEi.exit.thread.i.i66.i: ; preds = %_ZNK4ncnn6CpuSet10is_enabledEi.exit.i.i69.i, %.lr.ph.i.i64.i
@@ -972,24 +972,24 @@ _ZNK4ncnn6CpuSet10is_enabledEi.exit.thread.i.i66.i: ; preds = %_ZNK4ncnn6CpuSet1
   %exitcond.not.i.i68.i = icmp eq i64 %indvars.iv.next.i.i67.i, %wide.trip.count.i.i63.i
   br i1 %exitcond.not.i.i68.i, label %_ZL27get_big_cpu_data_cache_sizei.exit.i59.i, label %.lr.ph.i.i64.i, !llvm.loop !19
 
-_ZL27get_big_cpu_data_cache_sizei.exit.i59.i:     ; preds = %_ZNK4ncnn6CpuSet10is_enabledEi.exit.thread.i.i66.i, %250, %.preheader.i.i58.i, %_ZNK4ncnn6CpuSet11num_enabledEv.exit.i.i57.i
-  %.sink.i.i60.i = phi i32 [ %251, %250 ], [ 0, %_ZNK4ncnn6CpuSet11num_enabledEv.exit.i.i57.i ], [ 0, %.preheader.i.i58.i ], [ 0, %_ZNK4ncnn6CpuSet10is_enabledEi.exit.thread.i.i66.i ]
-  %252 = call fastcc noundef range(i32 -2147483648, 2147482625) i32 @_ZL19get_data_cache_sizeii(i32 noundef %.sink.i.i60.i, i32 noundef 3)
-  %253 = icmp slt i32 %252, 1
-  br i1 %253, label %254, label %_ZL26initialize_global_cpu_infov.exit
+_ZL27get_big_cpu_data_cache_sizei.exit.i59.i:     ; preds = %_ZNK4ncnn6CpuSet10is_enabledEi.exit.thread.i.i66.i, %249, %.preheader.i.i58.i, %_ZNK4ncnn6CpuSet11num_enabledEv.exit.i.i57.i
+  %.sink.i.i60.i = phi i32 [ %250, %249 ], [ 0, %_ZNK4ncnn6CpuSet11num_enabledEv.exit.i.i57.i ], [ 0, %.preheader.i.i58.i ], [ 0, %_ZNK4ncnn6CpuSet10is_enabledEi.exit.thread.i.i66.i ]
+  %251 = call fastcc noundef range(i32 -2147483648, 2147482625) i32 @_ZL19get_data_cache_sizeii(i32 noundef %.sink.i.i60.i, i32 noundef 3)
+  %252 = icmp slt i32 %251, 1
+  br i1 %252, label %253, label %_ZL26initialize_global_cpu_infov.exit
 
-254:                                              ; preds = %_ZL27get_big_cpu_data_cache_sizei.exit.i59.i
-  %255 = call i64 @sysconf(i32 noundef 194) #22
-  %256 = trunc i64 %255 to i32
+253:                                              ; preds = %_ZL27get_big_cpu_data_cache_sizei.exit.i59.i
+  %254 = call i64 @sysconf(i32 noundef 194) #22
+  %255 = trunc i64 %254 to i32
   br label %_ZL26initialize_global_cpu_infov.exit
 
-_ZL26initialize_global_cpu_infov.exit:            ; preds = %_ZL27get_big_cpu_data_cache_sizei.exit.i59.i, %254
-  %.0.i61.i = phi i32 [ %256, %254 ], [ %252, %_ZL27get_big_cpu_data_cache_sizei.exit.i59.i ]
+_ZL26initialize_global_cpu_infov.exit:            ; preds = %_ZL27get_big_cpu_data_cache_sizei.exit.i59.i, %253
+  %.0.i61.i = phi i32 [ %255, %253 ], [ %251, %_ZL27get_big_cpu_data_cache_sizei.exit.i59.i ]
   store i32 %.0.i61.i, ptr @_ZL22g_cpu_level3_cachesize, align 4
   store i1 true, ptr @_ZL22g_cpu_info_initialized, align 4
-  br label %257
+  br label %256
 
-257:                                              ; preds = %_ZL26initialize_global_cpu_infov.exit, %0
+256:                                              ; preds = %_ZL26initialize_global_cpu_infov.exit, %0
   ret void
 }
 
@@ -1793,7 +1793,7 @@ _ZN4ncnn6CpuSet6enableEi.exit93:                  ; preds = %80, %_ZN4ncnn6CpuSe
 
 _ZN4ncnn6CpuSet6enableEi.exit94:                  ; preds = %88, %_ZN4ncnn6CpuSet6enableEi.exit93
   %indvars.iv.next159 = add nuw nsw i64 %indvars.iv158, 4
-  %95 = icmp ugt i64 %indvars.iv, 1
+  %95 = icmp samesign ugt i64 %indvars.iv, 1
   br i1 %95, label %.lr.ph138, label %_ZNK4ncnn6CpuSet10is_enabledEi.exit.i.preheader, !llvm.loop !22
 
 _ZNK4ncnn6CpuSet10is_enabledEi.exit.i.preheader:  ; preds = %_ZN4ncnn6CpuSet6enableEi.exit94, %48

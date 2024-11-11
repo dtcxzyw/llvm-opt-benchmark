@@ -5349,7 +5349,7 @@ othercase.exit:                                   ; preds = %580, %582, %584
   br label %595
 
 595:                                              ; preds = %560, %569, %588, %othercase.exit
-  %596 = icmp ugt i64 %indvars.iv, 1
+  %596 = icmp samesign ugt i64 %indvars.iv, 1
   br i1 %596, label %560, label %.loopexit.loopexit, !llvm.loop !30
 
 .loopexit.loopexit:                               ; preds = %595
@@ -5399,7 +5399,7 @@ othercase.exit:                                   ; preds = %580, %582, %584
 619:                                              ; preds = %608, %614
   %storemerge = phi i8 [ %613, %608 ], [ %618, %614 ]
   store i8 %storemerge, ptr %162, align 1
-  %620 = icmp ugt i32 %.0207.in, 1
+  %620 = icmp samesign ugt i32 %.0207.in, 1
   br i1 %620, label %.lr.ph208, label %._crit_edge.loopexit, !llvm.loop !31
 
 ._crit_edge.loopexit:                             ; preds = %619

@@ -2083,7 +2083,7 @@ define noalias noundef ptr @virtual_popen(ptr nocapture noundef readonly %0, ptr
   %spec.select = select i1 %9, i32 %10, i32 %.0140143
   %11 = getelementptr inbounds i8, ptr %.0136144, i64 1
   %12 = add nsw i32 %.0145, -1
-  %13 = icmp ugt i32 %.0145, 1
+  %13 = icmp samesign ugt i32 %.0145, 1
   br i1 %13, label %.lr.ph, label %._crit_edge.loopexit
 
 ._crit_edge.loopexit:                             ; preds = %.lr.ph

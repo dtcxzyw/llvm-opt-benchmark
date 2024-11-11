@@ -72,12 +72,12 @@ define void @_ZN6Square15FactorEdgeIndexEiRiS0_(i32 noundef %0, ptr nocapture no
 
 4:                                                ; preds = %3, %3
   store i32 0, ptr %1, align 4
-  %.cmp = icmp ugt i32 %0, 1
+  %.cmp = icmp samesign ugt i32 %0, 1
   br label %.sink.split
 
 5:                                                ; preds = %3, %3
   store i32 1, ptr %1, align 4
-  %.cmp6 = icmp ult i32 %0, 2
+  %.cmp6 = icmp samesign ult i32 %0, 2
   br label %.sink.split
 
 .sink.split:                                      ; preds = %4, %5
@@ -100,7 +100,7 @@ define void @_ZN6Square11EdgeCornersEiRiS0_(i32 noundef %0, ptr nocapture nounde
   ]
 
 _ZN6Square15FactorEdgeIndexEiRiS0_.exit.thread12: ; preds = %3, %3
-  %.cmp.i.inv = icmp ult i32 %0, 2
+  %.cmp.i.inv = icmp samesign ult i32 %0, 2
   %4 = select i1 %.cmp.i.inv, i32 0, i32 2
   br label %_ZN6Square15FactorEdgeIndexEiRiS0_.exit.thread
 
@@ -111,7 +111,7 @@ _ZN6Square15FactorEdgeIndexEiRiS0_.exit.thread:   ; preds = %3, %_ZN6Square15Fac
   br label %9
 
 6:                                                ; preds = %3, %3
-  %.cmp6.i = icmp ult i32 %0, 2
+  %.cmp6.i = icmp samesign ult i32 %0, 2
   %7 = zext i1 %.cmp6.i to i32
   store i32 %7, ptr %1, align 4
   %8 = or disjoint i32 %7, 2
@@ -141,8 +141,8 @@ _ZN6Square15FactorEdgeIndexEiRiS0_.exit:          ; preds = %2, %2
   br i1 %brmerge, label %_ZN6Square9EdgeIndexEii.exit, label %.thread16
 
 _ZN6Square15FactorEdgeIndexEiRiS0_.exit.thread:   ; preds = %2, %2
-  %.not22 = icmp eq i32 %3, 1
-  br i1 %.not22, label %4, label %_ZN6Square9EdgeIndexEii.exit
+  %.not23 = icmp eq i32 %3, 1
+  br i1 %.not23, label %4, label %_ZN6Square9EdgeIndexEii.exit
 
 .thread16:                                        ; preds = %_ZN6Square15FactorEdgeIndexEiRiS0_.exit, %2
   br label %_ZN6Square9EdgeIndexEii.exit
@@ -740,7 +740,7 @@ define noundef zeroext i1 @_ZN15MarchingSquares12HasEdgeRootsEhi(i8 noundef zero
   ]
 
 _ZN6Square15FactorEdgeIndexEiRiS0_.exit.thread12.i: ; preds = %2, %2
-  %.cmp.i.inv.i = icmp ult i32 %1, 2
+  %.cmp.i.inv.i = icmp samesign ult i32 %1, 2
   %3 = select i1 %.cmp.i.inv.i, i32 0, i32 2
   br label %_ZN6Square15FactorEdgeIndexEiRiS0_.exit.thread.i
 
@@ -750,7 +750,7 @@ _ZN6Square15FactorEdgeIndexEiRiS0_.exit.thread.i: ; preds = %_ZN6Square15FactorE
   br label %_ZN6Square11EdgeCornersEiRiS0_.exit
 
 5:                                                ; preds = %2, %2
-  %.cmp6.i.i = icmp ult i32 %1, 2
+  %.cmp6.i.i = icmp samesign ult i32 %1, 2
   %6 = zext i1 %.cmp6.i.i to i32
   %7 = or disjoint i32 %6, 2
   br label %_ZN6Square11EdgeCornersEiRiS0_.exit
@@ -1054,11 +1054,11 @@ define void @_ZN15MarchingSquares9SetVertexEiPKdd(i32 noundef %0, ptr nocapture 
   ]
 
 4:                                                ; preds = %3, %3
-  %.cmp.i = icmp ugt i32 %0, 1
+  %.cmp.i = icmp samesign ugt i32 %0, 1
   br label %.sink.split.i
 
 5:                                                ; preds = %3, %3
-  %.cmp6.i = icmp ult i32 %0, 2
+  %.cmp6.i = icmp samesign ult i32 %0, 2
   br label %.sink.split.i
 
 .sink.split.i:                                    ; preds = %5, %4
@@ -1078,7 +1078,7 @@ _ZN6Square15FactorEdgeIndexEiRiS0_.exit:          ; preds = %3, %.sink.split.i
   ]
 
 _ZN6Square15FactorEdgeIndexEiRiS0_.exit.thread12.i: ; preds = %_ZN6Square15FactorEdgeIndexEiRiS0_.exit, %_ZN6Square15FactorEdgeIndexEiRiS0_.exit
-  %.cmp.i.inv.i = icmp ult i32 %0, 2
+  %.cmp.i.inv.i = icmp samesign ult i32 %0, 2
   %7 = select i1 %.cmp.i.inv.i, i32 0, i32 2
   br label %_ZN6Square15FactorEdgeIndexEiRiS0_.exit.thread.i
 
@@ -1088,7 +1088,7 @@ _ZN6Square15FactorEdgeIndexEiRiS0_.exit.thread.i: ; preds = %_ZN6Square15FactorE
   br label %_ZN6Square11EdgeCornersEiRiS0_.exit
 
 9:                                                ; preds = %_ZN6Square15FactorEdgeIndexEiRiS0_.exit, %_ZN6Square15FactorEdgeIndexEiRiS0_.exit
-  %.cmp6.i.i = icmp ult i32 %0, 2
+  %.cmp6.i.i = icmp samesign ult i32 %0, 2
   %10 = zext i1 %.cmp6.i.i to i32
   %11 = or disjoint i32 %10, 2
   br label %_ZN6Square11EdgeCornersEiRiS0_.exit

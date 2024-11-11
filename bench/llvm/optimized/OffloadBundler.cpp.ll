@@ -1680,7 +1680,7 @@ _ZN4llvm11raw_ostreamlsEPKc.exit42:               ; preds = %158, %160
   %indvars.iv.i = phi i64 [ %169, %.lr.ph.preheader.i ], [ %indvars.iv.next.i, %.lr.ph.i ]
   %170 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6insertEmPKc(ptr noundef nonnull align 8 dereferenceable(32) %20, i64 noundef %indvars.iv.i, ptr noundef nonnull @.str.57) #24
   %indvars.iv.next.i = add nsw i64 %indvars.iv.i, -3
-  %171 = icmp ugt i64 %indvars.iv.i, 3
+  %171 = icmp samesign ugt i64 %indvars.iv.i, 3
   br i1 %171, label %.lr.ph.i, label %_ZL16formatWithCommasB5cxx11y.exit, !llvm.loop !60
 
 _ZL16formatWithCommasB5cxx11y.exit:               ; preds = %.lr.ph.i, %_ZN4llvm11raw_ostreamlsEPKc.exit42
@@ -1872,7 +1872,7 @@ _ZN4llvm11raw_ostreamlsEPKc.exit63:               ; preds = %257, %259
   %indvars.iv.i67 = phi i64 [ %268, %.lr.ph.preheader.i65 ], [ %indvars.iv.next.i68, %.lr.ph.i66 ]
   %269 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6insertEmPKc(ptr noundef nonnull align 8 dereferenceable(32) %21, i64 noundef %indvars.iv.i67, ptr noundef nonnull @.str.57) #24
   %indvars.iv.next.i68 = add nsw i64 %indvars.iv.i67, -3
-  %270 = icmp ugt i64 %indvars.iv.i67, 3
+  %270 = icmp samesign ugt i64 %indvars.iv.i67, 3
   br i1 %270, label %.lr.ph.i66, label %_ZL16formatWithCommasB5cxx11y.exit69, !llvm.loop !60
 
 _ZL16formatWithCommasB5cxx11y.exit69:             ; preds = %.lr.ph.i66, %_ZN4llvm11raw_ostreamlsEPKc.exit63
@@ -1943,7 +1943,7 @@ _ZN4llvm11raw_ostreamlsEPKc.exit75:               ; preds = %294, %296
   %indvars.iv.i79 = phi i64 [ %304, %.lr.ph.preheader.i77 ], [ %indvars.iv.next.i80, %.lr.ph.i78 ]
   %305 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6insertEmPKc(ptr noundef nonnull align 8 dereferenceable(32) %22, i64 noundef %indvars.iv.i79, ptr noundef nonnull @.str.57) #24
   %indvars.iv.next.i80 = add nsw i64 %indvars.iv.i79, -3
-  %306 = icmp ugt i64 %indvars.iv.i79, 3
+  %306 = icmp samesign ugt i64 %indvars.iv.i79, 3
   br i1 %306, label %.lr.ph.i78, label %_ZL16formatWithCommasB5cxx11y.exit81, !llvm.loop !60
 
 _ZL16formatWithCommasB5cxx11y.exit81:             ; preds = %.lr.ph.i78, %_ZN4llvm11raw_ostreamlsEPKc.exit75
@@ -2290,7 +2290,7 @@ define internal fastcc void @_ZL16formatWithCommasB5cxx11y(ptr dead_on_unwind no
   %indvars.iv = phi i64 [ %6, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
   %7 = tail call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6insertEmPKc(ptr noundef nonnull align 8 dereferenceable(32) %0, i64 noundef %indvars.iv, ptr noundef nonnull @.str.57) #24
   %indvars.iv.next = add nsw i64 %indvars.iv, -3
-  %8 = icmp ugt i64 %indvars.iv, 3
+  %8 = icmp samesign ugt i64 %indvars.iv, 3
   br i1 %8, label %.lr.ph, label %._crit_edge, !llvm.loop !60
 
 ._crit_edge:                                      ; preds = %.lr.ph, %2
@@ -2790,7 +2790,7 @@ _ZN4llvm11raw_ostreamlsEPKc.exit86:               ; preds = %231, %233
   %indvars.iv.i = phi i64 [ %240, %.lr.ph.preheader.i ], [ %indvars.iv.next.i, %.lr.ph.i ]
   %241 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6insertEmPKc(ptr noundef nonnull align 8 dereferenceable(32) %27, i64 noundef %indvars.iv.i, ptr noundef nonnull @.str.57) #24
   %indvars.iv.next.i = add nsw i64 %indvars.iv.i, -3
-  %242 = icmp ugt i64 %indvars.iv.i, 3
+  %242 = icmp samesign ugt i64 %indvars.iv.i, 3
   br i1 %242, label %.lr.ph.i, label %_ZL16formatWithCommasB5cxx11y.exit, !llvm.loop !60
 
 _ZL16formatWithCommasB5cxx11y.exit:               ; preds = %.lr.ph.i, %_ZN4llvm11raw_ostreamlsEPKc.exit86
@@ -2860,7 +2860,7 @@ _ZN4llvm11raw_ostreamlsEPKc.exit92:               ; preds = %266, %268
   %indvars.iv.i96 = phi i64 [ %275, %.lr.ph.preheader.i94 ], [ %indvars.iv.next.i97, %.lr.ph.i95 ]
   %276 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6insertEmPKc(ptr noundef nonnull align 8 dereferenceable(32) %28, i64 noundef %indvars.iv.i96, ptr noundef nonnull @.str.57) #24
   %indvars.iv.next.i97 = add nsw i64 %indvars.iv.i96, -3
-  %277 = icmp ugt i64 %indvars.iv.i96, 3
+  %277 = icmp samesign ugt i64 %indvars.iv.i96, 3
   br i1 %277, label %.lr.ph.i95, label %_ZL16formatWithCommasB5cxx11y.exit98, !llvm.loop !60
 
 _ZL16formatWithCommasB5cxx11y.exit98:             ; preds = %.lr.ph.i95, %_ZN4llvm11raw_ostreamlsEPKc.exit92

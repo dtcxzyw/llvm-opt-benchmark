@@ -1297,7 +1297,7 @@ if.end.i34:                                       ; preds = %while.body.i
   br i1 %cmp.i36, label %if.then5.i, label %if.else.i37
 
 if.then5.i:                                       ; preds = %if.end.i34
-  %cmp7.i = icmp ugt i32 %143, 24
+  %cmp7.i = icmp samesign ugt i32 %143, 24
   br i1 %cmp7.i, label %if.then8.i, label %if.end25.i39
 
 if.then8.i:                                       ; preds = %if.then5.i

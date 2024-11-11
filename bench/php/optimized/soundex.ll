@@ -56,7 +56,7 @@ define hidden void @zif_soundex(ptr noundef %0, ptr nocapture noundef writeonly 
 
 .preheader:                                       ; preds = %48
   store i8 %49, ptr %4, align 4
-  %20 = icmp ult i64 %.2, 4
+  %20 = icmp samesign ult i64 %.2, 4
   br i1 %20, label %.lr.ph190.preheader, label %._crit_edge
 
 .lr.ph190.preheader:                              ; preds = %15, %.preheader
@@ -118,7 +118,7 @@ define hidden void @zif_soundex(ptr noundef %0, ptr nocapture noundef writeonly 
   %.2 = phi i64 [ 1, %31 ], [ %.0142186, %37 ], [ %.0142186, %.lr.ph ], [ %46, %45 ], [ %.0142186, %42 ]
   %50 = add nuw i64 %.0141187, 1
   %51 = icmp ult i64 %50, %18
-  %52 = icmp ult i64 %.2, 4
+  %52 = icmp samesign ult i64 %.2, 4
   %53 = select i1 %51, i1 %52, i1 false
   br i1 %53, label %.lr.ph, label %.preheader
 

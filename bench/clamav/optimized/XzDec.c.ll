@@ -1549,7 +1549,7 @@ define i32 @XzUnpacker_Code(ptr noundef %0, ptr noundef %1, ptr nocapture nounde
   br i1 %97, label %98, label %109
 
 98:                                               ; preds = %95
-  %99 = icmp ult i32 %96, 6
+  %99 = icmp samesign ult i32 %96, 6
   %.pre301 = load i8, ptr %.0232293, align 1
   %100 = zext nneg i32 %96 to i64
   br i1 %99, label %101, label %._crit_edge303

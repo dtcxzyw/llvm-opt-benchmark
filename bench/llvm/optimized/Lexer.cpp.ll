@@ -14513,7 +14513,7 @@ _ZNK4llvm9StringRef11starts_withES0_.exit:        ; preds = %10
   br i1 %16, label %.critedge, label %_ZNK4llvm9StringRef11starts_withES0_.exit31
 
 _ZNK4llvm9StringRef11starts_withES0_.exit.thread38: ; preds = %10
-  %.not.i29 = icmp ult i64 %15, 5
+  %.not.i29 = icmp samesign ult i64 %15, 5
   br i1 %.not.i29, label %_ZNK4llvm9StringRef11starts_withES0_.exit31.thread39, label %_ZNK4llvm9StringRef11starts_withES0_.exit31
 
 _ZNK4llvm9StringRef11starts_withES0_.exit31:      ; preds = %_ZNK4llvm9StringRef11starts_withES0_.exit, %_ZNK4llvm9StringRef11starts_withES0_.exit.thread38

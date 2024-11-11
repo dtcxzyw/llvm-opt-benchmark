@@ -9281,7 +9281,7 @@ define linkonce_odr void @_ZSt22__final_insertion_sortIN5QListIP16PacketListReco
   %22 = getelementptr i8, ptr %.sroa.0.09.i.i.i.i.i.i, i64 -8
   store ptr %21, ptr %22, align 8
   %23 = add nsw i64 %.010.i.i.i.i.i.i, -1
-  %24 = icmp ugt i64 %.010.i.i.i.i.i.i, 1
+  %24 = icmp samesign ugt i64 %.010.i.i.i.i.i.i, 1
   br i1 %24, label %.lr.ph.i.i.i.i.i.i, label %_ZSt13move_backwardIN5QListIP16PacketListRecordE8iteratorES4_ET0_T_S6_S5_.exit.i, !llvm.loop !101
 
 25:                                               ; preds = %9
@@ -9370,7 +9370,7 @@ _ZSt25__unguarded_linear_insertIN5QListIP16PacketListRecordE8iteratorEN9__gnu_cx
   %52 = getelementptr i8, ptr %.sroa.0.09.i.i.i.i.i.i34, i64 -8
   store ptr %51, ptr %52, align 8
   %53 = add nsw i64 %.010.i.i.i.i.i.i33, -1
-  %54 = icmp ugt i64 %.010.i.i.i.i.i.i33, 1
+  %54 = icmp samesign ugt i64 %.010.i.i.i.i.i.i33, 1
   br i1 %54, label %.lr.ph.i.i.i.i.i.i32, label %_ZSt13move_backwardIN5QListIP16PacketListRecordE8iteratorES4_ET0_T_S6_S5_.exit.i23, !llvm.loop !101
 
 55:                                               ; preds = %.lr.ph.i20

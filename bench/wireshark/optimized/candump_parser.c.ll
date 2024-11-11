@@ -412,7 +412,7 @@ yy_reduce.exit:                                   ; preds = %53, %55, %59, %67, 
   br label %24
 
 156:                                              ; preds = %yy_find_shift_action.exit
-  %157 = icmp ult i8 %.0.i, 119
+  %157 = icmp samesign ult i8 %.0.i, 119
   br i1 %157, label %158, label %177
 
 158:                                              ; preds = %156
@@ -440,7 +440,7 @@ yy_reduce.exit:                                   ; preds = %53, %55, %59, %67, 
   br label %yy_shift.exit
 
 169:                                              ; preds = %158
-  %170 = icmp ugt i8 %.0.i, 24
+  %170 = icmp samesign ugt i8 %.0.i, 24
   %171 = add nuw i8 %.0.i, 57
   %spec.select.i37 = select i1 %170, i8 %171, i8 %.0.i
   store i8 %spec.select.i37, ptr %160, align 8

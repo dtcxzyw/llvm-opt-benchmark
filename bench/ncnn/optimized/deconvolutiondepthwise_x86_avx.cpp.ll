@@ -3217,7 +3217,7 @@ define hidden noundef i32 @_ZNK4ncnn30DeconvolutionDepthWise_x86_avx7forwardERKN
   br label %898
 
 898:                                              ; preds = %874, %896
-  %899 = icmp ult i32 %.02005, %.02026
+  %899 = icmp samesign ult i32 %.02005, %.02026
   br i1 %899, label %900, label %919
 
 900:                                              ; preds = %898

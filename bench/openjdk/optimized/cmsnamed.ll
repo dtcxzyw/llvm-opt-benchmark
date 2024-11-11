@@ -329,7 +329,7 @@ strTo16.exit24:                                   ; preds = %strTo16.exit, %16
   br i1 %32, label %49, label %33
 
 33:                                               ; preds = %.lr.ph.i
-  %34 = icmp ult i8 %30, -64
+  %34 = icmp samesign ult i8 %30, -64
   br i1 %34, label %35, label %39
 
 35:                                               ; preds = %33
@@ -339,7 +339,7 @@ strTo16.exit24:                                   ; preds = %strTo16.exit, %16
   br label %49
 
 39:                                               ; preds = %33
-  %40 = icmp ult i8 %30, -32
+  %40 = icmp samesign ult i8 %30, -32
   br i1 %40, label %41, label %43
 
 41:                                               ; preds = %39
@@ -347,7 +347,7 @@ strTo16.exit24:                                   ; preds = %strTo16.exit, %16
   br label %49
 
 43:                                               ; preds = %39
-  %44 = icmp ult i8 %30, -16
+  %44 = icmp samesign ult i8 %30, -16
   br i1 %44, label %45, label %47
 
 45:                                               ; preds = %43
@@ -391,7 +391,7 @@ decodeUTF8.exit:                                  ; preds = %49
   br i1 %62, label %79, label %63
 
 63:                                               ; preds = %.lr.ph.i26
-  %64 = icmp ult i8 %60, -64
+  %64 = icmp samesign ult i8 %60, -64
   br i1 %64, label %65, label %69
 
 65:                                               ; preds = %63
@@ -401,7 +401,7 @@ decodeUTF8.exit:                                  ; preds = %49
   br label %79
 
 69:                                               ; preds = %63
-  %70 = icmp ult i8 %60, -32
+  %70 = icmp samesign ult i8 %60, -32
   br i1 %70, label %71, label %73
 
 71:                                               ; preds = %69
@@ -409,7 +409,7 @@ decodeUTF8.exit:                                  ; preds = %49
   br label %79
 
 73:                                               ; preds = %69
-  %74 = icmp ult i8 %60, -16
+  %74 = icmp samesign ult i8 %60, -16
   br i1 %74, label %75, label %77
 
 75:                                               ; preds = %73

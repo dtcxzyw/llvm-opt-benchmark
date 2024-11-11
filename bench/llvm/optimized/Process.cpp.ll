@@ -1101,7 +1101,7 @@ _ZNK4llvm9StringRef11starts_withES0_.exit.i.i:    ; preds = %_ZN4llvm12StringSwi
 
 _ZN4llvm12StringSwitchIbbE10StartsWithENS_13StringLiteralEb.exit.thread107.i: ; preds = %_ZN4llvmeqENS_9StringRefES0_.exit.i16.i, %_ZN4llvmeqENS_9StringRefES0_.exit.i8.i, %_ZN4llvmeqENS_9StringRefES0_.exit.i.i
   %.sroa.27.3.ph.i = phi i8 [ 1, %_ZN4llvmeqENS_9StringRefES0_.exit.i8.i ], [ 1, %_ZN4llvmeqENS_9StringRefES0_.exit.i16.i ], [ %spec.select.i, %_ZN4llvmeqENS_9StringRefES0_.exit.i.i ]
-  %.not.i.i22109.i = icmp ult i64 %6, 5
+  %.not.i.i22109.i = icmp samesign ult i64 %6, 5
   br label %_ZN4llvm12StringSwitchIbbE10StartsWithENS_13StringLiteralEb.exit27.i
 
 _ZNK4llvm9StringRef11starts_withES0_.exit.i24.i:  ; preds = %_ZNK4llvm9StringRef11starts_withES0_.exit.i.i, %_ZN4llvmeqENS_9StringRefES0_.exit.i16.i
@@ -1113,7 +1113,7 @@ _ZN4llvm12StringSwitchIbbE10StartsWithENS_13StringLiteralEb.exit27.i: ; preds = 
   %.not.i.i2291.i = phi i1 [ false, %_ZNK4llvm9StringRef11starts_withES0_.exit.i24.i ], [ %.not.i.i22109.i, %_ZN4llvm12StringSwitchIbbE10StartsWithENS_13StringLiteralEb.exit.thread107.i ]
   %.sroa.27.4.i = phi i8 [ 0, %_ZNK4llvm9StringRef11starts_withES0_.exit.i24.i ], [ %.sroa.27.3.ph.i, %_ZN4llvm12StringSwitchIbbE10StartsWithENS_13StringLiteralEb.exit.thread107.i ]
   %12 = trunc nuw i8 %.sroa.27.4.i to i1
-  %or.cond.i29.i = or i1 %.not.i.i2291.i, %12
+  %or.cond.i29.i = select i1 %12, i1 true, i1 %.not.i.i2291.i
   br i1 %or.cond.i29.i, label %_ZN4llvm12StringSwitchIbbE10StartsWithENS_13StringLiteralEb.exit33.i, label %_ZNK4llvm9StringRef11starts_withES0_.exit.i30.i
 
 _ZNK4llvm9StringRef11starts_withES0_.exit.i30.i:  ; preds = %_ZN4llvm12StringSwitchIbbE10StartsWithENS_13StringLiteralEb.exit27.i

@@ -3524,7 +3524,7 @@ _ZN13hb_utf16_xe_tIN2OT7IntTypeItLj2EEEE4nextEPKS2_S5_Pjj.exit: ; preds = %27, %
   br i1 %67, label %68, label %_ZN13hb_utf16_xe_tIN2OT7IntTypeItLj2EEEE4nextEPKS2_S5_Pjj.exit45
 
 68:                                               ; preds = %.lr.ph55
-  %69 = icmp ult i8 %65, -36
+  %69 = icmp samesign ult i8 %65, -36
   %70 = icmp ult ptr %64, %7
   %or.cond.i44 = select i1 %69, i1 %70, i1 false
   br i1 %or.cond.i44, label %71, label %_ZN13hb_utf16_xe_tIN2OT7IntTypeItLj2EEEE4nextEPKS2_S5_Pjj.exit45

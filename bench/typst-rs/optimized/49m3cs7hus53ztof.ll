@@ -1145,7 +1145,7 @@ define hidden void @"_ZN105_$LT$$RF$mut$u20$postcard..de..deserializer..Deserial
 
 21:                                               ; preds = %11
   %22 = icmp eq i64 %.sroa.0.0.i, 9
-  %23 = icmp ugt i8 %13, 1
+  %23 = icmp samesign ugt i8 %13, 1
   %or.cond.i = and i1 %22, %23
   br i1 %or.cond.i, label %.loopexit, label %24
 
@@ -1206,7 +1206,7 @@ define hidden void @"_ZN105_$LT$$RF$mut$u20$postcard..de..deserializer..Deserial
 
 48:                                               ; preds = %37
   %49 = icmp eq i64 %.sroa.01.0.i.i.i.i.i.i.i, 2
-  %50 = icmp ugt i8 %39, 3
+  %50 = icmp samesign ugt i8 %39, 3
   %or.cond.i.i.i.i.i.i.i = and i1 %49, %50
   br i1 %or.cond.i.i.i.i.i.i.i, label %.loopexit.i, label %60
 
@@ -1343,7 +1343,7 @@ define hidden void @"_ZN105_$LT$$RF$mut$u20$postcard..de..deserializer..Deserial
 
 21:                                               ; preds = %11
   %22 = icmp eq i64 %.sroa.0.0.i, 9
-  %23 = icmp ugt i8 %13, 1
+  %23 = icmp samesign ugt i8 %13, 1
   %or.cond.i = and i1 %22, %23
   br i1 %or.cond.i, label %.loopexit, label %24
 
@@ -1512,7 +1512,7 @@ define hidden void @"_ZN105_$LT$$RF$mut$u20$postcard..de..deserializer..Deserial
 
 21:                                               ; preds = %11
   %22 = icmp eq i64 %.sroa.0.0.i, 9
-  %23 = icmp ugt i8 %13, 1
+  %23 = icmp samesign ugt i8 %13, 1
   %or.cond.i = and i1 %22, %23
   br i1 %or.cond.i, label %.loopexit, label %24
 
@@ -1679,7 +1679,7 @@ define hidden void @"_ZN105_$LT$$RF$mut$u20$postcard..de..deserializer..Deserial
 
 19:                                               ; preds = %9
   %20 = icmp eq i64 %.sroa.0.0.i, 9
-  %21 = icmp ugt i8 %11, 1
+  %21 = icmp samesign ugt i8 %11, 1
   %or.cond.i = and i1 %20, %21
   br i1 %or.cond.i, label %.loopexit, label %22
 
@@ -1735,7 +1735,7 @@ define hidden void @"_ZN105_$LT$$RF$mut$u20$postcard..de..deserializer..Deserial
 
 21:                                               ; preds = %11
   %22 = icmp eq i64 %.sroa.0.0.i, 9
-  %23 = icmp ugt i8 %13, 1
+  %23 = icmp samesign ugt i8 %13, 1
   %or.cond.i = and i1 %22, %23
   br i1 %or.cond.i, label %.loopexit, label %24
 
@@ -1904,7 +1904,7 @@ define hidden void @"_ZN105_$LT$$RF$mut$u20$postcard..de..deserializer..Deserial
 
 19:                                               ; preds = %9
   %20 = icmp eq i64 %.sroa.0.0.i, 9
-  %21 = icmp ugt i8 %11, 1
+  %21 = icmp samesign ugt i8 %11, 1
   %or.cond.i = and i1 %20, %21
   br i1 %or.cond.i, label %.loopexit, label %22
 
@@ -1991,7 +1991,7 @@ define hidden void @"_ZN105_$LT$$RF$mut$u20$postcard..de..deserializer..Deserial
 
 20:                                               ; preds = %10
   %21 = icmp eq i64 %.sroa.0.0.i, 9
-  %22 = icmp ugt i8 %12, 1
+  %22 = icmp samesign ugt i8 %12, 1
   %or.cond.i = and i1 %21, %22
   br i1 %or.cond.i, label %.loopexit, label %23
 
@@ -2080,7 +2080,7 @@ define hidden void @"_ZN105_$LT$$RF$mut$u20$postcard..de..deserializer..Deserial
 
 19:                                               ; preds = %9
   %20 = icmp eq i64 %.sroa.0.0.i, 9
-  %21 = icmp ugt i8 %11, 1
+  %21 = icmp samesign ugt i8 %11, 1
   %or.cond.i = and i1 %20, %21
   br i1 %or.cond.i, label %.loopexit, label %22
 
@@ -2155,7 +2155,7 @@ define hidden void @"_ZN105_$LT$$RF$mut$u20$postcard..de..deserializer..Deserial
 
 20:                                               ; preds = %10
   %21 = icmp eq i64 %.sroa.0.0.i, 9
-  %22 = icmp ugt i8 %12, 1
+  %22 = icmp samesign ugt i8 %12, 1
   %or.cond.i = and i1 %21, %22
   br i1 %or.cond.i, label %.loopexit, label %23
 
@@ -2254,7 +2254,7 @@ define hidden void @"_ZN105_$LT$$RF$mut$u20$postcard..de..deserializer..Deserial
 
 19:                                               ; preds = %9
   %20 = icmp eq i64 %.sroa.0.0.i, 9
-  %21 = icmp ugt i8 %11, 1
+  %21 = icmp samesign ugt i8 %11, 1
   %or.cond.i = and i1 %20, %21
   br i1 %or.cond.i, label %.loopexit, label %22
 
@@ -2621,8 +2621,8 @@ define internal fastcc void @"_ZN10serde_json2de21Deserializer$LT$R$GT$13parse_d
 
 71:                                               ; preds = %29
   %.not = icmp ne i64 %.055, 1844674407370955161
-  %72 = icmp ugt i8 %24, 5
-  %or.cond25 = or i1 %.not, %72
+  %72 = icmp samesign ugt i8 %24, 5
+  %or.cond25 = select i1 %.not, i1 true, i1 %72
   br i1 %or.cond25, label %77, label %.critedge24
 
 .critedge24:                                      ; preds = %71, %29
@@ -2882,8 +2882,8 @@ define hidden void @"_ZN10serde_json2de21Deserializer$LT$R$GT$13parse_integer17h
 
 91:                                               ; preds = %88
   %.not = icmp ne i64 %.062, 1844674407370955161
-  %92 = icmp ugt i8 %63, 5
-  %or.cond25 = or i1 %.not, %92
+  %92 = icmp samesign ugt i8 %63, 5
+  %or.cond25 = select i1 %.not, i1 true, i1 %92
   br i1 %or.cond25, label %.critedge, label %.critedge23
 
 .critedge23:                                      ; preds = %91, %88
@@ -3107,8 +3107,8 @@ define internal fastcc void @"_ZN10serde_json2de21Deserializer$LT$R$GT$14parse_e
 
 78:                                               ; preds = %42
   %.not = icmp ne i32 %.01047, 214748364
-  %79 = icmp ugt i8 %41, 7
-  %or.cond26 = or i1 %.not, %79
+  %79 = icmp samesign ugt i8 %41, 7
+  %or.cond26 = select i1 %.not, i1 true, i1 %79
   br i1 %or.cond26, label %82, label %.critedge25
 
 .critedge25:                                      ; preds = %78, %42
@@ -4762,7 +4762,7 @@ define hidden void @"_ZN190_$LT$icu_segmenter..provider..lstm.._..$LT$impl$u20$s
 
 53:                                               ; preds = %42
   %54 = icmp eq i64 %.sroa.02.0.i.i.i, 4
-  %55 = icmp ugt i8 %44, 15
+  %55 = icmp samesign ugt i8 %44, 15
   %or.cond.i.i.i = and i1 %54, %55
   br i1 %or.cond.i.i.i, label %.loopexit, label %56
 
@@ -4828,7 +4828,7 @@ define hidden void @"_ZN190_$LT$icu_segmenter..provider..lstm.._..$LT$impl$u20$s
 
 75:                                               ; preds = %64
   %76 = icmp eq i64 %.sroa.02.0.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i, 4
-  %77 = icmp ugt i8 %66, 15
+  %77 = icmp samesign ugt i8 %66, 15
   %or.cond.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i = and i1 %76, %77
   br i1 %or.cond.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i, label %"_ZN105_$LT$$RF$mut$u20$postcard..de..deserializer..Deserializer$LT$F$GT$$u20$as$u20$serde..de..Deserializer$GT$18deserialize_struct17ha2429e47e3b00f34E.exit.thread.i.i.i.i", label %78
 
@@ -4925,7 +4925,7 @@ common.resume.i.i.i.i.i.i:                        ; preds = %219, %"_ZN4core3ptr
 
 105:                                              ; preds = %95
   %106 = icmp eq i64 %.sroa.0.0.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i, 9
-  %107 = icmp ugt i8 %97, 1
+  %107 = icmp samesign ugt i8 %97, 1
   %or.cond.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i = and i1 %106, %107
   br i1 %or.cond.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i, label %"_ZN4core3ptr63drop_in_place$LT$icu_segmenter..provider..lstm..LstmMatrix2$GT$17h15818c1b2761d72cE.exit253.i.i.i.i.i.i", label %108
 
@@ -22658,7 +22658,7 @@ _ZN4core3str7pattern13simd_contains17he1b4c355bd816daaE.exit: ; preds = %39, %18
   %166 = and i8 %164, 63
   %167 = zext nneg i8 %166 to i32
   %168 = or disjoint i32 %165, %167
-  %169 = icmp ugt i8 %158, -33
+  %169 = icmp samesign ugt i8 %158, -33
   br i1 %169, label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h56b22c765953e12eE.llvm.12777920187102919001.exit15.i.i.i", label %_ZN4core3str11validations15next_code_point17h34adc5e17767eaceE.exit.thread.i.i
 
 170:                                              ; preds = %157
@@ -22676,7 +22676,7 @@ _ZN4core3str7pattern13simd_contains17he1b4c355bd816daaE.exit: ; preds = %39, %18
   %178 = or disjoint i32 %175, %177
   %179 = shl nuw nsw i32 %162, 12
   %180 = or disjoint i32 %178, %179
-  %181 = icmp ugt i8 %158, -17
+  %181 = icmp samesign ugt i8 %158, -17
   br i1 %181, label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h56b22c765953e12eE.llvm.12777920187102919001.exit17.i.i.i", label %_ZN4core3str11validations15next_code_point17h34adc5e17767eaceE.exit.thread.i.i
 
 "_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h56b22c765953e12eE.llvm.12777920187102919001.exit17.i.i.i": ; preds = %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h56b22c765953e12eE.llvm.12777920187102919001.exit15.i.i.i"
@@ -24743,7 +24743,7 @@ _ZN5alloc11collections5btree4node12slice_insert17hb547968f49614b83E.exit.i19.i: 
 .lr.ph.i.i20.i:                                   ; preds = %_ZN5alloc11collections5btree4node12slice_insert17hb547968f49614b83E.exit.i19.i, %.lr.ph.i.i20.i
   %.sroa.0.06.i.i21.i = phi i64 [ %200, %.lr.ph.i.i20.i ], [ %181, %_ZN5alloc11collections5btree4node12slice_insert17hb547968f49614b83E.exit.i19.i ]
   %200 = add nuw nsw i64 %.sroa.0.06.i.i21.i, 1
-  %201 = icmp ult i64 %.sroa.0.06.i.i21.i, 12
+  %201 = icmp samesign ult i64 %.sroa.0.06.i.i21.i, 12
   tail call void @llvm.assume(i1 %201)
   %202 = getelementptr inbounds ptr, ptr %190, i64 %.sroa.0.06.i.i21.i
   %203 = load ptr, ptr %202, align 8, !noalias !4580, !nonnull !16, !noundef !16
@@ -25607,7 +25607,7 @@ define hidden void @"_ZN5alloc11collections5btree4node210Handle$LT$alloc..collec
 .lr.ph.i.i24.i:                                   ; preds = %301, %.lr.ph.i.i24.i
   %.sroa.0.06.i.i25.i = phi i64 [ %304, %.lr.ph.i.i24.i ], [ %280, %301 ]
   %304 = add nuw nsw i64 %.sroa.0.06.i.i25.i, 1
-  %305 = icmp ult i64 %.sroa.0.06.i.i25.i, 12
+  %305 = icmp samesign ult i64 %.sroa.0.06.i.i25.i, 12
   tail call void @llvm.assume(i1 %305)
   %306 = getelementptr inbounds ptr, ptr %293, i64 %.sroa.0.06.i.i25.i
   %307 = load ptr, ptr %306, align 8, !noalias !4738, !nonnull !16, !noundef !16
@@ -26421,7 +26421,7 @@ define hidden void @"_ZN5alloc11collections5btree4node210Handle$LT$alloc..collec
 .lr.ph.i.i21.i:                                   ; preds = %311, %.lr.ph.i.i21.i
   %.sroa.0.06.i.i22.i = phi i64 [ %314, %.lr.ph.i.i21.i ], [ %287, %311 ]
   %314 = add nuw nsw i64 %.sroa.0.06.i.i22.i, 1
-  %315 = icmp ult i64 %.sroa.0.06.i.i22.i, 12
+  %315 = icmp samesign ult i64 %.sroa.0.06.i.i22.i, 12
   tail call void @llvm.assume(i1 %315)
   %316 = getelementptr inbounds ptr, ptr %303, i64 %.sroa.0.06.i.i22.i
   %317 = load ptr, ptr %316, align 8, !noalias !4887, !nonnull !16, !noundef !16
@@ -27251,7 +27251,7 @@ define hidden void @"_ZN5alloc11collections5btree4node210Handle$LT$alloc..collec
 .lr.ph.i.i24.i:                                   ; preds = %301, %.lr.ph.i.i24.i
   %.sroa.0.06.i.i25.i = phi i64 [ %304, %.lr.ph.i.i24.i ], [ %281, %301 ]
   %304 = add nuw nsw i64 %.sroa.0.06.i.i25.i, 1
-  %305 = icmp ult i64 %.sroa.0.06.i.i25.i, 12
+  %305 = icmp samesign ult i64 %.sroa.0.06.i.i25.i, 12
   tail call void @llvm.assume(i1 %305)
   %306 = getelementptr inbounds ptr, ptr %293, i64 %.sroa.0.06.i.i25.i
   %307 = load ptr, ptr %306, align 8, !noalias !5046, !nonnull !16, !noundef !16
@@ -34585,7 +34585,7 @@ define internal fastcc void @_ZN5serde2de9SeqAccess12next_element17h7ac2d0619182
 
 32:                                               ; preds = %22
   %33 = icmp eq i64 %.sroa.0.0.i.i.i.i.i.i.i.i.i.i.i, 9
-  %34 = icmp ugt i8 %24, 1
+  %34 = icmp samesign ugt i8 %24, 1
   %or.cond.i.i.i.i.i.i.i.i.i.i.i = and i1 %33, %34
   br i1 %or.cond.i.i.i.i.i.i.i.i.i.i.i, label %"_ZN81_$LT$core..marker..PhantomData$LT$T$GT$$u20$as$u20$serde..de..DeserializeSeed$GT$11deserialize17h83a9456d8cfdcb05E.exit.thread.i", label %35
 
@@ -34748,7 +34748,7 @@ define internal fastcc void @_ZN5serde2de9SeqAccess12next_element17ha9819b02cc5a
 
 32:                                               ; preds = %22
   %33 = icmp eq i64 %.sroa.0.0.i.i.i.i.i.i.i.i.i.i.i, 9
-  %34 = icmp ugt i8 %24, 1
+  %34 = icmp samesign ugt i8 %24, 1
   %or.cond.i.i.i.i.i.i.i.i.i.i.i = and i1 %33, %34
   br i1 %or.cond.i.i.i.i.i.i.i.i.i.i.i, label %"_ZN81_$LT$core..marker..PhantomData$LT$T$GT$$u20$as$u20$serde..de..DeserializeSeed$GT$11deserialize17h6956831e8e624421E.exit.thread.i", label %35
 
@@ -34896,7 +34896,7 @@ define internal fastcc void @_ZN5serde2de9SeqAccess12next_element17hd122dbc9175e
 
 31:                                               ; preds = %21
   %32 = icmp eq i64 %.sroa.0.0.i.i.i.i.i.i.i.i.i.i.i, 9
-  %33 = icmp ugt i8 %23, 1
+  %33 = icmp samesign ugt i8 %23, 1
   %or.cond.i.i.i.i.i.i.i.i.i.i.i = and i1 %32, %33
   br i1 %or.cond.i.i.i.i.i.i.i.i.i.i.i, label %"_ZN81_$LT$core..marker..PhantomData$LT$T$GT$$u20$as$u20$serde..de..DeserializeSeed$GT$11deserialize17h753b83ceb7f78013E.exit.thread.i", label %34
 
@@ -37905,7 +37905,7 @@ define hidden void @"_ZN7zerovec10varzerovec5serde102_$LT$impl$u20$serde..de..De
 
 20:                                               ; preds = %10
   %21 = icmp eq i64 %.sroa.0.0.i.i, 9
-  %22 = icmp ugt i8 %12, 1
+  %22 = icmp samesign ugt i8 %12, 1
   %or.cond.i.i = and i1 %21, %22
   br i1 %or.cond.i.i, label %.loopexit.i, label %23
 
@@ -38008,7 +38008,7 @@ define hidden void @"_ZN7zerovec3ule11unvalidated119_$LT$impl$u20$serde..de..Des
 
 21:                                               ; preds = %11
   %22 = icmp eq i64 %.sroa.0.0.i.i, 9
-  %23 = icmp ugt i8 %13, 1
+  %23 = icmp samesign ugt i8 %13, 1
   %or.cond.i.i = and i1 %22, %23
   br i1 %or.cond.i.i, label %"_ZN4core6result19Result$LT$T$C$E$GT$3map17h5e2b9c7ca1f17edcE.exit.thread", label %"_ZN105_$LT$$RF$mut$u20$postcard..de..deserializer..Deserializer$LT$F$GT$$u20$as$u20$serde..de..Deserializer$GT$15deserialize_seq17h3f159e86c8a5de5dE.exit"
 
@@ -38180,7 +38180,7 @@ define hidden void @"_ZN7zerovec7zerovec5serde87_$LT$impl$u20$serde..de..Deseria
 
 19:                                               ; preds = %9
   %20 = icmp eq i64 %.sroa.0.0.i.i, 9
-  %21 = icmp ugt i8 %11, 1
+  %21 = icmp samesign ugt i8 %11, 1
   %or.cond.i.i = and i1 %20, %21
   br i1 %or.cond.i.i, label %.loopexit.i, label %22
 
@@ -38268,7 +38268,7 @@ define hidden void @"_ZN7zerovec7zerovec5serde87_$LT$impl$u20$serde..de..Deseria
 
 19:                                               ; preds = %9
   %20 = icmp eq i64 %.sroa.0.0.i.i, 9
-  %21 = icmp ugt i8 %11, 1
+  %21 = icmp samesign ugt i8 %11, 1
   %or.cond.i.i = and i1 %20, %21
   br i1 %or.cond.i.i, label %.loopexit.i, label %22
 
@@ -38345,7 +38345,7 @@ define hidden void @"_ZN7zerovec7zerovec5serde87_$LT$impl$u20$serde..de..Deseria
 
 20:                                               ; preds = %10
   %21 = icmp eq i64 %.sroa.0.0.i.i, 9
-  %22 = icmp ugt i8 %12, 1
+  %22 = icmp samesign ugt i8 %12, 1
   %or.cond.i.i = and i1 %21, %22
   br i1 %or.cond.i.i, label %.loopexit.i, label %23
 
@@ -38436,7 +38436,7 @@ define hidden void @"_ZN7zerovec7zerovec5serde87_$LT$impl$u20$serde..de..Deseria
 
 19:                                               ; preds = %9
   %20 = icmp eq i64 %.sroa.0.0.i.i, 9
-  %21 = icmp ugt i8 %11, 1
+  %21 = icmp samesign ugt i8 %11, 1
   %or.cond.i.i = and i1 %20, %21
   br i1 %or.cond.i.i, label %.loopexit.i, label %22
 

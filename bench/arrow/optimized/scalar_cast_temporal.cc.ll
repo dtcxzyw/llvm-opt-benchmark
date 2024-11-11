@@ -49212,7 +49212,7 @@ if.end.i.i60.i:                                   ; preds = %if.then41.i
 _ZN5arrow8internal13ParseUnsignedEPKcmPh.exit.i.i: ; preds = %if.end.i.i60.i
   %narrow.i.i64.i = mul nuw nsw i8 %sub.i.i.i58.i, 10
   %add29.i.i65.i = add nuw nsw i8 %narrow.i.i64.i, %sub.i21.i.i62.i
-  %cmp.i.i = icmp ugt i8 %add29.i.i65.i, 23
+  %cmp.i.i = icmp samesign ugt i8 %add29.i.i65.i, 23
   br i1 %cmp.i.i, label %if.then, label %if.end50.i
 
 if.end50.i:                                       ; preds = %_ZN5arrow8internal13ParseUnsignedEPKcmPh.exit.i.i
@@ -49311,7 +49311,7 @@ if.end.i.i72.i:                                   ; preds = %sw.bb.i
 _ZN5arrow8internal13ParseUnsignedEPKcmPh.exit.i76.i: ; preds = %if.end.i.i72.i
   %narrow.i.i77.i = mul nuw nsw i8 %sub.i.i.i70.i, 10
   %add29.i.i78.i = add nuw nsw i8 %sub.i21.i.i74.i, %narrow.i.i77.i
-  %cmp.i79.i = icmp ugt i8 %add29.i.i78.i, 23
+  %cmp.i79.i = icmp samesign ugt i8 %add29.i.i78.i, 23
   br i1 %cmp.i79.i, label %if.then, label %_ZN5arrow8internal6detailL7ParseHHINSt6chrono8durationIlSt5ratioILl1ELl1EEEEEEbPKcPT_.exit84.i
 
 _ZN5arrow8internal6detailL7ParseHHINSt6chrono8durationIlSt5ratioILl1ELl1EEEEEEbPKcPT_.exit84.i: ; preds = %_ZN5arrow8internal13ParseUnsignedEPKcmPh.exit.i76.i
@@ -49389,10 +49389,10 @@ if.end.i22.i.i:                                   ; preds = %if.end22.i102.i
 _ZN5arrow8internal13ParseUnsignedEPKcmPh.exit30.i.i: ; preds = %if.end.i22.i.i
   %narrow.i27.i.i = mul nuw nsw i8 %sub.i.i20.i.i, 10
   %add29.i28.i.i = add nuw nsw i8 %sub.i21.i24.i.i, %narrow.i27.i.i
-  %cmp32.i.i = icmp ugt i8 %add29.i.i100.i, 23
-  %cmp39.i.i = icmp ugt i8 %add29.i16.i.i, 59
+  %cmp32.i.i = icmp samesign ugt i8 %add29.i.i100.i, 23
+  %cmp39.i.i = icmp samesign ugt i8 %add29.i16.i.i, 59
   %or.cond5.i.i = select i1 %cmp32.i.i, i1 true, i1 %cmp39.i.i
-  %cmp46.i.i = icmp ugt i8 %add29.i28.i.i, 59
+  %cmp46.i.i = icmp samesign ugt i8 %add29.i28.i.i, 59
   %or.cond6.i.i = select i1 %or.cond5.i.i, i1 true, i1 %cmp46.i.i
   br i1 %or.cond6.i.i, label %if.then, label %sw.epilog.i
 
@@ -49414,7 +49414,7 @@ sw.epilog.i:                                      ; preds = %_ZN5arrow8internal1
   %add.i34.i.i = add nsw i64 %mul.i.i.i.i33.i.i, %mul.i.i.i.i
   %add.i.i = add nsw i64 %add.i34.i.i, %conv.i32.i.i
   %add.i106.i = add nsw i64 %add.i.i, %38
-  %cmp159.i = icmp ult i64 %length.addr.0.i, 20
+  %cmp159.i = icmp samesign ult i64 %length.addr.0.i, 20
   br i1 %cmp159.i, label %if.then160.i, label %if.end163.i
 
 if.then160.i:                                     ; preds = %sw.epilog.i, %sw.epilog.thread.i
@@ -49889,8 +49889,8 @@ if.end.i6:                                        ; preds = %if.end
 _ZN5arrow8internal13ParseUnsignedEPKcmPh.exit14:  ; preds = %if.end.i6
   %narrow.i11 = mul nuw nsw i8 %sub.i.i4, 10
   %add29.i12 = add nuw nsw i8 %sub.i21.i8, %narrow.i11
-  %cmp = icmp ugt i8 %add29.i, 23
-  %cmp16 = icmp ugt i8 %add29.i12, 59
+  %cmp = icmp samesign ugt i8 %add29.i, 23
+  %cmp16 = icmp samesign ugt i8 %add29.i12, 59
   %or.cond2 = select i1 %cmp, i1 true, i1 %cmp16
   br i1 %or.cond2, label %return, label %if.end21
 
@@ -49948,8 +49948,8 @@ if.end.i7:                                        ; preds = %if.end8
 _ZN5arrow8internal13ParseUnsignedEPKcmPh.exit15:  ; preds = %if.end.i7
   %narrow.i12 = mul nuw nsw i8 %sub.i.i5, 10
   %add29.i13 = add nuw nsw i8 %sub.i21.i9, %narrow.i12
-  %cmp18 = icmp ugt i8 %add29.i, 23
-  %cmp25 = icmp ugt i8 %add29.i13, 59
+  %cmp18 = icmp samesign ugt i8 %add29.i, 23
+  %cmp25 = icmp samesign ugt i8 %add29.i13, 59
   %or.cond3 = select i1 %cmp18, i1 true, i1 %cmp25
   br i1 %or.cond3, label %return, label %if.end30
 

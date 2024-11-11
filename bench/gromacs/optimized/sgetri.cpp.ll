@@ -304,7 +304,7 @@ define void @sgetri_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocaptu
   br label %125
 
 125:                                              ; preds = %.lr.ph211, %121
-  %126 = icmp ugt i64 %indvars.iv234, 2
+  %126 = icmp samesign ugt i64 %indvars.iv234, 2
   br i1 %126, label %.lr.ph211, label %._crit_edge212, !llvm.loop !10
 
 ._crit_edge212:                                   ; preds = %125, %.loopexit

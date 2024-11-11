@@ -1366,7 +1366,7 @@ land.rhs.i:                                       ; preds = %land.rhs
   br i1 %or.cond97, label %while.body, label %while.end.loopexit.split.loop.exit
 
 while.body:                                       ; preds = %land.rhs.i, %land.rhs
-  %cmp35 = icmp ugt i64 %indvars.iv, 1
+  %cmp35 = icmp samesign ugt i64 %indvars.iv, 1
   br i1 %cmp35, label %land.lhs.true36, label %while.end, !llvm.loop !6
 
 while.end.loopexit.split.loop.exit:               ; preds = %land.rhs.i

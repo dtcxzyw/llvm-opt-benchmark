@@ -1990,7 +1990,7 @@ _ZN7AstNode9privateAsI8AstConstP11AstNodeExprEEPT_PS_.exit: ; preds = %_ZN7AstNo
 
 _ZNK12V3NumberData3numEv.exit.i.i:                ; preds = %30
   %35 = add nsw i32 %32, -1
-  %36 = icmp ult i32 %32, 129
+  %36 = icmp samesign ult i32 %32, 129
   %37 = load ptr, ptr %26, align 8
   %spec.select.i10.i.i = select i1 %36, ptr %26, ptr %37
   %38 = lshr i32 %35, 5
@@ -7523,7 +7523,7 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZNK8V3Number10isNegativeEv(pt
 
 _ZNK12V3NumberData3numEv.exit.i:                  ; preds = %5
   %10 = add nsw i32 %7, -1
-  %11 = icmp ult i32 %7, 129
+  %11 = icmp samesign ult i32 %7, 129
   %12 = load ptr, ptr %0, align 8
   %spec.select.i10.i = select i1 %11, ptr %0, ptr %12
   %13 = lshr i32 %10, 5
@@ -7818,7 +7818,7 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZNK8V3Number6bitIs1Ei(ptr nou
   br i1 %.not, label %_ZNK12V3NumberData3numEv.exit, label %23
 
 _ZNK12V3NumberData3numEv.exit:                    ; preds = %7
-  %10 = icmp ult i32 %9, 129
+  %10 = icmp samesign ult i32 %9, 129
   %11 = load ptr, ptr %0, align 8
   %spec.select.i10 = select i1 %10, ptr %0, ptr %11
   %12 = lshr i32 %1, 5

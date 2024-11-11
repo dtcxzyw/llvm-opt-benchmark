@@ -474,7 +474,7 @@ define void @Extra_TruthStretch(ptr nocapture noundef %0, ptr nocapture noundef 
 
 .lr.ph50:                                         ; preds = %5
   %7 = add nsw i32 %2, -1
-  %8 = icmp ult i32 %3, 6
+  %8 = icmp samesign ult i32 %3, 6
   %9 = add nsw i32 %3, -5
   %10 = shl nuw i32 1, %9
   %11 = select i1 %8, i32 1, i32 %10
@@ -702,7 +702,7 @@ select.unfold.i:                                  ; preds = %select.unfold.i, %s
   %104 = load i32, ptr %103, align 4
   %105 = getelementptr inbounds i32, ptr %.026.lcssa7074, i64 %indvars.iv.next.i34
   store i32 %104, ptr %105, align 4
-  %106 = icmp ugt i64 %indvars.iv.i33, 1
+  %106 = icmp samesign ugt i64 %indvars.iv.i33, 1
   br i1 %106, label %select.unfold.i, label %Extra_TruthCopy.exit, !llvm.loop !27
 
 Extra_TruthCopy.exit:                             ; preds = %select.unfold.i, %97, %._crit_edge51
@@ -715,7 +715,7 @@ define void @Extra_TruthShrink(ptr nocapture noundef %0, ptr nocapture noundef %
   br i1 %6, label %.lr.ph53, label %select.unfold.preheader.i
 
 .lr.ph53:                                         ; preds = %5
-  %7 = icmp ult i32 %3, 6
+  %7 = icmp samesign ult i32 %3, 6
   %8 = add nsw i32 %3, -5
   %9 = shl nuw i32 1, %8
   %10 = select i1 %7, i32 1, i32 %9
@@ -945,7 +945,7 @@ select.unfold.i:                                  ; preds = %select.unfold.i, %s
   %101 = load i32, ptr %100, align 4
   %102 = getelementptr inbounds i32, ptr %.025.lcssa7175, i64 %indvars.iv.next.i36
   store i32 %101, ptr %102, align 4
-  %103 = icmp ugt i64 %indvars.iv.i35, 1
+  %103 = icmp samesign ugt i64 %indvars.iv.i35, 1
   br i1 %103, label %select.unfold.i, label %Extra_TruthCopy.exit, !llvm.loop !27
 
 Extra_TruthCopy.exit:                             ; preds = %select.unfold.i, %94, %._crit_edge54
@@ -2022,7 +2022,7 @@ select.unfold.i:                                  ; preds = %select.unfold.i, %s
   %11 = load i32, ptr %10, align 4
   %12 = getelementptr inbounds i32, ptr @Extra_TruthVarsSymm.uTemp0, i64 %indvars.iv.next.i
   store i32 %11, ptr %12, align 4
-  %13 = icmp ugt i64 %indvars.iv.i, 1
+  %13 = icmp samesign ugt i64 %indvars.iv.i, 1
   br i1 %13, label %select.unfold.i, label %Extra_TruthCopy.exit, !llvm.loop !27
 
 Extra_TruthCopy.exit:                             ; preds = %select.unfold.i
@@ -2037,7 +2037,7 @@ select.unfold.i14:                                ; preds = %select.unfold.i14, 
   %15 = load i32, ptr %14, align 4
   %16 = getelementptr inbounds i32, ptr @Extra_TruthVarsSymm.uTemp1, i64 %indvars.iv.next.i16
   store i32 %15, ptr %16, align 4
-  %17 = icmp ugt i64 %indvars.iv.i15, 1
+  %17 = icmp samesign ugt i64 %indvars.iv.i15, 1
   br i1 %17, label %select.unfold.i14, label %Extra_TruthCopy.exit17, !llvm.loop !27
 
 Extra_TruthCopy.exit17.critedge:                  ; preds = %4
@@ -2091,7 +2091,7 @@ select.unfold.i:                                  ; preds = %select.unfold.i, %s
   %11 = load i32, ptr %10, align 4
   %12 = getelementptr inbounds i32, ptr @Extra_TruthVarsAntiSymm.uTemp0, i64 %indvars.iv.next.i
   store i32 %11, ptr %12, align 4
-  %13 = icmp ugt i64 %indvars.iv.i, 1
+  %13 = icmp samesign ugt i64 %indvars.iv.i, 1
   br i1 %13, label %select.unfold.i, label %Extra_TruthCopy.exit, !llvm.loop !27
 
 Extra_TruthCopy.exit:                             ; preds = %select.unfold.i
@@ -2106,7 +2106,7 @@ select.unfold.i14:                                ; preds = %select.unfold.i14, 
   %15 = load i32, ptr %14, align 4
   %16 = getelementptr inbounds i32, ptr @Extra_TruthVarsAntiSymm.uTemp1, i64 %indvars.iv.next.i16
   store i32 %15, ptr %16, align 4
-  %17 = icmp ugt i64 %indvars.iv.i15, 1
+  %17 = icmp samesign ugt i64 %indvars.iv.i15, 1
   br i1 %17, label %select.unfold.i14, label %Extra_TruthCopy.exit17, !llvm.loop !27
 
 Extra_TruthCopy.exit17.critedge:                  ; preds = %4
@@ -2312,7 +2312,7 @@ define range(i32 0, 33) i32 @Extra_TruthMinCofSuppOverlap(ptr nocapture noundef 
   br i1 %4, label %.lr.ph, label %Extra_TruthSupport.exit51._crit_edge
 
 .lr.ph:                                           ; preds = %3
-  %5 = icmp ult i32 %1, 6
+  %5 = icmp samesign ult i32 %1, 6
   %6 = add nsw i32 %1, -5
   %7 = shl nuw i32 1, %6
   %spec.select.i = select i1 %5, i32 1, i32 %7
@@ -2338,7 +2338,7 @@ select.unfold.i:                                  ; preds = %12, %select.unfold.
   %14 = load i32, ptr %13, align 4
   %15 = getelementptr inbounds i32, ptr @Extra_TruthMinCofSuppOverlap.uCofactor, i64 %indvars.iv.next.i
   store i32 %14, ptr %15, align 4
-  %16 = icmp ugt i64 %indvars.iv.i, 1
+  %16 = icmp samesign ugt i64 %indvars.iv.i, 1
   br i1 %16, label %select.unfold.i, label %.lr.ph.i.preheader, !llvm.loop !27
 
 .lr.ph.i.preheader:                               ; preds = %select.unfold.i, %12
@@ -2532,7 +2532,7 @@ select.unfold.i40:                                ; preds = %Extra_TruthSupport.
   %86 = load i32, ptr %85, align 4
   %87 = getelementptr inbounds i32, ptr @Extra_TruthMinCofSuppOverlap.uCofactor, i64 %indvars.iv.next.i42
   store i32 %86, ptr %87, align 4
-  %88 = icmp ugt i64 %indvars.iv.i41, 1
+  %88 = icmp samesign ugt i64 %indvars.iv.i41, 1
   br i1 %88, label %select.unfold.i40, label %.lr.ph.i45.preheader, !llvm.loop !27
 
 .lr.ph.i45.preheader:                             ; preds = %select.unfold.i40, %Extra_TruthSupport.exit
@@ -2925,7 +2925,7 @@ define void @Extra_TruthCountOnesInCofs(ptr nocapture noundef readonly %0, i32 n
   %119 = trunc i32 %118 to i16
   %120 = getelementptr inbounds i8, ptr %2, i64 6
   store i16 %119, ptr %120, align 2
-  %121 = icmp ugt i32 %1, 2
+  %121 = icmp samesign ugt i32 %1, 2
   br i1 %121, label %122, label %.thread87
 
 122:                                              ; preds = %85
@@ -3431,7 +3431,7 @@ select.unfold.i:                                  ; preds = %select.unfold.i, %s
   %31 = lshr i32 %29, 16
   %32 = add nuw nsw i32 %31, %.08.i
   %33 = add nuw nsw i32 %32, %30
-  %34 = icmp ugt i64 %indvars.iv.i, 1
+  %34 = icmp samesign ugt i64 %indvars.iv.i, 1
   br i1 %34, label %select.unfold.i, label %Extra_TruthCountOnes.exit, !llvm.loop !87
 
 Extra_TruthCountOnes.exit:                        ; preds = %select.unfold.i, %5
@@ -3465,7 +3465,7 @@ select.unfold.i109:                               ; preds = %select.unfold.i109,
   %46 = load i32, ptr %45, align 4
   %47 = xor i32 %46, -1
   store i32 %47, ptr %45, align 4
-  %48 = icmp ugt i64 %indvars.iv.i110, 1
+  %48 = icmp samesign ugt i64 %indvars.iv.i110, 1
   br i1 %48, label %select.unfold.i109, label %Extra_TruthNot.exit, !llvm.loop !88
 
 Extra_TruthNot.exit:                              ; preds = %select.unfold.i109, %42, %39, %37
@@ -3725,7 +3725,7 @@ select.unfold.i116:                               ; preds = %.split.us, %select.
   %157 = load i32, ptr %156, align 4
   %158 = getelementptr inbounds i32, ptr %.298.us, i64 %indvars.iv.next.i118
   store i32 %157, ptr %158, align 4
-  %159 = icmp ugt i64 %indvars.iv.i117, 1
+  %159 = icmp samesign ugt i64 %indvars.iv.i117, 1
   br i1 %159, label %select.unfold.i116, label %Extra_TruthCopy.exit, !llvm.loop !27
 
 Extra_TruthCopy.exit:                             ; preds = %select.unfold.i116, %Extra_TruthNot.exit, %.preheader, %.split.us

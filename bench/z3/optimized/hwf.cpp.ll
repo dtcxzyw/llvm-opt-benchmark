@@ -2040,7 +2040,7 @@ _ZN11hwf_manager6is_posERK3hwf.exit:              ; preds = %entry
 if.end:                                           ; preds = %_ZN11hwf_manager6is_posERK3hwf.exit
   %and.i = lshr i64 %n.0.copyload.i.i.i, 52
   %0 = trunc nuw nsw i64 %and.i to i32
-  %cmp = icmp ult i64 %n.0.copyload.i.i.i, 4377498837804122112
+  %cmp = icmp samesign ult i64 %n.0.copyload.i.i.i, 4377498837804122112
   %add = add nsw i32 %0, -972
   %spec.select = select i1 %cmp, i32 0, i32 %add
   br label %return

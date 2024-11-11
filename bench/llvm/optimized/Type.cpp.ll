@@ -1758,7 +1758,7 @@ define dso_local void @_ZNK4llvm11IntegerType7getMaskEv(ptr dead_on_unwind noali
   %11 = xor i32 %10, 63
   %12 = zext nneg i32 %11 to i64
   %13 = lshr i64 -1, %12
-  %14 = icmp ult i32 %4, 256
+  %14 = icmp samesign ult i32 %4, 256
   %spec.store.select.i.i.i = select i1 %14, i64 0, i64 %13
   store i64 %spec.store.select.i.i.i, ptr %0, align 8, !alias.scope !19
   br label %_ZN4llvm5APInt10getAllOnesEj.exit

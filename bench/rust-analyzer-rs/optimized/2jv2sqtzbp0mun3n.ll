@@ -984,7 +984,7 @@ _ZN6parser6output6Output10leave_node17h73512ea4c1e506b4E.exit: ; preds = %65, %.
 
 75:                                               ; preds = %49
   %76 = trunc i32 %.sroa.5.0.copyload to i16
-  %77 = icmp ult i16 %76, 273
+  %77 = icmp samesign ult i16 %76, 273
   call void @llvm.assume(i1 %77)
   %78 = load i64, ptr %.sroa.5.0..sroa_idx58, align 8, !alias.scope !124, !noundef !4
   %79 = load i64, ptr %13, align 8, !alias.scope !124, !noundef !4

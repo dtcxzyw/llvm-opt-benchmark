@@ -5837,7 +5837,7 @@ define internal fastcc void @_periodic_RBF_interpolate(ptr nocapture noundef non
   br i1 %11, label %12, label %.preheader396
 
 12:                                               ; preds = %5
-  %13 = icmp ult i32 %10, 32
+  %13 = icmp samesign ult i32 %10, 32
   %14 = and i32 %10, 2147483616
   %.scalar = fdiv reassoc nsz arcp contract afn float 1.000000e+00, %1
   %15 = insertelement <8 x float> poison, float %.scalar, i64 0
@@ -7608,7 +7608,7 @@ define internal fastcc void @_periodic_RBF_interpolate(ptr nocapture noundef non
   br i1 %11, label %1288, label %1890
 
 1288:                                             ; preds = %1279
-  %1289 = icmp ult i32 %10, 32
+  %1289 = icmp samesign ult i32 %10, 32
   %1290 = and i32 %10, 2147483616
   %.scalar561 = fdiv reassoc nsz arcp contract afn float 1.000000e+00, %1
   %1291 = insertelement <8 x float> poison, float %.scalar561, i64 0

@@ -909,7 +909,7 @@ define hidden noundef zeroext i1 @_ZN2cv10PAMDecoder10readHeaderEv(ptr noundef n
 
 181:                                              ; preds = %.lr.ph.i
   store i8 0, ptr %177, align 1
-  %182 = icmp ugt i64 %indvars.iv97.i, 1
+  %182 = icmp samesign ugt i64 %indvars.iv97.i, 1
   br i1 %182, label %.lr.ph.i, label %.loopexit, !llvm.loop !15
 
 .loopexit211:                                     ; preds = %.split.loop.exit104.i, %.split.loop.exit108.i, %159

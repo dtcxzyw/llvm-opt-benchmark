@@ -152,7 +152,7 @@ _ZN4llvm3msf16isValidBlockSizeEj.exit:            ; preds = %15
   call void @llvm.assume(i1 true) [ "align"(ptr %16, i64 1) ]
   %37 = lshr i32 %.0.copyload.i.i.i, 2
   %38 = zext nneg i32 %37 to i64
-  %39 = icmp ugt i64 %36, %38
+  %39 = icmp samesign ugt i64 %36, %38
   br i1 %39, label %40, label %45
 
 40:                                               ; preds = %29

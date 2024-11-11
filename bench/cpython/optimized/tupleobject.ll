@@ -939,7 +939,7 @@ if.end.i:                                         ; preds = %if.end
   %interp.i.i.i = getelementptr inbounds i8, ptr %1, i64 16
   %2 = load ptr, ptr %interp.i.i.i, align 8
   %3 = add nsw i64 %size, -1
-  %or.cond.i.i = icmp ult i64 %size, 20
+  %or.cond.i.i = icmp samesign ult i64 %size, 20
   br i1 %or.cond.i.i, label %if.then2.i.i, label %if.then2.i
 
 if.then2.i.i:                                     ; preds = %if.end.i
@@ -962,7 +962,7 @@ tuple_alloc.exit.thread12:                        ; preds = %if.then2.i.i
   br label %for.end
 
 if.then2.i:                                       ; preds = %if.end.i
-  %cmp3.i = icmp ugt i64 %size, 1152921504606846972
+  %cmp3.i = icmp samesign ugt i64 %size, 1152921504606846972
   br i1 %cmp3.i, label %if.then4.i, label %if.end6.i
 
 if.then4.i:                                       ; preds = %if.then2.i
@@ -1285,7 +1285,7 @@ if.end.i:                                         ; preds = %if.end
   %interp.i.i.i = getelementptr inbounds i8, ptr %1, i64 16
   %2 = load ptr, ptr %interp.i.i.i, align 8
   %3 = add nsw i64 %n, -1
-  %or.cond.i.i = icmp ult i64 %n, 20
+  %or.cond.i.i = icmp samesign ult i64 %n, 20
   br i1 %or.cond.i.i, label %if.then2.i.i, label %if.then2.i
 
 if.then2.i.i:                                     ; preds = %if.end.i
@@ -1308,7 +1308,7 @@ tuple_alloc.exit.thread10:                        ; preds = %if.then2.i.i
   br label %for.body.lr.ph
 
 if.then2.i:                                       ; preds = %if.end.i
-  %cmp3.i = icmp ugt i64 %n, 1152921504606846972
+  %cmp3.i = icmp samesign ugt i64 %n, 1152921504606846972
   br i1 %cmp3.i, label %if.then4.i, label %if.end6.i
 
 if.then4.i:                                       ; preds = %if.then2.i
@@ -1422,7 +1422,7 @@ if.end.i:                                         ; preds = %if.end
   %interp.i.i.i = getelementptr inbounds i8, ptr %1, i64 16
   %2 = load ptr, ptr %interp.i.i.i, align 8
   %3 = add nsw i64 %n, -1
-  %or.cond.i.i = icmp ult i64 %n, 20
+  %or.cond.i.i = icmp samesign ult i64 %n, 20
   br i1 %or.cond.i.i, label %if.then2.i.i, label %if.then2.i
 
 if.then2.i.i:                                     ; preds = %if.end.i
@@ -1445,7 +1445,7 @@ tuple_alloc.exit.thread11:                        ; preds = %if.then2.i.i
   br label %for.body.preheader
 
 if.then2.i:                                       ; preds = %if.end.i
-  %cmp3.i = icmp ugt i64 %n, 1152921504606846972
+  %cmp3.i = icmp samesign ugt i64 %n, 1152921504606846972
   br i1 %cmp3.i, label %if.then4.i, label %if.end6.i
 
 if.then4.i:                                       ; preds = %if.then2.i
@@ -1529,7 +1529,7 @@ if.end.i16:                                       ; preds = %if.end
   %interp.i.i.i = getelementptr inbounds i8, ptr %1, i64 16
   %2 = load ptr, ptr %interp.i.i.i, align 8
   %3 = add nsw i64 %n, -1
-  %or.cond.i.i = icmp ult i64 %n, 20
+  %or.cond.i.i = icmp samesign ult i64 %n, 20
   br i1 %or.cond.i.i, label %if.then2.i.i, label %if.then2.i
 
 if.then2.i.i:                                     ; preds = %if.end.i16
@@ -1552,7 +1552,7 @@ tuple_alloc.exit.thread:                          ; preds = %if.then2.i.i
   br label %for.body9.preheader
 
 if.then2.i:                                       ; preds = %if.end.i16
-  %cmp3.i = icmp ugt i64 %n, 1152921504606846972
+  %cmp3.i = icmp samesign ugt i64 %n, 1152921504606846972
   br i1 %cmp3.i, label %if.then4.i, label %if.end6.i
 
 if.then4.i:                                       ; preds = %if.then2.i
@@ -2240,8 +2240,8 @@ lor.lhs.false4:                                   ; preds = %lor.lhs.false, %lan
 if.end:                                           ; preds = %lor.lhs.false4, %land.lhs.true, %lor.lhs.false
   %2 = getelementptr i8, ptr %args, i64 16
   %args.val = load i64, ptr %2, align 8
-  %cmp9 = icmp ult i64 %args.val, 2
-  br i1 %cmp9, label %if.end15, label %lor.lhs.false10
+  %or.cond12 = icmp ult i64 %args.val, 2
+  br i1 %or.cond12, label %if.end15, label %lor.lhs.false10
 
 lor.lhs.false10:                                  ; preds = %if.end
   %call12 = tail call i32 @_PyArg_CheckPositional(ptr noundef nonnull @.str.3, i64 noundef %args.val, i64 noundef 0, i64 noundef 1) #8
@@ -2879,7 +2879,7 @@ if.end.i:                                         ; preds = %if.end23
   %interp.i.i.i = getelementptr inbounds i8, ptr %11, i64 16
   %12 = load ptr, ptr %interp.i.i.i, align 8
   %13 = add nsw i64 %add, -1
-  %or.cond.i.i = icmp ult i64 %add, 20
+  %or.cond.i.i = icmp samesign ult i64 %add, 20
   br i1 %or.cond.i.i, label %if.then2.i.i, label %if.then2.i
 
 if.then2.i.i:                                     ; preds = %if.end.i
@@ -2902,7 +2902,7 @@ tuple_alloc.exit.thread55:                        ; preds = %if.then2.i.i
   br label %if.end27
 
 if.then2.i:                                       ; preds = %if.end.i
-  %cmp3.i = icmp ugt i64 %add, 1152921504606846972
+  %cmp3.i = icmp samesign ugt i64 %add, 1152921504606846972
   br i1 %cmp3.i, label %if.then4.i, label %if.end6.i
 
 if.then4.i:                                       ; preds = %if.then2.i
@@ -3081,7 +3081,7 @@ tuple_alloc.exit.thread41:                        ; preds = %if.then2.i.i
   br label %if.end19
 
 if.then2.i:                                       ; preds = %if.end.i
-  %cmp3.i = icmp ugt i64 %mul, 1152921504606846972
+  %cmp3.i = icmp samesign ugt i64 %mul, 1152921504606846972
   br i1 %cmp3.i, label %if.then4.i, label %if.end6.i
 
 if.then4.i:                                       ; preds = %if.then2.i
@@ -3389,7 +3389,7 @@ if.end.i32:                                       ; preds = %if.else23, %land.lh
   %interp.i.i.i = getelementptr inbounds i8, ptr %15, i64 16
   %16 = load ptr, ptr %interp.i.i.i, align 8
   %17 = add nsw i64 %call19, -1
-  %or.cond.i.i = icmp ult i64 %call19, 20
+  %or.cond.i.i = icmp samesign ult i64 %call19, 20
   br i1 %or.cond.i.i, label %if.then2.i.i, label %if.then2.i
 
 if.then2.i.i:                                     ; preds = %if.end.i32
@@ -3412,7 +3412,7 @@ tuple_alloc.exit.thread:                          ; preds = %if.then2.i.i
   br label %for.body.preheader
 
 if.then2.i:                                       ; preds = %if.end.i32
-  %cmp3.i = icmp ugt i64 %call19, 1152921504606846972
+  %cmp3.i = icmp samesign ugt i64 %call19, 1152921504606846972
   br i1 %cmp3.i, label %if.then4.i, label %if.end6.i
 
 if.then4.i:                                       ; preds = %if.then2.i

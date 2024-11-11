@@ -3517,7 +3517,7 @@ define linkonce_odr ptr @_ZNSt6vectorISt4pairIiiESaIS1_EE14_M_insert_rvalEN9__gn
   %34 = getelementptr inbounds i8, ptr %.069.i.i.i.i.i.i, i64 -4
   store i32 %33, ptr %34, align 4
   %35 = add nsw i64 %.010.i.i.i.i.i.i, -1
-  %36 = icmp ugt i64 %.010.i.i.i.i.i.i, 1
+  %36 = icmp samesign ugt i64 %.010.i.i.i.i.i.i, 1
   br i1 %36, label %.lr.ph.i.i.i.i.i.i, label %_ZNSt6vectorISt4pairIiiESaIS1_EE13_M_insert_auxIS1_EEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEOT_.exit, !llvm.loop !43
 
 _ZNSt6vectorISt4pairIiiESaIS1_EE13_M_insert_auxIS1_EEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEOT_.exit: ; preds = %.lr.ph.i.i.i.i.i.i, %18

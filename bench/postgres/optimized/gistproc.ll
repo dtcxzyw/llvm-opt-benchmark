@@ -1310,7 +1310,7 @@ float8_mi.exit:                                   ; preds = %411
   store double %422, ptr %429, align 8
   %430 = add i16 %.3239351, 1
   %431 = zext i16 %430 to i32
-  %432 = icmp ugt i32 %.1242, %431
+  %432 = icmp samesign ugt i32 %.1242, %431
   br i1 %432, label %411, label %433, !llvm.loop !16
 
 433:                                              ; preds = %float8_mi.exit
@@ -1696,7 +1696,7 @@ adjustBox.exit302:                                ; preds = %612, %float8_gt.exi
   store i16 %.sink, ptr %620, align 2
   %621 = add i16 %.4352, 1
   %622 = zext i16 %621 to i32
-  %623 = icmp ugt i32 %.1242, %622
+  %623 = icmp samesign ugt i32 %.1242, %622
   br i1 %623, label %441, label %.loopexit, !llvm.loop !17
 
 .loopexit:                                        ; preds = %618, %282, %._crit_edge349

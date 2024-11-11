@@ -287,7 +287,7 @@ _ZNSt12_Vector_baseIfSaIfEE11_M_allocateEm.exit.i59: ; preds = %_ZNSt12_Vector_b
           to label %_ZNSt6vectorIfSaIfEE7reserveEm.exit65 unwind label %.thread
 
 _ZNSt6vectorIfSaIfEE7reserveEm.exit65:            ; preds = %_ZNSt12_Vector_baseIfSaIfEE11_M_allocateEm.exit.i59
-  %.not211 = icmp ult i64 %10, 2
+  %.not211 = icmp samesign ult i64 %10, 2
   br i1 %.not211, label %_ZNSt6vectorIfSaIfEE7reserveEm.exit65.._crit_edge_crit_edge, label %.lr.ph
 
 _ZNSt6vectorIfSaIfEE7reserveEm.exit65.._crit_edge_crit_edge: ; preds = %_ZNSt6vectorIfSaIfEE7reserveEm.exit, %_ZNSt6vectorIfSaIfEE7reserveEm.exit65
@@ -19862,7 +19862,7 @@ _ZNK9__gnu_cxx5__ops15_Iter_less_iterclINS_17__normal_iteratorIPN2cv8ximgproc7El
   %44 = getelementptr inbounds i8, ptr %.078.i.i.i.i.i.i, i64 -24
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %43, ptr noundef nonnull align 8 dereferenceable(24) %44, i64 24, i1 false)
   %45 = add nsw i64 %.010.i.i.i.i.i.i, -1
-  %46 = icmp ugt i64 %.010.i.i.i.i.i.i, 1
+  %46 = icmp samesign ugt i64 %.010.i.i.i.i.i.i, 1
   br i1 %46, label %.lr.ph.i.i.i.i.i.i, label %.loopexit.i, !llvm.loop !146
 
 .loopexit.i:                                      ; preds = %.lr.ph.i.i.i.i.i.i
@@ -20747,7 +20747,7 @@ _ZNK9__gnu_cxx5__ops15_Iter_less_iterclINS_17__normal_iteratorIPN2cv8ximgproc7El
   %39 = getelementptr inbounds i8, ptr %.078.i.i.i.i.i, i64 -24
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %38, ptr noundef nonnull align 8 dereferenceable(24) %39, i64 24, i1 false)
   %40 = add nsw i64 %.010.i.i.i.i.i, -1
-  %41 = icmp ugt i64 %.010.i.i.i.i.i, 1
+  %41 = icmp samesign ugt i64 %.010.i.i.i.i.i, 1
   br i1 %41, label %.lr.ph.i.i.i.i.i, label %.loopexit, !llvm.loop !146
 
 .loopexit:                                        ; preds = %.lr.ph.i.i.i.i.i, %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclINS_17__normal_iteratorIPN2cv8ximgproc7EllipseESt6vectorIS6_SaIS6_EEEESB_EEbT_T0_.exit._crit_edge

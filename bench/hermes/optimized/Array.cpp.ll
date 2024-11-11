@@ -1633,8 +1633,8 @@ if.end135:                                        ; preds = %if.end129
   %endIndex_.i = getelementptr inbounds i8, ptr %57, i64 24
   %58 = load i32, ptr %endIndex_.i, align 4
   %conv139 = zext i32 %58 to i64
-  %cmp140 = icmp ugt i64 %add, %conv139
-  %cmp143 = icmp ult i64 %add, 4294967295
+  %cmp140 = icmp samesign ugt i64 %add, %conv139
+  %cmp143 = icmp samesign ult i64 %add, 4294967295
   %or.cond = and i1 %cmp143, %cmp140
   br i1 %or.cond, label %if.then145, label %if.end157
 
@@ -1849,7 +1849,7 @@ if.then257:                                       ; preds = %if.else254
   br label %cleanup
 
 if.end260:                                        ; preds = %if.else254
-  %cmp261 = icmp ult i64 %n.0380, 4294967295
+  %cmp261 = icmp samesign ult i64 %n.0380, 4294967295
   br i1 %cmp261, label %if.then263, label %if.else271
 
 if.then263:                                       ; preds = %if.end260
@@ -4542,7 +4542,7 @@ if.end223:                                        ; preds = %_ZN6hermes2vm15Hand
   %59 = load i32, ptr %argCount_.i, align 8
   %spec.select = call i32 @llvm.usub.sat.i32(i32 %59, i32 2)
   %conv232 = zext i32 %spec.select to i64
-  %cmp233 = icmp ugt i64 %actualDeleteCount.0, %conv232
+  %cmp233 = icmp samesign ugt i64 %actualDeleteCount.0, %conv232
   br i1 %cmp233, label %for.cond236.preheader, label %if.else370
 
 for.cond236.preheader:                            ; preds = %if.end223
@@ -4646,7 +4646,7 @@ if.end360:                                        ; preds = %while.body
   br i1 %cmp343, label %while.body, label %if.end472, !llvm.loop !74
 
 if.else370:                                       ; preds = %if.end223
-  %cmp372 = icmp ult i64 %actualDeleteCount.0, %conv232
+  %cmp372 = icmp samesign ult i64 %actualDeleteCount.0, %conv232
   br i1 %cmp372, label %if.then373, label %if.end472
 
 if.then373:                                       ; preds = %if.else370
@@ -11886,7 +11886,7 @@ for.body.i.i.i.i.i.i:                             ; preds = %for.body.i.i.i.i.i.
   %incdec.ptr.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__first.addr.07.i.i.i.i.i.i, i64 1
   %incdec.ptr1.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__result.addr.08.i.i.i.i.i.i, i64 2
   %dec.i.i.i.i.i.i = add nsw i64 %__n.09.i.i.i.i.i.i, -1
-  %cmp.i.i.i.i.i.i = icmp ugt i64 %__n.09.i.i.i.i.i.i, 1
+  %cmp.i.i.i.i.i.i = icmp samesign ugt i64 %__n.09.i.i.i.i.i.i, 1
   br i1 %cmp.i.i.i.i.i.i, label %for.body.i.i.i.i.i.i, label %_ZN6hermes2vm13StringBuilder14appendASCIIRefEN4llvh8ArrayRefIcEE.exit, !llvm.loop !157
 
 _ZN6hermes2vm13StringBuilder14appendASCIIRefEN4llvh8ArrayRefIcEE.exit: ; preds = %for.body.i.i.i.i.i.i, %_ZN6hermes2vm15StringPrimitive26castToASCIIPointerForWriteEv.exit.i, %if.then.i.i.i.i.i.i, %_ZN6hermes2vm15StringPrimitive26castToUTF16PointerForWriteEv.exit.i
@@ -12100,7 +12100,7 @@ for.body.i.i.i.i.i.i85:                           ; preds = %_ZN6hermes2vm15Stri
   %incdec.ptr.i.i.i.i.i.i90 = getelementptr inbounds i8, ptr %__first.addr.07.i.i.i.i.i.i88, i64 1
   %incdec.ptr1.i.i.i.i.i.i91 = getelementptr inbounds i8, ptr %__result.addr.08.i.i.i.i.i.i87, i64 2
   %dec.i.i.i.i.i.i92 = add nsw i64 %__n.09.i.i.i.i.i.i86, -1
-  %cmp.i.i.i.i.i.i93 = icmp ugt i64 %__n.09.i.i.i.i.i.i86, 1
+  %cmp.i.i.i.i.i.i93 = icmp samesign ugt i64 %__n.09.i.i.i.i.i.i86, 1
   br i1 %cmp.i.i.i.i.i.i93, label %for.body.i.i.i.i.i.i85, label %_ZN6hermes2vm13StringBuilder14appendASCIIRefEN4llvh8ArrayRefIcEE.exit116, !llvm.loop !157
 
 _ZN6hermes2vm13StringBuilder14appendASCIIRefEN4llvh8ArrayRefIcEE.exit116: ; preds = %for.body.i.i.i.i.i.i85, %_ZN6hermes2vm15StringPrimitive26castToASCIIPointerForWriteEv.exit.i104, %if.then.i.i.i.i.i.i107, %_ZN6hermes2vm15StringPrimitive26castToUTF16PointerForWriteEv.exit.i76
@@ -12320,7 +12320,7 @@ for.body.i.i.i.i.i.i:                             ; preds = %_ZN6hermes2vm15Stri
   %incdec.ptr.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__first.addr.07.i.i.i.i.i.i, i64 1
   %incdec.ptr1.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__result.addr.08.i.i.i.i.i.i, i64 2
   %dec.i.i.i.i.i.i = add nsw i64 %__n.09.i.i.i.i.i.i, -1
-  %cmp.i.i.i.i.i.i = icmp ugt i64 %__n.09.i.i.i.i.i.i, 1
+  %cmp.i.i.i.i.i.i = icmp samesign ugt i64 %__n.09.i.i.i.i.i.i, 1
   br i1 %cmp.i.i.i.i.i.i, label %for.body.i.i.i.i.i.i, label %_ZN6hermes2vm13StringBuilder14appendASCIIRefEN4llvh8ArrayRefIcEE.exit, !llvm.loop !157
 
 _ZN6hermes2vm13StringBuilder14appendASCIIRefEN4llvh8ArrayRefIcEE.exit: ; preds = %for.body.i.i.i.i.i.i, %_ZN6hermes2vm15StringPrimitive26castToASCIIPointerForWriteEv.exit.i, %if.then.i.i.i.i.i.i, %_ZN6hermes2vm15StringPrimitive26castToUTF16PointerForWriteEv.exit.i

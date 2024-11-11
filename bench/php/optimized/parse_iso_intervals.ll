@@ -191,7 +191,7 @@ add_error.exit:                                   ; preds = %.loopexit244
   br i1 %103, label %104, label %112
 
 104:                                              ; preds = %.lr.ph.i
-  %105 = icmp ult i8 %102, 11
+  %105 = icmp samesign ult i8 %102, 11
   br i1 %105, label %106, label %111
 
 106:                                              ; preds = %104
@@ -199,7 +199,7 @@ add_error.exit:                                   ; preds = %.loopexit244
   br i1 %107, label %250, label %108
 
 108:                                              ; preds = %106
-  %109 = icmp ult i8 %102, 9
+  %109 = icmp samesign ult i8 %102, 9
   br i1 %109, label %252, label %110
 
 110:                                              ; preds = %108
@@ -221,11 +221,11 @@ add_error.exit:                                   ; preds = %.loopexit244
   br i1 %115, label %252, label %116
 
 116:                                              ; preds = %114
-  %117 = icmp ult i8 %102, 48
+  %117 = icmp samesign ult i8 %102, 48
   br i1 %117, label %248, label %118
 
 118:                                              ; preds = %116
-  %119 = icmp ult i8 %102, 58
+  %119 = icmp samesign ult i8 %102, 58
   br i1 %119, label %153, label %252
 
 120:                                              ; preds = %112
@@ -483,11 +483,11 @@ add_error.exit601.i:                              ; preds = %204
   br i1 %257, label %258, label %264
 
 258:                                              ; preds = %254
-  %259 = icmp ult i8 %256, 58
+  %259 = icmp samesign ult i8 %256, 58
   br i1 %259, label %260, label %262
 
 260:                                              ; preds = %258
-  %261 = icmp ugt i8 %256, 47
+  %261 = icmp samesign ugt i8 %256, 47
   br i1 %261, label %322, label %.thread603.i
 
 262:                                              ; preds = %258
@@ -625,11 +625,11 @@ add_error.exit601.i:                              ; preds = %204
   br i1 %325, label %326, label %332
 
 326:                                              ; preds = %322
-  %327 = icmp ult i8 %324, 58
+  %327 = icmp samesign ult i8 %324, 58
   br i1 %327, label %328, label %330
 
 328:                                              ; preds = %326
-  %329 = icmp ult i8 %324, 48
+  %329 = icmp samesign ult i8 %324, 48
   br i1 %329, label %.thread603.i, label %399
 
 330:                                              ; preds = %326
@@ -709,11 +709,11 @@ add_error.exit601.i:                              ; preds = %204
   br i1 %367, label %368, label %373
 
 368:                                              ; preds = %365
-  %369 = icmp ult i8 %366, 48
+  %369 = icmp samesign ult i8 %366, 48
   br i1 %369, label %.thread603.i, label %370
 
 370:                                              ; preds = %368
-  %371 = icmp ult i8 %366, 58
+  %371 = icmp samesign ult i8 %366, 58
   br i1 %371, label %.preheader616.i, label %372
 
 372:                                              ; preds = %370
@@ -784,11 +784,11 @@ add_error.exit601.i:                              ; preds = %204
   br i1 %402, label %403, label %409
 
 403:                                              ; preds = %399
-  %404 = icmp ult i8 %401, 58
+  %404 = icmp samesign ult i8 %401, 58
   br i1 %404, label %405, label %407
 
 405:                                              ; preds = %403
-  %406 = icmp ult i8 %401, 48
+  %406 = icmp samesign ult i8 %401, 48
   br i1 %406, label %.thread603.i, label %414
 
 407:                                              ; preds = %403

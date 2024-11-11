@@ -45959,7 +45959,7 @@ _ZN4llvm14FunctionCalleeC2INS_8FunctionEMS2_KFPNS_12FunctionTypeEvEEEPT_.exit486
   br i1 %or.cond36, label %1012, label %1026
 
 1012:                                             ; preds = %1010
-  %or.cond27 = icmp ult i32 %1011, 3
+  %or.cond27 = icmp samesign ult i32 %1011, 3
   %spec.select = select i1 %or.cond27, i32 1, i32 2
   switch i32 %1, label %1021 [
     i32 2626, label %1013
@@ -105193,7 +105193,7 @@ _ZN4llvm14FunctionCalleeC2INS_8FunctionEMS2_KFPNS_12FunctionTypeEvEEEPT_.exit138
   br i1 %switch1231, label %1916, label %1935
 
 1916:                                             ; preds = %1915
-  %switch1233 = icmp ult i32 %.off, 4
+  %switch1233 = icmp samesign ult i32 %.off, 4
   %spec.select1234 = select i1 %switch1233, i32 1, i32 2
   %1917 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %1918 = load ptr, ptr %1917, align 8
@@ -105676,7 +105676,7 @@ _ZN4llvm14FunctionCalleeC2INS_8FunctionEMS2_KFPNS_12FunctionTypeEvEEEPT_.exit142
 
 2226:                                             ; preds = %2225, %2225, %2225, %2225
   %2227 = add nsw i32 %1, -11323
-  %or.cond73 = icmp ult i32 %2227, 2
+  %or.cond73 = icmp samesign ult i32 %2227, 2
   %2228 = load i32, ptr %2, align 8
   %2229 = lshr i32 %2228, 24
   %2230 = zext nneg i32 %2229 to i64
@@ -108885,7 +108885,7 @@ _ZN4llvm14FunctionCalleeC2INS_8FunctionEMS2_KFPNS_12FunctionTypeEvEEEPT_.exit156
   store ptr %4346, ptr %4348, align 8
   call void @_ZN4llvm23SmallVectorTemplateBaseIPNS_5ValueELb1EE8pop_backEv(ptr noundef nonnull align 8 dereferenceable(16) %210)
   %4349 = add nsw i32 %.01141, -2007
-  %4350 = icmp ult i32 %4349, 2
+  %4350 = icmp samesign ult i32 %4349, 2
   %4351 = select i1 %4350, i32 644, i32 663
   %4352 = load ptr, ptr %2408, align 8
   %4353 = load ptr, ptr %4330, align 8
@@ -122293,7 +122293,7 @@ _ZN4llvm14FunctionCalleeC2INS_9InlineAsmEMS2_KFPNS_12FunctionTypeEvEEEPT_.exit: 
   store i16 257, ptr %2786, align 8
   %2787 = call noundef ptr @_ZN4llvm13IRBuilderBase13CreateIntCastEPNS_5ValueEPNS_4TypeEbRKNS_5TwineE(ptr noundef nonnull align 8 dereferenceable(128) %2765, ptr noundef %.0784, ptr noundef %2757, i1 noundef zeroext %2764, ptr noundef nonnull align 8 dereferenceable(34) %203)
   %2788 = add nsw i32 %1, -3491
-  %or.cond5 = icmp ult i32 %2788, 2
+  %or.cond5 = icmp samesign ult i32 %2788, 2
   br i1 %or.cond5, label %.loopexit, label %2789
 
 2789:                                             ; preds = %2785
@@ -124736,7 +124736,7 @@ define internal fastcc noundef ptr @_ZL16EmitX86MaskLogicRN5clang7CodeGen15CodeG
   br i1 %31, label %.preheader.i, label %_ZL15getMaskVecValueRN5clang7CodeGen15CodeGenFunctionEPN4llvm5ValueEj.exit
 
 .preheader.i:                                     ; preds = %4
-  %.not17.i = icmp ult i32 %18, 256
+  %.not17.i = icmp samesign ult i32 %18, 256
   br i1 %.not17.i, label %._crit_edge.i, label %.lr.ph.preheader.i
 
 .lr.ph.preheader.i:                               ; preds = %.preheader.i
@@ -124786,7 +124786,7 @@ _ZL15getMaskVecValueRN5clang7CodeGen15CodeGenFunctionEPN4llvm5ValueEj.exit: ; pr
   br i1 %31, label %.preheader.i12, label %_ZL15getMaskVecValueRN5clang7CodeGen15CodeGenFunctionEPN4llvm5ValueEj.exit21
 
 .preheader.i12:                                   ; preds = %_ZL15getMaskVecValueRN5clang7CodeGen15CodeGenFunctionEPN4llvm5ValueEj.exit
-  %.not17.i13 = icmp ult i32 %18, 256
+  %.not17.i13 = icmp samesign ult i32 %18, 256
   br i1 %.not17.i13, label %._crit_edge.i19, label %.lr.ph.preheader.i14
 
 .lr.ph.preheader.i14:                             ; preds = %.preheader.i12
@@ -128198,7 +128198,7 @@ _ZN4llvm14FunctionCalleeC2INS_8FunctionEMS2_KFPNS_12FunctionTypeEvEEEPT_.exit174
   %1122 = load ptr, ptr %1121, align 8
   %1123 = tail call noundef ptr @_ZN5clang7CodeGen15CodeGenFunction14EmitScalarExprEPKNS_4ExprEb(ptr noundef nonnull align 8 dereferenceable(6488) %0, ptr noundef %1122, i1 noundef zeroext false) #24
   %1124 = add nsw i32 %1, -1853
-  %1125 = icmp ult i32 %1124, 2
+  %1125 = icmp samesign ult i32 %1124, 2
   %1126 = and i32 %1, -3
   %1127 = icmp eq i32 %1126, 1853
   %1128 = load i8, ptr %1123, align 8
@@ -129104,7 +129104,7 @@ _ZN4llvm14FunctionCalleeC2INS_8FunctionEMS2_KFPNS_12FunctionTypeEvEEEPT_.exit178
 
 1740:                                             ; preds = %1733
   %1741 = add nsw i32 %1, -1889
-  %or.cond11 = icmp ult i32 %1741, 2
+  %or.cond11 = icmp samesign ult i32 %1741, 2
   br i1 %or.cond11, label %1742, label %1747
 
 1742:                                             ; preds = %1740
@@ -133168,7 +133168,7 @@ _ZN4llvm4sortIRNS_11SmallVectorISt4pairINS_9StringRefES3_ELj3EEEEEvOT_.exit: ; p
   %58 = getelementptr inbounds i8, ptr %.0910.i.i.i.i.i.i, i64 32
   %59 = getelementptr inbounds i8, ptr %.0811.i.i.i.i.i.i, i64 32
   %60 = add nsw i64 %.012.i.i.i.i.i.i, -1
-  %61 = icmp ugt i64 %.012.i.i.i.i.i.i, 1
+  %61 = icmp samesign ugt i64 %.012.i.i.i.i.i.i, 1
   br i1 %61, label %.lr.ph.i.i.i.i.i.i, label %_ZN4llvm15SmallVectorImplISt4pairINS_9StringRefES2_EE5eraseEPKS3_S6_.exit, !llvm.loop !1248
 
 _ZN4llvm15SmallVectorImplISt4pairINS_9StringRefES2_EE5eraseEPKS3_S6_.exit: ; preds = %.lr.ph.i.i.i.i.i.i, %_ZN4llvm4sortIRNS_11SmallVectorISt4pairINS_9StringRefES3_ELj3EEEEEvOT_.exit
@@ -274227,7 +274227,7 @@ define linkonce_odr void @_ZSt22__final_insertion_sortIPSt4pairIN4llvm9StringRef
   %19 = getelementptr inbounds i8, ptr %.069.i.i.i.i.i.i, i64 -16
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %19, ptr noundef nonnull align 8 dereferenceable(16) %18, i64 16, i1 false)
   %20 = add nsw i64 %.010.i.i.i.i.i.i, -1
-  %21 = icmp ugt i64 %.010.i.i.i.i.i.i, 1
+  %21 = icmp samesign ugt i64 %.010.i.i.i.i.i.i, 1
   br i1 %21, label %.lr.ph.i.i.i.i.i.i, label %_ZSt13move_backwardIPSt4pairIN4llvm9StringRefES2_ES4_ET0_T_S6_S5_.exit.i, !llvm.loop !1340
 
 _ZSt13move_backwardIPSt4pairIN4llvm9StringRefES2_ES4_ET0_T_S6_S5_.exit.i: ; preds = %.lr.ph.i.i.i.i.i.i
@@ -274301,7 +274301,7 @@ _ZSt16__insertion_sortIPSt4pairIN4llvm9StringRefES2_EN9__gnu_cxx5__ops15_Iter_le
   %41 = getelementptr inbounds i8, ptr %.069.i.i.i.i.i.i19, i64 -16
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %41, ptr noundef nonnull align 8 dereferenceable(16) %40, i64 16, i1 false)
   %42 = add nsw i64 %.010.i.i.i.i.i.i18, -1
-  %43 = icmp ugt i64 %.010.i.i.i.i.i.i18, 1
+  %43 = icmp samesign ugt i64 %.010.i.i.i.i.i.i18, 1
   br i1 %43, label %.lr.ph.i.i.i.i.i.i17, label %_ZSt13move_backwardIPSt4pairIN4llvm9StringRefES2_ES4_ET0_T_S6_S5_.exit.i15, !llvm.loop !1340
 
 _ZSt13move_backwardIPSt4pairIN4llvm9StringRefES2_ES4_ET0_T_S6_S5_.exit.i15: ; preds = %.lr.ph.i.i.i.i.i.i17, %32

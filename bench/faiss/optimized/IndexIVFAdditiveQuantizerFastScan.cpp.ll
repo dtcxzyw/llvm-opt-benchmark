@@ -584,7 +584,7 @@ _ZNSt6vectorIfSaIfEED2Ev.exit46:                  ; preds = %83, %_ZNSt6vectorIf
   %111 = getelementptr inbounds i64, ptr %110, i64 %.029
   %112 = load i64, ptr %111, align 8
   call void @_ZNK5faiss15Level1Quantizer13encode_listnoElPh(ptr noundef nonnull align 8 dereferenceable(72) %97, i64 noundef %112, ptr noundef %106)
-  %113 = icmp ugt i64 %.029.in54, 1
+  %113 = icmp samesign ugt i64 %.029.in54, 1
   br i1 %113, label %102, label %.loopexit, !llvm.loop !8
 
 .loopexit:                                        ; preds = %102, %18, %96, %_ZNSt6vectorIfSaIfEED2Ev.exit46

@@ -4155,7 +4155,7 @@ switch.early.test.thread:                         ; preds = %140, %switch.early.
   br label %.invoke86
 
 138:                                              ; preds = %_ZN6parser6parser6Parser3nth17hd61dceb9a6b1841bE.exit22.thread
-  %139 = icmp ult i32 %101, 15000001
+  %139 = icmp samesign ult i32 %101, 15000001
   br i1 %139, label %140, label %143
 
 140:                                              ; preds = %138

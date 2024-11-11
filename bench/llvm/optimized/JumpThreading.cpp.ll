@@ -4396,7 +4396,7 @@ define internal fastcc void @"_ZN4llvm8erase_ifINS_15SmallVectorImplISt4pairIPNS
   %60 = getelementptr inbounds i8, ptr %.0910.i.i.i.i.i.i, i64 16
   %61 = getelementptr inbounds i8, ptr %.0811.i.i.i.i.i.i, i64 16
   %62 = add nsw i64 %.012.i.i.i.i.i.i, -1
-  %63 = icmp ugt i64 %.012.i.i.i.i.i.i, 1
+  %63 = icmp samesign ugt i64 %.012.i.i.i.i.i.i, 1
   br i1 %63, label %.lr.ph.i.i.i.i.i.i, label %_ZN4llvm15SmallVectorImplISt4pairIPNS_8ConstantEPNS_10BasicBlockEEE5eraseEPKS6_S9_.exit, !llvm.loop !55
 
 _ZN4llvm15SmallVectorImplISt4pairIPNS_8ConstantEPNS_10BasicBlockEEE5eraseEPKS6_S9_.exit: ; preds = %.lr.ph.i.i.i.i.i.i, %"_ZN4llvm9remove_ifIRNS_15SmallVectorImplISt4pairIPNS_8ConstantEPNS_10BasicBlockEEEEZNS_17JumpThreadingPass35computeValueKnownInPredecessorsImplEPNS_5ValueES6_S9_NS_13jumpthreading18ConstantPreferenceERNS_11SmallPtrSetISC_Lj4EEEPNS_11InstructionEE3$_0EEDaOT_T0_.exit"
@@ -7488,7 +7488,7 @@ _ZNKSt8_Rb_treeIN4llvm11AssertingVHIKNS0_10BasicBlockEEES4_St9_IdentityIS4_ESt4l
   %528 = getelementptr inbounds i8, ptr %.0910.i.i.i.i.i.i.i, i64 16
   %529 = getelementptr inbounds i8, ptr %.0811.i.i.i.i.i.i.i, i64 16
   %530 = add nsw i64 %.012.i.i.i.i.i.i.i, -1
-  %531 = icmp ugt i64 %.012.i.i.i.i.i.i.i, 1
+  %531 = icmp samesign ugt i64 %.012.i.i.i.i.i.i.i, 1
   br i1 %531, label %.lr.ph.i.i.i.i.i.i.i, label %"_ZN4llvm8erase_ifINS_11SmallVectorISt4pairIPNS_10BasicBlockES4_ELj16EEEZNS_17JumpThreadingPass22processThreadableEdgesEPNS_5ValueES4_NS_13jumpthreading18ConstantPreferenceEPNS_11InstructionEE3$_0EEvRT_T0_.exit", !llvm.loop !98
 
 "_ZN4llvm8erase_ifINS_11SmallVectorISt4pairIPNS_10BasicBlockES4_ELj16EEEZNS_17JumpThreadingPass22processThreadableEdgesEPNS_5ValueES4_NS_13jumpthreading18ConstantPreferenceEPNS_11InstructionEE3$_0EEvRT_T0_.exit": ; preds = %.lr.ph.i.i.i.i.i.i.i, %"_ZN4llvm9remove_ifIRNS_11SmallVectorISt4pairIPNS_10BasicBlockES4_ELj16EEEZNS_17JumpThreadingPass22processThreadableEdgesEPNS_5ValueES4_NS_13jumpthreading18ConstantPreferenceEPNS_11InstructionEE3$_0EEDaOT_T0_.exit.i"
@@ -18846,7 +18846,7 @@ _ZN4llvm15SmallVectorImplIPKNS_5ValueEE7reserveEm.exit: ; preds = %3, %12
   %19 = getelementptr inbounds i8, ptr %.sroa.05.08.i.i.i.i.i.i.i.i, i64 32
   %20 = getelementptr inbounds i8, ptr %.049.i.i.i.i.i.i.i.i, i64 8
   %21 = add nsw i64 %.010.i.i.i.i.i.i.i.i, -1
-  %22 = icmp ugt i64 %.010.i.i.i.i.i.i.i.i, 1
+  %22 = icmp samesign ugt i64 %.010.i.i.i.i.i.i.i.i, 1
   br i1 %22, label %.lr.ph.i.i.i.i.i.i.i.i, label %_ZN4llvm23SmallVectorTemplateBaseIPKNS_5ValueELb1EE18uninitialized_copyINS_4User23const_value_op_iteratorEPS3_EEvT_S9_T0_.exit, !llvm.loop !303
 
 _ZN4llvm23SmallVectorTemplateBaseIPKNS_5ValueELb1EE18uninitialized_copyINS_4User23const_value_op_iteratorEPS3_EEvT_S9_T0_.exit: ; preds = %.lr.ph.i.i.i.i.i.i.i.i, %_ZN4llvm15SmallVectorImplIPKNS_5ValueEE7reserveEm.exit

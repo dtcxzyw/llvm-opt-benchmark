@@ -264,7 +264,7 @@ define dso_local i32 @uv__udp_bind(ptr nocapture noundef %0, ptr noundef %1, i32
 
 23:                                               ; preds = %22, %13
   %.030 = phi i32 [ %20, %22 ], [ %15, %13 ]
-  %.not37 = icmp ult i32 %3, 32
+  %.not37 = icmp samesign ult i32 %3, 32
   br i1 %.not37, label %33, label %24
 
 24:                                               ; preds = %23

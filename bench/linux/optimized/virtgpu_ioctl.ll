@@ -1062,7 +1062,7 @@ define internal i32 @virtio_gpu_resource_create_blob_ioctl(ptr nocapture noundef
   br i1 %18, label %19, label %.thread11
 
 19:                                               ; preds = %15
-  %20 = icmp ult i32 %17, 4
+  %20 = icmp samesign ult i32 %17, 4
   br i1 %20, label %25, label %21
 
 21:                                               ; preds = %19

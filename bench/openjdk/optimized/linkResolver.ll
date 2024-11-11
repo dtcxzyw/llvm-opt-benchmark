@@ -5547,7 +5547,7 @@ _ZN8CallInfo11set_virtualEP5KlassRK12methodHandleS4_iP10JavaThread.exit: ; preds
   br i1 %brmerge63, label %_ZN12ResourceMarkD2Ev.exit70, label %221
 
 192:                                              ; preds = %.critedge60
-  %193 = icmp ult i32 %174, -9
+  %193 = icmp samesign ult i32 %174, -9
   br i1 %193, label %194, label %208
 
 194:                                              ; preds = %192

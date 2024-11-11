@@ -535,7 +535,7 @@ define internal fastcc void @_ZL18expandMOVImmSimplemjjjRN4llvm15SmallVectorImpl
 30:                                               ; preds = %23
   %spec.select48 = xor i64 %.1, %10
   %31 = select i1 %11, i32 4775, i32 4776
-  %32 = icmp ult i32 %.045, %.044
+  %32 = icmp samesign ult i32 %.045, %.044
   br i1 %32, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %30
@@ -590,7 +590,7 @@ define internal fastcc void @_ZL18expandMOVImmSimplemjjjRN4llvm15SmallVectorImpl
   %57 = add i64 %56, -1
   call void @_ZN4llvm15SmallVectorBaseIjE8set_sizeEm(ptr noundef nonnull align 8 dereferenceable(16) %4, i64 noundef %57) #9
   %58 = add nsw i32 %.050, -1
-  %59 = icmp ugt i32 %.050, 3
+  %59 = icmp samesign ugt i32 %.050, 3
   br i1 %59, label %.lr.ph52, label %._crit_edge53, !llvm.loop !10
 
 ._crit_edge53:                                    ; preds = %.lr.ph52, %52

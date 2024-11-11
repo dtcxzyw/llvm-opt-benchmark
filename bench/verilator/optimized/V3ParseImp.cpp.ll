@@ -5933,7 +5933,7 @@ _ZNKSt5dequeI19V3ParseBisonYYSTypeSaIS0_EE14_M_range_checkEm.exit.i: ; preds = %
   br i1 %48, label %49, label %55
 
 49:                                               ; preds = %_ZNKSt5dequeI19V3ParseBisonYYSTypeSaIS0_EE14_M_range_checkEm.exit.i
-  %50 = icmp ult i64 %47, 16
+  %50 = icmp samesign ult i64 %47, 16
   br i1 %50, label %51, label %53
 
 51:                                               ; preds = %49
@@ -6036,7 +6036,7 @@ _ZNKSt5dequeI19V3ParseBisonYYSTypeSaIS0_EE14_M_range_checkEm.exit.i.i: ; preds =
   br i1 %49, label %50, label %56
 
 50:                                               ; preds = %_ZNKSt5dequeI19V3ParseBisonYYSTypeSaIS0_EE14_M_range_checkEm.exit.i.i
-  %51 = icmp ult i64 %48, 16
+  %51 = icmp samesign ult i64 %48, 16
   br i1 %51, label %52, label %54
 
 52:                                               ; preds = %50
@@ -6155,7 +6155,7 @@ _ZNKSt5dequeI19V3ParseBisonYYSTypeSaIS0_EE14_M_range_checkEm.exit.i.i28: ; preds
   br i1 %115, label %116, label %122
 
 116:                                              ; preds = %_ZNKSt5dequeI19V3ParseBisonYYSTypeSaIS0_EE14_M_range_checkEm.exit.i.i28
-  %117 = icmp ult i64 %114, 16
+  %117 = icmp samesign ult i64 %114, 16
   br i1 %117, label %118, label %120
 
 118:                                              ; preds = %116
@@ -6436,7 +6436,7 @@ _ZNKSt5dequeI19V3ParseBisonYYSTypeSaIS0_EE14_M_range_checkEm.exit.i.i35: ; preds
   br i1 %274, label %275, label %281
 
 275:                                              ; preds = %_ZNKSt5dequeI19V3ParseBisonYYSTypeSaIS0_EE14_M_range_checkEm.exit.i.i35
-  %276 = icmp ult i64 %273, 16
+  %276 = icmp samesign ult i64 %273, 16
   br i1 %276, label %277, label %279
 
 277:                                              ; preds = %275
@@ -6592,7 +6592,7 @@ _ZNKSt5dequeI19V3ParseBisonYYSTypeSaIS0_EE14_M_range_checkEm.exit.i.i: ; preds =
   br i1 %49, label %50, label %56
 
 50:                                               ; preds = %_ZNKSt5dequeI19V3ParseBisonYYSTypeSaIS0_EE14_M_range_checkEm.exit.i.i
-  %51 = icmp ult i64 %48, 16
+  %51 = icmp samesign ult i64 %48, 16
   br i1 %51, label %52, label %54
 
 52:                                               ; preds = %50
@@ -6883,7 +6883,7 @@ _ZNKSt5dequeI19V3ParseBisonYYSTypeSaIS0_EE14_M_range_checkEm.exit.i.i25: ; preds
   br i1 %206, label %207, label %213
 
 207:                                              ; preds = %_ZNKSt5dequeI19V3ParseBisonYYSTypeSaIS0_EE14_M_range_checkEm.exit.i.i25
-  %208 = icmp ult i64 %205, 16
+  %208 = icmp samesign ult i64 %205, 16
   br i1 %208, label %209, label %211
 
 209:                                              ; preds = %207
@@ -7118,7 +7118,7 @@ _ZNKSt5dequeI19V3ParseBisonYYSTypeSaIS0_EE14_M_range_checkEm.exit.i.i: ; preds =
   br i1 %80, label %81, label %85
 
 81:                                               ; preds = %_ZNKSt5dequeI19V3ParseBisonYYSTypeSaIS0_EE14_M_range_checkEm.exit.i.i
-  %82 = icmp ult i64 %79, 16
+  %82 = icmp samesign ult i64 %79, 16
   br i1 %82, label %_ZN10V3ParseImp10tokenPeekpEm.exit, label %83
 
 83:                                               ; preds = %81
@@ -7284,7 +7284,7 @@ _ZNKSt5dequeI19V3ParseBisonYYSTypeSaIS0_EE14_M_range_checkEm.exit.i.i96: ; preds
   br i1 %152, label %153, label %159
 
 153:                                              ; preds = %_ZNKSt5dequeI19V3ParseBisonYYSTypeSaIS0_EE14_M_range_checkEm.exit.i.i96
-  %154 = icmp ult i64 %151, 16
+  %154 = icmp samesign ult i64 %151, 16
   br i1 %154, label %155, label %157
 
 155:                                              ; preds = %153
@@ -7431,7 +7431,7 @@ _ZNKSt5dequeI19V3ParseBisonYYSTypeSaIS0_EE14_M_range_checkEm.exit.i.i104: ; pred
   br i1 %217, label %218, label %224
 
 218:                                              ; preds = %_ZNKSt5dequeI19V3ParseBisonYYSTypeSaIS0_EE14_M_range_checkEm.exit.i.i104
-  %219 = icmp ult i64 %216, 16
+  %219 = icmp samesign ult i64 %216, 16
   br i1 %219, label %220, label %222
 
 220:                                              ; preds = %218

@@ -1477,7 +1477,7 @@ pfr_lookup_bitmap_data.exit.i:                    ; preds = %187, %179
   %232 = mul nuw i64 %231, %229
   %233 = add nuw i64 %232, 7
   %234 = lshr i64 %233, 3
-  %.not131.i = icmp ugt i64 %234, %storemerge.i.i
+  %.not131.i = icmp samesign ugt i64 %234, %storemerge.i.i
   br i1 %.not131.i, label %pfr_slot_load_bitmap.exit.thread107, label %251
 
 235:                                              ; preds = %225

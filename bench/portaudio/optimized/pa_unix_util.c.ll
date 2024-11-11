@@ -68,7 +68,7 @@ define void @Pa_Sleep(i64 noundef %0) local_unnamed_addr #5 {
   %.03 = phi i64 [ %4, %.lr.ph ], [ %0, %1 ]
   %3 = tail call i32 @usleep(i32 noundef 999000) #16
   %4 = add nsw i64 %.03, -999
-  %5 = icmp ugt i64 %.03, 1998
+  %5 = icmp samesign ugt i64 %.03, 1998
   br i1 %5, label %.lr.ph, label %._crit_edge, !llvm.loop !4
 
 ._crit_edge:                                      ; preds = %.lr.ph, %1

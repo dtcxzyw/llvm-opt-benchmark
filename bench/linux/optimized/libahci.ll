@@ -2614,7 +2614,7 @@ define dso_local void @ahci_save_initial_config(ptr noundef %0, ptr nocapture no
   br i1 %26, label %32, label %27
 
 27:                                               ; preds = %.loopexit
-  %28 = icmp ult i32 %25, 65536
+  %28 = icmp samesign ult i32 %25, 65536
   %29 = and i32 %25, 65024
   %30 = icmp eq i32 %29, 0
   %31 = or i1 %28, %30

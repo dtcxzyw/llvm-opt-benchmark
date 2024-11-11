@@ -1727,7 +1727,7 @@ _ZN4llvm15SmallVectorImplIPKNS_5ValueEE7reserveEm.exit.i.i.i.i.i: ; preds = %254
   %259 = getelementptr inbounds i8, ptr %.sroa.05.08.i.i.i.i.i.i.i.i.i.i.i.i.i, i64 32
   %260 = getelementptr inbounds i8, ptr %.049.i.i.i.i.i.i.i.i.i.i.i.i.i, i64 8
   %261 = add nsw i64 %.010.i.i.i.i.i.i.i.i.i.i.i.i.i, -1
-  %262 = icmp ugt i64 %.010.i.i.i.i.i.i.i.i.i.i.i.i.i, 1
+  %262 = icmp samesign ugt i64 %.010.i.i.i.i.i.i.i.i.i.i.i.i.i, 1
   br i1 %262, label %.lr.ph.i.i.i.i.i.i.i.i.i.i.i.i.i, label %_ZN4llvm15SmallVectorImplIPKNS_5ValueEE6appendINS_4User23const_value_op_iteratorEvEEvT_S8_.exit.i.i.i.i, !llvm.loop !40
 
 _ZN4llvm15SmallVectorImplIPKNS_5ValueEE6appendINS_4User23const_value_op_iteratorEvEEvT_S8_.exit.i.i.i.i: ; preds = %.lr.ph.i.i.i.i.i.i.i.i.i.i.i.i.i, %_ZN4llvm15SmallVectorImplIPKNS_5ValueEE7reserveEm.exit.i.i.i.i.i
@@ -2664,7 +2664,7 @@ _ZSt14__copy_move_a1ILb0EPPN4llvm11InstructionES3_ET1_T0_S5_S4_.exit.i.i.i: ; pr
   br i1 %682, label %683, label %689
 
 683:                                              ; preds = %_ZSt14__copy_move_a1ILb0EPPN4llvm11InstructionES3_ET1_T0_S5_S4_.exit.i.i.i
-  %684 = icmp ult i64 %681, 64
+  %684 = icmp samesign ult i64 %681, 64
   br i1 %684, label %685, label %687
 
 685:                                              ; preds = %683
@@ -2746,7 +2746,7 @@ _ZSt14__copy_move_a1ILb0EPPN4llvm11InstructionES3_ET1_T0_S5_S4_.exit.i17.i.i: ; 
   br i1 %719, label %720, label %726
 
 720:                                              ; preds = %_ZSt14__copy_move_a1ILb0EPPN4llvm11InstructionES3_ET1_T0_S5_S4_.exit.i17.i.i
-  %721 = icmp ult i64 %718, 64
+  %721 = icmp samesign ult i64 %718, 64
   br i1 %721, label %722, label %724
 
 722:                                              ; preds = %720
@@ -2827,7 +2827,7 @@ _ZSt14__copy_move_a1ILb0EPPN4llvm11InstructionES3_ET1_T0_S5_S4_.exit.i34.i.i: ; 
   br i1 %757, label %758, label %764
 
 758:                                              ; preds = %_ZSt14__copy_move_a1ILb0EPPN4llvm11InstructionES3_ET1_T0_S5_S4_.exit.i34.i.i
-  %759 = icmp ult i64 %756, 64
+  %759 = icmp samesign ult i64 %756, 64
   br i1 %759, label %760, label %762
 
 760:                                              ; preds = %758
@@ -2898,7 +2898,7 @@ _ZSt14__copy_move_a1ILb0EPPN4llvm11InstructionES3_ET1_T0_S5_S4_.exit.i51.i.i: ; 
   br i1 %791, label %792, label %798
 
 792:                                              ; preds = %_ZSt14__copy_move_a1ILb0EPPN4llvm11InstructionES3_ET1_T0_S5_S4_.exit.i51.i.i
-  %793 = icmp ult i64 %790, 64
+  %793 = icmp samesign ult i64 %790, 64
   br i1 %793, label %794, label %796
 
 794:                                              ; preds = %792
@@ -3411,7 +3411,7 @@ _ZSt14__copy_move_a1ILb0EPPN4llvm11InstructionES3_ET1_T0_S5_S4_.exit.i.i541.i: ;
   br i1 %1028, label %1029, label %1035
 
 1029:                                             ; preds = %_ZSt14__copy_move_a1ILb0EPPN4llvm11InstructionES3_ET1_T0_S5_S4_.exit.i.i541.i
-  %1030 = icmp ult i64 %1027, 64
+  %1030 = icmp samesign ult i64 %1027, 64
   br i1 %1030, label %1031, label %1033
 
 1031:                                             ; preds = %1029
@@ -3493,7 +3493,7 @@ _ZSt14__copy_move_a1ILb0EPPN4llvm11InstructionES3_ET1_T0_S5_S4_.exit.i17.i501.i:
   br i1 %1065, label %1066, label %1072
 
 1066:                                             ; preds = %_ZSt14__copy_move_a1ILb0EPPN4llvm11InstructionES3_ET1_T0_S5_S4_.exit.i17.i501.i
-  %1067 = icmp ult i64 %1064, 64
+  %1067 = icmp samesign ult i64 %1064, 64
   br i1 %1067, label %1068, label %1070
 
 1068:                                             ; preds = %1066
@@ -3574,7 +3574,7 @@ _ZSt14__copy_move_a1ILb0EPPN4llvm11InstructionES3_ET1_T0_S5_S4_.exit.i34.i525.i:
   br i1 %1103, label %1104, label %1110
 
 1104:                                             ; preds = %_ZSt14__copy_move_a1ILb0EPPN4llvm11InstructionES3_ET1_T0_S5_S4_.exit.i34.i525.i
-  %1105 = icmp ult i64 %1102, 64
+  %1105 = icmp samesign ult i64 %1102, 64
   br i1 %1105, label %1106, label %1108
 
 1106:                                             ; preds = %1104
@@ -3645,7 +3645,7 @@ _ZSt14__copy_move_a1ILb0EPPN4llvm11InstructionES3_ET1_T0_S5_S4_.exit.i51.i557.i:
   br i1 %1137, label %1138, label %1144
 
 1138:                                             ; preds = %_ZSt14__copy_move_a1ILb0EPPN4llvm11InstructionES3_ET1_T0_S5_S4_.exit.i51.i557.i
-  %1139 = icmp ult i64 %1136, 64
+  %1139 = icmp samesign ult i64 %1136, 64
   br i1 %1139, label %1140, label %1142
 
 1140:                                             ; preds = %1138
@@ -7732,7 +7732,7 @@ _ZN4llvm15SmallVectorImplIPKNS_5ValueEE7reserveEm.exit: ; preds = %3, %12
   %19 = getelementptr inbounds i8, ptr %.sroa.05.08.i.i.i.i.i.i.i.i, i64 32
   %20 = getelementptr inbounds i8, ptr %.049.i.i.i.i.i.i.i.i, i64 8
   %21 = add nsw i64 %.010.i.i.i.i.i.i.i.i, -1
-  %22 = icmp ugt i64 %.010.i.i.i.i.i.i.i.i, 1
+  %22 = icmp samesign ugt i64 %.010.i.i.i.i.i.i.i.i, 1
   br i1 %22, label %.lr.ph.i.i.i.i.i.i.i.i, label %_ZN4llvm23SmallVectorTemplateBaseIPKNS_5ValueELb1EE18uninitialized_copyINS_4User23const_value_op_iteratorEPS3_EEvT_S9_T0_.exit, !llvm.loop !40
 
 _ZN4llvm23SmallVectorTemplateBaseIPKNS_5ValueELb1EE18uninitialized_copyINS_4User23const_value_op_iteratorEPS3_EEvT_S9_T0_.exit: ; preds = %.lr.ph.i.i.i.i.i.i.i.i, %_ZN4llvm15SmallVectorImplIPKNS_5ValueEE7reserveEm.exit
@@ -14225,7 +14225,7 @@ _ZN4llvm9remove_ifIRNS_11SmallVectorISt4pairIjPNS_6MDNodeEELj2EEEZNS_13IRBuilder
   %68 = getelementptr inbounds i8, ptr %.0910.i.i.i.i.i.i, i64 16
   %69 = getelementptr inbounds i8, ptr %.0811.i.i.i.i.i.i, i64 16
   %70 = add nsw i64 %.012.i.i.i.i.i.i, -1
-  %71 = icmp ugt i64 %.012.i.i.i.i.i.i, 1
+  %71 = icmp samesign ugt i64 %.012.i.i.i.i.i.i, 1
   br i1 %71, label %.lr.ph.i.i.i.i.i.i, label %_ZN4llvm15SmallVectorImplISt4pairIjPNS_6MDNodeEEE5eraseEPKS4_S7_.exit, !llvm.loop !163
 
 _ZN4llvm15SmallVectorImplISt4pairIjPNS_6MDNodeEEE5eraseEPKS4_S7_.exit: ; preds = %.lr.ph.i.i.i.i.i.i, %_ZN4llvm9remove_ifIRNS_11SmallVectorISt4pairIjPNS_6MDNodeEELj2EEEZNS_13IRBuilderBase25AddOrRemoveMetadataToCopyEjS4_EUlRKS5_E_EEDaOT_T0_.exit

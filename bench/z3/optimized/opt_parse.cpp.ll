@@ -316,7 +316,7 @@ land.lhs.true.lr.ph.i:                            ; preds = %entry
 
 land.lhs.true.i:                                  ; preds = %if.end.i, %land.lhs.true.lr.ph.i
   %1 = phi i32 [ %0, %land.lhs.true.lr.ph.i ], [ %call.i.i, %if.end.i ]
-  %cmp3.i = icmp ult i32 %1, 14
+  %cmp3.i = icmp samesign ult i32 %1, 14
   br i1 %cmp3.i, label %while.body.i, label %lor.rhs.i
 
 lor.rhs.i:                                        ; preds = %land.lhs.true.i
@@ -376,7 +376,7 @@ entry:
 
 land.lhs.true.i:                                  ; preds = %entry, %while.body.i
   %.pr = phi i32 [ %call.i.i, %while.body.i ], [ %0, %entry ]
-  %cmp5.i = icmp ult i32 %.pr, 14
+  %cmp5.i = icmp samesign ult i32 %.pr, 14
   %cmp7.i = icmp eq i32 %.pr, 32
   %or.cond6.i = or i1 %cmp5.i, %cmp7.i
   br i1 %or.cond6.i, label %while.body.i, label %while.condthread-pre-split
@@ -433,7 +433,7 @@ land.lhs.true.lr.ph.i:                            ; preds = %entry
 
 land.lhs.true.i:                                  ; preds = %if.end.i, %land.lhs.true.lr.ph.i
   %.pr = phi i32 [ %0, %land.lhs.true.lr.ph.i ], [ %call.i.i, %if.end.i ]
-  %cmp3.i = icmp ult i32 %.pr, 14
+  %cmp3.i = icmp samesign ult i32 %.pr, 14
   br i1 %cmp3.i, label %while.body.i, label %lor.rhs.i
 
 lor.rhs.i:                                        ; preds = %land.lhs.true.i
@@ -581,7 +581,7 @@ land.lhs.true.lr.ph.i:                            ; preds = %while.body
 
 land.lhs.true.i:                                  ; preds = %if.end.i, %land.lhs.true.lr.ph.i
   %2 = phi i32 [ %1, %land.lhs.true.lr.ph.i ], [ %call.i.i, %if.end.i ]
-  %cmp3.i = icmp ult i32 %2, 14
+  %cmp3.i = icmp samesign ult i32 %2, 14
   br i1 %cmp3.i, label %while.body.i, label %lor.rhs.i
 
 lor.rhs.i:                                        ; preds = %land.lhs.true.i
@@ -851,7 +851,7 @@ land.lhs.true.lr.ph.i:                            ; preds = %while.body
 
 land.lhs.true.i:                                  ; preds = %if.end.i, %land.lhs.true.lr.ph.i
   %2 = phi i32 [ %1, %land.lhs.true.lr.ph.i ], [ %call.i.i, %if.end.i ]
-  %cmp3.i = icmp ult i32 %2, 14
+  %cmp3.i = icmp samesign ult i32 %2, 14
   br i1 %cmp3.i, label %while.body.i, label %lor.rhs.i
 
 lor.rhs.i:                                        ; preds = %land.lhs.true.i
@@ -926,7 +926,7 @@ land.lhs.true.lr.ph.i.i:                          ; preds = %if.else7
 
 land.lhs.true.i.i:                                ; preds = %if.end.i.i, %land.lhs.true.lr.ph.i.i
   %11 = phi i32 [ %5, %land.lhs.true.lr.ph.i.i ], [ %call.i.i.i, %if.end.i.i ]
-  %cmp3.i.i = icmp ult i32 %11, 14
+  %cmp3.i.i = icmp samesign ult i32 %11, 14
   br i1 %cmp3.i.i, label %while.body.i.i, label %lor.rhs.i.i
 
 lor.rhs.i.i:                                      ; preds = %land.lhs.true.i.i
@@ -984,7 +984,7 @@ land.lhs.true.lr.ph.i.i25:                        ; preds = %if.else11
 
 land.lhs.true.i.i27:                              ; preds = %if.end.i.i31, %land.lhs.true.lr.ph.i.i25
   %18 = phi i32 [ %17, %land.lhs.true.lr.ph.i.i25 ], [ %call.i.i.i32, %if.end.i.i31 ]
-  %cmp3.i.i28 = icmp ult i32 %18, 14
+  %cmp3.i.i28 = icmp samesign ult i32 %18, 14
   br i1 %cmp3.i.i28, label %while.body.i.i34, label %lor.rhs.i.i29
 
 lor.rhs.i.i29:                                    ; preds = %land.lhs.true.i.i27
@@ -1498,7 +1498,7 @@ land.lhs.true.lr.ph.i.i:                          ; preds = %entry
 
 land.lhs.true.i.i:                                ; preds = %if.end.i.i, %land.lhs.true.lr.ph.i.i
   %2 = phi i32 [ %1, %land.lhs.true.lr.ph.i.i ], [ %call.i.i.i, %if.end.i.i ]
-  %cmp3.i.i = icmp ult i32 %2, 14
+  %cmp3.i.i = icmp samesign ult i32 %2, 14
   br i1 %cmp3.i.i, label %while.body.i.i, label %lor.rhs.i.i
 
 lor.rhs.i.i:                                      ; preds = %land.lhs.true.i.i
@@ -1546,7 +1546,7 @@ _ZN17opt_stream_buffer11parse_tokenEPKc.exit:     ; preds = %lor.rhs.i.i, %if.en
 
 land.lhs.true.i.i5:                               ; preds = %_ZN17opt_stream_buffer11parse_tokenEPKc.exit, %while.body.i.i8
   %.pr.i = phi i32 [ %call.i.i.i9, %while.body.i.i8 ], [ %8, %_ZN17opt_stream_buffer11parse_tokenEPKc.exit ]
-  %cmp5.i.i6 = icmp ult i32 %.pr.i, 14
+  %cmp5.i.i6 = icmp samesign ult i32 %.pr.i, 14
   %cmp7.i.i7 = icmp eq i32 %.pr.i, 32
   %or.cond6.i.i = or i1 %cmp5.i.i6, %cmp7.i.i7
   br i1 %or.cond6.i.i, label %while.body.i.i8, label %while.condthread-pre-split.i
@@ -1597,7 +1597,7 @@ _ZN17opt_stream_buffer14parse_unsignedEv.exit:    ; preds = %while.body.i3, %_ZN
 
 land.lhs.true.i.i29:                              ; preds = %_ZN17opt_stream_buffer14parse_unsignedEv.exit, %while.body.i.i34
   %.pr.i30 = phi i32 [ %call.i.i.i35, %while.body.i.i34 ], [ %15, %_ZN17opt_stream_buffer14parse_unsignedEv.exit ]
-  %cmp5.i.i31 = icmp ult i32 %.pr.i30, 14
+  %cmp5.i.i31 = icmp samesign ult i32 %.pr.i30, 14
   %cmp7.i.i32 = icmp eq i32 %.pr.i30, 32
   %or.cond6.i.i33 = or i1 %cmp5.i.i31, %cmp7.i.i32
   br i1 %or.cond6.i.i33, label %while.body.i.i34, label %while.condthread-pre-split.i18
@@ -1648,7 +1648,7 @@ _ZN17opt_stream_buffer14parse_unsignedEv.exit39:  ; preds = %while.body.i22, %_Z
 
 land.lhs.true.i.i58:                              ; preds = %_ZN17opt_stream_buffer14parse_unsignedEv.exit39, %while.body.i.i63
   %.pr.i59 = phi i32 [ %call.i.i.i64, %while.body.i.i63 ], [ %22, %_ZN17opt_stream_buffer14parse_unsignedEv.exit39 ]
-  %cmp5.i.i60 = icmp ult i32 %.pr.i59, 14
+  %cmp5.i.i60 = icmp samesign ult i32 %.pr.i59, 14
   %cmp7.i.i61 = icmp eq i32 %.pr.i59, 32
   %or.cond6.i.i62 = or i1 %cmp5.i.i60, %cmp7.i.i61
   br i1 %or.cond6.i.i62, label %while.body.i.i63, label %while.condthread-pre-split.i47
@@ -1709,7 +1709,7 @@ entry:
 
 land.lhs.true.i.i:                                ; preds = %entry, %while.body.i.i
   %.pr.i = phi i32 [ %call.i.i.i, %while.body.i.i ], [ %1, %entry ]
-  %cmp5.i.i = icmp ult i32 %.pr.i, 14
+  %cmp5.i.i = icmp samesign ult i32 %.pr.i, 14
   %cmp7.i.i = icmp eq i32 %.pr.i, 32
   %or.cond6.i.i = or i1 %cmp5.i.i, %cmp7.i.i
   br i1 %or.cond6.i.i, label %while.body.i.i, label %while.condthread-pre-split.i
@@ -2584,7 +2584,7 @@ land.lhs.true.lr.ph.i.i.us:                       ; preds = %while.cond.us
 
 land.lhs.true.i.i.us:                             ; preds = %call.i.i.i.noexc.us, %land.lhs.true.lr.ph.i.i.us
   %2 = phi i32 [ %1, %land.lhs.true.lr.ph.i.i.us ], [ %call.i.i.i2.us, %call.i.i.i.noexc.us ]
-  %cmp3.i.i.us = icmp ult i32 %2, 14
+  %cmp3.i.i.us = icmp samesign ult i32 %2, 14
   br i1 %cmp3.i.i.us, label %while.body.i.i.us, label %lor.rhs.i.i.us
 
 lor.rhs.i.i.us:                                   ; preds = %land.lhs.true.i.i.us
@@ -2741,7 +2741,7 @@ land.lhs.true.lr.ph.i.i:                          ; preds = %while.cond
 
 land.lhs.true.i.i:                                ; preds = %call.i.i.i.noexc, %land.lhs.true.lr.ph.i.i
   %24 = phi i32 [ %23, %land.lhs.true.lr.ph.i.i ], [ %call.i.i.i2, %call.i.i.i.noexc ]
-  %cmp3.i.i = icmp ult i32 %24, 14
+  %cmp3.i.i = icmp samesign ult i32 %24, 14
   br i1 %cmp3.i.i, label %while.body.i.i, label %lor.rhs.i.i
 
 lor.rhs.i.i:                                      ; preds = %land.lhs.true.i.i
@@ -3000,7 +3000,7 @@ land.lhs.true.lr.ph.i.i:                          ; preds = %while.body
 
 land.lhs.true.i.i:                                ; preds = %call.i.i.i.noexc, %land.lhs.true.lr.ph.i.i
   %4 = phi i32 [ %2, %land.lhs.true.lr.ph.i.i ], [ %call.i.i.i3, %call.i.i.i.noexc ]
-  %cmp3.i.i = icmp ult i32 %4, 14
+  %cmp3.i.i = icmp samesign ult i32 %4, 14
   br i1 %cmp3.i.i, label %while.body.i.i, label %lor.rhs.i.i
 
 lor.rhs.i.i:                                      ; preds = %land.lhs.true.i.i
@@ -3127,7 +3127,7 @@ land.lhs.true.lr.ph.i.i23:                        ; preds = %_ZN7obj_refI3app11a
 
 land.lhs.true.i.i25:                              ; preds = %call.i.i.i.noexc35, %land.lhs.true.lr.ph.i.i23
   %23 = phi i32 [ %22, %land.lhs.true.lr.ph.i.i23 ], [ %call.i.i.i36, %call.i.i.i.noexc35 ]
-  %cmp3.i.i26 = icmp ult i32 %23, 14
+  %cmp3.i.i26 = icmp samesign ult i32 %23, 14
   br i1 %cmp3.i.i26, label %while.body.i.i31, label %lor.rhs.i.i27
 
 lor.rhs.i.i27:                                    ; preds = %land.lhs.true.i.i25
@@ -3259,7 +3259,7 @@ land.lhs.true.lr.ph.i.i51:                        ; preds = %if.end
 
 land.lhs.true.i.i53:                              ; preds = %call.i.i.i.noexc63, %land.lhs.true.lr.ph.i.i51
   %31 = phi i32 [ %30, %land.lhs.true.lr.ph.i.i51 ], [ %call.i.i.i64, %call.i.i.i.noexc63 ]
-  %cmp3.i.i54 = icmp ult i32 %31, 14
+  %cmp3.i.i54 = icmp samesign ult i32 %31, 14
   br i1 %cmp3.i.i54, label %while.body.i.i59, label %lor.rhs.i.i55
 
 lor.rhs.i.i55:                                    ; preds = %land.lhs.true.i.i53
@@ -3387,7 +3387,7 @@ land.lhs.true.lr.ph.i.i103:                       ; preds = %_ZN7obj_refI3app11a
 
 land.lhs.true.i.i105:                             ; preds = %call.i.i.i.noexc115, %land.lhs.true.lr.ph.i.i103
   %50 = phi i32 [ %49, %land.lhs.true.lr.ph.i.i103 ], [ %call.i.i.i116, %call.i.i.i.noexc115 ]
-  %cmp3.i.i106 = icmp ult i32 %50, 14
+  %cmp3.i.i106 = icmp samesign ult i32 %50, 14
   br i1 %cmp3.i.i106, label %while.body.i.i111, label %lor.rhs.i.i107
 
 lor.rhs.i.i107:                                   ; preds = %land.lhs.true.i.i105
@@ -3449,7 +3449,7 @@ land.lhs.true.lr.ph.i.i131:                       ; preds = %if.end31
 
 land.lhs.true.i.i133:                             ; preds = %call.i.i.i.noexc143, %land.lhs.true.lr.ph.i.i131
   %58 = phi i32 [ %57, %land.lhs.true.lr.ph.i.i131 ], [ %call.i.i.i144, %call.i.i.i.noexc143 ]
-  %cmp3.i.i134 = icmp ult i32 %58, 14
+  %cmp3.i.i134 = icmp samesign ult i32 %58, 14
   br i1 %cmp3.i.i134, label %while.body.i.i139, label %lor.rhs.i.i135
 
 lor.rhs.i.i135:                                   ; preds = %land.lhs.true.i.i133
@@ -3576,7 +3576,7 @@ land.lhs.true.lr.ph.i.i183:                       ; preds = %_ZN7obj_refI3app11a
 
 land.lhs.true.i.i185:                             ; preds = %call.i.i.i.noexc195, %land.lhs.true.lr.ph.i.i183
   %77 = phi i32 [ %76, %land.lhs.true.lr.ph.i.i183 ], [ %call.i.i.i196, %call.i.i.i.noexc195 ]
-  %cmp3.i.i186 = icmp ult i32 %77, 14
+  %cmp3.i.i186 = icmp samesign ult i32 %77, 14
   br i1 %cmp3.i.i186, label %while.body.i.i191, label %lor.rhs.i.i187
 
 lor.rhs.i.i187:                                   ; preds = %land.lhs.true.i.i185
@@ -4112,7 +4112,7 @@ land.lhs.true.lr.ph.i:                            ; preds = %entry
 
 land.lhs.true.i:                                  ; preds = %if.end.i, %land.lhs.true.lr.ph.i
   %2 = phi i32 [ %1, %land.lhs.true.lr.ph.i ], [ %call.i.i, %if.end.i ]
-  %cmp3.i = icmp ult i32 %2, 14
+  %cmp3.i = icmp samesign ult i32 %2, 14
   br i1 %cmp3.i, label %while.body.i, label %lor.rhs.i
 
 lor.rhs.i:                                        ; preds = %land.lhs.true.i
@@ -4245,7 +4245,7 @@ land.lhs.true.lr.ph.i14:                          ; preds = %if.end14
 
 land.lhs.true.i16:                                ; preds = %call.i.i21.noexc, %land.lhs.true.lr.ph.i14
   %18 = phi i32 [ %17, %land.lhs.true.lr.ph.i14 ], [ %call.i.i2127, %call.i.i21.noexc ]
-  %cmp3.i17 = icmp ult i32 %18, 14
+  %cmp3.i17 = icmp samesign ult i32 %18, 14
   br i1 %cmp3.i17, label %while.body.i23, label %lor.rhs.i18
 
 lor.rhs.i18:                                      ; preds = %land.lhs.true.i16
@@ -4529,7 +4529,7 @@ land.lhs.true.lr.ph.i.i:                          ; preds = %entry
 
 land.lhs.true.i.i:                                ; preds = %if.end.i.i, %land.lhs.true.lr.ph.i.i
   %2 = phi i32 [ %1, %land.lhs.true.lr.ph.i.i ], [ %call.i.i.i, %if.end.i.i ]
-  %cmp3.i.i = icmp ult i32 %2, 14
+  %cmp3.i.i = icmp samesign ult i32 %2, 14
   br i1 %cmp3.i.i, label %while.body.i.i, label %lor.rhs.i.i
 
 lor.rhs.i.i:                                      ; preds = %land.lhs.true.i.i
@@ -4584,7 +4584,7 @@ land.lhs.true.lr.ph.i.i13:                        ; preds = %_ZN17opt_stream_buf
 
 land.lhs.true.i.i15:                              ; preds = %if.end.i.i19, %land.lhs.true.lr.ph.i.i13
   %10 = phi i32 [ %9, %land.lhs.true.lr.ph.i.i13 ], [ %call.i.i.i20, %if.end.i.i19 ]
-  %cmp3.i.i16 = icmp ult i32 %10, 14
+  %cmp3.i.i16 = icmp samesign ult i32 %10, 14
   br i1 %cmp3.i.i16, label %while.body.i.i22, label %lor.rhs.i.i17
 
 lor.rhs.i.i17:                                    ; preds = %land.lhs.true.i.i15
@@ -4745,7 +4745,7 @@ land.lhs.true.lr.ph.i:                            ; preds = %if.end30
 
 land.lhs.true.i:                                  ; preds = %call.i.i51.noexc, %land.lhs.true.lr.ph.i
   %30 = phi i32 [ %29, %land.lhs.true.lr.ph.i ], [ %call.i.i5154, %call.i.i51.noexc ]
-  %cmp3.i48 = icmp ult i32 %30, 14
+  %cmp3.i48 = icmp samesign ult i32 %30, 14
   br i1 %cmp3.i48, label %while.body.i53, label %lor.rhs.i
 
 lor.rhs.i:                                        ; preds = %land.lhs.true.i

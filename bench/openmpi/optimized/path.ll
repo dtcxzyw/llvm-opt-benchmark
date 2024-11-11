@@ -868,7 +868,7 @@ define range(i32 -1, 1) i32 @opal_path_df(ptr noundef %0, ptr noundef writeonly 
   %12 = icmp eq i32 %10, 116
   %or.cond3 = select i1 %11, i1 %12, i1 false
   %13 = add nsw i32 %.0, -1
-  %14 = icmp ugt i32 %.0, 1
+  %14 = icmp samesign ugt i32 %.0, 1
   %or.cond17 = select i1 %or.cond3, i1 %14, i1 false
   br i1 %or.cond17, label %7, label %.critedge, !llvm.loop !15
 

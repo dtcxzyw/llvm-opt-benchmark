@@ -750,7 +750,7 @@ Abc_SclObjCell.exit:                              ; preds = %197
 
 216:                                              ; preds = %194, %190, %Abc_SclObjCell.exit, %197
   %.2127 = phi i32 [ %.1126280, %190 ], [ %215, %Abc_SclObjCell.exit ], [ %.1126280, %197 ], [ %.1126280, %194 ]
-  %217 = icmp ugt i64 %indvars.iv, 1
+  %217 = icmp samesign ugt i64 %indvars.iv, 1
   br i1 %217, label %190, label %.lr.ph284.preheader, !llvm.loop !11
 
 .lr.ph284:                                        ; preds = %.lr.ph284.preheader, %.critedge
@@ -784,7 +784,7 @@ Abc_SclObjCell.exit:                              ; preds = %197
   br label %.critedge
 
 .critedge:                                        ; preds = %224, %.lr.ph284, %230, %227
-  %231 = icmp ugt i64 %indvars.iv313, 1
+  %231 = icmp samesign ugt i64 %indvars.iv313, 1
   br i1 %231, label %.lr.ph284, label %.critedge2, !llvm.loop !12
 
 .critedge2:                                       ; preds = %.critedge, %181, %Abc_SclGetTotalArea.exit
@@ -2666,7 +2666,7 @@ Abc_SclGetTotalArea.exit:                         ; preds = %96, %.critedge.loop
   br label %157
 
 157:                                              ; preds = %156, %154, %151, %.lr.ph100
-  %158 = icmp ugt i64 %indvars.iv111, 1
+  %158 = icmp samesign ugt i64 %indvars.iv111, 1
   br i1 %158, label %.lr.ph100, label %.critedge7, !llvm.loop !28
 
 .critedge7:                                       ; preds = %157, %138, %137

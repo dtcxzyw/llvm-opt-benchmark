@@ -783,15 +783,15 @@ define linkonce_odr hidden noundef i32 @_ZN5boost6nowide3utf10utf_traitsIcLi1EE6
   br i1 %8, label %19, label %9
 
 9:                                                ; preds = %5
-  %10 = icmp ult i8 %7, -62
+  %10 = icmp samesign ult i8 %7, -62
   br i1 %10, label %_ZN5boost6nowide3utf10utf_traitsIcLi1EE12trail_lengthEc.exit, label %11, !prof !34
 
 11:                                               ; preds = %9
-  %12 = icmp ult i8 %7, -32
+  %12 = icmp samesign ult i8 %7, -32
   br i1 %12, label %21, label %13
 
 13:                                               ; preds = %11
-  %14 = icmp ult i8 %7, -16
+  %14 = icmp samesign ult i8 %7, -16
   br i1 %14, label %.thread55, label %17
 
 .thread55:                                        ; preds = %13
@@ -800,7 +800,7 @@ define linkonce_odr hidden noundef i32 @_ZN5boost6nowide3utf10utf_traitsIcLi1EE6
   br label %37
 
 17:                                               ; preds = %13
-  %18 = icmp ult i8 %7, -11
+  %18 = icmp samesign ult i8 %7, -11
   br i1 %18, label %24, label %_ZN5boost6nowide3utf10utf_traitsIcLi1EE12trail_lengthEc.exit, !prof !37
 
 19:                                               ; preds = %5
@@ -880,8 +880,8 @@ _ZN5boost6nowide3utf10utf_traitsIcLi1EE5widthEj.exit: ; preds = %56
   %61 = and i8 %54, 63
   %62 = zext nneg i8 %61 to i32
   %63 = or disjoint i32 %60, %62
-  %64 = icmp ult i32 %.2, 32
-  %65 = icmp ult i32 %.2, 1024
+  %64 = icmp samesign ult i32 %.2, 32
+  %65 = icmp samesign ult i32 %.2, 1024
   %..i35 = select i1 %65, i32 3, i32 4
   %.0.i36 = select i1 %64, i32 2, i32 %..i35
   %66 = add nuw nsw i32 %.0.i.ph.ph51, 1

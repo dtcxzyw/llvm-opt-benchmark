@@ -2734,7 +2734,7 @@ define hidden i32 @avifEncoderFinish(ptr noundef %0, ptr noundef %1) local_unnam
   %751 = add i32 %.06431147, 1
   %752 = add i32 %747, -1
   %753 = zext i32 %752 to i64
-  %754 = icmp ult i64 %indvars.iv1269, %753
+  %754 = icmp samesign ult i64 %indvars.iv1269, %753
   br i1 %754, label %755, label %761
 
 755:                                              ; preds = %.lr.ph1149
@@ -2771,7 +2771,7 @@ define hidden i32 @avifEncoderFinish(ptr noundef %0, ptr noundef %1) local_unnam
   %771 = getelementptr inbounds nuw i8, ptr %770, i64 36
   %772 = load i32, ptr %771, align 4
   %773 = zext i32 %772 to i64
-  %774 = icmp ult i64 %indvars.iv.next1270.pre-phi, %773
+  %774 = icmp samesign ult i64 %indvars.iv.next1270.pre-phi, %773
   br i1 %774, label %.lr.ph1149, label %._crit_edge1150, !llvm.loop !24
 
 ._crit_edge1150:                                  ; preds = %769, %.preheader1060

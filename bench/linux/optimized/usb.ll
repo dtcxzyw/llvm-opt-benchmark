@@ -651,7 +651,7 @@ thread-pre-split:                                 ; preds = %48
   br i1 %.not.us, label %.backedge.us, label %match_endpoint.exit.thread
 
 .backedge.us:                                     ; preds = %.lr.ph.split.us, %33, %34, %37, %38, %45, %50, %54, %41, %58
-  %60 = icmp ugt i64 %22, 1
+  %60 = icmp samesign ugt i64 %22, 1
   br i1 %60, label %.lr.ph.split.us, label %match_endpoint.exit.thread, !llvm.loop !10
 
 .lr.ph.split:                                     ; preds = %.lr.ph
@@ -733,7 +733,7 @@ thread-pre-split.i.us11:                          ; preds = %83, %72
   br i1 %.not.us13, label %.backedge.us15, label %match_endpoint.exit.thread
 
 .backedge.us15:                                   ; preds = %.lr.ph.split.split.us, %72, %79, %82, %83, %87, %91, %68, %95
-  %97 = icmp ugt i64 %61, 1
+  %97 = icmp samesign ugt i64 %61, 1
   br i1 %97, label %.lr.ph.split.split.us, label %match_endpoint.exit.thread, !llvm.loop !10
 
 .lr.ph.split.split:                               ; preds = %.lr.ph.split
@@ -811,7 +811,7 @@ thread-pre-split.i.us23:                          ; preds = %120, %109
   br i1 %133, label %.backedge.us27, label %match_endpoint.exit.thread
 
 .backedge.us27:                                   ; preds = %.lr.ph.split.split.split.us, %109, %116, %119, %120, %124, %128, %131, %105
-  %134 = icmp ugt i64 %98, 1
+  %134 = icmp samesign ugt i64 %98, 1
   br i1 %134, label %.lr.ph.split.split.split.us, label %match_endpoint.exit.thread, !llvm.loop !10
 
 .lr.ph.split.split.split.split:                   ; preds = %.lr.ph.split.split, %.backedge
@@ -896,7 +896,7 @@ thread-pre-split.i:                               ; preds = %160, %157, %150
   br i1 %.not, label %.backedge, label %match_endpoint.exit.thread
 
 .backedge:                                        ; preds = %171, %168, %164, %160, %157, %150, %149, %146, %.lr.ph.split.split.split.split, %174
-  %176 = icmp ugt i64 %135, 1
+  %176 = icmp samesign ugt i64 %135, 1
   br i1 %176, label %.lr.ph.split.split.split.split, label %match_endpoint.exit.thread, !llvm.loop !10
 
 match_endpoint.exit.thread:                       ; preds = %.backedge, %174, %.backedge.us27, %131, %.backedge.us15, %95, %94, %.backedge.us, %58, %57, %17

@@ -2417,7 +2417,7 @@ define internal fastcc i32 @dissect_kafka_fetch_request(ptr noundef %0, ptr noun
   %28 = load i32, ptr @hf_kafka_isolation_level, align 4
   %29 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %28, ptr noundef %0, i32 noundef %26, i32 noundef 1, i32 noundef 0) #6
   %30 = add i32 %3, 17
-  %31 = icmp ugt i16 %4, 6
+  %31 = icmp samesign ugt i16 %4, 6
   br i1 %31, label %32, label %.thread61
 
 32:                                               ; preds = %27
@@ -2757,7 +2757,7 @@ define internal fastcc i32 @dissect_kafka_metadata_request(ptr noundef %0, ptr n
   %11 = load i32, ptr @hf_kafka_allow_auto_topic_creation, align 4
   %12 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %11, ptr noundef %0, i32 noundef %8, i32 noundef 1, i32 noundef 0) #6
   %13 = add i32 %8, 1
-  %14 = icmp ugt i16 %4, 7
+  %14 = icmp samesign ugt i16 %4, 7
   br i1 %14, label %15, label %.thread26
 
 15:                                               ; preds = %10
@@ -2817,7 +2817,7 @@ define internal fastcc i32 @dissect_kafka_leader_and_isr_request(ptr noundef %0,
   %26 = load i32, ptr @hf_kafka_broker_epoch, align 4
   %27 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %26, ptr noundef %0, i32 noundef %12, i32 noundef 8, i32 noundef 0) #6
   %28 = add i32 %3, 16
-  %29 = icmp ugt i16 %4, 3
+  %29 = icmp samesign ugt i16 %4, 3
   %30 = zext i1 %29 to i32
   %31 = tail call fastcc i32 @dissect_kafka_array(ptr noundef %2, ptr noundef %0, ptr noundef %1, i32 noundef %28, i32 noundef %30, i16 noundef signext %4, ptr noundef nonnull @dissect_kafka_leader_and_isr_request_topic_state, ptr noundef null)
   br label %dissect_kafka_array.exit
@@ -3066,7 +3066,7 @@ define internal fastcc i32 @dissect_kafka_offset_commit_request(ptr noundef %0, 
   %17 = add i32 %11, 4
   %18 = load i32, ptr @hf_kafka_member_id, align 4
   %19 = call fastcc i32 @dissect_kafka_string(ptr noundef %2, i32 noundef %18, ptr noundef %0, ptr noundef %1, i32 noundef %17, i32 noundef %10, ptr noundef null, ptr noundef null)
-  %20 = icmp ugt i16 %4, 6
+  %20 = icmp samesign ugt i16 %4, 6
   br i1 %20, label %28, label %21
 
 21:                                               ; preds = %14
@@ -3229,7 +3229,7 @@ define internal fastcc i32 @dissect_kafka_join_group_request(ptr noundef %0, ptr
   %24 = add i32 %14, 8
   %25 = load i32, ptr @hf_kafka_member_id, align 4
   %26 = call fastcc i32 @dissect_kafka_string(ptr noundef %2, i32 noundef %25, ptr noundef %0, ptr noundef %1, i32 noundef %24, i32 noundef %13, ptr noundef nonnull %9, ptr noundef nonnull %10)
-  %27 = icmp ugt i16 %4, 4
+  %27 = icmp samesign ugt i16 %4, 4
   br i1 %27, label %28, label %31
 
 28:                                               ; preds = %21
@@ -3415,7 +3415,7 @@ define internal fastcc noundef i32 @dissect_kafka_sync_group_request(ptr noundef
 21:                                               ; preds = %5
   %22 = load i32, ptr @hf_kafka_consumer_group_instance, align 4
   %23 = call fastcc i32 @dissect_kafka_string(ptr noundef %2, i32 noundef %22, ptr noundef %0, ptr noundef %1, i32 noundef %19, i32 noundef %13, ptr noundef null, ptr noundef null)
-  %24 = icmp ugt i16 %4, 4
+  %24 = icmp samesign ugt i16 %4, 4
   br i1 %24, label %25, label %.thread52
 
 25:                                               ; preds = %21
@@ -5377,8 +5377,8 @@ define internal fastcc noundef i32 @dissect_kafka_produce_response(ptr noundef %
 .lr.ph.i.i19.i.preheader:                         ; preds = %16
   %18 = getelementptr inbounds i8, ptr %1, i64 8
   %19 = icmp sgt i16 %4, 1
-  %20 = icmp ugt i16 %4, 4
-  %21 = icmp ugt i16 %4, 7
+  %20 = icmp samesign ugt i16 %4, 4
+  %21 = icmp samesign ugt i16 %4, 7
   br label %.lr.ph.i.i19.i
 
 .lr.ph.i.i19.i:                                   ; preds = %.lr.ph.i.i19.i.preheader, %dissect_kafka_produce_response_topic.exit
@@ -5555,7 +5555,7 @@ define internal fastcc noundef i32 @dissect_kafka_fetch_response(ptr noundef %0,
   %12 = load i32, ptr @hf_kafka_throttle_time, align 4
   %13 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %12, ptr noundef %0, i32 noundef %3, i32 noundef 4, i32 noundef 0) #6
   %14 = add i32 %3, 4
-  %15 = icmp ugt i16 %4, 6
+  %15 = icmp samesign ugt i16 %4, 6
   br i1 %15, label %16, label %.thread
 
 16:                                               ; preds = %11
@@ -6134,7 +6134,7 @@ define internal fastcc i32 @dissect_kafka_offset_commit_response(ptr noundef %0,
   %9 = load i32, ptr @hf_kafka_throttle_time, align 4
   %10 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %9, ptr noundef %0, i32 noundef %3, i32 noundef 4, i32 noundef 0) #6
   %11 = add i32 %3, 4
-  %12 = icmp ugt i16 %4, 7
+  %12 = icmp samesign ugt i16 %4, 7
   %13 = zext i1 %12 to i32
   %14 = tail call fastcc i32 @dissect_kafka_array(ptr noundef %2, ptr noundef %0, ptr noundef %1, i32 noundef %11, i32 noundef %13, i16 noundef signext %4, ptr noundef nonnull @dissect_kafka_offset_commit_response_response, ptr noundef null)
   br i1 %12, label %15, label %17
@@ -6241,7 +6241,7 @@ dissect_kafka_error.exit:                         ; preds = %14, %18
 
 24:                                               ; preds = %dissect_kafka_error.exit
   %25 = load i32, ptr @hf_kafka_error_message, align 4
-  %26 = icmp ugt i16 %4, 2
+  %26 = icmp samesign ugt i16 %4, 2
   %27 = zext i1 %26 to i32
   %28 = tail call fastcc i32 @dissect_kafka_string(ptr noundef %2, i32 noundef %25, ptr noundef %0, ptr noundef %1, i32 noundef %23, i32 noundef %27, ptr noundef null, ptr noundef null)
   br label %29
@@ -6540,7 +6540,7 @@ define internal fastcc i32 @dissect_kafka_describe_groups_response(ptr noundef %
   %9 = load i32, ptr @hf_kafka_throttle_time, align 4
   %10 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %9, ptr noundef %0, i32 noundef %3, i32 noundef 4, i32 noundef 0) #6
   %11 = add i32 %3, 4
-  %12 = icmp ugt i16 %4, 4
+  %12 = icmp samesign ugt i16 %4, 4
   %13 = zext i1 %12 to i32
   %14 = tail call fastcc i32 @dissect_kafka_array(ptr noundef %2, ptr noundef %0, ptr noundef %1, i32 noundef %11, i32 noundef %13, i16 noundef signext %4, ptr noundef nonnull @dissect_kafka_describe_groups_response_group, ptr noundef null)
   br i1 %12, label %15, label %17
@@ -11387,7 +11387,7 @@ define internal noundef i32 @dissect_kafka_update_metadata_request_broker(ptr no
   br i1 %30, label %31, label %.thread
 
 31:                                               ; preds = %29
-  %32 = icmp ugt i16 %4, 5
+  %32 = icmp samesign ugt i16 %4, 5
   %33 = zext i1 %32 to i32
   %34 = call fastcc i32 @dissect_kafka_array(ptr noundef %10, ptr noundef %0, ptr noundef %1, i32 noundef %14, i32 noundef %33, i16 noundef signext %4, ptr noundef nonnull @dissect_kafka_update_metadata_request_endpoint, ptr noundef null)
   %.not = icmp eq i16 %4, 1
@@ -12647,7 +12647,7 @@ dissect_kafka_error.exit:                         ; preds = %5, %14
   %34 = call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %33, ptr noundef %0, i32 noundef %23, i32 noundef 1, i32 noundef 0) #6
   %35 = add i32 %23, 1
   %36 = call fastcc i32 @dissect_kafka_array(ptr noundef %10, ptr noundef %0, ptr noundef nonnull %1, i32 noundef %35, i32 noundef %22, i16 noundef signext %4, ptr noundef nonnull @dissect_kafka_metadata_partition, ptr noundef null)
-  %37 = icmp ugt i16 %4, 7
+  %37 = icmp samesign ugt i16 %4, 7
   br i1 %37, label %38, label %.thread38
 
 38:                                               ; preds = %32
@@ -12713,7 +12713,7 @@ dissect_kafka_error.exit:                         ; preds = %5, %16
   %35 = add i32 %3, 14
   %36 = load i32, ptr @ett_kafka_replicas, align 4
   %37 = call ptr @proto_tree_add_subtree(ptr noundef %12, ptr noundef %0, i32 noundef %35, i32 noundef -1, i32 noundef %36, ptr noundef nonnull %10, ptr noundef nonnull @.str.594) #6
-  %38 = icmp ult i16 %4, 9
+  %38 = icmp samesign ult i16 %4, 9
   br i1 %38, label %62, label %39
 
 39:                                               ; preds = %32

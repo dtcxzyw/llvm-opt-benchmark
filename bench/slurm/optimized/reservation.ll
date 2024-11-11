@@ -582,7 +582,7 @@ define dso_local noundef ptr @_load_reservation_state(ptr noundef %0, i16 nounde
   br label %219
 
 125:                                              ; preds = %2
-  %126 = icmp ugt i16 %1, 9983
+  %126 = icmp samesign ugt i16 %1, 9983
   br i1 %126, label %127, label %217
 
 127:                                              ; preds = %125
@@ -3418,8 +3418,8 @@ _free_resv_select_members.exit134:                ; preds = %131, %133
 
 191:                                              ; preds = %184
   %192 = icmp eq i16 %188, 1
-  %193 = icmp ugt i32 %.17088.i, %189
-  %or.cond.i = or i1 %192, %193
+  %193 = icmp samesign ugt i32 %.17088.i, %189
+  %or.cond.i = select i1 %192, i1 true, i1 %193
   br i1 %or.cond.i, label %194, label %198
 
 194:                                              ; preds = %191
@@ -9566,7 +9566,7 @@ define internal fastcc void @_pack_resv(ptr noundef nonnull readonly %0, ptr nou
   br i1 %.not394, label %.loopexit, label %.lr.ph403, !llvm.loop !64
 
 218:                                              ; preds = %34
-  %219 = icmp ugt i16 %3, 9983
+  %219 = icmp samesign ugt i16 %3, 9983
   br i1 %219, label %220, label %.loopexit
 
 220:                                              ; preds = %218

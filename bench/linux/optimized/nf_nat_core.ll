@@ -680,7 +680,7 @@ hash_by_src.exit:                                 ; preds = %52, %63
   br i1 %345, label %346, label %365
 
 346:                                              ; preds = %342
-  %347 = icmp ult i16 %344, 512
+  %347 = icmp samesign ult i16 %344, 512
   %348 = select i1 %347, i32 1, i32 600
   %349 = select i1 %347, i32 511, i32 424
   br label %365

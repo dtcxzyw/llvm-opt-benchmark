@@ -1212,7 +1212,7 @@ yylex.exit.thread:                                ; preds = %309, %yylex.exit
   br label %8354
 
 317:                                              ; preds = %314
-  %318 = icmp ult i32 %.5, 363
+  %318 = icmp samesign ult i32 %.5, 363
   br i1 %318, label %319, label %324
 
 319:                                              ; preds = %317
@@ -1293,7 +1293,7 @@ yylex.exit.thread:                                ; preds = %309, %yylex.exit
 
 357:                                              ; preds = %354
   call void (ptr, ptr, ...) @rb_parser_printf(ptr noundef nonnull %0, ptr noundef nonnull @.str.5, ptr noundef nonnull @.str.8) #24
-  %358 = icmp ult i32 %.05490, 163
+  %358 = icmp samesign ult i32 %.05490, 163
   %359 = select i1 %358, ptr @.str.72, ptr @.str.73
   %360 = zext nneg i32 %.05490 to i64
   %361 = getelementptr inbounds [442 x ptr], ptr @yytname, i64 0, i64 %360
@@ -42150,7 +42150,7 @@ no_digits.exit:                                   ; preds = %101, %117, %120
   br label %.backedge.i
 
 141:                                              ; preds = %134
-  %142 = icmp ugt i32 %127, 127
+  %142 = icmp samesign ugt i32 %127, 127
   br i1 %142, label %pushback.exit.sink.split.i, label %143
 
 143:                                              ; preds = %141
@@ -42378,7 +42378,7 @@ no_digits.exit323:                                ; preds = %215, %231, %234
   br label %.backedge.i336
 
 255:                                              ; preds = %248
-  %256 = icmp ugt i32 %241, 127
+  %256 = icmp samesign ugt i32 %241, 127
   br i1 %256, label %pushback.exit.sink.split.i333, label %257
 
 257:                                              ; preds = %255
@@ -42620,7 +42620,7 @@ no_digits.exit346:                                ; preds = %330, %346, %349
   br i1 %or.cond19, label %389, label %372
 
 372:                                              ; preds = %370
-  %373 = icmp ugt i32 %.11, 55
+  %373 = icmp samesign ugt i32 %.11, 55
   br i1 %373, label %.loopexit440, label %374
 
 374:                                              ; preds = %372
@@ -43116,7 +43116,7 @@ pushback.exit362:                                 ; preds = %413, %.split.thread
   br label %.backedge.i375
 
 594:                                              ; preds = %587
-  %595 = icmp ugt i32 %580, 127
+  %595 = icmp samesign ugt i32 %580, 127
   br i1 %595, label %pushback.exit.sink.split.i372, label %596
 
 596:                                              ; preds = %594
@@ -43229,7 +43229,7 @@ number_literal_suffix.exit379.thread:             ; preds = %578, %number_litera
   br label %.backedge.i392
 
 650:                                              ; preds = %643
-  %651 = icmp ugt i32 %636, 127
+  %651 = icmp samesign ugt i32 %636, 127
   br i1 %651, label %pushback.exit.sink.split.i389, label %652
 
 652:                                              ; preds = %650
@@ -43309,7 +43309,7 @@ define internal fastcc range(i32 0, 346) i32 @parse_percent(ptr noundef %0, i32 
   br i1 %narrow.i.not, label %19, label %21
 
 19:                                               ; preds = %.thread
-  %20 = icmp ugt i32 %.091116, 127
+  %20 = icmp samesign ugt i32 %.091116, 127
   br i1 %20, label %..thread117_crit_edge, label %72
 
 ..thread117_crit_edge:                            ; preds = %19
@@ -45859,7 +45859,7 @@ parser_update_heredoc_indent.exit:                ; preds = %.sink.split.i, %40,
   br label %.backedge
 
 170:                                              ; preds = %118
-  %171 = icmp ugt i32 %119, 127
+  %171 = icmp samesign ugt i32 %119, 127
   br i1 %171, label %172, label %186
 
 172:                                              ; preds = %170
@@ -46978,7 +46978,7 @@ tailrecurse.backedge:                             ; preds = %61, %64
   br label %.loopexit97
 
 68:                                               ; preds = %59
-  %69 = icmp ugt i32 %60, 127
+  %69 = icmp samesign ugt i32 %60, 127
   br i1 %69, label %.loopexit97, label %70
 
 70:                                               ; preds = %68
@@ -47009,7 +47009,7 @@ tailrecurse.backedge:                             ; preds = %61, %64
   br label %.sink.split
 
 85:                                               ; preds = %70
-  %86 = icmp ugt i32 %60, 31
+  %86 = icmp samesign ugt i32 %60, 31
   %87 = icmp ne i32 %60, 127
   %narrow.i86.not = and i1 %86, %87
   br i1 %narrow.i86.not, label %89, label %.loopexit97
@@ -47067,7 +47067,7 @@ tailrecurse.backedge:                             ; preds = %61, %64
   br label %135
 
 106:                                              ; preds = %95
-  %107 = icmp ugt i32 %96, 127
+  %107 = icmp samesign ugt i32 %96, 127
   br i1 %107, label %108, label %109
 
 108:                                              ; preds = %106
@@ -47077,7 +47077,7 @@ tailrecurse.backedge:                             ; preds = %61, %64
 109:                                              ; preds = %106
   %110 = tail call fastcc i32 @escaped_control_code(i32 noundef %96)
   %.not71 = icmp eq i32 %110, 0
-  %111 = icmp ugt i32 %96, 31
+  %111 = icmp samesign ugt i32 %96, 31
   %112 = icmp ne i32 %96, 127
   %narrow.i88.not = and i1 %111, %112
   br i1 %.not71, label %134, label %113
@@ -48742,7 +48742,7 @@ define internal fastcc range(i32 0, 4) i32 @number_literal_suffix(ptr noundef %0
   br label %.backedge
 
 20:                                               ; preds = %13
-  %21 = icmp ugt i32 %6, 127
+  %21 = icmp samesign ugt i32 %6, 127
   br i1 %21, label %pushback.exit.sink.split, label %22
 
 22:                                               ; preds = %20

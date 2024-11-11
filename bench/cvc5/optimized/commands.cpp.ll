@@ -24762,7 +24762,7 @@ call.i.i.i.i.i.i.noexc:                           ; preds = %for.body.i.i.i.i.i
 call4.i.i.i.i.i.i.noexc:                          ; preds = %call.i.i.i.i.i.i.noexc
   %incdec.ptr.i.i.i.i.i = getelementptr inbounds i8, ptr %__first.addr.06.i.i.i.i.i, i64 24
   %dec.i.i.i.i.i = add nsw i64 %__n.07.i.i.i.i.i, -1
-  %cmp.i.i.i.i.i = icmp ugt i64 %__n.07.i.i.i.i.i, 1
+  %cmp.i.i.i.i.i = icmp samesign ugt i64 %__n.07.i.i.i.i.i, 1
   br i1 %cmp.i.i.i.i.i, label %for.body.i.i.i.i.i, label %invoke.cont14, !llvm.loop !121
 
 invoke.cont14:                                    ; preds = %call4.i.i.i.i.i.i.noexc, %invoke.cont5

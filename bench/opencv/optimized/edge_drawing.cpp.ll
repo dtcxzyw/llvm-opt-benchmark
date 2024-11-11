@@ -9863,7 +9863,7 @@ _ZNSt12_Vector_baseISt6vectorIN2cv6Point_IiEESaIS3_EESaIS5_EE13_M_deallocateEPS5
   %38 = getelementptr inbounds i8, ptr %.0910.i.i.i.i.i, i64 24
   %39 = getelementptr inbounds i8, ptr %.0811.i.i.i.i.i, i64 24
   %40 = add nsw i64 %.012.i.i.i.i.i, -1
-  %41 = icmp ugt i64 %.012.i.i.i.i.i, 1
+  %41 = icmp samesign ugt i64 %.012.i.i.i.i.i, 1
   br i1 %41, label %.lr.ph.i.i.i.i.i, label %_ZSt4copyIN9__gnu_cxx17__normal_iteratorIPKSt6vectorIN2cv6Point_IiEESaIS5_EES2_IS7_SaIS7_EEEENS1_IPS7_SB_EEET0_T_SG_SF_.exit.loopexit, !llvm.loop !129
 
 _ZSt4copyIN9__gnu_cxx17__normal_iteratorIPKSt6vectorIN2cv6Point_IiEESaIS5_EES2_IS7_SaIS7_EEEENS1_IPS7_SB_EEET0_T_SG_SF_.exit.loopexit: ; preds = %.lr.ph.i.i.i.i.i
@@ -9914,7 +9914,7 @@ _ZSt8_DestroyISt6vectorIN2cv6Point_IiEESaIS3_EEEvPT_.exit.i.i.i28: ; preds = %46
   %52 = getelementptr inbounds i8, ptr %.0910.i.i.i.i.i35, i64 24
   %53 = getelementptr inbounds i8, ptr %.0811.i.i.i.i.i34, i64 24
   %54 = add nsw i64 %.012.i.i.i.i.i33, -1
-  %55 = icmp ugt i64 %.012.i.i.i.i.i33, 1
+  %55 = icmp samesign ugt i64 %.012.i.i.i.i.i33, 1
   br i1 %55, label %.lr.ph.i.i.i.i.i32, label %_ZSt4copyIPSt6vectorIN2cv6Point_IiEESaIS3_EES6_ET0_T_S8_S7_.exit.loopexit, !llvm.loop !131
 
 _ZSt4copyIPSt6vectorIN2cv6Point_IiEESaIS3_EES6_ET0_T_S8_S7_.exit.loopexit: ; preds = %.lr.ph.i.i.i.i.i32
@@ -15614,7 +15614,7 @@ _ZN8AngleSet7overlapEdd.exit:                     ; preds = %141, %.outer.i.i, %
 260:                                              ; preds = %.lr.ph460
   %261 = getelementptr inbounds %struct.CandidateArc, ptr %42, i64 %indvars.iv
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %261, ptr noundef nonnull align 8 dereferenceable(16) %256, i64 16, i1 false)
-  %262 = icmp ugt i64 %indvars.iv, 1
+  %262 = icmp samesign ugt i64 %indvars.iv, 1
   br i1 %262, label %.lr.ph460, label %._crit_edge461, !llvm.loop !194
 
 ._crit_edge461.loopexit.split.loop.exit:          ; preds = %.lr.ph460
@@ -16792,7 +16792,7 @@ _ZN8AngleSet7overlapEdd.exit:                     ; preds = %138, %.outer.i.i, %
 248:                                              ; preds = %.lr.ph396
   %249 = getelementptr inbounds %struct.CandidateArc.58, ptr %50, i64 %indvars.iv
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %249, ptr noundef nonnull align 8 dereferenceable(16) %244, i64 16, i1 false)
-  %250 = icmp ugt i64 %indvars.iv, 1
+  %250 = icmp samesign ugt i64 %indvars.iv, 1
   br i1 %250, label %.lr.ph396, label %._crit_edge397, !llvm.loop !199
 
 ._crit_edge397.loopexit.split.loop.exit:          ; preds = %.lr.ph396
@@ -18095,7 +18095,7 @@ _ZN8AngleSet7overlapEdd.exit:                     ; preds = %129, %.outer.i.i, %
 259:                                              ; preds = %.lr.ph414
   %260 = getelementptr inbounds %struct.CandidateArc.59, ptr %50, i64 %indvars.iv
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %260, ptr noundef nonnull align 8 dereferenceable(16) %255, i64 16, i1 false)
-  %261 = icmp ugt i64 %indvars.iv, 1
+  %261 = icmp samesign ugt i64 %indvars.iv, 1
   br i1 %261, label %.lr.ph414, label %._crit_edge415, !llvm.loop !204
 
 ._crit_edge415.loopexit.split.loop.exit:          ; preds = %.lr.ph414
@@ -19485,7 +19485,7 @@ _ZN2cv8ximgproc15EdgeDrawingImpl19ComputeCirclePointsEdddPdS2_Pi.exit: ; preds =
   br i1 %138, label %140, label %177
 
 140:                                              ; preds = %139
-  %141 = icmp ugt i32 %106, 1
+  %141 = icmp samesign ugt i32 %106, 1
   br i1 %141, label %142, label %149
 
 142:                                              ; preds = %140
@@ -19499,7 +19499,7 @@ _ZN2cv8ximgproc15EdgeDrawingImpl19ComputeCirclePointsEdddPdS2_Pi.exit: ; preds =
 
 149:                                              ; preds = %142, %140
   %150 = add nuw nsw i32 %106, 1
-  %151 = icmp ult i32 %150, %119
+  %151 = icmp samesign ult i32 %150, %119
   br i1 %151, label %152, label %158
 
 152:                                              ; preds = %149
@@ -19511,7 +19511,7 @@ _ZN2cv8ximgproc15EdgeDrawingImpl19ComputeCirclePointsEdddPdS2_Pi.exit: ; preds =
   br i1 %157, label %295, label %158
 
 158:                                              ; preds = %152, %149
-  %159 = icmp ugt i32 %106, 3
+  %159 = icmp samesign ugt i32 %106, 3
   br i1 %159, label %160, label %167
 
 160:                                              ; preds = %158
@@ -19526,7 +19526,7 @@ _ZN2cv8ximgproc15EdgeDrawingImpl19ComputeCirclePointsEdddPdS2_Pi.exit: ; preds =
 167:                                              ; preds = %160, %158
   %168 = add nuw nsw i32 %106, 2
   %169 = add nsw i32 %118, -2
-  %170 = icmp ult i32 %168, %169
+  %170 = icmp samesign ult i32 %168, %169
   br i1 %170, label %171, label %385
 
 171:                                              ; preds = %167
@@ -19553,7 +19553,7 @@ _ZN2cv8ximgproc15EdgeDrawingImpl19ComputeCirclePointsEdddPdS2_Pi.exit: ; preds =
 
 186:                                              ; preds = %178, %177
   %187 = add nuw nsw i32 %102, 1
-  %188 = icmp ult i32 %187, %114
+  %188 = icmp samesign ult i32 %187, %114
   br i1 %188, label %189, label %196
 
 189:                                              ; preds = %186
@@ -19566,7 +19566,7 @@ _ZN2cv8ximgproc15EdgeDrawingImpl19ComputeCirclePointsEdddPdS2_Pi.exit: ; preds =
   br i1 %195, label %295, label %196
 
 196:                                              ; preds = %189, %186
-  %197 = icmp ugt i32 %102, 3
+  %197 = icmp samesign ugt i32 %102, 3
   br i1 %197, label %198, label %206
 
 198:                                              ; preds = %196
@@ -19582,7 +19582,7 @@ _ZN2cv8ximgproc15EdgeDrawingImpl19ComputeCirclePointsEdddPdS2_Pi.exit: ; preds =
 206:                                              ; preds = %198, %196
   %207 = add nuw nsw i32 %102, 2
   %208 = add nsw i32 %113, -2
-  %209 = icmp ult i32 %207, %208
+  %209 = icmp samesign ult i32 %207, %208
   br i1 %209, label %210, label %385
 
 210:                                              ; preds = %206
@@ -19613,7 +19613,7 @@ _ZN2cv8ximgproc15EdgeDrawingImpl19ComputeCirclePointsEdddPdS2_Pi.exit: ; preds =
 
 227:                                              ; preds = %219, %218
   %228 = add nuw nsw i32 %102, 1
-  %229 = icmp ult i32 %228, %114
+  %229 = icmp samesign ult i32 %228, %114
   br i1 %229, label %230, label %237
 
 230:                                              ; preds = %227
@@ -19626,7 +19626,7 @@ _ZN2cv8ximgproc15EdgeDrawingImpl19ComputeCirclePointsEdddPdS2_Pi.exit: ; preds =
   br i1 %236, label %295, label %237
 
 237:                                              ; preds = %230, %227
-  %238 = icmp ugt i32 %102, 3
+  %238 = icmp samesign ugt i32 %102, 3
   br i1 %238, label %239, label %247
 
 239:                                              ; preds = %237
@@ -19642,7 +19642,7 @@ _ZN2cv8ximgproc15EdgeDrawingImpl19ComputeCirclePointsEdddPdS2_Pi.exit: ; preds =
 247:                                              ; preds = %239, %237
   %248 = add nuw nsw i32 %102, 2
   %249 = add nsw i32 %113, -2
-  %250 = icmp ult i32 %248, %249
+  %250 = icmp samesign ult i32 %248, %249
   br i1 %250, label %251, label %385
 
 251:                                              ; preds = %247
@@ -19655,7 +19655,7 @@ _ZN2cv8ximgproc15EdgeDrawingImpl19ComputeCirclePointsEdddPdS2_Pi.exit: ; preds =
   br i1 %257, label %295, label %385
 
 258:                                              ; preds = %217
-  %259 = icmp ugt i32 %106, 1
+  %259 = icmp samesign ugt i32 %106, 1
   br i1 %259, label %260, label %267
 
 260:                                              ; preds = %258
@@ -19669,7 +19669,7 @@ _ZN2cv8ximgproc15EdgeDrawingImpl19ComputeCirclePointsEdddPdS2_Pi.exit: ; preds =
 
 267:                                              ; preds = %260, %258
   %268 = add nuw nsw i32 %106, 1
-  %269 = icmp ult i32 %268, %119
+  %269 = icmp samesign ult i32 %268, %119
   br i1 %269, label %270, label %276
 
 270:                                              ; preds = %267
@@ -19681,7 +19681,7 @@ _ZN2cv8ximgproc15EdgeDrawingImpl19ComputeCirclePointsEdddPdS2_Pi.exit: ; preds =
   br i1 %275, label %295, label %276
 
 276:                                              ; preds = %270, %267
-  %277 = icmp ugt i32 %106, 3
+  %277 = icmp samesign ugt i32 %106, 3
   br i1 %277, label %278, label %285
 
 278:                                              ; preds = %276
@@ -19696,7 +19696,7 @@ _ZN2cv8ximgproc15EdgeDrawingImpl19ComputeCirclePointsEdddPdS2_Pi.exit: ; preds =
 285:                                              ; preds = %278, %276
   %286 = add nuw nsw i32 %106, 2
   %287 = add nsw i32 %118, -2
-  %288 = icmp ult i32 %286, %287
+  %288 = icmp samesign ult i32 %286, %287
   br i1 %288, label %289, label %385
 
 289:                                              ; preds = %285

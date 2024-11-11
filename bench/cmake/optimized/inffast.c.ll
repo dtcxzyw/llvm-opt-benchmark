@@ -223,7 +223,7 @@ define dso_local void @cm_zlib_inflate_fast(ptr nocapture noundef %0, i32 nounde
   %148 = shl nuw nsw i64 %146, %147
   %149 = add i64 %148, %.lcssa341
   %150 = add nuw nsw i32 %.lcssa339, 8
-  %151 = icmp ult i32 %150, %141
+  %151 = icmp samesign ult i32 %150, %141
   br i1 %151, label %152, label %160
 
 152:                                              ; preds = %143

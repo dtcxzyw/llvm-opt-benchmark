@@ -5679,7 +5679,7 @@ land.lhs.true4:                                   ; preds = %entry
   %sequential_field_limit_ = getelementptr inbounds i8, ptr %0, i64 2
   %1 = load i16, ptr %sequential_field_limit_, align 2
   %conv = zext i16 %1 to i32
-  %cmp7.not = icmp ugt i32 %arg.val.val.i.i.i.i.i.pre, %conv
+  %cmp7.not = icmp samesign ugt i32 %arg.val.val.i.i.i.i.i.pre, %conv
   br i1 %cmp7.not, label %if.end14, label %if.then
 
 if.then:                                          ; preds = %land.lhs.true4
@@ -10212,7 +10212,7 @@ land.lhs.true3:                                   ; preds = %entry
   %sequential_field_limit_ = getelementptr inbounds i8, ptr %parent, i64 2
   %0 = load i16, ptr %sequential_field_limit_, align 2
   %conv = zext i16 %0 to i32
-  %cmp4.not = icmp ugt i32 %number, %conv
+  %cmp4.not = icmp samesign ugt i32 %number, %conv
   br i1 %cmp4.not, label %if.end, label %if.then
 
 if.then:                                          ; preds = %land.lhs.true3
@@ -39665,7 +39665,7 @@ if.then.i.i52:                                    ; preds = %for.body115
   br i1 %cmp.i14.i, label %_ZN6google8protobuf8internal20CalculateReserveSizeIiLi8EEEiii.exit.i, label %if.end.i.i
 
 if.end.i.i:                                       ; preds = %if.then.i.i52
-  %cmp1.i.i = icmp ugt i32 %40, 1073741819
+  %cmp1.i.i = icmp samesign ugt i32 %40, 1073741819
   br i1 %cmp1.i.i, label %_ZN6google8protobuf8internal20CalculateReserveSizeIiLi8EEEiii.exit.i, label %if.end3.i.i
 
 if.end3.i.i:                                      ; preds = %if.end.i.i
@@ -42329,7 +42329,7 @@ for.body.i.i.i.i.i.i:                             ; preds = %invoke.cont71.i, %f
   %incdec.ptr.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__first.addr.07.i.i.i.i.i.i, i64 32
   %incdec.ptr1.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__result.addr.08.i.i.i.i.i.i, i64 32
   %dec.i.i.i.i.i.i = add nsw i64 %__n.09.i.i.i.i.i.i, -1
-  %cmp.i.i.i.i.i.i = icmp ugt i64 %__n.09.i.i.i.i.i.i, 1
+  %cmp.i.i.i.i.i.i = icmp samesign ugt i64 %__n.09.i.i.i.i.i.i, 1
   br i1 %cmp.i.i.i.i.i.i, label %for.body.i.i.i.i.i.i, label %invoke.cont81.i, !llvm.loop !696
 
 invoke.cont81.i:                                  ; preds = %for.body.i.i.i.i.i.i, %invoke.cont71.i
@@ -43272,7 +43272,7 @@ if.else222:                                       ; preds = %if.end216
   br i1 %is_extension, label %if.then236, label %land.lhs.true224
 
 land.lhs.true224:                                 ; preds = %if.else222
-  %cmp226 = icmp ugt i32 %231, 536870911
+  %cmp226 = icmp samesign ugt i32 %231, 536870911
   br i1 %cmp226, label %if.then227, label %if.else245
 
 if.then227:                                       ; preds = %land.lhs.true224
@@ -57335,7 +57335,7 @@ if.end28.i:                                       ; preds = %while.end24.i, %do.
   %arrayidx.i62.i = getelementptr i8, ptr %parent.2.i, i64 10
   %15 = load i8, ptr %arrayidx.i62.i, align 1
   %conv35.i = zext i8 %15 to i64
-  %cmp36.not.not.i = icmp ult i64 %pos.2.i, %conv35.i
+  %cmp36.not.not.i = icmp samesign ult i64 %pos.2.i, %conv35.i
   br i1 %cmp36.not.not.i, label %do.body.i.backedge, label %do.body37.i
 
 do.body.i.backedge:                               ; preds = %if.end28.i, %do.end52.i
@@ -57552,7 +57552,7 @@ if.end:                                           ; preds = %if.then
   br label %if.end27
 
 if.else:                                          ; preds = %entry
-  %cmp5 = icmp ugt i64 %len, 8
+  %cmp5 = icmp samesign ugt i64 %len, 8
   br i1 %cmp5, label %if.then6, label %if.else14
 
 if.then6:                                         ; preds = %if.else
@@ -57573,7 +57573,7 @@ if.then6:                                         ; preds = %if.else
   br label %return
 
 if.else14:                                        ; preds = %if.else
-  %cmp15 = icmp ugt i64 %len, 3
+  %cmp15 = icmp samesign ugt i64 %len, 3
   br i1 %cmp15, label %if.then16, label %if.else18
 
 if.then16:                                        ; preds = %if.else14
@@ -65160,7 +65160,7 @@ if.end39.i:                                       ; preds = %if.end29.i
   %arrayidx.i49.i = getelementptr i8, ptr %parent.2.i, i64 10
   %20 = load i8, ptr %arrayidx.i49.i, align 1
   %conv47.i = zext i8 %20 to i64
-  %cmp48.not.not.i = icmp ult i64 %pos.2.i, %conv47.i
+  %cmp48.not.not.i = icmp samesign ult i64 %pos.2.i, %conv47.i
   br i1 %cmp48.not.not.i, label %do.body.i.backedge, label %do.body49.i
 
 do.body.i.backedge:                               ; preds = %if.end61.i, %if.end39.i
@@ -65318,7 +65318,7 @@ if.end28.i:                                       ; preds = %while.end24.i, %do.
   %arrayidx.i62.i = getelementptr i8, ptr %parent.2.i, i64 10
   %17 = load i8, ptr %arrayidx.i62.i, align 1
   %conv35.i = zext i8 %17 to i64
-  %cmp36.not.not.i = icmp ult i64 %pos.2.i, %conv35.i
+  %cmp36.not.not.i = icmp samesign ult i64 %pos.2.i, %conv35.i
   br i1 %cmp36.not.not.i, label %do.body.i.backedge, label %do.body37.i
 
 do.body.i.backedge:                               ; preds = %if.end28.i, %do.end52.i
@@ -65746,7 +65746,7 @@ if.end28.i:                                       ; preds = %while.end24.i, %do.
   %arrayidx.i62.i = getelementptr i8, ptr %parent.2.i, i64 10
   %19 = load i8, ptr %arrayidx.i62.i, align 1
   %conv35.i = zext i8 %19 to i64
-  %cmp36.not.not.i = icmp ult i64 %pos.2.i, %conv35.i
+  %cmp36.not.not.i = icmp samesign ult i64 %pos.2.i, %conv35.i
   br i1 %cmp36.not.not.i, label %do.body.i.backedge, label %do.body37.i
 
 do.body.i.backedge:                               ; preds = %if.end28.i, %do.end52.i
@@ -68698,7 +68698,7 @@ if.then15:                                        ; preds = %if.then7
   %conv27 = zext nneg i8 %.sroa.speculated116 to i32
   %cmp31.not = icmp samesign uge i32 %conv26, %conv27
   %narrow = add nuw nsw i8 %.sroa.speculated116, %5
-  %cmp36 = icmp ult i8 %narrow, 10
+  %cmp36 = icmp samesign ult i8 %narrow, 10
   %or.cond = select i1 %cmp31.not, i1 true, i1 %cmp36
   br i1 %or.cond, label %if.then37, label %if.end53
 
@@ -68751,7 +68751,7 @@ if.then68:                                        ; preds = %if.then59
   %sub87 = sub nsw i32 %conv85, %conv86
   %cmp88.not = icmp sle i32 %conv83, %sub87
   %narrow123 = add nuw nsw i8 %.sroa.speculated, %12
-  %cmp94 = icmp ult i8 %narrow123, 10
+  %cmp94 = icmp samesign ult i8 %narrow123, 10
   %or.cond122 = select i1 %cmp88.not, i1 true, i1 %cmp94
   br i1 %or.cond122, label %if.then95, label %if.end108
 
@@ -70800,7 +70800,7 @@ for.body.i.i.i.i.i:                               ; preds = %if.then33, %for.bod
   %incdec.ptr.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__first.sroa.0.06.i.i.i.i.i, i64 8
   %incdec.ptr.i.i.i.i.i = getelementptr inbounds i8, ptr %__result.addr.08.i.i.i.i.i, i64 32
   %dec.i.i.i.i.i = add nsw i64 %__n.07.i.i.i.i.i, -1
-  %cmp.i.i.i.i.i = icmp ugt i64 %__n.07.i.i.i.i.i, 1
+  %cmp.i.i.i.i.i = icmp samesign ugt i64 %__n.07.i.i.i.i.i, 1
   br i1 %cmp.i.i.i.i.i, label %for.body.i.i.i.i.i, label %_ZSt4copyIN6google8protobuf8internal19RepeatedPtrIteratorIKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEPS9_ET0_T_SE_SD_.exit.loopexit, !llvm.loop !1073
 
 _ZSt4copyIN6google8protobuf8internal19RepeatedPtrIteratorIKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEPS9_ET0_T_SE_SD_.exit.loopexit: ; preds = %for.body.i.i.i.i.i
@@ -70839,7 +70839,7 @@ for.body.i.i.i.i.i25:                             ; preds = %if.else41, %for.bod
   %incdec.ptr.i.i.i.i.i.i30 = getelementptr inbounds i8, ptr %__first.sroa.0.06.i.i.i.i.i28, i64 8
   %incdec.ptr.i.i.i.i.i31 = getelementptr inbounds i8, ptr %__result.addr.08.i.i.i.i.i26, i64 32
   %dec.i.i.i.i.i32 = add nsw i64 %__n.07.i.i.i.i.i27, -1
-  %cmp.i.i.i.i.i33 = icmp ugt i64 %__n.07.i.i.i.i.i27, 1
+  %cmp.i.i.i.i.i33 = icmp samesign ugt i64 %__n.07.i.i.i.i.i27, 1
   br i1 %cmp.i.i.i.i.i33, label %for.body.i.i.i.i.i25, label %_ZSt4copyIN6google8protobuf8internal19RepeatedPtrIteratorIKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEPS9_ET0_T_SE_SD_.exit34.loopexit, !llvm.loop !1073
 
 _ZSt4copyIN6google8protobuf8internal19RepeatedPtrIteratorIKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEPS9_ET0_T_SE_SD_.exit34.loopexit: ; preds = %for.body.i.i.i.i.i25

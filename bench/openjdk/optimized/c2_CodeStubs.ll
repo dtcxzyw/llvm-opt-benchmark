@@ -94,7 +94,7 @@ _ZN11CodeSection32maybe_expand_to_ensure_remainingEi.exit: ; preds = %8, %28
   %43 = load ptr, ptr %11, align 8
   %44 = load ptr, ptr %43, align 8
   tail call void %44(ptr noundef nonnull align 8 dereferenceable(88) %11, ptr noundef nonnull align 8 dereferenceable(40) %1) #5
-  %45 = icmp ugt i64 %indvars.iv, 1
+  %45 = icmp samesign ugt i64 %indvars.iv, 1
   br i1 %45, label %8, label %.loopexit, !llvm.loop !6
 
 .loopexit:                                        ; preds = %_ZN11CodeSection32maybe_expand_to_ensure_remainingEi.exit, %2, %38

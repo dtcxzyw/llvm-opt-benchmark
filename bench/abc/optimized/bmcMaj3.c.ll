@@ -3080,7 +3080,7 @@ define noalias noundef ptr @Zyx_ManCreateSymVarPairs(ptr noundef readonly %0, i3
   br i1 %11, label %.lr.ph99, label %._crit_edge
 
 .lr.ph99:                                         ; preds = %2
-  %12 = icmp ult i32 %1, 7
+  %12 = icmp samesign ult i32 %1, 7
   %13 = add nsw i32 %1, -6
   %14 = shl nuw i32 1, %13
   %15 = select i1 %12, i32 1, i32 %14
@@ -6877,7 +6877,7 @@ Abc_TtNot.exit.i:                                 ; preds = %Abc_TtNot.exit.loop
   br label %Abc_TtWriteHexRev.exit.i
 
 106:                                              ; preds = %Abc_TtNot.exit.i
-  %107 = icmp ult i32 %90, 7
+  %107 = icmp samesign ult i32 %90, 7
   %108 = add nsw i32 %90, -6
   %109 = shl nuw i32 1, %108
   %110 = select i1 %107, i32 1, i32 %109
@@ -7415,7 +7415,7 @@ define range(i32 0, 2) i32 @Zyx_TestReadNode(ptr noundef %0, ptr nocapture nound
   %62 = getelementptr inbounds i64, ptr %.val.pre, i64 %61
   %63 = getelementptr inbounds [6 x ptr], ptr %6, i64 0, i64 %indvars.iv.next
   store ptr %62, ptr %63, align 8
-  %64 = icmp ugt i64 %indvars.iv, 1
+  %64 = icmp samesign ugt i64 %indvars.iv, 1
   br i1 %64, label %54, label %._crit_edge, !llvm.loop !133
 
 ._crit_edge:                                      ; preds = %54, %48

@@ -5620,7 +5620,7 @@ define hidden void @_ZN8settings14settings_store14to_pretty_json17h95cdd9d698a73
 
 115:                                              ; preds = %110, %"_ZN106_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..double_ended..DoubleEndedIterator$GT$9next_back17h1219297ab9f64e67E.exit17.i.i"
   %.sroa.04.0.i.i = phi i32 [ %114, %110 ], [ %93, %"_ZN106_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..double_ended..DoubleEndedIterator$GT$9next_back17h1219297ab9f64e67E.exit17.i.i" ]
-  %116 = icmp ult i32 %.sroa.04.0.i.i, 17408
+  %116 = icmp samesign ult i32 %.sroa.04.0.i.i, 17408
   call void @llvm.assume(i1 %116)
   %117 = icmp samesign ult i32 %.sroa.04.0.i.i, 2
   br i1 %117, label %.thread.i, label %118
@@ -6115,7 +6115,7 @@ define hidden void @_ZN8settings14settings_store14to_pretty_json17hc25a75bbd0f4e
 
 114:                                              ; preds = %109, %"_ZN106_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..double_ended..DoubleEndedIterator$GT$9next_back17h1219297ab9f64e67E.exit17.i.i"
   %.sroa.04.0.i.i = phi i32 [ %113, %109 ], [ %92, %"_ZN106_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..double_ended..DoubleEndedIterator$GT$9next_back17h1219297ab9f64e67E.exit17.i.i" ]
-  %115 = icmp ult i32 %.sroa.04.0.i.i, 17408
+  %115 = icmp samesign ult i32 %.sroa.04.0.i.i, 17408
   call void @llvm.assume(i1 %115)
   %116 = icmp samesign ult i32 %.sroa.04.0.i.i, 2
   br i1 %116, label %.thread.i, label %117

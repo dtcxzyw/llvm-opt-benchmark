@@ -9043,7 +9043,7 @@ if.then.i.i.i:                                    ; preds = %if.then9
   unreachable
 
 _ZNSt6vectorIiSaIiEE17_S_check_init_lenEmRKS0_.exit.i.i: ; preds = %if.then9
-  %cmp.not.i.i.i.i.i = icmp ult i64 %field_pos.coerce1, 4294967296
+  %cmp.not.i.i.i.i.i = icmp samesign ult i64 %field_pos.coerce1, 4294967296
   br i1 %cmp.not.i.i.i.i.i, label %_ZNK5arrow3ipc8internal13FieldPosition4pathEv.exit, label %if.then.i.i.i.i.i.i
 
 if.then.i.i.i.i.i.i:                              ; preds = %_ZNSt6vectorIiSaIiEE17_S_check_init_lenEmRKS0_.exit.i.i

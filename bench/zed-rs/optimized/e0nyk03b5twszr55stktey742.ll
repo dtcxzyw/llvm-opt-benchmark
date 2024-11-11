@@ -2024,7 +2024,7 @@ define hidden void @_ZN12futures_util6future8join_all8join_all17h871b36e6e8a46e8
   %.sroa.5.0..sroa_idx.i = getelementptr inbounds i8, ptr %1, i64 16
   %.sroa.5.0.copyload.i = load i64, ptr %.sroa.5.0..sroa_idx.i, align 8, !alias.scope !310, !noalias !313
   %10 = getelementptr inbounds { i64, [1 x i64] }, ptr %.sroa.4.0.copyload.i, i64 %.sroa.5.0.copyload.i
-  %11 = icmp ult i64 %.sroa.5.0.copyload.i, 31
+  %11 = icmp samesign ult i64 %.sroa.5.0.copyload.i, 31
   br i1 %11, label %.noexc, label %12
 
 12:                                               ; preds = %2
@@ -6736,7 +6736,7 @@ define hidden void @"_ZN4core4hash5impls49_$LT$impl$u20$core..hash..Hash$u20$for
   %.sroa.027.1.i = phi i64 [ %12, %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17hb2f8f64a02b0724fE.exit.i" ], [ %.sroa.027.0.lcssa.i, %._crit_edge.i ]
   %.sroa.11.1.i = phi i64 [ %13, %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17hb2f8f64a02b0724fE.exit.i" ], [ %.sroa.11.0.lcssa.i, %._crit_edge.i ]
   %.sroa.0.1.i = phi ptr [ %14, %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17hb2f8f64a02b0724fE.exit.i" ], [ %.sroa.0.0.lcssa.i, %._crit_edge.i ]
-  %8 = icmp ugt i64 %.sroa.11.1.i, 1
+  %8 = icmp samesign ugt i64 %.sroa.11.1.i, 1
   br i1 %8, label %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17h9b9e6e98149b2251E.exit.i", label %15
 
 "_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17hb2f8f64a02b0724fE.exit.i": ; preds = %._crit_edge.i
@@ -11661,7 +11661,7 @@ define hidden void @"_ZN59_$LT$rustc_hash..FxHasher$u20$as$u20$core..hash..Hashe
   %.sroa.027.1 = phi i64 [ %12, %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17hb2f8f64a02b0724fE.exit" ], [ %.sroa.027.0.lcssa, %._crit_edge ]
   %.sroa.11.1 = phi i64 [ %13, %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17hb2f8f64a02b0724fE.exit" ], [ %.sroa.11.0.lcssa, %._crit_edge ]
   %.sroa.0.1 = phi ptr [ %14, %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17hb2f8f64a02b0724fE.exit" ], [ %.sroa.0.0.lcssa, %._crit_edge ]
-  %8 = icmp ugt i64 %.sroa.11.1, 1
+  %8 = icmp samesign ugt i64 %.sroa.11.1, 1
   br i1 %8, label %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17h9b9e6e98149b2251E.exit", label %15
 
 "_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17hb2f8f64a02b0724fE.exit": ; preds = %._crit_edge

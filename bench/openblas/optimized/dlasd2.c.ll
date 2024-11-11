@@ -158,7 +158,7 @@ define void @dlasd2_(ptr noundef %0, ptr noundef %1, ptr nocapture noundef reado
   %119 = getelementptr i32, ptr %20, i64 %107
   store i32 %118, ptr %119, align 4, !tbaa !3
   %120 = add nsw i64 %107, -1
-  %121 = icmp ugt i64 %107, 1
+  %121 = icmp samesign ugt i64 %107, 1
   br i1 %121, label %106, label %.loopexit36, !llvm.loop !9
 
 .loopexit36:                                      ; preds = %106, %91

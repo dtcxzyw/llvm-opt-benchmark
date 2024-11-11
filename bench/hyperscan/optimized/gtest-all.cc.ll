@@ -15191,7 +15191,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit95: ; preds = %if.
 
 if.end:                                           ; preds = %entry
   call void @llvm.lifetime.start.p0(i64 5, ptr nonnull %str) #52
-  %cmp6 = icmp ult i32 %code_point, 128
+  %cmp6 = icmp samesign ult i32 %code_point, 128
   br i1 %cmp6, label %if.then7, label %if.else
 
 if.then7:                                         ; preds = %if.end
@@ -15201,7 +15201,7 @@ if.then7:                                         ; preds = %if.end
   br label %if.end51
 
 if.else:                                          ; preds = %if.end
-  %cmp9 = icmp ult i32 %code_point, 2048
+  %cmp9 = icmp samesign ult i32 %code_point, 2048
   br i1 %cmp9, label %if.then10, label %if.else17
 
 if.then10:                                        ; preds = %if.else
@@ -15218,7 +15218,7 @@ if.then10:                                        ; preds = %if.else
   br label %if.end51
 
 if.else17:                                        ; preds = %if.else
-  %cmp18 = icmp ult i32 %code_point, 65536
+  %cmp18 = icmp samesign ult i32 %code_point, 65536
   %shr.i97 = lshr i32 %code_point, 6
   %26 = trunc i32 %code_point to i8
   %27 = and i8 %26, 63

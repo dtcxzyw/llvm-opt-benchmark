@@ -594,7 +594,7 @@ if.end190.i:                                      ; preds = %if.else168.i, %land
 
 if.else199.i:                                     ; preds = %if.then91.i
   %cmp200.not.i = icmp ne i32 %conv85.i, 65535
-  %cmp203.i = icmp ugt i32 %conv85.i, %1
+  %cmp203.i = icmp samesign ugt i32 %conv85.i, %1
   %or.cond129.i = and i1 %cmp200.not.i, %cmp203.i
   br i1 %or.cond129.i, label %land.lhs.true205.i, label %for.inc.i
 
@@ -609,14 +609,14 @@ land.lhs.true205.i:                               ; preds = %if.else199.i
 land.lhs.true210.i:                               ; preds = %land.lhs.true205.i
   %53 = load i16, ptr %arrayidx95.i, align 8
   %conv212.i = zext i16 %53 to i32
-  %cmp213.i = icmp ugt i32 %1, %conv212.i
+  %cmp213.i = icmp samesign ugt i32 %1, %conv212.i
   br i1 %cmp213.i, label %if.then229.i, label %for.inc.i
 
 land.lhs.true219.i:                               ; preds = %land.lhs.true205.i
   %op2220.i = getelementptr inbounds i8, ptr %arrayidx95.i, i64 2
   %54 = load i16, ptr %op2220.i, align 2
   %conv221.i = zext i16 %54 to i32
-  %cmp222.i = icmp ule i32 %1, %conv221.i
+  %cmp222.i = icmp samesign ule i32 %1, %conv221.i
   %cmp227.not.i = icmp eq i16 %54, 32767
   %or.cond130.i = or i1 %cmp227.not.i, %cmp222.i
   br i1 %or.cond130.i, label %for.inc.i, label %if.then229.i

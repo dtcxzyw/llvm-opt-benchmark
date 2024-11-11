@@ -1256,7 +1256,7 @@ if.end10:                                         ; preds = %thunk_type_size.exi
   br i1 %cmp13, label %return, label %if.end16
 
 if.end16:                                         ; preds = %if.end10
-  %cmp20 = icmp ult i32 %8, 73
+  %cmp20 = icmp samesign ult i32 %8, 73
   br i1 %cmp20, label %if.end28, label %if.then22
 
 if.then22:                                        ; preds = %if.end16
@@ -12684,7 +12684,7 @@ entry:
 
 if.end:                                           ; preds = %entry
   %and1 = and i32 %flags, 2048
-  %tobool6.not = icmp ult i32 %flags, 524288
+  %tobool6.not = icmp samesign ult i32 %flags, 524288
   %or8 = or i32 %flags, 524288
   %host_flags.1 = select i1 %tobool6.not, i32 %and1, i32 %or8
   %cmp = icmp eq i64 %target_addr, 0
@@ -12942,7 +12942,7 @@ if.end5.i:                                        ; preds = %if.end.i
 if.end13.i:                                       ; preds = %if.end5.i
   store i16 %6, ptr %call.i19, align 2
   %cmp16.i = icmp eq i16 %6, 16
-  %cmp19.i = icmp ugt i32 %cond, 11
+  %cmp19.i = icmp samesign ugt i32 %cond, 11
   %or.cond.i = and i1 %cmp19.i, %cmp16.i
   %cmp29.i = icmp eq i16 %6, 17
   %or.cond = or i1 %cmp29.i, %or.cond.i
@@ -12950,7 +12950,7 @@ if.end13.i:                                       ; preds = %if.end5.i
 
 if.else36.i:                                      ; preds = %if.end13.i
   %cmp39.i = icmp eq i16 %6, 10
-  %cmp43.i = icmp ugt i32 %cond, 27
+  %cmp43.i = icmp samesign ugt i32 %cond, 27
   %or.cond1.i = and i1 %cmp43.i, %cmp39.i
   br i1 %or.cond1.i, label %if.then45.i, label %host_to_target_sockaddr.exit
 
@@ -13057,7 +13057,7 @@ if.end5.i:                                        ; preds = %if.end.i
 if.end13.i:                                       ; preds = %if.end5.i
   store i16 %6, ptr %call.i19, align 2
   %cmp16.i = icmp eq i16 %6, 16
-  %cmp19.i = icmp ugt i32 %cond, 11
+  %cmp19.i = icmp samesign ugt i32 %cond, 11
   %or.cond.i = and i1 %cmp19.i, %cmp16.i
   %cmp29.i = icmp eq i16 %6, 17
   %or.cond = or i1 %cmp29.i, %or.cond.i
@@ -13065,7 +13065,7 @@ if.end13.i:                                       ; preds = %if.end5.i
 
 if.else36.i:                                      ; preds = %if.end13.i
   %cmp39.i = icmp eq i16 %6, 10
-  %cmp43.i = icmp ugt i32 %cond, 27
+  %cmp43.i = icmp samesign ugt i32 %cond, 27
   %or.cond1.i = and i1 %cmp43.i, %cmp39.i
   br i1 %or.cond1.i, label %if.then45.i, label %host_to_target_sockaddr.exit
 
@@ -13849,7 +13849,7 @@ if.end5.i:                                        ; preds = %if.end2.i
 if.end13.i:                                       ; preds = %if.end5.i
   store i16 %21, ptr %call.i68, align 2
   %cmp16.i = icmp eq i16 %21, 16
-  %cmp19.i = icmp ugt i32 %cond47, 11
+  %cmp19.i = icmp samesign ugt i32 %cond47, 11
   %or.cond.i = and i1 %cmp19.i, %cmp16.i
   %cmp29.i = icmp eq i16 %21, 17
   %or.cond = or i1 %cmp29.i, %or.cond.i
@@ -13857,7 +13857,7 @@ if.end13.i:                                       ; preds = %if.end5.i
 
 if.else36.i:                                      ; preds = %if.end13.i
   %cmp39.i = icmp eq i16 %21, 10
-  %cmp43.i = icmp ugt i32 %cond47, 27
+  %cmp43.i = icmp samesign ugt i32 %cond47, 27
   %or.cond1.i = and i1 %cmp43.i, %cmp39.i
   br i1 %or.cond1.i, label %if.then45.i, label %host_to_target_sockaddr.exit
 
@@ -16859,7 +16859,7 @@ if.end:                                           ; preds = %entry
 
 for.cond.preheader:                               ; preds = %if.end
   %div17 = lshr i64 %target_size, 3
-  %cmp322.not = icmp ult i64 %target_size, 8
+  %cmp322.not = icmp samesign ult i64 %target_size, 8
   br i1 %cmp322.not, label %return, label %for.body
 
 for.body:                                         ; preds = %for.cond.preheader, %do.body

@@ -321,7 +321,7 @@ delete.notnull:                                   ; preds = %for.body50
   br label %for.inc56
 
 for.inc56:                                        ; preds = %for.body50, %delete.notnull
-  %cmp49 = icmp ugt i64 %indvars.iv41, 1
+  %cmp49 = icmp samesign ugt i64 %indvars.iv41, 1
   br i1 %cmp49, label %for.body50, label %for.end57.loopexit, !llvm.loop !6
 
 for.end57.loopexit:                               ; preds = %for.inc56

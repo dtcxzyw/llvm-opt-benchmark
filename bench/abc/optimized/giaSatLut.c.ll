@@ -4333,7 +4333,7 @@ Vec_WrdPush.exit249:                              ; preds = %.Vec_WrdGrow.exit10
   br i1 %524, label %525, label %Sbl_CutIsFeasible.exit.us.i
 
 525:                                              ; preds = %415
-  %526 = icmp ult i32 %523, 5
+  %526 = icmp samesign ult i32 %523, 5
   br i1 %526, label %564, label %Sbl_CutPushUncontained.exit.us.i
 
 Sbl_CutIsFeasible.exit.us.i:                      ; preds = %415
@@ -4373,7 +4373,7 @@ Sbl_CutIsFeasible.exit.us.i:                      ; preds = %415
   %560 = add nuw nsw i32 %559, %542
   %561 = add nuw nsw i32 %560, %554
   %562 = add nuw nsw i32 %561, %523
-  %563 = icmp ult i32 %562, 7
+  %563 = icmp samesign ult i32 %562, 7
   br i1 %563, label %564, label %Sbl_CutPushUncontained.exit.us.i
 
 564:                                              ; preds = %Sbl_CutIsFeasible.exit.us.i, %525

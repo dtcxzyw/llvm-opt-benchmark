@@ -2032,7 +2032,7 @@ define hidden noundef i32 @mbedtls_ripemd160_finish(ptr nocapture noundef %0, pt
 49:                                               ; preds = %42, %40
   %.036.i = phi ptr [ %47, %42 ], [ @ripemd160_padding, %40 ]
   %.035.i = phi i64 [ %48, %42 ], [ %33, %40 ]
-  %50 = icmp ugt i64 %.035.i, 63
+  %50 = icmp samesign ugt i64 %.035.i, 63
   br i1 %50, label %.lr.ph.i, label %._crit_edge.i
 
 .lr.ph.i:                                         ; preds = %49, %.lr.ph.i

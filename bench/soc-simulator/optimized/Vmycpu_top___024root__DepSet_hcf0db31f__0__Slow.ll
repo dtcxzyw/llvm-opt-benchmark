@@ -1501,7 +1501,7 @@ define dso_local void @_Z42Vmycpu_top___024root___stl_sequent__TOP__0P20Vmycpu_t
   br label %1098
 
 799:                                              ; preds = %692
-  %.not2900 = icmp ult i32 %337, 1073741824
+  %.not2900 = icmp samesign ult i32 %337, 1073741824
   br i1 %.not2900, label %907, label %800
 
 800:                                              ; preds = %799
@@ -1800,15 +1800,15 @@ define dso_local void @_Z42Vmycpu_top___024root___stl_sequent__TOP__0P20Vmycpu_t
   br label %1098
 
 907:                                              ; preds = %799
-  %.not2901.not = icmp ult i32 %337, 536870912
+  %.not2901.not = icmp samesign ult i32 %337, 536870912
   br i1 %.not2901.not, label %908, label %937
 
 908:                                              ; preds = %907
-  %or.cond3658 = icmp ult i32 %337, 134217728
+  %or.cond3658 = icmp samesign ult i32 %337, 134217728
   br i1 %or.cond3658, label %909, label %959
 
 909:                                              ; preds = %908
-  %.not2904 = icmp ult i32 %337, 67108864
+  %.not2904 = icmp samesign ult i32 %337, 67108864
   br i1 %.not2904, label %920, label %910
 
 910:                                              ; preds = %909
@@ -1946,7 +1946,7 @@ define dso_local void @_Z42Vmycpu_top___024root___stl_sequent__TOP__0P20Vmycpu_t
   br label %1098
 
 959:                                              ; preds = %908
-  %.not2940 = icmp ult i32 %337, 268435456
+  %.not2940 = icmp samesign ult i32 %337, 268435456
   br i1 %.not2940, label %965, label %960
 
 960:                                              ; preds = %959
@@ -3044,7 +3044,7 @@ define dso_local void @_Z42Vmycpu_top___024root___stl_sequent__TOP__0P20Vmycpu_t
   br label %1843
 
 1523:                                             ; preds = %1190
-  %.not3163 = icmp ult i32 %1419, 1073741824
+  %.not3163 = icmp samesign ult i32 %1419, 1073741824
   br i1 %.not3163, label %1628, label %1524
 
 1524:                                             ; preds = %1523
@@ -3337,11 +3337,11 @@ define dso_local void @_Z42Vmycpu_top___024root___stl_sequent__TOP__0P20Vmycpu_t
   br label %1843
 
 1628:                                             ; preds = %1523
-  %or.cond3686 = icmp ult i32 %1419, 134217728
+  %or.cond3686 = icmp samesign ult i32 %1419, 134217728
   br i1 %or.cond3686, label %1629, label %1656
 
 1629:                                             ; preds = %1628
-  %.not3167 = icmp ult i32 %1419, 67108864
+  %.not3167 = icmp samesign ult i32 %1419, 67108864
   br i1 %.not3167, label %1640, label %1630
 
 1630:                                             ; preds = %1629
@@ -3414,7 +3414,7 @@ define dso_local void @_Z42Vmycpu_top___024root___stl_sequent__TOP__0P20Vmycpu_t
   br i1 %or.cond3690.not, label %.sink.split3859, label %1743
 
 1656:                                             ; preds = %1628
-  %.not3202 = icmp ult i32 %1419, 536870912
+  %.not3202 = icmp samesign ult i32 %1419, 536870912
   br i1 %.not3202, label %1680, label %1657
 
 1657:                                             ; preds = %1656
@@ -3484,7 +3484,7 @@ define dso_local void @_Z42Vmycpu_top___024root___stl_sequent__TOP__0P20Vmycpu_t
   br label %1843
 
 1680:                                             ; preds = %1656
-  %.not3203 = icmp ult i32 %1419, 268435456
+  %.not3203 = icmp samesign ult i32 %1419, 268435456
   %1681 = and i32 %1419, 67108864
   %.not3269 = icmp eq i32 %1681, 0
   br i1 %.not3203, label %1692, label %1682

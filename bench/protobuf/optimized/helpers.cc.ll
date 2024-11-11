@@ -2382,7 +2382,7 @@ for.body:                                         ; preds = %entry, %for.inc
   br i1 %cmp4, label %land.lhs.true, label %if.else19
 
 land.lhs.true:                                    ; preds = %for.body
-  %cmp8 = icmp ult i8 %0, 123
+  %cmp8 = icmp samesign ult i8 %0, 123
   br i1 %cmp8, label %if.then, label %for.inc
 
 if.then:                                          ; preds = %land.lhs.true
@@ -2401,7 +2401,7 @@ if.else19:                                        ; preds = %for.body
   br i1 %cmp23, label %land.lhs.true24, label %if.else34
 
 land.lhs.true24:                                  ; preds = %if.else19
-  %cmp28 = icmp ult i8 %0, 91
+  %cmp28 = icmp samesign ult i8 %0, 91
   br i1 %cmp28, label %if.then29.invoke, label %for.inc
 
 if.then29.invoke:                                 ; preds = %if.then, %land.lhs.true24
@@ -4897,7 +4897,7 @@ for.body.i:                                       ; preds = %entry, %for.inc.i
   br i1 %cmp4.i, label %land.lhs.true.i, label %if.else19.i
 
 land.lhs.true.i:                                  ; preds = %for.body.i
-  %cmp8.i = icmp ult i8 %3, 123
+  %cmp8.i = icmp samesign ult i8 %3, 123
   br i1 %cmp8.i, label %if.then.i, label %for.inc.i
 
 if.then.i:                                        ; preds = %land.lhs.true.i
@@ -4920,7 +4920,7 @@ if.else19.i:                                      ; preds = %for.body.i
   br i1 %cmp23.i, label %land.lhs.true24.i, label %if.else34.i
 
 land.lhs.true24.i:                                ; preds = %if.else19.i
-  %cmp28.i = icmp ult i8 %3, 91
+  %cmp28.i = icmp samesign ult i8 %3, 91
   br i1 %cmp28.i, label %if.then29.invoke.i, label %for.inc.i
 
 if.then29.invoke.i:                               ; preds = %land.lhs.true24.i, %if.then.i
@@ -5477,7 +5477,7 @@ for.body.i:                                       ; preds = %entry, %for.inc.i
   br i1 %cmp4.i, label %land.lhs.true.i, label %if.else19.i
 
 land.lhs.true.i:                                  ; preds = %for.body.i
-  %cmp8.i = icmp ult i8 %3, 123
+  %cmp8.i = icmp samesign ult i8 %3, 123
   br i1 %cmp8.i, label %if.then.i, label %for.inc.i
 
 if.then.i:                                        ; preds = %land.lhs.true.i
@@ -5500,7 +5500,7 @@ if.else19.i:                                      ; preds = %for.body.i
   br i1 %cmp23.i, label %land.lhs.true24.i, label %if.else34.i
 
 land.lhs.true24.i:                                ; preds = %if.else19.i
-  %cmp28.i = icmp ult i8 %3, 91
+  %cmp28.i = icmp samesign ult i8 %3, 91
   br i1 %cmp28.i, label %if.then29.invoke.i, label %for.inc.i
 
 if.then29.invoke.i:                               ; preds = %land.lhs.true24.i, %if.then.i
@@ -15286,7 +15286,7 @@ if.end:                                           ; preds = %if.then
   br label %if.end27
 
 if.else:                                          ; preds = %entry
-  %cmp5 = icmp ugt i64 %len, 8
+  %cmp5 = icmp samesign ugt i64 %len, 8
   br i1 %cmp5, label %if.then6, label %if.else14
 
 if.then6:                                         ; preds = %if.else
@@ -15307,7 +15307,7 @@ if.then6:                                         ; preds = %if.else
   br label %return
 
 if.else14:                                        ; preds = %if.else
-  %cmp15 = icmp ugt i64 %len, 3
+  %cmp15 = icmp samesign ugt i64 %len, 3
   br i1 %cmp15, label %if.then16, label %if.else18
 
 if.then16:                                        ; preds = %if.else14
@@ -23681,7 +23681,7 @@ for.body.i.i.i.i.i39:                             ; preds = %_ZSt13move_backward
   %incdec.ptr.i.i.i.i.i40 = getelementptr inbounds i8, ptr %__first.addr.09.i.i.i.i.i, i64 16
   %incdec.ptr1.i.i.i.i.i = getelementptr inbounds i8, ptr %__result.addr.08.i.i.i.i.i, i64 16
   %dec.i.i.i.i.i = add nsw i64 %__n.07.i.i.i.i.i, -1
-  %cmp.i.i.i.i.i = icmp ugt i64 %__n.07.i.i.i.i.i, 1
+  %cmp.i.i.i.i.i = icmp samesign ugt i64 %__n.07.i.i.i.i.i, 1
   br i1 %cmp.i.i.i.i.i, label %for.body.i.i.i.i.i39, label %if.end87, !llvm.loop !555
 
 _ZSt7advanceIPZNK4absl12lts_2023080216strings_internal8SplitterINS1_8ByStringENS1_9SkipEmptyESt17basic_string_viewIcSt11char_traitsIcEEE18ConvertToContainerISt6vectorIS9_SaIS9_EES9_Lb0EEclERKSA_E8raw_viewmEvRT_T0_.exit: ; preds = %if.then4
@@ -23749,7 +23749,7 @@ for.body.i.i.i.i.i61:                             ; preds = %_ZSt22__uninitializ
   %incdec.ptr.i.i.i.i.i67 = getelementptr inbounds i8, ptr %__first.addr.09.i.i.i.i.i62, i64 16
   %incdec.ptr1.i.i.i.i.i68 = getelementptr inbounds i8, ptr %__result.addr.08.i.i.i.i.i63, i64 16
   %dec.i.i.i.i.i69 = add nsw i64 %__n.07.i.i.i.i.i64, -1
-  %cmp.i.i.i.i.i70 = icmp ugt i64 %__n.07.i.i.i.i.i64, 1
+  %cmp.i.i.i.i.i70 = icmp samesign ugt i64 %__n.07.i.i.i.i.i64, 1
   br i1 %cmp.i.i.i.i.i70, label %for.body.i.i.i.i.i61, label %if.end87, !llvm.loop !555
 
 if.else50:                                        ; preds = %if.then

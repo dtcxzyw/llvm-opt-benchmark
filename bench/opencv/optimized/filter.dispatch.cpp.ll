@@ -27848,7 +27848,7 @@ define linkonce_odr hidden void @_ZN2cv12cpu_baseline8Filter2DIhNS0_4CastIfhEENS
   tail call void @llvm.memset.p0.i64(ptr align 1 %.03953.us, i8 %62, i64 %63, i1 false)
   %64 = add nsw i32 %.04252.us, -1
   %65 = getelementptr inbounds i8, ptr %.03953.us, i64 %28
-  %66 = icmp ugt i32 %.04252.us, 1
+  %66 = icmp samesign ugt i32 %.04252.us, 1
   br i1 %66, label %.preheader45.us, label %._crit_edge, !llvm.loop !442
 
 .preheader45.lr.ph.split:                         ; preds = %.preheader45.lr.ph

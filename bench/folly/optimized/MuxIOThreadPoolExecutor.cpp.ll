@@ -7441,11 +7441,11 @@ if.then.i.i:                                      ; preds = %if.end5.i
   br i1 %cmp.i16.i, label %if.then.i.i14, label %if.else11.i.i
 
 if.then.i.i14:                                    ; preds = %if.then.i.i
-  %cmp4.i.i = icmp ult i64 %.sroa.speculated.i, 3
+  %cmp4.i.i = icmp samesign ult i64 %.sroa.speculated.i, 3
   br i1 %cmp4.i.i, label %_ZNK5folly3f146detail8F14TableINS1_20ValueContainerPolicyIPKvvvvvEEE25computeChunkCountAndScaleEmbb.exit.i, label %if.else.i.i
 
 if.else.i.i:                                      ; preds = %if.then.i.i14
-  %cmp6.inv.i.i = icmp ugt i64 %.sroa.speculated.i, 6
+  %cmp6.inv.i.i = icmp samesign ugt i64 %.sroa.speculated.i, 6
   %spec.select.i.i = select i1 %cmp6.inv.i.i, i64 14, i64 6
   br label %_ZNK5folly3f146detail8F14TableINS1_20ValueContainerPolicyIPKvvvvvEEE25computeChunkCountAndScaleEmbb.exit.i
 
@@ -19224,7 +19224,7 @@ if.else.i.i:                                      ; preds = %while.body.i.i
   br i1 %cmp.i.i45.i.i, label %cleanup.i.i, label %if.else15.i.i
 
 if.else15.i.i:                                    ; preds = %if.else.i.i
-  %cmp17.i.i.i.not = icmp ult i64 %__len.098.i.i, 2
+  %cmp17.i.i.i.not = icmp samesign ult i64 %__len.098.i.i, 2
   br i1 %cmp17.i.i.i.not, label %_ZSt13__lower_boundIN9__gnu_cxx17__normal_iteratorIPSt10shared_ptrIN5folly18ThreadPoolExecutor6ThreadEESt6vectorIS6_SaIS6_EEEES6_NS0_5__ops14_Iter_comp_valINS4_10ThreadList7CompareEEEET_SH_SH_RKT0_T1_.exit.i.i, label %while.body.i.i.i
 
 while.body.i.i.i:                                 ; preds = %if.else15.i.i, %while.body.i.i.i

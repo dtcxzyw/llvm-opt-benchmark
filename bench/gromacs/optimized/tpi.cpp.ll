@@ -3344,7 +3344,7 @@ _ZN3gmx20ExceptionInitializerD2Ev.exit:           ; preds = %_ZSt8_DestroyIPNSt1
   %1405 = fpext float %1404 to double
   %1406 = fmul double %1405, 0x401921FB54442D18
   %1407 = fptrunc double %1406 to float
-  %1408 = icmp ugt i32 %1399, 1
+  %1408 = icmp samesign ugt i32 %1399, 1
   br i1 %1408, label %1409, label %._crit_edge.i.i.i.i592
 
 ._crit_edge.i.i.i.i592:                           ; preds = %1397

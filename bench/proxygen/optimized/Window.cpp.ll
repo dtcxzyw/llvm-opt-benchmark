@@ -121,7 +121,7 @@ if.then17:                                        ; preds = %if.end
   %sub.i = sub nsw i32 %3, %4
   %cmp19 = icmp sgt i32 %sub.i, 0
   %sub21 = sub nuw nsw i32 2147483647, %sub.i
-  %cmp22 = icmp ugt i32 %sub, %sub21
+  %cmp22 = icmp samesign ugt i32 %sub, %sub21
   %or.cond = select i1 %cmp19, i1 %cmp22, i1 false
   br i1 %or.cond, label %if.then23, label %if.end54
 

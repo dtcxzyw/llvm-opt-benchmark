@@ -31,11 +31,11 @@ define i32 @ompi_coll_tuned_allreduce_intra_dec_fixed(ptr noundef %0, ptr nounde
   br label %107
 
 19:                                               ; preds = %16
-  %20 = icmp ult i32 %.val.val, 8
+  %20 = icmp samesign ult i32 %.val.val, 8
   br i1 %20, label %107, label %21
 
 21:                                               ; preds = %19
-  %22 = icmp ult i32 %.val.val, 16
+  %22 = icmp samesign ult i32 %.val.val, 16
   br i1 %22, label %23, label %25
 
 23:                                               ; preds = %21
@@ -44,11 +44,11 @@ define i32 @ompi_coll_tuned_allreduce_intra_dec_fixed(ptr noundef %0, ptr nounde
   br label %107
 
 25:                                               ; preds = %21
-  %26 = icmp ult i32 %.val.val, 128
+  %26 = icmp samesign ult i32 %.val.val, 128
   br i1 %26, label %107, label %27
 
 27:                                               ; preds = %25
-  %28 = icmp ult i32 %.val.val, 256
+  %28 = icmp samesign ult i32 %.val.val, 256
   br i1 %28, label %29, label %33
 
 29:                                               ; preds = %27
@@ -61,7 +61,7 @@ define i32 @ompi_coll_tuned_allreduce_intra_dec_fixed(ptr noundef %0, ptr nounde
   br label %107
 
 33:                                               ; preds = %27
-  %34 = icmp ult i32 %.val.val, 512
+  %34 = icmp samesign ult i32 %.val.val, 512
   br i1 %34, label %35, label %39
 
 35:                                               ; preds = %33
@@ -107,7 +107,7 @@ define i32 @ompi_coll_tuned_allreduce_intra_dec_fixed(ptr noundef %0, ptr nounde
   br label %107
 
 54:                                               ; preds = %41
-  %55 = icmp ult i32 %.val.val, 8
+  %55 = icmp samesign ult i32 %.val.val, 8
   br i1 %55, label %56, label %60
 
 56:                                               ; preds = %54
@@ -120,7 +120,7 @@ define i32 @ompi_coll_tuned_allreduce_intra_dec_fixed(ptr noundef %0, ptr nounde
   br label %107
 
 60:                                               ; preds = %54
-  %61 = icmp ult i32 %.val.val, 16
+  %61 = icmp samesign ult i32 %.val.val, 16
   br i1 %61, label %62, label %64
 
 62:                                               ; preds = %60
@@ -129,7 +129,7 @@ define i32 @ompi_coll_tuned_allreduce_intra_dec_fixed(ptr noundef %0, ptr nounde
   br label %107
 
 64:                                               ; preds = %60
-  %65 = icmp ult i32 %.val.val, 32
+  %65 = icmp samesign ult i32 %.val.val, 32
   br i1 %65, label %66, label %70
 
 66:                                               ; preds = %64
@@ -142,7 +142,7 @@ define i32 @ompi_coll_tuned_allreduce_intra_dec_fixed(ptr noundef %0, ptr nounde
   br label %107
 
 70:                                               ; preds = %64
-  %71 = icmp ult i32 %.val.val, 64
+  %71 = icmp samesign ult i32 %.val.val, 64
   br i1 %71, label %72, label %74
 
 72:                                               ; preds = %70
@@ -151,7 +151,7 @@ define i32 @ompi_coll_tuned_allreduce_intra_dec_fixed(ptr noundef %0, ptr nounde
   br label %107
 
 74:                                               ; preds = %70
-  %75 = icmp ult i32 %.val.val, 128
+  %75 = icmp samesign ult i32 %.val.val, 128
   br i1 %75, label %76, label %78
 
 76:                                               ; preds = %74
@@ -160,7 +160,7 @@ define i32 @ompi_coll_tuned_allreduce_intra_dec_fixed(ptr noundef %0, ptr nounde
   br label %107
 
 78:                                               ; preds = %74
-  %79 = icmp ult i32 %.val.val, 256
+  %79 = icmp samesign ult i32 %.val.val, 256
   br i1 %79, label %80, label %84
 
 80:                                               ; preds = %78
@@ -173,7 +173,7 @@ define i32 @ompi_coll_tuned_allreduce_intra_dec_fixed(ptr noundef %0, ptr nounde
   br label %107
 
 84:                                               ; preds = %78
-  %85 = icmp ult i32 %.val.val, 512
+  %85 = icmp samesign ult i32 %.val.val, 512
   br i1 %85, label %86, label %88
 
 86:                                               ; preds = %84
@@ -182,7 +182,7 @@ define i32 @ompi_coll_tuned_allreduce_intra_dec_fixed(ptr noundef %0, ptr nounde
   br label %107
 
 88:                                               ; preds = %84
-  %89 = icmp ult i32 %.val.val, 2048
+  %89 = icmp samesign ult i32 %.val.val, 2048
   br i1 %89, label %90, label %94
 
 90:                                               ; preds = %88
@@ -195,7 +195,7 @@ define i32 @ompi_coll_tuned_allreduce_intra_dec_fixed(ptr noundef %0, ptr nounde
   br label %107
 
 94:                                               ; preds = %88
-  %95 = icmp ult i32 %.val.val, 4096
+  %95 = icmp samesign ult i32 %.val.val, 4096
   %96 = icmp ult i64 %12, 2048
   br i1 %95, label %97, label %102
 
@@ -309,7 +309,7 @@ define i32 @ompi_coll_tuned_alltoall_intra_dec_fixed(ptr noundef %0, i32 noundef
   br label %138
 
 44:                                               ; preds = %32
-  %45 = icmp ult i32 %.val.val, 16
+  %45 = icmp samesign ult i32 %.val.val, 16
   br i1 %45, label %46, label %48
 
 46:                                               ; preds = %44
@@ -318,7 +318,7 @@ define i32 @ompi_coll_tuned_alltoall_intra_dec_fixed(ptr noundef %0, i32 noundef
   br label %138
 
 48:                                               ; preds = %44
-  %49 = icmp ult i32 %.val.val, 32
+  %49 = icmp samesign ult i32 %.val.val, 32
   br i1 %49, label %50, label %62
 
 50:                                               ; preds = %48
@@ -347,7 +347,7 @@ define i32 @ompi_coll_tuned_alltoall_intra_dec_fixed(ptr noundef %0, i32 noundef
   br label %138
 
 62:                                               ; preds = %48
-  %63 = icmp ult i32 %.val.val, 64
+  %63 = icmp samesign ult i32 %.val.val, 64
   br i1 %63, label %64, label %68
 
 64:                                               ; preds = %62
@@ -360,7 +360,7 @@ define i32 @ompi_coll_tuned_alltoall_intra_dec_fixed(ptr noundef %0, i32 noundef
   br label %138
 
 68:                                               ; preds = %62
-  %69 = icmp ult i32 %.val.val, 128
+  %69 = icmp samesign ult i32 %.val.val, 128
   br i1 %69, label %70, label %78
 
 70:                                               ; preds = %68
@@ -381,7 +381,7 @@ define i32 @ompi_coll_tuned_alltoall_intra_dec_fixed(ptr noundef %0, i32 noundef
   br label %138
 
 78:                                               ; preds = %68
-  %79 = icmp ult i32 %.val.val, 256
+  %79 = icmp samesign ult i32 %.val.val, 256
   br i1 %79, label %80, label %86
 
 80:                                               ; preds = %78
@@ -398,7 +398,7 @@ define i32 @ompi_coll_tuned_alltoall_intra_dec_fixed(ptr noundef %0, i32 noundef
   br label %138
 
 86:                                               ; preds = %78
-  %87 = icmp ult i32 %.val.val, 512
+  %87 = icmp samesign ult i32 %.val.val, 512
   br i1 %87, label %88, label %94
 
 88:                                               ; preds = %86
@@ -415,7 +415,7 @@ define i32 @ompi_coll_tuned_alltoall_intra_dec_fixed(ptr noundef %0, i32 noundef
   br label %138
 
 94:                                               ; preds = %86
-  %95 = icmp ult i32 %.val.val, 1024
+  %95 = icmp samesign ult i32 %.val.val, 1024
   br i1 %95, label %96, label %106
 
 96:                                               ; preds = %94
@@ -440,7 +440,7 @@ define i32 @ompi_coll_tuned_alltoall_intra_dec_fixed(ptr noundef %0, i32 noundef
   br label %138
 
 106:                                              ; preds = %94
-  %107 = icmp ult i32 %.val.val, 2048
+  %107 = icmp samesign ult i32 %.val.val, 2048
   br i1 %107, label %108, label %118
 
 108:                                              ; preds = %106
@@ -465,7 +465,7 @@ define i32 @ompi_coll_tuned_alltoall_intra_dec_fixed(ptr noundef %0, i32 noundef
   br label %138
 
 118:                                              ; preds = %106
-  %119 = icmp ult i32 %.val.val, 4096
+  %119 = icmp samesign ult i32 %.val.val, 4096
   br i1 %119, label %120, label %128
 
 120:                                              ; preds = %118
@@ -525,19 +525,19 @@ define i32 @ompi_coll_tuned_alltoallv_intra_dec_fixed(ptr noundef %0, ptr nounde
   br i1 %13, label %22, label %14
 
 14:                                               ; preds = %10
-  %15 = icmp ult i32 %.val.val, 64
+  %15 = icmp samesign ult i32 %.val.val, 64
   br i1 %15, label %22, label %16
 
 16:                                               ; preds = %14
-  %17 = icmp ult i32 %.val.val, 128
+  %17 = icmp samesign ult i32 %.val.val, 128
   br i1 %17, label %22, label %18
 
 18:                                               ; preds = %16
-  %19 = icmp ult i32 %.val.val, 256
+  %19 = icmp samesign ult i32 %.val.val, 256
   br i1 %19, label %22, label %20
 
 20:                                               ; preds = %18
-  %21 = icmp ult i32 %.val.val, 1024
+  %21 = icmp samesign ult i32 %.val.val, 1024
   %. = select i1 %21, i32 2, i32 1
   br label %22
 
@@ -559,27 +559,27 @@ define i32 @ompi_coll_tuned_barrier_intra_dec_fixed(ptr noundef %0, ptr noundef 
   br i1 %5, label %18, label %6
 
 6:                                                ; preds = %2
-  %7 = icmp ult i32 %.val.val, 8
+  %7 = icmp samesign ult i32 %.val.val, 8
   br i1 %7, label %18, label %8
 
 8:                                                ; preds = %6
-  %9 = icmp ult i32 %.val.val, 64
+  %9 = icmp samesign ult i32 %.val.val, 64
   br i1 %9, label %18, label %10
 
 10:                                               ; preds = %8
-  %11 = icmp ult i32 %.val.val, 256
+  %11 = icmp samesign ult i32 %.val.val, 256
   br i1 %11, label %18, label %12
 
 12:                                               ; preds = %10
-  %13 = icmp ult i32 %.val.val, 512
+  %13 = icmp samesign ult i32 %.val.val, 512
   br i1 %13, label %18, label %14
 
 14:                                               ; preds = %12
-  %15 = icmp ult i32 %.val.val, 1024
+  %15 = icmp samesign ult i32 %.val.val, 1024
   br i1 %15, label %18, label %16
 
 16:                                               ; preds = %14
-  %17 = icmp ult i32 %.val.val, 4096
+  %17 = icmp samesign ult i32 %.val.val, 4096
   %. = select i1 %17, i32 6, i32 4
   br label %18
 
@@ -642,7 +642,7 @@ define i32 @ompi_coll_tuned_bcast_intra_dec_fixed(ptr noundef %0, i32 noundef %1
   br label %97
 
 31:                                               ; preds = %6
-  %32 = icmp ult i32 %.val.val, 8
+  %32 = icmp samesign ult i32 %.val.val, 8
   br i1 %32, label %33, label %43
 
 33:                                               ; preds = %31
@@ -667,7 +667,7 @@ define i32 @ompi_coll_tuned_bcast_intra_dec_fixed(ptr noundef %0, i32 noundef %1
   br label %97
 
 43:                                               ; preds = %31
-  %44 = icmp ult i32 %.val.val, 16
+  %44 = icmp samesign ult i32 %.val.val, 16
   br i1 %44, label %45, label %55
 
 45:                                               ; preds = %43
@@ -692,7 +692,7 @@ define i32 @ompi_coll_tuned_bcast_intra_dec_fixed(ptr noundef %0, i32 noundef %1
   br label %97
 
 55:                                               ; preds = %43
-  %56 = icmp ult i32 %.val.val, 32
+  %56 = icmp samesign ult i32 %.val.val, 32
   br i1 %56, label %57, label %61
 
 57:                                               ; preds = %55
@@ -705,7 +705,7 @@ define i32 @ompi_coll_tuned_bcast_intra_dec_fixed(ptr noundef %0, i32 noundef %1
   br label %97
 
 61:                                               ; preds = %55
-  %62 = icmp ult i32 %.val.val, 64
+  %62 = icmp samesign ult i32 %.val.val, 64
   br i1 %62, label %63, label %65
 
 63:                                               ; preds = %61
@@ -714,11 +714,11 @@ define i32 @ompi_coll_tuned_bcast_intra_dec_fixed(ptr noundef %0, i32 noundef %1
   br label %97
 
 65:                                               ; preds = %61
-  %66 = icmp ult i32 %.val.val, 128
+  %66 = icmp samesign ult i32 %.val.val, 128
   br i1 %66, label %97, label %67
 
 67:                                               ; preds = %65
-  %68 = icmp ult i32 %.val.val, 256
+  %68 = icmp samesign ult i32 %.val.val, 256
   br i1 %68, label %69, label %77
 
 69:                                               ; preds = %67
@@ -739,7 +739,7 @@ define i32 @ompi_coll_tuned_bcast_intra_dec_fixed(ptr noundef %0, i32 noundef %1
   br label %97
 
 77:                                               ; preds = %67
-  %78 = icmp ult i32 %.val.val, 1024
+  %78 = icmp samesign ult i32 %.val.val, 1024
   br i1 %78, label %79, label %83
 
 79:                                               ; preds = %77
@@ -752,7 +752,7 @@ define i32 @ompi_coll_tuned_bcast_intra_dec_fixed(ptr noundef %0, i32 noundef %1
   br label %97
 
 83:                                               ; preds = %77
-  %84 = icmp ult i32 %.val.val, 2048
+  %84 = icmp samesign ult i32 %.val.val, 2048
   br i1 %84, label %85, label %87
 
 85:                                               ; preds = %83
@@ -761,7 +761,7 @@ define i32 @ompi_coll_tuned_bcast_intra_dec_fixed(ptr noundef %0, i32 noundef %1
   br label %97
 
 87:                                               ; preds = %83
-  %88 = icmp ult i32 %.val.val, 4096
+  %88 = icmp samesign ult i32 %.val.val, 4096
   br i1 %88, label %89, label %91
 
 89:                                               ; preds = %87
@@ -816,11 +816,11 @@ define i32 @ompi_coll_tuned_reduce_intra_dec_fixed(ptr noundef %0, ptr noundef %
   br label %102
 
 20:                                               ; preds = %17
-  %21 = icmp ult i32 %.val.val, 8
+  %21 = icmp samesign ult i32 %.val.val, 8
   br i1 %21, label %102, label %22
 
 22:                                               ; preds = %20
-  %23 = icmp ult i32 %.val.val, 16
+  %23 = icmp samesign ult i32 %.val.val, 16
   br i1 %23, label %24, label %32
 
 24:                                               ; preds = %22
@@ -881,7 +881,7 @@ define i32 @ompi_coll_tuned_reduce_intra_dec_fixed(ptr noundef %0, ptr noundef %
   br label %102
 
 50:                                               ; preds = %37
-  %51 = icmp ult i32 %.val.val, 8
+  %51 = icmp samesign ult i32 %.val.val, 8
   br i1 %51, label %52, label %62
 
 52:                                               ; preds = %50
@@ -906,7 +906,7 @@ define i32 @ompi_coll_tuned_reduce_intra_dec_fixed(ptr noundef %0, ptr noundef %
   br label %102
 
 62:                                               ; preds = %50
-  %63 = icmp ult i32 %.val.val, 16
+  %63 = icmp samesign ult i32 %.val.val, 16
   br i1 %63, label %64, label %66
 
 64:                                               ; preds = %62
@@ -915,7 +915,7 @@ define i32 @ompi_coll_tuned_reduce_intra_dec_fixed(ptr noundef %0, ptr noundef %
   br label %102
 
 66:                                               ; preds = %62
-  %67 = icmp ult i32 %.val.val, 32
+  %67 = icmp samesign ult i32 %.val.val, 32
   br i1 %67, label %68, label %70
 
 68:                                               ; preds = %66
@@ -924,11 +924,11 @@ define i32 @ompi_coll_tuned_reduce_intra_dec_fixed(ptr noundef %0, ptr noundef %
   br label %102
 
 70:                                               ; preds = %66
-  %71 = icmp ult i32 %.val.val, 256
+  %71 = icmp samesign ult i32 %.val.val, 256
   br i1 %71, label %102, label %72
 
 72:                                               ; preds = %70
-  %73 = icmp ult i32 %.val.val, 512
+  %73 = icmp samesign ult i32 %.val.val, 512
   br i1 %73, label %74, label %78
 
 74:                                               ; preds = %72
@@ -941,11 +941,11 @@ define i32 @ompi_coll_tuned_reduce_intra_dec_fixed(ptr noundef %0, ptr noundef %
   br label %102
 
 78:                                               ; preds = %72
-  %79 = icmp ult i32 %.val.val, 2048
+  %79 = icmp samesign ult i32 %.val.val, 2048
   br i1 %79, label %102, label %80
 
 80:                                               ; preds = %78
-  %81 = icmp ult i32 %.val.val, 4096
+  %81 = icmp samesign ult i32 %.val.val, 4096
   br i1 %81, label %82, label %90
 
 82:                                               ; preds = %80
@@ -1047,7 +1047,7 @@ define i32 @ompi_coll_tuned_reduce_scatter_intra_dec_fixed(ptr noundef %0, ptr n
   br label %95
 
 25:                                               ; preds = %19
-  %26 = icmp ult i32 %.val.val, 8
+  %26 = icmp samesign ult i32 %.val.val, 8
   br i1 %26, label %27, label %31
 
 27:                                               ; preds = %25
@@ -1060,7 +1060,7 @@ define i32 @ompi_coll_tuned_reduce_scatter_intra_dec_fixed(ptr noundef %0, ptr n
   br label %95
 
 31:                                               ; preds = %25
-  %32 = icmp ult i32 %.val.val, 32
+  %32 = icmp samesign ult i32 %.val.val, 32
   br i1 %32, label %33, label %35
 
 33:                                               ; preds = %31
@@ -1069,7 +1069,7 @@ define i32 @ompi_coll_tuned_reduce_scatter_intra_dec_fixed(ptr noundef %0, ptr n
   br label %95
 
 35:                                               ; preds = %31
-  %36 = icmp ult i32 %.val.val, 64
+  %36 = icmp samesign ult i32 %.val.val, 64
   br i1 %36, label %37, label %43
 
 37:                                               ; preds = %35
@@ -1086,7 +1086,7 @@ define i32 @ompi_coll_tuned_reduce_scatter_intra_dec_fixed(ptr noundef %0, ptr n
   br label %95
 
 43:                                               ; preds = %35
-  %44 = icmp ult i32 %.val.val, 128
+  %44 = icmp samesign ult i32 %.val.val, 128
   br i1 %44, label %45, label %53
 
 45:                                               ; preds = %43
@@ -1107,7 +1107,7 @@ define i32 @ompi_coll_tuned_reduce_scatter_intra_dec_fixed(ptr noundef %0, ptr n
   br label %95
 
 53:                                               ; preds = %43
-  %54 = icmp ult i32 %.val.val, 256
+  %54 = icmp samesign ult i32 %.val.val, 256
   br i1 %54, label %55, label %59
 
 55:                                               ; preds = %53
@@ -1120,7 +1120,7 @@ define i32 @ompi_coll_tuned_reduce_scatter_intra_dec_fixed(ptr noundef %0, ptr n
   br label %95
 
 59:                                               ; preds = %53
-  %60 = icmp ult i32 %.val.val, 512
+  %60 = icmp samesign ult i32 %.val.val, 512
   br i1 %60, label %61, label %65
 
 61:                                               ; preds = %59
@@ -1133,7 +1133,7 @@ define i32 @ompi_coll_tuned_reduce_scatter_intra_dec_fixed(ptr noundef %0, ptr n
   br label %95
 
 65:                                               ; preds = %59
-  %66 = icmp ult i32 %.val.val, 1024
+  %66 = icmp samesign ult i32 %.val.val, 1024
   br i1 %66, label %67, label %75
 
 67:                                               ; preds = %65
@@ -1154,7 +1154,7 @@ define i32 @ompi_coll_tuned_reduce_scatter_intra_dec_fixed(ptr noundef %0, ptr n
   br label %95
 
 75:                                               ; preds = %65
-  %76 = icmp ult i32 %.val.val, 2048
+  %76 = icmp samesign ult i32 %.val.val, 2048
   br i1 %76, label %77, label %85
 
 77:                                               ; preds = %75
@@ -1175,7 +1175,7 @@ define i32 @ompi_coll_tuned_reduce_scatter_intra_dec_fixed(ptr noundef %0, ptr n
   br label %95
 
 85:                                               ; preds = %75
-  %86 = icmp ult i32 %.val.val, 4096
+  %86 = icmp samesign ult i32 %.val.val, 4096
   br i1 %86, label %87, label %91
 
 87:                                               ; preds = %85
@@ -1258,7 +1258,7 @@ define i32 @ompi_coll_tuned_reduce_scatter_block_intra_dec_fixed(ptr noundef %0,
   br label %77
 
 33:                                               ; preds = %15
-  %34 = icmp ult i32 %.val.val, 8
+  %34 = icmp samesign ult i32 %.val.val, 8
   br i1 %34, label %35, label %47
 
 35:                                               ; preds = %33
@@ -1287,7 +1287,7 @@ define i32 @ompi_coll_tuned_reduce_scatter_block_intra_dec_fixed(ptr noundef %0,
   br label %77
 
 47:                                               ; preds = %33
-  %48 = icmp ult i32 %.val.val, 16
+  %48 = icmp samesign ult i32 %.val.val, 16
   br i1 %48, label %49, label %59
 
 49:                                               ; preds = %47
@@ -1312,7 +1312,7 @@ define i32 @ompi_coll_tuned_reduce_scatter_block_intra_dec_fixed(ptr noundef %0,
   br label %77
 
 59:                                               ; preds = %47
-  %60 = icmp ult i32 %.val.val, 32
+  %60 = icmp samesign ult i32 %.val.val, 32
   br i1 %60, label %61, label %69
 
 61:                                               ; preds = %59
@@ -1377,7 +1377,7 @@ define i32 @ompi_coll_tuned_allgather_intra_dec_fixed(ptr noundef %0, i32 nounde
   br i1 %15, label %96, label %16
 
 16:                                               ; preds = %14
-  %17 = icmp ult i32 %.val.val, 64
+  %17 = icmp samesign ult i32 %.val.val, 64
   br i1 %17, label %18, label %22
 
 18:                                               ; preds = %16
@@ -1390,7 +1390,7 @@ define i32 @ompi_coll_tuned_allgather_intra_dec_fixed(ptr noundef %0, i32 nounde
   br label %96
 
 22:                                               ; preds = %16
-  %23 = icmp ult i32 %.val.val, 128
+  %23 = icmp samesign ult i32 %.val.val, 128
   br i1 %23, label %24, label %28
 
 24:                                               ; preds = %22
@@ -1403,7 +1403,7 @@ define i32 @ompi_coll_tuned_allgather_intra_dec_fixed(ptr noundef %0, i32 nounde
   br label %96
 
 28:                                               ; preds = %22
-  %29 = icmp ult i32 %.val.val, 256
+  %29 = icmp samesign ult i32 %.val.val, 256
   br i1 %29, label %30, label %38
 
 30:                                               ; preds = %28
@@ -1424,7 +1424,7 @@ define i32 @ompi_coll_tuned_allgather_intra_dec_fixed(ptr noundef %0, i32 nounde
   br label %96
 
 38:                                               ; preds = %28
-  %39 = icmp ult i32 %.val.val, 512
+  %39 = icmp samesign ult i32 %.val.val, 512
   br i1 %39, label %40, label %52
 
 40:                                               ; preds = %38
@@ -1453,7 +1453,7 @@ define i32 @ompi_coll_tuned_allgather_intra_dec_fixed(ptr noundef %0, i32 nounde
   br label %96
 
 52:                                               ; preds = %38
-  %53 = icmp ult i32 %.val.val, 1024
+  %53 = icmp samesign ult i32 %.val.val, 1024
   br i1 %53, label %54, label %60
 
 54:                                               ; preds = %52
@@ -1470,7 +1470,7 @@ define i32 @ompi_coll_tuned_allgather_intra_dec_fixed(ptr noundef %0, i32 nounde
   br label %96
 
 60:                                               ; preds = %52
-  %61 = icmp ult i32 %.val.val, 2048
+  %61 = icmp samesign ult i32 %.val.val, 2048
   br i1 %61, label %62, label %76
 
 62:                                               ; preds = %60
@@ -1503,7 +1503,7 @@ define i32 @ompi_coll_tuned_allgather_intra_dec_fixed(ptr noundef %0, i32 nounde
   br label %96
 
 76:                                               ; preds = %60
-  %77 = icmp ult i32 %.val.val, 4096
+  %77 = icmp samesign ult i32 %.val.val, 4096
   br i1 %77, label %78, label %86
 
 78:                                               ; preds = %76
@@ -1626,7 +1626,7 @@ define i32 @ompi_coll_tuned_allgatherv_intra_dec_fixed(ptr noundef %0, i32 nound
   br label %.thread74
 
 39:                                               ; preds = %27
-  %40 = icmp ult i32 %.val.val, 16
+  %40 = icmp samesign ult i32 %.val.val, 16
   br i1 %40, label %41, label %43
 
 41:                                               ; preds = %39
@@ -1635,7 +1635,7 @@ define i32 @ompi_coll_tuned_allgatherv_intra_dec_fixed(ptr noundef %0, i32 nound
   br label %.thread74
 
 43:                                               ; preds = %39
-  %44 = icmp ult i32 %.val.val, 32
+  %44 = icmp samesign ult i32 %.val.val, 32
   br i1 %44, label %45, label %49
 
 45:                                               ; preds = %43
@@ -1648,7 +1648,7 @@ define i32 @ompi_coll_tuned_allgatherv_intra_dec_fixed(ptr noundef %0, i32 nound
   br label %.thread74
 
 49:                                               ; preds = %43
-  %50 = icmp ult i32 %.val.val, 64
+  %50 = icmp samesign ult i32 %.val.val, 64
   br i1 %50, label %51, label %55
 
 51:                                               ; preds = %49
@@ -1661,7 +1661,7 @@ define i32 @ompi_coll_tuned_allgatherv_intra_dec_fixed(ptr noundef %0, i32 nound
   br label %.thread74
 
 55:                                               ; preds = %49
-  %56 = icmp ult i32 %.val.val, 128
+  %56 = icmp samesign ult i32 %.val.val, 128
   br i1 %56, label %57, label %61
 
 57:                                               ; preds = %55
@@ -1674,7 +1674,7 @@ define i32 @ompi_coll_tuned_allgatherv_intra_dec_fixed(ptr noundef %0, i32 nound
   br label %.thread74
 
 61:                                               ; preds = %55
-  %62 = icmp ult i32 %.val.val, 256
+  %62 = icmp samesign ult i32 %.val.val, 256
   br i1 %62, label %63, label %67
 
 63:                                               ; preds = %61
@@ -1687,7 +1687,7 @@ define i32 @ompi_coll_tuned_allgatherv_intra_dec_fixed(ptr noundef %0, i32 nound
   br label %.thread74
 
 67:                                               ; preds = %61
-  %68 = icmp ult i32 %.val.val, 512
+  %68 = icmp samesign ult i32 %.val.val, 512
   br i1 %68, label %69, label %71
 
 69:                                               ; preds = %67
@@ -1696,7 +1696,7 @@ define i32 @ompi_coll_tuned_allgatherv_intra_dec_fixed(ptr noundef %0, i32 nound
   br label %.thread74
 
 71:                                               ; preds = %67
-  %72 = icmp ult i32 %.val.val, 1024
+  %72 = icmp samesign ult i32 %.val.val, 1024
   br i1 %72, label %73, label %81
 
 73:                                               ; preds = %71
@@ -1771,7 +1771,7 @@ define i32 @ompi_coll_tuned_gather_intra_dec_fixed(ptr noundef %0, i32 noundef %
   br label %44
 
 29:                                               ; preds = %9
-  %30 = icmp ult i32 %.val.val, 8
+  %30 = icmp samesign ult i32 %.val.val, 8
   br i1 %30, label %31, label %39
 
 31:                                               ; preds = %29
@@ -1843,7 +1843,7 @@ define i32 @ompi_coll_tuned_scatter_intra_dec_fixed(ptr noundef %0, i32 noundef 
   br label %57
 
 24:                                               ; preds = %9
-  %25 = icmp ult i32 %.val.val, 8
+  %25 = icmp samesign ult i32 %.val.val, 8
   br i1 %25, label %26, label %36
 
 26:                                               ; preds = %24
@@ -1868,7 +1868,7 @@ define i32 @ompi_coll_tuned_scatter_intra_dec_fixed(ptr noundef %0, i32 noundef 
   br label %57
 
 36:                                               ; preds = %24
-  %37 = icmp ult i32 %.val.val, 16
+  %37 = icmp samesign ult i32 %.val.val, 16
   br i1 %37, label %38, label %42
 
 38:                                               ; preds = %36
@@ -1881,7 +1881,7 @@ define i32 @ompi_coll_tuned_scatter_intra_dec_fixed(ptr noundef %0, i32 noundef 
   br label %57
 
 42:                                               ; preds = %36
-  %43 = icmp ult i32 %.val.val, 32
+  %43 = icmp samesign ult i32 %.val.val, 32
   br i1 %43, label %44, label %48
 
 44:                                               ; preds = %42
@@ -1894,7 +1894,7 @@ define i32 @ompi_coll_tuned_scatter_intra_dec_fixed(ptr noundef %0, i32 noundef 
   br label %57
 
 48:                                               ; preds = %42
-  %49 = icmp ult i32 %.val.val, 64
+  %49 = icmp samesign ult i32 %.val.val, 64
   %50 = icmp ult i64 %16, 512
   br i1 %49, label %51, label %56
 

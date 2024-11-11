@@ -4951,7 +4951,7 @@ for.body.i42.i.i:                                 ; preds = %for.body.i42.i.i, %
   %arrayidx5.i48.i.i = getelementptr %struct._PyCfgInstruction, ptr %58, i64 %idxprom4.i47.i.i
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %arrayidx.i45.i.i, ptr noundef nonnull align 8 dereferenceable(40) %arrayidx5.i48.i.i, i64 40, i1 false)
   %indvars.iv.next.i49.i.i = add nsw i64 %indvars.iv.i43.i.i, -1
-  %cmp1.i50.i.i = icmp ugt i64 %indvars.iv.next.i49.i.i, 1
+  %cmp1.i50.i.i = icmp samesign ugt i64 %indvars.iv.next.i49.i.i, 1
   %59 = trunc nsw i64 %indvars.iv.i43.i.i to i32
   br i1 %cmp1.i50.i.i, label %for.body.i42.i.i, label %basicblock_insert_instruction.exit51.i.i, !llvm.loop !86
 
@@ -5721,12 +5721,12 @@ land.rhs.i:                                       ; preds = %basicblock_last_ins
 
 basicblock_exits_scope.exit:                      ; preds = %land.rhs.i
   %cmp7.i = icmp eq i32 %10, 102
-  %cmp16 = icmp ult i32 %6, 5
-  %or.cond = and i1 %cmp16, %cmp7.i
+  %cmp16 = icmp samesign ult i32 %6, 5
+  %or.cond = select i1 %cmp7.i, i1 %cmp16, i1 false
   br i1 %or.cond, label %do.body, label %return
 
 land.lhs.true:                                    ; preds = %land.rhs.i, %land.rhs.i, %land.rhs.i
-  %cmp16.old = icmp ult i32 %6, 5
+  %cmp16.old = icmp samesign ult i32 %6, 5
   br i1 %cmp16.old, label %do.body, label %return
 
 do.body:                                          ; preds = %basicblock_exits_scope.exit, %land.lhs.true

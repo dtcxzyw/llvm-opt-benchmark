@@ -335,7 +335,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__21pxr_double_conversion6Single20Normalized
 
 209:                                              ; preds = %.lr.ph.i69.i
   %210 = udiv i32 %.03542.i.i, 10
-  %211 = icmp ugt i32 %.2.i, 1
+  %211 = icmp samesign ugt i32 %.2.i, 1
   br i1 %211, label %.lr.ph.i69.i, label %.preheader.i.i.preheader, !llvm.loop !9
 
 .preheader.i.i.preheader:                         ; preds = %209, %74
@@ -525,7 +525,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__21pxr_double_conversion6Double17AsNormaliz
 
 324:                                              ; preds = %.lr.ph.i22.i
   %325 = udiv i32 %.07787.i.i, 10
-  %326 = icmp ugt i32 %.4.i, 1
+  %326 = icmp samesign ugt i32 %.4.i, 1
   br i1 %326, label %.lr.ph.i22.i, label %._crit_edge.i.i, !llvm.loop !11
 
 ._crit_edge.i.i:                                  ; preds = %324, %_ZNK32pxrInternal_v0_24__pxrReserved__21pxr_double_conversion6Double17AsNormalizedDiyFpEv.exit.i14
@@ -635,7 +635,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__21pxr_double_conversion6Double17AsNormaliz
   %374 = add nsw i32 %.294.i.i, -1
   %375 = and i64 %365, %298
   %376 = add nsw i32 %.1.i21, -1
-  %377 = icmp ugt i32 %.294.i.i, 1
+  %377 = icmp samesign ugt i32 %.294.i.i, 1
   %378 = icmp ugt i64 %375, %366
   %379 = select i1 %377, i1 %378, i1 false
   br i1 %379, label %.lr.ph95.i.i, label %._crit_edge96.i.i, !llvm.loop !13

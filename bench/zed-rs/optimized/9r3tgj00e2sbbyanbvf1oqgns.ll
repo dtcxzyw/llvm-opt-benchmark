@@ -4578,7 +4578,7 @@ define internal fastcc void @"_ZN10serde_json2de21Deserializer$LT$R$GT$13parse_d
 
 69:                                               ; preds = %32
   %70 = icmp ne i64 %.sroa.0.079, 1844674407370955161
-  %71 = icmp ugt i8 %25, 5
+  %71 = icmp samesign ugt i8 %25, 5
   %or.cond1 = or i1 %70, %71
   br i1 %or.cond1, label %77, label %72
 
@@ -4846,7 +4846,7 @@ define internal fastcc void @"_ZN10serde_json2de21Deserializer$LT$R$GT$13parse_i
 
 102:                                              ; preds = %99
   %103 = icmp ne i64 %.sroa.012.075, 1844674407370955161
-  %104 = icmp ugt i8 %69, 5
+  %104 = icmp samesign ugt i8 %69, 5
   %or.cond3 = or i1 %103, %104
   br i1 %or.cond3, label %109, label %105
 
@@ -5072,7 +5072,7 @@ define internal fastcc void @"_ZN10serde_json2de21Deserializer$LT$R$GT$14parse_e
 
 81:                                               ; preds = %45
   %82 = icmp ne i32 %.sroa.09.065, 214748364
-  %83 = icmp ugt i8 %44, 7
+  %83 = icmp samesign ugt i8 %44, 7
   %or.cond2 = or i1 %82, %83
   br i1 %or.cond2, label %87, label %84
 
@@ -25107,7 +25107,7 @@ define hidden void @_ZN5sqlez9statement9Statement7prepare17h500f19b2ce7ef1ddE(pt
   %96 = and i8 %94, 63
   %97 = zext nneg i8 %96 to i32
   %98 = or disjoint i32 %95, %97
-  %99 = icmp ugt i8 %88, -33
+  %99 = icmp samesign ugt i8 %88, -33
   br i1 %99, label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hcf6b65c020199ec1E.llvm.4784060810856971783.exit14.i.i.i.i.i.i", label %122
 
 100:                                              ; preds = %.lr.ph.i.i.i
@@ -25125,7 +25125,7 @@ define hidden void @_ZN5sqlez9statement9Statement7prepare17h500f19b2ce7ef1ddE(pt
   %108 = or disjoint i32 %105, %107
   %109 = shl nuw nsw i32 %91, 12
   %110 = or disjoint i32 %108, %109
-  %111 = icmp ugt i8 %88, -17
+  %111 = icmp samesign ugt i8 %88, -17
   br i1 %111, label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hcf6b65c020199ec1E.llvm.4784060810856971783.exit16.i.i.i.i.i.i", label %122
 
 "_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hcf6b65c020199ec1E.llvm.4784060810856971783.exit16.i.i.i.i.i.i": ; preds = %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hcf6b65c020199ec1E.llvm.4784060810856971783.exit14.i.i.i.i.i.i"
@@ -25145,7 +25145,7 @@ define hidden void @_ZN5sqlez9statement9Statement7prepare17h500f19b2ce7ef1ddE(pt
 122:                                              ; preds = %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hcf6b65c020199ec1E.llvm.4784060810856971783.exit16.i.i.i.i.i.i", %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hcf6b65c020199ec1E.llvm.4784060810856971783.exit14.i.i.i.i.i.i", %100, %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hcf6b65c020199ec1E.llvm.4784060810856971783.exit12.i.i.i.i.i.i"
   %123 = phi ptr [ %93, %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hcf6b65c020199ec1E.llvm.4784060810856971783.exit12.i.i.i.i.i.i" ], [ %103, %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hcf6b65c020199ec1E.llvm.4784060810856971783.exit14.i.i.i.i.i.i" ], [ %113, %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hcf6b65c020199ec1E.llvm.4784060810856971783.exit16.i.i.i.i.i.i" ], [ %87, %100 ]
   %.sroa.4.0.i.ph.i.i.i.i.i = phi i32 [ %98, %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hcf6b65c020199ec1E.llvm.4784060810856971783.exit12.i.i.i.i.i.i" ], [ %110, %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hcf6b65c020199ec1E.llvm.4784060810856971783.exit14.i.i.i.i.i.i" ], [ %121, %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hcf6b65c020199ec1E.llvm.4784060810856971783.exit16.i.i.i.i.i.i" ], [ %101, %100 ]
-  %124 = icmp ult i32 %.sroa.4.0.i.ph.i.i.i.i.i, 1114112
+  %124 = icmp samesign ult i32 %.sroa.4.0.i.ph.i.i.i.i.i, 1114112
   call void @llvm.assume(i1 %124)
   %125 = ptrtoint ptr %123 to i64
   %126 = sub i64 %125, %86
@@ -25280,7 +25280,7 @@ define hidden void @_ZN5sqlez9statement9Statement7prepare17h500f19b2ce7ef1ddE(pt
 191:                                              ; preds = %170, %162
   %192 = phi ptr [ %153, %162 ], [ %171, %170 ]
   %.sroa.4.1.i.ph.i.i.i.i.i = phi i32 [ %163, %162 ], [ %175, %170 ]
-  %193 = icmp ult i32 %.sroa.4.1.i.ph.i.i.i.i.i, 1114112
+  %193 = icmp samesign ult i32 %.sroa.4.1.i.ph.i.i.i.i.i, 1114112
   call void @llvm.assume(i1 %193)
   switch i32 %.sroa.4.1.i.ph.i.i.i.i.i, label %194 [
     i32 32, label %221
@@ -79946,7 +79946,7 @@ define internal fastcc void @_ZN9workspace10pane_group6Member8new_axis17hd9ff556
   br i1 %89, label %.invoke, label %19
 
 90:                                               ; preds = %73
-  %switch = icmp ugt i8 %3, 1
+  %switch = icmp samesign ugt i8 %3, 1
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %77, ptr noundef nonnull align 8 dereferenceable(48) %10, i64 48, i1 false), !noalias !20823
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %10), !noalias !20823
   call void @llvm.lifetime.end.p0(i64 31, ptr nonnull %.sroa.421.i)
@@ -83464,7 +83464,7 @@ define hidden noundef align 8 dereferenceable_or_null(32) ptr @_ZN9workspace10pa
 
 .noexc15:                                         ; preds = %48
   %53 = add nsw i8 %52, -3
-  %switch.i5.i = icmp ult i8 %53, -2
+  %switch.i5.i = icmp samesign ult i8 %53, -2
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5), !noalias !21631
   br i1 %switch.i5.i, label %54, label %"_ZN4gpui8geometry15Bounds$LT$T$GT$8contains17ha0f566d81dc45a72E.exit.thread"
 
@@ -83491,7 +83491,7 @@ define hidden noundef align 8 dereferenceable_or_null(32) ptr @_ZN9workspace10pa
 
 "_ZN4gpui8geometry15Bounds$LT$T$GT$8contains17ha0f566d81dc45a72E.exit": ; preds = %56
   %63 = add nsw i8 %60, -3
-  %switch.i7.i = icmp ult i8 %63, -2
+  %switch.i7.i = icmp samesign ult i8 %63, -2
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %4), !noalias !21631
   br i1 %switch.i7.i, label %64, label %"_ZN4gpui8geometry15Bounds$LT$T$GT$8contains17ha0f566d81dc45a72E.exit.thread"
 

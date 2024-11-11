@@ -526,7 +526,7 @@ select.unfold.i.i:                                ; preds = %select.unfold.i.i, 
   %238 = load i32, ptr %237, align 4
   %239 = getelementptr inbounds i32, ptr %188, i64 %indvars.iv.next.i79.i
   store i32 %238, ptr %239, align 4
-  %240 = icmp ugt i64 %indvars.iv.i78.i, 1
+  %240 = icmp samesign ugt i64 %indvars.iv.i78.i, 1
   br i1 %240, label %select.unfold.i.i, label %Extra_TruthCopy.exit.i, !llvm.loop !15
 
 Extra_TruthCopy.exit.i:                           ; preds = %select.unfold.i.i, %228
@@ -711,7 +711,7 @@ select.unfold.i.i.i:                              ; preds = %select.unfold.i.i.i
   %312 = load i32, ptr %311, align 4
   %313 = getelementptr inbounds i32, ptr %305, i64 %indvars.iv.next.i209.i.i
   store i32 %312, ptr %313, align 4
-  %314 = icmp ugt i64 %indvars.iv.i208.i.i, 1
+  %314 = icmp samesign ugt i64 %indvars.iv.i208.i.i, 1
   br i1 %314, label %select.unfold.i.i.i, label %Extra_TruthCopy.exit.i.i, !llvm.loop !15
 
 Extra_TruthCopy.exit.i.i:                         ; preds = %select.unfold.i.i.i
@@ -770,7 +770,7 @@ select.unfold.i212.us.us.i.i:                     ; preds = %select.unfold.i212.
   %332 = load i32, ptr %331, align 4
   %333 = getelementptr inbounds i32, ptr %325, i64 %indvars.iv.next.i214.us.us.i.i
   store i32 %332, ptr %333, align 4
-  %334 = icmp ugt i64 %indvars.iv.i213.us.us.i.i, 1
+  %334 = icmp samesign ugt i64 %indvars.iv.i213.us.us.i.i, 1
   br i1 %334, label %select.unfold.i212.us.us.i.i, label %Extra_TruthCopy.exit215.us.us.i.i, !llvm.loop !15
 
 Extra_TruthCopy.exit215.us.us.i.i:                ; preds = %select.unfold.i212.us.us.i.i
@@ -786,7 +786,7 @@ select.unfold.i218.us.us.i.i:                     ; preds = %select.unfold.i218.
   %338 = load i32, ptr %337, align 4
   %339 = getelementptr inbounds i32, ptr %335, i64 %indvars.iv.next.i220.us.us.i.i
   store i32 %338, ptr %339, align 4
-  %340 = icmp ugt i64 %indvars.iv.i219.us.us.i.i, 1
+  %340 = icmp samesign ugt i64 %indvars.iv.i219.us.us.i.i, 1
   br i1 %340, label %select.unfold.i218.us.us.i.i, label %Extra_TruthCopy.exit221.loopexit.us.us.i.i, !llvm.loop !15
 
 Extra_TruthCopy.exit221.loopexit.us.us.i.i:       ; preds = %select.unfold.i218.us.us.i.i
@@ -1008,7 +1008,7 @@ select.unfold.i229.i.us.i:                        ; preds = %.lr.ph314.i.us.i, %
   %430 = load i32, ptr %429, align 4
   %431 = and i32 %430, %428
   store i32 %431, ptr %427, align 4
-  %432 = icmp ugt i64 %indvars.iv.i230.i.us.i, 1
+  %432 = icmp samesign ugt i64 %indvars.iv.i230.i.us.i, 1
   br i1 %432, label %select.unfold.i229.i.us.i, label %Extra_TruthAnd.exit.i.us.i, !llvm.loop !26
 
 select.unfold.i234.i.us.i:                        ; preds = %.lr.ph314.i.us.i, %select.unfold.i234.i.us.i
@@ -1021,7 +1021,7 @@ select.unfold.i234.i.us.i:                        ; preds = %.lr.ph314.i.us.i, %
   %437 = xor i32 %436, -1
   %438 = and i32 %434, %437
   store i32 %438, ptr %433, align 4
-  %439 = icmp ugt i64 %indvars.iv.i235.i.us.i, 1
+  %439 = icmp samesign ugt i64 %indvars.iv.i235.i.us.i, 1
   br i1 %439, label %select.unfold.i234.i.us.i, label %Extra_TruthAnd.exit.i.us.i, !llvm.loop !27
 
 Extra_TruthAnd.exit.i.us.i:                       ; preds = %select.unfold.i229.i.us.i, %select.unfold.i234.i.us.i
@@ -1038,7 +1038,7 @@ select.unfold.i239.i.i:                           ; preds = %Extra_TruthAnd.exit
   %443 = load i32, ptr %442, align 4
   %444 = or i32 %443, %441
   store i32 %444, ptr %440, align 4
-  %445 = icmp ugt i64 %indvars.iv.i240.i.i, 1
+  %445 = icmp samesign ugt i64 %indvars.iv.i240.i.i, 1
   br i1 %445, label %select.unfold.i239.i.i, label %Extra_TruthOr.exit.i.i, !llvm.loop !29
 
 Extra_TruthOr.exit.i.i:                           ; preds = %select.unfold.i239.i.i, %.lr.ph314.preheader.i.i
@@ -1134,7 +1134,7 @@ select.unfold.i261.i.i.us.us.us:                  ; preds = %._crit_edge321.i.i.
   %475 = load i32, ptr %474, align 4
   %476 = or i32 %475, %473
   store i32 %476, ptr %472, align 4
-  %477 = icmp ugt i64 %indvars.iv.i262.i.i.us.us.us, 1
+  %477 = icmp samesign ugt i64 %indvars.iv.i262.i.i.us.us.us, 1
   br i1 %477, label %select.unfold.i261.i.i.us.us.us, label %Extra_TruthOr.exit264.i.i.us.us.us, !llvm.loop !29
 
 Extra_TruthOr.exit264.i.i.us.us.us:               ; preds = %select.unfold.i261.i.i.us.us.us, %._crit_edge321.i.i.split.us.us.us.us
@@ -1163,7 +1163,7 @@ select.unfold.i249.i.i.us.us.us.us:               ; preds = %478, %select.unfold
   %489 = load i32, ptr %488, align 4
   %490 = and i32 %489, %487
   store i32 %490, ptr %486, align 4
-  %491 = icmp ugt i64 %indvars.iv.i250.i.i.us.us.us.us, 1
+  %491 = icmp samesign ugt i64 %indvars.iv.i250.i.i.us.us.us.us, 1
   br i1 %491, label %select.unfold.i249.i.i.us.us.us.us, label %Extra_TruthAnd.exit252.i.i.us.us.us.us, !llvm.loop !26
 
 select.unfold.i255.i.i.us.us.us.us:               ; preds = %478, %select.unfold.i255.i.i.us.us.us.us
@@ -1176,7 +1176,7 @@ select.unfold.i255.i.i.us.us.us.us:               ; preds = %478, %select.unfold
   %496 = xor i32 %495, -1
   %497 = and i32 %493, %496
   store i32 %497, ptr %492, align 4
-  %498 = icmp ugt i64 %indvars.iv.i256.i.i.us.us.us.us, 1
+  %498 = icmp samesign ugt i64 %indvars.iv.i256.i.i.us.us.us.us, 1
   br i1 %498, label %select.unfold.i255.i.i.us.us.us.us, label %Extra_TruthAnd.exit252.i.i.us.us.us.us, !llvm.loop !27
 
 Extra_TruthAnd.exit252.i.i.us.us.us.us:           ; preds = %select.unfold.i249.i.i.us.us.us.us, %select.unfold.i255.i.i.us.us.us.us
@@ -1470,7 +1470,7 @@ select.unfold.i276.i.i:                           ; preds = %select.unfold.i276.
   %606 = load i32, ptr %605, align 4
   %607 = getelementptr inbounds i32, ptr %302, i64 %indvars.iv.next.i278.i.i
   store i32 %606, ptr %607, align 4
-  %608 = icmp ugt i64 %indvars.iv.i277.i.i, 1
+  %608 = icmp samesign ugt i64 %indvars.iv.i277.i.i, 1
   br i1 %608, label %select.unfold.i276.i.i, label %.critedge99.i, !llvm.loop !15
 
 Abc_NodeDecomposeStep.exit.i:                     ; preds = %.loopexit286.thread.i.i
@@ -3864,7 +3864,7 @@ Vec_IntGrow.exit23:                               ; preds = %Vec_IntGrow.exit23t
 38:                                               ; preds = %.lr.ph
   %39 = getelementptr inbounds i32, ptr %34, i64 %indvars.iv
   store i32 %36, ptr %39, align 4
-  %40 = icmp ugt i64 %indvars.iv, 1
+  %40 = icmp samesign ugt i64 %indvars.iv, 1
   br i1 %40, label %.lr.ph, label %._crit_edge, !llvm.loop !66
 
 ._crit_edge.loopexit.split.loop.exit:             ; preds = %.lr.ph

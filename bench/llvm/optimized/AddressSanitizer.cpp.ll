@@ -5182,8 +5182,8 @@ _ZN12_GLOBAL__N_116AddressSanitizer35suppressInstrumentationSiteForDebugERi.exit
 
 _ZN12_GLOBAL__N_116AddressSanitizer35suppressInstrumentationSiteForDebugERi.exit.i: ; preds = %1713
   %.not.i157.i = icmp slt i32 %.0195237.i, %1711
-  %1717 = icmp ugt i32 %.0195237.i, %1714
-  %spec.select.i.i = or i1 %.not.i157.i, %1717
+  %1717 = icmp samesign ugt i32 %.0195237.i, %1714
+  %spec.select.i.i = select i1 %.not.i157.i, i1 true, i1 %1717
   %1718 = add nsw i32 %.0195237.i, 1
   br i1 %spec.select.i.i, label %1853, label %1719
 
@@ -5584,8 +5584,8 @@ _ZN12_GLOBAL__N_116AddressSanitizer35suppressInstrumentationSiteForDebugERi.exit
 
 _ZN12_GLOBAL__N_116AddressSanitizer35suppressInstrumentationSiteForDebugERi.exit165.i: ; preds = %1863
   %.not.i161.i = icmp slt i32 %.1196245.i, %1860
-  %1867 = icmp ugt i32 %.1196245.i, %1864
-  %spec.select.i162.i = or i1 %.not.i161.i, %1867
+  %1867 = icmp samesign ugt i32 %.1196245.i, %1864
+  %spec.select.i162.i = select i1 %.not.i161.i, i1 true, i1 %1867
   %1868 = add nsw i32 %.1196245.i, 1
   br i1 %spec.select.i162.i, label %1969, label %1869
 
@@ -9230,7 +9230,7 @@ _ZNK4llvm9StringRef11starts_withES0_.exit.i125:   ; preds = %276
   br i1 %279, label %_ZNK12_GLOBAL__N_122ModuleAddressSanitizer22shouldInstrumentGlobalEPN4llvm14GlobalVariableE.exit.thread, label %_ZNK4llvm9StringRef11starts_withES0_.exit53.i
 
 _ZNK4llvm9StringRef11starts_withES0_.exit.thread123.i: ; preds = %276
-  %.not.i51.i = icmp ult i64 %277, 11
+  %.not.i51.i = icmp samesign ult i64 %277, 11
   br i1 %.not.i51.i, label %_ZNK4llvm9StringRef11starts_withES0_.exit56.thread125.i, label %_ZNK4llvm9StringRef11starts_withES0_.exit.thread123.i._ZNK4llvm9StringRef11starts_withES0_.exit53.i_crit_edge
 
 _ZNK4llvm9StringRef11starts_withES0_.exit.thread123.i._ZNK4llvm9StringRef11starts_withES0_.exit53.i_crit_edge: ; preds = %_ZNK4llvm9StringRef11starts_withES0_.exit.thread123.i
@@ -11607,7 +11607,7 @@ _ZN4llvm9remove_ifIRNS_11SmallVectorISt4pairIjPNS_6MDNodeEELj2EEEZNS_13IRBuilder
   %68 = getelementptr inbounds i8, ptr %.0910.i.i.i.i.i.i, i64 16
   %69 = getelementptr inbounds i8, ptr %.0811.i.i.i.i.i.i, i64 16
   %70 = add nsw i64 %.012.i.i.i.i.i.i, -1
-  %71 = icmp ugt i64 %.012.i.i.i.i.i.i, 1
+  %71 = icmp samesign ugt i64 %.012.i.i.i.i.i.i, 1
   br i1 %71, label %.lr.ph.i.i.i.i.i.i, label %_ZN4llvm15SmallVectorImplISt4pairIjPNS_6MDNodeEEE5eraseEPKS4_S7_.exit, !llvm.loop !165
 
 _ZN4llvm15SmallVectorImplISt4pairIjPNS_6MDNodeEEE5eraseEPKS4_S7_.exit: ; preds = %.lr.ph.i.i.i.i.i.i, %_ZN4llvm9remove_ifIRNS_11SmallVectorISt4pairIjPNS_6MDNodeEELj2EEEZNS_13IRBuilderBase25AddOrRemoveMetadataToCopyEjS4_EUlRKS5_E_EEDaOT_T0_.exit
@@ -19053,7 +19053,7 @@ define internal fastcc void @_ZL19doInstrumentAddressPN12_GLOBAL__N_116AddressSa
   %30 = shl nuw i64 1, %29
   %31 = icmp uge i64 %30, %28
   %32 = lshr i64 %.0.val, 3
-  %33 = icmp uge i64 %30, %32
+  %33 = icmp samesign uge i64 %30, %32
   %or.cond = select i1 %31, i1 true, i1 %33
   br i1 %or.cond, label %34, label %36
 

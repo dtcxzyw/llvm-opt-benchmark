@@ -341,7 +341,7 @@ define range(i64 0, 8589934592) i64 @adler32_combine(i64 noundef %0, i64 noundef
   %19 = icmp samesign ugt i64 %10, 65520
   %20 = add nsw i64 %10, -65521
   %spec.select.i = select i1 %19, i64 %20, i64 65520
-  %21 = icmp ugt i64 %spec.select.i, 65520
+  %21 = icmp samesign ugt i64 %spec.select.i, 65520
   %22 = add nsw i64 %spec.select.i, -65521
   %.1.i = select i1 %21, i64 %22, i64 %spec.select.i
   %23 = icmp samesign ugt i64 %18, 131041
@@ -377,7 +377,7 @@ define range(i64 0, 8589934592) i64 @adler32_combine64(i64 noundef %0, i64 nound
   %19 = icmp samesign ugt i64 %10, 65520
   %20 = add nsw i64 %10, -65521
   %spec.select.i = select i1 %19, i64 %20, i64 65520
-  %21 = icmp ugt i64 %spec.select.i, 65520
+  %21 = icmp samesign ugt i64 %spec.select.i, 65520
   %22 = add nsw i64 %spec.select.i, -65521
   %.1.i = select i1 %21, i64 %22, i64 %spec.select.i
   %23 = icmp samesign ugt i64 %18, 131041

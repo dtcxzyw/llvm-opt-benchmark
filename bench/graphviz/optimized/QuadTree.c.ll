@@ -1470,7 +1470,7 @@ node_data_new.exit:                               ; preds = %.lr.ph.i, %gv_alloc
   %78 = shl nsw i32 %.0910.i, 1
   %79 = zext i1 %77 to i32
   %.1.i = or disjoint i32 %78, %79
-  %80 = icmp ugt i64 %indvars.iv.i130, 1
+  %80 = icmp samesign ugt i64 %indvars.iv.i130, 1
   br i1 %80, label %.lr.ph.i129, label %QuadTree_get_quadrant.exit
 
 QuadTree_get_quadrant.exit:                       ; preds = %.lr.ph.i129, %68
@@ -1585,7 +1585,7 @@ QuadTree_new_in_quadrant.exit:                    ; preds = %.lr.ph.i134, %QuadT
   %135 = shl nsw i32 %.0910.i142, 1
   %136 = zext i1 %134 to i32
   %.1.i144 = or disjoint i32 %135, %136
-  %137 = icmp ugt i64 %indvars.iv.i141, 1
+  %137 = icmp samesign ugt i64 %indvars.iv.i141, 1
   br i1 %137, label %.lr.ph.i140, label %QuadTree_get_quadrant.exit145
 
 QuadTree_get_quadrant.exit145:                    ; preds = %.lr.ph.i140, %122

@@ -1729,7 +1729,7 @@ define i32 @Gia_ManLevelRNum(ptr nocapture noundef %0) local_unnamed_addr #2 {
   br label %98
 
 98:                                               ; preds = %22, %79, %91, %39
-  %99 = icmp ugt i64 %indvars.iv, 1
+  %99 = icmp samesign ugt i64 %indvars.iv, 1
   br i1 %99, label %10, label %.critedge.loopexit, !llvm.loop !23
 
 .critedge.loopexit:                               ; preds = %98, %10
@@ -2329,7 +2329,7 @@ Vec_IntUpdateEntry.exit84:                        ; preds = %79, %83
   br label %Vec_IntUpdateEntry.exit77
 
 Vec_IntUpdateEntry.exit77:                        ; preds = %88, %Vec_IntUpdateEntry.exit84, %78, %74, %70, %Vec_IntUpdateEntry.exit79, %51, %Gia_ObjFaninId2.exit, %20
-  %89 = icmp ugt i64 %indvars.iv, 2
+  %89 = icmp samesign ugt i64 %indvars.iv, 2
   br i1 %89, label %18, label %.critedge, !llvm.loop !28
 
 .critedge:                                        ; preds = %18, %Vec_IntUpdateEntry.exit77, %Vec_IntStart.exit
@@ -4035,7 +4035,7 @@ Gia_ManIncrementTravId.exit:                      ; preds = %41, %.thread.i, %30
   br label %77
 
 77:                                               ; preds = %70, %76
-  %78 = icmp ugt i64 %indvars.iv, 1
+  %78 = icmp samesign ugt i64 %indvars.iv, 1
   br i1 %78, label %.lr.ph, label %.critedge, !llvm.loop !38
 
 .lr.ph47:                                         ; preds = %.preheader, %92

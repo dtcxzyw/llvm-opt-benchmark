@@ -174,7 +174,7 @@ define internal void @"_ZN117_$LT$signal_hook..iterator..backend..PendingSignals
           to label %44 unwind label %307
 
 42:                                               ; preds = %5
-  %43 = icmp ult i32 %4, 128
+  %43 = icmp samesign ult i32 %4, 128
   br i1 %43, label %51, label %45
 
 44:                                               ; preds = %45, %41

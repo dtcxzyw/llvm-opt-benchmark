@@ -2699,7 +2699,7 @@ _ZNK2cv3Mat8elemSizeEv.exit:                      ; preds = %_ZNK2cv11_InputArra
   %21 = getelementptr i64, ptr %19, i64 %20
   %22 = getelementptr i8, ptr %21, i64 -8
   %23 = load i64, ptr %22, align 8
-  %24 = icmp ult i32 %16, 3
+  %24 = icmp samesign ult i32 %16, 3
   br i1 %24, label %_ZNK2cv3Mat8elemSizeEv.exit.thread, label %33
 
 _ZNK2cv3Mat8elemSizeEv.exit.thread:               ; preds = %_ZNK2cv11_InputArray6getMatEi.exit, %_ZNK2cv3Mat8elemSizeEv.exit
@@ -10683,7 +10683,7 @@ _ZN2cv10AutoBufferIhLm1032EE8allocateEm.exit.thread: ; preds = %39
   br label %42
 
 _ZN2cv10AutoBufferIhLm1032EE8allocateEm.exit:     ; preds = %33
-  %.not.i74 = icmp ugt i32 %37, 264
+  %.not.i74 = icmp samesign ugt i32 %37, 264
   br i1 %.not.i74, label %42, label %41
 
 41:                                               ; preds = %_ZN2cv10AutoBufferIhLm1032EE8allocateEm.exit
@@ -10997,7 +10997,7 @@ _ZN2cv10AutoBufferIaLm1032EE8allocateEm.exit.thread: ; preds = %39
   br label %42
 
 _ZN2cv10AutoBufferIaLm1032EE8allocateEm.exit:     ; preds = %33
-  %.not.i74 = icmp ugt i32 %37, 264
+  %.not.i74 = icmp samesign ugt i32 %37, 264
   br i1 %.not.i74, label %42, label %41
 
 41:                                               ; preds = %_ZN2cv10AutoBufferIaLm1032EE8allocateEm.exit
@@ -11314,7 +11314,7 @@ _ZN2cv10AutoBufferItLm520EE8allocateEm.exit.thread: ; preds = %39
   br label %44
 
 _ZN2cv10AutoBufferItLm520EE8allocateEm.exit:      ; preds = %33
-  %.not.i74 = icmp ugt i32 %37, 264
+  %.not.i74 = icmp samesign ugt i32 %37, 264
   br i1 %.not.i74, label %44, label %43
 
 43:                                               ; preds = %_ZN2cv10AutoBufferItLm520EE8allocateEm.exit
@@ -11631,7 +11631,7 @@ _ZN2cv10AutoBufferIsLm520EE8allocateEm.exit.thread: ; preds = %39
   br label %44
 
 _ZN2cv10AutoBufferIsLm520EE8allocateEm.exit:      ; preds = %33
-  %.not.i74 = icmp ugt i32 %37, 264
+  %.not.i74 = icmp samesign ugt i32 %37, 264
   br i1 %.not.i74, label %44, label %43
 
 43:                                               ; preds = %_ZN2cv10AutoBufferIsLm520EE8allocateEm.exit

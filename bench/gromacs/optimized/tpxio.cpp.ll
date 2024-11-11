@@ -2847,7 +2847,7 @@ _ZN3gmx11ISerializer10doIntArrayEPii.exit.i:      ; preds = %.lr.ph.i.i, %_ZNSt6
 .lr.ph.i65:                                       ; preds = %208
   %221 = getelementptr inbounds i8, ptr %1, i64 40
   %222 = icmp slt i32 %2, 68
-  %223 = icmp ult i32 %2, 113
+  %223 = icmp samesign ult i32 %2, 113
   %224 = icmp slt i32 %2, 82
   %225 = icmp sgt i32 %2, 81
   %226 = icmp slt i32 %2, 127
@@ -6211,7 +6211,7 @@ _ZNSt6vectorIiSaIiEE6resizeEm.exit.i23:           ; preds = %89, %87, %85, %83
   %120 = or disjoint i64 %102, 3
   %121 = getelementptr inbounds i32, ptr %116, i64 %120
   store i32 %119, ptr %121, align 4
-  %122 = icmp ugt i64 %indvars.iv.i, 1
+  %122 = icmp samesign ugt i64 %indvars.iv.i, 1
   br i1 %122, label %.lr.ph.i, label %_ZNSt6vectorIiSaIiEE5clearEv.exit, !llvm.loop !41
 
 _ZNSt6vectorIiSaIiEE5clearEv.exit:                ; preds = %.lr.ph.i, %_ZNSt6vectorIiSaIiEE6resizeEm.exit.i23, %27, %23, %71, %_ZL8do_ilistPN3gmx11ISerializerEP15InteractionList.exit
@@ -8592,7 +8592,7 @@ _ZNSt6vectorIN3gmx8MtsLevelESaIS1_EE5clearEv.exit: ; preds = %200, %184
   br label %249
 
 235:                                              ; preds = %.thread1268
-  %236 = icmp ugt i32 %2, 80
+  %236 = icmp samesign ugt i32 %2, 80
   br i1 %236, label %237, label %249
 
 237:                                              ; preds = %235
@@ -8610,7 +8610,7 @@ _ZNSt6vectorIN3gmx8MtsLevelESaIS1_EE5clearEv.exit: ; preds = %200, %184
   %244 = load i32, ptr %84, align 4
   store i32 %244, ptr %238, align 4
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %84)
-  %245 = icmp ult i32 %2, 94
+  %245 = icmp samesign ult i32 %2, 94
   br i1 %245, label %246, label %251
 
 246:                                              ; preds = %243
@@ -9778,7 +9778,7 @@ _ZN3gmx11ISerializer11doBoolArrayEPbi.exit.i:     ; preds = %.noexc408, %837, %8
           to label %.noexc410 unwind label %.loopexit.split-lp1292.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
 
 .noexc410:                                        ; preds = %.noexc409
-  %847 = icmp ugt i32 %2, 63
+  %847 = icmp samesign ugt i32 %2, 63
   br i1 %847, label %848, label %911
 
 848:                                              ; preds = %.noexc410
@@ -10068,7 +10068,7 @@ _ZN3gmx11ISerializer13doDoubleArrayEPdi.exit181.i: ; preds = %.noexc414, %857, %
           to label %.noexc423 unwind label %.loopexit.split-lp1292.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
 
 .noexc423:                                        ; preds = %.noexc422
-  %965 = icmp ugt i32 %2, 72
+  %965 = icmp samesign ugt i32 %2, 72
   %966 = getelementptr inbounds i8, ptr %768, i64 268
   br i1 %965, label %.thread194.i, label %978
 
@@ -10106,7 +10106,7 @@ _ZN3gmx11ISerializer13doDoubleArrayEPdi.exit181.i: ; preds = %.noexc414, %857, %
   store i32 0, ptr %966, align 4
   %979 = getelementptr inbounds i8, ptr %768, i64 272
   store i32 0, ptr %979, align 8
-  %980 = icmp ugt i32 %2, 70
+  %980 = icmp samesign ugt i32 %2, 70
   br i1 %980, label %983, label %.thread196.i
 
 .thread196.i:                                     ; preds = %978, %.thread195.i
@@ -10155,7 +10155,7 @@ _ZN3gmx11ISerializer13doDoubleArrayEPdi.exit181.i: ; preds = %.noexc414, %857, %
   %999 = load i32, ptr %66, align 4
   store i32 %999, ptr %994, align 4
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %66)
-  %1000 = icmp ugt i32 %2, 124
+  %1000 = icmp samesign ugt i32 %2, 124
   br i1 %1000, label %.thread198.i, label %1017
 
 .thread198.i:                                     ; preds = %.noexc428
@@ -11424,7 +11424,7 @@ _ZNSt10unique_ptrI13pull_params_tSt14default_deleteIS0_EED2Ev.exit: ; preds = %1
   br label %1617
 
 1615:                                             ; preds = %.noexc536
-  %1616 = icmp ult i32 %2, 101
+  %1616 = icmp samesign ult i32 %2, 101
   br i1 %1616, label %1617, label %.noexc539
 
 1617:                                             ; preds = %1615, %.thread.i534
@@ -11481,11 +11481,11 @@ _ZNSt10unique_ptrI13pull_params_tSt14default_deleteIS0_EED2Ev.exit: ; preds = %1
           to label %.noexc542 unwind label %.loopexit.split-lp1292.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
 
 .noexc542:                                        ; preds = %1636
-  %1641 = icmp ugt i32 %2, 108
+  %1641 = icmp samesign ugt i32 %2, 108
   br i1 %1641, label %.noexc545.invoke, label %1642
 
 1642:                                             ; preds = %.noexc542
-  %1643 = icmp ugt i32 %2, 100
+  %1643 = icmp samesign ugt i32 %2, 100
   br i1 %1643, label %1644, label %.thread120.i
 
 1644:                                             ; preds = %1642
@@ -12562,8 +12562,8 @@ _ZL7do_pullPN3gmx11ISerializerEP13pull_params_ti16PullingAlgorithm.exit: ; preds
           to label %.noexc605 unwind label %.loopexit.split-lp1292.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
 
 .noexc605:                                        ; preds = %2123
-  %2125 = icmp ult i32 %2, 132
-  %2126 = icmp ult i32 %2, 130
+  %2125 = icmp samesign ult i32 %2, 132
+  %2126 = icmp samesign ult i32 %2, 130
   invoke void @_ZN3gmx9AwhParamsC1EPNS_11ISerializerEbb(ptr noundef nonnull align 8 dereferenceable(49) %2124, ptr noundef nonnull %0, i1 noundef zeroext %2126, i1 noundef zeroext %2125)
           to label %_ZSt11make_uniqueIN3gmx9AwhParamsEJRPNS0_11ISerializerEbbEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_.exit unwind label %2127, !noalias !90
 
@@ -16120,7 +16120,7 @@ _ZNSt6vectorIN3gmx20KeyValueTreePropertyESaIS1_EED2Ev.exit.i976: ; preds = %3396
           to label %_ZN3gmx18KeyValueTreeObjectD2Ev.exit977 unwind label %.loopexit.split-lp1292.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
 
 _ZN3gmx18KeyValueTreeObjectD2Ev.exit977:          ; preds = %_ZNSt6vectorIN3gmx20KeyValueTreePropertyESaIS1_EED2Ev.exit.i976, %3432
-  %3433 = icmp ult i32 %2, 129
+  %3433 = icmp samesign ult i32 %2, 129
   br i1 %3433, label %_ZN3gmx18KeyValueTreeObjectD2Ev.exit977.thread, label %3451
 
 _ZN3gmx18KeyValueTreeObjectD2Ev.exit977.thread:   ; preds = %_ZNSt10unique_ptrIN3gmx18KeyValueTreeObjectESt14default_deleteIS1_EED2Ev.exit, %_ZN3gmx18KeyValueTreeObjectD2Ev.exit977

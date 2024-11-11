@@ -2199,7 +2199,7 @@ _ZN4llvm9StringRef13consume_frontES0_.exit:       ; preds = %56, %_ZNK4llvm9Stri
   br i1 %.not41, label %124, label %81
 
 81:                                               ; preds = %69
-  %82 = icmp ult i32 %80, 1408
+  %82 = icmp samesign ult i32 %80, 1408
   %83 = zext nneg i32 %80 to i64
   br i1 %82, label %_ZNK5clang7Builtin7Context23isPredefinedLibFunctionEj.exit.thread, label %84
 

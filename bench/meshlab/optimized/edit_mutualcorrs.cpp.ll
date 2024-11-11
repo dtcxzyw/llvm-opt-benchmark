@@ -4869,7 +4869,7 @@ _ZNSt6vectorIbSaIbEE5eraseESt19_Bit_const_iterator.exit: ; preds = %_ZSt4copyISt
   %88 = getelementptr inbounds i8, ptr %.0910.i.i.i.i.i.i.i, i64 8
   %89 = getelementptr inbounds i8, ptr %.0811.i.i.i.i.i.i.i, i64 8
   %90 = add nsw i64 %.012.i.i.i.i.i.i.i, -1
-  %91 = icmp ugt i64 %.012.i.i.i.i.i.i.i, 1
+  %91 = icmp samesign ugt i64 %.012.i.i.i.i.i.i.i, 1
   br i1 %91, label %.lr.ph.i.i.i.i.i.i.i20, label %_ZSt4moveIN9__gnu_cxx17__normal_iteratorIP7QStringSt6vectorIS2_SaIS2_EEEES7_ET0_T_S9_S8_.exit.loopexit.i.i, !llvm.loop !81
 
 _ZSt4moveIN9__gnu_cxx17__normal_iteratorIP7QStringSt6vectorIS2_SaIS2_EEEES7_ET0_T_S9_S8_.exit.loopexit.i.i: ; preds = %.lr.ph.i.i.i.i.i.i.i20

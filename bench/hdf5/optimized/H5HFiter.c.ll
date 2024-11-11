@@ -176,7 +176,7 @@ define range(i32 -1, 1) i32 @H5HF__man_iter_start_offset(ptr noundef %0, ptr noc
   br label %H5VM_log2_gen.exit
 
 86:                                               ; preds = %72
-  %.not27.i = icmp ult i64 %70, 1099511627776
+  %.not27.i = icmp samesign ult i64 %70, 1099511627776
   br i1 %.not27.i, label %93, label %87
 
 87:                                               ; preds = %86
@@ -196,11 +196,11 @@ define range(i32 -1, 1) i32 @H5HF__man_iter_start_offset(ptr noundef %0, ptr noc
 
 98:                                               ; preds = %55
   %99 = lshr i64 %70, 16
-  %.not23.i = icmp ult i64 %70, 65536
+  %.not23.i = icmp samesign ult i64 %70, 65536
   br i1 %.not23.i, label %112, label %100
 
 100:                                              ; preds = %98
-  %.not25.i = icmp ult i64 %70, 16777216
+  %.not25.i = icmp samesign ult i64 %70, 16777216
   br i1 %.not25.i, label %107, label %101
 
 101:                                              ; preds = %100
@@ -219,7 +219,7 @@ define range(i32 -1, 1) i32 @H5HF__man_iter_start_offset(ptr noundef %0, ptr noc
   br label %H5VM_log2_gen.exit
 
 112:                                              ; preds = %98
-  %.not24.i = icmp ult i64 %70, 256
+  %.not24.i = icmp samesign ult i64 %70, 256
   br i1 %.not24.i, label %119, label %113
 
 113:                                              ; preds = %112

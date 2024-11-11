@@ -1998,7 +1998,7 @@ cleanup.action:                                   ; preds = %if.then
   br label %eh.resume
 
 if.end:                                           ; preds = %entry
-  %cmp = icmp ult i8 %version, 24
+  %cmp = icmp samesign ult i8 %version, 24
   br i1 %cmp, label %cond.true, label %cond.end
 
 cond.true:                                        ; preds = %if.end
@@ -3265,7 +3265,7 @@ _ZN11StreamProxylsEPFRSoS0_E.exit:                ; preds = %_ZSt4endlIcSt11char
 do.end:                                           ; preds = %_ZN11StreamProxylsEPFRSoS0_E.exit, %_ZTW11tracestream.exit
   %m_is_air_expired = getelementptr inbounds i8, ptr %this, i64 73
   store i8 1, ptr %m_is_air_expired, align 1, !tbaa !56
-  %cmp = icmp ult i8 %version, 22
+  %cmp = icmp samesign ult i8 %version, 22
   br i1 %cmp, label %if.then17, label %if.end18
 
 if.then17:                                        ; preds = %do.end
@@ -3303,7 +3303,7 @@ invoke.cont30:                                    ; preds = %if.end26
   %and = and i8 %22, 1
   %is_underground = getelementptr inbounds i8, ptr %this, i64 91
   store i8 %and, ptr %is_underground, align 1, !tbaa !63
-  %cmp36 = icmp ult i8 %version, 27
+  %cmp36 = icmp samesign ult i8 %version, 27
   br i1 %cmp36, label %if.end41, label %if.else
 
 lpad29:                                           ; preds = %if.else, %if.end26
@@ -4807,7 +4807,7 @@ if.end375:                                        ; preds = %do.end373, %invoke.
           to label %invoke.cont378 unwind label %lpad121
 
 invoke.cont378:                                   ; preds = %if.end375
-  %cmp380 = icmp ugt i8 %version, 24
+  %cmp380 = icmp samesign ugt i8 %version, 24
   br i1 %cmp380, label %do.body382, label %if.end405
 
 do.body382:                                       ; preds = %invoke.cont378

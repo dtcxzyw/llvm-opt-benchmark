@@ -2389,7 +2389,7 @@ thread-pre-split:                                 ; preds = %.thread, %205, %206
   br i1 %246, label %247, label %258
 
 247:                                              ; preds = %243
-  %248 = icmp ult i32 %245, 256
+  %248 = icmp samesign ult i32 %245, 256
   br i1 %248, label %249, label %251
 
 249:                                              ; preds = %247

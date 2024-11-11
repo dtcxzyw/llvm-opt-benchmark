@@ -1043,7 +1043,7 @@ define noundef ptr @jobcomp_common_job_record_to_data(ptr noundef %0) local_unna
   %415 = getelementptr inbounds ptr, ptr %414, i64 %indvars.iv.next
   %416 = load ptr, ptr %415, align 8
   call void (ptr, ptr, ...) @_xstrfmtcat(ptr noundef nonnull %11, ptr noundef nonnull @.str.67, ptr noundef %416) #7
-  %417 = icmp ugt i64 %indvars.iv, 1
+  %417 = icmp samesign ugt i64 %indvars.iv, 1
   br i1 %417, label %.lr.ph, label %._crit_edge, !llvm.loop !9
 
 ._crit_edge:                                      ; preds = %.lr.ph, %.preheader

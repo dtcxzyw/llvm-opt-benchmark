@@ -4573,7 +4573,7 @@ invoke.cont406:                                   ; preds = %if.then399
   ]
 
 invoke.cont411:                                   ; preds = %invoke.cont406
-  %98 = icmp ult i32 %92, 10
+  %98 = icmp samesign ult i32 %92, 10
   br i1 %98, label %invoke.cont414, label %if.end429
 
 invoke.cont414:                                   ; preds = %invoke.cont411

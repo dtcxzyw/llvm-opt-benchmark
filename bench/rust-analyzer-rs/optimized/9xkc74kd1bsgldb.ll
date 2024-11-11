@@ -48573,7 +48573,7 @@ define hidden void @_ZN9hashbrown3raw5inner13RawTableInner22fallible_with_capaci
   br i1 %15, label %18, label %26
 
 16:                                               ; preds = %11
-  %17 = icmp ult i64 %4, 4
+  %17 = icmp samesign ult i64 %4, 4
   %..i = select i1 %17, i64 4, i64 8
   br label %32
 
@@ -48671,7 +48671,7 @@ define hidden void @_ZN9hashbrown3raw5inner13RawTableInner22fallible_with_capaci
   br label %72
 
 _ZN9hashbrown3raw5inner13RawTableInner17new_uninitialized17h1396c1a4cdc9bbccE.exit: ; preds = %51
-  %65 = icmp ult i64 %.sroa.6.053.ph, 9
+  %65 = icmp samesign ult i64 %.sroa.6.053.ph, 9
   %66 = add nsw i64 %.sroa.6.053.ph, -1
   %67 = lshr i64 %.sroa.6.053.ph, 3
   %68 = mul nuw nsw i64 %67, 7
@@ -94485,7 +94485,7 @@ define hidden void @"_ZN9hashbrown3raw5inner21RawTable$LT$T$C$A$GT$9shrink_to17h
   br i1 %34, label %37, label %_ZN9hashbrown3raw5inner13RawTableInner16drop_inner_table17h86589285a45cd945E.exit
 
 35:                                               ; preds = %30
-  %36 = icmp ult i64 %.0.sroa.speculated.i, 4
+  %36 = icmp samesign ult i64 %.0.sroa.speculated.i, 4
   %..i = select i1 %36, i64 4, i64 8
   br label %45
 
@@ -96580,7 +96580,7 @@ define hidden void @_ZN7hir_def3hir11format_args5parse17h9e8a53a48a3fb96aE(ptr n
 
 "_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17h3f034a2e3774e548E.llvm.5537595614626420043.exit.i": ; preds = %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17h3f034a2e3774e548E.llvm.5537595614626420043.exit13.i"
   call void @llvm.lifetime.end.p0(i64 0, ptr nonnull %8), !noalias !19275
-  %.not.i411 = icmp ugt i64 %384, %386
+  %.not.i411 = icmp samesign ugt i64 %384, %386
   br i1 %.not.i411, label %.invoke, label %395
 
 395:                                              ; preds = %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17h3f034a2e3774e548E.llvm.5537595614626420043.exit.i"
@@ -96619,7 +96619,7 @@ define hidden void @_ZN7hir_def3hir11format_args5parse17h9e8a53a48a3fb96aE(ptr n
 
 "_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17h3f034a2e3774e548E.llvm.5537595614626420043.exit.i417": ; preds = %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17h3f034a2e3774e548E.llvm.5537595614626420043.exit13.i416"
   call void @llvm.lifetime.end.p0(i64 0, ptr nonnull %8), !noalias !19278
-  %.not.i418 = icmp ugt i64 %330, %332
+  %.not.i418 = icmp samesign ugt i64 %330, %332
   br i1 %.not.i418, label %.invoke, label %405
 
 405:                                              ; preds = %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17h3f034a2e3774e548E.llvm.5537595614626420043.exit.i417"
@@ -96771,7 +96771,7 @@ define hidden void @_ZN7hir_def3hir11format_args5parse17h9e8a53a48a3fb96aE(ptr n
 
 "_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17h3f034a2e3774e548E.llvm.5537595614626420043.exit.i.i.i": ; preds = %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17h3f034a2e3774e548E.llvm.5537595614626420043.exit13.i.i.i"
   call void @llvm.lifetime.end.p0(i64 0, ptr nonnull %8), !noalias !19281
-  %.not.i.i.i460 = icmp ugt i64 %.sroa.2303.0.copyload, %.sroa.3304.0.copyload
+  %.not.i.i.i460 = icmp samesign ugt i64 %.sroa.2303.0.copyload, %.sroa.3304.0.copyload
   br i1 %.not.i.i.i460, label %.invoke, label %432
 
 432:                                              ; preds = %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17h3f034a2e3774e548E.llvm.5537595614626420043.exit.i.i.i"
@@ -96855,7 +96855,7 @@ _ZN4core3ops8function6FnOnce9call_once17he4f6e3b4b4c2e3f5E.exit: ; preds = %"_ZN
 
 "_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17h3f034a2e3774e548E.llvm.5537595614626420043.exit.i466": ; preds = %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17h3f034a2e3774e548E.llvm.5537595614626420043.exit13.i465"
   call void @llvm.lifetime.end.p0(i64 0, ptr nonnull %8), !noalias !19290
-  %.not.i467 = icmp ugt i64 %.sroa.4295.0.copyload, %.sroa.8299.0.copyload
+  %.not.i467 = icmp samesign ugt i64 %.sroa.4295.0.copyload, %.sroa.8299.0.copyload
   br i1 %.not.i467, label %.invoke, label %446
 
 446:                                              ; preds = %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17h3f034a2e3774e548E.llvm.5537595614626420043.exit.i466"
@@ -96924,7 +96924,7 @@ _ZN4core3ops8function6FnOnce9call_once17he4f6e3b4b4c2e3f5E.exit: ; preds = %"_ZN
 
 "_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17h3f034a2e3774e548E.llvm.5537595614626420043.exit.i.i.i478": ; preds = %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17h3f034a2e3774e548E.llvm.5537595614626420043.exit13.i.i.i477"
   call void @llvm.lifetime.end.p0(i64 0, ptr nonnull %8), !noalias !19293
-  %.not.i.i.i479 = icmp ugt i64 %.sroa.2313.0.copyload, %.sroa.3314.0.copyload
+  %.not.i.i.i479 = icmp samesign ugt i64 %.sroa.2313.0.copyload, %.sroa.3314.0.copyload
   br i1 %.not.i.i.i479, label %.invoke, label %459
 
 459:                                              ; preds = %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17h3f034a2e3774e548E.llvm.5537595614626420043.exit.i.i.i478"
@@ -97032,7 +97032,7 @@ _ZN4core3ops8function6FnOnce9call_once17he4f6e3b4b4c2e3f5E.exit488: ; preds = %4
 
 "_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17h3f034a2e3774e548E.llvm.5537595614626420043.exit.i495": ; preds = %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17h3f034a2e3774e548E.llvm.5537595614626420043.exit13.i494"
   call void @llvm.lifetime.end.p0(i64 0, ptr nonnull %8), !noalias !19314
-  %.not.i496 = icmp ugt i64 %.sroa.4306.0.copyload, %.sroa.7309.0.copyload
+  %.not.i496 = icmp samesign ugt i64 %.sroa.4306.0.copyload, %.sroa.7309.0.copyload
   br i1 %.not.i496, label %.invoke, label %485
 
 485:                                              ; preds = %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17h3f034a2e3774e548E.llvm.5537595614626420043.exit.i495"

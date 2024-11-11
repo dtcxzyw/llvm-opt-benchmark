@@ -718,7 +718,7 @@ define internal noundef zeroext i1 @update_ipdum_message_list(ptr nocapture noun
   br i1 %9, label %.sink.split, label %10
 
 10:                                               ; preds = %6
-  %.not = icmp ult i32 %4, %8
+  %.not = icmp samesign ult i32 %4, %8
   br i1 %.not, label %11, label %.sink.split
 
 11:                                               ; preds = %10

@@ -14734,7 +14734,7 @@ define internal fastcc void @"_ZSt16__insertion_sortIN9__gnu_cxx17__normal_itera
   %29 = getelementptr inbounds i8, ptr %.069.i.i.i.i.i, i64 -8
   store ptr %28, ptr %29, align 8
   %30 = add nsw i64 %.010.i.i.i.i.i, -1
-  %31 = icmp ugt i64 %.010.i.i.i.i.i, 1
+  %31 = icmp samesign ugt i64 %.010.i.i.i.i.i, 1
   br i1 %31, label %.lr.ph.i.i.i.i.i, label %_ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPSt4pairIN4llvm9hash_codeEPKNS3_10sampleprof15FunctionSamplesEESt6vectorIS9_SaIS9_EEEESE_ET0_T_SG_SF_.exit, !llvm.loop !140
 
 _ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPSt4pairIN4llvm9hash_codeEPKNS3_10sampleprof15FunctionSamplesEESt6vectorIS9_SaIS9_EEEESE_ET0_T_SG_SF_.exit: ; preds = %.lr.ph.i.i.i.i.i, %18
@@ -15650,7 +15650,7 @@ _ZNK4llvm10sampleprof13SampleContextltERKS1_.exit.thread62.i: ; preds = %73, %"_
   %117 = getelementptr inbounds i8, ptr %.0910.i.i.i.i.i.i.i, i64 16
   %118 = getelementptr inbounds i8, ptr %.0811.i.i.i.i.i.i.i, i64 16
   %119 = add nsw i64 %.012.i.i.i.i.i.i.i, -1
-  %120 = icmp ugt i64 %.012.i.i.i.i.i.i.i, 1
+  %120 = icmp samesign ugt i64 %.012.i.i.i.i.i.i.i, 1
   br i1 %120, label %.lr.ph.i.i.i.i.i.i.i, label %_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPSt4pairIN4llvm9hash_codeEPKNS3_10sampleprof15FunctionSamplesEESt6vectorIS9_SaIS9_EEEESA_ET0_T_SG_SF_.exit.i.i, !llvm.loop !152
 
 _ZSt4moveIN9__gnu_cxx17__normal_iteratorIPSt4pairIN4llvm9hash_codeEPKNS3_10sampleprof15FunctionSamplesEESt6vectorIS9_SaIS9_EEEESA_ET0_T_SG_SF_.exit.i.i: ; preds = %.lr.ph.i.i.i.i.i.i.i, %.critedge.i.i
@@ -15675,7 +15675,7 @@ _ZSt4moveIN9__gnu_cxx17__normal_iteratorIPSt4pairIN4llvm9hash_codeEPKNS3_10sampl
   %130 = getelementptr inbounds i8, ptr %.0910.i.i.i.i.i13.i.i, i64 16
   %131 = getelementptr inbounds i8, ptr %.0811.i.i.i.i.i12.i.i, i64 16
   %132 = add nsw i64 %.012.i.i.i.i.i11.i.i, -1
-  %133 = icmp ugt i64 %.012.i.i.i.i.i11.i.i, 1
+  %133 = icmp samesign ugt i64 %.012.i.i.i.i.i11.i.i, 1
   br i1 %133, label %.lr.ph.i.i.i.i.i10.i.i, label %"_ZSt12__move_mergeIN9__gnu_cxx17__normal_iteratorIPSt4pairIN4llvm9hash_codeEPKNS3_10sampleprof15FunctionSamplesEESt6vectorIS9_SaIS9_EEEESA_NS0_5__ops15_Iter_comp_iterIZNS5_16sortFuncProfilesERKNS5_16SampleProfileMapERSD_E3$_0EEET0_T_SO_SO_SO_SN_T1_.exit.i", !llvm.loop !152
 
 "_ZSt12__move_mergeIN9__gnu_cxx17__normal_iteratorIPSt4pairIN4llvm9hash_codeEPKNS3_10sampleprof15FunctionSamplesEESt6vectorIS9_SaIS9_EEEESA_NS0_5__ops15_Iter_comp_iterIZNS5_16sortFuncProfilesERKNS5_16SampleProfileMapERSD_E3$_0EEET0_T_SO_SO_SO_SN_T1_.exit.i": ; preds = %.lr.ph.i.i.i.i.i10.i.i, %_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPSt4pairIN4llvm9hash_codeEPKNS3_10sampleprof15FunctionSamplesEESt6vectorIS9_SaIS9_EEEESA_ET0_T_SG_SF_.exit.i.i
@@ -15904,7 +15904,7 @@ _ZNK4llvm10sampleprof13SampleContextltERKS1_.exit.thread99: ; preds = %192, %174
   %236 = getelementptr inbounds i8, ptr %.0910.i.i.i.i.i.i31.i, i64 16
   %237 = getelementptr inbounds i8, ptr %.0811.i.i.i.i.i.i30.i, i64 16
   %238 = add nsw i64 %.012.i.i.i.i.i.i29.i, -1
-  %239 = icmp ugt i64 %.012.i.i.i.i.i.i29.i, 1
+  %239 = icmp samesign ugt i64 %.012.i.i.i.i.i.i29.i, 1
   br i1 %239, label %.lr.ph.i.i.i.i.i.i28.i, label %_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPSt4pairIN4llvm9hash_codeEPKNS3_10sampleprof15FunctionSamplesEESt6vectorIS9_SaIS9_EEEESA_ET0_T_SG_SF_.exit.i21.i, !llvm.loop !152
 
 _ZSt4moveIN9__gnu_cxx17__normal_iteratorIPSt4pairIN4llvm9hash_codeEPKNS3_10sampleprof15FunctionSamplesEESt6vectorIS9_SaIS9_EEEESA_ET0_T_SG_SF_.exit.i21.i: ; preds = %.lr.ph.i.i.i.i.i.i28.i, %.critedge.i17.i
@@ -15928,7 +15928,7 @@ _ZSt4moveIN9__gnu_cxx17__normal_iteratorIPSt4pairIN4llvm9hash_codeEPKNS3_10sampl
   %248 = getelementptr inbounds i8, ptr %.0910.i.i.i.i.i13.i27.i, i64 16
   %249 = getelementptr inbounds i8, ptr %.0811.i.i.i.i.i12.i26.i, i64 16
   %250 = add nsw i64 %.012.i.i.i.i.i11.i25.i, -1
-  %251 = icmp ugt i64 %.012.i.i.i.i.i11.i25.i, 1
+  %251 = icmp samesign ugt i64 %.012.i.i.i.i.i11.i25.i, 1
   br i1 %251, label %.lr.ph.i.i.i.i.i10.i24.i, label %"_ZSt17__merge_sort_loopIN9__gnu_cxx17__normal_iteratorIPSt4pairIN4llvm9hash_codeEPKNS3_10sampleprof15FunctionSamplesEESt6vectorIS9_SaIS9_EEEESA_lNS0_5__ops15_Iter_comp_iterIZNS5_16sortFuncProfilesERKNS5_16SampleProfileMapERSD_E3$_0EEEvT_SN_T0_T1_T2_.exit", !llvm.loop !152
 
 "_ZSt17__merge_sort_loopIN9__gnu_cxx17__normal_iteratorIPSt4pairIN4llvm9hash_codeEPKNS3_10sampleprof15FunctionSamplesEESt6vectorIS9_SaIS9_EEEESA_lNS0_5__ops15_Iter_comp_iterIZNS5_16sortFuncProfilesERKNS5_16SampleProfileMapERSD_E3$_0EEEvT_SN_T0_T1_T2_.exit": ; preds = %.lr.ph.i.i.i.i.i10.i24.i, %_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPSt4pairIN4llvm9hash_codeEPKNS3_10sampleprof15FunctionSamplesEESt6vectorIS9_SaIS9_EEEESA_ET0_T_SG_SF_.exit.i21.i
@@ -16148,7 +16148,7 @@ _ZNK4llvm10sampleprof13SampleContextltERKS1_.exit.thread60.i24: ; preds = %308, 
   %353 = getelementptr inbounds i8, ptr %.0910.i.i.i.i.i.i.i34, i64 16
   %354 = getelementptr inbounds i8, ptr %.0811.i.i.i.i.i.i.i33, i64 16
   %355 = add nsw i64 %.012.i.i.i.i.i.i.i32, -1
-  %356 = icmp ugt i64 %.012.i.i.i.i.i.i.i32, 1
+  %356 = icmp samesign ugt i64 %.012.i.i.i.i.i.i.i32, 1
   br i1 %356, label %.lr.ph.i.i.i.i.i.i.i31, label %_ZSt4moveIPSt4pairIN4llvm9hash_codeEPKNS1_10sampleprof15FunctionSamplesEEN9__gnu_cxx17__normal_iteratorIS8_St6vectorIS7_SaIS7_EEEEET0_T_SG_SF_.exit.i.i, !llvm.loop !152
 
 _ZSt4moveIPSt4pairIN4llvm9hash_codeEPKNS1_10sampleprof15FunctionSamplesEEN9__gnu_cxx17__normal_iteratorIS8_St6vectorIS7_SaIS7_EEEEET0_T_SG_SF_.exit.i.i: ; preds = %.lr.ph.i.i.i.i.i.i.i31, %._crit_edge.i.i25
@@ -16177,7 +16177,7 @@ _ZSt4moveIPSt4pairIN4llvm9hash_codeEPKNS1_10sampleprof15FunctionSamplesEEN9__gnu
   %370 = getelementptr inbounds i8, ptr %.0910.i.i.i.i.i22.i.i, i64 16
   %371 = getelementptr inbounds i8, ptr %.0811.i.i.i.i.i21.i.i, i64 16
   %372 = add nsw i64 %.012.i.i.i.i.i20.i.i, -1
-  %373 = icmp ugt i64 %.012.i.i.i.i.i20.i.i, 1
+  %373 = icmp samesign ugt i64 %.012.i.i.i.i.i20.i.i, 1
   br i1 %373, label %.lr.ph.i.i.i.i.i19.i.i, label %_ZSt4moveIPSt4pairIN4llvm9hash_codeEPKNS1_10sampleprof15FunctionSamplesEEN9__gnu_cxx17__normal_iteratorIS8_St6vectorIS7_SaIS7_EEEEET0_T_SG_SF_.exit23.loopexit.i.i, !llvm.loop !152
 
 _ZSt4moveIPSt4pairIN4llvm9hash_codeEPKNS1_10sampleprof15FunctionSamplesEEN9__gnu_cxx17__normal_iteratorIS8_St6vectorIS7_SaIS7_EEEEET0_T_SG_SF_.exit23.loopexit.i.i: ; preds = %.lr.ph.i.i.i.i.i19.i.i
@@ -16412,7 +16412,7 @@ _ZNK4llvm10sampleprof13SampleContextltERKS1_.exit94.thread104: ; preds = %436, %
   %481 = getelementptr inbounds i8, ptr %.0910.i.i.i.i.i.i40.i, i64 16
   %482 = getelementptr inbounds i8, ptr %.0811.i.i.i.i.i.i39.i, i64 16
   %483 = add nsw i64 %.012.i.i.i.i.i.i38.i, -1
-  %484 = icmp ugt i64 %.012.i.i.i.i.i.i38.i, 1
+  %484 = icmp samesign ugt i64 %.012.i.i.i.i.i.i38.i, 1
   br i1 %484, label %.lr.ph.i.i.i.i.i.i37.i, label %_ZSt4moveIPSt4pairIN4llvm9hash_codeEPKNS1_10sampleprof15FunctionSamplesEEN9__gnu_cxx17__normal_iteratorIS8_St6vectorIS7_SaIS7_EEEEET0_T_SG_SF_.exit.i29.i, !llvm.loop !152
 
 _ZSt4moveIPSt4pairIN4llvm9hash_codeEPKNS1_10sampleprof15FunctionSamplesEEN9__gnu_cxx17__normal_iteratorIS8_St6vectorIS7_SaIS7_EEEEET0_T_SG_SF_.exit.i29.i: ; preds = %.lr.ph.i.i.i.i.i.i37.i, %._crit_edge.i25.i
@@ -16443,7 +16443,7 @@ _ZSt4moveIPSt4pairIN4llvm9hash_codeEPKNS1_10sampleprof15FunctionSamplesEEN9__gnu
   %497 = getelementptr inbounds i8, ptr %.0910.i.i.i.i.i22.i35.i, i64 16
   %498 = getelementptr inbounds i8, ptr %.0811.i.i.i.i.i21.i34.i, i64 16
   %499 = add nsw i64 %.012.i.i.i.i.i20.i33.i, -1
-  %500 = icmp ugt i64 %.012.i.i.i.i.i20.i33.i, 1
+  %500 = icmp samesign ugt i64 %.012.i.i.i.i.i20.i33.i, 1
   br i1 %500, label %.lr.ph.i.i.i.i.i19.i32.i, label %"_ZSt17__merge_sort_loopIPSt4pairIN4llvm9hash_codeEPKNS1_10sampleprof15FunctionSamplesEEN9__gnu_cxx17__normal_iteratorIS8_St6vectorIS7_SaIS7_EEEElNS9_5__ops15_Iter_comp_iterIZNS3_16sortFuncProfilesERKNS3_16SampleProfileMapERSD_E3$_0EEEvT_SN_T0_T1_T2_.exit", !llvm.loop !152
 
 "_ZSt17__merge_sort_loopIPSt4pairIN4llvm9hash_codeEPKNS1_10sampleprof15FunctionSamplesEEN9__gnu_cxx17__normal_iteratorIS8_St6vectorIS7_SaIS7_EEEElNS9_5__ops15_Iter_comp_iterIZNS3_16sortFuncProfilesERKNS3_16SampleProfileMapERSD_E3$_0EEEvT_SN_T0_T1_T2_.exit": ; preds = %.lr.ph.i.i.i.i.i19.i32.i, %_ZSt4moveIPSt4pairIN4llvm9hash_codeEPKNS1_10sampleprof15FunctionSamplesEEN9__gnu_cxx17__normal_iteratorIS8_St6vectorIS7_SaIS7_EEEEET0_T_SG_SF_.exit.i29.i
@@ -16488,7 +16488,7 @@ tailrecurse._crit_edge:                           ; preds = %tailrecurse, %7
   %18 = getelementptr inbounds i8, ptr %.0910.i.i.i.i.i, i64 16
   %19 = getelementptr inbounds i8, ptr %.0811.i.i.i.i.i, i64 16
   %20 = add nsw i64 %.012.i.i.i.i.i, -1
-  %21 = icmp ugt i64 %.012.i.i.i.i.i, 1
+  %21 = icmp samesign ugt i64 %.012.i.i.i.i.i, 1
   br i1 %21, label %.lr.ph.i.i.i.i.i, label %.lr.ph.i, !llvm.loop !152
 
 .lr.ph.i:                                         ; preds = %.lr.ph.i.i.i.i.i, %45
@@ -16566,7 +16566,7 @@ tailrecurse._crit_edge:                           ; preds = %tailrecurse, %7
   %56 = getelementptr inbounds i8, ptr %.0910.i.i.i.i.i.i, i64 16
   %57 = getelementptr inbounds i8, ptr %.0811.i.i.i.i.i.i, i64 16
   %58 = add nsw i64 %.012.i.i.i.i.i.i, -1
-  %59 = icmp ugt i64 %.012.i.i.i.i.i.i, 1
+  %59 = icmp samesign ugt i64 %.012.i.i.i.i.i.i, 1
   br i1 %59, label %.lr.ph.i.i.i.i.i.i, label %"_ZSt21__move_merge_adaptiveIPSt4pairIN4llvm9hash_codeEPKNS1_10sampleprof15FunctionSamplesEEN9__gnu_cxx17__normal_iteratorIS8_St6vectorIS7_SaIS7_EEEESE_NS9_5__ops15_Iter_comp_iterIZNS3_16sortFuncProfilesERKNS3_16SampleProfileMapERSD_E3$_0EEEvT_SN_T0_SO_T1_T2_.exit", !llvm.loop !152
 
 60:                                               ; preds = %.lr.ph, %tailrecurse
@@ -16598,7 +16598,7 @@ tailrecurse._crit_edge:                           ; preds = %tailrecurse, %7
   %70 = getelementptr inbounds i8, ptr %.0910.i.i.i.i.i86, i64 16
   %71 = getelementptr inbounds i8, ptr %.0811.i.i.i.i.i85, i64 16
   %72 = add nsw i64 %.012.i.i.i.i.i84, -1
-  %73 = icmp ugt i64 %.012.i.i.i.i.i84, 1
+  %73 = icmp samesign ugt i64 %.012.i.i.i.i.i84, 1
   br i1 %73, label %.lr.ph.i.i.i.i.i83, label %_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPSt4pairIN4llvm9hash_codeEPKNS3_10sampleprof15FunctionSamplesEESt6vectorIS9_SaIS9_EEEESA_ET0_T_SG_SF_.exit87, !llvm.loop !152
 
 _ZSt4moveIN9__gnu_cxx17__normal_iteratorIPSt4pairIN4llvm9hash_codeEPKNS3_10sampleprof15FunctionSamplesEESt6vectorIS9_SaIS9_EEEESA_ET0_T_SG_SF_.exit87: ; preds = %.lr.ph.i.i.i.i.i83, %62
@@ -16627,7 +16627,7 @@ _ZSt4moveIN9__gnu_cxx17__normal_iteratorIPSt4pairIN4llvm9hash_codeEPKNS3_10sampl
   %86 = getelementptr inbounds i8, ptr %.069.i.i.i.i.i.i, i64 -8
   store ptr %85, ptr %86, align 8
   %87 = add nsw i64 %.010.i.i.i.i.i.i, -1
-  %88 = icmp ugt i64 %.010.i.i.i.i.i.i, 1
+  %88 = icmp samesign ugt i64 %.010.i.i.i.i.i.i, 1
   br i1 %88, label %.lr.ph.i.i.i.i.i.i90, label %"_ZSt21__move_merge_adaptiveIPSt4pairIN4llvm9hash_codeEPKNS1_10sampleprof15FunctionSamplesEEN9__gnu_cxx17__normal_iteratorIS8_St6vectorIS7_SaIS7_EEEESE_NS9_5__ops15_Iter_comp_iterIZNS3_16sortFuncProfilesERKNS3_16SampleProfileMapERSD_E3$_0EEEvT_SN_T0_SO_T1_T2_.exit", !llvm.loop !140
 
 89:                                               ; preds = %_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPSt4pairIN4llvm9hash_codeEPKNS3_10sampleprof15FunctionSamplesEESt6vectorIS9_SaIS9_EEEESA_ET0_T_SG_SF_.exit87
@@ -16702,7 +16702,7 @@ _ZSt4moveIN9__gnu_cxx17__normal_iteratorIPSt4pairIN4llvm9hash_codeEPKNS3_10sampl
   %125 = getelementptr inbounds i8, ptr %.069.i.i.i.i.i21.i, i64 -8
   store ptr %124, ptr %125, align 8
   %126 = add nsw i64 %.010.i.i.i.i.i20.i, -1
-  %127 = icmp ugt i64 %.010.i.i.i.i.i20.i, 1
+  %127 = icmp samesign ugt i64 %.010.i.i.i.i.i20.i, 1
   br i1 %127, label %.lr.ph.i.i.i.i.i19.i, label %"_ZSt21__move_merge_adaptiveIPSt4pairIN4llvm9hash_codeEPKNS1_10sampleprof15FunctionSamplesEEN9__gnu_cxx17__normal_iteratorIS8_St6vectorIS7_SaIS7_EEEESE_NS9_5__ops15_Iter_comp_iterIZNS3_16sortFuncProfilesERKNS3_16SampleProfileMapERSD_E3$_0EEEvT_SN_T0_SO_T1_T2_.exit", !llvm.loop !140
 
 128:                                              ; preds = %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4llvm10sampleprof16sortFuncProfilesERKNS3_16SampleProfileMapERSt6vectorISt4pairINS2_9hash_codeEPKNS3_15FunctionSamplesEESaISD_EEE3$_0EclIPSD_NS_17__normal_iteratorISK_SF_EEEEbT_T0_.exit.i", %101
@@ -16893,7 +16893,7 @@ define linkonce_odr ptr @_ZSt17__rotate_adaptiveIN9__gnu_cxx17__normal_iteratorI
   %20 = getelementptr inbounds i8, ptr %.0910.i.i.i.i.i, i64 16
   %21 = getelementptr inbounds i8, ptr %.0811.i.i.i.i.i, i64 16
   %22 = add nsw i64 %.012.i.i.i.i.i, -1
-  %23 = icmp ugt i64 %.012.i.i.i.i.i, 1
+  %23 = icmp samesign ugt i64 %.012.i.i.i.i.i, 1
   br i1 %23, label %.lr.ph.i.i.i.i.i, label %_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPSt4pairIN4llvm9hash_codeEPKNS3_10sampleprof15FunctionSamplesEESt6vectorIS9_SaIS9_EEEESA_ET0_T_SG_SF_.exit, !llvm.loop !152
 
 _ZSt4moveIN9__gnu_cxx17__normal_iteratorIPSt4pairIN4llvm9hash_codeEPKNS3_10sampleprof15FunctionSamplesEESt6vectorIS9_SaIS9_EEEESA_ET0_T_SG_SF_.exit: ; preds = %.lr.ph.i.i.i.i.i, %10
@@ -16917,7 +16917,7 @@ _ZSt4moveIN9__gnu_cxx17__normal_iteratorIPSt4pairIN4llvm9hash_codeEPKNS3_10sampl
   %33 = getelementptr inbounds i8, ptr %.069.i.i.i.i.i, i64 -8
   store ptr %32, ptr %33, align 8
   %34 = add nsw i64 %.010.i.i.i.i.i, -1
-  %35 = icmp ugt i64 %.010.i.i.i.i.i, 1
+  %35 = icmp samesign ugt i64 %.010.i.i.i.i.i, 1
   br i1 %35, label %.lr.ph.i.i.i.i.i37, label %_ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPSt4pairIN4llvm9hash_codeEPKNS3_10sampleprof15FunctionSamplesEESt6vectorIS9_SaIS9_EEEESE_ET0_T_SG_SF_.exit, !llvm.loop !140
 
 _ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPSt4pairIN4llvm9hash_codeEPKNS3_10sampleprof15FunctionSamplesEESt6vectorIS9_SaIS9_EEEESE_ET0_T_SG_SF_.exit: ; preds = %.lr.ph.i.i.i.i.i37, %_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPSt4pairIN4llvm9hash_codeEPKNS3_10sampleprof15FunctionSamplesEESt6vectorIS9_SaIS9_EEEESA_ET0_T_SG_SF_.exit
@@ -16941,7 +16941,7 @@ _ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPSt4pairIN4llvm9hash_codeEPKN
   %45 = getelementptr inbounds i8, ptr %.0910.i.i.i.i.i42, i64 16
   %46 = getelementptr inbounds i8, ptr %.0811.i.i.i.i.i41, i64 16
   %47 = add nsw i64 %.012.i.i.i.i.i40, -1
-  %48 = icmp ugt i64 %.012.i.i.i.i.i40, 1
+  %48 = icmp samesign ugt i64 %.012.i.i.i.i.i40, 1
   br i1 %48, label %.lr.ph.i.i.i.i.i39, label %_ZSt4moveIPSt4pairIN4llvm9hash_codeEPKNS1_10sampleprof15FunctionSamplesEEN9__gnu_cxx17__normal_iteratorIS8_St6vectorIS7_SaIS7_EEEEET0_T_SG_SF_.exit.loopexit, !llvm.loop !152
 
 _ZSt4moveIPSt4pairIN4llvm9hash_codeEPKNS1_10sampleprof15FunctionSamplesEEN9__gnu_cxx17__normal_iteratorIS8_St6vectorIS7_SaIS7_EEEEET0_T_SG_SF_.exit.loopexit: ; preds = %.lr.ph.i.i.i.i.i39
@@ -16983,7 +16983,7 @@ _ZSt4moveIPSt4pairIN4llvm9hash_codeEPKNS1_10sampleprof15FunctionSamplesEEN9__gnu
   %63 = getelementptr inbounds i8, ptr %.0910.i.i.i.i.i47, i64 16
   %64 = getelementptr inbounds i8, ptr %.0811.i.i.i.i.i46, i64 16
   %65 = add nsw i64 %.012.i.i.i.i.i45, -1
-  %66 = icmp ugt i64 %.012.i.i.i.i.i45, 1
+  %66 = icmp samesign ugt i64 %.012.i.i.i.i.i45, 1
   br i1 %66, label %.lr.ph.i.i.i.i.i44, label %_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPSt4pairIN4llvm9hash_codeEPKNS3_10sampleprof15FunctionSamplesEESt6vectorIS9_SaIS9_EEEESA_ET0_T_SG_SF_.exit48, !llvm.loop !152
 
 _ZSt4moveIN9__gnu_cxx17__normal_iteratorIPSt4pairIN4llvm9hash_codeEPKNS3_10sampleprof15FunctionSamplesEESt6vectorIS9_SaIS9_EEEESA_ET0_T_SG_SF_.exit48: ; preds = %.lr.ph.i.i.i.i.i44, %53
@@ -17007,7 +17007,7 @@ _ZSt4moveIN9__gnu_cxx17__normal_iteratorIPSt4pairIN4llvm9hash_codeEPKNS3_10sampl
   %75 = getelementptr inbounds i8, ptr %.0910.i.i.i.i.i53, i64 16
   %76 = getelementptr inbounds i8, ptr %.0811.i.i.i.i.i52, i64 16
   %77 = add nsw i64 %.012.i.i.i.i.i51, -1
-  %78 = icmp ugt i64 %.012.i.i.i.i.i51, 1
+  %78 = icmp samesign ugt i64 %.012.i.i.i.i.i51, 1
   br i1 %78, label %.lr.ph.i.i.i.i.i50, label %_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPSt4pairIN4llvm9hash_codeEPKNS3_10sampleprof15FunctionSamplesEESt6vectorIS9_SaIS9_EEEESE_ET0_T_SG_SF_.exit, !llvm.loop !152
 
 _ZSt4moveIN9__gnu_cxx17__normal_iteratorIPSt4pairIN4llvm9hash_codeEPKNS3_10sampleprof15FunctionSamplesEESt6vectorIS9_SaIS9_EEEESE_ET0_T_SG_SF_.exit: ; preds = %.lr.ph.i.i.i.i.i50, %_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPSt4pairIN4llvm9hash_codeEPKNS3_10sampleprof15FunctionSamplesEESt6vectorIS9_SaIS9_EEEESA_ET0_T_SG_SF_.exit48
@@ -17031,7 +17031,7 @@ _ZSt4moveIN9__gnu_cxx17__normal_iteratorIPSt4pairIN4llvm9hash_codeEPKNS3_10sampl
   %89 = getelementptr inbounds i8, ptr %.069.i.i.i.i.i57, i64 -8
   store ptr %88, ptr %89, align 8
   %90 = add nsw i64 %.010.i.i.i.i.i56, -1
-  %91 = icmp ugt i64 %.010.i.i.i.i.i56, 1
+  %91 = icmp samesign ugt i64 %.010.i.i.i.i.i56, 1
   br i1 %91, label %.lr.ph.i.i.i.i.i55, label %_ZSt13move_backwardIPSt4pairIN4llvm9hash_codeEPKNS1_10sampleprof15FunctionSamplesEEN9__gnu_cxx17__normal_iteratorIS8_St6vectorIS7_SaIS7_EEEEET0_T_SG_SF_.exit.loopexit, !llvm.loop !140
 
 _ZSt13move_backwardIPSt4pairIN4llvm9hash_codeEPKNS1_10sampleprof15FunctionSamplesEEN9__gnu_cxx17__normal_iteratorIS8_St6vectorIS7_SaIS7_EEEEET0_T_SG_SF_.exit.loopexit: ; preds = %.lr.ph.i.i.i.i.i55

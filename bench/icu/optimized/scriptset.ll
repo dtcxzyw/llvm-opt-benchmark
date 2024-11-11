@@ -992,7 +992,7 @@ _ZNK6icu_759ScriptSet10nextSetBitEi.exit48:       ; preds = %_ZNK6icu_759ScriptS
 while.body:                                       ; preds = %_ZNK6icu_759ScriptSet10nextSetBitEi.exit48, %_ZNK6icu_759ScriptSet10nextSetBitEi.exit85
   %i1.089 = phi i32 [ %retval.0.i49, %_ZNK6icu_759ScriptSet10nextSetBitEi.exit85 ], [ %retval.0.i, %_ZNK6icu_759ScriptSet10nextSetBitEi.exit48 ]
   %add = add nuw nsw i32 %i1.089, 1
-  %or.cond.i = icmp ult i32 %i1.089, 223
+  %or.cond.i = icmp samesign ult i32 %i1.089, 223
   br i1 %or.cond.i, label %for.body.i50, label %while.end
 
 for.body.i50:                                     ; preds = %while.body, %for.inc.i54

@@ -16918,7 +16918,7 @@ _ZN5boost6spirit2qi12extract_signIPKcEEbRT_RKS5_.exit.thread.i.i: ; preds = %_ZN
   br i1 %178, label %179, label %186
 
 179:                                              ; preds = %172
-  %180 = icmp ugt i32 %177, 308
+  %180 = icmp samesign ugt i32 %177, 308
   br i1 %180, label %_ZN5boost6spirit6traits5scaleIdmEEbiiRT_T0_.exit, label %.thread.i.i
 
 .thread.i.i:                                      ; preds = %179
@@ -16930,11 +16930,11 @@ _ZN5boost6spirit2qi12extract_signIPKcEEbRT_RKS5_.exit.thread.i.i: ; preds = %_ZN
   br label %.critedge
 
 186:                                              ; preds = %172
-  %187 = icmp ult i32 %177, -307
+  %187 = icmp samesign ult i32 %177, -307
   br i1 %187, label %188, label %201
 
 188:                                              ; preds = %186
-  %189 = icmp ult i32 %177, -614
+  %189 = icmp samesign ult i32 %177, -614
   br i1 %189, label %_ZN5boost6spirit6traits5scaleIdmEEbiiRT_T0_.exit, label %.thread24.i.i
 
 .thread24.i.i:                                    ; preds = %188
@@ -16969,7 +16969,7 @@ _ZN5boost6spirit2qi14ureal_policiesIdE11parse_exp_nIPKcEEbRT_RKS7_Ri.exit: ; pre
   br i1 %211, label %212, label %219
 
 212:                                              ; preds = %_ZN5boost6spirit2qi14ureal_policiesIdE11parse_exp_nIPKcEEbRT_RKS7_Ri.exit
-  %213 = icmp ugt i32 %209, 308
+  %213 = icmp samesign ugt i32 %209, 308
   br i1 %213, label %.critedge, label %.thread.i89
 
 .thread.i89:                                      ; preds = %212
@@ -16981,7 +16981,7 @@ _ZN5boost6spirit2qi14ureal_policiesIdE11parse_exp_nIPKcEEbRT_RKS7_Ri.exit: ; pre
   br label %.critedge
 
 219:                                              ; preds = %_ZN5boost6spirit2qi14ureal_policiesIdE11parse_exp_nIPKcEEbRT_RKS7_Ri.exit
-  %220 = icmp ult i32 %209, -307
+  %220 = icmp samesign ult i32 %209, -307
   br i1 %220, label %221, label %234
 
 221:                                              ; preds = %219
@@ -16991,7 +16991,7 @@ _ZN5boost6spirit2qi14ureal_policiesIdE11parse_exp_nIPKcEEbRT_RKS7_Ri.exit: ; pre
   %225 = uitofp nneg i64 %222 to double
   %226 = fadd double %225, %224
   %227 = fdiv double %226, 0x7FAC7B1F3CAC7433
-  %228 = icmp ult i32 %209, -614
+  %228 = icmp samesign ult i32 %209, -614
   br i1 %228, label %.critedge, label %.thread24.i
 
 .thread24.i:                                      ; preds = %221
@@ -17031,7 +17031,7 @@ _ZN5boost6spirit2qi14ureal_policiesIdE9parse_expIPKcEEbRT_RKS7_.exit: ; preds = 
   br i1 %244, label %245, label %252
 
 245:                                              ; preds = %241
-  %246 = icmp ugt i32 %242, 308
+  %246 = icmp samesign ugt i32 %242, 308
   br i1 %246, label %_ZN5boost6spirit6traits5scaleIdmEEbiRT_T0_.exit95, label %.thread.i94
 
 .thread.i94:                                      ; preds = %245
@@ -17043,7 +17043,7 @@ _ZN5boost6spirit2qi14ureal_policiesIdE9parse_expIPKcEEbRT_RKS7_.exit: ; preds = 
   br label %_ZN5boost6spirit6traits5scaleIdmEEbiRT_T0_.exit95
 
 252:                                              ; preds = %241
-  %253 = icmp ult i32 %242, -307
+  %253 = icmp samesign ult i32 %242, -307
   br i1 %253, label %254, label %267
 
 254:                                              ; preds = %252
@@ -17053,7 +17053,7 @@ _ZN5boost6spirit2qi14ureal_policiesIdE9parse_expIPKcEEbRT_RKS7_.exit: ; preds = 
   %258 = uitofp nneg i64 %255 to double
   %259 = fadd double %258, %257
   %260 = fdiv double %259, 0x7FAC7B1F3CAC7433
-  %261 = icmp ult i32 %242, -614
+  %261 = icmp samesign ult i32 %242, -614
   br i1 %261, label %_ZN5boost6spirit6traits5scaleIdmEEbiRT_T0_.exit95, label %.thread24.i93
 
 .thread24.i93:                                    ; preds = %254
@@ -17081,7 +17081,7 @@ _ZN5boost6spirit2qi14ureal_policiesIdE9parse_expIPKcEEbRT_RKS7_.exit: ; preds = 
   br i1 %276, label %277, label %284
 
 277:                                              ; preds = %275
-  %278 = icmp ugt i32 %.049, 308
+  %278 = icmp samesign ugt i32 %.049, 308
   br i1 %278, label %_ZN5boost6spirit6traits5scaleIdmEEbiRT_T0_.exit101, label %.thread.i100
 
 .thread.i100:                                     ; preds = %277
@@ -17093,11 +17093,11 @@ _ZN5boost6spirit2qi14ureal_policiesIdE9parse_expIPKcEEbRT_RKS7_.exit: ; preds = 
   br label %_ZN5boost6spirit6traits5scaleIdmEEbiRT_T0_.exit95
 
 284:                                              ; preds = %275
-  %285 = icmp ult i32 %.049, -307
+  %285 = icmp samesign ult i32 %.049, -307
   br i1 %285, label %286, label %299
 
 286:                                              ; preds = %284
-  %287 = icmp ult i32 %.049, -614
+  %287 = icmp samesign ult i32 %.049, -614
   br i1 %287, label %_ZN5boost6spirit6traits5scaleIdmEEbiRT_T0_.exit101, label %.thread24.i99
 
 .thread24.i99:                                    ; preds = %286
@@ -19188,7 +19188,7 @@ _ZN9__gnu_cxx5__ops15_Iter_comp_iterIN5boost3log11v2_mt_posix3aux21dispatching_m
   %33 = getelementptr inbounds i8, ptr %.069.i.i.i.i.i, i64 -8
   store ptr %32, ptr %33, align 8, !tbaa !128
   %34 = add nsw i64 %.010.i.i.i.i.i, -1
-  %35 = icmp ugt i64 %.010.i.i.i.i.i, 1
+  %35 = icmp samesign ugt i64 %.010.i.i.i.i.i, 1
   br i1 %35, label %.lr.ph.i.i.i.i.i, label %_ZSt13move_backwardIPSt4pairIN5boost9typeindex14stl_type_indexEPvES6_ET0_T_S8_S7_.exit, !llvm.loop !157
 
 _ZSt13move_backwardIPSt4pairIN5boost9typeindex14stl_type_indexEPvES6_ET0_T_S8_S7_.exit: ; preds = %.lr.ph.i.i.i.i.i, %22
@@ -35614,7 +35614,7 @@ _ZN5boost6spirit2qi13real_policiesIdE10parse_signIPKwEEbRT_RKS7_.exit: ; preds =
 .critedge.i.i.i.i:                                ; preds = %22, %.lr.ph.i.i.i.i
   %.053.lcssa.i.i.i.i = phi ptr [ %23, %22 ], [ %.05381.i.i.i.i, %.lr.ph.i.i.i.i ]
   %.052.lcssa.i.i.i.i = phi i64 [ %24, %22 ], [ %.05282.i.i.i.i, %.lr.ph.i.i.i.i ]
-  %25 = icmp ugt i64 %.052.lcssa.i.i.i.i, 16
+  %25 = icmp samesign ugt i64 %.052.lcssa.i.i.i.i, 16
   %26 = icmp eq ptr %.053.lcssa.i.i.i.i, %16
   %or.cond6389.i.i.i.i = or i1 %26, %25
   br i1 %or.cond6389.i.i.i.i, label %._crit_edge.i.i.i.i, label %.lr.ph93.i.i.i.i
@@ -36263,7 +36263,7 @@ _ZN5boost6spirit2qi6detail20positive_accumulatorILj10EE3addIiwEEbRT_T0_N4mpl_5bo
   br i1 %283, label %284, label %291
 
 284:                                              ; preds = %277
-  %285 = icmp ugt i32 %282, 308
+  %285 = icmp samesign ugt i32 %282, 308
   br i1 %285, label %_ZN5boost6spirit6traits5scaleIdmEEbiiRT_T0_.exit, label %.thread.i.i
 
 .thread.i.i:                                      ; preds = %284
@@ -36275,11 +36275,11 @@ _ZN5boost6spirit2qi6detail20positive_accumulatorILj10EE3addIiwEEbRT_T0_N4mpl_5bo
   br label %.critedge
 
 291:                                              ; preds = %277
-  %292 = icmp ult i32 %282, -307
+  %292 = icmp samesign ult i32 %282, -307
   br i1 %292, label %293, label %306
 
 293:                                              ; preds = %291
-  %294 = icmp ult i32 %282, -614
+  %294 = icmp samesign ult i32 %282, -614
   br i1 %294, label %_ZN5boost6spirit6traits5scaleIdmEEbiiRT_T0_.exit, label %.thread24.i.i
 
 .thread24.i.i:                                    ; preds = %293
@@ -36314,7 +36314,7 @@ _ZN5boost6spirit2qi14ureal_policiesIdE11parse_exp_nIPKwEEbRT_RKS7_Ri.exit: ; pre
   br i1 %316, label %317, label %324
 
 317:                                              ; preds = %_ZN5boost6spirit2qi14ureal_policiesIdE11parse_exp_nIPKwEEbRT_RKS7_Ri.exit
-  %318 = icmp ugt i32 %314, 308
+  %318 = icmp samesign ugt i32 %314, 308
   br i1 %318, label %.critedge, label %.thread.i89
 
 .thread.i89:                                      ; preds = %317
@@ -36326,7 +36326,7 @@ _ZN5boost6spirit2qi14ureal_policiesIdE11parse_exp_nIPKwEEbRT_RKS7_Ri.exit: ; pre
   br label %.critedge
 
 324:                                              ; preds = %_ZN5boost6spirit2qi14ureal_policiesIdE11parse_exp_nIPKwEEbRT_RKS7_Ri.exit
-  %325 = icmp ult i32 %314, -307
+  %325 = icmp samesign ult i32 %314, -307
   br i1 %325, label %326, label %339
 
 326:                                              ; preds = %324
@@ -36336,7 +36336,7 @@ _ZN5boost6spirit2qi14ureal_policiesIdE11parse_exp_nIPKwEEbRT_RKS7_Ri.exit: ; pre
   %330 = uitofp nneg i64 %327 to double
   %331 = fadd double %330, %329
   %332 = fdiv double %331, 0x7FAC7B1F3CAC7433
-  %333 = icmp ult i32 %314, -614
+  %333 = icmp samesign ult i32 %314, -614
   br i1 %333, label %.critedge, label %.thread24.i
 
 .thread24.i:                                      ; preds = %326
@@ -36376,7 +36376,7 @@ _ZN5boost6spirit2qi14ureal_policiesIdE9parse_expIPKwEEbRT_RKS7_.exit: ; preds = 
   br i1 %349, label %350, label %357
 
 350:                                              ; preds = %346
-  %351 = icmp ugt i32 %347, 308
+  %351 = icmp samesign ugt i32 %347, 308
   br i1 %351, label %_ZN5boost6spirit6traits5scaleIdmEEbiRT_T0_.exit95, label %.thread.i94
 
 .thread.i94:                                      ; preds = %350
@@ -36388,7 +36388,7 @@ _ZN5boost6spirit2qi14ureal_policiesIdE9parse_expIPKwEEbRT_RKS7_.exit: ; preds = 
   br label %_ZN5boost6spirit6traits5scaleIdmEEbiRT_T0_.exit95
 
 357:                                              ; preds = %346
-  %358 = icmp ult i32 %347, -307
+  %358 = icmp samesign ult i32 %347, -307
   br i1 %358, label %359, label %372
 
 359:                                              ; preds = %357
@@ -36398,7 +36398,7 @@ _ZN5boost6spirit2qi14ureal_policiesIdE9parse_expIPKwEEbRT_RKS7_.exit: ; preds = 
   %363 = uitofp nneg i64 %360 to double
   %364 = fadd double %363, %362
   %365 = fdiv double %364, 0x7FAC7B1F3CAC7433
-  %366 = icmp ult i32 %347, -614
+  %366 = icmp samesign ult i32 %347, -614
   br i1 %366, label %_ZN5boost6spirit6traits5scaleIdmEEbiRT_T0_.exit95, label %.thread24.i93
 
 .thread24.i93:                                    ; preds = %359
@@ -36426,7 +36426,7 @@ _ZN5boost6spirit2qi14ureal_policiesIdE9parse_expIPKwEEbRT_RKS7_.exit: ; preds = 
   br i1 %381, label %382, label %389
 
 382:                                              ; preds = %380
-  %383 = icmp ugt i32 %.049, 308
+  %383 = icmp samesign ugt i32 %.049, 308
   br i1 %383, label %_ZN5boost6spirit6traits5scaleIdmEEbiRT_T0_.exit101, label %.thread.i100
 
 .thread.i100:                                     ; preds = %382
@@ -36438,11 +36438,11 @@ _ZN5boost6spirit2qi14ureal_policiesIdE9parse_expIPKwEEbRT_RKS7_.exit: ; preds = 
   br label %_ZN5boost6spirit6traits5scaleIdmEEbiRT_T0_.exit95
 
 389:                                              ; preds = %380
-  %390 = icmp ult i32 %.049, -307
+  %390 = icmp samesign ult i32 %.049, -307
   br i1 %390, label %391, label %404
 
 391:                                              ; preds = %389
-  %392 = icmp ult i32 %.049, -614
+  %392 = icmp samesign ult i32 %.049, -614
   br i1 %392, label %_ZN5boost6spirit6traits5scaleIdmEEbiRT_T0_.exit101, label %.thread24.i99
 
 .thread24.i99:                                    ; preds = %391

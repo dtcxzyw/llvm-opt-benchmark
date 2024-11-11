@@ -2273,7 +2273,7 @@ define internal fastcc range(i64 0, 4294967296) i64 @zlib_adler32(i64 noundef %0
   %99 = add i64 %94, %98
   %100 = getelementptr i8, ptr %20, i64 16
   %101 = add nsw i32 %17, -16
-  %102 = icmp ugt i32 %17, 31
+  %102 = icmp samesign ugt i32 %17, 31
   br i1 %102, label %.preheader, label %103, !llvm.loop !30
 
 103:                                              ; preds = %.preheader

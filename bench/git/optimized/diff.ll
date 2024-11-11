@@ -16703,7 +16703,7 @@ while.body.i:                                     ; preds = %while.body.i.prehea
   %cmp1.i = icmp eq i8 %16, 10
   %inc.i45 = zext i1 %cmp1.i to i32
   %count.1.i = add nuw nsw i32 %count.06.i, %inc.i45
-  %cmp.i = icmp ugt i32 %size.addr.05.i, 1
+  %cmp.i = icmp samesign ugt i32 %size.addr.05.i, 1
   br i1 %cmp.i, label %while.body.i, label %while.cond.while.end_crit_edge.i, !llvm.loop !59
 
 while.cond.while.end_crit_edge.i:                 ; preds = %while.body.i
@@ -16737,7 +16737,7 @@ while.body.i48:                                   ; preds = %while.body.i48.preh
   %cmp1.i54 = icmp eq i8 %22, 10
   %inc.i55 = zext i1 %cmp1.i54 to i32
   %count.1.i56 = add nuw nsw i32 %count.06.i49, %inc.i55
-  %cmp.i57 = icmp ugt i32 %size.addr.05.i50, 1
+  %cmp.i57 = icmp samesign ugt i32 %size.addr.05.i50, 1
   br i1 %cmp.i57, label %while.body.i48, label %while.cond.while.end_crit_edge.i58, !llvm.loop !59
 
 while.cond.while.end_crit_edge.i58:               ; preds = %while.body.i48
@@ -18462,7 +18462,7 @@ while.body.i.i.i:                                 ; preds = %if.end22.i.i, %whil
   %cmp1.i.i.i = icmp eq i8 %155, 10
   %inc.i.i.i = zext i1 %cmp1.i.i.i to i32
   %count.1.i.i.i = add nuw nsw i32 %count.06.i.i.i, %inc.i.i.i
-  %cmp.i.i237.i = icmp ugt i32 %size.addr.05.i.i.i, 1
+  %cmp.i.i237.i = icmp samesign ugt i32 %size.addr.05.i.i.i, 1
   br i1 %cmp.i.i237.i, label %while.body.i.i.i, label %while.cond.while.end_crit_edge.i.i.i, !llvm.loop !59
 
 while.cond.while.end_crit_edge.i.i.i:             ; preds = %while.body.i.i.i
@@ -18488,7 +18488,7 @@ while.body.i33.i.i:                               ; preds = %count_lines.exit.i.
   %cmp1.i39.i.i = icmp eq i8 %160, 10
   %inc.i40.i.i = zext i1 %cmp1.i39.i.i to i32
   %count.1.i41.i.i = add nuw nsw i32 %count.06.i34.i.i, %inc.i40.i.i
-  %cmp.i42.i.i = icmp ugt i32 %size.addr.05.i35.i.i, 1
+  %cmp.i42.i.i = icmp samesign ugt i32 %size.addr.05.i35.i.i, 1
   br i1 %cmp.i42.i.i, label %while.body.i33.i.i, label %while.cond.while.end_crit_edge.i43.i.i, !llvm.loop !59
 
 while.cond.while.end_crit_edge.i43.i.i:           ; preds = %while.body.i33.i.i
@@ -21985,7 +21985,7 @@ while.body.i:                                     ; preds = %while.body.i.prehea
   %cmp1.i = icmp eq i8 %41, 10
   %inc.i82 = zext i1 %cmp1.i to i32
   %count.1.i = add nuw nsw i32 %count.06.i, %inc.i82
-  %cmp.i = icmp ugt i32 %size.addr.05.i, 1
+  %cmp.i = icmp samesign ugt i32 %size.addr.05.i, 1
   br i1 %cmp.i, label %while.body.i, label %while.cond.while.end_crit_edge.i, !llvm.loop !59
 
 while.cond.while.end_crit_edge.i:                 ; preds = %while.body.i
@@ -22020,7 +22020,7 @@ while.body.i85:                                   ; preds = %while.body.i85.preh
   %cmp1.i91 = icmp eq i8 %48, 10
   %inc.i92 = zext i1 %cmp1.i91 to i32
   %count.1.i93 = add nuw nsw i32 %count.06.i86, %inc.i92
-  %cmp.i94 = icmp ugt i32 %size.addr.05.i87, 1
+  %cmp.i94 = icmp samesign ugt i32 %size.addr.05.i87, 1
   br i1 %cmp.i94, label %while.body.i85, label %while.cond.while.end_crit_edge.i95, !llvm.loop !59
 
 while.cond.while.end_crit_edge.i95:               ; preds = %while.body.i85

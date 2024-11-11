@@ -2455,9 +2455,9 @@ define internal i32 @cabd_sys_read(ptr nocapture noundef %0, ptr noundef %1, i32
   %100 = trunc i64 %98 to i32
   %101 = add i32 %93, %100
   %102 = icmp sgt i32 %101, 38912
-  %103 = icmp ugt i32 %101, 65535
+  %103 = icmp samesign ugt i32 %101, 65535
   %or.cond.i = or i1 %.not, %103
-  %or.cond79.i = and i1 %102, %or.cond.i
+  %or.cond79.i = select i1 %102, i1 %or.cond.i, i1 false
   br i1 %or.cond79.i, label %cabd_sys_read_block.exit.thread, label %104
 
 104:                                              ; preds = %87

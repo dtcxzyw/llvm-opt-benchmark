@@ -122,8 +122,8 @@ switch.lookup:                                    ; preds = %switch.hole_check
 68:                                               ; preds = %63
   %69 = load i32, ptr %6, align 4
   %70 = icmp slt i32 %69, %64
-  %71 = icmp ugt i32 %69, %53
-  %or.cond725 = or i1 %70, %71
+  %71 = icmp samesign ugt i32 %69, %53
+  %or.cond725 = select i1 %70, i1 true, i1 %71
   br i1 %or.cond725, label %72, label %.critedge.thread925
 
 72:                                               ; preds = %68

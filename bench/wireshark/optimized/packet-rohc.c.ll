@@ -3081,7 +3081,7 @@ define internal fastcc i32 @dissect_rohc_ir_profile_dynamic(ptr noundef %0, ptr 
 70:                                               ; preds = %19, %15
   %.0194 = phi i32 [ %3, %15 ], [ %55, %19 ]
   %71 = add nsw i8 %4, -1
-  %or.cond = icmp ult i8 %71, 2
+  %or.cond = icmp samesign ult i8 %71, 2
   br i1 %or.cond, label %72, label %159
 
 72:                                               ; preds = %70

@@ -245,7 +245,7 @@ define void @gc_possible_root(ptr noundef %0) local_unnamed_addr #2 {
   br i1 %42, label %gc_grow_root_buffer.exit.i.i, label %50
 
 gc_grow_root_buffer.exit.i.i:                     ; preds = %39
-  %43 = icmp ult i32 %41, 131072
+  %43 = icmp samesign ult i32 %41, 131072
   %44 = shl nuw nsw i32 %41, 1
   %45 = add nuw nsw i32 %41, 131072
   %.0.in.i.i.i = select i1 %43, i32 %44, i32 %45

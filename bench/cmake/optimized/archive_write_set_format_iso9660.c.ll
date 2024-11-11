@@ -2198,7 +2198,7 @@ wb_consume.exit.thread119.i.i:                    ; preds = %wb_consume.exit.i.i
   %237 = phi i32 [ %.pr.i.i, %217 ], [ %186, %185 ]
   store ptr %.093.i.i, ptr %102, align 8
   %238 = zext i32 %237 to i64
-  %239 = icmp ugt i64 %.094.i.i, %238
+  %239 = icmp samesign ugt i64 %.094.i.i, %238
   %240 = trunc nuw i64 %.094.i.i to i32
   %spec.select.i.i195 = select i1 %239, i32 %237, i32 %240
   store i32 %spec.select.i.i195, ptr %105, align 8
@@ -6684,7 +6684,7 @@ define internal fastcc void @zisofs_detect_magic(ptr %.248.val, ptr noundef read
   %57 = load i32, ptr %56, align 1
   %58 = icmp ult i32 %57, %53
   %59 = zext i32 %57 to i64
-  %60 = icmp ult i64 %7, %59
+  %60 = icmp samesign ult i64 %7, %59
   %or.cond92 = select i1 %58, i1 true, i1 %60
   br i1 %or.cond92, label %.loopexit, label %61
 
@@ -10663,7 +10663,7 @@ define internal fastcc i32 @isoent_cmp_joliet_identifier(ptr nocapture noundef r
   br i1 %53, label %.loopexit, label %54
 
 54:                                               ; preds = %50
-  %55 = icmp ugt i32 %39, %52
+  %55 = icmp samesign ugt i32 %39, %52
   %spec.select99 = tail call i32 @llvm.umin.i32(i32 %39, i32 %52)
   %56 = sext i32 %8 to i64
   %57 = getelementptr inbounds i8, ptr %4, i64 %56
@@ -10675,7 +10675,7 @@ define internal fastcc i32 @isoent_cmp_joliet_identifier(ptr nocapture noundef r
   br i1 %.not93, label %62, label %.loopexit
 
 62:                                               ; preds = %54
-  %63 = icmp ult i32 %39, %52
+  %63 = icmp samesign ult i32 %39, %52
   br i1 %63, label %64, label %75
 
 64:                                               ; preds = %62
@@ -10856,7 +10856,7 @@ define internal fastcc i32 @isoent_cmp_iso9660_identifier(ptr nocapture noundef 
   br i1 %54, label %.loopexit, label %55
 
 55:                                               ; preds = %51
-  %56 = icmp ugt i32 %40, %53
+  %56 = icmp samesign ugt i32 %40, %53
   %spec.select99 = tail call i32 @llvm.umin.i32(i32 %40, i32 %53)
   %57 = sext i32 %8 to i64
   %58 = getelementptr inbounds i8, ptr %4, i64 %57
@@ -10868,7 +10868,7 @@ define internal fastcc i32 @isoent_cmp_iso9660_identifier(ptr nocapture noundef 
   br i1 %.not93, label %63, label %.loopexit
 
 63:                                               ; preds = %55
-  %64 = icmp ult i32 %40, %53
+  %64 = icmp samesign ult i32 %40, %53
   br i1 %64, label %65, label %76
 
 65:                                               ; preds = %63

@@ -2253,7 +2253,7 @@ if.then1.i152.i:                                  ; preds = %if.end.i149.i
   br label %structseq_new_impl.exit
 
 if.end30.i:                                       ; preds = %if.then25.i
-  %cmp31.i = icmp ugt i64 %cond.i, %call4.i93.i
+  %cmp31.i = icmp samesign ugt i64 %cond.i, %call4.i93.i
   br i1 %cmp31.i, label %if.then32.i, label %if.end41.i
 
 if.then32.i:                                      ; preds = %if.end30.i

@@ -1620,7 +1620,7 @@ define internal fastcc range(i32 0, 2) i32 @read_repeat_counts(ptr nocapture nou
   %51 = getelementptr inbounds i8, ptr %.1.i, i64 1
   %52 = add nsw i32 %50, -48
   %53 = add nsw i32 %52, %49
-  %54 = icmp ugt i32 %53, 65535
+  %54 = icmp samesign ugt i32 %53, 65535
   br i1 %54, label %.thread, label %.preheader.i
 
 .thread:                                          ; preds = %48
@@ -1679,7 +1679,7 @@ define internal fastcc range(i32 0, 2) i32 @read_repeat_counts(ptr nocapture nou
   %70 = getelementptr inbounds i8, ptr %.1.i152, i64 1
   %71 = add nsw i32 %69, -48
   %72 = add nsw i32 %71, %68
-  %73 = icmp ugt i32 %72, 65535
+  %73 = icmp samesign ugt i32 %72, 65535
   br i1 %73, label %74, label %.preheader.i150
 
 74:                                               ; preds = %67
@@ -1758,7 +1758,7 @@ define internal fastcc range(i32 0, 2) i32 @read_repeat_counts(ptr nocapture nou
   %93 = getelementptr inbounds i8, ptr %.1.i164, i64 1
   %94 = add nsw i32 %92, -48
   %95 = add nsw i32 %94, %91
-  %96 = icmp ugt i32 %95, 65535
+  %96 = icmp samesign ugt i32 %95, 65535
   br i1 %96, label %97, label %.preheader.i162
 
 97:                                               ; preds = %90
@@ -3027,7 +3027,7 @@ thread-pre-split632:                              ; preds = %424
   %spec.store.select26 = select i1 %or.cond23, i32 1, i32 %.1
   %549 = load i16, ptr %318, align 2
   %550 = zext i16 %549 to i32
-  %551 = icmp ugt i32 %spec.store.select26, %550
+  %551 = icmp samesign ugt i32 %spec.store.select26, %550
   br i1 %551, label %552, label %php_pcre2_code_free.exit
 
 552:                                              ; preds = %544
@@ -3881,7 +3881,7 @@ manage_callouts.exit1080:                         ; preds = %391, %380, %365
   br i1 %.not903, label %405, label %thread-pre-split
 
 405:                                              ; preds = %403
-  %406 = icmp ugt i32 %.pr1181, 255
+  %406 = icmp samesign ugt i32 %.pr1181, 255
   br i1 %406, label %407, label %409
 
 407:                                              ; preds = %405
@@ -4018,7 +4018,7 @@ thread-pre-split:                                 ; preds = %410, %403, %407
   br i1 %.not906, label %510, label %460
 
 460:                                              ; preds = %.thread1123.thread
-  %461 = icmp ult i32 %458, 256
+  %461 = icmp samesign ult i32 %458, 256
   br i1 %461, label %462, label %.thread1127
 
 462:                                              ; preds = %460
@@ -4556,7 +4556,7 @@ thread-pre-split1140:                             ; preds = %.thread1137
   %724 = or i32 %723, -2147287040
   %725 = getelementptr inbounds i8, ptr %.2694, i64 4
   store i32 %724, ptr %.2694, align 4
-  %726 = icmp ugt i32 %.1756, -10
+  %726 = icmp samesign ugt i32 %.1756, -10
   br i1 %726, label %727, label %734
 
 727:                                              ; preds = %716
@@ -7083,7 +7083,7 @@ thread-pre-split1142:                             ; preds = %1054
   %1958 = getelementptr inbounds i8, ptr %.1.i1092, i64 1
   %1959 = add nsw i32 %1957, -48
   %1960 = add nsw i32 %1959, %1956
-  %1961 = icmp ugt i32 %1960, 1000
+  %1961 = icmp samesign ugt i32 %1960, 1000
   br i1 %1961, label %read_number.exit, label %.preheader.i
 
 read_number.exit:                                 ; preds = %1955
@@ -8637,7 +8637,7 @@ switch.edge.thread219:                            ; preds = %48, %48, %48
   %224 = select i1 %.not1503.i, i8 31, i8 32
   %225 = getelementptr inbounds i8, ptr %.11322.i, i64 1
   store i8 %224, ptr %.11322.i, align 1
-  %226 = icmp ugt i32 %186, 127
+  %226 = icmp samesign ugt i32 %186, 127
   %or.cond11.i = and i1 %127, %226
   br i1 %or.cond11.i, label %227, label %230
 
@@ -8690,12 +8690,12 @@ switch.edge.thread219:                            ; preds = %48, %48, %48
   %259 = and i32 %.01211.i, 128
   %260 = icmp ne i32 %259, 0
   %261 = or i32 %190, %186
-  %262 = icmp ult i32 %261, 128
+  %262 = icmp samesign ult i32 %261, 128
   %or.cond1519.i = and i1 %260, %262
   br i1 %or.cond1519.i, label %.thread227, label %.thread226
 
 263:                                              ; preds = %242
-  %264 = icmp ugt i32 %186, 127
+  %264 = icmp samesign ugt i32 %186, 127
   %or.cond17.i = and i1 %or.cond15.i, %264
   br i1 %or.cond17.i, label %265, label %.thread227
 
@@ -10115,7 +10115,7 @@ add_list_to_class.exit152:                        ; preds = %.preheader380, %.pr
 
 925:                                              ; preds = %911
   %926 = load ptr, ptr %17, align 8
-  %927 = icmp ugt i32 %.2.i, 132
+  %927 = icmp samesign ugt i32 %.2.i, 132
   br i1 %927, label %928, label %945
 
 928:                                              ; preds = %925
@@ -10590,7 +10590,7 @@ add_list_to_class.exit152:                        ; preds = %.preheader380, %.pr
 
 ._crit_edge1349:                                  ; preds = %1162
   store i8 %1168, ptr %24, align 1
-  %1178 = icmp ult i8 %1157, 31
+  %1178 = icmp samesign ult i8 %1157, 31
   %1179 = icmp ugt i32 %.01191.i, 1
   %or.cond64.i = and i1 %1179, %1178
   br i1 %or.cond64.i, label %1180, label %1451

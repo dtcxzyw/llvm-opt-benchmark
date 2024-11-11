@@ -24360,7 +24360,7 @@ define hidden void @_ZN9hashbrown3raw5inner13RawTableInner22fallible_with_capaci
   br i1 %12, label %22, label %15
 
 13:                                               ; preds = %9
-  %14 = icmp ult i64 %4, 4
+  %14 = icmp samesign ult i64 %4, 4
   %..i = select i1 %14, i64 4, i64 8
   br label %28
 
@@ -24431,7 +24431,7 @@ define hidden void @_ZN9hashbrown3raw5inner13RawTableInner22fallible_with_capaci
   br label %_ZN9hashbrown3raw5inner13RawTableInner17new_uninitialized17h55b0e83c75d98564E.exit.thread
 
 _ZN9hashbrown3raw5inner13RawTableInner17new_uninitialized17h55b0e83c75d98564E.exit: ; preds = %49
-  %57 = icmp ult i64 %.sroa.4.0.i.ph, 9
+  %57 = icmp samesign ult i64 %.sroa.4.0.i.ph, 9
   %58 = add nsw i64 %.sroa.4.0.i.ph, -1
   %59 = lshr i64 %.sroa.4.0.i.ph, 3
   %60 = mul nuw nsw i64 %59, 7
@@ -24533,7 +24533,7 @@ define internal fastcc i64 @"_ZN9hashbrown3raw5inner21RawTable$LT$T$C$A$GT$14res
   br i1 %25, label %35, label %28
 
 26:                                               ; preds = %21
-  %27 = icmp ult i64 %22, 3
+  %27 = icmp samesign ult i64 %22, 3
   %..i.i = select i1 %27, i64 4, i64 8
   br label %37
 
@@ -24554,7 +24554,7 @@ define internal fastcc i64 @"_ZN9hashbrown3raw5inner21RawTable$LT$T$C$A$GT$14res
 37:                                               ; preds = %28, %26
   %.sroa.4.0.i.ph.i = phi i64 [ %34, %28 ], [ %..i.i, %26 ]
   %38 = shl i64 %.sroa.4.0.i.ph.i, 3
-  %39 = icmp ugt i64 %.sroa.4.0.i.ph.i, 2305843009213693951
+  %39 = icmp samesign ugt i64 %.sroa.4.0.i.ph.i, 2305843009213693951
   %40 = icmp ugt i64 %38, -16
   %or.cond = or i1 %39, %40
   br i1 %or.cond, label %50, label %41
@@ -24587,7 +24587,7 @@ define internal fastcc i64 @"_ZN9hashbrown3raw5inner21RawTable$LT$T$C$A$GT$14res
   br label %_ZN9hashbrown3raw5inner13RawTableInner22fallible_with_capacity17h3d306373f1cb6a65E.llvm.16503673976908180399.exit.thread
 
 _ZN9hashbrown3raw5inner13RawTableInner22fallible_with_capacity17h3d306373f1cb6a65E.llvm.16503673976908180399.exit: ; preds = %52
-  %58 = icmp ult i64 %.sroa.4.0.i.ph.i, 9
+  %58 = icmp samesign ult i64 %.sroa.4.0.i.ph.i, 9
   %59 = add nsw i64 %.sroa.4.0.i.ph.i, -1
   %60 = lshr i64 %.sroa.4.0.i.ph.i, 3
   %61 = mul nuw nsw i64 %60, 7
@@ -25047,7 +25047,7 @@ define hidden void @"_ZN9hashbrown3raw5inner21RawTable$LT$T$C$A$GT$16with_capaci
   br i1 %7, label %17, label %10
 
 8:                                                ; preds = %4
-  %9 = icmp ult i64 %1, 4
+  %9 = icmp samesign ult i64 %1, 4
   %..i.i = select i1 %9, i64 4, i64 8
   br label %21
 
@@ -25069,7 +25069,7 @@ define hidden void @"_ZN9hashbrown3raw5inner21RawTable$LT$T$C$A$GT$16with_capaci
 21:                                               ; preds = %10, %8
   %.sroa.4.0.i.ph.i = phi i64 [ %16, %10 ], [ %..i.i, %8 ]
   %22 = shl i64 %.sroa.4.0.i.ph.i, 3
-  %23 = icmp ugt i64 %.sroa.4.0.i.ph.i, 2305843009213693951
+  %23 = icmp samesign ugt i64 %.sroa.4.0.i.ph.i, 2305843009213693951
   %24 = icmp ugt i64 %22, -16
   %or.cond = or i1 %23, %24
   br i1 %or.cond, label %34, label %25
@@ -25102,7 +25102,7 @@ define hidden void @"_ZN9hashbrown3raw5inner21RawTable$LT$T$C$A$GT$16with_capaci
   br label %_ZN9hashbrown3raw5inner13RawTableInner17new_uninitialized17h55b0e83c75d98564E.exit.thread.i
 
 _ZN9hashbrown3raw5inner13RawTableInner17new_uninitialized17h55b0e83c75d98564E.exit.i: ; preds = %36
-  %42 = icmp ult i64 %.sroa.4.0.i.ph.i, 9
+  %42 = icmp samesign ult i64 %.sroa.4.0.i.ph.i, 9
   %43 = add nsw i64 %.sroa.4.0.i.ph.i, -1
   %44 = lshr i64 %.sroa.4.0.i.ph.i, 3
   %45 = mul nuw nsw i64 %44, 7

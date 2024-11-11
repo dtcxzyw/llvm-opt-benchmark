@@ -674,7 +674,7 @@ get_index_pos.exit.thread41:                      ; preds = %4, %get_index_pos.e
   br label %90
 
 69:                                               ; preds = %64
-  %70 = icmp ult i8 %51, 96
+  %70 = icmp samesign ult i8 %51, 96
   %71 = load i8, ptr %50, align 1
   %72 = zext i8 %71 to i32
   br i1 %70, label %73, label %79
@@ -2253,7 +2253,7 @@ cr_add_interval.exit.thread:                      ; preds = %._crit_edge.i, %cr_
   br i1 %96, label %115, label %97
 
 97:                                               ; preds = %.preheader250.split.us
-  %98 = icmp ult i8 %94, -64
+  %98 = icmp samesign ult i8 %94, -64
   %99 = getelementptr i8, ptr %.3268.us, i64 2
   %100 = load i8, ptr %93, align 1
   %101 = zext i8 %100 to i32
@@ -2335,7 +2335,7 @@ cr_add_interval.exit136.thread.us:                ; preds = %123, %120
   br i1 %141, label %.preheader, label %142
 
 142:                                              ; preds = %.preheader250.split
-  %143 = icmp ult i8 %139, -64
+  %143 = icmp samesign ult i8 %139, -64
   %144 = getelementptr i8, ptr %.3268, i64 2
   %145 = load i8, ptr %138, align 1
   %146 = zext i8 %145 to i32
@@ -3462,7 +3462,7 @@ unicode_find_name.exit:                           ; preds = %14
   br i1 %21, label %unicode_find_name.exit.thread, label %22
 
 22:                                               ; preds = %unicode_find_name.exit
-  %23 = icmp ult i32 %.01929.i, 30
+  %23 = icmp samesign ult i32 %.01929.i, 30
   br i1 %23, label %24, label %28
 
 24:                                               ; preds = %22
@@ -3522,7 +3522,7 @@ define internal fastcc range(i32 -1, 1) i32 @unicode_general_category1(ptr nocap
   br label %40
 
 22:                                               ; preds = %15
-  %23 = icmp ult i8 %17, -64
+  %23 = icmp samesign ult i8 %17, -64
   %24 = getelementptr i8, ptr %.04367, i64 3
   %25 = load i8, ptr %16, align 1
   %26 = zext i8 %25 to i32
@@ -3927,7 +3927,7 @@ cr_add_interval.exit39.thread:                    ; preds = %._crit_edge.i31, %c
   br label %cr_add_interval.exit
 
 116:                                              ; preds = %22
-  %117 = icmp ugt i32 %.01929.i, 33
+  %117 = icmp samesign ugt i32 %.01929.i, 33
   br i1 %117, label %cr_add_interval.exit, label %118
 
 118:                                              ; preds = %116
@@ -4348,7 +4348,7 @@ cr_add_interval.exit.thread:                      ; preds = %._crit_edge.i, %cr_
   br label %78
 
 57:                                               ; preds = %52
-  %58 = icmp ult i8 %16, 96
+  %58 = icmp samesign ult i8 %16, 96
   %59 = load i8, ptr %15, align 1
   %60 = zext i8 %59 to i32
   br i1 %58, label %61, label %67
@@ -4585,7 +4585,7 @@ define internal fastcc range(i32 -21, -2147483648) i32 @unicode_decomp_entry(ptr
   br i1 %65, label %unicode_get_short_code.exit, label %66
 
 66:                                               ; preds = %.lr.ph171
-  %67 = icmp ult i8 %63, -48
+  %67 = icmp samesign ult i8 %63, -48
   br i1 %67, label %unicode_get_short_code.exit.thread, label %70
 
 unicode_get_short_code.exit.thread:               ; preds = %66
@@ -4619,7 +4619,7 @@ unicode_get_short_code.exit:                      ; preds = %.lr.ph171, %70
   %81 = lshr i32 %80, 1
   %82 = add nuw nsw i32 %81, 2
   %83 = and i32 %5, 1
-  %84 = icmp ugt i32 %80, 1
+  %84 = icmp samesign ugt i32 %80, 1
   %85 = zext i1 %84 to i32
   %86 = add nuw nsw i32 %83, %85
   %87 = zext nneg i32 %86 to i64
@@ -4704,7 +4704,7 @@ unicode_get_short_code.exit:                      ; preds = %.lr.ph171, %70
   br i1 %127, label %unicode_get_short_code.exit155, label %128
 
 128:                                              ; preds = %123
-  %129 = icmp ult i8 %125, -48
+  %129 = icmp samesign ult i8 %125, -48
   br i1 %129, label %130, label %132
 
 130:                                              ; preds = %128
@@ -4760,7 +4760,7 @@ unicode_get_short_code.exit155:                   ; preds = %123, %130, %132
   br i1 %160, label %unicode_get_short_code.exit157, label %161
 
 161:                                              ; preds = %154
-  %162 = icmp ult i8 %158, -48
+  %162 = icmp samesign ult i8 %158, -48
   br i1 %162, label %163, label %165
 
 163:                                              ; preds = %161
@@ -4815,7 +4815,7 @@ unicode_get_short_code.exit157:                   ; preds = %154, %163, %165
   br i1 %187, label %unicode_get_short_code.exit160, label %188
 
 188:                                              ; preds = %184
-  %189 = icmp ult i8 %185, -48
+  %189 = icmp samesign ult i8 %185, -48
   br i1 %189, label %190, label %192
 
 190:                                              ; preds = %188

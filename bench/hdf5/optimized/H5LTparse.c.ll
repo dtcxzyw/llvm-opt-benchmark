@@ -190,7 +190,7 @@ define i64 @H5LTyyparse() local_unnamed_addr #0 {
   br label %.loopexit
 
 55:                                               ; preds = %52
-  %56 = icmp ult i32 %49, 317
+  %56 = icmp samesign ult i32 %49, 317
   br i1 %56, label %57, label %62
 
 57:                                               ; preds = %55

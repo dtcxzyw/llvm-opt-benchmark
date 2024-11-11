@@ -15580,7 +15580,7 @@ define hidden void @_ZN9hashbrown3raw13RawTableInner22fallible_with_capacity17h9
   br i1 %12, label %22, label %15
 
 13:                                               ; preds = %9
-  %14 = icmp ult i64 %4, 4
+  %14 = icmp samesign ult i64 %4, 4
   %..i = select i1 %14, i64 4, i64 8
   br label %28
 
@@ -15651,7 +15651,7 @@ define hidden void @_ZN9hashbrown3raw13RawTableInner22fallible_with_capacity17h9
   br label %_ZN9hashbrown3raw13RawTableInner17new_uninitialized17hbe4de633cf0c17e6E.exit.thread
 
 _ZN9hashbrown3raw13RawTableInner17new_uninitialized17hbe4de633cf0c17e6E.exit: ; preds = %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$8allocate17h0d103a62a0b6aa06E.exit.i"
-  %56 = icmp ult i64 %.sroa.4.0.i.ph, 9
+  %56 = icmp samesign ult i64 %.sroa.4.0.i.ph, 9
   %57 = add nsw i64 %.sroa.4.0.i.ph, -1
   %58 = lshr i64 %.sroa.4.0.i.ph, 3
   %59 = mul nuw nsw i64 %58, 7
@@ -18296,7 +18296,7 @@ define hidden { i64, i64 } @"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$14reserve_r
   br i1 %29, label %39, label %32
 
 30:                                               ; preds = %25
-  %31 = icmp ult i64 %.sroa.0.0.sroa.speculated.i, 4
+  %31 = icmp samesign ult i64 %.sroa.0.0.sroa.speculated.i, 4
   %..i.i = select i1 %31, i64 4, i64 8
   br label %41
 
@@ -18350,7 +18350,7 @@ define hidden { i64, i64 } @"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$14reserve_r
   br label %_ZN9hashbrown3raw13RawTableInner22fallible_with_capacity17h90191725f64efe18E.llvm.3131922965131222458.exit.thread
 
 _ZN9hashbrown3raw13RawTableInner22fallible_with_capacity17h90191725f64efe18E.llvm.3131922965131222458.exit: ; preds = %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$8allocate17h0d103a62a0b6aa06E.exit.i.i"
-  %62 = icmp ult i64 %.sroa.4.0.i.ph.i, 9
+  %62 = icmp samesign ult i64 %.sroa.4.0.i.ph.i, 9
   %63 = add nsw i64 %.sroa.4.0.i.ph.i, -1
   %64 = lshr i64 %.sroa.4.0.i.ph.i, 3
   %65 = mul nuw nsw i64 %64, 7
@@ -18603,7 +18603,7 @@ define hidden { i64, i64 } @"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$14reserve_r
   br i1 %29, label %39, label %32
 
 30:                                               ; preds = %25
-  %31 = icmp ult i64 %.sroa.0.0.sroa.speculated.i, 4
+  %31 = icmp samesign ult i64 %.sroa.0.0.sroa.speculated.i, 4
   %..i.i = select i1 %31, i64 4, i64 8
   br label %41
 
@@ -18645,7 +18645,7 @@ define hidden { i64, i64 } @"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$14reserve_r
   br label %_ZN9hashbrown3raw13RawTableInner22fallible_with_capacity17h90191725f64efe18E.llvm.3131922965131222458.exit.thread
 
 _ZN9hashbrown3raw13RawTableInner22fallible_with_capacity17h90191725f64efe18E.llvm.3131922965131222458.exit: ; preds = %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$8allocate17h0d103a62a0b6aa06E.exit.i.i"
-  %55 = icmp ult i64 %.sroa.4.0.i.ph.i, 9
+  %55 = icmp samesign ult i64 %.sroa.4.0.i.ph.i, 9
   %56 = add nsw i64 %.sroa.4.0.i.ph.i, -1
   %57 = lshr i64 %.sroa.4.0.i.ph.i, 3
   %58 = mul nuw nsw i64 %57, 7
@@ -18895,7 +18895,7 @@ define hidden { i64, i64 } @"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$14reserve_r
   br i1 %31, label %41, label %34
 
 32:                                               ; preds = %27
-  %33 = icmp ult i64 %.sroa.0.0.sroa.speculated.i, 4
+  %33 = icmp samesign ult i64 %.sroa.0.0.sroa.speculated.i, 4
   %..i.i = select i1 %33, i64 4, i64 8
   br label %43
 
@@ -18949,7 +18949,7 @@ define hidden { i64, i64 } @"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$14reserve_r
   br label %_ZN9hashbrown3raw13RawTableInner22fallible_with_capacity17h90191725f64efe18E.llvm.3131922965131222458.exit.thread
 
 _ZN9hashbrown3raw13RawTableInner22fallible_with_capacity17h90191725f64efe18E.llvm.3131922965131222458.exit: ; preds = %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$8allocate17h0d103a62a0b6aa06E.exit.i.i"
-  %64 = icmp ult i64 %.sroa.4.0.i.ph.i, 9
+  %64 = icmp samesign ult i64 %.sroa.4.0.i.ph.i, 9
   %65 = add nsw i64 %.sroa.4.0.i.ph.i, -1
   %66 = lshr i64 %.sroa.4.0.i.ph.i, 3
   %67 = mul nuw nsw i64 %66, 7
@@ -19233,7 +19233,7 @@ define hidden { i64, i64 } @"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$14reserve_r
   br i1 %31, label %41, label %34
 
 32:                                               ; preds = %27
-  %33 = icmp ult i64 %.sroa.0.0.sroa.speculated.i, 4
+  %33 = icmp samesign ult i64 %.sroa.0.0.sroa.speculated.i, 4
   %..i.i = select i1 %33, i64 4, i64 8
   br label %43
 
@@ -19283,7 +19283,7 @@ define hidden { i64, i64 } @"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$14reserve_r
   br label %_ZN9hashbrown3raw13RawTableInner22fallible_with_capacity17h90191725f64efe18E.llvm.3131922965131222458.exit.thread
 
 _ZN9hashbrown3raw13RawTableInner22fallible_with_capacity17h90191725f64efe18E.llvm.3131922965131222458.exit: ; preds = %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$8allocate17h0d103a62a0b6aa06E.exit.i.i"
-  %61 = icmp ult i64 %.sroa.4.0.i.ph.i, 9
+  %61 = icmp samesign ult i64 %.sroa.4.0.i.ph.i, 9
   %62 = add nsw i64 %.sroa.4.0.i.ph.i, -1
   %63 = lshr i64 %.sroa.4.0.i.ph.i, 3
   %64 = mul nuw nsw i64 %63, 7
@@ -19562,7 +19562,7 @@ define hidden { i64, i64 } @"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$14reserve_r
   br i1 %31, label %41, label %34
 
 32:                                               ; preds = %27
-  %33 = icmp ult i64 %.sroa.0.0.sroa.speculated.i, 4
+  %33 = icmp samesign ult i64 %.sroa.0.0.sroa.speculated.i, 4
   %..i.i = select i1 %33, i64 4, i64 8
   br label %43
 
@@ -19616,7 +19616,7 @@ define hidden { i64, i64 } @"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$14reserve_r
   br label %_ZN9hashbrown3raw13RawTableInner22fallible_with_capacity17h90191725f64efe18E.llvm.3131922965131222458.exit.thread
 
 _ZN9hashbrown3raw13RawTableInner22fallible_with_capacity17h90191725f64efe18E.llvm.3131922965131222458.exit: ; preds = %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$8allocate17h0d103a62a0b6aa06E.exit.i.i"
-  %64 = icmp ult i64 %.sroa.4.0.i.ph.i, 9
+  %64 = icmp samesign ult i64 %.sroa.4.0.i.ph.i, 9
   %65 = add nsw i64 %.sroa.4.0.i.ph.i, -1
   %66 = lshr i64 %.sroa.4.0.i.ph.i, 3
   %67 = mul nuw nsw i64 %66, 7
@@ -19897,7 +19897,7 @@ define hidden { i64, i64 } @"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$14reserve_r
   br i1 %29, label %31, label %33
 
 .thread:                                          ; preds = %25
-  %30 = icmp ult i64 %.sroa.0.0.sroa.speculated.i, 4
+  %30 = icmp samesign ult i64 %.sroa.0.0.sroa.speculated.i, 4
   %..i.i = select i1 %30, i64 4, i64 8
   br label %41
 
@@ -19943,7 +19943,7 @@ define hidden { i64, i64 } @"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$14reserve_r
   br label %_ZN9hashbrown3raw13RawTableInner22fallible_with_capacity17h90191725f64efe18E.llvm.3131922965131222458.exit.thread
 
 _ZN9hashbrown3raw13RawTableInner22fallible_with_capacity17h90191725f64efe18E.llvm.3131922965131222458.exit: ; preds = %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$8allocate17h0d103a62a0b6aa06E.exit.i.i"
-  %56 = icmp ult i64 %.sroa.4.0.i.ph.i52, 9
+  %56 = icmp samesign ult i64 %.sroa.4.0.i.ph.i52, 9
   %57 = add nsw i64 %.sroa.4.0.i.ph.i52, -1
   %58 = lshr i64 %.sroa.4.0.i.ph.i52, 3
   %59 = mul nuw nsw i64 %58, 7
@@ -20186,7 +20186,7 @@ define hidden { i64, i64 } @"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$14reserve_r
   br i1 %29, label %39, label %32
 
 30:                                               ; preds = %25
-  %31 = icmp ult i64 %.sroa.0.0.sroa.speculated.i, 4
+  %31 = icmp samesign ult i64 %.sroa.0.0.sroa.speculated.i, 4
   %..i.i = select i1 %31, i64 4, i64 8
   br label %41
 
@@ -20206,7 +20206,7 @@ define hidden { i64, i64 } @"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$14reserve_r
 41:                                               ; preds = %32, %30
   %.sroa.4.0.i.ph.i = phi i64 [ %38, %32 ], [ %..i.i, %30 ]
   %42 = shl i64 %.sroa.4.0.i.ph.i, 3
-  %43 = icmp ugt i64 %.sroa.4.0.i.ph.i, 2305843009213693951
+  %43 = icmp samesign ugt i64 %.sroa.4.0.i.ph.i, 2305843009213693951
   %44 = icmp ugt i64 %42, -16
   %or.cond = or i1 %43, %44
   br i1 %or.cond, label %54, label %45
@@ -20239,7 +20239,7 @@ define hidden { i64, i64 } @"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$14reserve_r
   br label %_ZN9hashbrown3raw13RawTableInner22fallible_with_capacity17h90191725f64efe18E.llvm.3131922965131222458.exit.thread
 
 _ZN9hashbrown3raw13RawTableInner22fallible_with_capacity17h90191725f64efe18E.llvm.3131922965131222458.exit: ; preds = %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$8allocate17h0d103a62a0b6aa06E.exit.i.i"
-  %61 = icmp ult i64 %.sroa.4.0.i.ph.i, 9
+  %61 = icmp samesign ult i64 %.sroa.4.0.i.ph.i, 9
   %62 = add nsw i64 %.sroa.4.0.i.ph.i, -1
   %63 = lshr i64 %.sroa.4.0.i.ph.i, 3
   %64 = mul nuw nsw i64 %63, 7
@@ -20494,7 +20494,7 @@ define hidden { i64, i64 } @"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$14reserve_r
   br i1 %29, label %39, label %32
 
 30:                                               ; preds = %25
-  %31 = icmp ult i64 %.sroa.0.0.sroa.speculated.i, 4
+  %31 = icmp samesign ult i64 %.sroa.0.0.sroa.speculated.i, 4
   %..i.i = select i1 %31, i64 4, i64 8
   br label %41
 
@@ -20548,7 +20548,7 @@ define hidden { i64, i64 } @"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$14reserve_r
   br label %_ZN9hashbrown3raw13RawTableInner22fallible_with_capacity17h90191725f64efe18E.llvm.3131922965131222458.exit.thread
 
 _ZN9hashbrown3raw13RawTableInner22fallible_with_capacity17h90191725f64efe18E.llvm.3131922965131222458.exit: ; preds = %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$8allocate17h0d103a62a0b6aa06E.exit.i.i"
-  %62 = icmp ult i64 %.sroa.4.0.i.ph.i, 9
+  %62 = icmp samesign ult i64 %.sroa.4.0.i.ph.i, 9
   %63 = add nsw i64 %.sroa.4.0.i.ph.i, -1
   %64 = lshr i64 %.sroa.4.0.i.ph.i, 3
   %65 = mul nuw nsw i64 %64, 7
@@ -20800,7 +20800,7 @@ define hidden { i64, i64 } @"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$14reserve_r
   br i1 %29, label %31, label %33
 
 .thread:                                          ; preds = %25
-  %30 = icmp ult i64 %.sroa.0.0.sroa.speculated.i, 4
+  %30 = icmp samesign ult i64 %.sroa.0.0.sroa.speculated.i, 4
   %..i.i = select i1 %30, i64 4, i64 8
   br label %41
 
@@ -20846,7 +20846,7 @@ define hidden { i64, i64 } @"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$14reserve_r
   br label %_ZN9hashbrown3raw13RawTableInner22fallible_with_capacity17h90191725f64efe18E.llvm.3131922965131222458.exit.thread
 
 _ZN9hashbrown3raw13RawTableInner22fallible_with_capacity17h90191725f64efe18E.llvm.3131922965131222458.exit: ; preds = %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$8allocate17h0d103a62a0b6aa06E.exit.i.i"
-  %56 = icmp ult i64 %.sroa.4.0.i.ph.i52, 9
+  %56 = icmp samesign ult i64 %.sroa.4.0.i.ph.i52, 9
   %57 = add nsw i64 %.sroa.4.0.i.ph.i52, -1
   %58 = lshr i64 %.sroa.4.0.i.ph.i52, 3
   %59 = mul nuw nsw i64 %58, 7
@@ -21089,7 +21089,7 @@ define hidden { i64, i64 } @"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$14reserve_r
   br i1 %29, label %39, label %32
 
 30:                                               ; preds = %25
-  %31 = icmp ult i64 %.sroa.0.0.sroa.speculated.i, 4
+  %31 = icmp samesign ult i64 %.sroa.0.0.sroa.speculated.i, 4
   %..i.i = select i1 %31, i64 4, i64 8
   br label %41
 
@@ -21109,7 +21109,7 @@ define hidden { i64, i64 } @"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$14reserve_r
 41:                                               ; preds = %32, %30
   %.sroa.4.0.i.ph.i = phi i64 [ %38, %32 ], [ %..i.i, %30 ]
   %42 = shl i64 %.sroa.4.0.i.ph.i, 3
-  %43 = icmp ugt i64 %.sroa.4.0.i.ph.i, 2305843009213693951
+  %43 = icmp samesign ugt i64 %.sroa.4.0.i.ph.i, 2305843009213693951
   %44 = icmp ugt i64 %42, -16
   %or.cond = or i1 %43, %44
   br i1 %or.cond, label %54, label %45
@@ -21142,7 +21142,7 @@ define hidden { i64, i64 } @"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$14reserve_r
   br label %_ZN9hashbrown3raw13RawTableInner22fallible_with_capacity17h90191725f64efe18E.llvm.3131922965131222458.exit.thread
 
 _ZN9hashbrown3raw13RawTableInner22fallible_with_capacity17h90191725f64efe18E.llvm.3131922965131222458.exit: ; preds = %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$8allocate17h0d103a62a0b6aa06E.exit.i.i"
-  %61 = icmp ult i64 %.sroa.4.0.i.ph.i, 9
+  %61 = icmp samesign ult i64 %.sroa.4.0.i.ph.i, 9
   %62 = add nsw i64 %.sroa.4.0.i.ph.i, -1
   %63 = lshr i64 %.sroa.4.0.i.ph.i, 3
   %64 = mul nuw nsw i64 %63, 7
@@ -21401,7 +21401,7 @@ define hidden { i64, i64 } @"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$14reserve_r
   br i1 %31, label %41, label %34
 
 32:                                               ; preds = %27
-  %33 = icmp ult i64 %.sroa.0.0.sroa.speculated.i, 4
+  %33 = icmp samesign ult i64 %.sroa.0.0.sroa.speculated.i, 4
   %..i.i = select i1 %33, i64 4, i64 8
   br label %43
 
@@ -21451,7 +21451,7 @@ define hidden { i64, i64 } @"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$14reserve_r
   br label %_ZN9hashbrown3raw13RawTableInner22fallible_with_capacity17h90191725f64efe18E.llvm.3131922965131222458.exit.thread
 
 _ZN9hashbrown3raw13RawTableInner22fallible_with_capacity17h90191725f64efe18E.llvm.3131922965131222458.exit: ; preds = %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$8allocate17h0d103a62a0b6aa06E.exit.i.i"
-  %61 = icmp ult i64 %.sroa.4.0.i.ph.i, 9
+  %61 = icmp samesign ult i64 %.sroa.4.0.i.ph.i, 9
   %62 = add nsw i64 %.sroa.4.0.i.ph.i, -1
   %63 = lshr i64 %.sroa.4.0.i.ph.i, 3
   %64 = mul nuw nsw i64 %63, 7
@@ -21728,7 +21728,7 @@ define hidden { i64, i64 } @"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$14reserve_r
   br i1 %29, label %31, label %33
 
 .thread:                                          ; preds = %25
-  %30 = icmp ult i64 %.sroa.0.0.sroa.speculated.i, 4
+  %30 = icmp samesign ult i64 %.sroa.0.0.sroa.speculated.i, 4
   %..i.i = select i1 %30, i64 4, i64 8
   br label %41
 
@@ -21774,7 +21774,7 @@ define hidden { i64, i64 } @"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$14reserve_r
   br label %_ZN9hashbrown3raw13RawTableInner22fallible_with_capacity17h90191725f64efe18E.llvm.3131922965131222458.exit.thread
 
 _ZN9hashbrown3raw13RawTableInner22fallible_with_capacity17h90191725f64efe18E.llvm.3131922965131222458.exit: ; preds = %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$8allocate17h0d103a62a0b6aa06E.exit.i.i"
-  %56 = icmp ult i64 %.sroa.4.0.i.ph.i52, 9
+  %56 = icmp samesign ult i64 %.sroa.4.0.i.ph.i52, 9
   %57 = add nsw i64 %.sroa.4.0.i.ph.i52, -1
   %58 = lshr i64 %.sroa.4.0.i.ph.i52, 3
   %59 = mul nuw nsw i64 %58, 7
@@ -22020,7 +22020,7 @@ define hidden { i64, i64 } @"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$14reserve_r
   br i1 %31, label %41, label %34
 
 32:                                               ; preds = %27
-  %33 = icmp ult i64 %.sroa.0.0.sroa.speculated.i, 4
+  %33 = icmp samesign ult i64 %.sroa.0.0.sroa.speculated.i, 4
   %..i.i = select i1 %33, i64 4, i64 8
   br label %43
 
@@ -22070,7 +22070,7 @@ define hidden { i64, i64 } @"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$14reserve_r
   br label %_ZN9hashbrown3raw13RawTableInner22fallible_with_capacity17h90191725f64efe18E.llvm.3131922965131222458.exit.thread
 
 _ZN9hashbrown3raw13RawTableInner22fallible_with_capacity17h90191725f64efe18E.llvm.3131922965131222458.exit: ; preds = %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$8allocate17h0d103a62a0b6aa06E.exit.i.i"
-  %61 = icmp ult i64 %.sroa.4.0.i.ph.i, 9
+  %61 = icmp samesign ult i64 %.sroa.4.0.i.ph.i, 9
   %62 = add nsw i64 %.sroa.4.0.i.ph.i, -1
   %63 = lshr i64 %.sroa.4.0.i.ph.i, 3
   %64 = mul nuw nsw i64 %63, 7
@@ -22352,7 +22352,7 @@ define hidden { i64, i64 } @"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$14reserve_r
   br i1 %33, label %43, label %36
 
 34:                                               ; preds = %29
-  %35 = icmp ult i64 %.sroa.0.0.sroa.speculated.i, 4
+  %35 = icmp samesign ult i64 %.sroa.0.0.sroa.speculated.i, 4
   %..i.i = select i1 %35, i64 4, i64 8
   br label %45
 
@@ -22406,7 +22406,7 @@ define hidden { i64, i64 } @"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$14reserve_r
   br label %_ZN9hashbrown3raw13RawTableInner22fallible_with_capacity17h90191725f64efe18E.llvm.3131922965131222458.exit.thread
 
 _ZN9hashbrown3raw13RawTableInner22fallible_with_capacity17h90191725f64efe18E.llvm.3131922965131222458.exit: ; preds = %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$8allocate17h0d103a62a0b6aa06E.exit.i.i"
-  %66 = icmp ult i64 %.sroa.4.0.i.ph.i, 9
+  %66 = icmp samesign ult i64 %.sroa.4.0.i.ph.i, 9
   %67 = add nsw i64 %.sroa.4.0.i.ph.i, -1
   %68 = lshr i64 %.sroa.4.0.i.ph.i, 3
   %69 = mul nuw nsw i64 %68, 7
@@ -22756,7 +22756,7 @@ define hidden { i64, i64 } @"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$14reserve_r
   br i1 %33, label %43, label %36
 
 34:                                               ; preds = %29
-  %35 = icmp ult i64 %.sroa.0.0.sroa.speculated.i, 4
+  %35 = icmp samesign ult i64 %.sroa.0.0.sroa.speculated.i, 4
   %..i.i = select i1 %35, i64 4, i64 8
   br label %45
 
@@ -22810,7 +22810,7 @@ define hidden { i64, i64 } @"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$14reserve_r
   br label %_ZN9hashbrown3raw13RawTableInner22fallible_with_capacity17h90191725f64efe18E.llvm.3131922965131222458.exit.thread
 
 _ZN9hashbrown3raw13RawTableInner22fallible_with_capacity17h90191725f64efe18E.llvm.3131922965131222458.exit: ; preds = %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$8allocate17h0d103a62a0b6aa06E.exit.i.i"
-  %66 = icmp ult i64 %.sroa.4.0.i.ph.i, 9
+  %66 = icmp samesign ult i64 %.sroa.4.0.i.ph.i, 9
   %67 = add nsw i64 %.sroa.4.0.i.ph.i, -1
   %68 = lshr i64 %.sroa.4.0.i.ph.i, 3
   %69 = mul nuw nsw i64 %68, 7
@@ -23154,7 +23154,7 @@ define hidden { i64, i64 } @"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$14reserve_r
   br i1 %33, label %43, label %36
 
 34:                                               ; preds = %29
-  %35 = icmp ult i64 %.sroa.0.0.sroa.speculated.i, 4
+  %35 = icmp samesign ult i64 %.sroa.0.0.sroa.speculated.i, 4
   %..i.i = select i1 %35, i64 4, i64 8
   br label %45
 
@@ -23208,7 +23208,7 @@ define hidden { i64, i64 } @"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$14reserve_r
   br label %_ZN9hashbrown3raw13RawTableInner22fallible_with_capacity17h90191725f64efe18E.llvm.3131922965131222458.exit.thread
 
 _ZN9hashbrown3raw13RawTableInner22fallible_with_capacity17h90191725f64efe18E.llvm.3131922965131222458.exit: ; preds = %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$8allocate17h0d103a62a0b6aa06E.exit.i.i"
-  %66 = icmp ult i64 %.sroa.4.0.i.ph.i, 9
+  %66 = icmp samesign ult i64 %.sroa.4.0.i.ph.i, 9
   %67 = add nsw i64 %.sroa.4.0.i.ph.i, -1
   %68 = lshr i64 %.sroa.4.0.i.ph.i, 3
   %69 = mul nuw nsw i64 %68, 7
@@ -23551,7 +23551,7 @@ define hidden { i64, i64 } @"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$14reserve_r
   br i1 %29, label %39, label %32
 
 30:                                               ; preds = %25
-  %31 = icmp ult i64 %.sroa.0.0.sroa.speculated.i, 4
+  %31 = icmp samesign ult i64 %.sroa.0.0.sroa.speculated.i, 4
   %..i.i = select i1 %31, i64 4, i64 8
   br label %41
 
@@ -23605,7 +23605,7 @@ define hidden { i64, i64 } @"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$14reserve_r
   br label %_ZN9hashbrown3raw13RawTableInner22fallible_with_capacity17h90191725f64efe18E.llvm.3131922965131222458.exit.thread
 
 _ZN9hashbrown3raw13RawTableInner22fallible_with_capacity17h90191725f64efe18E.llvm.3131922965131222458.exit: ; preds = %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$8allocate17h0d103a62a0b6aa06E.exit.i.i"
-  %62 = icmp ult i64 %.sroa.4.0.i.ph.i, 9
+  %62 = icmp samesign ult i64 %.sroa.4.0.i.ph.i, 9
   %63 = add nsw i64 %.sroa.4.0.i.ph.i, -1
   %64 = lshr i64 %.sroa.4.0.i.ph.i, 3
   %65 = mul nuw nsw i64 %64, 7
@@ -23866,7 +23866,7 @@ define hidden { i64, i64 } @"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$14reserve_r
   br i1 %30, label %40, label %33
 
 31:                                               ; preds = %26
-  %32 = icmp ult i64 %.sroa.0.0.sroa.speculated.i, 4
+  %32 = icmp samesign ult i64 %.sroa.0.0.sroa.speculated.i, 4
   %..i.i = select i1 %32, i64 4, i64 8
   br label %42
 
@@ -23920,7 +23920,7 @@ define hidden { i64, i64 } @"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$14reserve_r
   br label %_ZN9hashbrown3raw13RawTableInner22fallible_with_capacity17h90191725f64efe18E.llvm.3131922965131222458.exit.thread
 
 _ZN9hashbrown3raw13RawTableInner22fallible_with_capacity17h90191725f64efe18E.llvm.3131922965131222458.exit: ; preds = %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$8allocate17h0d103a62a0b6aa06E.exit.i.i"
-  %63 = icmp ult i64 %.sroa.4.0.i.ph.i, 9
+  %63 = icmp samesign ult i64 %.sroa.4.0.i.ph.i, 9
   %64 = add nsw i64 %.sroa.4.0.i.ph.i, -1
   %65 = lshr i64 %.sroa.4.0.i.ph.i, 3
   %66 = mul nuw nsw i64 %65, 7
@@ -24191,7 +24191,7 @@ define hidden { i64, i64 } @"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$14reserve_r
   br i1 %29, label %31, label %33
 
 .thread:                                          ; preds = %25
-  %30 = icmp ult i64 %.sroa.0.0.sroa.speculated.i, 4
+  %30 = icmp samesign ult i64 %.sroa.0.0.sroa.speculated.i, 4
   %..i.i = select i1 %30, i64 4, i64 8
   br label %41
 
@@ -24237,7 +24237,7 @@ define hidden { i64, i64 } @"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$14reserve_r
   br label %_ZN9hashbrown3raw13RawTableInner22fallible_with_capacity17h90191725f64efe18E.llvm.3131922965131222458.exit.thread
 
 _ZN9hashbrown3raw13RawTableInner22fallible_with_capacity17h90191725f64efe18E.llvm.3131922965131222458.exit: ; preds = %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$8allocate17h0d103a62a0b6aa06E.exit.i.i"
-  %56 = icmp ult i64 %.sroa.4.0.i.ph.i50, 9
+  %56 = icmp samesign ult i64 %.sroa.4.0.i.ph.i50, 9
   %57 = add nsw i64 %.sroa.4.0.i.ph.i50, -1
   %58 = lshr i64 %.sroa.4.0.i.ph.i50, 3
   %59 = mul nuw nsw i64 %58, 7
@@ -24490,7 +24490,7 @@ define hidden { i64, i64 } @"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$14reserve_r
   br i1 %31, label %41, label %34
 
 32:                                               ; preds = %27
-  %33 = icmp ult i64 %.sroa.0.0.sroa.speculated.i, 4
+  %33 = icmp samesign ult i64 %.sroa.0.0.sroa.speculated.i, 4
   %..i.i = select i1 %33, i64 4, i64 8
   br label %43
 
@@ -24544,7 +24544,7 @@ define hidden { i64, i64 } @"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$14reserve_r
   br label %_ZN9hashbrown3raw13RawTableInner22fallible_with_capacity17h90191725f64efe18E.llvm.3131922965131222458.exit.thread
 
 _ZN9hashbrown3raw13RawTableInner22fallible_with_capacity17h90191725f64efe18E.llvm.3131922965131222458.exit: ; preds = %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$8allocate17h0d103a62a0b6aa06E.exit.i.i"
-  %64 = icmp ult i64 %.sroa.4.0.i.ph.i, 9
+  %64 = icmp samesign ult i64 %.sroa.4.0.i.ph.i, 9
   %65 = add nsw i64 %.sroa.4.0.i.ph.i, -1
   %66 = lshr i64 %.sroa.4.0.i.ph.i, 3
   %67 = mul nuw nsw i64 %66, 7
@@ -24828,7 +24828,7 @@ define hidden { i64, i64 } @"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$14reserve_r
   br i1 %31, label %41, label %34
 
 32:                                               ; preds = %27
-  %33 = icmp ult i64 %.sroa.0.0.sroa.speculated.i, 4
+  %33 = icmp samesign ult i64 %.sroa.0.0.sroa.speculated.i, 4
   %..i.i = select i1 %33, i64 4, i64 8
   br label %43
 
@@ -24882,7 +24882,7 @@ define hidden { i64, i64 } @"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$14reserve_r
   br label %_ZN9hashbrown3raw13RawTableInner22fallible_with_capacity17h90191725f64efe18E.llvm.3131922965131222458.exit.thread
 
 _ZN9hashbrown3raw13RawTableInner22fallible_with_capacity17h90191725f64efe18E.llvm.3131922965131222458.exit: ; preds = %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$8allocate17h0d103a62a0b6aa06E.exit.i.i"
-  %64 = icmp ult i64 %.sroa.4.0.i.ph.i, 9
+  %64 = icmp samesign ult i64 %.sroa.4.0.i.ph.i, 9
   %65 = add nsw i64 %.sroa.4.0.i.ph.i, -1
   %66 = lshr i64 %.sroa.4.0.i.ph.i, 3
   %67 = mul nuw nsw i64 %66, 7
@@ -25174,7 +25174,7 @@ define hidden { i64, i64 } @"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$14reserve_r
   br i1 %29, label %39, label %32
 
 30:                                               ; preds = %25
-  %31 = icmp ult i64 %.sroa.0.0.sroa.speculated.i, 4
+  %31 = icmp samesign ult i64 %.sroa.0.0.sroa.speculated.i, 4
   %..i.i = select i1 %31, i64 4, i64 8
   br label %41
 
@@ -25215,7 +25215,7 @@ define hidden { i64, i64 } @"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$14reserve_r
   br label %_ZN9hashbrown3raw13RawTableInner22fallible_with_capacity17h90191725f64efe18E.llvm.3131922965131222458.exit.thread
 
 _ZN9hashbrown3raw13RawTableInner22fallible_with_capacity17h90191725f64efe18E.llvm.3131922965131222458.exit: ; preds = %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$8allocate17h0d103a62a0b6aa06E.exit.i.i"
-  %54 = icmp ult i64 %.sroa.4.0.i.ph.i, 9
+  %54 = icmp samesign ult i64 %.sroa.4.0.i.ph.i, 9
   %55 = add nsw i64 %.sroa.4.0.i.ph.i, -1
   %56 = lshr i64 %.sroa.4.0.i.ph.i, 3
   %57 = mul nuw nsw i64 %56, 7
@@ -25469,7 +25469,7 @@ define hidden { i64, i64 } @"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$14reserve_r
   br i1 %33, label %43, label %36
 
 34:                                               ; preds = %29
-  %35 = icmp ult i64 %.sroa.0.0.sroa.speculated.i, 4
+  %35 = icmp samesign ult i64 %.sroa.0.0.sroa.speculated.i, 4
   %..i.i = select i1 %35, i64 4, i64 8
   br label %45
 
@@ -25519,7 +25519,7 @@ define hidden { i64, i64 } @"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$14reserve_r
   br label %_ZN9hashbrown3raw13RawTableInner22fallible_with_capacity17h90191725f64efe18E.llvm.3131922965131222458.exit.thread
 
 _ZN9hashbrown3raw13RawTableInner22fallible_with_capacity17h90191725f64efe18E.llvm.3131922965131222458.exit: ; preds = %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$8allocate17h0d103a62a0b6aa06E.exit.i.i"
-  %63 = icmp ult i64 %.sroa.4.0.i.ph.i, 9
+  %63 = icmp samesign ult i64 %.sroa.4.0.i.ph.i, 9
   %64 = add nsw i64 %.sroa.4.0.i.ph.i, -1
   %65 = lshr i64 %.sroa.4.0.i.ph.i, 3
   %66 = mul nuw nsw i64 %65, 7
@@ -25861,7 +25861,7 @@ define hidden { i64, i64 } @"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$14reserve_r
   br i1 %31, label %41, label %34
 
 32:                                               ; preds = %27
-  %33 = icmp ult i64 %.sroa.0.0.sroa.speculated.i, 4
+  %33 = icmp samesign ult i64 %.sroa.0.0.sroa.speculated.i, 4
   %..i.i = select i1 %33, i64 4, i64 8
   br label %43
 
@@ -25911,7 +25911,7 @@ define hidden { i64, i64 } @"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$14reserve_r
   br label %_ZN9hashbrown3raw13RawTableInner22fallible_with_capacity17h90191725f64efe18E.llvm.3131922965131222458.exit.thread
 
 _ZN9hashbrown3raw13RawTableInner22fallible_with_capacity17h90191725f64efe18E.llvm.3131922965131222458.exit: ; preds = %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$8allocate17h0d103a62a0b6aa06E.exit.i.i"
-  %61 = icmp ult i64 %.sroa.4.0.i.ph.i, 9
+  %61 = icmp samesign ult i64 %.sroa.4.0.i.ph.i, 9
   %62 = add nsw i64 %.sroa.4.0.i.ph.i, -1
   %63 = lshr i64 %.sroa.4.0.i.ph.i, 3
   %64 = mul nuw nsw i64 %63, 7
@@ -26190,7 +26190,7 @@ define hidden { i64, i64 } @"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$14reserve_r
   br i1 %31, label %33, label %35
 
 .thread:                                          ; preds = %27
-  %32 = icmp ult i64 %.sroa.0.0.sroa.speculated.i, 4
+  %32 = icmp samesign ult i64 %.sroa.0.0.sroa.speculated.i, 4
   %..i.i = select i1 %32, i64 4, i64 8
   br label %43
 
@@ -26236,7 +26236,7 @@ define hidden { i64, i64 } @"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$14reserve_r
   br label %_ZN9hashbrown3raw13RawTableInner22fallible_with_capacity17h90191725f64efe18E.llvm.3131922965131222458.exit.thread
 
 _ZN9hashbrown3raw13RawTableInner22fallible_with_capacity17h90191725f64efe18E.llvm.3131922965131222458.exit: ; preds = %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$8allocate17h0d103a62a0b6aa06E.exit.i.i"
-  %58 = icmp ult i64 %.sroa.4.0.i.ph.i51, 9
+  %58 = icmp samesign ult i64 %.sroa.4.0.i.ph.i51, 9
   %59 = add nsw i64 %.sroa.4.0.i.ph.i51, -1
   %60 = lshr i64 %.sroa.4.0.i.ph.i51, 3
   %61 = mul nuw nsw i64 %60, 7
@@ -26510,7 +26510,7 @@ define hidden { i64, i64 } @"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$14reserve_r
   br i1 %31, label %41, label %34
 
 32:                                               ; preds = %27
-  %33 = icmp ult i64 %.sroa.0.0.sroa.speculated.i, 4
+  %33 = icmp samesign ult i64 %.sroa.0.0.sroa.speculated.i, 4
   %..i.i = select i1 %33, i64 4, i64 8
   br label %43
 
@@ -26564,7 +26564,7 @@ define hidden { i64, i64 } @"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$14reserve_r
   br label %_ZN9hashbrown3raw13RawTableInner22fallible_with_capacity17h90191725f64efe18E.llvm.3131922965131222458.exit.thread
 
 _ZN9hashbrown3raw13RawTableInner22fallible_with_capacity17h90191725f64efe18E.llvm.3131922965131222458.exit: ; preds = %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$8allocate17h0d103a62a0b6aa06E.exit.i.i"
-  %64 = icmp ult i64 %.sroa.4.0.i.ph.i, 9
+  %64 = icmp samesign ult i64 %.sroa.4.0.i.ph.i, 9
   %65 = add nsw i64 %.sroa.4.0.i.ph.i, -1
   %66 = lshr i64 %.sroa.4.0.i.ph.i, 3
   %67 = mul nuw nsw i64 %66, 7
@@ -26847,7 +26847,7 @@ define hidden { i64, i64 } @"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$14reserve_r
   br i1 %31, label %41, label %34
 
 32:                                               ; preds = %27
-  %33 = icmp ult i64 %.sroa.0.0.sroa.speculated.i, 4
+  %33 = icmp samesign ult i64 %.sroa.0.0.sroa.speculated.i, 4
   %..i.i = select i1 %33, i64 4, i64 8
   br label %43
 
@@ -26897,7 +26897,7 @@ define hidden { i64, i64 } @"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$14reserve_r
   br label %_ZN9hashbrown3raw13RawTableInner22fallible_with_capacity17h90191725f64efe18E.llvm.3131922965131222458.exit.thread
 
 _ZN9hashbrown3raw13RawTableInner22fallible_with_capacity17h90191725f64efe18E.llvm.3131922965131222458.exit: ; preds = %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$8allocate17h0d103a62a0b6aa06E.exit.i.i"
-  %61 = icmp ult i64 %.sroa.4.0.i.ph.i, 9
+  %61 = icmp samesign ult i64 %.sroa.4.0.i.ph.i, 9
   %62 = add nsw i64 %.sroa.4.0.i.ph.i, -1
   %63 = lshr i64 %.sroa.4.0.i.ph.i, 3
   %64 = mul nuw nsw i64 %63, 7
@@ -27174,7 +27174,7 @@ define hidden { i64, i64 } @"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$14reserve_r
   br i1 %29, label %31, label %33
 
 .thread:                                          ; preds = %25
-  %30 = icmp ult i64 %.sroa.0.0.sroa.speculated.i, 4
+  %30 = icmp samesign ult i64 %.sroa.0.0.sroa.speculated.i, 4
   %..i.i = select i1 %30, i64 4, i64 8
   br label %41
 
@@ -27220,7 +27220,7 @@ define hidden { i64, i64 } @"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$14reserve_r
   br label %_ZN9hashbrown3raw13RawTableInner22fallible_with_capacity17h90191725f64efe18E.llvm.3131922965131222458.exit.thread
 
 _ZN9hashbrown3raw13RawTableInner22fallible_with_capacity17h90191725f64efe18E.llvm.3131922965131222458.exit: ; preds = %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$8allocate17h0d103a62a0b6aa06E.exit.i.i"
-  %56 = icmp ult i64 %.sroa.4.0.i.ph.i52, 9
+  %56 = icmp samesign ult i64 %.sroa.4.0.i.ph.i52, 9
   %57 = add nsw i64 %.sroa.4.0.i.ph.i52, -1
   %58 = lshr i64 %.sroa.4.0.i.ph.i52, 3
   %59 = mul nuw nsw i64 %58, 7
@@ -29689,7 +29689,7 @@ define hidden void @"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$16with_capacity_in1
   br i1 %7, label %17, label %10
 
 8:                                                ; preds = %4
-  %9 = icmp ult i64 %1, 4
+  %9 = icmp samesign ult i64 %1, 4
   %..i.i = select i1 %9, i64 4, i64 8
   br label %21
 
@@ -29745,7 +29745,7 @@ define hidden void @"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$16with_capacity_in1
   br label %_ZN9hashbrown3raw13RawTableInner17new_uninitialized17hbe4de633cf0c17e6E.exit.thread.i
 
 _ZN9hashbrown3raw13RawTableInner17new_uninitialized17hbe4de633cf0c17e6E.exit.i: ; preds = %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$8allocate17h0d103a62a0b6aa06E.exit.i.i"
-  %42 = icmp ult i64 %.sroa.4.0.i.ph.i, 9
+  %42 = icmp samesign ult i64 %.sroa.4.0.i.ph.i, 9
   %43 = add nsw i64 %.sroa.4.0.i.ph.i, -1
   %44 = lshr i64 %.sroa.4.0.i.ph.i, 3
   %45 = mul nuw nsw i64 %44, 7
@@ -29790,7 +29790,7 @@ define hidden void @"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$16with_capacity_in1
   br i1 %7, label %17, label %10
 
 8:                                                ; preds = %4
-  %9 = icmp ult i64 %1, 4
+  %9 = icmp samesign ult i64 %1, 4
   %..i.i = select i1 %9, i64 4, i64 8
   br label %21
 
@@ -29842,7 +29842,7 @@ define hidden void @"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$16with_capacity_in1
   br label %_ZN9hashbrown3raw13RawTableInner17new_uninitialized17hbe4de633cf0c17e6E.exit.thread.i
 
 _ZN9hashbrown3raw13RawTableInner17new_uninitialized17hbe4de633cf0c17e6E.exit.i: ; preds = %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$8allocate17h0d103a62a0b6aa06E.exit.i.i"
-  %39 = icmp ult i64 %.sroa.4.0.i.ph.i, 9
+  %39 = icmp samesign ult i64 %.sroa.4.0.i.ph.i, 9
   %40 = add nsw i64 %.sroa.4.0.i.ph.i, -1
   %41 = lshr i64 %.sroa.4.0.i.ph.i, 3
   %42 = mul nuw nsw i64 %41, 7
@@ -29887,7 +29887,7 @@ define hidden void @"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$16with_capacity_in1
   br i1 %7, label %9, label %13
 
 .thread:                                          ; preds = %4
-  %8 = icmp ult i64 %1, 4
+  %8 = icmp samesign ult i64 %1, 4
   %..i.i = select i1 %8, i64 4, i64 8
   br label %21
 
@@ -29935,7 +29935,7 @@ define hidden void @"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$16with_capacity_in1
   br label %_ZN9hashbrown3raw13RawTableInner17new_uninitialized17hbe4de633cf0c17e6E.exit.thread.i
 
 _ZN9hashbrown3raw13RawTableInner17new_uninitialized17hbe4de633cf0c17e6E.exit.i: ; preds = %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$8allocate17h0d103a62a0b6aa06E.exit.i.i"
-  %36 = icmp ult i64 %.sroa.4.0.i.ph.i7, 9
+  %36 = icmp samesign ult i64 %.sroa.4.0.i.ph.i7, 9
   %37 = add nsw i64 %.sroa.4.0.i.ph.i7, -1
   %38 = lshr i64 %.sroa.4.0.i.ph.i7, 3
   %39 = mul nuw nsw i64 %38, 7
@@ -29980,7 +29980,7 @@ define hidden void @"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$16with_capacity_in1
   br i1 %7, label %17, label %10
 
 8:                                                ; preds = %4
-  %9 = icmp ult i64 %1, 4
+  %9 = icmp samesign ult i64 %1, 4
   %..i.i = select i1 %9, i64 4, i64 8
   br label %21
 
@@ -30032,7 +30032,7 @@ define hidden void @"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$16with_capacity_in1
   br label %_ZN9hashbrown3raw13RawTableInner17new_uninitialized17hbe4de633cf0c17e6E.exit.thread.i
 
 _ZN9hashbrown3raw13RawTableInner17new_uninitialized17hbe4de633cf0c17e6E.exit.i: ; preds = %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$8allocate17h0d103a62a0b6aa06E.exit.i.i"
-  %39 = icmp ult i64 %.sroa.4.0.i.ph.i, 9
+  %39 = icmp samesign ult i64 %.sroa.4.0.i.ph.i, 9
   %40 = add nsw i64 %.sroa.4.0.i.ph.i, -1
   %41 = lshr i64 %.sroa.4.0.i.ph.i, 3
   %42 = mul nuw nsw i64 %41, 7
@@ -30077,7 +30077,7 @@ define hidden void @"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$16with_capacity_in1
   br i1 %7, label %17, label %10
 
 8:                                                ; preds = %4
-  %9 = icmp ult i64 %1, 4
+  %9 = icmp samesign ult i64 %1, 4
   %..i.i = select i1 %9, i64 4, i64 8
   br label %21
 
@@ -30129,7 +30129,7 @@ define hidden void @"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$16with_capacity_in1
   br label %_ZN9hashbrown3raw13RawTableInner17new_uninitialized17hbe4de633cf0c17e6E.exit.thread.i
 
 _ZN9hashbrown3raw13RawTableInner17new_uninitialized17hbe4de633cf0c17e6E.exit.i: ; preds = %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$8allocate17h0d103a62a0b6aa06E.exit.i.i"
-  %39 = icmp ult i64 %.sroa.4.0.i.ph.i, 9
+  %39 = icmp samesign ult i64 %.sroa.4.0.i.ph.i, 9
   %40 = add nsw i64 %.sroa.4.0.i.ph.i, -1
   %41 = lshr i64 %.sroa.4.0.i.ph.i, 3
   %42 = mul nuw nsw i64 %41, 7
@@ -30174,7 +30174,7 @@ define hidden void @"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$16with_capacity_in1
   br i1 %7, label %17, label %10
 
 8:                                                ; preds = %4
-  %9 = icmp ult i64 %1, 4
+  %9 = icmp samesign ult i64 %1, 4
   %..i.i = select i1 %9, i64 4, i64 8
   br label %21
 
@@ -30230,7 +30230,7 @@ define hidden void @"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$16with_capacity_in1
   br label %_ZN9hashbrown3raw13RawTableInner17new_uninitialized17hbe4de633cf0c17e6E.exit.thread.i
 
 _ZN9hashbrown3raw13RawTableInner17new_uninitialized17hbe4de633cf0c17e6E.exit.i: ; preds = %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$8allocate17h0d103a62a0b6aa06E.exit.i.i"
-  %42 = icmp ult i64 %.sroa.4.0.i.ph.i, 9
+  %42 = icmp samesign ult i64 %.sroa.4.0.i.ph.i, 9
   %43 = add nsw i64 %.sroa.4.0.i.ph.i, -1
   %44 = lshr i64 %.sroa.4.0.i.ph.i, 3
   %45 = mul nuw nsw i64 %44, 7
@@ -32429,7 +32429,7 @@ define hidden void @_ZN9hashbrown3raw5inner13RawTableInner22fallible_with_capaci
   br i1 %12, label %22, label %15
 
 13:                                               ; preds = %9
-  %14 = icmp ult i64 %4, 4
+  %14 = icmp samesign ult i64 %4, 4
   %..i = select i1 %14, i64 4, i64 8
   br label %28
 
@@ -32500,7 +32500,7 @@ define hidden void @_ZN9hashbrown3raw5inner13RawTableInner22fallible_with_capaci
   br label %_ZN9hashbrown3raw5inner13RawTableInner17new_uninitialized17h4b33d6710a63a207E.exit.thread
 
 _ZN9hashbrown3raw5inner13RawTableInner17new_uninitialized17h4b33d6710a63a207E.exit: ; preds = %49
-  %57 = icmp ult i64 %.sroa.4.0.i.ph, 9
+  %57 = icmp samesign ult i64 %.sroa.4.0.i.ph, 9
   %58 = add nsw i64 %.sroa.4.0.i.ph, -1
   %59 = lshr i64 %.sroa.4.0.i.ph, 3
   %60 = mul nuw nsw i64 %59, 7
@@ -32573,7 +32573,7 @@ define hidden { i64, i64 } @"_ZN9hashbrown3raw5inner21RawTable$LT$T$C$A$GT$14res
   br i1 %30, label %40, label %33
 
 31:                                               ; preds = %26
-  %32 = icmp ult i64 %.sroa.0.0.sroa.speculated.i, 4
+  %32 = icmp samesign ult i64 %.sroa.0.0.sroa.speculated.i, 4
   %..i.i = select i1 %32, i64 4, i64 8
   br label %42
 
@@ -32593,7 +32593,7 @@ define hidden { i64, i64 } @"_ZN9hashbrown3raw5inner21RawTable$LT$T$C$A$GT$14res
 42:                                               ; preds = %33, %31
   %.sroa.4.0.i.ph.i = phi i64 [ %39, %33 ], [ %..i.i, %31 ]
   %43 = shl i64 %.sroa.4.0.i.ph.i, 3
-  %44 = icmp ugt i64 %.sroa.4.0.i.ph.i, 2305843009213693951
+  %44 = icmp samesign ugt i64 %.sroa.4.0.i.ph.i, 2305843009213693951
   %45 = icmp ugt i64 %43, -16
   %or.cond = or i1 %44, %45
   br i1 %or.cond, label %55, label %46
@@ -32626,7 +32626,7 @@ define hidden { i64, i64 } @"_ZN9hashbrown3raw5inner21RawTable$LT$T$C$A$GT$14res
   br label %_ZN9hashbrown3raw5inner13RawTableInner22fallible_with_capacity17h2023d2a7e99260fcE.llvm.3131922965131222458.exit.thread
 
 _ZN9hashbrown3raw5inner13RawTableInner22fallible_with_capacity17h2023d2a7e99260fcE.llvm.3131922965131222458.exit: ; preds = %57
-  %63 = icmp ult i64 %.sroa.4.0.i.ph.i, 9
+  %63 = icmp samesign ult i64 %.sroa.4.0.i.ph.i, 9
   %64 = add nsw i64 %.sroa.4.0.i.ph.i, -1
   %65 = lshr i64 %.sroa.4.0.i.ph.i, 3
   %66 = mul nuw nsw i64 %65, 7
@@ -33091,7 +33091,7 @@ define hidden void @"_ZN9hashbrown3raw5inner21RawTable$LT$T$C$A$GT$16with_capaci
   br i1 %7, label %17, label %10
 
 8:                                                ; preds = %4
-  %9 = icmp ult i64 %1, 4
+  %9 = icmp samesign ult i64 %1, 4
   %..i.i = select i1 %9, i64 4, i64 8
   br label %21
 
@@ -33113,7 +33113,7 @@ define hidden void @"_ZN9hashbrown3raw5inner21RawTable$LT$T$C$A$GT$16with_capaci
 21:                                               ; preds = %10, %8
   %.sroa.4.0.i.ph.i = phi i64 [ %16, %10 ], [ %..i.i, %8 ]
   %22 = shl i64 %.sroa.4.0.i.ph.i, 3
-  %23 = icmp ugt i64 %.sroa.4.0.i.ph.i, 2305843009213693951
+  %23 = icmp samesign ugt i64 %.sroa.4.0.i.ph.i, 2305843009213693951
   %24 = icmp ugt i64 %22, -16
   %or.cond = or i1 %23, %24
   br i1 %or.cond, label %34, label %25
@@ -33146,7 +33146,7 @@ define hidden void @"_ZN9hashbrown3raw5inner21RawTable$LT$T$C$A$GT$16with_capaci
   br label %_ZN9hashbrown3raw5inner13RawTableInner17new_uninitialized17h4b33d6710a63a207E.exit.thread.i
 
 _ZN9hashbrown3raw5inner13RawTableInner17new_uninitialized17h4b33d6710a63a207E.exit.i: ; preds = %36
-  %42 = icmp ult i64 %.sroa.4.0.i.ph.i, 9
+  %42 = icmp samesign ult i64 %.sroa.4.0.i.ph.i, 9
   %43 = add nsw i64 %.sroa.4.0.i.ph.i, -1
   %44 = lshr i64 %.sroa.4.0.i.ph.i, 3
   %45 = mul nuw nsw i64 %44, 7

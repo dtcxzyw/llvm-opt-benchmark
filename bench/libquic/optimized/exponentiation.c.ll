@@ -1151,7 +1151,7 @@ cond.false67:                                     ; preds = %cond.false
 
 cond.end75:                                       ; preds = %cond.false67, %cond.false, %if.end63
   %cond76 = phi i32 [ 6, %if.end63 ], [ %cond72, %cond.false67 ], [ 5, %cond.false ]
-  %cmp77 = icmp ugt i32 %cond76, 4
+  %cmp77 = icmp samesign ugt i32 %cond76, 4
   %mul = shl i32 %0, 3
   %spec.select = select i1 %cmp77, i32 5, i32 %cond76
   %spec.select278 = select i1 %cmp77, i32 %mul, i32 0
@@ -1526,7 +1526,7 @@ while.body378:                                    ; preds = %if.end374, %while.b
   %sub387 = add nsw i32 %bits.4379, -5
   %82 = load ptr, ptr %tmp, align 8
   call void @bn_power5(ptr noundef %82, ptr noundef %82, ptr noundef nonnull %add.ptr, ptr noundef %add.ptr201, ptr noundef nonnull %n0176, i32 noundef %0, i32 noundef %and386) #7
-  %cmp376 = icmp ugt i32 %bits.4379, 4
+  %cmp376 = icmp samesign ugt i32 %bits.4379, 4
   br i1 %cmp376, label %while.body378, label %if.end391, !llvm.loop !28
 
 if.end391:                                        ; preds = %for.end330, %while.body378, %while.cond.preheader, %if.end374
@@ -2193,7 +2193,7 @@ if.end83:                                         ; preds = %if.end79
   br i1 %tobool86.not, label %err, label %if.end88
 
 if.end88:                                         ; preds = %if.end83
-  %cmp89 = icmp ugt i32 %cond50, 1
+  %cmp89 = icmp samesign ugt i32 %cond50, 1
   br i1 %cmp89, label %if.then90, label %if.end111
 
 if.then90:                                        ; preds = %if.end88

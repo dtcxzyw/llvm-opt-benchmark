@@ -3321,15 +3321,15 @@ define hidden void @_ZN14proc_macro_api3msg7Message4read17h80cae3182143323eE(ptr
   br i1 %85, label %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$11starts_with17hd1805197c97011fbE.exit.i", label %86
 
 86:                                               ; preds = %80
-  %87 = icmp ult i32 %.013.i.i.i, 2
+  %87 = icmp samesign ult i32 %.013.i.i.i, 2
   br i1 %87, label %_ZN5alloc6string6String3pop17h7d0b8e12802f1bb7E.exit.i, label %88
 
 88:                                               ; preds = %86
-  %89 = icmp ult i32 %.013.i.i.i, 32
+  %89 = icmp samesign ult i32 %.013.i.i.i, 32
   br i1 %89, label %_ZN5alloc6string6String3pop17h7d0b8e12802f1bb7E.exit.i, label %90
 
 90:                                               ; preds = %88
-  %91 = icmp ult i32 %.013.i.i.i, 1024
+  %91 = icmp samesign ult i32 %.013.i.i.i, 1024
   %..i.i = select i1 %91, i64 -3, i64 -4
   br label %_ZN5alloc6string6String3pop17h7d0b8e12802f1bb7E.exit.i
 

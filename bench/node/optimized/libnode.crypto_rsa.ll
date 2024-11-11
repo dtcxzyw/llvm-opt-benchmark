@@ -3273,7 +3273,7 @@ if.then94:                                        ; preds = %if.end5.i, %if.end,
   br label %return
 
 _ZNSt10unique_ptrI9bignum_stN4node15FunctionDeleterIS0_XadL_Z7BN_freeEEEEED2Ev.exit74: ; preds = %if.end.i682, %if.end5.i
-  %cmp.i719 = icmp ult i16 %27, 128
+  %cmp.i719 = icmp samesign ult i16 %27, 128
   %cond = select i1 %cmp.i719, i32 2, i32 1
   %call98 = tail call ptr @RSA_new() #19
   call void @_ZN4node6crypto10ByteSource17FromEncodedStringEPNS_11EnvironmentEN2v85LocalINS4_6StringEEENS_8encodingE(ptr nonnull sret(%"class.node::crypto::ByteSource") align 8 %n, ptr noundef nonnull %env, ptr nonnull %call22, i32 noundef 2) #19

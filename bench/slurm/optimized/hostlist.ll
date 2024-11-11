@@ -4666,7 +4666,7 @@ hostrange_count.exit:                             ; preds = %1
   %39 = getelementptr inbounds i32, ptr %35, i64 %indvars.iv.next.i
   store i32 %38, ptr %39, align 4
   %40 = sdiv i32 %.012.i, 36
-  %41 = icmp ugt i64 %indvars.iv.i, 1
+  %41 = icmp samesign ugt i64 %indvars.iv.i, 1
   br i1 %41, label %.lr.ph.i, label %hostlist_parse_int_to_array.exit, !llvm.loop !46
 
 hostlist_parse_int_to_array.exit:                 ; preds = %.lr.ph.i
@@ -4804,7 +4804,7 @@ hostrange_count.exit:                             ; preds = %6
   %41 = getelementptr inbounds i32, ptr %37, i64 %indvars.iv.next.i
   store i32 %40, ptr %41, align 4
   %42 = sdiv i32 %.012.i, 36
-  %43 = icmp ugt i64 %indvars.iv.i, 1
+  %43 = icmp samesign ugt i64 %indvars.iv.i, 1
   br i1 %43, label %.lr.ph.i, label %hostlist_parse_int_to_array.exit, !llvm.loop !46
 
 hostlist_parse_int_to_array.exit:                 ; preds = %.lr.ph.i
@@ -5017,7 +5017,7 @@ define internal fastcc noalias ptr @_hostrange_string(ptr nocapture noundef read
   %28 = getelementptr inbounds i32, ptr %22, i64 %indvars.iv.next.i
   store i32 %27, ptr %28, align 4
   %29 = sdiv i32 %.012.i, 36
-  %30 = icmp ugt i64 %indvars.iv.i, 1
+  %30 = icmp samesign ugt i64 %indvars.iv.i, 1
   br i1 %30, label %.lr.ph.i, label %hostlist_parse_int_to_array.exit.preheader, !llvm.loop !46
 
 hostlist_parse_int_to_array.exit.preheader:       ; preds = %.lr.ph.i
@@ -5732,7 +5732,7 @@ define internal fastcc range(i64 -1, 2147483648) i64 @hostrange_to_string(ptr no
   %51 = getelementptr inbounds i32, ptr %48, i64 %indvars.iv.next.i.us
   store i32 %50, ptr %51, align 4
   %52 = sdiv i32 %.012.i.us, 36
-  %53 = icmp ugt i64 %indvars.iv.i.us, 1
+  %53 = icmp samesign ugt i64 %indvars.iv.i.us, 1
   br i1 %53, label %.lr.ph.i.us, label %hostlist_parse_int_to_array.exit.us, !llvm.loop !46
 
 hostlist_parse_int_to_array.exit.us:              ; preds = %.lr.ph.i.us
@@ -5870,7 +5870,7 @@ define void @hostlist_parse_int_to_array(i32 noundef %0, ptr nocapture noundef w
   %11 = getelementptr inbounds i32, ptr %1, i64 %indvars.iv.next
   store i32 %10, ptr %11, align 4
   %12 = sdiv i32 %.012, %7
-  %13 = icmp ugt i64 %indvars.iv, 1
+  %13 = icmp samesign ugt i64 %indvars.iv, 1
   br i1 %13, label %.lr.ph, label %._crit_edge, !llvm.loop !46
 
 ._crit_edge:                                      ; preds = %.lr.ph, %4
@@ -5949,7 +5949,7 @@ define internal fastcc void @_set_grid(i64 noundef %0, i64 noundef %1, i32 nound
   %9 = getelementptr inbounds i32, ptr %5, i64 %indvars.iv.next.i
   store i32 %8, ptr %9, align 4
   %10 = sdiv i32 %.012.i, 36
-  %11 = icmp ugt i64 %indvars.iv.i, 1
+  %11 = icmp samesign ugt i64 %indvars.iv.i, 1
   br i1 %11, label %.lr.ph.i, label %hostlist_parse_int_to_array.exit, !llvm.loop !46
 
 hostlist_parse_int_to_array.exit:                 ; preds = %.lr.ph.i
@@ -5964,7 +5964,7 @@ hostlist_parse_int_to_array.exit:                 ; preds = %.lr.ph.i
   %14 = getelementptr inbounds i32, ptr %6, i64 %indvars.iv.next.i28
   store i32 %13, ptr %14, align 4
   %15 = sdiv i32 %.012.i27, 36
-  %16 = icmp ugt i64 %indvars.iv.i26, 1
+  %16 = icmp samesign ugt i64 %indvars.iv.i26, 1
   br i1 %16, label %.lr.ph.i25, label %hostlist_parse_int_to_array.exit29, !llvm.loop !46
 
 hostlist_parse_int_to_array.exit29:               ; preds = %.lr.ph.i25, %hostlist_parse_int_to_array.exit29
@@ -6285,7 +6285,7 @@ _iterator_advance.exit:                           ; preds = %10, %16, %29
   %74 = getelementptr inbounds i32, ptr %66, i64 %indvars.iv.next.i
   store i32 %73, ptr %74, align 4
   %75 = sdiv i32 %.012.i, 36
-  %76 = icmp ugt i64 %indvars.iv.i, 1
+  %76 = icmp samesign ugt i64 %indvars.iv.i, 1
   br i1 %76, label %.lr.ph.i, label %.lr.ph, !llvm.loop !46
 
 .lr.ph:                                           ; preds = %.lr.ph.i
@@ -8078,7 +8078,7 @@ define internal fastcc range(i64 -2147483648, 2147483648) i64 @hostrange_numstr(
   %23 = getelementptr inbounds i32, ptr %18, i64 %indvars.iv.next.i
   store i32 %22, ptr %23, align 4
   %24 = sdiv i32 %.012.i, 36
-  %25 = icmp ugt i64 %indvars.iv.i, 1
+  %25 = icmp samesign ugt i64 %indvars.iv.i, 1
   br i1 %25, label %.lr.ph.i, label %hostlist_parse_int_to_array.exit.preheader, !llvm.loop !46
 
 hostlist_parse_int_to_array.exit.preheader:       ; preds = %.lr.ph.i
@@ -8153,7 +8153,7 @@ hostlist_parse_int_to_array.exit:                 ; preds = %hostlist_parse_int_
   %60 = getelementptr inbounds i32, ptr %56, i64 %indvars.iv.next.i75
   store i32 %59, ptr %60, align 4
   %61 = sdiv i32 %.012.i74, 36
-  %62 = icmp ugt i64 %indvars.iv.i73, 1
+  %62 = icmp samesign ugt i64 %indvars.iv.i73, 1
   br i1 %62, label %.lr.ph.i72, label %hostlist_parse_int_to_array.exit76, !llvm.loop !46
 
 hostlist_parse_int_to_array.exit76:               ; preds = %.lr.ph.i72

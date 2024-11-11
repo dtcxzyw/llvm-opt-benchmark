@@ -21886,7 +21886,7 @@ if.end67:                                         ; preds = %for.cond.cleanup
   %cmp69 = icmp ugt i8 %result_width.1, 18
   %cmp71 = icmp ult i8 %max_width.2, 19
   %or.cond = select i1 %cmp69, i1 %cmp71, i1 false
-  %cmp74 = icmp ult i8 %result_scale.1, 18
+  %cmp74 = icmp samesign ult i8 %result_scale.1, 18
   %or.cond181 = and i1 %cmp74, %or.cond
   br i1 %or.cond181, label %if.then75, label %if.end79
 
@@ -82510,7 +82510,7 @@ while.end.i.i.thread:                             ; preds = %invoke.cont.i
   br label %if.else.i.i
 
 while.end.i.i:                                    ; preds = %invoke.cont.i
-  %cmp9.i.i = icmp ugt i8 %value, 9
+  %cmp9.i.i = icmp samesign ugt i8 %value, 9
   br i1 %cmp9.i.i, label %if.then.i.i, label %if.else.i.i
 
 if.then.i.i:                                      ; preds = %while.end.i.i

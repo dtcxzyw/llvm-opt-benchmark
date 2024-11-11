@@ -3091,7 +3091,7 @@ if.then1:                                         ; preds = %if.end
   br i1 %cmp3, label %if.then4, label %return
 
 if.then4:                                         ; preds = %if.then1
-  %cmp.i = icmp ugt i32 %call2, -901
+  %cmp.i = icmp samesign ugt i32 %call2, -901
   br i1 %cmp.i, label %if.else, label %if.end8
 
 if.else:                                          ; preds = %if.then4
@@ -4154,7 +4154,7 @@ if.else169:                                       ; preds = %do.end166
   br i1 %cmp171, label %if.then173, label %if.end180
 
 if.then173:                                       ; preds = %if.else169
-  %cmp.i138 = icmp ugt i32 %call170, -901
+  %cmp.i138 = icmp samesign ugt i32 %call170, -901
   br i1 %cmp.i138, label %if.else177, label %if.end178
 
 if.else177:                                       ; preds = %if.then173
@@ -4296,7 +4296,7 @@ if.end222:                                        ; preds = %if.end200, %if.end2
   br i1 %cmp226, label %if.then228, label %if.end235
 
 if.then228:                                       ; preds = %if.end222
-  %cmp.i162 = icmp ugt i32 %call225, -901
+  %cmp.i162 = icmp samesign ugt i32 %call225, -901
   br i1 %cmp.i162, label %if.else232, label %if.end233
 
 if.else232:                                       ; preds = %if.then228
@@ -5205,7 +5205,7 @@ if.end49:                                         ; preds = %if.end42
   %49 = getelementptr i8, ptr %session, i64 2864
   %session.val49 = load i32, ptr %49, align 8
   %conv.i77 = zext i32 %session.val49 to i64
-  %cmp.i78.not = icmp ult i64 %session.val, %conv.i77
+  %cmp.i78.not = icmp samesign ult i64 %session.val, %conv.i77
   br i1 %cmp.i78.not, label %if.end54, label %if.then52
 
 if.then52:                                        ; preds = %if.end49
@@ -5552,7 +5552,7 @@ if.end15:                                         ; preds = %if.end11
   %28 = getelementptr i8, ptr %session, i64 2864
   %session.val23 = load i32, ptr %28, align 8
   %conv.i32 = zext i32 %session.val23 to i64
-  %cmp.i33.not = icmp ult i64 %session.val, %conv.i32
+  %cmp.i33.not = icmp samesign ult i64 %session.val, %conv.i32
   br i1 %cmp.i33.not, label %if.end20, label %if.then18
 
 if.then18:                                        ; preds = %if.end15
@@ -6828,7 +6828,7 @@ if.then181:                                       ; preds = %land.lhs.true178
   br i1 %cmp183.not, label %if.end192, label %if.then185
 
 if.then185:                                       ; preds = %if.then181
-  %cmp.i165 = icmp ugt i32 %call182, -901
+  %cmp.i165 = icmp samesign ugt i32 %call182, -901
   br i1 %cmp.i165, label %if.end189, label %return
 
 if.end189:                                        ; preds = %if.then185
@@ -9649,7 +9649,7 @@ if.then334:                                       ; preds = %if.then.i806
   br label %sw.default514.sink.split
 
 if.end336:                                        ; preds = %do.end314
-  %cmp338 = icmp ult i64 %21, 4
+  %cmp338 = icmp samesign ult i64 %21, 4
   br i1 %cmp338, label %if.then340, label %if.end342
 
 if.then340:                                       ; preds = %if.end336
@@ -9685,7 +9685,7 @@ if.end357:                                        ; preds = %do.end346
 
 do.end361:                                        ; preds = %if.end107
   store i8 0, ptr %flags1247, align 1
-  %cmp365 = icmp ult i64 %21, 8
+  %cmp365 = icmp samesign ult i64 %21, 8
   br i1 %cmp365, label %if.then367, label %if.end369
 
 if.then367:                                       ; preds = %do.end361
@@ -9758,7 +9758,7 @@ if.then409:                                       ; preds = %do.end404
   br label %sw.epilog1524
 
 if.end411:                                        ; preds = %do.end404
-  %cmp413 = icmp ult i64 %21, 2
+  %cmp413 = icmp samesign ult i64 %21, 2
   br i1 %cmp413, label %if.then415, label %if.end417
 
 if.then415:                                       ; preds = %if.end411
@@ -9844,7 +9844,7 @@ if.then481:                                       ; preds = %do.end473
   br label %return
 
 if.end488:                                        ; preds = %do.end473
-  %cmp490 = icmp ult i64 %21, 4
+  %cmp490 = icmp samesign ult i64 %21, 4
   br i1 %cmp490, label %if.then492, label %if.end494
 
 if.then492:                                       ; preds = %if.end488
@@ -9859,8 +9859,8 @@ if.end494:                                        ; preds = %if.end488
 session_no_rfc7540_pri_no_fallback.exit:          ; preds = %if.end494
   %95 = load i8, ptr %fallback_rfc7540_priorities.i879, align 1
   %tobool.not.i834 = icmp ne i8 %95, 0
-  %cmp499 = icmp ugt i64 %21, 32
-  %or.cond1343 = or i1 %cmp499, %tobool.not.i834
+  %cmp499 = icmp samesign ugt i64 %21, 32
+  %or.cond1343 = select i1 %tobool.not.i834, i1 true, i1 %cmp499
   br i1 %or.cond1343, label %if.then501, label %if.end503
 
 if.then501:                                       ; preds = %if.end494, %session_no_rfc7540_pri_no_fallback.exit
@@ -12579,7 +12579,7 @@ while.body:                                       ; preds = %if.end, %entry
   br i1 %cmp.i, label %if.then.i, label %if.else.i
 
 if.then.i:                                        ; preds = %while.body
-  %cmp1.i = icmp ugt i64 %call.i, 16384
+  %cmp1.i = icmp samesign ugt i64 %call.i, 16384
   br i1 %cmp1.i, label %if.then22, label %if.then
 
 if.else.i:                                        ; preds = %while.body

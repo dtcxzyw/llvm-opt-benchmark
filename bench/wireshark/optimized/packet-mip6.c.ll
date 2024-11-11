@@ -1848,7 +1848,7 @@ dissect_mip6_hoti.exit.thread:                    ; preds = %dissect_mip6_hoti.e
   %316 = call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %315) #5
   %317 = zext i8 %316 to i32
   %318 = add nsw i32 %.059.i.i, -2
-  %319 = icmp ult i32 %318, %317
+  %319 = icmp samesign ult i32 %318, %317
   br i1 %319, label %320, label %324
 
 320:                                              ; preds = %314

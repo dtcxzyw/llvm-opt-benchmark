@@ -210,7 +210,7 @@ land.lhs.true:                                    ; preds = %if.then20
   br i1 %cmp26.not, label %if.end39, label %for.cond.backedge
 
 for.cond.backedge:                                ; preds = %land.lhs.true, %if.else, %if.then45, %if.end56
-  %cmp2 = icmp ugt i32 %dec128.in, 1
+  %cmp2 = icmp samesign ugt i32 %dec128.in, 1
   br i1 %cmp2, label %for.body, label %if.end141, !llvm.loop !4
 
 if.else:                                          ; preds = %OSSL_ENCODER_INSTANCE_get_output_structure.exit

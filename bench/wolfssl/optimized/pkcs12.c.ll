@@ -66,7 +66,7 @@ for.inc.i:                                        ; preds = %if.then3, %for.inc.
   store ptr %3, ptr %0, align 8
   tail call void @wolfSSL_Free(ptr noundef nonnull %2) #9
   %dec.i = add nsw i32 %i.02.i, -1
-  %cmp1.i = icmp ugt i32 %i.02.i, 1
+  %cmp1.i = icmp samesign ugt i32 %i.02.i, 1
   br i1 %cmp1.i, label %for.inc.i, label %for.end.i, !llvm.loop !4
 
 for.end.i:                                        ; preds = %for.inc.i, %if.then3
@@ -141,7 +141,7 @@ for.inc:                                          ; preds = %entry, %for.inc
   store ptr %2, ptr %safe, align 8
   tail call void @wolfSSL_Free(ptr noundef nonnull %1) #9
   %dec = add nsw i32 %i.02, -1
-  %cmp1 = icmp ugt i32 %i.02, 1
+  %cmp1 = icmp samesign ugt i32 %i.02, 1
   br i1 %cmp1, label %for.inc, label %for.end, !llvm.loop !4
 
 for.end:                                          ; preds = %for.inc, %entry
@@ -318,7 +318,7 @@ for.inc.i:                                        ; preds = %do.end, %for.inc.i
   store ptr %3, ptr %call, align 8
   call void @wolfSSL_Free(ptr noundef nonnull %2) #9
   %dec.i = add nsw i32 %i.02.i, -1
-  %cmp1.i = icmp ugt i32 %i.02.i, 1
+  %cmp1.i = icmp samesign ugt i32 %i.02.i, 1
   br i1 %cmp1.i, label %for.inc.i, label %for.end.i, !llvm.loop !4
 
 for.end.i:                                        ; preds = %for.inc.i, %do.end
@@ -357,7 +357,7 @@ for.inc.i70:                                      ; preds = %if.then9, %for.inc.
   store ptr %8, ptr %call, align 8
   call void @wolfSSL_Free(ptr noundef nonnull %7) #9
   %dec.i73 = add nsw i32 %i.02.i71, -1
-  %cmp1.i74 = icmp ugt i32 %i.02.i71, 1
+  %cmp1.i74 = icmp samesign ugt i32 %i.02.i71, 1
   br i1 %cmp1.i74, label %for.inc.i70, label %for.end.i66, !llvm.loop !4
 
 for.end.i66:                                      ; preds = %for.inc.i70, %if.then9
@@ -393,7 +393,7 @@ for.inc.i82:                                      ; preds = %do.end16, %for.inc.
   store ptr %13, ptr %call, align 8
   call void @wolfSSL_Free(ptr noundef nonnull %12) #9
   %dec.i85 = add nsw i32 %i.02.i83, -1
-  %cmp1.i86 = icmp ugt i32 %i.02.i83, 1
+  %cmp1.i86 = icmp samesign ugt i32 %i.02.i83, 1
   br i1 %cmp1.i86, label %for.inc.i82, label %for.end.i78, !llvm.loop !4
 
 for.end.i78:                                      ; preds = %for.inc.i82, %do.end16
@@ -429,7 +429,7 @@ for.inc.i94:                                      ; preds = %if.then22, %for.inc
   store ptr %17, ptr %call, align 8
   call void @wolfSSL_Free(ptr noundef nonnull %16) #9
   %dec.i97 = add nsw i32 %i.02.i95, -1
-  %cmp1.i98 = icmp ugt i32 %i.02.i95, 1
+  %cmp1.i98 = icmp samesign ugt i32 %i.02.i95, 1
   br i1 %cmp1.i98, label %for.inc.i94, label %for.end.i90, !llvm.loop !4
 
 for.end.i90:                                      ; preds = %for.inc.i94, %if.then22

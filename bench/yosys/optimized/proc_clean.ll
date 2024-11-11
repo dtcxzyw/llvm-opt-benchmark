@@ -345,7 +345,7 @@ _ZNSt4pairIN5Yosys5RTLIL7SigSpecES2_EaSEOS3_.exit: ; preds = %_ZNSt6vectorIN5Yos
   %114 = getelementptr inbounds i8, ptr %.0910.i.i.i.i.i.i.i, i64 128
   %115 = getelementptr inbounds i8, ptr %.0811.i.i.i.i.i.i.i, i64 128
   %116 = add nsw i64 %.012.i.i.i.i.i.i.i, -1
-  %117 = icmp ugt i64 %.012.i.i.i.i.i.i.i, 1
+  %117 = icmp samesign ugt i64 %.012.i.i.i.i.i.i.i, 1
   br i1 %117, label %.lr.ph.i.i.i.i.i.i.i, label %_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPSt4pairIN5Yosys5RTLIL7SigSpecES5_ESt6vectorIS6_SaIS6_EEEESB_ET0_T_SD_SC_.exit.loopexit.i.i, !llvm.loop !9
 
 _ZSt4moveIN9__gnu_cxx17__normal_iteratorIPSt4pairIN5Yosys5RTLIL7SigSpecES5_ESt6vectorIS6_SaIS6_EEEESB_ET0_T_SD_SC_.exit.loopexit.i.i: ; preds = %_ZNSt4pairIN5Yosys5RTLIL7SigSpecES2_EaSEOS3_.exit
@@ -2509,7 +2509,7 @@ _ZNSt4pairIN5Yosys5RTLIL7SigSpecES2_EaSEOS3_.exit.i: ; preds = %170, %_ZNSt6vect
   %171 = getelementptr inbounds i8, ptr %.0910.i.i.i.i.i.i.i.i, i64 128
   %172 = getelementptr inbounds i8, ptr %.0811.i.i.i.i.i.i.i.i, i64 128
   %173 = add nsw i64 %.012.i.i.i.i.i.i.i.i, -1
-  %174 = icmp ugt i64 %.012.i.i.i.i.i.i.i.i, 1
+  %174 = icmp samesign ugt i64 %.012.i.i.i.i.i.i.i.i, 1
   br i1 %174, label %.lr.ph.i.i.i.i.i.i.i.i, label %_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPSt4pairIN5Yosys5RTLIL7SigSpecES5_ESt6vectorIS6_SaIS6_EEEESB_ET0_T_SD_SC_.exit.loopexit.i.i.i, !llvm.loop !9
 
 _ZSt4moveIN9__gnu_cxx17__normal_iteratorIPSt4pairIN5Yosys5RTLIL7SigSpecES5_ESt6vectorIS6_SaIS6_EEEESB_ET0_T_SD_SC_.exit.loopexit.i.i.i: ; preds = %_ZNSt4pairIN5Yosys5RTLIL7SigSpecES2_EaSEOS3_.exit.i

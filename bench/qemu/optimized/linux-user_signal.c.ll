@@ -90,7 +90,7 @@ entry:
   br i1 %cmp, label %return, label %if.end
 
 if.end:                                           ; preds = %entry
-  %cmp1 = icmp ugt i32 %sig, 64
+  %cmp1 = icmp samesign ugt i32 %sig, 64
   br i1 %cmp1, label %return, label %if.end3
 
 if.end3:                                          ; preds = %if.end
@@ -112,7 +112,7 @@ entry:
   br i1 %cmp, label %return, label %if.end
 
 if.end:                                           ; preds = %entry
-  %cmp1 = icmp ugt i32 %sig, 64
+  %cmp1 = icmp samesign ugt i32 %sig, 64
   br i1 %cmp1, label %return, label %if.end3
 
 if.end3:                                          ; preds = %if.end
@@ -775,7 +775,7 @@ entry:
   br i1 %cmp.i.i, label %host_to_target_signal.exit.i, label %if.end.i.i
 
 if.end.i.i:                                       ; preds = %entry
-  %cmp1.i.i = icmp ugt i32 %0, 64
+  %cmp1.i.i = icmp samesign ugt i32 %0, 64
   br i1 %cmp1.i.i, label %host_to_target_signal.exit.i, label %if.end3.i.i
 
 if.end3.i.i:                                      ; preds = %if.end.i.i
@@ -1323,7 +1323,7 @@ if.end:                                           ; preds = %if.then, %entry
   br i1 %cmp.i36, label %host_to_target_signal.exit, label %if.end.i37
 
 if.end.i37:                                       ; preds = %if.end
-  %cmp1.i = icmp ugt i32 %host_sig, 64
+  %cmp1.i = icmp samesign ugt i32 %host_sig, 64
   br i1 %cmp1.i, label %return, label %if.end3.i
 
 if.end3.i:                                        ; preds = %if.end.i37.thread, %if.end.i37
@@ -1381,7 +1381,7 @@ trace_user_host_signal.exit:                      ; preds = %if.end7, %land.lhs.
   br i1 %cmp.i.i39, label %host_to_target_signal.exit.i, label %if.end.i.i
 
 if.end.i.i:                                       ; preds = %trace_user_host_signal.exit
-  %cmp1.i.i = icmp ugt i32 %38, 64
+  %cmp1.i.i = icmp samesign ugt i32 %38, 64
   br i1 %cmp1.i.i, label %host_to_target_signal.exit.i, label %if.end3.i.i
 
 if.end3.i.i:                                      ; preds = %if.end.i.i
@@ -2361,7 +2361,7 @@ if.then43:                                        ; preds = %target_to_host_sigs
   br i1 %cmp.i40, label %target_to_host_signal.exit, label %if.end.i
 
 if.end.i:                                         ; preds = %if.then43
-  %cmp1.i = icmp ugt i32 %call1, 64
+  %cmp1.i = icmp samesign ugt i32 %call1, 64
   br i1 %cmp1.i, label %target_to_host_signal.exit, label %if.end3.i
 
 if.end3.i:                                        ; preds = %if.end.i
@@ -2693,7 +2693,7 @@ if.else:                                          ; preds = %entry
   br i1 %cmp.i, label %target_to_host_signal.exit, label %if.end.i
 
 if.end.i:                                         ; preds = %if.else
-  %cmp1.i = icmp ugt i32 %target_sig, 64
+  %cmp1.i = icmp samesign ugt i32 %target_sig, 64
   br i1 %cmp1.i, label %target_to_host_signal.exit, label %if.end3.i
 
 if.end3.i:                                        ; preds = %if.end.i

@@ -18,7 +18,7 @@ define void @sswap_(ptr nocapture noundef readonly %0, ptr nocapture noundef %1,
   br i1 %or.cond, label %.preheader77, label %.lr.ph.preheader
 
 .preheader77:                                     ; preds = %10
-  %13 = icmp ugt i32 %6, 3
+  %13 = icmp samesign ugt i32 %6, 3
   br i1 %13, label %.lr.ph83.preheader, label %.preheader
 
 .lr.ph83.preheader:                               ; preds = %.preheader77

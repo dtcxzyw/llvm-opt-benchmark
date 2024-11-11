@@ -1850,7 +1850,7 @@ define noundef range(i32 -2, 3) i32 @_ZNK10open_spiel4skat5Trick16PlayerAtPositi
 16:                                               ; preds = %2
   store i32 %1, ptr %7, align 4
   store i32 2, ptr %8, align 4
-  %17 = icmp ult i32 %1, 3
+  %17 = icmp samesign ult i32 %1, 3
   br i1 %17, label %22, label %18
 
 18:                                               ; preds = %16

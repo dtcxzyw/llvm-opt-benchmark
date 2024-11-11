@@ -28193,7 +28193,7 @@ define internal fastcc void @_ZN17cranelift_codegen3isa3x643pcc10check_load17h6d
   br i1 %13, label %.split3, label %14
 
 14:                                               ; preds = %12
-  %15 = icmp ult i16 %6, 128
+  %15 = icmp samesign ult i16 %6, 128
   %16 = and i16 %6, 15
   %17 = or disjoint i16 %16, 112
   %.0.i.i.i = select i1 %15, i16 %6, i16 %17
@@ -37508,7 +37508,7 @@ define { i64, i64 } @"_ZN17cranelift_codegen3isa3x645lower4isle255_$LT$impl$u20$
   br i1 %4, label %_ZN17cranelift_codegen2ir5types4Type5bytes17h2a049200537afc31E.exit7, label %5
 
 5:                                                ; preds = %3
-  %6 = icmp ult i16 %1, 128
+  %6 = icmp samesign ult i16 %1, 128
   %7 = and i16 %1, 15
   %8 = or disjoint i16 %7, 112
   %.0.i.i.i.i = select i1 %6, i16 %1, i16 %8
@@ -37766,7 +37766,7 @@ define { i16, i16 } @"_ZN17cranelift_codegen3isa3x645lower4isle255_$LT$impl$u20$
   br i1 %3, label %4, label %_ZN17cranelift_codegen2ir5types4Type4bits17h6ac7b92b6381a3ecE.exit.thread
 
 4:                                                ; preds = %2
-  %5 = icmp ult i16 %1, 128
+  %5 = icmp samesign ult i16 %1, 128
   %6 = and i16 %1, 15
   %7 = or disjoint i16 %6, 112
   %.0.i.i.i = select i1 %5, i16 %1, i16 %7

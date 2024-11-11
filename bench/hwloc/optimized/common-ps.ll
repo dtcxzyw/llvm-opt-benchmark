@@ -273,7 +273,7 @@ define hidden range(i32 -1, 1) i32 @hwloc_ps_read_process(ptr noundef %0, ptr no
   br label %139
 
 134:                                              ; preds = %125
-  %135 = icmp ult i64 %128, 16
+  %135 = icmp samesign ult i64 %128, 16
   br i1 %135, label %136, label %139
 
 136:                                              ; preds = %134

@@ -17207,7 +17207,7 @@ _ZN4llvm9StringRef14consumeIntegerIjEEbjRT_.exit.thread: ; preds = %1064, %1054
 
 _ZN4llvm9StringRef14consumeIntegerIjEEbjRT_.exit: ; preds = %1064
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %241)
-  %1066 = icmp ult i64 %1065, 7
+  %1066 = icmp samesign ult i64 %1065, 7
   br i1 %1066, label %1067, label %_ZN5clang17DiagnosticBuilderD2Ev.exit2374
 
 1067:                                             ; preds = %_ZN4llvm9StringRef14consumeIntegerIjEEbjRT_.exit.thread, %_ZN4llvm9StringRef14consumeIntegerIjEEbjRT_.exit
@@ -20220,7 +20220,7 @@ _ZNK4llvm9StringRef12getAsIntegerIjEEbjRT_.exit.thread: ; preds = %2316, %_ZN4ll
 _ZNK4llvm9StringRef12getAsIntegerIjEEbjRT_.exit:  ; preds = %2316
   %2318 = trunc nuw i64 %2317 to i32
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %232)
-  %2319 = icmp ugt i64 %2317, 65536
+  %2319 = icmp samesign ugt i64 %2317, 65536
   br i1 %2319, label %2320, label %2382
 
 2320:                                             ; preds = %_ZNK4llvm9StringRef12getAsIntegerIjEEbjRT_.exit.thread, %_ZNK4llvm9StringRef12getAsIntegerIjEEbjRT_.exit
@@ -32477,7 +32477,7 @@ _ZN5clang19StreamingDiagnostic20DiagStorageAllocator10DeallocateEPNS_17Diagnosti
   br label %_ZN5clang17DiagnosticBuilderD2Ev.exit4006
 
 7688:                                             ; preds = %7629
-  %7689 = icmp ult i64 %7618, %7628
+  %7689 = icmp samesign ult i64 %7618, %7628
   br i1 %7689, label %7690, label %_ZN4llvmplERKNS_5TwineES2_.exit4038
 
 7690:                                             ; preds = %7688
@@ -50936,7 +50936,7 @@ _ZNK4llvm9StringRef11starts_withES0_.exit487.thread: ; preds = %_ZNK4llvm9String
   br label %_ZN4llvmeqENS_9StringRefES0_.exit.thread
 
 _ZNK4llvm9StringRef11starts_withES0_.exit487.thread1010: ; preds = %_ZNK4llvm9StringRef11starts_withES0_.exit480.thread1004
-  %.not.i488 = icmp ult i64 %.sroa.23.0.copyload, 5
+  %.not.i488 = icmp samesign ult i64 %.sroa.23.0.copyload, 5
   br i1 %.not.i488, label %_ZNK4llvm9StringRef11starts_withES0_.exit499.thread1014, label %_ZNK4llvm9StringRef11starts_withES0_.exit490
 
 _ZNK4llvm9StringRef11starts_withES0_.exit490:     ; preds = %_ZNK4llvm9StringRef11starts_withES0_.exit487, %_ZNK4llvm9StringRef11starts_withES0_.exit480.thread1287, %_ZNK4llvm9StringRef11starts_withES0_.exit487.thread1010
@@ -64540,7 +64540,7 @@ _ZNK4llvm9StringRef12getAsIntegerIjEEbjRT_.exit.thread: ; preds = %20, %_ZN4llvm
 
 22:                                               ; preds = %20
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3)
-  %23 = icmp ugt i64 %21, 1
+  %23 = icmp samesign ugt i64 %21, 1
   br label %_ZN4llvmeqENS_9StringRefES0_.exit.thread
 
 _ZN4llvmeqENS_9StringRefES0_.exit.thread:         ; preds = %_ZNK4llvm9StringRef12getAsIntegerIjEEbjRT_.exit.thread, %2, %_ZN4llvmeqENS_9StringRefES0_.exit14, %_ZN4llvmeqENS_9StringRefES0_.exit, %9, %5, %7, %22

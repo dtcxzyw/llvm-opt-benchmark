@@ -1003,7 +1003,7 @@ _ZNK2cv3Mat8elemSizeEv.exit:                      ; preds = %295, %301
 
 397:                                              ; preds = %.lr.ph242.i
   store i8 %367, ptr %394, align 1
-  %398 = icmp ugt i64 %indvars.iv293.i, 1
+  %398 = icmp samesign ugt i64 %indvars.iv293.i, 1
   br i1 %398, label %.lr.ph242.i, label %.critedge2.i, !llvm.loop !15
 
 .critedge2.loopexit.split.loop.exit316.i:         ; preds = %.lr.ph242.i
@@ -1212,7 +1212,7 @@ _ZNSt6vectorIN2cv12FFillSegmentESaIS1_EE6resizeEm.exit.i: ; preds = %426, %424, 
 
 502:                                              ; preds = %.lr.ph247.i
   store i8 %367, ptr %499, align 1
-  %503 = icmp ugt i64 %indvars.iv296.i, 1
+  %503 = icmp samesign ugt i64 %indvars.iv296.i, 1
   br i1 %503, label %.lr.ph247.i, label %.critedge4.i, !llvm.loop !17
 
 .critedge4.loopexit.split.loop.exit318.i:         ; preds = %.lr.ph247.i
@@ -2012,7 +2012,7 @@ _ZN2cvL14floodFill_CnIRINS_3VecIhLi3EEEEEvRNS_3MatENS_6Point_IiEET_PNS_13Connect
 
 824:                                              ; preds = %.lr.ph242.i412
   store i32 %793, ptr %821, align 4
-  %825 = icmp ugt i64 %indvars.iv293.i413, 1
+  %825 = icmp samesign ugt i64 %indvars.iv293.i413, 1
   br i1 %825, label %.lr.ph242.i412, label %.critedge2.i327, !llvm.loop !30
 
 .critedge2.loopexit.split.loop.exit316.i415:      ; preds = %.lr.ph242.i412
@@ -2221,7 +2221,7 @@ _ZNSt6vectorIN2cv12FFillSegmentESaIS1_EE6resizeEm.exit.i405: ; preds = %853, %85
 
 929:                                              ; preds = %.lr.ph247.i401
   store i32 %793, ptr %926, align 4
-  %930 = icmp ugt i64 %indvars.iv296.i402, 1
+  %930 = icmp samesign ugt i64 %indvars.iv296.i402, 1
   br i1 %930, label %.lr.ph247.i401, label %.critedge4.i371, !llvm.loop !32
 
 .critedge4.loopexit.split.loop.exit318.i404:      ; preds = %.lr.ph247.i401
@@ -2501,7 +2501,7 @@ _ZN2cvL14floodFill_CnIRIiEEvRNS_3MatENS_6Point_IiEET_PNS_13ConnectedCompEiPSt6ve
 
 1041:                                             ; preds = %.lr.ph242.i518
   store float %1010, ptr %1038, align 4
-  %1042 = icmp ugt i64 %indvars.iv293.i519, 1
+  %1042 = icmp samesign ugt i64 %indvars.iv293.i519, 1
   br i1 %1042, label %.lr.ph242.i518, label %.critedge2.i433, !llvm.loop !37
 
 .critedge2.loopexit.split.loop.exit316.i521:      ; preds = %.lr.ph242.i518
@@ -2710,7 +2710,7 @@ _ZNSt6vectorIN2cv12FFillSegmentESaIS1_EE6resizeEm.exit.i511: ; preds = %1070, %1
 
 1146:                                             ; preds = %.lr.ph247.i507
   store float %1010, ptr %1143, align 4
-  %1147 = icmp ugt i64 %indvars.iv296.i508, 1
+  %1147 = icmp samesign ugt i64 %indvars.iv296.i508, 1
   br i1 %1147, label %.lr.ph247.i507, label %.critedge4.i477, !llvm.loop !39
 
 .critedge4.loopexit.split.loop.exit318.i510:      ; preds = %.lr.ph247.i507

@@ -944,7 +944,7 @@ define hidden void @_ZN8rawspeed16ColorFilterArray9shiftDownEi(ptr noundef nonnu
 43:                                               ; preds = %40
   %44 = zext nneg i32 %11 to i64
   %45 = and i64 %39, 3
-  %46 = icmp ult i32 %16, 4
+  %46 = icmp samesign ult i32 %16, 4
   %47 = and i64 %39, 2147483644
   %48 = icmp eq i64 %45, 0
   br i1 %46, label %.split.us, label %.preheader8
@@ -1416,7 +1416,7 @@ define hidden void @_ZNK8rawspeed16ColorFilterArray8asStringB5cxx11Ev(ptr dead_o
   br i1 %128, label %159, label %161
 
 159:                                              ; preds = %156
-  %160 = icmp ult i64 %120, 16
+  %160 = icmp samesign ult i64 %120, 16
   call void @llvm.assume(i1 %160)
   br label %162
 

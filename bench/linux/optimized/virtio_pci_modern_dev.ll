@@ -108,7 +108,7 @@ define dso_local i32 @vp_modern_probe(ptr noundef %0) #0 align 16 {
   br i1 %24, label %260, label %25
 
 25:                                               ; preds = %19
-  %26 = icmp ult i16 %21, 4160
+  %26 = icmp samesign ult i16 %21, 4160
   br i1 %26, label %27, label %31
 
 27:                                               ; preds = %25

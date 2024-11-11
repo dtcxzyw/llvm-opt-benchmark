@@ -2441,7 +2441,7 @@ define linkonce_odr noundef nonnull align 8 dereferenceable(16) ptr @_ZN4llvm15S
   %15 = getelementptr inbounds i8, ptr %.0910.i.i.i.i.i, i64 64
   %16 = getelementptr inbounds i8, ptr %.0811.i.i.i.i.i, i64 64
   %17 = add nsw i64 %.012.i.i.i.i.i, -1
-  %18 = icmp ugt i64 %.012.i.i.i.i.i, 1
+  %18 = icmp samesign ugt i64 %.012.i.i.i.i.i, 1
   br i1 %18, label %.lr.ph.i.i.i.i.i, label %_ZSt4copyIPKSt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES6_EPS7_ET0_T_SC_SB_.exit.loopexit, !llvm.loop !16
 
 _ZSt4copyIPKSt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES6_EPS7_ET0_T_SC_SB_.exit.loopexit: ; preds = %.lr.ph.i.i.i.i.i
@@ -2519,7 +2519,7 @@ _ZN4llvm15SmallVectorImplISt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcES
   %43 = getelementptr inbounds i8, ptr %.0910.i.i.i.i.i34, i64 64
   %44 = getelementptr inbounds i8, ptr %.0811.i.i.i.i.i33, i64 64
   %45 = add nsw i64 %.012.i.i.i.i.i32, -1
-  %46 = icmp ugt i64 %.012.i.i.i.i.i32, 1
+  %46 = icmp samesign ugt i64 %.012.i.i.i.i.i32, 1
   br i1 %46, label %.lr.ph.i.i.i.i.i31, label %_ZSt4copyIPKSt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES6_EPS7_ET0_T_SC_SB_.exit35, !llvm.loop !16
 
 _ZSt4copyIPKSt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES6_EPS7_ET0_T_SC_SB_.exit35: ; preds = %.lr.ph.i.i.i.i.i31, %35, %34, %_ZN4llvm15SmallVectorImplISt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES7_EE5clearEv.exit

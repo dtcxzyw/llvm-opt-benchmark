@@ -1385,7 +1385,7 @@ sub_1152:                                         ; preds = %sub_0151
   %75 = select i1 %17, ptr @.str.37, ptr %6
   %76 = tail call i32 (ptr, ptr, ...) @pg_sprintf(ptr noundef nonnull %24, ptr noundef nonnull @.str.36, ptr noundef nonnull %75, ptr noundef %1) #11
   %77 = add nsw i32 %2, -1
-  %or.cond7 = icmp ult i32 %77, 2
+  %or.cond7 = icmp samesign ult i32 %77, 2
   %.pre171 = load i8, ptr %3, align 1
   br i1 %or.cond7, label %sub_0155, label %sub_0159
 

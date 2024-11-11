@@ -4194,7 +4194,7 @@ PyUnicode_READ.exit.i:                            ; preds = %if.end6.i.i, %if.th
 
 if.then.i427:                                     ; preds = %PyUnicode_READ.exit.i
   %inc.i = add nuw nsw i64 %idx, 1
-  %cmp3.i.not = icmp ult i64 %idx, %sub.i
+  %cmp3.i.not = icmp samesign ult i64 %idx, %sub.i
   br i1 %cmp3.i.not, label %if.end5.i, label %if.then4.i
 
 if.then4.i:                                       ; preds = %if.then.i427

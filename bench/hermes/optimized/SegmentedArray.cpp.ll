@@ -798,7 +798,7 @@ if.then:                                          ; preds = %entry
   br label %return
 
 if.end:                                           ; preds = %entry
-  %cmp.i.i = icmp ult i32 %capacity, 4097
+  %cmp.i.i = icmp samesign ult i32 %capacity, 4097
   %sub.i.i = add nsw i32 %capacity, -4096
   %conv.i.i4 = zext i32 %sub.i.i to i64
   %sub.i.i.i = add nuw nsw i64 %conv.i.i4, 1023
@@ -969,7 +969,7 @@ if.then:                                          ; preds = %entry
   br label %return
 
 if.end:                                           ; preds = %entry
-  %cmp.i.i = icmp ult i32 %capacity, 4097
+  %cmp.i.i = icmp samesign ult i32 %capacity, 4097
   %sub.i.i = add nsw i32 %capacity, -4096
   %conv.i.i4 = zext i32 %sub.i.i to i64
   %sub.i.i.i = add nuw nsw i64 %conv.i.i4, 1023
@@ -3699,7 +3699,7 @@ if.then:                                          ; preds = %entry
   br label %return
 
 if.end:                                           ; preds = %entry
-  %cmp.i.i = icmp ult i32 %capacity, 4097
+  %cmp.i.i = icmp samesign ult i32 %capacity, 4097
   %sub.i.i = add nsw i32 %capacity, -4096
   %conv.i.i4 = zext i32 %sub.i.i to i64
   %sub.i.i.i = add nuw nsw i64 %conv.i.i4, 1023
@@ -3870,7 +3870,7 @@ if.then:                                          ; preds = %entry
   br label %return
 
 if.end:                                           ; preds = %entry
-  %cmp.i.i = icmp ult i32 %capacity, 4097
+  %cmp.i.i = icmp samesign ult i32 %capacity, 4097
   %sub.i.i = add nsw i32 %capacity, -4096
   %conv.i.i4 = zext i32 %sub.i.i to i64
   %sub.i.i.i = add nuw nsw i64 %conv.i.i4, 1023

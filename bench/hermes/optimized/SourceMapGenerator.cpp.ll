@@ -1244,7 +1244,7 @@ _ZN6hermes15StringSetVector6insertEN4llvh9StringRefE.exit: ; preds = %if.then.i2
 if.then.i38:                                      ; preds = %_ZN6hermes15StringSetVector6insertEN4llvh9StringRefE.exit
   %add.i39 = add i64 %retval.0.i, 1
   %conv5.i = and i64 %add.i39, 4294967295
-  %cmp.i200 = icmp ugt i64 %conv5.i, %sub.ptr.div.i.i36
+  %cmp.i200 = icmp samesign ugt i64 %conv5.i, %sub.ptr.div.i.i36
   br i1 %cmp.i200, label %if.then.i205, label %if.else.i201
 
 if.then.i205:                                     ; preds = %if.then.i38
@@ -1253,7 +1253,7 @@ if.then.i205:                                     ; preds = %if.then.i38
   br label %if.end.i40
 
 if.else.i201:                                     ; preds = %if.then.i38
-  %cmp4.i = icmp ult i64 %conv5.i, %sub.ptr.div.i.i36
+  %cmp4.i = icmp samesign ult i64 %conv5.i, %sub.ptr.div.i.i36
   br i1 %cmp4.i, label %if.then5.i, label %if.end.i40
 
 if.then5.i:                                       ; preds = %if.else.i201

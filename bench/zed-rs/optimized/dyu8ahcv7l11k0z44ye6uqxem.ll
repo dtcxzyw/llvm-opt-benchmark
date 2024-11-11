@@ -15721,7 +15721,7 @@ define hidden { i64, i64 } @"_ZN9hashbrown3raw5inner21RawTable$LT$T$C$A$GT$14res
   br i1 %30, label %40, label %33
 
 31:                                               ; preds = %26
-  %32 = icmp ult i64 %.sroa.0.0.sroa.speculated.i, 4
+  %32 = icmp samesign ult i64 %.sroa.0.0.sroa.speculated.i, 4
   %..i.i = select i1 %32, i64 4, i64 8
   br label %42
 
@@ -15741,7 +15741,7 @@ define hidden { i64, i64 } @"_ZN9hashbrown3raw5inner21RawTable$LT$T$C$A$GT$14res
 42:                                               ; preds = %33, %31
   %.sroa.4.0.i.ph.i = phi i64 [ %39, %33 ], [ %..i.i, %31 ]
   %43 = shl i64 %.sroa.4.0.i.ph.i, 3
-  %44 = icmp ugt i64 %.sroa.4.0.i.ph.i, 2305843009213693951
+  %44 = icmp samesign ugt i64 %.sroa.4.0.i.ph.i, 2305843009213693951
   %45 = icmp ugt i64 %43, -16
   %or.cond.i.i = or i1 %44, %45
   br i1 %or.cond.i.i, label %55, label %46
@@ -15774,7 +15774,7 @@ _ZN9hashbrown3raw5inner11TableLayout20calculate_layout_for17hc48ee78c4b12348aE.l
   br label %_ZN9hashbrown3raw5inner13RawTableInner22fallible_with_capacity17hcf250944c3d9d929E.exit.thread
 
 _ZN9hashbrown3raw5inner13RawTableInner22fallible_with_capacity17hcf250944c3d9d929E.exit: ; preds = %_ZN9hashbrown3raw5inner11TableLayout20calculate_layout_for17hc48ee78c4b12348aE.llvm.9890526598091136527.exit.i.i
-  %62 = icmp ult i64 %.sroa.4.0.i.ph.i, 9
+  %62 = icmp samesign ult i64 %.sroa.4.0.i.ph.i, 9
   %63 = add nsw i64 %.sroa.4.0.i.ph.i, -1
   %64 = lshr i64 %.sroa.4.0.i.ph.i, 3
   %65 = mul nuw nsw i64 %64, 7

@@ -929,7 +929,7 @@ define dso_local range(i32 -2147483648, 1) i32 @ethnl_update_bitset32(ptr nocapt
 
 243:                                              ; preds = %241, %211
   %244 = phi i32 [ %242, %241 ], [ %212, %211 ]
-  %245 = icmp ult i32 %244, %213
+  %245 = icmp samesign ult i32 %244, %213
   br i1 %245, label %246, label %.loopexit
 
 246:                                              ; preds = %243

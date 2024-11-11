@@ -565,7 +565,7 @@ fmap_readn.exit579.i:                             ; preds = %select.unfold.i, %1
   %.0.i576.i = phi i64 [ 0, %105 ], [ %spec.select.i577.i, %select.unfold.i ]
   %122 = trunc nuw nsw i64 %.0.i576.i to i32
   %123 = add nuw nsw i32 %.0420787.i, %122
-  %124 = icmp ult i32 %123, 4
+  %124 = icmp samesign ult i32 %123, 4
   br i1 %124, label %125, label %126
 
 125:                                              ; preds = %fmap_readn.exit579.i
@@ -987,7 +987,7 @@ fmap_readn.exit584.i:                             ; preds = %select.unfold633.i,
   %.0.i581.i = phi i64 [ 0, %313 ], [ %spec.select.i582.i, %select.unfold633.i ]
   %330 = trunc nuw nsw i64 %.0.i581.i to i32
   %331 = add nuw nsw i32 %.9757.i, %330
-  %332 = icmp ult i32 %331, 4
+  %332 = icmp samesign ult i32 %331, 4
   br i1 %332, label %333, label %334
 
 333:                                              ; preds = %fmap_readn.exit584.i
@@ -1059,7 +1059,7 @@ fmap_readn.exit589.i:                             ; preds = %select.unfold635.i,
   %.0.i586.i = phi i64 [ 0, %343 ], [ %spec.select.i587.i, %select.unfold635.i ]
   %360 = trunc nuw nsw i64 %.0.i586.i to i32
   %361 = add nuw nsw i32 %.11765.i, %360
-  %362 = icmp ult i32 %361, 4
+  %362 = icmp samesign ult i32 %361, 4
   br i1 %362, label %363, label %364
 
 363:                                              ; preds = %fmap_readn.exit589.i
@@ -1131,7 +1131,7 @@ fmap_readn.exit594.i:                             ; preds = %select.unfold637.i,
   %.0.i591.i = phi i64 [ 0, %374 ], [ %spec.select.i592.i, %select.unfold637.i ]
   %391 = trunc nuw nsw i64 %.0.i591.i to i32
   %392 = add nuw nsw i32 %.13773.i, %391
-  %393 = icmp ult i32 %392, 4
+  %393 = icmp samesign ult i32 %392, 4
   br i1 %393, label %394, label %395
 
 394:                                              ; preds = %fmap_readn.exit594.i

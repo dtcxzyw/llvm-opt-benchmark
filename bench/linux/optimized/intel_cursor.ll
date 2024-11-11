@@ -890,7 +890,7 @@ define internal void @i9xx_cursor_update_arm(ptr noundef %0, ptr noundef %1, ptr
   %37 = icmp eq i8 %36, 0
   %38 = or disjoint i32 %34, 16777216
   %39 = select i1 %37, i32 %34, i32 %38
-  %40 = icmp ult i16 %28, 5
+  %40 = icmp samesign ult i16 %28, 5
   br i1 %40, label %41, label %52
 
 41:                                               ; preds = %30
@@ -1810,8 +1810,8 @@ define internal i32 @i9xx_check_cursor(ptr noundef %0, ptr noundef %1) #0 align 
   br i1 %54, label %59, label %55
 
 55:                                               ; preds = %50
-  %56 = icmp ult i32 %25, 8
-  %57 = icmp ugt i32 %25, %20
+  %56 = icmp samesign ult i32 %25, 8
+  %57 = icmp samesign ugt i32 %25, %20
   %58 = or i1 %56, %57
   br i1 %58, label %65, label %61
 

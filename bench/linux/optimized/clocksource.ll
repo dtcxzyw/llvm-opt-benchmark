@@ -424,7 +424,7 @@ define dso_local void @clocksource_verify_percpu(ptr noundef %0) #2 align 16 {
   tail call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock;  btsq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) @cpus_chosen, i64 %43) #16, !srcloc !21
   %44 = load i32, ptr @nr_cpu_ids, align 4
   %45 = tail call i32 @llvm.umin.i32(i32 %5, i32 %44)
-  %46 = icmp ugt i32 %45, 1
+  %46 = icmp samesign ugt i32 %45, 1
   br i1 %46, label %.preheader, label %.loopexit
 
 .preheader:                                       ; preds = %42, %76

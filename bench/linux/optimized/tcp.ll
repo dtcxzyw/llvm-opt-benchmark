@@ -5896,7 +5896,7 @@ define internal fastcc i32 @tcp_recvmsg_locked(ptr noundef %0, ptr noundef %1, i
   %337 = add nuw nsw i64 %301, %336
   %338 = load i32, ptr %249, align 8
   %339 = zext i32 %338 to i64
-  %340 = icmp ult i64 %337, %339
+  %340 = icmp samesign ult i64 %337, %339
   br i1 %340, label %377, label %341
 
 341:                                              ; preds = %335
@@ -8518,7 +8518,7 @@ define dso_local i32 @do_tcp_setsockopt(ptr noundef %0, i32 %1, i32 noundef %2, 
   br label %392
 
 124:                                              ; preds = %119
-  %125 = icmp ugt i32 %120, 120
+  %125 = icmp samesign ugt i32 %120, 120
   br i1 %125, label %126, label %128
 
 126:                                              ; preds = %124
@@ -11016,7 +11016,7 @@ thread-pre-split20:                               ; preds = %463
   br i1 %471, label %538, label %472
 
 472:                                              ; preds = %469
-  %473 = icmp ugt i32 %470, 64
+  %473 = icmp samesign ugt i32 %470, 64
   br i1 %473, label %474, label %488, !prof !24
 
 474:                                              ; preds = %472

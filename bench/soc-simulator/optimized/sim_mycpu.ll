@@ -23811,7 +23811,7 @@ define linkonce_odr dso_local void @_ZN8mips_cp0ILi32EE10raise_trapE14mips32_exc
 58:                                               ; preds = %49
   %59 = getelementptr inbounds i8, ptr %0, i64 64
   store i32 %2, ptr %59, align 8, !tbaa !761
-  %60 = icmp ult i32 %56, 3
+  %60 = icmp samesign ult i32 %56, 3
   br i1 %60, label %61, label %73
 
 61:                                               ; preds = %58

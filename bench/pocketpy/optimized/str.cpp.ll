@@ -1804,7 +1804,7 @@ _ZN4pkpy7utf8lenEhb.exit:                         ; preds = %.lr.ph.i.i28, %35, 
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %9)
   %60 = add nuw nsw i32 %.013.i, %.010.i.i
   %61 = add nsw i32 %.079.i.i, -1
-  %62 = icmp ugt i32 %.079.i.i, 1
+  %62 = icmp samesign ugt i32 %.079.i.i, 1
   br i1 %62, label %.lr.ph.i.i28, label %_ZNK4pkpy3Str10u8_getitemEi.exit, !llvm.loop !26
 
 _ZNK4pkpy3Str10u8_getitemEi.exit:                 ; preds = %_ZN4pkpy7utf8lenEhb.exit, %._ZNK4pkpy3Str10u8_getitemEi.exit_crit_edge, %.preheader.i.i27
@@ -1972,7 +1972,7 @@ _ZN4pkpy7utf8lenEhb.exit44:                       ; preds = %.lr.ph.i.i31, %113,
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %7)
   %138 = add nuw nsw i32 %.013.i43, %.010.i.i32
   %139 = add nsw i32 %.079.i.i33, -1
-  %140 = icmp ugt i32 %.079.i.i33, 1
+  %140 = icmp samesign ugt i32 %.079.i.i33, 1
   br i1 %140, label %.lr.ph.i.i31, label %_ZNK4pkpy3Str10u8_getitemEi.exit34, !llvm.loop !26
 
 _ZNK4pkpy3Str10u8_getitemEi.exit34:               ; preds = %_ZN4pkpy7utf8lenEhb.exit44, %._ZNK4pkpy3Str10u8_getitemEi.exit34_crit_edge, %.preheader.i.i29
@@ -2125,7 +2125,7 @@ define void @_ZNK4pkpy3Str10u8_getitemEi(ptr dead_on_unwind noalias writable sre
   %14 = tail call noundef i32 @_ZN4pkpy7utf8lenEhb(i8 noundef zeroext %13, i1 noundef zeroext false)
   %15 = add nuw nsw i32 %14, %.010.i
   %16 = add nsw i32 %.079.i, -1
-  %17 = icmp ugt i32 %.079.i, 1
+  %17 = icmp samesign ugt i32 %.079.i, 1
   br i1 %17, label %9, label %_ZNK4pkpy3Str22_unicode_index_to_byteEi.exit, !llvm.loop !26
 
 _ZNK4pkpy3Str22_unicode_index_to_byteEi.exit:     ; preds = %9, %3, %.preheader.i
@@ -2327,7 +2327,7 @@ define void @_ZNK4pkpy3Str8u8_sliceEiii(ptr dead_on_unwind noalias writable sret
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %7)
   %73 = add nuw nsw i32 %.013.i, %.010.i.i
   %74 = add nsw i32 %.079.i.i, -1
-  %75 = icmp ugt i32 %.079.i.i, 1
+  %75 = icmp samesign ugt i32 %.079.i.i, 1
   br i1 %75, label %.lr.ph.i.i, label %_ZNK4pkpy3Str22_unicode_index_to_byteEi.exit.i, !llvm.loop !26
 
 _ZNK4pkpy3Str22_unicode_index_to_byteEi.exit.i:   ; preds = %.noexc, %._ZNK4pkpy3Str22_unicode_index_to_byteEi.exit.i_crit_edge, %.preheader.i.i
@@ -4014,7 +4014,7 @@ define noundef i32 @_ZNK4pkpy3Str22_unicode_index_to_byteEi(ptr nocapture nounde
   %13 = tail call noundef i32 @_ZN4pkpy7utf8lenEhb(i8 noundef zeroext %12, i1 noundef zeroext false)
   %14 = add nuw nsw i32 %13, %.010
   %15 = add nsw i32 %.079, -1
-  %16 = icmp ugt i32 %.079, 1
+  %16 = icmp samesign ugt i32 %.079, 1
   br i1 %16, label %8, label %.loopexit, !llvm.loop !26
 
 .loopexit:                                        ; preds = %8, %.preheader, %2

@@ -7196,7 +7196,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__8pxr_half4halfC2Ef.exit: ; preds = %49, %41
   %101 = shl nuw nsw i32 1, %12
   %102 = zext nneg i32 %101 to i64
   %103 = getelementptr inbounds i8, ptr %.sroa.0140.0182, i64 %102
-  %104 = icmp ugt i32 %20, 2
+  %104 = icmp samesign ugt i32 %20, 2
   br i1 %104, label %105, label %.thread161
 
 105:                                              ; preds = %100

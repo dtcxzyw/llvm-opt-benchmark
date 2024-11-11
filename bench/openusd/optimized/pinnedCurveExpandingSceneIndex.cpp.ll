@@ -13970,7 +13970,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__12TfStaticDataINS_37HdPrimvarSchemaTokens_
   br i1 %350, label %359, label %351
 
 351:                                              ; preds = %.noexc70
-  %352 = icmp ult i32 %349, 4
+  %352 = icmp samesign ult i32 %349, 4
   br i1 %352, label %353, label %354
 
 353:                                              ; preds = %351
@@ -56907,7 +56907,7 @@ _ZSt6fill_nIPN32pxrInternal_v0_24__pxrReserved__10GfIntervalEmS1_ET_S3_T0_RKT1_.
   %181 = getelementptr inbounds i8, ptr %.0910.i.i.i.i.i.i.i, i64 32
   %182 = getelementptr inbounds i8, ptr %.0811.i.i.i.i.i.i.i, i64 32
   %183 = add nsw i64 %.012.i.i.i.i.i.i.i, -1
-  %184 = icmp ugt i64 %.012.i.i.i.i.i.i.i, 1
+  %184 = icmp samesign ugt i64 %.012.i.i.i.i.i.i.i, 1
   br i1 %184, label %.lr.ph.i.i.i.i.i.i.i, label %_ZSt4copyIPKN32pxrInternal_v0_24__pxrReserved__10GfIntervalEPS1_ET0_T_S6_S5_.exit.i.i, !llvm.loop !808
 
 _ZSt4copyIPKN32pxrInternal_v0_24__pxrReserved__10GfIntervalEPS1_ET0_T_S6_S5_.exit.i.i: ; preds = %.lr.ph.i.i.i.i.i.i.i, %.noexc45.i
@@ -57023,7 +57023,7 @@ _ZSt6fill_nIPN32pxrInternal_v0_24__pxrReserved__10GfIntervalEmS1_ET_S3_T0_RKT1_.
   %243 = getelementptr inbounds i8, ptr %.0910.i.i.i.i.i55.i.i, i64 32
   %244 = getelementptr inbounds i8, ptr %.0811.i.i.i.i.i54.i.i, i64 32
   %245 = add nsw i64 %.012.i.i.i.i.i53.i.i, -1
-  %246 = icmp ugt i64 %.012.i.i.i.i.i53.i.i, 1
+  %246 = icmp samesign ugt i64 %.012.i.i.i.i.i53.i.i, 1
   br i1 %246, label %.lr.ph.i.i.i.i.i52.i.i, label %_ZSt4copyIPKN32pxrInternal_v0_24__pxrReserved__10GfIntervalEPS1_ET0_T_S6_S5_.exit56.i.i, !llvm.loop !808
 
 _ZSt4copyIPKN32pxrInternal_v0_24__pxrReserved__10GfIntervalEPS1_ET0_T_S6_S5_.exit56.i.i: ; preds = %.lr.ph.i.i.i.i.i52.i.i, %.noexc49.i
@@ -57306,7 +57306,7 @@ _ZSt6fill_nIPN32pxrInternal_v0_24__pxrReserved__10GfIntervalEmS1_ET_S3_T0_RKT1_.
   %360 = getelementptr inbounds i8, ptr %.0910.i.i.i.i.i.i.i42, i64 32
   %361 = getelementptr inbounds i8, ptr %.0811.i.i.i.i.i.i.i41, i64 32
   %362 = add nsw i64 %.012.i.i.i.i.i.i.i40, -1
-  %363 = icmp ugt i64 %.012.i.i.i.i.i.i.i40, 1
+  %363 = icmp samesign ugt i64 %.012.i.i.i.i.i.i.i40, 1
   br i1 %363, label %.lr.ph.i.i.i.i.i.i.i39, label %_ZSt4copyIPKN32pxrInternal_v0_24__pxrReserved__10GfIntervalEPS1_ET0_T_S6_S5_.exit.i.i36, !llvm.loop !808
 
 _ZSt4copyIPKN32pxrInternal_v0_24__pxrReserved__10GfIntervalEPS1_ET0_T_S6_S5_.exit.i.i36: ; preds = %.lr.ph.i.i.i.i.i.i.i39, %.noexc38.i
@@ -84321,7 +84321,7 @@ _ZSt6fill_nIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEmS5_ET_S7_T0_RK
   %159 = getelementptr inbounds i8, ptr %.0910.i.i.i.i.i.i.i, i64 32
   %160 = getelementptr inbounds i8, ptr %.0811.i.i.i.i.i.i.i, i64 32
   %161 = add nsw i64 %.012.i.i.i.i.i.i.i, -1
-  %162 = icmp ugt i64 %.012.i.i.i.i.i.i.i, 1
+  %162 = icmp samesign ugt i64 %.012.i.i.i.i.i.i.i, 1
   br i1 %162, label %.lr.ph.i.i.i.i.i.i.i, label %_ZSt4copyIPKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPS5_ET0_T_SA_S9_.exit.i.i, !llvm.loop !1143
 
 _ZSt4copyIPKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPS5_ET0_T_SA_S9_.exit.i.i: ; preds = %.noexc47.i, %.noexc46.i
@@ -84401,7 +84401,7 @@ _ZSt6fill_nIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEmS5_ET_S7_T0_RK
   %188 = getelementptr inbounds i8, ptr %.0910.i.i.i.i.i55.i.i, i64 32
   %189 = getelementptr inbounds i8, ptr %.0811.i.i.i.i.i54.i.i, i64 32
   %190 = add nsw i64 %.012.i.i.i.i.i53.i.i, -1
-  %191 = icmp ugt i64 %.012.i.i.i.i.i53.i.i, 1
+  %191 = icmp samesign ugt i64 %.012.i.i.i.i.i53.i.i, 1
   br i1 %191, label %.lr.ph.i.i.i.i.i52.i.i, label %_ZSt4copyIPKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPS5_ET0_T_SA_S9_.exit56.i.i, !llvm.loop !1143
 
 _ZSt4copyIPKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPS5_ET0_T_SA_S9_.exit56.i.i: ; preds = %.noexc54.i, %.noexc53.i
@@ -84682,7 +84682,7 @@ _ZSt6fill_nIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEmS5_ET_S7_T0_RK
   %270 = getelementptr inbounds i8, ptr %.0910.i.i.i.i.i.i.i46, i64 32
   %271 = getelementptr inbounds i8, ptr %.0811.i.i.i.i.i.i.i45, i64 32
   %272 = add nsw i64 %.012.i.i.i.i.i.i.i44, -1
-  %273 = icmp ugt i64 %.012.i.i.i.i.i.i.i44, 1
+  %273 = icmp samesign ugt i64 %.012.i.i.i.i.i.i.i44, 1
   br i1 %273, label %.lr.ph.i.i.i.i.i.i.i43, label %_ZSt4copyIPKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPS5_ET0_T_SA_S9_.exit.i.i37, !llvm.loop !1143
 
 _ZSt4copyIPKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPS5_ET0_T_SA_S9_.exit.i.i37: ; preds = %.noexc40.i48, %.noexc39.i36

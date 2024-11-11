@@ -1426,7 +1426,7 @@ define linkonce_odr noundef nonnull align 8 dereferenceable(16) ptr @_ZN4llvm15S
   %13 = getelementptr inbounds i8, ptr %.0910.i.i.i.i.i, i64 144
   %14 = getelementptr inbounds i8, ptr %.0811.i.i.i.i.i, i64 144
   %15 = add nsw i64 %.012.i.i.i.i.i, -1
-  %16 = icmp ugt i64 %.012.i.i.i.i.i, 1
+  %16 = icmp samesign ugt i64 %.012.i.i.i.i.i, 1
   br i1 %16, label %.lr.ph.i.i.i.i.i, label %_ZSt4copyIPKN4llvm11SmallVectorINS0_16ConstraintSystem5EntryELj8EEEPS4_ET0_T_S9_S8_.exit.loopexit, !llvm.loop !17
 
 _ZSt4copyIPKN4llvm11SmallVectorINS0_16ConstraintSystem5EntryELj8EEEPS4_ET0_T_S9_S8_.exit.loopexit: ; preds = %.lr.ph.i.i.i.i.i
@@ -1536,7 +1536,7 @@ _ZN4llvm23SmallVectorTemplateBaseINS_11SmallVectorINS_16ConstraintSystem5EntryEL
   %52 = getelementptr inbounds i8, ptr %.0910.i.i.i.i.i35, i64 144
   %53 = getelementptr inbounds i8, ptr %.0811.i.i.i.i.i34, i64 144
   %54 = add nsw i64 %.012.i.i.i.i.i33, -1
-  %55 = icmp ugt i64 %.012.i.i.i.i.i33, 1
+  %55 = icmp samesign ugt i64 %.012.i.i.i.i.i33, 1
   br i1 %55, label %.lr.ph.i.i.i.i.i32, label %_ZSt4copyIPKN4llvm11SmallVectorINS0_16ConstraintSystem5EntryELj8EEEPS4_ET0_T_S9_S8_.exit36, !llvm.loop !17
 
 _ZSt4copyIPKN4llvm11SmallVectorINS0_16ConstraintSystem5EntryELj8EEEPS4_ET0_T_S9_S8_.exit36: ; preds = %.lr.ph.i.i.i.i.i32, %47, %46, %_ZN4llvm23SmallVectorTemplateBaseINS_11SmallVectorINS_16ConstraintSystem5EntryELj8EEELb0EE4growEm.exit

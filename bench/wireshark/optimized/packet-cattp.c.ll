@@ -232,7 +232,7 @@ define internal i32 @dissect_cattp(ptr noundef %0, ptr noundef %1, ptr noundef %
   br i1 %.not, label %50, label %53
 
 50:                                               ; preds = %4
-  %.not120 = icmp ult i8 %15, 64
+  %.not120 = icmp samesign ult i8 %15, 64
   br i1 %.not120, label %51, label %53
 
 51:                                               ; preds = %50

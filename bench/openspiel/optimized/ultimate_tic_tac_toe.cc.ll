@@ -584,7 +584,7 @@ define void @_ZN10open_spiel20ultimate_tic_tac_toe16UltimateTTTState13DoApplyAct
 22:                                               ; preds = %16
   store i64 %1, ptr %7, align 8
   store i32 9, ptr %8, align 4
-  %23 = icmp ult i64 %1, 9
+  %23 = icmp samesign ult i64 %1, 9
   br i1 %23, label %28, label %24
 
 24:                                               ; preds = %22
@@ -1701,7 +1701,7 @@ define void @_ZNK10open_spiel20ultimate_tic_tac_toe16UltimateTTTState8ToStringB5
 35:                                               ; preds = %25
   store i32 %28, ptr %7, align 4
   store i64 9, ptr %8, align 8
-  %36 = icmp ult i32 %28, 9
+  %36 = icmp samesign ult i32 %28, 9
   br i1 %36, label %42, label %37
 
 37:                                               ; preds = %35

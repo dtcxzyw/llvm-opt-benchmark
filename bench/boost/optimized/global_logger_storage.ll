@@ -729,7 +729,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit35: ; preds = %_ZN
   br i1 %75, label %76, label %121, !prof !37
 
 76:                                               ; preds = %71
-  %77 = icmp ugt i32 %74, 11
+  %77 = icmp samesign ugt i32 %74, 11
   br i1 %77, label %78, label %115, !prof !48
 
 78:                                               ; preds = %76

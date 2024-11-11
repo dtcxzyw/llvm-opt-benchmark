@@ -1496,7 +1496,7 @@ _ZN4llvm26MachineInstrBundleIteratorINS_12MachineInstrELb0EEppEv.exit.i.i.i.i: ;
   %.0100210.in.i = phi i32 [ %.0100210.i, %.lr.ph212.i ], [ %460, %.lr.ph212.preheader.i ]
   %.0100210.i = add nsw i32 %.0100210.in.i, -1
   call void @_ZN4llvm12MachineInstr13removeOperandEj(ptr noundef nonnull align 8 dereferenceable(70) %155, i32 noundef %.0100210.i) #16
-  %461 = icmp ugt i32 %.0100210.in.i, 2
+  %461 = icmp samesign ugt i32 %.0100210.in.i, 2
   br i1 %461, label %.lr.ph212.i, label %.loopexit.i, !llvm.loop !29
 
 462:                                              ; preds = %_ZN4llvm26MachineInstrBundleIteratorINS_12MachineInstrELb0EEppEv.exit.i.i.i.i
@@ -9588,7 +9588,7 @@ _ZNK12_GLOBAL__N_125TwoAddressInstructionImpl17regsAreCompatibleEN4llvm8Register
   br i1 %283, label %_ZNK12_GLOBAL__N_125TwoAddressInstructionImpl17regsAreCompatibleEN4llvm8RegisterES2_.exit98.i.i, label %284
 
 284:                                              ; preds = %282
-  %285 = icmp ult i32 %.sroa.07.0.i81.i.i, 1073741824
+  %285 = icmp samesign ult i32 %.sroa.07.0.i81.i.i, 1073741824
   br i1 %285, label %286, label %_ZNK12_GLOBAL__N_125TwoAddressInstructionImpl17regsAreCompatibleEN4llvm8RegisterES2_.exit98.thread.i.i
 
 286:                                              ; preds = %284
@@ -15254,7 +15254,7 @@ _ZN4llvm15SmallVectorImplISt4pairIjjEE12assignRemoteEOS3_.exit: ; preds = %8, %1
   %34 = getelementptr inbounds i8, ptr %.0910.i.i.i.i.i, i64 8
   %35 = getelementptr inbounds i8, ptr %.0811.i.i.i.i.i, i64 8
   %36 = add nsw i64 %.012.i.i.i.i.i, -1
-  %37 = icmp ugt i64 %.012.i.i.i.i.i, 1
+  %37 = icmp samesign ugt i64 %.012.i.i.i.i.i, 1
   br i1 %37, label %.lr.ph.i.i.i.i.i, label %_ZSt4moveIPSt4pairIjjES2_ET0_T_S4_S3_.exit, !llvm.loop !156
 
 _ZSt4moveIPSt4pairIjjES2_ET0_T_S4_S3_.exit:       ; preds = %.lr.ph.i.i.i.i.i, %25, %24
@@ -15304,7 +15304,7 @@ _ZSt4moveIPSt4pairIjjES2_ET0_T_S4_S3_.exit:       ; preds = %.lr.ph.i.i.i.i.i, %
   %57 = getelementptr inbounds i8, ptr %.0910.i.i.i.i.i38, i64 8
   %58 = getelementptr inbounds i8, ptr %.0811.i.i.i.i.i37, i64 8
   %59 = add nsw i64 %.012.i.i.i.i.i36, -1
-  %60 = icmp ugt i64 %.012.i.i.i.i.i36, 1
+  %60 = icmp samesign ugt i64 %.012.i.i.i.i.i36, 1
   br i1 %60, label %.lr.ph.i.i.i.i.i35, label %_ZSt4moveIPSt4pairIjjES2_ET0_T_S4_S3_.exit39, !llvm.loop !156
 
 _ZSt4moveIPSt4pairIjjES2_ET0_T_S4_S3_.exit39:     ; preds = %.lr.ph.i.i.i.i.i35, %49, %48, %44

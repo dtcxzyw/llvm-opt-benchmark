@@ -2547,7 +2547,7 @@ _ZN4llvmneENS_9StringRefES0_.exit.thread11:       ; preds = %_ZN4llvmneENS_9Stri
   br label %.sink.split
 
 57:                                               ; preds = %51
-  %or.cond = icmp ugt i64 %52, 4294967294
+  %or.cond = icmp samesign ugt i64 %52, 4294967294
   br i1 %or.cond, label %58, label %63
 
 58:                                               ; preds = %57

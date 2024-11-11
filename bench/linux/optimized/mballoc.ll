@@ -811,7 +811,7 @@ define internal ptr @ext4_mb_seq_groups_start(ptr nocapture noundef readonly %0,
   %15 = load i32, ptr %14, align 64
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #16, !srcloc !10
   %16 = zext i32 %15 to i64
-  %17 = icmp ult i64 %3, %16
+  %17 = icmp samesign ult i64 %3, %16
   br i1 %17, label %18, label %23
 
 18:                                               ; preds = %5
@@ -852,7 +852,7 @@ define internal ptr @ext4_mb_seq_groups_next(ptr nocapture noundef readonly %0, 
   %17 = load i32, ptr %16, align 64
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #16, !srcloc !10
   %18 = zext i32 %17 to i64
-  %19 = icmp ult i64 %11, %18
+  %19 = icmp samesign ult i64 %11, %18
   br i1 %19, label %20, label %25
 
 20:                                               ; preds = %13
@@ -1133,7 +1133,7 @@ define internal ptr @ext4_mb_seq_structs_summary_start(ptr nocapture noundef rea
   %14 = zext i8 %13 to i64
   %15 = shl nuw nsw i64 %14, 1
   %16 = add nuw nsw i64 %15, 4
-  %17 = icmp ult i64 %3, %16
+  %17 = icmp samesign ult i64 %3, %16
   br i1 %17, label %18, label %21
 
 18:                                               ; preds = %5
@@ -1171,7 +1171,7 @@ define internal ptr @ext4_mb_seq_structs_summary_next(ptr nocapture noundef read
   %16 = zext i8 %15 to i64
   %17 = shl nuw nsw i64 %16, 1
   %18 = add nuw nsw i64 %17, 4
-  %19 = icmp ult i64 %11, %18
+  %19 = icmp samesign ult i64 %11, %18
   br i1 %19, label %20, label %23
 
 20:                                               ; preds = %13
@@ -5814,31 +5814,31 @@ ext4_mb_initialize_context.exit:                  ; preds = %295, %360, %367
   br i1 %617, label %662, label %618
 
 618:                                              ; preds = %598
-  %619 = icmp ult i64 %615, 32769
+  %619 = icmp samesign ult i64 %615, 32769
   br i1 %619, label %662, label %620
 
 620:                                              ; preds = %618
-  %621 = icmp ult i64 %615, 65537
+  %621 = icmp samesign ult i64 %615, 65537
   br i1 %621, label %662, label %622
 
 622:                                              ; preds = %620
-  %623 = icmp ult i64 %615, 131073
+  %623 = icmp samesign ult i64 %615, 131073
   br i1 %623, label %662, label %624
 
 624:                                              ; preds = %622
-  %625 = icmp ult i64 %615, 262145
+  %625 = icmp samesign ult i64 %615, 262145
   br i1 %625, label %662, label %626
 
 626:                                              ; preds = %624
-  %627 = icmp ult i64 %615, 524289
+  %627 = icmp samesign ult i64 %615, 524289
   br i1 %627, label %662, label %628
 
 628:                                              ; preds = %626
-  %629 = icmp ult i64 %615, 1048577
+  %629 = icmp samesign ult i64 %615, 1048577
   br i1 %629, label %662, label %630
 
 630:                                              ; preds = %628
-  %631 = icmp ult i64 %615, 4194305
+  %631 = icmp samesign ult i64 %615, 4194305
   %632 = icmp slt i32 %616, 2049
   %633 = select i1 %631, i1 true, i1 %632
   br i1 %633, label %634, label %639
@@ -5851,8 +5851,8 @@ ext4_mb_initialize_context.exit:                  ; preds = %295, %360, %367
   br label %662
 
 639:                                              ; preds = %630
-  %640 = icmp ult i64 %615, 8388609
-  %641 = icmp ult i32 %616, 4097
+  %640 = icmp samesign ult i64 %615, 8388609
+  %641 = icmp samesign ult i32 %616, 4097
   %642 = select i1 %640, i1 true, i1 %641
   br i1 %642, label %643, label %648
 
@@ -5866,7 +5866,7 @@ ext4_mb_initialize_context.exit:                  ; preds = %295, %360, %367
 648:                                              ; preds = %639
   %649 = lshr i32 8388608, %601
   %650 = icmp sle i32 %607, %649
-  %651 = icmp ult i32 %616, 8193
+  %651 = icmp samesign ult i32 %616, 8193
   %652 = select i1 %650, i1 true, i1 %651
   br i1 %652, label %653, label %658
 
@@ -14501,7 +14501,7 @@ mb_find_order_for_block.exit:                     ; preds = %161, %147, %105
   %241 = load i16, ptr %104, align 8
   %242 = zext i16 %241 to i32
   %243 = add nuw nsw i32 %242, 1
-  %244 = icmp ult i32 %243, %166
+  %244 = icmp samesign ult i32 %243, %166
   br i1 %244, label %._crit_edge, label %245
 
 ._crit_edge:                                      ; preds = %240
@@ -14556,7 +14556,7 @@ mb_find_order_for_block.exit:                     ; preds = %161, %147, %105
   %279 = load i16, ptr %104, align 8
   %280 = zext i16 %279 to i32
   %281 = add nuw nsw i32 %280, 1
-  %282 = icmp ult i32 %281, %271
+  %282 = icmp samesign ult i32 %281, %271
   br i1 %282, label %302, label %283
 
 283:                                              ; preds = %278

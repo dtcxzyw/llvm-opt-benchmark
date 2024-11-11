@@ -4321,7 +4321,7 @@ define internal fastcc range(i32 0, 9437184) i32 @get_next_char(i32 noundef %0, 
   br label %340
 
 18:                                               ; preds = %11
-  %19 = icmp ult i8 %13, -62
+  %19 = icmp samesign ult i8 %13, -62
   br i1 %19, label %20, label %22
 
 20:                                               ; preds = %18
@@ -4331,7 +4331,7 @@ define internal fastcc range(i32 0, 9437184) i32 @get_next_char(i32 noundef %0, 
   br label %341
 
 22:                                               ; preds = %18
-  %23 = icmp ult i8 %13, -32
+  %23 = icmp samesign ult i8 %13, -32
   br i1 %23, label %24, label %52
 
 24:                                               ; preds = %22
@@ -4355,11 +4355,11 @@ define internal fastcc range(i32 0, 9437184) i32 @get_next_char(i32 noundef %0, 
   br i1 %32, label %38, label %33
 
 33:                                               ; preds = %31
-  %34 = icmp ugt i8 %30, -63
+  %34 = icmp samesign ugt i8 %30, -63
   br i1 %34, label %35, label %38
 
 35:                                               ; preds = %33
-  %36 = icmp ult i8 %30, -11
+  %36 = icmp samesign ult i8 %30, -11
   %37 = select i1 %36, i64 1, i64 2
   br label %38
 
@@ -4390,7 +4390,7 @@ define internal fastcc range(i32 0, 9437184) i32 @get_next_char(i32 noundef %0, 
   br label %340
 
 52:                                               ; preds = %22
-  %53 = icmp ult i8 %13, -16
+  %53 = icmp samesign ult i8 %13, -16
   br i1 %53, label %54, label %95
 
 54:                                               ; preds = %52
@@ -4488,7 +4488,7 @@ define internal fastcc range(i32 0, 9437184) i32 @get_next_char(i32 noundef %0, 
   br label %341
 
 95:                                               ; preds = %52
-  %96 = icmp ult i8 %13, -11
+  %96 = icmp samesign ult i8 %13, -11
   br i1 %96, label %97, label %153
 
 97:                                               ; preds = %95
@@ -4514,7 +4514,7 @@ define internal fastcc range(i32 0, 9437184) i32 @get_next_char(i32 noundef %0, 
   br i1 %or.cond494, label %134, label %.thread505
 
 108:                                              ; preds = %97
-  %109 = icmp ult i64 %7, 2
+  %109 = icmp samesign ult i64 %7, 2
   br i1 %109, label %113, label %..thread505_crit_edge
 
 ..thread505_crit_edge:                            ; preds = %108
@@ -6721,7 +6721,7 @@ define internal fastcc range(i32 -1, 1) i32 @resolve_named_entity_html(ptr nocap
   %.154 = phi i64 [ %69, %50 ], [ %.053.lcssa, %._crit_edge ]
   %.152 = phi i64 [ %70, %50 ], [ %.051.lcssa, %._crit_edge ]
   %.1 = phi ptr [ %71, %50 ], [ %.0.lcssa, %._crit_edge ]
-  %73 = icmp ugt i64 %.152, 1
+  %73 = icmp samesign ugt i64 %.152, 1
   br i1 %73, label %74, label %95
 
 74:                                               ; preds = %72
@@ -6873,7 +6873,7 @@ define internal fastcc void @php_html_entities(ptr noundef %0, ptr nocapture nou
   br i1 %29, label %30, label %.thread214
 
 30:                                               ; preds = %28, %.critedge187
-  %31 = icmp ult i32 %9, 3
+  %31 = icmp samesign ult i32 %9, 3
   br i1 %31, label %.thread207, label %32
 
 32:                                               ; preds = %30
@@ -7862,7 +7862,7 @@ define internal fastcc range(i32 -1, 1) i32 @map_from_unicode(i32 noundef %0, i3
   br label %36
 
 32:                                               ; preds = %.lr.ph.i
-  %33 = icmp ugt i32 %0, %28
+  %33 = icmp samesign ugt i32 %0, %28
   br i1 %33, label %34, label %unimap_bsearch.exit
 
 34:                                               ; preds = %32
@@ -7915,7 +7915,7 @@ unimap_bsearch.exit:                              ; preds = %32
   br label %61
 
 57:                                               ; preds = %.lr.ph.i82
-  %58 = icmp ugt i32 %0, %53
+  %58 = icmp samesign ugt i32 %0, %53
   br i1 %58, label %59, label %unimap_bsearch.exit89
 
 59:                                               ; preds = %57
@@ -7981,7 +7981,7 @@ unimap_bsearch.exit89:                            ; preds = %57
   br label %91
 
 87:                                               ; preds = %.lr.ph.i90
-  %88 = icmp ugt i32 %0, %83
+  %88 = icmp samesign ugt i32 %0, %83
   br i1 %88, label %89, label %unimap_bsearch.exit97
 
 89:                                               ; preds = %87

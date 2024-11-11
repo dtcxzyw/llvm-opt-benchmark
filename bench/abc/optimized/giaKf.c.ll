@@ -1412,7 +1412,7 @@ Vec_IntPush.exit:                                 ; preds = %.Vec_IntGrow.exit10
   br label %64
 
 64:                                               ; preds = %26, %31, %Vec_IntPush.exit
-  %65 = icmp ugt i64 %indvars.iv, 1
+  %65 = icmp samesign ugt i64 %indvars.iv, 1
   br i1 %65, label %23, label %.critedge, !llvm.loop !22
 
 .critedge:                                        ; preds = %23, %64, %1
@@ -5550,7 +5550,7 @@ select.unfold._crit_edge.split.us.us:             ; preds = %Kf_SetStoreAddOne.e
 Kf_CutCompare.exit.us.i.us.us:                    ; preds = %40, %38, %31
   store ptr %.pre38.i.us.us, ptr %24, align 8
   store ptr %25, ptr %26, align 8
-  %44 = icmp ugt i64 %indvars.iv77, 1
+  %44 = icmp samesign ugt i64 %indvars.iv77, 1
   br i1 %44, label %.lr.ph.split.us.i.us.us, label %Kf_CutCompare.exit.thread.i.us.us, !llvm.loop !64
 
 Kf_CutCompare.exit.thread.i.us.us:                ; preds = %.lr.ph.split.us.i.us.us, %33, %40, %Kf_CutCompare.exit.us.i.us.us, %.preheader.i.us.us
@@ -5635,7 +5635,7 @@ Kf_SetStoreAddOne.exit.us.us:                     ; preds = %Kf_CutCompare.exit.
 Kf_CutCompare.exit.i:                             ; preds = %79, %77, %70
   store ptr %.pre38.i, ptr %63, align 8
   store ptr %64, ptr %65, align 8
-  %84 = icmp ugt i64 %indvars.iv.i, 1
+  %84 = icmp samesign ugt i64 %indvars.iv.i, 1
   br i1 %84, label %.lr.ph.split.i, label %Kf_CutCompare.exit.thread.i, !llvm.loop !64
 
 Kf_CutCompare.exit.thread.i:                      ; preds = %Kf_CutCompare.exit.i, %79, %72, %.lr.ph.split.i, %.preheader.i

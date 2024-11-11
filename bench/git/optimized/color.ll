@@ -336,7 +336,7 @@ if.else.i:                                        ; preds = %if.end22.i
   br i1 %cmp31.i, label %if.then45, label %if.else35.i
 
 if.else35.i:                                      ; preds = %if.else.i
-  %cmp36.i = icmp ult i64 %call23.i, 8
+  %cmp36.i = icmp samesign ult i64 %call23.i, 8
   br i1 %cmp36.i, label %if.then38.i, label %if.else41.i
 
 if.then38.i:                                      ; preds = %if.else35.i
@@ -345,7 +345,7 @@ if.then38.i:                                      ; preds = %if.else35.i
   br label %if.then45
 
 if.else41.i:                                      ; preds = %if.else35.i
-  %cmp42.i = icmp ult i64 %call23.i, 16
+  %cmp42.i = icmp samesign ult i64 %call23.i, 16
   br i1 %cmp42.i, label %if.then44.i, label %if.else49.i
 
 if.then44.i:                                      ; preds = %if.else41.i
@@ -354,7 +354,7 @@ if.then44.i:                                      ; preds = %if.else41.i
   br label %if.then45
 
 if.else49.i:                                      ; preds = %if.else41.i
-  %cmp50.i = icmp ult i64 %call23.i, 256
+  %cmp50.i = icmp samesign ult i64 %call23.i, 256
   br i1 %cmp50.i, label %if.then52.i, label %if.end55
 
 if.then52.i:                                      ; preds = %if.else49.i

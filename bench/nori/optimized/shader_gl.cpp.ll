@@ -959,7 +959,7 @@ define internal fastcc void @"_ZZN7nanogui6ShaderC1EPNS_10RenderPassERKNSt7__cxx
   %82 = load i64, ptr %81, align 8
   %83 = getelementptr inbounds [3 x i64], ptr %22, i64 0, i64 %indvars.iv5
   store i64 %82, ptr %83, align 8
-  %84 = icmp ugt i64 %indvars.iv5, 1
+  %84 = icmp samesign ugt i64 %indvars.iv5, 1
   br i1 %84, label %.lr.ph, label %._crit_edge.loopexit, !llvm.loop !9
 
 ._crit_edge.loopexit:                             ; preds = %.lr.ph

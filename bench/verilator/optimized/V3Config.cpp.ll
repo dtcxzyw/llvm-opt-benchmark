@@ -2668,7 +2668,7 @@ _ZN8FileLine9singletonEv.exit:                    ; preds = %2, %5, %8
   br i1 %23, label %24, label %30
 
 24:                                               ; preds = %_ZN8FileLine9singletonEv.exit
-  %25 = icmp ult i64 %22, 16
+  %25 = icmp samesign ult i64 %22, 16
   br i1 %25, label %26, label %28
 
 26:                                               ; preds = %24
@@ -8277,7 +8277,7 @@ define linkonce_odr dso_local void @_ZNK17FileLineSingleton12numberToNameB5cxx11
   br i1 %16, label %17, label %23
 
 17:                                               ; preds = %3
-  %18 = icmp ult i64 %15, 16
+  %18 = icmp samesign ult i64 %15, 16
   br i1 %18, label %19, label %21
 
 19:                                               ; preds = %17
@@ -11976,7 +11976,7 @@ _ZSt22__uninitialized_move_aIPSt4pairI11V3ErrorCodeNSt7__cxx1112basic_stringIcSt
   %38 = getelementptr inbounds i8, ptr %.069.i.i.i.i.i, i64 -32
   %39 = tail call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEOS4_(ptr noundef nonnull align 8 dereferenceable(32) %38, ptr noundef nonnull align 8 dereferenceable(32) %37) #19
   %40 = add nsw i64 %.010.i.i.i.i.i, -1
-  %41 = icmp ugt i64 %.010.i.i.i.i.i, 1
+  %41 = icmp samesign ugt i64 %.010.i.i.i.i.i, 1
   br i1 %41, label %.lr.ph.i.i.i.i.i51, label %_ZSt13move_backwardIPSt4pairI11V3ErrorCodeNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEES9_ET0_T_SB_SA_.exit, !llvm.loop !100
 
 _ZSt13move_backwardIPSt4pairI11V3ErrorCodeNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEES9_ET0_T_SB_SA_.exit: ; preds = %.lr.ph.i.i.i.i.i51, %_ZSt22__uninitialized_move_aIPSt4pairI11V3ErrorCodeNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEES9_SaIS8_EET0_T_SC_SB_RT1_.exit
@@ -11999,7 +11999,7 @@ _ZSt13move_backwardIPSt4pairI11V3ErrorCodeNSt7__cxx1112basic_stringIcSt11char_tr
   %48 = getelementptr inbounds i8, ptr %.0910.i.i.i.i.i, i64 40
   %49 = getelementptr inbounds i8, ptr %.0811.i.i.i.i.i, i64 40
   %50 = add nsw i64 %.012.i.i.i.i.i, -1
-  %51 = icmp ugt i64 %.012.i.i.i.i.i, 1
+  %51 = icmp samesign ugt i64 %.012.i.i.i.i.i, 1
   br i1 %51, label %.lr.ph.i.i.i.i.i53, label %_ZSt4copyIN9__gnu_cxx17__normal_iteratorIPKSt4pairI11V3ErrorCodeNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEESt6vectorISA_SaISA_EEEENS1_IPSA_SF_EEET0_T_SK_SJ_.exit, !llvm.loop !101
 
 _ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPKSt4pairI11V3ErrorCodeNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEESt6vectorISA_SaISA_EEEEmEvRT_T0_.exit: ; preds = %17
@@ -12115,7 +12115,7 @@ _ZSt22__uninitialized_move_aIPSt4pairI11V3ErrorCodeNSt7__cxx1112basic_stringIcSt
   %86 = getelementptr inbounds i8, ptr %.0910.i.i.i.i.i66, i64 40
   %87 = getelementptr inbounds i8, ptr %.0811.i.i.i.i.i65, i64 40
   %88 = add nsw i64 %.012.i.i.i.i.i64, -1
-  %89 = icmp ugt i64 %.012.i.i.i.i.i64, 1
+  %89 = icmp samesign ugt i64 %.012.i.i.i.i.i64, 1
   br i1 %89, label %.lr.ph.i.i.i.i.i63, label %_ZSt4copyIN9__gnu_cxx17__normal_iteratorIPKSt4pairI11V3ErrorCodeNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEESt6vectorISA_SaISA_EEEENS1_IPSA_SF_EEET0_T_SK_SJ_.exit, !llvm.loop !101
 
 90:                                               ; preds = %5

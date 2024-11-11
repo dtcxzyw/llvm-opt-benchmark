@@ -564,7 +564,7 @@ _ZNK4llvm9StringRef12getAsIntegerIjEEbjRT_.exit.thread.i: ; preds = %39, %_ZN4ll
 
 _ZL17shouldLoopVersionRKN4llvm3opt7ArgListE.exit: ; preds = %39
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4)
-  %41 = icmp ugt i64 %40, 2
+  %41 = icmp samesign ugt i64 %40, 2
   br i1 %41, label %_ZL17shouldLoopVersionRKN4llvm3opt7ArgListE.exit.thread, label %_ZL17shouldLoopVersionRKN4llvm3opt7ArgListE.exit.thread16
 
 _ZL17shouldLoopVersionRKN4llvm3opt7ArgListE.exit.thread: ; preds = %26, %28, %24, %_ZL17shouldLoopVersionRKN4llvm3opt7ArgListE.exit

@@ -1295,7 +1295,7 @@ Abc_Clock.exit:                                   ; preds = %3, %8
   %62 = load i32, ptr %61, align 4
   %63 = getelementptr inbounds i32, ptr %54, i64 %indvars.iv.next.i
   store i32 %62, ptr %63, align 4
-  %64 = icmp ugt i64 %indvars.iv.i, 1
+  %64 = icmp samesign ugt i64 %indvars.iv.i, 1
   br i1 %64, label %.lr.ph.i, label %Int_ManTruthCopy.exit, !llvm.loop !22
 
 Int_ManTruthCopy.exit:                            ; preds = %.lr.ph.i, %48, %._crit_edge
@@ -1442,7 +1442,7 @@ Int_ManTruthCopy.exit:                            ; preds = %.lr.ph.i, %48, %._c
   %150 = load i32, ptr %149, align 4
   %151 = or i32 %150, %148
   store i32 %151, ptr %149, align 4
-  %152 = icmp ugt i64 %indvars.iv.i212, 1
+  %152 = icmp samesign ugt i64 %indvars.iv.i212, 1
   br i1 %152, label %.lr.ph.i211, label %Int_ManTruthOr.exit, !llvm.loop !24
 
 153:                                              ; preds = %132
@@ -1461,7 +1461,7 @@ Int_ManTruthCopy.exit:                            ; preds = %.lr.ph.i, %48, %._c
   %158 = load i32, ptr %157, align 4
   %159 = and i32 %158, %156
   store i32 %159, ptr %157, align 4
-  %160 = icmp ugt i64 %indvars.iv.i216, 1
+  %160 = icmp samesign ugt i64 %indvars.iv.i216, 1
   br i1 %160, label %.lr.ph.i215, label %Int_ManTruthOr.exit, !llvm.loop !25
 
 Int_ManTruthOr.exit:                              ; preds = %.lr.ph.i215, %.lr.ph.i211, %153, %145, %127
@@ -2495,7 +2495,7 @@ Int_ManTruthClear.exit:                           ; preds = %21, %.lr.ph.prehead
   %56 = load i32, ptr %55, align 4
   %57 = or i32 %56, %54
   store i32 %57, ptr %55, align 4
-  %58 = icmp ugt i64 %indvars.iv.i, 1
+  %58 = icmp samesign ugt i64 %indvars.iv.i, 1
   br i1 %58, label %.lr.ph.i, label %Int_ManTruthOrNot.exit, !llvm.loop !42
 
 59:                                               ; preds = %41
@@ -2514,7 +2514,7 @@ Int_ManTruthClear.exit:                           ; preds = %21, %.lr.ph.prehead
   %64 = load i32, ptr %63, align 4
   %65 = or i32 %64, %62
   store i32 %65, ptr %63, align 4
-  %66 = icmp ugt i64 %indvars.iv.i48, 1
+  %66 = icmp samesign ugt i64 %indvars.iv.i48, 1
   br i1 %66, label %.lr.ph.i47, label %Int_ManTruthOrNot.exit, !llvm.loop !24
 
 Int_ManTruthOrNot.exit:                           ; preds = %.lr.ph.i, %.lr.ph.i47, %59, %50, %32

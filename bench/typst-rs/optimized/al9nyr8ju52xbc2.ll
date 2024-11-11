@@ -1107,7 +1107,7 @@ define hidden void @_ZN4core5slice4sort10merge_sort17h044782b416e32325E(ptr noal
   br label %56
 
 34:                                               ; preds = %3
-  %35 = icmp ugt i64 %1, 1
+  %35 = icmp samesign ugt i64 %1, 1
   br i1 %35, label %231, label %55
 
 36:                                               ; preds = %.body, %37
@@ -1853,7 +1853,7 @@ define hidden void @"_ZN4ecow3vec15EcoVec$LT$T$GT$4grow17h6bf2fb363cbeec55E"(ptr
   unreachable
 
 5:                                                ; preds = %2
-  %6 = icmp ugt i64 %1, 9223372036854775782
+  %6 = icmp samesign ugt i64 %1, 9223372036854775782
   br i1 %6, label %7, label %"_ZN4ecow3vec15EcoVec$LT$T$GT$4size17h54e85582a8e91715E.exit"
 
 7:                                                ; preds = %5

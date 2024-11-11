@@ -5361,7 +5361,7 @@ _ZNSt16allocator_traitsISaIN3gmx11BasicVectorIfEEEE8allocateERS3_m.exit.i.i.i.i:
   %82 = getelementptr inbounds i8, ptr %.sroa.05.07.i.i.i.i.i.us, i64 12
   %83 = getelementptr inbounds i8, ptr %.09.i.i.i.i.i.us, i64 12
   %84 = add nsw i64 %.048.i.i.i.i.i.us, -1
-  %85 = icmp ugt i64 %.048.i.i.i.i.i.us, 1
+  %85 = icmp samesign ugt i64 %.048.i.i.i.i.i.us, 1
   br i1 %85, label %.lr.ph.i.i.i.i.i.us, label %_ZSt4copyIN3gmx12ArrayRefIterINS0_11BasicVectorIfEEEEN9__gnu_cxx17__normal_iteratorIPS3_St6vectorIS3_SaIS3_EEEEET0_T_SD_SC_.exit.us, !llvm.loop !115
 
 _ZSt4copyIN3gmx12ArrayRefIterINS0_11BasicVectorIfEEEEN9__gnu_cxx17__normal_iteratorIPS3_St6vectorIS3_SaIS3_EEEEET0_T_SD_SC_.exit.us: ; preds = %.lr.ph.i.i.i.i.i.us, %79

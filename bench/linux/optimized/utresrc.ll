@@ -161,7 +161,7 @@ define dso_local noundef range(i32 0, 12320) i32 @acpi_ut_validate_resource(ptr 
   br i1 %6, label %9, label %7
 
 7:                                                ; preds = %3
-  %8 = icmp ugt i8 %4, -108
+  %8 = icmp samesign ugt i8 %4, -108
   br i1 %8, label %61, label %.thread
 
 9:                                                ; preds = %3
@@ -371,7 +371,7 @@ define dso_local noundef range(i32 0, 12320) i32 @acpi_ut_get_resource_end_tag(p
   br i1 %16, label %19, label %17
 
 17:                                               ; preds = %.preheader
-  %18 = icmp ugt i8 %15, -108
+  %18 = icmp samesign ugt i8 %15, -108
   br i1 %18, label %.thread4, label %.thread
 
 19:                                               ; preds = %.preheader

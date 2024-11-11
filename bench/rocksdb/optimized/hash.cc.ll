@@ -105,7 +105,7 @@ entry:
   br i1 %cmp.i, label %if.then.i, label %if.end.i
 
 if.then.i:                                        ; preds = %entry
-  %cmp.i.i = icmp ugt i64 %n, 8
+  %cmp.i.i = icmp samesign ugt i64 %n, 8
   br i1 %cmp.i.i, label %if.then.i.i, label %if.end.i.i
 
 if.then.i.i:                                      ; preds = %if.then.i
@@ -134,7 +134,7 @@ if.then.i.i:                                      ; preds = %if.then.i
   br label %_ZL29ROCKSDB_XXPH3_64bits_withSeedPKvmm.exit
 
 if.end.i.i:                                       ; preds = %if.then.i
-  %cmp1.i.i = icmp ugt i64 %n, 3
+  %cmp1.i.i = icmp samesign ugt i64 %n, 3
   br i1 %cmp1.i.i, label %if.then2.i.i, label %if.end4.i.i
 
 if.then2.i.i:                                     ; preds = %if.end.i.i
@@ -208,15 +208,15 @@ if.end.i:                                         ; preds = %entry
 
 if.then2.i:                                       ; preds = %if.end.i
   %mul.i.i = mul i64 %n, -7046029288634856825
-  %cmp.i14.i = icmp ugt i64 %n, 32
+  %cmp.i14.i = icmp samesign ugt i64 %n, 32
   br i1 %cmp.i14.i, label %if.then.i15.i, label %_ZL21XXPH3_len_17to128_64bPKhmS0_mm.exit.i
 
 if.then.i15.i:                                    ; preds = %if.then2.i
-  %cmp1.i16.i = icmp ugt i64 %n, 64
+  %cmp1.i16.i = icmp samesign ugt i64 %n, 64
   br i1 %cmp1.i16.i, label %if.then2.i17.i, label %if.end20.i.i
 
 if.then2.i17.i:                                   ; preds = %if.then.i15.i
-  %cmp3.i.i = icmp ugt i64 %n, 96
+  %cmp3.i.i = icmp samesign ugt i64 %n, 96
   br i1 %cmp3.i.i, label %if.then4.i.i, label %if.end.i18.i
 
 if.then4.i.i:                                     ; preds = %if.then2.i17.i
@@ -741,7 +741,7 @@ entry:
   br i1 %cmp.i, label %if.then.i, label %if.end.i
 
 if.then.i:                                        ; preds = %entry
-  %cmp.i.i = icmp ugt i64 %n, 8
+  %cmp.i.i = icmp samesign ugt i64 %n, 8
   br i1 %cmp.i.i, label %if.then.i.i, label %if.end.i.i
 
 if.then.i.i:                                      ; preds = %if.then.i
@@ -768,7 +768,7 @@ if.then.i.i:                                      ; preds = %if.then.i
   br label %_ZL20ROCKSDB_XXPH3_64bitsPKvm.exit
 
 if.end.i.i:                                       ; preds = %if.then.i
-  %cmp1.i.i = icmp ugt i64 %n, 3
+  %cmp1.i.i = icmp samesign ugt i64 %n, 3
   br i1 %cmp1.i.i, label %if.then2.i.i, label %if.end4.i.i
 
 if.then2.i.i:                                     ; preds = %if.end.i.i
@@ -831,15 +831,15 @@ if.end.i:                                         ; preds = %entry
 
 if.then2.i:                                       ; preds = %if.end.i
   %mul.i.i = mul i64 %n, -7046029288634856825
-  %cmp.i14.i = icmp ugt i64 %n, 32
+  %cmp.i14.i = icmp samesign ugt i64 %n, 32
   br i1 %cmp.i14.i, label %if.then.i15.i, label %_ZL21XXPH3_len_17to128_64bPKhmS0_mm.exit.i
 
 if.then.i15.i:                                    ; preds = %if.then2.i
-  %cmp1.i16.i = icmp ugt i64 %n, 64
+  %cmp1.i16.i = icmp samesign ugt i64 %n, 64
   br i1 %cmp1.i16.i, label %if.then2.i17.i, label %if.end20.i.i
 
 if.then2.i17.i:                                   ; preds = %if.then.i15.i
-  %cmp3.i.i = icmp ugt i64 %n, 96
+  %cmp3.i.i = icmp samesign ugt i64 %n, 96
   br i1 %cmp3.i.i, label %if.then4.i.i, label %if.end.i18.i
 
 if.then4.i.i:                                     ; preds = %if.then2.i17.i

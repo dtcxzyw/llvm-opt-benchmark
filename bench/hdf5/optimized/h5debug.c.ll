@@ -261,7 +261,7 @@ define dso_local range(i32 0, 6) i32 @main(i32 noundef %0, ptr nocapture noundef
 
 75:                                               ; preds = %71
   %76 = add nsw i32 %0, -3
-  %77 = icmp ugt i32 %0, 13
+  %77 = icmp samesign ugt i32 %0, 13
   br i1 %77, label %78, label %.lr.ph.preheader
 
 78:                                               ; preds = %75

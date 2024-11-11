@@ -4785,7 +4785,7 @@ define internal range(i32 0, 2) i32 @dissect_cmgl_data_part(ptr noundef %0, ptr 
   %29 = zext nneg i32 %28 to i64
   %30 = tail call noalias ptr @wmem_alloc0(ptr noundef %27, i64 noundef %29) #9
   %invariant.gep = getelementptr i8, ptr %30, i64 -8
-  %31 = icmp ugt i32 %8, 17
+  %31 = icmp samesign ugt i32 %8, 17
   br i1 %31, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %24
@@ -4886,7 +4886,7 @@ define internal range(i32 0, 2) i32 @dissect_cmgr_data_part(ptr noundef %0, ptr 
   %29 = zext nneg i32 %28 to i64
   %30 = tail call noalias ptr @wmem_alloc0(ptr noundef %27, i64 noundef %29) #9
   %invariant.gep = getelementptr i8, ptr %30, i64 -8
-  %31 = icmp ugt i32 %8, 17
+  %31 = icmp samesign ugt i32 %8, 17
   br i1 %31, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %24

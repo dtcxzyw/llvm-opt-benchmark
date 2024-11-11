@@ -1443,7 +1443,7 @@ if.then39:                                        ; preds = %if.end30
   br label %if.end60
 
 if.else41:                                        ; preds = %if.end30
-  %cmp42 = icmp ult i32 %conv36, 3600
+  %cmp42 = icmp samesign ult i32 %conv36, 3600
   br i1 %cmp42, label %if.then44, label %if.else47
 
 if.then44:                                        ; preds = %if.else41
@@ -1454,7 +1454,7 @@ if.then44:                                        ; preds = %if.else41
   br label %if.end60
 
 if.else47:                                        ; preds = %if.else41
-  %cmp48 = icmp ult i32 %conv36, 86400
+  %cmp48 = icmp samesign ult i32 %conv36, 86400
   br i1 %cmp48, label %if.then50, label %if.else54
 
 if.then50:                                        ; preds = %if.else47

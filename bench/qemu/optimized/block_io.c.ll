@@ -1601,7 +1601,7 @@ if.then2.i:                                       ; preds = %if.end.i7
   br label %bdrv_check_qiov_request.exit
 
 if.end3.i:                                        ; preds = %if.end.i7
-  %cmp4.i = icmp ugt i64 %4, 9223372035781033984
+  %cmp4.i = icmp samesign ugt i64 %4, 9223372035781033984
   br i1 %cmp4.i, label %if.then5.i, label %if.end6.i
 
 if.then5.i:                                       ; preds = %if.end3.i
@@ -1609,7 +1609,7 @@ if.then5.i:                                       ; preds = %if.end3.i
   br label %bdrv_check_qiov_request.exit
 
 if.end6.i:                                        ; preds = %if.end3.i
-  %cmp7.i = icmp ugt i64 %3, 9223372035781033984
+  %cmp7.i = icmp samesign ugt i64 %3, 9223372035781033984
   br i1 %cmp7.i, label %if.then8.i, label %if.end9.i
 
 if.then8.i:                                       ; preds = %if.end6.i
@@ -1618,7 +1618,7 @@ if.then8.i:                                       ; preds = %if.end6.i
 
 if.end9.i:                                        ; preds = %if.end6.i
   %sub.i = sub nuw nsw i64 9223372035781033984, %4
-  %cmp10.i = icmp ugt i64 %3, %sub.i
+  %cmp10.i = icmp samesign ugt i64 %3, %sub.i
   br i1 %cmp10.i, label %if.then11.i, label %bdrv_check_qiov_request.exit
 
 if.then11.i:                                      ; preds = %if.end9.i
@@ -1705,7 +1705,7 @@ if.then2:                                         ; preds = %if.end
   br label %return
 
 if.end3:                                          ; preds = %if.end
-  %cmp4 = icmp ugt i64 %bytes, 9223372035781033984
+  %cmp4 = icmp samesign ugt i64 %bytes, 9223372035781033984
   br i1 %cmp4, label %if.then5, label %if.end6
 
 if.then5:                                         ; preds = %if.end3
@@ -1713,7 +1713,7 @@ if.then5:                                         ; preds = %if.end3
   br label %return
 
 if.end6:                                          ; preds = %if.end3
-  %cmp7 = icmp ugt i64 %offset, 9223372035781033984
+  %cmp7 = icmp samesign ugt i64 %offset, 9223372035781033984
   br i1 %cmp7, label %if.then8, label %if.end9
 
 if.then8:                                         ; preds = %if.end6
@@ -1722,7 +1722,7 @@ if.then8:                                         ; preds = %if.end6
 
 if.end9:                                          ; preds = %if.end6
   %sub = sub nuw nsw i64 9223372035781033984, %bytes
-  %cmp10 = icmp ugt i64 %offset, %sub
+  %cmp10 = icmp samesign ugt i64 %offset, %sub
   br i1 %cmp10, label %if.then11, label %if.end12
 
 if.then11:                                        ; preds = %if.end9
@@ -2418,7 +2418,7 @@ if.then25.i:                                      ; preds = %if.end23.i
   %tobool34.i = icmp ne i64 %17, 0
   %lnot.ext38.i = zext i1 %tobool34.i to i32
   %add39.i = add nuw nsw i32 %lnot.ext38.i, %lnot.ext32.i
-  %cmp40.not.i = icmp ugt i32 %sub26.i, %add39.i
+  %cmp40.not.i = icmp samesign ugt i32 %sub26.i, %add39.i
   br i1 %cmp40.not.i, label %if.else42.i, label %if.end43.i
 
 if.else42.i:                                      ; preds = %if.then25.i
@@ -2772,7 +2772,7 @@ if.then50:                                        ; preds = %if.end45
   br label %out
 
 if.else52:                                        ; preds = %if.end45
-  %tobool54.not = icmp ult i32 %flags, 512
+  %tobool54.not = icmp samesign ult i32 %flags, 512
   br i1 %tobool54.not, label %if.end58, label %out
 
 if.end58:                                         ; preds = %if.else35, %while.end6.i, %if.else52
@@ -5350,7 +5350,7 @@ if.else13:                                        ; preds = %if.end9
   unreachable
 
 if.end14:                                         ; preds = %if.end9
-  %tobool16.not = icmp ugt i32 %flags, 1023
+  %tobool16.not = icmp samesign ugt i32 %flags, 1023
   %and17 = and i32 %flags, 128
   %tobool18.not = icmp eq i32 %and17, 0
   %or.cond = and i1 %tobool16.not, %tobool18.not
@@ -6407,7 +6407,7 @@ if.then3:                                         ; preds = %if.end
   br label %return
 
 if.end.i:                                         ; preds = %if.end
-  %cmp7.i = icmp ugt i64 %offset, 9223372035781033984
+  %cmp7.i = icmp samesign ugt i64 %offset, 9223372035781033984
   br i1 %cmp7.i, label %bdrv_check_qiov_request.exit.thread, label %if.end7
 
 bdrv_check_qiov_request.exit.thread:              ; preds = %if.end.i
@@ -6480,7 +6480,7 @@ tracked_request_begin.exit:                       ; preds = %if.end15, %if.then.
   %le_prev19.i = getelementptr inbounds i8, ptr %req, i64 56
   store ptr %tracked_requests.i, ptr %le_prev19.i, align 8
   call void @qemu_mutex_unlock_impl(ptr noundef nonnull %reqs_lock.i, ptr noundef nonnull @.str.1, i32 noundef 659) #15
-  %tobool22 = icmp ugt i64 %offset, %call8
+  %tobool22 = icmp samesign ugt i64 %offset, %call8
   br i1 %tobool22, label %if.then23, label %if.end24
 
 if.then23:                                        ; preds = %tracked_request_begin.exit
@@ -6547,7 +6547,7 @@ if.then41:                                        ; preds = %if.then36
   br label %out
 
 if.end44:                                         ; preds = %if.then36
-  %cmp45 = icmp ugt i64 %call38, %call8
+  %cmp45 = icmp samesign ugt i64 %call38, %call8
   %or = or i32 %flags, 2
   %spec.select = select i1 %cmp45, i32 %or, i32 %flags
   br label %if.end49

@@ -42566,7 +42566,7 @@ define internal fastcc void @"_ZN5alloc11collections5btree6remove259_$LT$impl$u2
   %165 = getelementptr i8, ptr %164, i64 8
   %166 = shl nsw i64 %149, 3
   tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %164, ptr align 8 %165, i64 %166, i1 false), !alias.scope !8939, !noalias !8920
-  %167 = icmp ult i64 %163, %143
+  %167 = icmp samesign ult i64 %163, %143
   br i1 %167, label %.lr.ph.i.i, label %"_ZN5alloc11collections5btree4node119NodeRef$LT$alloc..collections..btree..node..marker..Mut$C$K$C$V$C$alloc..collections..btree..node..marker..Internal$GT$30correct_childrens_parent_links17h7ea478fa9e9e1e42E.exit.i"
 
 .lr.ph.i.i:                                       ; preds = %._crit_edge164.thread, %.lr.ph.i.i
@@ -43090,7 +43090,7 @@ define internal fastcc void @"_ZN5alloc11collections5btree6remove259_$LT$impl$u2
   %168 = getelementptr i8, ptr %167, i64 8
   %169 = shl nsw i64 %151, 3
   tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %167, ptr align 8 %168, i64 %169, i1 false), !alias.scope !9032, !noalias !9011
-  %170 = icmp ult i64 %166, %145
+  %170 = icmp samesign ult i64 %166, %145
   br i1 %170, label %.lr.ph.i.i, label %"_ZN5alloc11collections5btree4node119NodeRef$LT$alloc..collections..btree..node..marker..Mut$C$K$C$V$C$alloc..collections..btree..node..marker..Internal$GT$30correct_childrens_parent_links17h4c5aaa889a73fbd9E.exit.i"
 
 .lr.ph.i.i:                                       ; preds = %._crit_edge161.thread, %.lr.ph.i.i
@@ -43615,7 +43615,7 @@ define internal fastcc void @"_ZN5alloc11collections5btree6remove259_$LT$impl$u2
   %169 = getelementptr i8, ptr %168, i64 8
   %170 = shl nsw i64 %150, 3
   tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %168, ptr align 8 %169, i64 %170, i1 false), !alias.scope !9125, !noalias !9104
-  %171 = icmp ult i64 %167, %143
+  %171 = icmp samesign ult i64 %167, %143
   br i1 %171, label %.lr.ph.i.i, label %"_ZN5alloc11collections5btree4node119NodeRef$LT$alloc..collections..btree..node..marker..Mut$C$K$C$V$C$alloc..collections..btree..node..marker..Internal$GT$30correct_childrens_parent_links17h8c33178ba358bae8E.exit.i"
 
 .lr.ph.i.i:                                       ; preds = %._crit_edge161.thread, %.lr.ph.i.i
@@ -44137,7 +44137,7 @@ define internal fastcc void @"_ZN5alloc11collections5btree6remove259_$LT$impl$u2
   %168 = getelementptr i8, ptr %167, i64 8
   %169 = shl nsw i64 %152, 3
   tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %167, ptr align 8 %168, i64 %169, i1 false), !alias.scope !9218, !noalias !9197
-  %170 = icmp ult i64 %166, %145
+  %170 = icmp samesign ult i64 %166, %145
   br i1 %170, label %.lr.ph.i.i, label %"_ZN5alloc11collections5btree4node119NodeRef$LT$alloc..collections..btree..node..marker..Mut$C$K$C$V$C$alloc..collections..btree..node..marker..Internal$GT$30correct_childrens_parent_links17h168eedc111177d53E.exit.i"
 
 .lr.ph.i.i:                                       ; preds = %._crit_edge161.thread, %.lr.ph.i.i
@@ -44661,7 +44661,7 @@ define internal fastcc void @"_ZN5alloc11collections5btree6remove259_$LT$impl$u2
   %168 = getelementptr i8, ptr %167, i64 8
   %169 = shl nsw i64 %152, 3
   tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %167, ptr align 8 %168, i64 %169, i1 false), !alias.scope !9311, !noalias !9290
-  %170 = icmp ult i64 %166, %145
+  %170 = icmp samesign ult i64 %166, %145
   br i1 %170, label %.lr.ph.i.i, label %"_ZN5alloc11collections5btree4node119NodeRef$LT$alloc..collections..btree..node..marker..Mut$C$K$C$V$C$alloc..collections..btree..node..marker..Internal$GT$30correct_childrens_parent_links17h2e0fcfc1422e8c8cE.exit.i"
 
 .lr.ph.i.i:                                       ; preds = %._crit_edge161.thread, %.lr.ph.i.i
@@ -61956,7 +61956,7 @@ define hidden void @"_ZN8minicbor6encode7encoder16Encoder$LT$W$GT$3i3217h2b67c47
 
 9:                                                ; preds = %3
   %10 = xor i32 %2, -1
-  %11 = icmp ugt i32 %2, -25
+  %11 = icmp samesign ugt i32 %2, -25
   br i1 %11, label %15, label %13
 
 12:                                               ; preds = %3
@@ -61964,7 +61964,7 @@ define hidden void @"_ZN8minicbor6encode7encoder16Encoder$LT$W$GT$3i3217h2b67c47
   br label %32
 
 13:                                               ; preds = %9
-  %14 = icmp ugt i32 %2, -257
+  %14 = icmp samesign ugt i32 %2, -257
   br i1 %14, label %22, label %20
 
 15:                                               ; preds = %9
@@ -61984,7 +61984,7 @@ define hidden void @"_ZN8minicbor6encode7encoder16Encoder$LT$W$GT$3i3217h2b67c47
   br label %32
 
 20:                                               ; preds = %13
-  %21 = icmp ugt i32 %2, -65537
+  %21 = icmp samesign ugt i32 %2, -65537
   br i1 %21, label %33, label %27
 
 22:                                               ; preds = %13
@@ -62059,7 +62059,7 @@ define hidden void @"_ZN8minicbor6encode7encoder16Encoder$LT$W$GT$3i6417h4b533a7
 
 10:                                               ; preds = %3
   %11 = xor i64 %2, -1
-  %12 = icmp ugt i64 %2, -25
+  %12 = icmp samesign ugt i64 %2, -25
   br i1 %12, label %16, label %14
 
 13:                                               ; preds = %3
@@ -62067,7 +62067,7 @@ define hidden void @"_ZN8minicbor6encode7encoder16Encoder$LT$W$GT$3i6417h4b533a7
   br label %35
 
 14:                                               ; preds = %10
-  %15 = icmp ugt i64 %2, -257
+  %15 = icmp samesign ugt i64 %2, -257
   br i1 %15, label %23, label %21
 
 16:                                               ; preds = %10
@@ -62087,7 +62087,7 @@ define hidden void @"_ZN8minicbor6encode7encoder16Encoder$LT$W$GT$3i6417h4b533a7
   br label %35
 
 21:                                               ; preds = %14
-  %22 = icmp ugt i64 %2, -65537
+  %22 = icmp samesign ugt i64 %2, -65537
   br i1 %22, label %42, label %28
 
 23:                                               ; preds = %14
@@ -62108,7 +62108,7 @@ define hidden void @"_ZN8minicbor6encode7encoder16Encoder$LT$W$GT$3i6417h4b533a7
   br label %35
 
 28:                                               ; preds = %21
-  %29 = icmp ugt i64 %2, -4294967297
+  %29 = icmp samesign ugt i64 %2, -4294967297
   br i1 %29, label %36, label %30
 
 30:                                               ; preds = %28

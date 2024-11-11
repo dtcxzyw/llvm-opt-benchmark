@@ -910,7 +910,7 @@ define void @Vta_ManCollectNodes_rec(ptr noundef %0, ptr noundef %1, ptr noundef
 8:                                                ; preds = %3
   %9 = or disjoint i32 %7, -2147483648
   store i32 %9, ptr %6, align 4
-  %.not16 = icmp ult i32 %7, 1073741824
+  %.not16 = icmp samesign ult i32 %7, 1073741824
   br i1 %.not16, label %21, label %10
 
 10:                                               ; preds = %8

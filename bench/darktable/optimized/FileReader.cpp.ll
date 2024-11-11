@@ -71,7 +71,7 @@ define hidden void @_ZNK8rawspeed10FileReader8readFileEv(ptr dead_on_unwind noal
   br label %58
 
 17:                                               ; preds = %9
-  %18 = icmp ugt i64 %11, 4294967295
+  %18 = icmp samesign ugt i64 %11, 4294967295
   br i1 %18, label %19, label %21
 
 19:                                               ; preds = %17

@@ -65,7 +65,7 @@ define void @dstein_(ptr nocapture noundef readonly %0, ptr noundef %1, ptr noun
   br i1 %46, label %48, label %.preheader277
 
 .preheader277:                                    ; preds = %44
-  %.not263282 = icmp ult i32 %42, 2
+  %.not263282 = icmp samesign ult i32 %42, 2
   br i1 %.not263282, label %._crit_edge285, label %.lr.ph284.preheader
 
 .lr.ph284.preheader:                              ; preds = %.preheader277

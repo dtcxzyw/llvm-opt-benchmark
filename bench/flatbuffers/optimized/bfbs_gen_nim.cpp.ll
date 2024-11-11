@@ -12233,17 +12233,17 @@ lpad52:                                           ; preds = %call.i.noexc103, %s
   br label %eh.resume
 
 sw.default:                                       ; preds = %entry
-  %cmp1.i.i = icmp ugt i32 %base_type, 19
-  br i1 %cmp1.i.i, label %_ZN10reflection16EnumNameBaseTypeENS_8BaseTypeE.exit, label %if.end.i
+  %28 = icmp ugt i32 %base_type, 19
+  br i1 %28, label %_ZN10reflection16EnumNameBaseTypeENS_8BaseTypeE.exit, label %if.end.i
 
 if.end.i:                                         ; preds = %sw.default
   %conv.i = zext nneg i32 %base_type to i64
   %arrayidx.i = getelementptr inbounds ptr, ptr @_ZZN10reflection17EnumNamesBaseTypeEvE5names, i64 %conv.i
-  %28 = load ptr, ptr %arrayidx.i, align 8
+  %29 = load ptr, ptr %arrayidx.i, align 8
   br label %_ZN10reflection16EnumNameBaseTypeENS_8BaseTypeE.exit
 
 _ZN10reflection16EnumNameBaseTypeENS_8BaseTypeE.exit: ; preds = %sw.default, %if.end.i
-  %retval.0.i = phi ptr [ %28, %if.end.i ], [ @.str.20, %sw.default ]
+  %retval.0.i = phi ptr [ %29, %if.end.i ], [ @.str.20, %sw.default ]
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp54) #25
   %call.i113 = invoke noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(32) %agg.result)
           to label %call.i.noexc112 unwind label %lpad55
@@ -12264,7 +12264,7 @@ invoke.cont.i:                                    ; preds = %if.then.i
   unreachable
 
 lpad.i111:                                        ; preds = %if.end.i108, %if.then.i
-  %29 = landingpad { ptr, i32 }
+  %30 = landingpad { ptr, i32 }
           cleanup
   call void @_ZNSaIcED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %agg.result) #25
   br label %eh.resume
@@ -12276,7 +12276,7 @@ if.end.i108:                                      ; preds = %.noexc114
           to label %return unwind label %lpad.i111
 
 lpad55:                                           ; preds = %call.i.noexc112, %_ZN10reflection16EnumNameBaseTypeENS_8BaseTypeE.exit
-  %30 = landingpad { ptr, i32 }
+  %31 = landingpad { ptr, i32 }
           cleanup
   br label %eh.resume
 
@@ -12287,7 +12287,7 @@ return:                                           ; preds = %if.end.i108, %.noex
 
 eh.resume:                                        ; preds = %lpad55, %lpad.i111, %lpad52, %lpad.i102, %lpad48, %lpad.i94, %lpad44, %lpad.i86, %lpad40, %lpad.i78, %lpad36, %lpad.i70, %lpad32, %lpad.i62, %lpad28, %lpad.i54, %lpad24, %lpad.i46, %lpad20, %lpad.i38, %lpad16, %lpad.i30, %lpad12, %lpad.i22, %lpad8, %lpad.i14, %lpad4, %lpad.i6, %lpad, %lpad.i
   %ref.tmp54.sink1 = phi ptr [ %ref.tmp, %lpad.i ], [ %ref.tmp, %lpad ], [ %ref.tmp3, %lpad.i6 ], [ %ref.tmp3, %lpad4 ], [ %ref.tmp7, %lpad.i14 ], [ %ref.tmp7, %lpad8 ], [ %ref.tmp11, %lpad.i22 ], [ %ref.tmp11, %lpad12 ], [ %ref.tmp15, %lpad.i30 ], [ %ref.tmp15, %lpad16 ], [ %ref.tmp19, %lpad.i38 ], [ %ref.tmp19, %lpad20 ], [ %ref.tmp23, %lpad.i46 ], [ %ref.tmp23, %lpad24 ], [ %ref.tmp27, %lpad.i54 ], [ %ref.tmp27, %lpad28 ], [ %ref.tmp31, %lpad.i62 ], [ %ref.tmp31, %lpad32 ], [ %ref.tmp35, %lpad.i70 ], [ %ref.tmp35, %lpad36 ], [ %ref.tmp39, %lpad.i78 ], [ %ref.tmp39, %lpad40 ], [ %ref.tmp43, %lpad.i86 ], [ %ref.tmp43, %lpad44 ], [ %ref.tmp47, %lpad.i94 ], [ %ref.tmp47, %lpad48 ], [ %ref.tmp51, %lpad.i102 ], [ %ref.tmp51, %lpad52 ], [ %ref.tmp54, %lpad.i111 ], [ %ref.tmp54, %lpad55 ]
-  %.pn = phi { ptr, i32 } [ %0, %lpad.i ], [ %1, %lpad ], [ %2, %lpad.i6 ], [ %3, %lpad4 ], [ %4, %lpad.i14 ], [ %5, %lpad8 ], [ %6, %lpad.i22 ], [ %7, %lpad12 ], [ %8, %lpad.i30 ], [ %9, %lpad16 ], [ %10, %lpad.i38 ], [ %11, %lpad20 ], [ %12, %lpad.i46 ], [ %13, %lpad24 ], [ %14, %lpad.i54 ], [ %15, %lpad28 ], [ %16, %lpad.i62 ], [ %17, %lpad32 ], [ %18, %lpad.i70 ], [ %19, %lpad36 ], [ %20, %lpad.i78 ], [ %21, %lpad40 ], [ %22, %lpad.i86 ], [ %23, %lpad44 ], [ %24, %lpad.i94 ], [ %25, %lpad48 ], [ %26, %lpad.i102 ], [ %27, %lpad52 ], [ %29, %lpad.i111 ], [ %30, %lpad55 ]
+  %.pn = phi { ptr, i32 } [ %0, %lpad.i ], [ %1, %lpad ], [ %2, %lpad.i6 ], [ %3, %lpad4 ], [ %4, %lpad.i14 ], [ %5, %lpad8 ], [ %6, %lpad.i22 ], [ %7, %lpad12 ], [ %8, %lpad.i30 ], [ %9, %lpad16 ], [ %10, %lpad.i38 ], [ %11, %lpad20 ], [ %12, %lpad.i46 ], [ %13, %lpad24 ], [ %14, %lpad.i54 ], [ %15, %lpad28 ], [ %16, %lpad.i62 ], [ %17, %lpad32 ], [ %18, %lpad.i70 ], [ %19, %lpad36 ], [ %20, %lpad.i78 ], [ %21, %lpad40 ], [ %22, %lpad.i86 ], [ %23, %lpad44 ], [ %24, %lpad.i94 ], [ %25, %lpad48 ], [ %26, %lpad.i102 ], [ %27, %lpad52 ], [ %30, %lpad.i111 ], [ %31, %lpad55 ]
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp54.sink1) #25
   resume { ptr, i32 } %.pn
 }
@@ -16524,7 +16524,7 @@ if.then224:                                       ; preds = %invoke.cont218
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %ref.tmp40.i)
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %ref.tmp51.i)
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %ref.tmp56.i)
-  %cmp.i.i.i.i.i = icmp ugt i16 %132, 6
+  %cmp.i.i.i.i.i = icmp samesign ugt i16 %132, 6
   br i1 %cmp.i.i.i.i.i, label %_ZNK11flatbuffers5Table22GetOptionalFieldOffsetEt.exit.i.i.i.i, label %_ZNK10reflection5Field4typeEv.exit.i
 
 _ZNK11flatbuffers5Table22GetOptionalFieldOffsetEt.exit.i.i.i.i.sink.split: ; preds = %invoke.cont222, %_ZNK11flatbuffers5Table22GetOptionalFieldOffsetEt.exit.i.i420
@@ -19559,7 +19559,7 @@ for.body.i.i.i.i.i.i.i.i:                         ; preds = %if.then.i.i.i, %for
   %incdec.ptr.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__first.addr.07.i.i.i.i.i.i.i.i, i64 32
   %incdec.ptr1.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__result.addr.08.i.i.i.i.i.i.i.i, i64 32
   %dec.i.i.i.i.i.i.i.i = add nsw i64 %__n.09.i.i.i.i.i.i.i.i, -1
-  %cmp.i.i.i.i.i.i.i.i = icmp ugt i64 %__n.09.i.i.i.i.i.i.i.i, 1
+  %cmp.i.i.i.i.i.i.i.i = icmp samesign ugt i64 %__n.09.i.i.i.i.i.i.i.i, 1
   br i1 %cmp.i.i.i.i.i.i.i.i, label %for.body.i.i.i.i.i.i.i.i, label %if.end.loopexit.i.i.i, !llvm.loop !202
 
 if.end.loopexit.i.i.i:                            ; preds = %for.body.i.i.i.i.i.i.i.i
@@ -19593,7 +19593,7 @@ for.body.i.i.i.i.i.i.i44.i:                       ; preds = %if.then.i.i37.i, %f
   %incdec.ptr.i.i.i.i.i.i.i49.i = getelementptr inbounds i8, ptr %__first.addr.07.i.i.i.i.i.i.i47.i, i64 32
   %incdec.ptr1.i.i.i.i.i.i.i50.i = getelementptr inbounds i8, ptr %__result.addr.08.i.i.i.i.i.i.i46.i, i64 32
   %dec.i.i.i.i.i.i.i51.i = add nsw i64 %__n.09.i.i.i.i.i.i.i45.i, -1
-  %cmp.i.i.i.i.i.i.i52.i = icmp ugt i64 %__n.09.i.i.i.i.i.i.i45.i, 1
+  %cmp.i.i.i.i.i.i.i52.i = icmp samesign ugt i64 %__n.09.i.i.i.i.i.i.i45.i, 1
   br i1 %cmp.i.i.i.i.i.i.i52.i, label %for.body.i.i.i.i.i.i.i44.i, label %if.end.loopexit.i.i53.i, !llvm.loop !202
 
 if.end.loopexit.i.i53.i:                          ; preds = %for.body.i.i.i.i.i.i.i44.i
@@ -21013,7 +21013,7 @@ for.body.i.i.i.i.i.i:                             ; preds = %if.else, %for.body.
   %incdec.ptr1.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__result.addr.06.i.i.i.i.i.i, i64 -32
   %call.i.i.i.i.i.i = tail call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEOS4_(ptr noundef nonnull align 8 dereferenceable(32) %incdec.ptr1.i.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(32) %incdec.ptr.i.i.i.i.i.i) #25
   %dec.i.i.i.i.i.i = add nsw i64 %__n.07.i.i.i.i.i.i, -1
-  %cmp.i.i.i.i.i.i = icmp ugt i64 %__n.07.i.i.i.i.i.i, 1
+  %cmp.i.i.i.i.i.i = icmp samesign ugt i64 %__n.07.i.i.i.i.i.i, 1
   br i1 %cmp.i.i.i.i.i.i, label %for.body.i.i.i.i.i.i, label %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE13_M_insert_auxIS5_EEvN9__gnu_cxx17__normal_iteratorIPS5_S7_EEOT_.exit, !llvm.loop !214
 
 _ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE13_M_insert_auxIS5_EEvN9__gnu_cxx17__normal_iteratorIPS5_S7_EEOT_.exit: ; preds = %for.body.i.i.i.i.i.i, %if.else

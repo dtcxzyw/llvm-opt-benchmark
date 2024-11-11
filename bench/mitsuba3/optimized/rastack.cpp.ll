@@ -295,7 +295,7 @@ split:                                            ; preds = %107, %._crit_edge
 
 138:                                              ; preds = %136
   %139 = getelementptr inbounds i8, ptr %44, i64 %49
-  %140 = icmp ugt i64 %50, 1
+  %140 = icmp samesign ugt i64 %50, 1
   br i1 %140, label %141, label %.loopexit34
 
 141:                                              ; preds = %138

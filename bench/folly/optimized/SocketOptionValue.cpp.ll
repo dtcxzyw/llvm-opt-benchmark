@@ -150,7 +150,7 @@ if.then5:                                         ; preds = %_ZNK5folly17SocketO
   store ptr %3, ptr %agg.result, align 8, !tbaa !19
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %__dnew.i.i) #15
   store i64 %conv, ptr %__dnew.i.i, align 8, !tbaa !21
-  %cmp.i.i13 = icmp ugt i32 %call3, 15
+  %cmp.i.i13 = icmp samesign ugt i32 %call3, 15
   br i1 %cmp.i.i13, label %if.end.i.i.thread, label %if.end.i.i
 
 if.end.i.i.thread:                                ; preds = %if.then5

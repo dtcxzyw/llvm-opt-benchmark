@@ -634,7 +634,7 @@ _ZL14check_min_sizePKcmm.exit68:                  ; preds = %121, %._crit_edge.i
   br i1 %164, label %_Z24byte_size_in_proper_unitImET_S0_.exit, label %165
 
 165:                                              ; preds = %163
-  %166 = icmp ugt i64 %159, 104857599
+  %166 = icmp samesign ugt i64 %159, 104857599
   br i1 %166, label %.thread172, label %169
 
 .thread172:                                       ; preds = %165
@@ -646,7 +646,7 @@ _Z24byte_size_in_proper_unitImET_S0_.exit:        ; preds = %163
   br label %_Z25proper_unit_for_byte_sizem.exit
 
 169:                                              ; preds = %165
-  %170 = icmp ugt i64 %159, 102399
+  %170 = icmp samesign ugt i64 %159, 102399
   %171 = lshr i64 %159, 10
   %spec.select.i = select i1 %170, i64 %171, i64 %159
   %.str.84..str.85.i = select i1 %170, ptr @.str.84, ptr @.str.85
@@ -659,7 +659,7 @@ _Z25proper_unit_for_byte_sizem.exit:              ; preds = %.thread172, %_Z24by
   br i1 %172, label %_Z24byte_size_in_proper_unitImET_S0_.exit82, label %173
 
 173:                                              ; preds = %_Z25proper_unit_for_byte_sizem.exit
-  %174 = icmp ugt i64 %27, 104857599
+  %174 = icmp samesign ugt i64 %27, 104857599
   br i1 %174, label %.thread177, label %177
 
 .thread177:                                       ; preds = %173
@@ -671,7 +671,7 @@ _Z24byte_size_in_proper_unitImET_S0_.exit82:      ; preds = %_Z25proper_unit_for
   br label %_Z25proper_unit_for_byte_sizem.exit85
 
 177:                                              ; preds = %173
-  %178 = icmp ugt i64 %27, 102399
+  %178 = icmp samesign ugt i64 %27, 102399
   %179 = lshr i64 %27, 10
   %spec.select.i80 = select i1 %178, i64 %179, i64 %27
   %.str.84..str.85.i83 = select i1 %178, ptr @.str.84, ptr @.str.85
@@ -1008,7 +1008,7 @@ _ZN9CodeCache14heap_availableE12CodeBlobType.exit: ; preds = %3
   br label %47
 
 45:                                               ; preds = %33
-  %46 = icmp ult i32 %39, 4
+  %46 = icmp samesign ult i32 %39, 4
   br i1 %46, label %47, label %_ZN9CodeCache8add_heapEP8CodeHeap.exit
 
 47:                                               ; preds = %45, %.thread.i
@@ -1122,7 +1122,7 @@ define hidden void @_ZN9CodeCache8add_heapEP8CodeHeap(ptr noundef %0) local_unna
   br label %15
 
 13:                                               ; preds = %1
-  %14 = icmp ult i32 %7, 4
+  %14 = icmp samesign ult i32 %7, 4
   br i1 %14, label %15, label %18
 
 15:                                               ; preds = %.thread, %13

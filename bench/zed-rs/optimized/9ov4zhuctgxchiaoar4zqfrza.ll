@@ -30285,7 +30285,7 @@ define internal fastcc void @_ZN5image5image14decoder_to_vec17h0850037e9346c353E
 
 9:                                                ; preds = %"_ZN73_$LT$alloc..boxed..Box$LT$T$GT$$u20$as$u20$image..image..ImageDecoder$GT$11total_bytes17h27d84c4a9459880cE.exit"
   %10 = lshr i64 %7, 2
-  %11 = icmp ult i64 %7, 4
+  %11 = icmp samesign ult i64 %7, 4
   br i1 %11, label %._crit_edge, label %12
 
 12:                                               ; preds = %9
@@ -30420,7 +30420,7 @@ define internal fastcc void @_ZN5image5image14decoder_to_vec17h856052ba2a905a68E
 
 9:                                                ; preds = %"_ZN73_$LT$alloc..boxed..Box$LT$T$GT$$u20$as$u20$image..image..ImageDecoder$GT$11total_bytes17h27d84c4a9459880cE.exit"
   %10 = lshr i64 %7, 1
-  %11 = icmp ult i64 %7, 2
+  %11 = icmp samesign ult i64 %7, 2
   br i1 %11, label %._crit_edge, label %12
 
 12:                                               ; preds = %9

@@ -3837,7 +3837,7 @@ _ZN6HandleC2EP6ThreadP7oopDesc.exit.i:            ; preds = %_ZN10HandleArea15al
   br i1 %.not103, label %.thread140, label %148
 
 148:                                              ; preds = %147
-  %149 = icmp ult i64 %3, 112
+  %149 = icmp samesign ult i64 %3, 112
   %150 = and i64 %3, 7
   %151 = icmp eq i64 %150, 0
   %or.cond = and i1 %149, %151
@@ -25429,14 +25429,14 @@ _ZNK7oopDesc11is_objArrayEv.exit.thread:          ; preds = %89
 
 _ZN12arrayOopDesc20base_offset_in_bytesE9BasicType.exit: ; preds = %106
   %110 = zext nneg i32 %107 to i64
-  %111 = icmp ult i64 %1, %110
+  %111 = icmp samesign ult i64 %1, %110
   br i1 %111, label %115, label %_ZNK6HandleclEv.exit
 
 _ZN12arrayOopDesc20base_offset_in_bytesE9BasicType.exit.thread: ; preds = %106
   %narrow.i = add nuw nsw i32 %107, 7
   %112 = and i32 %narrow.i, 24
   %113 = zext nneg i32 %112 to i64
-  %114 = icmp ult i64 %1, %113
+  %114 = icmp samesign ult i64 %1, %113
   br i1 %114, label %115, label %_ZNK6HandleclEv.exit.thread
 
 115:                                              ; preds = %_ZN12arrayOopDesc20base_offset_in_bytesE9BasicType.exit.thread, %_ZN12arrayOopDesc20base_offset_in_bytesE9BasicType.exit
@@ -25671,7 +25671,7 @@ _ZN12arrayOopDesc30element_type_should_be_alignedE9BasicType.exit.i: ; preds = %
 _ZN12arrayOopDesc20base_offset_in_bytesE9BasicType.exit118: ; preds = %218, %_ZN12arrayOopDesc30element_type_should_be_alignedE9BasicType.exit.i, %221
   %223 = phi i32 [ %222, %221 ], [ %212, %_ZN12arrayOopDesc30element_type_should_be_alignedE9BasicType.exit.i ], [ %212, %218 ]
   %224 = zext nneg i32 %223 to i64
-  %225 = icmp ult i64 %1, %224
+  %225 = icmp samesign ult i64 %1, %224
   br i1 %225, label %226, label %227
 
 226:                                              ; preds = %_ZN12arrayOopDesc20base_offset_in_bytesE9BasicType.exit118
@@ -36075,7 +36075,7 @@ _ZN12methodHandleC2EP6ThreadP6Method.exit:        ; preds = %_ZN14JVMCITraceMark
   %.phi.trans.insert79 = getelementptr inbounds i8, ptr %.pre, i64 34
   %.pre80 = load i16, ptr %.phi.trans.insert79, align 2
   %.pre81 = zext i16 %.pre80 to i32
-  %.not = icmp ult i32 %4, %.pre81
+  %.not = icmp samesign ult i32 %4, %.pre81
   %or.cond = select i1 %82, i1 %.not, i1 false
   br i1 %or.cond, label %84, label %_ZN12methodHandleC2EP6ThreadP6Method.exit._crit_edge
 

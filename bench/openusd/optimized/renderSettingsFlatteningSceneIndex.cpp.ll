@@ -4372,7 +4372,7 @@ _ZNSt6vectorIN32pxrInternal_v0_24__pxrReserved__7TfTokenESaIS1_EE7reserveEm.exit
   store ptr %831, ptr %832, align 8
   %833 = getelementptr inbounds %"class.pxrInternal_v0_24__pxrReserved__::TfToken", ptr %831, i64 %825
   store ptr %833, ptr %828, align 8
-  %834 = icmp ugt i64 %825, 576460752303423487
+  %834 = icmp samesign ugt i64 %825, 576460752303423487
   br i1 %834, label %.invoke, label %_ZNSt12_Vector_baseISt10shared_ptrIN32pxrInternal_v0_24__pxrReserved__16HdDataSourceBaseEESaIS3_EE11_M_allocateEm.exit.i
 
 _ZNSt12_Vector_baseISt10shared_ptrIN32pxrInternal_v0_24__pxrReserved__16HdDataSourceBaseEESaIS3_EE11_M_allocateEm.exit.i: ; preds = %_ZNSt6vectorIN32pxrInternal_v0_24__pxrReserved__7TfTokenESaIS1_EE7reserveEm.exit

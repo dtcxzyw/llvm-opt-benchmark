@@ -8096,7 +8096,7 @@ _ZNSt11char_traitsIcE7compareEPKcS2_m.exit.thread.i: ; preds = %_ZNSt11char_trai
   br label %_ZN5boost14static_strings6detail23lexicographical_compareIcSt11char_traitsIcEEEiPKT_mS7_m.exit
 
 12:                                               ; preds = %2
-  %13 = icmp ult i64 %6, %5
+  %13 = icmp samesign ult i64 %6, %5
   br i1 %13, label %14, label %18
 
 14:                                               ; preds = %12
@@ -8159,7 +8159,7 @@ _ZNSt11char_traitsIcE7compareEPKcS2_m.exit.thread.i: ; preds = %_ZNSt11char_trai
   br label %_ZN5boost14static_strings6detail23lexicographical_compareIcSt11char_traitsIcEEEiPKT_mS7_m.exit
 
 18:                                               ; preds = %_ZNK5boost14static_strings19basic_static_stringILm420EcSt11char_traitsIcEE13capped_lengthEmm.exit
-  %19 = icmp ugt i64 %.sroa.speculated.i, %12
+  %19 = icmp samesign ugt i64 %.sroa.speculated.i, %12
   br i1 %19, label %20, label %24
 
 20:                                               ; preds = %18
@@ -8221,7 +8221,7 @@ _ZNSt11char_traitsIcE7compareEPKcS2_m.exit.thread.i: ; preds = %_ZNSt11char_trai
   br label %_ZN5boost14static_strings6detail23lexicographical_compareIcSt11char_traitsIcEEEiPKT_mS7_m.exit
 
 18:                                               ; preds = %_ZNK5boost14static_strings19basic_static_stringILm420EcSt11char_traitsIcEE13capped_lengthEmm.exit
-  %19 = icmp ugt i64 %.sroa.speculated.i, %4
+  %19 = icmp samesign ugt i64 %.sroa.speculated.i, %4
   br i1 %19, label %20, label %24
 
 20:                                               ; preds = %18
@@ -8330,7 +8330,7 @@ define weak_odr hidden void @_ZN5boost14static_strings19basic_static_stringILm42
 5:                                                ; preds = %2
   %6 = load i16, ptr %0, align 2, !tbaa !4
   %7 = zext i16 %6 to i64
-  %8 = icmp ugt i64 %1, %7
+  %8 = icmp samesign ugt i64 %1, %7
   br i1 %8, label %9, label %_ZN5boost14static_strings19basic_static_stringILm420EcSt11char_traitsIcEE6resizeEmc.exit
 
 9:                                                ; preds = %5
@@ -8361,7 +8361,7 @@ define weak_odr hidden void @_ZN5boost14static_strings19basic_static_stringILm42
 6:                                                ; preds = %3
   %7 = load i16, ptr %0, align 2, !tbaa !4
   %8 = zext i16 %7 to i64
-  %9 = icmp ugt i64 %1, %8
+  %9 = icmp samesign ugt i64 %1, %8
   br i1 %9, label %10, label %_ZNSt11char_traitsIcE6assignEPcmc.exit
 
 10:                                               ; preds = %6
@@ -11170,7 +11170,7 @@ _ZNSt11char_traitsIcE7compareEPKcS2_m.exit.thread.i.i29: ; preds = %_ZNSt11char_
   br label %_ZNK5boost14static_strings19basic_static_stringILm1EcSt11char_traitsIcEE7compareEPKc.exit
 
 1212:                                             ; preds = %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit16.i.i2
-  %1213 = icmp ult i64 %1206, %1205
+  %1213 = icmp samesign ult i64 %1206, %1205
   br i1 %1213, label %1214, label %1218
 
 1214:                                             ; preds = %1212
@@ -11218,7 +11218,7 @@ _ZNSt11char_traitsIcE7compareEPKcS2_m.exit.thread.i.i36: ; preds = %_ZNSt11char_
   br label %_ZNK5boost14static_strings19basic_static_stringILm2EcSt11char_traitsIcEE7compareEPKc.exit
 
 1232:                                             ; preds = %_ZNK5boost14static_strings19basic_static_stringILm1EcSt11char_traitsIcEE7compareEPKc.exit
-  %1233 = icmp ult i64 %1226, %1225
+  %1233 = icmp samesign ult i64 %1226, %1225
   br i1 %1233, label %1234, label %1238
 
 1234:                                             ; preds = %1232
@@ -11267,7 +11267,7 @@ _ZNSt11char_traitsIcE7compareEPKcS2_m.exit.thread.i.i44: ; preds = %_ZNSt11char_
   br label %_ZNK5boost14static_strings19basic_static_stringILm1EcSt11char_traitsIcEE7compareEmmPKc.exit
 
 1252:                                             ; preds = %_ZNK5boost14static_strings19basic_static_stringILm2EcSt11char_traitsIcEE7compareEPKc.exit
-  %1253 = icmp ult i64 %1246, %.sroa.speculated.i.i37
+  %1253 = icmp samesign ult i64 %1246, %.sroa.speculated.i.i37
   br i1 %1253, label %1254, label %1258
 
 1254:                                             ; preds = %1252
@@ -11315,7 +11315,7 @@ _ZNSt11char_traitsIcE7compareEPKcS2_m.exit.thread.i.i52: ; preds = %_ZNSt11char_
   br label %_ZNK5boost14static_strings19basic_static_stringILm2EcSt11char_traitsIcEE7compareEmmPKc.exit
 
 1271:                                             ; preds = %_ZNK5boost14static_strings19basic_static_stringILm1EcSt11char_traitsIcEE7compareEmmPKc.exit
-  %1272 = icmp ult i64 %1266, %.sroa.speculated.i.i45
+  %1272 = icmp samesign ult i64 %1266, %.sroa.speculated.i.i45
   %.not2679 = xor i1 %1265, true
   %brmerge = or i1 %1272, %.not2679
   br i1 %brmerge, label %_ZNK5boost14static_strings19basic_static_stringILm2EcSt11char_traitsIcEE7compareEmmPKc.exit, label %1273
@@ -11448,7 +11448,7 @@ _ZNSt11char_traitsIcE7compareEPKcS2_m.exit.thread.i.i81: ; preds = %_ZNSt11char_
   br label %_ZNK5boost14static_strings19basic_static_stringILm1EcSt11char_traitsIcEE7compareINS_17basic_string_viewIcS3_EEvEEimmRKT_.exit
 
 1328:                                             ; preds = %_ZNK5boost14static_strings19basic_static_stringILm2EcSt11char_traitsIcEE7compareINS_17basic_string_viewIcS3_EEvEEiRKT_.exit
-  %1329 = icmp ugt i8 %1322, %1319
+  %1329 = icmp samesign ugt i8 %1322, %1319
   br i1 %1329, label %1330, label %1334
 
 1330:                                             ; preds = %1328
@@ -23858,7 +23858,7 @@ _ZNSt11char_traitsIcE7compareEPKcS2_m.exit.thread.i.i: ; preds = %_ZNSt11char_tr
   br label %_ZNK5boost14static_strings19basic_static_stringILm1EcSt11char_traitsIcEE7compareEmmPKcm.exit
 
 27:                                               ; preds = %_ZNK5boost14static_strings19basic_static_stringILm1EcSt11char_traitsIcEE13capped_lengthEmm.exit.i
-  %28 = icmp ugt i64 %.sroa.speculated.i.i, %.sroa.speculated
+  %28 = icmp samesign ugt i64 %.sroa.speculated.i.i, %.sroa.speculated
   br i1 %28, label %29, label %33
 
 29:                                               ; preds = %27
@@ -23934,7 +23934,7 @@ _ZNSt11char_traitsIcE7compareEPKcS2_m.exit.thread.i.i: ; preds = %_ZNSt11char_tr
   br label %_ZNK5boost14static_strings19basic_static_stringILm2EcSt11char_traitsIcEE7compareEmmPKcm.exit
 
 27:                                               ; preds = %_ZNK5boost14static_strings19basic_static_stringILm2EcSt11char_traitsIcEE13capped_lengthEmm.exit.i
-  %28 = icmp ugt i64 %.sroa.speculated.i.i, %.sroa.speculated
+  %28 = icmp samesign ugt i64 %.sroa.speculated.i.i, %.sroa.speculated
   br i1 %28, label %29, label %33
 
 29:                                               ; preds = %27
@@ -23989,7 +23989,7 @@ _ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i:   ; preds = %13
   br i1 %16, label %.thread, label %_ZNK5boost14static_strings19basic_static_stringILm400EcSt11char_traitsIcEE7compareEmmPKcm.exit.thread.thread
 
 17:                                               ; preds = %_ZNK5boost14static_strings19basic_static_stringILm400EcSt11char_traitsIcEE13capped_lengthEmm.exit.i
-  %18 = icmp ugt i64 %.sroa.speculated.i.i, %4
+  %18 = icmp samesign ugt i64 %.sroa.speculated.i.i, %4
   br i1 %18, label %19, label %23
 
 19:                                               ; preds = %17

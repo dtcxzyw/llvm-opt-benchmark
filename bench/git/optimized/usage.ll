@@ -172,7 +172,7 @@ for.body:                                         ; preds = %entry, %for.cond.ba
   br i1 %cmp10.not, label %if.end, label %for.cond.backedge
 
 if.end:                                           ; preds = %for.body
-  %cmp13 = icmp ult i32 %j.011, 254
+  %cmp13 = icmp samesign ult i32 %j.011, 254
   br i1 %cmp13, label %if.then15, label %for.end
 
 if.then15:                                        ; preds = %if.end
@@ -249,7 +249,7 @@ for.body.i:                                       ; preds = %entry, %for.cond.ba
   br i1 %cmp10.not.i, label %if.end.i, label %for.cond.backedge.i
 
 if.end.i:                                         ; preds = %for.body.i
-  %cmp13.i = icmp ult i32 %j.011.i, 254
+  %cmp13.i = icmp samesign ult i32 %j.011.i, 254
   br i1 %cmp13.i, label %if.then15.i, label %fmt_with_err.exit
 
 if.then15.i:                                      ; preds = %if.end.i
@@ -320,7 +320,7 @@ for.body.i:                                       ; preds = %entry, %for.cond.ba
   br i1 %cmp10.not.i, label %if.end.i, label %for.cond.backedge.i
 
 if.end.i:                                         ; preds = %for.body.i
-  %cmp13.i = icmp ult i32 %j.011.i, 254
+  %cmp13.i = icmp samesign ult i32 %j.011.i, 254
   br i1 %cmp13.i, label %if.then15.i, label %fmt_with_err.exit
 
 if.then15.i:                                      ; preds = %if.end.i
@@ -391,7 +391,7 @@ for.body.i:                                       ; preds = %entry, %for.cond.ba
   br i1 %cmp10.not.i, label %if.end.i, label %for.cond.backedge.i
 
 if.end.i:                                         ; preds = %for.body.i
-  %cmp13.i = icmp ult i32 %j.011.i, 254
+  %cmp13.i = icmp samesign ult i32 %j.011.i, 254
   br i1 %cmp13.i, label %if.then15.i, label %fmt_with_err.exit
 
 if.then15.i:                                      ; preds = %if.end.i

@@ -201,7 +201,7 @@ if.end19:                                         ; preds = %entry, %if.end, %la
   br i1 %cmp20, label %if.end25.sink.split, label %if.end22
 
 if.end22:                                         ; preds = %if.end19
-  %cmp23 = icmp ugt i64 %7, 1000
+  %cmp23 = icmp samesign ugt i64 %7, 1000
   br i1 %cmp23, label %if.end25.sink.split, label %if.end25
 
 if.end25.sink.split:                              ; preds = %if.end22, %if.end19
@@ -216,7 +216,7 @@ if.end25:                                         ; preds = %if.end25.sink.split
   br i1 %cmp26, label %if.end31.sink.split, label %if.end28
 
 if.end28:                                         ; preds = %if.end25
-  %cmp29 = icmp ugt i64 %9, 200
+  %cmp29 = icmp samesign ugt i64 %9, 200
   br i1 %cmp29, label %if.end31.sink.split, label %if.end31
 
 if.end31.sink.split:                              ; preds = %if.end28, %if.end25
@@ -231,7 +231,7 @@ if.end31:                                         ; preds = %if.end31.sink.split
   br i1 %cmp32, label %if.end37.sink.split, label %if.end34
 
 if.end34:                                         ; preds = %if.end31
-  %cmp35 = icmp ugt i64 %11, 200
+  %cmp35 = icmp samesign ugt i64 %11, 200
   br i1 %cmp35, label %if.end37.sink.split, label %if.end37
 
 if.end37.sink.split:                              ; preds = %if.end34, %if.end31

@@ -1153,7 +1153,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit183: ;
 _ZNSt10filesystem7__cxx114pathD2Ev.exit185:       ; preds = %219, %222
   store ptr null, ptr %220, align 8
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(40) %25) #22
-  %223 = icmp ugt i64 %indvars.iv306, 1
+  %223 = icmp samesign ugt i64 %indvars.iv306, 1
   br i1 %223, label %.lr.ph241.preheader, label %._crit_edge242
 
 .lr.ph241.preheader:                              ; preds = %_ZNSt10filesystem7__cxx114pathD2Ev.exit185

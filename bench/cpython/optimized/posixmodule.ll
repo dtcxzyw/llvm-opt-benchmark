@@ -10476,7 +10476,7 @@ if.then22.i:                                      ; preds = %if.then19.i
   br label %error.i
 
 if.end24.i:                                       ; preds = %Py_DECREF.exit91.i
-  %cmp25.i = icmp ugt i64 %call16.i, 2147483646
+  %cmp25.i = icmp samesign ugt i64 %call16.i, 2147483646
   br i1 %cmp25.i, label %if.then27.i, label %if.end28.i
 
 if.then27.i:                                      ; preds = %if.end24.i
@@ -11664,7 +11664,7 @@ if.end:                                           ; preds = %entry
   br i1 %cmp, label %return, label %if.end3
 
 if.end3:                                          ; preds = %if.end
-  %cmp4 = icmp ugt i64 %call1, 65536
+  %cmp4 = icmp samesign ugt i64 %call1, 65536
   br i1 %cmp4, label %if.then5, label %cond.false
 
 if.then5:                                         ; preds = %if.end3
@@ -21746,7 +21746,7 @@ entry:
   br i1 %cmp, label %return, label %if.end
 
 if.end:                                           ; preds = %entry
-  %cmp1 = icmp ugt i64 %call, 1152921504606846974
+  %cmp1 = icmp samesign ugt i64 %call, 1152921504606846974
   br i1 %cmp1, label %if.then5, label %cond.end
 
 cond.end:                                         ; preds = %if.end

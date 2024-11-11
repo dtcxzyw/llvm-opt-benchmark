@@ -1347,8 +1347,8 @@ invoke.cont301:                                   ; preds = %invoke.cont299
 
 if.then307:                                       ; preds = %invoke.cont301
   %50 = load i64, ptr %tmp_val, align 8
-  %cmp311 = icmp ugt i64 %50, 4294967295
-  br i1 %cmp311, label %if.then312, label %if.end318
+  %or.cond686.not = icmp ult i64 %50, 4294967296
+  br i1 %or.cond686.not, label %if.end318, label %if.then312
 
 if.then312:                                       ; preds = %if.then307
   %51 = load ptr, ptr @stderr, align 8
@@ -1415,8 +1415,8 @@ invoke.cont332:                                   ; preds = %invoke.cont330
 
 if.then338:                                       ; preds = %invoke.cont332
   %57 = load i64, ptr %tmp_val, align 8
-  %cmp343 = icmp ugt i64 %57, 4294967295
-  br i1 %cmp343, label %if.then344, label %if.end350
+  %or.cond687.not = icmp ult i64 %57, 4294967296
+  br i1 %or.cond687.not, label %if.end350, label %if.then344
 
 if.then344:                                       ; preds = %if.then338
   %58 = load ptr, ptr @stderr, align 8

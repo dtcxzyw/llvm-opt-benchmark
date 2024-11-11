@@ -1251,7 +1251,7 @@ if.end19.thread:                                  ; preds = %if.end4.i, %for.bod
 stack_uptodate.exit:                              ; preds = %for.end.i
   call void @free_names(ptr noundef nonnull %.pre.i) #14
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %names.i)
-  %cmp20 = icmp ugt i32 %call.i14, 1
+  %cmp20 = icmp samesign ugt i32 %call.i14, 1
   br i1 %cmp20, label %if.then25, label %if.end22
 
 if.end22:                                         ; preds = %if.end19.thread, %stack_uptodate.exit
@@ -2429,7 +2429,7 @@ if.end19:                                         ; preds = %fastlog2.exit18
   store i32 %21, ptr %agg.result, align 8
   %add = add i64 %16, %11
   store i64 %add, ptr %bytes, align 8
-  %cmp11 = icmp ugt i64 %indvars.iv23, 1
+  %cmp11 = icmp samesign ugt i64 %indvars.iv23, 1
   br i1 %cmp11, label %while.body, label %while.end, !llvm.loop !27
 
 while.end:                                        ; preds = %if.end19, %fastlog2.exit18, %sizes_to_segments.exit.thread, %sizes_to_segments.exit, %while.condthread-pre-split

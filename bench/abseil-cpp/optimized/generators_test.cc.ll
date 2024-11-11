@@ -651,8 +651,8 @@ _ZNSt23mersenne_twister_engineImLm64ELm312ELm156ELm31ELm13043109905998158313ELm2
   %call.i.i.i.i.i.i.i.i.i.i = call noundef i64 @_ZNSt23mersenne_twister_engineImLm64ELm312ELm156ELm31ELm13043109905998158313ELm29ELm6148914691236517205ELm17ELm8202884508482404352ELm37ELm18444473444759240704ELm43ELm6364136223846793005EEclEv(ptr noundef nonnull align 8 dereferenceable(2504) %gen.i)
   %1 = trunc i64 %call.i.i.i.i.i.i.i.i.i.i to i32
   %conv.i13.i.i.i.i.i.i.i.i = mul i32 %1, 100
-  %cmp1022.i.i.i.i.i.i.i.i = icmp ult i32 %conv.i13.i.i.i.i.i.i.i.i, 96
-  br i1 %cmp1022.i.i.i.i.i.i.i.i, label %while.body.i.i.i.i.i.i.i.i, label %while.body.i.i.i.i.i.i.i.preheader
+  %or.cond.i.i = icmp ult i32 %conv.i13.i.i.i.i.i.i.i.i, 96
+  br i1 %or.cond.i.i, label %while.body.i.i.i.i.i.i.i.i, label %while.body.i.i.i.i.i.i.i.preheader
 
 while.body.i.i.i.i.i.i.i.i:                       ; preds = %_ZNSt23mersenne_twister_engineImLm64ELm312ELm156ELm31ELm13043109905998158313ELm29ELm6148914691236517205ELm17ELm8202884508482404352ELm37ELm18444473444759240704ELm43ELm6364136223846793005EEC2Ev.exit.i, %while.body.i.i.i.i.i.i.i.i
   %call.i.i15.i.i.i.i.i.i.i.i = call noundef i64 @_ZNSt23mersenne_twister_engineImLm64ELm312ELm156ELm31ELm13043109905998158313ELm29ELm6148914691236517205ELm17ELm8202884508482404352ELm37ELm18444473444759240704ELm43ELm6364136223846793005EEclEv(ptr noundef nonnull align 8 dereferenceable(2504) %gen.i)
@@ -726,8 +726,8 @@ _ZN4absl7UniformIdRSt23mersenne_twister_engineImLm64ELm312ELm156ELm31ELm13043109
   %call.i.i.i.i.i.i.i.i64.i.i = call noundef i64 @_ZNSt23mersenne_twister_engineImLm64ELm312ELm156ELm31ELm13043109905998158313ELm29ELm6148914691236517205ELm17ELm8202884508482404352ELm37ELm18444473444759240704ELm43ELm6364136223846793005EEclEv(ptr noundef nonnull align 8 dereferenceable(2504) %gen.i)
   %15 = trunc i64 %call.i.i.i.i.i.i.i.i64.i.i to i32
   %conv.i13.i.i.i.i.i.i68.i.i = mul i32 %15, 6
-  %cmp1022.i.i.i.i.i.i75.i.i = icmp ult i32 %conv.i13.i.i.i.i.i.i68.i.i, 4
-  br i1 %cmp1022.i.i.i.i.i.i75.i.i, label %while.body.i.i.i.i.i.i76.i.i, label %_ZN4absl7UniformIiNS_23IntervalClosedClosedTagERSt23mersenne_twister_engineImLm64ELm312ELm156ELm31ELm13043109905998158313ELm29ELm6148914691236517205ELm17ELm8202884508482404352ELm37ELm18444473444759240704ELm43ELm6364136223846793005EEEENSt9enable_ifIXntsr3std7is_sameIT_vEE5valueES6_E4typeET0_OT1_S6_S6_.exit.i.i
+  %or.cond509.i.i = icmp ult i32 %conv.i13.i.i.i.i.i.i68.i.i, 4
+  br i1 %or.cond509.i.i, label %while.body.i.i.i.i.i.i76.i.i, label %_ZN4absl7UniformIiNS_23IntervalClosedClosedTagERSt23mersenne_twister_engineImLm64ELm312ELm156ELm31ELm13043109905998158313ELm29ELm6148914691236517205ELm17ELm8202884508482404352ELm37ELm18444473444759240704ELm43ELm6364136223846793005EEEENSt9enable_ifIXntsr3std7is_sameIT_vEE5valueES6_E4typeET0_OT1_S6_S6_.exit.i.i
 
 while.body.i.i.i.i.i.i76.i.i:                     ; preds = %_ZN4absl7UniformIdRSt23mersenne_twister_engineImLm64ELm312ELm156ELm31ELm13043109905998158313ELm29ELm6148914691236517205ELm17ELm8202884508482404352ELm37ELm18444473444759240704ELm43ELm6364136223846793005EEEENSt9enable_ifIXntsr3std7is_sameIT_vEE5valueES5_E4typeEOT0_S5_S5_.exit.i.i, %while.body.i.i.i.i.i.i76.i.i
   %call.i.i15.i.i.i.i.i.i77.i.i = call noundef i64 @_ZNSt23mersenne_twister_engineImLm64ELm312ELm156ELm31ELm13043109905998158313ELm29ELm6148914691236517205ELm17ELm8202884508482404352ELm37ELm18444473444759240704ELm43ELm6364136223846793005EEclEv(ptr noundef nonnull align 8 dereferenceable(2504) %gen.i)
@@ -763,8 +763,8 @@ invoke.cont16.i.i:                                ; preds = %while.body.i.i.i.i.
   %call.i.i.i.i.i.i.i.i136154.i.i = call noundef i64 @_ZNSt23mersenne_twister_engineImLm64ELm312ELm156ELm31ELm13043109905998158313ELm29ELm6148914691236517205ELm17ELm8202884508482404352ELm37ELm18444473444759240704ELm43ELm6364136223846793005EEclEv(ptr noundef nonnull align 8 dereferenceable(2504) %gen.i)
   %17 = trunc i64 %call.i.i.i.i.i.i.i.i136154.i.i to i32
   %conv.i13.i.i.i.i.i.i140.i.i = mul i32 %17, 100
-  %cmp1022.i.i.i.i.i.i147.i.i = icmp ult i32 %conv.i13.i.i.i.i.i.i140.i.i, 96
-  br i1 %cmp1022.i.i.i.i.i.i147.i.i, label %while.body.i.i.i.i.i.i148.i.i, label %invoke.cont25.i.i
+  %or.cond512.i.i = icmp ult i32 %conv.i13.i.i.i.i.i.i140.i.i, 96
+  br i1 %or.cond512.i.i, label %while.body.i.i.i.i.i.i148.i.i, label %invoke.cont25.i.i
 
 while.body.i.i.i.i.i.i148.i.i:                    ; preds = %invoke.cont16.i.i, %while.body.i.i.i.i.i.i148.i.i
   %call.i.i15.i.i.i.i.i.i149155.i.i = call noundef i64 @_ZNSt23mersenne_twister_engineImLm64ELm312ELm156ELm31ELm13043109905998158313ELm29ELm6148914691236517205ELm17ELm8202884508482404352ELm37ELm18444473444759240704ELm43ELm6364136223846793005EEclEv(ptr noundef nonnull align 8 dereferenceable(2504) %gen.i)
@@ -995,8 +995,8 @@ invoke.cont57.i.i:                                ; preds = %if.end.i.i.i.i.i.i3
   %call.i.i.i.i.i.i.i.i330348.i.i = call noundef i64 @_ZNSt23mersenne_twister_engineImLm64ELm312ELm156ELm31ELm13043109905998158313ELm29ELm6148914691236517205ELm17ELm8202884508482404352ELm37ELm18444473444759240704ELm43ELm6364136223846793005EEclEv(ptr noundef nonnull align 8 dereferenceable(2504) %gen.i)
   %54 = trunc i64 %call.i.i.i.i.i.i.i.i330348.i.i to i32
   %conv.i13.i.i.i.i.i.i334.i.i = mul i32 %54, 101
-  %cmp1022.i.i.i.i.i.i341.i.i = icmp ult i32 %conv.i13.i.i.i.i.i.i334.i.i, 68
-  br i1 %cmp1022.i.i.i.i.i.i341.i.i, label %while.body.i.i.i.i.i.i342.i.i, label %invoke.cont72.i.i
+  %or.cond516.i.i = icmp ult i32 %conv.i13.i.i.i.i.i.i334.i.i, 68
+  br i1 %or.cond516.i.i, label %while.body.i.i.i.i.i.i342.i.i, label %invoke.cont72.i.i
 
 while.body.i.i.i.i.i.i342.i.i:                    ; preds = %invoke.cont57.i.i, %while.body.i.i.i.i.i.i342.i.i
   %call.i.i15.i.i.i.i.i.i343349.i.i = call noundef i64 @_ZNSt23mersenne_twister_engineImLm64ELm312ELm156ELm31ELm13043109905998158313ELm29ELm6148914691236517205ELm17ELm8202884508482404352ELm37ELm18444473444759240704ELm43ELm6364136223846793005EEclEv(ptr noundef nonnull align 8 dereferenceable(2504) %gen.i)
@@ -1009,8 +1009,8 @@ invoke.cont72.i.i:                                ; preds = %while.body.i.i.i.i.
   %call.i.i.i.i.i.i.i.i351369.i.i = call noundef i64 @_ZNSt23mersenne_twister_engineImLm64ELm312ELm156ELm31ELm13043109905998158313ELm29ELm6148914691236517205ELm17ELm8202884508482404352ELm37ELm18444473444759240704ELm43ELm6364136223846793005EEclEv(ptr noundef nonnull align 8 dereferenceable(2504) %gen.i)
   %56 = trunc i64 %call.i.i.i.i.i.i.i.i351369.i.i to i32
   %conv.i13.i.i.i.i.i.i355.i.i = mul i32 %56, 100
-  %cmp1022.i.i.i.i.i.i362.i.i = icmp ult i32 %conv.i13.i.i.i.i.i.i355.i.i, 96
-  br i1 %cmp1022.i.i.i.i.i.i362.i.i, label %while.body.i.i.i.i.i.i363.i.i, label %invoke.cont75.i.i
+  %or.cond517.i.i = icmp ult i32 %conv.i13.i.i.i.i.i.i355.i.i, 96
+  br i1 %or.cond517.i.i, label %while.body.i.i.i.i.i.i363.i.i, label %invoke.cont75.i.i
 
 while.body.i.i.i.i.i.i363.i.i:                    ; preds = %invoke.cont72.i.i, %while.body.i.i.i.i.i.i363.i.i
   %call.i.i15.i.i.i.i.i.i364370.i.i = call noundef i64 @_ZNSt23mersenne_twister_engineImLm64ELm312ELm156ELm31ELm13043109905998158313ELm29ELm6148914691236517205ELm17ELm8202884508482404352ELm37ELm18444473444759240704ELm43ELm6364136223846793005EEclEv(ptr noundef nonnull align 8 dereferenceable(2504) %gen.i)
@@ -1023,8 +1023,8 @@ invoke.cont75.i.i:                                ; preds = %while.body.i.i.i.i.
   %call.i.i.i.i.i.i.i.i371388.i.i = call noundef i64 @_ZNSt23mersenne_twister_engineImLm64ELm312ELm156ELm31ELm13043109905998158313ELm29ELm6148914691236517205ELm17ELm8202884508482404352ELm37ELm18444473444759240704ELm43ELm6364136223846793005EEclEv(ptr noundef nonnull align 8 dereferenceable(2504) %gen.i)
   %58 = trunc i64 %call.i.i.i.i.i.i.i.i371388.i.i to i32
   %conv.i13.i.i.i.i.i.i375.i.i = mul i32 %58, 99
-  %cmp1022.i.i.i.i.i.i381.i.i = icmp ult i32 %conv.i13.i.i.i.i.i.i375.i.i, 4
-  br i1 %cmp1022.i.i.i.i.i.i381.i.i, label %while.body.i.i.i.i.i.i382.i.i, label %invoke.cont78.i.i
+  %or.cond518.i.i = icmp ult i32 %conv.i13.i.i.i.i.i.i375.i.i, 4
+  br i1 %or.cond518.i.i, label %while.body.i.i.i.i.i.i382.i.i, label %invoke.cont78.i.i
 
 while.body.i.i.i.i.i.i382.i.i:                    ; preds = %invoke.cont75.i.i, %while.body.i.i.i.i.i.i382.i.i
   %call.i.i15.i.i.i.i.i.i383389.i.i = call noundef i64 @_ZNSt23mersenne_twister_engineImLm64ELm312ELm156ELm31ELm13043109905998158313ELm29ELm6148914691236517205ELm17ELm8202884508482404352ELm37ELm18444473444759240704ELm43ELm6364136223846793005EEclEv(ptr noundef nonnull align 8 dereferenceable(2504) %gen.i)
@@ -1037,8 +1037,8 @@ invoke.cont78.i.i:                                ; preds = %while.body.i.i.i.i.
   %call.i.i.i.i.i.i.i.i390408.i.i = call noundef i64 @_ZNSt23mersenne_twister_engineImLm64ELm312ELm156ELm31ELm13043109905998158313ELm29ELm6148914691236517205ELm17ELm8202884508482404352ELm37ELm18444473444759240704ELm43ELm6364136223846793005EEclEv(ptr noundef nonnull align 8 dereferenceable(2504) %gen.i)
   %60 = trunc i64 %call.i.i.i.i.i.i.i.i390408.i.i to i32
   %conv.i13.i.i.i.i.i.i394.i.i = mul i32 %60, 100
-  %cmp1022.i.i.i.i.i.i401.i.i = icmp ult i32 %conv.i13.i.i.i.i.i.i394.i.i, 96
-  br i1 %cmp1022.i.i.i.i.i.i401.i.i, label %while.body.i.i.i.i.i.i402.i.i, label %invoke.cont81.i.i
+  %or.cond519.i.i = icmp ult i32 %conv.i13.i.i.i.i.i.i394.i.i, 96
+  br i1 %or.cond519.i.i, label %while.body.i.i.i.i.i.i402.i.i, label %invoke.cont81.i.i
 
 while.body.i.i.i.i.i.i402.i.i:                    ; preds = %invoke.cont78.i.i, %while.body.i.i.i.i.i.i402.i.i
   %call.i.i15.i.i.i.i.i.i403409.i.i = call noundef i64 @_ZNSt23mersenne_twister_engineImLm64ELm312ELm156ELm31ELm13043109905998158313ELm29ELm6148914691236517205ELm17ELm8202884508482404352ELm37ELm18444473444759240704ELm43ELm6364136223846793005EEclEv(ptr noundef nonnull align 8 dereferenceable(2504) %gen.i)
@@ -1051,8 +1051,8 @@ invoke.cont81.i.i:                                ; preds = %while.body.i.i.i.i.
   %call.i.i.i.i.i.i.i.i410428.i.i = call noundef i64 @_ZNSt23mersenne_twister_engineImLm64ELm312ELm156ELm31ELm13043109905998158313ELm29ELm6148914691236517205ELm17ELm8202884508482404352ELm37ELm18444473444759240704ELm43ELm6364136223846793005EEclEv(ptr noundef nonnull align 8 dereferenceable(2504) %gen.i)
   %62 = trunc i64 %call.i.i.i.i.i.i.i.i410428.i.i to i32
   %conv.i13.i.i.i.i.i.i414.i.i = mul i32 %62, 101
-  %cmp1022.i.i.i.i.i.i421.i.i = icmp ult i32 %conv.i13.i.i.i.i.i.i414.i.i, 68
-  br i1 %cmp1022.i.i.i.i.i.i421.i.i, label %while.body.i.i.i.i.i.i422.i.i, label %invoke.cont84.i.i
+  %or.cond520.i.i = icmp ult i32 %conv.i13.i.i.i.i.i.i414.i.i, 68
+  br i1 %or.cond520.i.i, label %while.body.i.i.i.i.i.i422.i.i, label %invoke.cont84.i.i
 
 while.body.i.i.i.i.i.i422.i.i:                    ; preds = %invoke.cont81.i.i, %while.body.i.i.i.i.i.i422.i.i
   %call.i.i15.i.i.i.i.i.i423429.i.i = call noundef i64 @_ZNSt23mersenne_twister_engineImLm64ELm312ELm156ELm31ELm13043109905998158313ELm29ELm6148914691236517205ELm17ELm8202884508482404352ELm37ELm18444473444759240704ELm43ELm6364136223846793005EEclEv(ptr noundef nonnull align 8 dereferenceable(2504) %gen.i)
@@ -1065,8 +1065,8 @@ invoke.cont84.i.i:                                ; preds = %while.body.i.i.i.i.
   %call.i.i.i.i.i.i.i.i431449.i.i = call noundef i64 @_ZNSt23mersenne_twister_engineImLm64ELm312ELm156ELm31ELm13043109905998158313ELm29ELm6148914691236517205ELm17ELm8202884508482404352ELm37ELm18444473444759240704ELm43ELm6364136223846793005EEclEv(ptr noundef nonnull align 8 dereferenceable(2504) %gen.i)
   %64 = trunc i64 %call.i.i.i.i.i.i.i.i431449.i.i to i32
   %conv.i13.i.i.i.i.i.i435.i.i = mul i32 %64, 99
-  %cmp1022.i.i.i.i.i.i442.i.i = icmp ult i32 %conv.i13.i.i.i.i.i.i435.i.i, 4
-  br i1 %cmp1022.i.i.i.i.i.i442.i.i, label %while.body.i.i.i.i.i.i443.i.i, label %invoke.cont87.i.i
+  %or.cond521.i.i = icmp ult i32 %conv.i13.i.i.i.i.i.i435.i.i, 4
+  br i1 %or.cond521.i.i, label %while.body.i.i.i.i.i.i443.i.i, label %invoke.cont87.i.i
 
 while.body.i.i.i.i.i.i443.i.i:                    ; preds = %invoke.cont84.i.i, %while.body.i.i.i.i.i.i443.i.i
   %call.i.i15.i.i.i.i.i.i444450.i.i = call noundef i64 @_ZNSt23mersenne_twister_engineImLm64ELm312ELm156ELm31ELm13043109905998158313ELm29ELm6148914691236517205ELm17ELm8202884508482404352ELm37ELm18444473444759240704ELm43ELm6364136223846793005EEclEv(ptr noundef nonnull align 8 dereferenceable(2504) %gen.i)
@@ -1098,8 +1098,8 @@ invoke.cont90.i.i:                                ; preds = %for.body.i.i.i.i.i
   %call.i.i.i.i.i.i.i.i452470.i.i = call noundef i64 @_ZNSt23mersenne_twister_engineImLm64ELm312ELm156ELm31ELm13043109905998158313ELm29ELm6148914691236517205ELm17ELm8202884508482404352ELm37ELm18444473444759240704ELm43ELm6364136223846793005EEclEv(ptr noundef nonnull align 8 dereferenceable(2504) %ref.tmp89.i.i)
   %67 = trunc i64 %call.i.i.i.i.i.i.i.i452470.i.i to i32
   %conv.i13.i.i.i.i.i.i456.i.i = mul i32 %67, 100
-  %cmp1022.i.i.i.i.i.i463.i.i = icmp ult i32 %conv.i13.i.i.i.i.i.i456.i.i, 96
-  br i1 %cmp1022.i.i.i.i.i.i463.i.i, label %while.body.i.i.i.i.i.i464.i.i, label %invoke.cont91.i.i
+  %or.cond522.i.i = icmp ult i32 %conv.i13.i.i.i.i.i.i456.i.i, 96
+  br i1 %or.cond522.i.i, label %while.body.i.i.i.i.i.i464.i.i, label %invoke.cont91.i.i
 
 while.body.i.i.i.i.i.i464.i.i:                    ; preds = %invoke.cont90.i.i, %while.body.i.i.i.i.i.i464.i.i
   %call.i.i15.i.i.i.i.i.i465471.i.i = call noundef i64 @_ZNSt23mersenne_twister_engineImLm64ELm312ELm156ELm31ELm13043109905998158313ELm29ELm6148914691236517205ELm17ELm8202884508482404352ELm37ELm18444473444759240704ELm43ELm6364136223846793005EEclEv(ptr noundef nonnull align 8 dereferenceable(2504) %ref.tmp89.i.i)
@@ -16629,8 +16629,8 @@ _ZN4absl15random_internal17NonsecureURBGBaseINS0_10pcg_engineINS0_13pcg128_param
   %or.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i = call noundef i64 @llvm.fshr.i64(i64 %xor.i.i14.i.i.i.i.i.i.i.i.i.i.i.i.i, i64 %xor.i.i14.i.i.i.i.i.i.i.i.i.i.i.i.i, i64 %shr.i.i.i.i.i.i.i.i.i.i.i.i.i.i)
   %8 = trunc i64 %or.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i to i32
   %conv.i13.i.i.i.i.i.i.i.i = mul i32 %8, 100
-  %cmp1038.i.i.i.i.i.i.i.i = icmp ult i32 %conv.i13.i.i.i.i.i.i.i.i, 96
-  br i1 %cmp1038.i.i.i.i.i.i.i.i, label %while.body.i.i.i.i.i.i.i.i, label %while.body.i.i.i.i.i.i.i.preheader
+  %or.cond.i.i = icmp ult i32 %conv.i13.i.i.i.i.i.i.i.i, 96
+  br i1 %or.cond.i.i, label %while.body.i.i.i.i.i.i.i.i, label %while.body.i.i.i.i.i.i.i.preheader
 
 while.body.i.i.i.i.i.i.i.i:                       ; preds = %_ZN4absl15random_internal17NonsecureURBGBaseINS0_10pcg_engineINS0_13pcg128_paramsILm2549297995355413924ELm4865540595714422341ELm6364136223846793005ELm1442695040888963407EEENS0_17pcg_xsl_rr_128_64EEENS0_17RandenPoolSeedSeqEEC2Ev.exit.i, %while.body.i.i.i.i.i.i.i.i
   %coerce3.sroa.0.0.extract.trunc.i7.i.i.i.i.i243540.i.i.i.i.i.i.i.i = phi i64 [ %coerce3.sroa.0.0.extract.trunc.i7.i.i.i.i.i24.i.i.i.i.i.i.i.i, %while.body.i.i.i.i.i.i.i.i ], [ %coerce3.sroa.0.0.extract.trunc.i7.i.i.i.i.i.i.i.i.i.i.i.i.i, %_ZN4absl15random_internal17NonsecureURBGBaseINS0_10pcg_engineINS0_13pcg128_paramsILm2549297995355413924ELm4865540595714422341ELm6364136223846793005ELm1442695040888963407EEENS0_17pcg_xsl_rr_128_64EEENS0_17RandenPoolSeedSeqEEC2Ev.exit.i ]
@@ -16787,8 +16787,8 @@ _ZN4absl7UniformIdRNS_15random_internal17NonsecureURBGBaseINS1_10pcg_engineINS1_
   %or.i.i.i.i.i.i.i.i.i.i.i.i.i124.i.i = call noundef i64 @llvm.fshr.i64(i64 %xor.i.i14.i.i.i.i.i.i.i.i.i.i.i123.i.i, i64 %xor.i.i14.i.i.i.i.i.i.i.i.i.i.i123.i.i, i64 %shr.i.i.i.i.i.i.i.i.i.i.i.i122.i.i)
   %28 = trunc i64 %or.i.i.i.i.i.i.i.i.i.i.i.i.i124.i.i to i32
   %conv.i13.i.i.i.i.i.i128.i.i = mul i32 %28, 6
-  %cmp1038.i.i.i.i.i.i135.i.i = icmp ult i32 %conv.i13.i.i.i.i.i.i128.i.i, 4
-  br i1 %cmp1038.i.i.i.i.i.i135.i.i, label %while.body.i.i.i.i.i.i136.i.i, label %_ZN4absl7UniformIiNS_23IntervalClosedClosedTagERNS_15random_internal17NonsecureURBGBaseINS2_10pcg_engineINS2_13pcg128_paramsILm2549297995355413924ELm4865540595714422341ELm6364136223846793005ELm1442695040888963407EEENS2_17pcg_xsl_rr_128_64EEENS2_17RandenPoolSeedSeqEEEEENSt9enable_ifIXntsr3std7is_sameIT_vEE5valueESD_E4typeET0_OT1_SD_SD_.exit.i.i
+  %or.cond1104.i.i = icmp ult i32 %conv.i13.i.i.i.i.i.i128.i.i, 4
+  br i1 %or.cond1104.i.i, label %while.body.i.i.i.i.i.i136.i.i, label %_ZN4absl7UniformIiNS_23IntervalClosedClosedTagERNS_15random_internal17NonsecureURBGBaseINS2_10pcg_engineINS2_13pcg128_paramsILm2549297995355413924ELm4865540595714422341ELm6364136223846793005ELm1442695040888963407EEENS2_17pcg_xsl_rr_128_64EEENS2_17RandenPoolSeedSeqEEEEENSt9enable_ifIXntsr3std7is_sameIT_vEE5valueESD_E4typeET0_OT1_SD_SD_.exit.i.i
 
 while.body.i.i.i.i.i.i136.i.i:                    ; preds = %_ZN4absl7UniformIdRNS_15random_internal17NonsecureURBGBaseINS1_10pcg_engineINS1_13pcg128_paramsILm2549297995355413924ELm4865540595714422341ELm6364136223846793005ELm1442695040888963407EEENS1_17pcg_xsl_rr_128_64EEENS1_17RandenPoolSeedSeqEEEEENSt9enable_ifIXntsr3std7is_sameIT_vEE5valueESC_E4typeEOT0_SC_SC_.exit.i.i, %while.body.i.i.i.i.i.i136.i.i
   %coerce3.sroa.0.0.extract.trunc.i7.i.i.i.i.i243540.i.i.i.i.i.i137.i.i = phi i64 [ %coerce3.sroa.0.0.extract.trunc.i7.i.i.i.i.i24.i.i.i.i.i.i145.i.i, %while.body.i.i.i.i.i.i136.i.i ], [ %coerce3.sroa.0.0.extract.trunc.i7.i.i.i.i.i.i.i.i.i.i.i119.i.i, %_ZN4absl7UniformIdRNS_15random_internal17NonsecureURBGBaseINS1_10pcg_engineINS1_13pcg128_paramsILm2549297995355413924ELm4865540595714422341ELm6364136223846793005ELm1442695040888963407EEENS1_17pcg_xsl_rr_128_64EEENS1_17RandenPoolSeedSeqEEEEENSt9enable_ifIXntsr3std7is_sameIT_vEE5valueESC_E4typeEOT0_SC_SC_.exit.i.i ]
@@ -16836,7 +16836,7 @@ _ZN4absl7UniformIiNS_23IntervalClosedClosedTagERNS_15random_internal17NonsecureU
   %mul.i.i.i.i.i.i.i.i.i.i = mul i64 %or.i.i.i.i.i.i.i.i.i.i.i.i.i170.i.i, 5
   %cmp5.i.i.i.i.i.i174.i.i = icmp ult i64 %mul.i.i.i.i.i.i.i.i.i.i, 5
   %cmp1140.i.i.i.i.i.i.i.i = icmp eq i64 %.narrow.i.i.i.i.i.i.i.i.i.i.i.i167.i.i, %coerce3.sroa.0.0.extract.trunc.i7.i.i.i.i.i.i.i.i.i.i.i165.i.i
-  %or.cond1105.i.i = and i1 %cmp1140.i.i.i.i.i.i.i.i, %cmp5.i.i.i.i.i.i174.i.i
+  %or.cond1105.i.i = select i1 %cmp5.i.i.i.i.i.i174.i.i, i1 %cmp1140.i.i.i.i.i.i.i.i, i1 false
   br i1 %or.cond1105.i.i, label %while.body.i.i.i.i.i.i178.i.i, label %if.end.i.i.i.i.i.i219.i.i
 
 while.body.i.i.i.i.i.i178.i.i:                    ; preds = %_ZN4absl7UniformIiNS_23IntervalClosedClosedTagERNS_15random_internal17NonsecureURBGBaseINS2_10pcg_engineINS2_13pcg128_paramsILm2549297995355413924ELm4865540595714422341ELm6364136223846793005ELm1442695040888963407EEENS2_17pcg_xsl_rr_128_64EEENS2_17RandenPoolSeedSeqEEEEENSt9enable_ifIXntsr3std7is_sameIT_vEE5valueESD_E4typeET0_OT1_SD_SD_.exit.i.i, %while.body.i.i.i.i.i.i178.i.i
@@ -16872,7 +16872,7 @@ if.end.i.i.i.i.i.i219.i.i:                        ; preds = %while.body.i.i.i.i.
   %mul.i.i.i.i.i.i.i.i222.i.i = mul i64 %or.i.i.i.i.i.i.i.i.i.i.i.i.i215.i.i, 5
   %cmp5.i.i.i.i.i.i226.i.i = icmp ult i64 %mul.i.i.i.i.i.i.i.i222.i.i, 5
   %cmp1140.i.i.i.i.i.i232.i.i = icmp eq i64 %.narrow.i.i.i.i.i.i.i.i.i.i.i.i212.i.i, %coerce3.sroa.0.0.extract.trunc.i7.i.i.i.i.i.i.i.i.i.i.i210.i.i
-  %or.cond1106.i.i = and i1 %cmp1140.i.i.i.i.i.i232.i.i, %cmp5.i.i.i.i.i.i226.i.i
+  %or.cond1106.i.i = select i1 %cmp5.i.i.i.i.i.i226.i.i, i1 %cmp1140.i.i.i.i.i.i232.i.i, i1 false
   br i1 %or.cond1106.i.i, label %while.body.i.i.i.i.i.i233.i.i, label %invoke.cont16.i.i
 
 while.body.i.i.i.i.i.i233.i.i:                    ; preds = %if.end.i.i.i.i.i.i219.i.i, %while.body.i.i.i.i.i.i233.i.i
@@ -16912,8 +16912,8 @@ invoke.cont16.i.i:                                ; preds = %while.cond.return.l
   %or.i.i.i.i.i.i.i.i.i.i.i.i.i272.i.i = call noundef i64 @llvm.fshr.i64(i64 %xor.i.i14.i.i.i.i.i.i.i.i.i.i.i271.i.i, i64 %xor.i.i14.i.i.i.i.i.i.i.i.i.i.i271.i.i, i64 %shr.i.i.i.i.i.i.i.i.i.i.i.i270.i.i)
   %36 = trunc i64 %or.i.i.i.i.i.i.i.i.i.i.i.i.i272.i.i to i32
   %conv.i13.i.i.i.i.i.i276.i.i = mul i32 %36, 100
-  %cmp1038.i.i.i.i.i.i283.i.i = icmp ult i32 %conv.i13.i.i.i.i.i.i276.i.i, 96
-  br i1 %cmp1038.i.i.i.i.i.i283.i.i, label %while.body.i.i.i.i.i.i284.i.i, label %invoke.cont25.i.i
+  %or.cond1107.i.i = icmp ult i32 %conv.i13.i.i.i.i.i.i276.i.i, 96
+  br i1 %or.cond1107.i.i, label %while.body.i.i.i.i.i.i284.i.i, label %invoke.cont25.i.i
 
 while.body.i.i.i.i.i.i284.i.i:                    ; preds = %invoke.cont16.i.i, %while.body.i.i.i.i.i.i284.i.i
   %coerce3.sroa.0.0.extract.trunc.i7.i.i.i.i.i243540.i.i.i.i.i.i285.i.i = phi i64 [ %coerce3.sroa.0.0.extract.trunc.i7.i.i.i.i.i24.i.i.i.i.i.i293.i.i, %while.body.i.i.i.i.i.i284.i.i ], [ %coerce3.sroa.0.0.extract.trunc.i7.i.i.i.i.i.i.i.i.i.i.i267.i.i, %invoke.cont16.i.i ]
@@ -17422,8 +17422,8 @@ invoke.cont63.i.i:                                ; preds = %if.end.i.i.i, %invo
   %or.i.i.i.i.i.i.i.i.i.i.i.i.i702.i.i = call noundef i64 @llvm.fshr.i64(i64 %xor.i.i14.i.i.i.i.i.i.i.i.i.i.i701.i.i, i64 %xor.i.i14.i.i.i.i.i.i.i.i.i.i.i701.i.i, i64 %shr.i.i.i.i.i.i.i.i.i.i.i.i700.i.i)
   %95 = trunc i64 %or.i.i.i.i.i.i.i.i.i.i.i.i.i702.i.i to i32
   %conv.i13.i.i.i.i.i.i706.i.i = mul i32 %95, 101
-  %cmp1038.i.i.i.i.i.i714.i.i = icmp ult i32 %conv.i13.i.i.i.i.i.i706.i.i, 68
-  br i1 %cmp1038.i.i.i.i.i.i714.i.i, label %while.body.i.i.i.i.i.i715.i.i, label %invoke.cont72.i.i
+  %or.cond1111.i.i = icmp ult i32 %conv.i13.i.i.i.i.i.i706.i.i, 68
+  br i1 %or.cond1111.i.i, label %while.body.i.i.i.i.i.i715.i.i, label %invoke.cont72.i.i
 
 while.body.i.i.i.i.i.i715.i.i:                    ; preds = %invoke.cont63.i.i, %while.body.i.i.i.i.i.i715.i.i
   %coerce3.sroa.0.0.extract.trunc.i7.i.i.i.i.i243540.i.i.i.i.i.i716.i.i = phi i64 [ %coerce3.sroa.0.0.extract.trunc.i7.i.i.i.i.i24.i.i.i.i.i.i724.i.i, %while.body.i.i.i.i.i.i715.i.i ], [ %coerce3.sroa.0.0.extract.trunc.i7.i.i.i.i.i.i.i.i.i.i.i697.i.i, %invoke.cont63.i.i ]
@@ -17464,8 +17464,8 @@ invoke.cont72.i.i:                                ; preds = %while.body.i.i.i.i.
   %or.i.i.i.i.i.i.i.i.i.i.i.i.i751.i.i = call noundef i64 @llvm.fshr.i64(i64 %xor.i.i14.i.i.i.i.i.i.i.i.i.i.i750.i.i, i64 %xor.i.i14.i.i.i.i.i.i.i.i.i.i.i750.i.i, i64 %shr.i.i.i.i.i.i.i.i.i.i.i.i749.i.i)
   %99 = trunc i64 %or.i.i.i.i.i.i.i.i.i.i.i.i.i751.i.i to i32
   %conv.i13.i.i.i.i.i.i755.i.i = mul i32 %99, 100
-  %cmp1038.i.i.i.i.i.i763.i.i = icmp ult i32 %conv.i13.i.i.i.i.i.i755.i.i, 96
-  br i1 %cmp1038.i.i.i.i.i.i763.i.i, label %while.body.i.i.i.i.i.i764.i.i, label %invoke.cont75.i.i
+  %or.cond1112.i.i = icmp ult i32 %conv.i13.i.i.i.i.i.i755.i.i, 96
+  br i1 %or.cond1112.i.i, label %while.body.i.i.i.i.i.i764.i.i, label %invoke.cont75.i.i
 
 while.body.i.i.i.i.i.i764.i.i:                    ; preds = %invoke.cont72.i.i, %while.body.i.i.i.i.i.i764.i.i
   %coerce3.sroa.0.0.extract.trunc.i7.i.i.i.i.i243540.i.i.i.i.i.i765.i.i = phi i64 [ %coerce3.sroa.0.0.extract.trunc.i7.i.i.i.i.i24.i.i.i.i.i.i773.i.i, %while.body.i.i.i.i.i.i764.i.i ], [ %coerce3.sroa.0.0.extract.trunc.i7.i.i.i.i.i.i.i.i.i.i.i746.i.i, %invoke.cont72.i.i ]
@@ -17506,8 +17506,8 @@ invoke.cont75.i.i:                                ; preds = %while.body.i.i.i.i.
   %or.i.i.i.i.i.i.i.i.i.i.i.i.i799.i.i = call noundef i64 @llvm.fshr.i64(i64 %xor.i.i14.i.i.i.i.i.i.i.i.i.i.i798.i.i, i64 %xor.i.i14.i.i.i.i.i.i.i.i.i.i.i798.i.i, i64 %shr.i.i.i.i.i.i.i.i.i.i.i.i797.i.i)
   %103 = trunc i64 %or.i.i.i.i.i.i.i.i.i.i.i.i.i799.i.i to i32
   %conv.i13.i.i.i.i.i.i803.i.i = mul i32 %103, 99
-  %cmp1038.i.i.i.i.i.i810.i.i = icmp ult i32 %conv.i13.i.i.i.i.i.i803.i.i, 4
-  br i1 %cmp1038.i.i.i.i.i.i810.i.i, label %while.body.i.i.i.i.i.i811.i.i, label %invoke.cont78.i.i
+  %or.cond1113.i.i = icmp ult i32 %conv.i13.i.i.i.i.i.i803.i.i, 4
+  br i1 %or.cond1113.i.i, label %while.body.i.i.i.i.i.i811.i.i, label %invoke.cont78.i.i
 
 while.body.i.i.i.i.i.i811.i.i:                    ; preds = %invoke.cont75.i.i, %while.body.i.i.i.i.i.i811.i.i
   %coerce3.sroa.0.0.extract.trunc.i7.i.i.i.i.i243540.i.i.i.i.i.i812.i.i = phi i64 [ %coerce3.sroa.0.0.extract.trunc.i7.i.i.i.i.i24.i.i.i.i.i.i820.i.i, %while.body.i.i.i.i.i.i811.i.i ], [ %coerce3.sroa.0.0.extract.trunc.i7.i.i.i.i.i.i.i.i.i.i.i794.i.i, %invoke.cont75.i.i ]
@@ -17548,8 +17548,8 @@ invoke.cont78.i.i:                                ; preds = %while.body.i.i.i.i.
   %or.i.i.i.i.i.i.i.i.i.i.i.i.i846.i.i = call noundef i64 @llvm.fshr.i64(i64 %xor.i.i14.i.i.i.i.i.i.i.i.i.i.i845.i.i, i64 %xor.i.i14.i.i.i.i.i.i.i.i.i.i.i845.i.i, i64 %shr.i.i.i.i.i.i.i.i.i.i.i.i844.i.i)
   %107 = trunc i64 %or.i.i.i.i.i.i.i.i.i.i.i.i.i846.i.i to i32
   %conv.i13.i.i.i.i.i.i850.i.i = mul i32 %107, 100
-  %cmp1038.i.i.i.i.i.i858.i.i = icmp ult i32 %conv.i13.i.i.i.i.i.i850.i.i, 96
-  br i1 %cmp1038.i.i.i.i.i.i858.i.i, label %while.body.i.i.i.i.i.i859.i.i, label %invoke.cont81.i.i
+  %or.cond1114.i.i = icmp ult i32 %conv.i13.i.i.i.i.i.i850.i.i, 96
+  br i1 %or.cond1114.i.i, label %while.body.i.i.i.i.i.i859.i.i, label %invoke.cont81.i.i
 
 while.body.i.i.i.i.i.i859.i.i:                    ; preds = %invoke.cont78.i.i, %while.body.i.i.i.i.i.i859.i.i
   %coerce3.sroa.0.0.extract.trunc.i7.i.i.i.i.i243540.i.i.i.i.i.i860.i.i = phi i64 [ %coerce3.sroa.0.0.extract.trunc.i7.i.i.i.i.i24.i.i.i.i.i.i868.i.i, %while.body.i.i.i.i.i.i859.i.i ], [ %coerce3.sroa.0.0.extract.trunc.i7.i.i.i.i.i.i.i.i.i.i.i841.i.i, %invoke.cont78.i.i ]
@@ -17590,8 +17590,8 @@ invoke.cont81.i.i:                                ; preds = %while.body.i.i.i.i.
   %or.i.i.i.i.i.i.i.i.i.i.i.i.i894.i.i = call noundef i64 @llvm.fshr.i64(i64 %xor.i.i14.i.i.i.i.i.i.i.i.i.i.i893.i.i, i64 %xor.i.i14.i.i.i.i.i.i.i.i.i.i.i893.i.i, i64 %shr.i.i.i.i.i.i.i.i.i.i.i.i892.i.i)
   %111 = trunc i64 %or.i.i.i.i.i.i.i.i.i.i.i.i.i894.i.i to i32
   %conv.i13.i.i.i.i.i.i898.i.i = mul i32 %111, 101
-  %cmp1038.i.i.i.i.i.i906.i.i = icmp ult i32 %conv.i13.i.i.i.i.i.i898.i.i, 68
-  br i1 %cmp1038.i.i.i.i.i.i906.i.i, label %while.body.i.i.i.i.i.i907.i.i, label %invoke.cont84.i.i
+  %or.cond1115.i.i = icmp ult i32 %conv.i13.i.i.i.i.i.i898.i.i, 68
+  br i1 %or.cond1115.i.i, label %while.body.i.i.i.i.i.i907.i.i, label %invoke.cont84.i.i
 
 while.body.i.i.i.i.i.i907.i.i:                    ; preds = %invoke.cont81.i.i, %while.body.i.i.i.i.i.i907.i.i
   %coerce3.sroa.0.0.extract.trunc.i7.i.i.i.i.i243540.i.i.i.i.i.i908.i.i = phi i64 [ %coerce3.sroa.0.0.extract.trunc.i7.i.i.i.i.i24.i.i.i.i.i.i916.i.i, %while.body.i.i.i.i.i.i907.i.i ], [ %coerce3.sroa.0.0.extract.trunc.i7.i.i.i.i.i.i.i.i.i.i.i889.i.i, %invoke.cont81.i.i ]
@@ -17634,8 +17634,8 @@ invoke.cont84.i.i:                                ; preds = %while.body.i.i.i.i.
   %or.i.i.i.i.i.i.i.i.i.i.i.i.i943.i.i = call noundef i64 @llvm.fshr.i64(i64 %xor.i.i14.i.i.i.i.i.i.i.i.i.i.i942.i.i, i64 %xor.i.i14.i.i.i.i.i.i.i.i.i.i.i942.i.i, i64 %shr.i.i.i.i.i.i.i.i.i.i.i.i941.i.i)
   %115 = trunc i64 %or.i.i.i.i.i.i.i.i.i.i.i.i.i943.i.i to i32
   %conv.i13.i.i.i.i.i.i947.i.i = mul i32 %115, 99
-  %cmp1038.i.i.i.i.i.i955.i.i = icmp ult i32 %conv.i13.i.i.i.i.i.i947.i.i, 4
-  br i1 %cmp1038.i.i.i.i.i.i955.i.i, label %while.body.i.i.i.i.i.i956.i.i, label %invoke.cont87.i.i
+  %or.cond1116.i.i = icmp ult i32 %conv.i13.i.i.i.i.i.i947.i.i, 4
+  br i1 %or.cond1116.i.i, label %while.body.i.i.i.i.i.i956.i.i, label %invoke.cont87.i.i
 
 while.body.i.i.i.i.i.i956.i.i:                    ; preds = %invoke.cont84.i.i, %while.body.i.i.i.i.i.i956.i.i
   %coerce3.sroa.0.0.extract.trunc.i7.i.i.i.i.i243540.i.i.i.i.i.i957.i.i = phi i64 [ %coerce3.sroa.0.0.extract.trunc.i7.i.i.i.i.i24.i.i.i.i.i.i965.i.i, %while.body.i.i.i.i.i.i956.i.i ], [ %coerce3.sroa.0.0.extract.trunc.i7.i.i.i.i.i.i.i.i.i.i.i938.i.i, %invoke.cont84.i.i ]

@@ -442,7 +442,7 @@ read_bitstream_level.exit200.i:                   ; preds = %.lr.ph.i
   br i1 %or.cond.not.i198.not.i, label %read_sequence_header_obu.exit.thread, label %187
 
 187:                                              ; preds = %read_bitstream_level.exit200.i
-  %188 = icmp ugt i8 %178, 7
+  %188 = icmp samesign ugt i8 %178, 7
   br i1 %188, label %.thread.i, label %191
 
 .thread.i:                                        ; preds = %187, %.lr.ph.i

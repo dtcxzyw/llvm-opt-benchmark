@@ -2087,7 +2087,7 @@ if.end28.i:                                       ; preds = %if.end.i49
 
 if.then32.i:                                      ; preds = %if.end28.i
   %sub35.i = sub nuw nsw i64 131072, %28
-  %cmp36.i = icmp ult i64 %28, 131041
+  %cmp36.i = icmp samesign ult i64 %28, 131041
   br i1 %cmp36.i, label %if.then37.i, label %if.else.i
 
 if.then37.i:                                      ; preds = %if.then32.i

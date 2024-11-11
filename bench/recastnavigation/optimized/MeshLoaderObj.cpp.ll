@@ -514,7 +514,7 @@ _ZL9parseFacePcPiii.exit:                         ; preds = %94
   br i1 %or.cond9, label %147, label %117
 
 117:                                              ; preds = %.lr.ph.split
-  %118 = icmp ult i32 %111, %114
+  %118 = icmp samesign ult i32 %111, %114
   %119 = icmp sgt i32 %113, -1
   %.not104 = icmp slt i32 %113, %114
   %120 = and i1 %119, %.not104

@@ -6645,7 +6645,7 @@ define void @Abc_NtkMakeComb(ptr noundef %0, i32 noundef %1) local_unnamed_addr 
   %12 = getelementptr inbounds ptr, ptr %.val76, i64 %indvars.iv.next
   %13 = load ptr, ptr %12, align 8
   tail call void @Abc_NtkDeleteObj(ptr noundef %13) #17
-  %14 = icmp ugt i64 %indvars.iv, 1
+  %14 = icmp samesign ugt i64 %indvars.iv, 1
   br i1 %14, label %.lr.ph, label %.critedge, !llvm.loop !102
 
 .critedge:                                        ; preds = %.lr.ph, %4

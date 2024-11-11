@@ -4216,7 +4216,7 @@ _ZNK2cv11_InputArray6getMatEi.exit235:            ; preds = %105, %108
   br label %.body
 
 133:                                              ; preds = %116
-  %134 = icmp ult i32 %92, %113
+  %134 = icmp samesign ult i32 %92, %113
   br i1 %134, label %.lr.ph.preheader, label %.loopexit292
 
 .lr.ph.preheader:                                 ; preds = %133
@@ -4333,7 +4333,7 @@ _ZNK2cv11_InputArray6getMatEi.exit239:            ; preds = %154, %157
   br label %.body
 
 182:                                              ; preds = %165
-  %183 = icmp ult i32 %92, %162
+  %183 = icmp samesign ult i32 %92, %162
   br i1 %183, label %.lr.ph299.preheader, label %.loopexit291
 
 .lr.ph299.preheader:                              ; preds = %182

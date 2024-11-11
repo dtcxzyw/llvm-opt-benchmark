@@ -197,7 +197,7 @@ php_json_yylex.exit:                              ; preds = %.critedge.i, %81, %
   br i1 %84, label %php_json_yyerror.exit, label %85
 
 85:                                               ; preds = %83
-  %86 = icmp ult i32 %.5, 267
+  %86 = icmp samesign ult i32 %.5, 267
   br i1 %86, label %87, label %92
 
 87:                                               ; preds = %85

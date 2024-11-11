@@ -5717,7 +5717,7 @@ define internal fastcc void @_ZN9hashbrown3raw5inner13RawTableInner14prepare_res
   br i1 %13, label %16, label %24
 
 14:                                               ; preds = %9
-  %15 = icmp ult i64 %3, 4
+  %15 = icmp samesign ult i64 %3, 4
   %..i.i = select i1 %15, i64 4, i64 8
   br label %30
 
@@ -5811,7 +5811,7 @@ _ZN9hashbrown3raw5inner5alloc5inner8do_alloc17h73a15bea9f221105E.exit.i.i: ; pre
   %.sroa.0.0.i.i5.i.i = phi ptr [ %48, %_ZN9hashbrown3raw5inner5alloc5inner8do_alloc17h73a15bea9f221105E.exit.i.i ], [ inttoptr (i64 16 to ptr), %_ZN9hashbrown3raw5inner11TableLayout20calculate_layout_for17hd42b690389ecd742E.llvm.4868402970090888313.exit.i.i ]
   %58 = getelementptr inbounds i8, ptr %.sroa.0.0.i.i5.i.i, i64 %39
   %59 = add nsw i64 %.sroa.6.011.ph.i, -1
-  %60 = icmp ult i64 %.sroa.6.011.ph.i, 9
+  %60 = icmp samesign ult i64 %.sroa.6.011.ph.i, 9
   %61 = lshr i64 %.sroa.6.011.ph.i, 3
   %62 = mul nuw nsw i64 %61, 7
   %.0.i.i = select i1 %60, i64 %59, i64 %62

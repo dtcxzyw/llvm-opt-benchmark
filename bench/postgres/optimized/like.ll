@@ -491,11 +491,11 @@ define internal fastcc range(i32 -1, 2) i32 @SB_MatchText(ptr nocapture noundef 
   ]
 
 .preheader:                                       ; preds = %.lr.ph
-  %14 = icmp ugt i32 %.06426, 1
+  %14 = icmp samesign ugt i32 %.06426, 1
   br i1 %14, label %.lr.ph44, label %.thread
 
 15:                                               ; preds = %.lr.ph
-  %16 = icmp ult i32 %.06426, 2
+  %16 = icmp samesign ult i32 %.06426, 2
   br i1 %16, label %17, label %21
 
 17:                                               ; preds = %15
@@ -540,7 +540,7 @@ define internal fastcc range(i32 -1, 2) i32 @SB_MatchText(ptr nocapture noundef 
 32:                                               ; preds = %.lr.ph44, %29
   %.262 = phi i32 [ %31, %29 ], [ %.16140, %.lr.ph44 ]
   %.2 = phi ptr [ %30, %29 ], [ %.141, %.lr.ph44 ]
-  %33 = icmp ugt i32 %.26642.in, 2
+  %33 = icmp samesign ugt i32 %.26642.in, 2
   br i1 %33, label %.lr.ph44, label %.thread, !llvm.loop !5
 
 34:                                               ; preds = %.lr.ph44
@@ -1161,7 +1161,7 @@ select.unfold.i:                                  ; preds = %47, %55, %52
   %78 = load i8, ptr %.1129.i, align 1
   %79 = getelementptr i8, ptr %.291127.i, i64 1
   store i8 %78, ptr %.291127.i, align 1
-  %80 = icmp ugt i32 %.083128.i, 1
+  %80 = icmp samesign ugt i32 %.083128.i, 1
   br i1 %80, label %.lr.ph130.i, label %.loopexit.i, !llvm.loop !11
 
 81:                                               ; preds = %select.unfold.i
@@ -1307,7 +1307,7 @@ wchareq.exit.thread.i:                            ; preds = %wchareq.exit.thread
   %145 = load i8, ptr %.4118.i, align 1
   %146 = getelementptr i8, ptr %.7117.i, i64 1
   store i8 %145, ptr %.7117.i, align 1
-  %147 = icmp ugt i32 %.0119.i, 1
+  %147 = icmp samesign ugt i32 %.0119.i, 1
   br i1 %147, label %.lr.ph.i, label %.loopexit114.i, !llvm.loop !13
 
 .loopexit114.sink.split.i:                        ; preds = %138, %135, %131
@@ -1647,11 +1647,11 @@ define internal fastcc range(i32 -1, 2) i32 @UTF8_MatchText(ptr nocapture nounde
   ]
 
 .preheader1:                                      ; preds = %.lr.ph
-  %14 = icmp ugt i32 %.07933, 1
+  %14 = icmp samesign ugt i32 %.07933, 1
   br i1 %14, label %.lr.ph51, label %.thread
 
 15:                                               ; preds = %.lr.ph
-  %16 = icmp ult i32 %.07933, 2
+  %16 = icmp samesign ult i32 %.07933, 2
   br i1 %16, label %17, label %21
 
 17:                                               ; preds = %15
@@ -1698,7 +1698,7 @@ define internal fastcc range(i32 -1, 2) i32 @UTF8_MatchText(ptr nocapture nounde
 .preheader:                                       ; preds = %.preheader.preheader, %32
   %.375 = phi i32 [ %34, %32 ], [ %.17347, %.preheader.preheader ]
   %.3 = phi ptr [ %33, %32 ], [ %.148, %.preheader.preheader ]
-  %31 = icmp ugt i32 %.375, 1
+  %31 = icmp samesign ugt i32 %.375, 1
   br i1 %31, label %32, label %.critedge
 
 32:                                               ; preds = %.preheader
@@ -1754,7 +1754,7 @@ define internal fastcc range(i32 -1, 2) i32 @UTF8_MatchText(ptr nocapture nounde
 52:                                               ; preds = %.preheader31, %54
   %.577 = phi i32 [ %56, %54 ], [ %.47655, %.preheader31 ]
   %.5 = phi ptr [ %55, %54 ], [ %.456, %.preheader31 ]
-  %53 = icmp ugt i32 %.577, 1
+  %53 = icmp samesign ugt i32 %.577, 1
   br i1 %53, label %54, label %.thread
 
 54:                                               ; preds = %52
@@ -1863,11 +1863,11 @@ define internal fastcc range(i32 -1, 2) i32 @MB_MatchText(ptr noundef %0, i32 no
   ]
 
 .preheader:                                       ; preds = %.lr.ph
-  %14 = icmp ugt i32 %.07725, 1
+  %14 = icmp samesign ugt i32 %.07725, 1
   br i1 %14, label %.lr.ph44, label %.thread
 
 15:                                               ; preds = %.lr.ph
-  %16 = icmp ult i32 %.07725, 2
+  %16 = icmp samesign ult i32 %.07725, 2
   br i1 %16, label %17, label %21
 
 17:                                               ; preds = %15
@@ -1914,7 +1914,7 @@ define internal fastcc range(i32 -1, 2) i32 @MB_MatchText(ptr noundef %0, i32 no
 34:                                               ; preds = %.lr.ph44, %29
   %.270 = phi i32 [ %33, %29 ], [ %.16940, %.lr.ph44 ]
   %.2 = phi ptr [ %32, %29 ], [ %.141, %.lr.ph44 ]
-  %35 = icmp ugt i32 %.27943.in, 2
+  %35 = icmp samesign ugt i32 %.27943.in, 2
   br i1 %35, label %.lr.ph44, label %.thread, !llvm.loop !24
 
 36:                                               ; preds = %.lr.ph44
@@ -2061,11 +2061,11 @@ define internal fastcc range(i32 -1, 2) i32 @SB_IMatchText(ptr nocapture noundef
   ]
 
 .preheader:                                       ; preds = %16
-  %18 = icmp ugt i32 %.078150, 1
+  %18 = icmp samesign ugt i32 %.078150, 1
   br i1 %18, label %.lr.ph169, label %.thread117
 
 19:                                               ; preds = %16
-  %20 = icmp ult i32 %.078150, 2
+  %20 = icmp samesign ult i32 %.078150, 2
   br i1 %20, label %21, label %25
 
 21:                                               ; preds = %19
@@ -2141,7 +2141,7 @@ SB_lower_char.exit95:                             ; preds = %30, %34, %44
 54:                                               ; preds = %.lr.ph169, %51
   %.276 = phi i32 [ %53, %51 ], [ %.175165, %.lr.ph169 ]
   %.2 = phi ptr [ %52, %51 ], [ %.1166, %.lr.ph169 ]
-  %55 = icmp ugt i32 %.280167.in, 2
+  %55 = icmp samesign ugt i32 %.280167.in, 2
   br i1 %55, label %.lr.ph169, label %.thread117, !llvm.loop !28
 
 56:                                               ; preds = %.lr.ph169

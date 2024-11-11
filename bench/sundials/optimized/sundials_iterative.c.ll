@@ -191,7 +191,7 @@ define noundef i32 @SUNClassicalGS(ptr noundef %0, ptr nocapture noundef readonl
   %39 = load ptr, ptr %38, align 8
   %40 = getelementptr inbounds ptr, ptr %6, i64 %indvars.iv
   store ptr %39, ptr %40, align 8
-  %41 = icmp ugt i64 %indvars.iv, 1
+  %41 = icmp samesign ugt i64 %indvars.iv, 1
   br i1 %41, label %30, label %._crit_edge
 
 ._crit_edge:                                      ; preds = %30, %25

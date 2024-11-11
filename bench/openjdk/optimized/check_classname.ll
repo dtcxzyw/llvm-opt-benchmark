@@ -121,7 +121,7 @@ define internal fastcc ptr @skip_over_fieldname(ptr noundef readonly %0, i32 nou
   br i1 %or.cond20.i, label %isJvmIdentifier.exit.thread51, label %12
 
 12:                                               ; preds = %7
-  %13 = icmp ult i8 %5, 48
+  %13 = icmp samesign ult i8 %5, 48
   br i1 %13, label %isJvmIdentifier.exit.thread, label %isJvmIdentifier.exit
 
 isJvmIdentifier.exit:                             ; preds = %12
@@ -200,7 +200,7 @@ default.unreachable:                              ; preds = %15
   br i1 %or.cond20.i41, label %isJvmIdentifier.exit.thread51, label %47
 
 47:                                               ; preds = %41
-  %48 = icmp ult i16 %43, 48
+  %48 = icmp samesign ult i16 %43, 48
   br i1 %48, label %isJvmIdentifier.exit.thread, label %isJvmIdentifier.exit46
 
 isJvmIdentifier.exit46:                           ; preds = %47

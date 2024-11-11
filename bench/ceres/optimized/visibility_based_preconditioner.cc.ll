@@ -8742,7 +8742,7 @@ define linkonce_odr hidden void @_ZSt13__heap_selectISt16reverse_iteratorIN9__gn
   %.sroa.22.0.copyload14.i = load i64, ptr %.sroa.22.0..sroa_idx13.i, align 8
   store i64 %6, ptr %5, align 8
   call void @_ZSt13__adjust_heapISt16reverse_iteratorIN9__gnu_cxx17__normal_iteratorIPSt4pairIdS3_IiiEESt6vectorIS5_SaIS5_EEEEElS5_NS1_5__ops15_Iter_less_iterEEvT_T0_SF_T1_T2_(ptr noundef nonnull %5, i64 noundef %13, i64 noundef %10, double %.sroa.01.0.copyload12.i, i64 %.sroa.22.0.copyload14.i)
-  %17 = icmp ult i64 %12, 2
+  %17 = icmp samesign ult i64 %12, 2
   br i1 %17, label %_ZSt11__make_heapISt16reverse_iteratorIN9__gnu_cxx17__normal_iteratorIPSt4pairIdS3_IiiEESt6vectorIS5_SaIS5_EEEEENS1_5__ops15_Iter_less_iterEEvT_SE_RT0_.exit, label %.split9.i
 
 .split9.i:                                        ; preds = %.split.i, %.split9.i
@@ -9327,7 +9327,7 @@ _ZNK9__gnu_cxx5__ops15_Iter_less_iterclISt16reverse_iteratorINS_17__normal_itera
   %38 = getelementptr inbounds i8, ptr %.sroa.0.0.i.i.i.i, i64 12
   store i32 %37, ptr %38, align 4, !noalias !96
   %39 = add nsw i64 %.02.i.i.i.i.i, -1
-  %40 = icmp ugt i64 %.02.i.i.i.i.i, 1
+  %40 = icmp samesign ugt i64 %.02.i.i.i.i.i, 1
   br i1 %40, label %.lr.ph.i.i.i.i.i, label %_ZSt13move_backwardISt16reverse_iteratorIN9__gnu_cxx17__normal_iteratorIPSt4pairIdS3_IiiEESt6vectorIS5_SaIS5_EEEEESB_ET0_T_SD_SC_.exit.loopexit, !llvm.loop !107
 
 _ZSt13move_backwardISt16reverse_iteratorIN9__gnu_cxx17__normal_iteratorIPSt4pairIdS3_IiiEESt6vectorIS5_SaIS5_EEEEESB_ET0_T_SD_SC_.exit.loopexit: ; preds = %.lr.ph.i.i.i.i.i

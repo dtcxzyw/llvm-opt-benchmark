@@ -574,7 +574,7 @@ define internal void @start_input_pass(ptr noundef %0) #0 {
   %110 = sext i32 %108 to i64
   %111 = getelementptr inbounds [10 x i32], ptr %70, i64 0, i64 %110
   store i32 %106, ptr %111, align 4
-  %112 = icmp ugt i32 %.07581.i, 1
+  %112 = icmp samesign ugt i32 %.07581.i, 1
   br i1 %112, label %.lr.ph.i, label %._crit_edge.i, !llvm.loop !7
 
 ._crit_edge.i:                                    ; preds = %.lr.ph.i, %104

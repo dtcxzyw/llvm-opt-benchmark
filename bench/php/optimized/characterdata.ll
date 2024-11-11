@@ -192,7 +192,7 @@ define hidden void @zim_DOMCharacterData_substringData(ptr nocapture noundef rea
 
 47:                                               ; preds = %39
   %48 = add nuw nsw i64 %36, %35
-  %49 = icmp ugt i64 %48, %40
+  %49 = icmp samesign ugt i64 %48, %40
   br i1 %49, label %50, label %52
 
 50:                                               ; preds = %47

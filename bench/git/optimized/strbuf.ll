@@ -3044,7 +3044,7 @@ if.then4.i15:                                     ; preds = %if.end.i13
   br label %return
 
 if.end11:                                         ; preds = %if.else
-  %cmp1.old = icmp ult i64 %hint.addr.02333, 4096
+  %cmp1.old = icmp samesign ult i64 %hint.addr.02333, 4096
   br i1 %cmp1.old, label %lor.lhs.false.i.backedge, label %while.end
 
 lor.lhs.false.i.backedge:                         ; preds = %if.end11, %if.then3

@@ -272,7 +272,7 @@ define noundef i32 @dsymm_iutcopy(i64 noundef %0, i64 noundef %1, ptr noundef re
   %246 = getelementptr inbounds i8, ptr %148, i64 128
   %247 = add nsw i64 %150, -1
   %248 = add nsw i64 %149, -1
-  %249 = icmp ugt i64 %149, 1
+  %249 = icmp samesign ugt i64 %149, 1
   br i1 %249, label %131, label %.loopexit5.us, !llvm.loop !7
 
 .loopexit5.us:                                    ; preds = %131
@@ -423,7 +423,7 @@ define noundef i32 @dsymm_iutcopy(i64 noundef %0, i64 noundef %1, ptr noundef re
   %377 = getelementptr inbounds i8, ptr %327, i64 64
   %378 = add nsw i64 %329, -1
   %379 = add nsw i64 %328, -1
-  %380 = icmp ugt i64 %328, 1
+  %380 = icmp samesign ugt i64 %328, 1
   br i1 %380, label %318, label %.loopexit4, !llvm.loop !11
 
 .loopexit4:                                       ; preds = %318, %257
@@ -513,7 +513,7 @@ define noundef i32 @dsymm_iutcopy(i64 noundef %0, i64 noundef %1, ptr noundef re
   %452 = getelementptr inbounds i8, ptr %426, i64 32
   %453 = add nsw i64 %428, -1
   %454 = add nsw i64 %427, -1
-  %455 = icmp ugt i64 %427, 1
+  %455 = icmp samesign ugt i64 %427, 1
   br i1 %455, label %421, label %.loopexit3, !llvm.loop !12
 
 .loopexit3:                                       ; preds = %421, %388
@@ -573,7 +573,7 @@ define noundef i32 @dsymm_iutcopy(i64 noundef %0, i64 noundef %1, ptr noundef re
   %499 = getelementptr inbounds i8, ptr %485, i64 16
   %500 = add nsw i64 %487, -1
   %501 = add nsw i64 %486, -1
-  %502 = icmp ugt i64 %486, 1
+  %502 = icmp samesign ugt i64 %486, 1
   br i1 %502, label %482, label %.loopexit2, !llvm.loop !13
 
 .loopexit2:                                       ; preds = %482, %463
@@ -616,7 +616,7 @@ define noundef i32 @dsymm_iutcopy(i64 noundef %0, i64 noundef %1, ptr noundef re
   %532 = getelementptr inbounds i8, ptr %524, i64 8
   %533 = add nsw i64 %526, -1
   %534 = add nsw i64 %525, -1
-  %535 = icmp ugt i64 %525, 1
+  %535 = icmp samesign ugt i64 %525, 1
   br i1 %535, label %522, label %.loopexit, !llvm.loop !14
 
 .loopexit:                                        ; preds = %522, %505

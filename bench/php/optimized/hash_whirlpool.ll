@@ -961,7 +961,7 @@ define void @PHP_WHIRLPOOLFinal(ptr nocapture noundef writeonly %0, ptr noundef 
   br i1 %17, label %18, label %25
 
 18:                                               ; preds = %2
-  %19 = icmp ult i32 %8, 63
+  %19 = icmp samesign ult i32 %8, 63
   br i1 %19, label %20, label %.thread
 
 20:                                               ; preds = %18

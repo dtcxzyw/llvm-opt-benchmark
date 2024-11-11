@@ -427,7 +427,7 @@ MemoryContextCheckSize.exit.i:                    ; preds = %10, %8
   br label %AllocSetAllocLarge.exit
 
 45:                                               ; preds = %3
-  %46 = icmp ugt i64 %1, 8
+  %46 = icmp samesign ugt i64 %1, 8
   %47 = trunc i64 %1 to i32
   %48 = add i32 %47, -1
   %49 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %48, i1 true)

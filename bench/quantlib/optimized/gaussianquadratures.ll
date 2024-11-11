@@ -496,7 +496,7 @@ _ZZNK8QuantLib6detail28GaussianQuadratureIntegratorINS_24GaussLegendreIntegratio
 call2.i.i.i.noexc:                                ; preds = %_ZZNK8QuantLib6detail28GaussianQuadratureIntegratorINS_24GaussLegendreIntegrationEE9integrateERKSt8functionIFddEEddENKUldE_clEd.exit.i
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %__args.addr.i.i.i)
   %23 = call double @llvm.fmuladd.f64(double %15, double %call2.i.i.i4, double %sum.08.i)
-  %cmp.i = icmp ugt i64 %indvars.iv.i, 1
+  %cmp.i = icmp samesign ugt i64 %indvars.iv.i, 1
   br i1 %cmp.i, label %for.body.i, label %invoke.cont.loopexit, !llvm.loop !42
 
 invoke.cont.loopexit:                             ; preds = %call2.i.i.i.noexc
@@ -815,7 +815,7 @@ _ZZNK8QuantLib6detail28GaussianQuadratureIntegratorINS_25GaussChebyshevIntegrati
 call2.i.i.i.noexc:                                ; preds = %_ZZNK8QuantLib6detail28GaussianQuadratureIntegratorINS_25GaussChebyshevIntegrationEE9integrateERKSt8functionIFddEEddENKUldE_clEd.exit.i
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %__args.addr.i.i.i)
   %23 = call double @llvm.fmuladd.f64(double %15, double %call2.i.i.i4, double %sum.08.i)
-  %cmp.i = icmp ugt i64 %indvars.iv.i, 1
+  %cmp.i = icmp samesign ugt i64 %indvars.iv.i, 1
   br i1 %cmp.i, label %for.body.i, label %invoke.cont.loopexit, !llvm.loop !53
 
 invoke.cont.loopexit:                             ; preds = %call2.i.i.i.noexc
@@ -1134,7 +1134,7 @@ _ZZNK8QuantLib6detail28GaussianQuadratureIntegratorINS_28GaussChebyshev2ndIntegr
 call2.i.i.i.noexc:                                ; preds = %_ZZNK8QuantLib6detail28GaussianQuadratureIntegratorINS_28GaussChebyshev2ndIntegrationEE9integrateERKSt8functionIFddEEddENKUldE_clEd.exit.i
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %__args.addr.i.i.i)
   %23 = call double @llvm.fmuladd.f64(double %15, double %call2.i.i.i4, double %sum.08.i)
-  %cmp.i = icmp ugt i64 %indvars.iv.i, 1
+  %cmp.i = icmp samesign ugt i64 %indvars.iv.i, 1
   br i1 %cmp.i, label %for.body.i, label %invoke.cont.loopexit, !llvm.loop !63
 
 invoke.cont.loopexit:                             ; preds = %call2.i.i.i.noexc

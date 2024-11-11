@@ -2419,7 +2419,7 @@ RSTRING_END.exit1362:                             ; preds = %975, %981
   %.11003 = phi i64 [ %992, %991 ], [ %.01002, %996 ], [ %.01002, %998 ]
   %.2986 = phi i32 [ -1, %991 ], [ 1, %996 ], [ 1, %998 ]
   %.5923 = phi i32 [ %993, %991 ], [ %997, %996 ], [ %spec.select1601, %998 ]
-  %1003 = icmp ult i64 %.11003, 10
+  %1003 = icmp samesign ult i64 %.11003, 10
   br i1 %1003, label %1004, label %.preheader1619
 
 1004:                                             ; preds = %1002
@@ -6035,7 +6035,7 @@ BSD__ultoa.exit:                                  ; preds = %.preheader39.i, %69
   br i1 %or.cond742, label %.preheader1032, label %765
 
 .preheader1032:                                   ; preds = %734
-  %738 = icmp ugt i32 %735, 16
+  %738 = icmp samesign ugt i32 %735, 16
   br i1 %738, label %.lr.ph1333, label %._crit_edge1334
 
 .lr.ph1333:                                       ; preds = %.preheader1032, %750
@@ -6202,7 +6202,7 @@ BSD__sprint.exit787:                              ; preds = %789
   br i1 %or.cond743, label %.preheader1030, label %830
 
 .preheader1030:                                   ; preds = %799
-  %803 = icmp ugt i32 %800, 16
+  %803 = icmp samesign ugt i32 %800, 16
   br i1 %803, label %.lr.ph1339, label %._crit_edge1340
 
 .lr.ph1339:                                       ; preds = %.preheader1030, %815
@@ -6292,7 +6292,7 @@ BSD__sprint.exit791:                              ; preds = %826
   br i1 %or.cond744, label %.preheader1028, label %865
 
 .preheader1028:                                   ; preds = %834
-  %838 = icmp ugt i32 %835, 16
+  %838 = icmp samesign ugt i32 %835, 16
   br i1 %838, label %.lr.ph1345, label %._crit_edge1346
 
 .lr.ph1345:                                       ; preds = %.preheader1028, %850
@@ -6513,7 +6513,7 @@ BSD__sprint.exit803:                              ; preds = %923
   br i1 %929, label %.preheader1026, label %957
 
 .preheader1026:                                   ; preds = %927
-  %930 = icmp ugt i32 %928, 16
+  %930 = icmp samesign ugt i32 %928, 16
   br i1 %930, label %.lr.ph1351, label %._crit_edge1352
 
 .lr.ph1351:                                       ; preds = %.preheader1026, %942
@@ -6551,7 +6551,7 @@ BSD__sprint.exit805:                              ; preds = %938
 942:                                              ; preds = %BSD__sprint.exit805.thread, %BSD__sprint.exit805, %.lr.ph1351
   %.21 = phi ptr [ %934, %.lr.ph1351 ], [ %14, %BSD__sprint.exit805 ], [ %14, %BSD__sprint.exit805.thread ]
   %943 = add nsw i32 %.55691349, -16
-  %944 = icmp ugt i32 %943, 16
+  %944 = icmp samesign ugt i32 %943, 16
   br i1 %944, label %.lr.ph1351, label %._crit_edge1352, !llvm.loop !104
 
 ._crit_edge1352:                                  ; preds = %942, %.preheader1026
@@ -6697,7 +6697,7 @@ BSD__sprint.exit813:                              ; preds = %996
   br i1 %1005, label %.preheader1012, label %1399
 
 .preheader1012:                                   ; preds = %1000
-  %1006 = icmp ugt i32 %1004, 16
+  %1006 = icmp samesign ugt i32 %1004, 16
   br i1 %1006, label %.lr.ph1393, label %._crit_edge1394
 
 .lr.ph1393:                                       ; preds = %.preheader1012, %1018
@@ -6735,7 +6735,7 @@ BSD__sprint.exit815:                              ; preds = %1014
 1018:                                             ; preds = %BSD__sprint.exit815.thread, %BSD__sprint.exit815, %.lr.ph1393
   %.24 = phi ptr [ %1010, %.lr.ph1393 ], [ %14, %BSD__sprint.exit815 ], [ %14, %BSD__sprint.exit815.thread ]
   %1019 = add nsw i32 %.65701391, -16
-  %1020 = icmp ugt i32 %1019, 16
+  %1020 = icmp samesign ugt i32 %1019, 16
   br i1 %1020, label %.lr.ph1393, label %._crit_edge1394, !llvm.loop !105
 
 ._crit_edge1394:                                  ; preds = %1018, %.preheader1012
@@ -6849,7 +6849,7 @@ BSD__sprint.exit821._crit_edge:                   ; preds = %BSD__sprint.exit821
   br i1 %1069, label %.preheader1016, label %1097
 
 .preheader1016:                                   ; preds = %1066
-  %1070 = icmp ugt i32 %1068, 16
+  %1070 = icmp samesign ugt i32 %1068, 16
   br i1 %1070, label %.lr.ph1381, label %._crit_edge1382
 
 .lr.ph1381:                                       ; preds = %.preheader1016, %1082
@@ -6887,7 +6887,7 @@ BSD__sprint.exit823:                              ; preds = %1078
 1082:                                             ; preds = %BSD__sprint.exit823.thread, %BSD__sprint.exit823, %.lr.ph1381
   %.28 = phi ptr [ %1074, %.lr.ph1381 ], [ %14, %BSD__sprint.exit823 ], [ %14, %BSD__sprint.exit823.thread ]
   %1083 = add nsw i32 %.75711379, -16
-  %1084 = icmp ugt i32 %1083, 16
+  %1084 = icmp samesign ugt i32 %1083, 16
   br i1 %1084, label %.lr.ph1381, label %._crit_edge1382, !llvm.loop !106
 
 ._crit_edge1382:                                  ; preds = %1082, %.preheader1016
@@ -6970,7 +6970,7 @@ BSD__sprint.exit827:                              ; preds = %1106
   br i1 %1117, label %.preheader1014, label %1399
 
 .preheader1014:                                   ; preds = %1111
-  %1118 = icmp ugt i32 %1116, 16
+  %1118 = icmp samesign ugt i32 %1116, 16
   br i1 %1118, label %.lr.ph1387, label %._crit_edge1388
 
 .lr.ph1387:                                       ; preds = %.preheader1014, %1130
@@ -7008,7 +7008,7 @@ BSD__sprint.exit829:                              ; preds = %1126
 1130:                                             ; preds = %BSD__sprint.exit829.thread, %BSD__sprint.exit829, %.lr.ph1387
   %.31 = phi ptr [ %1122, %.lr.ph1387 ], [ %14, %BSD__sprint.exit829 ], [ %14, %BSD__sprint.exit829.thread ]
   %1131 = add nsw i32 %.85721385, -16
-  %1132 = icmp ugt i32 %1131, 16
+  %1132 = icmp samesign ugt i32 %1131, 16
   br i1 %1132, label %.lr.ph1387, label %._crit_edge1388, !llvm.loop !107
 
 ._crit_edge1388:                                  ; preds = %1130, %.preheader1014
@@ -7088,7 +7088,7 @@ BSD__sprint.exit833._crit_edge:                   ; preds = %BSD__sprint.exit833
   br i1 %1162, label %.preheader1020, label %1190
 
 .preheader1020:                                   ; preds = %1159
-  %1163 = icmp ugt i32 %1161, 16
+  %1163 = icmp samesign ugt i32 %1161, 16
   br i1 %1163, label %.lr.ph1369, label %._crit_edge1370
 
 .lr.ph1369:                                       ; preds = %.preheader1020, %1175
@@ -7126,7 +7126,7 @@ BSD__sprint.exit835:                              ; preds = %1171
 1175:                                             ; preds = %BSD__sprint.exit835.thread, %BSD__sprint.exit835, %.lr.ph1369
   %.35 = phi ptr [ %1167, %.lr.ph1369 ], [ %14, %BSD__sprint.exit835 ], [ %14, %BSD__sprint.exit835.thread ]
   %1176 = add nsw i32 %.95731367, -16
-  %1177 = icmp ugt i32 %1176, 16
+  %1177 = icmp samesign ugt i32 %1176, 16
   br i1 %1177, label %.lr.ph1369, label %._crit_edge1370, !llvm.loop !108
 
 ._crit_edge1370:                                  ; preds = %1175, %.preheader1020
@@ -7312,7 +7312,7 @@ BSD__sprint.exit845:                              ; preds = %1240
   br i1 %1251, label %.preheader1018, label %1399
 
 .preheader1018:                                   ; preds = %1245
-  %1252 = icmp ugt i32 %1250, 16
+  %1252 = icmp samesign ugt i32 %1250, 16
   br i1 %1252, label %.lr.ph1375, label %._crit_edge1376
 
 .lr.ph1375:                                       ; preds = %.preheader1018, %1264
@@ -7350,7 +7350,7 @@ BSD__sprint.exit847:                              ; preds = %1260
 1264:                                             ; preds = %BSD__sprint.exit847.thread, %BSD__sprint.exit847, %.lr.ph1375
   %.40 = phi ptr [ %1256, %.lr.ph1375 ], [ %14, %BSD__sprint.exit847 ], [ %14, %BSD__sprint.exit847.thread ]
   %1265 = add nsw i32 %.105741373, -16
-  %1266 = icmp ugt i32 %1265, 16
+  %1266 = icmp samesign ugt i32 %1265, 16
   br i1 %1266, label %.lr.ph1375, label %._crit_edge1376, !llvm.loop !109
 
 ._crit_edge1376:                                  ; preds = %1264, %.preheader1018
@@ -7462,7 +7462,7 @@ BSD__sprint.exit853:                              ; preds = %1308
   br i1 %1314, label %.preheader1024, label %1342
 
 .preheader1024:                                   ; preds = %1312
-  %1315 = icmp ugt i32 %1313, 16
+  %1315 = icmp samesign ugt i32 %1313, 16
   br i1 %1315, label %.lr.ph1357, label %._crit_edge1358
 
 .lr.ph1357:                                       ; preds = %.preheader1024, %1327
@@ -7500,7 +7500,7 @@ BSD__sprint.exit855:                              ; preds = %1323
 1327:                                             ; preds = %BSD__sprint.exit855.thread, %BSD__sprint.exit855, %.lr.ph1357
   %.44 = phi ptr [ %1319, %.lr.ph1357 ], [ %14, %BSD__sprint.exit855 ], [ %14, %BSD__sprint.exit855.thread ]
   %1328 = add nsw i32 %.115751355, -16
-  %1329 = icmp ugt i32 %1328, 16
+  %1329 = icmp samesign ugt i32 %1328, 16
   br i1 %1329, label %.lr.ph1357, label %._crit_edge1358, !llvm.loop !110
 
 ._crit_edge1358:                                  ; preds = %1327, %.preheader1024
@@ -7547,7 +7547,7 @@ BSD__sprint.exit857:                              ; preds = %1338
   br i1 %1346, label %.preheader1022, label %1386
 
 .preheader1022:                                   ; preds = %1343
-  %1347 = icmp ugt i32 %1345, 16
+  %1347 = icmp samesign ugt i32 %1345, 16
   br i1 %1347, label %.lr.ph1363, label %._crit_edge1364
 
 .lr.ph1363:                                       ; preds = %.preheader1022, %1359
@@ -7585,7 +7585,7 @@ BSD__sprint.exit859:                              ; preds = %1355
 1359:                                             ; preds = %BSD__sprint.exit859.thread, %BSD__sprint.exit859, %.lr.ph1363
   %.46 = phi ptr [ %1351, %.lr.ph1363 ], [ %14, %BSD__sprint.exit859 ], [ %14, %BSD__sprint.exit859.thread ]
   %1360 = add nsw i32 %.125761361, -16
-  %1361 = icmp ugt i32 %1360, 16
+  %1361 = icmp samesign ugt i32 %1360, 16
   br i1 %1361, label %.lr.ph1363, label %._crit_edge1364, !llvm.loop !111
 
 ._crit_edge1364:                                  ; preds = %1359, %.preheader1022
@@ -7701,7 +7701,7 @@ BSD__sprint.exit865:                              ; preds = %1395
   br i1 %or.cond751, label %.preheader1010, label %thread-pre-split
 
 .preheader1010:                                   ; preds = %1404
-  %1408 = icmp ugt i32 %1405, 16
+  %1408 = icmp samesign ugt i32 %1405, 16
   br i1 %1408, label %.lr.ph1399, label %._crit_edge1400
 
 .lr.ph1399:                                       ; preds = %.preheader1010, %1420

@@ -2352,7 +2352,7 @@ define double @cvGetNormalizedCentralMoment(ptr noundef %0, i32 noundef %1, i32 
   %.01113 = phi double [ %10, %.lr.ph ], [ %5, %3 ]
   %9 = add nsw i32 %.014, -1
   %10 = fmul double %7, %.01113
-  %11 = icmp ugt i32 %.014, 1
+  %11 = icmp samesign ugt i32 %.014, 1
   br i1 %11, label %.lr.ph, label %._crit_edge, !llvm.loop !34
 
 ._crit_edge:                                      ; preds = %.lr.ph, %3

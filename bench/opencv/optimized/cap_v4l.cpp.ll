@@ -8782,7 +8782,7 @@ _ZNSt12_Vector_baseIiSaIiEE13_M_deallocateEPim.exit.i.i: ; preds = %168, %.noexc
   br label %_ZNSt6vectorIiSaIiEE7reserveEm.exit.i
 
 _ZNSt6vectorIiSaIiEE7reserveEm.exit.i:            ; preds = %_ZNSt12_Vector_baseIiSaIiEE13_M_deallocateEPim.exit.i.i, %160
-  %170 = icmp ugt i64 %153, 1152921504606846975
+  %170 = icmp samesign ugt i64 %153, 1152921504606846975
   br i1 %170, label %171, label %_ZNSt12_Vector_baseI6pollfdSaIS0_EE11_M_allocateEm.exit.i.i
 
 171:                                              ; preds = %_ZNSt6vectorIiSaIiEE7reserveEm.exit.i
@@ -9010,7 +9010,7 @@ _ZNSt6vectorI6pollfdSaIS0_EE9push_backEOS0_.exit.i: ; preds = %_ZNSt6vectorI6pol
 241:                                              ; preds = %._crit_edge.i
   %242 = add nuw nsw i64 %2, 999999
   %243 = udiv i64 %242, 1000000
-  %244 = icmp ult i64 %2, 2147483647000001
+  %244 = icmp samesign ult i64 %2, 2147483647000001
   %245 = trunc nuw i64 %243 to i32
   %246 = select i1 %244, i32 %245, i32 2147483647
   br label %247

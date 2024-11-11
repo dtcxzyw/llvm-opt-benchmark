@@ -654,7 +654,7 @@ if.end15.i:                                       ; preds = %lor.lhs.false.i39
   br i1 %cmp17.i, label %if.then18.i, label %_ZN6icu_75L21ucnv_enumDependenciesEPK12UDataSwapperPKcPK9UDataInfoPKhiPFvPvS4_S4_ESA_P10UErrorCode.exit
 
 if.then18.i:                                      ; preds = %if.end15.i
-  %cmp19.i = icmp ult i32 %sub.i, 40
+  %cmp19.i = icmp samesign ult i32 %sub.i, 40
   br i1 %cmp19.i, label %if.then20.i, label %if.end21.i
 
 if.then20.i:                                      ; preds = %if.then18.i
@@ -723,7 +723,7 @@ if.end54.i:                                       ; preds = %if.then44.i, %land.
 if.then60.i:                                      ; preds = %if.end54.i
   %shr.i = lshr i32 %call56.i, 8
   %add.i = add nuw nsw i32 %shr.i, 128
-  %cmp61.i = icmp ult i32 %sub.i, %add.i
+  %cmp61.i = icmp samesign ult i32 %sub.i, %add.i
   br i1 %cmp61.i, label %if.then62.i, label %if.end63.i
 
 if.then62.i:                                      ; preds = %if.then60.i

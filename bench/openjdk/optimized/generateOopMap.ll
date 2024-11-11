@@ -1247,7 +1247,7 @@ _ZN20Bytecode_tableswitchC2EP6MethodPh.exit:      ; preds = %63, %75
   %102 = call noundef i32 @_ZNK20Bytecode_tableswitch14dest_offset_atEi(ptr noundef nonnull align 8 dereferenceable(12) %5, i32 noundef %101) #18
   %103 = add nsw i32 %102, %7
   call void %2(ptr noundef nonnull %0, i32 noundef %103, ptr noundef %3) #18
-  %104 = icmp ugt i32 %.04066, 1
+  %104 = icmp samesign ugt i32 %.04066, 1
   br i1 %104, label %.lr.ph67, label %.loopexit, !llvm.loop !14
 
 105:                                              ; preds = %4
@@ -1309,7 +1309,7 @@ _ZN21Bytecode_lookupswitchC2EP6MethodPh.exit:     ; preds = %105, %114
   %143 = tail call noundef i32 @llvm.bswap.i32(i32 %.0.i.i.i.i.i54)
   %144 = add nsw i32 %143, %7
   tail call void %2(ptr noundef nonnull %0, i32 noundef %144, ptr noundef %3) #18
-  %145 = icmp ugt i64 %indvars.iv, 1
+  %145 = icmp samesign ugt i64 %indvars.iv, 1
   br i1 %145, label %.lr.ph, label %.loopexit, !llvm.loop !15
 
 146:                                              ; preds = %4
@@ -2158,7 +2158,7 @@ _ZNK13CellTypeState5mergeES_i.exit:               ; preds = %.lr.ph, %21, %25
   %27 = icmp ne i32 %.sroa.0.0.i, %.sroa.01.0.copyload
   %28 = select i1 %.01518, i1 true, i1 %27
   store i32 %.sroa.0.0.i, ptr %12, align 4
-  %29 = icmp ugt i64 %indvars.iv, 1
+  %29 = icmp samesign ugt i64 %indvars.iv, 1
   br i1 %29, label %.lr.ph, label %._crit_edge, !llvm.loop !22
 
 ._crit_edge:                                      ; preds = %_ZNK13CellTypeState5mergeES_i.exit, %3
@@ -2368,7 +2368,7 @@ _ZNK13CellTypeState5mergeES_i.exit.i:             ; preds = %35, %31, %.lr.ph.i
   %37 = icmp ne i32 %.sroa.0.0.i.i, %.sroa.01.0.copyload.i
   %38 = select i1 %.01518.i, i1 true, i1 %37
   store i32 %.sroa.0.0.i.i, ptr %22, align 4
-  %39 = icmp ugt i64 %indvars.iv.i, 1
+  %39 = icmp samesign ugt i64 %indvars.iv.i, 1
   br i1 %39, label %.lr.ph.i, label %_ZN14GenerateOopMap25merge_local_state_vectorsEP13CellTypeStateS1_.exit, !llvm.loop !22
 
 _ZN14GenerateOopMap25merge_local_state_vectorsEP13CellTypeStateS1_.exit: ; preds = %_ZNK13CellTypeState5mergeES_i.exit.i
@@ -7378,7 +7378,7 @@ _ZNK13CellTypeState7to_charEv.exit.i.i:           ; preds = %_ZN14GenerateOopMap
   br label %_ZN14GenerateOopMap5ppop1E13CellTypeState.exit
 
 _ZN14GenerateOopMap5ppop1E13CellTypeState.exit:   ; preds = %_ZN14GenerateOopMap3popEv.exit.i, %_ZNK13CellTypeState7to_charEv.exit.i.i
-  %84 = icmp ugt i64 %indvars.iv, 1
+  %84 = icmp samesign ugt i64 %indvars.iv, 1
   br i1 %84, label %69, label %._crit_edge, !llvm.loop !49
 
 ._crit_edge:                                      ; preds = %_ZN14GenerateOopMap5ppop1E13CellTypeState.exit, %_ZN16ComputeCallStack22compute_for_parametersEbP13CellTypeState.exit
@@ -7607,7 +7607,7 @@ _ZN14GenerateOopMap10check_typeE13CellTypeStateS0_.exit: ; preds = %27, %_ZNK13C
   br label %46
 
 46:                                               ; preds = %45, %41
-  %47 = icmp ugt i64 %indvars.iv.i, 1
+  %47 = icmp samesign ugt i64 %indvars.iv.i, 1
   br i1 %47, label %41, label %._crit_edge.i, !llvm.loop !50
 
 ._crit_edge.i:                                    ; preds = %46, %33
@@ -7863,7 +7863,7 @@ _ZNK14GenerateOopMap26get_basic_block_containingEi.exit: ; preds = %62, %.lr.ph.
   br label %89
 
 89:                                               ; preds = %88, %84
-  %90 = icmp ugt i64 %indvars.iv.i, 1
+  %90 = icmp samesign ugt i64 %indvars.iv.i, 1
   br i1 %90, label %84, label %._crit_edge.i12, !llvm.loop !50
 
 ._crit_edge.i12:                                  ; preds = %89, %74
@@ -7948,7 +7948,7 @@ _ZNK13CellTypeState7to_charEv.exit.i.i:           ; preds = %_ZN14GenerateOopMap
   br label %_ZN14GenerateOopMap5ppop1E13CellTypeState.exit
 
 _ZN14GenerateOopMap5ppop1E13CellTypeState.exit:   ; preds = %_ZN14GenerateOopMap3popEv.exit.i, %_ZNK13CellTypeState7to_charEv.exit.i.i
-  %22 = icmp ugt i32 %.0.in5, 1
+  %22 = icmp samesign ugt i32 %.0.in5, 1
   br i1 %22, label %8, label %._crit_edge, !llvm.loop !52
 
 ._crit_edge:                                      ; preds = %_ZN14GenerateOopMap5ppop1E13CellTypeState.exit, %3
@@ -8092,7 +8092,7 @@ define hidden void @_ZN14GenerateOopMap23replace_all_CTS_matchesE13CellTypeState
   br label %17
 
 17:                                               ; preds = %12, %16
-  %18 = icmp ugt i64 %indvars.iv, 1
+  %18 = icmp samesign ugt i64 %indvars.iv, 1
   br i1 %18, label %12, label %._crit_edge, !llvm.loop !50
 
 ._crit_edge:                                      ; preds = %17, %3

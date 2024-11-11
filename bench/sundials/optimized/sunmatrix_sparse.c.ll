@@ -680,7 +680,7 @@ define noundef i32 @SUNMatScaleAdd_Sparse(double noundef %0, ptr nocapture nound
 
 130:                                              ; preds = %.lr.ph292, %124
   %.2241 = phi i64 [ %125, %124 ], [ %.1240290, %.lr.ph292 ]
-  %131 = icmp ugt i64 %.8291.in, 1
+  %131 = icmp samesign ugt i64 %.8291.in, 1
   br i1 %131, label %.lr.ph292, label %._crit_edge293.loopexit
 
 ._crit_edge293.loopexit:                          ; preds = %130

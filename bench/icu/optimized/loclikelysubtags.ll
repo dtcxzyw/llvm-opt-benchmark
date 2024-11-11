@@ -1781,7 +1781,7 @@ if.then258:                                       ; preds = %if.end256
 new.notnull266:                                   ; preds = %if.then258
   store i64 %conv263, ptr %call264, align 8
   %87 = getelementptr inbounds i8, ptr %call264, i64 8
-  %isempty270 = icmp ult i32 %84, 3
+  %isempty270 = icmp samesign ult i32 %84, 3
   br i1 %isempty270, label %new.cont295, label %new.ctorloop271
 
 new.ctorloop271:                                  ; preds = %new.notnull266

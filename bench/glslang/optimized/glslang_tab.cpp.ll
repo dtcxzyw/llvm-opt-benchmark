@@ -1897,7 +1897,7 @@ define noundef range(i32 0, 3) i32 @_Z7yyparsePN7glslang13TParseContextE(ptr nou
   br i1 %301, label %_ZL10yydestructPKc15yysymbol_kind_tP7YYSTYPEPN7glslang13TParseContextE.exit, label %302
 
 302:                                              ; preds = %300
-  %303 = icmp ult i32 %.5, 720
+  %303 = icmp samesign ult i32 %.5, 720
   br i1 %303, label %304, label %309
 
 304:                                              ; preds = %302

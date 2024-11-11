@@ -42,7 +42,7 @@ if.then:                                          ; preds = %entry
   br label %if.end4
 
 if.else:                                          ; preds = %entry
-  %cmp2 = icmp ult i32 %call, 2
+  %cmp2 = icmp samesign ult i32 %call, 2
   %spec.store.select = select i1 %cmp2, i32 -1, i32 %call
   br label %if.end4
 

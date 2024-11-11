@@ -784,7 +784,7 @@ define noundef nonnull ptr @preempt_mode_string(i16 noundef zeroext %0) #0 {
   br label %20
 
 10:                                               ; preds = %4
-  %.not19 = icmp ult i16 %0, 16384
+  %.not19 = icmp samesign ult i16 %0, 16384
   br i1 %.not19, label %16, label %11
 
 11:                                               ; preds = %10
@@ -2127,7 +2127,7 @@ define void @private_data_string(i16 noundef zeroext %0, ptr nocapture noundef %
 
 5:                                                ; preds = %3
   store i8 0, ptr %1, align 1
-  %6 = icmp ult i32 %2, 69
+  %6 = icmp samesign ult i32 %2, 69
   br i1 %6, label %.thread, label %8
 
 .thread:                                          ; preds = %3, %5
@@ -2361,7 +2361,7 @@ define void @accounting_enforce_string(i16 noundef zeroext %0, ptr nocapture nou
 
 5:                                                ; preds = %3
   store i8 0, ptr %1, align 1
-  %6 = icmp ult i32 %2, 50
+  %6 = icmp samesign ult i32 %2, 50
   br i1 %6, label %.thread, label %8
 
 .thread:                                          ; preds = %3, %5
@@ -4140,7 +4140,7 @@ define range(i32 0, 2160) i32 @unfmt_job_id_string(ptr noundef %0, ptr nocapture
   br i1 %18, label %.loopexit, label %19
 
 19:                                               ; preds = %17
-  %20 = icmp ugt i64 %15, 67108862
+  %20 = icmp samesign ugt i64 %15, 67108862
   br i1 %20, label %.loopexit, label %21
 
 21:                                               ; preds = %19
@@ -4207,7 +4207,7 @@ define range(i32 0, 2160) i32 @unfmt_job_id_string(ptr noundef %0, ptr nocapture
   br i1 %54, label %.loopexit, label %55
 
 55:                                               ; preds = %52
-  %56 = icmp ugt i64 %53, 128
+  %56 = icmp samesign ugt i64 %53, 128
   br i1 %56, label %.loopexit, label %57
 
 57:                                               ; preds = %55
@@ -4281,7 +4281,7 @@ define range(i32 0, 2160) i32 @unfmt_job_id_string(ptr noundef %0, ptr nocapture
   br i1 %89, label %.loopexit, label %90
 
 90:                                               ; preds = %88
-  %91 = icmp ugt i64 %73, 4294967279
+  %91 = icmp samesign ugt i64 %73, 4294967279
   br i1 %91, label %.loopexit, label %92
 
 92:                                               ; preds = %90, %._crit_edge
@@ -4326,7 +4326,7 @@ define range(i32 0, 2160) i32 @unfmt_job_id_string(ptr noundef %0, ptr nocapture
   br i1 %110, label %.loopexit, label %111
 
 111:                                              ; preds = %109
-  %112 = icmp ugt i64 %104, 127
+  %112 = icmp samesign ugt i64 %104, 127
   br i1 %112, label %.loopexit, label %113
 
 113:                                              ; preds = %111

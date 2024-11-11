@@ -2445,7 +2445,7 @@ define i32 @qtmd_decompress(ptr noundef %0, i64 noundef %1) local_unnamed_addr #
   %1100 = load i8, ptr %.19301773, align 1
   %1101 = getelementptr inbounds i8, ptr %.39361772, i64 1
   store i8 %1100, ptr %.39361772, align 1
-  %1102 = icmp ugt i32 %.29591771, 1
+  %1102 = icmp samesign ugt i32 %.29591771, 1
   br i1 %1102, label %.lr.ph1775, label %.loopexit1182
 
 .loopexit1182:                                    ; preds = %.lr.ph1775, %1095, %1090
@@ -2464,7 +2464,7 @@ define i32 @qtmd_decompress(ptr noundef %0, i64 noundef %1) local_unnamed_addr #
   %1106 = load i8, ptr %.29311779, align 1
   %1107 = getelementptr inbounds i8, ptr %.49371778, i64 1
   store i8 %1106, ptr %.49371778, align 1
-  %1108 = icmp ugt i32 %.169551777, 1
+  %1108 = icmp samesign ugt i32 %.169551777, 1
   br i1 %1108, label %.lr.ph1781, label %.loopexit
 
 1109:                                             ; preds = %1084
@@ -2486,7 +2486,7 @@ define i32 @qtmd_decompress(ptr noundef %0, i64 noundef %1) local_unnamed_addr #
   %1116 = load i8, ptr %.39321768, align 1
   %1117 = getelementptr inbounds i8, ptr %.59381767, i64 1
   store i8 %1116, ptr %.59381767, align 1
-  %1118 = icmp ugt i32 %.179561766, 1
+  %1118 = icmp samesign ugt i32 %.179561766, 1
   br i1 %1118, label %.lr.ph1770, label %.loopexit
 
 .loopexit:                                        ; preds = %.lr.ph1770, %.lr.ph1781, %1109, %.loopexit1182, %415
@@ -2831,7 +2831,7 @@ define internal fastcc void @qtmd_update_model(ptr nocapture noundef nonnull %0)
   br label %22
 
 22:                                               ; preds = %10, %20
-  %23 = icmp ugt i64 %indvars.iv, 1
+  %23 = icmp samesign ugt i64 %indvars.iv, 1
   br i1 %23, label %10, label %.loopexit
 
 24:                                               ; preds = %1

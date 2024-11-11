@@ -39107,7 +39107,7 @@ invoke.cont15:                                    ; preds = %invoke.cont8
   %_M_finish.i.i7.i238 = getelementptr inbounds nuw i8, ptr %ref.tmp12, i64 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(128) %call5.i.i.i.i2.i.i240, i8 0, i64 128, i1 false)
   store ptr %add.ptr.i.i.i233, ptr %_M_finish.i.i7.i238, align 8, !tbaa !35
-  %cmp.i.i241 = icmp ugt i64 %dimensionality, 384307168202282325
+  %cmp.i.i241 = icmp samesign ugt i64 %dimensionality, 384307168202282325
   br i1 %cmp.i.i241, label %if.then.i.i251, label %_ZNSt6vectorIS_IjSaIjEESaIS1_EE17_S_check_init_lenEmRKS2_.exit.i
 
 if.then.i.i251:                                   ; preds = %invoke.cont15
@@ -39375,7 +39375,7 @@ ehcleanup55:                                      ; preds = %ehcleanup54, %lpad2
   br label %ehcleanup667
 
 do.body56:                                        ; preds = %_ZNSt6vectorIjSaIjEED2Ev.exit
-  %cmp57 = icmp ult i64 %dimensionality, 21201
+  %cmp57 = icmp samesign ult i64 %dimensionality, 21201
   br i1 %cmp57, label %do.end108, label %if.then58
 
 if.then58:                                        ; preds = %do.body56
@@ -39597,7 +39597,7 @@ invoke.cont112:                                   ; preds = %call5.i.i.i.i2.i.i.
   %incdec.ptr.i.i.i.i.i325 = getelementptr i8, ptr %call5.i.i.i.i2.i.i334, i64 4
   %56 = add nsw i64 %mul.i.i.i.i.i.i322, -4
   call void @llvm.memset.p0.i64(ptr align 4 %incdec.ptr.i.i.i.i.i325, i8 0, i64 %56, i1 false), !tbaa !34
-  %cmp.i.i336 = icmp ugt i64 %55, 1152921504606846975
+  %cmp.i.i336 = icmp samesign ugt i64 %55, 1152921504606846975
   br i1 %cmp.i.i336, label %if.then.i.i347, label %if.then.i.i.i.i.i338
 
 if.then.i.i347:                                   ; preds = %invoke.cont112

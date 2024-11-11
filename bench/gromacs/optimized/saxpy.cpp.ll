@@ -19,7 +19,7 @@ define void @saxpy_(ptr nocapture noundef readonly %0, ptr nocapture noundef rea
   br i1 %or.cond, label %.lr.ph71.preheader, label %.preheader64
 
 .preheader64:                                     ; preds = %12
-  %15 = icmp ugt i32 %7, 4
+  %15 = icmp samesign ugt i32 %7, 4
   br i1 %15, label %.lr.ph.preheader, label %.preheader
 
 .lr.ph.preheader:                                 ; preds = %.preheader64

@@ -142,7 +142,7 @@ if.then137:                                       ; preds = %if.then133
   %conv134 = sext i8 %sub125 to i64
   %conv138 = trunc i64 %sigProd.0 to i32
   %sub140 = sub nsw i64 16, %conv134
-  %cmp.i = icmp ult i64 %sub140, 31
+  %cmp.i = icmp samesign ult i64 %sub140, 31
   br i1 %cmp.i, label %cond.true.i, label %cond.false.i
 
 cond.true.i:                                      ; preds = %if.then137
@@ -168,7 +168,7 @@ softfloat_shiftRightJam32.exit:                   ; preds = %cond.true.i, %cond.
   br label %if.end157
 
 if.else:                                          ; preds = %if.then133
-  %cmp.i101 = icmp ult i8 %sub125, 31
+  %cmp.i101 = icmp samesign ult i8 %sub125, 31
   br i1 %cmp.i101, label %cond.true.i106, label %softfloat_shiftRightJam32.exit114
 
 cond.true.i106:                                   ; preds = %if.else
@@ -215,7 +215,7 @@ if.then169:                                       ; preds = %if.else164
   %conv166 = sext i8 %sub125 to i64
   %conv172 = trunc i64 %sigProd.0 to i32
   %sub174 = sub nsw i64 0, %conv166
-  %cmp.i115 = icmp ult i64 %sub174, 31
+  %cmp.i115 = icmp samesign ult i64 %sub174, 31
   br i1 %cmp.i115, label %cond.true.i120, label %cond.false.i116
 
 cond.true.i120:                                   ; preds = %if.then169
@@ -260,7 +260,7 @@ if.then188:                                       ; preds = %if.end185
   br label %if.end200
 
 if.else193:                                       ; preds = %if.else179
-  %cmp.i129 = icmp ult i8 %sub125, 31
+  %cmp.i129 = icmp samesign ult i8 %sub125, 31
   br i1 %cmp.i129, label %cond.true.i134, label %softfloat_shiftRightJam32.exit142
 
 cond.true.i134:                                   ; preds = %if.else193

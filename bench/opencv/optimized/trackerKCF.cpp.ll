@@ -7433,7 +7433,7 @@ define hidden void @_ZNK2cv8tracking4impl14TrackerKCFImpl9shiftRowsERNS_3MatE(pt
 
 40:                                               ; preds = %39
   call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %16) #25
-  %41 = icmp ugt i32 %.01422, 1
+  %41 = icmp samesign ugt i32 %.01422, 1
   br i1 %41, label %33, label %._crit_edge, !llvm.loop !66
 
 .loopexit:                                        ; preds = %33, %37

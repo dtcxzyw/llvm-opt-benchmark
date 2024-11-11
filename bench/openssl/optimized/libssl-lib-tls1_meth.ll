@@ -364,7 +364,7 @@ if.then123:                                       ; preds = %if.then119
   br label %return
 
 if.end124:                                        ; preds = %if.then119
-  %cmp125 = icmp ult i32 %call120, 2
+  %cmp125 = icmp samesign ult i32 %call120, 2
   %spec.store.select = select i1 %cmp125, i32 0, i32 %call120
   %9 = zext nneg i32 %spec.store.select to i64
   br label %if.end139

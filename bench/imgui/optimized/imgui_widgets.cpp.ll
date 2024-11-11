@@ -8258,7 +8258,7 @@ cond.end:                                         ; preds = %if.else.i.i, %if.en
   br i1 %cmp.i, label %_ZL32GetMinimumStepAtDecimalPrecisioni.exit, label %if.end.i
 
 if.end.i:                                         ; preds = %cond.end
-  %cmp1.i = icmp ult i32 %cond39, 10
+  %cmp1.i = icmp samesign ult i32 %cond39, 10
   br i1 %cmp1.i, label %cond.true.i, label %cond.false.i
 
 cond.true.i:                                      ; preds = %if.end.i
@@ -8754,7 +8754,7 @@ cond.end:                                         ; preds = %if.else.i.i, %if.en
   br i1 %cmp.i, label %_ZL32GetMinimumStepAtDecimalPrecisioni.exit, label %if.end.i
 
 if.end.i:                                         ; preds = %cond.end
-  %cmp1.i = icmp ult i32 %cond39, 10
+  %cmp1.i = icmp samesign ult i32 %cond39, 10
   br i1 %cmp1.i, label %cond.true.i, label %cond.false.i
 
 cond.true.i:                                      ; preds = %if.end.i
@@ -9335,7 +9335,7 @@ cond.end:                                         ; preds = %if.else.i.i, %if.en
   br i1 %cmp.i, label %_ZL32GetMinimumStepAtDecimalPrecisioni.exit, label %if.end.i
 
 if.end.i:                                         ; preds = %cond.end
-  %cmp1.i = icmp ult i32 %cond39, 10
+  %cmp1.i = icmp samesign ult i32 %cond39, 10
   br i1 %cmp1.i, label %cond.true.i, label %cond.false.i
 
 cond.true.i:                                      ; preds = %if.end.i
@@ -9834,7 +9834,7 @@ cond.end:                                         ; preds = %if.else.i.i, %if.en
   br i1 %cmp.i, label %_ZL32GetMinimumStepAtDecimalPrecisioni.exit, label %if.end.i
 
 if.end.i:                                         ; preds = %cond.end
-  %cmp1.i = icmp ult i32 %cond39, 10
+  %cmp1.i = icmp samesign ult i32 %cond39, 10
   br i1 %cmp1.i, label %cond.true.i, label %cond.false.i
 
 cond.true.i:                                      ; preds = %if.end.i
@@ -10435,7 +10435,7 @@ cond.end:                                         ; preds = %if.else.i.i, %if.en
   br i1 %cmp.i, label %_ZL32GetMinimumStepAtDecimalPrecisioni.exit, label %if.end.i
 
 if.end.i:                                         ; preds = %cond.end
-  %cmp1.i = icmp ult i32 %cond37, 10
+  %cmp1.i = icmp samesign ult i32 %cond37, 10
   br i1 %cmp1.i, label %cond.true.i, label %cond.false.i
 
 cond.true.i:                                      ; preds = %if.end.i
@@ -10937,7 +10937,7 @@ cond.end:                                         ; preds = %if.else.i.i, %if.en
   br i1 %cmp.i, label %_ZL32GetMinimumStepAtDecimalPrecisioni.exit, label %if.end.i
 
 if.end.i:                                         ; preds = %cond.end
-  %cmp1.i = icmp ult i32 %cond39, 10
+  %cmp1.i = icmp samesign ult i32 %cond39, 10
   br i1 %cmp1.i, label %cond.true.i, label %cond.false.i
 
 cond.true.i:                                      ; preds = %if.end.i
@@ -23270,7 +23270,7 @@ land.rhs357.i:                                    ; preds = %while.body365.i, %l
 while.body365.i:                                  ; preds = %land.rhs357.i
   %238 = trunc nuw nsw i64 %indvars.iv.next911.i to i32
   store i32 %238, ptr %Stb, align 4
-  %cmp356.i = icmp ugt i64 %indvars.iv910.i, 1
+  %cmp356.i = icmp samesign ugt i64 %indvars.iv910.i, 1
   br i1 %cmp356.i, label %land.rhs357.i, label %if.end369.i, !llvm.loop !50
 
 if.end369.i:                                      ; preds = %while.body365.i, %land.rhs357.i, %while.cond354thread-pre-split.i, %if.then351.i
@@ -23478,7 +23478,7 @@ while.body412.i:                                  ; preds = %land.rhs404.lr.ph.i
   %indvars.iv902.i43 = phi i64 [ %indvars.iv.next903.i44, %land.rhs404.i ], [ %264, %land.rhs404.lr.ph.i ]
   %267 = trunc nuw nsw i64 %indvars.iv.next903.i44 to i32
   store i32 %267, ptr %Stb, align 4
-  %cmp403.i = icmp ugt i64 %indvars.iv902.i43, 1
+  %cmp403.i = icmp samesign ugt i64 %indvars.iv902.i43, 1
   br i1 %cmp403.i, label %land.rhs404.i, label %if.end416.i, !llvm.loop !52
 
 if.end416.i:                                      ; preds = %land.rhs404.i, %while.body412.i, %land.rhs404.lr.ph.i, %while.cond401thread-pre-split.i, %if.then398.i

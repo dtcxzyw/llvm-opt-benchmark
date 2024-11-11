@@ -580,7 +580,7 @@ _ZN8facebook5velox12_GLOBAL__N_16isLeapEl.exit:   ; preds = %land.rhs.i
 _ZN8facebook5velox12_GLOBAL__N_16isLeapEl.exit.thread50: ; preds = %_ZN8facebook5velox12_GLOBAL__N_16isLeapEl.exit, %land.rhs.i, %lor.rhs
   %idxprom = phi i64 [ 0, %lor.rhs ], [ 1, %land.rhs.i ], [ %2, %_ZN8facebook5velox12_GLOBAL__N_16isLeapEl.exit ]
   %3 = phi i64 [ 365, %lor.rhs ], [ 366, %land.rhs.i ], [ %spec.select54, %_ZN8facebook5velox12_GLOBAL__N_16isLeapEl.exit ]
-  %cmp25.not = icmp ult i64 %days.1, %3
+  %cmp25.not = icmp samesign ult i64 %days.1, %3
   br i1 %cmp25.not, label %while.end39, label %while.body26
 
 while.body26:                                     ; preds = %while.cond20, %_ZN8facebook5velox12_GLOBAL__N_16isLeapEl.exit.thread50

@@ -2253,7 +2253,7 @@ if.end77:                                         ; preds = %if.end75, %land.rhs
   %auth_tag_len_78 = getelementptr inbounds i8, ptr %retval.i17.0.i, i64 48
   store i32 %conv, ptr %auth_tag_len_78, align 8
   store i32 1, ptr %auth_tag_state_, align 4
-  %cmp83 = icmp ugt i64 %36, 16
+  %cmp83 = icmp samesign ugt i64 %36, 16
   br i1 %cmp83, label %do.body89, label %do.end92
 
 do.body89:                                        ; preds = %if.end77
@@ -7444,7 +7444,7 @@ do.body34:                                        ; preds = %if.end23
 do.end39:                                         ; preds = %if.end23
   %conv40 = zext nneg i32 %call26 to i64
   %add = add nuw nsw i64 %len, %conv40
-  %cmp41 = icmp ugt i64 %add, 2147483647
+  %cmp41 = icmp samesign ugt i64 %add, 2147483647
   br i1 %cmp41, label %cleanup, label %if.end43
 
 if.end43:                                         ; preds = %do.end39

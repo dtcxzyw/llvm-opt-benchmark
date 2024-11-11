@@ -62,8 +62,8 @@ define hidden range(i32 0, 2) i32 @ScalePlane(ptr noundef %0, i32 noundef %1, i3
   br label %46
 
 41:                                               ; preds = %30
-  %42 = icmp ugt i32 %.0122, 1
-  %43 = icmp ugt i32 %7, 1
+  %42 = icmp samesign ugt i32 %.0122, 1
+  %43 = icmp samesign ugt i32 %7, 1
   %or.cond3 = and i1 %43, %42
   br i1 %or.cond3, label %44, label %46
 
@@ -703,8 +703,8 @@ define hidden range(i32 0, 2) i32 @ScalePlane_16(ptr noundef %0, i32 noundef %1,
   br label %46
 
 41:                                               ; preds = %30
-  %42 = icmp ugt i32 %.0122, 1
-  %43 = icmp ugt i32 %7, 1
+  %42 = icmp samesign ugt i32 %.0122, 1
+  %43 = icmp samesign ugt i32 %7, 1
   %or.cond3 = and i1 %43, %42
   br i1 %or.cond3, label %44, label %46
 

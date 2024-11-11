@@ -3211,7 +3211,7 @@ define internal void @_event_history_show(ptr noundef %0, ptr noundef %1) #1 {
 172:                                              ; preds = %167, %158
   %173 = phi ptr [ %166, %158 ], [ %155, %167 ]
   %174 = phi i32 [ %161, %158 ], [ %154, %167 ]
-  %175 = icmp ugt i32 %174, 1
+  %175 = icmp samesign ugt i32 %174, 1
   br i1 %175, label %176, label %188
 
 176:                                              ; preds = %172
@@ -4563,7 +4563,7 @@ define internal noundef range(i32 0, 2) i32 @_colors_update(ptr noundef %0) #1 {
   %208 = icmp ne i32 %207, 0
   %209 = zext i1 %208 to i32
   %210 = add nuw nsw i32 %205, %209
-  %211 = icmp ult i32 %210, 2
+  %211 = icmp samesign ult i32 %210, 2
   br i1 %211, label %212, label %220
 
 212:                                              ; preds = %203
@@ -4586,7 +4586,7 @@ define internal noundef range(i32 0, 2) i32 @_colors_update(ptr noundef %0) #1 {
   %226 = select i1 %225, ptr @dtgtk_cairo_paint_or, ptr @dtgtk_cairo_paint_and
   tail call void @dtgtk_button_set_paint(ptr noundef %224, ptr noundef nonnull %226, i32 noundef 0, ptr noundef null) #21
   %227 = load ptr, ptr %221, align 8, !tbaa !138
-  %228 = icmp ugt i32 %210, 1
+  %228 = icmp samesign ugt i32 %210, 1
   %229 = zext i1 %228 to i32
   tail call void @gtk_widget_set_sensitive(ptr noundef %227, i32 noundef %229) #21
   %230 = load ptr, ptr %221, align 8, !tbaa !138

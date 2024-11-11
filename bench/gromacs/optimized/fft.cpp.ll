@@ -66,8 +66,8 @@ define noundef i32 @_Z20gmx_fft_transpose_2dP9t_complexS0_ii(ptr noundef %0, ptr
 
 .preheader253.preheader:                          ; preds = %24
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(500) %5, i8 0, i64 500, i1 false)
-  %26 = icmp ugt i32 %2, 2
-  %27 = icmp ugt i32 %3, 2
+  %26 = icmp samesign ugt i32 %2, 2
+  %27 = icmp samesign ugt i32 %3, 2
   %or.cond3 = and i1 %26, %27
   br i1 %or.cond3, label %40, label %47
 

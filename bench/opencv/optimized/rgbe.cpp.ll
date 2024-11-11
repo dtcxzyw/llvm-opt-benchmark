@@ -670,7 +670,7 @@ _ZL10rgbe2floatPfS_S_Ph.exit:                     ; preds = %14, %18
   store float %.sink9, ptr %16, align 4
   store float %.sink, ptr %15, align 4
   %32 = getelementptr inbounds i8, ptr %.068, i64 12
-  %33 = icmp ugt i32 %.in, 1
+  %33 = icmp samesign ugt i32 %.in, 1
   br i1 %33, label %9, label %._crit_edge, !llvm.loop !14
 
 ._crit_edge:                                      ; preds = %_ZL10rgbe2floatPfS_S_Ph.exit, %3
@@ -1180,7 +1180,7 @@ _ZL10rgbe2floatPfS_S_Ph.exit.i:                   ; preds = %37, %33
   store float %.sink9.i, ptr %35, align 4
   store float %.sink.i, ptr %34, align 4
   %51 = getelementptr inbounds i8, ptr %.068.i, i64 12
-  %52 = icmp ugt i32 %.in.i, 1
+  %52 = icmp samesign ugt i32 %.in.i, 1
   br i1 %52, label %28, label %_Z15RGBE_ReadPixelsP8_IO_FILEPfi.exit, !llvm.loop !14
 
 _Z15RGBE_ReadPixelsP8_IO_FILEPfi.exit:            ; preds = %_ZL10rgbe2floatPfS_S_Ph.exit.i, %22
@@ -1297,7 +1297,7 @@ _ZL10rgbe2floatPfS_S_Ph.exit.i103:                ; preds = %93, %89
   store float %.sink10.i104, ptr %.068.i101, align 4
   store float %.sink9.i105, ptr %91, align 4
   store float %.sink.i106, ptr %90, align 4
-  %107 = icmp ugt i32 %.in.i100, 1
+  %107 = icmp samesign ugt i32 %.in.i100, 1
   br i1 %107, label %85, label %_Z15RGBE_ReadPixelsP8_IO_FILEPfi.exit107, !llvm.loop !14
 
 _Z15RGBE_ReadPixelsP8_IO_FILEPfi.exit107:         ; preds = %_ZL10rgbe2floatPfS_S_Ph.exit.i103, %_ZL10rgbe2floatPfS_S_Ph.exit

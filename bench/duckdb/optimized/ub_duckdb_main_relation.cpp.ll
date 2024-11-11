@@ -15775,7 +15775,7 @@ if.then:                                          ; preds = %_ZNSt7__cxx1112basi
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %ref.tmp12) #25
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %ref.tmp13) #25
   call void @llvm.experimental.noalias.scope.decl(metadata !440)
-  %cmp39.i.i83 = icmp ult i64 %42, 10
+  %cmp39.i.i83 = icmp samesign ult i64 %42, 10
   br i1 %cmp39.i.i83, label %_ZNSt8__detail14__to_chars_lenImEEjT_i.exit.i96, label %if.end.i.i84
 
 if.end.i.i84:                                     ; preds = %if.then, %if.end16.i.i92

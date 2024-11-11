@@ -8315,7 +8315,7 @@ define dso_local noundef zeroext i1 @_ZN4llvm8LLParser19parseFunctionHeaderERPNS
 
 116:                                              ; preds = %107
   %117 = load i32, ptr %8, align 4
-  %spec.select.i.i = icmp ult i32 %101, 7
+  %spec.select.i.i = icmp samesign ult i32 %101, 7
   %118 = icmp eq i32 %117, 0
   %119 = or i1 %spec.select.i.i, %118
   br i1 %119, label %.thread, label %120
@@ -50611,7 +50611,7 @@ _ZN4llvm8LLParser21parseScopeAndOrderingEbRhRNS_14AtomicOrderingE.exit: ; preds 
   br i1 %86, label %_ZN4llvm8LLParser21parseScopeAndOrderingEbRhRNS_14AtomicOrderingE.exit.thread, label %87
 
 87:                                               ; preds = %85
-  %88 = icmp ugt i32 %.03139, 1
+  %88 = icmp samesign ugt i32 %.03139, 1
   br i1 %88, label %95, label %89
 
 89:                                               ; preds = %87
@@ -53267,7 +53267,7 @@ _ZN4llvm12DenseMapBaseINS_13SmallDenseMapIPKNS_3UseEjLj16ENS_12DenseMapInfoIS4_v
   %78 = lshr i32 %77, 1
   %79 = zext nneg i32 %78 to i64
   %.not = icmp ne i64 %3, %79
-  %or.cond = or i1 %26, %.not
+  %or.cond = or i1 %.not, %26
   br i1 %or.cond, label %_ZN4llvmplERKNS_5TwineES2_.exit, label %87
 
 _ZN4llvmplERKNS_5TwineES2_.exit:                  ; preds = %76

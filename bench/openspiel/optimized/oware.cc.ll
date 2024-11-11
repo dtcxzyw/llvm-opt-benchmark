@@ -2260,7 +2260,7 @@ _ZNK10open_spiel5oware10OwareState16WritePlayerScoreERNSt7__cxx1119basic_ostring
 
 45:                                               ; preds = %43
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %4) #25
-  %46 = icmp ugt i64 %indvars.iv, 1
+  %46 = icmp samesign ugt i64 %indvars.iv, 1
   br i1 %46, label %.lr.ph, label %._crit_edge, !llvm.loop !8
 
 47:                                               ; preds = %43

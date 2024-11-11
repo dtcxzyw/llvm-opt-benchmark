@@ -267,7 +267,7 @@ define void @reoReorderSift(ptr noundef %0) local_unnamed_addr #0 {
   br label %130
 
 130:                                              ; preds = %123, %129, %125
-  %131 = icmp ugt i64 %indvars.iv540, 1
+  %131 = icmp samesign ugt i64 %indvars.iv540, 1
   br i1 %131, label %.lr.ph452, label %._crit_edge453, !llvm.loop !8
 
 ._crit_edge453.loopexit.split.loop.exit:          ; preds = %102
@@ -696,7 +696,7 @@ define void @reoReorderSift(ptr noundef %0) local_unnamed_addr #0 {
   br label %346
 
 346:                                              ; preds = %339, %345, %341
-  %347 = icmp ugt i64 %indvars.iv526, 1
+  %347 = icmp samesign ugt i64 %indvars.iv526, 1
   br i1 %347, label %.lr.ph412, label %._crit_edge413, !llvm.loop !14
 
 ._crit_edge413.loopexit.split.loop.exit:          ; preds = %318

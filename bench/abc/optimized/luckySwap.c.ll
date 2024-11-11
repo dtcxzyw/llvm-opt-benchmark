@@ -76,7 +76,7 @@ select.unfold:                                    ; preds = %select.unfold.prehe
   %26 = trunc i64 %25 to i32
   %27 = and i32 %26, 255
   %28 = add nuw nsw i32 %27, %.08
-  %29 = icmp ugt i64 %indvars.iv, 1
+  %29 = icmp samesign ugt i64 %indvars.iv, 1
   br i1 %29, label %select.unfold, label %select.unfold._crit_edge, !llvm.loop !4
 
 select.unfold._crit_edge:                         ; preds = %select.unfold, %2
@@ -203,7 +203,7 @@ define void @Kit_TruthCountOnesInCofs_64bit(ptr nocapture noundef readonly %0, i
   %81 = and i32 %80, 255
   %82 = getelementptr inbounds i8, ptr %2, i64 4
   store i32 %81, ptr %82, align 4
-  %83 = icmp ugt i32 %1, 2
+  %83 = icmp samesign ugt i32 %1, 2
   br i1 %83, label %84, label %.thread67
 
 84:                                               ; preds = %61
@@ -255,7 +255,7 @@ define void @Kit_TruthCountOnesInCofs_64bit(ptr nocapture noundef readonly %0, i
   %126 = and i32 %125, 255
   %127 = getelementptr inbounds i8, ptr %2, i64 12
   store i32 %126, ptr %127, align 4
-  %128 = icmp ugt i32 %1, 4
+  %128 = icmp samesign ugt i32 %1, 4
   br i1 %128, label %129, label %.thread67
 
 129:                                              ; preds = %106
@@ -494,7 +494,7 @@ define void @Kit_TruthCountOnesInCofs_64bit(ptr nocapture noundef readonly %0, i
   store i32 %336, ptr %180, align 4
   %337 = getelementptr inbounds i8, ptr %.074, i64 16
   %338 = add nsw i32 %.173, -1
-  %339 = icmp ugt i32 %.173, 1
+  %339 = icmp samesign ugt i32 %.173, 1
   br i1 %339, label %181, label %.thread67, !llvm.loop !8
 
 .thread67:                                        ; preds = %181, %.preheader, %._crit_edge72, %42, %44, %61, %84, %106, %129, %152
@@ -595,7 +595,7 @@ select.unfold:                                    ; preds = %select.unfold.prehe
   %9 = load i64, ptr %8, align 8
   %10 = xor i64 %9, -1
   store i64 %10, ptr %8, align 8
-  %11 = icmp ugt i64 %indvars.iv, 1
+  %11 = icmp samesign ugt i64 %indvars.iv, 1
   br i1 %11, label %select.unfold, label %select.unfold._crit_edge, !llvm.loop !11
 
 select.unfold._crit_edge:                         ; preds = %select.unfold, %2
@@ -763,7 +763,7 @@ select.unfold.i:                                  ; preds = %select.unfold.i, %s
   %31 = trunc i64 %30 to i32
   %32 = and i32 %31, 255
   %33 = add nuw nsw i32 %32, %.08.i
-  %34 = icmp ugt i64 %indvars.iv.i, 1
+  %34 = icmp samesign ugt i64 %indvars.iv.i, 1
   br i1 %34, label %select.unfold.i, label %Kit_TruthCountOnes_64bit.exit, !llvm.loop !4
 
 Kit_TruthCountOnes_64bit.exit:                    ; preds = %select.unfold.i
@@ -778,7 +778,7 @@ select.unfold.i72:                                ; preds = %Kit_TruthCountOnes_
   %38 = load i64, ptr %37, align 8
   %39 = xor i64 %38, -1
   store i64 %39, ptr %37, align 8
-  %40 = icmp ugt i64 %indvars.iv.i73, 1
+  %40 = icmp samesign ugt i64 %indvars.iv.i73, 1
   br i1 %40, label %select.unfold.i72, label %Kit_TruthNot_64bit.exit, !llvm.loop !11
 
 Kit_TruthNot_64bit.exit:                          ; preds = %select.unfold.i72
@@ -1073,7 +1073,7 @@ select.unfold.i:                                  ; preds = %select.unfold.i, %s
   %31 = trunc i64 %30 to i32
   %32 = and i32 %31, 255
   %33 = add nuw nsw i32 %32, %.08.i
-  %34 = icmp ugt i64 %indvars.iv.i, 1
+  %34 = icmp samesign ugt i64 %indvars.iv.i, 1
   br i1 %34, label %select.unfold.i, label %Kit_TruthCountOnes_64bit.exit, !llvm.loop !4
 
 Kit_TruthCountOnes_64bit.exit:                    ; preds = %select.unfold.i
@@ -1097,7 +1097,7 @@ select.unfold.i92:                                ; preds = %40, %select.unfold.
   %43 = load i64, ptr %42, align 8
   %44 = xor i64 %43, -1
   store i64 %44, ptr %42, align 8
-  %45 = icmp ugt i64 %indvars.iv.i93, 1
+  %45 = icmp samesign ugt i64 %indvars.iv.i93, 1
   br i1 %45, label %select.unfold.i92, label %Kit_TruthNot_64bit.exit, !llvm.loop !11
 
 Kit_TruthNot_64bit.exit:                          ; preds = %select.unfold.i92
@@ -1403,7 +1403,7 @@ select.unfold.i:                                  ; preds = %select.unfold.i, %s
   %30 = trunc i64 %29 to i32
   %31 = and i32 %30, 255
   %32 = add nuw nsw i32 %31, %.08.i
-  %33 = icmp ugt i64 %indvars.iv.i, 1
+  %33 = icmp samesign ugt i64 %indvars.iv.i, 1
   br i1 %33, label %select.unfold.i, label %Kit_TruthCountOnes_64bit.exit, !llvm.loop !4
 
 Kit_TruthCountOnes_64bit.exit:                    ; preds = %select.unfold.i
@@ -1418,7 +1418,7 @@ select.unfold.i60:                                ; preds = %Kit_TruthCountOnes_
   %37 = load i64, ptr %36, align 8
   %38 = xor i64 %37, -1
   store i64 %38, ptr %36, align 8
-  %39 = icmp ugt i64 %indvars.iv.i61, 1
+  %39 = icmp samesign ugt i64 %indvars.iv.i61, 1
   br i1 %39, label %select.unfold.i60, label %Kit_TruthNot_64bit.exit, !llvm.loop !11
 
 Kit_TruthNot_64bit.exit:                          ; preds = %select.unfold.i60

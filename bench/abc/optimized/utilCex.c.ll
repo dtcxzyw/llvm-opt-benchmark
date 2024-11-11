@@ -366,7 +366,7 @@ define noalias noundef ptr @Abc_CexMerge(ptr nocapture noundef readonly %0, ptr 
   br label %.loopexit
 
 16:                                               ; preds = %10
-  %17 = icmp ugt i32 %3, %12
+  %17 = icmp samesign ugt i32 %3, %12
   br i1 %17, label %18, label %20
 
 18:                                               ; preds = %16
@@ -374,7 +374,7 @@ define noalias noundef ptr @Abc_CexMerge(ptr nocapture noundef readonly %0, ptr 
   br label %.loopexit
 
 20:                                               ; preds = %16
-  %21 = icmp ugt i32 %2, %3
+  %21 = icmp samesign ugt i32 %2, %3
   br i1 %21, label %22, label %24
 
 22:                                               ; preds = %20

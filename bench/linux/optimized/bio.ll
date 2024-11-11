@@ -175,7 +175,7 @@ define dso_local void @bvec_free(ptr noundef %0, ptr noundef %1, i16 noundef zer
   br label %15
 
 9:                                                ; preds = %6
-  %10 = icmp ugt i16 %2, 4
+  %10 = icmp samesign ugt i16 %2, 4
   br i1 %10, label %11, label %15
 
 11:                                               ; preds = %9
@@ -1829,7 +1829,7 @@ define internal fastcc void @bio_free(ptr noundef %0) unnamed_addr #0 align 16 {
   br label %45
 
 39:                                               ; preds = %36
-  %40 = icmp ugt i16 %33, 4
+  %40 = icmp samesign ugt i16 %33, 4
   br i1 %40, label %41, label %45
 
 41:                                               ; preds = %39
@@ -4360,7 +4360,7 @@ define dso_local ptr @bio_split(ptr noundef %0, i32 noundef %1, i32 noundef %2, 
   %8 = getelementptr inbounds i8, ptr %0, i64 40
   %9 = load i32, ptr %8, align 8
   %10 = lshr i32 %9, 9
-  %11 = icmp ugt i32 %10, %1
+  %11 = icmp samesign ugt i32 %10, %1
   br i1 %11, label %13, label %12, !prof !16
 
 12:                                               ; preds = %7
@@ -4476,7 +4476,7 @@ define dso_local void @bio_trim(ptr nocapture noundef %0, i64 noundef %1, i64 no
   %9 = load i32, ptr %8, align 8
   %10 = lshr i32 %9, 9
   %11 = zext nneg i32 %10 to i64
-  %12 = icmp ugt i64 %7, %11
+  %12 = icmp samesign ugt i64 %7, %11
   br i1 %12, label %13, label %14, !prof !6
 
 13:                                               ; preds = %6, %3

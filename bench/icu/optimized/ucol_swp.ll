@@ -66,7 +66,7 @@ if.then25:                                        ; preds = %if.end23
   br label %if.end36
 
 if.else:                                          ; preds = %if.end23
-  %cmp28 = icmp ult i32 %length, 168
+  %cmp28 = icmp samesign ult i32 %length, 168
   br i1 %cmp28, label %return, label %lor.lhs.false29
 
 lor.lhs.false29:                                  ; preds = %if.else
@@ -194,7 +194,7 @@ if.end49:                                         ; preds = %land.lhs.true21
   %cmp54 = icmp eq ptr %outData, null
   %add.ptr56 = getelementptr inbounds i8, ptr %outData, i64 %idx.ext
   %cond = select i1 %cmp54, ptr null, ptr %add.ptr56
-  %cmp60 = icmp ugt i8 %6, 3
+  %cmp60 = icmp samesign ugt i8 %6, 3
   br i1 %cmp60, label %if.then61, label %if.else
 
 if.then61:                                        ; preds = %if.end49
@@ -255,7 +255,7 @@ if.then10:                                        ; preds = %if.end8
   br label %if.end21
 
 if.else:                                          ; preds = %if.end8
-  %cmp13 = icmp ult i32 %length, 168
+  %cmp13 = icmp samesign ult i32 %length, 168
   br i1 %cmp13, label %if.then19, label %lor.lhs.false14
 
 lor.lhs.false14:                                  ; preds = %if.else

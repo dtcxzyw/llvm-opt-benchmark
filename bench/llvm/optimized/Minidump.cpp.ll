@@ -281,7 +281,7 @@ _ZN4llvm5ErrorD2Ev.exit10:                        ; preds = %14
   %41 = getelementptr inbounds i8, ptr %.0910.i.i.i.i.i.i, i64 2
   %42 = getelementptr inbounds i8, ptr %.0811.i.i.i.i.i.i, i64 2
   %43 = add nsw i64 %.012.i.i.i.i.i.i, -1
-  %44 = icmp ugt i64 %.012.i.i.i.i.i.i, 1
+  %44 = icmp samesign ugt i64 %.012.i.i.i.i.i.i, 1
   br i1 %44, label %.lr.ph.i.i.i.i.i.i, label %_ZN4llvm4copyIRNS_8ArrayRefINS_7support6detail31packed_endian_specific_integralItLNS_10endiannessE1ELm1ELm1EEEEEPtEET0_OT_SA_.exit, !llvm.loop !17
 
 _ZN4llvm4copyIRNS_8ArrayRefINS_7support6detail31packed_endian_specific_integralItLNS_10endiannessE1ELm1ELm1EEEEEPtEET0_OT_SA_.exit: ; preds = %.lr.ph.i.i.i.i.i.i

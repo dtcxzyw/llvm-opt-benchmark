@@ -5961,20 +5961,22 @@ define internal void @dtap_gcc_status(ptr noundef %0, ptr noundef %1, ptr nounde
   %.033 = phi i32 [ %11, %9 ], [ %3, %13 ]
   %.0 = phi i32 [ %12, %9 ], [ %4, %13 ]
   %17 = icmp slt i32 %.0, 1
-  br i1 %17, label %24, label %18
+  br i1 %17, label %25, label %18
 
 18:                                               ; preds = %16
   %19 = tail call zeroext i16 @elem_tv_short(ptr noundef %0, ptr noundef %1, ptr noundef %2, i8 noundef zeroext -96, i32 noundef 1, i32 noundef 86, i32 noundef %.033, ptr noundef null) #6
+  %.not38 = icmp ne i16 %19, 0
   %20 = zext i16 %19 to i32
-  %.not40 = icmp ugt i32 %.0, %20
-  br i1 %.not40, label %21, label %24
+  %21 = icmp samesign ule i32 %.0, %20
+  %.1 = select i1 %.not38, i1 %21, i1 false
+  br i1 %.1, label %25, label %22
 
-21:                                               ; preds = %18
-  %22 = add i32 %.033, %20
-  %23 = tail call zeroext i16 @elem_tv_short(ptr noundef %0, ptr noundef %1, ptr noundef %2, i8 noundef zeroext -80, i32 noundef 1, i32 noundef 89, i32 noundef %22, ptr noundef null) #6
-  br label %24
+22:                                               ; preds = %18
+  %23 = add i32 %.033, %20
+  %24 = tail call zeroext i16 @elem_tv_short(ptr noundef %0, ptr noundef %1, ptr noundef %2, i8 noundef zeroext -80, i32 noundef 1, i32 noundef 89, i32 noundef %23, ptr noundef null) #6
+  br label %25
 
-24:                                               ; preds = %21, %18, %16
+25:                                               ; preds = %22, %18, %16
   ret void
 }
 
@@ -6280,20 +6282,22 @@ define internal void @dtap_bcc_status(ptr noundef %0, ptr noundef %1, ptr nounde
   %.033 = phi i32 [ %11, %9 ], [ %3, %13 ]
   %.0 = phi i32 [ %12, %9 ], [ %4, %13 ]
   %17 = icmp slt i32 %.0, 1
-  br i1 %17, label %24, label %18
+  br i1 %17, label %25, label %18
 
 18:                                               ; preds = %16
   %19 = tail call zeroext i16 @elem_tv_short(ptr noundef %0, ptr noundef %1, ptr noundef %2, i8 noundef zeroext -96, i32 noundef 1, i32 noundef 91, i32 noundef %.033, ptr noundef null) #6
+  %.not38 = icmp ne i16 %19, 0
   %20 = zext i16 %19 to i32
-  %.not40 = icmp ugt i32 %.0, %20
-  br i1 %.not40, label %21, label %24
+  %21 = icmp samesign ule i32 %.0, %20
+  %.1 = select i1 %.not38, i1 %21, i1 false
+  br i1 %.1, label %25, label %22
 
-21:                                               ; preds = %18
-  %22 = add i32 %.033, %20
-  %23 = tail call zeroext i16 @elem_tv_short(ptr noundef %0, ptr noundef %1, ptr noundef %2, i8 noundef zeroext -80, i32 noundef 1, i32 noundef 94, i32 noundef %22, ptr noundef null) #6
-  br label %24
+22:                                               ; preds = %18
+  %23 = add i32 %.033, %20
+  %24 = tail call zeroext i16 @elem_tv_short(ptr noundef %0, ptr noundef %1, ptr noundef %2, i8 noundef zeroext -80, i32 noundef 1, i32 noundef 94, i32 noundef %23, ptr noundef null) #6
+  br label %25
 
-24:                                               ; preds = %21, %18, %16
+25:                                               ; preds = %22, %18, %16
   ret void
 }
 

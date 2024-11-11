@@ -3028,7 +3028,7 @@ define internal fastcc void @_ZL13merge_to_baseP17gmx_ana_poscalc_tS0_(ptr nound
   %117 = add nsw i32 %.276, 1
   %118 = getelementptr inbounds i32, ptr %.pre.pre, i64 %indvars.iv.next97
   store i32 %117, ptr %118, align 4
-  %119 = icmp ugt i64 %indvars.iv96, 1
+  %119 = icmp samesign ugt i64 %indvars.iv96, 1
   br i1 %119, label %74, label %._crit_edge93, !llvm.loop !25
 
 ._crit_edge93:                                    ; preds = %116, %._crit_edge

@@ -18633,7 +18633,7 @@ _ZNK3AAT10ClassTableIN2OT7IntTypeItLj2EEEE9get_classEjjj.exit17.i: ; preds = %69
   %89 = getelementptr inbounds i8, ptr %4, i64 %88
   %90 = add nuw nsw i32 %80, %43
   %91 = trunc nuw nsw i64 %88 to i32
-  %92 = icmp ult i32 %90, %91
+  %92 = icmp samesign ult i32 %90, %91
   %93 = sub nuw nsw i32 %90, %91
   %94 = lshr i32 %93, 1
   %.0.i.i = select i1 %92, i32 1073741823, i32 %94
@@ -21374,7 +21374,7 @@ _ZNK3AAT10ClassTableIN2OT7IntTypeItLj2EEEE9get_classEjjj.exit17.i: ; preds = %69
   %89 = getelementptr inbounds i8, ptr %4, i64 %88
   %90 = add nuw nsw i32 %80, %43
   %91 = trunc nuw nsw i64 %88 to i32
-  %92 = icmp ult i32 %90, %91
+  %92 = icmp samesign ult i32 %90, %91
   %93 = sub nuw nsw i32 %90, %91
   %94 = lshr i32 %93, 1
   %.0.i.i = select i1 %92, i32 1073741823, i32 %94
@@ -23133,7 +23133,7 @@ define linkonce_odr hidden void @_ZN12hb_bit_set_t9del_pagesEii(ptr noundef nonn
   br i1 %.not19.i.i.i.i.not, label %_ZN12hb_bit_set_t26allocate_compact_workspaceER11hb_vector_tIjLb0EE.exit, label %.thread.i.i.i.i
 
 .thread.i.i.i.i:                                  ; preds = %4
-  %8 = icmp ugt i32 %6, 1073741823
+  %8 = icmp samesign ugt i32 %6, 1073741823
   br i1 %8, label %_ZN12hb_bit_set_t6resizeEjbb.exit.thread, label %_ZN11hb_vector_tIjLb0EE14realloc_vectorIjTnPN12hb_enable_ifIXsr3std28is_trivially_copy_assignableIT_EE5valueEvE4typeELPv0EEEPjj11hb_priorityILj0EE.exit.i.i.i.i
 
 _ZN11hb_vector_tIjLb0EE14realloc_vectorIjTnPN12hb_enable_ifIXsr3std28is_trivially_copy_assignableIT_EE5valueEvE4typeELPv0EEEPjj11hb_priorityILj0EE.exit.i.i.i.i: ; preds = %.thread.i.i.i.i
@@ -24895,7 +24895,7 @@ _ZN14hb_sparseset_tI23hb_bit_set_invertible_tE3addEj.exit: ; preds = %.lr.ph
 _ZNK2OT8GSUBGPOS16get_feature_listEv.exit.i:      ; preds = %.thread, %38
   %.pre-phi35 = phi i32 [ %56, %38 ], [ %.pre34, %.thread ]
   %.0.i.i15 = phi ptr [ %.0.i.i.i.i, %38 ], [ @_hb_NullPool, %.thread ]
-  %.not.i.i.i = icmp ult i32 %.011, %.pre-phi35
+  %.not.i.i.i = icmp samesign ult i32 %.011, %.pre-phi35
   br i1 %.not.i.i.i, label %59, label %63
 
 59:                                               ; preds = %_ZNK2OT8GSUBGPOS16get_feature_listEv.exit.i
@@ -27734,7 +27734,7 @@ _ZNK9hb_iter_tI13hb_map_iter_tIN2OT6Layout6Common8Coverage6iter_tEZNKS2_9GSUB_im
   %102 = load i8, ptr %98, align 1
   %103 = zext i8 %102 to i32
   %104 = or disjoint i32 %101, %103
-  %105 = icmp ult i32 %.sroa.8.0, %104
+  %105 = icmp samesign ult i32 %.sroa.8.0, %104
   br i1 %105, label %.lr.ph.i, label %_ZorI13hb_map_iter_tIN2OT6Layout6Common8Coverage6iter_tEZNKS2_9GSUB_impl20SingleSubstFormat1_3INS2_10SmallTypesEE14collect_glyphsEPNS1_27hb_collect_glyphs_context_tEEUljE_L24hb_function_sortedness_t0ELPv0EE9hb_sink_tIR8hb_set_tETnPN12hb_enable_ifIXsr17hb_is_iterator_ofIT_NSL_6item_tEEE5valueEvE4typeELSE_0EEDTclclsr3stdE7forwardIT0_Efp0_Eclsr3stdE7forwardISL_Efp_EEEOSL_OSQ_.exit
 
 .lr.ph.i:                                         ; preds = %_ZNK9hb_iter_tI13hb_map_iter_tIN2OT6Layout6Common8Coverage6iter_tEZNKS2_9GSUB_impl20SingleSubstFormat1_3INS2_10SmallTypesEE14collect_glyphsEPNS1_27hb_collect_glyphs_context_tEEUljE_L24hb_function_sortedness_t0ELPv0EEjEcvbEv.exit.i.preheader.i
@@ -27785,7 +27785,7 @@ _ZN9hb_iter_tI13hb_map_iter_tIN2OT6Layout6Common8Coverage6iter_tEZNKS2_9GSUB_imp
   %132 = load i8, ptr %98, align 1
   %133 = zext i8 %132 to i32
   %134 = or disjoint i32 %131, %133
-  %.not.i.i.i.us.i = icmp ult i32 %.sroa.9.018.us23.i, %134
+  %.not.i.i.i.us.i = icmp samesign ult i32 %.sroa.9.018.us23.i, %134
   br i1 %.not.i.i.i.us.i, label %135, label %_ZNK2OT7ArrayOfINS_6Layout6Common11RangeRecordINS1_10SmallTypesEEENS_7IntTypeItLj2EEEEixEi.exit.i.i.us.i
 
 135:                                              ; preds = %_ZN9hb_iter_tI13hb_map_iter_tIN2OT6Layout6Common8Coverage6iter_tEZNKS2_9GSUB_impl20SingleSubstFormat1_3INS2_10SmallTypesEE14collect_glyphsEPNS1_27hb_collect_glyphs_context_tEEUljE_L24hb_function_sortedness_t0ELPv0EEjEdeEv.exit.i.us.i
@@ -27815,7 +27815,7 @@ _ZNK2OT7ArrayOfINS_6Layout6Common11RangeRecordINS1_10SmallTypesEEENS_7IntTypeItL
   %151 = load i8, ptr %98, align 1
   %152 = zext i8 %151 to i32
   %153 = or disjoint i32 %150, %152
-  %154 = icmp ult i32 %147, %153
+  %154 = icmp samesign ult i32 %147, %153
   br i1 %154, label %155, label %_ZN2OT6Layout6Common8Coverage6iter_t8__next__Ev.exit.us24.i
 
 155:                                              ; preds = %146
@@ -28523,7 +28523,7 @@ _ZNK9hb_iter_tIN2OT6Layout6Common8Coverage6iter_tEjEcvbEv.exit.i.i.i.i.i.prehead
   %103 = load i8, ptr %99, align 1
   %104 = zext i8 %103 to i32
   %105 = or disjoint i32 %102, %104
-  %106 = icmp ult i32 %.sroa.8.0.i, %105
+  %106 = icmp samesign ult i32 %.sroa.8.0.i, %105
   %107 = icmp ne i32 %.sroa.916.0.copyload.fr.i, 0
   %or.cond.i18.i = and i1 %107, %106
   br i1 %or.cond.i18.i, label %.lr.ph.i, label %"_ZorI13hb_map_iter_tI13hb_zip_iter_tIN2OT6Layout6Common8Coverage6iter_tE10hb_array_tIKNS2_11HBGlyphID16EEERK3$_6L24hb_function_sortedness_t0ELPv0EE9hb_sink_tIR8hb_set_tETnPN12hb_enable_ifIXsr17hb_is_iterator_ofIT_NSN_6item_tEEE5valueEvE4typeELSG_0EEDTclclsr3stdE7forwardIT0_Efp0_Eclsr3stdE7forwardISN_Efp_EEEOSN_OSS_.exit"
@@ -28557,7 +28557,7 @@ _ZNK9hb_iter_tIN2OT6Layout6Common8Coverage6iter_tEjEcvbEv.exit.i.i.i.i.i.prehead
   %124 = load i8, ptr %99, align 1
   %125 = zext i8 %124 to i32
   %126 = or disjoint i32 %123, %125
-  %127 = icmp ult i32 %118, %126
+  %127 = icmp samesign ult i32 %118, %126
   %128 = icmp ne i32 %119, 0
   %or.cond.i.us.i = select i1 %127, i1 %128, i1 false
   br i1 %or.cond.i.us.i, label %"_ZN9hb_iter_tI13hb_map_iter_tI13hb_zip_iter_tIN2OT6Layout6Common8Coverage6iter_tE10hb_array_tIKNS2_11HBGlyphID16EEERK3$_6L24hb_function_sortedness_t0ELPv0EERS9_EdeEv.exit.thread.i.thread.us.i", label %"_ZorI13hb_map_iter_tI13hb_zip_iter_tIN2OT6Layout6Common8Coverage6iter_tE10hb_array_tIKNS2_11HBGlyphID16EEERK3$_6L24hb_function_sortedness_t0ELPv0EE9hb_sink_tIR8hb_set_tETnPN12hb_enable_ifIXsr17hb_is_iterator_ofIT_NSN_6item_tEEE5valueEvE4typeELSG_0EEDTclclsr3stdE7forwardIT0_Efp0_Eclsr3stdE7forwardISN_Efp_EEEOSN_OSS_.exit", !llvm.loop !158
@@ -28582,7 +28582,7 @@ _ZNK9hb_iter_tIN2OT6Layout6Common8Coverage6iter_tEjEcvbEv.exit.i.i.i.i.i.prehead
   %139 = load i8, ptr %99, align 1
   %140 = zext i8 %139 to i32
   %141 = or disjoint i32 %138, %140
-  %.not.i.i.i.us.i = icmp ult i32 %.sroa.9.021.us26.i, %141
+  %.not.i.i.i.us.i = icmp samesign ult i32 %.sroa.9.021.us26.i, %141
   br i1 %.not.i.i.i.us.i, label %142, label %_ZNK2OT7ArrayOfINS_6Layout6Common11RangeRecordINS1_10SmallTypesEEENS_7IntTypeItLj2EEEEixEi.exit.i.i.us.i
 
 142:                                              ; preds = %"_ZN9hb_iter_tI13hb_map_iter_tI13hb_zip_iter_tIN2OT6Layout6Common8Coverage6iter_tE10hb_array_tIKNS2_11HBGlyphID16EEERK3$_6L24hb_function_sortedness_t0ELPv0EERS9_EdeEv.exit.thread.i.us.i"
@@ -28612,7 +28612,7 @@ _ZNK2OT7ArrayOfINS_6Layout6Common11RangeRecordINS1_10SmallTypesEEENS_7IntTypeItL
   %158 = load i8, ptr %99, align 1
   %159 = zext i8 %158 to i32
   %160 = or disjoint i32 %157, %159
-  %161 = icmp ult i32 %154, %160
+  %161 = icmp samesign ult i32 %154, %160
   br i1 %161, label %162, label %_ZN2OT6Layout6Common8Coverage6iter_t8__next__Ev.exit.us29.i
 
 162:                                              ; preds = %153
@@ -28832,7 +28832,7 @@ _ZNK9hb_iter_tIN2OT6Layout6Common8Coverage6iter_tEjEcvbEv.exit.i.i.i.i.i.i.i.pre
   %101 = load i8, ptr %97, align 1
   %102 = zext i8 %101 to i32
   %103 = or disjoint i32 %100, %102
-  %104 = icmp ult i32 %.sroa.8.0.i, %103
+  %104 = icmp samesign ult i32 %.sroa.8.0.i, %103
   %105 = icmp ne i32 %.sroa.917.0.copyload.fr.i, 0
   %or.cond.i19.i = and i1 %105, %104
   br i1 %or.cond.i19.i, label %.lr.ph.i, label %"_ZorI13hb_map_iter_tIS0_I13hb_zip_iter_tIN2OT6Layout6Common8Coverage6iter_tE10hb_array_tIKNS2_8OffsetToINS3_9GSUB_impl8SequenceINS3_10SmallTypesEEENS2_7IntTypeItLj2EEELb1EEEEERK3$_6L24hb_function_sortedness_t0ELPv0EE12hb_partial_tILj2EPK4$_39PKNS9_22MultipleSubstFormat1_2ISB_EEELSM_0ELSN_0EE10hb_apply_tIZNKSU_14collect_glyphsEPNS2_27hb_collect_glyphs_context_tEEUlRKSC_E_ETnPN12hb_enable_ifIXsr17hb_is_iterator_ofIT_NS17_6item_tEEE5valueEvE4typeELSN_0EEDTclclsr3stdE7forwardIT0_Efp0_Eclsr3stdE7forwardIS17_Efp_EEEOS17_OS1C_.exit"
@@ -28895,7 +28895,7 @@ _ZNK9hb_iter_tIN2OT6Layout6Common8Coverage6iter_tEjEcvbEv.exit.i.i.i.i.i.i.i.pre
   %133 = load i8, ptr %97, align 1
   %134 = zext i8 %133 to i32
   %135 = or disjoint i32 %132, %134
-  %.not.i.i.i.i = icmp ult i32 %.sroa.9.022.i, %135
+  %.not.i.i.i.i = icmp samesign ult i32 %.sroa.9.022.i, %135
   br i1 %.not.i.i.i.i, label %136, label %_ZNK2OT7ArrayOfINS_6Layout6Common11RangeRecordINS1_10SmallTypesEEENS_7IntTypeItLj2EEEEixEi.exit.i.i.i14
 
 136:                                              ; preds = %129
@@ -28925,7 +28925,7 @@ _ZNK2OT7ArrayOfINS_6Layout6Common11RangeRecordINS1_10SmallTypesEEENS_7IntTypeItL
   %152 = load i8, ptr %97, align 1
   %153 = zext i8 %152 to i32
   %154 = or disjoint i32 %151, %153
-  %155 = icmp ult i32 %148, %154
+  %155 = icmp samesign ult i32 %148, %154
   br i1 %155, label %156, label %_ZN2OT6Layout6Common8Coverage6iter_t8__next__Ev.exit.i
 
 156:                                              ; preds = %147
@@ -28970,7 +28970,7 @@ _ZN2OT6Layout6Common8Coverage6iter_t8__next__Ev.exit.i: ; preds = %175, %156, %1
   %183 = load i8, ptr %97, align 1
   %184 = zext i8 %183 to i32
   %185 = or disjoint i32 %182, %184
-  %186 = icmp ult i32 %.sroa.9.2.i, %185
+  %186 = icmp samesign ult i32 %.sroa.9.2.i, %185
   %187 = icmp ne i32 %178, 0
   %or.cond.i.i = select i1 %186, i1 %187, i1 false
   br i1 %or.cond.i.i, label %109, label %"_ZorI13hb_map_iter_tIS0_I13hb_zip_iter_tIN2OT6Layout6Common8Coverage6iter_tE10hb_array_tIKNS2_8OffsetToINS3_9GSUB_impl8SequenceINS3_10SmallTypesEEENS2_7IntTypeItLj2EEELb1EEEEERK3$_6L24hb_function_sortedness_t0ELPv0EE12hb_partial_tILj2EPK4$_39PKNS9_22MultipleSubstFormat1_2ISB_EEELSM_0ELSN_0EE10hb_apply_tIZNKSU_14collect_glyphsEPNS2_27hb_collect_glyphs_context_tEEUlRKSC_E_ETnPN12hb_enable_ifIXsr17hb_is_iterator_ofIT_NS17_6item_tEEE5valueEvE4typeELSN_0EEDTclclsr3stdE7forwardIT0_Efp0_Eclsr3stdE7forwardIS17_Efp_EEEOS17_OS1C_.exit", !llvm.loop !162
@@ -29408,7 +29408,7 @@ _ZNK9hb_iter_tIN2OT6Layout6Common8Coverage6iter_tEjEcvbEv.exit.i.i.i.i.i.i.i.pre
   %101 = load i8, ptr %97, align 1
   %102 = zext i8 %101 to i32
   %103 = or disjoint i32 %100, %102
-  %104 = icmp ult i32 %.sroa.8.0.i, %103
+  %104 = icmp samesign ult i32 %.sroa.8.0.i, %103
   %105 = icmp ne i32 %.sroa.917.0.copyload.fr.i, 0
   %or.cond.i19.i = and i1 %105, %104
   br i1 %or.cond.i19.i, label %.lr.ph.i, label %"_ZorI13hb_map_iter_tIS0_I13hb_zip_iter_tIN2OT6Layout6Common8Coverage6iter_tE10hb_array_tIKNS2_8OffsetToINS3_9GSUB_impl12AlternateSetINS3_10SmallTypesEEENS2_7IntTypeItLj2EEELb1EEEEERK3$_6L24hb_function_sortedness_t0ELPv0EE12hb_partial_tILj2EPK4$_39PKNS9_23AlternateSubstFormat1_2ISB_EEELSM_0ELSN_0EE10hb_apply_tIZNKSU_14collect_glyphsEPNS2_27hb_collect_glyphs_context_tEEUlRKSC_E_ETnPN12hb_enable_ifIXsr17hb_is_iterator_ofIT_NS17_6item_tEEE5valueEvE4typeELSN_0EEDTclclsr3stdE7forwardIT0_Efp0_Eclsr3stdE7forwardIS17_Efp_EEEOS17_OS1C_.exit"
@@ -29471,7 +29471,7 @@ _ZNK9hb_iter_tIN2OT6Layout6Common8Coverage6iter_tEjEcvbEv.exit.i.i.i.i.i.i.i.pre
   %133 = load i8, ptr %97, align 1
   %134 = zext i8 %133 to i32
   %135 = or disjoint i32 %132, %134
-  %.not.i.i.i.i = icmp ult i32 %.sroa.9.022.i, %135
+  %.not.i.i.i.i = icmp samesign ult i32 %.sroa.9.022.i, %135
   br i1 %.not.i.i.i.i, label %136, label %_ZNK2OT7ArrayOfINS_6Layout6Common11RangeRecordINS1_10SmallTypesEEENS_7IntTypeItLj2EEEEixEi.exit.i.i.i14
 
 136:                                              ; preds = %129
@@ -29501,7 +29501,7 @@ _ZNK2OT7ArrayOfINS_6Layout6Common11RangeRecordINS1_10SmallTypesEEENS_7IntTypeItL
   %152 = load i8, ptr %97, align 1
   %153 = zext i8 %152 to i32
   %154 = or disjoint i32 %151, %153
-  %155 = icmp ult i32 %148, %154
+  %155 = icmp samesign ult i32 %148, %154
   br i1 %155, label %156, label %_ZN2OT6Layout6Common8Coverage6iter_t8__next__Ev.exit.i
 
 156:                                              ; preds = %147
@@ -29546,7 +29546,7 @@ _ZN2OT6Layout6Common8Coverage6iter_t8__next__Ev.exit.i: ; preds = %175, %156, %1
   %183 = load i8, ptr %97, align 1
   %184 = zext i8 %183 to i32
   %185 = or disjoint i32 %182, %184
-  %186 = icmp ult i32 %.sroa.9.2.i, %185
+  %186 = icmp samesign ult i32 %.sroa.9.2.i, %185
   %187 = icmp ne i32 %178, 0
   %or.cond.i.i = select i1 %186, i1 %187, i1 false
   br i1 %or.cond.i.i, label %109, label %"_ZorI13hb_map_iter_tIS0_I13hb_zip_iter_tIN2OT6Layout6Common8Coverage6iter_tE10hb_array_tIKNS2_8OffsetToINS3_9GSUB_impl12AlternateSetINS3_10SmallTypesEEENS2_7IntTypeItLj2EEELb1EEEEERK3$_6L24hb_function_sortedness_t0ELPv0EE12hb_partial_tILj2EPK4$_39PKNS9_23AlternateSubstFormat1_2ISB_EEELSM_0ELSN_0EE10hb_apply_tIZNKSU_14collect_glyphsEPNS2_27hb_collect_glyphs_context_tEEUlRKSC_E_ETnPN12hb_enable_ifIXsr17hb_is_iterator_ofIT_NS17_6item_tEEE5valueEvE4typeELSN_0EEDTclclsr3stdE7forwardIT0_Efp0_Eclsr3stdE7forwardIS17_Efp_EEEOS17_OS1C_.exit", !llvm.loop !168
@@ -29720,7 +29720,7 @@ _ZNK9hb_iter_tIN2OT6Layout6Common8Coverage6iter_tEjEcvbEv.exit.i.i.i.i.i.i.i.pre
   %101 = load i8, ptr %97, align 1
   %102 = zext i8 %101 to i32
   %103 = or disjoint i32 %100, %102
-  %104 = icmp ult i32 %.sroa.8.0.i, %103
+  %104 = icmp samesign ult i32 %.sroa.8.0.i, %103
   %105 = icmp ne i32 %.sroa.917.0.copyload.fr.i, 0
   %or.cond.i44.i = and i1 %105, %104
   br i1 %or.cond.i44.i, label %.lr.ph.i, label %"_ZorI13hb_map_iter_tIS0_I13hb_zip_iter_tIN2OT6Layout6Common8Coverage6iter_tE10hb_array_tIKNS2_8OffsetToINS3_9GSUB_impl11LigatureSetINS3_10SmallTypesEEENS2_7IntTypeItLj2EEELb1EEEEERK3$_6L24hb_function_sortedness_t0ELPv0EE12hb_partial_tILj2EPK4$_39PKNS9_22LigatureSubstFormat1_2ISB_EEELSM_0ELSN_0EE10hb_apply_tIZNKSU_14collect_glyphsEPNS2_27hb_collect_glyphs_context_tEEUlRKSC_E_ETnPN12hb_enable_ifIXsr17hb_is_iterator_ofIT_NS17_6item_tEEE5valueEvE4typeELSN_0EEDTclclsr3stdE7forwardIT0_Efp0_Eclsr3stdE7forwardIS17_Efp_EEEOS17_OS1C_.exit"
@@ -34876,7 +34876,7 @@ _ZNK2OT7ArrayOfINS_8OffsetToINS_6Layout9GSUB_impl11LigatureSetINS2_10SmallTypesE
   br i1 %.not.i.i.i.i.i.i.i.i.i.i.i, label %.preheader.i.i.i.i.i.i.i.i.i.i.i, label %"_ZNR9hb_iter_tI13hb_map_iter_tIS0_I10hb_array_tIKN2OT8OffsetToINS2_6Layout9GSUB_impl8LigatureINS4_10SmallTypesEEENS2_7IntTypeItLj2EEELb1EEEE12hb_partial_tILj2EPK4$_39PKNS5_11LigatureSetIS7_EEEL24hb_function_sortedness_t0ELPv0EEZNKSJ_11would_applyEPNS2_24hb_would_apply_context_tEEUlRKS8_E_LSN_0ELSO_0EEbEppEv.exit.i.i.i"
 
 .preheader.i.i.i.i.i.i.i.i.i.i.i:                 ; preds = %49
-  %67 = icmp ugt i32 %58, 1
+  %67 = icmp samesign ugt i32 %58, 1
   br i1 %67, label %.lr.ph.i.i.i.i.i.i.i.i.i.i.i, label %_ZNK2OT6Layout9GSUB_impl11LigatureSetINS0_10SmallTypesEE11would_applyEPNS_24hb_would_apply_context_tE.exit
 
 .lr.ph.i.i.i.i.i.i.i.i.i.i.i:                     ; preds = %.preheader.i.i.i.i.i.i.i.i.i.i.i
@@ -35250,7 +35250,7 @@ _ZNK2OT8ClassDef9get_classEj.exit:                ; preds = %2, %_ZNK2OT17ClassD
   %103 = load i8, ptr %102, align 1
   %104 = zext i8 %103 to i32
   %105 = or disjoint i32 %101, %104
-  %.not.i = icmp ult i32 %.0.i, %105
+  %.not.i = icmp samesign ult i32 %.0.i, %105
   br i1 %.not.i, label %106, label %_ZNK2OT7ArrayOfINS_8OffsetToINS_7RuleSetINS_6Layout10SmallTypesEEENS_7IntTypeItLj2EEELb1EEES7_EixEi.exit
 
 106:                                              ; preds = %_ZNK2OT8ClassDef9get_classEj.exit
@@ -35950,7 +35950,7 @@ _ZNK2OT8ClassDef9get_classEj.exit:                ; preds = %2, %_ZNK2OT17ClassD
   %103 = load i8, ptr %102, align 1
   %104 = zext i8 %103 to i32
   %105 = or disjoint i32 %101, %104
-  %.not.i = icmp ult i32 %.0.i, %105
+  %.not.i = icmp samesign ult i32 %.0.i, %105
   br i1 %.not.i, label %106, label %_ZNK2OT7ArrayOfINS_8OffsetToINS_12ChainRuleSetINS_6Layout10SmallTypesEEENS_7IntTypeItLj2EEELb1EEES7_EixEi.exit
 
 106:                                              ; preds = %_ZNK2OT8ClassDef9get_classEj.exit
@@ -38231,7 +38231,7 @@ define linkonce_odr hidden void @_ZN12hb_bit_set_t8process_EPF16hb_vector_size_t
   br i1 %.not19.i.i.i.i.not, label %_ZN12hb_bit_set_t26allocate_compact_workspaceER11hb_vector_tIjLb0EE.exit.thread, label %.thread.i.i.i.i
 
 .thread.i.i.i.i:                                  ; preds = %15
-  %17 = icmp ugt i32 %12, 1073741823
+  %17 = icmp samesign ugt i32 %12, 1073741823
   br i1 %17, label %_ZN12hb_bit_set_t6resizeEjbb.exit148.thread, label %_ZN11hb_vector_tIjLb0EE14realloc_vectorIjTnPN12hb_enable_ifIXsr3std28is_trivially_copy_assignableIT_EE5valueEvE4typeELPv0EEEPjj11hb_priorityILj0EE.exit.i.i.i.i
 
 _ZN11hb_vector_tIjLb0EE14realloc_vectorIjTnPN12hb_enable_ifIXsr3std28is_trivially_copy_assignableIT_EE5valueEvE4typeELPv0EEEPjj11hb_priorityILj0EE.exit.i.i.i.i: ; preds = %.thread.i.i.i.i
@@ -42071,7 +42071,7 @@ _ZNK9hb_iter_tIN2OT6Layout6Common8Coverage6iter_tEjEcvbEv.exit.i.i.i.i.i.prehead
   %97 = load i8, ptr %93, align 1
   %98 = zext i8 %97 to i32
   %99 = or disjoint i32 %96, %98
-  %100 = icmp ult i32 %.sroa.8.0.i, %99
+  %100 = icmp samesign ult i32 %.sroa.8.0.i, %99
   %101 = icmp ne i32 %.sroa.2.8.insert.ext.i.i.i.i.i, 0
   %or.cond.i.i.i94 = select i1 %100, i1 %101, i1 false
   br i1 %or.cond.i.i.i94, label %.lr.ph, label %_ZNK9hb_iter_tIN2OT6Layout6Common8Coverage6iter_tEjEcvbEv.exit.i.i.i.i.i.i.i.i.i.preheader.i
@@ -42758,7 +42758,7 @@ _ZNK9hb_iter_tIN2OT6Layout6Common8Coverage6iter_tEjEcvbEv.exit.i.i.i.i.i.prehead
   %97 = load i8, ptr %93, align 1
   %98 = zext i8 %97 to i32
   %99 = or disjoint i32 %96, %98
-  %100 = icmp ult i32 %.sroa.8.0.i, %99
+  %100 = icmp samesign ult i32 %.sroa.8.0.i, %99
   %101 = icmp ne i32 %.sroa.2.8.insert.ext.i.i.i.i.i, 0
   %or.cond.i.i.i94 = select i1 %100, i1 %101, i1 false
   br i1 %or.cond.i.i.i94, label %.lr.ph, label %_ZNK9hb_iter_tIN2OT6Layout6Common8Coverage6iter_tEjEcvbEv.exit.i.i.i.i.i.i.i.i.i.preheader.i
@@ -43445,7 +43445,7 @@ _ZNK9hb_iter_tIN2OT6Layout6Common8Coverage6iter_tEjEcvbEv.exit.i.i.i.i.i.prehead
   %97 = load i8, ptr %93, align 1
   %98 = zext i8 %97 to i32
   %99 = or disjoint i32 %96, %98
-  %100 = icmp ult i32 %.sroa.8.0.i, %99
+  %100 = icmp samesign ult i32 %.sroa.8.0.i, %99
   %101 = icmp ne i32 %.sroa.2.8.insert.ext.i.i.i.i.i, 0
   %or.cond.i.i.i109 = select i1 %100, i1 %101, i1 false
   br i1 %or.cond.i.i.i109, label %.lr.ph, label %_ZNK9hb_iter_tIN2OT6Layout6Common8Coverage6iter_tEjEcvbEv.exit.i.i.i.i.i.i.i.i.lr.ph.i.i
@@ -44537,7 +44537,7 @@ _ZNK9hb_iter_tIN2OT6Layout6Common8Coverage6iter_tEjEcvbEv.exit.i.i.i.i.i.prehead
   %132 = load i8, ptr %128, align 1
   %133 = zext i8 %132 to i32
   %134 = or disjoint i32 %131, %133
-  %135 = icmp uge i32 %.sroa.8.0.i, %134
+  %135 = icmp samesign uge i32 %.sroa.8.0.i, %134
   %.not.i.i.i1692 = icmp eq i32 %65, 0
   %or.cond93 = select i1 %135, i1 true, i1 %.not.i.i.i1692
   br i1 %or.cond93, label %_ZNK9hb_iter_tIN2OT6Layout6Common8Coverage6iter_tEjEcvbEv.exit.i.i.i.i.i.i.i.preheader.i, label %.lr.ph
@@ -44868,7 +44868,7 @@ _ZNK2OT6Layout6Common17CoverageFormat1_3INS0_10SmallTypesEE6iter_t9get_glyphEv.e
   %302 = load i8, ptr %128, align 1
   %303 = zext i8 %302 to i32
   %304 = or disjoint i32 %301, %303
-  %.not.i.i.i2.i = icmp ult i32 %.sroa.15.060.i, %304
+  %.not.i.i.i2.i = icmp samesign ult i32 %.sroa.15.060.i, %304
   br i1 %.not.i.i.i2.i, label %305, label %_ZNK2OT7ArrayOfINS_6Layout6Common11RangeRecordINS1_10SmallTypesEEENS_7IntTypeItLj2EEEEixEi.exit.i.i.i23
 
 305:                                              ; preds = %298
@@ -44898,7 +44898,7 @@ _ZNK2OT7ArrayOfINS_6Layout6Common11RangeRecordINS1_10SmallTypesEEENS_7IntTypeItL
   %321 = load i8, ptr %128, align 1
   %322 = zext i8 %321 to i32
   %323 = or disjoint i32 %320, %322
-  %324 = icmp ult i32 %317, %323
+  %324 = icmp samesign ult i32 %317, %323
   br i1 %324, label %325, label %_ZN2OT6Layout6Common8Coverage6iter_t8__next__Ev.exit.i
 
 325:                                              ; preds = %316
@@ -51109,7 +51109,7 @@ _ZNK9hb_iter_tIN2OT6Layout6Common8Coverage6iter_tEjEcvbEv.exit.i.i.i.i.i.prehead
   %132 = load i8, ptr %128, align 1
   %133 = zext i8 %132 to i32
   %134 = or disjoint i32 %131, %133
-  %135 = icmp uge i32 %.sroa.8.0.i, %134
+  %135 = icmp samesign uge i32 %.sroa.8.0.i, %134
   %.not.i.i.i1692 = icmp eq i32 %65, 0
   %or.cond93 = select i1 %135, i1 true, i1 %.not.i.i.i1692
   br i1 %or.cond93, label %_ZNK9hb_iter_tIN2OT6Layout6Common8Coverage6iter_tEjEcvbEv.exit.i.i.i.i.i.i.i.preheader.i, label %.lr.ph
@@ -51440,7 +51440,7 @@ _ZNK2OT6Layout6Common17CoverageFormat1_3INS0_10SmallTypesEE6iter_t9get_glyphEv.e
   %302 = load i8, ptr %128, align 1
   %303 = zext i8 %302 to i32
   %304 = or disjoint i32 %301, %303
-  %.not.i.i.i2.i = icmp ult i32 %.sroa.15.060.i, %304
+  %.not.i.i.i2.i = icmp samesign ult i32 %.sroa.15.060.i, %304
   br i1 %.not.i.i.i2.i, label %305, label %_ZNK2OT7ArrayOfINS_6Layout6Common11RangeRecordINS1_10SmallTypesEEENS_7IntTypeItLj2EEEEixEi.exit.i.i.i23
 
 305:                                              ; preds = %298
@@ -51470,7 +51470,7 @@ _ZNK2OT7ArrayOfINS_6Layout6Common11RangeRecordINS1_10SmallTypesEEENS_7IntTypeItL
   %321 = load i8, ptr %128, align 1
   %322 = zext i8 %321 to i32
   %323 = or disjoint i32 %320, %322
-  %324 = icmp ult i32 %317, %323
+  %324 = icmp samesign ult i32 %317, %323
   br i1 %324, label %325, label %_ZN2OT6Layout6Common8Coverage6iter_t8__next__Ev.exit.i
 
 325:                                              ; preds = %316
@@ -68123,7 +68123,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZNK2OT6Layout9GSUB_impl20SingleS
 
 46:                                               ; preds = %38, %34
   %.pre-phi27 = phi i32 [ %.pre26, %38 ], [ %33, %34 ]
-  %.not.i = icmp ult i32 %23, %.pre-phi27
+  %.not.i = icmp samesign ult i32 %23, %.pre-phi27
   br i1 %.not.i, label %47, label %_ZNK2OT7ArrayOfINS_11HBGlyphID16ENS_7IntTypeItLj2EEEEixEi.exit
 
 47:                                               ; preds = %46
@@ -68909,7 +68909,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZNK2OT6Layout9GSUB_impl12Alterna
   %57 = load i8, ptr %6, align 1
   %58 = zext i8 %57 to i32
   %59 = or disjoint i32 %56, %58
-  %.not.i = icmp ult i32 %40, %59
+  %.not.i = icmp samesign ult i32 %40, %59
   br i1 %.not.i, label %60, label %_ZNK2OT7ArrayOfINS_11HBGlyphID16ENS_7IntTypeItLj2EEEEixEi.exit
 
 60:                                               ; preds = %53
@@ -70735,7 +70735,7 @@ _ZN2OT33hb_accelerate_subtables_context_t10cache_costINS_16ContextFormat2_5INS_6
   %60 = zext i8 %59 to i32
   %61 = or disjoint i32 %57, %60
   %62 = mul nuw nsw i32 %61, %.0.i.i.i
-  %63 = icmp ugt i32 %62, 3
+  %63 = icmp samesign ugt i32 %62, 3
   %64 = select i1 %63, i32 %62, i32 0
   %65 = getelementptr inbounds i8, ptr %0, i64 24
   %66 = load i32, ptr %65, align 8
@@ -72738,7 +72738,7 @@ _ZNK2OT8ClassDef9get_classEj.exit:                ; preds = %_ZNK2OT17ClassDefFo
   %139 = load i8, ptr %138, align 1
   %140 = zext i8 %139 to i32
   %141 = or disjoint i32 %137, %140
-  %.not.i = icmp ult i32 %.013, %141
+  %.not.i = icmp samesign ult i32 %.013, %141
   br i1 %.not.i, label %142, label %_ZNK2OT7ArrayOfINS_8OffsetToINS_7RuleSetINS_6Layout10SmallTypesEEENS_7IntTypeItLj2EEELb1EEES7_EixEi.exit
 
 142:                                              ; preds = %_ZNK2OT8ClassDef9get_classEj.exit
@@ -73493,7 +73493,7 @@ _ZN2OT33hb_accelerate_subtables_context_t10cache_costINS_21ChainContextFormat2_5
   %60 = zext i8 %59 to i32
   %61 = or disjoint i32 %57, %60
   %62 = mul nuw nsw i32 %61, %.0.i.i.i
-  %63 = icmp ugt i32 %62, 3
+  %63 = icmp samesign ugt i32 %62, 3
   %64 = select i1 %63, i32 %62, i32 0
   %65 = getelementptr inbounds i8, ptr %0, i64 24
   %66 = load i32, ptr %65, align 8
@@ -75922,7 +75922,7 @@ _ZNK2OT8ClassDef9get_classEj.exit:                ; preds = %_ZNK2OT17ClassDefFo
   %169 = load i8, ptr %168, align 1
   %170 = zext i8 %169 to i32
   %171 = or disjoint i32 %167, %170
-  %.not.i = icmp ult i32 %.019, %171
+  %.not.i = icmp samesign ult i32 %.019, %171
   br i1 %.not.i, label %172, label %_ZNK2OT7ArrayOfINS_8OffsetToINS_12ChainRuleSetINS_6Layout10SmallTypesEEENS_7IntTypeItLj2EEELb1EEES7_EixEi.exit
 
 172:                                              ; preds = %_ZNK2OT8ClassDef9get_classEj.exit
@@ -82573,7 +82573,7 @@ _ZNK2OT8ClassDef9get_classEj.exit184:             ; preds = %250, %_ZNK2OT17Clas
   %353 = load i8, ptr %352, align 1
   %354 = zext i8 %353 to i32
   %355 = or disjoint i32 %351, %354
-  %.not147 = icmp ult i32 %.0.i176, %355
+  %.not147 = icmp samesign ult i32 %.0.i176, %355
   br i1 %.not147, label %356, label %365
 
 356:                                              ; preds = %_ZNK2OT8ClassDef9get_classEj.exit184

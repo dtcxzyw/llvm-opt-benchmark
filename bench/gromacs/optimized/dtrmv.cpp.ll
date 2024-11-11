@@ -363,7 +363,7 @@ define void @dtrmv_(ptr nocapture noundef readonly %0, ptr nocapture noundef rea
   %156 = getelementptr inbounds double, ptr %14, i64 %indvars.iv.next441
   %157 = load double, ptr %156, align 8
   %158 = tail call double @llvm.fmuladd.f64(double %155, double %157, double %.1358)
-  %159 = icmp ugt i64 %indvars.iv440, 2
+  %159 = icmp samesign ugt i64 %indvars.iv440, 2
   br i1 %159, label %154, label %._crit_edge361, !llvm.loop !13
 
 ._crit_edge361:                                   ; preds = %154
@@ -427,7 +427,7 @@ define void @dtrmv_(ptr nocapture noundef readonly %0, ptr nocapture noundef rea
   %183 = getelementptr inbounds double, ptr %14, i64 %182
   %184 = load double, ptr %183, align 8
   %185 = tail call double @llvm.fmuladd.f64(double %181, double %184, double %.3349)
-  %186 = icmp ugt i64 %indvars.iv434, 2
+  %186 = icmp samesign ugt i64 %indvars.iv434, 2
   br i1 %186, label %179, label %._crit_edge352, !llvm.loop !15
 
 ._crit_edge352:                                   ; preds = %179

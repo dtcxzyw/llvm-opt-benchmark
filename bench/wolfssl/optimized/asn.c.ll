@@ -1636,7 +1636,7 @@ for.body:                                         ; preds = %if.end8, %for.body
   %idxprom16 = zext i32 %idx.019 to i64
   %arrayidx17 = getelementptr inbounds i8, ptr %output, i64 %idxprom16
   store i8 %conv14, ptr %arrayidx17, align 1
-  %cmp12 = icmp ugt i32 %i.0.in20, 1
+  %cmp12 = icmp samesign ugt i32 %i.0.in20, 1
   br i1 %cmp12, label %for.body, label %for.end, !llvm.loop !10
 
 for.end:                                          ; preds = %for.body, %if.end8
@@ -5660,7 +5660,7 @@ if.end53.i.i:                                     ; preds = %if.end45.i.i
 
 if.end36:                                         ; preds = %if.end53.i.i
   store i32 %length.1.i.i, ptr %length, align 4
-  %cmp37 = icmp ugt i32 %length.1.i.i, 66
+  %cmp37 = icmp samesign ugt i32 %length.1.i.i, 66
   br i1 %cmp37, label %return, label %if.end40
 
 if.end40:                                         ; preds = %if.end53.i.i, %if.end36
@@ -6076,7 +6076,7 @@ if.then20:                                        ; preds = %if.end12, %sw.epilo
   %and23 = and i32 %sub21, 15
   %add24 = add i32 %spec.select88, 4
   %cmp25 = icmp slt i32 %itt, 256
-  %cmp26 = icmp ult i32 %itt, 65536
+  %cmp26 = icmp samesign ult i32 %itt, 65536
   %cond = select i1 %cmp26, i32 2, i32 3
   %cond27 = select i1 %cmp25, i32 1, i32 %cond
   %add28 = add i32 %add24, %cond27
@@ -6657,7 +6657,7 @@ for.body.i:                                       ; preds = %if.end8.i, %for.bod
   %idxprom16.i = zext i32 %idx.019.i to i64
   %arrayidx17.i = getelementptr inbounds i8, ptr %out, i64 %idxprom16.i
   store i8 %conv14.i, ptr %arrayidx17.i, align 1
-  %cmp12.i = icmp ugt i32 %i.0.in20.i, 1
+  %cmp12.i = icmp samesign ugt i32 %i.0.in20.i, 1
   br i1 %cmp12.i, label %for.body.i, label %if.end177, !llvm.loop !10
 
 if.end177:                                        ; preds = %for.body.i, %if.end8.i
@@ -6906,11 +6906,11 @@ if.else19.i.i.i.i42:                              ; preds = %if.else12.i.i.i.i40
 if.end22.i.i.i.i46:                               ; preds = %if.else19.i.i.i.i42, %if.then3.i.i.i.i35
   %minLen.0.i.i.i.i47 = phi i32 [ %shl.i.i.i.i45, %if.else19.i.i.i.i42 ], [ 0, %if.then3.i.i.i.i35 ]
   %add23.i.i.i.i48 = add nuw nsw i32 %and.i.i.i.i36, 2
-  %cmp24.i.i.i.i49 = icmp ugt i32 %add23.i.i.i.i48, %call4
+  %cmp24.i.i.i.i49 = icmp samesign ugt i32 %add23.i.i.i.i48, %call4
   br i1 %cmp24.i.i.i.i49, label %return, label %while.cond.preheader.i.i.i.i50
 
 if.end22.thread.i.i.i.i74:                        ; preds = %if.else.i.i.i.i38
-  %cmp2433.i.i.i.i76 = icmp ult i32 %call4, 3
+  %cmp2433.i.i.i.i76 = icmp samesign ult i32 %call4, 3
   br i1 %cmp2433.i.i.i.i76, label %return, label %while.body.preheader.i.i.i.i52
 
 while.cond.preheader.i.i.i.i50:                   ; preds = %if.end22.i.i.i.i46
@@ -7291,8 +7291,8 @@ if.end45.i.i.i.i123:                              ; preds = %while.end.i.i.i.i16
   %16 = phi i32 [ %add.i9.i.i.i116, %if.end.i.i.i.i118 ], [ %idx.0.lcssa.i.i.i.i164, %while.end.i.i.i.i161 ]
   %add47.i.i.i.i126 = add i32 %16, %length.1.i.i.i.i124
   %cmp48.i.i.i.i127 = icmp ugt i32 %add47.i.i.i.i126, %sz
-  %cmp41 = icmp ugt i32 %length.1.i.i.i.i124, 64
-  %or.cond224 = or i1 %cmp48.i.i.i.i127, %cmp41
+  %cmp41 = icmp samesign ugt i32 %length.1.i.i.i.i124, 64
+  %or.cond224 = select i1 %cmp48.i.i.i.i127, i1 true, i1 %cmp41
   br i1 %or.cond224, label %return, label %if.end44
 
 if.end44:                                         ; preds = %if.end45.i.i.i.i123
@@ -13071,11 +13071,11 @@ if.else19.i.i.i.i.i.i.i:                          ; preds = %if.else12.i.i.i.i.i
 if.end22.i.i.i.i.i.i.i:                           ; preds = %if.else19.i.i.i.i.i.i.i, %if.then3.i.i.i.i.i.i.i
   %minLen.0.i.i.i.i.i.i.i = phi i32 [ %shl.i.i.i.i.i.i.i, %if.else19.i.i.i.i.i.i.i ], [ 0, %if.then3.i.i.i.i.i.i.i ]
   %add23.i.i.i.i.i.i.i = add nuw nsw i32 %and.i.i.i.i.i.i.i, 2
-  %cmp24.i.i.i.i.i.i.i = icmp ugt i32 %add23.i.i.i.i.i.i.i, %length.1.i.i.i.i130.i
+  %cmp24.i.i.i.i.i.i.i = icmp samesign ugt i32 %add23.i.i.i.i.i.i.i, %length.1.i.i.i.i130.i
   br i1 %cmp24.i.i.i.i.i.i.i, label %DecodeExtensionType.exit.i, label %while.cond.preheader.i.i.i.i.i.i.i
 
 if.end22.thread.i.i.i.i.i.i.i:                    ; preds = %if.else.i.i.i.i.i.i.i
-  %cmp2433.i.i.i.i.i.i.i = icmp ult i32 %length.1.i.i.i.i130.i, 3
+  %cmp2433.i.i.i.i.i.i.i = icmp samesign ult i32 %length.1.i.i.i.i130.i, 3
   br i1 %cmp2433.i.i.i.i.i.i.i, label %DecodeExtensionType.exit.i, label %while.body.preheader.i.i.i.i.i.i.i
 
 while.cond.preheader.i.i.i.i.i.i.i:               ; preds = %if.end22.i.i.i.i.i.i.i
@@ -13243,11 +13243,11 @@ if.else19.i.i.i.i.i126.i.i:                       ; preds = %if.else12.i.i.i.i.i
 if.end22.i.i.i.i.i130.i.i:                        ; preds = %if.else19.i.i.i.i.i126.i.i, %if.then3.i.i.i.i.i119.i.i
   %minLen.0.i.i.i.i.i131.i.i = phi i32 [ %shl.i.i.i.i.i129.i.i, %if.else19.i.i.i.i.i126.i.i ], [ 0, %if.then3.i.i.i.i.i119.i.i ]
   %add23.i.i.i.i.i132.i.i = add nuw nsw i32 %and.i.i.i.i.i120.i.i, 2
-  %cmp24.i.i.i.i.i133.i.i = icmp ugt i32 %add23.i.i.i.i.i132.i.i, %length.1.i.i.i.i130.i
+  %cmp24.i.i.i.i.i133.i.i = icmp samesign ugt i32 %add23.i.i.i.i.i132.i.i, %length.1.i.i.i.i130.i
   br i1 %cmp24.i.i.i.i.i133.i.i, label %select.unfold.i.i, label %while.cond.preheader.i.i.i.i.i134.i.i
 
 if.end22.thread.i.i.i.i.i158.i.i:                 ; preds = %if.else.i.i.i.i.i122.i.i
-  %cmp2433.i.i.i.i.i159.i.i = icmp ult i32 %length.1.i.i.i.i130.i, 3
+  %cmp2433.i.i.i.i.i159.i.i = icmp samesign ult i32 %length.1.i.i.i.i130.i, 3
   br i1 %cmp2433.i.i.i.i.i159.i.i, label %select.unfold.i.i, label %while.body.preheader.i.i.i.i.i136.i.i
 
 while.cond.preheader.i.i.i.i.i134.i.i:            ; preds = %if.end22.i.i.i.i.i130.i.i
@@ -13886,11 +13886,11 @@ if.else19.i.i.i.i.i245.i.i:                       ; preds = %if.else12.i.i.i.i.i
 if.end22.i.i.i.i.i249.i.i:                        ; preds = %if.else19.i.i.i.i.i245.i.i, %if.then3.i.i.i.i.i238.i.i
   %minLen.0.i.i.i.i.i250.i.i = phi i32 [ %shl.i.i.i.i.i248.i.i, %if.else19.i.i.i.i.i245.i.i ], [ 0, %if.then3.i.i.i.i.i238.i.i ]
   %add23.i.i.i.i.i251.i.i = add nuw nsw i32 %and.i.i.i.i.i239.i.i, 2
-  %cmp24.i.i.i.i.i252.i.i = icmp ugt i32 %add23.i.i.i.i.i251.i.i, %length.1.i.i.i.i130.i
+  %cmp24.i.i.i.i.i252.i.i = icmp samesign ugt i32 %add23.i.i.i.i.i251.i.i, %length.1.i.i.i.i130.i
   br i1 %cmp24.i.i.i.i.i252.i.i, label %DecodeAltNames.exit.i.i, label %while.cond.preheader.i.i.i.i.i253.i.i
 
 if.end22.thread.i.i.i.i.i277.i.i:                 ; preds = %if.else.i.i.i.i.i241.i.i
-  %cmp2433.i.i.i.i.i278.i.i = icmp ult i32 %length.1.i.i.i.i130.i, 3
+  %cmp2433.i.i.i.i.i278.i.i = icmp samesign ult i32 %length.1.i.i.i.i130.i, 3
   br i1 %cmp2433.i.i.i.i.i278.i.i, label %DecodeAltNames.exit.i.i, label %while.body.preheader.i.i.i.i.i255.i.i
 
 while.cond.preheader.i.i.i.i.i253.i.i:            ; preds = %if.end22.i.i.i.i.i249.i.i
@@ -15222,11 +15222,11 @@ if.else19.i.i.i.i.i318.i.i:                       ; preds = %if.else12.i.i.i.i.i
 if.end22.i.i.i.i.i322.i.i:                        ; preds = %if.else19.i.i.i.i.i318.i.i, %if.then3.i.i.i.i.i311.i.i
   %minLen.0.i.i.i.i.i323.i.i = phi i32 [ %shl.i.i.i.i.i321.i.i, %if.else19.i.i.i.i.i318.i.i ], [ 0, %if.then3.i.i.i.i.i311.i.i ]
   %add23.i.i.i.i.i324.i.i = add nuw nsw i32 %and.i.i.i.i.i312.i.i, 2
-  %cmp24.i.i.i.i.i325.i.i = icmp ugt i32 %add23.i.i.i.i.i324.i.i, %length.1.i.i.i.i130.i
+  %cmp24.i.i.i.i.i325.i.i = icmp samesign ugt i32 %add23.i.i.i.i.i324.i.i, %length.1.i.i.i.i130.i
   br i1 %cmp24.i.i.i.i.i325.i.i, label %.loopexit.i.i, label %while.cond.preheader.i.i.i.i.i326.i.i
 
 if.end22.thread.i.i.i.i.i350.i.i:                 ; preds = %if.else.i.i.i.i.i314.i.i
-  %cmp2433.i.i.i.i.i351.i.i = icmp ult i32 %length.1.i.i.i.i130.i, 3
+  %cmp2433.i.i.i.i.i351.i.i = icmp samesign ult i32 %length.1.i.i.i.i130.i, 3
   br i1 %cmp2433.i.i.i.i.i351.i.i, label %.loopexit.i.i, label %while.body.preheader.i.i.i.i.i328.i.i
 
 while.cond.preheader.i.i.i.i.i326.i.i:            ; preds = %if.end22.i.i.i.i.i322.i.i
@@ -15390,11 +15390,11 @@ if.else19.i.i.i.i.i497.i.i:                       ; preds = %if.else12.i.i.i.i.i
 if.end22.i.i.i.i.i501.i.i:                        ; preds = %if.else19.i.i.i.i.i497.i.i, %if.then3.i.i.i.i.i490.i.i
   %minLen.0.i.i.i.i.i502.i.i = phi i32 [ %shl.i.i.i.i.i500.i.i, %if.else19.i.i.i.i.i497.i.i ], [ 0, %if.then3.i.i.i.i.i490.i.i ]
   %add23.i.i.i.i.i503.i.i = add nuw nsw i32 %and.i.i.i.i.i491.i.i, 2
-  %cmp24.i.i.i.i.i504.i.i = icmp ugt i32 %add23.i.i.i.i.i503.i.i, %length.1.i.i.i.i130.i
+  %cmp24.i.i.i.i.i504.i.i = icmp samesign ugt i32 %add23.i.i.i.i.i503.i.i, %length.1.i.i.i.i130.i
   br i1 %cmp24.i.i.i.i.i504.i.i, label %DecodeExtensionType.exit.i, label %while.cond.preheader.i.i.i.i.i505.i.i
 
 if.end22.thread.i.i.i.i.i529.i.i:                 ; preds = %if.else.i.i.i.i.i493.i.i
-  %cmp2433.i.i.i.i.i530.i.i = icmp ult i32 %length.1.i.i.i.i130.i, 3
+  %cmp2433.i.i.i.i.i530.i.i = icmp samesign ult i32 %length.1.i.i.i.i130.i, 3
   br i1 %cmp2433.i.i.i.i.i530.i.i, label %DecodeExtensionType.exit.i, label %while.body.preheader.i.i.i.i.i507.i.i
 
 while.cond.preheader.i.i.i.i.i505.i.i:            ; preds = %if.end22.i.i.i.i.i501.i.i
@@ -15971,11 +15971,11 @@ if.else19.i.i.i.i.i622.i.i:                       ; preds = %if.else12.i.i.i.i.i
 if.end22.i.i.i.i.i626.i.i:                        ; preds = %if.else19.i.i.i.i.i622.i.i, %if.then3.i.i.i.i.i615.i.i
   %minLen.0.i.i.i.i.i627.i.i = phi i32 [ %shl.i.i.i.i.i625.i.i, %if.else19.i.i.i.i.i622.i.i ], [ 0, %if.then3.i.i.i.i.i615.i.i ]
   %add23.i.i.i.i.i628.i.i = add nuw nsw i32 %and.i.i.i.i.i616.i.i, 2
-  %cmp24.i.i.i.i.i629.i.i = icmp ugt i32 %add23.i.i.i.i.i628.i.i, %length.1.i.i.i.i130.i
+  %cmp24.i.i.i.i.i629.i.i = icmp samesign ugt i32 %add23.i.i.i.i.i628.i.i, %length.1.i.i.i.i130.i
   br i1 %cmp24.i.i.i.i.i629.i.i, label %DecodeExtensionType.exit.i, label %while.cond.preheader.i.i.i.i.i630.i.i
 
 if.end22.thread.i.i.i.i.i654.i.i:                 ; preds = %if.else.i.i.i.i.i618.i.i
-  %cmp2433.i.i.i.i.i655.i.i = icmp ult i32 %length.1.i.i.i.i130.i, 3
+  %cmp2433.i.i.i.i.i655.i.i = icmp samesign ult i32 %length.1.i.i.i.i130.i, 3
   br i1 %cmp2433.i.i.i.i.i655.i.i, label %DecodeExtensionType.exit.i, label %while.body.preheader.i.i.i.i.i632.i.i
 
 while.cond.preheader.i.i.i.i.i630.i.i:            ; preds = %if.end22.i.i.i.i.i626.i.i
@@ -16120,7 +16120,7 @@ if.end45.i.i.i564.i.i:                            ; preds = %while.end.i.i.i605.
   br i1 %cmp48.i.i.i568.i.i, label %DecodeExtensionType.exit.i, label %if.end53.i.i.i569.i.i
 
 if.end53.i.i.i569.i.i:                            ; preds = %if.end45.i.i.i564.i.i
-  %cmp34.i570.i.i = icmp ult i32 %length.1.i.i.i565.i.i, 2
+  %cmp34.i570.i.i = icmp samesign ult i32 %length.1.i.i.i565.i.i, 2
   %cmp40.not.i.i.i = icmp ult i32 %idx.1.i.i.i566.i.i, %length.1.i.i.i.i130.i
   %or.cond37.i.i.i = and i1 %cmp34.i570.i.i, %cmp40.not.i.i.i
   br i1 %or.cond37.i.i.i, label %DecodePolicyConstraints.exit.i.i, label %DecodeExtensionType.exit.i
@@ -19776,7 +19776,7 @@ if.end53.i.i:                                     ; preds = %if.end45.i.i
 
 if.end30:                                         ; preds = %if.end53.i.i
   store i32 %length.1.i.i, ptr %length, align 4
-  %cmp31 = icmp ugt i32 %length.1.i.i, 66
+  %cmp31 = icmp samesign ugt i32 %length.1.i.i, 66
   br i1 %cmp31, label %return, label %if.end34
 
 if.end34:                                         ; preds = %if.end53.i.i, %if.end30
@@ -21645,7 +21645,7 @@ entry:
 lor.lhs.false6:                                   ; preds = %entry
   %0 = load i8, ptr %name, align 1
   %cmp7 = icmp eq i8 %0, 46
-  %cmp10 = icmp ult i32 %nameSz, %baseSz
+  %cmp10 = icmp samesign ult i32 %nameSz, %baseSz
   %or.cond49 = or i1 %cmp10, %cmp7
   br i1 %or.cond49, label %return, label %lor.lhs.false12
 

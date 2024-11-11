@@ -3513,7 +3513,7 @@ define internal fastcc i32 @formatf.specialized.3(ptr nocapture noundef %0, ptr 
   %85 = getelementptr inbounds i8, ptr %84, i64 1
   store ptr %85, ptr %0, align 8
   %86 = add nsw i32 %83, -1
-  %87 = icmp ugt i32 %83, 1
+  %87 = icmp samesign ugt i32 %83, 1
   br i1 %87, label %.lr.ph93, label %.loopexit38.loopexit, !llvm.loop !7
 
 .loopexit38.loopexit:                             ; preds = %.lr.ph93
@@ -3550,7 +3550,7 @@ define internal fastcc i32 @formatf.specialized.3(ptr nocapture noundef %0, ptr 
   %100 = load ptr, ptr %0, align 8
   %101 = getelementptr inbounds i8, ptr %100, i64 1
   store ptr %101, ptr %0, align 8
-  %102 = icmp ugt i32 %.434597, 2
+  %102 = icmp samesign ugt i32 %.434597, 2
   br i1 %102, label %.lr.ph98, label %.loopexit.loopexit146, !llvm.loop !8
 
 103:                                              ; preds = %74
@@ -3846,7 +3846,7 @@ define internal fastcc i32 @formatf.specialized.3(ptr nocapture noundef %0, ptr 
   %199 = load ptr, ptr %0, align 8
   %200 = getelementptr inbounds i8, ptr %199, i64 1
   store ptr %200, ptr %0, align 8
-  %201 = icmp ugt i32 %.13131, 1
+  %201 = icmp samesign ugt i32 %.13131, 1
   br i1 %201, label %.lr.ph132, label %.loopexit.loopexit, !llvm.loop !14
 
 202:                                              ; preds = %64
@@ -3986,7 +3986,7 @@ define internal fastcc i32 @formatf.specialized.3(ptr nocapture noundef %0, ptr 
   %253 = load ptr, ptr %0, align 8
   %254 = getelementptr inbounds i8, ptr %253, i64 1
   store ptr %254, ptr %0, align 8
-  %255 = icmp ugt i32 %.1689, 1
+  %255 = icmp samesign ugt i32 %.1689, 1
   br i1 %255, label %.lr.ph90, label %.loopexit40.loopexit, !llvm.loop !17
 
 .loopexit40.loopexit:                             ; preds = %.lr.ph90
@@ -4084,7 +4084,7 @@ define internal fastcc i32 @formatf.specialized.3(ptr nocapture noundef %0, ptr 
   %291 = load ptr, ptr %0, align 8
   %292 = getelementptr inbounds i8, ptr %291, i64 1
   store ptr %292, ptr %0, align 8
-  %293 = icmp ugt i32 %.1972, 1
+  %293 = icmp samesign ugt i32 %.1972, 1
   br i1 %293, label %.lr.ph73, label %.loopexit.loopexit147, !llvm.loop !20
 
 294:                                              ; preds = %64

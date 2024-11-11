@@ -1021,7 +1021,7 @@ define hidden void @ByteIndexedBmToFourByteAbgrPreXparOver(ptr noundef %0, ptr n
   br i1 %26, label %27, label %58
 
 27:                                               ; preds = %21
-  %28 = icmp ugt i32 %25, -16777217
+  %28 = icmp samesign ugt i32 %25, -16777217
   br i1 %28, label %29, label %37
 
 29:                                               ; preds = %27
@@ -1133,7 +1133,7 @@ define hidden void @ByteIndexedBmToFourByteAbgrPreScaleXparOver(ptr noundef %0, 
   br i1 %39, label %40, label %71
 
 40:                                               ; preds = %31
-  %41 = icmp ugt i32 %38, -16777217
+  %41 = icmp samesign ugt i32 %38, -16777217
   br i1 %41, label %42, label %50
 
 42:                                               ; preds = %40
@@ -1312,7 +1312,7 @@ define hidden void @ByteIndexedBmToFourByteAbgrPreXparBgCopy(ptr noundef %0, ptr
   br i1 %34, label %35, label %65
 
 35:                                               ; preds = %29
-  %36 = icmp ugt i32 %33, -16777217
+  %36 = icmp samesign ugt i32 %33, -16777217
   br i1 %36, label %37, label %45
 
 37:                                               ; preds = %35
@@ -1421,7 +1421,7 @@ define hidden void @IntArgbToFourByteAbgrPreXorBlit(ptr noundef %0, ptr noundef 
   br i1 %26, label %76, label %27
 
 27:                                               ; preds = %24
-  %28 = icmp ugt i32 %25, -16777217
+  %28 = icmp samesign ugt i32 %25, -16777217
   br i1 %28, label %53, label %29
 
 29:                                               ; preds = %27

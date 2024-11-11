@@ -5598,7 +5598,7 @@ entry:
   %fHasSecond615 = getelementptr inbounds i8, ptr %this, i64 793
   %cmp650 = icmp slt i32 %count, 4
   %cmp657 = icmp eq i32 %count, 4
-  %cmp659 = icmp ugt i32 %count, 5
+  %cmp659 = icmp samesign ugt i32 %count, 5
   %or.cond13 = or i1 %cmp657, %cmp659
   %fSymbols666 = getelementptr inbounds i8, ptr %this, i64 768
   br label %tailrecurse
@@ -10364,7 +10364,7 @@ while.body611:                                    ; preds = %while.cond609.prehe
   %a.0610 = phi i32 [ %mul612, %while.body611 ], [ 1, %while.cond609.preheader ]
   %mul612 = mul nuw nsw i32 %a.0610, 10
   %dec613 = add nsw i32 %i.1611, -1
-  %cmp610 = icmp ugt i32 %i.1611, 4
+  %cmp610 = icmp samesign ugt i32 %i.1611, 4
   br i1 %cmp610, label %while.body611, label %while.end614, !llvm.loop !26
 
 while.end614:                                     ; preds = %while.body611, %while.cond609.preheader
@@ -13337,7 +13337,7 @@ while.body:                                       ; preds = %if.then31, %while.b
   %nDigits.041 = phi i32 [ %dec, %while.body ], [ %sub34, %if.then31 ]
   %div = sdiv i32 %val.042, 10
   %dec = add nsw i32 %nDigits.041, -1
-  %cmp35 = icmp ugt i32 %nDigits.041, 1
+  %cmp35 = icmp samesign ugt i32 %nDigits.041, 1
   br i1 %cmp35, label %while.body, label %while.end, !llvm.loop !39
 
 while.end:                                        ; preds = %while.body, %if.then31

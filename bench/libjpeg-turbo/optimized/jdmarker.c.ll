@@ -1163,7 +1163,7 @@ get_soi.exit:                                     ; preds = %91, %100
   br label %415
 
 413:                                              ; preds = %394
-  %414 = icmp ugt i8 %385, 15
+  %414 = icmp samesign ugt i8 %385, 15
   br i1 %414, label %415, label %419
 
 415:                                              ; preds = %413, %.thread.i
@@ -1200,7 +1200,7 @@ get_soi.exit:                                     ; preds = %91, %100
   %.083.i = add nsw i64 %.083100.i, -2
   %.279.i = getelementptr inbounds i8, ptr %.481.i, i64 1
   %.2.i71 = add i64 %.4.i70, -1
-  %434 = icmp ugt i64 %.083100.i, 2
+  %434 = icmp samesign ugt i64 %.083100.i, 2
   br i1 %434, label %374, label %._crit_edge.i66, !llvm.loop !10
 
 ._crit_edge.i66:                                  ; preds = %433, %368
@@ -3658,7 +3658,7 @@ define internal fastcc void @examine_app0(ptr noundef %0, ptr nocapture noundef 
   br label %.sink.split
 
 122:                                              ; preds = %4
-  %123 = icmp ugt i32 %2, 5
+  %123 = icmp samesign ugt i32 %2, 5
   br i1 %123, label %.thread, label %.thread.thread
 
 .thread:                                          ; preds = %122

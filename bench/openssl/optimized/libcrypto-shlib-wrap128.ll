@@ -383,7 +383,7 @@ if.then5:                                         ; preds = %if.end
 if.else:                                          ; preds = %if.end
   %sub10 = add nsw i64 %inlen, -8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %B.i)
-  %4 = icmp ult i64 %inlen, 24
+  %4 = icmp samesign ult i64 %inlen, 24
   br i1 %4, label %if.then13, label %for.body.us.preheader.i
 
 for.body.us.preheader.i:                          ; preds = %if.else

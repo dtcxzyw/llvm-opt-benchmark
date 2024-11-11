@@ -6567,7 +6567,7 @@ define dso_local i32 @intel_engine_verify_workarounds(ptr nocapture noundef read
   br i1 %195, label %198, label %196
 
 196:                                              ; preds = %194
-  %197 = icmp ugt i8 %187, 7
+  %197 = icmp samesign ugt i8 %187, 7
   br i1 %197, label %198, label %.loopexit61
 
 198:                                              ; preds = %196, %194, %181
@@ -6704,7 +6704,7 @@ define dso_local i32 @intel_engine_verify_workarounds(ptr nocapture noundef read
   br i1 %280, label %283, label %281
 
 281:                                              ; preds = %279
-  %282 = icmp ugt i8 %271, 7
+  %282 = icmp samesign ugt i8 %271, 7
   br i1 %282, label %283, label %.loopexit58
 
 283:                                              ; preds = %281, %279, %263

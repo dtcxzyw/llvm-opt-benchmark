@@ -291,7 +291,7 @@ select.unfold.i:                                  ; preds = %select.unfold.i, %s
   %52 = xor i32 %51, -1
   %53 = getelementptr inbounds i32, ptr %13, i64 %indvars.iv.next73.i
   store i32 %52, ptr %53, align 4
-  %54 = icmp ugt i64 %indvars.iv72.i, 1
+  %54 = icmp samesign ugt i64 %indvars.iv72.i, 1
   br i1 %54, label %select.unfold.i, label %Kit_TruthFill.exit, !llvm.loop !8
 
 55:                                               ; preds = %23
@@ -322,7 +322,7 @@ select.unfold46.i:                                ; preds = %select.unfold46.i, 
   %68 = and i32 %67, %65
   %69 = getelementptr inbounds i32, ptr %13, i64 %indvars.iv.next.i
   store i32 %68, ptr %69, align 4
-  %70 = icmp ugt i64 %indvars.iv.i, 1
+  %70 = icmp samesign ugt i64 %indvars.iv.i, 1
   br i1 %70, label %select.unfold46.i, label %Kit_TruthFill.exit, !llvm.loop !9
 
 71:                                               ; preds = %55
@@ -352,7 +352,7 @@ select.unfold47.i:                                ; preds = %select.unfold47.i, 
   %83 = and i32 %79, %82
   %84 = getelementptr inbounds i32, ptr %13, i64 %indvars.iv.next70.i
   store i32 %83, ptr %84, align 4
-  %85 = icmp ugt i64 %indvars.iv69.i, 1
+  %85 = icmp samesign ugt i64 %indvars.iv69.i, 1
   br i1 %85, label %select.unfold47.i, label %Kit_TruthFill.exit, !llvm.loop !10
 
 86:                                               ; preds = %71
@@ -372,7 +372,7 @@ select.unfold48.i:                                ; preds = %select.unfold48.i, 
   %92 = and i32 %91, %89
   %93 = getelementptr inbounds i32, ptr %13, i64 %indvars.iv.next67.i
   store i32 %92, ptr %93, align 4
-  %94 = icmp ugt i64 %indvars.iv66.i, 1
+  %94 = icmp samesign ugt i64 %indvars.iv66.i, 1
   br i1 %94, label %select.unfold48.i, label %Kit_TruthFill.exit, !llvm.loop !11
 
 Kit_TruthFill.exit:                               ; preds = %select.unfold46.i, %select.unfold48.i, %select.unfold47.i, %select.unfold.i, %86, %76, %57, %41, %select.unfold.preheader.i, %16
@@ -562,7 +562,7 @@ select.unfold.i:                                  ; preds = %select.unfold.i, %s
   %106 = load i32, ptr %105, align 4
   %107 = xor i32 %106, -1
   store i32 %107, ptr %105, align 4
-  %108 = icmp ugt i64 %indvars.iv.i, 1
+  %108 = icmp samesign ugt i64 %indvars.iv.i, 1
   br i1 %108, label %select.unfold.i, label %Kit_TruthNot.exit, !llvm.loop !14
 
 Kit_TruthNot.exit:                                ; preds = %select.unfold.i, %97, %.critedge4
@@ -610,7 +610,7 @@ select.unfold.i63:                                ; preds = %select.unfold.i63, 
   %131 = load i32, ptr %130, align 4
   %132 = getelementptr inbounds i32, ptr %120, i64 %indvars.iv.next.i65
   store i32 %131, ptr %132, align 4
-  %133 = icmp ugt i64 %indvars.iv.i64, 1
+  %133 = icmp samesign ugt i64 %indvars.iv.i64, 1
   br i1 %133, label %select.unfold.i63, label %Kit_TruthCopy.exit, !llvm.loop !16
 
 Kit_TruthCopy.exit:                               ; preds = %select.unfold.i63, %112, %.critedge2

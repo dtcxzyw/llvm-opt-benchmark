@@ -108,7 +108,7 @@ define i16 @f16_rem(i16 %0, i16 %1) local_unnamed_addr #0 {
   %56 = zext i16 %53 to i64
   %57 = mul nuw nsw i64 %52, %56
   %58 = lshr i64 %57, 16
-  %59 = icmp ult i8 %35, 31
+  %59 = icmp samesign ult i8 %35, 31
   br i1 %59, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %49, %.lr.ph
@@ -121,7 +121,7 @@ define i16 @f16_rem(i16 %0, i16 %1) local_unnamed_addr #0 {
   %65 = zext i16 %63 to i64
   %66 = mul nuw nsw i64 %52, %65
   %67 = lshr i64 %66, 16
-  %68 = icmp ult i8 %.095121, 29
+  %68 = icmp samesign ult i8 %.095121, 29
   br i1 %68, label %._crit_edge, label %.lr.ph
 
 ._crit_edge:                                      ; preds = %.lr.ph, %49

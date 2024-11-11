@@ -297,7 +297,7 @@ if.end166:                                        ; preds = %if.then.i903, %if.t
 
 while.cond170.preheader:                          ; preds = %if.end166
   %dec1711138 = add nsw i32 %and, -1
-  %cmp1721139 = icmp ugt i32 %and, %add156
+  %cmp1721139 = icmp samesign ugt i32 %and, %add156
   br i1 %cmp1721139, label %while.body174.preheader, label %if.end177
 
 while.body174.preheader:                          ; preds = %while.cond170.preheader
@@ -1784,7 +1784,7 @@ for.body:                                         ; preds = %if.then597, %for.bo
   %incdec.ptr55.i734 = getelementptr inbounds i8, ptr %p.addr.181130, i64 9
   store i8 %conv54.i733, ptr %incdec.ptr52.i732, align 1
   %sub614 = add nsw i32 %prec.91128, -9
-  %cmp602 = icmp ugt i32 %prec.91128, 9
+  %cmp602 = icmp samesign ugt i32 %prec.91128, 9
   %cmp605 = icmp ne i32 %and610, %ndlo.1
   %194 = select i1 %cmp602, i1 %cmp605, i1 false
   br i1 %194, label %for.body, label %for.end, !llvm.loop !12
@@ -2404,7 +2404,7 @@ while.body815:                                    ; preds = %if.then805, %while.
   %incdec.ptr55.i981 = getelementptr inbounds i8, ptr %p.addr.301106, i64 9
   store i8 %conv54.i980, ptr %incdec.ptr52.i979, align 1
   %sub821 = add nsw i32 %prec.141104, -9
-  %cmp808 = icmp ugt i32 %prec.141104, 9
+  %cmp808 = icmp samesign ugt i32 %prec.141104, 9
   %cmp811 = icmp ne i32 %and817, %ndlo.5
   %282 = select i1 %cmp808, i1 %cmp811, i1 false
   br i1 %282, label %while.body815, label %while.end822, !llvm.loop !15

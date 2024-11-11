@@ -665,7 +665,7 @@ if.then.i55:                                      ; preds = %dir_path_match.exit
 
 if.end.i56:                                       ; preds = %if.then.i55, %dir_path_match.exit.i
   %dst.1.i = phi ptr [ %incdec.ptr5.i, %if.then.i55 ], [ %dst.013.i, %dir_path_match.exit.i ]
-  %cmp.i57 = icmp ugt i32 %dec14.in.i, 1
+  %cmp.i57 = icmp samesign ugt i32 %dec14.in.i, 1
   br i1 %cmp.i57, label %while.body.i, label %while.end.loopexit.i, !llvm.loop !5
 
 while.end.loopexit.i:                             ; preds = %if.end.i56

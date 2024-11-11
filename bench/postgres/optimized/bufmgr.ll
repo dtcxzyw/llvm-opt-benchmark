@@ -2985,7 +2985,7 @@ define dso_local zeroext i1 @BgBufferSync(ptr noundef %0) local_unnamed_addr #0 
 100:                                              ; preds = %99, %92
   %.255 = phi i32 [ %94, %92 ], [ %.05384, %99 ]
   %.2 = phi i32 [ %93, %92 ], [ %spec.select76, %99 ]
-  %101 = icmp ugt i32 %.05683, 1
+  %101 = icmp samesign ugt i32 %.05683, 1
   %102 = icmp slt i32 %.2, %spec.select
   %103 = select i1 %101, i1 %102, i1 false
   br i1 %103, label %.lr.ph, label %.loopexit, !llvm.loop !18

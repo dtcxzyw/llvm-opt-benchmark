@@ -600,7 +600,7 @@ addstr.exit:                                      ; preds = %addstr.exit.backedg
 268:                                              ; preds = %259
   %269 = add nsw i32 %266, -1
   store i32 %269, ptr @line_num, align 4
-  %270 = icmp ugt i32 %264, 1
+  %270 = icmp samesign ugt i32 %264, 1
   br i1 %270, label %271, label %ppDirective.exit
 
 271:                                              ; preds = %268

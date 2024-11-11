@@ -3299,7 +3299,7 @@ define internal i32 @dissect_thread_nwd(ptr noundef %0, ptr noundef %1, ptr noun
   %.2350 = phi i32 [ 2, %167 ], [ 2, %189 ], [ %.mux, %184 ], [ %., %197 ]
   %.1347 = phi i32 [ %176, %167 ], [ %196, %189 ], [ %188, %184 ], [ %199, %197 ]
   %.5 = phi i32 [ %175, %167 ], [ %195, %189 ], [ %187, %184 ], [ %198, %197 ]
-  %203 = icmp ult i32 %.1347, %21
+  %203 = icmp samesign ult i32 %.1347, %21
   br i1 %203, label %204, label %.loopexit
 
 204:                                              ; preds = %202

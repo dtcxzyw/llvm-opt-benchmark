@@ -847,11 +847,11 @@ default.unreachable33:                            ; preds = %235
   ]
 
 267:                                              ; preds = %264, %264
-  %268 = icmp ugt i32 %262, 32768
+  %268 = icmp samesign ugt i32 %262, 32768
   br i1 %268, label %.thread, label %279
 
 269:                                              ; preds = %264
-  %270 = icmp ugt i32 %262, 8192
+  %270 = icmp samesign ugt i32 %262, 8192
   br i1 %270, label %277, label %279
 
 271:                                              ; preds = %264, %264
@@ -859,11 +859,11 @@ default.unreachable33:                            ; preds = %235
   br i1 %272, label %273, label %275
 
 273:                                              ; preds = %271
-  %274 = icmp ugt i32 %262, 255
+  %274 = icmp samesign ugt i32 %262, 255
   br i1 %274, label %.thread, label %279
 
 275:                                              ; preds = %271
-  %276 = icmp ugt i32 %262, 1024
+  %276 = icmp samesign ugt i32 %262, 1024
   br i1 %276, label %277, label %279
 
 277:                                              ; preds = %275, %269

@@ -15057,7 +15057,7 @@ call.i.i.noexc:                                   ; preds = %call2.i.noexc
 
 if.then.i.i:                                      ; preds = %call.i.i.noexc
   %3 = load ptr, ptr %data.i.i, align 8
-  %cmp.i.i.i = icmp ugt i32 %1, 16
+  %cmp.i.i.i = icmp samesign ugt i32 %1, 16
   %idx.ext.i.i.i = zext nneg i32 %1 to i64
   %add.ptr.i.i.i = getelementptr inbounds i8, ptr %3, i64 %idx.ext.i.i.i
   %add.ptr2.i.i.i = getelementptr inbounds i8, ptr %add.ptr.i.i.i, i64 -16
@@ -27994,7 +27994,7 @@ if.end:                                           ; preds = %if.then
   br label %if.end27
 
 if.else:                                          ; preds = %entry
-  %cmp5 = icmp ugt i64 %len, 8
+  %cmp5 = icmp samesign ugt i64 %len, 8
   br i1 %cmp5, label %if.then6, label %if.else14
 
 if.then6:                                         ; preds = %if.else
@@ -28015,7 +28015,7 @@ if.then6:                                         ; preds = %if.else
   br label %return
 
 if.else14:                                        ; preds = %if.else
-  %cmp15 = icmp ugt i64 %len, 3
+  %cmp15 = icmp samesign ugt i64 %len, 3
   br i1 %cmp15, label %if.then16, label %if.else18
 
 if.then16:                                        ; preds = %if.else14
@@ -41719,7 +41719,7 @@ if.end.i24:                                       ; preds = %_ZN6google8protobuf
   %.sink.i11.i = phi i64 [ %conv1.i.i, %_ZN6google8protobuf8internal11VarintParseImEEPKcS4_PT_.exit.thread.i ], [ %17, %_ZN6google8protobuf8internal11VarintParseImEEPKcS4_PT_.exit.i ]
   %conv.i25 = trunc i64 %.sink.i11.i to i32
   %cmp.i4.i = icmp slt i32 %conv.i25, 0
-  %cmp2.i.i = icmp ugt i32 %conv.i25, %conv.i5.i
+  %cmp2.i.i = icmp samesign ugt i32 %conv.i25, %conv.i5.i
   %or.cond.i.i = select i1 %cmp.i4.i, i1 true, i1 %cmp2.i.i
   br i1 %or.cond.i.i, label %if.then.i7.i, label %if.else.i.i
 
@@ -41830,7 +41830,7 @@ if.end.i40:                                       ; preds = %_ZN6google8protobuf
   %.sink.i11.i42 = phi i64 [ %conv1.i.i71, %_ZN6google8protobuf8internal11VarintParseImEEPKcS4_PT_.exit.thread.i70 ], [ %31, %_ZN6google8protobuf8internal11VarintParseImEEPKcS4_PT_.exit.i36 ]
   %conv.i43 = trunc i64 %.sink.i11.i42 to i32
   %cmp.i4.i44 = icmp slt i32 %conv.i43, 0
-  %cmp2.i.i46 = icmp ugt i32 %conv.i43, %conv.i5.i45
+  %cmp2.i.i46 = icmp samesign ugt i32 %conv.i43, %conv.i5.i45
   %or.cond.i.i47 = select i1 %cmp.i4.i44, i1 true, i1 %cmp2.i.i46
   br i1 %or.cond.i.i47, label %if.then.i7.i66, label %if.else.i.i48
 
@@ -41963,7 +41963,7 @@ if.end.i85:                                       ; preds = %_ZN6google8protobuf
   %.sink.i11.i87 = phi i64 [ %conv1.i.i116, %_ZN6google8protobuf8internal11VarintParseImEEPKcS4_PT_.exit.thread.i115 ], [ %48, %_ZN6google8protobuf8internal11VarintParseImEEPKcS4_PT_.exit.i81 ]
   %conv.i88 = trunc i64 %.sink.i11.i87 to i32
   %cmp.i4.i89 = icmp slt i32 %conv.i88, 0
-  %cmp2.i.i91 = icmp ugt i32 %conv.i88, %conv.i5.i90
+  %cmp2.i.i91 = icmp samesign ugt i32 %conv.i88, %conv.i5.i90
   %or.cond.i.i92 = select i1 %cmp.i4.i89, i1 true, i1 %cmp2.i.i91
   br i1 %or.cond.i.i92, label %if.then.i7.i111, label %if.else.i.i93
 
@@ -42144,7 +42144,7 @@ if.end.i24:                                       ; preds = %_ZN6google8protobuf
   %.sink.i11.i = phi i64 [ %conv1.i.i, %_ZN6google8protobuf8internal11VarintParseImEEPKcS4_PT_.exit.thread.i ], [ %16, %_ZN6google8protobuf8internal11VarintParseImEEPKcS4_PT_.exit.i ]
   %conv.i25 = trunc i64 %.sink.i11.i to i32
   %cmp.i4.i = icmp slt i32 %conv.i25, 0
-  %cmp2.i.i = icmp ugt i32 %conv.i25, %conv.i5.i
+  %cmp2.i.i = icmp samesign ugt i32 %conv.i25, %conv.i5.i
   %or.cond.i.i = select i1 %cmp.i4.i, i1 true, i1 %cmp2.i.i
   br i1 %or.cond.i.i, label %if.then.i7.i, label %if.else.i.i
 
@@ -42258,7 +42258,7 @@ if.end.i40:                                       ; preds = %_ZN6google8protobuf
   %.sink.i11.i42 = phi i64 [ %conv1.i.i75, %_ZN6google8protobuf8internal11VarintParseImEEPKcS4_PT_.exit.thread.i74 ], [ %29, %_ZN6google8protobuf8internal11VarintParseImEEPKcS4_PT_.exit.i36 ]
   %conv.i43 = trunc i64 %.sink.i11.i42 to i32
   %cmp.i4.i44 = icmp slt i32 %conv.i43, 0
-  %cmp2.i.i46 = icmp ugt i32 %conv.i43, %conv.i5.i45
+  %cmp2.i.i46 = icmp samesign ugt i32 %conv.i43, %conv.i5.i45
   %or.cond.i.i47 = select i1 %cmp.i4.i44, i1 true, i1 %cmp2.i.i46
   br i1 %or.cond.i.i47, label %if.then.i7.i66, label %if.else.i.i48
 
@@ -42394,7 +42394,7 @@ if.end.i89:                                       ; preds = %_ZN6google8protobuf
   %.sink.i11.i91 = phi i64 [ %conv1.i.i124, %_ZN6google8protobuf8internal11VarintParseImEEPKcS4_PT_.exit.thread.i123 ], [ %45, %_ZN6google8protobuf8internal11VarintParseImEEPKcS4_PT_.exit.i85 ]
   %conv.i92 = trunc i64 %.sink.i11.i91 to i32
   %cmp.i4.i93 = icmp slt i32 %conv.i92, 0
-  %cmp2.i.i95 = icmp ugt i32 %conv.i92, %conv.i5.i94
+  %cmp2.i.i95 = icmp samesign ugt i32 %conv.i92, %conv.i5.i94
   %or.cond.i.i96 = select i1 %cmp.i4.i93, i1 true, i1 %cmp2.i.i95
   br i1 %or.cond.i.i96, label %if.then.i7.i115, label %if.else.i.i97
 
@@ -42572,7 +42572,7 @@ if.end.i24:                                       ; preds = %_ZN6google8protobuf
   %.sink.i11.i = phi i64 [ %conv1.i.i, %_ZN6google8protobuf8internal11VarintParseImEEPKcS4_PT_.exit.thread.i ], [ %17, %_ZN6google8protobuf8internal11VarintParseImEEPKcS4_PT_.exit.i ]
   %conv.i25 = trunc i64 %.sink.i11.i to i32
   %cmp.i4.i = icmp slt i32 %conv.i25, 1
-  %cmp2.i.i = icmp ugt i32 %conv.i25, %conv.i5.i
+  %cmp2.i.i = icmp samesign ugt i32 %conv.i25, %conv.i5.i
   %or.cond.i.i = select i1 %cmp.i4.i, i1 true, i1 %cmp2.i.i
   br i1 %or.cond.i.i, label %if.then.i7.i, label %if.else.i.i
 
@@ -42683,7 +42683,7 @@ if.end.i40:                                       ; preds = %_ZN6google8protobuf
   %.sink.i11.i42 = phi i64 [ %conv1.i.i71, %_ZN6google8protobuf8internal11VarintParseImEEPKcS4_PT_.exit.thread.i70 ], [ %31, %_ZN6google8protobuf8internal11VarintParseImEEPKcS4_PT_.exit.i36 ]
   %conv.i43 = trunc i64 %.sink.i11.i42 to i32
   %cmp.i4.i44 = icmp slt i32 %conv.i43, 1
-  %cmp2.i.i46 = icmp ugt i32 %conv.i43, %conv.i5.i45
+  %cmp2.i.i46 = icmp samesign ugt i32 %conv.i43, %conv.i5.i45
   %or.cond.i.i47 = select i1 %cmp.i4.i44, i1 true, i1 %cmp2.i.i46
   br i1 %or.cond.i.i47, label %if.then.i7.i66, label %if.else.i.i48
 
@@ -42816,7 +42816,7 @@ if.end.i85:                                       ; preds = %_ZN6google8protobuf
   %.sink.i11.i87 = phi i64 [ %conv1.i.i116, %_ZN6google8protobuf8internal11VarintParseImEEPKcS4_PT_.exit.thread.i115 ], [ %48, %_ZN6google8protobuf8internal11VarintParseImEEPKcS4_PT_.exit.i81 ]
   %conv.i88 = trunc i64 %.sink.i11.i87 to i32
   %cmp.i4.i89 = icmp slt i32 %conv.i88, 1
-  %cmp2.i.i91 = icmp ugt i32 %conv.i88, %conv.i5.i90
+  %cmp2.i.i91 = icmp samesign ugt i32 %conv.i88, %conv.i5.i90
   %or.cond.i.i92 = select i1 %cmp.i4.i89, i1 true, i1 %cmp2.i.i91
   br i1 %or.cond.i.i92, label %if.then.i7.i111, label %if.else.i.i93
 
@@ -42997,7 +42997,7 @@ if.end.i24:                                       ; preds = %_ZN6google8protobuf
   %.sink.i11.i = phi i64 [ %conv1.i.i, %_ZN6google8protobuf8internal11VarintParseImEEPKcS4_PT_.exit.thread.i ], [ %16, %_ZN6google8protobuf8internal11VarintParseImEEPKcS4_PT_.exit.i ]
   %conv.i25 = trunc i64 %.sink.i11.i to i32
   %cmp.i4.i = icmp slt i32 %conv.i25, 1
-  %cmp2.i.i = icmp ugt i32 %conv.i25, %conv.i5.i
+  %cmp2.i.i = icmp samesign ugt i32 %conv.i25, %conv.i5.i
   %or.cond.i.i = select i1 %cmp.i4.i, i1 true, i1 %cmp2.i.i
   br i1 %or.cond.i.i, label %if.then.i7.i, label %if.else.i.i
 
@@ -43111,7 +43111,7 @@ if.end.i40:                                       ; preds = %_ZN6google8protobuf
   %.sink.i11.i42 = phi i64 [ %conv1.i.i75, %_ZN6google8protobuf8internal11VarintParseImEEPKcS4_PT_.exit.thread.i74 ], [ %29, %_ZN6google8protobuf8internal11VarintParseImEEPKcS4_PT_.exit.i36 ]
   %conv.i43 = trunc i64 %.sink.i11.i42 to i32
   %cmp.i4.i44 = icmp slt i32 %conv.i43, 1
-  %cmp2.i.i46 = icmp ugt i32 %conv.i43, %conv.i5.i45
+  %cmp2.i.i46 = icmp samesign ugt i32 %conv.i43, %conv.i5.i45
   %or.cond.i.i47 = select i1 %cmp.i4.i44, i1 true, i1 %cmp2.i.i46
   br i1 %or.cond.i.i47, label %if.then.i7.i66, label %if.else.i.i48
 
@@ -43247,7 +43247,7 @@ if.end.i89:                                       ; preds = %_ZN6google8protobuf
   %.sink.i11.i91 = phi i64 [ %conv1.i.i124, %_ZN6google8protobuf8internal11VarintParseImEEPKcS4_PT_.exit.thread.i123 ], [ %45, %_ZN6google8protobuf8internal11VarintParseImEEPKcS4_PT_.exit.i85 ]
   %conv.i92 = trunc i64 %.sink.i11.i91 to i32
   %cmp.i4.i93 = icmp slt i32 %conv.i92, 1
-  %cmp2.i.i95 = icmp ugt i32 %conv.i92, %conv.i5.i94
+  %cmp2.i.i95 = icmp samesign ugt i32 %conv.i92, %conv.i5.i94
   %or.cond.i.i96 = select i1 %cmp.i4.i93, i1 true, i1 %cmp2.i.i95
   br i1 %or.cond.i.i96, label %if.then.i7.i115, label %if.else.i.i97
 

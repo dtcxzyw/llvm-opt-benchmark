@@ -1879,7 +1879,7 @@ define dso_local noundef zeroext i1 @_ZN2c420is_debugger_attachedEv() local_unna
   br i1 %7, label %8, label %19
 
 8:                                                ; preds = %5
-  %9 = icmp ult i64 %6, 1024
+  %9 = icmp samesign ult i64 %6, 1024
   br i1 %9, label %10, label %12
 
 10:                                               ; preds = %8
@@ -17541,7 +17541,7 @@ _ZN2c43yml4Tree6to_valEmNS_15basic_substringIKcEEm.exit: ; preds = %99, %104, %1
   br i1 %137, label %138, label %_ZNK2c43yml6Parser4_errIJEEEvNS_15basic_substringIKcEEDprRKT_.exit
 
 138:                                              ; preds = %135
-  %139 = icmp ult i64 %136, 1024
+  %139 = icmp samesign ult i64 %136, 1024
   br i1 %139, label %140, label %142
 
 140:                                              ; preds = %138
@@ -18803,7 +18803,7 @@ _ZNK2c415basic_substringIKcE11begins_withES2_.exit94: ; preds = %338
   br i1 %351, label %352, label %_ZNK2c43yml6Parser4_errIJEEEvNS_15basic_substringIKcEEDprRKT_.exit
 
 352:                                              ; preds = %349
-  %353 = icmp ult i64 %350, 1024
+  %353 = icmp samesign ult i64 %350, 1024
   br i1 %353, label %354, label %356
 
 354:                                              ; preds = %352
@@ -22390,7 +22390,7 @@ _ZNK2c415basic_substringIKcE11begins_withES2_.exit195: ; preds = %642
   br i1 %655, label %656, label %_ZNK2c43yml6Parser4_errIJEEEvNS_15basic_substringIKcEEDprRKT_.exit
 
 656:                                              ; preds = %653
-  %657 = icmp ult i64 %654, 1024
+  %657 = icmp samesign ult i64 %654, 1024
   br i1 %657, label %658, label %660
 
 658:                                              ; preds = %656
@@ -25326,7 +25326,7 @@ define dso_local void @_ZN2c43yml6Parser30_move_key_anchor_to_val_anchorEv(ptr n
   br i1 %25, label %26, label %_ZNK2c43yml6Parser4_errIJEEEvNS_15basic_substringIKcEEDprRKT_.exit
 
 26:                                               ; preds = %23
-  %27 = icmp ult i64 %24, 1024
+  %27 = icmp samesign ult i64 %24, 1024
   br i1 %27, label %28, label %30
 
 28:                                               ; preds = %26
@@ -32000,7 +32000,7 @@ _ZNK2c415basic_substringIKcE11begins_withEc.exit83: ; preds = %216
   br i1 %235, label %236, label %_ZNK2c43yml6Parser4_errIJEEEvNS_15basic_substringIKcEEDprRKT_.exit
 
 236:                                              ; preds = %233
-  %237 = icmp ult i64 %234, 1024
+  %237 = icmp samesign ult i64 %234, 1024
   br i1 %237, label %238, label %240
 
 238:                                              ; preds = %236
@@ -32727,7 +32727,7 @@ _ZNK2c43yml6Parser24_token_is_from_this_lineENS_15basic_substringIKcEE.exit: ; p
   br i1 %34, label %35, label %_ZNK2c43yml6Parser4_errIJEEEvNS_15basic_substringIKcEEDprRKT_.exit
 
 35:                                               ; preds = %32
-  %36 = icmp ult i64 %33, 1024
+  %36 = icmp samesign ult i64 %33, 1024
   br i1 %36, label %37, label %39
 
 37:                                               ; preds = %35
@@ -35340,7 +35340,7 @@ _ZNK2c415basic_substringIKcE11begins_withEc.exit.thread: ; preds = %_ZNK2c415bas
   br i1 %25, label %26, label %37
 
 26:                                               ; preds = %23
-  %27 = icmp ult i64 %24, 1024
+  %27 = icmp samesign ult i64 %24, 1024
   br i1 %27, label %28, label %30
 
 28:                                               ; preds = %26
@@ -35426,7 +35426,7 @@ _ZNK2c415basic_substringIKcE4findEcm.exit.thread: ; preds = %40, %46, %37, %_ZNK
   br i1 %54, label %55, label %.thread171
 
 55:                                               ; preds = %52
-  %56 = icmp ult i64 %53, 1024
+  %56 = icmp samesign ult i64 %53, 1024
   br i1 %56, label %57, label %59
 
 57:                                               ; preds = %55
@@ -36934,7 +36934,7 @@ _ZN2c43yml6Parser10_scan_lineEv.exit:             ; preds = %.lr.ph.i.i.i.i, %28
   br i1 %361, label %362, label %_ZNK2c43yml6Parser4_errIJEEEvNS_15basic_substringIKcEEDprRKT_.exit
 
 362:                                              ; preds = %359
-  %363 = icmp ult i64 %360, 1024
+  %363 = icmp samesign ult i64 %360, 1024
   br i1 %363, label %364, label %366
 
 364:                                              ; preds = %362
@@ -37856,7 +37856,7 @@ _ZN2c43yml6Parser10_scan_lineEv.exit:             ; preds = %.lr.ph.i.i.i.i, %28
   br i1 %359, label %360, label %_ZNK2c43yml6Parser4_errIJEEEvNS_15basic_substringIKcEEDprRKT_.exit
 
 360:                                              ; preds = %357
-  %361 = icmp ult i64 %358, 1024
+  %361 = icmp samesign ult i64 %358, 1024
   br i1 %361, label %362, label %364
 
 362:                                              ; preds = %360
@@ -38370,7 +38370,7 @@ _ZNK2c415basic_substringIKcE12first_not_ofES2_m.exit: ; preds = %111
   br i1 %127, label %128, label %_ZNK2c43yml6Parser4_errIJEEEvNS_15basic_substringIKcEEDprRKT_.exit
 
 128:                                              ; preds = %125
-  %129 = icmp ult i64 %126, 1024
+  %129 = icmp samesign ult i64 %126, 1024
   br i1 %129, label %130, label %132
 
 130:                                              ; preds = %128
@@ -41322,7 +41322,7 @@ _ZN2c43yml6Parser16_line_progressedEm.exit:       ; preds = %_ZNK2c415basic_subs
   br i1 %196, label %197, label %_ZNK2c43yml6Parser4_errIJEEEvNS_15basic_substringIKcEEDprRKT_.exit
 
 197:                                              ; preds = %194
-  %198 = icmp ult i64 %195, 1024
+  %198 = icmp samesign ult i64 %195, 1024
   br i1 %198, label %199, label %201
 
 199:                                              ; preds = %197
@@ -41458,7 +41458,7 @@ _ZN2c43yml6Parser16_line_progressedEm.exit79:     ; preds = %_ZNK2c415basic_subs
   br i1 %255, label %256, label %_ZNK2c43yml6Parser4_errIJEEEvNS_15basic_substringIKcEEDprRKT_.exit88
 
 256:                                              ; preds = %253
-  %257 = icmp ult i64 %254, 1024
+  %257 = icmp samesign ult i64 %254, 1024
   br i1 %257, label %258, label %260
 
 258:                                              ; preds = %256
@@ -42144,7 +42144,7 @@ _ZN2c43yml6Parser16_line_progressedEm.exit82:     ; preds = %151, %170
   br i1 %203, label %204, label %215
 
 204:                                              ; preds = %201
-  %205 = icmp ult i64 %202, 1024
+  %205 = icmp samesign ult i64 %202, 1024
   br i1 %205, label %206, label %208
 
 206:                                              ; preds = %204
@@ -43323,7 +43323,7 @@ _ZNK2c415basic_substringIKcE11begins_withEc.exit58.thread: ; preds = %.lr.ph, %_
   br i1 %122, label %123, label %_ZN2c420is_debugger_attachedEv.exit
 
 123:                                              ; preds = %120
-  %124 = icmp ult i64 %121, 1024
+  %124 = icmp samesign ult i64 %121, 1024
   br i1 %124, label %125, label %127
 
 125:                                              ; preds = %123
@@ -43477,7 +43477,7 @@ _ZN2c44dumpIRZNKS_3yml6Parser4_errIJNS_15basic_substringIKcEEEEEvS6_DprRKT_EUlS6
 
 _ZN2c43yml12_GLOBAL__N_111_parse_dumpIZNKS0_6Parser4_errIJNS_15basic_substringIKcEEEEEvS7_DprRKT_EUlS7_E_JRKS7_EEEvT_S7_DpOT0_.exit: ; preds = %31, %_ZNK2c415basic_substringIKcE4findES2_m.exit.i.thread.thread
   %.pre.i = phi i64 [ %2, %_ZNK2c415basic_substringIKcE4findES2_m.exit.i.thread.thread ], [ %30, %31 ]
-  %33 = icmp ult i64 %.pre.i, 1023
+  %33 = icmp samesign ult i64 %.pre.i, 1023
   br i1 %33, label %34, label %_ZN2c43yml6detail13_SubstrWriter6appendEc.exit
 
 34:                                               ; preds = %_ZN2c43yml12_GLOBAL__N_111_parse_dumpIZNKS0_6Parser4_errIJNS_15basic_substringIKcEEEEEvS7_DprRKT_EUlS7_E_JRKS7_EEEvT_S7_DpOT0_.exit
@@ -44544,7 +44544,7 @@ _ZN2c43yml6Parser18_grow_filter_arenaEm.exit:     ; preds = %_ZNK2c415basic_subs
   br i1 %171, label %172, label %_ZNK2c43yml6Parser4_errIJEEEvNS_15basic_substringIKcEEDprRKT_.exit
 
 172:                                              ; preds = %169
-  %173 = icmp ult i64 %170, 1024
+  %173 = icmp samesign ult i64 %170, 1024
   br i1 %173, label %174, label %176
 
 174:                                              ; preds = %172
@@ -44652,7 +44652,7 @@ _ZNK2c43yml6Parser4_errIJEEEvNS_15basic_substringIKcEEDprRKT_.exit: ; preds = %1
   br i1 %218, label %219, label %_ZNK2c43yml6Parser4_errIJEEEvNS_15basic_substringIKcEEDprRKT_.exit260
 
 219:                                              ; preds = %216
-  %220 = icmp ult i64 %217, 1024
+  %220 = icmp samesign ult i64 %217, 1024
   br i1 %220, label %221, label %223
 
 221:                                              ; preds = %219
@@ -44736,7 +44736,7 @@ _ZNK2c43yml6Parser4_errIJEEEvNS_15basic_substringIKcEEDprRKT_.exit260: ; preds =
   br i1 %253, label %254, label %_ZNK2c43yml6Parser4_errIJEEEvNS_15basic_substringIKcEEDprRKT_.exit269
 
 254:                                              ; preds = %251
-  %255 = icmp ult i64 %252, 1024
+  %255 = icmp samesign ult i64 %252, 1024
   br i1 %255, label %256, label %258
 
 256:                                              ; preds = %254
@@ -44838,7 +44838,7 @@ _ZNK2c43yml6Parser4_errIJEEEvNS_15basic_substringIKcEEDprRKT_.exit269: ; preds =
   br i1 %298, label %299, label %_ZNK2c43yml6Parser4_errIJEEEvNS_15basic_substringIKcEEDprRKT_.exit280
 
 299:                                              ; preds = %296
-  %300 = icmp ult i64 %297, 1024
+  %300 = icmp samesign ult i64 %297, 1024
   br i1 %300, label %301, label %303
 
 301:                                              ; preds = %299
@@ -44993,7 +44993,7 @@ _ZN2c417decode_code_pointEPhmj.exit:              ; preds = %320, %324, %333, %3
   br i1 %376, label %377, label %_ZNK2c43yml6Parser4_errIJEEEvNS_15basic_substringIKcEEDprRKT_.exit290
 
 377:                                              ; preds = %374
-  %378 = icmp ult i64 %375, 1024
+  %378 = icmp samesign ult i64 %375, 1024
   br i1 %378, label %379, label %381
 
 379:                                              ; preds = %377
@@ -45095,7 +45095,7 @@ _ZNK2c43yml6Parser4_errIJEEEvNS_15basic_substringIKcEEDprRKT_.exit290: ; preds =
   br i1 %421, label %422, label %_ZNK2c43yml6Parser4_errIJEEEvNS_15basic_substringIKcEEDprRKT_.exit301
 
 422:                                              ; preds = %419
-  %423 = icmp ult i64 %420, 1024
+  %423 = icmp samesign ult i64 %420, 1024
   br i1 %423, label %424, label %426
 
 424:                                              ; preds = %422
@@ -46858,7 +46858,7 @@ _ZN2c43yml6Parser20_finish_filter_arenaENS_15basic_substringIcEEm.exit289: ; pre
   br i1 %497, label %498, label %_ZNK2c43yml6Parser4_errIJEEEvNS_15basic_substringIKcEEDprRKT_.exit
 
 498:                                              ; preds = %495
-  %499 = icmp ult i64 %496, 1024
+  %499 = icmp samesign ult i64 %496, 1024
   br i1 %499, label %500, label %502
 
 500:                                              ; preds = %498
@@ -47689,7 +47689,7 @@ _ZNK2c415basic_substringIcE5trimrEc.exit:         ; preds = %.preheader.i, %5, %
   br i1 %35, label %36, label %_ZNK2c43yml6Parser4_errIJEEEvNS_15basic_substringIKcEEDprRKT_.exit
 
 36:                                               ; preds = %33
-  %37 = icmp ult i64 %34, 1024
+  %37 = icmp samesign ult i64 %34, 1024
   br i1 %37, label %38, label %40
 
 38:                                               ; preds = %36
@@ -51253,65 +51253,65 @@ define linkonce_odr dso_local void @_ZNK2c43yml6Parser8_fmt_msgIRZNKS1_4_errIJEE
   br label %77
 
 42:                                               ; preds = %35
-  %43 = icmp ugt i64 %31, 9999999999999999
+  %43 = icmp samesign ugt i64 %31, 9999999999999999
   br i1 %43, label %77, label %44
 
 44:                                               ; preds = %42
-  %45 = icmp ugt i64 %31, 999999999999999
+  %45 = icmp samesign ugt i64 %31, 999999999999999
   %46 = select i1 %45, i64 16, i64 15
   br label %77
 
 47:                                               ; preds = %33
-  %48 = icmp ugt i64 %31, 999999999999
+  %48 = icmp samesign ugt i64 %31, 999999999999
   br i1 %48, label %49, label %52
 
 49:                                               ; preds = %47
-  %50 = icmp ugt i64 %31, 9999999999999
+  %50 = icmp samesign ugt i64 %31, 9999999999999
   %51 = select i1 %50, i64 14, i64 13
   br label %77
 
 52:                                               ; preds = %47
-  %53 = icmp ugt i64 %31, 99999999999
+  %53 = icmp samesign ugt i64 %31, 99999999999
   br i1 %53, label %77, label %54
 
 54:                                               ; preds = %52
-  %55 = icmp ugt i64 %31, 9999999999
+  %55 = icmp samesign ugt i64 %31, 9999999999
   %56 = select i1 %55, i64 11, i64 10
   br label %77
 
 57:                                               ; preds = %29
-  %58 = icmp ugt i64 %31, 9999
+  %58 = icmp samesign ugt i64 %31, 9999
   br i1 %58, label %59, label %69
 
 59:                                               ; preds = %57
-  %60 = icmp ugt i64 %31, 9999999
+  %60 = icmp samesign ugt i64 %31, 9999999
   br i1 %60, label %61, label %64
 
 61:                                               ; preds = %59
-  %62 = icmp ugt i64 %31, 99999999
+  %62 = icmp samesign ugt i64 %31, 99999999
   %63 = select i1 %62, i64 9, i64 8
   br label %77
 
 64:                                               ; preds = %59
-  %65 = icmp ugt i64 %31, 999999
+  %65 = icmp samesign ugt i64 %31, 999999
   br i1 %65, label %77, label %66
 
 66:                                               ; preds = %64
-  %67 = icmp ugt i64 %31, 99999
+  %67 = icmp samesign ugt i64 %31, 99999
   %68 = select i1 %67, i64 6, i64 5
   br label %77
 
 69:                                               ; preds = %57
-  %70 = icmp ugt i64 %31, 99
+  %70 = icmp samesign ugt i64 %31, 99
   br i1 %70, label %71, label %74
 
 71:                                               ; preds = %69
-  %72 = icmp ugt i64 %31, 999
+  %72 = icmp samesign ugt i64 %31, 999
   %73 = select i1 %72, i64 4, i64 3
   br label %77
 
 74:                                               ; preds = %69
-  %75 = icmp ugt i64 %31, 9
+  %75 = icmp samesign ugt i64 %31, 9
   %76 = select i1 %75, i64 2, i64 1
   br label %77
 
@@ -51341,65 +51341,65 @@ define linkonce_odr dso_local void @_ZNK2c43yml6Parser8_fmt_msgIRZNKS1_4_errIJEE
   br label %126
 
 91:                                               ; preds = %84
-  %92 = icmp ugt i64 %80, 9999999999999999
+  %92 = icmp samesign ugt i64 %80, 9999999999999999
   br i1 %92, label %126, label %93
 
 93:                                               ; preds = %91
-  %94 = icmp ugt i64 %80, 999999999999999
+  %94 = icmp samesign ugt i64 %80, 999999999999999
   %95 = select i1 %94, i64 16, i64 15
   br label %126
 
 96:                                               ; preds = %82
-  %97 = icmp ugt i64 %80, 999999999999
+  %97 = icmp samesign ugt i64 %80, 999999999999
   br i1 %97, label %98, label %101
 
 98:                                               ; preds = %96
-  %99 = icmp ugt i64 %80, 9999999999999
+  %99 = icmp samesign ugt i64 %80, 9999999999999
   %100 = select i1 %99, i64 14, i64 13
   br label %126
 
 101:                                              ; preds = %96
-  %102 = icmp ugt i64 %80, 99999999999
+  %102 = icmp samesign ugt i64 %80, 99999999999
   br i1 %102, label %126, label %103
 
 103:                                              ; preds = %101
-  %104 = icmp ugt i64 %80, 9999999999
+  %104 = icmp samesign ugt i64 %80, 9999999999
   %105 = select i1 %104, i64 11, i64 10
   br label %126
 
 106:                                              ; preds = %77
-  %107 = icmp ugt i64 %80, 9999
+  %107 = icmp samesign ugt i64 %80, 9999
   br i1 %107, label %108, label %118
 
 108:                                              ; preds = %106
-  %109 = icmp ugt i64 %80, 9999999
+  %109 = icmp samesign ugt i64 %80, 9999999
   br i1 %109, label %110, label %113
 
 110:                                              ; preds = %108
-  %111 = icmp ugt i64 %80, 99999999
+  %111 = icmp samesign ugt i64 %80, 99999999
   %112 = select i1 %111, i64 9, i64 8
   br label %126
 
 113:                                              ; preds = %108
-  %114 = icmp ugt i64 %80, 999999
+  %114 = icmp samesign ugt i64 %80, 999999
   br i1 %114, label %126, label %115
 
 115:                                              ; preds = %113
-  %116 = icmp ugt i64 %80, 99999
+  %116 = icmp samesign ugt i64 %80, 99999
   %117 = select i1 %116, i64 6, i64 5
   br label %126
 
 118:                                              ; preds = %106
-  %119 = icmp ugt i64 %80, 99
+  %119 = icmp samesign ugt i64 %80, 99
   br i1 %119, label %120, label %123
 
 120:                                              ; preds = %118
-  %121 = icmp ugt i64 %80, 999
+  %121 = icmp samesign ugt i64 %80, 999
   %122 = select i1 %121, i64 4, i64 3
   br label %126
 
 123:                                              ; preds = %118
-  %124 = icmp ugt i64 %80, 9
+  %124 = icmp samesign ugt i64 %80, 9
   %125 = select i1 %124, i64 2, i64 1
   br label %126
 
@@ -51961,65 +51961,65 @@ define linkonce_odr dso_local noundef i64 @_ZN2c44dumpIRZNKS_3yml6Parser4_errIJE
   br label %51
 
 16:                                               ; preds = %9
-  %17 = icmp ugt i64 %5, 9999999999999999
+  %17 = icmp samesign ugt i64 %5, 9999999999999999
   br i1 %17, label %51, label %18
 
 18:                                               ; preds = %16
-  %19 = icmp ugt i64 %5, 999999999999999
+  %19 = icmp samesign ugt i64 %5, 999999999999999
   %20 = select i1 %19, i32 16, i32 15
   br label %51
 
 21:                                               ; preds = %7
-  %22 = icmp ugt i64 %5, 999999999999
+  %22 = icmp samesign ugt i64 %5, 999999999999
   br i1 %22, label %23, label %26
 
 23:                                               ; preds = %21
-  %24 = icmp ugt i64 %5, 9999999999999
+  %24 = icmp samesign ugt i64 %5, 9999999999999
   %25 = select i1 %24, i32 14, i32 13
   br label %51
 
 26:                                               ; preds = %21
-  %27 = icmp ugt i64 %5, 99999999999
+  %27 = icmp samesign ugt i64 %5, 99999999999
   br i1 %27, label %51, label %28
 
 28:                                               ; preds = %26
-  %29 = icmp ugt i64 %5, 9999999999
+  %29 = icmp samesign ugt i64 %5, 9999999999
   %30 = select i1 %29, i32 11, i32 10
   br label %51
 
 31:                                               ; preds = %4
-  %32 = icmp ugt i64 %5, 9999
+  %32 = icmp samesign ugt i64 %5, 9999
   br i1 %32, label %33, label %43
 
 33:                                               ; preds = %31
-  %34 = icmp ugt i64 %5, 9999999
+  %34 = icmp samesign ugt i64 %5, 9999999
   br i1 %34, label %35, label %38
 
 35:                                               ; preds = %33
-  %36 = icmp ugt i64 %5, 99999999
+  %36 = icmp samesign ugt i64 %5, 99999999
   %37 = select i1 %36, i32 9, i32 8
   br label %51
 
 38:                                               ; preds = %33
-  %39 = icmp ugt i64 %5, 999999
+  %39 = icmp samesign ugt i64 %5, 999999
   br i1 %39, label %51, label %40
 
 40:                                               ; preds = %38
-  %41 = icmp ugt i64 %5, 99999
+  %41 = icmp samesign ugt i64 %5, 99999
   %42 = select i1 %41, i32 6, i32 5
   br label %51
 
 43:                                               ; preds = %31
-  %44 = icmp ugt i64 %5, 99
+  %44 = icmp samesign ugt i64 %5, 99
   br i1 %44, label %45, label %48
 
 45:                                               ; preds = %43
-  %46 = icmp ugt i64 %5, 999
+  %46 = icmp samesign ugt i64 %5, 999
   %47 = select i1 %46, i32 4, i32 3
   br label %51
 
 48:                                               ; preds = %43
-  %49 = icmp ugt i64 %5, 9
+  %49 = icmp samesign ugt i64 %5, 9
   %50 = select i1 %49, i32 2, i32 1
   br label %51
 
@@ -52806,65 +52806,65 @@ define linkonce_odr dso_local void @_ZNK2c43yml6Parser8_fmt_msgIRZNKS1_4_errIJNS
   br label %77
 
 42:                                               ; preds = %35
-  %43 = icmp ugt i64 %31, 9999999999999999
+  %43 = icmp samesign ugt i64 %31, 9999999999999999
   br i1 %43, label %77, label %44
 
 44:                                               ; preds = %42
-  %45 = icmp ugt i64 %31, 999999999999999
+  %45 = icmp samesign ugt i64 %31, 999999999999999
   %46 = select i1 %45, i64 16, i64 15
   br label %77
 
 47:                                               ; preds = %33
-  %48 = icmp ugt i64 %31, 999999999999
+  %48 = icmp samesign ugt i64 %31, 999999999999
   br i1 %48, label %49, label %52
 
 49:                                               ; preds = %47
-  %50 = icmp ugt i64 %31, 9999999999999
+  %50 = icmp samesign ugt i64 %31, 9999999999999
   %51 = select i1 %50, i64 14, i64 13
   br label %77
 
 52:                                               ; preds = %47
-  %53 = icmp ugt i64 %31, 99999999999
+  %53 = icmp samesign ugt i64 %31, 99999999999
   br i1 %53, label %77, label %54
 
 54:                                               ; preds = %52
-  %55 = icmp ugt i64 %31, 9999999999
+  %55 = icmp samesign ugt i64 %31, 9999999999
   %56 = select i1 %55, i64 11, i64 10
   br label %77
 
 57:                                               ; preds = %29
-  %58 = icmp ugt i64 %31, 9999
+  %58 = icmp samesign ugt i64 %31, 9999
   br i1 %58, label %59, label %69
 
 59:                                               ; preds = %57
-  %60 = icmp ugt i64 %31, 9999999
+  %60 = icmp samesign ugt i64 %31, 9999999
   br i1 %60, label %61, label %64
 
 61:                                               ; preds = %59
-  %62 = icmp ugt i64 %31, 99999999
+  %62 = icmp samesign ugt i64 %31, 99999999
   %63 = select i1 %62, i64 9, i64 8
   br label %77
 
 64:                                               ; preds = %59
-  %65 = icmp ugt i64 %31, 999999
+  %65 = icmp samesign ugt i64 %31, 999999
   br i1 %65, label %77, label %66
 
 66:                                               ; preds = %64
-  %67 = icmp ugt i64 %31, 99999
+  %67 = icmp samesign ugt i64 %31, 99999
   %68 = select i1 %67, i64 6, i64 5
   br label %77
 
 69:                                               ; preds = %57
-  %70 = icmp ugt i64 %31, 99
+  %70 = icmp samesign ugt i64 %31, 99
   br i1 %70, label %71, label %74
 
 71:                                               ; preds = %69
-  %72 = icmp ugt i64 %31, 999
+  %72 = icmp samesign ugt i64 %31, 999
   %73 = select i1 %72, i64 4, i64 3
   br label %77
 
 74:                                               ; preds = %69
-  %75 = icmp ugt i64 %31, 9
+  %75 = icmp samesign ugt i64 %31, 9
   %76 = select i1 %75, i64 2, i64 1
   br label %77
 
@@ -52894,65 +52894,65 @@ define linkonce_odr dso_local void @_ZNK2c43yml6Parser8_fmt_msgIRZNKS1_4_errIJNS
   br label %126
 
 91:                                               ; preds = %84
-  %92 = icmp ugt i64 %80, 9999999999999999
+  %92 = icmp samesign ugt i64 %80, 9999999999999999
   br i1 %92, label %126, label %93
 
 93:                                               ; preds = %91
-  %94 = icmp ugt i64 %80, 999999999999999
+  %94 = icmp samesign ugt i64 %80, 999999999999999
   %95 = select i1 %94, i64 16, i64 15
   br label %126
 
 96:                                               ; preds = %82
-  %97 = icmp ugt i64 %80, 999999999999
+  %97 = icmp samesign ugt i64 %80, 999999999999
   br i1 %97, label %98, label %101
 
 98:                                               ; preds = %96
-  %99 = icmp ugt i64 %80, 9999999999999
+  %99 = icmp samesign ugt i64 %80, 9999999999999
   %100 = select i1 %99, i64 14, i64 13
   br label %126
 
 101:                                              ; preds = %96
-  %102 = icmp ugt i64 %80, 99999999999
+  %102 = icmp samesign ugt i64 %80, 99999999999
   br i1 %102, label %126, label %103
 
 103:                                              ; preds = %101
-  %104 = icmp ugt i64 %80, 9999999999
+  %104 = icmp samesign ugt i64 %80, 9999999999
   %105 = select i1 %104, i64 11, i64 10
   br label %126
 
 106:                                              ; preds = %77
-  %107 = icmp ugt i64 %80, 9999
+  %107 = icmp samesign ugt i64 %80, 9999
   br i1 %107, label %108, label %118
 
 108:                                              ; preds = %106
-  %109 = icmp ugt i64 %80, 9999999
+  %109 = icmp samesign ugt i64 %80, 9999999
   br i1 %109, label %110, label %113
 
 110:                                              ; preds = %108
-  %111 = icmp ugt i64 %80, 99999999
+  %111 = icmp samesign ugt i64 %80, 99999999
   %112 = select i1 %111, i64 9, i64 8
   br label %126
 
 113:                                              ; preds = %108
-  %114 = icmp ugt i64 %80, 999999
+  %114 = icmp samesign ugt i64 %80, 999999
   br i1 %114, label %126, label %115
 
 115:                                              ; preds = %113
-  %116 = icmp ugt i64 %80, 99999
+  %116 = icmp samesign ugt i64 %80, 99999
   %117 = select i1 %116, i64 6, i64 5
   br label %126
 
 118:                                              ; preds = %106
-  %119 = icmp ugt i64 %80, 99
+  %119 = icmp samesign ugt i64 %80, 99
   br i1 %119, label %120, label %123
 
 120:                                              ; preds = %118
-  %121 = icmp ugt i64 %80, 999
+  %121 = icmp samesign ugt i64 %80, 999
   %122 = select i1 %121, i64 4, i64 3
   br label %126
 
 123:                                              ; preds = %118
-  %124 = icmp ugt i64 %80, 9
+  %124 = icmp samesign ugt i64 %80, 9
   %125 = select i1 %124, i64 2, i64 1
   br label %126
 
@@ -53514,65 +53514,65 @@ define linkonce_odr dso_local noundef i64 @_ZN2c44dumpIRZNKS_3yml6Parser4_errIJN
   br label %51
 
 16:                                               ; preds = %9
-  %17 = icmp ugt i64 %5, 9999999999999999
+  %17 = icmp samesign ugt i64 %5, 9999999999999999
   br i1 %17, label %51, label %18
 
 18:                                               ; preds = %16
-  %19 = icmp ugt i64 %5, 999999999999999
+  %19 = icmp samesign ugt i64 %5, 999999999999999
   %20 = select i1 %19, i32 16, i32 15
   br label %51
 
 21:                                               ; preds = %7
-  %22 = icmp ugt i64 %5, 999999999999
+  %22 = icmp samesign ugt i64 %5, 999999999999
   br i1 %22, label %23, label %26
 
 23:                                               ; preds = %21
-  %24 = icmp ugt i64 %5, 9999999999999
+  %24 = icmp samesign ugt i64 %5, 9999999999999
   %25 = select i1 %24, i32 14, i32 13
   br label %51
 
 26:                                               ; preds = %21
-  %27 = icmp ugt i64 %5, 99999999999
+  %27 = icmp samesign ugt i64 %5, 99999999999
   br i1 %27, label %51, label %28
 
 28:                                               ; preds = %26
-  %29 = icmp ugt i64 %5, 9999999999
+  %29 = icmp samesign ugt i64 %5, 9999999999
   %30 = select i1 %29, i32 11, i32 10
   br label %51
 
 31:                                               ; preds = %4
-  %32 = icmp ugt i64 %5, 9999
+  %32 = icmp samesign ugt i64 %5, 9999
   br i1 %32, label %33, label %43
 
 33:                                               ; preds = %31
-  %34 = icmp ugt i64 %5, 9999999
+  %34 = icmp samesign ugt i64 %5, 9999999
   br i1 %34, label %35, label %38
 
 35:                                               ; preds = %33
-  %36 = icmp ugt i64 %5, 99999999
+  %36 = icmp samesign ugt i64 %5, 99999999
   %37 = select i1 %36, i32 9, i32 8
   br label %51
 
 38:                                               ; preds = %33
-  %39 = icmp ugt i64 %5, 999999
+  %39 = icmp samesign ugt i64 %5, 999999
   br i1 %39, label %51, label %40
 
 40:                                               ; preds = %38
-  %41 = icmp ugt i64 %5, 99999
+  %41 = icmp samesign ugt i64 %5, 99999
   %42 = select i1 %41, i32 6, i32 5
   br label %51
 
 43:                                               ; preds = %31
-  %44 = icmp ugt i64 %5, 99
+  %44 = icmp samesign ugt i64 %5, 99
   br i1 %44, label %45, label %48
 
 45:                                               ; preds = %43
-  %46 = icmp ugt i64 %5, 999
+  %46 = icmp samesign ugt i64 %5, 999
   %47 = select i1 %46, i32 4, i32 3
   br label %51
 
 48:                                               ; preds = %43
-  %49 = icmp ugt i64 %5, 9
+  %49 = icmp samesign ugt i64 %5, 9
   %50 = select i1 %49, i32 2, i32 1
   br label %51
 

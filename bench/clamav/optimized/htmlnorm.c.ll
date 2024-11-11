@@ -5278,8 +5278,8 @@ define internal fastcc ptr @cli_readchunk(ptr nocapture noundef nonnull %0) unna
 .thread:                                          ; preds = %49, %51
   %.4129 = phi ptr [ %62, %51 ], [ %.2127, %49 ]
   %63 = icmp ult ptr %.4129, %29
-  %64 = icmp ult i32 %.1, 8191
-  %65 = and i1 %63, %64
+  %64 = icmp samesign ult i32 %.1, 8191
+  %65 = select i1 %63, i1 %64, i1 false
   br i1 %65, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %.thread, %72
@@ -5300,7 +5300,7 @@ define internal fastcc ptr @cli_readchunk(ptr nocapture noundef nonnull %0) unna
 72:                                               ; preds = %68, %.lr.ph
   %.3 = phi i32 [ %69, %68 ], [ %.26, %.lr.ph ]
   %73 = icmp ult ptr %66, %29
-  %74 = icmp ult i32 %.3, 8191
+  %74 = icmp samesign ult i32 %.3, 8191
   %75 = select i1 %73, i1 %74, i1 false
   br i1 %75, label %.lr.ph, label %._crit_edge
 
@@ -5713,7 +5713,7 @@ define internal fastcc void @html_tag_contents_append(ptr nocapture noundef nonn
   %22 = trunc i32 %.06589 to i8
   %23 = and i32 %.06589, 16711680
   %.not75 = icmp ne i32 %23, 0
-  %24 = icmp ult i64 %.06490, 1023
+  %24 = icmp samesign ult i64 %.06490, 1023
   %or.cond = and i1 %.not75, %24
   br i1 %or.cond, label %25, label %30
 
@@ -5729,7 +5729,7 @@ define internal fastcc void @html_tag_contents_append(ptr nocapture noundef nonn
   %.4 = phi i64 [ %28, %25 ], [ %.06490, %19 ]
   %31 = and i32 %.06589, 16776960
   %or.cond16.not = icmp ne i32 %31, 0
-  %32 = icmp ult i64 %.4, 1023
+  %32 = icmp samesign ult i64 %.4, 1023
   %or.cond76 = select i1 %or.cond16.not, i1 %32, i1 false
   br i1 %or.cond76, label %33, label %.thread80
 
@@ -5742,7 +5742,7 @@ define internal fastcc void @html_tag_contents_append(ptr nocapture noundef nonn
 .thread80:                                        ; preds = %17, %30, %33
   %36 = phi i8 [ %22, %33 ], [ %22, %30 ], [ -95, %17 ]
   %.5 = phi i64 [ %34, %33 ], [ %.4, %30 ], [ %.06490, %17 ]
-  %37 = icmp ult i64 %.5, 1023
+  %37 = icmp samesign ult i64 %.5, 1023
   br i1 %37, label %.sink.split, label %40
 
 .sink.split:                                      ; preds = %.thread80, %16, %16, %16

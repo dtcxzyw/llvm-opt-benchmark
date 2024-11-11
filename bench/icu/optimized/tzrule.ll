@@ -2149,7 +2149,7 @@ for.body.us10.us.preheader:                       ; preds = %entry.split.split.u
   br label %for.body.us10.us
 
 for.cond.us6.us:                                  ; preds = %for.body.us10.us
-  %cmp.us9.us = icmp ugt i64 %indvars.iv93, 1
+  %cmp.us9.us = icmp samesign ugt i64 %indvars.iv93, 1
   br i1 %cmp.us9.us, label %for.body.us10.us, label %return
 
 for.body.us10.us:                                 ; preds = %for.body.us10.us.preheader, %for.cond.us6.us
@@ -2193,7 +2193,7 @@ for.body.us26.preheader:                          ; preds = %entry.split.split.s
   br label %for.body.us26
 
 for.cond.us22:                                    ; preds = %for.body.us26
-  %cmp.us25 = icmp ugt i64 %indvars.iv86, 1
+  %cmp.us25 = icmp samesign ugt i64 %indvars.iv86, 1
   br i1 %cmp.us25, label %for.body.us26, label %return
 
 for.body.us26:                                    ; preds = %for.body.us26.preheader, %for.cond.us22

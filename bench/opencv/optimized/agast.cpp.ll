@@ -494,61 +494,61 @@ _ZNSt6vectorIN2cv8KeyPointESaIS1_EE6resizeEm.exit.i: ; preds = %84, %68
   %166 = getelementptr inbounds i8, ptr %131, i64 %118
   %167 = load i8, ptr %166, align 1
   %168 = zext i8 %167 to i32
-  %169 = icmp ult i32 %134, %168
+  %169 = icmp samesign ult i32 %134, %168
   br i1 %169, label %1134, label %.backedge874.i
 
 170:                                              ; preds = %158
-  %171 = icmp ult i32 %134, %162
+  %171 = icmp samesign ult i32 %134, %162
   br i1 %171, label %172, label %.backedge874.i
 
 172:                                              ; preds = %170
   %173 = getelementptr inbounds i8, ptr %131, i64 %120
   %174 = load i8, ptr %173, align 1
   %175 = zext i8 %174 to i32
-  %176 = icmp ult i32 %134, %175
+  %176 = icmp samesign ult i32 %134, %175
   br i1 %176, label %1134, label %.backedge874.i
 
 177:                                              ; preds = %150
-  %178 = icmp ult i32 %134, %157
+  %178 = icmp samesign ult i32 %134, %157
   br i1 %178, label %179, label %.backedge874.i
 
 179:                                              ; preds = %177
   %180 = getelementptr inbounds i8, ptr %131, i64 %119
   %181 = load i8, ptr %180, align 1
   %182 = zext i8 %181 to i32
-  %183 = icmp ult i32 %134, %182
+  %183 = icmp samesign ult i32 %134, %182
   br i1 %183, label %1062, label %184
 
 184:                                              ; preds = %179
   %185 = getelementptr inbounds i8, ptr %131, i64 %118
   %186 = load i8, ptr %185, align 1
   %187 = zext i8 %186 to i32
-  %188 = icmp ult i32 %134, %187
+  %188 = icmp samesign ult i32 %134, %187
   br i1 %188, label %1062, label %.backedge874.i
 
 189:                                              ; preds = %145
   %190 = getelementptr inbounds i8, ptr %131, i64 %118
   %191 = load i8, ptr %190, align 1
   %192 = zext i8 %191 to i32
-  %193 = icmp ult i32 %134, %192
+  %193 = icmp samesign ult i32 %134, %192
   br i1 %193, label %194, label %215
 
 194:                                              ; preds = %189
   %195 = getelementptr inbounds i8, ptr %131, i64 %120
   %196 = load i8, ptr %195, align 1
   %197 = zext i8 %196 to i32
-  %198 = icmp ult i32 %134, %197
+  %198 = icmp samesign ult i32 %134, %197
   br i1 %198, label %199, label %.backedge874.i
 
 199:                                              ; preds = %194
   %200 = getelementptr inbounds i8, ptr %131, i64 %116
   %201 = load i8, ptr %200, align 1
   %202 = zext i8 %201 to i32
-  %203 = icmp ult i32 %134, %202
+  %203 = icmp samesign ult i32 %134, %202
   %204 = getelementptr inbounds i8, ptr %131, i64 %121
   %205 = load i8, ptr %204, align 1
   %206 = zext i8 %205 to i32
-  %207 = icmp ult i32 %134, %206
+  %207 = icmp samesign ult i32 %134, %206
   br i1 %203, label %208, label %214
 
 208:                                              ; preds = %199
@@ -558,7 +558,7 @@ _ZNSt6vectorIN2cv8KeyPointESaIS1_EE6resizeEm.exit.i: ; preds = %84, %68
   %210 = getelementptr inbounds i8, ptr %131, i64 %119
   %211 = load i8, ptr %210, align 1
   %212 = zext i8 %211 to i32
-  %213 = icmp ult i32 %134, %212
+  %213 = icmp samesign ult i32 %134, %212
   br i1 %213, label %1134, label %.backedge874.i
 
 214:                                              ; preds = %199
@@ -579,49 +579,49 @@ _ZNSt6vectorIN2cv8KeyPointESaIS1_EE6resizeEm.exit.i: ; preds = %84, %68
   %223 = getelementptr inbounds i8, ptr %131, i64 %119
   %224 = load i8, ptr %223, align 1
   %225 = zext i8 %224 to i32
-  %226 = icmp ugt i32 %135, %225
+  %226 = icmp samesign ugt i32 %135, %225
   br i1 %226, label %227, label %.backedge874.i
 
 227:                                              ; preds = %222
   %228 = getelementptr inbounds i8, ptr %131, i64 %120
   %229 = load i8, ptr %228, align 1
   %230 = zext i8 %229 to i32
-  %231 = icmp ugt i32 %135, %230
+  %231 = icmp samesign ugt i32 %135, %230
   br i1 %231, label %1134, label %.preheader.i
 
 232:                                              ; preds = %140
   %233 = getelementptr inbounds i8, ptr %131, i64 %116
   %234 = load i8, ptr %233, align 1
   %235 = zext i8 %234 to i32
-  %236 = icmp ult i32 %134, %235
+  %236 = icmp samesign ult i32 %134, %235
   br i1 %236, label %237, label %257
 
 237:                                              ; preds = %232
   %238 = getelementptr inbounds i8, ptr %131, i64 %118
   %239 = load i8, ptr %238, align 1
   %240 = zext i8 %239 to i32
-  %241 = icmp ult i32 %134, %240
+  %241 = icmp samesign ult i32 %134, %240
   br i1 %241, label %242, label %.backedge874.i
 
 242:                                              ; preds = %237
   %243 = getelementptr inbounds i8, ptr %131, i64 %120
   %244 = load i8, ptr %243, align 1
   %245 = zext i8 %244 to i32
-  %246 = icmp ult i32 %134, %245
+  %246 = icmp samesign ult i32 %134, %245
   br i1 %246, label %247, label %.backedge874.i
 
 247:                                              ; preds = %242
   %248 = getelementptr inbounds i8, ptr %131, i64 %121
   %249 = load i8, ptr %248, align 1
   %250 = zext i8 %249 to i32
-  %251 = icmp ult i32 %134, %250
+  %251 = icmp samesign ult i32 %134, %250
   br i1 %251, label %1062, label %252
 
 252:                                              ; preds = %247
   %253 = getelementptr inbounds i8, ptr %131, i64 %119
   %254 = load i8, ptr %253, align 1
   %255 = zext i8 %254 to i32
-  %256 = icmp ult i32 %134, %255
+  %256 = icmp samesign ult i32 %134, %255
   br i1 %256, label %1062, label %.backedge874.i
 
 257:                                              ; preds = %232
@@ -632,22 +632,22 @@ _ZNSt6vectorIN2cv8KeyPointESaIS1_EE6resizeEm.exit.i: ; preds = %84, %68
   %260 = getelementptr inbounds i8, ptr %131, i64 %115
   %261 = load i8, ptr %260, align 1
   %262 = zext i8 %261 to i32
-  %263 = icmp ugt i32 %135, %262
+  %263 = icmp samesign ugt i32 %135, %262
   br i1 %263, label %264, label %.backedge874.i
 
 264:                                              ; preds = %259
-  %265 = icmp ugt i32 %135, %143
+  %265 = icmp samesign ugt i32 %135, %143
   br i1 %265, label %266, label %282
 
 266:                                              ; preds = %264
   %267 = getelementptr inbounds i8, ptr %131, i64 %121
   %268 = load i8, ptr %267, align 1
   %269 = zext i8 %268 to i32
-  %270 = icmp ugt i32 %135, %269
+  %270 = icmp samesign ugt i32 %135, %269
   %271 = getelementptr inbounds i8, ptr %131, i64 %119
   %272 = load i8, ptr %271, align 1
   %273 = zext i8 %272 to i32
-  %274 = icmp ugt i32 %135, %273
+  %274 = icmp samesign ugt i32 %135, %273
   br i1 %270, label %275, label %276
 
 275:                                              ; preds = %266
@@ -660,28 +660,28 @@ _ZNSt6vectorIN2cv8KeyPointESaIS1_EE6resizeEm.exit.i: ; preds = %84, %68
   %278 = getelementptr inbounds i8, ptr %131, i64 %120
   %279 = load i8, ptr %278, align 1
   %280 = zext i8 %279 to i32
-  %281 = icmp ugt i32 %135, %280
+  %281 = icmp samesign ugt i32 %135, %280
   br i1 %281, label %1134, label %.backedge874.i
 
 282:                                              ; preds = %264
   %283 = getelementptr inbounds i8, ptr %131, i64 %118
   %284 = load i8, ptr %283, align 1
   %285 = zext i8 %284 to i32
-  %286 = icmp ugt i32 %135, %285
+  %286 = icmp samesign ugt i32 %135, %285
   br i1 %286, label %287, label %.backedge874.i
 
 287:                                              ; preds = %282
   %288 = getelementptr inbounds i8, ptr %131, i64 %119
   %289 = load i8, ptr %288, align 1
   %290 = zext i8 %289 to i32
-  %291 = icmp ugt i32 %135, %290
+  %291 = icmp samesign ugt i32 %135, %290
   br i1 %291, label %292, label %.backedge874.i
 
 292:                                              ; preds = %287
   %293 = getelementptr inbounds i8, ptr %131, i64 %120
   %294 = load i8, ptr %293, align 1
   %295 = zext i8 %294 to i32
-  %296 = icmp ugt i32 %135, %295
+  %296 = icmp samesign ugt i32 %135, %295
   br i1 %296, label %1134, label %.backedge874.i
 
 297:                                              ; preds = %126
@@ -692,39 +692,39 @@ _ZNSt6vectorIN2cv8KeyPointESaIS1_EE6resizeEm.exit.i: ; preds = %84, %68
   %300 = getelementptr inbounds i8, ptr %131, i64 %117
   %301 = load i8, ptr %300, align 1
   %302 = zext i8 %301 to i32
-  %303 = icmp ugt i32 %135, %302
+  %303 = icmp samesign ugt i32 %135, %302
   br i1 %303, label %304, label %434
 
 304:                                              ; preds = %299
   %305 = getelementptr inbounds i8, ptr %131, i64 %118
   %306 = load i8, ptr %305, align 1
   %307 = zext i8 %306 to i32
-  %308 = icmp ult i32 %134, %307
+  %308 = icmp samesign ult i32 %134, %307
   br i1 %308, label %309, label %354
 
 309:                                              ; preds = %304
   %310 = getelementptr inbounds i8, ptr %131, i64 %115
   %311 = load i8, ptr %310, align 1
   %312 = zext i8 %311 to i32
-  %313 = icmp ugt i32 %135, %312
+  %313 = icmp samesign ugt i32 %135, %312
   %314 = getelementptr inbounds i8, ptr %131, i64 %116
   %315 = load i8, ptr %314, align 1
   %316 = zext i8 %315 to i32
   br i1 %313, label %317, label %341
 
 317:                                              ; preds = %309
-  %318 = icmp ugt i32 %135, %316
+  %318 = icmp samesign ugt i32 %135, %316
   %319 = getelementptr inbounds i8, ptr %131, i64 %121
   %320 = load i8, ptr %319, align 1
   %321 = zext i8 %320 to i32
-  %322 = icmp ugt i32 %135, %321
+  %322 = icmp samesign ugt i32 %135, %321
   br i1 %318, label %323, label %335
 
 323:                                              ; preds = %317
   %324 = getelementptr inbounds i8, ptr %131, i64 %119
   %325 = load i8, ptr %324, align 1
   %326 = zext i8 %325 to i32
-  %327 = icmp ugt i32 %135, %326
+  %327 = icmp samesign ugt i32 %135, %326
   br i1 %322, label %328, label %329
 
 328:                                              ; preds = %323
@@ -737,7 +737,7 @@ _ZNSt6vectorIN2cv8KeyPointESaIS1_EE6resizeEm.exit.i: ; preds = %84, %68
   %331 = getelementptr inbounds i8, ptr %131, i64 %120
   %332 = load i8, ptr %331, align 1
   %333 = zext i8 %332 to i32
-  %334 = icmp ugt i32 %135, %333
+  %334 = icmp samesign ugt i32 %135, %333
   br i1 %334, label %1134, label %.preheader.i
 
 335:                                              ; preds = %317
@@ -747,12 +747,12 @@ _ZNSt6vectorIN2cv8KeyPointESaIS1_EE6resizeEm.exit.i: ; preds = %84, %68
   %337 = getelementptr inbounds i8, ptr %131, i64 %119
   %338 = load i8, ptr %337, align 1
   %339 = zext i8 %338 to i32
-  %340 = icmp ugt i32 %135, %339
+  %340 = icmp samesign ugt i32 %135, %339
   br i1 %340, label %1134, label %.backedge874.i
 
 341:                                              ; preds = %309
-  %342 = icmp ult i32 %134, %316
-  %343 = icmp ult i32 %134, %312
+  %342 = icmp samesign ult i32 %134, %316
+  %343 = icmp samesign ult i32 %134, %312
   %or.cond767.i = and i1 %343, %342
   br i1 %or.cond767.i, label %344, label %.backedge874.i
 
@@ -760,22 +760,22 @@ _ZNSt6vectorIN2cv8KeyPointESaIS1_EE6resizeEm.exit.i: ; preds = %84, %68
   %345 = getelementptr inbounds i8, ptr %131, i64 %119
   %346 = load i8, ptr %345, align 1
   %347 = zext i8 %346 to i32
-  %348 = icmp ult i32 %134, %347
+  %348 = icmp samesign ult i32 %134, %347
   br i1 %348, label %349, label %.backedge874.i
 
 349:                                              ; preds = %344
   %350 = getelementptr inbounds i8, ptr %131, i64 %120
   %351 = load i8, ptr %350, align 1
   %352 = zext i8 %351 to i32
-  %353 = icmp ult i32 %134, %352
+  %353 = icmp samesign ult i32 %134, %352
   br i1 %353, label %1134, label %.preheader.i
 
 354:                                              ; preds = %304
-  %355 = icmp ugt i32 %135, %307
+  %355 = icmp samesign ugt i32 %135, %307
   %356 = getelementptr inbounds i8, ptr %131, i64 %115
   %357 = load i8, ptr %356, align 1
   %358 = zext i8 %357 to i32
-  %359 = icmp ugt i32 %135, %358
+  %359 = icmp samesign ugt i32 %135, %358
   br i1 %355, label %360, label %406
 
 360:                                              ; preds = %354
@@ -785,11 +785,11 @@ _ZNSt6vectorIN2cv8KeyPointESaIS1_EE6resizeEm.exit.i: ; preds = %84, %68
   %362 = getelementptr inbounds i8, ptr %131, i64 %116
   %363 = load i8, ptr %362, align 1
   %364 = zext i8 %363 to i32
-  %365 = icmp ugt i32 %135, %364
+  %365 = icmp samesign ugt i32 %135, %364
   %366 = getelementptr inbounds i8, ptr %131, i64 %121
   %367 = load i8, ptr %366, align 1
   %368 = zext i8 %367 to i32
-  %369 = icmp ugt i32 %135, %368
+  %369 = icmp samesign ugt i32 %135, %368
   br i1 %365, label %370, label %384
 
 370:                                              ; preds = %361
@@ -799,14 +799,14 @@ _ZNSt6vectorIN2cv8KeyPointESaIS1_EE6resizeEm.exit.i: ; preds = %84, %68
   %372 = getelementptr inbounds i8, ptr %131, i64 %119
   %373 = load i8, ptr %372, align 1
   %374 = zext i8 %373 to i32
-  %375 = icmp ugt i32 %135, %374
+  %375 = icmp samesign ugt i32 %135, %374
   br i1 %375, label %376, label %.backedge874.i
 
 376:                                              ; preds = %371
   %377 = getelementptr inbounds i8, ptr %131, i64 %120
   %378 = load i8, ptr %377, align 1
   %379 = zext i8 %378 to i32
-  %380 = icmp ugt i32 %135, %379
+  %380 = icmp samesign ugt i32 %135, %379
   br i1 %380, label %1134, label %.preheader.i
 
 .preheader.i:                                     ; preds = %_ZNSt6vectorIN2cv8KeyPointESaIS1_EE9push_backEOS1_.exit834.i, %376, %349, %330, %328, %227
@@ -829,18 +829,18 @@ _ZNSt6vectorIN2cv8KeyPointESaIS1_EE6resizeEm.exit.i: ; preds = %84, %68
   %386 = getelementptr inbounds i8, ptr %131, i64 %120
   %387 = load i8, ptr %386, align 1
   %388 = zext i8 %387 to i32
-  %389 = icmp ugt i32 %135, %388
+  %389 = icmp samesign ugt i32 %135, %388
   br i1 %389, label %390, label %.backedge874.i
 
 390:                                              ; preds = %385
   %391 = getelementptr inbounds i8, ptr %131, i64 %116
   %392 = load i8, ptr %391, align 1
   %393 = zext i8 %392 to i32
-  %394 = icmp ugt i32 %135, %393
+  %394 = icmp samesign ugt i32 %135, %393
   %395 = getelementptr inbounds i8, ptr %131, i64 %121
   %396 = load i8, ptr %395, align 1
   %397 = zext i8 %396 to i32
-  %398 = icmp ugt i32 %135, %397
+  %398 = icmp samesign ugt i32 %135, %397
   br i1 %394, label %399, label %405
 
 399:                                              ; preds = %390
@@ -850,7 +850,7 @@ _ZNSt6vectorIN2cv8KeyPointESaIS1_EE6resizeEm.exit.i: ; preds = %84, %68
   %401 = getelementptr inbounds i8, ptr %131, i64 %119
   %402 = load i8, ptr %401, align 1
   %403 = zext i8 %402 to i32
-  %404 = icmp ugt i32 %135, %403
+  %404 = icmp samesign ugt i32 %135, %403
   br i1 %404, label %1134, label %.backedge874.i
 
 405:                                              ; preds = %390
@@ -863,18 +863,18 @@ _ZNSt6vectorIN2cv8KeyPointESaIS1_EE6resizeEm.exit.i: ; preds = %84, %68
   %408 = getelementptr inbounds i8, ptr %131, i64 %116
   %409 = load i8, ptr %408, align 1
   %410 = zext i8 %409 to i32
-  %411 = icmp ugt i32 %135, %410
+  %411 = icmp samesign ugt i32 %135, %410
   %412 = getelementptr inbounds i8, ptr %131, i64 %121
   %413 = load i8, ptr %412, align 1
   %414 = zext i8 %413 to i32
-  %415 = icmp ugt i32 %135, %414
+  %415 = icmp samesign ugt i32 %135, %414
   br i1 %411, label %416, label %428
 
 416:                                              ; preds = %407
   %417 = getelementptr inbounds i8, ptr %131, i64 %119
   %418 = load i8, ptr %417, align 1
   %419 = zext i8 %418 to i32
-  %420 = icmp ugt i32 %135, %419
+  %420 = icmp samesign ugt i32 %135, %419
   br i1 %415, label %421, label %422
 
 421:                                              ; preds = %416
@@ -887,7 +887,7 @@ _ZNSt6vectorIN2cv8KeyPointESaIS1_EE6resizeEm.exit.i: ; preds = %84, %68
   %424 = getelementptr inbounds i8, ptr %131, i64 %120
   %425 = load i8, ptr %424, align 1
   %426 = zext i8 %425 to i32
-  %427 = icmp ugt i32 %135, %426
+  %427 = icmp samesign ugt i32 %135, %426
   br i1 %427, label %1134, label %.backedge874.i
 
 428:                                              ; preds = %407
@@ -897,36 +897,36 @@ _ZNSt6vectorIN2cv8KeyPointESaIS1_EE6resizeEm.exit.i: ; preds = %84, %68
   %430 = getelementptr inbounds i8, ptr %131, i64 %119
   %431 = load i8, ptr %430, align 1
   %432 = zext i8 %431 to i32
-  %433 = icmp ugt i32 %135, %432
+  %433 = icmp samesign ugt i32 %135, %432
   br i1 %433, label %1062, label %.backedge874.i
 
 434:                                              ; preds = %299
   %435 = getelementptr inbounds i8, ptr %131, i64 %116
   %436 = load i8, ptr %435, align 1
   %437 = zext i8 %436 to i32
-  %438 = icmp ult i32 %134, %437
+  %438 = icmp samesign ult i32 %134, %437
   br i1 %438, label %439, label %477
 
 439:                                              ; preds = %434
   %440 = getelementptr inbounds i8, ptr %131, i64 %115
   %441 = load i8, ptr %440, align 1
   %442 = zext i8 %441 to i32
-  %443 = icmp ult i32 %134, %442
+  %443 = icmp samesign ult i32 %134, %442
   br i1 %443, label %444, label %.backedge874.i
 
 444:                                              ; preds = %439
-  %445 = icmp ult i32 %134, %302
+  %445 = icmp samesign ult i32 %134, %302
   br i1 %445, label %446, label %462
 
 446:                                              ; preds = %444
   %447 = getelementptr inbounds i8, ptr %131, i64 %121
   %448 = load i8, ptr %447, align 1
   %449 = zext i8 %448 to i32
-  %450 = icmp ult i32 %134, %449
+  %450 = icmp samesign ult i32 %134, %449
   %451 = getelementptr inbounds i8, ptr %131, i64 %119
   %452 = load i8, ptr %451, align 1
   %453 = zext i8 %452 to i32
-  %454 = icmp ult i32 %134, %453
+  %454 = icmp samesign ult i32 %134, %453
   br i1 %450, label %455, label %456
 
 455:                                              ; preds = %446
@@ -939,92 +939,92 @@ _ZNSt6vectorIN2cv8KeyPointESaIS1_EE6resizeEm.exit.i: ; preds = %84, %68
   %458 = getelementptr inbounds i8, ptr %131, i64 %120
   %459 = load i8, ptr %458, align 1
   %460 = zext i8 %459 to i32
-  %461 = icmp ult i32 %134, %460
+  %461 = icmp samesign ult i32 %134, %460
   br i1 %461, label %1134, label %.backedge874.i
 
 462:                                              ; preds = %444
   %463 = getelementptr inbounds i8, ptr %131, i64 %118
   %464 = load i8, ptr %463, align 1
   %465 = zext i8 %464 to i32
-  %466 = icmp ult i32 %134, %465
+  %466 = icmp samesign ult i32 %134, %465
   br i1 %466, label %467, label %.backedge874.i
 
 467:                                              ; preds = %462
   %468 = getelementptr inbounds i8, ptr %131, i64 %119
   %469 = load i8, ptr %468, align 1
   %470 = zext i8 %469 to i32
-  %471 = icmp ult i32 %134, %470
+  %471 = icmp samesign ult i32 %134, %470
   br i1 %471, label %472, label %.backedge874.i
 
 472:                                              ; preds = %467
   %473 = getelementptr inbounds i8, ptr %131, i64 %120
   %474 = load i8, ptr %473, align 1
   %475 = zext i8 %474 to i32
-  %476 = icmp ult i32 %134, %475
+  %476 = icmp samesign ult i32 %134, %475
   br i1 %476, label %1134, label %.backedge874.i
 
 477:                                              ; preds = %434
-  %478 = icmp ugt i32 %135, %437
+  %478 = icmp samesign ugt i32 %135, %437
   br i1 %478, label %479, label %.backedge874.i
 
 479:                                              ; preds = %477
   %480 = getelementptr inbounds i8, ptr %131, i64 %118
   %481 = load i8, ptr %480, align 1
   %482 = zext i8 %481 to i32
-  %483 = icmp ugt i32 %135, %482
+  %483 = icmp samesign ugt i32 %135, %482
   br i1 %483, label %484, label %.backedge874.i
 
 484:                                              ; preds = %479
   %485 = getelementptr inbounds i8, ptr %131, i64 %120
   %486 = load i8, ptr %485, align 1
   %487 = zext i8 %486 to i32
-  %488 = icmp ugt i32 %135, %487
+  %488 = icmp samesign ugt i32 %135, %487
   br i1 %488, label %489, label %.backedge874.i
 
 489:                                              ; preds = %484
   %490 = getelementptr inbounds i8, ptr %131, i64 %121
   %491 = load i8, ptr %490, align 1
   %492 = zext i8 %491 to i32
-  %493 = icmp ugt i32 %135, %492
+  %493 = icmp samesign ugt i32 %135, %492
   br i1 %493, label %1062, label %494
 
 494:                                              ; preds = %489
   %495 = getelementptr inbounds i8, ptr %131, i64 %119
   %496 = load i8, ptr %495, align 1
   %497 = zext i8 %496 to i32
-  %498 = icmp ugt i32 %135, %497
+  %498 = icmp samesign ugt i32 %135, %497
   br i1 %498, label %1062, label %.backedge874.i
 
 499:                                              ; preds = %297
   %500 = getelementptr inbounds i8, ptr %131, i64 %115
   %501 = load i8, ptr %500, align 1
   %502 = zext i8 %501 to i32
-  %503 = icmp ult i32 %134, %502
+  %503 = icmp samesign ult i32 %134, %502
   br i1 %503, label %504, label %545
 
 504:                                              ; preds = %499
   %505 = getelementptr inbounds i8, ptr %131, i64 %116
   %506 = load i8, ptr %505, align 1
   %507 = zext i8 %506 to i32
-  %508 = icmp ult i32 %134, %507
+  %508 = icmp samesign ult i32 %134, %507
   br i1 %508, label %509, label %.backedge874.i
 
 509:                                              ; preds = %504
   %510 = getelementptr inbounds i8, ptr %131, i64 %117
   %511 = load i8, ptr %510, align 1
   %512 = zext i8 %511 to i32
-  %513 = icmp ult i32 %134, %512
+  %513 = icmp samesign ult i32 %134, %512
   br i1 %513, label %514, label %530
 
 514:                                              ; preds = %509
   %515 = getelementptr inbounds i8, ptr %131, i64 %121
   %516 = load i8, ptr %515, align 1
   %517 = zext i8 %516 to i32
-  %518 = icmp ult i32 %134, %517
+  %518 = icmp samesign ult i32 %134, %517
   %519 = getelementptr inbounds i8, ptr %131, i64 %119
   %520 = load i8, ptr %519, align 1
   %521 = zext i8 %520 to i32
-  %522 = icmp ult i32 %134, %521
+  %522 = icmp samesign ult i32 %134, %521
   br i1 %518, label %523, label %524
 
 523:                                              ; preds = %514
@@ -1037,28 +1037,28 @@ _ZNSt6vectorIN2cv8KeyPointESaIS1_EE6resizeEm.exit.i: ; preds = %84, %68
   %526 = getelementptr inbounds i8, ptr %131, i64 %120
   %527 = load i8, ptr %526, align 1
   %528 = zext i8 %527 to i32
-  %529 = icmp ult i32 %134, %528
+  %529 = icmp samesign ult i32 %134, %528
   br i1 %529, label %1062, label %.backedge874.i
 
 530:                                              ; preds = %509
   %531 = getelementptr inbounds i8, ptr %131, i64 %118
   %532 = load i8, ptr %531, align 1
   %533 = zext i8 %532 to i32
-  %534 = icmp ult i32 %134, %533
+  %534 = icmp samesign ult i32 %134, %533
   br i1 %534, label %535, label %.backedge874.i
 
 535:                                              ; preds = %530
   %536 = getelementptr inbounds i8, ptr %131, i64 %119
   %537 = load i8, ptr %536, align 1
   %538 = zext i8 %537 to i32
-  %539 = icmp ult i32 %134, %538
+  %539 = icmp samesign ult i32 %134, %538
   br i1 %539, label %540, label %.backedge874.i
 
 540:                                              ; preds = %535
   %541 = getelementptr inbounds i8, ptr %131, i64 %120
   %542 = load i8, ptr %541, align 1
   %543 = zext i8 %542 to i32
-  %544 = icmp ult i32 %134, %543
+  %544 = icmp samesign ult i32 %134, %543
   br i1 %544, label %1062, label %.backedge874.i
 
 545:                                              ; preds = %499
@@ -1069,25 +1069,25 @@ _ZNSt6vectorIN2cv8KeyPointESaIS1_EE6resizeEm.exit.i: ; preds = %84, %68
   %548 = getelementptr inbounds i8, ptr %131, i64 %116
   %549 = load i8, ptr %548, align 1
   %550 = zext i8 %549 to i32
-  %551 = icmp ugt i32 %135, %550
+  %551 = icmp samesign ugt i32 %135, %550
   br i1 %551, label %552, label %.backedge874.i
 
 552:                                              ; preds = %547
   %553 = getelementptr inbounds i8, ptr %131, i64 %117
   %554 = load i8, ptr %553, align 1
   %555 = zext i8 %554 to i32
-  %556 = icmp ugt i32 %135, %555
+  %556 = icmp samesign ugt i32 %135, %555
   br i1 %556, label %557, label %573
 
 557:                                              ; preds = %552
   %558 = getelementptr inbounds i8, ptr %131, i64 %121
   %559 = load i8, ptr %558, align 1
   %560 = zext i8 %559 to i32
-  %561 = icmp ugt i32 %135, %560
+  %561 = icmp samesign ugt i32 %135, %560
   %562 = getelementptr inbounds i8, ptr %131, i64 %119
   %563 = load i8, ptr %562, align 1
   %564 = zext i8 %563 to i32
-  %565 = icmp ugt i32 %135, %564
+  %565 = icmp samesign ugt i32 %135, %564
   br i1 %561, label %566, label %567
 
 566:                                              ; preds = %557
@@ -1100,28 +1100,28 @@ _ZNSt6vectorIN2cv8KeyPointESaIS1_EE6resizeEm.exit.i: ; preds = %84, %68
   %569 = getelementptr inbounds i8, ptr %131, i64 %120
   %570 = load i8, ptr %569, align 1
   %571 = zext i8 %570 to i32
-  %572 = icmp ugt i32 %135, %571
+  %572 = icmp samesign ugt i32 %135, %571
   br i1 %572, label %1062, label %.backedge874.i
 
 573:                                              ; preds = %552
   %574 = getelementptr inbounds i8, ptr %131, i64 %118
   %575 = load i8, ptr %574, align 1
   %576 = zext i8 %575 to i32
-  %577 = icmp ugt i32 %135, %576
+  %577 = icmp samesign ugt i32 %135, %576
   br i1 %577, label %578, label %.backedge874.i
 
 578:                                              ; preds = %573
   %579 = getelementptr inbounds i8, ptr %131, i64 %119
   %580 = load i8, ptr %579, align 1
   %581 = zext i8 %580 to i32
-  %582 = icmp ugt i32 %135, %581
+  %582 = icmp samesign ugt i32 %135, %581
   br i1 %582, label %583, label %.backedge874.i
 
 583:                                              ; preds = %578
   %584 = getelementptr inbounds i8, ptr %131, i64 %120
   %585 = load i8, ptr %584, align 1
   %586 = zext i8 %585 to i32
-  %587 = icmp ugt i32 %135, %586
+  %587 = icmp samesign ugt i32 %135, %586
   br i1 %587, label %1062, label %.backedge874.i
 
 588:                                              ; preds = %.backedge.i, %.lr.ph.i
@@ -1177,14 +1177,14 @@ _ZNSt6vectorIN2cv8KeyPointESaIS1_EE6resizeEm.exit.i: ; preds = %84, %68
   %624 = getelementptr inbounds i8, ptr %589, i64 %119
   %625 = load i8, ptr %624, align 1
   %626 = zext i8 %625 to i32
-  %627 = icmp ult i32 %592, %626
+  %627 = icmp samesign ult i32 %592, %626
   br i1 %627, label %628, label %.backedge.i
 
 628:                                              ; preds = %623
   %629 = getelementptr inbounds i8, ptr %589, i64 %120
   %630 = load i8, ptr %629, align 1
   %631 = zext i8 %630 to i32
-  %632 = icmp ult i32 %592, %631
+  %632 = icmp samesign ult i32 %592, %631
   br i1 %632, label %.loopexit870.i, label %.backedge.i
 
 .backedge.i:                                      ; preds = %967, %957, %952, %929, %928, %927, %911, %872, %867, %852, %851, %846, %841, %819, %814, %810, %805, %804, %799, %798, %797, %745, %744, %743, %727, %720, %710, %705, %695, %690, %682, %681, %676, %661, %651, %650, %649, %641, %640, %639, %628, %623
@@ -1192,11 +1192,11 @@ _ZNSt6vectorIN2cv8KeyPointESaIS1_EE6resizeEm.exit.i: ; preds = %84, %68
   br i1 %exitcond.not.i, label %.loopexit.i, label %588
 
 633:                                              ; preds = %619
-  %634 = icmp ult i32 %592, %618
+  %634 = icmp samesign ult i32 %592, %618
   %635 = getelementptr inbounds i8, ptr %589, i64 %119
   %636 = load i8, ptr %635, align 1
   %637 = zext i8 %636 to i32
-  %638 = icmp ult i32 %592, %637
+  %638 = icmp samesign ult i32 %592, %637
   br i1 %634, label %639, label %640
 
 639:                                              ; preds = %633
@@ -1209,12 +1209,12 @@ _ZNSt6vectorIN2cv8KeyPointESaIS1_EE6resizeEm.exit.i: ; preds = %84, %68
   %642 = getelementptr inbounds i8, ptr %589, i64 %120
   %643 = load i8, ptr %642, align 1
   %644 = zext i8 %643 to i32
-  %645 = icmp ult i32 %592, %644
+  %645 = icmp samesign ult i32 %592, %644
   br i1 %645, label %.loopexit870.i, label %.backedge.i
 
 646:                                              ; preds = %608
-  %647 = icmp ult i32 %592, %615
-  %648 = icmp ult i32 %592, %618
+  %647 = icmp samesign ult i32 %592, %615
+  %648 = icmp samesign ult i32 %592, %618
   br i1 %647, label %649, label %650
 
 649:                                              ; preds = %646
@@ -1227,32 +1227,32 @@ _ZNSt6vectorIN2cv8KeyPointESaIS1_EE6resizeEm.exit.i: ; preds = %84, %68
   %652 = getelementptr inbounds i8, ptr %589, i64 %119
   %653 = load i8, ptr %652, align 1
   %654 = zext i8 %653 to i32
-  %655 = icmp ult i32 %592, %654
+  %655 = icmp samesign ult i32 %592, %654
   br i1 %655, label %.loopexit870.i, label %.backedge.i
 
 656:                                              ; preds = %603
   %657 = getelementptr inbounds i8, ptr %589, i64 %118
   %658 = load i8, ptr %657, align 1
   %659 = zext i8 %658 to i32
-  %660 = icmp ult i32 %592, %659
+  %660 = icmp samesign ult i32 %592, %659
   br i1 %660, label %661, label %682
 
 661:                                              ; preds = %656
   %662 = getelementptr inbounds i8, ptr %589, i64 %120
   %663 = load i8, ptr %662, align 1
   %664 = zext i8 %663 to i32
-  %665 = icmp ult i32 %592, %664
+  %665 = icmp samesign ult i32 %592, %664
   br i1 %665, label %666, label %.backedge.i
 
 666:                                              ; preds = %661
   %667 = getelementptr inbounds i8, ptr %589, i64 %116
   %668 = load i8, ptr %667, align 1
   %669 = zext i8 %668 to i32
-  %670 = icmp ult i32 %592, %669
+  %670 = icmp samesign ult i32 %592, %669
   %671 = getelementptr inbounds i8, ptr %589, i64 %121
   %672 = load i8, ptr %671, align 1
   %673 = zext i8 %672 to i32
-  %674 = icmp ult i32 %592, %673
+  %674 = icmp samesign ult i32 %592, %673
   br i1 %670, label %675, label %681
 
 675:                                              ; preds = %666
@@ -1262,7 +1262,7 @@ _ZNSt6vectorIN2cv8KeyPointESaIS1_EE6resizeEm.exit.i: ; preds = %84, %68
   %677 = getelementptr inbounds i8, ptr %589, i64 %119
   %678 = load i8, ptr %677, align 1
   %679 = zext i8 %678 to i32
-  %680 = icmp ult i32 %592, %679
+  %680 = icmp samesign ult i32 %592, %679
   br i1 %680, label %.loopexit870.i, label %.backedge.i
 
 681:                                              ; preds = %666
@@ -1276,8 +1276,8 @@ _ZNSt6vectorIN2cv8KeyPointESaIS1_EE6resizeEm.exit.i: ; preds = %84, %68
   br i1 %686, label %687, label %.backedge.i
 
 687:                                              ; preds = %682
-  %688 = icmp ugt i32 %593, %606
-  %689 = icmp ugt i32 %593, %659
+  %688 = icmp samesign ugt i32 %593, %606
+  %689 = icmp samesign ugt i32 %593, %659
   %or.cond768.i = and i1 %688, %689
   br i1 %or.cond768.i, label %690, label %.backedge874.loopexit.i
 
@@ -1285,49 +1285,49 @@ _ZNSt6vectorIN2cv8KeyPointESaIS1_EE6resizeEm.exit.i: ; preds = %84, %68
   %691 = getelementptr inbounds i8, ptr %589, i64 %119
   %692 = load i8, ptr %691, align 1
   %693 = zext i8 %692 to i32
-  %694 = icmp ugt i32 %593, %693
+  %694 = icmp samesign ugt i32 %593, %693
   br i1 %694, label %695, label %.backedge.i
 
 695:                                              ; preds = %690
   %696 = getelementptr inbounds i8, ptr %589, i64 %120
   %697 = load i8, ptr %696, align 1
   %698 = zext i8 %697 to i32
-  %699 = icmp ugt i32 %593, %698
+  %699 = icmp samesign ugt i32 %593, %698
   br i1 %699, label %.loopexit870.i, label %.backedge.i
 
 700:                                              ; preds = %598
   %701 = getelementptr inbounds i8, ptr %589, i64 %116
   %702 = load i8, ptr %701, align 1
   %703 = zext i8 %702 to i32
-  %704 = icmp ult i32 %592, %703
+  %704 = icmp samesign ult i32 %592, %703
   br i1 %704, label %705, label %725
 
 705:                                              ; preds = %700
   %706 = getelementptr inbounds i8, ptr %589, i64 %118
   %707 = load i8, ptr %706, align 1
   %708 = zext i8 %707 to i32
-  %709 = icmp ult i32 %592, %708
+  %709 = icmp samesign ult i32 %592, %708
   br i1 %709, label %710, label %.backedge.i
 
 710:                                              ; preds = %705
   %711 = getelementptr inbounds i8, ptr %589, i64 %120
   %712 = load i8, ptr %711, align 1
   %713 = zext i8 %712 to i32
-  %714 = icmp ult i32 %592, %713
+  %714 = icmp samesign ult i32 %592, %713
   br i1 %714, label %715, label %.backedge.i
 
 715:                                              ; preds = %710
   %716 = getelementptr inbounds i8, ptr %589, i64 %121
   %717 = load i8, ptr %716, align 1
   %718 = zext i8 %717 to i32
-  %719 = icmp ult i32 %592, %718
+  %719 = icmp samesign ult i32 %592, %718
   br i1 %719, label %.loopexit870.i, label %720
 
 720:                                              ; preds = %715
   %721 = getelementptr inbounds i8, ptr %589, i64 %119
   %722 = load i8, ptr %721, align 1
   %723 = zext i8 %722 to i32
-  %724 = icmp ult i32 %592, %723
+  %724 = icmp samesign ult i32 %592, %723
   br i1 %724, label %.loopexit870.i, label %.backedge.i
 
 725:                                              ; preds = %700
@@ -1338,22 +1338,22 @@ _ZNSt6vectorIN2cv8KeyPointESaIS1_EE6resizeEm.exit.i: ; preds = %84, %68
   %728 = getelementptr inbounds i8, ptr %589, i64 %115
   %729 = load i8, ptr %728, align 1
   %730 = zext i8 %729 to i32
-  %731 = icmp ugt i32 %593, %730
+  %731 = icmp samesign ugt i32 %593, %730
   br i1 %731, label %732, label %.backedge.i
 
 732:                                              ; preds = %727
-  %733 = icmp ugt i32 %593, %601
+  %733 = icmp samesign ugt i32 %593, %601
   br i1 %733, label %734, label %750
 
 734:                                              ; preds = %732
   %735 = getelementptr inbounds i8, ptr %589, i64 %121
   %736 = load i8, ptr %735, align 1
   %737 = zext i8 %736 to i32
-  %738 = icmp ugt i32 %593, %737
+  %738 = icmp samesign ugt i32 %593, %737
   %739 = getelementptr inbounds i8, ptr %589, i64 %119
   %740 = load i8, ptr %739, align 1
   %741 = zext i8 %740 to i32
-  %742 = icmp ugt i32 %593, %741
+  %742 = icmp samesign ugt i32 %593, %741
   br i1 %738, label %743, label %744
 
 743:                                              ; preds = %734
@@ -1366,7 +1366,7 @@ _ZNSt6vectorIN2cv8KeyPointESaIS1_EE6resizeEm.exit.i: ; preds = %84, %68
   %746 = getelementptr inbounds i8, ptr %589, i64 %120
   %747 = load i8, ptr %746, align 1
   %748 = zext i8 %747 to i32
-  %749 = icmp ugt i32 %593, %748
+  %749 = icmp samesign ugt i32 %593, %748
   br i1 %749, label %.loopexit870.i, label %.backedge.i
 
 750:                                              ; preds = %732
@@ -1374,21 +1374,21 @@ _ZNSt6vectorIN2cv8KeyPointESaIS1_EE6resizeEm.exit.i: ; preds = %84, %68
   %752 = getelementptr inbounds i8, ptr %589, i64 %118
   %753 = load i8, ptr %752, align 1
   %754 = zext i8 %753 to i32
-  %755 = icmp ugt i32 %593, %754
+  %755 = icmp samesign ugt i32 %593, %754
   br i1 %755, label %756, label %.backedge874.i
 
 756:                                              ; preds = %750
   %757 = getelementptr inbounds i8, ptr %589, i64 %119
   %758 = load i8, ptr %757, align 1
   %759 = zext i8 %758 to i32
-  %760 = icmp ugt i32 %593, %759
+  %760 = icmp samesign ugt i32 %593, %759
   br i1 %760, label %761, label %.backedge874.i
 
 761:                                              ; preds = %756
   %762 = getelementptr inbounds i8, ptr %589, i64 %120
   %763 = load i8, ptr %762, align 1
   %764 = zext i8 %763 to i32
-  %765 = icmp ugt i32 %593, %764
+  %765 = icmp samesign ugt i32 %593, %764
   br i1 %765, label %1062, label %.backedge874.i
 
 766:                                              ; preds = %588
@@ -1399,39 +1399,39 @@ _ZNSt6vectorIN2cv8KeyPointESaIS1_EE6resizeEm.exit.i: ; preds = %84, %68
   %769 = getelementptr inbounds i8, ptr %589, i64 %117
   %770 = load i8, ptr %769, align 1
   %771 = zext i8 %770 to i32
-  %772 = icmp ugt i32 %593, %771
+  %772 = icmp samesign ugt i32 %593, %771
   br i1 %772, label %773, label %906
 
 773:                                              ; preds = %768
   %774 = getelementptr inbounds i8, ptr %589, i64 %118
   %775 = load i8, ptr %774, align 1
   %776 = zext i8 %775 to i32
-  %777 = icmp ult i32 %592, %776
+  %777 = icmp samesign ult i32 %592, %776
   br i1 %777, label %778, label %824
 
 778:                                              ; preds = %773
   %779 = getelementptr inbounds i8, ptr %589, i64 %115
   %780 = load i8, ptr %779, align 1
   %781 = zext i8 %780 to i32
-  %782 = icmp ugt i32 %593, %781
+  %782 = icmp samesign ugt i32 %593, %781
   %783 = getelementptr inbounds i8, ptr %589, i64 %116
   %784 = load i8, ptr %783, align 1
   %785 = zext i8 %784 to i32
   br i1 %782, label %786, label %810
 
 786:                                              ; preds = %778
-  %787 = icmp ugt i32 %593, %785
+  %787 = icmp samesign ugt i32 %593, %785
   %788 = getelementptr inbounds i8, ptr %589, i64 %121
   %789 = load i8, ptr %788, align 1
   %790 = zext i8 %789 to i32
-  %791 = icmp ugt i32 %593, %790
+  %791 = icmp samesign ugt i32 %593, %790
   br i1 %787, label %792, label %804
 
 792:                                              ; preds = %786
   %793 = getelementptr inbounds i8, ptr %589, i64 %119
   %794 = load i8, ptr %793, align 1
   %795 = zext i8 %794 to i32
-  %796 = icmp ugt i32 %593, %795
+  %796 = icmp samesign ugt i32 %593, %795
   br i1 %791, label %797, label %798
 
 797:                                              ; preds = %792
@@ -1444,7 +1444,7 @@ _ZNSt6vectorIN2cv8KeyPointESaIS1_EE6resizeEm.exit.i: ; preds = %84, %68
   %800 = getelementptr inbounds i8, ptr %589, i64 %120
   %801 = load i8, ptr %800, align 1
   %802 = zext i8 %801 to i32
-  %803 = icmp ugt i32 %593, %802
+  %803 = icmp samesign ugt i32 %593, %802
   br i1 %803, label %.loopexit870.i, label %.backedge.i
 
 804:                                              ; preds = %786
@@ -1454,51 +1454,51 @@ _ZNSt6vectorIN2cv8KeyPointESaIS1_EE6resizeEm.exit.i: ; preds = %84, %68
   %806 = getelementptr inbounds i8, ptr %589, i64 %119
   %807 = load i8, ptr %806, align 1
   %808 = zext i8 %807 to i32
-  %809 = icmp ugt i32 %593, %808
+  %809 = icmp samesign ugt i32 %593, %808
   br i1 %809, label %.loopexit870.i, label %.backedge.i
 
 810:                                              ; preds = %778
-  %811 = icmp ult i32 %592, %785
+  %811 = icmp samesign ult i32 %592, %785
   br i1 %811, label %812, label %.backedge.i
 
 812:                                              ; preds = %810
-  %813 = icmp ult i32 %592, %781
+  %813 = icmp samesign ult i32 %592, %781
   br i1 %813, label %814, label %.backedge874.loopexit.i
 
 814:                                              ; preds = %812
   %815 = getelementptr inbounds i8, ptr %589, i64 %119
   %816 = load i8, ptr %815, align 1
   %817 = zext i8 %816 to i32
-  %818 = icmp ult i32 %592, %817
+  %818 = icmp samesign ult i32 %592, %817
   br i1 %818, label %819, label %.backedge.i
 
 819:                                              ; preds = %814
   %820 = getelementptr inbounds i8, ptr %589, i64 %120
   %821 = load i8, ptr %820, align 1
   %822 = zext i8 %821 to i32
-  %823 = icmp ult i32 %592, %822
+  %823 = icmp samesign ult i32 %592, %822
   br i1 %823, label %.loopexit870.i, label %.backedge.i
 
 824:                                              ; preds = %773
-  %825 = icmp ugt i32 %593, %776
+  %825 = icmp samesign ugt i32 %593, %776
   br i1 %825, label %826, label %873
 
 826:                                              ; preds = %824
   %827 = getelementptr inbounds i8, ptr %589, i64 %115
   %828 = load i8, ptr %827, align 1
   %829 = zext i8 %828 to i32
-  %830 = icmp ugt i32 %593, %829
+  %830 = icmp samesign ugt i32 %593, %829
   br i1 %830, label %831, label %852
 
 831:                                              ; preds = %826
   %832 = getelementptr inbounds i8, ptr %589, i64 %116
   %833 = load i8, ptr %832, align 1
   %834 = zext i8 %833 to i32
-  %835 = icmp ugt i32 %593, %834
+  %835 = icmp samesign ugt i32 %593, %834
   %836 = getelementptr inbounds i8, ptr %589, i64 %121
   %837 = load i8, ptr %836, align 1
   %838 = zext i8 %837 to i32
-  %839 = icmp ugt i32 %593, %838
+  %839 = icmp samesign ugt i32 %593, %838
   br i1 %835, label %840, label %851
 
 840:                                              ; preds = %831
@@ -1508,14 +1508,14 @@ _ZNSt6vectorIN2cv8KeyPointESaIS1_EE6resizeEm.exit.i: ; preds = %84, %68
   %842 = getelementptr inbounds i8, ptr %589, i64 %119
   %843 = load i8, ptr %842, align 1
   %844 = zext i8 %843 to i32
-  %845 = icmp ugt i32 %593, %844
+  %845 = icmp samesign ugt i32 %593, %844
   br i1 %845, label %846, label %.backedge.i
 
 846:                                              ; preds = %841
   %847 = getelementptr inbounds i8, ptr %589, i64 %120
   %848 = load i8, ptr %847, align 1
   %849 = zext i8 %848 to i32
-  %850 = icmp ugt i32 %593, %849
+  %850 = icmp samesign ugt i32 %593, %849
   br i1 %850, label %.loopexit870.i, label %.backedge.i
 
 851:                                              ; preds = %831
@@ -1525,18 +1525,18 @@ _ZNSt6vectorIN2cv8KeyPointESaIS1_EE6resizeEm.exit.i: ; preds = %84, %68
   %853 = getelementptr inbounds i8, ptr %589, i64 %120
   %854 = load i8, ptr %853, align 1
   %855 = zext i8 %854 to i32
-  %856 = icmp ugt i32 %593, %855
+  %856 = icmp samesign ugt i32 %593, %855
   br i1 %856, label %857, label %.backedge.i
 
 857:                                              ; preds = %852
   %858 = getelementptr inbounds i8, ptr %589, i64 %116
   %859 = load i8, ptr %858, align 1
   %860 = zext i8 %859 to i32
-  %861 = icmp ugt i32 %593, %860
+  %861 = icmp samesign ugt i32 %593, %860
   %862 = getelementptr inbounds i8, ptr %589, i64 %121
   %863 = load i8, ptr %862, align 1
   %864 = zext i8 %863 to i32
-  %865 = icmp ugt i32 %593, %864
+  %865 = icmp samesign ugt i32 %593, %864
   br i1 %861, label %866, label %872
 
 866:                                              ; preds = %857
@@ -1546,7 +1546,7 @@ _ZNSt6vectorIN2cv8KeyPointESaIS1_EE6resizeEm.exit.i: ; preds = %84, %68
   %868 = getelementptr inbounds i8, ptr %589, i64 %119
   %869 = load i8, ptr %868, align 1
   %870 = zext i8 %869 to i32
-  %871 = icmp ugt i32 %593, %870
+  %871 = icmp samesign ugt i32 %593, %870
   br i1 %871, label %.loopexit870.i, label %.backedge.i
 
 872:                                              ; preds = %857
@@ -1557,25 +1557,25 @@ _ZNSt6vectorIN2cv8KeyPointESaIS1_EE6resizeEm.exit.i: ; preds = %84, %68
   %875 = getelementptr inbounds i8, ptr %589, i64 %115
   %876 = load i8, ptr %875, align 1
   %877 = zext i8 %876 to i32
-  %878 = icmp ugt i32 %593, %877
+  %878 = icmp samesign ugt i32 %593, %877
   br i1 %878, label %879, label %.backedge874.i
 
 879:                                              ; preds = %873
   %880 = getelementptr inbounds i8, ptr %589, i64 %116
   %881 = load i8, ptr %880, align 1
   %882 = zext i8 %881 to i32
-  %883 = icmp ugt i32 %593, %882
+  %883 = icmp samesign ugt i32 %593, %882
   %884 = getelementptr inbounds i8, ptr %589, i64 %121
   %885 = load i8, ptr %884, align 1
   %886 = zext i8 %885 to i32
-  %887 = icmp ugt i32 %593, %886
+  %887 = icmp samesign ugt i32 %593, %886
   br i1 %883, label %888, label %900
 
 888:                                              ; preds = %879
   %889 = getelementptr inbounds i8, ptr %589, i64 %119
   %890 = load i8, ptr %889, align 1
   %891 = zext i8 %890 to i32
-  %892 = icmp ugt i32 %593, %891
+  %892 = icmp samesign ugt i32 %593, %891
   br i1 %887, label %893, label %894
 
 893:                                              ; preds = %888
@@ -1588,7 +1588,7 @@ _ZNSt6vectorIN2cv8KeyPointESaIS1_EE6resizeEm.exit.i: ; preds = %84, %68
   %896 = getelementptr inbounds i8, ptr %589, i64 %120
   %897 = load i8, ptr %896, align 1
   %898 = zext i8 %897 to i32
-  %899 = icmp ugt i32 %593, %898
+  %899 = icmp samesign ugt i32 %593, %898
   br i1 %899, label %1062, label %.backedge874.i
 
 900:                                              ; preds = %879
@@ -1598,36 +1598,36 @@ _ZNSt6vectorIN2cv8KeyPointESaIS1_EE6resizeEm.exit.i: ; preds = %84, %68
   %902 = getelementptr inbounds i8, ptr %589, i64 %119
   %903 = load i8, ptr %902, align 1
   %904 = zext i8 %903 to i32
-  %905 = icmp ugt i32 %593, %904
+  %905 = icmp samesign ugt i32 %593, %904
   br i1 %905, label %1062, label %.backedge874.i
 
 906:                                              ; preds = %768
   %907 = getelementptr inbounds i8, ptr %589, i64 %116
   %908 = load i8, ptr %907, align 1
   %909 = zext i8 %908 to i32
-  %910 = icmp ult i32 %592, %909
+  %910 = icmp samesign ult i32 %592, %909
   br i1 %910, label %911, label %950
 
 911:                                              ; preds = %906
   %912 = getelementptr inbounds i8, ptr %589, i64 %115
   %913 = load i8, ptr %912, align 1
   %914 = zext i8 %913 to i32
-  %915 = icmp ult i32 %592, %914
+  %915 = icmp samesign ult i32 %592, %914
   br i1 %915, label %916, label %.backedge.i
 
 916:                                              ; preds = %911
-  %917 = icmp ult i32 %592, %771
+  %917 = icmp samesign ult i32 %592, %771
   br i1 %917, label %918, label %934
 
 918:                                              ; preds = %916
   %919 = getelementptr inbounds i8, ptr %589, i64 %121
   %920 = load i8, ptr %919, align 1
   %921 = zext i8 %920 to i32
-  %922 = icmp ult i32 %592, %921
+  %922 = icmp samesign ult i32 %592, %921
   %923 = getelementptr inbounds i8, ptr %589, i64 %119
   %924 = load i8, ptr %923, align 1
   %925 = zext i8 %924 to i32
-  %926 = icmp ult i32 %592, %925
+  %926 = icmp samesign ult i32 %592, %925
   br i1 %922, label %927, label %928
 
 927:                                              ; preds = %918
@@ -1640,7 +1640,7 @@ _ZNSt6vectorIN2cv8KeyPointESaIS1_EE6resizeEm.exit.i: ; preds = %84, %68
   %930 = getelementptr inbounds i8, ptr %589, i64 %120
   %931 = load i8, ptr %930, align 1
   %932 = zext i8 %931 to i32
-  %933 = icmp ult i32 %592, %932
+  %933 = icmp samesign ult i32 %592, %932
   br i1 %933, label %.loopexit870.i, label %.backedge.i
 
 934:                                              ; preds = %916
@@ -1648,53 +1648,53 @@ _ZNSt6vectorIN2cv8KeyPointESaIS1_EE6resizeEm.exit.i: ; preds = %84, %68
   %936 = getelementptr inbounds i8, ptr %589, i64 %118
   %937 = load i8, ptr %936, align 1
   %938 = zext i8 %937 to i32
-  %939 = icmp ult i32 %592, %938
+  %939 = icmp samesign ult i32 %592, %938
   br i1 %939, label %940, label %.backedge874.i
 
 940:                                              ; preds = %934
   %941 = getelementptr inbounds i8, ptr %589, i64 %119
   %942 = load i8, ptr %941, align 1
   %943 = zext i8 %942 to i32
-  %944 = icmp ult i32 %592, %943
+  %944 = icmp samesign ult i32 %592, %943
   br i1 %944, label %945, label %.backedge874.i
 
 945:                                              ; preds = %940
   %946 = getelementptr inbounds i8, ptr %589, i64 %120
   %947 = load i8, ptr %946, align 1
   %948 = zext i8 %947 to i32
-  %949 = icmp ult i32 %592, %948
+  %949 = icmp samesign ult i32 %592, %948
   br i1 %949, label %1062, label %.backedge874.i
 
 950:                                              ; preds = %906
-  %951 = icmp ugt i32 %593, %909
+  %951 = icmp samesign ugt i32 %593, %909
   br i1 %951, label %952, label %.backedge874.loopexit.i
 
 952:                                              ; preds = %950
   %953 = getelementptr inbounds i8, ptr %589, i64 %118
   %954 = load i8, ptr %953, align 1
   %955 = zext i8 %954 to i32
-  %956 = icmp ugt i32 %593, %955
+  %956 = icmp samesign ugt i32 %593, %955
   br i1 %956, label %957, label %.backedge.i
 
 957:                                              ; preds = %952
   %958 = getelementptr inbounds i8, ptr %589, i64 %120
   %959 = load i8, ptr %958, align 1
   %960 = zext i8 %959 to i32
-  %961 = icmp ugt i32 %593, %960
+  %961 = icmp samesign ugt i32 %593, %960
   br i1 %961, label %962, label %.backedge.i
 
 962:                                              ; preds = %957
   %963 = getelementptr inbounds i8, ptr %589, i64 %121
   %964 = load i8, ptr %963, align 1
   %965 = zext i8 %964 to i32
-  %966 = icmp ugt i32 %593, %965
+  %966 = icmp samesign ugt i32 %593, %965
   br i1 %966, label %.loopexit870.i, label %967
 
 967:                                              ; preds = %962
   %968 = getelementptr inbounds i8, ptr %589, i64 %119
   %969 = load i8, ptr %968, align 1
   %970 = zext i8 %969 to i32
-  %971 = icmp ugt i32 %593, %970
+  %971 = icmp samesign ugt i32 %593, %970
   br i1 %971, label %.loopexit870.i, label %.backedge.i
 
 972:                                              ; preds = %766
@@ -1702,32 +1702,32 @@ _ZNSt6vectorIN2cv8KeyPointESaIS1_EE6resizeEm.exit.i: ; preds = %84, %68
   %974 = getelementptr inbounds i8, ptr %589, i64 %115
   %975 = load i8, ptr %974, align 1
   %976 = zext i8 %975 to i32
-  %977 = icmp ult i32 %592, %976
+  %977 = icmp samesign ult i32 %592, %976
   br i1 %977, label %978, label %1019
 
 978:                                              ; preds = %972
   %979 = getelementptr inbounds i8, ptr %589, i64 %116
   %980 = load i8, ptr %979, align 1
   %981 = zext i8 %980 to i32
-  %982 = icmp ult i32 %592, %981
+  %982 = icmp samesign ult i32 %592, %981
   br i1 %982, label %983, label %.backedge874.i
 
 983:                                              ; preds = %978
   %984 = getelementptr inbounds i8, ptr %589, i64 %117
   %985 = load i8, ptr %984, align 1
   %986 = zext i8 %985 to i32
-  %987 = icmp ult i32 %592, %986
+  %987 = icmp samesign ult i32 %592, %986
   br i1 %987, label %988, label %1004
 
 988:                                              ; preds = %983
   %989 = getelementptr inbounds i8, ptr %589, i64 %121
   %990 = load i8, ptr %989, align 1
   %991 = zext i8 %990 to i32
-  %992 = icmp ult i32 %592, %991
+  %992 = icmp samesign ult i32 %592, %991
   %993 = getelementptr inbounds i8, ptr %589, i64 %119
   %994 = load i8, ptr %993, align 1
   %995 = zext i8 %994 to i32
-  %996 = icmp ult i32 %592, %995
+  %996 = icmp samesign ult i32 %592, %995
   br i1 %992, label %997, label %998
 
 997:                                              ; preds = %988
@@ -1740,28 +1740,28 @@ _ZNSt6vectorIN2cv8KeyPointESaIS1_EE6resizeEm.exit.i: ; preds = %84, %68
   %1000 = getelementptr inbounds i8, ptr %589, i64 %120
   %1001 = load i8, ptr %1000, align 1
   %1002 = zext i8 %1001 to i32
-  %1003 = icmp ult i32 %592, %1002
+  %1003 = icmp samesign ult i32 %592, %1002
   br i1 %1003, label %1062, label %.backedge874.i
 
 1004:                                             ; preds = %983
   %1005 = getelementptr inbounds i8, ptr %589, i64 %118
   %1006 = load i8, ptr %1005, align 1
   %1007 = zext i8 %1006 to i32
-  %1008 = icmp ult i32 %592, %1007
+  %1008 = icmp samesign ult i32 %592, %1007
   br i1 %1008, label %1009, label %.backedge874.i
 
 1009:                                             ; preds = %1004
   %1010 = getelementptr inbounds i8, ptr %589, i64 %119
   %1011 = load i8, ptr %1010, align 1
   %1012 = zext i8 %1011 to i32
-  %1013 = icmp ult i32 %592, %1012
+  %1013 = icmp samesign ult i32 %592, %1012
   br i1 %1013, label %1014, label %.backedge874.i
 
 1014:                                             ; preds = %1009
   %1015 = getelementptr inbounds i8, ptr %589, i64 %120
   %1016 = load i8, ptr %1015, align 1
   %1017 = zext i8 %1016 to i32
-  %1018 = icmp ult i32 %592, %1017
+  %1018 = icmp samesign ult i32 %592, %1017
   br i1 %1018, label %1062, label %.backedge874.i
 
 1019:                                             ; preds = %972
@@ -1772,25 +1772,25 @@ _ZNSt6vectorIN2cv8KeyPointESaIS1_EE6resizeEm.exit.i: ; preds = %84, %68
   %1022 = getelementptr inbounds i8, ptr %589, i64 %116
   %1023 = load i8, ptr %1022, align 1
   %1024 = zext i8 %1023 to i32
-  %1025 = icmp ugt i32 %593, %1024
+  %1025 = icmp samesign ugt i32 %593, %1024
   br i1 %1025, label %1026, label %.backedge874.i
 
 1026:                                             ; preds = %1021
   %1027 = getelementptr inbounds i8, ptr %589, i64 %117
   %1028 = load i8, ptr %1027, align 1
   %1029 = zext i8 %1028 to i32
-  %1030 = icmp ugt i32 %593, %1029
+  %1030 = icmp samesign ugt i32 %593, %1029
   br i1 %1030, label %1031, label %1047
 
 1031:                                             ; preds = %1026
   %1032 = getelementptr inbounds i8, ptr %589, i64 %121
   %1033 = load i8, ptr %1032, align 1
   %1034 = zext i8 %1033 to i32
-  %1035 = icmp ugt i32 %593, %1034
+  %1035 = icmp samesign ugt i32 %593, %1034
   %1036 = getelementptr inbounds i8, ptr %589, i64 %119
   %1037 = load i8, ptr %1036, align 1
   %1038 = zext i8 %1037 to i32
-  %1039 = icmp ugt i32 %593, %1038
+  %1039 = icmp samesign ugt i32 %593, %1038
   br i1 %1035, label %1040, label %1041
 
 1040:                                             ; preds = %1031
@@ -1803,28 +1803,28 @@ _ZNSt6vectorIN2cv8KeyPointESaIS1_EE6resizeEm.exit.i: ; preds = %84, %68
   %1043 = getelementptr inbounds i8, ptr %589, i64 %120
   %1044 = load i8, ptr %1043, align 1
   %1045 = zext i8 %1044 to i32
-  %1046 = icmp ugt i32 %593, %1045
+  %1046 = icmp samesign ugt i32 %593, %1045
   br i1 %1046, label %1062, label %.backedge874.i
 
 1047:                                             ; preds = %1026
   %1048 = getelementptr inbounds i8, ptr %589, i64 %118
   %1049 = load i8, ptr %1048, align 1
   %1050 = zext i8 %1049 to i32
-  %1051 = icmp ugt i32 %593, %1050
+  %1051 = icmp samesign ugt i32 %593, %1050
   br i1 %1051, label %1052, label %.backedge874.i
 
 1052:                                             ; preds = %1047
   %1053 = getelementptr inbounds i8, ptr %589, i64 %119
   %1054 = load i8, ptr %1053, align 1
   %1055 = zext i8 %1054 to i32
-  %1056 = icmp ugt i32 %593, %1055
+  %1056 = icmp samesign ugt i32 %593, %1055
   br i1 %1056, label %1057, label %.backedge874.i
 
 1057:                                             ; preds = %1052
   %1058 = getelementptr inbounds i8, ptr %589, i64 %120
   %1059 = load i8, ptr %1058, align 1
   %1060 = zext i8 %1059 to i32
-  %1061 = icmp ugt i32 %593, %1060
+  %1061 = icmp samesign ugt i32 %593, %1060
   br i1 %1061, label %1062, label %.backedge874.i
 
 1062:                                             ; preds = %1057, %1042, %1040, %1014, %999, %997, %945, %901, %895, %893, %761, %583, %568, %566, %540, %525, %523, %494, %489, %429, %405, %384, %252, %247, %214, %184, %179
@@ -2602,169 +2602,169 @@ _ZNSt6vectorIN2cv8KeyPointESaIS1_EE6resizeEm.exit.i114: ; preds = %1255, %1239
   %1363 = getelementptr inbounds i8, ptr %1318, i64 %1308
   %1364 = load i8, ptr %1363, align 1
   %1365 = zext i8 %1364 to i32
-  %1366 = icmp ult i32 %1321, %1365
+  %1366 = icmp samesign ult i32 %1321, %1365
   br i1 %1366, label %1367, label %.backedge2578.i
 
 1367:                                             ; preds = %1362
   %1368 = getelementptr inbounds i8, ptr %1318, i64 %1307
   %1369 = load i8, ptr %1368, align 1
   %1370 = zext i8 %1369 to i32
-  %1371 = icmp ult i32 %1321, %1370
+  %1371 = icmp samesign ult i32 %1321, %1370
   br i1 %1371, label %5021, label %.backedge2578.i
 
 1372:                                             ; preds = %1352
   %1373 = getelementptr inbounds i8, ptr %1318, i64 %1306
   %1374 = load i8, ptr %1373, align 1
   %1375 = zext i8 %1374 to i32
-  %1376 = icmp ult i32 %1321, %1375
+  %1376 = icmp samesign ult i32 %1321, %1375
   br i1 %1376, label %1377, label %.backedge2578.i
 
 1377:                                             ; preds = %1372
   %1378 = getelementptr inbounds i8, ptr %1318, i64 %1308
   %1379 = load i8, ptr %1378, align 1
   %1380 = zext i8 %1379 to i32
-  %1381 = icmp ult i32 %1321, %1380
+  %1381 = icmp samesign ult i32 %1321, %1380
   br i1 %1381, label %1382, label %.backedge2578.i
 
 1382:                                             ; preds = %1377
   %1383 = getelementptr inbounds i8, ptr %1318, i64 %1307
   %1384 = load i8, ptr %1383, align 1
   %1385 = zext i8 %1384 to i32
-  %1386 = icmp ult i32 %1321, %1385
+  %1386 = icmp samesign ult i32 %1321, %1385
   br i1 %1386, label %5021, label %1387
 
 1387:                                             ; preds = %1382
   %1388 = getelementptr inbounds i8, ptr %1318, i64 %1302
   %1389 = load i8, ptr %1388, align 1
   %1390 = zext i8 %1389 to i32
-  %1391 = icmp ult i32 %1321, %1390
+  %1391 = icmp samesign ult i32 %1321, %1390
   br i1 %1391, label %1392, label %.backedge2578.i
 
 1392:                                             ; preds = %1387
   %1393 = getelementptr inbounds i8, ptr %1318, i64 %1303
   %1394 = load i8, ptr %1393, align 1
   %1395 = zext i8 %1394 to i32
-  %1396 = icmp ult i32 %1321, %1395
+  %1396 = icmp samesign ult i32 %1321, %1395
   br i1 %1396, label %5021, label %.preheader.i158
 
 1397:                                             ; preds = %1350
   %1398 = getelementptr inbounds i8, ptr %1318, i64 %1307
   %1399 = load i8, ptr %1398, align 1
   %1400 = zext i8 %1399 to i32
-  %1401 = icmp ult i32 %1321, %1400
+  %1401 = icmp samesign ult i32 %1321, %1400
   br i1 %1401, label %1402, label %.backedge2578.i
 
 1402:                                             ; preds = %1397
   %1403 = getelementptr inbounds i8, ptr %1318, i64 %1301
   %1404 = load i8, ptr %1403, align 1
   %1405 = zext i8 %1404 to i32
-  %1406 = icmp ult i32 %1321, %1405
+  %1406 = icmp samesign ult i32 %1321, %1405
   br i1 %1406, label %1407, label %1417
 
 1407:                                             ; preds = %1402
   %1408 = getelementptr inbounds i8, ptr %1318, i64 %1302
   %1409 = load i8, ptr %1408, align 1
   %1410 = zext i8 %1409 to i32
-  %1411 = icmp ult i32 %1321, %1410
+  %1411 = icmp samesign ult i32 %1321, %1410
   br i1 %1411, label %4949, label %1412
 
 1412:                                             ; preds = %1407
   %1413 = getelementptr inbounds i8, ptr %1318, i64 %1308
   %1414 = load i8, ptr %1413, align 1
   %1415 = zext i8 %1414 to i32
-  %1416 = icmp ult i32 %1321, %1415
+  %1416 = icmp samesign ult i32 %1321, %1415
   br i1 %1416, label %4949, label %.backedge2578.i
 
 1417:                                             ; preds = %1402
   %1418 = getelementptr inbounds i8, ptr %1318, i64 %1306
   %1419 = load i8, ptr %1418, align 1
   %1420 = zext i8 %1419 to i32
-  %1421 = icmp ult i32 %1321, %1420
+  %1421 = icmp samesign ult i32 %1321, %1420
   br i1 %1421, label %1422, label %.backedge2578.i
 
 1422:                                             ; preds = %1417
   %1423 = getelementptr inbounds i8, ptr %1318, i64 %1308
   %1424 = load i8, ptr %1423, align 1
   %1425 = zext i8 %1424 to i32
-  %1426 = icmp ult i32 %1321, %1425
+  %1426 = icmp samesign ult i32 %1321, %1425
   br i1 %1426, label %4949, label %.backedge2578.i
 
 1427:                                             ; preds = %1342
-  %1428 = icmp ult i32 %1321, %1349
+  %1428 = icmp samesign ult i32 %1321, %1349
   br i1 %1428, label %1429, label %.backedge2578.i
 
 1429:                                             ; preds = %1427
   %1430 = getelementptr inbounds i8, ptr %1318, i64 %1303
   %1431 = load i8, ptr %1430, align 1
   %1432 = zext i8 %1431 to i32
-  %1433 = icmp ult i32 %1321, %1432
+  %1433 = icmp samesign ult i32 %1321, %1432
   br i1 %1433, label %1434, label %.backedge2578.i
 
 1434:                                             ; preds = %1429
   %1435 = getelementptr inbounds i8, ptr %1318, i64 %1306
   %1436 = load i8, ptr %1435, align 1
   %1437 = zext i8 %1436 to i32
-  %1438 = icmp ult i32 %1321, %1437
+  %1438 = icmp samesign ult i32 %1321, %1437
   br i1 %1438, label %1439, label %.backedge2578.i
 
 1439:                                             ; preds = %1434
   %1440 = getelementptr inbounds i8, ptr %1318, i64 %1302
   %1441 = load i8, ptr %1440, align 1
   %1442 = zext i8 %1441 to i32
-  %1443 = icmp ult i32 %1321, %1442
+  %1443 = icmp samesign ult i32 %1321, %1442
   br i1 %1443, label %1444, label %1454
 
 1444:                                             ; preds = %1439
   %1445 = getelementptr inbounds i8, ptr %1318, i64 %1301
   %1446 = load i8, ptr %1445, align 1
   %1447 = zext i8 %1446 to i32
-  %1448 = icmp ult i32 %1321, %1447
+  %1448 = icmp samesign ult i32 %1321, %1447
   br i1 %1448, label %5021, label %1449
 
 1449:                                             ; preds = %1444
   %1450 = getelementptr inbounds i8, ptr %1318, i64 %1308
   %1451 = load i8, ptr %1450, align 1
   %1452 = zext i8 %1451 to i32
-  %1453 = icmp ult i32 %1321, %1452
+  %1453 = icmp samesign ult i32 %1321, %1452
   br i1 %1453, label %5021, label %.backedge2578.i
 
 1454:                                             ; preds = %1439
   %1455 = getelementptr inbounds i8, ptr %1318, i64 %1308
   %1456 = load i8, ptr %1455, align 1
   %1457 = zext i8 %1456 to i32
-  %1458 = icmp ult i32 %1321, %1457
+  %1458 = icmp samesign ult i32 %1321, %1457
   br i1 %1458, label %1459, label %.backedge2578.i
 
 1459:                                             ; preds = %1454
   %1460 = getelementptr inbounds i8, ptr %1318, i64 %1307
   %1461 = load i8, ptr %1460, align 1
   %1462 = zext i8 %1461 to i32
-  %1463 = icmp ult i32 %1321, %1462
+  %1463 = icmp samesign ult i32 %1321, %1462
   br i1 %1463, label %5021, label %.backedge2578.i
 
 1464:                                             ; preds = %1340
   %1465 = getelementptr inbounds i8, ptr %1318, i64 %1301
   %1466 = load i8, ptr %1465, align 1
   %1467 = zext i8 %1466 to i32
-  %1468 = icmp ult i32 %1321, %1467
+  %1468 = icmp samesign ult i32 %1321, %1467
   br i1 %1468, label %1469, label %.backedge2578.i
 
 1469:                                             ; preds = %1464
   %1470 = getelementptr inbounds i8, ptr %1318, i64 %1302
   %1471 = load i8, ptr %1470, align 1
   %1472 = zext i8 %1471 to i32
-  %1473 = icmp ult i32 %1321, %1472
+  %1473 = icmp samesign ult i32 %1321, %1472
   br i1 %1473, label %1474, label %.backedge2578.i
 
 1474:                                             ; preds = %1469
   %1475 = getelementptr inbounds i8, ptr %1318, i64 %1304
   %1476 = load i8, ptr %1475, align 1
   %1477 = zext i8 %1476 to i32
-  %1478 = icmp ult i32 %1321, %1477
+  %1478 = icmp samesign ult i32 %1321, %1477
   %1479 = getelementptr inbounds i8, ptr %1318, i64 %1305
   %1480 = load i8, ptr %1479, align 1
   %1481 = zext i8 %1480 to i32
-  %1482 = icmp ult i32 %1321, %1481
+  %1482 = icmp samesign ult i32 %1321, %1481
   br i1 %1478, label %1483, label %1489
 
 1483:                                             ; preds = %1474
@@ -2774,7 +2774,7 @@ _ZNSt6vectorIN2cv8KeyPointESaIS1_EE6resizeEm.exit.i114: ; preds = %1255, %1239
   %1485 = getelementptr inbounds i8, ptr %1318, i64 %1307
   %1486 = load i8, ptr %1485, align 1
   %1487 = zext i8 %1486 to i32
-  %1488 = icmp ult i32 %1321, %1487
+  %1488 = icmp samesign ult i32 %1321, %1487
   br i1 %1488, label %4949, label %.backedge2578.i
 
 1489:                                             ; preds = %1474
@@ -2784,130 +2784,130 @@ _ZNSt6vectorIN2cv8KeyPointESaIS1_EE6resizeEm.exit.i114: ; preds = %1255, %1239
   %1491 = getelementptr inbounds i8, ptr %1318, i64 %1303
   %1492 = load i8, ptr %1491, align 1
   %1493 = zext i8 %1492 to i32
-  %1494 = icmp ult i32 %1321, %1493
+  %1494 = icmp samesign ult i32 %1321, %1493
   br i1 %1494, label %1495, label %.backedge2578.i
 
 1495:                                             ; preds = %1490
   %1496 = getelementptr inbounds i8, ptr %1318, i64 %1306
   %1497 = load i8, ptr %1496, align 1
   %1498 = zext i8 %1497 to i32
-  %1499 = icmp ult i32 %1321, %1498
+  %1499 = icmp samesign ult i32 %1321, %1498
   br i1 %1499, label %4949, label %.backedge2578.i
 
 1500:                                             ; preds = %1332
-  %1501 = icmp ult i32 %1321, %1339
+  %1501 = icmp samesign ult i32 %1321, %1339
   br i1 %1501, label %1502, label %.backedge2578.i
 
 1502:                                             ; preds = %1500
   %1503 = getelementptr inbounds i8, ptr %1318, i64 %1303
   %1504 = load i8, ptr %1503, align 1
   %1505 = zext i8 %1504 to i32
-  %1506 = icmp ult i32 %1321, %1505
+  %1506 = icmp samesign ult i32 %1321, %1505
   br i1 %1506, label %1507, label %.backedge2578.i
 
 1507:                                             ; preds = %1502
   %1508 = getelementptr inbounds i8, ptr %1318, i64 %1306
   %1509 = load i8, ptr %1508, align 1
   %1510 = zext i8 %1509 to i32
-  %1511 = icmp ult i32 %1321, %1510
+  %1511 = icmp samesign ult i32 %1321, %1510
   br i1 %1511, label %1512, label %.backedge2578.i
 
 1512:                                             ; preds = %1507
   %1513 = getelementptr inbounds i8, ptr %1318, i64 %1304
   %1514 = load i8, ptr %1513, align 1
   %1515 = zext i8 %1514 to i32
-  %1516 = icmp ult i32 %1321, %1515
+  %1516 = icmp samesign ult i32 %1321, %1515
   br i1 %1516, label %1517, label %1552
 
 1517:                                             ; preds = %1512
   %1518 = getelementptr inbounds i8, ptr %1318, i64 %1308
   %1519 = load i8, ptr %1518, align 1
   %1520 = zext i8 %1519 to i32
-  %1521 = icmp ult i32 %1321, %1520
+  %1521 = icmp samesign ult i32 %1321, %1520
   br i1 %1521, label %1522, label %1537
 
 1522:                                             ; preds = %1517
   %1523 = getelementptr inbounds i8, ptr %1318, i64 %1307
   %1524 = load i8, ptr %1523, align 1
   %1525 = zext i8 %1524 to i32
-  %1526 = icmp ult i32 %1321, %1525
+  %1526 = icmp samesign ult i32 %1321, %1525
   br i1 %1526, label %4949, label %1527
 
 1527:                                             ; preds = %1522
   %1528 = getelementptr inbounds i8, ptr %1318, i64 %1305
   %1529 = load i8, ptr %1528, align 1
   %1530 = zext i8 %1529 to i32
-  %1531 = icmp ult i32 %1321, %1530
+  %1531 = icmp samesign ult i32 %1321, %1530
   br i1 %1531, label %1532, label %.backedge2578.i
 
 1532:                                             ; preds = %1527
   %1533 = getelementptr inbounds i8, ptr %1318, i64 %1302
   %1534 = load i8, ptr %1533, align 1
   %1535 = zext i8 %1534 to i32
-  %1536 = icmp ult i32 %1321, %1535
+  %1536 = icmp samesign ult i32 %1321, %1535
   br i1 %1536, label %5021, label %.backedge2578.i
 
 1537:                                             ; preds = %1517
   %1538 = getelementptr inbounds i8, ptr %1318, i64 %1305
   %1539 = load i8, ptr %1538, align 1
   %1540 = zext i8 %1539 to i32
-  %1541 = icmp ult i32 %1321, %1540
+  %1541 = icmp samesign ult i32 %1321, %1540
   br i1 %1541, label %1542, label %.backedge2578.i
 
 1542:                                             ; preds = %1537
   %1543 = getelementptr inbounds i8, ptr %1318, i64 %1301
   %1544 = load i8, ptr %1543, align 1
   %1545 = zext i8 %1544 to i32
-  %1546 = icmp ult i32 %1321, %1545
+  %1546 = icmp samesign ult i32 %1321, %1545
   br i1 %1546, label %1547, label %.backedge2578.i
 
 1547:                                             ; preds = %1542
   %1548 = getelementptr inbounds i8, ptr %1318, i64 %1302
   %1549 = load i8, ptr %1548, align 1
   %1550 = zext i8 %1549 to i32
-  %1551 = icmp ult i32 %1321, %1550
+  %1551 = icmp samesign ult i32 %1321, %1550
   br i1 %1551, label %5021, label %.backedge2578.i
 
 1552:                                             ; preds = %1512
   %1553 = getelementptr inbounds i8, ptr %1318, i64 %1305
   %1554 = load i8, ptr %1553, align 1
   %1555 = zext i8 %1554 to i32
-  %1556 = icmp ult i32 %1321, %1555
+  %1556 = icmp samesign ult i32 %1321, %1555
   br i1 %1556, label %1557, label %.backedge2578.i
 
 1557:                                             ; preds = %1552
   %1558 = getelementptr inbounds i8, ptr %1318, i64 %1302
   %1559 = load i8, ptr %1558, align 1
   %1560 = zext i8 %1559 to i32
-  %1561 = icmp ult i32 %1321, %1560
+  %1561 = icmp samesign ult i32 %1321, %1560
   br i1 %1561, label %1562, label %1572
 
 1562:                                             ; preds = %1557
   %1563 = getelementptr inbounds i8, ptr %1318, i64 %1301
   %1564 = load i8, ptr %1563, align 1
   %1565 = zext i8 %1564 to i32
-  %1566 = icmp ult i32 %1321, %1565
+  %1566 = icmp samesign ult i32 %1321, %1565
   br i1 %1566, label %4949, label %1567
 
 1567:                                             ; preds = %1562
   %1568 = getelementptr inbounds i8, ptr %1318, i64 %1308
   %1569 = load i8, ptr %1568, align 1
   %1570 = zext i8 %1569 to i32
-  %1571 = icmp ult i32 %1321, %1570
+  %1571 = icmp samesign ult i32 %1321, %1570
   br i1 %1571, label %4949, label %.backedge2578.i
 
 1572:                                             ; preds = %1557
   %1573 = getelementptr inbounds i8, ptr %1318, i64 %1308
   %1574 = load i8, ptr %1573, align 1
   %1575 = zext i8 %1574 to i32
-  %1576 = icmp ult i32 %1321, %1575
+  %1576 = icmp samesign ult i32 %1321, %1575
   br i1 %1576, label %1577, label %.backedge2578.i
 
 1577:                                             ; preds = %1572
   %1578 = getelementptr inbounds i8, ptr %1318, i64 %1307
   %1579 = load i8, ptr %1578, align 1
   %1580 = zext i8 %1579 to i32
-  %1581 = icmp ult i32 %1321, %1580
+  %1581 = icmp samesign ult i32 %1321, %1580
   br i1 %1581, label %4949, label %.backedge2578.i
 
 1582:                                             ; preds = %1327
@@ -2918,25 +2918,25 @@ _ZNSt6vectorIN2cv8KeyPointESaIS1_EE6resizeEm.exit.i114: ; preds = %1255, %1239
   %1585 = getelementptr inbounds i8, ptr %1318, i64 %1299
   %1586 = load i8, ptr %1585, align 1
   %1587 = zext i8 %1586 to i32
-  %1588 = icmp ult i32 %1321, %1587
+  %1588 = icmp samesign ult i32 %1321, %1587
   br i1 %1588, label %1589, label %1823
 
 1589:                                             ; preds = %1584
   %1590 = getelementptr inbounds i8, ptr %1318, i64 %1301
   %1591 = load i8, ptr %1590, align 1
   %1592 = zext i8 %1591 to i32
-  %1593 = icmp ugt i32 %1322, %1592
+  %1593 = icmp samesign ugt i32 %1322, %1592
   br i1 %1593, label %1594, label %1746
 
 1594:                                             ; preds = %1589
   %1595 = getelementptr inbounds i8, ptr %1318, i64 %1302
   %1596 = load i8, ptr %1595, align 1
   %1597 = zext i8 %1596 to i32
-  %1598 = icmp ugt i32 %1322, %1597
+  %1598 = icmp samesign ugt i32 %1322, %1597
   %1599 = getelementptr inbounds i8, ptr %1318, i64 %1307
   %1600 = load i8, ptr %1599, align 1
   %1601 = zext i8 %1600 to i32
-  %1602 = icmp ult i32 %1321, %1601
+  %1602 = icmp samesign ult i32 %1321, %1601
   br i1 %1598, label %1603, label %1710
 
 1603:                                             ; preds = %1594
@@ -2946,57 +2946,57 @@ _ZNSt6vectorIN2cv8KeyPointESaIS1_EE6resizeEm.exit.i114: ; preds = %1255, %1239
   %1605 = getelementptr inbounds i8, ptr %1318, i64 %1304
   %1606 = load i8, ptr %1605, align 1
   %1607 = zext i8 %1606 to i32
-  %1608 = icmp ult i32 %1321, %1607
+  %1608 = icmp samesign ult i32 %1321, %1607
   br i1 %1608, label %1609, label %1645
 
 1609:                                             ; preds = %1604
   %1610 = getelementptr inbounds i8, ptr %1318, i64 %1306
   %1611 = load i8, ptr %1610, align 1
   %1612 = zext i8 %1611 to i32
-  %1613 = icmp ult i32 %1321, %1612
+  %1613 = icmp samesign ult i32 %1321, %1612
   br i1 %1613, label %1614, label %1629
 
 1614:                                             ; preds = %1609
   %1615 = getelementptr inbounds i8, ptr %1318, i64 %1308
   %1616 = load i8, ptr %1615, align 1
   %1617 = zext i8 %1616 to i32
-  %1618 = icmp ult i32 %1321, %1617
+  %1618 = icmp samesign ult i32 %1321, %1617
   br i1 %1618, label %1619, label %.backedge2578.i
 
 1619:                                             ; preds = %1614
   %1620 = getelementptr inbounds i8, ptr %1318, i64 %1300
   %1621 = load i8, ptr %1620, align 1
   %1622 = zext i8 %1621 to i32
-  %1623 = icmp ult i32 %1321, %1622
+  %1623 = icmp samesign ult i32 %1321, %1622
   br i1 %1623, label %5021, label %1624
 
 1624:                                             ; preds = %1619
   %1625 = getelementptr inbounds i8, ptr %1318, i64 %1303
   %1626 = load i8, ptr %1625, align 1
   %1627 = zext i8 %1626 to i32
-  %1628 = icmp ult i32 %1321, %1627
+  %1628 = icmp samesign ult i32 %1321, %1627
   br i1 %1628, label %5021, label %.preheader.i158
 
 1629:                                             ; preds = %1609
   %1630 = getelementptr inbounds i8, ptr %1318, i64 %1305
   %1631 = load i8, ptr %1630, align 1
   %1632 = zext i8 %1631 to i32
-  %1633 = icmp ugt i32 %1322, %1632
+  %1633 = icmp samesign ugt i32 %1322, %1632
   br i1 %1633, label %1634, label %.backedge2578.i
 
 1634:                                             ; preds = %1629
   %1635 = getelementptr inbounds i8, ptr %1318, i64 %1300
   %1636 = load i8, ptr %1635, align 1
   %1637 = zext i8 %1636 to i32
-  %1638 = icmp ugt i32 %1322, %1637
+  %1638 = icmp samesign ugt i32 %1322, %1637
   br i1 %1638, label %1639, label %.backedge2578.i
 
 1639:                                             ; preds = %1634
   %1640 = getelementptr inbounds i8, ptr %1318, i64 %1303
   %1641 = load i8, ptr %1640, align 1
   %1642 = zext i8 %1641 to i32
-  %1643 = icmp ugt i32 %1322, %1642
-  %1644 = icmp ugt i32 %1322, %1612
+  %1643 = icmp samesign ugt i32 %1322, %1642
+  %1644 = icmp samesign ugt i32 %1322, %1612
   %or.cond.i164 = and i1 %1644, %1643
   br i1 %or.cond.i164, label %5021, label %.preheader.i158
 
@@ -3004,82 +3004,82 @@ _ZNSt6vectorIN2cv8KeyPointESaIS1_EE6resizeEm.exit.i114: ; preds = %1255, %1239
   %1646 = getelementptr inbounds i8, ptr %1318, i64 %1305
   %1647 = load i8, ptr %1646, align 1
   %1648 = zext i8 %1647 to i32
-  %1649 = icmp ult i32 %1321, %1648
+  %1649 = icmp samesign ult i32 %1321, %1648
   br i1 %1649, label %1650, label %1665
 
 1650:                                             ; preds = %1645
   %1651 = getelementptr inbounds i8, ptr %1318, i64 %1303
   %1652 = load i8, ptr %1651, align 1
   %1653 = zext i8 %1652 to i32
-  %1654 = icmp ult i32 %1321, %1653
+  %1654 = icmp samesign ult i32 %1321, %1653
   br i1 %1654, label %1655, label %.backedge2578.i
 
 1655:                                             ; preds = %1650
   %1656 = getelementptr inbounds i8, ptr %1318, i64 %1306
   %1657 = load i8, ptr %1656, align 1
   %1658 = zext i8 %1657 to i32
-  %1659 = icmp ult i32 %1321, %1658
+  %1659 = icmp samesign ult i32 %1321, %1658
   br i1 %1659, label %1660, label %.backedge2578.i
 
 1660:                                             ; preds = %1655
   %1661 = getelementptr inbounds i8, ptr %1318, i64 %1308
   %1662 = load i8, ptr %1661, align 1
   %1663 = zext i8 %1662 to i32
-  %1664 = icmp ult i32 %1321, %1663
+  %1664 = icmp samesign ult i32 %1321, %1663
   br i1 %1664, label %5021, label %.preheader.i158
 
 1665:                                             ; preds = %1645
-  %1666 = icmp ugt i32 %1322, %1648
+  %1666 = icmp samesign ugt i32 %1322, %1648
   br i1 %1666, label %1667, label %.backedge2578.i
 
 1667:                                             ; preds = %1665
   %1668 = getelementptr inbounds i8, ptr %1318, i64 %1300
   %1669 = load i8, ptr %1668, align 1
   %1670 = zext i8 %1669 to i32
-  %1671 = icmp ugt i32 %1322, %1670
+  %1671 = icmp samesign ugt i32 %1322, %1670
   br i1 %1671, label %1672, label %.backedge2578.i
 
 1672:                                             ; preds = %1667
   %1673 = getelementptr inbounds i8, ptr %1318, i64 %1303
   %1674 = load i8, ptr %1673, align 1
   %1675 = zext i8 %1674 to i32
-  %1676 = icmp ugt i32 %1322, %1675
+  %1676 = icmp samesign ugt i32 %1322, %1675
   br i1 %1676, label %1677, label %.backedge2578.i
 
 1677:                                             ; preds = %1672
-  %1678 = icmp ugt i32 %1322, %1607
+  %1678 = icmp samesign ugt i32 %1322, %1607
   br i1 %1678, label %5021, label %1679
 
 1679:                                             ; preds = %1677
   %1680 = getelementptr inbounds i8, ptr %1318, i64 %1306
   %1681 = load i8, ptr %1680, align 1
   %1682 = zext i8 %1681 to i32
-  %1683 = icmp ugt i32 %1322, %1682
+  %1683 = icmp samesign ugt i32 %1322, %1682
   br i1 %1683, label %5021, label %.preheader.i158
 
 1684:                                             ; preds = %1603
   %1685 = getelementptr inbounds i8, ptr %1318, i64 %1300
   %1686 = load i8, ptr %1685, align 1
   %1687 = zext i8 %1686 to i32
-  %1688 = icmp ugt i32 %1322, %1687
+  %1688 = icmp samesign ugt i32 %1322, %1687
   br i1 %1688, label %1689, label %.backedge2578.i
 
 1689:                                             ; preds = %1684
   %1690 = getelementptr inbounds i8, ptr %1318, i64 %1303
   %1691 = load i8, ptr %1690, align 1
   %1692 = zext i8 %1691 to i32
-  %1693 = icmp ugt i32 %1322, %1692
+  %1693 = icmp samesign ugt i32 %1322, %1692
   br i1 %1693, label %1694, label %.backedge2578.i
 
 1694:                                             ; preds = %1689
   %1695 = getelementptr inbounds i8, ptr %1318, i64 %1304
   %1696 = load i8, ptr %1695, align 1
   %1697 = zext i8 %1696 to i32
-  %1698 = icmp ugt i32 %1322, %1697
+  %1698 = icmp samesign ugt i32 %1322, %1697
   %1699 = getelementptr inbounds i8, ptr %1318, i64 %1305
   %1700 = load i8, ptr %1699, align 1
   %1701 = zext i8 %1700 to i32
-  %1702 = icmp ugt i32 %1322, %1701
+  %1702 = icmp samesign ugt i32 %1322, %1701
   br i1 %1698, label %1703, label %1704
 
 1703:                                             ; preds = %1694
@@ -3092,7 +3092,7 @@ _ZNSt6vectorIN2cv8KeyPointESaIS1_EE6resizeEm.exit.i114: ; preds = %1255, %1239
   %1706 = getelementptr inbounds i8, ptr %1318, i64 %1306
   %1707 = load i8, ptr %1706, align 1
   %1708 = zext i8 %1707 to i32
-  %1709 = icmp ugt i32 %1322, %1708
+  %1709 = icmp samesign ugt i32 %1322, %1708
   br i1 %1709, label %5021, label %.backedge2578.i
 
 1710:                                             ; preds = %1594
@@ -3102,166 +3102,166 @@ _ZNSt6vectorIN2cv8KeyPointESaIS1_EE6resizeEm.exit.i114: ; preds = %1255, %1239
   %1712 = getelementptr inbounds i8, ptr %1318, i64 %1306
   %1713 = load i8, ptr %1712, align 1
   %1714 = zext i8 %1713 to i32
-  %1715 = icmp ult i32 %1321, %1714
+  %1715 = icmp samesign ult i32 %1321, %1714
   br i1 %1715, label %1716, label %.backedge2578.i
 
 1716:                                             ; preds = %1711
   %1717 = getelementptr inbounds i8, ptr %1318, i64 %1308
   %1718 = load i8, ptr %1717, align 1
   %1719 = zext i8 %1718 to i32
-  %1720 = icmp ult i32 %1321, %1719
+  %1720 = icmp samesign ult i32 %1321, %1719
   br i1 %1720, label %1721, label %.backedge2578.i
 
 1721:                                             ; preds = %1716
   %1722 = getelementptr inbounds i8, ptr %1318, i64 %1304
   %1723 = load i8, ptr %1722, align 1
   %1724 = zext i8 %1723 to i32
-  %1725 = icmp ult i32 %1321, %1724
+  %1725 = icmp samesign ult i32 %1321, %1724
   br i1 %1725, label %1726, label %1736
 
 1726:                                             ; preds = %1721
   %1727 = getelementptr inbounds i8, ptr %1318, i64 %1300
   %1728 = load i8, ptr %1727, align 1
   %1729 = zext i8 %1728 to i32
-  %1730 = icmp ult i32 %1321, %1729
+  %1730 = icmp samesign ult i32 %1321, %1729
   br i1 %1730, label %5021, label %1731
 
 1731:                                             ; preds = %1726
   %1732 = getelementptr inbounds i8, ptr %1318, i64 %1303
   %1733 = load i8, ptr %1732, align 1
   %1734 = zext i8 %1733 to i32
-  %1735 = icmp ult i32 %1321, %1734
+  %1735 = icmp samesign ult i32 %1321, %1734
   br i1 %1735, label %5021, label %.backedge2578.i
 
 1736:                                             ; preds = %1721
   %1737 = getelementptr inbounds i8, ptr %1318, i64 %1305
   %1738 = load i8, ptr %1737, align 1
   %1739 = zext i8 %1738 to i32
-  %1740 = icmp ult i32 %1321, %1739
+  %1740 = icmp samesign ult i32 %1321, %1739
   br i1 %1740, label %1741, label %.backedge2578.i
 
 1741:                                             ; preds = %1736
   %1742 = getelementptr inbounds i8, ptr %1318, i64 %1303
   %1743 = load i8, ptr %1742, align 1
   %1744 = zext i8 %1743 to i32
-  %1745 = icmp ult i32 %1321, %1744
+  %1745 = icmp samesign ult i32 %1321, %1744
   br i1 %1745, label %5021, label %.backedge2578.i
 
 1746:                                             ; preds = %1589
   %1747 = getelementptr inbounds i8, ptr %1318, i64 %1307
   %1748 = load i8, ptr %1747, align 1
   %1749 = zext i8 %1748 to i32
-  %1750 = icmp ult i32 %1321, %1749
+  %1750 = icmp samesign ult i32 %1321, %1749
   br i1 %1750, label %1751, label %.backedge2578.i
 
 1751:                                             ; preds = %1746
   %1752 = getelementptr inbounds i8, ptr %1318, i64 %1308
   %1753 = load i8, ptr %1752, align 1
   %1754 = zext i8 %1753 to i32
-  %1755 = icmp ult i32 %1321, %1754
+  %1755 = icmp samesign ult i32 %1321, %1754
   br i1 %1755, label %1756, label %.backedge2578.i
 
 1756:                                             ; preds = %1751
-  %1757 = icmp ult i32 %1321, %1592
+  %1757 = icmp samesign ult i32 %1321, %1592
   br i1 %1757, label %1758, label %1793
 
 1758:                                             ; preds = %1756
   %1759 = getelementptr inbounds i8, ptr %1318, i64 %1304
   %1760 = load i8, ptr %1759, align 1
   %1761 = zext i8 %1760 to i32
-  %1762 = icmp ult i32 %1321, %1761
+  %1762 = icmp samesign ult i32 %1321, %1761
   br i1 %1762, label %1763, label %1778
 
 1763:                                             ; preds = %1758
   %1764 = getelementptr inbounds i8, ptr %1318, i64 %1300
   %1765 = load i8, ptr %1764, align 1
   %1766 = zext i8 %1765 to i32
-  %1767 = icmp ult i32 %1321, %1766
+  %1767 = icmp samesign ult i32 %1321, %1766
   br i1 %1767, label %4949, label %1768
 
 1768:                                             ; preds = %1763
   %1769 = getelementptr inbounds i8, ptr %1318, i64 %1303
   %1770 = load i8, ptr %1769, align 1
   %1771 = zext i8 %1770 to i32
-  %1772 = icmp ult i32 %1321, %1771
+  %1772 = icmp samesign ult i32 %1321, %1771
   br i1 %1772, label %1773, label %.backedge2578.i
 
 1773:                                             ; preds = %1768
   %1774 = getelementptr inbounds i8, ptr %1318, i64 %1306
   %1775 = load i8, ptr %1774, align 1
   %1776 = zext i8 %1775 to i32
-  %1777 = icmp ult i32 %1321, %1776
+  %1777 = icmp samesign ult i32 %1321, %1776
   br i1 %1777, label %5021, label %.backedge2578.i
 
 1778:                                             ; preds = %1758
   %1779 = getelementptr inbounds i8, ptr %1318, i64 %1305
   %1780 = load i8, ptr %1779, align 1
   %1781 = zext i8 %1780 to i32
-  %1782 = icmp ult i32 %1321, %1781
+  %1782 = icmp samesign ult i32 %1321, %1781
   br i1 %1782, label %1783, label %.backedge2578.i
 
 1783:                                             ; preds = %1778
   %1784 = getelementptr inbounds i8, ptr %1318, i64 %1303
   %1785 = load i8, ptr %1784, align 1
   %1786 = zext i8 %1785 to i32
-  %1787 = icmp ult i32 %1321, %1786
+  %1787 = icmp samesign ult i32 %1321, %1786
   br i1 %1787, label %1788, label %.backedge2578.i
 
 1788:                                             ; preds = %1783
   %1789 = getelementptr inbounds i8, ptr %1318, i64 %1306
   %1790 = load i8, ptr %1789, align 1
   %1791 = zext i8 %1790 to i32
-  %1792 = icmp ult i32 %1321, %1791
+  %1792 = icmp samesign ult i32 %1321, %1791
   br i1 %1792, label %5021, label %.backedge2578.i
 
 1793:                                             ; preds = %1756
   %1794 = getelementptr inbounds i8, ptr %1318, i64 %1306
   %1795 = load i8, ptr %1794, align 1
   %1796 = zext i8 %1795 to i32
-  %1797 = icmp ult i32 %1321, %1796
+  %1797 = icmp samesign ult i32 %1321, %1796
   br i1 %1797, label %1798, label %.backedge2578.i
 
 1798:                                             ; preds = %1793
   %1799 = getelementptr inbounds i8, ptr %1318, i64 %1304
   %1800 = load i8, ptr %1799, align 1
   %1801 = zext i8 %1800 to i32
-  %1802 = icmp ult i32 %1321, %1801
+  %1802 = icmp samesign ult i32 %1321, %1801
   br i1 %1802, label %1803, label %1813
 
 1803:                                             ; preds = %1798
   %1804 = getelementptr inbounds i8, ptr %1318, i64 %1300
   %1805 = load i8, ptr %1804, align 1
   %1806 = zext i8 %1805 to i32
-  %1807 = icmp ult i32 %1321, %1806
+  %1807 = icmp samesign ult i32 %1321, %1806
   br i1 %1807, label %4949, label %1808
 
 1808:                                             ; preds = %1803
   %1809 = getelementptr inbounds i8, ptr %1318, i64 %1303
   %1810 = load i8, ptr %1809, align 1
   %1811 = zext i8 %1810 to i32
-  %1812 = icmp ult i32 %1321, %1811
+  %1812 = icmp samesign ult i32 %1321, %1811
   br i1 %1812, label %4949, label %.backedge2578.i
 
 1813:                                             ; preds = %1798
   %1814 = getelementptr inbounds i8, ptr %1318, i64 %1305
   %1815 = load i8, ptr %1814, align 1
   %1816 = zext i8 %1815 to i32
-  %1817 = icmp ult i32 %1321, %1816
+  %1817 = icmp samesign ult i32 %1321, %1816
   br i1 %1817, label %1818, label %.backedge2578.i
 
 1818:                                             ; preds = %1813
   %1819 = getelementptr inbounds i8, ptr %1318, i64 %1303
   %1820 = load i8, ptr %1819, align 1
   %1821 = zext i8 %1820 to i32
-  %1822 = icmp ult i32 %1321, %1821
+  %1822 = icmp samesign ult i32 %1321, %1821
   br i1 %1822, label %4949, label %.backedge2578.i
 
 1823:                                             ; preds = %1584
-  %1824 = icmp ugt i32 %1322, %1587
+  %1824 = icmp samesign ugt i32 %1322, %1587
   %1825 = getelementptr inbounds i8, ptr %1318, i64 %1300
   %1826 = load i8, ptr %1825, align 1
   %1827 = zext i8 %1826 to i32
-  %1828 = icmp ult i32 %1321, %1827
+  %1828 = icmp samesign ult i32 %1321, %1827
   br i1 %1824, label %1829, label %2007
 
 1829:                                             ; preds = %1823
@@ -3271,64 +3271,64 @@ _ZNSt6vectorIN2cv8KeyPointESaIS1_EE6resizeEm.exit.i114: ; preds = %1255, %1239
   %1831 = getelementptr inbounds i8, ptr %1318, i64 %1304
   %1832 = load i8, ptr %1831, align 1
   %1833 = zext i8 %1832 to i32
-  %1834 = icmp ult i32 %1321, %1833
+  %1834 = icmp samesign ult i32 %1321, %1833
   br i1 %1834, label %1835, label %1910
 
 1835:                                             ; preds = %1830
   %1836 = getelementptr inbounds i8, ptr %1318, i64 %1302
   %1837 = load i8, ptr %1836, align 1
   %1838 = zext i8 %1837 to i32
-  %1839 = icmp ult i32 %1321, %1838
+  %1839 = icmp samesign ult i32 %1321, %1838
   br i1 %1839, label %1840, label %1876
 
 1840:                                             ; preds = %1835
   %1841 = getelementptr inbounds i8, ptr %1318, i64 %1308
   %1842 = load i8, ptr %1841, align 1
   %1843 = zext i8 %1842 to i32
-  %1844 = icmp ult i32 %1321, %1843
+  %1844 = icmp samesign ult i32 %1321, %1843
   br i1 %1844, label %1845, label %1855
 
 1845:                                             ; preds = %1840
   %1846 = getelementptr inbounds i8, ptr %1318, i64 %1301
   %1847 = load i8, ptr %1846, align 1
   %1848 = zext i8 %1847 to i32
-  %1849 = icmp ult i32 %1321, %1848
+  %1849 = icmp samesign ult i32 %1321, %1848
   br i1 %1849, label %1850, label %.backedge2578.i
 
 1850:                                             ; preds = %1845
   %1851 = getelementptr inbounds i8, ptr %1318, i64 %1307
   %1852 = load i8, ptr %1851, align 1
   %1853 = zext i8 %1852 to i32
-  %1854 = icmp ult i32 %1321, %1853
+  %1854 = icmp samesign ult i32 %1321, %1853
   br i1 %1854, label %5021, label %.backedge2578.i
 
 1855:                                             ; preds = %1840
   %1856 = getelementptr inbounds i8, ptr %1318, i64 %1305
   %1857 = load i8, ptr %1856, align 1
   %1858 = zext i8 %1857 to i32
-  %1859 = icmp ugt i32 %1322, %1858
+  %1859 = icmp samesign ugt i32 %1322, %1858
   br i1 %1859, label %1860, label %.backedge2578.i
 
 1860:                                             ; preds = %1855
   %1861 = getelementptr inbounds i8, ptr %1318, i64 %1303
   %1862 = load i8, ptr %1861, align 1
   %1863 = zext i8 %1862 to i32
-  %1864 = icmp ugt i32 %1322, %1863
+  %1864 = icmp samesign ugt i32 %1322, %1863
   br i1 %1864, label %1865, label %.backedge2578.i
 
 1865:                                             ; preds = %1860
   %1866 = getelementptr inbounds i8, ptr %1318, i64 %1306
   %1867 = load i8, ptr %1866, align 1
   %1868 = zext i8 %1867 to i32
-  %1869 = icmp ugt i32 %1322, %1868
+  %1869 = icmp samesign ugt i32 %1322, %1868
   br i1 %1869, label %1870, label %.backedge2578.i
 
 1870:                                             ; preds = %1865
   %1871 = getelementptr inbounds i8, ptr %1318, i64 %1307
   %1872 = load i8, ptr %1871, align 1
   %1873 = zext i8 %1872 to i32
-  %1874 = icmp ugt i32 %1322, %1873
-  %1875 = icmp ugt i32 %1322, %1843
+  %1874 = icmp samesign ugt i32 %1322, %1873
+  %1875 = icmp samesign ugt i32 %1322, %1843
   %or.cond2463.i = and i1 %1875, %1874
   br i1 %or.cond2463.i, label %5021, label %.preheader.i158
 
@@ -3336,187 +3336,187 @@ _ZNSt6vectorIN2cv8KeyPointESaIS1_EE6resizeEm.exit.i114: ; preds = %1255, %1239
   %1877 = getelementptr inbounds i8, ptr %1318, i64 %1305
   %1878 = load i8, ptr %1877, align 1
   %1879 = zext i8 %1878 to i32
-  %1880 = icmp ugt i32 %1322, %1879
+  %1880 = icmp samesign ugt i32 %1322, %1879
   br i1 %1880, label %1881, label %.backedge2578.i
 
 1881:                                             ; preds = %1876
   %1882 = getelementptr inbounds i8, ptr %1318, i64 %1303
   %1883 = load i8, ptr %1882, align 1
   %1884 = zext i8 %1883 to i32
-  %1885 = icmp ugt i32 %1322, %1884
+  %1885 = icmp samesign ugt i32 %1322, %1884
   br i1 %1885, label %1886, label %.backedge2578.i
 
 1886:                                             ; preds = %1881
   %1887 = getelementptr inbounds i8, ptr %1318, i64 %1306
   %1888 = load i8, ptr %1887, align 1
   %1889 = zext i8 %1888 to i32
-  %1890 = icmp ugt i32 %1322, %1889
+  %1890 = icmp samesign ugt i32 %1322, %1889
   br i1 %1890, label %1891, label %.backedge2578.i
 
 1891:                                             ; preds = %1886
   %1892 = getelementptr inbounds i8, ptr %1318, i64 %1308
   %1893 = load i8, ptr %1892, align 1
   %1894 = zext i8 %1893 to i32
-  %1895 = icmp ugt i32 %1322, %1894
+  %1895 = icmp samesign ugt i32 %1322, %1894
   br i1 %1895, label %1896, label %1903
 
 1896:                                             ; preds = %1891
-  %1897 = icmp ugt i32 %1322, %1838
+  %1897 = icmp samesign ugt i32 %1322, %1838
   br i1 %1897, label %5021, label %1898
 
 1898:                                             ; preds = %1896
   %1899 = getelementptr inbounds i8, ptr %1318, i64 %1307
   %1900 = load i8, ptr %1899, align 1
   %1901 = zext i8 %1900 to i32
-  %1902 = icmp ugt i32 %1322, %1901
+  %1902 = icmp samesign ugt i32 %1322, %1901
   br i1 %1902, label %5021, label %.preheader.i158
 
 1903:                                             ; preds = %1891
   %1904 = getelementptr inbounds i8, ptr %1318, i64 %1301
   %1905 = load i8, ptr %1904, align 1
   %1906 = zext i8 %1905 to i32
-  %1907 = icmp ugt i32 %1322, %1906
+  %1907 = icmp samesign ugt i32 %1322, %1906
   br i1 %1907, label %1908, label %.backedge2578.i
 
 1908:                                             ; preds = %1903
-  %1909 = icmp ugt i32 %1322, %1838
+  %1909 = icmp samesign ugt i32 %1322, %1838
   br i1 %1909, label %5021, label %.preheader.i158
 
 1910:                                             ; preds = %1830
   %1911 = getelementptr inbounds i8, ptr %1318, i64 %1305
   %1912 = load i8, ptr %1911, align 1
   %1913 = zext i8 %1912 to i32
-  %1914 = icmp ugt i32 %1322, %1913
+  %1914 = icmp samesign ugt i32 %1322, %1913
   br i1 %1914, label %1915, label %.backedge2578.i
 
 1915:                                             ; preds = %1910
   %1916 = getelementptr inbounds i8, ptr %1318, i64 %1303
   %1917 = load i8, ptr %1916, align 1
   %1918 = zext i8 %1917 to i32
-  %1919 = icmp ugt i32 %1322, %1918
+  %1919 = icmp samesign ugt i32 %1322, %1918
   br i1 %1919, label %1920, label %.backedge2578.i
 
 1920:                                             ; preds = %1915
   %1921 = getelementptr inbounds i8, ptr %1318, i64 %1306
   %1922 = load i8, ptr %1921, align 1
   %1923 = zext i8 %1922 to i32
-  %1924 = icmp ugt i32 %1322, %1923
+  %1924 = icmp samesign ugt i32 %1322, %1923
   br i1 %1924, label %1925, label %.backedge2578.i
 
 1925:                                             ; preds = %1920
   %1926 = getelementptr inbounds i8, ptr %1318, i64 %1302
   %1927 = load i8, ptr %1926, align 1
   %1928 = zext i8 %1927 to i32
-  %1929 = icmp ugt i32 %1322, %1928
+  %1929 = icmp samesign ugt i32 %1322, %1928
   br i1 %1929, label %1930, label %1940
 
 1930:                                             ; preds = %1925
   %1931 = getelementptr inbounds i8, ptr %1318, i64 %1301
   %1932 = load i8, ptr %1931, align 1
   %1933 = zext i8 %1932 to i32
-  %1934 = icmp ugt i32 %1322, %1933
+  %1934 = icmp samesign ugt i32 %1322, %1933
   br i1 %1934, label %5021, label %1935
 
 1935:                                             ; preds = %1930
   %1936 = getelementptr inbounds i8, ptr %1318, i64 %1308
   %1937 = load i8, ptr %1936, align 1
   %1938 = zext i8 %1937 to i32
-  %1939 = icmp ugt i32 %1322, %1938
+  %1939 = icmp samesign ugt i32 %1322, %1938
   br i1 %1939, label %5021, label %.backedge2578.i
 
 1940:                                             ; preds = %1925
   %1941 = getelementptr inbounds i8, ptr %1318, i64 %1308
   %1942 = load i8, ptr %1941, align 1
   %1943 = zext i8 %1942 to i32
-  %1944 = icmp ugt i32 %1322, %1943
+  %1944 = icmp samesign ugt i32 %1322, %1943
   br i1 %1944, label %1945, label %.backedge2578.i
 
 1945:                                             ; preds = %1940
   %1946 = getelementptr inbounds i8, ptr %1318, i64 %1307
   %1947 = load i8, ptr %1946, align 1
   %1948 = zext i8 %1947 to i32
-  %1949 = icmp ugt i32 %1322, %1948
+  %1949 = icmp samesign ugt i32 %1322, %1948
   br i1 %1949, label %5021, label %.backedge2578.i
 
 1950:                                             ; preds = %1829
   %1951 = getelementptr inbounds i8, ptr %1318, i64 %1305
   %1952 = load i8, ptr %1951, align 1
   %1953 = zext i8 %1952 to i32
-  %1954 = icmp ugt i32 %1322, %1953
+  %1954 = icmp samesign ugt i32 %1322, %1953
   br i1 %1954, label %1955, label %.backedge2578.i
 
 1955:                                             ; preds = %1950
   %1956 = getelementptr inbounds i8, ptr %1318, i64 %1303
   %1957 = load i8, ptr %1956, align 1
   %1958 = zext i8 %1957 to i32
-  %1959 = icmp ugt i32 %1322, %1958
+  %1959 = icmp samesign ugt i32 %1322, %1958
   br i1 %1959, label %1960, label %.backedge2578.i
 
 1960:                                             ; preds = %1955
   %1961 = getelementptr inbounds i8, ptr %1318, i64 %1306
   %1962 = load i8, ptr %1961, align 1
   %1963 = zext i8 %1962 to i32
-  %1964 = icmp ugt i32 %1322, %1963
+  %1964 = icmp samesign ugt i32 %1322, %1963
   br i1 %1964, label %1965, label %1990
 
 1965:                                             ; preds = %1960
   %1966 = getelementptr inbounds i8, ptr %1318, i64 %1302
   %1967 = load i8, ptr %1966, align 1
   %1968 = zext i8 %1967 to i32
-  %1969 = icmp ugt i32 %1322, %1968
+  %1969 = icmp samesign ugt i32 %1322, %1968
   br i1 %1969, label %1970, label %1980
 
 1970:                                             ; preds = %1965
   %1971 = getelementptr inbounds i8, ptr %1318, i64 %1301
   %1972 = load i8, ptr %1971, align 1
   %1973 = zext i8 %1972 to i32
-  %1974 = icmp ugt i32 %1322, %1973
+  %1974 = icmp samesign ugt i32 %1322, %1973
   br i1 %1974, label %4949, label %1975
 
 1975:                                             ; preds = %1970
   %1976 = getelementptr inbounds i8, ptr %1318, i64 %1308
   %1977 = load i8, ptr %1976, align 1
   %1978 = zext i8 %1977 to i32
-  %1979 = icmp ugt i32 %1322, %1978
+  %1979 = icmp samesign ugt i32 %1322, %1978
   br i1 %1979, label %4949, label %.backedge2578.i
 
 1980:                                             ; preds = %1965
   %1981 = getelementptr inbounds i8, ptr %1318, i64 %1308
   %1982 = load i8, ptr %1981, align 1
   %1983 = zext i8 %1982 to i32
-  %1984 = icmp ugt i32 %1322, %1983
+  %1984 = icmp samesign ugt i32 %1322, %1983
   br i1 %1984, label %1985, label %.backedge2578.i
 
 1985:                                             ; preds = %1980
   %1986 = getelementptr inbounds i8, ptr %1318, i64 %1307
   %1987 = load i8, ptr %1986, align 1
   %1988 = zext i8 %1987 to i32
-  %1989 = icmp ugt i32 %1322, %1988
+  %1989 = icmp samesign ugt i32 %1322, %1988
   br i1 %1989, label %4949, label %.backedge2578.i
 
 1990:                                             ; preds = %1960
-  %1991 = icmp ugt i32 %1322, %1827
+  %1991 = icmp samesign ugt i32 %1322, %1827
   br i1 %1991, label %1992, label %.backedge2578.i
 
 1992:                                             ; preds = %1990
   %1993 = getelementptr inbounds i8, ptr %1318, i64 %1304
   %1994 = load i8, ptr %1993, align 1
   %1995 = zext i8 %1994 to i32
-  %1996 = icmp ugt i32 %1322, %1995
+  %1996 = icmp samesign ugt i32 %1322, %1995
   br i1 %1996, label %1997, label %.backedge2578.i
 
 1997:                                             ; preds = %1992
   %1998 = getelementptr inbounds i8, ptr %1318, i64 %1301
   %1999 = load i8, ptr %1998, align 1
   %2000 = zext i8 %1999 to i32
-  %2001 = icmp ugt i32 %1322, %2000
+  %2001 = icmp samesign ugt i32 %1322, %2000
   br i1 %2001, label %2002, label %.backedge2578.i
 
 2002:                                             ; preds = %1997
   %2003 = getelementptr inbounds i8, ptr %1318, i64 %1302
   %2004 = load i8, ptr %2003, align 1
   %2005 = zext i8 %2004 to i32
-  %2006 = icmp ugt i32 %1322, %2005
+  %2006 = icmp samesign ugt i32 %1322, %2005
   br i1 %2006, label %5021, label %.backedge2578.i
 
 2007:                                             ; preds = %1823
@@ -3526,71 +3526,71 @@ _ZNSt6vectorIN2cv8KeyPointESaIS1_EE6resizeEm.exit.i114: ; preds = %1255, %1239
   %2009 = getelementptr inbounds i8, ptr %1318, i64 %1304
   %2010 = load i8, ptr %2009, align 1
   %2011 = zext i8 %2010 to i32
-  %2012 = icmp ult i32 %1321, %2011
+  %2012 = icmp samesign ult i32 %1321, %2011
   br i1 %2012, label %2013, label %.backedge2578.i
 
 2013:                                             ; preds = %2008
   %2014 = getelementptr inbounds i8, ptr %1318, i64 %1301
   %2015 = load i8, ptr %2014, align 1
   %2016 = zext i8 %2015 to i32
-  %2017 = icmp ult i32 %1321, %2016
+  %2017 = icmp samesign ult i32 %1321, %2016
   br i1 %2017, label %2018, label %.backedge2578.i
 
 2018:                                             ; preds = %2013
   %2019 = getelementptr inbounds i8, ptr %1318, i64 %1302
   %2020 = load i8, ptr %2019, align 1
   %2021 = zext i8 %2020 to i32
-  %2022 = icmp ult i32 %1321, %2021
+  %2022 = icmp samesign ult i32 %1321, %2021
   br i1 %2022, label %2023, label %.backedge2578.i
 
 2023:                                             ; preds = %2018
   %2024 = getelementptr inbounds i8, ptr %1318, i64 %1308
   %2025 = load i8, ptr %2024, align 1
   %2026 = zext i8 %2025 to i32
-  %2027 = icmp ult i32 %1321, %2026
+  %2027 = icmp samesign ult i32 %1321, %2026
   br i1 %2027, label %2028, label %.backedge2578.i
 
 2028:                                             ; preds = %2023
   %2029 = getelementptr inbounds i8, ptr %1318, i64 %1307
   %2030 = load i8, ptr %2029, align 1
   %2031 = zext i8 %2030 to i32
-  %2032 = icmp ult i32 %1321, %2031
+  %2032 = icmp samesign ult i32 %1321, %2031
   br i1 %2032, label %4949, label %.backedge2578.i
 
 2033:                                             ; preds = %2007
-  %2034 = icmp ugt i32 %1322, %1827
+  %2034 = icmp samesign ugt i32 %1322, %1827
   br i1 %2034, label %2035, label %.backedge2578.i
 
 2035:                                             ; preds = %2033
   %2036 = getelementptr inbounds i8, ptr %1318, i64 %1301
   %2037 = load i8, ptr %2036, align 1
   %2038 = zext i8 %2037 to i32
-  %2039 = icmp ugt i32 %1322, %2038
+  %2039 = icmp samesign ugt i32 %1322, %2038
   br i1 %2039, label %2040, label %.backedge2578.i
 
 2040:                                             ; preds = %2035
   %2041 = getelementptr inbounds i8, ptr %1318, i64 %1302
   %2042 = load i8, ptr %2041, align 1
   %2043 = zext i8 %2042 to i32
-  %2044 = icmp ugt i32 %1322, %2043
+  %2044 = icmp samesign ugt i32 %1322, %2043
   br i1 %2044, label %2045, label %.backedge2578.i
 
 2045:                                             ; preds = %2040
   %2046 = getelementptr inbounds i8, ptr %1318, i64 %1303
   %2047 = load i8, ptr %2046, align 1
   %2048 = zext i8 %2047 to i32
-  %2049 = icmp ugt i32 %1322, %2048
+  %2049 = icmp samesign ugt i32 %1322, %2048
   br i1 %2049, label %2050, label %.backedge2578.i
 
 2050:                                             ; preds = %2045
   %2051 = getelementptr inbounds i8, ptr %1318, i64 %1304
   %2052 = load i8, ptr %2051, align 1
   %2053 = zext i8 %2052 to i32
-  %2054 = icmp ugt i32 %1322, %2053
+  %2054 = icmp samesign ugt i32 %1322, %2053
   %2055 = getelementptr inbounds i8, ptr %1318, i64 %1305
   %2056 = load i8, ptr %2055, align 1
   %2057 = zext i8 %2056 to i32
-  %2058 = icmp ugt i32 %1322, %2057
+  %2058 = icmp samesign ugt i32 %1322, %2057
   br i1 %2054, label %2059, label %2060
 
 2059:                                             ; preds = %2050
@@ -3603,39 +3603,39 @@ _ZNSt6vectorIN2cv8KeyPointESaIS1_EE6resizeEm.exit.i114: ; preds = %1255, %1239
   %2062 = getelementptr inbounds i8, ptr %1318, i64 %1306
   %2063 = load i8, ptr %2062, align 1
   %2064 = zext i8 %2063 to i32
-  %2065 = icmp ugt i32 %1322, %2064
+  %2065 = icmp samesign ugt i32 %1322, %2064
   br i1 %2065, label %4949, label %.backedge2578.i
 
 2066:                                             ; preds = %1582
   %2067 = getelementptr inbounds i8, ptr %1318, i64 %1300
   %2068 = load i8, ptr %2067, align 1
   %2069 = zext i8 %2068 to i32
-  %2070 = icmp ult i32 %1321, %2069
+  %2070 = icmp samesign ult i32 %1321, %2069
   br i1 %2070, label %2071, label %2127
 
 2071:                                             ; preds = %2066
   %2072 = getelementptr inbounds i8, ptr %1318, i64 %1308
   %2073 = load i8, ptr %2072, align 1
   %2074 = zext i8 %2073 to i32
-  %2075 = icmp ult i32 %1321, %2074
+  %2075 = icmp samesign ult i32 %1321, %2074
   br i1 %2075, label %2076, label %.backedge2578.i
 
 2076:                                             ; preds = %2071
   %2077 = getelementptr inbounds i8, ptr %1318, i64 %1307
   %2078 = load i8, ptr %2077, align 1
   %2079 = zext i8 %2078 to i32
-  %2080 = icmp ult i32 %1321, %2079
+  %2080 = icmp samesign ult i32 %1321, %2079
   br i1 %2080, label %2081, label %.backedge2578.i
 
 2081:                                             ; preds = %2076
   %2082 = getelementptr inbounds i8, ptr %1318, i64 %1299
   %2083 = load i8, ptr %2082, align 1
   %2084 = zext i8 %2083 to i32
-  %2085 = icmp ult i32 %1321, %2084
+  %2085 = icmp samesign ult i32 %1321, %2084
   %2086 = getelementptr inbounds i8, ptr %1318, i64 %1304
   %2087 = load i8, ptr %2086, align 1
   %2088 = zext i8 %2087 to i32
-  %2089 = icmp ult i32 %1321, %2088
+  %2089 = icmp samesign ult i32 %1321, %2088
   br i1 %2085, label %2090, label %2116
 
 2090:                                             ; preds = %2081
@@ -3645,35 +3645,35 @@ _ZNSt6vectorIN2cv8KeyPointESaIS1_EE6resizeEm.exit.i114: ; preds = %1255, %1239
   %2092 = getelementptr inbounds i8, ptr %1318, i64 %1301
   %2093 = load i8, ptr %2092, align 1
   %2094 = zext i8 %2093 to i32
-  %2095 = icmp ult i32 %1321, %2094
+  %2095 = icmp samesign ult i32 %1321, %2094
   br i1 %2095, label %4949, label %2096
 
 2096:                                             ; preds = %2091
   %2097 = getelementptr inbounds i8, ptr %1318, i64 %1306
   %2098 = load i8, ptr %2097, align 1
   %2099 = zext i8 %2098 to i32
-  %2100 = icmp ult i32 %1321, %2099
+  %2100 = icmp samesign ult i32 %1321, %2099
   br i1 %2100, label %4949, label %.backedge2578.i
 
 2101:                                             ; preds = %2090
   %2102 = getelementptr inbounds i8, ptr %1318, i64 %1305
   %2103 = load i8, ptr %2102, align 1
   %2104 = zext i8 %2103 to i32
-  %2105 = icmp ult i32 %1321, %2104
+  %2105 = icmp samesign ult i32 %1321, %2104
   br i1 %2105, label %2106, label %.backedge2578.i
 
 2106:                                             ; preds = %2101
   %2107 = getelementptr inbounds i8, ptr %1318, i64 %1303
   %2108 = load i8, ptr %2107, align 1
   %2109 = zext i8 %2108 to i32
-  %2110 = icmp ult i32 %1321, %2109
+  %2110 = icmp samesign ult i32 %1321, %2109
   br i1 %2110, label %2111, label %.backedge2578.i
 
 2111:                                             ; preds = %2106
   %2112 = getelementptr inbounds i8, ptr %1318, i64 %1306
   %2113 = load i8, ptr %2112, align 1
   %2114 = zext i8 %2113 to i32
-  %2115 = icmp ult i32 %1321, %2114
+  %2115 = icmp samesign ult i32 %1321, %2114
   br i1 %2115, label %4949, label %.backedge2578.i
 
 2116:                                             ; preds = %2081
@@ -3683,63 +3683,63 @@ _ZNSt6vectorIN2cv8KeyPointESaIS1_EE6resizeEm.exit.i114: ; preds = %1255, %1239
   %2118 = getelementptr inbounds i8, ptr %1318, i64 %1301
   %2119 = load i8, ptr %2118, align 1
   %2120 = zext i8 %2119 to i32
-  %2121 = icmp ult i32 %1321, %2120
+  %2121 = icmp samesign ult i32 %1321, %2120
   br i1 %2121, label %2122, label %.backedge2578.i
 
 2122:                                             ; preds = %2117
   %2123 = getelementptr inbounds i8, ptr %1318, i64 %1302
   %2124 = load i8, ptr %2123, align 1
   %2125 = zext i8 %2124 to i32
-  %2126 = icmp ult i32 %1321, %2125
+  %2126 = icmp samesign ult i32 %1321, %2125
   br i1 %2126, label %4949, label %.backedge2578.i
 
 2127:                                             ; preds = %2066
   %2128 = getelementptr inbounds i8, ptr %1318, i64 %1299
   %2129 = load i8, ptr %2128, align 1
   %2130 = zext i8 %2129 to i32
-  %2131 = icmp ult i32 %1321, %2130
+  %2131 = icmp samesign ult i32 %1321, %2130
   br i1 %2131, label %2132, label %.backedge2578.i
 
 2132:                                             ; preds = %2127
   %2133 = getelementptr inbounds i8, ptr %1318, i64 %1303
   %2134 = load i8, ptr %2133, align 1
   %2135 = zext i8 %2134 to i32
-  %2136 = icmp ult i32 %1321, %2135
+  %2136 = icmp samesign ult i32 %1321, %2135
   br i1 %2136, label %2137, label %.backedge2578.i
 
 2137:                                             ; preds = %2132
   %2138 = getelementptr inbounds i8, ptr %1318, i64 %1306
   %2139 = load i8, ptr %2138, align 1
   %2140 = zext i8 %2139 to i32
-  %2141 = icmp ult i32 %1321, %2140
+  %2141 = icmp samesign ult i32 %1321, %2140
   br i1 %2141, label %2142, label %.backedge2578.i
 
 2142:                                             ; preds = %2137
   %2143 = getelementptr inbounds i8, ptr %1318, i64 %1308
   %2144 = load i8, ptr %2143, align 1
   %2145 = zext i8 %2144 to i32
-  %2146 = icmp ult i32 %1321, %2145
+  %2146 = icmp samesign ult i32 %1321, %2145
   br i1 %2146, label %2147, label %.backedge2578.i
 
 2147:                                             ; preds = %2142
   %2148 = getelementptr inbounds i8, ptr %1318, i64 %1307
   %2149 = load i8, ptr %2148, align 1
   %2150 = zext i8 %2149 to i32
-  %2151 = icmp ult i32 %1321, %2150
+  %2151 = icmp samesign ult i32 %1321, %2150
   br i1 %2151, label %2152, label %.backedge2578.i
 
 2152:                                             ; preds = %2147
   %2153 = getelementptr inbounds i8, ptr %1318, i64 %1304
   %2154 = load i8, ptr %2153, align 1
   %2155 = zext i8 %2154 to i32
-  %2156 = icmp ult i32 %1321, %2155
+  %2156 = icmp samesign ult i32 %1321, %2155
   br i1 %2156, label %4949, label %2157
 
 2157:                                             ; preds = %2152
   %2158 = getelementptr inbounds i8, ptr %1318, i64 %1305
   %2159 = load i8, ptr %2158, align 1
   %2160 = zext i8 %2159 to i32
-  %2161 = icmp ult i32 %1321, %2160
+  %2161 = icmp samesign ult i32 %1321, %2160
   br i1 %2161, label %4949, label %.backedge2578.i
 
 2162:                                             ; preds = %1313
@@ -3750,134 +3750,134 @@ _ZNSt6vectorIN2cv8KeyPointESaIS1_EE6resizeEm.exit.i114: ; preds = %1255, %1239
   %2165 = getelementptr inbounds i8, ptr %1318, i64 %1300
   %2166 = load i8, ptr %2165, align 1
   %2167 = zext i8 %2166 to i32
-  %2168 = icmp ult i32 %1321, %2167
+  %2168 = icmp samesign ult i32 %1321, %2167
   br i1 %2168, label %2169, label %2377
 
 2169:                                             ; preds = %2164
   %2170 = getelementptr inbounds i8, ptr %1318, i64 %1298
   %2171 = load i8, ptr %2170, align 1
   %2172 = zext i8 %2171 to i32
-  %2173 = icmp ult i32 %1321, %2172
+  %2173 = icmp samesign ult i32 %1321, %2172
   br i1 %2173, label %2174, label %2270
 
 2174:                                             ; preds = %2169
   %2175 = getelementptr inbounds i8, ptr %1318, i64 %1303
   %2176 = load i8, ptr %2175, align 1
   %2177 = zext i8 %2176 to i32
-  %2178 = icmp ult i32 %1321, %2177
+  %2178 = icmp samesign ult i32 %1321, %2177
   br i1 %2178, label %2179, label %2239
 
 2179:                                             ; preds = %2174
   %2180 = getelementptr inbounds i8, ptr %1318, i64 %1305
   %2181 = load i8, ptr %2180, align 1
   %2182 = zext i8 %2181 to i32
-  %2183 = icmp ult i32 %1321, %2182
+  %2183 = icmp samesign ult i32 %1321, %2182
   br i1 %2183, label %2184, label %.backedge2578.i
 
 2184:                                             ; preds = %2179
   %2185 = getelementptr inbounds i8, ptr %1318, i64 %1302
   %2186 = load i8, ptr %2185, align 1
   %2187 = zext i8 %2186 to i32
-  %2188 = icmp ult i32 %1321, %2187
+  %2188 = icmp samesign ult i32 %1321, %2187
   br i1 %2188, label %2189, label %2219
 
 2189:                                             ; preds = %2184
   %2190 = getelementptr inbounds i8, ptr %1318, i64 %1301
   %2191 = load i8, ptr %2190, align 1
   %2192 = zext i8 %2191 to i32
-  %2193 = icmp ult i32 %1321, %2192
+  %2193 = icmp samesign ult i32 %1321, %2192
   br i1 %2193, label %2194, label %2204
 
 2194:                                             ; preds = %2189
   %2195 = getelementptr inbounds i8, ptr %1318, i64 %1304
   %2196 = load i8, ptr %2195, align 1
   %2197 = zext i8 %2196 to i32
-  %2198 = icmp ult i32 %1321, %2197
+  %2198 = icmp samesign ult i32 %1321, %2197
   br i1 %2198, label %4949, label %2199
 
 2199:                                             ; preds = %2194
   %2200 = getelementptr inbounds i8, ptr %1318, i64 %1306
   %2201 = load i8, ptr %2200, align 1
   %2202 = zext i8 %2201 to i32
-  %2203 = icmp ult i32 %1321, %2202
+  %2203 = icmp samesign ult i32 %1321, %2202
   br i1 %2203, label %4949, label %.backedge2578.i
 
 2204:                                             ; preds = %2189
   %2205 = getelementptr inbounds i8, ptr %1318, i64 %1299
   %2206 = load i8, ptr %2205, align 1
   %2207 = zext i8 %2206 to i32
-  %2208 = icmp ult i32 %1321, %2207
+  %2208 = icmp samesign ult i32 %1321, %2207
   br i1 %2208, label %2209, label %.backedge2578.i
 
 2209:                                             ; preds = %2204
   %2210 = getelementptr inbounds i8, ptr %1318, i64 %1306
   %2211 = load i8, ptr %2210, align 1
   %2212 = zext i8 %2211 to i32
-  %2213 = icmp ult i32 %1321, %2212
+  %2213 = icmp samesign ult i32 %1321, %2212
   br i1 %2213, label %2214, label %.backedge2578.i
 
 2214:                                             ; preds = %2209
   %2215 = getelementptr inbounds i8, ptr %1318, i64 %1308
   %2216 = load i8, ptr %2215, align 1
   %2217 = zext i8 %2216 to i32
-  %2218 = icmp ult i32 %1321, %2217
+  %2218 = icmp samesign ult i32 %1321, %2217
   br i1 %2218, label %5021, label %.backedge2578.i
 
 2219:                                             ; preds = %2184
   %2220 = getelementptr inbounds i8, ptr %1318, i64 %1299
   %2221 = load i8, ptr %2220, align 1
   %2222 = zext i8 %2221 to i32
-  %2223 = icmp ult i32 %1321, %2222
+  %2223 = icmp samesign ult i32 %1321, %2222
   br i1 %2223, label %2224, label %.backedge2578.i
 
 2224:                                             ; preds = %2219
   %2225 = getelementptr inbounds i8, ptr %1318, i64 %1306
   %2226 = load i8, ptr %2225, align 1
   %2227 = zext i8 %2226 to i32
-  %2228 = icmp ult i32 %1321, %2227
+  %2228 = icmp samesign ult i32 %1321, %2227
   br i1 %2228, label %2229, label %.backedge2578.i
 
 2229:                                             ; preds = %2224
   %2230 = getelementptr inbounds i8, ptr %1318, i64 %1308
   %2231 = load i8, ptr %2230, align 1
   %2232 = zext i8 %2231 to i32
-  %2233 = icmp ult i32 %1321, %2232
+  %2233 = icmp samesign ult i32 %1321, %2232
   br i1 %2233, label %2234, label %.backedge2578.i
 
 2234:                                             ; preds = %2229
   %2235 = getelementptr inbounds i8, ptr %1318, i64 %1307
   %2236 = load i8, ptr %2235, align 1
   %2237 = zext i8 %2236 to i32
-  %2238 = icmp ult i32 %1321, %2237
+  %2238 = icmp samesign ult i32 %1321, %2237
   br i1 %2238, label %5021, label %.backedge2578.i
 
 2239:                                             ; preds = %2174
   %2240 = getelementptr inbounds i8, ptr %1318, i64 %1299
   %2241 = load i8, ptr %2240, align 1
   %2242 = zext i8 %2241 to i32
-  %2243 = icmp ugt i32 %1322, %2242
+  %2243 = icmp samesign ugt i32 %1322, %2242
   br i1 %2243, label %2244, label %.backedge2578.i
 
 2244:                                             ; preds = %2239
   %2245 = getelementptr inbounds i8, ptr %1318, i64 %1306
   %2246 = load i8, ptr %2245, align 1
   %2247 = zext i8 %2246 to i32
-  %2248 = icmp ugt i32 %1322, %2247
+  %2248 = icmp samesign ugt i32 %1322, %2247
   br i1 %2248, label %2249, label %.backedge2578.i
 
 2249:                                             ; preds = %2244
   %2250 = getelementptr inbounds i8, ptr %1318, i64 %1308
   %2251 = load i8, ptr %2250, align 1
   %2252 = zext i8 %2251 to i32
-  %2253 = icmp ugt i32 %1322, %2252
+  %2253 = icmp samesign ugt i32 %1322, %2252
   br i1 %2253, label %2254, label %.backedge2578.i
 
 2254:                                             ; preds = %2249
   %2255 = getelementptr inbounds i8, ptr %1318, i64 %1307
   %2256 = load i8, ptr %2255, align 1
   %2257 = zext i8 %2256 to i32
-  %2258 = icmp ugt i32 %1322, %2257
-  %2259 = icmp ugt i32 %1322, %2177
+  %2258 = icmp samesign ugt i32 %1322, %2257
+  %2259 = icmp samesign ugt i32 %1322, %2177
   %or.cond2464.i = and i1 %2259, %2258
   br i1 %or.cond2464.i, label %2260, label %.backedge2578.i
 
@@ -3885,247 +3885,247 @@ _ZNSt6vectorIN2cv8KeyPointESaIS1_EE6resizeEm.exit.i114: ; preds = %1255, %1239
   %2261 = getelementptr inbounds i8, ptr %1318, i64 %1304
   %2262 = load i8, ptr %2261, align 1
   %2263 = zext i8 %2262 to i32
-  %2264 = icmp ugt i32 %1322, %2263
+  %2264 = icmp samesign ugt i32 %1322, %2263
   br i1 %2264, label %5021, label %2265
 
 2265:                                             ; preds = %2260
   %2266 = getelementptr inbounds i8, ptr %1318, i64 %1305
   %2267 = load i8, ptr %2266, align 1
   %2268 = zext i8 %2267 to i32
-  %2269 = icmp ugt i32 %1322, %2268
+  %2269 = icmp samesign ugt i32 %1322, %2268
   br i1 %2269, label %5021, label %.backedge2578.i
 
 2270:                                             ; preds = %2169
   %2271 = getelementptr inbounds i8, ptr %1318, i64 %1299
   %2272 = load i8, ptr %2271, align 1
   %2273 = zext i8 %2272 to i32
-  %2274 = icmp ugt i32 %1322, %2273
+  %2274 = icmp samesign ugt i32 %1322, %2273
   br i1 %2274, label %2275, label %.backedge2578.i
 
 2275:                                             ; preds = %2270
   %2276 = getelementptr inbounds i8, ptr %1318, i64 %1303
   %2277 = load i8, ptr %2276, align 1
   %2278 = zext i8 %2277 to i32
-  %2279 = icmp ugt i32 %1322, %2278
+  %2279 = icmp samesign ugt i32 %1322, %2278
   br i1 %2279, label %2280, label %.backedge2578.i
 
 2280:                                             ; preds = %2275
   %2281 = getelementptr inbounds i8, ptr %1318, i64 %1306
   %2282 = load i8, ptr %2281, align 1
   %2283 = zext i8 %2282 to i32
-  %2284 = icmp ugt i32 %1322, %2283
+  %2284 = icmp samesign ugt i32 %1322, %2283
   br i1 %2284, label %2285, label %.backedge2578.i
 
 2285:                                             ; preds = %2280
-  %2286 = icmp ugt i32 %1322, %2172
+  %2286 = icmp samesign ugt i32 %1322, %2172
   br i1 %2286, label %2287, label %2357
 
 2287:                                             ; preds = %2285
   %2288 = getelementptr inbounds i8, ptr %1318, i64 %1304
   %2289 = load i8, ptr %2288, align 1
   %2290 = zext i8 %2289 to i32
-  %2291 = icmp ugt i32 %1322, %2290
+  %2291 = icmp samesign ugt i32 %1322, %2290
   br i1 %2291, label %2292, label %2327
 
 2292:                                             ; preds = %2287
   %2293 = getelementptr inbounds i8, ptr %1318, i64 %1308
   %2294 = load i8, ptr %2293, align 1
   %2295 = zext i8 %2294 to i32
-  %2296 = icmp ugt i32 %1322, %2295
+  %2296 = icmp samesign ugt i32 %1322, %2295
   br i1 %2296, label %2297, label %2312
 
 2297:                                             ; preds = %2292
   %2298 = getelementptr inbounds i8, ptr %1318, i64 %1307
   %2299 = load i8, ptr %2298, align 1
   %2300 = zext i8 %2299 to i32
-  %2301 = icmp ugt i32 %1322, %2300
+  %2301 = icmp samesign ugt i32 %1322, %2300
   br i1 %2301, label %5021, label %2302
 
 2302:                                             ; preds = %2297
   %2303 = getelementptr inbounds i8, ptr %1318, i64 %1305
   %2304 = load i8, ptr %2303, align 1
   %2305 = zext i8 %2304 to i32
-  %2306 = icmp ugt i32 %1322, %2305
+  %2306 = icmp samesign ugt i32 %1322, %2305
   br i1 %2306, label %2307, label %.backedge2578.i
 
 2307:                                             ; preds = %2302
   %2308 = getelementptr inbounds i8, ptr %1318, i64 %1302
   %2309 = load i8, ptr %2308, align 1
   %2310 = zext i8 %2309 to i32
-  %2311 = icmp ugt i32 %1322, %2310
+  %2311 = icmp samesign ugt i32 %1322, %2310
   br i1 %2311, label %5021, label %.preheader.i158
 
 2312:                                             ; preds = %2292
   %2313 = getelementptr inbounds i8, ptr %1318, i64 %1305
   %2314 = load i8, ptr %2313, align 1
   %2315 = zext i8 %2314 to i32
-  %2316 = icmp ugt i32 %1322, %2315
+  %2316 = icmp samesign ugt i32 %1322, %2315
   br i1 %2316, label %2317, label %.backedge2578.i
 
 2317:                                             ; preds = %2312
   %2318 = getelementptr inbounds i8, ptr %1318, i64 %1301
   %2319 = load i8, ptr %2318, align 1
   %2320 = zext i8 %2319 to i32
-  %2321 = icmp ugt i32 %1322, %2320
+  %2321 = icmp samesign ugt i32 %1322, %2320
   br i1 %2321, label %2322, label %.backedge2578.i
 
 2322:                                             ; preds = %2317
   %2323 = getelementptr inbounds i8, ptr %1318, i64 %1302
   %2324 = load i8, ptr %2323, align 1
   %2325 = zext i8 %2324 to i32
-  %2326 = icmp ugt i32 %1322, %2325
+  %2326 = icmp samesign ugt i32 %1322, %2325
   br i1 %2326, label %5021, label %.preheader.i158
 
 2327:                                             ; preds = %2287
   %2328 = getelementptr inbounds i8, ptr %1318, i64 %1305
   %2329 = load i8, ptr %2328, align 1
   %2330 = zext i8 %2329 to i32
-  %2331 = icmp ugt i32 %1322, %2330
+  %2331 = icmp samesign ugt i32 %1322, %2330
   br i1 %2331, label %2332, label %.backedge2578.i
 
 2332:                                             ; preds = %2327
   %2333 = getelementptr inbounds i8, ptr %1318, i64 %1302
   %2334 = load i8, ptr %2333, align 1
   %2335 = zext i8 %2334 to i32
-  %2336 = icmp ugt i32 %1322, %2335
+  %2336 = icmp samesign ugt i32 %1322, %2335
   br i1 %2336, label %2337, label %2347
 
 2337:                                             ; preds = %2332
   %2338 = getelementptr inbounds i8, ptr %1318, i64 %1301
   %2339 = load i8, ptr %2338, align 1
   %2340 = zext i8 %2339 to i32
-  %2341 = icmp ugt i32 %1322, %2340
+  %2341 = icmp samesign ugt i32 %1322, %2340
   br i1 %2341, label %5021, label %2342
 
 2342:                                             ; preds = %2337
   %2343 = getelementptr inbounds i8, ptr %1318, i64 %1308
   %2344 = load i8, ptr %2343, align 1
   %2345 = zext i8 %2344 to i32
-  %2346 = icmp ugt i32 %1322, %2345
+  %2346 = icmp samesign ugt i32 %1322, %2345
   br i1 %2346, label %5021, label %.backedge2578.i
 
 2347:                                             ; preds = %2332
   %2348 = getelementptr inbounds i8, ptr %1318, i64 %1308
   %2349 = load i8, ptr %2348, align 1
   %2350 = zext i8 %2349 to i32
-  %2351 = icmp ugt i32 %1322, %2350
+  %2351 = icmp samesign ugt i32 %1322, %2350
   br i1 %2351, label %2352, label %.backedge2578.i
 
 2352:                                             ; preds = %2347
   %2353 = getelementptr inbounds i8, ptr %1318, i64 %1307
   %2354 = load i8, ptr %2353, align 1
   %2355 = zext i8 %2354 to i32
-  %2356 = icmp ugt i32 %1322, %2355
+  %2356 = icmp samesign ugt i32 %1322, %2355
   br i1 %2356, label %5021, label %.backedge2578.i
 
 2357:                                             ; preds = %2285
   %2358 = getelementptr inbounds i8, ptr %1318, i64 %1308
   %2359 = load i8, ptr %2358, align 1
   %2360 = zext i8 %2359 to i32
-  %2361 = icmp ugt i32 %1322, %2360
+  %2361 = icmp samesign ugt i32 %1322, %2360
   br i1 %2361, label %2362, label %.backedge2578.i
 
 2362:                                             ; preds = %2357
   %2363 = getelementptr inbounds i8, ptr %1318, i64 %1307
   %2364 = load i8, ptr %2363, align 1
   %2365 = zext i8 %2364 to i32
-  %2366 = icmp ugt i32 %1322, %2365
+  %2366 = icmp samesign ugt i32 %1322, %2365
   br i1 %2366, label %2367, label %.backedge2578.i
 
 2367:                                             ; preds = %2362
   %2368 = getelementptr inbounds i8, ptr %1318, i64 %1304
   %2369 = load i8, ptr %2368, align 1
   %2370 = zext i8 %2369 to i32
-  %2371 = icmp ugt i32 %1322, %2370
+  %2371 = icmp samesign ugt i32 %1322, %2370
   br i1 %2371, label %4949, label %2372
 
 2372:                                             ; preds = %2367
   %2373 = getelementptr inbounds i8, ptr %1318, i64 %1305
   %2374 = load i8, ptr %2373, align 1
   %2375 = zext i8 %2374 to i32
-  %2376 = icmp ugt i32 %1322, %2375
+  %2376 = icmp samesign ugt i32 %1322, %2375
   br i1 %2376, label %4949, label %.backedge2578.i
 
 2377:                                             ; preds = %2164
-  %2378 = icmp ugt i32 %1322, %2167
+  %2378 = icmp samesign ugt i32 %1322, %2167
   %2379 = getelementptr inbounds i8, ptr %1318, i64 %1299
   %2380 = load i8, ptr %2379, align 1
   %2381 = zext i8 %2380 to i32
   br i1 %2378, label %2382, label %2781
 
 2382:                                             ; preds = %2377
-  %2383 = icmp ult i32 %1321, %2381
+  %2383 = icmp samesign ult i32 %1321, %2381
   br i1 %2383, label %2384, label %2558
 
 2384:                                             ; preds = %2382
   %2385 = getelementptr inbounds i8, ptr %1318, i64 %1298
   %2386 = load i8, ptr %2385, align 1
   %2387 = zext i8 %2386 to i32
-  %2388 = icmp ult i32 %1321, %2387
+  %2388 = icmp samesign ult i32 %1321, %2387
   br i1 %2388, label %2389, label %2509
 
 2389:                                             ; preds = %2384
   %2390 = getelementptr inbounds i8, ptr %1318, i64 %1304
   %2391 = load i8, ptr %2390, align 1
   %2392 = zext i8 %2391 to i32
-  %2393 = icmp ugt i32 %1322, %2392
+  %2393 = icmp samesign ugt i32 %1322, %2392
   br i1 %2393, label %2394, label %2469
 
 2394:                                             ; preds = %2389
   %2395 = getelementptr inbounds i8, ptr %1318, i64 %1302
   %2396 = load i8, ptr %2395, align 1
   %2397 = zext i8 %2396 to i32
-  %2398 = icmp ugt i32 %1322, %2397
+  %2398 = icmp samesign ugt i32 %1322, %2397
   br i1 %2398, label %2399, label %2435
 
 2399:                                             ; preds = %2394
   %2400 = getelementptr inbounds i8, ptr %1318, i64 %1308
   %2401 = load i8, ptr %2400, align 1
   %2402 = zext i8 %2401 to i32
-  %2403 = icmp ugt i32 %1322, %2402
+  %2403 = icmp samesign ugt i32 %1322, %2402
   br i1 %2403, label %2404, label %2414
 
 2404:                                             ; preds = %2399
   %2405 = getelementptr inbounds i8, ptr %1318, i64 %1301
   %2406 = load i8, ptr %2405, align 1
   %2407 = zext i8 %2406 to i32
-  %2408 = icmp ugt i32 %1322, %2407
+  %2408 = icmp samesign ugt i32 %1322, %2407
   br i1 %2408, label %2409, label %.backedge2578.i
 
 2409:                                             ; preds = %2404
   %2410 = getelementptr inbounds i8, ptr %1318, i64 %1307
   %2411 = load i8, ptr %2410, align 1
   %2412 = zext i8 %2411 to i32
-  %2413 = icmp ugt i32 %1322, %2412
+  %2413 = icmp samesign ugt i32 %1322, %2412
   br i1 %2413, label %5021, label %.backedge2578.i
 
 2414:                                             ; preds = %2399
   %2415 = getelementptr inbounds i8, ptr %1318, i64 %1305
   %2416 = load i8, ptr %2415, align 1
   %2417 = zext i8 %2416 to i32
-  %2418 = icmp ult i32 %1321, %2417
+  %2418 = icmp samesign ult i32 %1321, %2417
   br i1 %2418, label %2419, label %.backedge2578.i
 
 2419:                                             ; preds = %2414
   %2420 = getelementptr inbounds i8, ptr %1318, i64 %1303
   %2421 = load i8, ptr %2420, align 1
   %2422 = zext i8 %2421 to i32
-  %2423 = icmp ult i32 %1321, %2422
+  %2423 = icmp samesign ult i32 %1321, %2422
   br i1 %2423, label %2424, label %.backedge2578.i
 
 2424:                                             ; preds = %2419
   %2425 = getelementptr inbounds i8, ptr %1318, i64 %1306
   %2426 = load i8, ptr %2425, align 1
   %2427 = zext i8 %2426 to i32
-  %2428 = icmp ult i32 %1321, %2427
+  %2428 = icmp samesign ult i32 %1321, %2427
   br i1 %2428, label %2429, label %.backedge2578.i
 
 2429:                                             ; preds = %2424
   %2430 = getelementptr inbounds i8, ptr %1318, i64 %1307
   %2431 = load i8, ptr %2430, align 1
   %2432 = zext i8 %2431 to i32
-  %2433 = icmp ult i32 %1321, %2432
-  %2434 = icmp ult i32 %1321, %2402
+  %2433 = icmp samesign ult i32 %1321, %2432
+  %2434 = icmp samesign ult i32 %1321, %2402
   %or.cond2465.i = and i1 %2434, %2433
   br i1 %or.cond2465.i, label %5021, label %.preheader.i158
 
@@ -4133,135 +4133,135 @@ _ZNSt6vectorIN2cv8KeyPointESaIS1_EE6resizeEm.exit.i114: ; preds = %1255, %1239
   %2436 = getelementptr inbounds i8, ptr %1318, i64 %1305
   %2437 = load i8, ptr %2436, align 1
   %2438 = zext i8 %2437 to i32
-  %2439 = icmp ult i32 %1321, %2438
+  %2439 = icmp samesign ult i32 %1321, %2438
   br i1 %2439, label %2440, label %.backedge2578.i
 
 2440:                                             ; preds = %2435
   %2441 = getelementptr inbounds i8, ptr %1318, i64 %1303
   %2442 = load i8, ptr %2441, align 1
   %2443 = zext i8 %2442 to i32
-  %2444 = icmp ult i32 %1321, %2443
+  %2444 = icmp samesign ult i32 %1321, %2443
   br i1 %2444, label %2445, label %.backedge2578.i
 
 2445:                                             ; preds = %2440
   %2446 = getelementptr inbounds i8, ptr %1318, i64 %1306
   %2447 = load i8, ptr %2446, align 1
   %2448 = zext i8 %2447 to i32
-  %2449 = icmp ult i32 %1321, %2448
+  %2449 = icmp samesign ult i32 %1321, %2448
   br i1 %2449, label %2450, label %.backedge2578.i
 
 2450:                                             ; preds = %2445
   %2451 = getelementptr inbounds i8, ptr %1318, i64 %1308
   %2452 = load i8, ptr %2451, align 1
   %2453 = zext i8 %2452 to i32
-  %2454 = icmp ult i32 %1321, %2453
+  %2454 = icmp samesign ult i32 %1321, %2453
   br i1 %2454, label %2455, label %2462
 
 2455:                                             ; preds = %2450
-  %2456 = icmp ult i32 %1321, %2397
+  %2456 = icmp samesign ult i32 %1321, %2397
   br i1 %2456, label %5021, label %2457
 
 2457:                                             ; preds = %2455
   %2458 = getelementptr inbounds i8, ptr %1318, i64 %1307
   %2459 = load i8, ptr %2458, align 1
   %2460 = zext i8 %2459 to i32
-  %2461 = icmp ult i32 %1321, %2460
+  %2461 = icmp samesign ult i32 %1321, %2460
   br i1 %2461, label %5021, label %.preheader.i158
 
 2462:                                             ; preds = %2450
   %2463 = getelementptr inbounds i8, ptr %1318, i64 %1301
   %2464 = load i8, ptr %2463, align 1
   %2465 = zext i8 %2464 to i32
-  %2466 = icmp ult i32 %1321, %2465
+  %2466 = icmp samesign ult i32 %1321, %2465
   br i1 %2466, label %2467, label %.backedge2578.i
 
 2467:                                             ; preds = %2462
-  %2468 = icmp ult i32 %1321, %2397
+  %2468 = icmp samesign ult i32 %1321, %2397
   br i1 %2468, label %5021, label %.preheader.i158
 
 2469:                                             ; preds = %2389
   %2470 = getelementptr inbounds i8, ptr %1318, i64 %1305
   %2471 = load i8, ptr %2470, align 1
   %2472 = zext i8 %2471 to i32
-  %2473 = icmp ult i32 %1321, %2472
+  %2473 = icmp samesign ult i32 %1321, %2472
   br i1 %2473, label %2474, label %.backedge2578.i
 
 2474:                                             ; preds = %2469
   %2475 = getelementptr inbounds i8, ptr %1318, i64 %1303
   %2476 = load i8, ptr %2475, align 1
   %2477 = zext i8 %2476 to i32
-  %2478 = icmp ult i32 %1321, %2477
+  %2478 = icmp samesign ult i32 %1321, %2477
   br i1 %2478, label %2479, label %.backedge2578.i
 
 2479:                                             ; preds = %2474
   %2480 = getelementptr inbounds i8, ptr %1318, i64 %1306
   %2481 = load i8, ptr %2480, align 1
   %2482 = zext i8 %2481 to i32
-  %2483 = icmp ult i32 %1321, %2482
+  %2483 = icmp samesign ult i32 %1321, %2482
   br i1 %2483, label %2484, label %.backedge2578.i
 
 2484:                                             ; preds = %2479
   %2485 = getelementptr inbounds i8, ptr %1318, i64 %1302
   %2486 = load i8, ptr %2485, align 1
   %2487 = zext i8 %2486 to i32
-  %2488 = icmp ult i32 %1321, %2487
+  %2488 = icmp samesign ult i32 %1321, %2487
   br i1 %2488, label %2489, label %2499
 
 2489:                                             ; preds = %2484
   %2490 = getelementptr inbounds i8, ptr %1318, i64 %1301
   %2491 = load i8, ptr %2490, align 1
   %2492 = zext i8 %2491 to i32
-  %2493 = icmp ult i32 %1321, %2492
+  %2493 = icmp samesign ult i32 %1321, %2492
   br i1 %2493, label %5021, label %2494
 
 2494:                                             ; preds = %2489
   %2495 = getelementptr inbounds i8, ptr %1318, i64 %1308
   %2496 = load i8, ptr %2495, align 1
   %2497 = zext i8 %2496 to i32
-  %2498 = icmp ult i32 %1321, %2497
+  %2498 = icmp samesign ult i32 %1321, %2497
   br i1 %2498, label %5021, label %.backedge2578.i
 
 2499:                                             ; preds = %2484
   %2500 = getelementptr inbounds i8, ptr %1318, i64 %1308
   %2501 = load i8, ptr %2500, align 1
   %2502 = zext i8 %2501 to i32
-  %2503 = icmp ult i32 %1321, %2502
+  %2503 = icmp samesign ult i32 %1321, %2502
   br i1 %2503, label %2504, label %.backedge2578.i
 
 2504:                                             ; preds = %2499
   %2505 = getelementptr inbounds i8, ptr %1318, i64 %1307
   %2506 = load i8, ptr %2505, align 1
   %2507 = zext i8 %2506 to i32
-  %2508 = icmp ult i32 %1321, %2507
+  %2508 = icmp samesign ult i32 %1321, %2507
   br i1 %2508, label %5021, label %.backedge2578.i
 
 2509:                                             ; preds = %2384
   %2510 = getelementptr inbounds i8, ptr %1318, i64 %1301
   %2511 = load i8, ptr %2510, align 1
   %2512 = zext i8 %2511 to i32
-  %2513 = icmp ugt i32 %1322, %2512
+  %2513 = icmp samesign ugt i32 %1322, %2512
   br i1 %2513, label %2514, label %.backedge2578.i
 
 2514:                                             ; preds = %2509
   %2515 = getelementptr inbounds i8, ptr %1318, i64 %1302
   %2516 = load i8, ptr %2515, align 1
   %2517 = zext i8 %2516 to i32
-  %2518 = icmp ugt i32 %1322, %2517
+  %2518 = icmp samesign ugt i32 %1322, %2517
   br i1 %2518, label %2519, label %.backedge2578.i
 
 2519:                                             ; preds = %2514
-  %2520 = icmp ugt i32 %1322, %2387
+  %2520 = icmp samesign ugt i32 %1322, %2387
   %2521 = getelementptr inbounds i8, ptr %1318, i64 %1304
   %2522 = load i8, ptr %2521, align 1
   %2523 = zext i8 %2522 to i32
-  %2524 = icmp ugt i32 %1322, %2523
+  %2524 = icmp samesign ugt i32 %1322, %2523
   br i1 %2520, label %2525, label %2547
 
 2525:                                             ; preds = %2519
   %2526 = getelementptr inbounds i8, ptr %1318, i64 %1305
   %2527 = load i8, ptr %2526, align 1
   %2528 = zext i8 %2527 to i32
-  %2529 = icmp ugt i32 %1322, %2528
+  %2529 = icmp samesign ugt i32 %1322, %2528
   br i1 %2524, label %2530, label %2536
 
 2530:                                             ; preds = %2525
@@ -4271,7 +4271,7 @@ _ZNSt6vectorIN2cv8KeyPointESaIS1_EE6resizeEm.exit.i114: ; preds = %1255, %1239
   %2532 = getelementptr inbounds i8, ptr %1318, i64 %1307
   %2533 = load i8, ptr %2532, align 1
   %2534 = zext i8 %2533 to i32
-  %2535 = icmp ugt i32 %1322, %2534
+  %2535 = icmp samesign ugt i32 %1322, %2534
   br i1 %2535, label %4949, label %.backedge2578.i
 
 2536:                                             ; preds = %2525
@@ -4281,14 +4281,14 @@ _ZNSt6vectorIN2cv8KeyPointESaIS1_EE6resizeEm.exit.i114: ; preds = %1255, %1239
   %2538 = getelementptr inbounds i8, ptr %1318, i64 %1303
   %2539 = load i8, ptr %2538, align 1
   %2540 = zext i8 %2539 to i32
-  %2541 = icmp ugt i32 %1322, %2540
+  %2541 = icmp samesign ugt i32 %1322, %2540
   br i1 %2541, label %2542, label %.backedge2578.i
 
 2542:                                             ; preds = %2537
   %2543 = getelementptr inbounds i8, ptr %1318, i64 %1306
   %2544 = load i8, ptr %2543, align 1
   %2545 = zext i8 %2544 to i32
-  %2546 = icmp ugt i32 %1322, %2545
+  %2546 = icmp samesign ugt i32 %1322, %2545
   br i1 %2546, label %5021, label %.backedge2578.i
 
 2547:                                             ; preds = %2519
@@ -4298,36 +4298,36 @@ _ZNSt6vectorIN2cv8KeyPointESaIS1_EE6resizeEm.exit.i114: ; preds = %1255, %1239
   %2549 = getelementptr inbounds i8, ptr %1318, i64 %1308
   %2550 = load i8, ptr %2549, align 1
   %2551 = zext i8 %2550 to i32
-  %2552 = icmp ugt i32 %1322, %2551
+  %2552 = icmp samesign ugt i32 %1322, %2551
   br i1 %2552, label %2553, label %.backedge2578.i
 
 2553:                                             ; preds = %2548
   %2554 = getelementptr inbounds i8, ptr %1318, i64 %1307
   %2555 = load i8, ptr %2554, align 1
   %2556 = zext i8 %2555 to i32
-  %2557 = icmp ugt i32 %1322, %2556
+  %2557 = icmp samesign ugt i32 %1322, %2556
   br i1 %2557, label %4949, label %.backedge2578.i
 
 2558:                                             ; preds = %2382
-  %2559 = icmp ugt i32 %1322, %2381
+  %2559 = icmp samesign ugt i32 %1322, %2381
   br i1 %2559, label %2560, label %2729
 
 2560:                                             ; preds = %2558
   %2561 = getelementptr inbounds i8, ptr %1318, i64 %1298
   %2562 = load i8, ptr %2561, align 1
   %2563 = zext i8 %2562 to i32
-  %2564 = icmp ugt i32 %1322, %2563
+  %2564 = icmp samesign ugt i32 %1322, %2563
   br i1 %2564, label %2565, label %2689
 
 2565:                                             ; preds = %2560
   %2566 = getelementptr inbounds i8, ptr %1318, i64 %1304
   %2567 = load i8, ptr %2566, align 1
   %2568 = zext i8 %2567 to i32
-  %2569 = icmp ugt i32 %1322, %2568
+  %2569 = icmp samesign ugt i32 %1322, %2568
   %2570 = getelementptr inbounds i8, ptr %1318, i64 %1305
   %2571 = load i8, ptr %2570, align 1
   %2572 = zext i8 %2571 to i32
-  %2573 = icmp ugt i32 %1322, %2572
+  %2573 = icmp samesign ugt i32 %1322, %2572
   br i1 %2569, label %2574, label %2653
 
 2574:                                             ; preds = %2565
@@ -4337,63 +4337,63 @@ _ZNSt6vectorIN2cv8KeyPointESaIS1_EE6resizeEm.exit.i114: ; preds = %1255, %1239
   %2576 = getelementptr inbounds i8, ptr %1318, i64 %1301
   %2577 = load i8, ptr %2576, align 1
   %2578 = zext i8 %2577 to i32
-  %2579 = icmp ugt i32 %1322, %2578
+  %2579 = icmp samesign ugt i32 %1322, %2578
   br i1 %2579, label %2580, label %2595
 
 2580:                                             ; preds = %2575
   %2581 = getelementptr inbounds i8, ptr %1318, i64 %1302
   %2582 = load i8, ptr %2581, align 1
   %2583 = zext i8 %2582 to i32
-  %2584 = icmp ugt i32 %1322, %2583
+  %2584 = icmp samesign ugt i32 %1322, %2583
   br i1 %2584, label %4949, label %2585
 
 2585:                                             ; preds = %2580
   %2586 = getelementptr inbounds i8, ptr %1318, i64 %1308
   %2587 = load i8, ptr %2586, align 1
   %2588 = zext i8 %2587 to i32
-  %2589 = icmp ugt i32 %1322, %2588
+  %2589 = icmp samesign ugt i32 %1322, %2588
   br i1 %2589, label %2590, label %.backedge2578.i
 
 2590:                                             ; preds = %2585
   %2591 = getelementptr inbounds i8, ptr %1318, i64 %1307
   %2592 = load i8, ptr %2591, align 1
   %2593 = zext i8 %2592 to i32
-  %2594 = icmp ugt i32 %1322, %2593
+  %2594 = icmp samesign ugt i32 %1322, %2593
   br i1 %2594, label %5021, label %.backedge2578.i
 
 2595:                                             ; preds = %2575
   %2596 = getelementptr inbounds i8, ptr %1318, i64 %1306
   %2597 = load i8, ptr %2596, align 1
   %2598 = zext i8 %2597 to i32
-  %2599 = icmp ugt i32 %1322, %2598
+  %2599 = icmp samesign ugt i32 %1322, %2598
   br i1 %2599, label %2600, label %.backedge2578.i
 
 2600:                                             ; preds = %2595
   %2601 = getelementptr inbounds i8, ptr %1318, i64 %1308
   %2602 = load i8, ptr %2601, align 1
   %2603 = zext i8 %2602 to i32
-  %2604 = icmp ugt i32 %1322, %2603
+  %2604 = icmp samesign ugt i32 %1322, %2603
   br i1 %2604, label %2605, label %.backedge2578.i
 
 2605:                                             ; preds = %2600
   %2606 = getelementptr inbounds i8, ptr %1318, i64 %1307
   %2607 = load i8, ptr %2606, align 1
   %2608 = zext i8 %2607 to i32
-  %2609 = icmp ugt i32 %1322, %2608
+  %2609 = icmp samesign ugt i32 %1322, %2608
   br i1 %2609, label %5021, label %2610
 
 2610:                                             ; preds = %2605
   %2611 = getelementptr inbounds i8, ptr %1318, i64 %1302
   %2612 = load i8, ptr %2611, align 1
   %2613 = zext i8 %2612 to i32
-  %2614 = icmp ugt i32 %1322, %2613
+  %2614 = icmp samesign ugt i32 %1322, %2613
   br i1 %2614, label %2615, label %.backedge2578.i
 
 2615:                                             ; preds = %2610
   %2616 = getelementptr inbounds i8, ptr %1318, i64 %1303
   %2617 = load i8, ptr %2616, align 1
   %2618 = zext i8 %2617 to i32
-  %2619 = icmp ugt i32 %1322, %2618
+  %2619 = icmp samesign ugt i32 %1322, %2618
   br i1 %2619, label %5021, label %.preheader.i158
 
 .preheader.i158:                                  ; preds = %_ZNSt6vectorIN2cv8KeyPointESaIS1_EE9push_backEOS1_.exit2538.i, %2615, %2467, %2457, %2429, %2322, %2307, %1908, %1898, %1870, %1679, %1660, %1639, %1624, %1392
@@ -4413,42 +4413,42 @@ _ZNSt6vectorIN2cv8KeyPointESaIS1_EE6resizeEm.exit.i114: ; preds = %1255, %1239
   %2624 = getelementptr inbounds i8, ptr %1318, i64 %1307
   %2625 = load i8, ptr %2624, align 1
   %2626 = zext i8 %2625 to i32
-  %2627 = icmp ugt i32 %1322, %2626
+  %2627 = icmp samesign ugt i32 %1322, %2626
   br i1 %2627, label %2628, label %.backedge2578.i
 
 2628:                                             ; preds = %2623
   %2629 = getelementptr inbounds i8, ptr %1318, i64 %1301
   %2630 = load i8, ptr %2629, align 1
   %2631 = zext i8 %2630 to i32
-  %2632 = icmp ugt i32 %1322, %2631
+  %2632 = icmp samesign ugt i32 %1322, %2631
   br i1 %2632, label %2633, label %2643
 
 2633:                                             ; preds = %2628
   %2634 = getelementptr inbounds i8, ptr %1318, i64 %1302
   %2635 = load i8, ptr %2634, align 1
   %2636 = zext i8 %2635 to i32
-  %2637 = icmp ugt i32 %1322, %2636
+  %2637 = icmp samesign ugt i32 %1322, %2636
   br i1 %2637, label %4949, label %2638
 
 2638:                                             ; preds = %2633
   %2639 = getelementptr inbounds i8, ptr %1318, i64 %1308
   %2640 = load i8, ptr %2639, align 1
   %2641 = zext i8 %2640 to i32
-  %2642 = icmp ugt i32 %1322, %2641
+  %2642 = icmp samesign ugt i32 %1322, %2641
   br i1 %2642, label %4949, label %.backedge2578.i
 
 2643:                                             ; preds = %2628
   %2644 = getelementptr inbounds i8, ptr %1318, i64 %1306
   %2645 = load i8, ptr %2644, align 1
   %2646 = zext i8 %2645 to i32
-  %2647 = icmp ugt i32 %1322, %2646
+  %2647 = icmp samesign ugt i32 %1322, %2646
   br i1 %2647, label %2648, label %.backedge2578.i
 
 2648:                                             ; preds = %2643
   %2649 = getelementptr inbounds i8, ptr %1318, i64 %1308
   %2650 = load i8, ptr %2649, align 1
   %2651 = zext i8 %2650 to i32
-  %2652 = icmp ugt i32 %1322, %2651
+  %2652 = icmp samesign ugt i32 %1322, %2651
   br i1 %2652, label %4949, label %.backedge2578.i
 
 2653:                                             ; preds = %2565
@@ -4458,137 +4458,137 @@ _ZNSt6vectorIN2cv8KeyPointESaIS1_EE6resizeEm.exit.i114: ; preds = %1255, %1239
   %2655 = getelementptr inbounds i8, ptr %1318, i64 %1303
   %2656 = load i8, ptr %2655, align 1
   %2657 = zext i8 %2656 to i32
-  %2658 = icmp ugt i32 %1322, %2657
+  %2658 = icmp samesign ugt i32 %1322, %2657
   br i1 %2658, label %2659, label %.backedge2578.i
 
 2659:                                             ; preds = %2654
   %2660 = getelementptr inbounds i8, ptr %1318, i64 %1306
   %2661 = load i8, ptr %2660, align 1
   %2662 = zext i8 %2661 to i32
-  %2663 = icmp ugt i32 %1322, %2662
+  %2663 = icmp samesign ugt i32 %1322, %2662
   br i1 %2663, label %2664, label %.backedge2578.i
 
 2664:                                             ; preds = %2659
   %2665 = getelementptr inbounds i8, ptr %1318, i64 %1302
   %2666 = load i8, ptr %2665, align 1
   %2667 = zext i8 %2666 to i32
-  %2668 = icmp ugt i32 %1322, %2667
+  %2668 = icmp samesign ugt i32 %1322, %2667
   br i1 %2668, label %2669, label %2679
 
 2669:                                             ; preds = %2664
   %2670 = getelementptr inbounds i8, ptr %1318, i64 %1301
   %2671 = load i8, ptr %2670, align 1
   %2672 = zext i8 %2671 to i32
-  %2673 = icmp ugt i32 %1322, %2672
+  %2673 = icmp samesign ugt i32 %1322, %2672
   br i1 %2673, label %5021, label %2674
 
 2674:                                             ; preds = %2669
   %2675 = getelementptr inbounds i8, ptr %1318, i64 %1308
   %2676 = load i8, ptr %2675, align 1
   %2677 = zext i8 %2676 to i32
-  %2678 = icmp ugt i32 %1322, %2677
+  %2678 = icmp samesign ugt i32 %1322, %2677
   br i1 %2678, label %5021, label %.backedge2578.i
 
 2679:                                             ; preds = %2664
   %2680 = getelementptr inbounds i8, ptr %1318, i64 %1308
   %2681 = load i8, ptr %2680, align 1
   %2682 = zext i8 %2681 to i32
-  %2683 = icmp ugt i32 %1322, %2682
+  %2683 = icmp samesign ugt i32 %1322, %2682
   br i1 %2683, label %2684, label %.backedge2578.i
 
 2684:                                             ; preds = %2679
   %2685 = getelementptr inbounds i8, ptr %1318, i64 %1307
   %2686 = load i8, ptr %2685, align 1
   %2687 = zext i8 %2686 to i32
-  %2688 = icmp ugt i32 %1322, %2687
+  %2688 = icmp samesign ugt i32 %1322, %2687
   br i1 %2688, label %5021, label %.backedge2578.i
 
 2689:                                             ; preds = %2560
   %2690 = getelementptr inbounds i8, ptr %1318, i64 %1308
   %2691 = load i8, ptr %2690, align 1
   %2692 = zext i8 %2691 to i32
-  %2693 = icmp ugt i32 %1322, %2692
+  %2693 = icmp samesign ugt i32 %1322, %2692
   br i1 %2693, label %2694, label %.backedge2578.i
 
 2694:                                             ; preds = %2689
   %2695 = getelementptr inbounds i8, ptr %1318, i64 %1307
   %2696 = load i8, ptr %2695, align 1
   %2697 = zext i8 %2696 to i32
-  %2698 = icmp ugt i32 %1322, %2697
+  %2698 = icmp samesign ugt i32 %1322, %2697
   br i1 %2698, label %2699, label %.backedge2578.i
 
 2699:                                             ; preds = %2694
   %2700 = getelementptr inbounds i8, ptr %1318, i64 %1304
   %2701 = load i8, ptr %2700, align 1
   %2702 = zext i8 %2701 to i32
-  %2703 = icmp ugt i32 %1322, %2702
+  %2703 = icmp samesign ugt i32 %1322, %2702
   br i1 %2703, label %2704, label %2714
 
 2704:                                             ; preds = %2699
   %2705 = getelementptr inbounds i8, ptr %1318, i64 %1301
   %2706 = load i8, ptr %2705, align 1
   %2707 = zext i8 %2706 to i32
-  %2708 = icmp ugt i32 %1322, %2707
+  %2708 = icmp samesign ugt i32 %1322, %2707
   br i1 %2708, label %4949, label %2709
 
 2709:                                             ; preds = %2704
   %2710 = getelementptr inbounds i8, ptr %1318, i64 %1306
   %2711 = load i8, ptr %2710, align 1
   %2712 = zext i8 %2711 to i32
-  %2713 = icmp ugt i32 %1322, %2712
+  %2713 = icmp samesign ugt i32 %1322, %2712
   br i1 %2713, label %4949, label %.backedge2578.i
 
 2714:                                             ; preds = %2699
   %2715 = getelementptr inbounds i8, ptr %1318, i64 %1305
   %2716 = load i8, ptr %2715, align 1
   %2717 = zext i8 %2716 to i32
-  %2718 = icmp ugt i32 %1322, %2717
+  %2718 = icmp samesign ugt i32 %1322, %2717
   br i1 %2718, label %2719, label %.backedge2578.i
 
 2719:                                             ; preds = %2714
   %2720 = getelementptr inbounds i8, ptr %1318, i64 %1303
   %2721 = load i8, ptr %2720, align 1
   %2722 = zext i8 %2721 to i32
-  %2723 = icmp ugt i32 %1322, %2722
+  %2723 = icmp samesign ugt i32 %1322, %2722
   br i1 %2723, label %2724, label %.backedge2578.i
 
 2724:                                             ; preds = %2719
   %2725 = getelementptr inbounds i8, ptr %1318, i64 %1306
   %2726 = load i8, ptr %2725, align 1
   %2727 = zext i8 %2726 to i32
-  %2728 = icmp ugt i32 %1322, %2727
+  %2728 = icmp samesign ugt i32 %1322, %2727
   br i1 %2728, label %4949, label %.backedge2578.i
 
 2729:                                             ; preds = %2558
   %2730 = getelementptr inbounds i8, ptr %1318, i64 %1301
   %2731 = load i8, ptr %2730, align 1
   %2732 = zext i8 %2731 to i32
-  %2733 = icmp ugt i32 %1322, %2732
+  %2733 = icmp samesign ugt i32 %1322, %2732
   br i1 %2733, label %2734, label %.backedge2578.i
 
 2734:                                             ; preds = %2729
   %2735 = getelementptr inbounds i8, ptr %1318, i64 %1302
   %2736 = load i8, ptr %2735, align 1
   %2737 = zext i8 %2736 to i32
-  %2738 = icmp ugt i32 %1322, %2737
+  %2738 = icmp samesign ugt i32 %1322, %2737
   br i1 %2738, label %2739, label %.backedge2578.i
 
 2739:                                             ; preds = %2734
   %2740 = getelementptr inbounds i8, ptr %1318, i64 %1298
   %2741 = load i8, ptr %2740, align 1
   %2742 = zext i8 %2741 to i32
-  %2743 = icmp ugt i32 %1322, %2742
+  %2743 = icmp samesign ugt i32 %1322, %2742
   %2744 = getelementptr inbounds i8, ptr %1318, i64 %1304
   %2745 = load i8, ptr %2744, align 1
   %2746 = zext i8 %2745 to i32
-  %2747 = icmp ugt i32 %1322, %2746
+  %2747 = icmp samesign ugt i32 %1322, %2746
   br i1 %2743, label %2748, label %2770
 
 2748:                                             ; preds = %2739
   %2749 = getelementptr inbounds i8, ptr %1318, i64 %1305
   %2750 = load i8, ptr %2749, align 1
   %2751 = zext i8 %2750 to i32
-  %2752 = icmp ugt i32 %1322, %2751
+  %2752 = icmp samesign ugt i32 %1322, %2751
   br i1 %2747, label %2753, label %2759
 
 2753:                                             ; preds = %2748
@@ -4598,7 +4598,7 @@ _ZNSt6vectorIN2cv8KeyPointESaIS1_EE6resizeEm.exit.i114: ; preds = %1255, %1239
   %2755 = getelementptr inbounds i8, ptr %1318, i64 %1307
   %2756 = load i8, ptr %2755, align 1
   %2757 = zext i8 %2756 to i32
-  %2758 = icmp ugt i32 %1322, %2757
+  %2758 = icmp samesign ugt i32 %1322, %2757
   br i1 %2758, label %4949, label %.backedge2578.i
 
 2759:                                             ; preds = %2748
@@ -4608,14 +4608,14 @@ _ZNSt6vectorIN2cv8KeyPointESaIS1_EE6resizeEm.exit.i114: ; preds = %1255, %1239
   %2761 = getelementptr inbounds i8, ptr %1318, i64 %1303
   %2762 = load i8, ptr %2761, align 1
   %2763 = zext i8 %2762 to i32
-  %2764 = icmp ugt i32 %1322, %2763
+  %2764 = icmp samesign ugt i32 %1322, %2763
   br i1 %2764, label %2765, label %.backedge2578.i
 
 2765:                                             ; preds = %2760
   %2766 = getelementptr inbounds i8, ptr %1318, i64 %1306
   %2767 = load i8, ptr %2766, align 1
   %2768 = zext i8 %2767 to i32
-  %2769 = icmp ugt i32 %1322, %2768
+  %2769 = icmp samesign ugt i32 %1322, %2768
   br i1 %2769, label %4949, label %.backedge2578.i
 
 2770:                                             ; preds = %2739
@@ -4625,173 +4625,173 @@ _ZNSt6vectorIN2cv8KeyPointESaIS1_EE6resizeEm.exit.i114: ; preds = %1255, %1239
   %2772 = getelementptr inbounds i8, ptr %1318, i64 %1308
   %2773 = load i8, ptr %2772, align 1
   %2774 = zext i8 %2773 to i32
-  %2775 = icmp ugt i32 %1322, %2774
+  %2775 = icmp samesign ugt i32 %1322, %2774
   br i1 %2775, label %2776, label %.backedge2578.i
 
 2776:                                             ; preds = %2771
   %2777 = getelementptr inbounds i8, ptr %1318, i64 %1307
   %2778 = load i8, ptr %2777, align 1
   %2779 = zext i8 %2778 to i32
-  %2780 = icmp ugt i32 %1322, %2779
+  %2780 = icmp samesign ugt i32 %1322, %2779
   br i1 %2780, label %4949, label %.backedge2578.i
 
 2781:                                             ; preds = %2377
-  %2782 = icmp ugt i32 %1322, %2381
+  %2782 = icmp samesign ugt i32 %1322, %2381
   br i1 %2782, label %2783, label %2888
 
 2783:                                             ; preds = %2781
   %2784 = getelementptr inbounds i8, ptr %1318, i64 %1303
   %2785 = load i8, ptr %2784, align 1
   %2786 = zext i8 %2785 to i32
-  %2787 = icmp ugt i32 %1322, %2786
+  %2787 = icmp samesign ugt i32 %1322, %2786
   br i1 %2787, label %2788, label %.backedge2578.i
 
 2788:                                             ; preds = %2783
   %2789 = getelementptr inbounds i8, ptr %1318, i64 %1306
   %2790 = load i8, ptr %2789, align 1
   %2791 = zext i8 %2790 to i32
-  %2792 = icmp ugt i32 %1322, %2791
+  %2792 = icmp samesign ugt i32 %1322, %2791
   br i1 %2792, label %2793, label %.backedge2578.i
 
 2793:                                             ; preds = %2788
   %2794 = getelementptr inbounds i8, ptr %1318, i64 %1298
   %2795 = load i8, ptr %2794, align 1
   %2796 = zext i8 %2795 to i32
-  %2797 = icmp ugt i32 %1322, %2796
+  %2797 = icmp samesign ugt i32 %1322, %2796
   br i1 %2797, label %2798, label %2868
 
 2798:                                             ; preds = %2793
   %2799 = getelementptr inbounds i8, ptr %1318, i64 %1304
   %2800 = load i8, ptr %2799, align 1
   %2801 = zext i8 %2800 to i32
-  %2802 = icmp ugt i32 %1322, %2801
+  %2802 = icmp samesign ugt i32 %1322, %2801
   br i1 %2802, label %2803, label %2838
 
 2803:                                             ; preds = %2798
   %2804 = getelementptr inbounds i8, ptr %1318, i64 %1308
   %2805 = load i8, ptr %2804, align 1
   %2806 = zext i8 %2805 to i32
-  %2807 = icmp ugt i32 %1322, %2806
+  %2807 = icmp samesign ugt i32 %1322, %2806
   br i1 %2807, label %2808, label %2823
 
 2808:                                             ; preds = %2803
   %2809 = getelementptr inbounds i8, ptr %1318, i64 %1307
   %2810 = load i8, ptr %2809, align 1
   %2811 = zext i8 %2810 to i32
-  %2812 = icmp ugt i32 %1322, %2811
+  %2812 = icmp samesign ugt i32 %1322, %2811
   br i1 %2812, label %4949, label %2813
 
 2813:                                             ; preds = %2808
   %2814 = getelementptr inbounds i8, ptr %1318, i64 %1305
   %2815 = load i8, ptr %2814, align 1
   %2816 = zext i8 %2815 to i32
-  %2817 = icmp ugt i32 %1322, %2816
+  %2817 = icmp samesign ugt i32 %1322, %2816
   br i1 %2817, label %2818, label %.backedge2578.i
 
 2818:                                             ; preds = %2813
   %2819 = getelementptr inbounds i8, ptr %1318, i64 %1302
   %2820 = load i8, ptr %2819, align 1
   %2821 = zext i8 %2820 to i32
-  %2822 = icmp ugt i32 %1322, %2821
+  %2822 = icmp samesign ugt i32 %1322, %2821
   br i1 %2822, label %5021, label %.backedge2578.i
 
 2823:                                             ; preds = %2803
   %2824 = getelementptr inbounds i8, ptr %1318, i64 %1305
   %2825 = load i8, ptr %2824, align 1
   %2826 = zext i8 %2825 to i32
-  %2827 = icmp ugt i32 %1322, %2826
+  %2827 = icmp samesign ugt i32 %1322, %2826
   br i1 %2827, label %2828, label %.backedge2578.i
 
 2828:                                             ; preds = %2823
   %2829 = getelementptr inbounds i8, ptr %1318, i64 %1301
   %2830 = load i8, ptr %2829, align 1
   %2831 = zext i8 %2830 to i32
-  %2832 = icmp ugt i32 %1322, %2831
+  %2832 = icmp samesign ugt i32 %1322, %2831
   br i1 %2832, label %2833, label %.backedge2578.i
 
 2833:                                             ; preds = %2828
   %2834 = getelementptr inbounds i8, ptr %1318, i64 %1302
   %2835 = load i8, ptr %2834, align 1
   %2836 = zext i8 %2835 to i32
-  %2837 = icmp ugt i32 %1322, %2836
+  %2837 = icmp samesign ugt i32 %1322, %2836
   br i1 %2837, label %5021, label %.backedge2578.i
 
 2838:                                             ; preds = %2798
   %2839 = getelementptr inbounds i8, ptr %1318, i64 %1305
   %2840 = load i8, ptr %2839, align 1
   %2841 = zext i8 %2840 to i32
-  %2842 = icmp ugt i32 %1322, %2841
+  %2842 = icmp samesign ugt i32 %1322, %2841
   br i1 %2842, label %2843, label %.backedge2578.i
 
 2843:                                             ; preds = %2838
   %2844 = getelementptr inbounds i8, ptr %1318, i64 %1302
   %2845 = load i8, ptr %2844, align 1
   %2846 = zext i8 %2845 to i32
-  %2847 = icmp ugt i32 %1322, %2846
+  %2847 = icmp samesign ugt i32 %1322, %2846
   br i1 %2847, label %2848, label %2858
 
 2848:                                             ; preds = %2843
   %2849 = getelementptr inbounds i8, ptr %1318, i64 %1301
   %2850 = load i8, ptr %2849, align 1
   %2851 = zext i8 %2850 to i32
-  %2852 = icmp ugt i32 %1322, %2851
+  %2852 = icmp samesign ugt i32 %1322, %2851
   br i1 %2852, label %4949, label %2853
 
 2853:                                             ; preds = %2848
   %2854 = getelementptr inbounds i8, ptr %1318, i64 %1308
   %2855 = load i8, ptr %2854, align 1
   %2856 = zext i8 %2855 to i32
-  %2857 = icmp ugt i32 %1322, %2856
+  %2857 = icmp samesign ugt i32 %1322, %2856
   br i1 %2857, label %4949, label %.backedge2578.i
 
 2858:                                             ; preds = %2843
   %2859 = getelementptr inbounds i8, ptr %1318, i64 %1308
   %2860 = load i8, ptr %2859, align 1
   %2861 = zext i8 %2860 to i32
-  %2862 = icmp ugt i32 %1322, %2861
+  %2862 = icmp samesign ugt i32 %1322, %2861
   br i1 %2862, label %2863, label %.backedge2578.i
 
 2863:                                             ; preds = %2858
   %2864 = getelementptr inbounds i8, ptr %1318, i64 %1307
   %2865 = load i8, ptr %2864, align 1
   %2866 = zext i8 %2865 to i32
-  %2867 = icmp ugt i32 %1322, %2866
+  %2867 = icmp samesign ugt i32 %1322, %2866
   br i1 %2867, label %4949, label %.backedge2578.i
 
 2868:                                             ; preds = %2793
   %2869 = getelementptr inbounds i8, ptr %1318, i64 %1308
   %2870 = load i8, ptr %2869, align 1
   %2871 = zext i8 %2870 to i32
-  %2872 = icmp ugt i32 %1322, %2871
+  %2872 = icmp samesign ugt i32 %1322, %2871
   br i1 %2872, label %2873, label %.backedge2578.i
 
 2873:                                             ; preds = %2868
   %2874 = getelementptr inbounds i8, ptr %1318, i64 %1307
   %2875 = load i8, ptr %2874, align 1
   %2876 = zext i8 %2875 to i32
-  %2877 = icmp ugt i32 %1322, %2876
+  %2877 = icmp samesign ugt i32 %1322, %2876
   br i1 %2877, label %2878, label %.backedge2578.i
 
 2878:                                             ; preds = %2873
   %2879 = getelementptr inbounds i8, ptr %1318, i64 %1304
   %2880 = load i8, ptr %2879, align 1
   %2881 = zext i8 %2880 to i32
-  %2882 = icmp ugt i32 %1322, %2881
+  %2882 = icmp samesign ugt i32 %1322, %2881
   br i1 %2882, label %4949, label %2883
 
 2883:                                             ; preds = %2878
   %2884 = getelementptr inbounds i8, ptr %1318, i64 %1305
   %2885 = load i8, ptr %2884, align 1
   %2886 = zext i8 %2885 to i32
-  %2887 = icmp ugt i32 %1322, %2886
+  %2887 = icmp samesign ugt i32 %1322, %2886
   br i1 %2887, label %4949, label %.backedge2578.i
 
 2888:                                             ; preds = %2781
   %2889 = getelementptr inbounds i8, ptr %1318, i64 %1298
   %2890 = load i8, ptr %2889, align 1
   %2891 = zext i8 %2890 to i32
-  %2892 = icmp ult i32 %1321, %2891
-  %2893 = icmp ult i32 %1321, %2381
+  %2892 = icmp samesign ult i32 %1321, %2891
+  %2893 = icmp samesign ult i32 %1321, %2381
   %or.cond2466.i = and i1 %2893, %2892
   br i1 %or.cond2466.i, label %2894, label %.backedge2578.i
 
@@ -4799,102 +4799,102 @@ _ZNSt6vectorIN2cv8KeyPointESaIS1_EE6resizeEm.exit.i114: ; preds = %1255, %1239
   %2895 = getelementptr inbounds i8, ptr %1318, i64 %1305
   %2896 = load i8, ptr %2895, align 1
   %2897 = zext i8 %2896 to i32
-  %2898 = icmp ult i32 %1321, %2897
+  %2898 = icmp samesign ult i32 %1321, %2897
   br i1 %2898, label %2899, label %.backedge2578.i
 
 2899:                                             ; preds = %2894
   %2900 = getelementptr inbounds i8, ptr %1318, i64 %1303
   %2901 = load i8, ptr %2900, align 1
   %2902 = zext i8 %2901 to i32
-  %2903 = icmp ult i32 %1321, %2902
+  %2903 = icmp samesign ult i32 %1321, %2902
   br i1 %2903, label %2904, label %.backedge2578.i
 
 2904:                                             ; preds = %2899
   %2905 = getelementptr inbounds i8, ptr %1318, i64 %1306
   %2906 = load i8, ptr %2905, align 1
   %2907 = zext i8 %2906 to i32
-  %2908 = icmp ult i32 %1321, %2907
+  %2908 = icmp samesign ult i32 %1321, %2907
   br i1 %2908, label %2909, label %.backedge2578.i
 
 2909:                                             ; preds = %2904
   %2910 = getelementptr inbounds i8, ptr %1318, i64 %1302
   %2911 = load i8, ptr %2910, align 1
   %2912 = zext i8 %2911 to i32
-  %2913 = icmp ult i32 %1321, %2912
+  %2913 = icmp samesign ult i32 %1321, %2912
   br i1 %2913, label %2914, label %2924
 
 2914:                                             ; preds = %2909
   %2915 = getelementptr inbounds i8, ptr %1318, i64 %1301
   %2916 = load i8, ptr %2915, align 1
   %2917 = zext i8 %2916 to i32
-  %2918 = icmp ult i32 %1321, %2917
+  %2918 = icmp samesign ult i32 %1321, %2917
   br i1 %2918, label %4949, label %2919
 
 2919:                                             ; preds = %2914
   %2920 = getelementptr inbounds i8, ptr %1318, i64 %1308
   %2921 = load i8, ptr %2920, align 1
   %2922 = zext i8 %2921 to i32
-  %2923 = icmp ult i32 %1321, %2922
+  %2923 = icmp samesign ult i32 %1321, %2922
   br i1 %2923, label %4949, label %.backedge2578.i
 
 2924:                                             ; preds = %2909
   %2925 = getelementptr inbounds i8, ptr %1318, i64 %1308
   %2926 = load i8, ptr %2925, align 1
   %2927 = zext i8 %2926 to i32
-  %2928 = icmp ult i32 %1321, %2927
+  %2928 = icmp samesign ult i32 %1321, %2927
   br i1 %2928, label %2929, label %.backedge2578.i
 
 2929:                                             ; preds = %2924
   %2930 = getelementptr inbounds i8, ptr %1318, i64 %1307
   %2931 = load i8, ptr %2930, align 1
   %2932 = zext i8 %2931 to i32
-  %2933 = icmp ult i32 %1321, %2932
+  %2933 = icmp samesign ult i32 %1321, %2932
   br i1 %2933, label %4949, label %.backedge2578.i
 
 2934:                                             ; preds = %2162
   %2935 = getelementptr inbounds i8, ptr %1318, i64 %1298
   %2936 = load i8, ptr %2935, align 1
   %2937 = zext i8 %2936 to i32
-  %2938 = icmp ult i32 %1321, %2937
+  %2938 = icmp samesign ult i32 %1321, %2937
   br i1 %2938, label %2939, label %3036
 
 2939:                                             ; preds = %2934
   %2940 = getelementptr inbounds i8, ptr %1318, i64 %1299
   %2941 = load i8, ptr %2940, align 1
   %2942 = zext i8 %2941 to i32
-  %2943 = icmp ult i32 %1321, %2942
+  %2943 = icmp samesign ult i32 %1321, %2942
   br i1 %2943, label %2944, label %3000
 
 2944:                                             ; preds = %2939
   %2945 = getelementptr inbounds i8, ptr %1318, i64 %1305
   %2946 = load i8, ptr %2945, align 1
   %2947 = zext i8 %2946 to i32
-  %2948 = icmp ult i32 %1321, %2947
+  %2948 = icmp samesign ult i32 %1321, %2947
   br i1 %2948, label %2949, label %.backedge2578.i
 
 2949:                                             ; preds = %2944
   %2950 = getelementptr inbounds i8, ptr %1318, i64 %1303
   %2951 = load i8, ptr %2950, align 1
   %2952 = zext i8 %2951 to i32
-  %2953 = icmp ult i32 %1321, %2952
+  %2953 = icmp samesign ult i32 %1321, %2952
   br i1 %2953, label %2954, label %.backedge2578.i
 
 2954:                                             ; preds = %2949
   %2955 = getelementptr inbounds i8, ptr %1318, i64 %1302
   %2956 = load i8, ptr %2955, align 1
   %2957 = zext i8 %2956 to i32
-  %2958 = icmp ult i32 %1321, %2957
+  %2958 = icmp samesign ult i32 %1321, %2957
   br i1 %2958, label %2959, label %2985
 
 2959:                                             ; preds = %2954
   %2960 = getelementptr inbounds i8, ptr %1318, i64 %1301
   %2961 = load i8, ptr %2960, align 1
   %2962 = zext i8 %2961 to i32
-  %2963 = icmp ult i32 %1321, %2962
+  %2963 = icmp samesign ult i32 %1321, %2962
   %2964 = getelementptr inbounds i8, ptr %1318, i64 %1306
   %2965 = load i8, ptr %2964, align 1
   %2966 = zext i8 %2965 to i32
-  %2967 = icmp ult i32 %1321, %2966
+  %2967 = icmp samesign ult i32 %1321, %2966
   br i1 %2963, label %2968, label %2979
 
 2968:                                             ; preds = %2959
@@ -4904,14 +4904,14 @@ _ZNSt6vectorIN2cv8KeyPointESaIS1_EE6resizeEm.exit.i114: ; preds = %1255, %1239
   %2970 = getelementptr inbounds i8, ptr %1318, i64 %1304
   %2971 = load i8, ptr %2970, align 1
   %2972 = zext i8 %2971 to i32
-  %2973 = icmp ult i32 %1321, %2972
+  %2973 = icmp samesign ult i32 %1321, %2972
   br i1 %2973, label %2974, label %.backedge2578.i
 
 2974:                                             ; preds = %2969
   %2975 = getelementptr inbounds i8, ptr %1318, i64 %1300
   %2976 = load i8, ptr %2975, align 1
   %2977 = zext i8 %2976 to i32
-  %2978 = icmp ult i32 %1321, %2977
+  %2978 = icmp samesign ult i32 %1321, %2977
   br i1 %2978, label %4949, label %.backedge2578.i
 
 2979:                                             ; preds = %2959
@@ -4921,67 +4921,67 @@ _ZNSt6vectorIN2cv8KeyPointESaIS1_EE6resizeEm.exit.i114: ; preds = %1255, %1239
   %2981 = getelementptr inbounds i8, ptr %1318, i64 %1308
   %2982 = load i8, ptr %2981, align 1
   %2983 = zext i8 %2982 to i32
-  %2984 = icmp ult i32 %1321, %2983
+  %2984 = icmp samesign ult i32 %1321, %2983
   br i1 %2984, label %4949, label %.backedge2578.i
 
 2985:                                             ; preds = %2954
   %2986 = getelementptr inbounds i8, ptr %1318, i64 %1307
   %2987 = load i8, ptr %2986, align 1
   %2988 = zext i8 %2987 to i32
-  %2989 = icmp ult i32 %1321, %2988
+  %2989 = icmp samesign ult i32 %1321, %2988
   br i1 %2989, label %2990, label %.backedge2578.i
 
 2990:                                             ; preds = %2985
   %2991 = getelementptr inbounds i8, ptr %1318, i64 %1306
   %2992 = load i8, ptr %2991, align 1
   %2993 = zext i8 %2992 to i32
-  %2994 = icmp ult i32 %1321, %2993
+  %2994 = icmp samesign ult i32 %1321, %2993
   br i1 %2994, label %2995, label %.backedge2578.i
 
 2995:                                             ; preds = %2990
   %2996 = getelementptr inbounds i8, ptr %1318, i64 %1308
   %2997 = load i8, ptr %2996, align 1
   %2998 = zext i8 %2997 to i32
-  %2999 = icmp ult i32 %1321, %2998
+  %2999 = icmp samesign ult i32 %1321, %2998
   br i1 %2999, label %4949, label %.backedge2578.i
 
 3000:                                             ; preds = %2939
   %3001 = getelementptr inbounds i8, ptr %1318, i64 %1300
   %3002 = load i8, ptr %3001, align 1
   %3003 = zext i8 %3002 to i32
-  %3004 = icmp ult i32 %1321, %3003
+  %3004 = icmp samesign ult i32 %1321, %3003
   br i1 %3004, label %3005, label %.backedge2578.i
 
 3005:                                             ; preds = %3000
   %3006 = getelementptr inbounds i8, ptr %1318, i64 %1301
   %3007 = load i8, ptr %3006, align 1
   %3008 = zext i8 %3007 to i32
-  %3009 = icmp ult i32 %1321, %3008
+  %3009 = icmp samesign ult i32 %1321, %3008
   br i1 %3009, label %3010, label %.backedge2578.i
 
 3010:                                             ; preds = %3005
   %3011 = getelementptr inbounds i8, ptr %1318, i64 %1302
   %3012 = load i8, ptr %3011, align 1
   %3013 = zext i8 %3012 to i32
-  %3014 = icmp ult i32 %1321, %3013
+  %3014 = icmp samesign ult i32 %1321, %3013
   br i1 %3014, label %3015, label %.backedge2578.i
 
 3015:                                             ; preds = %3010
   %3016 = getelementptr inbounds i8, ptr %1318, i64 %1303
   %3017 = load i8, ptr %3016, align 1
   %3018 = zext i8 %3017 to i32
-  %3019 = icmp ult i32 %1321, %3018
+  %3019 = icmp samesign ult i32 %1321, %3018
   br i1 %3019, label %3020, label %.backedge2578.i
 
 3020:                                             ; preds = %3015
   %3021 = getelementptr inbounds i8, ptr %1318, i64 %1304
   %3022 = load i8, ptr %3021, align 1
   %3023 = zext i8 %3022 to i32
-  %3024 = icmp ult i32 %1321, %3023
+  %3024 = icmp samesign ult i32 %1321, %3023
   %3025 = getelementptr inbounds i8, ptr %1318, i64 %1305
   %3026 = load i8, ptr %3025, align 1
   %3027 = zext i8 %3026 to i32
-  %3028 = icmp ult i32 %1321, %3027
+  %3028 = icmp samesign ult i32 %1321, %3027
   br i1 %3024, label %3029, label %3030
 
 3029:                                             ; preds = %3020
@@ -4994,7 +4994,7 @@ _ZNSt6vectorIN2cv8KeyPointESaIS1_EE6resizeEm.exit.i114: ; preds = %1255, %1239
   %3032 = getelementptr inbounds i8, ptr %1318, i64 %1306
   %3033 = load i8, ptr %3032, align 1
   %3034 = zext i8 %3033 to i32
-  %3035 = icmp ult i32 %1321, %3034
+  %3035 = icmp samesign ult i32 %1321, %3034
   br i1 %3035, label %4949, label %.backedge2578.i
 
 3036:                                             ; preds = %2934
@@ -5005,39 +5005,39 @@ _ZNSt6vectorIN2cv8KeyPointESaIS1_EE6resizeEm.exit.i114: ; preds = %1255, %1239
   %3039 = getelementptr inbounds i8, ptr %1318, i64 %1299
   %3040 = load i8, ptr %3039, align 1
   %3041 = zext i8 %3040 to i32
-  %3042 = icmp ugt i32 %1322, %3041
+  %3042 = icmp samesign ugt i32 %1322, %3041
   br i1 %3042, label %3043, label %3099
 
 3043:                                             ; preds = %3038
   %3044 = getelementptr inbounds i8, ptr %1318, i64 %1305
   %3045 = load i8, ptr %3044, align 1
   %3046 = zext i8 %3045 to i32
-  %3047 = icmp ugt i32 %1322, %3046
+  %3047 = icmp samesign ugt i32 %1322, %3046
   br i1 %3047, label %3048, label %.backedge2578.i
 
 3048:                                             ; preds = %3043
   %3049 = getelementptr inbounds i8, ptr %1318, i64 %1303
   %3050 = load i8, ptr %3049, align 1
   %3051 = zext i8 %3050 to i32
-  %3052 = icmp ugt i32 %1322, %3051
+  %3052 = icmp samesign ugt i32 %1322, %3051
   br i1 %3052, label %3053, label %.backedge2578.i
 
 3053:                                             ; preds = %3048
   %3054 = getelementptr inbounds i8, ptr %1318, i64 %1302
   %3055 = load i8, ptr %3054, align 1
   %3056 = zext i8 %3055 to i32
-  %3057 = icmp ugt i32 %1322, %3056
+  %3057 = icmp samesign ugt i32 %1322, %3056
   br i1 %3057, label %3058, label %3084
 
 3058:                                             ; preds = %3053
   %3059 = getelementptr inbounds i8, ptr %1318, i64 %1301
   %3060 = load i8, ptr %3059, align 1
   %3061 = zext i8 %3060 to i32
-  %3062 = icmp ugt i32 %1322, %3061
+  %3062 = icmp samesign ugt i32 %1322, %3061
   %3063 = getelementptr inbounds i8, ptr %1318, i64 %1306
   %3064 = load i8, ptr %3063, align 1
   %3065 = zext i8 %3064 to i32
-  %3066 = icmp ugt i32 %1322, %3065
+  %3066 = icmp samesign ugt i32 %1322, %3065
   br i1 %3062, label %3067, label %3078
 
 3067:                                             ; preds = %3058
@@ -5047,14 +5047,14 @@ _ZNSt6vectorIN2cv8KeyPointESaIS1_EE6resizeEm.exit.i114: ; preds = %1255, %1239
   %3069 = getelementptr inbounds i8, ptr %1318, i64 %1304
   %3070 = load i8, ptr %3069, align 1
   %3071 = zext i8 %3070 to i32
-  %3072 = icmp ugt i32 %1322, %3071
+  %3072 = icmp samesign ugt i32 %1322, %3071
   br i1 %3072, label %3073, label %.backedge2578.i
 
 3073:                                             ; preds = %3068
   %3074 = getelementptr inbounds i8, ptr %1318, i64 %1300
   %3075 = load i8, ptr %3074, align 1
   %3076 = zext i8 %3075 to i32
-  %3077 = icmp ugt i32 %1322, %3076
+  %3077 = icmp samesign ugt i32 %1322, %3076
   br i1 %3077, label %4949, label %.backedge2578.i
 
 3078:                                             ; preds = %3058
@@ -5064,67 +5064,67 @@ _ZNSt6vectorIN2cv8KeyPointESaIS1_EE6resizeEm.exit.i114: ; preds = %1255, %1239
   %3080 = getelementptr inbounds i8, ptr %1318, i64 %1308
   %3081 = load i8, ptr %3080, align 1
   %3082 = zext i8 %3081 to i32
-  %3083 = icmp ugt i32 %1322, %3082
+  %3083 = icmp samesign ugt i32 %1322, %3082
   br i1 %3083, label %4949, label %.backedge2578.i
 
 3084:                                             ; preds = %3053
   %3085 = getelementptr inbounds i8, ptr %1318, i64 %1307
   %3086 = load i8, ptr %3085, align 1
   %3087 = zext i8 %3086 to i32
-  %3088 = icmp ugt i32 %1322, %3087
+  %3088 = icmp samesign ugt i32 %1322, %3087
   br i1 %3088, label %3089, label %.backedge2578.i
 
 3089:                                             ; preds = %3084
   %3090 = getelementptr inbounds i8, ptr %1318, i64 %1306
   %3091 = load i8, ptr %3090, align 1
   %3092 = zext i8 %3091 to i32
-  %3093 = icmp ugt i32 %1322, %3092
+  %3093 = icmp samesign ugt i32 %1322, %3092
   br i1 %3093, label %3094, label %.backedge2578.i
 
 3094:                                             ; preds = %3089
   %3095 = getelementptr inbounds i8, ptr %1318, i64 %1308
   %3096 = load i8, ptr %3095, align 1
   %3097 = zext i8 %3096 to i32
-  %3098 = icmp ugt i32 %1322, %3097
+  %3098 = icmp samesign ugt i32 %1322, %3097
   br i1 %3098, label %4949, label %.backedge2578.i
 
 3099:                                             ; preds = %3038
   %3100 = getelementptr inbounds i8, ptr %1318, i64 %1300
   %3101 = load i8, ptr %3100, align 1
   %3102 = zext i8 %3101 to i32
-  %3103 = icmp ugt i32 %1322, %3102
+  %3103 = icmp samesign ugt i32 %1322, %3102
   br i1 %3103, label %3104, label %.backedge2578.i
 
 3104:                                             ; preds = %3099
   %3105 = getelementptr inbounds i8, ptr %1318, i64 %1301
   %3106 = load i8, ptr %3105, align 1
   %3107 = zext i8 %3106 to i32
-  %3108 = icmp ugt i32 %1322, %3107
+  %3108 = icmp samesign ugt i32 %1322, %3107
   br i1 %3108, label %3109, label %.backedge2578.i
 
 3109:                                             ; preds = %3104
   %3110 = getelementptr inbounds i8, ptr %1318, i64 %1302
   %3111 = load i8, ptr %3110, align 1
   %3112 = zext i8 %3111 to i32
-  %3113 = icmp ugt i32 %1322, %3112
+  %3113 = icmp samesign ugt i32 %1322, %3112
   br i1 %3113, label %3114, label %.backedge2578.i
 
 3114:                                             ; preds = %3109
   %3115 = getelementptr inbounds i8, ptr %1318, i64 %1303
   %3116 = load i8, ptr %3115, align 1
   %3117 = zext i8 %3116 to i32
-  %3118 = icmp ugt i32 %1322, %3117
+  %3118 = icmp samesign ugt i32 %1322, %3117
   br i1 %3118, label %3119, label %.backedge2578.i
 
 3119:                                             ; preds = %3114
   %3120 = getelementptr inbounds i8, ptr %1318, i64 %1304
   %3121 = load i8, ptr %3120, align 1
   %3122 = zext i8 %3121 to i32
-  %3123 = icmp ugt i32 %1322, %3122
+  %3123 = icmp samesign ugt i32 %1322, %3122
   %3124 = getelementptr inbounds i8, ptr %1318, i64 %1305
   %3125 = load i8, ptr %3124, align 1
   %3126 = zext i8 %3125 to i32
-  %3127 = icmp ugt i32 %1322, %3126
+  %3127 = icmp samesign ugt i32 %1322, %3126
   br i1 %3123, label %3128, label %3129
 
 3128:                                             ; preds = %3119
@@ -5137,7 +5137,7 @@ _ZNSt6vectorIN2cv8KeyPointESaIS1_EE6resizeEm.exit.i114: ; preds = %1255, %1239
   %3131 = getelementptr inbounds i8, ptr %1318, i64 %1306
   %3132 = load i8, ptr %3131, align 1
   %3133 = zext i8 %3132 to i32
-  %3134 = icmp ugt i32 %1322, %3133
+  %3134 = icmp samesign ugt i32 %1322, %3133
   br i1 %3134, label %4949, label %.backedge2578.i
 
 3135:                                             ; preds = %.backedge.i162, %.lr.ph.i159
@@ -5207,14 +5207,14 @@ _ZNSt6vectorIN2cv8KeyPointESaIS1_EE6resizeEm.exit.i114: ; preds = %1255, %1239
   %3181 = getelementptr inbounds i8, ptr %3136, i64 %1308
   %3182 = load i8, ptr %3181, align 1
   %3183 = zext i8 %3182 to i32
-  %3184 = icmp ult i32 %3139, %3183
+  %3184 = icmp samesign ult i32 %3139, %3183
   br i1 %3184, label %3185, label %.backedge.i162
 
 3185:                                             ; preds = %3180
   %3186 = getelementptr inbounds i8, ptr %3136, i64 %1307
   %3187 = load i8, ptr %3186, align 1
   %3188 = zext i8 %3187 to i32
-  %3189 = icmp ult i32 %3139, %3188
+  %3189 = icmp samesign ult i32 %3139, %3188
   br i1 %3189, label %.loopexit2574.i, label %.backedge.i162
 
 .backedge.i162:                                   ; preds = %4944, %4943, %4942, %4928, %4923, %4918, %4913, %4908, %4903, %4898, %4893, %4892, %4887, %4882, %4862, %4857, %4845, %4844, %4843, %4829, %4824, %4819, %4814, %4809, %4804, %4799, %4794, %4793, %4788, %4783, %4763, %4758, %4743, %4738, %4733, %4718, %4713, %4708, %4701, %4696, %4686, %4681, %4676, %4671, %4666, %4651, %4646, %4641, %4636, %4631, %4626, %4601, %4596, %4589, %4584, %4583, %4578, %4573, %4572, %4567, %4547, %4542, %4537, %4532, %4527, %4522, %4507, %4502, %4497, %4492, %4487, %4472, %4467, %4466, %4461, %4456, %4451, %4436, %4431, %4426, %4416, %4411, %4406, %4401, %4369, %4364, %4363, %4358, %4353, %4352, %4347, %4330, %4325, %4320, %4315, %4310, %4295, %4290, %4285, %4279, %4274, %4262, %4257, %4252, %4246, %4241, %4236, %4231, %4226, %4221, %4189, %4179, %4174, %4169, %4164, %4159, %4144, %4139, %4134, %4129, %4124, %4119, %4097, %4092, %4087, %4082, %4071, %4066, %4061, %4056, %4051, %4046, %4041, %4036, %4031, %4026, %4021, %4016, %3996, %3974, %3964, %3959, %3954, %3949, %3944, %3939, %3934, %3933, %3928, %3923, %3918, %3913, %3893, %3888, %3878, %3877, %3876, %3862, %3857, %3852, %3845, %3840, %3835, %3830, %3825, %3819, %3814, %3809, %3807, %3802, %3797, %3792, %3772, %3767, %3762, %3757, %3752, %3737, %3732, %3727, %3721, %3716, %3704, %3699, %3694, %3688, %3683, %3678, %3673, %3668, %3663, %3636, %3631, %3626, %3611, %3606, %3601, %3596, %3591, %3586, %3569, %3564, %3559, %3554, %3549, %3534, %3529, %3528, %3523, %3522, %3521, %3507, %3502, %3497, %3490, %3485, %3483, %3478, %3473, %3468, %3457, %3452, %3447, %3442, %3432, %3395, %3390, %3385, %3370, %3365, %3360, %3355, %3350, %3345, %3325, %3320, %3318, %3313, %3308, %3307, %3302, %3287, %3282, %3277, %3272, %3267, %3252, %3247, %3245, %3240, %3235, %3230, %3215, %3210, %3205, %3195, %3190, %3185, %3180
@@ -5225,155 +5225,155 @@ _ZNSt6vectorIN2cv8KeyPointESaIS1_EE6resizeEm.exit.i114: ; preds = %1255, %1239
   %3191 = getelementptr inbounds i8, ptr %3136, i64 %1306
   %3192 = load i8, ptr %3191, align 1
   %3193 = zext i8 %3192 to i32
-  %3194 = icmp ult i32 %3139, %3193
+  %3194 = icmp samesign ult i32 %3139, %3193
   br i1 %3194, label %3195, label %.backedge.i162
 
 3195:                                             ; preds = %3190
   %3196 = getelementptr inbounds i8, ptr %3136, i64 %1308
   %3197 = load i8, ptr %3196, align 1
   %3198 = zext i8 %3197 to i32
-  %3199 = icmp ult i32 %3139, %3198
+  %3199 = icmp samesign ult i32 %3139, %3198
   br i1 %3199, label %3200, label %.backedge.i162
 
 3200:                                             ; preds = %3195
   %3201 = getelementptr inbounds i8, ptr %3136, i64 %1307
   %3202 = load i8, ptr %3201, align 1
   %3203 = zext i8 %3202 to i32
-  %3204 = icmp ult i32 %3139, %3203
+  %3204 = icmp samesign ult i32 %3139, %3203
   br i1 %3204, label %.loopexit2574.i, label %3205
 
 3205:                                             ; preds = %3200
   %3206 = getelementptr inbounds i8, ptr %3136, i64 %1302
   %3207 = load i8, ptr %3206, align 1
   %3208 = zext i8 %3207 to i32
-  %3209 = icmp ult i32 %3139, %3208
+  %3209 = icmp samesign ult i32 %3139, %3208
   br i1 %3209, label %3210, label %.backedge.i162
 
 3210:                                             ; preds = %3205
   %3211 = getelementptr inbounds i8, ptr %3136, i64 %1303
   %3212 = load i8, ptr %3211, align 1
   %3213 = zext i8 %3212 to i32
-  %3214 = icmp ult i32 %3139, %3213
+  %3214 = icmp samesign ult i32 %3139, %3213
   br i1 %3214, label %.loopexit2574.i, label %.backedge.i162
 
 3215:                                             ; preds = %3168
   %3216 = getelementptr inbounds i8, ptr %3136, i64 %1307
   %3217 = load i8, ptr %3216, align 1
   %3218 = zext i8 %3217 to i32
-  %3219 = icmp ult i32 %3139, %3218
+  %3219 = icmp samesign ult i32 %3139, %3218
   br i1 %3219, label %3220, label %.backedge.i162
 
 3220:                                             ; preds = %3215
   %3221 = getelementptr inbounds i8, ptr %3136, i64 %1301
   %3222 = load i8, ptr %3221, align 1
   %3223 = zext i8 %3222 to i32
-  %3224 = icmp ult i32 %3139, %3223
+  %3224 = icmp samesign ult i32 %3139, %3223
   br i1 %3224, label %3225, label %3235
 
 3225:                                             ; preds = %3220
   %3226 = getelementptr inbounds i8, ptr %3136, i64 %1302
   %3227 = load i8, ptr %3226, align 1
   %3228 = zext i8 %3227 to i32
-  %3229 = icmp ult i32 %3139, %3228
+  %3229 = icmp samesign ult i32 %3139, %3228
   br i1 %3229, label %.loopexit2574.i, label %3230
 
 3230:                                             ; preds = %3225
   %3231 = getelementptr inbounds i8, ptr %3136, i64 %1308
   %3232 = load i8, ptr %3231, align 1
   %3233 = zext i8 %3232 to i32
-  %3234 = icmp ult i32 %3139, %3233
+  %3234 = icmp samesign ult i32 %3139, %3233
   br i1 %3234, label %.loopexit2574.i, label %.backedge.i162
 
 3235:                                             ; preds = %3220
   %3236 = getelementptr inbounds i8, ptr %3136, i64 %1306
   %3237 = load i8, ptr %3236, align 1
   %3238 = zext i8 %3237 to i32
-  %3239 = icmp ult i32 %3139, %3238
+  %3239 = icmp samesign ult i32 %3139, %3238
   br i1 %3239, label %3240, label %.backedge.i162
 
 3240:                                             ; preds = %3235
   %3241 = getelementptr inbounds i8, ptr %3136, i64 %1308
   %3242 = load i8, ptr %3241, align 1
   %3243 = zext i8 %3242 to i32
-  %3244 = icmp ult i32 %3139, %3243
+  %3244 = icmp samesign ult i32 %3139, %3243
   br i1 %3244, label %.loopexit2574.i, label %.backedge.i162
 
 3245:                                             ; preds = %3160
-  %3246 = icmp ult i32 %3139, %3167
+  %3246 = icmp samesign ult i32 %3139, %3167
   br i1 %3246, label %3247, label %.backedge.i162
 
 3247:                                             ; preds = %3245
   %3248 = getelementptr inbounds i8, ptr %3136, i64 %1303
   %3249 = load i8, ptr %3248, align 1
   %3250 = zext i8 %3249 to i32
-  %3251 = icmp ult i32 %3139, %3250
+  %3251 = icmp samesign ult i32 %3139, %3250
   br i1 %3251, label %3252, label %.backedge.i162
 
 3252:                                             ; preds = %3247
   %3253 = getelementptr inbounds i8, ptr %3136, i64 %1306
   %3254 = load i8, ptr %3253, align 1
   %3255 = zext i8 %3254 to i32
-  %3256 = icmp ult i32 %3139, %3255
+  %3256 = icmp samesign ult i32 %3139, %3255
   br i1 %3256, label %3257, label %.backedge.i162
 
 3257:                                             ; preds = %3252
   %3258 = getelementptr inbounds i8, ptr %3136, i64 %1302
   %3259 = load i8, ptr %3258, align 1
   %3260 = zext i8 %3259 to i32
-  %3261 = icmp ult i32 %3139, %3260
+  %3261 = icmp samesign ult i32 %3139, %3260
   br i1 %3261, label %3262, label %3272
 
 3262:                                             ; preds = %3257
   %3263 = getelementptr inbounds i8, ptr %3136, i64 %1301
   %3264 = load i8, ptr %3263, align 1
   %3265 = zext i8 %3264 to i32
-  %3266 = icmp ult i32 %3139, %3265
+  %3266 = icmp samesign ult i32 %3139, %3265
   br i1 %3266, label %.loopexit2574.i, label %3267
 
 3267:                                             ; preds = %3262
   %3268 = getelementptr inbounds i8, ptr %3136, i64 %1308
   %3269 = load i8, ptr %3268, align 1
   %3270 = zext i8 %3269 to i32
-  %3271 = icmp ult i32 %3139, %3270
+  %3271 = icmp samesign ult i32 %3139, %3270
   br i1 %3271, label %.loopexit2574.i, label %.backedge.i162
 
 3272:                                             ; preds = %3257
   %3273 = getelementptr inbounds i8, ptr %3136, i64 %1308
   %3274 = load i8, ptr %3273, align 1
   %3275 = zext i8 %3274 to i32
-  %3276 = icmp ult i32 %3139, %3275
+  %3276 = icmp samesign ult i32 %3139, %3275
   br i1 %3276, label %3277, label %.backedge.i162
 
 3277:                                             ; preds = %3272
   %3278 = getelementptr inbounds i8, ptr %3136, i64 %1307
   %3279 = load i8, ptr %3278, align 1
   %3280 = zext i8 %3279 to i32
-  %3281 = icmp ult i32 %3139, %3280
+  %3281 = icmp samesign ult i32 %3139, %3280
   br i1 %3281, label %.loopexit2574.i, label %.backedge.i162
 
 3282:                                             ; preds = %3158
   %3283 = getelementptr inbounds i8, ptr %3136, i64 %1301
   %3284 = load i8, ptr %3283, align 1
   %3285 = zext i8 %3284 to i32
-  %3286 = icmp ult i32 %3139, %3285
+  %3286 = icmp samesign ult i32 %3139, %3285
   br i1 %3286, label %3287, label %.backedge.i162
 
 3287:                                             ; preds = %3282
   %3288 = getelementptr inbounds i8, ptr %3136, i64 %1302
   %3289 = load i8, ptr %3288, align 1
   %3290 = zext i8 %3289 to i32
-  %3291 = icmp ult i32 %3139, %3290
+  %3291 = icmp samesign ult i32 %3139, %3290
   br i1 %3291, label %3292, label %.backedge.i162
 
 3292:                                             ; preds = %3287
   %3293 = getelementptr inbounds i8, ptr %3136, i64 %1304
   %3294 = load i8, ptr %3293, align 1
   %3295 = zext i8 %3294 to i32
-  %3296 = icmp ult i32 %3139, %3295
+  %3296 = icmp samesign ult i32 %3139, %3295
   %3297 = getelementptr inbounds i8, ptr %3136, i64 %1305
   %3298 = load i8, ptr %3297, align 1
   %3299 = zext i8 %3298 to i32
-  %3300 = icmp ult i32 %3139, %3299
+  %3300 = icmp samesign ult i32 %3139, %3299
   br i1 %3296, label %3301, label %3307
 
 3301:                                             ; preds = %3292
@@ -5383,7 +5383,7 @@ _ZNSt6vectorIN2cv8KeyPointESaIS1_EE6resizeEm.exit.i114: ; preds = %1255, %1239
   %3303 = getelementptr inbounds i8, ptr %3136, i64 %1307
   %3304 = load i8, ptr %3303, align 1
   %3305 = zext i8 %3304 to i32
-  %3306 = icmp ult i32 %3139, %3305
+  %3306 = icmp samesign ult i32 %3139, %3305
   br i1 %3306, label %.loopexit2574.i, label %.backedge.i162
 
 3307:                                             ; preds = %3292
@@ -5393,130 +5393,130 @@ _ZNSt6vectorIN2cv8KeyPointESaIS1_EE6resizeEm.exit.i114: ; preds = %1255, %1239
   %3309 = getelementptr inbounds i8, ptr %3136, i64 %1303
   %3310 = load i8, ptr %3309, align 1
   %3311 = zext i8 %3310 to i32
-  %3312 = icmp ult i32 %3139, %3311
+  %3312 = icmp samesign ult i32 %3139, %3311
   br i1 %3312, label %3313, label %.backedge.i162
 
 3313:                                             ; preds = %3308
   %3314 = getelementptr inbounds i8, ptr %3136, i64 %1306
   %3315 = load i8, ptr %3314, align 1
   %3316 = zext i8 %3315 to i32
-  %3317 = icmp ult i32 %3139, %3316
+  %3317 = icmp samesign ult i32 %3139, %3316
   br i1 %3317, label %.loopexit2574.i, label %.backedge.i162
 
 3318:                                             ; preds = %3150
-  %3319 = icmp ult i32 %3139, %3157
+  %3319 = icmp samesign ult i32 %3139, %3157
   br i1 %3319, label %3320, label %.backedge.i162
 
 3320:                                             ; preds = %3318
   %3321 = getelementptr inbounds i8, ptr %3136, i64 %1303
   %3322 = load i8, ptr %3321, align 1
   %3323 = zext i8 %3322 to i32
-  %3324 = icmp ult i32 %3139, %3323
+  %3324 = icmp samesign ult i32 %3139, %3323
   br i1 %3324, label %3325, label %.backedge.i162
 
 3325:                                             ; preds = %3320
   %3326 = getelementptr inbounds i8, ptr %3136, i64 %1306
   %3327 = load i8, ptr %3326, align 1
   %3328 = zext i8 %3327 to i32
-  %3329 = icmp ult i32 %3139, %3328
+  %3329 = icmp samesign ult i32 %3139, %3328
   br i1 %3329, label %3330, label %.backedge.i162
 
 3330:                                             ; preds = %3325
   %3331 = getelementptr inbounds i8, ptr %3136, i64 %1304
   %3332 = load i8, ptr %3331, align 1
   %3333 = zext i8 %3332 to i32
-  %3334 = icmp ult i32 %3139, %3333
+  %3334 = icmp samesign ult i32 %3139, %3333
   br i1 %3334, label %3335, label %3370
 
 3335:                                             ; preds = %3330
   %3336 = getelementptr inbounds i8, ptr %3136, i64 %1308
   %3337 = load i8, ptr %3336, align 1
   %3338 = zext i8 %3337 to i32
-  %3339 = icmp ult i32 %3139, %3338
+  %3339 = icmp samesign ult i32 %3139, %3338
   br i1 %3339, label %3340, label %3355
 
 3340:                                             ; preds = %3335
   %3341 = getelementptr inbounds i8, ptr %3136, i64 %1307
   %3342 = load i8, ptr %3341, align 1
   %3343 = zext i8 %3342 to i32
-  %3344 = icmp ult i32 %3139, %3343
+  %3344 = icmp samesign ult i32 %3139, %3343
   br i1 %3344, label %.loopexit2574.i, label %3345
 
 3345:                                             ; preds = %3340
   %3346 = getelementptr inbounds i8, ptr %3136, i64 %1305
   %3347 = load i8, ptr %3346, align 1
   %3348 = zext i8 %3347 to i32
-  %3349 = icmp ult i32 %3139, %3348
+  %3349 = icmp samesign ult i32 %3139, %3348
   br i1 %3349, label %3350, label %.backedge.i162
 
 3350:                                             ; preds = %3345
   %3351 = getelementptr inbounds i8, ptr %3136, i64 %1302
   %3352 = load i8, ptr %3351, align 1
   %3353 = zext i8 %3352 to i32
-  %3354 = icmp ult i32 %3139, %3353
+  %3354 = icmp samesign ult i32 %3139, %3353
   br i1 %3354, label %.loopexit2574.i, label %.backedge.i162
 
 3355:                                             ; preds = %3335
   %3356 = getelementptr inbounds i8, ptr %3136, i64 %1305
   %3357 = load i8, ptr %3356, align 1
   %3358 = zext i8 %3357 to i32
-  %3359 = icmp ult i32 %3139, %3358
+  %3359 = icmp samesign ult i32 %3139, %3358
   br i1 %3359, label %3360, label %.backedge.i162
 
 3360:                                             ; preds = %3355
   %3361 = getelementptr inbounds i8, ptr %3136, i64 %1301
   %3362 = load i8, ptr %3361, align 1
   %3363 = zext i8 %3362 to i32
-  %3364 = icmp ult i32 %3139, %3363
+  %3364 = icmp samesign ult i32 %3139, %3363
   br i1 %3364, label %3365, label %.backedge.i162
 
 3365:                                             ; preds = %3360
   %3366 = getelementptr inbounds i8, ptr %3136, i64 %1302
   %3367 = load i8, ptr %3366, align 1
   %3368 = zext i8 %3367 to i32
-  %3369 = icmp ult i32 %3139, %3368
+  %3369 = icmp samesign ult i32 %3139, %3368
   br i1 %3369, label %.loopexit2574.i, label %.backedge.i162
 
 3370:                                             ; preds = %3330
   %3371 = getelementptr inbounds i8, ptr %3136, i64 %1305
   %3372 = load i8, ptr %3371, align 1
   %3373 = zext i8 %3372 to i32
-  %3374 = icmp ult i32 %3139, %3373
+  %3374 = icmp samesign ult i32 %3139, %3373
   br i1 %3374, label %3375, label %.backedge.i162
 
 3375:                                             ; preds = %3370
   %3376 = getelementptr inbounds i8, ptr %3136, i64 %1302
   %3377 = load i8, ptr %3376, align 1
   %3378 = zext i8 %3377 to i32
-  %3379 = icmp ult i32 %3139, %3378
+  %3379 = icmp samesign ult i32 %3139, %3378
   br i1 %3379, label %3380, label %3390
 
 3380:                                             ; preds = %3375
   %3381 = getelementptr inbounds i8, ptr %3136, i64 %1301
   %3382 = load i8, ptr %3381, align 1
   %3383 = zext i8 %3382 to i32
-  %3384 = icmp ult i32 %3139, %3383
+  %3384 = icmp samesign ult i32 %3139, %3383
   br i1 %3384, label %.loopexit2574.i, label %3385
 
 3385:                                             ; preds = %3380
   %3386 = getelementptr inbounds i8, ptr %3136, i64 %1308
   %3387 = load i8, ptr %3386, align 1
   %3388 = zext i8 %3387 to i32
-  %3389 = icmp ult i32 %3139, %3388
+  %3389 = icmp samesign ult i32 %3139, %3388
   br i1 %3389, label %.loopexit2574.i, label %.backedge.i162
 
 3390:                                             ; preds = %3375
   %3391 = getelementptr inbounds i8, ptr %3136, i64 %1308
   %3392 = load i8, ptr %3391, align 1
   %3393 = zext i8 %3392 to i32
-  %3394 = icmp ult i32 %3139, %3393
+  %3394 = icmp samesign ult i32 %3139, %3393
   br i1 %3394, label %3395, label %.backedge.i162
 
 3395:                                             ; preds = %3390
   %3396 = getelementptr inbounds i8, ptr %3136, i64 %1307
   %3397 = load i8, ptr %3396, align 1
   %3398 = zext i8 %3397 to i32
-  %3399 = icmp ult i32 %3139, %3398
+  %3399 = icmp samesign ult i32 %3139, %3398
   br i1 %3399, label %.loopexit2574.i, label %.backedge.i162
 
 3400:                                             ; preds = %3145
@@ -5527,25 +5527,25 @@ _ZNSt6vectorIN2cv8KeyPointESaIS1_EE6resizeEm.exit.i114: ; preds = %1255, %1239
   %3403 = getelementptr inbounds i8, ptr %3136, i64 %1299
   %3404 = load i8, ptr %3403, align 1
   %3405 = zext i8 %3404 to i32
-  %3406 = icmp ult i32 %3139, %3405
+  %3406 = icmp samesign ult i32 %3139, %3405
   br i1 %3406, label %3407, label %3641
 
 3407:                                             ; preds = %3402
   %3408 = getelementptr inbounds i8, ptr %3136, i64 %1301
   %3409 = load i8, ptr %3408, align 1
   %3410 = zext i8 %3409 to i32
-  %3411 = icmp ugt i32 %3140, %3410
+  %3411 = icmp samesign ugt i32 %3140, %3410
   br i1 %3411, label %3412, label %3564
 
 3412:                                             ; preds = %3407
   %3413 = getelementptr inbounds i8, ptr %3136, i64 %1302
   %3414 = load i8, ptr %3413, align 1
   %3415 = zext i8 %3414 to i32
-  %3416 = icmp ugt i32 %3140, %3415
+  %3416 = icmp samesign ugt i32 %3140, %3415
   %3417 = getelementptr inbounds i8, ptr %3136, i64 %1307
   %3418 = load i8, ptr %3417, align 1
   %3419 = zext i8 %3418 to i32
-  %3420 = icmp ult i32 %3139, %3419
+  %3420 = icmp samesign ult i32 %3139, %3419
   br i1 %3416, label %3421, label %3528
 
 3421:                                             ; preds = %3412
@@ -5555,57 +5555,57 @@ _ZNSt6vectorIN2cv8KeyPointESaIS1_EE6resizeEm.exit.i114: ; preds = %1255, %1239
   %3423 = getelementptr inbounds i8, ptr %3136, i64 %1304
   %3424 = load i8, ptr %3423, align 1
   %3425 = zext i8 %3424 to i32
-  %3426 = icmp ult i32 %3139, %3425
+  %3426 = icmp samesign ult i32 %3139, %3425
   br i1 %3426, label %3427, label %3463
 
 3427:                                             ; preds = %3422
   %3428 = getelementptr inbounds i8, ptr %3136, i64 %1306
   %3429 = load i8, ptr %3428, align 1
   %3430 = zext i8 %3429 to i32
-  %3431 = icmp ult i32 %3139, %3430
+  %3431 = icmp samesign ult i32 %3139, %3430
   br i1 %3431, label %3432, label %3447
 
 3432:                                             ; preds = %3427
   %3433 = getelementptr inbounds i8, ptr %3136, i64 %1308
   %3434 = load i8, ptr %3433, align 1
   %3435 = zext i8 %3434 to i32
-  %3436 = icmp ult i32 %3139, %3435
+  %3436 = icmp samesign ult i32 %3139, %3435
   br i1 %3436, label %3437, label %.backedge.i162
 
 3437:                                             ; preds = %3432
   %3438 = getelementptr inbounds i8, ptr %3136, i64 %1300
   %3439 = load i8, ptr %3438, align 1
   %3440 = zext i8 %3439 to i32
-  %3441 = icmp ult i32 %3139, %3440
+  %3441 = icmp samesign ult i32 %3139, %3440
   br i1 %3441, label %.loopexit2574.i, label %3442
 
 3442:                                             ; preds = %3437
   %3443 = getelementptr inbounds i8, ptr %3136, i64 %1303
   %3444 = load i8, ptr %3443, align 1
   %3445 = zext i8 %3444 to i32
-  %3446 = icmp ult i32 %3139, %3445
+  %3446 = icmp samesign ult i32 %3139, %3445
   br i1 %3446, label %.loopexit2574.i, label %.backedge.i162
 
 3447:                                             ; preds = %3427
   %3448 = getelementptr inbounds i8, ptr %3136, i64 %1305
   %3449 = load i8, ptr %3448, align 1
   %3450 = zext i8 %3449 to i32
-  %3451 = icmp ugt i32 %3140, %3450
+  %3451 = icmp samesign ugt i32 %3140, %3450
   br i1 %3451, label %3452, label %.backedge.i162
 
 3452:                                             ; preds = %3447
   %3453 = getelementptr inbounds i8, ptr %3136, i64 %1300
   %3454 = load i8, ptr %3453, align 1
   %3455 = zext i8 %3454 to i32
-  %3456 = icmp ugt i32 %3140, %3455
+  %3456 = icmp samesign ugt i32 %3140, %3455
   br i1 %3456, label %3457, label %.backedge.i162
 
 3457:                                             ; preds = %3452
   %3458 = getelementptr inbounds i8, ptr %3136, i64 %1303
   %3459 = load i8, ptr %3458, align 1
   %3460 = zext i8 %3459 to i32
-  %3461 = icmp ugt i32 %3140, %3460
-  %3462 = icmp ugt i32 %3140, %3430
+  %3461 = icmp samesign ugt i32 %3140, %3460
+  %3462 = icmp samesign ugt i32 %3140, %3430
   %or.cond2467.i = and i1 %3462, %3461
   br i1 %or.cond2467.i, label %.loopexit2574.i, label %.backedge.i162
 
@@ -5613,82 +5613,82 @@ _ZNSt6vectorIN2cv8KeyPointESaIS1_EE6resizeEm.exit.i114: ; preds = %1255, %1239
   %3464 = getelementptr inbounds i8, ptr %3136, i64 %1305
   %3465 = load i8, ptr %3464, align 1
   %3466 = zext i8 %3465 to i32
-  %3467 = icmp ult i32 %3139, %3466
+  %3467 = icmp samesign ult i32 %3139, %3466
   br i1 %3467, label %3468, label %3483
 
 3468:                                             ; preds = %3463
   %3469 = getelementptr inbounds i8, ptr %3136, i64 %1303
   %3470 = load i8, ptr %3469, align 1
   %3471 = zext i8 %3470 to i32
-  %3472 = icmp ult i32 %3139, %3471
+  %3472 = icmp samesign ult i32 %3139, %3471
   br i1 %3472, label %3473, label %.backedge.i162
 
 3473:                                             ; preds = %3468
   %3474 = getelementptr inbounds i8, ptr %3136, i64 %1306
   %3475 = load i8, ptr %3474, align 1
   %3476 = zext i8 %3475 to i32
-  %3477 = icmp ult i32 %3139, %3476
+  %3477 = icmp samesign ult i32 %3139, %3476
   br i1 %3477, label %3478, label %.backedge.i162
 
 3478:                                             ; preds = %3473
   %3479 = getelementptr inbounds i8, ptr %3136, i64 %1308
   %3480 = load i8, ptr %3479, align 1
   %3481 = zext i8 %3480 to i32
-  %3482 = icmp ult i32 %3139, %3481
+  %3482 = icmp samesign ult i32 %3139, %3481
   br i1 %3482, label %.loopexit2574.i, label %.backedge.i162
 
 3483:                                             ; preds = %3463
-  %3484 = icmp ugt i32 %3140, %3466
+  %3484 = icmp samesign ugt i32 %3140, %3466
   br i1 %3484, label %3485, label %.backedge.i162
 
 3485:                                             ; preds = %3483
   %3486 = getelementptr inbounds i8, ptr %3136, i64 %1300
   %3487 = load i8, ptr %3486, align 1
   %3488 = zext i8 %3487 to i32
-  %3489 = icmp ugt i32 %3140, %3488
+  %3489 = icmp samesign ugt i32 %3140, %3488
   br i1 %3489, label %3490, label %.backedge.i162
 
 3490:                                             ; preds = %3485
   %3491 = getelementptr inbounds i8, ptr %3136, i64 %1303
   %3492 = load i8, ptr %3491, align 1
   %3493 = zext i8 %3492 to i32
-  %3494 = icmp ugt i32 %3140, %3493
+  %3494 = icmp samesign ugt i32 %3140, %3493
   br i1 %3494, label %3495, label %.backedge.i162
 
 3495:                                             ; preds = %3490
-  %3496 = icmp ugt i32 %3140, %3425
+  %3496 = icmp samesign ugt i32 %3140, %3425
   br i1 %3496, label %.loopexit2574.i, label %3497
 
 3497:                                             ; preds = %3495
   %3498 = getelementptr inbounds i8, ptr %3136, i64 %1306
   %3499 = load i8, ptr %3498, align 1
   %3500 = zext i8 %3499 to i32
-  %3501 = icmp ugt i32 %3140, %3500
+  %3501 = icmp samesign ugt i32 %3140, %3500
   br i1 %3501, label %.loopexit2574.i, label %.backedge.i162
 
 3502:                                             ; preds = %3421
   %3503 = getelementptr inbounds i8, ptr %3136, i64 %1300
   %3504 = load i8, ptr %3503, align 1
   %3505 = zext i8 %3504 to i32
-  %3506 = icmp ugt i32 %3140, %3505
+  %3506 = icmp samesign ugt i32 %3140, %3505
   br i1 %3506, label %3507, label %.backedge.i162
 
 3507:                                             ; preds = %3502
   %3508 = getelementptr inbounds i8, ptr %3136, i64 %1303
   %3509 = load i8, ptr %3508, align 1
   %3510 = zext i8 %3509 to i32
-  %3511 = icmp ugt i32 %3140, %3510
+  %3511 = icmp samesign ugt i32 %3140, %3510
   br i1 %3511, label %3512, label %.backedge.i162
 
 3512:                                             ; preds = %3507
   %3513 = getelementptr inbounds i8, ptr %3136, i64 %1304
   %3514 = load i8, ptr %3513, align 1
   %3515 = zext i8 %3514 to i32
-  %3516 = icmp ugt i32 %3140, %3515
+  %3516 = icmp samesign ugt i32 %3140, %3515
   %3517 = getelementptr inbounds i8, ptr %3136, i64 %1305
   %3518 = load i8, ptr %3517, align 1
   %3519 = zext i8 %3518 to i32
-  %3520 = icmp ugt i32 %3140, %3519
+  %3520 = icmp samesign ugt i32 %3140, %3519
   br i1 %3516, label %3521, label %3522
 
 3521:                                             ; preds = %3512
@@ -5701,7 +5701,7 @@ _ZNSt6vectorIN2cv8KeyPointESaIS1_EE6resizeEm.exit.i114: ; preds = %1255, %1239
   %3524 = getelementptr inbounds i8, ptr %3136, i64 %1306
   %3525 = load i8, ptr %3524, align 1
   %3526 = zext i8 %3525 to i32
-  %3527 = icmp ugt i32 %3140, %3526
+  %3527 = icmp samesign ugt i32 %3140, %3526
   br i1 %3527, label %.loopexit2574.i, label %.backedge.i162
 
 3528:                                             ; preds = %3412
@@ -5711,166 +5711,166 @@ _ZNSt6vectorIN2cv8KeyPointESaIS1_EE6resizeEm.exit.i114: ; preds = %1255, %1239
   %3530 = getelementptr inbounds i8, ptr %3136, i64 %1306
   %3531 = load i8, ptr %3530, align 1
   %3532 = zext i8 %3531 to i32
-  %3533 = icmp ult i32 %3139, %3532
+  %3533 = icmp samesign ult i32 %3139, %3532
   br i1 %3533, label %3534, label %.backedge.i162
 
 3534:                                             ; preds = %3529
   %3535 = getelementptr inbounds i8, ptr %3136, i64 %1308
   %3536 = load i8, ptr %3535, align 1
   %3537 = zext i8 %3536 to i32
-  %3538 = icmp ult i32 %3139, %3537
+  %3538 = icmp samesign ult i32 %3139, %3537
   br i1 %3538, label %3539, label %.backedge.i162
 
 3539:                                             ; preds = %3534
   %3540 = getelementptr inbounds i8, ptr %3136, i64 %1304
   %3541 = load i8, ptr %3540, align 1
   %3542 = zext i8 %3541 to i32
-  %3543 = icmp ult i32 %3139, %3542
+  %3543 = icmp samesign ult i32 %3139, %3542
   br i1 %3543, label %3544, label %3554
 
 3544:                                             ; preds = %3539
   %3545 = getelementptr inbounds i8, ptr %3136, i64 %1300
   %3546 = load i8, ptr %3545, align 1
   %3547 = zext i8 %3546 to i32
-  %3548 = icmp ult i32 %3139, %3547
+  %3548 = icmp samesign ult i32 %3139, %3547
   br i1 %3548, label %.loopexit2574.i, label %3549
 
 3549:                                             ; preds = %3544
   %3550 = getelementptr inbounds i8, ptr %3136, i64 %1303
   %3551 = load i8, ptr %3550, align 1
   %3552 = zext i8 %3551 to i32
-  %3553 = icmp ult i32 %3139, %3552
+  %3553 = icmp samesign ult i32 %3139, %3552
   br i1 %3553, label %.loopexit2574.i, label %.backedge.i162
 
 3554:                                             ; preds = %3539
   %3555 = getelementptr inbounds i8, ptr %3136, i64 %1305
   %3556 = load i8, ptr %3555, align 1
   %3557 = zext i8 %3556 to i32
-  %3558 = icmp ult i32 %3139, %3557
+  %3558 = icmp samesign ult i32 %3139, %3557
   br i1 %3558, label %3559, label %.backedge.i162
 
 3559:                                             ; preds = %3554
   %3560 = getelementptr inbounds i8, ptr %3136, i64 %1303
   %3561 = load i8, ptr %3560, align 1
   %3562 = zext i8 %3561 to i32
-  %3563 = icmp ult i32 %3139, %3562
+  %3563 = icmp samesign ult i32 %3139, %3562
   br i1 %3563, label %.loopexit2574.i, label %.backedge.i162
 
 3564:                                             ; preds = %3407
   %3565 = getelementptr inbounds i8, ptr %3136, i64 %1307
   %3566 = load i8, ptr %3565, align 1
   %3567 = zext i8 %3566 to i32
-  %3568 = icmp ult i32 %3139, %3567
+  %3568 = icmp samesign ult i32 %3139, %3567
   br i1 %3568, label %3569, label %.backedge.i162
 
 3569:                                             ; preds = %3564
   %3570 = getelementptr inbounds i8, ptr %3136, i64 %1308
   %3571 = load i8, ptr %3570, align 1
   %3572 = zext i8 %3571 to i32
-  %3573 = icmp ult i32 %3139, %3572
+  %3573 = icmp samesign ult i32 %3139, %3572
   br i1 %3573, label %3574, label %.backedge.i162
 
 3574:                                             ; preds = %3569
-  %3575 = icmp ult i32 %3139, %3410
+  %3575 = icmp samesign ult i32 %3139, %3410
   br i1 %3575, label %3576, label %3611
 
 3576:                                             ; preds = %3574
   %3577 = getelementptr inbounds i8, ptr %3136, i64 %1304
   %3578 = load i8, ptr %3577, align 1
   %3579 = zext i8 %3578 to i32
-  %3580 = icmp ult i32 %3139, %3579
+  %3580 = icmp samesign ult i32 %3139, %3579
   br i1 %3580, label %3581, label %3596
 
 3581:                                             ; preds = %3576
   %3582 = getelementptr inbounds i8, ptr %3136, i64 %1300
   %3583 = load i8, ptr %3582, align 1
   %3584 = zext i8 %3583 to i32
-  %3585 = icmp ult i32 %3139, %3584
+  %3585 = icmp samesign ult i32 %3139, %3584
   br i1 %3585, label %.loopexit2574.i, label %3586
 
 3586:                                             ; preds = %3581
   %3587 = getelementptr inbounds i8, ptr %3136, i64 %1303
   %3588 = load i8, ptr %3587, align 1
   %3589 = zext i8 %3588 to i32
-  %3590 = icmp ult i32 %3139, %3589
+  %3590 = icmp samesign ult i32 %3139, %3589
   br i1 %3590, label %3591, label %.backedge.i162
 
 3591:                                             ; preds = %3586
   %3592 = getelementptr inbounds i8, ptr %3136, i64 %1306
   %3593 = load i8, ptr %3592, align 1
   %3594 = zext i8 %3593 to i32
-  %3595 = icmp ult i32 %3139, %3594
+  %3595 = icmp samesign ult i32 %3139, %3594
   br i1 %3595, label %.loopexit2574.i, label %.backedge.i162
 
 3596:                                             ; preds = %3576
   %3597 = getelementptr inbounds i8, ptr %3136, i64 %1305
   %3598 = load i8, ptr %3597, align 1
   %3599 = zext i8 %3598 to i32
-  %3600 = icmp ult i32 %3139, %3599
+  %3600 = icmp samesign ult i32 %3139, %3599
   br i1 %3600, label %3601, label %.backedge.i162
 
 3601:                                             ; preds = %3596
   %3602 = getelementptr inbounds i8, ptr %3136, i64 %1303
   %3603 = load i8, ptr %3602, align 1
   %3604 = zext i8 %3603 to i32
-  %3605 = icmp ult i32 %3139, %3604
+  %3605 = icmp samesign ult i32 %3139, %3604
   br i1 %3605, label %3606, label %.backedge.i162
 
 3606:                                             ; preds = %3601
   %3607 = getelementptr inbounds i8, ptr %3136, i64 %1306
   %3608 = load i8, ptr %3607, align 1
   %3609 = zext i8 %3608 to i32
-  %3610 = icmp ult i32 %3139, %3609
+  %3610 = icmp samesign ult i32 %3139, %3609
   br i1 %3610, label %.loopexit2574.i, label %.backedge.i162
 
 3611:                                             ; preds = %3574
   %3612 = getelementptr inbounds i8, ptr %3136, i64 %1306
   %3613 = load i8, ptr %3612, align 1
   %3614 = zext i8 %3613 to i32
-  %3615 = icmp ult i32 %3139, %3614
+  %3615 = icmp samesign ult i32 %3139, %3614
   br i1 %3615, label %3616, label %.backedge.i162
 
 3616:                                             ; preds = %3611
   %3617 = getelementptr inbounds i8, ptr %3136, i64 %1304
   %3618 = load i8, ptr %3617, align 1
   %3619 = zext i8 %3618 to i32
-  %3620 = icmp ult i32 %3139, %3619
+  %3620 = icmp samesign ult i32 %3139, %3619
   br i1 %3620, label %3621, label %3631
 
 3621:                                             ; preds = %3616
   %3622 = getelementptr inbounds i8, ptr %3136, i64 %1300
   %3623 = load i8, ptr %3622, align 1
   %3624 = zext i8 %3623 to i32
-  %3625 = icmp ult i32 %3139, %3624
+  %3625 = icmp samesign ult i32 %3139, %3624
   br i1 %3625, label %.loopexit2574.i, label %3626
 
 3626:                                             ; preds = %3621
   %3627 = getelementptr inbounds i8, ptr %3136, i64 %1303
   %3628 = load i8, ptr %3627, align 1
   %3629 = zext i8 %3628 to i32
-  %3630 = icmp ult i32 %3139, %3629
+  %3630 = icmp samesign ult i32 %3139, %3629
   br i1 %3630, label %.loopexit2574.i, label %.backedge.i162
 
 3631:                                             ; preds = %3616
   %3632 = getelementptr inbounds i8, ptr %3136, i64 %1305
   %3633 = load i8, ptr %3632, align 1
   %3634 = zext i8 %3633 to i32
-  %3635 = icmp ult i32 %3139, %3634
+  %3635 = icmp samesign ult i32 %3139, %3634
   br i1 %3635, label %3636, label %.backedge.i162
 
 3636:                                             ; preds = %3631
   %3637 = getelementptr inbounds i8, ptr %3136, i64 %1303
   %3638 = load i8, ptr %3637, align 1
   %3639 = zext i8 %3638 to i32
-  %3640 = icmp ult i32 %3139, %3639
+  %3640 = icmp samesign ult i32 %3139, %3639
   br i1 %3640, label %.loopexit2574.i, label %.backedge.i162
 
 3641:                                             ; preds = %3402
-  %3642 = icmp ugt i32 %3140, %3405
+  %3642 = icmp samesign ugt i32 %3140, %3405
   %3643 = getelementptr inbounds i8, ptr %3136, i64 %1300
   %3644 = load i8, ptr %3643, align 1
   %3645 = zext i8 %3644 to i32
-  %3646 = icmp ult i32 %3139, %3645
+  %3646 = icmp samesign ult i32 %3139, %3645
   br i1 %3642, label %3647, label %3824
 
 3647:                                             ; preds = %3641
@@ -5880,64 +5880,64 @@ _ZNSt6vectorIN2cv8KeyPointESaIS1_EE6resizeEm.exit.i114: ; preds = %1255, %1239
   %3649 = getelementptr inbounds i8, ptr %3136, i64 %1304
   %3650 = load i8, ptr %3649, align 1
   %3651 = zext i8 %3650 to i32
-  %3652 = icmp ult i32 %3139, %3651
+  %3652 = icmp samesign ult i32 %3139, %3651
   br i1 %3652, label %3653, label %3727
 
 3653:                                             ; preds = %3648
   %3654 = getelementptr inbounds i8, ptr %3136, i64 %1302
   %3655 = load i8, ptr %3654, align 1
   %3656 = zext i8 %3655 to i32
-  %3657 = icmp ult i32 %3139, %3656
+  %3657 = icmp samesign ult i32 %3139, %3656
   br i1 %3657, label %3658, label %3694
 
 3658:                                             ; preds = %3653
   %3659 = getelementptr inbounds i8, ptr %3136, i64 %1308
   %3660 = load i8, ptr %3659, align 1
   %3661 = zext i8 %3660 to i32
-  %3662 = icmp ult i32 %3139, %3661
+  %3662 = icmp samesign ult i32 %3139, %3661
   br i1 %3662, label %3663, label %3673
 
 3663:                                             ; preds = %3658
   %3664 = getelementptr inbounds i8, ptr %3136, i64 %1301
   %3665 = load i8, ptr %3664, align 1
   %3666 = zext i8 %3665 to i32
-  %3667 = icmp ult i32 %3139, %3666
+  %3667 = icmp samesign ult i32 %3139, %3666
   br i1 %3667, label %3668, label %.backedge.i162
 
 3668:                                             ; preds = %3663
   %3669 = getelementptr inbounds i8, ptr %3136, i64 %1307
   %3670 = load i8, ptr %3669, align 1
   %3671 = zext i8 %3670 to i32
-  %3672 = icmp ult i32 %3139, %3671
+  %3672 = icmp samesign ult i32 %3139, %3671
   br i1 %3672, label %.loopexit2574.i, label %.backedge.i162
 
 3673:                                             ; preds = %3658
   %3674 = getelementptr inbounds i8, ptr %3136, i64 %1305
   %3675 = load i8, ptr %3674, align 1
   %3676 = zext i8 %3675 to i32
-  %3677 = icmp ugt i32 %3140, %3676
+  %3677 = icmp samesign ugt i32 %3140, %3676
   br i1 %3677, label %3678, label %.backedge.i162
 
 3678:                                             ; preds = %3673
   %3679 = getelementptr inbounds i8, ptr %3136, i64 %1303
   %3680 = load i8, ptr %3679, align 1
   %3681 = zext i8 %3680 to i32
-  %3682 = icmp ugt i32 %3140, %3681
+  %3682 = icmp samesign ugt i32 %3140, %3681
   br i1 %3682, label %3683, label %.backedge.i162
 
 3683:                                             ; preds = %3678
   %3684 = getelementptr inbounds i8, ptr %3136, i64 %1306
   %3685 = load i8, ptr %3684, align 1
   %3686 = zext i8 %3685 to i32
-  %3687 = icmp ugt i32 %3140, %3686
+  %3687 = icmp samesign ugt i32 %3140, %3686
   br i1 %3687, label %3688, label %.backedge.i162
 
 3688:                                             ; preds = %3683
   %3689 = getelementptr inbounds i8, ptr %3136, i64 %1307
   %3690 = load i8, ptr %3689, align 1
   %3691 = zext i8 %3690 to i32
-  %3692 = icmp ugt i32 %3140, %3691
-  %3693 = icmp ugt i32 %3140, %3661
+  %3692 = icmp samesign ugt i32 %3140, %3691
+  %3693 = icmp samesign ugt i32 %3140, %3661
   %or.cond2468.i = and i1 %3693, %3692
   br i1 %or.cond2468.i, label %.loopexit2574.i, label %.backedge.i162
 
@@ -5945,47 +5945,47 @@ _ZNSt6vectorIN2cv8KeyPointESaIS1_EE6resizeEm.exit.i114: ; preds = %1255, %1239
   %3695 = getelementptr inbounds i8, ptr %3136, i64 %1305
   %3696 = load i8, ptr %3695, align 1
   %3697 = zext i8 %3696 to i32
-  %3698 = icmp ugt i32 %3140, %3697
+  %3698 = icmp samesign ugt i32 %3140, %3697
   br i1 %3698, label %3699, label %.backedge.i162
 
 3699:                                             ; preds = %3694
   %3700 = getelementptr inbounds i8, ptr %3136, i64 %1303
   %3701 = load i8, ptr %3700, align 1
   %3702 = zext i8 %3701 to i32
-  %3703 = icmp ugt i32 %3140, %3702
+  %3703 = icmp samesign ugt i32 %3140, %3702
   br i1 %3703, label %3704, label %.backedge.i162
 
 3704:                                             ; preds = %3699
   %3705 = getelementptr inbounds i8, ptr %3136, i64 %1306
   %3706 = load i8, ptr %3705, align 1
   %3707 = zext i8 %3706 to i32
-  %3708 = icmp ugt i32 %3140, %3707
+  %3708 = icmp samesign ugt i32 %3140, %3707
   br i1 %3708, label %3709, label %.backedge.i162
 
 3709:                                             ; preds = %3704
   %3710 = getelementptr inbounds i8, ptr %3136, i64 %1308
   %3711 = load i8, ptr %3710, align 1
   %3712 = zext i8 %3711 to i32
-  %3713 = icmp ugt i32 %3140, %3712
+  %3713 = icmp samesign ugt i32 %3140, %3712
   br i1 %3713, label %3714, label %3721
 
 3714:                                             ; preds = %3709
-  %3715 = icmp ugt i32 %3140, %3656
+  %3715 = icmp samesign ugt i32 %3140, %3656
   br i1 %3715, label %.loopexit2574.i, label %3716
 
 3716:                                             ; preds = %3714
   %3717 = getelementptr inbounds i8, ptr %3136, i64 %1307
   %3718 = load i8, ptr %3717, align 1
   %3719 = zext i8 %3718 to i32
-  %3720 = icmp ugt i32 %3140, %3719
+  %3720 = icmp samesign ugt i32 %3140, %3719
   br i1 %3720, label %.loopexit2574.i, label %.backedge.i162
 
 3721:                                             ; preds = %3709
   %3722 = getelementptr inbounds i8, ptr %3136, i64 %1301
   %3723 = load i8, ptr %3722, align 1
   %3724 = zext i8 %3723 to i32
-  %3725 = icmp ugt i32 %3140, %3724
-  %3726 = icmp ugt i32 %3140, %3656
+  %3725 = icmp samesign ugt i32 %3140, %3724
+  %3726 = icmp samesign ugt i32 %3140, %3656
   %or.cond2469.i = and i1 %3726, %3725
   br i1 %or.cond2469.i, label %.loopexit2574.i, label %.backedge.i162
 
@@ -5993,137 +5993,137 @@ _ZNSt6vectorIN2cv8KeyPointESaIS1_EE6resizeEm.exit.i114: ; preds = %1255, %1239
   %3728 = getelementptr inbounds i8, ptr %3136, i64 %1305
   %3729 = load i8, ptr %3728, align 1
   %3730 = zext i8 %3729 to i32
-  %3731 = icmp ugt i32 %3140, %3730
+  %3731 = icmp samesign ugt i32 %3140, %3730
   br i1 %3731, label %3732, label %.backedge.i162
 
 3732:                                             ; preds = %3727
   %3733 = getelementptr inbounds i8, ptr %3136, i64 %1303
   %3734 = load i8, ptr %3733, align 1
   %3735 = zext i8 %3734 to i32
-  %3736 = icmp ugt i32 %3140, %3735
+  %3736 = icmp samesign ugt i32 %3140, %3735
   br i1 %3736, label %3737, label %.backedge.i162
 
 3737:                                             ; preds = %3732
   %3738 = getelementptr inbounds i8, ptr %3136, i64 %1306
   %3739 = load i8, ptr %3738, align 1
   %3740 = zext i8 %3739 to i32
-  %3741 = icmp ugt i32 %3140, %3740
+  %3741 = icmp samesign ugt i32 %3140, %3740
   br i1 %3741, label %3742, label %.backedge.i162
 
 3742:                                             ; preds = %3737
   %3743 = getelementptr inbounds i8, ptr %3136, i64 %1302
   %3744 = load i8, ptr %3743, align 1
   %3745 = zext i8 %3744 to i32
-  %3746 = icmp ugt i32 %3140, %3745
+  %3746 = icmp samesign ugt i32 %3140, %3745
   br i1 %3746, label %3747, label %3757
 
 3747:                                             ; preds = %3742
   %3748 = getelementptr inbounds i8, ptr %3136, i64 %1301
   %3749 = load i8, ptr %3748, align 1
   %3750 = zext i8 %3749 to i32
-  %3751 = icmp ugt i32 %3140, %3750
+  %3751 = icmp samesign ugt i32 %3140, %3750
   br i1 %3751, label %.loopexit2574.i, label %3752
 
 3752:                                             ; preds = %3747
   %3753 = getelementptr inbounds i8, ptr %3136, i64 %1308
   %3754 = load i8, ptr %3753, align 1
   %3755 = zext i8 %3754 to i32
-  %3756 = icmp ugt i32 %3140, %3755
+  %3756 = icmp samesign ugt i32 %3140, %3755
   br i1 %3756, label %.loopexit2574.i, label %.backedge.i162
 
 3757:                                             ; preds = %3742
   %3758 = getelementptr inbounds i8, ptr %3136, i64 %1308
   %3759 = load i8, ptr %3758, align 1
   %3760 = zext i8 %3759 to i32
-  %3761 = icmp ugt i32 %3140, %3760
+  %3761 = icmp samesign ugt i32 %3140, %3760
   br i1 %3761, label %3762, label %.backedge.i162
 
 3762:                                             ; preds = %3757
   %3763 = getelementptr inbounds i8, ptr %3136, i64 %1307
   %3764 = load i8, ptr %3763, align 1
   %3765 = zext i8 %3764 to i32
-  %3766 = icmp ugt i32 %3140, %3765
+  %3766 = icmp samesign ugt i32 %3140, %3765
   br i1 %3766, label %.loopexit2574.i, label %.backedge.i162
 
 3767:                                             ; preds = %3647
   %3768 = getelementptr inbounds i8, ptr %3136, i64 %1305
   %3769 = load i8, ptr %3768, align 1
   %3770 = zext i8 %3769 to i32
-  %3771 = icmp ugt i32 %3140, %3770
+  %3771 = icmp samesign ugt i32 %3140, %3770
   br i1 %3771, label %3772, label %.backedge.i162
 
 3772:                                             ; preds = %3767
   %3773 = getelementptr inbounds i8, ptr %3136, i64 %1303
   %3774 = load i8, ptr %3773, align 1
   %3775 = zext i8 %3774 to i32
-  %3776 = icmp ugt i32 %3140, %3775
+  %3776 = icmp samesign ugt i32 %3140, %3775
   br i1 %3776, label %3777, label %.backedge.i162
 
 3777:                                             ; preds = %3772
   %3778 = getelementptr inbounds i8, ptr %3136, i64 %1306
   %3779 = load i8, ptr %3778, align 1
   %3780 = zext i8 %3779 to i32
-  %3781 = icmp ugt i32 %3140, %3780
+  %3781 = icmp samesign ugt i32 %3140, %3780
   br i1 %3781, label %3782, label %3807
 
 3782:                                             ; preds = %3777
   %3783 = getelementptr inbounds i8, ptr %3136, i64 %1302
   %3784 = load i8, ptr %3783, align 1
   %3785 = zext i8 %3784 to i32
-  %3786 = icmp ugt i32 %3140, %3785
+  %3786 = icmp samesign ugt i32 %3140, %3785
   br i1 %3786, label %3787, label %3797
 
 3787:                                             ; preds = %3782
   %3788 = getelementptr inbounds i8, ptr %3136, i64 %1301
   %3789 = load i8, ptr %3788, align 1
   %3790 = zext i8 %3789 to i32
-  %3791 = icmp ugt i32 %3140, %3790
+  %3791 = icmp samesign ugt i32 %3140, %3790
   br i1 %3791, label %.loopexit2574.i, label %3792
 
 3792:                                             ; preds = %3787
   %3793 = getelementptr inbounds i8, ptr %3136, i64 %1308
   %3794 = load i8, ptr %3793, align 1
   %3795 = zext i8 %3794 to i32
-  %3796 = icmp ugt i32 %3140, %3795
+  %3796 = icmp samesign ugt i32 %3140, %3795
   br i1 %3796, label %.loopexit2574.i, label %.backedge.i162
 
 3797:                                             ; preds = %3782
   %3798 = getelementptr inbounds i8, ptr %3136, i64 %1308
   %3799 = load i8, ptr %3798, align 1
   %3800 = zext i8 %3799 to i32
-  %3801 = icmp ugt i32 %3140, %3800
+  %3801 = icmp samesign ugt i32 %3140, %3800
   br i1 %3801, label %3802, label %.backedge.i162
 
 3802:                                             ; preds = %3797
   %3803 = getelementptr inbounds i8, ptr %3136, i64 %1307
   %3804 = load i8, ptr %3803, align 1
   %3805 = zext i8 %3804 to i32
-  %3806 = icmp ugt i32 %3140, %3805
+  %3806 = icmp samesign ugt i32 %3140, %3805
   br i1 %3806, label %.loopexit2574.i, label %.backedge.i162
 
 3807:                                             ; preds = %3777
-  %3808 = icmp ugt i32 %3140, %3645
+  %3808 = icmp samesign ugt i32 %3140, %3645
   br i1 %3808, label %3809, label %.backedge.i162
 
 3809:                                             ; preds = %3807
   %3810 = getelementptr inbounds i8, ptr %3136, i64 %1304
   %3811 = load i8, ptr %3810, align 1
   %3812 = zext i8 %3811 to i32
-  %3813 = icmp ugt i32 %3140, %3812
+  %3813 = icmp samesign ugt i32 %3140, %3812
   br i1 %3813, label %3814, label %.backedge.i162
 
 3814:                                             ; preds = %3809
   %3815 = getelementptr inbounds i8, ptr %3136, i64 %1301
   %3816 = load i8, ptr %3815, align 1
   %3817 = zext i8 %3816 to i32
-  %3818 = icmp ugt i32 %3140, %3817
+  %3818 = icmp samesign ugt i32 %3140, %3817
   br i1 %3818, label %3819, label %.backedge.i162
 
 3819:                                             ; preds = %3814
   %3820 = getelementptr inbounds i8, ptr %3136, i64 %1302
   %3821 = load i8, ptr %3820, align 1
   %3822 = zext i8 %3821 to i32
-  %3823 = icmp ugt i32 %3140, %3822
+  %3823 = icmp samesign ugt i32 %3140, %3822
   br i1 %3823, label %.loopexit2574.i, label %.backedge.i162
 
 3824:                                             ; preds = %3641
@@ -6133,71 +6133,71 @@ _ZNSt6vectorIN2cv8KeyPointESaIS1_EE6resizeEm.exit.i114: ; preds = %1255, %1239
   %3826 = getelementptr inbounds i8, ptr %3136, i64 %1304
   %3827 = load i8, ptr %3826, align 1
   %3828 = zext i8 %3827 to i32
-  %3829 = icmp ult i32 %3139, %3828
+  %3829 = icmp samesign ult i32 %3139, %3828
   br i1 %3829, label %3830, label %.backedge.i162
 
 3830:                                             ; preds = %3825
   %3831 = getelementptr inbounds i8, ptr %3136, i64 %1301
   %3832 = load i8, ptr %3831, align 1
   %3833 = zext i8 %3832 to i32
-  %3834 = icmp ult i32 %3139, %3833
+  %3834 = icmp samesign ult i32 %3139, %3833
   br i1 %3834, label %3835, label %.backedge.i162
 
 3835:                                             ; preds = %3830
   %3836 = getelementptr inbounds i8, ptr %3136, i64 %1302
   %3837 = load i8, ptr %3836, align 1
   %3838 = zext i8 %3837 to i32
-  %3839 = icmp ult i32 %3139, %3838
+  %3839 = icmp samesign ult i32 %3139, %3838
   br i1 %3839, label %3840, label %.backedge.i162
 
 3840:                                             ; preds = %3835
   %3841 = getelementptr inbounds i8, ptr %3136, i64 %1308
   %3842 = load i8, ptr %3841, align 1
   %3843 = zext i8 %3842 to i32
-  %3844 = icmp ult i32 %3139, %3843
+  %3844 = icmp samesign ult i32 %3139, %3843
   br i1 %3844, label %3845, label %.backedge.i162
 
 3845:                                             ; preds = %3840
   %3846 = getelementptr inbounds i8, ptr %3136, i64 %1307
   %3847 = load i8, ptr %3846, align 1
   %3848 = zext i8 %3847 to i32
-  %3849 = icmp ult i32 %3139, %3848
+  %3849 = icmp samesign ult i32 %3139, %3848
   br i1 %3849, label %.loopexit2574.i, label %.backedge.i162
 
 3850:                                             ; preds = %3824
-  %3851 = icmp ugt i32 %3140, %3645
+  %3851 = icmp samesign ugt i32 %3140, %3645
   br i1 %3851, label %3852, label %.backedge2578.loopexit.i
 
 3852:                                             ; preds = %3850
   %3853 = getelementptr inbounds i8, ptr %3136, i64 %1301
   %3854 = load i8, ptr %3853, align 1
   %3855 = zext i8 %3854 to i32
-  %3856 = icmp ugt i32 %3140, %3855
+  %3856 = icmp samesign ugt i32 %3140, %3855
   br i1 %3856, label %3857, label %.backedge.i162
 
 3857:                                             ; preds = %3852
   %3858 = getelementptr inbounds i8, ptr %3136, i64 %1302
   %3859 = load i8, ptr %3858, align 1
   %3860 = zext i8 %3859 to i32
-  %3861 = icmp ugt i32 %3140, %3860
+  %3861 = icmp samesign ugt i32 %3140, %3860
   br i1 %3861, label %3862, label %.backedge.i162
 
 3862:                                             ; preds = %3857
   %3863 = getelementptr inbounds i8, ptr %3136, i64 %1303
   %3864 = load i8, ptr %3863, align 1
   %3865 = zext i8 %3864 to i32
-  %3866 = icmp ugt i32 %3140, %3865
+  %3866 = icmp samesign ugt i32 %3140, %3865
   br i1 %3866, label %3867, label %.backedge.i162
 
 3867:                                             ; preds = %3862
   %3868 = getelementptr inbounds i8, ptr %3136, i64 %1304
   %3869 = load i8, ptr %3868, align 1
   %3870 = zext i8 %3869 to i32
-  %3871 = icmp ugt i32 %3140, %3870
+  %3871 = icmp samesign ugt i32 %3140, %3870
   %3872 = getelementptr inbounds i8, ptr %3136, i64 %1305
   %3873 = load i8, ptr %3872, align 1
   %3874 = zext i8 %3873 to i32
-  %3875 = icmp ugt i32 %3140, %3874
+  %3875 = icmp samesign ugt i32 %3140, %3874
   br i1 %3871, label %3876, label %3877
 
 3876:                                             ; preds = %3867
@@ -6210,39 +6210,39 @@ _ZNSt6vectorIN2cv8KeyPointESaIS1_EE6resizeEm.exit.i114: ; preds = %1255, %1239
   %3879 = getelementptr inbounds i8, ptr %3136, i64 %1306
   %3880 = load i8, ptr %3879, align 1
   %3881 = zext i8 %3880 to i32
-  %3882 = icmp ugt i32 %3140, %3881
+  %3882 = icmp samesign ugt i32 %3140, %3881
   br i1 %3882, label %.loopexit2574.i, label %.backedge.i162
 
 3883:                                             ; preds = %3400
   %3884 = getelementptr inbounds i8, ptr %3136, i64 %1300
   %3885 = load i8, ptr %3884, align 1
   %3886 = zext i8 %3885 to i32
-  %3887 = icmp ult i32 %3139, %3886
+  %3887 = icmp samesign ult i32 %3139, %3886
   br i1 %3887, label %3888, label %3944
 
 3888:                                             ; preds = %3883
   %3889 = getelementptr inbounds i8, ptr %3136, i64 %1308
   %3890 = load i8, ptr %3889, align 1
   %3891 = zext i8 %3890 to i32
-  %3892 = icmp ult i32 %3139, %3891
+  %3892 = icmp samesign ult i32 %3139, %3891
   br i1 %3892, label %3893, label %.backedge.i162
 
 3893:                                             ; preds = %3888
   %3894 = getelementptr inbounds i8, ptr %3136, i64 %1307
   %3895 = load i8, ptr %3894, align 1
   %3896 = zext i8 %3895 to i32
-  %3897 = icmp ult i32 %3139, %3896
+  %3897 = icmp samesign ult i32 %3139, %3896
   br i1 %3897, label %3898, label %.backedge.i162
 
 3898:                                             ; preds = %3893
   %3899 = getelementptr inbounds i8, ptr %3136, i64 %1299
   %3900 = load i8, ptr %3899, align 1
   %3901 = zext i8 %3900 to i32
-  %3902 = icmp ult i32 %3139, %3901
+  %3902 = icmp samesign ult i32 %3139, %3901
   %3903 = getelementptr inbounds i8, ptr %3136, i64 %1304
   %3904 = load i8, ptr %3903, align 1
   %3905 = zext i8 %3904 to i32
-  %3906 = icmp ult i32 %3139, %3905
+  %3906 = icmp samesign ult i32 %3139, %3905
   br i1 %3902, label %3907, label %3933
 
 3907:                                             ; preds = %3898
@@ -6252,35 +6252,35 @@ _ZNSt6vectorIN2cv8KeyPointESaIS1_EE6resizeEm.exit.i114: ; preds = %1255, %1239
   %3909 = getelementptr inbounds i8, ptr %3136, i64 %1301
   %3910 = load i8, ptr %3909, align 1
   %3911 = zext i8 %3910 to i32
-  %3912 = icmp ult i32 %3139, %3911
+  %3912 = icmp samesign ult i32 %3139, %3911
   br i1 %3912, label %.loopexit2574.i, label %3913
 
 3913:                                             ; preds = %3908
   %3914 = getelementptr inbounds i8, ptr %3136, i64 %1306
   %3915 = load i8, ptr %3914, align 1
   %3916 = zext i8 %3915 to i32
-  %3917 = icmp ult i32 %3139, %3916
+  %3917 = icmp samesign ult i32 %3139, %3916
   br i1 %3917, label %.loopexit2574.i, label %.backedge.i162
 
 3918:                                             ; preds = %3907
   %3919 = getelementptr inbounds i8, ptr %3136, i64 %1305
   %3920 = load i8, ptr %3919, align 1
   %3921 = zext i8 %3920 to i32
-  %3922 = icmp ult i32 %3139, %3921
+  %3922 = icmp samesign ult i32 %3139, %3921
   br i1 %3922, label %3923, label %.backedge.i162
 
 3923:                                             ; preds = %3918
   %3924 = getelementptr inbounds i8, ptr %3136, i64 %1303
   %3925 = load i8, ptr %3924, align 1
   %3926 = zext i8 %3925 to i32
-  %3927 = icmp ult i32 %3139, %3926
+  %3927 = icmp samesign ult i32 %3139, %3926
   br i1 %3927, label %3928, label %.backedge.i162
 
 3928:                                             ; preds = %3923
   %3929 = getelementptr inbounds i8, ptr %3136, i64 %1306
   %3930 = load i8, ptr %3929, align 1
   %3931 = zext i8 %3930 to i32
-  %3932 = icmp ult i32 %3139, %3931
+  %3932 = icmp samesign ult i32 %3139, %3931
   br i1 %3932, label %.loopexit2574.i, label %.backedge.i162
 
 3933:                                             ; preds = %3898
@@ -6290,63 +6290,63 @@ _ZNSt6vectorIN2cv8KeyPointESaIS1_EE6resizeEm.exit.i114: ; preds = %1255, %1239
   %3935 = getelementptr inbounds i8, ptr %3136, i64 %1301
   %3936 = load i8, ptr %3935, align 1
   %3937 = zext i8 %3936 to i32
-  %3938 = icmp ult i32 %3139, %3937
+  %3938 = icmp samesign ult i32 %3139, %3937
   br i1 %3938, label %3939, label %.backedge.i162
 
 3939:                                             ; preds = %3934
   %3940 = getelementptr inbounds i8, ptr %3136, i64 %1302
   %3941 = load i8, ptr %3940, align 1
   %3942 = zext i8 %3941 to i32
-  %3943 = icmp ult i32 %3139, %3942
+  %3943 = icmp samesign ult i32 %3139, %3942
   br i1 %3943, label %.loopexit2574.i, label %.backedge.i162
 
 3944:                                             ; preds = %3883
   %3945 = getelementptr inbounds i8, ptr %3136, i64 %1299
   %3946 = load i8, ptr %3945, align 1
   %3947 = zext i8 %3946 to i32
-  %3948 = icmp ult i32 %3139, %3947
+  %3948 = icmp samesign ult i32 %3139, %3947
   br i1 %3948, label %3949, label %.backedge.i162
 
 3949:                                             ; preds = %3944
   %3950 = getelementptr inbounds i8, ptr %3136, i64 %1303
   %3951 = load i8, ptr %3950, align 1
   %3952 = zext i8 %3951 to i32
-  %3953 = icmp ult i32 %3139, %3952
+  %3953 = icmp samesign ult i32 %3139, %3952
   br i1 %3953, label %3954, label %.backedge.i162
 
 3954:                                             ; preds = %3949
   %3955 = getelementptr inbounds i8, ptr %3136, i64 %1306
   %3956 = load i8, ptr %3955, align 1
   %3957 = zext i8 %3956 to i32
-  %3958 = icmp ult i32 %3139, %3957
+  %3958 = icmp samesign ult i32 %3139, %3957
   br i1 %3958, label %3959, label %.backedge.i162
 
 3959:                                             ; preds = %3954
   %3960 = getelementptr inbounds i8, ptr %3136, i64 %1308
   %3961 = load i8, ptr %3960, align 1
   %3962 = zext i8 %3961 to i32
-  %3963 = icmp ult i32 %3139, %3962
+  %3963 = icmp samesign ult i32 %3139, %3962
   br i1 %3963, label %3964, label %.backedge.i162
 
 3964:                                             ; preds = %3959
   %3965 = getelementptr inbounds i8, ptr %3136, i64 %1307
   %3966 = load i8, ptr %3965, align 1
   %3967 = zext i8 %3966 to i32
-  %3968 = icmp ult i32 %3139, %3967
+  %3968 = icmp samesign ult i32 %3139, %3967
   br i1 %3968, label %3969, label %.backedge.i162
 
 3969:                                             ; preds = %3964
   %3970 = getelementptr inbounds i8, ptr %3136, i64 %1304
   %3971 = load i8, ptr %3970, align 1
   %3972 = zext i8 %3971 to i32
-  %3973 = icmp ult i32 %3139, %3972
+  %3973 = icmp samesign ult i32 %3139, %3972
   br i1 %3973, label %.loopexit2574.i, label %3974
 
 3974:                                             ; preds = %3969
   %3975 = getelementptr inbounds i8, ptr %3136, i64 %1305
   %3976 = load i8, ptr %3975, align 1
   %3977 = zext i8 %3976 to i32
-  %3978 = icmp ult i32 %3139, %3977
+  %3978 = icmp samesign ult i32 %3139, %3977
   br i1 %3978, label %.loopexit2574.i, label %.backedge.i162
 
 3979:                                             ; preds = %3135
@@ -6357,134 +6357,134 @@ _ZNSt6vectorIN2cv8KeyPointESaIS1_EE6resizeEm.exit.i114: ; preds = %1255, %1239
   %3982 = getelementptr inbounds i8, ptr %3136, i64 %1300
   %3983 = load i8, ptr %3982, align 1
   %3984 = zext i8 %3983 to i32
-  %3985 = icmp ult i32 %3139, %3984
+  %3985 = icmp samesign ult i32 %3139, %3984
   br i1 %3985, label %3986, label %4194
 
 3986:                                             ; preds = %3981
   %3987 = getelementptr inbounds i8, ptr %3136, i64 %1298
   %3988 = load i8, ptr %3987, align 1
   %3989 = zext i8 %3988 to i32
-  %3990 = icmp ult i32 %3139, %3989
+  %3990 = icmp samesign ult i32 %3139, %3989
   br i1 %3990, label %3991, label %4087
 
 3991:                                             ; preds = %3986
   %3992 = getelementptr inbounds i8, ptr %3136, i64 %1303
   %3993 = load i8, ptr %3992, align 1
   %3994 = zext i8 %3993 to i32
-  %3995 = icmp ult i32 %3139, %3994
+  %3995 = icmp samesign ult i32 %3139, %3994
   br i1 %3995, label %3996, label %4056
 
 3996:                                             ; preds = %3991
   %3997 = getelementptr inbounds i8, ptr %3136, i64 %1305
   %3998 = load i8, ptr %3997, align 1
   %3999 = zext i8 %3998 to i32
-  %4000 = icmp ult i32 %3139, %3999
+  %4000 = icmp samesign ult i32 %3139, %3999
   br i1 %4000, label %4001, label %.backedge.i162
 
 4001:                                             ; preds = %3996
   %4002 = getelementptr inbounds i8, ptr %3136, i64 %1302
   %4003 = load i8, ptr %4002, align 1
   %4004 = zext i8 %4003 to i32
-  %4005 = icmp ult i32 %3139, %4004
+  %4005 = icmp samesign ult i32 %3139, %4004
   br i1 %4005, label %4006, label %4036
 
 4006:                                             ; preds = %4001
   %4007 = getelementptr inbounds i8, ptr %3136, i64 %1301
   %4008 = load i8, ptr %4007, align 1
   %4009 = zext i8 %4008 to i32
-  %4010 = icmp ult i32 %3139, %4009
+  %4010 = icmp samesign ult i32 %3139, %4009
   br i1 %4010, label %4011, label %4021
 
 4011:                                             ; preds = %4006
   %4012 = getelementptr inbounds i8, ptr %3136, i64 %1304
   %4013 = load i8, ptr %4012, align 1
   %4014 = zext i8 %4013 to i32
-  %4015 = icmp ult i32 %3139, %4014
+  %4015 = icmp samesign ult i32 %3139, %4014
   br i1 %4015, label %.loopexit2574.i, label %4016
 
 4016:                                             ; preds = %4011
   %4017 = getelementptr inbounds i8, ptr %3136, i64 %1306
   %4018 = load i8, ptr %4017, align 1
   %4019 = zext i8 %4018 to i32
-  %4020 = icmp ult i32 %3139, %4019
+  %4020 = icmp samesign ult i32 %3139, %4019
   br i1 %4020, label %.loopexit2574.i, label %.backedge.i162
 
 4021:                                             ; preds = %4006
   %4022 = getelementptr inbounds i8, ptr %3136, i64 %1299
   %4023 = load i8, ptr %4022, align 1
   %4024 = zext i8 %4023 to i32
-  %4025 = icmp ult i32 %3139, %4024
+  %4025 = icmp samesign ult i32 %3139, %4024
   br i1 %4025, label %4026, label %.backedge.i162
 
 4026:                                             ; preds = %4021
   %4027 = getelementptr inbounds i8, ptr %3136, i64 %1306
   %4028 = load i8, ptr %4027, align 1
   %4029 = zext i8 %4028 to i32
-  %4030 = icmp ult i32 %3139, %4029
+  %4030 = icmp samesign ult i32 %3139, %4029
   br i1 %4030, label %4031, label %.backedge.i162
 
 4031:                                             ; preds = %4026
   %4032 = getelementptr inbounds i8, ptr %3136, i64 %1308
   %4033 = load i8, ptr %4032, align 1
   %4034 = zext i8 %4033 to i32
-  %4035 = icmp ult i32 %3139, %4034
+  %4035 = icmp samesign ult i32 %3139, %4034
   br i1 %4035, label %.loopexit2574.i, label %.backedge.i162
 
 4036:                                             ; preds = %4001
   %4037 = getelementptr inbounds i8, ptr %3136, i64 %1299
   %4038 = load i8, ptr %4037, align 1
   %4039 = zext i8 %4038 to i32
-  %4040 = icmp ult i32 %3139, %4039
+  %4040 = icmp samesign ult i32 %3139, %4039
   br i1 %4040, label %4041, label %.backedge.i162
 
 4041:                                             ; preds = %4036
   %4042 = getelementptr inbounds i8, ptr %3136, i64 %1306
   %4043 = load i8, ptr %4042, align 1
   %4044 = zext i8 %4043 to i32
-  %4045 = icmp ult i32 %3139, %4044
+  %4045 = icmp samesign ult i32 %3139, %4044
   br i1 %4045, label %4046, label %.backedge.i162
 
 4046:                                             ; preds = %4041
   %4047 = getelementptr inbounds i8, ptr %3136, i64 %1308
   %4048 = load i8, ptr %4047, align 1
   %4049 = zext i8 %4048 to i32
-  %4050 = icmp ult i32 %3139, %4049
+  %4050 = icmp samesign ult i32 %3139, %4049
   br i1 %4050, label %4051, label %.backedge.i162
 
 4051:                                             ; preds = %4046
   %4052 = getelementptr inbounds i8, ptr %3136, i64 %1307
   %4053 = load i8, ptr %4052, align 1
   %4054 = zext i8 %4053 to i32
-  %4055 = icmp ult i32 %3139, %4054
+  %4055 = icmp samesign ult i32 %3139, %4054
   br i1 %4055, label %.loopexit2574.i, label %.backedge.i162
 
 4056:                                             ; preds = %3991
   %4057 = getelementptr inbounds i8, ptr %3136, i64 %1299
   %4058 = load i8, ptr %4057, align 1
   %4059 = zext i8 %4058 to i32
-  %4060 = icmp ugt i32 %3140, %4059
+  %4060 = icmp samesign ugt i32 %3140, %4059
   br i1 %4060, label %4061, label %.backedge.i162
 
 4061:                                             ; preds = %4056
   %4062 = getelementptr inbounds i8, ptr %3136, i64 %1306
   %4063 = load i8, ptr %4062, align 1
   %4064 = zext i8 %4063 to i32
-  %4065 = icmp ugt i32 %3140, %4064
+  %4065 = icmp samesign ugt i32 %3140, %4064
   br i1 %4065, label %4066, label %.backedge.i162
 
 4066:                                             ; preds = %4061
   %4067 = getelementptr inbounds i8, ptr %3136, i64 %1308
   %4068 = load i8, ptr %4067, align 1
   %4069 = zext i8 %4068 to i32
-  %4070 = icmp ugt i32 %3140, %4069
+  %4070 = icmp samesign ugt i32 %3140, %4069
   br i1 %4070, label %4071, label %.backedge.i162
 
 4071:                                             ; preds = %4066
   %4072 = getelementptr inbounds i8, ptr %3136, i64 %1307
   %4073 = load i8, ptr %4072, align 1
   %4074 = zext i8 %4073 to i32
-  %4075 = icmp ugt i32 %3140, %4074
-  %4076 = icmp ugt i32 %3140, %3994
+  %4075 = icmp samesign ugt i32 %3140, %4074
+  %4076 = icmp samesign ugt i32 %3140, %3994
   %or.cond2470.i = and i1 %4076, %4075
   br i1 %or.cond2470.i, label %4077, label %.backedge.i162
 
@@ -6492,247 +6492,247 @@ _ZNSt6vectorIN2cv8KeyPointESaIS1_EE6resizeEm.exit.i114: ; preds = %1255, %1239
   %4078 = getelementptr inbounds i8, ptr %3136, i64 %1304
   %4079 = load i8, ptr %4078, align 1
   %4080 = zext i8 %4079 to i32
-  %4081 = icmp ugt i32 %3140, %4080
+  %4081 = icmp samesign ugt i32 %3140, %4080
   br i1 %4081, label %.loopexit2574.i, label %4082
 
 4082:                                             ; preds = %4077
   %4083 = getelementptr inbounds i8, ptr %3136, i64 %1305
   %4084 = load i8, ptr %4083, align 1
   %4085 = zext i8 %4084 to i32
-  %4086 = icmp ugt i32 %3140, %4085
+  %4086 = icmp samesign ugt i32 %3140, %4085
   br i1 %4086, label %.loopexit2574.i, label %.backedge.i162
 
 4087:                                             ; preds = %3986
   %4088 = getelementptr inbounds i8, ptr %3136, i64 %1299
   %4089 = load i8, ptr %4088, align 1
   %4090 = zext i8 %4089 to i32
-  %4091 = icmp ugt i32 %3140, %4090
+  %4091 = icmp samesign ugt i32 %3140, %4090
   br i1 %4091, label %4092, label %.backedge.i162
 
 4092:                                             ; preds = %4087
   %4093 = getelementptr inbounds i8, ptr %3136, i64 %1303
   %4094 = load i8, ptr %4093, align 1
   %4095 = zext i8 %4094 to i32
-  %4096 = icmp ugt i32 %3140, %4095
+  %4096 = icmp samesign ugt i32 %3140, %4095
   br i1 %4096, label %4097, label %.backedge.i162
 
 4097:                                             ; preds = %4092
   %4098 = getelementptr inbounds i8, ptr %3136, i64 %1306
   %4099 = load i8, ptr %4098, align 1
   %4100 = zext i8 %4099 to i32
-  %4101 = icmp ugt i32 %3140, %4100
+  %4101 = icmp samesign ugt i32 %3140, %4100
   br i1 %4101, label %4102, label %.backedge.i162
 
 4102:                                             ; preds = %4097
-  %4103 = icmp ugt i32 %3140, %3989
+  %4103 = icmp samesign ugt i32 %3140, %3989
   br i1 %4103, label %4104, label %4174
 
 4104:                                             ; preds = %4102
   %4105 = getelementptr inbounds i8, ptr %3136, i64 %1304
   %4106 = load i8, ptr %4105, align 1
   %4107 = zext i8 %4106 to i32
-  %4108 = icmp ugt i32 %3140, %4107
+  %4108 = icmp samesign ugt i32 %3140, %4107
   br i1 %4108, label %4109, label %4144
 
 4109:                                             ; preds = %4104
   %4110 = getelementptr inbounds i8, ptr %3136, i64 %1308
   %4111 = load i8, ptr %4110, align 1
   %4112 = zext i8 %4111 to i32
-  %4113 = icmp ugt i32 %3140, %4112
+  %4113 = icmp samesign ugt i32 %3140, %4112
   br i1 %4113, label %4114, label %4129
 
 4114:                                             ; preds = %4109
   %4115 = getelementptr inbounds i8, ptr %3136, i64 %1307
   %4116 = load i8, ptr %4115, align 1
   %4117 = zext i8 %4116 to i32
-  %4118 = icmp ugt i32 %3140, %4117
+  %4118 = icmp samesign ugt i32 %3140, %4117
   br i1 %4118, label %.loopexit2574.i, label %4119
 
 4119:                                             ; preds = %4114
   %4120 = getelementptr inbounds i8, ptr %3136, i64 %1305
   %4121 = load i8, ptr %4120, align 1
   %4122 = zext i8 %4121 to i32
-  %4123 = icmp ugt i32 %3140, %4122
+  %4123 = icmp samesign ugt i32 %3140, %4122
   br i1 %4123, label %4124, label %.backedge.i162
 
 4124:                                             ; preds = %4119
   %4125 = getelementptr inbounds i8, ptr %3136, i64 %1302
   %4126 = load i8, ptr %4125, align 1
   %4127 = zext i8 %4126 to i32
-  %4128 = icmp ugt i32 %3140, %4127
+  %4128 = icmp samesign ugt i32 %3140, %4127
   br i1 %4128, label %.loopexit2574.i, label %.backedge.i162
 
 4129:                                             ; preds = %4109
   %4130 = getelementptr inbounds i8, ptr %3136, i64 %1305
   %4131 = load i8, ptr %4130, align 1
   %4132 = zext i8 %4131 to i32
-  %4133 = icmp ugt i32 %3140, %4132
+  %4133 = icmp samesign ugt i32 %3140, %4132
   br i1 %4133, label %4134, label %.backedge.i162
 
 4134:                                             ; preds = %4129
   %4135 = getelementptr inbounds i8, ptr %3136, i64 %1301
   %4136 = load i8, ptr %4135, align 1
   %4137 = zext i8 %4136 to i32
-  %4138 = icmp ugt i32 %3140, %4137
+  %4138 = icmp samesign ugt i32 %3140, %4137
   br i1 %4138, label %4139, label %.backedge.i162
 
 4139:                                             ; preds = %4134
   %4140 = getelementptr inbounds i8, ptr %3136, i64 %1302
   %4141 = load i8, ptr %4140, align 1
   %4142 = zext i8 %4141 to i32
-  %4143 = icmp ugt i32 %3140, %4142
+  %4143 = icmp samesign ugt i32 %3140, %4142
   br i1 %4143, label %.loopexit2574.i, label %.backedge.i162
 
 4144:                                             ; preds = %4104
   %4145 = getelementptr inbounds i8, ptr %3136, i64 %1305
   %4146 = load i8, ptr %4145, align 1
   %4147 = zext i8 %4146 to i32
-  %4148 = icmp ugt i32 %3140, %4147
+  %4148 = icmp samesign ugt i32 %3140, %4147
   br i1 %4148, label %4149, label %.backedge.i162
 
 4149:                                             ; preds = %4144
   %4150 = getelementptr inbounds i8, ptr %3136, i64 %1302
   %4151 = load i8, ptr %4150, align 1
   %4152 = zext i8 %4151 to i32
-  %4153 = icmp ugt i32 %3140, %4152
+  %4153 = icmp samesign ugt i32 %3140, %4152
   br i1 %4153, label %4154, label %4164
 
 4154:                                             ; preds = %4149
   %4155 = getelementptr inbounds i8, ptr %3136, i64 %1301
   %4156 = load i8, ptr %4155, align 1
   %4157 = zext i8 %4156 to i32
-  %4158 = icmp ugt i32 %3140, %4157
+  %4158 = icmp samesign ugt i32 %3140, %4157
   br i1 %4158, label %.loopexit2574.i, label %4159
 
 4159:                                             ; preds = %4154
   %4160 = getelementptr inbounds i8, ptr %3136, i64 %1308
   %4161 = load i8, ptr %4160, align 1
   %4162 = zext i8 %4161 to i32
-  %4163 = icmp ugt i32 %3140, %4162
+  %4163 = icmp samesign ugt i32 %3140, %4162
   br i1 %4163, label %.loopexit2574.i, label %.backedge.i162
 
 4164:                                             ; preds = %4149
   %4165 = getelementptr inbounds i8, ptr %3136, i64 %1308
   %4166 = load i8, ptr %4165, align 1
   %4167 = zext i8 %4166 to i32
-  %4168 = icmp ugt i32 %3140, %4167
+  %4168 = icmp samesign ugt i32 %3140, %4167
   br i1 %4168, label %4169, label %.backedge.i162
 
 4169:                                             ; preds = %4164
   %4170 = getelementptr inbounds i8, ptr %3136, i64 %1307
   %4171 = load i8, ptr %4170, align 1
   %4172 = zext i8 %4171 to i32
-  %4173 = icmp ugt i32 %3140, %4172
+  %4173 = icmp samesign ugt i32 %3140, %4172
   br i1 %4173, label %.loopexit2574.i, label %.backedge.i162
 
 4174:                                             ; preds = %4102
   %4175 = getelementptr inbounds i8, ptr %3136, i64 %1308
   %4176 = load i8, ptr %4175, align 1
   %4177 = zext i8 %4176 to i32
-  %4178 = icmp ugt i32 %3140, %4177
+  %4178 = icmp samesign ugt i32 %3140, %4177
   br i1 %4178, label %4179, label %.backedge.i162
 
 4179:                                             ; preds = %4174
   %4180 = getelementptr inbounds i8, ptr %3136, i64 %1307
   %4181 = load i8, ptr %4180, align 1
   %4182 = zext i8 %4181 to i32
-  %4183 = icmp ugt i32 %3140, %4182
+  %4183 = icmp samesign ugt i32 %3140, %4182
   br i1 %4183, label %4184, label %.backedge.i162
 
 4184:                                             ; preds = %4179
   %4185 = getelementptr inbounds i8, ptr %3136, i64 %1304
   %4186 = load i8, ptr %4185, align 1
   %4187 = zext i8 %4186 to i32
-  %4188 = icmp ugt i32 %3140, %4187
+  %4188 = icmp samesign ugt i32 %3140, %4187
   br i1 %4188, label %.loopexit2574.i, label %4189
 
 4189:                                             ; preds = %4184
   %4190 = getelementptr inbounds i8, ptr %3136, i64 %1305
   %4191 = load i8, ptr %4190, align 1
   %4192 = zext i8 %4191 to i32
-  %4193 = icmp ugt i32 %3140, %4192
+  %4193 = icmp samesign ugt i32 %3140, %4192
   br i1 %4193, label %.loopexit2574.i, label %.backedge.i162
 
 4194:                                             ; preds = %3981
-  %4195 = icmp ugt i32 %3140, %3984
+  %4195 = icmp samesign ugt i32 %3140, %3984
   %4196 = getelementptr inbounds i8, ptr %3136, i64 %1299
   %4197 = load i8, ptr %4196, align 1
   %4198 = zext i8 %4197 to i32
   br i1 %4195, label %4199, label %4594
 
 4199:                                             ; preds = %4194
-  %4200 = icmp ult i32 %3139, %4198
+  %4200 = icmp samesign ult i32 %3139, %4198
   br i1 %4200, label %4201, label %4374
 
 4201:                                             ; preds = %4199
   %4202 = getelementptr inbounds i8, ptr %3136, i64 %1298
   %4203 = load i8, ptr %4202, align 1
   %4204 = zext i8 %4203 to i32
-  %4205 = icmp ult i32 %3139, %4204
+  %4205 = icmp samesign ult i32 %3139, %4204
   br i1 %4205, label %4206, label %4325
 
 4206:                                             ; preds = %4201
   %4207 = getelementptr inbounds i8, ptr %3136, i64 %1304
   %4208 = load i8, ptr %4207, align 1
   %4209 = zext i8 %4208 to i32
-  %4210 = icmp ugt i32 %3140, %4209
+  %4210 = icmp samesign ugt i32 %3140, %4209
   br i1 %4210, label %4211, label %4285
 
 4211:                                             ; preds = %4206
   %4212 = getelementptr inbounds i8, ptr %3136, i64 %1302
   %4213 = load i8, ptr %4212, align 1
   %4214 = zext i8 %4213 to i32
-  %4215 = icmp ugt i32 %3140, %4214
+  %4215 = icmp samesign ugt i32 %3140, %4214
   br i1 %4215, label %4216, label %4252
 
 4216:                                             ; preds = %4211
   %4217 = getelementptr inbounds i8, ptr %3136, i64 %1308
   %4218 = load i8, ptr %4217, align 1
   %4219 = zext i8 %4218 to i32
-  %4220 = icmp ugt i32 %3140, %4219
+  %4220 = icmp samesign ugt i32 %3140, %4219
   br i1 %4220, label %4221, label %4231
 
 4221:                                             ; preds = %4216
   %4222 = getelementptr inbounds i8, ptr %3136, i64 %1301
   %4223 = load i8, ptr %4222, align 1
   %4224 = zext i8 %4223 to i32
-  %4225 = icmp ugt i32 %3140, %4224
+  %4225 = icmp samesign ugt i32 %3140, %4224
   br i1 %4225, label %4226, label %.backedge.i162
 
 4226:                                             ; preds = %4221
   %4227 = getelementptr inbounds i8, ptr %3136, i64 %1307
   %4228 = load i8, ptr %4227, align 1
   %4229 = zext i8 %4228 to i32
-  %4230 = icmp ugt i32 %3140, %4229
+  %4230 = icmp samesign ugt i32 %3140, %4229
   br i1 %4230, label %.loopexit2574.i, label %.backedge.i162
 
 4231:                                             ; preds = %4216
   %4232 = getelementptr inbounds i8, ptr %3136, i64 %1305
   %4233 = load i8, ptr %4232, align 1
   %4234 = zext i8 %4233 to i32
-  %4235 = icmp ult i32 %3139, %4234
+  %4235 = icmp samesign ult i32 %3139, %4234
   br i1 %4235, label %4236, label %.backedge.i162
 
 4236:                                             ; preds = %4231
   %4237 = getelementptr inbounds i8, ptr %3136, i64 %1303
   %4238 = load i8, ptr %4237, align 1
   %4239 = zext i8 %4238 to i32
-  %4240 = icmp ult i32 %3139, %4239
+  %4240 = icmp samesign ult i32 %3139, %4239
   br i1 %4240, label %4241, label %.backedge.i162
 
 4241:                                             ; preds = %4236
   %4242 = getelementptr inbounds i8, ptr %3136, i64 %1306
   %4243 = load i8, ptr %4242, align 1
   %4244 = zext i8 %4243 to i32
-  %4245 = icmp ult i32 %3139, %4244
+  %4245 = icmp samesign ult i32 %3139, %4244
   br i1 %4245, label %4246, label %.backedge.i162
 
 4246:                                             ; preds = %4241
   %4247 = getelementptr inbounds i8, ptr %3136, i64 %1307
   %4248 = load i8, ptr %4247, align 1
   %4249 = zext i8 %4248 to i32
-  %4250 = icmp ult i32 %3139, %4249
-  %4251 = icmp ult i32 %3139, %4219
+  %4250 = icmp samesign ult i32 %3139, %4249
+  %4251 = icmp samesign ult i32 %3139, %4219
   %or.cond2471.i = and i1 %4251, %4250
   br i1 %or.cond2471.i, label %.loopexit2574.i, label %.backedge.i162
 
@@ -6740,47 +6740,47 @@ _ZNSt6vectorIN2cv8KeyPointESaIS1_EE6resizeEm.exit.i114: ; preds = %1255, %1239
   %4253 = getelementptr inbounds i8, ptr %3136, i64 %1305
   %4254 = load i8, ptr %4253, align 1
   %4255 = zext i8 %4254 to i32
-  %4256 = icmp ult i32 %3139, %4255
+  %4256 = icmp samesign ult i32 %3139, %4255
   br i1 %4256, label %4257, label %.backedge.i162
 
 4257:                                             ; preds = %4252
   %4258 = getelementptr inbounds i8, ptr %3136, i64 %1303
   %4259 = load i8, ptr %4258, align 1
   %4260 = zext i8 %4259 to i32
-  %4261 = icmp ult i32 %3139, %4260
+  %4261 = icmp samesign ult i32 %3139, %4260
   br i1 %4261, label %4262, label %.backedge.i162
 
 4262:                                             ; preds = %4257
   %4263 = getelementptr inbounds i8, ptr %3136, i64 %1306
   %4264 = load i8, ptr %4263, align 1
   %4265 = zext i8 %4264 to i32
-  %4266 = icmp ult i32 %3139, %4265
+  %4266 = icmp samesign ult i32 %3139, %4265
   br i1 %4266, label %4267, label %.backedge.i162
 
 4267:                                             ; preds = %4262
   %4268 = getelementptr inbounds i8, ptr %3136, i64 %1308
   %4269 = load i8, ptr %4268, align 1
   %4270 = zext i8 %4269 to i32
-  %4271 = icmp ult i32 %3139, %4270
+  %4271 = icmp samesign ult i32 %3139, %4270
   br i1 %4271, label %4272, label %4279
 
 4272:                                             ; preds = %4267
-  %4273 = icmp ult i32 %3139, %4214
+  %4273 = icmp samesign ult i32 %3139, %4214
   br i1 %4273, label %.loopexit2574.i, label %4274
 
 4274:                                             ; preds = %4272
   %4275 = getelementptr inbounds i8, ptr %3136, i64 %1307
   %4276 = load i8, ptr %4275, align 1
   %4277 = zext i8 %4276 to i32
-  %4278 = icmp ult i32 %3139, %4277
+  %4278 = icmp samesign ult i32 %3139, %4277
   br i1 %4278, label %.loopexit2574.i, label %.backedge.i162
 
 4279:                                             ; preds = %4267
   %4280 = getelementptr inbounds i8, ptr %3136, i64 %1301
   %4281 = load i8, ptr %4280, align 1
   %4282 = zext i8 %4281 to i32
-  %4283 = icmp ult i32 %3139, %4282
-  %4284 = icmp ult i32 %3139, %4214
+  %4283 = icmp samesign ult i32 %3139, %4282
+  %4284 = icmp samesign ult i32 %3139, %4214
   %or.cond2472.i = and i1 %4284, %4283
   br i1 %or.cond2472.i, label %.loopexit2574.i, label %.backedge.i162
 
@@ -6788,85 +6788,85 @@ _ZNSt6vectorIN2cv8KeyPointESaIS1_EE6resizeEm.exit.i114: ; preds = %1255, %1239
   %4286 = getelementptr inbounds i8, ptr %3136, i64 %1305
   %4287 = load i8, ptr %4286, align 1
   %4288 = zext i8 %4287 to i32
-  %4289 = icmp ult i32 %3139, %4288
+  %4289 = icmp samesign ult i32 %3139, %4288
   br i1 %4289, label %4290, label %.backedge.i162
 
 4290:                                             ; preds = %4285
   %4291 = getelementptr inbounds i8, ptr %3136, i64 %1303
   %4292 = load i8, ptr %4291, align 1
   %4293 = zext i8 %4292 to i32
-  %4294 = icmp ult i32 %3139, %4293
+  %4294 = icmp samesign ult i32 %3139, %4293
   br i1 %4294, label %4295, label %.backedge.i162
 
 4295:                                             ; preds = %4290
   %4296 = getelementptr inbounds i8, ptr %3136, i64 %1306
   %4297 = load i8, ptr %4296, align 1
   %4298 = zext i8 %4297 to i32
-  %4299 = icmp ult i32 %3139, %4298
+  %4299 = icmp samesign ult i32 %3139, %4298
   br i1 %4299, label %4300, label %.backedge.i162
 
 4300:                                             ; preds = %4295
   %4301 = getelementptr inbounds i8, ptr %3136, i64 %1302
   %4302 = load i8, ptr %4301, align 1
   %4303 = zext i8 %4302 to i32
-  %4304 = icmp ult i32 %3139, %4303
+  %4304 = icmp samesign ult i32 %3139, %4303
   br i1 %4304, label %4305, label %4315
 
 4305:                                             ; preds = %4300
   %4306 = getelementptr inbounds i8, ptr %3136, i64 %1301
   %4307 = load i8, ptr %4306, align 1
   %4308 = zext i8 %4307 to i32
-  %4309 = icmp ult i32 %3139, %4308
+  %4309 = icmp samesign ult i32 %3139, %4308
   br i1 %4309, label %.loopexit2574.i, label %4310
 
 4310:                                             ; preds = %4305
   %4311 = getelementptr inbounds i8, ptr %3136, i64 %1308
   %4312 = load i8, ptr %4311, align 1
   %4313 = zext i8 %4312 to i32
-  %4314 = icmp ult i32 %3139, %4313
+  %4314 = icmp samesign ult i32 %3139, %4313
   br i1 %4314, label %.loopexit2574.i, label %.backedge.i162
 
 4315:                                             ; preds = %4300
   %4316 = getelementptr inbounds i8, ptr %3136, i64 %1308
   %4317 = load i8, ptr %4316, align 1
   %4318 = zext i8 %4317 to i32
-  %4319 = icmp ult i32 %3139, %4318
+  %4319 = icmp samesign ult i32 %3139, %4318
   br i1 %4319, label %4320, label %.backedge.i162
 
 4320:                                             ; preds = %4315
   %4321 = getelementptr inbounds i8, ptr %3136, i64 %1307
   %4322 = load i8, ptr %4321, align 1
   %4323 = zext i8 %4322 to i32
-  %4324 = icmp ult i32 %3139, %4323
+  %4324 = icmp samesign ult i32 %3139, %4323
   br i1 %4324, label %.loopexit2574.i, label %.backedge.i162
 
 4325:                                             ; preds = %4201
   %4326 = getelementptr inbounds i8, ptr %3136, i64 %1301
   %4327 = load i8, ptr %4326, align 1
   %4328 = zext i8 %4327 to i32
-  %4329 = icmp ugt i32 %3140, %4328
+  %4329 = icmp samesign ugt i32 %3140, %4328
   br i1 %4329, label %4330, label %.backedge.i162
 
 4330:                                             ; preds = %4325
   %4331 = getelementptr inbounds i8, ptr %3136, i64 %1302
   %4332 = load i8, ptr %4331, align 1
   %4333 = zext i8 %4332 to i32
-  %4334 = icmp ugt i32 %3140, %4333
+  %4334 = icmp samesign ugt i32 %3140, %4333
   br i1 %4334, label %4335, label %.backedge.i162
 
 4335:                                             ; preds = %4330
-  %4336 = icmp ugt i32 %3140, %4204
+  %4336 = icmp samesign ugt i32 %3140, %4204
   %4337 = getelementptr inbounds i8, ptr %3136, i64 %1304
   %4338 = load i8, ptr %4337, align 1
   %4339 = zext i8 %4338 to i32
-  %4340 = icmp ugt i32 %3140, %4339
+  %4340 = icmp samesign ugt i32 %3140, %4339
   br i1 %4336, label %4341, label %4363
 
 4341:                                             ; preds = %4335
   %4342 = getelementptr inbounds i8, ptr %3136, i64 %1305
   %4343 = load i8, ptr %4342, align 1
   %4344 = zext i8 %4343 to i32
-  %4345 = icmp ugt i32 %3140, %4344
+  %4345 = icmp samesign ugt i32 %3140, %4344
   br i1 %4340, label %4346, label %4352
 
 4346:                                             ; preds = %4341
@@ -6876,7 +6876,7 @@ _ZNSt6vectorIN2cv8KeyPointESaIS1_EE6resizeEm.exit.i114: ; preds = %1255, %1239
   %4348 = getelementptr inbounds i8, ptr %3136, i64 %1307
   %4349 = load i8, ptr %4348, align 1
   %4350 = zext i8 %4349 to i32
-  %4351 = icmp ugt i32 %3140, %4350
+  %4351 = icmp samesign ugt i32 %3140, %4350
   br i1 %4351, label %.loopexit2574.i, label %.backedge.i162
 
 4352:                                             ; preds = %4341
@@ -6886,14 +6886,14 @@ _ZNSt6vectorIN2cv8KeyPointESaIS1_EE6resizeEm.exit.i114: ; preds = %1255, %1239
   %4354 = getelementptr inbounds i8, ptr %3136, i64 %1303
   %4355 = load i8, ptr %4354, align 1
   %4356 = zext i8 %4355 to i32
-  %4357 = icmp ugt i32 %3140, %4356
+  %4357 = icmp samesign ugt i32 %3140, %4356
   br i1 %4357, label %4358, label %.backedge.i162
 
 4358:                                             ; preds = %4353
   %4359 = getelementptr inbounds i8, ptr %3136, i64 %1306
   %4360 = load i8, ptr %4359, align 1
   %4361 = zext i8 %4360 to i32
-  %4362 = icmp ugt i32 %3140, %4361
+  %4362 = icmp samesign ugt i32 %3140, %4361
   br i1 %4362, label %.loopexit2574.i, label %.backedge.i162
 
 4363:                                             ; preds = %4335
@@ -6903,36 +6903,36 @@ _ZNSt6vectorIN2cv8KeyPointESaIS1_EE6resizeEm.exit.i114: ; preds = %1255, %1239
   %4365 = getelementptr inbounds i8, ptr %3136, i64 %1308
   %4366 = load i8, ptr %4365, align 1
   %4367 = zext i8 %4366 to i32
-  %4368 = icmp ugt i32 %3140, %4367
+  %4368 = icmp samesign ugt i32 %3140, %4367
   br i1 %4368, label %4369, label %.backedge.i162
 
 4369:                                             ; preds = %4364
   %4370 = getelementptr inbounds i8, ptr %3136, i64 %1307
   %4371 = load i8, ptr %4370, align 1
   %4372 = zext i8 %4371 to i32
-  %4373 = icmp ugt i32 %3140, %4372
+  %4373 = icmp samesign ugt i32 %3140, %4372
   br i1 %4373, label %.loopexit2574.i, label %.backedge.i162
 
 4374:                                             ; preds = %4199
-  %4375 = icmp ugt i32 %3140, %4198
+  %4375 = icmp samesign ugt i32 %3140, %4198
   br i1 %4375, label %4376, label %4542
 
 4376:                                             ; preds = %4374
   %4377 = getelementptr inbounds i8, ptr %3136, i64 %1298
   %4378 = load i8, ptr %4377, align 1
   %4379 = zext i8 %4378 to i32
-  %4380 = icmp ugt i32 %3140, %4379
+  %4380 = icmp samesign ugt i32 %3140, %4379
   br i1 %4380, label %4381, label %4502
 
 4381:                                             ; preds = %4376
   %4382 = getelementptr inbounds i8, ptr %3136, i64 %1304
   %4383 = load i8, ptr %4382, align 1
   %4384 = zext i8 %4383 to i32
-  %4385 = icmp ugt i32 %3140, %4384
+  %4385 = icmp samesign ugt i32 %3140, %4384
   %4386 = getelementptr inbounds i8, ptr %3136, i64 %1305
   %4387 = load i8, ptr %4386, align 1
   %4388 = zext i8 %4387 to i32
-  %4389 = icmp ugt i32 %3140, %4388
+  %4389 = icmp samesign ugt i32 %3140, %4388
   br i1 %4385, label %4390, label %4466
 
 4390:                                             ; preds = %4381
@@ -6942,105 +6942,105 @@ _ZNSt6vectorIN2cv8KeyPointESaIS1_EE6resizeEm.exit.i114: ; preds = %1255, %1239
   %4392 = getelementptr inbounds i8, ptr %3136, i64 %1301
   %4393 = load i8, ptr %4392, align 1
   %4394 = zext i8 %4393 to i32
-  %4395 = icmp ugt i32 %3140, %4394
+  %4395 = icmp samesign ugt i32 %3140, %4394
   br i1 %4395, label %4396, label %4411
 
 4396:                                             ; preds = %4391
   %4397 = getelementptr inbounds i8, ptr %3136, i64 %1302
   %4398 = load i8, ptr %4397, align 1
   %4399 = zext i8 %4398 to i32
-  %4400 = icmp ugt i32 %3140, %4399
+  %4400 = icmp samesign ugt i32 %3140, %4399
   br i1 %4400, label %.loopexit2574.i, label %4401
 
 4401:                                             ; preds = %4396
   %4402 = getelementptr inbounds i8, ptr %3136, i64 %1308
   %4403 = load i8, ptr %4402, align 1
   %4404 = zext i8 %4403 to i32
-  %4405 = icmp ugt i32 %3140, %4404
+  %4405 = icmp samesign ugt i32 %3140, %4404
   br i1 %4405, label %4406, label %.backedge.i162
 
 4406:                                             ; preds = %4401
   %4407 = getelementptr inbounds i8, ptr %3136, i64 %1307
   %4408 = load i8, ptr %4407, align 1
   %4409 = zext i8 %4408 to i32
-  %4410 = icmp ugt i32 %3140, %4409
+  %4410 = icmp samesign ugt i32 %3140, %4409
   br i1 %4410, label %.loopexit2574.i, label %.backedge.i162
 
 4411:                                             ; preds = %4391
   %4412 = getelementptr inbounds i8, ptr %3136, i64 %1306
   %4413 = load i8, ptr %4412, align 1
   %4414 = zext i8 %4413 to i32
-  %4415 = icmp ugt i32 %3140, %4414
+  %4415 = icmp samesign ugt i32 %3140, %4414
   br i1 %4415, label %4416, label %.backedge.i162
 
 4416:                                             ; preds = %4411
   %4417 = getelementptr inbounds i8, ptr %3136, i64 %1308
   %4418 = load i8, ptr %4417, align 1
   %4419 = zext i8 %4418 to i32
-  %4420 = icmp ugt i32 %3140, %4419
+  %4420 = icmp samesign ugt i32 %3140, %4419
   br i1 %4420, label %4421, label %.backedge.i162
 
 4421:                                             ; preds = %4416
   %4422 = getelementptr inbounds i8, ptr %3136, i64 %1307
   %4423 = load i8, ptr %4422, align 1
   %4424 = zext i8 %4423 to i32
-  %4425 = icmp ugt i32 %3140, %4424
+  %4425 = icmp samesign ugt i32 %3140, %4424
   br i1 %4425, label %.loopexit2574.i, label %4426
 
 4426:                                             ; preds = %4421
   %4427 = getelementptr inbounds i8, ptr %3136, i64 %1302
   %4428 = load i8, ptr %4427, align 1
   %4429 = zext i8 %4428 to i32
-  %4430 = icmp ugt i32 %3140, %4429
+  %4430 = icmp samesign ugt i32 %3140, %4429
   br i1 %4430, label %4431, label %.backedge.i162
 
 4431:                                             ; preds = %4426
   %4432 = getelementptr inbounds i8, ptr %3136, i64 %1303
   %4433 = load i8, ptr %4432, align 1
   %4434 = zext i8 %4433 to i32
-  %4435 = icmp ugt i32 %3140, %4434
+  %4435 = icmp samesign ugt i32 %3140, %4434
   br i1 %4435, label %.loopexit2574.i, label %.backedge.i162
 
 4436:                                             ; preds = %4390
   %4437 = getelementptr inbounds i8, ptr %3136, i64 %1307
   %4438 = load i8, ptr %4437, align 1
   %4439 = zext i8 %4438 to i32
-  %4440 = icmp ugt i32 %3140, %4439
+  %4440 = icmp samesign ugt i32 %3140, %4439
   br i1 %4440, label %4441, label %.backedge.i162
 
 4441:                                             ; preds = %4436
   %4442 = getelementptr inbounds i8, ptr %3136, i64 %1301
   %4443 = load i8, ptr %4442, align 1
   %4444 = zext i8 %4443 to i32
-  %4445 = icmp ugt i32 %3140, %4444
+  %4445 = icmp samesign ugt i32 %3140, %4444
   br i1 %4445, label %4446, label %4456
 
 4446:                                             ; preds = %4441
   %4447 = getelementptr inbounds i8, ptr %3136, i64 %1302
   %4448 = load i8, ptr %4447, align 1
   %4449 = zext i8 %4448 to i32
-  %4450 = icmp ugt i32 %3140, %4449
+  %4450 = icmp samesign ugt i32 %3140, %4449
   br i1 %4450, label %.loopexit2574.i, label %4451
 
 4451:                                             ; preds = %4446
   %4452 = getelementptr inbounds i8, ptr %3136, i64 %1308
   %4453 = load i8, ptr %4452, align 1
   %4454 = zext i8 %4453 to i32
-  %4455 = icmp ugt i32 %3140, %4454
+  %4455 = icmp samesign ugt i32 %3140, %4454
   br i1 %4455, label %.loopexit2574.i, label %.backedge.i162
 
 4456:                                             ; preds = %4441
   %4457 = getelementptr inbounds i8, ptr %3136, i64 %1306
   %4458 = load i8, ptr %4457, align 1
   %4459 = zext i8 %4458 to i32
-  %4460 = icmp ugt i32 %3140, %4459
+  %4460 = icmp samesign ugt i32 %3140, %4459
   br i1 %4460, label %4461, label %.backedge.i162
 
 4461:                                             ; preds = %4456
   %4462 = getelementptr inbounds i8, ptr %3136, i64 %1308
   %4463 = load i8, ptr %4462, align 1
   %4464 = zext i8 %4463 to i32
-  %4465 = icmp ugt i32 %3140, %4464
+  %4465 = icmp samesign ugt i32 %3140, %4464
   br i1 %4465, label %.loopexit2574.i, label %.backedge.i162
 
 4466:                                             ; preds = %4381
@@ -7050,137 +7050,137 @@ _ZNSt6vectorIN2cv8KeyPointESaIS1_EE6resizeEm.exit.i114: ; preds = %1255, %1239
   %4468 = getelementptr inbounds i8, ptr %3136, i64 %1303
   %4469 = load i8, ptr %4468, align 1
   %4470 = zext i8 %4469 to i32
-  %4471 = icmp ugt i32 %3140, %4470
+  %4471 = icmp samesign ugt i32 %3140, %4470
   br i1 %4471, label %4472, label %.backedge.i162
 
 4472:                                             ; preds = %4467
   %4473 = getelementptr inbounds i8, ptr %3136, i64 %1306
   %4474 = load i8, ptr %4473, align 1
   %4475 = zext i8 %4474 to i32
-  %4476 = icmp ugt i32 %3140, %4475
+  %4476 = icmp samesign ugt i32 %3140, %4475
   br i1 %4476, label %4477, label %.backedge.i162
 
 4477:                                             ; preds = %4472
   %4478 = getelementptr inbounds i8, ptr %3136, i64 %1302
   %4479 = load i8, ptr %4478, align 1
   %4480 = zext i8 %4479 to i32
-  %4481 = icmp ugt i32 %3140, %4480
+  %4481 = icmp samesign ugt i32 %3140, %4480
   br i1 %4481, label %4482, label %4492
 
 4482:                                             ; preds = %4477
   %4483 = getelementptr inbounds i8, ptr %3136, i64 %1301
   %4484 = load i8, ptr %4483, align 1
   %4485 = zext i8 %4484 to i32
-  %4486 = icmp ugt i32 %3140, %4485
+  %4486 = icmp samesign ugt i32 %3140, %4485
   br i1 %4486, label %.loopexit2574.i, label %4487
 
 4487:                                             ; preds = %4482
   %4488 = getelementptr inbounds i8, ptr %3136, i64 %1308
   %4489 = load i8, ptr %4488, align 1
   %4490 = zext i8 %4489 to i32
-  %4491 = icmp ugt i32 %3140, %4490
+  %4491 = icmp samesign ugt i32 %3140, %4490
   br i1 %4491, label %.loopexit2574.i, label %.backedge.i162
 
 4492:                                             ; preds = %4477
   %4493 = getelementptr inbounds i8, ptr %3136, i64 %1308
   %4494 = load i8, ptr %4493, align 1
   %4495 = zext i8 %4494 to i32
-  %4496 = icmp ugt i32 %3140, %4495
+  %4496 = icmp samesign ugt i32 %3140, %4495
   br i1 %4496, label %4497, label %.backedge.i162
 
 4497:                                             ; preds = %4492
   %4498 = getelementptr inbounds i8, ptr %3136, i64 %1307
   %4499 = load i8, ptr %4498, align 1
   %4500 = zext i8 %4499 to i32
-  %4501 = icmp ugt i32 %3140, %4500
+  %4501 = icmp samesign ugt i32 %3140, %4500
   br i1 %4501, label %.loopexit2574.i, label %.backedge.i162
 
 4502:                                             ; preds = %4376
   %4503 = getelementptr inbounds i8, ptr %3136, i64 %1308
   %4504 = load i8, ptr %4503, align 1
   %4505 = zext i8 %4504 to i32
-  %4506 = icmp ugt i32 %3140, %4505
+  %4506 = icmp samesign ugt i32 %3140, %4505
   br i1 %4506, label %4507, label %.backedge.i162
 
 4507:                                             ; preds = %4502
   %4508 = getelementptr inbounds i8, ptr %3136, i64 %1307
   %4509 = load i8, ptr %4508, align 1
   %4510 = zext i8 %4509 to i32
-  %4511 = icmp ugt i32 %3140, %4510
+  %4511 = icmp samesign ugt i32 %3140, %4510
   br i1 %4511, label %4512, label %.backedge.i162
 
 4512:                                             ; preds = %4507
   %4513 = getelementptr inbounds i8, ptr %3136, i64 %1304
   %4514 = load i8, ptr %4513, align 1
   %4515 = zext i8 %4514 to i32
-  %4516 = icmp ugt i32 %3140, %4515
+  %4516 = icmp samesign ugt i32 %3140, %4515
   br i1 %4516, label %4517, label %4527
 
 4517:                                             ; preds = %4512
   %4518 = getelementptr inbounds i8, ptr %3136, i64 %1301
   %4519 = load i8, ptr %4518, align 1
   %4520 = zext i8 %4519 to i32
-  %4521 = icmp ugt i32 %3140, %4520
+  %4521 = icmp samesign ugt i32 %3140, %4520
   br i1 %4521, label %.loopexit2574.i, label %4522
 
 4522:                                             ; preds = %4517
   %4523 = getelementptr inbounds i8, ptr %3136, i64 %1306
   %4524 = load i8, ptr %4523, align 1
   %4525 = zext i8 %4524 to i32
-  %4526 = icmp ugt i32 %3140, %4525
+  %4526 = icmp samesign ugt i32 %3140, %4525
   br i1 %4526, label %.loopexit2574.i, label %.backedge.i162
 
 4527:                                             ; preds = %4512
   %4528 = getelementptr inbounds i8, ptr %3136, i64 %1305
   %4529 = load i8, ptr %4528, align 1
   %4530 = zext i8 %4529 to i32
-  %4531 = icmp ugt i32 %3140, %4530
+  %4531 = icmp samesign ugt i32 %3140, %4530
   br i1 %4531, label %4532, label %.backedge.i162
 
 4532:                                             ; preds = %4527
   %4533 = getelementptr inbounds i8, ptr %3136, i64 %1303
   %4534 = load i8, ptr %4533, align 1
   %4535 = zext i8 %4534 to i32
-  %4536 = icmp ugt i32 %3140, %4535
+  %4536 = icmp samesign ugt i32 %3140, %4535
   br i1 %4536, label %4537, label %.backedge.i162
 
 4537:                                             ; preds = %4532
   %4538 = getelementptr inbounds i8, ptr %3136, i64 %1306
   %4539 = load i8, ptr %4538, align 1
   %4540 = zext i8 %4539 to i32
-  %4541 = icmp ugt i32 %3140, %4540
+  %4541 = icmp samesign ugt i32 %3140, %4540
   br i1 %4541, label %.loopexit2574.i, label %.backedge.i162
 
 4542:                                             ; preds = %4374
   %4543 = getelementptr inbounds i8, ptr %3136, i64 %1301
   %4544 = load i8, ptr %4543, align 1
   %4545 = zext i8 %4544 to i32
-  %4546 = icmp ugt i32 %3140, %4545
+  %4546 = icmp samesign ugt i32 %3140, %4545
   br i1 %4546, label %4547, label %.backedge.i162
 
 4547:                                             ; preds = %4542
   %4548 = getelementptr inbounds i8, ptr %3136, i64 %1302
   %4549 = load i8, ptr %4548, align 1
   %4550 = zext i8 %4549 to i32
-  %4551 = icmp ugt i32 %3140, %4550
+  %4551 = icmp samesign ugt i32 %3140, %4550
   br i1 %4551, label %4552, label %.backedge.i162
 
 4552:                                             ; preds = %4547
   %4553 = getelementptr inbounds i8, ptr %3136, i64 %1298
   %4554 = load i8, ptr %4553, align 1
   %4555 = zext i8 %4554 to i32
-  %4556 = icmp ugt i32 %3140, %4555
+  %4556 = icmp samesign ugt i32 %3140, %4555
   %4557 = getelementptr inbounds i8, ptr %3136, i64 %1304
   %4558 = load i8, ptr %4557, align 1
   %4559 = zext i8 %4558 to i32
-  %4560 = icmp ugt i32 %3140, %4559
+  %4560 = icmp samesign ugt i32 %3140, %4559
   br i1 %4556, label %4561, label %4583
 
 4561:                                             ; preds = %4552
   %4562 = getelementptr inbounds i8, ptr %3136, i64 %1305
   %4563 = load i8, ptr %4562, align 1
   %4564 = zext i8 %4563 to i32
-  %4565 = icmp ugt i32 %3140, %4564
+  %4565 = icmp samesign ugt i32 %3140, %4564
   br i1 %4560, label %4566, label %4572
 
 4566:                                             ; preds = %4561
@@ -7190,7 +7190,7 @@ _ZNSt6vectorIN2cv8KeyPointESaIS1_EE6resizeEm.exit.i114: ; preds = %1255, %1239
   %4568 = getelementptr inbounds i8, ptr %3136, i64 %1307
   %4569 = load i8, ptr %4568, align 1
   %4570 = zext i8 %4569 to i32
-  %4571 = icmp ugt i32 %3140, %4570
+  %4571 = icmp samesign ugt i32 %3140, %4570
   br i1 %4571, label %.loopexit2574.i, label %.backedge.i162
 
 4572:                                             ; preds = %4561
@@ -7200,14 +7200,14 @@ _ZNSt6vectorIN2cv8KeyPointESaIS1_EE6resizeEm.exit.i114: ; preds = %1255, %1239
   %4574 = getelementptr inbounds i8, ptr %3136, i64 %1303
   %4575 = load i8, ptr %4574, align 1
   %4576 = zext i8 %4575 to i32
-  %4577 = icmp ugt i32 %3140, %4576
+  %4577 = icmp samesign ugt i32 %3140, %4576
   br i1 %4577, label %4578, label %.backedge.i162
 
 4578:                                             ; preds = %4573
   %4579 = getelementptr inbounds i8, ptr %3136, i64 %1306
   %4580 = load i8, ptr %4579, align 1
   %4581 = zext i8 %4580 to i32
-  %4582 = icmp ugt i32 %3140, %4581
+  %4582 = icmp samesign ugt i32 %3140, %4581
   br i1 %4582, label %.loopexit2574.i, label %.backedge.i162
 
 4583:                                             ; preds = %4552
@@ -7217,278 +7217,278 @@ _ZNSt6vectorIN2cv8KeyPointESaIS1_EE6resizeEm.exit.i114: ; preds = %1255, %1239
   %4585 = getelementptr inbounds i8, ptr %3136, i64 %1308
   %4586 = load i8, ptr %4585, align 1
   %4587 = zext i8 %4586 to i32
-  %4588 = icmp ugt i32 %3140, %4587
+  %4588 = icmp samesign ugt i32 %3140, %4587
   br i1 %4588, label %4589, label %.backedge.i162
 
 4589:                                             ; preds = %4584
   %4590 = getelementptr inbounds i8, ptr %3136, i64 %1307
   %4591 = load i8, ptr %4590, align 1
   %4592 = zext i8 %4591 to i32
-  %4593 = icmp ugt i32 %3140, %4592
+  %4593 = icmp samesign ugt i32 %3140, %4592
   br i1 %4593, label %.loopexit2574.i, label %.backedge.i162
 
 4594:                                             ; preds = %4194
-  %4595 = icmp ugt i32 %3140, %4198
+  %4595 = icmp samesign ugt i32 %3140, %4198
   br i1 %4595, label %4596, label %4701
 
 4596:                                             ; preds = %4594
   %4597 = getelementptr inbounds i8, ptr %3136, i64 %1303
   %4598 = load i8, ptr %4597, align 1
   %4599 = zext i8 %4598 to i32
-  %4600 = icmp ugt i32 %3140, %4599
+  %4600 = icmp samesign ugt i32 %3140, %4599
   br i1 %4600, label %4601, label %.backedge.i162
 
 4601:                                             ; preds = %4596
   %4602 = getelementptr inbounds i8, ptr %3136, i64 %1306
   %4603 = load i8, ptr %4602, align 1
   %4604 = zext i8 %4603 to i32
-  %4605 = icmp ugt i32 %3140, %4604
+  %4605 = icmp samesign ugt i32 %3140, %4604
   br i1 %4605, label %4606, label %.backedge.i162
 
 4606:                                             ; preds = %4601
   %4607 = getelementptr inbounds i8, ptr %3136, i64 %1298
   %4608 = load i8, ptr %4607, align 1
   %4609 = zext i8 %4608 to i32
-  %4610 = icmp ugt i32 %3140, %4609
+  %4610 = icmp samesign ugt i32 %3140, %4609
   br i1 %4610, label %4611, label %4681
 
 4611:                                             ; preds = %4606
   %4612 = getelementptr inbounds i8, ptr %3136, i64 %1304
   %4613 = load i8, ptr %4612, align 1
   %4614 = zext i8 %4613 to i32
-  %4615 = icmp ugt i32 %3140, %4614
+  %4615 = icmp samesign ugt i32 %3140, %4614
   br i1 %4615, label %4616, label %4651
 
 4616:                                             ; preds = %4611
   %4617 = getelementptr inbounds i8, ptr %3136, i64 %1308
   %4618 = load i8, ptr %4617, align 1
   %4619 = zext i8 %4618 to i32
-  %4620 = icmp ugt i32 %3140, %4619
+  %4620 = icmp samesign ugt i32 %3140, %4619
   br i1 %4620, label %4621, label %4636
 
 4621:                                             ; preds = %4616
   %4622 = getelementptr inbounds i8, ptr %3136, i64 %1307
   %4623 = load i8, ptr %4622, align 1
   %4624 = zext i8 %4623 to i32
-  %4625 = icmp ugt i32 %3140, %4624
+  %4625 = icmp samesign ugt i32 %3140, %4624
   br i1 %4625, label %.loopexit2574.i, label %4626
 
 4626:                                             ; preds = %4621
   %4627 = getelementptr inbounds i8, ptr %3136, i64 %1305
   %4628 = load i8, ptr %4627, align 1
   %4629 = zext i8 %4628 to i32
-  %4630 = icmp ugt i32 %3140, %4629
+  %4630 = icmp samesign ugt i32 %3140, %4629
   br i1 %4630, label %4631, label %.backedge.i162
 
 4631:                                             ; preds = %4626
   %4632 = getelementptr inbounds i8, ptr %3136, i64 %1302
   %4633 = load i8, ptr %4632, align 1
   %4634 = zext i8 %4633 to i32
-  %4635 = icmp ugt i32 %3140, %4634
+  %4635 = icmp samesign ugt i32 %3140, %4634
   br i1 %4635, label %.loopexit2574.i, label %.backedge.i162
 
 4636:                                             ; preds = %4616
   %4637 = getelementptr inbounds i8, ptr %3136, i64 %1305
   %4638 = load i8, ptr %4637, align 1
   %4639 = zext i8 %4638 to i32
-  %4640 = icmp ugt i32 %3140, %4639
+  %4640 = icmp samesign ugt i32 %3140, %4639
   br i1 %4640, label %4641, label %.backedge.i162
 
 4641:                                             ; preds = %4636
   %4642 = getelementptr inbounds i8, ptr %3136, i64 %1301
   %4643 = load i8, ptr %4642, align 1
   %4644 = zext i8 %4643 to i32
-  %4645 = icmp ugt i32 %3140, %4644
+  %4645 = icmp samesign ugt i32 %3140, %4644
   br i1 %4645, label %4646, label %.backedge.i162
 
 4646:                                             ; preds = %4641
   %4647 = getelementptr inbounds i8, ptr %3136, i64 %1302
   %4648 = load i8, ptr %4647, align 1
   %4649 = zext i8 %4648 to i32
-  %4650 = icmp ugt i32 %3140, %4649
+  %4650 = icmp samesign ugt i32 %3140, %4649
   br i1 %4650, label %.loopexit2574.i, label %.backedge.i162
 
 4651:                                             ; preds = %4611
   %4652 = getelementptr inbounds i8, ptr %3136, i64 %1305
   %4653 = load i8, ptr %4652, align 1
   %4654 = zext i8 %4653 to i32
-  %4655 = icmp ugt i32 %3140, %4654
+  %4655 = icmp samesign ugt i32 %3140, %4654
   br i1 %4655, label %4656, label %.backedge.i162
 
 4656:                                             ; preds = %4651
   %4657 = getelementptr inbounds i8, ptr %3136, i64 %1302
   %4658 = load i8, ptr %4657, align 1
   %4659 = zext i8 %4658 to i32
-  %4660 = icmp ugt i32 %3140, %4659
+  %4660 = icmp samesign ugt i32 %3140, %4659
   br i1 %4660, label %4661, label %4671
 
 4661:                                             ; preds = %4656
   %4662 = getelementptr inbounds i8, ptr %3136, i64 %1301
   %4663 = load i8, ptr %4662, align 1
   %4664 = zext i8 %4663 to i32
-  %4665 = icmp ugt i32 %3140, %4664
+  %4665 = icmp samesign ugt i32 %3140, %4664
   br i1 %4665, label %.loopexit2574.i, label %4666
 
 4666:                                             ; preds = %4661
   %4667 = getelementptr inbounds i8, ptr %3136, i64 %1308
   %4668 = load i8, ptr %4667, align 1
   %4669 = zext i8 %4668 to i32
-  %4670 = icmp ugt i32 %3140, %4669
+  %4670 = icmp samesign ugt i32 %3140, %4669
   br i1 %4670, label %.loopexit2574.i, label %.backedge.i162
 
 4671:                                             ; preds = %4656
   %4672 = getelementptr inbounds i8, ptr %3136, i64 %1308
   %4673 = load i8, ptr %4672, align 1
   %4674 = zext i8 %4673 to i32
-  %4675 = icmp ugt i32 %3140, %4674
+  %4675 = icmp samesign ugt i32 %3140, %4674
   br i1 %4675, label %4676, label %.backedge.i162
 
 4676:                                             ; preds = %4671
   %4677 = getelementptr inbounds i8, ptr %3136, i64 %1307
   %4678 = load i8, ptr %4677, align 1
   %4679 = zext i8 %4678 to i32
-  %4680 = icmp ugt i32 %3140, %4679
+  %4680 = icmp samesign ugt i32 %3140, %4679
   br i1 %4680, label %.loopexit2574.i, label %.backedge.i162
 
 4681:                                             ; preds = %4606
   %4682 = getelementptr inbounds i8, ptr %3136, i64 %1308
   %4683 = load i8, ptr %4682, align 1
   %4684 = zext i8 %4683 to i32
-  %4685 = icmp ugt i32 %3140, %4684
+  %4685 = icmp samesign ugt i32 %3140, %4684
   br i1 %4685, label %4686, label %.backedge.i162
 
 4686:                                             ; preds = %4681
   %4687 = getelementptr inbounds i8, ptr %3136, i64 %1307
   %4688 = load i8, ptr %4687, align 1
   %4689 = zext i8 %4688 to i32
-  %4690 = icmp ugt i32 %3140, %4689
+  %4690 = icmp samesign ugt i32 %3140, %4689
   br i1 %4690, label %4691, label %.backedge.i162
 
 4691:                                             ; preds = %4686
   %4692 = getelementptr inbounds i8, ptr %3136, i64 %1304
   %4693 = load i8, ptr %4692, align 1
   %4694 = zext i8 %4693 to i32
-  %4695 = icmp ugt i32 %3140, %4694
+  %4695 = icmp samesign ugt i32 %3140, %4694
   br i1 %4695, label %.loopexit2574.i, label %4696
 
 4696:                                             ; preds = %4691
   %4697 = getelementptr inbounds i8, ptr %3136, i64 %1305
   %4698 = load i8, ptr %4697, align 1
   %4699 = zext i8 %4698 to i32
-  %4700 = icmp ugt i32 %3140, %4699
+  %4700 = icmp samesign ugt i32 %3140, %4699
   br i1 %4700, label %.loopexit2574.i, label %.backedge.i162
 
 4701:                                             ; preds = %4594
   %4702 = getelementptr inbounds i8, ptr %3136, i64 %1298
   %4703 = load i8, ptr %4702, align 1
   %4704 = zext i8 %4703 to i32
-  %4705 = icmp ult i32 %3139, %4704
+  %4705 = icmp samesign ult i32 %3139, %4704
   br i1 %4705, label %4706, label %.backedge.i162
 
 4706:                                             ; preds = %4701
-  %4707 = icmp ult i32 %3139, %4198
+  %4707 = icmp samesign ult i32 %3139, %4198
   br i1 %4707, label %4708, label %.backedge2578.loopexit.i
 
 4708:                                             ; preds = %4706
   %4709 = getelementptr inbounds i8, ptr %3136, i64 %1305
   %4710 = load i8, ptr %4709, align 1
   %4711 = zext i8 %4710 to i32
-  %4712 = icmp ult i32 %3139, %4711
+  %4712 = icmp samesign ult i32 %3139, %4711
   br i1 %4712, label %4713, label %.backedge.i162
 
 4713:                                             ; preds = %4708
   %4714 = getelementptr inbounds i8, ptr %3136, i64 %1303
   %4715 = load i8, ptr %4714, align 1
   %4716 = zext i8 %4715 to i32
-  %4717 = icmp ult i32 %3139, %4716
+  %4717 = icmp samesign ult i32 %3139, %4716
   br i1 %4717, label %4718, label %.backedge.i162
 
 4718:                                             ; preds = %4713
   %4719 = getelementptr inbounds i8, ptr %3136, i64 %1306
   %4720 = load i8, ptr %4719, align 1
   %4721 = zext i8 %4720 to i32
-  %4722 = icmp ult i32 %3139, %4721
+  %4722 = icmp samesign ult i32 %3139, %4721
   br i1 %4722, label %4723, label %.backedge.i162
 
 4723:                                             ; preds = %4718
   %4724 = getelementptr inbounds i8, ptr %3136, i64 %1302
   %4725 = load i8, ptr %4724, align 1
   %4726 = zext i8 %4725 to i32
-  %4727 = icmp ult i32 %3139, %4726
+  %4727 = icmp samesign ult i32 %3139, %4726
   br i1 %4727, label %4728, label %4738
 
 4728:                                             ; preds = %4723
   %4729 = getelementptr inbounds i8, ptr %3136, i64 %1301
   %4730 = load i8, ptr %4729, align 1
   %4731 = zext i8 %4730 to i32
-  %4732 = icmp ult i32 %3139, %4731
+  %4732 = icmp samesign ult i32 %3139, %4731
   br i1 %4732, label %.loopexit2574.i, label %4733
 
 4733:                                             ; preds = %4728
   %4734 = getelementptr inbounds i8, ptr %3136, i64 %1308
   %4735 = load i8, ptr %4734, align 1
   %4736 = zext i8 %4735 to i32
-  %4737 = icmp ult i32 %3139, %4736
+  %4737 = icmp samesign ult i32 %3139, %4736
   br i1 %4737, label %.loopexit2574.i, label %.backedge.i162
 
 4738:                                             ; preds = %4723
   %4739 = getelementptr inbounds i8, ptr %3136, i64 %1308
   %4740 = load i8, ptr %4739, align 1
   %4741 = zext i8 %4740 to i32
-  %4742 = icmp ult i32 %3139, %4741
+  %4742 = icmp samesign ult i32 %3139, %4741
   br i1 %4742, label %4743, label %.backedge.i162
 
 4743:                                             ; preds = %4738
   %4744 = getelementptr inbounds i8, ptr %3136, i64 %1307
   %4745 = load i8, ptr %4744, align 1
   %4746 = zext i8 %4745 to i32
-  %4747 = icmp ult i32 %3139, %4746
+  %4747 = icmp samesign ult i32 %3139, %4746
   br i1 %4747, label %.loopexit2574.i, label %.backedge.i162
 
 4748:                                             ; preds = %3979
   %4749 = getelementptr inbounds i8, ptr %3136, i64 %1298
   %4750 = load i8, ptr %4749, align 1
   %4751 = zext i8 %4750 to i32
-  %4752 = icmp ult i32 %3139, %4751
+  %4752 = icmp samesign ult i32 %3139, %4751
   br i1 %4752, label %4753, label %4850
 
 4753:                                             ; preds = %4748
   %4754 = getelementptr inbounds i8, ptr %3136, i64 %1299
   %4755 = load i8, ptr %4754, align 1
   %4756 = zext i8 %4755 to i32
-  %4757 = icmp ult i32 %3139, %4756
+  %4757 = icmp samesign ult i32 %3139, %4756
   br i1 %4757, label %4758, label %4814
 
 4758:                                             ; preds = %4753
   %4759 = getelementptr inbounds i8, ptr %3136, i64 %1305
   %4760 = load i8, ptr %4759, align 1
   %4761 = zext i8 %4760 to i32
-  %4762 = icmp ult i32 %3139, %4761
+  %4762 = icmp samesign ult i32 %3139, %4761
   br i1 %4762, label %4763, label %.backedge.i162
 
 4763:                                             ; preds = %4758
   %4764 = getelementptr inbounds i8, ptr %3136, i64 %1303
   %4765 = load i8, ptr %4764, align 1
   %4766 = zext i8 %4765 to i32
-  %4767 = icmp ult i32 %3139, %4766
+  %4767 = icmp samesign ult i32 %3139, %4766
   br i1 %4767, label %4768, label %.backedge.i162
 
 4768:                                             ; preds = %4763
   %4769 = getelementptr inbounds i8, ptr %3136, i64 %1302
   %4770 = load i8, ptr %4769, align 1
   %4771 = zext i8 %4770 to i32
-  %4772 = icmp ult i32 %3139, %4771
+  %4772 = icmp samesign ult i32 %3139, %4771
   br i1 %4772, label %4773, label %4799
 
 4773:                                             ; preds = %4768
   %4774 = getelementptr inbounds i8, ptr %3136, i64 %1301
   %4775 = load i8, ptr %4774, align 1
   %4776 = zext i8 %4775 to i32
-  %4777 = icmp ult i32 %3139, %4776
+  %4777 = icmp samesign ult i32 %3139, %4776
   %4778 = getelementptr inbounds i8, ptr %3136, i64 %1306
   %4779 = load i8, ptr %4778, align 1
   %4780 = zext i8 %4779 to i32
-  %4781 = icmp ult i32 %3139, %4780
+  %4781 = icmp samesign ult i32 %3139, %4780
   br i1 %4777, label %4782, label %4793
 
 4782:                                             ; preds = %4773
@@ -7498,14 +7498,14 @@ _ZNSt6vectorIN2cv8KeyPointESaIS1_EE6resizeEm.exit.i114: ; preds = %1255, %1239
   %4784 = getelementptr inbounds i8, ptr %3136, i64 %1304
   %4785 = load i8, ptr %4784, align 1
   %4786 = zext i8 %4785 to i32
-  %4787 = icmp ult i32 %3139, %4786
+  %4787 = icmp samesign ult i32 %3139, %4786
   br i1 %4787, label %4788, label %.backedge.i162
 
 4788:                                             ; preds = %4783
   %4789 = getelementptr inbounds i8, ptr %3136, i64 %1300
   %4790 = load i8, ptr %4789, align 1
   %4791 = zext i8 %4790 to i32
-  %4792 = icmp ult i32 %3139, %4791
+  %4792 = icmp samesign ult i32 %3139, %4791
   br i1 %4792, label %.loopexit2574.i, label %.backedge.i162
 
 4793:                                             ; preds = %4773
@@ -7515,67 +7515,67 @@ _ZNSt6vectorIN2cv8KeyPointESaIS1_EE6resizeEm.exit.i114: ; preds = %1255, %1239
   %4795 = getelementptr inbounds i8, ptr %3136, i64 %1308
   %4796 = load i8, ptr %4795, align 1
   %4797 = zext i8 %4796 to i32
-  %4798 = icmp ult i32 %3139, %4797
+  %4798 = icmp samesign ult i32 %3139, %4797
   br i1 %4798, label %.loopexit2574.i, label %.backedge.i162
 
 4799:                                             ; preds = %4768
   %4800 = getelementptr inbounds i8, ptr %3136, i64 %1307
   %4801 = load i8, ptr %4800, align 1
   %4802 = zext i8 %4801 to i32
-  %4803 = icmp ult i32 %3139, %4802
+  %4803 = icmp samesign ult i32 %3139, %4802
   br i1 %4803, label %4804, label %.backedge.i162
 
 4804:                                             ; preds = %4799
   %4805 = getelementptr inbounds i8, ptr %3136, i64 %1306
   %4806 = load i8, ptr %4805, align 1
   %4807 = zext i8 %4806 to i32
-  %4808 = icmp ult i32 %3139, %4807
+  %4808 = icmp samesign ult i32 %3139, %4807
   br i1 %4808, label %4809, label %.backedge.i162
 
 4809:                                             ; preds = %4804
   %4810 = getelementptr inbounds i8, ptr %3136, i64 %1308
   %4811 = load i8, ptr %4810, align 1
   %4812 = zext i8 %4811 to i32
-  %4813 = icmp ult i32 %3139, %4812
+  %4813 = icmp samesign ult i32 %3139, %4812
   br i1 %4813, label %.loopexit2574.i, label %.backedge.i162
 
 4814:                                             ; preds = %4753
   %4815 = getelementptr inbounds i8, ptr %3136, i64 %1300
   %4816 = load i8, ptr %4815, align 1
   %4817 = zext i8 %4816 to i32
-  %4818 = icmp ult i32 %3139, %4817
+  %4818 = icmp samesign ult i32 %3139, %4817
   br i1 %4818, label %4819, label %.backedge.i162
 
 4819:                                             ; preds = %4814
   %4820 = getelementptr inbounds i8, ptr %3136, i64 %1301
   %4821 = load i8, ptr %4820, align 1
   %4822 = zext i8 %4821 to i32
-  %4823 = icmp ult i32 %3139, %4822
+  %4823 = icmp samesign ult i32 %3139, %4822
   br i1 %4823, label %4824, label %.backedge.i162
 
 4824:                                             ; preds = %4819
   %4825 = getelementptr inbounds i8, ptr %3136, i64 %1302
   %4826 = load i8, ptr %4825, align 1
   %4827 = zext i8 %4826 to i32
-  %4828 = icmp ult i32 %3139, %4827
+  %4828 = icmp samesign ult i32 %3139, %4827
   br i1 %4828, label %4829, label %.backedge.i162
 
 4829:                                             ; preds = %4824
   %4830 = getelementptr inbounds i8, ptr %3136, i64 %1303
   %4831 = load i8, ptr %4830, align 1
   %4832 = zext i8 %4831 to i32
-  %4833 = icmp ult i32 %3139, %4832
+  %4833 = icmp samesign ult i32 %3139, %4832
   br i1 %4833, label %4834, label %.backedge.i162
 
 4834:                                             ; preds = %4829
   %4835 = getelementptr inbounds i8, ptr %3136, i64 %1304
   %4836 = load i8, ptr %4835, align 1
   %4837 = zext i8 %4836 to i32
-  %4838 = icmp ult i32 %3139, %4837
+  %4838 = icmp samesign ult i32 %3139, %4837
   %4839 = getelementptr inbounds i8, ptr %3136, i64 %1305
   %4840 = load i8, ptr %4839, align 1
   %4841 = zext i8 %4840 to i32
-  %4842 = icmp ult i32 %3139, %4841
+  %4842 = icmp samesign ult i32 %3139, %4841
   br i1 %4838, label %4843, label %4844
 
 4843:                                             ; preds = %4834
@@ -7588,7 +7588,7 @@ _ZNSt6vectorIN2cv8KeyPointESaIS1_EE6resizeEm.exit.i114: ; preds = %1255, %1239
   %4846 = getelementptr inbounds i8, ptr %3136, i64 %1306
   %4847 = load i8, ptr %4846, align 1
   %4848 = zext i8 %4847 to i32
-  %4849 = icmp ult i32 %3139, %4848
+  %4849 = icmp samesign ult i32 %3139, %4848
   br i1 %4849, label %.loopexit2574.i, label %.backedge.i162
 
 4850:                                             ; preds = %4748
@@ -7599,39 +7599,39 @@ _ZNSt6vectorIN2cv8KeyPointESaIS1_EE6resizeEm.exit.i114: ; preds = %1255, %1239
   %4853 = getelementptr inbounds i8, ptr %3136, i64 %1299
   %4854 = load i8, ptr %4853, align 1
   %4855 = zext i8 %4854 to i32
-  %4856 = icmp ugt i32 %3140, %4855
+  %4856 = icmp samesign ugt i32 %3140, %4855
   br i1 %4856, label %4857, label %4913
 
 4857:                                             ; preds = %4852
   %4858 = getelementptr inbounds i8, ptr %3136, i64 %1305
   %4859 = load i8, ptr %4858, align 1
   %4860 = zext i8 %4859 to i32
-  %4861 = icmp ugt i32 %3140, %4860
+  %4861 = icmp samesign ugt i32 %3140, %4860
   br i1 %4861, label %4862, label %.backedge.i162
 
 4862:                                             ; preds = %4857
   %4863 = getelementptr inbounds i8, ptr %3136, i64 %1303
   %4864 = load i8, ptr %4863, align 1
   %4865 = zext i8 %4864 to i32
-  %4866 = icmp ugt i32 %3140, %4865
+  %4866 = icmp samesign ugt i32 %3140, %4865
   br i1 %4866, label %4867, label %.backedge.i162
 
 4867:                                             ; preds = %4862
   %4868 = getelementptr inbounds i8, ptr %3136, i64 %1302
   %4869 = load i8, ptr %4868, align 1
   %4870 = zext i8 %4869 to i32
-  %4871 = icmp ugt i32 %3140, %4870
+  %4871 = icmp samesign ugt i32 %3140, %4870
   br i1 %4871, label %4872, label %4898
 
 4872:                                             ; preds = %4867
   %4873 = getelementptr inbounds i8, ptr %3136, i64 %1301
   %4874 = load i8, ptr %4873, align 1
   %4875 = zext i8 %4874 to i32
-  %4876 = icmp ugt i32 %3140, %4875
+  %4876 = icmp samesign ugt i32 %3140, %4875
   %4877 = getelementptr inbounds i8, ptr %3136, i64 %1306
   %4878 = load i8, ptr %4877, align 1
   %4879 = zext i8 %4878 to i32
-  %4880 = icmp ugt i32 %3140, %4879
+  %4880 = icmp samesign ugt i32 %3140, %4879
   br i1 %4876, label %4881, label %4892
 
 4881:                                             ; preds = %4872
@@ -7641,14 +7641,14 @@ _ZNSt6vectorIN2cv8KeyPointESaIS1_EE6resizeEm.exit.i114: ; preds = %1255, %1239
   %4883 = getelementptr inbounds i8, ptr %3136, i64 %1304
   %4884 = load i8, ptr %4883, align 1
   %4885 = zext i8 %4884 to i32
-  %4886 = icmp ugt i32 %3140, %4885
+  %4886 = icmp samesign ugt i32 %3140, %4885
   br i1 %4886, label %4887, label %.backedge.i162
 
 4887:                                             ; preds = %4882
   %4888 = getelementptr inbounds i8, ptr %3136, i64 %1300
   %4889 = load i8, ptr %4888, align 1
   %4890 = zext i8 %4889 to i32
-  %4891 = icmp ugt i32 %3140, %4890
+  %4891 = icmp samesign ugt i32 %3140, %4890
   br i1 %4891, label %.loopexit2574.i, label %.backedge.i162
 
 4892:                                             ; preds = %4872
@@ -7658,67 +7658,67 @@ _ZNSt6vectorIN2cv8KeyPointESaIS1_EE6resizeEm.exit.i114: ; preds = %1255, %1239
   %4894 = getelementptr inbounds i8, ptr %3136, i64 %1308
   %4895 = load i8, ptr %4894, align 1
   %4896 = zext i8 %4895 to i32
-  %4897 = icmp ugt i32 %3140, %4896
+  %4897 = icmp samesign ugt i32 %3140, %4896
   br i1 %4897, label %.loopexit2574.i, label %.backedge.i162
 
 4898:                                             ; preds = %4867
   %4899 = getelementptr inbounds i8, ptr %3136, i64 %1307
   %4900 = load i8, ptr %4899, align 1
   %4901 = zext i8 %4900 to i32
-  %4902 = icmp ugt i32 %3140, %4901
+  %4902 = icmp samesign ugt i32 %3140, %4901
   br i1 %4902, label %4903, label %.backedge.i162
 
 4903:                                             ; preds = %4898
   %4904 = getelementptr inbounds i8, ptr %3136, i64 %1306
   %4905 = load i8, ptr %4904, align 1
   %4906 = zext i8 %4905 to i32
-  %4907 = icmp ugt i32 %3140, %4906
+  %4907 = icmp samesign ugt i32 %3140, %4906
   br i1 %4907, label %4908, label %.backedge.i162
 
 4908:                                             ; preds = %4903
   %4909 = getelementptr inbounds i8, ptr %3136, i64 %1308
   %4910 = load i8, ptr %4909, align 1
   %4911 = zext i8 %4910 to i32
-  %4912 = icmp ugt i32 %3140, %4911
+  %4912 = icmp samesign ugt i32 %3140, %4911
   br i1 %4912, label %.loopexit2574.i, label %.backedge.i162
 
 4913:                                             ; preds = %4852
   %4914 = getelementptr inbounds i8, ptr %3136, i64 %1300
   %4915 = load i8, ptr %4914, align 1
   %4916 = zext i8 %4915 to i32
-  %4917 = icmp ugt i32 %3140, %4916
+  %4917 = icmp samesign ugt i32 %3140, %4916
   br i1 %4917, label %4918, label %.backedge.i162
 
 4918:                                             ; preds = %4913
   %4919 = getelementptr inbounds i8, ptr %3136, i64 %1301
   %4920 = load i8, ptr %4919, align 1
   %4921 = zext i8 %4920 to i32
-  %4922 = icmp ugt i32 %3140, %4921
+  %4922 = icmp samesign ugt i32 %3140, %4921
   br i1 %4922, label %4923, label %.backedge.i162
 
 4923:                                             ; preds = %4918
   %4924 = getelementptr inbounds i8, ptr %3136, i64 %1302
   %4925 = load i8, ptr %4924, align 1
   %4926 = zext i8 %4925 to i32
-  %4927 = icmp ugt i32 %3140, %4926
+  %4927 = icmp samesign ugt i32 %3140, %4926
   br i1 %4927, label %4928, label %.backedge.i162
 
 4928:                                             ; preds = %4923
   %4929 = getelementptr inbounds i8, ptr %3136, i64 %1303
   %4930 = load i8, ptr %4929, align 1
   %4931 = zext i8 %4930 to i32
-  %4932 = icmp ugt i32 %3140, %4931
+  %4932 = icmp samesign ugt i32 %3140, %4931
   br i1 %4932, label %4933, label %.backedge.i162
 
 4933:                                             ; preds = %4928
   %4934 = getelementptr inbounds i8, ptr %3136, i64 %1304
   %4935 = load i8, ptr %4934, align 1
   %4936 = zext i8 %4935 to i32
-  %4937 = icmp ugt i32 %3140, %4936
+  %4937 = icmp samesign ugt i32 %3140, %4936
   %4938 = getelementptr inbounds i8, ptr %3136, i64 %1305
   %4939 = load i8, ptr %4938, align 1
   %4940 = zext i8 %4939 to i32
-  %4941 = icmp ugt i32 %3140, %4940
+  %4941 = icmp samesign ugt i32 %3140, %4940
   br i1 %4937, label %4942, label %4943
 
 4942:                                             ; preds = %4933
@@ -7731,7 +7731,7 @@ _ZNSt6vectorIN2cv8KeyPointESaIS1_EE6resizeEm.exit.i114: ; preds = %1255, %1239
   %4945 = getelementptr inbounds i8, ptr %3136, i64 %1306
   %4946 = load i8, ptr %4945, align 1
   %4947 = zext i8 %4946 to i32
-  %4948 = icmp ugt i32 %3140, %4947
+  %4948 = icmp samesign ugt i32 %3140, %4947
   br i1 %4948, label %.loopexit2574.i, label %.backedge.i162
 
 4949:                                             ; preds = %3130, %3128, %3094, %3079, %3073, %3067, %3031, %3029, %2995, %2980, %2974, %2968, %2929, %2919, %2914, %2883, %2878, %2863, %2853, %2848, %2808, %2776, %2765, %2754, %2753, %2724, %2709, %2704, %2648, %2638, %2633, %2580, %2553, %2531, %2530, %2372, %2367, %2199, %2194, %2157, %2152, %2122, %2111, %2096, %2091, %2061, %2059, %2028, %1985, %1975, %1970, %1818, %1808, %1803, %1763, %1577, %1567, %1562, %1522, %1495, %1484, %1483, %1422, %1412, %1407, %1357
@@ -8508,229 +8508,229 @@ _ZNSt6vectorIN2cv8KeyPointESaIS1_EE6resizeEm.exit.i174: ; preds = %5140, %5124
   %5253 = getelementptr inbounds i8, ptr %5203, i64 %5193
   %5254 = load i8, ptr %5253, align 1
   %5255 = zext i8 %5254 to i32
-  %5256 = icmp ult i32 %5206, %5255
+  %5256 = icmp samesign ult i32 %5206, %5255
   br i1 %5256, label %5257, label %.backedge2207.i
 
 5257:                                             ; preds = %5252
   %5258 = getelementptr inbounds i8, ptr %5203, i64 %5192
   %5259 = load i8, ptr %5258, align 1
   %5260 = zext i8 %5259 to i32
-  %5261 = icmp ult i32 %5206, %5260
+  %5261 = icmp samesign ult i32 %5206, %5260
   br i1 %5261, label %8323, label %.preheader.i219
 
 5262:                                             ; preds = %5242
   %5263 = getelementptr inbounds i8, ptr %5203, i64 %5191
   %5264 = load i8, ptr %5263, align 1
   %5265 = zext i8 %5264 to i32
-  %5266 = icmp ult i32 %5206, %5265
+  %5266 = icmp samesign ult i32 %5206, %5265
   br i1 %5266, label %5267, label %.backedge2207.i
 
 5267:                                             ; preds = %5262
   %5268 = getelementptr inbounds i8, ptr %5203, i64 %5193
   %5269 = load i8, ptr %5268, align 1
   %5270 = zext i8 %5269 to i32
-  %5271 = icmp ult i32 %5206, %5270
+  %5271 = icmp samesign ult i32 %5206, %5270
   br i1 %5271, label %5272, label %.backedge2207.i
 
 5272:                                             ; preds = %5267
   %5273 = getelementptr inbounds i8, ptr %5203, i64 %5188
   %5274 = load i8, ptr %5273, align 1
   %5275 = zext i8 %5274 to i32
-  %5276 = icmp ult i32 %5206, %5275
+  %5276 = icmp samesign ult i32 %5206, %5275
   br i1 %5276, label %8323, label %5277
 
 5277:                                             ; preds = %5272
   %5278 = getelementptr inbounds i8, ptr %5203, i64 %5192
   %5279 = load i8, ptr %5278, align 1
   %5280 = zext i8 %5279 to i32
-  %5281 = icmp ult i32 %5206, %5280
+  %5281 = icmp samesign ult i32 %5206, %5280
   br i1 %5281, label %8323, label %.preheader.i219
 
 5282:                                             ; preds = %5240
   %5283 = getelementptr inbounds i8, ptr %5203, i64 %5192
   %5284 = load i8, ptr %5283, align 1
   %5285 = zext i8 %5284 to i32
-  %5286 = icmp ult i32 %5206, %5285
+  %5286 = icmp samesign ult i32 %5206, %5285
   br i1 %5286, label %5287, label %.backedge2207.i
 
 5287:                                             ; preds = %5282
   %5288 = getelementptr inbounds i8, ptr %5203, i64 %5187
   %5289 = load i8, ptr %5288, align 1
   %5290 = zext i8 %5289 to i32
-  %5291 = icmp ult i32 %5206, %5290
+  %5291 = icmp samesign ult i32 %5206, %5290
   br i1 %5291, label %5292, label %5302
 
 5292:                                             ; preds = %5287
   %5293 = getelementptr inbounds i8, ptr %5203, i64 %5188
   %5294 = load i8, ptr %5293, align 1
   %5295 = zext i8 %5294 to i32
-  %5296 = icmp ult i32 %5206, %5295
+  %5296 = icmp samesign ult i32 %5206, %5295
   br i1 %5296, label %8323, label %5297
 
 5297:                                             ; preds = %5292
   %5298 = getelementptr inbounds i8, ptr %5203, i64 %5193
   %5299 = load i8, ptr %5298, align 1
   %5300 = zext i8 %5299 to i32
-  %5301 = icmp ult i32 %5206, %5300
+  %5301 = icmp samesign ult i32 %5206, %5300
   br i1 %5301, label %8323, label %.backedge2207.i
 
 5302:                                             ; preds = %5287
   %5303 = getelementptr inbounds i8, ptr %5203, i64 %5191
   %5304 = load i8, ptr %5303, align 1
   %5305 = zext i8 %5304 to i32
-  %5306 = icmp ult i32 %5206, %5305
+  %5306 = icmp samesign ult i32 %5206, %5305
   br i1 %5306, label %5307, label %.backedge2207.i
 
 5307:                                             ; preds = %5302
   %5308 = getelementptr inbounds i8, ptr %5203, i64 %5193
   %5309 = load i8, ptr %5308, align 1
   %5310 = zext i8 %5309 to i32
-  %5311 = icmp ult i32 %5206, %5310
+  %5311 = icmp samesign ult i32 %5206, %5310
   br i1 %5311, label %8323, label %.backedge2207.i
 
 5312:                                             ; preds = %5235
-  %5313 = icmp ult i32 %5206, %5239
+  %5313 = icmp samesign ult i32 %5206, %5239
   br i1 %5313, label %5314, label %.backedge2207.i
 
 5314:                                             ; preds = %5312
   %5315 = getelementptr inbounds i8, ptr %5203, i64 %5191
   %5316 = load i8, ptr %5315, align 1
   %5317 = zext i8 %5316 to i32
-  %5318 = icmp ult i32 %5206, %5317
+  %5318 = icmp samesign ult i32 %5206, %5317
   br i1 %5318, label %5319, label %.backedge2207.i
 
 5319:                                             ; preds = %5314
   %5320 = getelementptr inbounds i8, ptr %5203, i64 %5188
   %5321 = load i8, ptr %5320, align 1
   %5322 = zext i8 %5321 to i32
-  %5323 = icmp ult i32 %5206, %5322
+  %5323 = icmp samesign ult i32 %5206, %5322
   br i1 %5323, label %5324, label %5334
 
 5324:                                             ; preds = %5319
   %5325 = getelementptr inbounds i8, ptr %5203, i64 %5187
   %5326 = load i8, ptr %5325, align 1
   %5327 = zext i8 %5326 to i32
-  %5328 = icmp ult i32 %5206, %5327
+  %5328 = icmp samesign ult i32 %5206, %5327
   br i1 %5328, label %8323, label %5329
 
 5329:                                             ; preds = %5324
   %5330 = getelementptr inbounds i8, ptr %5203, i64 %5193
   %5331 = load i8, ptr %5330, align 1
   %5332 = zext i8 %5331 to i32
-  %5333 = icmp ult i32 %5206, %5332
+  %5333 = icmp samesign ult i32 %5206, %5332
   br i1 %5333, label %8323, label %.backedge2207.i
 
 5334:                                             ; preds = %5319
   %5335 = getelementptr inbounds i8, ptr %5203, i64 %5193
   %5336 = load i8, ptr %5335, align 1
   %5337 = zext i8 %5336 to i32
-  %5338 = icmp ult i32 %5206, %5337
+  %5338 = icmp samesign ult i32 %5206, %5337
   br i1 %5338, label %5339, label %.backedge2207.i
 
 5339:                                             ; preds = %5334
   %5340 = getelementptr inbounds i8, ptr %5203, i64 %5192
   %5341 = load i8, ptr %5340, align 1
   %5342 = zext i8 %5341 to i32
-  %5343 = icmp ult i32 %5206, %5342
+  %5343 = icmp samesign ult i32 %5206, %5342
   br i1 %5343, label %8323, label %.backedge2207.i
 
 5344:                                             ; preds = %5227
-  %5345 = icmp ult i32 %5206, %5234
+  %5345 = icmp samesign ult i32 %5206, %5234
   br i1 %5345, label %5346, label %.backedge2207.i
 
 5346:                                             ; preds = %5344
   %5347 = getelementptr inbounds i8, ptr %5203, i64 %5192
   %5348 = load i8, ptr %5347, align 1
   %5349 = zext i8 %5348 to i32
-  %5350 = icmp ult i32 %5206, %5349
+  %5350 = icmp samesign ult i32 %5206, %5349
   br i1 %5350, label %5351, label %5376
 
 5351:                                             ; preds = %5346
   %5352 = getelementptr inbounds i8, ptr %5203, i64 %5187
   %5353 = load i8, ptr %5352, align 1
   %5354 = zext i8 %5353 to i32
-  %5355 = icmp ult i32 %5206, %5354
+  %5355 = icmp samesign ult i32 %5206, %5354
   br i1 %5355, label %5356, label %5366
 
 5356:                                             ; preds = %5351
   %5357 = getelementptr inbounds i8, ptr %5203, i64 %5188
   %5358 = load i8, ptr %5357, align 1
   %5359 = zext i8 %5358 to i32
-  %5360 = icmp ult i32 %5206, %5359
+  %5360 = icmp samesign ult i32 %5206, %5359
   br i1 %5360, label %8251, label %5361
 
 5361:                                             ; preds = %5356
   %5362 = getelementptr inbounds i8, ptr %5203, i64 %5193
   %5363 = load i8, ptr %5362, align 1
   %5364 = zext i8 %5363 to i32
-  %5365 = icmp ult i32 %5206, %5364
+  %5365 = icmp samesign ult i32 %5206, %5364
   br i1 %5365, label %8251, label %.backedge2207.i
 
 5366:                                             ; preds = %5351
   %5367 = getelementptr inbounds i8, ptr %5203, i64 %5191
   %5368 = load i8, ptr %5367, align 1
   %5369 = zext i8 %5368 to i32
-  %5370 = icmp ult i32 %5206, %5369
+  %5370 = icmp samesign ult i32 %5206, %5369
   br i1 %5370, label %5371, label %.backedge2207.i
 
 5371:                                             ; preds = %5366
   %5372 = getelementptr inbounds i8, ptr %5203, i64 %5193
   %5373 = load i8, ptr %5372, align 1
   %5374 = zext i8 %5373 to i32
-  %5375 = icmp ult i32 %5206, %5374
+  %5375 = icmp samesign ult i32 %5206, %5374
   br i1 %5375, label %8251, label %.backedge2207.i
 
 5376:                                             ; preds = %5346
   %5377 = getelementptr inbounds i8, ptr %5203, i64 %5190
   %5378 = load i8, ptr %5377, align 1
   %5379 = zext i8 %5378 to i32
-  %5380 = icmp ult i32 %5206, %5379
+  %5380 = icmp samesign ult i32 %5206, %5379
   br i1 %5380, label %5381, label %.backedge2207.i
 
 5381:                                             ; preds = %5376
   %5382 = getelementptr inbounds i8, ptr %5203, i64 %5187
   %5383 = load i8, ptr %5382, align 1
   %5384 = zext i8 %5383 to i32
-  %5385 = icmp ult i32 %5206, %5384
+  %5385 = icmp samesign ult i32 %5206, %5384
   br i1 %5385, label %5386, label %.backedge2207.i
 
 5386:                                             ; preds = %5381
   %5387 = getelementptr inbounds i8, ptr %5203, i64 %5188
   %5388 = load i8, ptr %5387, align 1
   %5389 = zext i8 %5388 to i32
-  %5390 = icmp ult i32 %5206, %5389
+  %5390 = icmp samesign ult i32 %5206, %5389
   br i1 %5390, label %8251, label %.backedge2207.i
 
 5391:                                             ; preds = %5225
   %5392 = getelementptr inbounds i8, ptr %5203, i64 %5187
   %5393 = load i8, ptr %5392, align 1
   %5394 = zext i8 %5393 to i32
-  %5395 = icmp ult i32 %5206, %5394
+  %5395 = icmp samesign ult i32 %5206, %5394
   br i1 %5395, label %5396, label %.backedge2207.i
 
 5396:                                             ; preds = %5391
   %5397 = getelementptr inbounds i8, ptr %5203, i64 %5188
   %5398 = load i8, ptr %5397, align 1
   %5399 = zext i8 %5398 to i32
-  %5400 = icmp ult i32 %5206, %5399
+  %5400 = icmp samesign ult i32 %5206, %5399
   br i1 %5400, label %5401, label %.backedge2207.i
 
 5401:                                             ; preds = %5396
   %5402 = getelementptr inbounds i8, ptr %5203, i64 %5184
   %5403 = load i8, ptr %5402, align 1
   %5404 = zext i8 %5403 to i32
-  %5405 = icmp ult i32 %5206, %5404
+  %5405 = icmp samesign ult i32 %5206, %5404
   %5406 = getelementptr inbounds i8, ptr %5203, i64 %5189
   %5407 = load i8, ptr %5406, align 1
   %5408 = zext i8 %5407 to i32
-  %5409 = icmp ult i32 %5206, %5408
+  %5409 = icmp samesign ult i32 %5206, %5408
   br i1 %5405, label %5410, label %5427
 
 5410:                                             ; preds = %5401
   %5411 = getelementptr inbounds i8, ptr %5203, i64 %5190
   %5412 = load i8, ptr %5411, align 1
   %5413 = zext i8 %5412 to i32
-  %5414 = icmp ult i32 %5206, %5413
+  %5414 = icmp samesign ult i32 %5206, %5413
   br i1 %5409, label %5415, label %5421
 
 5415:                                             ; preds = %5410
@@ -8740,7 +8740,7 @@ _ZNSt6vectorIN2cv8KeyPointESaIS1_EE6resizeEm.exit.i174: ; preds = %5140, %5124
   %5417 = getelementptr inbounds i8, ptr %5203, i64 %5192
   %5418 = load i8, ptr %5417, align 1
   %5419 = zext i8 %5418 to i32
-  %5420 = icmp ult i32 %5206, %5419
+  %5420 = icmp samesign ult i32 %5206, %5419
   br i1 %5420, label %8251, label %.backedge2207.i
 
 5421:                                             ; preds = %5410
@@ -8750,7 +8750,7 @@ _ZNSt6vectorIN2cv8KeyPointESaIS1_EE6resizeEm.exit.i174: ; preds = %5140, %5124
   %5423 = getelementptr inbounds i8, ptr %5203, i64 %5191
   %5424 = load i8, ptr %5423, align 1
   %5425 = zext i8 %5424 to i32
-  %5426 = icmp ult i32 %5206, %5425
+  %5426 = icmp samesign ult i32 %5206, %5425
   br i1 %5426, label %8251, label %.backedge2207.i
 
 5427:                                             ; preds = %5401
@@ -8760,14 +8760,14 @@ _ZNSt6vectorIN2cv8KeyPointESaIS1_EE6resizeEm.exit.i174: ; preds = %5140, %5124
   %5429 = getelementptr inbounds i8, ptr %5203, i64 %5190
   %5430 = load i8, ptr %5429, align 1
   %5431 = zext i8 %5430 to i32
-  %5432 = icmp ult i32 %5206, %5431
+  %5432 = icmp samesign ult i32 %5206, %5431
   br i1 %5432, label %8251, label %5433
 
 5433:                                             ; preds = %5428
   %5434 = getelementptr inbounds i8, ptr %5203, i64 %5192
   %5435 = load i8, ptr %5434, align 1
   %5436 = zext i8 %5435 to i32
-  %5437 = icmp ult i32 %5206, %5436
+  %5437 = icmp samesign ult i32 %5206, %5436
   br i1 %5437, label %8251, label %.backedge2207.i
 
 5438:                                             ; preds = %5217
@@ -8778,15 +8778,15 @@ _ZNSt6vectorIN2cv8KeyPointESaIS1_EE6resizeEm.exit.i174: ; preds = %5140, %5124
   %5441 = getelementptr inbounds i8, ptr %5203, i64 %5184
   %5442 = load i8, ptr %5441, align 1
   %5443 = zext i8 %5442 to i32
-  %5444 = icmp ugt i32 %5207, %5443
+  %5444 = icmp samesign ugt i32 %5207, %5443
   br i1 %5444, label %5445, label %5573
 
 5445:                                             ; preds = %5440
-  %5446 = icmp ugt i32 %5207, %5220
+  %5446 = icmp samesign ugt i32 %5207, %5220
   %5447 = getelementptr inbounds i8, ptr %5203, i64 %5189
   %5448 = load i8, ptr %5447, align 1
   %5449 = zext i8 %5448 to i32
-  %5450 = icmp ult i32 %5206, %5449
+  %5450 = icmp samesign ult i32 %5206, %5449
   br i1 %5446, label %5451, label %5552
 
 5451:                                             ; preds = %5445
@@ -8796,50 +8796,50 @@ _ZNSt6vectorIN2cv8KeyPointESaIS1_EE6resizeEm.exit.i174: ; preds = %5140, %5124
   %5453 = getelementptr inbounds i8, ptr %5203, i64 %5188
   %5454 = load i8, ptr %5453, align 1
   %5455 = zext i8 %5454 to i32
-  %5456 = icmp ult i32 %5206, %5455
+  %5456 = icmp samesign ult i32 %5206, %5455
   br i1 %5456, label %5457, label %5488
 
 5457:                                             ; preds = %5452
   %5458 = getelementptr inbounds i8, ptr %5203, i64 %5193
   %5459 = load i8, ptr %5458, align 1
   %5460 = zext i8 %5459 to i32
-  %5461 = icmp ult i32 %5206, %5460
+  %5461 = icmp samesign ult i32 %5206, %5460
   br i1 %5461, label %5462, label %5472
 
 5462:                                             ; preds = %5457
   %5463 = getelementptr inbounds i8, ptr %5203, i64 %5187
   %5464 = load i8, ptr %5463, align 1
   %5465 = zext i8 %5464 to i32
-  %5466 = icmp ult i32 %5206, %5465
+  %5466 = icmp samesign ult i32 %5206, %5465
   br i1 %5466, label %5467, label %.backedge2207.i
 
 5467:                                             ; preds = %5462
   %5468 = getelementptr inbounds i8, ptr %5203, i64 %5192
   %5469 = load i8, ptr %5468, align 1
   %5470 = zext i8 %5469 to i32
-  %5471 = icmp ult i32 %5206, %5470
+  %5471 = icmp samesign ult i32 %5206, %5470
   br i1 %5471, label %8323, label %.preheader.i219
 
 5472:                                             ; preds = %5457
   %5473 = getelementptr inbounds i8, ptr %5203, i64 %5190
   %5474 = load i8, ptr %5473, align 1
   %5475 = zext i8 %5474 to i32
-  %5476 = icmp ugt i32 %5207, %5475
+  %5476 = icmp samesign ugt i32 %5207, %5475
   br i1 %5476, label %5477, label %.backedge2207.i
 
 5477:                                             ; preds = %5472
   %5478 = getelementptr inbounds i8, ptr %5203, i64 %5191
   %5479 = load i8, ptr %5478, align 1
   %5480 = zext i8 %5479 to i32
-  %5481 = icmp ugt i32 %5207, %5480
+  %5481 = icmp samesign ugt i32 %5207, %5480
   br i1 %5481, label %5482, label %.backedge2207.i
 
 5482:                                             ; preds = %5477
   %5483 = getelementptr inbounds i8, ptr %5203, i64 %5192
   %5484 = load i8, ptr %5483, align 1
   %5485 = zext i8 %5484 to i32
-  %5486 = icmp ugt i32 %5207, %5485
-  %5487 = icmp ugt i32 %5207, %5460
+  %5486 = icmp samesign ugt i32 %5207, %5485
+  %5487 = icmp samesign ugt i32 %5207, %5460
   %or.cond.i226 = and i1 %5487, %5486
   br i1 %or.cond.i226, label %8323, label %.preheader.i219
 
@@ -8847,92 +8847,92 @@ _ZNSt6vectorIN2cv8KeyPointESaIS1_EE6resizeEm.exit.i174: ; preds = %5140, %5124
   %5489 = getelementptr inbounds i8, ptr %5203, i64 %5190
   %5490 = load i8, ptr %5489, align 1
   %5491 = zext i8 %5490 to i32
-  %5492 = icmp ugt i32 %5207, %5491
+  %5492 = icmp samesign ugt i32 %5207, %5491
   br i1 %5492, label %5493, label %.backedge2207.i
 
 5493:                                             ; preds = %5488
   %5494 = getelementptr inbounds i8, ptr %5203, i64 %5191
   %5495 = load i8, ptr %5494, align 1
   %5496 = zext i8 %5495 to i32
-  %5497 = icmp ugt i32 %5207, %5496
+  %5497 = icmp samesign ugt i32 %5207, %5496
   br i1 %5497, label %5498, label %.backedge2207.i
 
 5498:                                             ; preds = %5493
   %5499 = getelementptr inbounds i8, ptr %5203, i64 %5193
   %5500 = load i8, ptr %5499, align 1
   %5501 = zext i8 %5500 to i32
-  %5502 = icmp ugt i32 %5207, %5501
+  %5502 = icmp samesign ugt i32 %5207, %5501
   br i1 %5502, label %5503, label %5510
 
 5503:                                             ; preds = %5498
-  %5504 = icmp ugt i32 %5207, %5455
+  %5504 = icmp samesign ugt i32 %5207, %5455
   br i1 %5504, label %8323, label %5505
 
 5505:                                             ; preds = %5503
   %5506 = getelementptr inbounds i8, ptr %5203, i64 %5192
   %5507 = load i8, ptr %5506, align 1
   %5508 = zext i8 %5507 to i32
-  %5509 = icmp ugt i32 %5207, %5508
+  %5509 = icmp samesign ugt i32 %5207, %5508
   br i1 %5509, label %8323, label %.preheader.i219
 
 5510:                                             ; preds = %5498
   %5511 = getelementptr inbounds i8, ptr %5203, i64 %5187
   %5512 = load i8, ptr %5511, align 1
   %5513 = zext i8 %5512 to i32
-  %5514 = icmp ugt i32 %5207, %5513
+  %5514 = icmp samesign ugt i32 %5207, %5513
   br i1 %5514, label %5515, label %.backedge2207.i
 
 5515:                                             ; preds = %5510
-  %5516 = icmp ugt i32 %5207, %5455
+  %5516 = icmp samesign ugt i32 %5207, %5455
   br i1 %5516, label %8323, label %.preheader.i219
 
 5517:                                             ; preds = %5451
   %5518 = getelementptr inbounds i8, ptr %5203, i64 %5190
   %5519 = load i8, ptr %5518, align 1
   %5520 = zext i8 %5519 to i32
-  %5521 = icmp ugt i32 %5207, %5520
+  %5521 = icmp samesign ugt i32 %5207, %5520
   br i1 %5521, label %5522, label %.backedge2207.i
 
 5522:                                             ; preds = %5517
   %5523 = getelementptr inbounds i8, ptr %5203, i64 %5191
   %5524 = load i8, ptr %5523, align 1
   %5525 = zext i8 %5524 to i32
-  %5526 = icmp ugt i32 %5207, %5525
+  %5526 = icmp samesign ugt i32 %5207, %5525
   br i1 %5526, label %5527, label %.backedge2207.i
 
 5527:                                             ; preds = %5522
   %5528 = getelementptr inbounds i8, ptr %5203, i64 %5188
   %5529 = load i8, ptr %5528, align 1
   %5530 = zext i8 %5529 to i32
-  %5531 = icmp ugt i32 %5207, %5530
+  %5531 = icmp samesign ugt i32 %5207, %5530
   br i1 %5531, label %5532, label %5542
 
 5532:                                             ; preds = %5527
   %5533 = getelementptr inbounds i8, ptr %5203, i64 %5187
   %5534 = load i8, ptr %5533, align 1
   %5535 = zext i8 %5534 to i32
-  %5536 = icmp ugt i32 %5207, %5535
+  %5536 = icmp samesign ugt i32 %5207, %5535
   br i1 %5536, label %8323, label %5537
 
 5537:                                             ; preds = %5532
   %5538 = getelementptr inbounds i8, ptr %5203, i64 %5193
   %5539 = load i8, ptr %5538, align 1
   %5540 = zext i8 %5539 to i32
-  %5541 = icmp ugt i32 %5207, %5540
+  %5541 = icmp samesign ugt i32 %5207, %5540
   br i1 %5541, label %8323, label %.backedge2207.i
 
 5542:                                             ; preds = %5527
   %5543 = getelementptr inbounds i8, ptr %5203, i64 %5193
   %5544 = load i8, ptr %5543, align 1
   %5545 = zext i8 %5544 to i32
-  %5546 = icmp ugt i32 %5207, %5545
+  %5546 = icmp samesign ugt i32 %5207, %5545
   br i1 %5546, label %5547, label %.backedge2207.i
 
 5547:                                             ; preds = %5542
   %5548 = getelementptr inbounds i8, ptr %5203, i64 %5192
   %5549 = load i8, ptr %5548, align 1
   %5550 = zext i8 %5549 to i32
-  %5551 = icmp ugt i32 %5207, %5550
+  %5551 = icmp samesign ugt i32 %5207, %5550
   br i1 %5551, label %8323, label %.backedge2207.i
 
 5552:                                             ; preds = %5445
@@ -8942,92 +8942,92 @@ _ZNSt6vectorIN2cv8KeyPointESaIS1_EE6resizeEm.exit.i174: ; preds = %5140, %5124
   %5554 = getelementptr inbounds i8, ptr %5203, i64 %5187
   %5555 = load i8, ptr %5554, align 1
   %5556 = zext i8 %5555 to i32
-  %5557 = icmp ult i32 %5206, %5556
+  %5557 = icmp samesign ult i32 %5206, %5556
   br i1 %5557, label %5558, label %.backedge2207.i
 
 5558:                                             ; preds = %5553
   %5559 = getelementptr inbounds i8, ptr %5203, i64 %5188
   %5560 = load i8, ptr %5559, align 1
   %5561 = zext i8 %5560 to i32
-  %5562 = icmp ult i32 %5206, %5561
+  %5562 = icmp samesign ult i32 %5206, %5561
   br i1 %5562, label %5563, label %.backedge2207.i
 
 5563:                                             ; preds = %5558
   %5564 = getelementptr inbounds i8, ptr %5203, i64 %5193
   %5565 = load i8, ptr %5564, align 1
   %5566 = zext i8 %5565 to i32
-  %5567 = icmp ult i32 %5206, %5566
+  %5567 = icmp samesign ult i32 %5206, %5566
   br i1 %5567, label %5568, label %.backedge2207.i
 
 5568:                                             ; preds = %5563
   %5569 = getelementptr inbounds i8, ptr %5203, i64 %5192
   %5570 = load i8, ptr %5569, align 1
   %5571 = zext i8 %5570 to i32
-  %5572 = icmp ult i32 %5206, %5571
+  %5572 = icmp samesign ult i32 %5206, %5571
   br i1 %5572, label %8323, label %.backedge2207.i
 
 5573:                                             ; preds = %5440
   %5574 = getelementptr inbounds i8, ptr %5203, i64 %5189
   %5575 = load i8, ptr %5574, align 1
   %5576 = zext i8 %5575 to i32
-  %5577 = icmp ult i32 %5206, %5576
+  %5577 = icmp samesign ult i32 %5206, %5576
   br i1 %5577, label %5578, label %.backedge2207.i
 
 5578:                                             ; preds = %5573
   %5579 = getelementptr inbounds i8, ptr %5203, i64 %5187
   %5580 = load i8, ptr %5579, align 1
   %5581 = zext i8 %5580 to i32
-  %5582 = icmp ult i32 %5206, %5581
+  %5582 = icmp samesign ult i32 %5206, %5581
   br i1 %5582, label %5583, label %.backedge2207.i
 
 5583:                                             ; preds = %5578
   %5584 = getelementptr inbounds i8, ptr %5203, i64 %5188
   %5585 = load i8, ptr %5584, align 1
   %5586 = zext i8 %5585 to i32
-  %5587 = icmp ult i32 %5206, %5586
+  %5587 = icmp samesign ult i32 %5206, %5586
   br i1 %5587, label %5588, label %.backedge2207.i
 
 5588:                                             ; preds = %5583
   %5589 = getelementptr inbounds i8, ptr %5203, i64 %5193
   %5590 = load i8, ptr %5589, align 1
   %5591 = zext i8 %5590 to i32
-  %5592 = icmp ult i32 %5206, %5591
+  %5592 = icmp samesign ult i32 %5206, %5591
   br i1 %5592, label %5593, label %.backedge2207.i
 
 5593:                                             ; preds = %5588
   %5594 = getelementptr inbounds i8, ptr %5203, i64 %5192
   %5595 = load i8, ptr %5594, align 1
   %5596 = zext i8 %5595 to i32
-  %5597 = icmp ult i32 %5206, %5596
+  %5597 = icmp samesign ult i32 %5206, %5596
   br i1 %5597, label %8251, label %.backedge2207.i
 
 5598:                                             ; preds = %5438
   %5599 = getelementptr inbounds i8, ptr %5203, i64 %5193
   %5600 = load i8, ptr %5599, align 1
   %5601 = zext i8 %5600 to i32
-  %5602 = icmp ult i32 %5206, %5601
+  %5602 = icmp samesign ult i32 %5206, %5601
   br i1 %5602, label %5603, label %.backedge2207.i
 
 5603:                                             ; preds = %5598
   %5604 = getelementptr inbounds i8, ptr %5203, i64 %5192
   %5605 = load i8, ptr %5604, align 1
   %5606 = zext i8 %5605 to i32
-  %5607 = icmp ult i32 %5206, %5606
+  %5607 = icmp samesign ult i32 %5206, %5606
   br i1 %5607, label %5608, label %.backedge2207.i
 
 5608:                                             ; preds = %5603
-  %5609 = icmp ult i32 %5206, %5224
+  %5609 = icmp samesign ult i32 %5206, %5224
   br i1 %5609, label %5610, label %5651
 
 5610:                                             ; preds = %5608
   %5611 = getelementptr inbounds i8, ptr %5203, i64 %5184
   %5612 = load i8, ptr %5611, align 1
   %5613 = zext i8 %5612 to i32
-  %5614 = icmp ult i32 %5206, %5613
+  %5614 = icmp samesign ult i32 %5206, %5613
   %5615 = getelementptr inbounds i8, ptr %5203, i64 %5189
   %5616 = load i8, ptr %5615, align 1
   %5617 = zext i8 %5616 to i32
-  %5618 = icmp ult i32 %5206, %5617
+  %5618 = icmp samesign ult i32 %5206, %5617
   br i1 %5614, label %5619, label %5640
 
 5619:                                             ; preds = %5610
@@ -9037,28 +9037,28 @@ _ZNSt6vectorIN2cv8KeyPointESaIS1_EE6resizeEm.exit.i174: ; preds = %5140, %5124
   %5621 = getelementptr inbounds i8, ptr %5203, i64 %5187
   %5622 = load i8, ptr %5621, align 1
   %5623 = zext i8 %5622 to i32
-  %5624 = icmp ult i32 %5206, %5623
+  %5624 = icmp samesign ult i32 %5206, %5623
   br i1 %5624, label %8251, label %5625
 
 5625:                                             ; preds = %5620
   %5626 = getelementptr inbounds i8, ptr %5203, i64 %5191
   %5627 = load i8, ptr %5626, align 1
   %5628 = zext i8 %5627 to i32
-  %5629 = icmp ult i32 %5206, %5628
+  %5629 = icmp samesign ult i32 %5206, %5628
   br i1 %5629, label %8251, label %.backedge2207.i
 
 5630:                                             ; preds = %5619
   %5631 = getelementptr inbounds i8, ptr %5203, i64 %5190
   %5632 = load i8, ptr %5631, align 1
   %5633 = zext i8 %5632 to i32
-  %5634 = icmp ult i32 %5206, %5633
+  %5634 = icmp samesign ult i32 %5206, %5633
   br i1 %5634, label %5635, label %.backedge2207.i
 
 5635:                                             ; preds = %5630
   %5636 = getelementptr inbounds i8, ptr %5203, i64 %5191
   %5637 = load i8, ptr %5636, align 1
   %5638 = zext i8 %5637 to i32
-  %5639 = icmp ult i32 %5206, %5638
+  %5639 = icmp samesign ult i32 %5206, %5638
   br i1 %5639, label %8251, label %.backedge2207.i
 
 5640:                                             ; preds = %5610
@@ -9068,189 +9068,189 @@ _ZNSt6vectorIN2cv8KeyPointESaIS1_EE6resizeEm.exit.i174: ; preds = %5140, %5124
   %5642 = getelementptr inbounds i8, ptr %5203, i64 %5187
   %5643 = load i8, ptr %5642, align 1
   %5644 = zext i8 %5643 to i32
-  %5645 = icmp ult i32 %5206, %5644
+  %5645 = icmp samesign ult i32 %5206, %5644
   br i1 %5645, label %8251, label %5646
 
 5646:                                             ; preds = %5641
   %5647 = getelementptr inbounds i8, ptr %5203, i64 %5191
   %5648 = load i8, ptr %5647, align 1
   %5649 = zext i8 %5648 to i32
-  %5650 = icmp ult i32 %5206, %5649
+  %5650 = icmp samesign ult i32 %5206, %5649
   br i1 %5650, label %8251, label %.backedge2207.i
 
 5651:                                             ; preds = %5608
   %5652 = getelementptr inbounds i8, ptr %5203, i64 %5189
   %5653 = load i8, ptr %5652, align 1
   %5654 = zext i8 %5653 to i32
-  %5655 = icmp ult i32 %5206, %5654
+  %5655 = icmp samesign ult i32 %5206, %5654
   br i1 %5655, label %5656, label %.backedge2207.i
 
 5656:                                             ; preds = %5651
   %5657 = getelementptr inbounds i8, ptr %5203, i64 %5187
   %5658 = load i8, ptr %5657, align 1
   %5659 = zext i8 %5658 to i32
-  %5660 = icmp ult i32 %5206, %5659
+  %5660 = icmp samesign ult i32 %5206, %5659
   br i1 %5660, label %5661, label %.backedge2207.i
 
 5661:                                             ; preds = %5656
   %5662 = getelementptr inbounds i8, ptr %5203, i64 %5188
   %5663 = load i8, ptr %5662, align 1
   %5664 = zext i8 %5663 to i32
-  %5665 = icmp ult i32 %5206, %5664
+  %5665 = icmp samesign ult i32 %5206, %5664
   br i1 %5665, label %8251, label %.backedge2207.i
 
 5666:                                             ; preds = %5212
   %5667 = getelementptr inbounds i8, ptr %5203, i64 %5184
   %5668 = load i8, ptr %5667, align 1
   %5669 = zext i8 %5668 to i32
-  %5670 = icmp ult i32 %5206, %5669
+  %5670 = icmp samesign ult i32 %5206, %5669
   br i1 %5670, label %5671, label %5776
 
 5671:                                             ; preds = %5666
   %5672 = getelementptr inbounds i8, ptr %5203, i64 %5185
   %5673 = load i8, ptr %5672, align 1
   %5674 = zext i8 %5673 to i32
-  %5675 = icmp ult i32 %5206, %5674
+  %5675 = icmp samesign ult i32 %5206, %5674
   br i1 %5675, label %5676, label %.backedge2207.i
 
 5676:                                             ; preds = %5671
   %5677 = getelementptr inbounds i8, ptr %5203, i64 %5191
   %5678 = load i8, ptr %5677, align 1
   %5679 = zext i8 %5678 to i32
-  %5680 = icmp ult i32 %5206, %5679
+  %5680 = icmp samesign ult i32 %5206, %5679
   br i1 %5680, label %5681, label %.backedge2207.i
 
 5681:                                             ; preds = %5676
   %5682 = getelementptr inbounds i8, ptr %5203, i64 %5183
   %5683 = load i8, ptr %5682, align 1
   %5684 = zext i8 %5683 to i32
-  %5685 = icmp ult i32 %5206, %5684
+  %5685 = icmp samesign ult i32 %5206, %5684
   br i1 %5685, label %5686, label %5756
 
 5686:                                             ; preds = %5681
   %5687 = getelementptr inbounds i8, ptr %5203, i64 %5189
   %5688 = load i8, ptr %5687, align 1
   %5689 = zext i8 %5688 to i32
-  %5690 = icmp ult i32 %5206, %5689
+  %5690 = icmp samesign ult i32 %5206, %5689
   br i1 %5690, label %5691, label %5726
 
 5691:                                             ; preds = %5686
   %5692 = getelementptr inbounds i8, ptr %5203, i64 %5193
   %5693 = load i8, ptr %5692, align 1
   %5694 = zext i8 %5693 to i32
-  %5695 = icmp ult i32 %5206, %5694
+  %5695 = icmp samesign ult i32 %5206, %5694
   br i1 %5695, label %5696, label %5711
 
 5696:                                             ; preds = %5691
   %5697 = getelementptr inbounds i8, ptr %5203, i64 %5192
   %5698 = load i8, ptr %5697, align 1
   %5699 = zext i8 %5698 to i32
-  %5700 = icmp ult i32 %5206, %5699
+  %5700 = icmp samesign ult i32 %5206, %5699
   br i1 %5700, label %8251, label %5701
 
 5701:                                             ; preds = %5696
   %5702 = getelementptr inbounds i8, ptr %5203, i64 %5190
   %5703 = load i8, ptr %5702, align 1
   %5704 = zext i8 %5703 to i32
-  %5705 = icmp ult i32 %5206, %5704
+  %5705 = icmp samesign ult i32 %5206, %5704
   br i1 %5705, label %5706, label %.backedge2207.i
 
 5706:                                             ; preds = %5701
   %5707 = getelementptr inbounds i8, ptr %5203, i64 %5188
   %5708 = load i8, ptr %5707, align 1
   %5709 = zext i8 %5708 to i32
-  %5710 = icmp ult i32 %5206, %5709
+  %5710 = icmp samesign ult i32 %5206, %5709
   br i1 %5710, label %8323, label %.backedge2207.i
 
 5711:                                             ; preds = %5691
   %5712 = getelementptr inbounds i8, ptr %5203, i64 %5190
   %5713 = load i8, ptr %5712, align 1
   %5714 = zext i8 %5713 to i32
-  %5715 = icmp ult i32 %5206, %5714
+  %5715 = icmp samesign ult i32 %5206, %5714
   br i1 %5715, label %5716, label %.backedge2207.i
 
 5716:                                             ; preds = %5711
   %5717 = getelementptr inbounds i8, ptr %5203, i64 %5187
   %5718 = load i8, ptr %5717, align 1
   %5719 = zext i8 %5718 to i32
-  %5720 = icmp ult i32 %5206, %5719
+  %5720 = icmp samesign ult i32 %5206, %5719
   br i1 %5720, label %5721, label %.backedge2207.i
 
 5721:                                             ; preds = %5716
   %5722 = getelementptr inbounds i8, ptr %5203, i64 %5188
   %5723 = load i8, ptr %5722, align 1
   %5724 = zext i8 %5723 to i32
-  %5725 = icmp ult i32 %5206, %5724
+  %5725 = icmp samesign ult i32 %5206, %5724
   br i1 %5725, label %8323, label %.backedge2207.i
 
 5726:                                             ; preds = %5686
   %5727 = getelementptr inbounds i8, ptr %5203, i64 %5190
   %5728 = load i8, ptr %5727, align 1
   %5729 = zext i8 %5728 to i32
-  %5730 = icmp ult i32 %5206, %5729
+  %5730 = icmp samesign ult i32 %5206, %5729
   br i1 %5730, label %5731, label %.backedge2207.i
 
 5731:                                             ; preds = %5726
   %5732 = getelementptr inbounds i8, ptr %5203, i64 %5188
   %5733 = load i8, ptr %5732, align 1
   %5734 = zext i8 %5733 to i32
-  %5735 = icmp ult i32 %5206, %5734
+  %5735 = icmp samesign ult i32 %5206, %5734
   br i1 %5735, label %5736, label %5746
 
 5736:                                             ; preds = %5731
   %5737 = getelementptr inbounds i8, ptr %5203, i64 %5187
   %5738 = load i8, ptr %5737, align 1
   %5739 = zext i8 %5738 to i32
-  %5740 = icmp ult i32 %5206, %5739
+  %5740 = icmp samesign ult i32 %5206, %5739
   br i1 %5740, label %8251, label %5741
 
 5741:                                             ; preds = %5736
   %5742 = getelementptr inbounds i8, ptr %5203, i64 %5193
   %5743 = load i8, ptr %5742, align 1
   %5744 = zext i8 %5743 to i32
-  %5745 = icmp ult i32 %5206, %5744
+  %5745 = icmp samesign ult i32 %5206, %5744
   br i1 %5745, label %8251, label %.backedge2207.i
 
 5746:                                             ; preds = %5731
   %5747 = getelementptr inbounds i8, ptr %5203, i64 %5193
   %5748 = load i8, ptr %5747, align 1
   %5749 = zext i8 %5748 to i32
-  %5750 = icmp ult i32 %5206, %5749
+  %5750 = icmp samesign ult i32 %5206, %5749
   br i1 %5750, label %5751, label %.backedge2207.i
 
 5751:                                             ; preds = %5746
   %5752 = getelementptr inbounds i8, ptr %5203, i64 %5192
   %5753 = load i8, ptr %5752, align 1
   %5754 = zext i8 %5753 to i32
-  %5755 = icmp ult i32 %5206, %5754
+  %5755 = icmp samesign ult i32 %5206, %5754
   br i1 %5755, label %8251, label %.backedge2207.i
 
 5756:                                             ; preds = %5681
   %5757 = getelementptr inbounds i8, ptr %5203, i64 %5193
   %5758 = load i8, ptr %5757, align 1
   %5759 = zext i8 %5758 to i32
-  %5760 = icmp ult i32 %5206, %5759
+  %5760 = icmp samesign ult i32 %5206, %5759
   br i1 %5760, label %5761, label %.backedge2207.i
 
 5761:                                             ; preds = %5756
   %5762 = getelementptr inbounds i8, ptr %5203, i64 %5192
   %5763 = load i8, ptr %5762, align 1
   %5764 = zext i8 %5763 to i32
-  %5765 = icmp ult i32 %5206, %5764
+  %5765 = icmp samesign ult i32 %5206, %5764
   br i1 %5765, label %5766, label %.backedge2207.i
 
 5766:                                             ; preds = %5761
   %5767 = getelementptr inbounds i8, ptr %5203, i64 %5189
   %5768 = load i8, ptr %5767, align 1
   %5769 = zext i8 %5768 to i32
-  %5770 = icmp ult i32 %5206, %5769
+  %5770 = icmp samesign ult i32 %5206, %5769
   br i1 %5770, label %8251, label %5771
 
 5771:                                             ; preds = %5766
   %5772 = getelementptr inbounds i8, ptr %5203, i64 %5190
   %5773 = load i8, ptr %5772, align 1
   %5774 = zext i8 %5773 to i32
-  %5775 = icmp ult i32 %5206, %5774
+  %5775 = icmp samesign ult i32 %5206, %5774
   br i1 %5775, label %8251, label %.backedge2207.i
 
 5776:                                             ; preds = %5666
@@ -9261,151 +9261,151 @@ _ZNSt6vectorIN2cv8KeyPointESaIS1_EE6resizeEm.exit.i174: ; preds = %5140, %5124
   %5779 = getelementptr inbounds i8, ptr %5203, i64 %5183
   %5780 = load i8, ptr %5779, align 1
   %5781 = zext i8 %5780 to i32
-  %5782 = icmp ugt i32 %5207, %5781
+  %5782 = icmp samesign ugt i32 %5207, %5781
   br i1 %5782, label %5783, label %.backedge2207.i
 
 5783:                                             ; preds = %5778
-  %5784 = icmp ugt i32 %5207, %5215
+  %5784 = icmp samesign ugt i32 %5207, %5215
   br i1 %5784, label %5785, label %5845
 
 5785:                                             ; preds = %5783
   %5786 = getelementptr inbounds i8, ptr %5203, i64 %5190
   %5787 = load i8, ptr %5786, align 1
   %5788 = zext i8 %5787 to i32
-  %5789 = icmp ugt i32 %5207, %5788
+  %5789 = icmp samesign ugt i32 %5207, %5788
   br i1 %5789, label %5790, label %.backedge2207.i
 
 5790:                                             ; preds = %5785
   %5791 = getelementptr inbounds i8, ptr %5203, i64 %5188
   %5792 = load i8, ptr %5791, align 1
   %5793 = zext i8 %5792 to i32
-  %5794 = icmp ugt i32 %5207, %5793
+  %5794 = icmp samesign ugt i32 %5207, %5793
   br i1 %5794, label %5795, label %5825
 
 5795:                                             ; preds = %5790
   %5796 = getelementptr inbounds i8, ptr %5203, i64 %5187
   %5797 = load i8, ptr %5796, align 1
   %5798 = zext i8 %5797 to i32
-  %5799 = icmp ugt i32 %5207, %5798
+  %5799 = icmp samesign ugt i32 %5207, %5798
   br i1 %5799, label %5800, label %5810
 
 5800:                                             ; preds = %5795
   %5801 = getelementptr inbounds i8, ptr %5203, i64 %5189
   %5802 = load i8, ptr %5801, align 1
   %5803 = zext i8 %5802 to i32
-  %5804 = icmp ugt i32 %5207, %5803
+  %5804 = icmp samesign ugt i32 %5207, %5803
   br i1 %5804, label %8251, label %5805
 
 5805:                                             ; preds = %5800
   %5806 = getelementptr inbounds i8, ptr %5203, i64 %5191
   %5807 = load i8, ptr %5806, align 1
   %5808 = zext i8 %5807 to i32
-  %5809 = icmp ugt i32 %5207, %5808
+  %5809 = icmp samesign ugt i32 %5207, %5808
   br i1 %5809, label %8251, label %.backedge2207.i
 
 5810:                                             ; preds = %5795
   %5811 = getelementptr inbounds i8, ptr %5203, i64 %5185
   %5812 = load i8, ptr %5811, align 1
   %5813 = zext i8 %5812 to i32
-  %5814 = icmp ugt i32 %5207, %5813
+  %5814 = icmp samesign ugt i32 %5207, %5813
   br i1 %5814, label %5815, label %.backedge2207.i
 
 5815:                                             ; preds = %5810
   %5816 = getelementptr inbounds i8, ptr %5203, i64 %5191
   %5817 = load i8, ptr %5816, align 1
   %5818 = zext i8 %5817 to i32
-  %5819 = icmp ugt i32 %5207, %5818
+  %5819 = icmp samesign ugt i32 %5207, %5818
   br i1 %5819, label %5820, label %.backedge2207.i
 
 5820:                                             ; preds = %5815
   %5821 = getelementptr inbounds i8, ptr %5203, i64 %5193
   %5822 = load i8, ptr %5821, align 1
   %5823 = zext i8 %5822 to i32
-  %5824 = icmp ugt i32 %5207, %5823
+  %5824 = icmp samesign ugt i32 %5207, %5823
   br i1 %5824, label %8323, label %.backedge2207.i
 
 5825:                                             ; preds = %5790
   %5826 = getelementptr inbounds i8, ptr %5203, i64 %5185
   %5827 = load i8, ptr %5826, align 1
   %5828 = zext i8 %5827 to i32
-  %5829 = icmp ugt i32 %5207, %5828
+  %5829 = icmp samesign ugt i32 %5207, %5828
   br i1 %5829, label %5830, label %.backedge2207.i
 
 5830:                                             ; preds = %5825
   %5831 = getelementptr inbounds i8, ptr %5203, i64 %5191
   %5832 = load i8, ptr %5831, align 1
   %5833 = zext i8 %5832 to i32
-  %5834 = icmp ugt i32 %5207, %5833
+  %5834 = icmp samesign ugt i32 %5207, %5833
   br i1 %5834, label %5835, label %.backedge2207.i
 
 5835:                                             ; preds = %5830
   %5836 = getelementptr inbounds i8, ptr %5203, i64 %5193
   %5837 = load i8, ptr %5836, align 1
   %5838 = zext i8 %5837 to i32
-  %5839 = icmp ugt i32 %5207, %5838
+  %5839 = icmp samesign ugt i32 %5207, %5838
   br i1 %5839, label %5840, label %.backedge2207.i
 
 5840:                                             ; preds = %5835
   %5841 = getelementptr inbounds i8, ptr %5203, i64 %5192
   %5842 = load i8, ptr %5841, align 1
   %5843 = zext i8 %5842 to i32
-  %5844 = icmp ugt i32 %5207, %5843
+  %5844 = icmp samesign ugt i32 %5207, %5843
   br i1 %5844, label %8323, label %.backedge2207.i
 
 5845:                                             ; preds = %5783
   %5846 = getelementptr inbounds i8, ptr %5203, i64 %5185
   %5847 = load i8, ptr %5846, align 1
   %5848 = zext i8 %5847 to i32
-  %5849 = icmp ugt i32 %5207, %5848
+  %5849 = icmp samesign ugt i32 %5207, %5848
   br i1 %5849, label %5850, label %.backedge2207.i
 
 5850:                                             ; preds = %5845
   %5851 = getelementptr inbounds i8, ptr %5203, i64 %5190
   %5852 = load i8, ptr %5851, align 1
   %5853 = zext i8 %5852 to i32
-  %5854 = icmp ugt i32 %5207, %5853
+  %5854 = icmp samesign ugt i32 %5207, %5853
   br i1 %5854, label %5855, label %.backedge2207.i
 
 5855:                                             ; preds = %5850
   %5856 = getelementptr inbounds i8, ptr %5203, i64 %5191
   %5857 = load i8, ptr %5856, align 1
   %5858 = zext i8 %5857 to i32
-  %5859 = icmp ugt i32 %5207, %5858
+  %5859 = icmp samesign ugt i32 %5207, %5858
   br i1 %5859, label %5860, label %.backedge2207.i
 
 5860:                                             ; preds = %5855
   %5861 = getelementptr inbounds i8, ptr %5203, i64 %5188
   %5862 = load i8, ptr %5861, align 1
   %5863 = zext i8 %5862 to i32
-  %5864 = icmp ugt i32 %5207, %5863
+  %5864 = icmp samesign ugt i32 %5207, %5863
   br i1 %5864, label %5865, label %5875
 
 5865:                                             ; preds = %5860
   %5866 = getelementptr inbounds i8, ptr %5203, i64 %5187
   %5867 = load i8, ptr %5866, align 1
   %5868 = zext i8 %5867 to i32
-  %5869 = icmp ugt i32 %5207, %5868
+  %5869 = icmp samesign ugt i32 %5207, %5868
   br i1 %5869, label %8251, label %5870
 
 5870:                                             ; preds = %5865
   %5871 = getelementptr inbounds i8, ptr %5203, i64 %5193
   %5872 = load i8, ptr %5871, align 1
   %5873 = zext i8 %5872 to i32
-  %5874 = icmp ugt i32 %5207, %5873
+  %5874 = icmp samesign ugt i32 %5207, %5873
   br i1 %5874, label %8251, label %.backedge2207.i
 
 5875:                                             ; preds = %5860
   %5876 = getelementptr inbounds i8, ptr %5203, i64 %5193
   %5877 = load i8, ptr %5876, align 1
   %5878 = zext i8 %5877 to i32
-  %5879 = icmp ugt i32 %5207, %5878
+  %5879 = icmp samesign ugt i32 %5207, %5878
   br i1 %5879, label %5880, label %.backedge2207.i
 
 5880:                                             ; preds = %5875
   %5881 = getelementptr inbounds i8, ptr %5203, i64 %5192
   %5882 = load i8, ptr %5881, align 1
   %5883 = zext i8 %5882 to i32
-  %5884 = icmp ugt i32 %5207, %5883
+  %5884 = icmp samesign ugt i32 %5207, %5883
   br i1 %5884, label %8251, label %.backedge2207.i
 
 5885:                                             ; preds = %5198
@@ -9416,39 +9416,39 @@ _ZNSt6vectorIN2cv8KeyPointESaIS1_EE6resizeEm.exit.i174: ; preds = %5140, %5124
   %5888 = getelementptr inbounds i8, ptr %5203, i64 %5186
   %5889 = load i8, ptr %5888, align 1
   %5890 = zext i8 %5889 to i32
-  %5891 = icmp ugt i32 %5207, %5890
+  %5891 = icmp samesign ugt i32 %5207, %5890
   br i1 %5891, label %5892, label %6387
 
 5892:                                             ; preds = %5887
   %5893 = getelementptr inbounds i8, ptr %5203, i64 %5185
   %5894 = load i8, ptr %5893, align 1
   %5895 = zext i8 %5894 to i32
-  %5896 = icmp ugt i32 %5207, %5895
+  %5896 = icmp samesign ugt i32 %5207, %5895
   br i1 %5896, label %5897, label %6115
 
 5897:                                             ; preds = %5892
   %5898 = getelementptr inbounds i8, ptr %5203, i64 %5183
   %5899 = load i8, ptr %5898, align 1
   %5900 = zext i8 %5899 to i32
-  %5901 = icmp ugt i32 %5207, %5900
+  %5901 = icmp samesign ugt i32 %5207, %5900
   br i1 %5901, label %5902, label %6064
 
 5902:                                             ; preds = %5897
   %5903 = getelementptr inbounds i8, ptr %5203, i64 %5184
   %5904 = load i8, ptr %5903, align 1
   %5905 = zext i8 %5904 to i32
-  %5906 = icmp ugt i32 %5207, %5905
+  %5906 = icmp samesign ugt i32 %5207, %5905
   %5907 = getelementptr inbounds i8, ptr %5203, i64 %5189
   %5908 = load i8, ptr %5907, align 1
   %5909 = zext i8 %5908 to i32
-  %5910 = icmp ugt i32 %5207, %5909
+  %5910 = icmp samesign ugt i32 %5207, %5909
   br i1 %5906, label %5911, label %6018
 
 5911:                                             ; preds = %5902
   %5912 = getelementptr inbounds i8, ptr %5203, i64 %5190
   %5913 = load i8, ptr %5912, align 1
   %5914 = zext i8 %5913 to i32
-  %5915 = icmp ugt i32 %5207, %5914
+  %5915 = icmp samesign ugt i32 %5207, %5914
   br i1 %5910, label %5916, label %5987
 
 5916:                                             ; preds = %5911
@@ -9458,98 +9458,98 @@ _ZNSt6vectorIN2cv8KeyPointESaIS1_EE6resizeEm.exit.i174: ; preds = %5140, %5124
   %5918 = getelementptr inbounds i8, ptr %5203, i64 %5187
   %5919 = load i8, ptr %5918, align 1
   %5920 = zext i8 %5919 to i32
-  %5921 = icmp ugt i32 %5207, %5920
+  %5921 = icmp samesign ugt i32 %5207, %5920
   br i1 %5921, label %5922, label %5937
 
 5922:                                             ; preds = %5917
   %5923 = getelementptr inbounds i8, ptr %5203, i64 %5188
   %5924 = load i8, ptr %5923, align 1
   %5925 = zext i8 %5924 to i32
-  %5926 = icmp ugt i32 %5207, %5925
+  %5926 = icmp samesign ugt i32 %5207, %5925
   br i1 %5926, label %8323, label %5927
 
 5927:                                             ; preds = %5922
   %5928 = getelementptr inbounds i8, ptr %5203, i64 %5193
   %5929 = load i8, ptr %5928, align 1
   %5930 = zext i8 %5929 to i32
-  %5931 = icmp ugt i32 %5207, %5930
+  %5931 = icmp samesign ugt i32 %5207, %5930
   br i1 %5931, label %5932, label %.backedge2207.i
 
 5932:                                             ; preds = %5927
   %5933 = getelementptr inbounds i8, ptr %5203, i64 %5192
   %5934 = load i8, ptr %5933, align 1
   %5935 = zext i8 %5934 to i32
-  %5936 = icmp ugt i32 %5207, %5935
+  %5936 = icmp samesign ugt i32 %5207, %5935
   br i1 %5936, label %8323, label %.preheader.i219
 
 5937:                                             ; preds = %5917
   %5938 = getelementptr inbounds i8, ptr %5203, i64 %5191
   %5939 = load i8, ptr %5938, align 1
   %5940 = zext i8 %5939 to i32
-  %5941 = icmp ugt i32 %5207, %5940
+  %5941 = icmp samesign ugt i32 %5207, %5940
   br i1 %5941, label %5942, label %.backedge2207.i
 
 5942:                                             ; preds = %5937
   %5943 = getelementptr inbounds i8, ptr %5203, i64 %5193
   %5944 = load i8, ptr %5943, align 1
   %5945 = zext i8 %5944 to i32
-  %5946 = icmp ugt i32 %5207, %5945
+  %5946 = icmp samesign ugt i32 %5207, %5945
   br i1 %5946, label %5947, label %.backedge2207.i
 
 5947:                                             ; preds = %5942
   %5948 = getelementptr inbounds i8, ptr %5203, i64 %5188
   %5949 = load i8, ptr %5948, align 1
   %5950 = zext i8 %5949 to i32
-  %5951 = icmp ugt i32 %5207, %5950
+  %5951 = icmp samesign ugt i32 %5207, %5950
   br i1 %5951, label %8323, label %5952
 
 5952:                                             ; preds = %5947
   %5953 = getelementptr inbounds i8, ptr %5203, i64 %5192
   %5954 = load i8, ptr %5953, align 1
   %5955 = zext i8 %5954 to i32
-  %5956 = icmp ugt i32 %5207, %5955
+  %5956 = icmp samesign ugt i32 %5207, %5955
   br i1 %5956, label %8323, label %.preheader.i219
 
 5957:                                             ; preds = %5916
   %5958 = getelementptr inbounds i8, ptr %5203, i64 %5192
   %5959 = load i8, ptr %5958, align 1
   %5960 = zext i8 %5959 to i32
-  %5961 = icmp ugt i32 %5207, %5960
+  %5961 = icmp samesign ugt i32 %5207, %5960
   br i1 %5961, label %5962, label %.backedge2207.i
 
 5962:                                             ; preds = %5957
   %5963 = getelementptr inbounds i8, ptr %5203, i64 %5187
   %5964 = load i8, ptr %5963, align 1
   %5965 = zext i8 %5964 to i32
-  %5966 = icmp ugt i32 %5207, %5965
+  %5966 = icmp samesign ugt i32 %5207, %5965
   br i1 %5966, label %5967, label %5977
 
 5967:                                             ; preds = %5962
   %5968 = getelementptr inbounds i8, ptr %5203, i64 %5188
   %5969 = load i8, ptr %5968, align 1
   %5970 = zext i8 %5969 to i32
-  %5971 = icmp ugt i32 %5207, %5970
+  %5971 = icmp samesign ugt i32 %5207, %5970
   br i1 %5971, label %8323, label %5972
 
 5972:                                             ; preds = %5967
   %5973 = getelementptr inbounds i8, ptr %5203, i64 %5193
   %5974 = load i8, ptr %5973, align 1
   %5975 = zext i8 %5974 to i32
-  %5976 = icmp ugt i32 %5207, %5975
+  %5976 = icmp samesign ugt i32 %5207, %5975
   br i1 %5976, label %8323, label %.backedge2207.i
 
 5977:                                             ; preds = %5962
   %5978 = getelementptr inbounds i8, ptr %5203, i64 %5191
   %5979 = load i8, ptr %5978, align 1
   %5980 = zext i8 %5979 to i32
-  %5981 = icmp ugt i32 %5207, %5980
+  %5981 = icmp samesign ugt i32 %5207, %5980
   br i1 %5981, label %5982, label %.backedge2207.i
 
 5982:                                             ; preds = %5977
   %5983 = getelementptr inbounds i8, ptr %5203, i64 %5193
   %5984 = load i8, ptr %5983, align 1
   %5985 = zext i8 %5984 to i32
-  %5986 = icmp ugt i32 %5207, %5985
+  %5986 = icmp samesign ugt i32 %5207, %5985
   br i1 %5986, label %8323, label %.backedge2207.i
 
 5987:                                             ; preds = %5911
@@ -9559,42 +9559,42 @@ _ZNSt6vectorIN2cv8KeyPointESaIS1_EE6resizeEm.exit.i174: ; preds = %5140, %5124
   %5989 = getelementptr inbounds i8, ptr %5203, i64 %5191
   %5990 = load i8, ptr %5989, align 1
   %5991 = zext i8 %5990 to i32
-  %5992 = icmp ugt i32 %5207, %5991
+  %5992 = icmp samesign ugt i32 %5207, %5991
   br i1 %5992, label %5993, label %.backedge2207.i
 
 5993:                                             ; preds = %5988
   %5994 = getelementptr inbounds i8, ptr %5203, i64 %5188
   %5995 = load i8, ptr %5994, align 1
   %5996 = zext i8 %5995 to i32
-  %5997 = icmp ugt i32 %5207, %5996
+  %5997 = icmp samesign ugt i32 %5207, %5996
   br i1 %5997, label %5998, label %6008
 
 5998:                                             ; preds = %5993
   %5999 = getelementptr inbounds i8, ptr %5203, i64 %5187
   %6000 = load i8, ptr %5999, align 1
   %6001 = zext i8 %6000 to i32
-  %6002 = icmp ugt i32 %5207, %6001
+  %6002 = icmp samesign ugt i32 %5207, %6001
   br i1 %6002, label %8323, label %6003
 
 6003:                                             ; preds = %5998
   %6004 = getelementptr inbounds i8, ptr %5203, i64 %5193
   %6005 = load i8, ptr %6004, align 1
   %6006 = zext i8 %6005 to i32
-  %6007 = icmp ugt i32 %5207, %6006
+  %6007 = icmp samesign ugt i32 %5207, %6006
   br i1 %6007, label %8323, label %.backedge2207.i
 
 6008:                                             ; preds = %5993
   %6009 = getelementptr inbounds i8, ptr %5203, i64 %5193
   %6010 = load i8, ptr %6009, align 1
   %6011 = zext i8 %6010 to i32
-  %6012 = icmp ugt i32 %5207, %6011
+  %6012 = icmp samesign ugt i32 %5207, %6011
   br i1 %6012, label %6013, label %.backedge2207.i
 
 6013:                                             ; preds = %6008
   %6014 = getelementptr inbounds i8, ptr %5203, i64 %5192
   %6015 = load i8, ptr %6014, align 1
   %6016 = zext i8 %6015 to i32
-  %6017 = icmp ugt i32 %5207, %6016
+  %6017 = icmp samesign ugt i32 %5207, %6016
   br i1 %6017, label %8323, label %.backedge2207.i
 
 6018:                                             ; preds = %5902
@@ -9604,88 +9604,88 @@ _ZNSt6vectorIN2cv8KeyPointESaIS1_EE6resizeEm.exit.i174: ; preds = %5140, %5124
   %6020 = getelementptr inbounds i8, ptr %5203, i64 %5192
   %6021 = load i8, ptr %6020, align 1
   %6022 = zext i8 %6021 to i32
-  %6023 = icmp ugt i32 %5207, %6022
+  %6023 = icmp samesign ugt i32 %5207, %6022
   br i1 %6023, label %6024, label %6049
 
 6024:                                             ; preds = %6019
   %6025 = getelementptr inbounds i8, ptr %5203, i64 %5187
   %6026 = load i8, ptr %6025, align 1
   %6027 = zext i8 %6026 to i32
-  %6028 = icmp ugt i32 %5207, %6027
+  %6028 = icmp samesign ugt i32 %5207, %6027
   br i1 %6028, label %6029, label %6039
 
 6029:                                             ; preds = %6024
   %6030 = getelementptr inbounds i8, ptr %5203, i64 %5188
   %6031 = load i8, ptr %6030, align 1
   %6032 = zext i8 %6031 to i32
-  %6033 = icmp ugt i32 %5207, %6032
+  %6033 = icmp samesign ugt i32 %5207, %6032
   br i1 %6033, label %8251, label %6034
 
 6034:                                             ; preds = %6029
   %6035 = getelementptr inbounds i8, ptr %5203, i64 %5193
   %6036 = load i8, ptr %6035, align 1
   %6037 = zext i8 %6036 to i32
-  %6038 = icmp ugt i32 %5207, %6037
+  %6038 = icmp samesign ugt i32 %5207, %6037
   br i1 %6038, label %8251, label %.backedge2207.i
 
 6039:                                             ; preds = %6024
   %6040 = getelementptr inbounds i8, ptr %5203, i64 %5191
   %6041 = load i8, ptr %6040, align 1
   %6042 = zext i8 %6041 to i32
-  %6043 = icmp ugt i32 %5207, %6042
+  %6043 = icmp samesign ugt i32 %5207, %6042
   br i1 %6043, label %6044, label %.backedge2207.i
 
 6044:                                             ; preds = %6039
   %6045 = getelementptr inbounds i8, ptr %5203, i64 %5193
   %6046 = load i8, ptr %6045, align 1
   %6047 = zext i8 %6046 to i32
-  %6048 = icmp ugt i32 %5207, %6047
+  %6048 = icmp samesign ugt i32 %5207, %6047
   br i1 %6048, label %8251, label %.backedge2207.i
 
 6049:                                             ; preds = %6019
   %6050 = getelementptr inbounds i8, ptr %5203, i64 %5190
   %6051 = load i8, ptr %6050, align 1
   %6052 = zext i8 %6051 to i32
-  %6053 = icmp ugt i32 %5207, %6052
+  %6053 = icmp samesign ugt i32 %5207, %6052
   br i1 %6053, label %6054, label %.backedge2207.i
 
 6054:                                             ; preds = %6049
   %6055 = getelementptr inbounds i8, ptr %5203, i64 %5187
   %6056 = load i8, ptr %6055, align 1
   %6057 = zext i8 %6056 to i32
-  %6058 = icmp ugt i32 %5207, %6057
+  %6058 = icmp samesign ugt i32 %5207, %6057
   br i1 %6058, label %6059, label %.backedge2207.i
 
 6059:                                             ; preds = %6054
   %6060 = getelementptr inbounds i8, ptr %5203, i64 %5188
   %6061 = load i8, ptr %6060, align 1
   %6062 = zext i8 %6061 to i32
-  %6063 = icmp ugt i32 %5207, %6062
+  %6063 = icmp samesign ugt i32 %5207, %6062
   br i1 %6063, label %8251, label %.backedge2207.i
 
 6064:                                             ; preds = %5897
   %6065 = getelementptr inbounds i8, ptr %5203, i64 %5193
   %6066 = load i8, ptr %6065, align 1
   %6067 = zext i8 %6066 to i32
-  %6068 = icmp ugt i32 %5207, %6067
+  %6068 = icmp samesign ugt i32 %5207, %6067
   br i1 %6068, label %6069, label %.backedge2207.i
 
 6069:                                             ; preds = %6064
   %6070 = getelementptr inbounds i8, ptr %5203, i64 %5192
   %6071 = load i8, ptr %6070, align 1
   %6072 = zext i8 %6071 to i32
-  %6073 = icmp ugt i32 %5207, %6072
+  %6073 = icmp samesign ugt i32 %5207, %6072
   br i1 %6073, label %6074, label %.backedge2207.i
 
 6074:                                             ; preds = %6069
   %6075 = getelementptr inbounds i8, ptr %5203, i64 %5184
   %6076 = load i8, ptr %6075, align 1
   %6077 = zext i8 %6076 to i32
-  %6078 = icmp ugt i32 %5207, %6077
+  %6078 = icmp samesign ugt i32 %5207, %6077
   %6079 = getelementptr inbounds i8, ptr %5203, i64 %5189
   %6080 = load i8, ptr %6079, align 1
   %6081 = zext i8 %6080 to i32
-  %6082 = icmp ugt i32 %5207, %6081
+  %6082 = icmp samesign ugt i32 %5207, %6081
   br i1 %6078, label %6083, label %6104
 
 6083:                                             ; preds = %6074
@@ -9695,28 +9695,28 @@ _ZNSt6vectorIN2cv8KeyPointESaIS1_EE6resizeEm.exit.i174: ; preds = %5140, %5124
   %6085 = getelementptr inbounds i8, ptr %5203, i64 %5187
   %6086 = load i8, ptr %6085, align 1
   %6087 = zext i8 %6086 to i32
-  %6088 = icmp ugt i32 %5207, %6087
+  %6088 = icmp samesign ugt i32 %5207, %6087
   br i1 %6088, label %8251, label %6089
 
 6089:                                             ; preds = %6084
   %6090 = getelementptr inbounds i8, ptr %5203, i64 %5191
   %6091 = load i8, ptr %6090, align 1
   %6092 = zext i8 %6091 to i32
-  %6093 = icmp ugt i32 %5207, %6092
+  %6093 = icmp samesign ugt i32 %5207, %6092
   br i1 %6093, label %8251, label %.backedge2207.i
 
 6094:                                             ; preds = %6083
   %6095 = getelementptr inbounds i8, ptr %5203, i64 %5190
   %6096 = load i8, ptr %6095, align 1
   %6097 = zext i8 %6096 to i32
-  %6098 = icmp ugt i32 %5207, %6097
+  %6098 = icmp samesign ugt i32 %5207, %6097
   br i1 %6098, label %6099, label %.backedge2207.i
 
 6099:                                             ; preds = %6094
   %6100 = getelementptr inbounds i8, ptr %5203, i64 %5191
   %6101 = load i8, ptr %6100, align 1
   %6102 = zext i8 %6101 to i32
-  %6103 = icmp ugt i32 %5207, %6102
+  %6103 = icmp samesign ugt i32 %5207, %6102
   br i1 %6103, label %8251, label %.backedge2207.i
 
 6104:                                             ; preds = %6074
@@ -9726,36 +9726,36 @@ _ZNSt6vectorIN2cv8KeyPointESaIS1_EE6resizeEm.exit.i174: ; preds = %5140, %5124
   %6106 = getelementptr inbounds i8, ptr %5203, i64 %5187
   %6107 = load i8, ptr %6106, align 1
   %6108 = zext i8 %6107 to i32
-  %6109 = icmp ugt i32 %5207, %6108
+  %6109 = icmp samesign ugt i32 %5207, %6108
   br i1 %6109, label %8251, label %6110
 
 6110:                                             ; preds = %6105
   %6111 = getelementptr inbounds i8, ptr %5203, i64 %5191
   %6112 = load i8, ptr %6111, align 1
   %6113 = zext i8 %6112 to i32
-  %6114 = icmp ugt i32 %5207, %6113
+  %6114 = icmp samesign ugt i32 %5207, %6113
   br i1 %6114, label %8251, label %.backedge2207.i
 
 6115:                                             ; preds = %5892
-  %6116 = icmp ult i32 %5206, %5895
+  %6116 = icmp samesign ult i32 %5206, %5895
   br i1 %6116, label %6117, label %6320
 
 6117:                                             ; preds = %6115
   %6118 = getelementptr inbounds i8, ptr %5203, i64 %5183
   %6119 = load i8, ptr %6118, align 1
   %6120 = zext i8 %6119 to i32
-  %6121 = icmp ult i32 %5206, %6120
+  %6121 = icmp samesign ult i32 %5206, %6120
   br i1 %6121, label %6122, label %6256
 
 6122:                                             ; preds = %6117
   %6123 = getelementptr inbounds i8, ptr %5203, i64 %5184
   %6124 = load i8, ptr %6123, align 1
   %6125 = zext i8 %6124 to i32
-  %6126 = icmp ult i32 %5206, %6125
+  %6126 = icmp samesign ult i32 %5206, %6125
   %6127 = getelementptr inbounds i8, ptr %5203, i64 %5189
   %6128 = load i8, ptr %6127, align 1
   %6129 = zext i8 %6128 to i32
-  %6130 = icmp ugt i32 %5207, %6129
+  %6130 = icmp samesign ugt i32 %5207, %6129
   br i1 %6126, label %6131, label %6235
 
 6131:                                             ; preds = %6122
@@ -9765,50 +9765,50 @@ _ZNSt6vectorIN2cv8KeyPointESaIS1_EE6resizeEm.exit.i174: ; preds = %5140, %5124
   %6133 = getelementptr inbounds i8, ptr %5203, i64 %5188
   %6134 = load i8, ptr %6133, align 1
   %6135 = zext i8 %6134 to i32
-  %6136 = icmp ugt i32 %5207, %6135
+  %6136 = icmp samesign ugt i32 %5207, %6135
   br i1 %6136, label %6137, label %6168
 
 6137:                                             ; preds = %6132
   %6138 = getelementptr inbounds i8, ptr %5203, i64 %5193
   %6139 = load i8, ptr %6138, align 1
   %6140 = zext i8 %6139 to i32
-  %6141 = icmp ugt i32 %5207, %6140
+  %6141 = icmp samesign ugt i32 %5207, %6140
   br i1 %6141, label %6142, label %6152
 
 6142:                                             ; preds = %6137
   %6143 = getelementptr inbounds i8, ptr %5203, i64 %5187
   %6144 = load i8, ptr %6143, align 1
   %6145 = zext i8 %6144 to i32
-  %6146 = icmp ugt i32 %5207, %6145
+  %6146 = icmp samesign ugt i32 %5207, %6145
   br i1 %6146, label %6147, label %.backedge2207.i
 
 6147:                                             ; preds = %6142
   %6148 = getelementptr inbounds i8, ptr %5203, i64 %5192
   %6149 = load i8, ptr %6148, align 1
   %6150 = zext i8 %6149 to i32
-  %6151 = icmp ugt i32 %5207, %6150
+  %6151 = icmp samesign ugt i32 %5207, %6150
   br i1 %6151, label %8323, label %.preheader.i219
 
 6152:                                             ; preds = %6137
   %6153 = getelementptr inbounds i8, ptr %5203, i64 %5190
   %6154 = load i8, ptr %6153, align 1
   %6155 = zext i8 %6154 to i32
-  %6156 = icmp ult i32 %5206, %6155
+  %6156 = icmp samesign ult i32 %5206, %6155
   br i1 %6156, label %6157, label %.backedge2207.i
 
 6157:                                             ; preds = %6152
   %6158 = getelementptr inbounds i8, ptr %5203, i64 %5191
   %6159 = load i8, ptr %6158, align 1
   %6160 = zext i8 %6159 to i32
-  %6161 = icmp ult i32 %5206, %6160
+  %6161 = icmp samesign ult i32 %5206, %6160
   br i1 %6161, label %6162, label %.backedge2207.i
 
 6162:                                             ; preds = %6157
   %6163 = getelementptr inbounds i8, ptr %5203, i64 %5192
   %6164 = load i8, ptr %6163, align 1
   %6165 = zext i8 %6164 to i32
-  %6166 = icmp ult i32 %5206, %6165
-  %6167 = icmp ult i32 %5206, %6140
+  %6166 = icmp samesign ult i32 %5206, %6165
+  %6167 = icmp samesign ult i32 %5206, %6140
   %or.cond2091.i = and i1 %6167, %6166
   br i1 %or.cond2091.i, label %8323, label %.preheader.i219
 
@@ -9816,43 +9816,43 @@ _ZNSt6vectorIN2cv8KeyPointESaIS1_EE6resizeEm.exit.i174: ; preds = %5140, %5124
   %6169 = getelementptr inbounds i8, ptr %5203, i64 %5190
   %6170 = load i8, ptr %6169, align 1
   %6171 = zext i8 %6170 to i32
-  %6172 = icmp ult i32 %5206, %6171
+  %6172 = icmp samesign ult i32 %5206, %6171
   br i1 %6172, label %6173, label %.backedge2207.i
 
 6173:                                             ; preds = %6168
   %6174 = getelementptr inbounds i8, ptr %5203, i64 %5191
   %6175 = load i8, ptr %6174, align 1
   %6176 = zext i8 %6175 to i32
-  %6177 = icmp ult i32 %5206, %6176
+  %6177 = icmp samesign ult i32 %5206, %6176
   br i1 %6177, label %6178, label %.backedge2207.i
 
 6178:                                             ; preds = %6173
   %6179 = getelementptr inbounds i8, ptr %5203, i64 %5193
   %6180 = load i8, ptr %6179, align 1
   %6181 = zext i8 %6180 to i32
-  %6182 = icmp ult i32 %5206, %6181
+  %6182 = icmp samesign ult i32 %5206, %6181
   br i1 %6182, label %6183, label %6190
 
 6183:                                             ; preds = %6178
-  %6184 = icmp ult i32 %5206, %6135
+  %6184 = icmp samesign ult i32 %5206, %6135
   br i1 %6184, label %8323, label %6185
 
 6185:                                             ; preds = %6183
   %6186 = getelementptr inbounds i8, ptr %5203, i64 %5192
   %6187 = load i8, ptr %6186, align 1
   %6188 = zext i8 %6187 to i32
-  %6189 = icmp ult i32 %5206, %6188
+  %6189 = icmp samesign ult i32 %5206, %6188
   br i1 %6189, label %8323, label %.preheader.i219
 
 6190:                                             ; preds = %6178
   %6191 = getelementptr inbounds i8, ptr %5203, i64 %5187
   %6192 = load i8, ptr %6191, align 1
   %6193 = zext i8 %6192 to i32
-  %6194 = icmp ult i32 %5206, %6193
+  %6194 = icmp samesign ult i32 %5206, %6193
   br i1 %6194, label %6195, label %.backedge2207.i
 
 6195:                                             ; preds = %6190
-  %6196 = icmp ult i32 %5206, %6135
+  %6196 = icmp samesign ult i32 %5206, %6135
   br i1 %6196, label %8323, label %.preheader.i219
 
 .preheader.i219:                                  ; preds = %_ZNSt6vectorIN2cv8KeyPointESaIS1_EE9push_backEOS1_.exit2167.i, %6195, %6185, %6162, %6147, %5952, %5932, %5515, %5505, %5482, %5467, %5277, %5257
@@ -9872,49 +9872,49 @@ _ZNSt6vectorIN2cv8KeyPointESaIS1_EE6resizeEm.exit.i174: ; preds = %5140, %5124
   %6201 = getelementptr inbounds i8, ptr %5203, i64 %5190
   %6202 = load i8, ptr %6201, align 1
   %6203 = zext i8 %6202 to i32
-  %6204 = icmp ult i32 %5206, %6203
+  %6204 = icmp samesign ult i32 %5206, %6203
   br i1 %6204, label %6205, label %.backedge2207.i
 
 6205:                                             ; preds = %6200
   %6206 = getelementptr inbounds i8, ptr %5203, i64 %5191
   %6207 = load i8, ptr %6206, align 1
   %6208 = zext i8 %6207 to i32
-  %6209 = icmp ult i32 %5206, %6208
+  %6209 = icmp samesign ult i32 %5206, %6208
   br i1 %6209, label %6210, label %.backedge2207.i
 
 6210:                                             ; preds = %6205
   %6211 = getelementptr inbounds i8, ptr %5203, i64 %5188
   %6212 = load i8, ptr %6211, align 1
   %6213 = zext i8 %6212 to i32
-  %6214 = icmp ult i32 %5206, %6213
+  %6214 = icmp samesign ult i32 %5206, %6213
   br i1 %6214, label %6215, label %6225
 
 6215:                                             ; preds = %6210
   %6216 = getelementptr inbounds i8, ptr %5203, i64 %5187
   %6217 = load i8, ptr %6216, align 1
   %6218 = zext i8 %6217 to i32
-  %6219 = icmp ult i32 %5206, %6218
+  %6219 = icmp samesign ult i32 %5206, %6218
   br i1 %6219, label %8323, label %6220
 
 6220:                                             ; preds = %6215
   %6221 = getelementptr inbounds i8, ptr %5203, i64 %5193
   %6222 = load i8, ptr %6221, align 1
   %6223 = zext i8 %6222 to i32
-  %6224 = icmp ult i32 %5206, %6223
+  %6224 = icmp samesign ult i32 %5206, %6223
   br i1 %6224, label %8323, label %.backedge2207.i
 
 6225:                                             ; preds = %6210
   %6226 = getelementptr inbounds i8, ptr %5203, i64 %5193
   %6227 = load i8, ptr %6226, align 1
   %6228 = zext i8 %6227 to i32
-  %6229 = icmp ult i32 %5206, %6228
+  %6229 = icmp samesign ult i32 %5206, %6228
   br i1 %6229, label %6230, label %.backedge2207.i
 
 6230:                                             ; preds = %6225
   %6231 = getelementptr inbounds i8, ptr %5203, i64 %5192
   %6232 = load i8, ptr %6231, align 1
   %6233 = zext i8 %6232 to i32
-  %6234 = icmp ult i32 %5206, %6233
+  %6234 = icmp samesign ult i32 %5206, %6233
   br i1 %6234, label %8323, label %.backedge2207.i
 
 6235:                                             ; preds = %6122
@@ -9924,64 +9924,64 @@ _ZNSt6vectorIN2cv8KeyPointESaIS1_EE6resizeEm.exit.i174: ; preds = %5140, %5124
   %6237 = getelementptr inbounds i8, ptr %5203, i64 %5187
   %6238 = load i8, ptr %6237, align 1
   %6239 = zext i8 %6238 to i32
-  %6240 = icmp ugt i32 %5207, %6239
+  %6240 = icmp samesign ugt i32 %5207, %6239
   br i1 %6240, label %6241, label %.backedge2207.i
 
 6241:                                             ; preds = %6236
   %6242 = getelementptr inbounds i8, ptr %5203, i64 %5188
   %6243 = load i8, ptr %6242, align 1
   %6244 = zext i8 %6243 to i32
-  %6245 = icmp ugt i32 %5207, %6244
+  %6245 = icmp samesign ugt i32 %5207, %6244
   br i1 %6245, label %6246, label %.backedge2207.i
 
 6246:                                             ; preds = %6241
   %6247 = getelementptr inbounds i8, ptr %5203, i64 %5193
   %6248 = load i8, ptr %6247, align 1
   %6249 = zext i8 %6248 to i32
-  %6250 = icmp ugt i32 %5207, %6249
+  %6250 = icmp samesign ugt i32 %5207, %6249
   br i1 %6250, label %6251, label %.backedge2207.i
 
 6251:                                             ; preds = %6246
   %6252 = getelementptr inbounds i8, ptr %5203, i64 %5192
   %6253 = load i8, ptr %6252, align 1
   %6254 = zext i8 %6253 to i32
-  %6255 = icmp ugt i32 %5207, %6254
+  %6255 = icmp samesign ugt i32 %5207, %6254
   br i1 %6255, label %8323, label %.backedge2207.i
 
 6256:                                             ; preds = %6117
   %6257 = getelementptr inbounds i8, ptr %5203, i64 %5187
   %6258 = load i8, ptr %6257, align 1
   %6259 = zext i8 %6258 to i32
-  %6260 = icmp ugt i32 %5207, %6259
+  %6260 = icmp samesign ugt i32 %5207, %6259
   br i1 %6260, label %6261, label %.backedge2207.i
 
 6261:                                             ; preds = %6256
   %6262 = getelementptr inbounds i8, ptr %5203, i64 %5188
   %6263 = load i8, ptr %6262, align 1
   %6264 = zext i8 %6263 to i32
-  %6265 = icmp ugt i32 %5207, %6264
+  %6265 = icmp samesign ugt i32 %5207, %6264
   br i1 %6265, label %6266, label %.backedge2207.i
 
 6266:                                             ; preds = %6261
-  %6267 = icmp ugt i32 %5207, %6120
+  %6267 = icmp samesign ugt i32 %5207, %6120
   br i1 %6267, label %6268, label %6305
 
 6268:                                             ; preds = %6266
   %6269 = getelementptr inbounds i8, ptr %5203, i64 %5184
   %6270 = load i8, ptr %6269, align 1
   %6271 = zext i8 %6270 to i32
-  %6272 = icmp ugt i32 %5207, %6271
+  %6272 = icmp samesign ugt i32 %5207, %6271
   %6273 = getelementptr inbounds i8, ptr %5203, i64 %5189
   %6274 = load i8, ptr %6273, align 1
   %6275 = zext i8 %6274 to i32
-  %6276 = icmp ugt i32 %5207, %6275
+  %6276 = icmp samesign ugt i32 %5207, %6275
   br i1 %6272, label %6277, label %6294
 
 6277:                                             ; preds = %6268
   %6278 = getelementptr inbounds i8, ptr %5203, i64 %5190
   %6279 = load i8, ptr %6278, align 1
   %6280 = zext i8 %6279 to i32
-  %6281 = icmp ugt i32 %5207, %6280
+  %6281 = icmp samesign ugt i32 %5207, %6280
   br i1 %6276, label %6282, label %6288
 
 6282:                                             ; preds = %6277
@@ -9991,7 +9991,7 @@ _ZNSt6vectorIN2cv8KeyPointESaIS1_EE6resizeEm.exit.i174: ; preds = %5140, %5124
   %6284 = getelementptr inbounds i8, ptr %5203, i64 %5192
   %6285 = load i8, ptr %6284, align 1
   %6286 = zext i8 %6285 to i32
-  %6287 = icmp ugt i32 %5207, %6286
+  %6287 = icmp samesign ugt i32 %5207, %6286
   br i1 %6287, label %8323, label %.backedge2207.i
 
 6288:                                             ; preds = %6277
@@ -10001,7 +10001,7 @@ _ZNSt6vectorIN2cv8KeyPointESaIS1_EE6resizeEm.exit.i174: ; preds = %5140, %5124
   %6290 = getelementptr inbounds i8, ptr %5203, i64 %5191
   %6291 = load i8, ptr %6290, align 1
   %6292 = zext i8 %6291 to i32
-  %6293 = icmp ugt i32 %5207, %6292
+  %6293 = icmp samesign ugt i32 %5207, %6292
   br i1 %6293, label %8323, label %.backedge2207.i
 
 6294:                                             ; preds = %6268
@@ -10011,74 +10011,74 @@ _ZNSt6vectorIN2cv8KeyPointESaIS1_EE6resizeEm.exit.i174: ; preds = %5140, %5124
   %6296 = getelementptr inbounds i8, ptr %5203, i64 %5190
   %6297 = load i8, ptr %6296, align 1
   %6298 = zext i8 %6297 to i32
-  %6299 = icmp ugt i32 %5207, %6298
+  %6299 = icmp samesign ugt i32 %5207, %6298
   br i1 %6299, label %8251, label %6300
 
 6300:                                             ; preds = %6295
   %6301 = getelementptr inbounds i8, ptr %5203, i64 %5192
   %6302 = load i8, ptr %6301, align 1
   %6303 = zext i8 %6302 to i32
-  %6304 = icmp ugt i32 %5207, %6303
+  %6304 = icmp samesign ugt i32 %5207, %6303
   br i1 %6304, label %8251, label %.backedge2207.i
 
 6305:                                             ; preds = %6266
   %6306 = getelementptr inbounds i8, ptr %5203, i64 %5189
   %6307 = load i8, ptr %6306, align 1
   %6308 = zext i8 %6307 to i32
-  %6309 = icmp ugt i32 %5207, %6308
+  %6309 = icmp samesign ugt i32 %5207, %6308
   br i1 %6309, label %6310, label %.backedge2207.i
 
 6310:                                             ; preds = %6305
   %6311 = getelementptr inbounds i8, ptr %5203, i64 %5193
   %6312 = load i8, ptr %6311, align 1
   %6313 = zext i8 %6312 to i32
-  %6314 = icmp ugt i32 %5207, %6313
+  %6314 = icmp samesign ugt i32 %5207, %6313
   br i1 %6314, label %6315, label %.backedge2207.i
 
 6315:                                             ; preds = %6310
   %6316 = getelementptr inbounds i8, ptr %5203, i64 %5192
   %6317 = load i8, ptr %6316, align 1
   %6318 = zext i8 %6317 to i32
-  %6319 = icmp ugt i32 %5207, %6318
+  %6319 = icmp samesign ugt i32 %5207, %6318
   br i1 %6319, label %8251, label %.backedge2207.i
 
 6320:                                             ; preds = %6115
   %6321 = getelementptr inbounds i8, ptr %5203, i64 %5187
   %6322 = load i8, ptr %6321, align 1
   %6323 = zext i8 %6322 to i32
-  %6324 = icmp ugt i32 %5207, %6323
+  %6324 = icmp samesign ugt i32 %5207, %6323
   br i1 %6324, label %6325, label %.backedge2207.i
 
 6325:                                             ; preds = %6320
   %6326 = getelementptr inbounds i8, ptr %5203, i64 %5188
   %6327 = load i8, ptr %6326, align 1
   %6328 = zext i8 %6327 to i32
-  %6329 = icmp ugt i32 %5207, %6328
+  %6329 = icmp samesign ugt i32 %5207, %6328
   br i1 %6329, label %6330, label %.backedge2207.i
 
 6330:                                             ; preds = %6325
   %6331 = getelementptr inbounds i8, ptr %5203, i64 %5183
   %6332 = load i8, ptr %6331, align 1
   %6333 = zext i8 %6332 to i32
-  %6334 = icmp ugt i32 %5207, %6333
+  %6334 = icmp samesign ugt i32 %5207, %6333
   br i1 %6334, label %6335, label %6372
 
 6335:                                             ; preds = %6330
   %6336 = getelementptr inbounds i8, ptr %5203, i64 %5184
   %6337 = load i8, ptr %6336, align 1
   %6338 = zext i8 %6337 to i32
-  %6339 = icmp ugt i32 %5207, %6338
+  %6339 = icmp samesign ugt i32 %5207, %6338
   %6340 = getelementptr inbounds i8, ptr %5203, i64 %5189
   %6341 = load i8, ptr %6340, align 1
   %6342 = zext i8 %6341 to i32
-  %6343 = icmp ugt i32 %5207, %6342
+  %6343 = icmp samesign ugt i32 %5207, %6342
   br i1 %6339, label %6344, label %6361
 
 6344:                                             ; preds = %6335
   %6345 = getelementptr inbounds i8, ptr %5203, i64 %5190
   %6346 = load i8, ptr %6345, align 1
   %6347 = zext i8 %6346 to i32
-  %6348 = icmp ugt i32 %5207, %6347
+  %6348 = icmp samesign ugt i32 %5207, %6347
   br i1 %6343, label %6349, label %6355
 
 6349:                                             ; preds = %6344
@@ -10088,7 +10088,7 @@ _ZNSt6vectorIN2cv8KeyPointESaIS1_EE6resizeEm.exit.i174: ; preds = %5140, %5124
   %6351 = getelementptr inbounds i8, ptr %5203, i64 %5192
   %6352 = load i8, ptr %6351, align 1
   %6353 = zext i8 %6352 to i32
-  %6354 = icmp ugt i32 %5207, %6353
+  %6354 = icmp samesign ugt i32 %5207, %6353
   br i1 %6354, label %8251, label %.backedge2207.i
 
 6355:                                             ; preds = %6344
@@ -10098,7 +10098,7 @@ _ZNSt6vectorIN2cv8KeyPointESaIS1_EE6resizeEm.exit.i174: ; preds = %5140, %5124
   %6357 = getelementptr inbounds i8, ptr %5203, i64 %5191
   %6358 = load i8, ptr %6357, align 1
   %6359 = zext i8 %6358 to i32
-  %6360 = icmp ugt i32 %5207, %6359
+  %6360 = icmp samesign ugt i32 %5207, %6359
   br i1 %6360, label %8251, label %.backedge2207.i
 
 6361:                                             ; preds = %6335
@@ -10108,390 +10108,390 @@ _ZNSt6vectorIN2cv8KeyPointESaIS1_EE6resizeEm.exit.i174: ; preds = %5140, %5124
   %6363 = getelementptr inbounds i8, ptr %5203, i64 %5190
   %6364 = load i8, ptr %6363, align 1
   %6365 = zext i8 %6364 to i32
-  %6366 = icmp ugt i32 %5207, %6365
+  %6366 = icmp samesign ugt i32 %5207, %6365
   br i1 %6366, label %8251, label %6367
 
 6367:                                             ; preds = %6362
   %6368 = getelementptr inbounds i8, ptr %5203, i64 %5192
   %6369 = load i8, ptr %6368, align 1
   %6370 = zext i8 %6369 to i32
-  %6371 = icmp ugt i32 %5207, %6370
+  %6371 = icmp samesign ugt i32 %5207, %6370
   br i1 %6371, label %8251, label %.backedge2207.i
 
 6372:                                             ; preds = %6330
   %6373 = getelementptr inbounds i8, ptr %5203, i64 %5189
   %6374 = load i8, ptr %6373, align 1
   %6375 = zext i8 %6374 to i32
-  %6376 = icmp ugt i32 %5207, %6375
+  %6376 = icmp samesign ugt i32 %5207, %6375
   br i1 %6376, label %6377, label %.backedge2207.i
 
 6377:                                             ; preds = %6372
   %6378 = getelementptr inbounds i8, ptr %5203, i64 %5193
   %6379 = load i8, ptr %6378, align 1
   %6380 = zext i8 %6379 to i32
-  %6381 = icmp ugt i32 %5207, %6380
+  %6381 = icmp samesign ugt i32 %5207, %6380
   br i1 %6381, label %6382, label %.backedge2207.i
 
 6382:                                             ; preds = %6377
   %6383 = getelementptr inbounds i8, ptr %5203, i64 %5192
   %6384 = load i8, ptr %6383, align 1
   %6385 = zext i8 %6384 to i32
-  %6386 = icmp ugt i32 %5207, %6385
+  %6386 = icmp samesign ugt i32 %5207, %6385
   br i1 %6386, label %8251, label %.backedge2207.i
 
 6387:                                             ; preds = %5887
   %6388 = getelementptr inbounds i8, ptr %5203, i64 %5184
   %6389 = load i8, ptr %6388, align 1
   %6390 = zext i8 %6389 to i32
-  %6391 = icmp ult i32 %5206, %6390
+  %6391 = icmp samesign ult i32 %5206, %6390
   br i1 %6391, label %6392, label %6499
 
 6392:                                             ; preds = %6387
   %6393 = getelementptr inbounds i8, ptr %5203, i64 %5183
   %6394 = load i8, ptr %6393, align 1
   %6395 = zext i8 %6394 to i32
-  %6396 = icmp ult i32 %5206, %6395
+  %6396 = icmp samesign ult i32 %5206, %6395
   br i1 %6396, label %6397, label %.backedge2207.i
 
 6397:                                             ; preds = %6392
-  %6398 = icmp ult i32 %5206, %5890
+  %6398 = icmp samesign ult i32 %5206, %5890
   br i1 %6398, label %6399, label %6459
 
 6399:                                             ; preds = %6397
   %6400 = getelementptr inbounds i8, ptr %5203, i64 %5190
   %6401 = load i8, ptr %6400, align 1
   %6402 = zext i8 %6401 to i32
-  %6403 = icmp ult i32 %5206, %6402
+  %6403 = icmp samesign ult i32 %5206, %6402
   br i1 %6403, label %6404, label %.backedge2207.i
 
 6404:                                             ; preds = %6399
   %6405 = getelementptr inbounds i8, ptr %5203, i64 %5188
   %6406 = load i8, ptr %6405, align 1
   %6407 = zext i8 %6406 to i32
-  %6408 = icmp ult i32 %5206, %6407
+  %6408 = icmp samesign ult i32 %5206, %6407
   br i1 %6408, label %6409, label %6439
 
 6409:                                             ; preds = %6404
   %6410 = getelementptr inbounds i8, ptr %5203, i64 %5187
   %6411 = load i8, ptr %6410, align 1
   %6412 = zext i8 %6411 to i32
-  %6413 = icmp ult i32 %5206, %6412
+  %6413 = icmp samesign ult i32 %5206, %6412
   br i1 %6413, label %6414, label %6424
 
 6414:                                             ; preds = %6409
   %6415 = getelementptr inbounds i8, ptr %5203, i64 %5189
   %6416 = load i8, ptr %6415, align 1
   %6417 = zext i8 %6416 to i32
-  %6418 = icmp ult i32 %5206, %6417
+  %6418 = icmp samesign ult i32 %5206, %6417
   br i1 %6418, label %8251, label %6419
 
 6419:                                             ; preds = %6414
   %6420 = getelementptr inbounds i8, ptr %5203, i64 %5191
   %6421 = load i8, ptr %6420, align 1
   %6422 = zext i8 %6421 to i32
-  %6423 = icmp ult i32 %5206, %6422
+  %6423 = icmp samesign ult i32 %5206, %6422
   br i1 %6423, label %8251, label %.backedge2207.i
 
 6424:                                             ; preds = %6409
   %6425 = getelementptr inbounds i8, ptr %5203, i64 %5185
   %6426 = load i8, ptr %6425, align 1
   %6427 = zext i8 %6426 to i32
-  %6428 = icmp ult i32 %5206, %6427
+  %6428 = icmp samesign ult i32 %5206, %6427
   br i1 %6428, label %6429, label %.backedge2207.i
 
 6429:                                             ; preds = %6424
   %6430 = getelementptr inbounds i8, ptr %5203, i64 %5191
   %6431 = load i8, ptr %6430, align 1
   %6432 = zext i8 %6431 to i32
-  %6433 = icmp ult i32 %5206, %6432
+  %6433 = icmp samesign ult i32 %5206, %6432
   br i1 %6433, label %6434, label %.backedge2207.i
 
 6434:                                             ; preds = %6429
   %6435 = getelementptr inbounds i8, ptr %5203, i64 %5193
   %6436 = load i8, ptr %6435, align 1
   %6437 = zext i8 %6436 to i32
-  %6438 = icmp ult i32 %5206, %6437
+  %6438 = icmp samesign ult i32 %5206, %6437
   br i1 %6438, label %8323, label %.backedge2207.i
 
 6439:                                             ; preds = %6404
   %6440 = getelementptr inbounds i8, ptr %5203, i64 %5185
   %6441 = load i8, ptr %6440, align 1
   %6442 = zext i8 %6441 to i32
-  %6443 = icmp ult i32 %5206, %6442
+  %6443 = icmp samesign ult i32 %5206, %6442
   br i1 %6443, label %6444, label %.backedge2207.i
 
 6444:                                             ; preds = %6439
   %6445 = getelementptr inbounds i8, ptr %5203, i64 %5191
   %6446 = load i8, ptr %6445, align 1
   %6447 = zext i8 %6446 to i32
-  %6448 = icmp ult i32 %5206, %6447
+  %6448 = icmp samesign ult i32 %5206, %6447
   br i1 %6448, label %6449, label %.backedge2207.i
 
 6449:                                             ; preds = %6444
   %6450 = getelementptr inbounds i8, ptr %5203, i64 %5193
   %6451 = load i8, ptr %6450, align 1
   %6452 = zext i8 %6451 to i32
-  %6453 = icmp ult i32 %5206, %6452
+  %6453 = icmp samesign ult i32 %5206, %6452
   br i1 %6453, label %6454, label %.backedge2207.i
 
 6454:                                             ; preds = %6449
   %6455 = getelementptr inbounds i8, ptr %5203, i64 %5192
   %6456 = load i8, ptr %6455, align 1
   %6457 = zext i8 %6456 to i32
-  %6458 = icmp ult i32 %5206, %6457
+  %6458 = icmp samesign ult i32 %5206, %6457
   br i1 %6458, label %8323, label %.backedge2207.i
 
 6459:                                             ; preds = %6397
   %6460 = getelementptr inbounds i8, ptr %5203, i64 %5185
   %6461 = load i8, ptr %6460, align 1
   %6462 = zext i8 %6461 to i32
-  %6463 = icmp ult i32 %5206, %6462
+  %6463 = icmp samesign ult i32 %5206, %6462
   br i1 %6463, label %6464, label %.backedge2207.i
 
 6464:                                             ; preds = %6459
   %6465 = getelementptr inbounds i8, ptr %5203, i64 %5190
   %6466 = load i8, ptr %6465, align 1
   %6467 = zext i8 %6466 to i32
-  %6468 = icmp ult i32 %5206, %6467
+  %6468 = icmp samesign ult i32 %5206, %6467
   br i1 %6468, label %6469, label %.backedge2207.i
 
 6469:                                             ; preds = %6464
   %6470 = getelementptr inbounds i8, ptr %5203, i64 %5191
   %6471 = load i8, ptr %6470, align 1
   %6472 = zext i8 %6471 to i32
-  %6473 = icmp ult i32 %5206, %6472
+  %6473 = icmp samesign ult i32 %5206, %6472
   br i1 %6473, label %6474, label %.backedge2207.i
 
 6474:                                             ; preds = %6469
   %6475 = getelementptr inbounds i8, ptr %5203, i64 %5188
   %6476 = load i8, ptr %6475, align 1
   %6477 = zext i8 %6476 to i32
-  %6478 = icmp ult i32 %5206, %6477
+  %6478 = icmp samesign ult i32 %5206, %6477
   br i1 %6478, label %6479, label %6489
 
 6479:                                             ; preds = %6474
   %6480 = getelementptr inbounds i8, ptr %5203, i64 %5187
   %6481 = load i8, ptr %6480, align 1
   %6482 = zext i8 %6481 to i32
-  %6483 = icmp ult i32 %5206, %6482
+  %6483 = icmp samesign ult i32 %5206, %6482
   br i1 %6483, label %8251, label %6484
 
 6484:                                             ; preds = %6479
   %6485 = getelementptr inbounds i8, ptr %5203, i64 %5193
   %6486 = load i8, ptr %6485, align 1
   %6487 = zext i8 %6486 to i32
-  %6488 = icmp ult i32 %5206, %6487
+  %6488 = icmp samesign ult i32 %5206, %6487
   br i1 %6488, label %8251, label %.backedge2207.i
 
 6489:                                             ; preds = %6474
   %6490 = getelementptr inbounds i8, ptr %5203, i64 %5193
   %6491 = load i8, ptr %6490, align 1
   %6492 = zext i8 %6491 to i32
-  %6493 = icmp ult i32 %5206, %6492
+  %6493 = icmp samesign ult i32 %5206, %6492
   br i1 %6493, label %6494, label %.backedge2207.i
 
 6494:                                             ; preds = %6489
   %6495 = getelementptr inbounds i8, ptr %5203, i64 %5192
   %6496 = load i8, ptr %6495, align 1
   %6497 = zext i8 %6496 to i32
-  %6498 = icmp ult i32 %5206, %6497
+  %6498 = icmp samesign ult i32 %5206, %6497
   br i1 %6498, label %8251, label %.backedge2207.i
 
 6499:                                             ; preds = %6387
-  %6500 = icmp ugt i32 %5207, %6390
+  %6500 = icmp samesign ugt i32 %5207, %6390
   br i1 %6500, label %6501, label %.backedge2207.i
 
 6501:                                             ; preds = %6499
   %6502 = getelementptr inbounds i8, ptr %5203, i64 %5185
   %6503 = load i8, ptr %6502, align 1
   %6504 = zext i8 %6503 to i32
-  %6505 = icmp ugt i32 %5207, %6504
+  %6505 = icmp samesign ugt i32 %5207, %6504
   br i1 %6505, label %6506, label %.backedge2207.i
 
 6506:                                             ; preds = %6501
   %6507 = getelementptr inbounds i8, ptr %5203, i64 %5191
   %6508 = load i8, ptr %6507, align 1
   %6509 = zext i8 %6508 to i32
-  %6510 = icmp ugt i32 %5207, %6509
+  %6510 = icmp samesign ugt i32 %5207, %6509
   br i1 %6510, label %6511, label %.backedge2207.i
 
 6511:                                             ; preds = %6506
   %6512 = getelementptr inbounds i8, ptr %5203, i64 %5183
   %6513 = load i8, ptr %6512, align 1
   %6514 = zext i8 %6513 to i32
-  %6515 = icmp ugt i32 %5207, %6514
+  %6515 = icmp samesign ugt i32 %5207, %6514
   br i1 %6515, label %6516, label %6586
 
 6516:                                             ; preds = %6511
   %6517 = getelementptr inbounds i8, ptr %5203, i64 %5189
   %6518 = load i8, ptr %6517, align 1
   %6519 = zext i8 %6518 to i32
-  %6520 = icmp ugt i32 %5207, %6519
+  %6520 = icmp samesign ugt i32 %5207, %6519
   br i1 %6520, label %6521, label %6556
 
 6521:                                             ; preds = %6516
   %6522 = getelementptr inbounds i8, ptr %5203, i64 %5193
   %6523 = load i8, ptr %6522, align 1
   %6524 = zext i8 %6523 to i32
-  %6525 = icmp ugt i32 %5207, %6524
+  %6525 = icmp samesign ugt i32 %5207, %6524
   br i1 %6525, label %6526, label %6541
 
 6526:                                             ; preds = %6521
   %6527 = getelementptr inbounds i8, ptr %5203, i64 %5192
   %6528 = load i8, ptr %6527, align 1
   %6529 = zext i8 %6528 to i32
-  %6530 = icmp ugt i32 %5207, %6529
+  %6530 = icmp samesign ugt i32 %5207, %6529
   br i1 %6530, label %8251, label %6531
 
 6531:                                             ; preds = %6526
   %6532 = getelementptr inbounds i8, ptr %5203, i64 %5190
   %6533 = load i8, ptr %6532, align 1
   %6534 = zext i8 %6533 to i32
-  %6535 = icmp ugt i32 %5207, %6534
+  %6535 = icmp samesign ugt i32 %5207, %6534
   br i1 %6535, label %6536, label %.backedge2207.i
 
 6536:                                             ; preds = %6531
   %6537 = getelementptr inbounds i8, ptr %5203, i64 %5188
   %6538 = load i8, ptr %6537, align 1
   %6539 = zext i8 %6538 to i32
-  %6540 = icmp ugt i32 %5207, %6539
+  %6540 = icmp samesign ugt i32 %5207, %6539
   br i1 %6540, label %8323, label %.backedge2207.i
 
 6541:                                             ; preds = %6521
   %6542 = getelementptr inbounds i8, ptr %5203, i64 %5190
   %6543 = load i8, ptr %6542, align 1
   %6544 = zext i8 %6543 to i32
-  %6545 = icmp ugt i32 %5207, %6544
+  %6545 = icmp samesign ugt i32 %5207, %6544
   br i1 %6545, label %6546, label %.backedge2207.i
 
 6546:                                             ; preds = %6541
   %6547 = getelementptr inbounds i8, ptr %5203, i64 %5187
   %6548 = load i8, ptr %6547, align 1
   %6549 = zext i8 %6548 to i32
-  %6550 = icmp ugt i32 %5207, %6549
+  %6550 = icmp samesign ugt i32 %5207, %6549
   br i1 %6550, label %6551, label %.backedge2207.i
 
 6551:                                             ; preds = %6546
   %6552 = getelementptr inbounds i8, ptr %5203, i64 %5188
   %6553 = load i8, ptr %6552, align 1
   %6554 = zext i8 %6553 to i32
-  %6555 = icmp ugt i32 %5207, %6554
+  %6555 = icmp samesign ugt i32 %5207, %6554
   br i1 %6555, label %8323, label %.backedge2207.i
 
 6556:                                             ; preds = %6516
   %6557 = getelementptr inbounds i8, ptr %5203, i64 %5190
   %6558 = load i8, ptr %6557, align 1
   %6559 = zext i8 %6558 to i32
-  %6560 = icmp ugt i32 %5207, %6559
+  %6560 = icmp samesign ugt i32 %5207, %6559
   br i1 %6560, label %6561, label %.backedge2207.i
 
 6561:                                             ; preds = %6556
   %6562 = getelementptr inbounds i8, ptr %5203, i64 %5188
   %6563 = load i8, ptr %6562, align 1
   %6564 = zext i8 %6563 to i32
-  %6565 = icmp ugt i32 %5207, %6564
+  %6565 = icmp samesign ugt i32 %5207, %6564
   br i1 %6565, label %6566, label %6576
 
 6566:                                             ; preds = %6561
   %6567 = getelementptr inbounds i8, ptr %5203, i64 %5187
   %6568 = load i8, ptr %6567, align 1
   %6569 = zext i8 %6568 to i32
-  %6570 = icmp ugt i32 %5207, %6569
+  %6570 = icmp samesign ugt i32 %5207, %6569
   br i1 %6570, label %8251, label %6571
 
 6571:                                             ; preds = %6566
   %6572 = getelementptr inbounds i8, ptr %5203, i64 %5193
   %6573 = load i8, ptr %6572, align 1
   %6574 = zext i8 %6573 to i32
-  %6575 = icmp ugt i32 %5207, %6574
+  %6575 = icmp samesign ugt i32 %5207, %6574
   br i1 %6575, label %8251, label %.backedge2207.i
 
 6576:                                             ; preds = %6561
   %6577 = getelementptr inbounds i8, ptr %5203, i64 %5193
   %6578 = load i8, ptr %6577, align 1
   %6579 = zext i8 %6578 to i32
-  %6580 = icmp ugt i32 %5207, %6579
+  %6580 = icmp samesign ugt i32 %5207, %6579
   br i1 %6580, label %6581, label %.backedge2207.i
 
 6581:                                             ; preds = %6576
   %6582 = getelementptr inbounds i8, ptr %5203, i64 %5192
   %6583 = load i8, ptr %6582, align 1
   %6584 = zext i8 %6583 to i32
-  %6585 = icmp ugt i32 %5207, %6584
+  %6585 = icmp samesign ugt i32 %5207, %6584
   br i1 %6585, label %8251, label %.backedge2207.i
 
 6586:                                             ; preds = %6511
   %6587 = getelementptr inbounds i8, ptr %5203, i64 %5193
   %6588 = load i8, ptr %6587, align 1
   %6589 = zext i8 %6588 to i32
-  %6590 = icmp ugt i32 %5207, %6589
+  %6590 = icmp samesign ugt i32 %5207, %6589
   br i1 %6590, label %6591, label %.backedge2207.i
 
 6591:                                             ; preds = %6586
   %6592 = getelementptr inbounds i8, ptr %5203, i64 %5192
   %6593 = load i8, ptr %6592, align 1
   %6594 = zext i8 %6593 to i32
-  %6595 = icmp ugt i32 %5207, %6594
+  %6595 = icmp samesign ugt i32 %5207, %6594
   br i1 %6595, label %6596, label %.backedge2207.i
 
 6596:                                             ; preds = %6591
   %6597 = getelementptr inbounds i8, ptr %5203, i64 %5189
   %6598 = load i8, ptr %6597, align 1
   %6599 = zext i8 %6598 to i32
-  %6600 = icmp ugt i32 %5207, %6599
+  %6600 = icmp samesign ugt i32 %5207, %6599
   br i1 %6600, label %8251, label %6601
 
 6601:                                             ; preds = %6596
   %6602 = getelementptr inbounds i8, ptr %5203, i64 %5190
   %6603 = load i8, ptr %6602, align 1
   %6604 = zext i8 %6603 to i32
-  %6605 = icmp ugt i32 %5207, %6604
+  %6605 = icmp samesign ugt i32 %5207, %6604
   br i1 %6605, label %8251, label %.backedge2207.i
 
 6606:                                             ; preds = %5885
   %6607 = getelementptr inbounds i8, ptr %5203, i64 %5183
   %6608 = load i8, ptr %6607, align 1
   %6609 = zext i8 %6608 to i32
-  %6610 = icmp ult i32 %5206, %6609
+  %6610 = icmp samesign ult i32 %5206, %6609
   br i1 %6610, label %6611, label %6703
 
 6611:                                             ; preds = %6606
   %6612 = getelementptr inbounds i8, ptr %5203, i64 %5184
   %6613 = load i8, ptr %6612, align 1
   %6614 = zext i8 %6613 to i32
-  %6615 = icmp ult i32 %5206, %6614
+  %6615 = icmp samesign ult i32 %5206, %6614
   br i1 %6615, label %6616, label %.backedge2207.i
 
 6616:                                             ; preds = %6611
   %6617 = getelementptr inbounds i8, ptr %5203, i64 %5185
   %6618 = load i8, ptr %6617, align 1
   %6619 = zext i8 %6618 to i32
-  %6620 = icmp ult i32 %5206, %6619
+  %6620 = icmp samesign ult i32 %5206, %6619
   br i1 %6620, label %6621, label %6672
 
 6621:                                             ; preds = %6616
   %6622 = getelementptr inbounds i8, ptr %5203, i64 %5190
   %6623 = load i8, ptr %6622, align 1
   %6624 = zext i8 %6623 to i32
-  %6625 = icmp ult i32 %5206, %6624
+  %6625 = icmp samesign ult i32 %5206, %6624
   br i1 %6625, label %6626, label %.backedge2207.i
 
 6626:                                             ; preds = %6621
   %6627 = getelementptr inbounds i8, ptr %5203, i64 %5188
   %6628 = load i8, ptr %6627, align 1
   %6629 = zext i8 %6628 to i32
-  %6630 = icmp ult i32 %5206, %6629
+  %6630 = icmp samesign ult i32 %5206, %6629
   br i1 %6630, label %6631, label %6657
 
 6631:                                             ; preds = %6626
   %6632 = getelementptr inbounds i8, ptr %5203, i64 %5187
   %6633 = load i8, ptr %6632, align 1
   %6634 = zext i8 %6633 to i32
-  %6635 = icmp ult i32 %5206, %6634
+  %6635 = icmp samesign ult i32 %5206, %6634
   %6636 = getelementptr inbounds i8, ptr %5203, i64 %5191
   %6637 = load i8, ptr %6636, align 1
   %6638 = zext i8 %6637 to i32
-  %6639 = icmp ult i32 %5206, %6638
+  %6639 = icmp samesign ult i32 %5206, %6638
   br i1 %6635, label %6640, label %6651
 
 6640:                                             ; preds = %6631
@@ -10501,14 +10501,14 @@ _ZNSt6vectorIN2cv8KeyPointESaIS1_EE6resizeEm.exit.i174: ; preds = %5140, %5124
   %6642 = getelementptr inbounds i8, ptr %5203, i64 %5189
   %6643 = load i8, ptr %6642, align 1
   %6644 = zext i8 %6643 to i32
-  %6645 = icmp ult i32 %5206, %6644
+  %6645 = icmp samesign ult i32 %5206, %6644
   br i1 %6645, label %6646, label %.backedge2207.i
 
 6646:                                             ; preds = %6641
   %6647 = getelementptr inbounds i8, ptr %5203, i64 %5186
   %6648 = load i8, ptr %6647, align 1
   %6649 = zext i8 %6648 to i32
-  %6650 = icmp ult i32 %5206, %6649
+  %6650 = icmp samesign ult i32 %5206, %6649
   br i1 %6650, label %8251, label %.backedge2207.i
 
 6651:                                             ; preds = %6631
@@ -10518,60 +10518,60 @@ _ZNSt6vectorIN2cv8KeyPointESaIS1_EE6resizeEm.exit.i174: ; preds = %5140, %5124
   %6653 = getelementptr inbounds i8, ptr %5203, i64 %5193
   %6654 = load i8, ptr %6653, align 1
   %6655 = zext i8 %6654 to i32
-  %6656 = icmp ult i32 %5206, %6655
+  %6656 = icmp samesign ult i32 %5206, %6655
   br i1 %6656, label %8251, label %.backedge2207.i
 
 6657:                                             ; preds = %6626
   %6658 = getelementptr inbounds i8, ptr %5203, i64 %5192
   %6659 = load i8, ptr %6658, align 1
   %6660 = zext i8 %6659 to i32
-  %6661 = icmp ult i32 %5206, %6660
+  %6661 = icmp samesign ult i32 %5206, %6660
   br i1 %6661, label %6662, label %.backedge2207.i
 
 6662:                                             ; preds = %6657
   %6663 = getelementptr inbounds i8, ptr %5203, i64 %5191
   %6664 = load i8, ptr %6663, align 1
   %6665 = zext i8 %6664 to i32
-  %6666 = icmp ult i32 %5206, %6665
+  %6666 = icmp samesign ult i32 %5206, %6665
   br i1 %6666, label %6667, label %.backedge2207.i
 
 6667:                                             ; preds = %6662
   %6668 = getelementptr inbounds i8, ptr %5203, i64 %5193
   %6669 = load i8, ptr %6668, align 1
   %6670 = zext i8 %6669 to i32
-  %6671 = icmp ult i32 %5206, %6670
+  %6671 = icmp samesign ult i32 %5206, %6670
   br i1 %6671, label %8251, label %.backedge2207.i
 
 6672:                                             ; preds = %6616
   %6673 = getelementptr inbounds i8, ptr %5203, i64 %5186
   %6674 = load i8, ptr %6673, align 1
   %6675 = zext i8 %6674 to i32
-  %6676 = icmp ult i32 %5206, %6675
+  %6676 = icmp samesign ult i32 %5206, %6675
   br i1 %6676, label %6677, label %.backedge2207.i
 
 6677:                                             ; preds = %6672
   %6678 = getelementptr inbounds i8, ptr %5203, i64 %5187
   %6679 = load i8, ptr %6678, align 1
   %6680 = zext i8 %6679 to i32
-  %6681 = icmp ult i32 %5206, %6680
+  %6681 = icmp samesign ult i32 %5206, %6680
   br i1 %6681, label %6682, label %.backedge2207.i
 
 6682:                                             ; preds = %6677
   %6683 = getelementptr inbounds i8, ptr %5203, i64 %5188
   %6684 = load i8, ptr %6683, align 1
   %6685 = zext i8 %6684 to i32
-  %6686 = icmp ult i32 %5206, %6685
+  %6686 = icmp samesign ult i32 %5206, %6685
   br i1 %6686, label %6687, label %.backedge2207.i
 
 6687:                                             ; preds = %6682
   %6688 = getelementptr inbounds i8, ptr %5203, i64 %5189
   %6689 = load i8, ptr %6688, align 1
   %6690 = zext i8 %6689 to i32
-  %6691 = icmp ult i32 %5206, %6690
+  %6691 = icmp samesign ult i32 %5206, %6690
   %6692 = getelementptr inbounds i8, ptr %5203, i64 %5190
   %6693 = load i8, ptr %6692, align 1
   %6694 = zext i8 %6693 to i32
-  %6695 = icmp ult i32 %5206, %6694
+  %6695 = icmp samesign ult i32 %5206, %6694
   br i1 %6691, label %6696, label %6697
 
 6696:                                             ; preds = %6687
@@ -10584,7 +10584,7 @@ _ZNSt6vectorIN2cv8KeyPointESaIS1_EE6resizeEm.exit.i174: ; preds = %5140, %5124
   %6699 = getelementptr inbounds i8, ptr %5203, i64 %5191
   %6700 = load i8, ptr %6699, align 1
   %6701 = zext i8 %6700 to i32
-  %6702 = icmp ult i32 %5206, %6701
+  %6702 = icmp samesign ult i32 %5206, %6701
   br i1 %6702, label %8251, label %.backedge2207.i
 
 6703:                                             ; preds = %6606
@@ -10595,39 +10595,39 @@ _ZNSt6vectorIN2cv8KeyPointESaIS1_EE6resizeEm.exit.i174: ; preds = %5140, %5124
   %6706 = getelementptr inbounds i8, ptr %5203, i64 %5184
   %6707 = load i8, ptr %6706, align 1
   %6708 = zext i8 %6707 to i32
-  %6709 = icmp ugt i32 %5207, %6708
+  %6709 = icmp samesign ugt i32 %5207, %6708
   br i1 %6709, label %6710, label %.backedge2207.i
 
 6710:                                             ; preds = %6705
   %6711 = getelementptr inbounds i8, ptr %5203, i64 %5185
   %6712 = load i8, ptr %6711, align 1
   %6713 = zext i8 %6712 to i32
-  %6714 = icmp ugt i32 %5207, %6713
+  %6714 = icmp samesign ugt i32 %5207, %6713
   br i1 %6714, label %6715, label %6766
 
 6715:                                             ; preds = %6710
   %6716 = getelementptr inbounds i8, ptr %5203, i64 %5190
   %6717 = load i8, ptr %6716, align 1
   %6718 = zext i8 %6717 to i32
-  %6719 = icmp ugt i32 %5207, %6718
+  %6719 = icmp samesign ugt i32 %5207, %6718
   br i1 %6719, label %6720, label %.backedge2207.i
 
 6720:                                             ; preds = %6715
   %6721 = getelementptr inbounds i8, ptr %5203, i64 %5188
   %6722 = load i8, ptr %6721, align 1
   %6723 = zext i8 %6722 to i32
-  %6724 = icmp ugt i32 %5207, %6723
+  %6724 = icmp samesign ugt i32 %5207, %6723
   br i1 %6724, label %6725, label %6751
 
 6725:                                             ; preds = %6720
   %6726 = getelementptr inbounds i8, ptr %5203, i64 %5187
   %6727 = load i8, ptr %6726, align 1
   %6728 = zext i8 %6727 to i32
-  %6729 = icmp ugt i32 %5207, %6728
+  %6729 = icmp samesign ugt i32 %5207, %6728
   %6730 = getelementptr inbounds i8, ptr %5203, i64 %5191
   %6731 = load i8, ptr %6730, align 1
   %6732 = zext i8 %6731 to i32
-  %6733 = icmp ugt i32 %5207, %6732
+  %6733 = icmp samesign ugt i32 %5207, %6732
   br i1 %6729, label %6734, label %6745
 
 6734:                                             ; preds = %6725
@@ -10637,14 +10637,14 @@ _ZNSt6vectorIN2cv8KeyPointESaIS1_EE6resizeEm.exit.i174: ; preds = %5140, %5124
   %6736 = getelementptr inbounds i8, ptr %5203, i64 %5189
   %6737 = load i8, ptr %6736, align 1
   %6738 = zext i8 %6737 to i32
-  %6739 = icmp ugt i32 %5207, %6738
+  %6739 = icmp samesign ugt i32 %5207, %6738
   br i1 %6739, label %6740, label %.backedge2207.i
 
 6740:                                             ; preds = %6735
   %6741 = getelementptr inbounds i8, ptr %5203, i64 %5186
   %6742 = load i8, ptr %6741, align 1
   %6743 = zext i8 %6742 to i32
-  %6744 = icmp ugt i32 %5207, %6743
+  %6744 = icmp samesign ugt i32 %5207, %6743
   br i1 %6744, label %8251, label %.backedge2207.i
 
 6745:                                             ; preds = %6725
@@ -10654,60 +10654,60 @@ _ZNSt6vectorIN2cv8KeyPointESaIS1_EE6resizeEm.exit.i174: ; preds = %5140, %5124
   %6747 = getelementptr inbounds i8, ptr %5203, i64 %5193
   %6748 = load i8, ptr %6747, align 1
   %6749 = zext i8 %6748 to i32
-  %6750 = icmp ugt i32 %5207, %6749
+  %6750 = icmp samesign ugt i32 %5207, %6749
   br i1 %6750, label %8251, label %.backedge2207.i
 
 6751:                                             ; preds = %6720
   %6752 = getelementptr inbounds i8, ptr %5203, i64 %5192
   %6753 = load i8, ptr %6752, align 1
   %6754 = zext i8 %6753 to i32
-  %6755 = icmp ugt i32 %5207, %6754
+  %6755 = icmp samesign ugt i32 %5207, %6754
   br i1 %6755, label %6756, label %.backedge2207.i
 
 6756:                                             ; preds = %6751
   %6757 = getelementptr inbounds i8, ptr %5203, i64 %5191
   %6758 = load i8, ptr %6757, align 1
   %6759 = zext i8 %6758 to i32
-  %6760 = icmp ugt i32 %5207, %6759
+  %6760 = icmp samesign ugt i32 %5207, %6759
   br i1 %6760, label %6761, label %.backedge2207.i
 
 6761:                                             ; preds = %6756
   %6762 = getelementptr inbounds i8, ptr %5203, i64 %5193
   %6763 = load i8, ptr %6762, align 1
   %6764 = zext i8 %6763 to i32
-  %6765 = icmp ugt i32 %5207, %6764
+  %6765 = icmp samesign ugt i32 %5207, %6764
   br i1 %6765, label %8251, label %.backedge2207.i
 
 6766:                                             ; preds = %6710
   %6767 = getelementptr inbounds i8, ptr %5203, i64 %5186
   %6768 = load i8, ptr %6767, align 1
   %6769 = zext i8 %6768 to i32
-  %6770 = icmp ugt i32 %5207, %6769
+  %6770 = icmp samesign ugt i32 %5207, %6769
   br i1 %6770, label %6771, label %.backedge2207.i
 
 6771:                                             ; preds = %6766
   %6772 = getelementptr inbounds i8, ptr %5203, i64 %5187
   %6773 = load i8, ptr %6772, align 1
   %6774 = zext i8 %6773 to i32
-  %6775 = icmp ugt i32 %5207, %6774
+  %6775 = icmp samesign ugt i32 %5207, %6774
   br i1 %6775, label %6776, label %.backedge2207.i
 
 6776:                                             ; preds = %6771
   %6777 = getelementptr inbounds i8, ptr %5203, i64 %5188
   %6778 = load i8, ptr %6777, align 1
   %6779 = zext i8 %6778 to i32
-  %6780 = icmp ugt i32 %5207, %6779
+  %6780 = icmp samesign ugt i32 %5207, %6779
   br i1 %6780, label %6781, label %.backedge2207.i
 
 6781:                                             ; preds = %6776
   %6782 = getelementptr inbounds i8, ptr %5203, i64 %5189
   %6783 = load i8, ptr %6782, align 1
   %6784 = zext i8 %6783 to i32
-  %6785 = icmp ugt i32 %5207, %6784
+  %6785 = icmp samesign ugt i32 %5207, %6784
   %6786 = getelementptr inbounds i8, ptr %5203, i64 %5190
   %6787 = load i8, ptr %6786, align 1
   %6788 = zext i8 %6787 to i32
-  %6789 = icmp ugt i32 %5207, %6788
+  %6789 = icmp samesign ugt i32 %5207, %6788
   br i1 %6785, label %6790, label %6791
 
 6790:                                             ; preds = %6781
@@ -10720,7 +10720,7 @@ _ZNSt6vectorIN2cv8KeyPointESaIS1_EE6resizeEm.exit.i174: ; preds = %5140, %5124
   %6793 = getelementptr inbounds i8, ptr %5203, i64 %5191
   %6794 = load i8, ptr %6793, align 1
   %6795 = zext i8 %6794 to i32
-  %6796 = icmp ugt i32 %5207, %6795
+  %6796 = icmp samesign ugt i32 %5207, %6795
   br i1 %6796, label %8251, label %.backedge2207.i
 
 6797:                                             ; preds = %.backedge.i224, %.lr.ph.i221
@@ -10797,14 +10797,14 @@ _ZNSt6vectorIN2cv8KeyPointESaIS1_EE6resizeEm.exit.i174: ; preds = %5140, %5124
   %6848 = getelementptr inbounds i8, ptr %6798, i64 %5193
   %6849 = load i8, ptr %6848, align 1
   %6850 = zext i8 %6849 to i32
-  %6851 = icmp ult i32 %6801, %6850
+  %6851 = icmp samesign ult i32 %6801, %6850
   br i1 %6851, label %6852, label %.backedge.i224
 
 6852:                                             ; preds = %6847
   %6853 = getelementptr inbounds i8, ptr %6798, i64 %5192
   %6854 = load i8, ptr %6853, align 1
   %6855 = zext i8 %6854 to i32
-  %6856 = icmp ult i32 %6801, %6855
+  %6856 = icmp samesign ult i32 %6801, %6855
   br i1 %6856, label %.loopexit2203.i, label %.backedge.i224
 
 .backedge.i224:                                   ; preds = %8246, %8245, %8244, %8230, %8225, %8220, %8215, %8210, %8205, %8200, %8199, %8194, %8189, %8169, %8159, %8152, %8151, %8150, %8136, %8131, %8126, %8121, %8116, %8111, %8106, %8105, %8100, %8095, %8075, %8065, %8055, %8045, %8040, %8035, %8030, %8025, %8010, %8005, %8000, %7995, %7990, %7985, %7960, %7955, %7953, %7948, %7943, %7938, %7923, %7918, %7913, %7908, %7903, %7898, %7893, %7888, %7883, %7878, %7873, %7853, %7846, %7835, %7821, %7816, %7811, %7806, %7804, %7798, %7793, %7788, %7782, %7780, %7775, %7770, %7765, %7760, %7755, %7750, %7745, %7730, %7710, %7703, %7698, %7693, %7687, %7682, %7681, %7676, %7661, %7656, %7645, %7640, %7635, %7629, %7624, %7619, %7614, %7613, %7608, %7603, %7582, %7577, %7572, %7557, %7552, %7546, %7541, %7531, %7526, %7521, %7474, %7469, %7464, %7449, %7444, %7439, %7434, %7429, %7424, %7419, %7414, %7409, %7404, %7399, %7379, %7372, %7370, %7365, %7355, %7350, %7345, %7340, %7335, %7320, %7315, %7310, %7305, %7300, %7295, %7270, %7265, %7255, %7250, %7249, %7243, %7238, %7233, %7213, %7208, %7203, %7198, %7197, %7192, %7186, %7175, %7170, %7165, %7160, %7155, %7150, %7149, %7144, %7139, %7134, %7119, %7114, %7108, %7103, %7091, %7086, %7080, %7075, %7070, %7065, %7060, %7028, %7022, %7017, %7016, %7011, %6991, %6986, %6981, %6976, %6971, %6966, %6961, %6956, %6939, %6934, %6929, %6924, %6909, %6907, %6902, %6897, %6892, %6877, %6872, %6862, %6857, %6852, %6847
@@ -10815,215 +10815,215 @@ _ZNSt6vectorIN2cv8KeyPointESaIS1_EE6resizeEm.exit.i174: ; preds = %5140, %5124
   %6858 = getelementptr inbounds i8, ptr %6798, i64 %5191
   %6859 = load i8, ptr %6858, align 1
   %6860 = zext i8 %6859 to i32
-  %6861 = icmp ult i32 %6801, %6860
+  %6861 = icmp samesign ult i32 %6801, %6860
   br i1 %6861, label %6862, label %.backedge.i224
 
 6862:                                             ; preds = %6857
   %6863 = getelementptr inbounds i8, ptr %6798, i64 %5193
   %6864 = load i8, ptr %6863, align 1
   %6865 = zext i8 %6864 to i32
-  %6866 = icmp ult i32 %6801, %6865
+  %6866 = icmp samesign ult i32 %6801, %6865
   br i1 %6866, label %6867, label %.backedge.i224
 
 6867:                                             ; preds = %6862
   %6868 = getelementptr inbounds i8, ptr %6798, i64 %5188
   %6869 = load i8, ptr %6868, align 1
   %6870 = zext i8 %6869 to i32
-  %6871 = icmp ult i32 %6801, %6870
+  %6871 = icmp samesign ult i32 %6801, %6870
   br i1 %6871, label %.loopexit2203.i, label %6872
 
 6872:                                             ; preds = %6867
   %6873 = getelementptr inbounds i8, ptr %6798, i64 %5192
   %6874 = load i8, ptr %6873, align 1
   %6875 = zext i8 %6874 to i32
-  %6876 = icmp ult i32 %6801, %6875
+  %6876 = icmp samesign ult i32 %6801, %6875
   br i1 %6876, label %.loopexit2203.i, label %.backedge.i224
 
 6877:                                             ; preds = %6835
   %6878 = getelementptr inbounds i8, ptr %6798, i64 %5192
   %6879 = load i8, ptr %6878, align 1
   %6880 = zext i8 %6879 to i32
-  %6881 = icmp ult i32 %6801, %6880
+  %6881 = icmp samesign ult i32 %6801, %6880
   br i1 %6881, label %6882, label %.backedge.i224
 
 6882:                                             ; preds = %6877
   %6883 = getelementptr inbounds i8, ptr %6798, i64 %5187
   %6884 = load i8, ptr %6883, align 1
   %6885 = zext i8 %6884 to i32
-  %6886 = icmp ult i32 %6801, %6885
+  %6886 = icmp samesign ult i32 %6801, %6885
   br i1 %6886, label %6887, label %6897
 
 6887:                                             ; preds = %6882
   %6888 = getelementptr inbounds i8, ptr %6798, i64 %5188
   %6889 = load i8, ptr %6888, align 1
   %6890 = zext i8 %6889 to i32
-  %6891 = icmp ult i32 %6801, %6890
+  %6891 = icmp samesign ult i32 %6801, %6890
   br i1 %6891, label %.loopexit2203.i, label %6892
 
 6892:                                             ; preds = %6887
   %6893 = getelementptr inbounds i8, ptr %6798, i64 %5193
   %6894 = load i8, ptr %6893, align 1
   %6895 = zext i8 %6894 to i32
-  %6896 = icmp ult i32 %6801, %6895
+  %6896 = icmp samesign ult i32 %6801, %6895
   br i1 %6896, label %.loopexit2203.i, label %.backedge.i224
 
 6897:                                             ; preds = %6882
   %6898 = getelementptr inbounds i8, ptr %6798, i64 %5191
   %6899 = load i8, ptr %6898, align 1
   %6900 = zext i8 %6899 to i32
-  %6901 = icmp ult i32 %6801, %6900
+  %6901 = icmp samesign ult i32 %6801, %6900
   br i1 %6901, label %6902, label %.backedge.i224
 
 6902:                                             ; preds = %6897
   %6903 = getelementptr inbounds i8, ptr %6798, i64 %5193
   %6904 = load i8, ptr %6903, align 1
   %6905 = zext i8 %6904 to i32
-  %6906 = icmp ult i32 %6801, %6905
+  %6906 = icmp samesign ult i32 %6801, %6905
   br i1 %6906, label %.loopexit2203.i, label %.backedge.i224
 
 6907:                                             ; preds = %6830
-  %6908 = icmp ult i32 %6801, %6834
+  %6908 = icmp samesign ult i32 %6801, %6834
   br i1 %6908, label %6909, label %.backedge.i224
 
 6909:                                             ; preds = %6907
   %6910 = getelementptr inbounds i8, ptr %6798, i64 %5191
   %6911 = load i8, ptr %6910, align 1
   %6912 = zext i8 %6911 to i32
-  %6913 = icmp ult i32 %6801, %6912
+  %6913 = icmp samesign ult i32 %6801, %6912
   br i1 %6913, label %6914, label %.backedge.i224
 
 6914:                                             ; preds = %6909
   %6915 = getelementptr inbounds i8, ptr %6798, i64 %5188
   %6916 = load i8, ptr %6915, align 1
   %6917 = zext i8 %6916 to i32
-  %6918 = icmp ult i32 %6801, %6917
+  %6918 = icmp samesign ult i32 %6801, %6917
   br i1 %6918, label %6919, label %6929
 
 6919:                                             ; preds = %6914
   %6920 = getelementptr inbounds i8, ptr %6798, i64 %5187
   %6921 = load i8, ptr %6920, align 1
   %6922 = zext i8 %6921 to i32
-  %6923 = icmp ult i32 %6801, %6922
+  %6923 = icmp samesign ult i32 %6801, %6922
   br i1 %6923, label %.loopexit2203.i, label %6924
 
 6924:                                             ; preds = %6919
   %6925 = getelementptr inbounds i8, ptr %6798, i64 %5193
   %6926 = load i8, ptr %6925, align 1
   %6927 = zext i8 %6926 to i32
-  %6928 = icmp ult i32 %6801, %6927
+  %6928 = icmp samesign ult i32 %6801, %6927
   br i1 %6928, label %.loopexit2203.i, label %.backedge.i224
 
 6929:                                             ; preds = %6914
   %6930 = getelementptr inbounds i8, ptr %6798, i64 %5193
   %6931 = load i8, ptr %6930, align 1
   %6932 = zext i8 %6931 to i32
-  %6933 = icmp ult i32 %6801, %6932
+  %6933 = icmp samesign ult i32 %6801, %6932
   br i1 %6933, label %6934, label %.backedge.i224
 
 6934:                                             ; preds = %6929
   %6935 = getelementptr inbounds i8, ptr %6798, i64 %5192
   %6936 = load i8, ptr %6935, align 1
   %6937 = zext i8 %6936 to i32
-  %6938 = icmp ult i32 %6801, %6937
+  %6938 = icmp samesign ult i32 %6801, %6937
   br i1 %6938, label %.loopexit2203.i, label %.backedge.i224
 
 6939:                                             ; preds = %6822
-  %6940 = icmp ult i32 %6801, %6829
+  %6940 = icmp samesign ult i32 %6801, %6829
   br i1 %6940, label %6941, label %.backedge.i224
 
 6941:                                             ; preds = %6939
   %6942 = getelementptr inbounds i8, ptr %6798, i64 %5192
   %6943 = load i8, ptr %6942, align 1
   %6944 = zext i8 %6943 to i32
-  %6945 = icmp ult i32 %6801, %6944
+  %6945 = icmp samesign ult i32 %6801, %6944
   br i1 %6945, label %6946, label %6971
 
 6946:                                             ; preds = %6941
   %6947 = getelementptr inbounds i8, ptr %6798, i64 %5187
   %6948 = load i8, ptr %6947, align 1
   %6949 = zext i8 %6948 to i32
-  %6950 = icmp ult i32 %6801, %6949
+  %6950 = icmp samesign ult i32 %6801, %6949
   br i1 %6950, label %6951, label %6961
 
 6951:                                             ; preds = %6946
   %6952 = getelementptr inbounds i8, ptr %6798, i64 %5188
   %6953 = load i8, ptr %6952, align 1
   %6954 = zext i8 %6953 to i32
-  %6955 = icmp ult i32 %6801, %6954
+  %6955 = icmp samesign ult i32 %6801, %6954
   br i1 %6955, label %.loopexit2203.i, label %6956
 
 6956:                                             ; preds = %6951
   %6957 = getelementptr inbounds i8, ptr %6798, i64 %5193
   %6958 = load i8, ptr %6957, align 1
   %6959 = zext i8 %6958 to i32
-  %6960 = icmp ult i32 %6801, %6959
+  %6960 = icmp samesign ult i32 %6801, %6959
   br i1 %6960, label %.loopexit2203.i, label %.backedge.i224
 
 6961:                                             ; preds = %6946
   %6962 = getelementptr inbounds i8, ptr %6798, i64 %5191
   %6963 = load i8, ptr %6962, align 1
   %6964 = zext i8 %6963 to i32
-  %6965 = icmp ult i32 %6801, %6964
+  %6965 = icmp samesign ult i32 %6801, %6964
   br i1 %6965, label %6966, label %.backedge.i224
 
 6966:                                             ; preds = %6961
   %6967 = getelementptr inbounds i8, ptr %6798, i64 %5193
   %6968 = load i8, ptr %6967, align 1
   %6969 = zext i8 %6968 to i32
-  %6970 = icmp ult i32 %6801, %6969
+  %6970 = icmp samesign ult i32 %6801, %6969
   br i1 %6970, label %.loopexit2203.i, label %.backedge.i224
 
 6971:                                             ; preds = %6941
   %6972 = getelementptr inbounds i8, ptr %6798, i64 %5190
   %6973 = load i8, ptr %6972, align 1
   %6974 = zext i8 %6973 to i32
-  %6975 = icmp ult i32 %6801, %6974
+  %6975 = icmp samesign ult i32 %6801, %6974
   br i1 %6975, label %6976, label %.backedge.i224
 
 6976:                                             ; preds = %6971
   %6977 = getelementptr inbounds i8, ptr %6798, i64 %5187
   %6978 = load i8, ptr %6977, align 1
   %6979 = zext i8 %6978 to i32
-  %6980 = icmp ult i32 %6801, %6979
+  %6980 = icmp samesign ult i32 %6801, %6979
   br i1 %6980, label %6981, label %.backedge.i224
 
 6981:                                             ; preds = %6976
   %6982 = getelementptr inbounds i8, ptr %6798, i64 %5188
   %6983 = load i8, ptr %6982, align 1
   %6984 = zext i8 %6983 to i32
-  %6985 = icmp ult i32 %6801, %6984
+  %6985 = icmp samesign ult i32 %6801, %6984
   br i1 %6985, label %.loopexit2203.i, label %.backedge.i224
 
 6986:                                             ; preds = %6817
   %6987 = getelementptr inbounds i8, ptr %6798, i64 %5187
   %6988 = load i8, ptr %6987, align 1
   %6989 = zext i8 %6988 to i32
-  %6990 = icmp ult i32 %6801, %6989
+  %6990 = icmp samesign ult i32 %6801, %6989
   br i1 %6990, label %6991, label %.backedge.i224
 
 6991:                                             ; preds = %6986
   %6992 = getelementptr inbounds i8, ptr %6798, i64 %5188
   %6993 = load i8, ptr %6992, align 1
   %6994 = zext i8 %6993 to i32
-  %6995 = icmp ult i32 %6801, %6994
+  %6995 = icmp samesign ult i32 %6801, %6994
   br i1 %6995, label %6996, label %.backedge.i224
 
 6996:                                             ; preds = %6991
   %6997 = getelementptr inbounds i8, ptr %6798, i64 %5184
   %6998 = load i8, ptr %6997, align 1
   %6999 = zext i8 %6998 to i32
-  %7000 = icmp ult i32 %6801, %6999
+  %7000 = icmp samesign ult i32 %6801, %6999
   %7001 = getelementptr inbounds i8, ptr %6798, i64 %5189
   %7002 = load i8, ptr %7001, align 1
   %7003 = zext i8 %7002 to i32
-  %7004 = icmp ult i32 %6801, %7003
+  %7004 = icmp samesign ult i32 %6801, %7003
   br i1 %7000, label %7005, label %7022
 
 7005:                                             ; preds = %6996
   %7006 = getelementptr inbounds i8, ptr %6798, i64 %5190
   %7007 = load i8, ptr %7006, align 1
   %7008 = zext i8 %7007 to i32
-  %7009 = icmp ult i32 %6801, %7008
+  %7009 = icmp samesign ult i32 %6801, %7008
   br i1 %7004, label %7010, label %7016
 
 7010:                                             ; preds = %7005
@@ -11033,7 +11033,7 @@ _ZNSt6vectorIN2cv8KeyPointESaIS1_EE6resizeEm.exit.i174: ; preds = %5140, %5124
   %7012 = getelementptr inbounds i8, ptr %6798, i64 %5192
   %7013 = load i8, ptr %7012, align 1
   %7014 = zext i8 %7013 to i32
-  %7015 = icmp ult i32 %6801, %7014
+  %7015 = icmp samesign ult i32 %6801, %7014
   br i1 %7015, label %.loopexit2203.i, label %.backedge.i224
 
 7016:                                             ; preds = %7005
@@ -11043,7 +11043,7 @@ _ZNSt6vectorIN2cv8KeyPointESaIS1_EE6resizeEm.exit.i174: ; preds = %5140, %5124
   %7018 = getelementptr inbounds i8, ptr %6798, i64 %5191
   %7019 = load i8, ptr %7018, align 1
   %7020 = zext i8 %7019 to i32
-  %7021 = icmp ult i32 %6801, %7020
+  %7021 = icmp samesign ult i32 %6801, %7020
   br i1 %7021, label %.loopexit2203.i, label %.backedge.i224
 
 7022:                                             ; preds = %6996
@@ -11053,14 +11053,14 @@ _ZNSt6vectorIN2cv8KeyPointESaIS1_EE6resizeEm.exit.i174: ; preds = %5140, %5124
   %7024 = getelementptr inbounds i8, ptr %6798, i64 %5190
   %7025 = load i8, ptr %7024, align 1
   %7026 = zext i8 %7025 to i32
-  %7027 = icmp ult i32 %6801, %7026
+  %7027 = icmp samesign ult i32 %6801, %7026
   br i1 %7027, label %.loopexit2203.i, label %7028
 
 7028:                                             ; preds = %7023
   %7029 = getelementptr inbounds i8, ptr %6798, i64 %5192
   %7030 = load i8, ptr %7029, align 1
   %7031 = zext i8 %7030 to i32
-  %7032 = icmp ult i32 %6801, %7031
+  %7032 = icmp samesign ult i32 %6801, %7031
   br i1 %7032, label %.loopexit2203.i, label %.backedge.i224
 
 7033:                                             ; preds = %6812
@@ -11074,15 +11074,15 @@ _ZNSt6vectorIN2cv8KeyPointESaIS1_EE6resizeEm.exit.i174: ; preds = %5140, %5124
   %7039 = getelementptr inbounds i8, ptr %6798, i64 %5185
   %7040 = load i8, ptr %7039, align 1
   %7041 = zext i8 %7040 to i32
-  %7042 = icmp ugt i32 %6802, %7041
+  %7042 = icmp samesign ugt i32 %6802, %7041
   br i1 %7042, label %7043, label %7170
 
 7043:                                             ; preds = %7038
-  %7044 = icmp ugt i32 %6802, %6815
+  %7044 = icmp samesign ugt i32 %6802, %6815
   %7045 = getelementptr inbounds i8, ptr %6798, i64 %5189
   %7046 = load i8, ptr %7045, align 1
   %7047 = zext i8 %7046 to i32
-  %7048 = icmp ult i32 %6801, %7047
+  %7048 = icmp samesign ult i32 %6801, %7047
   br i1 %7044, label %7049, label %7149
 
 7049:                                             ; preds = %7043
@@ -11092,50 +11092,50 @@ _ZNSt6vectorIN2cv8KeyPointESaIS1_EE6resizeEm.exit.i174: ; preds = %5140, %5124
   %7051 = getelementptr inbounds i8, ptr %6798, i64 %5188
   %7052 = load i8, ptr %7051, align 1
   %7053 = zext i8 %7052 to i32
-  %7054 = icmp ult i32 %6801, %7053
+  %7054 = icmp samesign ult i32 %6801, %7053
   br i1 %7054, label %7055, label %7086
 
 7055:                                             ; preds = %7050
   %7056 = getelementptr inbounds i8, ptr %6798, i64 %5193
   %7057 = load i8, ptr %7056, align 1
   %7058 = zext i8 %7057 to i32
-  %7059 = icmp ult i32 %6801, %7058
+  %7059 = icmp samesign ult i32 %6801, %7058
   br i1 %7059, label %7060, label %7070
 
 7060:                                             ; preds = %7055
   %7061 = getelementptr inbounds i8, ptr %6798, i64 %5187
   %7062 = load i8, ptr %7061, align 1
   %7063 = zext i8 %7062 to i32
-  %7064 = icmp ult i32 %6801, %7063
+  %7064 = icmp samesign ult i32 %6801, %7063
   br i1 %7064, label %7065, label %.backedge.i224
 
 7065:                                             ; preds = %7060
   %7066 = getelementptr inbounds i8, ptr %6798, i64 %5192
   %7067 = load i8, ptr %7066, align 1
   %7068 = zext i8 %7067 to i32
-  %7069 = icmp ult i32 %6801, %7068
+  %7069 = icmp samesign ult i32 %6801, %7068
   br i1 %7069, label %.loopexit2203.i, label %.backedge.i224
 
 7070:                                             ; preds = %7055
   %7071 = getelementptr inbounds i8, ptr %6798, i64 %5190
   %7072 = load i8, ptr %7071, align 1
   %7073 = zext i8 %7072 to i32
-  %7074 = icmp ugt i32 %6802, %7073
+  %7074 = icmp samesign ugt i32 %6802, %7073
   br i1 %7074, label %7075, label %.backedge.i224
 
 7075:                                             ; preds = %7070
   %7076 = getelementptr inbounds i8, ptr %6798, i64 %5191
   %7077 = load i8, ptr %7076, align 1
   %7078 = zext i8 %7077 to i32
-  %7079 = icmp ugt i32 %6802, %7078
+  %7079 = icmp samesign ugt i32 %6802, %7078
   br i1 %7079, label %7080, label %.backedge.i224
 
 7080:                                             ; preds = %7075
   %7081 = getelementptr inbounds i8, ptr %6798, i64 %5192
   %7082 = load i8, ptr %7081, align 1
   %7083 = zext i8 %7082 to i32
-  %7084 = icmp ugt i32 %6802, %7083
-  %7085 = icmp ugt i32 %6802, %7058
+  %7084 = icmp samesign ugt i32 %6802, %7083
+  %7085 = icmp samesign ugt i32 %6802, %7058
   %or.cond2092.i = and i1 %7085, %7084
   br i1 %or.cond2092.i, label %.loopexit2203.i, label %.backedge.i224
 
@@ -11143,40 +11143,40 @@ _ZNSt6vectorIN2cv8KeyPointESaIS1_EE6resizeEm.exit.i174: ; preds = %5140, %5124
   %7087 = getelementptr inbounds i8, ptr %6798, i64 %5190
   %7088 = load i8, ptr %7087, align 1
   %7089 = zext i8 %7088 to i32
-  %7090 = icmp ugt i32 %6802, %7089
+  %7090 = icmp samesign ugt i32 %6802, %7089
   br i1 %7090, label %7091, label %.backedge.i224
 
 7091:                                             ; preds = %7086
   %7092 = getelementptr inbounds i8, ptr %6798, i64 %5191
   %7093 = load i8, ptr %7092, align 1
   %7094 = zext i8 %7093 to i32
-  %7095 = icmp ugt i32 %6802, %7094
+  %7095 = icmp samesign ugt i32 %6802, %7094
   br i1 %7095, label %7096, label %.backedge.i224
 
 7096:                                             ; preds = %7091
   %7097 = getelementptr inbounds i8, ptr %6798, i64 %5193
   %7098 = load i8, ptr %7097, align 1
   %7099 = zext i8 %7098 to i32
-  %7100 = icmp ugt i32 %6802, %7099
+  %7100 = icmp samesign ugt i32 %6802, %7099
   br i1 %7100, label %7101, label %7108
 
 7101:                                             ; preds = %7096
-  %7102 = icmp ugt i32 %6802, %7053
+  %7102 = icmp samesign ugt i32 %6802, %7053
   br i1 %7102, label %.loopexit2203.i, label %7103
 
 7103:                                             ; preds = %7101
   %7104 = getelementptr inbounds i8, ptr %6798, i64 %5192
   %7105 = load i8, ptr %7104, align 1
   %7106 = zext i8 %7105 to i32
-  %7107 = icmp ugt i32 %6802, %7106
+  %7107 = icmp samesign ugt i32 %6802, %7106
   br i1 %7107, label %.loopexit2203.i, label %.backedge.i224
 
 7108:                                             ; preds = %7096
   %7109 = getelementptr inbounds i8, ptr %6798, i64 %5187
   %7110 = load i8, ptr %7109, align 1
   %7111 = zext i8 %7110 to i32
-  %7112 = icmp ugt i32 %6802, %7111
-  %7113 = icmp ugt i32 %6802, %7053
+  %7112 = icmp samesign ugt i32 %6802, %7111
+  %7113 = icmp samesign ugt i32 %6802, %7053
   %or.cond2093.i = and i1 %7113, %7112
   br i1 %or.cond2093.i, label %.loopexit2203.i, label %.backedge.i224
 
@@ -11184,49 +11184,49 @@ _ZNSt6vectorIN2cv8KeyPointESaIS1_EE6resizeEm.exit.i174: ; preds = %5140, %5124
   %7115 = getelementptr inbounds i8, ptr %6798, i64 %5190
   %7116 = load i8, ptr %7115, align 1
   %7117 = zext i8 %7116 to i32
-  %7118 = icmp ugt i32 %6802, %7117
+  %7118 = icmp samesign ugt i32 %6802, %7117
   br i1 %7118, label %7119, label %.backedge.i224
 
 7119:                                             ; preds = %7114
   %7120 = getelementptr inbounds i8, ptr %6798, i64 %5191
   %7121 = load i8, ptr %7120, align 1
   %7122 = zext i8 %7121 to i32
-  %7123 = icmp ugt i32 %6802, %7122
+  %7123 = icmp samesign ugt i32 %6802, %7122
   br i1 %7123, label %7124, label %.backedge.i224
 
 7124:                                             ; preds = %7119
   %7125 = getelementptr inbounds i8, ptr %6798, i64 %5188
   %7126 = load i8, ptr %7125, align 1
   %7127 = zext i8 %7126 to i32
-  %7128 = icmp ugt i32 %6802, %7127
+  %7128 = icmp samesign ugt i32 %6802, %7127
   br i1 %7128, label %7129, label %7139
 
 7129:                                             ; preds = %7124
   %7130 = getelementptr inbounds i8, ptr %6798, i64 %5187
   %7131 = load i8, ptr %7130, align 1
   %7132 = zext i8 %7131 to i32
-  %7133 = icmp ugt i32 %6802, %7132
+  %7133 = icmp samesign ugt i32 %6802, %7132
   br i1 %7133, label %.loopexit2203.i, label %7134
 
 7134:                                             ; preds = %7129
   %7135 = getelementptr inbounds i8, ptr %6798, i64 %5193
   %7136 = load i8, ptr %7135, align 1
   %7137 = zext i8 %7136 to i32
-  %7138 = icmp ugt i32 %6802, %7137
+  %7138 = icmp samesign ugt i32 %6802, %7137
   br i1 %7138, label %.loopexit2203.i, label %.backedge.i224
 
 7139:                                             ; preds = %7124
   %7140 = getelementptr inbounds i8, ptr %6798, i64 %5193
   %7141 = load i8, ptr %7140, align 1
   %7142 = zext i8 %7141 to i32
-  %7143 = icmp ugt i32 %6802, %7142
+  %7143 = icmp samesign ugt i32 %6802, %7142
   br i1 %7143, label %7144, label %.backedge.i224
 
 7144:                                             ; preds = %7139
   %7145 = getelementptr inbounds i8, ptr %6798, i64 %5192
   %7146 = load i8, ptr %7145, align 1
   %7147 = zext i8 %7146 to i32
-  %7148 = icmp ugt i32 %6802, %7147
+  %7148 = icmp samesign ugt i32 %6802, %7147
   br i1 %7148, label %.loopexit2203.i, label %.backedge.i224
 
 7149:                                             ; preds = %7043
@@ -11236,50 +11236,50 @@ _ZNSt6vectorIN2cv8KeyPointESaIS1_EE6resizeEm.exit.i174: ; preds = %5140, %5124
   %7151 = getelementptr inbounds i8, ptr %6798, i64 %5187
   %7152 = load i8, ptr %7151, align 1
   %7153 = zext i8 %7152 to i32
-  %7154 = icmp ult i32 %6801, %7153
+  %7154 = icmp samesign ult i32 %6801, %7153
   br i1 %7154, label %7155, label %.backedge.i224
 
 7155:                                             ; preds = %7150
   %7156 = getelementptr inbounds i8, ptr %6798, i64 %5188
   %7157 = load i8, ptr %7156, align 1
   %7158 = zext i8 %7157 to i32
-  %7159 = icmp ult i32 %6801, %7158
+  %7159 = icmp samesign ult i32 %6801, %7158
   br i1 %7159, label %7160, label %.backedge.i224
 
 7160:                                             ; preds = %7155
   %7161 = getelementptr inbounds i8, ptr %6798, i64 %5193
   %7162 = load i8, ptr %7161, align 1
   %7163 = zext i8 %7162 to i32
-  %7164 = icmp ult i32 %6801, %7163
+  %7164 = icmp samesign ult i32 %6801, %7163
   br i1 %7164, label %7165, label %.backedge.i224
 
 7165:                                             ; preds = %7160
   %7166 = getelementptr inbounds i8, ptr %6798, i64 %5192
   %7167 = load i8, ptr %7166, align 1
   %7168 = zext i8 %7167 to i32
-  %7169 = icmp ult i32 %6801, %7168
+  %7169 = icmp samesign ult i32 %6801, %7168
   br i1 %7169, label %.loopexit2203.i, label %.backedge.i224
 
 7170:                                             ; preds = %7038
   %7171 = getelementptr inbounds i8, ptr %6798, i64 %5193
   %7172 = load i8, ptr %7171, align 1
   %7173 = zext i8 %7172 to i32
-  %7174 = icmp ult i32 %6801, %7173
+  %7174 = icmp samesign ult i32 %6801, %7173
   br i1 %7174, label %7175, label %.backedge.i224
 
 7175:                                             ; preds = %7170
   %7176 = getelementptr inbounds i8, ptr %6798, i64 %5192
   %7177 = load i8, ptr %7176, align 1
   %7178 = zext i8 %7177 to i32
-  %7179 = icmp ult i32 %6801, %7178
+  %7179 = icmp samesign ult i32 %6801, %7178
   br i1 %7179, label %7180, label %.backedge.i224
 
 7180:                                             ; preds = %7175
-  %7181 = icmp ult i32 %6801, %7041
+  %7181 = icmp samesign ult i32 %6801, %7041
   %7182 = getelementptr inbounds i8, ptr %6798, i64 %5189
   %7183 = load i8, ptr %7182, align 1
   %7184 = zext i8 %7183 to i32
-  %7185 = icmp ult i32 %6801, %7184
+  %7185 = icmp samesign ult i32 %6801, %7184
   br i1 %7181, label %7186, label %7197
 
 7186:                                             ; preds = %7180
@@ -11289,14 +11289,14 @@ _ZNSt6vectorIN2cv8KeyPointESaIS1_EE6resizeEm.exit.i174: ; preds = %5140, %5124
   %7188 = getelementptr inbounds i8, ptr %6798, i64 %5187
   %7189 = load i8, ptr %7188, align 1
   %7190 = zext i8 %7189 to i32
-  %7191 = icmp ult i32 %6801, %7190
+  %7191 = icmp samesign ult i32 %6801, %7190
   br i1 %7191, label %.loopexit2203.i, label %7192
 
 7192:                                             ; preds = %7187
   %7193 = getelementptr inbounds i8, ptr %6798, i64 %5191
   %7194 = load i8, ptr %7193, align 1
   %7195 = zext i8 %7194 to i32
-  %7196 = icmp ult i32 %6801, %7195
+  %7196 = icmp samesign ult i32 %6801, %7195
   br i1 %7196, label %.loopexit2203.i, label %.backedge.i224
 
 7197:                                             ; preds = %7180
@@ -11306,39 +11306,39 @@ _ZNSt6vectorIN2cv8KeyPointESaIS1_EE6resizeEm.exit.i174: ; preds = %5140, %5124
   %7199 = getelementptr inbounds i8, ptr %6798, i64 %5187
   %7200 = load i8, ptr %7199, align 1
   %7201 = zext i8 %7200 to i32
-  %7202 = icmp ult i32 %6801, %7201
+  %7202 = icmp samesign ult i32 %6801, %7201
   br i1 %7202, label %7203, label %.backedge.i224
 
 7203:                                             ; preds = %7198
   %7204 = getelementptr inbounds i8, ptr %6798, i64 %5188
   %7205 = load i8, ptr %7204, align 1
   %7206 = zext i8 %7205 to i32
-  %7207 = icmp ult i32 %6801, %7206
+  %7207 = icmp samesign ult i32 %6801, %7206
   br i1 %7207, label %.loopexit2203.i, label %.backedge.i224
 
 7208:                                             ; preds = %7033
   %7209 = getelementptr inbounds i8, ptr %6798, i64 %5193
   %7210 = load i8, ptr %7209, align 1
   %7211 = zext i8 %7210 to i32
-  %7212 = icmp ult i32 %6801, %7211
+  %7212 = icmp samesign ult i32 %6801, %7211
   br i1 %7212, label %7213, label %.backedge.i224
 
 7213:                                             ; preds = %7208
   %7214 = getelementptr inbounds i8, ptr %6798, i64 %5192
   %7215 = load i8, ptr %7214, align 1
   %7216 = zext i8 %7215 to i32
-  %7217 = icmp ult i32 %6801, %7216
+  %7217 = icmp samesign ult i32 %6801, %7216
   br i1 %7217, label %7218, label %.backedge.i224
 
 7218:                                             ; preds = %7213
   %7219 = getelementptr inbounds i8, ptr %6798, i64 %5185
   %7220 = load i8, ptr %7219, align 1
   %7221 = zext i8 %7220 to i32
-  %7222 = icmp ult i32 %6801, %7221
+  %7222 = icmp samesign ult i32 %6801, %7221
   %7223 = getelementptr inbounds i8, ptr %6798, i64 %5189
   %7224 = load i8, ptr %7223, align 1
   %7225 = zext i8 %7224 to i32
-  %7226 = icmp ult i32 %6801, %7225
+  %7226 = icmp samesign ult i32 %6801, %7225
   br i1 %7222, label %7227, label %7249
 
 7227:                                             ; preds = %7218
@@ -11348,29 +11348,29 @@ _ZNSt6vectorIN2cv8KeyPointESaIS1_EE6resizeEm.exit.i174: ; preds = %5140, %5124
   %7229 = getelementptr inbounds i8, ptr %6798, i64 %5187
   %7230 = load i8, ptr %7229, align 1
   %7231 = zext i8 %7230 to i32
-  %7232 = icmp ult i32 %6801, %7231
+  %7232 = icmp samesign ult i32 %6801, %7231
   br i1 %7232, label %.loopexit2203.i, label %7233
 
 7233:                                             ; preds = %7228
   %7234 = getelementptr inbounds i8, ptr %6798, i64 %5191
   %7235 = load i8, ptr %7234, align 1
   %7236 = zext i8 %7235 to i32
-  %7237 = icmp ult i32 %6801, %7236
+  %7237 = icmp samesign ult i32 %6801, %7236
   br i1 %7237, label %.loopexit2203.i, label %.backedge.i224
 
 7238:                                             ; preds = %7227
   %7239 = getelementptr inbounds i8, ptr %6798, i64 %5190
   %7240 = load i8, ptr %7239, align 1
   %7241 = zext i8 %7240 to i32
-  %7242 = icmp ult i32 %6801, %7241
+  %7242 = icmp samesign ult i32 %6801, %7241
   br i1 %7242, label %7243, label %.backedge.i224
 
 7243:                                             ; preds = %7238
   %7244 = getelementptr inbounds i8, ptr %6798, i64 %5191
   %7245 = load i8, ptr %7244, align 1
   %7246 = zext i8 %7245 to i32
-  %7247 = icmp ult i32 %6801, %7246
-  %7248 = icmp ult i32 %6801, %7036
+  %7247 = icmp samesign ult i32 %6801, %7246
+  %7248 = icmp samesign ult i32 %6801, %7036
   %or.cond2094.i = and i1 %7248, %7247
   br i1 %or.cond2094.i, label %.loopexit2203.i, label %.backedge.i224
 
@@ -11381,168 +11381,168 @@ _ZNSt6vectorIN2cv8KeyPointESaIS1_EE6resizeEm.exit.i174: ; preds = %5140, %5124
   %7251 = getelementptr inbounds i8, ptr %6798, i64 %5187
   %7252 = load i8, ptr %7251, align 1
   %7253 = zext i8 %7252 to i32
-  %7254 = icmp ult i32 %6801, %7253
+  %7254 = icmp samesign ult i32 %6801, %7253
   br i1 %7254, label %7255, label %.backedge.i224
 
 7255:                                             ; preds = %7250
   %7256 = getelementptr inbounds i8, ptr %6798, i64 %5188
   %7257 = load i8, ptr %7256, align 1
   %7258 = zext i8 %7257 to i32
-  %7259 = icmp ult i32 %6801, %7258
+  %7259 = icmp samesign ult i32 %6801, %7258
   br i1 %7259, label %.loopexit2203.i, label %.backedge.i224
 
 7260:                                             ; preds = %6807
   %7261 = getelementptr inbounds i8, ptr %6798, i64 %5184
   %7262 = load i8, ptr %7261, align 1
   %7263 = zext i8 %7262 to i32
-  %7264 = icmp ult i32 %6801, %7263
+  %7264 = icmp samesign ult i32 %6801, %7263
   br i1 %7264, label %7265, label %7370
 
 7265:                                             ; preds = %7260
   %7266 = getelementptr inbounds i8, ptr %6798, i64 %5185
   %7267 = load i8, ptr %7266, align 1
   %7268 = zext i8 %7267 to i32
-  %7269 = icmp ult i32 %6801, %7268
+  %7269 = icmp samesign ult i32 %6801, %7268
   br i1 %7269, label %7270, label %.backedge.i224
 
 7270:                                             ; preds = %7265
   %7271 = getelementptr inbounds i8, ptr %6798, i64 %5191
   %7272 = load i8, ptr %7271, align 1
   %7273 = zext i8 %7272 to i32
-  %7274 = icmp ult i32 %6801, %7273
+  %7274 = icmp samesign ult i32 %6801, %7273
   br i1 %7274, label %7275, label %.backedge.i224
 
 7275:                                             ; preds = %7270
   %7276 = getelementptr inbounds i8, ptr %6798, i64 %5183
   %7277 = load i8, ptr %7276, align 1
   %7278 = zext i8 %7277 to i32
-  %7279 = icmp ult i32 %6801, %7278
+  %7279 = icmp samesign ult i32 %6801, %7278
   br i1 %7279, label %7280, label %7350
 
 7280:                                             ; preds = %7275
   %7281 = getelementptr inbounds i8, ptr %6798, i64 %5189
   %7282 = load i8, ptr %7281, align 1
   %7283 = zext i8 %7282 to i32
-  %7284 = icmp ult i32 %6801, %7283
+  %7284 = icmp samesign ult i32 %6801, %7283
   br i1 %7284, label %7285, label %7320
 
 7285:                                             ; preds = %7280
   %7286 = getelementptr inbounds i8, ptr %6798, i64 %5193
   %7287 = load i8, ptr %7286, align 1
   %7288 = zext i8 %7287 to i32
-  %7289 = icmp ult i32 %6801, %7288
+  %7289 = icmp samesign ult i32 %6801, %7288
   br i1 %7289, label %7290, label %7305
 
 7290:                                             ; preds = %7285
   %7291 = getelementptr inbounds i8, ptr %6798, i64 %5192
   %7292 = load i8, ptr %7291, align 1
   %7293 = zext i8 %7292 to i32
-  %7294 = icmp ult i32 %6801, %7293
+  %7294 = icmp samesign ult i32 %6801, %7293
   br i1 %7294, label %.loopexit2203.i, label %7295
 
 7295:                                             ; preds = %7290
   %7296 = getelementptr inbounds i8, ptr %6798, i64 %5190
   %7297 = load i8, ptr %7296, align 1
   %7298 = zext i8 %7297 to i32
-  %7299 = icmp ult i32 %6801, %7298
+  %7299 = icmp samesign ult i32 %6801, %7298
   br i1 %7299, label %7300, label %.backedge.i224
 
 7300:                                             ; preds = %7295
   %7301 = getelementptr inbounds i8, ptr %6798, i64 %5188
   %7302 = load i8, ptr %7301, align 1
   %7303 = zext i8 %7302 to i32
-  %7304 = icmp ult i32 %6801, %7303
+  %7304 = icmp samesign ult i32 %6801, %7303
   br i1 %7304, label %.loopexit2203.i, label %.backedge.i224
 
 7305:                                             ; preds = %7285
   %7306 = getelementptr inbounds i8, ptr %6798, i64 %5190
   %7307 = load i8, ptr %7306, align 1
   %7308 = zext i8 %7307 to i32
-  %7309 = icmp ult i32 %6801, %7308
+  %7309 = icmp samesign ult i32 %6801, %7308
   br i1 %7309, label %7310, label %.backedge.i224
 
 7310:                                             ; preds = %7305
   %7311 = getelementptr inbounds i8, ptr %6798, i64 %5187
   %7312 = load i8, ptr %7311, align 1
   %7313 = zext i8 %7312 to i32
-  %7314 = icmp ult i32 %6801, %7313
+  %7314 = icmp samesign ult i32 %6801, %7313
   br i1 %7314, label %7315, label %.backedge.i224
 
 7315:                                             ; preds = %7310
   %7316 = getelementptr inbounds i8, ptr %6798, i64 %5188
   %7317 = load i8, ptr %7316, align 1
   %7318 = zext i8 %7317 to i32
-  %7319 = icmp ult i32 %6801, %7318
+  %7319 = icmp samesign ult i32 %6801, %7318
   br i1 %7319, label %.loopexit2203.i, label %.backedge.i224
 
 7320:                                             ; preds = %7280
   %7321 = getelementptr inbounds i8, ptr %6798, i64 %5190
   %7322 = load i8, ptr %7321, align 1
   %7323 = zext i8 %7322 to i32
-  %7324 = icmp ult i32 %6801, %7323
+  %7324 = icmp samesign ult i32 %6801, %7323
   br i1 %7324, label %7325, label %.backedge.i224
 
 7325:                                             ; preds = %7320
   %7326 = getelementptr inbounds i8, ptr %6798, i64 %5188
   %7327 = load i8, ptr %7326, align 1
   %7328 = zext i8 %7327 to i32
-  %7329 = icmp ult i32 %6801, %7328
+  %7329 = icmp samesign ult i32 %6801, %7328
   br i1 %7329, label %7330, label %7340
 
 7330:                                             ; preds = %7325
   %7331 = getelementptr inbounds i8, ptr %6798, i64 %5187
   %7332 = load i8, ptr %7331, align 1
   %7333 = zext i8 %7332 to i32
-  %7334 = icmp ult i32 %6801, %7333
+  %7334 = icmp samesign ult i32 %6801, %7333
   br i1 %7334, label %.loopexit2203.i, label %7335
 
 7335:                                             ; preds = %7330
   %7336 = getelementptr inbounds i8, ptr %6798, i64 %5193
   %7337 = load i8, ptr %7336, align 1
   %7338 = zext i8 %7337 to i32
-  %7339 = icmp ult i32 %6801, %7338
+  %7339 = icmp samesign ult i32 %6801, %7338
   br i1 %7339, label %.loopexit2203.i, label %.backedge.i224
 
 7340:                                             ; preds = %7325
   %7341 = getelementptr inbounds i8, ptr %6798, i64 %5193
   %7342 = load i8, ptr %7341, align 1
   %7343 = zext i8 %7342 to i32
-  %7344 = icmp ult i32 %6801, %7343
+  %7344 = icmp samesign ult i32 %6801, %7343
   br i1 %7344, label %7345, label %.backedge.i224
 
 7345:                                             ; preds = %7340
   %7346 = getelementptr inbounds i8, ptr %6798, i64 %5192
   %7347 = load i8, ptr %7346, align 1
   %7348 = zext i8 %7347 to i32
-  %7349 = icmp ult i32 %6801, %7348
+  %7349 = icmp samesign ult i32 %6801, %7348
   br i1 %7349, label %.loopexit2203.i, label %.backedge.i224
 
 7350:                                             ; preds = %7275
   %7351 = getelementptr inbounds i8, ptr %6798, i64 %5193
   %7352 = load i8, ptr %7351, align 1
   %7353 = zext i8 %7352 to i32
-  %7354 = icmp ult i32 %6801, %7353
+  %7354 = icmp samesign ult i32 %6801, %7353
   br i1 %7354, label %7355, label %.backedge.i224
 
 7355:                                             ; preds = %7350
   %7356 = getelementptr inbounds i8, ptr %6798, i64 %5192
   %7357 = load i8, ptr %7356, align 1
   %7358 = zext i8 %7357 to i32
-  %7359 = icmp ult i32 %6801, %7358
+  %7359 = icmp samesign ult i32 %6801, %7358
   br i1 %7359, label %7360, label %.backedge.i224
 
 7360:                                             ; preds = %7355
   %7361 = getelementptr inbounds i8, ptr %6798, i64 %5189
   %7362 = load i8, ptr %7361, align 1
   %7363 = zext i8 %7362 to i32
-  %7364 = icmp ult i32 %6801, %7363
+  %7364 = icmp samesign ult i32 %6801, %7363
   br i1 %7364, label %.loopexit2203.i, label %7365
 
 7365:                                             ; preds = %7360
   %7366 = getelementptr inbounds i8, ptr %6798, i64 %5190
   %7367 = load i8, ptr %7366, align 1
   %7368 = zext i8 %7367 to i32
-  %7369 = icmp ult i32 %6801, %7368
+  %7369 = icmp samesign ult i32 %6801, %7368
   br i1 %7369, label %.loopexit2203.i, label %.backedge.i224
 
 7370:                                             ; preds = %7260
@@ -11553,151 +11553,151 @@ _ZNSt6vectorIN2cv8KeyPointESaIS1_EE6resizeEm.exit.i174: ; preds = %5140, %5124
   %7373 = getelementptr inbounds i8, ptr %6798, i64 %5183
   %7374 = load i8, ptr %7373, align 1
   %7375 = zext i8 %7374 to i32
-  %7376 = icmp ugt i32 %6802, %7375
+  %7376 = icmp samesign ugt i32 %6802, %7375
   br i1 %7376, label %7377, label %.backedge.i224
 
 7377:                                             ; preds = %7372
-  %7378 = icmp ugt i32 %6802, %6810
+  %7378 = icmp samesign ugt i32 %6802, %6810
   br i1 %7378, label %7379, label %7439
 
 7379:                                             ; preds = %7377
   %7380 = getelementptr inbounds i8, ptr %6798, i64 %5190
   %7381 = load i8, ptr %7380, align 1
   %7382 = zext i8 %7381 to i32
-  %7383 = icmp ugt i32 %6802, %7382
+  %7383 = icmp samesign ugt i32 %6802, %7382
   br i1 %7383, label %7384, label %.backedge.i224
 
 7384:                                             ; preds = %7379
   %7385 = getelementptr inbounds i8, ptr %6798, i64 %5188
   %7386 = load i8, ptr %7385, align 1
   %7387 = zext i8 %7386 to i32
-  %7388 = icmp ugt i32 %6802, %7387
+  %7388 = icmp samesign ugt i32 %6802, %7387
   br i1 %7388, label %7389, label %7419
 
 7389:                                             ; preds = %7384
   %7390 = getelementptr inbounds i8, ptr %6798, i64 %5187
   %7391 = load i8, ptr %7390, align 1
   %7392 = zext i8 %7391 to i32
-  %7393 = icmp ugt i32 %6802, %7392
+  %7393 = icmp samesign ugt i32 %6802, %7392
   br i1 %7393, label %7394, label %7404
 
 7394:                                             ; preds = %7389
   %7395 = getelementptr inbounds i8, ptr %6798, i64 %5189
   %7396 = load i8, ptr %7395, align 1
   %7397 = zext i8 %7396 to i32
-  %7398 = icmp ugt i32 %6802, %7397
+  %7398 = icmp samesign ugt i32 %6802, %7397
   br i1 %7398, label %.loopexit2203.i, label %7399
 
 7399:                                             ; preds = %7394
   %7400 = getelementptr inbounds i8, ptr %6798, i64 %5191
   %7401 = load i8, ptr %7400, align 1
   %7402 = zext i8 %7401 to i32
-  %7403 = icmp ugt i32 %6802, %7402
+  %7403 = icmp samesign ugt i32 %6802, %7402
   br i1 %7403, label %.loopexit2203.i, label %.backedge.i224
 
 7404:                                             ; preds = %7389
   %7405 = getelementptr inbounds i8, ptr %6798, i64 %5185
   %7406 = load i8, ptr %7405, align 1
   %7407 = zext i8 %7406 to i32
-  %7408 = icmp ugt i32 %6802, %7407
+  %7408 = icmp samesign ugt i32 %6802, %7407
   br i1 %7408, label %7409, label %.backedge.i224
 
 7409:                                             ; preds = %7404
   %7410 = getelementptr inbounds i8, ptr %6798, i64 %5191
   %7411 = load i8, ptr %7410, align 1
   %7412 = zext i8 %7411 to i32
-  %7413 = icmp ugt i32 %6802, %7412
+  %7413 = icmp samesign ugt i32 %6802, %7412
   br i1 %7413, label %7414, label %.backedge.i224
 
 7414:                                             ; preds = %7409
   %7415 = getelementptr inbounds i8, ptr %6798, i64 %5193
   %7416 = load i8, ptr %7415, align 1
   %7417 = zext i8 %7416 to i32
-  %7418 = icmp ugt i32 %6802, %7417
+  %7418 = icmp samesign ugt i32 %6802, %7417
   br i1 %7418, label %.loopexit2203.i, label %.backedge.i224
 
 7419:                                             ; preds = %7384
   %7420 = getelementptr inbounds i8, ptr %6798, i64 %5185
   %7421 = load i8, ptr %7420, align 1
   %7422 = zext i8 %7421 to i32
-  %7423 = icmp ugt i32 %6802, %7422
+  %7423 = icmp samesign ugt i32 %6802, %7422
   br i1 %7423, label %7424, label %.backedge.i224
 
 7424:                                             ; preds = %7419
   %7425 = getelementptr inbounds i8, ptr %6798, i64 %5191
   %7426 = load i8, ptr %7425, align 1
   %7427 = zext i8 %7426 to i32
-  %7428 = icmp ugt i32 %6802, %7427
+  %7428 = icmp samesign ugt i32 %6802, %7427
   br i1 %7428, label %7429, label %.backedge.i224
 
 7429:                                             ; preds = %7424
   %7430 = getelementptr inbounds i8, ptr %6798, i64 %5193
   %7431 = load i8, ptr %7430, align 1
   %7432 = zext i8 %7431 to i32
-  %7433 = icmp ugt i32 %6802, %7432
+  %7433 = icmp samesign ugt i32 %6802, %7432
   br i1 %7433, label %7434, label %.backedge.i224
 
 7434:                                             ; preds = %7429
   %7435 = getelementptr inbounds i8, ptr %6798, i64 %5192
   %7436 = load i8, ptr %7435, align 1
   %7437 = zext i8 %7436 to i32
-  %7438 = icmp ugt i32 %6802, %7437
+  %7438 = icmp samesign ugt i32 %6802, %7437
   br i1 %7438, label %.loopexit2203.i, label %.backedge.i224
 
 7439:                                             ; preds = %7377
   %7440 = getelementptr inbounds i8, ptr %6798, i64 %5185
   %7441 = load i8, ptr %7440, align 1
   %7442 = zext i8 %7441 to i32
-  %7443 = icmp ugt i32 %6802, %7442
+  %7443 = icmp samesign ugt i32 %6802, %7442
   br i1 %7443, label %7444, label %.backedge.i224
 
 7444:                                             ; preds = %7439
   %7445 = getelementptr inbounds i8, ptr %6798, i64 %5190
   %7446 = load i8, ptr %7445, align 1
   %7447 = zext i8 %7446 to i32
-  %7448 = icmp ugt i32 %6802, %7447
+  %7448 = icmp samesign ugt i32 %6802, %7447
   br i1 %7448, label %7449, label %.backedge.i224
 
 7449:                                             ; preds = %7444
   %7450 = getelementptr inbounds i8, ptr %6798, i64 %5191
   %7451 = load i8, ptr %7450, align 1
   %7452 = zext i8 %7451 to i32
-  %7453 = icmp ugt i32 %6802, %7452
+  %7453 = icmp samesign ugt i32 %6802, %7452
   br i1 %7453, label %7454, label %.backedge.i224
 
 7454:                                             ; preds = %7449
   %7455 = getelementptr inbounds i8, ptr %6798, i64 %5188
   %7456 = load i8, ptr %7455, align 1
   %7457 = zext i8 %7456 to i32
-  %7458 = icmp ugt i32 %6802, %7457
+  %7458 = icmp samesign ugt i32 %6802, %7457
   br i1 %7458, label %7459, label %7469
 
 7459:                                             ; preds = %7454
   %7460 = getelementptr inbounds i8, ptr %6798, i64 %5187
   %7461 = load i8, ptr %7460, align 1
   %7462 = zext i8 %7461 to i32
-  %7463 = icmp ugt i32 %6802, %7462
+  %7463 = icmp samesign ugt i32 %6802, %7462
   br i1 %7463, label %.loopexit2203.i, label %7464
 
 7464:                                             ; preds = %7459
   %7465 = getelementptr inbounds i8, ptr %6798, i64 %5193
   %7466 = load i8, ptr %7465, align 1
   %7467 = zext i8 %7466 to i32
-  %7468 = icmp ugt i32 %6802, %7467
+  %7468 = icmp samesign ugt i32 %6802, %7467
   br i1 %7468, label %.loopexit2203.i, label %.backedge.i224
 
 7469:                                             ; preds = %7454
   %7470 = getelementptr inbounds i8, ptr %6798, i64 %5193
   %7471 = load i8, ptr %7470, align 1
   %7472 = zext i8 %7471 to i32
-  %7473 = icmp ugt i32 %6802, %7472
+  %7473 = icmp samesign ugt i32 %6802, %7472
   br i1 %7473, label %7474, label %.backedge.i224
 
 7474:                                             ; preds = %7469
   %7475 = getelementptr inbounds i8, ptr %6798, i64 %5192
   %7476 = load i8, ptr %7475, align 1
   %7477 = zext i8 %7476 to i32
-  %7478 = icmp ugt i32 %6802, %7477
+  %7478 = icmp samesign ugt i32 %6802, %7477
   br i1 %7478, label %.loopexit2203.i, label %.backedge.i224
 
 7479:                                             ; preds = %6797
@@ -11708,46 +11708,46 @@ _ZNSt6vectorIN2cv8KeyPointESaIS1_EE6resizeEm.exit.i174: ; preds = %5140, %5124
   %7482 = getelementptr inbounds i8, ptr %6798, i64 %5186
   %7483 = load i8, ptr %7482, align 1
   %7484 = zext i8 %7483 to i32
-  %7485 = icmp ugt i32 %6802, %7484
+  %7485 = icmp samesign ugt i32 %6802, %7484
   br i1 %7485, label %7486, label %7841
 
 7486:                                             ; preds = %7481
   %7487 = getelementptr inbounds i8, ptr %6798, i64 %5192
   %7488 = load i8, ptr %7487, align 1
   %7489 = zext i8 %7488 to i32
-  %7490 = icmp ugt i32 %6802, %7489
+  %7490 = icmp samesign ugt i32 %6802, %7489
   br i1 %7490, label %7491, label %7715
 
 7491:                                             ; preds = %7486
   %7492 = getelementptr inbounds i8, ptr %6798, i64 %5187
   %7493 = load i8, ptr %7492, align 1
   %7494 = zext i8 %7493 to i32
-  %7495 = icmp ugt i32 %6802, %7494
+  %7495 = icmp samesign ugt i32 %6802, %7494
   br i1 %7495, label %7496, label %7651
 
 7496:                                             ; preds = %7491
   %7497 = getelementptr inbounds i8, ptr %6798, i64 %5183
   %7498 = load i8, ptr %7497, align 1
   %7499 = zext i8 %7498 to i32
-  %7500 = icmp ugt i32 %6802, %7499
+  %7500 = icmp samesign ugt i32 %6802, %7499
   br i1 %7500, label %7501, label %7583
 
 7501:                                             ; preds = %7496
   %7502 = getelementptr inbounds i8, ptr %6798, i64 %5185
   %7503 = load i8, ptr %7502, align 1
   %7504 = zext i8 %7503 to i32
-  %7505 = icmp ugt i32 %6802, %7504
+  %7505 = icmp samesign ugt i32 %6802, %7504
   br i1 %7505, label %7506, label %7557
 
 7506:                                             ; preds = %7501
   %7507 = getelementptr inbounds i8, ptr %6798, i64 %5184
   %7508 = load i8, ptr %7507, align 1
   %7509 = zext i8 %7508 to i32
-  %7510 = icmp ugt i32 %6802, %7509
+  %7510 = icmp samesign ugt i32 %6802, %7509
   %7511 = getelementptr inbounds i8, ptr %6798, i64 %5189
   %7512 = load i8, ptr %7511, align 1
   %7513 = zext i8 %7512 to i32
-  %7514 = icmp ugt i32 %6802, %7513
+  %7514 = icmp samesign ugt i32 %6802, %7513
   br i1 %7510, label %7515, label %7546
 
 7515:                                             ; preds = %7506
@@ -11757,42 +11757,42 @@ _ZNSt6vectorIN2cv8KeyPointESaIS1_EE6resizeEm.exit.i174: ; preds = %5140, %5124
   %7517 = getelementptr inbounds i8, ptr %6798, i64 %5188
   %7518 = load i8, ptr %7517, align 1
   %7519 = zext i8 %7518 to i32
-  %7520 = icmp ugt i32 %6802, %7519
+  %7520 = icmp samesign ugt i32 %6802, %7519
   br i1 %7520, label %.loopexit2203.i, label %7521
 
 7521:                                             ; preds = %7516
   %7522 = getelementptr inbounds i8, ptr %6798, i64 %5193
   %7523 = load i8, ptr %7522, align 1
   %7524 = zext i8 %7523 to i32
-  %7525 = icmp ugt i32 %6802, %7524
+  %7525 = icmp samesign ugt i32 %6802, %7524
   br i1 %7525, label %.loopexit2203.i, label %.backedge.i224
 
 7526:                                             ; preds = %7515
   %7527 = getelementptr inbounds i8, ptr %6798, i64 %5190
   %7528 = load i8, ptr %7527, align 1
   %7529 = zext i8 %7528 to i32
-  %7530 = icmp ugt i32 %6802, %7529
+  %7530 = icmp samesign ugt i32 %6802, %7529
   br i1 %7530, label %7531, label %.backedge.i224
 
 7531:                                             ; preds = %7526
   %7532 = getelementptr inbounds i8, ptr %6798, i64 %5191
   %7533 = load i8, ptr %7532, align 1
   %7534 = zext i8 %7533 to i32
-  %7535 = icmp ugt i32 %6802, %7534
+  %7535 = icmp samesign ugt i32 %6802, %7534
   br i1 %7535, label %7536, label %.backedge.i224
 
 7536:                                             ; preds = %7531
   %7537 = getelementptr inbounds i8, ptr %6798, i64 %5188
   %7538 = load i8, ptr %7537, align 1
   %7539 = zext i8 %7538 to i32
-  %7540 = icmp ugt i32 %6802, %7539
+  %7540 = icmp samesign ugt i32 %6802, %7539
   br i1 %7540, label %.loopexit2203.i, label %7541
 
 7541:                                             ; preds = %7536
   %7542 = getelementptr inbounds i8, ptr %6798, i64 %5193
   %7543 = load i8, ptr %7542, align 1
   %7544 = zext i8 %7543 to i32
-  %7545 = icmp ugt i32 %6802, %7544
+  %7545 = icmp samesign ugt i32 %6802, %7544
   br i1 %7545, label %.loopexit2203.i, label %.backedge.i224
 
 7546:                                             ; preds = %7506
@@ -11802,32 +11802,32 @@ _ZNSt6vectorIN2cv8KeyPointESaIS1_EE6resizeEm.exit.i174: ; preds = %5140, %5124
   %7548 = getelementptr inbounds i8, ptr %6798, i64 %5188
   %7549 = load i8, ptr %7548, align 1
   %7550 = zext i8 %7549 to i32
-  %7551 = icmp ugt i32 %6802, %7550
+  %7551 = icmp samesign ugt i32 %6802, %7550
   br i1 %7551, label %.loopexit2203.i, label %7552
 
 7552:                                             ; preds = %7547
   %7553 = getelementptr inbounds i8, ptr %6798, i64 %5193
   %7554 = load i8, ptr %7553, align 1
   %7555 = zext i8 %7554 to i32
-  %7556 = icmp ugt i32 %6802, %7555
+  %7556 = icmp samesign ugt i32 %6802, %7555
   br i1 %7556, label %.loopexit2203.i, label %.backedge.i224
 
 7557:                                             ; preds = %7501
   %7558 = getelementptr inbounds i8, ptr %6798, i64 %5188
   %7559 = load i8, ptr %7558, align 1
   %7560 = zext i8 %7559 to i32
-  %7561 = icmp ugt i32 %6802, %7560
+  %7561 = icmp samesign ugt i32 %6802, %7560
   br i1 %7561, label %7562, label %.backedge.i224
 
 7562:                                             ; preds = %7557
   %7563 = getelementptr inbounds i8, ptr %6798, i64 %5184
   %7564 = load i8, ptr %7563, align 1
   %7565 = zext i8 %7564 to i32
-  %7566 = icmp ugt i32 %6802, %7565
+  %7566 = icmp samesign ugt i32 %6802, %7565
   %7567 = getelementptr inbounds i8, ptr %6798, i64 %5189
   %7568 = load i8, ptr %7567, align 1
   %7569 = zext i8 %7568 to i32
-  %7570 = icmp ugt i32 %6802, %7569
+  %7570 = icmp samesign ugt i32 %6802, %7569
   br i1 %7566, label %7571, label %7582
 
 7571:                                             ; preds = %7562
@@ -11837,14 +11837,14 @@ _ZNSt6vectorIN2cv8KeyPointESaIS1_EE6resizeEm.exit.i174: ; preds = %5140, %5124
   %7573 = getelementptr inbounds i8, ptr %6798, i64 %5190
   %7574 = load i8, ptr %7573, align 1
   %7575 = zext i8 %7574 to i32
-  %7576 = icmp ugt i32 %6802, %7575
+  %7576 = icmp samesign ugt i32 %6802, %7575
   br i1 %7576, label %7577, label %.backedge.i224
 
 7577:                                             ; preds = %7572
   %7578 = getelementptr inbounds i8, ptr %6798, i64 %5191
   %7579 = load i8, ptr %7578, align 1
   %7580 = zext i8 %7579 to i32
-  %7581 = icmp ugt i32 %6802, %7580
+  %7581 = icmp samesign ugt i32 %6802, %7580
   br i1 %7581, label %.loopexit2203.i, label %.backedge.i224
 
 7582:                                             ; preds = %7562
@@ -11854,25 +11854,25 @@ _ZNSt6vectorIN2cv8KeyPointESaIS1_EE6resizeEm.exit.i174: ; preds = %5140, %5124
   %7584 = getelementptr inbounds i8, ptr %6798, i64 %5193
   %7585 = load i8, ptr %7584, align 1
   %7586 = zext i8 %7585 to i32
-  %7587 = icmp ugt i32 %6802, %7586
+  %7587 = icmp samesign ugt i32 %6802, %7586
   br i1 %7587, label %7588, label %7624
 
 7588:                                             ; preds = %7583
   %7589 = getelementptr inbounds i8, ptr %6798, i64 %5185
   %7590 = load i8, ptr %7589, align 1
   %7591 = zext i8 %7590 to i32
-  %7592 = icmp ugt i32 %6802, %7591
+  %7592 = icmp samesign ugt i32 %6802, %7591
   br i1 %7592, label %7593, label %7614
 
 7593:                                             ; preds = %7588
   %7594 = getelementptr inbounds i8, ptr %6798, i64 %5184
   %7595 = load i8, ptr %7594, align 1
   %7596 = zext i8 %7595 to i32
-  %7597 = icmp ugt i32 %6802, %7596
+  %7597 = icmp samesign ugt i32 %6802, %7596
   %7598 = getelementptr inbounds i8, ptr %6798, i64 %5189
   %7599 = load i8, ptr %7598, align 1
   %7600 = zext i8 %7599 to i32
-  %7601 = icmp ugt i32 %6802, %7600
+  %7601 = icmp samesign ugt i32 %6802, %7600
   br i1 %7597, label %7602, label %7613
 
 7602:                                             ; preds = %7593
@@ -11882,14 +11882,14 @@ _ZNSt6vectorIN2cv8KeyPointESaIS1_EE6resizeEm.exit.i174: ; preds = %5140, %5124
   %7604 = getelementptr inbounds i8, ptr %6798, i64 %5190
   %7605 = load i8, ptr %7604, align 1
   %7606 = zext i8 %7605 to i32
-  %7607 = icmp ugt i32 %6802, %7606
+  %7607 = icmp samesign ugt i32 %6802, %7606
   br i1 %7607, label %7608, label %.backedge.i224
 
 7608:                                             ; preds = %7603
   %7609 = getelementptr inbounds i8, ptr %6798, i64 %5191
   %7610 = load i8, ptr %7609, align 1
   %7611 = zext i8 %7610 to i32
-  %7612 = icmp ugt i32 %6802, %7611
+  %7612 = icmp samesign ugt i32 %6802, %7611
   br i1 %7612, label %.loopexit2203.i, label %.backedge.i224
 
 7613:                                             ; preds = %7593
@@ -11899,29 +11899,29 @@ _ZNSt6vectorIN2cv8KeyPointESaIS1_EE6resizeEm.exit.i174: ; preds = %5140, %5124
   %7615 = getelementptr inbounds i8, ptr %6798, i64 %5189
   %7616 = load i8, ptr %7615, align 1
   %7617 = zext i8 %7616 to i32
-  %7618 = icmp ugt i32 %6802, %7617
+  %7618 = icmp samesign ugt i32 %6802, %7617
   br i1 %7618, label %7619, label %.backedge.i224
 
 7619:                                             ; preds = %7614
   %7620 = getelementptr inbounds i8, ptr %6798, i64 %5188
   %7621 = load i8, ptr %7620, align 1
   %7622 = zext i8 %7621 to i32
-  %7623 = icmp ugt i32 %6802, %7622
+  %7623 = icmp samesign ugt i32 %6802, %7622
   br i1 %7623, label %.loopexit2203.i, label %.backedge.i224
 
 7624:                                             ; preds = %7583
   %7625 = getelementptr inbounds i8, ptr %6798, i64 %5184
   %7626 = load i8, ptr %7625, align 1
   %7627 = zext i8 %7626 to i32
-  %7628 = icmp ult i32 %6801, %7627
+  %7628 = icmp samesign ult i32 %6801, %7627
   br i1 %7628, label %7629, label %.backedge.i224
 
 7629:                                             ; preds = %7624
   %7630 = getelementptr inbounds i8, ptr %6798, i64 %5185
   %7631 = load i8, ptr %7630, align 1
   %7632 = zext i8 %7631 to i32
-  %7633 = icmp ult i32 %6801, %7632
-  %7634 = icmp ult i32 %6801, %7499
+  %7633 = icmp samesign ult i32 %6801, %7632
+  %7634 = icmp samesign ult i32 %6801, %7499
   %or.cond2095.i = and i1 %7634, %7633
   br i1 %or.cond2095.i, label %7635, label %.backedge.i224
 
@@ -11929,22 +11929,22 @@ _ZNSt6vectorIN2cv8KeyPointESaIS1_EE6resizeEm.exit.i174: ; preds = %5140, %5124
   %7636 = getelementptr inbounds i8, ptr %6798, i64 %5188
   %7637 = load i8, ptr %7636, align 1
   %7638 = zext i8 %7637 to i32
-  %7639 = icmp ult i32 %6801, %7638
+  %7639 = icmp samesign ult i32 %6801, %7638
   br i1 %7639, label %7640, label %.backedge.i224
 
 7640:                                             ; preds = %7635
   %7641 = getelementptr inbounds i8, ptr %6798, i64 %5190
   %7642 = load i8, ptr %7641, align 1
   %7643 = zext i8 %7642 to i32
-  %7644 = icmp ult i32 %6801, %7643
+  %7644 = icmp samesign ult i32 %6801, %7643
   br i1 %7644, label %7645, label %.backedge.i224
 
 7645:                                             ; preds = %7640
   %7646 = getelementptr inbounds i8, ptr %6798, i64 %5191
   %7647 = load i8, ptr %7646, align 1
   %7648 = zext i8 %7647 to i32
-  %7649 = icmp ult i32 %6801, %7648
-  %7650 = icmp ult i32 %6801, %7586
+  %7649 = icmp samesign ult i32 %6801, %7648
+  %7650 = icmp samesign ult i32 %6801, %7586
   %or.cond2096.i = and i1 %7650, %7649
   br i1 %or.cond2096.i, label %.loopexit2203.i, label %.backedge.i224
 
@@ -11952,32 +11952,32 @@ _ZNSt6vectorIN2cv8KeyPointESaIS1_EE6resizeEm.exit.i174: ; preds = %5140, %5124
   %7652 = getelementptr inbounds i8, ptr %6798, i64 %5185
   %7653 = load i8, ptr %7652, align 1
   %7654 = zext i8 %7653 to i32
-  %7655 = icmp ugt i32 %6802, %7654
+  %7655 = icmp samesign ugt i32 %6802, %7654
   br i1 %7655, label %7656, label %7682
 
 7656:                                             ; preds = %7651
   %7657 = getelementptr inbounds i8, ptr %6798, i64 %5191
   %7658 = load i8, ptr %7657, align 1
   %7659 = zext i8 %7658 to i32
-  %7660 = icmp ugt i32 %6802, %7659
+  %7660 = icmp samesign ugt i32 %6802, %7659
   br i1 %7660, label %7661, label %.backedge.i224
 
 7661:                                             ; preds = %7656
   %7662 = getelementptr inbounds i8, ptr %6798, i64 %5193
   %7663 = load i8, ptr %7662, align 1
   %7664 = zext i8 %7663 to i32
-  %7665 = icmp ugt i32 %6802, %7664
+  %7665 = icmp samesign ugt i32 %6802, %7664
   br i1 %7665, label %7666, label %.backedge.i224
 
 7666:                                             ; preds = %7661
   %7667 = getelementptr inbounds i8, ptr %6798, i64 %5184
   %7668 = load i8, ptr %7667, align 1
   %7669 = zext i8 %7668 to i32
-  %7670 = icmp ugt i32 %6802, %7669
+  %7670 = icmp samesign ugt i32 %6802, %7669
   %7671 = getelementptr inbounds i8, ptr %6798, i64 %5189
   %7672 = load i8, ptr %7671, align 1
   %7673 = zext i8 %7672 to i32
-  %7674 = icmp ugt i32 %6802, %7673
+  %7674 = icmp samesign ugt i32 %6802, %7673
   br i1 %7670, label %7675, label %7681
 
 7675:                                             ; preds = %7666
@@ -11987,7 +11987,7 @@ _ZNSt6vectorIN2cv8KeyPointESaIS1_EE6resizeEm.exit.i174: ; preds = %5140, %5124
   %7677 = getelementptr inbounds i8, ptr %6798, i64 %5190
   %7678 = load i8, ptr %7677, align 1
   %7679 = zext i8 %7678 to i32
-  %7680 = icmp ugt i32 %6802, %7679
+  %7680 = icmp samesign ugt i32 %6802, %7679
   br i1 %7680, label %.loopexit2203.i, label %.backedge.i224
 
 7681:                                             ; preds = %7666
@@ -11997,15 +11997,15 @@ _ZNSt6vectorIN2cv8KeyPointESaIS1_EE6resizeEm.exit.i174: ; preds = %5140, %5124
   %7683 = getelementptr inbounds i8, ptr %6798, i64 %5183
   %7684 = load i8, ptr %7683, align 1
   %7685 = zext i8 %7684 to i32
-  %7686 = icmp ult i32 %6801, %7685
+  %7686 = icmp samesign ult i32 %6801, %7685
   br i1 %7686, label %7687, label %.backedge.i224
 
 7687:                                             ; preds = %7682
   %7688 = getelementptr inbounds i8, ptr %6798, i64 %5184
   %7689 = load i8, ptr %7688, align 1
   %7690 = zext i8 %7689 to i32
-  %7691 = icmp ult i32 %6801, %7690
-  %7692 = icmp ult i32 %6801, %7654
+  %7691 = icmp samesign ult i32 %6801, %7690
+  %7692 = icmp samesign ult i32 %6801, %7654
   %or.cond2097.i = and i1 %7692, %7691
   br i1 %or.cond2097.i, label %7693, label %.backedge.i224
 
@@ -12013,135 +12013,135 @@ _ZNSt6vectorIN2cv8KeyPointESaIS1_EE6resizeEm.exit.i174: ; preds = %5140, %5124
   %7694 = getelementptr inbounds i8, ptr %6798, i64 %5188
   %7695 = load i8, ptr %7694, align 1
   %7696 = zext i8 %7695 to i32
-  %7697 = icmp ult i32 %6801, %7696
+  %7697 = icmp samesign ult i32 %6801, %7696
   br i1 %7697, label %7698, label %.backedge.i224
 
 7698:                                             ; preds = %7693
   %7699 = getelementptr inbounds i8, ptr %6798, i64 %5190
   %7700 = load i8, ptr %7699, align 1
   %7701 = zext i8 %7700 to i32
-  %7702 = icmp ult i32 %6801, %7701
+  %7702 = icmp samesign ult i32 %6801, %7701
   br i1 %7702, label %7703, label %.backedge.i224
 
 7703:                                             ; preds = %7698
   %7704 = getelementptr inbounds i8, ptr %6798, i64 %5191
   %7705 = load i8, ptr %7704, align 1
   %7706 = zext i8 %7705 to i32
-  %7707 = icmp ult i32 %6801, %7706
+  %7707 = icmp samesign ult i32 %6801, %7706
   br i1 %7707, label %7708, label %.backedge.i224
 
 7708:                                             ; preds = %7703
-  %7709 = icmp ult i32 %6801, %7494
+  %7709 = icmp samesign ult i32 %6801, %7494
   br i1 %7709, label %.loopexit2203.i, label %7710
 
 7710:                                             ; preds = %7708
   %7711 = getelementptr inbounds i8, ptr %6798, i64 %5193
   %7712 = load i8, ptr %7711, align 1
   %7713 = zext i8 %7712 to i32
-  %7714 = icmp ult i32 %6801, %7713
+  %7714 = icmp samesign ult i32 %6801, %7713
   br i1 %7714, label %.loopexit2203.i, label %.backedge.i224
 
 7715:                                             ; preds = %7486
   %7716 = getelementptr inbounds i8, ptr %6798, i64 %5188
   %7717 = load i8, ptr %7716, align 1
   %7718 = zext i8 %7717 to i32
-  %7719 = icmp ugt i32 %6802, %7718
+  %7719 = icmp samesign ugt i32 %6802, %7718
   %7720 = getelementptr inbounds i8, ptr %6798, i64 %5183
   %7721 = load i8, ptr %7720, align 1
   %7722 = zext i8 %7721 to i32
   br i1 %7719, label %7723, label %7804
 
 7723:                                             ; preds = %7715
-  %7724 = icmp ugt i32 %6802, %7722
+  %7724 = icmp samesign ugt i32 %6802, %7722
   %7725 = getelementptr inbounds i8, ptr %6798, i64 %5184
   %7726 = load i8, ptr %7725, align 1
   %7727 = zext i8 %7726 to i32
   br i1 %7724, label %7728, label %7780
 
 7728:                                             ; preds = %7723
-  %7729 = icmp ugt i32 %6802, %7727
+  %7729 = icmp samesign ugt i32 %6802, %7727
   br i1 %7729, label %7730, label %7765
 
 7730:                                             ; preds = %7728
   %7731 = getelementptr inbounds i8, ptr %6798, i64 %5190
   %7732 = load i8, ptr %7731, align 1
   %7733 = zext i8 %7732 to i32
-  %7734 = icmp ugt i32 %6802, %7733
+  %7734 = icmp samesign ugt i32 %6802, %7733
   br i1 %7734, label %7735, label %.backedge.i224
 
 7735:                                             ; preds = %7730
   %7736 = getelementptr inbounds i8, ptr %6798, i64 %5187
   %7737 = load i8, ptr %7736, align 1
   %7738 = zext i8 %7737 to i32
-  %7739 = icmp ugt i32 %6802, %7738
+  %7739 = icmp samesign ugt i32 %6802, %7738
   br i1 %7739, label %7740, label %7750
 
 7740:                                             ; preds = %7735
   %7741 = getelementptr inbounds i8, ptr %6798, i64 %5189
   %7742 = load i8, ptr %7741, align 1
   %7743 = zext i8 %7742 to i32
-  %7744 = icmp ugt i32 %6802, %7743
+  %7744 = icmp samesign ugt i32 %6802, %7743
   br i1 %7744, label %.loopexit2203.i, label %7745
 
 7745:                                             ; preds = %7740
   %7746 = getelementptr inbounds i8, ptr %6798, i64 %5191
   %7747 = load i8, ptr %7746, align 1
   %7748 = zext i8 %7747 to i32
-  %7749 = icmp ugt i32 %6802, %7748
+  %7749 = icmp samesign ugt i32 %6802, %7748
   br i1 %7749, label %.loopexit2203.i, label %.backedge.i224
 
 7750:                                             ; preds = %7735
   %7751 = getelementptr inbounds i8, ptr %6798, i64 %5185
   %7752 = load i8, ptr %7751, align 1
   %7753 = zext i8 %7752 to i32
-  %7754 = icmp ugt i32 %6802, %7753
+  %7754 = icmp samesign ugt i32 %6802, %7753
   br i1 %7754, label %7755, label %.backedge.i224
 
 7755:                                             ; preds = %7750
   %7756 = getelementptr inbounds i8, ptr %6798, i64 %5191
   %7757 = load i8, ptr %7756, align 1
   %7758 = zext i8 %7757 to i32
-  %7759 = icmp ugt i32 %6802, %7758
+  %7759 = icmp samesign ugt i32 %6802, %7758
   br i1 %7759, label %7760, label %.backedge.i224
 
 7760:                                             ; preds = %7755
   %7761 = getelementptr inbounds i8, ptr %6798, i64 %5193
   %7762 = load i8, ptr %7761, align 1
   %7763 = zext i8 %7762 to i32
-  %7764 = icmp ugt i32 %6802, %7763
+  %7764 = icmp samesign ugt i32 %6802, %7763
   br i1 %7764, label %.loopexit2203.i, label %.backedge.i224
 
 7765:                                             ; preds = %7728
   %7766 = getelementptr inbounds i8, ptr %6798, i64 %5189
   %7767 = load i8, ptr %7766, align 1
   %7768 = zext i8 %7767 to i32
-  %7769 = icmp ugt i32 %6802, %7768
+  %7769 = icmp samesign ugt i32 %6802, %7768
   br i1 %7769, label %7770, label %.backedge.i224
 
 7770:                                             ; preds = %7765
   %7771 = getelementptr inbounds i8, ptr %6798, i64 %5190
   %7772 = load i8, ptr %7771, align 1
   %7773 = zext i8 %7772 to i32
-  %7774 = icmp ugt i32 %6802, %7773
+  %7774 = icmp samesign ugt i32 %6802, %7773
   br i1 %7774, label %7775, label %.backedge.i224
 
 7775:                                             ; preds = %7770
   %7776 = getelementptr inbounds i8, ptr %6798, i64 %5187
   %7777 = load i8, ptr %7776, align 1
   %7778 = zext i8 %7777 to i32
-  %7779 = icmp ugt i32 %6802, %7778
+  %7779 = icmp samesign ugt i32 %6802, %7778
   br i1 %7779, label %.loopexit2203.i, label %.backedge.i224
 
 7780:                                             ; preds = %7723
-  %7781 = icmp ult i32 %6801, %7727
+  %7781 = icmp samesign ult i32 %6801, %7727
   br i1 %7781, label %7782, label %.backedge.i224
 
 7782:                                             ; preds = %7780
   %7783 = getelementptr inbounds i8, ptr %6798, i64 %5185
   %7784 = load i8, ptr %7783, align 1
   %7785 = zext i8 %7784 to i32
-  %7786 = icmp ult i32 %6801, %7785
-  %7787 = icmp ult i32 %6801, %7722
+  %7786 = icmp samesign ult i32 %6801, %7785
+  %7787 = icmp samesign ult i32 %6801, %7722
   %or.cond2098.i = and i1 %7787, %7786
   br i1 %or.cond2098.i, label %7788, label %.backedge.i224
 
@@ -12149,68 +12149,68 @@ _ZNSt6vectorIN2cv8KeyPointESaIS1_EE6resizeEm.exit.i174: ; preds = %5140, %5124
   %7789 = getelementptr inbounds i8, ptr %6798, i64 %5190
   %7790 = load i8, ptr %7789, align 1
   %7791 = zext i8 %7790 to i32
-  %7792 = icmp ult i32 %6801, %7791
+  %7792 = icmp samesign ult i32 %6801, %7791
   br i1 %7792, label %7793, label %.backedge.i224
 
 7793:                                             ; preds = %7788
   %7794 = getelementptr inbounds i8, ptr %6798, i64 %5191
   %7795 = load i8, ptr %7794, align 1
   %7796 = zext i8 %7795 to i32
-  %7797 = icmp ult i32 %6801, %7796
+  %7797 = icmp samesign ult i32 %6801, %7796
   br i1 %7797, label %7798, label %.backedge.i224
 
 7798:                                             ; preds = %7793
   %7799 = getelementptr inbounds i8, ptr %6798, i64 %5193
   %7800 = load i8, ptr %7799, align 1
   %7801 = zext i8 %7800 to i32
-  %7802 = icmp ult i32 %6801, %7801
-  %7803 = icmp ult i32 %6801, %7489
+  %7802 = icmp samesign ult i32 %6801, %7801
+  %7803 = icmp samesign ult i32 %6801, %7489
   %or.cond2099.i = and i1 %7803, %7802
   br i1 %or.cond2099.i, label %.loopexit2203.i, label %.backedge.i224
 
 7804:                                             ; preds = %7715
-  %7805 = icmp ult i32 %6801, %7722
+  %7805 = icmp samesign ult i32 %6801, %7722
   br i1 %7805, label %7806, label %.backedge.i224
 
 7806:                                             ; preds = %7804
   %7807 = getelementptr inbounds i8, ptr %6798, i64 %5184
   %7808 = load i8, ptr %7807, align 1
   %7809 = zext i8 %7808 to i32
-  %7810 = icmp ult i32 %6801, %7809
+  %7810 = icmp samesign ult i32 %6801, %7809
   br i1 %7810, label %7811, label %.backedge.i224
 
 7811:                                             ; preds = %7806
   %7812 = getelementptr inbounds i8, ptr %6798, i64 %5185
   %7813 = load i8, ptr %7812, align 1
   %7814 = zext i8 %7813 to i32
-  %7815 = icmp ult i32 %6801, %7814
+  %7815 = icmp samesign ult i32 %6801, %7814
   br i1 %7815, label %7816, label %.backedge.i224
 
 7816:                                             ; preds = %7811
   %7817 = getelementptr inbounds i8, ptr %6798, i64 %5190
   %7818 = load i8, ptr %7817, align 1
   %7819 = zext i8 %7818 to i32
-  %7820 = icmp ult i32 %6801, %7819
+  %7820 = icmp samesign ult i32 %6801, %7819
   br i1 %7820, label %7821, label %.backedge.i224
 
 7821:                                             ; preds = %7816
   %7822 = getelementptr inbounds i8, ptr %6798, i64 %5191
   %7823 = load i8, ptr %7822, align 1
   %7824 = zext i8 %7823 to i32
-  %7825 = icmp ult i32 %6801, %7824
+  %7825 = icmp samesign ult i32 %6801, %7824
   br i1 %7825, label %7826, label %.backedge.i224
 
 7826:                                             ; preds = %7821
   %7827 = getelementptr inbounds i8, ptr %6798, i64 %5193
   %7828 = load i8, ptr %7827, align 1
   %7829 = zext i8 %7828 to i32
-  %7830 = icmp ult i32 %6801, %7829
+  %7830 = icmp samesign ult i32 %6801, %7829
   br i1 %7830, label %7831, label %7835
 
 7831:                                             ; preds = %7826
   %7832 = trunc nsw i64 %indvars.iv.next.i223 to i32
-  %7833 = icmp ult i32 %6801, %7718
-  %7834 = icmp ult i32 %6801, %7489
+  %7833 = icmp samesign ult i32 %6801, %7718
+  %7834 = icmp samesign ult i32 %6801, %7489
   %or.cond2100.i = or i1 %7834, %7833
   br i1 %or.cond2100.i, label %8323, label %.backedge2207.i
 
@@ -12218,8 +12218,8 @@ _ZNSt6vectorIN2cv8KeyPointESaIS1_EE6resizeEm.exit.i174: ; preds = %5140, %5124
   %7836 = getelementptr inbounds i8, ptr %6798, i64 %5187
   %7837 = load i8, ptr %7836, align 1
   %7838 = zext i8 %7837 to i32
-  %7839 = icmp ult i32 %6801, %7838
-  %7840 = icmp ult i32 %6801, %7718
+  %7839 = icmp samesign ult i32 %6801, %7838
+  %7840 = icmp samesign ult i32 %6801, %7718
   %or.cond2101.i = and i1 %7840, %7839
   br i1 %or.cond2101.i, label %.loopexit2203.i, label %.backedge.i224
 
@@ -12227,355 +12227,355 @@ _ZNSt6vectorIN2cv8KeyPointESaIS1_EE6resizeEm.exit.i174: ; preds = %5140, %5124
   %7842 = getelementptr inbounds i8, ptr %6798, i64 %5184
   %7843 = load i8, ptr %7842, align 1
   %7844 = zext i8 %7843 to i32
-  %7845 = icmp ult i32 %6801, %7844
+  %7845 = icmp samesign ult i32 %6801, %7844
   br i1 %7845, label %7846, label %7953
 
 7846:                                             ; preds = %7841
   %7847 = getelementptr inbounds i8, ptr %6798, i64 %5183
   %7848 = load i8, ptr %7847, align 1
   %7849 = zext i8 %7848 to i32
-  %7850 = icmp ult i32 %6801, %7849
+  %7850 = icmp samesign ult i32 %6801, %7849
   br i1 %7850, label %7851, label %.backedge.i224
 
 7851:                                             ; preds = %7846
-  %7852 = icmp ult i32 %6801, %7484
+  %7852 = icmp samesign ult i32 %6801, %7484
   br i1 %7852, label %7853, label %7913
 
 7853:                                             ; preds = %7851
   %7854 = getelementptr inbounds i8, ptr %6798, i64 %5190
   %7855 = load i8, ptr %7854, align 1
   %7856 = zext i8 %7855 to i32
-  %7857 = icmp ult i32 %6801, %7856
+  %7857 = icmp samesign ult i32 %6801, %7856
   br i1 %7857, label %7858, label %.backedge.i224
 
 7858:                                             ; preds = %7853
   %7859 = getelementptr inbounds i8, ptr %6798, i64 %5188
   %7860 = load i8, ptr %7859, align 1
   %7861 = zext i8 %7860 to i32
-  %7862 = icmp ult i32 %6801, %7861
+  %7862 = icmp samesign ult i32 %6801, %7861
   br i1 %7862, label %7863, label %7893
 
 7863:                                             ; preds = %7858
   %7864 = getelementptr inbounds i8, ptr %6798, i64 %5187
   %7865 = load i8, ptr %7864, align 1
   %7866 = zext i8 %7865 to i32
-  %7867 = icmp ult i32 %6801, %7866
+  %7867 = icmp samesign ult i32 %6801, %7866
   br i1 %7867, label %7868, label %7878
 
 7868:                                             ; preds = %7863
   %7869 = getelementptr inbounds i8, ptr %6798, i64 %5189
   %7870 = load i8, ptr %7869, align 1
   %7871 = zext i8 %7870 to i32
-  %7872 = icmp ult i32 %6801, %7871
+  %7872 = icmp samesign ult i32 %6801, %7871
   br i1 %7872, label %.loopexit2203.i, label %7873
 
 7873:                                             ; preds = %7868
   %7874 = getelementptr inbounds i8, ptr %6798, i64 %5191
   %7875 = load i8, ptr %7874, align 1
   %7876 = zext i8 %7875 to i32
-  %7877 = icmp ult i32 %6801, %7876
+  %7877 = icmp samesign ult i32 %6801, %7876
   br i1 %7877, label %.loopexit2203.i, label %.backedge.i224
 
 7878:                                             ; preds = %7863
   %7879 = getelementptr inbounds i8, ptr %6798, i64 %5185
   %7880 = load i8, ptr %7879, align 1
   %7881 = zext i8 %7880 to i32
-  %7882 = icmp ult i32 %6801, %7881
+  %7882 = icmp samesign ult i32 %6801, %7881
   br i1 %7882, label %7883, label %.backedge.i224
 
 7883:                                             ; preds = %7878
   %7884 = getelementptr inbounds i8, ptr %6798, i64 %5191
   %7885 = load i8, ptr %7884, align 1
   %7886 = zext i8 %7885 to i32
-  %7887 = icmp ult i32 %6801, %7886
+  %7887 = icmp samesign ult i32 %6801, %7886
   br i1 %7887, label %7888, label %.backedge.i224
 
 7888:                                             ; preds = %7883
   %7889 = getelementptr inbounds i8, ptr %6798, i64 %5193
   %7890 = load i8, ptr %7889, align 1
   %7891 = zext i8 %7890 to i32
-  %7892 = icmp ult i32 %6801, %7891
+  %7892 = icmp samesign ult i32 %6801, %7891
   br i1 %7892, label %.loopexit2203.i, label %.backedge.i224
 
 7893:                                             ; preds = %7858
   %7894 = getelementptr inbounds i8, ptr %6798, i64 %5185
   %7895 = load i8, ptr %7894, align 1
   %7896 = zext i8 %7895 to i32
-  %7897 = icmp ult i32 %6801, %7896
+  %7897 = icmp samesign ult i32 %6801, %7896
   br i1 %7897, label %7898, label %.backedge.i224
 
 7898:                                             ; preds = %7893
   %7899 = getelementptr inbounds i8, ptr %6798, i64 %5191
   %7900 = load i8, ptr %7899, align 1
   %7901 = zext i8 %7900 to i32
-  %7902 = icmp ult i32 %6801, %7901
+  %7902 = icmp samesign ult i32 %6801, %7901
   br i1 %7902, label %7903, label %.backedge.i224
 
 7903:                                             ; preds = %7898
   %7904 = getelementptr inbounds i8, ptr %6798, i64 %5193
   %7905 = load i8, ptr %7904, align 1
   %7906 = zext i8 %7905 to i32
-  %7907 = icmp ult i32 %6801, %7906
+  %7907 = icmp samesign ult i32 %6801, %7906
   br i1 %7907, label %7908, label %.backedge.i224
 
 7908:                                             ; preds = %7903
   %7909 = getelementptr inbounds i8, ptr %6798, i64 %5192
   %7910 = load i8, ptr %7909, align 1
   %7911 = zext i8 %7910 to i32
-  %7912 = icmp ult i32 %6801, %7911
+  %7912 = icmp samesign ult i32 %6801, %7911
   br i1 %7912, label %.loopexit2203.i, label %.backedge.i224
 
 7913:                                             ; preds = %7851
   %7914 = getelementptr inbounds i8, ptr %6798, i64 %5185
   %7915 = load i8, ptr %7914, align 1
   %7916 = zext i8 %7915 to i32
-  %7917 = icmp ult i32 %6801, %7916
+  %7917 = icmp samesign ult i32 %6801, %7916
   br i1 %7917, label %7918, label %.backedge.i224
 
 7918:                                             ; preds = %7913
   %7919 = getelementptr inbounds i8, ptr %6798, i64 %5190
   %7920 = load i8, ptr %7919, align 1
   %7921 = zext i8 %7920 to i32
-  %7922 = icmp ult i32 %6801, %7921
+  %7922 = icmp samesign ult i32 %6801, %7921
   br i1 %7922, label %7923, label %.backedge.i224
 
 7923:                                             ; preds = %7918
   %7924 = getelementptr inbounds i8, ptr %6798, i64 %5191
   %7925 = load i8, ptr %7924, align 1
   %7926 = zext i8 %7925 to i32
-  %7927 = icmp ult i32 %6801, %7926
+  %7927 = icmp samesign ult i32 %6801, %7926
   br i1 %7927, label %7928, label %.backedge.i224
 
 7928:                                             ; preds = %7923
   %7929 = getelementptr inbounds i8, ptr %6798, i64 %5188
   %7930 = load i8, ptr %7929, align 1
   %7931 = zext i8 %7930 to i32
-  %7932 = icmp ult i32 %6801, %7931
+  %7932 = icmp samesign ult i32 %6801, %7931
   br i1 %7932, label %7933, label %7943
 
 7933:                                             ; preds = %7928
   %7934 = getelementptr inbounds i8, ptr %6798, i64 %5187
   %7935 = load i8, ptr %7934, align 1
   %7936 = zext i8 %7935 to i32
-  %7937 = icmp ult i32 %6801, %7936
+  %7937 = icmp samesign ult i32 %6801, %7936
   br i1 %7937, label %.loopexit2203.i, label %7938
 
 7938:                                             ; preds = %7933
   %7939 = getelementptr inbounds i8, ptr %6798, i64 %5193
   %7940 = load i8, ptr %7939, align 1
   %7941 = zext i8 %7940 to i32
-  %7942 = icmp ult i32 %6801, %7941
+  %7942 = icmp samesign ult i32 %6801, %7941
   br i1 %7942, label %.loopexit2203.i, label %.backedge.i224
 
 7943:                                             ; preds = %7928
   %7944 = getelementptr inbounds i8, ptr %6798, i64 %5193
   %7945 = load i8, ptr %7944, align 1
   %7946 = zext i8 %7945 to i32
-  %7947 = icmp ult i32 %6801, %7946
+  %7947 = icmp samesign ult i32 %6801, %7946
   br i1 %7947, label %7948, label %.backedge.i224
 
 7948:                                             ; preds = %7943
   %7949 = getelementptr inbounds i8, ptr %6798, i64 %5192
   %7950 = load i8, ptr %7949, align 1
   %7951 = zext i8 %7950 to i32
-  %7952 = icmp ult i32 %6801, %7951
+  %7952 = icmp samesign ult i32 %6801, %7951
   br i1 %7952, label %.loopexit2203.i, label %.backedge.i224
 
 7953:                                             ; preds = %7841
-  %7954 = icmp ugt i32 %6802, %7844
+  %7954 = icmp samesign ugt i32 %6802, %7844
   br i1 %7954, label %7955, label %.backedge.i224
 
 7955:                                             ; preds = %7953
   %7956 = getelementptr inbounds i8, ptr %6798, i64 %5185
   %7957 = load i8, ptr %7956, align 1
   %7958 = zext i8 %7957 to i32
-  %7959 = icmp ugt i32 %6802, %7958
+  %7959 = icmp samesign ugt i32 %6802, %7958
   br i1 %7959, label %7960, label %.backedge.i224
 
 7960:                                             ; preds = %7955
   %7961 = getelementptr inbounds i8, ptr %6798, i64 %5191
   %7962 = load i8, ptr %7961, align 1
   %7963 = zext i8 %7962 to i32
-  %7964 = icmp ugt i32 %6802, %7963
+  %7964 = icmp samesign ugt i32 %6802, %7963
   br i1 %7964, label %7965, label %.backedge.i224
 
 7965:                                             ; preds = %7960
   %7966 = getelementptr inbounds i8, ptr %6798, i64 %5183
   %7967 = load i8, ptr %7966, align 1
   %7968 = zext i8 %7967 to i32
-  %7969 = icmp ugt i32 %6802, %7968
+  %7969 = icmp samesign ugt i32 %6802, %7968
   br i1 %7969, label %7970, label %8040
 
 7970:                                             ; preds = %7965
   %7971 = getelementptr inbounds i8, ptr %6798, i64 %5189
   %7972 = load i8, ptr %7971, align 1
   %7973 = zext i8 %7972 to i32
-  %7974 = icmp ugt i32 %6802, %7973
+  %7974 = icmp samesign ugt i32 %6802, %7973
   br i1 %7974, label %7975, label %8010
 
 7975:                                             ; preds = %7970
   %7976 = getelementptr inbounds i8, ptr %6798, i64 %5193
   %7977 = load i8, ptr %7976, align 1
   %7978 = zext i8 %7977 to i32
-  %7979 = icmp ugt i32 %6802, %7978
+  %7979 = icmp samesign ugt i32 %6802, %7978
   br i1 %7979, label %7980, label %7995
 
 7980:                                             ; preds = %7975
   %7981 = getelementptr inbounds i8, ptr %6798, i64 %5192
   %7982 = load i8, ptr %7981, align 1
   %7983 = zext i8 %7982 to i32
-  %7984 = icmp ugt i32 %6802, %7983
+  %7984 = icmp samesign ugt i32 %6802, %7983
   br i1 %7984, label %.loopexit2203.i, label %7985
 
 7985:                                             ; preds = %7980
   %7986 = getelementptr inbounds i8, ptr %6798, i64 %5190
   %7987 = load i8, ptr %7986, align 1
   %7988 = zext i8 %7987 to i32
-  %7989 = icmp ugt i32 %6802, %7988
+  %7989 = icmp samesign ugt i32 %6802, %7988
   br i1 %7989, label %7990, label %.backedge.i224
 
 7990:                                             ; preds = %7985
   %7991 = getelementptr inbounds i8, ptr %6798, i64 %5188
   %7992 = load i8, ptr %7991, align 1
   %7993 = zext i8 %7992 to i32
-  %7994 = icmp ugt i32 %6802, %7993
+  %7994 = icmp samesign ugt i32 %6802, %7993
   br i1 %7994, label %.loopexit2203.i, label %.backedge.i224
 
 7995:                                             ; preds = %7975
   %7996 = getelementptr inbounds i8, ptr %6798, i64 %5190
   %7997 = load i8, ptr %7996, align 1
   %7998 = zext i8 %7997 to i32
-  %7999 = icmp ugt i32 %6802, %7998
+  %7999 = icmp samesign ugt i32 %6802, %7998
   br i1 %7999, label %8000, label %.backedge.i224
 
 8000:                                             ; preds = %7995
   %8001 = getelementptr inbounds i8, ptr %6798, i64 %5187
   %8002 = load i8, ptr %8001, align 1
   %8003 = zext i8 %8002 to i32
-  %8004 = icmp ugt i32 %6802, %8003
+  %8004 = icmp samesign ugt i32 %6802, %8003
   br i1 %8004, label %8005, label %.backedge.i224
 
 8005:                                             ; preds = %8000
   %8006 = getelementptr inbounds i8, ptr %6798, i64 %5188
   %8007 = load i8, ptr %8006, align 1
   %8008 = zext i8 %8007 to i32
-  %8009 = icmp ugt i32 %6802, %8008
+  %8009 = icmp samesign ugt i32 %6802, %8008
   br i1 %8009, label %.loopexit2203.i, label %.backedge.i224
 
 8010:                                             ; preds = %7970
   %8011 = getelementptr inbounds i8, ptr %6798, i64 %5190
   %8012 = load i8, ptr %8011, align 1
   %8013 = zext i8 %8012 to i32
-  %8014 = icmp ugt i32 %6802, %8013
+  %8014 = icmp samesign ugt i32 %6802, %8013
   br i1 %8014, label %8015, label %.backedge.i224
 
 8015:                                             ; preds = %8010
   %8016 = getelementptr inbounds i8, ptr %6798, i64 %5188
   %8017 = load i8, ptr %8016, align 1
   %8018 = zext i8 %8017 to i32
-  %8019 = icmp ugt i32 %6802, %8018
+  %8019 = icmp samesign ugt i32 %6802, %8018
   br i1 %8019, label %8020, label %8030
 
 8020:                                             ; preds = %8015
   %8021 = getelementptr inbounds i8, ptr %6798, i64 %5187
   %8022 = load i8, ptr %8021, align 1
   %8023 = zext i8 %8022 to i32
-  %8024 = icmp ugt i32 %6802, %8023
+  %8024 = icmp samesign ugt i32 %6802, %8023
   br i1 %8024, label %.loopexit2203.i, label %8025
 
 8025:                                             ; preds = %8020
   %8026 = getelementptr inbounds i8, ptr %6798, i64 %5193
   %8027 = load i8, ptr %8026, align 1
   %8028 = zext i8 %8027 to i32
-  %8029 = icmp ugt i32 %6802, %8028
+  %8029 = icmp samesign ugt i32 %6802, %8028
   br i1 %8029, label %.loopexit2203.i, label %.backedge.i224
 
 8030:                                             ; preds = %8015
   %8031 = getelementptr inbounds i8, ptr %6798, i64 %5193
   %8032 = load i8, ptr %8031, align 1
   %8033 = zext i8 %8032 to i32
-  %8034 = icmp ugt i32 %6802, %8033
+  %8034 = icmp samesign ugt i32 %6802, %8033
   br i1 %8034, label %8035, label %.backedge.i224
 
 8035:                                             ; preds = %8030
   %8036 = getelementptr inbounds i8, ptr %6798, i64 %5192
   %8037 = load i8, ptr %8036, align 1
   %8038 = zext i8 %8037 to i32
-  %8039 = icmp ugt i32 %6802, %8038
+  %8039 = icmp samesign ugt i32 %6802, %8038
   br i1 %8039, label %.loopexit2203.i, label %.backedge.i224
 
 8040:                                             ; preds = %7965
   %8041 = getelementptr inbounds i8, ptr %6798, i64 %5193
   %8042 = load i8, ptr %8041, align 1
   %8043 = zext i8 %8042 to i32
-  %8044 = icmp ugt i32 %6802, %8043
+  %8044 = icmp samesign ugt i32 %6802, %8043
   br i1 %8044, label %8045, label %.backedge.i224
 
 8045:                                             ; preds = %8040
   %8046 = getelementptr inbounds i8, ptr %6798, i64 %5192
   %8047 = load i8, ptr %8046, align 1
   %8048 = zext i8 %8047 to i32
-  %8049 = icmp ugt i32 %6802, %8048
+  %8049 = icmp samesign ugt i32 %6802, %8048
   br i1 %8049, label %8050, label %.backedge.i224
 
 8050:                                             ; preds = %8045
   %8051 = getelementptr inbounds i8, ptr %6798, i64 %5189
   %8052 = load i8, ptr %8051, align 1
   %8053 = zext i8 %8052 to i32
-  %8054 = icmp ugt i32 %6802, %8053
+  %8054 = icmp samesign ugt i32 %6802, %8053
   br i1 %8054, label %.loopexit2203.i, label %8055
 
 8055:                                             ; preds = %8050
   %8056 = getelementptr inbounds i8, ptr %6798, i64 %5190
   %8057 = load i8, ptr %8056, align 1
   %8058 = zext i8 %8057 to i32
-  %8059 = icmp ugt i32 %6802, %8058
+  %8059 = icmp samesign ugt i32 %6802, %8058
   br i1 %8059, label %.loopexit2203.i, label %.backedge.i224
 
 8060:                                             ; preds = %7479
   %8061 = getelementptr inbounds i8, ptr %6798, i64 %5183
   %8062 = load i8, ptr %8061, align 1
   %8063 = zext i8 %8062 to i32
-  %8064 = icmp ult i32 %6801, %8063
+  %8064 = icmp samesign ult i32 %6801, %8063
   br i1 %8064, label %8065, label %8157
 
 8065:                                             ; preds = %8060
   %8066 = getelementptr inbounds i8, ptr %6798, i64 %5184
   %8067 = load i8, ptr %8066, align 1
   %8068 = zext i8 %8067 to i32
-  %8069 = icmp ult i32 %6801, %8068
+  %8069 = icmp samesign ult i32 %6801, %8068
   br i1 %8069, label %8070, label %.backedge.i224
 
 8070:                                             ; preds = %8065
   %8071 = getelementptr inbounds i8, ptr %6798, i64 %5185
   %8072 = load i8, ptr %8071, align 1
   %8073 = zext i8 %8072 to i32
-  %8074 = icmp ult i32 %6801, %8073
+  %8074 = icmp samesign ult i32 %6801, %8073
   br i1 %8074, label %8075, label %8126
 
 8075:                                             ; preds = %8070
   %8076 = getelementptr inbounds i8, ptr %6798, i64 %5190
   %8077 = load i8, ptr %8076, align 1
   %8078 = zext i8 %8077 to i32
-  %8079 = icmp ult i32 %6801, %8078
+  %8079 = icmp samesign ult i32 %6801, %8078
   br i1 %8079, label %8080, label %.backedge.i224
 
 8080:                                             ; preds = %8075
   %8081 = getelementptr inbounds i8, ptr %6798, i64 %5188
   %8082 = load i8, ptr %8081, align 1
   %8083 = zext i8 %8082 to i32
-  %8084 = icmp ult i32 %6801, %8083
+  %8084 = icmp samesign ult i32 %6801, %8083
   br i1 %8084, label %8085, label %8111
 
 8085:                                             ; preds = %8080
   %8086 = getelementptr inbounds i8, ptr %6798, i64 %5187
   %8087 = load i8, ptr %8086, align 1
   %8088 = zext i8 %8087 to i32
-  %8089 = icmp ult i32 %6801, %8088
+  %8089 = icmp samesign ult i32 %6801, %8088
   %8090 = getelementptr inbounds i8, ptr %6798, i64 %5191
   %8091 = load i8, ptr %8090, align 1
   %8092 = zext i8 %8091 to i32
-  %8093 = icmp ult i32 %6801, %8092
+  %8093 = icmp samesign ult i32 %6801, %8092
   br i1 %8089, label %8094, label %8105
 
 8094:                                             ; preds = %8085
@@ -12585,14 +12585,14 @@ _ZNSt6vectorIN2cv8KeyPointESaIS1_EE6resizeEm.exit.i174: ; preds = %5140, %5124
   %8096 = getelementptr inbounds i8, ptr %6798, i64 %5189
   %8097 = load i8, ptr %8096, align 1
   %8098 = zext i8 %8097 to i32
-  %8099 = icmp ult i32 %6801, %8098
+  %8099 = icmp samesign ult i32 %6801, %8098
   br i1 %8099, label %8100, label %.backedge.i224
 
 8100:                                             ; preds = %8095
   %8101 = getelementptr inbounds i8, ptr %6798, i64 %5186
   %8102 = load i8, ptr %8101, align 1
   %8103 = zext i8 %8102 to i32
-  %8104 = icmp ult i32 %6801, %8103
+  %8104 = icmp samesign ult i32 %6801, %8103
   br i1 %8104, label %.loopexit2203.i, label %.backedge.i224
 
 8105:                                             ; preds = %8085
@@ -12602,60 +12602,60 @@ _ZNSt6vectorIN2cv8KeyPointESaIS1_EE6resizeEm.exit.i174: ; preds = %5140, %5124
   %8107 = getelementptr inbounds i8, ptr %6798, i64 %5193
   %8108 = load i8, ptr %8107, align 1
   %8109 = zext i8 %8108 to i32
-  %8110 = icmp ult i32 %6801, %8109
+  %8110 = icmp samesign ult i32 %6801, %8109
   br i1 %8110, label %.loopexit2203.i, label %.backedge.i224
 
 8111:                                             ; preds = %8080
   %8112 = getelementptr inbounds i8, ptr %6798, i64 %5192
   %8113 = load i8, ptr %8112, align 1
   %8114 = zext i8 %8113 to i32
-  %8115 = icmp ult i32 %6801, %8114
+  %8115 = icmp samesign ult i32 %6801, %8114
   br i1 %8115, label %8116, label %.backedge.i224
 
 8116:                                             ; preds = %8111
   %8117 = getelementptr inbounds i8, ptr %6798, i64 %5191
   %8118 = load i8, ptr %8117, align 1
   %8119 = zext i8 %8118 to i32
-  %8120 = icmp ult i32 %6801, %8119
+  %8120 = icmp samesign ult i32 %6801, %8119
   br i1 %8120, label %8121, label %.backedge.i224
 
 8121:                                             ; preds = %8116
   %8122 = getelementptr inbounds i8, ptr %6798, i64 %5193
   %8123 = load i8, ptr %8122, align 1
   %8124 = zext i8 %8123 to i32
-  %8125 = icmp ult i32 %6801, %8124
+  %8125 = icmp samesign ult i32 %6801, %8124
   br i1 %8125, label %.loopexit2203.i, label %.backedge.i224
 
 8126:                                             ; preds = %8070
   %8127 = getelementptr inbounds i8, ptr %6798, i64 %5186
   %8128 = load i8, ptr %8127, align 1
   %8129 = zext i8 %8128 to i32
-  %8130 = icmp ult i32 %6801, %8129
+  %8130 = icmp samesign ult i32 %6801, %8129
   br i1 %8130, label %8131, label %.backedge.i224
 
 8131:                                             ; preds = %8126
   %8132 = getelementptr inbounds i8, ptr %6798, i64 %5187
   %8133 = load i8, ptr %8132, align 1
   %8134 = zext i8 %8133 to i32
-  %8135 = icmp ult i32 %6801, %8134
+  %8135 = icmp samesign ult i32 %6801, %8134
   br i1 %8135, label %8136, label %.backedge.i224
 
 8136:                                             ; preds = %8131
   %8137 = getelementptr inbounds i8, ptr %6798, i64 %5188
   %8138 = load i8, ptr %8137, align 1
   %8139 = zext i8 %8138 to i32
-  %8140 = icmp ult i32 %6801, %8139
+  %8140 = icmp samesign ult i32 %6801, %8139
   br i1 %8140, label %8141, label %.backedge.i224
 
 8141:                                             ; preds = %8136
   %8142 = getelementptr inbounds i8, ptr %6798, i64 %5189
   %8143 = load i8, ptr %8142, align 1
   %8144 = zext i8 %8143 to i32
-  %8145 = icmp ult i32 %6801, %8144
+  %8145 = icmp samesign ult i32 %6801, %8144
   %8146 = getelementptr inbounds i8, ptr %6798, i64 %5190
   %8147 = load i8, ptr %8146, align 1
   %8148 = zext i8 %8147 to i32
-  %8149 = icmp ult i32 %6801, %8148
+  %8149 = icmp samesign ult i32 %6801, %8148
   br i1 %8145, label %8150, label %8151
 
 8150:                                             ; preds = %8141
@@ -12668,7 +12668,7 @@ _ZNSt6vectorIN2cv8KeyPointESaIS1_EE6resizeEm.exit.i174: ; preds = %5140, %5124
   %8153 = getelementptr inbounds i8, ptr %6798, i64 %5191
   %8154 = load i8, ptr %8153, align 1
   %8155 = zext i8 %8154 to i32
-  %8156 = icmp ult i32 %6801, %8155
+  %8156 = icmp samesign ult i32 %6801, %8155
   br i1 %8156, label %.loopexit2203.i, label %.backedge.i224
 
 8157:                                             ; preds = %8060
@@ -12679,39 +12679,39 @@ _ZNSt6vectorIN2cv8KeyPointESaIS1_EE6resizeEm.exit.i174: ; preds = %5140, %5124
   %8160 = getelementptr inbounds i8, ptr %6798, i64 %5184
   %8161 = load i8, ptr %8160, align 1
   %8162 = zext i8 %8161 to i32
-  %8163 = icmp ugt i32 %6802, %8162
+  %8163 = icmp samesign ugt i32 %6802, %8162
   br i1 %8163, label %8164, label %.backedge.i224
 
 8164:                                             ; preds = %8159
   %8165 = getelementptr inbounds i8, ptr %6798, i64 %5185
   %8166 = load i8, ptr %8165, align 1
   %8167 = zext i8 %8166 to i32
-  %8168 = icmp ugt i32 %6802, %8167
+  %8168 = icmp samesign ugt i32 %6802, %8167
   br i1 %8168, label %8169, label %8220
 
 8169:                                             ; preds = %8164
   %8170 = getelementptr inbounds i8, ptr %6798, i64 %5190
   %8171 = load i8, ptr %8170, align 1
   %8172 = zext i8 %8171 to i32
-  %8173 = icmp ugt i32 %6802, %8172
+  %8173 = icmp samesign ugt i32 %6802, %8172
   br i1 %8173, label %8174, label %.backedge.i224
 
 8174:                                             ; preds = %8169
   %8175 = getelementptr inbounds i8, ptr %6798, i64 %5188
   %8176 = load i8, ptr %8175, align 1
   %8177 = zext i8 %8176 to i32
-  %8178 = icmp ugt i32 %6802, %8177
+  %8178 = icmp samesign ugt i32 %6802, %8177
   br i1 %8178, label %8179, label %8205
 
 8179:                                             ; preds = %8174
   %8180 = getelementptr inbounds i8, ptr %6798, i64 %5187
   %8181 = load i8, ptr %8180, align 1
   %8182 = zext i8 %8181 to i32
-  %8183 = icmp ugt i32 %6802, %8182
+  %8183 = icmp samesign ugt i32 %6802, %8182
   %8184 = getelementptr inbounds i8, ptr %6798, i64 %5191
   %8185 = load i8, ptr %8184, align 1
   %8186 = zext i8 %8185 to i32
-  %8187 = icmp ugt i32 %6802, %8186
+  %8187 = icmp samesign ugt i32 %6802, %8186
   br i1 %8183, label %8188, label %8199
 
 8188:                                             ; preds = %8179
@@ -12721,14 +12721,14 @@ _ZNSt6vectorIN2cv8KeyPointESaIS1_EE6resizeEm.exit.i174: ; preds = %5140, %5124
   %8190 = getelementptr inbounds i8, ptr %6798, i64 %5189
   %8191 = load i8, ptr %8190, align 1
   %8192 = zext i8 %8191 to i32
-  %8193 = icmp ugt i32 %6802, %8192
+  %8193 = icmp samesign ugt i32 %6802, %8192
   br i1 %8193, label %8194, label %.backedge.i224
 
 8194:                                             ; preds = %8189
   %8195 = getelementptr inbounds i8, ptr %6798, i64 %5186
   %8196 = load i8, ptr %8195, align 1
   %8197 = zext i8 %8196 to i32
-  %8198 = icmp ugt i32 %6802, %8197
+  %8198 = icmp samesign ugt i32 %6802, %8197
   br i1 %8198, label %.loopexit2203.i, label %.backedge.i224
 
 8199:                                             ; preds = %8179
@@ -12738,60 +12738,60 @@ _ZNSt6vectorIN2cv8KeyPointESaIS1_EE6resizeEm.exit.i174: ; preds = %5140, %5124
   %8201 = getelementptr inbounds i8, ptr %6798, i64 %5193
   %8202 = load i8, ptr %8201, align 1
   %8203 = zext i8 %8202 to i32
-  %8204 = icmp ugt i32 %6802, %8203
+  %8204 = icmp samesign ugt i32 %6802, %8203
   br i1 %8204, label %.loopexit2203.i, label %.backedge.i224
 
 8205:                                             ; preds = %8174
   %8206 = getelementptr inbounds i8, ptr %6798, i64 %5192
   %8207 = load i8, ptr %8206, align 1
   %8208 = zext i8 %8207 to i32
-  %8209 = icmp ugt i32 %6802, %8208
+  %8209 = icmp samesign ugt i32 %6802, %8208
   br i1 %8209, label %8210, label %.backedge.i224
 
 8210:                                             ; preds = %8205
   %8211 = getelementptr inbounds i8, ptr %6798, i64 %5191
   %8212 = load i8, ptr %8211, align 1
   %8213 = zext i8 %8212 to i32
-  %8214 = icmp ugt i32 %6802, %8213
+  %8214 = icmp samesign ugt i32 %6802, %8213
   br i1 %8214, label %8215, label %.backedge.i224
 
 8215:                                             ; preds = %8210
   %8216 = getelementptr inbounds i8, ptr %6798, i64 %5193
   %8217 = load i8, ptr %8216, align 1
   %8218 = zext i8 %8217 to i32
-  %8219 = icmp ugt i32 %6802, %8218
+  %8219 = icmp samesign ugt i32 %6802, %8218
   br i1 %8219, label %.loopexit2203.i, label %.backedge.i224
 
 8220:                                             ; preds = %8164
   %8221 = getelementptr inbounds i8, ptr %6798, i64 %5186
   %8222 = load i8, ptr %8221, align 1
   %8223 = zext i8 %8222 to i32
-  %8224 = icmp ugt i32 %6802, %8223
+  %8224 = icmp samesign ugt i32 %6802, %8223
   br i1 %8224, label %8225, label %.backedge.i224
 
 8225:                                             ; preds = %8220
   %8226 = getelementptr inbounds i8, ptr %6798, i64 %5187
   %8227 = load i8, ptr %8226, align 1
   %8228 = zext i8 %8227 to i32
-  %8229 = icmp ugt i32 %6802, %8228
+  %8229 = icmp samesign ugt i32 %6802, %8228
   br i1 %8229, label %8230, label %.backedge.i224
 
 8230:                                             ; preds = %8225
   %8231 = getelementptr inbounds i8, ptr %6798, i64 %5188
   %8232 = load i8, ptr %8231, align 1
   %8233 = zext i8 %8232 to i32
-  %8234 = icmp ugt i32 %6802, %8233
+  %8234 = icmp samesign ugt i32 %6802, %8233
   br i1 %8234, label %8235, label %.backedge.i224
 
 8235:                                             ; preds = %8230
   %8236 = getelementptr inbounds i8, ptr %6798, i64 %5189
   %8237 = load i8, ptr %8236, align 1
   %8238 = zext i8 %8237 to i32
-  %8239 = icmp ugt i32 %6802, %8238
+  %8239 = icmp samesign ugt i32 %6802, %8238
   %8240 = getelementptr inbounds i8, ptr %6798, i64 %5190
   %8241 = load i8, ptr %8240, align 1
   %8242 = zext i8 %8241 to i32
-  %8243 = icmp ugt i32 %6802, %8242
+  %8243 = icmp samesign ugt i32 %6802, %8242
   br i1 %8239, label %8244, label %8245
 
 8244:                                             ; preds = %8235
@@ -12804,7 +12804,7 @@ _ZNSt6vectorIN2cv8KeyPointESaIS1_EE6resizeEm.exit.i174: ; preds = %5140, %5124
   %8247 = getelementptr inbounds i8, ptr %6798, i64 %5191
   %8248 = load i8, ptr %8247, align 1
   %8249 = zext i8 %8248 to i32
-  %8250 = icmp ugt i32 %6802, %8249
+  %8250 = icmp samesign ugt i32 %6802, %8249
   br i1 %8250, label %.loopexit2203.i, label %.backedge.i224
 
 8251:                                             ; preds = %6792, %6790, %6761, %6746, %6740, %6734, %6698, %6696, %6667, %6652, %6646, %6640, %6601, %6596, %6581, %6571, %6566, %6526, %6494, %6484, %6479, %6419, %6414, %6382, %6367, %6362, %6356, %6350, %6349, %6315, %6300, %6295, %6110, %6105, %6099, %6089, %6084, %6059, %6044, %6034, %6029, %5880, %5870, %5865, %5805, %5800, %5771, %5766, %5751, %5741, %5736, %5696, %5661, %5646, %5641, %5635, %5625, %5620, %5593, %5433, %5428, %5422, %5416, %5415, %5386, %5371, %5361, %5356
@@ -13543,7 +13543,7 @@ _ZNSt6vectorIN2cv8KeyPointESaIS1_EE6resizeEm.exit.i236: ; preds = %8441, %8426
   %8531 = getelementptr inbounds i8, ptr %8519, i64 %8496
   %8532 = load i8, ptr %8531, align 1
   %8533 = zext i8 %8532 to i32
-  %8534 = icmp ult i32 %8522, %8533
+  %8534 = icmp samesign ult i32 %8522, %8533
   br i1 %8534, label %8682, label %8535
 
 8535:                                             ; preds = %8530
@@ -13554,2550 +13554,2550 @@ _ZNSt6vectorIN2cv8KeyPointESaIS1_EE6resizeEm.exit.i236: ; preds = %8441, %8426
   %8538 = getelementptr inbounds i8, ptr %8519, i64 %8497
   %8539 = load i8, ptr %8538, align 1
   %8540 = zext i8 %8539 to i32
-  %8541 = icmp ugt i32 %8523, %8540
+  %8541 = icmp samesign ugt i32 %8523, %8540
   br i1 %8541, label %8542, label %.backedge.us.i
 
 8542:                                             ; preds = %8537
   %8543 = getelementptr inbounds i8, ptr %8519, i64 %8498
   %8544 = load i8, ptr %8543, align 1
   %8545 = zext i8 %8544 to i32
-  %8546 = icmp ugt i32 %8523, %8545
+  %8546 = icmp samesign ugt i32 %8523, %8545
   br i1 %8546, label %8547, label %.backedge.us.i
 
 8547:                                             ; preds = %8542
   %8548 = getelementptr inbounds i8, ptr %8519, i64 %8499
   %8549 = load i8, ptr %8548, align 1
   %8550 = zext i8 %8549 to i32
-  %8551 = icmp ugt i32 %8523, %8550
+  %8551 = icmp samesign ugt i32 %8523, %8550
   br i1 %8551, label %8582, label %8552
 
 8552:                                             ; preds = %8547
   %8553 = getelementptr inbounds i8, ptr %8519, i64 %8500
   %8554 = load i8, ptr %8553, align 1
   %8555 = zext i8 %8554 to i32
-  %8556 = icmp ugt i32 %8523, %8555
+  %8556 = icmp samesign ugt i32 %8523, %8555
   br i1 %8556, label %8557, label %.backedge.us.i
 
 8557:                                             ; preds = %8552
   %8558 = getelementptr inbounds i8, ptr %8519, i64 %8501
   %8559 = load i8, ptr %8558, align 1
   %8560 = zext i8 %8559 to i32
-  %8561 = icmp ugt i32 %8523, %8560
+  %8561 = icmp samesign ugt i32 %8523, %8560
   br i1 %8561, label %8562, label %.backedge.us.i
 
 8562:                                             ; preds = %8557
   %8563 = getelementptr inbounds i8, ptr %8519, i64 %8502
   %8564 = load i8, ptr %8563, align 1
   %8565 = zext i8 %8564 to i32
-  %8566 = icmp ugt i32 %8523, %8565
+  %8566 = icmp samesign ugt i32 %8523, %8565
   br i1 %8566, label %8567, label %.backedge.us.i
 
 8567:                                             ; preds = %8562
   %8568 = getelementptr inbounds i8, ptr %8519, i64 %8503
   %8569 = load i8, ptr %8568, align 1
   %8570 = zext i8 %8569 to i32
-  %8571 = icmp ugt i32 %8523, %8570
+  %8571 = icmp samesign ugt i32 %8523, %8570
   br i1 %8571, label %8572, label %.backedge.us.i
 
 8572:                                             ; preds = %8567
   %8573 = getelementptr inbounds i8, ptr %8519, i64 %8504
   %8574 = load i8, ptr %8573, align 1
   %8575 = zext i8 %8574 to i32
-  %8576 = icmp ugt i32 %8523, %8575
+  %8576 = icmp samesign ugt i32 %8523, %8575
   br i1 %8576, label %8577, label %.backedge.us.i
 
 8577:                                             ; preds = %8572
   %8578 = getelementptr inbounds i8, ptr %8519, i64 %8505
   %8579 = load i8, ptr %8578, align 1
   %8580 = zext i8 %8579 to i32
-  %8581 = icmp ugt i32 %8523, %8580
+  %8581 = icmp samesign ugt i32 %8523, %8580
   br i1 %8581, label %11855, label %.backedge.us.i
 
 8582:                                             ; preds = %8547
   %8583 = getelementptr inbounds i8, ptr %8519, i64 %8506
   %8584 = load i8, ptr %8583, align 1
   %8585 = zext i8 %8584 to i32
-  %8586 = icmp ugt i32 %8523, %8585
+  %8586 = icmp samesign ugt i32 %8523, %8585
   br i1 %8586, label %8612, label %8587
 
 8587:                                             ; preds = %8582
   %8588 = getelementptr inbounds i8, ptr %8519, i64 %8500
   %8589 = load i8, ptr %8588, align 1
   %8590 = zext i8 %8589 to i32
-  %8591 = icmp ugt i32 %8523, %8590
+  %8591 = icmp samesign ugt i32 %8523, %8590
   br i1 %8591, label %8592, label %.backedge.us.i
 
 8592:                                             ; preds = %8587
   %8593 = getelementptr inbounds i8, ptr %8519, i64 %8501
   %8594 = load i8, ptr %8593, align 1
   %8595 = zext i8 %8594 to i32
-  %8596 = icmp ugt i32 %8523, %8595
+  %8596 = icmp samesign ugt i32 %8523, %8595
   br i1 %8596, label %8597, label %.backedge.us.i
 
 8597:                                             ; preds = %8592
   %8598 = getelementptr inbounds i8, ptr %8519, i64 %8502
   %8599 = load i8, ptr %8598, align 1
   %8600 = zext i8 %8599 to i32
-  %8601 = icmp ugt i32 %8523, %8600
+  %8601 = icmp samesign ugt i32 %8523, %8600
   br i1 %8601, label %8602, label %.backedge.us.i
 
 8602:                                             ; preds = %8597
   %8603 = getelementptr inbounds i8, ptr %8519, i64 %8503
   %8604 = load i8, ptr %8603, align 1
   %8605 = zext i8 %8604 to i32
-  %8606 = icmp ugt i32 %8523, %8605
+  %8606 = icmp samesign ugt i32 %8523, %8605
   br i1 %8606, label %8607, label %.backedge.us.i
 
 8607:                                             ; preds = %8602
   %8608 = getelementptr inbounds i8, ptr %8519, i64 %8504
   %8609 = load i8, ptr %8608, align 1
   %8610 = zext i8 %8609 to i32
-  %8611 = icmp ugt i32 %8523, %8610
+  %8611 = icmp samesign ugt i32 %8523, %8610
   br i1 %8611, label %11855, label %.backedge.us.i
 
 8612:                                             ; preds = %8582
   %8613 = getelementptr inbounds i8, ptr %8519, i64 %8507
   %8614 = load i8, ptr %8613, align 1
   %8615 = zext i8 %8614 to i32
-  %8616 = icmp ugt i32 %8523, %8615
+  %8616 = icmp samesign ugt i32 %8523, %8615
   br i1 %8616, label %8637, label %8617
 
 8617:                                             ; preds = %8612
   %8618 = getelementptr inbounds i8, ptr %8519, i64 %8500
   %8619 = load i8, ptr %8618, align 1
   %8620 = zext i8 %8619 to i32
-  %8621 = icmp ugt i32 %8523, %8620
+  %8621 = icmp samesign ugt i32 %8523, %8620
   br i1 %8621, label %8622, label %.backedge.us.i
 
 8622:                                             ; preds = %8617
   %8623 = getelementptr inbounds i8, ptr %8519, i64 %8501
   %8624 = load i8, ptr %8623, align 1
   %8625 = zext i8 %8624 to i32
-  %8626 = icmp ugt i32 %8523, %8625
+  %8626 = icmp samesign ugt i32 %8523, %8625
   br i1 %8626, label %8627, label %.backedge.us.i
 
 8627:                                             ; preds = %8622
   %8628 = getelementptr inbounds i8, ptr %8519, i64 %8502
   %8629 = load i8, ptr %8628, align 1
   %8630 = zext i8 %8629 to i32
-  %8631 = icmp ugt i32 %8523, %8630
+  %8631 = icmp samesign ugt i32 %8523, %8630
   br i1 %8631, label %8632, label %.backedge.us.i
 
 8632:                                             ; preds = %8627
   %8633 = getelementptr inbounds i8, ptr %8519, i64 %8503
   %8634 = load i8, ptr %8633, align 1
   %8635 = zext i8 %8634 to i32
-  %8636 = icmp ugt i32 %8523, %8635
+  %8636 = icmp samesign ugt i32 %8523, %8635
   br i1 %8636, label %11855, label %.backedge.us.i
 
 8637:                                             ; preds = %8612
   %8638 = getelementptr inbounds i8, ptr %8519, i64 %8508
   %8639 = load i8, ptr %8638, align 1
   %8640 = zext i8 %8639 to i32
-  %8641 = icmp ugt i32 %8523, %8640
+  %8641 = icmp samesign ugt i32 %8523, %8640
   br i1 %8641, label %8657, label %8642
 
 8642:                                             ; preds = %8637
   %8643 = getelementptr inbounds i8, ptr %8519, i64 %8500
   %8644 = load i8, ptr %8643, align 1
   %8645 = zext i8 %8644 to i32
-  %8646 = icmp ugt i32 %8523, %8645
+  %8646 = icmp samesign ugt i32 %8523, %8645
   br i1 %8646, label %8647, label %.backedge.us.i
 
 8647:                                             ; preds = %8642
   %8648 = getelementptr inbounds i8, ptr %8519, i64 %8501
   %8649 = load i8, ptr %8648, align 1
   %8650 = zext i8 %8649 to i32
-  %8651 = icmp ugt i32 %8523, %8650
+  %8651 = icmp samesign ugt i32 %8523, %8650
   br i1 %8651, label %8652, label %.backedge.us.i
 
 8652:                                             ; preds = %8647
   %8653 = getelementptr inbounds i8, ptr %8519, i64 %8502
   %8654 = load i8, ptr %8653, align 1
   %8655 = zext i8 %8654 to i32
-  %8656 = icmp ugt i32 %8523, %8655
+  %8656 = icmp samesign ugt i32 %8523, %8655
   br i1 %8656, label %11855, label %.backedge.us.i
 
 8657:                                             ; preds = %8637
   %8658 = getelementptr inbounds i8, ptr %8519, i64 %8509
   %8659 = load i8, ptr %8658, align 1
   %8660 = zext i8 %8659 to i32
-  %8661 = icmp ugt i32 %8523, %8660
+  %8661 = icmp samesign ugt i32 %8523, %8660
   br i1 %8661, label %8672, label %8662
 
 8662:                                             ; preds = %8657
   %8663 = getelementptr inbounds i8, ptr %8519, i64 %8500
   %8664 = load i8, ptr %8663, align 1
   %8665 = zext i8 %8664 to i32
-  %8666 = icmp ugt i32 %8523, %8665
+  %8666 = icmp samesign ugt i32 %8523, %8665
   br i1 %8666, label %8667, label %.backedge.us.i
 
 8667:                                             ; preds = %8662
   %8668 = getelementptr inbounds i8, ptr %8519, i64 %8501
   %8669 = load i8, ptr %8668, align 1
   %8670 = zext i8 %8669 to i32
-  %8671 = icmp ugt i32 %8523, %8670
+  %8671 = icmp samesign ugt i32 %8523, %8670
   br i1 %8671, label %11855, label %.backedge.us.i
 
 8672:                                             ; preds = %8657
   %8673 = getelementptr inbounds i8, ptr %8519, i64 %8510
   %8674 = load i8, ptr %8673, align 1
   %8675 = zext i8 %8674 to i32
-  %8676 = icmp ugt i32 %8523, %8675
+  %8676 = icmp samesign ugt i32 %8523, %8675
   br i1 %8676, label %11855, label %8677
 
 8677:                                             ; preds = %8672
   %8678 = getelementptr inbounds i8, ptr %8519, i64 %8500
   %8679 = load i8, ptr %8678, align 1
   %8680 = zext i8 %8679 to i32
-  %8681 = icmp ugt i32 %8523, %8680
+  %8681 = icmp samesign ugt i32 %8523, %8680
   br i1 %8681, label %11855, label %.backedge.us.i
 
 8682:                                             ; preds = %8530
   %8683 = getelementptr inbounds i8, ptr %8519, i64 %8497
   %8684 = load i8, ptr %8683, align 1
   %8685 = zext i8 %8684 to i32
-  %8686 = icmp ult i32 %8522, %8685
+  %8686 = icmp samesign ult i32 %8522, %8685
   br i1 %8686, label %8687, label %.backedge.us.i
 
 8687:                                             ; preds = %8682
   %8688 = getelementptr inbounds i8, ptr %8519, i64 %8498
   %8689 = load i8, ptr %8688, align 1
   %8690 = zext i8 %8689 to i32
-  %8691 = icmp ult i32 %8522, %8690
+  %8691 = icmp samesign ult i32 %8522, %8690
   br i1 %8691, label %8692, label %.backedge.us.i
 
 8692:                                             ; preds = %8687
   %8693 = getelementptr inbounds i8, ptr %8519, i64 %8499
   %8694 = load i8, ptr %8693, align 1
   %8695 = zext i8 %8694 to i32
-  %8696 = icmp ult i32 %8522, %8695
+  %8696 = icmp samesign ult i32 %8522, %8695
   br i1 %8696, label %8727, label %8697
 
 8697:                                             ; preds = %8692
   %8698 = getelementptr inbounds i8, ptr %8519, i64 %8500
   %8699 = load i8, ptr %8698, align 1
   %8700 = zext i8 %8699 to i32
-  %8701 = icmp ult i32 %8522, %8700
+  %8701 = icmp samesign ult i32 %8522, %8700
   br i1 %8701, label %8702, label %.backedge.us.i
 
 8702:                                             ; preds = %8697
   %8703 = getelementptr inbounds i8, ptr %8519, i64 %8501
   %8704 = load i8, ptr %8703, align 1
   %8705 = zext i8 %8704 to i32
-  %8706 = icmp ult i32 %8522, %8705
+  %8706 = icmp samesign ult i32 %8522, %8705
   br i1 %8706, label %8707, label %.backedge.us.i
 
 8707:                                             ; preds = %8702
   %8708 = getelementptr inbounds i8, ptr %8519, i64 %8502
   %8709 = load i8, ptr %8708, align 1
   %8710 = zext i8 %8709 to i32
-  %8711 = icmp ult i32 %8522, %8710
+  %8711 = icmp samesign ult i32 %8522, %8710
   br i1 %8711, label %8712, label %.backedge.us.i
 
 8712:                                             ; preds = %8707
   %8713 = getelementptr inbounds i8, ptr %8519, i64 %8503
   %8714 = load i8, ptr %8713, align 1
   %8715 = zext i8 %8714 to i32
-  %8716 = icmp ult i32 %8522, %8715
+  %8716 = icmp samesign ult i32 %8522, %8715
   br i1 %8716, label %8717, label %.backedge.us.i
 
 8717:                                             ; preds = %8712
   %8718 = getelementptr inbounds i8, ptr %8519, i64 %8504
   %8719 = load i8, ptr %8718, align 1
   %8720 = zext i8 %8719 to i32
-  %8721 = icmp ult i32 %8522, %8720
+  %8721 = icmp samesign ult i32 %8522, %8720
   br i1 %8721, label %8722, label %.backedge.us.i
 
 8722:                                             ; preds = %8717
   %8723 = getelementptr inbounds i8, ptr %8519, i64 %8505
   %8724 = load i8, ptr %8723, align 1
   %8725 = zext i8 %8724 to i32
-  %8726 = icmp ult i32 %8522, %8725
+  %8726 = icmp samesign ult i32 %8522, %8725
   br i1 %8726, label %11855, label %.backedge.us.i
 
 8727:                                             ; preds = %8692
   %8728 = getelementptr inbounds i8, ptr %8519, i64 %8506
   %8729 = load i8, ptr %8728, align 1
   %8730 = zext i8 %8729 to i32
-  %8731 = icmp ult i32 %8522, %8730
+  %8731 = icmp samesign ult i32 %8522, %8730
   br i1 %8731, label %8757, label %8732
 
 8732:                                             ; preds = %8727
   %8733 = getelementptr inbounds i8, ptr %8519, i64 %8500
   %8734 = load i8, ptr %8733, align 1
   %8735 = zext i8 %8734 to i32
-  %8736 = icmp ult i32 %8522, %8735
+  %8736 = icmp samesign ult i32 %8522, %8735
   br i1 %8736, label %8737, label %.backedge.us.i
 
 8737:                                             ; preds = %8732
   %8738 = getelementptr inbounds i8, ptr %8519, i64 %8501
   %8739 = load i8, ptr %8738, align 1
   %8740 = zext i8 %8739 to i32
-  %8741 = icmp ult i32 %8522, %8740
+  %8741 = icmp samesign ult i32 %8522, %8740
   br i1 %8741, label %8742, label %.backedge.us.i
 
 8742:                                             ; preds = %8737
   %8743 = getelementptr inbounds i8, ptr %8519, i64 %8502
   %8744 = load i8, ptr %8743, align 1
   %8745 = zext i8 %8744 to i32
-  %8746 = icmp ult i32 %8522, %8745
+  %8746 = icmp samesign ult i32 %8522, %8745
   br i1 %8746, label %8747, label %.backedge.us.i
 
 8747:                                             ; preds = %8742
   %8748 = getelementptr inbounds i8, ptr %8519, i64 %8503
   %8749 = load i8, ptr %8748, align 1
   %8750 = zext i8 %8749 to i32
-  %8751 = icmp ult i32 %8522, %8750
+  %8751 = icmp samesign ult i32 %8522, %8750
   br i1 %8751, label %8752, label %.backedge.us.i
 
 8752:                                             ; preds = %8747
   %8753 = getelementptr inbounds i8, ptr %8519, i64 %8504
   %8754 = load i8, ptr %8753, align 1
   %8755 = zext i8 %8754 to i32
-  %8756 = icmp ult i32 %8522, %8755
+  %8756 = icmp samesign ult i32 %8522, %8755
   br i1 %8756, label %11855, label %.backedge.us.i
 
 8757:                                             ; preds = %8727
   %8758 = getelementptr inbounds i8, ptr %8519, i64 %8507
   %8759 = load i8, ptr %8758, align 1
   %8760 = zext i8 %8759 to i32
-  %8761 = icmp ult i32 %8522, %8760
+  %8761 = icmp samesign ult i32 %8522, %8760
   br i1 %8761, label %8782, label %8762
 
 8762:                                             ; preds = %8757
   %8763 = getelementptr inbounds i8, ptr %8519, i64 %8500
   %8764 = load i8, ptr %8763, align 1
   %8765 = zext i8 %8764 to i32
-  %8766 = icmp ult i32 %8522, %8765
+  %8766 = icmp samesign ult i32 %8522, %8765
   br i1 %8766, label %8767, label %.backedge.us.i
 
 8767:                                             ; preds = %8762
   %8768 = getelementptr inbounds i8, ptr %8519, i64 %8501
   %8769 = load i8, ptr %8768, align 1
   %8770 = zext i8 %8769 to i32
-  %8771 = icmp ult i32 %8522, %8770
+  %8771 = icmp samesign ult i32 %8522, %8770
   br i1 %8771, label %8772, label %.backedge.us.i
 
 8772:                                             ; preds = %8767
   %8773 = getelementptr inbounds i8, ptr %8519, i64 %8502
   %8774 = load i8, ptr %8773, align 1
   %8775 = zext i8 %8774 to i32
-  %8776 = icmp ult i32 %8522, %8775
+  %8776 = icmp samesign ult i32 %8522, %8775
   br i1 %8776, label %8777, label %.backedge.us.i
 
 8777:                                             ; preds = %8772
   %8778 = getelementptr inbounds i8, ptr %8519, i64 %8503
   %8779 = load i8, ptr %8778, align 1
   %8780 = zext i8 %8779 to i32
-  %8781 = icmp ult i32 %8522, %8780
+  %8781 = icmp samesign ult i32 %8522, %8780
   br i1 %8781, label %11855, label %.backedge.us.i
 
 8782:                                             ; preds = %8757
   %8783 = getelementptr inbounds i8, ptr %8519, i64 %8508
   %8784 = load i8, ptr %8783, align 1
   %8785 = zext i8 %8784 to i32
-  %8786 = icmp ult i32 %8522, %8785
+  %8786 = icmp samesign ult i32 %8522, %8785
   br i1 %8786, label %8802, label %8787
 
 8787:                                             ; preds = %8782
   %8788 = getelementptr inbounds i8, ptr %8519, i64 %8500
   %8789 = load i8, ptr %8788, align 1
   %8790 = zext i8 %8789 to i32
-  %8791 = icmp ult i32 %8522, %8790
+  %8791 = icmp samesign ult i32 %8522, %8790
   br i1 %8791, label %8792, label %.backedge.us.i
 
 8792:                                             ; preds = %8787
   %8793 = getelementptr inbounds i8, ptr %8519, i64 %8501
   %8794 = load i8, ptr %8793, align 1
   %8795 = zext i8 %8794 to i32
-  %8796 = icmp ult i32 %8522, %8795
+  %8796 = icmp samesign ult i32 %8522, %8795
   br i1 %8796, label %8797, label %.backedge.us.i
 
 8797:                                             ; preds = %8792
   %8798 = getelementptr inbounds i8, ptr %8519, i64 %8502
   %8799 = load i8, ptr %8798, align 1
   %8800 = zext i8 %8799 to i32
-  %8801 = icmp ult i32 %8522, %8800
+  %8801 = icmp samesign ult i32 %8522, %8800
   br i1 %8801, label %11855, label %.backedge.us.i
 
 8802:                                             ; preds = %8782
   %8803 = getelementptr inbounds i8, ptr %8519, i64 %8509
   %8804 = load i8, ptr %8803, align 1
   %8805 = zext i8 %8804 to i32
-  %8806 = icmp ult i32 %8522, %8805
+  %8806 = icmp samesign ult i32 %8522, %8805
   br i1 %8806, label %8817, label %8807
 
 8807:                                             ; preds = %8802
   %8808 = getelementptr inbounds i8, ptr %8519, i64 %8500
   %8809 = load i8, ptr %8808, align 1
   %8810 = zext i8 %8809 to i32
-  %8811 = icmp ult i32 %8522, %8810
+  %8811 = icmp samesign ult i32 %8522, %8810
   br i1 %8811, label %8812, label %.backedge.us.i
 
 8812:                                             ; preds = %8807
   %8813 = getelementptr inbounds i8, ptr %8519, i64 %8501
   %8814 = load i8, ptr %8813, align 1
   %8815 = zext i8 %8814 to i32
-  %8816 = icmp ult i32 %8522, %8815
+  %8816 = icmp samesign ult i32 %8522, %8815
   br i1 %8816, label %11855, label %.backedge.us.i
 
 8817:                                             ; preds = %8802
   %8818 = getelementptr inbounds i8, ptr %8519, i64 %8510
   %8819 = load i8, ptr %8818, align 1
   %8820 = zext i8 %8819 to i32
-  %8821 = icmp ult i32 %8522, %8820
+  %8821 = icmp samesign ult i32 %8522, %8820
   br i1 %8821, label %11855, label %8822
 
 8822:                                             ; preds = %8817
   %8823 = getelementptr inbounds i8, ptr %8519, i64 %8500
   %8824 = load i8, ptr %8823, align 1
   %8825 = zext i8 %8824 to i32
-  %8826 = icmp ult i32 %8522, %8825
+  %8826 = icmp samesign ult i32 %8522, %8825
   br i1 %8826, label %11855, label %.backedge.us.i
 
 8827:                                             ; preds = %8528
   %8828 = getelementptr inbounds i8, ptr %8519, i64 %8509
   %8829 = load i8, ptr %8828, align 1
   %8830 = zext i8 %8829 to i32
-  %8831 = icmp ult i32 %8522, %8830
+  %8831 = icmp samesign ult i32 %8522, %8830
   br i1 %8831, label %10082, label %8832
 
 8832:                                             ; preds = %8827
-  %8833 = icmp ugt i32 %8523, %8830
+  %8833 = icmp samesign ugt i32 %8523, %8830
   br i1 %8833, label %9061, label %8834
 
 8834:                                             ; preds = %8832
   %8835 = getelementptr inbounds i8, ptr %8519, i64 %8498
   %8836 = load i8, ptr %8835, align 1
   %8837 = zext i8 %8836 to i32
-  %8838 = icmp ult i32 %8522, %8837
+  %8838 = icmp samesign ult i32 %8522, %8837
   br i1 %8838, label %8971, label %8839
 
 8839:                                             ; preds = %8834
-  %8840 = icmp ugt i32 %8523, %8837
+  %8840 = icmp samesign ugt i32 %8523, %8837
   br i1 %8840, label %8841, label %.backedge.us.i
 
 8841:                                             ; preds = %8839
   %8842 = getelementptr inbounds i8, ptr %8519, i64 %8500
   %8843 = load i8, ptr %8842, align 1
   %8844 = zext i8 %8843 to i32
-  %8845 = icmp ugt i32 %8523, %8844
+  %8845 = icmp samesign ugt i32 %8523, %8844
   br i1 %8845, label %8846, label %.backedge.us.i
 
 8846:                                             ; preds = %8841
   %8847 = getelementptr inbounds i8, ptr %8519, i64 %8501
   %8848 = load i8, ptr %8847, align 1
   %8849 = zext i8 %8848 to i32
-  %8850 = icmp ugt i32 %8523, %8849
+  %8850 = icmp samesign ugt i32 %8523, %8849
   br i1 %8850, label %8851, label %.backedge.us.i
 
 8851:                                             ; preds = %8846
   %8852 = getelementptr inbounds i8, ptr %8519, i64 %8497
   %8853 = load i8, ptr %8852, align 1
   %8854 = zext i8 %8853 to i32
-  %8855 = icmp ugt i32 %8523, %8854
+  %8855 = icmp samesign ugt i32 %8523, %8854
   br i1 %8855, label %8881, label %8856
 
 8856:                                             ; preds = %8851
   %8857 = getelementptr inbounds i8, ptr %8519, i64 %8510
   %8858 = load i8, ptr %8857, align 1
   %8859 = zext i8 %8858 to i32
-  %8860 = icmp ugt i32 %8523, %8859
+  %8860 = icmp samesign ugt i32 %8523, %8859
   br i1 %8860, label %8861, label %.backedge.us.i
 
 8861:                                             ; preds = %8856
   %8862 = getelementptr inbounds i8, ptr %8519, i64 %8502
   %8863 = load i8, ptr %8862, align 1
   %8864 = zext i8 %8863 to i32
-  %8865 = icmp ugt i32 %8523, %8864
+  %8865 = icmp samesign ugt i32 %8523, %8864
   br i1 %8865, label %8866, label %.backedge.us.i
 
 8866:                                             ; preds = %8861
   %8867 = getelementptr inbounds i8, ptr %8519, i64 %8503
   %8868 = load i8, ptr %8867, align 1
   %8869 = zext i8 %8868 to i32
-  %8870 = icmp ugt i32 %8523, %8869
+  %8870 = icmp samesign ugt i32 %8523, %8869
   br i1 %8870, label %8871, label %.backedge.us.i
 
 8871:                                             ; preds = %8866
   %8872 = getelementptr inbounds i8, ptr %8519, i64 %8504
   %8873 = load i8, ptr %8872, align 1
   %8874 = zext i8 %8873 to i32
-  %8875 = icmp ugt i32 %8523, %8874
+  %8875 = icmp samesign ugt i32 %8523, %8874
   br i1 %8875, label %8876, label %.backedge.us.i
 
 8876:                                             ; preds = %8871
   %8877 = getelementptr inbounds i8, ptr %8519, i64 %8505
   %8878 = load i8, ptr %8877, align 1
   %8879 = zext i8 %8878 to i32
-  %8880 = icmp ugt i32 %8523, %8879
+  %8880 = icmp samesign ugt i32 %8523, %8879
   br i1 %8880, label %11855, label %.backedge.us.i
 
 8881:                                             ; preds = %8851
   %8882 = getelementptr inbounds i8, ptr %8519, i64 %8502
   %8883 = load i8, ptr %8882, align 1
   %8884 = zext i8 %8883 to i32
-  %8885 = icmp ugt i32 %8523, %8884
+  %8885 = icmp samesign ugt i32 %8523, %8884
   br i1 %8885, label %8911, label %8886
 
 8886:                                             ; preds = %8881
   %8887 = getelementptr inbounds i8, ptr %8519, i64 %8508
   %8888 = load i8, ptr %8887, align 1
   %8889 = zext i8 %8888 to i32
-  %8890 = icmp ugt i32 %8523, %8889
+  %8890 = icmp samesign ugt i32 %8523, %8889
   br i1 %8890, label %8891, label %.backedge.us.i
 
 8891:                                             ; preds = %8886
   %8892 = getelementptr inbounds i8, ptr %8519, i64 %8507
   %8893 = load i8, ptr %8892, align 1
   %8894 = zext i8 %8893 to i32
-  %8895 = icmp ugt i32 %8523, %8894
+  %8895 = icmp samesign ugt i32 %8523, %8894
   br i1 %8895, label %8896, label %.backedge.us.i
 
 8896:                                             ; preds = %8891
   %8897 = getelementptr inbounds i8, ptr %8519, i64 %8506
   %8898 = load i8, ptr %8897, align 1
   %8899 = zext i8 %8898 to i32
-  %8900 = icmp ugt i32 %8523, %8899
+  %8900 = icmp samesign ugt i32 %8523, %8899
   br i1 %8900, label %8901, label %.backedge.us.i
 
 8901:                                             ; preds = %8896
   %8902 = getelementptr inbounds i8, ptr %8519, i64 %8499
   %8903 = load i8, ptr %8902, align 1
   %8904 = zext i8 %8903 to i32
-  %8905 = icmp ugt i32 %8523, %8904
+  %8905 = icmp samesign ugt i32 %8523, %8904
   br i1 %8905, label %8906, label %.backedge.us.i
 
 8906:                                             ; preds = %8901
   %8907 = getelementptr inbounds i8, ptr %8519, i64 %8496
   %8908 = load i8, ptr %8907, align 1
   %8909 = zext i8 %8908 to i32
-  %8910 = icmp ugt i32 %8523, %8909
+  %8910 = icmp samesign ugt i32 %8523, %8909
   br i1 %8910, label %11855, label %.backedge.us.i
 
 8911:                                             ; preds = %8881
   %8912 = getelementptr inbounds i8, ptr %8519, i64 %8503
   %8913 = load i8, ptr %8912, align 1
   %8914 = zext i8 %8913 to i32
-  %8915 = icmp ugt i32 %8523, %8914
+  %8915 = icmp samesign ugt i32 %8523, %8914
   br i1 %8915, label %8936, label %8916
 
 8916:                                             ; preds = %8911
   %8917 = getelementptr inbounds i8, ptr %8519, i64 %8507
   %8918 = load i8, ptr %8917, align 1
   %8919 = zext i8 %8918 to i32
-  %8920 = icmp ugt i32 %8523, %8919
+  %8920 = icmp samesign ugt i32 %8523, %8919
   br i1 %8920, label %8921, label %.backedge.us.i
 
 8921:                                             ; preds = %8916
   %8922 = getelementptr inbounds i8, ptr %8519, i64 %8506
   %8923 = load i8, ptr %8922, align 1
   %8924 = zext i8 %8923 to i32
-  %8925 = icmp ugt i32 %8523, %8924
+  %8925 = icmp samesign ugt i32 %8523, %8924
   br i1 %8925, label %8926, label %.backedge.us.i
 
 8926:                                             ; preds = %8921
   %8927 = getelementptr inbounds i8, ptr %8519, i64 %8499
   %8928 = load i8, ptr %8927, align 1
   %8929 = zext i8 %8928 to i32
-  %8930 = icmp ugt i32 %8523, %8929
+  %8930 = icmp samesign ugt i32 %8523, %8929
   br i1 %8930, label %8931, label %.backedge.us.i
 
 8931:                                             ; preds = %8926
   %8932 = getelementptr inbounds i8, ptr %8519, i64 %8496
   %8933 = load i8, ptr %8932, align 1
   %8934 = zext i8 %8933 to i32
-  %8935 = icmp ugt i32 %8523, %8934
+  %8935 = icmp samesign ugt i32 %8523, %8934
   br i1 %8935, label %11855, label %.backedge.us.i
 
 8936:                                             ; preds = %8911
   %8937 = getelementptr inbounds i8, ptr %8519, i64 %8504
   %8938 = load i8, ptr %8937, align 1
   %8939 = zext i8 %8938 to i32
-  %8940 = icmp ugt i32 %8523, %8939
+  %8940 = icmp samesign ugt i32 %8523, %8939
   br i1 %8940, label %8956, label %8941
 
 8941:                                             ; preds = %8936
   %8942 = getelementptr inbounds i8, ptr %8519, i64 %8506
   %8943 = load i8, ptr %8942, align 1
   %8944 = zext i8 %8943 to i32
-  %8945 = icmp ugt i32 %8523, %8944
+  %8945 = icmp samesign ugt i32 %8523, %8944
   br i1 %8945, label %8946, label %.backedge.us.i
 
 8946:                                             ; preds = %8941
   %8947 = getelementptr inbounds i8, ptr %8519, i64 %8499
   %8948 = load i8, ptr %8947, align 1
   %8949 = zext i8 %8948 to i32
-  %8950 = icmp ugt i32 %8523, %8949
+  %8950 = icmp samesign ugt i32 %8523, %8949
   br i1 %8950, label %8951, label %.backedge.us.i
 
 8951:                                             ; preds = %8946
   %8952 = getelementptr inbounds i8, ptr %8519, i64 %8496
   %8953 = load i8, ptr %8952, align 1
   %8954 = zext i8 %8953 to i32
-  %8955 = icmp ugt i32 %8523, %8954
+  %8955 = icmp samesign ugt i32 %8523, %8954
   br i1 %8955, label %11855, label %.backedge.us.i
 
 8956:                                             ; preds = %8936
   %8957 = getelementptr inbounds i8, ptr %8519, i64 %8505
   %8958 = load i8, ptr %8957, align 1
   %8959 = zext i8 %8958 to i32
-  %8960 = icmp ugt i32 %8523, %8959
+  %8960 = icmp samesign ugt i32 %8523, %8959
   br i1 %8960, label %11855, label %8961
 
 8961:                                             ; preds = %8956
   %8962 = getelementptr inbounds i8, ptr %8519, i64 %8499
   %8963 = load i8, ptr %8962, align 1
   %8964 = zext i8 %8963 to i32
-  %8965 = icmp ugt i32 %8523, %8964
+  %8965 = icmp samesign ugt i32 %8523, %8964
   br i1 %8965, label %8966, label %.backedge.us.i
 
 8966:                                             ; preds = %8961
   %8967 = getelementptr inbounds i8, ptr %8519, i64 %8496
   %8968 = load i8, ptr %8967, align 1
   %8969 = zext i8 %8968 to i32
-  %8970 = icmp ugt i32 %8523, %8969
+  %8970 = icmp samesign ugt i32 %8523, %8969
   br i1 %8970, label %11855, label %.backedge.us.i
 
 8971:                                             ; preds = %8834
   %8972 = getelementptr inbounds i8, ptr %8519, i64 %8496
   %8973 = load i8, ptr %8972, align 1
   %8974 = zext i8 %8973 to i32
-  %8975 = icmp ult i32 %8522, %8974
+  %8975 = icmp samesign ult i32 %8522, %8974
   br i1 %8975, label %8976, label %.backedge.us.i
 
 8976:                                             ; preds = %8971
   %8977 = getelementptr inbounds i8, ptr %8519, i64 %8497
   %8978 = load i8, ptr %8977, align 1
   %8979 = zext i8 %8978 to i32
-  %8980 = icmp ult i32 %8522, %8979
+  %8980 = icmp samesign ult i32 %8522, %8979
   br i1 %8980, label %8981, label %.backedge.us.i
 
 8981:                                             ; preds = %8976
   %8982 = getelementptr inbounds i8, ptr %8519, i64 %8500
   %8983 = load i8, ptr %8982, align 1
   %8984 = zext i8 %8983 to i32
-  %8985 = icmp ult i32 %8522, %8984
+  %8985 = icmp samesign ult i32 %8522, %8984
   br i1 %8985, label %8986, label %.backedge.us.i
 
 8986:                                             ; preds = %8981
   %8987 = getelementptr inbounds i8, ptr %8519, i64 %8501
   %8988 = load i8, ptr %8987, align 1
   %8989 = zext i8 %8988 to i32
-  %8990 = icmp ult i32 %8522, %8989
+  %8990 = icmp samesign ult i32 %8522, %8989
   br i1 %8990, label %8991, label %.backedge.us.i
 
 8991:                                             ; preds = %8986
   %8992 = getelementptr inbounds i8, ptr %8519, i64 %8499
   %8993 = load i8, ptr %8992, align 1
   %8994 = zext i8 %8993 to i32
-  %8995 = icmp ult i32 %8522, %8994
+  %8995 = icmp samesign ult i32 %8522, %8994
   br i1 %8995, label %9016, label %8996
 
 8996:                                             ; preds = %8991
   %8997 = getelementptr inbounds i8, ptr %8519, i64 %8502
   %8998 = load i8, ptr %8997, align 1
   %8999 = zext i8 %8998 to i32
-  %9000 = icmp ult i32 %8522, %8999
+  %9000 = icmp samesign ult i32 %8522, %8999
   br i1 %9000, label %9001, label %.backedge.us.i
 
 9001:                                             ; preds = %8996
   %9002 = getelementptr inbounds i8, ptr %8519, i64 %8503
   %9003 = load i8, ptr %9002, align 1
   %9004 = zext i8 %9003 to i32
-  %9005 = icmp ult i32 %8522, %9004
+  %9005 = icmp samesign ult i32 %8522, %9004
   br i1 %9005, label %9006, label %.backedge.us.i
 
 9006:                                             ; preds = %9001
   %9007 = getelementptr inbounds i8, ptr %8519, i64 %8504
   %9008 = load i8, ptr %9007, align 1
   %9009 = zext i8 %9008 to i32
-  %9010 = icmp ult i32 %8522, %9009
+  %9010 = icmp samesign ult i32 %8522, %9009
   br i1 %9010, label %9011, label %.backedge.us.i
 
 9011:                                             ; preds = %9006
   %9012 = getelementptr inbounds i8, ptr %8519, i64 %8505
   %9013 = load i8, ptr %9012, align 1
   %9014 = zext i8 %9013 to i32
-  %9015 = icmp ult i32 %8522, %9014
+  %9015 = icmp samesign ult i32 %8522, %9014
   br i1 %9015, label %11855, label %.backedge.us.i
 
 9016:                                             ; preds = %8991
   %9017 = getelementptr inbounds i8, ptr %8519, i64 %8506
   %9018 = load i8, ptr %9017, align 1
   %9019 = zext i8 %9018 to i32
-  %9020 = icmp ult i32 %8522, %9019
+  %9020 = icmp samesign ult i32 %8522, %9019
   br i1 %9020, label %9036, label %9021
 
 9021:                                             ; preds = %9016
   %9022 = getelementptr inbounds i8, ptr %8519, i64 %8502
   %9023 = load i8, ptr %9022, align 1
   %9024 = zext i8 %9023 to i32
-  %9025 = icmp ult i32 %8522, %9024
+  %9025 = icmp samesign ult i32 %8522, %9024
   br i1 %9025, label %9026, label %.backedge.us.i
 
 9026:                                             ; preds = %9021
   %9027 = getelementptr inbounds i8, ptr %8519, i64 %8503
   %9028 = load i8, ptr %9027, align 1
   %9029 = zext i8 %9028 to i32
-  %9030 = icmp ult i32 %8522, %9029
+  %9030 = icmp samesign ult i32 %8522, %9029
   br i1 %9030, label %9031, label %.backedge.us.i
 
 9031:                                             ; preds = %9026
   %9032 = getelementptr inbounds i8, ptr %8519, i64 %8504
   %9033 = load i8, ptr %9032, align 1
   %9034 = zext i8 %9033 to i32
-  %9035 = icmp ult i32 %8522, %9034
+  %9035 = icmp samesign ult i32 %8522, %9034
   br i1 %9035, label %11855, label %.backedge.us.i
 
 9036:                                             ; preds = %9016
   %9037 = getelementptr inbounds i8, ptr %8519, i64 %8507
   %9038 = load i8, ptr %9037, align 1
   %9039 = zext i8 %9038 to i32
-  %9040 = icmp ult i32 %8522, %9039
+  %9040 = icmp samesign ult i32 %8522, %9039
   br i1 %9040, label %9051, label %9041
 
 9041:                                             ; preds = %9036
   %9042 = getelementptr inbounds i8, ptr %8519, i64 %8502
   %9043 = load i8, ptr %9042, align 1
   %9044 = zext i8 %9043 to i32
-  %9045 = icmp ult i32 %8522, %9044
+  %9045 = icmp samesign ult i32 %8522, %9044
   br i1 %9045, label %9046, label %.backedge.us.i
 
 9046:                                             ; preds = %9041
   %9047 = getelementptr inbounds i8, ptr %8519, i64 %8503
   %9048 = load i8, ptr %9047, align 1
   %9049 = zext i8 %9048 to i32
-  %9050 = icmp ult i32 %8522, %9049
+  %9050 = icmp samesign ult i32 %8522, %9049
   br i1 %9050, label %11855, label %.backedge.us.i
 
 9051:                                             ; preds = %9036
   %9052 = getelementptr inbounds i8, ptr %8519, i64 %8508
   %9053 = load i8, ptr %9052, align 1
   %9054 = zext i8 %9053 to i32
-  %9055 = icmp ult i32 %8522, %9054
+  %9055 = icmp samesign ult i32 %8522, %9054
   br i1 %9055, label %11855, label %9056
 
 9056:                                             ; preds = %9051
   %9057 = getelementptr inbounds i8, ptr %8519, i64 %8502
   %9058 = load i8, ptr %9057, align 1
   %9059 = zext i8 %9058 to i32
-  %9060 = icmp ult i32 %8522, %9059
+  %9060 = icmp samesign ult i32 %8522, %9059
   br i1 %9060, label %11855, label %.backedge.us.i
 
 9061:                                             ; preds = %8832
   %9062 = getelementptr inbounds i8, ptr %8519, i64 %8507
   %9063 = load i8, ptr %9062, align 1
   %9064 = zext i8 %9063 to i32
-  %9065 = icmp ult i32 %8522, %9064
+  %9065 = icmp samesign ult i32 %8522, %9064
   br i1 %9065, label %9895, label %9066
 
 9066:                                             ; preds = %9061
-  %9067 = icmp ugt i32 %8523, %9064
+  %9067 = icmp samesign ugt i32 %8523, %9064
   br i1 %9067, label %9235, label %9068
 
 9068:                                             ; preds = %9066
   %9069 = getelementptr inbounds i8, ptr %8519, i64 %8501
   %9070 = load i8, ptr %9069, align 1
   %9071 = zext i8 %9070 to i32
-  %9072 = icmp ult i32 %8522, %9071
+  %9072 = icmp samesign ult i32 %8522, %9071
   br i1 %9072, label %9180, label %9073
 
 9073:                                             ; preds = %9068
-  %9074 = icmp ugt i32 %8523, %9071
+  %9074 = icmp samesign ugt i32 %8523, %9071
   br i1 %9074, label %9075, label %.backedge.us.i
 
 9075:                                             ; preds = %9073
   %9076 = getelementptr inbounds i8, ptr %8519, i64 %8502
   %9077 = load i8, ptr %9076, align 1
   %9078 = zext i8 %9077 to i32
-  %9079 = icmp ugt i32 %8523, %9078
+  %9079 = icmp samesign ugt i32 %8523, %9078
   br i1 %9079, label %9080, label %.backedge.us.i
 
 9080:                                             ; preds = %9075
   %9081 = getelementptr inbounds i8, ptr %8519, i64 %8503
   %9082 = load i8, ptr %9081, align 1
   %9083 = zext i8 %9082 to i32
-  %9084 = icmp ugt i32 %8523, %9083
+  %9084 = icmp samesign ugt i32 %8523, %9083
   br i1 %9084, label %9085, label %.backedge.us.i
 
 9085:                                             ; preds = %9080
   %9086 = getelementptr inbounds i8, ptr %8519, i64 %8500
   %9087 = load i8, ptr %9086, align 1
   %9088 = zext i8 %9087 to i32
-  %9089 = icmp ugt i32 %8523, %9088
+  %9089 = icmp samesign ugt i32 %8523, %9088
   br i1 %9089, label %9110, label %9090
 
 9090:                                             ; preds = %9085
   %9091 = getelementptr inbounds i8, ptr %8519, i64 %8510
   %9092 = load i8, ptr %9091, align 1
   %9093 = zext i8 %9092 to i32
-  %9094 = icmp ugt i32 %8523, %9093
+  %9094 = icmp samesign ugt i32 %8523, %9093
   br i1 %9094, label %9095, label %.backedge.us.i
 
 9095:                                             ; preds = %9090
   %9096 = getelementptr inbounds i8, ptr %8519, i64 %8508
   %9097 = load i8, ptr %9096, align 1
   %9098 = zext i8 %9097 to i32
-  %9099 = icmp ugt i32 %8523, %9098
+  %9099 = icmp samesign ugt i32 %8523, %9098
   br i1 %9099, label %9100, label %.backedge.us.i
 
 9100:                                             ; preds = %9095
   %9101 = getelementptr inbounds i8, ptr %8519, i64 %8504
   %9102 = load i8, ptr %9101, align 1
   %9103 = zext i8 %9102 to i32
-  %9104 = icmp ugt i32 %8523, %9103
+  %9104 = icmp samesign ugt i32 %8523, %9103
   br i1 %9104, label %9105, label %.backedge.us.i
 
 9105:                                             ; preds = %9100
   %9106 = getelementptr inbounds i8, ptr %8519, i64 %8505
   %9107 = load i8, ptr %9106, align 1
   %9108 = zext i8 %9107 to i32
-  %9109 = icmp ugt i32 %8523, %9108
+  %9109 = icmp samesign ugt i32 %8523, %9108
   br i1 %9109, label %11855, label %.backedge.us.i
 
 9110:                                             ; preds = %9085
   %9111 = getelementptr inbounds i8, ptr %8519, i64 %8504
   %9112 = load i8, ptr %9111, align 1
   %9113 = zext i8 %9112 to i32
-  %9114 = icmp ugt i32 %8523, %9113
+  %9114 = icmp samesign ugt i32 %8523, %9113
   br i1 %9114, label %9140, label %9115
 
 9115:                                             ; preds = %9110
   %9116 = getelementptr inbounds i8, ptr %8519, i64 %8506
   %9117 = load i8, ptr %9116, align 1
   %9118 = zext i8 %9117 to i32
-  %9119 = icmp ugt i32 %8523, %9118
+  %9119 = icmp samesign ugt i32 %8523, %9118
   br i1 %9119, label %9120, label %.backedge.us.i
 
 9120:                                             ; preds = %9115
   %9121 = getelementptr inbounds i8, ptr %8519, i64 %8499
   %9122 = load i8, ptr %9121, align 1
   %9123 = zext i8 %9122 to i32
-  %9124 = icmp ugt i32 %8523, %9123
+  %9124 = icmp samesign ugt i32 %8523, %9123
   br i1 %9124, label %9125, label %.backedge.us.i
 
 9125:                                             ; preds = %9120
   %9126 = getelementptr inbounds i8, ptr %8519, i64 %8496
   %9127 = load i8, ptr %9126, align 1
   %9128 = zext i8 %9127 to i32
-  %9129 = icmp ugt i32 %8523, %9128
+  %9129 = icmp samesign ugt i32 %8523, %9128
   br i1 %9129, label %9130, label %.backedge.us.i
 
 9130:                                             ; preds = %9125
   %9131 = getelementptr inbounds i8, ptr %8519, i64 %8497
   %9132 = load i8, ptr %9131, align 1
   %9133 = zext i8 %9132 to i32
-  %9134 = icmp ugt i32 %8523, %9133
+  %9134 = icmp samesign ugt i32 %8523, %9133
   br i1 %9134, label %9135, label %.backedge.us.i
 
 9135:                                             ; preds = %9130
   %9136 = getelementptr inbounds i8, ptr %8519, i64 %8498
   %9137 = load i8, ptr %9136, align 1
   %9138 = zext i8 %9137 to i32
-  %9139 = icmp ugt i32 %8523, %9138
+  %9139 = icmp samesign ugt i32 %8523, %9138
   br i1 %9139, label %11855, label %.backedge.us.i
 
 9140:                                             ; preds = %9110
   %9141 = getelementptr inbounds i8, ptr %8519, i64 %8505
   %9142 = load i8, ptr %9141, align 1
   %9143 = zext i8 %9142 to i32
-  %9144 = icmp ugt i32 %8523, %9143
+  %9144 = icmp samesign ugt i32 %8523, %9143
   br i1 %9144, label %9165, label %9145
 
 9145:                                             ; preds = %9140
   %9146 = getelementptr inbounds i8, ptr %8519, i64 %8499
   %9147 = load i8, ptr %9146, align 1
   %9148 = zext i8 %9147 to i32
-  %9149 = icmp ugt i32 %8523, %9148
+  %9149 = icmp samesign ugt i32 %8523, %9148
   br i1 %9149, label %9150, label %.backedge.us.i
 
 9150:                                             ; preds = %9145
   %9151 = getelementptr inbounds i8, ptr %8519, i64 %8496
   %9152 = load i8, ptr %9151, align 1
   %9153 = zext i8 %9152 to i32
-  %9154 = icmp ugt i32 %8523, %9153
+  %9154 = icmp samesign ugt i32 %8523, %9153
   br i1 %9154, label %9155, label %.backedge.us.i
 
 9155:                                             ; preds = %9150
   %9156 = getelementptr inbounds i8, ptr %8519, i64 %8497
   %9157 = load i8, ptr %9156, align 1
   %9158 = zext i8 %9157 to i32
-  %9159 = icmp ugt i32 %8523, %9158
+  %9159 = icmp samesign ugt i32 %8523, %9158
   br i1 %9159, label %9160, label %.backedge.us.i
 
 9160:                                             ; preds = %9155
   %9161 = getelementptr inbounds i8, ptr %8519, i64 %8498
   %9162 = load i8, ptr %9161, align 1
   %9163 = zext i8 %9162 to i32
-  %9164 = icmp ugt i32 %8523, %9163
+  %9164 = icmp samesign ugt i32 %8523, %9163
   br i1 %9164, label %11855, label %.backedge.us.i
 
 9165:                                             ; preds = %9140
   %9166 = getelementptr inbounds i8, ptr %8519, i64 %8510
   %9167 = load i8, ptr %9166, align 1
   %9168 = zext i8 %9167 to i32
-  %9169 = icmp ugt i32 %8523, %9168
+  %9169 = icmp samesign ugt i32 %8523, %9168
   br i1 %9169, label %11855, label %9170
 
 9170:                                             ; preds = %9165
   %9171 = getelementptr inbounds i8, ptr %8519, i64 %8497
   %9172 = load i8, ptr %9171, align 1
   %9173 = zext i8 %9172 to i32
-  %9174 = icmp ugt i32 %8523, %9173
+  %9174 = icmp samesign ugt i32 %8523, %9173
   br i1 %9174, label %9175, label %.backedge.us.i
 
 9175:                                             ; preds = %9170
   %9176 = getelementptr inbounds i8, ptr %8519, i64 %8498
   %9177 = load i8, ptr %9176, align 1
   %9178 = zext i8 %9177 to i32
-  %9179 = icmp ugt i32 %8523, %9178
+  %9179 = icmp samesign ugt i32 %8523, %9178
   br i1 %9179, label %11855, label %.backedge.us.i
 
 9180:                                             ; preds = %9068
   %9181 = getelementptr inbounds i8, ptr %8519, i64 %8496
   %9182 = load i8, ptr %9181, align 1
   %9183 = zext i8 %9182 to i32
-  %9184 = icmp ult i32 %8522, %9183
+  %9184 = icmp samesign ult i32 %8522, %9183
   br i1 %9184, label %9185, label %.backedge.us.i
 
 9185:                                             ; preds = %9180
   %9186 = getelementptr inbounds i8, ptr %8519, i64 %8497
   %9187 = load i8, ptr %9186, align 1
   %9188 = zext i8 %9187 to i32
-  %9189 = icmp ult i32 %8522, %9188
+  %9189 = icmp samesign ult i32 %8522, %9188
   br i1 %9189, label %9190, label %.backedge.us.i
 
 9190:                                             ; preds = %9185
   %9191 = getelementptr inbounds i8, ptr %8519, i64 %8498
   %9192 = load i8, ptr %9191, align 1
   %9193 = zext i8 %9192 to i32
-  %9194 = icmp ult i32 %8522, %9193
+  %9194 = icmp samesign ult i32 %8522, %9193
   br i1 %9194, label %9195, label %.backedge.us.i
 
 9195:                                             ; preds = %9190
   %9196 = getelementptr inbounds i8, ptr %8519, i64 %8500
   %9197 = load i8, ptr %9196, align 1
   %9198 = zext i8 %9197 to i32
-  %9199 = icmp ult i32 %8522, %9198
+  %9199 = icmp samesign ult i32 %8522, %9198
   br i1 %9199, label %9200, label %.backedge.us.i
 
 9200:                                             ; preds = %9195
   %9201 = getelementptr inbounds i8, ptr %8519, i64 %8502
   %9202 = load i8, ptr %9201, align 1
   %9203 = zext i8 %9202 to i32
-  %9204 = icmp ult i32 %8522, %9203
+  %9204 = icmp samesign ult i32 %8522, %9203
   br i1 %9204, label %9205, label %.backedge.us.i
 
 9205:                                             ; preds = %9200
   %9206 = getelementptr inbounds i8, ptr %8519, i64 %8503
   %9207 = load i8, ptr %9206, align 1
   %9208 = zext i8 %9207 to i32
-  %9209 = icmp ult i32 %8522, %9208
+  %9209 = icmp samesign ult i32 %8522, %9208
   br i1 %9209, label %9210, label %.backedge.us.i
 
 9210:                                             ; preds = %9205
   %9211 = getelementptr inbounds i8, ptr %8519, i64 %8499
   %9212 = load i8, ptr %9211, align 1
   %9213 = zext i8 %9212 to i32
-  %9214 = icmp ult i32 %8522, %9213
+  %9214 = icmp samesign ult i32 %8522, %9213
   br i1 %9214, label %9225, label %9215
 
 9215:                                             ; preds = %9210
   %9216 = getelementptr inbounds i8, ptr %8519, i64 %8504
   %9217 = load i8, ptr %9216, align 1
   %9218 = zext i8 %9217 to i32
-  %9219 = icmp ult i32 %8522, %9218
+  %9219 = icmp samesign ult i32 %8522, %9218
   br i1 %9219, label %9220, label %.backedge.us.i
 
 9220:                                             ; preds = %9215
   %9221 = getelementptr inbounds i8, ptr %8519, i64 %8505
   %9222 = load i8, ptr %9221, align 1
   %9223 = zext i8 %9222 to i32
-  %9224 = icmp ult i32 %8522, %9223
+  %9224 = icmp samesign ult i32 %8522, %9223
   br i1 %9224, label %11855, label %.backedge.us.i
 
 9225:                                             ; preds = %9210
   %9226 = getelementptr inbounds i8, ptr %8519, i64 %8506
   %9227 = load i8, ptr %9226, align 1
   %9228 = zext i8 %9227 to i32
-  %9229 = icmp ult i32 %8522, %9228
+  %9229 = icmp samesign ult i32 %8522, %9228
   br i1 %9229, label %11855, label %9230
 
 9230:                                             ; preds = %9225
   %9231 = getelementptr inbounds i8, ptr %8519, i64 %8504
   %9232 = load i8, ptr %9231, align 1
   %9233 = zext i8 %9232 to i32
-  %9234 = icmp ult i32 %8522, %9233
+  %9234 = icmp samesign ult i32 %8522, %9233
   br i1 %9234, label %11855, label %.backedge.us.i
 
 9235:                                             ; preds = %9066
   %9236 = getelementptr inbounds i8, ptr %8519, i64 %8506
   %9237 = load i8, ptr %9236, align 1
   %9238 = zext i8 %9237 to i32
-  %9239 = icmp ult i32 %8522, %9238
+  %9239 = icmp samesign ult i32 %8522, %9238
   br i1 %9239, label %9758, label %9240
 
 9240:                                             ; preds = %9235
-  %9241 = icmp ugt i32 %8523, %9238
+  %9241 = icmp samesign ugt i32 %8523, %9238
   br i1 %9241, label %9379, label %9242
 
 9242:                                             ; preds = %9240
   %9243 = getelementptr inbounds i8, ptr %8519, i64 %8502
   %9244 = load i8, ptr %9243, align 1
   %9245 = zext i8 %9244 to i32
-  %9246 = icmp ult i32 %8522, %9245
+  %9246 = icmp samesign ult i32 %8522, %9245
   br i1 %9246, label %9334, label %9247
 
 9247:                                             ; preds = %9242
-  %9248 = icmp ugt i32 %8523, %9245
+  %9248 = icmp samesign ugt i32 %8523, %9245
   br i1 %9248, label %9249, label %.backedge.us.i
 
 9249:                                             ; preds = %9247
   %9250 = getelementptr inbounds i8, ptr %8519, i64 %8503
   %9251 = load i8, ptr %9250, align 1
   %9252 = zext i8 %9251 to i32
-  %9253 = icmp ugt i32 %8523, %9252
+  %9253 = icmp samesign ugt i32 %8523, %9252
   br i1 %9253, label %9254, label %.backedge.us.i
 
 9254:                                             ; preds = %9249
   %9255 = getelementptr inbounds i8, ptr %8519, i64 %8504
   %9256 = load i8, ptr %9255, align 1
   %9257 = zext i8 %9256 to i32
-  %9258 = icmp ugt i32 %8523, %9257
+  %9258 = icmp samesign ugt i32 %8523, %9257
   br i1 %9258, label %9259, label %.backedge.us.i
 
 9259:                                             ; preds = %9254
   %9260 = getelementptr inbounds i8, ptr %8519, i64 %8505
   %9261 = load i8, ptr %9260, align 1
   %9262 = zext i8 %9261 to i32
-  %9263 = icmp ugt i32 %8523, %9262
+  %9263 = icmp samesign ugt i32 %8523, %9262
   br i1 %9263, label %9294, label %9264
 
 9264:                                             ; preds = %9259
   %9265 = getelementptr inbounds i8, ptr %8519, i64 %8499
   %9266 = load i8, ptr %9265, align 1
   %9267 = zext i8 %9266 to i32
-  %9268 = icmp ugt i32 %8523, %9267
+  %9268 = icmp samesign ugt i32 %8523, %9267
   br i1 %9268, label %9269, label %.backedge.us.i
 
 9269:                                             ; preds = %9264
   %9270 = getelementptr inbounds i8, ptr %8519, i64 %8496
   %9271 = load i8, ptr %9270, align 1
   %9272 = zext i8 %9271 to i32
-  %9273 = icmp ugt i32 %8523, %9272
+  %9273 = icmp samesign ugt i32 %8523, %9272
   br i1 %9273, label %9274, label %.backedge.us.i
 
 9274:                                             ; preds = %9269
   %9275 = getelementptr inbounds i8, ptr %8519, i64 %8497
   %9276 = load i8, ptr %9275, align 1
   %9277 = zext i8 %9276 to i32
-  %9278 = icmp ugt i32 %8523, %9277
+  %9278 = icmp samesign ugt i32 %8523, %9277
   br i1 %9278, label %9279, label %.backedge.us.i
 
 9279:                                             ; preds = %9274
   %9280 = getelementptr inbounds i8, ptr %8519, i64 %8498
   %9281 = load i8, ptr %9280, align 1
   %9282 = zext i8 %9281 to i32
-  %9283 = icmp ugt i32 %8523, %9282
+  %9283 = icmp samesign ugt i32 %8523, %9282
   br i1 %9283, label %9284, label %.backedge.us.i
 
 9284:                                             ; preds = %9279
   %9285 = getelementptr inbounds i8, ptr %8519, i64 %8500
   %9286 = load i8, ptr %9285, align 1
   %9287 = zext i8 %9286 to i32
-  %9288 = icmp ugt i32 %8523, %9287
+  %9288 = icmp samesign ugt i32 %8523, %9287
   br i1 %9288, label %9289, label %.backedge.us.i
 
 9289:                                             ; preds = %9284
   %9290 = getelementptr inbounds i8, ptr %8519, i64 %8501
   %9291 = load i8, ptr %9290, align 1
   %9292 = zext i8 %9291 to i32
-  %9293 = icmp ugt i32 %8523, %9292
+  %9293 = icmp samesign ugt i32 %8523, %9292
   br i1 %9293, label %11855, label %.backedge.us.i
 
 9294:                                             ; preds = %9259
   %9295 = getelementptr inbounds i8, ptr %8519, i64 %8510
   %9296 = load i8, ptr %9295, align 1
   %9297 = zext i8 %9296 to i32
-  %9298 = icmp ugt i32 %8523, %9297
+  %9298 = icmp samesign ugt i32 %8523, %9297
   br i1 %9298, label %9319, label %9299
 
 9299:                                             ; preds = %9294
   %9300 = getelementptr inbounds i8, ptr %8519, i64 %8497
   %9301 = load i8, ptr %9300, align 1
   %9302 = zext i8 %9301 to i32
-  %9303 = icmp ugt i32 %8523, %9302
+  %9303 = icmp samesign ugt i32 %8523, %9302
   br i1 %9303, label %9304, label %.backedge.us.i
 
 9304:                                             ; preds = %9299
   %9305 = getelementptr inbounds i8, ptr %8519, i64 %8498
   %9306 = load i8, ptr %9305, align 1
   %9307 = zext i8 %9306 to i32
-  %9308 = icmp ugt i32 %8523, %9307
+  %9308 = icmp samesign ugt i32 %8523, %9307
   br i1 %9308, label %9309, label %.backedge.us.i
 
 9309:                                             ; preds = %9304
   %9310 = getelementptr inbounds i8, ptr %8519, i64 %8500
   %9311 = load i8, ptr %9310, align 1
   %9312 = zext i8 %9311 to i32
-  %9313 = icmp ugt i32 %8523, %9312
+  %9313 = icmp samesign ugt i32 %8523, %9312
   br i1 %9313, label %9314, label %.backedge.us.i
 
 9314:                                             ; preds = %9309
   %9315 = getelementptr inbounds i8, ptr %8519, i64 %8501
   %9316 = load i8, ptr %9315, align 1
   %9317 = zext i8 %9316 to i32
-  %9318 = icmp ugt i32 %8523, %9317
+  %9318 = icmp samesign ugt i32 %8523, %9317
   br i1 %9318, label %11855, label %.backedge.us.i
 
 9319:                                             ; preds = %9294
   %9320 = getelementptr inbounds i8, ptr %8519, i64 %8508
   %9321 = load i8, ptr %9320, align 1
   %9322 = zext i8 %9321 to i32
-  %9323 = icmp ugt i32 %8523, %9322
+  %9323 = icmp samesign ugt i32 %8523, %9322
   br i1 %9323, label %11855, label %9324
 
 9324:                                             ; preds = %9319
   %9325 = getelementptr inbounds i8, ptr %8519, i64 %8500
   %9326 = load i8, ptr %9325, align 1
   %9327 = zext i8 %9326 to i32
-  %9328 = icmp ugt i32 %8523, %9327
+  %9328 = icmp samesign ugt i32 %8523, %9327
   br i1 %9328, label %9329, label %.backedge.us.i
 
 9329:                                             ; preds = %9324
   %9330 = getelementptr inbounds i8, ptr %8519, i64 %8501
   %9331 = load i8, ptr %9330, align 1
   %9332 = zext i8 %9331 to i32
-  %9333 = icmp ugt i32 %8523, %9332
+  %9333 = icmp samesign ugt i32 %8523, %9332
   br i1 %9333, label %11855, label %.backedge.us.i
 
 9334:                                             ; preds = %9242
   %9335 = getelementptr inbounds i8, ptr %8519, i64 %8496
   %9336 = load i8, ptr %9335, align 1
   %9337 = zext i8 %9336 to i32
-  %9338 = icmp ult i32 %8522, %9337
+  %9338 = icmp samesign ult i32 %8522, %9337
   br i1 %9338, label %9339, label %.backedge.us.i
 
 9339:                                             ; preds = %9334
   %9340 = getelementptr inbounds i8, ptr %8519, i64 %8497
   %9341 = load i8, ptr %9340, align 1
   %9342 = zext i8 %9341 to i32
-  %9343 = icmp ult i32 %8522, %9342
+  %9343 = icmp samesign ult i32 %8522, %9342
   br i1 %9343, label %9344, label %.backedge.us.i
 
 9344:                                             ; preds = %9339
   %9345 = getelementptr inbounds i8, ptr %8519, i64 %8498
   %9346 = load i8, ptr %9345, align 1
   %9347 = zext i8 %9346 to i32
-  %9348 = icmp ult i32 %8522, %9347
+  %9348 = icmp samesign ult i32 %8522, %9347
   br i1 %9348, label %9349, label %.backedge.us.i
 
 9349:                                             ; preds = %9344
   %9350 = getelementptr inbounds i8, ptr %8519, i64 %8500
   %9351 = load i8, ptr %9350, align 1
   %9352 = zext i8 %9351 to i32
-  %9353 = icmp ult i32 %8522, %9352
+  %9353 = icmp samesign ult i32 %8522, %9352
   br i1 %9353, label %9354, label %.backedge.us.i
 
 9354:                                             ; preds = %9349
   %9355 = getelementptr inbounds i8, ptr %8519, i64 %8501
   %9356 = load i8, ptr %9355, align 1
   %9357 = zext i8 %9356 to i32
-  %9358 = icmp ult i32 %8522, %9357
+  %9358 = icmp samesign ult i32 %8522, %9357
   br i1 %9358, label %9359, label %.backedge.us.i
 
 9359:                                             ; preds = %9354
   %9360 = getelementptr inbounds i8, ptr %8519, i64 %8503
   %9361 = load i8, ptr %9360, align 1
   %9362 = zext i8 %9361 to i32
-  %9363 = icmp ult i32 %8522, %9362
+  %9363 = icmp samesign ult i32 %8522, %9362
   br i1 %9363, label %9364, label %.backedge.us.i
 
 9364:                                             ; preds = %9359
   %9365 = getelementptr inbounds i8, ptr %8519, i64 %8504
   %9366 = load i8, ptr %9365, align 1
   %9367 = zext i8 %9366 to i32
-  %9368 = icmp ult i32 %8522, %9367
+  %9368 = icmp samesign ult i32 %8522, %9367
   br i1 %9368, label %9369, label %.backedge.us.i
 
 9369:                                             ; preds = %9364
   %9370 = getelementptr inbounds i8, ptr %8519, i64 %8499
   %9371 = load i8, ptr %9370, align 1
   %9372 = zext i8 %9371 to i32
-  %9373 = icmp ult i32 %8522, %9372
+  %9373 = icmp samesign ult i32 %8522, %9372
   br i1 %9373, label %11855, label %9374
 
 9374:                                             ; preds = %9369
   %9375 = getelementptr inbounds i8, ptr %8519, i64 %8505
   %9376 = load i8, ptr %9375, align 1
   %9377 = zext i8 %9376 to i32
-  %9378 = icmp ult i32 %8522, %9377
+  %9378 = icmp samesign ult i32 %8522, %9377
   br i1 %9378, label %11855, label %.backedge.us.i
 
 9379:                                             ; preds = %9240
   %9380 = getelementptr inbounds i8, ptr %8519, i64 %8496
   %9381 = load i8, ptr %9380, align 1
   %9382 = zext i8 %9381 to i32
-  %9383 = icmp ult i32 %8522, %9382
+  %9383 = icmp samesign ult i32 %8522, %9382
   br i1 %9383, label %9636, label %9384
 
 9384:                                             ; preds = %9379
-  %9385 = icmp ugt i32 %8523, %9382
+  %9385 = icmp samesign ugt i32 %8523, %9382
   br i1 %9385, label %9466, label %9386
 
 9386:                                             ; preds = %9384
   %9387 = getelementptr inbounds i8, ptr %8519, i64 %8504
   %9388 = load i8, ptr %9387, align 1
   %9389 = zext i8 %9388 to i32
-  %9390 = icmp ugt i32 %8523, %9389
+  %9390 = icmp samesign ugt i32 %8523, %9389
   br i1 %9390, label %9391, label %.backedge.us.i
 
 9391:                                             ; preds = %9386
   %9392 = getelementptr inbounds i8, ptr %8519, i64 %8505
   %9393 = load i8, ptr %9392, align 1
   %9394 = zext i8 %9393 to i32
-  %9395 = icmp ugt i32 %8523, %9394
+  %9395 = icmp samesign ugt i32 %8523, %9394
   br i1 %9395, label %9396, label %.backedge.us.i
 
 9396:                                             ; preds = %9391
   %9397 = getelementptr inbounds i8, ptr %8519, i64 %8510
   %9398 = load i8, ptr %9397, align 1
   %9399 = zext i8 %9398 to i32
-  %9400 = icmp ugt i32 %8523, %9399
+  %9400 = icmp samesign ugt i32 %8523, %9399
   br i1 %9400, label %9431, label %9401
 
 9401:                                             ; preds = %9396
   %9402 = getelementptr inbounds i8, ptr %8519, i64 %8497
   %9403 = load i8, ptr %9402, align 1
   %9404 = zext i8 %9403 to i32
-  %9405 = icmp ugt i32 %8523, %9404
+  %9405 = icmp samesign ugt i32 %8523, %9404
   br i1 %9405, label %9406, label %.backedge.us.i
 
 9406:                                             ; preds = %9401
   %9407 = getelementptr inbounds i8, ptr %8519, i64 %8498
   %9408 = load i8, ptr %9407, align 1
   %9409 = zext i8 %9408 to i32
-  %9410 = icmp ugt i32 %8523, %9409
+  %9410 = icmp samesign ugt i32 %8523, %9409
   br i1 %9410, label %9411, label %.backedge.us.i
 
 9411:                                             ; preds = %9406
   %9412 = getelementptr inbounds i8, ptr %8519, i64 %8500
   %9413 = load i8, ptr %9412, align 1
   %9414 = zext i8 %9413 to i32
-  %9415 = icmp ugt i32 %8523, %9414
+  %9415 = icmp samesign ugt i32 %8523, %9414
   br i1 %9415, label %9416, label %.backedge.us.i
 
 9416:                                             ; preds = %9411
   %9417 = getelementptr inbounds i8, ptr %8519, i64 %8501
   %9418 = load i8, ptr %9417, align 1
   %9419 = zext i8 %9418 to i32
-  %9420 = icmp ugt i32 %8523, %9419
+  %9420 = icmp samesign ugt i32 %8523, %9419
   br i1 %9420, label %9421, label %.backedge.us.i
 
 9421:                                             ; preds = %9416
   %9422 = getelementptr inbounds i8, ptr %8519, i64 %8502
   %9423 = load i8, ptr %9422, align 1
   %9424 = zext i8 %9423 to i32
-  %9425 = icmp ugt i32 %8523, %9424
+  %9425 = icmp samesign ugt i32 %8523, %9424
   br i1 %9425, label %9426, label %.backedge.us.i
 
 9426:                                             ; preds = %9421
   %9427 = getelementptr inbounds i8, ptr %8519, i64 %8503
   %9428 = load i8, ptr %9427, align 1
   %9429 = zext i8 %9428 to i32
-  %9430 = icmp ugt i32 %8523, %9429
+  %9430 = icmp samesign ugt i32 %8523, %9429
   br i1 %9430, label %11855, label %.backedge.us.i
 
 9431:                                             ; preds = %9396
   %9432 = getelementptr inbounds i8, ptr %8519, i64 %8508
   %9433 = load i8, ptr %9432, align 1
   %9434 = zext i8 %9433 to i32
-  %9435 = icmp ugt i32 %8523, %9434
+  %9435 = icmp samesign ugt i32 %8523, %9434
   br i1 %9435, label %9456, label %9436
 
 9436:                                             ; preds = %9431
   %9437 = getelementptr inbounds i8, ptr %8519, i64 %8500
   %9438 = load i8, ptr %9437, align 1
   %9439 = zext i8 %9438 to i32
-  %9440 = icmp ugt i32 %8523, %9439
+  %9440 = icmp samesign ugt i32 %8523, %9439
   br i1 %9440, label %9441, label %.backedge.us.i
 
 9441:                                             ; preds = %9436
   %9442 = getelementptr inbounds i8, ptr %8519, i64 %8501
   %9443 = load i8, ptr %9442, align 1
   %9444 = zext i8 %9443 to i32
-  %9445 = icmp ugt i32 %8523, %9444
+  %9445 = icmp samesign ugt i32 %8523, %9444
   br i1 %9445, label %9446, label %.backedge.us.i
 
 9446:                                             ; preds = %9441
   %9447 = getelementptr inbounds i8, ptr %8519, i64 %8502
   %9448 = load i8, ptr %9447, align 1
   %9449 = zext i8 %9448 to i32
-  %9450 = icmp ugt i32 %8523, %9449
+  %9450 = icmp samesign ugt i32 %8523, %9449
   br i1 %9450, label %9451, label %.backedge.us.i
 
 9451:                                             ; preds = %9446
   %9452 = getelementptr inbounds i8, ptr %8519, i64 %8503
   %9453 = load i8, ptr %9452, align 1
   %9454 = zext i8 %9453 to i32
-  %9455 = icmp ugt i32 %8523, %9454
+  %9455 = icmp samesign ugt i32 %8523, %9454
   br i1 %9455, label %11855, label %.backedge.us.i
 
 9456:                                             ; preds = %9431
   %9457 = getelementptr inbounds i8, ptr %8519, i64 %8499
   %9458 = load i8, ptr %9457, align 1
   %9459 = zext i8 %9458 to i32
-  %9460 = icmp ugt i32 %8523, %9459
+  %9460 = icmp samesign ugt i32 %8523, %9459
   br i1 %9460, label %11855, label %9461
 
 9461:                                             ; preds = %9456
   %9462 = getelementptr inbounds i8, ptr %8519, i64 %8503
   %9463 = load i8, ptr %9462, align 1
   %9464 = zext i8 %9463 to i32
-  %9465 = icmp ugt i32 %8523, %9464
+  %9465 = icmp samesign ugt i32 %8523, %9464
   br i1 %9465, label %11855, label %.backedge.us.i
 
 9466:                                             ; preds = %9384
   %9467 = getelementptr inbounds i8, ptr %8519, i64 %8508
   %9468 = load i8, ptr %9467, align 1
   %9469 = zext i8 %9468 to i32
-  %9470 = icmp ugt i32 %8523, %9469
+  %9470 = icmp samesign ugt i32 %8523, %9469
   br i1 %9470, label %9556, label %9471
 
 9471:                                             ; preds = %9466
   %9472 = getelementptr inbounds i8, ptr %8519, i64 %8500
   %9473 = load i8, ptr %9472, align 1
   %9474 = zext i8 %9473 to i32
-  %9475 = icmp ugt i32 %8523, %9474
+  %9475 = icmp samesign ugt i32 %8523, %9474
   br i1 %9475, label %9476, label %.backedge.us.i
 
 9476:                                             ; preds = %9471
   %9477 = getelementptr inbounds i8, ptr %8519, i64 %8501
   %9478 = load i8, ptr %9477, align 1
   %9479 = zext i8 %9478 to i32
-  %9480 = icmp ugt i32 %8523, %9479
+  %9480 = icmp samesign ugt i32 %8523, %9479
   br i1 %9480, label %9481, label %.backedge.us.i
 
 9481:                                             ; preds = %9476
   %9482 = getelementptr inbounds i8, ptr %8519, i64 %8502
   %9483 = load i8, ptr %9482, align 1
   %9484 = zext i8 %9483 to i32
-  %9485 = icmp ugt i32 %8523, %9484
+  %9485 = icmp samesign ugt i32 %8523, %9484
   br i1 %9485, label %9486, label %.backedge.us.i
 
 9486:                                             ; preds = %9481
   %9487 = getelementptr inbounds i8, ptr %8519, i64 %8497
   %9488 = load i8, ptr %9487, align 1
   %9489 = zext i8 %9488 to i32
-  %9490 = icmp ugt i32 %8523, %9489
+  %9490 = icmp samesign ugt i32 %8523, %9489
   br i1 %9490, label %9511, label %9491
 
 9491:                                             ; preds = %9486
   %9492 = getelementptr inbounds i8, ptr %8519, i64 %8510
   %9493 = load i8, ptr %9492, align 1
   %9494 = zext i8 %9493 to i32
-  %9495 = icmp ugt i32 %8523, %9494
+  %9495 = icmp samesign ugt i32 %8523, %9494
   br i1 %9495, label %9496, label %.backedge.us.i
 
 9496:                                             ; preds = %9491
   %9497 = getelementptr inbounds i8, ptr %8519, i64 %8503
   %9498 = load i8, ptr %9497, align 1
   %9499 = zext i8 %9498 to i32
-  %9500 = icmp ugt i32 %8523, %9499
+  %9500 = icmp samesign ugt i32 %8523, %9499
   br i1 %9500, label %9501, label %.backedge.us.i
 
 9501:                                             ; preds = %9496
   %9502 = getelementptr inbounds i8, ptr %8519, i64 %8504
   %9503 = load i8, ptr %9502, align 1
   %9504 = zext i8 %9503 to i32
-  %9505 = icmp ugt i32 %8523, %9504
+  %9505 = icmp samesign ugt i32 %8523, %9504
   br i1 %9505, label %9506, label %.backedge.us.i
 
 9506:                                             ; preds = %9501
   %9507 = getelementptr inbounds i8, ptr %8519, i64 %8505
   %9508 = load i8, ptr %9507, align 1
   %9509 = zext i8 %9508 to i32
-  %9510 = icmp ugt i32 %8523, %9509
+  %9510 = icmp samesign ugt i32 %8523, %9509
   br i1 %9510, label %11855, label %.backedge.us.i
 
 9511:                                             ; preds = %9486
   %9512 = getelementptr inbounds i8, ptr %8519, i64 %8498
   %9513 = load i8, ptr %9512, align 1
   %9514 = zext i8 %9513 to i32
-  %9515 = icmp ugt i32 %8523, %9514
+  %9515 = icmp samesign ugt i32 %8523, %9514
   br i1 %9515, label %9536, label %9516
 
 9516:                                             ; preds = %9511
   %9517 = getelementptr inbounds i8, ptr %8519, i64 %8510
   %9518 = load i8, ptr %9517, align 1
   %9519 = zext i8 %9518 to i32
-  %9520 = icmp ugt i32 %8523, %9519
+  %9520 = icmp samesign ugt i32 %8523, %9519
   br i1 %9520, label %9521, label %.backedge.us.i
 
 9521:                                             ; preds = %9516
   %9522 = getelementptr inbounds i8, ptr %8519, i64 %8503
   %9523 = load i8, ptr %9522, align 1
   %9524 = zext i8 %9523 to i32
-  %9525 = icmp ugt i32 %8523, %9524
+  %9525 = icmp samesign ugt i32 %8523, %9524
   br i1 %9525, label %9526, label %.backedge.us.i
 
 9526:                                             ; preds = %9521
   %9527 = getelementptr inbounds i8, ptr %8519, i64 %8504
   %9528 = load i8, ptr %9527, align 1
   %9529 = zext i8 %9528 to i32
-  %9530 = icmp ugt i32 %8523, %9529
+  %9530 = icmp samesign ugt i32 %8523, %9529
   br i1 %9530, label %9531, label %.backedge.us.i
 
 9531:                                             ; preds = %9526
   %9532 = getelementptr inbounds i8, ptr %8519, i64 %8505
   %9533 = load i8, ptr %9532, align 1
   %9534 = zext i8 %9533 to i32
-  %9535 = icmp ugt i32 %8523, %9534
+  %9535 = icmp samesign ugt i32 %8523, %9534
   br i1 %9535, label %11855, label %.backedge.us.i
 
 9536:                                             ; preds = %9511
   %9537 = getelementptr inbounds i8, ptr %8519, i64 %8499
   %9538 = load i8, ptr %9537, align 1
   %9539 = zext i8 %9538 to i32
-  %9540 = icmp ugt i32 %8523, %9539
+  %9540 = icmp samesign ugt i32 %8523, %9539
   br i1 %9540, label %11855, label %9541
 
 9541:                                             ; preds = %9536
   %9542 = getelementptr inbounds i8, ptr %8519, i64 %8503
   %9543 = load i8, ptr %9542, align 1
   %9544 = zext i8 %9543 to i32
-  %9545 = icmp ugt i32 %8523, %9544
+  %9545 = icmp samesign ugt i32 %8523, %9544
   br i1 %9545, label %9546, label %.backedge.us.i
 
 9546:                                             ; preds = %9541
   %9547 = getelementptr inbounds i8, ptr %8519, i64 %8504
   %9548 = load i8, ptr %9547, align 1
   %9549 = zext i8 %9548 to i32
-  %9550 = icmp ugt i32 %8523, %9549
+  %9550 = icmp samesign ugt i32 %8523, %9549
   br i1 %9550, label %9551, label %.backedge.us.i
 
 9551:                                             ; preds = %9546
   %9552 = getelementptr inbounds i8, ptr %8519, i64 %8505
   %9553 = load i8, ptr %9552, align 1
   %9554 = zext i8 %9553 to i32
-  %9555 = icmp ugt i32 %8523, %9554
+  %9555 = icmp samesign ugt i32 %8523, %9554
   br i1 %9555, label %11855, label %.backedge.us.i
 
 9556:                                             ; preds = %9466
   %9557 = getelementptr inbounds i8, ptr %8519, i64 %8510
   %9558 = load i8, ptr %9557, align 1
   %9559 = zext i8 %9558 to i32
-  %9560 = icmp ugt i32 %8523, %9559
+  %9560 = icmp samesign ugt i32 %8523, %9559
   br i1 %9560, label %9606, label %9561
 
 9561:                                             ; preds = %9556
   %9562 = getelementptr inbounds i8, ptr %8519, i64 %8497
   %9563 = load i8, ptr %9562, align 1
   %9564 = zext i8 %9563 to i32
-  %9565 = icmp ugt i32 %8523, %9564
+  %9565 = icmp samesign ugt i32 %8523, %9564
   br i1 %9565, label %9566, label %.backedge.us.i
 
 9566:                                             ; preds = %9561
   %9567 = getelementptr inbounds i8, ptr %8519, i64 %8498
   %9568 = load i8, ptr %9567, align 1
   %9569 = zext i8 %9568 to i32
-  %9570 = icmp ugt i32 %8523, %9569
+  %9570 = icmp samesign ugt i32 %8523, %9569
   br i1 %9570, label %9571, label %.backedge.us.i
 
 9571:                                             ; preds = %9566
   %9572 = getelementptr inbounds i8, ptr %8519, i64 %8500
   %9573 = load i8, ptr %9572, align 1
   %9574 = zext i8 %9573 to i32
-  %9575 = icmp ugt i32 %8523, %9574
+  %9575 = icmp samesign ugt i32 %8523, %9574
   br i1 %9575, label %9576, label %.backedge.us.i
 
 9576:                                             ; preds = %9571
   %9577 = getelementptr inbounds i8, ptr %8519, i64 %8499
   %9578 = load i8, ptr %9577, align 1
   %9579 = zext i8 %9578 to i32
-  %9580 = icmp ugt i32 %8523, %9579
+  %9580 = icmp samesign ugt i32 %8523, %9579
   br i1 %9580, label %11855, label %9581
 
 9581:                                             ; preds = %9576
   %9582 = getelementptr inbounds i8, ptr %8519, i64 %8501
   %9583 = load i8, ptr %9582, align 1
   %9584 = zext i8 %9583 to i32
-  %9585 = icmp ugt i32 %8523, %9584
+  %9585 = icmp samesign ugt i32 %8523, %9584
   br i1 %9585, label %9586, label %.backedge.us.i
 
 9586:                                             ; preds = %9581
   %9587 = getelementptr inbounds i8, ptr %8519, i64 %8502
   %9588 = load i8, ptr %9587, align 1
   %9589 = zext i8 %9588 to i32
-  %9590 = icmp ugt i32 %8523, %9589
+  %9590 = icmp samesign ugt i32 %8523, %9589
   br i1 %9590, label %9591, label %.backedge.us.i
 
 9591:                                             ; preds = %9586
   %9592 = getelementptr inbounds i8, ptr %8519, i64 %8503
   %9593 = load i8, ptr %9592, align 1
   %9594 = zext i8 %9593 to i32
-  %9595 = icmp ugt i32 %8523, %9594
+  %9595 = icmp samesign ugt i32 %8523, %9594
   br i1 %9595, label %9596, label %.backedge.us.i
 
 9596:                                             ; preds = %9591
   %9597 = getelementptr inbounds i8, ptr %8519, i64 %8504
   %9598 = load i8, ptr %9597, align 1
   %9599 = zext i8 %9598 to i32
-  %9600 = icmp ugt i32 %8523, %9599
+  %9600 = icmp samesign ugt i32 %8523, %9599
   br i1 %9600, label %9601, label %.backedge.us.i
 
 9601:                                             ; preds = %9596
   %9602 = getelementptr inbounds i8, ptr %8519, i64 %8505
   %9603 = load i8, ptr %9602, align 1
   %9604 = zext i8 %9603 to i32
-  %9605 = icmp ugt i32 %8523, %9604
+  %9605 = icmp samesign ugt i32 %8523, %9604
   br i1 %9605, label %11855, label %.backedge.us.i
 
 9606:                                             ; preds = %9556
   %9607 = getelementptr inbounds i8, ptr %8519, i64 %8499
   %9608 = load i8, ptr %9607, align 1
   %9609 = zext i8 %9608 to i32
-  %9610 = icmp ugt i32 %8523, %9609
+  %9610 = icmp samesign ugt i32 %8523, %9609
   br i1 %9610, label %9626, label %9611
 
 9611:                                             ; preds = %9606
   %9612 = getelementptr inbounds i8, ptr %8519, i64 %8503
   %9613 = load i8, ptr %9612, align 1
   %9614 = zext i8 %9613 to i32
-  %9615 = icmp ugt i32 %8523, %9614
+  %9615 = icmp samesign ugt i32 %8523, %9614
   br i1 %9615, label %9616, label %.backedge.us.i
 
 9616:                                             ; preds = %9611
   %9617 = getelementptr inbounds i8, ptr %8519, i64 %8504
   %9618 = load i8, ptr %9617, align 1
   %9619 = zext i8 %9618 to i32
-  %9620 = icmp ugt i32 %8523, %9619
+  %9620 = icmp samesign ugt i32 %8523, %9619
   br i1 %9620, label %9621, label %.backedge.us.i
 
 9621:                                             ; preds = %9616
   %9622 = getelementptr inbounds i8, ptr %8519, i64 %8505
   %9623 = load i8, ptr %9622, align 1
   %9624 = zext i8 %9623 to i32
-  %9625 = icmp ugt i32 %8523, %9624
+  %9625 = icmp samesign ugt i32 %8523, %9624
   br i1 %9625, label %11855, label %.backedge.us.i
 
 9626:                                             ; preds = %9606
   %9627 = getelementptr inbounds i8, ptr %8519, i64 %8497
   %9628 = load i8, ptr %9627, align 1
   %9629 = zext i8 %9628 to i32
-  %9630 = icmp ugt i32 %8523, %9629
+  %9630 = icmp samesign ugt i32 %8523, %9629
   br i1 %9630, label %11855, label %9631
 
 9631:                                             ; preds = %9626
   %9632 = getelementptr inbounds i8, ptr %8519, i64 %8505
   %9633 = load i8, ptr %9632, align 1
   %9634 = zext i8 %9633 to i32
-  %9635 = icmp ugt i32 %8523, %9634
+  %9635 = icmp samesign ugt i32 %8523, %9634
   br i1 %9635, label %11855, label %.backedge.us.i
 
 9636:                                             ; preds = %9379
   %9637 = getelementptr inbounds i8, ptr %8519, i64 %8504
   %9638 = load i8, ptr %9637, align 1
   %9639 = zext i8 %9638 to i32
-  %9640 = icmp ult i32 %8522, %9639
+  %9640 = icmp samesign ult i32 %8522, %9639
   br i1 %9640, label %9718, label %9641
 
 9641:                                             ; preds = %9636
-  %9642 = icmp ugt i32 %8523, %9639
+  %9642 = icmp samesign ugt i32 %8523, %9639
   br i1 %9642, label %9643, label %.backedge.us.i
 
 9643:                                             ; preds = %9641
   %9644 = getelementptr inbounds i8, ptr %8519, i64 %8505
   %9645 = load i8, ptr %9644, align 1
   %9646 = zext i8 %9645 to i32
-  %9647 = icmp ugt i32 %8523, %9646
+  %9647 = icmp samesign ugt i32 %8523, %9646
   br i1 %9647, label %9648, label %.backedge.us.i
 
 9648:                                             ; preds = %9643
   %9649 = getelementptr inbounds i8, ptr %8519, i64 %8510
   %9650 = load i8, ptr %9649, align 1
   %9651 = zext i8 %9650 to i32
-  %9652 = icmp ugt i32 %8523, %9651
+  %9652 = icmp samesign ugt i32 %8523, %9651
   br i1 %9652, label %9683, label %9653
 
 9653:                                             ; preds = %9648
   %9654 = getelementptr inbounds i8, ptr %8519, i64 %8497
   %9655 = load i8, ptr %9654, align 1
   %9656 = zext i8 %9655 to i32
-  %9657 = icmp ugt i32 %8523, %9656
+  %9657 = icmp samesign ugt i32 %8523, %9656
   br i1 %9657, label %9658, label %.backedge.us.i
 
 9658:                                             ; preds = %9653
   %9659 = getelementptr inbounds i8, ptr %8519, i64 %8498
   %9660 = load i8, ptr %9659, align 1
   %9661 = zext i8 %9660 to i32
-  %9662 = icmp ugt i32 %8523, %9661
+  %9662 = icmp samesign ugt i32 %8523, %9661
   br i1 %9662, label %9663, label %.backedge.us.i
 
 9663:                                             ; preds = %9658
   %9664 = getelementptr inbounds i8, ptr %8519, i64 %8500
   %9665 = load i8, ptr %9664, align 1
   %9666 = zext i8 %9665 to i32
-  %9667 = icmp ugt i32 %8523, %9666
+  %9667 = icmp samesign ugt i32 %8523, %9666
   br i1 %9667, label %9668, label %.backedge.us.i
 
 9668:                                             ; preds = %9663
   %9669 = getelementptr inbounds i8, ptr %8519, i64 %8501
   %9670 = load i8, ptr %9669, align 1
   %9671 = zext i8 %9670 to i32
-  %9672 = icmp ugt i32 %8523, %9671
+  %9672 = icmp samesign ugt i32 %8523, %9671
   br i1 %9672, label %9673, label %.backedge.us.i
 
 9673:                                             ; preds = %9668
   %9674 = getelementptr inbounds i8, ptr %8519, i64 %8502
   %9675 = load i8, ptr %9674, align 1
   %9676 = zext i8 %9675 to i32
-  %9677 = icmp ugt i32 %8523, %9676
+  %9677 = icmp samesign ugt i32 %8523, %9676
   br i1 %9677, label %9678, label %.backedge.us.i
 
 9678:                                             ; preds = %9673
   %9679 = getelementptr inbounds i8, ptr %8519, i64 %8503
   %9680 = load i8, ptr %9679, align 1
   %9681 = zext i8 %9680 to i32
-  %9682 = icmp ugt i32 %8523, %9681
+  %9682 = icmp samesign ugt i32 %8523, %9681
   br i1 %9682, label %11855, label %.backedge.us.i
 
 9683:                                             ; preds = %9648
   %9684 = getelementptr inbounds i8, ptr %8519, i64 %8508
   %9685 = load i8, ptr %9684, align 1
   %9686 = zext i8 %9685 to i32
-  %9687 = icmp ugt i32 %8523, %9686
+  %9687 = icmp samesign ugt i32 %8523, %9686
   br i1 %9687, label %9708, label %9688
 
 9688:                                             ; preds = %9683
   %9689 = getelementptr inbounds i8, ptr %8519, i64 %8500
   %9690 = load i8, ptr %9689, align 1
   %9691 = zext i8 %9690 to i32
-  %9692 = icmp ugt i32 %8523, %9691
+  %9692 = icmp samesign ugt i32 %8523, %9691
   br i1 %9692, label %9693, label %.backedge.us.i
 
 9693:                                             ; preds = %9688
   %9694 = getelementptr inbounds i8, ptr %8519, i64 %8501
   %9695 = load i8, ptr %9694, align 1
   %9696 = zext i8 %9695 to i32
-  %9697 = icmp ugt i32 %8523, %9696
+  %9697 = icmp samesign ugt i32 %8523, %9696
   br i1 %9697, label %9698, label %.backedge.us.i
 
 9698:                                             ; preds = %9693
   %9699 = getelementptr inbounds i8, ptr %8519, i64 %8502
   %9700 = load i8, ptr %9699, align 1
   %9701 = zext i8 %9700 to i32
-  %9702 = icmp ugt i32 %8523, %9701
+  %9702 = icmp samesign ugt i32 %8523, %9701
   br i1 %9702, label %9703, label %.backedge.us.i
 
 9703:                                             ; preds = %9698
   %9704 = getelementptr inbounds i8, ptr %8519, i64 %8503
   %9705 = load i8, ptr %9704, align 1
   %9706 = zext i8 %9705 to i32
-  %9707 = icmp ugt i32 %8523, %9706
+  %9707 = icmp samesign ugt i32 %8523, %9706
   br i1 %9707, label %11855, label %.backedge.us.i
 
 9708:                                             ; preds = %9683
   %9709 = getelementptr inbounds i8, ptr %8519, i64 %8499
   %9710 = load i8, ptr %9709, align 1
   %9711 = zext i8 %9710 to i32
-  %9712 = icmp ugt i32 %8523, %9711
+  %9712 = icmp samesign ugt i32 %8523, %9711
   br i1 %9712, label %11855, label %9713
 
 9713:                                             ; preds = %9708
   %9714 = getelementptr inbounds i8, ptr %8519, i64 %8503
   %9715 = load i8, ptr %9714, align 1
   %9716 = zext i8 %9715 to i32
-  %9717 = icmp ugt i32 %8523, %9716
+  %9717 = icmp samesign ugt i32 %8523, %9716
   br i1 %9717, label %11855, label %.backedge.us.i
 
 9718:                                             ; preds = %9636
   %9719 = getelementptr inbounds i8, ptr %8519, i64 %8497
   %9720 = load i8, ptr %9719, align 1
   %9721 = zext i8 %9720 to i32
-  %9722 = icmp ult i32 %8522, %9721
+  %9722 = icmp samesign ult i32 %8522, %9721
   br i1 %9722, label %9723, label %.backedge.us.i
 
 9723:                                             ; preds = %9718
   %9724 = getelementptr inbounds i8, ptr %8519, i64 %8498
   %9725 = load i8, ptr %9724, align 1
   %9726 = zext i8 %9725 to i32
-  %9727 = icmp ult i32 %8522, %9726
+  %9727 = icmp samesign ult i32 %8522, %9726
   br i1 %9727, label %9728, label %.backedge.us.i
 
 9728:                                             ; preds = %9723
   %9729 = getelementptr inbounds i8, ptr %8519, i64 %8500
   %9730 = load i8, ptr %9729, align 1
   %9731 = zext i8 %9730 to i32
-  %9732 = icmp ult i32 %8522, %9731
+  %9732 = icmp samesign ult i32 %8522, %9731
   br i1 %9732, label %9733, label %.backedge.us.i
 
 9733:                                             ; preds = %9728
   %9734 = getelementptr inbounds i8, ptr %8519, i64 %8501
   %9735 = load i8, ptr %9734, align 1
   %9736 = zext i8 %9735 to i32
-  %9737 = icmp ult i32 %8522, %9736
+  %9737 = icmp samesign ult i32 %8522, %9736
   br i1 %9737, label %9738, label %.backedge.us.i
 
 9738:                                             ; preds = %9733
   %9739 = getelementptr inbounds i8, ptr %8519, i64 %8502
   %9740 = load i8, ptr %9739, align 1
   %9741 = zext i8 %9740 to i32
-  %9742 = icmp ult i32 %8522, %9741
+  %9742 = icmp samesign ult i32 %8522, %9741
   br i1 %9742, label %9743, label %.backedge.us.i
 
 9743:                                             ; preds = %9738
   %9744 = getelementptr inbounds i8, ptr %8519, i64 %8503
   %9745 = load i8, ptr %9744, align 1
   %9746 = zext i8 %9745 to i32
-  %9747 = icmp ult i32 %8522, %9746
+  %9747 = icmp samesign ult i32 %8522, %9746
   br i1 %9747, label %9748, label %.backedge.us.i
 
 9748:                                             ; preds = %9743
   %9749 = getelementptr inbounds i8, ptr %8519, i64 %8499
   %9750 = load i8, ptr %9749, align 1
   %9751 = zext i8 %9750 to i32
-  %9752 = icmp ult i32 %8522, %9751
+  %9752 = icmp samesign ult i32 %8522, %9751
   br i1 %9752, label %11855, label %9753
 
 9753:                                             ; preds = %9748
   %9754 = getelementptr inbounds i8, ptr %8519, i64 %8505
   %9755 = load i8, ptr %9754, align 1
   %9756 = zext i8 %9755 to i32
-  %9757 = icmp ult i32 %8522, %9756
+  %9757 = icmp samesign ult i32 %8522, %9756
   br i1 %9757, label %11855, label %.backedge.us.i
 
 9758:                                             ; preds = %9235
   %9759 = getelementptr inbounds i8, ptr %8519, i64 %8502
   %9760 = load i8, ptr %9759, align 1
   %9761 = zext i8 %9760 to i32
-  %9762 = icmp ult i32 %8522, %9761
+  %9762 = icmp samesign ult i32 %8522, %9761
   br i1 %9762, label %9850, label %9763
 
 9763:                                             ; preds = %9758
-  %9764 = icmp ugt i32 %8523, %9761
+  %9764 = icmp samesign ugt i32 %8523, %9761
   br i1 %9764, label %9765, label %.backedge.us.i
 
 9765:                                             ; preds = %9763
   %9766 = getelementptr inbounds i8, ptr %8519, i64 %8503
   %9767 = load i8, ptr %9766, align 1
   %9768 = zext i8 %9767 to i32
-  %9769 = icmp ugt i32 %8523, %9768
+  %9769 = icmp samesign ugt i32 %8523, %9768
   br i1 %9769, label %9770, label %.backedge.us.i
 
 9770:                                             ; preds = %9765
   %9771 = getelementptr inbounds i8, ptr %8519, i64 %8504
   %9772 = load i8, ptr %9771, align 1
   %9773 = zext i8 %9772 to i32
-  %9774 = icmp ugt i32 %8523, %9773
+  %9774 = icmp samesign ugt i32 %8523, %9773
   br i1 %9774, label %9775, label %.backedge.us.i
 
 9775:                                             ; preds = %9770
   %9776 = getelementptr inbounds i8, ptr %8519, i64 %8505
   %9777 = load i8, ptr %9776, align 1
   %9778 = zext i8 %9777 to i32
-  %9779 = icmp ugt i32 %8523, %9778
+  %9779 = icmp samesign ugt i32 %8523, %9778
   br i1 %9779, label %9810, label %9780
 
 9780:                                             ; preds = %9775
   %9781 = getelementptr inbounds i8, ptr %8519, i64 %8499
   %9782 = load i8, ptr %9781, align 1
   %9783 = zext i8 %9782 to i32
-  %9784 = icmp ugt i32 %8523, %9783
+  %9784 = icmp samesign ugt i32 %8523, %9783
   br i1 %9784, label %9785, label %.backedge.us.i
 
 9785:                                             ; preds = %9780
   %9786 = getelementptr inbounds i8, ptr %8519, i64 %8496
   %9787 = load i8, ptr %9786, align 1
   %9788 = zext i8 %9787 to i32
-  %9789 = icmp ugt i32 %8523, %9788
+  %9789 = icmp samesign ugt i32 %8523, %9788
   br i1 %9789, label %9790, label %.backedge.us.i
 
 9790:                                             ; preds = %9785
   %9791 = getelementptr inbounds i8, ptr %8519, i64 %8497
   %9792 = load i8, ptr %9791, align 1
   %9793 = zext i8 %9792 to i32
-  %9794 = icmp ugt i32 %8523, %9793
+  %9794 = icmp samesign ugt i32 %8523, %9793
   br i1 %9794, label %9795, label %.backedge.us.i
 
 9795:                                             ; preds = %9790
   %9796 = getelementptr inbounds i8, ptr %8519, i64 %8498
   %9797 = load i8, ptr %9796, align 1
   %9798 = zext i8 %9797 to i32
-  %9799 = icmp ugt i32 %8523, %9798
+  %9799 = icmp samesign ugt i32 %8523, %9798
   br i1 %9799, label %9800, label %.backedge.us.i
 
 9800:                                             ; preds = %9795
   %9801 = getelementptr inbounds i8, ptr %8519, i64 %8500
   %9802 = load i8, ptr %9801, align 1
   %9803 = zext i8 %9802 to i32
-  %9804 = icmp ugt i32 %8523, %9803
+  %9804 = icmp samesign ugt i32 %8523, %9803
   br i1 %9804, label %9805, label %.backedge.us.i
 
 9805:                                             ; preds = %9800
   %9806 = getelementptr inbounds i8, ptr %8519, i64 %8501
   %9807 = load i8, ptr %9806, align 1
   %9808 = zext i8 %9807 to i32
-  %9809 = icmp ugt i32 %8523, %9808
+  %9809 = icmp samesign ugt i32 %8523, %9808
   br i1 %9809, label %11855, label %.backedge.us.i
 
 9810:                                             ; preds = %9775
   %9811 = getelementptr inbounds i8, ptr %8519, i64 %8510
   %9812 = load i8, ptr %9811, align 1
   %9813 = zext i8 %9812 to i32
-  %9814 = icmp ugt i32 %8523, %9813
+  %9814 = icmp samesign ugt i32 %8523, %9813
   br i1 %9814, label %9835, label %9815
 
 9815:                                             ; preds = %9810
   %9816 = getelementptr inbounds i8, ptr %8519, i64 %8497
   %9817 = load i8, ptr %9816, align 1
   %9818 = zext i8 %9817 to i32
-  %9819 = icmp ugt i32 %8523, %9818
+  %9819 = icmp samesign ugt i32 %8523, %9818
   br i1 %9819, label %9820, label %.backedge.us.i
 
 9820:                                             ; preds = %9815
   %9821 = getelementptr inbounds i8, ptr %8519, i64 %8498
   %9822 = load i8, ptr %9821, align 1
   %9823 = zext i8 %9822 to i32
-  %9824 = icmp ugt i32 %8523, %9823
+  %9824 = icmp samesign ugt i32 %8523, %9823
   br i1 %9824, label %9825, label %.backedge.us.i
 
 9825:                                             ; preds = %9820
   %9826 = getelementptr inbounds i8, ptr %8519, i64 %8500
   %9827 = load i8, ptr %9826, align 1
   %9828 = zext i8 %9827 to i32
-  %9829 = icmp ugt i32 %8523, %9828
+  %9829 = icmp samesign ugt i32 %8523, %9828
   br i1 %9829, label %9830, label %.backedge.us.i
 
 9830:                                             ; preds = %9825
   %9831 = getelementptr inbounds i8, ptr %8519, i64 %8501
   %9832 = load i8, ptr %9831, align 1
   %9833 = zext i8 %9832 to i32
-  %9834 = icmp ugt i32 %8523, %9833
+  %9834 = icmp samesign ugt i32 %8523, %9833
   br i1 %9834, label %11855, label %.backedge.us.i
 
 9835:                                             ; preds = %9810
   %9836 = getelementptr inbounds i8, ptr %8519, i64 %8508
   %9837 = load i8, ptr %9836, align 1
   %9838 = zext i8 %9837 to i32
-  %9839 = icmp ugt i32 %8523, %9838
+  %9839 = icmp samesign ugt i32 %8523, %9838
   br i1 %9839, label %11855, label %9840
 
 9840:                                             ; preds = %9835
   %9841 = getelementptr inbounds i8, ptr %8519, i64 %8500
   %9842 = load i8, ptr %9841, align 1
   %9843 = zext i8 %9842 to i32
-  %9844 = icmp ugt i32 %8523, %9843
+  %9844 = icmp samesign ugt i32 %8523, %9843
   br i1 %9844, label %9845, label %.backedge.us.i
 
 9845:                                             ; preds = %9840
   %9846 = getelementptr inbounds i8, ptr %8519, i64 %8501
   %9847 = load i8, ptr %9846, align 1
   %9848 = zext i8 %9847 to i32
-  %9849 = icmp ugt i32 %8523, %9848
+  %9849 = icmp samesign ugt i32 %8523, %9848
   br i1 %9849, label %11855, label %.backedge.us.i
 
 9850:                                             ; preds = %9758
   %9851 = getelementptr inbounds i8, ptr %8519, i64 %8496
   %9852 = load i8, ptr %9851, align 1
   %9853 = zext i8 %9852 to i32
-  %9854 = icmp ult i32 %8522, %9853
+  %9854 = icmp samesign ult i32 %8522, %9853
   br i1 %9854, label %9855, label %.backedge.us.i
 
 9855:                                             ; preds = %9850
   %9856 = getelementptr inbounds i8, ptr %8519, i64 %8497
   %9857 = load i8, ptr %9856, align 1
   %9858 = zext i8 %9857 to i32
-  %9859 = icmp ult i32 %8522, %9858
+  %9859 = icmp samesign ult i32 %8522, %9858
   br i1 %9859, label %9860, label %.backedge.us.i
 
 9860:                                             ; preds = %9855
   %9861 = getelementptr inbounds i8, ptr %8519, i64 %8498
   %9862 = load i8, ptr %9861, align 1
   %9863 = zext i8 %9862 to i32
-  %9864 = icmp ult i32 %8522, %9863
+  %9864 = icmp samesign ult i32 %8522, %9863
   br i1 %9864, label %9865, label %.backedge.us.i
 
 9865:                                             ; preds = %9860
   %9866 = getelementptr inbounds i8, ptr %8519, i64 %8500
   %9867 = load i8, ptr %9866, align 1
   %9868 = zext i8 %9867 to i32
-  %9869 = icmp ult i32 %8522, %9868
+  %9869 = icmp samesign ult i32 %8522, %9868
   br i1 %9869, label %9870, label %.backedge.us.i
 
 9870:                                             ; preds = %9865
   %9871 = getelementptr inbounds i8, ptr %8519, i64 %8501
   %9872 = load i8, ptr %9871, align 1
   %9873 = zext i8 %9872 to i32
-  %9874 = icmp ult i32 %8522, %9873
+  %9874 = icmp samesign ult i32 %8522, %9873
   br i1 %9874, label %9875, label %.backedge.us.i
 
 9875:                                             ; preds = %9870
   %9876 = getelementptr inbounds i8, ptr %8519, i64 %8503
   %9877 = load i8, ptr %9876, align 1
   %9878 = zext i8 %9877 to i32
-  %9879 = icmp ult i32 %8522, %9878
+  %9879 = icmp samesign ult i32 %8522, %9878
   br i1 %9879, label %9880, label %.backedge.us.i
 
 9880:                                             ; preds = %9875
   %9881 = getelementptr inbounds i8, ptr %8519, i64 %8499
   %9882 = load i8, ptr %9881, align 1
   %9883 = zext i8 %9882 to i32
-  %9884 = icmp ult i32 %8522, %9883
+  %9884 = icmp samesign ult i32 %8522, %9883
   br i1 %9884, label %11855, label %9885
 
 9885:                                             ; preds = %9880
   %9886 = getelementptr inbounds i8, ptr %8519, i64 %8504
   %9887 = load i8, ptr %9886, align 1
   %9888 = zext i8 %9887 to i32
-  %9889 = icmp ult i32 %8522, %9888
+  %9889 = icmp samesign ult i32 %8522, %9888
   br i1 %9889, label %9890, label %.backedge.us.i
 
 9890:                                             ; preds = %9885
   %9891 = getelementptr inbounds i8, ptr %8519, i64 %8505
   %9892 = load i8, ptr %9891, align 1
   %9893 = zext i8 %9892 to i32
-  %9894 = icmp ult i32 %8522, %9893
+  %9894 = icmp samesign ult i32 %8522, %9893
   br i1 %9894, label %11855, label %.backedge.us.i
 
 9895:                                             ; preds = %9061
   %9896 = getelementptr inbounds i8, ptr %8519, i64 %8501
   %9897 = load i8, ptr %9896, align 1
   %9898 = zext i8 %9897 to i32
-  %9899 = icmp ult i32 %8522, %9898
+  %9899 = icmp samesign ult i32 %8522, %9898
   br i1 %9899, label %10007, label %9900
 
 9900:                                             ; preds = %9895
-  %9901 = icmp ugt i32 %8523, %9898
+  %9901 = icmp samesign ugt i32 %8523, %9898
   br i1 %9901, label %9902, label %.backedge.us.i
 
 9902:                                             ; preds = %9900
   %9903 = getelementptr inbounds i8, ptr %8519, i64 %8502
   %9904 = load i8, ptr %9903, align 1
   %9905 = zext i8 %9904 to i32
-  %9906 = icmp ugt i32 %8523, %9905
+  %9906 = icmp samesign ugt i32 %8523, %9905
   br i1 %9906, label %9907, label %.backedge.us.i
 
 9907:                                             ; preds = %9902
   %9908 = getelementptr inbounds i8, ptr %8519, i64 %8503
   %9909 = load i8, ptr %9908, align 1
   %9910 = zext i8 %9909 to i32
-  %9911 = icmp ugt i32 %8523, %9910
+  %9911 = icmp samesign ugt i32 %8523, %9910
   br i1 %9911, label %9912, label %.backedge.us.i
 
 9912:                                             ; preds = %9907
   %9913 = getelementptr inbounds i8, ptr %8519, i64 %8500
   %9914 = load i8, ptr %9913, align 1
   %9915 = zext i8 %9914 to i32
-  %9916 = icmp ugt i32 %8523, %9915
+  %9916 = icmp samesign ugt i32 %8523, %9915
   br i1 %9916, label %9937, label %9917
 
 9917:                                             ; preds = %9912
   %9918 = getelementptr inbounds i8, ptr %8519, i64 %8510
   %9919 = load i8, ptr %9918, align 1
   %9920 = zext i8 %9919 to i32
-  %9921 = icmp ugt i32 %8523, %9920
+  %9921 = icmp samesign ugt i32 %8523, %9920
   br i1 %9921, label %9922, label %.backedge.us.i
 
 9922:                                             ; preds = %9917
   %9923 = getelementptr inbounds i8, ptr %8519, i64 %8508
   %9924 = load i8, ptr %9923, align 1
   %9925 = zext i8 %9924 to i32
-  %9926 = icmp ugt i32 %8523, %9925
+  %9926 = icmp samesign ugt i32 %8523, %9925
   br i1 %9926, label %9927, label %.backedge.us.i
 
 9927:                                             ; preds = %9922
   %9928 = getelementptr inbounds i8, ptr %8519, i64 %8504
   %9929 = load i8, ptr %9928, align 1
   %9930 = zext i8 %9929 to i32
-  %9931 = icmp ugt i32 %8523, %9930
+  %9931 = icmp samesign ugt i32 %8523, %9930
   br i1 %9931, label %9932, label %.backedge.us.i
 
 9932:                                             ; preds = %9927
   %9933 = getelementptr inbounds i8, ptr %8519, i64 %8505
   %9934 = load i8, ptr %9933, align 1
   %9935 = zext i8 %9934 to i32
-  %9936 = icmp ugt i32 %8523, %9935
+  %9936 = icmp samesign ugt i32 %8523, %9935
   br i1 %9936, label %11855, label %.backedge.us.i
 
 9937:                                             ; preds = %9912
   %9938 = getelementptr inbounds i8, ptr %8519, i64 %8504
   %9939 = load i8, ptr %9938, align 1
   %9940 = zext i8 %9939 to i32
-  %9941 = icmp ugt i32 %8523, %9940
+  %9941 = icmp samesign ugt i32 %8523, %9940
   br i1 %9941, label %9967, label %9942
 
 9942:                                             ; preds = %9937
   %9943 = getelementptr inbounds i8, ptr %8519, i64 %8506
   %9944 = load i8, ptr %9943, align 1
   %9945 = zext i8 %9944 to i32
-  %9946 = icmp ugt i32 %8523, %9945
+  %9946 = icmp samesign ugt i32 %8523, %9945
   br i1 %9946, label %9947, label %.backedge.us.i
 
 9947:                                             ; preds = %9942
   %9948 = getelementptr inbounds i8, ptr %8519, i64 %8499
   %9949 = load i8, ptr %9948, align 1
   %9950 = zext i8 %9949 to i32
-  %9951 = icmp ugt i32 %8523, %9950
+  %9951 = icmp samesign ugt i32 %8523, %9950
   br i1 %9951, label %9952, label %.backedge.us.i
 
 9952:                                             ; preds = %9947
   %9953 = getelementptr inbounds i8, ptr %8519, i64 %8496
   %9954 = load i8, ptr %9953, align 1
   %9955 = zext i8 %9954 to i32
-  %9956 = icmp ugt i32 %8523, %9955
+  %9956 = icmp samesign ugt i32 %8523, %9955
   br i1 %9956, label %9957, label %.backedge.us.i
 
 9957:                                             ; preds = %9952
   %9958 = getelementptr inbounds i8, ptr %8519, i64 %8497
   %9959 = load i8, ptr %9958, align 1
   %9960 = zext i8 %9959 to i32
-  %9961 = icmp ugt i32 %8523, %9960
+  %9961 = icmp samesign ugt i32 %8523, %9960
   br i1 %9961, label %9962, label %.backedge.us.i
 
 9962:                                             ; preds = %9957
   %9963 = getelementptr inbounds i8, ptr %8519, i64 %8498
   %9964 = load i8, ptr %9963, align 1
   %9965 = zext i8 %9964 to i32
-  %9966 = icmp ugt i32 %8523, %9965
+  %9966 = icmp samesign ugt i32 %8523, %9965
   br i1 %9966, label %11855, label %.backedge.us.i
 
 9967:                                             ; preds = %9937
   %9968 = getelementptr inbounds i8, ptr %8519, i64 %8505
   %9969 = load i8, ptr %9968, align 1
   %9970 = zext i8 %9969 to i32
-  %9971 = icmp ugt i32 %8523, %9970
+  %9971 = icmp samesign ugt i32 %8523, %9970
   br i1 %9971, label %9992, label %9972
 
 9972:                                             ; preds = %9967
   %9973 = getelementptr inbounds i8, ptr %8519, i64 %8499
   %9974 = load i8, ptr %9973, align 1
   %9975 = zext i8 %9974 to i32
-  %9976 = icmp ugt i32 %8523, %9975
+  %9976 = icmp samesign ugt i32 %8523, %9975
   br i1 %9976, label %9977, label %.backedge.us.i
 
 9977:                                             ; preds = %9972
   %9978 = getelementptr inbounds i8, ptr %8519, i64 %8496
   %9979 = load i8, ptr %9978, align 1
   %9980 = zext i8 %9979 to i32
-  %9981 = icmp ugt i32 %8523, %9980
+  %9981 = icmp samesign ugt i32 %8523, %9980
   br i1 %9981, label %9982, label %.backedge.us.i
 
 9982:                                             ; preds = %9977
   %9983 = getelementptr inbounds i8, ptr %8519, i64 %8497
   %9984 = load i8, ptr %9983, align 1
   %9985 = zext i8 %9984 to i32
-  %9986 = icmp ugt i32 %8523, %9985
+  %9986 = icmp samesign ugt i32 %8523, %9985
   br i1 %9986, label %9987, label %.backedge.us.i
 
 9987:                                             ; preds = %9982
   %9988 = getelementptr inbounds i8, ptr %8519, i64 %8498
   %9989 = load i8, ptr %9988, align 1
   %9990 = zext i8 %9989 to i32
-  %9991 = icmp ugt i32 %8523, %9990
+  %9991 = icmp samesign ugt i32 %8523, %9990
   br i1 %9991, label %11855, label %.backedge.us.i
 
 9992:                                             ; preds = %9967
   %9993 = getelementptr inbounds i8, ptr %8519, i64 %8510
   %9994 = load i8, ptr %9993, align 1
   %9995 = zext i8 %9994 to i32
-  %9996 = icmp ugt i32 %8523, %9995
+  %9996 = icmp samesign ugt i32 %8523, %9995
   br i1 %9996, label %11855, label %9997
 
 9997:                                             ; preds = %9992
   %9998 = getelementptr inbounds i8, ptr %8519, i64 %8497
   %9999 = load i8, ptr %9998, align 1
   %10000 = zext i8 %9999 to i32
-  %10001 = icmp ugt i32 %8523, %10000
+  %10001 = icmp samesign ugt i32 %8523, %10000
   br i1 %10001, label %10002, label %.backedge.us.i
 
 10002:                                            ; preds = %9997
   %10003 = getelementptr inbounds i8, ptr %8519, i64 %8498
   %10004 = load i8, ptr %10003, align 1
   %10005 = zext i8 %10004 to i32
-  %10006 = icmp ugt i32 %8523, %10005
+  %10006 = icmp samesign ugt i32 %8523, %10005
   br i1 %10006, label %11855, label %.backedge.us.i
 
 10007:                                            ; preds = %9895
   %10008 = getelementptr inbounds i8, ptr %8519, i64 %8496
   %10009 = load i8, ptr %10008, align 1
   %10010 = zext i8 %10009 to i32
-  %10011 = icmp ult i32 %8522, %10010
+  %10011 = icmp samesign ult i32 %8522, %10010
   br i1 %10011, label %10012, label %.backedge.us.i
 
 10012:                                            ; preds = %10007
   %10013 = getelementptr inbounds i8, ptr %8519, i64 %8497
   %10014 = load i8, ptr %10013, align 1
   %10015 = zext i8 %10014 to i32
-  %10016 = icmp ult i32 %8522, %10015
+  %10016 = icmp samesign ult i32 %8522, %10015
   br i1 %10016, label %10017, label %.backedge.us.i
 
 10017:                                            ; preds = %10012
   %10018 = getelementptr inbounds i8, ptr %8519, i64 %8498
   %10019 = load i8, ptr %10018, align 1
   %10020 = zext i8 %10019 to i32
-  %10021 = icmp ult i32 %8522, %10020
+  %10021 = icmp samesign ult i32 %8522, %10020
   br i1 %10021, label %10022, label %.backedge.us.i
 
 10022:                                            ; preds = %10017
   %10023 = getelementptr inbounds i8, ptr %8519, i64 %8500
   %10024 = load i8, ptr %10023, align 1
   %10025 = zext i8 %10024 to i32
-  %10026 = icmp ult i32 %8522, %10025
+  %10026 = icmp samesign ult i32 %8522, %10025
   br i1 %10026, label %10027, label %.backedge.us.i
 
 10027:                                            ; preds = %10022
   %10028 = getelementptr inbounds i8, ptr %8519, i64 %8499
   %10029 = load i8, ptr %10028, align 1
   %10030 = zext i8 %10029 to i32
-  %10031 = icmp ult i32 %8522, %10030
+  %10031 = icmp samesign ult i32 %8522, %10030
   br i1 %10031, label %10052, label %10032
 
 10032:                                            ; preds = %10027
   %10033 = getelementptr inbounds i8, ptr %8519, i64 %8502
   %10034 = load i8, ptr %10033, align 1
   %10035 = zext i8 %10034 to i32
-  %10036 = icmp ult i32 %8522, %10035
+  %10036 = icmp samesign ult i32 %8522, %10035
   br i1 %10036, label %10037, label %.backedge.us.i
 
 10037:                                            ; preds = %10032
   %10038 = getelementptr inbounds i8, ptr %8519, i64 %8503
   %10039 = load i8, ptr %10038, align 1
   %10040 = zext i8 %10039 to i32
-  %10041 = icmp ult i32 %8522, %10040
+  %10041 = icmp samesign ult i32 %8522, %10040
   br i1 %10041, label %10042, label %.backedge.us.i
 
 10042:                                            ; preds = %10037
   %10043 = getelementptr inbounds i8, ptr %8519, i64 %8504
   %10044 = load i8, ptr %10043, align 1
   %10045 = zext i8 %10044 to i32
-  %10046 = icmp ult i32 %8522, %10045
+  %10046 = icmp samesign ult i32 %8522, %10045
   br i1 %10046, label %10047, label %.backedge.us.i
 
 10047:                                            ; preds = %10042
   %10048 = getelementptr inbounds i8, ptr %8519, i64 %8505
   %10049 = load i8, ptr %10048, align 1
   %10050 = zext i8 %10049 to i32
-  %10051 = icmp ult i32 %8522, %10050
+  %10051 = icmp samesign ult i32 %8522, %10050
   br i1 %10051, label %11855, label %.backedge.us.i
 
 10052:                                            ; preds = %10027
   %10053 = getelementptr inbounds i8, ptr %8519, i64 %8506
   %10054 = load i8, ptr %10053, align 1
   %10055 = zext i8 %10054 to i32
-  %10056 = icmp ult i32 %8522, %10055
+  %10056 = icmp samesign ult i32 %8522, %10055
   br i1 %10056, label %10072, label %10057
 
 10057:                                            ; preds = %10052
   %10058 = getelementptr inbounds i8, ptr %8519, i64 %8502
   %10059 = load i8, ptr %10058, align 1
   %10060 = zext i8 %10059 to i32
-  %10061 = icmp ult i32 %8522, %10060
+  %10061 = icmp samesign ult i32 %8522, %10060
   br i1 %10061, label %10062, label %.backedge.us.i
 
 10062:                                            ; preds = %10057
   %10063 = getelementptr inbounds i8, ptr %8519, i64 %8503
   %10064 = load i8, ptr %10063, align 1
   %10065 = zext i8 %10064 to i32
-  %10066 = icmp ult i32 %8522, %10065
+  %10066 = icmp samesign ult i32 %8522, %10065
   br i1 %10066, label %10067, label %.backedge.us.i
 
 10067:                                            ; preds = %10062
   %10068 = getelementptr inbounds i8, ptr %8519, i64 %8504
   %10069 = load i8, ptr %10068, align 1
   %10070 = zext i8 %10069 to i32
-  %10071 = icmp ult i32 %8522, %10070
+  %10071 = icmp samesign ult i32 %8522, %10070
   br i1 %10071, label %11855, label %.backedge.us.i
 
 10072:                                            ; preds = %10052
   %10073 = getelementptr inbounds i8, ptr %8519, i64 %8508
   %10074 = load i8, ptr %10073, align 1
   %10075 = zext i8 %10074 to i32
-  %10076 = icmp ult i32 %8522, %10075
+  %10076 = icmp samesign ult i32 %8522, %10075
   br i1 %10076, label %11855, label %10077
 
 10077:                                            ; preds = %10072
   %10078 = getelementptr inbounds i8, ptr %8519, i64 %8502
   %10079 = load i8, ptr %10078, align 1
   %10080 = zext i8 %10079 to i32
-  %10081 = icmp ult i32 %8522, %10080
+  %10081 = icmp samesign ult i32 %8522, %10080
   br i1 %10081, label %11855, label %.backedge.us.i
 
 10082:                                            ; preds = %8827
   %10083 = getelementptr inbounds i8, ptr %8519, i64 %8498
   %10084 = load i8, ptr %10083, align 1
   %10085 = zext i8 %10084 to i32
-  %10086 = icmp ult i32 %8522, %10085
+  %10086 = icmp samesign ult i32 %8522, %10085
   br i1 %10086, label %10219, label %10087
 
 10087:                                            ; preds = %10082
-  %10088 = icmp ugt i32 %8523, %10085
+  %10088 = icmp samesign ugt i32 %8523, %10085
   br i1 %10088, label %10089, label %.backedge.us.i
 
 10089:                                            ; preds = %10087
   %10090 = getelementptr inbounds i8, ptr %8519, i64 %8500
   %10091 = load i8, ptr %10090, align 1
   %10092 = zext i8 %10091 to i32
-  %10093 = icmp ugt i32 %8523, %10092
+  %10093 = icmp samesign ugt i32 %8523, %10092
   br i1 %10093, label %10094, label %.backedge.us.i
 
 10094:                                            ; preds = %10089
   %10095 = getelementptr inbounds i8, ptr %8519, i64 %8501
   %10096 = load i8, ptr %10095, align 1
   %10097 = zext i8 %10096 to i32
-  %10098 = icmp ugt i32 %8523, %10097
+  %10098 = icmp samesign ugt i32 %8523, %10097
   br i1 %10098, label %10099, label %.backedge.us.i
 
 10099:                                            ; preds = %10094
   %10100 = getelementptr inbounds i8, ptr %8519, i64 %8497
   %10101 = load i8, ptr %10100, align 1
   %10102 = zext i8 %10101 to i32
-  %10103 = icmp ugt i32 %8523, %10102
+  %10103 = icmp samesign ugt i32 %8523, %10102
   br i1 %10103, label %10129, label %10104
 
 10104:                                            ; preds = %10099
   %10105 = getelementptr inbounds i8, ptr %8519, i64 %8510
   %10106 = load i8, ptr %10105, align 1
   %10107 = zext i8 %10106 to i32
-  %10108 = icmp ugt i32 %8523, %10107
+  %10108 = icmp samesign ugt i32 %8523, %10107
   br i1 %10108, label %10109, label %.backedge.us.i
 
 10109:                                            ; preds = %10104
   %10110 = getelementptr inbounds i8, ptr %8519, i64 %8502
   %10111 = load i8, ptr %10110, align 1
   %10112 = zext i8 %10111 to i32
-  %10113 = icmp ugt i32 %8523, %10112
+  %10113 = icmp samesign ugt i32 %8523, %10112
   br i1 %10113, label %10114, label %.backedge.us.i
 
 10114:                                            ; preds = %10109
   %10115 = getelementptr inbounds i8, ptr %8519, i64 %8503
   %10116 = load i8, ptr %10115, align 1
   %10117 = zext i8 %10116 to i32
-  %10118 = icmp ugt i32 %8523, %10117
+  %10118 = icmp samesign ugt i32 %8523, %10117
   br i1 %10118, label %10119, label %.backedge.us.i
 
 10119:                                            ; preds = %10114
   %10120 = getelementptr inbounds i8, ptr %8519, i64 %8504
   %10121 = load i8, ptr %10120, align 1
   %10122 = zext i8 %10121 to i32
-  %10123 = icmp ugt i32 %8523, %10122
+  %10123 = icmp samesign ugt i32 %8523, %10122
   br i1 %10123, label %10124, label %.backedge.us.i
 
 10124:                                            ; preds = %10119
   %10125 = getelementptr inbounds i8, ptr %8519, i64 %8505
   %10126 = load i8, ptr %10125, align 1
   %10127 = zext i8 %10126 to i32
-  %10128 = icmp ugt i32 %8523, %10127
+  %10128 = icmp samesign ugt i32 %8523, %10127
   br i1 %10128, label %11855, label %.backedge.us.i
 
 10129:                                            ; preds = %10099
   %10130 = getelementptr inbounds i8, ptr %8519, i64 %8502
   %10131 = load i8, ptr %10130, align 1
   %10132 = zext i8 %10131 to i32
-  %10133 = icmp ugt i32 %8523, %10132
+  %10133 = icmp samesign ugt i32 %8523, %10132
   br i1 %10133, label %10159, label %10134
 
 10134:                                            ; preds = %10129
   %10135 = getelementptr inbounds i8, ptr %8519, i64 %8508
   %10136 = load i8, ptr %10135, align 1
   %10137 = zext i8 %10136 to i32
-  %10138 = icmp ugt i32 %8523, %10137
+  %10138 = icmp samesign ugt i32 %8523, %10137
   br i1 %10138, label %10139, label %.backedge.us.i
 
 10139:                                            ; preds = %10134
   %10140 = getelementptr inbounds i8, ptr %8519, i64 %8507
   %10141 = load i8, ptr %10140, align 1
   %10142 = zext i8 %10141 to i32
-  %10143 = icmp ugt i32 %8523, %10142
+  %10143 = icmp samesign ugt i32 %8523, %10142
   br i1 %10143, label %10144, label %.backedge.us.i
 
 10144:                                            ; preds = %10139
   %10145 = getelementptr inbounds i8, ptr %8519, i64 %8506
   %10146 = load i8, ptr %10145, align 1
   %10147 = zext i8 %10146 to i32
-  %10148 = icmp ugt i32 %8523, %10147
+  %10148 = icmp samesign ugt i32 %8523, %10147
   br i1 %10148, label %10149, label %.backedge.us.i
 
 10149:                                            ; preds = %10144
   %10150 = getelementptr inbounds i8, ptr %8519, i64 %8499
   %10151 = load i8, ptr %10150, align 1
   %10152 = zext i8 %10151 to i32
-  %10153 = icmp ugt i32 %8523, %10152
+  %10153 = icmp samesign ugt i32 %8523, %10152
   br i1 %10153, label %10154, label %.backedge.us.i
 
 10154:                                            ; preds = %10149
   %10155 = getelementptr inbounds i8, ptr %8519, i64 %8496
   %10156 = load i8, ptr %10155, align 1
   %10157 = zext i8 %10156 to i32
-  %10158 = icmp ugt i32 %8523, %10157
+  %10158 = icmp samesign ugt i32 %8523, %10157
   br i1 %10158, label %11855, label %.backedge.us.i
 
 10159:                                            ; preds = %10129
   %10160 = getelementptr inbounds i8, ptr %8519, i64 %8503
   %10161 = load i8, ptr %10160, align 1
   %10162 = zext i8 %10161 to i32
-  %10163 = icmp ugt i32 %8523, %10162
+  %10163 = icmp samesign ugt i32 %8523, %10162
   br i1 %10163, label %10184, label %10164
 
 10164:                                            ; preds = %10159
   %10165 = getelementptr inbounds i8, ptr %8519, i64 %8507
   %10166 = load i8, ptr %10165, align 1
   %10167 = zext i8 %10166 to i32
-  %10168 = icmp ugt i32 %8523, %10167
+  %10168 = icmp samesign ugt i32 %8523, %10167
   br i1 %10168, label %10169, label %.backedge.us.i
 
 10169:                                            ; preds = %10164
   %10170 = getelementptr inbounds i8, ptr %8519, i64 %8506
   %10171 = load i8, ptr %10170, align 1
   %10172 = zext i8 %10171 to i32
-  %10173 = icmp ugt i32 %8523, %10172
+  %10173 = icmp samesign ugt i32 %8523, %10172
   br i1 %10173, label %10174, label %.backedge.us.i
 
 10174:                                            ; preds = %10169
   %10175 = getelementptr inbounds i8, ptr %8519, i64 %8499
   %10176 = load i8, ptr %10175, align 1
   %10177 = zext i8 %10176 to i32
-  %10178 = icmp ugt i32 %8523, %10177
+  %10178 = icmp samesign ugt i32 %8523, %10177
   br i1 %10178, label %10179, label %.backedge.us.i
 
 10179:                                            ; preds = %10174
   %10180 = getelementptr inbounds i8, ptr %8519, i64 %8496
   %10181 = load i8, ptr %10180, align 1
   %10182 = zext i8 %10181 to i32
-  %10183 = icmp ugt i32 %8523, %10182
+  %10183 = icmp samesign ugt i32 %8523, %10182
   br i1 %10183, label %11855, label %.backedge.us.i
 
 10184:                                            ; preds = %10159
   %10185 = getelementptr inbounds i8, ptr %8519, i64 %8504
   %10186 = load i8, ptr %10185, align 1
   %10187 = zext i8 %10186 to i32
-  %10188 = icmp ugt i32 %8523, %10187
+  %10188 = icmp samesign ugt i32 %8523, %10187
   br i1 %10188, label %10204, label %10189
 
 10189:                                            ; preds = %10184
   %10190 = getelementptr inbounds i8, ptr %8519, i64 %8506
   %10191 = load i8, ptr %10190, align 1
   %10192 = zext i8 %10191 to i32
-  %10193 = icmp ugt i32 %8523, %10192
+  %10193 = icmp samesign ugt i32 %8523, %10192
   br i1 %10193, label %10194, label %.backedge.us.i
 
 10194:                                            ; preds = %10189
   %10195 = getelementptr inbounds i8, ptr %8519, i64 %8499
   %10196 = load i8, ptr %10195, align 1
   %10197 = zext i8 %10196 to i32
-  %10198 = icmp ugt i32 %8523, %10197
+  %10198 = icmp samesign ugt i32 %8523, %10197
   br i1 %10198, label %10199, label %.backedge.us.i
 
 10199:                                            ; preds = %10194
   %10200 = getelementptr inbounds i8, ptr %8519, i64 %8496
   %10201 = load i8, ptr %10200, align 1
   %10202 = zext i8 %10201 to i32
-  %10203 = icmp ugt i32 %8523, %10202
+  %10203 = icmp samesign ugt i32 %8523, %10202
   br i1 %10203, label %11855, label %.backedge.us.i
 
 10204:                                            ; preds = %10184
   %10205 = getelementptr inbounds i8, ptr %8519, i64 %8505
   %10206 = load i8, ptr %10205, align 1
   %10207 = zext i8 %10206 to i32
-  %10208 = icmp ugt i32 %8523, %10207
+  %10208 = icmp samesign ugt i32 %8523, %10207
   br i1 %10208, label %11855, label %10209
 
 10209:                                            ; preds = %10204
   %10210 = getelementptr inbounds i8, ptr %8519, i64 %8499
   %10211 = load i8, ptr %10210, align 1
   %10212 = zext i8 %10211 to i32
-  %10213 = icmp ugt i32 %8523, %10212
+  %10213 = icmp samesign ugt i32 %8523, %10212
   br i1 %10213, label %10214, label %.backedge.us.i
 
 10214:                                            ; preds = %10209
   %10215 = getelementptr inbounds i8, ptr %8519, i64 %8496
   %10216 = load i8, ptr %10215, align 1
   %10217 = zext i8 %10216 to i32
-  %10218 = icmp ugt i32 %8523, %10217
+  %10218 = icmp samesign ugt i32 %8523, %10217
   br i1 %10218, label %11855, label %.backedge.us.i
 
 10219:                                            ; preds = %10082
   %10220 = getelementptr inbounds i8, ptr %8519, i64 %8496
   %10221 = load i8, ptr %10220, align 1
   %10222 = zext i8 %10221 to i32
-  %10223 = icmp ult i32 %8522, %10222
+  %10223 = icmp samesign ult i32 %8522, %10222
   br i1 %10223, label %10224, label %.backedge.us.i
 
 10224:                                            ; preds = %10219
   %10225 = getelementptr inbounds i8, ptr %8519, i64 %8497
   %10226 = load i8, ptr %10225, align 1
   %10227 = zext i8 %10226 to i32
-  %10228 = icmp ult i32 %8522, %10227
+  %10228 = icmp samesign ult i32 %8522, %10227
   br i1 %10228, label %10229, label %.backedge.us.i
 
 10229:                                            ; preds = %10224
   %10230 = getelementptr inbounds i8, ptr %8519, i64 %8499
   %10231 = load i8, ptr %10230, align 1
   %10232 = zext i8 %10231 to i32
-  %10233 = icmp ult i32 %8522, %10232
+  %10233 = icmp samesign ult i32 %8522, %10232
   br i1 %10233, label %10264, label %10234
 
 10234:                                            ; preds = %10229
   %10235 = getelementptr inbounds i8, ptr %8519, i64 %8500
   %10236 = load i8, ptr %10235, align 1
   %10237 = zext i8 %10236 to i32
-  %10238 = icmp ult i32 %8522, %10237
+  %10238 = icmp samesign ult i32 %8522, %10237
   br i1 %10238, label %10239, label %.backedge.us.i
 
 10239:                                            ; preds = %10234
   %10240 = getelementptr inbounds i8, ptr %8519, i64 %8501
   %10241 = load i8, ptr %10240, align 1
   %10242 = zext i8 %10241 to i32
-  %10243 = icmp ult i32 %8522, %10242
+  %10243 = icmp samesign ult i32 %8522, %10242
   br i1 %10243, label %10244, label %.backedge.us.i
 
 10244:                                            ; preds = %10239
   %10245 = getelementptr inbounds i8, ptr %8519, i64 %8502
   %10246 = load i8, ptr %10245, align 1
   %10247 = zext i8 %10246 to i32
-  %10248 = icmp ult i32 %8522, %10247
+  %10248 = icmp samesign ult i32 %8522, %10247
   br i1 %10248, label %10249, label %.backedge.us.i
 
 10249:                                            ; preds = %10244
   %10250 = getelementptr inbounds i8, ptr %8519, i64 %8503
   %10251 = load i8, ptr %10250, align 1
   %10252 = zext i8 %10251 to i32
-  %10253 = icmp ult i32 %8522, %10252
+  %10253 = icmp samesign ult i32 %8522, %10252
   br i1 %10253, label %10254, label %.backedge.us.i
 
 10254:                                            ; preds = %10249
   %10255 = getelementptr inbounds i8, ptr %8519, i64 %8504
   %10256 = load i8, ptr %10255, align 1
   %10257 = zext i8 %10256 to i32
-  %10258 = icmp ult i32 %8522, %10257
+  %10258 = icmp samesign ult i32 %8522, %10257
   br i1 %10258, label %10259, label %.backedge.us.i
 
 10259:                                            ; preds = %10254
   %10260 = getelementptr inbounds i8, ptr %8519, i64 %8505
   %10261 = load i8, ptr %10260, align 1
   %10262 = zext i8 %10261 to i32
-  %10263 = icmp ult i32 %8522, %10262
+  %10263 = icmp samesign ult i32 %8522, %10262
   br i1 %10263, label %11855, label %.backedge.us.i
 
 10264:                                            ; preds = %10229
   %10265 = getelementptr inbounds i8, ptr %8519, i64 %8506
   %10266 = load i8, ptr %10265, align 1
   %10267 = zext i8 %10266 to i32
-  %10268 = icmp ult i32 %8522, %10267
+  %10268 = icmp samesign ult i32 %8522, %10267
   br i1 %10268, label %10294, label %10269
 
 10269:                                            ; preds = %10264
   %10270 = getelementptr inbounds i8, ptr %8519, i64 %8500
   %10271 = load i8, ptr %10270, align 1
   %10272 = zext i8 %10271 to i32
-  %10273 = icmp ult i32 %8522, %10272
+  %10273 = icmp samesign ult i32 %8522, %10272
   br i1 %10273, label %10274, label %.backedge.us.i
 
 10274:                                            ; preds = %10269
   %10275 = getelementptr inbounds i8, ptr %8519, i64 %8501
   %10276 = load i8, ptr %10275, align 1
   %10277 = zext i8 %10276 to i32
-  %10278 = icmp ult i32 %8522, %10277
+  %10278 = icmp samesign ult i32 %8522, %10277
   br i1 %10278, label %10279, label %.backedge.us.i
 
 10279:                                            ; preds = %10274
   %10280 = getelementptr inbounds i8, ptr %8519, i64 %8502
   %10281 = load i8, ptr %10280, align 1
   %10282 = zext i8 %10281 to i32
-  %10283 = icmp ult i32 %8522, %10282
+  %10283 = icmp samesign ult i32 %8522, %10282
   br i1 %10283, label %10284, label %.backedge.us.i
 
 10284:                                            ; preds = %10279
   %10285 = getelementptr inbounds i8, ptr %8519, i64 %8503
   %10286 = load i8, ptr %10285, align 1
   %10287 = zext i8 %10286 to i32
-  %10288 = icmp ult i32 %8522, %10287
+  %10288 = icmp samesign ult i32 %8522, %10287
   br i1 %10288, label %10289, label %.backedge.us.i
 
 10289:                                            ; preds = %10284
   %10290 = getelementptr inbounds i8, ptr %8519, i64 %8504
   %10291 = load i8, ptr %10290, align 1
   %10292 = zext i8 %10291 to i32
-  %10293 = icmp ult i32 %8522, %10292
+  %10293 = icmp samesign ult i32 %8522, %10292
   br i1 %10293, label %11855, label %.backedge.us.i
 
 10294:                                            ; preds = %10264
   %10295 = getelementptr inbounds i8, ptr %8519, i64 %8507
   %10296 = load i8, ptr %10295, align 1
   %10297 = zext i8 %10296 to i32
-  %10298 = icmp ult i32 %8522, %10297
+  %10298 = icmp samesign ult i32 %8522, %10297
   br i1 %10298, label %10319, label %10299
 
 10299:                                            ; preds = %10294
   %10300 = getelementptr inbounds i8, ptr %8519, i64 %8500
   %10301 = load i8, ptr %10300, align 1
   %10302 = zext i8 %10301 to i32
-  %10303 = icmp ult i32 %8522, %10302
+  %10303 = icmp samesign ult i32 %8522, %10302
   br i1 %10303, label %10304, label %.backedge.us.i
 
 10304:                                            ; preds = %10299
   %10305 = getelementptr inbounds i8, ptr %8519, i64 %8501
   %10306 = load i8, ptr %10305, align 1
   %10307 = zext i8 %10306 to i32
-  %10308 = icmp ult i32 %8522, %10307
+  %10308 = icmp samesign ult i32 %8522, %10307
   br i1 %10308, label %10309, label %.backedge.us.i
 
 10309:                                            ; preds = %10304
   %10310 = getelementptr inbounds i8, ptr %8519, i64 %8502
   %10311 = load i8, ptr %10310, align 1
   %10312 = zext i8 %10311 to i32
-  %10313 = icmp ult i32 %8522, %10312
+  %10313 = icmp samesign ult i32 %8522, %10312
   br i1 %10313, label %10314, label %.backedge.us.i
 
 10314:                                            ; preds = %10309
   %10315 = getelementptr inbounds i8, ptr %8519, i64 %8503
   %10316 = load i8, ptr %10315, align 1
   %10317 = zext i8 %10316 to i32
-  %10318 = icmp ult i32 %8522, %10317
+  %10318 = icmp samesign ult i32 %8522, %10317
   br i1 %10318, label %11855, label %.backedge.us.i
 
 10319:                                            ; preds = %10294
   %10320 = getelementptr inbounds i8, ptr %8519, i64 %8508
   %10321 = load i8, ptr %10320, align 1
   %10322 = zext i8 %10321 to i32
-  %10323 = icmp ult i32 %8522, %10322
+  %10323 = icmp samesign ult i32 %8522, %10322
   br i1 %10323, label %10339, label %10324
 
 10324:                                            ; preds = %10319
   %10325 = getelementptr inbounds i8, ptr %8519, i64 %8500
   %10326 = load i8, ptr %10325, align 1
   %10327 = zext i8 %10326 to i32
-  %10328 = icmp ult i32 %8522, %10327
+  %10328 = icmp samesign ult i32 %8522, %10327
   br i1 %10328, label %10329, label %.backedge.us.i
 
 10329:                                            ; preds = %10324
   %10330 = getelementptr inbounds i8, ptr %8519, i64 %8501
   %10331 = load i8, ptr %10330, align 1
   %10332 = zext i8 %10331 to i32
-  %10333 = icmp ult i32 %8522, %10332
+  %10333 = icmp samesign ult i32 %8522, %10332
   br i1 %10333, label %10334, label %.backedge.us.i
 
 10334:                                            ; preds = %10329
   %10335 = getelementptr inbounds i8, ptr %8519, i64 %8502
   %10336 = load i8, ptr %10335, align 1
   %10337 = zext i8 %10336 to i32
-  %10338 = icmp ult i32 %8522, %10337
+  %10338 = icmp samesign ult i32 %8522, %10337
   br i1 %10338, label %11855, label %.backedge.us.i
 
 10339:                                            ; preds = %10319
   %10340 = getelementptr inbounds i8, ptr %8519, i64 %8510
   %10341 = load i8, ptr %10340, align 1
   %10342 = zext i8 %10341 to i32
-  %10343 = icmp ult i32 %8522, %10342
+  %10343 = icmp samesign ult i32 %8522, %10342
   br i1 %10343, label %11855, label %10344
 
 10344:                                            ; preds = %10339
   %10345 = getelementptr inbounds i8, ptr %8519, i64 %8500
   %10346 = load i8, ptr %10345, align 1
   %10347 = zext i8 %10346 to i32
-  %10348 = icmp ult i32 %8522, %10347
+  %10348 = icmp samesign ult i32 %8522, %10347
   br i1 %10348, label %11855, label %.backedge.us.i
 
 10349:                                            ; preds = %8516
@@ -16112,7 +16112,7 @@ _ZNSt6vectorIN2cv8KeyPointESaIS1_EE6resizeEm.exit.i236: ; preds = %8441, %8426
   %10356 = getelementptr inbounds i8, ptr %8519, i64 %8498
   %10357 = load i8, ptr %10356, align 1
   %10358 = zext i8 %10357 to i32
-  %10359 = icmp ult i32 %8522, %10358
+  %10359 = icmp samesign ult i32 %8522, %10358
   br i1 %10355, label %10583, label %10360
 
 10360:                                            ; preds = %10354
@@ -16126,679 +16126,679 @@ _ZNSt6vectorIN2cv8KeyPointESaIS1_EE6resizeEm.exit.i236: ; preds = %8441, %8426
   %10364 = getelementptr inbounds i8, ptr %8519, i64 %8496
   %10365 = load i8, ptr %10364, align 1
   %10366 = zext i8 %10365 to i32
-  %10367 = icmp ugt i32 %8523, %10366
+  %10367 = icmp samesign ugt i32 %8523, %10366
   br i1 %10367, label %10368, label %.backedge.us.i
 
 10368:                                            ; preds = %10363
   %10369 = getelementptr inbounds i8, ptr %8519, i64 %8497
   %10370 = load i8, ptr %10369, align 1
   %10371 = zext i8 %10370 to i32
-  %10372 = icmp ugt i32 %8523, %10371
+  %10372 = icmp samesign ugt i32 %8523, %10371
   br i1 %10372, label %10373, label %.backedge.us.i
 
 10373:                                            ; preds = %10368
   %10374 = getelementptr inbounds i8, ptr %8519, i64 %8500
   %10375 = load i8, ptr %10374, align 1
   %10376 = zext i8 %10375 to i32
-  %10377 = icmp ugt i32 %8523, %10376
+  %10377 = icmp samesign ugt i32 %8523, %10376
   br i1 %10377, label %10378, label %.backedge.us.i
 
 10378:                                            ; preds = %10373
   %10379 = getelementptr inbounds i8, ptr %8519, i64 %8501
   %10380 = load i8, ptr %10379, align 1
   %10381 = zext i8 %10380 to i32
-  %10382 = icmp ugt i32 %8523, %10381
+  %10382 = icmp samesign ugt i32 %8523, %10381
   br i1 %10382, label %10383, label %.backedge.us.i
 
 10383:                                            ; preds = %10378
   %10384 = getelementptr inbounds i8, ptr %8519, i64 %8499
   %10385 = load i8, ptr %10384, align 1
   %10386 = zext i8 %10385 to i32
-  %10387 = icmp ugt i32 %8523, %10386
+  %10387 = icmp samesign ugt i32 %8523, %10386
   br i1 %10387, label %10408, label %10388
 
 10388:                                            ; preds = %10383
   %10389 = getelementptr inbounds i8, ptr %8519, i64 %8502
   %10390 = load i8, ptr %10389, align 1
   %10391 = zext i8 %10390 to i32
-  %10392 = icmp ugt i32 %8523, %10391
+  %10392 = icmp samesign ugt i32 %8523, %10391
   br i1 %10392, label %10393, label %.backedge.us.i
 
 10393:                                            ; preds = %10388
   %10394 = getelementptr inbounds i8, ptr %8519, i64 %8503
   %10395 = load i8, ptr %10394, align 1
   %10396 = zext i8 %10395 to i32
-  %10397 = icmp ugt i32 %8523, %10396
+  %10397 = icmp samesign ugt i32 %8523, %10396
   br i1 %10397, label %10398, label %.backedge.us.i
 
 10398:                                            ; preds = %10393
   %10399 = getelementptr inbounds i8, ptr %8519, i64 %8504
   %10400 = load i8, ptr %10399, align 1
   %10401 = zext i8 %10400 to i32
-  %10402 = icmp ugt i32 %8523, %10401
+  %10402 = icmp samesign ugt i32 %8523, %10401
   br i1 %10402, label %10403, label %.backedge.us.i
 
 10403:                                            ; preds = %10398
   %10404 = getelementptr inbounds i8, ptr %8519, i64 %8505
   %10405 = load i8, ptr %10404, align 1
   %10406 = zext i8 %10405 to i32
-  %10407 = icmp ugt i32 %8523, %10406
+  %10407 = icmp samesign ugt i32 %8523, %10406
   br i1 %10407, label %11855, label %.backedge.us.i
 
 10408:                                            ; preds = %10383
   %10409 = getelementptr inbounds i8, ptr %8519, i64 %8506
   %10410 = load i8, ptr %10409, align 1
   %10411 = zext i8 %10410 to i32
-  %10412 = icmp ugt i32 %8523, %10411
+  %10412 = icmp samesign ugt i32 %8523, %10411
   br i1 %10412, label %10428, label %10413
 
 10413:                                            ; preds = %10408
   %10414 = getelementptr inbounds i8, ptr %8519, i64 %8502
   %10415 = load i8, ptr %10414, align 1
   %10416 = zext i8 %10415 to i32
-  %10417 = icmp ugt i32 %8523, %10416
+  %10417 = icmp samesign ugt i32 %8523, %10416
   br i1 %10417, label %10418, label %.backedge.us.i
 
 10418:                                            ; preds = %10413
   %10419 = getelementptr inbounds i8, ptr %8519, i64 %8503
   %10420 = load i8, ptr %10419, align 1
   %10421 = zext i8 %10420 to i32
-  %10422 = icmp ugt i32 %8523, %10421
+  %10422 = icmp samesign ugt i32 %8523, %10421
   br i1 %10422, label %10423, label %.backedge.us.i
 
 10423:                                            ; preds = %10418
   %10424 = getelementptr inbounds i8, ptr %8519, i64 %8504
   %10425 = load i8, ptr %10424, align 1
   %10426 = zext i8 %10425 to i32
-  %10427 = icmp ugt i32 %8523, %10426
+  %10427 = icmp samesign ugt i32 %8523, %10426
   br i1 %10427, label %11855, label %.backedge.us.i
 
 10428:                                            ; preds = %10408
   %10429 = getelementptr inbounds i8, ptr %8519, i64 %8507
   %10430 = load i8, ptr %10429, align 1
   %10431 = zext i8 %10430 to i32
-  %10432 = icmp ugt i32 %8523, %10431
+  %10432 = icmp samesign ugt i32 %8523, %10431
   br i1 %10432, label %10443, label %10433
 
 10433:                                            ; preds = %10428
   %10434 = getelementptr inbounds i8, ptr %8519, i64 %8502
   %10435 = load i8, ptr %10434, align 1
   %10436 = zext i8 %10435 to i32
-  %10437 = icmp ugt i32 %8523, %10436
+  %10437 = icmp samesign ugt i32 %8523, %10436
   br i1 %10437, label %10438, label %.backedge.us.i
 
 10438:                                            ; preds = %10433
   %10439 = getelementptr inbounds i8, ptr %8519, i64 %8503
   %10440 = load i8, ptr %10439, align 1
   %10441 = zext i8 %10440 to i32
-  %10442 = icmp ugt i32 %8523, %10441
+  %10442 = icmp samesign ugt i32 %8523, %10441
   br i1 %10442, label %11855, label %.backedge.us.i
 
 10443:                                            ; preds = %10428
   %10444 = getelementptr inbounds i8, ptr %8519, i64 %8508
   %10445 = load i8, ptr %10444, align 1
   %10446 = zext i8 %10445 to i32
-  %10447 = icmp ugt i32 %8523, %10446
+  %10447 = icmp samesign ugt i32 %8523, %10446
   br i1 %10447, label %11855, label %10448
 
 10448:                                            ; preds = %10443
   %10449 = getelementptr inbounds i8, ptr %8519, i64 %8502
   %10450 = load i8, ptr %10449, align 1
   %10451 = zext i8 %10450 to i32
-  %10452 = icmp ugt i32 %8523, %10451
+  %10452 = icmp samesign ugt i32 %8523, %10451
   br i1 %10452, label %11855, label %.backedge.us.i
 
 10453:                                            ; preds = %10360
   %10454 = getelementptr inbounds i8, ptr %8519, i64 %8500
   %10455 = load i8, ptr %10454, align 1
   %10456 = zext i8 %10455 to i32
-  %10457 = icmp ult i32 %8522, %10456
+  %10457 = icmp samesign ult i32 %8522, %10456
   br i1 %10457, label %10458, label %.backedge.us.i
 
 10458:                                            ; preds = %10453
   %10459 = getelementptr inbounds i8, ptr %8519, i64 %8501
   %10460 = load i8, ptr %10459, align 1
   %10461 = zext i8 %10460 to i32
-  %10462 = icmp ult i32 %8522, %10461
+  %10462 = icmp samesign ult i32 %8522, %10461
   br i1 %10462, label %10463, label %.backedge.us.i
 
 10463:                                            ; preds = %10458
   %10464 = getelementptr inbounds i8, ptr %8519, i64 %8497
   %10465 = load i8, ptr %10464, align 1
   %10466 = zext i8 %10465 to i32
-  %10467 = icmp ult i32 %8522, %10466
+  %10467 = icmp samesign ult i32 %8522, %10466
   br i1 %10467, label %10493, label %10468
 
 10468:                                            ; preds = %10463
   %10469 = getelementptr inbounds i8, ptr %8519, i64 %8510
   %10470 = load i8, ptr %10469, align 1
   %10471 = zext i8 %10470 to i32
-  %10472 = icmp ult i32 %8522, %10471
+  %10472 = icmp samesign ult i32 %8522, %10471
   br i1 %10472, label %10473, label %.backedge.us.i
 
 10473:                                            ; preds = %10468
   %10474 = getelementptr inbounds i8, ptr %8519, i64 %8502
   %10475 = load i8, ptr %10474, align 1
   %10476 = zext i8 %10475 to i32
-  %10477 = icmp ult i32 %8522, %10476
+  %10477 = icmp samesign ult i32 %8522, %10476
   br i1 %10477, label %10478, label %.backedge.us.i
 
 10478:                                            ; preds = %10473
   %10479 = getelementptr inbounds i8, ptr %8519, i64 %8503
   %10480 = load i8, ptr %10479, align 1
   %10481 = zext i8 %10480 to i32
-  %10482 = icmp ult i32 %8522, %10481
+  %10482 = icmp samesign ult i32 %8522, %10481
   br i1 %10482, label %10483, label %.backedge.us.i
 
 10483:                                            ; preds = %10478
   %10484 = getelementptr inbounds i8, ptr %8519, i64 %8504
   %10485 = load i8, ptr %10484, align 1
   %10486 = zext i8 %10485 to i32
-  %10487 = icmp ult i32 %8522, %10486
+  %10487 = icmp samesign ult i32 %8522, %10486
   br i1 %10487, label %10488, label %.backedge.us.i
 
 10488:                                            ; preds = %10483
   %10489 = getelementptr inbounds i8, ptr %8519, i64 %8505
   %10490 = load i8, ptr %10489, align 1
   %10491 = zext i8 %10490 to i32
-  %10492 = icmp ult i32 %8522, %10491
+  %10492 = icmp samesign ult i32 %8522, %10491
   br i1 %10492, label %11855, label %.backedge.us.i
 
 10493:                                            ; preds = %10463
   %10494 = getelementptr inbounds i8, ptr %8519, i64 %8502
   %10495 = load i8, ptr %10494, align 1
   %10496 = zext i8 %10495 to i32
-  %10497 = icmp ult i32 %8522, %10496
+  %10497 = icmp samesign ult i32 %8522, %10496
   br i1 %10497, label %10523, label %10498
 
 10498:                                            ; preds = %10493
   %10499 = getelementptr inbounds i8, ptr %8519, i64 %8508
   %10500 = load i8, ptr %10499, align 1
   %10501 = zext i8 %10500 to i32
-  %10502 = icmp ult i32 %8522, %10501
+  %10502 = icmp samesign ult i32 %8522, %10501
   br i1 %10502, label %10503, label %.backedge.us.i
 
 10503:                                            ; preds = %10498
   %10504 = getelementptr inbounds i8, ptr %8519, i64 %8507
   %10505 = load i8, ptr %10504, align 1
   %10506 = zext i8 %10505 to i32
-  %10507 = icmp ult i32 %8522, %10506
+  %10507 = icmp samesign ult i32 %8522, %10506
   br i1 %10507, label %10508, label %.backedge.us.i
 
 10508:                                            ; preds = %10503
   %10509 = getelementptr inbounds i8, ptr %8519, i64 %8506
   %10510 = load i8, ptr %10509, align 1
   %10511 = zext i8 %10510 to i32
-  %10512 = icmp ult i32 %8522, %10511
+  %10512 = icmp samesign ult i32 %8522, %10511
   br i1 %10512, label %10513, label %.backedge.us.i
 
 10513:                                            ; preds = %10508
   %10514 = getelementptr inbounds i8, ptr %8519, i64 %8499
   %10515 = load i8, ptr %10514, align 1
   %10516 = zext i8 %10515 to i32
-  %10517 = icmp ult i32 %8522, %10516
+  %10517 = icmp samesign ult i32 %8522, %10516
   br i1 %10517, label %10518, label %.backedge.us.i
 
 10518:                                            ; preds = %10513
   %10519 = getelementptr inbounds i8, ptr %8519, i64 %8496
   %10520 = load i8, ptr %10519, align 1
   %10521 = zext i8 %10520 to i32
-  %10522 = icmp ult i32 %8522, %10521
+  %10522 = icmp samesign ult i32 %8522, %10521
   br i1 %10522, label %11855, label %.backedge.us.i
 
 10523:                                            ; preds = %10493
   %10524 = getelementptr inbounds i8, ptr %8519, i64 %8503
   %10525 = load i8, ptr %10524, align 1
   %10526 = zext i8 %10525 to i32
-  %10527 = icmp ult i32 %8522, %10526
+  %10527 = icmp samesign ult i32 %8522, %10526
   br i1 %10527, label %10548, label %10528
 
 10528:                                            ; preds = %10523
   %10529 = getelementptr inbounds i8, ptr %8519, i64 %8507
   %10530 = load i8, ptr %10529, align 1
   %10531 = zext i8 %10530 to i32
-  %10532 = icmp ult i32 %8522, %10531
+  %10532 = icmp samesign ult i32 %8522, %10531
   br i1 %10532, label %10533, label %.backedge.us.i
 
 10533:                                            ; preds = %10528
   %10534 = getelementptr inbounds i8, ptr %8519, i64 %8506
   %10535 = load i8, ptr %10534, align 1
   %10536 = zext i8 %10535 to i32
-  %10537 = icmp ult i32 %8522, %10536
+  %10537 = icmp samesign ult i32 %8522, %10536
   br i1 %10537, label %10538, label %.backedge.us.i
 
 10538:                                            ; preds = %10533
   %10539 = getelementptr inbounds i8, ptr %8519, i64 %8499
   %10540 = load i8, ptr %10539, align 1
   %10541 = zext i8 %10540 to i32
-  %10542 = icmp ult i32 %8522, %10541
+  %10542 = icmp samesign ult i32 %8522, %10541
   br i1 %10542, label %10543, label %.backedge.us.i
 
 10543:                                            ; preds = %10538
   %10544 = getelementptr inbounds i8, ptr %8519, i64 %8496
   %10545 = load i8, ptr %10544, align 1
   %10546 = zext i8 %10545 to i32
-  %10547 = icmp ult i32 %8522, %10546
+  %10547 = icmp samesign ult i32 %8522, %10546
   br i1 %10547, label %11855, label %.backedge.us.i
 
 10548:                                            ; preds = %10523
   %10549 = getelementptr inbounds i8, ptr %8519, i64 %8504
   %10550 = load i8, ptr %10549, align 1
   %10551 = zext i8 %10550 to i32
-  %10552 = icmp ult i32 %8522, %10551
+  %10552 = icmp samesign ult i32 %8522, %10551
   br i1 %10552, label %10568, label %10553
 
 10553:                                            ; preds = %10548
   %10554 = getelementptr inbounds i8, ptr %8519, i64 %8506
   %10555 = load i8, ptr %10554, align 1
   %10556 = zext i8 %10555 to i32
-  %10557 = icmp ult i32 %8522, %10556
+  %10557 = icmp samesign ult i32 %8522, %10556
   br i1 %10557, label %10558, label %.backedge.us.i
 
 10558:                                            ; preds = %10553
   %10559 = getelementptr inbounds i8, ptr %8519, i64 %8499
   %10560 = load i8, ptr %10559, align 1
   %10561 = zext i8 %10560 to i32
-  %10562 = icmp ult i32 %8522, %10561
+  %10562 = icmp samesign ult i32 %8522, %10561
   br i1 %10562, label %10563, label %.backedge.us.i
 
 10563:                                            ; preds = %10558
   %10564 = getelementptr inbounds i8, ptr %8519, i64 %8496
   %10565 = load i8, ptr %10564, align 1
   %10566 = zext i8 %10565 to i32
-  %10567 = icmp ult i32 %8522, %10566
+  %10567 = icmp samesign ult i32 %8522, %10566
   br i1 %10567, label %11855, label %.backedge.us.i
 
 10568:                                            ; preds = %10548
   %10569 = getelementptr inbounds i8, ptr %8519, i64 %8505
   %10570 = load i8, ptr %10569, align 1
   %10571 = zext i8 %10570 to i32
-  %10572 = icmp ult i32 %8522, %10571
+  %10572 = icmp samesign ult i32 %8522, %10571
   br i1 %10572, label %11855, label %10573
 
 10573:                                            ; preds = %10568
   %10574 = getelementptr inbounds i8, ptr %8519, i64 %8499
   %10575 = load i8, ptr %10574, align 1
   %10576 = zext i8 %10575 to i32
-  %10577 = icmp ult i32 %8522, %10576
+  %10577 = icmp samesign ult i32 %8522, %10576
   br i1 %10577, label %10578, label %.backedge.us.i
 
 10578:                                            ; preds = %10573
   %10579 = getelementptr inbounds i8, ptr %8519, i64 %8496
   %10580 = load i8, ptr %10579, align 1
   %10581 = zext i8 %10580 to i32
-  %10582 = icmp ult i32 %8522, %10581
+  %10582 = icmp samesign ult i32 %8522, %10581
   br i1 %10582, label %11855, label %.backedge.us.i
 
 10583:                                            ; preds = %10354
   br i1 %10359, label %10716, label %10584
 
 10584:                                            ; preds = %10583
-  %10585 = icmp ugt i32 %8523, %10358
+  %10585 = icmp samesign ugt i32 %8523, %10358
   br i1 %10585, label %10586, label %.backedge.us.i
 
 10586:                                            ; preds = %10584
   %10587 = getelementptr inbounds i8, ptr %8519, i64 %8496
   %10588 = load i8, ptr %10587, align 1
   %10589 = zext i8 %10588 to i32
-  %10590 = icmp ugt i32 %8523, %10589
+  %10590 = icmp samesign ugt i32 %8523, %10589
   br i1 %10590, label %10591, label %.backedge.us.i
 
 10591:                                            ; preds = %10586
   %10592 = getelementptr inbounds i8, ptr %8519, i64 %8497
   %10593 = load i8, ptr %10592, align 1
   %10594 = zext i8 %10593 to i32
-  %10595 = icmp ugt i32 %8523, %10594
+  %10595 = icmp samesign ugt i32 %8523, %10594
   br i1 %10595, label %10596, label %.backedge.us.i
 
 10596:                                            ; preds = %10591
   %10597 = getelementptr inbounds i8, ptr %8519, i64 %8499
   %10598 = load i8, ptr %10597, align 1
   %10599 = zext i8 %10598 to i32
-  %10600 = icmp ugt i32 %8523, %10599
+  %10600 = icmp samesign ugt i32 %8523, %10599
   br i1 %10600, label %10631, label %10601
 
 10601:                                            ; preds = %10596
   %10602 = getelementptr inbounds i8, ptr %8519, i64 %8500
   %10603 = load i8, ptr %10602, align 1
   %10604 = zext i8 %10603 to i32
-  %10605 = icmp ugt i32 %8523, %10604
+  %10605 = icmp samesign ugt i32 %8523, %10604
   br i1 %10605, label %10606, label %.backedge.us.i
 
 10606:                                            ; preds = %10601
   %10607 = getelementptr inbounds i8, ptr %8519, i64 %8501
   %10608 = load i8, ptr %10607, align 1
   %10609 = zext i8 %10608 to i32
-  %10610 = icmp ugt i32 %8523, %10609
+  %10610 = icmp samesign ugt i32 %8523, %10609
   br i1 %10610, label %10611, label %.backedge.us.i
 
 10611:                                            ; preds = %10606
   %10612 = getelementptr inbounds i8, ptr %8519, i64 %8502
   %10613 = load i8, ptr %10612, align 1
   %10614 = zext i8 %10613 to i32
-  %10615 = icmp ugt i32 %8523, %10614
+  %10615 = icmp samesign ugt i32 %8523, %10614
   br i1 %10615, label %10616, label %.backedge.us.i
 
 10616:                                            ; preds = %10611
   %10617 = getelementptr inbounds i8, ptr %8519, i64 %8503
   %10618 = load i8, ptr %10617, align 1
   %10619 = zext i8 %10618 to i32
-  %10620 = icmp ugt i32 %8523, %10619
+  %10620 = icmp samesign ugt i32 %8523, %10619
   br i1 %10620, label %10621, label %.backedge.us.i
 
 10621:                                            ; preds = %10616
   %10622 = getelementptr inbounds i8, ptr %8519, i64 %8504
   %10623 = load i8, ptr %10622, align 1
   %10624 = zext i8 %10623 to i32
-  %10625 = icmp ugt i32 %8523, %10624
+  %10625 = icmp samesign ugt i32 %8523, %10624
   br i1 %10625, label %10626, label %.backedge.us.i
 
 10626:                                            ; preds = %10621
   %10627 = getelementptr inbounds i8, ptr %8519, i64 %8505
   %10628 = load i8, ptr %10627, align 1
   %10629 = zext i8 %10628 to i32
-  %10630 = icmp ugt i32 %8523, %10629
+  %10630 = icmp samesign ugt i32 %8523, %10629
   br i1 %10630, label %11855, label %.backedge.us.i
 
 10631:                                            ; preds = %10596
   %10632 = getelementptr inbounds i8, ptr %8519, i64 %8506
   %10633 = load i8, ptr %10632, align 1
   %10634 = zext i8 %10633 to i32
-  %10635 = icmp ugt i32 %8523, %10634
+  %10635 = icmp samesign ugt i32 %8523, %10634
   br i1 %10635, label %10661, label %10636
 
 10636:                                            ; preds = %10631
   %10637 = getelementptr inbounds i8, ptr %8519, i64 %8500
   %10638 = load i8, ptr %10637, align 1
   %10639 = zext i8 %10638 to i32
-  %10640 = icmp ugt i32 %8523, %10639
+  %10640 = icmp samesign ugt i32 %8523, %10639
   br i1 %10640, label %10641, label %.backedge.us.i
 
 10641:                                            ; preds = %10636
   %10642 = getelementptr inbounds i8, ptr %8519, i64 %8501
   %10643 = load i8, ptr %10642, align 1
   %10644 = zext i8 %10643 to i32
-  %10645 = icmp ugt i32 %8523, %10644
+  %10645 = icmp samesign ugt i32 %8523, %10644
   br i1 %10645, label %10646, label %.backedge.us.i
 
 10646:                                            ; preds = %10641
   %10647 = getelementptr inbounds i8, ptr %8519, i64 %8502
   %10648 = load i8, ptr %10647, align 1
   %10649 = zext i8 %10648 to i32
-  %10650 = icmp ugt i32 %8523, %10649
+  %10650 = icmp samesign ugt i32 %8523, %10649
   br i1 %10650, label %10651, label %.backedge.us.i
 
 10651:                                            ; preds = %10646
   %10652 = getelementptr inbounds i8, ptr %8519, i64 %8503
   %10653 = load i8, ptr %10652, align 1
   %10654 = zext i8 %10653 to i32
-  %10655 = icmp ugt i32 %8523, %10654
+  %10655 = icmp samesign ugt i32 %8523, %10654
   br i1 %10655, label %10656, label %.backedge.us.i
 
 10656:                                            ; preds = %10651
   %10657 = getelementptr inbounds i8, ptr %8519, i64 %8504
   %10658 = load i8, ptr %10657, align 1
   %10659 = zext i8 %10658 to i32
-  %10660 = icmp ugt i32 %8523, %10659
+  %10660 = icmp samesign ugt i32 %8523, %10659
   br i1 %10660, label %11855, label %.backedge.us.i
 
 10661:                                            ; preds = %10631
   %10662 = getelementptr inbounds i8, ptr %8519, i64 %8507
   %10663 = load i8, ptr %10662, align 1
   %10664 = zext i8 %10663 to i32
-  %10665 = icmp ugt i32 %8523, %10664
+  %10665 = icmp samesign ugt i32 %8523, %10664
   br i1 %10665, label %10686, label %10666
 
 10666:                                            ; preds = %10661
   %10667 = getelementptr inbounds i8, ptr %8519, i64 %8500
   %10668 = load i8, ptr %10667, align 1
   %10669 = zext i8 %10668 to i32
-  %10670 = icmp ugt i32 %8523, %10669
+  %10670 = icmp samesign ugt i32 %8523, %10669
   br i1 %10670, label %10671, label %.backedge.us.i
 
 10671:                                            ; preds = %10666
   %10672 = getelementptr inbounds i8, ptr %8519, i64 %8501
   %10673 = load i8, ptr %10672, align 1
   %10674 = zext i8 %10673 to i32
-  %10675 = icmp ugt i32 %8523, %10674
+  %10675 = icmp samesign ugt i32 %8523, %10674
   br i1 %10675, label %10676, label %.backedge.us.i
 
 10676:                                            ; preds = %10671
   %10677 = getelementptr inbounds i8, ptr %8519, i64 %8502
   %10678 = load i8, ptr %10677, align 1
   %10679 = zext i8 %10678 to i32
-  %10680 = icmp ugt i32 %8523, %10679
+  %10680 = icmp samesign ugt i32 %8523, %10679
   br i1 %10680, label %10681, label %.backedge.us.i
 
 10681:                                            ; preds = %10676
   %10682 = getelementptr inbounds i8, ptr %8519, i64 %8503
   %10683 = load i8, ptr %10682, align 1
   %10684 = zext i8 %10683 to i32
-  %10685 = icmp ugt i32 %8523, %10684
+  %10685 = icmp samesign ugt i32 %8523, %10684
   br i1 %10685, label %11855, label %.backedge.us.i
 
 10686:                                            ; preds = %10661
   %10687 = getelementptr inbounds i8, ptr %8519, i64 %8508
   %10688 = load i8, ptr %10687, align 1
   %10689 = zext i8 %10688 to i32
-  %10690 = icmp ugt i32 %8523, %10689
+  %10690 = icmp samesign ugt i32 %8523, %10689
   br i1 %10690, label %10706, label %10691
 
 10691:                                            ; preds = %10686
   %10692 = getelementptr inbounds i8, ptr %8519, i64 %8500
   %10693 = load i8, ptr %10692, align 1
   %10694 = zext i8 %10693 to i32
-  %10695 = icmp ugt i32 %8523, %10694
+  %10695 = icmp samesign ugt i32 %8523, %10694
   br i1 %10695, label %10696, label %.backedge.us.i
 
 10696:                                            ; preds = %10691
   %10697 = getelementptr inbounds i8, ptr %8519, i64 %8501
   %10698 = load i8, ptr %10697, align 1
   %10699 = zext i8 %10698 to i32
-  %10700 = icmp ugt i32 %8523, %10699
+  %10700 = icmp samesign ugt i32 %8523, %10699
   br i1 %10700, label %10701, label %.backedge.us.i
 
 10701:                                            ; preds = %10696
   %10702 = getelementptr inbounds i8, ptr %8519, i64 %8502
   %10703 = load i8, ptr %10702, align 1
   %10704 = zext i8 %10703 to i32
-  %10705 = icmp ugt i32 %8523, %10704
+  %10705 = icmp samesign ugt i32 %8523, %10704
   br i1 %10705, label %11855, label %.backedge.us.i
 
 10706:                                            ; preds = %10686
   %10707 = getelementptr inbounds i8, ptr %8519, i64 %8510
   %10708 = load i8, ptr %10707, align 1
   %10709 = zext i8 %10708 to i32
-  %10710 = icmp ugt i32 %8523, %10709
+  %10710 = icmp samesign ugt i32 %8523, %10709
   br i1 %10710, label %11855, label %10711
 
 10711:                                            ; preds = %10706
   %10712 = getelementptr inbounds i8, ptr %8519, i64 %8500
   %10713 = load i8, ptr %10712, align 1
   %10714 = zext i8 %10713 to i32
-  %10715 = icmp ugt i32 %8523, %10714
+  %10715 = icmp samesign ugt i32 %8523, %10714
   br i1 %10715, label %11855, label %.backedge.us.i
 
 10716:                                            ; preds = %10583
   %10717 = getelementptr inbounds i8, ptr %8519, i64 %8500
   %10718 = load i8, ptr %10717, align 1
   %10719 = zext i8 %10718 to i32
-  %10720 = icmp ult i32 %8522, %10719
+  %10720 = icmp samesign ult i32 %8522, %10719
   br i1 %10720, label %10721, label %.backedge.us.i
 
 10721:                                            ; preds = %10716
   %10722 = getelementptr inbounds i8, ptr %8519, i64 %8501
   %10723 = load i8, ptr %10722, align 1
   %10724 = zext i8 %10723 to i32
-  %10725 = icmp ult i32 %8522, %10724
+  %10725 = icmp samesign ult i32 %8522, %10724
   br i1 %10725, label %10726, label %.backedge.us.i
 
 10726:                                            ; preds = %10721
   %10727 = getelementptr inbounds i8, ptr %8519, i64 %8497
   %10728 = load i8, ptr %10727, align 1
   %10729 = zext i8 %10728 to i32
-  %10730 = icmp ult i32 %8522, %10729
+  %10730 = icmp samesign ult i32 %8522, %10729
   br i1 %10730, label %10756, label %10731
 
 10731:                                            ; preds = %10726
   %10732 = getelementptr inbounds i8, ptr %8519, i64 %8510
   %10733 = load i8, ptr %10732, align 1
   %10734 = zext i8 %10733 to i32
-  %10735 = icmp ult i32 %8522, %10734
+  %10735 = icmp samesign ult i32 %8522, %10734
   br i1 %10735, label %10736, label %.backedge.us.i
 
 10736:                                            ; preds = %10731
   %10737 = getelementptr inbounds i8, ptr %8519, i64 %8502
   %10738 = load i8, ptr %10737, align 1
   %10739 = zext i8 %10738 to i32
-  %10740 = icmp ult i32 %8522, %10739
+  %10740 = icmp samesign ult i32 %8522, %10739
   br i1 %10740, label %10741, label %.backedge.us.i
 
 10741:                                            ; preds = %10736
   %10742 = getelementptr inbounds i8, ptr %8519, i64 %8503
   %10743 = load i8, ptr %10742, align 1
   %10744 = zext i8 %10743 to i32
-  %10745 = icmp ult i32 %8522, %10744
+  %10745 = icmp samesign ult i32 %8522, %10744
   br i1 %10745, label %10746, label %.backedge.us.i
 
 10746:                                            ; preds = %10741
   %10747 = getelementptr inbounds i8, ptr %8519, i64 %8504
   %10748 = load i8, ptr %10747, align 1
   %10749 = zext i8 %10748 to i32
-  %10750 = icmp ult i32 %8522, %10749
+  %10750 = icmp samesign ult i32 %8522, %10749
   br i1 %10750, label %10751, label %.backedge.us.i
 
 10751:                                            ; preds = %10746
   %10752 = getelementptr inbounds i8, ptr %8519, i64 %8505
   %10753 = load i8, ptr %10752, align 1
   %10754 = zext i8 %10753 to i32
-  %10755 = icmp ult i32 %8522, %10754
+  %10755 = icmp samesign ult i32 %8522, %10754
   br i1 %10755, label %11855, label %.backedge.us.i
 
 10756:                                            ; preds = %10726
   %10757 = getelementptr inbounds i8, ptr %8519, i64 %8502
   %10758 = load i8, ptr %10757, align 1
   %10759 = zext i8 %10758 to i32
-  %10760 = icmp ult i32 %8522, %10759
+  %10760 = icmp samesign ult i32 %8522, %10759
   br i1 %10760, label %10786, label %10761
 
 10761:                                            ; preds = %10756
   %10762 = getelementptr inbounds i8, ptr %8519, i64 %8508
   %10763 = load i8, ptr %10762, align 1
   %10764 = zext i8 %10763 to i32
-  %10765 = icmp ult i32 %8522, %10764
+  %10765 = icmp samesign ult i32 %8522, %10764
   br i1 %10765, label %10766, label %.backedge.us.i
 
 10766:                                            ; preds = %10761
   %10767 = getelementptr inbounds i8, ptr %8519, i64 %8507
   %10768 = load i8, ptr %10767, align 1
   %10769 = zext i8 %10768 to i32
-  %10770 = icmp ult i32 %8522, %10769
+  %10770 = icmp samesign ult i32 %8522, %10769
   br i1 %10770, label %10771, label %.backedge.us.i
 
 10771:                                            ; preds = %10766
   %10772 = getelementptr inbounds i8, ptr %8519, i64 %8506
   %10773 = load i8, ptr %10772, align 1
   %10774 = zext i8 %10773 to i32
-  %10775 = icmp ult i32 %8522, %10774
+  %10775 = icmp samesign ult i32 %8522, %10774
   br i1 %10775, label %10776, label %.backedge.us.i
 
 10776:                                            ; preds = %10771
   %10777 = getelementptr inbounds i8, ptr %8519, i64 %8499
   %10778 = load i8, ptr %10777, align 1
   %10779 = zext i8 %10778 to i32
-  %10780 = icmp ult i32 %8522, %10779
+  %10780 = icmp samesign ult i32 %8522, %10779
   br i1 %10780, label %10781, label %.backedge.us.i
 
 10781:                                            ; preds = %10776
   %10782 = getelementptr inbounds i8, ptr %8519, i64 %8496
   %10783 = load i8, ptr %10782, align 1
   %10784 = zext i8 %10783 to i32
-  %10785 = icmp ult i32 %8522, %10784
+  %10785 = icmp samesign ult i32 %8522, %10784
   br i1 %10785, label %11855, label %.backedge.us.i
 
 10786:                                            ; preds = %10756
   %10787 = getelementptr inbounds i8, ptr %8519, i64 %8503
   %10788 = load i8, ptr %10787, align 1
   %10789 = zext i8 %10788 to i32
-  %10790 = icmp ult i32 %8522, %10789
+  %10790 = icmp samesign ult i32 %8522, %10789
   br i1 %10790, label %10811, label %10791
 
 10791:                                            ; preds = %10786
   %10792 = getelementptr inbounds i8, ptr %8519, i64 %8507
   %10793 = load i8, ptr %10792, align 1
   %10794 = zext i8 %10793 to i32
-  %10795 = icmp ult i32 %8522, %10794
+  %10795 = icmp samesign ult i32 %8522, %10794
   br i1 %10795, label %10796, label %.backedge.us.i
 
 10796:                                            ; preds = %10791
   %10797 = getelementptr inbounds i8, ptr %8519, i64 %8506
   %10798 = load i8, ptr %10797, align 1
   %10799 = zext i8 %10798 to i32
-  %10800 = icmp ult i32 %8522, %10799
+  %10800 = icmp samesign ult i32 %8522, %10799
   br i1 %10800, label %10801, label %.backedge.us.i
 
 10801:                                            ; preds = %10796
   %10802 = getelementptr inbounds i8, ptr %8519, i64 %8499
   %10803 = load i8, ptr %10802, align 1
   %10804 = zext i8 %10803 to i32
-  %10805 = icmp ult i32 %8522, %10804
+  %10805 = icmp samesign ult i32 %8522, %10804
   br i1 %10805, label %10806, label %.backedge.us.i
 
 10806:                                            ; preds = %10801
   %10807 = getelementptr inbounds i8, ptr %8519, i64 %8496
   %10808 = load i8, ptr %10807, align 1
   %10809 = zext i8 %10808 to i32
-  %10810 = icmp ult i32 %8522, %10809
+  %10810 = icmp samesign ult i32 %8522, %10809
   br i1 %10810, label %11855, label %.backedge.us.i
 
 10811:                                            ; preds = %10786
   %10812 = getelementptr inbounds i8, ptr %8519, i64 %8504
   %10813 = load i8, ptr %10812, align 1
   %10814 = zext i8 %10813 to i32
-  %10815 = icmp ult i32 %8522, %10814
+  %10815 = icmp samesign ult i32 %8522, %10814
   br i1 %10815, label %10831, label %10816
 
 10816:                                            ; preds = %10811
   %10817 = getelementptr inbounds i8, ptr %8519, i64 %8506
   %10818 = load i8, ptr %10817, align 1
   %10819 = zext i8 %10818 to i32
-  %10820 = icmp ult i32 %8522, %10819
+  %10820 = icmp samesign ult i32 %8522, %10819
   br i1 %10820, label %10821, label %.backedge.us.i
 
 10821:                                            ; preds = %10816
   %10822 = getelementptr inbounds i8, ptr %8519, i64 %8499
   %10823 = load i8, ptr %10822, align 1
   %10824 = zext i8 %10823 to i32
-  %10825 = icmp ult i32 %8522, %10824
+  %10825 = icmp samesign ult i32 %8522, %10824
   br i1 %10825, label %10826, label %.backedge.us.i
 
 10826:                                            ; preds = %10821
   %10827 = getelementptr inbounds i8, ptr %8519, i64 %8496
   %10828 = load i8, ptr %10827, align 1
   %10829 = zext i8 %10828 to i32
-  %10830 = icmp ult i32 %8522, %10829
+  %10830 = icmp samesign ult i32 %8522, %10829
   br i1 %10830, label %11855, label %.backedge.us.i
 
 10831:                                            ; preds = %10811
   %10832 = getelementptr inbounds i8, ptr %8519, i64 %8505
   %10833 = load i8, ptr %10832, align 1
   %10834 = zext i8 %10833 to i32
-  %10835 = icmp ult i32 %8522, %10834
+  %10835 = icmp samesign ult i32 %8522, %10834
   br i1 %10835, label %11855, label %10836
 
 10836:                                            ; preds = %10831
   %10837 = getelementptr inbounds i8, ptr %8519, i64 %8499
   %10838 = load i8, ptr %10837, align 1
   %10839 = zext i8 %10838 to i32
-  %10840 = icmp ult i32 %8522, %10839
+  %10840 = icmp samesign ult i32 %8522, %10839
   br i1 %10840, label %10841, label %.backedge.us.i
 
 10841:                                            ; preds = %10836
   %10842 = getelementptr inbounds i8, ptr %8519, i64 %8496
   %10843 = load i8, ptr %10842, align 1
   %10844 = zext i8 %10843 to i32
-  %10845 = icmp ult i32 %8522, %10844
+  %10845 = icmp samesign ult i32 %8522, %10844
   br i1 %10845, label %11855, label %.backedge.us.i
 
 10846:                                            ; preds = %10349
@@ -16813,7 +16813,7 @@ _ZNSt6vectorIN2cv8KeyPointESaIS1_EE6resizeEm.exit.i236: ; preds = %8441, %8426
   %10853 = getelementptr inbounds i8, ptr %8519, i64 %8501
   %10854 = load i8, ptr %10853, align 1
   %10855 = zext i8 %10854 to i32
-  %10856 = icmp ult i32 %8522, %10855
+  %10856 = icmp samesign ult i32 %8522, %10855
   br i1 %10852, label %11020, label %10857
 
 10857:                                            ; preds = %10851
@@ -16827,483 +16827,483 @@ _ZNSt6vectorIN2cv8KeyPointESaIS1_EE6resizeEm.exit.i236: ; preds = %8441, %8426
   %10861 = getelementptr inbounds i8, ptr %8519, i64 %8496
   %10862 = load i8, ptr %10861, align 1
   %10863 = zext i8 %10862 to i32
-  %10864 = icmp ugt i32 %8523, %10863
+  %10864 = icmp samesign ugt i32 %8523, %10863
   br i1 %10864, label %10865, label %.backedge.us.i
 
 10865:                                            ; preds = %10860
   %10866 = getelementptr inbounds i8, ptr %8519, i64 %8497
   %10867 = load i8, ptr %10866, align 1
   %10868 = zext i8 %10867 to i32
-  %10869 = icmp ugt i32 %8523, %10868
+  %10869 = icmp samesign ugt i32 %8523, %10868
   br i1 %10869, label %10870, label %.backedge.us.i
 
 10870:                                            ; preds = %10865
   %10871 = getelementptr inbounds i8, ptr %8519, i64 %8498
   %10872 = load i8, ptr %10871, align 1
   %10873 = zext i8 %10872 to i32
-  %10874 = icmp ugt i32 %8523, %10873
+  %10874 = icmp samesign ugt i32 %8523, %10873
   br i1 %10874, label %10875, label %.backedge.us.i
 
 10875:                                            ; preds = %10870
   %10876 = getelementptr inbounds i8, ptr %8519, i64 %8500
   %10877 = load i8, ptr %10876, align 1
   %10878 = zext i8 %10877 to i32
-  %10879 = icmp ugt i32 %8523, %10878
+  %10879 = icmp samesign ugt i32 %8523, %10878
   br i1 %10879, label %10880, label %.backedge.us.i
 
 10880:                                            ; preds = %10875
   %10881 = getelementptr inbounds i8, ptr %8519, i64 %8502
   %10882 = load i8, ptr %10881, align 1
   %10883 = zext i8 %10882 to i32
-  %10884 = icmp ugt i32 %8523, %10883
+  %10884 = icmp samesign ugt i32 %8523, %10883
   br i1 %10884, label %10885, label %.backedge.us.i
 
 10885:                                            ; preds = %10880
   %10886 = getelementptr inbounds i8, ptr %8519, i64 %8503
   %10887 = load i8, ptr %10886, align 1
   %10888 = zext i8 %10887 to i32
-  %10889 = icmp ugt i32 %8523, %10888
+  %10889 = icmp samesign ugt i32 %8523, %10888
   br i1 %10889, label %10890, label %.backedge.us.i
 
 10890:                                            ; preds = %10885
   %10891 = getelementptr inbounds i8, ptr %8519, i64 %8499
   %10892 = load i8, ptr %10891, align 1
   %10893 = zext i8 %10892 to i32
-  %10894 = icmp ugt i32 %8523, %10893
+  %10894 = icmp samesign ugt i32 %8523, %10893
   br i1 %10894, label %10905, label %10895
 
 10895:                                            ; preds = %10890
   %10896 = getelementptr inbounds i8, ptr %8519, i64 %8504
   %10897 = load i8, ptr %10896, align 1
   %10898 = zext i8 %10897 to i32
-  %10899 = icmp ugt i32 %8523, %10898
+  %10899 = icmp samesign ugt i32 %8523, %10898
   br i1 %10899, label %10900, label %.backedge.us.i
 
 10900:                                            ; preds = %10895
   %10901 = getelementptr inbounds i8, ptr %8519, i64 %8505
   %10902 = load i8, ptr %10901, align 1
   %10903 = zext i8 %10902 to i32
-  %10904 = icmp ugt i32 %8523, %10903
+  %10904 = icmp samesign ugt i32 %8523, %10903
   br i1 %10904, label %11855, label %.backedge.us.i
 
 10905:                                            ; preds = %10890
   %10906 = getelementptr inbounds i8, ptr %8519, i64 %8506
   %10907 = load i8, ptr %10906, align 1
   %10908 = zext i8 %10907 to i32
-  %10909 = icmp ugt i32 %8523, %10908
+  %10909 = icmp samesign ugt i32 %8523, %10908
   br i1 %10909, label %11855, label %10910
 
 10910:                                            ; preds = %10905
   %10911 = getelementptr inbounds i8, ptr %8519, i64 %8504
   %10912 = load i8, ptr %10911, align 1
   %10913 = zext i8 %10912 to i32
-  %10914 = icmp ugt i32 %8523, %10913
+  %10914 = icmp samesign ugt i32 %8523, %10913
   br i1 %10914, label %11855, label %.backedge.us.i
 
 10915:                                            ; preds = %10857
   %10916 = getelementptr inbounds i8, ptr %8519, i64 %8502
   %10917 = load i8, ptr %10916, align 1
   %10918 = zext i8 %10917 to i32
-  %10919 = icmp ult i32 %8522, %10918
+  %10919 = icmp samesign ult i32 %8522, %10918
   br i1 %10919, label %10920, label %.backedge.us.i
 
 10920:                                            ; preds = %10915
   %10921 = getelementptr inbounds i8, ptr %8519, i64 %8503
   %10922 = load i8, ptr %10921, align 1
   %10923 = zext i8 %10922 to i32
-  %10924 = icmp ult i32 %8522, %10923
+  %10924 = icmp samesign ult i32 %8522, %10923
   br i1 %10924, label %10925, label %.backedge.us.i
 
 10925:                                            ; preds = %10920
   %10926 = getelementptr inbounds i8, ptr %8519, i64 %8500
   %10927 = load i8, ptr %10926, align 1
   %10928 = zext i8 %10927 to i32
-  %10929 = icmp ult i32 %8522, %10928
+  %10929 = icmp samesign ult i32 %8522, %10928
   br i1 %10929, label %10950, label %10930
 
 10930:                                            ; preds = %10925
   %10931 = getelementptr inbounds i8, ptr %8519, i64 %8510
   %10932 = load i8, ptr %10931, align 1
   %10933 = zext i8 %10932 to i32
-  %10934 = icmp ult i32 %8522, %10933
+  %10934 = icmp samesign ult i32 %8522, %10933
   br i1 %10934, label %10935, label %.backedge.us.i
 
 10935:                                            ; preds = %10930
   %10936 = getelementptr inbounds i8, ptr %8519, i64 %8508
   %10937 = load i8, ptr %10936, align 1
   %10938 = zext i8 %10937 to i32
-  %10939 = icmp ult i32 %8522, %10938
+  %10939 = icmp samesign ult i32 %8522, %10938
   br i1 %10939, label %10940, label %.backedge.us.i
 
 10940:                                            ; preds = %10935
   %10941 = getelementptr inbounds i8, ptr %8519, i64 %8504
   %10942 = load i8, ptr %10941, align 1
   %10943 = zext i8 %10942 to i32
-  %10944 = icmp ult i32 %8522, %10943
+  %10944 = icmp samesign ult i32 %8522, %10943
   br i1 %10944, label %10945, label %.backedge.us.i
 
 10945:                                            ; preds = %10940
   %10946 = getelementptr inbounds i8, ptr %8519, i64 %8505
   %10947 = load i8, ptr %10946, align 1
   %10948 = zext i8 %10947 to i32
-  %10949 = icmp ult i32 %8522, %10948
+  %10949 = icmp samesign ult i32 %8522, %10948
   br i1 %10949, label %11855, label %.backedge.us.i
 
 10950:                                            ; preds = %10925
   %10951 = getelementptr inbounds i8, ptr %8519, i64 %8504
   %10952 = load i8, ptr %10951, align 1
   %10953 = zext i8 %10952 to i32
-  %10954 = icmp ult i32 %8522, %10953
+  %10954 = icmp samesign ult i32 %8522, %10953
   br i1 %10954, label %10980, label %10955
 
 10955:                                            ; preds = %10950
   %10956 = getelementptr inbounds i8, ptr %8519, i64 %8506
   %10957 = load i8, ptr %10956, align 1
   %10958 = zext i8 %10957 to i32
-  %10959 = icmp ult i32 %8522, %10958
+  %10959 = icmp samesign ult i32 %8522, %10958
   br i1 %10959, label %10960, label %.backedge.us.i
 
 10960:                                            ; preds = %10955
   %10961 = getelementptr inbounds i8, ptr %8519, i64 %8499
   %10962 = load i8, ptr %10961, align 1
   %10963 = zext i8 %10962 to i32
-  %10964 = icmp ult i32 %8522, %10963
+  %10964 = icmp samesign ult i32 %8522, %10963
   br i1 %10964, label %10965, label %.backedge.us.i
 
 10965:                                            ; preds = %10960
   %10966 = getelementptr inbounds i8, ptr %8519, i64 %8496
   %10967 = load i8, ptr %10966, align 1
   %10968 = zext i8 %10967 to i32
-  %10969 = icmp ult i32 %8522, %10968
+  %10969 = icmp samesign ult i32 %8522, %10968
   br i1 %10969, label %10970, label %.backedge.us.i
 
 10970:                                            ; preds = %10965
   %10971 = getelementptr inbounds i8, ptr %8519, i64 %8497
   %10972 = load i8, ptr %10971, align 1
   %10973 = zext i8 %10972 to i32
-  %10974 = icmp ult i32 %8522, %10973
+  %10974 = icmp samesign ult i32 %8522, %10973
   br i1 %10974, label %10975, label %.backedge.us.i
 
 10975:                                            ; preds = %10970
   %10976 = getelementptr inbounds i8, ptr %8519, i64 %8498
   %10977 = load i8, ptr %10976, align 1
   %10978 = zext i8 %10977 to i32
-  %10979 = icmp ult i32 %8522, %10978
+  %10979 = icmp samesign ult i32 %8522, %10978
   br i1 %10979, label %11855, label %.backedge.us.i
 
 10980:                                            ; preds = %10950
   %10981 = getelementptr inbounds i8, ptr %8519, i64 %8505
   %10982 = load i8, ptr %10981, align 1
   %10983 = zext i8 %10982 to i32
-  %10984 = icmp ult i32 %8522, %10983
+  %10984 = icmp samesign ult i32 %8522, %10983
   br i1 %10984, label %11005, label %10985
 
 10985:                                            ; preds = %10980
   %10986 = getelementptr inbounds i8, ptr %8519, i64 %8499
   %10987 = load i8, ptr %10986, align 1
   %10988 = zext i8 %10987 to i32
-  %10989 = icmp ult i32 %8522, %10988
+  %10989 = icmp samesign ult i32 %8522, %10988
   br i1 %10989, label %10990, label %.backedge.us.i
 
 10990:                                            ; preds = %10985
   %10991 = getelementptr inbounds i8, ptr %8519, i64 %8496
   %10992 = load i8, ptr %10991, align 1
   %10993 = zext i8 %10992 to i32
-  %10994 = icmp ult i32 %8522, %10993
+  %10994 = icmp samesign ult i32 %8522, %10993
   br i1 %10994, label %10995, label %.backedge.us.i
 
 10995:                                            ; preds = %10990
   %10996 = getelementptr inbounds i8, ptr %8519, i64 %8497
   %10997 = load i8, ptr %10996, align 1
   %10998 = zext i8 %10997 to i32
-  %10999 = icmp ult i32 %8522, %10998
+  %10999 = icmp samesign ult i32 %8522, %10998
   br i1 %10999, label %11000, label %.backedge.us.i
 
 11000:                                            ; preds = %10995
   %11001 = getelementptr inbounds i8, ptr %8519, i64 %8498
   %11002 = load i8, ptr %11001, align 1
   %11003 = zext i8 %11002 to i32
-  %11004 = icmp ult i32 %8522, %11003
+  %11004 = icmp samesign ult i32 %8522, %11003
   br i1 %11004, label %11855, label %.backedge.us.i
 
 11005:                                            ; preds = %10980
   %11006 = getelementptr inbounds i8, ptr %8519, i64 %8510
   %11007 = load i8, ptr %11006, align 1
   %11008 = zext i8 %11007 to i32
-  %11009 = icmp ult i32 %8522, %11008
+  %11009 = icmp samesign ult i32 %8522, %11008
   br i1 %11009, label %11855, label %11010
 
 11010:                                            ; preds = %11005
   %11011 = getelementptr inbounds i8, ptr %8519, i64 %8497
   %11012 = load i8, ptr %11011, align 1
   %11013 = zext i8 %11012 to i32
-  %11014 = icmp ult i32 %8522, %11013
+  %11014 = icmp samesign ult i32 %8522, %11013
   br i1 %11014, label %11015, label %.backedge.us.i
 
 11015:                                            ; preds = %11010
   %11016 = getelementptr inbounds i8, ptr %8519, i64 %8498
   %11017 = load i8, ptr %11016, align 1
   %11018 = zext i8 %11017 to i32
-  %11019 = icmp ult i32 %8522, %11018
+  %11019 = icmp samesign ult i32 %8522, %11018
   br i1 %11019, label %11855, label %.backedge.us.i
 
 11020:                                            ; preds = %10851
   br i1 %10856, label %11098, label %11021
 
 11021:                                            ; preds = %11020
-  %11022 = icmp ugt i32 %8523, %10855
+  %11022 = icmp samesign ugt i32 %8523, %10855
   br i1 %11022, label %11023, label %.backedge.us.i
 
 11023:                                            ; preds = %11021
   %11024 = getelementptr inbounds i8, ptr %8519, i64 %8496
   %11025 = load i8, ptr %11024, align 1
   %11026 = zext i8 %11025 to i32
-  %11027 = icmp ugt i32 %8523, %11026
+  %11027 = icmp samesign ugt i32 %8523, %11026
   br i1 %11027, label %11028, label %.backedge.us.i
 
 11028:                                            ; preds = %11023
   %11029 = getelementptr inbounds i8, ptr %8519, i64 %8497
   %11030 = load i8, ptr %11029, align 1
   %11031 = zext i8 %11030 to i32
-  %11032 = icmp ugt i32 %8523, %11031
+  %11032 = icmp samesign ugt i32 %8523, %11031
   br i1 %11032, label %11033, label %.backedge.us.i
 
 11033:                                            ; preds = %11028
   %11034 = getelementptr inbounds i8, ptr %8519, i64 %8498
   %11035 = load i8, ptr %11034, align 1
   %11036 = zext i8 %11035 to i32
-  %11037 = icmp ugt i32 %8523, %11036
+  %11037 = icmp samesign ugt i32 %8523, %11036
   br i1 %11037, label %11038, label %.backedge.us.i
 
 11038:                                            ; preds = %11033
   %11039 = getelementptr inbounds i8, ptr %8519, i64 %8500
   %11040 = load i8, ptr %11039, align 1
   %11041 = zext i8 %11040 to i32
-  %11042 = icmp ugt i32 %8523, %11041
+  %11042 = icmp samesign ugt i32 %8523, %11041
   br i1 %11042, label %11043, label %.backedge.us.i
 
 11043:                                            ; preds = %11038
   %11044 = getelementptr inbounds i8, ptr %8519, i64 %8499
   %11045 = load i8, ptr %11044, align 1
   %11046 = zext i8 %11045 to i32
-  %11047 = icmp ugt i32 %8523, %11046
+  %11047 = icmp samesign ugt i32 %8523, %11046
   br i1 %11047, label %11068, label %11048
 
 11048:                                            ; preds = %11043
   %11049 = getelementptr inbounds i8, ptr %8519, i64 %8502
   %11050 = load i8, ptr %11049, align 1
   %11051 = zext i8 %11050 to i32
-  %11052 = icmp ugt i32 %8523, %11051
+  %11052 = icmp samesign ugt i32 %8523, %11051
   br i1 %11052, label %11053, label %.backedge.us.i
 
 11053:                                            ; preds = %11048
   %11054 = getelementptr inbounds i8, ptr %8519, i64 %8503
   %11055 = load i8, ptr %11054, align 1
   %11056 = zext i8 %11055 to i32
-  %11057 = icmp ugt i32 %8523, %11056
+  %11057 = icmp samesign ugt i32 %8523, %11056
   br i1 %11057, label %11058, label %.backedge.us.i
 
 11058:                                            ; preds = %11053
   %11059 = getelementptr inbounds i8, ptr %8519, i64 %8504
   %11060 = load i8, ptr %11059, align 1
   %11061 = zext i8 %11060 to i32
-  %11062 = icmp ugt i32 %8523, %11061
+  %11062 = icmp samesign ugt i32 %8523, %11061
   br i1 %11062, label %11063, label %.backedge.us.i
 
 11063:                                            ; preds = %11058
   %11064 = getelementptr inbounds i8, ptr %8519, i64 %8505
   %11065 = load i8, ptr %11064, align 1
   %11066 = zext i8 %11065 to i32
-  %11067 = icmp ugt i32 %8523, %11066
+  %11067 = icmp samesign ugt i32 %8523, %11066
   br i1 %11067, label %11855, label %.backedge.us.i
 
 11068:                                            ; preds = %11043
   %11069 = getelementptr inbounds i8, ptr %8519, i64 %8506
   %11070 = load i8, ptr %11069, align 1
   %11071 = zext i8 %11070 to i32
-  %11072 = icmp ugt i32 %8523, %11071
+  %11072 = icmp samesign ugt i32 %8523, %11071
   br i1 %11072, label %11088, label %11073
 
 11073:                                            ; preds = %11068
   %11074 = getelementptr inbounds i8, ptr %8519, i64 %8502
   %11075 = load i8, ptr %11074, align 1
   %11076 = zext i8 %11075 to i32
-  %11077 = icmp ugt i32 %8523, %11076
+  %11077 = icmp samesign ugt i32 %8523, %11076
   br i1 %11077, label %11078, label %.backedge.us.i
 
 11078:                                            ; preds = %11073
   %11079 = getelementptr inbounds i8, ptr %8519, i64 %8503
   %11080 = load i8, ptr %11079, align 1
   %11081 = zext i8 %11080 to i32
-  %11082 = icmp ugt i32 %8523, %11081
+  %11082 = icmp samesign ugt i32 %8523, %11081
   br i1 %11082, label %11083, label %.backedge.us.i
 
 11083:                                            ; preds = %11078
   %11084 = getelementptr inbounds i8, ptr %8519, i64 %8504
   %11085 = load i8, ptr %11084, align 1
   %11086 = zext i8 %11085 to i32
-  %11087 = icmp ugt i32 %8523, %11086
+  %11087 = icmp samesign ugt i32 %8523, %11086
   br i1 %11087, label %11855, label %.backedge.us.i
 
 11088:                                            ; preds = %11068
   %11089 = getelementptr inbounds i8, ptr %8519, i64 %8508
   %11090 = load i8, ptr %11089, align 1
   %11091 = zext i8 %11090 to i32
-  %11092 = icmp ugt i32 %8523, %11091
+  %11092 = icmp samesign ugt i32 %8523, %11091
   br i1 %11092, label %11855, label %11093
 
 11093:                                            ; preds = %11088
   %11094 = getelementptr inbounds i8, ptr %8519, i64 %8502
   %11095 = load i8, ptr %11094, align 1
   %11096 = zext i8 %11095 to i32
-  %11097 = icmp ugt i32 %8523, %11096
+  %11097 = icmp samesign ugt i32 %8523, %11096
   br i1 %11097, label %11855, label %.backedge.us.i
 
 11098:                                            ; preds = %11020
   %11099 = getelementptr inbounds i8, ptr %8519, i64 %8502
   %11100 = load i8, ptr %11099, align 1
   %11101 = zext i8 %11100 to i32
-  %11102 = icmp ult i32 %8522, %11101
+  %11102 = icmp samesign ult i32 %8522, %11101
   br i1 %11102, label %11103, label %.backedge.us.i
 
 11103:                                            ; preds = %11098
   %11104 = getelementptr inbounds i8, ptr %8519, i64 %8503
   %11105 = load i8, ptr %11104, align 1
   %11106 = zext i8 %11105 to i32
-  %11107 = icmp ult i32 %8522, %11106
+  %11107 = icmp samesign ult i32 %8522, %11106
   br i1 %11107, label %11108, label %.backedge.us.i
 
 11108:                                            ; preds = %11103
   %11109 = getelementptr inbounds i8, ptr %8519, i64 %8500
   %11110 = load i8, ptr %11109, align 1
   %11111 = zext i8 %11110 to i32
-  %11112 = icmp ult i32 %8522, %11111
+  %11112 = icmp samesign ult i32 %8522, %11111
   br i1 %11112, label %11133, label %11113
 
 11113:                                            ; preds = %11108
   %11114 = getelementptr inbounds i8, ptr %8519, i64 %8510
   %11115 = load i8, ptr %11114, align 1
   %11116 = zext i8 %11115 to i32
-  %11117 = icmp ult i32 %8522, %11116
+  %11117 = icmp samesign ult i32 %8522, %11116
   br i1 %11117, label %11118, label %.backedge.us.i
 
 11118:                                            ; preds = %11113
   %11119 = getelementptr inbounds i8, ptr %8519, i64 %8508
   %11120 = load i8, ptr %11119, align 1
   %11121 = zext i8 %11120 to i32
-  %11122 = icmp ult i32 %8522, %11121
+  %11122 = icmp samesign ult i32 %8522, %11121
   br i1 %11122, label %11123, label %.backedge.us.i
 
 11123:                                            ; preds = %11118
   %11124 = getelementptr inbounds i8, ptr %8519, i64 %8504
   %11125 = load i8, ptr %11124, align 1
   %11126 = zext i8 %11125 to i32
-  %11127 = icmp ult i32 %8522, %11126
+  %11127 = icmp samesign ult i32 %8522, %11126
   br i1 %11127, label %11128, label %.backedge.us.i
 
 11128:                                            ; preds = %11123
   %11129 = getelementptr inbounds i8, ptr %8519, i64 %8505
   %11130 = load i8, ptr %11129, align 1
   %11131 = zext i8 %11130 to i32
-  %11132 = icmp ult i32 %8522, %11131
+  %11132 = icmp samesign ult i32 %8522, %11131
   br i1 %11132, label %11855, label %.backedge.us.i
 
 11133:                                            ; preds = %11108
   %11134 = getelementptr inbounds i8, ptr %8519, i64 %8504
   %11135 = load i8, ptr %11134, align 1
   %11136 = zext i8 %11135 to i32
-  %11137 = icmp ult i32 %8522, %11136
+  %11137 = icmp samesign ult i32 %8522, %11136
   br i1 %11137, label %11163, label %11138
 
 11138:                                            ; preds = %11133
   %11139 = getelementptr inbounds i8, ptr %8519, i64 %8506
   %11140 = load i8, ptr %11139, align 1
   %11141 = zext i8 %11140 to i32
-  %11142 = icmp ult i32 %8522, %11141
+  %11142 = icmp samesign ult i32 %8522, %11141
   br i1 %11142, label %11143, label %.backedge.us.i
 
 11143:                                            ; preds = %11138
   %11144 = getelementptr inbounds i8, ptr %8519, i64 %8499
   %11145 = load i8, ptr %11144, align 1
   %11146 = zext i8 %11145 to i32
-  %11147 = icmp ult i32 %8522, %11146
+  %11147 = icmp samesign ult i32 %8522, %11146
   br i1 %11147, label %11148, label %.backedge.us.i
 
 11148:                                            ; preds = %11143
   %11149 = getelementptr inbounds i8, ptr %8519, i64 %8496
   %11150 = load i8, ptr %11149, align 1
   %11151 = zext i8 %11150 to i32
-  %11152 = icmp ult i32 %8522, %11151
+  %11152 = icmp samesign ult i32 %8522, %11151
   br i1 %11152, label %11153, label %.backedge.us.i
 
 11153:                                            ; preds = %11148
   %11154 = getelementptr inbounds i8, ptr %8519, i64 %8497
   %11155 = load i8, ptr %11154, align 1
   %11156 = zext i8 %11155 to i32
-  %11157 = icmp ult i32 %8522, %11156
+  %11157 = icmp samesign ult i32 %8522, %11156
   br i1 %11157, label %11158, label %.backedge.us.i
 
 11158:                                            ; preds = %11153
   %11159 = getelementptr inbounds i8, ptr %8519, i64 %8498
   %11160 = load i8, ptr %11159, align 1
   %11161 = zext i8 %11160 to i32
-  %11162 = icmp ult i32 %8522, %11161
+  %11162 = icmp samesign ult i32 %8522, %11161
   br i1 %11162, label %11855, label %.backedge.us.i
 
 11163:                                            ; preds = %11133
   %11164 = getelementptr inbounds i8, ptr %8519, i64 %8505
   %11165 = load i8, ptr %11164, align 1
   %11166 = zext i8 %11165 to i32
-  %11167 = icmp ult i32 %8522, %11166
+  %11167 = icmp samesign ult i32 %8522, %11166
   br i1 %11167, label %11188, label %11168
 
 11168:                                            ; preds = %11163
   %11169 = getelementptr inbounds i8, ptr %8519, i64 %8499
   %11170 = load i8, ptr %11169, align 1
   %11171 = zext i8 %11170 to i32
-  %11172 = icmp ult i32 %8522, %11171
+  %11172 = icmp samesign ult i32 %8522, %11171
   br i1 %11172, label %11173, label %.backedge.us.i
 
 11173:                                            ; preds = %11168
   %11174 = getelementptr inbounds i8, ptr %8519, i64 %8496
   %11175 = load i8, ptr %11174, align 1
   %11176 = zext i8 %11175 to i32
-  %11177 = icmp ult i32 %8522, %11176
+  %11177 = icmp samesign ult i32 %8522, %11176
   br i1 %11177, label %11178, label %.backedge.us.i
 
 11178:                                            ; preds = %11173
   %11179 = getelementptr inbounds i8, ptr %8519, i64 %8497
   %11180 = load i8, ptr %11179, align 1
   %11181 = zext i8 %11180 to i32
-  %11182 = icmp ult i32 %8522, %11181
+  %11182 = icmp samesign ult i32 %8522, %11181
   br i1 %11182, label %11183, label %.backedge.us.i
 
 11183:                                            ; preds = %11178
   %11184 = getelementptr inbounds i8, ptr %8519, i64 %8498
   %11185 = load i8, ptr %11184, align 1
   %11186 = zext i8 %11185 to i32
-  %11187 = icmp ult i32 %8522, %11186
+  %11187 = icmp samesign ult i32 %8522, %11186
   br i1 %11187, label %11855, label %.backedge.us.i
 
 11188:                                            ; preds = %11163
   %11189 = getelementptr inbounds i8, ptr %8519, i64 %8510
   %11190 = load i8, ptr %11189, align 1
   %11191 = zext i8 %11190 to i32
-  %11192 = icmp ult i32 %8522, %11191
+  %11192 = icmp samesign ult i32 %8522, %11191
   br i1 %11192, label %11855, label %11193
 
 11193:                                            ; preds = %11188
   %11194 = getelementptr inbounds i8, ptr %8519, i64 %8497
   %11195 = load i8, ptr %11194, align 1
   %11196 = zext i8 %11195 to i32
-  %11197 = icmp ult i32 %8522, %11196
+  %11197 = icmp samesign ult i32 %8522, %11196
   br i1 %11197, label %11198, label %.backedge.us.i
 
 11198:                                            ; preds = %11193
   %11199 = getelementptr inbounds i8, ptr %8519, i64 %8498
   %11200 = load i8, ptr %11199, align 1
   %11201 = zext i8 %11200 to i32
-  %11202 = icmp ult i32 %8522, %11201
+  %11202 = icmp samesign ult i32 %8522, %11201
   br i1 %11202, label %11855, label %.backedge.us.i
 
 11203:                                            ; preds = %10846
@@ -17318,7 +17318,7 @@ _ZNSt6vectorIN2cv8KeyPointESaIS1_EE6resizeEm.exit.i236: ; preds = %8441, %8426
   %11210 = getelementptr inbounds i8, ptr %8519, i64 %8502
   %11211 = load i8, ptr %11210, align 1
   %11212 = zext i8 %11211 to i32
-  %11213 = icmp ult i32 %8522, %11212
+  %11213 = icmp samesign ult i32 %8522, %11212
   br i1 %11209, label %11347, label %11214
 
 11214:                                            ; preds = %11208
@@ -17332,371 +17332,371 @@ _ZNSt6vectorIN2cv8KeyPointESaIS1_EE6resizeEm.exit.i236: ; preds = %8441, %8426
   %11218 = getelementptr inbounds i8, ptr %8519, i64 %8496
   %11219 = load i8, ptr %11218, align 1
   %11220 = zext i8 %11219 to i32
-  %11221 = icmp ugt i32 %8523, %11220
+  %11221 = icmp samesign ugt i32 %8523, %11220
   br i1 %11221, label %11222, label %.backedge.us.i
 
 11222:                                            ; preds = %11217
   %11223 = getelementptr inbounds i8, ptr %8519, i64 %8497
   %11224 = load i8, ptr %11223, align 1
   %11225 = zext i8 %11224 to i32
-  %11226 = icmp ugt i32 %8523, %11225
+  %11226 = icmp samesign ugt i32 %8523, %11225
   br i1 %11226, label %11227, label %.backedge.us.i
 
 11227:                                            ; preds = %11222
   %11228 = getelementptr inbounds i8, ptr %8519, i64 %8498
   %11229 = load i8, ptr %11228, align 1
   %11230 = zext i8 %11229 to i32
-  %11231 = icmp ugt i32 %8523, %11230
+  %11231 = icmp samesign ugt i32 %8523, %11230
   br i1 %11231, label %11232, label %.backedge.us.i
 
 11232:                                            ; preds = %11227
   %11233 = getelementptr inbounds i8, ptr %8519, i64 %8500
   %11234 = load i8, ptr %11233, align 1
   %11235 = zext i8 %11234 to i32
-  %11236 = icmp ugt i32 %8523, %11235
+  %11236 = icmp samesign ugt i32 %8523, %11235
   br i1 %11236, label %11237, label %.backedge.us.i
 
 11237:                                            ; preds = %11232
   %11238 = getelementptr inbounds i8, ptr %8519, i64 %8501
   %11239 = load i8, ptr %11238, align 1
   %11240 = zext i8 %11239 to i32
-  %11241 = icmp ugt i32 %8523, %11240
+  %11241 = icmp samesign ugt i32 %8523, %11240
   br i1 %11241, label %11242, label %.backedge.us.i
 
 11242:                                            ; preds = %11237
   %11243 = getelementptr inbounds i8, ptr %8519, i64 %8503
   %11244 = load i8, ptr %11243, align 1
   %11245 = zext i8 %11244 to i32
-  %11246 = icmp ugt i32 %8523, %11245
+  %11246 = icmp samesign ugt i32 %8523, %11245
   br i1 %11246, label %11247, label %.backedge.us.i
 
 11247:                                            ; preds = %11242
   %11248 = getelementptr inbounds i8, ptr %8519, i64 %8504
   %11249 = load i8, ptr %11248, align 1
   %11250 = zext i8 %11249 to i32
-  %11251 = icmp ugt i32 %8523, %11250
+  %11251 = icmp samesign ugt i32 %8523, %11250
   br i1 %11251, label %11252, label %.backedge.us.i
 
 11252:                                            ; preds = %11247
   %11253 = getelementptr inbounds i8, ptr %8519, i64 %8499
   %11254 = load i8, ptr %11253, align 1
   %11255 = zext i8 %11254 to i32
-  %11256 = icmp ugt i32 %8523, %11255
+  %11256 = icmp samesign ugt i32 %8523, %11255
   br i1 %11256, label %11855, label %11257
 
 11257:                                            ; preds = %11252
   %11258 = getelementptr inbounds i8, ptr %8519, i64 %8505
   %11259 = load i8, ptr %11258, align 1
   %11260 = zext i8 %11259 to i32
-  %11261 = icmp ugt i32 %8523, %11260
+  %11261 = icmp samesign ugt i32 %8523, %11260
   br i1 %11261, label %11855, label %.backedge.us.i
 
 11262:                                            ; preds = %11214
   %11263 = getelementptr inbounds i8, ptr %8519, i64 %8503
   %11264 = load i8, ptr %11263, align 1
   %11265 = zext i8 %11264 to i32
-  %11266 = icmp ult i32 %8522, %11265
+  %11266 = icmp samesign ult i32 %8522, %11265
   br i1 %11266, label %11267, label %.backedge.us.i
 
 11267:                                            ; preds = %11262
   %11268 = getelementptr inbounds i8, ptr %8519, i64 %8504
   %11269 = load i8, ptr %11268, align 1
   %11270 = zext i8 %11269 to i32
-  %11271 = icmp ult i32 %8522, %11270
+  %11271 = icmp samesign ult i32 %8522, %11270
   br i1 %11271, label %11272, label %.backedge.us.i
 
 11272:                                            ; preds = %11267
   %11273 = getelementptr inbounds i8, ptr %8519, i64 %8505
   %11274 = load i8, ptr %11273, align 1
   %11275 = zext i8 %11274 to i32
-  %11276 = icmp ult i32 %8522, %11275
+  %11276 = icmp samesign ult i32 %8522, %11275
   br i1 %11276, label %11307, label %11277
 
 11277:                                            ; preds = %11272
   %11278 = getelementptr inbounds i8, ptr %8519, i64 %8499
   %11279 = load i8, ptr %11278, align 1
   %11280 = zext i8 %11279 to i32
-  %11281 = icmp ult i32 %8522, %11280
+  %11281 = icmp samesign ult i32 %8522, %11280
   br i1 %11281, label %11282, label %.backedge.us.i
 
 11282:                                            ; preds = %11277
   %11283 = getelementptr inbounds i8, ptr %8519, i64 %8496
   %11284 = load i8, ptr %11283, align 1
   %11285 = zext i8 %11284 to i32
-  %11286 = icmp ult i32 %8522, %11285
+  %11286 = icmp samesign ult i32 %8522, %11285
   br i1 %11286, label %11287, label %.backedge.us.i
 
 11287:                                            ; preds = %11282
   %11288 = getelementptr inbounds i8, ptr %8519, i64 %8497
   %11289 = load i8, ptr %11288, align 1
   %11290 = zext i8 %11289 to i32
-  %11291 = icmp ult i32 %8522, %11290
+  %11291 = icmp samesign ult i32 %8522, %11290
   br i1 %11291, label %11292, label %.backedge.us.i
 
 11292:                                            ; preds = %11287
   %11293 = getelementptr inbounds i8, ptr %8519, i64 %8498
   %11294 = load i8, ptr %11293, align 1
   %11295 = zext i8 %11294 to i32
-  %11296 = icmp ult i32 %8522, %11295
+  %11296 = icmp samesign ult i32 %8522, %11295
   br i1 %11296, label %11297, label %.backedge.us.i
 
 11297:                                            ; preds = %11292
   %11298 = getelementptr inbounds i8, ptr %8519, i64 %8500
   %11299 = load i8, ptr %11298, align 1
   %11300 = zext i8 %11299 to i32
-  %11301 = icmp ult i32 %8522, %11300
+  %11301 = icmp samesign ult i32 %8522, %11300
   br i1 %11301, label %11302, label %.backedge.us.i
 
 11302:                                            ; preds = %11297
   %11303 = getelementptr inbounds i8, ptr %8519, i64 %8501
   %11304 = load i8, ptr %11303, align 1
   %11305 = zext i8 %11304 to i32
-  %11306 = icmp ult i32 %8522, %11305
+  %11306 = icmp samesign ult i32 %8522, %11305
   br i1 %11306, label %11855, label %.backedge.us.i
 
 11307:                                            ; preds = %11272
   %11308 = getelementptr inbounds i8, ptr %8519, i64 %8510
   %11309 = load i8, ptr %11308, align 1
   %11310 = zext i8 %11309 to i32
-  %11311 = icmp ult i32 %8522, %11310
+  %11311 = icmp samesign ult i32 %8522, %11310
   br i1 %11311, label %11332, label %11312
 
 11312:                                            ; preds = %11307
   %11313 = getelementptr inbounds i8, ptr %8519, i64 %8497
   %11314 = load i8, ptr %11313, align 1
   %11315 = zext i8 %11314 to i32
-  %11316 = icmp ult i32 %8522, %11315
+  %11316 = icmp samesign ult i32 %8522, %11315
   br i1 %11316, label %11317, label %.backedge.us.i
 
 11317:                                            ; preds = %11312
   %11318 = getelementptr inbounds i8, ptr %8519, i64 %8498
   %11319 = load i8, ptr %11318, align 1
   %11320 = zext i8 %11319 to i32
-  %11321 = icmp ult i32 %8522, %11320
+  %11321 = icmp samesign ult i32 %8522, %11320
   br i1 %11321, label %11322, label %.backedge.us.i
 
 11322:                                            ; preds = %11317
   %11323 = getelementptr inbounds i8, ptr %8519, i64 %8500
   %11324 = load i8, ptr %11323, align 1
   %11325 = zext i8 %11324 to i32
-  %11326 = icmp ult i32 %8522, %11325
+  %11326 = icmp samesign ult i32 %8522, %11325
   br i1 %11326, label %11327, label %.backedge.us.i
 
 11327:                                            ; preds = %11322
   %11328 = getelementptr inbounds i8, ptr %8519, i64 %8501
   %11329 = load i8, ptr %11328, align 1
   %11330 = zext i8 %11329 to i32
-  %11331 = icmp ult i32 %8522, %11330
+  %11331 = icmp samesign ult i32 %8522, %11330
   br i1 %11331, label %11855, label %.backedge.us.i
 
 11332:                                            ; preds = %11307
   %11333 = getelementptr inbounds i8, ptr %8519, i64 %8508
   %11334 = load i8, ptr %11333, align 1
   %11335 = zext i8 %11334 to i32
-  %11336 = icmp ult i32 %8522, %11335
+  %11336 = icmp samesign ult i32 %8522, %11335
   br i1 %11336, label %11855, label %11337
 
 11337:                                            ; preds = %11332
   %11338 = getelementptr inbounds i8, ptr %8519, i64 %8500
   %11339 = load i8, ptr %11338, align 1
   %11340 = zext i8 %11339 to i32
-  %11341 = icmp ult i32 %8522, %11340
+  %11341 = icmp samesign ult i32 %8522, %11340
   br i1 %11341, label %11342, label %.backedge.us.i
 
 11342:                                            ; preds = %11337
   %11343 = getelementptr inbounds i8, ptr %8519, i64 %8501
   %11344 = load i8, ptr %11343, align 1
   %11345 = zext i8 %11344 to i32
-  %11346 = icmp ult i32 %8522, %11345
+  %11346 = icmp samesign ult i32 %8522, %11345
   br i1 %11346, label %11855, label %.backedge.us.i
 
 11347:                                            ; preds = %11208
   br i1 %11213, label %11395, label %11348
 
 11348:                                            ; preds = %11347
-  %11349 = icmp ugt i32 %8523, %11212
+  %11349 = icmp samesign ugt i32 %8523, %11212
   br i1 %11349, label %11350, label %.backedge.us.i
 
 11350:                                            ; preds = %11348
   %11351 = getelementptr inbounds i8, ptr %8519, i64 %8496
   %11352 = load i8, ptr %11351, align 1
   %11353 = zext i8 %11352 to i32
-  %11354 = icmp ugt i32 %8523, %11353
+  %11354 = icmp samesign ugt i32 %8523, %11353
   br i1 %11354, label %11355, label %.backedge.us.i
 
 11355:                                            ; preds = %11350
   %11356 = getelementptr inbounds i8, ptr %8519, i64 %8497
   %11357 = load i8, ptr %11356, align 1
   %11358 = zext i8 %11357 to i32
-  %11359 = icmp ugt i32 %8523, %11358
+  %11359 = icmp samesign ugt i32 %8523, %11358
   br i1 %11359, label %11360, label %.backedge.us.i
 
 11360:                                            ; preds = %11355
   %11361 = getelementptr inbounds i8, ptr %8519, i64 %8498
   %11362 = load i8, ptr %11361, align 1
   %11363 = zext i8 %11362 to i32
-  %11364 = icmp ugt i32 %8523, %11363
+  %11364 = icmp samesign ugt i32 %8523, %11363
   br i1 %11364, label %11365, label %.backedge.us.i
 
 11365:                                            ; preds = %11360
   %11366 = getelementptr inbounds i8, ptr %8519, i64 %8500
   %11367 = load i8, ptr %11366, align 1
   %11368 = zext i8 %11367 to i32
-  %11369 = icmp ugt i32 %8523, %11368
+  %11369 = icmp samesign ugt i32 %8523, %11368
   br i1 %11369, label %11370, label %.backedge.us.i
 
 11370:                                            ; preds = %11365
   %11371 = getelementptr inbounds i8, ptr %8519, i64 %8501
   %11372 = load i8, ptr %11371, align 1
   %11373 = zext i8 %11372 to i32
-  %11374 = icmp ugt i32 %8523, %11373
+  %11374 = icmp samesign ugt i32 %8523, %11373
   br i1 %11374, label %11375, label %.backedge.us.i
 
 11375:                                            ; preds = %11370
   %11376 = getelementptr inbounds i8, ptr %8519, i64 %8503
   %11377 = load i8, ptr %11376, align 1
   %11378 = zext i8 %11377 to i32
-  %11379 = icmp ugt i32 %8523, %11378
+  %11379 = icmp samesign ugt i32 %8523, %11378
   br i1 %11379, label %11380, label %.backedge.us.i
 
 11380:                                            ; preds = %11375
   %11381 = getelementptr inbounds i8, ptr %8519, i64 %8499
   %11382 = load i8, ptr %11381, align 1
   %11383 = zext i8 %11382 to i32
-  %11384 = icmp ugt i32 %8523, %11383
+  %11384 = icmp samesign ugt i32 %8523, %11383
   br i1 %11384, label %11855, label %11385
 
 11385:                                            ; preds = %11380
   %11386 = getelementptr inbounds i8, ptr %8519, i64 %8504
   %11387 = load i8, ptr %11386, align 1
   %11388 = zext i8 %11387 to i32
-  %11389 = icmp ugt i32 %8523, %11388
+  %11389 = icmp samesign ugt i32 %8523, %11388
   br i1 %11389, label %11390, label %.backedge.us.i
 
 11390:                                            ; preds = %11385
   %11391 = getelementptr inbounds i8, ptr %8519, i64 %8505
   %11392 = load i8, ptr %11391, align 1
   %11393 = zext i8 %11392 to i32
-  %11394 = icmp ugt i32 %8523, %11393
+  %11394 = icmp samesign ugt i32 %8523, %11393
   br i1 %11394, label %11855, label %.backedge.us.i
 
 11395:                                            ; preds = %11347
   %11396 = getelementptr inbounds i8, ptr %8519, i64 %8503
   %11397 = load i8, ptr %11396, align 1
   %11398 = zext i8 %11397 to i32
-  %11399 = icmp ult i32 %8522, %11398
+  %11399 = icmp samesign ult i32 %8522, %11398
   br i1 %11399, label %11400, label %.backedge.us.i
 
 11400:                                            ; preds = %11395
   %11401 = getelementptr inbounds i8, ptr %8519, i64 %8504
   %11402 = load i8, ptr %11401, align 1
   %11403 = zext i8 %11402 to i32
-  %11404 = icmp ult i32 %8522, %11403
+  %11404 = icmp samesign ult i32 %8522, %11403
   br i1 %11404, label %11405, label %.backedge.us.i
 
 11405:                                            ; preds = %11400
   %11406 = getelementptr inbounds i8, ptr %8519, i64 %8505
   %11407 = load i8, ptr %11406, align 1
   %11408 = zext i8 %11407 to i32
-  %11409 = icmp ult i32 %8522, %11408
+  %11409 = icmp samesign ult i32 %8522, %11408
   br i1 %11409, label %11440, label %11410
 
 11410:                                            ; preds = %11405
   %11411 = getelementptr inbounds i8, ptr %8519, i64 %8499
   %11412 = load i8, ptr %11411, align 1
   %11413 = zext i8 %11412 to i32
-  %11414 = icmp ult i32 %8522, %11413
+  %11414 = icmp samesign ult i32 %8522, %11413
   br i1 %11414, label %11415, label %.backedge.us.i
 
 11415:                                            ; preds = %11410
   %11416 = getelementptr inbounds i8, ptr %8519, i64 %8496
   %11417 = load i8, ptr %11416, align 1
   %11418 = zext i8 %11417 to i32
-  %11419 = icmp ult i32 %8522, %11418
+  %11419 = icmp samesign ult i32 %8522, %11418
   br i1 %11419, label %11420, label %.backedge.us.i
 
 11420:                                            ; preds = %11415
   %11421 = getelementptr inbounds i8, ptr %8519, i64 %8497
   %11422 = load i8, ptr %11421, align 1
   %11423 = zext i8 %11422 to i32
-  %11424 = icmp ult i32 %8522, %11423
+  %11424 = icmp samesign ult i32 %8522, %11423
   br i1 %11424, label %11425, label %.backedge.us.i
 
 11425:                                            ; preds = %11420
   %11426 = getelementptr inbounds i8, ptr %8519, i64 %8498
   %11427 = load i8, ptr %11426, align 1
   %11428 = zext i8 %11427 to i32
-  %11429 = icmp ult i32 %8522, %11428
+  %11429 = icmp samesign ult i32 %8522, %11428
   br i1 %11429, label %11430, label %.backedge.us.i
 
 11430:                                            ; preds = %11425
   %11431 = getelementptr inbounds i8, ptr %8519, i64 %8500
   %11432 = load i8, ptr %11431, align 1
   %11433 = zext i8 %11432 to i32
-  %11434 = icmp ult i32 %8522, %11433
+  %11434 = icmp samesign ult i32 %8522, %11433
   br i1 %11434, label %11435, label %.backedge.us.i
 
 11435:                                            ; preds = %11430
   %11436 = getelementptr inbounds i8, ptr %8519, i64 %8501
   %11437 = load i8, ptr %11436, align 1
   %11438 = zext i8 %11437 to i32
-  %11439 = icmp ult i32 %8522, %11438
+  %11439 = icmp samesign ult i32 %8522, %11438
   br i1 %11439, label %11855, label %.backedge.us.i
 
 11440:                                            ; preds = %11405
   %11441 = getelementptr inbounds i8, ptr %8519, i64 %8510
   %11442 = load i8, ptr %11441, align 1
   %11443 = zext i8 %11442 to i32
-  %11444 = icmp ult i32 %8522, %11443
+  %11444 = icmp samesign ult i32 %8522, %11443
   br i1 %11444, label %11465, label %11445
 
 11445:                                            ; preds = %11440
   %11446 = getelementptr inbounds i8, ptr %8519, i64 %8497
   %11447 = load i8, ptr %11446, align 1
   %11448 = zext i8 %11447 to i32
-  %11449 = icmp ult i32 %8522, %11448
+  %11449 = icmp samesign ult i32 %8522, %11448
   br i1 %11449, label %11450, label %.backedge.us.i
 
 11450:                                            ; preds = %11445
   %11451 = getelementptr inbounds i8, ptr %8519, i64 %8498
   %11452 = load i8, ptr %11451, align 1
   %11453 = zext i8 %11452 to i32
-  %11454 = icmp ult i32 %8522, %11453
+  %11454 = icmp samesign ult i32 %8522, %11453
   br i1 %11454, label %11455, label %.backedge.us.i
 
 11455:                                            ; preds = %11450
   %11456 = getelementptr inbounds i8, ptr %8519, i64 %8500
   %11457 = load i8, ptr %11456, align 1
   %11458 = zext i8 %11457 to i32
-  %11459 = icmp ult i32 %8522, %11458
+  %11459 = icmp samesign ult i32 %8522, %11458
   br i1 %11459, label %11460, label %.backedge.us.i
 
 11460:                                            ; preds = %11455
   %11461 = getelementptr inbounds i8, ptr %8519, i64 %8501
   %11462 = load i8, ptr %11461, align 1
   %11463 = zext i8 %11462 to i32
-  %11464 = icmp ult i32 %8522, %11463
+  %11464 = icmp samesign ult i32 %8522, %11463
   br i1 %11464, label %11855, label %.backedge.us.i
 
 11465:                                            ; preds = %11440
   %11466 = getelementptr inbounds i8, ptr %8519, i64 %8508
   %11467 = load i8, ptr %11466, align 1
   %11468 = zext i8 %11467 to i32
-  %11469 = icmp ult i32 %8522, %11468
+  %11469 = icmp samesign ult i32 %8522, %11468
   br i1 %11469, label %11855, label %11470
 
 11470:                                            ; preds = %11465
   %11471 = getelementptr inbounds i8, ptr %8519, i64 %8500
   %11472 = load i8, ptr %11471, align 1
   %11473 = zext i8 %11472 to i32
-  %11474 = icmp ult i32 %8522, %11473
+  %11474 = icmp samesign ult i32 %8522, %11473
   br i1 %11474, label %11475, label %.backedge.us.i
 
 11475:                                            ; preds = %11470
   %11476 = getelementptr inbounds i8, ptr %8519, i64 %8501
   %11477 = load i8, ptr %11476, align 1
   %11478 = zext i8 %11477 to i32
-  %11479 = icmp ult i32 %8522, %11478
+  %11479 = icmp samesign ult i32 %8522, %11478
   br i1 %11479, label %11855, label %.backedge.us.i
 
 11480:                                            ; preds = %11203
@@ -17711,7 +17711,7 @@ _ZNSt6vectorIN2cv8KeyPointESaIS1_EE6resizeEm.exit.i236: ; preds = %8441, %8426
   %11487 = getelementptr inbounds i8, ptr %8519, i64 %8504
   %11488 = load i8, ptr %11487, align 1
   %11489 = zext i8 %11488 to i32
-  %11490 = icmp ult i32 %8522, %11489
+  %11490 = icmp samesign ult i32 %8522, %11489
   br i1 %11486, label %11567, label %11491
 
 11491:                                            ; preds = %11485
@@ -17721,273 +17721,273 @@ _ZNSt6vectorIN2cv8KeyPointESaIS1_EE6resizeEm.exit.i236: ; preds = %8441, %8426
   %11493 = getelementptr inbounds i8, ptr %8519, i64 %8505
   %11494 = load i8, ptr %11493, align 1
   %11495 = zext i8 %11494 to i32
-  %11496 = icmp ult i32 %8522, %11495
+  %11496 = icmp samesign ult i32 %8522, %11495
   br i1 %11496, label %11497, label %.backedge.us.i
 
 11497:                                            ; preds = %11492
   %11498 = getelementptr inbounds i8, ptr %8519, i64 %8510
   %11499 = load i8, ptr %11498, align 1
   %11500 = zext i8 %11499 to i32
-  %11501 = icmp ult i32 %8522, %11500
+  %11501 = icmp samesign ult i32 %8522, %11500
   br i1 %11501, label %11532, label %11502
 
 11502:                                            ; preds = %11497
   %11503 = getelementptr inbounds i8, ptr %8519, i64 %8497
   %11504 = load i8, ptr %11503, align 1
   %11505 = zext i8 %11504 to i32
-  %11506 = icmp ult i32 %8522, %11505
+  %11506 = icmp samesign ult i32 %8522, %11505
   br i1 %11506, label %11507, label %.backedge.us.i
 
 11507:                                            ; preds = %11502
   %11508 = getelementptr inbounds i8, ptr %8519, i64 %8498
   %11509 = load i8, ptr %11508, align 1
   %11510 = zext i8 %11509 to i32
-  %11511 = icmp ult i32 %8522, %11510
+  %11511 = icmp samesign ult i32 %8522, %11510
   br i1 %11511, label %11512, label %.backedge.us.i
 
 11512:                                            ; preds = %11507
   %11513 = getelementptr inbounds i8, ptr %8519, i64 %8500
   %11514 = load i8, ptr %11513, align 1
   %11515 = zext i8 %11514 to i32
-  %11516 = icmp ult i32 %8522, %11515
+  %11516 = icmp samesign ult i32 %8522, %11515
   br i1 %11516, label %11517, label %.backedge.us.i
 
 11517:                                            ; preds = %11512
   %11518 = getelementptr inbounds i8, ptr %8519, i64 %8501
   %11519 = load i8, ptr %11518, align 1
   %11520 = zext i8 %11519 to i32
-  %11521 = icmp ult i32 %8522, %11520
+  %11521 = icmp samesign ult i32 %8522, %11520
   br i1 %11521, label %11522, label %.backedge.us.i
 
 11522:                                            ; preds = %11517
   %11523 = getelementptr inbounds i8, ptr %8519, i64 %8502
   %11524 = load i8, ptr %11523, align 1
   %11525 = zext i8 %11524 to i32
-  %11526 = icmp ult i32 %8522, %11525
+  %11526 = icmp samesign ult i32 %8522, %11525
   br i1 %11526, label %11527, label %.backedge.us.i
 
 11527:                                            ; preds = %11522
   %11528 = getelementptr inbounds i8, ptr %8519, i64 %8503
   %11529 = load i8, ptr %11528, align 1
   %11530 = zext i8 %11529 to i32
-  %11531 = icmp ult i32 %8522, %11530
+  %11531 = icmp samesign ult i32 %8522, %11530
   br i1 %11531, label %11855, label %.backedge.us.i
 
 11532:                                            ; preds = %11497
   %11533 = getelementptr inbounds i8, ptr %8519, i64 %8508
   %11534 = load i8, ptr %11533, align 1
   %11535 = zext i8 %11534 to i32
-  %11536 = icmp ult i32 %8522, %11535
+  %11536 = icmp samesign ult i32 %8522, %11535
   br i1 %11536, label %11557, label %11537
 
 11537:                                            ; preds = %11532
   %11538 = getelementptr inbounds i8, ptr %8519, i64 %8500
   %11539 = load i8, ptr %11538, align 1
   %11540 = zext i8 %11539 to i32
-  %11541 = icmp ult i32 %8522, %11540
+  %11541 = icmp samesign ult i32 %8522, %11540
   br i1 %11541, label %11542, label %.backedge.us.i
 
 11542:                                            ; preds = %11537
   %11543 = getelementptr inbounds i8, ptr %8519, i64 %8501
   %11544 = load i8, ptr %11543, align 1
   %11545 = zext i8 %11544 to i32
-  %11546 = icmp ult i32 %8522, %11545
+  %11546 = icmp samesign ult i32 %8522, %11545
   br i1 %11546, label %11547, label %.backedge.us.i
 
 11547:                                            ; preds = %11542
   %11548 = getelementptr inbounds i8, ptr %8519, i64 %8502
   %11549 = load i8, ptr %11548, align 1
   %11550 = zext i8 %11549 to i32
-  %11551 = icmp ult i32 %8522, %11550
+  %11551 = icmp samesign ult i32 %8522, %11550
   br i1 %11551, label %11552, label %.backedge.us.i
 
 11552:                                            ; preds = %11547
   %11553 = getelementptr inbounds i8, ptr %8519, i64 %8503
   %11554 = load i8, ptr %11553, align 1
   %11555 = zext i8 %11554 to i32
-  %11556 = icmp ult i32 %8522, %11555
+  %11556 = icmp samesign ult i32 %8522, %11555
   br i1 %11556, label %11855, label %.backedge.us.i
 
 11557:                                            ; preds = %11532
   %11558 = getelementptr inbounds i8, ptr %8519, i64 %8499
   %11559 = load i8, ptr %11558, align 1
   %11560 = zext i8 %11559 to i32
-  %11561 = icmp ult i32 %8522, %11560
+  %11561 = icmp samesign ult i32 %8522, %11560
   br i1 %11561, label %11855, label %11562
 
 11562:                                            ; preds = %11557
   %11563 = getelementptr inbounds i8, ptr %8519, i64 %8503
   %11564 = load i8, ptr %11563, align 1
   %11565 = zext i8 %11564 to i32
-  %11566 = icmp ult i32 %8522, %11565
+  %11566 = icmp samesign ult i32 %8522, %11565
   br i1 %11566, label %11855, label %.backedge.us.i
 
 11567:                                            ; preds = %11485
   br i1 %11490, label %11610, label %11568
 
 11568:                                            ; preds = %11567
-  %11569 = icmp ugt i32 %8523, %11489
+  %11569 = icmp samesign ugt i32 %8523, %11489
   br i1 %11569, label %11570, label %.backedge.us.i
 
 11570:                                            ; preds = %11568
   %11571 = getelementptr inbounds i8, ptr %8519, i64 %8497
   %11572 = load i8, ptr %11571, align 1
   %11573 = zext i8 %11572 to i32
-  %11574 = icmp ugt i32 %8523, %11573
+  %11574 = icmp samesign ugt i32 %8523, %11573
   br i1 %11574, label %11575, label %.backedge.us.i
 
 11575:                                            ; preds = %11570
   %11576 = getelementptr inbounds i8, ptr %8519, i64 %8498
   %11577 = load i8, ptr %11576, align 1
   %11578 = zext i8 %11577 to i32
-  %11579 = icmp ugt i32 %8523, %11578
+  %11579 = icmp samesign ugt i32 %8523, %11578
   br i1 %11579, label %11580, label %.backedge.us.i
 
 11580:                                            ; preds = %11575
   %11581 = getelementptr inbounds i8, ptr %8519, i64 %8500
   %11582 = load i8, ptr %11581, align 1
   %11583 = zext i8 %11582 to i32
-  %11584 = icmp ugt i32 %8523, %11583
+  %11584 = icmp samesign ugt i32 %8523, %11583
   br i1 %11584, label %11585, label %.backedge.us.i
 
 11585:                                            ; preds = %11580
   %11586 = getelementptr inbounds i8, ptr %8519, i64 %8501
   %11587 = load i8, ptr %11586, align 1
   %11588 = zext i8 %11587 to i32
-  %11589 = icmp ugt i32 %8523, %11588
+  %11589 = icmp samesign ugt i32 %8523, %11588
   br i1 %11589, label %11590, label %.backedge.us.i
 
 11590:                                            ; preds = %11585
   %11591 = getelementptr inbounds i8, ptr %8519, i64 %8502
   %11592 = load i8, ptr %11591, align 1
   %11593 = zext i8 %11592 to i32
-  %11594 = icmp ugt i32 %8523, %11593
+  %11594 = icmp samesign ugt i32 %8523, %11593
   br i1 %11594, label %11595, label %.backedge.us.i
 
 11595:                                            ; preds = %11590
   %11596 = getelementptr inbounds i8, ptr %8519, i64 %8503
   %11597 = load i8, ptr %11596, align 1
   %11598 = zext i8 %11597 to i32
-  %11599 = icmp ugt i32 %8523, %11598
+  %11599 = icmp samesign ugt i32 %8523, %11598
   br i1 %11599, label %11600, label %.backedge.us.i
 
 11600:                                            ; preds = %11595
   %11601 = getelementptr inbounds i8, ptr %8519, i64 %8499
   %11602 = load i8, ptr %11601, align 1
   %11603 = zext i8 %11602 to i32
-  %11604 = icmp ugt i32 %8523, %11603
+  %11604 = icmp samesign ugt i32 %8523, %11603
   br i1 %11604, label %11855, label %11605
 
 11605:                                            ; preds = %11600
   %11606 = getelementptr inbounds i8, ptr %8519, i64 %8505
   %11607 = load i8, ptr %11606, align 1
   %11608 = zext i8 %11607 to i32
-  %11609 = icmp ugt i32 %8523, %11608
+  %11609 = icmp samesign ugt i32 %8523, %11608
   br i1 %11609, label %11855, label %.backedge.us.i
 
 11610:                                            ; preds = %11567
   %11611 = getelementptr inbounds i8, ptr %8519, i64 %8505
   %11612 = load i8, ptr %11611, align 1
   %11613 = zext i8 %11612 to i32
-  %11614 = icmp ult i32 %8522, %11613
+  %11614 = icmp samesign ult i32 %8522, %11613
   br i1 %11614, label %11615, label %.backedge.us.i
 
 11615:                                            ; preds = %11610
   %11616 = getelementptr inbounds i8, ptr %8519, i64 %8510
   %11617 = load i8, ptr %11616, align 1
   %11618 = zext i8 %11617 to i32
-  %11619 = icmp ult i32 %8522, %11618
+  %11619 = icmp samesign ult i32 %8522, %11618
   br i1 %11619, label %11650, label %11620
 
 11620:                                            ; preds = %11615
   %11621 = getelementptr inbounds i8, ptr %8519, i64 %8497
   %11622 = load i8, ptr %11621, align 1
   %11623 = zext i8 %11622 to i32
-  %11624 = icmp ult i32 %8522, %11623
+  %11624 = icmp samesign ult i32 %8522, %11623
   br i1 %11624, label %11625, label %.backedge.us.i
 
 11625:                                            ; preds = %11620
   %11626 = getelementptr inbounds i8, ptr %8519, i64 %8498
   %11627 = load i8, ptr %11626, align 1
   %11628 = zext i8 %11627 to i32
-  %11629 = icmp ult i32 %8522, %11628
+  %11629 = icmp samesign ult i32 %8522, %11628
   br i1 %11629, label %11630, label %.backedge.us.i
 
 11630:                                            ; preds = %11625
   %11631 = getelementptr inbounds i8, ptr %8519, i64 %8500
   %11632 = load i8, ptr %11631, align 1
   %11633 = zext i8 %11632 to i32
-  %11634 = icmp ult i32 %8522, %11633
+  %11634 = icmp samesign ult i32 %8522, %11633
   br i1 %11634, label %11635, label %.backedge.us.i
 
 11635:                                            ; preds = %11630
   %11636 = getelementptr inbounds i8, ptr %8519, i64 %8501
   %11637 = load i8, ptr %11636, align 1
   %11638 = zext i8 %11637 to i32
-  %11639 = icmp ult i32 %8522, %11638
+  %11639 = icmp samesign ult i32 %8522, %11638
   br i1 %11639, label %11640, label %.backedge.us.i
 
 11640:                                            ; preds = %11635
   %11641 = getelementptr inbounds i8, ptr %8519, i64 %8502
   %11642 = load i8, ptr %11641, align 1
   %11643 = zext i8 %11642 to i32
-  %11644 = icmp ult i32 %8522, %11643
+  %11644 = icmp samesign ult i32 %8522, %11643
   br i1 %11644, label %11645, label %.backedge.us.i
 
 11645:                                            ; preds = %11640
   %11646 = getelementptr inbounds i8, ptr %8519, i64 %8503
   %11647 = load i8, ptr %11646, align 1
   %11648 = zext i8 %11647 to i32
-  %11649 = icmp ult i32 %8522, %11648
+  %11649 = icmp samesign ult i32 %8522, %11648
   br i1 %11649, label %11855, label %.backedge.us.i
 
 11650:                                            ; preds = %11615
   %11651 = getelementptr inbounds i8, ptr %8519, i64 %8508
   %11652 = load i8, ptr %11651, align 1
   %11653 = zext i8 %11652 to i32
-  %11654 = icmp ult i32 %8522, %11653
+  %11654 = icmp samesign ult i32 %8522, %11653
   br i1 %11654, label %11675, label %11655
 
 11655:                                            ; preds = %11650
   %11656 = getelementptr inbounds i8, ptr %8519, i64 %8500
   %11657 = load i8, ptr %11656, align 1
   %11658 = zext i8 %11657 to i32
-  %11659 = icmp ult i32 %8522, %11658
+  %11659 = icmp samesign ult i32 %8522, %11658
   br i1 %11659, label %11660, label %.backedge.us.i
 
 11660:                                            ; preds = %11655
   %11661 = getelementptr inbounds i8, ptr %8519, i64 %8501
   %11662 = load i8, ptr %11661, align 1
   %11663 = zext i8 %11662 to i32
-  %11664 = icmp ult i32 %8522, %11663
+  %11664 = icmp samesign ult i32 %8522, %11663
   br i1 %11664, label %11665, label %.backedge.us.i
 
 11665:                                            ; preds = %11660
   %11666 = getelementptr inbounds i8, ptr %8519, i64 %8502
   %11667 = load i8, ptr %11666, align 1
   %11668 = zext i8 %11667 to i32
-  %11669 = icmp ult i32 %8522, %11668
+  %11669 = icmp samesign ult i32 %8522, %11668
   br i1 %11669, label %11670, label %.backedge.us.i
 
 11670:                                            ; preds = %11665
   %11671 = getelementptr inbounds i8, ptr %8519, i64 %8503
   %11672 = load i8, ptr %11671, align 1
   %11673 = zext i8 %11672 to i32
-  %11674 = icmp ult i32 %8522, %11673
+  %11674 = icmp samesign ult i32 %8522, %11673
   br i1 %11674, label %11855, label %.backedge.us.i
 
 11675:                                            ; preds = %11650
   %11676 = getelementptr inbounds i8, ptr %8519, i64 %8499
   %11677 = load i8, ptr %11676, align 1
   %11678 = zext i8 %11677 to i32
-  %11679 = icmp ult i32 %8522, %11678
+  %11679 = icmp samesign ult i32 %8522, %11678
   br i1 %11679, label %11855, label %11680
 
 11680:                                            ; preds = %11675
   %11681 = getelementptr inbounds i8, ptr %8519, i64 %8503
   %11682 = load i8, ptr %11681, align 1
   %11683 = zext i8 %11682 to i32
-  %11684 = icmp ult i32 %8522, %11683
+  %11684 = icmp samesign ult i32 %8522, %11683
   br i1 %11684, label %11855, label %.backedge.us.i
 
 11685:                                            ; preds = %11480
@@ -18001,119 +18001,119 @@ _ZNSt6vectorIN2cv8KeyPointESaIS1_EE6resizeEm.exit.i236: ; preds = %8441, %8426
   %11691 = getelementptr inbounds i8, ptr %8519, i64 %8500
   %11692 = load i8, ptr %11691, align 1
   %11693 = zext i8 %11692 to i32
-  %11694 = icmp ult i32 %8522, %11693
+  %11694 = icmp samesign ult i32 %8522, %11693
   br i1 %11694, label %11695, label %.backedge.us.i
 
 11695:                                            ; preds = %11690
   %11696 = getelementptr inbounds i8, ptr %8519, i64 %8501
   %11697 = load i8, ptr %11696, align 1
   %11698 = zext i8 %11697 to i32
-  %11699 = icmp ult i32 %8522, %11698
+  %11699 = icmp samesign ult i32 %8522, %11698
   br i1 %11699, label %11700, label %.backedge.us.i
 
 11700:                                            ; preds = %11695
   %11701 = getelementptr inbounds i8, ptr %8519, i64 %8502
   %11702 = load i8, ptr %11701, align 1
   %11703 = zext i8 %11702 to i32
-  %11704 = icmp ult i32 %8522, %11703
+  %11704 = icmp samesign ult i32 %8522, %11703
   br i1 %11704, label %11705, label %.backedge.us.i
 
 11705:                                            ; preds = %11700
   %11706 = getelementptr inbounds i8, ptr %8519, i64 %8497
   %11707 = load i8, ptr %11706, align 1
   %11708 = zext i8 %11707 to i32
-  %11709 = icmp ult i32 %8522, %11708
+  %11709 = icmp samesign ult i32 %8522, %11708
   br i1 %11709, label %11730, label %11710
 
 11710:                                            ; preds = %11705
   %11711 = getelementptr inbounds i8, ptr %8519, i64 %8510
   %11712 = load i8, ptr %11711, align 1
   %11713 = zext i8 %11712 to i32
-  %11714 = icmp ult i32 %8522, %11713
+  %11714 = icmp samesign ult i32 %8522, %11713
   br i1 %11714, label %11715, label %.backedge.us.i
 
 11715:                                            ; preds = %11710
   %11716 = getelementptr inbounds i8, ptr %8519, i64 %8503
   %11717 = load i8, ptr %11716, align 1
   %11718 = zext i8 %11717 to i32
-  %11719 = icmp ult i32 %8522, %11718
+  %11719 = icmp samesign ult i32 %8522, %11718
   br i1 %11719, label %11720, label %.backedge.us.i
 
 11720:                                            ; preds = %11715
   %11721 = getelementptr inbounds i8, ptr %8519, i64 %8504
   %11722 = load i8, ptr %11721, align 1
   %11723 = zext i8 %11722 to i32
-  %11724 = icmp ult i32 %8522, %11723
+  %11724 = icmp samesign ult i32 %8522, %11723
   br i1 %11724, label %11725, label %.backedge.us.i
 
 11725:                                            ; preds = %11720
   %11726 = getelementptr inbounds i8, ptr %8519, i64 %8505
   %11727 = load i8, ptr %11726, align 1
   %11728 = zext i8 %11727 to i32
-  %11729 = icmp ult i32 %8522, %11728
+  %11729 = icmp samesign ult i32 %8522, %11728
   br i1 %11729, label %11855, label %.backedge.us.i
 
 11730:                                            ; preds = %11705
   %11731 = getelementptr inbounds i8, ptr %8519, i64 %8498
   %11732 = load i8, ptr %11731, align 1
   %11733 = zext i8 %11732 to i32
-  %11734 = icmp ult i32 %8522, %11733
+  %11734 = icmp samesign ult i32 %8522, %11733
   br i1 %11734, label %11755, label %11735
 
 11735:                                            ; preds = %11730
   %11736 = getelementptr inbounds i8, ptr %8519, i64 %8510
   %11737 = load i8, ptr %11736, align 1
   %11738 = zext i8 %11737 to i32
-  %11739 = icmp ult i32 %8522, %11738
+  %11739 = icmp samesign ult i32 %8522, %11738
   br i1 %11739, label %11740, label %.backedge.us.i
 
 11740:                                            ; preds = %11735
   %11741 = getelementptr inbounds i8, ptr %8519, i64 %8503
   %11742 = load i8, ptr %11741, align 1
   %11743 = zext i8 %11742 to i32
-  %11744 = icmp ult i32 %8522, %11743
+  %11744 = icmp samesign ult i32 %8522, %11743
   br i1 %11744, label %11745, label %.backedge.us.i
 
 11745:                                            ; preds = %11740
   %11746 = getelementptr inbounds i8, ptr %8519, i64 %8504
   %11747 = load i8, ptr %11746, align 1
   %11748 = zext i8 %11747 to i32
-  %11749 = icmp ult i32 %8522, %11748
+  %11749 = icmp samesign ult i32 %8522, %11748
   br i1 %11749, label %11750, label %.backedge.us.i
 
 11750:                                            ; preds = %11745
   %11751 = getelementptr inbounds i8, ptr %8519, i64 %8505
   %11752 = load i8, ptr %11751, align 1
   %11753 = zext i8 %11752 to i32
-  %11754 = icmp ult i32 %8522, %11753
+  %11754 = icmp samesign ult i32 %8522, %11753
   br i1 %11754, label %11855, label %.backedge.us.i
 
 11755:                                            ; preds = %11730
   %11756 = getelementptr inbounds i8, ptr %8519, i64 %8499
   %11757 = load i8, ptr %11756, align 1
   %11758 = zext i8 %11757 to i32
-  %11759 = icmp ult i32 %8522, %11758
+  %11759 = icmp samesign ult i32 %8522, %11758
   br i1 %11759, label %11855, label %11760
 
 11760:                                            ; preds = %11755
   %11761 = getelementptr inbounds i8, ptr %8519, i64 %8503
   %11762 = load i8, ptr %11761, align 1
   %11763 = zext i8 %11762 to i32
-  %11764 = icmp ult i32 %8522, %11763
+  %11764 = icmp samesign ult i32 %8522, %11763
   br i1 %11764, label %11765, label %.backedge.us.i
 
 11765:                                            ; preds = %11760
   %11766 = getelementptr inbounds i8, ptr %8519, i64 %8504
   %11767 = load i8, ptr %11766, align 1
   %11768 = zext i8 %11767 to i32
-  %11769 = icmp ult i32 %8522, %11768
+  %11769 = icmp samesign ult i32 %8522, %11768
   br i1 %11769, label %11770, label %.backedge.us.i
 
 11770:                                            ; preds = %11765
   %11771 = getelementptr inbounds i8, ptr %8519, i64 %8505
   %11772 = load i8, ptr %11771, align 1
   %11773 = zext i8 %11772 to i32
-  %11774 = icmp ult i32 %8522, %11773
+  %11774 = icmp samesign ult i32 %8522, %11773
   br i1 %11774, label %11855, label %.backedge.us.i
 
 11775:                                            ; preds = %11685
@@ -18127,63 +18127,63 @@ _ZNSt6vectorIN2cv8KeyPointESaIS1_EE6resizeEm.exit.i236: ; preds = %8441, %8426
   %11781 = getelementptr inbounds i8, ptr %8519, i64 %8497
   %11782 = load i8, ptr %11781, align 1
   %11783 = zext i8 %11782 to i32
-  %11784 = icmp ult i32 %8522, %11783
+  %11784 = icmp samesign ult i32 %8522, %11783
   br i1 %11784, label %11785, label %.backedge.us.i
 
 11785:                                            ; preds = %11780
   %11786 = getelementptr inbounds i8, ptr %8519, i64 %8498
   %11787 = load i8, ptr %11786, align 1
   %11788 = zext i8 %11787 to i32
-  %11789 = icmp ult i32 %8522, %11788
+  %11789 = icmp samesign ult i32 %8522, %11788
   br i1 %11789, label %11790, label %.backedge.us.i
 
 11790:                                            ; preds = %11785
   %11791 = getelementptr inbounds i8, ptr %8519, i64 %8500
   %11792 = load i8, ptr %11791, align 1
   %11793 = zext i8 %11792 to i32
-  %11794 = icmp ult i32 %8522, %11793
+  %11794 = icmp samesign ult i32 %8522, %11793
   br i1 %11794, label %11795, label %.backedge.us.i
 
 11795:                                            ; preds = %11790
   %11796 = getelementptr inbounds i8, ptr %8519, i64 %8499
   %11797 = load i8, ptr %11796, align 1
   %11798 = zext i8 %11797 to i32
-  %11799 = icmp ult i32 %8522, %11798
+  %11799 = icmp samesign ult i32 %8522, %11798
   br i1 %11799, label %11855, label %11800
 
 11800:                                            ; preds = %11795
   %11801 = getelementptr inbounds i8, ptr %8519, i64 %8501
   %11802 = load i8, ptr %11801, align 1
   %11803 = zext i8 %11802 to i32
-  %11804 = icmp ult i32 %8522, %11803
+  %11804 = icmp samesign ult i32 %8522, %11803
   br i1 %11804, label %11805, label %.backedge.us.i
 
 11805:                                            ; preds = %11800
   %11806 = getelementptr inbounds i8, ptr %8519, i64 %8502
   %11807 = load i8, ptr %11806, align 1
   %11808 = zext i8 %11807 to i32
-  %11809 = icmp ult i32 %8522, %11808
+  %11809 = icmp samesign ult i32 %8522, %11808
   br i1 %11809, label %11810, label %.backedge.us.i
 
 11810:                                            ; preds = %11805
   %11811 = getelementptr inbounds i8, ptr %8519, i64 %8503
   %11812 = load i8, ptr %11811, align 1
   %11813 = zext i8 %11812 to i32
-  %11814 = icmp ult i32 %8522, %11813
+  %11814 = icmp samesign ult i32 %8522, %11813
   br i1 %11814, label %11815, label %.backedge.us.i
 
 11815:                                            ; preds = %11810
   %11816 = getelementptr inbounds i8, ptr %8519, i64 %8504
   %11817 = load i8, ptr %11816, align 1
   %11818 = zext i8 %11817 to i32
-  %11819 = icmp ult i32 %8522, %11818
+  %11819 = icmp samesign ult i32 %8522, %11818
   br i1 %11819, label %11820, label %.backedge.us.i
 
 11820:                                            ; preds = %11815
   %11821 = getelementptr inbounds i8, ptr %8519, i64 %8505
   %11822 = load i8, ptr %11821, align 1
   %11823 = zext i8 %11822 to i32
-  %11824 = icmp ult i32 %8522, %11823
+  %11824 = icmp samesign ult i32 %8522, %11823
   br i1 %11824, label %11855, label %.backedge.us.i
 
 11825:                                            ; preds = %11775
@@ -18197,21 +18197,21 @@ _ZNSt6vectorIN2cv8KeyPointESaIS1_EE6resizeEm.exit.i236: ; preds = %8441, %8426
   %11831 = getelementptr inbounds i8, ptr %8519, i64 %8503
   %11832 = load i8, ptr %11831, align 1
   %11833 = zext i8 %11832 to i32
-  %11834 = icmp ult i32 %8522, %11833
+  %11834 = icmp samesign ult i32 %8522, %11833
   br i1 %11834, label %11835, label %.backedge.us.i
 
 11835:                                            ; preds = %11830
   %11836 = getelementptr inbounds i8, ptr %8519, i64 %8504
   %11837 = load i8, ptr %11836, align 1
   %11838 = zext i8 %11837 to i32
-  %11839 = icmp ult i32 %8522, %11838
+  %11839 = icmp samesign ult i32 %8522, %11838
   br i1 %11839, label %11840, label %.backedge.us.i
 
 11840:                                            ; preds = %11835
   %11841 = getelementptr inbounds i8, ptr %8519, i64 %8505
   %11842 = load i8, ptr %11841, align 1
   %11843 = zext i8 %11842 to i32
-  %11844 = icmp ult i32 %8522, %11843
+  %11844 = icmp samesign ult i32 %8522, %11843
   br i1 %11844, label %11855, label %.backedge.us.i
 
 11845:                                            ; preds = %11825
@@ -18225,7 +18225,7 @@ _ZNSt6vectorIN2cv8KeyPointESaIS1_EE6resizeEm.exit.i236: ; preds = %8441, %8426
   %11851 = getelementptr inbounds i8, ptr %8519, i64 %8505
   %11852 = load i8, ptr %11851, align 1
   %11853 = zext i8 %11852 to i32
-  %11854 = icmp ult i32 %8522, %11853
+  %11854 = icmp samesign ult i32 %8522, %11853
   br i1 %11854, label %11855, label %.backedge.us.i
 
 11855:                                            ; preds = %11850, %11845, %11840, %11820, %11795, %11770, %11755, %11750, %11725, %11680, %11675, %11670, %11645, %11605, %11600, %11562, %11557, %11552, %11527, %11475, %11465, %11460, %11435, %11390, %11380, %11342, %11332, %11327, %11302, %11257, %11252, %11198, %11188, %11183, %11158, %11128, %11093, %11088, %11083, %11063, %11015, %11005, %11000, %10975, %10945, %10910, %10905, %10900, %10841, %10831, %10826, %10806, %10781, %10751, %10711, %10706, %10701, %10681, %10656, %10626, %10578, %10568, %10563, %10543, %10518, %10488, %10448, %10443, %10438, %10423, %10403, %10344, %10339, %10334, %10314, %10289, %10259, %10214, %10204, %10199, %10179, %10154, %10124, %10077, %10072, %10067, %10047, %10002, %9992, %9987, %9962, %9932, %9890, %9880, %9845, %9835, %9830, %9805, %9753, %9748, %9713, %9708, %9703, %9678, %9631, %9626, %9621, %9601, %9576, %9551, %9536, %9531, %9506, %9461, %9456, %9451, %9426, %9374, %9369, %9329, %9319, %9314, %9289, %9230, %9225, %9220, %9175, %9165, %9160, %9135, %9105, %9056, %9051, %9046, %9031, %9011, %8966, %8956, %8951, %8931, %8906, %8876, %8822, %8817, %8812, %8797, %8777, %8752, %8722, %8677, %8672, %8667, %8652, %8632, %8607, %8577

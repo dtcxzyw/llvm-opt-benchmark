@@ -615,7 +615,7 @@ if.then4:                                         ; preds = %if.end
 if.end5:                                          ; preds = %if.end
   %11 = load i8, ptr getelementptr inbounds (i8, ptr @_ZL7options, i64 114), align 2
   %12 = load i8, ptr getelementptr inbounds (i8, ptr @_ZL7options, i64 354), align 2
-  %cmp6 = icmp ult i32 %call, 3
+  %cmp6 = icmp samesign ult i32 %call, 3
   br i1 %cmp6, label %if.then7, label %if.end9
 
 if.then7:                                         ; preds = %if.end5

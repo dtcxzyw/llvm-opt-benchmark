@@ -151,7 +151,7 @@ define i32 @png_sig_cmp(ptr nocapture noundef readonly %0, i64 noundef %1, i64 n
 
 9:                                                ; preds = %7
   %10 = add nuw nsw i64 %.0, %1
-  %11 = icmp ugt i64 %10, 8
+  %11 = icmp samesign ugt i64 %10, 8
   %12 = sub nuw nsw i64 8, %1
   %spec.select = select i1 %11, i64 %12, i64 %.0
   %13 = getelementptr inbounds i8, ptr %0, i64 %1
@@ -2330,14 +2330,14 @@ define range(i32 0, 3) i32 @png_colorspace_set_endpoints(ptr noalias noundef %0,
   %40 = load i32, ptr %39, align 4
   %41 = icmp slt i32 %40, 0
   %42 = sub nuw nsw i32 2147483647, %9
-  %43 = icmp ult i32 %42, %24
+  %43 = icmp samesign ult i32 %42, %24
   %or.cond.i.i = select i1 %41, i1 true, i1 %43
   br i1 %or.cond.i.i, label %png_colorspace_check_XYZ.exit.thread, label %44
 
 44:                                               ; preds = %38
   %45 = add nuw nsw i32 %13, %9
   %46 = sub nuw nsw i32 2147483647, %45
-  %47 = icmp ult i32 %46, %28
+  %47 = icmp samesign ult i32 %46, %28
   br i1 %47, label %png_colorspace_check_XYZ.exit.thread, label %48
 
 48:                                               ; preds = %44
@@ -3265,7 +3265,7 @@ define range(i32 0, 2) i32 @png_icc_check_header(ptr noalias noundef %0, ptr noa
   br label %182
 
 81:                                               ; preds = %59
-  %82 = icmp ugt i32 %77, 3
+  %82 = icmp samesign ugt i32 %77, 3
   br i1 %82, label %83, label %85
 
 83:                                               ; preds = %81
@@ -3941,7 +3941,7 @@ png_muldiv.exit61.thread:                         ; preds = %52, %50
   %.1100 = phi i32 [ 0, %50 ], [ %61, %52 ]
   %63 = add nuw nsw i32 %.182, %.184
   %64 = add nuw nsw i32 %63, %.1100
-  %65 = icmp ult i32 %64, 32770
+  %65 = icmp samesign ult i32 %64, 32770
   br i1 %65, label %66, label %png_muldiv.exit.thread
 
 66:                                               ; preds = %png_muldiv.exit61.thread
@@ -3949,14 +3949,14 @@ png_muldiv.exit61.thread:                         ; preds = %52, %50
   br i1 %67, label %.thread, label %68
 
 68:                                               ; preds = %66
-  %69 = icmp ult i32 %64, 32768
+  %69 = icmp samesign ult i32 %64, 32768
   br i1 %69, label %.thread, label %77
 
 .thread:                                          ; preds = %66, %68
   %.098 = phi i32 [ 1, %68 ], [ -1, %66 ]
-  %.not42 = icmp ult i32 %.182, %.184
-  %.not43 = icmp ult i32 %.182, %.1100
-  %or.cond48 = or i1 %.not42, %.not43
+  %.not42 = icmp samesign ult i32 %.182, %.184
+  %.not43 = icmp samesign ult i32 %.182, %.1100
+  %or.cond48 = select i1 %.not42, i1 true, i1 %.not43
   br i1 %or.cond48, label %72, label %70
 
 70:                                               ; preds = %.thread
@@ -3964,9 +3964,9 @@ png_muldiv.exit61.thread:                         ; preds = %52, %50
   br label %77
 
 72:                                               ; preds = %.thread
-  %.not44 = icmp ult i32 %.184, %.182
-  %.not45 = icmp ult i32 %.184, %.1100
-  %or.cond49 = or i1 %.not44, %.not45
+  %.not44 = icmp samesign ult i32 %.184, %.182
+  %.not45 = icmp samesign ult i32 %.184, %.1100
+  %or.cond49 = select i1 %.not44, i1 true, i1 %.not45
   br i1 %or.cond49, label %75, label %73
 
 73:                                               ; preds = %72
@@ -4446,7 +4446,7 @@ define void @png_ascii_from_fp(ptr noalias noundef %0, ptr nocapture noundef %1,
   br i1 %27, label %31, label %28
 
 28:                                               ; preds = %22
-  %29 = icmp ult i32 %26, -307
+  %29 = icmp samesign ult i32 %26, -307
   br i1 %29, label %.lr.ph.preheader, label %.thread.i
 
 .thread.i:                                        ; preds = %28
@@ -4454,7 +4454,7 @@ define void @png_ascii_from_fp(ptr noalias noundef %0, ptr nocapture noundef %1,
   br label %.preheader.i.preheader
 
 31:                                               ; preds = %22
-  %.not24.i = icmp ult i32 %25, 256
+  %.not24.i = icmp samesign ult i32 %25, 256
   br i1 %.not24.i, label %png_pow10.exit, label %.preheader.i.preheader
 
 .preheader.i.preheader:                           ; preds = %31, %.thread.i
@@ -4500,7 +4500,7 @@ png_pow10.exit:                                   ; preds = %31, %36, %37
   br i1 %44, label %48, label %45
 
 45:                                               ; preds = %.lr.ph
-  %46 = icmp ult i32 %43, -307
+  %46 = icmp samesign ult i32 %43, -307
   br i1 %46, label %png_pow10.exit165.thread, label %.thread.i153
 
 .thread.i153:                                     ; preds = %45
@@ -5034,7 +5034,7 @@ define void @png_ascii_from_fixed(ptr noalias noundef %0, ptr nocapture noundef 
 
 .preheader:                                       ; preds = %.lr.ph61.preheader, %28
   %.2.lcssa = phi ptr [ %.257, %28 ], [ %scevgep, %.lr.ph61.preheader ]
-  %.not4463 = icmp ult i32 %.137.lcssa, %spec.select
+  %.not4463 = icmp samesign ult i32 %.137.lcssa, %spec.select
   br i1 %.not4463, label %.loopexit, label %.lr.ph66
 
 .lr.ph66:                                         ; preds = %.preheader, %.lr.ph66

@@ -1607,7 +1607,7 @@ define hidden void @compute_curve_lut(ptr nocapture noundef readonly %0, ptr nou
 
 194:                                              ; preds = %187
   %195 = zext nneg i32 %3 to i64
-  %196 = icmp ult i32 %3, 32
+  %196 = icmp samesign ult i32 %3, 32
   br i1 %196, label %.preheader51, label %197
 
 197:                                              ; preds = %194
@@ -1731,7 +1731,7 @@ define hidden void @compute_curve_lut(ptr nocapture noundef readonly %0, ptr nou
 
 274:                                              ; preds = %267
   %275 = zext nneg i32 %3 to i64
-  %276 = icmp ult i32 %3, 32
+  %276 = icmp samesign ult i32 %3, 32
   br i1 %276, label %.preheader49, label %277
 
 277:                                              ; preds = %274
@@ -1809,7 +1809,7 @@ define hidden void @compute_curve_lut(ptr nocapture noundef readonly %0, ptr nou
 323:                                              ; preds = %.loopexit33
   %324 = getelementptr inbounds i8, ptr %314, i64 24
   %325 = zext nneg i32 %321 to i64
-  %326 = icmp ult i32 %321, 16
+  %326 = icmp samesign ult i32 %321, 16
   %327 = add nsw i64 %325, -257
   %328 = icmp ult i64 %327, -256
   %329 = select i1 %326, i1 true, i1 %328
@@ -1916,7 +1916,7 @@ define hidden void @compute_curve_lut(ptr nocapture noundef readonly %0, ptr nou
 
 389:                                              ; preds = %384
   %390 = zext nneg i32 %3 to i64
-  %391 = icmp ult i32 %3, 32
+  %391 = icmp samesign ult i32 %3, 32
   br i1 %391, label %.preheader46, label %392
 
 392:                                              ; preds = %389
@@ -1980,7 +1980,7 @@ define hidden void @compute_curve_lut(ptr nocapture noundef readonly %0, ptr nou
 
 429:                                              ; preds = %.loopexit28
   %430 = zext nneg i32 %3 to i64
-  %431 = icmp ult i32 %3, 32
+  %431 = icmp samesign ult i32 %3, 32
   br i1 %431, label %471, label %432
 
 432:                                              ; preds = %429

@@ -351,7 +351,7 @@ define internal fastcc void @dissect_mqttsn_packet(ptr noundef %0, ptr noundef %
   %75 = tail call ptr @proto_tree_add_item(ptr noundef %27, i32 noundef %74, ptr noundef %0, i32 noundef %.0231, i32 noundef 1, i32 noundef 0) #2
   %76 = add nuw nsw i32 %.0231, 1
   %77 = zext i16 %13 to i32
-  %78 = icmp ult i32 %76, %77
+  %78 = icmp samesign ult i32 %76, %77
   br i1 %78, label %79, label %common.ret243
 
 79:                                               ; preds = %73
@@ -475,7 +475,7 @@ define internal fastcc void @dissect_mqttsn_packet(ptr noundef %0, ptr noundef %
 
 170:                                              ; preds = %63
   %171 = zext i16 %13 to i32
-  %172 = icmp ult i32 %.0231, %171
+  %172 = icmp samesign ult i32 %.0231, %171
   br i1 %172, label %173, label %common.ret243
 
 173:                                              ; preds = %170
@@ -486,7 +486,7 @@ define internal fastcc void @dissect_mqttsn_packet(ptr noundef %0, ptr noundef %
 
 177:                                              ; preds = %63
   %178 = zext i16 %13 to i32
-  %179 = icmp ult i32 %.0231, %178
+  %179 = icmp samesign ult i32 %.0231, %178
   br i1 %179, label %180, label %common.ret243
 
 180:                                              ; preds = %177

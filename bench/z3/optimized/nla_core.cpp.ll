@@ -20930,7 +20930,7 @@ if.end.i.i:                                       ; preds = %for.cond
 
 invoke.cont66:                                    ; preds = %if.end.i.i, %for.cond
   %retval.0.i.i = phi i64 [ %43, %if.end.i.i ], [ 0, %for.cond ]
-  %cmp68 = icmp ult i64 %indvars.iv, %retval.0.i.i
+  %cmp68 = icmp samesign ult i64 %indvars.iv, %retval.0.i.i
   br i1 %cmp68, label %for.body, label %for.end
 
 for.body:                                         ; preds = %invoke.cont66
@@ -20963,7 +20963,7 @@ _ZNK6vectorIjLb0EjE4sizeEv.exit.i:                ; preds = %land.lhs.true.i, %f
   %arrayidx.i11.i = getelementptr inbounds i8, ptr %45, i64 -4
   %50 = load i32, ptr %arrayidx.i11.i, align 4
   %51 = zext i32 %50 to i64
-  %cmp4.i = icmp ult i64 %49, %51
+  %cmp4.i = icmp samesign ult i64 %49, %51
   br i1 %cmp4.i, label %invoke.cont78, label %land.lhs.true80
 
 invoke.cont78:                                    ; preds = %_ZNK6vectorIjLb0EjE4sizeEv.exit.i

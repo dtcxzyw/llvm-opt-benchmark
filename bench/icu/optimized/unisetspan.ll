@@ -666,7 +666,7 @@ if.then262:                                       ; preds = %if.end259
   %conv267 = zext i16 %46 to i32
   %and268 = and i32 %conv267, 64512
   %cmp269 = icmp eq i32 %and268, 56320
-  %cmp272 = icmp ugt i32 %cond.i143, 1
+  %cmp272 = icmp samesign ugt i32 %cond.i143, 1
   %or.cond1 = and i1 %cmp272, %cmp269
   br i1 %or.cond1, label %land.lhs.true273, label %do.end289
 
@@ -3596,11 +3596,11 @@ if.then4:                                         ; preds = %entry
   br i1 %cmp5.not, label %do.end, label %land.lhs.true
 
 land.lhs.true:                                    ; preds = %if.then4
-  %cmp6 = icmp ugt i8 %0, -33
+  %cmp6 = icmp samesign ugt i8 %0, -33
   br i1 %cmp6, label %cond.true, label %cond.false54
 
 cond.true:                                        ; preds = %land.lhs.true
-  %cmp7 = icmp ult i8 %0, -16
+  %cmp7 = icmp samesign ult i8 %0, -16
   br i1 %cmp7, label %cond.true8, label %cond.false
 
 cond.true8:                                       ; preds = %cond.true
@@ -3624,7 +3624,7 @@ land.lhs.true18:                                  ; preds = %cond.true8
 
 cond.false:                                       ; preds = %cond.true
   %sub = add nsw i32 %conv, -240
-  %cmp22 = icmp ult i8 %0, -11
+  %cmp22 = icmp samesign ult i8 %0, -11
   br i1 %cmp22, label %land.lhs.true23, label %do.end
 
 land.lhs.true23:                                  ; preds = %cond.false
@@ -3666,7 +3666,7 @@ land.lhs.true48:                                  ; preds = %land.lhs.true18, %l
   br i1 %cmp53.not, label %do.end, label %land.lhs.true58
 
 cond.false54:                                     ; preds = %land.lhs.true
-  %cmp55 = icmp ugt i8 %0, -63
+  %cmp55 = icmp samesign ugt i8 %0, -63
   br i1 %cmp55, label %land.lhs.true56, label %do.end
 
 land.lhs.true56:                                  ; preds = %cond.false54
@@ -3897,7 +3897,7 @@ land.lhs.true56:                                  ; preds = %land.lhs.true53
   br label %do.end
 
 if.else:                                          ; preds = %if.then37
-  %cmp65 = icmp ult i8 %13, -32
+  %cmp65 = icmp samesign ult i8 %13, -32
   br i1 %cmp65, label %if.then66, label %if.else72
 
 if.then66:                                        ; preds = %if.else

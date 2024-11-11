@@ -2794,7 +2794,7 @@ _ZN2cv3dnn14dnn4_v20240521L5shapeERKNS_3MatE.exit: ; preds = %191, %.noexc203
   br i1 %.not28.i.us, label %.invoke, label %.preheader.i.us
 
 .preheader.i.us:                                  ; preds = %243
-  %244 = icmp ult i32 %spec.store.select.i.fr, %spec.select.i.us
+  %244 = icmp samesign ult i32 %spec.store.select.i.fr, %spec.select.i.us
   br i1 %244, label %.lr.ph.i.us, label %_ZN2cv3dnn14dnn4_v20240521L5totalERKSt6vectorIiSaIiEEii.exit.us266
 
 .lr.ph.i.us:                                      ; preds = %.preheader.i.us, %.lr.ph.i.us
@@ -2825,7 +2825,7 @@ _ZN2cv3dnn14dnn4_v20240521L5totalERKSt6vectorIiSaIiEEii.exit.us266: ; preds = %.
   br i1 %.not28.i149, label %.invoke, label %.preheader.i150
 
 .preheader.i150:                                  ; preds = %252
-  %253 = icmp ult i32 %spec.store.select.i.fr, %spec.select.i147
+  %253 = icmp samesign ult i32 %spec.store.select.i.fr, %spec.select.i147
   br i1 %253, label %.lr.ph.preheader.i152, label %_ZN2cv3dnn14dnn4_v20240521L5totalERKSt6vectorIiSaIiEEii.exit160
 
 .lr.ph.preheader.i152:                            ; preds = %.preheader.i150
@@ -3003,7 +3003,7 @@ _ZN2cv3dnn14dnn4_v20240521L5totalERKSt6vectorIiSaIiEEii.exit173.thread: ; preds 
   unreachable
 
 324:                                              ; preds = %320
-  %325 = icmp ult i32 %spec.store.select.i174, %235
+  %325 = icmp samesign ult i32 %spec.store.select.i174, %235
   br i1 %325, label %.lr.ph.preheader.i180, label %_ZN2cv3dnn14dnn4_v20240521L5totalERKSt6vectorIiSaIiEEii.exit187
 
 .lr.ph.preheader.i180:                            ; preds = %324

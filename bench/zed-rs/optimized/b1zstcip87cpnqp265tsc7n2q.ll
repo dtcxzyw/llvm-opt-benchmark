@@ -15738,7 +15738,7 @@ define internal fastcc noundef align 8 dereferenceable_or_null(32) ptr @"_ZN9has
   %.sroa.027.1.i.i.i.i.i.i = phi i64 [ %13, %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17he8499bb74120f945E.exit.i.i.i.i.i.i" ], [ %.sroa.027.0.lcssa.i.i.i.i.i.i, %._crit_edge.i.i.i.i.i.i ]
   %.sroa.11.1.i.i.i.i.i.i = phi i64 [ %14, %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17he8499bb74120f945E.exit.i.i.i.i.i.i" ], [ %.sroa.11.0.lcssa.i.i.i.i.i.i, %._crit_edge.i.i.i.i.i.i ]
   %.sroa.0.1.i.i.i.i.i.i = phi ptr [ %15, %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17he8499bb74120f945E.exit.i.i.i.i.i.i" ], [ %.sroa.0.0.lcssa.i.i.i.i.i.i, %._crit_edge.i.i.i.i.i.i ]
-  %9 = icmp ugt i64 %.sroa.11.1.i.i.i.i.i.i, 1
+  %9 = icmp samesign ugt i64 %.sroa.11.1.i.i.i.i.i.i, 1
   br i1 %9, label %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17hd868526d64c06d2eE.exit.i.i.i.i.i.i", label %16
 
 "_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17he8499bb74120f945E.exit.i.i.i.i.i.i": ; preds = %._crit_edge.i.i.i.i.i.i

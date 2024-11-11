@@ -31199,7 +31199,7 @@ _ZN5boost9unit_test9framework4impl12_GLOBAL__N_111s_frk_stateEv.exit15: ; preds 
   br label %57
 
 57:                                               ; preds = %_ZN5boost9unit_test9framework4impl12_GLOBAL__N_111s_frk_stateEv.exit11, %_ZN5boost9unit_test9framework4impl12_GLOBAL__N_111s_frk_stateEv.exit15
-  %58 = icmp ugt i64 %indvars.iv, 1
+  %58 = icmp samesign ugt i64 %indvars.iv, 1
   br i1 %58, label %.lr.ph, label %.loopexit, !llvm.loop !653
 
 59:                                               ; preds = %1
@@ -35817,7 +35817,7 @@ _ZNSt6vectorImSaImEE9push_backERKm.exit:          ; preds = %_ZNSt6vectorImSaImE
   br label %385
 
 385:                                              ; preds = %380, %.lr.ph.i
-  %386 = icmp ugt i64 %.0.in13.i, 2
+  %386 = icmp samesign ugt i64 %.0.in13.i, 2
   br i1 %386, label %.lr.ph.i, label %_ZN5boost9unit_test9framework4impl14random_shuffleIN9__gnu_cxx17__normal_iteratorIPmSt6vectorImSaImEEEEKNS1_5state23random_generator_helperEEEvT_SE_RT0_.exit, !llvm.loop !747
 
 _ZN5boost9unit_test9framework4impl14random_shuffleIN9__gnu_cxx17__normal_iteratorIPmSt6vectorImSaImEEEEKNS1_5state23random_generator_helperEEEvT_SE_RT0_.exit: ; preds = %385, %._crit_edge920
@@ -43590,7 +43590,7 @@ _ZNK5boost10test_tools16assertion_result7messageEv.exit253: ; preds = %_ZN5boost
   %425 = or disjoint i32 %372, 32
   store i32 %425, ptr %6, align 8
   %426 = load ptr, ptr %424, align 8, !tbaa !173
-  %427 = icmp ult i32 %425, 41
+  %427 = icmp samesign ult i32 %425, 41
   br i1 %427, label %435, label %.thread531
 
 .thread531:                                       ; preds = %420, %.thread528
@@ -46064,7 +46064,7 @@ _ZNK5boost10test_tools16assertion_result7messageEv.exit199: ; preds = %275, %278
   %340 = or disjoint i32 %287, 32
   store i32 %340, ptr %6, align 8
   %341 = load ptr, ptr %339, align 8, !tbaa !173
-  %342 = icmp ult i32 %340, 41
+  %342 = icmp samesign ult i32 %340, 41
   br i1 %342, label %350, label %.thread372
 
 .thread372:                                       ; preds = %335, %.thread369
@@ -57145,7 +57145,7 @@ _ZN5boost9unit_test12_GLOBAL__N_110s_log_implEv.exit13: ; preds = %_ZNK5boost9un
 define dso_local void @_ZN5boost9unit_test15unit_test_log_t16exception_caughtERKNS_19execution_exceptionE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull align 8 dereferenceable(64) %1) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %3 = load i32, ptr %1, align 8, !tbaa !201
   %4 = icmp slt i32 %3, 206
-  %5 = icmp ult i32 %3, 216
+  %5 = icmp samesign ult i32 %3, 216
   %6 = select i1 %5, i32 6, i32 7
   %7 = select i1 %4, i32 5, i32 %6
   %8 = load atomic i8, ptr @_ZGVZN5boost9unit_test12_GLOBAL__N_110s_log_implEvE8the_inst acquire, align 8
@@ -151313,7 +151313,7 @@ define linkonce_odr hidden ptr @_ZN5boost8geometry6detail7overlay9add_ringsINS0_
   br i1 %61, label %62, label %68
 
 62:                                               ; preds = %52
-  %63 = icmp ult i64 %60, 21
+  %63 = icmp samesign ult i64 %60, 21
   br i1 %63, label %64, label %66
 
 64:                                               ; preds = %62
@@ -151592,7 +151592,7 @@ _ZNKSt4lessIN5boost8geometry15ring_identifierEEclERKS2_S5_.exit.i.i: ; preds = %
   br i1 %183, label %184, label %190
 
 184:                                              ; preds = %174
-  %185 = icmp ult i64 %182, 21
+  %185 = icmp samesign ult i64 %182, 21
   br i1 %185, label %186, label %188
 
 186:                                              ; preds = %184
@@ -166077,7 +166077,7 @@ _ZN5boost8geometry13segment_ratioIdE4zeroEv.exit52: ; preds = %50, %63, %65
   %.1 = phi i32 [ %69, %_ZN5boost8geometry13segment_ratioIdE4zeroEv.exit52 ], [ %.0, %48 ]
   %71 = add i32 %5, -1
   %or.cond7 = icmp ult i32 %71, 3
-  %72 = icmp ult i32 %.1, 2
+  %72 = icmp samesign ult i32 %.1, 2
   %or.cond9 = select i1 %or.cond7, i1 %72, i1 false
   br i1 %or.cond9, label %73, label %99
 
@@ -166142,7 +166142,7 @@ _ZN5boost8geometry13segment_ratioIdE3oneEv.exit55: ; preds = %_ZN5boost8geometry
 99:                                               ; preds = %_ZN5boost8geometry13segment_ratioIdE3oneEv.exit55, %70
   %.2 = phi i32 [ %98, %_ZN5boost8geometry13segment_ratioIdE3oneEv.exit55 ], [ %.1, %70 ]
   %100 = icmp eq i32 %7, 2
-  %101 = icmp ult i32 %.2, 2
+  %101 = icmp samesign ult i32 %.2, 2
   %or.cond11 = select i1 %100, i1 %101, i1 false
   br i1 %or.cond11, label %102, label %123
 
@@ -196650,7 +196650,7 @@ define linkonce_odr hidden void @_ZNSt5dequeIN5boost8geometry5model4ringINS2_5po
   br i1 %52, label %53, label %59
 
 53:                                               ; preds = %46
-  %54 = icmp ult i64 %51, 21
+  %54 = icmp samesign ult i64 %51, 21
   br i1 %54, label %55, label %57
 
 55:                                               ; preds = %53
@@ -196728,7 +196728,7 @@ _ZSt25__uninitialized_default_aISt15_Deque_iteratorIN5boost8geometry5model4ringI
   br i1 %85, label %86, label %92
 
 86:                                               ; preds = %78
-  %87 = icmp ult i64 %84, 21
+  %87 = icmp samesign ult i64 %84, 21
   br i1 %87, label %88, label %90
 
 88:                                               ; preds = %86
@@ -200118,7 +200118,7 @@ _ZN5boost8geometry6detail7overlay9turn_infoINS0_5model5pointIdLm2ENS0_2cs10geogr
   br i1 %225, label %226, label %232
 
 226:                                              ; preds = %_ZN5boost8geometry6detail7overlay9turn_infoINS0_5model5pointIdLm2ENS0_2cs10geographicINS0_6degreeEEEEENS0_13segment_ratioIdEENS2_14turn_operationISA_SC_EESt5arrayISE_Lm2EEEC2Ev.exit
-  %227 = icmp ult i64 %224, 2
+  %227 = icmp samesign ult i64 %224, 2
   br i1 %227, label %228, label %230
 
 228:                                              ; preds = %226
@@ -208561,7 +208561,7 @@ define linkonce_odr hidden void @_ZZN5boost8geometry6detail7overlay14assign_pare
   br i1 %70, label %71, label %77
 
 71:                                               ; preds = %54
-  %72 = icmp ult i64 %69, 21
+  %72 = icmp samesign ult i64 %69, 21
   br i1 %72, label %73, label %75
 
 73:                                               ; preds = %71
@@ -214587,7 +214587,7 @@ define internal fastcc noundef zeroext i1 @_ZN5boost8geometry6detail7overlayL21w
   br i1 %53, label %54, label %60
 
 54:                                               ; preds = %38
-  %55 = icmp ult i64 %52, 21
+  %55 = icmp samesign ult i64 %52, 21
   br i1 %55, label %56, label %58
 
 56:                                               ; preds = %54
@@ -214677,7 +214677,7 @@ _ZN5boost8geometry6detail7overlay8get_ringIvE5applyISt5dequeINS0_5model4ringINS7
   br i1 %116, label %117, label %123
 
 117:                                              ; preds = %101
-  %118 = icmp ult i64 %115, 21
+  %118 = icmp samesign ult i64 %115, 21
   br i1 %118, label %119, label %121
 
 119:                                              ; preds = %117
@@ -214727,7 +214727,7 @@ _ZN5boost8geometry6detail7overlay8get_ringIvE5applyISt5dequeINS0_5model4ringINS7
   br i1 %149, label %150, label %156
 
 150:                                              ; preds = %135
-  %151 = icmp ult i64 %148, 21
+  %151 = icmp samesign ult i64 %148, 21
   br i1 %151, label %152, label %154
 
 152:                                              ; preds = %150
@@ -214797,7 +214797,7 @@ _ZN5boost8geometry6detail7overlay8get_ringIvE5applyISt5dequeINS0_5model4ringINS7
   br i1 %194, label %195, label %201
 
 195:                                              ; preds = %189
-  %196 = icmp ult i64 %193, 21
+  %196 = icmp samesign ult i64 %193, 21
   br i1 %196, label %197, label %199
 
 197:                                              ; preds = %195

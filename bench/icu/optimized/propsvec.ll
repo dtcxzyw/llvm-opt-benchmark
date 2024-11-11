@@ -194,7 +194,7 @@ if.then43:                                        ; preds = %if.then36
   br i1 %cmp45, label %if.end52, label %if.else
 
 if.else:                                          ; preds = %if.then43
-  %cmp48 = icmp ult i32 %10, 1114114
+  %cmp48 = icmp samesign ult i32 %10, 1114114
   br i1 %cmp48, label %if.end52, label %for.end.sink.split
 
 if.end52:                                         ; preds = %if.else, %if.then43

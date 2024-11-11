@@ -899,7 +899,7 @@ define dso_local void @llvm_blake3_hasher_update(ptr noundef %0, ptr noundef %1,
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(66) %352, i8 0, i64 66, i1 false)
   store i8 %367, ptr %329, align 2
   store i64 %354, ptr %325, align 8
-  %369 = icmp ugt i64 %.01081, 64
+  %369 = icmp samesign ugt i64 %.01081, 64
   br i1 %369, label %.lr.ph1224, label %._crit_edge1225
 
 .lr.ph1224:                                       ; preds = %368, %.lr.ph1224

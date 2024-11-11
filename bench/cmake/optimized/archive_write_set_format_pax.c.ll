@@ -2341,7 +2341,7 @@ define internal fastcc void @add_pax_attr_time(ptr noundef %0, ptr noundef %1, i
   %19 = urem i64 %.12226, 10
   %20 = udiv i64 %.12226, 10
   %21 = add nsw i32 %.11828, -1
-  %22 = icmp ugt i32 %.11828, 1
+  %22 = icmp samesign ugt i32 %.11828, 1
   br i1 %22, label %.lr.ph, label %._crit_edge, !llvm.loop !19
 
 ._crit_edge:                                      ; preds = %.lr.ph, %.preheader
@@ -2480,7 +2480,7 @@ define internal fastcc noundef nonnull ptr @build_gnu_sparse_name(ptr noundef no
   br i1 %12, label %.backedge, label %14
 
 .backedge:                                        ; preds = %.lr.ph, %17
-  %13 = icmp ugt i64 %.0.idx26, 1
+  %13 = icmp samesign ugt i64 %.0.idx26, 1
   br i1 %13, label %.lr.ph, label %.thread
 
 14:                                               ; preds = %.lr.ph
@@ -2941,7 +2941,7 @@ define internal fastcc noundef nonnull ptr @build_pax_attribute_name(ptr noundef
   br i1 %13, label %.backedge, label %15
 
 .backedge:                                        ; preds = %.lr.ph, %18
-  %14 = icmp ugt i64 %.0.idx44, 1
+  %14 = icmp samesign ugt i64 %.0.idx44, 1
   br i1 %14, label %.lr.ph, label %._crit_edge
 
 15:                                               ; preds = %.lr.ph

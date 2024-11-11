@@ -5008,7 +5008,7 @@ define internal fastcc void @show_hide_controls(ptr nocapture readonly %0) unnam
   %17 = add i32 %16, 20
   %18 = icmp sgt i32 %17, 200
   %19 = select i1 %18, i32 200, i32 %16
-  %20 = icmp ugt i32 %5, 100
+  %20 = icmp samesign ugt i32 %5, 100
   %21 = zext i1 %20 to i32
   %22 = sitofp i32 %19 to double
   br label %23

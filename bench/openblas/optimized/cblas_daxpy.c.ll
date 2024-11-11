@@ -45,7 +45,7 @@ define void @cblas_daxpy(i32 noundef %0, double noundef %1, ptr noundef %2, i32 
   %34 = select i1 %30, i64 %33, i64 0
   %35 = getelementptr inbounds double, ptr %4, i64 %34
   %36 = or i1 %22, %21
-  %37 = icmp ult i32 %0, 10001
+  %37 = icmp samesign ult i32 %0, 10001
   %38 = or i1 %37, %36
   %39 = load i32, ptr @blas_cpu_number, align 4
   %40 = icmp eq i32 %39, 1

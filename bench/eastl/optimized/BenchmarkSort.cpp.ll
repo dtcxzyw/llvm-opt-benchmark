@@ -3260,7 +3260,7 @@ for.body.i.i800:                                  ; preds = %for.body.i.i800.pre
   store i32 %339, ptr %add.ptr.i.i.i803, align 4
   %sub.ptr.div.i.i.i804 = lshr exact i64 %sub.ptr.sub8.i.i801, 2
   %sub.i.i.i805 = add nsw i64 %sub.ptr.div.i.i.i804, -1
-  %cmp24.i.i = icmp ugt i64 %sub.i.i.i805, 2
+  %cmp24.i.i = icmp samesign ugt i64 %sub.i.i.i805, 2
   br i1 %cmp24.i.i, label %for.body.lr.ph.i.i, label %for.end.i.i1934
 
 for.body.lr.ph.i.i:                               ; preds = %for.body.i.i800
@@ -5684,7 +5684,7 @@ for.body.i.i.i.i.i.i.i1493:                       ; preds = %for.body.i.i.i.i.i.
   %dec.i.i.i.i.i.i.i = add nsw i64 %n.011.i.i.i.i.i.i.i, -1
   %incdec.ptr.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %first.addr.09.i.i.i.i.i.i.i, i64 4
   %incdec.ptr1.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %result.addr.010.i.i.i.i.i.i.i, i64 4
-  %cmp.i.i.i.i.i.i.i1494 = icmp ugt i64 %n.011.i.i.i.i.i.i.i, 1
+  %cmp.i.i.i.i.i.i.i1494 = icmp samesign ugt i64 %n.011.i.i.i.i.i.i.i, 1
   br i1 %cmp.i.i.i.i.i.i.i1494, label %for.body.i.i.i.i.i.i.i1493, label %for.cond.for.end_crit_edge.i.i.i.i.i.i.i, !llvm.loop !100
 
 for.cond.for.end_crit_edge.i.i.i.i.i.i.i:         ; preds = %for.body.i.i.i.i.i.i.i1493
@@ -5749,7 +5749,7 @@ for.body.i.i.i.i.i.i1521:                         ; preds = %for.body.i.i.i.i.i.
   %dec.i.i.i.i.i.i = add nsw i64 %n.011.i.i.i.i.i.i, -1
   %incdec.ptr.i.i.i.i.i.i = getelementptr inbounds i8, ptr %first.addr.09.i.i.i.i.i.i, i64 4
   %incdec.ptr1.i.i.i.i.i.i = getelementptr inbounds i8, ptr %result.addr.010.i.i.i.i.i.i, i64 4
-  %cmp.i.i.i.i.i.i1522 = icmp ugt i64 %n.011.i.i.i.i.i.i, 1
+  %cmp.i.i.i.i.i.i1522 = icmp samesign ugt i64 %n.011.i.i.i.i.i.i, 1
   br i1 %cmp.i.i.i.i.i.i1522, label %for.body.i.i.i.i.i.i1521, label %for.cond.for.end_crit_edge.i.i.i.i.i.i, !llvm.loop !100
 
 for.cond.for.end_crit_edge.i.i.i.i.i.i:           ; preds = %for.body.i.i.i.i.i.i1521
@@ -6459,7 +6459,7 @@ for.body.i.i.i.i.i.i58.i.i.i:                     ; preds = %for.body.i.i.i.i.i.
   %incdec.ptr.val.i.i.i.i.i.i64.i.i.i = load i32, ptr %incdec.ptr.i.i.i.i.i.i62.i.i.i, align 4
   store i32 %incdec.ptr.val.i.i.i.i.i.i64.i.i.i, ptr %incdec.ptr1.i.i.i.i.i.i63.i.i.i, align 4
   %dec.i.i.i.i.i.i65.i.i.i = add nsw i64 %__n.09.i.i.i.i.i.i59.i.i.i, -1
-  %cmp.i.i.i.i.i.i66.i.i.i = icmp ugt i64 %__n.09.i.i.i.i.i.i59.i.i.i, 1
+  %cmp.i.i.i.i.i.i66.i.i.i = icmp samesign ugt i64 %__n.09.i.i.i.i.i.i59.i.i.i, 1
   br i1 %cmp.i.i.i.i.i.i66.i.i.i, label %for.body.i.i.i.i.i.i58.i.i.i, label %for.cond.for.end_crit_edge.i.i.i.i.i.i67.i.i.i, !llvm.loop !120
 
 for.cond.for.end_crit_edge.i.i.i.i.i.i67.i.i.i:   ; preds = %for.body.i.i.i.i.i.i58.i.i.i
@@ -12577,7 +12577,7 @@ for.body.i.i192.i:                                ; preds = %for.body.i.i192.i.p
   store i32 %319, ptr %add.ptr.i.i.i.i201, align 4
   %sub.ptr.div.i.i.i193.i = lshr exact i64 %sub.ptr.sub8.i.i.i199, 2
   %sub.i.i.i.i202 = add nsw i64 %sub.ptr.div.i.i.i193.i, -1
-  %cmp24.i.i.i = icmp ugt i64 %sub.i.i.i.i202, 2
+  %cmp24.i.i.i = icmp samesign ugt i64 %sub.i.i.i.i202, 2
   br i1 %cmp24.i.i.i, label %for.body.lr.ph.i.i.i, label %for.end.i.i.i203
 
 for.body.lr.ph.i.i.i:                             ; preds = %for.body.i.i192.i
@@ -15235,7 +15235,7 @@ for.body.i.i.i.i.i.i.i258.i:                      ; preds = %for.body.i.i.i.i.i.
   %dec.i.i.i.i.i.i.i.i = add nsw i64 %n.011.i.i.i.i.i.i.i.i, -1
   %incdec.ptr.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %first.addr.09.i.i.i.i.i.i.i.i, i64 4
   %incdec.ptr1.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %result.addr.010.i.i.i.i.i.i.i.i, i64 4
-  %cmp.i.i.i.i.i.i.i259.i = icmp ugt i64 %n.011.i.i.i.i.i.i.i.i, 1
+  %cmp.i.i.i.i.i.i.i259.i = icmp samesign ugt i64 %n.011.i.i.i.i.i.i.i.i, 1
   br i1 %cmp.i.i.i.i.i.i.i259.i, label %for.body.i.i.i.i.i.i.i258.i, label %for.cond.for.end_crit_edge.i.i.i.i.i.i.i.i, !llvm.loop !100
 
 for.cond.for.end_crit_edge.i.i.i.i.i.i.i.i:       ; preds = %for.body.i.i.i.i.i.i.i258.i
@@ -15315,7 +15315,7 @@ for.body.i.i.i.i.i.i283.i:                        ; preds = %if.then.i.i278.i, %
   %dec.i.i.i.i.i.i.i = add nsw i64 %n.011.i.i.i.i.i.i.i, -1
   %incdec.ptr.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %first.addr.09.i.i.i.i.i.i.i, i64 4
   %incdec.ptr1.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %result.addr.010.i.i.i.i.i.i.i, i64 4
-  %cmp.i.i.i.i.i.i284.i = icmp ugt i64 %n.011.i.i.i.i.i.i.i, 1
+  %cmp.i.i.i.i.i.i284.i = icmp samesign ugt i64 %n.011.i.i.i.i.i.i.i, 1
   br i1 %cmp.i.i.i.i.i.i284.i, label %for.body.i.i.i.i.i.i283.i, label %for.cond.for.end_crit_edge.i.i.i.i.i.i.i, !llvm.loop !100
 
 for.cond.for.end_crit_edge.i.i.i.i.i.i.i:         ; preds = %for.body.i.i.i.i.i.i283.i
@@ -15894,7 +15894,7 @@ for.body.i.i.i.i.i.i58.i.i.i.i:                   ; preds = %for.body.i.i.i.i.i.
   %incdec.ptr.val.i.i.i.i.i.i64.i.i.i.i = load i32, ptr %incdec.ptr.i.i.i.i.i.i62.i.i.i.i, align 4
   store i32 %incdec.ptr.val.i.i.i.i.i.i64.i.i.i.i, ptr %incdec.ptr1.i.i.i.i.i.i63.i.i.i.i, align 4
   %dec.i.i.i.i.i.i65.i.i.i.i = add nsw i64 %__n.09.i.i.i.i.i.i59.i.i.i.i, -1
-  %cmp.i.i.i.i.i.i66.i.i.i.i = icmp ugt i64 %__n.09.i.i.i.i.i.i59.i.i.i.i, 1
+  %cmp.i.i.i.i.i.i66.i.i.i.i = icmp samesign ugt i64 %__n.09.i.i.i.i.i.i59.i.i.i.i, 1
   br i1 %cmp.i.i.i.i.i.i66.i.i.i.i, label %for.body.i.i.i.i.i.i58.i.i.i.i, label %for.cond.for.end_crit_edge.i.i.i.i.i.i67.i.i.i.i, !llvm.loop !120
 
 for.cond.for.end_crit_edge.i.i.i.i.i.i67.i.i.i.i: ; preds = %for.body.i.i.i.i.i.i58.i.i.i.i
@@ -19420,7 +19420,7 @@ for.body.i.i.i.i.i.i:                             ; preds = %for.body.i.i.i.i.i.
   %incdec.ptr.val.i.i.i.i.i.i = load i32, ptr %incdec.ptr.i.i.i.i.i.i, align 4
   store i32 %incdec.ptr.val.i.i.i.i.i.i, ptr %incdec.ptr1.i.i.i.i.i.i, align 4
   %dec.i.i.i.i.i.i = add nsw i64 %__n.09.i.i.i.i.i.i, -1
-  %cmp.i.i.i.i.i.i = icmp ugt i64 %__n.09.i.i.i.i.i.i, 1
+  %cmp.i.i.i.i.i.i = icmp samesign ugt i64 %__n.09.i.i.i.i.i.i, 1
   br i1 %cmp.i.i.i.i.i.i, label %for.body.i.i.i.i.i.i, label %for.cond.for.end_crit_edge.i.i.i.i.i.i, !llvm.loop !120
 
 for.cond.for.end_crit_edge.i.i.i.i.i.i:           ; preds = %for.body.i.i.i.i.i.i
@@ -19824,7 +19824,7 @@ for.body.i.i.i.i.i.i.i:                           ; preds = %for.body.i.i.i.i.i.
   %incdec.ptr.val.i.i.i.i.i.i.i = load i32, ptr %incdec.ptr.i.i.i.i.i.i.i, align 4
   store i32 %incdec.ptr.val.i.i.i.i.i.i.i, ptr %incdec.ptr1.i.i.i.i.i.i.i, align 4
   %dec.i.i.i.i.i.i.i = add nsw i64 %__n.09.i.i.i.i.i.i.i, -1
-  %cmp.i.i.i.i.i.i.i = icmp ugt i64 %__n.09.i.i.i.i.i.i.i, 1
+  %cmp.i.i.i.i.i.i.i = icmp samesign ugt i64 %__n.09.i.i.i.i.i.i.i, 1
   br i1 %cmp.i.i.i.i.i.i.i, label %for.body.i.i.i.i.i.i.i, label %for.cond.for.end_crit_edge.i.i.i.i.i.i.i, !llvm.loop !120
 
 for.cond.for.end_crit_edge.i.i.i.i.i.i.i:         ; preds = %for.body.i.i.i.i.i.i.i
@@ -19910,7 +19910,7 @@ for.body.i.i.i.i.i.i45.i:                         ; preds = %for.body.i.i.i.i.i.
   %incdec.ptr.val.i.i.i.i.i.i51.i = load i32, ptr %incdec.ptr.i.i.i.i.i.i49.i, align 4
   store i32 %incdec.ptr.val.i.i.i.i.i.i51.i, ptr %incdec.ptr1.i.i.i.i.i.i50.i, align 4
   %dec.i.i.i.i.i.i52.i = add nsw i64 %__n.09.i.i.i.i.i.i46.i, -1
-  %cmp.i.i.i.i.i.i53.i = icmp ugt i64 %__n.09.i.i.i.i.i.i46.i, 1
+  %cmp.i.i.i.i.i.i53.i = icmp samesign ugt i64 %__n.09.i.i.i.i.i.i46.i, 1
   br i1 %cmp.i.i.i.i.i.i53.i, label %for.body.i.i.i.i.i.i45.i, label %for.cond.for.end_crit_edge.i.i.i.i.i.i54.i, !llvm.loop !120
 
 for.cond.for.end_crit_edge.i.i.i.i.i.i54.i:       ; preds = %for.body.i.i.i.i.i.i45.i
@@ -19996,7 +19996,7 @@ for.body.i.i.i.i.i:                               ; preds = %if.then, %for.body.
   %incdec.ptr.i.i.i.i.i = getelementptr inbounds i8, ptr %__first.addr.09.i.i.i.i.i, i64 4
   %incdec.ptr1.i.i.i.i.i = getelementptr inbounds i8, ptr %__result.addr.010.i.i.i.i.i, i64 4
   %dec.i.i.i.i.i = add nsw i64 %__n.011.i.i.i.i.i, -1
-  %cmp.i.i.i.i.i = icmp ugt i64 %__n.011.i.i.i.i.i, 1
+  %cmp.i.i.i.i.i = icmp samesign ugt i64 %__n.011.i.i.i.i.i, 1
   br i1 %cmp.i.i.i.i.i, label %for.body.i.i.i.i.i, label %_ZSt4moveIPN12_GLOBAL__N_110SlowAssignIjEES3_ET0_T_S5_S4_.exit, !llvm.loop !233
 
 _ZSt4moveIPN12_GLOBAL__N_110SlowAssignIjEES3_ET0_T_S5_S4_.exit: ; preds = %for.body.i.i.i.i.i
@@ -20053,7 +20053,7 @@ for.body.i.i.i.i.i.i:                             ; preds = %if.then7.i, %for.bo
   %incdec.ptr.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__first.addr.09.i.i.i.i.i.i, i64 4
   %incdec.ptr1.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__result.addr.010.i.i.i.i.i.i, i64 4
   %dec.i.i.i.i.i.i = add nsw i64 %__n.011.i.i.i.i.i.i, -1
-  %cmp.i.i.i.i.i.i = icmp ugt i64 %__n.011.i.i.i.i.i.i, 1
+  %cmp.i.i.i.i.i.i = icmp samesign ugt i64 %__n.011.i.i.i.i.i.i, 1
   br i1 %cmp.i.i.i.i.i.i, label %for.body.i.i.i.i.i.i, label %if.end27.sink.split, !llvm.loop !233
 
 if.else:                                          ; preds = %if.else.lr.ph, %if.end
@@ -20083,7 +20083,7 @@ for.body.i.i.i.i.i58:                             ; preds = %if.then3, %for.body
   %incdec.ptr.i.i.i.i.i63 = getelementptr inbounds i8, ptr %__first.addr.09.i.i.i.i.i61, i64 4
   %incdec.ptr1.i.i.i.i.i64 = getelementptr inbounds i8, ptr %__result.addr.010.i.i.i.i.i60, i64 4
   %dec.i.i.i.i.i65 = add nsw i64 %__n.011.i.i.i.i.i59, -1
-  %cmp.i.i.i.i.i66 = icmp ugt i64 %__n.011.i.i.i.i.i59, 1
+  %cmp.i.i.i.i.i66 = icmp samesign ugt i64 %__n.011.i.i.i.i.i59, 1
   br i1 %cmp.i.i.i.i.i66, label %for.body.i.i.i.i.i58, label %for.cond.for.end_crit_edge.i.i.i.i.i67, !llvm.loop !233
 
 for.cond.for.end_crit_edge.i.i.i.i.i67:           ; preds = %for.body.i.i.i.i.i58
@@ -20116,7 +20116,7 @@ for.body.i.i.i.i.i.i79:                           ; preds = %if.then.i, %for.bod
   store i32 %incdec.ptr.val.i.i.i.i.i.i, ptr %incdec.ptr1.i.i.i.i.i.i81, align 4
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(256) @_ZN12_GLOBAL__N_118gSlowAssignBuffer1E, i8 0, i64 256, i1 false)
   %dec.i.i.i.i.i.i82 = add nsw i64 %__n.09.i.i.i.i.i.i, -1
-  %cmp.i.i.i.i.i.i83 = icmp ugt i64 %__n.09.i.i.i.i.i.i, 1
+  %cmp.i.i.i.i.i.i83 = icmp samesign ugt i64 %__n.09.i.i.i.i.i.i, 1
   br i1 %cmp.i.i.i.i.i.i83, label %for.body.i.i.i.i.i.i79, label %if.end27.sink.split, !llvm.loop !120
 
 if.else.i:                                        ; preds = %_ZSt4moveIPN12_GLOBAL__N_110SlowAssignIjEES3_ET0_T_S5_S4_.exit68
@@ -20172,7 +20172,7 @@ for.body.i.i.i.i.i29.i:                           ; preds = %if.then10.i, %for.b
   store i32 %incdec.ptr.val.i.i.i.i.i35.i, ptr %incdec.ptr1.i.i.i.i.i34.i, align 4
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(256) @_ZN12_GLOBAL__N_118gSlowAssignBuffer1E, i8 0, i64 256, i1 false)
   %dec.i.i.i.i.i36.i = add nsw i64 %__n.09.i.i.i.i.i30.i, -1
-  %cmp.i.i.i.i.i37.i = icmp ugt i64 %__n.09.i.i.i.i.i30.i, 1
+  %cmp.i.i.i.i.i37.i = icmp samesign ugt i64 %__n.09.i.i.i.i.i30.i, 1
   br i1 %cmp.i.i.i.i.i37.i, label %for.body.i.i.i.i.i29.i, label %if.end27.sink.split, !llvm.loop !120
 
 if.else15.i:                                      ; preds = %while.body.i72
@@ -20357,7 +20357,7 @@ for.body.i.i.i.i.i.i:                             ; preds = %while.end.i, %for.b
   %incdec.ptr.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__first.addr.09.i.i.i.i.i.i, i64 4
   %incdec.ptr1.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__result.addr.010.i.i.i.i.i.i, i64 4
   %dec.i.i.i.i.i.i = add nsw i64 %__n.011.i.i.i.i.i.i, -1
-  %cmp.i.i.i.i.i.i = icmp ugt i64 %__n.011.i.i.i.i.i.i, 1
+  %cmp.i.i.i.i.i.i = icmp samesign ugt i64 %__n.011.i.i.i.i.i.i, 1
   br i1 %cmp.i.i.i.i.i.i, label %for.body.i.i.i.i.i.i, label %for.cond.for.end_crit_edge.i.i.i.i.i.i, !llvm.loop !233
 
 for.cond.for.end_crit_edge.i.i.i.i.i.i:           ; preds = %for.body.i.i.i.i.i.i
@@ -20386,7 +20386,7 @@ for.body.i.i.i.i.i24.i:                           ; preds = %_ZSt4moveIPN12_GLOB
   %incdec.ptr.i.i.i.i.i29.i = getelementptr inbounds i8, ptr %__first.addr.09.i.i.i.i.i27.i, i64 4
   %incdec.ptr1.i.i.i.i.i30.i = getelementptr inbounds i8, ptr %__result.addr.010.i.i.i.i.i26.i, i64 4
   %dec.i.i.i.i.i31.i = add nsw i64 %__n.011.i.i.i.i.i25.i, -1
-  %cmp.i.i.i.i.i32.i = icmp ugt i64 %__n.011.i.i.i.i.i25.i, 1
+  %cmp.i.i.i.i.i32.i = icmp samesign ugt i64 %__n.011.i.i.i.i.i25.i, 1
   br i1 %cmp.i.i.i.i.i32.i, label %for.body.i.i.i.i.i24.i, label %for.cond.for.end_crit_edge.i.i.i.i.i33.i, !llvm.loop !233
 
 for.cond.for.end_crit_edge.i.i.i.i.i33.i:         ; preds = %for.body.i.i.i.i.i24.i
@@ -20463,7 +20463,7 @@ for.body.i.i.i.i.i.i49:                           ; preds = %while.end.i20, %for
   %incdec.ptr.i.i.i.i.i.i54 = getelementptr inbounds i8, ptr %__first.addr.09.i.i.i.i.i.i52, i64 4
   %incdec.ptr1.i.i.i.i.i.i55 = getelementptr inbounds i8, ptr %__result.addr.010.i.i.i.i.i.i51, i64 4
   %dec.i.i.i.i.i.i56 = add nsw i64 %__n.011.i.i.i.i.i.i50, -1
-  %cmp.i.i.i.i.i.i57 = icmp ugt i64 %__n.011.i.i.i.i.i.i50, 1
+  %cmp.i.i.i.i.i.i57 = icmp samesign ugt i64 %__n.011.i.i.i.i.i.i50, 1
   br i1 %cmp.i.i.i.i.i.i57, label %for.body.i.i.i.i.i.i49, label %for.cond.for.end_crit_edge.i.i.i.i.i.i58, !llvm.loop !233
 
 for.cond.for.end_crit_edge.i.i.i.i.i.i58:         ; preds = %for.body.i.i.i.i.i.i49
@@ -20491,7 +20491,7 @@ for.body.i.i.i.i.i24.i39:                         ; preds = %_ZSt4moveIPN12_GLOB
   %incdec.ptr.i.i.i.i.i29.i44 = getelementptr inbounds i8, ptr %__first.addr.09.i.i.i.i.i27.i42, i64 4
   %incdec.ptr1.i.i.i.i.i30.i45 = getelementptr inbounds i8, ptr %__result.addr.010.i.i.i.i.i26.i41, i64 4
   %dec.i.i.i.i.i31.i46 = add nsw i64 %__n.011.i.i.i.i.i25.i40, -1
-  %cmp.i.i.i.i.i32.i47 = icmp ugt i64 %__n.011.i.i.i.i.i25.i40, 1
+  %cmp.i.i.i.i.i32.i47 = icmp samesign ugt i64 %__n.011.i.i.i.i.i25.i40, 1
   br i1 %cmp.i.i.i.i.i32.i47, label %for.body.i.i.i.i.i24.i39, label %for.cond.for.end_crit_edge.i.i.i.i.i33.i48, !llvm.loop !233
 
 for.cond.for.end_crit_edge.i.i.i.i.i33.i48:       ; preds = %for.body.i.i.i.i.i24.i39
@@ -20535,7 +20535,7 @@ for.body.i.i.i.i.i:                               ; preds = %if.then2, %for.body
   %incdec.ptr.i.i.i.i.i = getelementptr inbounds i8, ptr %__first.addr.09.i.i.i.i.i, i64 4
   %incdec.ptr1.i.i.i.i.i = getelementptr inbounds i8, ptr %__result.addr.010.i.i.i.i.i, i64 4
   %dec.i.i.i.i.i = add nsw i64 %__n.011.i.i.i.i.i, -1
-  %cmp.i.i.i.i.i = icmp ugt i64 %__n.011.i.i.i.i.i, 1
+  %cmp.i.i.i.i.i = icmp samesign ugt i64 %__n.011.i.i.i.i.i, 1
   br i1 %cmp.i.i.i.i.i, label %for.body.i.i.i.i.i, label %for.cond.for.end_crit_edge.i.i.i.i.i, !llvm.loop !233
 
 for.cond.for.end_crit_edge.i.i.i.i.i:             ; preds = %for.body.i.i.i.i.i
@@ -20563,7 +20563,7 @@ for.body.i.i.i.i.i30:                             ; preds = %_ZSt4moveIPN12_GLOB
   store i32 %incdec.ptr.val.i.i.i.i.i, ptr %incdec.ptr1.i.i.i.i.i32, align 4
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(256) @_ZN12_GLOBAL__N_118gSlowAssignBuffer1E, i8 0, i64 256, i1 false)
   %dec.i.i.i.i.i33 = add nsw i64 %__n.09.i.i.i.i.i, -1
-  %cmp.i.i.i.i.i34 = icmp ugt i64 %__n.09.i.i.i.i.i, 1
+  %cmp.i.i.i.i.i34 = icmp samesign ugt i64 %__n.09.i.i.i.i.i, 1
   br i1 %cmp.i.i.i.i.i34, label %for.body.i.i.i.i.i30, label %for.cond.for.end_crit_edge.i.i.i.i.i35, !llvm.loop !120
 
 for.cond.for.end_crit_edge.i.i.i.i.i35:           ; preds = %for.body.i.i.i.i.i30
@@ -20591,7 +20591,7 @@ for.body.i.i.i.i.i43:                             ; preds = %_ZSt13move_backward
   %incdec.ptr.i.i.i.i.i48 = getelementptr inbounds i8, ptr %__first.addr.09.i.i.i.i.i46, i64 4
   %incdec.ptr1.i.i.i.i.i49 = getelementptr inbounds i8, ptr %__result.addr.010.i.i.i.i.i45, i64 4
   %dec.i.i.i.i.i50 = add nsw i64 %__n.011.i.i.i.i.i44, -1
-  %cmp.i.i.i.i.i51 = icmp ugt i64 %__n.011.i.i.i.i.i44, 1
+  %cmp.i.i.i.i.i51 = icmp samesign ugt i64 %__n.011.i.i.i.i.i44, 1
   br i1 %cmp.i.i.i.i.i51, label %for.body.i.i.i.i.i43, label %for.cond.for.end_crit_edge.i.i.i.i.i52, !llvm.loop !233
 
 for.cond.for.end_crit_edge.i.i.i.i.i52:           ; preds = %for.body.i.i.i.i.i43
@@ -20627,7 +20627,7 @@ for.body.i.i.i.i.i61:                             ; preds = %if.then9, %for.body
   %incdec.ptr.i.i.i.i.i66 = getelementptr inbounds i8, ptr %__first.addr.09.i.i.i.i.i64, i64 4
   %incdec.ptr1.i.i.i.i.i67 = getelementptr inbounds i8, ptr %__result.addr.010.i.i.i.i.i63, i64 4
   %dec.i.i.i.i.i68 = add nsw i64 %__n.011.i.i.i.i.i62, -1
-  %cmp.i.i.i.i.i69 = icmp ugt i64 %__n.011.i.i.i.i.i62, 1
+  %cmp.i.i.i.i.i69 = icmp samesign ugt i64 %__n.011.i.i.i.i.i62, 1
   br i1 %cmp.i.i.i.i.i69, label %for.body.i.i.i.i.i61, label %for.cond.for.end_crit_edge.i.i.i.i.i70, !llvm.loop !233
 
 for.cond.for.end_crit_edge.i.i.i.i.i70:           ; preds = %for.body.i.i.i.i.i61
@@ -20655,7 +20655,7 @@ for.body.i.i.i.i.i79:                             ; preds = %_ZSt4moveIPN12_GLOB
   %incdec.ptr.i.i.i.i.i84 = getelementptr inbounds i8, ptr %__first.addr.09.i.i.i.i.i82, i64 4
   %incdec.ptr1.i.i.i.i.i85 = getelementptr inbounds i8, ptr %__result.addr.010.i.i.i.i.i81, i64 4
   %dec.i.i.i.i.i86 = add nsw i64 %__n.011.i.i.i.i.i80, -1
-  %cmp.i.i.i.i.i87 = icmp ugt i64 %__n.011.i.i.i.i.i80, 1
+  %cmp.i.i.i.i.i87 = icmp samesign ugt i64 %__n.011.i.i.i.i.i80, 1
   br i1 %cmp.i.i.i.i.i87, label %for.body.i.i.i.i.i79, label %for.cond.for.end_crit_edge.i.i.i.i.i88, !llvm.loop !233
 
 for.cond.for.end_crit_edge.i.i.i.i.i88:           ; preds = %for.body.i.i.i.i.i79
@@ -20683,7 +20683,7 @@ for.body.i.i.i.i.i97:                             ; preds = %_ZSt4moveIPN12_GLOB
   store i32 %incdec.ptr.val.i.i.i.i.i103, ptr %incdec.ptr1.i.i.i.i.i102, align 4
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(256) @_ZN12_GLOBAL__N_118gSlowAssignBuffer1E, i8 0, i64 256, i1 false)
   %dec.i.i.i.i.i104 = add nsw i64 %__n.09.i.i.i.i.i98, -1
-  %cmp.i.i.i.i.i105 = icmp ugt i64 %__n.09.i.i.i.i.i98, 1
+  %cmp.i.i.i.i.i105 = icmp samesign ugt i64 %__n.09.i.i.i.i.i98, 1
   br i1 %cmp.i.i.i.i.i105, label %for.body.i.i.i.i.i97, label %for.cond.for.end_crit_edge.i.i.i.i.i106, !llvm.loop !120
 
 for.cond.for.end_crit_edge.i.i.i.i.i106:          ; preds = %for.body.i.i.i.i.i97
@@ -23434,7 +23434,7 @@ _ZN10TestObjectaSEOS_.exit.i.i.i.i.i:             ; preds = %_ZN10TestObjectaSEO
   store i8 %frombool.i.i.i.i.i.i.i, ptr %mbThrowOnCopy4.i.i.i.i.i.i, align 1
   %.pre.i.i.i.i.i = load i64, ptr @_ZN10TestObject18sTOMoveAssignCountE, align 8
   %dec.i.i.i.i.i = add nsw i64 %__n.07.i.i.i.i.i, -1
-  %cmp.i.i.i.i.i = icmp ugt i64 %__n.07.i.i.i.i.i, 1
+  %cmp.i.i.i.i.i = icmp samesign ugt i64 %__n.07.i.i.i.i.i, 1
   br i1 %cmp.i.i.i.i.i, label %_ZN10TestObjectaSEOS_.exit.i.i.i.i.i, label %invoke.cont, !llvm.loop !281
 
 invoke.cont:                                      ; preds = %_ZN10TestObjectaSEOS_.exit.i.i.i.i.i, %if.then9
@@ -31891,7 +31891,7 @@ for.body.i.i.i.i:                                 ; preds = %for.body.i.i.i.i.pr
   %dec.i.i.i.i = add nsw i64 %n.011.i.i.i.i, -1
   %incdec.ptr.i.i.i.i = getelementptr inbounds i8, ptr %first.addr.09.i.i.i.i, i64 4
   %incdec.ptr1.i.i.i.i = getelementptr inbounds i8, ptr %result.addr.010.i.i.i.i, i64 4
-  %cmp.i.i.i.i = icmp ugt i64 %n.011.i.i.i.i, 1
+  %cmp.i.i.i.i = icmp samesign ugt i64 %n.011.i.i.i.i, 1
   br i1 %cmp.i.i.i.i, label %for.body.i.i.i.i, label %for.cond.for.end_crit_edge.i.i.i.i, !llvm.loop !100
 
 for.cond.for.end_crit_edge.i.i.i.i:               ; preds = %for.body.i.i.i.i
@@ -31992,7 +31992,7 @@ for.body.i.i.i.i97:                               ; preds = %for.body.i.i.i.i97.
   %dec.i.i.i.i102 = add nsw i64 %n.011.i.i.i.i98, -1
   %incdec.ptr.i.i.i.i103 = getelementptr inbounds i8, ptr %first.addr.09.i.i.i.i100, i64 4
   %incdec.ptr1.i.i.i.i104 = getelementptr inbounds i8, ptr %result.addr.010.i.i.i.i99, i64 4
-  %cmp.i.i.i.i105 = icmp ugt i64 %n.011.i.i.i.i98, 1
+  %cmp.i.i.i.i105 = icmp samesign ugt i64 %n.011.i.i.i.i98, 1
   br i1 %cmp.i.i.i.i105, label %for.body.i.i.i.i97, label %for.cond.for.end_crit_edge.i.i.i.i106, !llvm.loop !100
 
 for.cond.for.end_crit_edge.i.i.i.i106:            ; preds = %for.body.i.i.i.i97
@@ -32245,7 +32245,7 @@ for.body.i.i.i.i.i.i:                             ; preds = %if.then7.i.i, %for.
   %dec.i.i.i.i.i.i = add nsw i64 %n.011.i.i.i.i.i.i, -1
   %incdec.ptr.i.i.i.i.i.i = getelementptr inbounds i8, ptr %first.addr.09.i.i.i.i.i.i, i64 4
   %incdec.ptr1.i.i.i.i.i.i = getelementptr inbounds i8, ptr %result.addr.010.i.i.i.i.i.i, i64 4
-  %cmp.i.i.i.i.i.i = icmp ugt i64 %n.011.i.i.i.i.i.i, 1
+  %cmp.i.i.i.i.i.i = icmp samesign ugt i64 %n.011.i.i.i.i.i.i, 1
   br i1 %cmp.i.i.i.i.i.i, label %for.body.i.i.i.i.i.i, label %return.sink.split.i, !llvm.loop !100
 
 if.else9.i.i:                                     ; preds = %while.end.i.i
@@ -32266,7 +32266,7 @@ for.body.i.i.i.i27.i.i:                           ; preds = %if.else9.i.i, %for.
   %dec.i.i.i.i32.i.i = add nsw i64 %n.011.i.i.i.i28.i.i, -1
   %incdec.ptr.i.i.i.i33.i.i = getelementptr inbounds i8, ptr %first.addr.09.i.i.i.i30.i.i, i64 4
   %incdec.ptr1.i.i.i.i34.i.i = getelementptr inbounds i8, ptr %result.addr.010.i.i.i.i29.i.i, i64 4
-  %cmp.i.i.i.i35.i.i = icmp ugt i64 %n.011.i.i.i.i28.i.i, 1
+  %cmp.i.i.i.i35.i.i = icmp samesign ugt i64 %n.011.i.i.i.i28.i.i, 1
   br i1 %cmp.i.i.i.i35.i.i, label %for.body.i.i.i.i27.i.i, label %return.sink.split.i, !llvm.loop !100
 
 if.else.i:                                        ; preds = %if.end15.thread, %if.then.i
@@ -32283,7 +32283,7 @@ for.body.i.i.i.i.i:                               ; preds = %for.body.i.i.i.i.i,
   %dec.i.i.i.i.i = add nsw i64 %n.011.i.i.i.i.i, -1
   %incdec.ptr.i.i.i.i.i = getelementptr inbounds i8, ptr %first.addr.09.i.i.i.i.i, i64 4
   %incdec.ptr1.i.i.i.i.i = getelementptr inbounds i8, ptr %result.addr.010.i.i.i.i.i, i64 4
-  %cmp.i.i.i.i.i = icmp ugt i64 %n.011.i.i.i.i.i, 1
+  %cmp.i.i.i.i.i = icmp samesign ugt i64 %n.011.i.i.i.i.i, 1
   br i1 %cmp.i.i.i.i.i, label %for.body.i.i.i.i.i, label %for.cond.for.end_crit_edge.i.i.i.i.i, !llvm.loop !100
 
 for.cond.for.end_crit_edge.i.i.i.i.i:             ; preds = %for.body.i.i.i.i.i
@@ -32348,7 +32348,7 @@ for.body.i.i.i.i.i73.i:                           ; preds = %if.then7.i67.i, %fo
   %dec.i.i.i.i.i78.i = add nsw i64 %n.011.i.i.i.i.i74.i, -1
   %incdec.ptr.i.i.i.i.i79.i = getelementptr inbounds i8, ptr %first.addr.09.i.i.i.i.i76.i, i64 4
   %incdec.ptr1.i.i.i.i.i80.i = getelementptr inbounds i8, ptr %result.addr.010.i.i.i.i.i75.i, i64 4
-  %cmp.i.i.i.i.i81.i = icmp ugt i64 %n.011.i.i.i.i.i74.i, 1
+  %cmp.i.i.i.i.i81.i = icmp samesign ugt i64 %n.011.i.i.i.i.i74.i, 1
   br i1 %cmp.i.i.i.i.i81.i, label %for.body.i.i.i.i.i73.i, label %return.sink.split.i, !llvm.loop !100
 
 if.else9.i48.i:                                   ; preds = %while.end.i42.i
@@ -32369,7 +32369,7 @@ for.body.i.i.i.i27.i55.i:                         ; preds = %if.else9.i48.i, %fo
   %dec.i.i.i.i32.i60.i = add nsw i64 %n.011.i.i.i.i28.i56.i, -1
   %incdec.ptr.i.i.i.i33.i61.i = getelementptr inbounds i8, ptr %first.addr.09.i.i.i.i30.i58.i, i64 4
   %incdec.ptr1.i.i.i.i34.i62.i = getelementptr inbounds i8, ptr %result.addr.010.i.i.i.i29.i57.i, i64 4
-  %cmp.i.i.i.i35.i63.i = icmp ugt i64 %n.011.i.i.i.i28.i56.i, 1
+  %cmp.i.i.i.i35.i63.i = icmp samesign ugt i64 %n.011.i.i.i.i28.i56.i, 1
   br i1 %cmp.i.i.i.i35.i63.i, label %for.body.i.i.i.i27.i55.i, label %return.sink.split.i, !llvm.loop !100
 
 if.else11.i:                                      ; preds = %if.end15
@@ -32395,7 +32395,7 @@ for.body.i.i.i.i108.i:                            ; preds = %if.then13.i, %for.b
   %dec.i.i.i.i113.i = add nsw i64 %n.011.i.i.i.i109.i, -1
   %incdec.ptr.i.i.i.i114.i = getelementptr inbounds i8, ptr %first.addr.09.i.i.i.i111.i, i64 4
   %incdec.ptr1.i.i.i.i115.i = getelementptr inbounds i8, ptr %result.addr.010.i.i.i.i110.i, i64 4
-  %cmp.i.i.i.i116.i = icmp ugt i64 %n.011.i.i.i.i109.i, 1
+  %cmp.i.i.i.i116.i = icmp samesign ugt i64 %n.011.i.i.i.i109.i, 1
   br i1 %cmp.i.i.i.i116.i, label %for.body.i.i.i.i108.i, label %for.cond.for.end_crit_edge.i.i.i.i117.i, !llvm.loop !100
 
 for.cond.for.end_crit_edge.i.i.i.i117.i:          ; preds = %for.body.i.i.i.i108.i
@@ -32462,7 +32462,7 @@ for.body.i.i.i.i.i153.i:                          ; preds = %if.then7.i147.i, %f
   %dec.i.i.i.i.i158.i = add nsw i64 %n.011.i.i.i.i.i154.i, -1
   %incdec.ptr.i.i.i.i.i159.i = getelementptr inbounds i8, ptr %first.addr.09.i.i.i.i.i156.i, i64 4
   %incdec.ptr1.i.i.i.i.i160.i = getelementptr inbounds i8, ptr %result.addr.010.i.i.i.i.i155.i, i64 4
-  %cmp.i.i.i.i.i161.i = icmp ugt i64 %n.011.i.i.i.i.i154.i, 1
+  %cmp.i.i.i.i.i161.i = icmp samesign ugt i64 %n.011.i.i.i.i.i154.i, 1
   br i1 %cmp.i.i.i.i.i161.i, label %for.body.i.i.i.i.i153.i, label %return.sink.split.i, !llvm.loop !100
 
 if.else9.i128.i:                                  ; preds = %while.end.i122.i
@@ -32483,7 +32483,7 @@ for.body.i.i.i.i27.i135.i:                        ; preds = %if.else9.i128.i, %f
   %dec.i.i.i.i32.i140.i = add nsw i64 %n.011.i.i.i.i28.i136.i, -1
   %incdec.ptr.i.i.i.i33.i141.i = getelementptr inbounds i8, ptr %first.addr.09.i.i.i.i30.i138.i, i64 4
   %incdec.ptr1.i.i.i.i34.i142.i = getelementptr inbounds i8, ptr %result.addr.010.i.i.i.i29.i137.i, i64 4
-  %cmp.i.i.i.i35.i143.i = icmp ugt i64 %n.011.i.i.i.i28.i136.i, 1
+  %cmp.i.i.i.i35.i143.i = icmp samesign ugt i64 %n.011.i.i.i.i28.i136.i, 1
   br i1 %cmp.i.i.i.i35.i143.i, label %for.body.i.i.i.i27.i135.i, label %return.sink.split.i, !llvm.loop !100
 
 if.else22.i:                                      ; preds = %if.else11.i
@@ -32544,7 +32544,7 @@ for.body.i.i.i.i.i215.i:                          ; preds = %if.then7.i209.i, %f
   %dec.i.i.i.i.i220.i = add nsw i64 %n.011.i.i.i.i.i216.i, -1
   %incdec.ptr.i.i.i.i.i221.i = getelementptr inbounds i8, ptr %first.addr.09.i.i.i.i.i218.i, i64 4
   %incdec.ptr1.i.i.i.i.i222.i = getelementptr inbounds i8, ptr %result.addr.010.i.i.i.i.i217.i, i64 4
-  %cmp.i.i.i.i.i223.i = icmp ugt i64 %n.011.i.i.i.i.i216.i, 1
+  %cmp.i.i.i.i.i223.i = icmp samesign ugt i64 %n.011.i.i.i.i.i216.i, 1
   br i1 %cmp.i.i.i.i.i223.i, label %for.body.i.i.i.i.i215.i, label %return.sink.split.i, !llvm.loop !100
 
 if.else9.i190.i:                                  ; preds = %while.end.i184.i
@@ -32565,7 +32565,7 @@ for.body.i.i.i.i27.i197.i:                        ; preds = %if.else9.i190.i, %f
   %dec.i.i.i.i32.i202.i = add nsw i64 %n.011.i.i.i.i28.i198.i, -1
   %incdec.ptr.i.i.i.i33.i203.i = getelementptr inbounds i8, ptr %first.addr.09.i.i.i.i30.i200.i, i64 4
   %incdec.ptr1.i.i.i.i34.i204.i = getelementptr inbounds i8, ptr %result.addr.010.i.i.i.i29.i199.i, i64 4
-  %cmp.i.i.i.i35.i205.i = icmp ugt i64 %n.011.i.i.i.i28.i198.i, 1
+  %cmp.i.i.i.i35.i205.i = icmp samesign ugt i64 %n.011.i.i.i.i28.i198.i, 1
   br i1 %cmp.i.i.i.i35.i205.i, label %for.body.i.i.i.i27.i197.i, label %return.sink.split.i, !llvm.loop !100
 
 return.sink.split.i:                              ; preds = %for.body.i.i.i.i27.i197.i, %for.body.i.i.i.i.i215.i, %for.body.i.i.i.i27.i135.i, %for.body.i.i.i.i.i153.i, %for.body.i.i.i.i27.i55.i, %for.body.i.i.i.i.i73.i, %for.body.i.i.i.i27.i.i, %for.body.i.i.i.i.i.i
@@ -33043,7 +33043,7 @@ for.body.i.i.i.i.i.i:                             ; preds = %for.body.i.i.i.i.i.
   %incdec.ptr.val.i.i.i.i.i.i = load i32, ptr %incdec.ptr.i.i.i.i.i.i, align 4
   store i32 %incdec.ptr.val.i.i.i.i.i.i, ptr %incdec.ptr1.i.i.i.i.i.i, align 4
   %dec.i.i.i.i.i.i = add nsw i64 %__n.09.i.i.i.i.i.i, -1
-  %cmp.i.i.i.i.i.i = icmp ugt i64 %__n.09.i.i.i.i.i.i, 1
+  %cmp.i.i.i.i.i.i = icmp samesign ugt i64 %__n.09.i.i.i.i.i.i, 1
   br i1 %cmp.i.i.i.i.i.i, label %for.body.i.i.i.i.i.i, label %for.cond.for.end_crit_edge.i.i.i.i.i.i, !llvm.loop !120
 
 for.cond.for.end_crit_edge.i.i.i.i.i.i:           ; preds = %for.body.i.i.i.i.i.i
@@ -33307,7 +33307,7 @@ for.body.i.i.i.i.i.i.i:                           ; preds = %for.body.i.i.i.i.i.
   %incdec.ptr.val.i.i.i.i.i.i.i = load i32, ptr %incdec.ptr.i.i.i.i.i.i.i, align 4
   store i32 %incdec.ptr.val.i.i.i.i.i.i.i, ptr %incdec.ptr1.i.i.i.i.i.i.i, align 4
   %dec.i.i.i.i.i.i.i = add nsw i64 %__n.09.i.i.i.i.i.i.i, -1
-  %cmp.i.i.i.i.i.i.i = icmp ugt i64 %__n.09.i.i.i.i.i.i.i, 1
+  %cmp.i.i.i.i.i.i.i = icmp samesign ugt i64 %__n.09.i.i.i.i.i.i.i, 1
   br i1 %cmp.i.i.i.i.i.i.i, label %for.body.i.i.i.i.i.i.i, label %for.cond.for.end_crit_edge.i.i.i.i.i.i.i, !llvm.loop !120
 
 for.cond.for.end_crit_edge.i.i.i.i.i.i.i:         ; preds = %for.body.i.i.i.i.i.i.i
@@ -33393,7 +33393,7 @@ for.body.i.i.i.i.i.i45.i:                         ; preds = %for.body.i.i.i.i.i.
   %incdec.ptr.val.i.i.i.i.i.i51.i = load i32, ptr %incdec.ptr.i.i.i.i.i.i49.i, align 4
   store i32 %incdec.ptr.val.i.i.i.i.i.i51.i, ptr %incdec.ptr1.i.i.i.i.i.i50.i, align 4
   %dec.i.i.i.i.i.i52.i = add nsw i64 %__n.09.i.i.i.i.i.i46.i, -1
-  %cmp.i.i.i.i.i.i53.i = icmp ugt i64 %__n.09.i.i.i.i.i.i46.i, 1
+  %cmp.i.i.i.i.i.i53.i = icmp samesign ugt i64 %__n.09.i.i.i.i.i.i46.i, 1
   br i1 %cmp.i.i.i.i.i.i53.i, label %for.body.i.i.i.i.i.i45.i, label %for.cond.for.end_crit_edge.i.i.i.i.i.i54.i, !llvm.loop !120
 
 for.cond.for.end_crit_edge.i.i.i.i.i.i54.i:       ; preds = %for.body.i.i.i.i.i.i45.i
@@ -33479,7 +33479,7 @@ for.body.i.i.i.i.i:                               ; preds = %if.then, %for.body.
   %incdec.ptr.i.i.i.i.i = getelementptr inbounds i8, ptr %__first.addr.09.i.i.i.i.i, i64 4
   %incdec.ptr1.i.i.i.i.i = getelementptr inbounds i8, ptr %__result.addr.010.i.i.i.i.i, i64 4
   %dec.i.i.i.i.i = add nsw i64 %__n.011.i.i.i.i.i, -1
-  %cmp.i.i.i.i.i = icmp ugt i64 %__n.011.i.i.i.i.i, 1
+  %cmp.i.i.i.i.i = icmp samesign ugt i64 %__n.011.i.i.i.i.i, 1
   br i1 %cmp.i.i.i.i.i, label %for.body.i.i.i.i.i, label %_ZSt4moveIPN12_GLOBAL__N_110SlowAssignIjEES3_ET0_T_S5_S4_.exit, !llvm.loop !233
 
 _ZSt4moveIPN12_GLOBAL__N_110SlowAssignIjEES3_ET0_T_S5_S4_.exit: ; preds = %for.body.i.i.i.i.i
@@ -33536,7 +33536,7 @@ for.body.i.i.i.i.i.i:                             ; preds = %if.then7.i, %for.bo
   %incdec.ptr.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__first.addr.09.i.i.i.i.i.i, i64 4
   %incdec.ptr1.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__result.addr.010.i.i.i.i.i.i, i64 4
   %dec.i.i.i.i.i.i = add nsw i64 %__n.011.i.i.i.i.i.i, -1
-  %cmp.i.i.i.i.i.i = icmp ugt i64 %__n.011.i.i.i.i.i.i, 1
+  %cmp.i.i.i.i.i.i = icmp samesign ugt i64 %__n.011.i.i.i.i.i.i, 1
   br i1 %cmp.i.i.i.i.i.i, label %for.body.i.i.i.i.i.i, label %if.end27.sink.split, !llvm.loop !233
 
 if.else:                                          ; preds = %if.else.lr.ph, %if.end
@@ -33566,7 +33566,7 @@ for.body.i.i.i.i.i58:                             ; preds = %if.then3, %for.body
   %incdec.ptr.i.i.i.i.i63 = getelementptr inbounds i8, ptr %__first.addr.09.i.i.i.i.i61, i64 4
   %incdec.ptr1.i.i.i.i.i64 = getelementptr inbounds i8, ptr %__result.addr.010.i.i.i.i.i60, i64 4
   %dec.i.i.i.i.i65 = add nsw i64 %__n.011.i.i.i.i.i59, -1
-  %cmp.i.i.i.i.i66 = icmp ugt i64 %__n.011.i.i.i.i.i59, 1
+  %cmp.i.i.i.i.i66 = icmp samesign ugt i64 %__n.011.i.i.i.i.i59, 1
   br i1 %cmp.i.i.i.i.i66, label %for.body.i.i.i.i.i58, label %for.cond.for.end_crit_edge.i.i.i.i.i67, !llvm.loop !233
 
 for.cond.for.end_crit_edge.i.i.i.i.i67:           ; preds = %for.body.i.i.i.i.i58
@@ -33599,7 +33599,7 @@ for.body.i.i.i.i.i.i79:                           ; preds = %if.then.i, %for.bod
   store i32 %incdec.ptr.val.i.i.i.i.i.i, ptr %incdec.ptr1.i.i.i.i.i.i81, align 4
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(256) @_ZN12_GLOBAL__N_118gSlowAssignBuffer1E, i8 0, i64 256, i1 false)
   %dec.i.i.i.i.i.i82 = add nsw i64 %__n.09.i.i.i.i.i.i, -1
-  %cmp.i.i.i.i.i.i83 = icmp ugt i64 %__n.09.i.i.i.i.i.i, 1
+  %cmp.i.i.i.i.i.i83 = icmp samesign ugt i64 %__n.09.i.i.i.i.i.i, 1
   br i1 %cmp.i.i.i.i.i.i83, label %for.body.i.i.i.i.i.i79, label %if.end27.sink.split, !llvm.loop !120
 
 if.else.i:                                        ; preds = %_ZSt4moveIPN12_GLOBAL__N_110SlowAssignIjEES3_ET0_T_S5_S4_.exit68
@@ -33655,7 +33655,7 @@ for.body.i.i.i.i.i29.i:                           ; preds = %if.then10.i, %for.b
   store i32 %incdec.ptr.val.i.i.i.i.i35.i, ptr %incdec.ptr1.i.i.i.i.i34.i, align 4
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(256) @_ZN12_GLOBAL__N_118gSlowAssignBuffer1E, i8 0, i64 256, i1 false)
   %dec.i.i.i.i.i36.i = add nsw i64 %__n.09.i.i.i.i.i30.i, -1
-  %cmp.i.i.i.i.i37.i = icmp ugt i64 %__n.09.i.i.i.i.i30.i, 1
+  %cmp.i.i.i.i.i37.i = icmp samesign ugt i64 %__n.09.i.i.i.i.i30.i, 1
   br i1 %cmp.i.i.i.i.i37.i, label %for.body.i.i.i.i.i29.i, label %if.end27.sink.split, !llvm.loop !120
 
 if.else15.i:                                      ; preds = %while.body.i72
@@ -33840,7 +33840,7 @@ for.body.i.i.i.i.i.i:                             ; preds = %while.end.i, %for.b
   %incdec.ptr.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__first.addr.09.i.i.i.i.i.i, i64 4
   %incdec.ptr1.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__result.addr.010.i.i.i.i.i.i, i64 4
   %dec.i.i.i.i.i.i = add nsw i64 %__n.011.i.i.i.i.i.i, -1
-  %cmp.i.i.i.i.i.i = icmp ugt i64 %__n.011.i.i.i.i.i.i, 1
+  %cmp.i.i.i.i.i.i = icmp samesign ugt i64 %__n.011.i.i.i.i.i.i, 1
   br i1 %cmp.i.i.i.i.i.i, label %for.body.i.i.i.i.i.i, label %for.cond.for.end_crit_edge.i.i.i.i.i.i, !llvm.loop !233
 
 for.cond.for.end_crit_edge.i.i.i.i.i.i:           ; preds = %for.body.i.i.i.i.i.i
@@ -33869,7 +33869,7 @@ for.body.i.i.i.i.i24.i:                           ; preds = %_ZSt4moveIPN12_GLOB
   %incdec.ptr.i.i.i.i.i29.i = getelementptr inbounds i8, ptr %__first.addr.09.i.i.i.i.i27.i, i64 4
   %incdec.ptr1.i.i.i.i.i30.i = getelementptr inbounds i8, ptr %__result.addr.010.i.i.i.i.i26.i, i64 4
   %dec.i.i.i.i.i31.i = add nsw i64 %__n.011.i.i.i.i.i25.i, -1
-  %cmp.i.i.i.i.i32.i = icmp ugt i64 %__n.011.i.i.i.i.i25.i, 1
+  %cmp.i.i.i.i.i32.i = icmp samesign ugt i64 %__n.011.i.i.i.i.i25.i, 1
   br i1 %cmp.i.i.i.i.i32.i, label %for.body.i.i.i.i.i24.i, label %for.cond.for.end_crit_edge.i.i.i.i.i33.i, !llvm.loop !233
 
 for.cond.for.end_crit_edge.i.i.i.i.i33.i:         ; preds = %for.body.i.i.i.i.i24.i
@@ -33946,7 +33946,7 @@ for.body.i.i.i.i.i.i49:                           ; preds = %while.end.i20, %for
   %incdec.ptr.i.i.i.i.i.i54 = getelementptr inbounds i8, ptr %__first.addr.09.i.i.i.i.i.i52, i64 4
   %incdec.ptr1.i.i.i.i.i.i55 = getelementptr inbounds i8, ptr %__result.addr.010.i.i.i.i.i.i51, i64 4
   %dec.i.i.i.i.i.i56 = add nsw i64 %__n.011.i.i.i.i.i.i50, -1
-  %cmp.i.i.i.i.i.i57 = icmp ugt i64 %__n.011.i.i.i.i.i.i50, 1
+  %cmp.i.i.i.i.i.i57 = icmp samesign ugt i64 %__n.011.i.i.i.i.i.i50, 1
   br i1 %cmp.i.i.i.i.i.i57, label %for.body.i.i.i.i.i.i49, label %for.cond.for.end_crit_edge.i.i.i.i.i.i58, !llvm.loop !233
 
 for.cond.for.end_crit_edge.i.i.i.i.i.i58:         ; preds = %for.body.i.i.i.i.i.i49
@@ -33974,7 +33974,7 @@ for.body.i.i.i.i.i24.i39:                         ; preds = %_ZSt4moveIPN12_GLOB
   %incdec.ptr.i.i.i.i.i29.i44 = getelementptr inbounds i8, ptr %__first.addr.09.i.i.i.i.i27.i42, i64 4
   %incdec.ptr1.i.i.i.i.i30.i45 = getelementptr inbounds i8, ptr %__result.addr.010.i.i.i.i.i26.i41, i64 4
   %dec.i.i.i.i.i31.i46 = add nsw i64 %__n.011.i.i.i.i.i25.i40, -1
-  %cmp.i.i.i.i.i32.i47 = icmp ugt i64 %__n.011.i.i.i.i.i25.i40, 1
+  %cmp.i.i.i.i.i32.i47 = icmp samesign ugt i64 %__n.011.i.i.i.i.i25.i40, 1
   br i1 %cmp.i.i.i.i.i32.i47, label %for.body.i.i.i.i.i24.i39, label %for.cond.for.end_crit_edge.i.i.i.i.i33.i48, !llvm.loop !233
 
 for.cond.for.end_crit_edge.i.i.i.i.i33.i48:       ; preds = %for.body.i.i.i.i.i24.i39

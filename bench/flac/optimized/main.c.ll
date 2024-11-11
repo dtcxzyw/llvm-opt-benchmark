@@ -1589,7 +1589,7 @@ if.end73:                                         ; preds = %if.then67, %if.end6
   %tobool92.not = icmp ne i32 %28, 0
   %cond93 = zext i1 %tobool92.not to i32
   %add94 = add nuw nsw i32 %add91, %cond93
-  %cmp95 = icmp ugt i32 %add94, 1
+  %cmp95 = icmp samesign ugt i32 %add94, 1
   br i1 %cmp95, label %if.then96, label %if.end98
 
 if.then96:                                        ; preds = %if.end73
@@ -2344,7 +2344,7 @@ if.then149:                                       ; preds = %land.lhs.true146
   br label %return
 
 if.end151:                                        ; preds = %land.lhs.true146
-  %or.cond5 = icmp ult i32 %output_format.1109, 4
+  %or.cond5 = icmp samesign ult i32 %output_format.1109, 4
   br i1 %or.cond5, label %land.lhs.true155, label %land.lhs.true164
 
 land.lhs.true155:                                 ; preds = %if.end151.thread, %if.end151

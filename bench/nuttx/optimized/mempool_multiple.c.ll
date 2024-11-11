@@ -171,7 +171,7 @@ define ptr @mempool_multiple_init(ptr noundef %0, ptr nocapture noundef readonly
   %indvars.iv.next147 = add nsw i64 %indvars.iv146, -1
   %78 = getelementptr inbounds %struct.mempool_s, ptr %29, i64 %indvars.iv.next147
   %79 = tail call i32 @mempool_deinit(ptr noundef nonnull %78) #6
-  %80 = icmp ugt i64 %indvars.iv146, 1
+  %80 = icmp samesign ugt i64 %indvars.iv146, 1
   br i1 %80, label %.lr.ph136, label %._crit_edge137, !llvm.loop !9
 
 ._crit_edge137:                                   ; preds = %.lr.ph136, %.loopexit

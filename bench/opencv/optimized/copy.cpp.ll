@@ -1402,7 +1402,7 @@ _ZNK2cv3Mat8elemSizeEv.exit:                      ; preds = %68
   %74 = getelementptr i64, ptr %72, i64 %73
   %75 = getelementptr i8, ptr %74, i64 -8
   %76 = load i64, ptr %75, align 8
-  %77 = icmp ult i32 %69, 32
+  %77 = icmp samesign ult i32 %69, 32
   br i1 %77, label %.preheader, label %_ZNK2cv3Mat8elemSizeEv.exit.thread
 
 .preheader:                                       ; preds = %_ZNK2cv3Mat8elemSizeEv.exit

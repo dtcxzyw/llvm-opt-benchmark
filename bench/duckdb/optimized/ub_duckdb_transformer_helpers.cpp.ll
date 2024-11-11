@@ -13763,7 +13763,7 @@ if.end746:                                        ; preds = %if.end738, %for.con
   ]
 
 sw.bb747:                                         ; preds = %if.end746
-  %cmp748 = icmp ugt i32 %modifier_idx.1, 1
+  %cmp748 = icmp samesign ugt i32 %modifier_idx.1, 1
   br i1 %cmp748, label %if.then749, label %if.end766
 
 if.then749:                                       ; preds = %sw.bb747
@@ -13989,7 +13989,7 @@ lpad819:                                          ; preds = %if.end815
   br label %ehcleanup1130
 
 sw.bb823:                                         ; preds = %if.end746
-  %cmp824 = icmp ugt i32 %modifier_idx.1, 1
+  %cmp824 = icmp samesign ugt i32 %modifier_idx.1, 1
   br i1 %cmp824, label %if.then825, label %if.end842
 
 if.then825:                                       ; preds = %sw.bb823
@@ -14530,7 +14530,7 @@ lpad958:                                          ; preds = %if.then956
   br label %ehcleanup1130
 
 if.else962:                                       ; preds = %if.else954
-  %cmp963 = icmp ult i64 %width.3, 7
+  %cmp963 = icmp samesign ult i64 %width.3, 7
   br i1 %cmp963, label %if.then964, label %if.else970
 
 if.then964:                                       ; preds = %if.else962
@@ -14936,7 +14936,7 @@ cleanup.action1090:                               ; preds = %ehcleanup1085, %_ZN
   br label %ehcleanup1121
 
 if.else1092:                                      ; preds = %if.else1073
-  %cmp1093 = icmp ugt i64 %567, 100000
+  %cmp1093 = icmp samesign ugt i64 %567, 100000
   br i1 %cmp1093, label %if.then1094, label %if.else1111
 
 if.then1094:                                      ; preds = %if.else1092

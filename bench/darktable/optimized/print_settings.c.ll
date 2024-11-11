@@ -5571,7 +5571,7 @@ define noundef range(i32 0, 2) i32 @set_params(ptr nocapture noundef readonly %0
 67:                                               ; preds = %7
   %68 = getelementptr inbounds i8, ptr %5, i64 1352
   %69 = zext nneg i32 %64 to i64
-  %70 = icmp ult i32 %64, 20
+  %70 = icmp samesign ult i32 %64, 20
   br i1 %70, label %119, label %71
 
 71:                                               ; preds = %67
@@ -6169,7 +6169,7 @@ define noalias noundef ptr @get_params(ptr nocapture noundef readonly %0, ptr no
 150:                                              ; preds = %.loopexit12
   %151 = getelementptr inbounds i8, ptr %4, i64 1352
   %152 = zext nneg i32 %147 to i64
-  %153 = icmp ult i32 %147, 80
+  %153 = icmp samesign ult i32 %147, 80
   br i1 %153, label %286, label %154
 
 154:                                              ; preds = %150
@@ -6186,7 +6186,7 @@ define noalias noundef ptr @get_params(ptr nocapture noundef readonly %0, ptr no
   %165 = add i32 %164, 78
   %166 = add i32 %157, %165
   %167 = icmp slt i32 %166, %165
-  %168 = icmp ugt i64 %155, 268435455
+  %168 = icmp samesign ugt i64 %155, 268435455
   %169 = or i1 %168, %167
   %170 = add i32 %164, 82
   %171 = add i32 %157, %170

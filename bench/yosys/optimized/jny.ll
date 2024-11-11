@@ -436,7 +436,7 @@ define internal void @_ZN12_GLOBAL__N_110JnyBackend7executeERPSoNSt7__cxx1112bas
 .noexc28:                                         ; preds = %.noexc27
   %54 = getelementptr inbounds i8, ptr %.056.i.i.i.i.i, i64 32
   %55 = add nsw i64 %.07.i.i.i.i.i, -1
-  %56 = icmp ugt i64 %.07.i.i.i.i.i, 1
+  %56 = icmp samesign ugt i64 %.07.i.i.i.i.i, 1
   br i1 %56, label %.lr.ph.i.i.i.i.i, label %_ZSt4copyIN9__gnu_cxx17__normal_iteratorIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt6vectorIS7_SaIS7_EEEESt16ostream_iteratorIS7_cS5_EET0_T_SG_SF_.exit, !llvm.loop !8
 
 .loopexit:                                        ; preds = %.lr.ph.i.i.i.i.i, %.noexc27
@@ -6093,7 +6093,7 @@ define internal void @_ZN12_GLOBAL__N_17JnyPass7executeESt6vectorINSt7__cxx1112b
 .noexc45:                                         ; preds = %.noexc44
   %71 = getelementptr inbounds i8, ptr %.056.i.i.i.i.i, i64 32
   %72 = add nsw i64 %.07.i.i.i.i.i, -1
-  %73 = icmp ugt i64 %.07.i.i.i.i.i, 1
+  %73 = icmp samesign ugt i64 %.07.i.i.i.i.i, 1
   br i1 %73, label %.lr.ph.i.i.i.i.i, label %_ZSt4copyIN9__gnu_cxx17__normal_iteratorIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt6vectorIS7_SaIS7_EEEESt16ostream_iteratorIS7_cS5_EET0_T_SG_SF_.exit, !llvm.loop !8
 
 .loopexit:                                        ; preds = %.lr.ph.i.i.i.i.i, %.noexc44

@@ -1638,7 +1638,7 @@ define internal fastcc void @BlockRefTableRead(ptr noundef %0, ptr noundef %1, i
   br label %56
 
 32:                                               ; preds = %13
-  %33 = icmp ugt i32 %.05055, 65535
+  %33 = icmp samesign ugt i32 %.05055, 65535
   %34 = load ptr, ptr %0, align 8
   %35 = load ptr, ptr %7, align 8
   br i1 %33, label %36, label %49

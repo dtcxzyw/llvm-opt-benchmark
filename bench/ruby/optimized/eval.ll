@@ -873,14 +873,14 @@ rb_array_len.exit:                                ; preds = %11, %14
   br i1 %17, label %29, label %18
 
 18:                                               ; preds = %rb_array_len.exit
-  %19 = icmp ugt i64 %.0.i, 1000000000
+  %19 = icmp samesign ugt i64 %.0.i, 1000000000
   %20 = add nsw i64 %.0.i, -1
   %21 = udiv i64 %20, 1000000000
   %22 = select i1 %19, i64 %21, i64 %20
   %23 = uitofp nneg i64 %22 to double
   %24 = tail call double @log10(double noundef %23) #9
   %25 = fptosi double %24 to i32
-  %26 = icmp ult i64 %.0.i, 1000000000
+  %26 = icmp samesign ult i64 %.0.i, 1000000000
   %27 = select i1 %26, i32 1, i32 10
   %28 = add i32 %27, %25
   br label %29

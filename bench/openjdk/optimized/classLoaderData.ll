@@ -3834,7 +3834,7 @@ _ZN15ClassLoaderData17class_loader_dataEP7oopDesc.exit: ; preds = %_ZNK15ClassLo
   br label %68
 
 68:                                               ; preds = %.lr.ph24, %63
-  %69 = icmp ugt i64 %indvars.iv, 1
+  %69 = icmp samesign ugt i64 %indvars.iv, 1
   br i1 %69, label %.lr.ph24, label %.loopexit, !llvm.loop !43
 
 .loopexit:                                        ; preds = %68, %50, %47

@@ -22661,7 +22661,7 @@ _ZNSt6vectorIPN12_GLOBAL__N_19SchedulerINS0_9FlowGraph4NodeEE6VertexESaIS6_EE9pu
   %5528 = getelementptr inbounds i8, ptr %.069.i.i.i.i.i.i.i.i.i.i.i, i64 -8
   store i32 %5527, ptr %5528, align 8, !noalias !149
   %5529 = add nsw i64 %.010.i.i.i.i.i.i.i.i.i.i.i, -1
-  %5530 = icmp ugt i64 %.010.i.i.i.i.i.i.i.i.i.i.i, 1
+  %5530 = icmp samesign ugt i64 %.010.i.i.i.i.i.i.i.i.i.i.i, 1
   br i1 %5530, label %.lr.ph.i.i.i.i.i.i.i.i.i.i.i, label %_ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPN5Yosys7hashlib4dictIiPN12_GLOBAL__N_19SchedulerINS5_9FlowGraph4NodeEE6VertexENS3_8hash_opsIiEEE7entry_tESt6vectorISF_SaISF_EEEESK_ET0_T_SM_SL_.exit.i.i.i.i.i.i, !llvm.loop !158
 
 _ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPN5Yosys7hashlib4dictIiPN12_GLOBAL__N_19SchedulerINS5_9FlowGraph4NodeEE6VertexENS3_8hash_opsIiEEE7entry_tESt6vectorISF_SaISF_EEEESK_ET0_T_SM_SL_.exit.i.i.i.i.i.i: ; preds = %.lr.ph.i.i.i.i.i.i.i.i.i.i.i
@@ -22803,7 +22803,7 @@ _ZSt25__unguarded_linear_insertIN9__gnu_cxx17__normal_iteratorIPN5Yosys7hashlib4
   %5573 = getelementptr inbounds i8, ptr %.069.i.i.i.i.i.i53.i.i.i.i.i, i64 -8
   store i32 %5572, ptr %5573, align 8, !noalias !149
   %5574 = add nsw i64 %.010.i.i.i.i.i.i52.i.i.i.i.i, -1
-  %5575 = icmp ugt i64 %.010.i.i.i.i.i.i52.i.i.i.i.i, 1
+  %5575 = icmp samesign ugt i64 %.010.i.i.i.i.i.i52.i.i.i.i.i, 1
   br i1 %5575, label %.lr.ph.i.i.i.i.i.i51.i.i.i.i.i, label %_ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPN5Yosys7hashlib4dictIiPN12_GLOBAL__N_19SchedulerINS5_9FlowGraph4NodeEE6VertexENS3_8hash_opsIiEEE7entry_tESt6vectorISF_SaISF_EEEESK_ET0_T_SM_SL_.exit.i49.i.i.i.i.i, !llvm.loop !158
 
 _ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPN5Yosys7hashlib4dictIiPN12_GLOBAL__N_19SchedulerINS5_9FlowGraph4NodeEE6VertexENS3_8hash_opsIiEEE7entry_tESt6vectorISF_SaISF_EEEESK_ET0_T_SM_SL_.exit.i49.i.i.i.i.i: ; preds = %.lr.ph.i.i.i.i.i.i51.i.i.i.i.i, %5559
@@ -24649,7 +24649,7 @@ _ZSt7advanceISt16reverse_iteratorIN9__gnu_cxx17__normal_iteratorIPPN12_GLOBAL__N
   store ptr %6401, ptr %.041.i.i.i.i.i.i.i.i.i.i.i.i, align 8, !noalias !149
   %6402 = getelementptr inbounds i8, ptr %.041.i.i.i.i.i.i.i.i.i.i.i.i, i64 8
   %6403 = add nsw i64 %.02.i.i.i.i.i.i.i.i.i.i.i.i, -1
-  %6404 = icmp ugt i64 %.02.i.i.i.i.i.i.i.i.i.i.i.i, 1
+  %6404 = icmp samesign ugt i64 %.02.i.i.i.i.i.i.i.i.i.i.i.i, 1
   br i1 %6404, label %.lr.ph.i.i.i.i.i.i.i.i.i.i.i.i, label %_ZSt22__uninitialized_move_aIPPN12_GLOBAL__N_19SchedulerINS0_9FlowGraph4NodeEE6VertexES7_SaIS6_EET0_T_SA_S9_RT1_.exit69.i.i.i.i, !llvm.loop !163
 
 _ZSt22__uninitialized_move_aIPPN12_GLOBAL__N_19SchedulerINS0_9FlowGraph4NodeEE6VertexES7_SaIS6_EET0_T_SA_S9_RT1_.exit69.i.i.i.i: ; preds = %.lr.ph.i.i.i.i.i.i.i.i.i.i.i.i, %_ZSt7advanceISt16reverse_iteratorIN9__gnu_cxx17__normal_iteratorIPPN12_GLOBAL__N_19SchedulerINS3_9FlowGraph4NodeEE6VertexESt6vectorIS9_SaIS9_EEEEEmEvRT_T0_.exit.i.i.i.i
@@ -24705,7 +24705,7 @@ _ZNSt12_Vector_baseIPN12_GLOBAL__N_19SchedulerINS0_9FlowGraph4NodeEE6VertexESaIS
   store ptr %6422, ptr %.041.i.i.i.i.i.i.i.i83.i.i.i.i, align 8, !noalias !149
   %6423 = getelementptr inbounds i8, ptr %.041.i.i.i.i.i.i.i.i83.i.i.i.i, i64 8
   %6424 = add nsw i64 %.02.i.i.i.i.i.i.i.i82.i.i.i.i, -1
-  %6425 = icmp ugt i64 %.02.i.i.i.i.i.i.i.i82.i.i.i.i, 1
+  %6425 = icmp samesign ugt i64 %.02.i.i.i.i.i.i.i.i82.i.i.i.i, 1
   br i1 %6425, label %.lr.ph.i.i.i.i.i.i.i.i80.i.i.i.i, label %_ZSt22__uninitialized_copy_aISt16reverse_iteratorIN9__gnu_cxx17__normal_iteratorIPPN12_GLOBAL__N_19SchedulerINS3_9FlowGraph4NodeEE6VertexESt6vectorIS9_SaIS9_EEEEESA_S9_ET0_T_SH_SG_RSaIT1_E.exit84.i.i.i.i, !llvm.loop !163
 
 _ZSt22__uninitialized_copy_aISt16reverse_iteratorIN9__gnu_cxx17__normal_iteratorIPPN12_GLOBAL__N_19SchedulerINS3_9FlowGraph4NodeEE6VertexESt6vectorIS9_SaIS9_EEEEESA_S9_ET0_T_SH_SG_RSaIT1_E.exit84.i.i.i.i: ; preds = %.lr.ph.i.i.i.i.i.i.i.i80.i.i.i.i
@@ -44152,7 +44152,7 @@ _ZNSt12_Vector_baseIN5Yosys5RTLIL8SigChunkESaIS2_EE13_M_deallocateEPS2_m.exit: ;
   %45 = getelementptr inbounds i8, ptr %.0910.i.i.i.i.i, i64 40
   %46 = getelementptr inbounds i8, ptr %.0811.i.i.i.i.i, i64 40
   %47 = add nsw i64 %.012.i.i.i.i.i, -1
-  %48 = icmp ugt i64 %.012.i.i.i.i.i, 1
+  %48 = icmp samesign ugt i64 %.012.i.i.i.i.i, 1
   br i1 %48, label %.lr.ph.i.i.i.i.i, label %_ZSt4copyIN9__gnu_cxx17__normal_iteratorIPKN5Yosys5RTLIL8SigChunkESt6vectorIS4_SaIS4_EEEENS1_IPS4_S9_EEET0_T_SE_SD_.exit.loopexit, !llvm.loop !361
 
 _ZSt4copyIN9__gnu_cxx17__normal_iteratorIPKN5Yosys5RTLIL8SigChunkESt6vectorIS4_SaIS4_EEEENS1_IPS4_S9_EEET0_T_SE_SD_.exit.loopexit: ; preds = %.lr.ph.i.i.i.i.i
@@ -44212,7 +44212,7 @@ _ZSt8_DestroyIN5Yosys5RTLIL8SigChunkEEvPT_.exit.i.i.i28: ; preds = %54, %.lr.ph.
   %66 = getelementptr inbounds i8, ptr %.0910.i.i.i.i.i35, i64 40
   %67 = getelementptr inbounds i8, ptr %.0811.i.i.i.i.i34, i64 40
   %68 = add nsw i64 %.012.i.i.i.i.i33, -1
-  %69 = icmp ugt i64 %.012.i.i.i.i.i33, 1
+  %69 = icmp samesign ugt i64 %.012.i.i.i.i.i33, 1
   br i1 %69, label %.lr.ph.i.i.i.i.i32, label %_ZSt4copyIPN5Yosys5RTLIL8SigChunkES3_ET0_T_S5_S4_.exit.loopexit, !llvm.loop !363
 
 _ZSt4copyIPN5Yosys5RTLIL8SigChunkES3_ET0_T_S5_S4_.exit.loopexit: ; preds = %.lr.ph.i.i.i.i.i32
@@ -51599,7 +51599,7 @@ _ZNSt12_Vector_baseIN5Yosys7hashlib4poolINSt7__cxx1112basic_stringIcSt11char_tra
   %39 = getelementptr inbounds i8, ptr %.0910.i.i.i.i.i, i64 40
   %40 = getelementptr inbounds i8, ptr %.0811.i.i.i.i.i, i64 40
   %41 = add nsw i64 %.012.i.i.i.i.i, -1
-  %42 = icmp ugt i64 %.012.i.i.i.i.i, 1
+  %42 = icmp samesign ugt i64 %.012.i.i.i.i.i, 1
   br i1 %42, label %.lr.ph.i.i.i.i.i, label %_ZSt4copyIN9__gnu_cxx17__normal_iteratorIPKN5Yosys7hashlib4poolINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS3_8hash_opsISA_EEE7entry_tESt6vectorISE_SaISE_EEEENS1_IPSE_SJ_EEET0_T_SO_SN_.exit.loopexit, !llvm.loop !424
 
 _ZSt4copyIN9__gnu_cxx17__normal_iteratorIPKN5Yosys7hashlib4poolINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS3_8hash_opsISA_EEE7entry_tESt6vectorISE_SaISE_EEEENS1_IPSE_SJ_EEET0_T_SO_SN_.exit.loopexit: ; preds = %.lr.ph.i.i.i.i.i
@@ -51646,7 +51646,7 @@ _ZSt4copyIN9__gnu_cxx17__normal_iteratorIPKN5Yosys7hashlib4poolINSt7__cxx1112bas
   %54 = getelementptr inbounds i8, ptr %.0910.i.i.i.i.i33, i64 40
   %55 = getelementptr inbounds i8, ptr %.0811.i.i.i.i.i32, i64 40
   %56 = add nsw i64 %.012.i.i.i.i.i31, -1
-  %57 = icmp ugt i64 %.012.i.i.i.i.i31, 1
+  %57 = icmp samesign ugt i64 %.012.i.i.i.i.i31, 1
   br i1 %57, label %.lr.ph.i.i.i.i.i30, label %_ZSt4copyIPN5Yosys7hashlib4poolINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS1_8hash_opsIS8_EEE7entry_tESD_ET0_T_SF_SE_.exit.loopexit, !llvm.loop !426
 
 _ZSt4copyIPN5Yosys7hashlib4poolINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS1_8hash_opsIS8_EEE7entry_tESD_ET0_T_SF_SE_.exit.loopexit: ; preds = %.lr.ph.i.i.i.i.i30
@@ -69890,7 +69890,7 @@ _ZN5Yosys5RTLIL11ObjIteratorIPNS0_4WireEED2Ev.exit81: ; preds = %57, %138, %235
 .lr.ph.split.us.i:                                ; preds = %342, %.lr.ph.i
   %indvars.iv284 = phi i64 [ %indvars.iv.next285, %342 ], [ %290, %.lr.ph.i ]
   %.021.us.i = phi i32 [ %344, %342 ], [ %283, %.lr.ph.i ]
-  %291 = icmp ugt i32 %.021.us.i, 32
+  %291 = icmp samesign ugt i32 %.021.us.i, 32
   %.sroa.speculated.us.i = call i32 @llvm.umin.i32(i32 %.021.us.i, i32 32)
   call void @llvm.experimental.noalias.scope.decl(metadata !794)
   store i32 0, ptr %3, align 8, !alias.scope !794
@@ -75856,7 +75856,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_112CxxrtlWorker15dump_const_initERK
 .lr.ph.split.us:                                  ; preds = %.lr.ph, %20
   %.01122.us = phi i32 [ %22, %20 ], [ %3, %.lr.ph ]
   %.021.us = phi i32 [ %23, %20 ], [ %2, %.lr.ph ]
-  %13 = icmp ugt i32 %.021.us, 32
+  %13 = icmp samesign ugt i32 %.021.us, 32
   %.sroa.speculated.us = call i32 @llvm.umin.i32(i32 %.021.us, i32 32)
   call void @_ZNK5Yosys5RTLIL5Const7extractEiiNS0_5StateE(ptr dead_on_unwind nonnull writable sret(%"struct.Yosys::RTLIL::Const") align 8 %6, ptr noundef nonnull align 8 dereferenceable(32) %1, i32 noundef %.01122.us, i32 noundef %.sroa.speculated.us, i8 noundef zeroext 0)
   %14 = invoke noundef i32 @_ZNK5Yosys5RTLIL5Const6as_intEb(ptr noundef nonnull align 8 dereferenceable(32) %6, i1 noundef zeroext false)
@@ -75903,7 +75903,7 @@ _ZN5Yosys5RTLIL5ConstD2Ev.exit.us:                ; preds = %17, %15
 .lr.ph.split:                                     ; preds = %.lr.ph, %40
   %.01122 = phi i32 [ %42, %40 ], [ %3, %.lr.ph ]
   %.021 = phi i32 [ %43, %40 ], [ %2, %.lr.ph ]
-  %27 = icmp ugt i32 %.021, 32
+  %27 = icmp samesign ugt i32 %.021, 32
   %.sroa.speculated = call i32 @llvm.umin.i32(i32 %.021, i32 32)
   call void @_ZNK5Yosys5RTLIL5Const7extractEiiNS0_5StateE(ptr dead_on_unwind nonnull writable sret(%"struct.Yosys::RTLIL::Const") align 8 %6, ptr noundef nonnull align 8 dereferenceable(32) %1, i32 noundef %.01122, i32 noundef %.sroa.speculated, i8 noundef zeroext 0)
   %28 = invoke noundef i32 @_ZNK5Yosys5RTLIL5Const6as_intEb(ptr noundef nonnull align 8 dereferenceable(32) %6, i1 noundef zeroext false)
@@ -89546,7 +89546,7 @@ _ZNSt6vectorIN5Yosys5RTLIL5StateESaIS2_EE9push_backERKS2_.exit: ; preds = %_ZNSt
 .lr.ph.split.i:                                   ; preds = %.noexc146, %.lr.ph.i
   %indvars.iv = phi i64 [ %indvars.iv.next, %.noexc146 ], [ 0, %.lr.ph.i ]
   %.021.i = phi i32 [ %266, %.noexc146 ], [ %208, %.lr.ph.i ]
-  %214 = icmp ugt i32 %.021.i, 32
+  %214 = icmp samesign ugt i32 %.021.i, 32
   %.sroa.speculated.i = call i32 @llvm.umin.i32(i32 %.021.i, i32 32)
   call void @llvm.experimental.noalias.scope.decl(metadata !1190)
   store i32 0, ptr %6, align 8, !alias.scope !1190
@@ -89777,7 +89777,7 @@ _ZN12_GLOBAL__N_112CxxrtlWorker10dump_constERKN5Yosys5RTLIL5ConstE.exit32: ; pre
 .lr.ph.split.i150:                                ; preds = %.noexc163, %.lr.ph.i149
   %indvars.iv379 = phi i64 [ %indvars.iv.next380, %.noexc163 ], [ 0, %.lr.ph.i149 ]
   %.021.i152 = phi i32 [ %331, %.noexc163 ], [ %273, %.lr.ph.i149 ]
-  %279 = icmp ugt i32 %.021.i152, 32
+  %279 = icmp samesign ugt i32 %.021.i152, 32
   %.sroa.speculated.i153 = call i32 @llvm.umin.i32(i32 %.021.i152, i32 32)
   call void @llvm.experimental.noalias.scope.decl(metadata !1193)
   store i32 0, ptr %4, align 8, !alias.scope !1193

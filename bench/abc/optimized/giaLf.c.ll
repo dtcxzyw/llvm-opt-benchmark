@@ -1824,7 +1824,7 @@ Lf_ManPrepareSet.exit451:                         ; preds = %Lf_ManPrepareSet.ex
   %361 = or i64 %359, %360
   %362 = call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %361)
   %363 = trunc nuw nsw i64 %362 to i32
-  %364 = icmp ult i32 %31, %363
+  %364 = icmp samesign ult i32 %31, %363
   br i1 %364, label %Lf_CutMergeOrderMux.exit.thread.us.us, label %365
 
 365:                                              ; preds = %356
@@ -2422,7 +2422,7 @@ Gia_ObjIsXor.exit:                                ; preds = %Gia_ObjIsMuxId.exit
   %671 = load i32, ptr %661, align 4
   %672 = lshr i32 %671, 24
   %673 = add nuw nsw i32 %672, %669
-  %674 = icmp ugt i32 %673, %31
+  %674 = icmp samesign ugt i32 %673, %31
   br i1 %674, label %675, label %682
 
 675:                                              ; preds = %670
@@ -2431,7 +2431,7 @@ Gia_ObjIsXor.exit:                                ; preds = %Gia_ObjIsMuxId.exit
   %678 = or i64 %677, %676
   %679 = call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %678)
   %680 = trunc nuw nsw i64 %679 to i32
-  %681 = icmp ult i32 %31, %680
+  %681 = icmp samesign ult i32 %31, %680
   br i1 %681, label %Lf_CutMergeOrder.exit.thread, label %682
 
 682:                                              ; preds = %675, %670
@@ -2739,7 +2739,7 @@ Gia_ObjIsXor.exit:                                ; preds = %Gia_ObjIsMuxId.exit
   br i1 %826, label %849, label %827
 
 827:                                              ; preds = %.lr.ph.i.i.i
-  %828 = icmp ugt i64 %indvars.iv.next.i.i.i, %823
+  %828 = icmp samesign ugt i64 %indvars.iv.next.i.i.i, %823
   br i1 %828, label %829, label %847
 
 829:                                              ; preds = %827
@@ -2771,7 +2771,7 @@ Gia_ObjIsXor.exit:                                ; preds = %Gia_ObjIsMuxId.exit
 849:                                              ; preds = %847, %.lr.ph.i.i.i
   %.117.i.i.i = phi i64 [ %.01619.i.i.i, %.lr.ph.i.i.i ], [ %.2.i.i.i, %847 ]
   %.1.i.i.i = phi i32 [ %.020.i.i.i, %.lr.ph.i.i.i ], [ %848, %847 ]
-  %850 = icmp ugt i64 %indvars.iv.i.i.i, 1
+  %850 = icmp samesign ugt i64 %indvars.iv.i.i.i, 1
   %851 = icmp sgt i32 %.1.i.i.i, -1
   %852 = select i1 %850, i1 %851, i1 false
   br i1 %852, label %.lr.ph.i.i.i, label %Abc_Tt6Expand.exit.i.i, !llvm.loop !33
@@ -2803,7 +2803,7 @@ Abc_Tt6Expand.exit.i.i:                           ; preds = %849, %778
   br i1 %864, label %887, label %865
 
 865:                                              ; preds = %.lr.ph.i43.i.i
-  %866 = icmp ugt i64 %indvars.iv.next.i47.i.i, %861
+  %866 = icmp samesign ugt i64 %indvars.iv.next.i47.i.i, %861
   br i1 %866, label %867, label %885
 
 867:                                              ; preds = %865
@@ -2835,7 +2835,7 @@ Abc_Tt6Expand.exit.i.i:                           ; preds = %849, %778
 887:                                              ; preds = %885, %.lr.ph.i43.i.i
   %.117.i49.i.i = phi i64 [ %.01619.i46.i.i, %.lr.ph.i43.i.i ], [ %.2.i48.i.i, %885 ]
   %.1.i50.i.i = phi i32 [ %.020.i45.i.i, %.lr.ph.i43.i.i ], [ %886, %885 ]
-  %888 = icmp ugt i64 %indvars.iv.i44.i.i, 1
+  %888 = icmp samesign ugt i64 %indvars.iv.i44.i.i, 1
   %889 = icmp sgt i32 %.1.i50.i.i, -1
   %890 = select i1 %888, i1 %889, i1 false
   br i1 %890, label %.lr.ph.i43.i.i, label %Abc_Tt6Expand.exit52.i.i, !llvm.loop !33
@@ -3085,7 +3085,7 @@ Abc_TtCopy.exit67.i:                              ; preds = %.lr.ph.i56.i, %.lr.
   br i1 %1004, label %1011, label %1005
 
 1005:                                             ; preds = %.lr.ph.i69.i
-  %1006 = icmp ugt i64 %indvars.iv.next.i71.i, %1001
+  %1006 = icmp samesign ugt i64 %indvars.iv.next.i71.i, %1001
   br i1 %1006, label %1007, label %1009
 
 1007:                                             ; preds = %1005
@@ -3099,7 +3099,7 @@ Abc_TtCopy.exit67.i:                              ; preds = %.lr.ph.i56.i, %.lr.
 
 1011:                                             ; preds = %1009, %.lr.ph.i69.i
   %.1.i.i506 = phi i32 [ %.017.i.i, %.lr.ph.i69.i ], [ %1010, %1009 ]
-  %1012 = icmp ugt i64 %indvars.iv.i70.i, 1
+  %1012 = icmp samesign ugt i64 %indvars.iv.i70.i, 1
   %1013 = icmp sgt i32 %.1.i.i506, -1
   %1014 = select i1 %1012, i1 %1013, i1 false
   br i1 %1014, label %.lr.ph.i69.i, label %Abc_TtExpand.exit.i, !llvm.loop !37
@@ -3129,7 +3129,7 @@ Abc_TtExpand.exit.i:                              ; preds = %1011, %Abc_TtCopy.e
   br i1 %1026, label %1033, label %1027
 
 1027:                                             ; preds = %.lr.ph.i73.i
-  %1028 = icmp ugt i64 %indvars.iv.next.i76.i, %1023
+  %1028 = icmp samesign ugt i64 %indvars.iv.next.i76.i, %1023
   br i1 %1028, label %1029, label %1031
 
 1029:                                             ; preds = %1027
@@ -3143,7 +3143,7 @@ Abc_TtExpand.exit.i:                              ; preds = %1011, %Abc_TtCopy.e
 
 1033:                                             ; preds = %1031, %.lr.ph.i73.i
   %.1.i77.i = phi i32 [ %.017.i75.i, %.lr.ph.i73.i ], [ %1032, %1031 ]
-  %1034 = icmp ugt i64 %indvars.iv.i74.i, 1
+  %1034 = icmp samesign ugt i64 %indvars.iv.i74.i, 1
   %1035 = icmp sgt i32 %.1.i77.i, -1
   %1036 = select i1 %1034, i1 %1035, i1 false
   br i1 %1036, label %.lr.ph.i73.i, label %Abc_TtExpand.exit78.i, !llvm.loop !37
@@ -4794,7 +4794,7 @@ define internal fastcc range(i32 0, 2) i32 @Lf_CutComputeTruthMux(ptr nocapture 
   br i1 %84, label %107, label %85
 
 85:                                               ; preds = %.lr.ph.i.i
-  %86 = icmp ugt i64 %indvars.iv.next.i.i, %81
+  %86 = icmp samesign ugt i64 %indvars.iv.next.i.i, %81
   br i1 %86, label %87, label %105
 
 87:                                               ; preds = %85
@@ -4826,7 +4826,7 @@ define internal fastcc range(i32 0, 2) i32 @Lf_CutComputeTruthMux(ptr nocapture 
 107:                                              ; preds = %105, %.lr.ph.i.i
   %.117.i.i = phi i64 [ %.01619.i.i, %.lr.ph.i.i ], [ %.2.i.i, %105 ]
   %.1.i.i = phi i32 [ %.020.i.i, %.lr.ph.i.i ], [ %106, %105 ]
-  %108 = icmp ugt i64 %indvars.iv.i.i, 1
+  %108 = icmp samesign ugt i64 %indvars.iv.i.i, 1
   %109 = icmp sgt i32 %.1.i.i, -1
   %110 = select i1 %108, i1 %109, i1 false
   br i1 %110, label %.lr.ph.i.i, label %Abc_Tt6Expand.exit.i, !llvm.loop !33
@@ -4860,7 +4860,7 @@ Abc_Tt6Expand.exit.i:                             ; preds = %107, %18
   br i1 %124, label %147, label %125
 
 125:                                              ; preds = %.lr.ph.i55.i
-  %126 = icmp ugt i64 %indvars.iv.next.i59.i, %121
+  %126 = icmp samesign ugt i64 %indvars.iv.next.i59.i, %121
   br i1 %126, label %127, label %145
 
 127:                                              ; preds = %125
@@ -4892,7 +4892,7 @@ Abc_Tt6Expand.exit.i:                             ; preds = %107, %18
 147:                                              ; preds = %145, %.lr.ph.i55.i
   %.117.i61.i = phi i64 [ %.01619.i58.i, %.lr.ph.i55.i ], [ %.2.i60.i, %145 ]
   %.1.i62.i = phi i32 [ %.020.i57.i, %.lr.ph.i55.i ], [ %146, %145 ]
-  %148 = icmp ugt i64 %indvars.iv.i56.i, 1
+  %148 = icmp samesign ugt i64 %indvars.iv.i56.i, 1
   %149 = icmp sgt i32 %.1.i62.i, -1
   %150 = select i1 %148, i1 %149, i1 false
   br i1 %150, label %.lr.ph.i55.i, label %Abc_Tt6Expand.exit64.i, !llvm.loop !33
@@ -4926,7 +4926,7 @@ Abc_Tt6Expand.exit64.i:                           ; preds = %147, %Abc_Tt6Expand
   br i1 %164, label %187, label %165
 
 165:                                              ; preds = %.lr.ph.i67.i
-  %166 = icmp ugt i64 %indvars.iv.next.i71.i, %161
+  %166 = icmp samesign ugt i64 %indvars.iv.next.i71.i, %161
   br i1 %166, label %167, label %185
 
 167:                                              ; preds = %165
@@ -4958,7 +4958,7 @@ Abc_Tt6Expand.exit64.i:                           ; preds = %147, %Abc_Tt6Expand
 187:                                              ; preds = %185, %.lr.ph.i67.i
   %.117.i73.i = phi i64 [ %.01619.i70.i, %.lr.ph.i67.i ], [ %.2.i72.i, %185 ]
   %.1.i74.i = phi i32 [ %.020.i69.i, %.lr.ph.i67.i ], [ %186, %185 ]
-  %188 = icmp ugt i64 %indvars.iv.i68.i, 1
+  %188 = icmp samesign ugt i64 %indvars.iv.i68.i, 1
   %189 = icmp sgt i32 %.1.i74.i, -1
   %190 = select i1 %188, i1 %189, i1 false
   br i1 %190, label %.lr.ph.i67.i, label %Abc_Tt6Expand.exit76.i, !llvm.loop !33
@@ -5262,7 +5262,7 @@ Abc_TtCopy.exit96:                                ; preds = %.lr.ph.i85, %.lr.ph
   br i1 %328, label %335, label %329
 
 329:                                              ; preds = %.lr.ph.i98
-  %330 = icmp ugt i64 %indvars.iv.next.i100, %325
+  %330 = icmp samesign ugt i64 %indvars.iv.next.i100, %325
   br i1 %330, label %331, label %333
 
 331:                                              ; preds = %329
@@ -5276,7 +5276,7 @@ Abc_TtCopy.exit96:                                ; preds = %.lr.ph.i85, %.lr.ph
 
 335:                                              ; preds = %333, %.lr.ph.i98
   %.1.i = phi i32 [ %.017.i, %.lr.ph.i98 ], [ %334, %333 ]
-  %336 = icmp ugt i64 %indvars.iv.i99, 1
+  %336 = icmp samesign ugt i64 %indvars.iv.i99, 1
   %337 = icmp sgt i32 %.1.i, -1
   %338 = select i1 %336, i1 %337, i1 false
   br i1 %338, label %.lr.ph.i98, label %Abc_TtExpand.exit, !llvm.loop !37
@@ -5308,7 +5308,7 @@ Abc_TtExpand.exit:                                ; preds = %335, %Abc_TtCopy.ex
   br i1 %352, label %359, label %353
 
 353:                                              ; preds = %.lr.ph.i102
-  %354 = icmp ugt i64 %indvars.iv.next.i105, %349
+  %354 = icmp samesign ugt i64 %indvars.iv.next.i105, %349
   br i1 %354, label %355, label %357
 
 355:                                              ; preds = %353
@@ -5322,7 +5322,7 @@ Abc_TtExpand.exit:                                ; preds = %335, %Abc_TtCopy.ex
 
 359:                                              ; preds = %357, %.lr.ph.i102
   %.1.i106 = phi i32 [ %.017.i104, %.lr.ph.i102 ], [ %358, %357 ]
-  %360 = icmp ugt i64 %indvars.iv.i103, 1
+  %360 = icmp samesign ugt i64 %indvars.iv.i103, 1
   %361 = icmp sgt i32 %.1.i106, -1
   %362 = select i1 %360, i1 %361, i1 false
   br i1 %362, label %.lr.ph.i102, label %Abc_TtExpand.exit107, !llvm.loop !37
@@ -5354,7 +5354,7 @@ Abc_TtExpand.exit107:                             ; preds = %359, %Abc_TtExpand.
   br i1 %376, label %383, label %377
 
 377:                                              ; preds = %.lr.ph.i109
-  %378 = icmp ugt i64 %indvars.iv.next.i112, %373
+  %378 = icmp samesign ugt i64 %indvars.iv.next.i112, %373
   br i1 %378, label %379, label %381
 
 379:                                              ; preds = %377
@@ -5368,7 +5368,7 @@ Abc_TtExpand.exit107:                             ; preds = %359, %Abc_TtExpand.
 
 383:                                              ; preds = %381, %.lr.ph.i109
   %.1.i113 = phi i32 [ %.017.i111, %.lr.ph.i109 ], [ %382, %381 ]
-  %384 = icmp ugt i64 %indvars.iv.i110, 1
+  %384 = icmp samesign ugt i64 %indvars.iv.i110, 1
   %385 = icmp sgt i32 %.1.i113, -1
   %386 = select i1 %384, i1 %385, i1 false
   br i1 %386, label %.lr.ph.i109, label %Abc_TtExpand.exit114, !llvm.loop !37
@@ -6077,7 +6077,7 @@ Gia_AigerWriteUnsignedBuffer.exit57:              ; preds = %81, %._crit_edge.lo
   br i1 %98, label %99, label %110
 
 99:                                               ; preds = %._crit_edge
-  %.not11.i58 = icmp ult i32 %97, 128
+  %.not11.i58 = icmp samesign ult i32 %97, 128
   br i1 %.not11.i58, label %Gia_AigerWriteUnsignedBuffer.exit68, label %.lr.ph.preheader.i59
 
 .lr.ph.preheader.i59:                             ; preds = %99
@@ -8107,7 +8107,7 @@ Gia_ObjIsAndNotBuf.exit:                          ; preds = %Lf_ObjSetRequired.e
   br label %Lf_ObjSetRequired.exit
 
 Lf_ObjSetRequired.exit:                           ; preds = %Lf_ObjSetRequired.exit263, %303, %296, %316, %322, %Gia_ObjIsAndNotBuf.exit, %344, %306, %312
-  %351 = icmp ugt i64 %indvars.iv368, 2
+  %351 = icmp samesign ugt i64 %indvars.iv368, 2
   br i1 %351, label %283, label %.critedge2, !llvm.loop !75
 
 352:                                              ; preds = %.lr.ph341, %Gia_ObjIsAndNotBuf.exit297.thread
@@ -8393,7 +8393,7 @@ Gia_ObjIsAndNotBuf.exit307:                       ; preds = %Lf_ObjSetRequired.e
   br label %Gia_ObjIsAndNotBuf.exit307.thread
 
 Gia_ObjIsAndNotBuf.exit307.thread:                ; preds = %Lf_ObjSetRequired.exit304, %457, %495, %501, %Gia_ObjIsAndNotBuf.exit307, %486
-  %503 = icmp ugt i64 %indvars.iv374, 2
+  %503 = icmp samesign ugt i64 %indvars.iv374, 2
   br i1 %503, label %453, label %.critedge2, !llvm.loop !77
 
 .critedge2:                                       ; preds = %Lf_ObjSetRequired.exit, %283, %Gia_ObjIsAndNotBuf.exit307.thread, %453, %.loopexit, %.critedge4

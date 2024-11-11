@@ -108,7 +108,7 @@ blake2_setkey.exit.thread:                        ; preds = %if.then3
 if.end.i:                                         ; preds = %if.then3
   %key2.i = getelementptr inbounds i8, ptr %vmacctx, i64 160
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %key2.i, ptr nonnull readonly align 1 %key, i64 %keylen, i1 false)
-  %cmp3.i = icmp ult i64 %keylen, 32
+  %cmp3.i = icmp samesign ult i64 %keylen, 32
   br i1 %cmp3.i, label %if.then4.i, label %blake2_setkey.exit
 
 if.then4.i:                                       ; preds = %if.end.i
@@ -282,7 +282,7 @@ if.end.i:                                         ; preds = %land.lhs.true
   %5 = load ptr, ptr %data, align 8
   %key2.i = getelementptr inbounds i8, ptr %vmacctx, i64 160
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %key2.i, ptr readonly align 1 %5, i64 %3, i1 false)
-  %cmp3.i = icmp ult i64 %3, 32
+  %cmp3.i = icmp samesign ult i64 %3, 32
   br i1 %cmp3.i, label %if.then4.i, label %blake2_setkey.exit
 
 if.then4.i:                                       ; preds = %if.end.i

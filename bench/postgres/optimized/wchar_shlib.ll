@@ -499,7 +499,7 @@ define internal i32 @pg_wchar2euc_with_len(ptr nocapture noundef readonly %0, pt
   br label %45
 
 22:                                               ; preds = %6
-  %.not41 = icmp ult i32 %5, 65536
+  %.not41 = icmp samesign ult i32 %5, 65536
   br i1 %.not41, label %34, label %23
 
 23:                                               ; preds = %22
@@ -519,7 +519,7 @@ define internal i32 @pg_wchar2euc_with_len(ptr nocapture noundef readonly %0, pt
   br label %45
 
 34:                                               ; preds = %22
-  %.not42 = icmp ult i32 %5, 256
+  %.not42 = icmp samesign ult i32 %5, 256
   br i1 %.not42, label %42, label %35
 
 35:                                               ; preds = %34
@@ -593,7 +593,7 @@ define internal range(i32 -1, 3) i32 @pg_eucjp_dsplen(ptr nocapture noundef read
 
 5:                                                ; preds = %4
   %6 = icmp eq i8 %2, 0
-  %7 = icmp ult i8 %2, 32
+  %7 = icmp samesign ult i8 %2, 32
   %8 = icmp eq i8 %2, 127
   %or.cond.i = or i1 %7, %8
   %spec.select.i = select i1 %or.cond.i, i32 -1, i32 1
@@ -851,7 +851,7 @@ define internal range(i32 -1, 3) i32 @pg_euccn_dsplen(ptr nocapture noundef read
 
 3:                                                ; preds = %1
   %4 = icmp eq i8 %2, 0
-  %5 = icmp ult i8 %2, 32
+  %5 = icmp samesign ult i8 %2, 32
   %6 = icmp eq i8 %2, 127
   %or.cond.i = or i1 %5, %6
   %spec.select.i = select i1 %or.cond.i, i32 -1, i32 1
@@ -1047,7 +1047,7 @@ define internal range(i32 -1, 3) i32 @pg_euckr_dsplen(ptr nocapture noundef read
 
 2:                                                ; preds = %1
   %3 = icmp eq i8 %.val, 0
-  %4 = icmp ult i8 %.val, 32
+  %4 = icmp samesign ult i8 %.val, 32
   %5 = icmp eq i8 %.val, 127
   %or.cond.i.i = or i1 %4, %5
   %spec.select.i.i = select i1 %or.cond.i.i, i32 -1, i32 1
@@ -1183,7 +1183,7 @@ define internal range(i32 -1, 3) i32 @pg_euctw_dsplen(ptr nocapture noundef read
 
 3:                                                ; preds = %1
   %4 = icmp eq i8 %2, 0
-  %5 = icmp ult i8 %2, 32
+  %5 = icmp samesign ult i8 %2, 32
   %6 = icmp eq i8 %2, 127
   %or.cond.i = or i1 %5, %6
   %spec.select.i = select i1 %or.cond.i, i32 -1, i32 1
@@ -1626,13 +1626,13 @@ utf8_to_unicode.exit:                             ; preds = %1, %.sink.split.i
   br i1 %46, label %ucs_wcwidth.exit, label %47
 
 47:                                               ; preds = %utf8_to_unicode.exit
-  %48 = icmp ult i32 %.0.i, 32
+  %48 = icmp samesign ult i32 %.0.i, 32
   br i1 %48, label %ucs_wcwidth.exit, label %49
 
 49:                                               ; preds = %47
   %50 = add nsw i32 %.0.i, -127
   %or.cond.i = icmp ult i32 %50, 33
-  %51 = icmp ugt i32 %.0.i, 1114111
+  %51 = icmp samesign ugt i32 %.0.i, 1114111
   %or.cond3.i = or i1 %51, %or.cond.i
   br i1 %or.cond3.i, label %ucs_wcwidth.exit, label %52
 
@@ -1936,7 +1936,7 @@ define internal i32 @pg_mule2wchar_with_len(ptr nocapture noundef readonly %0, p
   br i1 %8, label %9, label %.thread72
 
 9:                                                ; preds = %7
-  %10 = icmp ult i8 %5, -114
+  %10 = icmp samesign ult i8 %5, -114
   %11 = icmp ne i32 %.05776, 1
   %or.cond = and i1 %11, %10
   br i1 %or.cond, label %12, label %19
@@ -1979,11 +1979,11 @@ define internal i32 @pg_mule2wchar_with_len(ptr nocapture noundef readonly %0, p
   br label %73
 
 35:                                               ; preds = %21
-  %36 = icmp ugt i8 %5, -113
+  %36 = icmp samesign ugt i8 %5, -113
   br i1 %36, label %37, label %.thread72
 
 37:                                               ; preds = %35
-  %38 = icmp ult i8 %5, -102
+  %38 = icmp samesign ult i8 %5, -102
   %or.cond6 = and i1 %23, %38
   br i1 %or.cond6, label %39, label %51
 
@@ -2430,7 +2430,7 @@ define internal range(i32 -1, 3) i32 @pg_sjis_dsplen(ptr nocapture noundef reado
 
 5:                                                ; preds = %4
   %6 = icmp eq i8 %2, 0
-  %7 = icmp ult i8 %2, 32
+  %7 = icmp samesign ult i8 %2, 32
   %8 = icmp eq i8 %2, 127
   %or.cond.i = or i1 %7, %8
   %spec.select.i = select i1 %or.cond.i, i32 -1, i32 1
@@ -2555,7 +2555,7 @@ define internal range(i32 -1, 3) i32 @pg_big5_dsplen(ptr nocapture noundef reado
 
 3:                                                ; preds = %1
   %4 = icmp eq i8 %2, 0
-  %5 = icmp ult i8 %2, 32
+  %5 = icmp samesign ult i8 %2, 32
   %6 = icmp eq i8 %2, 127
   %or.cond.i = or i1 %5, %6
   %spec.select.i = select i1 %or.cond.i, i32 -1, i32 1
@@ -2655,7 +2655,7 @@ define internal range(i32 -1, 3) i32 @pg_gbk_dsplen(ptr nocapture noundef readon
 
 3:                                                ; preds = %1
   %4 = icmp eq i8 %2, 0
-  %5 = icmp ult i8 %2, 32
+  %5 = icmp samesign ult i8 %2, 32
   %6 = icmp eq i8 %2, 127
   %or.cond.i = or i1 %5, %6
   %spec.select.i = select i1 %or.cond.i, i32 -1, i32 1
@@ -2755,7 +2755,7 @@ define internal range(i32 -1, 3) i32 @pg_uhc_dsplen(ptr nocapture noundef readon
 
 3:                                                ; preds = %1
   %4 = icmp eq i8 %2, 0
-  %5 = icmp ult i8 %2, 32
+  %5 = icmp samesign ult i8 %2, 32
   %6 = icmp eq i8 %2, 127
   %or.cond.i = or i1 %5, %6
   %spec.select.i = select i1 %or.cond.i, i32 -1, i32 1
@@ -2866,7 +2866,7 @@ define internal range(i32 -1, 3) i32 @pg_gb18030_dsplen(ptr nocapture noundef re
 
 3:                                                ; preds = %1
   %4 = icmp eq i8 %2, 0
-  %5 = icmp ult i8 %2, 32
+  %5 = icmp samesign ult i8 %2, 32
   %6 = icmp eq i8 %2, 127
   %or.cond.i = or i1 %5, %6
   %spec.select.i = select i1 %or.cond.i, i32 -1, i32 1
@@ -3057,7 +3057,7 @@ define internal range(i32 -1, 3) i32 @pg_johab_dsplen(ptr nocapture noundef read
 
 2:                                                ; preds = %1
   %3 = icmp eq i8 %.val, 0
-  %4 = icmp ult i8 %.val, 32
+  %4 = icmp samesign ult i8 %.val, 32
   %5 = icmp eq i8 %.val, 127
   %or.cond.i.i = or i1 %4, %5
   %spec.select.i.i = select i1 %or.cond.i.i, i32 -1, i32 1

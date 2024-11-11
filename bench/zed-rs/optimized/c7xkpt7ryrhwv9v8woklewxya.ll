@@ -24262,8 +24262,8 @@ default.unreachable33:                            ; preds = %204, %49, %3
 .thread.i.i.i.i:                                  ; preds = %123
   %131 = getelementptr inbounds i8, ptr %26, i64 16
   %132 = load i8, ptr %131, align 8, !range !3516, !alias.scope !7514, !noalias !7517, !noundef !6
-  %switch.i.i3453.i.i.i.i = icmp samesign ult i8 %132, 3
-  br i1 %switch.i.i3453.i.i.i.i, label %119, label %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17hf268e02cc5c5e00fE.exit.i.i.i.i"
+  %or.cond54.i.i.i.i = icmp samesign ult i8 %132, 3
+  br i1 %or.cond54.i.i.i.i, label %119, label %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17hf268e02cc5c5e00fE.exit.i.i.i.i"
 
 ._crit_edge.i.i.i.i:                              ; preds = %127
   br i1 %switch.i.i.i.i.i.i, label %119, label %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17hf268e02cc5c5e00fE.exit.i.i.i.i"

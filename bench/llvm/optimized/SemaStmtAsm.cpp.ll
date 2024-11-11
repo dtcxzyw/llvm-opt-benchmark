@@ -8598,7 +8598,7 @@ _ZN9__gnu_cxx5__ops15_Iter_comp_iterIN4llvm10less_firstEEclIPSt4pairINS2_9String
   %21 = getelementptr inbounds i8, ptr %.069.i.i.i.i.i, i64 -8
   store ptr %20, ptr %21, align 8
   %22 = add nsw i64 %.010.i.i.i.i.i, -1
-  %23 = icmp ugt i64 %.010.i.i.i.i.i, 1
+  %23 = icmp samesign ugt i64 %.010.i.i.i.i.i, 1
   br i1 %23, label %.lr.ph.i.i.i.i.i, label %_ZSt13move_backwardIPSt4pairIN4llvm9StringRefEPN5clang4ExprEES7_ET0_T_S9_S8_.exit, !llvm.loop !73
 
 _ZSt13move_backwardIPSt4pairIN4llvm9StringRefEPN5clang4ExprEES7_ET0_T_S9_S8_.exit: ; preds = %.lr.ph.i.i.i.i.i, %11
@@ -9039,7 +9039,7 @@ tailrecurse._crit_edge:                           ; preds = %tailrecurse, %7
   %17 = getelementptr inbounds i8, ptr %.0910.i.i.i.i.i, i64 24
   %18 = getelementptr inbounds i8, ptr %.0811.i.i.i.i.i, i64 24
   %19 = add nsw i64 %.012.i.i.i.i.i, -1
-  %20 = icmp ugt i64 %.012.i.i.i.i.i, 1
+  %20 = icmp samesign ugt i64 %.012.i.i.i.i.i, 1
   br i1 %20, label %.lr.ph.i.i.i.i.i, label %_ZSt4moveIPSt4pairIN4llvm9StringRefEPN5clang4ExprEES7_ET0_T_S9_S8_.exit, !llvm.loop !82
 
 _ZSt4moveIPSt4pairIN4llvm9StringRefEPN5clang4ExprEES7_ET0_T_S9_S8_.exit: ; preds = %.lr.ph.i.i.i.i.i
@@ -9128,7 +9128,7 @@ _ZN9__gnu_cxx5__ops15_Iter_comp_iterIN4llvm10less_firstEEclIPSt4pairINS2_9String
   %48 = getelementptr inbounds i8, ptr %.0910.i.i.i.i.i.i, i64 24
   %49 = getelementptr inbounds i8, ptr %.0811.i.i.i.i.i.i, i64 24
   %50 = add nsw i64 %.012.i.i.i.i.i.i, -1
-  %51 = icmp ugt i64 %.012.i.i.i.i.i.i, 1
+  %51 = icmp samesign ugt i64 %.012.i.i.i.i.i.i, 1
   br i1 %51, label %.lr.ph.i.i.i.i.i.i, label %_ZSt21__move_merge_adaptiveIPSt4pairIN4llvm9StringRefEPN5clang4ExprEES7_S7_N9__gnu_cxx5__ops15_Iter_comp_iterINS1_10less_firstEEEEvT_SD_T0_SE_T1_T2_.exit, !llvm.loop !82
 
 52:                                               ; preds = %.lr.ph, %tailrecurse
@@ -9162,7 +9162,7 @@ _ZN9__gnu_cxx5__ops15_Iter_comp_iterIN4llvm10less_firstEEclIPSt4pairINS2_9String
   %61 = getelementptr inbounds i8, ptr %.0910.i.i.i.i.i77, i64 24
   %62 = getelementptr inbounds i8, ptr %.0811.i.i.i.i.i76, i64 24
   %63 = add nsw i64 %.012.i.i.i.i.i75, -1
-  %64 = icmp ugt i64 %.012.i.i.i.i.i75, 1
+  %64 = icmp samesign ugt i64 %.012.i.i.i.i.i75, 1
   br i1 %64, label %.lr.ph.i.i.i.i.i74, label %_ZSt4moveIPSt4pairIN4llvm9StringRefEPN5clang4ExprEES7_ET0_T_S9_S8_.exit78, !llvm.loop !82
 
 _ZSt4moveIPSt4pairIN4llvm9StringRefEPN5clang4ExprEES7_ET0_T_S9_S8_.exit78: ; preds = %.lr.ph.i.i.i.i.i74, %54
@@ -9193,7 +9193,7 @@ _ZSt4moveIPSt4pairIN4llvm9StringRefEPN5clang4ExprEES7_ET0_T_S9_S8_.exit78: ; pre
   %76 = getelementptr inbounds i8, ptr %.069.i.i.i.i.i.i, i64 -8
   store ptr %75, ptr %76, align 8
   %77 = add nsw i64 %.010.i.i.i.i.i.i, -1
-  %78 = icmp ugt i64 %.010.i.i.i.i.i.i, 1
+  %78 = icmp samesign ugt i64 %.010.i.i.i.i.i.i, 1
   br i1 %78, label %.lr.ph.i.i.i.i.i.i93, label %_ZSt21__move_merge_adaptiveIPSt4pairIN4llvm9StringRefEPN5clang4ExprEES7_S7_N9__gnu_cxx5__ops15_Iter_comp_iterINS1_10less_firstEEEEvT_SD_T0_SE_T1_T2_.exit, !llvm.loop !73
 
 79:                                               ; preds = %_ZSt4moveIPSt4pairIN4llvm9StringRefEPN5clang4ExprEES7_ET0_T_S9_S8_.exit78
@@ -9271,7 +9271,7 @@ _ZN9__gnu_cxx5__ops15_Iter_comp_iterIN4llvm10less_firstEEclIPSt4pairINS2_9String
   %105 = getelementptr inbounds i8, ptr %.069.i.i.i.i.i36.i, i64 -8
   store ptr %104, ptr %105, align 8
   %106 = add nsw i64 %.010.i.i.i.i.i35.i, -1
-  %107 = icmp ugt i64 %.010.i.i.i.i.i35.i, 1
+  %107 = icmp samesign ugt i64 %.010.i.i.i.i.i35.i, 1
   br i1 %107, label %.lr.ph.i.i.i.i.i34.i, label %_ZSt21__move_merge_adaptiveIPSt4pairIN4llvm9StringRefEPN5clang4ExprEES7_S7_N9__gnu_cxx5__ops15_Iter_comp_iterINS1_10less_firstEEEEvT_SD_T0_SE_T1_T2_.exit, !llvm.loop !73
 
 108:                                              ; preds = %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN4llvm10less_firstEEclIPSt4pairINS2_9StringRefEPN5clang4ExprEESC_EEbT_T0_.exit.i91, %86
@@ -9531,7 +9531,7 @@ _ZN9__gnu_cxx5__ops15_Iter_comp_iterIN4llvm10less_firstEEclIPSt4pairINS2_9String
   %40 = getelementptr inbounds i8, ptr %.0910.i.i.i.i.i.i, i64 24
   %41 = getelementptr inbounds i8, ptr %.0811.i.i.i.i.i.i, i64 24
   %42 = add nsw i64 %.012.i.i.i.i.i.i, -1
-  %43 = icmp ugt i64 %.012.i.i.i.i.i.i, 1
+  %43 = icmp samesign ugt i64 %.012.i.i.i.i.i.i, 1
   br i1 %43, label %.lr.ph.i.i.i.i.i.i, label %_ZSt4moveIPSt4pairIN4llvm9StringRefEPN5clang4ExprEES7_ET0_T_S9_S8_.exit.i, !llvm.loop !82
 
 _ZSt4moveIPSt4pairIN4llvm9StringRefEPN5clang4ExprEES7_ET0_T_S9_S8_.exit.i: ; preds = %.lr.ph.i.i.i.i.i.i, %._crit_edge.i
@@ -9558,7 +9558,7 @@ _ZSt4moveIPSt4pairIN4llvm9StringRefEPN5clang4ExprEES7_ET0_T_S9_S8_.exit.i: ; pre
   %52 = getelementptr inbounds i8, ptr %.0910.i.i.i.i.i26.i, i64 24
   %53 = getelementptr inbounds i8, ptr %.0811.i.i.i.i.i25.i, i64 24
   %54 = add nsw i64 %.012.i.i.i.i.i24.i, -1
-  %55 = icmp ugt i64 %.012.i.i.i.i.i24.i, 1
+  %55 = icmp samesign ugt i64 %.012.i.i.i.i.i24.i, 1
   br i1 %55, label %.lr.ph.i.i.i.i.i23.i, label %_ZSt12__move_mergeIPSt4pairIN4llvm9StringRefEPN5clang4ExprEES7_N9__gnu_cxx5__ops15_Iter_comp_iterINS1_10less_firstEEEET0_T_SE_SE_SE_SD_T1_.exit, !llvm.loop !82
 
 _ZSt12__move_mergeIPSt4pairIN4llvm9StringRefEPN5clang4ExprEES7_N9__gnu_cxx5__ops15_Iter_comp_iterINS1_10less_firstEEEET0_T_SE_SE_SE_SD_T1_.exit: ; preds = %.lr.ph.i.i.i.i.i23.i, %_ZSt4moveIPSt4pairIN4llvm9StringRefEPN5clang4ExprEES7_ET0_T_S9_S8_.exit.i
@@ -9659,7 +9659,7 @@ _ZN9__gnu_cxx5__ops15_Iter_comp_iterIN4llvm10less_firstEEclIPSt4pairINS2_9String
   %89 = getelementptr inbounds i8, ptr %.0910.i.i.i.i.i.i39, i64 24
   %90 = getelementptr inbounds i8, ptr %.0811.i.i.i.i.i.i38, i64 24
   %91 = add nsw i64 %.012.i.i.i.i.i.i37, -1
-  %92 = icmp ugt i64 %.012.i.i.i.i.i.i37, 1
+  %92 = icmp samesign ugt i64 %.012.i.i.i.i.i.i37, 1
   br i1 %92, label %.lr.ph.i.i.i.i.i.i36, label %_ZSt4moveIPSt4pairIN4llvm9StringRefEPN5clang4ExprEES7_ET0_T_S9_S8_.exit.i27, !llvm.loop !82
 
 _ZSt4moveIPSt4pairIN4llvm9StringRefEPN5clang4ExprEES7_ET0_T_S9_S8_.exit.i27: ; preds = %.lr.ph.i.i.i.i.i.i36, %._crit_edge.i23
@@ -9685,7 +9685,7 @@ _ZSt4moveIPSt4pairIN4llvm9StringRefEPN5clang4ExprEES7_ET0_T_S9_S8_.exit.i27: ; p
   %100 = getelementptr inbounds i8, ptr %.0910.i.i.i.i.i26.i34, i64 24
   %101 = getelementptr inbounds i8, ptr %.0811.i.i.i.i.i25.i33, i64 24
   %102 = add nsw i64 %.012.i.i.i.i.i24.i32, -1
-  %103 = icmp ugt i64 %.012.i.i.i.i.i24.i32, 1
+  %103 = icmp samesign ugt i64 %.012.i.i.i.i.i24.i32, 1
   br i1 %103, label %.lr.ph.i.i.i.i.i23.i31, label %_ZSt12__move_mergeIPSt4pairIN4llvm9StringRefEPN5clang4ExprEES7_N9__gnu_cxx5__ops15_Iter_comp_iterINS1_10less_firstEEEET0_T_SE_SE_SE_SD_T1_.exit57, !llvm.loop !82
 
 _ZSt12__move_mergeIPSt4pairIN4llvm9StringRefEPN5clang4ExprEES7_N9__gnu_cxx5__ops15_Iter_comp_iterINS1_10less_firstEEEET0_T_SE_SE_SE_SD_T1_.exit57: ; preds = %.lr.ph.i.i.i.i.i23.i31, %_ZSt4moveIPSt4pairIN4llvm9StringRefEPN5clang4ExprEES7_ET0_T_S9_S8_.exit.i27
@@ -9726,7 +9726,7 @@ define linkonce_odr noundef ptr @_ZSt17__rotate_adaptiveIPSt4pairIN4llvm9StringR
   %19 = getelementptr inbounds i8, ptr %.0910.i.i.i.i.i, i64 24
   %20 = getelementptr inbounds i8, ptr %.0811.i.i.i.i.i, i64 24
   %21 = add nsw i64 %.012.i.i.i.i.i, -1
-  %22 = icmp ugt i64 %.012.i.i.i.i.i, 1
+  %22 = icmp samesign ugt i64 %.012.i.i.i.i.i, 1
   br i1 %22, label %.lr.ph.i.i.i.i.i, label %_ZSt4moveIPSt4pairIN4llvm9StringRefEPN5clang4ExprEES7_ET0_T_S9_S8_.exit, !llvm.loop !82
 
 _ZSt4moveIPSt4pairIN4llvm9StringRefEPN5clang4ExprEES7_ET0_T_S9_S8_.exit: ; preds = %.lr.ph.i.i.i.i.i, %10
@@ -9752,7 +9752,7 @@ _ZSt4moveIPSt4pairIN4llvm9StringRefEPN5clang4ExprEES7_ET0_T_S9_S8_.exit: ; preds
   %31 = getelementptr inbounds i8, ptr %.069.i.i.i.i.i, i64 -8
   store ptr %30, ptr %31, align 8
   %32 = add nsw i64 %.010.i.i.i.i.i, -1
-  %33 = icmp ugt i64 %.010.i.i.i.i.i, 1
+  %33 = icmp samesign ugt i64 %.010.i.i.i.i.i, 1
   br i1 %33, label %.lr.ph.i.i.i.i.i37, label %_ZSt13move_backwardIPSt4pairIN4llvm9StringRefEPN5clang4ExprEES7_ET0_T_S9_S8_.exit, !llvm.loop !73
 
 _ZSt13move_backwardIPSt4pairIN4llvm9StringRefEPN5clang4ExprEES7_ET0_T_S9_S8_.exit: ; preds = %.lr.ph.i.i.i.i.i37, %_ZSt4moveIPSt4pairIN4llvm9StringRefEPN5clang4ExprEES7_ET0_T_S9_S8_.exit
@@ -9778,7 +9778,7 @@ _ZSt13move_backwardIPSt4pairIN4llvm9StringRefEPN5clang4ExprEES7_ET0_T_S9_S8_.exi
   %42 = getelementptr inbounds i8, ptr %.0910.i.i.i.i.i43, i64 24
   %43 = getelementptr inbounds i8, ptr %.0811.i.i.i.i.i42, i64 24
   %44 = add nsw i64 %.012.i.i.i.i.i41, -1
-  %45 = icmp ugt i64 %.012.i.i.i.i.i41, 1
+  %45 = icmp samesign ugt i64 %.012.i.i.i.i.i41, 1
   br i1 %45, label %.lr.ph.i.i.i.i.i40, label %_ZSt4moveIPSt4pairIN4llvm9StringRefEPN5clang4ExprEES7_ET0_T_S9_S8_.exit44, !llvm.loop !82
 
 46:                                               ; preds = %7
@@ -9812,7 +9812,7 @@ _ZSt13move_backwardIPSt4pairIN4llvm9StringRefEPN5clang4ExprEES7_ET0_T_S9_S8_.exi
   %57 = getelementptr inbounds i8, ptr %.0910.i.i.i.i.i50, i64 24
   %58 = getelementptr inbounds i8, ptr %.0811.i.i.i.i.i49, i64 24
   %59 = add nsw i64 %.012.i.i.i.i.i48, -1
-  %60 = icmp ugt i64 %.012.i.i.i.i.i48, 1
+  %60 = icmp samesign ugt i64 %.012.i.i.i.i.i48, 1
   br i1 %60, label %.lr.ph.i.i.i.i.i47, label %_ZSt4moveIPSt4pairIN4llvm9StringRefEPN5clang4ExprEES7_ET0_T_S9_S8_.exit51, !llvm.loop !82
 
 _ZSt4moveIPSt4pairIN4llvm9StringRefEPN5clang4ExprEES7_ET0_T_S9_S8_.exit51: ; preds = %.lr.ph.i.i.i.i.i47, %48
@@ -9838,7 +9838,7 @@ _ZSt4moveIPSt4pairIN4llvm9StringRefEPN5clang4ExprEES7_ET0_T_S9_S8_.exit51: ; pre
   %68 = getelementptr inbounds i8, ptr %.0910.i.i.i.i.i57, i64 24
   %69 = getelementptr inbounds i8, ptr %.0811.i.i.i.i.i56, i64 24
   %70 = add nsw i64 %.012.i.i.i.i.i55, -1
-  %71 = icmp ugt i64 %.012.i.i.i.i.i55, 1
+  %71 = icmp samesign ugt i64 %.012.i.i.i.i.i55, 1
   br i1 %71, label %.lr.ph.i.i.i.i.i54, label %_ZSt4moveIPSt4pairIN4llvm9StringRefEPN5clang4ExprEES7_ET0_T_S9_S8_.exit58, !llvm.loop !82
 
 _ZSt4moveIPSt4pairIN4llvm9StringRefEPN5clang4ExprEES7_ET0_T_S9_S8_.exit58: ; preds = %.lr.ph.i.i.i.i.i54, %_ZSt4moveIPSt4pairIN4llvm9StringRefEPN5clang4ExprEES7_ET0_T_S9_S8_.exit51
@@ -9864,7 +9864,7 @@ _ZSt4moveIPSt4pairIN4llvm9StringRefEPN5clang4ExprEES7_ET0_T_S9_S8_.exit58: ; pre
   %81 = getelementptr inbounds i8, ptr %.069.i.i.i.i.i63, i64 -8
   store ptr %80, ptr %81, align 8
   %82 = add nsw i64 %.010.i.i.i.i.i62, -1
-  %83 = icmp ugt i64 %.010.i.i.i.i.i62, 1
+  %83 = icmp samesign ugt i64 %.010.i.i.i.i.i62, 1
   br i1 %83, label %.lr.ph.i.i.i.i.i61, label %_ZSt4moveIPSt4pairIN4llvm9StringRefEPN5clang4ExprEES7_ET0_T_S9_S8_.exit44, !llvm.loop !73
 
 84:                                               ; preds = %46

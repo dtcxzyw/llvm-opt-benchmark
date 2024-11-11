@@ -1066,7 +1066,7 @@ define internal fastcc ptr @JSON_parse_value(ptr nocapture noundef %0, ptr nound
 
 70:                                               ; preds = %68
   %.not143.i = icmp ne i8 %67, 47
-  %71 = icmp ult i8 %67, 58
+  %71 = icmp samesign ult i8 %67, 58
   %or.cond150.i = and i1 %.not143.i, %71
   br i1 %or.cond150.i, label %.preheader163.i, label %.loopexit.i
 
@@ -1129,7 +1129,7 @@ define internal fastcc ptr @JSON_parse_value(ptr nocapture noundef %0, ptr nound
 
 94:                                               ; preds = %92
   %.not.i = icmp ne i8 %91, 47
-  %95 = icmp ult i8 %91, 58
+  %95 = icmp samesign ult i8 %91, 58
   %or.cond153.i = and i1 %.not.i, %95
   br i1 %or.cond153.i, label %87, label %.loopexit.i
 
@@ -2012,7 +2012,7 @@ define internal fastcc ptr @JSON_parse_string(ptr nocapture noundef %0, ptr noun
   br i1 %or.cond104, label %49, label %.loopexit
 
 46:                                               ; preds = %41
-  %47 = icmp ult i8 %42, 71
+  %47 = icmp samesign ult i8 %42, 71
   %48 = add nsw i8 %42, -97
   %or.cond105 = icmp ult i8 %48, 6
   %or.cond114 = select i1 %47, i1 true, i1 %or.cond105
@@ -2034,7 +2034,7 @@ define internal fastcc ptr @JSON_parse_string(ptr nocapture noundef %0, ptr noun
   br i1 %or.cond106, label %60, label %.loopexit
 
 57:                                               ; preds = %52
-  %58 = icmp ult i8 %53, 71
+  %58 = icmp samesign ult i8 %53, 71
   %59 = add nsw i8 %53, -97
   %or.cond107 = icmp ult i8 %59, 6
   %or.cond115 = select i1 %58, i1 true, i1 %or.cond107
@@ -2056,7 +2056,7 @@ define internal fastcc ptr @JSON_parse_string(ptr nocapture noundef %0, ptr noun
   br i1 %or.cond108, label %71, label %.loopexit
 
 68:                                               ; preds = %63
-  %69 = icmp ult i8 %64, 71
+  %69 = icmp samesign ult i8 %64, 71
   %70 = add nsw i8 %64, -97
   %or.cond109 = icmp ult i8 %70, 6
   %or.cond116 = select i1 %69, i1 true, i1 %or.cond109
@@ -2078,7 +2078,7 @@ define internal fastcc ptr @JSON_parse_string(ptr nocapture noundef %0, ptr noun
   br i1 %or.cond110, label %.backedge, label %.loopexit
 
 79:                                               ; preds = %74
-  %80 = icmp ult i8 %75, 71
+  %80 = icmp samesign ult i8 %75, 71
   %81 = add nsw i8 %75, -97
   %or.cond111 = icmp ult i8 %81, 6
   %or.cond117 = select i1 %80, i1 true, i1 %or.cond111
@@ -3335,7 +3335,7 @@ unescape_unicode.exit:                            ; preds = %68
   br label %convert_UTF32_to_UTF8.exit
 
 .thread103:                                       ; preds = %150
-  %159 = icmp ult i8 %52, 16
+  %159 = icmp samesign ult i8 %52, 16
   br i1 %159, label %160, label %171
 
 160:                                              ; preds = %.thread103.thread, %.thread103

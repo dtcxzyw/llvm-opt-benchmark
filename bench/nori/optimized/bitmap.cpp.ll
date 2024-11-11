@@ -1670,7 +1670,7 @@ _ZL13stbi__sbgrowfPPvii.exit.i340:                ; preds = %508, %.thread.i337,
   store i8 %510, ptr %515, align 1
   %516 = lshr i32 %.26566, 8
   %517 = add nsw i32 %.26, -8
-  %518 = icmp ugt i32 %.26, 15
+  %518 = icmp samesign ugt i32 %.26, 15
   br i1 %518, label %.lr.ph.i334, label %_ZL17stbi__zlib_flushfPhPjPi.exit342, !llvm.loop !15
 
 519:                                              ; preds = %.lr.ph647
@@ -1752,7 +1752,7 @@ _ZL13stbi__sbgrowfPPvii.exit.i356:                ; preds = %549, %.thread.i353,
   store i8 %551, ptr %556, align 1
   %557 = lshr i32 %.28568, 8
   %558 = add nsw i32 %.28, -8
-  %559 = icmp ugt i32 %.28, 15
+  %559 = icmp samesign ugt i32 %.28, 15
   br i1 %559, label %.lr.ph.i350, label %_ZL17stbi__zlib_flushfPhPjPi.exit342, !llvm.loop !15
 
 _ZL17stbi__zlib_flushfPhPjPi.exit342:             ; preds = %_ZL13stbi__sbgrowfPPvii.exit.i356, %_ZL13stbi__sbgrowfPPvii.exit.i340, %_ZL17stbi__zlib_bitrevii.exit347, %_ZL17stbi__zlib_bitrevii.exit331
@@ -1897,7 +1897,7 @@ _ZL13stbi__sbgrowfPPvii.exit.i383:                ; preds = %609, %.thread.i380,
   store i8 %611, ptr %616, align 1
   %617 = lshr i32 %.32572, 8
   %618 = add nsw i32 %.32, -8
-  %619 = icmp ugt i32 %.32, 15
+  %619 = icmp samesign ugt i32 %.32, 15
   br i1 %619, label %.lr.ph.i377, label %_ZL17stbi__zlib_flushfPhPjPi.exit385, !llvm.loop !15
 
 _ZL17stbi__zlib_flushfPhPjPi.exit385:             ; preds = %_ZL13stbi__sbgrowfPPvii.exit.i383, %.lr.ph655
@@ -4285,7 +4285,7 @@ define linkonce_odr hidden void @_ZN5Eigen12DenseStorageIN4nori7Color3fELin1ELin
   br i1 %12, label %13, label %.sink.split
 
 13:                                               ; preds = %10
-  %14 = icmp ugt i64 %1, 1537228672809129301
+  %14 = icmp samesign ugt i64 %1, 1537228672809129301
   br i1 %14, label %15, label %17
 
 15:                                               ; preds = %13

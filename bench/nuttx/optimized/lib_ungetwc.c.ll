@@ -22,7 +22,7 @@ define noundef i32 @ungetwc_unlocked(i32 noundef %0, ptr nocapture noundef %1) l
   %13 = load i8, ptr %12, align 1
   %14 = zext i8 %13 to i32
   %15 = add nuw nsw i32 %9, %14
-  %16 = icmp ult i32 %15, 3
+  %16 = icmp samesign ult i32 %15, 3
   br i1 %16, label %17, label %25
 
 17:                                               ; preds = %11
@@ -74,7 +74,7 @@ define noundef i32 @ungetwc(i32 noundef %0, ptr noundef %1) local_unnamed_addr #
   %16 = load i8, ptr %15, align 1
   %17 = zext i8 %16 to i32
   %18 = add nuw nsw i32 %12, %17
-  %19 = icmp ult i32 %18, 3
+  %19 = icmp samesign ult i32 %18, 3
   br i1 %19, label %20, label %ungetwc_unlocked.exit
 
 20:                                               ; preds = %14

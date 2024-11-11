@@ -266,7 +266,7 @@ define dso_local noundef range(i32 -22, 1) i32 @io_async_cancel_prep(ptr nocaptu
   br label %33
 
 33:                                               ; preds = %29, %23
-  %34 = icmp ult i32 %20, 32
+  %34 = icmp samesign ult i32 %20, 32
   br i1 %34, label %43, label %35
 
 35:                                               ; preds = %33

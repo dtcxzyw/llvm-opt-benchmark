@@ -41212,7 +41212,7 @@ _ZNK6vectorIPN6spacer16pred_transformerELb0EjE4sizeEv.exit48: ; preds = %for.bod
   %arrayidx.i46 = getelementptr inbounds i8, ptr %59, i64 -4
   %64 = load i32, ptr %arrayidx.i46, align 4
   %65 = zext i32 %64 to i64
-  %cmp67 = icmp ult i64 %63, %65
+  %cmp67 = icmp samesign ult i64 %63, %65
   br i1 %cmp67, label %lor.lhs.false.i50, label %for.cond.outer.backedge
 
 lor.lhs.false.i50:                                ; preds = %_ZNK6vectorIPN6spacer16pred_transformerELb0EjE4sizeEv.exit48
@@ -54889,7 +54889,7 @@ while.body.i210:                                  ; preds = %while.body.i210, %w
   %124 = load i32, ptr %arrayidx2.i, align 4
   store i32 %124, ptr %arrayidx.i214, align 4
   store i32 %123, ptr %arrayidx2.i, align 4
-  %cmp.i215 = icmp ugt i64 %indvars.iv.i211, 2
+  %cmp.i215 = icmp samesign ugt i64 %indvars.iv.i211, 2
   br i1 %cmp.i215, label %while.body.i210, label %if.end89, !llvm.loop !224
 
 if.end89:                                         ; preds = %while.body.i210, %for.body.i200, %if.then82, %_ZNK6vectorIjLb0EjE4sizeEv.exit, %_ZNK6vectorIjLb0EjE4sizeEv.exit.i196, %if.then78, %for.end76

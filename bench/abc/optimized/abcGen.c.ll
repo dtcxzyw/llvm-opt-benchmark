@@ -1701,7 +1701,7 @@ Abc_Base10Log.exit59:                             ; preds = %.lr.ph.i54, %._crit
   %43 = lshr i32 %.271, %.047
   %44 = and i32 %43, 1
   %45 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %13, ptr noundef nonnull @.str.144, i32 noundef %44) #15
-  %46 = icmp ugt i32 %.047.in68, 1
+  %46 = icmp samesign ugt i32 %.047.in68, 1
   br i1 %46, label %.lr.ph69, label %._crit_edge70, !llvm.loop !65
 
 ._crit_edge70:                                    ; preds = %.lr.ph69, %.preheader

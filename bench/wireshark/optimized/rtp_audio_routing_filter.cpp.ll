@@ -140,7 +140,7 @@ define noundef i64 @_ZN18AudioRoutingFilter8readDataEPcx(ptr nocapture noundef n
   br i1 %14, label %44, label %15
 
 15:                                               ; preds = %11
-  %16 = icmp ugt i64 %13, 3
+  %16 = icmp samesign ugt i64 %13, 3
   br i1 %16, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %15
@@ -194,7 +194,7 @@ define noundef i64 @_ZN18AudioRoutingFilter8readDataEPcx(ptr nocapture noundef n
   br label %41
 
 41:                                               ; preds = %24, %34, %40, %29
-  %42 = icmp ugt i64 %.03942.in, 2
+  %42 = icmp samesign ugt i64 %.03942.in, 2
   br i1 %42, label %19, label %._crit_edge, !llvm.loop !4
 
 ._crit_edge:                                      ; preds = %41, %15

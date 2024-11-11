@@ -35005,8 +35005,8 @@ common.ret:                                       ; preds = %"_ZN4core3ptr39drop
 .thread.i.i.i.i:                                  ; preds = %543
   %551 = getelementptr inbounds i8, ptr %45, i64 16
   %552 = load i8, ptr %551, align 8, !range !9304, !alias.scope !9300, !noalias !9303, !noundef !9
-  %switch.i.i3453.i.i.i.i = icmp samesign ult i8 %552, 3
-  br i1 %switch.i.i3453.i.i.i.i, label %539, label %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h6b015cef719af1a5E.exit.i.i.i.i"
+  %or.cond54.i.i.i.i = icmp samesign ult i8 %552, 3
+  br i1 %or.cond54.i.i.i.i, label %539, label %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h6b015cef719af1a5E.exit.i.i.i.i"
 
 ._crit_edge.i.i.i.i:                              ; preds = %547
   br i1 %switch.i.i.i.i.i.i, label %539, label %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h6b015cef719af1a5E.exit.i.i.i.i"
@@ -43182,7 +43182,7 @@ define hidden void @_ZN9languages11LanguageDir3get17h8cf7f543b20b18acE.llvm.3114
   %152 = and i8 %150, 63
   %153 = zext nneg i8 %152 to i32
   %154 = or disjoint i32 %151, %153
-  %155 = icmp ugt i8 %144, -33
+  %155 = icmp samesign ugt i8 %144, -33
   br i1 %155, label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hdad7323701b24b12E.exit14.i.i.i.i", label %179
 
 156:                                              ; preds = %143
@@ -43200,7 +43200,7 @@ define hidden void @_ZN9languages11LanguageDir3get17h8cf7f543b20b18acE.llvm.3114
   %164 = or disjoint i32 %161, %163
   %165 = shl nuw nsw i32 %148, 12
   %166 = or disjoint i32 %164, %165
-  %167 = icmp ugt i8 %144, -17
+  %167 = icmp samesign ugt i8 %144, -17
   br i1 %167, label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hdad7323701b24b12E.exit16.i.i.i.i", label %179
 
 "_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hdad7323701b24b12E.exit16.i.i.i.i": ; preds = %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hdad7323701b24b12E.exit14.i.i.i.i"
@@ -43222,7 +43222,7 @@ define hidden void @_ZN9languages11LanguageDir3get17h8cf7f543b20b18acE.llvm.3114
 
 179:                                              ; preds = %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hdad7323701b24b12E.exit16.i.i.i.i", %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hdad7323701b24b12E.exit14.i.i.i.i", %156, %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hdad7323701b24b12E.exit12.i.i.i.i"
   %.sroa.4.0.i.ph.i.i.i = phi i32 [ %154, %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hdad7323701b24b12E.exit12.i.i.i.i" ], [ %166, %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hdad7323701b24b12E.exit14.i.i.i.i" ], [ %177, %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hdad7323701b24b12E.exit16.i.i.i.i" ], [ %157, %156 ]
-  %180 = icmp ult i32 %.sroa.4.0.i.ph.i.i.i, 1114112
+  %180 = icmp samesign ult i32 %.sroa.4.0.i.ph.i.i.i, 1114112
   call void @llvm.assume(i1 %180)
   br i1 %129, label %.loopexit.i.i, label %181
 

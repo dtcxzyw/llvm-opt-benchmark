@@ -556,8 +556,8 @@ cond.false.i:                                     ; preds = %entry
   unreachable
 
 cond.end.i:                                       ; preds = %entry
-  %cmp1.i = icmp ugt i64 %0, 255
-  %cmp2.i = icmp ult i64 %0, 128
+  %cmp1.i = icmp samesign ugt i64 %0, 255
+  %cmp2.i = icmp samesign ult i64 %0, 128
   %1 = select i1 %cmp2.i, i64 2, i64 3
   %add = select i1 %cmp1.i, i64 4, i64 %1
   %add2 = add nuw nsw i64 %add, %0
@@ -597,12 +597,12 @@ cond.false.i29:                                   ; preds = %if.then7
   unreachable
 
 cond.end.i30:                                     ; preds = %if.then7
-  %cmp1.i31 = icmp ugt i64 %2, 255
-  %cmp2.i33 = icmp ult i64 %2, 128
+  %cmp1.i31 = icmp samesign ugt i64 %2, 255
+  %cmp2.i33 = icmp samesign ult i64 %2, 128
   %5 = select i1 %cmp2.i33, i64 2, i64 3
   %add10 = select i1 %cmp1.i31, i64 4, i64 %5
   %add12 = add nuw nsw i64 %add10, %2
-  %cmp.i38 = icmp ult i64 %add12, 32768
+  %cmp.i38 = icmp samesign ult i64 %add12, 32768
   br i1 %cmp.i38, label %cond.end.i40, label %cond.false.i39
 
 cond.false.i39:                                   ; preds = %cond.end.i30
@@ -610,8 +610,8 @@ cond.false.i39:                                   ; preds = %cond.end.i30
   unreachable
 
 cond.end.i40:                                     ; preds = %cond.end.i30
-  %cmp1.i41 = icmp ugt i64 %add12, 255
-  %cmp2.i43 = icmp ult i64 %add12, 128
+  %cmp1.i41 = icmp samesign ugt i64 %add12, 255
+  %cmp2.i43 = icmp samesign ult i64 %add12, 128
   %6 = select i1 %cmp2.i43, i64 2, i64 3
   %add14 = select i1 %cmp1.i41, i64 4, i64 %6
   %add15 = add nuw nsw i64 %add14, %add12
@@ -630,8 +630,8 @@ cond.false.i49:                                   ; preds = %if.end16
   unreachable
 
 cond.end.i50:                                     ; preds = %if.end16
-  %cmp1.i51 = icmp ugt i64 %add18, 255
-  %cmp2.i53 = icmp ult i64 %add18, 128
+  %cmp1.i51 = icmp samesign ugt i64 %add18, 255
+  %cmp2.i53 = icmp samesign ult i64 %add18, 128
   %7 = select i1 %cmp2.i53, i64 5, i64 6
   %add21 = select i1 %cmp1.i51, i64 7, i64 %7
   %add22 = add nsw i64 %secondbytes.0, %add2
@@ -689,11 +689,11 @@ cond.false.i69:                                   ; preds = %der_encode_length.e
   unreachable
 
 cond.end.i70:                                     ; preds = %der_encode_length.exit67
-  %cmp1.i71 = icmp ugt i64 %10, 255
+  %cmp1.i71 = icmp samesign ugt i64 %10, 255
   br i1 %cmp1.i71, label %if.end5.thread.i84, label %if.end5.i72
 
 if.end5.i72:                                      ; preds = %cond.end.i70
-  %cmp2.i73 = icmp ult i64 %10, 128
+  %cmp2.i73 = icmp samesign ult i64 %10, 128
   br i1 %cmp2.i73, label %if.then9.i82, label %if.else10.i75
 
 if.end5.thread.i84:                               ; preds = %cond.end.i70
@@ -733,11 +733,11 @@ der_encode_length.exit90:                         ; preds = %if.end5.thread.i84,
 cond.end.i93:                                     ; preds = %der_encode_length.exit90
   %incdec.ptr41 = getelementptr inbounds i8, ptr %add.ptr37, i64 1
   store i8 -96, ptr %add.ptr37, align 1
-  %cmp1.i94 = icmp ugt i64 %secondbytesinner.0, 255
+  %cmp1.i94 = icmp samesign ugt i64 %secondbytesinner.0, 255
   br i1 %cmp1.i94, label %if.end5.thread.i107, label %if.end5.i95
 
 if.end5.i95:                                      ; preds = %cond.end.i93
-  %cmp2.i96 = icmp ult i64 %secondbytesinner.0, 128
+  %cmp2.i96 = icmp samesign ult i64 %secondbytesinner.0, 128
   br i1 %cmp2.i96, label %if.then9.i105, label %if.else10.i98
 
 if.end5.thread.i107:                              ; preds = %cond.end.i93
@@ -778,11 +778,11 @@ cond.false.i115:                                  ; preds = %der_encode_length.e
   unreachable
 
 cond.end.i116:                                    ; preds = %der_encode_length.exit113
-  %cmp1.i117 = icmp ugt i64 %17, 255
+  %cmp1.i117 = icmp samesign ugt i64 %17, 255
   br i1 %cmp1.i117, label %if.end5.thread.i130, label %if.end5.i118
 
 if.end5.i118:                                     ; preds = %cond.end.i116
-  %cmp2.i119 = icmp ult i64 %17, 128
+  %cmp2.i119 = icmp samesign ult i64 %17, 128
   br i1 %cmp2.i119, label %if.then9.i128, label %if.else10.i121
 
 if.end5.thread.i130:                              ; preds = %cond.end.i116

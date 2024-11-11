@@ -394,7 +394,7 @@ define void @_Z21gmx_omp_nthreads_initRKN3gmx8MDLoggerEP9t_commreciiiib(ptr noca
 
 46:                                               ; preds = %44
   store i32 %5, ptr getelementptr inbounds (i8, ptr @_ZL5modth, i64 4), align 4
-  %47 = icmp ugt i32 %5, 128
+  %47 = icmp samesign ugt i32 %5, 128
   br i1 %47, label %.critedge.i, label %.thread.i
 
 .critedge.i:                                      ; preds = %46

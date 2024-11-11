@@ -2914,7 +2914,7 @@ read_ref_frames.exit.i:                           ; preds = %read_block_referenc
   %810 = phi ptr [ %802, %read_ref_frames.exit.thread.i ], [ %806, %read_ref_frames.exit.i ]
   %.val272627.i = phi i8 [ %.val272.ph.i, %read_ref_frames.exit.thread.i ], [ %.val272.i, %read_ref_frames.exit.i ]
   %811 = icmp slt i8 %809, 5
-  %812 = icmp ugt i8 %.val272627.i, 4
+  %812 = icmp samesign ugt i8 %.val272627.i, 4
   %or.cond.i.i.i = and i1 %811, %812
   br i1 %or.cond.i.i.i, label %get_uni_comp_ref_idx.exit.thread.i.i, label %.preheader.i.i.i
 
@@ -2986,7 +2986,7 @@ segfeature_active.exit286.thread.i:               ; preds = %segfeature_active.e
 
 844:                                              ; preds = %segfeature_active.exit286.thread.i
   %845 = icmp slt i8 %.val276.i, 5
-  %846 = icmp ugt i8 %.val277.i, 4
+  %846 = icmp samesign ugt i8 %.val277.i, 4
   %or.cond.i.i.i.i = and i1 %845, %846
   br i1 %or.cond.i.i.i.i, label %get_uni_comp_ref_idx.exit.thread.i.i.i, label %.preheader.i.i.i.i
 
@@ -3309,7 +3309,7 @@ have_nearmv_in_inter_mode.exit.thread.i:          ; preds = %read_inter_mode.exi
 
 1033:                                             ; preds = %have_nearmv_in_inter_mode.exit.thread.i
   %1034 = icmp slt i8 %1032, 5
-  %1035 = icmp ugt i8 %1030, 4
+  %1035 = icmp samesign ugt i8 %1030, 4
   %or.cond.i.i.i306.i = and i1 %1035, %1034
   br i1 %or.cond.i.i.i306.i, label %get_uni_comp_ref_idx.exit.thread.i.i311.i, label %.preheader.i.i.i307.i
 
@@ -6272,7 +6272,7 @@ define internal fastcc void @read_cdef(ptr nocapture noundef readonly %0, ptr no
   %60 = tail call i32 @od_ec_decode_bool_q15(ptr noundef nonnull %58, i32 noundef 16384) #9
   %61 = shl i32 %60, %.0.i
   %62 = or i32 %61, %.067.i
-  %63 = icmp ugt i32 %.0.in8.i, 1
+  %63 = icmp samesign ugt i32 %.0.in8.i, 1
   br i1 %63, label %59, label %aom_read_literal_.exit.loopexit, !llvm.loop !15
 
 aom_read_literal_.exit.loopexit:                  ; preds = %59
@@ -6409,7 +6409,7 @@ aom_read_symbol_.exit.i:                          ; preds = %._crit_edge.loopexi
   %68 = tail call i32 @od_ec_decode_bool_q15(ptr noundef nonnull %31, i32 noundef 16384) #9
   %69 = shl i32 %68, %.0.i.i
   %70 = or i32 %69, %.067.i.i
-  %71 = icmp ugt i32 %.0.in8.i.i, 1
+  %71 = icmp samesign ugt i32 %.0.in8.i.i, 1
   br i1 %71, label %.preheader.i, label %aom_read_literal_.exit.i, !llvm.loop !15
 
 aom_read_literal_.exit.i:                         ; preds = %.preheader.i
@@ -6426,7 +6426,7 @@ aom_read_literal_.exit.i:                         ; preds = %.preheader.i
   %76 = tail call i32 @od_ec_decode_bool_q15(ptr noundef nonnull %31, i32 noundef 16384) #9
   %77 = shl i32 %76, %.0.i35.i
   %78 = or i32 %77, %.067.i34.i
-  %79 = icmp ugt i32 %.0.in8.i33.i, 1
+  %79 = icmp samesign ugt i32 %.0.in8.i33.i, 1
   br i1 %79, label %.lr.ph.i.i, label %aom_read_literal_.exit36.i, !llvm.loop !15
 
 aom_read_literal_.exit36.i:                       ; preds = %.lr.ph.i.i, %aom_read_literal_.exit.i
@@ -6993,7 +6993,7 @@ aom_read_symbol_.exit49:                          ; preds = %76, %._crit_edge.lo
   %140 = call i32 @od_ec_decode_bool_q15(ptr noundef nonnull %43, i32 noundef 16384) #9
   %141 = shl i32 %140, %.0.i.i
   %142 = or i32 %141, %.067.i.i
-  %143 = icmp ugt i32 %.0.in8.i.i, 1
+  %143 = icmp samesign ugt i32 %.0.in8.i.i, 1
   br i1 %143, label %.lr.ph.i.i, label %aom_read_literal_.exit.loopexit.i, !llvm.loop !15
 
 aom_read_literal_.exit.loopexit.i:                ; preds = %.lr.ph.i.i
@@ -7016,7 +7016,7 @@ aom_read_literal_.exit.i:                         ; preds = %aom_read_literal_.e
   %149 = call i32 @od_ec_decode_bool_q15(ptr noundef nonnull %43, i32 noundef 16384) #9
   %150 = shl i32 %149, %.0.i58.i
   %151 = or i32 %150, %.067.i57.i
-  %152 = icmp ugt i32 %.0.in8.i56.i, 1
+  %152 = icmp samesign ugt i32 %.0.in8.i56.i, 1
   br i1 %152, label %.preheader119, label %.lr.ph94.i, !llvm.loop !15
 
 .lr.ph94.i:                                       ; preds = %.preheader119
@@ -7045,7 +7045,7 @@ aom_read_literal_.exit.i:                         ; preds = %aom_read_literal_.e
   %164 = call i32 @od_ec_decode_bool_q15(ptr noundef nonnull %43, i32 noundef 16384) #9
   %165 = shl i32 %164, %.0.i65.i
   %166 = or i32 %165, %.067.i64.i
-  %167 = icmp ugt i32 %.0.in8.i63.i, 1
+  %167 = icmp samesign ugt i32 %.0.in8.i63.i, 1
   br i1 %167, label %.lr.ph.i62.i, label %aom_read_literal_.exit66.loopexit.i, !llvm.loop !15
 
 aom_read_literal_.exit66.loopexit.i:              ; preds = %.lr.ph.i62.i
@@ -7378,7 +7378,7 @@ aom_read_symbol_.exit76:                          ; preds = %259, %._crit_edge.l
   %324 = call i32 @od_ec_decode_bool_q15(ptr noundef nonnull %226, i32 noundef 16384) #9
   %325 = shl i32 %324, %.0.i.i113
   %326 = or i32 %325, %.067.i.i112
-  %327 = icmp ugt i32 %.0.in8.i.i111, 1
+  %327 = icmp samesign ugt i32 %.0.in8.i.i111, 1
   br i1 %327, label %.lr.ph.i.i110, label %aom_read_literal_.exit.loopexit.i114, !llvm.loop !15
 
 aom_read_literal_.exit.loopexit.i114:             ; preds = %.lr.ph.i.i110
@@ -7402,7 +7402,7 @@ aom_read_literal_.exit.i82:                       ; preds = %aom_read_literal_.e
   %334 = call i32 @od_ec_decode_bool_q15(ptr noundef nonnull %226, i32 noundef 16384) #9
   %335 = shl i32 %334, %.0.i111.i
   %336 = or i32 %335, %.067.i110.i
-  %337 = icmp ugt i32 %.0.in8.i109.i, 1
+  %337 = icmp samesign ugt i32 %.0.in8.i109.i, 1
   br i1 %337, label %.preheader, label %.lr.ph184.i, !llvm.loop !15
 
 .lr.ph184.i:                                      ; preds = %.preheader
@@ -7430,7 +7430,7 @@ aom_read_literal_.exit.i82:                       ; preds = %aom_read_literal_.e
   %348 = call i32 @od_ec_decode_bool_q15(ptr noundef nonnull %226, i32 noundef 16384) #9
   %349 = shl i32 %348, %.0.i118.i
   %350 = or i32 %349, %.067.i117.i
-  %351 = icmp ugt i32 %.0.in8.i116.i, 1
+  %351 = icmp samesign ugt i32 %.0.in8.i116.i, 1
   br i1 %351, label %.lr.ph.i115.i, label %aom_read_literal_.exit119.i, !llvm.loop !15
 
 aom_read_literal_.exit119.i:                      ; preds = %.lr.ph.i115.i, %346
@@ -7589,7 +7589,7 @@ aom_read_literal_.exit157.preheader.i:            ; preds = %.lr.ph188.i
   %397 = call i32 @od_ec_decode_bool_q15(ptr noundef nonnull %226, i32 noundef 16384) #9
   %398 = shl i32 %397, %.0.i156.us.i
   %399 = or i32 %398, %.067.i155.us.i
-  %400 = icmp ugt i32 %.0.in8.i154.us.i, 1
+  %400 = icmp samesign ugt i32 %.0.in8.i154.us.i, 1
   br i1 %400, label %.lr.ph.i153.us.i, label %aom_read_literal_.exit157.loopexit.us.i, !llvm.loop !15
 
 aom_read_literal_.exit157.loopexit.us.i:          ; preds = %.lr.ph.i153.us.i
@@ -7608,7 +7608,7 @@ aom_read_literal_.exit157.loopexit.us.i:          ; preds = %.lr.ph.i153.us.i
   %404 = call i32 @od_ec_decode_bool_q15(ptr noundef nonnull %226, i32 noundef 16384) #9
   %405 = shl i32 %404, %.0.i133.i
   %406 = or i32 %405, %.067.i132.i
-  %407 = icmp ugt i32 %.0.in8.i131.i, 1
+  %407 = icmp samesign ugt i32 %.0.in8.i131.i, 1
   br i1 %407, label %.preheader162, label %aom_read_literal_.exit136.i, !llvm.loop !15
 
 aom_read_literal_.exit136.i:                      ; preds = %.preheader162
@@ -7625,7 +7625,7 @@ aom_read_literal_.exit136.i:                      ; preds = %.preheader162
   %412 = call i32 @od_ec_decode_bool_q15(ptr noundef nonnull %226, i32 noundef 16384) #9
   %413 = shl i32 %412, %.0.i142.i
   %414 = or i32 %413, %.067.i141.i
-  %415 = icmp ugt i32 %.0.in8.i140.i, 1
+  %415 = icmp samesign ugt i32 %.0.in8.i140.i, 1
   br i1 %415, label %.lr.ph.i139.i, label %aom_read_literal_.exit143.loopexit.i, !llvm.loop !15
 
 aom_read_literal_.exit143.loopexit.i:             ; preds = %.lr.ph.i139.i
@@ -7655,7 +7655,7 @@ aom_read_literal_.exit143.i:                      ; preds = %aom_read_literal_.e
   %421 = call i32 @od_ec_decode_bool_q15(ptr noundef nonnull %226, i32 noundef 16384) #9
   %422 = shl i32 %421, %.0.i149.i
   %423 = or i32 %422, %.067.i148.i
-  %424 = icmp ugt i32 %.0.in8.i147.i, 1
+  %424 = icmp samesign ugt i32 %.0.in8.i147.i, 1
   br i1 %424, label %.lr.ph.i146.i, label %aom_read_literal_.exit150.i, !llvm.loop !15
 
 aom_read_literal_.exit150.i:                      ; preds = %.lr.ph.i146.i
@@ -8256,7 +8256,7 @@ aom_read_symbol_.exit:                            ; preds = %16, %._crit_edge.lo
   %54 = tail call i32 @od_ec_decode_bool_q15(ptr noundef nonnull %17, i32 noundef 16384) #9
   %55 = shl i32 %54, %.0.i
   %56 = or i32 %55, %.067.i
-  %57 = icmp ugt i32 %.0.in8.i, 1
+  %57 = icmp samesign ugt i32 %.0.in8.i, 1
   br i1 %57, label %.preheader, label %aom_read_literal_.exit, !llvm.loop !15
 
 aom_read_literal_.exit:                           ; preds = %.preheader
@@ -8273,7 +8273,7 @@ aom_read_literal_.exit:                           ; preds = %.preheader
   %62 = tail call i32 @od_ec_decode_bool_q15(ptr noundef nonnull %17, i32 noundef 16384) #9
   %63 = shl i32 %62, %.0.i33
   %64 = or i32 %63, %.067.i32
-  %65 = icmp ugt i32 %.0.in8.i31, 1
+  %65 = icmp samesign ugt i32 %.0.in8.i31, 1
   br i1 %65, label %.lr.ph.i, label %aom_read_literal_.exit34, !llvm.loop !15
 
 aom_read_literal_.exit34:                         ; preds = %.lr.ph.i, %aom_read_literal_.exit

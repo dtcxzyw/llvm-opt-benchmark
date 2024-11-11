@@ -1209,7 +1209,7 @@ define internal void @dissect_swils_efp(ptr noundef %0, ptr noundef %1, ptr noun
 
 44:                                               ; preds = %.sink.split, %.lr.ph
   %45 = add i32 %.05559, %7
-  %46 = icmp ugt i32 %.in, 1
+  %46 = icmp samesign ugt i32 %.in, 1
   br i1 %46, label %.lr.ph, label %.loopexit, !llvm.loop !4
 
 .loopexit:                                        ; preds = %44, %25, %24, %22, %13

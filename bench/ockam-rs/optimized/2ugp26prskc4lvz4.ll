@@ -102304,7 +102304,7 @@ define hidden void @"_ZN5alloc11collections5btree6remove259_$LT$impl$u20$alloc..
   %169 = getelementptr i8, ptr %168, i64 8
   %170 = shl nsw i64 %150, 3
   tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %168, ptr align 8 %169, i64 %170, i1 false), !alias.scope !26773, !noalias !26752
-  %171 = icmp ult i64 %167, %143
+  %171 = icmp samesign ult i64 %167, %143
   br i1 %171, label %.lr.ph.i.i, label %"_ZN5alloc11collections5btree4node119NodeRef$LT$alloc..collections..btree..node..marker..Mut$C$K$C$V$C$alloc..collections..btree..node..marker..Internal$GT$30correct_childrens_parent_links17h82342fa41b37ce6dE.exit.i"
 
 .lr.ph.i.i:                                       ; preds = %._crit_edge161.thread, %.lr.ph.i.i
@@ -102822,7 +102822,7 @@ define hidden void @"_ZN5alloc11collections5btree6remove259_$LT$impl$u20$alloc..
   %167 = getelementptr i8, ptr %166, i64 8
   %168 = shl nsw i64 %151, 3
   tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %166, ptr align 8 %167, i64 %168, i1 false), !alias.scope !26866, !noalias !26845
-  %169 = icmp ult i64 %165, %144
+  %169 = icmp samesign ult i64 %165, %144
   br i1 %169, label %.lr.ph.i.i, label %"_ZN5alloc11collections5btree4node119NodeRef$LT$alloc..collections..btree..node..marker..Mut$C$K$C$V$C$alloc..collections..btree..node..marker..Internal$GT$30correct_childrens_parent_links17h835976716d71c240E.exit.i"
 
 .lr.ph.i.i:                                       ; preds = %._crit_edge161.thread, %.lr.ph.i.i
@@ -143131,7 +143131,7 @@ define internal fastcc { ptr, i64 } @"_ZN90_$LT$core..str..iter..Split$LT$P$GT$$
   %42 = and i8 %40, 63
   %43 = zext nneg i8 %42 to i32
   %44 = or disjoint i32 %41, %43
-  %45 = icmp ugt i8 %34, -33
+  %45 = icmp samesign ugt i8 %34, -33
   br i1 %45, label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hfc6e47c671848380E.exit15.i.i.i.i", label %_ZN4core3str11validations15next_code_point17h23ec383a3cd45524E.exit.thread.i.i.i
 
 46:                                               ; preds = %33
@@ -143149,7 +143149,7 @@ define internal fastcc { ptr, i64 } @"_ZN90_$LT$core..str..iter..Split$LT$P$GT$$
   %54 = or disjoint i32 %51, %53
   %55 = shl nuw nsw i32 %38, 12
   %56 = or disjoint i32 %54, %55
-  %57 = icmp ugt i8 %34, -17
+  %57 = icmp samesign ugt i8 %34, -17
   br i1 %57, label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hfc6e47c671848380E.exit17.i.i.i.i", label %_ZN4core3str11validations15next_code_point17h23ec383a3cd45524E.exit.thread.i.i.i
 
 "_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hfc6e47c671848380E.exit17.i.i.i.i": ; preds = %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hfc6e47c671848380E.exit15.i.i.i.i"

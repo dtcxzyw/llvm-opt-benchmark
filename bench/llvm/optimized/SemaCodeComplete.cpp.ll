@@ -24429,7 +24429,7 @@ _ZN12_GLOBAL__N_115unwrapParenListEPN5clang4ExprE.exit: ; preds = %19, %25
 _ZL16anyNullArgumentsN4llvm8ArrayRefIPN5clang4ExprEEE.exit: ; preds = %40
   %.idx1.i.i = shl nuw nsw i64 %3, 3
   %46 = getelementptr inbounds i8, ptr %2, i64 %.idx1.i.i
-  %.not145 = icmp ult i64 %3, 4
+  %.not145 = icmp samesign ult i64 %3, 4
   br i1 %.not145, label %._crit_edge.i.i.i.i.i, label %.lr.ph.preheader.i.i.i.i.i
 
 .lr.ph.preheader.i.i.i.i.i:                       ; preds = %_ZL16anyNullArgumentsN4llvm8ArrayRefIPN5clang4ExprEEE.exit
@@ -59434,7 +59434,7 @@ _ZSt13move_backwardIPN5clang20CodeCompletionResultES2_ET0_T_S4_S3_.exit: ; preds
   %88 = getelementptr inbounds i8, ptr %.0910.i.i.i.i.i, i64 96
   %89 = getelementptr inbounds i8, ptr %.0811.i.i.i.i.i, i64 96
   %90 = add nsw i64 %.012.i.i.i.i.i, -1
-  %91 = icmp ugt i64 %.012.i.i.i.i.i, 1
+  %91 = icmp samesign ugt i64 %.012.i.i.i.i.i, 1
   br i1 %91, label %.lr.ph.i.i.i.i.i46, label %_ZSt4copyIPN5clang20CodeCompletionResultES2_ET0_T_S4_S3_.exit, !llvm.loop !417
 
 92:                                               ; preds = %_ZN4llvm15SmallVectorImplIN5clang20CodeCompletionResultEE7reserveEm.exit
@@ -113172,7 +113172,7 @@ _ZN12_GLOBAL__N_111ConceptInfo6MemberaSEOS1_.exit: ; preds = %50, %.thread.i.i.i
   %64 = getelementptr inbounds i8, ptr %.078.i.i.i.i.i, i64 -16
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %63, ptr noundef nonnull align 8 dereferenceable(16) %64, i64 16, i1 false)
   %65 = add nsw i64 %.010.i.i.i.i.i, -1
-  %66 = icmp ugt i64 %.010.i.i.i.i.i, 1
+  %66 = icmp samesign ugt i64 %.010.i.i.i.i.i, 1
   br i1 %66, label %.lr.ph.i.i.i.i.i, label %_ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPN12_GLOBAL__N_111ConceptInfo6MemberESt6vectorIS4_SaIS4_EEEES9_ET0_T_SB_SA_.exit, !llvm.loop !631
 
 _ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPN12_GLOBAL__N_111ConceptInfo6MemberESt6vectorIS4_SaIS4_EEEES9_ET0_T_SB_SA_.exit: ; preds = %_ZN12_GLOBAL__N_111ConceptInfo6MemberaSEOS1_.exit, %_ZN12_GLOBAL__N_111ConceptInfo6MemberC2EOS1_.exit
@@ -116242,7 +116242,7 @@ _ZNSt12_Vector_baseIN5clang9FixItHintESaIS1_EE13_M_deallocateEPS1_m.exit: ; pred
   %56 = getelementptr inbounds i8, ptr %.0910.i.i.i.i.i, i64 64
   %57 = getelementptr inbounds i8, ptr %.0811.i.i.i.i.i, i64 64
   %58 = add nsw i64 %.012.i.i.i.i.i, -1
-  %59 = icmp ugt i64 %.012.i.i.i.i.i, 1
+  %59 = icmp samesign ugt i64 %.012.i.i.i.i.i, 1
   br i1 %59, label %.lr.ph.i.i.i.i.i25, label %_ZSt4copyIN9__gnu_cxx17__normal_iteratorIPKN5clang9FixItHintESt6vectorIS3_SaIS3_EEEENS1_IPS3_S8_EEET0_T_SD_SC_.exit.loopexit, !llvm.loop !651
 
 _ZSt4copyIN9__gnu_cxx17__normal_iteratorIPKN5clang9FixItHintESt6vectorIS3_SaIS3_EEEENS1_IPS3_S8_EEET0_T_SD_SC_.exit.loopexit: ; preds = %.lr.ph.i.i.i.i.i25
@@ -116291,7 +116291,7 @@ _ZSt4copyIN9__gnu_cxx17__normal_iteratorIPKN5clang9FixItHintESt6vectorIS3_SaIS3_
   %75 = getelementptr inbounds i8, ptr %.0910.i.i.i.i.i33, i64 64
   %76 = getelementptr inbounds i8, ptr %.0811.i.i.i.i.i32, i64 64
   %77 = add nsw i64 %.012.i.i.i.i.i31, -1
-  %78 = icmp ugt i64 %.012.i.i.i.i.i31, 1
+  %78 = icmp samesign ugt i64 %.012.i.i.i.i.i31, 1
   br i1 %78, label %.lr.ph.i.i.i.i.i30, label %_ZSt4copyIPN5clang9FixItHintES2_ET0_T_S4_S3_.exit.loopexit, !llvm.loop !653
 
 _ZSt4copyIPN5clang9FixItHintES2_ET0_T_S4_S3_.exit.loopexit: ; preds = %.lr.ph.i.i.i.i.i30

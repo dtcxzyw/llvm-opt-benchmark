@@ -3522,7 +3522,7 @@ define hidden void @_ZN6chrono5naive8datetime13NaiveDateTime18from_timestamp_opt
 
 19:                                               ; preds = %13
   %.fca.0.extract = extractvalue { i32, i32 } %15, 0
-  %20 = icmp ult i32 %2, 1000000000
+  %20 = icmp samesign ult i32 %2, 1000000000
   %21 = urem i32 %16, 60
   %22 = icmp eq i32 %21, 59
   %or.cond6 = or i1 %20, %22
@@ -7191,7 +7191,7 @@ define hidden void @_ZN6diesel6sqlite5types13date_and_time6chrono12parse_julian1
 
 25:                                               ; preds = %19
   %.fca.0.extract.i = extractvalue { i32, i32 } %21, 0
-  %26 = icmp ult i32 %9, 1000000000
+  %26 = icmp samesign ult i32 %9, 1000000000
   %27 = urem i32 %22, 60
   %28 = icmp eq i32 %27, 59
   %or.cond6.i = or i1 %26, %28

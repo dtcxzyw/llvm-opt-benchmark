@@ -2962,7 +2962,7 @@ for.body.i:                                       ; preds = %for.body24, %for.in
   br i1 %cmp4.i, label %land.lhs.true.i, label %if.else19.i
 
 land.lhs.true.i:                                  ; preds = %for.body.i
-  %cmp8.i = icmp ult i8 %50, 123
+  %cmp8.i = icmp samesign ult i8 %50, 123
   br i1 %cmp8.i, label %if.then.i, label %for.inc.i
 
 if.then.i:                                        ; preds = %land.lhs.true.i
@@ -3022,7 +3022,7 @@ if.end19.i443:                                    ; preds = %call5.i.i.i.i.noexc
   br i1 %cmp.i.i.i.i.i43, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i445, label %if.then.i28.i444
 
 _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i445: ; preds = %if.end19.i443
-  %cmp3.i.i31.i446 = icmp ult i64 %51, 16
+  %cmp3.i.i31.i446 = icmp samesign ult i64 %51, 16
   call void @llvm.assume(i1 %cmp3.i.i31.i446)
   br label %.noexc.i
 
@@ -3109,7 +3109,7 @@ if.end19.i400:                                    ; preds = %call5.i.i.i.i.noexc
   br i1 %cmp.i.i.i.i28.i, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i402, label %if.then.i28.i401
 
 _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i402: ; preds = %if.end19.i400
-  %cmp3.i.i31.i403 = icmp ult i64 %56, 16
+  %cmp3.i.i31.i403 = icmp samesign ult i64 %56, 16
   call void @llvm.assume(i1 %cmp3.i.i31.i403)
   br label %.noexc38.i
 
@@ -3133,7 +3133,7 @@ if.else19.i:                                      ; preds = %for.body.i
   br i1 %cmp23.i, label %land.lhs.true24.i, label %if.else34.i
 
 land.lhs.true24.i:                                ; preds = %if.else19.i
-  %cmp28.i = icmp ult i8 %50, 91
+  %cmp28.i = icmp samesign ult i8 %50, 91
   br i1 %cmp28.i, label %if.then29.i, label %for.inc.i
 
 if.then29.i:                                      ; preds = %land.lhs.true24.i
@@ -3189,7 +3189,7 @@ if.end19.i357:                                    ; preds = %call5.i.i.i.i.noexc
   br i1 %cmp.i.i.i.i45.i, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i359, label %if.then.i28.i358
 
 _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i359: ; preds = %if.end19.i357
-  %cmp3.i.i31.i360 = icmp ult i64 %61, 16
+  %cmp3.i.i31.i360 = icmp samesign ult i64 %61, 16
   call void @llvm.assume(i1 %cmp3.i.i31.i360)
   br label %.noexc55.i
 
@@ -3280,7 +3280,7 @@ if.end19.i:                                       ; preds = %call5.i.i.i.i.noexc
   br i1 %cmp.i.i.i.i62.i, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i327, label %if.then.i28.i
 
 _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i327: ; preds = %if.end19.i
-  %cmp3.i.i31.i = icmp ult i64 %67, 16
+  %cmp3.i.i31.i = icmp samesign ult i64 %67, 16
   call void @llvm.assume(i1 %cmp3.i.i31.i)
   br label %.noexc72.i
 

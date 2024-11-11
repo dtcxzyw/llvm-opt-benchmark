@@ -1860,7 +1860,7 @@ define internal noundef range(i32 -22, 1) i32 @pt_event_init(ptr nocapture nound
   br i1 %70, label %133, label %71
 
 71:                                               ; preds = %67, %64
-  %72 = icmp ult i64 %8, 36028797018963968
+  %72 = icmp samesign ult i64 %8, 36028797018963968
   br i1 %72, label %77, label %73
 
 73:                                               ; preds = %71

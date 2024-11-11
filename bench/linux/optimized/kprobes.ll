@@ -478,7 +478,7 @@ define dso_local void @__free_insn_slot(ptr noundef %0, ptr noundef %1, i32 noun
 
 19:                                               ; preds = %11
   %20 = udiv i64 4096, %10
-  %21 = icmp ult i64 %17, %20
+  %21 = icmp samesign ult i64 %17, %20
   br i1 %21, label %25, label %22
 
 22:                                               ; preds = %19, %11

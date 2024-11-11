@@ -3839,7 +3839,7 @@ _ZN4llvm15SmallVectorImplIN5clang6driver9ToolChain18BitCodeLibraryInfoEE12assign
   %38 = getelementptr inbounds i8, ptr %.0910.i.i.i.i.i, i64 40
   %39 = getelementptr inbounds i8, ptr %.0811.i.i.i.i.i, i64 40
   %40 = add nsw i64 %.012.i.i.i.i.i, -1
-  %41 = icmp ugt i64 %.012.i.i.i.i.i, 1
+  %41 = icmp samesign ugt i64 %.012.i.i.i.i.i, 1
   br i1 %41, label %.lr.ph.i.i.i.i.i, label %_ZSt4moveIPN5clang6driver9ToolChain18BitCodeLibraryInfoES4_ET0_T_S6_S5_.exit, !llvm.loop !117
 
 _ZSt4moveIPN5clang6driver9ToolChain18BitCodeLibraryInfoES4_ET0_T_S6_S5_.exit: ; preds = %.lr.ph.i.i.i.i.i, %29, %27
@@ -3934,7 +3934,7 @@ _ZN4llvm15SmallVectorImplIN5clang6driver9ToolChain18BitCodeLibraryInfoEE5clearEv
   %70 = getelementptr inbounds i8, ptr %.0910.i.i.i.i.i52, i64 40
   %71 = getelementptr inbounds i8, ptr %.0811.i.i.i.i.i51, i64 40
   %72 = add nsw i64 %.012.i.i.i.i.i50, -1
-  %73 = icmp ugt i64 %.012.i.i.i.i.i50, 1
+  %73 = icmp samesign ugt i64 %.012.i.i.i.i.i50, 1
   br i1 %73, label %.lr.ph.i.i.i.i.i49, label %_ZSt4moveIPN5clang6driver9ToolChain18BitCodeLibraryInfoES4_ET0_T_S6_S5_.exit53, !llvm.loop !117
 
 _ZSt4moveIPN5clang6driver9ToolChain18BitCodeLibraryInfoES4_ET0_T_S6_S5_.exit53: ; preds = %.lr.ph.i.i.i.i.i49, %61, %60, %_ZN4llvm15SmallVectorImplIN5clang6driver9ToolChain18BitCodeLibraryInfoEE5clearEv.exit46

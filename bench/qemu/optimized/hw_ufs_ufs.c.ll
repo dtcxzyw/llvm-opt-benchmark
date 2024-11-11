@@ -3018,7 +3018,7 @@ if.then.i.i.i:                                    ; preds = %if.end.i.i
 find_first_bit.exit.i.i:                          ; preds = %if.then.i.i.i, %if.end.i.i
   %retval.0.i.i.i = phi i64 [ %cond.i.i.i, %if.then.i.i.i ], [ 0, %if.end.i.i ]
   %slot.049.i.i = trunc nuw nsw i64 %retval.0.i.i.i to i32
-  %cmp50.i.i = icmp ult i32 %slot.049.i.i, %conv.i.i
+  %cmp50.i.i = icmp samesign ult i32 %slot.049.i.i, %conv.i.i
   br i1 %cmp50.i.i, label %while.body.lr.ph.i.i, label %while.end.i.i
 
 while.body.lr.ph.i.i:                             ; preds = %find_first_bit.exit.i.i

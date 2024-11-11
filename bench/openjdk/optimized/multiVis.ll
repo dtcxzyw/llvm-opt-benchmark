@@ -213,7 +213,7 @@ define hidden range(i32 0, 2) i32 @GetXVisualInfo(ptr noundef %0, i32 noundef %1
 55:                                               ; preds = %50, %54, %45
   %.1 = phi i32 [ 0, %54 ], [ 0, %50 ], [ %.063, %45 ]
   %56 = getelementptr inbounds i8, ptr %.05162, i64 32
-  %57 = icmp ugt i32 %.in69, 1
+  %57 = icmp samesign ugt i32 %.in69, 1
   br i1 %57, label %45, label %._crit_edge, !llvm.loop !8
 
 ._crit_edge:                                      ; preds = %55

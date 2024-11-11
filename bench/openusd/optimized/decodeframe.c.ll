@@ -6155,7 +6155,7 @@ launch_dec_workers.exit.i:                        ; preds = %.lr.ph218.i, %reset
   %341 = zext i1 %.not.i194.i to i32
   call void @aom_merge_corrupted_flag(ptr noundef nonnull %9, i32 noundef %341) #16
   %indvars.iv.next.i195.i = add nsw i64 %indvars.iv.i193.i, -1
-  %342 = icmp ugt i64 %indvars.iv.i193.i, 1
+  %342 = icmp samesign ugt i64 %indvars.iv.i193.i, 1
   br i1 %342, label %335, label %sync_dec_workers.exit.i, !llvm.loop !63
 
 sync_dec_workers.exit.i:                          ; preds = %335
@@ -6519,7 +6519,7 @@ launch_dec_workers.exit.i154:                     ; preds = %.lr.ph.i153, %reset
   %528 = zext i1 %.not.i138.i to i32
   call void @aom_merge_corrupted_flag(ptr noundef nonnull %8, i32 noundef %528) #16
   %indvars.iv.next.i139.i = add nsw i64 %indvars.iv.i137.i, -1
-  %529 = icmp ugt i64 %indvars.iv.i137.i, 1
+  %529 = icmp samesign ugt i64 %indvars.iv.i137.i, 1
   br i1 %529, label %522, label %sync_dec_workers.exit.i156, !llvm.loop !63
 
 sync_dec_workers.exit.i156:                       ; preds = %522
@@ -10254,7 +10254,7 @@ define internal void @predict_inter_block(ptr noundef %0, ptr noundef %1, i8 nou
   br i1 %35, label %49, label %get_ref_frame_map_idx.exit.i
 
 get_ref_frame_map_idx.exit.i:                     ; preds = %31
-  %or.cond.i.i = icmp ult i8 %34, 9
+  %or.cond.i.i = icmp samesign ult i8 %34, 9
   tail call void @llvm.assume(i1 %or.cond.i.i)
   %36 = zext nneg i8 %34 to i64
   %37 = add nuw nsw i64 %36, 4294967295

@@ -2222,7 +2222,7 @@ invoke.cont32:                                    ; preds = %invoke.cont29
   call void @_ZN4llvh14raw_os_ostreamD1Ev(ptr noundef nonnull align 8 dereferenceable(48) %OS.i.i99) #50
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %OS.i.i99)
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp) #50
-  %cmp17 = icmp ugt i64 %indvars.iv, 1
+  %cmp17 = icmp samesign ugt i64 %indvars.iv, 1
   br i1 %cmp17, label %for.body, label %if.end, !llvm.loop !11
 
 lpad:                                             ; preds = %if.then.i.i
@@ -13515,7 +13515,7 @@ ehcleanup:                                        ; preds = %lpad2, %lpad
   br label %common.resume
 
 if.end:                                           ; preds = %entry
-  %cmp4 = icmp ult i32 %code_point, 128
+  %cmp4 = icmp samesign ult i32 %code_point, 128
   br i1 %cmp4, label %if.then5, label %if.else
 
 if.then5:                                         ; preds = %if.end
@@ -13525,7 +13525,7 @@ if.then5:                                         ; preds = %if.end
   br label %if.end49
 
 if.else:                                          ; preds = %if.end
-  %cmp7 = icmp ult i32 %code_point, 2048
+  %cmp7 = icmp samesign ult i32 %code_point, 2048
   br i1 %cmp7, label %if.then8, label %if.else15
 
 if.then8:                                         ; preds = %if.else
@@ -13542,7 +13542,7 @@ if.then8:                                         ; preds = %if.else
   br label %if.end49
 
 if.else15:                                        ; preds = %if.else
-  %cmp16 = icmp ult i32 %code_point, 65536
+  %cmp16 = icmp samesign ult i32 %code_point, 65536
   %shr.i8 = lshr i32 %code_point, 6
   %6 = trunc i32 %code_point to i8
   %7 = and i8 %6, 63
@@ -23474,7 +23474,7 @@ for.body:                                         ; preds = %for.body.preheader,
   %vfn = getelementptr inbounds i8, ptr %vtable, i64 40
   %6 = load ptr, ptr %vfn, align 8
   tail call void %6(ptr noundef nonnull align 8 dereferenceable(8) %5, ptr noundef nonnull align 8 dereferenceable(72) %parameter)
-  %cmp = icmp ugt i64 %indvars.iv, 1
+  %cmp = icmp samesign ugt i64 %indvars.iv, 1
   br i1 %cmp, label %for.body, label %if.end, !llvm.loop !297
 
 if.end:                                           ; preds = %for.body, %if.then, %entry
@@ -23516,7 +23516,7 @@ for.body:                                         ; preds = %for.body.preheader,
   %vfn = getelementptr inbounds i8, ptr %vtable, i64 96
   %6 = load ptr, ptr %vfn, align 8
   tail call void %6(ptr noundef nonnull align 8 dereferenceable(8) %5, ptr noundef nonnull align 8 dereferenceable(72) %parameter)
-  %cmp = icmp ugt i64 %indvars.iv, 1
+  %cmp = icmp samesign ugt i64 %indvars.iv, 1
   br i1 %cmp, label %for.body, label %if.end, !llvm.loop !298
 
 if.end:                                           ; preds = %for.body, %if.then, %entry
@@ -23558,7 +23558,7 @@ for.body:                                         ; preds = %for.body.preheader,
   %vfn = getelementptr inbounds i8, ptr %vtable, i64 72
   %6 = load ptr, ptr %vfn, align 8
   tail call void %6(ptr noundef nonnull align 8 dereferenceable(8) %5, ptr noundef nonnull align 8 dereferenceable(264) %parameter)
-  %cmp = icmp ugt i64 %indvars.iv, 1
+  %cmp = icmp samesign ugt i64 %indvars.iv, 1
   br i1 %cmp, label %for.body, label %if.end, !llvm.loop !299
 
 if.end:                                           ; preds = %for.body, %if.then, %entry
@@ -23600,7 +23600,7 @@ for.body:                                         ; preds = %for.body.preheader,
   %vfn = getelementptr inbounds i8, ptr %vtable, i64 80
   %6 = load ptr, ptr %vfn, align 8
   tail call void %6(ptr noundef nonnull align 8 dereferenceable(8) %5, ptr noundef nonnull align 8 dereferenceable(248) %parameter)
-  %cmp = icmp ugt i64 %indvars.iv, 1
+  %cmp = icmp samesign ugt i64 %indvars.iv, 1
   br i1 %cmp, label %for.body, label %if.end, !llvm.loop !300
 
 if.end:                                           ; preds = %for.body, %if.then, %entry
@@ -23642,7 +23642,7 @@ for.body:                                         ; preds = %for.body.preheader,
   %vfn = getelementptr inbounds i8, ptr %vtable, i64 112
   %6 = load ptr, ptr %vfn, align 8
   tail call void %6(ptr noundef nonnull align 8 dereferenceable(8) %5, ptr noundef nonnull align 8 dereferenceable(72) %parameter)
-  %cmp = icmp ugt i64 %indvars.iv, 1
+  %cmp = icmp samesign ugt i64 %indvars.iv, 1
   br i1 %cmp, label %for.body, label %if.end, !llvm.loop !301
 
 if.end:                                           ; preds = %for.body, %if.then, %entry
@@ -23723,7 +23723,7 @@ for.body:                                         ; preds = %for.body.preheader,
   %vfn = getelementptr inbounds i8, ptr %vtable, i64 104
   %6 = load ptr, ptr %vfn, align 8
   tail call void %6(ptr noundef nonnull align 8 dereferenceable(8) %5, ptr noundef nonnull align 8 dereferenceable(72) %unit_test, i32 noundef %iteration)
-  %cmp = icmp ugt i64 %indvars.iv, 1
+  %cmp = icmp samesign ugt i64 %indvars.iv, 1
   br i1 %cmp, label %for.body, label %if.end, !llvm.loop !303
 
 if.end:                                           ; preds = %for.body, %if.then, %entry
@@ -35439,7 +35439,7 @@ for.body:                                         ; preds = %for.body.preheader,
   store i32 %13, ptr %add.ptr.i, align 4
   store i32 %12, ptr %add.ptr.i20, align 4
   %indvars.iv.next = add nsw i64 %indvars.iv, -1
-  %cmp42 = icmp ugt i64 %indvars.iv, 2
+  %cmp42 = icmp samesign ugt i64 %indvars.iv, 2
   br i1 %cmp42, label %for.body, label %for.end, !llvm.loop !461
 
 for.end:                                          ; preds = %for.body, %if.end41

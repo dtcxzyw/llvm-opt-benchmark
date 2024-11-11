@@ -125,7 +125,7 @@ if.end41:                                         ; preds = %if.then25
   br label %if.end76
 
 if.else:                                          ; preds = %if.then22
-  %cmp51 = icmp ult i32 %inl.addr.0100, 3
+  %cmp51 = icmp samesign ult i32 %inl.addr.0100, 3
   br i1 %cmp51, label %if.then53, label %if.end59
 
 if.then53:                                        ; preds = %if.else

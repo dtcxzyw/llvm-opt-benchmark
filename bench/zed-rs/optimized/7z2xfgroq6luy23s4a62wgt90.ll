@@ -22273,7 +22273,7 @@ _ZN4core3ops8function6FnOnce9call_once17h25efa8d545bd3c65E.exit: ; preds = %._ZN
 
 .noexc216:                                        ; preds = %668
   %670 = add nsw i8 %669, -3
-  %switch.i.i = icmp ult i8 %670, -2
+  %switch.i.i = icmp samesign ult i8 %670, -2
   br i1 %switch.i.i, label %671, label %.invoke307
 
 .invoke307:                                       ; preds = %.noexc226, %.noexc216
@@ -22347,7 +22347,7 @@ _ZN4core3ops8function6FnOnce9call_once17h25efa8d545bd3c65E.exit221: ; preds = %.
 
 .noexc226:                                        ; preds = %689
   %691 = add nsw i8 %690, -3
-  %switch.i.i222 = icmp ult i8 %691, -2
+  %switch.i.i222 = icmp samesign ult i8 %691, -2
   br i1 %switch.i.i222, label %692, label %.invoke307
 
 692:                                              ; preds = %.noexc226

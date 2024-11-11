@@ -9648,7 +9648,7 @@ _ZNSt4pairIKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_EC2IS5_S5_TnN
   %130 = getelementptr inbounds i8, ptr %..sroa.0.0.copyload.i.i.i.i, i64 10
   %131 = load i8, ptr %130, align 1
   %132 = zext i8 %131 to i32
-  %133 = icmp ult i32 %..sroa.3.0.copyload.i.i.i.i, %132
+  %133 = icmp samesign ult i32 %..sroa.3.0.copyload.i.i.i.i, %132
   br i1 %133, label %135, label %134
 
 134:                                              ; preds = %129
@@ -9701,7 +9701,7 @@ _ZNSt4pairIKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_EC2IS5_S5_TnN
   %154 = getelementptr inbounds i8, ptr %..sroa.0.0.copyload.i.i.i.i41, i64 10
   %155 = load i8, ptr %154, align 1
   %156 = zext i8 %155 to i32
-  %157 = icmp ult i32 %..sroa.3.0.copyload.i.i.i.i42, %156
+  %157 = icmp samesign ult i32 %..sroa.3.0.copyload.i.i.i.i42, %156
   br i1 %157, label %159, label %158
 
 158:                                              ; preds = %153
@@ -9754,7 +9754,7 @@ _ZNSt4pairIKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_EC2IS5_S5_TnN
   %178 = getelementptr inbounds i8, ptr %..sroa.0.0.copyload.i.i.i.i52, i64 10
   %179 = load i8, ptr %178, align 1
   %180 = zext i8 %179 to i32
-  %181 = icmp ult i32 %..sroa.3.0.copyload.i.i.i.i53, %180
+  %181 = icmp samesign ult i32 %..sroa.3.0.copyload.i.i.i.i53, %180
   br i1 %181, label %183, label %182
 
 182:                                              ; preds = %177
@@ -9813,7 +9813,7 @@ _ZStrsINSt7__cxx1119basic_istringstreamIcSt11char_traitsIcESaIcEEERN10open_spiel
   %203 = getelementptr inbounds i8, ptr %..sroa.0.0.copyload.i.i.i.i64, i64 10
   %204 = load i8, ptr %203, align 1
   %205 = zext i8 %204 to i32
-  %206 = icmp ult i32 %..sroa.3.0.copyload.i.i.i.i65, %205
+  %206 = icmp samesign ult i32 %..sroa.3.0.copyload.i.i.i.i65, %205
   br i1 %206, label %208, label %207
 
 207:                                              ; preds = %202
@@ -9872,7 +9872,7 @@ _ZStrsINSt7__cxx1119basic_istringstreamIcSt11char_traitsIcESaIcEEERN10open_spiel
   %228 = getelementptr inbounds i8, ptr %..sroa.0.0.copyload.i.i.i.i76, i64 10
   %229 = load i8, ptr %228, align 1
   %230 = zext i8 %229 to i32
-  %231 = icmp ult i32 %..sroa.3.0.copyload.i.i.i.i77, %230
+  %231 = icmp samesign ult i32 %..sroa.3.0.copyload.i.i.i.i77, %230
   br i1 %231, label %233, label %232
 
 232:                                              ; preds = %227
@@ -9931,7 +9931,7 @@ _ZStrsINSt7__cxx1119basic_istringstreamIcSt11char_traitsIcESaIcEEERN10open_spiel
   %253 = getelementptr inbounds i8, ptr %..sroa.0.0.copyload.i.i.i.i89, i64 10
   %254 = load i8, ptr %253, align 1
   %255 = zext i8 %254 to i32
-  %256 = icmp ult i32 %..sroa.3.0.copyload.i.i.i.i90, %255
+  %256 = icmp samesign ult i32 %..sroa.3.0.copyload.i.i.i.i90, %255
   br i1 %256, label %258, label %257
 
 257:                                              ; preds = %252
@@ -9990,7 +9990,7 @@ _ZStrsINSt7__cxx1119basic_istringstreamIcSt11char_traitsIcESaIcEEERN10open_spiel
   %278 = getelementptr inbounds i8, ptr %..sroa.0.0.copyload.i.i.i.i101, i64 10
   %279 = load i8, ptr %278, align 1
   %280 = zext i8 %279 to i32
-  %281 = icmp ult i32 %..sroa.3.0.copyload.i.i.i.i102, %280
+  %281 = icmp samesign ult i32 %..sroa.3.0.copyload.i.i.i.i102, %280
   br i1 %281, label %283, label %282
 
 282:                                              ; preds = %277
@@ -10049,7 +10049,7 @@ _ZStrsINSt7__cxx1119basic_istringstreamIcSt11char_traitsIcESaIcEEERN10open_spiel
   %303 = getelementptr inbounds i8, ptr %..sroa.0.0.copyload.i.i.i.i113, i64 10
   %304 = load i8, ptr %303, align 1
   %305 = zext i8 %304 to i32
-  %306 = icmp ult i32 %..sroa.3.0.copyload.i.i.i.i114, %305
+  %306 = icmp samesign ult i32 %..sroa.3.0.copyload.i.i.i.i114, %305
   br i1 %306, label %308, label %307
 
 307:                                              ; preds = %302
@@ -10173,7 +10173,7 @@ _ZN4absl7debian211string_viewC2ISaIcEEERKNSt7__cxx1112basic_stringIcSt11char_tra
   %351 = getelementptr inbounds i8, ptr %..sroa.0.0.copyload.i.i.i.i125, i64 10
   %352 = load i8, ptr %351, align 1
   %353 = zext i8 %352 to i32
-  %354 = icmp ult i32 %..sroa.3.0.copyload.i.i.i.i126, %353
+  %354 = icmp samesign ult i32 %..sroa.3.0.copyload.i.i.i.i126, %353
   br i1 %354, label %356, label %355
 
 355:                                              ; preds = %350
@@ -10262,7 +10262,7 @@ _ZN4absl7debian211string_viewC2ISaIcEEERKNSt7__cxx1112basic_stringIcSt11char_tra
   %387 = getelementptr inbounds i8, ptr %..sroa.0.0.copyload.i.i.i.i140, i64 10
   %388 = load i8, ptr %387, align 1
   %389 = zext i8 %388 to i32
-  %390 = icmp ult i32 %..sroa.3.0.copyload.i.i.i.i141, %389
+  %390 = icmp samesign ult i32 %..sroa.3.0.copyload.i.i.i.i141, %389
   br i1 %390, label %392, label %391
 
 391:                                              ; preds = %386
@@ -10316,7 +10316,7 @@ _ZN4absl7debian211string_viewC2ISaIcEEERKNSt7__cxx1112basic_stringIcSt11char_tra
   %413 = getelementptr inbounds i8, ptr %..sroa.0.0.copyload.i.i.i.i151, i64 10
   %414 = load i8, ptr %413, align 1
   %415 = zext i8 %414 to i32
-  %416 = icmp ult i32 %..sroa.3.0.copyload.i.i.i.i152, %415
+  %416 = icmp samesign ult i32 %..sroa.3.0.copyload.i.i.i.i152, %415
   br i1 %416, label %418, label %417
 
 417:                                              ; preds = %412
@@ -10370,7 +10370,7 @@ _ZN4absl7debian211string_viewC2ISaIcEEERKNSt7__cxx1112basic_stringIcSt11char_tra
   %439 = getelementptr inbounds i8, ptr %..sroa.0.0.copyload.i.i.i.i163, i64 10
   %440 = load i8, ptr %439, align 1
   %441 = zext i8 %440 to i32
-  %442 = icmp ult i32 %..sroa.3.0.copyload.i.i.i.i164, %441
+  %442 = icmp samesign ult i32 %..sroa.3.0.copyload.i.i.i.i164, %441
   br i1 %442, label %444, label %443
 
 443:                                              ; preds = %438
@@ -10424,7 +10424,7 @@ _ZN4absl7debian211string_viewC2ISaIcEEERKNSt7__cxx1112basic_stringIcSt11char_tra
   %465 = getelementptr inbounds i8, ptr %..sroa.0.0.copyload.i.i.i.i174, i64 10
   %466 = load i8, ptr %465, align 1
   %467 = zext i8 %466 to i32
-  %468 = icmp ult i32 %..sroa.3.0.copyload.i.i.i.i175, %467
+  %468 = icmp samesign ult i32 %..sroa.3.0.copyload.i.i.i.i175, %467
   br i1 %468, label %470, label %469
 
 469:                                              ; preds = %464
@@ -10478,7 +10478,7 @@ _ZN4absl7debian211string_viewC2ISaIcEEERKNSt7__cxx1112basic_stringIcSt11char_tra
   %491 = getelementptr inbounds i8, ptr %..sroa.0.0.copyload.i.i.i.i186, i64 10
   %492 = load i8, ptr %491, align 1
   %493 = zext i8 %492 to i32
-  %494 = icmp ult i32 %..sroa.3.0.copyload.i.i.i.i187, %493
+  %494 = icmp samesign ult i32 %..sroa.3.0.copyload.i.i.i.i187, %493
   br i1 %494, label %496, label %495
 
 495:                                              ; preds = %490
@@ -10538,7 +10538,7 @@ _ZN4absl7debian211string_viewC2ISaIcEEERKNSt7__cxx1112basic_stringIcSt11char_tra
   %516 = getelementptr inbounds i8, ptr %..sroa.0.0.copyload.i.i.i.i197, i64 10
   %517 = load i8, ptr %516, align 1
   %518 = zext i8 %517 to i32
-  %519 = icmp ult i32 %..sroa.3.0.copyload.i.i.i.i198, %518
+  %519 = icmp samesign ult i32 %..sroa.3.0.copyload.i.i.i.i198, %518
   br i1 %519, label %521, label %520
 
 520:                                              ; preds = %515
@@ -15954,7 +15954,7 @@ _ZNK9__gnu_cxx5__ops15_Iter_less_iterclINS_17__normal_iteratorIPNSt7__cxx1112bas
   %20 = getelementptr inbounds i8, ptr %.069.i.i.i.i.i, i64 -32
   %21 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEOS4_(ptr noundef nonnull align 8 dereferenceable(32) %20, ptr noundef nonnull align 8 dereferenceable(32) %19) #28
   %22 = add nsw i64 %.010.i.i.i.i.i, -1
-  %23 = icmp ugt i64 %.010.i.i.i.i.i, 1
+  %23 = icmp samesign ugt i64 %.010.i.i.i.i.i, 1
   br i1 %23, label %.lr.ph.i.i.i.i.i, label %.loopexit, !llvm.loop !170
 
 .loopexit:                                        ; preds = %.lr.ph.i.i.i.i.i, %13
@@ -20955,7 +20955,7 @@ define linkonce_odr void @_ZN4absl7debian218container_internal5btreeINS1_10map_p
   %59 = sub nsw i32 %58, %.sroa.speculated
   %.not73 = icmp sle i32 %52, %59
   %narrow = add nuw nsw i8 %55, %49
-  %60 = icmp ult i8 %narrow, 4
+  %60 = icmp samesign ult i8 %narrow, 4
   %or.cond91 = select i1 %.not73, i1 true, i1 %60
   br i1 %or.cond91, label %61, label %71
 
@@ -21743,7 +21743,7 @@ _ZN4absl7debian211string_viewC2EPKc.exit.i.i.i:   ; preds = %_ZN4absl7debian211s
   br i1 %.inv.i.i.i.i.i.i, label %.thread.i.i.i, label %_ZNK4absl7debian218container_internal22StringBtreeDefaultLessclENS0_11string_viewES3_.exit.thread.i.i.i
 
 _ZNK4absl7debian218container_internal22StringBtreeDefaultLessclENS0_11string_viewES3_.exit.i.i.i: ; preds = %23, %_ZN4absl7debian211string_viewC2EPKc.exit.i.i.i
-  %27 = icmp ult i64 %15, %18
+  %27 = icmp samesign ult i64 %15, %18
   br i1 %27, label %_ZNK4absl7debian218container_internal22StringBtreeDefaultLessclENS0_11string_viewES3_.exit.thread.i.i.i, label %29
 
 _ZNK4absl7debian218container_internal22StringBtreeDefaultLessclENS0_11string_viewES3_.exit.thread.i.i.i: ; preds = %_ZNK4absl7debian218container_internal22StringBtreeDefaultLessclENS0_11string_viewES3_.exit.i.i.i, %26
@@ -21841,7 +21841,7 @@ _ZN4absl7debian211string_viewC2EPKc.exit.i.i.i:   ; preds = %_ZN4absl7debian211s
   br i1 %.inv.i.i.i.i.i.i, label %.thread.i.i.i, label %_ZNK4absl7debian218container_internal22StringBtreeDefaultLessclENS0_11string_viewES3_.exit.thread.i.i.i
 
 _ZNK4absl7debian218container_internal22StringBtreeDefaultLessclENS0_11string_viewES3_.exit.i.i.i: ; preds = %23, %_ZN4absl7debian211string_viewC2EPKc.exit.i.i.i
-  %27 = icmp ult i64 %15, %18
+  %27 = icmp samesign ult i64 %15, %18
   br i1 %27, label %_ZNK4absl7debian218container_internal22StringBtreeDefaultLessclENS0_11string_viewES3_.exit.thread.i.i.i, label %29
 
 _ZNK4absl7debian218container_internal22StringBtreeDefaultLessclENS0_11string_viewES3_.exit.thread.i.i.i: ; preds = %_ZNK4absl7debian218container_internal22StringBtreeDefaultLessclENS0_11string_viewES3_.exit.i.i.i, %26
@@ -21939,7 +21939,7 @@ _ZN4absl7debian211string_viewC2EPKc.exit.i.i.i:   ; preds = %_ZN4absl7debian211s
   br i1 %.inv.i.i.i.i.i.i, label %.thread.i.i.i, label %_ZNK4absl7debian218container_internal22StringBtreeDefaultLessclENS0_11string_viewES3_.exit.thread.i.i.i
 
 _ZNK4absl7debian218container_internal22StringBtreeDefaultLessclENS0_11string_viewES3_.exit.i.i.i: ; preds = %23, %_ZN4absl7debian211string_viewC2EPKc.exit.i.i.i
-  %27 = icmp ult i64 %15, %18
+  %27 = icmp samesign ult i64 %15, %18
   br i1 %27, label %_ZNK4absl7debian218container_internal22StringBtreeDefaultLessclENS0_11string_viewES3_.exit.thread.i.i.i, label %29
 
 _ZNK4absl7debian218container_internal22StringBtreeDefaultLessclENS0_11string_viewES3_.exit.thread.i.i.i: ; preds = %_ZNK4absl7debian218container_internal22StringBtreeDefaultLessclENS0_11string_viewES3_.exit.i.i.i, %26
@@ -22037,7 +22037,7 @@ _ZN4absl7debian211string_viewC2EPKc.exit.i.i.i:   ; preds = %_ZN4absl7debian211s
   br i1 %.inv.i.i.i.i.i.i, label %.thread.i.i.i, label %_ZNK4absl7debian218container_internal22StringBtreeDefaultLessclENS0_11string_viewES3_.exit.thread.i.i.i
 
 _ZNK4absl7debian218container_internal22StringBtreeDefaultLessclENS0_11string_viewES3_.exit.i.i.i: ; preds = %23, %_ZN4absl7debian211string_viewC2EPKc.exit.i.i.i
-  %27 = icmp ult i64 %15, %18
+  %27 = icmp samesign ult i64 %15, %18
   br i1 %27, label %_ZNK4absl7debian218container_internal22StringBtreeDefaultLessclENS0_11string_viewES3_.exit.thread.i.i.i, label %29
 
 _ZNK4absl7debian218container_internal22StringBtreeDefaultLessclENS0_11string_viewES3_.exit.thread.i.i.i: ; preds = %_ZNK4absl7debian218container_internal22StringBtreeDefaultLessclENS0_11string_viewES3_.exit.i.i.i, %26
@@ -22135,7 +22135,7 @@ _ZN4absl7debian211string_viewC2EPKc.exit.i.i.i:   ; preds = %_ZN4absl7debian211s
   br i1 %.inv.i.i.i.i.i.i, label %.thread.i.i.i, label %_ZNK4absl7debian218container_internal22StringBtreeDefaultLessclENS0_11string_viewES3_.exit.thread.i.i.i
 
 _ZNK4absl7debian218container_internal22StringBtreeDefaultLessclENS0_11string_viewES3_.exit.i.i.i: ; preds = %23, %_ZN4absl7debian211string_viewC2EPKc.exit.i.i.i
-  %27 = icmp ult i64 %15, %18
+  %27 = icmp samesign ult i64 %15, %18
   br i1 %27, label %_ZNK4absl7debian218container_internal22StringBtreeDefaultLessclENS0_11string_viewES3_.exit.thread.i.i.i, label %29
 
 _ZNK4absl7debian218container_internal22StringBtreeDefaultLessclENS0_11string_viewES3_.exit.thread.i.i.i: ; preds = %_ZNK4absl7debian218container_internal22StringBtreeDefaultLessclENS0_11string_viewES3_.exit.i.i.i, %26
@@ -22233,7 +22233,7 @@ _ZN4absl7debian211string_viewC2EPKc.exit.i.i.i:   ; preds = %_ZN4absl7debian211s
   br i1 %.inv.i.i.i.i.i.i, label %.thread.i.i.i, label %_ZNK4absl7debian218container_internal22StringBtreeDefaultLessclENS0_11string_viewES3_.exit.thread.i.i.i
 
 _ZNK4absl7debian218container_internal22StringBtreeDefaultLessclENS0_11string_viewES3_.exit.i.i.i: ; preds = %23, %_ZN4absl7debian211string_viewC2EPKc.exit.i.i.i
-  %27 = icmp ult i64 %15, %18
+  %27 = icmp samesign ult i64 %15, %18
   br i1 %27, label %_ZNK4absl7debian218container_internal22StringBtreeDefaultLessclENS0_11string_viewES3_.exit.thread.i.i.i, label %29
 
 _ZNK4absl7debian218container_internal22StringBtreeDefaultLessclENS0_11string_viewES3_.exit.thread.i.i.i: ; preds = %_ZNK4absl7debian218container_internal22StringBtreeDefaultLessclENS0_11string_viewES3_.exit.i.i.i, %26
@@ -22331,7 +22331,7 @@ _ZN4absl7debian211string_viewC2EPKc.exit.i.i.i:   ; preds = %_ZN4absl7debian211s
   br i1 %.inv.i.i.i.i.i.i, label %.thread.i.i.i, label %_ZNK4absl7debian218container_internal22StringBtreeDefaultLessclENS0_11string_viewES3_.exit.thread.i.i.i
 
 _ZNK4absl7debian218container_internal22StringBtreeDefaultLessclENS0_11string_viewES3_.exit.i.i.i: ; preds = %23, %_ZN4absl7debian211string_viewC2EPKc.exit.i.i.i
-  %27 = icmp ult i64 %15, %18
+  %27 = icmp samesign ult i64 %15, %18
   br i1 %27, label %_ZNK4absl7debian218container_internal22StringBtreeDefaultLessclENS0_11string_viewES3_.exit.thread.i.i.i, label %29
 
 _ZNK4absl7debian218container_internal22StringBtreeDefaultLessclENS0_11string_viewES3_.exit.thread.i.i.i: ; preds = %_ZNK4absl7debian218container_internal22StringBtreeDefaultLessclENS0_11string_viewES3_.exit.i.i.i, %26
@@ -22431,7 +22431,7 @@ _ZN4absl7debian211string_viewC2EPKc.exit.i.i.i:   ; preds = %_ZN4absl7debian211s
   br i1 %.inv.i.i.i.i.i.i, label %.thread.i.i.i, label %_ZNK4absl7debian218container_internal22StringBtreeDefaultLessclENS0_11string_viewES3_.exit.thread.i.i.i
 
 _ZNK4absl7debian218container_internal22StringBtreeDefaultLessclENS0_11string_viewES3_.exit.i.i.i: ; preds = %23, %_ZN4absl7debian211string_viewC2EPKc.exit.i.i.i
-  %27 = icmp ult i64 %15, %18
+  %27 = icmp samesign ult i64 %15, %18
   br i1 %27, label %_ZNK4absl7debian218container_internal22StringBtreeDefaultLessclENS0_11string_viewES3_.exit.thread.i.i.i, label %29
 
 _ZNK4absl7debian218container_internal22StringBtreeDefaultLessclENS0_11string_viewES3_.exit.thread.i.i.i: ; preds = %_ZNK4absl7debian218container_internal22StringBtreeDefaultLessclENS0_11string_viewES3_.exit.i.i.i, %26
@@ -22529,7 +22529,7 @@ _ZN4absl7debian211string_viewC2EPKc.exit.i.i.i:   ; preds = %_ZN4absl7debian211s
   br i1 %.inv.i.i.i.i.i.i, label %.thread.i.i.i, label %_ZNK4absl7debian218container_internal22StringBtreeDefaultLessclENS0_11string_viewES3_.exit.thread.i.i.i
 
 _ZNK4absl7debian218container_internal22StringBtreeDefaultLessclENS0_11string_viewES3_.exit.i.i.i: ; preds = %23, %_ZN4absl7debian211string_viewC2EPKc.exit.i.i.i
-  %27 = icmp ult i64 %15, %18
+  %27 = icmp samesign ult i64 %15, %18
   br i1 %27, label %_ZNK4absl7debian218container_internal22StringBtreeDefaultLessclENS0_11string_viewES3_.exit.thread.i.i.i, label %29
 
 _ZNK4absl7debian218container_internal22StringBtreeDefaultLessclENS0_11string_viewES3_.exit.thread.i.i.i: ; preds = %_ZNK4absl7debian218container_internal22StringBtreeDefaultLessclENS0_11string_viewES3_.exit.i.i.i, %26
@@ -22627,7 +22627,7 @@ _ZN4absl7debian211string_viewC2EPKc.exit.i.i.i:   ; preds = %_ZN4absl7debian211s
   br i1 %.inv.i.i.i.i.i.i, label %.thread.i.i.i, label %_ZNK4absl7debian218container_internal22StringBtreeDefaultLessclENS0_11string_viewES3_.exit.thread.i.i.i
 
 _ZNK4absl7debian218container_internal22StringBtreeDefaultLessclENS0_11string_viewES3_.exit.i.i.i: ; preds = %23, %_ZN4absl7debian211string_viewC2EPKc.exit.i.i.i
-  %27 = icmp ult i64 %15, %18
+  %27 = icmp samesign ult i64 %15, %18
   br i1 %27, label %_ZNK4absl7debian218container_internal22StringBtreeDefaultLessclENS0_11string_viewES3_.exit.thread.i.i.i, label %29
 
 _ZNK4absl7debian218container_internal22StringBtreeDefaultLessclENS0_11string_viewES3_.exit.thread.i.i.i: ; preds = %_ZNK4absl7debian218container_internal22StringBtreeDefaultLessclENS0_11string_viewES3_.exit.i.i.i, %26
@@ -22725,7 +22725,7 @@ _ZN4absl7debian211string_viewC2EPKc.exit.i.i.i:   ; preds = %_ZN4absl7debian211s
   br i1 %.inv.i.i.i.i.i.i, label %.thread.i.i.i, label %_ZNK4absl7debian218container_internal22StringBtreeDefaultLessclENS0_11string_viewES3_.exit.thread.i.i.i
 
 _ZNK4absl7debian218container_internal22StringBtreeDefaultLessclENS0_11string_viewES3_.exit.i.i.i: ; preds = %23, %_ZN4absl7debian211string_viewC2EPKc.exit.i.i.i
-  %27 = icmp ult i64 %15, %18
+  %27 = icmp samesign ult i64 %15, %18
   br i1 %27, label %_ZNK4absl7debian218container_internal22StringBtreeDefaultLessclENS0_11string_viewES3_.exit.thread.i.i.i, label %29
 
 _ZNK4absl7debian218container_internal22StringBtreeDefaultLessclENS0_11string_viewES3_.exit.thread.i.i.i: ; preds = %_ZNK4absl7debian218container_internal22StringBtreeDefaultLessclENS0_11string_viewES3_.exit.i.i.i, %26

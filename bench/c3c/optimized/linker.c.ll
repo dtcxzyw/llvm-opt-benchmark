@@ -6528,7 +6528,7 @@ define dso_local ptr @platform_compiler(ptr noundef %0, ptr noundef %1) local_un
   br label %24
 
 18:                                               ; preds = %9
-  %19 = icmp ugt i64 %11, 2
+  %19 = icmp samesign ugt i64 %11, 2
   br i1 %19, label %.thread, label %24
 
 .thread:                                          ; preds = %13, %18

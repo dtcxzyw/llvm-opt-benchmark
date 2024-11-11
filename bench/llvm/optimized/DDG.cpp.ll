@@ -8368,7 +8368,7 @@ _ZSt13move_backwardIPPN4llvm10BasicBlockES3_ET0_T_S5_S4_.exit: ; preds = %_ZN4ll
   store ptr %75, ptr %.045.i.i.i.i.i, align 8
   %76 = getelementptr inbounds i8, ptr %.045.i.i.i.i.i, i64 8
   %77 = add nsw i64 %.06.i.i.i.i.i, -1
-  %78 = icmp ugt i64 %.06.i.i.i.i.i, 1
+  %78 = icmp samesign ugt i64 %.06.i.i.i.i.i, 1
   br i1 %78, label %.lr.ph.i.i.i.i.i, label %_ZSt4copyISt16reverse_iteratorIN9__gnu_cxx17__normal_iteratorIPKPN4llvm10BasicBlockESt6vectorIS5_SaIS5_EEEEEPS5_ET0_T_SF_SE_.exit, !llvm.loop !104
 
 79:                                               ; preds = %_ZN4llvm15SmallVectorImplIPNS_10BasicBlockEE7reserveEm.exit
@@ -8436,7 +8436,7 @@ _ZN4llvm23SmallVectorTemplateBaseIPNS_10BasicBlockELb1EE18uninitialized_moveIPS2
   store ptr %106, ptr %.045.i.i.i.i.i.i.i.i, align 8
   %107 = getelementptr inbounds i8, ptr %.045.i.i.i.i.i.i.i.i, i64 8
   %108 = add nsw i64 %.06.i.i.i.i.i.i.i.i, -1
-  %109 = icmp ugt i64 %.06.i.i.i.i.i.i.i.i, 1
+  %109 = icmp samesign ugt i64 %.06.i.i.i.i.i.i.i.i, 1
   br i1 %109, label %.lr.ph.i.i.i.i.i.i.i.i, label %_ZSt4copyISt16reverse_iteratorIN9__gnu_cxx17__normal_iteratorIPKPN4llvm10BasicBlockESt6vectorIS5_SaIS5_EEEEEPS5_ET0_T_SF_SE_.exit, !llvm.loop !104
 
 _ZSt4copyISt16reverse_iteratorIN9__gnu_cxx17__normal_iteratorIPKPN4llvm10BasicBlockESt6vectorIS5_SaIS5_EEEEEPS5_ET0_T_SF_SE_.exit: ; preds = %.lr.ph.i.i.i.i.i, %.lr.ph.i.i.i.i.i.i.i.i, %._crit_edge, %_ZSt13move_backwardIPPN4llvm10BasicBlockES3_ET0_T_S5_S4_.exit, %15
@@ -8485,7 +8485,7 @@ _ZN4llvm15SmallVectorImplIPNS_10BasicBlockEE7reserveEm.exit: ; preds = %3, %12
   store ptr %24, ptr %.045.i.i.i.i.i.i.i.i, align 8
   %25 = getelementptr inbounds i8, ptr %.045.i.i.i.i.i.i.i.i, i64 8
   %26 = add nsw i64 %.06.i.i.i.i.i.i.i.i, -1
-  %27 = icmp ugt i64 %.06.i.i.i.i.i.i.i.i, 1
+  %27 = icmp samesign ugt i64 %.06.i.i.i.i.i.i.i.i, 1
   br i1 %27, label %.lr.ph.i.i.i.i.i.i.i.i, label %_ZN4llvm23SmallVectorTemplateBaseIPNS_10BasicBlockELb1EE18uninitialized_copyISt16reverse_iteratorIN9__gnu_cxx17__normal_iteratorIPKS2_St6vectorIS2_SaIS2_EEEEEPS2_EEvT_SG_T0_.exit, !llvm.loop !104
 
 _ZN4llvm23SmallVectorTemplateBaseIPNS_10BasicBlockELb1EE18uninitialized_copyISt16reverse_iteratorIN9__gnu_cxx17__normal_iteratorIPKS2_St6vectorIS2_SaIS2_EEEEEPS2_EEvT_SG_T0_.exit: ; preds = %.lr.ph.i.i.i.i.i.i.i.i, %_ZN4llvm15SmallVectorImplIPNS_10BasicBlockEE7reserveEm.exit

@@ -849,15 +849,15 @@ generateMTFValues.exit:                           ; preds = %.preheader.i, %._cr
   br i1 %432, label %439, label %433
 
 433:                                              ; preds = %430
-  %434 = icmp ult i32 %431, 600
+  %434 = icmp samesign ult i32 %431, 600
   br i1 %434, label %439, label %435
 
 435:                                              ; preds = %433
-  %436 = icmp ult i32 %431, 1200
+  %436 = icmp samesign ult i32 %431, 1200
   br i1 %436, label %439, label %437
 
 437:                                              ; preds = %435
-  %438 = icmp ugt i32 %431, 2399
+  %438 = icmp samesign ugt i32 %431, 2399
   %.1516.i = select i1 %438, i32 6, i32 5
   br label %439
 
@@ -2780,7 +2780,7 @@ bsW.exit1583.i:                                   ; preds = %.lr.ph.i1580.i, %17
   %1769 = phi i32 [ %1764, %.preheader1963.i ], [ %1788, %bsW.exit1590.i ]
   %.pre15.i15822513.i = phi i32 [ %.pre15.i15822516.i, %.preheader1963.i ], [ %.pre15.i15822514.i, %bsW.exit1590.i ]
   %.11462.lcssa.i = phi i32 [ %.014612195.i, %.preheader1963.i ], [ %1792, %bsW.exit1590.i ]
-  %1770 = icmp ugt i32 %.11462.lcssa.i, %.pre-phi.i
+  %1770 = icmp samesign ugt i32 %.11462.lcssa.i, %.pre-phi.i
   br i1 %1770, label %.lr.ph2192.i, label %._crit_edge2193.i
 
 .lr.ph2188.i:                                     ; preds = %.preheader1963.i, %bsW.exit1590.i

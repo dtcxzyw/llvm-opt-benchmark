@@ -660,7 +660,7 @@ _ZN4Luau7CodeGenL18builtinCheckDoubleERNS0_9IrBuilderENS0_4IrOpEi.exit: ; preds 
 _ZN4Luau7CodeGenL18builtinCheckDoubleERNS0_9IrBuilderENS0_4IrOpEi.exit97: ; preds = %_ZN4Luau7CodeGenL18builtinCheckDoubleERNS0_9IrBuilderENS0_4IrOpEi.exit, %21
   %23 = load i8, ptr @_ZN5FFlag20LuauCodegenFastcall3E, align 8
   %24 = trunc i8 %23 to i1
-  %25 = icmp ugt i32 %2, 2
+  %25 = icmp samesign ugt i32 %2, 2
   %or.cond5 = and i1 %25, %24
   %26 = and i32 %6, 15
   %27 = icmp ne i32 %26, 2
@@ -677,7 +677,7 @@ _ZN4Luau7CodeGenL18builtinCheckDoubleERNS0_9IrBuilderENS0_4IrOpEi.exit97: ; pred
 _ZN4Luau7CodeGenL18builtinCheckDoubleERNS0_9IrBuilderENS0_4IrOpEi.exit98: ; preds = %28, %_ZN4Luau7CodeGenL18builtinCheckDoubleERNS0_9IrBuilderENS0_4IrOpEi.exit97
   %.pre-phi = phi i1 [ %.pre119, %28 ], [ %24, %_ZN4Luau7CodeGenL18builtinCheckDoubleERNS0_9IrBuilderENS0_4IrOpEi.exit97 ]
   %30 = select i1 %.pre-phi, i32 4, i32 3
-  %.not109 = icmp ugt i32 %30, %2
+  %.not109 = icmp samesign ugt i32 %30, %2
   br i1 %.not109, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %_ZN4Luau7CodeGenL18builtinCheckDoubleERNS0_9IrBuilderENS0_4IrOpEi.exit98
@@ -1089,7 +1089,7 @@ _ZN4Luau7CodeGenL18builtinCheckDoubleERNS0_9IrBuilderENS0_4IrOpEi.exit: ; preds 
 _ZN4Luau7CodeGenL18builtinCheckDoubleERNS0_9IrBuilderENS0_4IrOpEi.exit166: ; preds = %_ZN4Luau7CodeGenL18builtinCheckDoubleERNS0_9IrBuilderENS0_4IrOpEi.exit, %22
   %24 = load i8, ptr @_ZN5FFlag20LuauCodegenFastcall3E, align 8
   %25 = trunc i8 %24 to i1
-  %26 = icmp ugt i32 %3, 2
+  %26 = icmp samesign ugt i32 %3, 2
   %or.cond5 = and i1 %26, %25
   %27 = and i32 %7, 15
   %28 = icmp ne i32 %27, 2
@@ -1106,7 +1106,7 @@ _ZN4Luau7CodeGenL18builtinCheckDoubleERNS0_9IrBuilderENS0_4IrOpEi.exit166: ; pre
 _ZN4Luau7CodeGenL18builtinCheckDoubleERNS0_9IrBuilderENS0_4IrOpEi.exit167: ; preds = %29, %_ZN4Luau7CodeGenL18builtinCheckDoubleERNS0_9IrBuilderENS0_4IrOpEi.exit166
   %.pre-phi = phi i1 [ %.pre188, %29 ], [ %25, %_ZN4Luau7CodeGenL18builtinCheckDoubleERNS0_9IrBuilderENS0_4IrOpEi.exit166 ]
   %31 = select i1 %.pre-phi, i32 4, i32 3
-  %.not178 = icmp ugt i32 %31, %3
+  %.not178 = icmp samesign ugt i32 %31, %3
   br i1 %.not178, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %_ZN4Luau7CodeGenL18builtinCheckDoubleERNS0_9IrBuilderENS0_4IrOpEi.exit167

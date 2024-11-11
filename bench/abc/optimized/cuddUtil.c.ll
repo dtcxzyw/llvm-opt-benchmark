@@ -270,7 +270,7 @@ define range(i32 0, 2) i32 @Cudd_bddPrintCover(ptr noundef %0, ptr noundef %1, p
   %indvars.iv.next.i = add nsw i64 %indvars.iv.i, -1
   %63 = getelementptr inbounds i32, ptr %10, i64 %indvars.iv.next.i
   store i32 2, ptr %63, align 4
-  %64 = icmp ugt i64 %indvars.iv.i, 1
+  %64 = icmp samesign ugt i64 %indvars.iv.i, 1
   br i1 %64, label %.lr.ph.i, label %.preheader.i, !llvm.loop !7
 
 .lr.ph26.i:                                       ; preds = %.preheader.i, %77
@@ -421,7 +421,7 @@ define range(i32 0, 2) i32 @Cudd_BddToCubeArray(ptr noundef %0, ptr noundef %1, 
   %indvars.iv.next = add nsw i64 %indvars.iv, -1
   %18 = getelementptr inbounds i32, ptr %2, i64 %indvars.iv.next
   store i32 2, ptr %18, align 4
-  %19 = icmp ugt i64 %indvars.iv, 1
+  %19 = icmp samesign ugt i64 %indvars.iv, 1
   br i1 %19, label %.lr.ph, label %.preheader, !llvm.loop !7
 
 .lr.ph26:                                         ; preds = %.preheader, %32
@@ -531,7 +531,7 @@ define range(i32 0, 2) i32 @Cudd_PrintDebug(ptr noundef %0, ptr noundef %1, i32 
   %39 = getelementptr inbounds i8, ptr %0, i64 608
   %40 = load ptr, ptr %39, align 8
   %41 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %40, ptr noundef nonnull @.str.8, i32 noundef %32, i32 noundef %34, double noundef %36) #23
-  %42 = icmp ugt i32 %3, 2
+  %42 = icmp samesign ugt i32 %3, 2
   br i1 %42, label %43, label %49
 
 43:                                               ; preds = %28
@@ -555,7 +555,7 @@ cuddP.exit.thread:                                ; preds = %43, %cuddP.exit
   %.4.shrunk = phi i1 [ %narrow51, %28 ], [ false, %cuddP.exit.thread ], [ %narrow51, %cuddP.exit ]
   %.4 = zext i1 %.4.shrunk to i32
   %50 = icmp eq i32 %3, 2
-  %51 = icmp ugt i32 %3, 3
+  %51 = icmp samesign ugt i32 %3, 3
   %or.cond4 = or i1 %50, %51
   br i1 %or.cond4, label %52, label %.thread.sink.split
 
@@ -2114,7 +2114,7 @@ define ptr @Cudd_VectorSupport(ptr noundef %0, ptr nocapture noundef readonly %1
 
 74:                                               ; preds = %46, %67
   %.163 = phi ptr [ %64, %67 ], [ %.06279, %46 ]
-  %75 = icmp ugt i64 %indvars.iv93, 1
+  %75 = icmp samesign ugt i64 %indvars.iv93, 1
   br i1 %75, label %38, label %._crit_edge84.loopexit, !llvm.loop !20
 
 ._crit_edge84.loopexit:                           ; preds = %74
@@ -2535,7 +2535,7 @@ define range(i32 0, 2) i32 @Cudd_ClassifySupport(ptr noundef %0, ptr noundef %1,
   br label %140
 
 140:                                              ; preds = %69, %139
-  %141 = icmp ugt i64 %indvars.iv, 1
+  %141 = icmp samesign ugt i64 %indvars.iv, 1
   br i1 %141, label %55, label %._crit_edge143, !llvm.loop !26
 
 ._crit_edge143:                                   ; preds = %140, %._crit_edge
@@ -3061,7 +3061,7 @@ Cudd_Random.exit:                                 ; preds = %.preheader, %37
   %108 = add i32 %107, 1
   store i32 %108, ptr %106, align 4
   tail call void @Cudd_RecursiveDeref(ptr noundef %0, ptr noundef %.06276) #23
-  %109 = icmp ugt i64 %indvars.iv89, 1
+  %109 = icmp samesign ugt i64 %indvars.iv89, 1
   br i1 %109, label %.lr.ph79, label %._crit_edge80, !llvm.loop !31
 
 ._crit_edge80:                                    ; preds = %102, %._crit_edge74
@@ -4957,7 +4957,7 @@ define noalias noundef ptr @Cudd_FirstPrime(ptr noundef %0, ptr noundef %1, ptr 
   %indvars.iv.next.i = add nsw i64 %indvars.iv.i, -1
   %83 = getelementptr inbounds i32, ptr %34, i64 %indvars.iv.next.i
   store i32 2, ptr %83, align 4
-  %84 = icmp ugt i64 %indvars.iv.i, 1
+  %84 = icmp samesign ugt i64 %indvars.iv.i, 1
   br i1 %84, label %.lr.ph.i, label %.preheader.i, !llvm.loop !7
 
 .lr.ph26.i:                                       ; preds = %.preheader.i, %97
@@ -5148,7 +5148,7 @@ define range(i32 0, 2) i32 @Cudd_NextPrime(ptr nocapture noundef %0, ptr nocaptu
   %indvars.iv.next.i = add nsw i64 %indvars.iv.i, -1
   %64 = getelementptr inbounds i32, ptr %54, i64 %indvars.iv.next.i
   store i32 2, ptr %64, align 4
-  %65 = icmp ugt i64 %indvars.iv.i, 1
+  %65 = icmp samesign ugt i64 %indvars.iv.i, 1
   br i1 %65, label %.lr.ph.i, label %.preheader.i, !llvm.loop !7
 
 .lr.ph26.i:                                       ; preds = %.preheader.i, %78
@@ -5467,7 +5467,7 @@ define ptr @Cudd_CubeArrayToBdd(ptr noundef %0, ptr nocapture noundef readonly %
 
 36:                                               ; preds = %.lr.ph, %29
   %.1 = phi ptr [ %26, %29 ], [ %.02529, %.lr.ph ]
-  %37 = icmp ugt i64 %indvars.iv, 1
+  %37 = icmp samesign ugt i64 %indvars.iv, 1
   br i1 %37, label %.lr.ph, label %._crit_edge.loopexit, !llvm.loop !62
 
 ._crit_edge.loopexit:                             ; preds = %36
@@ -5747,7 +5747,7 @@ define ptr @Cudd_IndicesToCube(ptr noundef %0, ptr nocapture noundef readonly %1
   %26 = add i32 %25, 1
   store i32 %26, ptr %24, align 4
   tail call void @Cudd_RecursiveDeref(ptr noundef %0, ptr noundef %.02024) #23
-  %27 = icmp ugt i64 %indvars.iv, 1
+  %27 = icmp samesign ugt i64 %indvars.iv, 1
   br i1 %27, label %.lr.ph, label %._crit_edge, !llvm.loop !63
 
 ._crit_edge:                                      ; preds = %20, %3

@@ -565,7 +565,7 @@ define double @dlansf_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocap
 320:                                              ; preds = %.loopexit89, %314
   %indvars.iv338 = phi i64 [ %indvars.iv.next339, %.loopexit89 ], [ %315, %314 ]
   %indvars.iv336 = phi i64 [ %indvars.iv.next337, %.loopexit89 ], [ %318, %314 ]
-  %321 = icmp ult i64 %indvars.iv338, 3
+  %321 = icmp samesign ult i64 %indvars.iv338, 3
   br i1 %321, label %342, label %322
 
 322:                                              ; preds = %320
@@ -885,7 +885,7 @@ define double @dlansf_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocap
 526:                                              ; preds = %.loopexit84, %519
   %indvars.iv345 = phi i64 [ %indvars.iv.next346, %.loopexit84 ], [ %520, %519 ]
   %indvars.iv343 = phi i64 [ %indvars.iv.next344, %.loopexit84 ], [ %524, %519 ]
-  %527 = icmp ult i64 %indvars.iv345, 2
+  %527 = icmp samesign ult i64 %indvars.iv345, 2
   %.pre415 = mul nsw i64 %indvars.iv343, %525
   br i1 %527, label %._crit_edge414, label %528
 

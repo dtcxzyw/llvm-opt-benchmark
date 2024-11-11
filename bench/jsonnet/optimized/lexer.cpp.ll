@@ -2759,7 +2759,7 @@ _ZN7jsonnet8internalL16whitespace_checkEPKcS2_.exit211: ; preds = %.preheader
   ]
 
 _ZN7jsonnet8internal26allowed_at_end_of_operatorEc.exit: ; preds = %.lr.ph540, %.lr.ph540, %.lr.ph540, %.lr.ph540, %.lr.ph540
-  %529 = icmp ugt i64 %.idx646, 2
+  %529 = icmp samesign ugt i64 %.idx646, 2
   br i1 %529, label %.lr.ph540, label %.critedge2.loopexit, !llvm.loop !23
 
 .critedge2.loopexit:                              ; preds = %_ZN7jsonnet8internal26allowed_at_end_of_operatorEc.exit, %.lr.ph540

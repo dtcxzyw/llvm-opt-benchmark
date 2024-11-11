@@ -9677,7 +9677,7 @@ _ZN4llvmL5isMemERKNS_12MachineInstrEj.exit.thread: ; preds = %41, %35, %31, %_ZN
   %60 = zext i32 %.047 to i64
   %61 = getelementptr inbounds %"class.llvm::MachineOperand", ptr %.val, i64 %60, i32 1
   %62 = load i32, ptr %61, align 4
-  %.not5874 = icmp ult i32 %46, %.151
+  %.not5874 = icmp samesign ult i32 %46, %.151
   br i1 %.not5874, label %.thread70, label %.lr.ph
 
 .lr.ph:                                           ; preds = %.thread, %68
@@ -31075,7 +31075,7 @@ select.unfold:                                    ; preds = %.critedge4, %89
   br i1 %105, label %127, label %106
 
 106:                                              ; preds = %103
-  %107 = icmp ult i32 %104, 32
+  %107 = icmp samesign ult i32 %104, 32
   br i1 %107, label %108, label %110
 
 108:                                              ; preds = %106

@@ -531,7 +531,7 @@ onas_fdpass.exit:                                 ; preds = %135, %134, %onas_se
   br label %145
 
 204:                                              ; preds = %.thread194
-  %205 = icmp ugt i32 %146, 32
+  %205 = icmp samesign ugt i32 %146, 32
   br i1 %205, label %206, label %223
 
 206:                                              ; preds = %204
@@ -541,7 +541,7 @@ onas_fdpass.exit:                                 ; preds = %135, %134, %onas_se
   br i1 %.not168, label %212, label %208
 
 208:                                              ; preds = %206
-  %209 = icmp ugt i32 %146, 34
+  %209 = icmp samesign ugt i32 %146, 34
   br i1 %209, label %210, label %.thread209
 
 210:                                              ; preds = %208
@@ -581,7 +581,7 @@ onas_fdpass.exit:                                 ; preds = %135, %134, %onas_se
   br label %145
 
 223:                                              ; preds = %204
-  %224 = icmp ugt i32 %146, 21
+  %224 = icmp samesign ugt i32 %146, 21
   br i1 %224, label %.thread209, label %.thread212
 
 .thread209:                                       ; preds = %208, %210, %223
@@ -591,7 +591,7 @@ onas_fdpass.exit:                                 ; preds = %135, %134, %onas_se
   br i1 %.not174, label %234, label %226
 
 226:                                              ; preds = %.thread209
-  %227 = icmp ugt i32 %146, 23
+  %227 = icmp samesign ugt i32 %146, 23
   br i1 %227, label %228, label %.thread212
 
 228:                                              ; preds = %226
@@ -601,7 +601,7 @@ onas_fdpass.exit:                                 ; preds = %135, %134, %onas_se
   br i1 %.not176, label %234, label %230
 
 230:                                              ; preds = %228
-  %231 = icmp ugt i32 %146, 41
+  %231 = icmp samesign ugt i32 %146, 41
   br i1 %231, label %232, label %.thread212
 
 232:                                              ; preds = %230

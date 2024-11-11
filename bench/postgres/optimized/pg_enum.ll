@@ -564,7 +564,7 @@ define dso_local void @AddEnumLabel(i32 noundef %0, ptr noundef %1, ptr noundef 
 
 146:                                              ; preds = %144, %129
   tail call void @heap_freetuple(ptr noundef nonnull %132) #10
-  %147 = icmp ugt i64 %indvars.iv.i, 1
+  %147 = icmp samesign ugt i64 %indvars.iv.i, 1
   br i1 %147, label %129, label %RenumberEnumType.exit, !llvm.loop !13
 
 RenumberEnumType.exit:                            ; preds = %146

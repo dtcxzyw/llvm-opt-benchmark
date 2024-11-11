@@ -595,7 +595,7 @@ define hidden void @_ZN8rawspeed23PanasonicV5Decompressor19chopInputIntoBlocksER
   %184 = phi ptr [ %59, %78 ], [ %170, %169 ]
   %185 = phi i64 [ 0, %78 ], [ %180, %169 ]
   %186 = getelementptr inbounds i8, ptr %184, i64 40
-  %187 = icmp ule i64 %182, %185
+  %187 = icmp samesign ule i64 %182, %185
   tail call void @llvm.assume(i1 %187)
   %188 = load i32, ptr %10, align 8, !tbaa !17
   %189 = load i32, ptr %12, align 8, !tbaa !21

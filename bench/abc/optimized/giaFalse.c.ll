@@ -3204,7 +3204,7 @@ Vec_IntPush.exit224:                              ; preds = %.Vec_IntGrow.exit10
   %426 = getelementptr inbounds i32, ptr %.val, i64 %425
   %427 = load i32, ptr %426, align 4
   %428 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.8, i32 noundef %427)
-  %429 = icmp ugt i64 %indvars.iv268, 1
+  %429 = icmp samesign ugt i64 %indvars.iv268, 1
   br i1 %429, label %421, label %.loopexit, !llvm.loop !27
 
 .loopexit:                                        ; preds = %421, %417

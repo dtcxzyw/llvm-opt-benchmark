@@ -3465,7 +3465,7 @@ _ZN4NodenwEm.exit67:                              ; preds = %104, %106
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %20)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %21)
   call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %22)
-  %136 = icmp ugt i32 %.06177.in, 2
+  %136 = icmp samesign ugt i32 %.06177.in, 2
   br i1 %136, label %60, label %._crit_edge, !llvm.loop !10
 
 ._crit_edge:                                      ; preds = %111, %.preheader.._crit_edge_crit_edge
@@ -4683,7 +4683,7 @@ define hidden noundef i32 @_ZN13ArrayCopyNode36get_partial_inline_vector_lane_co
   br i1 %13, label %.sink.split, label %14
 
 14:                                               ; preds = %11
-  %15 = icmp ult i32 %12, 33
+  %15 = icmp samesign ult i32 %12, 33
   br i1 %15, label %.sink.split, label %17
 
 .sink.split:                                      ; preds = %14, %11

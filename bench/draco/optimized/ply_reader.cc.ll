@@ -2620,7 +2620,7 @@ _ZSt7advanceIPKcmEvRT_T0_.exit.i:                 ; preds = %120
   %130 = getelementptr inbounds i8, ptr %.0910.i.i.i.i.i.i.i.i.i, i64 1
   %131 = getelementptr inbounds i8, ptr %.0811.i.i.i.i.i.i.i.i.i, i64 1
   %132 = add nsw i64 %.012.i.i.i.i.i.i.i.i.i, -1
-  %133 = icmp ugt i64 %.012.i.i.i.i.i.i.i.i.i, 1
+  %133 = icmp samesign ugt i64 %.012.i.i.i.i.i.i.i.i.i, 1
   br i1 %133, label %.lr.ph.i.i.i.i.i.i.i.i.i, label %_ZSt22__uninitialized_copy_aIPKcPhhET0_T_S4_S3_RSaIT1_E.exit.loopexit.i, !llvm.loop !33
 
 _ZSt22__uninitialized_copy_aIPKcPhhET0_T_S4_S3_RSaIT1_E.exit.loopexit.i: ; preds = %.lr.ph.i.i.i.i.i.i.i.i.i
@@ -2734,7 +2734,7 @@ _ZSt7advanceIPKcmEvRT_T0_.exit.i38:               ; preds = %169
   %180 = getelementptr inbounds i8, ptr %.0910.i.i.i.i.i.i.i.i.i51, i64 1
   %181 = getelementptr inbounds i8, ptr %.0811.i.i.i.i.i.i.i.i.i50, i64 1
   %182 = add nsw i64 %.012.i.i.i.i.i.i.i.i.i49, -1
-  %183 = icmp ugt i64 %.012.i.i.i.i.i.i.i.i.i49, 1
+  %183 = icmp samesign ugt i64 %.012.i.i.i.i.i.i.i.i.i49, 1
   br i1 %183, label %.lr.ph.i.i.i.i.i.i.i.i.i48, label %_ZSt22__uninitialized_copy_aIPKcPhhET0_T_S4_S3_RSaIT1_E.exit.loopexit.i52, !llvm.loop !33
 
 _ZSt22__uninitialized_copy_aIPKcPhhET0_T_S4_S3_RSaIT1_E.exit.loopexit.i52: ; preds = %.lr.ph.i.i.i.i.i.i.i.i.i48

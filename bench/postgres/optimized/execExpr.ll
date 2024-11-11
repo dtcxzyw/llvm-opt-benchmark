@@ -5350,7 +5350,7 @@ list_length.exit.thread:                          ; preds = %._crit_edge
   br label %.loopexit
 
 66:                                               ; preds = %60, %56
-  %67 = icmp ugt i64 %indvars.iv335, 1
+  %67 = icmp samesign ugt i64 %indvars.iv335, 1
   br i1 %67, label %56, label %.loopexit, !llvm.loop !10
 
 .loopexit:                                        ; preds = %66, %._crit_edge293, %63

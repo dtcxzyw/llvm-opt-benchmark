@@ -3333,7 +3333,7 @@ _ZN5gimli5write6writer6Writer9write_u3217hd7638480a7c6ed16E.exit506.i: ; preds =
   %198 = load i64, ptr %33, align 8, !alias.scope !663, !noalias !660, !noundef !4
   %199 = add i64 %198, 1
   store i64 %199, ptr %33, align 8, !alias.scope !663, !noalias !660
-  %200 = icmp ugt i16 %.sroa.6.0.copyload.i, 3
+  %200 = icmp samesign ugt i16 %.sroa.6.0.copyload.i, 3
   br i1 %200, label %207, label %201
 
 201:                                              ; preds = %.noexc68, %194
@@ -4892,7 +4892,7 @@ _ZN5gimli5write6writer6Writer9write_u3217h828145f091d49137E.exit506.i: ; preds =
   %197 = load i64, ptr %29, align 8, !alias.scope !1159, !noalias !1156, !noundef !4
   %198 = add i64 %197, 1
   store i64 %198, ptr %29, align 8, !alias.scope !1159, !noalias !1156
-  %199 = icmp ugt i16 %.sroa.6.0.copyload.i, 3
+  %199 = icmp samesign ugt i16 %.sroa.6.0.copyload.i, 3
   br i1 %199, label %206, label %200
 
 200:                                              ; preds = %.noexc68, %193

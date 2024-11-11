@@ -86,7 +86,7 @@ invoke.cont8:                                     ; preds = %if.then.i.i.i.i.i.i
   %__first.addr.0.i.i.i.i.i58 = phi ptr [ %incdec.ptr.i.i.i.i.i54, %call5.i.i.i.i1.i.i.noexc63 ], [ %add.ptr.i.i.i52, %if.then.i.i.i.i.i.i.i.i.i57 ], [ null, %_ZNSt6vectorIhSaIhEE17_S_check_init_lenEmRKS0_.exit.i ]
   %sub = sub i64 %.sroa.speculated, %sub.ptr.sub.i
   %conv11130 = and i64 %sub, 4294967295
-  %cmp131 = icmp ugt i64 %.sroa.speculated, %conv11130
+  %cmp131 = icmp samesign ugt i64 %.sroa.speculated, %conv11130
   br i1 %cmp131, label %do.end13.lr.ph, label %for.end
 
 do.end13.lr.ph:                                   ; preds = %invoke.cont8
@@ -123,7 +123,7 @@ for.end:                                          ; preds = %do.end13, %invoke.c
   %call25 = tail call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6lengthEv(ptr noundef nonnull align 8 dereferenceable(32) %lit) #15
   %sub26 = sub i64 %.sroa.speculated, %call25
   %conv30135 = and i64 %sub26, 4294967295
-  %cmp31136 = icmp ugt i64 %.sroa.speculated, %conv30135
+  %cmp31136 = icmp samesign ugt i64 %.sroa.speculated, %conv30135
   br i1 %cmp31136, label %for.body32.lr.ph, label %for.end57
 
 for.body32.lr.ph:                                 ; preds = %for.end

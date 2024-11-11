@@ -8060,7 +8060,7 @@ define dso_local noundef i32 @_Z9lua_pcallP9lua_Stateiii(ptr noundef %0, i32 nou
   br label %_ZL11pseudo2addrP9lua_Statei.exit
 
 16:                                               ; preds = %6
-  %17 = icmp ugt i32 %3, -10000
+  %17 = icmp samesign ugt i32 %3, -10000
   br i1 %17, label %18, label %23
 
 18:                                               ; preds = %16
@@ -9121,7 +9121,7 @@ _ZL11pseudo2addrP9lua_Statei.exit:                ; preds = %59, %50, %_ZL10getc
   %84 = getelementptr inbounds i8, ptr %78, i64 4
   %85 = load i8, ptr %84, align 4
   %86 = zext i8 %85 to i32
-  %.not27.i = icmp ugt i32 %2, %86
+  %.not27.i = icmp samesign ugt i32 %2, %86
   br i1 %.not27.i, label %_ZL11aux_upvalueP10lua_TValueiPS0_.exit.thread, label %87
 
 87:                                               ; preds = %83
@@ -9141,7 +9141,7 @@ _ZL11pseudo2addrP9lua_Statei.exit:                ; preds = %59, %50, %_ZL10getc
   %97 = getelementptr inbounds i8, ptr %94, i64 3
   %98 = load i8, ptr %97, align 1
   %99 = zext i8 %98 to i32
-  %.not25.i = icmp ugt i32 %2, %99
+  %.not25.i = icmp samesign ugt i32 %2, %99
   br i1 %.not25.i, label %_ZL11aux_upvalueP10lua_TValueiPS0_.exit.thread, label %100
 
 100:                                              ; preds = %96
@@ -9317,7 +9317,7 @@ _ZL11pseudo2addrP9lua_Statei.exit:                ; preds = %53, %44, %_ZL10getc
   %78 = getelementptr inbounds i8, ptr %72, i64 4
   %79 = load i8, ptr %78, align 4
   %80 = zext i8 %79 to i32
-  %.not27.i = icmp ugt i32 %2, %80
+  %.not27.i = icmp samesign ugt i32 %2, %80
   br i1 %.not27.i, label %_ZL11aux_upvalueP10lua_TValueiPS0_.exit.thread, label %81
 
 81:                                               ; preds = %77
@@ -9337,7 +9337,7 @@ _ZL11pseudo2addrP9lua_Statei.exit:                ; preds = %53, %44, %_ZL10getc
   %91 = getelementptr inbounds i8, ptr %88, i64 3
   %92 = load i8, ptr %91, align 1
   %93 = zext i8 %92 to i32
-  %.not25.i = icmp ugt i32 %2, %93
+  %.not25.i = icmp samesign ugt i32 %2, %93
   br i1 %.not25.i, label %_ZL11aux_upvalueP10lua_TValueiPS0_.exit.thread, label %94
 
 94:                                               ; preds = %90

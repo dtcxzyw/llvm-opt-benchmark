@@ -110,7 +110,7 @@ if.end6.i:                                        ; preds = %if.end3.i
   br i1 %cmp10.i, label %if.then, label %if.end12.i
 
 if.end12.i:                                       ; preds = %if.end6.i
-  %cmp13.not.i = icmp ugt i64 %n, 2
+  %cmp13.not.i = icmp samesign ugt i64 %n, 2
   br i1 %cmp13.not.i, label %if.end15.i, label %return
 
 if.end15.i:                                       ; preds = %if.end12.i
@@ -138,7 +138,7 @@ if.end26.i:                                       ; preds = %if.end23.i
   br i1 %cmp32.i, label %if.then, label %if.end34.i
 
 if.end34.i:                                       ; preds = %if.end26.i
-  %cmp35.not.i = icmp ugt i64 %n, 4
+  %cmp35.not.i = icmp samesign ugt i64 %n, 4
   br i1 %cmp35.not.i, label %if.end37.i, label %return
 
 if.end37.i:                                       ; preds = %if.end34.i
@@ -170,7 +170,7 @@ entry:
   br i1 %cmp.i5, label %_ZN6snappy12_GLOBAL__N_118CalculateTableSizeEj.exit, label %if.end.i
 
 if.end.i:                                         ; preds = %entry
-  %cmp2.i = icmp ult i64 %input_size, 256
+  %cmp2.i = icmp samesign ult i64 %input_size, 256
   br i1 %cmp2.i, label %_ZN6snappy12_GLOBAL__N_118CalculateTableSizeEj.exit, label %if.end4.i
 
 if.end4.i:                                        ; preds = %if.end.i
@@ -241,7 +241,7 @@ entry:
   br i1 %cmp.i, label %_ZN6snappy12_GLOBAL__N_118CalculateTableSizeEj.exit, label %if.end.i
 
 if.end.i:                                         ; preds = %entry
-  %cmp2.i = icmp ult i32 %conv, 256
+  %cmp2.i = icmp samesign ult i32 %conv, 256
   br i1 %cmp2.i, label %_ZN6snappy12_GLOBAL__N_118CalculateTableSizeEj.exit, label %if.end4.i
 
 if.end4.i:                                        ; preds = %if.end.i
@@ -421,7 +421,7 @@ if.then.i:                                        ; preds = %while.end
   br label %do.body.preheader
 
 if.end.i:                                         ; preds = %while.end
-  %cmp1.i = icmp ult i32 %conv75, 61
+  %cmp1.i = icmp samesign ult i32 %conv75, 61
   br i1 %cmp1.i, label %if.then2.i, label %if.else.i
 
 if.then2.i:                                       ; preds = %if.end.i
@@ -1150,7 +1150,7 @@ _ZN6snappy6Varint8Encode32EPcj.exit:              ; preds = %if.then.i, %if.then
   br i1 %cmp.i5.i, label %_ZN6snappy8internal13WorkingMemoryC2Em.exit, label %if.end.i.i
 
 if.end.i.i:                                       ; preds = %_ZN6snappy6Varint8Encode32EPcj.exit
-  %cmp2.i.i = icmp ult i64 %call, 256
+  %cmp2.i.i = icmp samesign ult i64 %call, 256
   br i1 %cmp2.i.i, label %_ZN6snappy8internal13WorkingMemoryC2Em.exit, label %if.end4.i.i
 
 if.end4.i.i:                                      ; preds = %if.end.i.i
@@ -1226,7 +1226,7 @@ if.end:                                           ; preds = %while.body20, %whil
   br i1 %cmp.i.i, label %_ZNK6snappy8internal13WorkingMemory12GetHashTableEmPi.exit, label %if.end.i.i43
 
 if.end.i.i43:                                     ; preds = %if.end
-  %cmp2.i.i44 = icmp ult i64 %N.073, 256
+  %cmp2.i.i44 = icmp samesign ult i64 %N.073, 256
   br i1 %cmp2.i.i44, label %_ZNK6snappy8internal13WorkingMemory12GetHashTableEmPi.exit, label %if.end4.i.i45
 
 if.end4.i.i45:                                    ; preds = %if.end.i.i43
@@ -1553,7 +1553,7 @@ if.end6.i.i:                                      ; preds = %if.end3.i.i
   br i1 %cmp10.i.i, label %if.end, label %if.end12.i.i
 
 if.end12.i.i:                                     ; preds = %if.end6.i.i
-  %cmp13.not.i.i = icmp ugt i64 %compressed_length, 2
+  %cmp13.not.i.i = icmp samesign ugt i64 %compressed_length, 2
   br i1 %cmp13.not.i.i, label %if.end15.i.i, label %return
 
 if.end15.i.i:                                     ; preds = %if.end12.i.i
@@ -1581,7 +1581,7 @@ if.end26.i.i:                                     ; preds = %if.end23.i.i
   br i1 %cmp32.i.i, label %if.end, label %if.end34.i.i
 
 if.end34.i.i:                                     ; preds = %if.end26.i.i
-  %cmp35.not.i.i = icmp ugt i64 %compressed_length, 4
+  %cmp35.not.i.i = icmp samesign ugt i64 %compressed_length, 4
   br i1 %cmp35.not.i.i, label %if.end37.i.i, label %return
 
 if.end37.i.i:                                     ; preds = %if.end34.i.i
@@ -2943,7 +2943,7 @@ if.end:                                           ; preds = %if.then13
   %sub17 = add i64 %add16, %sub10
   %add.ptr18 = getelementptr inbounds i8, ptr %op_base, i64 %op.addr.2146
   call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(32) %add.ptr18, ptr noundef nonnull readonly align 1 dereferenceable(32) %deferred_src.2147, i64 32, i1 false)
-  %cmp.i63 = icmp ugt i64 %deferred_length.2148, 32
+  %cmp.i63 = icmp samesign ugt i64 %deferred_length.2148, 32
   br i1 %cmp.i63, label %if.then.i64, label %_ZN6snappy9MemCopy64EPcPKvm.exit
 
 if.then.i64:                                      ; preds = %if.end
@@ -3065,7 +3065,7 @@ if.then36:                                        ; preds = %if.end29
 if.end39:                                         ; preds = %if.then36
   %add.ptr40 = getelementptr inbounds i8, ptr %op_base, i64 %op.addr.2146
   call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(32) %add.ptr40, ptr noundef nonnull readonly align 1 dereferenceable(32) %deferred_src.2147, i64 32, i1 false)
-  %cmp.i70 = icmp ugt i64 %deferred_length.2148, 32
+  %cmp.i70 = icmp samesign ugt i64 %deferred_length.2148, 32
   br i1 %cmp.i70, label %if.then.i71, label %for.inc
 
 if.then.i71:                                      ; preds = %if.end39
@@ -3079,7 +3079,7 @@ if.end42:                                         ; preds = %if.end29
   %cond = select i1 %cmp37.not, ptr %ip.addr.2145, ptr %add.ptr44
   %add.ptr45 = getelementptr inbounds i8, ptr %op_base, i64 %op.addr.2146
   call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(32) %add.ptr45, ptr noundef nonnull readonly align 1 dereferenceable(32) %deferred_src.2147, i64 32, i1 false)
-  %cmp.i75 = icmp ugt i64 %deferred_length.2148, 32
+  %cmp.i75 = icmp samesign ugt i64 %deferred_length.2148, 32
   br i1 %cmp.i75, label %if.then.i76, label %for.inc
 
 if.then.i76:                                      ; preds = %if.end42
@@ -3117,7 +3117,7 @@ if.end51:                                         ; preds = %do.cond, %if.then36
 if.then53:                                        ; preds = %if.end51
   %add.ptr54 = getelementptr inbounds i8, ptr %op_base, i64 %op.addr.2138
   call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(32) %add.ptr54, ptr noundef nonnull readonly align 1 dereferenceable(32) %deferred_src.2135, i64 32, i1 false)
-  %cmp.i80 = icmp ugt i64 %deferred_length.2132, 32
+  %cmp.i80 = icmp samesign ugt i64 %deferred_length.2132, 32
   br i1 %cmp.i80, label %if.then.i81, label %_ZN6snappy9MemCopy64EPcPKvm.exit84
 
 if.then.i81:                                      ; preds = %if.then53

@@ -874,7 +874,7 @@ process_restart.exit.thread:                      ; preds = %._crit_edge.i, %43,
 
 136:                                              ; preds = %132
   %137 = shl nuw i32 1, %100
-  %.not119 = icmp ult i32 %.086, 16
+  %.not119 = icmp samesign ult i32 %.086, 16
   br i1 %.not119, label %151, label %138
 
 138:                                              ; preds = %136
@@ -1334,7 +1334,7 @@ process_restart.exit.thread:                      ; preds = %._crit_edge.i, %46,
 
 122:                                              ; preds = %121
   %123 = shl nuw i32 1, %102
-  %.not180 = icmp ult i32 %.0123, 16
+  %.not180 = icmp samesign ult i32 %.0123, 16
   br i1 %.not180, label %.preheader, label %124
 
 124:                                              ; preds = %122
@@ -1589,7 +1589,7 @@ process_restart.exit.thread:                      ; preds = %._crit_edge.i, %46,
   %224 = sext i32 %223 to i64
   %225 = getelementptr inbounds [64 x i16], ptr %64, i64 0, i64 %224
   store i16 0, ptr %225, align 2
-  %226 = icmp ugt i64 %indvars.iv258, 1
+  %226 = icmp samesign ugt i64 %indvars.iv258, 1
   br i1 %226, label %.lr.ph236, label %process_restart.exit, !llvm.loop !20
 
 process_restart.exit:                             ; preds = %.lr.ph236, %.loopexit, %19, %216

@@ -102,7 +102,7 @@ define void @Io_WriteDotNtk(ptr noundef %0, ptr nocapture noundef readonly %1, p
   br label %435
 
 11:                                               ; preds = %6
-  %12 = icmp ugt i32 %8, 500
+  %12 = icmp samesign ugt i32 %8, 500
   br i1 %12, label %13, label %15
 
 13:                                               ; preds = %11
@@ -1140,7 +1140,7 @@ define void @Io_WriteDotSeq(ptr noundef %0, ptr nocapture noundef readonly %1, p
   br label %458
 
 11:                                               ; preds = %6
-  %12 = icmp ugt i32 %8, 300
+  %12 = icmp samesign ugt i32 %8, 300
   br i1 %12, label %13, label %15
 
 13:                                               ; preds = %11

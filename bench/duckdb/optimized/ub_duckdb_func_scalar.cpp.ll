@@ -2084,7 +2084,7 @@ if.end:                                           ; preds = %if.else
   %call31 = tail call noundef i32 @_ZN6duckdb13NumericHelper14UnsignedLengthIjEEiT_(i32 noundef %sub30)
   %idx.ext = sext i32 %call31 to i64
   %add.ptr = getelementptr inbounds i8, ptr %incdec.ptr, i64 %idx.ext
-  %cmp29.i = icmp ugt i32 %sub30, 99
+  %cmp29.i = icmp samesign ugt i32 %sub30, 99
   br i1 %cmp29.i, label %while.body.i.preheader, label %while.end.i
 
 while.body.i.preheader:                           ; preds = %if.end, %if.end.thread
@@ -6930,7 +6930,7 @@ if.then158:                                       ; preds = %sw.epilog
   br label %cleanup614
 
 if.end160:                                        ; preds = %sw.epilog
-  %cmp161 = icmp ugt i64 %number.0.lcssa, 68
+  %cmp161 = icmp samesign ugt i64 %number.0.lcssa, 68
   %78 = trunc nuw nsw i64 %number.0.lcssa to i32
   br i1 %cmp161, label %if.then162, label %if.else166
 

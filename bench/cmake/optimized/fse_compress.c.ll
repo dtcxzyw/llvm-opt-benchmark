@@ -314,7 +314,7 @@ define dso_local i64 @FSE_writeNCount(ptr noundef %0, i64 noundef %1, ptr nocapt
   br i1 %6, label %17, label %7
 
 7:                                                ; preds = %5
-  %8 = icmp ult i32 %4, 5
+  %8 = icmp samesign ult i32 %4, 5
   br i1 %8, label %17, label %.sink.split
 
 .sink.split:                                      ; preds = %7
@@ -657,7 +657,7 @@ define dso_local range(i64 -44, 13) i64 @FSE_normalizeCount(ptr nocapture nounde
   %15 = tail call range(i32 0, 32) i32 @llvm.ctlz.i32(i32 %4, i1 true)
   %16 = sub nuw nsw i32 33, %15
   %17 = tail call range(i32 1, 33) i32 @llvm.umin.i32(i32 %14, i32 %16)
-  %18 = icmp ult i32 %spec.store.select, %17
+  %18 = icmp samesign ult i32 %spec.store.select, %17
   br i1 %18, label %FSE_normalizeM2.exit.thread, label %19
 
 19:                                               ; preds = %11

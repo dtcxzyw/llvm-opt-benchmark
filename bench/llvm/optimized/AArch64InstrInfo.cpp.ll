@@ -10863,7 +10863,7 @@ _ZNK4llvm8Function10hasOptSizeEv.exit:            ; preds = %115, %123
 149:                                              ; preds = %144
   %150 = zext i32 %141 to i64
   %151 = udiv i64 %140, %150
-  %152 = icmp ult i64 %151, 4096
+  %152 = icmp samesign ult i64 %151, 4096
   br i1 %152, label %153, label %.critedge2
 
 153:                                              ; preds = %149
@@ -10939,7 +10939,7 @@ _ZNK4llvm8Function10hasOptSizeEv.exit:            ; preds = %115, %123
 192:                                              ; preds = %187
   %193 = zext i32 %184 to i64
   %194 = udiv i64 %183, %193
-  %195 = icmp ult i64 %194, 4096
+  %195 = icmp samesign ult i64 %194, 4096
   br i1 %195, label %196, label %.critedge2
 
 196:                                              ; preds = %192
@@ -21146,7 +21146,7 @@ _ZN4llvm15SmallVectorImplIcE7reserveEm.exit:      ; preds = %3, %11
   %18 = getelementptr inbounds i8, ptr %.0910.i.i.i.i.i.i.i.i, i64 1
   %19 = getelementptr inbounds i8, ptr %.0811.i.i.i.i.i.i.i.i, i64 1
   %20 = add nsw i64 %.012.i.i.i.i.i.i.i.i, -1
-  %21 = icmp ugt i64 %.012.i.i.i.i.i.i.i.i, 1
+  %21 = icmp samesign ugt i64 %.012.i.i.i.i.i.i.i.i, 1
   br i1 %21, label %.lr.ph.i.i.i.i.i.i.i.i, label %_ZN4llvm23SmallVectorTemplateBaseIcLb1EE18uninitialized_copyIPhPcEEvT_S5_T0_.exit, !llvm.loop !605
 
 _ZN4llvm23SmallVectorTemplateBaseIcLb1EE18uninitialized_copyIPhPcEEvT_S5_T0_.exit: ; preds = %.lr.ph.i.i.i.i.i.i.i.i, %_ZN4llvm15SmallVectorImplIcE7reserveEm.exit
@@ -29147,7 +29147,7 @@ _ZNSt12_Vector_baseIN4llvm8outliner9CandidateESaIS2_EE13_M_deallocateEPS2_m.exit
   %75 = getelementptr inbounds i8, ptr %.0910.i.i.i.i.i, i64 224
   %76 = getelementptr inbounds i8, ptr %.0811.i.i.i.i.i, i64 224
   %77 = add nsw i64 %.012.i.i.i.i.i, -1
-  %78 = icmp ugt i64 %.012.i.i.i.i.i, 1
+  %78 = icmp samesign ugt i64 %.012.i.i.i.i.i, 1
   br i1 %78, label %.lr.ph.i.i.i.i.i25, label %_ZSt4copyIN9__gnu_cxx17__normal_iteratorIPKN4llvm8outliner9CandidateESt6vectorIS4_SaIS4_EEEENS1_IPS4_S9_EEET0_T_SE_SD_.exit.loopexit, !llvm.loop !771
 
 _ZSt4copyIN9__gnu_cxx17__normal_iteratorIPKN4llvm8outliner9CandidateESt6vectorIS4_SaIS4_EEEENS1_IPS4_S9_EEET0_T_SE_SD_.exit.loopexit: ; preds = %.lr.ph.i.i.i.i.i25
@@ -29238,7 +29238,7 @@ _ZSt8_DestroyIN4llvm8outliner9CandidateEEvPT_.exit.i.i.i29: ; preds = %93, %_ZN4
   %118 = getelementptr inbounds i8, ptr %.0910.i.i.i.i.i36, i64 224
   %119 = getelementptr inbounds i8, ptr %.0811.i.i.i.i.i35, i64 224
   %120 = add nsw i64 %.012.i.i.i.i.i34, -1
-  %121 = icmp ugt i64 %.012.i.i.i.i.i34, 1
+  %121 = icmp samesign ugt i64 %.012.i.i.i.i.i34, 1
   br i1 %121, label %.lr.ph.i.i.i.i.i33, label %_ZSt4copyIPN4llvm8outliner9CandidateES3_ET0_T_S5_S4_.exit.loopexit, !llvm.loop !773
 
 _ZSt4copyIPN4llvm8outliner9CandidateES3_ET0_T_S5_S4_.exit.loopexit: ; preds = %.lr.ph.i.i.i.i.i33
@@ -33980,7 +33980,7 @@ define dso_local noundef zeroext i1 @_ZNK4llvm16AArch64InstrInfo21isLegalAddress
 16:                                               ; preds = %11
   %17 = zext i32 %1 to i64
   %18 = udiv i64 %2, %17
-  %19 = icmp ult i64 %18, 4096
+  %19 = icmp samesign ult i64 %18, 4096
   br i1 %19, label %20, label %25
 
 20:                                               ; preds = %16
@@ -39457,7 +39457,7 @@ define linkonce_odr ptr @_ZNSt6vectorIN4llvm8outliner9CandidateESaIS2_EE8_M_eras
   %33 = getelementptr inbounds i8, ptr %.0910.i.i.i.i.i, i64 224
   %34 = getelementptr inbounds i8, ptr %.0811.i.i.i.i.i, i64 224
   %35 = add nsw i64 %.012.i.i.i.i.i, -1
-  %36 = icmp ugt i64 %.012.i.i.i.i.i, 1
+  %36 = icmp samesign ugt i64 %.012.i.i.i.i.i, 1
   br i1 %36, label %.lr.ph.i.i.i.i.i, label %_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPN4llvm8outliner9CandidateESt6vectorIS4_SaIS4_EEEES9_ET0_T_SB_SA_.exit.loopexit, !llvm.loop !1055
 
 _ZSt4moveIN9__gnu_cxx17__normal_iteratorIPN4llvm8outliner9CandidateESt6vectorIS4_SaIS4_EEEES9_ET0_T_SB_SA_.exit.loopexit: ; preds = %.lr.ph.i.i.i.i.i

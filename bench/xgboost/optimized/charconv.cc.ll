@@ -151,31 +151,31 @@ define linkonce_odr noundef i32 @_ZN7xgboost6detail10RyuPrinter16PrintBase10Floa
   br i1 %.not.i, label %tailrecurse.i17.preheader.i, label %_ZN7xgboost6detail10RyuPrinter12OutputLengthEj.exit
 
 tailrecurse.i17.preheader.i:                      ; preds = %5
-  %.not10.i = icmp ult i32 %.sroa.0.0.extract.trunc, 10000000
+  %.not10.i = icmp samesign ult i32 %.sroa.0.0.extract.trunc, 10000000
   br i1 %.not10.i, label %tailrecurse.i21.preheader.i, label %_ZN7xgboost6detail10RyuPrinter12OutputLengthEj.exit
 
 tailrecurse.i21.preheader.i:                      ; preds = %tailrecurse.i17.preheader.i
-  %.not11.i = icmp ult i32 %.sroa.0.0.extract.trunc, 1000000
+  %.not11.i = icmp samesign ult i32 %.sroa.0.0.extract.trunc, 1000000
   br i1 %.not11.i, label %tailrecurse.i25.preheader.i, label %_ZN7xgboost6detail10RyuPrinter12OutputLengthEj.exit
 
 tailrecurse.i25.preheader.i:                      ; preds = %tailrecurse.i21.preheader.i
-  %.not12.i = icmp ult i32 %.sroa.0.0.extract.trunc, 100000
+  %.not12.i = icmp samesign ult i32 %.sroa.0.0.extract.trunc, 100000
   br i1 %.not12.i, label %tailrecurse.i29.preheader.i, label %_ZN7xgboost6detail10RyuPrinter12OutputLengthEj.exit
 
 tailrecurse.i29.preheader.i:                      ; preds = %tailrecurse.i25.preheader.i
-  %.not13.i = icmp ult i32 %.sroa.0.0.extract.trunc, 10000
+  %.not13.i = icmp samesign ult i32 %.sroa.0.0.extract.trunc, 10000
   br i1 %.not13.i, label %tailrecurse.i33.preheader.i, label %_ZN7xgboost6detail10RyuPrinter12OutputLengthEj.exit
 
 tailrecurse.i33.preheader.i:                      ; preds = %tailrecurse.i29.preheader.i
-  %.not14.i = icmp ult i32 %.sroa.0.0.extract.trunc, 1000
+  %.not14.i = icmp samesign ult i32 %.sroa.0.0.extract.trunc, 1000
   br i1 %.not14.i, label %tailrecurse.i37.preheader.i, label %_ZN7xgboost6detail10RyuPrinter12OutputLengthEj.exit
 
 tailrecurse.i37.preheader.i:                      ; preds = %tailrecurse.i33.preheader.i
-  %.not15.i = icmp ult i32 %.sroa.0.0.extract.trunc, 100
+  %.not15.i = icmp samesign ult i32 %.sroa.0.0.extract.trunc, 100
   br i1 %.not15.i, label %6, label %_ZN7xgboost6detail10RyuPrinter12OutputLengthEj.exit
 
 6:                                                ; preds = %tailrecurse.i37.preheader.i
-  %.not16.i = icmp ult i32 %.sroa.0.0.extract.trunc, 10
+  %.not16.i = icmp samesign ult i32 %.sroa.0.0.extract.trunc, 10
   %..i = select i1 %.not16.i, i32 1, i32 2
   br label %_ZN7xgboost6detail10RyuPrinter12OutputLengthEj.exit
 
@@ -302,7 +302,7 @@ tailrecurse.i71.preheader:                        ; preds = %_ZN7xgboost6detail1
 77:                                               ; preds = %72, %65
   %.2 = phi i32 [ %73, %72 ], [ %66, %65 ]
   %.0 = phi i32 [ %76, %72 ], [ %70, %65 ]
-  %78 = icmp ugt i32 %.0, 9
+  %78 = icmp samesign ugt i32 %.0, 9
   br i1 %78, label %79, label %87
 
 79:                                               ; preds = %77
@@ -1131,7 +1131,7 @@ _ZN7xgboost6detail14RyuPowLogUtils18MultipleOfPowerOf5Ejj.exit96: ; preds = %.lr
 171:                                              ; preds = %169
   %172 = add nsw i32 %101, -1
   %173 = tail call range(i32 0, 33) i32 @llvm.cttz.i32(i32 %.sroa.11.8.extract.trunc, i1 true)
-  %174 = icmp uge i32 %173, %172
+  %174 = icmp samesign uge i32 %173, %172
   %175 = zext i1 %174 to i8
   store i8 %175, ptr %6, align 1
   br label %176

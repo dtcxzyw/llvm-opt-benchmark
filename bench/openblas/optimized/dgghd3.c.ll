@@ -899,7 +899,7 @@ define void @dgghd3_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
   %601 = getelementptr double, ptr %582, i64 %588
   call void @drot_(ptr noundef nonnull %21, ptr noundef %597, ptr noundef nonnull @c__1, ptr noundef %600, ptr noundef nonnull @c__1, ptr noundef %601, ptr noundef nonnull %25) #5
   %602 = add nsw i64 %584, -1
-  %603 = icmp ugt i64 %584, 1
+  %603 = icmp samesign ugt i64 %584, 1
   br i1 %603, label %583, label %.loopexit51, !llvm.loop !22
 
 .loopexit51:                                      ; preds = %583, %575

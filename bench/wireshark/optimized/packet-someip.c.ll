@@ -2849,7 +2849,7 @@ define internal i32 @dissect_someip_udp(ptr noundef %0, ptr noundef %1, ptr noun
   %17 = zext i16 %12 to i32
   %18 = add nuw nsw i32 %17, 13
   %19 = icmp eq i32 %7, %18
-  %20 = icmp ult i32 %7, 16
+  %20 = icmp samesign ult i32 %7, 16
   %or.cond10.i = and i1 %20, %19
   br i1 %or.cond10.i, label %could_this_be_dtls.exit.thread17, label %.thread.i
 
@@ -6516,7 +6516,7 @@ proto_item_set_hidden.exit209:                    ; preds = %81, %88, %84, %78, 
   %108 = load i32, ptr %9, align 4
   %109 = load i32, ptr %12, align 4
   call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %29, ptr noundef nonnull @.str.317, i32 noundef %107, i32 noundef %108, i32 noundef %109) #14
-  %110 = icmp ult i32 %24, 16
+  %110 = icmp samesign ult i32 %24, 16
   br i1 %110, label %111, label %113
 
 111:                                              ; preds = %106

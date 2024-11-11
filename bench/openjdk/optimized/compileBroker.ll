@@ -6150,7 +6150,7 @@ _ZL25whitebox_lock_compilationv.exit:             ; preds = %324, %._crit_edge.i
   br label %_ZN12ResourceMarkD2Ev.exit167
 
 _ZN12ResourceMarkD2Ev.exit167:                    ; preds = %347, %349
-  %350 = icmp ugt i32 %.0126260, 1
+  %350 = icmp samesign ugt i32 %.0126260, 1
   br i1 %350, label %.lr.ph, label %.loopexit, !llvm.loop !46
 
 .loopexit:                                        ; preds = %_ZN12ResourceMarkD2Ev.exit167, %_ZL25whitebox_lock_compilationv.exit, %307, %306
@@ -7294,7 +7294,7 @@ _ZN11MutexLockerC2EP5MutexNS0_18SafepointCheckFlagE.exit: ; preds = %_ZN12method
   br i1 %151, label %_ZN13CompileBroker8compilerEi.exit, label %.thread59
 
 .thread59:                                        ; preds = %138
-  %152 = icmp ult i32 %140, 3
+  %152 = icmp samesign ult i32 %140, 3
   br i1 %152, label %_ZN13CompileBroker8compilerEi.exit, label %_ZN13CompileBroker8compilerEi.exit.thread
 
 _ZN13CompileBroker8compilerEi.exit:               ; preds = %138, %.thread59

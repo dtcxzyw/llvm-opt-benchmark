@@ -95,7 +95,7 @@ define i16 @softfloat_subMagsF16(i64 noundef %0, i64 noundef %1) local_unnamed_a
   br label %134
 
 51:                                               ; preds = %45
-  %52 = icmp ult i8 %11, -12
+  %52 = icmp samesign ult i8 %11, -12
   br i1 %52, label %53, label %60
 
 53:                                               ; preds = %51
@@ -124,7 +124,7 @@ define i16 @softfloat_subMagsF16(i64 noundef %0, i64 noundef %1) local_unnamed_a
   br i1 %.not117, label %134, label %108
 
 66:                                               ; preds = %63
-  %67 = icmp ugt i8 %11, 12
+  %67 = icmp samesign ugt i8 %11, 12
   br i1 %67, label %68, label %71
 
 68:                                               ; preds = %66

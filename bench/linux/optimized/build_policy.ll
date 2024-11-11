@@ -4327,7 +4327,7 @@ define dso_local noundef range(i32 0, 2) i32 @__update_load_avg_blocked_se(i64 n
   br label %137
 
 8:                                                ; preds = %2
-  %9 = icmp ult i64 %5, 1024
+  %9 = icmp samesign ult i64 %5, 1024
   br i1 %9, label %137, label %10
 
 10:                                               ; preds = %8
@@ -4544,7 +4544,7 @@ define dso_local noundef range(i32 0, 2) i32 @__update_load_avg_se(i64 noundef %
   br label %216
 
 24:                                               ; preds = %15
-  %25 = icmp ult i64 %21, 1024
+  %25 = icmp samesign ult i64 %21, 1024
   br i1 %25, label %216, label %26
 
 26:                                               ; preds = %24
@@ -4859,7 +4859,7 @@ define dso_local noundef range(i32 0, 2) i32 @__update_load_avg_cfs_rq(i64 nound
   br label %199
 
 18:                                               ; preds = %2
-  %19 = icmp ult i64 %15, 1024
+  %19 = icmp samesign ult i64 %15, 1024
   br i1 %19, label %199, label %20
 
 20:                                               ; preds = %18
@@ -5149,7 +5149,7 @@ define dso_local noundef range(i32 0, 2) i32 @update_rt_rq_load_avg(i64 noundef 
   br label %185
 
 10:                                               ; preds = %3
-  %11 = icmp ult i64 %7, 1024
+  %11 = icmp samesign ult i64 %7, 1024
   br i1 %11, label %185, label %12
 
 12:                                               ; preds = %10
@@ -5430,7 +5430,7 @@ define dso_local noundef range(i32 0, 2) i32 @update_dl_rq_load_avg(i64 noundef 
   br label %185
 
 10:                                               ; preds = %3
-  %11 = icmp ult i64 %7, 1024
+  %11 = icmp samesign ult i64 %7, 1024
   br i1 %11, label %185, label %12
 
 12:                                               ; preds = %10
@@ -10582,7 +10582,7 @@ define dso_local zeroext i1 @__checkparam_dl(ptr nocapture noundef readonly %0) 
 20:                                               ; preds = %16
   %21 = icmp eq i64 %18, 0
   %22 = select i1 %21, i64 %8, i64 %18
-  %23 = icmp ult i64 %22, %8
+  %23 = icmp samesign ult i64 %22, %8
   %24 = icmp ult i64 %8, %12
   %25 = or i1 %24, %23
   br i1 %25, label %36, label %26
@@ -10592,10 +10592,10 @@ define dso_local zeroext i1 @__checkparam_dl(ptr nocapture noundef readonly %0) 
   %28 = load volatile i32, ptr @sysctl_sched_dl_period_min, align 4
   %29 = zext i32 %28 to i64
   %30 = mul nuw nsw i64 %29, 1000
-  %31 = icmp uge i64 %22, %30
+  %31 = icmp samesign uge i64 %22, %30
   %32 = zext i32 %27 to i64
   %33 = mul nuw nsw i64 %32, 1000
-  %34 = icmp ule i64 %22, %33
+  %34 = icmp samesign ule i64 %22, %33
   %35 = select i1 %31, i1 %34, i1 false
   br label %36
 

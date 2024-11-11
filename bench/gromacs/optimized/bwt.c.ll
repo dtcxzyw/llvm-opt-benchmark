@@ -600,7 +600,7 @@ define void @Ptngc_comp_from_bwt(ptr nocapture noundef readonly %0, i32 noundef 
   %32 = getelementptr inbounds i32, ptr %5, i64 %31
   %33 = load i32, ptr %32, align 4
   %34 = add i32 %33, %30
-  %35 = icmp ugt i64 %indvars.iv51, 1
+  %35 = icmp samesign ugt i64 %indvars.iv51, 1
   br i1 %35, label %.lr.ph45, label %._crit_edge, !llvm.loop !18
 
 ._crit_edge:                                      ; preds = %.lr.ph45, %.preheader

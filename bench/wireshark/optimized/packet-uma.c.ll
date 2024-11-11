@@ -1225,7 +1225,7 @@ define internal fastcc range(i32 -2147483646, 98306) i32 @dissect_uma_IE(ptr nou
   %79 = call ptr @proto_tree_add_item(ptr noundef %14, i32 noundef %78, ptr noundef %0, i32 noundef %38, i32 noundef 1, i32 noundef 0) #3
   %80 = load i32, ptr @hf_uma_urr_uc, align 4
   %81 = call ptr @proto_tree_add_item(ptr noundef %14, i32 noundef %80, ptr noundef %0, i32 noundef %38, i32 noundef 1, i32 noundef 0) #3
-  %82 = icmp ugt i16 %.0599, 1
+  %82 = icmp samesign ugt i16 %.0599, 1
   br i1 %82, label %83, label %.loopexit
 
 83:                                               ; preds = %75
@@ -1731,7 +1731,7 @@ define internal fastcc range(i32 -2147483646, 98306) i32 @dissect_uma_IE(ptr nou
   br i1 %417, label %.loopexit, label %418
 
 418:                                              ; preds = %413
-  %419 = icmp ugt i16 %.0599, 4
+  %419 = icmp samesign ugt i16 %.0599, 4
   %420 = zext i1 %419 to i32
   %spec.select = add nsw i32 %38, %420
   %421 = call i32 @tvb_get_ipv4(ptr noundef %0, i32 noundef %spec.select) #3

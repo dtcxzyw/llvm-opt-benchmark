@@ -9,15 +9,15 @@ define noundef i16 @_ZN9softposit5p16e17convert22convert_u32_to_p16bits17he88965
   br i1 %2, label %44, label %3
 
 3:                                                ; preds = %1
-  %4 = icmp ugt i32 %0, 50331647
+  %4 = icmp samesign ugt i32 %0, 50331647
   br i1 %4, label %44, label %5
 
 5:                                                ; preds = %3
-  %6 = icmp ult i32 %0, 2
+  %6 = icmp samesign ult i32 %0, 2
   br i1 %6, label %8, label %.preheader
 
 .preheader:                                       ; preds = %5
-  %7 = icmp ult i32 %0, 33554432
+  %7 = icmp samesign ult i32 %0, 33554432
   br i1 %7, label %.lr.ph, label %._crit_edge
 
 8:                                                ; preds = %5
@@ -82,15 +82,15 @@ define noundef i16 @_ZN9softposit5p16e17convert22convert_u64_to_p16bits17h8bc16a
   br i1 %2, label %43, label %3
 
 3:                                                ; preds = %1
-  %4 = icmp ugt i64 %0, 50331647
+  %4 = icmp samesign ugt i64 %0, 50331647
   br i1 %4, label %43, label %5
 
 5:                                                ; preds = %3
-  %6 = icmp ult i64 %0, 2
+  %6 = icmp samesign ult i64 %0, 2
   br i1 %6, label %8, label %.preheader
 
 .preheader:                                       ; preds = %5
-  %7 = icmp ult i64 %0, 33554432
+  %7 = icmp samesign ult i64 %0, 33554432
   br i1 %7, label %.lr.ph, label %._crit_edge
 
 8:                                                ; preds = %5

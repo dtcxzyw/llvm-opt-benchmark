@@ -1376,7 +1376,7 @@ FreePageBtreeSearchInternal.exit.i:               ; preds = %228, %222, %.lr.ph.
   %gep38.i = getelementptr i8, ptr %invariant.gep.i, i64 %252
   %254 = select i1 %253, ptr null, ptr %gep38.i
   %255 = add nsw i32 %.12439.i, -1
-  %256 = icmp ugt i32 %.12439.i, 1
+  %256 = icmp samesign ugt i32 %.12439.i, 1
   br i1 %256, label %.lr.ph41.i, label %FreePageBtreeFindRightSibling.exit, !llvm.loop !13
 
 FreePageBtreeFindRightSibling.exit:               ; preds = %244, %.lr.ph41.i, %212, %234
@@ -3571,7 +3571,7 @@ FreePageBtreeSearchInternal.exit.i:               ; preds = %25, %19, %.lr.ph.i
   %gep38.i = getelementptr i8, ptr %invariant.gep.i, i64 %49
   %51 = select i1 %50, ptr null, ptr %gep38.i
   %52 = add nsw i32 %.12439.i, -1
-  %53 = icmp ugt i32 %.12439.i, 1
+  %53 = icmp samesign ugt i32 %.12439.i, 1
   br i1 %53, label %.lr.ph41.i, label %FreePageBtreeFindRightSibling.exit, !llvm.loop !13
 
 FreePageBtreeFindRightSibling.exit:               ; preds = %.lr.ph41.i, %31
@@ -3712,7 +3712,7 @@ FreePageBtreeSearchInternal.exit.thread.i:        ; preds = %FreePageBtreeSearch
   %gep41.i = getelementptr i8, ptr %invariant.gep.i, i64 %123
   %125 = select i1 %124, ptr null, ptr %gep41.i
   %126 = add nsw i32 %.12542.i, -1
-  %127 = icmp ugt i32 %.12542.i, 1
+  %127 = icmp samesign ugt i32 %.12542.i, 1
   br i1 %127, label %.lr.ph44.i, label %FreePageBtreeFindLeftSibling.exit, !llvm.loop !21
 
 FreePageBtreeFindLeftSibling.exit:                ; preds = %.lr.ph44.i, %102

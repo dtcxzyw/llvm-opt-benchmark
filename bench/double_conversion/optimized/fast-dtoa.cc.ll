@@ -336,7 +336,7 @@ if.end.i.i.i:                                     ; preds = %lor.lhs.false.i.i.i
 
 if.end.i.i:                                       ; preds = %while.body.i119.i
   %div38.i.i = udiv i32 %divisor.024.i.i, 10
-  %cmp.i121.i = icmp ugt i32 %kappa.2.i, 1
+  %cmp.i121.i = icmp samesign ugt i32 %kappa.2.i, 1
   br i1 %cmp.i121.i, label %while.body.i119.i, label %for.cond.i.i.preheader, !llvm.loop !9
 
 for.cond.i.i.preheader:                           ; preds = %if.end.i.i, %if.end.i
@@ -526,7 +526,7 @@ while.body.i12.i:                                 ; preds = %_ZNK17double_conver
 
 if.end.i.i68:                                     ; preds = %while.body.i12.i
   %div16.i.i = udiv i32 %divisor.0107.i.i, 10
-  %cmp.i14.i = icmp ugt i32 %kappa.4.i, 1
+  %cmp.i14.i = icmp samesign ugt i32 %kappa.4.i, 1
   br i1 %cmp.i14.i, label %while.body.i12.i, label %while.end.i.i, !llvm.loop !11
 
 while.end.i.i:                                    ; preds = %if.end.i.i68, %_ZNK17double_conversion6Double17AsNormalizedDiyFpEv.exit.i15
@@ -636,7 +636,7 @@ while.body35.i.i:                                 ; preds = %while.cond32.prehea
   %dec47.i.i = add nsw i32 %requested_digits.addr.2116.i.i, -1
   %and50.i.i = and i64 %mul.i.i54, %sub8.i.i
   %dec51.i.i = add nsw i32 %kappa.1.i53, -1
-  %cmp33.i.i = icmp ugt i32 %requested_digits.addr.2116.i.i, 1
+  %cmp33.i.i = icmp samesign ugt i32 %requested_digits.addr.2116.i.i, 1
   %cmp34.i.i = icmp ugt i64 %and50.i.i, %mul36.i.i
   %47 = select i1 %cmp33.i.i, i1 %cmp34.i.i, i1 false
   br i1 %47, label %while.body35.i.i, label %while.end52.i.i, !llvm.loop !13

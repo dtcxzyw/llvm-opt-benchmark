@@ -1188,7 +1188,7 @@ _ZNSt13unordered_setIPKN5V3TSP12TspStateBaseESt4hashIS3_ESt8equal_toIS3_ESaIS3_E
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %15, i8 0, i64 24, i1 false)
   %280 = add i32 %.061.lcssa, 1
   %281 = zext i32 %280 to i64
-  %.not70 = icmp ugt i64 %.lcssa, %281
+  %.not70 = icmp samesign ugt i64 %.lcssa, %281
   br i1 %.not70, label %.preheader, label %.invoke290
 
 .preheader:                                       ; preds = %279
@@ -2612,7 +2612,7 @@ _ZNSt6vectorIP11V3GraphEdgeSaIS1_EE9push_backEOS1_.exit: ; preds = %_ZNSt6vector
   %114 = getelementptr inbounds i8, ptr %.sroa.0.0.i.i.i.i.i.i, i64 8
   store ptr %113, ptr %.sroa.0.0.i.i.i.i.i.i, align 8, !noalias !23
   %115 = add nsw i64 %.02.i.i.i.i.i.i.i, -1
-  %116 = icmp ugt i64 %.02.i.i.i.i.i.i.i, 1
+  %116 = icmp samesign ugt i64 %.02.i.i.i.i.i.i.i, 1
   br i1 %116, label %.lr.ph.i.i.i.i.i.i.i, label %_ZSt25__unguarded_linear_insertISt16reverse_iteratorIN9__gnu_cxx17__normal_iteratorIPP11V3GraphEdgeSt6vectorIS4_SaIS4_EEEEENS1_5__ops14_Val_comp_iterIPFbPKS3_SE_EEEEvT_T0_.exit.i.i, !llvm.loop !34
 
 117:                                              ; preds = %.lr.ph.i.i
@@ -2711,7 +2711,7 @@ _ZSt25__unguarded_linear_insertISt16reverse_iteratorIN9__gnu_cxx17__normal_itera
   %163 = getelementptr inbounds i8, ptr %.sroa.0.0.i.i.i.i.i28.i, i64 8
   store ptr %162, ptr %.sroa.0.0.i.i.i.i.i28.i, align 8, !noalias !38
   %164 = add nsw i64 %.02.i.i.i.i.i.i29.i, -1
-  %165 = icmp ugt i64 %.02.i.i.i.i.i.i29.i, 1
+  %165 = icmp samesign ugt i64 %.02.i.i.i.i.i.i29.i, 1
   br i1 %165, label %.lr.ph.i.i.i.i.i.i26.i, label %_ZSt25__unguarded_linear_insertISt16reverse_iteratorIN9__gnu_cxx17__normal_iteratorIPP11V3GraphEdgeSt6vectorIS4_SaIS4_EEEEENS1_5__ops14_Val_comp_iterIPFbPKS3_SE_EEEEvT_T0_.exit.i17.i, !llvm.loop !34
 
 166:                                              ; preds = %.lr.ph.i15.i
@@ -6575,7 +6575,7 @@ _ZNSt6vectorIP11V3GraphEdgeSaIS1_EE9push_backEOS1_.exit: ; preds = %_ZNSt6vector
   %88 = getelementptr inbounds i8, ptr %.sroa.0.0.i.i.i.i.i.i, i64 8
   store ptr %87, ptr %.sroa.0.0.i.i.i.i.i.i, align 8, !noalias !61
   %89 = add nsw i64 %.02.i.i.i.i.i.i.i, -1
-  %90 = icmp ugt i64 %.02.i.i.i.i.i.i.i, 1
+  %90 = icmp samesign ugt i64 %.02.i.i.i.i.i.i.i, 1
   br i1 %90, label %.lr.ph.i.i.i.i.i.i.i, label %_ZSt25__unguarded_linear_insertISt16reverse_iteratorIN9__gnu_cxx17__normal_iteratorIPP11V3GraphEdgeSt6vectorIS4_SaIS4_EEEEENS1_5__ops14_Val_comp_iterIPFbPKS3_SE_EEEEvT_T0_.exit.i.i, !llvm.loop !34
 
 .noexc71:                                         ; preds = %.noexc70
@@ -6674,7 +6674,7 @@ _ZSt25__unguarded_linear_insertISt16reverse_iteratorIN9__gnu_cxx17__normal_itera
   %136 = getelementptr inbounds i8, ptr %.sroa.0.0.i.i.i.i.i28.i, i64 8
   store ptr %135, ptr %.sroa.0.0.i.i.i.i.i28.i, align 8, !noalias !72
   %137 = add nsw i64 %.02.i.i.i.i.i.i29.i, -1
-  %138 = icmp ugt i64 %.02.i.i.i.i.i.i29.i, 1
+  %138 = icmp samesign ugt i64 %.02.i.i.i.i.i.i29.i, 1
   br i1 %138, label %.lr.ph.i.i.i.i.i.i26.i, label %_ZSt25__unguarded_linear_insertISt16reverse_iteratorIN9__gnu_cxx17__normal_iteratorIPP11V3GraphEdgeSt6vectorIS4_SaIS4_EEEEENS1_5__ops14_Val_comp_iterIPFbPKS3_SE_EEEEvT_T0_.exit.i17.i, !llvm.loop !34
 
 .noexc76:                                         ; preds = %.noexc75

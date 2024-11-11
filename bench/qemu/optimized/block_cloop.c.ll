@@ -210,7 +210,7 @@ if.then98:                                        ; preds = %if.end87
 
 if.end99:                                         ; preds = %if.end87
   %conv100 = zext nneg i32 %max_compressed_block_size.089 to i64
-  %cmp101 = icmp ugt i64 %sub95, %conv100
+  %cmp101 = icmp samesign ugt i64 %sub95, %conv100
   %conv104 = trunc nuw nsw i64 %sub95 to i32
   %spec.select = select i1 %cmp101, i32 %conv104, i32 %max_compressed_block_size.089
   br label %for.inc

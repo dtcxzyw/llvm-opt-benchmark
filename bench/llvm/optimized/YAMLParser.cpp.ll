@@ -1568,7 +1568,7 @@ define internal fastcc range(i64 0, 34359738368) i64 @_ZL10decodeUTF8N4llvm9Stri
 
 28:                                               ; preds = %21, %16, %11
   %29 = getelementptr inbounds i8, ptr %0, i64 2
-  %30 = icmp ugt i64 %1, 2
+  %30 = icmp samesign ugt i64 %1, 2
   br i1 %30, label %31, label %.thread73
 
 31:                                               ; preds = %28
@@ -4019,7 +4019,7 @@ _ZN4llvm4yaml7Scanner12skip_nb_charEPKc.exit.thread5.i: ; preds = %.lr.ph.i
 
 47:                                               ; preds = %40, %35, %31
   %48 = getelementptr inbounds i8, ptr %19, i64 2
-  %49 = icmp ugt i64 %27, 2
+  %49 = icmp samesign ugt i64 %27, 2
   br i1 %49, label %50, label %_ZN4llvm4yaml7Scanner11skipCommentEv.exit
 
 50:                                               ; preds = %47

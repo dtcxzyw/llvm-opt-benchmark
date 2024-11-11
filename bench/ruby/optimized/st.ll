@@ -47,7 +47,7 @@ get_power2.exit:                                  ; preds = %3
   %19 = load i8, ptr %18, align 2
   %20 = getelementptr inbounds i8, ptr %0, i64 2
   store i8 %19, ptr %20, align 2
-  %21 = icmp ult i64 %2, 16
+  %21 = icmp samesign ult i64 %2, 16
   br i1 %21, label %27, label %22
 
 22:                                               ; preds = %get_power2.exit
@@ -124,7 +124,7 @@ get_power2.exit.i:                                ; preds = %2
   %19 = load i8, ptr %18, align 2
   %20 = getelementptr inbounds i8, ptr %3, i64 2
   store i8 %19, ptr %20, align 2
-  %21 = icmp ult i64 %1, 16
+  %21 = icmp samesign ult i64 %1, 16
   br i1 %21, label %27, label %22
 
 22:                                               ; preds = %get_power2.exit.i

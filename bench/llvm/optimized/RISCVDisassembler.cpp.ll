@@ -10278,7 +10278,7 @@ define internal fastcc noundef range(i32 0, 4) i32 @_ZL23DecodeSR07RegisterClass
   br i1 %3, label %18, label %4
 
 4:                                                ; preds = %2
-  %5 = icmp ult i32 %1, 2
+  %5 = icmp samesign ult i32 %1, 2
   %.v = select i1 %5, i32 51, i32 59
   %6 = add nuw nsw i32 %.v, %1
   %.sroa.3.8.insert.ext.i = zext nneg i32 %6 to i64

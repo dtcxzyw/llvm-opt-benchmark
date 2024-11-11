@@ -3367,7 +3367,7 @@ _ZN4llvm15SmallVectorImplIPKNS_4UserEE6appendINS_5Value18user_iterator_implIS2_E
   br label %_ZL15addNonConstUserRN4llvm18EquivalenceClassesIPKNS_11GlobalValueESt4lessIS3_EEES3_PKNS_4UserE.exit
 
 61:                                               ; preds = %53
-  %switch.selectcmp.i.i.i.i.i.i.i.i.i = icmp ult i8 %54, 4
+  %switch.selectcmp.i.i.i.i.i.i.i.i.i = icmp samesign ult i8 %54, 4
   store ptr %26, ptr %5, align 8
   call void @llvm.assume(i1 %switch.selectcmp.i.i.i.i.i.i.i.i.i)
   br label %_ZL15addNonConstUserRN4llvm18EquivalenceClassesIPKNS_11GlobalValueESt4lessIS3_EEES3_PKNS_4UserE.exit
@@ -4456,7 +4456,7 @@ _ZN4llvm9StringRef13compareMemoryEPKcS2_m.exit.i.i.i.i: ; preds = %10
   %38 = load i64, ptr %36, align 8
   store i64 %38, ptr %37, align 8
   %39 = add nsw i64 %.010.i.i.i.i.i, -1
-  %40 = icmp ugt i64 %.010.i.i.i.i.i, 1
+  %40 = icmp samesign ugt i64 %.010.i.i.i.i.i, 1
   br i1 %40, label %.lr.ph.i.i.i.i.i, label %_ZSt13move_backwardIPSt4pairIjSt23_Rb_tree_const_iteratorIN4llvm18EquivalenceClassesIPKNS2_11GlobalValueESt4lessIS6_EE7ECValueEEESD_ET0_T_SF_SE_.exit, !llvm.loop !81
 
 _ZSt13move_backwardIPSt4pairIjSt23_Rb_tree_const_iteratorIN4llvm18EquivalenceClassesIPKNS2_11GlobalValueESt4lessIS6_EE7ECValueEEESD_ET0_T_SF_SE_.exit: ; preds = %.lr.ph.i.i.i.i.i, %27

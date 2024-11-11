@@ -957,7 +957,7 @@ define void @png_set_PLTE(ptr noalias noundef %0, ptr noalias noundef %1, ptr no
   %5 = icmp eq ptr %0, null
   %6 = icmp eq ptr %1, null
   %or.cond = or i1 %5, %6
-  br i1 %or.cond, label %48, label %7
+  br i1 %or.cond, label %47, label %7
 
 7:                                                ; preds = %4
   %8 = getelementptr inbounds i8, ptr %1, i64 37
@@ -973,73 +973,73 @@ define void @png_set_PLTE(ptr noalias noundef %0, ptr noalias noundef %1, ptr no
   %16 = icmp slt i32 %3, 0
   %17 = icmp sgt i32 %3, %15
   %or.cond34 = select i1 %16, i1 true, i1 %17
-  br i1 %or.cond34, label %19, label %20
+  br i1 %or.cond34, label %18, label %19
 
 .thread:                                          ; preds = %7
-  %18 = icmp ugt i32 %3, 256
-  br i1 %18, label %.thread36, label %20
+  %or.cond3435 = icmp ugt i32 %3, 256
+  br i1 %or.cond3435, label %.thread36, label %19
 
-19:                                               ; preds = %11
+18:                                               ; preds = %11
   tail call void @png_error(ptr noundef nonnull %0, ptr noundef nonnull @.str.29) #14
   unreachable
 
 .thread36:                                        ; preds = %.thread
   tail call void @png_warning(ptr noundef nonnull %0, ptr noundef nonnull @.str.29) #12
-  br label %48
+  br label %47
 
-20:                                               ; preds = %.thread, %11
-  %21 = icmp ne i32 %3, 0
-  %22 = icmp eq ptr %2, null
-  %or.cond3 = and i1 %22, %21
-  br i1 %or.cond3, label %30, label %23
+19:                                               ; preds = %.thread, %11
+  %20 = icmp ne i32 %3, 0
+  %21 = icmp eq ptr %2, null
+  %or.cond3 = and i1 %21, %20
+  br i1 %or.cond3, label %29, label %22
 
-23:                                               ; preds = %20
-  %24 = icmp eq i32 %3, 0
-  br i1 %24, label %25, label %31
+22:                                               ; preds = %19
+  %23 = icmp eq i32 %3, 0
+  br i1 %23, label %24, label %30
 
-25:                                               ; preds = %23
-  %26 = getelementptr inbounds i8, ptr %0, i64 992
-  %27 = load i32, ptr %26, align 8
-  %28 = and i32 %27, 1
-  %29 = icmp eq i32 %28, 0
-  br i1 %29, label %30, label %31
+24:                                               ; preds = %22
+  %25 = getelementptr inbounds i8, ptr %0, i64 992
+  %26 = load i32, ptr %25, align 8
+  %27 = and i32 %26, 1
+  %28 = icmp eq i32 %27, 0
+  br i1 %28, label %29, label %30
 
-30:                                               ; preds = %20, %25
+29:                                               ; preds = %19, %24
   tail call void @png_error(ptr noundef nonnull %0, ptr noundef nonnull @.str.30) #14
   unreachable
 
-31:                                               ; preds = %25, %23
+30:                                               ; preds = %24, %22
   tail call void @png_free_data(ptr noundef nonnull %0, ptr noundef nonnull %1, i32 noundef 4096, i32 noundef 0) #12
-  %32 = tail call noalias ptr @png_calloc(ptr noundef nonnull %0, i64 noundef 768) #12
-  %33 = getelementptr inbounds i8, ptr %0, i64 592
-  store ptr %32, ptr %33, align 8
-  br i1 %21, label %34, label %37
+  %31 = tail call noalias ptr @png_calloc(ptr noundef nonnull %0, i64 noundef 768) #12
+  %32 = getelementptr inbounds i8, ptr %0, i64 592
+  store ptr %31, ptr %32, align 8
+  br i1 %20, label %33, label %36
 
-34:                                               ; preds = %31
-  %35 = zext nneg i32 %3 to i64
-  %36 = mul nuw nsw i64 %35, 3
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %32, ptr align 1 %2, i64 %36, i1 false)
-  br label %37
+33:                                               ; preds = %30
+  %34 = zext nneg i32 %3 to i64
+  %35 = mul nuw nsw i64 %34, 3
+  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %31, ptr align 1 %2, i64 %35, i1 false)
+  br label %36
 
-37:                                               ; preds = %34, %31
-  %38 = getelementptr inbounds i8, ptr %1, i64 24
-  store ptr %32, ptr %38, align 8
-  %39 = trunc i32 %3 to i16
-  %40 = getelementptr inbounds i8, ptr %0, i64 600
-  store i16 %39, ptr %40, align 8
-  %41 = getelementptr inbounds i8, ptr %1, i64 32
-  store i16 %39, ptr %41, align 8
-  %42 = getelementptr inbounds i8, ptr %1, i64 300
-  %43 = load i32, ptr %42, align 4
-  %44 = or i32 %43, 4096
-  store i32 %44, ptr %42, align 4
-  %45 = getelementptr inbounds i8, ptr %1, i64 8
-  %46 = load i32, ptr %45, align 8
-  %47 = or i32 %46, 8
-  store i32 %47, ptr %45, align 8
-  br label %48
+36:                                               ; preds = %33, %30
+  %37 = getelementptr inbounds i8, ptr %1, i64 24
+  store ptr %31, ptr %37, align 8
+  %38 = trunc i32 %3 to i16
+  %39 = getelementptr inbounds i8, ptr %0, i64 600
+  store i16 %38, ptr %39, align 8
+  %40 = getelementptr inbounds i8, ptr %1, i64 32
+  store i16 %38, ptr %40, align 8
+  %41 = getelementptr inbounds i8, ptr %1, i64 300
+  %42 = load i32, ptr %41, align 4
+  %43 = or i32 %42, 4096
+  store i32 %43, ptr %41, align 4
+  %44 = getelementptr inbounds i8, ptr %1, i64 8
+  %45 = load i32, ptr %44, align 8
+  %46 = or i32 %45, 8
+  store i32 %46, ptr %44, align 8
+  br label %47
 
-48:                                               ; preds = %4, %37, %.thread36
+47:                                               ; preds = %4, %36, %.thread36
   ret void
 }
 
@@ -1235,7 +1235,7 @@ define range(i32 0, 2) i32 @png_set_text_2(ptr noalias noundef %0, ptr noalias n
 
 16:                                               ; preds = %9
   %17 = sub nsw i32 2147483647, %13
-  %.not = icmp ugt i32 %3, %17
+  %.not = icmp samesign ugt i32 %3, %17
   br i1 %.not, label %.loopexit.sink.split, label %18
 
 18:                                               ; preds = %16
@@ -2307,7 +2307,7 @@ define void @png_set_compression_buffer_size(ptr noalias noundef %0, i64 noundef
   br label %28
 
 18:                                               ; preds = %14
-  %19 = icmp ult i64 %1, 6
+  %19 = icmp samesign ult i64 %1, 6
   br i1 %19, label %20, label %21
 
 20:                                               ; preds = %18
@@ -2478,7 +2478,7 @@ define range(i32 -1, 80) i32 @png_check_keyword(ptr noalias noundef %0, ptr noun
   %.1 = phi i32 [ 0, %13 ], [ 1, %18 ], [ 1, %21 ]
   %24 = load i8, ptr %9, align 1
   %25 = icmp ne i8 %24, 0
-  %26 = icmp ult i32 %.144, 79
+  %26 = icmp samesign ult i32 %.144, 79
   %27 = select i1 %25, i1 %26, i1 false
   br i1 %27, label %.lr.ph, label %._crit_edge, !llvm.loop !33
 

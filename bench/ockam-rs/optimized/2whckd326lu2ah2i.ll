@@ -374,7 +374,7 @@ define hidden void @"_ZN7tinyvec8arrayvec17ArrayVec$LT$A$GT$17extend_from_slice1
   unreachable
 
 22:                                               ; preds = %8
-  %23 = icmp ult i64 %11, %10
+  %23 = icmp samesign ult i64 %11, %10
   br i1 %23, label %24, label %"_ZN7tinyvec8arrayvec17ArrayVec$LT$A$GT$7set_len17h676620c15527aed5E.exit"
 
 24:                                               ; preds = %22

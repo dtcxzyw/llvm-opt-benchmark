@@ -938,7 +938,7 @@ define hidden void @_ZNK8rawspeed9CiffEntry10getStringsB5cxx11Ev(ptr dead_on_unw
   %94 = phi i32 [ %49, %56 ], [ %91, %88 ]
   %95 = phi i32 [ %51, %56 ], [ %90, %88 ]
   %96 = zext i32 %94 to i64
-  %97 = icmp ult i64 %93, %96
+  %97 = icmp samesign ult i64 %93, %96
   br i1 %97, label %48, label %.loopexit8, !llvm.loop !53
 
 .loopexit:                                        ; preds = %87, %75

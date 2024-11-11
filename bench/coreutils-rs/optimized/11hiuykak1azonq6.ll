@@ -2837,7 +2837,7 @@ _ZN5alloc3fmt6format17h7ead8f60e83381d7E.exit:    ; preds = %86
   %227 = and i8 %225, 63
   %228 = zext nneg i8 %227 to i32
   %229 = or disjoint i32 %226, %228
-  %230 = icmp ugt i8 %219, -33
+  %230 = icmp samesign ugt i8 %219, -33
   br i1 %230, label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h88101247e6989ad5E.exit15.i.i.i", label %.thread56
 
 231:                                              ; preds = %217
@@ -2855,7 +2855,7 @@ _ZN5alloc3fmt6format17h7ead8f60e83381d7E.exit:    ; preds = %86
   %239 = or disjoint i32 %236, %238
   %240 = shl nuw nsw i32 %222, 12
   %241 = or disjoint i32 %239, %240
-  %242 = icmp ugt i8 %219, -17
+  %242 = icmp samesign ugt i8 %219, -17
   br i1 %242, label %"_ZN81_$LT$core..str..iter..Chars$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17ha3bb299ebebfcc3aE.exit.i", label %.thread56
 
 "_ZN81_$LT$core..str..iter..Chars$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17ha3bb299ebebfcc3aE.exit.i": ; preds = %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h88101247e6989ad5E.exit15.i.i.i"
@@ -2977,7 +2977,7 @@ _ZN5alloc3fmt6format17h7ead8f60e83381d7E.exit:    ; preds = %86
   %289 = and i8 %287, 63
   %290 = zext nneg i8 %289 to i32
   %291 = or disjoint i32 %288, %290
-  %292 = icmp ugt i8 %281, -33
+  %292 = icmp samesign ugt i8 %281, -33
   br i1 %292, label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h88101247e6989ad5E.exit15.i", label %.thread69
 
 293:                                              ; preds = %279
@@ -2995,7 +2995,7 @@ _ZN5alloc3fmt6format17h7ead8f60e83381d7E.exit:    ; preds = %86
   %301 = or disjoint i32 %298, %300
   %302 = shl nuw nsw i32 %284, 12
   %303 = or disjoint i32 %301, %302
-  %304 = icmp ugt i8 %281, -17
+  %304 = icmp samesign ugt i8 %281, -17
   br i1 %304, label %305, label %.thread69
 
 .body:                                            ; preds = %325

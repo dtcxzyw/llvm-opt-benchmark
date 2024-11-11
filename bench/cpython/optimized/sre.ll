@@ -1711,7 +1711,7 @@ if.end.i.i.i:                                     ; preds = %if.end5.i
 _Py_NewRef.exit.i:                                ; preds = %if.end.i.i.i, %if.end5.i
   %literal.i = getelementptr inbounds i8, ptr %call3.i, i64 32
   store ptr %9, ptr %literal.i, align 8
-  %cmp711.not.i = icmp ult i64 %template.val.i, 2
+  %cmp711.not.i = icmp samesign ult i64 %template.val.i, 2
   br i1 %cmp711.not.i, label %exit, label %for.body.lr.ph.i
 
 for.body.lr.ph.i:                                 ; preds = %_Py_NewRef.exit.i
@@ -2258,7 +2258,7 @@ if.end199:                                        ; preds = %if.end169
 if.end211:                                        ; preds = %if.end199
   %and212 = and i32 %9, 1
   %tobool213.not = icmp ne i32 %and212, 0
-  %tobool215.not = icmp ugt i32 %9, 3
+  %tobool215.not = icmp samesign ugt i32 %9, 3
   %or.cond246.not324 = and i1 %tobool215.not, %tobool213.not
   %10 = and i32 %9, 3
   %brmerge.not = icmp eq i32 %10, 2
@@ -7542,7 +7542,7 @@ do.body851:                                       ; preds = %if.end837
   %add.ptr856 = getelementptr i8, ptr %ptr.0, i64 %call842
   %171 = load i32, ptr %arrayidx827, align 4
   %conv859 = zext i32 %171 to i64
-  %cmp860 = icmp ult i64 %call842, %conv859
+  %cmp860 = icmp samesign ult i64 %call842, %conv859
   br i1 %cmp860, label %exit, label %if.end865
 
 if.end865:                                        ; preds = %do.body851
@@ -7692,7 +7692,7 @@ while.body965:                                    ; preds = %land.rhs, %lor.rhs
   store i64 %dec, ptr %ctx.9, align 8
   %195 = load i32, ptr %arrayidx955, align 4
   %conv956 = zext i32 %195 to i64
-  %cmp957.not.not = icmp ugt i64 %192, %conv956
+  %cmp957.not.not = icmp samesign ugt i64 %192, %conv956
   br i1 %cmp957.not.not, label %land.rhs, label %for.end1086, !llvm.loop !20
 
 if.end975:                                        ; preds = %lor.rhs
@@ -7987,7 +7987,7 @@ do.body1278:                                      ; preds = %if.else1265
   %add.ptr1280 = getelementptr i8, ptr %231, i64 %ctx_pos.1.ph
   %232 = load i32, ptr %arrayidx1248, align 4
   %conv1283 = zext i32 %232 to i64
-  %cmp1284 = icmp ult i64 %call1269, %conv1283
+  %cmp1284 = icmp samesign ult i64 %call1269, %conv1283
   br i1 %cmp1284, label %exit, label %if.end1289
 
 if.end1289:                                       ; preds = %do.body1278
@@ -8274,7 +8274,7 @@ do.body1561:                                      ; preds = %if.end1547
   %add.ptr1567 = getelementptr i8, ptr %ptr.0, i64 %call1552
   %271 = load i32, ptr %arrayidx1539, align 4
   %conv1570 = zext i32 %271 to i64
-  %cmp1571 = icmp ult i64 %call1552, %conv1570
+  %cmp1571 = icmp samesign ult i64 %call1552, %conv1570
   br i1 %cmp1571, label %exit, label %if.end1576
 
 if.end1576:                                       ; preds = %do.body1561
@@ -8510,7 +8510,7 @@ if.end1787:                                       ; preds = %if.end1707
   %arrayidx1791 = getelementptr i8, ptr %294, i64 8
   %308 = load i32, ptr %arrayidx1791, align 4
   %conv1792 = zext i32 %308 to i64
-  %cmp1793 = icmp ult i64 %add1711, %conv1792
+  %cmp1793 = icmp samesign ult i64 %add1711, %conv1792
   %cmp1799 = icmp eq i32 %308, -1
   %or.cond1407 = or i1 %cmp1799, %cmp1793
   br i1 %or.cond1407, label %land.lhs.true1801, label %if.end2012
@@ -11952,7 +11952,7 @@ do.body852:                                       ; preds = %if.end838
   %add.ptr857 = getelementptr i16, ptr %ptr.0, i64 %call843
   %171 = load i32, ptr %arrayidx827, align 4
   %conv860 = zext i32 %171 to i64
-  %cmp861 = icmp ult i64 %call843, %conv860
+  %cmp861 = icmp samesign ult i64 %call843, %conv860
   br i1 %cmp861, label %exit, label %if.end866
 
 if.end866:                                        ; preds = %do.body852
@@ -12102,7 +12102,7 @@ while.body966:                                    ; preds = %land.rhs, %lor.rhs
   store i64 %dec, ptr %ctx.9, align 8
   %195 = load i32, ptr %arrayidx956, align 4
   %conv957 = zext i32 %195 to i64
-  %cmp958.not.not = icmp ugt i64 %192, %conv957
+  %cmp958.not.not = icmp samesign ugt i64 %192, %conv957
   br i1 %cmp958.not.not, label %land.rhs, label %for.end1087, !llvm.loop !31
 
 if.end976:                                        ; preds = %lor.rhs
@@ -12398,7 +12398,7 @@ do.body1280:                                      ; preds = %if.else1267
   %add.ptr1282 = getelementptr i8, ptr %231, i64 %ctx_pos.1.ph
   %232 = load i32, ptr %arrayidx1249, align 4
   %conv1285 = zext i32 %232 to i64
-  %cmp1286 = icmp ult i64 %call1271, %conv1285
+  %cmp1286 = icmp samesign ult i64 %call1271, %conv1285
   br i1 %cmp1286, label %exit, label %if.end1291
 
 if.end1291:                                       ; preds = %do.body1280
@@ -12685,7 +12685,7 @@ do.body1563:                                      ; preds = %if.end1549
   %add.ptr1569 = getelementptr i16, ptr %ptr.0, i64 %call1554
   %271 = load i32, ptr %arrayidx1541, align 4
   %conv1572 = zext i32 %271 to i64
-  %cmp1573 = icmp ult i64 %call1554, %conv1572
+  %cmp1573 = icmp samesign ult i64 %call1554, %conv1572
   br i1 %cmp1573, label %exit, label %if.end1578
 
 if.end1578:                                       ; preds = %do.body1563
@@ -12921,7 +12921,7 @@ if.end1789:                                       ; preds = %if.end1709
   %arrayidx1793 = getelementptr i8, ptr %294, i64 8
   %308 = load i32, ptr %arrayidx1793, align 4
   %conv1794 = zext i32 %308 to i64
-  %cmp1795 = icmp ult i64 %add1713, %conv1794
+  %cmp1795 = icmp samesign ult i64 %add1713, %conv1794
   %cmp1801 = icmp eq i32 %308, -1
   %or.cond1406 = or i1 %cmp1801, %cmp1795
   br i1 %or.cond1406, label %land.lhs.true1803, label %if.end2014
@@ -16275,7 +16275,7 @@ do.body836:                                       ; preds = %if.end822
   %add.ptr841 = getelementptr i32, ptr %ptr.0, i64 %call827
   %175 = load i32, ptr %arrayidx811, align 4
   %conv844 = zext i32 %175 to i64
-  %cmp845 = icmp ult i64 %call827, %conv844
+  %cmp845 = icmp samesign ult i64 %call827, %conv844
   br i1 %cmp845, label %exit, label %if.end850
 
 if.end850:                                        ; preds = %do.body836
@@ -16424,7 +16424,7 @@ while.body949:                                    ; preds = %land.rhs, %lor.rhs
   store i64 %dec, ptr %ctx.9, align 8
   %199 = load i32, ptr %arrayidx940, align 4
   %conv941 = zext i32 %199 to i64
-  %cmp942.not.not = icmp ugt i64 %196, %conv941
+  %cmp942.not.not = icmp samesign ugt i64 %196, %conv941
   br i1 %cmp942.not.not, label %land.rhs, label %for.end1070, !llvm.loop !42
 
 if.end959:                                        ; preds = %lor.rhs
@@ -16720,7 +16720,7 @@ do.body1263:                                      ; preds = %if.else1250
   %add.ptr1265 = getelementptr i8, ptr %235, i64 %ctx_pos.1.ph
   %236 = load i32, ptr %arrayidx1232, align 4
   %conv1268 = zext i32 %236 to i64
-  %cmp1269 = icmp ult i64 %call1254, %conv1268
+  %cmp1269 = icmp samesign ult i64 %call1254, %conv1268
   br i1 %cmp1269, label %exit, label %if.end1274
 
 if.end1274:                                       ; preds = %do.body1263
@@ -17007,7 +17007,7 @@ do.body1546:                                      ; preds = %if.end1532
   %add.ptr1552 = getelementptr i32, ptr %ptr.0, i64 %call1537
   %275 = load i32, ptr %arrayidx1524, align 4
   %conv1555 = zext i32 %275 to i64
-  %cmp1556 = icmp ult i64 %call1537, %conv1555
+  %cmp1556 = icmp samesign ult i64 %call1537, %conv1555
   br i1 %cmp1556, label %exit, label %if.end1561
 
 if.end1561:                                       ; preds = %do.body1546
@@ -17243,7 +17243,7 @@ if.end1772:                                       ; preds = %if.end1692
   %arrayidx1776 = getelementptr i8, ptr %298, i64 8
   %312 = load i32, ptr %arrayidx1776, align 4
   %conv1777 = zext i32 %312 to i64
-  %cmp1778 = icmp ult i64 %add1696, %conv1777
+  %cmp1778 = icmp samesign ult i64 %add1696, %conv1777
   %cmp1784 = icmp eq i32 %312, -1
   %or.cond1406 = or i1 %cmp1784, %cmp1778
   br i1 %or.cond1406, label %land.lhs.true1786, label %if.end1997

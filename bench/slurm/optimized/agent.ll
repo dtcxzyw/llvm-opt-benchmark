@@ -794,7 +794,7 @@ define internal i32 @_task_read(ptr nocapture noundef readonly %0, ptr nocapture
   br i1 %31, label %24, label %.critedge.thread.i.i, !llvm.loop !9
 
 .critedge.i.i:                                    ; preds = %24
-  %or.cond.i.i = icmp ugt i32 %26, 63
+  %or.cond.i.i = icmp samesign ugt i32 %26, 63
   br i1 %or.cond.i.i, label %.critedge.thread.i.i, label %33
 
 .critedge.thread.i.i:                             ; preds = %28, %.critedge.i.i

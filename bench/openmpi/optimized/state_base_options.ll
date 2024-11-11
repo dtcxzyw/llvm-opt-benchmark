@@ -885,7 +885,7 @@ define internal fastcc i32 @pmix_convert_string_to_time(ptr noundef %0) unnamed_
 
 27:                                               ; preds = %23, %20
   %.1.in = phi i64 [ %26, %23 ], [ %.0.in, %20 ]
-  %28 = icmp ugt i32 %3, 3
+  %28 = icmp samesign ugt i32 %3, 3
   br i1 %28, label %29, label %.thread32
 
 29:                                               ; preds = %27

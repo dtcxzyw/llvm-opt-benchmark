@@ -10076,7 +10076,7 @@ define i32 @stepd_suspend(i32 noundef %0, i16 noundef zeroext %1, ptr nocapture 
   br i1 %108, label %.split428, label %.lr.ph446.preheader
 
 109:                                              ; preds = %4
-  %110 = icmp ugt i16 %1, 9983
+  %110 = icmp samesign ugt i16 %1, 9983
   br i1 %110, label %111, label %.loopexit
 
 111:                                              ; preds = %109
@@ -10742,7 +10742,7 @@ define i32 @stepd_resume(i32 noundef %0, i16 noundef zeroext %1, ptr nocapture n
   br i1 %108, label %.split428, label %.lr.ph446.preheader
 
 109:                                              ; preds = %4
-  %110 = icmp ugt i16 %1, 9983
+  %110 = icmp samesign ugt i16 %1, 9983
   br i1 %110, label %111, label %.loopexit
 
 111:                                              ; preds = %109

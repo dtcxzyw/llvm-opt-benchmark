@@ -161,7 +161,7 @@ define internal fastcc void @__bts_event_start(ptr nocapture noundef readonly %0
   br label %61
 
 57:                                               ; preds = %._crit_edge
-  %58 = icmp ugt i64 %53, 24
+  %58 = icmp samesign ugt i64 %53, 24
   %59 = add i64 %51, -24
   %60 = select i1 %58, i64 %59, i64 %51
   br label %61

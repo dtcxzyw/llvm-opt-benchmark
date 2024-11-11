@@ -84284,7 +84284,7 @@ default.unreachable234:                           ; preds = %3
   %49 = icmp ne ptr %46, null
   tail call void @llvm.assume(i1 %49)
   %50 = getelementptr inbounds { i64, [1 x i64] }, ptr %46, i64 %.sroa.10.sroa.0.0.copyload
-  %51 = icmp ult i64 %.sroa.10.sroa.0.0.copyload, 31
+  %51 = icmp samesign ult i64 %.sroa.10.sroa.0.0.copyload, 31
   br i1 %51, label %.noexc.i, label %52
 
 52:                                               ; preds = %47
@@ -86676,7 +86676,7 @@ common.ret:                                       ; preds = %"_ZN4core3ptr98drop
   %.sroa.5181.0.copyload = load ptr, ptr %.sroa.5181.0..sroa_idx, align 8, !nonnull !4, !noundef !4
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %.sroa.5.sroa.0.i)
   %187 = getelementptr inbounds { i64, [2 x i64] }, ptr %.sroa.5181.0.copyload, i64 %.sroa.6182.0.copyload
-  %188 = icmp ult i64 %.sroa.6182.0.copyload, 31
+  %188 = icmp samesign ult i64 %.sroa.6182.0.copyload, 31
   br i1 %188, label %.noexc.i, label %189
 
 189:                                              ; preds = %185
@@ -95405,7 +95405,7 @@ common.ret:                                       ; preds = %275, %"_ZN4core3ptr
   %.sroa.5.0..sroa_idx.i.i = getelementptr inbounds i8, ptr %22, i64 16
   %.sroa.5.0.copyload.i.i = load i64, ptr %.sroa.5.0..sroa_idx.i.i, align 8, !alias.scope !18310, !noalias !18313
   %197 = getelementptr inbounds { i64, [3 x i64] }, ptr %.sroa.4.0.copyload.i.i, i64 %.sroa.5.0.copyload.i.i
-  %198 = icmp ult i64 %.sroa.5.0.copyload.i.i, 31
+  %198 = icmp samesign ult i64 %.sroa.5.0.copyload.i.i, 31
   br i1 %198, label %.noexc.i, label %199
 
 199:                                              ; preds = %196

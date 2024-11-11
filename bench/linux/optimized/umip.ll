@@ -222,7 +222,7 @@ default.unreachable:                              ; preds = %54
 
 95:                                               ; preds = %92
   %96 = zext nneg i32 %.ph10 to i64
-  %97 = icmp ugt i32 %.ph10, 10
+  %97 = icmp samesign ugt i32 %.ph10, 10
   br i1 %97, label %.thread12, label %98, !prof !7
 
 .thread12:                                        ; preds = %95

@@ -2392,467 +2392,467 @@ _ZL20detectX86FamilyModeljPjS_.exit:              ; preds = %_ZL18getX86CpuIDAnd
   %.sroa.90.0 = phi i32 [ %88, %.critedge.i ], [ 0, %.thread.i ], [ %88, %107 ]
   %112 = tail call { i32, i32, i32, i32 } asm "  xchgq  %rbx,${1:q}\0A  cpuid\0A  xchgq  %rbx,${1:q}", "={ax},=r,={cx},={dx},0,~{dirflag},~{fpsr},~{flags}"(i32 range(i32 0, -2147483639) -2147483648) #14, !srcloc !15
   %113 = extractvalue { i32, i32, i32, i32 } %112, 0
-  %114 = icmp ugt i32 %113, -2147483648
-  br i1 %114, label %.critedge146.i, label %_ZL20getAvailableFeaturesjjjPj.exit
+  %or.cond287.i = icmp ugt i32 %113, -2147483648
+  br i1 %or.cond287.i, label %.critedge146.i, label %_ZL20getAvailableFeaturesjjjPj.exit
 
 .critedge146.i:                                   ; preds = %.critedge142.i
-  %115 = tail call { i32, i32, i32, i32 } asm "  xchgq  %rbx,${1:q}\0A  cpuid\0A  xchgq  %rbx,${1:q}", "={ax},=r,={cx},={dx},0,~{dirflag},~{fpsr},~{flags}"(i32 range(i32 0, -2147483639) -2147483647) #14, !srcloc !16
-  %116 = extractvalue { i32, i32, i32, i32 } %115, 2
-  %117 = extractvalue { i32, i32, i32, i32 } %115, 3
-  %118 = shl i32 %116, 5
-  %119 = and i32 %118, 2048
-  %120 = shl i32 %116, 2
-  %121 = and i32 %120, 8192
-  %122 = lshr i32 %116, 4
-  %123 = and i32 %122, 4096
-  %124 = or disjoint i32 %121, %119
-  %125 = or disjoint i32 %124, %123
-  %.sroa.021.16 = or i32 %125, %.sroa.021.13
-  %126 = lshr i32 %117, 20
-  %127 = and i32 %126, 512
-  %spec.select149 = or i32 %127, %.sroa.65.2
+  %114 = tail call { i32, i32, i32, i32 } asm "  xchgq  %rbx,${1:q}\0A  cpuid\0A  xchgq  %rbx,${1:q}", "={ax},=r,={cx},={dx},0,~{dirflag},~{fpsr},~{flags}"(i32 range(i32 0, -2147483639) -2147483647) #14, !srcloc !16
+  %115 = extractvalue { i32, i32, i32, i32 } %114, 2
+  %116 = extractvalue { i32, i32, i32, i32 } %114, 3
+  %117 = shl i32 %115, 5
+  %118 = and i32 %117, 2048
+  %119 = shl i32 %115, 2
+  %120 = and i32 %119, 8192
+  %121 = lshr i32 %115, 4
+  %122 = and i32 %121, 4096
+  %123 = or disjoint i32 %120, %118
+  %124 = or disjoint i32 %123, %122
+  %.sroa.021.16 = or i32 %124, %.sroa.021.13
+  %125 = lshr i32 %116, 20
+  %126 = and i32 %125, 512
+  %spec.select149 = or i32 %126, %.sroa.65.2
   br label %_ZL20getAvailableFeaturesjjjPj.exit
 
 _ZL20getAvailableFeaturesjjjPj.exit:              ; preds = %.critedge146.i, %.critedge142.i
   %.sroa.021.31 = phi i32 [ %.sroa.021.13, %.critedge142.i ], [ %.sroa.021.16, %.critedge146.i ]
   %.sroa.65.10 = phi i32 [ %.sroa.65.2, %.critedge142.i ], [ %spec.select149, %.critedge146.i ]
-  br i1 %or.cond3.i, label %128, label %211
+  br i1 %or.cond3.i, label %127, label %210
 
-128:                                              ; preds = %_ZL20getAvailableFeaturesjjjPj.exit
+127:                                              ; preds = %_ZL20getAvailableFeaturesjjjPj.exit
   switch i32 %.1, label %_ZN4llvm9StringRefC2EPKc.exit.thread [
     i32 3, label %_ZN4llvm9StringRefC2EPKc.exit.thread150
-    i32 4, label %129
-    i32 5, label %130
-    i32 6, label %132
-    i32 15, label %207
+    i32 4, label %128
+    i32 5, label %129
+    i32 6, label %131
+    i32 15, label %206
   ]
 
-129:                                              ; preds = %128
+128:                                              ; preds = %127
   br label %_ZN4llvm9StringRefC2EPKc.exit.thread150
 
-130:                                              ; preds = %128
-  %131 = and i32 %.sroa.021.31, 2
-  %.not105.i = icmp eq i32 %131, 0
+129:                                              ; preds = %127
+  %130 = and i32 %.sroa.021.31, 2
+  %.not105.i = icmp eq i32 %130, 0
   %..i12 = select i1 %.not105.i, i64 7, i64 11
   %.str.358..str.357.i = select i1 %.not105.i, ptr @.str.358, ptr @.str.357
   br label %_ZN4llvm9StringRefC2EPKc.exit.thread150
 
-132:                                              ; preds = %128
-  switch i32 %.0128, label %167 [
+131:                                              ; preds = %127
+  switch i32 %.0128, label %166 [
     i32 15, label %_ZN4llvm9StringRefC2EPKc.exit.thread150
     i32 22, label %_ZN4llvm9StringRefC2EPKc.exit.thread150
-    i32 23, label %133
-    i32 29, label %133
-    i32 26, label %134
-    i32 30, label %134
-    i32 31, label %134
-    i32 46, label %134
-    i32 37, label %135
-    i32 44, label %135
-    i32 47, label %135
-    i32 42, label %136
-    i32 45, label %136
-    i32 58, label %137
-    i32 62, label %137
-    i32 60, label %138
-    i32 63, label %138
-    i32 69, label %138
-    i32 70, label %138
-    i32 61, label %139
-    i32 71, label %139
-    i32 79, label %139
-    i32 86, label %139
-    i32 78, label %140
-    i32 94, label %140
-    i32 142, label %140
-    i32 158, label %140
-    i32 165, label %140
-    i32 166, label %140
-    i32 167, label %141
-    i32 85, label %142
-    i32 102, label %146
-    i32 125, label %147
-    i32 126, label %147
-    i32 140, label %148
-    i32 141, label %148
-    i32 151, label %149
-    i32 154, label %149
-    i32 190, label %149
-    i32 183, label %149
-    i32 186, label %149
-    i32 191, label %149
-    i32 170, label %149
-    i32 172, label %149
-    i32 197, label %150
-    i32 198, label %151
-    i32 189, label %151
-    i32 204, label %152
-    i32 173, label %153
-    i32 174, label %154
-    i32 106, label %155
-    i32 108, label %155
-    i32 207, label %156
-    i32 143, label %156
-    i32 28, label %157
-    i32 38, label %157
-    i32 39, label %157
-    i32 53, label %157
-    i32 54, label %157
-    i32 55, label %158
-    i32 74, label %158
-    i32 77, label %158
-    i32 90, label %158
-    i32 93, label %158
-    i32 76, label %158
-    i32 92, label %159
-    i32 95, label %159
-    i32 122, label %160
-    i32 134, label %161
-    i32 138, label %161
-    i32 150, label %161
-    i32 156, label %161
-    i32 175, label %162
-    i32 182, label %163
-    i32 221, label %164
-    i32 87, label %165
-    i32 133, label %166
+    i32 23, label %132
+    i32 29, label %132
+    i32 26, label %133
+    i32 30, label %133
+    i32 31, label %133
+    i32 46, label %133
+    i32 37, label %134
+    i32 44, label %134
+    i32 47, label %134
+    i32 42, label %135
+    i32 45, label %135
+    i32 58, label %136
+    i32 62, label %136
+    i32 60, label %137
+    i32 63, label %137
+    i32 69, label %137
+    i32 70, label %137
+    i32 61, label %138
+    i32 71, label %138
+    i32 79, label %138
+    i32 86, label %138
+    i32 78, label %139
+    i32 94, label %139
+    i32 142, label %139
+    i32 158, label %139
+    i32 165, label %139
+    i32 166, label %139
+    i32 167, label %140
+    i32 85, label %141
+    i32 102, label %145
+    i32 125, label %146
+    i32 126, label %146
+    i32 140, label %147
+    i32 141, label %147
+    i32 151, label %148
+    i32 154, label %148
+    i32 190, label %148
+    i32 183, label %148
+    i32 186, label %148
+    i32 191, label %148
+    i32 170, label %148
+    i32 172, label %148
+    i32 197, label %149
+    i32 198, label %150
+    i32 189, label %150
+    i32 204, label %151
+    i32 173, label %152
+    i32 174, label %153
+    i32 106, label %154
+    i32 108, label %154
+    i32 207, label %155
+    i32 143, label %155
+    i32 28, label %156
+    i32 38, label %156
+    i32 39, label %156
+    i32 53, label %156
+    i32 54, label %156
+    i32 55, label %157
+    i32 74, label %157
+    i32 77, label %157
+    i32 90, label %157
+    i32 93, label %157
+    i32 76, label %157
+    i32 92, label %158
+    i32 95, label %158
+    i32 122, label %159
+    i32 134, label %160
+    i32 138, label %160
+    i32 150, label %160
+    i32 156, label %160
+    i32 175, label %161
+    i32 182, label %162
+    i32 221, label %163
+    i32 87, label %164
+    i32 133, label %165
   ]
 
-133:                                              ; preds = %132, %132
+132:                                              ; preds = %131, %131
   br label %_ZN4llvm9StringRefC2EPKc.exit.thread150
 
-134:                                              ; preds = %132, %132, %132, %132
+133:                                              ; preds = %131, %131, %131, %131
   br label %_ZN4llvm9StringRefC2EPKc.exit.thread150
 
-135:                                              ; preds = %132, %132, %132
+134:                                              ; preds = %131, %131, %131
   br label %_ZN4llvm9StringRefC2EPKc.exit.thread150
 
-136:                                              ; preds = %132, %132
+135:                                              ; preds = %131, %131
   br label %_ZN4llvm9StringRefC2EPKc.exit.thread150
 
-137:                                              ; preds = %132, %132
+136:                                              ; preds = %131, %131
   br label %_ZN4llvm9StringRefC2EPKc.exit.thread150
 
-138:                                              ; preds = %132, %132, %132, %132
+137:                                              ; preds = %131, %131, %131, %131
   br label %_ZN4llvm9StringRefC2EPKc.exit.thread150
 
-139:                                              ; preds = %132, %132, %132, %132
+138:                                              ; preds = %131, %131, %131, %131
   br label %_ZN4llvm9StringRefC2EPKc.exit.thread150
 
-140:                                              ; preds = %132, %132, %132, %132, %132, %132
+139:                                              ; preds = %131, %131, %131, %131, %131, %131
   br label %_ZN4llvm9StringRefC2EPKc.exit.thread150
 
-141:                                              ; preds = %132
+140:                                              ; preds = %131
   br label %_ZN4llvm9StringRefC2EPKc.exit.thread150
 
-142:                                              ; preds = %132
-  %143 = and i32 %.sroa.65.10, 16
-  %.not82.i5 = icmp eq i32 %143, 0
-  br i1 %.not82.i5, label %144, label %_ZN4llvm9StringRefC2EPKc.exit.thread150
+141:                                              ; preds = %131
+  %142 = and i32 %.sroa.65.10, 16
+  %.not82.i5 = icmp eq i32 %142, 0
+  br i1 %.not82.i5, label %143, label %_ZN4llvm9StringRefC2EPKc.exit.thread150
 
-144:                                              ; preds = %142
-  %145 = and i32 %.sroa.65.10, 4
-  %.not83.i6 = icmp eq i32 %145, 0
+143:                                              ; preds = %141
+  %144 = and i32 %.sroa.65.10, 4
+  %.not83.i6 = icmp eq i32 %144, 0
   %spec.select144 = select i1 %.not83.i6, i64 14, i64 11
   %spec.select145 = select i1 %.not83.i6, ptr @.str.371, ptr @.str.370
   br label %_ZN4llvm9StringRefC2EPKc.exit.thread150
 
-146:                                              ; preds = %132
+145:                                              ; preds = %131
   br label %_ZN4llvm9StringRefC2EPKc.exit.thread150
 
-147:                                              ; preds = %132, %132
+146:                                              ; preds = %131, %131
   br label %_ZN4llvm9StringRefC2EPKc.exit.thread150
 
-148:                                              ; preds = %132, %132
+147:                                              ; preds = %131, %131
   br label %_ZN4llvm9StringRefC2EPKc.exit.thread150
 
-149:                                              ; preds = %132, %132, %132, %132, %132, %132, %132, %132
+148:                                              ; preds = %131, %131, %131, %131, %131, %131, %131, %131
   br label %_ZN4llvm9StringRefC2EPKc.exit.thread150
 
-150:                                              ; preds = %132
+149:                                              ; preds = %131
   br label %_ZN4llvm9StringRefC2EPKc.exit.thread150
 
-151:                                              ; preds = %132, %132
+150:                                              ; preds = %131, %131
   br label %_ZN4llvm9StringRefC2EPKc.exit.thread150
 
-152:                                              ; preds = %132
+151:                                              ; preds = %131
   br label %_ZN4llvm9StringRefC2EPKc.exit.thread150
 
-153:                                              ; preds = %132
+152:                                              ; preds = %131
   br label %_ZN4llvm9StringRefC2EPKc.exit.thread150
 
-154:                                              ; preds = %132
+153:                                              ; preds = %131
   br label %_ZN4llvm9StringRefC2EPKc.exit.thread150
 
-155:                                              ; preds = %132, %132
+154:                                              ; preds = %131, %131
   br label %_ZN4llvm9StringRefC2EPKc.exit.thread150
 
-156:                                              ; preds = %132, %132
+155:                                              ; preds = %131, %131
   br label %_ZN4llvm9StringRefC2EPKc.exit.thread150
 
-157:                                              ; preds = %132, %132, %132, %132, %132
+156:                                              ; preds = %131, %131, %131, %131, %131
   br label %_ZN4llvm9StringRefC2EPKc.exit.thread150
 
-158:                                              ; preds = %132, %132, %132, %132, %132, %132
+157:                                              ; preds = %131, %131, %131, %131, %131, %131
   br label %_ZN4llvm9StringRefC2EPKc.exit.thread150
 
-159:                                              ; preds = %132, %132
+158:                                              ; preds = %131, %131
   br label %_ZN4llvm9StringRefC2EPKc.exit.thread150
 
-160:                                              ; preds = %132
+159:                                              ; preds = %131
   br label %_ZN4llvm9StringRefC2EPKc.exit.thread150
 
-161:                                              ; preds = %132, %132, %132, %132
+160:                                              ; preds = %131, %131, %131, %131
   br label %_ZN4llvm9StringRefC2EPKc.exit.thread150
 
-162:                                              ; preds = %132
+161:                                              ; preds = %131
   br label %_ZN4llvm9StringRefC2EPKc.exit.thread150
 
-163:                                              ; preds = %132
+162:                                              ; preds = %131
   br label %_ZN4llvm9StringRefC2EPKc.exit.thread150
 
-164:                                              ; preds = %132
+163:                                              ; preds = %131
   br label %_ZN4llvm9StringRefC2EPKc.exit.thread150
 
-165:                                              ; preds = %132
+164:                                              ; preds = %131
   br label %_ZN4llvm9StringRefC2EPKc.exit.thread150
 
-166:                                              ; preds = %132
+165:                                              ; preds = %131
   br label %_ZN4llvm9StringRefC2EPKc.exit.thread150
 
-167:                                              ; preds = %132
-  %168 = and i32 %.sroa.65.10, 32
-  %.not84.i7 = icmp eq i32 %168, 0
-  br i1 %.not84.i7, label %169, label %_ZN4llvm9StringRefC2EPKc.exit.thread150
+166:                                              ; preds = %131
+  %167 = and i32 %.sroa.65.10, 32
+  %.not84.i7 = icmp eq i32 %167, 0
+  br i1 %.not84.i7, label %168, label %_ZN4llvm9StringRefC2EPKc.exit.thread150
 
-169:                                              ; preds = %167
+168:                                              ; preds = %166
   %.not85.i8 = icmp sgt i32 %.sroa.021.31, -1
-  br i1 %.not85.i8, label %170, label %_ZN4llvm9StringRefC2EPKc.exit.thread150
+  br i1 %.not85.i8, label %169, label %_ZN4llvm9StringRefC2EPKc.exit.thread150
 
-170:                                              ; preds = %169
-  %171 = and i32 %.sroa.021.31, 67108864
-  %.not86.i9 = icmp eq i32 %171, 0
-  br i1 %.not86.i9, label %172, label %_ZN4llvm9StringRefC2EPKc.exit.thread150
+169:                                              ; preds = %168
+  %170 = and i32 %.sroa.021.31, 67108864
+  %.not86.i9 = icmp eq i32 %170, 0
+  br i1 %.not86.i9, label %171, label %_ZN4llvm9StringRefC2EPKc.exit.thread150
 
-172:                                              ; preds = %170
-  %173 = and i32 %.sroa.65.10, 16
-  %.not87.i10 = icmp eq i32 %173, 0
-  br i1 %.not87.i10, label %174, label %_ZN4llvm9StringRefC2EPKc.exit.thread150
+171:                                              ; preds = %169
+  %172 = and i32 %.sroa.65.10, 16
+  %.not87.i10 = icmp eq i32 %172, 0
+  br i1 %.not87.i10, label %173, label %_ZN4llvm9StringRefC2EPKc.exit.thread150
 
-174:                                              ; preds = %172
-  %175 = and i32 %.sroa.65.10, 4
-  %.not88.i11 = icmp eq i32 %175, 0
-  br i1 %.not88.i11, label %176, label %_ZN4llvm9StringRefC2EPKc.exit.thread150
+173:                                              ; preds = %171
+  %174 = and i32 %.sroa.65.10, 4
+  %.not88.i11 = icmp eq i32 %174, 0
+  br i1 %.not88.i11, label %175, label %_ZN4llvm9StringRefC2EPKc.exit.thread150
 
-176:                                              ; preds = %174
-  %177 = and i32 %.sroa.021.31, 1048576
-  %.not89.i = icmp eq i32 %177, 0
-  br i1 %.not89.i, label %178, label %_ZN4llvm9StringRefC2EPKc.exit.thread150
+175:                                              ; preds = %173
+  %176 = and i32 %.sroa.021.31, 1048576
+  %.not89.i = icmp eq i32 %176, 0
+  br i1 %.not89.i, label %177, label %_ZN4llvm9StringRefC2EPKc.exit.thread150
 
-178:                                              ; preds = %176
-  %179 = and i32 %.sroa.65.10, 2048
-  %.not90.i = icmp eq i32 %179, 0
-  br i1 %.not90.i, label %181, label %180
+177:                                              ; preds = %175
+  %178 = and i32 %.sroa.65.10, 2048
+  %.not90.i = icmp eq i32 %178, 0
+  br i1 %.not90.i, label %180, label %179
 
-180:                                              ; preds = %178
+179:                                              ; preds = %177
   %.not104.i = icmp eq i32 %.sroa.90.0, 0
   %.231.i = select i1 %.not104.i, i64 7, i64 8
   %.str.367..str.385.i = select i1 %.not104.i, ptr @.str.367, ptr @.str.385
   br label %_ZN4llvm9StringRefC2EPKc.exit.thread150
 
-181:                                              ; preds = %178
-  %182 = and i32 %.sroa.65.10, 256
-  %.not91.i = icmp eq i32 %182, 0
-  br i1 %.not91.i, label %183, label %_ZN4llvm9StringRefC2EPKc.exit.thread150
+180:                                              ; preds = %177
+  %181 = and i32 %.sroa.65.10, 256
+  %.not91.i = icmp eq i32 %181, 0
+  br i1 %.not91.i, label %182, label %_ZN4llvm9StringRefC2EPKc.exit.thread150
 
-183:                                              ; preds = %181
-  %184 = and i32 %.sroa.021.31, 1024
-  %.not92.i = icmp eq i32 %184, 0
-  br i1 %.not92.i, label %185, label %_ZN4llvm9StringRefC2EPKc.exit.thread150
+182:                                              ; preds = %180
+  %183 = and i32 %.sroa.021.31, 1024
+  %.not92.i = icmp eq i32 %183, 0
+  br i1 %.not92.i, label %184, label %_ZN4llvm9StringRefC2EPKc.exit.thread150
 
-185:                                              ; preds = %183
-  %186 = and i32 %.sroa.021.31, 512
-  %.not93.i = icmp eq i32 %186, 0
-  br i1 %.not93.i, label %187, label %_ZN4llvm9StringRefC2EPKc.exit.thread150
+184:                                              ; preds = %182
+  %185 = and i32 %.sroa.021.31, 512
+  %.not93.i = icmp eq i32 %185, 0
+  br i1 %.not93.i, label %186, label %_ZN4llvm9StringRefC2EPKc.exit.thread150
 
-187:                                              ; preds = %185
-  %188 = and i32 %.sroa.021.31, 256
-  %.not94.i = icmp eq i32 %188, 0
-  br i1 %.not94.i, label %191, label %189
+186:                                              ; preds = %184
+  %187 = and i32 %.sroa.021.31, 256
+  %.not94.i = icmp eq i32 %187, 0
+  br i1 %.not94.i, label %190, label %188
 
-189:                                              ; preds = %187
-  %190 = and i32 %.sroa.65.10, 67108864
-  %.not103.i = icmp eq i32 %190, 0
+188:                                              ; preds = %186
+  %189 = and i32 %.sroa.65.10, 67108864
+  %.not103.i = icmp eq i32 %189, 0
   %.232.i = select i1 %.not103.i, i64 7, i64 10
   %.str.361..str.384.i = select i1 %.not103.i, ptr @.str.361, ptr @.str.384
   br label %_ZN4llvm9StringRefC2EPKc.exit.thread150
 
-191:                                              ; preds = %187
-  %192 = and i32 %.sroa.021.31, 128
-  %.not95.i = icmp eq i32 %192, 0
-  br i1 %.not95.i, label %193, label %_ZN4llvm9StringRefC2EPKc.exit.thread150
+190:                                              ; preds = %186
+  %191 = and i32 %.sroa.021.31, 128
+  %.not95.i = icmp eq i32 %191, 0
+  br i1 %.not95.i, label %192, label %_ZN4llvm9StringRefC2EPKc.exit.thread150
 
-193:                                              ; preds = %191
-  %194 = and i32 %.sroa.021.31, 64
-  %.not96.i = icmp eq i32 %194, 0
-  br i1 %.not96.i, label %197, label %195
+192:                                              ; preds = %190
+  %193 = and i32 %.sroa.021.31, 64
+  %.not96.i = icmp eq i32 %193, 0
+  br i1 %.not96.i, label %196, label %194
 
-195:                                              ; preds = %193
-  %196 = and i32 %.sroa.65.10, 67108864
-  %.not102.i = icmp eq i32 %196, 0
+194:                                              ; preds = %192
+  %195 = and i32 %.sroa.65.10, 67108864
+  %.not102.i = icmp eq i32 %195, 0
   %.233.i = select i1 %.not102.i, i64 5, i64 7
   %.str.359..str.383.i = select i1 %.not102.i, ptr @.str.359, ptr @.str.383
   br label %_ZN4llvm9StringRefC2EPKc.exit.thread150
 
-197:                                              ; preds = %193
-  %198 = and i32 %.sroa.65.10, 512
-  %.not97.i = icmp eq i32 %198, 0
-  br i1 %.not97.i, label %199, label %_ZN4llvm9StringRefC2EPKc.exit.thread150
+196:                                              ; preds = %192
+  %197 = and i32 %.sroa.65.10, 512
+  %.not97.i = icmp eq i32 %197, 0
+  br i1 %.not97.i, label %198, label %_ZN4llvm9StringRefC2EPKc.exit.thread150
 
-199:                                              ; preds = %197
-  %200 = and i32 %.sroa.021.31, 32
-  %.not98.i = icmp eq i32 %200, 0
-  br i1 %.not98.i, label %201, label %_ZN4llvm9StringRefC2EPKc.exit.thread150
+198:                                              ; preds = %196
+  %199 = and i32 %.sroa.021.31, 32
+  %.not98.i = icmp eq i32 %199, 0
+  br i1 %.not98.i, label %200, label %_ZN4llvm9StringRefC2EPKc.exit.thread150
 
-201:                                              ; preds = %199
-  %202 = and i32 %.sroa.021.31, 16
-  %.not99.i = icmp eq i32 %202, 0
-  br i1 %.not99.i, label %203, label %_ZN4llvm9StringRefC2EPKc.exit.thread150
+200:                                              ; preds = %198
+  %201 = and i32 %.sroa.021.31, 16
+  %.not99.i = icmp eq i32 %201, 0
+  br i1 %.not99.i, label %202, label %_ZN4llvm9StringRefC2EPKc.exit.thread150
 
-203:                                              ; preds = %201
-  %204 = and i32 %.sroa.021.31, 8
-  %.not100.i = icmp eq i32 %204, 0
-  br i1 %.not100.i, label %205, label %_ZN4llvm9StringRefC2EPKc.exit.thread150
+202:                                              ; preds = %200
+  %203 = and i32 %.sroa.021.31, 8
+  %.not100.i = icmp eq i32 %203, 0
+  br i1 %.not100.i, label %204, label %_ZN4llvm9StringRefC2EPKc.exit.thread150
 
-205:                                              ; preds = %203
-  %206 = and i32 %.sroa.021.31, 2
-  %.not101.i = icmp eq i32 %206, 0
+204:                                              ; preds = %202
+  %205 = and i32 %.sroa.021.31, 2
+  %.not101.i = icmp eq i32 %205, 0
   %.234.i = select i1 %.not101.i, i64 10, i64 8
   %.str.397..str.396.i = select i1 %.not101.i, ptr @.str.397, ptr @.str.396
   br label %_ZN4llvm9StringRefC2EPKc.exit.thread150
 
-207:                                              ; preds = %128
-  %208 = and i32 %.sroa.65.10, 512
-  %.not.i3 = icmp eq i32 %208, 0
-  br i1 %.not.i3, label %209, label %_ZN4llvm9StringRefC2EPKc.exit.thread150
+206:                                              ; preds = %127
+  %207 = and i32 %.sroa.65.10, 512
+  %.not.i3 = icmp eq i32 %207, 0
+  br i1 %.not.i3, label %208, label %_ZN4llvm9StringRefC2EPKc.exit.thread150
 
-209:                                              ; preds = %207
-  %210 = and i32 %.sroa.021.31, 32
-  %.not81.i4 = icmp eq i32 %210, 0
+208:                                              ; preds = %206
+  %209 = and i32 %.sroa.021.31, 32
+  %.not81.i4 = icmp eq i32 %209, 0
   %.str.400..str.399.i = select i1 %.not81.i4, ptr @.str.400, ptr @.str.399
   br label %_ZN4llvm9StringRefC2EPKc.exit.thread150
 
-211:                                              ; preds = %_ZL20getAvailableFeaturesjjjPj.exit
+210:                                              ; preds = %_ZL20getAvailableFeaturesjjjPj.exit
   switch i32 %.1, label %_ZN4llvm9StringRefC2EPKc.exit.thread [
     i32 4, label %_ZN4llvm9StringRefC2EPKc.exit
-    i32 5, label %212
-    i32 6, label %214
-    i32 15, label %216
-    i32 16, label %218
-    i32 20, label %219
-    i32 21, label %220
-    i32 22, label %226
-    i32 23, label %227
-    i32 25, label %234
+    i32 5, label %211
+    i32 6, label %213
+    i32 15, label %215
+    i32 16, label %217
+    i32 20, label %218
+    i32 21, label %219
+    i32 22, label %225
+    i32 23, label %226
+    i32 25, label %233
   ]
 
-212:                                              ; preds = %211
+211:                                              ; preds = %210
   %switch.tableidx = add nsw i32 %.0128, -6
-  %213 = icmp ult i32 %switch.tableidx, 8
-  br i1 %213, label %switch.lookup, label %_ZN4llvm9StringRefC2EPKc.exit
+  %212 = icmp ult i32 %switch.tableidx, 8
+  br i1 %212, label %switch.lookup, label %_ZN4llvm9StringRefC2EPKc.exit
 
-214:                                              ; preds = %211
-  %215 = and i32 %.sroa.021.31, 8
-  %.not118.i = icmp eq i32 %215, 0
+213:                                              ; preds = %210
+  %214 = and i32 %.sroa.021.31, 8
+  %.not118.i = icmp eq i32 %214, 0
   %.str.406..str.405.i = select i1 %.not118.i, ptr @.str.406, ptr @.str.405
   br label %_ZN4llvm9StringRefC2EPKc.exit
 
-216:                                              ; preds = %211
-  %217 = and i32 %.sroa.021.31, 32
-  %.not.i17 = icmp eq i32 %217, 0
+215:                                              ; preds = %210
+  %216 = and i32 %.sroa.021.31, 32
+  %.not.i17 = icmp eq i32 %216, 0
   %.str.408..str.407.i = select i1 %.not.i17, ptr @.str.408, ptr @.str.407
   br label %_ZN4llvm9StringRefC2EPKc.exit
 
-218:                                              ; preds = %211
+217:                                              ; preds = %210
   br label %_ZN4llvm9StringRefC2EPKc.exit
 
-219:                                              ; preds = %211
+218:                                              ; preds = %210
   br label %_ZN4llvm9StringRefC2EPKc.exit
 
-220:                                              ; preds = %211
-  %221 = and i32 %.0128, -32
-  %or.cond.i13 = icmp eq i32 %221, 96
-  br i1 %or.cond.i13, label %_ZN4llvm9StringRefC2EPKc.exit, label %222
+219:                                              ; preds = %210
+  %220 = and i32 %.0128, -32
+  %or.cond.i13 = icmp eq i32 %220, 96
+  br i1 %or.cond.i13, label %_ZN4llvm9StringRefC2EPKc.exit, label %221
 
-222:                                              ; preds = %220
-  %223 = and i32 %.0128, -16
-  %or.cond3.i14 = icmp eq i32 %223, 48
-  br i1 %or.cond3.i14, label %_ZN4llvm9StringRefC2EPKc.exit, label %224
+221:                                              ; preds = %219
+  %222 = and i32 %.0128, -16
+  %or.cond3.i14 = icmp eq i32 %222, 48
+  br i1 %or.cond3.i14, label %_ZN4llvm9StringRefC2EPKc.exit, label %223
 
-224:                                              ; preds = %222
-  %or.cond5.i15 = icmp eq i32 %223, 16
-  %225 = icmp eq i32 %.0128, 2
-  %or.cond7.i16 = or i1 %225, %or.cond5.i15
+223:                                              ; preds = %221
+  %or.cond5.i15 = icmp eq i32 %222, 16
+  %224 = icmp eq i32 %.0128, 2
+  %or.cond7.i16 = or i1 %224, %or.cond5.i15
   %spec.select146 = select i1 %or.cond7.i16, ptr @.str.414, ptr @.str.411
   br label %_ZN4llvm9StringRefC2EPKc.exit
 
-226:                                              ; preds = %211
+225:                                              ; preds = %210
   br label %_ZN4llvm9StringRefC2EPKc.exit
 
-227:                                              ; preds = %211
-  %228 = and i32 %.0128, -16
-  %or.cond9.i = icmp eq i32 %228, 48
-  %229 = icmp eq i32 %.0128, 71
-  %or.cond11.i = or i1 %229, %or.cond9.i
-  %230 = and i32 %.0128, -32
-  %231 = icmp eq i32 %230, 96
-  %or.cond121.i = or i1 %231, %or.cond11.i
-  %232 = and i32 %.0128, -4
-  %or.cond19.i = icmp eq i32 %232, 132
+226:                                              ; preds = %210
+  %227 = and i32 %.0128, -16
+  %or.cond9.i = icmp eq i32 %227, 48
+  %228 = icmp eq i32 %.0128, 71
+  %or.cond11.i = or i1 %228, %or.cond9.i
+  %229 = and i32 %.0128, -32
+  %230 = icmp eq i32 %229, 96
+  %or.cond121.i = or i1 %230, %or.cond11.i
+  %231 = and i32 %.0128, -4
+  %or.cond19.i = icmp eq i32 %231, 132
   %or.cond122.i = or i1 %or.cond19.i, %or.cond121.i
-  %233 = icmp eq i32 %228, 144
-  %or.cond124.i = or i1 %233, %or.cond122.i
-  %or.cond25.i = icmp eq i32 %228, 160
+  %232 = icmp eq i32 %227, 144
+  %or.cond124.i = or i1 %232, %or.cond122.i
+  %or.cond25.i = icmp eq i32 %227, 160
   %or.cond125.i = or i1 %or.cond25.i, %or.cond124.i
   %spec.select147 = select i1 %or.cond125.i, ptr @.str.417, ptr @.str.416
   br label %_ZN4llvm9StringRefC2EPKc.exit
 
-234:                                              ; preds = %211
-  %235 = icmp ult i32 %.0128, 16
-  %236 = add nsw i32 %.0128, -32
-  %switch.i = icmp ult i32 %236, 64
-  %or.cond1.i = or i1 %235, %switch.i
-  br i1 %or.cond1.i, label %_ZN4llvm9StringRefC2EPKc.exit, label %237
+233:                                              ; preds = %210
+  %234 = icmp samesign ult i32 %.0128, 16
+  %235 = add nsw i32 %.0128, -32
+  %switch.i = icmp ult i32 %235, 64
+  %or.cond1.i = or i1 %234, %switch.i
+  br i1 %or.cond1.i, label %_ZN4llvm9StringRefC2EPKc.exit, label %236
 
-237:                                              ; preds = %234
-  %238 = and i32 %.0128, -16
-  %239 = icmp ult i32 %.0128, 32
-  %240 = and i32 %.0128, -32
-  %241 = icmp eq i32 %240, 96
-  %or.cond133.i = or i1 %239, %241
-  %or.cond47.i = icmp eq i32 %238, 160
+236:                                              ; preds = %233
+  %237 = and i32 %.0128, -16
+  %238 = icmp samesign ult i32 %.0128, 32
+  %239 = and i32 %.0128, -32
+  %240 = icmp eq i32 %239, 96
+  %or.cond133.i = or i1 %238, %240
+  %or.cond47.i = icmp eq i32 %237, 160
   %or.cond134.i = or i1 %or.cond47.i, %or.cond133.i
   %spec.select148 = select i1 %or.cond134.i, ptr @.str.419, ptr @.str.418
   br label %_ZN4llvm9StringRefC2EPKc.exit
 
-switch.lookup:                                    ; preds = %212
-  %242 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds [8 x ptr], ptr @switch.table._ZN4llvm3sys14getHostCPUNameEv, i64 0, i64 %242
+switch.lookup:                                    ; preds = %211
+  %241 = zext nneg i32 %switch.tableidx to i64
+  %switch.gep = getelementptr inbounds [8 x ptr], ptr @switch.table._ZN4llvm3sys14getHostCPUNameEv, i64 0, i64 %241
   %switch.load = load ptr, ptr %switch.gep, align 8
   br label %_ZN4llvm9StringRefC2EPKc.exit
 
-_ZN4llvm9StringRefC2EPKc.exit:                    ; preds = %switch.lookup, %212, %234, %222, %220, %216, %214, %219, %226, %211, %218, %224, %227, %237
-  %.0.i.ph = phi ptr [ @.str.418, %234 ], [ @.str.413, %222 ], [ @.str.412, %220 ], [ %.str.408..str.407.i, %216 ], [ %.str.406..str.405.i, %214 ], [ @.str.358, %212 ], [ @.str.409, %218 ], [ @.str.410, %219 ], [ @.str.415, %226 ], [ @.str.356, %211 ], [ %spec.select146, %224 ], [ %spec.select147, %227 ], [ %spec.select148, %237 ], [ %switch.load, %switch.lookup ]
-  %243 = tail call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %.0.i.ph) #13
-  %244 = icmp eq i64 %243, 0
-  br i1 %244, label %_ZN4llvm9StringRefC2EPKc.exit.thread, label %_ZN4llvm9StringRefC2EPKc.exit.thread150
+_ZN4llvm9StringRefC2EPKc.exit:                    ; preds = %switch.lookup, %211, %233, %221, %219, %215, %213, %218, %225, %210, %217, %223, %226, %236
+  %.0.i.ph = phi ptr [ @.str.418, %233 ], [ @.str.413, %221 ], [ @.str.412, %219 ], [ %.str.408..str.407.i, %215 ], [ %.str.406..str.405.i, %213 ], [ @.str.358, %211 ], [ @.str.409, %217 ], [ @.str.410, %218 ], [ @.str.415, %225 ], [ @.str.356, %210 ], [ %spec.select146, %223 ], [ %spec.select147, %226 ], [ %spec.select148, %236 ], [ %switch.load, %switch.lookup ]
+  %242 = tail call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %.0.i.ph) #13
+  %243 = icmp eq i64 %242, 0
+  br i1 %243, label %_ZN4llvm9StringRefC2EPKc.exit.thread, label %_ZN4llvm9StringRefC2EPKc.exit.thread150
 
-_ZN4llvm9StringRefC2EPKc.exit.thread:             ; preds = %128, %211, %_ZN4llvm9StringRefC2EPKc.exit
+_ZN4llvm9StringRefC2EPKc.exit.thread:             ; preds = %127, %210, %_ZN4llvm9StringRefC2EPKc.exit
   br label %_ZN4llvm9StringRefC2EPKc.exit.thread150
 
-_ZN4llvm9StringRefC2EPKc.exit.thread150:          ; preds = %128, %144, %142, %132, %132, %209, %207, %205, %203, %201, %199, %197, %195, %191, %189, %185, %183, %181, %180, %176, %174, %172, %170, %169, %167, %130, %129, %133, %134, %135, %136, %137, %138, %139, %140, %141, %146, %147, %148, %149, %150, %151, %152, %153, %154, %155, %156, %157, %158, %159, %160, %161, %162, %163, %164, %165, %166, %0, %11, %_ZN4llvm9StringRefC2EPKc.exit, %_ZN4llvm9StringRefC2EPKc.exit.thread
-  %.sroa.0126.0 = phi ptr [ @.str.1, %_ZN4llvm9StringRefC2EPKc.exit.thread ], [ %.0.i.ph, %_ZN4llvm9StringRefC2EPKc.exit ], [ @.str.1, %11 ], [ @.str.1, %0 ], [ %spec.select145, %144 ], [ @.str.369, %142 ], [ @.str.359, %132 ], [ @.str.359, %132 ], [ %.str.400..str.399.i, %209 ], [ @.str.398, %207 ], [ %.str.397..str.396.i, %205 ], [ @.str.395, %203 ], [ @.str.394, %201 ], [ @.str.393, %199 ], [ @.str.359, %197 ], [ %.str.359..str.383.i, %195 ], [ @.str.360, %191 ], [ %.str.361..str.384.i, %189 ], [ @.str.363, %185 ], [ @.str.365, %183 ], [ @.str.366, %181 ], [ %.str.367..str.385.i, %180 ], [ @.str.371, %176 ], [ @.str.370, %174 ], [ @.str.369, %172 ], [ @.str.372, %170 ], [ @.str.373, %169 ], [ @.str.374, %167 ], [ %.str.358..str.357.i, %130 ], [ @.str.356, %129 ], [ @.str.360, %133 ], [ @.str.361, %134 ], [ @.str.362, %135 ], [ @.str.363, %136 ], [ @.str.364, %137 ], [ @.str.365, %138 ], [ @.str.366, %139 ], [ @.str.367, %140 ], [ @.str.368, %141 ], [ @.str.372, %146 ], [ @.str.373, %147 ], [ @.str.374, %148 ], [ @.str.375, %149 ], [ @.str.376, %150 ], [ @.str.377, %151 ], [ @.str.378, %152 ], [ @.str.379, %153 ], [ @.str.380, %154 ], [ @.str.381, %155 ], [ @.str.382, %156 ], [ @.str.383, %157 ], [ @.str.384, %158 ], [ @.str.385, %159 ], [ @.str.386, %160 ], [ @.str.387, %161 ], [ @.str.388, %162 ], [ @.str.389, %163 ], [ @.str.390, %164 ], [ @.str.391, %165 ], [ @.str.392, %166 ], [ @.str.355, %128 ]
-  %.sroa.4127.0 = phi i64 [ 7, %_ZN4llvm9StringRefC2EPKc.exit.thread ], [ %243, %_ZN4llvm9StringRefC2EPKc.exit ], [ 7, %11 ], [ 7, %0 ], [ %spec.select144, %144 ], [ 10, %142 ], [ 5, %132 ], [ 5, %132 ], [ 8, %209 ], [ 6, %207 ], [ %.234.i, %205 ], [ 8, %203 ], [ 9, %201 ], [ 5, %199 ], [ 5, %197 ], [ %.233.i, %195 ], [ 6, %191 ], [ %.232.i, %189 ], [ 11, %185 ], [ 7, %183 ], [ 9, %181 ], [ %.231.i, %180 ], [ 14, %176 ], [ 11, %174 ], [ 10, %172 ], [ 10, %170 ], [ 14, %169 ], [ 9, %167 ], [ %..i12, %130 ], [ 4, %129 ], [ 6, %133 ], [ 7, %134 ], [ 8, %135 ], [ 11, %136 ], [ 9, %137 ], [ 7, %138 ], [ 9, %139 ], [ 7, %140 ], [ 10, %141 ], [ 10, %146 ], [ 14, %147 ], [ 9, %148 ], [ 9, %149 ], [ 9, %150 ], [ 11, %151 ], [ 11, %152 ], [ 13, %153 ], [ 15, %154 ], [ 14, %155 ], [ 14, %156 ], [ 7, %157 ], [ 10, %158 ], [ 8, %159 ], [ 13, %160 ], [ 7, %161 ], [ 12, %162 ], [ 10, %163 ], [ 16, %164 ], [ 3, %165 ], [ 3, %166 ], [ 4, %128 ]
+_ZN4llvm9StringRefC2EPKc.exit.thread150:          ; preds = %127, %143, %141, %131, %131, %208, %206, %204, %202, %200, %198, %196, %194, %190, %188, %184, %182, %180, %179, %175, %173, %171, %169, %168, %166, %129, %128, %132, %133, %134, %135, %136, %137, %138, %139, %140, %145, %146, %147, %148, %149, %150, %151, %152, %153, %154, %155, %156, %157, %158, %159, %160, %161, %162, %163, %164, %165, %0, %11, %_ZN4llvm9StringRefC2EPKc.exit, %_ZN4llvm9StringRefC2EPKc.exit.thread
+  %.sroa.0126.0 = phi ptr [ @.str.1, %_ZN4llvm9StringRefC2EPKc.exit.thread ], [ %.0.i.ph, %_ZN4llvm9StringRefC2EPKc.exit ], [ @.str.1, %11 ], [ @.str.1, %0 ], [ %spec.select145, %143 ], [ @.str.369, %141 ], [ @.str.359, %131 ], [ @.str.359, %131 ], [ %.str.400..str.399.i, %208 ], [ @.str.398, %206 ], [ %.str.397..str.396.i, %204 ], [ @.str.395, %202 ], [ @.str.394, %200 ], [ @.str.393, %198 ], [ @.str.359, %196 ], [ %.str.359..str.383.i, %194 ], [ @.str.360, %190 ], [ %.str.361..str.384.i, %188 ], [ @.str.363, %184 ], [ @.str.365, %182 ], [ @.str.366, %180 ], [ %.str.367..str.385.i, %179 ], [ @.str.371, %175 ], [ @.str.370, %173 ], [ @.str.369, %171 ], [ @.str.372, %169 ], [ @.str.373, %168 ], [ @.str.374, %166 ], [ %.str.358..str.357.i, %129 ], [ @.str.356, %128 ], [ @.str.360, %132 ], [ @.str.361, %133 ], [ @.str.362, %134 ], [ @.str.363, %135 ], [ @.str.364, %136 ], [ @.str.365, %137 ], [ @.str.366, %138 ], [ @.str.367, %139 ], [ @.str.368, %140 ], [ @.str.372, %145 ], [ @.str.373, %146 ], [ @.str.374, %147 ], [ @.str.375, %148 ], [ @.str.376, %149 ], [ @.str.377, %150 ], [ @.str.378, %151 ], [ @.str.379, %152 ], [ @.str.380, %153 ], [ @.str.381, %154 ], [ @.str.382, %155 ], [ @.str.383, %156 ], [ @.str.384, %157 ], [ @.str.385, %158 ], [ @.str.386, %159 ], [ @.str.387, %160 ], [ @.str.388, %161 ], [ @.str.389, %162 ], [ @.str.390, %163 ], [ @.str.391, %164 ], [ @.str.392, %165 ], [ @.str.355, %127 ]
+  %.sroa.4127.0 = phi i64 [ 7, %_ZN4llvm9StringRefC2EPKc.exit.thread ], [ %242, %_ZN4llvm9StringRefC2EPKc.exit ], [ 7, %11 ], [ 7, %0 ], [ %spec.select144, %143 ], [ 10, %141 ], [ 5, %131 ], [ 5, %131 ], [ 8, %208 ], [ 6, %206 ], [ %.234.i, %204 ], [ 8, %202 ], [ 9, %200 ], [ 5, %198 ], [ 5, %196 ], [ %.233.i, %194 ], [ 6, %190 ], [ %.232.i, %188 ], [ 11, %184 ], [ 7, %182 ], [ 9, %180 ], [ %.231.i, %179 ], [ 14, %175 ], [ 11, %173 ], [ 10, %171 ], [ 10, %169 ], [ 14, %168 ], [ 9, %166 ], [ %..i12, %129 ], [ 4, %128 ], [ 6, %132 ], [ 7, %133 ], [ 8, %134 ], [ 11, %135 ], [ 9, %136 ], [ 7, %137 ], [ 9, %138 ], [ 7, %139 ], [ 10, %140 ], [ 10, %145 ], [ 14, %146 ], [ 9, %147 ], [ 9, %148 ], [ 9, %149 ], [ 11, %150 ], [ 11, %151 ], [ 13, %152 ], [ 15, %153 ], [ 14, %154 ], [ 14, %155 ], [ 7, %156 ], [ 10, %157 ], [ 8, %158 ], [ 13, %159 ], [ 7, %160 ], [ 12, %161 ], [ 10, %162 ], [ 16, %163 ], [ 3, %164 ], [ 3, %165 ], [ 4, %127 ]
   %.fca.0.insert = insertvalue { ptr, i64 } poison, ptr %.sroa.0126.0, 0
   %.fca.1.insert = insertvalue { ptr, i64 } %.fca.0.insert, i64 %.sroa.4127.0, 1
   ret { ptr, i64 } %.fca.1.insert
@@ -3108,7 +3108,7 @@ _ZL18getX86CpuIDAndInfojPjS_S_S_.exit271:         ; preds = %_ZL18getX86CpuIDAnd
   %181 = extractvalue { i32, i32, i32, i32 } %180, 0
   %182 = extractvalue { i32, i32, i32, i32 } %180, 2
   %183 = extractvalue { i32, i32, i32, i32 } %180, 3
-  %184 = icmp ugt i32 %176, -2147483641
+  %184 = icmp samesign ugt i32 %176, -2147483641
   br label %_ZL18getX86CpuIDAndInfojPjS_S_S_.exit270.thread
 
 _ZL18getX86CpuIDAndInfojPjS_S_S_.exit270.thread:  ; preds = %.critedge, %_ZL18getX86CpuIDAndInfojPjS_S_S_.exit271, %_ZL18getX86CpuIDAndInfojPjS_S_S_.exit270

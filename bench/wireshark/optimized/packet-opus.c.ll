@@ -243,7 +243,7 @@ define internal i32 @dissect_opus(ptr noundef %0, ptr noundef %1, ptr noundef %2
 
 40:                                               ; preds = %36
   %41 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef 1) #4
-  %42 = icmp ugt i32 %13, 2
+  %42 = icmp samesign ugt i32 %13, 2
   br i1 %42, label %.split, label %.split194
 
 .split194:                                        ; preds = %40
@@ -267,7 +267,7 @@ parse_size_field.exit:                            ; preds = %48, %.split, %.spli
   %.0226 = phi i16 [ %43, %.split194 ], [ %51, %48 ], [ %46, %.split ]
   %phi.call = phi i32 [ 1, %.split194 ], [ 2, %48 ], [ 1, %.split ]
   %52 = zext nneg i16 %.0226 to i32
-  %53 = icmp ult i32 %13, %52
+  %53 = icmp samesign ult i32 %13, %52
   br i1 %53, label %parse_size_field.exit.thread, label %55
 
 parse_size_field.exit.thread:                     ; preds = %.split194, %parse_size_field.exit
@@ -293,7 +293,7 @@ default.unreachable285:                           ; preds = %17
   unreachable
 
 64:                                               ; preds = %17
-  %65 = icmp ult i32 %13, 3
+  %65 = icmp samesign ult i32 %13, 3
   br i1 %65, label %66, label %68
 
 66:                                               ; preds = %64

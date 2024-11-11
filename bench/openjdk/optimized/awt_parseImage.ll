@@ -424,7 +424,7 @@ awt_getBIColorOrder.exit.i:                       ; preds = %85, %82, %76, %66
   %165 = getelementptr inbounds i8, ptr %8, i64 424
   %166 = load ptr, ptr %165, align 8
   %167 = load i32, ptr %166, align 4
-  %168 = icmp ugt i32 %51, 1
+  %168 = icmp samesign ugt i32 %51, 1
   br i1 %168, label %.lr.ph243.preheader.i, label %._crit_edge.i
 
 .lr.ph243.preheader.i:                            ; preds = %164
@@ -1785,7 +1785,7 @@ define internal fastcc range(i32 0, 2) i32 @checkChannelOffsets(ptr nocapture no
 
 13:                                               ; preds = %9
   %14 = udiv i32 2147483647, %7
-  %15 = icmp ugt i32 %14, %11
+  %15 = icmp samesign ugt i32 %14, %11
   br i1 %15, label %16, label %.loopexit
 
 16:                                               ; preds = %13
@@ -1802,7 +1802,7 @@ define internal fastcc range(i32 0, 2) i32 @checkChannelOffsets(ptr nocapture no
 
 24:                                               ; preds = %20
   %25 = udiv i32 2147483647, %18
-  %26 = icmp ugt i32 %25, %22
+  %26 = icmp samesign ugt i32 %25, %22
   br i1 %26, label %27, label %.loopexit
 
 27:                                               ; preds = %24
@@ -1811,7 +1811,7 @@ define internal fastcc range(i32 0, 2) i32 @checkChannelOffsets(ptr nocapture no
   %30 = add nsw i32 %18, -1
   %31 = mul nsw i32 %22, %30
   %32 = sub nuw nsw i32 2147483647, %31
-  %33 = icmp ugt i32 %32, %29
+  %33 = icmp samesign ugt i32 %32, %29
   br i1 %33, label %34, label %.loopexit
 
 34:                                               ; preds = %27
@@ -1876,12 +1876,12 @@ define hidden range(i32 -1, 2) i32 @awt_getPixels(ptr noundef %0, ptr nocapture 
 
 17:                                               ; preds = %14
   %18 = udiv i32 2147483647, %5
-  %19 = icmp ugt i32 %18, %9
+  %19 = icmp samesign ugt i32 %18, %9
   br i1 %19, label %20, label %105
 
 20:                                               ; preds = %17
   %21 = mul nuw nsw i32 %9, %5
-  %22 = icmp ugt i32 %21, 10240
+  %22 = icmp samesign ugt i32 %21, 10240
   br i1 %22, label %25, label %23
 
 23:                                               ; preds = %20
@@ -1900,7 +1900,7 @@ define hidden range(i32 -1, 2) i32 @awt_getPixels(ptr noundef %0, ptr nocapture 
 
 29:                                               ; preds = %25
   %30 = udiv i32 2147483647, %21
-  %31 = icmp ugt i32 %30, %spec.select
+  %31 = icmp samesign ugt i32 %30, %spec.select
   br i1 %31, label %32, label %105
 
 32:                                               ; preds = %29
@@ -2087,12 +2087,12 @@ define hidden range(i32 -1, 2) i32 @awt_setPixels(ptr noundef %0, ptr nocapture 
 
 17:                                               ; preds = %14
   %18 = udiv i32 2147483647, %5
-  %19 = icmp ugt i32 %18, %9
+  %19 = icmp samesign ugt i32 %18, %9
   br i1 %19, label %20, label %105
 
 20:                                               ; preds = %17
   %21 = mul nuw nsw i32 %9, %5
-  %22 = icmp ugt i32 %21, 10240
+  %22 = icmp samesign ugt i32 %21, 10240
   br i1 %22, label %25, label %23
 
 23:                                               ; preds = %20
@@ -2111,7 +2111,7 @@ define hidden range(i32 -1, 2) i32 @awt_setPixels(ptr noundef %0, ptr nocapture 
 
 29:                                               ; preds = %25
   %30 = udiv i32 2147483647, %21
-  %31 = icmp ugt i32 %30, %spec.select
+  %31 = icmp samesign ugt i32 %30, %spec.select
   br i1 %31, label %32, label %105
 
 32:                                               ; preds = %29

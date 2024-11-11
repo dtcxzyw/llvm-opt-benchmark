@@ -4441,7 +4441,7 @@ _ZN14VrmlTranslator7Scanner5AddChEv.exit253:      ; preds = %_ZN14VrmlTranslator
 
 312:                                              ; preds = %_ZN14VrmlTranslator7Scanner5AddChEv.exit253
   %.not = icmp ne i32 %310, 34
-  %313 = icmp ult i32 %310, 92
+  %313 = icmp samesign ult i32 %310, 92
   %or.cond148 = and i1 %.not, %313
   %314 = add nsw i32 %310, -93
   %or.cond149 = icmp ult i32 %314, 65443
@@ -4617,7 +4617,7 @@ switch.early.test323:                             ; preds = %380
 
 391:                                              ; preds = %388
   %.not122 = icmp ne i32 %.fr386, 34
-  %392 = icmp ult i32 %.fr386, 48
+  %392 = icmp samesign ult i32 %.fr386, 48
   %or.cond153 = and i1 %.not122, %392
   %393 = add nsw i32 %.fr386, -58
   %or.cond154 = icmp ult i32 %393, 7
@@ -5321,7 +5321,7 @@ switch.early.test337:                             ; preds = %569
 
 575:                                              ; preds = %573
   %.not123 = icmp ne i32 %.fr387, 34
-  %576 = icmp ult i32 %.fr387, 48
+  %576 = icmp samesign ult i32 %.fr387, 48
   %or.cond210 = and i1 %.not123, %576
   %577 = add nsw i32 %.fr387, -58
   %or.cond211 = icmp ult i32 %577, 7
@@ -5357,7 +5357,7 @@ switch.early.test337:                             ; preds = %569
 
 589:                                              ; preds = %586
   %.not124 = icmp ne i32 %587, 34
-  %590 = icmp ult i32 %587, 92
+  %590 = icmp samesign ult i32 %587, 92
   %or.cond215 = and i1 %.not124, %590
   %591 = add nsw i32 %587, -93
   %or.cond216 = icmp ult i32 %591, 65443

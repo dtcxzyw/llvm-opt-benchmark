@@ -1963,7 +1963,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__12TfStaticDataINS_37PxOsdOpenSubdivTokens_
   %796 = getelementptr inbounds i32, ptr %785, i64 %indvars.iv.next27.i.i.i
   store i32 %795, ptr %796, align 4
   %indvars.iv.next25.i.i.i = add nsw i64 %indvars.iv24.i.i.i, 1
-  %797 = icmp ugt i64 %indvars.iv26.i.i.i, 2
+  %797 = icmp samesign ugt i64 %indvars.iv26.i.i.i, 2
   br i1 %797, label %.lr.ph10.us.i.i.i, label %.loopexit.us.loopexit.i.i.i, !llvm.loop !27
 
 .loopexit.us.loopexit.i.i.i:                      ; preds = %.lr.ph10.us.i.i.i
@@ -2863,7 +2863,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__12TfStaticDataINS_37PxOsdOpenSubdivTokens_
   store i32 %1131, ptr %1132, align 4
   %indvars.iv.next.i56.i.i = add nsw i64 %indvars.iv.i55.i.i, -1
   %.1.i.i.i = add i64 %.164.i.i.i, 1
-  %1133 = icmp ugt i64 %indvars.iv.i55.i.i, 1
+  %1133 = icmp samesign ugt i64 %indvars.iv.i55.i.i, 1
   br i1 %1133, label %.lr.ph66.i.i.i, label %.loopexit.i54.i.i, !llvm.loop !36
 
 .lr.ph59.i.i.i:                                   ; preds = %.preheader.i52.i.i, %.noexc48

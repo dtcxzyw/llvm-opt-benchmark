@@ -2175,7 +2175,7 @@ define internal range(i32 -1, 1) i32 @OnUpdateInternedStringsBuffer(ptr nocaptur
   br label %17
 
 13:                                               ; preds = %6
-  %14 = icmp ugt i64 %10, 4095
+  %14 = icmp samesign ugt i64 %10, 4095
   br i1 %14, label %15, label %16
 
 15:                                               ; preds = %13
@@ -2206,7 +2206,7 @@ define internal range(i32 -1, 1) i32 @OnUpdateMaxAcceleratedFiles(ptr nocapture 
   br label %18
 
 14:                                               ; preds = %6
-  %15 = icmp ugt i32 %10, 1000000
+  %15 = icmp samesign ugt i32 %10, 1000000
   br i1 %15, label %16, label %17
 
 16:                                               ; preds = %14

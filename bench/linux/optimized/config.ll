@@ -324,7 +324,7 @@ define dso_local range(i32 -2147483648, 1) i32 @usb_get_configuration(ptr nounde
   br label %.loopexit140
 
 43:                                               ; preds = %34
-  %44 = icmp ult i32 %37, 4
+  %44 = icmp samesign ult i32 %37, 4
   br i1 %44, label %45, label %47
 
 45:                                               ; preds = %43
@@ -363,7 +363,7 @@ define dso_local range(i32 -2147483648, 1) i32 @usb_get_configuration(ptr nounde
   br label %.loopexit140
 
 64:                                               ; preds = %59
-  %65 = icmp ult i32 %60, %50
+  %65 = icmp samesign ult i32 %60, %50
   br i1 %65, label %66, label %68
 
 66:                                               ; preds = %64
@@ -400,7 +400,7 @@ define dso_local range(i32 -2147483648, 1) i32 @usb_get_configuration(ptr nounde
 
 82:                                               ; preds = %68
   %83 = icmp ult i8 %.pre320, 9
-  %84 = icmp ult i32 %69, %80
+  %84 = icmp samesign ult i32 %69, %80
   %85 = or i1 %83, %84
   br i1 %85, label %split, label %87
 
@@ -457,7 +457,7 @@ split:                                            ; preds = %82, %._crit_edge321
 110:                                              ; preds = %103
   %111 = load i8, ptr %106, align 1
   %112 = zext i8 %111 to i32
-  %113 = icmp ult i32 %105, %112
+  %113 = icmp samesign ult i32 %105, %112
   %114 = icmp ult i8 %111, 2
   %115 = or i1 %114, %113
   br i1 %115, label %116, label %117
@@ -954,7 +954,7 @@ split:                                            ; preds = %82, %._crit_edge321
   br i1 %404, label %408, label %405
 
 405:                                              ; preds = %398
-  %406 = icmp ugt i8 %399, 6
+  %406 = icmp samesign ugt i8 %399, 6
   br i1 %406, label %408, label %407
 
 407:                                              ; preds = %405
@@ -1181,8 +1181,8 @@ split:                                            ; preds = %82, %._crit_edge321
   %542 = getelementptr inbounds i8, ptr %392, i64 6
   %543 = load i8, ptr %542, align 1
   %544 = zext i8 %543 to i32
-  %545 = icmp ugt i32 %540, %544
-  %546 = icmp ult i32 %541, %544
+  %545 = icmp samesign ugt i32 %540, %544
+  %546 = icmp samesign ult i32 %541, %544
   %547 = select i1 %545, i1 true, i1 %546
   br i1 %547, label %548, label %553
 
@@ -1497,7 +1497,7 @@ default.unreachable323:                           ; preds = %.thread324
   %726 = getelementptr inbounds i8, ptr %402, i64 4
   %727 = load i16, ptr %726, align 1
   %728 = zext i16 %727 to i32
-  %729 = icmp ult i32 %725, %728
+  %729 = icmp samesign ult i32 %725, %728
   br i1 %729, label %730, label %.thread96
 
 730:                                              ; preds = %724

@@ -225,7 +225,7 @@ for.cond112.preheader:                            ; preds = %if.end100
 
 for.body115.lr.ph:                                ; preds = %for.cond112.preheader
   %sub = sub nsw i32 25, %call102.fr
-  %cmp11982 = icmp ult i32 %call102.fr, 25
+  %cmp11982 = icmp samesign ult i32 %call102.fr, 25
   br i1 %cmp11982, label %for.body115.us, label %for.body115
 
 for.body115.us:                                   ; preds = %for.body115.lr.ph, %for.inc154.us

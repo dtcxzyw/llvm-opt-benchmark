@@ -1599,7 +1599,7 @@ define hidden void @_Z11groups_drawRN2cv3MatERSt6vectorINS_5Rect_IiEESaIS4_EE(pt
   br label %67
 
 67:                                               ; preds = %55, %36
-  %68 = icmp ugt i64 %indvars.iv, 1
+  %68 = icmp samesign ugt i64 %indvars.iv, 1
   br i1 %68, label %25, label %._crit_edge, !llvm.loop !15
 
 ._crit_edge:                                      ; preds = %67, %2

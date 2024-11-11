@@ -573,7 +573,7 @@ define weak_odr hidden noundef i32 @_ZN13ValueRecorderIP8MetadataE16maybe_find_i
   br label %.loopexit28
 
 _ZNK17GrowableArrayViewIiE8containsERKi.exit:     ; preds = %53, %44
-  %62 = icmp ugt i64 %indvars.iv, 1
+  %62 = icmp samesign ugt i64 %indvars.iv, 1
   br i1 %62, label %44, label %.loopexit28, !llvm.loop !9
 
 .loopexit28:                                      ; preds = %_ZNK17GrowableArrayViewIiE8containsERKi.exit, %.thread, %.loopexit, %58, %32, %23, %8, %2
@@ -1101,7 +1101,7 @@ define weak_odr hidden noundef i32 @_ZN13ValueRecorderIP8_jobjectE16maybe_find_i
   br label %.loopexit28
 
 _ZNK17GrowableArrayViewIiE8containsERKi.exit:     ; preds = %53, %44
-  %62 = icmp ugt i64 %indvars.iv, 1
+  %62 = icmp samesign ugt i64 %indvars.iv, 1
   br i1 %62, label %44, label %.loopexit28, !llvm.loop !11
 
 .loopexit28:                                      ; preds = %_ZNK17GrowableArrayViewIiE8containsERKi.exit, %.thread, %.loopexit, %58, %32, %23, %8, %2
@@ -2125,7 +2125,7 @@ define weak_odr hidden noundef i32 @_ZN13ValueRecorderIPhE16maybe_find_indexES0_
   br label %.loopexit28
 
 _ZNK17GrowableArrayViewIiE8containsERKi.exit:     ; preds = %53, %44
-  %62 = icmp ugt i64 %indvars.iv, 1
+  %62 = icmp samesign ugt i64 %indvars.iv, 1
   br i1 %62, label %44, label %.loopexit28, !llvm.loop !16
 
 .loopexit28:                                      ; preds = %_ZNK17GrowableArrayViewIiE8containsERKi.exit, %.thread, %.loopexit, %58, %32, %23, %8, %2

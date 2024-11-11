@@ -376,7 +376,7 @@ ehcleanup25:                                      ; preds = %ehcleanup, %cleanup
   br label %ehcleanup105
 
 if.end:                                           ; preds = %invoke.cont5
-  %cmp26 = icmp ult i32 %call6, 128
+  %cmp26 = icmp samesign ult i32 %call6, 128
   br i1 %cmp26, label %if.then27, label %if.end29
 
 if.then27:                                        ; preds = %if.end
@@ -398,7 +398,7 @@ _ZN4YAML3Exp3StrB5cxx11Ej.exit:                   ; preds = %if.then27
   br label %cleanup
 
 if.end29:                                         ; preds = %if.end
-  %cmp30 = icmp ult i32 %call6, 2048
+  %cmp30 = icmp samesign ult i32 %call6, 2048
   br i1 %cmp30, label %if.then31, label %if.end42
 
 if.then31:                                        ; preds = %if.end29
@@ -475,7 +475,7 @@ ehcleanup41:                                      ; preds = %lpad.i51, %lpad38
   br label %ehcleanup105
 
 if.end42:                                         ; preds = %if.end29
-  %cmp43 = icmp ult i32 %call6, 65536
+  %cmp43 = icmp samesign ult i32 %call6, 65536
   br i1 %cmp43, label %if.then44, label %if.end69
 
 if.then44:                                        ; preds = %if.end42

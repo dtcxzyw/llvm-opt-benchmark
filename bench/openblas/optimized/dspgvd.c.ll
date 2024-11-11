@@ -77,7 +77,7 @@ define void @dspgvd_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
   br i1 %53, label %54, label %.thread8
 
 54:                                               ; preds = %52
-  %55 = icmp ult i32 %44, 2
+  %55 = icmp samesign ult i32 %44, 2
   br i1 %55, label %67, label %56
 
 56:                                               ; preds = %54

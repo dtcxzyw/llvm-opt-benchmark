@@ -3583,7 +3583,7 @@ if.end18.i285:                                    ; preds = %if.end3.i271
   br i1 %cmp23.not.i288, label %if.end38.i300, label %if.then24.i289
 
 if.then24.i289:                                   ; preds = %if.end18.i285
-  %cmp25.i290 = icmp ult i64 %75, 4294967296
+  %cmp25.i290 = icmp samesign ult i64 %75, 4294967296
   br i1 %cmp25.i290, label %for.inc108, label %if.end27.i291
 
 if.end27.i291:                                    ; preds = %if.then24.i289

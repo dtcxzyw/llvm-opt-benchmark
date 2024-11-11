@@ -395,7 +395,7 @@ skip_optional:                                    ; preds = %if.end8, %land.lhs.
 
 if.then.i:                                        ; preds = %skip_optional
   %call.i = call ptr @PyEval_SaveThread() #6
-  %cmp41.i = icmp ugt i64 %data.val6, 4294967295
+  %cmp41.i = icmp samesign ugt i64 %data.val6, 4294967295
   br i1 %cmp41.i, label %while.body.i, label %while.end.i
 
 while.body.i:                                     ; preds = %if.then.i, %while.body.i
@@ -1085,7 +1085,7 @@ skip_optional:                                    ; preds = %if.end8, %land.lhs.
 
 if.then.i:                                        ; preds = %skip_optional
   %call.i = call ptr @PyEval_SaveThread() #6
-  %cmp41.i = icmp ugt i64 %data.val7, 1073741824
+  %cmp41.i = icmp samesign ugt i64 %data.val7, 1073741824
   br i1 %cmp41.i, label %while.body.i, label %while.end.i
 
 while.body.i:                                     ; preds = %if.then.i, %while.body.i

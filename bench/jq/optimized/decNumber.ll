@@ -1696,7 +1696,7 @@ define internal fastcc void @decSetCoeff(ptr noundef %0, ptr nocapture noundef r
   %14 = getelementptr inbounds i8, ptr %.0118169, i64 2
   %15 = getelementptr inbounds i8, ptr %.0116170, i64 2
   %16 = add nsw i32 %.0121168, -3
-  %17 = icmp ugt i32 %.0121168, 3
+  %17 = icmp samesign ugt i32 %.0121168, 3
   br i1 %17, label %.lr.ph171, label %._crit_edge172, !llvm.loop !16
 
 ._crit_edge172:                                   ; preds = %.lr.ph171, %.preheader
@@ -1737,7 +1737,7 @@ define internal fastcc void @decSetCoeff(ptr noundef %0, ptr nocapture noundef r
 
 .preheader151:                                    ; preds = %.thread175, %31
   %.pr177 = phi i32 [ 1, %.thread175 ], [ %29, %31 ]
-  %.not152 = icmp ugt i32 %8, 3
+  %.not152 = icmp samesign ugt i32 %8, 3
   br i1 %.not152, label %.lr.ph, label %._crit_edge
 
 34:                                               ; preds = %31
@@ -1853,7 +1853,7 @@ define internal fastcc void @decSetCoeff(ptr noundef %0, ptr nocapture noundef r
   store i16 %72, ptr %.1119156, align 2
   %73 = getelementptr inbounds i8, ptr %.1119156, i64 2
   %74 = add nsw i32 %.3124155, -3
-  %75 = icmp ugt i32 %.3124155, 3
+  %75 = icmp samesign ugt i32 %.3124155, 3
   br i1 %75, label %71, label %.loopexit, !llvm.loop !18
 
 76:                                               ; preds = %._crit_edge
@@ -2550,7 +2550,7 @@ define internal fastcc noundef ptr @decAddOp(ptr noundef returned %0, ptr nounde
   br label %.thread339
 
 226:                                              ; preds = %197
-  %227 = icmp ult i32 %.1259, 49
+  %227 = icmp samesign ult i32 %.1259, 49
   br i1 %227, label %228, label %234
 
 228:                                              ; preds = %226
@@ -3774,7 +3774,7 @@ define noundef ptr @decNumberCompareTotalMag(ptr noundef returned %0, ptr nounde
 
 40:                                               ; preds = %33
   %41 = getelementptr i8, ptr %.034, i64 12
-  %42 = icmp ult i32 %13, 50
+  %42 = icmp samesign ult i32 %13, 50
   br i1 %42, label %45, label %.thread.i
 
 .thread.i:                                        ; preds = %40
@@ -3878,7 +3878,7 @@ decNumberCopy.exit:                               ; preds = %.decNumberCopy.exit
 
 93:                                               ; preds = %86
   %94 = getelementptr i8, ptr %.0, i64 12
-  %95 = icmp ult i32 %65, 50
+  %95 = icmp samesign ult i32 %65, 50
   br i1 %95, label %98, label %.thread.i57
 
 .thread.i57:                                      ; preds = %93
@@ -4004,7 +4004,7 @@ define noundef ptr @decNumberCopy(ptr noundef returned writeonly %0, ptr noundef
 
 16:                                               ; preds = %4
   %17 = getelementptr inbounds i8, ptr %0, i64 12
-  %18 = icmp ult i32 %14, 50
+  %18 = icmp samesign ult i32 %14, 50
   br i1 %18, label %21, label %.thread
 
 .thread:                                          ; preds = %16
@@ -4627,7 +4627,7 @@ thread-pre-split:                                 ; preds = %93, %98
   %288 = call fastcc i32 @decShiftToLeast(ptr noundef nonnull %.0437, i32 noundef %189, i32 noundef %.0452)
   %289 = add nsw i32 %.0452, %.1464.lcssa
   %290 = sub nsw i32 %280, %.0452
-  %291 = icmp ugt i32 %.0452, 2
+  %291 = icmp samesign ugt i32 %.0452, 2
   br i1 %291, label %.lr.ph635.preheader, label %.loopexit602
 
 .lr.ph635.preheader:                              ; preds = %287
@@ -5356,7 +5356,7 @@ define internal fastcc noundef ptr @decExpOp(ptr noundef returned %0, ptr nounde
 
 38:                                               ; preds = %28
   %39 = getelementptr inbounds i8, ptr %0, i64 12
-  %40 = icmp ult i32 %36, 50
+  %40 = icmp samesign ult i32 %36, 50
   br i1 %40, label %43, label %.thread.i
 
 .thread.i:                                        ; preds = %38
@@ -6227,7 +6227,7 @@ define internal fastcc noundef ptr @decMultiplyOp(ptr noundef returned %0, ptr n
 75:                                               ; preds = %71, %64
   %.0261 = phi ptr [ %74, %71 ], [ %8, %64 ]
   %.0258 = phi ptr [ %74, %71 ], [ null, %64 ]
-  %76 = icmp ugt i32 %61, 90
+  %76 = icmp samesign ugt i32 %61, 90
   br i1 %76, label %77, label %81
 
 77:                                               ; preds = %75
@@ -6297,7 +6297,7 @@ define internal fastcc noundef ptr @decMultiplyOp(ptr noundef returned %0, ptr n
   %106 = getelementptr inbounds i8, ptr %.1228326, i64 2
   %107 = add nsw i32 %.1232325, -3
   %108 = icmp samesign ult i64 %indvars.iv387, 6
-  %109 = icmp ugt i32 %.1232325, 3
+  %109 = icmp samesign ugt i32 %.1232325, 3
   %110 = select i1 %108, i1 %109, i1 false
   br i1 %110, label %98, label %111, !llvm.loop !29
 
@@ -7044,7 +7044,7 @@ define internal fastcc noundef ptr @decLnOp(ptr noundef returned %0, ptr noundef
 
 35:                                               ; preds = %25
   %36 = getelementptr inbounds i8, ptr %0, i64 12
-  %37 = icmp ult i32 %33, 50
+  %37 = icmp samesign ult i32 %33, 50
   br i1 %37, label %40, label %.thread.i
 
 .thread.i:                                        ; preds = %35
@@ -7767,7 +7767,7 @@ define noundef ptr @decNumberLogB(ptr noundef returned %0, ptr noundef %1, ptr n
 
 26:                                               ; preds = %16
   %27 = getelementptr inbounds i8, ptr %0, i64 12
-  %28 = icmp ult i32 %24, 50
+  %28 = icmp samesign ult i32 %24, 50
   br i1 %28, label %31, label %.thread.i.i
 
 .thread.i.i:                                      ; preds = %26
@@ -8161,7 +8161,7 @@ define internal fastcc noundef ptr @decNaNs(ptr noundef returned %0, ptr noundef
 
 41:                                               ; preds = %29
   %42 = getelementptr inbounds i8, ptr %0, i64 12
-  %43 = icmp ult i32 %39, 50
+  %43 = icmp samesign ult i32 %39, 50
   br i1 %43, label %46, label %.thread.i
 
 .thread.i:                                        ; preds = %41
@@ -8272,7 +8272,7 @@ define internal fastcc noundef ptr @decNaNs(ptr noundef returned %0, ptr noundef
   br label %decDecap.exit
 
 90:                                               ; preds = %88
-  %91 = icmp ult i32 %86, 50
+  %91 = icmp samesign ult i32 %86, 50
   br i1 %91, label %92, label %98
 
 92:                                               ; preds = %90
@@ -8400,7 +8400,7 @@ define noundef ptr @decNumberCopyAbs(ptr noundef returned %0, ptr noundef readon
 
 16:                                               ; preds = %4
   %17 = getelementptr inbounds i8, ptr %0, i64 12
-  %18 = icmp ult i32 %14, 50
+  %18 = icmp samesign ult i32 %14, 50
   br i1 %18, label %21, label %.thread.i
 
 .thread.i:                                        ; preds = %16
@@ -8774,7 +8774,7 @@ decNumberFromInt32.exit:                          ; preds = %decNumberFromUInt32
 
 142:                                              ; preds = %133
   %143 = getelementptr i8, ptr %0, i64 12
-  %144 = icmp ult i32 %138, 50
+  %144 = icmp samesign ult i32 %138, 50
   br i1 %144, label %147, label %.thread.i
 
 .thread.i:                                        ; preds = %142
@@ -9161,7 +9161,7 @@ define noundef ptr @decNumberNextMinus(ptr noundef returned %0, ptr noundef %1, 
   store i16 999, ptr %.01314.i, align 2
   %15 = add nsw i32 %.015.i, -3
   %16 = getelementptr inbounds i8, ptr %.01314.i, i64 2
-  %17 = icmp ugt i32 %.015.i, 6
+  %17 = icmp samesign ugt i32 %.015.i, 6
   br i1 %17, label %.lr.ph.i, label %decSetMaxValue.exit
 
 decSetMaxValue.exit:                              ; preds = %.lr.ph.i, %11
@@ -9243,7 +9243,7 @@ define internal fastcc void @decSetMaxValue(ptr nocapture noundef writeonly %0, 
   store i16 999, ptr %.01314, align 2
   %6 = add nsw i32 %.015, -3
   %7 = getelementptr inbounds i8, ptr %.01314, i64 2
-  %8 = icmp ugt i32 %.015, 6
+  %8 = icmp samesign ugt i32 %.015, 6
   br i1 %8, label %.lr.ph, label %._crit_edge
 
 ._crit_edge:                                      ; preds = %.lr.ph, %2
@@ -9292,7 +9292,7 @@ define noundef ptr @decNumberNextPlus(ptr noundef returned %0, ptr noundef %1, p
   store i16 999, ptr %.01314.i, align 2
   %14 = add nsw i32 %.015.i, -3
   %15 = getelementptr inbounds i8, ptr %.01314.i, i64 2
-  %16 = icmp ugt i32 %.015.i, 6
+  %16 = icmp samesign ugt i32 %.015.i, 6
   br i1 %16, label %.lr.ph.i, label %decSetMaxValue.exit
 
 decSetMaxValue.exit:                              ; preds = %.lr.ph.i, %10
@@ -9417,7 +9417,7 @@ define noundef ptr @decNumberNextToward(ptr noundef returned %0, ptr noundef %1,
 
 33:                                               ; preds = %22
   %34 = getelementptr inbounds i8, ptr %0, i64 12
-  %35 = icmp ult i32 %31, 50
+  %35 = icmp samesign ult i32 %31, 50
   br i1 %35, label %38, label %.thread.i.i
 
 .thread.i.i:                                      ; preds = %33
@@ -9779,7 +9779,7 @@ define noundef ptr @decNumberCopySign(ptr noundef returned %0, ptr noundef reado
 
 19:                                               ; preds = %7
   %20 = getelementptr inbounds i8, ptr %0, i64 12
-  %21 = icmp ult i32 %17, 50
+  %21 = icmp samesign ult i32 %17, 50
   br i1 %21, label %24, label %.thread.i
 
 .thread.i:                                        ; preds = %19
@@ -10371,7 +10371,7 @@ define noundef ptr @decNumberPower(ptr noundef returned %0, ptr noundef %1, ptr 
 
 113:                                              ; preds = %108
   %114 = icmp eq i32 %106, 1
-  %115 = icmp ult i8 %13, 16
+  %115 = icmp samesign ult i8 %13, 16
   %116 = and i1 %115, %114
   %or.cond246 = and i1 %79, %116
   br i1 %or.cond246, label %117, label %.thread236.thread
@@ -10795,7 +10795,7 @@ define internal fastcc i32 @decShiftToMost(ptr noundef %0, i32 noundef %1, i32 n
   br i1 %.not74, label %.loopexit76, label %.lr.ph86, !llvm.loop !44
 
 50:                                               ; preds = %41
-  %51 = icmp ult i32 %6, 50
+  %51 = icmp samesign ult i32 %6, 50
   br i1 %51, label %52, label %57
 
 52:                                               ; preds = %50
@@ -10903,7 +10903,7 @@ define internal fastcc i32 @decGetInt(ptr nocapture noundef readonly %0) unnamed
 
 16:                                               ; preds = %14
   %17 = sub nsw i32 0, %4
-  %18 = icmp ugt i32 %17, 2
+  %18 = icmp samesign ugt i32 %17, 2
   br i1 %18, label %.lr.ph, label %._crit_edge.thread
 
 .lr.ph:                                           ; preds = %16, %20
@@ -10916,7 +10916,7 @@ define internal fastcc i32 @decGetInt(ptr nocapture noundef readonly %0) unnamed
 20:                                               ; preds = %.lr.ph
   %21 = add nsw i32 %.056112, -3
   %22 = getelementptr inbounds i8, ptr %.158111, i64 2
-  %23 = icmp ugt i32 %21, 2
+  %23 = icmp samesign ugt i32 %21, 2
   br i1 %23, label %.lr.ph, label %._crit_edge, !llvm.loop !47
 
 ._crit_edge:                                      ; preds = %20
@@ -11146,7 +11146,7 @@ define internal fastcc noundef ptr @decQuantizeOp(ptr noundef returned %0, ptr n
 
 43:                                               ; preds = %33
   %44 = getelementptr inbounds i8, ptr %0, i64 12
-  %45 = icmp ult i32 %41, 50
+  %45 = icmp samesign ult i32 %41, 50
   br i1 %45, label %48, label %.thread.i
 
 .thread.i:                                        ; preds = %43
@@ -12515,7 +12515,7 @@ define noundef ptr @decNumberShift(ptr noundef returned %0, ptr noundef %1, ptr 
   br label %.thread
 
 59:                                               ; preds = %54
-  %60 = icmp ult i32 %56, 50
+  %60 = icmp samesign ult i32 %56, 50
   br i1 %60, label %61, label %66
 
 61:                                               ; preds = %59
@@ -12741,7 +12741,7 @@ define noundef ptr @decNumberSquareRoot(ptr noundef returned %0, ptr noundef %1,
 
 36:                                               ; preds = %26
   %37 = getelementptr inbounds i8, ptr %0, i64 12
-  %38 = icmp ult i32 %34, 50
+  %38 = icmp samesign ult i32 %34, 50
   br i1 %38, label %41, label %.thread.i
 
 .thread.i:                                        ; preds = %36
@@ -12814,7 +12814,7 @@ define noundef ptr @decNumberSquareRoot(ptr noundef returned %0, ptr noundef %1,
 
 74:                                               ; preds = %65
   %75 = getelementptr inbounds i8, ptr %0, i64 12
-  %76 = icmp ult i32 %72, 50
+  %76 = icmp samesign ult i32 %72, 50
   br i1 %76, label %79, label %.thread.i238
 
 .thread.i238:                                     ; preds = %74
@@ -12954,7 +12954,7 @@ decNumberCopy.exit248:                            ; preds = %.lr.ph.i245, %63, %
 
 142:                                              ; preds = %138
   %143 = getelementptr i8, ptr %.0195, i64 12
-  %144 = icmp ult i32 %94, 50
+  %144 = icmp samesign ult i32 %94, 50
   br i1 %144, label %147, label %.thread.i250
 
 .thread.i250:                                     ; preds = %142
@@ -13096,7 +13096,7 @@ decNumberCopy.exit260:                            ; preds = %.decNumberCopy.exit
 
 211:                                              ; preds = %202
   %212 = getelementptr i8, ptr %0, i64 12
-  %213 = icmp ult i32 %207, 50
+  %213 = icmp samesign ult i32 %207, 50
   br i1 %213, label %216, label %.thread.i262
 
 .thread.i262:                                     ; preds = %211
@@ -13282,7 +13282,7 @@ decCompareOp.exit276:                             ; preds = %266, %271, %.thread
 
 300:                                              ; preds = %293
   %301 = getelementptr i8, ptr %.0193, i64 12
-  %302 = icmp ult i32 %296, 50
+  %302 = icmp samesign ult i32 %296, 50
   br i1 %302, label %305, label %.thread.i278
 
 .thread.i278:                                     ; preds = %300
@@ -13582,7 +13582,7 @@ condstore.split:                                  ; preds = %437
 
 463:                                              ; preds = %454
   %464 = getelementptr i8, ptr %0, i64 12
-  %465 = icmp ult i32 %459, 50
+  %465 = icmp samesign ult i32 %459, 50
   br i1 %465, label %468, label %.thread.i291
 
 .thread.i291:                                     ; preds = %463
@@ -13762,7 +13762,7 @@ define noundef ptr @decNumberToIntegralExact(ptr noundef returned %0, ptr nounde
 
 26:                                               ; preds = %16
   %27 = getelementptr inbounds i8, ptr %0, i64 12
-  %28 = icmp ult i32 %24, 50
+  %28 = icmp samesign ult i32 %24, 50
   br i1 %28, label %31, label %.thread.i
 
 .thread.i:                                        ; preds = %26
@@ -13829,7 +13829,7 @@ define noundef ptr @decNumberToIntegralExact(ptr noundef returned %0, ptr nounde
 
 58:                                               ; preds = %49
   %59 = getelementptr inbounds i8, ptr %0, i64 12
-  %60 = icmp ult i32 %56, 50
+  %60 = icmp samesign ult i32 %56, 50
   br i1 %60, label %63, label %.thread.i22
 
 .thread.i22:                                      ; preds = %58
@@ -14342,7 +14342,7 @@ define noundef ptr @decNumberCopyNegate(ptr noundef returned %0, ptr noundef rea
 
 16:                                               ; preds = %4
   %17 = getelementptr inbounds i8, ptr %0, i64 12
-  %18 = icmp ult i32 %14, 50
+  %18 = icmp samesign ult i32 %14, 50
   br i1 %18, label %21, label %.thread.i
 
 .thread.i:                                        ; preds = %16
@@ -14499,7 +14499,7 @@ define noundef ptr @decNumberSetBCD(ptr noundef returned %0, ptr nocapture nound
   store i16 %34, ptr %.024.ptr41, align 2
   %35 = getelementptr inbounds i8, ptr %.12334, i64 1
   %36 = add nsw i32 %.135, -1
-  %37 = icmp ugt i32 %.135, 1
+  %37 = icmp samesign ugt i32 %.135, 1
   br i1 %37, label %.lr.ph, label %._crit_edge, !llvm.loop !56
 
 ._crit_edge:                                      ; preds = %.lr.ph, %.lr.ph43
@@ -15196,7 +15196,7 @@ define internal fastcc void @decApplyRound(ptr noundef %0, ptr nocapture noundef
   %.1.idx = add nsw i64 %.1.idx.in155, -2
   %.1.ptr = getelementptr inbounds i8, ptr %0, i64 %.1.idx
   store i16 %102, ptr %.1.ptr, align 2
-  %.not93 = icmp ult i64 %.1.idx.in155, 14
+  %.not93 = icmp samesign ult i64 %.1.idx.in155, 14
   br i1 %.not93, label %._crit_edge158, label %103, !llvm.loop !63
 
 ._crit_edge158:                                   ; preds = %103, %94
@@ -15363,7 +15363,7 @@ define internal fastcc void @decSetOverflow(ptr nocapture noundef %0, ptr nocapt
   store i16 999, ptr %.01314.i, align 2
   %36 = add nsw i32 %.015.i, -3
   %37 = getelementptr inbounds i8, ptr %.01314.i, i64 2
-  %38 = icmp ugt i32 %.015.i, 6
+  %38 = icmp samesign ugt i32 %.015.i, 6
   br i1 %38, label %.lr.ph.i, label %decSetMaxValue.exit
 
 decSetMaxValue.exit:                              ; preds = %.lr.ph.i, %.critedge31

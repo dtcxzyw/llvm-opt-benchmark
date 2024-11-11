@@ -373,7 +373,7 @@ define dso_local i64 @rb_genrand_ulong_limited(i64 noundef %0) local_unnamed_add
   %29 = tail call fastcc i32 @genrand_int32(ptr noundef nonnull %17)
   %30 = zext i32 %29 to i64
   %31 = and i64 %15, %30
-  %32 = icmp ult i64 %0, %31
+  %32 = icmp samesign ult i64 %0, %31
   br i1 %32, label %.preheader29.i, label %limited_rand.exit, !llvm.loop !13
 
 limited_rand.exit:                                ; preds = %.preheader29.i, %28, %1
@@ -974,7 +974,7 @@ try_rand_if.exit:                                 ; preds = %default_rand.exit.i
   %70 = tail call i32 %69(ptr noundef nonnull %4) #22
   %71 = zext i32 %70 to i64
   %72 = and i64 %54, %71
-  %73 = icmp ult i64 %1, %72
+  %73 = icmp samesign ult i64 %1, %72
   br i1 %73, label %.preheader29.i, label %limited_rand.exit, !llvm.loop !13
 
 limited_rand.exit:                                ; preds = %.preheader29.i, %68, %try_rand_if.exit, %24
@@ -2964,7 +2964,7 @@ define internal fastcc noundef i64 @rand_init(ptr nocapture noundef readonly %0,
   %16 = shl nuw nsw i64 %spec.store.select, 2
   %17 = alloca i8, i64 %16, align 16
   %18 = call i32 @rb_integer_pack(i64 noundef %2, ptr noundef nonnull %17, i64 noundef %spec.store.select, i64 noundef 4, i64 noundef 0, i32 noundef 66) #22
-  %19 = icmp ult i64 %5, 2
+  %19 = icmp samesign ult i64 %5, 2
   br i1 %19, label %20, label %24
 
 20:                                               ; preds = %15
@@ -4041,7 +4041,7 @@ try_rand_if.exit:                                 ; preds = %45, %default_rand.e
   %78 = tail call i32 %77(ptr noundef nonnull %1) #22
   %79 = zext i32 %78 to i64
   %80 = and i64 %62, %79
-  %81 = icmp ult i64 %2, %80
+  %81 = icmp samesign ult i64 %2, %80
   br i1 %81, label %.preheader29.i, label %limited_rand.exit, !llvm.loop !13
 
 limited_rand.exit:                                ; preds = %.preheader29.i, %76, %32, %23, %3

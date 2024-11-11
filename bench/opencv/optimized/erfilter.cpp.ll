@@ -5212,7 +5212,7 @@ _ZNKSt5dequeIiSaIiEE14_M_range_checkEm.exit.i:    ; preds = %68
   br i1 %79, label %80, label %86
 
 80:                                               ; preds = %_ZNKSt5dequeIiSaIiEE14_M_range_checkEm.exit.i
-  %81 = icmp ult i64 %78, 128
+  %81 = icmp samesign ult i64 %78, 128
   br i1 %81, label %82, label %84
 
 82:                                               ; preds = %80
@@ -5633,7 +5633,7 @@ _ZNKSt5dequeIiSaIiEE14_M_range_checkEm.exit.i:    ; preds = %35
   br i1 %76, label %77, label %83
 
 77:                                               ; preds = %_ZNKSt5dequeIiSaIiEE14_M_range_checkEm.exit.i
-  %78 = icmp ult i64 %75, 128
+  %78 = icmp samesign ult i64 %75, 128
   br i1 %78, label %79, label %81
 
 79:                                               ; preds = %77
@@ -5712,7 +5712,7 @@ _ZNKSt5dequeIiSaIiEE14_M_range_checkEm.exit.i161: ; preds = %_ZNSt5dequeIiSaIiEE
   br i1 %133, label %134, label %140
 
 134:                                              ; preds = %_ZNKSt5dequeIiSaIiEE14_M_range_checkEm.exit.i161
-  %135 = icmp ult i64 %132, 128
+  %135 = icmp samesign ult i64 %132, 128
   br i1 %135, label %136, label %138
 
 136:                                              ; preds = %134
@@ -5836,7 +5836,7 @@ _ZNKSt5dequeIiSaIiEE14_M_range_checkEm.exit.i166: ; preds = %204
   br i1 %214, label %215, label %221
 
 215:                                              ; preds = %_ZNKSt5dequeIiSaIiEE14_M_range_checkEm.exit.i166
-  %216 = icmp ult i64 %213, 128
+  %216 = icmp samesign ult i64 %213, 128
   br i1 %216, label %217, label %219
 
 217:                                              ; preds = %215
@@ -5998,7 +5998,7 @@ _ZNKSt5dequeIiSaIiEE14_M_range_checkEm.exit.i185: ; preds = %259
   br i1 %302, label %303, label %309
 
 303:                                              ; preds = %_ZNKSt5dequeIiSaIiEE14_M_range_checkEm.exit.i185
-  %304 = icmp ult i64 %301, 128
+  %304 = icmp samesign ult i64 %301, 128
   br i1 %304, label %305, label %307
 
 305:                                              ; preds = %303
@@ -6170,7 +6170,7 @@ _ZNKSt5dequeIiSaIiEE14_M_range_checkEm.exit.i210: ; preds = %._crit_edge361
   br i1 %419, label %420, label %426
 
 420:                                              ; preds = %_ZNKSt5dequeIiSaIiEE14_M_range_checkEm.exit.i210
-  %421 = icmp ult i64 %418, 128
+  %421 = icmp samesign ult i64 %418, 128
   br i1 %421, label %422, label %424
 
 422:                                              ; preds = %420
@@ -6218,7 +6218,7 @@ _ZNKSt5dequeIiSaIiEE14_M_range_checkEm.exit.i218: ; preds = %_ZNKSt6vectorIiSaIi
   br i1 %442, label %443, label %449
 
 443:                                              ; preds = %_ZNKSt5dequeIiSaIiEE14_M_range_checkEm.exit.i218
-  %444 = icmp ult i64 %441, 128
+  %444 = icmp samesign ult i64 %441, 128
   br i1 %444, label %445, label %447
 
 445:                                              ; preds = %443
@@ -6310,7 +6310,7 @@ _ZNKSt5dequeIiSaIiEE14_M_range_checkEm.exit.i235: ; preds = %_ZNSt12_Vector_base
   br i1 %503, label %504, label %510
 
 504:                                              ; preds = %_ZNKSt5dequeIiSaIiEE14_M_range_checkEm.exit.i235
-  %505 = icmp ult i64 %502, 128
+  %505 = icmp samesign ult i64 %502, 128
   br i1 %505, label %506, label %508
 
 506:                                              ; preds = %504
@@ -11975,7 +11975,7 @@ define hidden void @_ZN2cv4text23MaxMeaningfulClusteringclEPdjihhPSt6vectorIS3_I
   br label %.sink.split.i
 
 49:                                               ; preds = %40
-  %50 = icmp ult i32 %2, 536870912
+  %50 = icmp samesign ult i32 %2, 536870912
   br i1 %50, label %58, label %51
 
 51:                                               ; preds = %49
@@ -15738,7 +15738,7 @@ _ZN2cv4textL11find_vertexERSt6vectorIS1_INS_6Point_IiEESaIS3_EESaIS5_EERS3_.exit
   br i1 %or.cond5, label %737, label %_ZNSt6vectorIfSaIfEE9push_backEOf.exit529
 
 737:                                              ; preds = %733
-  %738 = icmp uge i32 %685, %730
+  %738 = icmp samesign uge i32 %685, %730
   %739 = icmp slt i32 %687, 1
   %or.cond8.not1012 = or i1 %739, %738
   %740 = icmp sge i32 %687, %734
@@ -38849,7 +38849,7 @@ _ZSt25__unguarded_linear_insertIN9__gnu_cxx17__normal_iteratorIPN2cv3VecIfLi4EEE
   %37 = getelementptr inbounds i8, ptr %.069.i.i.i.i.i.i40, i64 -16
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %37, ptr noundef nonnull align 4 dereferenceable(16) %36, i64 16, i1 false)
   %38 = add nsw i64 %.010.i.i.i.i.i.i39, -1
-  %39 = icmp ugt i64 %.010.i.i.i.i.i.i39, 1
+  %39 = icmp samesign ugt i64 %.010.i.i.i.i.i.i39, 1
   br i1 %39, label %.lr.ph.i.i.i.i.i.i38, label %_ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPN2cv3VecIfLi4EEESt6vectorIS4_SaIS4_EEEES9_ET0_T_SB_SA_.exit.i36, !llvm.loop !453
 
 _ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPN2cv3VecIfLi4EEESt6vectorIS4_SaIS4_EEEES9_ET0_T_SB_SA_.exit.i36: ; preds = %.lr.ph.i.i.i.i.i.i38, %.preheader.preheader.i35
@@ -39986,7 +39986,7 @@ _ZSt22__uninitialized_move_aIPN2cv4text14region_tripletES3_SaIS2_EET0_T_S6_S5_RT
   %50 = getelementptr inbounds i8, ptr %.069.i.i.i.i.i, i64 -68
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(68) %50, ptr noundef nonnull align 4 dereferenceable(68) %49, i64 68, i1 false)
   %51 = add nsw i64 %.010.i.i.i.i.i, -1
-  %52 = icmp ugt i64 %.010.i.i.i.i.i, 1
+  %52 = icmp samesign ugt i64 %.010.i.i.i.i.i, 1
   br i1 %52, label %.lr.ph.i.i.i.i.i51, label %_ZSt13move_backwardIPN2cv4text14region_tripletES3_ET0_T_S5_S4_.exit, !llvm.loop !483
 
 _ZSt13move_backwardIPN2cv4text14region_tripletES3_ET0_T_S5_S4_.exit: ; preds = %.lr.ph.i.i.i.i.i51, %_ZSt22__uninitialized_move_aIPN2cv4text14region_tripletES3_SaIS2_EET0_T_S6_S5_RT1_.exit
@@ -40005,7 +40005,7 @@ _ZSt13move_backwardIPN2cv4text14region_tripletES3_ET0_T_S5_S4_.exit: ; preds = %
   %55 = getelementptr inbounds i8, ptr %.0910.i.i.i.i.i, i64 68
   %56 = getelementptr inbounds i8, ptr %.0811.i.i.i.i.i, i64 68
   %57 = add nsw i64 %.012.i.i.i.i.i, -1
-  %58 = icmp ugt i64 %.012.i.i.i.i.i, 1
+  %58 = icmp samesign ugt i64 %.012.i.i.i.i.i, 1
   br i1 %58, label %.lr.ph.i.i.i.i.i53, label %_ZSt4copyIN9__gnu_cxx17__normal_iteratorIPN2cv4text14region_tripletESt6vectorIS4_SaIS4_EEEES9_ET0_T_SB_SA_.exit, !llvm.loop !484
 
 _ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPN2cv4text14region_tripletESt6vectorIS4_SaIS4_EEEEmEvRT_T0_.exit: ; preds = %17
@@ -40114,7 +40114,7 @@ _ZSt22__uninitialized_move_aIPN2cv4text14region_tripletES3_SaIS2_EET0_T_S6_S5_RT
   %107 = getelementptr inbounds i8, ptr %.0910.i.i.i.i.i66, i64 68
   %108 = getelementptr inbounds i8, ptr %.0811.i.i.i.i.i65, i64 68
   %109 = add nsw i64 %.012.i.i.i.i.i64, -1
-  %110 = icmp ugt i64 %.012.i.i.i.i.i64, 1
+  %110 = icmp samesign ugt i64 %.012.i.i.i.i.i64, 1
   br i1 %110, label %.lr.ph.i.i.i.i.i63, label %_ZSt4copyIN9__gnu_cxx17__normal_iteratorIPN2cv4text14region_tripletESt6vectorIS4_SaIS4_EEEES9_ET0_T_SB_SA_.exit, !llvm.loop !484
 
 111:                                              ; preds = %5
@@ -40752,7 +40752,7 @@ _ZSt25__unguarded_linear_insertIN9__gnu_cxx17__normal_iteratorIPN2cv3VecIiLi3EEE
   %37 = getelementptr inbounds i8, ptr %.069.i.i.i.i.i.i40, i64 -12
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %37, ptr noundef nonnull align 4 dereferenceable(12) %36, i64 12, i1 false)
   %38 = add nsw i64 %.010.i.i.i.i.i.i39, -1
-  %39 = icmp ugt i64 %.010.i.i.i.i.i.i39, 1
+  %39 = icmp samesign ugt i64 %.010.i.i.i.i.i.i39, 1
   br i1 %39, label %.lr.ph.i.i.i.i.i.i38, label %_ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPN2cv3VecIiLi3EEESt6vectorIS4_SaIS4_EEEES9_ET0_T_SB_SA_.exit.i36, !llvm.loop !503
 
 _ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPN2cv3VecIiLi3EEESt6vectorIS4_SaIS4_EEEES9_ET0_T_SB_SA_.exit.i36: ; preds = %.lr.ph.i.i.i.i.i.i38, %.preheader.preheader.i35

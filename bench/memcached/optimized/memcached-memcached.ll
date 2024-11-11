@@ -7438,7 +7438,7 @@ if.then94:                                        ; preds = %sw.bb90
   br label %return
 
 if.end96:                                         ; preds = %sw.bb90
-  %cmp97 = icmp ugt i32 %call91, 64
+  %cmp97 = icmp samesign ugt i32 %call91, 64
   br i1 %cmp97, label %if.then99, label %while.cond.backedge
 
 if.then99:                                        ; preds = %if.end96
@@ -7756,7 +7756,7 @@ if.then220:                                       ; preds = %if.end216
   br label %return
 
 if.else222:                                       ; preds = %if.end216
-  %cmp223 = icmp ugt i32 %call217, 32
+  %cmp223 = icmp samesign ugt i32 %call217, 32
   br i1 %cmp223, label %if.then225, label %sw.epilog
 
 if.then225:                                       ; preds = %if.else222
@@ -8296,7 +8296,7 @@ if.then493:                                       ; preds = %if.end489
   unreachable
 
 if.end495:                                        ; preds = %if.end489
-  %cmp496 = icmp ugt i32 %174, 1073741824
+  %cmp496 = icmp samesign ugt i32 %174, 1073741824
   br i1 %cmp496, label %if.then498, label %if.end500
 
 if.then498:                                       ; preds = %if.end495
@@ -8306,7 +8306,7 @@ if.then498:                                       ; preds = %if.end495
   unreachable
 
 if.end500:                                        ; preds = %if.end495
-  %cmp501 = icmp ugt i32 %174, 1048576
+  %cmp501 = icmp samesign ugt i32 %174, 1048576
   br i1 %cmp501, label %if.then503, label %if.end508
 
 if.then503:                                       ; preds = %if.end500

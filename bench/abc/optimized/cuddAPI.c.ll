@@ -114,7 +114,7 @@ define ptr @Cudd_addNewVarAtLevel(ptr noundef %0, i32 noundef %1) local_unnamed_
   br i1 %.not, label %18, label %7
 
 7:                                                ; preds = %6
-  %8 = icmp ugt i32 %1, 2147483645
+  %8 = icmp samesign ugt i32 %1, 2147483645
   br i1 %8, label %Cudd_addIthVar.exit, label %.preheader.i
 
 .preheader.i:                                     ; preds = %7
@@ -219,7 +219,7 @@ define ptr @Cudd_bddNewVarAtLevel(ptr noundef %0, i32 noundef %1) local_unnamed_
   br i1 %.not, label %16, label %7
 
 7:                                                ; preds = %6
-  %8 = icmp ugt i32 %1, 2147483645
+  %8 = icmp samesign ugt i32 %1, 2147483645
   br i1 %8, label %Cudd_bddIthVar.exit, label %9
 
 9:                                                ; preds = %7

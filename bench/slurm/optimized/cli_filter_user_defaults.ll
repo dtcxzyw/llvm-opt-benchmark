@@ -121,7 +121,7 @@ define noundef i32 @cli_filter_p_setup_defaults(ptr noundef %0, i1 noundef zeroe
   %52 = load i16, ptr %51, align 2
   %53 = and i16 %52, 8192
   %54 = icmp ne i16 %53, 0
-  %55 = icmp ugt i64 %.021.i, 1
+  %55 = icmp samesign ugt i64 %.021.i, 1
   %56 = and i1 %55, %54
   br i1 %56, label %.lr.ph.i, label %_trim.exit, !llvm.loop !8
 
@@ -185,7 +185,7 @@ _trim.exit:                                       ; preds = %.lr.ph.i, %23, %.cr
   %87 = load i16, ptr %86, align 2
   %88 = and i16 %87, 8192
   %89 = icmp ne i16 %88, 0
-  %90 = icmp ugt i64 %.021.i37, 1
+  %90 = icmp samesign ugt i64 %.021.i37, 1
   %91 = and i1 %90, %89
   br i1 %91, label %.lr.ph.i36, label %_trim.exit39, !llvm.loop !8
 
@@ -236,7 +236,7 @@ _trim.exit39:                                     ; preds = %.lr.ph.i36, %.crite
   %116 = load i16, ptr %115, align 2
   %117 = and i16 %116, 8192
   %118 = icmp ne i16 %117, 0
-  %119 = icmp ugt i64 %.021.i50, 1
+  %119 = icmp samesign ugt i64 %.021.i50, 1
   %120 = and i1 %119, %118
   br i1 %120, label %.lr.ph.i49, label %_trim.exit52, !llvm.loop !8
 
@@ -317,7 +317,7 @@ _trim.exit52:                                     ; preds = %.lr.ph.i49, %.crite
   %156 = load i16, ptr %155, align 2
   %157 = and i16 %156, 8192
   %158 = icmp ne i16 %157, 0
-  %159 = icmp ugt i64 %.021.i.i, 1
+  %159 = icmp samesign ugt i64 %.021.i.i, 1
   %160 = and i1 %159, %158
   br i1 %160, label %.lr.ph.i.i, label %_trim.exit.i, !llvm.loop !8
 
@@ -384,7 +384,7 @@ _trim.exit.thread.i:                              ; preds = %_trim.exit.i, %129
   %190 = load i16, ptr %189, align 2
   %191 = and i16 %190, 8192
   %192 = icmp ne i16 %191, 0
-  %193 = icmp ugt i64 %.021.i49.i, 1
+  %193 = icmp samesign ugt i64 %.021.i49.i, 1
   %194 = and i1 %193, %192
   br i1 %194, label %.lr.ph.i48.i, label %_trim.exit51.i, !llvm.loop !8
 
@@ -445,7 +445,7 @@ _trim.exit51.i:                                   ; preds = %.lr.ph.i48.i, %173,
   %223 = load i16, ptr %222, align 2
   %224 = and i16 %223, 8192
   %225 = icmp ne i16 %224, 0
-  %226 = icmp ugt i64 %.021.i62.i, 1
+  %226 = icmp samesign ugt i64 %.021.i62.i, 1
   %227 = and i1 %226, %225
   br i1 %227, label %.lr.ph.i61.i, label %_trim.exit64.i, !llvm.loop !8
 

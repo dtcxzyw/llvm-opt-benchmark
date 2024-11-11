@@ -255,7 +255,7 @@ while.body:                                       ; preds = %land.lhs.true75
   %mul = mul nuw nsw i32 %argNumber.2, 10
   %sub84 = add nsw i32 %mul, -48
   %add85 = add i32 %sub84, %conv79
-  %cmp86 = icmp ugt i32 %add85, 255
+  %cmp86 = icmp samesign ugt i32 %add85, 255
   br i1 %cmp86, label %if.then94, label %while.cond, !llvm.loop !6
 
 if.end89:                                         ; preds = %land.lhs.true75
@@ -529,7 +529,7 @@ _ZNK6icu_7513UnicodeString9getBufferEv.exit.i:    ; preds = %if.else9.i.i, %if.t
 _ZNK6icu_7515SimpleFormatter16getArgumentLimitEv.exit: ; preds = %_ZNK6icu_7513UnicodeString9getBufferEv.exit.i
   %5 = load i16, ptr %retval.0.i.i, align 2
   %conv.i.i = zext i16 %5 to i32
-  %cmp = icmp ult i32 %valuesLength, %conv.i.i
+  %cmp = icmp samesign ult i32 %valuesLength, %conv.i.i
   br i1 %cmp, label %if.then8, label %if.end9
 
 if.then8:                                         ; preds = %_ZNK6icu_7515SimpleFormatter16getArgumentLimitEv.exit, %lor.lhs.false, %if.end
@@ -1112,7 +1112,7 @@ _ZNK6icu_7513UnicodeString9getBufferEv.exit:      ; preds = %if.end7, %if.then7.
 _ZN6icu_7515SimpleFormatter16getArgumentLimitEPKDsi.exit.thread: ; preds = %_ZNK6icu_7513UnicodeString9getBufferEv.exit
   %5 = load i16, ptr %retval.0.i, align 2
   %conv.i36 = zext i16 %5 to i32
-  %cmp51 = icmp ult i32 %valuesLength, %conv.i36
+  %cmp51 = icmp samesign ult i32 %valuesLength, %conv.i36
   br i1 %cmp51, label %if.then12, label %_ZN6icu_7515SimpleFormatter16getArgumentLimitEPKDsi.exit42
 
 if.then12:                                        ; preds = %_ZN6icu_7515SimpleFormatter16getArgumentLimitEPKDsi.exit.thread

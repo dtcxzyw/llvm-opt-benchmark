@@ -907,7 +907,7 @@ define internal fastcc void @dissect_bpdu(ptr noundef %0, ptr noundef %1, ptr no
   %332 = tail call ptr @proto_tree_add_item(ptr noundef %305, i32 noundef %330, ptr noundef %0, i32 noundef %331, i32 noundef 1, i32 noundef 0) #2
   %333 = add nsw i32 %.0457485.us, -16
   %334 = add nuw nsw i32 %.0460484.us, 16
-  %335 = icmp ugt i32 %.0457485.us, 16
+  %335 = icmp samesign ugt i32 %.0457485.us, 16
   br i1 %335, label %.lr.ph.split.us, label %._crit_edge, !llvm.loop !4
 
 .lr.ph.split.us486:                               ; preds = %.lr.ph, %.lr.ph.split.us486
@@ -959,7 +959,7 @@ define internal fastcc void @dissect_bpdu(ptr noundef %0, ptr noundef %1, ptr no
   %379 = tail call ptr @proto_tree_add_item(ptr noundef %350, i32 noundef %377, ptr noundef %0, i32 noundef %378, i32 noundef 1, i32 noundef 0) #2
   %380 = add nsw i32 %.0457485.us487, -26
   %381 = add nuw nsw i32 %.0460484.us488, 26
-  %382 = icmp ugt i32 %.0457485.us487, 26
+  %382 = icmp samesign ugt i32 %.0457485.us487, 26
   br i1 %382, label %.lr.ph.split.us486, label %._crit_edge, !llvm.loop !4
 
 .lr.ph.split.split:                               ; preds = %.lr.ph, %.lr.ph.split.split

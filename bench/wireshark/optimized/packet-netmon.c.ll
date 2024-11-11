@@ -1309,7 +1309,7 @@ define internal i32 @dissect_netmon_network_info(ptr noundef %0, ptr nocapture n
   br label %81
 
 67:                                               ; preds = %61
-  %68 = icmp ugt i64 %56, 999999
+  %68 = icmp samesign ugt i64 %56, 999999
   br i1 %68, label %69, label %73
 
 69:                                               ; preds = %67
@@ -1321,7 +1321,7 @@ define internal i32 @dissect_netmon_network_info(ptr noundef %0, ptr nocapture n
   br label %81
 
 73:                                               ; preds = %67
-  %74 = icmp ugt i64 %56, 999
+  %74 = icmp samesign ugt i64 %56, 999
   %75 = load i32, ptr @hf_netmon_network_info_link_speed, align 4
   br i1 %74, label %76, label %79
 

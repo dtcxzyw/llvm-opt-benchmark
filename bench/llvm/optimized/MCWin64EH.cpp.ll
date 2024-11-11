@@ -1650,7 +1650,7 @@ _ZL23ARM64CountOfUnwindCodesN4llvm8ArrayRefINS_5WinEH11InstructionEEE.exit.i.i: 
   br i1 %430, label %_ZL22checkARM64PackedEpilogRN4llvm10MCStreamerEPNS_5WinEH9FrameInfoEPNS3_7SegmentEi.exit.i, label %431
 
 431:                                              ; preds = %428
-  %432 = icmp ugt i32 %429, 31
+  %432 = icmp samesign ugt i32 %429, 31
   %433 = icmp sgt i32 %395, 124
   %or.cond.i.i = or i1 %433, %432
   br i1 %or.cond.i.i, label %_ZL22checkARM64PackedEpilogRN4llvm10MCStreamerEPNS_5WinEH9FrameInfoEPNS3_7SegmentEi.exit.i, label %434
@@ -3665,7 +3665,7 @@ _ZL12parseRegMaskjRbS_RjRi.exit.thread.i:         ; preds = %280, %272, %262, %2
 
 345:                                              ; preds = %335
   %346 = add nsw i32 %.2426.i, -7
-  %or.cond35.i = icmp ult i32 %346, 3
+  %or.cond35.i = icmp samesign ult i32 %346, 3
   %.not264.i = icmp eq i32 %333, 16
   %or.cond274.i = and i1 %.not264.i, %320
   %or.cond283.i = select i1 %or.cond35.i, i1 %or.cond274.i, i1 false
@@ -3781,7 +3781,7 @@ _ZL12parseRegMaskjRbS_RjRi.exit.thread.i:         ; preds = %280, %272, %262, %2
 
 392:                                              ; preds = %327
   %393 = add nsw i32 %.2426.i, -6
-  %or.cond51.i = icmp ult i32 %393, 4
+  %or.cond51.i = icmp samesign ult i32 %393, 4
   %brmerge448.not.i = select i1 %or.cond51.i, i1 %320, i1 false
   br i1 %brmerge448.not.i, label %394, label %_ZL18tryARMPackedUnwindRN4llvm10MCStreamerEPNS_5WinEH9FrameInfoEj.exit.thread
 
@@ -3997,7 +3997,7 @@ _ZL18tryARMPackedUnwindRN4llvm10MCStreamerEPNS_5WinEH9FrameInfoEj.exit: ; preds 
   br i1 %500, label %_ZL20checkARMPackedEpilogRN4llvm10MCStreamerEPNS_5WinEH9FrameInfoEi.exit, label %501
 
 501:                                              ; preds = %498
-  %502 = icmp ugt i32 %499, 31
+  %502 = icmp samesign ugt i32 %499, 31
   %503 = icmp sgt i32 %201, 63
   %or.cond.i292 = or i1 %503, %502
   br i1 %or.cond.i292, label %_ZL20checkARMPackedEpilogRN4llvm10MCStreamerEPNS_5WinEH9FrameInfoEi.exit, label %504
@@ -5496,7 +5496,7 @@ define linkonce_odr noundef nonnull align 8 dereferenceable(16) ptr @_ZN4llvm15S
   %15 = getelementptr inbounds i8, ptr %.0910.i.i.i.i.i, i64 16
   %16 = getelementptr inbounds i8, ptr %.0811.i.i.i.i.i, i64 16
   %17 = add nsw i64 %.012.i.i.i.i.i, -1
-  %18 = icmp ugt i64 %.012.i.i.i.i.i, 1
+  %18 = icmp samesign ugt i64 %.012.i.i.i.i.i, 1
   br i1 %18, label %.lr.ph.i.i.i.i.i, label %_ZSt4copyIPKSt4pairIPN4llvm8MCSymbolElEPS4_ET0_T_S9_S8_.exit, !llvm.loop !123
 
 _ZSt4copyIPKSt4pairIPN4llvm8MCSymbolElEPS4_ET0_T_S9_S8_.exit: ; preds = %.lr.ph.i.i.i.i.i, %7
@@ -5542,7 +5542,7 @@ _ZSt4copyIPKSt4pairIPN4llvm8MCSymbolElEPS4_ET0_T_S9_S8_.exit: ; preds = %.lr.ph.
   %36 = getelementptr inbounds i8, ptr %.0910.i.i.i.i.i34, i64 16
   %37 = getelementptr inbounds i8, ptr %.0811.i.i.i.i.i33, i64 16
   %38 = add nsw i64 %.012.i.i.i.i.i32, -1
-  %39 = icmp ugt i64 %.012.i.i.i.i.i32, 1
+  %39 = icmp samesign ugt i64 %.012.i.i.i.i.i32, 1
   br i1 %39, label %.lr.ph.i.i.i.i.i31, label %_ZSt4copyIPKSt4pairIPN4llvm8MCSymbolElEPS4_ET0_T_S9_S8_.exit35, !llvm.loop !123
 
 _ZSt4copyIPKSt4pairIPN4llvm8MCSymbolElEPS4_ET0_T_S9_S8_.exit35: ; preds = %.lr.ph.i.i.i.i.i31, %28, %27, %23
@@ -5932,7 +5932,7 @@ define internal fastcc void @_ZL19ARM64EmitUnwindCodeRN4llvm10MCStreamerERKNS_5W
 
 244:                                              ; preds = %2, %2, %2, %2, %2, %2, %2, %2, %2, %2, %2, %2
   %245 = add nsw i32 %4, -34
-  %.cmp = icmp ugt i32 %245, 5
+  %.cmp = icmp samesign ugt i32 %245, 5
   %.zext = and i32 %4, 1
   %246 = lshr i32 %245, 1
   %.urem = add nsw i32 %246, -3

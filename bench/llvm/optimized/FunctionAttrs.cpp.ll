@@ -16478,7 +16478,7 @@ _ZN12_GLOBAL__N_116AttributeInferer19InferenceDescriptoraSEOS1_.exit611: ; preds
   %708 = getelementptr inbounds i8, ptr %.0910.i.i.i.i.i.i520, i64 104
   %709 = getelementptr inbounds i8, ptr %.0811.i.i.i.i.i.i519, i64 104
   %710 = add nsw i64 %.012.i.i.i.i.i.i518, -1
-  %711 = icmp ugt i64 %.012.i.i.i.i.i.i518, 1
+  %711 = icmp samesign ugt i64 %.012.i.i.i.i.i.i518, 1
   br i1 %711, label %.lr.ph.i.i.i.i.i.i517, label %_ZSt4moveIPN12_GLOBAL__N_116AttributeInferer19InferenceDescriptorES3_ET0_T_S5_S4_.exit.i501, !llvm.loop !316
 
 _ZSt4moveIPN12_GLOBAL__N_116AttributeInferer19InferenceDescriptorES3_ET0_T_S5_S4_.exit.i501: ; preds = %_ZN12_GLOBAL__N_116AttributeInferer19InferenceDescriptoraSEOS1_.exit611, %"_ZN4llvm8erase_ifINS_11SmallVectorIN12_GLOBAL__N_116AttributeInferer19InferenceDescriptorELj4EEEZZNS3_3runERKNS_14SmallSetVectorIPNS_8FunctionELj8EEERNS_8SmallSetIS8_Lj8ESt4lessIS8_EEEENK3$_2clERKS4_EUlSJ_E_EEvRT_T0_.exit.i.i297"
@@ -16958,7 +16958,7 @@ _ZN12_GLOBAL__N_116AttributeInferer19InferenceDescriptoraSEOS1_.exit596: ; preds
   %875 = getelementptr inbounds i8, ptr %.0910.i.i.i.i.i.i483, i64 104
   %876 = getelementptr inbounds i8, ptr %.0811.i.i.i.i.i.i482, i64 104
   %877 = add nsw i64 %.012.i.i.i.i.i.i481, -1
-  %878 = icmp ugt i64 %.012.i.i.i.i.i.i481, 1
+  %878 = icmp samesign ugt i64 %.012.i.i.i.i.i.i481, 1
   br i1 %878, label %.lr.ph.i.i.i.i.i.i480, label %_ZSt4moveIPN12_GLOBAL__N_116AttributeInferer19InferenceDescriptorES3_ET0_T_S5_S4_.exit.i464, !llvm.loop !316
 
 _ZSt4moveIPN12_GLOBAL__N_116AttributeInferer19InferenceDescriptorES3_ET0_T_S5_S4_.exit.i464: ; preds = %_ZN12_GLOBAL__N_116AttributeInferer19InferenceDescriptoraSEOS1_.exit596, %"_ZN4llvm8erase_ifINS_11SmallVectorIN12_GLOBAL__N_116AttributeInferer19InferenceDescriptorELj4EEEZZNS3_3runERKNS_14SmallSetVectorIPNS_8FunctionELj8EEERNS_8SmallSetIS8_Lj8ESt4lessIS8_EEEENK3$_2clERKS4_EUlSJ_E_EEvRT_T0_.exit.i.i244"
@@ -17438,7 +17438,7 @@ _ZN12_GLOBAL__N_116AttributeInferer19InferenceDescriptoraSEOS1_.exit581: ; preds
   %1042 = getelementptr inbounds i8, ptr %.0910.i.i.i.i.i.i446, i64 104
   %1043 = getelementptr inbounds i8, ptr %.0811.i.i.i.i.i.i445, i64 104
   %1044 = add nsw i64 %.012.i.i.i.i.i.i444, -1
-  %1045 = icmp ugt i64 %.012.i.i.i.i.i.i444, 1
+  %1045 = icmp samesign ugt i64 %.012.i.i.i.i.i.i444, 1
   br i1 %1045, label %.lr.ph.i.i.i.i.i.i443, label %_ZSt4moveIPN12_GLOBAL__N_116AttributeInferer19InferenceDescriptorES3_ET0_T_S5_S4_.exit.i427, !llvm.loop !316
 
 _ZSt4moveIPN12_GLOBAL__N_116AttributeInferer19InferenceDescriptorES3_ET0_T_S5_S4_.exit.i427: ; preds = %_ZN12_GLOBAL__N_116AttributeInferer19InferenceDescriptoraSEOS1_.exit581, %"_ZN4llvm8erase_ifINS_11SmallVectorIN12_GLOBAL__N_116AttributeInferer19InferenceDescriptorELj4EEEZZNS3_3runERKNS_14SmallSetVectorIPNS_8FunctionELj8EEERNS_8SmallSetIS8_Lj8ESt4lessIS8_EEEENK3$_2clERKS4_EUlSJ_E_EEvRT_T0_.exit.i.i191"
@@ -17918,7 +17918,7 @@ _ZN12_GLOBAL__N_116AttributeInferer19InferenceDescriptoraSEOS1_.exit566: ; preds
   %1209 = getelementptr inbounds i8, ptr %.0910.i.i.i.i.i.i409, i64 104
   %1210 = getelementptr inbounds i8, ptr %.0811.i.i.i.i.i.i408, i64 104
   %1211 = add nsw i64 %.012.i.i.i.i.i.i407, -1
-  %1212 = icmp ugt i64 %.012.i.i.i.i.i.i407, 1
+  %1212 = icmp samesign ugt i64 %.012.i.i.i.i.i.i407, 1
   br i1 %1212, label %.lr.ph.i.i.i.i.i.i406, label %_ZSt4moveIPN12_GLOBAL__N_116AttributeInferer19InferenceDescriptorES3_ET0_T_S5_S4_.exit.i390, !llvm.loop !316
 
 _ZSt4moveIPN12_GLOBAL__N_116AttributeInferer19InferenceDescriptorES3_ET0_T_S5_S4_.exit.i390: ; preds = %_ZN12_GLOBAL__N_116AttributeInferer19InferenceDescriptoraSEOS1_.exit566, %"_ZN4llvm8erase_ifINS_11SmallVectorIN12_GLOBAL__N_116AttributeInferer19InferenceDescriptorELj4EEEZZNS3_3runERKNS_14SmallSetVectorIPNS_8FunctionELj8EEERNS_8SmallSetIS8_Lj8ESt4lessIS8_EEEENK3$_2clERKS4_EUlSJ_E_EEvRT_T0_.exit.i.i138"
@@ -18465,7 +18465,7 @@ _ZN12_GLOBAL__N_116AttributeInferer19InferenceDescriptoraSEOS1_.exit551: ; preds
   %1392 = getelementptr inbounds i8, ptr %.0910.i.i.i.i.i.i372, i64 104
   %1393 = getelementptr inbounds i8, ptr %.0811.i.i.i.i.i.i371, i64 104
   %1394 = add nsw i64 %.012.i.i.i.i.i.i370, -1
-  %1395 = icmp ugt i64 %.012.i.i.i.i.i.i370, 1
+  %1395 = icmp samesign ugt i64 %.012.i.i.i.i.i.i370, 1
   br i1 %1395, label %.lr.ph.i.i.i.i.i.i369, label %_ZSt4moveIPN12_GLOBAL__N_116AttributeInferer19InferenceDescriptorES3_ET0_T_S5_S4_.exit.i353, !llvm.loop !316
 
 _ZSt4moveIPN12_GLOBAL__N_116AttributeInferer19InferenceDescriptorES3_ET0_T_S5_S4_.exit.i353: ; preds = %_ZN12_GLOBAL__N_116AttributeInferer19InferenceDescriptoraSEOS1_.exit551, %"_ZN4llvm8erase_ifINS_11SmallVectorIN12_GLOBAL__N_116AttributeInferer19InferenceDescriptorELj4EEEZZNS3_3runERKNS_14SmallSetVectorIPNS_8FunctionELj8EEERNS_8SmallSetIS8_Lj8ESt4lessIS8_EEEENK3$_2clERKS4_EUlSJ_E_EEvRT_T0_.exit.i.i"
@@ -18791,7 +18791,7 @@ _ZN12_GLOBAL__N_116AttributeInferer19InferenceDescriptoraSEOS1_.exit351: ; preds
   %1503 = getelementptr inbounds i8, ptr %.0910.i.i.i.i.i.i, i64 104
   %1504 = getelementptr inbounds i8, ptr %.0811.i.i.i.i.i.i, i64 104
   %1505 = add nsw i64 %.012.i.i.i.i.i.i, -1
-  %1506 = icmp ugt i64 %.012.i.i.i.i.i.i, 1
+  %1506 = icmp samesign ugt i64 %.012.i.i.i.i.i.i, 1
   br i1 %1506, label %.lr.ph.i.i.i.i.i.i105, label %_ZSt4moveIPN12_GLOBAL__N_116AttributeInferer19InferenceDescriptorES3_ET0_T_S5_S4_.exit.i, !llvm.loop !316
 
 _ZSt4moveIPN12_GLOBAL__N_116AttributeInferer19InferenceDescriptorES3_ET0_T_S5_S4_.exit.i: ; preds = %_ZN12_GLOBAL__N_116AttributeInferer19InferenceDescriptoraSEOS1_.exit351, %"_ZN4llvm8erase_ifINS_11SmallVectorIN12_GLOBAL__N_116AttributeInferer19InferenceDescriptorELj4EEEZNS3_3runERKNS_14SmallSetVectorIPNS_8FunctionELj8EEERNS_8SmallSetIS8_Lj8ESt4lessIS8_EEEE3$_2EEvRT_T0_.exit"
@@ -20013,7 +20013,7 @@ define internal fastcc noundef ptr @_ZN4llvm15SmallVectorImplIN12_GLOBAL__N_116A
   %12 = getelementptr inbounds i8, ptr %.0910.i.i.i.i.i, i64 104
   %13 = getelementptr inbounds i8, ptr %.0811.i.i.i.i.i, i64 104
   %14 = add nsw i64 %.012.i.i.i.i.i, -1
-  %15 = icmp ugt i64 %.012.i.i.i.i.i, 1
+  %15 = icmp samesign ugt i64 %.012.i.i.i.i.i, 1
   br i1 %15, label %.lr.ph.i.i.i.i.i, label %_ZSt4moveIPN12_GLOBAL__N_116AttributeInferer19InferenceDescriptorES3_ET0_T_S5_S4_.exit, !llvm.loop !316
 
 _ZSt4moveIPN12_GLOBAL__N_116AttributeInferer19InferenceDescriptorES3_ET0_T_S5_S4_.exit: ; preds = %.lr.ph.i.i.i.i.i, %3

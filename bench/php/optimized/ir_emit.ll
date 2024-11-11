@@ -609,7 +609,7 @@ define hidden void @dasm_put(ptr nocapture noundef readonly %0, i32 noundef %1, 
   br i1 %53, label %52, label %55
 
 55:                                               ; preds = %52
-  %56 = icmp ult i8 %.0141.in, -12
+  %56 = icmp samesign ult i8 %.0141.in, -12
   br i1 %56, label %57, label %127
 
 57:                                               ; preds = %55
@@ -1631,7 +1631,7 @@ default.unreachable:                              ; preds = %34
 
 143:                                              ; preds = %139
   %144 = icmp eq i32 %.2183223, 4
-  %145 = icmp ult i8 %96, 32
+  %145 = icmp samesign ult i8 %96, 32
   %or.cond3 = select i1 %144, i1 %145, i1 false
   br i1 %or.cond3, label %146, label %151
 
@@ -38789,7 +38789,7 @@ ir_vreg_spill_slot.exit104:                       ; preds = %136, %153
   %376 = getelementptr inbounds i32, ptr %192, i64 %375
   %377 = load i32, ptr %376, align 4
   %378 = icmp eq i32 %377, %351
-  %379 = icmp ult i32 %351, 32
+  %379 = icmp samesign ult i32 %351, 32
   %or.cond.i = and i1 %379, %378
   %380 = icmp slt i32 %372, 32
   %or.cond3.i = select i1 %or.cond.i, i1 %380, i1 false
@@ -38920,7 +38920,7 @@ ir_vreg_spill_slot.exit.i:                        ; preds = %440, %423
 445:                                              ; preds = %366
   %446 = getelementptr inbounds i32, ptr %191, i64 %367
   store i32 %247, ptr %446, align 4
-  %447 = icmp ult i32 %351, 32
+  %447 = icmp samesign ult i32 %351, 32
   br i1 %447, label %448, label %453
 
 448:                                              ; preds = %445
@@ -44021,7 +44021,7 @@ ir_match_fuse_load.exit1211:                      ; preds = %410, %414, %419, %4
   br i1 %.not1129, label %ir_match_fuse_load_cmp_fp.exit, label %478
 
 478:                                              ; preds = %476
-  %479 = icmp ugt i8 %448, 6
+  %479 = icmp samesign ugt i8 %448, 6
   br i1 %479, label %480, label %484
 
 480:                                              ; preds = %478
@@ -44147,7 +44147,7 @@ ir_match_fuse_load.exit1211:                      ; preds = %410, %414, %419, %4
   br i1 %or.cond1158, label %545, label %._crit_edge1244
 
 545:                                              ; preds = %540
-  %546 = icmp ult i8 %525, 7
+  %546 = icmp samesign ult i8 %525, 7
   %.1159 = select i1 %546, i32 131, i32 133
   br label %ir_match_fuse_load_cmp_fp.exit
 
@@ -54853,7 +54853,7 @@ define internal fastcc void @ir_emit_dessa_move(ptr noundef %0, i32 noundef %1, 
   br label %ir_emit_load_mem.exit
 
 12:                                               ; preds = %8
-  %13 = icmp ult i32 %3, 32
+  %13 = icmp samesign ult i32 %3, 32
   br i1 %13, label %14, label %34
 
 14:                                               ; preds = %12
@@ -55091,7 +55091,7 @@ ir_vreg_spill_slot.exit87:                        ; preds = %92, %114
   br label %ir_emit_load_mem.exit
 
 142:                                              ; preds = %ir_vreg_spill_slot.exit87
-  %143 = icmp ult i32 %3, 32
+  %143 = icmp samesign ult i32 %3, 32
   br i1 %143, label %144, label %150
 
 144:                                              ; preds = %142

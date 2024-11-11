@@ -13,7 +13,7 @@ entry:
   br i1 %cmp, label %return, label %if.end
 
 if.end:                                           ; preds = %entry
-  %cmp1 = icmp ugt i64 %cont_len, 255
+  %cmp1 = icmp samesign ugt i64 %cont_len, 255
   br i1 %cmp1, label %if.then2, label %if.else
 
 if.then2:                                         ; preds = %if.end
@@ -27,7 +27,7 @@ lor.lhs.false:                                    ; preds = %if.then2
   br i1 %tobool4.not, label %return, label %if.end16
 
 if.else:                                          ; preds = %if.end
-  %cmp7 = icmp ugt i64 %cont_len, 127
+  %cmp7 = icmp samesign ugt i64 %cont_len, 127
   br i1 %cmp7, label %land.lhs.true, label %if.end11
 
 land.lhs.true:                                    ; preds = %if.else
@@ -75,7 +75,7 @@ lor.lhs.false:                                    ; preds = %if.end
   br i1 %or.cond, label %return, label %if.end.i
 
 if.end.i:                                         ; preds = %lor.lhs.false
-  %cmp1.i = icmp ugt i32 %add, 255
+  %cmp1.i = icmp samesign ugt i32 %add, 255
   br i1 %cmp1.i, label %if.then2.i, label %if.else.i
 
 if.then2.i:                                       ; preds = %if.end.i
@@ -89,7 +89,7 @@ lor.lhs.false.i:                                  ; preds = %if.then2.i
   br i1 %tobool4.not.i, label %return, label %lor.lhs.false9
 
 if.else.i:                                        ; preds = %if.end.i
-  %cmp7.i = icmp ugt i32 %add, 127
+  %cmp7.i = icmp samesign ugt i32 %add, 127
   br i1 %cmp7.i, label %land.lhs.true.i, label %if.end11.i
 
 land.lhs.true.i:                                  ; preds = %if.else.i
@@ -203,7 +203,7 @@ lor.lhs.false27:                                  ; preds = %if.end24
   br i1 %cmp.i, label %return, label %if.end.i
 
 if.end.i:                                         ; preds = %lor.lhs.false27
-  %cmp1.i = icmp ugt i64 %0, 255
+  %cmp1.i = icmp samesign ugt i64 %0, 255
   br i1 %cmp1.i, label %if.then2.i, label %if.else.i
 
 if.then2.i:                                       ; preds = %if.end.i
@@ -217,7 +217,7 @@ lor.lhs.false.i:                                  ; preds = %if.then2.i
   br i1 %tobool4.not.i, label %return, label %lor.lhs.false30
 
 if.else.i:                                        ; preds = %if.end.i
-  %cmp7.i = icmp ugt i64 %0, 127
+  %cmp7.i = icmp samesign ugt i64 %0, 127
   br i1 %cmp7.i, label %land.lhs.true.i, label %if.end11.i
 
 land.lhs.true.i:                                  ; preds = %if.else.i
@@ -510,7 +510,7 @@ if.end.i6:                                        ; preds = %PACKET_get_1.exit
 
 if.then1.i:                                       ; preds = %if.end.i6
   %conv.i = zext nneg i8 %2 to i64
-  %cmp.i.i.i = icmp ult i64 %sub.i.i.i, %conv.i
+  %cmp.i.i.i = icmp samesign ult i64 %sub.i.i.i, %conv.i
   br i1 %cmp.i.i.i, label %return, label %if.end.i7.i
 
 if.end.i7.i:                                      ; preds = %if.then1.i
@@ -534,7 +534,7 @@ lor.lhs.false.i.i:                                ; preds = %if.then6.i
   %3 = load i8, ptr %add.ptr.i.i.i, align 1
   %sub.i.i.i.i = add nsw i64 %len, -3
   %conv.i.i9 = zext i8 %3 to i64
-  %cmp.i.i.i.i = icmp ult i64 %sub.i.i.i.i, %conv.i.i9
+  %cmp.i.i.i.i = icmp samesign ult i64 %sub.i.i.i.i, %conv.i.i9
   br i1 %cmp.i.i.i.i, label %return, label %if.end.i11.i
 
 if.end.i11.i:                                     ; preds = %lor.lhs.false.i.i
@@ -546,7 +546,7 @@ if.end.i11.i:                                     ; preds = %lor.lhs.false.i.i
   br label %lor.lhs.false7
 
 if.then11.i:                                      ; preds = %if.end3.i
-  %cmp.i.i.i13.i = icmp ult i64 %len, 4
+  %cmp.i.i.i13.i = icmp samesign ult i64 %len, 4
   br i1 %cmp.i.i.i13.i, label %return, label %lor.lhs.false.i14.i
 
 lor.lhs.false.i14.i:                              ; preds = %if.then11.i
@@ -558,7 +558,7 @@ lor.lhs.false.i14.i:                              ; preds = %if.then11.i
   %conv2.i.i.i.i = zext i8 %5 to i64
   %or.i.i.i.i = or disjoint i64 %shl.i.i.i.i, %conv2.i.i.i.i
   %sub.i.i.i17.i = add nsw i64 %len, -4
-  %cmp.i.i4.i.i = icmp ult i64 %sub.i.i.i17.i, %or.i.i.i.i
+  %cmp.i.i4.i.i = icmp samesign ult i64 %sub.i.i.i17.i, %or.i.i.i.i
   br i1 %cmp.i.i4.i.i, label %return, label %if.end.i18.i
 
 if.end.i18.i:                                     ; preds = %lor.lhs.false.i14.i

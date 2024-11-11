@@ -237,7 +237,7 @@ for.body.i.i:                                     ; preds = %if.end43.i.i, %for.
   %i.2.i.i = phi i32 [ %dec.i.i, %for.body.i.i ], [ %i.1.i.i, %if.end43.i.i ]
   %call51.i.i = call fastcc i64 @sstep(ptr noundef %16, i64 noundef range(i64 -9223372036854775807, -9223372036854775808) %add.i, i64 noundef %6, i64 noundef %st.2.i.i, i32 noundef %flagch.1.i.i, i64 noundef %st.2.i.i)
   %dec.i.i = add nsw i32 %i.2.i.i, -1
-  %cmp48.old.i.i = icmp ugt i32 %i.2.i.i, 1
+  %cmp48.old.i.i = icmp samesign ugt i32 %i.2.i.i, 1
   br i1 %cmp48.old.i.i, label %for.body.i.i, label %if.end52.i.i
 
 if.end52.i.i:                                     ; preds = %for.body.i.i, %if.end43.i.i
@@ -817,7 +817,7 @@ for.body.i.i90:                                   ; preds = %if.end49.i.i, %for.
   %91 = load ptr, ptr %mv.i12, align 8
   %call57.i.i = call fastcc ptr @lstep(ptr noundef %91, i64 noundef range(i64 -9223372036854775807, -9223372036854775808) %add.i14, i64 noundef %63, ptr noundef %71, i32 noundef %flagch.1.i.i63, ptr noundef %71)
   %dec.i.i92 = add nsw i32 %i.2.i.i91, -1
-  %cmp54.old.i.i = icmp ugt i32 %i.2.i.i91, 1
+  %cmp54.old.i.i = icmp samesign ugt i32 %i.2.i.i91, 1
   br i1 %cmp54.old.i.i, label %for.body.i.i90, label %if.end58.i.i
 
 if.end58.i.i:                                     ; preds = %for.body.i.i90, %if.end49.i.i
@@ -1285,7 +1285,7 @@ for.body:                                         ; preds = %if.end39, %for.body
   %i.2 = phi i32 [ %dec, %for.body ], [ %i.1, %if.end39 ]
   %call47 = tail call fastcc i64 @sstep(ptr noundef %3, i64 noundef %startst, i64 noundef %stopst, i64 noundef %st.2, i32 noundef %flagch.1, i64 noundef %st.2)
   %dec = add nsw i32 %i.2, -1
-  %cmp44.old = icmp ugt i32 %i.2, 1
+  %cmp44.old = icmp samesign ugt i32 %i.2, 1
   br i1 %cmp44.old, label %for.body, label %if.end48
 
 if.end48:                                         ; preds = %for.body, %if.end39
@@ -2504,7 +2504,7 @@ for.body:                                         ; preds = %if.end40, %for.body
   %20 = load ptr, ptr %m, align 8
   %call48 = tail call fastcc ptr @lstep(ptr noundef %20, i64 noundef %startst, i64 noundef %stopst, ptr noundef %0, i32 noundef %flagch.1, ptr noundef %0)
   %dec = add nsw i32 %i.2, -1
-  %cmp45.old = icmp ugt i32 %i.2, 1
+  %cmp45.old = icmp samesign ugt i32 %i.2, 1
   br i1 %cmp45.old, label %for.body, label %if.end49
 
 if.end49:                                         ; preds = %for.body, %if.end40

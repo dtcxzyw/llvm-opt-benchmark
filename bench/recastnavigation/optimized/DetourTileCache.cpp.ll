@@ -261,7 +261,7 @@ define noundef range(i32 1073741824, -2147483639) i32 @_ZN11dtTileCache4initEPK1
   %30 = load ptr, ptr %16, align 8
   %31 = getelementptr inbounds %struct.dtTileCacheObstacle, ptr %30, i64 %indvars.iv.next
   store ptr %31, ptr %21, align 8
-  %32 = icmp ugt i64 %indvars.iv, 1
+  %32 = icmp samesign ugt i64 %indvars.iv, 1
   br i1 %32, label %.lr.ph, label %._crit_edge, !llvm.loop !6
 
 ._crit_edge:                                      ; preds = %.lr.ph, %17
@@ -338,7 +338,7 @@ define noundef range(i32 1073741824, -2147483639) i32 @_ZN11dtTileCache4initEPK1
   %78 = load ptr, ptr %53, align 8
   %79 = getelementptr inbounds %struct.dtCompressedTile, ptr %78, i64 %indvars.iv.next28
   store ptr %79, ptr %69, align 8
-  %80 = icmp ugt i64 %indvars.iv27, 1
+  %80 = icmp samesign ugt i64 %indvars.iv27, 1
   br i1 %80, label %.lr.ph24, label %._crit_edge25.loopexit, !llvm.loop !7
 
 ._crit_edge25.loopexit:                           ; preds = %.lr.ph24

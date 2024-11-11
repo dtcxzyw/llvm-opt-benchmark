@@ -3414,7 +3414,7 @@ define range(i32 0, 2) i32 @Abc_NtkCombinePos(ptr noundef %0, i32 noundef %1, i3
   %82 = getelementptr inbounds ptr, ptr %.val38.val, i64 %indvars.iv.next79
   %83 = load ptr, ptr %82, align 8
   tail call void @Abc_NtkDeleteObj(ptr noundef %83) #16
-  %84 = icmp ugt i64 %indvars.iv78, 1
+  %84 = icmp samesign ugt i64 %indvars.iv78, 1
   br i1 %84, label %.critedge, label %.critedge._crit_edge, !llvm.loop !36
 
 .critedge._crit_edge:                             ; preds = %.critedge, %.thread, %9, %.critedge.preheader

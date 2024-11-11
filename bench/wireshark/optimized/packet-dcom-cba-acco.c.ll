@@ -2662,7 +2662,7 @@ proto_item_set_generated.exit:                    ; preds = %39, %36, %33, %29, 
   br i1 %.not244285, label %._crit_edge, label %.lr.ph292
 
 .lr.ph292:                                        ; preds = %.preheader
-  %or.cond8.not = icmp ult i8 %26, 16
+  %or.cond8.not = icmp samesign ult i8 %26, 16
   %45 = icmp eq i8 %26, 1
   %46 = select i1 %45, ptr @.str.277, ptr @.str.278
   %47 = getelementptr inbounds i8, ptr %4, i64 36

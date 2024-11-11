@@ -5798,7 +5798,7 @@ if.then3.i.i.i:                                   ; preds = %if.then.i.i.i
   br label %while.end.i.i4.i
 
 if.else.i.i.i:                                    ; preds = %if.then.i.i.i
-  %cmp6.i.i.i = icmp ult i8 %9, 6
+  %cmp6.i.i.i = icmp samesign ult i8 %9, 6
   br i1 %cmp6.i.i.i, label %if.then8.i.i.i, label %while.end.i.i4.i
 
 if.then8.i.i.i:                                   ; preds = %if.else.i.i.i

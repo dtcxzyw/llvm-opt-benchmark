@@ -748,7 +748,7 @@ land.rhs.i:                                       ; preds = %for.body7.i, %land.
 
 for.body7.i:                                      ; preds = %land.rhs.i
   %inc.i = add i64 %reps.022.i, 1
-  %k.0.i = add nuw i64 %k.023.i, 1
+  %k.0.i = add i64 %k.023.i, 1
   %exitcond.not.i = icmp eq i64 %k.0.i, %new_length.088
   br i1 %exitcond.not.i, label %for.end.loopexit.i, label %land.rhs.i, !llvm.loop !21
 
@@ -925,7 +925,7 @@ if.end15.i:                                       ; preds = %if.else.i, %if.end1
   %25 = load i64, ptr %tree_size, align 8
   %inc11.i = add i64 %25, 1
   store i64 %inc11.i, ptr %tree_size, align 8
-  %cmp12.i31 = icmp ult i64 %dec16.i, 8
+  %cmp12.i31 = icmp samesign ult i64 %dec16.i, 8
   br i1 %cmp12.i31, label %while.end.i, label %if.end15.i
 
 while.end.i:                                      ; preds = %if.end15.i, %if.else.i
@@ -1070,7 +1070,7 @@ if.end28.i:                                       ; preds = %if.else.i42, %if.en
   %49 = load i64, ptr %tree_size, align 8
   %inc24.i45 = add i64 %49, 1
   store i64 %inc24.i45, ptr %tree_size, align 8
-  %cmp25.i = icmp ult i64 %dec29.i, 4
+  %cmp25.i = icmp samesign ult i64 %dec29.i, 4
   br i1 %cmp25.i, label %while.end.i46, label %if.end28.i
 
 while.end.i46:                                    ; preds = %if.end28.i, %if.else.i42

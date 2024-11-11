@@ -678,7 +678,7 @@ set_optimize_info_from_tree.exit.thread106:       ; preds = %87
   %152 = zext i1 %.inv.i.i to i32
   %153 = shl i32 %149, %152
   %154 = udiv i32 200, %145
-  %155 = icmp ugt i32 %145, 200
+  %155 = icmp samesign ugt i32 %145, 200
   br i1 %155, label %comp_opt_exact_or_map_info.exit.thread.i, label %156
 
 156:                                              ; preds = %147
@@ -4191,7 +4191,7 @@ is_anychar_star_quantifier.exit:                  ; preds = %648
   %684 = add nuw i32 %640, 6
   %.0136.i.le344 = select i1 %.not158.i.le, i32 %640, i32 %684
   %685 = icmp eq i32 %678, 1
-  %686 = icmp ugt i32 %640, 50
+  %686 = icmp samesign ugt i32 %640, 50
   %or.cond.i = and i1 %686, %685
   br i1 %or.cond.i, label %687, label %693
 
@@ -11697,7 +11697,7 @@ bitset_is_empty.exit.i:                           ; preds = %168, %167, %159
 
 234:                                              ; preds = %228
   %235 = icmp eq i32 %230, 1
-  %236 = icmp ugt i32 %206, 50
+  %236 = icmp samesign ugt i32 %206, 50
   %or.cond3.i = and i1 %236, %235
   %.056.i = select i1 %or.cond3.i, i32 5, i32 %232
   %237 = getelementptr inbounds i8, ptr %0, i64 24

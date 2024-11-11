@@ -30552,7 +30552,7 @@ _ZNSt12_Vector_baseINSt7__cxx119sub_matchIN9__gnu_cxx17__normal_iteratorIPKcNS0_
   %45 = getelementptr inbounds i8, ptr %.0910.i.i.i.i.i, i64 24
   %46 = getelementptr inbounds i8, ptr %.0811.i.i.i.i.i, i64 24
   %47 = add nsw i64 %.012.i.i.i.i.i, -1
-  %48 = icmp ugt i64 %.012.i.i.i.i.i, 1
+  %48 = icmp samesign ugt i64 %.012.i.i.i.i.i, 1
   br i1 %48, label %.lr.ph.i.i.i.i.i, label %_ZSt22__uninitialized_copy_aIPNSt7__cxx119sub_matchIN9__gnu_cxx17__normal_iteratorIPKcNS0_12basic_stringIcSt11char_traitsIcESaIcEEEEEEESD_SC_ET0_T_SF_SE_RSaIT1_E.exit, !llvm.loop !239
 
 49:                                               ; preds = %29
@@ -30581,7 +30581,7 @@ _ZNSt12_Vector_baseINSt7__cxx119sub_matchIN9__gnu_cxx17__normal_iteratorIPKcNS0_
   %60 = getelementptr inbounds i8, ptr %.0910.i.i.i.i.i30, i64 24
   %61 = getelementptr inbounds i8, ptr %.0811.i.i.i.i.i29, i64 24
   %62 = add nsw i64 %.012.i.i.i.i.i28, -1
-  %63 = icmp ugt i64 %.012.i.i.i.i.i28, 1
+  %63 = icmp samesign ugt i64 %.012.i.i.i.i.i28, 1
   br i1 %63, label %.lr.ph.i.i.i.i.i27, label %_ZSt4copyIPNSt7__cxx119sub_matchIN9__gnu_cxx17__normal_iteratorIPKcNS0_12basic_stringIcSt11char_traitsIcESaIcEEEEEEESD_ET0_T_SF_SE_.exit.loopexit, !llvm.loop !240
 
 _ZSt4copyIPNSt7__cxx119sub_matchIN9__gnu_cxx17__normal_iteratorIPKcNS0_12basic_stringIcSt11char_traitsIcESaIcEEEEEEESD_ET0_T_SF_SE_.exit.loopexit: ; preds = %.lr.ph.i.i.i.i.i27
@@ -31835,7 +31835,7 @@ _ZNKSt7__cxx1114regex_iteratorIN9__gnu_cxx17__normal_iteratorIPKcNS_12basic_stri
 .noexc39.us.us:                                   ; preds = %.lr.ph.i.i.i.i.i36.us.us
   %32 = getelementptr inbounds i8, ptr %.056.i.i.i.i.i38.us.us, i64 1
   %33 = add nsw i64 %.07.i.i.i.i.i37.us.us, -1
-  %34 = icmp ugt i64 %.07.i.i.i.i.i37.us.us, 1
+  %34 = icmp samesign ugt i64 %.07.i.i.i.i.i37.us.us, 1
   br i1 %34, label %.lr.ph.i.i.i.i.i36.us.us, label %_ZSt4copyIN9__gnu_cxx17__normal_iteratorIPKcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEESt20back_insert_iteratorIS9_EET0_T_SE_SD_.exit40.us.us, !llvm.loop !244
 
 _ZSt4copyIN9__gnu_cxx17__normal_iteratorIPKcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEESt20back_insert_iteratorIS9_EET0_T_SE_SD_.exit40.us.us: ; preds = %.noexc39.us.us, %_ZNKSt7__cxx1114regex_iteratorIN9__gnu_cxx17__normal_iteratorIPKcNS_12basic_stringIcSt11char_traitsIcESaIcEEEEEcNS_12regex_traitsIcEEEeqERKSD_.exit.preheader.split.us.split.us
@@ -31904,7 +31904,7 @@ _ZNKSt7__cxx1114regex_iteratorIN9__gnu_cxx17__normal_iteratorIPKcNS_12basic_stri
 .noexc39.us:                                      ; preds = %.lr.ph.i.i.i.i.i36.us
   %66 = getelementptr inbounds i8, ptr %.056.i.i.i.i.i38.us, i64 1
   %67 = add nsw i64 %.07.i.i.i.i.i37.us, -1
-  %68 = icmp ugt i64 %.07.i.i.i.i.i37.us, 1
+  %68 = icmp samesign ugt i64 %.07.i.i.i.i.i37.us, 1
   br i1 %68, label %.lr.ph.i.i.i.i.i36.us, label %_ZSt4copyIN9__gnu_cxx17__normal_iteratorIPKcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEESt20back_insert_iteratorIS9_EET0_T_SE_SD_.exit40.us, !llvm.loop !244
 
 _ZSt4copyIN9__gnu_cxx17__normal_iteratorIPKcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEESt20back_insert_iteratorIS9_EET0_T_SE_SD_.exit40.us: ; preds = %.noexc39.us, %_ZNKSt7__cxx1114regex_iteratorIN9__gnu_cxx17__normal_iteratorIPKcNS_12basic_stringIcSt11char_traitsIcESaIcEEEEEcNS_12regex_traitsIcEEEeqERKSD_.exit.preheader.split.us.split
@@ -31990,7 +31990,7 @@ _ZNSt7__cxx1114regex_iteratorIN9__gnu_cxx17__normal_iteratorIPKcNS_12basic_strin
 .noexc:                                           ; preds = %.lr.ph.i.i.i.i.i
   %104 = getelementptr inbounds i8, ptr %.056.i.i.i.i.i, i64 1
   %105 = add nsw i64 %.07.i.i.i.i.i, -1
-  %106 = icmp ugt i64 %.07.i.i.i.i.i, 1
+  %106 = icmp samesign ugt i64 %.07.i.i.i.i.i, 1
   br i1 %106, label %.lr.ph.i.i.i.i.i, label %_ZNSt7__cxx1114regex_iteratorIN9__gnu_cxx17__normal_iteratorIPKcNS_12basic_stringIcSt11char_traitsIcESaIcEEEEEcNS_12regex_traitsIcEEED2Ev.exit48, !llvm.loop !244
 
 _ZNSt7__cxx1114regex_iteratorIN9__gnu_cxx17__normal_iteratorIPKcNS_12basic_stringIcSt11char_traitsIcESaIcEEEEEcNS_12regex_traitsIcEEED2Ev.exit.loopexit: ; preds = %.lr.ph.i.i.i.i.i
@@ -32042,7 +32042,7 @@ _ZNKSt7__cxx1114regex_iteratorIN9__gnu_cxx17__normal_iteratorIPKcNS_12basic_stri
 .noexc45:                                         ; preds = %.lr.ph.i.i.i.i.i42
   %114 = getelementptr inbounds i8, ptr %.056.i.i.i.i.i44, i64 1
   %115 = add nsw i64 %.07.i.i.i.i.i43, -1
-  %116 = icmp ugt i64 %.07.i.i.i.i.i43, 1
+  %116 = icmp samesign ugt i64 %.07.i.i.i.i.i43, 1
   br i1 %116, label %.lr.ph.i.i.i.i.i42, label %_ZNSt7__cxx1114regex_iteratorIN9__gnu_cxx17__normal_iteratorIPKcNS_12basic_stringIcSt11char_traitsIcESaIcEEEEEcNS_12regex_traitsIcEEED2Ev.exit48, !llvm.loop !244
 
 _ZNSt7__cxx1114regex_iteratorIN9__gnu_cxx17__normal_iteratorIPKcNS_12basic_stringIcSt11char_traitsIcESaIcEEEEEcNS_12regex_traitsIcEEED2Ev.exit48: ; preds = %.noexc45, %.noexc, %_ZSt4copyIN9__gnu_cxx17__normal_iteratorIPKcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEESt20back_insert_iteratorIS9_EET0_T_SE_SD_.exit40, %98, %_ZNKSt7__cxx1114regex_iteratorIN9__gnu_cxx17__normal_iteratorIPKcNS_12basic_stringIcSt11char_traitsIcESaIcEEEEEcNS_12regex_traitsIcEEEeqERKSD_.exit80
@@ -32265,7 +32265,7 @@ _ZNKSt7__cxx1113match_resultsIN9__gnu_cxx17__normal_iteratorIPKcNS_12basic_strin
 .noexc:                                           ; preds = %.lr.ph.i.i.i.i.i.i
   %50 = getelementptr inbounds i8, ptr %.056.i.i.i.i.i.i, i64 1
   %51 = add nsw i64 %.07.i.i.i.i.i.i, -1
-  %52 = icmp ugt i64 %.07.i.i.i.i.i.i, 1
+  %52 = icmp samesign ugt i64 %.07.i.i.i.i.i.i, 1
   br i1 %52, label %.lr.ph.i.i.i.i.i.i, label %_ZZNKSt7__cxx1113match_resultsIN9__gnu_cxx17__normal_iteratorIPKcNS_12basic_stringIcSt11char_traitsIcESaIcEEEEESaINS_9sub_matchISA_EEEE6formatISt20back_insert_iteratorIS9_EEET_SI_S4_S4_NSt15regex_constants15match_flag_typeEENKUlmE_clEm.exit, !llvm.loop !244
 
 53:                                               ; preds = %5
@@ -32376,7 +32376,7 @@ _ZNKSt7__cxx1113match_resultsIN9__gnu_cxx17__normal_iteratorIPKcNS_12basic_strin
 .noexc78:                                         ; preds = %.lr.ph.i.i.i.i.i.i73
   %73 = getelementptr inbounds i8, ptr %.056.i.i.i.i.i.i75, i64 1
   %74 = add nsw i64 %.07.i.i.i.i.i.i74, -1
-  %75 = icmp ugt i64 %.07.i.i.i.i.i.i74, 1
+  %75 = icmp samesign ugt i64 %.07.i.i.i.i.i.i74, 1
   br i1 %75, label %.lr.ph.i.i.i.i.i.i73, label %_ZZNKSt7__cxx1113match_resultsIN9__gnu_cxx17__normal_iteratorIPKcNS_12basic_stringIcSt11char_traitsIcESaIcEEEEESaINS_9sub_matchISA_EEEE6formatISt20back_insert_iteratorIS9_EEET_SI_S4_S4_NSt15regex_constants15match_flag_typeEENKUlmE_clEm.exit, !llvm.loop !244
 
 76:                                               ; preds = %56
@@ -32513,7 +32513,7 @@ _ZSt4findIPKccET_S2_S2_RKT0_.exit:                ; preds = %86, %_ZSt4findIPKcc
 .noexc85:                                         ; preds = %.lr.ph.i.i.i.i.i
   %126 = getelementptr inbounds i8, ptr %.056.i.i.i.i.i, i64 1
   %127 = add nsw i64 %.07.i.i.i.i.i, -1
-  %128 = icmp ugt i64 %.07.i.i.i.i.i, 1
+  %128 = icmp samesign ugt i64 %.07.i.i.i.i.i, 1
   br i1 %128, label %.lr.ph.i.i.i.i.i, label %_ZSt4copyIPKcSt20back_insert_iteratorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEET0_T_SB_SA_.exit, !llvm.loop !244
 
 _ZSt4copyIPKcSt20back_insert_iteratorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEET0_T_SB_SA_.exit: ; preds = %.noexc85, %121
@@ -32577,7 +32577,7 @@ _ZNKSt7__cxx1113match_resultsIN9__gnu_cxx17__normal_iteratorIPKcNS_12basic_strin
 .noexc108:                                        ; preds = %.lr.ph.i.i.i.i.i.i103
   %152 = getelementptr inbounds i8, ptr %.056.i.i.i.i.i.i105, i64 1
   %153 = add nsw i64 %.07.i.i.i.i.i.i104, -1
-  %154 = icmp ugt i64 %.07.i.i.i.i.i.i104, 1
+  %154 = icmp samesign ugt i64 %.07.i.i.i.i.i.i104, 1
   br i1 %154, label %.lr.ph.i.i.i.i.i.i103, label %_ZNSt20back_insert_iteratorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEaSEOc.exit88, !llvm.loop !244
 
 155:                                              ; preds = %131
@@ -32614,7 +32614,7 @@ _ZNKSt7__cxx1113match_resultsIN9__gnu_cxx17__normal_iteratorIPKcNS_12basic_strin
 .noexc114:                                        ; preds = %.lr.ph.i.i.i.i.i111
   %174 = getelementptr inbounds i8, ptr %.056.i.i.i.i.i113, i64 1
   %175 = add nsw i64 %.07.i.i.i.i.i112, -1
-  %176 = icmp ugt i64 %.07.i.i.i.i.i112, 1
+  %176 = icmp samesign ugt i64 %.07.i.i.i.i.i112, 1
   br i1 %176, label %.lr.ph.i.i.i.i.i111, label %_ZNSt20back_insert_iteratorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEaSEOc.exit88, !llvm.loop !244
 
 177:                                              ; preds = %131
@@ -32651,7 +32651,7 @@ _ZNKSt7__cxx1113match_resultsIN9__gnu_cxx17__normal_iteratorIPKcNS_12basic_strin
 .noexc119:                                        ; preds = %.lr.ph.i.i.i.i.i116
   %196 = getelementptr inbounds i8, ptr %.056.i.i.i.i.i118, i64 1
   %197 = add nsw i64 %.07.i.i.i.i.i117, -1
-  %198 = icmp ugt i64 %.07.i.i.i.i.i117, 1
+  %198 = icmp samesign ugt i64 %.07.i.i.i.i.i117, 1
   br i1 %198, label %.lr.ph.i.i.i.i.i116, label %_ZNSt20back_insert_iteratorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEaSEOc.exit88, !llvm.loop !244
 
 _ZZNKSt7__cxx1113match_resultsIN9__gnu_cxx17__normal_iteratorIPKcNS_12basic_stringIcSt11char_traitsIcESaIcEEEEESaINS_9sub_matchISA_EEEE6formatISt20back_insert_iteratorIS9_EEET_SI_S4_S4_NSt15regex_constants15match_flag_typeEENKUlcE_clEc.exit115: ; preds = %131
@@ -32742,7 +32742,7 @@ _ZNKSt7__cxx1113match_resultsIN9__gnu_cxx17__normal_iteratorIPKcNS_12basic_strin
 .noexc136:                                        ; preds = %.lr.ph.i.i.i.i.i.i131
   %246 = getelementptr inbounds i8, ptr %.056.i.i.i.i.i.i133, i64 1
   %247 = add nsw i64 %.07.i.i.i.i.i.i132, -1
-  %248 = icmp ugt i64 %.07.i.i.i.i.i.i132, 1
+  %248 = icmp samesign ugt i64 %.07.i.i.i.i.i.i132, 1
   br i1 %248, label %.lr.ph.i.i.i.i.i.i131, label %_ZNSt20back_insert_iteratorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEaSEOc.exit88, !llvm.loop !244
 
 _ZNSt20back_insert_iteratorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEaSEOc.exit88: ; preds = %.noexc119, %.noexc114, %.noexc108, %.noexc136, %.invoke, %225, %_ZNKSt7__cxx1113match_resultsIN9__gnu_cxx17__normal_iteratorIPKcNS_12basic_stringIcSt11char_traitsIcESaIcEEEEESaINS_9sub_matchISA_EEEE4sizeEv.exit.i.i124, %239, %_ZNKSt7__cxx1113match_resultsIN9__gnu_cxx17__normal_iteratorIPKcNS_12basic_stringIcSt11char_traitsIcESaIcEEEEESaINS_9sub_matchISA_EEEE4sizeEv.exit.thread, %188, %166, %_ZNKSt7__cxx1113match_resultsIN9__gnu_cxx17__normal_iteratorIPKcNS_12basic_stringIcSt11char_traitsIcESaIcEEEEESaINS_9sub_matchISA_EEEEixEm.exit.i98, %145, %133, %155, %223, %177
@@ -32763,7 +32763,7 @@ _ZSt4findIPKccET_S2_S2_RKT0_.exit.thread:         ; preds = %._crit_edge._crit_e
 .noexc144:                                        ; preds = %.lr.ph.i.i.i.i.i141
   %251 = getelementptr inbounds i8, ptr %.056.i.i.i.i.i143, i64 1
   %252 = add nsw i64 %.07.i.i.i.i.i142, -1
-  %253 = icmp ugt i64 %.07.i.i.i.i.i142, 1
+  %253 = icmp samesign ugt i64 %.07.i.i.i.i.i142, 1
   br i1 %253, label %.lr.ph.i.i.i.i.i141, label %_ZNSt20back_insert_iteratorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEaSEOc.exit, !llvm.loop !244
 
 _ZNSt20back_insert_iteratorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEaSEOc.exit: ; preds = %.noexc144, %.preheader224, %_ZSt4findIPKccET_S2_S2_RKT0_.exit.thread, %79, %._crit_edge

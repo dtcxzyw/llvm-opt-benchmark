@@ -49,7 +49,7 @@ define hidden void @VP8InitDithering(ptr noundef readonly %0, ptr noundef %1) lo
   br i1 %6, label %.thread, label %7
 
 7:                                                ; preds = %3
-  %8 = icmp ugt i32 %5, 100
+  %8 = icmp samesign ugt i32 %5, 100
   br i1 %8, label %.preheader, label %9
 
 9:                                                ; preds = %7
@@ -1365,8 +1365,8 @@ define hidden i32 @VP8EnterCritical(ptr noundef %0, ptr noundef %1) local_unname
   %83 = tail call i32 @llvm.smax.i32(i32 %82, i32 0)
   %.not56.us.us.i = icmp slt i32 %.048.us.i, 1
   %84 = shl nuw nsw i32 %83, 1
-  %85 = icmp ugt i32 %.048.us.i, 39
-  %86 = icmp ugt i32 %.048.us.i, 14
+  %85 = icmp samesign ugt i32 %.048.us.i, 39
+  %86 = icmp samesign ugt i32 %.048.us.i, 14
   %87 = zext i1 %86 to i8
   %88 = select i1 %85, i8 2, i8 %87
   br i1 %.not56.us.us.i, label %.split.us.split.us.us.i, label %.split.us.split.us64.i
@@ -1419,7 +1419,7 @@ define hidden i32 @VP8EnterCritical(ptr noundef %0, ptr noundef %1) local_unname
   br label %.split59.us.us.i
 
 .split.us.split.split.us.us.i:                    ; preds = %.split.us.split.us64.i
-  %105 = icmp ugt i32 %89, 4
+  %105 = icmp samesign ugt i32 %89, 4
   %.1.v.us.us.i = select i1 %105, i32 2, i32 1
   %.1.us.us.i = lshr i32 %83, %.1.v.us.us.i
   %106 = sub nsw i32 9, %89
@@ -1484,7 +1484,7 @@ define hidden i32 @VP8EnterCritical(ptr noundef %0, ptr noundef %1) local_unname
   br i1 %131, label %132, label %135
 
 132:                                              ; preds = %129
-  %133 = icmp ugt i32 %130, 4
+  %133 = icmp samesign ugt i32 %130, 4
   %.1.v.i.us = select i1 %133, i32 2, i32 1
   %.1.i.us = lshr i32 %128, %.1.v.i.us
   %134 = sub nsw i32 9, %130
@@ -1501,8 +1501,8 @@ define hidden i32 @VP8EnterCritical(ptr noundef %0, ptr noundef %1) local_unname
   %139 = add nuw nsw i32 %spec.store.select.i.us, %138
   %140 = trunc nuw i32 %139 to i8
   store i8 %140, ptr %122, align 1
-  %141 = icmp ugt i32 %.046.i.us, 39
-  %142 = icmp ugt i32 %.046.i.us, 14
+  %141 = icmp samesign ugt i32 %.046.i.us, 39
+  %142 = icmp samesign ugt i32 %.046.i.us, 14
   %143 = zext i1 %142 to i8
   %144 = select i1 %141, i8 2, i8 %143
   %145 = getelementptr inbounds i8, ptr %122, i64 3
@@ -1570,7 +1570,7 @@ define hidden i32 @VP8EnterCritical(ptr noundef %0, ptr noundef %1) local_unname
   br i1 %169, label %170, label %173
 
 170:                                              ; preds = %167
-  %171 = icmp ugt i32 %168, 4
+  %171 = icmp samesign ugt i32 %168, 4
   %.1.v.i = select i1 %171, i32 2, i32 1
   %.1.i = lshr i32 %166, %.1.v.i
   %172 = sub nsw i32 9, %168
@@ -1587,8 +1587,8 @@ define hidden i32 @VP8EnterCritical(ptr noundef %0, ptr noundef %1) local_unname
   %177 = add nuw nsw i32 %spec.store.select.i, %176
   %178 = trunc nuw i32 %177 to i8
   store i8 %178, ptr %160, align 1
-  %179 = icmp ugt i32 %.046.i, 39
-  %180 = icmp ugt i32 %.046.i, 14
+  %179 = icmp samesign ugt i32 %.046.i, 39
+  %180 = icmp samesign ugt i32 %.046.i, 14
   %181 = zext i1 %180 to i8
   %182 = select i1 %179, i8 2, i8 %181
   %183 = getelementptr inbounds i8, ptr %160, i64 3

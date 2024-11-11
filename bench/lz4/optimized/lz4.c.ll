@@ -111,7 +111,7 @@ if.end10.i89:                                     ; preds = %if.end.i87
   store i32 %add77.i, ptr %currentOffset.i, align 8
   %tableType78.i = getelementptr inbounds i8, ptr %retval.0.i, i64 16404
   store i32 3, ptr %tableType78.i, align 4
-  %cmp79.i = icmp ult i32 %inputSize, 13
+  %cmp79.i = icmp samesign ult i32 %inputSize, 13
   br i1 %cmp79.i, label %_last_literals.i, label %if.end.i685.i
 
 if.end.i685.i:                                    ; preds = %if.end10.i89
@@ -1016,7 +1016,7 @@ if.end10.i33:                                     ; preds = %if.end.i31
   store i32 %add77.i1052, ptr %currentOffset.i984, align 8
   %tableType78.i1053 = getelementptr inbounds i8, ptr %retval.0.i, i64 16404
   store i32 3, ptr %tableType78.i1053, align 4
-  %cmp79.i1054 = icmp ult i32 %inputSize, 13
+  %cmp79.i1054 = icmp samesign ult i32 %inputSize, 13
   br i1 %cmp79.i1054, label %_last_literals.i1304, label %if.end.i685.i1057
 
 if.end.i685.i1057:                                ; preds = %if.end10.i33
@@ -2052,7 +2052,7 @@ if.end10.i154:                                    ; preds = %if.end.i152
   %add77.i = add i32 %2, %srcSize
   store i32 %add77.i, ptr %currentOffset19.i262, align 8
   store i32 3, ptr %tableType1.i179, align 4
-  %cmp79.i = icmp ult i32 %srcSize, 13
+  %cmp79.i = icmp samesign ult i32 %srcSize, 13
   br i1 %cmp79.i, label %_last_literals.i, label %if.else169.i.lr.ph.lr.ph
 
 if.else169.i.lr.ph.lr.ph:                         ; preds = %if.end10.i154
@@ -2510,7 +2510,7 @@ cond.false.i433:                                  ; preds = %if.end.i124
   store i32 %srcSize, ptr %dictSize.i2663858, align 8
   store i32 %srcSize, ptr %currentOffset19.i2623857, align 8
   store i32 3, ptr %tableType1.i179, align 4
-  %cmp79.i497 = icmp ult i32 %srcSize, 13
+  %cmp79.i497 = icmp samesign ult i32 %srcSize, 13
   br i1 %cmp79.i497, label %_last_literals.i747, label %if.end.i685.i500
 
 if.end.i685.i500:                                 ; preds = %cond.false.i433
@@ -3467,7 +3467,7 @@ if.end10.i70:                                     ; preds = %if.end.i68
   %add77.i2013 = add i32 %125, %srcSize
   store i32 %add77.i2013, ptr %currentOffset19.i182, align 8
   store i32 3, ptr %tableType1.i179, align 4
-  %cmp79.i2015 = icmp ult i32 %srcSize, 13
+  %cmp79.i2015 = icmp samesign ult i32 %srcSize, 13
   br i1 %cmp79.i2015, label %_last_literals.i2265, label %if.else169.i2058.lr.ph.lr.ph
 
 if.else169.i2058.lr.ph.lr.ph:                     ; preds = %if.end10.i70
@@ -3959,7 +3959,7 @@ cond.false.i2710:                                 ; preds = %if.end.i40
   store i32 %srcSize, ptr %dictSize.i1863868, align 8
   store i32 %srcSize, ptr %currentOffset19.i1823867, align 8
   store i32 3, ptr %tableType1.i179, align 4
-  %cmp79.i2774 = icmp ult i32 %srcSize, 13
+  %cmp79.i2774 = icmp samesign ult i32 %srcSize, 13
   br i1 %cmp79.i2774, label %_last_literals.i3024, label %if.end.i685.i2777
 
 if.end.i685.i2777:                                ; preds = %cond.false.i2710
@@ -4990,7 +4990,7 @@ if.else.i.i:                                      ; preds = %if.end10.i23.i
   store i32 %0, ptr %currentOffset.i.i, align 8
   %tableType78.i.i = getelementptr inbounds i8, ptr %ctxBody, i64 16404
   store i32 3, ptr %tableType78.i.i, align 4
-  %cmp79.i.i = icmp ult i32 %0, 13
+  %cmp79.i.i = icmp samesign ult i32 %0, 13
   br i1 %cmp79.i.i, label %land.lhs.true557.i.i, label %if.end.i685.i.i
 
 if.end.i685.i.i:                                  ; preds = %if.else.i.i
@@ -6121,7 +6121,7 @@ if.end:                                           ; preds = %entry
   %idx.ext = zext nneg i32 %dictSize to i64
   %add.ptr = getelementptr inbounds i8, ptr %dictionary, i64 %idx.ext
   %sub.ptr.lhs.cast = ptrtoint ptr %add.ptr to i64
-  %cmp1 = icmp ugt i32 %dictSize, 65536
+  %cmp1 = icmp samesign ugt i32 %dictSize, 65536
   %add.ptr3 = getelementptr inbounds i8, ptr %add.ptr, i64 -65536
   %spec.select = select i1 %cmp1, ptr %add.ptr3, ptr %dictionary
   %dictionary5 = getelementptr inbounds i8, ptr %LZ4_dict, i64 16384
@@ -6348,7 +6348,7 @@ if.end10.i209:                                    ; preds = %if.end.i207
   store i32 %add77.i, ptr %currentOffset.i, align 8
   %tableType78.i = getelementptr inbounds i8, ptr %LZ4_stream, i64 16404
   store i32 2, ptr %tableType78.i, align 4
-  %cmp79.i = icmp ult i32 %inputSize, 13
+  %cmp79.i = icmp samesign ult i32 %inputSize, 13
   br i1 %cmp79.i, label %_last_literals.i, label %if.else169.i.lr.ph.lr.ph
 
 if.else169.i.lr.ph.lr.ph:                         ; preds = %if.end10.i209
@@ -6844,7 +6844,7 @@ if.end10.i181:                                    ; preds = %if.end.i179
   store i32 %add77.i413, ptr %currentOffset.i, align 8
   %tableType78.i414 = getelementptr inbounds i8, ptr %LZ4_stream, i64 16404
   store i32 2, ptr %tableType78.i414, align 4
-  %cmp79.i415 = icmp ult i32 %inputSize, 13
+  %cmp79.i415 = icmp samesign ult i32 %inputSize, 13
   br i1 %cmp79.i415, label %_last_literals.i665, label %if.else169.i458.lr.ph.lr.ph
 
 if.else169.i458.lr.ph.lr.ph:                      ; preds = %if.end10.i181
@@ -7316,7 +7316,7 @@ if.then56:                                        ; preds = %if.end53
 
 if.then59:                                        ; preds = %if.then56
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16416) %LZ4_stream, ptr noundef nonnull align 8 dereferenceable(16416) %92, i64 16416, i1 false)
-  %cmp.i150 = icmp ugt i32 %inputSize, 2113929216
+  %cmp.i150 = icmp samesign ugt i32 %inputSize, 2113929216
   br i1 %cmp.i150, label %if.end79, label %if.then159.i1661.lr.ph.lr.ph
 
 if.then159.i1661.lr.ph.lr.ph:                     ; preds = %if.then59
@@ -8106,7 +8106,7 @@ if.end10.i125:                                    ; preds = %if.end.i123
   store i32 %add77.i1931, ptr %currentOffset.i, align 8
   %tableType78.i1932 = getelementptr inbounds i8, ptr %LZ4_stream, i64 16404
   store i32 2, ptr %tableType78.i1932, align 4
-  %cmp79.i1933 = icmp ult i32 %inputSize, 13
+  %cmp79.i1933 = icmp samesign ult i32 %inputSize, 13
   br i1 %cmp79.i1933, label %_last_literals.i2183, label %if.then142.i2429.lr.ph.lr.ph
 
 if.then142.i2429.lr.ph.lr.ph:                     ; preds = %if.end10.i125
@@ -8902,7 +8902,7 @@ if.end10.i97:                                     ; preds = %if.end.i95
   store i32 %add77.i2690, ptr %currentOffset.i, align 8
   %tableType78.i2691 = getelementptr inbounds i8, ptr %LZ4_stream, i64 16404
   store i32 2, ptr %tableType78.i2691, align 4
-  %cmp79.i2692 = icmp ult i32 %inputSize, 13
+  %cmp79.i2692 = icmp samesign ult i32 %inputSize, 13
   br i1 %cmp79.i2692, label %_last_literals.i2942, label %if.then159.i3179.lr.ph.lr.ph
 
 if.then159.i3179.lr.ph.lr.ph:                     ; preds = %if.end10.i97
@@ -9665,7 +9665,7 @@ if.end10.i:                                       ; preds = %if.end.i
   store i32 %add77.i3449, ptr %currentOffset.i, align 8
   %tableType78.i3450 = getelementptr inbounds i8, ptr %LZ4_stream, i64 16404
   store i32 2, ptr %tableType78.i3450, align 4
-  %cmp79.i3451 = icmp ult i32 %inputSize, 13
+  %cmp79.i3451 = icmp samesign ult i32 %inputSize, 13
   br i1 %cmp79.i3451, label %_last_literals.i3701, label %if.then159.i3938.lr.ph.lr.ph
 
 if.then159.i3938.lr.ph.lr.ph:                     ; preds = %if.end10.i
@@ -10492,7 +10492,7 @@ if.end10.i20:                                     ; preds = %if.end.i18
   store i32 %add77.i, ptr %currentOffset.i, align 8
   %tableType78.i = getelementptr inbounds i8, ptr %LZ4_dict, i64 16404
   store i32 2, ptr %tableType78.i, align 4
-  %cmp79.i = icmp ult i32 %srcSize, 13
+  %cmp79.i = icmp samesign ult i32 %srcSize, 13
   br i1 %cmp79.i, label %_last_literals.i, label %if.then159.i.lr.ph.lr.ph
 
 if.then159.i.lr.ph.lr.ph:                         ; preds = %if.end10.i20
@@ -11224,7 +11224,7 @@ if.end10.i:                                       ; preds = %if.end.i
   store i32 %add77.i224, ptr %currentOffset.i, align 8
   %tableType78.i225 = getelementptr inbounds i8, ptr %LZ4_dict, i64 16404
   store i32 2, ptr %tableType78.i225, align 4
-  %cmp79.i226 = icmp ult i32 %srcSize, 13
+  %cmp79.i226 = icmp samesign ult i32 %srcSize, 13
   br i1 %cmp79.i226, label %_last_literals.i476, label %if.then159.i713.lr.ph.lr.ph
 
 if.then159.i713.lr.ph.lr.ph:                      ; preds = %if.end10.i
@@ -11993,7 +11993,7 @@ if.end26.i:                                       ; preds = %if.end.i
 
 if.end34.i:                                       ; preds = %if.end26.i
   %sub.ptr.rhs.cast.i = ptrtoint ptr %dest to i64
-  %cmp35.i = icmp ult i32 %maxDecompressedSize, 64
+  %cmp35.i = icmp samesign ult i32 %maxDecompressedSize, 64
   br i1 %cmp35.i, label %while.body237.i.preheader, label %while.body.i.preheader
 
 while.body.i.preheader:                           ; preds = %if.end34.i
@@ -12220,7 +12220,7 @@ sw.bb5.i:                                         ; preds = %if.then234.i
   br label %sw.epilog.i
 
 sw.default.i:                                     ; preds = %if.then234.i
-  %cmp.i204 = icmp ult i16 %ip.i.6.val, 8
+  %cmp.i204 = icmp samesign ult i16 %ip.i.6.val, 8
   br i1 %cmp.i204, label %if.then.i207, label %if.else.i205
 
 if.then.i207:                                     ; preds = %sw.default.i
@@ -12677,7 +12677,7 @@ if.end26.i:                                       ; preds = %if.end.i
 if.end34.i:                                       ; preds = %if.end26.i
   %sub.ptr.lhs.cast.i = ptrtoint ptr %add.ptr3.i to i64
   %sub.ptr.rhs.cast.i = ptrtoint ptr %dst to i64
-  %cmp35.i = icmp ult i32 %cond, 64
+  %cmp35.i = icmp samesign ult i32 %cond, 64
   br i1 %cmp35.i, label %while.body237.i.preheader, label %while.body.i.preheader
 
 while.body.i.preheader:                           ; preds = %if.end34.i
@@ -12894,7 +12894,7 @@ sw.bb5.i:                                         ; preds = %if.then234.i
   br label %sw.epilog.i
 
 sw.default.i:                                     ; preds = %if.then234.i
-  %cmp.i204 = icmp ult i16 %ip.i.6.val, 8
+  %cmp.i204 = icmp samesign ult i16 %ip.i.6.val, 8
   br i1 %cmp.i204, label %if.then.i207, label %if.else.i205
 
 if.then.i207:                                     ; preds = %sw.default.i
@@ -13502,7 +13502,7 @@ if.end26.i:                                       ; preds = %if.end.i
 
 if.end34.i:                                       ; preds = %if.end26.i
   %sub.ptr.rhs.cast.i = ptrtoint ptr %dest to i64
-  %cmp35.i = icmp ult i32 %maxOutputSize, 64
+  %cmp35.i = icmp samesign ult i32 %maxOutputSize, 64
   br i1 %cmp35.i, label %while.body237.i.preheader, label %while.body.i.preheader
 
 while.body.i.preheader:                           ; preds = %if.end34.i
@@ -13733,7 +13733,7 @@ sw.bb5.i:                                         ; preds = %if.then234.i
   br label %sw.epilog.i
 
 sw.default.i:                                     ; preds = %if.then234.i
-  %cmp.i204 = icmp ult i16 %ip.i.6.val, 8
+  %cmp.i204 = icmp samesign ult i16 %ip.i.6.val, 8
   br i1 %cmp.i204, label %if.then.i207, label %if.else.i205
 
 if.then.i207:                                     ; preds = %sw.default.i
@@ -14333,7 +14333,7 @@ if.end26.i:                                       ; preds = %if.end.i
 
 if.end34.i:                                       ; preds = %if.end26.i
   %sub.ptr.rhs.cast.i = ptrtoint ptr %dest to i64
-  %cmp35.i = icmp ult i32 %maxOutputSize, 64
+  %cmp35.i = icmp samesign ult i32 %maxOutputSize, 64
   br i1 %cmp35.i, label %while.body237.i.preheader, label %while.body.i.preheader
 
 while.body.i.preheader:                           ; preds = %if.end34.i
@@ -14612,7 +14612,7 @@ sw.bb5.i:                                         ; preds = %if.then234.i
   br label %sw.epilog.i
 
 sw.default.i:                                     ; preds = %if.then234.i
-  %cmp.i204 = icmp ult i16 %ip.i.6.val, 8
+  %cmp.i204 = icmp samesign ult i16 %ip.i.6.val, 8
   br i1 %cmp.i204, label %if.then.i207, label %if.else.i205
 
 if.then.i207:                                     ; preds = %sw.default.i
@@ -15125,7 +15125,7 @@ if.end26.i:                                       ; preds = %if.end.i
 if.end34.i:                                       ; preds = %if.end26.i
   %sub.ptr.lhs.cast.i = ptrtoint ptr %add.ptr3.i to i64
   %sub.ptr.rhs.cast.i = ptrtoint ptr %dest to i64
-  %cmp35.i = icmp ult i32 %cond, 64
+  %cmp35.i = icmp samesign ult i32 %cond, 64
   br i1 %cmp35.i, label %while.body237.i.preheader, label %while.body.i.preheader
 
 while.body.i.preheader:                           ; preds = %if.end34.i
@@ -15398,7 +15398,7 @@ sw.bb5.i:                                         ; preds = %if.then234.i
   br label %sw.epilog.i
 
 sw.default.i:                                     ; preds = %if.then234.i
-  %cmp.i204 = icmp ult i16 %ip.i.6.val, 8
+  %cmp.i204 = icmp samesign ult i16 %ip.i.6.val, 8
   br i1 %cmp.i204, label %if.then.i207, label %if.else.i205
 
 if.then.i207:                                     ; preds = %sw.default.i
@@ -16036,7 +16036,7 @@ if.end26.i.i:                                     ; preds = %if.end.i.i
 
 if.end34.i.i:                                     ; preds = %if.end26.i.i
   %sub.ptr.rhs.cast.i.i = ptrtoint ptr %dest to i64
-  %cmp35.i.i = icmp ult i32 %maxOutputSize, 64
+  %cmp35.i.i = icmp samesign ult i32 %maxOutputSize, 64
   br i1 %cmp35.i.i, label %while.body237.i.i.preheader, label %while.body.i.i.preheader
 
 while.body.i.i.preheader:                         ; preds = %if.end34.i.i
@@ -16316,7 +16316,7 @@ sw.bb5.i:                                         ; preds = %if.then234.i.i
   br label %sw.epilog.i
 
 sw.default.i:                                     ; preds = %if.then234.i.i
-  %cmp.i242 = icmp ult i16 %ip.i.i.6.val, 8
+  %cmp.i242 = icmp samesign ult i16 %ip.i.i.6.val, 8
   br i1 %cmp.i242, label %if.then.i246, label %if.else.i
 
 if.then.i246:                                     ; preds = %sw.default.i
@@ -16868,7 +16868,7 @@ if.end26.i:                                       ; preds = %if.end.i
 
 if.end34.i:                                       ; preds = %if.end26.i
   %sub.ptr.rhs.cast.i = ptrtoint ptr %dest to i64
-  %cmp35.i = icmp ult i32 %maxOutputSize, 64
+  %cmp35.i = icmp samesign ult i32 %maxOutputSize, 64
   br i1 %cmp35.i, label %while.body237.i.preheader, label %while.body.i.preheader
 
 while.body.i.preheader:                           ; preds = %if.end34.i
@@ -17095,7 +17095,7 @@ sw.bb5.i:                                         ; preds = %if.then234.i
   br label %sw.epilog.i
 
 sw.default.i:                                     ; preds = %if.then234.i
-  %cmp.i204 = icmp ult i16 %ip.i.6.val, 8
+  %cmp.i204 = icmp samesign ult i16 %ip.i.6.val, 8
   br i1 %cmp.i204, label %if.then.i207, label %if.else.i205
 
 if.then.i207:                                     ; preds = %sw.default.i
@@ -18075,7 +18075,7 @@ if.end26.i.i:                                     ; preds = %if.end.i.i
 
 if.end34.i.i:                                     ; preds = %if.end26.i.i
   %sub.ptr.rhs.cast.i.i = ptrtoint ptr %dest to i64
-  %cmp35.i.i = icmp ult i32 %cond.i, 64
+  %cmp35.i.i = icmp samesign ult i32 %cond.i, 64
   br i1 %cmp35.i.i, label %while.body237.i.preheader.i, label %while.body.i.preheader.i
 
 while.body.i.preheader.i:                         ; preds = %if.end34.i.i
@@ -18295,7 +18295,7 @@ sw.bb5.i.i:                                       ; preds = %if.then234.i.i
   br label %sw.epilog.i.i
 
 sw.default.i.i:                                   ; preds = %if.then234.i.i
-  %cmp.i204.i = icmp ult i16 %ip.i.6.val.i, 8
+  %cmp.i204.i = icmp samesign ult i16 %ip.i.6.val.i, 8
   br i1 %cmp.i204.i, label %if.then.i207.i, label %if.else.i205.i
 
 if.then.i207.i:                                   ; preds = %sw.default.i.i
@@ -18766,7 +18766,7 @@ if.end26.i.i34:                                   ; preds = %if.end.i.i26
 if.end34.i.i36:                                   ; preds = %if.end26.i.i34
   %sub.ptr.lhs.cast.i.i = ptrtoint ptr %add.ptr3.i.i30 to i64
   %sub.ptr.rhs.cast.i.i37 = ptrtoint ptr %dest to i64
-  %cmp35.i.i38 = icmp ult i32 %cond.i, 64
+  %cmp35.i.i38 = icmp samesign ult i32 %cond.i, 64
   br i1 %cmp35.i.i38, label %while.body237.i.preheader.i83, label %while.body.i.preheader.i39
 
 while.body.i.preheader.i39:                       ; preds = %if.end34.i.i36
@@ -18983,7 +18983,7 @@ sw.bb5.i.i263:                                    ; preds = %if.then234.i.i262
   br label %sw.epilog.i.i265
 
 sw.default.i.i280:                                ; preds = %if.then234.i.i262
-  %cmp.i204.i281 = icmp ult i16 %ip.i.6.val.i58, 8
+  %cmp.i204.i281 = icmp samesign ult i16 %ip.i.6.val.i58, 8
   br i1 %cmp.i204.i281, label %if.then.i207.i293, label %if.else.i205.i282
 
 if.then.i207.i293:                                ; preds = %sw.default.i.i280

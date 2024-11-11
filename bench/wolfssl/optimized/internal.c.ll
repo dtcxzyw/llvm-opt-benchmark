@@ -6473,7 +6473,7 @@ while.cond15:                                     ; preds = %while.body18.prehea
   %incdec.ptr2283 = phi ptr [ %incdec.ptr22, %while.body18 ], [ %incdec.ptr2278, %while.body18.preheader ]
   %call2082 = phi i32 [ %call20, %while.body18 ], [ %call2077, %while.body18.preheader ]
   %dec4881 = phi i32 [ %dec, %while.body18 ], [ %dec44, %while.body18.preheader ]
-  %cmp16 = icmp ugt i32 %dec4881, 1
+  %cmp16 = icmp samesign ugt i32 %dec4881, 1
   br i1 %cmp16, label %while.body18, label %while.end.loopexit, !llvm.loop !11
 
 while.body18:                                     ; preds = %while.cond15
@@ -14826,7 +14826,7 @@ CipherHasExpIV.exit.thread.i:                     ; preds = %CipherHasExpIV.exit
 
 if.end55.i:                                       ; preds = %CipherHasExpIV.exit.thread.i, %CipherHasExpIV.exit.i, %if.end18.i, %if.then170
   %minLength.1.i = phi i32 [ %conv.i350, %if.then170 ], [ %conv48.i, %CipherHasExpIV.exit.thread.i ], [ %add52.i, %CipherHasExpIV.exit.i ], [ %spec.select26.i, %if.end18.i ]
-  %cmp56.i = icmp ugt i32 %minLength.1.i, %conv174
+  %cmp56.i = icmp samesign ugt i32 %minLength.1.i, %conv174
   br i1 %cmp56.i, label %return, label %if.else182
 
 if.else182:                                       ; preds = %if.end55.i
@@ -16165,7 +16165,7 @@ entry:
   br i1 %or.cond1, label %return, label %if.end
 
 if.end:                                           ; preds = %entry
-  %cmp10 = icmp ugt i32 %sub6, %sub5
+  %cmp10 = icmp samesign ugt i32 %sub6, %sub5
   br i1 %cmp10, label %if.then11, label %if.end15
 
 if.then11:                                        ; preds = %if.end
@@ -17145,7 +17145,7 @@ if.end116:                                        ; preds = %if.end109
   br i1 %cmp118.not, label %if.end144, label %if.then120
 
 if.then120:                                       ; preds = %if.end116
-  %cmp123 = icmp ugt i32 %13, 16
+  %cmp123 = icmp samesign ugt i32 %13, 16
   br i1 %cmp123, label %if.then125, label %if.else134
 
 if.then125:                                       ; preds = %if.then120

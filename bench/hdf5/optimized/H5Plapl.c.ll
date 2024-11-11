@@ -1043,7 +1043,7 @@ define internal noundef i32 @H5P__lacc_elink_pref_enc(ptr nocapture noundef read
   br label %H5VM_limit_enc_size.exit
 
 22:                                               ; preds = %8
-  %.not27.i.i = icmp ult i64 %6, 1099511627776
+  %.not27.i.i = icmp samesign ult i64 %6, 1099511627776
   br i1 %.not27.i.i, label %29, label %23
 
 23:                                               ; preds = %22
@@ -1063,11 +1063,11 @@ define internal noundef i32 @H5P__lacc_elink_pref_enc(ptr nocapture noundef read
 
 34:                                               ; preds = %5
   %35 = lshr i64 %6, 16
-  %.not23.i.i = icmp ult i64 %6, 65536
+  %.not23.i.i = icmp samesign ult i64 %6, 65536
   br i1 %.not23.i.i, label %48, label %36
 
 36:                                               ; preds = %34
-  %.not25.i.i = icmp ult i64 %6, 16777216
+  %.not25.i.i = icmp samesign ult i64 %6, 16777216
   br i1 %.not25.i.i, label %43, label %37
 
 37:                                               ; preds = %36
@@ -1086,7 +1086,7 @@ define internal noundef i32 @H5P__lacc_elink_pref_enc(ptr nocapture noundef read
   br label %H5VM_limit_enc_size.exit
 
 48:                                               ; preds = %34
-  %.not24.i.i = icmp ult i64 %6, 256
+  %.not24.i.i = icmp samesign ult i64 %6, 256
   br i1 %.not24.i.i, label %.thread45, label %49
 
 49:                                               ; preds = %48
@@ -1432,7 +1432,7 @@ define internal range(i32 -1, 1) i32 @H5P__lacc_elink_fapl_enc(ptr nocapture nou
   br label %H5VM_limit_enc_size.exit
 
 45:                                               ; preds = %31
-  %.not27.i.i = icmp ult i64 %.pr, 1099511627776
+  %.not27.i.i = icmp samesign ult i64 %.pr, 1099511627776
   br i1 %.not27.i.i, label %52, label %46
 
 46:                                               ; preds = %45
@@ -1452,11 +1452,11 @@ define internal range(i32 -1, 1) i32 @H5P__lacc_elink_fapl_enc(ptr nocapture nou
 
 57:                                               ; preds = %29
   %58 = lshr i64 %.pr, 16
-  %.not23.i.i = icmp ult i64 %.pr, 65536
+  %.not23.i.i = icmp samesign ult i64 %.pr, 65536
   br i1 %.not23.i.i, label %71, label %59
 
 59:                                               ; preds = %57
-  %.not25.i.i = icmp ult i64 %.pr, 16777216
+  %.not25.i.i = icmp samesign ult i64 %.pr, 16777216
   br i1 %.not25.i.i, label %66, label %60
 
 60:                                               ; preds = %59
@@ -1475,7 +1475,7 @@ define internal range(i32 -1, 1) i32 @H5P__lacc_elink_fapl_enc(ptr nocapture nou
   br label %H5VM_limit_enc_size.exit
 
 71:                                               ; preds = %57
-  %.not24.i.i = icmp ult i64 %.pr, 256
+  %.not24.i.i = icmp samesign ult i64 %.pr, 256
   br i1 %.not24.i.i, label %78, label %72
 
 72:                                               ; preds = %71
@@ -1568,7 +1568,7 @@ thread-pre-split:                                 ; preds = %27, %102
   br label %H5VM_limit_enc_size.exit50
 
 122:                                              ; preds = %108
-  %.not27.i.i46 = icmp ult i64 %106, 1099511627776
+  %.not27.i.i46 = icmp samesign ult i64 %106, 1099511627776
   br i1 %.not27.i.i46, label %129, label %123
 
 123:                                              ; preds = %122
@@ -1588,11 +1588,11 @@ thread-pre-split:                                 ; preds = %27, %102
 
 134:                                              ; preds = %thread-pre-split
   %135 = lshr i64 %106, 16
-  %.not23.i.i47 = icmp ult i64 %106, 65536
+  %.not23.i.i47 = icmp samesign ult i64 %106, 65536
   br i1 %.not23.i.i47, label %148, label %136
 
 136:                                              ; preds = %134
-  %.not25.i.i48 = icmp ult i64 %106, 16777216
+  %.not25.i.i48 = icmp samesign ult i64 %106, 16777216
   br i1 %.not25.i.i48, label %143, label %137
 
 137:                                              ; preds = %136
@@ -1611,7 +1611,7 @@ thread-pre-split:                                 ; preds = %27, %102
   br label %H5VM_limit_enc_size.exit50
 
 148:                                              ; preds = %134
-  %.not24.i.i49 = icmp ult i64 %106, 256
+  %.not24.i.i49 = icmp samesign ult i64 %106, 256
   br i1 %.not24.i.i49, label %155, label %149
 
 149:                                              ; preds = %148

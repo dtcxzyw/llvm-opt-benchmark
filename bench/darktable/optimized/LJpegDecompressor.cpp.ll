@@ -201,11 +201,11 @@ define hidden void @_ZN8rawspeed17LJpegDecompressorC2ENS_8RawImageENS_12iRectang
   br i1 %69, label %70, label %122
 
 70:                                               ; preds = %66
-  %71 = icmp ugt i32 %57, %50
+  %71 = icmp samesign ugt i32 %57, %50
   br i1 %71, label %122, label %72
 
 72:                                               ; preds = %70
-  %73 = icmp ugt i32 %60, %53
+  %73 = icmp samesign ugt i32 %60, %53
   br i1 %73, label %122, label %74
 
 74:                                               ; preds = %72
@@ -794,7 +794,7 @@ define linkonce_odr hidden noundef i32 @_ZNK8rawspeed17LJpegDecompressor7decodeN
 
 189:                                              ; preds = %186
   %190 = add nuw nsw i32 %148, 1
-  %191 = icmp ult i32 %190, %95
+  %191 = icmp samesign ult i32 %190, %95
   br i1 %191, label %193, label %192
 
 192:                                              ; preds = %189
@@ -842,7 +842,7 @@ define linkonce_odr hidden noundef i32 @_ZNK8rawspeed17LJpegDecompressor7decodeN
 
 217:                                              ; preds = %209
   %218 = add nuw nsw i32 %148, 2
-  %219 = icmp ule i32 %218, %95
+  %219 = icmp samesign ule i32 %218, %95
   tail call void @llvm.assume(i1 %219)
   br label %220
 
@@ -1160,7 +1160,7 @@ define linkonce_odr hidden noundef i32 @_ZNK8rawspeed17LJpegDecompressor7decodeN
   br label %499
 
 432:                                              ; preds = %426
-  %433 = icmp ugt i32 %421, 10
+  %433 = icmp samesign ugt i32 %421, 10
   tail call void @llvm.assume(i1 %433)
   %434 = add nsw i32 %421, -11
   %435 = shl i64 %423, 11
@@ -1523,7 +1523,7 @@ define linkonce_odr hidden noundef i32 @_ZNK8rawspeed17LJpegDecompressor7decodeN
   br label %763
 
 696:                                              ; preds = %690
-  %697 = icmp ugt i32 %685, 10
+  %697 = icmp samesign ugt i32 %685, 10
   tail call void @llvm.assume(i1 %697)
   %698 = add nsw i32 %685, -11
   %699 = shl i64 %687, 11
@@ -1954,7 +1954,7 @@ define linkonce_odr hidden noundef i32 @_ZNK8rawspeed17LJpegDecompressor7decodeN
 
 187:                                              ; preds = %184
   %188 = add nuw nsw i32 %146, 1
-  %189 = icmp ult i32 %188, %97
+  %189 = icmp samesign ult i32 %188, %97
   br i1 %189, label %191, label %190
 
 190:                                              ; preds = %187
@@ -2002,7 +2002,7 @@ define linkonce_odr hidden noundef i32 @_ZNK8rawspeed17LJpegDecompressor7decodeN
 
 215:                                              ; preds = %207
   %216 = add nuw nsw i32 %146, 2
-  %217 = icmp ule i32 %216, %97
+  %217 = icmp samesign ule i32 %216, %97
   tail call void @llvm.assume(i1 %217)
   br label %218
 
@@ -2342,7 +2342,7 @@ define linkonce_odr hidden noundef i32 @_ZNK8rawspeed17LJpegDecompressor7decodeN
   br label %515
 
 443:                                              ; preds = %437
-  %444 = icmp ugt i32 %432, 10
+  %444 = icmp samesign ugt i32 %432, 10
   tail call void @llvm.assume(i1 %444)
   %445 = add nsw i32 %432, -11
   %446 = shl i64 %434, 11
@@ -2729,7 +2729,7 @@ define linkonce_odr hidden noundef i32 @_ZNK8rawspeed17LJpegDecompressor7decodeN
   br label %795
 
 723:                                              ; preds = %717
-  %724 = icmp ugt i32 %712, 10
+  %724 = icmp samesign ugt i32 %712, 10
   tail call void @llvm.assume(i1 %724)
   %725 = add nsw i32 %712, -11
   %726 = shl i64 %714, 11
@@ -3170,7 +3170,7 @@ define linkonce_odr hidden noundef i32 @_ZNK8rawspeed17LJpegDecompressor7decodeN
 
 193:                                              ; preds = %190
   %194 = add nuw nsw i32 %152, 1
-  %195 = icmp ult i32 %194, %101
+  %195 = icmp samesign ult i32 %194, %101
   br i1 %195, label %197, label %196
 
 196:                                              ; preds = %193
@@ -3218,7 +3218,7 @@ define linkonce_odr hidden noundef i32 @_ZNK8rawspeed17LJpegDecompressor7decodeN
 
 221:                                              ; preds = %213
   %222 = add nuw nsw i32 %152, 2
-  %223 = icmp ule i32 %222, %101
+  %223 = icmp samesign ule i32 %222, %101
   tail call void @llvm.assume(i1 %223)
   br label %224
 
@@ -3553,7 +3553,7 @@ define linkonce_odr hidden noundef i32 @_ZNK8rawspeed17LJpegDecompressor7decodeN
   br label %517
 
 445:                                              ; preds = %439
-  %446 = icmp ugt i32 %434, 10
+  %446 = icmp samesign ugt i32 %434, 10
   tail call void @llvm.assume(i1 %446)
   %447 = add nsw i32 %434, -11
   %448 = shl i64 %436, 11
@@ -3943,7 +3943,7 @@ define linkonce_odr hidden noundef i32 @_ZNK8rawspeed17LJpegDecompressor7decodeN
   br label %800
 
 728:                                              ; preds = %722
-  %729 = icmp ugt i32 %717, 10
+  %729 = icmp samesign ugt i32 %717, 10
   tail call void @llvm.assume(i1 %729)
   %730 = add nsw i32 %717, -11
   %731 = shl i64 %719, 11
@@ -4373,7 +4373,7 @@ define linkonce_odr hidden noundef i32 @_ZNK8rawspeed17LJpegDecompressor7decodeN
 
 181:                                              ; preds = %178
   %182 = add nuw nsw i32 %155, 1
-  %183 = icmp ult i32 %182, %103
+  %183 = icmp samesign ult i32 %182, %103
   br i1 %183, label %185, label %184
 
 184:                                              ; preds = %181
@@ -4421,7 +4421,7 @@ define linkonce_odr hidden noundef i32 @_ZNK8rawspeed17LJpegDecompressor7decodeN
 
 209:                                              ; preds = %201
   %210 = add nuw nsw i32 %155, 2
-  %211 = icmp ule i32 %210, %103
+  %211 = icmp samesign ule i32 %210, %103
   tail call void @llvm.assume(i1 %211)
   br label %212
 
@@ -4761,7 +4761,7 @@ define linkonce_odr hidden noundef i32 @_ZNK8rawspeed17LJpegDecompressor7decodeN
   br label %508
 
 436:                                              ; preds = %430
-  %437 = icmp ugt i32 %425, 10
+  %437 = icmp samesign ugt i32 %425, 10
   tail call void @llvm.assume(i1 %437)
   %438 = add nsw i32 %425, -11
   %439 = shl i64 %427, 11
@@ -5151,7 +5151,7 @@ define linkonce_odr hidden noundef i32 @_ZNK8rawspeed17LJpegDecompressor7decodeN
   br label %791
 
 719:                                              ; preds = %713
-  %720 = icmp ugt i32 %708, 10
+  %720 = icmp samesign ugt i32 %708, 10
   tail call void @llvm.assume(i1 %720)
   %721 = add nsw i32 %708, -11
   %722 = shl i64 %710, 11
@@ -5611,7 +5611,7 @@ define linkonce_odr hidden noundef i32 @_ZNK8rawspeed17LJpegDecompressor7decodeN
 
 204:                                              ; preds = %201
   %205 = add nuw nsw i32 %163, 1
-  %206 = icmp ult i32 %205, %99
+  %206 = icmp samesign ult i32 %205, %99
   br i1 %206, label %208, label %207
 
 207:                                              ; preds = %204
@@ -5659,7 +5659,7 @@ define linkonce_odr hidden noundef i32 @_ZNK8rawspeed17LJpegDecompressor7decodeN
 
 232:                                              ; preds = %224
   %233 = add nuw nsw i32 %163, 2
-  %234 = icmp ule i32 %233, %99
+  %234 = icmp samesign ule i32 %233, %99
   tail call void @llvm.assume(i1 %234)
   br label %235
 
@@ -5991,7 +5991,7 @@ define linkonce_odr hidden noundef i32 @_ZNK8rawspeed17LJpegDecompressor7decodeN
   br label %528
 
 456:                                              ; preds = %450
-  %457 = icmp ugt i32 %445, 10
+  %457 = icmp samesign ugt i32 %445, 10
   tail call void @llvm.assume(i1 %457)
   %458 = add nsw i32 %445, -11
   %459 = shl i64 %447, 11
@@ -6374,7 +6374,7 @@ define linkonce_odr hidden noundef i32 @_ZNK8rawspeed17LJpegDecompressor7decodeN
   br label %799
 
 732:                                              ; preds = %726
-  %733 = icmp ugt i32 %721, 10
+  %733 = icmp samesign ugt i32 %721, 10
   tail call void @llvm.assume(i1 %733)
   %734 = add nsw i32 %721, -11
   %735 = shl i64 %723, 11
@@ -6733,7 +6733,7 @@ define linkonce_odr hidden noundef i32 @_ZNK8rawspeed17LJpegDecompressor7decodeN
   br label %1059
 
 992:                                              ; preds = %986
-  %993 = icmp ugt i32 %981, 10
+  %993 = icmp samesign ugt i32 %981, 10
   tail call void @llvm.assume(i1 %993)
   %994 = add nsw i32 %981, -11
   %995 = shl i64 %983, 11
@@ -7095,7 +7095,7 @@ define linkonce_odr hidden noundef i32 @_ZNK8rawspeed17LJpegDecompressor7decodeN
   br label %1323
 
 1251:                                             ; preds = %1245
-  %1252 = icmp ugt i32 %1240, 10
+  %1252 = icmp samesign ugt i32 %1240, 10
   tail call void @llvm.assume(i1 %1252)
   %1253 = add nsw i32 %1240, -11
   %1254 = shl i64 %1242, 11
@@ -7543,7 +7543,7 @@ define linkonce_odr hidden noundef i32 @_ZNK8rawspeed17LJpegDecompressor7decodeN
 
 196:                                              ; preds = %193
   %197 = add nuw nsw i32 %155, 1
-  %198 = icmp ult i32 %197, %103
+  %198 = icmp samesign ult i32 %197, %103
   br i1 %198, label %200, label %199
 
 199:                                              ; preds = %196
@@ -7591,7 +7591,7 @@ define linkonce_odr hidden noundef i32 @_ZNK8rawspeed17LJpegDecompressor7decodeN
 
 224:                                              ; preds = %216
   %225 = add nuw nsw i32 %155, 2
-  %226 = icmp ule i32 %225, %103
+  %226 = icmp samesign ule i32 %225, %103
   tail call void @llvm.assume(i1 %226)
   br label %227
 
@@ -7922,7 +7922,7 @@ define linkonce_odr hidden noundef i32 @_ZNK8rawspeed17LJpegDecompressor7decodeN
   br label %519
 
 447:                                              ; preds = %441
-  %448 = icmp ugt i32 %436, 10
+  %448 = icmp samesign ugt i32 %436, 10
   tail call void @llvm.assume(i1 %448)
   %449 = add nsw i32 %436, -11
   %450 = shl i64 %438, 11
@@ -8313,7 +8313,7 @@ define linkonce_odr hidden noundef i32 @_ZNK8rawspeed17LJpegDecompressor7decodeN
   br label %802
 
 730:                                              ; preds = %724
-  %731 = icmp ugt i32 %719, 10
+  %731 = icmp samesign ugt i32 %719, 10
   tail call void @llvm.assume(i1 %731)
   %732 = add nsw i32 %719, -11
   %733 = shl i64 %721, 11
@@ -8702,7 +8702,7 @@ define linkonce_odr hidden noundef i32 @_ZNK8rawspeed17LJpegDecompressor7decodeN
   br label %1084
 
 1012:                                             ; preds = %1006
-  %1013 = icmp ugt i32 %1001, 10
+  %1013 = icmp samesign ugt i32 %1001, 10
   tail call void @llvm.assume(i1 %1013)
   %1014 = add nsw i32 %1001, -11
   %1015 = shl i64 %1003, 11
@@ -9072,7 +9072,7 @@ define linkonce_odr hidden noundef i32 @_ZNK8rawspeed17LJpegDecompressor7decodeN
   br label %1352
 
 1280:                                             ; preds = %1274
-  %1281 = icmp ugt i32 %1269, 10
+  %1281 = icmp samesign ugt i32 %1269, 10
   tail call void @llvm.assume(i1 %1281)
   %1282 = add nsw i32 %1269, -11
   %1283 = shl i64 %1271, 11
@@ -9509,7 +9509,7 @@ define linkonce_odr hidden noundef i32 @_ZNK8rawspeed17LJpegDecompressor7decodeN
 
 184:                                              ; preds = %181
   %185 = add nuw nsw i32 %158, 1
-  %186 = icmp ult i32 %185, %105
+  %186 = icmp samesign ult i32 %185, %105
   br i1 %186, label %188, label %187
 
 187:                                              ; preds = %184
@@ -9557,7 +9557,7 @@ define linkonce_odr hidden noundef i32 @_ZNK8rawspeed17LJpegDecompressor7decodeN
 
 212:                                              ; preds = %204
   %213 = add nuw nsw i32 %158, 2
-  %214 = icmp ule i32 %213, %105
+  %214 = icmp samesign ule i32 %213, %105
   tail call void @llvm.assume(i1 %214)
   br label %215
 
@@ -9889,7 +9889,7 @@ define linkonce_odr hidden noundef i32 @_ZNK8rawspeed17LJpegDecompressor7decodeN
   br label %507
 
 435:                                              ; preds = %429
-  %436 = icmp ugt i32 %424, 10
+  %436 = icmp samesign ugt i32 %424, 10
   tail call void @llvm.assume(i1 %436)
   %437 = add nsw i32 %424, -11
   %438 = shl i64 %426, 11
@@ -10284,7 +10284,7 @@ define linkonce_odr hidden noundef i32 @_ZNK8rawspeed17LJpegDecompressor7decodeN
   br label %793
 
 721:                                              ; preds = %715
-  %722 = icmp ugt i32 %710, 10
+  %722 = icmp samesign ugt i32 %710, 10
   tail call void @llvm.assume(i1 %722)
   %723 = add nsw i32 %710, -11
   %724 = shl i64 %712, 11
@@ -10673,7 +10673,7 @@ define linkonce_odr hidden noundef i32 @_ZNK8rawspeed17LJpegDecompressor7decodeN
   br label %1075
 
 1003:                                             ; preds = %997
-  %1004 = icmp ugt i32 %992, 10
+  %1004 = icmp samesign ugt i32 %992, 10
   tail call void @llvm.assume(i1 %1004)
   %1005 = add nsw i32 %992, -11
   %1006 = shl i64 %994, 11
@@ -11043,7 +11043,7 @@ define linkonce_odr hidden noundef i32 @_ZNK8rawspeed17LJpegDecompressor7decodeN
   br label %1343
 
 1271:                                             ; preds = %1265
-  %1272 = icmp ugt i32 %1260, 10
+  %1272 = icmp samesign ugt i32 %1260, 10
   tail call void @llvm.assume(i1 %1272)
   %1273 = add nsw i32 %1260, -11
   %1274 = shl i64 %1262, 11

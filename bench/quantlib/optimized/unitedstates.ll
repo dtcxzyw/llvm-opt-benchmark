@@ -2803,7 +2803,7 @@ if.end65:                                         ; preds = %if.end
   br i1 %cmp66, label %land.lhs.true71, label %lor.lhs.false67
 
 lor.lhs.false67:                                  ; preds = %if.end65
-  %cmp68 = icmp ult i32 %call5, 1981
+  %cmp68 = icmp samesign ult i32 %call5, 1981
   br i1 %cmp68, label %land.lhs.true69, label %if.end78
 
 land.lhs.true69:                                  ; preds = %lor.lhs.false67
@@ -3083,7 +3083,7 @@ lor.lhs.false25.thread:                           ; preds = %if.then.i
   br i1 %cmp26175, label %land.lhs.true27, label %if.then.i127
 
 land.lhs.true27:                                  ; preds = %lor.lhs.false25.thread
-  %cmp28 = icmp ult i32 %call5, 1996
+  %cmp28 = icmp samesign ult i32 %call5, 1996
   %cmp30 = icmp sgt i32 %sub.i, 7
   %or.cond11 = or i1 %cmp30, %cmp28
   br i1 %or.cond11, label %cleanup, label %lor.lhs.false35

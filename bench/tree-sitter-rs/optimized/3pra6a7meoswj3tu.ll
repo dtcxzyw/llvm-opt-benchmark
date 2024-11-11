@@ -32881,7 +32881,7 @@ default.unreachable:                              ; preds = %688
   %750 = and i8 %748, 63
   %751 = zext nneg i8 %750 to i32
   %752 = or disjoint i32 %749, %751
-  %753 = icmp ugt i8 %742, -33
+  %753 = icmp samesign ugt i8 %742, -33
   br i1 %753, label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h85ea683819a1173eE.exit15.i.i", label %.thread287
 
 754:                                              ; preds = %740
@@ -32899,7 +32899,7 @@ default.unreachable:                              ; preds = %688
   %762 = or disjoint i32 %759, %761
   %763 = shl nuw nsw i32 %745, 12
   %764 = or disjoint i32 %762, %763
-  %765 = icmp ugt i8 %742, -17
+  %765 = icmp samesign ugt i8 %742, -17
   br i1 %765, label %766, label %.thread287
 
 766:                                              ; preds = %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h85ea683819a1173eE.exit15.i.i"

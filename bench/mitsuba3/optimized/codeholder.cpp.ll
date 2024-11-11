@@ -1670,7 +1670,7 @@ define dso_local noundef i32 @_ZN6asmjit9_abi_1_1010CodeHolder18newNamedLabelEnt
   %91 = getelementptr inbounds i8, ptr %86, i64 24
   store i64 0, ptr %91, align 8, !tbaa !129
   %92 = getelementptr inbounds i8, ptr %86, i64 48
-  %93 = icmp ugt i64 %.fr23, 11
+  %93 = icmp samesign ugt i64 %.fr23, 11
   br i1 %93, label %97, label %94
 
 94:                                               ; preds = %88
@@ -1745,7 +1745,7 @@ define dso_local noundef i32 @_ZN6asmjit9_abi_1_1010CodeHolder18newNamedLabelEnt
   br i1 %142, label %.loopexit, label %143
 
 143:                                              ; preds = %120
-  %144 = icmp ult i64 %.fr23, 12
+  %144 = icmp samesign ult i64 %.fr23, 12
   br i1 %144, label %.split.us, label %.split
 
 .split.us:                                        ; preds = %143, %157

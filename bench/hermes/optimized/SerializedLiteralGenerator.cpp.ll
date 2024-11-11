@@ -415,7 +415,7 @@ _ZNSt6vectorIhSaIhEE6resizeEm.exit232:            ; preds = %if.else.i188, %if.t
   br label %for.inc
 
 if.else89:                                        ; preds = %cond.end85
-  %cmp90 = icmp ugt i32 %cond86, 255
+  %cmp90 = icmp samesign ugt i32 %cond86, 255
   %sub.ptr.lhs.cast.i.i93 = ptrtoint ptr %tmpSeqBuffer.sroa.25.1 to i64
   %sub.ptr.rhs.cast.i.i94 = ptrtoint ptr %tmpSeqBuffer.sroa.0.0421 to i64
   %reass.sub428 = sub i64 %sub.ptr.lhs.cast.i.i93, %sub.ptr.rhs.cast.i.i94

@@ -249,7 +249,7 @@ define dso_local i64 @rb_memsearch(ptr noundef nonnull %0, i64 noundef %1, ptr n
   ]
 
 27:                                               ; preds = %25
-  %28 = icmp ult i64 %1, 9
+  %28 = icmp samesign ult i64 %1, 9
   br i1 %28, label %29, label %34
 
 29:                                               ; preds = %27
@@ -412,7 +412,7 @@ define internal fastcc noundef i64 @rb_memsearch_qs_utf8(ptr noundef nonnull %0,
   br label %rb_memsearch_qs_utf8_hash.exit
 
 24:                                               ; preds = %16
-  %25 = icmp ult i8 %19, -32
+  %25 = icmp samesign ult i8 %19, -32
   br i1 %25, label %26, label %31
 
 26:                                               ; preds = %24
@@ -423,7 +423,7 @@ define internal fastcc noundef i64 @rb_memsearch_qs_utf8(ptr noundef nonnull %0,
   br label %59
 
 31:                                               ; preds = %24
-  %32 = icmp ult i8 %19, -16
+  %32 = icmp samesign ult i8 %19, -16
   br i1 %32, label %33, label %42
 
 33:                                               ; preds = %31
@@ -438,7 +438,7 @@ define internal fastcc noundef i64 @rb_memsearch_qs_utf8(ptr noundef nonnull %0,
   br label %59
 
 42:                                               ; preds = %31
-  %43 = icmp ult i8 %19, -11
+  %43 = icmp samesign ult i8 %19, -11
   br i1 %43, label %44, label %57
 
 44:                                               ; preds = %42
@@ -503,7 +503,7 @@ rb_memsearch_qs_utf8_hash.exit:                   ; preds = %22, %57, %59
   br label %rb_memsearch_qs_utf8_hash.exit35
 
 80:                                               ; preds = %74
-  %81 = icmp ult i8 %75, -32
+  %81 = icmp samesign ult i8 %75, -32
   br i1 %81, label %82, label %87
 
 82:                                               ; preds = %80
@@ -514,7 +514,7 @@ rb_memsearch_qs_utf8_hash.exit:                   ; preds = %22, %57, %59
   br label %115
 
 87:                                               ; preds = %80
-  %88 = icmp ult i8 %75, -16
+  %88 = icmp samesign ult i8 %75, -16
   br i1 %88, label %89, label %98
 
 89:                                               ; preds = %87
@@ -529,7 +529,7 @@ rb_memsearch_qs_utf8_hash.exit:                   ; preds = %22, %57, %59
   br label %115
 
 98:                                               ; preds = %87
-  %99 = icmp ult i8 %75, -11
+  %99 = icmp samesign ult i8 %75, -11
   br i1 %99, label %100, label %113
 
 100:                                              ; preds = %98
@@ -9265,7 +9265,7 @@ check_unicode_range.exit:                         ; preds = %4
   br label %25
 
 9:                                                ; preds = %4
-  %10 = icmp ult i64 %0, 128
+  %10 = icmp samesign ult i64 %0, 128
   br i1 %10, label %11, label %15
 
 11:                                               ; preds = %9
@@ -9897,7 +9897,7 @@ RSTRING_PTR.exit:                                 ; preds = %rb_reg_check.exit, 
   br i1 %52, label %44, label %char_to_option.exit117thread-pre-split, !llvm.loop !181
 
 char_to_option.exit:                              ; preds = %44
-  %53 = icmp ugt i64 %.398, 1
+  %53 = icmp samesign ugt i64 %.398, 1
   br i1 %53, label %54, label %char_to_option.exit117thread-pre-split
 
 54:                                               ; preds = %char_to_option.exit
@@ -9930,7 +9930,7 @@ char_to_option.exit:                              ; preds = %44
 61:                                               ; preds = %60, %59, %57
   %62 = phi i32 [ -2, %57 ], [ -3, %59 ], [ -5, %60 ]
   %63 = and i32 %62, %.5
-  %64 = icmp ugt i64 %.5100.in, 2
+  %64 = icmp samesign ugt i64 %.5100.in, 2
   br i1 %64, label %57, label %char_to_option.exit117thread-pre-split, !llvm.loop !182
 
 char_to_option.exit117thread-pre-split:           ; preds = %48, %61, %char_to_option.exit

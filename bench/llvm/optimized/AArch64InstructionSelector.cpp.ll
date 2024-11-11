@@ -18150,7 +18150,7 @@ _ZNK4llvm5APInt12getSExtValueEv.exit:             ; preds = %39, %46
 53:                                               ; preds = %_ZNK4llvm5APInt12getSExtValueEv.exit
   %54 = shl nuw nsw i32 4096, %35
   %55 = zext nneg i32 %54 to i64
-  %56 = icmp ult i64 %.0.i, %55
+  %56 = icmp samesign ult i64 %.0.i, %55
   br i1 %56, label %57, label %.thread
 
 57:                                               ; preds = %53
@@ -18170,7 +18170,7 @@ _ZNK4llvm5APInt12getSExtValueEv.exit:             ; preds = %39, %46
 "_ZZNK12_GLOBAL__N_126AArch64InstructionSelector17selectAddrModeXROERN4llvm14MachineOperandEjENK3$_0clEl.exit": ; preds = %.thread
   %62 = and i64 %.0.i, 61440
   %63 = icmp ne i64 %62, 0
-  %64 = icmp ugt i64 %.0.i, 65535
+  %64 = icmp samesign ugt i64 %.0.i, 65535
   %65 = and i1 %64, %63
   br i1 %65, label %"_ZZNK12_GLOBAL__N_126AArch64InstructionSelector17selectAddrModeXROERN4llvm14MachineOperandEjENK3$_0clEl.exit.thread", label %"_ZZNK12_GLOBAL__N_126AArch64InstructionSelector17selectAddrModeXROERN4llvm14MachineOperandEjENK3$_0clEl.exit.thread28"
 
@@ -18187,7 +18187,7 @@ _ZNK4llvm5APInt12getSExtValueEv.exit:             ; preds = %39, %46
 "_ZZNK12_GLOBAL__N_126AArch64InstructionSelector17selectAddrModeXROERN4llvm14MachineOperandEjENK3$_0clEl.exit24": ; preds = %68
   %70 = and i64 %66, 61440
   %71 = icmp ne i64 %70, 0
-  %72 = icmp ugt i64 %66, 65535
+  %72 = icmp samesign ugt i64 %66, 65535
   %73 = and i1 %72, %71
   br i1 %73, label %"_ZZNK12_GLOBAL__N_126AArch64InstructionSelector17selectAddrModeXROERN4llvm14MachineOperandEjENK3$_0clEl.exit.thread", label %"_ZZNK12_GLOBAL__N_126AArch64InstructionSelector17selectAddrModeXROERN4llvm14MachineOperandEjENK3$_0clEl.exit24.thread31"
 
@@ -25187,19 +25187,19 @@ _ZNK4llvm3LLT13getSizeInBitsEv.exit.i:            ; preds = %_ZNK4llvm3LLT19getS
   ]
 
 80:                                               ; preds = %_ZNK4llvm3LLT13getSizeInBitsEv.exit.i
-  %81 = icmp ugt i64 %36, 7
+  %81 = icmp samesign ugt i64 %36, 7
   br i1 %81, label %_ZL15getVectorSHLImmN4llvm3LLTENS_8RegisterERNS_19MachineRegisterInfoE.exit, label %88
 
 82:                                               ; preds = %_ZNK4llvm3LLT13getSizeInBitsEv.exit.i
-  %83 = icmp ugt i64 %36, 15
+  %83 = icmp samesign ugt i64 %36, 15
   br i1 %83, label %_ZL15getVectorSHLImmN4llvm3LLTENS_8RegisterERNS_19MachineRegisterInfoE.exit, label %88
 
 84:                                               ; preds = %_ZNK4llvm3LLT13getSizeInBitsEv.exit.i
-  %85 = icmp ugt i64 %36, 31
+  %85 = icmp samesign ugt i64 %36, 31
   br i1 %85, label %_ZL15getVectorSHLImmN4llvm3LLTENS_8RegisterERNS_19MachineRegisterInfoE.exit, label %88
 
 86:                                               ; preds = %_ZNK4llvm3LLT13getSizeInBitsEv.exit.i
-  %87 = icmp ugt i64 %36, 63
+  %87 = icmp samesign ugt i64 %36, 63
   br i1 %87, label %_ZL15getVectorSHLImmN4llvm3LLTENS_8RegisterERNS_19MachineRegisterInfoE.exit, label %88
 
 88:                                               ; preds = %86, %84, %82, %80
@@ -25529,7 +25529,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_126AArch64InstructionSelector16sele
   %switch.and.i.i.i = and i32 %42, -6
   %43 = icmp eq i32 %switch.and.i.i.i, 0
   %.not58.i = xor i1 %26, %43
-  %switch.i.i.i = icmp ult i32 %40, -4
+  %switch.i.i.i = icmp samesign ult i32 %40, -4
   %or.cond.i = and i1 %switch.i.i.i, %.not58.i
   br i1 %or.cond.i, label %44, label %.critedge.i
 
@@ -39764,7 +39764,7 @@ _ZNK4llvm17MachineMemOperand13getSizeInBitsEv.exit1525.thread: ; preds = %1839, 
 
 _ZN4llvm7details23FixedOrScalableQuantityINS_8TypeSizeEmE9isKnownLEERKS3_S5_.exit: ; preds = %_ZNK4llvm17MachineMemOperand13getSizeInBitsEv.exit1525.thread3289, %_ZNK4llvm17MachineMemOperand13getSizeInBitsEv.exit1525, %_ZNK4llvm17MachineMemOperand13getSizeInBitsEv.exit1525.thread
   %1869 = phi i64 [ %1867, %_ZNK4llvm17MachineMemOperand13getSizeInBitsEv.exit1525.thread ], [ %.sroa.012.0.i.i1520, %_ZNK4llvm17MachineMemOperand13getSizeInBitsEv.exit1525 ], [ %.sroa.012.0.i.i15203292, %_ZNK4llvm17MachineMemOperand13getSizeInBitsEv.exit1525.thread3289 ]
-  %.not2628 = icmp ugt i64 %1869, %.sroa.012.0.i
+  %.not2628 = icmp samesign ugt i64 %1869, %.sroa.012.0.i
   br i1 %.not2628, label %.critedge4, label %1870
 
 1870:                                             ; preds = %_ZN4llvm7details23FixedOrScalableQuantityINS_8TypeSizeEmE9isKnownLEERKS3_S5_.exit

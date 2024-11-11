@@ -192,7 +192,7 @@ define void @dlagsy_(ptr nocapture noundef readonly %0, ptr nocapture noundef re
   call void @dsyr2_(ptr noundef nonnull @.str.1, ptr noundef nonnull %9, ptr noundef nonnull @c_b19, ptr noundef nonnull %6, ptr noundef nonnull @c__1, ptr noundef %123, ptr noundef nonnull @c__1, ptr noundef %105, ptr noundef nonnull %4) #4
   %124 = trunc i64 %76 to i32
   %125 = sub i32 2, %124
-  %126 = icmp ugt i64 %76, 2
+  %126 = icmp samesign ugt i64 %76, 2
   br i1 %126, label %75, label %.loopexit21.loopexit, !llvm.loop !13
 
 .loopexit21.loopexit:                             ; preds = %99

@@ -552,7 +552,7 @@ _ZNSt7__cxx114stoiERKNS_12basic_stringIcSt11char_traitsIcESaIcEEEPmi.exit: ; pre
   store ptr @.str.1, ptr %26, align 8
   store i8 3, ptr %114, align 8
   call void @_ZN5clang12MacroBuilder11defineMacroERKN4llvm5TwineES4_(ptr noundef nonnull align 8 dereferenceable(8) %2, ptr noundef nonnull align 8 dereferenceable(34) %25, ptr noundef nonnull align 8 dereferenceable(34) %26)
-  %116 = icmp ugt i32 %100, 3
+  %116 = icmp samesign ugt i32 %100, 3
   br i1 %116, label %117, label %.thread19
 
 117:                                              ; preds = %107
@@ -990,7 +990,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZNK5clang10TargetInfo16hasBuilti
   br i1 %or.cond, label %_ZN4llvm13isPowerOf2_64Em.exit, label %7
 
 7:                                                ; preds = %3
-  %.not6 = icmp ugt i64 %1, 8
+  %.not6 = icmp samesign ugt i64 %1, 8
   br i1 %.not6, label %8, label %_ZN4llvm13isPowerOf2_64Em.exit
 
 8:                                                ; preds = %7

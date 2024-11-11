@@ -3074,7 +3074,7 @@ define internal fastcc nonnull ptr @integer_to_bnptr(i64 noundef %0, ptr noundef
   unreachable
 
 25:                                               ; preds = %20
-  %26 = icmp ult i64 %21, 1024
+  %26 = icmp samesign ult i64 %21, 1024
   br i1 %26, label %27, label %29
 
 27:                                               ; preds = %25

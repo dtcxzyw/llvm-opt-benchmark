@@ -636,7 +636,7 @@ _ZN14arrow_vendored10fast_float29compute_product_approximationILi26EEENS0_8value
 
 if.then33.i221:                                   ; preds = %_ZN14arrow_vendored10fast_float29compute_product_approximationILi26EEENS0_8value128Elm.exit380
   %add36.i224 = sub nsw i32 1, %sub29.i161
-  %cmp37.i225 = icmp ugt i32 %add36.i224, 63
+  %cmp37.i225 = icmp samesign ugt i32 %add36.i224, 63
   br i1 %cmp37.i225, label %_ZN14arrow_vendored10fast_float13compute_floatINS0_13binary_formatIfEEEENS0_17adjusted_mantissaElm.exit249, label %if.end41.i226
 
 if.end41.i226:                                    ; preds = %if.then33.i221
@@ -670,7 +670,7 @@ if.end59.i165:                                    ; preds = %_ZN14arrow_vendored
   %retval.i120.sroa.17.1 = add nuw nsw i32 %sub29.i161, %inc.i195
   %46 = and i64 %shr94.i170, 58720255
   %and111.i180 = select i1 %cmp99.i174.not, i64 0, i64 %46
-  %cmp115.i184.not = icmp ult i32 %retval.i120.sroa.17.1, 255
+  %cmp115.i184.not = icmp samesign ult i32 %retval.i120.sroa.17.1, 255
   %spec.select353 = tail call i32 @llvm.umin.i32(i32 %retval.i120.sroa.17.1, i32 255)
   %spec.select354 = select i1 %cmp115.i184.not, i64 %and111.i180, i64 0
   br label %_ZN14arrow_vendored10fast_float13compute_floatINS0_13binary_formatIfEEEENS0_17adjusted_mantissaElm.exit249
@@ -742,7 +742,7 @@ _ZN14arrow_vendored10fast_float29compute_product_approximationILi26EEENS0_8value
 
 if.then33.i:                                      ; preds = %_ZN14arrow_vendored10fast_float29compute_product_approximationILi26EEENS0_8value128Elm.exit412
   %add36.i = sub nsw i32 1, %sub29.i
-  %cmp37.i = icmp ugt i32 %add36.i, 63
+  %cmp37.i = icmp samesign ugt i32 %add36.i, 63
   br i1 %cmp37.i, label %_ZN14arrow_vendored10fast_float13compute_floatINS0_13binary_formatIfEEEENS0_17adjusted_mantissaElm.exit, label %if.end41.i
 
 if.end41.i:                                       ; preds = %if.then33.i
@@ -776,7 +776,7 @@ if.end59.i:                                       ; preds = %_ZN14arrow_vendored
   %retval.i.sroa.17.1 = add nuw nsw i32 %sub29.i, %inc.i
   %53 = and i64 %shr94.i, 58720255
   %and111.i = select i1 %cmp99.i.not, i64 0, i64 %53
-  %cmp115.i.not = icmp ult i32 %retval.i.sroa.17.1, 255
+  %cmp115.i.not = icmp samesign ult i32 %retval.i.sroa.17.1, 255
   %spec.select355 = tail call i32 @llvm.umin.i32(i32 %retval.i.sroa.17.1, i32 255)
   %spec.select356 = select i1 %cmp115.i.not, i64 %and111.i, i64 0
   br label %_ZN14arrow_vendored10fast_float13compute_floatINS0_13binary_formatIfEEEENS0_17adjusted_mantissaElm.exit
@@ -1460,7 +1460,7 @@ _ZN14arrow_vendored10fast_float29compute_product_approximationILi55EEENS0_8value
 
 if.then32.i275:                                   ; preds = %_ZN14arrow_vendored10fast_float29compute_product_approximationILi55EEENS0_8value128Elm.exit391
   %add35.i278 = sub nsw i32 1, %sub28.i215
-  %cmp36.i279 = icmp ugt i32 %add35.i278, 63
+  %cmp36.i279 = icmp samesign ugt i32 %add35.i278, 63
   br i1 %cmp36.i279, label %_ZN14arrow_vendored10fast_float13compute_floatINS0_13binary_formatIdEEEENS0_17adjusted_mantissaElm.exit303, label %if.end40.i280
 
 if.end40.i280:                                    ; preds = %if.then32.i275
@@ -1494,7 +1494,7 @@ if.end58.i219:                                    ; preds = %_ZN14arrow_vendored
   %retval.i173.sroa.17.1 = add nuw nsw i32 %sub28.i215, %inc.i249
   %46 = and i64 %shr93.i224, 9218868437227405311
   %and110.i234 = select i1 %cmp98.i228.not, i64 0, i64 %46
-  %cmp114.i238.not = icmp ult i32 %retval.i173.sroa.17.1, 2047
+  %cmp114.i238.not = icmp samesign ult i32 %retval.i173.sroa.17.1, 2047
   %spec.select353 = tail call i32 @llvm.umin.i32(i32 %retval.i173.sroa.17.1, i32 2047)
   %spec.select354 = select i1 %cmp114.i238.not, i64 %and110.i234, i64 0
   br label %_ZN14arrow_vendored10fast_float13compute_floatINS0_13binary_formatIdEEEENS0_17adjusted_mantissaElm.exit303
@@ -1566,7 +1566,7 @@ _ZN14arrow_vendored10fast_float29compute_product_approximationILi55EEENS0_8value
 
 if.then32.i:                                      ; preds = %_ZN14arrow_vendored10fast_float29compute_product_approximationILi55EEENS0_8value128Elm.exit441
   %add35.i = sub nsw i32 1, %sub28.i
-  %cmp36.i = icmp ugt i32 %add35.i, 63
+  %cmp36.i = icmp samesign ugt i32 %add35.i, 63
   br i1 %cmp36.i, label %_ZN14arrow_vendored10fast_float13compute_floatINS0_13binary_formatIdEEEENS0_17adjusted_mantissaElm.exit, label %if.end40.i
 
 if.end40.i:                                       ; preds = %if.then32.i
@@ -1600,7 +1600,7 @@ if.end58.i:                                       ; preds = %_ZN14arrow_vendored
   %retval.i.sroa.17.1 = add nuw nsw i32 %sub28.i, %inc.i
   %53 = and i64 %shr93.i, 9218868437227405311
   %and110.i = select i1 %cmp98.i.not, i64 0, i64 %53
-  %cmp114.i.not = icmp ult i32 %retval.i.sroa.17.1, 2047
+  %cmp114.i.not = icmp samesign ult i32 %retval.i.sroa.17.1, 2047
   %spec.select355 = tail call i32 @llvm.umin.i32(i32 %retval.i.sroa.17.1, i32 2047)
   %spec.select356 = select i1 %cmp114.i.not, i64 %and110.i, i64 0
   br label %_ZN14arrow_vendored10fast_float13compute_floatINS0_13binary_formatIdEEEENS0_17adjusted_mantissaElm.exit
@@ -3066,7 +3066,7 @@ _ZZN14arrow_vendored10fast_float19positive_digit_compIfEENS0_17adjusted_mantissa
   %spec.select.v = select i1 %cmp15.i.not, i32 126, i32 127
   %spec.select = add nsw i32 %spec.select.v, %sub.i
   %23 = and i64 %add23.i.i49, 25165823
-  %cmp29.i.not = icmp ult i32 %spec.select, 255
+  %cmp29.i.not = icmp samesign ult i32 %spec.select, 255
   %retval.sroa.13.0 = tail call i32 @llvm.umin.i32(i32 %spec.select, i32 255)
   %24 = select i1 %cmp29.i.not, i1 %cmp15.i.not, i1 false
   %retval.sroa.0.0 = select i1 %24, i64 %23, i64 0
@@ -3378,7 +3378,7 @@ if.end.i36:                                       ; preds = %_ZNK14arrow_vendore
   %spec.select162.v = select i1 %cmp14.i42.not, i32 40, i32 41
   %spec.select162 = add nsw i32 %spec.select162.v, %am.coerce1
   %25 = and i64 %add23.i.i132, 25165823
-  %cmp28.i51.not = icmp ult i32 %spec.select162, 255
+  %cmp28.i51.not = icmp samesign ult i32 %spec.select162, 255
   %26 = call i32 @llvm.umin.i32(i32 %spec.select162, i32 255)
   %27 = select i1 %cmp28.i51.not, i1 %cmp14.i42.not, i1 false
   %spec.select165 = select i1 %27, i64 %25, i64 0
@@ -3718,7 +3718,7 @@ if.then.i61.us:                                   ; preds = %if.end21.us
   br i1 %cmp.i.i.us, label %if.else.i.i.us, label %return
 
 if.else.i.i.us:                                   ; preds = %if.then.i61.us
-  %cmp.i.i.i63.us = icmp ugt i64 %add.i62.us, %conv.i.i50.us
+  %cmp.i.i.i63.us = icmp samesign ugt i64 %add.i62.us, %conv.i.i50.us
   br i1 %cmp.i.i.i63.us, label %if.then.i.i.i.us, label %if.end7.sink.split.i.us
 
 if.then.i.i.i.us:                                 ; preds = %if.else.i.i.us
@@ -4182,7 +4182,7 @@ _ZZN14arrow_vendored10fast_float19positive_digit_compIdEENS0_17adjusted_mantissa
   %spec.select.v = select i1 %cmp14.i.not, i32 1022, i32 1023
   %spec.select = add nsw i32 %spec.select.v, %sub.i
   %23 = and i64 %add23.i.i49, 13510798882111487
-  %cmp28.i.not = icmp ult i32 %spec.select, 2047
+  %cmp28.i.not = icmp samesign ult i32 %spec.select, 2047
   %retval.sroa.13.0 = tail call i32 @llvm.umin.i32(i32 %spec.select, i32 2047)
   %24 = select i1 %cmp28.i.not, i1 %cmp14.i.not, i1 false
   %retval.sroa.0.0 = select i1 %24, i64 %23, i64 0
@@ -4495,7 +4495,7 @@ if.end.i37:                                       ; preds = %_ZNK14arrow_vendore
   %spec.select162.v = select i1 %cmp14.i43.not, i32 11, i32 12
   %spec.select162 = add nsw i32 %spec.select162.v, %am.coerce1
   %25 = and i64 %add23.i.i132, 13510798882111487
-  %cmp28.i52.not = icmp ult i32 %spec.select162, 2047
+  %cmp28.i52.not = icmp samesign ult i32 %spec.select162, 2047
   %26 = call i32 @llvm.umin.i32(i32 %spec.select162, i32 2047)
   %27 = select i1 %cmp28.i52.not, i1 %cmp14.i43.not, i1 false
   %spec.select165 = select i1 %27, i64 %25, i64 0
@@ -5123,7 +5123,7 @@ if.end.i.i60.i:                                   ; preds = %if.then41.i
 _ZN5arrow8internal13ParseUnsignedEPKcmPh.exit.i.i: ; preds = %if.end.i.i60.i
   %narrow.i.i64.i = mul nuw nsw i8 %sub.i.i.i58.i, 10
   %add29.i.i65.i = add nuw nsw i8 %narrow.i.i64.i, %sub.i21.i.i62.i
-  %cmp.i.i = icmp ugt i8 %add29.i.i65.i, 23
+  %cmp.i.i = icmp samesign ugt i8 %add29.i.i65.i, 23
   br i1 %cmp.i.i, label %_ZN5arrow8internalL21ParseTimestampISO8601EPKcmNS_8TimeUnit4typeEPlPb.exit, label %if.end50.i
 
 if.end50.i:                                       ; preds = %_ZN5arrow8internal13ParseUnsignedEPKcmPh.exit.i.i
@@ -5239,7 +5239,7 @@ if.end.i.i72.i:                                   ; preds = %sw.bb.i
 _ZN5arrow8internal13ParseUnsignedEPKcmPh.exit.i76.i: ; preds = %if.end.i.i72.i
   %narrow.i.i77.i = mul nuw nsw i8 %sub.i.i.i70.i, 10
   %add29.i.i78.i = add nuw nsw i8 %sub.i21.i.i74.i, %narrow.i.i77.i
-  %cmp.i79.i = icmp ugt i8 %add29.i.i78.i, 23
+  %cmp.i79.i = icmp samesign ugt i8 %add29.i.i78.i, 23
   br i1 %cmp.i79.i, label %_ZN5arrow8internalL21ParseTimestampISO8601EPKcmNS_8TimeUnit4typeEPlPb.exit, label %_ZN5arrow8internal6detailL7ParseHHINSt6chrono8durationIlSt5ratioILl1ELl1EEEEEEbPKcPT_.exit84.i
 
 _ZN5arrow8internal6detailL7ParseHHINSt6chrono8durationIlSt5ratioILl1ELl1EEEEEEbPKcPT_.exit84.i: ; preds = %_ZN5arrow8internal13ParseUnsignedEPKcmPh.exit.i76.i
@@ -5317,10 +5317,10 @@ if.end.i22.i.i:                                   ; preds = %if.end22.i102.i
 _ZN5arrow8internal13ParseUnsignedEPKcmPh.exit30.i.i: ; preds = %if.end.i22.i.i
   %narrow.i27.i.i = mul nuw nsw i8 %sub.i.i20.i.i, 10
   %add29.i28.i.i = add nuw nsw i8 %sub.i21.i24.i.i, %narrow.i27.i.i
-  %cmp32.i.i = icmp ugt i8 %add29.i.i100.i, 23
-  %cmp39.i.i = icmp ugt i8 %add29.i16.i.i, 59
+  %cmp32.i.i = icmp samesign ugt i8 %add29.i.i100.i, 23
+  %cmp39.i.i = icmp samesign ugt i8 %add29.i16.i.i, 59
   %or.cond5.i.i = select i1 %cmp32.i.i, i1 true, i1 %cmp39.i.i
-  %cmp46.i.i = icmp ugt i8 %add29.i28.i.i, 59
+  %cmp46.i.i = icmp samesign ugt i8 %add29.i28.i.i, 59
   %or.cond6.i.i = select i1 %or.cond5.i.i, i1 true, i1 %cmp46.i.i
   br i1 %or.cond6.i.i, label %_ZN5arrow8internalL21ParseTimestampISO8601EPKcmNS_8TimeUnit4typeEPlPb.exit, label %sw.epilog.i
 
@@ -5342,7 +5342,7 @@ sw.epilog.i:                                      ; preds = %_ZN5arrow8internal1
   %add.i34.i.i = add nsw i64 %mul.i.i.i.i33.i.i, %mul.i.i.i.i
   %add.i.i = add nsw i64 %add.i34.i.i, %conv.i32.i.i
   %add.i106.i = add nsw i64 %add.i.i, %37
-  %cmp159.i = icmp ult i64 %length.addr.0.i, 20
+  %cmp159.i = icmp samesign ult i64 %length.addr.0.i, 20
   br i1 %cmp159.i, label %if.then160.i, label %if.end163.i
 
 if.then160.i:                                     ; preds = %sw.epilog.i, %sw.epilog.thread.i
@@ -5458,8 +5458,8 @@ if.end.i6:                                        ; preds = %if.end
 _ZN5arrow8internal13ParseUnsignedEPKcmPh.exit14:  ; preds = %if.end.i6
   %narrow.i11 = mul nuw nsw i8 %sub.i.i4, 10
   %add29.i12 = add nuw nsw i8 %sub.i21.i8, %narrow.i11
-  %cmp = icmp ugt i8 %add29.i, 23
-  %cmp16 = icmp ugt i8 %add29.i12, 59
+  %cmp = icmp samesign ugt i8 %add29.i, 23
+  %cmp16 = icmp samesign ugt i8 %add29.i12, 59
   %or.cond2 = select i1 %cmp, i1 true, i1 %cmp16
   br i1 %or.cond2, label %return, label %if.end21
 
@@ -5517,8 +5517,8 @@ if.end.i7:                                        ; preds = %if.end8
 _ZN5arrow8internal13ParseUnsignedEPKcmPh.exit15:  ; preds = %if.end.i7
   %narrow.i12 = mul nuw nsw i8 %sub.i.i5, 10
   %add29.i13 = add nuw nsw i8 %sub.i21.i9, %narrow.i12
-  %cmp18 = icmp ugt i8 %add29.i, 23
-  %cmp25 = icmp ugt i8 %add29.i13, 59
+  %cmp18 = icmp samesign ugt i8 %add29.i, 23
+  %cmp25 = icmp samesign ugt i8 %add29.i13, 59
   %or.cond3 = select i1 %cmp18, i1 true, i1 %cmp25
   br i1 %or.cond3, label %return, label %if.end30
 

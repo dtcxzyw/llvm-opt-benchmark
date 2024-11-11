@@ -7454,7 +7454,7 @@ define internal range(i64 -2147483648, 2147483648) i64 @shmem_fallocate(ptr noun
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %5, i8 0, i64 40, i1 false), !annotation !7
   %16 = getelementptr inbounds i8, ptr %9, i64 160
   tail call void @down_write(ptr noundef %16) #18
-  %17 = icmp ult i32 %1, 2
+  %17 = icmp samesign ult i32 %1, 2
   br i1 %17, label %58, label %18
 
 18:                                               ; preds = %15
@@ -8032,7 +8032,7 @@ define internal i32 @shmem_symlink(ptr noundef %0, ptr noundef %1, ptr noundef %
   %28 = ashr exact i64 %27, 32
   %29 = getelementptr inbounds i8, ptr %14, i64 80
   store i64 %28, ptr %29, align 8
-  %30 = icmp ult i32 %8, 129
+  %30 = icmp samesign ult i32 %8, 129
   br i1 %30, label %31, label %37
 
 31:                                               ; preds = %26
@@ -8249,7 +8249,7 @@ define internal i32 @shmem_rename2(ptr noundef %0, ptr noundef %1, ptr noundef %
   br i1 %20, label %.thread, label %21
 
 21:                                               ; preds = %18
-  %22 = icmp ult i32 %5, 4
+  %22 = icmp samesign ult i32 %5, 4
   br i1 %22, label %33, label %23
 
 23:                                               ; preds = %21

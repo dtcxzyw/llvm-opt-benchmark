@@ -5467,7 +5467,7 @@ _ZNSt6vectorIfSaIfEE17_S_check_init_lenEmRKS0_.exit.i46: ; preds = %_ZN7cvflann1
   %123 = add nsw i64 %97, -4
   call void @llvm.memset.p0.i64(ptr align 4 %120, i8 0, i64 %123, i1 false)
   store ptr %119, ptr %39, align 8
-  %124 = icmp ugt i64 %98, 144115188075855871
+  %124 = icmp samesign ugt i64 %98, 144115188075855871
   br i1 %124, label %125, label %_ZNSt12_Vector_baseIN2cv7Affine3IfEESaIS2_EEC2EmRKS3_.exit.i
 
 125:                                              ; preds = %122
@@ -17692,7 +17692,7 @@ define linkonce_odr hidden void @_ZN7cvflann18KNNSimpleResultSetIfE8addPointEfi(
   br label %30
 
 30:                                               ; preds = %24, %20
-  %31 = icmp ugt i64 %indvars.iv, 1
+  %31 = icmp samesign ugt i64 %indvars.iv, 1
   br i1 %31, label %15, label %._crit_edge.loopexit, !llvm.loop !141
 
 ._crit_edge.loopexit.split.loop.exit:             ; preds = %15
@@ -19250,7 +19250,7 @@ define linkonce_odr hidden void @_ZN7cvflann11KDTreeIndexINS_9L2_SimpleIfEEE9mea
 108:                                              ; preds = %.lr.ph.i
   store i64 %104, ptr %98, align 8
   store i64 %99, ptr %103, align 8
-  %109 = icmp ugt i64 %indvars.iv.i, 2
+  %109 = icmp samesign ugt i64 %indvars.iv.i, 2
   br i1 %109, label %.lr.ph.i, label %.critedge.i, !llvm.loop !153
 
 .critedge.i:                                      ; preds = %108, %.lr.ph.i, %92, %82
@@ -32240,7 +32240,7 @@ _ZNK7cvflann9L2_SimpleIfEclIPfS3_EEfT_T0_mf.exit63.us: ; preds = %_ZNK7cvflann9L
   %65 = load i32, ptr %63, align 4
   store i32 %65, ptr %62, align 4
   store i32 %64, ptr %63, align 4
-  %66 = icmp ugt i64 %indvars.iv106, 2
+  %66 = icmp samesign ugt i64 %indvars.iv106, 2
   br i1 %66, label %.lr.ph.us, label %.critedge.us, !llvm.loop !307
 
 .preheader:                                       ; preds = %.critedge, %.critedge.us, %_ZNK7cvflann9L2_SimpleIfEclIPfS3_EEfT_T0_mf.exit.thread, %_ZNK7cvflann9L2_SimpleIfEclIPfS3_EEfT_T0_mf.exit
@@ -32342,7 +32342,7 @@ _ZNSt6vectorIiSaIiEED2Ev.exit:                    ; preds = %14
   %111 = load i32, ptr %109, align 4
   store i32 %111, ptr %108, align 4
   store i32 %110, ptr %109, align 4
-  %112 = icmp ugt i64 %indvars.iv, 2
+  %112 = icmp samesign ugt i64 %indvars.iv, 2
   br i1 %112, label %.lr.ph, label %.critedge, !llvm.loop !307
 
 .critedge:                                        ; preds = %107, %.lr.ph, %98
@@ -39273,7 +39273,7 @@ _ZNSt6vectorIjSaIjEE9push_backERKj.exit:          ; preds = %10, %_ZNSt6vectorIj
   %40 = shl nuw i32 1, %.0
   %41 = or i32 %40, %1
   tail call void @_ZN7cvflann8LshIndexINS_9L2_SimpleIfEEE13fill_xor_maskEjijRSt6vectorIjSaIjEE(ptr noundef nonnull align 8 dereferenceable(161) %0, i32 noundef %41, i32 noundef %.0, i32 noundef %38, ptr noundef nonnull align 8 dereferenceable(24) %4)
-  %42 = icmp ugt i32 %.0.in13, 1
+  %42 = icmp samesign ugt i32 %.0.in13, 1
   br i1 %42, label %39, label %.loopexit, !llvm.loop !394
 
 .loopexit:                                        ; preds = %39, %_ZNSt6vectorIjSaIjEE9push_backERKj.exit

@@ -715,7 +715,7 @@ if.then.i41:                                      ; preds = %_ZNK3ue25depthcvjEv
 _ZNK3ue25depthcvjEv.exit43:                       ; preds = %_ZNK3ue25depthcvjEv.exit39
   %sub.i = sub nsw i32 %0, %2
   %div.i = udiv i32 %0, %sub.i
-  %cmp24 = icmp ult i32 %div.i, 8
+  %cmp24 = icmp samesign ult i32 %div.i, 8
   br i1 %cmp24, label %if.then25, label %if.end27
 
 if.then25:                                        ; preds = %_ZNK3ue25depthcvjEv.exit43

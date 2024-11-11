@@ -2916,7 +2916,7 @@ define void @ADIOI_Optimize_flattened(ptr nocapture noundef %0) local_unnamed_ad
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %59 ]
   %.07183 = phi i32 [ -1, %.lr.ph ], [ %.172, %59 ]
   %.07382 = phi i32 [ 1, %.lr.ph ], [ %.174, %59 ]
-  %11 = icmp ugt i64 %5, %indvars.iv
+  %11 = icmp samesign ugt i64 %5, %indvars.iv
   br i1 %11, label %12, label %._crit_edge95
 
 ._crit_edge95:                                    ; preds = %10

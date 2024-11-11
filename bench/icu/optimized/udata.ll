@@ -2295,7 +2295,7 @@ if.end:                                           ; preds = %entry
   br i1 %cmp, label %if.then1, label %if.end21
 
 if.then1:                                         ; preds = %if.end
-  %cmp2 = icmp ugt i32 %commonDataIndex, 9
+  %cmp2 = icmp samesign ugt i32 %commonDataIndex, 9
   br i1 %cmp2, label %return, label %if.end4
 
 if.end4:                                          ; preds = %if.then1

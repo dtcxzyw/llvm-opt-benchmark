@@ -163,7 +163,7 @@ if.else106:                                       ; preds = %if.then54
 
 land.lhs.true116:                                 ; preds = %if.else106
   %cmp117 = icmp ne i32 %and55, 0
-  %cmp120 = icmp ugt i8 %sub111, 31
+  %cmp120 = icmp samesign ugt i8 %sub111, 31
   %or.cond8 = or i1 %cmp117, %cmp120
   br i1 %or.cond8, label %land.lhs.true121, label %if.else.i
 
@@ -365,7 +365,7 @@ if.then83:                                        ; preds = %if.then75
   br label %do.end
 
 if.else88:                                        ; preds = %if.then75
-  %cmp89 = icmp ult i32 %sub, 3
+  %cmp89 = icmp samesign ult i32 %sub, 3
   br i1 %cmp89, label %if.then90, label %if.end120
 
 if.then90:                                        ; preds = %if.else88
@@ -430,7 +430,7 @@ if.then:                                          ; preds = %entry
   br i1 %cmp6, label %if.then7, label %if.else36
 
 if.then7:                                         ; preds = %if.then
-  %cmp9 = icmp ult i8 %2, -32
+  %cmp9 = icmp samesign ult i8 %2, -32
   br i1 %cmp9, label %if.then10, label %if.else
 
 if.then10:                                        ; preds = %if.then7
@@ -442,7 +442,7 @@ if.then10:                                        ; preds = %if.then7
   br label %return
 
 if.else:                                          ; preds = %if.then7
-  %cmp14 = icmp ult i8 %2, -16
+  %cmp14 = icmp samesign ult i8 %2, -16
   br i1 %cmp14, label %cond.true, label %cond.false
 
 cond.true:                                        ; preds = %if.else
@@ -499,7 +499,7 @@ if.then41:                                        ; preds = %if.else36
   br i1 %or.cond, label %if.then51, label %if.else126
 
 if.then51:                                        ; preds = %if.then41
-  %cmp53 = icmp ult i8 %3, -16
+  %cmp53 = icmp samesign ult i8 %3, -16
   br i1 %cmp53, label %if.then54, label %if.else111
 
 if.then54:                                        ; preds = %if.then51
@@ -671,11 +671,11 @@ if.then:                                          ; preds = %entry
   br i1 %cmp7, label %if.then8, label %if.else
 
 if.then8:                                         ; preds = %if.then
-  %cmp10 = icmp ult i8 %1, -32
+  %cmp10 = icmp samesign ult i8 %1, -32
   br i1 %cmp10, label %return, label %lor.lhs.false
 
 lor.lhs.false:                                    ; preds = %if.then8
-  %cmp12 = icmp ult i8 %1, -16
+  %cmp12 = icmp samesign ult i8 %1, -16
   br i1 %cmp12, label %cond.true, label %cond.false
 
 cond.true:                                        ; preds = %lor.lhs.false
@@ -720,7 +720,7 @@ if.then33:                                        ; preds = %if.else
   br i1 %or.cond, label %if.then42, label %if.else70
 
 if.then42:                                        ; preds = %if.then33
-  %cmp44 = icmp ult i8 %4, -16
+  %cmp44 = icmp samesign ult i8 %4, -16
   %shr57 = lshr i32 %conv4, 4
   %idxprom58 = zext nneg i32 %shr57 to i64
   %arrayidx59 = getelementptr inbounds [17 x i8], ptr @.str, i64 0, i64 %idxprom58

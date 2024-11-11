@@ -8796,7 +8796,7 @@ define internal fastcc range(i32 4, 65540) i32 @decode_link_state_attribute_tlv(
   %172 = tail call ptr @proto_tree_add_item(ptr noundef %165, i32 noundef %171, ptr noundef %1, i32 noundef %.013311483, i32 noundef 1, i32 noundef 0) #4
   %173 = add i32 %.013311483, 1
   %174 = add nsw i32 %.01484, -1
-  %175 = icmp ugt i32 %.01484, 1
+  %175 = icmp samesign ugt i32 %.01484, 1
   br i1 %175, label %.lr.ph1485, label %.loopexit, !llvm.loop !37
 
 176:                                              ; preds = %5
@@ -8961,7 +8961,7 @@ decode_link_state_attribute_flex_algo_subtlv.exit: ; preds = %251, %.preheader.i
   %282 = tail call ptr @proto_tree_add_item(ptr noundef %271, i32 noundef %280, ptr noundef %1, i32 noundef %281, i32 noundef 1, i32 noundef 0) #4
   %283 = add nsw i32 %.013521478, -2
   %284 = add i32 %.113431479, 2
-  %285 = icmp ugt i32 %.013521478, 3
+  %285 = icmp samesign ugt i32 %.013521478, 3
   br i1 %285, label %.lr.ph1480, label %.loopexit, !llvm.loop !40
 
 286:                                              ; preds = %5
@@ -10606,7 +10606,7 @@ define internal i32 @dissect_bgp_pdu(ptr noundef %0, ptr noundef %1, ptr noundef
   %84 = call ptr @proto_tree_add_item(ptr noundef %.08085, i32 noundef %83, ptr noundef %0, i32 noundef %.090.i, i32 noundef %.pre-phi.i, i32 noundef 0) #4
   %85 = load i32, ptr @ett_bgp_options, align 4
   %86 = call ptr @proto_item_add_subtree(ptr noundef %84, i32 noundef %85) #4
-  %87 = icmp ult i32 %.090.i, %.089.i
+  %87 = icmp samesign ult i32 %.090.i, %.089.i
   br i1 %87, label %.lr.ph95.i, label %dissect_bgp_open.exit
 
 .lr.ph95.i:                                       ; preds = %82, %.loopexit.i

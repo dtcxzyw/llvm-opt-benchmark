@@ -403,7 +403,7 @@ define dso_local i32 @intel_renderstate_init(ptr noundef %0, ptr noundef %1) loc
   %243 = getelementptr i32, ptr %128, i64 %242
   %244 = getelementptr i8, ptr %243, i64 4
   store i32 -2147483648, ptr %244, align 4
-  %245 = icmp ugt i32 %230, 1021
+  %245 = icmp samesign ugt i32 %230, 1021
   br i1 %245, label %.thread33, label %246
 
 246:                                              ; preds = %241
@@ -415,7 +415,7 @@ define dso_local i32 @intel_renderstate_init(ptr noundef %0, ptr noundef %1) loc
 249:                                              ; preds = %246
   %250 = getelementptr i8, ptr %243, i64 12
   store i32 0, ptr %250, align 4
-  %251 = icmp ugt i32 %230, 1019
+  %251 = icmp samesign ugt i32 %230, 1019
   br i1 %251, label %.thread33, label %252
 
 252:                                              ; preds = %249

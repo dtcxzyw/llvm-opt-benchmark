@@ -339,7 +339,7 @@ define hidden void @OGLRenderer_DrawScanlines(ptr noundef readnone %0, i32 nound
   %21 = load ptr, ptr @j2d_glVertex2f, align 8
   tail call void %21(float noundef %15, float noundef %19) #4
   %22 = add nsw i32 %.014, -1
-  %23 = icmp ugt i32 %.014, 1
+  %23 = icmp samesign ugt i32 %.014, 1
   br i1 %23, label %.lr.ph, label %.loopexit, !llvm.loop !8
 
 .loopexit:                                        ; preds = %.lr.ph, %6, %3
@@ -405,7 +405,7 @@ define hidden void @OGLRenderer_FillSpans(ptr noundef readnone %0, i32 noundef %
   %19 = load ptr, ptr @j2d_glVertex2i, align 8
   tail call void %19(i32 noundef %9, i32 noundef %15) #4
   %20 = add nsw i32 %.019, -1
-  %21 = icmp ugt i32 %.019, 1
+  %21 = icmp samesign ugt i32 %.019, 1
   br i1 %21, label %.lr.ph, label %.loopexit, !llvm.loop !9
 
 .loopexit:                                        ; preds = %.lr.ph, %6, %3

@@ -88,7 +88,7 @@ define void @_Z17normalize_unitboxRN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEE(pt
   %21 = getelementptr inbounds i8, ptr %8, i64 16
   %22 = load <2 x double>, ptr %21, align 16
   %invariant.gep.i.i.i.i = getelementptr inbounds i8, ptr %8, i64 48
-  %23 = icmp ugt i64 %12, 7
+  %23 = icmp samesign ugt i64 %12, 7
   br i1 %23, label %.lr.ph.i.i.i.i, label %._crit_edge.i.i.i.i
 
 .lr.ph.i.i.i.i:                                   ; preds = %20, %.lr.ph.i.i.i.i
@@ -407,7 +407,7 @@ _ZN5Eigen8internalL21first_default_alignedINS_5BlockIKNS_6MatrixIdLin1ELin1ELi0E
   %42 = getelementptr i8, ptr %38, i64 16
   %43 = load <2 x double>, ptr %42, align 1
   %invariant.gep.i.i.i.i.i.i.i.i = getelementptr i8, ptr %23, i64 48
-  %44 = icmp ugt i64 %30, 7
+  %44 = icmp samesign ugt i64 %30, 7
   br i1 %44, label %.lr.ph.preheader.i.i.i.i.i.i.i.i, label %._crit_edge.i.i.i.i.i.i.i.i
 
 .lr.ph.preheader.i.i.i.i.i.i.i.i:                 ; preds = %41
@@ -520,7 +520,7 @@ define linkonce_odr void @_ZN5Eigen12DenseStorageIdLin1ELi1ELin1ELi1EE6resizeEll
   br i1 %9, label %10, label %.sink.split
 
 10:                                               ; preds = %7
-  %11 = icmp ugt i64 %1, 2305843009213693951
+  %11 = icmp samesign ugt i64 %1, 2305843009213693951
   br i1 %11, label %12, label %14
 
 12:                                               ; preds = %10
@@ -582,7 +582,7 @@ define linkonce_odr void @_ZN5Eigen12DenseStorageIdLin1ELin1ELin1ELi0EE6resizeEl
   br i1 %12, label %13, label %.sink.split
 
 13:                                               ; preds = %10
-  %14 = icmp ugt i64 %1, 2305843009213693951
+  %14 = icmp samesign ugt i64 %1, 2305843009213693951
   br i1 %14, label %15, label %17
 
 15:                                               ; preds = %13

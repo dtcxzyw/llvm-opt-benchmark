@@ -2434,7 +2434,7 @@ define internal void @trans_anim_cb(ptr nocapture noundef readonly %0, i32 nound
   br label %85
 
 56:                                               ; preds = %51
-  %57 = icmp ugt i32 %1, 254
+  %57 = icmp samesign ugt i32 %1, 254
   %58 = getelementptr inbounds nuw i8, ptr %0, i64 24
   br i1 %57, label %59, label %61
 

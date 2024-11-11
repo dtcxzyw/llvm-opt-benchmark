@@ -4913,7 +4913,7 @@ if.then18:                                        ; preds = %land.rhs, %if.then1
   br label %fail
 
 if.end21:                                         ; preds = %do.end
-  %cmp22 = icmp ult i64 %call13, 1048577
+  %cmp22 = icmp samesign ult i64 %call13, 1048577
   br i1 %cmp22, label %if.end25, label %if.else24
 
 if.else24:                                        ; preds = %if.end21

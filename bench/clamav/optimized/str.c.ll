@@ -592,7 +592,7 @@ define range(i32 -2147483647, -2147483648) i32 @cli_chomp(ptr noundef %0) local_
 
 .critedge2:                                       ; preds = %.lr.ph, %.lr.ph
   store i8 0, ptr %9, align 1
-  %11 = icmp ugt i64 %indvars.iv, 1
+  %11 = icmp samesign ugt i64 %indvars.iv, 1
   br i1 %11, label %.lr.ph, label %.critedge
 
 .critedge.loopexit.split.loop.exit24:             ; preds = %.lr.ph

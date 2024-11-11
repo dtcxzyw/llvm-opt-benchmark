@@ -812,7 +812,7 @@ define hidden noundef zeroext range(i8 1, -1) i8 @_ZN8rawspeed20AbstractLJpegDec
 39:                                               ; preds = %37
   tail call void @llvm.assume(i1 %14)
   %40 = add nuw nsw i32 %8, 1
-  %41 = icmp ult i32 %40, %6
+  %41 = icmp samesign ult i32 %40, %6
   br i1 %41, label %42, label %.loopexit8
 
 .loopexit8:                                       ; preds = %21, %39
@@ -848,7 +848,7 @@ define hidden noundef zeroext range(i8 1, -1) i8 @_ZN8rawspeed20AbstractLJpegDec
 
 59:                                               ; preds = %55
   %60 = add nuw nsw i32 %56, 1
-  %61 = icmp ult i32 %60, %6
+  %61 = icmp samesign ult i32 %60, %6
   br i1 %61, label %63, label %62
 
 62:                                               ; preds = %59
@@ -868,7 +868,7 @@ define hidden noundef zeroext range(i8 1, -1) i8 @_ZN8rawspeed20AbstractLJpegDec
   tail call void @llvm.assume(i1 %70)
   tail call void @llvm.assume(i1 %72)
   %73 = add nuw nsw i32 %56, 2
-  %74 = icmp ule i32 %73, %6
+  %74 = icmp samesign ule i32 %73, %6
   tail call void @llvm.assume(i1 %74)
   store i32 %73, ptr %7, align 8, !tbaa !68
   ret i8 %69
@@ -941,7 +941,7 @@ define hidden void @_ZN8rawspeed20AbstractLJpegDecoder8parseDHTENS_10ByteStreamE
   unreachable
 
 43:                                               ; preds = %35
-  %44 = icmp ult i8 %39, 4
+  %44 = icmp samesign ult i8 %39, 4
   br i1 %44, label %46, label %45
 
 45:                                               ; preds = %43
@@ -976,7 +976,7 @@ define hidden void @_ZN8rawspeed20AbstractLJpegDecoder8parseDHTENS_10ByteStreamE
 
 58:                                               ; preds = %52
   %59 = add nuw nsw i32 %32, 17
-  %60 = icmp ule i32 %59, %10
+  %60 = icmp samesign ule i32 %59, %10
   call void @llvm.assume(i1 %60)
   %61 = getelementptr inbounds i8, ptr %37, i64 %53
   %62 = invoke noundef i32 @_ZN8rawspeed11HuffmanCodeINS_15BaselineCodeTagEE18setNCodesPerLengthENS_6BufferE(ptr noundef nonnull align 8 dereferenceable(48) %4, ptr nonnull %61, i32 16)
@@ -2161,7 +2161,7 @@ define hidden void @_ZN8rawspeed20AbstractLJpegDecoder8parseSOSENS_10ByteStreamE
   %37 = zext nneg i32 %8 to i64
   %38 = zext nneg i32 %.fr31 to i64
   %39 = and i64 %38, 7
-  %40 = icmp ult i32 %.fr31, 8
+  %40 = icmp samesign ult i32 %.fr31, 8
   %41 = and i64 %38, 2147483640
   %42 = icmp eq i64 %39, 0
   br i1 %40, label %.split.us, label %.split
@@ -2414,7 +2414,7 @@ define hidden void @_ZN8rawspeed20AbstractLJpegDecoder8parseSOSENS_10ByteStreamE
   unreachable
 
 198:                                              ; preds = %99
-  %199 = icmp ult i32 %103, %8
+  %199 = icmp samesign ult i32 %103, %8
   br i1 %199, label %201, label %200
 
 200:                                              ; preds = %198
@@ -2434,7 +2434,7 @@ define hidden void @_ZN8rawspeed20AbstractLJpegDecoder8parseSOSENS_10ByteStreamE
   unreachable
 
 208:                                              ; preds = %201
-  %209 = icmp ult i32 %205, %8
+  %209 = icmp samesign ult i32 %205, %8
   br i1 %209, label %211, label %210
 
 210:                                              ; preds = %208

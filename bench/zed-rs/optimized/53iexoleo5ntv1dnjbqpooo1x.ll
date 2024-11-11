@@ -10853,7 +10853,7 @@ _ZN8language6buffer14BufferSnapshot11language_at17h3226fc9703cfc9deE.exit.i.i.i:
   %236 = and i8 %234, 63
   %237 = zext nneg i8 %236 to i32
   %238 = or disjoint i32 %235, %237
-  %239 = icmp ugt i8 %228, -33
+  %239 = icmp samesign ugt i8 %228, -33
   br i1 %239, label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h2550a55e3970b463E.llvm.12017988288703029125.exit14.i.i.i.i.i.i", label %"_ZN81_$LT$core..str..iter..Chars$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hb5130c238633cf11E.exit.i.i.i.i"
 
 240:                                              ; preds = %.lr.ph.i.i35.i.i
@@ -10871,7 +10871,7 @@ _ZN8language6buffer14BufferSnapshot11language_at17h3226fc9703cfc9deE.exit.i.i.i:
   %248 = or disjoint i32 %245, %247
   %249 = shl nuw nsw i32 %231, 12
   %250 = or disjoint i32 %248, %249
-  %251 = icmp ugt i8 %228, -17
+  %251 = icmp samesign ugt i8 %228, -17
   br i1 %251, label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h2550a55e3970b463E.llvm.12017988288703029125.exit16.i.i.i.i.i.i", label %"_ZN81_$LT$core..str..iter..Chars$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hb5130c238633cf11E.exit.i.i.i.i"
 
 "_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h2550a55e3970b463E.llvm.12017988288703029125.exit16.i.i.i.i.i.i": ; preds = %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h2550a55e3970b463E.llvm.12017988288703029125.exit14.i.i.i.i.i.i"
@@ -17073,7 +17073,7 @@ default.unreachable:                              ; preds = %279
 ._crit_edge.i:                                    ; preds = %._crit_edge.loopexit.i, %916
   %.sroa.31.0.lcssa.i = phi i64 [ 187, %916 ], [ %.sroa.31.4.i, %._crit_edge.loopexit.i ]
   %.sroa.0.0.i.i.i.lcssa.off0.i = phi i64 [ %.val107, %916 ], [ %extract.t90.i, %._crit_edge.loopexit.i ]
-  %918 = icmp ugt i64 %.sroa.0.0.i.i.i.lcssa.off0.i, 99
+  %918 = icmp samesign ugt i64 %.sroa.0.0.i.i.i.lcssa.off0.i, 99
   br i1 %918, label %.lr.ph82.i, label %._crit_edge83.i
 
 .lr.ph82.i:                                       ; preds = %._crit_edge.i

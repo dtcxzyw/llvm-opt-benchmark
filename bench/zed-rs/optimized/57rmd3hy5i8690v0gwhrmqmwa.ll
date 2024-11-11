@@ -44170,7 +44170,7 @@ define internal fastcc void @_ZN4core5slice4sort8unstable9quicksort9quicksort17h
   br i1 %15, label %18, label %16
 
 16:                                               ; preds = %14
-  %17 = icmp ugt i64 %.sroa.9.0.i, 8
+  %17 = icmp samesign ugt i64 %.sroa.9.0.i, 8
   br i1 %17, label %121, label %180
 
 18:                                               ; preds = %14
@@ -53313,7 +53313,7 @@ define internal fastcc void @_ZN4core5slice4sort8unstable9quicksort9quicksort17h
   br i1 %15, label %18, label %16
 
 16:                                               ; preds = %14
-  %17 = icmp ugt i64 %.sroa.9.0.i, 8
+  %17 = icmp samesign ugt i64 %.sroa.9.0.i, 8
   br i1 %17, label %751, label %1160
 
 18:                                               ; preds = %14

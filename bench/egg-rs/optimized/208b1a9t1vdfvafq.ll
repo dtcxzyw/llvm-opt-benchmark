@@ -795,7 +795,7 @@ define internal fastcc void @"_ZN9hashbrown3raw5inner22RawTableInner$LT$A$GT$22f
   br i1 %12, label %14, label %15
 
 .thread:                                          ; preds = %9
-  %13 = icmp ult i64 %2, 4
+  %13 = icmp samesign ult i64 %2, 4
   %..i = select i1 %13, i64 4, i64 8
   br label %23
 
@@ -809,7 +809,7 @@ define internal fastcc void @"_ZN9hashbrown3raw5inner22RawTableInner$LT$A$GT$22f
   %19 = tail call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %18, i1 true)
   %20 = lshr i64 -1, %19
   %21 = add nuw nsw i64 %20, 1
-  %22 = icmp ugt i64 %20, 2305843009213693950
+  %22 = icmp samesign ugt i64 %20, 2305843009213693950
   br i1 %22, label %35, label %23
 
 23:                                               ; preds = %.thread, %15
@@ -886,7 +886,7 @@ define internal fastcc void @"_ZN9hashbrown3raw5inner22RawTableInner$LT$A$GT$22f
   ret void
 
 "_ZN9hashbrown3raw5inner22RawTableInner$LT$A$GT$17new_uninitialized17ha3c3a20af0a7350fE.exit": ; preds = %36
-  %57 = icmp ult i64 %.sroa.4.0.i.ph48, 9
+  %57 = icmp samesign ult i64 %.sroa.4.0.i.ph48, 9
   %58 = add nsw i64 %.sroa.4.0.i.ph48, -1
   %59 = lshr i64 %.sroa.4.0.i.ph48, 3
   %60 = mul nuw nsw i64 %59, 7

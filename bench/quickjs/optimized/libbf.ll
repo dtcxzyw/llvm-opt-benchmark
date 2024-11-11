@@ -3210,7 +3210,7 @@ define internal fastcc range(i32 -1, 1) i32 @mp_divnorm(ptr noundef %0, ptr noca
   %61 = mul i128 %58, %.frozen291
   %.decomposed = sub i128 %.frozen, %61
   %62 = trunc nuw i128 %.decomposed to i64
-  %63 = icmp ugt i64 %.1.in29.i, 1
+  %63 = icmp samesign ugt i64 %.1.in29.i, 1
   br i1 %63, label %51, label %mp_div1norm.exit, !llvm.loop !51
 
 mp_div1norm.exit:                                 ; preds = %51, %23, %.preheader.i, %14
@@ -4015,7 +4015,7 @@ mp_mul1.exit.i:                                   ; preds = %128
 
 mp_mul1.exit.thread.i:                            ; preds = %124
   store i64 0, ptr %125, align 8
-  %142 = icmp ugt i64 %.079, 1
+  %142 = icmp samesign ugt i64 %.079, 1
   br i1 %142, label %.lr.ph.split.us.i, label %mp_mul_basecase.exit
 
 .lr.ph.split.us.i:                                ; preds = %mp_mul1.exit.thread.i
@@ -5187,7 +5187,7 @@ define dso_local range(i32 0, 33) i32 @bf_remquo(ptr nocapture noundef writeonly
   br i1 %or.cond, label %bf_get_int64.exit, label %16
 
 16:                                               ; preds = %7
-  %17 = icmp ult i64 %14, 64
+  %17 = icmp samesign ult i64 %14, 64
   br i1 %17, label %18, label %29
 
 18:                                               ; preds = %16
@@ -5467,7 +5467,7 @@ mp_sub.exit:                                      ; preds = %.lr.ph.i, %18
   %46 = load i64, ptr %45, align 8
   %47 = tail call i64 @llvm.fshl.i64(i64 %.01415.i, i64 %46, i64 63)
   store i64 %47, ptr %45, align 8
-  %48 = icmp ugt i64 %.0.in16.i, 1
+  %48 = icmp samesign ugt i64 %.0.in16.i, 1
   br i1 %48, label %.lr.ph.i95, label %mp_shr.exit, !llvm.loop !61
 
 mp_shr.exit:                                      ; preds = %.lr.ph.i95, %37
@@ -6142,7 +6142,7 @@ mp_shr.exit.thread:                               ; preds = %100
   %104 = load i64, ptr %103, align 8
   %105 = tail call i64 @llvm.fshl.i64(i64 %.01415.i, i64 %104, i64 63)
   store i64 %105, ptr %103, align 8
-  %106 = icmp ugt i64 %.0.in16.i, 1
+  %106 = icmp samesign ugt i64 %.0.in16.i, 1
   br i1 %106, label %.lr.ph.i, label %mp_shr.exit.loopexit, !llvm.loop !61
 
 mp_shr.exit.loopexit:                             ; preds = %.lr.ph.i
@@ -7812,7 +7812,7 @@ define dso_local range(i32 0, 2) i32 @bf_get_int32(ptr nocapture noundef writeon
   br i1 %16, label %82, label %17
 
 17:                                               ; preds = %15
-  %18 = icmp ult i64 %5, 32
+  %18 = icmp samesign ult i64 %5, 32
   br i1 %18, label %19, label %33
 
 19:                                               ; preds = %17
@@ -7948,7 +7948,7 @@ define dso_local range(i32 0, 2) i32 @bf_get_int64(ptr nocapture noundef writeon
   br i1 %17, label %81, label %18
 
 18:                                               ; preds = %16
-  %19 = icmp ult i64 %5, 64
+  %19 = icmp samesign ult i64 %5, 64
   br i1 %19, label %20, label %33
 
 20:                                               ; preds = %18
@@ -8072,7 +8072,7 @@ define dso_local range(i32 0, 2) i32 @bf_get_uint64(ptr nocapture noundef writeo
   br i1 %.not, label %11, label %23
 
 11:                                               ; preds = %8
-  %12 = icmp ult i64 %4, 65
+  %12 = icmp samesign ult i64 %4, 65
   br i1 %12, label %13, label %23
 
 13:                                               ; preds = %11
@@ -12266,7 +12266,7 @@ bf_div.exit:                                      ; preds = %20, %30
   br i1 %43, label %bf_get_int64.exit, label %44
 
 44:                                               ; preds = %42
-  %45 = icmp ult i64 %34, 64
+  %45 = icmp samesign ult i64 %34, 64
   br i1 %45, label %46, label %56
 
 46:                                               ; preds = %44
@@ -14759,7 +14759,7 @@ define internal i32 @bf_pow_int(ptr noundef %0, ptr noundef %1, i64 noundef %2, 
   br i1 %19, label %ceil_log2.exit, label %20
 
 20:                                               ; preds = %18
-  %21 = icmp ult i64 %9, 64
+  %21 = icmp samesign ult i64 %9, 64
   br i1 %21, label %22, label %35
 
 22:                                               ; preds = %20
@@ -18875,7 +18875,7 @@ define dso_local i64 @mp_div1_dec(ptr nocapture noundef writeonly %0, ptr nocapt
   %64 = add i64 %63, %62
   %65 = getelementptr i64, ptr %0, i64 %.1
   store i64 %61, ptr %65, align 8
-  %66 = icmp ugt i64 %.1.in119, 1
+  %66 = icmp samesign ugt i64 %.1.in119, 1
   br i1 %66, label %29, label %.loopexit, !llvm.loop !92
 
 .lr.ph116:                                        ; preds = %19
@@ -18938,7 +18938,7 @@ define dso_local i64 @mp_div1_dec(ptr nocapture noundef writeonly %0, ptr nocapt
   %116 = lshr i64 %115, %20
   %117 = getelementptr i64, ptr %0, i64 %.2
   store i64 %112, ptr %117, align 8
-  %118 = icmp ugt i64 %.2.in115, 1
+  %118 = icmp samesign ugt i64 %.2.in115, 1
   br i1 %118, label %76, label %.loopexit, !llvm.loop !93
 
 119:                                              ; preds = %.lr.ph, %119
@@ -19922,7 +19922,7 @@ floor_div.exit.thread:                            ; preds = %241
   br label %246
 
 floor_div.exit:                                   ; preds = %241
-  %245 = icmp ult i64 %242, -9223372036854775790
+  %245 = icmp samesign ult i64 %242, -9223372036854775790
   br i1 %245, label %246, label %276
 
 246:                                              ; preds = %floor_div.exit.thread, %floor_div.exit
@@ -22931,7 +22931,7 @@ define dso_local range(i32 0, 5) i32 @bfdec_get_int32(ptr nocapture noundef writ
   br i1 %13, label %78, label %14
 
 14:                                               ; preds = %12
-  %15 = icmp ult i64 %4, 10
+  %15 = icmp samesign ult i64 %4, 10
   br i1 %15, label %16, label %48
 
 16:                                               ; preds = %14
@@ -24900,7 +24900,7 @@ get_limbz.exit:                                   ; preds = %105, %107
   %114 = or disjoint i8 %112, 48
   %115 = getelementptr i8, ptr %7, i64 %indvars.iv.next38.i
   store i8 %114, ptr %115, align 1
-  %116 = icmp ugt i64 %indvars.iv37.i, 1
+  %116 = icmp samesign ugt i64 %indvars.iv37.i, 1
   br i1 %116, label %.lr.ph33.i, label %limb_to_a.exit, !llvm.loop !112
 
 .lr.ph.i103:                                      ; preds = %.preheader27.i, %.lr.ph.i103
@@ -24916,7 +24916,7 @@ get_limbz.exit:                                   ; preds = %105, %107
   %121 = trunc i32 %.021.i to i8
   %122 = getelementptr i8, ptr %7, i64 %indvars.iv.next.i105
   store i8 %121, ptr %122, align 1
-  %123 = icmp ugt i64 %indvars.iv.i104, 1
+  %123 = icmp samesign ugt i64 %indvars.iv.i104, 1
   br i1 %123, label %.lr.ph.i103, label %limb_to_a.exit, !llvm.loop !113
 
 124:                                              ; preds = %103
@@ -24976,7 +24976,7 @@ get_bits.exit:                                    ; preds = %134, %142
   %155 = trunc i32 %.014.i to i8
   %156 = getelementptr i8, ptr %7, i64 %indvars.iv.next.i111
   store i8 %155, ptr %156, align 1
-  %157 = icmp ugt i64 %indvars.iv.i109, 1
+  %157 = icmp samesign ugt i64 %indvars.iv.i109, 1
   br i1 %157, label %.lr.ph.i108, label %limb_to_a.exit, !llvm.loop !114
 
 limb_to_a.exit:                                   ; preds = %.lr.ph.i108, %.lr.ph.i103, %.lr.ph33.i, %get_bits.exit, %.preheader.i, %.preheader27.i, %101
@@ -28985,8 +28985,8 @@ define internal fastcc void @limb_to_ntt(ptr nocapture noundef readonly %0, ptr 
 
 .lr.ph100:                                        ; preds = %8
   %22 = icmp slt i32 %5, 65
-  %23 = icmp ult i32 %5, 126
-  %24 = icmp ugt i32 %5, 128
+  %23 = icmp samesign ult i32 %5, 126
+  %24 = icmp samesign ugt i32 %5, 128
   %25 = icmp sgt i32 %7, 0
   %26 = getelementptr inbounds i8, ptr %0, i64 8
   %27 = icmp sgt i32 %5, 125

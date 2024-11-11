@@ -4834,7 +4834,7 @@ while.cond.i:                                     ; preds = %while.cond.i, %if.t
   %nactvar.i18 = getelementptr inbounds i8, ptr %bl.0.i, i64 16
   %8 = load i8, ptr %nactvar.i18, align 8
   %9 = zext i8 %8 to i32
-  %cmp.i20 = icmp ult i32 %i.0.i, %9
+  %cmp.i20 = icmp samesign ult i32 %i.0.i, %9
   br i1 %cmp.i20, label %while.cond.i, label %markupval.exit, !llvm.loop !25
 
 markupval.exit:                                   ; preds = %while.cond.i

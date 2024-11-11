@@ -1343,7 +1343,7 @@ sw.bb134:                                         ; preds = %if.else107
   br i1 %cmp135, label %if.then136, label %sw.epilog210
 
 if.then136:                                       ; preds = %sw.bb134
-  %cmp.i144 = icmp ult i8 %14, 92
+  %cmp.i144 = icmp samesign ult i8 %14, 92
   br i1 %cmp.i144, label %sw.epilog210, label %if.else.i
 
 if.else.i:                                        ; preds = %if.then136
@@ -1398,7 +1398,7 @@ if.then168:                                       ; preds = %if.then164
   %conv169 = trunc nuw i32 %mySourceChar.0 to i8
   %45 = and i8 %conv169, 1
   %tobool.not.i = icmp eq i8 %45, 0
-  %cmp.i145 = icmp ult i8 %44, 96
+  %cmp.i145 = icmp samesign ult i8 %44, 96
   %. = select i1 %cmp.i145, i8 31, i8 32
   %.sink = select i1 %tobool.not.i, i8 126, i8 %.
   %c1.addr.0.i = add i8 %45, %conv169
@@ -1483,7 +1483,7 @@ if.then214:                                       ; preds = %if.then212
   %52 = load ptr, ptr %source, align 8
   %sub.ptr.lhs.cast216 = ptrtoint ptr %50 to i64
   %sub.ptr.rhs.cast217 = ptrtoint ptr %52 to i64
-  %cmp219 = icmp ult i32 %mySourceChar.1, 256
+  %cmp219 = icmp samesign ult i32 %mySourceChar.1, 256
   %cond.neg = select i1 %cmp219, i64 4294967295, i64 4294967294
   %sub.ptr.sub218 = add i64 %cond.neg, %sub.ptr.lhs.cast216
   %sub221 = sub i64 %sub.ptr.sub218, %sub.ptr.rhs.cast217
@@ -1523,7 +1523,7 @@ if.then243:                                       ; preds = %if.then234
   %57 = load ptr, ptr %source, align 8
   %sub.ptr.lhs.cast245 = ptrtoint ptr %56 to i64
   %sub.ptr.rhs.cast246 = ptrtoint ptr %57 to i64
-  %cmp248 = icmp ult i32 %mySourceChar.1, 256
+  %cmp248 = icmp samesign ult i32 %mySourceChar.1, 256
   %cond249.neg = select i1 %cmp248, i64 4294967295, i64 4294967294
   %sub.ptr.sub247 = add i64 %cond249.neg, %sub.ptr.lhs.cast245
   %sub251 = sub i64 %sub.ptr.sub247, %sub.ptr.rhs.cast246
@@ -1558,7 +1558,7 @@ if.then272:                                       ; preds = %if.then264
   %64 = load ptr, ptr %source, align 8
   %sub.ptr.lhs.cast274 = ptrtoint ptr %63 to i64
   %sub.ptr.rhs.cast275 = ptrtoint ptr %64 to i64
-  %cmp277 = icmp ult i32 %mySourceChar.1, 256
+  %cmp277 = icmp samesign ult i32 %mySourceChar.1, 256
   %cond278.neg = select i1 %cmp277, i64 4294967295, i64 4294967294
   %sub.ptr.sub276 = add i64 %cond278.neg, %sub.ptr.lhs.cast274
   %sub280 = sub i64 %sub.ptr.sub276, %sub.ptr.rhs.cast275
@@ -2090,11 +2090,11 @@ if.else.i221:                                     ; preds = %if.end.i214
   br i1 %tobool18.not.i, label %cond.false.i, label %cond.true.i
 
 cond.true.i:                                      ; preds = %if.else.i221
-  %cmp19.i = icmp ugt i16 %47, 2047
+  %cmp19.i = icmp samesign ugt i16 %47, 2047
   br i1 %cmp19.i, label %land.lhs.true183, label %for.inc213
 
 cond.false.i:                                     ; preds = %if.else.i221
-  %cmp20.i = icmp ugt i16 %47, 3071
+  %cmp20.i = icmp samesign ugt i16 %47, 3071
   br i1 %cmp20.i, label %land.lhs.true183, label %for.inc213
 
 land.lhs.true183:                                 ; preds = %if.end.i214, %cond.false.i, %cond.true.i
@@ -4355,7 +4355,7 @@ if.then152:                                       ; preds = %if.then150
   %43 = load ptr, ptr %source, align 8
   %sub.ptr.lhs.cast154 = ptrtoint ptr %41 to i64
   %sub.ptr.rhs.cast155 = ptrtoint ptr %43 to i64
-  %cmp157 = icmp ult i32 %mySourceChar.1, 256
+  %cmp157 = icmp samesign ult i32 %mySourceChar.1, 256
   %cond.neg = select i1 %cmp157, i64 4294967295, i64 4294967294
   %sub.ptr.sub156 = add i64 %cond.neg, %sub.ptr.lhs.cast154
   %sub159 = sub i64 %sub.ptr.sub156, %sub.ptr.rhs.cast155
@@ -4395,7 +4395,7 @@ if.then180:                                       ; preds = %if.then172
   %48 = load ptr, ptr %source, align 8
   %sub.ptr.lhs.cast182 = ptrtoint ptr %47 to i64
   %sub.ptr.rhs.cast183 = ptrtoint ptr %48 to i64
-  %cmp185 = icmp ult i32 %mySourceChar.1, 256
+  %cmp185 = icmp samesign ult i32 %mySourceChar.1, 256
   %cond186.neg = select i1 %cmp185, i64 4294967295, i64 4294967294
   %sub.ptr.sub184 = add i64 %cond186.neg, %sub.ptr.lhs.cast182
   %sub188 = sub i64 %sub.ptr.sub184, %sub.ptr.rhs.cast183
@@ -4430,7 +4430,7 @@ if.then209:                                       ; preds = %if.then201
   %55 = load ptr, ptr %source, align 8
   %sub.ptr.lhs.cast211 = ptrtoint ptr %54 to i64
   %sub.ptr.rhs.cast212 = ptrtoint ptr %55 to i64
-  %cmp214 = icmp ult i32 %mySourceChar.1, 256
+  %cmp214 = icmp samesign ult i32 %mySourceChar.1, 256
   %cond215.neg = select i1 %cmp214, i64 4294967295, i64 4294967294
   %sub.ptr.sub213 = add i64 %cond215.neg, %sub.ptr.lhs.cast211
   %sub217 = sub i64 %sub.ptr.sub213, %sub.ptr.rhs.cast212
@@ -4692,7 +4692,7 @@ for.body.lr.ph:                                   ; preds = %sw.bb, %sw.bb88, %s
   %choiceCount.5171 = phi i32 [ %choiceCount.2, %if.end98 ], [ 3, %sw.bb ], [ 3, %sw.bb88 ], [ 3, %sw.default ], [ 2, %if.then75 ], [ 2, %if.else77 ]
   %useFallback99 = getelementptr inbounds i8, ptr %0, i64 63
   %13 = load i8, ptr %useFallback99, align 1
-  %cmp.i = icmp ult i32 %sourceChar.1, 65536
+  %cmp.i = icmp samesign ult i32 %sourceChar.1, 65536
   %shr.i = lshr i32 %sourceChar.1, 10
   %idxprom.i = zext nneg i32 %shr.i to i64
   %shr3.i = lshr i32 %sourceChar.1, 4
@@ -4721,7 +4721,7 @@ for.body:                                         ; preds = %for.body.lr.ph, %fo
   br i1 %cmp104, label %if.then105, label %for.inc
 
 if.then105:                                       ; preds = %for.body
-  %cmp107 = icmp ugt i8 %15, 31
+  %cmp107 = icmp samesign ugt i8 %15, 31
   br i1 %cmp107, label %if.then108, label %if.else139
 
 if.then108:                                       ; preds = %if.then105

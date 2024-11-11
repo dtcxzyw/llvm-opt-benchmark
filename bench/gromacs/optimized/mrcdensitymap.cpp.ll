@@ -2077,7 +2077,7 @@ _ZNSt6vectorIfSaIfEED2Ev.exit.i:                  ; preds = %21, %18
   %38 = getelementptr inbounds i8, ptr %.sroa.05.07.i.i.i.i.i, i64 4
   %39 = getelementptr inbounds i8, ptr %.09.i.i.i.i.i, i64 4
   %40 = add nsw i64 %.048.i.i.i.i.i, -1
-  %41 = icmp ugt i64 %.048.i.i.i.i.i, 1
+  %41 = icmp samesign ugt i64 %.048.i.i.i.i.i, 1
   br i1 %41, label %.lr.ph.i.i.i.i.i, label %_ZSt4copyIN3gmx12ArrayRefIterIKfEEPfET0_T_S6_S5_.exit, !llvm.loop !26
 
 _ZSt4copyIN3gmx12ArrayRefIterIKfEEPfET0_T_S6_S5_.exit: ; preds = %.lr.ph.i.i.i.i.i, %22

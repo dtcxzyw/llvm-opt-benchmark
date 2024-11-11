@@ -2607,7 +2607,7 @@ sw.epilog:                                        ; preds = %while.body
   %prev = getelementptr inbounds i8, ptr %arrayidx38, i64 6
   %13 = load i16, ptr %prev, align 2
   %conv102 = zext i16 %13 to i32
-  %cmp33 = icmp ult i32 %lim.3, %conv102
+  %cmp33 = icmp samesign ult i32 %lim.3, %conv102
   br i1 %cmp33, label %while.body, label %cselim, !llvm.loop !31
 
 cselim:                                           ; preds = %sw.epilog, %while.body, %retry, %entry
@@ -2648,7 +2648,7 @@ if.end135:                                        ; preds = %land.lhs.true, %whi
   %prev140 = getelementptr inbounds i8, ptr %arrayidx113, i64 6
   %ref.2.in = load i16, ptr %prev140, align 2
   %ref.2 = zext i16 %ref.2.in to i32
-  %cmp107 = icmp ult i32 %lim.0, %ref.2
+  %cmp107 = icmp samesign ult i32 %lim.0, %ref.2
   br i1 %cmp107, label %while.body109, label %while.end142, !llvm.loop !32
 
 while.end142:                                     ; preds = %if.end135, %cselim
@@ -2865,7 +2865,7 @@ if.end102.i:                                      ; preds = %land.lhs.true.i.i, 
   %spec.select12.i72.i = tail call i32 @llvm.umax.i32(i32 range(i32 0, 65536) %conv104.i, i32 %idxref.0.i)
   %ref.0.in13.i73.i = load i16, ptr %arrayidx.i70.i, align 2
   %ref.014.i74.i = zext i16 %ref.0.in13.i73.i to i32
-  %cmp215.i75.i = icmp ult i32 %spec.select12.i72.i, %ref.014.i74.i
+  %cmp215.i75.i = icmp samesign ult i32 %spec.select12.i72.i, %ref.014.i74.i
   br i1 %cmp215.i75.i, label %while.body.i79.i, label %doemit
 
 while.body.i79.i:                                 ; preds = %if.end102.i, %if.end16.i86.i
@@ -2889,7 +2889,7 @@ if.end16.i86.i:                                   ; preds = %land.lhs.true.i91.i
   %prev.i87.i = getelementptr inbounds i8, ptr %arrayidx6.i83.i, i64 6
   %ref.0.in.i88.i = load i16, ptr %prev.i87.i, align 2
   %ref.0.i89.i = zext i16 %ref.0.in.i88.i to i32
-  %cmp2.i90.i = icmp ult i32 %spec.select12.i72.i, %ref.0.i89.i
+  %cmp2.i90.i = icmp samesign ult i32 %spec.select12.i72.i, %ref.0.i89.i
   br i1 %cmp2.i90.i, label %while.body.i79.i, label %doemit, !llvm.loop !33
 
 if.end108.i:                                      ; preds = %land.lhs.true.i91.i
@@ -2953,7 +2953,7 @@ while.body172:                                    ; preds = %while.body172.lr.ph
   %gep = getelementptr inbounds %union.IRIns, ptr %invariant.gep, i64 %idxprom175
   %ref.3.in = load i16, ptr %gep, align 2
   %ref.3 = zext i16 %ref.3.in to i32
-  %cmp170 = icmp ult i32 %lim.0, %ref.3
+  %cmp170 = icmp samesign ult i32 %lim.0, %ref.3
   br i1 %cmp170, label %while.body172, label %while.end179, !llvm.loop !34
 
 while.end179:                                     ; preds = %while.body172, %if.then165

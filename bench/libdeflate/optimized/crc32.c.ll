@@ -189,7 +189,7 @@ entry:
   br i1 %cmp, label %if.then, label %if.else68
 
 if.then:                                          ; preds = %entry
-  %cmp7 = icmp ult i64 %len, 16
+  %cmp7 = icmp samesign ult i64 %len, 16
   br i1 %cmp7, label %for.cond.i.preheader, label %if.end
 
 for.cond.i.preheader:                             ; preds = %if.then
@@ -219,7 +219,7 @@ if.end:                                           ; preds = %if.then
   %3 = bitcast <4 x i32> %vecinit3.i219 to <2 x i64>
   %xor.i194 = xor <2 x i64> %2, %3
   %add.ptr = getelementptr inbounds i8, ptr %p, i64 16
-  %cmp13 = icmp ugt i64 %len, 63
+  %cmp13 = icmp samesign ugt i64 %len, 63
   br i1 %cmp13, label %if.then14, label %if.else
 
 if.then14:                                        ; preds = %if.end
@@ -229,7 +229,7 @@ if.then14:                                        ; preds = %if.end
   %add.ptr19 = getelementptr inbounds i8, ptr %p, i64 48
   %6 = load <2 x i64>, ptr %add.ptr19, align 1
   %p.addr.0313 = getelementptr inbounds i8, ptr %p, i64 64
-  %cmp22314 = icmp ugt i64 %len, 127
+  %cmp22314 = icmp samesign ugt i64 %len, 127
   br i1 %cmp22314, label %while.body, label %while.end
 
 while.body:                                       ; preds = %if.then14, %while.body
@@ -325,7 +325,7 @@ if.then50:                                        ; preds = %if.end46
   br label %if.end138
 
 if.else:                                          ; preds = %if.end
-  %cmp55 = icmp ugt i64 %len, 31
+  %cmp55 = icmp samesign ugt i64 %len, 31
   br i1 %cmp55, label %if.then56, label %if.end138
 
 if.then56:                                        ; preds = %if.else
@@ -335,7 +335,7 @@ if.then56:                                        ; preds = %if.else
   %38 = tail call <2 x i64> @llvm.x86.pclmulqdq(<2 x i64> %xor.i194, <2 x i64> <i64 poison, i64 3433693342>, i8 17)
   %xor.i.i426 = xor <2 x i64> %xor.i4.i425, %38
   %add.ptr59 = getelementptr inbounds i8, ptr %p, i64 32
-  %cmp60 = icmp ugt i64 %len, 47
+  %cmp60 = icmp samesign ugt i64 %len, 47
   br i1 %cmp60, label %if.then61, label %if.end138
 
 if.then61:                                        ; preds = %if.then56
@@ -627,7 +627,7 @@ entry:
   br i1 %cmp, label %if.then, label %if.else68
 
 if.then:                                          ; preds = %entry
-  %cmp7 = icmp ult i64 %len, 16
+  %cmp7 = icmp samesign ult i64 %len, 16
   br i1 %cmp7, label %for.cond.i201.preheader, label %if.end
 
 for.cond.i201.preheader:                          ; preds = %if.then
@@ -657,7 +657,7 @@ if.end:                                           ; preds = %if.then
   %3 = bitcast <4 x i32> %vecinit3.i251 to <2 x i64>
   %xor.i227 = xor <2 x i64> %2, %3
   %add.ptr = getelementptr inbounds i8, ptr %p, i64 16
-  %cmp13 = icmp ugt i64 %len, 63
+  %cmp13 = icmp samesign ugt i64 %len, 63
   br i1 %cmp13, label %if.then14, label %if.else
 
 if.then14:                                        ; preds = %if.end
@@ -667,7 +667,7 @@ if.then14:                                        ; preds = %if.end
   %add.ptr19 = getelementptr inbounds i8, ptr %p, i64 48
   %6 = load <2 x i64>, ptr %add.ptr19, align 1
   %p.addr.0304 = getelementptr inbounds i8, ptr %p, i64 64
-  %cmp22305 = icmp ugt i64 %len, 127
+  %cmp22305 = icmp samesign ugt i64 %len, 127
   br i1 %cmp22305, label %while.body, label %while.end
 
 while.body:                                       ; preds = %if.then14, %while.body
@@ -763,7 +763,7 @@ if.then50:                                        ; preds = %if.end46
   br label %if.end137
 
 if.else:                                          ; preds = %if.end
-  %cmp55 = icmp ugt i64 %len, 31
+  %cmp55 = icmp samesign ugt i64 %len, 31
   br i1 %cmp55, label %if.then56, label %if.end137
 
 if.then56:                                        ; preds = %if.else
@@ -773,7 +773,7 @@ if.then56:                                        ; preds = %if.else
   %38 = tail call <2 x i64> @llvm.x86.pclmulqdq(<2 x i64> %xor.i227, <2 x i64> <i64 poison, i64 3433693342>, i8 17)
   %xor.i.i466 = xor <2 x i64> %xor.i4.i465, %38
   %add.ptr59 = getelementptr inbounds i8, ptr %p, i64 32
-  %cmp60 = icmp ugt i64 %len, 47
+  %cmp60 = icmp samesign ugt i64 %len, 47
   br i1 %cmp60, label %if.then61, label %if.end137
 
 if.then61:                                        ; preds = %if.then56

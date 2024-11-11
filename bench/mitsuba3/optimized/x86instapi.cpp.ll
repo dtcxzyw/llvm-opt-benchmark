@@ -152,7 +152,7 @@ define hidden noundef i32 @_ZN6asmjit9_abi_1_103x8612InstInternal14instIdToStrin
   br label %78
 
 78:                                               ; preds = %74, %64
-  %79 = icmp ult i32 %9, 268435456
+  %79 = icmp samesign ult i32 %9, 268435456
   br i1 %79, label %83, label %80
 
 80:                                               ; preds = %78
@@ -334,7 +334,7 @@ define hidden noundef i32 @_ZN6asmjit9_abi_1_103x8612InstInternal14stringToInstI
   br label %109
 
 109:                                              ; preds = %105, %95
-  %110 = icmp ult i32 %45, 268435456
+  %110 = icmp samesign ult i32 %45, 268435456
   br i1 %110, label %114, label %111
 
 111:                                              ; preds = %109
@@ -580,7 +580,7 @@ define hidden noundef range(i32 0, 63) i32 @_ZN6asmjit9_abi_1_103x8612InstIntern
   br i1 %102, label %103, label %113
 
 103:                                              ; preds = %99
-  %104 = icmp ugt i32 %101, 31
+  %104 = icmp samesign ugt i32 %101, 31
   br i1 %104, label %.loopexit28, label %105, !prof !9
 
 105:                                              ; preds = %103
@@ -679,7 +679,7 @@ define hidden noundef range(i32 0, 63) i32 @_ZN6asmjit9_abi_1_103x8612InstIntern
   br i1 %167, label %168, label %173
 
 168:                                              ; preds = %166
-  %169 = icmp ugt i32 %158, 31
+  %169 = icmp samesign ugt i32 %158, 31
   br i1 %169, label %.loopexit28, label %170, !prof !9
 
 170:                                              ; preds = %168
@@ -770,7 +770,7 @@ define hidden noundef range(i32 0, 63) i32 @_ZN6asmjit9_abi_1_103x8612InstIntern
   br i1 %222, label %223, label %228
 
 223:                                              ; preds = %218
-  %224 = icmp ugt i32 %221, 31
+  %224 = icmp samesign ugt i32 %221, 31
   br i1 %224, label %.loopexit28, label %225, !prof !9
 
 225:                                              ; preds = %223
@@ -845,35 +845,35 @@ define hidden noundef range(i32 0, 63) i32 @_ZN6asmjit9_abi_1_103x8612InstIntern
   br i1 %256, label %257, label %274
 
 257:                                              ; preds = %253
-  %258 = icmp ult i64 %255, 8
+  %258 = icmp samesign ult i64 %255, 8
   br i1 %258, label %284, label %259
 
 259:                                              ; preds = %257
-  %260 = icmp ult i64 %255, 16
+  %260 = icmp samesign ult i64 %255, 16
   br i1 %260, label %284, label %261
 
 261:                                              ; preds = %259
-  %262 = icmp ult i64 %255, 128
+  %262 = icmp samesign ult i64 %255, 128
   br i1 %262, label %284, label %263
 
 263:                                              ; preds = %261
-  %264 = icmp ult i64 %255, 256
+  %264 = icmp samesign ult i64 %255, 256
   br i1 %264, label %284, label %265
 
 265:                                              ; preds = %263
-  %266 = icmp ult i64 %255, 32768
+  %266 = icmp samesign ult i64 %255, 32768
   br i1 %266, label %284, label %267
 
 267:                                              ; preds = %265
-  %268 = icmp ult i64 %255, 65536
+  %268 = icmp samesign ult i64 %255, 65536
   br i1 %268, label %284, label %269
 
 269:                                              ; preds = %267
-  %270 = icmp ult i64 %255, 2147483648
+  %270 = icmp samesign ult i64 %255, 2147483648
   br i1 %270, label %284, label %271
 
 271:                                              ; preds = %269
-  %272 = icmp ult i64 %255, 4294967296
+  %272 = icmp samesign ult i64 %255, 4294967296
   %273 = select i1 %272, i64 61572651155456, i64 52776558133248
   br label %284
 
@@ -1589,7 +1589,7 @@ define hidden noundef range(i32 0, 27) i32 @_ZN6asmjit9_abi_1_103x8612InstIntern
   br i1 %197, label %.loopexit13, label %198
 
 198:                                              ; preds = %192
-  %199 = icmp ugt i64 %3, 1
+  %199 = icmp samesign ugt i64 %3, 1
   %200 = select i1 %199, i1 %195, i1 false
   br i1 %200, label %201, label %.loopexit12
 
@@ -3990,7 +3990,7 @@ define hidden noundef range(i32 0, 27) i32 @_ZN6asmjit9_abi_1_103x8612InstIntern
   br i1 %202, label %203, label %210
 
 203:                                              ; preds = %200
-  %204 = icmp ugt i64 %3, 1
+  %204 = icmp samesign ugt i64 %3, 1
   br i1 %204, label %205, label %214
 
 205:                                              ; preds = %203
@@ -4056,7 +4056,7 @@ define hidden noundef range(i32 0, 27) i32 @_ZN6asmjit9_abi_1_103x8612InstIntern
   ]
 
 233:                                              ; preds = %224, %224, %224, %224
-  %234 = icmp ugt i64 %3, 1
+  %234 = icmp samesign ugt i64 %3, 1
   br i1 %234, label %235, label %272
 
 235:                                              ; preds = %233
@@ -4067,7 +4067,7 @@ define hidden noundef range(i32 0, 27) i32 @_ZN6asmjit9_abi_1_103x8612InstIntern
   br label %272
 
 240:                                              ; preds = %224, %224, %224
-  %241 = icmp ugt i64 %3, 1
+  %241 = icmp samesign ugt i64 %3, 1
   br i1 %241, label %242, label %272
 
 242:                                              ; preds = %240
@@ -4077,7 +4077,7 @@ define hidden noundef range(i32 0, 27) i32 @_ZN6asmjit9_abi_1_103x8612InstIntern
   br label %272
 
 246:                                              ; preds = %224, %224, %224, %224, %224, %224, %224, %224, %224, %224, %224
-  %247 = icmp ugt i64 %3, 1
+  %247 = icmp samesign ugt i64 %3, 1
   br i1 %247, label %248, label %272
 
 248:                                              ; preds = %246
@@ -4088,7 +4088,7 @@ define hidden noundef range(i32 0, 27) i32 @_ZN6asmjit9_abi_1_103x8612InstIntern
   br label %272
 
 253:                                              ; preds = %224
-  %254 = icmp ugt i64 %3, 2
+  %254 = icmp samesign ugt i64 %3, 2
   br i1 %254, label %255, label %272
 
 255:                                              ; preds = %253
@@ -4099,7 +4099,7 @@ define hidden noundef range(i32 0, 27) i32 @_ZN6asmjit9_abi_1_103x8612InstIntern
   br label %272
 
 260:                                              ; preds = %224
-  %261 = icmp ugt i64 %3, 2
+  %261 = icmp samesign ugt i64 %3, 2
   br i1 %261, label %262, label %272
 
 262:                                              ; preds = %260

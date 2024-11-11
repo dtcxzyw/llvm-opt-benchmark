@@ -124,7 +124,7 @@ define hidden void @_ZN5zxing10ByteMatrixC2Eii(ptr nocapture noundef nonnull ali
   %16 = getelementptr inbounds i8, ptr %0, i64 32
   store ptr %15, ptr %16, align 8
   store i32 0, ptr %15, align 4
-  %17 = icmp ugt i32 %2, 1
+  %17 = icmp samesign ugt i32 %2, 1
   br i1 %17, label %.lr.ph.i, label %_ZN5zxing10ByteMatrix4initEii.exit
 
 .lr.ph.i:                                         ; preds = %.noexc, %.lr.ph.i
@@ -176,7 +176,7 @@ define hidden void @_ZN5zxing10ByteMatrixC2EiiNS_8ArrayRefIcEE(ptr nocapture nou
   %17 = getelementptr inbounds i8, ptr %0, i64 32
   store ptr %16, ptr %17, align 8
   store i32 0, ptr %16, align 4
-  %18 = icmp ugt i32 %2, 1
+  %18 = icmp samesign ugt i32 %2, 1
   br i1 %18, label %.lr.ph.i, label %.loopexit
 
 .lr.ph.i:                                         ; preds = %.noexc, %.lr.ph.i

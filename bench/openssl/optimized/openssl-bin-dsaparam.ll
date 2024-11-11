@@ -252,7 +252,7 @@ if.end84:                                         ; preds = %if.end77
   br i1 %cmp85, label %if.then86, label %if.else115
 
 if.then86:                                        ; preds = %if.end84
-  %cmp87 = icmp ugt i32 %7, 10000
+  %cmp87 = icmp samesign ugt i32 %7, 10000
   br i1 %cmp87, label %if.then88, label %if.end90
 
 if.then88:                                        ; preds = %if.then86

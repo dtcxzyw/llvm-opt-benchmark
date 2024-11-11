@@ -2780,7 +2780,7 @@ while.body:                                       ; preds = %if.then10, %while.b
   %dec = add nsw i64 %n.031, -1
   %rightlink = getelementptr inbounds i8, ptr %b.132, i64 520
   %b.1 = load ptr, ptr %rightlink, align 8
-  %cmp12 = icmp ugt i64 %n.031, 1
+  %cmp12 = icmp samesign ugt i64 %n.031, 1
   br i1 %cmp12, label %while.body, label %if.end28, !llvm.loop !11
 
 if.else13:                                        ; preds = %if.else6
@@ -2871,7 +2871,7 @@ while.body:                                       ; preds = %if.then7, %while.bo
   %dec = add nsw i64 %n.029, -1
   %rightlink = getelementptr inbounds i8, ptr %b.030, i64 520
   %b.0 = load ptr, ptr %rightlink, align 8
-  %cmp8 = icmp ugt i64 %n.029, 1
+  %cmp8 = icmp samesign ugt i64 %n.029, 1
   br i1 %cmp8, label %while.body, label %do.body, !llvm.loop !13
 
 if.else:                                          ; preds = %if.end4
@@ -3106,7 +3106,7 @@ if.then9:                                         ; preds = %if.end7
   %inc = add i64 %7, 1
   store i64 %inc, ptr %state, align 8
   %sub = add nsw i64 %n.addr.0, -1
-  %cmp16102 = icmp ugt i64 %n.addr.0, 1
+  %cmp16102 = icmp samesign ugt i64 %n.addr.0, 1
   br i1 %cmp16102, label %for.body.lr.ph, label %for.end
 
 for.body.lr.ph:                                   ; preds = %if.then9
@@ -4979,7 +4979,7 @@ if.then14:                                        ; preds = %if.end
 if.end15:                                         ; preds = %if.then14, %if.end
   %rightblock.1 = phi ptr [ %8, %if.then14 ], [ %rightblock.017, %if.end ]
   %rightindex.1 = phi i64 [ 63, %if.then14 ], [ %dec12, %if.end ]
-  %cmp = icmp ugt i64 %dec21.in, 1
+  %cmp = icmp samesign ugt i64 %dec21.in, 1
   br i1 %cmp, label %while.body, label %while.end, !llvm.loop !27
 
 while.end:                                        ; preds = %if.end15, %entry

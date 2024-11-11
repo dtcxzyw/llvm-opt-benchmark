@@ -17346,7 +17346,7 @@ if.then.i.i.i:                                    ; preds = %if.then5.i.i
   br label %_ZN3irr4core5arrayIP13_SDL_JoystickE10reallocateEjb.exit
 
 if.else.i:                                        ; preds = %_ZN3irr4core5arrayINS_13SJoystickInfoEE5clearEv.exit
-  %cmp3.i.i = icmp ult i64 %sub.ptr.div.i.i, %conv.i
+  %cmp3.i.i = icmp samesign ult i64 %sub.ptr.div.i.i, %conv.i
   br i1 %cmp3.i.i, label %_ZNSt12_Vector_baseIP13_SDL_JoystickSaIS1_EE11_M_allocateEm.exit.i.i, label %_ZN3irr4core5arrayIP13_SDL_JoystickE10reallocateEjb.exit
 
 _ZNSt12_Vector_baseIP13_SDL_JoystickSaIS1_EE11_M_allocateEm.exit.i.i: ; preds = %if.else.i

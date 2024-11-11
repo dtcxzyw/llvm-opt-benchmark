@@ -145,7 +145,7 @@ define internal void @start_output_ppm(ptr noundef %0, ptr nocapture noundef rea
   br label %40
 
 15:                                               ; preds = %2, %2, %2, %2, %2, %2, %2, %2, %2, %2, %2
-  %16 = icmp ugt i32 %4, 5
+  %16 = icmp samesign ugt i32 %4, 5
   br i1 %16, label %25, label %17
 
 17:                                               ; preds = %15

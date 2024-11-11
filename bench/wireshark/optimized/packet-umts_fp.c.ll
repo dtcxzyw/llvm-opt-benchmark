@@ -8195,7 +8195,7 @@ define internal fastcc range(i32 0, 2) i32 @heur_dissect_fp_edch_type_1(ptr noun
 40:                                               ; preds = %38
   %narrow = add nuw nsw i8 %39, 1
   %41 = zext nneg i8 %narrow to i32
-  %42 = icmp ugt i8 %39, 9
+  %42 = icmp samesign ugt i8 %39, 9
   br i1 %42, label %.thread, label %.preheader2
 
 .preheader2:                                      ; preds = %40, %._crit_edge

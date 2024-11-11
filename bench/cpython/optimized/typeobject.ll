@@ -9408,19 +9408,19 @@ if.end.i.i89:                                     ; preds = %for.body.i.i
   br i1 %cmp.i24.i.i, label %if.end25.sink.split.i.i.i, label %if.else.i.i.i
 
 if.else.i.i.i:                                    ; preds = %if.end.i.i89
-  %cmp2.i.i.i = icmp ugt i32 %86, 759
+  %cmp2.i.i.i = icmp samesign ugt i32 %86, 759
   br i1 %cmp2.i.i.i, label %if.end25.sink.split.i.i.i, label %if.else6.i.i.i
 
 if.else6.i.i.i:                                   ; preds = %if.else.i.i.i
-  %cmp7.i.i.i = icmp ugt i32 %86, 735
+  %cmp7.i.i.i = icmp samesign ugt i32 %86, 735
   br i1 %cmp7.i.i.i, label %if.end25.sink.split.i.i.i, label %if.else11.i.i.i
 
 if.else11.i.i.i:                                  ; preds = %if.else6.i.i.i
-  %cmp12.i.i.i = icmp ugt i32 %86, 447
+  %cmp12.i.i.i = icmp samesign ugt i32 %86, 447
   br i1 %cmp12.i.i.i, label %if.end25.sink.split.i.i.i, label %if.else16.i.i.i
 
 if.else16.i.i.i:                                  ; preds = %if.else11.i.i.i
-  %cmp17.i.i.i = icmp ugt i32 %86, 415
+  %cmp17.i.i.i = icmp samesign ugt i32 %86, 415
   br i1 %cmp17.i.i.i, label %if.end25.sink.split.i.i.i, label %slotptr.exit.i.i
 
 if.end25.sink.split.i.i.i:                        ; preds = %if.else16.i.i.i, %if.else11.i.i.i, %if.else6.i.i.i, %if.else.i.i.i, %if.end.i.i89
@@ -19739,19 +19739,19 @@ entry:
   br i1 %cmp.i, label %if.end25.sink.split.i, label %if.else.i
 
 if.else.i:                                        ; preds = %entry
-  %cmp2.i = icmp ugt i32 %0, 759
+  %cmp2.i = icmp samesign ugt i32 %0, 759
   br i1 %cmp2.i, label %if.end25.sink.split.i, label %if.else6.i
 
 if.else6.i:                                       ; preds = %if.else.i
-  %cmp7.i = icmp ugt i32 %0, 735
+  %cmp7.i = icmp samesign ugt i32 %0, 735
   br i1 %cmp7.i, label %if.end25.sink.split.i, label %if.else11.i
 
 if.else11.i:                                      ; preds = %if.else6.i
-  %cmp12.i = icmp ugt i32 %0, 447
+  %cmp12.i = icmp samesign ugt i32 %0, 447
   br i1 %cmp12.i, label %if.end25.sink.split.i, label %if.else16.i
 
 if.else16.i:                                      ; preds = %if.else11.i
-  %cmp17.i = icmp ugt i32 %0, 415
+  %cmp17.i = icmp samesign ugt i32 %0, 415
   br i1 %cmp17.i, label %if.end25.sink.split.i, label %slotptr.exit
 
 if.end25.sink.split.i:                            ; preds = %if.else16.i, %if.else11.i, %if.else6.i, %if.else.i, %entry
@@ -19888,19 +19888,19 @@ for.body14.i:                                     ; preds = %if.end8.i, %for.inc
   br i1 %cmp.i.i, label %if.end25.sink.split.i.i, label %if.else.i.i
 
 if.else.i.i:                                      ; preds = %for.body14.i
-  %cmp2.i.i = icmp ugt i32 %19, 759
+  %cmp2.i.i = icmp samesign ugt i32 %19, 759
   br i1 %cmp2.i.i, label %if.end25.sink.split.i.i, label %if.else6.i.i
 
 if.else6.i.i:                                     ; preds = %if.else.i.i
-  %cmp7.i.i = icmp ugt i32 %19, 735
+  %cmp7.i.i = icmp samesign ugt i32 %19, 735
   br i1 %cmp7.i.i, label %if.end25.sink.split.i.i, label %if.else11.i.i
 
 if.else11.i.i:                                    ; preds = %if.else6.i.i
-  %cmp12.i.i = icmp ugt i32 %19, 447
+  %cmp12.i.i = icmp samesign ugt i32 %19, 447
   br i1 %cmp12.i.i, label %if.end25.sink.split.i.i, label %if.else16.i.i
 
 if.else16.i.i:                                    ; preds = %if.else11.i.i
-  %cmp17.i.i = icmp ugt i32 %19, 415
+  %cmp17.i.i = icmp samesign ugt i32 %19, 415
   br i1 %cmp17.i.i, label %if.end25.sink.split.i.i, label %slotptr.exit.i
 
 if.end25.sink.split.i.i:                          ; preds = %if.else16.i.i, %if.else11.i.i, %if.else6.i.i, %if.else.i.i, %for.body14.i

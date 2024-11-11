@@ -3564,7 +3564,7 @@ define hidden void @nfs_name_snoop_add_name(i32 noundef %0, ptr noundef %1, i32 
   ]
 
 20:                                               ; preds = %17
-  %21 = icmp ult i32 %3, 3
+  %21 = icmp samesign ult i32 %3, 3
   br i1 %21, label %60, label %22
 
 22:                                               ; preds = %20
@@ -5697,7 +5697,7 @@ define internal i32 @dissect_fhandle_data_PRIMARY_DATA(ptr noundef %0, ptr nocap
   %11 = load i32, ptr @hf_nfs4_fh_pd_flags, align 4
   %12 = load i32, ptr @ett_nfs4_fh_pd_flags, align 4
   %13 = tail call ptr @proto_tree_add_bitmask(ptr noundef nonnull %2, ptr noundef %0, i32 noundef 4, i32 noundef %11, i32 noundef %12, ptr noundef nonnull @dissect_fhandle_data_PRIMARY_DATA.fh_flags, i32 noundef -2147483648) #18
-  %14 = icmp ult i32 %6, 268435456
+  %14 = icmp samesign ult i32 %6, 268435456
   br i1 %14, label %15, label %18
 
 15:                                               ; preds = %8

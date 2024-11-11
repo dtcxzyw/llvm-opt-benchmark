@@ -5558,8 +5558,8 @@ _ZNK32pxrInternal_v0_24__pxrReserved__7TfTokencvRKNSt7__cxx1112basic_stringIcSt1
   br i1 %39, label %40, label %.critedge.i.i.us.i.i.i
 
 40:                                               ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__7TfTokencvRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEv.exit3.i.us.i.i.i
-  %41 = icmp ult i8 %32, 64
-  %42 = icmp ult i8 %34, 64
+  %41 = icmp samesign ult i8 %32, 64
+  %42 = icmp samesign ult i8 %34, 64
   %43 = xor i32 %37, %35
   %44 = and i32 %43, 95
   %.not.i.i.us.i.i.i = icmp eq i32 %44, 0
@@ -5641,8 +5641,8 @@ _ZNK32pxrInternal_v0_24__pxrReserved__7TfTokencvRKNSt7__cxx1112basic_stringIcSt1
   br i1 %79, label %80, label %.critedge.i.i.i.i.i
 
 80:                                               ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__7TfTokencvRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEv.exit.i.i.i.i
-  %81 = icmp ult i8 %72, 64
-  %82 = icmp ult i8 %74, 64
+  %81 = icmp samesign ult i8 %72, 64
+  %82 = icmp samesign ult i8 %74, 64
   %83 = xor i32 %77, %75
   %84 = and i32 %83, 95
   %.not.i.i.i.i.i = icmp eq i32 %84, 0
@@ -22672,8 +22672,8 @@ _ZNK32pxrInternal_v0_24__pxrReserved__7TfTokencvRKNSt7__cxx1112basic_stringIcSt1
   br i1 %111, label %112, label %"_ZZN32pxrInternal_v0_24__pxrReserved__29Usd_SortAutoAppliedAPISchemasEPSt6vectorINS_7TfTokenESaIS1_EEENK3$_0clERKS1_S7_.exit.i.i"
 
 112:                                              ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__7TfTokencvRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEv.exit3.i.i.i
-  %113 = icmp ult i8 %104, 64
-  %114 = icmp ult i8 %106, 64
+  %113 = icmp samesign ult i8 %104, 64
+  %114 = icmp samesign ult i8 %106, 64
   %115 = xor i32 %109, %107
   %116 = and i32 %115, 95
   %.not.i.i.i.i = icmp eq i32 %116, 0
@@ -22752,8 +22752,8 @@ _ZNK32pxrInternal_v0_24__pxrReserved__7TfTokencvRKNSt7__cxx1112basic_stringIcSt1
   br i1 %153, label %154, label %"_ZZN32pxrInternal_v0_24__pxrReserved__29Usd_SortAutoAppliedAPISchemasEPSt6vectorINS_7TfTokenESaIS1_EEENK3$_0clERKS1_S7_.exit17.i.i"
 
 154:                                              ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__7TfTokencvRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEv.exit3.i12.i.i
-  %155 = icmp ult i8 %146, 64
-  %156 = icmp ult i8 %148, 64
+  %155 = icmp samesign ult i8 %146, 64
+  %156 = icmp samesign ult i8 %148, 64
   %157 = xor i32 %151, %149
   %158 = and i32 %157, 95
   %.not.i.i15.i.i = icmp eq i32 %158, 0
@@ -23017,8 +23017,8 @@ _ZNK32pxrInternal_v0_24__pxrReserved__7TfTokencvRKNSt7__cxx1112basic_stringIcSt1
   br i1 %28, label %29, label %.critedge.i
 
 29:                                               ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__7TfTokencvRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEv.exit3
-  %30 = icmp ult i8 %21, 64
-  %31 = icmp ult i8 %23, 64
+  %30 = icmp samesign ult i8 %21, 64
+  %31 = icmp samesign ult i8 %23, 64
   %32 = xor i32 %26, %24
   %33 = and i32 %32, 95
   %.not.i = icmp eq i32 %33, 0

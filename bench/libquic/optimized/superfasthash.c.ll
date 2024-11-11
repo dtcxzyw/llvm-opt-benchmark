@@ -13,7 +13,7 @@ entry:
 
 if.end:                                           ; preds = %entry
   %and = and i32 %len, 3
-  %cmp250.not = icmp ult i32 %len, 4
+  %cmp250.not = icmp samesign ult i32 %len, 4
   br i1 %cmp250.not, label %for.end, label %for.body.preheader
 
 for.body.preheader:                               ; preds = %if.end
@@ -38,7 +38,7 @@ for.body:                                         ; preds = %for.body.preheader,
   %shr17 = lshr i32 %xor15, 11
   %add18 = add i32 %shr17, %xor15
   %dec = add nsw i32 %len.addr.051, -1
-  %cmp2 = icmp ugt i32 %len.addr.051, 1
+  %cmp2 = icmp samesign ugt i32 %len.addr.051, 1
   br i1 %cmp2, label %for.body, label %for.end, !llvm.loop !5
 
 for.end:                                          ; preds = %for.body, %if.end

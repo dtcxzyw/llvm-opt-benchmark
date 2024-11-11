@@ -990,7 +990,7 @@ if.then.i:                                        ; preds = %if.then5
   br label %if.end12
 
 if.else:                                          ; preds = %if.then3
-  %cmp6 = icmp ugt i16 %call4, 399
+  %cmp6 = icmp samesign ugt i16 %call4, 399
   %closeReason_.i2 = getelementptr inbounds i8, ptr %this, i64 1540
   %3 = load i32, ptr %closeReason_.i2, align 4
   %cmp.i3 = icmp eq i32 %3, 13

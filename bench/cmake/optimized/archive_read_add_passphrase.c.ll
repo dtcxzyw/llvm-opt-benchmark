@@ -117,7 +117,7 @@ define dso_local ptr @__archive_read_next_passphrase(ptr noundef %0) local_unnam
   br label %27
 
 8:                                                ; preds = %1
-  %9 = icmp ugt i32 %4, 1
+  %9 = icmp samesign ugt i32 %4, 1
   br i1 %9, label %10, label %19
 
 10:                                               ; preds = %8

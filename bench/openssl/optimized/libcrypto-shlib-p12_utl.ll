@@ -225,7 +225,7 @@ if.end8:                                          ; preds = %for.body
   br i1 %cmp9, label %return, label %if.end12
 
 if.end12:                                         ; preds = %if.end8
-  %cmp13 = icmp ugt i64 %4, 65535
+  %cmp13 = icmp samesign ugt i64 %4, 65535
   %ulen.1.v = select i1 %cmp13, i32 4, i32 2
   %ulen.1 = add nuw nsw i32 %ulen.1.v, %ulen.042
   %add18 = add nuw nsw i32 %call3, %i.041
@@ -357,7 +357,7 @@ if.end3.i:                                        ; preds = %for.body
   br i1 %or.cond.i, label %if.then11.i, label %bmp_to_utf8.exit
 
 if.then11.i:                                      ; preds = %if.end3.i
-  %cmp12.i = icmp ult i32 %sub, 4
+  %cmp12.i = icmp samesign ult i32 %sub, 4
   br i1 %cmp12.i, label %lor.lhs.false.i, label %if.end15.i
 
 if.end15.i:                                       ; preds = %if.then11.i
@@ -498,7 +498,7 @@ if.end3.i46:                                      ; preds = %for.body30
   br i1 %or.cond.i52, label %if.then11.i57, label %bmp_to_utf8.exit72
 
 if.then11.i57:                                    ; preds = %if.end3.i46
-  %cmp12.i58 = icmp ult i32 %sub35, 4
+  %cmp12.i58 = icmp samesign ult i32 %sub35, 4
   br i1 %cmp12.i58, label %bmp_to_utf8.exit72.thread, label %if.end15.i59
 
 if.end15.i59:                                     ; preds = %if.then11.i57

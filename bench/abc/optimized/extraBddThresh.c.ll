@@ -3120,7 +3120,7 @@ define internal fastcc range(i32 0, 2) i32 @Abc_TtIsUnate(ptr noundef readonly %
   br i1 %3, label %.lr.ph, label %Abc_TtPosVar.exit.thread35
 
 .lr.ph:                                           ; preds = %2
-  %4 = icmp ult i32 %1, 7
+  %4 = icmp samesign ult i32 %1, 7
   %5 = add nsw i32 %1, -6
   %6 = shl nuw i32 1, %5
   %7 = sext i32 %6 to i64

@@ -1411,20 +1411,20 @@ for.body.i19:                                     ; preds = %for.body.i19, %if.t
   call void @_ZN4YAML15ostream_wrapper5writeEPKcm(ptr noundef nonnull align 8 dereferenceable(57) %out, ptr noundef nonnull %ch.addr.i.i, i64 noundef 1)
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %ch.addr.i.i)
   %dec.i = add nsw i32 %digits.128.i, -1
-  %cmp15.i22 = icmp ugt i32 %digits.128.i, 1
+  %cmp15.i22 = icmp samesign ugt i32 %digits.128.i, 1
   br i1 %cmp15.i22, label %for.body.i19, label %sw.epilog, !llvm.loop !11
 
 if.else23:                                        ; preds = %lor.lhs.false.i, %for.body.i, %for.end.i, %if.else.thread, %if.else
   %codePoint.243525866 = phi i32 [ 65533, %if.else.thread ], [ %codePoint.243, %if.else ], [ 65533, %for.end.i ], [ 65533, %for.body.i ], [ 65533, %lor.lhs.false.i ]
   %i.sroa.0.344516065 = phi ptr [ %incdec.ptr.i.i, %if.else.thread ], [ %i.sroa.0.344, %if.else ], [ %scevgep80, %for.end.i ], [ %i.sroa.0.1, %lor.lhs.false.i ], [ %scevgep, %for.body.i ]
-  %cmp26 = icmp ugt i32 %codePoint.243525866, 126
+  %cmp26 = icmp samesign ugt i32 %codePoint.243525866, 126
   %or.cond1 = and i1 %cmp24, %cmp26
   br i1 %or.cond1, label %if.then27, label %if.else28
 
 if.then27:                                        ; preds = %if.else23
   call void @_ZN4YAML15ostream_wrapper5writeEPKcm(ptr noundef nonnull align 8 dereferenceable(57) %out, ptr noundef nonnull @.str.34, i64 noundef 1)
-  %cmp18.i = icmp ult i32 %codePoint.243525866, 255
-  %cmp3.us24.i = icmp ult i32 %codePoint.243525866, 65535
+  %cmp18.i = icmp samesign ult i32 %codePoint.243525866, 255
+  %cmp3.us24.i = icmp samesign ult i32 %codePoint.243525866, 65535
   %.str.36.mux.i = select i1 %cmp3.us24.i, ptr @.str.36, ptr @.str.37
   %.mux.i = select i1 %cmp3.us24.i, i32 4, i32 8
   %.str.36.sink.i = select i1 %cmp18.i, ptr @.str.35, ptr %.str.36.mux.i
@@ -1446,7 +1446,7 @@ for.body.i25:                                     ; preds = %for.body.i25, %if.t
   call void @_ZN4YAML15ostream_wrapper5writeEPKcm(ptr noundef nonnull align 8 dereferenceable(57) %out, ptr noundef nonnull %ch.addr.i.i24, i64 noundef 1)
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %ch.addr.i.i24)
   %dec.i33 = add nsw i32 %digits.128.i26, -1
-  %cmp15.i34 = icmp ugt i32 %digits.128.i26, 1
+  %cmp15.i34 = icmp samesign ugt i32 %digits.128.i26, 1
   br i1 %cmp15.i34, label %for.body.i25, label %sw.epilog, !llvm.loop !11
 
 if.else28:                                        ; preds = %if.else23
@@ -1512,7 +1512,7 @@ for.body:                                         ; preds = %if.end14, %for.body
   call void @_ZN4YAML15ostream_wrapper5writeEPKcm(ptr noundef nonnull align 8 dereferenceable(57) %out, ptr noundef nonnull %ch.addr.i, i64 noundef 1)
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %ch.addr.i)
   %dec = add nsw i32 %digits.128, -1
-  %cmp15 = icmp ugt i32 %digits.128, 1
+  %cmp15 = icmp samesign ugt i32 %digits.128, 1
   br i1 %cmp15, label %for.body, label %for.end, !llvm.loop !11
 
 for.end:                                          ; preds = %for.body
@@ -2037,13 +2037,13 @@ sw.epilog.i:                                      ; preds = %for.body
   br i1 %cmp.i, label %return, label %if.end.i2
 
 if.end.i2:                                        ; preds = %sw.epilog.i
-  %cmp2.i = icmp ult i32 %codePoint.211, 126
+  %cmp2.i = icmp samesign ult i32 %codePoint.211, 126
   br i1 %cmp2.i, label %if.end, label %_ZN4YAML5Utils12_GLOBAL__N_112IsAnchorCharEi.exit
 
 _ZN4YAML5Utils12_GLOBAL__N_112IsAnchorCharEi.exit: ; preds = %lor.lhs.false.i, %for.body.i, %for.end.i, %if.end.i2.thread, %if.end.i2
   %codePoint.211253137 = phi i32 [ 65533, %if.end.i2.thread ], [ %codePoint.211, %if.end.i2 ], [ 65533, %for.end.i ], [ 65533, %for.body.i ], [ 65533, %lor.lhs.false.i ]
   %i.sroa.0.312243236 = phi ptr [ %incdec.ptr.i.i, %if.end.i2.thread ], [ %i.sroa.0.312, %if.end.i2 ], [ %scevgep71, %for.end.i ], [ %i.sroa.0.1, %lor.lhs.false.i ], [ %scevgep, %for.body.i ]
-  %cmp5.i = icmp ugt i32 %codePoint.211253137, 159
+  %cmp5.i = icmp samesign ugt i32 %codePoint.211253137, 159
   %9 = and i32 %codePoint.211253137, 2147481600
   %or.cond.i3 = icmp ne i32 %9, 55296
   %or.cond11.not15.i = and i1 %cmp5.i, %or.cond.i3
@@ -2161,7 +2161,7 @@ while.body13:                                     ; preds = %while.body13.prehea
   %7 = load i64, ptr %m_offset.i, align 8
   %inc.i = add i64 %7, 1
   store i64 %inc.i, ptr %m_offset.i, align 8
-  %cmp12 = icmp ugt i32 %n.014, 1
+  %cmp12 = icmp samesign ugt i32 %n.014, 1
   br i1 %cmp12, label %while.body13, label %while.cond.loopexit, !llvm.loop !19
 
 while.end17:                                      ; preds = %while.cond.loopexit, %cond.end
@@ -2556,7 +2556,7 @@ while.body8:                                      ; preds = %while.body8.prehead
   %9 = load i64, ptr %m_offset.i, align 8
   %inc.i = add i64 %9, 1
   store i64 %inc.i, ptr %m_offset.i, align 8
-  %cmp7 = icmp ugt i32 %n.035, 1
+  %cmp7 = icmp samesign ugt i32 %n.035, 1
   br i1 %cmp7, label %while.body8, label %while.cond.loopexit, !llvm.loop !21
 
 while.end12:                                      ; preds = %while.cond.loopexit, %entry
@@ -2610,7 +2610,7 @@ while.body28:                                     ; preds = %while.body28.prehea
   %19 = load i64, ptr %m_offset.i13, align 8
   %inc.i29 = add i64 %19, 1
   store i64 %inc.i29, ptr %m_offset.i13, align 8
-  %cmp27 = icmp ugt i32 %n19.037, 1
+  %cmp27 = icmp samesign ugt i32 %n19.037, 1
   br i1 %cmp27, label %while.body28, label %while.cond16.loopexit, !llvm.loop !23
 
 return:                                           ; preds = %while.body, %_ZNK4YAML5RegEx5MatchINS_16StringCharSourceEEEiRKT_.exit, %_ZNK4YAML5RegEx5MatchINS_16StringCharSourceEEEiRKT_.exit25, %while.cond16.loopexit, %while.body18, %while.end12

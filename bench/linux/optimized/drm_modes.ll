@@ -1938,7 +1938,7 @@ define dso_local noundef range(i32 0, 13) i32 @drm_mode_validate_size(ptr nocapt
   %6 = getelementptr inbounds i8, ptr %0, i64 4
   %7 = load i16, ptr %6, align 4
   %8 = zext i16 %7 to i32
-  %9 = icmp ult i32 %1, %8
+  %9 = icmp samesign ult i32 %1, %8
   br i1 %9, label %18, label %10
 
 10:                                               ; preds = %5, %3
@@ -1949,7 +1949,7 @@ define dso_local noundef range(i32 0, 13) i32 @drm_mode_validate_size(ptr nocapt
   %13 = getelementptr inbounds i8, ptr %0, i64 14
   %14 = load i16, ptr %13, align 2
   %15 = zext i16 %14 to i32
-  %16 = icmp ult i32 %2, %15
+  %16 = icmp samesign ult i32 %2, %15
   br i1 %16, label %18, label %17
 
 17:                                               ; preds = %12, %10

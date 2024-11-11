@@ -34,7 +34,7 @@ define dso_local zeroext i1 @__virt_addr_valid(i64 noundef %0) #0 align 16 {
 4:                                                ; preds = %1
   %5 = load i64, ptr @phys_base, align 8
   %6 = add i64 %5, %2
-  %7 = icmp ugt i64 %2, 1073741823
+  %7 = icmp samesign ugt i64 %2, 1073741823
   br i1 %7, label %80, label %17
 
 8:                                                ; preds = %1

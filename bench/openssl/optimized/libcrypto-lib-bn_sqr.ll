@@ -69,7 +69,7 @@ if.then16:                                        ; preds = %if.end11
   br label %if.end50
 
 if.else19:                                        ; preds = %if.end11
-  %cmp20 = icmp ult i32 %0, 16
+  %cmp20 = icmp samesign ult i32 %0, 16
   br i1 %cmp20, label %if.then21, label %if.else24
 
 if.then21:                                        ; preds = %if.else19
@@ -194,7 +194,7 @@ for.body:                                         ; preds = %for.body.preheader,
   store i64 %call11, ptr %arrayidx13, align 8
   %add.ptr14 = getelementptr inbounds i8, ptr %rp.136, i64 16
   %dec15 = add nsw i32 %i.034, -1
-  %cmp7 = icmp ugt i32 %i.034, 1
+  %cmp7 = icmp samesign ugt i32 %i.034, 1
   br i1 %cmp7, label %for.body, label %for.end, !llvm.loop !4
 
 for.end:                                          ; preds = %for.body, %entry, %if.end

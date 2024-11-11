@@ -428,7 +428,7 @@ define range(i32 -1, 1) i32 @H5T__conv_struct(ptr noundef %0, ptr noundef %1, pt
 
 247:                                              ; preds = %.lr.ph212, %241
   %.3 = phi i64 [ %.2177209, %.lr.ph212 ], [ %.4, %241 ]
-  %248 = icmp ugt i64 %indvars.iv231, 1
+  %248 = icmp samesign ugt i64 %indvars.iv231, 1
   br i1 %248, label %.lr.ph212, label %._crit_edge213
 
 ._crit_edge213:                                   ; preds = %247, %115, %._crit_edge
@@ -1319,7 +1319,7 @@ define range(i32 -1, 1) i32 @H5T__conv_struct_opt(ptr noundef %0, ptr noundef %1
 
 100:                                              ; preds = %82, %91, %78
   %.3230 = phi i64 [ %.2229314, %78 ], [ %92, %91 ], [ %.2229314, %82 ]
-  %101 = icmp ugt i64 %indvars.iv337, 1
+  %101 = icmp samesign ugt i64 %indvars.iv337, 1
   br i1 %101, label %78, label %.loopexit
 
 102:                                              ; preds = %9

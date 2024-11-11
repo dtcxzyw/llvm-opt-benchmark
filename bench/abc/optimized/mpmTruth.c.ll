@@ -108,7 +108,7 @@ define range(i32 0, 2) i32 @Mpm_CutComputeTruth(ptr noundef %0, ptr nocapture no
 
 83:                                               ; preds = %76
   %84 = trunc nsw i64 %indvars.iv.next.i.i to i32
-  %85 = icmp ult i32 %.017.i.i, %84
+  %85 = icmp samesign ult i32 %.017.i.i, %84
   br i1 %85, label %86, label %87
 
 86:                                               ; preds = %83
@@ -121,7 +121,7 @@ define range(i32 0, 2) i32 @Mpm_CutComputeTruth(ptr noundef %0, ptr nocapture no
 
 89:                                               ; preds = %87, %76
   %.1.i.i = phi i32 [ %.017.i.i, %76 ], [ %88, %87 ]
-  %90 = icmp ugt i64 %indvars.iv.i.i, 1
+  %90 = icmp samesign ugt i64 %indvars.iv.i.i, 1
   %91 = icmp sgt i32 %.1.i.i, -1
   %92 = select i1 %90, i1 %91, i1 false
   br i1 %92, label %76, label %Mpm_TruthStretch.exit.i, !llvm.loop !4
@@ -154,7 +154,7 @@ Mpm_TruthStretch.exit.i:                          ; preds = %89, %18
 
 108:                                              ; preds = %101
   %109 = trunc nsw i64 %indvars.iv.next.i53.i to i32
-  %110 = icmp ult i32 %.017.i52.i, %109
+  %110 = icmp samesign ult i32 %.017.i52.i, %109
   br i1 %110, label %111, label %112
 
 111:                                              ; preds = %108
@@ -167,7 +167,7 @@ Mpm_TruthStretch.exit.i:                          ; preds = %89, %18
 
 114:                                              ; preds = %112, %101
   %.1.i54.i = phi i32 [ %.017.i52.i, %101 ], [ %113, %112 ]
-  %115 = icmp ugt i64 %indvars.iv.i51.i, 1
+  %115 = icmp samesign ugt i64 %indvars.iv.i51.i, 1
   %116 = icmp sgt i32 %.1.i54.i, -1
   %117 = select i1 %115, i1 %116, i1 false
   br i1 %117, label %101, label %Mpm_TruthStretch.exit55.i, !llvm.loop !4
@@ -225,7 +225,7 @@ Mpm_TruthStretch.exit55.i:                        ; preds = %114, %Mpm_TruthStre
 
 153:                                              ; preds = %146
   %154 = trunc nsw i64 %indvars.iv.next.i59.i to i32
-  %155 = icmp ult i32 %.017.i58.i, %154
+  %155 = icmp samesign ult i32 %.017.i58.i, %154
   br i1 %155, label %156, label %157
 
 156:                                              ; preds = %153
@@ -238,7 +238,7 @@ Mpm_TruthStretch.exit55.i:                        ; preds = %114, %Mpm_TruthStre
 
 159:                                              ; preds = %157, %146
   %.1.i60.i = phi i32 [ %.017.i58.i, %146 ], [ %158, %157 ]
-  %160 = icmp ugt i64 %indvars.iv.i57.i, 1
+  %160 = icmp samesign ugt i64 %indvars.iv.i57.i, 1
   %161 = icmp sgt i32 %.1.i60.i, -1
   %162 = select i1 %160, i1 %161, i1 false
   br i1 %162, label %146, label %Mpm_TruthStretch.exit61.i, !llvm.loop !4
@@ -611,7 +611,7 @@ Abc_TtCopy.exit86.i:                              ; preds = %.lr.ph.i75.i, %.lr.
 
 349:                                              ; preds = %342
   %350 = trunc nsw i64 %indvars.iv.next.i89.i to i32
-  %351 = icmp ult i32 %.017.i.i35, %350
+  %351 = icmp samesign ult i32 %.017.i.i35, %350
   br i1 %351, label %352, label %353
 
 352:                                              ; preds = %349
@@ -624,7 +624,7 @@ Abc_TtCopy.exit86.i:                              ; preds = %.lr.ph.i75.i, %.lr.
 
 355:                                              ; preds = %353, %342
   %.1.i.i36 = phi i32 [ %.017.i.i35, %342 ], [ %354, %353 ]
-  %356 = icmp ugt i64 %indvars.iv.i88.i, 1
+  %356 = icmp samesign ugt i64 %indvars.iv.i88.i, 1
   %357 = icmp sgt i32 %.1.i.i36, -1
   %358 = select i1 %356, i1 %357, i1 false
   br i1 %358, label %342, label %Mpm_TruthStretch.exit.loopexit.i, !llvm.loop !4
@@ -666,7 +666,7 @@ Mpm_TruthStretch.exit.i21:                        ; preds = %Mpm_TruthStretch.ex
 
 378:                                              ; preds = %371
   %379 = trunc nsw i64 %indvars.iv.next.i93.i to i32
-  %380 = icmp ult i32 %.017.i92.i, %379
+  %380 = icmp samesign ult i32 %.017.i92.i, %379
   br i1 %380, label %381, label %382
 
 381:                                              ; preds = %378
@@ -679,7 +679,7 @@ Mpm_TruthStretch.exit.i21:                        ; preds = %Mpm_TruthStretch.ex
 
 384:                                              ; preds = %382, %371
   %.1.i94.i = phi i32 [ %.017.i92.i, %371 ], [ %383, %382 ]
-  %385 = icmp ugt i64 %indvars.iv.i91.i, 1
+  %385 = icmp samesign ugt i64 %indvars.iv.i91.i, 1
   %386 = icmp sgt i32 %.1.i94.i, -1
   %387 = select i1 %385, i1 %386, i1 false
   br i1 %387, label %371, label %Mpm_TruthStretch.exit95.i, !llvm.loop !4
@@ -786,7 +786,7 @@ Abc_TtCopy.exit111.i:                             ; preds = %.lr.ph.i100.i, %.lr
 
 441:                                              ; preds = %434
   %442 = trunc nsw i64 %indvars.iv.next.i115.i to i32
-  %443 = icmp ult i32 %.017.i114.i, %442
+  %443 = icmp samesign ult i32 %.017.i114.i, %442
   br i1 %443, label %444, label %445
 
 444:                                              ; preds = %441
@@ -799,7 +799,7 @@ Abc_TtCopy.exit111.i:                             ; preds = %.lr.ph.i100.i, %.lr
 
 447:                                              ; preds = %445, %434
   %.1.i116.i = phi i32 [ %.017.i114.i, %434 ], [ %446, %445 ]
-  %448 = icmp ugt i64 %indvars.iv.i113.i, 1
+  %448 = icmp samesign ugt i64 %indvars.iv.i113.i, 1
   %449 = icmp sgt i32 %.1.i116.i, -1
   %450 = select i1 %448, i1 %449, i1 false
   br i1 %450, label %434, label %Mpm_TruthStretch.exit117.i, !llvm.loop !4

@@ -896,7 +896,7 @@ define hidden void @_ZN11arrow_array20temporal_conversions11as_datetime17h95c95d
 
 23:                                               ; preds = %.noexc55
   %.fca.0.extract.i49 = extractvalue { i32, i32 } %13, 0
-  %24 = icmp ult i64 %.0.i42, 1000000000
+  %24 = icmp samesign ult i64 %.0.i42, 1000000000
   %25 = urem i32 %20, 60
   %26 = icmp eq i32 %25, 59
   %or.cond6.i50 = or i1 %24, %26
@@ -6997,7 +6997,7 @@ define hidden void @_ZN6chrono5naive8datetime13NaiveDateTime18from_timestamp_opt
 
 18:                                               ; preds = %12
   %.fca.0.extract = extractvalue { i32, i32 } %14, 0
-  %19 = icmp ult i32 %2, 1000000000
+  %19 = icmp samesign ult i32 %2, 1000000000
   %20 = urem i32 %15, 60
   %21 = icmp eq i32 %20, 59
   %or.cond6 = or i1 %19, %21
@@ -7046,7 +7046,7 @@ define hidden void @_ZN6chrono6offset8TimeZone13timestamp_opt17h9f0c915a4e4fe7c8
 
 20:                                               ; preds = %14
   %.fca.0.extract.i = extractvalue { i32, i32 } %16, 0
-  %21 = icmp ult i32 %3, 1000000000
+  %21 = icmp samesign ult i32 %3, 1000000000
   %22 = urem i32 %17, 60
   %23 = icmp eq i32 %22, 59
   %or.cond6.i = or i1 %21, %23
@@ -12639,7 +12639,7 @@ common.resume.i.i.i.i.i.i.i:                      ; preds = %657, %549, %397
   br label %506
 
 ._crit_edge.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i: ; preds = %"_ZN79_$LT$serde_json..ser..PrettyFormatter$u20$as$u20$serde_json..ser..Formatter$GT$18begin_object_value17h9c6ed8ac5ffa28cdE.exit.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i"
-  %489 = icmp ugt i16 %.0.in.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i, 99
+  %489 = icmp samesign ugt i16 %.0.in.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i, 99
   br i1 %489, label %490, label %497
 
 490:                                              ; preds = %._crit_edge.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i

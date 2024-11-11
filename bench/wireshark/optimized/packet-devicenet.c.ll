@@ -511,7 +511,7 @@ define internal i32 @dissect_devicenet(ptr noundef %0, ptr noundef %1, ptr nound
   br label %proto_item_set_generated.exit
 
 proto_item_set_generated.exit:                    ; preds = %8, %19, %22
-  %26 = icmp ult i32 %.sroa.0.0.copyload, 1024
+  %26 = icmp samesign ult i32 %.sroa.0.0.copyload, 1024
   br i1 %26, label %27, label %61
 
 27:                                               ; preds = %proto_item_set_generated.exit
@@ -577,7 +577,7 @@ proto_item_set_generated.exit341:                 ; preds = %proto_item_set_gene
   br label %369
 
 61:                                               ; preds = %proto_item_set_generated.exit
-  %62 = icmp ult i32 %.sroa.0.0.copyload, 1536
+  %62 = icmp samesign ult i32 %.sroa.0.0.copyload, 1536
   br i1 %62, label %63, label %113
 
 63:                                               ; preds = %61
@@ -674,7 +674,7 @@ proto_item_set_generated.exit347:                 ; preds = %proto_item_set_gene
   br label %369
 
 113:                                              ; preds = %61
-  %114 = icmp ult i32 %.sroa.0.0.copyload, 1984
+  %114 = icmp samesign ult i32 %.sroa.0.0.copyload, 1984
   br i1 %114, label %115, label %307
 
 115:                                              ; preds = %113
@@ -1009,7 +1009,7 @@ body_type_8_over_16_dissection.exit:              ; preds = %298, %290, %281, %2
   br label %369
 
 307:                                              ; preds = %113
-  %308 = icmp ult i32 %.sroa.0.0.copyload, 2032
+  %308 = icmp samesign ult i32 %.sroa.0.0.copyload, 2032
   br i1 %308, label %309, label %366
 
 309:                                              ; preds = %307

@@ -1008,7 +1008,7 @@ land.lhs.true.i.i.i:                              ; preds = %for.inc.i.i, %land.
   %cmp1.i.i.i = icmp ult i16 %1, 8
   %conv5.i.i.i = zext i16 %1 to i32
   %cmp6.i.not.i.i = icmp samesign ult i32 %rem.013.i.i, %conv5.i.i.i
-  %or.cond.i.i = or i1 %cmp1.i.i.i, %cmp6.i.not.i.i
+  %or.cond.i.i = select i1 %cmp1.i.i.i, i1 true, i1 %cmp6.i.not.i.i
   br i1 %or.cond.i.i, label %rocker_tlv_parse_nested.exit, label %for.body.i.i
 
 for.body.i.i:                                     ; preds = %land.lhs.true.i.i.i
@@ -3888,7 +3888,7 @@ land.lhs.true.i.i.i.i:                            ; preds = %for.inc.i.i.i, %lan
   %cmp1.i.i.i.i = icmp ult i16 %27, 8
   %conv5.i.i.i.i = zext i16 %27 to i32
   %cmp6.i.not.i.i.i = icmp samesign ult i32 %rem.013.i.i.i, %conv5.i.i.i.i
-  %or.cond.i.i.i = or i1 %cmp1.i.i.i.i, %cmp6.i.not.i.i.i
+  %or.cond.i.i.i = select i1 %cmp1.i.i.i.i, i1 true, i1 %cmp6.i.not.i.i.i
   br i1 %or.cond.i.i.i, label %rocker_tlv_parse_nested.exit.i, label %for.body.i.i.i
 
 for.body.i.i.i:                                   ; preds = %land.lhs.true.i.i.i.i

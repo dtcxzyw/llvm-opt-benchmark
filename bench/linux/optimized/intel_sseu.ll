@@ -790,7 +790,7 @@ define dso_local void @intel_sseu_info_init(ptr noundef %0) local_unnamed_addr #
   br label %789
 
 266:                                              ; preds = %220
-  %267 = icmp ugt i8 %5, 8
+  %267 = icmp samesign ugt i8 %5, 8
   br i1 %267, label %268, label %558
 
 268:                                              ; preds = %266

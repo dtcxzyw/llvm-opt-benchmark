@@ -90,7 +90,7 @@ define i32 @double_to_shortest_decimal_bufn(double noundef %0, ptr nocapture nou
 42:                                               ; preds = %32
   %43 = mul nuw nsw i32 %.0.i21, 78913
   %44 = lshr i32 %43, 18
-  %45 = icmp ugt i32 %.0.i21, 3
+  %45 = icmp samesign ugt i32 %.0.i21, 3
   %.neg140.i = sext i1 %45 to i32
   %46 = add nsw i32 %44, %.neg140.i
   %47 = mul nsw i32 %46, 1217359
@@ -360,63 +360,63 @@ multipleOfPowerOf5.exit156.i:                     ; preds = %.preheader187.i
 199:                                              ; preds = %.thread32, %194
   %.sroa.0.037 = phi i64 [ %31, %.thread32 ], [ %196, %194 ]
   %.sroa.3.035 = phi i32 [ 0, %.thread32 ], [ %197, %194 ]
-  %200 = icmp ugt i64 %.sroa.0.037, 999999999999999
+  %200 = icmp samesign ugt i64 %.sroa.0.037, 999999999999999
   br i1 %200, label %decimalLength.exit.i, label %201
 
 201:                                              ; preds = %199
-  %202 = icmp ugt i64 %.sroa.0.037, 99999999999999
+  %202 = icmp samesign ugt i64 %.sroa.0.037, 99999999999999
   br i1 %202, label %decimalLength.exit.i, label %203
 
 203:                                              ; preds = %201
-  %204 = icmp ugt i64 %.sroa.0.037, 9999999999999
+  %204 = icmp samesign ugt i64 %.sroa.0.037, 9999999999999
   br i1 %204, label %decimalLength.exit.i, label %205
 
 205:                                              ; preds = %203
-  %206 = icmp ugt i64 %.sroa.0.037, 999999999999
+  %206 = icmp samesign ugt i64 %.sroa.0.037, 999999999999
   br i1 %206, label %decimalLength.exit.i, label %207
 
 207:                                              ; preds = %205
-  %208 = icmp ugt i64 %.sroa.0.037, 99999999999
+  %208 = icmp samesign ugt i64 %.sroa.0.037, 99999999999
   br i1 %208, label %decimalLength.exit.i, label %209
 
 209:                                              ; preds = %207
-  %210 = icmp ugt i64 %.sroa.0.037, 9999999999
+  %210 = icmp samesign ugt i64 %.sroa.0.037, 9999999999
   br i1 %210, label %decimalLength.exit.i, label %211
 
 211:                                              ; preds = %209
-  %212 = icmp ugt i64 %.sroa.0.037, 999999999
+  %212 = icmp samesign ugt i64 %.sroa.0.037, 999999999
   br i1 %212, label %decimalLength.exit.i, label %213
 
 213:                                              ; preds = %211
-  %214 = icmp ugt i64 %.sroa.0.037, 99999999
+  %214 = icmp samesign ugt i64 %.sroa.0.037, 99999999
   br i1 %214, label %decimalLength.exit.i, label %215
 
 215:                                              ; preds = %213
-  %216 = icmp ugt i64 %.sroa.0.037, 9999999
+  %216 = icmp samesign ugt i64 %.sroa.0.037, 9999999
   br i1 %216, label %decimalLength.exit.i, label %217
 
 217:                                              ; preds = %215
-  %218 = icmp ugt i64 %.sroa.0.037, 999999
+  %218 = icmp samesign ugt i64 %.sroa.0.037, 999999
   br i1 %218, label %decimalLength.exit.i, label %219
 
 219:                                              ; preds = %217
-  %220 = icmp ugt i64 %.sroa.0.037, 99999
+  %220 = icmp samesign ugt i64 %.sroa.0.037, 99999
   br i1 %220, label %decimalLength.exit.i, label %221
 
 221:                                              ; preds = %219
-  %222 = icmp ugt i64 %.sroa.0.037, 9999
+  %222 = icmp samesign ugt i64 %.sroa.0.037, 9999
   br i1 %222, label %decimalLength.exit.i, label %223
 
 223:                                              ; preds = %221
-  %224 = icmp ugt i64 %.sroa.0.037, 999
+  %224 = icmp samesign ugt i64 %.sroa.0.037, 999
   br i1 %224, label %decimalLength.exit.i, label %225
 
 225:                                              ; preds = %223
-  %226 = icmp ugt i64 %.sroa.0.037, 99
+  %226 = icmp samesign ugt i64 %.sroa.0.037, 99
   br i1 %226, label %decimalLength.exit.i, label %227
 
 227:                                              ; preds = %225
-  %228 = icmp ugt i64 %.sroa.0.037, 9
+  %228 = icmp samesign ugt i64 %.sroa.0.037, 9
   %..i.i = select i1 %228, i32 2, i32 1
   br label %decimalLength.exit.i
 

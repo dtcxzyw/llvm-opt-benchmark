@@ -736,19 +736,19 @@ define internal fastcc noundef zeroext range(i8 0, 2) i8 @_ZN4llvmL11isLegalUTF8
   ]
 
 16:                                               ; preds = %14
-  %17 = icmp ult i8 %13, -96
+  %17 = icmp samesign ult i8 %13, -96
   br i1 %17, label %28, label %.thread
 
 18:                                               ; preds = %14
-  %19 = icmp ugt i8 %13, -97
+  %19 = icmp samesign ugt i8 %13, -97
   br i1 %19, label %28, label %.thread
 
 20:                                               ; preds = %14
-  %21 = icmp ult i8 %13, -112
+  %21 = icmp samesign ult i8 %13, -112
   br i1 %21, label %28, label %.thread
 
 22:                                               ; preds = %14
-  %23 = icmp ugt i8 %13, -113
+  %23 = icmp samesign ugt i8 %13, -113
   br i1 %23, label %28, label %.thread
 
 24:                                               ; preds = %._crit_edge, %14

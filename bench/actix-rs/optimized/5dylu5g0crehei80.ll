@@ -4351,7 +4351,7 @@ define internal fastcc void @"_ZN71_$LT$std..hash..random..DefaultHasher$u20$as$
 25:                                               ; preds = %18, %15
   %.118.i.i = phi i64 [ %23, %18 ], [ %.017.i.i, %15 ]
   %.1.i.i = phi i64 [ %24, %18 ], [ %.0.i.i, %15 ]
-  %26 = icmp ult i64 %.1.i.i, %.0.sroa.speculated.i.i
+  %26 = icmp samesign ult i64 %.1.i.i, %.0.sroa.speculated.i.i
   br i1 %26, label %27, label %_ZN4core4hash3sip9u8to64_le17hafb73875f3c80924E.exit.i
 
 27:                                               ; preds = %25

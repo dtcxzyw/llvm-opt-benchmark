@@ -1151,7 +1151,7 @@ while.body4.i:                                    ; preds = %if.end, %while.body
   %value.addr.115.i = phi i64 [ %mul.i, %while.body4.i ], [ %calc_time, %if.end ]
   %mul.i = mul i64 %value.addr.115.i, 10
   %sub5.i = add nsw i32 %power.116.i, -1
-  %cmp3.i = icmp ugt i32 %power.116.i, 1
+  %cmp3.i = icmp samesign ugt i32 %power.116.i, 1
   br i1 %cmp3.i, label %while.body4.i, label %convert_time_unit.exit, !llvm.loop !32
 
 convert_time_unit.exit:                           ; preds = %while.body4.i, %if.end

@@ -279,7 +279,7 @@ define void @slasq2_(ptr noundef %0, ptr noundef %1, ptr nocapture noundef write
   %152 = getelementptr i8, ptr %145, i64 -12
   store float %151, ptr %152, align 4
   %indvars.iv.next713 = add nsw i64 %indvars.iv712, -2
-  %153 = icmp ugt i64 %indvars.iv712, 3
+  %153 = icmp samesign ugt i64 %indvars.iv712, 3
   br i1 %153, label %.lr.ph591, label %._crit_edge592.loopexit, !llvm.loop !7
 
 ._crit_edge592.loopexit:                          ; preds = %.lr.ph591
@@ -936,7 +936,7 @@ define void @slasq2_(ptr noundef %0, ptr noundef %1, ptr nocapture noundef write
   %472 = load float, ptr %471, align 4
   %473 = fadd float %.1518693, %472
   %indvars.iv.next747 = add nsw i64 %indvars.iv746, -1
-  %474 = icmp ugt i64 %indvars.iv746, 1
+  %474 = icmp samesign ugt i64 %indvars.iv746, 1
   br i1 %474, label %.lr.ph695, label %._crit_edge696, !llvm.loop !20
 
 ._crit_edge696:                                   ; preds = %.lr.ph695, %._crit_edge691

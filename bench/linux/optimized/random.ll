@@ -1556,7 +1556,7 @@ define dso_local void @add_interrupt_randomness(i32 noundef %0) #0 align 16 {
   br i1 %65, label %66, label %85
 
 66:                                               ; preds = %18
-  %67 = icmp ult i32 %64, 1024
+  %67 = icmp samesign ult i32 %64, 1024
   br i1 %67, label %68, label %75
 
 68:                                               ; preds = %66
@@ -1817,7 +1817,7 @@ define dso_local i64 @__x64_sys_getrandom(ptr nocapture noundef readonly %0) loc
 16:                                               ; preds = %15
   %17 = load i32, ptr @crng_init, align 4
   %18 = icmp ult i32 %17, 2
-  %19 = icmp ult i32 %10, 4
+  %19 = icmp samesign ult i32 %10, 4
   %20 = and i1 %19, %18
   br i1 %20, label %21, label %.thread
 
@@ -1882,7 +1882,7 @@ define dso_local i64 @__ia32_sys_getrandom(ptr nocapture noundef readonly %0) lo
 18:                                               ; preds = %17
   %19 = load i32, ptr @crng_init, align 4
   %20 = icmp ult i32 %19, 2
-  %21 = icmp ult i32 %12, 4
+  %21 = icmp samesign ult i32 %12, 4
   %22 = and i1 %21, %20
   br i1 %22, label %23, label %.thread
 

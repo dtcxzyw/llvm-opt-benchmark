@@ -9505,7 +9505,7 @@ zend_abs_range.exit.thread2979:                   ; preds = %2040
 
 2058:                                             ; preds = %2054
   %2059 = sub nsw i64 0, %.02962
-  %2060 = icmp ugt i64 %.02065, %2059
+  %2060 = icmp samesign ugt i64 %.02065, %2059
   %2061 = select i1 %2060, i64 %.02055, i64 0
   %2062 = getelementptr inbounds i8, ptr %5, i64 8
   store i64 %2061, ptr %2062, align 8

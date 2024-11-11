@@ -4872,7 +4872,7 @@ define hidden void @_ZN5rayon5slice9mergesort13par_mergesort17h9ae9ed164361c133E
   br i1 %25, label %29, label %41
 
 26:                                               ; preds = %3
-  %or.cond = icmp ult i64 %1, 2
+  %or.cond = icmp samesign ult i64 %1, 2
   br i1 %or.cond, label %.loopexit, label %.lr.ph.preheader
 
 .lr.ph.preheader:                                 ; preds = %26

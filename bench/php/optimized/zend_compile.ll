@@ -10640,7 +10640,7 @@ zend_is_unticked_stmt.exit.thread:                ; preds = %zend_is_unticked_st
   %88 = icmp ne i32 %87, -1
   tail call void @llvm.assume(i1 %88)
   %.038.i = add nsw i32 %.03847.i, -1
-  %89 = icmp ugt i32 %.03847.i, 1
+  %89 = icmp samesign ugt i32 %.03847.i, 1
   br i1 %89, label %.lr.ph.i, label %._crit_edge.i
 
 ._crit_edge.i:                                    ; preds = %.lr.ph.i, %81

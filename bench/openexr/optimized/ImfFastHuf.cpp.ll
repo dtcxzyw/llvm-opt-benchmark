@@ -154,7 +154,7 @@ lpad23:                                           ; preds = %if.then21
   br label %ehcleanup
 
 if.end25:                                         ; preds = %if.then15
-  %cmp8.i61 = icmp ult i32 %sub.i, 8
+  %cmp8.i61 = icmp samesign ult i32 %sub.i, 8
   br i1 %cmp8.i61, label %_ZN7Imf_3_214FastHufDecoder8readBitsEiRmRiRPKc.exit74.loopexit, label %_ZN7Imf_3_214FastHufDecoder8readBitsEiRmRiRPKc.exit74
 
 _ZN7Imf_3_214FastHufDecoder8readBitsEiRmRiRPKc.exit74.loopexit: ; preds = %if.end25
@@ -874,7 +874,7 @@ if.then6:                                         ; preds = %while.body
   br label %if.end43
 
 if.else:                                          ; preds = %while.body
-  %cmp11 = icmp ult i32 %bufferNumBits.0186, 64
+  %cmp11 = icmp samesign ult i32 %bufferNumBits.0186, 64
   br i1 %cmp11, label %if.then12, label %if.end14
 
 if.then12:                                        ; preds = %if.else
@@ -923,7 +923,7 @@ while.body.i:                                     ; preds = %while.body.i.prehea
   %incdec.ptr.i = getelementptr inbounds i8, ptr %currByte.9, i64 1
   %sub10.i = add nsw i64 %shift.031.i, -8
   %sub11.i = add nsw i32 %numSrcBits.addr.8, -8
-  %cmp7.i = icmp ugt i32 %numSrcBits.addr.8, 8
+  %cmp7.i = icmp samesign ugt i32 %numSrcBits.addr.8, 8
   br i1 %cmp7.i, label %while.body.i, label %while.end.i.loopexit, !llvm.loop !18
 
 while.end.i.loopexit:                             ; preds = %while.body.i
@@ -1092,7 +1092,7 @@ while.body.i63:                                   ; preds = %while.body.i63.preh
   %incdec.ptr.i68 = getelementptr inbounds i8, ptr %currByte.14, i64 1
   %sub10.i69 = add nsw i64 %shift.031.i64, -8
   %sub11.i70 = add nsw i32 %numSrcBits.addr.12, -8
-  %cmp7.i71 = icmp ugt i32 %numSrcBits.addr.12, 8
+  %cmp7.i71 = icmp samesign ugt i32 %numSrcBits.addr.12, 8
   br i1 %cmp7.i71, label %while.body.i63, label %while.end.i52.loopexit, !llvm.loop !18
 
 while.end.i52.loopexit:                           ; preds = %while.body.i63
@@ -1272,7 +1272,7 @@ while.body.i103:                                  ; preds = %while.body.i103.pre
   %incdec.ptr.i108 = getelementptr inbounds i8, ptr %currByte.19, i64 1
   %sub10.i109 = add nsw i64 %shift.031.i104, -8
   %sub11.i110 = add nsw i32 %numSrcBits.addr.16, -8
-  %cmp7.i111 = icmp ugt i32 %numSrcBits.addr.16, 8
+  %cmp7.i111 = icmp samesign ugt i32 %numSrcBits.addr.16, 8
   br i1 %cmp7.i111, label %while.body.i103, label %while.end.i92.loopexit, !llvm.loop !18
 
 while.end.i92.loopexit:                           ; preds = %while.body.i103

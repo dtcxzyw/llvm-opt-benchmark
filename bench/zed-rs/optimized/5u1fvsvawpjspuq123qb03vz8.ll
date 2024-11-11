@@ -815,7 +815,7 @@ define internal fastcc void @"_ZN10serde_json2de21Deserializer$LT$R$GT$13parse_d
 
 69:                                               ; preds = %32
   %70 = icmp ne i64 %.sroa.0.079, 1844674407370955161
-  %71 = icmp ugt i8 %25, 5
+  %71 = icmp samesign ugt i8 %25, 5
   %or.cond1 = or i1 %70, %71
   br i1 %or.cond1, label %77, label %72
 
@@ -1083,7 +1083,7 @@ define internal fastcc void @"_ZN10serde_json2de21Deserializer$LT$R$GT$13parse_i
 
 102:                                              ; preds = %99
   %103 = icmp ne i64 %.sroa.012.075, 1844674407370955161
-  %104 = icmp ugt i8 %69, 5
+  %104 = icmp samesign ugt i8 %69, 5
   %or.cond3 = or i1 %103, %104
   br i1 %or.cond3, label %109, label %105
 
@@ -1309,7 +1309,7 @@ define internal fastcc void @"_ZN10serde_json2de21Deserializer$LT$R$GT$14parse_e
 
 81:                                               ; preds = %45
   %82 = icmp ne i32 %.sroa.09.065, 214748364
-  %83 = icmp ugt i8 %44, 7
+  %83 = icmp samesign ugt i8 %44, 7
   %or.cond2 = or i1 %82, %83
   br i1 %or.cond2, label %87, label %84
 
@@ -6247,7 +6247,7 @@ define hidden noundef zeroext i1 @_ZN4core3cmp10PartialOrd2ge17hf6d1320c2b7bbeaf
 define hidden noundef zeroext i1 @_ZN4core3cmp10PartialOrd2le17he2fa6088a1c87b1dE.llvm.14553352395880121525(ptr noalias noundef readonly align 4 dereferenceable(4) %0, ptr noalias noundef readonly align 4 dereferenceable(4) %1) unnamed_addr #9 {
   %3 = tail call noundef i8 @"_ZN64_$LT$gpui..geometry..Pixels$u20$as$u20$core..cmp..PartialOrd$GT$11partial_cmp17h7b99ed966161c563E"(ptr noalias noundef nonnull readonly align 4 dereferenceable(4) %0, ptr noalias noundef nonnull readonly align 4 dereferenceable(4) %1), !range !1484
   %4 = add nsw i8 %3, -3
-  %switch = icmp ult i8 %4, -2
+  %switch = icmp samesign ult i8 %4, -2
   ret i1 %switch
 }
 
@@ -7806,7 +7806,7 @@ define hidden noundef zeroext i1 @"_ZN4gpui8geometry15Bounds$LT$T$GT$8contains17
   store float %10, ptr %4, align 4
   %11 = call noundef i8 @"_ZN64_$LT$gpui..geometry..Pixels$u20$as$u20$core..cmp..PartialOrd$GT$11partial_cmp17h7b99ed966161c563E"(ptr noalias noundef nonnull readonly align 4 dereferenceable(4) %1, ptr noalias noundef nonnull readonly align 4 dereferenceable(4) %4), !range !1484
   %12 = add nsw i8 %11, -3
-  %switch.i5 = icmp ult i8 %12, -2
+  %switch.i5 = icmp samesign ult i8 %12, -2
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %4)
   br i1 %switch.i5, label %13, label %24
 
@@ -7826,7 +7826,7 @@ define hidden noundef zeroext i1 @"_ZN4gpui8geometry15Bounds$LT$T$GT$8contains17
   store float %21, ptr %3, align 4
   %22 = call noundef i8 @"_ZN64_$LT$gpui..geometry..Pixels$u20$as$u20$core..cmp..PartialOrd$GT$11partial_cmp17h7b99ed966161c563E"(ptr noalias noundef nonnull readonly align 4 dereferenceable(4) %14, ptr noalias noundef nonnull readonly align 4 dereferenceable(4) %3), !range !1484
   %23 = add nsw i8 %22, -3
-  %switch.i7 = icmp ult i8 %23, -2
+  %switch.i7 = icmp samesign ult i8 %23, -2
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %3)
   br label %24
 

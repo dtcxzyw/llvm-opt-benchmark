@@ -3580,14 +3580,14 @@ lor.lhs.false11:                                  ; preds = %ossl_quic_wire_deco
 lor.lhs.false26:                                  ; preds = %lor.lhs.false11
   %cid = getelementptr inbounds i8, ptr %p, i64 40
   %conv = zext nneg i8 %17 to i64
-  %cmp.i.i47 = icmp ult i64 %sub.i.i44, %conv
+  %cmp.i.i47 = icmp samesign ult i64 %sub.i.i44, %conv
   br i1 %cmp.i.i47, label %return, label %lor.lhs.false31
 
 lor.lhs.false31:                                  ; preds = %lor.lhs.false26
   %id27 = getelementptr inbounds i8, ptr %p, i64 41
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %id27, ptr nonnull align 1 %add.ptr.i.i43, i64 range(i64 0, 4294967296) %conv, i1 false)
   %sub.i.i50 = sub nuw nsw i64 %sub.i.i44, %conv
-  %cmp.i.i54 = icmp ult i64 %sub.i.i50, 16
+  %cmp.i.i54 = icmp samesign ult i64 %sub.i.i50, 16
   br i1 %cmp.i.i54, label %return, label %if.end36
 
 if.end36:                                         ; preds = %lor.lhs.false31

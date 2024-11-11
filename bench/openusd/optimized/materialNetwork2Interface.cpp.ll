@@ -3178,7 +3178,7 @@ _ZNSt12_Vector_baseIN32pxrInternal_v0_24__pxrReserved__21HdMaterialConnection2ES
   %94 = getelementptr inbounds i8, ptr %.0910.i.i.i.i.i, i64 16
   %95 = getelementptr inbounds i8, ptr %.0811.i.i.i.i.i, i64 16
   %96 = add nsw i64 %.012.i.i.i.i.i, -1
-  %97 = icmp ugt i64 %.012.i.i.i.i.i, 1
+  %97 = icmp samesign ugt i64 %.012.i.i.i.i.i, 1
   br i1 %97, label %.lr.ph.i.i.i.i.i25, label %_ZSt4copyIN9__gnu_cxx17__normal_iteratorIPKN32pxrInternal_v0_24__pxrReserved__21HdMaterialConnection2ESt6vectorIS3_SaIS3_EEEENS1_IPS3_S8_EEET0_T_SD_SC_.exit.loopexit, !llvm.loop !15
 
 _ZSt4copyIN9__gnu_cxx17__normal_iteratorIPKN32pxrInternal_v0_24__pxrReserved__21HdMaterialConnection2ESt6vectorIS3_SaIS3_EEEENS1_IPS3_S8_EEET0_T_SD_SC_.exit.loopexit: ; preds = %.lr.ph.i.i.i.i.i25
@@ -3262,7 +3262,7 @@ _ZSt8_DestroyIN32pxrInternal_v0_24__pxrReserved__21HdMaterialConnection2EEvPT_.e
   %132 = getelementptr inbounds i8, ptr %.0910.i.i.i.i.i37, i64 16
   %133 = getelementptr inbounds i8, ptr %.0811.i.i.i.i.i36, i64 16
   %134 = add nsw i64 %.012.i.i.i.i.i35, -1
-  %135 = icmp ugt i64 %.012.i.i.i.i.i35, 1
+  %135 = icmp samesign ugt i64 %.012.i.i.i.i.i35, 1
   br i1 %135, label %.lr.ph.i.i.i.i.i34, label %_ZSt4copyIPN32pxrInternal_v0_24__pxrReserved__21HdMaterialConnection2ES2_ET0_T_S4_S3_.exit.loopexit, !llvm.loop !17
 
 _ZSt4copyIPN32pxrInternal_v0_24__pxrReserved__21HdMaterialConnection2ES2_ET0_T_S4_S3_.exit.loopexit: ; preds = %.lr.ph.i.i.i.i.i34

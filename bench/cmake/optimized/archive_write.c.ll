@@ -1300,7 +1300,7 @@ define internal i64 @_archive_filter_bytes(ptr nocapture noundef readonly %0, i3
   %13 = getelementptr inbounds i8, ptr %.015.i, i64 16
   %14 = add nsw i32 %.01114.i, -1
   %.0.i = load ptr, ptr %13, align 8
-  %15 = icmp ugt i32 %.01114.i, 1
+  %15 = icmp samesign ugt i32 %.01114.i, 1
   %16 = icmp ne ptr %.0.i, null
   %17 = select i1 %15, i1 %16, i1 false
   br i1 %17, label %.lr.ph.i, label %filter_lookup.exit, !llvm.loop !15
@@ -1347,7 +1347,7 @@ define internal i32 @_archive_filter_code(ptr nocapture noundef readonly %0, i32
   %13 = getelementptr inbounds i8, ptr %.015.i, i64 16
   %14 = add nsw i32 %.01114.i, -1
   %.0.i = load ptr, ptr %13, align 8
-  %15 = icmp ugt i32 %.01114.i, 1
+  %15 = icmp samesign ugt i32 %.01114.i, 1
   %16 = icmp ne ptr %.0.i, null
   %17 = select i1 %15, i1 %16, i1 false
   br i1 %17, label %.lr.ph.i, label %filter_lookup.exit, !llvm.loop !15
@@ -1395,7 +1395,7 @@ define internal ptr @_archive_filter_name(ptr nocapture noundef readonly %0, i32
   %13 = getelementptr inbounds i8, ptr %.015.i, i64 16
   %14 = add nsw i32 %.01114.i, -1
   %.0.i = load ptr, ptr %13, align 8
-  %15 = icmp ugt i32 %.01114.i, 1
+  %15 = icmp samesign ugt i32 %.01114.i, 1
   %16 = icmp ne ptr %.0.i, null
   %17 = select i1 %15, i1 %16, i1 false
   br i1 %17, label %.lr.ph.i, label %filter_lookup.exit, !llvm.loop !15

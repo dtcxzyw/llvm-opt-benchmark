@@ -308,7 +308,7 @@ do.body.i.i:                                      ; preds = %do.body.i.i, %if.en
   %inc.i.i = add i8 %27, 1
   store i8 %inc.i.i, ptr %arrayidx.i.i, align 1
   %cmp.i.i = icmp eq i8 %inc.i.i, 0
-  %cmp4.i.i = icmp ugt i64 %indvars.iv.i.i, 1
+  %cmp4.i.i = icmp samesign ugt i64 %indvars.iv.i.i, 1
   %or.cond.i.i = and i1 %cmp4.i.i, %cmp.i.i
   br i1 %or.cond.i.i, label %do.body.i.i, label %getivgen.exit, !llvm.loop !4
 
@@ -476,7 +476,7 @@ if.end9.i:                                        ; preds = %if.end.i
   br i1 %tobool11.not.i, label %if.then12.i, label %if.end36
 
 if.then12.i:                                      ; preds = %if.end9.i
-  %cmp13.i = icmp ult i64 %sub10.i, 16
+  %cmp13.i = icmp samesign ult i64 %sub10.i, 16
   br i1 %cmp13.i, label %if.then35, label %if.end16.i
 
 if.end16.i:                                       ; preds = %if.then12.i
@@ -736,7 +736,7 @@ do.body.i.i.i:                                    ; preds = %do.body.i.i.i, %if.
   %inc.i.i.i = add i8 %10, 1
   store i8 %inc.i.i.i, ptr %arrayidx.i.i.i, align 1
   %cmp.i.i.i = icmp eq i8 %inc.i.i.i, 0
-  %cmp4.i.i.i = icmp ugt i64 %indvars.iv.i.i.i, 1
+  %cmp4.i.i.i = icmp samesign ugt i64 %indvars.iv.i.i.i, 1
   %or.cond.i.i.i = and i1 %cmp4.i.i.i, %cmp.i.i.i
   br i1 %or.cond.i.i.i, label %do.body.i.i.i, label %if.end27.i, !llvm.loop !4
 

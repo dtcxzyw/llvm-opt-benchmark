@@ -6382,11 +6382,11 @@ _ZN5boost4wave8cpplexer7re2clex24count_backslash_newlinesIPcEEiPNS2_7ScannerIT_E
   br i1 %632, label %633, label %647
 
 633:                                              ; preds = %631
-  %634 = icmp ult i8 %630, 33
+  %634 = icmp samesign ult i8 %630, 33
   br i1 %634, label %635, label %642
 
 635:                                              ; preds = %633
-  %636 = icmp ult i8 %630, 11
+  %636 = icmp samesign ult i8 %630, 11
   br i1 %636, label %637, label %639
 
 637:                                              ; preds = %635
@@ -6394,13 +6394,13 @@ _ZN5boost4wave8cpplexer7re2clex24count_backslash_newlinesIPcEEiPNS2_7ScannerIT_E
   br i1 %638, label %.preheader6368, label %662
 
 639:                                              ; preds = %635
-  %640 = icmp ult i8 %630, 13
+  %640 = icmp samesign ult i8 %630, 13
   %641 = icmp eq i8 %630, 32
   %or.cond8 = or i1 %640, %641
   br i1 %or.cond8, label %.preheader6368, label %662
 
 642:                                              ; preds = %633
-  %643 = icmp ult i8 %630, 47
+  %643 = icmp samesign ult i8 %630, 47
   br i1 %643, label %644, label %646
 
 644:                                              ; preds = %642
@@ -6418,11 +6418,11 @@ _ZN5boost4wave8cpplexer7re2clex24count_backslash_newlinesIPcEEiPNS2_7ScannerIT_E
   br i1 %648, label %649, label %655
 
 649:                                              ; preds = %647
-  %650 = icmp ult i8 %630, 106
+  %650 = icmp samesign ult i8 %630, 106
   br i1 %650, label %651, label %654
 
 651:                                              ; preds = %649
-  %652 = icmp ult i8 %630, 102
+  %652 = icmp samesign ult i8 %630, 102
   %653 = icmp eq i8 %630, 105
   %or.cond11 = or i1 %652, %653
   br i1 %or.cond11, label %.preheader6368, label %662
@@ -6747,7 +6747,7 @@ _ZN5boost4wave8cpplexer7re2clex24count_backslash_newlinesIPcEEiPNS2_7ScannerIT_E
 
 800:                                              ; preds = %798
   %801 = icmp ne i8 %797, 9
-  %802 = icmp ult i8 %797, 11
+  %802 = icmp samesign ult i8 %797, 11
   %or.cond20 = and i1 %801, %802
   br i1 %or.cond20, label %602, label %.preheader6402
 
@@ -7993,7 +7993,7 @@ _ZN5boost4wave8cpplexer7re2clex24count_backslash_newlinesIPcEEiPNS2_7ScannerIT_E
   br i1 %1385, label %1386, label %1392
 
 1386:                                             ; preds = %1384
-  %1387 = icmp ult i8 %1383, 104
+  %1387 = icmp samesign ult i8 %1383, 104
   br i1 %1387, label %711, label %1388
 
 1388:                                             ; preds = %1386
@@ -8001,7 +8001,7 @@ _ZN5boost4wave8cpplexer7re2clex24count_backslash_newlinesIPcEEiPNS2_7ScannerIT_E
   br i1 %1389, label %3453, label %1390
 
 1390:                                             ; preds = %1388
-  %1391 = icmp ult i8 %1383, 106
+  %1391 = icmp samesign ult i8 %1383, 106
   br i1 %1391, label %3459, label %711
 
 1392:                                             ; preds = %1384
@@ -8041,7 +8041,7 @@ _ZN5boost4wave8cpplexer7re2clex24count_backslash_newlinesIPcEEiPNS2_7ScannerIT_E
   br i1 %1403, label %1404, label %1409
 
 1404:                                             ; preds = %1402
-  %1405 = icmp ult i8 %1401, 39
+  %1405 = icmp samesign ult i8 %1401, 39
   br i1 %1405, label %1406, label %1408
 
 1406:                                             ; preds = %1404
@@ -8462,11 +8462,11 @@ _ZN5boost4wave8cpplexer7re2clex24count_backslash_newlinesIPcEEiPNS2_7ScannerIT_E
   br i1 %1587, label %1588, label %1699
 
 1588:                                             ; preds = %.loopexit6321
-  %1589 = icmp ult i32 %.95101, 31
+  %1589 = icmp samesign ult i32 %.95101, 31
   br i1 %1589, label %1590, label %1647
 
 1590:                                             ; preds = %1588
-  %1591 = icmp ult i32 %.95101, 16
+  %1591 = icmp samesign ult i32 %.95101, 16
   br i1 %1591, label %1592, label %1622
 
 1592:                                             ; preds = %.thread6253, %1590
@@ -8475,11 +8475,11 @@ _ZN5boost4wave8cpplexer7re2clex24count_backslash_newlinesIPcEEiPNS2_7ScannerIT_E
   br i1 %1593, label %1594, label %1608
 
 1594:                                             ; preds = %1592
-  %1595 = icmp ult i32 %.95101624562526255, 4
+  %1595 = icmp samesign ult i32 %.95101624562526255, 4
   br i1 %1595, label %1596, label %1602
 
 1596:                                             ; preds = %1594
-  %1597 = icmp ult i32 %.95101624562526255, 2
+  %1597 = icmp samesign ult i32 %.95101624562526255, 2
   br i1 %1597, label %1598, label %1600
 
 1598:                                             ; preds = %1596
@@ -8491,7 +8491,7 @@ _ZN5boost4wave8cpplexer7re2clex24count_backslash_newlinesIPcEEiPNS2_7ScannerIT_E
   br i1 %1601, label %717, label %968
 
 1602:                                             ; preds = %1594
-  %1603 = icmp ult i32 %.95101624562526255, 6
+  %1603 = icmp samesign ult i32 %.95101624562526255, 6
   br i1 %1603, label %1604, label %1606
 
 1604:                                             ; preds = %1602
@@ -8507,7 +8507,7 @@ _ZN5boost4wave8cpplexer7re2clex24count_backslash_newlinesIPcEEiPNS2_7ScannerIT_E
   br i1 %1609, label %1610, label %1616
 
 1610:                                             ; preds = %1608
-  %1611 = icmp ult i32 %.95101624562526255, 10
+  %1611 = icmp samesign ult i32 %.95101624562526255, 10
   br i1 %1611, label %1612, label %1614
 
 1612:                                             ; preds = %1610
@@ -8531,15 +8531,15 @@ _ZN5boost4wave8cpplexer7re2clex24count_backslash_newlinesIPcEEiPNS2_7ScannerIT_E
   br i1 %1621, label %4683, label %4718
 
 1622:                                             ; preds = %1590
-  %1623 = icmp ult i32 %.95101, 24
+  %1623 = icmp samesign ult i32 %.95101, 24
   br i1 %1623, label %1624, label %1638
 
 1624:                                             ; preds = %1622
-  %1625 = icmp ult i32 %.95101, 20
+  %1625 = icmp samesign ult i32 %.95101, 20
   br i1 %1625, label %1626, label %1632
 
 1626:                                             ; preds = %1624
-  %1627 = icmp ult i32 %.95101, 18
+  %1627 = icmp samesign ult i32 %.95101, 18
   br i1 %1627, label %1628, label %1630
 
 1628:                                             ; preds = %1626
@@ -8551,7 +8551,7 @@ _ZN5boost4wave8cpplexer7re2clex24count_backslash_newlinesIPcEEiPNS2_7ScannerIT_E
   br i1 %1631, label %4989, label %5039
 
 1632:                                             ; preds = %1624
-  %1633 = icmp ult i32 %.95101, 22
+  %1633 = icmp samesign ult i32 %.95101, 22
   br i1 %1633, label %1634, label %1636
 
 1634:                                             ; preds = %1632
@@ -8563,11 +8563,11 @@ _ZN5boost4wave8cpplexer7re2clex24count_backslash_newlinesIPcEEiPNS2_7ScannerIT_E
   br i1 %1637, label %5910, label %5993
 
 1638:                                             ; preds = %1622
-  %1639 = icmp ult i32 %.95101, 28
+  %1639 = icmp samesign ult i32 %.95101, 28
   br i1 %1639, label %1640, label %1646
 
 1640:                                             ; preds = %1638
-  %1641 = icmp ult i32 %.95101, 26
+  %1641 = icmp samesign ult i32 %.95101, 26
   br i1 %1641, label %1642, label %1644
 
 1642:                                             ; preds = %1640
@@ -8585,19 +8585,19 @@ _ZN5boost4wave8cpplexer7re2clex24count_backslash_newlinesIPcEEiPNS2_7ScannerIT_E
   ]
 
 1647:                                             ; preds = %1588
-  %1648 = icmp ult i32 %.95101, 46
+  %1648 = icmp samesign ult i32 %.95101, 46
   br i1 %1648, label %1649, label %1674
 
 1649:                                             ; preds = %1647
-  %1650 = icmp ult i32 %.95101, 39
+  %1650 = icmp samesign ult i32 %.95101, 39
   br i1 %1650, label %1651, label %1665
 
 1651:                                             ; preds = %1649
-  %1652 = icmp ult i32 %.95101, 35
+  %1652 = icmp samesign ult i32 %.95101, 35
   br i1 %1652, label %1653, label %1659
 
 1653:                                             ; preds = %1651
-  %1654 = icmp ult i32 %.95101, 33
+  %1654 = icmp samesign ult i32 %.95101, 33
   br i1 %1654, label %1655, label %1657
 
 1655:                                             ; preds = %1653
@@ -8609,7 +8609,7 @@ _ZN5boost4wave8cpplexer7re2clex24count_backslash_newlinesIPcEEiPNS2_7ScannerIT_E
   br i1 %1658, label %6638, label %.loopexit6334
 
 1659:                                             ; preds = %1651
-  %1660 = icmp ult i32 %.95101, 37
+  %1660 = icmp samesign ult i32 %.95101, 37
   br i1 %1660, label %1661, label %1663
 
 1661:                                             ; preds = %1659
@@ -8621,11 +8621,11 @@ _ZN5boost4wave8cpplexer7re2clex24count_backslash_newlinesIPcEEiPNS2_7ScannerIT_E
   br i1 %1664, label %7258, label %7293
 
 1665:                                             ; preds = %1649
-  %1666 = icmp ult i32 %.95101, 43
+  %1666 = icmp samesign ult i32 %.95101, 43
   br i1 %1666, label %1667, label %1673
 
 1667:                                             ; preds = %1665
-  %1668 = icmp ult i32 %.95101, 41
+  %1668 = icmp samesign ult i32 %.95101, 41
   br i1 %1668, label %1669, label %1671
 
 1669:                                             ; preds = %1667
@@ -8643,15 +8643,15 @@ _ZN5boost4wave8cpplexer7re2clex24count_backslash_newlinesIPcEEiPNS2_7ScannerIT_E
   ]
 
 1674:                                             ; preds = %1647
-  %1675 = icmp ult i32 %.95101, 54
+  %1675 = icmp samesign ult i32 %.95101, 54
   br i1 %1675, label %1676, label %1690
 
 1676:                                             ; preds = %1674
-  %1677 = icmp ult i32 %.95101, 50
+  %1677 = icmp samesign ult i32 %.95101, 50
   br i1 %1677, label %1678, label %1684
 
 1678:                                             ; preds = %1676
-  %1679 = icmp ult i32 %.95101, 48
+  %1679 = icmp samesign ult i32 %.95101, 48
   br i1 %1679, label %1680, label %1682
 
 1680:                                             ; preds = %1678
@@ -8663,7 +8663,7 @@ _ZN5boost4wave8cpplexer7re2clex24count_backslash_newlinesIPcEEiPNS2_7ScannerIT_E
   br i1 %1683, label %7879, label %7915
 
 1684:                                             ; preds = %1676
-  %1685 = icmp ult i32 %.95101, 52
+  %1685 = icmp samesign ult i32 %.95101, 52
   br i1 %1685, label %1686, label %1688
 
 1686:                                             ; preds = %1684
@@ -8675,11 +8675,11 @@ _ZN5boost4wave8cpplexer7re2clex24count_backslash_newlinesIPcEEiPNS2_7ScannerIT_E
   br i1 %1689, label %8311, label %8346
 
 1690:                                             ; preds = %1674
-  %1691 = icmp ult i32 %.95101, 58
+  %1691 = icmp samesign ult i32 %.95101, 58
   br i1 %1691, label %1692, label %1698
 
 1692:                                             ; preds = %1690
-  %1693 = icmp ult i32 %.95101, 56
+  %1693 = icmp samesign ult i32 %.95101, 56
   br i1 %1693, label %1694, label %1696
 
 1694:                                             ; preds = %1692
@@ -8701,19 +8701,19 @@ _ZN5boost4wave8cpplexer7re2clex24count_backslash_newlinesIPcEEiPNS2_7ScannerIT_E
   br i1 %1700, label %1701, label %1758
 
 1701:                                             ; preds = %1699
-  %1702 = icmp ult i32 %.95101, 77
+  %1702 = icmp samesign ult i32 %.95101, 77
   br i1 %1702, label %1703, label %1733
 
 1703:                                             ; preds = %1701
-  %1704 = icmp ult i32 %.95101, 69
+  %1704 = icmp samesign ult i32 %.95101, 69
   br i1 %1704, label %1705, label %1719
 
 1705:                                             ; preds = %1703
-  %1706 = icmp ult i32 %.95101, 65
+  %1706 = icmp samesign ult i32 %.95101, 65
   br i1 %1706, label %1707, label %1713
 
 1707:                                             ; preds = %1705
-  %1708 = icmp ult i32 %.95101, 63
+  %1708 = icmp samesign ult i32 %.95101, 63
   br i1 %1708, label %1709, label %1711
 
 1709:                                             ; preds = %1707
@@ -8725,7 +8725,7 @@ _ZN5boost4wave8cpplexer7re2clex24count_backslash_newlinesIPcEEiPNS2_7ScannerIT_E
   br i1 %1712, label %8809, label %8868
 
 1713:                                             ; preds = %1705
-  %1714 = icmp ult i32 %.95101, 67
+  %1714 = icmp samesign ult i32 %.95101, 67
   br i1 %1714, label %1715, label %1717
 
 1715:                                             ; preds = %1713
@@ -8737,11 +8737,11 @@ _ZN5boost4wave8cpplexer7re2clex24count_backslash_newlinesIPcEEiPNS2_7ScannerIT_E
   br i1 %1718, label %8976, label %9020
 
 1719:                                             ; preds = %1703
-  %1720 = icmp ult i32 %.95101, 73
+  %1720 = icmp samesign ult i32 %.95101, 73
   br i1 %1720, label %1721, label %1727
 
 1721:                                             ; preds = %1719
-  %1722 = icmp ult i32 %.95101, 71
+  %1722 = icmp samesign ult i32 %.95101, 71
   br i1 %1722, label %1723, label %1725
 
 1723:                                             ; preds = %1721
@@ -8753,7 +8753,7 @@ _ZN5boost4wave8cpplexer7re2clex24count_backslash_newlinesIPcEEiPNS2_7ScannerIT_E
   br i1 %1726, label %9128, label %9188
 
 1727:                                             ; preds = %1719
-  %1728 = icmp ult i32 %.95101, 75
+  %1728 = icmp samesign ult i32 %.95101, 75
   br i1 %1728, label %1729, label %1731
 
 1729:                                             ; preds = %1727
@@ -8765,15 +8765,15 @@ _ZN5boost4wave8cpplexer7re2clex24count_backslash_newlinesIPcEEiPNS2_7ScannerIT_E
   br i1 %1732, label %9407, label %9442
 
 1733:                                             ; preds = %1701
-  %1734 = icmp ult i32 %.95101, 85
+  %1734 = icmp samesign ult i32 %.95101, 85
   br i1 %1734, label %1735, label %1749
 
 1735:                                             ; preds = %1733
-  %1736 = icmp ult i32 %.95101, 81
+  %1736 = icmp samesign ult i32 %.95101, 81
   br i1 %1736, label %1737, label %1743
 
 1737:                                             ; preds = %1735
-  %1738 = icmp ult i32 %.95101, 79
+  %1738 = icmp samesign ult i32 %.95101, 79
   br i1 %1738, label %1739, label %1741
 
 1739:                                             ; preds = %1737
@@ -8785,7 +8785,7 @@ _ZN5boost4wave8cpplexer7re2clex24count_backslash_newlinesIPcEEiPNS2_7ScannerIT_E
   br i1 %1742, label %9565, label %9612
 
 1743:                                             ; preds = %1735
-  %1744 = icmp ult i32 %.95101, 83
+  %1744 = icmp samesign ult i32 %.95101, 83
   br i1 %1744, label %1745, label %1747
 
 1745:                                             ; preds = %1743
@@ -8797,11 +8797,11 @@ _ZN5boost4wave8cpplexer7re2clex24count_backslash_newlinesIPcEEiPNS2_7ScannerIT_E
   br i1 %1748, label %9778, label %9820
 
 1749:                                             ; preds = %1733
-  %1750 = icmp ult i32 %.95101, 89
+  %1750 = icmp samesign ult i32 %.95101, 89
   br i1 %1750, label %1751, label %1757
 
 1751:                                             ; preds = %1749
-  %1752 = icmp ult i32 %.95101, 87
+  %1752 = icmp samesign ult i32 %.95101, 87
   br i1 %1752, label %1753, label %1755
 
 1753:                                             ; preds = %1751
@@ -8823,15 +8823,15 @@ _ZN5boost4wave8cpplexer7re2clex24count_backslash_newlinesIPcEEiPNS2_7ScannerIT_E
   br i1 %1759, label %1760, label %1785
 
 1760:                                             ; preds = %1758
-  %1761 = icmp ult i32 %.95101, 100
+  %1761 = icmp samesign ult i32 %.95101, 100
   br i1 %1761, label %1762, label %1776
 
 1762:                                             ; preds = %1760
-  %1763 = icmp ult i32 %.95101, 96
+  %1763 = icmp samesign ult i32 %.95101, 96
   br i1 %1763, label %1764, label %1770
 
 1764:                                             ; preds = %1762
-  %1765 = icmp ult i32 %.95101, 94
+  %1765 = icmp samesign ult i32 %.95101, 94
   br i1 %1765, label %1766, label %1768
 
 1766:                                             ; preds = %1764
@@ -8843,7 +8843,7 @@ _ZN5boost4wave8cpplexer7re2clex24count_backslash_newlinesIPcEEiPNS2_7ScannerIT_E
   br i1 %1769, label %10251, label %10292
 
 1770:                                             ; preds = %1762
-  %1771 = icmp ult i32 %.95101, 98
+  %1771 = icmp samesign ult i32 %.95101, 98
   br i1 %1771, label %1772, label %1774
 
 1772:                                             ; preds = %1770
@@ -8855,11 +8855,11 @@ _ZN5boost4wave8cpplexer7re2clex24count_backslash_newlinesIPcEEiPNS2_7ScannerIT_E
   br i1 %1775, label %10422, label %10458
 
 1776:                                             ; preds = %1760
-  %1777 = icmp ult i32 %.95101, 104
+  %1777 = icmp samesign ult i32 %.95101, 104
   br i1 %1777, label %1778, label %1784
 
 1778:                                             ; preds = %1776
-  %1779 = icmp ult i32 %.95101, 102
+  %1779 = icmp samesign ult i32 %.95101, 102
   br i1 %1779, label %1780, label %1782
 
 1780:                                             ; preds = %1778
@@ -8881,11 +8881,11 @@ _ZN5boost4wave8cpplexer7re2clex24count_backslash_newlinesIPcEEiPNS2_7ScannerIT_E
   br i1 %1786, label %1787, label %1801
 
 1787:                                             ; preds = %1785
-  %1788 = icmp ult i32 %.95101, 111
+  %1788 = icmp samesign ult i32 %.95101, 111
   br i1 %1788, label %1789, label %1795
 
 1789:                                             ; preds = %1787
-  %1790 = icmp ult i32 %.95101, 109
+  %1790 = icmp samesign ult i32 %.95101, 109
   br i1 %1790, label %1791, label %1793
 
 1791:                                             ; preds = %1789
@@ -8897,7 +8897,7 @@ _ZN5boost4wave8cpplexer7re2clex24count_backslash_newlinesIPcEEiPNS2_7ScannerIT_E
   br i1 %1794, label %10901, label %10936
 
 1795:                                             ; preds = %1787
-  %1796 = icmp ult i32 %.95101, 113
+  %1796 = icmp samesign ult i32 %.95101, 113
   br i1 %1796, label %1797, label %1799
 
 1797:                                             ; preds = %1795
@@ -8913,7 +8913,7 @@ _ZN5boost4wave8cpplexer7re2clex24count_backslash_newlinesIPcEEiPNS2_7ScannerIT_E
   br i1 %1802, label %1803, label %1809
 
 1803:                                             ; preds = %1801
-  %1804 = icmp ult i32 %.95101, 117
+  %1804 = icmp samesign ult i32 %.95101, 117
   br i1 %1804, label %1805, label %1807
 
 1805:                                             ; preds = %1803
@@ -9157,11 +9157,11 @@ _ZN5boost4wave8cpplexer7re2clex24count_backslash_newlinesIPcEEiPNS2_7ScannerIT_E
   br i1 %1900, label %1901, label %1914
 
 1901:                                             ; preds = %1899
-  %1902 = icmp ult i8 %1898, 63
+  %1902 = icmp samesign ult i8 %1898, 63
   br i1 %1902, label %1903, label %1910
 
 1903:                                             ; preds = %1901
-  %1904 = icmp ult i8 %1898, 39
+  %1904 = icmp samesign ult i8 %1898, 39
   br i1 %1904, label %1905, label %1907
 
 1905:                                             ; preds = %1903
@@ -9176,7 +9176,7 @@ _ZN5boost4wave8cpplexer7re2clex24count_backslash_newlinesIPcEEiPNS2_7ScannerIT_E
   br i1 %or.cond5883, label %.loopexit6320, label %.loopexit6321
 
 1910:                                             ; preds = %1901
-  %1911 = icmp ult i8 %1898, 70
+  %1911 = icmp samesign ult i8 %1898, 70
   br i1 %1911, label %1912, label %1913
 
 1912:                                             ; preds = %1910
@@ -9196,7 +9196,7 @@ _ZN5boost4wave8cpplexer7re2clex24count_backslash_newlinesIPcEEiPNS2_7ScannerIT_E
   br i1 %1915, label %1916, label %1923
 
 1916:                                             ; preds = %1914
-  %1917 = icmp ult i8 %1898, 101
+  %1917 = icmp samesign ult i8 %1898, 101
   br i1 %1917, label %1918, label %1920
 
 1918:                                             ; preds = %1916
@@ -9205,7 +9205,7 @@ _ZN5boost4wave8cpplexer7re2clex24count_backslash_newlinesIPcEEiPNS2_7ScannerIT_E
   br i1 %or.cond35, label %.loopexit6320, label %.loopexit6321
 
 1920:                                             ; preds = %1916
-  %1921 = icmp ult i8 %1898, 103
+  %1921 = icmp samesign ult i8 %1898, 103
   %1922 = icmp eq i8 %1898, 110
   %or.cond38 = or i1 %1921, %1922
   br i1 %or.cond38, label %.loopexit6320, label %.loopexit6321
@@ -9306,11 +9306,11 @@ _ZN5boost4wave8cpplexer7re2clex24count_backslash_newlinesIPcEEiPNS2_7ScannerIT_E
   br i1 %1954, label %1955, label %1972
 
 1955:                                             ; preds = %1953
-  %1956 = icmp ult i8 %.15107, 33
+  %1956 = icmp samesign ult i8 %.15107, 33
   br i1 %1956, label %1957, label %1964
 
 1957:                                             ; preds = %1955
-  %1958 = icmp ult i8 %.15107, 11
+  %1958 = icmp samesign ult i8 %.15107, 11
   br i1 %1958, label %1959, label %1961
 
 1959:                                             ; preds = %1957
@@ -9318,13 +9318,13 @@ _ZN5boost4wave8cpplexer7re2clex24count_backslash_newlinesIPcEEiPNS2_7ScannerIT_E
   br i1 %1960, label %.loopexit6366, label %.thread6253
 
 1961:                                             ; preds = %1957
-  %1962 = icmp ugt i8 %.15107, 12
+  %1962 = icmp samesign ugt i8 %.15107, 12
   %1963 = icmp ne i8 %.15107, 32
   %or.cond41 = and i1 %1962, %1963
   br i1 %or.cond41, label %.thread6253, label %.loopexit6366
 
 1964:                                             ; preds = %1955
-  %1965 = icmp ult i8 %.15107, 100
+  %1965 = icmp samesign ult i8 %.15107, 100
   br i1 %1965, label %1966, label %1968
 
 1966:                                             ; preds = %1964
@@ -9336,7 +9336,7 @@ _ZN5boost4wave8cpplexer7re2clex24count_backslash_newlinesIPcEEiPNS2_7ScannerIT_E
   br i1 %1969, label %2042, label %1970
 
 1970:                                             ; preds = %1968
-  %1971 = icmp ult i8 %.15107, 102
+  %1971 = icmp samesign ult i8 %.15107, 102
   br i1 %1971, label %2048, label %.thread6253
 
 1972:                                             ; preds = %1953
@@ -9344,7 +9344,7 @@ _ZN5boost4wave8cpplexer7re2clex24count_backslash_newlinesIPcEEiPNS2_7ScannerIT_E
   br i1 %1973, label %1974, label %1979
 
 1974:                                             ; preds = %1972
-  %1975 = icmp ult i8 %.15107, 109
+  %1975 = icmp samesign ult i8 %.15107, 109
   br i1 %1975, label %1976, label %1977
 
 1976:                                             ; preds = %1974
@@ -9799,11 +9799,11 @@ _ZN5boost4wave8cpplexer7re2clex24count_backslash_newlinesIPcEEiPNS2_7ScannerIT_E
   br i1 %2158, label %2159, label %2175
 
 2159:                                             ; preds = %2157
-  %2160 = icmp ult i8 %2156, 33
+  %2160 = icmp samesign ult i8 %2156, 33
   br i1 %2160, label %2161, label %2168
 
 2161:                                             ; preds = %2159
-  %2162 = icmp ult i8 %2156, 11
+  %2162 = icmp samesign ult i8 %2156, 11
   br i1 %2162, label %2163, label %2165
 
 2163:                                             ; preds = %2161
@@ -9811,13 +9811,13 @@ _ZN5boost4wave8cpplexer7re2clex24count_backslash_newlinesIPcEEiPNS2_7ScannerIT_E
   br i1 %2164, label %.preheader6368, label %2189
 
 2165:                                             ; preds = %2161
-  %2166 = icmp ult i8 %2156, 13
+  %2166 = icmp samesign ult i8 %2156, 13
   %2167 = icmp eq i8 %2156, 32
   %or.cond44 = or i1 %2166, %2167
   br i1 %or.cond44, label %.preheader6368, label %2189
 
 2168:                                             ; preds = %2159
-  %2169 = icmp ult i8 %2156, 47
+  %2169 = icmp samesign ult i8 %2156, 47
   br i1 %2169, label %2170, label %2172
 
 2170:                                             ; preds = %2168
@@ -9826,7 +9826,7 @@ _ZN5boost4wave8cpplexer7re2clex24count_backslash_newlinesIPcEEiPNS2_7ScannerIT_E
 
 2172:                                             ; preds = %2168
   %2173 = icmp eq i8 %2156, 47
-  %2174 = icmp ugt i8 %2156, 99
+  %2174 = icmp samesign ugt i8 %2156, 99
   %or.cond47 = or i1 %2173, %2174
   br i1 %or.cond47, label %.preheader6368, label %2189
 
@@ -9835,7 +9835,7 @@ _ZN5boost4wave8cpplexer7re2clex24count_backslash_newlinesIPcEEiPNS2_7ScannerIT_E
   br i1 %2176, label %2177, label %2182
 
 2177:                                             ; preds = %2175
-  %2178 = icmp ult i8 %2156, 108
+  %2178 = icmp samesign ult i8 %2156, 108
   br i1 %2178, label %2179, label %2181
 
 2179:                                             ; preds = %2177
@@ -10355,11 +10355,11 @@ _ZN5boost4wave8cpplexer7re2clex24count_backslash_newlinesIPcEEiPNS2_7ScannerIT_E
   br i1 %2401, label %2402, label %2415
 
 2402:                                             ; preds = %2400
-  %2403 = icmp ult i8 %2399, 63
+  %2403 = icmp samesign ult i8 %2399, 63
   br i1 %2403, label %2404, label %2411
 
 2404:                                             ; preds = %2402
-  %2405 = icmp ult i8 %2399, 39
+  %2405 = icmp samesign ult i8 %2399, 39
   br i1 %2405, label %2406, label %2408
 
 2406:                                             ; preds = %2404
@@ -10374,7 +10374,7 @@ _ZN5boost4wave8cpplexer7re2clex24count_backslash_newlinesIPcEEiPNS2_7ScannerIT_E
   br i1 %or.cond5890, label %.loopexit6377, label %.loopexit6321
 
 2411:                                             ; preds = %2402
-  %2412 = icmp ult i8 %2399, 70
+  %2412 = icmp samesign ult i8 %2399, 70
   br i1 %2412, label %2413, label %2414
 
 2413:                                             ; preds = %2411
@@ -10394,7 +10394,7 @@ _ZN5boost4wave8cpplexer7re2clex24count_backslash_newlinesIPcEEiPNS2_7ScannerIT_E
   br i1 %2416, label %2417, label %2424
 
 2417:                                             ; preds = %2415
-  %2418 = icmp ult i8 %2399, 101
+  %2418 = icmp samesign ult i8 %2399, 101
   br i1 %2418, label %2419, label %2421
 
 2419:                                             ; preds = %2417
@@ -10403,7 +10403,7 @@ _ZN5boost4wave8cpplexer7re2clex24count_backslash_newlinesIPcEEiPNS2_7ScannerIT_E
   br i1 %or.cond62, label %.loopexit6377, label %.loopexit6321
 
 2421:                                             ; preds = %2417
-  %2422 = icmp ult i8 %2399, 103
+  %2422 = icmp samesign ult i8 %2399, 103
   %2423 = icmp eq i8 %2399, 110
   %or.cond65 = or i1 %2422, %2423
   br i1 %or.cond65, label %.loopexit6377, label %.loopexit6321
@@ -12040,12 +12040,12 @@ _ZN5boost4wave8cpplexer7re2clex24count_backslash_newlinesIPcEEiPNS2_7ScannerIT_E
   br i1 %3213, label %3214, label %3223
 
 3214:                                             ; preds = %3212
-  %3215 = icmp ult i8 %3211, 58
+  %3215 = icmp samesign ult i8 %3211, 58
   br i1 %3215, label %3216, label %3219
 
 3216:                                             ; preds = %3214
   %3217 = icmp eq i8 %3211, 36
-  %3218 = icmp ugt i8 %3211, 47
+  %3218 = icmp samesign ugt i8 %3211, 47
   %or.cond80 = or i1 %3217, %3218
   br i1 %or.cond80, label %682, label %3233
 
@@ -12054,7 +12054,7 @@ _ZN5boost4wave8cpplexer7re2clex24count_backslash_newlinesIPcEEiPNS2_7ScannerIT_E
   br i1 %3220, label %2092, label %3221
 
 3221:                                             ; preds = %3219
-  %3222 = icmp ugt i8 %3211, 64
+  %3222 = icmp samesign ugt i8 %3211, 64
   br i1 %3222, label %682, label %3233
 
 3223:                                             ; preds = %3212
@@ -12436,7 +12436,7 @@ _ZN5boost4wave8cpplexer7re2clex24count_backslash_newlinesIPcEEiPNS2_7ScannerIT_E
   br i1 %3393, label %3394, label %3402
 
 3394:                                             ; preds = %3392
-  %3395 = icmp ult i8 %3391, 48
+  %3395 = icmp samesign ult i8 %3391, 48
   br i1 %3395, label %3396, label %3398
 
 3396:                                             ; preds = %3394
@@ -12444,7 +12444,7 @@ _ZN5boost4wave8cpplexer7re2clex24count_backslash_newlinesIPcEEiPNS2_7ScannerIT_E
   br i1 %3397, label %682, label %3412
 
 3398:                                             ; preds = %3394
-  %3399 = icmp ult i8 %3391, 58
+  %3399 = icmp samesign ult i8 %3391, 58
   br i1 %3399, label %682, label %3400
 
 3400:                                             ; preds = %3398
@@ -12456,7 +12456,7 @@ _ZN5boost4wave8cpplexer7re2clex24count_backslash_newlinesIPcEEiPNS2_7ScannerIT_E
   br i1 %3403, label %3404, label %3408
 
 3404:                                             ; preds = %3402
-  %3405 = icmp ult i8 %3391, 91
+  %3405 = icmp samesign ult i8 %3391, 91
   br i1 %3405, label %682, label %3406
 
 3406:                                             ; preds = %3404
@@ -12970,7 +12970,7 @@ _ZN5boost4wave8cpplexer7re2clex24count_backslash_newlinesIPcEEiPNS2_7ScannerIT_E
   br i1 %3625, label %3626, label %3632
 
 3626:                                             ; preds = %3624
-  %3627 = icmp ult i8 %3618, 11
+  %3627 = icmp samesign ult i8 %3618, 11
   br i1 %3627, label %3628, label %3630
 
 3628:                                             ; preds = %3626
@@ -13781,7 +13781,7 @@ _ZN5boost4wave8cpplexer7re2clex24count_backslash_newlinesIPcEEiPNS2_7ScannerIT_E
   br i1 %3954, label %3955, label %3964
 
 3955:                                             ; preds = %3953
-  %3956 = icmp ult i8 %3952, 11
+  %3956 = icmp samesign ult i8 %3952, 11
   br i1 %3956, label %3957, label %3959
 
 3957:                                             ; preds = %3955
@@ -13789,11 +13789,11 @@ _ZN5boost4wave8cpplexer7re2clex24count_backslash_newlinesIPcEEiPNS2_7ScannerIT_E
   br i1 %3958, label %.loopexit6377, label %.loopexit6321
 
 3959:                                             ; preds = %3955
-  %3960 = icmp ult i8 %3952, 13
+  %3960 = icmp samesign ult i8 %3952, 13
   br i1 %3960, label %.loopexit6377, label %3961
 
 3961:                                             ; preds = %3959
-  %3962 = icmp ult i8 %3952, 32
+  %3962 = icmp samesign ult i8 %3952, 32
   br i1 %3962, label %.loopexit6321, label %3963
 
 3963:                                             ; preds = %3961
@@ -14748,11 +14748,11 @@ _ZN5boost4wave8cpplexer7re2clex24count_backslash_newlinesIPcEEiPNS2_7ScannerIT_E
   br i1 %4409, label %4410, label %4424
 
 4410:                                             ; preds = %4408
-  %4411 = icmp ult i8 %4407, 33
+  %4411 = icmp samesign ult i8 %4407, 33
   br i1 %4411, label %4412, label %4419
 
 4412:                                             ; preds = %4410
-  %4413 = icmp ult i8 %4407, 11
+  %4413 = icmp samesign ult i8 %4407, 11
   br i1 %4413, label %4414, label %4416
 
 4414:                                             ; preds = %4412
@@ -14760,13 +14760,13 @@ _ZN5boost4wave8cpplexer7re2clex24count_backslash_newlinesIPcEEiPNS2_7ScannerIT_E
   br i1 %4415, label %.preheader6368, label %4440
 
 4416:                                             ; preds = %4412
-  %4417 = icmp ult i8 %4407, 13
+  %4417 = icmp samesign ult i8 %4407, 13
   %4418 = icmp eq i8 %4407, 32
   %or.cond125 = or i1 %4417, %4418
   br i1 %or.cond125, label %.preheader6368, label %4440
 
 4419:                                             ; preds = %4410
-  %4420 = icmp ult i8 %4407, 47
+  %4420 = icmp samesign ult i8 %4407, 47
   br i1 %4420, label %4421, label %4423
 
 4421:                                             ; preds = %4419
@@ -14784,11 +14784,11 @@ _ZN5boost4wave8cpplexer7re2clex24count_backslash_newlinesIPcEEiPNS2_7ScannerIT_E
   br i1 %4425, label %4426, label %4433
 
 4426:                                             ; preds = %4424
-  %4427 = icmp ult i8 %4407, 106
+  %4427 = icmp samesign ult i8 %4407, 106
   br i1 %4427, label %4428, label %4431
 
 4428:                                             ; preds = %4426
-  %4429 = icmp ult i8 %4407, 102
+  %4429 = icmp samesign ult i8 %4407, 102
   %4430 = icmp eq i8 %4407, 105
   %or.cond128 = or i1 %4429, %4430
   br i1 %or.cond128, label %.preheader6368, label %4440
@@ -15326,7 +15326,7 @@ _ZN5boost4wave8cpplexer7re2clex24count_backslash_newlinesIPcEEiPNS2_7ScannerIT_E
   br i1 %4664, label %4665, label %4673
 
 4665:                                             ; preds = %4663
-  %4666 = icmp ult i8 %4662, 48
+  %4666 = icmp samesign ult i8 %4662, 48
   br i1 %4666, label %4667, label %4669
 
 4667:                                             ; preds = %4665
@@ -15334,7 +15334,7 @@ _ZN5boost4wave8cpplexer7re2clex24count_backslash_newlinesIPcEEiPNS2_7ScannerIT_E
   br i1 %4668, label %682, label %4683
 
 4669:                                             ; preds = %4665
-  %4670 = icmp ult i8 %4662, 58
+  %4670 = icmp samesign ult i8 %4662, 58
   br i1 %4670, label %682, label %4671
 
 4671:                                             ; preds = %4669
@@ -15346,7 +15346,7 @@ _ZN5boost4wave8cpplexer7re2clex24count_backslash_newlinesIPcEEiPNS2_7ScannerIT_E
   br i1 %4674, label %4675, label %4679
 
 4675:                                             ; preds = %4673
-  %4676 = icmp ult i8 %4662, 91
+  %4676 = icmp samesign ult i8 %4662, 91
   br i1 %4676, label %682, label %4677
 
 4677:                                             ; preds = %4675
@@ -16080,7 +16080,7 @@ _ZN5boost4wave8cpplexer7re2clex24count_backslash_newlinesIPcEEiPNS2_7ScannerIT_E
   br i1 %5020, label %5021, label %5029
 
 5021:                                             ; preds = %5019
-  %5022 = icmp ult i8 %5018, 48
+  %5022 = icmp samesign ult i8 %5018, 48
   br i1 %5022, label %5023, label %5025
 
 5023:                                             ; preds = %5021
@@ -16088,7 +16088,7 @@ _ZN5boost4wave8cpplexer7re2clex24count_backslash_newlinesIPcEEiPNS2_7ScannerIT_E
   br i1 %5024, label %682, label %5039
 
 5025:                                             ; preds = %5021
-  %5026 = icmp ult i8 %5018, 58
+  %5026 = icmp samesign ult i8 %5018, 58
   br i1 %5026, label %682, label %5027
 
 5027:                                             ; preds = %5025
@@ -16100,7 +16100,7 @@ _ZN5boost4wave8cpplexer7re2clex24count_backslash_newlinesIPcEEiPNS2_7ScannerIT_E
   br i1 %5030, label %5031, label %5035
 
 5031:                                             ; preds = %5029
-  %5032 = icmp ult i8 %5018, 91
+  %5032 = icmp samesign ult i8 %5018, 91
   br i1 %5032, label %682, label %5033
 
 5033:                                             ; preds = %5031
@@ -16614,7 +16614,7 @@ _ZN5boost4wave8cpplexer7re2clex24count_backslash_newlinesIPcEEiPNS2_7ScannerIT_E
   br i1 %5272, label %5273, label %5281
 
 5273:                                             ; preds = %5271
-  %5274 = icmp ult i8 %5270, 48
+  %5274 = icmp samesign ult i8 %5270, 48
   br i1 %5274, label %5275, label %5277
 
 5275:                                             ; preds = %5273
@@ -16622,7 +16622,7 @@ _ZN5boost4wave8cpplexer7re2clex24count_backslash_newlinesIPcEEiPNS2_7ScannerIT_E
   br i1 %5276, label %682, label %5291
 
 5277:                                             ; preds = %5273
-  %5278 = icmp ult i8 %5270, 58
+  %5278 = icmp samesign ult i8 %5270, 58
   br i1 %5278, label %682, label %5279
 
 5279:                                             ; preds = %5277
@@ -16634,7 +16634,7 @@ _ZN5boost4wave8cpplexer7re2clex24count_backslash_newlinesIPcEEiPNS2_7ScannerIT_E
   br i1 %5282, label %5283, label %5287
 
 5283:                                             ; preds = %5281
-  %5284 = icmp ult i8 %5270, 91
+  %5284 = icmp samesign ult i8 %5270, 91
   br i1 %5284, label %682, label %5285
 
 5285:                                             ; preds = %5283
@@ -18490,11 +18490,11 @@ _ZN5boost4wave8cpplexer7re2clex24count_backslash_newlinesIPcEEiPNS2_7ScannerIT_E
   br i1 %6102, label %6103, label %6118
 
 6103:                                             ; preds = %6101
-  %6104 = icmp ult i8 %6100, 50
+  %6104 = icmp samesign ult i8 %6100, 50
   br i1 %6104, label %6105, label %6112
 
 6105:                                             ; preds = %6103
-  %6106 = icmp ult i8 %6100, 37
+  %6106 = icmp samesign ult i8 %6100, 37
   br i1 %6106, label %6107, label %6109
 
 6107:                                             ; preds = %6105
@@ -18502,7 +18502,7 @@ _ZN5boost4wave8cpplexer7re2clex24count_backslash_newlinesIPcEEiPNS2_7ScannerIT_E
   br i1 %6108, label %682, label %6131
 
 6109:                                             ; preds = %6105
-  %6110 = icmp ult i8 %6100, 48
+  %6110 = icmp samesign ult i8 %6100, 48
   br i1 %6110, label %6131, label %6111
 
 6111:                                             ; preds = %6109
@@ -18510,7 +18510,7 @@ _ZN5boost4wave8cpplexer7re2clex24count_backslash_newlinesIPcEEiPNS2_7ScannerIT_E
   br i1 %.not5638, label %7343, label %682
 
 6112:                                             ; preds = %6103
-  %6113 = icmp ult i8 %6100, 52
+  %6113 = icmp samesign ult i8 %6100, 52
   br i1 %6113, label %6114, label %6116
 
 6114:                                             ; preds = %6112
@@ -18526,7 +18526,7 @@ _ZN5boost4wave8cpplexer7re2clex24count_backslash_newlinesIPcEEiPNS2_7ScannerIT_E
   br i1 %6119, label %6120, label %6125
 
 6120:                                             ; preds = %6118
-  %6121 = icmp ult i8 %6100, 64
+  %6121 = icmp samesign ult i8 %6100, 64
   br i1 %6121, label %6122, label %6124
 
 6122:                                             ; preds = %6120
@@ -21474,17 +21474,17 @@ _ZN5boost4wave8cpplexer7re2clex24count_backslash_newlinesIPcEEiPNS2_7ScannerIT_E
   br i1 %7455, label %7456, label %7466
 
 7456:                                             ; preds = %7454
-  %7457 = icmp ult i8 %7453, 58
+  %7457 = icmp samesign ult i8 %7453, 58
   br i1 %7457, label %7458, label %7461
 
 7458:                                             ; preds = %7456
   %7459 = icmp eq i8 %7453, 36
-  %7460 = icmp ugt i8 %7453, 47
+  %7460 = icmp samesign ugt i8 %7453, 47
   %or.cond239 = or i1 %7459, %7460
   br i1 %or.cond239, label %682, label %7484
 
 7461:                                             ; preds = %7456
-  %7462 = icmp ult i8 %7453, 64
+  %7462 = icmp samesign ult i8 %7453, 64
   br i1 %7462, label %7463, label %7465
 
 7463:                                             ; preds = %7461
@@ -21502,7 +21502,7 @@ _ZN5boost4wave8cpplexer7re2clex24count_backslash_newlinesIPcEEiPNS2_7ScannerIT_E
   br i1 %7467, label %7468, label %7476
 
 7468:                                             ; preds = %7466
-  %7469 = icmp ult i8 %7453, 95
+  %7469 = icmp samesign ult i8 %7453, 95
   br i1 %7469, label %7470, label %7472
 
 7470:                                             ; preds = %7468
@@ -21514,7 +21514,7 @@ _ZN5boost4wave8cpplexer7re2clex24count_backslash_newlinesIPcEEiPNS2_7ScannerIT_E
   br i1 %7473, label %8519, label %7474
 
 7474:                                             ; preds = %7472
-  %7475 = icmp ugt i8 %7453, 96
+  %7475 = icmp samesign ugt i8 %7453, 96
   br i1 %7475, label %682, label %7484
 
 7476:                                             ; preds = %7466
@@ -24682,7 +24682,7 @@ _ZN5boost4wave8cpplexer7re2clex24count_backslash_newlinesIPcEEiPNS2_7ScannerIT_E
   br i1 %9001, label %9002, label %9010
 
 9002:                                             ; preds = %9000
-  %9003 = icmp ult i8 %8999, 48
+  %9003 = icmp samesign ult i8 %8999, 48
   br i1 %9003, label %9004, label %9006
 
 9004:                                             ; preds = %9002
@@ -24690,7 +24690,7 @@ _ZN5boost4wave8cpplexer7re2clex24count_backslash_newlinesIPcEEiPNS2_7ScannerIT_E
   br i1 %9005, label %682, label %9020
 
 9006:                                             ; preds = %9002
-  %9007 = icmp ult i8 %8999, 58
+  %9007 = icmp samesign ult i8 %8999, 58
   br i1 %9007, label %682, label %9008
 
 9008:                                             ; preds = %9006
@@ -24702,7 +24702,7 @@ _ZN5boost4wave8cpplexer7re2clex24count_backslash_newlinesIPcEEiPNS2_7ScannerIT_E
   br i1 %9011, label %9012, label %9016
 
 9012:                                             ; preds = %9010
-  %9013 = icmp ult i8 %8999, 91
+  %9013 = icmp samesign ult i8 %8999, 91
   br i1 %9013, label %682, label %9014
 
 9014:                                             ; preds = %9012
@@ -28234,7 +28234,7 @@ _ZN5boost4wave8cpplexer7re2clex24count_backslash_newlinesIPcEEiPNS2_7ScannerIT_E
   br i1 %10761, label %10762, label %10769
 
 10762:                                            ; preds = %10760
-  %10763 = icmp ult i8 %.45110, 11
+  %10763 = icmp samesign ult i8 %.45110, 11
   br i1 %10763, label %10764, label %10766
 
 10764:                                            ; preds = %10762
@@ -28242,7 +28242,7 @@ _ZN5boost4wave8cpplexer7re2clex24count_backslash_newlinesIPcEEiPNS2_7ScannerIT_E
   br i1 %10765, label %.loopexit6349, label %10042
 
 10766:                                            ; preds = %10762
-  %10767 = icmp ugt i8 %.45110, 12
+  %10767 = icmp samesign ugt i8 %.45110, 12
   %10768 = icmp ne i8 %.45110, 32
   %or.cond260 = and i1 %10767, %10768
   br i1 %or.cond260, label %10042, label %.loopexit6349
@@ -29626,7 +29626,7 @@ _ZN5boost4wave8cpplexer7re2clex24count_backslash_newlinesIPcEEiPNS2_7ScannerIT_E
   br i1 %11398, label %11399, label %11402
 
 11399:                                            ; preds = %11397
-  %11400 = icmp ult i8 %11396, 9
+  %11400 = icmp samesign ult i8 %11396, 9
   %11401 = add nsw i8 %11396, -14
   %or.cond266 = icmp ult i8 %11401, 18
   %or.cond6043 = select i1 %11400, i1 true, i1 %or.cond266
@@ -30269,7 +30269,7 @@ _ZN5boost4wave8cpplexer7re2clex24count_backslash_newlinesIPcEEiPNS2_7ScannerIT_E
   br i1 %11687, label %11688, label %11693
 
 11688:                                            ; preds = %11686
-  %11689 = icmp ult i8 %11685, 9
+  %11689 = icmp samesign ult i8 %11685, 9
   br i1 %11689, label %11690, label %11691
 
 11690:                                            ; preds = %11688
@@ -30862,7 +30862,7 @@ _ZN5boost4wave8cpplexer7re2clex24count_backslash_newlinesIPcEEiPNS2_7ScannerIT_E
   br i1 %11980, label %11990, label %11981
 
 11981:                                            ; preds = %11979
-  %11982 = icmp ult i8 %11976, 9
+  %11982 = icmp samesign ult i8 %11976, 9
   br i1 %11982, label %12146, label %11983
 
 11983:                                            ; preds = %11981
@@ -31639,7 +31639,7 @@ _ZN5boost4wave4util11flex_stringIcSt11char_traitsIcESaIcENS1_9CowStringINS1_22Al
   br i1 %12347, label %12405, label %12348
 
 12348:                                            ; preds = %12346
-  %12349 = icmp ugt i8 %12338, 64
+  %12349 = icmp samesign ugt i8 %12338, 64
   br i1 %12349, label %.preheader6414.preheader, label %.loopexit6422
 
 12350:                                            ; preds = %12344
@@ -31921,7 +31921,7 @@ _ZN5boost4wave8cpplexer7re2clex24count_backslash_newlinesIPcEEiPNS2_7ScannerIT_E
   br i1 %12468, label %12469, label %12479
 
 12469:                                            ; preds = %12467
-  %12470 = icmp ult i8 %12462, 44
+  %12470 = icmp samesign ult i8 %12462, 44
   br i1 %12470, label %12471, label %12472
 
 12471:                                            ; preds = %12469
@@ -31931,7 +31931,7 @@ _ZN5boost4wave8cpplexer7re2clex24count_backslash_newlinesIPcEEiPNS2_7ScannerIT_E
   ]
 
 12472:                                            ; preds = %12469
-  %12473 = icmp ult i8 %12462, 47
+  %12473 = icmp samesign ult i8 %12462, 47
   br i1 %12473, label %12474, label %12476
 
 12474:                                            ; preds = %12472
@@ -31940,7 +31940,7 @@ _ZN5boost4wave8cpplexer7re2clex24count_backslash_newlinesIPcEEiPNS2_7ScannerIT_E
 
 12476:                                            ; preds = %12472
   %12477 = icmp ne i8 %12462, 47
-  %12478 = icmp ult i8 %12462, 58
+  %12478 = icmp samesign ult i8 %12462, 58
   %or.cond281 = and i1 %12477, %12478
   br i1 %or.cond281, label %.backedge6423.backedge, label %.loopexit6422
 
@@ -31949,7 +31949,7 @@ _ZN5boost4wave8cpplexer7re2clex24count_backslash_newlinesIPcEEiPNS2_7ScannerIT_E
   br i1 %12480, label %12481, label %12488
 
 12481:                                            ; preds = %12479
-  %12482 = icmp ult i8 %12462, 65
+  %12482 = icmp samesign ult i8 %12462, 65
   br i1 %12482, label %12483, label %12485
 
 12483:                                            ; preds = %12481
@@ -31957,7 +31957,7 @@ _ZN5boost4wave8cpplexer7re2clex24count_backslash_newlinesIPcEEiPNS2_7ScannerIT_E
   br i1 %12484, label %12405, label %.loopexit6422
 
 12485:                                            ; preds = %12481
-  %12486 = icmp ult i8 %12462, 91
+  %12486 = icmp samesign ult i8 %12462, 91
   br i1 %12486, label %.backedge6423.backedge, label %12487
 
 12487:                                            ; preds = %12485
@@ -33250,7 +33250,7 @@ _ZN5boost4wave8cpplexer7re2clex24count_backslash_newlinesIPcEEiPNS2_7ScannerIT_E
   br i1 %12949, label %12950, label %12958
 
 12950:                                            ; preds = %12948
-  %12951 = icmp ult i8 %12947, 69
+  %12951 = icmp samesign ult i8 %12947, 69
   br i1 %12951, label %12952, label %12954
 
 12952:                                            ; preds = %12950
@@ -33263,7 +33263,7 @@ _ZN5boost4wave8cpplexer7re2clex24count_backslash_newlinesIPcEEiPNS2_7ScannerIT_E
   br i1 %12955, label %13090, label %12956
 
 12956:                                            ; preds = %12954
-  %12957 = icmp ult i8 %12947, 71
+  %12957 = icmp samesign ult i8 %12947, 71
   br i1 %12957, label %13112, label %.loopexit6433
 
 12958:                                            ; preds = %12948
@@ -33454,7 +33454,7 @@ _ZN5boost4wave8cpplexer7re2clex24count_backslash_newlinesIPcEEiPNS2_7ScannerIT_E
   br i1 %13043, label %.preheader6434, label %13044
 
 13044:                                            ; preds = %13042
-  %13045 = icmp ult i8 %.05085, 48
+  %13045 = icmp samesign ult i8 %.05085, 48
   br i1 %13045, label %.loopexit6443, label %.preheader6444
 
 13046:                                            ; preds = %13040
@@ -33552,7 +33552,7 @@ _ZN5boost4wave8cpplexer7re2clex24count_backslash_newlinesIPcEEiPNS2_7ScannerIT_E
   br i1 %13080, label %.preheader6434, label %13081
 
 13081:                                            ; preds = %13079
-  %13082 = icmp ugt i8 %13076, 47
+  %13082 = icmp samesign ugt i8 %13076, 47
   br i1 %13082, label %.preheader6444, label %.thread6295
 
 13083:                                            ; preds = %13077
@@ -33742,11 +33742,11 @@ _ZN5boost4wave8cpplexer7re2clex24count_backslash_newlinesIPcEEiPNS2_7ScannerIT_E
   br i1 %13159, label %13160, label %13166
 
 13160:                                            ; preds = %13158
-  %13161 = icmp ult i8 %13157, 58
+  %13161 = icmp samesign ult i8 %13157, 58
   br i1 %13161, label %13162, label %13164
 
 13162:                                            ; preds = %13160
-  %13163 = icmp ult i8 %13157, 48
+  %13163 = icmp samesign ult i8 %13157, 48
   br i1 %13163, label %.loopexit6433, label %13131
 
 13164:                                            ; preds = %13160
@@ -33951,7 +33951,7 @@ _ZN5boost4wave8cpplexer7re2clex24count_backslash_newlinesIPcEEiPNS2_7ScannerIT_E
   br i1 %13241, label %13242, label %13248
 
 13242:                                            ; preds = %13240
-  %13243 = icmp ult i8 %13239, 77
+  %13243 = icmp samesign ult i8 %13239, 77
   br i1 %13243, label %13244, label %13246
 
 13244:                                            ; preds = %13242
@@ -34578,11 +34578,11 @@ _ZN5boost4wave4util11flex_stringIcSt11char_traitsIcESaIcENS1_9CowStringINS1_22Al
   br i1 %13509, label %13510, label %13519
 
 13510:                                            ; preds = %13507
-  %13511 = icmp ult i8 %13506, 11
+  %13511 = icmp samesign ult i8 %13506, 11
   br i1 %13511, label %13512, label %13515
 
 13512:                                            ; preds = %13510
-  %13513 = icmp ult i8 %13506, 9
+  %13513 = icmp samesign ult i8 %13506, 9
   br i1 %13513, label %13524, label %13514
 
 13514:                                            ; preds = %13512
@@ -34590,7 +34590,7 @@ _ZN5boost4wave4util11flex_stringIcSt11char_traitsIcESaIcENS1_9CowStringINS1_22Al
   br i1 %.not5805, label %13592, label %13530
 
 13515:                                            ; preds = %13510
-  %13516 = icmp ult i8 %13506, 13
+  %13516 = icmp samesign ult i8 %13506, 13
   br i1 %13516, label %13530, label %13517
 
 13517:                                            ; preds = %13515
@@ -34759,11 +34759,11 @@ _ZN5boost4wave8cpplexer7re2clex24count_backslash_newlinesIPcEEiPNS2_7ScannerIT_E
   br i1 %13604, label %13605, label %13619
 
 13605:                                            ; preds = %13603
-  %13606 = icmp ult i8 %13602, 63
+  %13606 = icmp samesign ult i8 %13602, 63
   br i1 %13606, label %13607, label %13615
 
 13607:                                            ; preds = %13605
-  %13608 = icmp ult i8 %13602, 39
+  %13608 = icmp samesign ult i8 %13602, 39
   br i1 %13608, label %13609, label %13611
 
 13609:                                            ; preds = %13607
@@ -34780,7 +34780,7 @@ _ZN5boost4wave8cpplexer7re2clex24count_backslash_newlinesIPcEEiPNS2_7ScannerIT_E
   br i1 %or.cond371, label %13698, label %13536
 
 13615:                                            ; preds = %13605
-  %13616 = icmp ult i8 %13602, 70
+  %13616 = icmp samesign ult i8 %13602, 70
   br i1 %13616, label %13617, label %13618
 
 13617:                                            ; preds = %13615
@@ -34800,7 +34800,7 @@ _ZN5boost4wave8cpplexer7re2clex24count_backslash_newlinesIPcEEiPNS2_7ScannerIT_E
   br i1 %13620, label %13621, label %13628
 
 13621:                                            ; preds = %13619
-  %13622 = icmp ult i8 %13602, 101
+  %13622 = icmp samesign ult i8 %13602, 101
   br i1 %13622, label %13623, label %13625
 
 13623:                                            ; preds = %13621
@@ -34809,7 +34809,7 @@ _ZN5boost4wave8cpplexer7re2clex24count_backslash_newlinesIPcEEiPNS2_7ScannerIT_E
   br i1 %or.cond374, label %13692, label %13536
 
 13625:                                            ; preds = %13621
-  %13626 = icmp ult i8 %13602, 103
+  %13626 = icmp samesign ult i8 %13602, 103
   %13627 = icmp eq i8 %13602, 110
   %or.cond377 = or i1 %13626, %13627
   br i1 %or.cond377, label %13692, label %13536
@@ -35057,11 +35057,11 @@ _ZN5boost4wave8cpplexer7re2clex24count_backslash_newlinesIPcEEiPNS2_7ScannerIT_E
   br i1 %13745, label %13746, label %13760
 
 13746:                                            ; preds = %13744
-  %13747 = icmp ult i8 %13743, 63
+  %13747 = icmp samesign ult i8 %13743, 63
   br i1 %13747, label %13748, label %13756
 
 13748:                                            ; preds = %13746
-  %13749 = icmp ult i8 %13743, 39
+  %13749 = icmp samesign ult i8 %13743, 39
   br i1 %13749, label %13750, label %13752
 
 13750:                                            ; preds = %13748
@@ -35078,7 +35078,7 @@ _ZN5boost4wave8cpplexer7re2clex24count_backslash_newlinesIPcEEiPNS2_7ScannerIT_E
   br i1 %or.cond395, label %13698, label %13691
 
 13756:                                            ; preds = %13746
-  %13757 = icmp ult i8 %13743, 70
+  %13757 = icmp samesign ult i8 %13743, 70
   br i1 %13757, label %13758, label %13759
 
 13758:                                            ; preds = %13756
@@ -35098,7 +35098,7 @@ _ZN5boost4wave8cpplexer7re2clex24count_backslash_newlinesIPcEEiPNS2_7ScannerIT_E
   br i1 %13761, label %13762, label %13769
 
 13762:                                            ; preds = %13760
-  %13763 = icmp ult i8 %13743, 101
+  %13763 = icmp samesign ult i8 %13743, 101
   br i1 %13763, label %13764, label %13766
 
 13764:                                            ; preds = %13762
@@ -35107,7 +35107,7 @@ _ZN5boost4wave8cpplexer7re2clex24count_backslash_newlinesIPcEEiPNS2_7ScannerIT_E
   br i1 %or.cond398, label %13692, label %13691
 
 13766:                                            ; preds = %13762
-  %13767 = icmp ult i8 %13743, 103
+  %13767 = icmp samesign ult i8 %13743, 103
   %13768 = icmp eq i8 %13743, 110
   %or.cond401 = or i1 %13767, %13768
   br i1 %or.cond401, label %13692, label %13691
@@ -35493,11 +35493,11 @@ _ZN5boost4wave4util11flex_stringIcSt11char_traitsIcESaIcENS1_9CowStringINS1_22Al
   br i1 %13914, label %13915, label %13924
 
 13915:                                            ; preds = %13912
-  %13916 = icmp ult i8 %13911, 11
+  %13916 = icmp samesign ult i8 %13911, 11
   br i1 %13916, label %13917, label %13920
 
 13917:                                            ; preds = %13915
-  %13918 = icmp ult i8 %13911, 9
+  %13918 = icmp samesign ult i8 %13911, 9
   br i1 %13918, label %13929, label %13919
 
 13919:                                            ; preds = %13917
@@ -35505,7 +35505,7 @@ _ZN5boost4wave4util11flex_stringIcSt11char_traitsIcESaIcENS1_9CowStringINS1_22Al
   br i1 %.not5772, label %14001, label %13935
 
 13920:                                            ; preds = %13915
-  %13921 = icmp ult i8 %13911, 13
+  %13921 = icmp samesign ult i8 %13911, 13
   br i1 %13921, label %13935, label %13922
 
 13922:                                            ; preds = %13920
@@ -35786,11 +35786,11 @@ _ZN5boost4wave8cpplexer7re2clex24count_backslash_newlinesIPcEEiPNS2_7ScannerIT_E
   br i1 %14072, label %14073, label %14084
 
 14073:                                            ; preds = %14071
-  %14074 = icmp ult i8 %14070, 63
+  %14074 = icmp samesign ult i8 %14070, 63
   br i1 %14074, label %14075, label %14080
 
 14075:                                            ; preds = %14073
-  %14076 = icmp ult i8 %14070, 39
+  %14076 = icmp samesign ult i8 %14070, 39
   br i1 %14076, label %14077, label %14078
 
 14077:                                            ; preds = %14075
@@ -35803,7 +35803,7 @@ _ZN5boost4wave8cpplexer7re2clex24count_backslash_newlinesIPcEEiPNS2_7ScannerIT_E
   br i1 %14079, label %switch.hole_check, label %13945
 
 14080:                                            ; preds = %14073
-  %14081 = icmp ult i8 %14070, 70
+  %14081 = icmp samesign ult i8 %14070, 70
   br i1 %14081, label %14082, label %14083
 
 14082:                                            ; preds = %14080
@@ -35823,7 +35823,7 @@ _ZN5boost4wave8cpplexer7re2clex24count_backslash_newlinesIPcEEiPNS2_7ScannerIT_E
   br i1 %14085, label %14086, label %14093
 
 14086:                                            ; preds = %14084
-  %14087 = icmp ult i8 %14070, 101
+  %14087 = icmp samesign ult i8 %14070, 101
   br i1 %14087, label %14088, label %14090
 
 14088:                                            ; preds = %14086
@@ -35832,7 +35832,7 @@ _ZN5boost4wave8cpplexer7re2clex24count_backslash_newlinesIPcEEiPNS2_7ScannerIT_E
   br i1 %or.cond455, label %13945, label %.loopexit6534
 
 14090:                                            ; preds = %14086
-  %14091 = icmp ugt i8 %14070, 102
+  %14091 = icmp samesign ugt i8 %14070, 102
   %14092 = icmp ne i8 %14070, 110
   %or.cond458 = and i1 %14091, %14092
   br i1 %or.cond458, label %13945, label %.loopexit6534
@@ -36157,11 +36157,11 @@ switch.hole_check:                                ; preds = %14078
   br i1 %14207, label %14208, label %14221
 
 14208:                                            ; preds = %14206
-  %14209 = icmp ult i8 %14205, 63
+  %14209 = icmp samesign ult i8 %14205, 63
   br i1 %14209, label %14210, label %14217
 
 14210:                                            ; preds = %14208
-  %14211 = icmp ult i8 %14205, 39
+  %14211 = icmp samesign ult i8 %14205, 39
   br i1 %14211, label %14212, label %14214
 
 14212:                                            ; preds = %14210
@@ -36176,7 +36176,7 @@ switch.hole_check:                                ; preds = %14078
   br i1 %or.cond6076, label %.loopexit6534, label %.loopexit6535
 
 14217:                                            ; preds = %14208
-  %14218 = icmp ult i8 %14205, 70
+  %14218 = icmp samesign ult i8 %14205, 70
   br i1 %14218, label %14219, label %14220
 
 14219:                                            ; preds = %14217
@@ -36196,7 +36196,7 @@ switch.hole_check:                                ; preds = %14078
   br i1 %14222, label %14223, label %14230
 
 14223:                                            ; preds = %14221
-  %14224 = icmp ult i8 %14205, 101
+  %14224 = icmp samesign ult i8 %14205, 101
   br i1 %14224, label %14225, label %14227
 
 14225:                                            ; preds = %14223
@@ -36205,7 +36205,7 @@ switch.hole_check:                                ; preds = %14078
   br i1 %or.cond467, label %.loopexit6534, label %.loopexit6535
 
 14227:                                            ; preds = %14223
-  %14228 = icmp ult i8 %14205, 103
+  %14228 = icmp samesign ult i8 %14205, 103
   %14229 = icmp eq i8 %14205, 110
   %or.cond470 = or i1 %14228, %14229
   br i1 %or.cond470, label %.loopexit6534, label %.loopexit6535
@@ -36313,7 +36313,7 @@ switch.hole_check:                                ; preds = %14078
   br i1 %14264, label %14265, label %14271
 
 14265:                                            ; preds = %14263
-  %14266 = icmp ult i8 %14261, 11
+  %14266 = icmp samesign ult i8 %14261, 11
   br i1 %14266, label %14267, label %14269
 
 14267:                                            ; preds = %14265
@@ -37389,7 +37389,7 @@ switch.hole_check:                                ; preds = %14078
   br i1 %14669, label %14670, label %14673
 
 14670:                                            ; preds = %14667
-  %14671 = icmp ult i8 %14666, 32
+  %14671 = icmp samesign ult i8 %14666, 32
   br i1 %14671, label %14674, label %14672
 
 14672:                                            ; preds = %14670
@@ -37697,11 +37697,11 @@ _ZN5boost4wave4util11flex_stringIcSt11char_traitsIcESaIcENS1_9CowStringINS1_22Al
   br i1 %14782, label %14783, label %14792
 
 14783:                                            ; preds = %14780
-  %14784 = icmp ult i8 %14779, 11
+  %14784 = icmp samesign ult i8 %14779, 11
   br i1 %14784, label %14785, label %14788
 
 14785:                                            ; preds = %14783
-  %14786 = icmp ult i8 %14779, 9
+  %14786 = icmp samesign ult i8 %14779, 9
   br i1 %14786, label %14797, label %14787
 
 14787:                                            ; preds = %14785
@@ -37709,7 +37709,7 @@ _ZN5boost4wave4util11flex_stringIcSt11char_traitsIcESaIcENS1_9CowStringINS1_22Al
   br i1 %.not5766, label %14804, label %14802
 
 14788:                                            ; preds = %14783
-  %14789 = icmp ult i8 %14779, 13
+  %14789 = icmp samesign ult i8 %14779, 13
   br i1 %14789, label %14802, label %14790
 
 14790:                                            ; preds = %14788
@@ -38047,11 +38047,11 @@ _ZN5boost4wave8cpplexer7re2clex24count_backslash_newlinesIPcEEiPNS2_7ScannerIT_E
   br i1 %14960, label %14961, label %14975
 
 14961:                                            ; preds = %14959
-  %14962 = icmp ult i8 %14958, 63
+  %14962 = icmp samesign ult i8 %14958, 63
   br i1 %14962, label %14963, label %14971
 
 14963:                                            ; preds = %14961
-  %14964 = icmp ult i8 %14958, 39
+  %14964 = icmp samesign ult i8 %14958, 39
   br i1 %14964, label %14965, label %14967
 
 14965:                                            ; preds = %14963
@@ -38068,7 +38068,7 @@ _ZN5boost4wave8cpplexer7re2clex24count_backslash_newlinesIPcEEiPNS2_7ScannerIT_E
   br i1 %or.cond527, label %14995, label %.loopexit6511.backedge
 
 14971:                                            ; preds = %14961
-  %14972 = icmp ult i8 %14958, 70
+  %14972 = icmp samesign ult i8 %14958, 70
   br i1 %14972, label %14973, label %14974
 
 14973:                                            ; preds = %14971
@@ -38088,7 +38088,7 @@ _ZN5boost4wave8cpplexer7re2clex24count_backslash_newlinesIPcEEiPNS2_7ScannerIT_E
   br i1 %14976, label %14977, label %14984
 
 14977:                                            ; preds = %14975
-  %14978 = icmp ult i8 %14958, 101
+  %14978 = icmp samesign ult i8 %14958, 101
   br i1 %14978, label %14979, label %14981
 
 14979:                                            ; preds = %14977
@@ -38097,7 +38097,7 @@ _ZN5boost4wave8cpplexer7re2clex24count_backslash_newlinesIPcEEiPNS2_7ScannerIT_E
   br i1 %or.cond530, label %14802, label %.loopexit6511.backedge
 
 14981:                                            ; preds = %14977
-  %14982 = icmp ult i8 %14958, 103
+  %14982 = icmp samesign ult i8 %14958, 103
   %14983 = icmp eq i8 %14958, 110
   %or.cond533 = or i1 %14982, %14983
   br i1 %or.cond533, label %14802, label %.loopexit6511.backedge
@@ -38239,11 +38239,11 @@ _ZN5boost4wave8cpplexer7re2clex24count_backslash_newlinesIPcEEiPNS2_7ScannerIT_E
   br i1 %15042, label %15043, label %15057
 
 15043:                                            ; preds = %15041
-  %15044 = icmp ult i8 %15040, 63
+  %15044 = icmp samesign ult i8 %15040, 63
   br i1 %15044, label %15045, label %15053
 
 15045:                                            ; preds = %15043
-  %15046 = icmp ult i8 %15040, 39
+  %15046 = icmp samesign ult i8 %15040, 39
   br i1 %15046, label %15047, label %15049
 
 15047:                                            ; preds = %15045
@@ -38260,7 +38260,7 @@ _ZN5boost4wave8cpplexer7re2clex24count_backslash_newlinesIPcEEiPNS2_7ScannerIT_E
   br i1 %or.cond551, label %14995, label %14994
 
 15053:                                            ; preds = %15043
-  %15054 = icmp ult i8 %15040, 70
+  %15054 = icmp samesign ult i8 %15040, 70
   br i1 %15054, label %15055, label %15056
 
 15055:                                            ; preds = %15053
@@ -38280,7 +38280,7 @@ _ZN5boost4wave8cpplexer7re2clex24count_backslash_newlinesIPcEEiPNS2_7ScannerIT_E
   br i1 %15058, label %15059, label %15066
 
 15059:                                            ; preds = %15057
-  %15060 = icmp ult i8 %15040, 101
+  %15060 = icmp samesign ult i8 %15040, 101
   br i1 %15060, label %15061, label %15063
 
 15061:                                            ; preds = %15059
@@ -38289,7 +38289,7 @@ _ZN5boost4wave8cpplexer7re2clex24count_backslash_newlinesIPcEEiPNS2_7ScannerIT_E
   br i1 %or.cond554, label %14802, label %14994
 
 15063:                                            ; preds = %15059
-  %15064 = icmp ult i8 %15040, 103
+  %15064 = icmp samesign ult i8 %15040, 103
   %15065 = icmp eq i8 %15040, 110
   %or.cond557 = or i1 %15064, %15065
   br i1 %or.cond557, label %14802, label %14994
@@ -43047,7 +43047,7 @@ _ZN5boost4wave4util9CowStringINS1_22AllocatorStringStorageIcSaIcEEEPcE6appendIS6
   %158 = getelementptr inbounds i8, ptr %.sroa.0.08.i.i.i.i.i, i64 -1
   store i8 %157, ptr %158, align 1, !tbaa !11
   %159 = add nsw i64 %.09.i.i.i.i.i, -1
-  %160 = icmp ugt i64 %.09.i.i.i.i.i, 1
+  %160 = icmp samesign ugt i64 %.09.i.i.i.i.i, 1
   br i1 %160, label %.lr.ph.i.i.i.i.i, label %_ZSt4copyIPcS0_ET0_T_S2_S1_.exit, !llvm.loop !179
 
 _ZSt4copyIPcS0_ET0_T_S2_S1_.exit:                 ; preds = %.lr.ph.i.i.i.i.i, %_ZN5boost4wave4util9CowStringINS1_22AllocatorStringStorageIcSaIcEEEPcE6appendIS6_EEvT_S9_.exit
@@ -43484,7 +43484,7 @@ _ZN5boost4wave4util9CowStringINS1_22AllocatorStringStorageIcSaIcEEEPcE6appendIS6
   %159 = getelementptr inbounds i8, ptr %.sroa.0.08.i.i.i.i.i, i64 -1
   store i8 %158, ptr %159, align 1, !tbaa !11
   %160 = add nsw i64 %.09.i.i.i.i.i, -1
-  %161 = icmp ugt i64 %.09.i.i.i.i.i, 1
+  %161 = icmp samesign ugt i64 %.09.i.i.i.i.i, 1
   br i1 %161, label %.lr.ph.i.i.i.i.i, label %_ZSt4copyIPKcPcET0_T_S4_S3_.exit, !llvm.loop !179
 
 _ZSt4copyIPKcPcET0_T_S4_S3_.exit:                 ; preds = %.lr.ph.i.i.i.i.i, %_ZN5boost4wave4util9CowStringINS1_22AllocatorStringStorageIcSaIcEEEPcE6appendIS6_EEvT_S9_.exit
@@ -48868,11 +48868,11 @@ _ZN5boost4wave8cpplexer7re2clex24count_backslash_newlinesIPKcEEiPNS2_7ScannerIT_
   br i1 %632, label %633, label %647
 
 633:                                              ; preds = %631
-  %634 = icmp ult i8 %630, 33
+  %634 = icmp samesign ult i8 %630, 33
   br i1 %634, label %635, label %642
 
 635:                                              ; preds = %633
-  %636 = icmp ult i8 %630, 11
+  %636 = icmp samesign ult i8 %630, 11
   br i1 %636, label %637, label %639
 
 637:                                              ; preds = %635
@@ -48880,13 +48880,13 @@ _ZN5boost4wave8cpplexer7re2clex24count_backslash_newlinesIPKcEEiPNS2_7ScannerIT_
   br i1 %638, label %.preheader6368, label %662
 
 639:                                              ; preds = %635
-  %640 = icmp ult i8 %630, 13
+  %640 = icmp samesign ult i8 %630, 13
   %641 = icmp eq i8 %630, 32
   %or.cond8 = or i1 %640, %641
   br i1 %or.cond8, label %.preheader6368, label %662
 
 642:                                              ; preds = %633
-  %643 = icmp ult i8 %630, 47
+  %643 = icmp samesign ult i8 %630, 47
   br i1 %643, label %644, label %646
 
 644:                                              ; preds = %642
@@ -48904,11 +48904,11 @@ _ZN5boost4wave8cpplexer7re2clex24count_backslash_newlinesIPKcEEiPNS2_7ScannerIT_
   br i1 %648, label %649, label %655
 
 649:                                              ; preds = %647
-  %650 = icmp ult i8 %630, 106
+  %650 = icmp samesign ult i8 %630, 106
   br i1 %650, label %651, label %654
 
 651:                                              ; preds = %649
-  %652 = icmp ult i8 %630, 102
+  %652 = icmp samesign ult i8 %630, 102
   %653 = icmp eq i8 %630, 105
   %or.cond11 = or i1 %652, %653
   br i1 %or.cond11, label %.preheader6368, label %662
@@ -49233,7 +49233,7 @@ _ZN5boost4wave8cpplexer7re2clex24count_backslash_newlinesIPKcEEiPNS2_7ScannerIT_
 
 800:                                              ; preds = %798
   %801 = icmp ne i8 %797, 9
-  %802 = icmp ult i8 %797, 11
+  %802 = icmp samesign ult i8 %797, 11
   %or.cond20 = and i1 %801, %802
   br i1 %or.cond20, label %602, label %.preheader6402
 
@@ -50479,7 +50479,7 @@ _ZN5boost4wave8cpplexer7re2clex24count_backslash_newlinesIPKcEEiPNS2_7ScannerIT_
   br i1 %1385, label %1386, label %1392
 
 1386:                                             ; preds = %1384
-  %1387 = icmp ult i8 %1383, 104
+  %1387 = icmp samesign ult i8 %1383, 104
   br i1 %1387, label %711, label %1388
 
 1388:                                             ; preds = %1386
@@ -50487,7 +50487,7 @@ _ZN5boost4wave8cpplexer7re2clex24count_backslash_newlinesIPKcEEiPNS2_7ScannerIT_
   br i1 %1389, label %3453, label %1390
 
 1390:                                             ; preds = %1388
-  %1391 = icmp ult i8 %1383, 106
+  %1391 = icmp samesign ult i8 %1383, 106
   br i1 %1391, label %3459, label %711
 
 1392:                                             ; preds = %1384
@@ -50527,7 +50527,7 @@ _ZN5boost4wave8cpplexer7re2clex24count_backslash_newlinesIPKcEEiPNS2_7ScannerIT_
   br i1 %1403, label %1404, label %1409
 
 1404:                                             ; preds = %1402
-  %1405 = icmp ult i8 %1401, 39
+  %1405 = icmp samesign ult i8 %1401, 39
   br i1 %1405, label %1406, label %1408
 
 1406:                                             ; preds = %1404
@@ -50948,11 +50948,11 @@ _ZN5boost4wave8cpplexer7re2clex24count_backslash_newlinesIPKcEEiPNS2_7ScannerIT_
   br i1 %1587, label %1588, label %1699
 
 1588:                                             ; preds = %.loopexit6321
-  %1589 = icmp ult i32 %.95101, 31
+  %1589 = icmp samesign ult i32 %.95101, 31
   br i1 %1589, label %1590, label %1647
 
 1590:                                             ; preds = %1588
-  %1591 = icmp ult i32 %.95101, 16
+  %1591 = icmp samesign ult i32 %.95101, 16
   br i1 %1591, label %1592, label %1622
 
 1592:                                             ; preds = %.thread6253, %1590
@@ -50961,11 +50961,11 @@ _ZN5boost4wave8cpplexer7re2clex24count_backslash_newlinesIPKcEEiPNS2_7ScannerIT_
   br i1 %1593, label %1594, label %1608
 
 1594:                                             ; preds = %1592
-  %1595 = icmp ult i32 %.95101624562526255, 4
+  %1595 = icmp samesign ult i32 %.95101624562526255, 4
   br i1 %1595, label %1596, label %1602
 
 1596:                                             ; preds = %1594
-  %1597 = icmp ult i32 %.95101624562526255, 2
+  %1597 = icmp samesign ult i32 %.95101624562526255, 2
   br i1 %1597, label %1598, label %1600
 
 1598:                                             ; preds = %1596
@@ -50977,7 +50977,7 @@ _ZN5boost4wave8cpplexer7re2clex24count_backslash_newlinesIPKcEEiPNS2_7ScannerIT_
   br i1 %1601, label %717, label %968
 
 1602:                                             ; preds = %1594
-  %1603 = icmp ult i32 %.95101624562526255, 6
+  %1603 = icmp samesign ult i32 %.95101624562526255, 6
   br i1 %1603, label %1604, label %1606
 
 1604:                                             ; preds = %1602
@@ -50993,7 +50993,7 @@ _ZN5boost4wave8cpplexer7re2clex24count_backslash_newlinesIPKcEEiPNS2_7ScannerIT_
   br i1 %1609, label %1610, label %1616
 
 1610:                                             ; preds = %1608
-  %1611 = icmp ult i32 %.95101624562526255, 10
+  %1611 = icmp samesign ult i32 %.95101624562526255, 10
   br i1 %1611, label %1612, label %1614
 
 1612:                                             ; preds = %1610
@@ -51017,15 +51017,15 @@ _ZN5boost4wave8cpplexer7re2clex24count_backslash_newlinesIPKcEEiPNS2_7ScannerIT_
   br i1 %1621, label %4683, label %4718
 
 1622:                                             ; preds = %1590
-  %1623 = icmp ult i32 %.95101, 24
+  %1623 = icmp samesign ult i32 %.95101, 24
   br i1 %1623, label %1624, label %1638
 
 1624:                                             ; preds = %1622
-  %1625 = icmp ult i32 %.95101, 20
+  %1625 = icmp samesign ult i32 %.95101, 20
   br i1 %1625, label %1626, label %1632
 
 1626:                                             ; preds = %1624
-  %1627 = icmp ult i32 %.95101, 18
+  %1627 = icmp samesign ult i32 %.95101, 18
   br i1 %1627, label %1628, label %1630
 
 1628:                                             ; preds = %1626
@@ -51037,7 +51037,7 @@ _ZN5boost4wave8cpplexer7re2clex24count_backslash_newlinesIPKcEEiPNS2_7ScannerIT_
   br i1 %1631, label %4989, label %5039
 
 1632:                                             ; preds = %1624
-  %1633 = icmp ult i32 %.95101, 22
+  %1633 = icmp samesign ult i32 %.95101, 22
   br i1 %1633, label %1634, label %1636
 
 1634:                                             ; preds = %1632
@@ -51049,11 +51049,11 @@ _ZN5boost4wave8cpplexer7re2clex24count_backslash_newlinesIPKcEEiPNS2_7ScannerIT_
   br i1 %1637, label %5910, label %5993
 
 1638:                                             ; preds = %1622
-  %1639 = icmp ult i32 %.95101, 28
+  %1639 = icmp samesign ult i32 %.95101, 28
   br i1 %1639, label %1640, label %1646
 
 1640:                                             ; preds = %1638
-  %1641 = icmp ult i32 %.95101, 26
+  %1641 = icmp samesign ult i32 %.95101, 26
   br i1 %1641, label %1642, label %1644
 
 1642:                                             ; preds = %1640
@@ -51071,19 +51071,19 @@ _ZN5boost4wave8cpplexer7re2clex24count_backslash_newlinesIPKcEEiPNS2_7ScannerIT_
   ]
 
 1647:                                             ; preds = %1588
-  %1648 = icmp ult i32 %.95101, 46
+  %1648 = icmp samesign ult i32 %.95101, 46
   br i1 %1648, label %1649, label %1674
 
 1649:                                             ; preds = %1647
-  %1650 = icmp ult i32 %.95101, 39
+  %1650 = icmp samesign ult i32 %.95101, 39
   br i1 %1650, label %1651, label %1665
 
 1651:                                             ; preds = %1649
-  %1652 = icmp ult i32 %.95101, 35
+  %1652 = icmp samesign ult i32 %.95101, 35
   br i1 %1652, label %1653, label %1659
 
 1653:                                             ; preds = %1651
-  %1654 = icmp ult i32 %.95101, 33
+  %1654 = icmp samesign ult i32 %.95101, 33
   br i1 %1654, label %1655, label %1657
 
 1655:                                             ; preds = %1653
@@ -51095,7 +51095,7 @@ _ZN5boost4wave8cpplexer7re2clex24count_backslash_newlinesIPKcEEiPNS2_7ScannerIT_
   br i1 %1658, label %6638, label %.loopexit6334
 
 1659:                                             ; preds = %1651
-  %1660 = icmp ult i32 %.95101, 37
+  %1660 = icmp samesign ult i32 %.95101, 37
   br i1 %1660, label %1661, label %1663
 
 1661:                                             ; preds = %1659
@@ -51107,11 +51107,11 @@ _ZN5boost4wave8cpplexer7re2clex24count_backslash_newlinesIPKcEEiPNS2_7ScannerIT_
   br i1 %1664, label %7258, label %7293
 
 1665:                                             ; preds = %1649
-  %1666 = icmp ult i32 %.95101, 43
+  %1666 = icmp samesign ult i32 %.95101, 43
   br i1 %1666, label %1667, label %1673
 
 1667:                                             ; preds = %1665
-  %1668 = icmp ult i32 %.95101, 41
+  %1668 = icmp samesign ult i32 %.95101, 41
   br i1 %1668, label %1669, label %1671
 
 1669:                                             ; preds = %1667
@@ -51129,15 +51129,15 @@ _ZN5boost4wave8cpplexer7re2clex24count_backslash_newlinesIPKcEEiPNS2_7ScannerIT_
   ]
 
 1674:                                             ; preds = %1647
-  %1675 = icmp ult i32 %.95101, 54
+  %1675 = icmp samesign ult i32 %.95101, 54
   br i1 %1675, label %1676, label %1690
 
 1676:                                             ; preds = %1674
-  %1677 = icmp ult i32 %.95101, 50
+  %1677 = icmp samesign ult i32 %.95101, 50
   br i1 %1677, label %1678, label %1684
 
 1678:                                             ; preds = %1676
-  %1679 = icmp ult i32 %.95101, 48
+  %1679 = icmp samesign ult i32 %.95101, 48
   br i1 %1679, label %1680, label %1682
 
 1680:                                             ; preds = %1678
@@ -51149,7 +51149,7 @@ _ZN5boost4wave8cpplexer7re2clex24count_backslash_newlinesIPKcEEiPNS2_7ScannerIT_
   br i1 %1683, label %7879, label %7915
 
 1684:                                             ; preds = %1676
-  %1685 = icmp ult i32 %.95101, 52
+  %1685 = icmp samesign ult i32 %.95101, 52
   br i1 %1685, label %1686, label %1688
 
 1686:                                             ; preds = %1684
@@ -51161,11 +51161,11 @@ _ZN5boost4wave8cpplexer7re2clex24count_backslash_newlinesIPKcEEiPNS2_7ScannerIT_
   br i1 %1689, label %8311, label %8346
 
 1690:                                             ; preds = %1674
-  %1691 = icmp ult i32 %.95101, 58
+  %1691 = icmp samesign ult i32 %.95101, 58
   br i1 %1691, label %1692, label %1698
 
 1692:                                             ; preds = %1690
-  %1693 = icmp ult i32 %.95101, 56
+  %1693 = icmp samesign ult i32 %.95101, 56
   br i1 %1693, label %1694, label %1696
 
 1694:                                             ; preds = %1692
@@ -51187,19 +51187,19 @@ _ZN5boost4wave8cpplexer7re2clex24count_backslash_newlinesIPKcEEiPNS2_7ScannerIT_
   br i1 %1700, label %1701, label %1758
 
 1701:                                             ; preds = %1699
-  %1702 = icmp ult i32 %.95101, 77
+  %1702 = icmp samesign ult i32 %.95101, 77
   br i1 %1702, label %1703, label %1733
 
 1703:                                             ; preds = %1701
-  %1704 = icmp ult i32 %.95101, 69
+  %1704 = icmp samesign ult i32 %.95101, 69
   br i1 %1704, label %1705, label %1719
 
 1705:                                             ; preds = %1703
-  %1706 = icmp ult i32 %.95101, 65
+  %1706 = icmp samesign ult i32 %.95101, 65
   br i1 %1706, label %1707, label %1713
 
 1707:                                             ; preds = %1705
-  %1708 = icmp ult i32 %.95101, 63
+  %1708 = icmp samesign ult i32 %.95101, 63
   br i1 %1708, label %1709, label %1711
 
 1709:                                             ; preds = %1707
@@ -51211,7 +51211,7 @@ _ZN5boost4wave8cpplexer7re2clex24count_backslash_newlinesIPKcEEiPNS2_7ScannerIT_
   br i1 %1712, label %8809, label %8868
 
 1713:                                             ; preds = %1705
-  %1714 = icmp ult i32 %.95101, 67
+  %1714 = icmp samesign ult i32 %.95101, 67
   br i1 %1714, label %1715, label %1717
 
 1715:                                             ; preds = %1713
@@ -51223,11 +51223,11 @@ _ZN5boost4wave8cpplexer7re2clex24count_backslash_newlinesIPKcEEiPNS2_7ScannerIT_
   br i1 %1718, label %8976, label %9020
 
 1719:                                             ; preds = %1703
-  %1720 = icmp ult i32 %.95101, 73
+  %1720 = icmp samesign ult i32 %.95101, 73
   br i1 %1720, label %1721, label %1727
 
 1721:                                             ; preds = %1719
-  %1722 = icmp ult i32 %.95101, 71
+  %1722 = icmp samesign ult i32 %.95101, 71
   br i1 %1722, label %1723, label %1725
 
 1723:                                             ; preds = %1721
@@ -51239,7 +51239,7 @@ _ZN5boost4wave8cpplexer7re2clex24count_backslash_newlinesIPKcEEiPNS2_7ScannerIT_
   br i1 %1726, label %9128, label %9188
 
 1727:                                             ; preds = %1719
-  %1728 = icmp ult i32 %.95101, 75
+  %1728 = icmp samesign ult i32 %.95101, 75
   br i1 %1728, label %1729, label %1731
 
 1729:                                             ; preds = %1727
@@ -51251,15 +51251,15 @@ _ZN5boost4wave8cpplexer7re2clex24count_backslash_newlinesIPKcEEiPNS2_7ScannerIT_
   br i1 %1732, label %9407, label %9442
 
 1733:                                             ; preds = %1701
-  %1734 = icmp ult i32 %.95101, 85
+  %1734 = icmp samesign ult i32 %.95101, 85
   br i1 %1734, label %1735, label %1749
 
 1735:                                             ; preds = %1733
-  %1736 = icmp ult i32 %.95101, 81
+  %1736 = icmp samesign ult i32 %.95101, 81
   br i1 %1736, label %1737, label %1743
 
 1737:                                             ; preds = %1735
-  %1738 = icmp ult i32 %.95101, 79
+  %1738 = icmp samesign ult i32 %.95101, 79
   br i1 %1738, label %1739, label %1741
 
 1739:                                             ; preds = %1737
@@ -51271,7 +51271,7 @@ _ZN5boost4wave8cpplexer7re2clex24count_backslash_newlinesIPKcEEiPNS2_7ScannerIT_
   br i1 %1742, label %9565, label %9612
 
 1743:                                             ; preds = %1735
-  %1744 = icmp ult i32 %.95101, 83
+  %1744 = icmp samesign ult i32 %.95101, 83
   br i1 %1744, label %1745, label %1747
 
 1745:                                             ; preds = %1743
@@ -51283,11 +51283,11 @@ _ZN5boost4wave8cpplexer7re2clex24count_backslash_newlinesIPKcEEiPNS2_7ScannerIT_
   br i1 %1748, label %9778, label %9820
 
 1749:                                             ; preds = %1733
-  %1750 = icmp ult i32 %.95101, 89
+  %1750 = icmp samesign ult i32 %.95101, 89
   br i1 %1750, label %1751, label %1757
 
 1751:                                             ; preds = %1749
-  %1752 = icmp ult i32 %.95101, 87
+  %1752 = icmp samesign ult i32 %.95101, 87
   br i1 %1752, label %1753, label %1755
 
 1753:                                             ; preds = %1751
@@ -51309,15 +51309,15 @@ _ZN5boost4wave8cpplexer7re2clex24count_backslash_newlinesIPKcEEiPNS2_7ScannerIT_
   br i1 %1759, label %1760, label %1785
 
 1760:                                             ; preds = %1758
-  %1761 = icmp ult i32 %.95101, 100
+  %1761 = icmp samesign ult i32 %.95101, 100
   br i1 %1761, label %1762, label %1776
 
 1762:                                             ; preds = %1760
-  %1763 = icmp ult i32 %.95101, 96
+  %1763 = icmp samesign ult i32 %.95101, 96
   br i1 %1763, label %1764, label %1770
 
 1764:                                             ; preds = %1762
-  %1765 = icmp ult i32 %.95101, 94
+  %1765 = icmp samesign ult i32 %.95101, 94
   br i1 %1765, label %1766, label %1768
 
 1766:                                             ; preds = %1764
@@ -51329,7 +51329,7 @@ _ZN5boost4wave8cpplexer7re2clex24count_backslash_newlinesIPKcEEiPNS2_7ScannerIT_
   br i1 %1769, label %10251, label %10292
 
 1770:                                             ; preds = %1762
-  %1771 = icmp ult i32 %.95101, 98
+  %1771 = icmp samesign ult i32 %.95101, 98
   br i1 %1771, label %1772, label %1774
 
 1772:                                             ; preds = %1770
@@ -51341,11 +51341,11 @@ _ZN5boost4wave8cpplexer7re2clex24count_backslash_newlinesIPKcEEiPNS2_7ScannerIT_
   br i1 %1775, label %10422, label %10458
 
 1776:                                             ; preds = %1760
-  %1777 = icmp ult i32 %.95101, 104
+  %1777 = icmp samesign ult i32 %.95101, 104
   br i1 %1777, label %1778, label %1784
 
 1778:                                             ; preds = %1776
-  %1779 = icmp ult i32 %.95101, 102
+  %1779 = icmp samesign ult i32 %.95101, 102
   br i1 %1779, label %1780, label %1782
 
 1780:                                             ; preds = %1778
@@ -51367,11 +51367,11 @@ _ZN5boost4wave8cpplexer7re2clex24count_backslash_newlinesIPKcEEiPNS2_7ScannerIT_
   br i1 %1786, label %1787, label %1801
 
 1787:                                             ; preds = %1785
-  %1788 = icmp ult i32 %.95101, 111
+  %1788 = icmp samesign ult i32 %.95101, 111
   br i1 %1788, label %1789, label %1795
 
 1789:                                             ; preds = %1787
-  %1790 = icmp ult i32 %.95101, 109
+  %1790 = icmp samesign ult i32 %.95101, 109
   br i1 %1790, label %1791, label %1793
 
 1791:                                             ; preds = %1789
@@ -51383,7 +51383,7 @@ _ZN5boost4wave8cpplexer7re2clex24count_backslash_newlinesIPKcEEiPNS2_7ScannerIT_
   br i1 %1794, label %10901, label %10936
 
 1795:                                             ; preds = %1787
-  %1796 = icmp ult i32 %.95101, 113
+  %1796 = icmp samesign ult i32 %.95101, 113
   br i1 %1796, label %1797, label %1799
 
 1797:                                             ; preds = %1795
@@ -51399,7 +51399,7 @@ _ZN5boost4wave8cpplexer7re2clex24count_backslash_newlinesIPKcEEiPNS2_7ScannerIT_
   br i1 %1802, label %1803, label %1809
 
 1803:                                             ; preds = %1801
-  %1804 = icmp ult i32 %.95101, 117
+  %1804 = icmp samesign ult i32 %.95101, 117
   br i1 %1804, label %1805, label %1807
 
 1805:                                             ; preds = %1803
@@ -51643,11 +51643,11 @@ _ZN5boost4wave8cpplexer7re2clex24count_backslash_newlinesIPKcEEiPNS2_7ScannerIT_
   br i1 %1900, label %1901, label %1914
 
 1901:                                             ; preds = %1899
-  %1902 = icmp ult i8 %1898, 63
+  %1902 = icmp samesign ult i8 %1898, 63
   br i1 %1902, label %1903, label %1910
 
 1903:                                             ; preds = %1901
-  %1904 = icmp ult i8 %1898, 39
+  %1904 = icmp samesign ult i8 %1898, 39
   br i1 %1904, label %1905, label %1907
 
 1905:                                             ; preds = %1903
@@ -51662,7 +51662,7 @@ _ZN5boost4wave8cpplexer7re2clex24count_backslash_newlinesIPKcEEiPNS2_7ScannerIT_
   br i1 %or.cond5883, label %.loopexit6320, label %.loopexit6321
 
 1910:                                             ; preds = %1901
-  %1911 = icmp ult i8 %1898, 70
+  %1911 = icmp samesign ult i8 %1898, 70
   br i1 %1911, label %1912, label %1913
 
 1912:                                             ; preds = %1910
@@ -51682,7 +51682,7 @@ _ZN5boost4wave8cpplexer7re2clex24count_backslash_newlinesIPKcEEiPNS2_7ScannerIT_
   br i1 %1915, label %1916, label %1923
 
 1916:                                             ; preds = %1914
-  %1917 = icmp ult i8 %1898, 101
+  %1917 = icmp samesign ult i8 %1898, 101
   br i1 %1917, label %1918, label %1920
 
 1918:                                             ; preds = %1916
@@ -51691,7 +51691,7 @@ _ZN5boost4wave8cpplexer7re2clex24count_backslash_newlinesIPKcEEiPNS2_7ScannerIT_
   br i1 %or.cond35, label %.loopexit6320, label %.loopexit6321
 
 1920:                                             ; preds = %1916
-  %1921 = icmp ult i8 %1898, 103
+  %1921 = icmp samesign ult i8 %1898, 103
   %1922 = icmp eq i8 %1898, 110
   %or.cond38 = or i1 %1921, %1922
   br i1 %or.cond38, label %.loopexit6320, label %.loopexit6321
@@ -51792,11 +51792,11 @@ _ZN5boost4wave8cpplexer7re2clex24count_backslash_newlinesIPKcEEiPNS2_7ScannerIT_
   br i1 %1954, label %1955, label %1972
 
 1955:                                             ; preds = %1953
-  %1956 = icmp ult i8 %.15107, 33
+  %1956 = icmp samesign ult i8 %.15107, 33
   br i1 %1956, label %1957, label %1964
 
 1957:                                             ; preds = %1955
-  %1958 = icmp ult i8 %.15107, 11
+  %1958 = icmp samesign ult i8 %.15107, 11
   br i1 %1958, label %1959, label %1961
 
 1959:                                             ; preds = %1957
@@ -51804,13 +51804,13 @@ _ZN5boost4wave8cpplexer7re2clex24count_backslash_newlinesIPKcEEiPNS2_7ScannerIT_
   br i1 %1960, label %.loopexit6366, label %.thread6253
 
 1961:                                             ; preds = %1957
-  %1962 = icmp ugt i8 %.15107, 12
+  %1962 = icmp samesign ugt i8 %.15107, 12
   %1963 = icmp ne i8 %.15107, 32
   %or.cond41 = and i1 %1962, %1963
   br i1 %or.cond41, label %.thread6253, label %.loopexit6366
 
 1964:                                             ; preds = %1955
-  %1965 = icmp ult i8 %.15107, 100
+  %1965 = icmp samesign ult i8 %.15107, 100
   br i1 %1965, label %1966, label %1968
 
 1966:                                             ; preds = %1964
@@ -51822,7 +51822,7 @@ _ZN5boost4wave8cpplexer7re2clex24count_backslash_newlinesIPKcEEiPNS2_7ScannerIT_
   br i1 %1969, label %2042, label %1970
 
 1970:                                             ; preds = %1968
-  %1971 = icmp ult i8 %.15107, 102
+  %1971 = icmp samesign ult i8 %.15107, 102
   br i1 %1971, label %2048, label %.thread6253
 
 1972:                                             ; preds = %1953
@@ -51830,7 +51830,7 @@ _ZN5boost4wave8cpplexer7re2clex24count_backslash_newlinesIPKcEEiPNS2_7ScannerIT_
   br i1 %1973, label %1974, label %1979
 
 1974:                                             ; preds = %1972
-  %1975 = icmp ult i8 %.15107, 109
+  %1975 = icmp samesign ult i8 %.15107, 109
   br i1 %1975, label %1976, label %1977
 
 1976:                                             ; preds = %1974
@@ -52285,11 +52285,11 @@ _ZN5boost4wave8cpplexer7re2clex24count_backslash_newlinesIPKcEEiPNS2_7ScannerIT_
   br i1 %2158, label %2159, label %2175
 
 2159:                                             ; preds = %2157
-  %2160 = icmp ult i8 %2156, 33
+  %2160 = icmp samesign ult i8 %2156, 33
   br i1 %2160, label %2161, label %2168
 
 2161:                                             ; preds = %2159
-  %2162 = icmp ult i8 %2156, 11
+  %2162 = icmp samesign ult i8 %2156, 11
   br i1 %2162, label %2163, label %2165
 
 2163:                                             ; preds = %2161
@@ -52297,13 +52297,13 @@ _ZN5boost4wave8cpplexer7re2clex24count_backslash_newlinesIPKcEEiPNS2_7ScannerIT_
   br i1 %2164, label %.preheader6368, label %2189
 
 2165:                                             ; preds = %2161
-  %2166 = icmp ult i8 %2156, 13
+  %2166 = icmp samesign ult i8 %2156, 13
   %2167 = icmp eq i8 %2156, 32
   %or.cond44 = or i1 %2166, %2167
   br i1 %or.cond44, label %.preheader6368, label %2189
 
 2168:                                             ; preds = %2159
-  %2169 = icmp ult i8 %2156, 47
+  %2169 = icmp samesign ult i8 %2156, 47
   br i1 %2169, label %2170, label %2172
 
 2170:                                             ; preds = %2168
@@ -52312,7 +52312,7 @@ _ZN5boost4wave8cpplexer7re2clex24count_backslash_newlinesIPKcEEiPNS2_7ScannerIT_
 
 2172:                                             ; preds = %2168
   %2173 = icmp eq i8 %2156, 47
-  %2174 = icmp ugt i8 %2156, 99
+  %2174 = icmp samesign ugt i8 %2156, 99
   %or.cond47 = or i1 %2173, %2174
   br i1 %or.cond47, label %.preheader6368, label %2189
 
@@ -52321,7 +52321,7 @@ _ZN5boost4wave8cpplexer7re2clex24count_backslash_newlinesIPKcEEiPNS2_7ScannerIT_
   br i1 %2176, label %2177, label %2182
 
 2177:                                             ; preds = %2175
-  %2178 = icmp ult i8 %2156, 108
+  %2178 = icmp samesign ult i8 %2156, 108
   br i1 %2178, label %2179, label %2181
 
 2179:                                             ; preds = %2177
@@ -52841,11 +52841,11 @@ _ZN5boost4wave8cpplexer7re2clex24count_backslash_newlinesIPKcEEiPNS2_7ScannerIT_
   br i1 %2401, label %2402, label %2415
 
 2402:                                             ; preds = %2400
-  %2403 = icmp ult i8 %2399, 63
+  %2403 = icmp samesign ult i8 %2399, 63
   br i1 %2403, label %2404, label %2411
 
 2404:                                             ; preds = %2402
-  %2405 = icmp ult i8 %2399, 39
+  %2405 = icmp samesign ult i8 %2399, 39
   br i1 %2405, label %2406, label %2408
 
 2406:                                             ; preds = %2404
@@ -52860,7 +52860,7 @@ _ZN5boost4wave8cpplexer7re2clex24count_backslash_newlinesIPKcEEiPNS2_7ScannerIT_
   br i1 %or.cond5890, label %.loopexit6377, label %.loopexit6321
 
 2411:                                             ; preds = %2402
-  %2412 = icmp ult i8 %2399, 70
+  %2412 = icmp samesign ult i8 %2399, 70
   br i1 %2412, label %2413, label %2414
 
 2413:                                             ; preds = %2411
@@ -52880,7 +52880,7 @@ _ZN5boost4wave8cpplexer7re2clex24count_backslash_newlinesIPKcEEiPNS2_7ScannerIT_
   br i1 %2416, label %2417, label %2424
 
 2417:                                             ; preds = %2415
-  %2418 = icmp ult i8 %2399, 101
+  %2418 = icmp samesign ult i8 %2399, 101
   br i1 %2418, label %2419, label %2421
 
 2419:                                             ; preds = %2417
@@ -52889,7 +52889,7 @@ _ZN5boost4wave8cpplexer7re2clex24count_backslash_newlinesIPKcEEiPNS2_7ScannerIT_
   br i1 %or.cond62, label %.loopexit6377, label %.loopexit6321
 
 2421:                                             ; preds = %2417
-  %2422 = icmp ult i8 %2399, 103
+  %2422 = icmp samesign ult i8 %2399, 103
   %2423 = icmp eq i8 %2399, 110
   %or.cond65 = or i1 %2422, %2423
   br i1 %or.cond65, label %.loopexit6377, label %.loopexit6321
@@ -54526,12 +54526,12 @@ _ZN5boost4wave8cpplexer7re2clex24count_backslash_newlinesIPKcEEiPNS2_7ScannerIT_
   br i1 %3213, label %3214, label %3223
 
 3214:                                             ; preds = %3212
-  %3215 = icmp ult i8 %3211, 58
+  %3215 = icmp samesign ult i8 %3211, 58
   br i1 %3215, label %3216, label %3219
 
 3216:                                             ; preds = %3214
   %3217 = icmp eq i8 %3211, 36
-  %3218 = icmp ugt i8 %3211, 47
+  %3218 = icmp samesign ugt i8 %3211, 47
   %or.cond80 = or i1 %3217, %3218
   br i1 %or.cond80, label %682, label %3233
 
@@ -54540,7 +54540,7 @@ _ZN5boost4wave8cpplexer7re2clex24count_backslash_newlinesIPKcEEiPNS2_7ScannerIT_
   br i1 %3220, label %2092, label %3221
 
 3221:                                             ; preds = %3219
-  %3222 = icmp ugt i8 %3211, 64
+  %3222 = icmp samesign ugt i8 %3211, 64
   br i1 %3222, label %682, label %3233
 
 3223:                                             ; preds = %3212
@@ -54922,7 +54922,7 @@ _ZN5boost4wave8cpplexer7re2clex24count_backslash_newlinesIPKcEEiPNS2_7ScannerIT_
   br i1 %3393, label %3394, label %3402
 
 3394:                                             ; preds = %3392
-  %3395 = icmp ult i8 %3391, 48
+  %3395 = icmp samesign ult i8 %3391, 48
   br i1 %3395, label %3396, label %3398
 
 3396:                                             ; preds = %3394
@@ -54930,7 +54930,7 @@ _ZN5boost4wave8cpplexer7re2clex24count_backslash_newlinesIPKcEEiPNS2_7ScannerIT_
   br i1 %3397, label %682, label %3412
 
 3398:                                             ; preds = %3394
-  %3399 = icmp ult i8 %3391, 58
+  %3399 = icmp samesign ult i8 %3391, 58
   br i1 %3399, label %682, label %3400
 
 3400:                                             ; preds = %3398
@@ -54942,7 +54942,7 @@ _ZN5boost4wave8cpplexer7re2clex24count_backslash_newlinesIPKcEEiPNS2_7ScannerIT_
   br i1 %3403, label %3404, label %3408
 
 3404:                                             ; preds = %3402
-  %3405 = icmp ult i8 %3391, 91
+  %3405 = icmp samesign ult i8 %3391, 91
   br i1 %3405, label %682, label %3406
 
 3406:                                             ; preds = %3404
@@ -55456,7 +55456,7 @@ _ZN5boost4wave8cpplexer7re2clex24count_backslash_newlinesIPKcEEiPNS2_7ScannerIT_
   br i1 %3625, label %3626, label %3632
 
 3626:                                             ; preds = %3624
-  %3627 = icmp ult i8 %3618, 11
+  %3627 = icmp samesign ult i8 %3618, 11
   br i1 %3627, label %3628, label %3630
 
 3628:                                             ; preds = %3626
@@ -56267,7 +56267,7 @@ _ZN5boost4wave8cpplexer7re2clex24count_backslash_newlinesIPKcEEiPNS2_7ScannerIT_
   br i1 %3954, label %3955, label %3964
 
 3955:                                             ; preds = %3953
-  %3956 = icmp ult i8 %3952, 11
+  %3956 = icmp samesign ult i8 %3952, 11
   br i1 %3956, label %3957, label %3959
 
 3957:                                             ; preds = %3955
@@ -56275,11 +56275,11 @@ _ZN5boost4wave8cpplexer7re2clex24count_backslash_newlinesIPKcEEiPNS2_7ScannerIT_
   br i1 %3958, label %.loopexit6377, label %.loopexit6321
 
 3959:                                             ; preds = %3955
-  %3960 = icmp ult i8 %3952, 13
+  %3960 = icmp samesign ult i8 %3952, 13
   br i1 %3960, label %.loopexit6377, label %3961
 
 3961:                                             ; preds = %3959
-  %3962 = icmp ult i8 %3952, 32
+  %3962 = icmp samesign ult i8 %3952, 32
   br i1 %3962, label %.loopexit6321, label %3963
 
 3963:                                             ; preds = %3961
@@ -57234,11 +57234,11 @@ _ZN5boost4wave8cpplexer7re2clex24count_backslash_newlinesIPKcEEiPNS2_7ScannerIT_
   br i1 %4409, label %4410, label %4424
 
 4410:                                             ; preds = %4408
-  %4411 = icmp ult i8 %4407, 33
+  %4411 = icmp samesign ult i8 %4407, 33
   br i1 %4411, label %4412, label %4419
 
 4412:                                             ; preds = %4410
-  %4413 = icmp ult i8 %4407, 11
+  %4413 = icmp samesign ult i8 %4407, 11
   br i1 %4413, label %4414, label %4416
 
 4414:                                             ; preds = %4412
@@ -57246,13 +57246,13 @@ _ZN5boost4wave8cpplexer7re2clex24count_backslash_newlinesIPKcEEiPNS2_7ScannerIT_
   br i1 %4415, label %.preheader6368, label %4440
 
 4416:                                             ; preds = %4412
-  %4417 = icmp ult i8 %4407, 13
+  %4417 = icmp samesign ult i8 %4407, 13
   %4418 = icmp eq i8 %4407, 32
   %or.cond125 = or i1 %4417, %4418
   br i1 %or.cond125, label %.preheader6368, label %4440
 
 4419:                                             ; preds = %4410
-  %4420 = icmp ult i8 %4407, 47
+  %4420 = icmp samesign ult i8 %4407, 47
   br i1 %4420, label %4421, label %4423
 
 4421:                                             ; preds = %4419
@@ -57270,11 +57270,11 @@ _ZN5boost4wave8cpplexer7re2clex24count_backslash_newlinesIPKcEEiPNS2_7ScannerIT_
   br i1 %4425, label %4426, label %4433
 
 4426:                                             ; preds = %4424
-  %4427 = icmp ult i8 %4407, 106
+  %4427 = icmp samesign ult i8 %4407, 106
   br i1 %4427, label %4428, label %4431
 
 4428:                                             ; preds = %4426
-  %4429 = icmp ult i8 %4407, 102
+  %4429 = icmp samesign ult i8 %4407, 102
   %4430 = icmp eq i8 %4407, 105
   %or.cond128 = or i1 %4429, %4430
   br i1 %or.cond128, label %.preheader6368, label %4440
@@ -57812,7 +57812,7 @@ _ZN5boost4wave8cpplexer7re2clex24count_backslash_newlinesIPKcEEiPNS2_7ScannerIT_
   br i1 %4664, label %4665, label %4673
 
 4665:                                             ; preds = %4663
-  %4666 = icmp ult i8 %4662, 48
+  %4666 = icmp samesign ult i8 %4662, 48
   br i1 %4666, label %4667, label %4669
 
 4667:                                             ; preds = %4665
@@ -57820,7 +57820,7 @@ _ZN5boost4wave8cpplexer7re2clex24count_backslash_newlinesIPKcEEiPNS2_7ScannerIT_
   br i1 %4668, label %682, label %4683
 
 4669:                                             ; preds = %4665
-  %4670 = icmp ult i8 %4662, 58
+  %4670 = icmp samesign ult i8 %4662, 58
   br i1 %4670, label %682, label %4671
 
 4671:                                             ; preds = %4669
@@ -57832,7 +57832,7 @@ _ZN5boost4wave8cpplexer7re2clex24count_backslash_newlinesIPKcEEiPNS2_7ScannerIT_
   br i1 %4674, label %4675, label %4679
 
 4675:                                             ; preds = %4673
-  %4676 = icmp ult i8 %4662, 91
+  %4676 = icmp samesign ult i8 %4662, 91
   br i1 %4676, label %682, label %4677
 
 4677:                                             ; preds = %4675
@@ -58566,7 +58566,7 @@ _ZN5boost4wave8cpplexer7re2clex24count_backslash_newlinesIPKcEEiPNS2_7ScannerIT_
   br i1 %5020, label %5021, label %5029
 
 5021:                                             ; preds = %5019
-  %5022 = icmp ult i8 %5018, 48
+  %5022 = icmp samesign ult i8 %5018, 48
   br i1 %5022, label %5023, label %5025
 
 5023:                                             ; preds = %5021
@@ -58574,7 +58574,7 @@ _ZN5boost4wave8cpplexer7re2clex24count_backslash_newlinesIPKcEEiPNS2_7ScannerIT_
   br i1 %5024, label %682, label %5039
 
 5025:                                             ; preds = %5021
-  %5026 = icmp ult i8 %5018, 58
+  %5026 = icmp samesign ult i8 %5018, 58
   br i1 %5026, label %682, label %5027
 
 5027:                                             ; preds = %5025
@@ -58586,7 +58586,7 @@ _ZN5boost4wave8cpplexer7re2clex24count_backslash_newlinesIPKcEEiPNS2_7ScannerIT_
   br i1 %5030, label %5031, label %5035
 
 5031:                                             ; preds = %5029
-  %5032 = icmp ult i8 %5018, 91
+  %5032 = icmp samesign ult i8 %5018, 91
   br i1 %5032, label %682, label %5033
 
 5033:                                             ; preds = %5031
@@ -59100,7 +59100,7 @@ _ZN5boost4wave8cpplexer7re2clex24count_backslash_newlinesIPKcEEiPNS2_7ScannerIT_
   br i1 %5272, label %5273, label %5281
 
 5273:                                             ; preds = %5271
-  %5274 = icmp ult i8 %5270, 48
+  %5274 = icmp samesign ult i8 %5270, 48
   br i1 %5274, label %5275, label %5277
 
 5275:                                             ; preds = %5273
@@ -59108,7 +59108,7 @@ _ZN5boost4wave8cpplexer7re2clex24count_backslash_newlinesIPKcEEiPNS2_7ScannerIT_
   br i1 %5276, label %682, label %5291
 
 5277:                                             ; preds = %5273
-  %5278 = icmp ult i8 %5270, 58
+  %5278 = icmp samesign ult i8 %5270, 58
   br i1 %5278, label %682, label %5279
 
 5279:                                             ; preds = %5277
@@ -59120,7 +59120,7 @@ _ZN5boost4wave8cpplexer7re2clex24count_backslash_newlinesIPKcEEiPNS2_7ScannerIT_
   br i1 %5282, label %5283, label %5287
 
 5283:                                             ; preds = %5281
-  %5284 = icmp ult i8 %5270, 91
+  %5284 = icmp samesign ult i8 %5270, 91
   br i1 %5284, label %682, label %5285
 
 5285:                                             ; preds = %5283
@@ -60976,11 +60976,11 @@ _ZN5boost4wave8cpplexer7re2clex24count_backslash_newlinesIPKcEEiPNS2_7ScannerIT_
   br i1 %6102, label %6103, label %6118
 
 6103:                                             ; preds = %6101
-  %6104 = icmp ult i8 %6100, 50
+  %6104 = icmp samesign ult i8 %6100, 50
   br i1 %6104, label %6105, label %6112
 
 6105:                                             ; preds = %6103
-  %6106 = icmp ult i8 %6100, 37
+  %6106 = icmp samesign ult i8 %6100, 37
   br i1 %6106, label %6107, label %6109
 
 6107:                                             ; preds = %6105
@@ -60988,7 +60988,7 @@ _ZN5boost4wave8cpplexer7re2clex24count_backslash_newlinesIPKcEEiPNS2_7ScannerIT_
   br i1 %6108, label %682, label %6131
 
 6109:                                             ; preds = %6105
-  %6110 = icmp ult i8 %6100, 48
+  %6110 = icmp samesign ult i8 %6100, 48
   br i1 %6110, label %6131, label %6111
 
 6111:                                             ; preds = %6109
@@ -60996,7 +60996,7 @@ _ZN5boost4wave8cpplexer7re2clex24count_backslash_newlinesIPKcEEiPNS2_7ScannerIT_
   br i1 %.not5638, label %7343, label %682
 
 6112:                                             ; preds = %6103
-  %6113 = icmp ult i8 %6100, 52
+  %6113 = icmp samesign ult i8 %6100, 52
   br i1 %6113, label %6114, label %6116
 
 6114:                                             ; preds = %6112
@@ -61012,7 +61012,7 @@ _ZN5boost4wave8cpplexer7re2clex24count_backslash_newlinesIPKcEEiPNS2_7ScannerIT_
   br i1 %6119, label %6120, label %6125
 
 6120:                                             ; preds = %6118
-  %6121 = icmp ult i8 %6100, 64
+  %6121 = icmp samesign ult i8 %6100, 64
   br i1 %6121, label %6122, label %6124
 
 6122:                                             ; preds = %6120
@@ -63960,17 +63960,17 @@ _ZN5boost4wave8cpplexer7re2clex24count_backslash_newlinesIPKcEEiPNS2_7ScannerIT_
   br i1 %7455, label %7456, label %7466
 
 7456:                                             ; preds = %7454
-  %7457 = icmp ult i8 %7453, 58
+  %7457 = icmp samesign ult i8 %7453, 58
   br i1 %7457, label %7458, label %7461
 
 7458:                                             ; preds = %7456
   %7459 = icmp eq i8 %7453, 36
-  %7460 = icmp ugt i8 %7453, 47
+  %7460 = icmp samesign ugt i8 %7453, 47
   %or.cond239 = or i1 %7459, %7460
   br i1 %or.cond239, label %682, label %7484
 
 7461:                                             ; preds = %7456
-  %7462 = icmp ult i8 %7453, 64
+  %7462 = icmp samesign ult i8 %7453, 64
   br i1 %7462, label %7463, label %7465
 
 7463:                                             ; preds = %7461
@@ -63988,7 +63988,7 @@ _ZN5boost4wave8cpplexer7re2clex24count_backslash_newlinesIPKcEEiPNS2_7ScannerIT_
   br i1 %7467, label %7468, label %7476
 
 7468:                                             ; preds = %7466
-  %7469 = icmp ult i8 %7453, 95
+  %7469 = icmp samesign ult i8 %7453, 95
   br i1 %7469, label %7470, label %7472
 
 7470:                                             ; preds = %7468
@@ -64000,7 +64000,7 @@ _ZN5boost4wave8cpplexer7re2clex24count_backslash_newlinesIPKcEEiPNS2_7ScannerIT_
   br i1 %7473, label %8519, label %7474
 
 7474:                                             ; preds = %7472
-  %7475 = icmp ugt i8 %7453, 96
+  %7475 = icmp samesign ugt i8 %7453, 96
   br i1 %7475, label %682, label %7484
 
 7476:                                             ; preds = %7466
@@ -67168,7 +67168,7 @@ _ZN5boost4wave8cpplexer7re2clex24count_backslash_newlinesIPKcEEiPNS2_7ScannerIT_
   br i1 %9001, label %9002, label %9010
 
 9002:                                             ; preds = %9000
-  %9003 = icmp ult i8 %8999, 48
+  %9003 = icmp samesign ult i8 %8999, 48
   br i1 %9003, label %9004, label %9006
 
 9004:                                             ; preds = %9002
@@ -67176,7 +67176,7 @@ _ZN5boost4wave8cpplexer7re2clex24count_backslash_newlinesIPKcEEiPNS2_7ScannerIT_
   br i1 %9005, label %682, label %9020
 
 9006:                                             ; preds = %9002
-  %9007 = icmp ult i8 %8999, 58
+  %9007 = icmp samesign ult i8 %8999, 58
   br i1 %9007, label %682, label %9008
 
 9008:                                             ; preds = %9006
@@ -67188,7 +67188,7 @@ _ZN5boost4wave8cpplexer7re2clex24count_backslash_newlinesIPKcEEiPNS2_7ScannerIT_
   br i1 %9011, label %9012, label %9016
 
 9012:                                             ; preds = %9010
-  %9013 = icmp ult i8 %8999, 91
+  %9013 = icmp samesign ult i8 %8999, 91
   br i1 %9013, label %682, label %9014
 
 9014:                                             ; preds = %9012
@@ -70720,7 +70720,7 @@ _ZN5boost4wave8cpplexer7re2clex24count_backslash_newlinesIPKcEEiPNS2_7ScannerIT_
   br i1 %10761, label %10762, label %10769
 
 10762:                                            ; preds = %10760
-  %10763 = icmp ult i8 %.45110, 11
+  %10763 = icmp samesign ult i8 %.45110, 11
   br i1 %10763, label %10764, label %10766
 
 10764:                                            ; preds = %10762
@@ -70728,7 +70728,7 @@ _ZN5boost4wave8cpplexer7re2clex24count_backslash_newlinesIPKcEEiPNS2_7ScannerIT_
   br i1 %10765, label %.loopexit6349, label %10042
 
 10766:                                            ; preds = %10762
-  %10767 = icmp ugt i8 %.45110, 12
+  %10767 = icmp samesign ugt i8 %.45110, 12
   %10768 = icmp ne i8 %.45110, 32
   %or.cond260 = and i1 %10767, %10768
   br i1 %or.cond260, label %10042, label %.loopexit6349
@@ -72112,7 +72112,7 @@ _ZN5boost4wave8cpplexer7re2clex24count_backslash_newlinesIPKcEEiPNS2_7ScannerIT_
   br i1 %11398, label %11399, label %11402
 
 11399:                                            ; preds = %11397
-  %11400 = icmp ult i8 %11396, 9
+  %11400 = icmp samesign ult i8 %11396, 9
   %11401 = add nsw i8 %11396, -14
   %or.cond266 = icmp ult i8 %11401, 18
   %or.cond6043 = select i1 %11400, i1 true, i1 %or.cond266
@@ -72755,7 +72755,7 @@ _ZN5boost4wave8cpplexer7re2clex24count_backslash_newlinesIPKcEEiPNS2_7ScannerIT_
   br i1 %11687, label %11688, label %11693
 
 11688:                                            ; preds = %11686
-  %11689 = icmp ult i8 %11685, 9
+  %11689 = icmp samesign ult i8 %11685, 9
   br i1 %11689, label %11690, label %11691
 
 11690:                                            ; preds = %11688
@@ -73348,7 +73348,7 @@ _ZN5boost4wave8cpplexer7re2clex24count_backslash_newlinesIPKcEEiPNS2_7ScannerIT_
   br i1 %11980, label %11990, label %11981
 
 11981:                                            ; preds = %11979
-  %11982 = icmp ult i8 %11976, 9
+  %11982 = icmp samesign ult i8 %11976, 9
   br i1 %11982, label %12146, label %11983
 
 11983:                                            ; preds = %11981
@@ -74125,7 +74125,7 @@ _ZN5boost4wave4util11flex_stringIcSt11char_traitsIcESaIcENS1_9CowStringINS1_22Al
   br i1 %12347, label %12405, label %12348
 
 12348:                                            ; preds = %12346
-  %12349 = icmp ugt i8 %12338, 64
+  %12349 = icmp samesign ugt i8 %12338, 64
   br i1 %12349, label %.preheader6414.preheader, label %.loopexit6422
 
 12350:                                            ; preds = %12344
@@ -74407,7 +74407,7 @@ _ZN5boost4wave8cpplexer7re2clex24count_backslash_newlinesIPKcEEiPNS2_7ScannerIT_
   br i1 %12468, label %12469, label %12479
 
 12469:                                            ; preds = %12467
-  %12470 = icmp ult i8 %12462, 44
+  %12470 = icmp samesign ult i8 %12462, 44
   br i1 %12470, label %12471, label %12472
 
 12471:                                            ; preds = %12469
@@ -74417,7 +74417,7 @@ _ZN5boost4wave8cpplexer7re2clex24count_backslash_newlinesIPKcEEiPNS2_7ScannerIT_
   ]
 
 12472:                                            ; preds = %12469
-  %12473 = icmp ult i8 %12462, 47
+  %12473 = icmp samesign ult i8 %12462, 47
   br i1 %12473, label %12474, label %12476
 
 12474:                                            ; preds = %12472
@@ -74426,7 +74426,7 @@ _ZN5boost4wave8cpplexer7re2clex24count_backslash_newlinesIPKcEEiPNS2_7ScannerIT_
 
 12476:                                            ; preds = %12472
   %12477 = icmp ne i8 %12462, 47
-  %12478 = icmp ult i8 %12462, 58
+  %12478 = icmp samesign ult i8 %12462, 58
   %or.cond281 = and i1 %12477, %12478
   br i1 %or.cond281, label %.backedge6423.backedge, label %.loopexit6422
 
@@ -74435,7 +74435,7 @@ _ZN5boost4wave8cpplexer7re2clex24count_backslash_newlinesIPKcEEiPNS2_7ScannerIT_
   br i1 %12480, label %12481, label %12488
 
 12481:                                            ; preds = %12479
-  %12482 = icmp ult i8 %12462, 65
+  %12482 = icmp samesign ult i8 %12462, 65
   br i1 %12482, label %12483, label %12485
 
 12483:                                            ; preds = %12481
@@ -74443,7 +74443,7 @@ _ZN5boost4wave8cpplexer7re2clex24count_backslash_newlinesIPKcEEiPNS2_7ScannerIT_
   br i1 %12484, label %12405, label %.loopexit6422
 
 12485:                                            ; preds = %12481
-  %12486 = icmp ult i8 %12462, 91
+  %12486 = icmp samesign ult i8 %12462, 91
   br i1 %12486, label %.backedge6423.backedge, label %12487
 
 12487:                                            ; preds = %12485
@@ -75736,7 +75736,7 @@ _ZN5boost4wave8cpplexer7re2clex24count_backslash_newlinesIPKcEEiPNS2_7ScannerIT_
   br i1 %12949, label %12950, label %12958
 
 12950:                                            ; preds = %12948
-  %12951 = icmp ult i8 %12947, 69
+  %12951 = icmp samesign ult i8 %12947, 69
   br i1 %12951, label %12952, label %12954
 
 12952:                                            ; preds = %12950
@@ -75749,7 +75749,7 @@ _ZN5boost4wave8cpplexer7re2clex24count_backslash_newlinesIPKcEEiPNS2_7ScannerIT_
   br i1 %12955, label %13090, label %12956
 
 12956:                                            ; preds = %12954
-  %12957 = icmp ult i8 %12947, 71
+  %12957 = icmp samesign ult i8 %12947, 71
   br i1 %12957, label %13112, label %.loopexit6433
 
 12958:                                            ; preds = %12948
@@ -75940,7 +75940,7 @@ _ZN5boost4wave8cpplexer7re2clex24count_backslash_newlinesIPKcEEiPNS2_7ScannerIT_
   br i1 %13043, label %.preheader6434, label %13044
 
 13044:                                            ; preds = %13042
-  %13045 = icmp ult i8 %.05085, 48
+  %13045 = icmp samesign ult i8 %.05085, 48
   br i1 %13045, label %.loopexit6443, label %.preheader6444
 
 13046:                                            ; preds = %13040
@@ -76038,7 +76038,7 @@ _ZN5boost4wave8cpplexer7re2clex24count_backslash_newlinesIPKcEEiPNS2_7ScannerIT_
   br i1 %13080, label %.preheader6434, label %13081
 
 13081:                                            ; preds = %13079
-  %13082 = icmp ugt i8 %13076, 47
+  %13082 = icmp samesign ugt i8 %13076, 47
   br i1 %13082, label %.preheader6444, label %.thread6295
 
 13083:                                            ; preds = %13077
@@ -76228,11 +76228,11 @@ _ZN5boost4wave8cpplexer7re2clex24count_backslash_newlinesIPKcEEiPNS2_7ScannerIT_
   br i1 %13159, label %13160, label %13166
 
 13160:                                            ; preds = %13158
-  %13161 = icmp ult i8 %13157, 58
+  %13161 = icmp samesign ult i8 %13157, 58
   br i1 %13161, label %13162, label %13164
 
 13162:                                            ; preds = %13160
-  %13163 = icmp ult i8 %13157, 48
+  %13163 = icmp samesign ult i8 %13157, 48
   br i1 %13163, label %.loopexit6433, label %13131
 
 13164:                                            ; preds = %13160
@@ -76437,7 +76437,7 @@ _ZN5boost4wave8cpplexer7re2clex24count_backslash_newlinesIPKcEEiPNS2_7ScannerIT_
   br i1 %13241, label %13242, label %13248
 
 13242:                                            ; preds = %13240
-  %13243 = icmp ult i8 %13239, 77
+  %13243 = icmp samesign ult i8 %13239, 77
   br i1 %13243, label %13244, label %13246
 
 13244:                                            ; preds = %13242
@@ -77064,11 +77064,11 @@ _ZN5boost4wave4util11flex_stringIcSt11char_traitsIcESaIcENS1_9CowStringINS1_22Al
   br i1 %13509, label %13510, label %13519
 
 13510:                                            ; preds = %13507
-  %13511 = icmp ult i8 %13506, 11
+  %13511 = icmp samesign ult i8 %13506, 11
   br i1 %13511, label %13512, label %13515
 
 13512:                                            ; preds = %13510
-  %13513 = icmp ult i8 %13506, 9
+  %13513 = icmp samesign ult i8 %13506, 9
   br i1 %13513, label %13524, label %13514
 
 13514:                                            ; preds = %13512
@@ -77076,7 +77076,7 @@ _ZN5boost4wave4util11flex_stringIcSt11char_traitsIcESaIcENS1_9CowStringINS1_22Al
   br i1 %.not5805, label %13592, label %13530
 
 13515:                                            ; preds = %13510
-  %13516 = icmp ult i8 %13506, 13
+  %13516 = icmp samesign ult i8 %13506, 13
   br i1 %13516, label %13530, label %13517
 
 13517:                                            ; preds = %13515
@@ -77245,11 +77245,11 @@ _ZN5boost4wave8cpplexer7re2clex24count_backslash_newlinesIPKcEEiPNS2_7ScannerIT_
   br i1 %13604, label %13605, label %13619
 
 13605:                                            ; preds = %13603
-  %13606 = icmp ult i8 %13602, 63
+  %13606 = icmp samesign ult i8 %13602, 63
   br i1 %13606, label %13607, label %13615
 
 13607:                                            ; preds = %13605
-  %13608 = icmp ult i8 %13602, 39
+  %13608 = icmp samesign ult i8 %13602, 39
   br i1 %13608, label %13609, label %13611
 
 13609:                                            ; preds = %13607
@@ -77266,7 +77266,7 @@ _ZN5boost4wave8cpplexer7re2clex24count_backslash_newlinesIPKcEEiPNS2_7ScannerIT_
   br i1 %or.cond371, label %13698, label %13536
 
 13615:                                            ; preds = %13605
-  %13616 = icmp ult i8 %13602, 70
+  %13616 = icmp samesign ult i8 %13602, 70
   br i1 %13616, label %13617, label %13618
 
 13617:                                            ; preds = %13615
@@ -77286,7 +77286,7 @@ _ZN5boost4wave8cpplexer7re2clex24count_backslash_newlinesIPKcEEiPNS2_7ScannerIT_
   br i1 %13620, label %13621, label %13628
 
 13621:                                            ; preds = %13619
-  %13622 = icmp ult i8 %13602, 101
+  %13622 = icmp samesign ult i8 %13602, 101
   br i1 %13622, label %13623, label %13625
 
 13623:                                            ; preds = %13621
@@ -77295,7 +77295,7 @@ _ZN5boost4wave8cpplexer7re2clex24count_backslash_newlinesIPKcEEiPNS2_7ScannerIT_
   br i1 %or.cond374, label %13692, label %13536
 
 13625:                                            ; preds = %13621
-  %13626 = icmp ult i8 %13602, 103
+  %13626 = icmp samesign ult i8 %13602, 103
   %13627 = icmp eq i8 %13602, 110
   %or.cond377 = or i1 %13626, %13627
   br i1 %or.cond377, label %13692, label %13536
@@ -77543,11 +77543,11 @@ _ZN5boost4wave8cpplexer7re2clex24count_backslash_newlinesIPKcEEiPNS2_7ScannerIT_
   br i1 %13745, label %13746, label %13760
 
 13746:                                            ; preds = %13744
-  %13747 = icmp ult i8 %13743, 63
+  %13747 = icmp samesign ult i8 %13743, 63
   br i1 %13747, label %13748, label %13756
 
 13748:                                            ; preds = %13746
-  %13749 = icmp ult i8 %13743, 39
+  %13749 = icmp samesign ult i8 %13743, 39
   br i1 %13749, label %13750, label %13752
 
 13750:                                            ; preds = %13748
@@ -77564,7 +77564,7 @@ _ZN5boost4wave8cpplexer7re2clex24count_backslash_newlinesIPKcEEiPNS2_7ScannerIT_
   br i1 %or.cond395, label %13698, label %13691
 
 13756:                                            ; preds = %13746
-  %13757 = icmp ult i8 %13743, 70
+  %13757 = icmp samesign ult i8 %13743, 70
   br i1 %13757, label %13758, label %13759
 
 13758:                                            ; preds = %13756
@@ -77584,7 +77584,7 @@ _ZN5boost4wave8cpplexer7re2clex24count_backslash_newlinesIPKcEEiPNS2_7ScannerIT_
   br i1 %13761, label %13762, label %13769
 
 13762:                                            ; preds = %13760
-  %13763 = icmp ult i8 %13743, 101
+  %13763 = icmp samesign ult i8 %13743, 101
   br i1 %13763, label %13764, label %13766
 
 13764:                                            ; preds = %13762
@@ -77593,7 +77593,7 @@ _ZN5boost4wave8cpplexer7re2clex24count_backslash_newlinesIPKcEEiPNS2_7ScannerIT_
   br i1 %or.cond398, label %13692, label %13691
 
 13766:                                            ; preds = %13762
-  %13767 = icmp ult i8 %13743, 103
+  %13767 = icmp samesign ult i8 %13743, 103
   %13768 = icmp eq i8 %13743, 110
   %or.cond401 = or i1 %13767, %13768
   br i1 %or.cond401, label %13692, label %13691
@@ -77979,11 +77979,11 @@ _ZN5boost4wave4util11flex_stringIcSt11char_traitsIcESaIcENS1_9CowStringINS1_22Al
   br i1 %13914, label %13915, label %13924
 
 13915:                                            ; preds = %13912
-  %13916 = icmp ult i8 %13911, 11
+  %13916 = icmp samesign ult i8 %13911, 11
   br i1 %13916, label %13917, label %13920
 
 13917:                                            ; preds = %13915
-  %13918 = icmp ult i8 %13911, 9
+  %13918 = icmp samesign ult i8 %13911, 9
   br i1 %13918, label %13929, label %13919
 
 13919:                                            ; preds = %13917
@@ -77991,7 +77991,7 @@ _ZN5boost4wave4util11flex_stringIcSt11char_traitsIcESaIcENS1_9CowStringINS1_22Al
   br i1 %.not5772, label %14001, label %13935
 
 13920:                                            ; preds = %13915
-  %13921 = icmp ult i8 %13911, 13
+  %13921 = icmp samesign ult i8 %13911, 13
   br i1 %13921, label %13935, label %13922
 
 13922:                                            ; preds = %13920
@@ -78272,11 +78272,11 @@ _ZN5boost4wave8cpplexer7re2clex24count_backslash_newlinesIPKcEEiPNS2_7ScannerIT_
   br i1 %14072, label %14073, label %14084
 
 14073:                                            ; preds = %14071
-  %14074 = icmp ult i8 %14070, 63
+  %14074 = icmp samesign ult i8 %14070, 63
   br i1 %14074, label %14075, label %14080
 
 14075:                                            ; preds = %14073
-  %14076 = icmp ult i8 %14070, 39
+  %14076 = icmp samesign ult i8 %14070, 39
   br i1 %14076, label %14077, label %14078
 
 14077:                                            ; preds = %14075
@@ -78289,7 +78289,7 @@ _ZN5boost4wave8cpplexer7re2clex24count_backslash_newlinesIPKcEEiPNS2_7ScannerIT_
   br i1 %14079, label %switch.hole_check, label %13945
 
 14080:                                            ; preds = %14073
-  %14081 = icmp ult i8 %14070, 70
+  %14081 = icmp samesign ult i8 %14070, 70
   br i1 %14081, label %14082, label %14083
 
 14082:                                            ; preds = %14080
@@ -78309,7 +78309,7 @@ _ZN5boost4wave8cpplexer7re2clex24count_backslash_newlinesIPKcEEiPNS2_7ScannerIT_
   br i1 %14085, label %14086, label %14093
 
 14086:                                            ; preds = %14084
-  %14087 = icmp ult i8 %14070, 101
+  %14087 = icmp samesign ult i8 %14070, 101
   br i1 %14087, label %14088, label %14090
 
 14088:                                            ; preds = %14086
@@ -78318,7 +78318,7 @@ _ZN5boost4wave8cpplexer7re2clex24count_backslash_newlinesIPKcEEiPNS2_7ScannerIT_
   br i1 %or.cond455, label %13945, label %.loopexit6534
 
 14090:                                            ; preds = %14086
-  %14091 = icmp ugt i8 %14070, 102
+  %14091 = icmp samesign ugt i8 %14070, 102
   %14092 = icmp ne i8 %14070, 110
   %or.cond458 = and i1 %14091, %14092
   br i1 %or.cond458, label %13945, label %.loopexit6534
@@ -78643,11 +78643,11 @@ switch.hole_check:                                ; preds = %14078
   br i1 %14207, label %14208, label %14221
 
 14208:                                            ; preds = %14206
-  %14209 = icmp ult i8 %14205, 63
+  %14209 = icmp samesign ult i8 %14205, 63
   br i1 %14209, label %14210, label %14217
 
 14210:                                            ; preds = %14208
-  %14211 = icmp ult i8 %14205, 39
+  %14211 = icmp samesign ult i8 %14205, 39
   br i1 %14211, label %14212, label %14214
 
 14212:                                            ; preds = %14210
@@ -78662,7 +78662,7 @@ switch.hole_check:                                ; preds = %14078
   br i1 %or.cond6076, label %.loopexit6534, label %.loopexit6535
 
 14217:                                            ; preds = %14208
-  %14218 = icmp ult i8 %14205, 70
+  %14218 = icmp samesign ult i8 %14205, 70
   br i1 %14218, label %14219, label %14220
 
 14219:                                            ; preds = %14217
@@ -78682,7 +78682,7 @@ switch.hole_check:                                ; preds = %14078
   br i1 %14222, label %14223, label %14230
 
 14223:                                            ; preds = %14221
-  %14224 = icmp ult i8 %14205, 101
+  %14224 = icmp samesign ult i8 %14205, 101
   br i1 %14224, label %14225, label %14227
 
 14225:                                            ; preds = %14223
@@ -78691,7 +78691,7 @@ switch.hole_check:                                ; preds = %14078
   br i1 %or.cond467, label %.loopexit6534, label %.loopexit6535
 
 14227:                                            ; preds = %14223
-  %14228 = icmp ult i8 %14205, 103
+  %14228 = icmp samesign ult i8 %14205, 103
   %14229 = icmp eq i8 %14205, 110
   %or.cond470 = or i1 %14228, %14229
   br i1 %or.cond470, label %.loopexit6534, label %.loopexit6535
@@ -78799,7 +78799,7 @@ switch.hole_check:                                ; preds = %14078
   br i1 %14264, label %14265, label %14271
 
 14265:                                            ; preds = %14263
-  %14266 = icmp ult i8 %14261, 11
+  %14266 = icmp samesign ult i8 %14261, 11
   br i1 %14266, label %14267, label %14269
 
 14267:                                            ; preds = %14265
@@ -79875,7 +79875,7 @@ switch.hole_check:                                ; preds = %14078
   br i1 %14669, label %14670, label %14673
 
 14670:                                            ; preds = %14667
-  %14671 = icmp ult i8 %14666, 32
+  %14671 = icmp samesign ult i8 %14666, 32
   br i1 %14671, label %14674, label %14672
 
 14672:                                            ; preds = %14670
@@ -80183,11 +80183,11 @@ _ZN5boost4wave4util11flex_stringIcSt11char_traitsIcESaIcENS1_9CowStringINS1_22Al
   br i1 %14782, label %14783, label %14792
 
 14783:                                            ; preds = %14780
-  %14784 = icmp ult i8 %14779, 11
+  %14784 = icmp samesign ult i8 %14779, 11
   br i1 %14784, label %14785, label %14788
 
 14785:                                            ; preds = %14783
-  %14786 = icmp ult i8 %14779, 9
+  %14786 = icmp samesign ult i8 %14779, 9
   br i1 %14786, label %14797, label %14787
 
 14787:                                            ; preds = %14785
@@ -80195,7 +80195,7 @@ _ZN5boost4wave4util11flex_stringIcSt11char_traitsIcESaIcENS1_9CowStringINS1_22Al
   br i1 %.not5766, label %14804, label %14802
 
 14788:                                            ; preds = %14783
-  %14789 = icmp ult i8 %14779, 13
+  %14789 = icmp samesign ult i8 %14779, 13
   br i1 %14789, label %14802, label %14790
 
 14790:                                            ; preds = %14788
@@ -80533,11 +80533,11 @@ _ZN5boost4wave8cpplexer7re2clex24count_backslash_newlinesIPKcEEiPNS2_7ScannerIT_
   br i1 %14960, label %14961, label %14975
 
 14961:                                            ; preds = %14959
-  %14962 = icmp ult i8 %14958, 63
+  %14962 = icmp samesign ult i8 %14958, 63
   br i1 %14962, label %14963, label %14971
 
 14963:                                            ; preds = %14961
-  %14964 = icmp ult i8 %14958, 39
+  %14964 = icmp samesign ult i8 %14958, 39
   br i1 %14964, label %14965, label %14967
 
 14965:                                            ; preds = %14963
@@ -80554,7 +80554,7 @@ _ZN5boost4wave8cpplexer7re2clex24count_backslash_newlinesIPKcEEiPNS2_7ScannerIT_
   br i1 %or.cond527, label %14995, label %.loopexit6511.backedge
 
 14971:                                            ; preds = %14961
-  %14972 = icmp ult i8 %14958, 70
+  %14972 = icmp samesign ult i8 %14958, 70
   br i1 %14972, label %14973, label %14974
 
 14973:                                            ; preds = %14971
@@ -80574,7 +80574,7 @@ _ZN5boost4wave8cpplexer7re2clex24count_backslash_newlinesIPKcEEiPNS2_7ScannerIT_
   br i1 %14976, label %14977, label %14984
 
 14977:                                            ; preds = %14975
-  %14978 = icmp ult i8 %14958, 101
+  %14978 = icmp samesign ult i8 %14958, 101
   br i1 %14978, label %14979, label %14981
 
 14979:                                            ; preds = %14977
@@ -80583,7 +80583,7 @@ _ZN5boost4wave8cpplexer7re2clex24count_backslash_newlinesIPKcEEiPNS2_7ScannerIT_
   br i1 %or.cond530, label %14802, label %.loopexit6511.backedge
 
 14981:                                            ; preds = %14977
-  %14982 = icmp ult i8 %14958, 103
+  %14982 = icmp samesign ult i8 %14958, 103
   %14983 = icmp eq i8 %14958, 110
   %or.cond533 = or i1 %14982, %14983
   br i1 %or.cond533, label %14802, label %.loopexit6511.backedge
@@ -80725,11 +80725,11 @@ _ZN5boost4wave8cpplexer7re2clex24count_backslash_newlinesIPKcEEiPNS2_7ScannerIT_
   br i1 %15042, label %15043, label %15057
 
 15043:                                            ; preds = %15041
-  %15044 = icmp ult i8 %15040, 63
+  %15044 = icmp samesign ult i8 %15040, 63
   br i1 %15044, label %15045, label %15053
 
 15045:                                            ; preds = %15043
-  %15046 = icmp ult i8 %15040, 39
+  %15046 = icmp samesign ult i8 %15040, 39
   br i1 %15046, label %15047, label %15049
 
 15047:                                            ; preds = %15045
@@ -80746,7 +80746,7 @@ _ZN5boost4wave8cpplexer7re2clex24count_backslash_newlinesIPKcEEiPNS2_7ScannerIT_
   br i1 %or.cond551, label %14995, label %14994
 
 15053:                                            ; preds = %15043
-  %15054 = icmp ult i8 %15040, 70
+  %15054 = icmp samesign ult i8 %15040, 70
   br i1 %15054, label %15055, label %15056
 
 15055:                                            ; preds = %15053
@@ -80766,7 +80766,7 @@ _ZN5boost4wave8cpplexer7re2clex24count_backslash_newlinesIPKcEEiPNS2_7ScannerIT_
   br i1 %15058, label %15059, label %15066
 
 15059:                                            ; preds = %15057
-  %15060 = icmp ult i8 %15040, 101
+  %15060 = icmp samesign ult i8 %15040, 101
   br i1 %15060, label %15061, label %15063
 
 15061:                                            ; preds = %15059
@@ -80775,7 +80775,7 @@ _ZN5boost4wave8cpplexer7re2clex24count_backslash_newlinesIPKcEEiPNS2_7ScannerIT_
   br i1 %or.cond554, label %14802, label %14994
 
 15063:                                            ; preds = %15059
-  %15064 = icmp ult i8 %15040, 103
+  %15064 = icmp samesign ult i8 %15040, 103
   %15065 = icmp eq i8 %15040, 110
   %or.cond557 = or i1 %15064, %15065
   br i1 %or.cond557, label %14802, label %14994

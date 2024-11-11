@@ -628,7 +628,7 @@ define noundef ptr @_ZN4LIEF3ELF9to_stringENS0_17DynamicEntryFlags4FLAGE(i64 nou
   br i1 %.not.i.i.i.i.i.i, label %_ZNK6frozen3mapIN4LIEF3ELF17DynamicEntryFlags4FLAGEPKcLm35ESt4lessIS4_EE11lower_boundIS4_EEPKSt4pairIS4_S6_ERKT_.exit.i.i, label %2
 
 2:                                                ; preds = %1
-  %.not.i.i.i.i.i.i.i = icmp ugt i64 %0, 4294968320
+  %.not.i.i.i.i.i.i.i = icmp samesign ugt i64 %0, 4294968320
   %.add12.i.i = select i1 %.not.i.i.i.i.i.i.i, i64 264, i64 8
   %.add12.i.i.sroa.sel.sroa.sel.v = select i1 %.not.i.i.i.i.i.i.i, i64 376, i64 120
   %.add12.i.i.sroa.sel.sroa.sel = getelementptr inbounds i8, ptr @__const._ZN4LIEF3ELF9to_stringENS0_17DynamicEntryFlags4FLAGE.enums2str, i64 %.add12.i.i.sroa.sel.sroa.sel.v
@@ -877,7 +877,7 @@ define linkonce_odr hidden ptr @_ZNK3fmt2v99formatterIN4LIEF3ELF17DynamicEntryFl
   br i1 %.not.i.i.i.i.i.i.i, label %_ZNK6frozen3mapIN4LIEF3ELF17DynamicEntryFlags4FLAGEPKcLm35ESt4lessIS4_EE11lower_boundIS4_EEPKSt4pairIS4_S6_ERKT_.exit.i.i.i, label %5
 
 5:                                                ; preds = %3
-  %.not.i.i.i.i.i.i.i.i = icmp ugt i64 %4, 4294968320
+  %.not.i.i.i.i.i.i.i.i = icmp samesign ugt i64 %4, 4294968320
   %.add12.i.i.i = select i1 %.not.i.i.i.i.i.i.i.i, i64 264, i64 8
   %.add12.i.i.sroa.sel.sroa.sel.v.i = select i1 %.not.i.i.i.i.i.i.i.i, i64 376, i64 120
   %.add12.i.i.sroa.sel.sroa.sel.i = getelementptr inbounds i8, ptr @__const._ZN4LIEF3ELF9to_stringENS0_17DynamicEntryFlags4FLAGE.enums2str, i64 %.add12.i.i.sroa.sel.sroa.sel.v.i

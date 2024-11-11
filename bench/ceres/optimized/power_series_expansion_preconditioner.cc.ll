@@ -589,7 +589,7 @@ _ZN5ceres8internal15ParallelSetZeroIN5Eigen3MapINS2_6MatrixIdLin1ELi1ELi0ELin1EL
   %119 = load <2 x double>, ptr %118, align 16
   %120 = fmul <2 x double> %119, %119
   %invariant.gep.i.i.i.i.i = getelementptr inbounds i8, ptr %108, i64 48
-  %121 = icmp ugt i64 %105, 7
+  %121 = icmp samesign ugt i64 %105, 7
   br i1 %121, label %.lr.ph.i.i.i.i.i, label %._crit_edge.i.i.i.i.i
 
 .lr.ph.i.i.i.i.i:                                 ; preds = %117, %.lr.ph.i.i.i.i.i
@@ -2955,7 +2955,7 @@ _ZN6google12Check_GTImplB5cxx11EiiPKc.exit.thread: ; preds = %6, %_ZN6google12Ch
   %50 = load <2 x double>, ptr %49, align 1
   %51 = fmul <2 x double> %50, %50
   %invariant.gep.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %37, i64 48
-  %52 = icmp ugt i64 %35, 7
+  %52 = icmp samesign ugt i64 %35, 7
   br i1 %52, label %.lr.ph.i.i.i.i.i.i.i, label %._crit_edge.i.i.i.i.i.i.i
 
 .lr.ph.i.i.i.i.i.i.i:                             ; preds = %48, %.lr.ph.i.i.i.i.i.i.i
@@ -3503,7 +3503,7 @@ _ZZZN5ceres8internal14ParallelInvokeIZNS0_4NormIN5Eigen3MapINS3_6MatrixIdLin1ELi
   %107 = load <2 x double>, ptr %106, align 1
   %108 = fmul <2 x double> %107, %107
   %invariant.gep.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %94, i64 48
-  %109 = icmp ugt i64 %92, 7
+  %109 = icmp samesign ugt i64 %92, 7
   br i1 %109, label %.lr.ph.i.i.i.i.i.i.i, label %._crit_edge.i.i.i.i.i.i.i
 
 .lr.ph.i.i.i.i.i.i.i:                             ; preds = %105, %.lr.ph.i.i.i.i.i.i.i
@@ -4066,7 +4066,7 @@ _ZZZN5ceres8internal14ParallelInvokeIZNS0_4NormIN5Eigen3MapINS3_6MatrixIdLin1ELi
   %150 = load <2 x double>, ptr %149, align 1
   %151 = fmul <2 x double> %150, %150
   %invariant.gep.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %137, i64 48
-  %152 = icmp ugt i64 %135, 7
+  %152 = icmp samesign ugt i64 %135, 7
   br i1 %152, label %.lr.ph.i.i.i.i.i.i.i, label %._crit_edge.i.i.i.i.i.i.i
 
 .lr.ph.i.i.i.i.i.i.i:                             ; preds = %148, %.lr.ph.i.i.i.i.i.i.i

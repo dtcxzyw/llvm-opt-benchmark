@@ -1054,7 +1054,7 @@ define linkonce_odr hidden void @_ZN7mitsuba6detail5sieveImEENSt3__16vectorIT_NS
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %4)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5)
   store i8 1, ptr %4, align 1
-  %16 = icmp ult i64 %7, 65
+  %16 = icmp samesign ult i64 %7, 65
   br i1 %16, label %17, label %18
 
 17:                                               ; preds = %11

@@ -722,7 +722,7 @@ define dso_local zeroext i1 @fsnotify_prepare_user_wait(ptr nocapture noundef re
   br label %69
 
 69:                                               ; preds = %66, %62, %55, %.preheader
-  %70 = icmp ugt i64 %50, 1
+  %70 = icmp samesign ugt i64 %50, 1
   br i1 %70, label %.preheader, label %.loopexit, !llvm.loop !39
 
 .loopexit:                                        ; preds = %69, %49, %.loopexit7

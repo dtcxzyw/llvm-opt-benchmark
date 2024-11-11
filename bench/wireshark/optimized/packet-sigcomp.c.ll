@@ -2024,7 +2024,7 @@ define internal fastcc noundef ptr @decompress_sigcomp_message(ptr noundef %0, p
   br i1 %.not.i, label %206, label %172
 
 172:                                              ; preds = %168
-  %173 = icmp ult i8 %171, -64
+  %173 = icmp samesign ult i8 %171, -64
   br i1 %173, label %174, label %189
 
 174:                                              ; preds = %172
@@ -2085,7 +2085,7 @@ define internal fastcc noundef ptr @decompress_sigcomp_message(ptr noundef %0, p
   %216 = zext i8 %215 to i16
   %217 = or disjoint i16 %.sink60.i, %216
   %218 = add nuw nsw i32 %.sink.i, %166
-  %219 = icmp ugt i32 %218, 65535
+  %219 = icmp samesign ugt i32 %218, 65535
   %220 = icmp eq i32 %.12887, 65535
   %or.cond3019 = select i1 %219, i1 true, i1 %220
   br i1 %or.cond3019, label %dissect_udvm_reference_operand_memory.exit.thread, label %dissect_udvm_reference_operand_memory.exit
@@ -2181,7 +2181,7 @@ dissect_udvm_reference_operand_memory.exit:       ; preds = %212
   br i1 %.not.i2617, label %298, label %264
 
 264:                                              ; preds = %260
-  %265 = icmp ult i8 %263, -64
+  %265 = icmp samesign ult i8 %263, -64
   br i1 %265, label %266, label %281
 
 266:                                              ; preds = %264
@@ -2242,7 +2242,7 @@ dissect_udvm_reference_operand_memory.exit:       ; preds = %212
   %308 = zext i8 %307 to i16
   %309 = or disjoint i16 %.sink60.i2623, %308
   %310 = add nuw nsw i32 %.sink.i2620, %258
-  %311 = icmp ugt i32 %310, 65535
+  %311 = icmp samesign ugt i32 %310, 65535
   %312 = icmp eq i32 %.32889, 65535
   %or.cond3020 = select i1 %311, i1 true, i1 %312
   br i1 %or.cond3020, label %dissect_udvm_reference_operand_memory.exit.thread, label %dissect_udvm_reference_operand_memory.exit2626
@@ -2328,7 +2328,7 @@ dissect_udvm_reference_operand_memory.exit2626:   ; preds = %304
   br i1 %.not.i2627, label %389, label %355
 
 355:                                              ; preds = %351
-  %356 = icmp ult i8 %354, -64
+  %356 = icmp samesign ult i8 %354, -64
   br i1 %356, label %357, label %372
 
 357:                                              ; preds = %355
@@ -2389,7 +2389,7 @@ dissect_udvm_reference_operand_memory.exit2626:   ; preds = %304
   %399 = zext i8 %398 to i16
   %400 = or disjoint i16 %.sink60.i2633, %399
   %401 = add nuw nsw i32 %.sink.i2630, %349
-  %402 = icmp ugt i32 %401, 65535
+  %402 = icmp samesign ugt i32 %401, 65535
   %403 = icmp eq i32 %.52891, 65535
   %or.cond3021 = select i1 %402, i1 true, i1 %403
   br i1 %or.cond3021, label %dissect_udvm_reference_operand_memory.exit.thread, label %dissect_udvm_reference_operand_memory.exit2636
@@ -2451,7 +2451,7 @@ dissect_udvm_reference_operand_memory.exit2636:   ; preds = %395
   br i1 %.not.i2637, label %468, label %434
 
 434:                                              ; preds = %430
-  %435 = icmp ult i8 %433, -64
+  %435 = icmp samesign ult i8 %433, -64
   br i1 %435, label %436, label %451
 
 436:                                              ; preds = %434
@@ -2512,7 +2512,7 @@ dissect_udvm_reference_operand_memory.exit2636:   ; preds = %395
   %478 = zext i8 %477 to i16
   %479 = or disjoint i16 %.sink60.i2643, %478
   %480 = add nuw nsw i32 %.sink.i2640, %428
-  %481 = icmp ugt i32 %480, 65535
+  %481 = icmp samesign ugt i32 %480, 65535
   %482 = icmp eq i32 %.72893, 65535
   %or.cond3022 = select i1 %481, i1 true, i1 %482
   br i1 %or.cond3022, label %dissect_udvm_reference_operand_memory.exit.thread, label %dissect_udvm_reference_operand_memory.exit2646
@@ -2616,7 +2616,7 @@ thread-pre-split:                                 ; preds = %.thread3942
   br i1 %.not.i2647, label %568, label %534
 
 534:                                              ; preds = %530
-  %535 = icmp ult i8 %533, -64
+  %535 = icmp samesign ult i8 %533, -64
   br i1 %535, label %536, label %551
 
 536:                                              ; preds = %534
@@ -2677,7 +2677,7 @@ thread-pre-split:                                 ; preds = %.thread3942
   %578 = zext i8 %577 to i16
   %579 = or disjoint i16 %.sink60.i2653, %578
   %580 = add nuw nsw i32 %.sink.i2650, %528
-  %581 = icmp ugt i32 %580, 65535
+  %581 = icmp samesign ugt i32 %580, 65535
   %582 = icmp eq i32 %.92895, 65535
   %or.cond3023 = select i1 %581, i1 true, i1 %582
   br i1 %or.cond3023, label %dissect_udvm_reference_operand_memory.exit.thread, label %dissect_udvm_reference_operand_memory.exit2656
@@ -2780,7 +2780,7 @@ thread-pre-split2936:                             ; preds = %.thread3944
   br i1 %.not.i2657, label %667, label %633
 
 633:                                              ; preds = %629
-  %634 = icmp ult i8 %632, -64
+  %634 = icmp samesign ult i8 %632, -64
   br i1 %634, label %635, label %650
 
 635:                                              ; preds = %633
@@ -2841,7 +2841,7 @@ thread-pre-split2936:                             ; preds = %.thread3944
   %677 = zext i8 %676 to i16
   %678 = or disjoint i16 %.sink60.i2663, %677
   %679 = add nuw nsw i32 %.sink.i2660, %627
-  %680 = icmp ugt i32 %679, 65535
+  %680 = icmp samesign ugt i32 %679, 65535
   %681 = icmp eq i32 %.11, 65535
   %or.cond3024 = select i1 %680, i1 true, i1 %681
   br i1 %or.cond3024, label %dissect_udvm_reference_operand_memory.exit.thread, label %dissect_udvm_reference_operand_memory.exit2666
@@ -2927,7 +2927,7 @@ dissect_udvm_reference_operand_memory.exit2666:   ; preds = %673
   br i1 %.not.i2667, label %758, label %724
 
 724:                                              ; preds = %720
-  %725 = icmp ult i8 %723, -64
+  %725 = icmp samesign ult i8 %723, -64
   br i1 %725, label %726, label %741
 
 726:                                              ; preds = %724
@@ -2988,7 +2988,7 @@ dissect_udvm_reference_operand_memory.exit2666:   ; preds = %673
   %768 = zext i8 %767 to i16
   %769 = or disjoint i16 %.sink60.i2673, %768
   %770 = add nuw nsw i32 %.sink.i2670, %718
-  %771 = icmp ugt i32 %770, 65535
+  %771 = icmp samesign ugt i32 %770, 65535
   %772 = icmp eq i32 %.13, 65535
   %or.cond3025 = select i1 %771, i1 true, i1 %772
   br i1 %or.cond3025, label %dissect_udvm_reference_operand_memory.exit.thread, label %dissect_udvm_reference_operand_memory.exit2676
@@ -3074,7 +3074,7 @@ dissect_udvm_reference_operand_memory.exit2676:   ; preds = %764
   br i1 %.not.i2677, label %849, label %815
 
 815:                                              ; preds = %811
-  %816 = icmp ult i8 %814, -64
+  %816 = icmp samesign ult i8 %814, -64
   br i1 %816, label %817, label %832
 
 817:                                              ; preds = %815
@@ -3135,7 +3135,7 @@ dissect_udvm_reference_operand_memory.exit2676:   ; preds = %764
   %859 = zext i8 %858 to i16
   %860 = or disjoint i16 %.sink60.i2683, %859
   %861 = add nuw nsw i32 %.sink.i2680, %809
-  %862 = icmp ugt i32 %861, 65535
+  %862 = icmp samesign ugt i32 %861, 65535
   %863 = icmp eq i32 %.15, 65535
   %or.cond3026 = select i1 %862, i1 true, i1 %863
   br i1 %or.cond3026, label %dissect_udvm_reference_operand_memory.exit.thread, label %dissect_udvm_reference_operand_memory.exit2686
@@ -3237,7 +3237,7 @@ thread-pre-split2950:                             ; preds = %880
   br i1 %.not.i2687, label %949, label %915
 
 915:                                              ; preds = %911
-  %916 = icmp ult i8 %914, -64
+  %916 = icmp samesign ult i8 %914, -64
   br i1 %916, label %917, label %932
 
 917:                                              ; preds = %915
@@ -3298,7 +3298,7 @@ thread-pre-split2950:                             ; preds = %880
   %959 = zext i8 %958 to i16
   %960 = or disjoint i16 %.sink60.i2693, %959
   %961 = add nuw nsw i32 %.sink.i2690, %909
-  %962 = icmp ugt i32 %961, 65535
+  %962 = icmp samesign ugt i32 %961, 65535
   %963 = icmp eq i32 %.17, 65535
   %or.cond3027 = select i1 %962, i1 true, i1 %963
   br i1 %or.cond3027, label %dissect_udvm_reference_operand_memory.exit.thread, label %dissect_udvm_reference_operand_memory.exit2696
@@ -3400,7 +3400,7 @@ thread-pre-split2956:                             ; preds = %980
   br i1 %.not.i2697, label %1049, label %1015
 
 1015:                                             ; preds = %1011
-  %1016 = icmp ult i8 %1014, -64
+  %1016 = icmp samesign ult i8 %1014, -64
   br i1 %1016, label %1017, label %1032
 
 1017:                                             ; preds = %1015
@@ -3462,7 +3462,7 @@ thread-pre-split2956:                             ; preds = %980
   %1060 = or disjoint i16 %.sink60.i2703, %1059
   %.fr2586 = freeze i16 %1060
   %1061 = add nuw nsw i32 %.sink.i2700, %1009
-  %1062 = icmp ugt i32 %1061, 65535
+  %1062 = icmp samesign ugt i32 %1061, 65535
   %1063 = icmp eq i32 %.19, 65535
   %or.cond3028 = select i1 %1062, i1 true, i1 %1063
   br i1 %or.cond3028, label %dissect_udvm_reference_operand_memory.exit.thread, label %dissect_udvm_reference_operand_memory.exit2706
@@ -3617,7 +3617,7 @@ thread-pre-split2962:                             ; preds = %1080
   %1140 = phi i32 [ %1122, %._crit_edge3760 ], [ %1129, %.thread3954 ]
   %.pre-phi3792 = phi i32 [ %.pre3791, %._crit_edge3760 ], [ %1134, %.thread3954 ]
   %1141 = add i32 %.pre-phi3792, %1139
-  %1142 = icmp ugt i32 %1140, 65535
+  %1142 = icmp samesign ugt i32 %1140, 65535
   br i1 %1142, label %dissect_udvm_reference_operand_memory.exit.thread, label %1143
 
 1143:                                             ; preds = %1138
@@ -3628,7 +3628,7 @@ thread-pre-split2962:                             ; preds = %1080
   br i1 %.not.i2707, label %1181, label %1147
 
 1147:                                             ; preds = %1143
-  %1148 = icmp ult i8 %1146, -64
+  %1148 = icmp samesign ult i8 %1146, -64
   br i1 %1148, label %1149, label %1164
 
 1149:                                             ; preds = %1147
@@ -3688,7 +3688,7 @@ thread-pre-split2962:                             ; preds = %1080
   %1190 = zext i8 %1189 to i16
   %1191 = or disjoint i16 %.sink60.i2713, %1190
   %1192 = add nuw nsw i32 %.sink.i2710, %1140
-  %1193 = icmp ugt i32 %1192, 65535
+  %1193 = icmp samesign ugt i32 %1192, 65535
   %or.cond3029 = select i1 %1193, i1 true, i1 %.21
   br i1 %or.cond3029, label %dissect_udvm_reference_operand_memory.exit.thread, label %dissect_udvm_reference_operand_memory.exit2716
 
@@ -3783,7 +3783,7 @@ dissect_udvm_reference_operand_memory.exit2716:   ; preds = %1187
   %1242 = zext i16 %.02361 to i64
   call void @gcry_md_write(ptr noundef %1237, ptr noundef %1241, i64 noundef %1242) #8
   %.narrow2584 = add i16 %.02361, %.129033365
-  %.not2585 = icmp ult i32 %1233, %1223
+  %.not2585 = icmp samesign ult i32 %1233, %1223
   %spec.select = select i1 %.not2585, i32 %1233, i32 %1225
   %1243 = zext i16 %.narrow2584 to i32
   %1244 = icmp ult i16 %.narrow2584, %1200
@@ -3933,7 +3933,7 @@ dissect_udvm_reference_operand_memory.exit2716:   ; preds = %1187
   %.pre-phi3800 = phi i32 [ %.pre3799, %.thread2969..thread2970_crit_edge ], [ %1316, %1314 ]
   %1320 = phi i32 [ %1312, %.thread2969..thread2970_crit_edge ], [ %1309, %1314 ]
   %1321 = add i32 %.pre-phi3800, %150
-  %1322 = icmp ugt i32 %1320, 65535
+  %1322 = icmp samesign ugt i32 %1320, 65535
   br i1 %1322, label %dissect_udvm_reference_operand_memory.exit.thread, label %1323
 
 1323:                                             ; preds = %.thread2970
@@ -3944,7 +3944,7 @@ dissect_udvm_reference_operand_memory.exit2716:   ; preds = %1187
   br i1 %.not.i2717, label %1351, label %1327
 
 1327:                                             ; preds = %1323
-  %1328 = icmp ult i8 %1326, -64
+  %1328 = icmp samesign ult i8 %1326, -64
   br i1 %1328, label %1329, label %1340
 
 1329:                                             ; preds = %1327
@@ -4469,7 +4469,7 @@ decode_udvm_literal_operand.exit:                 ; preds = %1329, %1340, %1351
   %1640 = phi i32 [ %1628, %._crit_edge3755 ], [ %1626, %1631 ]
   %.pre-phi3816 = phi i32 [ %.pre3815, %._crit_edge3755 ], [ %1634, %1631 ]
   %1641 = add i32 %1639, %.pre-phi3816
-  %1642 = icmp ugt i32 %1640, 65535
+  %1642 = icmp samesign ugt i32 %1640, 65535
   br i1 %1642, label %dissect_udvm_reference_operand_memory.exit.thread, label %1643
 
 1643:                                             ; preds = %1638
@@ -4480,7 +4480,7 @@ decode_udvm_literal_operand.exit:                 ; preds = %1329, %1340, %1351
   br i1 %.not.i2719, label %1681, label %1647
 
 1647:                                             ; preds = %1643
-  %1648 = icmp ult i8 %1646, -64
+  %1648 = icmp samesign ult i8 %1646, -64
   br i1 %1648, label %1649, label %1664
 
 1649:                                             ; preds = %1647
@@ -4541,7 +4541,7 @@ decode_udvm_literal_operand.exit:                 ; preds = %1329, %1340, %1351
   %1691 = zext i8 %1690 to i16
   %1692 = or disjoint i16 %.sink60.i2725, %1691
   %1693 = add nuw nsw i32 %.sink.i2722, %1640
-  %1694 = icmp ugt i32 %1693, 65535
+  %1694 = icmp samesign ugt i32 %1693, 65535
   %1695 = icmp eq i32 %.23, 65535
   %or.cond3033 = select i1 %1694, i1 true, i1 %1695
   br i1 %or.cond3033, label %dissect_udvm_reference_operand_memory.exit.thread, label %dissect_udvm_reference_operand_memory.exit2728
@@ -4709,7 +4709,7 @@ dissect_udvm_reference_operand_memory.exit2728:   ; preds = %1687
   %1789 = phi i32 [ %1777, %._crit_edge3753 ], [ %1775, %1780 ]
   %.pre-phi3822 = phi i32 [ %.pre3821, %._crit_edge3753 ], [ %1783, %1780 ]
   %1790 = add i32 %1788, %.pre-phi3822
-  %1791 = icmp ugt i32 %1789, 65535
+  %1791 = icmp samesign ugt i32 %1789, 65535
   br i1 %1791, label %dissect_udvm_reference_operand_memory.exit.thread, label %1792
 
 1792:                                             ; preds = %1787
@@ -4720,7 +4720,7 @@ dissect_udvm_reference_operand_memory.exit2728:   ; preds = %1687
   br i1 %.not.i2729, label %1830, label %1796
 
 1796:                                             ; preds = %1792
-  %1797 = icmp ult i8 %1795, -64
+  %1797 = icmp samesign ult i8 %1795, -64
   br i1 %1797, label %1798, label %1813
 
 1798:                                             ; preds = %1796
@@ -4781,7 +4781,7 @@ dissect_udvm_reference_operand_memory.exit2728:   ; preds = %1687
   %1840 = zext i8 %1839 to i16
   %1841 = or disjoint i16 %.sink60.i2735, %1840
   %1842 = add nuw nsw i32 %.sink.i2732, %1789
-  %1843 = icmp ugt i32 %1842, 65535
+  %1843 = icmp samesign ugt i32 %1842, 65535
   %1844 = icmp eq i32 %.25, 65535
   %or.cond3034 = select i1 %1843, i1 true, i1 %1844
   br i1 %or.cond3034, label %dissect_udvm_reference_operand_memory.exit.thread, label %dissect_udvm_reference_operand_memory.exit2738
@@ -5466,7 +5466,7 @@ dissect_udvm_reference_operand_memory.exit2738:   ; preds = %1836
   br i1 %.not.i2741, label %2247, label %2223
 
 2223:                                             ; preds = %2219
-  %2224 = icmp ult i8 %2222, -64
+  %2224 = icmp samesign ult i8 %2222, -64
   br i1 %2224, label %2225, label %2236
 
 2225:                                             ; preds = %2223
@@ -5735,7 +5735,7 @@ decode_udvm_literal_operand.exit2746:             ; preds = %2225, %2236, %2247
 2365:                                             ; preds = %2363
   %2366 = zext i16 %narrow to i32
   %2367 = add nuw nsw i32 %.123291, %2366
-  %.not2556 = icmp ult i32 %2367, %2362
+  %.not2556 = icmp samesign ult i32 %2367, %2362
   br i1 %.not2556, label %2371, label %2368
 
 2368:                                             ; preds = %2365
@@ -5756,7 +5756,7 @@ decode_udvm_literal_operand.exit2746:             ; preds = %2225, %2236, %2247
   %2378 = xor i16 %.023813292, -1
   %2379 = call zeroext i16 @crc16_ccitt_seed(ptr noundef %2377, i32 noundef %2372, i16 noundef zeroext %2378) #8
   %.narrow2557 = add i16 %.0, %.729093290
-  %.not2558 = icmp ult i32 %2373, %2362
+  %.not2558 = icmp samesign ult i32 %2373, %2362
   %spec.select2606 = select i1 %.not2558, i32 %2373, i32 %2356
   %2380 = icmp ult i16 %.narrow2557, %2340
   br i1 %2380, label %2363, label %._crit_edge3295.loopexit, !llvm.loop !20
@@ -6170,7 +6170,7 @@ decode_udvm_literal_operand.exit2746:             ; preds = %2225, %2236, %2247
 2592:                                             ; preds = %._crit_edge3729, %2587
   %.pre-phi3884 = phi i32 [ %.pre3883, %._crit_edge3729 ], [ %2589, %2587 ]
   %2593 = add i32 %.pre-phi3884, %2582
-  %2594 = icmp ugt i32 %2583, 65535
+  %2594 = icmp samesign ugt i32 %2583, 65535
   br i1 %2594, label %dissect_udvm_reference_operand_memory.exit.thread, label %2595
 
 2595:                                             ; preds = %2592
@@ -6181,7 +6181,7 @@ decode_udvm_literal_operand.exit2746:             ; preds = %2225, %2236, %2247
   br i1 %.not.i2751, label %2623, label %2599
 
 2599:                                             ; preds = %2595
-  %2600 = icmp ult i8 %2598, -64
+  %2600 = icmp samesign ult i8 %2598, -64
   br i1 %2600, label %2601, label %2612
 
 2601:                                             ; preds = %2599
@@ -7864,7 +7864,7 @@ proto_item_set_generated.exit:                    ; preds = %.lr.ph909, %15, %18
   %hf_udvm_addr_value.val994 = load i32, ptr @hf_udvm_addr_value, align 4
   %284 = select i1 %.not879, i32 %hf_udvm_value.val993, i32 %hf_udvm_addr_value.val994
   %285 = tail call ptr @proto_tree_add_uint(ptr noundef %2, i32 noundef %284, ptr noundef %0, i32 noundef %279, i32 noundef %280, i32 noundef %283) #8
-  %286 = icmp ugt i32 %.0825903, 1
+  %286 = icmp samesign ugt i32 %.0825903, 1
   br i1 %286, label %.lr.ph905, label %.loopexit, !llvm.loop !28
 
 287:                                              ; preds = %proto_item_set_generated.exit
@@ -8138,7 +8138,7 @@ proto_item_set_generated.exit:                    ; preds = %.lr.ph909, %15, %18
   %484 = load i32, ptr @hf_udvm_at_address, align 4
   %485 = zext i16 %.narrow860 to i32
   %486 = tail call ptr @proto_tree_add_uint(ptr noundef %2, i32 noundef %484, ptr noundef %0, i32 noundef %481, i32 noundef %482, i32 noundef %485) #8
-  %487 = icmp ugt i32 %.1826899, 1
+  %487 = icmp samesign ugt i32 %.1826899, 1
   br i1 %487, label %478, label %.loopexit, !llvm.loop !29
 
 488:                                              ; preds = %proto_item_set_generated.exit
@@ -8317,7 +8317,7 @@ proto_item_set_generated.exit:                    ; preds = %.lr.ph909, %15, %18
   %616 = load i16, ptr %6, align 2
   %617 = zext i16 %616 to i32
   %618 = tail call ptr @proto_tree_add_uint(ptr noundef %2, i32 noundef %615, ptr noundef %0, i32 noundef %613, i32 noundef %614, i32 noundef %617) #8
-  %619 = icmp ugt i32 %.2827897, 1
+  %619 = icmp samesign ugt i32 %.2827897, 1
   br i1 %619, label %.lr.ph, label %.loopexit, !llvm.loop !30
 
 620:                                              ; preds = %proto_item_set_generated.exit

@@ -329,7 +329,7 @@ define internal i64 @usbdev_read(ptr nocapture noundef readonly %0, ptr noundef 
   br i1 %20, label %.loopexit, label %21
 
 21:                                               ; preds = %19
-  %22 = icmp ult i64 %10, 18
+  %22 = icmp samesign ult i64 %10, 18
   br i1 %22, label %23, label %40
 
 23:                                               ; preds = %21
@@ -2090,7 +2090,7 @@ define internal fastcc i32 @proc_resetep(ptr noundef %0, ptr noundef %1) unnamed
 
 .thread13:                                        ; preds = %69, %75
   %85 = load ptr, ptr %12, align 8
-  %86 = icmp ult i32 %6, 128
+  %86 = icmp samesign ult i32 %6, 128
   %87 = select i1 %86, i64 1072, i64 944
   %88 = getelementptr inbounds i8, ptr %85, i64 %87
   %89 = and i32 %6, 15

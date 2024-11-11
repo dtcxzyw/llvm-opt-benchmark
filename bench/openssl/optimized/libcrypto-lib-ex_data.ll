@@ -332,7 +332,7 @@ if.end4:                                          ; preds = %if.end4.i
   br i1 %cmp7, label %if.then8, label %if.end21
 
 if.then8:                                         ; preds = %if.end4
-  %cmp9 = icmp ult i32 %call.i35, 10
+  %cmp9 = icmp samesign ult i32 %call.i35, 10
   br i1 %cmp9, label %for.body.preheader, label %if.end12
 
 if.end12:                                         ; preds = %if.then8
@@ -513,7 +513,7 @@ if.end9:                                          ; preds = %if.end4.i
   br i1 %cmp17, label %if.end31, label %if.then18
 
 if.then18:                                        ; preds = %if.end9
-  %cmp19 = icmp ult i32 %spec.select, 10
+  %cmp19 = icmp samesign ult i32 %spec.select, 10
   br i1 %cmp19, label %for.body.preheader, label %if.end22
 
 if.end22:                                         ; preds = %if.then18
@@ -744,7 +744,7 @@ if.end4:                                          ; preds = %if.end4.i
   br i1 %cmp6, label %if.then7, label %if.end52.thread
 
 if.then7:                                         ; preds = %if.end4
-  %cmp8 = icmp ult i32 %call.i38, 10
+  %cmp8 = icmp samesign ult i32 %call.i38, 10
   br i1 %cmp8, label %for.body.preheader, label %if.end11
 
 if.end11:                                         ; preds = %if.then7

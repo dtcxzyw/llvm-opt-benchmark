@@ -5719,7 +5719,7 @@ add_group_mask_entry.exit236.i:                   ; preds = %238, %230
 
 389:                                              ; preds = %383
   %390 = sub nuw i32 %4, %385
-  %391 = icmp ult i32 %190, 201
+  %391 = icmp samesign ult i32 %190, 201
   %392 = sub nuw nsw i32 216, %190
   %393 = select i1 %391, i32 16, i32 %392
   %spec.select.i.i = tail call i32 @llvm.umin.i32(i32 %390, i32 %393)
@@ -5809,7 +5809,7 @@ decode_smart_resp_temps.exit.i:                   ; preds = %._crit_edge.i.i, %3
 
 435:                                              ; preds = %433, %.thread.i95
   %436 = tail call i32 @llvm.umax.i32(i32 %190, i32 232)
-  %437 = icmp ult i32 %190, 233
+  %437 = icmp samesign ult i32 %190, 233
   %438 = sub nuw nsw i32 512, %190
   %439 = select i1 %437, i32 280, i32 %438
   %440 = sub i32 %4, %436
@@ -5873,7 +5873,7 @@ add_group_mask_entry.exit.i100:                   ; preds = %457, %447
 
 473:                                              ; preds = %467
   %474 = sub nuw i32 %4, %469
-  %475 = icmp ult i32 %445, 9
+  %475 = icmp samesign ult i32 %445, 9
   %476 = sub nuw nsw i32 64, %445
   %477 = select i1 %475, i32 56, i32 %476
   %spec.select.i.i103 = tail call i32 @llvm.umin.i32(i32 %474, i32 %477)
@@ -5914,7 +5914,7 @@ decode_fw_slot_frs.exit.i:                        ; preds = %._crit_edge.i.i108,
 
 494:                                              ; preds = %decode_fw_slot_frs.exit.i
   %495 = tail call i32 @llvm.umax.i32(i32 %445, i32 64)
-  %496 = icmp ult i32 %445, 65
+  %496 = icmp samesign ult i32 %445, 65
   %497 = sub nuw nsw i32 512, %445
   %498 = select i1 %496, i32 448, i32 %497
   %499 = sub i32 %4, %495
@@ -6598,7 +6598,7 @@ add_group_mask_entry.exit.i147:                   ; preds = %736, %726
   br i1 %or.cond147.i, label %dissect_nvme_get_logpage_err_inf_resp.exit, label %885
 
 885:                                              ; preds = %882
-  %886 = icmp ult i32 %724, 161
+  %886 = icmp samesign ult i32 %724, 161
   %887 = add nsw i32 %724, -160
   %888 = select i1 %886, i32 %870, i32 %887
   %889 = load i32, ptr @hf_nvme_get_logpage_egroup_rsvd2, align 4

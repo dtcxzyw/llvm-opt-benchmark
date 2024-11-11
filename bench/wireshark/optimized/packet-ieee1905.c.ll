@@ -3723,7 +3723,7 @@ dissect_non_1905_neighbor_device_list.exit:       ; preds = %._crit_edge.i422, %
   %192 = call ptr @proto_tree_add_bitmask(ptr noundef %184, ptr noundef %0, i32 noundef %189, i32 noundef %190, i32 noundef %191, ptr noundef nonnull @dissect_1905_neighbor_device.flags, i32 noundef 0) #11
   %193 = add nsw i32 %.02.i419, -7
   %194 = add i32 %.0231.i, 7
-  %195 = icmp ugt i32 %.02.i419, 7
+  %195 = icmp samesign ugt i32 %.02.i419, 7
   br i1 %195, label %.lr.ph.i418, label %dissect_1905_neighbor_device.exit, !llvm.loop !9
 
 dissect_1905_neighbor_device.exit:                ; preds = %.lr.ph.i418, %179
@@ -3798,7 +3798,7 @@ dissect_1905_neighbor_device.exit:                ; preds = %.lr.ph.i418, %179
   %243 = call ptr @proto_tree_add_item(ptr noundef %91, i32 noundef %242, ptr noundef %0, i32 noundef %241, i32 noundef 2, i32 noundef 0) #11
   %244 = add i32 %226, 15
   %245 = add nsw i32 %.02.i415, -29
-  %246 = icmp ugt i32 %.02.i415, 29
+  %246 = icmp samesign ugt i32 %.02.i415, 29
   br i1 %246, label %.lr.ph.i414, label %dissect_ieee1905_tlv_data.exit, !llvm.loop !10
 
 247:                                              ; preds = %98
@@ -3835,7 +3835,7 @@ dissect_1905_neighbor_device.exit:                ; preds = %.lr.ph.i418, %179
   %270 = call ptr @proto_tree_add_item(ptr noundef %91, i32 noundef %269, ptr noundef %0, i32 noundef %268, i32 noundef 1, i32 noundef 0) #11
   %271 = add i32 %262, 9
   %272 = add nsw i32 %.02.i411, -23
-  %273 = icmp ugt i32 %.02.i411, 23
+  %273 = icmp samesign ugt i32 %.02.i411, 23
   br i1 %273, label %.lr.ph.i410, label %dissect_ieee1905_tlv_data.exit, !llvm.loop !11
 
 274:                                              ; preds = %98
@@ -4869,7 +4869,7 @@ dissect_ap_radio_basic_capabilities.exit:         ; preds = %.loopexit.i287, %77
   %846 = load i32, ptr @ett_ieee1905_ap_he_rx_mcs_set, align 4
   %847 = call ptr @proto_tree_add_bitmask_with_flags(ptr noundef %840, ptr noundef %0, i32 noundef %844, i32 noundef %845, i32 noundef %846, ptr noundef nonnull @rx_he_mcs_map_headers, i32 noundef 0, i32 noundef 1) #11
   %848 = add i32 %.0, 14
-  %849 = icmp ugt i8 %834, 4
+  %849 = icmp samesign ugt i8 %834, 4
   br i1 %849, label %850, label %dissect_ap_he_capabilities.exit
 
 850:                                              ; preds = %838
@@ -4883,7 +4883,7 @@ dissect_ap_radio_basic_capabilities.exit:         ; preds = %.loopexit.i287, %77
   %858 = load i32, ptr @ett_ieee1905_ap_he_rx_mcs_set, align 4
   %859 = call ptr @proto_tree_add_bitmask_with_flags(ptr noundef %852, ptr noundef %0, i32 noundef %856, i32 noundef %857, i32 noundef %858, ptr noundef nonnull @rx_he_mcs_map_headers, i32 noundef 0, i32 noundef 1) #11
   %860 = add i32 %.0, 18
-  %861 = icmp ugt i8 %834, 8
+  %861 = icmp samesign ugt i8 %834, 8
   br i1 %861, label %862, label %dissect_ap_he_capabilities.exit
 
 862:                                              ; preds = %850
@@ -5358,7 +5358,7 @@ dissect_operating_channel_report.exit:            ; preds = %1094, %1081
   %1144 = call ptr @proto_tree_add_item(ptr noundef %1141, i32 noundef %1143, ptr noundef %0, i32 noundef %.0171.i, i32 noundef 6, i32 noundef 0) #11
   %1145 = add i32 %.0171.i, 6
   %1146 = add nsw i32 %.02.i236, -6
-  %1147 = icmp ugt i32 %.02.i236, 11
+  %1147 = icmp samesign ugt i32 %.02.i236, 11
   br i1 %1147, label %.lr.ph.i235, label %dissect_ap_metric_query.exit, !llvm.loop !42
 
 dissect_ap_metric_query.exit:                     ; preds = %.lr.ph.i235, %1136
@@ -5466,7 +5466,7 @@ dissect_ap_metric_query.exit:                     ; preds = %.lr.ph.i235, %1136
   %1219 = add i32 %.03.i228, 19
   %1220 = add i8 %.0472.i, 1
   %1221 = add nsw i32 %.0481.i, -19
-  %1222 = icmp ugt i32 %.0481.i, 37
+  %1222 = icmp samesign ugt i32 %.0481.i, 37
   br i1 %1222, label %.lr.ph.i227, label %dissect_associated_sta_link_metrics.exit, !llvm.loop !43
 
 dissect_associated_sta_link_metrics.exit:         ; preds = %.lr.ph.i227, %1190
@@ -6665,7 +6665,7 @@ dissect_ap_wf6_capabilities.exit:                 ; preds = %1800, %1747
   %1989 = add i32 %.03.i, 2
   %1990 = add i8 %.0382.i, 1
   %1991 = add nsw i32 %.0391.i, -2
-  %1992 = icmp ugt i32 %.0391.i, 3
+  %1992 = icmp samesign ugt i32 %.0391.i, 3
   br i1 %1992, label %.lr.ph.i108, label %dissect_associated_wf6_sta_status_report.exit, !llvm.loop !65
 
 dissect_associated_wf6_sta_status_report.exit:    ; preds = %.lr.ph.i108, %1967

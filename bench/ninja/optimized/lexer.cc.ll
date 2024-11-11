@@ -437,11 +437,11 @@ define dso_local noundef range(i32 0, 16) i32 @_ZN5Lexer9ReadTokenEv(ptr nocaptu
   br i1 %7, label %8, label %22
 
 8:                                                ; preds = %6
-  %9 = icmp ult i8 %5, 45
+  %9 = icmp samesign ult i8 %5, 45
   br i1 %9, label %10, label %14
 
 10:                                               ; preds = %8
-  %11 = icmp ult i8 %5, 13
+  %11 = icmp samesign ult i8 %5, 13
   br i1 %11, label %12, label %13
 
 12:                                               ; preds = %10
@@ -457,7 +457,7 @@ define dso_local noundef range(i32 0, 16) i32 @_ZN5Lexer9ReadTokenEv(ptr nocaptu
   ]
 
 14:                                               ; preds = %8
-  %15 = icmp ult i8 %5, 59
+  %15 = icmp samesign ult i8 %5, 59
   br i1 %15, label %16, label %17
 
 16:                                               ; preds = %14
@@ -467,7 +467,7 @@ define dso_local noundef range(i32 0, 16) i32 @_ZN5Lexer9ReadTokenEv(ptr nocaptu
   ]
 
 17:                                               ; preds = %14
-  %18 = icmp ult i8 %5, 62
+  %18 = icmp samesign ult i8 %5, 62
   br i1 %18, label %19, label %20
 
 19:                                               ; preds = %17
@@ -484,7 +484,7 @@ define dso_local noundef range(i32 0, 16) i32 @_ZN5Lexer9ReadTokenEv(ptr nocaptu
   br i1 %23, label %24, label %28
 
 24:                                               ; preds = %22
-  %25 = icmp ult i8 %5, 99
+  %25 = icmp samesign ult i8 %5, 99
   br i1 %25, label %26, label %27
 
 26:                                               ; preds = %24
@@ -1156,7 +1156,7 @@ thread-pre-split:                                 ; preds = %thread-pre-split.ba
   br i1 %23, label %28, label %24
 
 24:                                               ; preds = %22
-  %25 = icmp ult i8 %20, 11
+  %25 = icmp samesign ult i8 %20, 11
   br i1 %25, label %.loopexit131, label %55
 
 26:                                               ; preds = %.lr.ph
@@ -1284,7 +1284,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit: ; pr
   br i1 %73, label %74, label %79
 
 74:                                               ; preds = %72
-  %75 = icmp ult i8 %67, 13
+  %75 = icmp samesign ult i8 %67, 13
   br i1 %75, label %76, label %78
 
 76:                                               ; preds = %74

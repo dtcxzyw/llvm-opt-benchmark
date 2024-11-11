@@ -3625,7 +3625,7 @@ _ZNSt6vectorIN2cv3MatESaIS1_EE6resizeEm.exit80.i.i: ; preds = %_ZSt8_DestroyIPN2
           to label %.noexc164.i unwind label %.loopexit.split-lp.loopexit.i
 
 .noexc164.i:                                      ; preds = %.noexc163.i
-  %499 = icmp ugt i64 %indvars.iv.i150.i, 1
+  %499 = icmp samesign ugt i64 %indvars.iv.i150.i, 1
   br i1 %499, label %486, label %.preheader.i.i
 
 500:                                              ; preds = %.noexc168.i, %.lr.ph11.i.i

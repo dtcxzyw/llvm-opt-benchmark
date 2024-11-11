@@ -169,7 +169,7 @@ _ZNKSt6vectorIN10open_spiel10battleship4ShipESaIS2_EE2atEm.exit: ; preds = %_ZNS
   br i1 %or.cond.i, label %54, label %_ZNK10open_spiel10battleship13ShipPlacement14IsWithinBoundsEii.exit.thread
 
 54:                                               ; preds = %51
-  %55 = icmp ugt i32 %47, %.sroa.0.0.extract.trunc.i
+  %55 = icmp samesign ugt i32 %47, %.sroa.0.0.extract.trunc.i
   %56 = icmp sgt i64 %.sroa.0.0.copyload.i.i, -1
   %or.cond5.i = select i1 %55, i1 %56, i1 false
   %57 = icmp sgt i32 %46, %.sroa.310.0.extract.trunc.i
@@ -589,7 +589,7 @@ define noundef zeroext i1 @_ZNK10open_spiel10battleship13ShipPlacement14IsWithin
   br i1 %or.cond, label %10, label %18
 
 10:                                               ; preds = %7
-  %11 = icmp ugt i32 %2, %.sroa.0.0.extract.trunc
+  %11 = icmp samesign ugt i32 %2, %.sroa.0.0.extract.trunc
   %12 = icmp sgt i64 %.sroa.0.0.copyload.i, -1
   %or.cond5 = select i1 %11, i1 %12, i1 false
   %13 = icmp sgt i32 %1, %.sroa.310.0.extract.trunc

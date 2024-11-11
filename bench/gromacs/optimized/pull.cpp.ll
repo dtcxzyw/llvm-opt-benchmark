@@ -7621,7 +7621,7 @@ _ZNSt12_Vector_baseI12t_pull_groupSaIS0_EE13_M_deallocateEPS0_m.exit: ; preds = 
   %47 = getelementptr inbounds i8, ptr %.0910.i.i.i.i.i, i64 56
   %48 = getelementptr inbounds i8, ptr %.0811.i.i.i.i.i, i64 56
   %49 = add nsw i64 %.012.i.i.i.i.i, -1
-  %50 = icmp ugt i64 %.012.i.i.i.i.i, 1
+  %50 = icmp samesign ugt i64 %.012.i.i.i.i.i, 1
   br i1 %50, label %.lr.ph.i.i.i.i.i, label %_ZSt4copyIN9__gnu_cxx17__normal_iteratorIPK12t_pull_groupSt6vectorIS2_SaIS2_EEEENS1_IPS2_S7_EEET0_T_SC_SB_.exit.loopexit, !llvm.loop !82
 
 _ZSt4copyIN9__gnu_cxx17__normal_iteratorIPK12t_pull_groupSt6vectorIS2_SaIS2_EEEENS1_IPS2_S7_EEET0_T_SC_SB_.exit.loopexit: ; preds = %.lr.ph.i.i.i.i.i
@@ -7689,7 +7689,7 @@ _ZSt8_DestroyI12t_pull_groupEvPT_.exit.i.i.i30:   ; preds = %58, %_ZNSt6vectorIf
   %70 = getelementptr inbounds i8, ptr %.0910.i.i.i.i.i37, i64 56
   %71 = getelementptr inbounds i8, ptr %.0811.i.i.i.i.i36, i64 56
   %72 = add nsw i64 %.012.i.i.i.i.i35, -1
-  %73 = icmp ugt i64 %.012.i.i.i.i.i35, 1
+  %73 = icmp samesign ugt i64 %.012.i.i.i.i.i35, 1
   br i1 %73, label %.lr.ph.i.i.i.i.i34, label %_ZSt4copyIP12t_pull_groupS1_ET0_T_S3_S2_.exit.loopexit, !llvm.loop !84
 
 _ZSt4copyIP12t_pull_groupS1_ET0_T_S3_S2_.exit.loopexit: ; preds = %.lr.ph.i.i.i.i.i34
@@ -7862,7 +7862,7 @@ _ZNSt12_Vector_baseI12t_pull_coordSaIS0_EE13_M_deallocateEPS0_m.exit: ; preds = 
   %49 = getelementptr inbounds i8, ptr %.0910.i.i.i.i.i, i64 176
   %50 = getelementptr inbounds i8, ptr %.0811.i.i.i.i.i, i64 176
   %51 = add nsw i64 %.012.i.i.i.i.i, -1
-  %52 = icmp ugt i64 %.012.i.i.i.i.i, 1
+  %52 = icmp samesign ugt i64 %.012.i.i.i.i.i, 1
   br i1 %52, label %.lr.ph.i.i.i.i.i, label %_ZSt4copyIN9__gnu_cxx17__normal_iteratorIPK12t_pull_coordSt6vectorIS2_SaIS2_EEEENS1_IPS2_S7_EEET0_T_SC_SB_.exit.loopexit, !llvm.loop !87
 
 _ZSt4copyIN9__gnu_cxx17__normal_iteratorIPK12t_pull_coordSt6vectorIS2_SaIS2_EEEENS1_IPS2_S7_EEET0_T_SC_SB_.exit.loopexit: ; preds = %.lr.ph.i.i.i.i.i
@@ -7922,7 +7922,7 @@ _ZSt4copyIN9__gnu_cxx17__normal_iteratorIPK12t_pull_coordSt6vectorIS2_SaIS2_EEEE
   %74 = getelementptr inbounds i8, ptr %.0910.i.i.i.i.i33, i64 176
   %75 = getelementptr inbounds i8, ptr %.0811.i.i.i.i.i32, i64 176
   %76 = add nsw i64 %.012.i.i.i.i.i31, -1
-  %77 = icmp ugt i64 %.012.i.i.i.i.i31, 1
+  %77 = icmp samesign ugt i64 %.012.i.i.i.i.i31, 1
   br i1 %77, label %.lr.ph.i.i.i.i.i30, label %_ZSt4copyIP12t_pull_coordS1_ET0_T_S3_S2_.exit.loopexit, !llvm.loop !89
 
 _ZSt4copyIP12t_pull_coordS1_ET0_T_S3_S2_.exit.loopexit: ; preds = %.lr.ph.i.i.i.i.i30

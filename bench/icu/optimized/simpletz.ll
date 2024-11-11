@@ -374,7 +374,7 @@ if.end59.i:                                       ; preds = %if.else51.i, %if.el
 if.end59.i.thread:                                ; preds = %if.else.i
   %startMode57.i45 = getelementptr inbounds i8, ptr %this, i64 108
   store i32 2, ptr %startMode57.i45, align 4
-  %cmp62.i46 = icmp ugt i8 %8, 7
+  %cmp62.i46 = icmp samesign ugt i8 %8, 7
   %10 = add i8 %1, -6
   %or.cond9.i = icmp ult i8 %10, -11
   %or.cond = or i1 %or.cond9.i, %cmp62.i46
@@ -472,7 +472,7 @@ if.end59.i26:                                     ; preds = %if.else51.i24, %if.
 if.end59.i26.thread:                              ; preds = %if.else.i19
   %endMode57.i49 = getelementptr inbounds i8, ptr %this, i64 112
   store i32 2, ptr %endMode57.i49, align 8
-  %cmp62.i2850 = icmp ugt i8 %19, 7
+  %cmp62.i2850 = icmp samesign ugt i8 %19, 7
   %21 = add i8 %2, -6
   %or.cond9.i38 = icmp ult i8 %21, -11
   %or.cond51 = select i1 %cmp62.i2850, i1 true, i1 %or.cond9.i38
@@ -988,7 +988,7 @@ if.end59.i:                                       ; preds = %if.else51.i, %if.el
 if.end59.i.thread:                                ; preds = %if.else.i
   %startMode57.i2 = getelementptr inbounds i8, ptr %this, i64 108
   store i32 2, ptr %startMode57.i2, align 4
-  %cmp62.i3 = icmp ugt i8 %conv3, 7
+  %cmp62.i3 = icmp samesign ugt i8 %conv3, 7
   %5 = add i8 %conv2, -6
   %or.cond9.i = icmp ult i8 %5, -11
   %or.cond = or i1 %cmp62.i3, %or.cond9.i
@@ -1298,7 +1298,7 @@ if.end59.i.i:                                     ; preds = %if.else51.i.i, %if.
 if.end59.i.thread.i:                              ; preds = %if.else.i.i
   %startMode57.i2.i = getelementptr inbounds i8, ptr %this, i64 108
   store i32 2, ptr %startMode57.i2.i, align 4
-  %cmp62.i3.i = icmp ugt i8 %conv3.i, 7
+  %cmp62.i3.i = icmp samesign ugt i8 %conv3.i, 7
   %6 = add i8 %conv2.i, -6
   %or.cond9.i.i = icmp ult i8 %6, -11
   %or.cond.i = or i1 %cmp62.i3.i, %or.cond9.i.i
@@ -1417,7 +1417,7 @@ if.end59.i:                                       ; preds = %if.else51.i, %if.el
 if.end59.i.thread:                                ; preds = %if.else.i
   %endMode57.i2 = getelementptr inbounds i8, ptr %this, i64 112
   store i32 2, ptr %endMode57.i2, align 8
-  %cmp62.i3 = icmp ugt i8 %conv3, 7
+  %cmp62.i3 = icmp samesign ugt i8 %conv3, 7
   %5 = add i8 %conv2, -6
   %or.cond9.i = icmp ult i8 %5, -11
   %or.cond = or i1 %cmp62.i3, %or.cond9.i
@@ -1730,7 +1730,7 @@ if.end59.i.i:                                     ; preds = %if.else51.i.i, %if.
 if.end59.i.thread.i:                              ; preds = %if.else.i.i
   %endMode57.i2.i = getelementptr inbounds i8, ptr %this, i64 112
   store i32 2, ptr %endMode57.i2.i, align 8
-  %cmp62.i3.i = icmp ugt i8 %conv3.i, 7
+  %cmp62.i3.i = icmp samesign ugt i8 %conv3.i, 7
   %6 = add i8 %conv2.i, -6
   %or.cond9.i.i = icmp ult i8 %6, -11
   %or.cond.i = or i1 %cmp62.i3.i, %or.cond9.i.i
@@ -2028,7 +2028,7 @@ while.body:                                       ; preds = %entry, %while.body
   %spec.select = select i1 %cmp5, i8 1, i8 %inc
   %inc6 = zext i1 %cmp5 to i8
   %spec.select42 = add i8 %month.addr.057, %inc6
-  %cmp = icmp ugt i32 %millis.addr.054, 172799999
+  %cmp = icmp samesign ugt i32 %millis.addr.054, 172799999
   br i1 %cmp, label %while.body, label %while.end21, !llvm.loop !4
 
 while.body9:                                      ; preds = %while.cond7.preheader, %while.body9
@@ -2047,7 +2047,7 @@ while.body9:                                      ; preds = %while.cond7.prehead
   %spec.select43 = select i1 %cmp17, i8 %prevMonthLen, i8 %dec
   %dec19 = sext i1 %cmp17 to i8
   %spec.select44 = add i8 %month.addr.265, %dec19
-  %cmp8 = icmp ult i32 %millis.addr.162, -86400000
+  %cmp8 = icmp samesign ult i32 %millis.addr.162, -86400000
   br i1 %cmp8, label %while.body9, label %while.end21, !llvm.loop !6
 
 while.end21:                                      ; preds = %while.body9, %while.body, %while.cond7.preheader

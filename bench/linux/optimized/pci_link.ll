@@ -681,7 +681,7 @@ define dso_local zeroext i1 @acpi_isa_irq_available(i32 noundef %0) local_unname
   br i1 %2, label %3, label %15
 
 3:                                                ; preds = %1
-  %4 = icmp ugt i32 %0, 15
+  %4 = icmp samesign ugt i32 %0, 15
   br i1 %4, label %15, label %5
 
 5:                                                ; preds = %3

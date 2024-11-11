@@ -408,7 +408,7 @@ while.body92.i.us.i:                              ; preds = %if.end88.i.us.i, %w
   %len.0128.i.us.i = phi i32 [ %sub93.i.us.i, %while.body92.i.us.i ], [ %sub.i.us.i, %if.end88.i.us.i ]
   call void @vnc_write_u8(ptr noundef %vs, i8 noundef zeroext -1) #9
   %sub93.i.us.i = add nsw i32 %len.0128.i.us.i, -255
-  %cmp90.i.us.i = icmp ugt i32 %len.0128.i.us.i, 509
+  %cmp90.i.us.i = icmp samesign ugt i32 %len.0128.i.us.i, 509
   br i1 %cmp90.i.us.i, label %while.body92.i.us.i, label %while.end94.i.us.loopexit.i, !llvm.loop !12
 
 while.end94.i.us.loopexit.i:                      ; preds = %while.body92.i.us.i
@@ -1572,7 +1572,7 @@ while.body92:                                     ; preds = %if.end88, %while.bo
   %len.0124 = phi i32 [ %sub93, %while.body92 ], [ %sub, %if.end88 ]
   call void @vnc_write_u8(ptr noundef %vs, i8 noundef zeroext -1) #9
   %sub93 = add nsw i32 %len.0124, -255
-  %cmp90 = icmp ugt i32 %len.0124, 509
+  %cmp90 = icmp samesign ugt i32 %len.0124, 509
   br i1 %cmp90, label %while.body92, label %while.end94, !llvm.loop !41
 
 while.end94:                                      ; preds = %while.body92, %if.end88
@@ -2689,7 +2689,7 @@ while.body92:                                     ; preds = %if.end88, %while.bo
   %len.0124 = phi i32 [ %sub93, %while.body92 ], [ %sub, %if.end88 ]
   call void @vnc_write_u8(ptr noundef %vs, i8 noundef zeroext -1) #9
   %sub93 = add nsw i32 %len.0124, -255
-  %cmp90 = icmp ugt i32 %len.0124, 509
+  %cmp90 = icmp samesign ugt i32 %len.0124, 509
   br i1 %cmp90, label %while.body92, label %while.end94, !llvm.loop !74
 
 while.end94:                                      ; preds = %while.body92, %if.end88
@@ -3425,7 +3425,7 @@ while.body92:                                     ; preds = %if.end88, %while.bo
   %len.0124 = phi i32 [ %sub93, %while.body92 ], [ %sub, %if.end88 ]
   call void @vnc_write_u8(ptr noundef %vs, i8 noundef zeroext -1) #9
   %sub93 = add nsw i32 %len.0124, -255
-  %cmp90 = icmp ugt i32 %len.0124, 509
+  %cmp90 = icmp samesign ugt i32 %len.0124, 509
   br i1 %cmp90, label %while.body92, label %while.end94, !llvm.loop !100
 
 while.end94:                                      ; preds = %while.body92, %if.end88
@@ -4165,7 +4165,7 @@ while.body92:                                     ; preds = %if.end88, %while.bo
   %len.0124 = phi i32 [ %sub93, %while.body92 ], [ %sub, %if.end88 ]
   call void @vnc_write_u8(ptr noundef %vs, i8 noundef zeroext -1) #9
   %sub93 = add nsw i32 %len.0124, -255
-  %cmp90 = icmp ugt i32 %len.0124, 509
+  %cmp90 = icmp samesign ugt i32 %len.0124, 509
   br i1 %cmp90, label %while.body92, label %while.end94, !llvm.loop !126
 
 while.end94:                                      ; preds = %while.body92, %if.end88
@@ -4902,7 +4902,7 @@ while.body75:                                     ; preds = %if.end71, %while.bo
   %len.0132 = phi i32 [ %sub76, %while.body75 ], [ %sub, %if.end71 ]
   call void @vnc_write_u8(ptr noundef %vs, i8 noundef zeroext -1) #9
   %sub76 = add nsw i32 %len.0132, -255
-  %cmp73 = icmp ugt i32 %len.0132, 509
+  %cmp73 = icmp samesign ugt i32 %len.0132, 509
   br i1 %cmp73, label %while.body75, label %while.end77, !llvm.loop !152
 
 while.end77:                                      ; preds = %while.body75, %if.end71
@@ -5700,7 +5700,7 @@ while.body75:                                     ; preds = %if.end71, %while.bo
   %len.0132 = phi i32 [ %sub76, %while.body75 ], [ %sub, %if.end71 ]
   call void @vnc_write_u8(ptr noundef %vs, i8 noundef zeroext -1) #9
   %sub76 = add nsw i32 %len.0132, -255
-  %cmp73 = icmp ugt i32 %len.0132, 509
+  %cmp73 = icmp samesign ugt i32 %len.0132, 509
   br i1 %cmp73, label %while.body75, label %while.end77, !llvm.loop !179
 
 while.end77:                                      ; preds = %while.body75, %if.end71
@@ -6502,7 +6502,7 @@ while.body75:                                     ; preds = %if.end71, %while.bo
   %len.0136 = phi i32 [ %sub76, %while.body75 ], [ %sub, %if.end71 ]
   call void @vnc_write_u8(ptr noundef %vs, i8 noundef zeroext -1) #9
   %sub76 = add nsw i32 %len.0136, -255
-  %cmp73 = icmp ugt i32 %len.0136, 509
+  %cmp73 = icmp samesign ugt i32 %len.0136, 509
   br i1 %cmp73, label %while.body75, label %while.end77, !llvm.loop !206
 
 while.end77:                                      ; preds = %while.body75, %if.end71
@@ -6813,7 +6813,7 @@ while.body75:                                     ; preds = %if.end71, %while.bo
   %len.0136 = phi i32 [ %sub76, %while.body75 ], [ %sub, %if.end71 ]
   call void @vnc_write_u8(ptr noundef %vs, i8 noundef zeroext -1) #9
   %sub76 = add nsw i32 %len.0136, -255
-  %cmp73 = icmp ugt i32 %len.0136, 509
+  %cmp73 = icmp samesign ugt i32 %len.0136, 509
   br i1 %cmp73, label %while.body75, label %while.end77, !llvm.loop !215
 
 while.end77:                                      ; preds = %while.body75, %if.end71
@@ -7114,7 +7114,7 @@ while.body75:                                     ; preds = %if.end71, %while.bo
   %len.0124 = phi i32 [ %sub76, %while.body75 ], [ %sub, %if.end71 ]
   call void @vnc_write_u8(ptr noundef %vs, i8 noundef zeroext -1) #9
   %sub76 = add nsw i32 %len.0124, -255
-  %cmp73 = icmp ugt i32 %len.0124, 509
+  %cmp73 = icmp samesign ugt i32 %len.0124, 509
   br i1 %cmp73, label %while.body75, label %while.end77, !llvm.loop !224
 
 while.end77:                                      ; preds = %while.body75, %if.end71
@@ -7403,7 +7403,7 @@ while.body75:                                     ; preds = %if.end71, %while.bo
   %len.0124 = phi i32 [ %sub76, %while.body75 ], [ %sub, %if.end71 ]
   call void @vnc_write_u8(ptr noundef %vs, i8 noundef zeroext -1) #9
   %sub76 = add nsw i32 %len.0124, -255
-  %cmp73 = icmp ugt i32 %len.0124, 509
+  %cmp73 = icmp samesign ugt i32 %len.0124, 509
   br i1 %cmp73, label %while.body75, label %while.end77, !llvm.loop !232
 
 while.end77:                                      ; preds = %while.body75, %if.end71

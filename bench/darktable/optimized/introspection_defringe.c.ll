@@ -224,7 +224,7 @@ define void @process(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noun
   %92 = fpext float %87 to double
   %93 = fmul reassoc nsz arcp contract afn double %92, 5.000000e-01
   %94 = zext nneg i32 %74 to i64
-  %95 = icmp ult i32 %74, 8
+  %95 = icmp samesign ult i32 %74, 8
   br i1 %95, label %134, label %96
 
 96:                                               ; preds = %86
@@ -289,7 +289,7 @@ define void @process(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noun
   %142 = fpext float %141 to double
   %143 = fmul reassoc nsz arcp contract afn double %142, 5.000000e-01
   %144 = zext nneg i32 %70 to i64
-  %145 = icmp ult i32 %70, 8
+  %145 = icmp samesign ult i32 %70, 8
   br i1 %145, label %184, label %146
 
 146:                                              ; preds = %140

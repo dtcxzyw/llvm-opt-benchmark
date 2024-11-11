@@ -9696,7 +9696,7 @@ _ZN12_GLOBAL__N_16ChainT7addEdgeEPS0_PNS_9ChainEdgeE.exit54: ; preds = %125, %_Z
   %148 = getelementptr inbounds i8, ptr %.0910.i.i.i.i.i.i.i.i, i64 16
   %149 = getelementptr inbounds i8, ptr %.0811.i.i.i.i.i.i.i.i, i64 16
   %150 = add nsw i64 %.012.i.i.i.i.i.i.i.i, -1
-  %151 = icmp ugt i64 %.012.i.i.i.i.i.i.i.i, 1
+  %151 = icmp samesign ugt i64 %.012.i.i.i.i.i.i.i.i, 1
   br i1 %151, label %.lr.ph.i.i.i.i.i.i.i.i, label %_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPSt4pairIPN12_GLOBAL__N_16ChainTEPNS3_9ChainEdgeEESt6vectorIS8_SaIS8_EEEESD_ET0_T_SF_SE_.exit.loopexit.i.i.i, !llvm.loop !233
 
 _ZSt4moveIN9__gnu_cxx17__normal_iteratorIPSt4pairIPN12_GLOBAL__N_16ChainTEPNS3_9ChainEdgeEESt6vectorIS8_SaIS8_EEEESD_ET0_T_SF_SE_.exit.loopexit.i.i.i: ; preds = %.lr.ph.i.i.i.i.i.i.i.i

@@ -2231,14 +2231,14 @@ define internal fastcc range(i32 0, 2) i32 @LzmaDec_DecodeReal2(ptr nocapture no
   %.5808.i = phi i32 [ %597, %598 ], [ %608, %603 ]
   store i16 %.sink1053.i, ptr %582, align 2
   %610 = add nsw i32 %.5808.i, -64
-  %611 = icmp ugt i32 %610, 3
+  %611 = icmp samesign ugt i32 %610, 3
   br i1 %611, label %612, label %.loopexit1026.i
 
 612:                                              ; preds = %609
   %613 = lshr i32 %610, 1
   %614 = and i32 %.5808.i, 1
   %615 = or disjoint i32 %614, 2
-  %616 = icmp ult i32 %610, 14
+  %616 = icmp samesign ult i32 %610, 14
   br i1 %616, label %617, label %659
 
 617:                                              ; preds = %612

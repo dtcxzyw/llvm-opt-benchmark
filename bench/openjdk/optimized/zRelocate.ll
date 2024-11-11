@@ -3230,7 +3230,7 @@ define linkonce_odr hidden void @_ZN5ZPage14object_iterateIZN13ZRelocateWorkI23Z
 34:                                               ; preds = %32
   %35 = call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %30, i1 true)
   %36 = add nuw nsw i64 %35, %28
-  %37 = icmp ult i64 %36, 64
+  %37 = icmp samesign ult i64 %36, 64
   br i1 %37, label %_ZNK8ZLiveMap17next_live_segmentEm.exit.i, label %_ZN8ZLiveMap7iterateIZN5ZPage14object_iterateIZN13ZRelocateWorkI23ZRelocateSmallAllocatorE13do_forwardingEP11ZForwardingEUlP7oopDescE_EEvT_EUlmE_EEv13ZGenerationIdSB_.exit
 
 _ZNK8ZLiveMap17next_live_segmentEm.exit.i:        ; preds = %34, %.lr.ph
@@ -5034,7 +5034,7 @@ define linkonce_odr hidden void @_ZN5ZPage14object_iterateIZN13ZRelocateWorkI24Z
 34:                                               ; preds = %32
   %35 = call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %30, i1 true)
   %36 = add nuw nsw i64 %35, %28
-  %37 = icmp ult i64 %36, 64
+  %37 = icmp samesign ult i64 %36, 64
   br i1 %37, label %_ZNK8ZLiveMap17next_live_segmentEm.exit.i, label %_ZN8ZLiveMap7iterateIZN5ZPage14object_iterateIZN13ZRelocateWorkI24ZRelocateMediumAllocatorE13do_forwardingEP11ZForwardingEUlP7oopDescE_EEvT_EUlmE_EEv13ZGenerationIdSB_.exit
 
 _ZNK8ZLiveMap17next_live_segmentEm.exit.i:        ; preds = %34, %.lr.ph
@@ -6686,7 +6686,7 @@ _ZN8ZLiveMap15iterate_segmentIZNS_7iterateIZN5ZPage14object_iterateIZN33ZRelocat
 61:                                               ; preds = %59
   %62 = call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %57, i1 true)
   %63 = add nuw nsw i64 %62, %24
-  %64 = icmp ult i64 %63, 64
+  %64 = icmp samesign ult i64 %63, 64
   br i1 %64, label %_ZNK8ZLiveMap17next_live_segmentEm.exit, label %.loopexit
 
 _ZNK8ZLiveMap17next_live_segmentEm.exit:          ; preds = %55, %61
@@ -7336,7 +7336,7 @@ _ZN8ZLiveMap15iterate_segmentIZNS_7iterateIZN5ZPage14object_iterateIZN17ZFlipAge
 61:                                               ; preds = %59
   %62 = call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %57, i1 true)
   %63 = add nuw nsw i64 %62, %24
-  %64 = icmp ult i64 %63, 64
+  %64 = icmp samesign ult i64 %63, 64
   br i1 %64, label %_ZNK8ZLiveMap17next_live_segmentEm.exit, label %.loopexit
 
 _ZNK8ZLiveMap17next_live_segmentEm.exit:          ; preds = %55, %61

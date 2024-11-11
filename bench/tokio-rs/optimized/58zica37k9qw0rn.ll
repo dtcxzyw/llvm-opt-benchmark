@@ -819,7 +819,7 @@ define hidden void @_ZN4core5slice4sort10merge_sort17h38d7629ed6beab70E(ptr noal
   br label %41
 
 24:                                               ; preds = %3
-  %25 = icmp ugt i64 %1, 1
+  %25 = icmp samesign ugt i64 %1, 1
   br i1 %25, label %"_ZN115_$LT$core..ops..range..RangeInclusive$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$9index_mut17h2a13452292dcb755E.exit.i", label %_ZN4core5slice4sort25insertion_sort_shift_left17h06a930aea3ef0241E.exit
 
 26:                                               ; preds = %60, %27
@@ -4365,7 +4365,7 @@ define internal fastcc i64 @"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$14reserve_r
   br i1 %27, label %30, label %38
 
 28:                                               ; preds = %22
-  %29 = icmp ult i64 %.0.sroa.speculated.i, 4
+  %29 = icmp samesign ult i64 %.0.sroa.speculated.i, 4
   %..i.i.i = select i1 %29, i64 4, i64 8
   br label %.thread.i.i.thread
 
@@ -4646,7 +4646,7 @@ define hidden { i64, i64 } @"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$14reserve_r
   br i1 %30, label %33, label %41
 
 31:                                               ; preds = %25
-  %32 = icmp ult i64 %.0.sroa.speculated.i, 4
+  %32 = icmp samesign ult i64 %.0.sroa.speculated.i, 4
   %..i.i.i = select i1 %32, i64 4, i64 8
   br label %.thread.i.i
 

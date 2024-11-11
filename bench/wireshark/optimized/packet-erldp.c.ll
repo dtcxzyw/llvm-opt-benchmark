@@ -1360,7 +1360,7 @@ define internal fastcc noundef i32 @dissect_etf_big_ext(ptr noundef %0, ptr noca
   %46 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %45) #5
   %47 = zext i8 %46 to i32
   tail call void (ptr, ptr, ...) @wmem_strbuf_append_printf(ptr noundef %44, ptr noundef nonnull @.str.240, i32 noundef %47) #5
-  %48 = icmp ugt i32 %.0.in63, 1
+  %48 = icmp samesign ugt i32 %.0.in63, 1
   br i1 %48, label %.lr.ph, label %._crit_edge, !llvm.loop !11
 
 ._crit_edge:                                      ; preds = %.lr.ph, %39

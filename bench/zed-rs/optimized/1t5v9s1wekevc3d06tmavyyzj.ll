@@ -52999,7 +52999,7 @@ define internal fastcc noundef zeroext i1 @"_ZN4http6header3map18HeaderMap$LT$T$
   %21 = getelementptr inbounds i8, ptr %0, i64 32
   %22 = load ptr, ptr %21, align 8, !alias.scope !10441, !noalias !10444, !nonnull !4, !noundef !4
   %23 = mul nuw nsw i64 %7, 104
-  %24 = icmp uge i64 %.sroa.0.0.sroa.speculated.i17.i.i.i, %7
+  %24 = icmp samesign uge i64 %.sroa.0.0.sroa.speculated.i17.i.i.i, %7
   tail call void @llvm.assume(i1 %24)
   %25 = tail call noundef align 8 ptr @__rust_realloc(ptr noundef nonnull %22, i64 noundef %23, i64 noundef range(i64 1, 9) 8, i64 noundef %19) #39, !noalias !10446
   br label %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$4grow17h8fe1967c46a2f3c3E.exit.i.i.i.i"
@@ -98855,7 +98855,7 @@ split:                                            ; preds = %120
   unreachable
 
 200:                                              ; preds = %196
-  %201 = icmp ult i64 %.sroa.6159.0.copyload.i, 9
+  %201 = icmp samesign ult i64 %.sroa.6159.0.copyload.i, 9
   br i1 %201, label %214, label %202
 
 202:                                              ; preds = %200

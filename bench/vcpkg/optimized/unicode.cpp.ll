@@ -213,7 +213,7 @@ define dso_local noundef range(i32 0, 7) i32 @_ZN5vcpkg7Unicode22utf8_decode_cod
   br label %108
 
 14:                                               ; preds = %7
-  %15 = icmp ult i8 %8, -64
+  %15 = icmp samesign ult i8 %8, -64
   br i1 %15, label %16, label %17
 
 16:                                               ; preds = %14
@@ -222,7 +222,7 @@ define dso_local noundef range(i32 0, 7) i32 @_ZN5vcpkg7Unicode22utf8_decode_cod
   br label %108
 
 17:                                               ; preds = %14
-  %18 = icmp ult i8 %8, -32
+  %18 = icmp samesign ult i8 %8, -32
   br i1 %18, label %19, label %38
 
 19:                                               ; preds = %17
@@ -263,7 +263,7 @@ define dso_local noundef range(i32 0, 7) i32 @_ZN5vcpkg7Unicode22utf8_decode_cod
   br label %108
 
 38:                                               ; preds = %17
-  %39 = icmp ult i8 %8, -16
+  %39 = icmp samesign ult i8 %8, -16
   br i1 %39, label %40, label %67
 
 40:                                               ; preds = %38
@@ -317,7 +317,7 @@ define dso_local noundef range(i32 0, 7) i32 @_ZN5vcpkg7Unicode22utf8_decode_cod
   br label %108
 
 67:                                               ; preds = %38
-  %68 = icmp ult i8 %8, -8
+  %68 = icmp samesign ult i8 %8, -8
   br i1 %68, label %69, label %107
 
 69:                                               ; preds = %67

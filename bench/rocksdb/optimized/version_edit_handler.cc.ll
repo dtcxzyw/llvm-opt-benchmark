@@ -7944,7 +7944,7 @@ _ZNK7rocksdb6Status14IsPathNotFoundEv.exit:       ; preds = %_ZN7rocksdb6StatusD
   %72 = load i8, ptr %subcode_4.i, align 1
   %cmp7.i = icmp eq i8 %72, 9
   %73 = add nsw i8 %71, -1
-  %74 = icmp ult i8 %73, 2
+  %74 = icmp samesign ult i8 %73, 2
   %or.cond435 = or i1 %74, %cmp7.i
   br i1 %or.cond435, label %if.then84, label %cleanup
 
@@ -8089,7 +8089,7 @@ _ZNK7rocksdb6Status14IsPathNotFoundEv.exit210:    ; preds = %_ZN7rocksdb6StatusD
   %90 = load i8, ptr %subcode_4.i187, align 1
   %cmp7.i209 = icmp eq i8 %90, 9
   %91 = add nsw i8 %89, -1
-  %92 = icmp ult i8 %91, 2
+  %92 = icmp samesign ult i8 %91, 2
   %or.cond437 = or i1 %92, %cmp7.i209
   br i1 %or.cond437, label %invoke.cont133, label %for.end143
 

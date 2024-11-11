@@ -540,7 +540,7 @@ check_agg_arguments.exit:                         ; preds = %42, %55
   %.05868 = phi i32 [ %65, %.lr.ph ], [ %.019.i, %check_agg_arguments.exit ]
   %65 = add nsw i32 %.05868, -1
   %66 = load ptr, ptr %.069, align 8
-  %67 = icmp ugt i32 %.05868, 1
+  %67 = icmp samesign ugt i32 %.05868, 1
   br i1 %67, label %.lr.ph, label %._crit_edge, !llvm.loop !7
 
 ._crit_edge:                                      ; preds = %.lr.ph, %check_agg_arguments.exit

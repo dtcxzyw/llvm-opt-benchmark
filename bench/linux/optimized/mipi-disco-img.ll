@@ -994,7 +994,7 @@ define dso_local void @acpi_mipi_init_crs_csi2_swnodes() local_unnamed_addr #0 a
   br i1 %154, label %155, label %183
 
 155:                                              ; preds = %151
-  %156 = icmp ugt i32 %153, 8
+  %156 = icmp samesign ugt i32 %153, 8
   br i1 %156, label %157, label %158
 
 157:                                              ; preds = %155
@@ -1062,7 +1062,7 @@ define dso_local void @acpi_mipi_init_crs_csi2_swnodes() local_unnamed_addr #0 a
 195:                                              ; preds = %188
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2) #10
   store i64 0, ptr %2, align 8
-  %196 = icmp ugt i32 %186, 8
+  %196 = icmp samesign ugt i32 %186, 8
   br i1 %196, label %.thread16, label %199
 
 .thread16:                                        ; preds = %195
@@ -1158,7 +1158,7 @@ define dso_local void @acpi_mipi_init_crs_csi2_swnodes() local_unnamed_addr #0 a
   br i1 %253, label %273, label %254
 
 254:                                              ; preds = %250
-  %255 = icmp ugt i32 %252, 8
+  %255 = icmp samesign ugt i32 %252, 8
   br i1 %255, label %256, label %257
 
 256:                                              ; preds = %254

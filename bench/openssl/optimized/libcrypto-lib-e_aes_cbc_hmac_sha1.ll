@@ -661,7 +661,7 @@ for.end283:                                       ; preds = %for.end273
   call void @llvm.memset.p0.i64(ptr align 1 %scevgep540, i8 0, i64 %65, i1 false)
   %66 = add i64 %len.addr.1, 64
   %67 = sub i64 %66, %conv274
-  %cmp284 = icmp ugt i32 %res.0.lcssa, 56
+  %cmp284 = icmp samesign ugt i32 %res.0.lcssa, 56
   br i1 %cmp284, label %if.then286, label %if.end344
 
 if.then286:                                       ; preds = %for.end273, %for.end283
@@ -1307,7 +1307,7 @@ land.lhs.true153:                                 ; preds = %if.end141
   %add155 = add i32 %sub150, 22
   %rem = and i32 %add155, 63
   %sub156 = add nsw i32 %mul, -1
-  %cmp157 = icmp ult i32 %rem, %sub156
+  %cmp157 = icmp samesign ult i32 %rem, %sub156
   br i1 %cmp157, label %if.then159, label %if.end163
 
 if.then159:                                       ; preds = %land.lhs.true153

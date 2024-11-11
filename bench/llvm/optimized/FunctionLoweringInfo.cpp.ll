@@ -279,7 +279,7 @@ define dso_local void @_ZN4llvm20FunctionLoweringInfo3setERKNS_8FunctionERNS_15M
   br label %93
 
 88:                                               ; preds = %82
-  %switch.i266 = icmp ult i32 %.off.i, 2
+  %switch.i266 = icmp samesign ult i32 %.off.i, 2
   br i1 %switch.i266, label %89, label %90
 
 89:                                               ; preds = %88

@@ -37,7 +37,7 @@ while.body:                                       ; preds = %if.end3, %while.bod
   %spec.select = select i1 %tobool.not, i32 1, i32 %ia5.08
   %cmp10 = icmp sgt i8 %0, -1
   %t61.1 = select i1 %cmp10, i32 %t61.09, i32 1
-  %cmp4 = icmp ugt i32 %len.addr.17, 1
+  %cmp4 = icmp samesign ugt i32 %len.addr.17, 1
   br i1 %cmp4, label %while.body, label %while.end, !llvm.loop !4
 
 while.end:                                        ; preds = %while.body
@@ -158,7 +158,7 @@ while.body.i:                                     ; preds = %if.end3.i, %while.b
   %spec.select.i = select i1 %tobool.not.i, i32 1, i32 %ia5.08.i
   %cmp10.i = icmp sgt i8 %13, -1
   %t61.1.i = select i1 %cmp10.i, i32 %t61.09.i, i32 1
-  %cmp4.i = icmp ugt i32 %len.addr.17.i, 1
+  %cmp4.i = icmp samesign ugt i32 %len.addr.17.i, 1
   br i1 %cmp4.i, label %while.body.i, label %while.end.i, !llvm.loop !4
 
 while.end.i:                                      ; preds = %while.body.i

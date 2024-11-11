@@ -538,7 +538,7 @@ land.rhs:                                         ; preds = %land.rhs.lr.ph, %wh
 while.body:                                       ; preds = %land.rhs
   %15 = trunc nuw nsw i64 %indvars.iv.next33 to i32
   store i32 %15, ptr %level, align 8
-  %cmp43 = icmp ugt i64 %indvars.iv32, 2
+  %cmp43 = icmp samesign ugt i64 %indvars.iv32, 2
   br i1 %cmp43, label %land.rhs, label %while.end, !llvm.loop !14
 
 while.end:                                        ; preds = %land.rhs, %while.body, %if.end41
@@ -718,7 +718,7 @@ land.rhs.i:                                       ; preds = %while.body.i, %land
 while.body.i:                                     ; preds = %land.rhs.i
   %26 = trunc nuw nsw i64 %indvars.iv.next33.i to i32
   store i32 %26, ptr %level, align 8
-  %cmp43.i = icmp ugt i64 %indvars.iv32.i, 2
+  %cmp43.i = icmp samesign ugt i64 %indvars.iv32.i, 2
   br i1 %cmp43.i, label %land.rhs.i, label %zslDeleteNode.exit, !llvm.loop !14
 
 zslDeleteNode.exit:                               ; preds = %land.rhs.i, %while.body.i, %if.end41.i
@@ -949,7 +949,7 @@ land.rhs.i:                                       ; preds = %while.body.i, %land
 while.body.i:                                     ; preds = %land.rhs.i
   %30 = trunc nuw nsw i64 %indvars.iv.next33.i to i32
   store i32 %30, ptr %level, align 8
-  %cmp43.i = icmp ugt i64 %indvars.iv32.i, 2
+  %cmp43.i = icmp samesign ugt i64 %indvars.iv32.i, 2
   br i1 %cmp43.i, label %land.rhs.i, label %zslDeleteNode.exit, !llvm.loop !14
 
 zslDeleteNode.exit:                               ; preds = %land.rhs.i, %while.body.i, %if.end41.i
@@ -1645,7 +1645,7 @@ land.rhs.i:                                       ; preds = %while.body.i, %land
 while.body.i:                                     ; preds = %land.rhs.i
   %26 = trunc nuw nsw i64 %indvars.iv.next33.i to i32
   store i32 %26, ptr %level, align 8
-  %cmp43.i = icmp ugt i64 %indvars.iv32.i, 2
+  %cmp43.i = icmp samesign ugt i64 %indvars.iv32.i, 2
   br i1 %cmp43.i, label %land.rhs.i, label %zslDeleteNode.exit, !llvm.loop !14
 
 zslDeleteNode.exit:                               ; preds = %land.rhs.i, %while.body.i, %if.end41.i
@@ -1933,7 +1933,7 @@ land.rhs.i:                                       ; preds = %while.body.i, %land
 while.body.i:                                     ; preds = %land.rhs.i
   %40 = trunc nuw nsw i64 %indvars.iv.next33.i to i32
   store i32 %40, ptr %level, align 8
-  %cmp43.i = icmp ugt i64 %indvars.iv32.i, 2
+  %cmp43.i = icmp samesign ugt i64 %indvars.iv32.i, 2
   br i1 %cmp43.i, label %land.rhs.i, label %zslDeleteNode.exit, !llvm.loop !14
 
 zslDeleteNode.exit:                               ; preds = %land.rhs.i, %while.body.i, %if.end41.i
@@ -2231,7 +2231,7 @@ land.rhs.i:                                       ; preds = %while.body.i, %land
 while.body.i:                                     ; preds = %land.rhs.i
   %22 = trunc nuw nsw i64 %indvars.iv.next33.i to i32
   store i32 %22, ptr %level, align 8
-  %cmp43.i = icmp ugt i64 %indvars.iv32.i, 2
+  %cmp43.i = icmp samesign ugt i64 %indvars.iv32.i, 2
   br i1 %cmp43.i, label %land.rhs.i, label %zslDeleteNode.exit, !llvm.loop !14
 
 zslDeleteNode.exit:                               ; preds = %land.rhs.i, %while.body.i, %if.end41.i
@@ -7155,7 +7155,7 @@ cleanup.thread:                                   ; preds = %if.end52
   br label %if.end143
 
 if.end57:                                         ; preds = %if.end52
-  %cmp58.not = icmp ult i64 %17, %length.0.i
+  %cmp58.not = icmp samesign ult i64 %17, %length.0.i
   br i1 %cmp58.not, label %if.end61, label %if.then59
 
 if.then59:                                        ; preds = %if.end57
@@ -10248,7 +10248,7 @@ land.rhs.i.i.i:                                   ; preds = %while.body.i.i.i, %
 while.body.i.i.i:                                 ; preds = %land.rhs.i.i.i
   %72 = trunc nuw nsw i64 %indvars.iv.next33.i.i.i to i32
   store i32 %72, ptr %level.i.i, align 8
-  %cmp43.i.i.i = icmp ugt i64 %indvars.iv32.i.i.i, 2
+  %cmp43.i.i.i = icmp samesign ugt i64 %indvars.iv32.i.i.i, 2
   br i1 %cmp43.i.i.i, label %land.rhs.i.i.i, label %zsetRemoveFromSkiplist.exit.i, !llvm.loop !14
 
 cond.false.i.i:                                   ; preds = %land.lhs.true34.i.i, %land.lhs.true.i.i, %for.end.i.i
@@ -10592,7 +10592,7 @@ if.then10:                                        ; preds = %zsetLength.exit
   br label %return
 
 if.end11:                                         ; preds = %zsetLength.exit
-  %cmp12.not = icmp ult i64 %end.addr.0, %length.0.i
+  %cmp12.not = icmp samesign ult i64 %end.addr.0, %length.0.i
   %sub = add nsw i64 %length.0.i, -1
   %spec.select65 = select i1 %cmp12.not, i64 %end.addr.0, i64 %sub
   %sub15 = sub nsw i64 %spec.select65, %spec.store.select

@@ -179,7 +179,7 @@ define noundef i32 @_ZN6google8protobuf2io16CodedInputStream9PushLimitEi(ptr noc
   %14 = load i32, ptr %13, align 8
   %15 = icmp sgt i32 %1, -1
   %16 = sub nsw i32 2147483647, %12
-  %.not = icmp ule i32 %1, %16
+  %.not = icmp samesign ule i32 %1, %16
   %or.cond.not11 = select i1 %15, i1 %.not, i1 false
   %17 = sub nsw i32 %14, %12
   %18 = icmp slt i32 %1, %17
@@ -269,7 +269,7 @@ define i64 @_ZN6google8protobuf2io16CodedInputStream35IncrementRecursionDepthAnd
   %14 = load i32, ptr %13, align 8
   %15 = icmp sgt i32 %1, -1
   %16 = sub nsw i32 2147483647, %12
-  %.not.i = icmp ule i32 %1, %16
+  %.not.i = icmp samesign ule i32 %1, %16
   %or.cond.not11.i = select i1 %15, i1 %.not.i, i1 false
   %17 = sub nsw i32 %14, %12
   %18 = icmp slt i32 %1, %17
@@ -336,7 +336,7 @@ define noundef i32 @_ZN6google8protobuf2io16CodedInputStream22ReadLengthAndPushL
   %17 = load i32, ptr %16, align 8
   %18 = icmp sgt i32 %5, -1
   %19 = sub nsw i32 2147483647, %15
-  %.not.i = icmp ule i32 %5, %19
+  %.not.i = icmp samesign ule i32 %5, %19
   %or.cond.not11.i = select i1 %18, i1 %.not.i, i1 false
   %20 = sub nsw i32 %17, %15
   %21 = icmp slt i32 %5, %20

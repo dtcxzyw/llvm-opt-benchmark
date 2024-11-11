@@ -2335,7 +2335,7 @@ broken_check_hec.exit:                            ; preds = %150
   %727 = lshr i8 %724, 3
   %728 = add nuw nsw i8 %727, 1
   %729 = zext nneg i8 %728 to i32
-  %730 = icmp ult i32 %spec.select976, %729
+  %730 = icmp samesign ult i32 %spec.select976, %729
   %.1903. = select i1 %730, i32 %.1903, i32 %729
   %731 = icmp slt i32 %.1903., 1
   %or.cond471060 = or i1 %730, %731
@@ -2349,7 +2349,7 @@ broken_check_hec.exit:                            ; preds = %150
   %736 = and i16 %735, 1023
   %narrow = add nuw nsw i16 %736, 2
   %737 = zext nneg i16 %narrow to i32
-  %738 = icmp ult i32 %spec.select976, %737
+  %738 = icmp samesign ult i32 %spec.select976, %737
   %.1903.978 = select i1 %738, i32 %.1903, i32 %737
   %739 = icmp slt i32 %.1903.978, 1
   %or.cond471047 = or i1 %738, %739
@@ -2505,7 +2505,7 @@ broken_check_hec.exit:                            ; preds = %150
   %831 = icmp ne ptr %830, null
   %832 = icmp ne ptr %.0909, null
   %or.cond63 = select i1 %831, i1 %832, i1 false
-  %833 = icmp ugt i32 %.290410481055, %.0905
+  %833 = icmp samesign ugt i32 %.290410481055, %.0905
   %or.cond980 = and i1 %833, %or.cond63
   br i1 %or.cond980, label %834, label %982
 
@@ -2515,7 +2515,7 @@ broken_check_hec.exit:                            ; preds = %150
   %837 = call zeroext i16 @tvb_get_letohs(ptr noundef %0, i32 noundef %836) #7
   %838 = zext i16 %837 to i32
   %839 = add nuw nsw i32 %838, 4
-  %.not962 = icmp ugt i32 %839, %835
+  %.not962 = icmp samesign ugt i32 %839, %835
   br i1 %.not962, label %869, label %840
 
 840:                                              ; preds = %834
@@ -2622,7 +2622,7 @@ broken_check_hec.exit:                            ; preds = %150
 
 903:                                              ; preds = %901
   %.not954 = icmp ne ptr %.0909, null
-  %.not955 = icmp ugt i32 %.290410481055, %.0905
+  %.not955 = icmp samesign ugt i32 %.290410481055, %.0905
   %or.cond981 = and i1 %.not955, %.not954
   br i1 %or.cond981, label %906, label %904
 

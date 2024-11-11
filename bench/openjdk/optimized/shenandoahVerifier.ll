@@ -639,11 +639,11 @@ _ZN16ShenandoahLockerC2EP14ShenandoahLockb.exit:  ; preds = %80, %84
   br i1 %98, label %_Z25proper_unit_for_byte_sizem.exit, label %99
 
 99:                                               ; preds = %95
-  %100 = icmp ugt i64 %92, 104857599
+  %100 = icmp samesign ugt i64 %92, 104857599
   br i1 %100, label %_Z25proper_unit_for_byte_sizem.exit, label %101
 
 101:                                              ; preds = %99
-  %102 = icmp ugt i64 %92, 102399
+  %102 = icmp samesign ugt i64 %92, 102399
   %.str.40..str.41.i = select i1 %102, ptr @.str.40, ptr @.str.41
   br label %_Z25proper_unit_for_byte_sizem.exit
 
@@ -656,11 +656,11 @@ _Z25proper_unit_for_byte_sizem.exit:              ; preds = %95, %99, %101
   br i1 %106, label %_Z25proper_unit_for_byte_sizem.exit89, label %107
 
 107:                                              ; preds = %_Z25proper_unit_for_byte_sizem.exit
-  %108 = icmp ugt i64 %105, 104857599
+  %108 = icmp samesign ugt i64 %105, 104857599
   br i1 %108, label %_Z25proper_unit_for_byte_sizem.exit89, label %109
 
 109:                                              ; preds = %107
-  %110 = icmp ugt i64 %105, 102399
+  %110 = icmp samesign ugt i64 %105, 102399
   %.str.40..str.41.i87 = select i1 %110, ptr @.str.40, ptr @.str.41
   br label %_Z25proper_unit_for_byte_sizem.exit89
 
@@ -685,11 +685,11 @@ _Z25proper_unit_for_byte_sizem.exit89:            ; preds = %_Z25proper_unit_for
   br i1 %120, label %_Z25proper_unit_for_byte_sizem.exit92, label %121
 
 121:                                              ; preds = %117
-  %122 = icmp ugt i64 %113, 104857599
+  %122 = icmp samesign ugt i64 %113, 104857599
   br i1 %122, label %_Z25proper_unit_for_byte_sizem.exit92, label %123
 
 123:                                              ; preds = %121
-  %124 = icmp ugt i64 %113, 102399
+  %124 = icmp samesign ugt i64 %113, 102399
   %.str.40..str.41.i90 = select i1 %124, ptr @.str.40, ptr @.str.41
   br label %_Z25proper_unit_for_byte_sizem.exit92
 
@@ -702,11 +702,11 @@ _Z25proper_unit_for_byte_sizem.exit92:            ; preds = %117, %121, %123
   br i1 %128, label %_Z25proper_unit_for_byte_sizem.exit95, label %129
 
 129:                                              ; preds = %_Z25proper_unit_for_byte_sizem.exit92
-  %130 = icmp ugt i64 %127, 104857599
+  %130 = icmp samesign ugt i64 %127, 104857599
   br i1 %130, label %_Z25proper_unit_for_byte_sizem.exit95, label %131
 
 131:                                              ; preds = %129
-  %132 = icmp ugt i64 %127, 102399
+  %132 = icmp samesign ugt i64 %127, 102399
   %.str.40..str.41.i93 = select i1 %132, ptr @.str.40, ptr @.str.41
   br label %_Z25proper_unit_for_byte_sizem.exit95
 
@@ -1019,7 +1019,7 @@ define linkonce_odr hidden noundef i64 @_Z24byte_size_in_proper_unitImET_S0_(i64
   br label %12
 
 5:                                                ; preds = %1
-  %6 = icmp ugt i64 %0, 104857599
+  %6 = icmp samesign ugt i64 %0, 104857599
   br i1 %6, label %7, label %9
 
 7:                                                ; preds = %5
@@ -1027,7 +1027,7 @@ define linkonce_odr hidden noundef i64 @_Z24byte_size_in_proper_unitImET_S0_(i64
   br label %12
 
 9:                                                ; preds = %5
-  %10 = icmp ugt i64 %0, 102399
+  %10 = icmp samesign ugt i64 %0, 102399
   %11 = lshr i64 %0, 10
   %spec.select = select i1 %10, i64 %11, i64 %0
   br label %12

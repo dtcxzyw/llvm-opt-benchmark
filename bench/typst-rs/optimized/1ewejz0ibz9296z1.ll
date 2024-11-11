@@ -1359,7 +1359,7 @@ define hidden void @"_ZN5alloc11collections5btree4node210Handle$LT$alloc..collec
 .lr.ph.i.i23.i:                                   ; preds = %317, %.lr.ph.i.i23.i
   %.sroa.0.06.i.i24.i = phi i64 [ %320, %.lr.ph.i.i23.i ], [ %296, %317 ]
   %320 = add nuw nsw i64 %.sroa.0.06.i.i24.i, 1
-  %321 = icmp ult i64 %.sroa.0.06.i.i24.i, 12
+  %321 = icmp samesign ult i64 %.sroa.0.06.i.i24.i, 12
   tail call void @llvm.assume(i1 %321)
   %322 = getelementptr inbounds ptr, ptr %309, i64 %.sroa.0.06.i.i24.i
   %323 = load ptr, ptr %322, align 8, !noalias !203, !nonnull !4, !noundef !4
@@ -1915,7 +1915,7 @@ _ZN5alloc11collections5btree4node12slice_insert17h81c02a9f0638eae2E.exit.i23.i: 
 .lr.ph.i.i24.i:                                   ; preds = %_ZN5alloc11collections5btree4node12slice_insert17h81c02a9f0638eae2E.exit.i23.i, %.lr.ph.i.i24.i
   %.sroa.0.06.i.i25.i = phi i64 [ %227, %.lr.ph.i.i24.i ], [ %204, %_ZN5alloc11collections5btree4node12slice_insert17h81c02a9f0638eae2E.exit.i23.i ]
   %227 = add nuw nsw i64 %.sroa.0.06.i.i25.i, 1
-  %228 = icmp ult i64 %.sroa.0.06.i.i25.i, 12
+  %228 = icmp samesign ult i64 %.sroa.0.06.i.i25.i, 12
   tail call void @llvm.assume(i1 %228)
   %229 = getelementptr inbounds ptr, ptr %217, i64 %.sroa.0.06.i.i25.i
   %230 = load ptr, ptr %229, align 8, !noalias !320, !nonnull !4, !noundef !4
@@ -2507,7 +2507,7 @@ _ZN5alloc11collections5btree4node12slice_insert17h712840b1c15c7621E.exit.i19.i: 
 .lr.ph.i.i20.i:                                   ; preds = %_ZN5alloc11collections5btree4node12slice_insert17h712840b1c15c7621E.exit.i19.i, %.lr.ph.i.i20.i
   %.sroa.0.06.i.i21.i = phi i64 [ %192, %.lr.ph.i.i20.i ], [ %174, %_ZN5alloc11collections5btree4node12slice_insert17h712840b1c15c7621E.exit.i19.i ]
   %192 = add nuw nsw i64 %.sroa.0.06.i.i21.i, 1
-  %193 = icmp ult i64 %.sroa.0.06.i.i21.i, 12
+  %193 = icmp samesign ult i64 %.sroa.0.06.i.i21.i, 12
   tail call void @llvm.assume(i1 %193)
   %194 = getelementptr inbounds ptr, ptr %182, i64 %.sroa.0.06.i.i21.i
   %195 = load ptr, ptr %194, align 8, !noalias !441, !nonnull !4, !noundef !4

@@ -916,7 +916,7 @@ list_length.exit43:                               ; preds = %list_length.exit41,
   %52 = getelementptr %union.ListCell, ptr %.val32, i64 %51
   %53 = icmp ult ptr %50, %52
   %..i = select i1 %53, ptr %50, ptr null
-  %54 = icmp ugt i32 %.02948, 1
+  %54 = icmp samesign ugt i32 %.02948, 1
   br i1 %54, label %.lr.ph, label %.preheader, !llvm.loop !7
 
 55:                                               ; preds = %.lr.ph52, %93

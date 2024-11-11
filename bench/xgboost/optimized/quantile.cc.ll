@@ -22316,7 +22316,7 @@ define linkonce_odr void @_ZN7xgboost6common22QuantileSketchTemplateIffNS0_9WQSu
   br label %_ZNSt6vectorIN7xgboost6common9WQSummaryIffE5Queue6QEntryESaIS5_EE6resizeEm.exit
 
 30:                                               ; preds = %23
-  %31 = icmp ult i64 %26, %7
+  %31 = icmp samesign ult i64 %26, %7
   br i1 %31, label %32, label %_ZNSt6vectorIN7xgboost6common9WQSummaryIffE5Queue6QEntryESaIS5_EE6resizeEm.exit
 
 32:                                               ; preds = %30
@@ -46091,7 +46091,7 @@ define linkonce_odr void @_ZN7xgboost6common22QuantileSketchTemplateIffNS0_10WXQ
   br label %_ZNSt6vectorIN7xgboost6common9WQSummaryIffE5Queue6QEntryESaIS5_EE6resizeEm.exit
 
 30:                                               ; preds = %23
-  %31 = icmp ult i64 %26, %7
+  %31 = icmp samesign ult i64 %26, %7
   br i1 %31, label %32, label %_ZNSt6vectorIN7xgboost6common9WQSummaryIffE5Queue6QEntryESaIS5_EE6resizeEm.exit
 
 32:                                               ; preds = %30

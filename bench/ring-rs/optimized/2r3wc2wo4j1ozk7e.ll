@@ -1075,7 +1075,7 @@ _ZN4ring6digest6digest17h65e41761f4534fd5E.exit:  ; preds = %2
   unreachable
 
 "_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17heb3913cfe867f2eeE.exit": ; preds = %_ZN4ring6digest6digest17h65e41761f4534fd5E.exit
-  %33 = icmp ugt i64 %30, 31
+  %33 = icmp samesign ugt i64 %30, 31
   br i1 %33, label %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17h844461a0d7cfade2E.exit", label %34
 
 34:                                               ; preds = %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17heb3913cfe867f2eeE.exit"
@@ -2351,7 +2351,7 @@ define noundef zeroext i1 @"_ZN99_$LT$ring..ec..suite_b..ecdsa..signing..NonceRa
   %17 = getelementptr inbounds i8, ptr %10, i64 32
   %18 = load i64, ptr %17, align 8, !noundef !9
   %19 = lshr i64 %18, 1
-  %.not = icmp ugt i64 %13, %19
+  %.not = icmp samesign ugt i64 %13, %19
   br i1 %.not, label %20, label %21
 
 20:                                               ; preds = %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17heb3913cfe867f2eeE.exit"

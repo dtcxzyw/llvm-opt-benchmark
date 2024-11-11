@@ -104,7 +104,7 @@ define void @dtgex2_(ptr nocapture noundef readonly %0, ptr nocapture noundef re
 66:                                               ; preds = %63
   %67 = load i32, ptr %13, align 4, !tbaa !3
   %68 = icmp slt i32 %67, 1
-  %69 = icmp ugt i32 %64, %61
+  %69 = icmp samesign ugt i32 %64, %61
   %70 = or i1 %69, %68
   br i1 %70, label %749, label %71
 

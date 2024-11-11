@@ -3500,7 +3500,7 @@ define internal range(i32 0, 162) i32 @t1_decoder_parse_metrics(ptr noundef %0, 
   br i1 %62, label %.thread206, label %63
 
 63:                                               ; preds = %60
-  %64 = icmp ult i8 %21, -5
+  %64 = icmp samesign ult i8 %21, -5
   %65 = shl nuw nsw i32 %54, 8
   %66 = load i8, ptr %20, align 1
   %67 = zext i8 %66 to i32
@@ -3945,7 +3945,7 @@ cf2_getScaleAndHintFlag.exit:                     ; preds = %43, %70
   %131 = call i64 @FT_DivFix(i64 noundef 131072000, i64 noundef %130) #20
   %132 = trunc i64 %131 to i32
   %133 = icmp sgt i32 %81, %132
-  %134 = icmp ugt i32 %storemerge.i, %132
+  %134 = icmp samesign ugt i32 %storemerge.i, %132
   %or.cond96 = select i1 %133, i1 true, i1 %134
   br i1 %or.cond96, label %cf2_setGlyphWidth.exit, label %.cf2_checkTransform.exit_crit_edge
 
@@ -12345,7 +12345,7 @@ ps_builder_check_points.exit1389:                 ; preds = %1144
   br i1 %.not1120, label %ps_builder_check_points.exit1389.thread, label %cf2_initGlobalRegionBuffer.exit
 
 ps_builder_check_points.exit1389.thread:          ; preds = %1144, %ps_builder_check_points.exit1389
-  %1156 = icmp ugt i32 %1141, 3
+  %1156 = icmp samesign ugt i32 %1141, 3
   %1157 = shl nuw nsw i32 %1141, 1
   %1158 = add nsw i32 %1157, -6
   %1159 = select i1 %1156, i32 %1158, i32 %1157
@@ -13050,7 +13050,7 @@ cf2_stack_popFixed.exit1407:                      ; preds = %1470, %1472, %1474,
 
 cf2_arrstack_getPointer.exit1412:                 ; preds = %.lr.ph1848, %1503, %1505
   %.0.i1411 = phi i64 [ %indvars.iv.next, %.lr.ph1848 ], [ 0, %1503 ], [ 0, %1505 ]
-  %1506 = icmp ugt i64 %indvars.iv, 1
+  %1506 = icmp samesign ugt i64 %indvars.iv, 1
   br i1 %1506, label %.lr.ph1848, label %._crit_edge1849, !llvm.loop !57
 
 ._crit_edge1849:                                  ; preds = %cf2_arrstack_getPointer.exit1412
@@ -15371,7 +15371,7 @@ cf2_buf_readByte.exit1688:                        ; preds = %2406, %2411, %2413,
   br label %.backedge.backedge
 
 2453:                                             ; preds = %2433
-  %2454 = icmp ult i8 %.0982, -5
+  %2454 = icmp samesign ult i8 %.0982, -5
   %2455 = icmp ult ptr %200, %.0984.val
   br i1 %2454, label %2456, label %2485
 
@@ -18442,7 +18442,7 @@ cf2_hint_init.exit161:                            ; preds = %359, %363
   %408 = sub nsw i32 0, %407
   %409 = add i32 %386, -1
   %410 = zext i32 %409 to i64
-  %.not143.i = icmp ult i64 %390, %410
+  %.not143.i = icmp samesign ult i64 %390, %410
   br i1 %.not143.i, label %411, label %416
 
 411:                                              ; preds = %397

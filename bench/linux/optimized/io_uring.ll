@@ -7721,7 +7721,7 @@ define dso_local i32 @io_submit_sqes(ptr noundef %0, i32 noundef %1) local_unnam
   br label %115
 
 115:                                              ; preds = %111, %104
-  %116 = icmp ult i8 %87, 64
+  %116 = icmp samesign ult i8 %87, 64
   br i1 %116, label %120, label %117
 
 117:                                              ; preds = %115
@@ -9129,7 +9129,7 @@ define internal fastcc range(i64 -2147483648, 4294967296) i64 @__se_sys_io_uring
   br i1 %19, label %20, label %.thread, !prof !25
 
 20:                                               ; preds = %6
-  %21 = icmp ult i32 %17, 16
+  %21 = icmp samesign ult i32 %17, 16
   br i1 %21, label %37, label %22
 
 22:                                               ; preds = %20

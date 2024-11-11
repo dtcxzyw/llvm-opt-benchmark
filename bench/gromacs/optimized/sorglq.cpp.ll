@@ -73,30 +73,30 @@ define void @sorglq_(ptr nocapture noundef readonly %0, ptr nocapture noundef re
   br label %.thread
 
 41:                                               ; preds = %38
-  %42 = icmp ugt i32 %.fr162, 32
+  %42 = icmp samesign ugt i32 %.fr162, 32
   br i1 %42, label %43, label %.thread172
 
 43:                                               ; preds = %41
-  %44 = icmp ugt i32 %.fr162, 128
+  %44 = icmp samesign ugt i32 %.fr162, 128
   br i1 %44, label %45, label %.thread172
 
 45:                                               ; preds = %43
   store i32 %25, ptr %15, align 4
   %46 = shl nsw i32 %25, 5
-  %47 = icmp ult i32 %23, %46
+  %47 = icmp samesign ult i32 %23, %46
   br i1 %47, label %48, label %.thread172
 
 48:                                               ; preds = %45
   %49 = udiv i32 %23, %25
-  %50 = icmp ugt i32 %49, 1
+  %50 = icmp samesign ugt i32 %49, 1
   br i1 %50, label %.thread172, label %76
 
 .thread172:                                       ; preds = %41, %43, %45, %48
   %.0144180 = phi i32 [ %46, %48 ], [ %25, %41 ], [ %25, %43 ], [ %46, %45 ]
   %.0145178 = phi i32 [ 128, %48 ], [ 0, %41 ], [ 128, %43 ], [ 128, %45 ]
   %.0148177 = phi i32 [ %49, %48 ], [ 32, %41 ], [ 32, %43 ], [ 32, %45 ]
-  %51 = icmp ult i32 %.0148177, %.fr162
-  %52 = icmp ult i32 %.0145178, %.fr162
+  %51 = icmp samesign ult i32 %.0148177, %.fr162
+  %52 = icmp samesign ult i32 %.0145178, %.fr162
   %or.cond169 = and i1 %52, %51
   br i1 %or.cond169, label %53, label %76
 
@@ -108,8 +108,8 @@ define void @sorglq_(ptr nocapture noundef readonly %0, ptr nocapture noundef re
   %58 = add nsw i32 %57, %.0148177
   %59 = tail call i32 @llvm.smin.i32(i32 %.fr162, i32 %58)
   %.not163184 = icmp sgt i32 %59, 0
-  %60 = icmp ult i32 %59, %25
-  %or.cond221 = and i1 %.not163184, %60
+  %60 = icmp samesign ult i32 %59, %25
+  %or.cond221 = select i1 %.not163184, i1 %60, i1 false
   br i1 %or.cond221, label %.lr.ph187.split.preheader, label %.loopexit181
 
 .lr.ph187.split.preheader:                        ; preds = %53

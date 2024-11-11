@@ -579,7 +579,7 @@ default.unreachable:                              ; preds = %9
   br label %67
 
 60:                                               ; preds = %4
-  %.not58 = icmp ult i8 %5, 64
+  %.not58 = icmp samesign ult i8 %5, 64
   br i1 %.not58, label %63, label %61
 
 61:                                               ; preds = %60

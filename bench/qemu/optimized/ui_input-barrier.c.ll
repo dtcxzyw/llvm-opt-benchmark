@@ -1298,7 +1298,7 @@ if.end52.i:                                       ; preds = %if.end47.thread.i
   %10 = getelementptr inbounds i8, ptr %msg, i64 4
   store i16 %call53.i, ptr %10, align 4
   %sub55.i = add i32 %6, -9
-  %cmp58.i = icmp ult i32 %sub55.i, 2
+  %cmp58.i = icmp samesign ult i32 %sub55.i, 2
   br i1 %cmp58.i, label %if.then, label %if.end.thread35
 
 if.end.thread35:                                  ; preds = %if.end52.i

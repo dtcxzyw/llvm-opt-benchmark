@@ -1982,11 +1982,11 @@ if.then108:                                       ; preds = %sw.bb
   br i1 %cmp.i121, label %_Z20FindSuitableMultipleRi.exit, label %if.else.i
 
 if.else.i:                                        ; preds = %if.then108
-  %cmp1.i = icmp ult i32 %rem, 10
+  %cmp1.i = icmp samesign ult i32 %rem, 10
   br i1 %cmp1.i, label %_Z20FindSuitableMultipleRi.exit, label %if.else3.i
 
 if.else3.i:                                       ; preds = %if.else.i
-  %cmp4.i = icmp ult i32 %rem, 20
+  %cmp4.i = icmp samesign ult i32 %rem, 20
   br i1 %cmp4.i, label %_Z20FindSuitableMultipleRi.exit, label %if.else6.i
 
 if.else6.i:                                       ; preds = %if.else3.i
@@ -1999,11 +1999,11 @@ _Z20FindSuitableMultipleRi.exit:                  ; preds = %if.else6.i, %if.the
   br i1 %cmp.i122, label %_Z20FindSuitableMultipleRi.exit131, label %if.else.i123
 
 if.else.i123:                                     ; preds = %_Z20FindSuitableMultipleRi.exit
-  %cmp1.i124 = icmp ult i32 %rem97, 10
+  %cmp1.i124 = icmp samesign ult i32 %rem97, 10
   br i1 %cmp1.i124, label %_Z20FindSuitableMultipleRi.exit131, label %if.else3.i125
 
 if.else3.i125:                                    ; preds = %if.else.i123
-  %cmp4.i126 = icmp ult i32 %rem97, 20
+  %cmp4.i126 = icmp samesign ult i32 %rem97, 20
   br i1 %cmp4.i126, label %_Z20FindSuitableMultipleRi.exit131, label %if.else6.i127
 
 if.else6.i127:                                    ; preds = %if.else3.i125
@@ -2016,11 +2016,11 @@ _Z20FindSuitableMultipleRi.exit131:               ; preds = %if.else6.i127, %_Z2
   br i1 %cmp.i132, label %if.then115, label %if.else.i133
 
 if.else.i133:                                     ; preds = %_Z20FindSuitableMultipleRi.exit131
-  %cmp1.i134 = icmp ult i32 %rem99, 10
+  %cmp1.i134 = icmp samesign ult i32 %rem99, 10
   br i1 %cmp1.i134, label %if.then115, label %if.else3.i135
 
 if.else3.i135:                                    ; preds = %if.else.i133
-  %cmp4.i136 = icmp ult i32 %rem99, 20
+  %cmp4.i136 = icmp samesign ult i32 %rem99, 20
   br i1 %cmp4.i136, label %if.then115, label %if.else6.i137
 
 if.else6.i137:                                    ; preds = %if.else3.i135
@@ -10978,8 +10978,8 @@ while.body.i:                                     ; preds = %entry, %while.body.
   %size.addr.010.i = phi i64 [ %size.addr.1.i, %while.body.i ], [ %div6, %entry ]
   %0 = load i32, ptr %data.addr.012.i, align 4
   %cmp.i = icmp ult i32 %0, 65536
-  %cmp.i.i = icmp ult i32 %0, 128
-  %cmp1.i.i = icmp ult i32 %0, 2048
+  %cmp.i.i = icmp samesign ult i32 %0, 128
+  %cmp1.i.i = icmp samesign ult i32 %0, 2048
   %..i.i = select i1 %cmp1.i.i, i64 2, i64 3
   %.sink.i.i = select i1 %cmp.i.i, i64 1, i64 %..i.i
   %.sink.i.pn.i = select i1 %cmp.i, i64 %.sink.i.i, i64 4
@@ -11011,7 +11011,7 @@ while.body.i7:                                    ; preds = %_ZN4pugi4impl13utf3
   br i1 %cmp.i8, label %if.then.i, label %if.else.i
 
 if.then.i:                                        ; preds = %while.body.i7
-  %cmp.i.i13 = icmp ult i32 %4, 128
+  %cmp.i.i13 = icmp samesign ult i32 %4, 128
   br i1 %cmp.i.i13, label %if.then.i.i, label %if.else.i.i
 
 if.then.i.i:                                      ; preds = %if.then.i
@@ -11020,7 +11020,7 @@ if.then.i.i:                                      ; preds = %if.then.i
   br label %if.end.i
 
 if.else.i.i:                                      ; preds = %if.then.i
-  %cmp1.i.i14 = icmp ult i32 %4, 2048
+  %cmp1.i.i14 = icmp samesign ult i32 %4, 2048
   br i1 %cmp1.i.i14, label %if.then2.i.i, label %if.else8.i.i
 
 if.then2.i.i:                                     ; preds = %if.else.i.i
@@ -11113,8 +11113,8 @@ while.body.i:                                     ; preds = %entry, %while.body.
   %0 = load i32, ptr %data.addr.012.i, align 4
   %or6.i.i = tail call noundef i32 @llvm.bswap.i32(i32 %0)
   %cmp.i = icmp ult i32 %or6.i.i, 65536
-  %cmp.i.i = icmp ult i32 %or6.i.i, 128
-  %cmp1.i.i = icmp ult i32 %or6.i.i, 2048
+  %cmp.i.i = icmp samesign ult i32 %or6.i.i, 128
+  %cmp1.i.i = icmp samesign ult i32 %or6.i.i, 2048
   %..i.i = select i1 %cmp1.i.i, i64 2, i64 3
   %.sink.i.i = select i1 %cmp.i.i, i64 1, i64 %..i.i
   %.sink.i.pn.i = select i1 %cmp.i, i64 %.sink.i.i, i64 4
@@ -11147,7 +11147,7 @@ while.body.i7:                                    ; preds = %_ZN4pugi4impl13utf3
   br i1 %cmp.i9, label %if.then.i, label %if.else.i
 
 if.then.i:                                        ; preds = %while.body.i7
-  %cmp.i.i14 = icmp ult i32 %or6.i.i8, 128
+  %cmp.i.i14 = icmp samesign ult i32 %or6.i.i8, 128
   br i1 %cmp.i.i14, label %if.then.i.i, label %if.else.i.i
 
 if.then.i.i:                                      ; preds = %if.then.i
@@ -11156,7 +11156,7 @@ if.then.i.i:                                      ; preds = %if.then.i
   br label %if.end.i
 
 if.else.i.i:                                      ; preds = %if.then.i
-  %cmp1.i.i15 = icmp ult i32 %or6.i.i8, 2048
+  %cmp1.i.i15 = icmp samesign ult i32 %or6.i.i8, 2048
   br i1 %cmp1.i.i15, label %if.then2.i.i, label %if.else8.i.i
 
 if.then2.i.i:                                     ; preds = %if.else.i.i
@@ -14965,7 +14965,7 @@ if.end54:                                         ; preds = %if.else45, %if.else
   br i1 %cmp.i, label %cond.true.i, label %cond.false.i
 
 cond.true.i:                                      ; preds = %if.end54
-  %cmp.i.i = icmp ult i32 %ucsc.2, 128
+  %cmp.i.i = icmp samesign ult i32 %ucsc.2, 128
   br i1 %cmp.i.i, label %if.then.i.i, label %if.else.i.i
 
 if.then.i.i:                                      ; preds = %cond.true.i
@@ -14974,7 +14974,7 @@ if.then.i.i:                                      ; preds = %cond.true.i
   br label %_ZN4pugi4impl11utf8_writer3anyEPhj.exit
 
 if.else.i.i:                                      ; preds = %cond.true.i
-  %cmp1.i.i = icmp ult i32 %ucsc.2, 2048
+  %cmp1.i.i = icmp samesign ult i32 %ucsc.2, 2048
   br i1 %cmp1.i.i, label %if.then2.i.i, label %if.else8.i.i
 
 if.then2.i.i:                                     ; preds = %if.else.i.i

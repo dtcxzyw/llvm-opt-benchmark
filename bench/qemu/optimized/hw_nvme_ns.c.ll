@@ -1492,7 +1492,7 @@ if.else.i67.i:                                    ; preds = %if.then.i65.i
 if.end.i68.i:                                     ; preds = %if.then.i65.i
   %dec.i69.i = add nsw i32 %.pre.i64.i, -1
   store i32 %dec.i69.i, ptr %nr_active_zones9.phi.trans.insert.i63.i, align 4
-  %cmp4.not.not.i71.i = icmp ugt i32 %.pre.i64.i, %15
+  %cmp4.not.not.i71.i = icmp samesign ugt i32 %.pre.i64.i, %15
   br i1 %cmp4.not.not.i71.i, label %nvme_aor_dec_active.exit75.i, label %if.else6.i72.i
 
 if.else6.i72.i:                                   ; preds = %if.end.i68.i
@@ -1591,7 +1591,7 @@ if.else.i95.i:                                    ; preds = %if.then.i93.i
 if.end.i96.i:                                     ; preds = %if.then.i93.i
   %dec.i97.i = add nsw i32 %.pre.i92.i, -1
   store i32 %dec.i97.i, ptr %nr_active_zones9.phi.trans.insert.i91.i, align 4
-  %cmp4.not.not.i99.i = icmp ugt i32 %.pre.i92.i, %24
+  %cmp4.not.not.i99.i = icmp samesign ugt i32 %.pre.i92.i, %24
   br i1 %cmp4.not.not.i99.i, label %nvme_aor_dec_active.exit103.i, label %if.else6.i100.i
 
 if.else6.i100.i:                                  ; preds = %if.end.i96.i

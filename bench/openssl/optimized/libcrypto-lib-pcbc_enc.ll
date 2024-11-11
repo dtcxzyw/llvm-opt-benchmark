@@ -27,7 +27,7 @@ for.body:                                         ; preds = %for.body.lr.ph, %if
   %xor1.0143 = phi i32 [ %0, %for.body.lr.ph ], [ %xor98, %if.end ]
   %xor0.0142 = phi i32 [ %1, %for.body.lr.ph ], [ %xor97, %if.end ]
   %length.addr.0141 = phi i64 [ %length, %for.body.lr.ph ], [ %sub, %if.end ]
-  %cmp26 = icmp ugt i64 %length.addr.0141, 7
+  %cmp26 = icmp samesign ugt i64 %length.addr.0141, 7
   br i1 %cmp26, label %if.then28, label %if.else
 
 if.then28:                                        ; preds = %for.body
@@ -214,7 +214,7 @@ for.body159:                                      ; preds = %for.body159.lr.ph, 
   %xor192 = xor i32 %23, %xor0.1148
   %24 = load i32, ptr %arrayidx189, align 4
   %xor194 = xor i32 %24, %xor1.1149
-  %cmp195 = icmp ugt i64 %length.addr.1147, 7
+  %cmp195 = icmp samesign ugt i64 %length.addr.1147, 7
   br i1 %cmp195, label %if.end269, label %if.else228
 
 if.else228:                                       ; preds = %for.body159

@@ -169,7 +169,7 @@ define dso_local ptr @pack_all_stat(i16 noundef zeroext %0) local_unnamed_addr #
   br label %128
 
 68:                                               ; preds = %7
-  %69 = icmp ugt i16 %0, 9983
+  %69 = icmp samesign ugt i16 %0, 9983
   br i1 %69, label %70, label %128
 
 70:                                               ; preds = %68

@@ -1253,7 +1253,7 @@ spec_ith_char.exit489:                            ; preds = %spec_ith_char.exit,
 
 415:                                              ; preds = %414
   %416 = icmp ugt i32 %.0396.lcssa, 1
-  %417 = icmp ugt i32 %.0522924, 3
+  %417 = icmp samesign ugt i32 %.0522924, 3
   %or.cond.i = and i1 %417, %416
   %wide.trip.count.i = zext nneg i32 %.0522924 to i64
   br i1 %or.cond.i, label %.preheader.i, label %.thread.i

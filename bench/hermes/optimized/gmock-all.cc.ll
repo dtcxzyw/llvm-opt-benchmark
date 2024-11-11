@@ -831,7 +831,7 @@ lpad34.body.i:                                    ; preds = %lpad34.i, %lpad.i.i
   br label %ehcleanup.i
 
 if.else36.i:                                      ; preds = %if.else.i
-  %cmp37.i = icmp ugt i32 %min, %max
+  %cmp37.i = icmp samesign ugt i32 %min, %max
   br i1 %cmp37.i, label %if.then38.i, label %invoke.cont
 
 if.then38.i:                                      ; preds = %if.else36.i

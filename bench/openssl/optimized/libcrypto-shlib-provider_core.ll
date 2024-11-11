@@ -2114,7 +2114,7 @@ if.end43:                                         ; preds = %if.then27, %if.else
   %max.1 = phi i32 [ %max.062, %if.then27 ], [ %dec, %if.else ]
   %9 = load ptr, ptr %flag_lock, align 8
   %call45 = call i32 @CRYPTO_THREAD_unlock(ptr noundef %9) #11
-  %cmp20 = icmp ugt i32 %curr.0.in63, 1
+  %cmp20 = icmp samesign ugt i32 %curr.0.in63, 1
   br i1 %cmp20, label %for.body, label %for.end, !llvm.loop !14
 
 for.end:                                          ; preds = %if.end43

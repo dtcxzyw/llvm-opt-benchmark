@@ -1826,13 +1826,13 @@ define internal i32 @intel_crt_mode_valid(ptr nocapture noundef readonly %0, ptr
 
 31:                                               ; preds = %25, %20
   %32 = phi i32 [ 270000, %20 ], [ %30, %25 ]
-  %33 = icmp ugt i32 %14, %32
+  %33 = icmp samesign ugt i32 %14, %32
   %34 = icmp sgt i32 %14, %5
   %35 = select i1 %33, i1 true, i1 %34
   br i1 %35, label %46, label %41
 
 .thread:                                          ; preds = %16
-  %36 = icmp ugt i32 %14, 180000
+  %36 = icmp samesign ugt i32 %14, 180000
   %37 = icmp sgt i32 %14, %5
   %38 = select i1 %36, i1 true, i1 %37
   br i1 %38, label %46, label %.thread2

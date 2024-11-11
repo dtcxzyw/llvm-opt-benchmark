@@ -2461,7 +2461,7 @@ define internal noundef zeroext i1 @update_spdu_signal_list(ptr nocapture nounde
   br label %.sink.split
 
 29:                                               ; preds = %23
-  %.not = icmp ult i32 %19, %25
+  %.not = icmp samesign ult i32 %19, %25
   br i1 %.not, label %33, label %30
 
 30:                                               ; preds = %29

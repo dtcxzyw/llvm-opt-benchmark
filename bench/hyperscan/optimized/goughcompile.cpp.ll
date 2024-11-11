@@ -940,7 +940,7 @@ if.then.i5.i:                                     ; preds = %_ZNK5boost9containe
 
 if.end.i4.i:                                      ; preds = %_ZNK5boost9container19vector_alloc_holderINS0_22small_vector_allocatorIjSaIvEvEEmNS_11move_detail17integral_constantIjLj1EEEE13next_capacityINS0_16growth_factor_60EEEmm.exit.i.thread, %_ZNK5boost9container19vector_alloc_holderINS0_22small_vector_allocatorIjSaIvEvEEmNS_11move_detail17integral_constantIjLj1EEEE13next_capacityINS0_16growth_factor_60EEEmm.exit.i
   %36 = phi i64 [ %32, %_ZNK5boost9container19vector_alloc_holderINS0_22small_vector_allocatorIjSaIvEvEEmNS_11move_detail17integral_constantIjLj1EEEE13next_capacityINS0_16growth_factor_60EEEmm.exit.i.thread ], [ %35, %_ZNK5boost9container19vector_alloc_holderINS0_22small_vector_allocatorIjSaIvEvEEmNS_11move_detail17integral_constantIjLj1EEEE13next_capacityINS0_16growth_factor_60EEEmm.exit.i ]
-  %cmp.i.i.i.i.i.i.i = icmp ugt i64 %36, 2305843009213693951
+  %cmp.i.i.i.i.i.i.i = icmp samesign ugt i64 %36, 2305843009213693951
   br i1 %cmp.i.i.i.i.i.i.i, label %if.end.i.i.i.i.i.i.i, label %_ZN5boost9container19vector_alloc_holderINS0_22small_vector_allocatorIjSaIvEvEEmNS_11move_detail17integral_constantIjLj1EEEE8allocateEm.exit.i
 
 if.end.i.i.i.i.i.i.i:                             ; preds = %if.end.i4.i
@@ -8114,7 +8114,7 @@ if.then.i5.i.cont:                                ; preds = %if.then.i5.i.invoke
   unreachable
 
 if.end.i4.i:                                      ; preds = %_ZNK5boost9container19vector_alloc_holderINS0_22small_vector_allocatorISt4pairIjPN3ue215GoughSSAVarJoinEESaIvEvEEmNS_11move_detail17integral_constantIjLj1EEEE13next_capacityINS0_16growth_factor_60EEEmm.exit.i
-  %cmp.i.i.i.i.i.i.i1089 = icmp ugt i64 %40, 576460752303423487
+  %cmp.i.i.i.i.i.i.i1089 = icmp samesign ugt i64 %40, 576460752303423487
   br i1 %cmp.i.i.i.i.i.i.i1089, label %if.end.i.i.i.i.i.i.i, label %_ZN5boost9container19vector_alloc_holderINS0_22small_vector_allocatorISt4pairIjPN3ue215GoughSSAVarJoinEESaIvEvEEmNS_11move_detail17integral_constantIjLj1EEEE8allocateEm.exit.i
 
 if.end.i.i.i.i.i.i.i:                             ; preds = %if.end.i4.i
@@ -9546,7 +9546,7 @@ _ZNK5boost9container19vector_alloc_holderINS0_22small_vector_allocatorINS_6detai
   br i1 %cmp3.i.i1269, label %if.then.i.i1306.invoke, label %if.end.i4.i1270
 
 if.end.i4.i1270:                                  ; preds = %_ZNK5boost9container19vector_alloc_holderINS0_22small_vector_allocatorINS_6detail14edge_desc_implINS_17bidirectional_tagEmEESaIvEvEEmNS_11move_detail17integral_constantIjLj1EEEE13next_capacityINS0_16growth_factor_60EEEmm.exit.i
-  %cmp.i.i.i.i.i.i.i1271 = icmp ugt i64 %202, 384307168202282325
+  %cmp.i.i.i.i.i.i.i1271 = icmp samesign ugt i64 %202, 384307168202282325
   br i1 %cmp.i.i.i.i.i.i.i1271, label %if.end.i.i.i.i.i.i.i1301, label %_ZN5boost9container19vector_alloc_holderINS0_22small_vector_allocatorINS_6detail14edge_desc_implINS_17bidirectional_tagEmEESaIvEvEEmNS_11move_detail17integral_constantIjLj1EEEE8allocateEm.exit.i
 
 if.end.i.i.i.i.i.i.i1301:                         ; preds = %if.end.i4.i1270
@@ -12403,7 +12403,7 @@ _ZNK5boost9container19vector_alloc_holderINS0_22small_vector_allocatorINS_6detai
   br i1 %cmp3.i.i1330, label %if.then.i.i1369.invoke, label %if.end.i4.i1331
 
 if.end.i4.i1331:                                  ; preds = %_ZNK5boost9container19vector_alloc_holderINS0_22small_vector_allocatorINS_6detail14edge_desc_implINS_17bidirectional_tagEmEESaIvEvEEmNS_11move_detail17integral_constantIjLj1EEEE13next_capacityINS0_16growth_factor_60EEEmm.exit.i1327
-  %cmp.i.i.i.i.i.i.i1332 = icmp ugt i64 %561, 384307168202282325
+  %cmp.i.i.i.i.i.i.i1332 = icmp samesign ugt i64 %561, 384307168202282325
   br i1 %cmp.i.i.i.i.i.i.i1332, label %if.end.i.i.i.i.i.i.i1364, label %_ZN5boost9container19vector_alloc_holderINS0_22small_vector_allocatorINS_6detail14edge_desc_implINS_17bidirectional_tagEmEESaIvEvEEmNS_11move_detail17integral_constantIjLj1EEEE8allocateEm.exit.i1333
 
 if.end.i.i.i.i.i.i.i1364:                         ; preds = %if.end.i4.i1331
@@ -12754,7 +12754,7 @@ for.inc174:                                       ; preds = %for.inc174.loopexit
 
 for.end176:                                       ; preds = %for.inc174, %for.end69
   %sub.ptr.div.i26.i.pre-phi = phi i64 [ %sub.ptr.div.i1281712.pre-phi, %for.end69 ], [ %sub.ptr.div.i128, %for.inc174 ]
-  %cmp27.i = icmp ugt i64 %sub.ptr.div.i26.i.pre-phi, 1
+  %cmp27.i = icmp samesign ugt i64 %sub.ptr.div.i26.i.pre-phi, 1
   br i1 %cmp27.i, label %for.body.lr.ph.i469, label %invoke.cont178
 
 for.body.lr.ph.i469:                              ; preds = %for.end176
@@ -25395,7 +25395,7 @@ if.then.i5:                                       ; preds = %_ZNK5boost9containe
   unreachable
 
 if.end.i4:                                        ; preds = %_ZNK5boost9container19vector_alloc_holderINS0_22small_vector_allocatorIPN3ue211GoughSSAVarESaIvEvEEmNS_11move_detail17integral_constantIjLj1EEEE13next_capacityINS0_16growth_factor_60EEEmm.exit
-  %cmp.i.i.i.i.i.i = icmp ugt i64 %5, 1152921504606846975
+  %cmp.i.i.i.i.i.i = icmp samesign ugt i64 %5, 1152921504606846975
   br i1 %cmp.i.i.i.i.i.i, label %if.end.i.i.i.i.i.i, label %_ZN5boost9container19vector_alloc_holderINS0_22small_vector_allocatorIPN3ue211GoughSSAVarESaIvEvEEmNS_11move_detail17integral_constantIjLj1EEEE8allocateEm.exit
 
 if.end.i.i.i.i.i.i:                               ; preds = %if.end.i4
@@ -25515,7 +25515,7 @@ if.then.i5:                                       ; preds = %_ZNK5boost9containe
   unreachable
 
 if.end.i4:                                        ; preds = %_ZNK5boost9container19vector_alloc_holderINS0_22small_vector_allocatorIPN3ue221GoughSSAVarWithInputsESaIvEvEEmNS_11move_detail17integral_constantIjLj1EEEE13next_capacityINS0_16growth_factor_60EEEmm.exit
-  %cmp.i.i.i.i.i.i = icmp ugt i64 %5, 1152921504606846975
+  %cmp.i.i.i.i.i.i = icmp samesign ugt i64 %5, 1152921504606846975
   br i1 %cmp.i.i.i.i.i.i, label %if.end.i.i.i.i.i.i, label %_ZN5boost9container19vector_alloc_holderINS0_22small_vector_allocatorIPN3ue221GoughSSAVarWithInputsESaIvEvEEmNS_11move_detail17integral_constantIjLj1EEEE8allocateEm.exit
 
 if.end.i.i.i.i.i.i:                               ; preds = %if.end.i4
@@ -26806,7 +26806,7 @@ if.then.i5:                                       ; preds = %_ZNK5boost9containe
   unreachable
 
 if.end.i4:                                        ; preds = %_ZNK5boost9container19vector_alloc_holderINS0_22small_vector_allocatorINS_6detail14edge_desc_implINS_17bidirectional_tagEmEESaIvEvEEmNS_11move_detail17integral_constantIjLj1EEEE13next_capacityINS0_16growth_factor_60EEEmm.exit
-  %cmp.i.i.i.i.i.i = icmp ugt i64 %5, 384307168202282325
+  %cmp.i.i.i.i.i.i = icmp samesign ugt i64 %5, 384307168202282325
   br i1 %cmp.i.i.i.i.i.i, label %if.end.i.i.i.i.i.i, label %_ZN5boost9container19vector_alloc_holderINS0_22small_vector_allocatorINS_6detail14edge_desc_implINS_17bidirectional_tagEmEESaIvEvEEmNS_11move_detail17integral_constantIjLj1EEEE8allocateEm.exit
 
 if.end.i.i.i.i.i.i:                               ; preds = %if.end.i4

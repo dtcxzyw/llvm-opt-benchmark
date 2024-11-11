@@ -102,11 +102,11 @@ _ZNK4absl12lts_202308024Cord5emptyEv.exit.i:      ; preds = %cond.false.i.i.i.i,
 
 if.then.i:                                        ; preds = %_ZNK4absl12lts_202308024Cord5emptyEv.exit.i
   tail call void @llvm.experimental.noalias.scope.decl(metadata !7)
-  %cmp.i2.i = icmp ugt i32 %count, 15
+  %cmp.i2.i = icmp samesign ugt i32 %count, 15
   br i1 %cmp.i2.i, label %if.then.i.i, label %_ZN4absl12lts_202308024Cord15GetAppendBufferEmm.exit.thread
 
 if.then.i.i:                                      ; preds = %if.then.i
-  %cmp.i.i.i.i = icmp ult i32 %count, 20
+  %cmp.i.i.i.i = icmp samesign ult i32 %count, 20
   %spec.store.select.i.i.i.i = tail call i64 @llvm.umin.i64(i64 %conv, i64 4083)
   %4 = add nuw nsw i64 %spec.store.select.i.i.i.i, 13
   %len.addr.0.i.i.i.i = select i1 %cmp.i.i.i.i, i64 32, i64 %4
@@ -119,7 +119,7 @@ if.then.i.i:                                      ; preds = %if.then.i
   %call4.i.i.i.i = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %and.i.i.i.i.i.i) #18, !noalias !10
   %5 = getelementptr inbounds i8, ptr %call4.i.i.i.i, i64 8
   store i64 4, ptr %5, align 8, !noalias !10
-  %cmp.i.i.i.i.i.i = icmp ult i64 %and.i.i.i.i.i.i, 513
+  %cmp.i.i.i.i.i.i = icmp samesign ult i64 %and.i.i.i.i.i.i, 513
   %.sink8.i.i.i.i.i.i = select i1 %cmp.i.i.i.i.i.i, i64 3, i64 6
   %.sink.i.i.i.i.i.i = select i1 %cmp.i.i.i.i.i.i, i64 2, i64 58
   %div36.i.i.i.i.i.i = lshr i64 %and.i.i.i.i.i.i, %.sink8.i.i.i.i.i.i
@@ -579,7 +579,7 @@ if.then.i4:                                       ; preds = %_ZN4absl12lts_20230
   %call4.i.i.i = call noalias noundef nonnull ptr @_Znwm(i64 noundef %and.i.i.i.i.i) #18, !noalias !14
   %18 = getelementptr inbounds i8, ptr %call4.i.i.i, i64 8
   store i64 4, ptr %18, align 8, !noalias !14
-  %cmp.i.i.i.i.i = icmp ult i64 %and.i.i.i.i.i, 513
+  %cmp.i.i.i.i.i = icmp samesign ult i64 %and.i.i.i.i.i, 513
   %.sink8.i.i.i.i.i = select i1 %cmp.i.i.i.i.i, i64 3, i64 6
   %.sink.i.i.i.i.i = select i1 %cmp.i.i.i.i.i, i64 2, i64 58
   %div36.i.i.i.i.i = lshr i64 %and.i.i.i.i.i, %.sink8.i.i.i.i.i
@@ -1099,7 +1099,7 @@ while.body.i.i.i.i:                               ; preds = %if.then.i, %while.b
   %arrayidx14.i.i.i.i = getelementptr inbounds [12 x i8], ptr %index_.i.i.i.i, i64 0, i64 %indvars.iv.next.i.i.i.i
   store i8 %10, ptr %arrayidx14.i.i.i.i, align 1
   %index.0.i.i.i.i = zext i8 %10 to i64
-  %cmp.i.i.i.i = icmp ugt i64 %indvars.iv.i.i.i.i, 1
+  %cmp.i.i.i.i = icmp samesign ugt i64 %indvars.iv.i.i.i.i, 1
   br i1 %cmp.i.i.i.i, label %while.body.i.i.i.i, label %_ZN4absl12lts_2023080213cord_internal21CordRepBtreeNavigator9InitFirstEPNS1_12CordRepBtreeE.exit.i.i, !llvm.loop !20
 
 _ZN4absl12lts_2023080213cord_internal21CordRepBtreeNavigator9InitFirstEPNS1_12CordRepBtreeE.exit.i.i: ; preds = %while.body.i.i.i.i, %if.then.i

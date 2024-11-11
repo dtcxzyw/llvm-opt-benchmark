@@ -1498,8 +1498,8 @@ if.end.i.i.i74:                                   ; preds = %invoke.cont68, %inv
   %conv.i.i.i.i75 = and i64 %28, 4294967295
   %mul.i.i.i.i77 = mul nuw nsw i64 %conv.i.i.i.i75, 101
   %conv.i13.i.i.i78 = trunc i64 %mul.i.i.i.i77 to i32
-  %cmp1031.i.i.i90 = icmp ult i32 %conv.i13.i.i.i78, 68
-  br i1 %cmp1031.i.i.i90, label %while.body.i.i.i91, label %invoke.cont81
+  %or.cond307 = icmp ult i32 %conv.i13.i.i.i78, 68
+  br i1 %or.cond307, label %while.body.i.i.i91, label %invoke.cont81
 
 while.body.i.i.i91:                               ; preds = %if.end.i.i.i74, %while.body.i.i.i91
   %inc.i.i.i162932.i.i.i92 = phi i64 [ %inc.i.i.i16.i.i.i93, %while.body.i.i.i91 ], [ %inc.i.i.i.i.i.i63, %if.end.i.i.i74 ]
@@ -1775,8 +1775,8 @@ if.end.i.i.i183:                                  ; preds = %invoke.cont148, %in
   %conv.i.i.i.i184 = and i64 %52, 4294967295
   %mul.i.i.i.i186 = mul nuw nsw i64 %conv.i.i.i.i184, 10001
   %conv.i13.i.i.i187 = trunc i64 %mul.i.i.i.i186 to i32
-  %cmp1031.i.i.i199 = icmp ult i32 %conv.i13.i.i.i187, 7843
-  br i1 %cmp1031.i.i.i199, label %while.body.i.i.i200, label %invoke.cont161
+  %or.cond308 = icmp ult i32 %conv.i13.i.i.i187, 7843
+  br i1 %or.cond308, label %while.body.i.i.i200, label %invoke.cont161
 
 while.body.i.i.i200:                              ; preds = %if.end.i.i.i183, %while.body.i.i.i200
   %inc.i.i.i162932.i.i.i201 = phi i64 [ %inc.i.i.i16.i.i.i202, %while.body.i.i.i200 ], [ %inc.i.i.i.i.i.i172, %if.end.i.i.i183 ]

@@ -2003,12 +2003,12 @@ define linkonce_odr hidden noundef i32 @_ZN5boost6locale4util14utf8_converter12f
   br i1 %.0.i, label %7, label %_ZN5boost6locale3utf10utf_traitsIcLi1EE6encodeIPcEET_jS6_.exit
 
 7:                                                ; preds = %4
-  %8 = icmp ult i32 %1, 128
+  %8 = icmp samesign ult i32 %1, 128
   br i1 %8, label %_ZN5boost6locale3utf10utf_traitsIcLi1EE5widthEj.exit.thread, label %_ZN5boost6locale3utf10utf_traitsIcLi1EE5widthEj.exit
 
 _ZN5boost6locale3utf10utf_traitsIcLi1EE5widthEj.exit: ; preds = %7
-  %9 = icmp ult i32 %1, 2048
-  %10 = icmp ult i32 %1, 65536
+  %9 = icmp samesign ult i32 %1, 2048
+  %10 = icmp samesign ult i32 %1, 65536
   %..i = select i1 %10, i64 3, i64 4
   %.0.i9 = select i1 %9, i64 2, i64 %..i
   %11 = ptrtoint ptr %3 to i64
@@ -2106,15 +2106,15 @@ define linkonce_odr hidden noundef i32 @_ZN5boost6locale3utf10utf_traitsIcLi1EE6
   br i1 %8, label %19, label %9
 
 9:                                                ; preds = %5
-  %10 = icmp ult i8 %7, -62
+  %10 = icmp samesign ult i8 %7, -62
   br i1 %10, label %_ZN5boost6locale3utf10utf_traitsIcLi1EE12trail_lengthEc.exit, label %11, !prof !66
 
 11:                                               ; preds = %9
-  %12 = icmp ult i8 %7, -32
+  %12 = icmp samesign ult i8 %7, -32
   br i1 %12, label %21, label %13
 
 13:                                               ; preds = %11
-  %14 = icmp ult i8 %7, -16
+  %14 = icmp samesign ult i8 %7, -16
   br i1 %14, label %.thread55, label %17
 
 .thread55:                                        ; preds = %13
@@ -2123,7 +2123,7 @@ define linkonce_odr hidden noundef i32 @_ZN5boost6locale3utf10utf_traitsIcLi1EE6
   br label %37
 
 17:                                               ; preds = %13
-  %18 = icmp ult i8 %7, -11
+  %18 = icmp samesign ult i8 %7, -11
   br i1 %18, label %24, label %_ZN5boost6locale3utf10utf_traitsIcLi1EE12trail_lengthEc.exit, !prof !65
 
 19:                                               ; preds = %5
@@ -2195,22 +2195,22 @@ define linkonce_odr hidden noundef i32 @_ZN5boost6locale3utf10utf_traitsIcLi1EE6
   %58 = and i8 %54, 63
   %59 = zext nneg i8 %58 to i32
   %60 = or disjoint i32 %57, %59
-  %61 = icmp ult i32 %.2, 17408
+  %61 = icmp samesign ult i32 %.2, 17408
   %62 = and i32 %.2, 32736
   %or.cond.i = icmp ne i32 %62, 864
   %.0.i41 = and i1 %61, %or.cond.i
   br i1 %.0.i41, label %63, label %_ZN5boost6locale3utf10utf_traitsIcLi1EE12trail_lengthEc.exit, !prof !65
 
 63:                                               ; preds = %56
-  %64 = icmp ult i32 %.2, 2
+  %64 = icmp samesign ult i32 %.2, 2
   br i1 %64, label %_ZN5boost6locale3utf10utf_traitsIcLi1EE5widthEj.exit, label %65
 
 65:                                               ; preds = %63
-  %66 = icmp ult i32 %.2, 32
+  %66 = icmp samesign ult i32 %.2, 32
   br i1 %66, label %_ZN5boost6locale3utf10utf_traitsIcLi1EE5widthEj.exit, label %67
 
 67:                                               ; preds = %65
-  %68 = icmp ult i32 %.2, 1024
+  %68 = icmp samesign ult i32 %.2, 1024
   %..i42 = select i1 %68, i32 3, i32 4, !prof !65
   br label %_ZN5boost6locale3utf10utf_traitsIcLi1EE5widthEj.exit
 
@@ -3266,12 +3266,12 @@ define linkonce_odr hidden noundef i32 @_ZNK5boost6locale15generic_codecvtIwNS0_
   br i1 %.0.i, label %17, label %_ZN5boost6locale12utf8_codecvtIwE12from_unicodeERNS2_10state_typeEjPcPKc.exit.thread39.thread
 
 17:                                               ; preds = %13
-  %18 = icmp ult i32 %14, 128
+  %18 = icmp samesign ult i32 %14, 128
   br i1 %18, label %_ZN5boost6locale3utf10utf_traitsIcLi1EE5widthEj.exit.thread.i, label %_ZN5boost6locale3utf10utf_traitsIcLi1EE5widthEj.exit.i
 
 _ZN5boost6locale3utf10utf_traitsIcLi1EE5widthEj.exit.i: ; preds = %17
-  %19 = icmp ult i32 %14, 2048
-  %20 = icmp ult i32 %14, 65536
+  %19 = icmp samesign ult i32 %14, 2048
+  %20 = icmp samesign ult i32 %14, 65536
   %..i.i = select i1 %20, i64 3, i64 4
   %.0.i.i = select i1 %19, i64 2, i64 %..i.i
   %21 = ptrtoint ptr %.02551 to i64

@@ -3539,7 +3539,7 @@ common.ret:                                       ; preds = %"_ZN4core3ptr86drop
   br i1 %82, label %122, label %.thread.i
 
 "_ZN5alloc11collections9vec_deque21VecDeque$LT$T$C$A$GT$9pop_front17hbd03db94297fd2b3E.exit.i": ; preds = %84
-  %.not.i.i.i = icmp ugt i64 %61, 1
+  %.not.i.i.i = icmp samesign ugt i64 %61, 1
   %103 = sub nuw nsw i64 1, %61
   %.0.i.i.i = select i1 %.not.i.i.i, i64 1, i64 %103
   store i64 %.0.i.i.i, ptr %79, align 8, !alias.scope !431, !noalias !449

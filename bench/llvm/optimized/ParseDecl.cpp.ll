@@ -6063,7 +6063,7 @@ _ZSt13move_backwardIPN4llvm12PointerUnionIJPN5clang4ExprEPNS2_13IdentifierLocEEE
   %53 = getelementptr inbounds i8, ptr %.0910.i.i.i.i.i, i64 8
   %54 = getelementptr inbounds i8, ptr %.0811.i.i.i.i.i, i64 8
   %55 = add nsw i64 %.012.i.i.i.i.i, -1
-  %56 = icmp ugt i64 %.012.i.i.i.i.i, 1
+  %56 = icmp samesign ugt i64 %.012.i.i.i.i.i, 1
   br i1 %56, label %.lr.ph.i.i.i.i.i, label %_ZSt4copyIPPN5clang4ExprEPN4llvm12PointerUnionIJS2_PNS0_13IdentifierLocEEEEET0_T_SB_SA_.exit, !llvm.loop !28
 
 57:                                               ; preds = %_ZN4llvm15SmallVectorImplINS_12PointerUnionIJPN5clang4ExprEPNS2_13IdentifierLocEEEEE7reserveEm.exit

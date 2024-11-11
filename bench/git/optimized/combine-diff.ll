@@ -1232,7 +1232,7 @@ lor.lhs.false70.i.i.i:                            ; preds = %if.then59.thread.i.
   br i1 %cmp77.not.i.i.i, label %if.else.i.i, label %if.end80.i.i.i
 
 if.end80.i.i.i:                                   ; preds = %lor.lhs.false70.i.i.i, %if.then59.thread.i.i.i, %if.then59.i.i.i
-  %cmp8260.i.i.i = icmp ugt i32 %len1.addr.2.i.i.i, 1
+  %cmp8260.i.i.i = icmp samesign ugt i32 %len1.addr.2.i.i.i, 1
   br i1 %cmp8260.i.i.i, label %land.rhs84.i.i.i, label %for.end98.i.i.i
 
 land.rhs84.i.i.i:                                 ; preds = %if.end80.i.i.i, %for.inc96.i.i.i

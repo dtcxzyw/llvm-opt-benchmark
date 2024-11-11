@@ -2859,7 +2859,7 @@ ht_interface_config_to_bus_id.exit472.i:          ; preds = %827, %ht_lookup_cha
   ]
 
 .preheader475.i:                                  ; preds = %901
-  %904 = icmp ugt i32 %899, 3
+  %904 = icmp samesign ugt i32 %899, 3
   br i1 %904, label %.lr.ph.i89, label %.loopexit.i
 
 .lr.ph.i89:                                       ; preds = %.preheader475.i
@@ -2878,7 +2878,7 @@ ht_interface_config_to_bus_id.exit472.i:          ; preds = %827, %ht_lookup_cha
   %911 = call ptr @proto_tree_add_double(ptr noundef %568, i32 noundef %908, ptr noundef %0, i32 noundef %.9478.us.i, i32 noundef 4, double noundef %910) #5
   %912 = add nsw i32 %.1417477.us.i, -4
   %913 = add i32 %.9478.us.i, 4
-  %914 = icmp ugt i32 %.1417477.us.i, 7
+  %914 = icmp samesign ugt i32 %.1417477.us.i, 7
   br i1 %914, label %.lr.ph.split.us.i, label %.loopexit.i, !llvm.loop !10
 
 .preheader473.i:                                  ; preds = %901
@@ -2901,7 +2901,7 @@ ht_interface_config_to_bus_id.exit472.i:          ; preds = %827, %ht_lookup_cha
   %921 = call ptr @proto_tree_add_double(ptr noundef %568, i32 noundef %918, ptr noundef %0, i32 noundef %.8480.us.i, i32 noundef 2, double noundef %920) #5
   %922 = add nsw i32 %.0416479.us.i, -2
   %923 = add i32 %.8480.us.i, 2
-  %924 = icmp ugt i32 %.0416479.us.i, 3
+  %924 = icmp samesign ugt i32 %.0416479.us.i, 3
   br i1 %924, label %.lr.ph481.split.us.i, label %.loopexit.i, !llvm.loop !11
 
 .lr.ph481.split.i:                                ; preds = %.lr.ph481.i, %.lr.ph481.split.i
@@ -2915,7 +2915,7 @@ ht_interface_config_to_bus_id.exit472.i:          ; preds = %827, %ht_lookup_cha
   call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %929, ptr noundef nonnull @.str.599, ptr noundef nonnull %.fr.i) #5
   %930 = add nsw i32 %.0416479.i, -2
   %931 = add i32 %.8480.i, 2
-  %932 = icmp ugt i32 %.0416479.i, 3
+  %932 = icmp samesign ugt i32 %.0416479.i, 3
   br i1 %932, label %.lr.ph481.split.i, label %.loopexit.i, !llvm.loop !11
 
 .lr.ph.split.i:                                   ; preds = %.lr.ph.i89, %.lr.ph.split.i
@@ -2929,7 +2929,7 @@ ht_interface_config_to_bus_id.exit472.i:          ; preds = %827, %ht_lookup_cha
   call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %937, ptr noundef nonnull @.str.599, ptr noundef nonnull %.fr.i) #5
   %938 = add nsw i32 %.1417477.i, -4
   %939 = add i32 %.9478.i, 4
-  %940 = icmp ugt i32 %.1417477.i, 7
+  %940 = icmp samesign ugt i32 %.1417477.i, 7
   br i1 %940, label %.lr.ph.split.i, label %.loopexit.i, !llvm.loop !10
 
 941:                                              ; preds = %add_interface_id_text.exit.i

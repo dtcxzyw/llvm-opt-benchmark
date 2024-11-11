@@ -7815,15 +7815,15 @@ define linkonce_odr hidden noundef i32 @_ZN5boost6nowide3utf10utf_traitsIcLi1EE6
   br i1 %8, label %19, label %9
 
 9:                                                ; preds = %5
-  %10 = icmp ult i8 %7, -62
+  %10 = icmp samesign ult i8 %7, -62
   br i1 %10, label %_ZN5boost6nowide3utf10utf_traitsIcLi1EE12trail_lengthEc.exit, label %11, !prof !145
 
 11:                                               ; preds = %9
-  %12 = icmp ult i8 %7, -32
+  %12 = icmp samesign ult i8 %7, -32
   br i1 %12, label %21, label %13
 
 13:                                               ; preds = %11
-  %14 = icmp ult i8 %7, -16
+  %14 = icmp samesign ult i8 %7, -16
   br i1 %14, label %.thread57, label %17
 
 .thread57:                                        ; preds = %13
@@ -7832,7 +7832,7 @@ define linkonce_odr hidden noundef i32 @_ZN5boost6nowide3utf10utf_traitsIcLi1EE6
   br label %37
 
 17:                                               ; preds = %13
-  %18 = icmp ult i8 %7, -11
+  %18 = icmp samesign ult i8 %7, -11
   br i1 %18, label %24, label %_ZN5boost6nowide3utf10utf_traitsIcLi1EE12trail_lengthEc.exit, !prof !81
 
 19:                                               ; preds = %5
@@ -7912,8 +7912,8 @@ _ZN5boost6nowide3utf10utf_traitsIcLi1EE5widthEj.exit: ; preds = %56
   %61 = and i8 %54, 63
   %62 = zext nneg i8 %61 to i32
   %63 = or disjoint i32 %60, %62
-  %64 = icmp ult i32 %.2, 32
-  %65 = icmp ult i32 %.2, 1024
+  %64 = icmp samesign ult i32 %.2, 32
+  %65 = icmp samesign ult i32 %.2, 1024
   %..i44 = select i1 %65, i32 3, i32 4
   %.0.i45 = select i1 %64, i32 2, i32 %..i44
   %66 = add nuw nsw i32 %.0.i.ph.ph53, 1
@@ -8025,7 +8025,7 @@ _ZN5boost6nowide3utf10utf_traitsIcLi1EE5widthEj.exit.thread: ; preds = %14
   br label %96
 
 50:                                               ; preds = %_ZN5boost6nowide3utf10utf_traitsIcLi1EE5widthEj.exit
-  %51 = icmp ult i32 %.15164, 2048
+  %51 = icmp samesign ult i32 %.15164, 2048
   br i1 %51, label %52, label %61
 
 52:                                               ; preds = %50
@@ -8042,7 +8042,7 @@ _ZN5boost6nowide3utf10utf_traitsIcLi1EE5widthEj.exit.thread: ; preds = %14
   br label %96
 
 61:                                               ; preds = %50
-  %62 = icmp ult i32 %.15164, 65536
+  %62 = icmp samesign ult i32 %.15164, 65536
   %63 = getelementptr inbounds nuw i8, ptr %.038107, i64 1
   %64 = getelementptr inbounds nuw i8, ptr %.038107, i64 2
   br i1 %62, label %65, label %79, !prof !148
@@ -8729,7 +8729,7 @@ _ZNKSt7__cxx1112basic_stringIDsSt11char_traitsIDsESaIDsEE8capacityEv.exit: ; pre
 
 23:                                               ; preds = %21
   %24 = shl nuw nsw i64 %18, 1
-  %25 = icmp ult i64 %11, %24
+  %25 = icmp samesign ult i64 %11, %24
   br i1 %25, label %26, label %_ZNSt7__cxx1112basic_stringIDsSt11char_traitsIDsESaIDsEE9_M_createERmm.exit
 
 26:                                               ; preds = %23
@@ -8853,7 +8853,7 @@ _ZNKSt7__cxx1112basic_stringIDiSt11char_traitsIDiESaIDiEE8capacityEv.exit: ; pre
 
 23:                                               ; preds = %21
   %24 = shl nuw nsw i64 %18, 1
-  %25 = icmp ult i64 %11, %24
+  %25 = icmp samesign ult i64 %11, %24
   br i1 %25, label %26, label %_ZNSt7__cxx1112basic_stringIDiSt11char_traitsIDiESaIDiEE9_M_createERmm.exit
 
 26:                                               ; preds = %23

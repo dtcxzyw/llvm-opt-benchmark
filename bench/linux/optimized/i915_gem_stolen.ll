@@ -1225,7 +1225,7 @@ default.unreachable29:                            ; preds = %381, %300, %252
   br label %452
 
 280:                                              ; preds = %181
-  %281 = icmp ugt i8 %182, 7
+  %281 = icmp samesign ugt i8 %182, 7
   br i1 %281, label %282, label %325
 
 282:                                              ; preds = %280
@@ -1393,7 +1393,7 @@ default.unreachable29:                            ; preds = %381, %300, %252
   br label %452
 
 367:                                              ; preds = %325
-  %368 = icmp ugt i8 %182, 5
+  %368 = icmp samesign ugt i8 %182, 5
   br i1 %368, label %369, label %390
 
 369:                                              ; preds = %367

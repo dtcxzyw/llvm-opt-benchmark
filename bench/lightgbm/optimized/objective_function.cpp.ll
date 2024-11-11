@@ -3560,7 +3560,7 @@ _ZNKSt8functionIFdPKfiEEclES1_i.exit:             ; preds = %44
   br i1 %97, label %99, label %.preheader.i
 
 .preheader.i:                                     ; preds = %92
-  %98 = icmp ugt i64 %96, 1
+  %98 = icmp samesign ugt i64 %96, 1
   br i1 %98, label %.lr.ph.i, label %.thread
 
 99:                                               ; preds = %92
@@ -3632,7 +3632,7 @@ _ZN8LightGBM9ArrayArgsIdE6ArgMinERKSt6vectorIdSaIdEE.exit: ; preds = %.lr.ph.i15
   %129 = uitofp nneg i32 %85 to double
   %130 = fsub double %84, %129
   %131 = lshr i32 %5, 1
-  %.not147 = icmp ugt i32 %131, %85
+  %.not147 = icmp samesign ugt i32 %131, %85
   br i1 %.not147, label %156, label %132
 
 132:                                              ; preds = %128
@@ -3683,7 +3683,7 @@ _ZN8LightGBM9ArrayArgsIdE6ArgMaxEPKdm.exit:       ; preds = %.lr.ph.i162, %134
   %160 = load ptr, ptr %35, align 8
   %161 = getelementptr inbounds double, ptr %160, i64 %159
   %162 = load double, ptr %161, align 8
-  %163 = icmp ugt i32 %86, 1
+  %163 = icmp samesign ugt i32 %86, 1
   br i1 %163, label %.lr.ph.i166, label %_ZN8LightGBM9ArrayArgsIdE6ArgMinEPKdm.exit
 
 .lr.ph.i166:                                      ; preds = %158, %.lr.ph.i166
@@ -3844,7 +3844,7 @@ _ZNKSt8functionIFdPKfiEEclES1_i.exit174:          ; preds = %178
   br i1 %238, label %240, label %.preheader.i187
 
 .preheader.i187:                                  ; preds = %233
-  %239 = icmp ugt i64 %237, 1
+  %239 = icmp samesign ugt i64 %237, 1
   br i1 %239, label %.lr.ph.i189, label %.thread420
 
 240:                                              ; preds = %233
@@ -3916,7 +3916,7 @@ _ZN8LightGBM9ArrayArgsIdE6ArgMinERKSt6vectorIdSaIdEE.exit203: ; preds = %.lr.ph.
   %270 = uitofp nneg i32 %226 to double
   %271 = fsub double %225, %270
   %272 = lshr i32 %5, 1
-  %.not145 = icmp ugt i32 %272, %226
+  %.not145 = icmp samesign ugt i32 %272, %226
   br i1 %.not145, label %297, label %273
 
 273:                                              ; preds = %269
@@ -3967,7 +3967,7 @@ _ZN8LightGBM9ArrayArgsIdE6ArgMaxEPKdm.exit210:    ; preds = %.lr.ph.i205, %275
   %301 = load ptr, ptr %36, align 8
   %302 = getelementptr inbounds double, ptr %301, i64 %300
   %303 = load double, ptr %302, align 8
-  %304 = icmp ugt i32 %227, 1
+  %304 = icmp samesign ugt i32 %227, 1
   br i1 %304, label %.lr.ph.i212, label %_ZN8LightGBM9ArrayArgsIdE6ArgMinEPKdm.exit217
 
 .lr.ph.i212:                                      ; preds = %299, %.lr.ph.i212
@@ -4975,7 +4975,7 @@ _ZNSt6vectorIiSaIiEED2Ev.exit72:                  ; preds = %26, %_ZNSt6vectorId
   br i1 %168, label %170, label %.preheader.i
 
 .preheader.i:                                     ; preds = %163
-  %169 = icmp ugt i64 %167, 1
+  %169 = icmp samesign ugt i64 %167, 1
   br i1 %169, label %.lr.ph.i, label %.thread
 
 170:                                              ; preds = %163
@@ -5058,7 +5058,7 @@ _ZN8LightGBM9ArrayArgsIfE6ArgMinERKSt6vectorIfSaIfEE.exit: ; preds = %.lr.ph.i79
   %204 = uitofp nneg i32 %156 to double
   %205 = fsub double %155, %204
   %206 = lshr i32 %150, 1
-  %.not60 = icmp ugt i32 %206, %156
+  %.not60 = icmp samesign ugt i32 %206, %156
   br i1 %.not60, label %235, label %207
 
 207:                                              ; preds = %203
@@ -5113,7 +5113,7 @@ _ZN8LightGBM9ArrayArgsIfE6ArgMaxEPKfm.exit:       ; preds = %.lr.ph.i84, %209
   %239 = load ptr, ptr %3, align 8
   %240 = getelementptr inbounds float, ptr %239, i64 %238
   %241 = load float, ptr %240, align 4
-  %242 = icmp ugt i32 %157, 1
+  %242 = icmp samesign ugt i32 %157, 1
   br i1 %242, label %.lr.ph.i88, label %_ZN8LightGBM9ArrayArgsIfE6ArgMinEPKfm.exit
 
 .lr.ph.i88:                                       ; preds = %237, %.lr.ph.i88
@@ -11549,7 +11549,7 @@ _ZNKSt8functionIFdPKfiEEclES1_i.exit:             ; preds = %44
   br i1 %101, label %103, label %.preheader.i
 
 .preheader.i:                                     ; preds = %96
-  %102 = icmp ugt i64 %100, 1
+  %102 = icmp samesign ugt i64 %100, 1
   br i1 %102, label %.lr.ph.i, label %.thread
 
 103:                                              ; preds = %96
@@ -11621,7 +11621,7 @@ _ZN8LightGBM9ArrayArgsIdE6ArgMinERKSt6vectorIdSaIdEE.exit: ; preds = %.lr.ph.i15
   %133 = uitofp nneg i32 %89 to double
   %134 = fsub double %88, %133
   %135 = lshr i32 %5, 1
-  %.not147 = icmp ugt i32 %135, %89
+  %.not147 = icmp samesign ugt i32 %135, %89
   br i1 %.not147, label %160, label %136
 
 136:                                              ; preds = %132
@@ -11672,7 +11672,7 @@ _ZN8LightGBM9ArrayArgsIdE6ArgMaxEPKdm.exit:       ; preds = %.lr.ph.i162, %138
   %164 = load ptr, ptr %35, align 8
   %165 = getelementptr inbounds double, ptr %164, i64 %163
   %166 = load double, ptr %165, align 8
-  %167 = icmp ugt i32 %90, 1
+  %167 = icmp samesign ugt i32 %90, 1
   br i1 %167, label %.lr.ph.i166, label %_ZN8LightGBM9ArrayArgsIdE6ArgMinEPKdm.exit
 
 .lr.ph.i166:                                      ; preds = %162, %.lr.ph.i166
@@ -11837,7 +11837,7 @@ _ZNKSt8functionIFdPKfiEEclES1_i.exit174:          ; preds = %182
   br i1 %246, label %248, label %.preheader.i187
 
 .preheader.i187:                                  ; preds = %241
-  %247 = icmp ugt i64 %245, 1
+  %247 = icmp samesign ugt i64 %245, 1
   br i1 %247, label %.lr.ph.i189, label %.thread420
 
 248:                                              ; preds = %241
@@ -11909,7 +11909,7 @@ _ZN8LightGBM9ArrayArgsIdE6ArgMinERKSt6vectorIdSaIdEE.exit203: ; preds = %.lr.ph.
   %278 = uitofp nneg i32 %234 to double
   %279 = fsub double %233, %278
   %280 = lshr i32 %5, 1
-  %.not145 = icmp ugt i32 %280, %234
+  %.not145 = icmp samesign ugt i32 %280, %234
   br i1 %.not145, label %305, label %281
 
 281:                                              ; preds = %277
@@ -11960,7 +11960,7 @@ _ZN8LightGBM9ArrayArgsIdE6ArgMaxEPKdm.exit210:    ; preds = %.lr.ph.i205, %283
   %309 = load ptr, ptr %36, align 8
   %310 = getelementptr inbounds double, ptr %309, i64 %308
   %311 = load double, ptr %310, align 8
-  %312 = icmp ugt i32 %235, 1
+  %312 = icmp samesign ugt i32 %235, 1
   br i1 %312, label %.lr.ph.i212, label %_ZN8LightGBM9ArrayArgsIdE6ArgMinEPKdm.exit217
 
 .lr.ph.i212:                                      ; preds = %307, %.lr.ph.i212
@@ -12981,7 +12981,7 @@ _ZNSt6vectorIiSaIiEED2Ev.exit72:                  ; preds = %26, %_ZNSt6vectorId
   br i1 %175, label %177, label %.preheader.i
 
 .preheader.i:                                     ; preds = %170
-  %176 = icmp ugt i64 %174, 1
+  %176 = icmp samesign ugt i64 %174, 1
   br i1 %176, label %.lr.ph.i, label %.thread
 
 177:                                              ; preds = %170
@@ -13064,7 +13064,7 @@ _ZN8LightGBM9ArrayArgsIfE6ArgMinERKSt6vectorIfSaIfEE.exit: ; preds = %.lr.ph.i79
   %211 = uitofp nneg i32 %163 to double
   %212 = fsub double %162, %211
   %213 = lshr i32 %153, 1
-  %.not60 = icmp ugt i32 %213, %163
+  %.not60 = icmp samesign ugt i32 %213, %163
   br i1 %.not60, label %242, label %214
 
 214:                                              ; preds = %210
@@ -13119,7 +13119,7 @@ _ZN8LightGBM9ArrayArgsIfE6ArgMaxEPKfm.exit:       ; preds = %.lr.ph.i84, %216
   %246 = load ptr, ptr %3, align 8
   %247 = getelementptr inbounds float, ptr %246, i64 %245
   %248 = load float, ptr %247, align 4
-  %249 = icmp ugt i32 %164, 1
+  %249 = icmp samesign ugt i32 %164, 1
   br i1 %249, label %.lr.ph.i88, label %_ZN8LightGBM9ArrayArgsIfE6ArgMinEPKfm.exit
 
 .lr.ph.i88:                                       ; preds = %244, %.lr.ph.i88
@@ -18846,7 +18846,7 @@ define linkonce_odr void @_ZN8LightGBM13BinaryLogloss4InitERKNS_8MetadataEi(ptr 
   br i1 %or.cond5, label %53, label %63
 
 53:                                               ; preds = %40
-  %54 = icmp ugt i32 %49, %51
+  %54 = icmp samesign ugt i32 %49, %51
   br i1 %54, label %55, label %59
 
 55:                                               ; preds = %53

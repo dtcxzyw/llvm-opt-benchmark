@@ -8294,7 +8294,7 @@ _ZN5gimli4read6reader6Reader11read_offset17haccfa5cfe0240852E.exit858: ; preds =
 
 327:                                              ; preds = %109
   %328 = icmp slt i32 %116, 64
-  %329 = icmp ugt i8 %104, 63
+  %329 = icmp samesign ugt i8 %104, 63
   %or.cond.i.i785 = and i1 %328, %329
   %330 = and i32 %116, 63
   %331 = zext nneg i32 %330 to i64
@@ -8740,7 +8740,7 @@ define hidden void @"_ZN5gimli4read4line18DebugLine$LT$R$GT$7program17hfd0cc9941
   br label %275
 
 63:                                               ; preds = %53
-  %64 = icmp ugt i16 %.sroa.4614.i.sroa.3.2.insert.insert, 4
+  %64 = icmp samesign ugt i16 %.sroa.4614.i.sroa.3.2.insert.insert, 4
   br i1 %64, label %84, label %65
 
 65:                                               ; preds = %90, %63
@@ -8903,7 +8903,7 @@ _ZN5gimli4read6reader6Reader11read_length17ha00c2b44b6ecb3ffE.exit.i: ; preds = 
   br label %275
 
 114:                                              ; preds = %107
-  %115 = icmp ugt i16 %.sroa.4614.i.sroa.3.2.insert.insert, 3
+  %115 = icmp samesign ugt i16 %.sroa.4614.i.sroa.3.2.insert.insert, 3
   br i1 %115, label %116, label %.thread788.i
 
 116:                                              ; preds = %114
@@ -9014,7 +9014,7 @@ _ZN5gimli4read6reader6Reader11read_length17ha00c2b44b6ecb3ffE.exit.i: ; preds = 
   store ptr inttoptr (i64 8 to ptr), ptr %160, align 8, !noalias !1698
   %161 = getelementptr inbounds i8, ptr %26, i64 16
   store i64 0, ptr %161, align 8, !noalias !1698
-  %162 = icmp ult i16 %.sroa.4614.i.sroa.3.2.insert.insert, 5
+  %162 = icmp samesign ult i16 %.sroa.4614.i.sroa.3.2.insert.insert, 5
   br i1 %162, label %166, label %165
 
 163:                                              ; preds = %153
@@ -10714,7 +10714,7 @@ define hidden void @"_ZN5gimli4read4line36LineRows$LT$R$C$Program$C$Offset$GT$8n
 
 240:                                              ; preds = %166
   %241 = icmp slt i32 %173, 64
-  %242 = icmp ugt i8 %161, 63
+  %242 = icmp samesign ugt i8 %161, 63
   %or.cond.i.i73 = and i1 %241, %242
   %243 = and i32 %173, 63
   %244 = zext nneg i32 %243 to i64
@@ -11892,7 +11892,7 @@ _ZN5gimli4read6reader6Reader16read_uleb128_u1617h5051ad1899f34ef8E.exit124.i.i.i
 
 214:                                              ; preds = %205
   %215 = icmp slt i32 %212, 64
-  %216 = icmp ugt i8 %200, 63
+  %216 = icmp samesign ugt i8 %200, 63
   %or.cond.i.i.i.i.i = and i1 %215, %216
   %217 = and i32 %212, 63
   %218 = zext nneg i32 %217 to i64
@@ -13933,7 +13933,7 @@ define hidden void @_ZN5gimli6leb1284read6signed17hfa587ff0a2912bc2E(ptr noalias
 
 26:                                               ; preds = %15
   %27 = icmp slt i32 %22, 64
-  %28 = icmp ugt i8 %10, 63
+  %28 = icmp samesign ugt i8 %10, 63
   %or.cond = and i1 %27, %28
   %29 = and i32 %22, 63
   %30 = zext nneg i32 %29 to i64
@@ -16126,7 +16126,7 @@ _ZN6object4read8read_ref7ReadRef7read_at17h4c8cfa4594cfb1a0E.exit.i.i.i38: ; pre
 
 66:                                               ; preds = %64
   %.sroa.7.8.insert.ext.i = zext i32 %.0.i.i to i64
-  %.not.i32 = icmp ugt i64 %.sroa.6.0.ph.i, %.sroa.7.8.insert.ext.i
+  %.not.i32 = icmp samesign ugt i64 %.sroa.6.0.ph.i, %.sroa.7.8.insert.ext.i
   br i1 %.not.i32, label %67, label %84
 
 67:                                               ; preds = %66
@@ -16334,7 +16334,7 @@ _ZN6object4read8read_ref7ReadRef7read_at17h84a18667f2ce1586E.exit.i.i.i39: ; pre
 
 66:                                               ; preds = %64
   %.sroa.7.8.insert.ext.i = zext i32 %.0.i.i to i64
-  %.not.i33 = icmp ugt i64 %.sroa.6.022.i, %.sroa.7.8.insert.ext.i
+  %.not.i33 = icmp samesign ugt i64 %.sroa.6.022.i, %.sroa.7.8.insert.ext.i
   br i1 %.not.i33, label %67, label %85
 
 67:                                               ; preds = %66

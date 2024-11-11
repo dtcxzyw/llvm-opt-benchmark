@@ -819,7 +819,7 @@ entry:
   br i1 %cmp, label %if.then, label %if.else
 
 if.then:                                          ; preds = %entry
-  %cmp34.i = icmp ugt i32 %n, 12
+  %cmp34.i = icmp samesign ugt i32 %n, 12
   %this.promoted.i = load i32, ptr %this, align 4
   br i1 %cmp34.i, label %while.body.lr.ph.i, label %if.then.i
 
@@ -924,11 +924,11 @@ if.then15.i25.i:                                  ; preds = %for.end.i21.i
 
 if.then.i6:                                       ; preds = %if.then15.i25.i, %for.end.i21.i, %if.end5.i.i, %while.end.i
   %4 = phi i32 [ %inc23.i30.i, %if.then15.i25.i ], [ %1, %for.end.i21.i ], [ %1, %if.end5.i.i ], [ %inc23.i32.i, %while.end.i ]
-  %cmp2.i7 = icmp ugt i32 %n, 127
+  %cmp2.i7 = icmp samesign ugt i32 %n, 127
   br i1 %cmp2.i7, label %if.then3.i, label %if.end.i
 
 if.then.i6.thread:                                ; preds = %if.then.i
-  %cmp2.i730 = icmp ugt i32 %n, 127
+  %cmp2.i730 = icmp samesign ugt i32 %n, 127
   br i1 %cmp2.i730, label %_ZN4absl16strings_internal11BigUnsignedILi4EE9SetToZeroEv.exit.i, label %if.end.i
 
 if.then3.i:                                       ; preds = %if.then.i6
@@ -1183,7 +1183,7 @@ entry:
 
 if.then:                                          ; preds = %entry
   %div18 = lshr i32 %count, 5
-  %cmp2 = icmp ugt i32 %count, 127
+  %cmp2 = icmp samesign ugt i32 %count, 127
   %0 = load i32, ptr %this, align 4
   br i1 %cmp2, label %if.then3, label %if.end
 
@@ -1978,7 +1978,7 @@ for.body.i:                                       ; preds = %for.body.i, %for.bo
   %conv2.i = trunc nuw i64 %div.i to i32
   store i32 %conv2.i, ptr %arrayidx.i, align 4
   %rem.i = urem i64 %add.i, 10
-  %cmp.i = icmp ugt i64 %indvars.iv.i, 1
+  %cmp.i = icmp samesign ugt i64 %indvars.iv.i, 1
   br i1 %cmp.i, label %for.body.i, label %while.condthread-pre-split.i, !llvm.loop !19
 
 while.condthread-pre-split.i:                     ; preds = %for.body.i
@@ -2006,7 +2006,7 @@ while.body.i:                                     ; preds = %land.rhs.preheader.
   %indvars.iv13.i6 = phi i64 [ %indvars.iv.next14.i7, %land.rhs.i ], [ %3, %land.rhs.preheader.i ]
   %6 = trunc nuw nsw i64 %indvars.iv.next14.i7 to i32
   store i32 %6, ptr %copy, align 4
-  %cmp7.i = icmp ugt i64 %indvars.iv13.i6, 1
+  %cmp7.i = icmp samesign ugt i64 %indvars.iv13.i6, 1
   br i1 %cmp7.i, label %land.rhs.i, label %_ZN4absl16strings_internal11BigUnsignedILi4EE6DivModILj10EEEjv.exit, !llvm.loop !20
 
 _ZN4absl16strings_internal11BigUnsignedILi4EE6DivModILj10EEEjv.exit: ; preds = %while.body.i, %land.rhs.i, %land.rhs.preheader.i, %while.condthread-pre-split.i
@@ -3108,7 +3108,7 @@ entry:
   br i1 %cmp, label %if.then, label %if.else
 
 if.then:                                          ; preds = %entry
-  %cmp34.i = icmp ugt i32 %n, 12
+  %cmp34.i = icmp samesign ugt i32 %n, 12
   %this.promoted.i = load i32, ptr %this, align 4
   br i1 %cmp34.i, label %while.body.lr.ph.i, label %if.then.i
 
@@ -3213,11 +3213,11 @@ if.then15.i25.i:                                  ; preds = %for.end.i21.i
 
 if.then.i6:                                       ; preds = %if.then15.i25.i, %for.end.i21.i, %if.end5.i.i, %while.end.i
   %4 = phi i32 [ %inc23.i30.i, %if.then15.i25.i ], [ %1, %for.end.i21.i ], [ %1, %if.end5.i.i ], [ %inc23.i32.i, %while.end.i ]
-  %cmp2.i7 = icmp ugt i32 %n, 2687
+  %cmp2.i7 = icmp samesign ugt i32 %n, 2687
   br i1 %cmp2.i7, label %if.then3.i, label %if.end.i
 
 if.then.i6.thread:                                ; preds = %if.then.i
-  %cmp2.i730 = icmp ugt i32 %n, 2687
+  %cmp2.i730 = icmp samesign ugt i32 %n, 2687
   br i1 %cmp2.i730, label %_ZN4absl16strings_internal11BigUnsignedILi84EE9SetToZeroEv.exit.i, label %if.end.i
 
 if.then3.i:                                       ; preds = %if.then.i6
@@ -3472,7 +3472,7 @@ entry:
 
 if.then:                                          ; preds = %entry
   %div18 = lshr i32 %count, 5
-  %cmp2 = icmp ugt i32 %count, 2687
+  %cmp2 = icmp samesign ugt i32 %count, 2687
   %0 = load i32, ptr %this, align 4
   br i1 %cmp2, label %if.then3, label %if.end
 
@@ -4267,7 +4267,7 @@ for.body.i:                                       ; preds = %for.body.i, %for.bo
   %conv2.i = trunc nuw i64 %div.i to i32
   store i32 %conv2.i, ptr %arrayidx.i, align 4
   %rem.i = urem i64 %add.i, 10
-  %cmp.i = icmp ugt i64 %indvars.iv.i, 1
+  %cmp.i = icmp samesign ugt i64 %indvars.iv.i, 1
   br i1 %cmp.i, label %for.body.i, label %while.condthread-pre-split.i, !llvm.loop !34
 
 while.condthread-pre-split.i:                     ; preds = %for.body.i
@@ -4295,7 +4295,7 @@ while.body.i:                                     ; preds = %land.rhs.preheader.
   %indvars.iv13.i6 = phi i64 [ %indvars.iv.next14.i7, %land.rhs.i ], [ %3, %land.rhs.preheader.i ]
   %6 = trunc nuw nsw i64 %indvars.iv.next14.i7 to i32
   store i32 %6, ptr %copy, align 4
-  %cmp7.i = icmp ugt i64 %indvars.iv13.i6, 1
+  %cmp7.i = icmp samesign ugt i64 %indvars.iv13.i6, 1
   br i1 %cmp7.i, label %land.rhs.i, label %_ZN4absl16strings_internal11BigUnsignedILi84EE6DivModILj10EEEjv.exit, !llvm.loop !35
 
 _ZN4absl16strings_internal11BigUnsignedILi84EE6DivModILj10EEEjv.exit: ; preds = %while.body.i, %land.rhs.i, %land.rhs.preheader.i, %while.condthread-pre-split.i

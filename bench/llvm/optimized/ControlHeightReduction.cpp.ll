@@ -7445,7 +7445,7 @@ define linkonce_odr noundef nonnull align 8 dereferenceable(16) ptr @_ZN4llvm15S
   %17 = getelementptr inbounds i8, ptr %.0910.i.i.i.i.i, i64 80
   %18 = getelementptr inbounds i8, ptr %.0811.i.i.i.i.i, i64 80
   %19 = add nsw i64 %.012.i.i.i.i.i, -1
-  %20 = icmp ugt i64 %.012.i.i.i.i.i, 1
+  %20 = icmp samesign ugt i64 %.012.i.i.i.i.i, 1
   br i1 %20, label %.lr.ph.i.i.i.i.i, label %_ZSt4copyIPKN4llvm30DiagnosticInfoOptimizationBase8ArgumentEPS2_ET0_T_S7_S6_.exit.loopexit, !llvm.loop !125
 
 _ZSt4copyIPKN4llvm30DiagnosticInfoOptimizationBase8ArgumentEPS2_ET0_T_S7_S6_.exit.loopexit: ; preds = %.lr.ph.i.i.i.i.i
@@ -7526,7 +7526,7 @@ _ZN4llvm15SmallVectorImplINS_30DiagnosticInfoOptimizationBase8ArgumentEE5clearEv
   %47 = getelementptr inbounds i8, ptr %.0910.i.i.i.i.i35, i64 80
   %48 = getelementptr inbounds i8, ptr %.0811.i.i.i.i.i34, i64 80
   %49 = add nsw i64 %.012.i.i.i.i.i33, -1
-  %50 = icmp ugt i64 %.012.i.i.i.i.i33, 1
+  %50 = icmp samesign ugt i64 %.012.i.i.i.i.i33, 1
   br i1 %50, label %.lr.ph.i.i.i.i.i32, label %_ZSt4copyIPKN4llvm30DiagnosticInfoOptimizationBase8ArgumentEPS2_ET0_T_S7_S6_.exit36, !llvm.loop !125
 
 _ZSt4copyIPKN4llvm30DiagnosticInfoOptimizationBase8ArgumentEPS2_ET0_T_S7_S6_.exit36: ; preds = %.lr.ph.i.i.i.i.i32, %37, %36, %_ZN4llvm15SmallVectorImplINS_30DiagnosticInfoOptimizationBase8ArgumentEE5clearEv.exit
@@ -10470,7 +10470,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_13CHR10splitScopeEPNS_8CHRScopeES2_
   %41 = getelementptr inbounds i8, ptr %.0910.i.i.i.i.i.i.i, i64 96
   %42 = getelementptr inbounds i8, ptr %.0811.i.i.i.i.i.i.i, i64 96
   %43 = add nsw i64 %.012.i.i.i.i.i.i.i, -1
-  %44 = icmp ugt i64 %.012.i.i.i.i.i.i.i, 1
+  %44 = icmp samesign ugt i64 %.012.i.i.i.i.i.i.i, 1
   br i1 %44, label %.lr.ph.i.i.i.i.i.i.i, label %_ZSt4copyIPKN12_GLOBAL__N_17RegInfoEPS1_ET0_T_S6_S5_.exit.loopexit.i.i, !llvm.loop !175
 
 _ZSt4copyIPKN12_GLOBAL__N_17RegInfoEPS1_ET0_T_S6_S5_.exit.loopexit.i.i: ; preds = %.lr.ph.i.i.i.i.i.i.i
@@ -10566,7 +10566,7 @@ _ZN4llvm15SmallVectorImplIN12_GLOBAL__N_17RegInfoEE5clearEv.exit.i.i: ; preds = 
   %74 = getelementptr inbounds i8, ptr %.0910.i.i.i.i.i44.i.i, i64 96
   %75 = getelementptr inbounds i8, ptr %.0811.i.i.i.i.i43.i.i, i64 96
   %76 = add nsw i64 %.012.i.i.i.i.i42.i.i, -1
-  %77 = icmp ugt i64 %.012.i.i.i.i.i42.i.i, 1
+  %77 = icmp samesign ugt i64 %.012.i.i.i.i.i42.i.i, 1
   br i1 %77, label %.lr.ph.i.i.i.i.i41.i.i, label %_ZSt4copyIPKN12_GLOBAL__N_17RegInfoEPS1_ET0_T_S6_S5_.exit45.i.i, !llvm.loop !175
 
 _ZSt4copyIPKN12_GLOBAL__N_17RegInfoEPS1_ET0_T_S6_S5_.exit45.i.i: ; preds = %.lr.ph.i.i.i.i.i41.i.i, %69, %68, %_ZN4llvm15SmallVectorImplIN12_GLOBAL__N_17RegInfoEE5clearEv.exit.i.i
@@ -12468,7 +12468,7 @@ _ZN12_GLOBAL__N_18CHRScopeC2EN4llvm8ArrayRefINS_7RegInfoEEENS2_IPS0_EE.exit.i: ;
   %992 = getelementptr inbounds i8, ptr %.0910.i.i.i.i.i.i.i137, i64 96
   %993 = getelementptr inbounds i8, ptr %.0811.i.i.i.i.i.i.i136, i64 96
   %994 = add nsw i64 %.012.i.i.i.i.i.i.i135, -1
-  %995 = icmp ugt i64 %.012.i.i.i.i.i.i.i135, 1
+  %995 = icmp samesign ugt i64 %.012.i.i.i.i.i.i.i135, 1
   br i1 %995, label %.lr.ph.i.i.i.i.i.i.i134, label %_ZSt4moveIPN12_GLOBAL__N_17RegInfoES2_ET0_T_S4_S3_.exit.i.i, !llvm.loop !212
 
 _ZSt4moveIPN12_GLOBAL__N_17RegInfoES2_ET0_T_S4_S3_.exit.i.i: ; preds = %.lr.ph.i.i.i.i.i.i.i134, %_ZN12_GLOBAL__N_18CHRScopeC2EN4llvm8ArrayRefINS_7RegInfoEEENS2_IPS0_EE.exit.i
@@ -26841,7 +26841,7 @@ _ZN4llvm9remove_ifIRNS_11SmallVectorISt4pairIjPNS_6MDNodeEELj2EEEZNS_13IRBuilder
   %68 = getelementptr inbounds i8, ptr %.0910.i.i.i.i.i.i, i64 16
   %69 = getelementptr inbounds i8, ptr %.0811.i.i.i.i.i.i, i64 16
   %70 = add nsw i64 %.012.i.i.i.i.i.i, -1
-  %71 = icmp ugt i64 %.012.i.i.i.i.i.i, 1
+  %71 = icmp samesign ugt i64 %.012.i.i.i.i.i.i, 1
   br i1 %71, label %.lr.ph.i.i.i.i.i.i, label %_ZN4llvm15SmallVectorImplISt4pairIjPNS_6MDNodeEEE5eraseEPKS4_S7_.exit, !llvm.loop !388
 
 _ZN4llvm15SmallVectorImplISt4pairIjPNS_6MDNodeEEE5eraseEPKS4_S7_.exit: ; preds = %.lr.ph.i.i.i.i.i.i, %_ZN4llvm9remove_ifIRNS_11SmallVectorISt4pairIjPNS_6MDNodeEELj2EEEZNS_13IRBuilderBase25AddOrRemoveMetadataToCopyEjS4_EUlRKS5_E_EEDaOT_T0_.exit

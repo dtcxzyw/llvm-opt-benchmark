@@ -958,7 +958,7 @@ for.body.i.i57:                                   ; preds = %if.then.i, %for.bod
   br i1 %exitcond.not.i.i, label %if.end6.i, label %for.body.i.i57, !llvm.loop !11
 
 if.else.i:                                        ; preds = %for.body
-  %cmp3.i = icmp ult i32 %call.i, 61
+  %cmp3.i = icmp samesign ult i32 %call.i, 61
   br i1 %cmp3.i, label %if.then4.i, label %if.end6.i
 
 if.then4.i:                                       ; preds = %if.else.i
@@ -1250,7 +1250,7 @@ if.end.thread.i.i:                                ; preds = %do.end17.i
 
 if.end.i.i.i:                                     ; preds = %do.end17.i
   %sub2.i.i.i = add nsw i64 %retval.sroa.0.0.i82.i, -126
-  %cmp37.i.i.i = icmp ugt i64 %sub2.i.i.i, 127
+  %cmp37.i.i.i = icmp samesign ugt i64 %sub2.i.i.i, 127
   br i1 %cmp37.i.i.i, label %for.inc.i.i48.i, label %if.end.i6.thread.i.i
 
 if.end.i6.thread.i.i:                             ; preds = %if.end.i.i.i

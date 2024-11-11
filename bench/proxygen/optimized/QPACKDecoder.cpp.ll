@@ -1177,7 +1177,7 @@ if.then:                                          ; preds = %entry
   br label %return
 
 if.else:                                          ; preds = %entry
-  %tobool5.not = icmp ult i8 %call, 64
+  %tobool5.not = icmp samesign ult i8 %call, 64
   br i1 %tobool5.not, label %if.else8, label %if.then6
 
 if.then6:                                         ; preds = %if.else
@@ -1185,7 +1185,7 @@ if.then6:                                         ; preds = %if.else
   br label %return
 
 if.else8:                                         ; preds = %if.else
-  %tobool11.not = icmp ult i8 %call, 32
+  %tobool11.not = icmp samesign ult i8 %call, 32
   br i1 %tobool11.not, label %if.else14, label %if.then12
 
 if.then12:                                        ; preds = %if.else8
@@ -1193,7 +1193,7 @@ if.then12:                                        ; preds = %if.else8
   br label %return
 
 if.else14:                                        ; preds = %if.else8
-  %tobool17.not = icmp ult i8 %call, 16
+  %tobool17.not = icmp samesign ult i8 %call, 16
   br i1 %tobool17.not, label %if.else20, label %if.then18
 
 if.then18:                                        ; preds = %if.else14
@@ -1351,7 +1351,7 @@ if.else.i10:                                      ; preds = %if.end.i
 if.then9.i:                                       ; preds = %if.else.i10
   %conv7.i = zext i32 %8 to i64
   %add.i = add nuw nsw i64 %inc, %conv7.i
-  %cmp12.i = icmp ugt i64 %add.i, 4294967295
+  %cmp12.i = icmp samesign ugt i64 %add.i, 4294967295
   br i1 %cmp12.i, label %if.then37, label %if.end14.i
 
 if.end14.i:                                       ; preds = %if.then9.i
@@ -1532,7 +1532,7 @@ if.else.i:                                        ; preds = %if.end.i
 if.then9.i:                                       ; preds = %if.else.i
   %conv7.i = zext i32 %6 to i64
   %add.i = add nuw nsw i64 %inc, %conv7.i
-  %cmp12.i = icmp ugt i64 %add.i, 4294967295
+  %cmp12.i = icmp samesign ugt i64 %add.i, 4294967295
   br i1 %cmp12.i, label %if.then38, label %if.end14.i
 
 if.end14.i:                                       ; preds = %if.then9.i
@@ -2223,7 +2223,7 @@ if.then:                                          ; preds = %entry
   br label %if.end58
 
 if.else:                                          ; preds = %entry
-  %tobool7.not = icmp ult i8 %call, 64
+  %tobool7.not = icmp samesign ult i8 %call, 64
   br i1 %tobool7.not, label %if.else10, label %if.then8
 
 if.then8:                                         ; preds = %if.else
@@ -2231,7 +2231,7 @@ if.then8:                                         ; preds = %if.else
   br label %if.end58
 
 if.else10:                                        ; preds = %if.else
-  %tobool13.not = icmp ult i8 %call, 32
+  %tobool13.not = icmp samesign ult i8 %call, 32
   br i1 %tobool13.not, label %if.else16, label %if.then14
 
 if.then14:                                        ; preds = %if.else10
@@ -2818,7 +2818,7 @@ if.else:                                          ; preds = %if.end
 if.then9:                                         ; preds = %if.else
   %conv7 = zext i32 %0 to i64
   %add = add nuw nsw i64 %index, %conv7
-  %cmp12 = icmp ugt i64 %add, 4294967295
+  %cmp12 = icmp samesign ugt i64 %add, 4294967295
   br i1 %cmp12, label %return, label %if.end14
 
 if.end14:                                         ; preds = %if.then9

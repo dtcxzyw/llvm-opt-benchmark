@@ -13217,7 +13217,7 @@ Vec_IntGrow.exit23.i.i:                           ; preds = %Vec_IntGrow.exit23t
 124:                                              ; preds = %.lr.ph.i.i
   %125 = getelementptr inbounds i32, ptr %117, i64 %indvars.iv.i.i
   store i32 %122, ptr %125, align 4
-  %126 = icmp ugt i64 %indvars.iv.i.i, 1
+  %126 = icmp samesign ugt i64 %indvars.iv.i.i, 1
   br i1 %126, label %.lr.ph.i.i, label %Vec_IntPushOrder.exit.i, !llvm.loop !162
 
 ._crit_edge.loopexit.split.loop.exit.i.i:         ; preds = %.lr.ph.i.i

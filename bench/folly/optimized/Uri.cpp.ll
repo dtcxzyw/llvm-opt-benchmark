@@ -17910,7 +17910,7 @@ if.then377:                                       ; preds = %land.lhs.true372, %
   %m_max_backref = getelementptr inbounds i8, ptr %this, i64 184
   %244 = load i32, ptr %m_max_backref, align 8, !tbaa !152
   %conv388 = zext i32 %244 to i64
-  %cmp389 = icmp ugt i64 %i.1, %conv388
+  %cmp389 = icmp samesign ugt i64 %i.1, %conv388
   %or.cond466 = and i1 %cmp367, %cmp389
   br i1 %or.cond466, label %if.then392, label %if.end395
 
@@ -21832,7 +21832,7 @@ if.end136:                                        ; preds = %lor.lhs.false102
   %101 = load i32, ptr %m_mark_count, align 8, !tbaa !334
   %conv139 = zext i32 %101 to i64
   %sub = xor i64 %conv139, 9223372036854775807
-  %cmp140 = icmp ult i64 %sub, %call100
+  %cmp140 = icmp samesign ult i64 %sub, %call100
   br i1 %cmp140, label %if.then141, label %if.end157
 
 if.then141:                                       ; preds = %if.end136
@@ -34352,7 +34352,7 @@ invoke.cont305:                                   ; preds = %if.end289
   %120 = load ptr, ptr %m290, align 8, !tbaa !34
   %121 = load i8, ptr %120, align 1, !tbaa !15
   store i8 %121, ptr %d, align 1, !tbaa !690
-  %cmp308 = icmp ugt i64 %116, 1
+  %cmp308 = icmp samesign ugt i64 %116, 1
   br i1 %cmp308, label %if.then309, label %if.end313
 
 if.then309:                                       ; preds = %invoke.cont305
@@ -34836,7 +34836,7 @@ if.end123:                                        ; preds = %if.end110
   %65 = load ptr, ptr %s, align 8, !tbaa !34
   %66 = load i8, ptr %65, align 1, !tbaa !15
   store i8 %66, ptr %agg.result, align 1, !tbaa !690
-  %cmp127 = icmp ugt i64 %58, 1
+  %cmp127 = icmp samesign ugt i64 %58, 1
   br i1 %cmp127, label %if.then128, label %if.else
 
 if.then128:                                       ; preds = %if.end123
@@ -49613,7 +49613,7 @@ if.else:                                          ; preds = %entry
   br i1 %cmp3, label %if.then4, label %if.else24
 
 if.then4:                                         ; preds = %if.else
-  %cmp5 = icmp ugt i32 %1, 1073741823
+  %cmp5 = icmp samesign ugt i32 %1, 1073741823
   br i1 %cmp5, label %if.then6, label %if.else16
 
 if.then6:                                         ; preds = %if.then4

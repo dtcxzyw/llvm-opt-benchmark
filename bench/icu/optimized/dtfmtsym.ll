@@ -12373,7 +12373,7 @@ while.body.i:                                     ; preds = %_ZN6icu_75L21newUni
   %incdec.ptr.i = getelementptr inbounds i8, ptr %src.addr.02.i, i64 64
   %incdec.ptr1.i = getelementptr inbounds i8, ptr %dst.addr.03.i, i64 64
   %call.i3 = tail call noundef nonnull align 8 dereferenceable(64) ptr @_ZN6icu_7513UnicodeStringaSERKS0_(ptr noundef nonnull align 8 dereferenceable(64) %dst.addr.03.i, ptr noundef nonnull align 8 dereferenceable(64) %src.addr.02.i)
-  %cmp.i = icmp ugt i32 %count.addr.04.i, 1
+  %cmp.i = icmp samesign ugt i32 %count.addr.04.i, 1
   br i1 %cmp.i, label %while.body.i, label %_ZL14uprv_arrayCopyPKN6icu_7513UnicodeStringEPS0_i.exit, !llvm.loop !28
 
 _ZL14uprv_arrayCopyPKN6icu_7513UnicodeStringEPS0_i.exit: ; preds = %while.body.i, %_ZN6icu_75L21newUnicodeStringArrayEm.exit
@@ -12472,7 +12472,7 @@ while.body.i:                                     ; preds = %_ZN6icu_75L21newUni
   %incdec.ptr.i = getelementptr inbounds i8, ptr %src.addr.02.i, i64 64
   %incdec.ptr1.i = getelementptr inbounds i8, ptr %dst.addr.03.i, i64 64
   %call.i3 = tail call noundef nonnull align 8 dereferenceable(64) ptr @_ZN6icu_7513UnicodeStringaSERKS0_(ptr noundef nonnull align 8 dereferenceable(64) %dst.addr.03.i, ptr noundef nonnull align 8 dereferenceable(64) %src.addr.02.i)
-  %cmp.i = icmp ugt i32 %count.addr.04.i, 1
+  %cmp.i = icmp samesign ugt i32 %count.addr.04.i, 1
   br i1 %cmp.i, label %while.body.i, label %_ZL14uprv_arrayCopyPKN6icu_7513UnicodeStringEPS0_i.exit, !llvm.loop !28
 
 _ZL14uprv_arrayCopyPKN6icu_7513UnicodeStringEPS0_i.exit: ; preds = %while.body.i, %_ZN6icu_75L21newUnicodeStringArrayEm.exit
@@ -12555,7 +12555,7 @@ while.body.i:                                     ; preds = %_ZN6icu_75L21newUni
   %incdec.ptr.i = getelementptr inbounds i8, ptr %src.addr.02.i, i64 64
   %incdec.ptr1.i = getelementptr inbounds i8, ptr %dst.addr.03.i, i64 64
   %call.i3 = tail call noundef nonnull align 8 dereferenceable(64) ptr @_ZN6icu_7513UnicodeStringaSERKS0_(ptr noundef nonnull align 8 dereferenceable(64) %dst.addr.03.i, ptr noundef nonnull align 8 dereferenceable(64) %src.addr.02.i)
-  %cmp.i = icmp ugt i32 %count.addr.04.i, 1
+  %cmp.i = icmp samesign ugt i32 %count.addr.04.i, 1
   br i1 %cmp.i, label %while.body.i, label %_ZL14uprv_arrayCopyPKN6icu_7513UnicodeStringEPS0_i.exit, !llvm.loop !28
 
 _ZL14uprv_arrayCopyPKN6icu_7513UnicodeStringEPS0_i.exit: ; preds = %while.body.i, %_ZN6icu_75L21newUnicodeStringArrayEm.exit
@@ -12635,7 +12635,7 @@ while.body.i:                                     ; preds = %_ZN6icu_75L21newUni
   %incdec.ptr.i = getelementptr inbounds i8, ptr %src.addr.02.i, i64 64
   %incdec.ptr1.i = getelementptr inbounds i8, ptr %dst.addr.03.i, i64 64
   %call.i3 = tail call noundef nonnull align 8 dereferenceable(64) ptr @_ZN6icu_7513UnicodeStringaSERKS0_(ptr noundef nonnull align 8 dereferenceable(64) %dst.addr.03.i, ptr noundef nonnull align 8 dereferenceable(64) %src.addr.02.i)
-  %cmp.i = icmp ugt i32 %count.addr.04.i, 1
+  %cmp.i = icmp samesign ugt i32 %count.addr.04.i, 1
   br i1 %cmp.i, label %while.body.i, label %_ZL14uprv_arrayCopyPKN6icu_7513UnicodeStringEPS0_i.exit, !llvm.loop !28
 
 _ZL14uprv_arrayCopyPKN6icu_7513UnicodeStringEPS0_i.exit: ; preds = %while.body.i, %_ZN6icu_75L21newUnicodeStringArrayEm.exit
@@ -12715,7 +12715,7 @@ while.body.i:                                     ; preds = %_ZN6icu_75L21newUni
   %incdec.ptr.i = getelementptr inbounds i8, ptr %src.addr.02.i, i64 64
   %incdec.ptr1.i = getelementptr inbounds i8, ptr %dst.addr.03.i, i64 64
   %call.i3 = tail call noundef nonnull align 8 dereferenceable(64) ptr @_ZN6icu_7513UnicodeStringaSERKS0_(ptr noundef nonnull align 8 dereferenceable(64) %dst.addr.03.i, ptr noundef nonnull align 8 dereferenceable(64) %src.addr.02.i)
-  %cmp.i = icmp ugt i32 %count.addr.04.i, 1
+  %cmp.i = icmp samesign ugt i32 %count.addr.04.i, 1
   br i1 %cmp.i, label %while.body.i, label %_ZL14uprv_arrayCopyPKN6icu_7513UnicodeStringEPS0_i.exit, !llvm.loop !28
 
 _ZL14uprv_arrayCopyPKN6icu_7513UnicodeStringEPS0_i.exit: ; preds = %while.body.i, %_ZN6icu_75L21newUnicodeStringArrayEm.exit
@@ -12795,7 +12795,7 @@ while.body.i:                                     ; preds = %_ZN6icu_75L21newUni
   %incdec.ptr.i = getelementptr inbounds i8, ptr %src.addr.02.i, i64 64
   %incdec.ptr1.i = getelementptr inbounds i8, ptr %dst.addr.03.i, i64 64
   %call.i3 = tail call noundef nonnull align 8 dereferenceable(64) ptr @_ZN6icu_7513UnicodeStringaSERKS0_(ptr noundef nonnull align 8 dereferenceable(64) %dst.addr.03.i, ptr noundef nonnull align 8 dereferenceable(64) %src.addr.02.i)
-  %cmp.i = icmp ugt i32 %count.addr.04.i, 1
+  %cmp.i = icmp samesign ugt i32 %count.addr.04.i, 1
   br i1 %cmp.i, label %while.body.i, label %_ZL14uprv_arrayCopyPKN6icu_7513UnicodeStringEPS0_i.exit, !llvm.loop !28
 
 _ZL14uprv_arrayCopyPKN6icu_7513UnicodeStringEPS0_i.exit: ; preds = %while.body.i, %_ZN6icu_75L21newUnicodeStringArrayEm.exit
@@ -12875,7 +12875,7 @@ while.body.i:                                     ; preds = %_ZN6icu_75L21newUni
   %incdec.ptr.i = getelementptr inbounds i8, ptr %src.addr.02.i, i64 64
   %incdec.ptr1.i = getelementptr inbounds i8, ptr %dst.addr.03.i, i64 64
   %call.i3 = tail call noundef nonnull align 8 dereferenceable(64) ptr @_ZN6icu_7513UnicodeStringaSERKS0_(ptr noundef nonnull align 8 dereferenceable(64) %dst.addr.03.i, ptr noundef nonnull align 8 dereferenceable(64) %src.addr.02.i)
-  %cmp.i = icmp ugt i32 %count.addr.04.i, 1
+  %cmp.i = icmp samesign ugt i32 %count.addr.04.i, 1
   br i1 %cmp.i, label %while.body.i, label %_ZL14uprv_arrayCopyPKN6icu_7513UnicodeStringEPS0_i.exit, !llvm.loop !28
 
 _ZL14uprv_arrayCopyPKN6icu_7513UnicodeStringEPS0_i.exit: ; preds = %while.body.i, %_ZN6icu_75L21newUnicodeStringArrayEm.exit
@@ -12968,7 +12968,7 @@ while.body.i:                                     ; preds = %_ZN6icu_75L21newUni
   %incdec.ptr.i = getelementptr inbounds i8, ptr %src.addr.02.i, i64 64
   %incdec.ptr1.i = getelementptr inbounds i8, ptr %dst.addr.03.i, i64 64
   %call.i29 = tail call noundef nonnull align 8 dereferenceable(64) ptr @_ZN6icu_7513UnicodeStringaSERKS0_(ptr noundef nonnull align 8 dereferenceable(64) %dst.addr.03.i, ptr noundef nonnull align 8 dereferenceable(64) %src.addr.02.i)
-  %cmp.i = icmp ugt i32 %count.addr.04.i, 1
+  %cmp.i = icmp samesign ugt i32 %count.addr.04.i, 1
   br i1 %cmp.i, label %while.body.i, label %sw.epilog107.sink.split, !llvm.loop !28
 
 sw.bb8:                                           ; preds = %sw.bb
@@ -13040,7 +13040,7 @@ while.body.i45:                                   ; preds = %_ZN6icu_75L21newUni
   %incdec.ptr.i50 = getelementptr inbounds i8, ptr %src.addr.02.i48, i64 64
   %incdec.ptr1.i51 = getelementptr inbounds i8, ptr %dst.addr.03.i47, i64 64
   %call.i52 = tail call noundef nonnull align 8 dereferenceable(64) ptr @_ZN6icu_7513UnicodeStringaSERKS0_(ptr noundef nonnull align 8 dereferenceable(64) %dst.addr.03.i47, ptr noundef nonnull align 8 dereferenceable(64) %src.addr.02.i48)
-  %cmp.i53 = icmp ugt i32 %count.addr.04.i46, 1
+  %cmp.i53 = icmp samesign ugt i32 %count.addr.04.i46, 1
   br i1 %cmp.i53, label %while.body.i45, label %sw.epilog107.sink.split, !llvm.loop !28
 
 sw.bb27:                                          ; preds = %sw.bb
@@ -13112,7 +13112,7 @@ while.body.i70:                                   ; preds = %_ZN6icu_75L21newUni
   %incdec.ptr.i75 = getelementptr inbounds i8, ptr %src.addr.02.i73, i64 64
   %incdec.ptr1.i76 = getelementptr inbounds i8, ptr %dst.addr.03.i72, i64 64
   %call.i77 = tail call noundef nonnull align 8 dereferenceable(64) ptr @_ZN6icu_7513UnicodeStringaSERKS0_(ptr noundef nonnull align 8 dereferenceable(64) %dst.addr.03.i72, ptr noundef nonnull align 8 dereferenceable(64) %src.addr.02.i73)
-  %cmp.i78 = icmp ugt i32 %count.addr.04.i71, 1
+  %cmp.i78 = icmp samesign ugt i32 %count.addr.04.i71, 1
   br i1 %cmp.i78, label %while.body.i70, label %sw.epilog107.sink.split, !llvm.loop !28
 
 sw.bb46:                                          ; preds = %entry
@@ -13191,7 +13191,7 @@ while.body.i95:                                   ; preds = %_ZN6icu_75L21newUni
   %incdec.ptr.i100 = getelementptr inbounds i8, ptr %src.addr.02.i98, i64 64
   %incdec.ptr1.i101 = getelementptr inbounds i8, ptr %dst.addr.03.i97, i64 64
   %call.i102 = tail call noundef nonnull align 8 dereferenceable(64) ptr @_ZN6icu_7513UnicodeStringaSERKS0_(ptr noundef nonnull align 8 dereferenceable(64) %dst.addr.03.i97, ptr noundef nonnull align 8 dereferenceable(64) %src.addr.02.i98)
-  %cmp.i103 = icmp ugt i32 %count.addr.04.i96, 1
+  %cmp.i103 = icmp samesign ugt i32 %count.addr.04.i96, 1
   br i1 %cmp.i103, label %while.body.i95, label %sw.epilog107.sink.split, !llvm.loop !28
 
 sw.bb66:                                          ; preds = %sw.bb46
@@ -13263,7 +13263,7 @@ while.body.i120:                                  ; preds = %_ZN6icu_75L21newUni
   %incdec.ptr.i125 = getelementptr inbounds i8, ptr %src.addr.02.i123, i64 64
   %incdec.ptr1.i126 = getelementptr inbounds i8, ptr %dst.addr.03.i122, i64 64
   %call.i127 = tail call noundef nonnull align 8 dereferenceable(64) ptr @_ZN6icu_7513UnicodeStringaSERKS0_(ptr noundef nonnull align 8 dereferenceable(64) %dst.addr.03.i122, ptr noundef nonnull align 8 dereferenceable(64) %src.addr.02.i123)
-  %cmp.i128 = icmp ugt i32 %count.addr.04.i121, 1
+  %cmp.i128 = icmp samesign ugt i32 %count.addr.04.i121, 1
   br i1 %cmp.i128, label %while.body.i120, label %sw.epilog107.sink.split, !llvm.loop !28
 
 sw.bb85:                                          ; preds = %sw.bb46
@@ -13335,7 +13335,7 @@ while.body.i145:                                  ; preds = %_ZN6icu_75L21newUni
   %incdec.ptr.i150 = getelementptr inbounds i8, ptr %src.addr.02.i148, i64 64
   %incdec.ptr1.i151 = getelementptr inbounds i8, ptr %dst.addr.03.i147, i64 64
   %call.i152 = tail call noundef nonnull align 8 dereferenceable(64) ptr @_ZN6icu_7513UnicodeStringaSERKS0_(ptr noundef nonnull align 8 dereferenceable(64) %dst.addr.03.i147, ptr noundef nonnull align 8 dereferenceable(64) %src.addr.02.i148)
-  %cmp.i153 = icmp ugt i32 %count.addr.04.i146, 1
+  %cmp.i153 = icmp samesign ugt i32 %count.addr.04.i146, 1
   br i1 %cmp.i153, label %while.body.i145, label %sw.epilog107.sink.split, !llvm.loop !28
 
 sw.epilog107.sink.split:                          ; preds = %while.body.i145, %while.body.i120, %while.body.i95, %while.body.i70, %while.body.i45, %while.body.i, %_ZN6icu_75L21newUnicodeStringArrayEm.exit143, %_ZN6icu_75L21newUnicodeStringArrayEm.exit118, %_ZN6icu_75L21newUnicodeStringArrayEm.exit93, %_ZN6icu_75L21newUnicodeStringArrayEm.exit68, %_ZN6icu_75L21newUnicodeStringArrayEm.exit43, %_ZN6icu_75L21newUnicodeStringArrayEm.exit
@@ -13419,7 +13419,7 @@ while.body.i:                                     ; preds = %_ZN6icu_75L21newUni
   %incdec.ptr.i = getelementptr inbounds i8, ptr %src.addr.02.i, i64 64
   %incdec.ptr1.i = getelementptr inbounds i8, ptr %dst.addr.03.i, i64 64
   %call.i3 = tail call noundef nonnull align 8 dereferenceable(64) ptr @_ZN6icu_7513UnicodeStringaSERKS0_(ptr noundef nonnull align 8 dereferenceable(64) %dst.addr.03.i, ptr noundef nonnull align 8 dereferenceable(64) %src.addr.02.i)
-  %cmp.i = icmp ugt i32 %count.addr.04.i, 1
+  %cmp.i = icmp samesign ugt i32 %count.addr.04.i, 1
   br i1 %cmp.i, label %while.body.i, label %_ZL14uprv_arrayCopyPKN6icu_7513UnicodeStringEPS0_i.exit, !llvm.loop !28
 
 _ZL14uprv_arrayCopyPKN6icu_7513UnicodeStringEPS0_i.exit: ; preds = %while.body.i, %_ZN6icu_75L21newUnicodeStringArrayEm.exit
@@ -13499,7 +13499,7 @@ while.body.i:                                     ; preds = %_ZN6icu_75L21newUni
   %incdec.ptr.i = getelementptr inbounds i8, ptr %src.addr.02.i, i64 64
   %incdec.ptr1.i = getelementptr inbounds i8, ptr %dst.addr.03.i, i64 64
   %call.i3 = tail call noundef nonnull align 8 dereferenceable(64) ptr @_ZN6icu_7513UnicodeStringaSERKS0_(ptr noundef nonnull align 8 dereferenceable(64) %dst.addr.03.i, ptr noundef nonnull align 8 dereferenceable(64) %src.addr.02.i)
-  %cmp.i = icmp ugt i32 %count.addr.04.i, 1
+  %cmp.i = icmp samesign ugt i32 %count.addr.04.i, 1
   br i1 %cmp.i, label %while.body.i, label %_ZL14uprv_arrayCopyPKN6icu_7513UnicodeStringEPS0_i.exit, !llvm.loop !28
 
 _ZL14uprv_arrayCopyPKN6icu_7513UnicodeStringEPS0_i.exit: ; preds = %while.body.i, %_ZN6icu_75L21newUnicodeStringArrayEm.exit
@@ -13593,7 +13593,7 @@ while.body.i:                                     ; preds = %_ZN6icu_75L21newUni
   %incdec.ptr.i = getelementptr inbounds i8, ptr %src.addr.02.i, i64 64
   %incdec.ptr1.i = getelementptr inbounds i8, ptr %dst.addr.03.i, i64 64
   %call.i39 = tail call noundef nonnull align 8 dereferenceable(64) ptr @_ZN6icu_7513UnicodeStringaSERKS0_(ptr noundef nonnull align 8 dereferenceable(64) %dst.addr.03.i, ptr noundef nonnull align 8 dereferenceable(64) %src.addr.02.i)
-  %cmp.i = icmp ugt i32 %count.addr.04.i, 1
+  %cmp.i = icmp samesign ugt i32 %count.addr.04.i, 1
   br i1 %cmp.i, label %while.body.i, label %sw.epilog146.sink.split, !llvm.loop !28
 
 sw.bb8:                                           ; preds = %sw.bb
@@ -13665,7 +13665,7 @@ while.body.i55:                                   ; preds = %_ZN6icu_75L21newUni
   %incdec.ptr.i60 = getelementptr inbounds i8, ptr %src.addr.02.i58, i64 64
   %incdec.ptr1.i61 = getelementptr inbounds i8, ptr %dst.addr.03.i57, i64 64
   %call.i62 = tail call noundef nonnull align 8 dereferenceable(64) ptr @_ZN6icu_7513UnicodeStringaSERKS0_(ptr noundef nonnull align 8 dereferenceable(64) %dst.addr.03.i57, ptr noundef nonnull align 8 dereferenceable(64) %src.addr.02.i58)
-  %cmp.i63 = icmp ugt i32 %count.addr.04.i56, 1
+  %cmp.i63 = icmp samesign ugt i32 %count.addr.04.i56, 1
   br i1 %cmp.i63, label %while.body.i55, label %sw.epilog146.sink.split, !llvm.loop !28
 
 sw.bb27:                                          ; preds = %sw.bb
@@ -13737,7 +13737,7 @@ while.body.i80:                                   ; preds = %_ZN6icu_75L21newUni
   %incdec.ptr.i85 = getelementptr inbounds i8, ptr %src.addr.02.i83, i64 64
   %incdec.ptr1.i86 = getelementptr inbounds i8, ptr %dst.addr.03.i82, i64 64
   %call.i87 = tail call noundef nonnull align 8 dereferenceable(64) ptr @_ZN6icu_7513UnicodeStringaSERKS0_(ptr noundef nonnull align 8 dereferenceable(64) %dst.addr.03.i82, ptr noundef nonnull align 8 dereferenceable(64) %src.addr.02.i83)
-  %cmp.i88 = icmp ugt i32 %count.addr.04.i81, 1
+  %cmp.i88 = icmp samesign ugt i32 %count.addr.04.i81, 1
   br i1 %cmp.i88, label %while.body.i80, label %sw.epilog146.sink.split, !llvm.loop !28
 
 sw.bb46:                                          ; preds = %sw.bb
@@ -13809,7 +13809,7 @@ while.body.i105:                                  ; preds = %_ZN6icu_75L21newUni
   %incdec.ptr.i110 = getelementptr inbounds i8, ptr %src.addr.02.i108, i64 64
   %incdec.ptr1.i111 = getelementptr inbounds i8, ptr %dst.addr.03.i107, i64 64
   %call.i112 = tail call noundef nonnull align 8 dereferenceable(64) ptr @_ZN6icu_7513UnicodeStringaSERKS0_(ptr noundef nonnull align 8 dereferenceable(64) %dst.addr.03.i107, ptr noundef nonnull align 8 dereferenceable(64) %src.addr.02.i108)
-  %cmp.i113 = icmp ugt i32 %count.addr.04.i106, 1
+  %cmp.i113 = icmp samesign ugt i32 %count.addr.04.i106, 1
   br i1 %cmp.i113, label %while.body.i105, label %sw.epilog146.sink.split, !llvm.loop !28
 
 sw.bb66:                                          ; preds = %entry
@@ -13889,7 +13889,7 @@ while.body.i130:                                  ; preds = %_ZN6icu_75L21newUni
   %incdec.ptr.i135 = getelementptr inbounds i8, ptr %src.addr.02.i133, i64 64
   %incdec.ptr1.i136 = getelementptr inbounds i8, ptr %dst.addr.03.i132, i64 64
   %call.i137 = tail call noundef nonnull align 8 dereferenceable(64) ptr @_ZN6icu_7513UnicodeStringaSERKS0_(ptr noundef nonnull align 8 dereferenceable(64) %dst.addr.03.i132, ptr noundef nonnull align 8 dereferenceable(64) %src.addr.02.i133)
-  %cmp.i138 = icmp ugt i32 %count.addr.04.i131, 1
+  %cmp.i138 = icmp samesign ugt i32 %count.addr.04.i131, 1
   br i1 %cmp.i138, label %while.body.i130, label %sw.epilog146.sink.split, !llvm.loop !28
 
 sw.bb86:                                          ; preds = %sw.bb66
@@ -13961,7 +13961,7 @@ while.body.i155:                                  ; preds = %_ZN6icu_75L21newUni
   %incdec.ptr.i160 = getelementptr inbounds i8, ptr %src.addr.02.i158, i64 64
   %incdec.ptr1.i161 = getelementptr inbounds i8, ptr %dst.addr.03.i157, i64 64
   %call.i162 = tail call noundef nonnull align 8 dereferenceable(64) ptr @_ZN6icu_7513UnicodeStringaSERKS0_(ptr noundef nonnull align 8 dereferenceable(64) %dst.addr.03.i157, ptr noundef nonnull align 8 dereferenceable(64) %src.addr.02.i158)
-  %cmp.i163 = icmp ugt i32 %count.addr.04.i156, 1
+  %cmp.i163 = icmp samesign ugt i32 %count.addr.04.i156, 1
   br i1 %cmp.i163, label %while.body.i155, label %sw.epilog146.sink.split, !llvm.loop !28
 
 sw.bb105:                                         ; preds = %sw.bb66
@@ -14033,7 +14033,7 @@ while.body.i180:                                  ; preds = %_ZN6icu_75L21newUni
   %incdec.ptr.i185 = getelementptr inbounds i8, ptr %src.addr.02.i183, i64 64
   %incdec.ptr1.i186 = getelementptr inbounds i8, ptr %dst.addr.03.i182, i64 64
   %call.i187 = tail call noundef nonnull align 8 dereferenceable(64) ptr @_ZN6icu_7513UnicodeStringaSERKS0_(ptr noundef nonnull align 8 dereferenceable(64) %dst.addr.03.i182, ptr noundef nonnull align 8 dereferenceable(64) %src.addr.02.i183)
-  %cmp.i188 = icmp ugt i32 %count.addr.04.i181, 1
+  %cmp.i188 = icmp samesign ugt i32 %count.addr.04.i181, 1
   br i1 %cmp.i188, label %while.body.i180, label %sw.epilog146.sink.split, !llvm.loop !28
 
 sw.bb124:                                         ; preds = %sw.bb66
@@ -14105,7 +14105,7 @@ while.body.i205:                                  ; preds = %_ZN6icu_75L21newUni
   %incdec.ptr.i210 = getelementptr inbounds i8, ptr %src.addr.02.i208, i64 64
   %incdec.ptr1.i211 = getelementptr inbounds i8, ptr %dst.addr.03.i207, i64 64
   %call.i212 = tail call noundef nonnull align 8 dereferenceable(64) ptr @_ZN6icu_7513UnicodeStringaSERKS0_(ptr noundef nonnull align 8 dereferenceable(64) %dst.addr.03.i207, ptr noundef nonnull align 8 dereferenceable(64) %src.addr.02.i208)
-  %cmp.i213 = icmp ugt i32 %count.addr.04.i206, 1
+  %cmp.i213 = icmp samesign ugt i32 %count.addr.04.i206, 1
   br i1 %cmp.i213, label %while.body.i205, label %sw.epilog146.sink.split, !llvm.loop !28
 
 sw.epilog146.sink.split:                          ; preds = %while.body.i205, %while.body.i180, %while.body.i155, %while.body.i130, %while.body.i105, %while.body.i80, %while.body.i55, %while.body.i, %_ZN6icu_75L21newUnicodeStringArrayEm.exit203, %_ZN6icu_75L21newUnicodeStringArrayEm.exit178, %_ZN6icu_75L21newUnicodeStringArrayEm.exit153, %_ZN6icu_75L21newUnicodeStringArrayEm.exit128, %_ZN6icu_75L21newUnicodeStringArrayEm.exit103, %_ZN6icu_75L21newUnicodeStringArrayEm.exit78, %_ZN6icu_75L21newUnicodeStringArrayEm.exit53, %_ZN6icu_75L21newUnicodeStringArrayEm.exit
@@ -14202,7 +14202,7 @@ while.body.i:                                     ; preds = %_ZN6icu_75L21newUni
   %incdec.ptr.i = getelementptr inbounds i8, ptr %src.addr.02.i, i64 64
   %incdec.ptr1.i = getelementptr inbounds i8, ptr %dst.addr.03.i, i64 64
   %call.i29 = tail call noundef nonnull align 8 dereferenceable(64) ptr @_ZN6icu_7513UnicodeStringaSERKS0_(ptr noundef nonnull align 8 dereferenceable(64) %dst.addr.03.i, ptr noundef nonnull align 8 dereferenceable(64) %src.addr.02.i)
-  %cmp.i = icmp ugt i32 %count.addr.04.i, 1
+  %cmp.i = icmp samesign ugt i32 %count.addr.04.i, 1
   br i1 %cmp.i, label %while.body.i, label %sw.epilog107.sink.split, !llvm.loop !28
 
 sw.bb8:                                           ; preds = %sw.bb
@@ -14274,7 +14274,7 @@ while.body.i45:                                   ; preds = %_ZN6icu_75L21newUni
   %incdec.ptr.i50 = getelementptr inbounds i8, ptr %src.addr.02.i48, i64 64
   %incdec.ptr1.i51 = getelementptr inbounds i8, ptr %dst.addr.03.i47, i64 64
   %call.i52 = tail call noundef nonnull align 8 dereferenceable(64) ptr @_ZN6icu_7513UnicodeStringaSERKS0_(ptr noundef nonnull align 8 dereferenceable(64) %dst.addr.03.i47, ptr noundef nonnull align 8 dereferenceable(64) %src.addr.02.i48)
-  %cmp.i53 = icmp ugt i32 %count.addr.04.i46, 1
+  %cmp.i53 = icmp samesign ugt i32 %count.addr.04.i46, 1
   br i1 %cmp.i53, label %while.body.i45, label %sw.epilog107.sink.split, !llvm.loop !28
 
 sw.bb27:                                          ; preds = %sw.bb
@@ -14346,7 +14346,7 @@ while.body.i70:                                   ; preds = %_ZN6icu_75L21newUni
   %incdec.ptr.i75 = getelementptr inbounds i8, ptr %src.addr.02.i73, i64 64
   %incdec.ptr1.i76 = getelementptr inbounds i8, ptr %dst.addr.03.i72, i64 64
   %call.i77 = tail call noundef nonnull align 8 dereferenceable(64) ptr @_ZN6icu_7513UnicodeStringaSERKS0_(ptr noundef nonnull align 8 dereferenceable(64) %dst.addr.03.i72, ptr noundef nonnull align 8 dereferenceable(64) %src.addr.02.i73)
-  %cmp.i78 = icmp ugt i32 %count.addr.04.i71, 1
+  %cmp.i78 = icmp samesign ugt i32 %count.addr.04.i71, 1
   br i1 %cmp.i78, label %while.body.i70, label %sw.epilog107.sink.split, !llvm.loop !28
 
 sw.bb46:                                          ; preds = %entry
@@ -14425,7 +14425,7 @@ while.body.i95:                                   ; preds = %_ZN6icu_75L21newUni
   %incdec.ptr.i100 = getelementptr inbounds i8, ptr %src.addr.02.i98, i64 64
   %incdec.ptr1.i101 = getelementptr inbounds i8, ptr %dst.addr.03.i97, i64 64
   %call.i102 = tail call noundef nonnull align 8 dereferenceable(64) ptr @_ZN6icu_7513UnicodeStringaSERKS0_(ptr noundef nonnull align 8 dereferenceable(64) %dst.addr.03.i97, ptr noundef nonnull align 8 dereferenceable(64) %src.addr.02.i98)
-  %cmp.i103 = icmp ugt i32 %count.addr.04.i96, 1
+  %cmp.i103 = icmp samesign ugt i32 %count.addr.04.i96, 1
   br i1 %cmp.i103, label %while.body.i95, label %sw.epilog107.sink.split, !llvm.loop !28
 
 sw.bb66:                                          ; preds = %sw.bb46
@@ -14497,7 +14497,7 @@ while.body.i120:                                  ; preds = %_ZN6icu_75L21newUni
   %incdec.ptr.i125 = getelementptr inbounds i8, ptr %src.addr.02.i123, i64 64
   %incdec.ptr1.i126 = getelementptr inbounds i8, ptr %dst.addr.03.i122, i64 64
   %call.i127 = tail call noundef nonnull align 8 dereferenceable(64) ptr @_ZN6icu_7513UnicodeStringaSERKS0_(ptr noundef nonnull align 8 dereferenceable(64) %dst.addr.03.i122, ptr noundef nonnull align 8 dereferenceable(64) %src.addr.02.i123)
-  %cmp.i128 = icmp ugt i32 %count.addr.04.i121, 1
+  %cmp.i128 = icmp samesign ugt i32 %count.addr.04.i121, 1
   br i1 %cmp.i128, label %while.body.i120, label %sw.epilog107.sink.split, !llvm.loop !28
 
 sw.bb85:                                          ; preds = %sw.bb46
@@ -14569,7 +14569,7 @@ while.body.i145:                                  ; preds = %_ZN6icu_75L21newUni
   %incdec.ptr.i150 = getelementptr inbounds i8, ptr %src.addr.02.i148, i64 64
   %incdec.ptr1.i151 = getelementptr inbounds i8, ptr %dst.addr.03.i147, i64 64
   %call.i152 = tail call noundef nonnull align 8 dereferenceable(64) ptr @_ZN6icu_7513UnicodeStringaSERKS0_(ptr noundef nonnull align 8 dereferenceable(64) %dst.addr.03.i147, ptr noundef nonnull align 8 dereferenceable(64) %src.addr.02.i148)
-  %cmp.i153 = icmp ugt i32 %count.addr.04.i146, 1
+  %cmp.i153 = icmp samesign ugt i32 %count.addr.04.i146, 1
   br i1 %cmp.i153, label %while.body.i145, label %sw.epilog107.sink.split, !llvm.loop !28
 
 sw.epilog107.sink.split:                          ; preds = %while.body.i145, %while.body.i120, %while.body.i95, %while.body.i70, %while.body.i45, %while.body.i, %_ZN6icu_75L21newUnicodeStringArrayEm.exit143, %_ZN6icu_75L21newUnicodeStringArrayEm.exit118, %_ZN6icu_75L21newUnicodeStringArrayEm.exit93, %_ZN6icu_75L21newUnicodeStringArrayEm.exit68, %_ZN6icu_75L21newUnicodeStringArrayEm.exit43, %_ZN6icu_75L21newUnicodeStringArrayEm.exit
@@ -14653,7 +14653,7 @@ while.body.i:                                     ; preds = %_ZN6icu_75L21newUni
   %incdec.ptr.i = getelementptr inbounds i8, ptr %src.addr.02.i, i64 64
   %incdec.ptr1.i = getelementptr inbounds i8, ptr %dst.addr.03.i, i64 64
   %call.i3 = tail call noundef nonnull align 8 dereferenceable(64) ptr @_ZN6icu_7513UnicodeStringaSERKS0_(ptr noundef nonnull align 8 dereferenceable(64) %dst.addr.03.i, ptr noundef nonnull align 8 dereferenceable(64) %src.addr.02.i)
-  %cmp.i = icmp ugt i32 %count.addr.04.i, 1
+  %cmp.i = icmp samesign ugt i32 %count.addr.04.i, 1
   br i1 %cmp.i, label %while.body.i, label %_ZL14uprv_arrayCopyPKN6icu_7513UnicodeStringEPS0_i.exit, !llvm.loop !28
 
 _ZL14uprv_arrayCopyPKN6icu_7513UnicodeStringEPS0_i.exit: ; preds = %while.body.i, %_ZN6icu_75L21newUnicodeStringArrayEm.exit
@@ -15420,7 +15420,7 @@ while.body.i.i:                                   ; preds = %if.end, %call.i.i.n
 call.i.i.noexc:                                   ; preds = %while.body.i.i
   %incdec.ptr.i.i = getelementptr inbounds i8, ptr %src.addr.02.i.i, i64 64
   %dec.i.i = add nsw i32 %count.addr.04.i.i, -1
-  %cmp.i.i = icmp ugt i32 %count.addr.04.i.i, 1
+  %cmp.i.i = icmp samesign ugt i32 %count.addr.04.i.i, 1
   br i1 %cmp.i.i, label %while.body.i.i, label %cleanup, !llvm.loop !28
 
 if.else:                                          ; preds = %invoke.cont
@@ -16283,7 +16283,7 @@ call.i185.noexc:                                  ; preds = %while.body.i
   %incdec.ptr1.i = getelementptr inbounds i8, ptr %dst.addr.03.i, i64 64
   %incdec.ptr.i = getelementptr inbounds i8, ptr %src.addr.02.i, i64 64
   %dec.i = add nsw i32 %count.addr.04.i, -1
-  %cmp.i186 = icmp ugt i32 %count.addr.04.i, 1
+  %cmp.i186 = icmp samesign ugt i32 %count.addr.04.i, 1
   br i1 %cmp.i186, label %while.body.i, label %invoke.cont271.loopexit, !llvm.loop !28
 
 invoke.cont271.loopexit:                          ; preds = %call.i185.noexc

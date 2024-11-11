@@ -13740,7 +13740,7 @@ _ZN4Node7del_outEPS_.exit.i:                      ; preds = %38, %26, %18
 
 _ZN14InitializeNode11zero_memoryEv.exit:          ; preds = %60, %70, %80
   %.0.i.i44 = phi ptr [ %65, %60 ], [ %82, %80 ], [ %76, %70 ]
-  %83 = icmp ult i32 %14, -6
+  %83 = icmp samesign ult i32 %14, -6
   br i1 %83, label %84, label %127
 
 84:                                               ; preds = %_ZN14InitializeNode11zero_memoryEv.exit
@@ -18955,7 +18955,7 @@ _ZN14InitializeNode11zero_memoryEv.exit:          ; preds = %48, %56, %66
   br label %.loopexit
 
 77:                                               ; preds = %69
-  %78 = icmp ult i64 %..i, %1
+  %78 = icmp samesign ult i64 %..i, %1
   br i1 %78, label %79, label %90
 
 79:                                               ; preds = %77
@@ -19888,7 +19888,7 @@ _ZN14InitializeNode11zero_memoryEv.exit.i:        ; preds = %437, %427, %419
   br label %_ZN14InitializeNode30captured_store_insertion_pointEliP11PhaseValues.exit.thread269
 
 445:                                              ; preds = %440
-  %446 = icmp ult i64 %..i.i, %383
+  %446 = icmp samesign ult i64 %..i.i, %383
   br i1 %446, label %449, label %447
 
 447:                                              ; preds = %445

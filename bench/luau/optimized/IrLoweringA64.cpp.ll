@@ -4204,7 +4204,7 @@ switch.lookup3668:                                ; preds = %1859
   br label %2393
 
 2382:                                             ; preds = %2377
-  %2383 = icmp ult i32 %2378, 4096
+  %2383 = icmp samesign ult i32 %2378, 4096
   br i1 %2383, label %2384, label %2388
 
 2384:                                             ; preds = %2382

@@ -503,7 +503,7 @@ define hidden void @_ZN21SimulatedOperandStack5mergeERKS_(ptr nocapture noundef 
 _ZN21StackSlotAnalysisData5mergeES_.exit:         ; preds = %18, %21, %25, %28, %32
   %.sroa.05.0.i = phi i32 [ %34, %32 ], [ %27, %25 ], [ 1703935, %21 ], [ %13, %28 ], [ 2621439, %18 ]
   store i32 %.sroa.05.0.i, ptr %10, align 4
-  %35 = icmp ugt i64 %indvars.iv, 1
+  %35 = icmp samesign ugt i64 %indvars.iv, 1
   br i1 %35, label %8, label %._crit_edge, !llvm.loop !9
 
 ._crit_edge:                                      ; preds = %_ZN21StackSlotAnalysisData5mergeES_.exit, %2
@@ -2358,7 +2358,7 @@ define hidden void @_ZN23ExceptionMessageBuilder5mergeEiP21SimulatedOperandStack
 _ZN21StackSlotAnalysisData5mergeES_.exit.i:       ; preds = %40, %36, %33, %29, %26
   %.sroa.05.0.i.i = phi i32 [ %42, %40 ], [ %35, %33 ], [ 1703935, %29 ], [ %21, %36 ], [ 2621439, %26 ]
   store i32 %.sroa.05.0.i.i, ptr %18, align 4
-  %43 = icmp ugt i64 %indvars.iv.i, 1
+  %43 = icmp samesign ugt i64 %indvars.iv.i, 1
   br i1 %43, label %16, label %_ZN21SimulatedOperandStack5mergeERKS_.exit, !llvm.loop !9
 
 _ZN21SimulatedOperandStack5mergeERKS_.exit:       ; preds = %_ZN21StackSlotAnalysisData5mergeES_.exit.i, %11

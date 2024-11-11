@@ -159,7 +159,7 @@ define dso_local void @_ZN4llvm8codeview16CodeViewRecordIO9endRecordEv(ptr dead_
   %27 = load ptr, ptr %26, align 8
   call void %27(ptr noundef nonnull align 8 dereferenceable(8) %25, ptr nonnull %3, i64 1) #14
   %28 = add nsw i32 %.016, -1
-  %29 = icmp ugt i32 %.016, 1
+  %29 = icmp samesign ugt i32 %.016, 1
   br i1 %29, label %22, label %30, !llvm.loop !4
 
 30:                                               ; preds = %22
@@ -1341,7 +1341,7 @@ _ZN4llvm8codeview16CodeViewRecordIO11emitCommentERKNS_5TwineE.exit31: ; preds = 
   br i1 %or.cond.i34, label %_ZN4llvm8codeview16CodeViewRecordIO15incrStreamedLenERKm.exit.sink.split, label %_ZN4llvm8codeview16CodeViewRecordIO15incrStreamedLenERKm.exit
 
 80:                                               ; preds = %42
-  %.not20 = icmp ult i64 %9, -32768
+  %.not20 = icmp samesign ult i64 %9, -32768
   br i1 %.not20, label %116, label %.thread68
 
 .thread68:                                        ; preds = %80
@@ -1405,11 +1405,11 @@ _ZN4llvm8codeview16CodeViewRecordIO11emitCommentERKNS_5TwineE.exit40: ; preds = 
   br i1 %or.cond.i43, label %_ZN4llvm8codeview16CodeViewRecordIO15incrStreamedLenERKm.exit.sink.split, label %_ZN4llvm8codeview16CodeViewRecordIO15incrStreamedLenERKm.exit
 
 116:                                              ; preds = %80
-  %.not22 = icmp ult i64 %9, -2147483648
+  %.not22 = icmp samesign ult i64 %9, -2147483648
   br i1 %.not22, label %153, label %.thread72
 
 117:                                              ; preds = %43
-  %.not23 = icmp ugt i64 %9, 2147483647
+  %.not23 = icmp samesign ugt i64 %9, 2147483647
   br i1 %.not23, label %153, label %.thread72
 
 .thread72:                                        ; preds = %116, %117
@@ -1802,7 +1802,7 @@ _ZN4llvm5ErrorD2Ev.exit65:                        ; preds = %_ZN4llvm5ErrorD2Ev.
   br i1 %.not94, label %_ZN4llvm12ErrorSuccessD2Ev.exit, label %106
 
 45:                                               ; preds = %24
-  %.not42 = icmp ult i64 %13, -32768
+  %.not42 = icmp samesign ult i64 %13, -32768
   br i1 %.not42, label %65, label %.thread87
 
 .thread87:                                        ; preds = %45
@@ -1848,11 +1848,11 @@ _ZN4llvm5ErrorD2Ev.exit72:                        ; preds = %.thread87
   br i1 %.not96, label %_ZN4llvm12ErrorSuccessD2Ev.exit, label %106
 
 65:                                               ; preds = %45
-  %.not44 = icmp ult i64 %13, -2147483648
+  %.not44 = icmp samesign ult i64 %13, -2147483648
   br i1 %.not44, label %_ZN4llvm5ErrorD2Ev.exit81, label %.thread91
 
 66:                                               ; preds = %25
-  %.not45 = icmp ugt i64 %13, 2147483647
+  %.not45 = icmp samesign ugt i64 %13, 2147483647
   br i1 %.not45, label %_ZN4llvm5ErrorD2Ev.exit81, label %.thread91
 
 .thread91:                                        ; preds = %65, %66

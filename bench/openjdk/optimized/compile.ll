@@ -2767,7 +2767,7 @@ _ZN16Unique_Node_List6memberEP4Node.exit.thread.i: ; preds = %_ZN16Unique_Node_L
   br label %_ZN17GrowableArrayViewIP4NodeE9delete_atEi.exit.i
 
 _ZN17GrowableArrayViewIP4NodeE9delete_atEi.exit.i: ; preds = %112, %_ZN16Unique_Node_List6memberEP4Node.exit.thread.i, %_ZN16Unique_Node_List6memberEP4Node.exit.i
-  %116 = icmp ugt i64 %indvars.iv.i, 1
+  %116 = icmp samesign ugt i64 %indvars.iv.i, 1
   br i1 %116, label %93, label %_ZN7Compile20remove_useless_nodesI4NodeTnNSt9enable_ifIXcvbsr3std10is_base_ofIS1_T_EE5valueEiE4typeELi0EEEvR13GrowableArrayIPS3_ER16Unique_Node_List.exit, !llvm.loop !27
 
 _ZN7Compile20remove_useless_nodesI4NodeTnNSt9enable_ifIXcvbsr3std10is_base_ofIS1_T_EE5valueEiE4typeELi0EEEvR13GrowableArrayIPS3_ER16Unique_Node_List.exit: ; preds = %_ZN17GrowableArrayViewIP4NodeE9delete_atEi.exit.i, %._crit_edge139
@@ -2823,7 +2823,7 @@ _ZN16Unique_Node_List6memberEP4Node.exit.thread.i45: ; preds = %_ZN16Unique_Node
   br label %_ZN17GrowableArrayViewIP18ParsePredicateNodeE9delete_atEi.exit.i
 
 _ZN17GrowableArrayViewIP18ParsePredicateNodeE9delete_atEi.exit.i: ; preds = %143, %_ZN16Unique_Node_List6memberEP4Node.exit.thread.i45, %_ZN16Unique_Node_List6memberEP4Node.exit.i46
-  %147 = icmp ugt i64 %indvars.iv.i42, 1
+  %147 = icmp samesign ugt i64 %indvars.iv.i42, 1
   br i1 %147, label %124, label %_ZN7Compile20remove_useless_nodesI18ParsePredicateNodeTnNSt9enable_ifIXcvbsr3std10is_base_ofI4NodeT_EE5valueEiE4typeELi0EEEvR13GrowableArrayIPS4_ER16Unique_Node_List.exit, !llvm.loop !28
 
 _ZN7Compile20remove_useless_nodesI18ParsePredicateNodeTnNSt9enable_ifIXcvbsr3std10is_base_ofI4NodeT_EE5valueEiE4typeELi0EEEvR13GrowableArrayIPS4_ER16Unique_Node_List.exit: ; preds = %_ZN17GrowableArrayViewIP18ParsePredicateNodeE9delete_atEi.exit.i, %_ZN7Compile20remove_useless_nodesI4NodeTnNSt9enable_ifIXcvbsr3std10is_base_ofIS1_T_EE5valueEiE4typeELi0EEEvR13GrowableArrayIPS3_ER16Unique_Node_List.exit
@@ -2879,7 +2879,7 @@ _ZN16Unique_Node_List6memberEP4Node.exit.thread.i52: ; preds = %_ZN16Unique_Node
   br label %_ZN17GrowableArrayViewIP4NodeE9delete_atEi.exit.i53
 
 _ZN17GrowableArrayViewIP4NodeE9delete_atEi.exit.i53: ; preds = %174, %_ZN16Unique_Node_List6memberEP4Node.exit.thread.i52, %_ZN16Unique_Node_List6memberEP4Node.exit.i54
-  %178 = icmp ugt i64 %indvars.iv.i49, 1
+  %178 = icmp samesign ugt i64 %indvars.iv.i49, 1
   br i1 %178, label %155, label %_ZN7Compile20remove_useless_nodesI4NodeTnNSt9enable_ifIXcvbsr3std10is_base_ofIS1_T_EE5valueEiE4typeELi0EEEvR13GrowableArrayIPS3_ER16Unique_Node_List.exit56, !llvm.loop !27
 
 _ZN7Compile20remove_useless_nodesI4NodeTnNSt9enable_ifIXcvbsr3std10is_base_ofIS1_T_EE5valueEiE4typeELi0EEEvR13GrowableArrayIPS3_ER16Unique_Node_List.exit56: ; preds = %_ZN17GrowableArrayViewIP4NodeE9delete_atEi.exit.i53, %_ZN7Compile20remove_useless_nodesI18ParsePredicateNodeTnNSt9enable_ifIXcvbsr3std10is_base_ofI4NodeT_EE5valueEiE4typeELi0EEEvR13GrowableArrayIPS4_ER16Unique_Node_List.exit
@@ -2935,7 +2935,7 @@ _ZN16Unique_Node_List6memberEP4Node.exit.thread.i61: ; preds = %_ZN16Unique_Node
   br label %_ZN17GrowableArrayViewIP4NodeE9delete_atEi.exit.i62
 
 _ZN17GrowableArrayViewIP4NodeE9delete_atEi.exit.i62: ; preds = %205, %_ZN16Unique_Node_List6memberEP4Node.exit.thread.i61, %_ZN16Unique_Node_List6memberEP4Node.exit.i63
-  %209 = icmp ugt i64 %indvars.iv.i58, 1
+  %209 = icmp samesign ugt i64 %indvars.iv.i58, 1
   br i1 %209, label %186, label %_ZN7Compile20remove_useless_nodesI4NodeTnNSt9enable_ifIXcvbsr3std10is_base_ofIS1_T_EE5valueEiE4typeELi0EEEvR13GrowableArrayIPS3_ER16Unique_Node_List.exit65, !llvm.loop !27
 
 _ZN7Compile20remove_useless_nodesI4NodeTnNSt9enable_ifIXcvbsr3std10is_base_ofIS1_T_EE5valueEiE4typeELi0EEEvR13GrowableArrayIPS3_ER16Unique_Node_List.exit65: ; preds = %_ZN17GrowableArrayViewIP4NodeE9delete_atEi.exit.i62, %_ZN7Compile20remove_useless_nodesI4NodeTnNSt9enable_ifIXcvbsr3std10is_base_ofIS1_T_EE5valueEiE4typeELi0EEEvR13GrowableArrayIPS3_ER16Unique_Node_List.exit56
@@ -2991,7 +2991,7 @@ _ZN16Unique_Node_List6memberEP4Node.exit.thread.i70: ; preds = %_ZN16Unique_Node
   br label %_ZN17GrowableArrayViewIP4NodeE9delete_atEi.exit.i71
 
 _ZN17GrowableArrayViewIP4NodeE9delete_atEi.exit.i71: ; preds = %236, %_ZN16Unique_Node_List6memberEP4Node.exit.thread.i70, %_ZN16Unique_Node_List6memberEP4Node.exit.i72
-  %240 = icmp ugt i64 %indvars.iv.i67, 1
+  %240 = icmp samesign ugt i64 %indvars.iv.i67, 1
   br i1 %240, label %217, label %_ZN7Compile20remove_useless_nodesI4NodeTnNSt9enable_ifIXcvbsr3std10is_base_ofIS1_T_EE5valueEiE4typeELi0EEEvR13GrowableArrayIPS3_ER16Unique_Node_List.exit74, !llvm.loop !27
 
 _ZN7Compile20remove_useless_nodesI4NodeTnNSt9enable_ifIXcvbsr3std10is_base_ofIS1_T_EE5valueEiE4typeELi0EEEvR13GrowableArrayIPS3_ER16Unique_Node_List.exit74: ; preds = %_ZN17GrowableArrayViewIP4NodeE9delete_atEi.exit.i71, %_ZN7Compile20remove_useless_nodesI4NodeTnNSt9enable_ifIXcvbsr3std10is_base_ofIS1_T_EE5valueEiE4typeELi0EEEvR13GrowableArrayIPS3_ER16Unique_Node_List.exit65
@@ -3048,7 +3048,7 @@ _ZN16Unique_Node_List6memberEP4Node.exit.thread.i79: ; preds = %_ZN16Unique_Node
   br label %_ZN17GrowableArrayViewIP14UnstableIfTrapE9delete_atEi.exit.i
 
 _ZN17GrowableArrayViewIP14UnstableIfTrapE9delete_atEi.exit.i: ; preds = %268, %_ZN16Unique_Node_List6memberEP4Node.exit.thread.i79, %_ZN16Unique_Node_List6memberEP4Node.exit.i80
-  %272 = icmp ugt i64 %indvars.iv.i76, 1
+  %272 = icmp samesign ugt i64 %indvars.iv.i76, 1
   br i1 %272, label %248, label %_ZN7Compile32remove_useless_unstable_if_trapsER16Unique_Node_List.exit, !llvm.loop !29
 
 _ZN7Compile32remove_useless_unstable_if_trapsER16Unique_Node_List.exit: ; preds = %_ZN17GrowableArrayViewIP14UnstableIfTrapE9delete_atEi.exit.i, %_ZN7Compile20remove_useless_nodesI4NodeTnNSt9enable_ifIXcvbsr3std10is_base_ofIS1_T_EE5valueEiE4typeELi0EEEvR13GrowableArrayIPS3_ER16Unique_Node_List.exit74
@@ -3483,7 +3483,7 @@ _ZN16Unique_Node_List6memberEP4Node.exit.thread:  ; preds = %10, %_ZN16Unique_No
   br label %_ZN17GrowableArrayViewIP14UnstableIfTrapE9delete_atEi.exit
 
 _ZN17GrowableArrayViewIP14UnstableIfTrapE9delete_atEi.exit: ; preds = %30, %_ZN16Unique_Node_List6memberEP4Node.exit.thread, %_ZN16Unique_Node_List6memberEP4Node.exit
-  %34 = icmp ugt i64 %indvars.iv, 1
+  %34 = icmp samesign ugt i64 %indvars.iv, 1
   br i1 %34, label %10, label %._crit_edge, !llvm.loop !29
 
 ._crit_edge:                                      ; preds = %_ZN17GrowableArrayViewIP14UnstableIfTrapE9delete_atEi.exit, %2
@@ -9350,7 +9350,7 @@ define hidden noundef ptr @_ZNK7Compile18flatten_alias_typeEPK7TypePtr(ptr nocap
   %274 = load i8, ptr @UseCompressedClassPointers, align 1
   %275 = trunc i8 %274 to i1
   %spec.select.i188 = select i1 %275, i32 12, i32 16
-  %276 = icmp ult i32 %.1130, %spec.select.i188
+  %276 = icmp samesign ult i32 %.1130, %spec.select.i188
   br i1 %276, label %277, label %283
 
 277:                                              ; preds = %273
@@ -9522,7 +9522,7 @@ _ZNK10ciMetadata9is_loadedEv.exit.thread:         ; preds = %340, %_ZNK10ciMetad
   br i1 %.not181, label %358, label %356
 
 356:                                              ; preds = %355
-  %357 = icmp ult i32 %.3132, 112
+  %357 = icmp samesign ult i32 %.3132, 112
   br i1 %357, label %360, label %.thread205
 
 358:                                              ; preds = %355

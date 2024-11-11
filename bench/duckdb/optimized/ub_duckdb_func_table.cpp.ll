@@ -65680,7 +65680,7 @@ if.end13:                                         ; preds = %if.end
   %add.ptr = getelementptr inbounds i8, ptr %cdata, i64 %3
   call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %ref.tmp14.sroa.4)
   %conv15 = trunc nuw i64 %sub to i32
-  %cmp.i.i = icmp ult i64 %sub, 13
+  %cmp.i.i = icmp samesign ult i64 %sub, 13
   br i1 %cmp.i.i, label %if.then.i, label %if.else.i
 
 if.then.i:                                        ; preds = %if.end13

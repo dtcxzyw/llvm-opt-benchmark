@@ -4214,7 +4214,7 @@ put_child.exit:                                   ; preds = %173, %178
 
 225:                                              ; preds = %219, %221
   %226 = getelementptr inbounds i8, ptr %215, i64 32
-  %227 = icmp ult i32 %198, 32
+  %227 = icmp samesign ult i32 %198, 32
   %228 = shl nsw i32 -1, %198
   %229 = and i32 %228, %194
   %230 = select i1 %227, i32 %229, i32 0
@@ -4294,7 +4294,7 @@ put_child.exit:                                   ; preds = %173, %178
 
 269:                                              ; preds = %262, %264
   %270 = getelementptr inbounds i8, ptr %258, i64 32
-  %271 = icmp ult i32 %241, 32
+  %271 = icmp samesign ult i32 %241, 32
   %272 = shl nsw i32 -1, %241
   %273 = and i32 %272, %235
   %274 = select i1 %271, i32 %273, i32 0
@@ -8124,7 +8124,7 @@ define internal noundef i32 @fib_trie_seq_show(ptr noundef %0, ptr noundef %1) #
   %33 = phi i32 [ %34, %.preheader12 ], [ %31, %27 ]
   %34 = add nsw i32 %33, -1
   tail call void @seq_puts(ptr noundef %0, ptr noundef nonnull @.str.16) #17
-  %35 = icmp ugt i32 %33, 1
+  %35 = icmp samesign ugt i32 %33, 1
   br i1 %35, label %.preheader12, label %.loopexit13.loopexit, !llvm.loop !99
 
 .loopexit13.loopexit:                             ; preds = %.preheader12
@@ -8161,7 +8161,7 @@ define internal noundef i32 @fib_trie_seq_show(ptr noundef %0, ptr noundef %1) #
   %53 = phi i32 [ %54, %.preheader10 ], [ %51, %48 ]
   %54 = add nsw i32 %53, -1
   tail call void @seq_puts(ptr noundef %0, ptr noundef nonnull @.str.16) #17
-  %55 = icmp ugt i32 %53, 1
+  %55 = icmp samesign ugt i32 %53, 1
   br i1 %55, label %.preheader10, label %.loopexit11, !llvm.loop !99
 
 .loopexit11:                                      ; preds = %.preheader10, %48
@@ -8189,7 +8189,7 @@ define internal noundef i32 @fib_trie_seq_show(ptr noundef %0, ptr noundef %1) #
   %65 = phi i32 [ %66, %64 ], [ %63, %62 ]
   %66 = add nsw i32 %65, -1
   call void @seq_puts(ptr noundef %0, ptr noundef nonnull @.str.16) #17
-  %67 = icmp ugt i32 %65, 1
+  %67 = icmp samesign ugt i32 %65, 1
   br i1 %67, label %64, label %.loopexit, !llvm.loop !99
 
 .loopexit:                                        ; preds = %64, %.preheader

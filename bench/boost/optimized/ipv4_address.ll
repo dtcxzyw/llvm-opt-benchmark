@@ -340,7 +340,7 @@ define noundef i64 @_ZNK5boost4urls12ipv4_address10print_implEPc(ptr nocapture n
   br label %.sink.split.i
 
 12:                                               ; preds = %2
-  %13 = icmp ugt i32 %3, 167772159
+  %13 = icmp samesign ugt i32 %3, 167772159
   br i1 %13, label %.sink.split.i, label %"_ZZNK5boost4urls12ipv4_address10print_implEPcENK3$_0clERS2_h.exit"
 
 .sink.split.i:                                    ; preds = %12, %7
@@ -375,7 +375,7 @@ define noundef i64 @_ZNK5boost4urls12ipv4_address10print_implEPc(ptr nocapture n
   br label %.sink.split.i6
 
 29:                                               ; preds = %"_ZZNK5boost4urls12ipv4_address10print_implEPcENK3$_0clERS2_h.exit"
-  %30 = icmp ugt i8 %22, 9
+  %30 = icmp samesign ugt i8 %22, 9
   br i1 %30, label %.sink.split.i6, label %"_ZZNK5boost4urls12ipv4_address10print_implEPcENK3$_0clERS2_h.exit8"
 
 .sink.split.i6:                                   ; preds = %29, %24
@@ -410,7 +410,7 @@ define noundef i64 @_ZNK5boost4urls12ipv4_address10print_implEPc(ptr nocapture n
   br label %.sink.split.i10
 
 46:                                               ; preds = %"_ZZNK5boost4urls12ipv4_address10print_implEPcENK3$_0clERS2_h.exit8"
-  %47 = icmp ugt i8 %39, 9
+  %47 = icmp samesign ugt i8 %39, 9
   br i1 %47, label %.sink.split.i10, label %"_ZZNK5boost4urls12ipv4_address10print_implEPcENK3$_0clERS2_h.exit12"
 
 .sink.split.i10:                                  ; preds = %46, %41
@@ -444,7 +444,7 @@ define noundef i64 @_ZNK5boost4urls12ipv4_address10print_implEPc(ptr nocapture n
   br label %.sink.split.i14
 
 62:                                               ; preds = %"_ZZNK5boost4urls12ipv4_address10print_implEPcENK3$_0clERS2_h.exit12"
-  %63 = icmp ugt i8 %55, 9
+  %63 = icmp samesign ugt i8 %55, 9
   br i1 %63, label %.sink.split.i14, label %"_ZZNK5boost4urls12ipv4_address10print_implEPcENK3$_0clERS2_h.exit16"
 
 .sink.split.i14:                                  ; preds = %62, %57

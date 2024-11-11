@@ -1394,7 +1394,7 @@ Vec_IntFillExtra.exit:                            ; preds = %Vec_IntPush.exit169
   %274 = load i32, ptr %270, align 4
   %275 = add nsw i32 %274, 1
   store i32 %275, ptr %270, align 4
-  %276 = icmp ugt i64 %indvars.iv222, 1
+  %276 = icmp samesign ugt i64 %indvars.iv222, 1
   br i1 %276, label %263, label %.critedge6.thread, !llvm.loop !22
 
 .critedge6:                                       ; preds = %.critedge4

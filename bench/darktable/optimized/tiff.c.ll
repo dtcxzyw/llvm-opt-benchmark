@@ -506,7 +506,7 @@ define range(i32 0, 2) i32 @write_image(ptr nocapture noundef readonly %0, ptr n
   %307 = mul i64 %305, %306
   %308 = getelementptr inbounds float, ptr %2, i64 %307
   %309 = and i32 %302, 3
-  %310 = icmp ult i32 %302, 4
+  %310 = icmp samesign ult i32 %302, 4
   br i1 %310, label %.loopexit168, label %311
 
 311:                                              ; preds = %304
@@ -732,7 +732,7 @@ define range(i32 0, 2) i32 @write_image(ptr nocapture noundef readonly %0, ptr n
   %444 = mul i64 %442, %443
   %445 = getelementptr inbounds i16, ptr %2, i64 %444
   %446 = and i32 %439, 3
-  %447 = icmp ult i32 %439, 4
+  %447 = icmp samesign ult i32 %439, 4
   br i1 %447, label %.loopexit174, label %448
 
 448:                                              ; preds = %441
@@ -831,7 +831,7 @@ define range(i32 0, 2) i32 @write_image(ptr nocapture noundef readonly %0, ptr n
   %506 = mul i64 %504, %505
   %507 = getelementptr inbounds i8, ptr %2, i64 %506
   %508 = and i32 %501, 3
-  %509 = icmp ult i32 %501, 4
+  %509 = icmp samesign ult i32 %501, 4
   br i1 %509, label %.loopexit162, label %510
 
 510:                                              ; preds = %503

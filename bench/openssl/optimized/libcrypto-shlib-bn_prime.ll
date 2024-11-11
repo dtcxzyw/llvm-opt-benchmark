@@ -70,7 +70,7 @@ if.then:                                          ; preds = %entry
 if.else:                                          ; preds = %entry
   %cmp1 = icmp eq ptr %add, null
   %tobool = icmp ne i32 %safe, 0
-  %cmp3 = icmp ult i32 %bits, 6
+  %cmp3 = icmp samesign ult i32 %bits, 6
   %cmp5 = icmp ne i32 %bits, 3
   %0 = and i1 %cmp3, %cmp5
   %1 = and i1 %0, %tobool
@@ -103,7 +103,7 @@ loop.preheader:                                   ; preds = %if.end11
   %tobool26.not.i = icmp eq i32 %safe, 0
   %cond.i = select i1 %tobool26.not.i, i64 1, i64 3
   %cond42.i = select i1 %tobool26.not.i, i64 3, i64 5
-  %cmp69.i = icmp ult i32 %bits, 32
+  %cmp69.i = icmp samesign ult i32 %bits, 32
   %tobool.not.i68 = icmp eq ptr %cb, null
   %cb7.i = getelementptr inbounds i8, ptr %cb, i64 16
   %arg.i = getelementptr inbounds i8, ptr %cb, i64 8
@@ -777,15 +777,15 @@ if.then11:                                        ; preds = %if.end9
   br i1 %cmp.i, label %calc_trial_divisions.exit, label %if.else.i
 
 if.else.i:                                        ; preds = %if.then11
-  %cmp1.i = icmp ult i32 %call12, 1025
+  %cmp1.i = icmp samesign ult i32 %call12, 1025
   br i1 %cmp1.i, label %calc_trial_divisions.exit, label %if.else3.i
 
 if.else3.i:                                       ; preds = %if.else.i
-  %cmp4.i = icmp ult i32 %call12, 2049
+  %cmp4.i = icmp samesign ult i32 %call12, 2049
   br i1 %cmp4.i, label %calc_trial_divisions.exit, label %if.else6.i
 
 if.else6.i:                                       ; preds = %if.else3.i
-  %cmp7.i = icmp ult i32 %call12, 4097
+  %cmp7.i = icmp samesign ult i32 %call12, 4097
   %..i = select i1 %cmp7.i, i64 1024, i64 2048
   br label %calc_trial_divisions.exit
 

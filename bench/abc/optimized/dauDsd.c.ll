@@ -351,11 +351,11 @@ define range(i32 -1, 2) i32 @Dau_DsdNormalizeCompare(ptr noundef readonly %0, pt
   br label %39
 
 35:                                               ; preds = %30
-  %36 = icmp ult i8 %26, %31
+  %36 = icmp samesign ult i8 %26, %31
   br i1 %36, label %.loopexit, label %37
 
 37:                                               ; preds = %35
-  %38 = icmp ugt i8 %26, %31
+  %38 = icmp samesign ugt i8 %26, %31
   br i1 %38, label %.loopexit, label %39
 
 39:                                               ; preds = %37, %33, %28
@@ -469,11 +469,11 @@ define noundef nonnull ptr @Dau_DsdNormalizePerm(ptr noundef readonly %0, ptr no
   br label %49
 
 45:                                               ; preds = %40
-  %46 = icmp ult i8 %36, %41
+  %46 = icmp samesign ult i8 %36, %41
   br i1 %46, label %Dau_DsdNormalizeCompare.exit.thread, label %47
 
 47:                                               ; preds = %45
-  %48 = icmp ugt i8 %36, %41
+  %48 = icmp samesign ugt i8 %36, %41
   br i1 %48, label %Dau_DsdNormalizeCompare.exit.thread28, label %49
 
 49:                                               ; preds = %47, %43, %38
@@ -720,11 +720,11 @@ tailrecurse:                                      ; preds = %148, %3
   br label %103
 
 99:                                               ; preds = %94
-  %100 = icmp ult i8 %90, %95
+  %100 = icmp samesign ult i8 %90, %95
   br i1 %100, label %Dau_DsdNormalizeCompare.exit.thread.i, label %101
 
 101:                                              ; preds = %99
-  %102 = icmp ugt i8 %90, %95
+  %102 = icmp samesign ugt i8 %90, %95
   br i1 %102, label %Dau_DsdNormalizeCompare.exit.thread28.i, label %103
 
 103:                                              ; preds = %101, %97, %92
@@ -3294,7 +3294,7 @@ define i32 @Dau_DsdCheck1Step(ptr nocapture noundef readonly %0, ptr noundef %1,
   %41 = getelementptr inbounds i64, ptr %1, i64 %40
   %42 = icmp sgt i32 %11, 0
   %wide.trip.count59.i = zext nneg i32 %11 to i64
-  %43 = icmp ult i32 %2, 7
+  %43 = icmp samesign ult i32 %2, 7
   %44 = sext i32 %10 to i64
   %45 = getelementptr inbounds i64, ptr %5, i64 %44
   %smax55.i.i = tail call i32 @llvm.smax.i32(i32 %10, i32 1)
@@ -4702,7 +4702,7 @@ Abc_Clock.exit:                                   ; preds = %4, %13
   %25 = add nsw i32 %.038, -2
   %26 = sext i32 %25 to i64
   %27 = getelementptr inbounds i32, ptr %2, i64 %26
-  %28 = icmp ugt i32 %.038, 2
+  %28 = icmp samesign ugt i32 %.038, 2
   %wide.trip.count.i101.i = zext nneg i32 %25 to i64
   %29 = add nsw i32 %.038, -3
   br label %.lr.ph.i
@@ -5356,7 +5356,7 @@ define internal fastcc range(i32 1, 3) i32 @Dau_DsdWritePrime(ptr noundef %0, pt
   br label %Abc_TtWriteHexRev.exit
 
 37:                                               ; preds = %21
-  %38 = icmp ult i32 %3, 7
+  %38 = icmp samesign ult i32 %3, 7
   %39 = select i1 %38, i32 1, i32 %12
   %40 = sext i32 %39 to i64
   %41 = getelementptr inbounds i64, ptr %1, i64 %40
@@ -5682,7 +5682,7 @@ Dau_DsdWriteString.exit70:                        ; preds = %.lr.ph.i67, %Abc_Tt
   br label %Abc_TtWriteHexRev.exit93
 
 200:                                              ; preds = %181
-  %201 = icmp ult i32 %3, 7
+  %201 = icmp samesign ult i32 %3, 7
   %202 = add nsw i32 %3, -6
   %203 = shl nuw i32 1, %202
   %204 = select i1 %201, i32 1, i32 %203
@@ -8992,7 +8992,7 @@ Abc_Clock.exit:                                   ; preds = %4, %14
   br i1 %26, label %.lr.ph, label %.loopexit
 
 .lr.ph:                                           ; preds = %25
-  %27 = icmp ult i32 %.038, 7
+  %27 = icmp samesign ult i32 %.038, 7
   %28 = add nsw i32 %.038, -6
   %29 = shl nuw i32 1, %28
   %30 = select i1 %27, i32 1, i32 %29
@@ -9011,7 +9011,7 @@ Abc_Clock.exit:                                   ; preds = %4, %14
   %40 = add nsw i32 %.038, -2
   %41 = sext i32 %40 to i64
   %42 = getelementptr inbounds i32, ptr %2, i64 %41
-  %43 = icmp ugt i32 %.038, 2
+  %43 = icmp samesign ugt i32 %.038, 2
   %wide.trip.count.i234.i = zext nneg i32 %40 to i64
   %44 = add nsw i32 %.038, -3
   %45 = zext nneg i32 %.038 to i64
@@ -9024,7 +9024,7 @@ Abc_Clock.exit:                                   ; preds = %4, %14
   %indvars.iv341 = phi i64 [ %46, %.lr.ph ], [ %indvars.iv.next342, %Abc_TtSuppOnlyOne.exit.thread ]
   %indvars.iv.next342 = add nsw i64 %indvars.iv341, -1
   %49 = getelementptr inbounds i32, ptr %2, i64 %indvars.iv.next342
-  %50 = icmp ult i64 %indvars.iv341, 7
+  %50 = icmp samesign ult i64 %indvars.iv341, 7
   %51 = trunc i64 %indvars.iv341 to i32
   %52 = add i32 %51, -7
   %53 = shl nuw i32 1, %52
@@ -9038,7 +9038,7 @@ Abc_Clock.exit:                                   ; preds = %4, %14
   %58 = shl nuw i32 1, %57
   %59 = zext nneg i32 %58 to i64
   %60 = getelementptr inbounds [6 x i64], ptr @s_Truths6Neg, i64 0, i64 %indvars.iv.next342
-  %61 = icmp ult i64 %indvars.iv341, 7
+  %61 = icmp samesign ult i64 %indvars.iv341, 7
   %62 = or i1 %35, %.not136.i181
   br label %.lr.ph.i
 

@@ -1528,7 +1528,7 @@ if.else9.i418:                                    ; preds = %do.body6.i415
 
 if.end14.i400:                                    ; preds = %do.body6.i415
   store i32 23, ptr %groups.i398, align 16
-  %or.cond1.i402 = icmp ult i32 %onlyKeyShare.09002641, 2
+  %or.cond1.i402 = icmp samesign ult i32 %onlyKeyShare.09002641, 2
   br i1 %or.cond1.i402, label %do.body19.i407, label %if.then37.i405
 
 if.end14.i400.thread:                             ; preds = %if.then7.i

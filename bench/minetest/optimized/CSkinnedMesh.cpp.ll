@@ -8269,7 +8269,7 @@ _ZSt8_DestroyIPN3irr4core5arrayIfEES3_EvT_S5_RSaIT0_E.exit.i.i: ; preds = %_ZSt8
   br label %if.end7
 
 if.else:                                          ; preds = %entry
-  %cmp3.i = icmp ult i64 %sub.ptr.div.i, %conv
+  %cmp3.i = icmp samesign ult i64 %sub.ptr.div.i, %conv
   br i1 %cmp3.i, label %if.then4.i, label %if.end7
 
 if.then4.i:                                       ; preds = %if.else

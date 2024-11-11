@@ -2627,7 +2627,7 @@ define internal range(i32 -1, 2) i32 @_parse_partitionname(ptr nocapture noundef
   br label %313
 
 308:                                              ; preds = %301
-  %309 = icmp ugt i32 %303, 65534
+  %309 = icmp samesign ugt i32 %303, 65534
   br i1 %309, label %310, label %311
 
 310:                                              ; preds = %308

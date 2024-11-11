@@ -589,7 +589,7 @@ iseries_UNICODE_to_ASCII.exit:                    ; preds = %31, %.thread.i
   br label %.loopexit1
 
 53:                                               ; preds = %48
-  %54 = icmp ugt i32 %49, 23
+  %54 = icmp samesign ugt i32 %49, 23
   br i1 %54, label %55, label %57
 
 55:                                               ; preds = %53
@@ -610,7 +610,7 @@ iseries_UNICODE_to_ASCII.exit:                    ; preds = %31, %.thread.i
   br label %.loopexit1
 
 62:                                               ; preds = %57
-  %63 = icmp ugt i32 %58, 59
+  %63 = icmp samesign ugt i32 %58, 59
   br i1 %63, label %64, label %66
 
 64:                                               ; preds = %62
@@ -631,7 +631,7 @@ iseries_UNICODE_to_ASCII.exit:                    ; preds = %31, %.thread.i
   br label %.loopexit1
 
 71:                                               ; preds = %66
-  %72 = icmp ugt i32 %67, 60
+  %72 = icmp samesign ugt i32 %67, 60
   br i1 %72, label %73, label %75
 
 73:                                               ; preds = %71
@@ -674,7 +674,7 @@ iseries_UNICODE_to_ASCII.exit:                    ; preds = %31, %.thread.i
   br label %.loopexit1
 
 87:                                               ; preds = %83
-  %88 = icmp ugt i32 %44, 262130
+  %88 = icmp samesign ugt i32 %44, 262130
   br i1 %88, label %89, label %93
 
 89:                                               ; preds = %87

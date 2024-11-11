@@ -314,7 +314,7 @@ while.body.i.i:                                   ; preds = %if.then34.i, %while
   %call.i15.i = call zeroext i8 @Hacl_Streaming_MD5_legacy_update(ptr noundef %15, ptr noundef %buf.addr.07.i.i, i32 noundef -1) #3
   %sub.i.i = add nsw i64 %len.addr.08.i.i, -4294967295
   %add.ptr.i.i = getelementptr i8, ptr %buf.addr.07.i.i, i64 4294967295
-  %cmp.i16.i = icmp ugt i64 %len.addr.08.i.i, 8589934590
+  %cmp.i16.i = icmp samesign ugt i64 %len.addr.08.i.i, 8589934590
   br i1 %cmp.i16.i, label %while.body.i.i, label %update.exit.i, !llvm.loop !4
 
 update.exit.i:                                    ; preds = %while.body.i.i, %if.then34.i
@@ -714,7 +714,7 @@ while.body.i:                                     ; preds = %PyMutex_Lock.exit, 
   %call.i = call zeroext i8 @Hacl_Streaming_MD5_legacy_update(ptr noundef %11, ptr noundef %buf.addr.07.i, i32 noundef -1) #3
   %sub.i = add nsw i64 %len.addr.08.i, -4294967295
   %add.ptr.i = getelementptr i8, ptr %buf.addr.07.i, i64 4294967295
-  %cmp.i = icmp ugt i64 %len.addr.08.i, 8589934590
+  %cmp.i = icmp samesign ugt i64 %len.addr.08.i, 8589934590
   br i1 %cmp.i, label %while.body.i, label %update.exit, !llvm.loop !4
 
 update.exit:                                      ; preds = %while.body.i, %PyMutex_Lock.exit
@@ -747,7 +747,7 @@ while.body.i16:                                   ; preds = %if.else, %while.bod
   %call.i19 = call zeroext i8 @Hacl_Streaming_MD5_legacy_update(ptr noundef %16, ptr noundef %buf.addr.07.i18, i32 noundef -1) #3
   %sub.i20 = add nsw i64 %len.addr.08.i17, -4294967295
   %add.ptr.i21 = getelementptr i8, ptr %buf.addr.07.i18, i64 4294967295
-  %cmp.i22 = icmp ugt i64 %len.addr.08.i17, 8589934590
+  %cmp.i22 = icmp samesign ugt i64 %len.addr.08.i17, 8589934590
   br i1 %cmp.i22, label %while.body.i16, label %update.exit23, !llvm.loop !4
 
 update.exit23:                                    ; preds = %while.body.i16, %if.else

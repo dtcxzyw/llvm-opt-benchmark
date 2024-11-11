@@ -2791,7 +2791,7 @@ while.cond.backedge:                              ; preds = %if.then, %if.then16
   br label %while.cond, !llvm.loop !36
 
 if.else:                                          ; preds = %while.body
-  %tobool15.not = icmp ult i8 %call9, 64
+  %tobool15.not = icmp samesign ult i8 %call9, 64
   br i1 %tobool15.not, label %if.else19, label %if.then16
 
 if.then16:                                        ; preds = %if.else

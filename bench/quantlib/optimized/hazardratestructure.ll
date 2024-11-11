@@ -1253,7 +1253,7 @@ for.body.i:                                       ; preds = %for.body.i, %for.bo
   %9 = load ptr, ptr %vfn.i.i.i, align 8
   %call.i.i.i = tail call noundef double %9(ptr noundef nonnull align 8 dereferenceable(152) %this, double noundef %div.i.i)
   %10 = tail call double @llvm.fmuladd.f64(double %6, double %call.i.i.i, double %sum.02.i)
-  %cmp.i = icmp ugt i64 %indvars.iv.i, 1
+  %cmp.i = icmp samesign ugt i64 %indvars.iv.i, 1
   br i1 %cmp.i, label %for.body.i, label %"_ZNK8QuantLib18GaussianQuadratureclINS_12_GLOBAL__N_18remapperIZNKS_19HazardRateStructure23survivalProbabilityImplEdE3$_0EEEEdRKT_.exit", !llvm.loop !55
 
 "_ZNK8QuantLib18GaussianQuadratureclINS_12_GLOBAL__N_18remapperIZNKS_19HazardRateStructure23survivalProbabilityImplEdE3$_0EEEEdRKT_.exit": ; preds = %for.body.i, %init.end

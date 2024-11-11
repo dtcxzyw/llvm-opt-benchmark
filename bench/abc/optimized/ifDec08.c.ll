@@ -403,7 +403,7 @@ define range(i32 0, 2) i32 @If_Dec08Perform(ptr noundef %0, i32 noundef %1, i32 
 
 .lr.ph233:                                        ; preds = %.lr.ph
   %15 = add nsw i32 %1, -1
-  %16 = icmp ult i32 %1, 7
+  %16 = icmp samesign ult i32 %1, 7
   %17 = add nsw i32 %1, -6
   %18 = shl nuw i32 1, %17
   %19 = select i1 %16, i32 1, i32 %18

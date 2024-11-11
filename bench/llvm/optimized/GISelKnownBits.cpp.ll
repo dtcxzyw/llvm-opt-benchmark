@@ -4392,7 +4392,7 @@ _ZN4llvm5APIntC2Ejmbb.exit.i17:                   ; preds = %98, %97
   br i1 %99, label %_ZN4llvm5APInt13getLowBitsSetEjj.exit, label %100
 
 100:                                              ; preds = %_ZN4llvm5APIntC2Ejmbb.exit.i17
-  %101 = icmp ult i64 %94, 65
+  %101 = icmp samesign ult i64 %94, 65
   br i1 %101, label %102, label %114
 
 102:                                              ; preds = %100

@@ -679,7 +679,7 @@ define i32 @lzxd_decompress(ptr noundef %0, i64 noundef %1) local_unnamed_addr #
   br i1 %.not1225, label %333, label %.preheader1460
 
 .preheader1460:                                   ; preds = %._crit_edge2833
-  %236 = icmp ult i32 %.41050.lcssa, 17
+  %236 = icmp samesign ult i32 %.41050.lcssa, 17
   br i1 %236, label %.lr.ph2842, label %._crit_edge2843
 
 .lr.ph2842:                                       ; preds = %.preheader1460, %284
@@ -1095,7 +1095,7 @@ define i32 @lzxd_decompress(ptr noundef %0, i64 noundef %1) local_unnamed_addr #
   store i8 %425, ptr %68, align 1
   %426 = shl i32 %.101017.lcssa, 3
   %427 = add nsw i32 %.101056.lcssa, -3
-  %428 = icmp ult i32 %.101056.lcssa, 19
+  %428 = icmp samesign ult i32 %.101056.lcssa, 19
   br i1 %428, label %.lr.ph2875, label %._crit_edge2876
 
 .lr.ph2875:                                       ; preds = %._crit_edge2865, %476
@@ -2457,7 +2457,7 @@ define i32 @lzxd_decompress(ptr noundef %0, i64 noundef %1) local_unnamed_addr #
 1050:                                             ; preds = %._crit_edge2978
   %1051 = shl nuw i32 %.291036.lcssa, 1
   %1052 = add nsw i32 %.291075.lcssa, -1
-  %1053 = icmp ult i32 %.291075.lcssa, 9
+  %1053 = icmp samesign ult i32 %.291075.lcssa, 9
   br i1 %1053, label %.lr.ph3021, label %._crit_edge3022
 
 .lr.ph3021:                                       ; preds = %1050, %1071
@@ -2531,13 +2531,13 @@ define i32 @lzxd_decompress(ptr noundef %0, i64 noundef %1) local_unnamed_addr #
   br label %1198
 
 1086:                                             ; preds = %._crit_edge2978
-  %1087 = icmp ult i32 %.291036.lcssa, -1073741824
+  %1087 = icmp samesign ult i32 %.291036.lcssa, -1073741824
   br i1 %1087, label %1088, label %1125
 
 1088:                                             ; preds = %1086
   %1089 = shl i32 %.291036.lcssa, 2
   %1090 = add nsw i32 %.291075.lcssa, -2
-  %1091 = icmp ult i32 %.291075.lcssa, 12
+  %1091 = icmp samesign ult i32 %.291075.lcssa, 12
   br i1 %1091, label %.lr.ph3010, label %._crit_edge3011
 
 .lr.ph3010:                                       ; preds = %1088, %1109
@@ -2619,7 +2619,7 @@ define i32 @lzxd_decompress(ptr noundef %0, i64 noundef %1) local_unnamed_addr #
   br i1 %1126, label %1129, label %1164
 
 1129:                                             ; preds = %1125
-  %1130 = icmp ult i32 %.291075.lcssa, 15
+  %1130 = icmp samesign ult i32 %.291075.lcssa, 15
   br i1 %1130, label %.lr.ph2999, label %._crit_edge3000
 
 .lr.ph2999:                                       ; preds = %1129, %1148
@@ -2694,7 +2694,7 @@ define i32 @lzxd_decompress(ptr noundef %0, i64 noundef %1) local_unnamed_addr #
   br label %1198
 
 1164:                                             ; preds = %1125
-  %1165 = icmp ult i32 %.291075.lcssa, 18
+  %1165 = icmp samesign ult i32 %.291075.lcssa, 18
   br i1 %1165, label %.lr.ph2988, label %._crit_edge2989
 
 .lr.ph2988:                                       ; preds = %1164, %1183
@@ -2842,7 +2842,7 @@ define i32 @lzxd_decompress(ptr noundef %0, i64 noundef %1) local_unnamed_addr #
   %1230 = load i8, ptr %.110953034, align 1
   %1231 = getelementptr inbounds i8, ptr %.211003033, i64 1
   store i8 %1230, ptr %.211003033, align 1
-  %1232 = icmp ugt i32 %.111563032, 1
+  %1232 = icmp samesign ugt i32 %.111563032, 1
   br i1 %1232, label %.lr.ph3036, label %.loopexit1440
 
 .loopexit1440:                                    ; preds = %.lr.ph3036, %1225, %1220
@@ -2861,7 +2861,7 @@ define i32 @lzxd_decompress(ptr noundef %0, i64 noundef %1) local_unnamed_addr #
   %1236 = load i8, ptr %.210963040, align 1
   %1237 = getelementptr inbounds i8, ptr %.311013039, i64 1
   store i8 %1236, ptr %.311013039, align 1
-  %1238 = icmp ugt i32 %.611523038, 1
+  %1238 = icmp samesign ugt i32 %.611523038, 1
   br i1 %1238, label %.lr.ph3042, label %.loopexit
 
 .lr.ph3031.preheader:                             ; preds = %1205
@@ -4375,7 +4375,7 @@ define internal fastcc i32 @lzxd_read_lens(ptr noundef nonnull %0, ptr nocapture
   %400 = shl i32 %.7247.lcssa, 1
   %401 = add nsw i32 %.7256.lcssa, -1
   %402 = or disjoint i32 %399, 4
-  %403 = icmp ult i32 %.7256.lcssa, 17
+  %403 = icmp samesign ult i32 %.7256.lcssa, 17
   br i1 %403, label %.lr.ph607, label %._crit_edge608
 
 .lr.ph607:                                        ; preds = %._crit_edge597, %423

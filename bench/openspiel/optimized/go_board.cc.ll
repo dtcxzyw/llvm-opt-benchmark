@@ -1961,7 +1961,7 @@ define void @_ZN10open_spiel2go7GoBoard16JoinChainsAroundEtNS0_7GoColorE(ptr nou
   %41 = getelementptr i8, ptr %40, i64 %.idx.i9.i
   %42 = load i16, ptr %41, align 2
   %43 = zext i16 %42 to i32
-  %44 = icmp ult i32 %.1, %43
+  %44 = icmp samesign ult i32 %.1, %43
   %spec.select69 = select i1 %44, i16 %38, i16 %.160
   %spec.select70 = tail call i32 @llvm.umax.i32(i32 %.1, i32 %43)
   br label %"_ZZN10open_spiel2go7GoBoard16JoinChainsAroundEtNS0_7GoColorEENK3$_0clEt.exit10.i"
@@ -1985,7 +1985,7 @@ define void @_ZN10open_spiel2go7GoBoard16JoinChainsAroundEtNS0_7GoColorE(ptr nou
   %55 = getelementptr i8, ptr %54, i64 %.idx.i11.i
   %56 = load i16, ptr %55, align 2
   %57 = zext i16 %56 to i32
-  %58 = icmp ult i32 %.2, %57
+  %58 = icmp samesign ult i32 %.2, %57
   br i1 %58, label %"_ZN10open_spiel2go12_GLOBAL__N_110NeighboursIZNS0_7GoBoard16JoinChainsAroundEtNS0_7GoColorEE3$_0EEvtRKT_.exit.thread", label %"_ZN10open_spiel2go12_GLOBAL__N_110NeighboursIZNS0_7GoBoard16JoinChainsAroundEtNS0_7GoColorEE3$_0EEvtRKT_.exit"
 
 "_ZN10open_spiel2go12_GLOBAL__N_110NeighboursIZNS0_7GoBoard16JoinChainsAroundEtNS0_7GoColorEE3$_0EEvtRKT_.exit": ; preds = %"_ZZN10open_spiel2go7GoBoard16JoinChainsAroundEtNS0_7GoColorEENK3$_0clEt.exit10.i", %50

@@ -438,7 +438,7 @@ define dso_local noundef zeroext i1 @_ZN4llvm15CodeViewContext16recordFunctionId
 12:                                               ; preds = %2
   %13 = add i32 %1, 1
   %14 = zext i32 %13 to i64
-  %15 = icmp ult i64 %11, %14
+  %15 = icmp samesign ult i64 %11, %14
   br i1 %15, label %16, label %18
 
 16:                                               ; preds = %12
@@ -447,7 +447,7 @@ define dso_local noundef zeroext i1 @_ZN4llvm15CodeViewContext16recordFunctionId
   br label %_ZNSt6vectorIN4llvm16MCCVFunctionInfoESaIS1_EE6resizeEm.exit
 
 18:                                               ; preds = %12
-  %19 = icmp ugt i64 %11, %14
+  %19 = icmp samesign ugt i64 %11, %14
   br i1 %19, label %20, label %_ZNSt6vectorIN4llvm16MCCVFunctionInfoESaIS1_EE6resizeEm.exit
 
 20:                                               ; preds = %18
@@ -506,7 +506,7 @@ define dso_local noundef zeroext i1 @_ZN4llvm15CodeViewContext23recordInlinedCal
 17:                                               ; preds = %6
   %18 = add i32 %1, 1
   %19 = zext i32 %18 to i64
-  %20 = icmp ult i64 %16, %19
+  %20 = icmp samesign ult i64 %16, %19
   br i1 %20, label %21, label %23
 
 21:                                               ; preds = %17
@@ -515,7 +515,7 @@ define dso_local noundef zeroext i1 @_ZN4llvm15CodeViewContext23recordInlinedCal
   br label %_ZNSt6vectorIN4llvm16MCCVFunctionInfoESaIS1_EE6resizeEm.exit
 
 23:                                               ; preds = %17
-  %24 = icmp ugt i64 %16, %19
+  %24 = icmp samesign ugt i64 %16, %19
   br i1 %24, label %25, label %_ZNSt6vectorIN4llvm16MCCVFunctionInfoESaIS1_EE6resizeEm.exit
 
 25:                                               ; preds = %23

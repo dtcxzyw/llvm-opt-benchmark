@@ -43685,7 +43685,7 @@ define internal void @lte_rrc_NRSRQ_Range_NB_r14_fmt(ptr nocapture noundef write
   br label %48
 
 20:                                               ; preds = %17
-  %21 = icmp ult i32 %1, 34
+  %21 = icmp samesign ult i32 %1, 34
   br i1 %21, label %22, label %32
 
 22:                                               ; preds = %20
@@ -43709,7 +43709,7 @@ define internal void @lte_rrc_NRSRQ_Range_NB_r14_fmt(ptr nocapture noundef write
   br label %48
 
 35:                                               ; preds = %32
-  %36 = icmp ult i32 %1, 46
+  %36 = icmp samesign ult i32 %1, 46
   br i1 %36, label %37, label %47
 
 37:                                               ; preds = %35

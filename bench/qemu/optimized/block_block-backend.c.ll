@@ -4736,7 +4736,7 @@ if.then10:                                        ; preds = %blk_bs.exit
   br label %return
 
 if.end11:                                         ; preds = %blk_bs.exit
-  %cmp12 = icmp ugt i64 %offset, %call8
+  %cmp12 = icmp samesign ugt i64 %offset, %call8
   %sub = sub nsw i64 %call8, %offset
   %cmp14 = icmp slt i64 %sub, %bytes
   %or.cond = select i1 %cmp12, i1 true, i1 %cmp14

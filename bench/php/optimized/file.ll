@@ -1237,7 +1237,7 @@ thread-pre-split:                                 ; preds = %17
   br label %36
 
 36:                                               ; preds = %33, %.critedge269
-  %37 = icmp ult i32 %8, 3
+  %37 = icmp samesign ult i32 %8, 3
   br i1 %37, label %.thread344, label %38
 
 38:                                               ; preds = %36
@@ -2082,7 +2082,7 @@ thread-pre-split:                                 ; preds = %15
   br label %58
 
 53:                                               ; preds = %47
-  %.not244 = icmp ult i64 %.fr314, 16
+  %.not244 = icmp samesign ult i64 %.fr314, 16
   br i1 %.not244, label %54, label %58
 
 54:                                               ; preds = %53
@@ -3946,7 +3946,7 @@ thread-pre-split:                                 ; preds = %16
   br i1 %35, label %36, label %50
 
 36:                                               ; preds = %34, %.critedge200
-  %37 = icmp ult i32 %7, 3
+  %37 = icmp samesign ult i32 %7, 3
   br i1 %37, label %.thread247, label %38
 
 38:                                               ; preds = %36
@@ -5570,7 +5570,7 @@ define hidden void @zif_fputcsv(ptr noundef %0, ptr nocapture noundef writeonly 
   %31 = getelementptr inbounds i8, ptr %30, i64 16
   %32 = load i64, ptr %31, align 8
   %33 = getelementptr inbounds i8, ptr %30, i64 24
-  %34 = icmp ult i32 %8, 4
+  %34 = icmp samesign ult i32 %8, 4
   br i1 %34, label %.thread411.thread, label %35
 
 35:                                               ; preds = %29
@@ -6277,7 +6277,7 @@ define hidden void @zif_fgetcsv(ptr noundef %0, ptr nocapture noundef writeonly 
 
 26:                                               ; preds = %.thread, %24
   %.3295 = phi i1 [ %.2267, %.thread ], [ false, %24 ]
-  %27 = icmp ult i32 %9, 3
+  %27 = icmp samesign ult i32 %9, 3
   br i1 %27, label %.thread439, label %28
 
 28:                                               ; preds = %26

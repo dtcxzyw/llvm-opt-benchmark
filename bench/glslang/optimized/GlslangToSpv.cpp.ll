@@ -20012,7 +20012,7 @@ _ZNSt10unique_ptrIN3spv11InstructionESt14default_deleteIS1_EED2Ev.exit: ; preds 
 55:                                               ; preds = %_ZNSt10unique_ptrIN3spv11InstructionESt14default_deleteIS1_EED2Ev.exit
   %56 = add i32 %45, 16
   %57 = zext i32 %56 to i64
-  %58 = icmp ult i64 %54, %57
+  %58 = icmp samesign ult i64 %54, %57
   br i1 %58, label %59, label %61
 
 59:                                               ; preds = %55
@@ -20022,7 +20022,7 @@ _ZNSt10unique_ptrIN3spv11InstructionESt14default_deleteIS1_EED2Ev.exit: ; preds 
   br label %_ZN3spv6Module14mapInstructionEPNS_11InstructionE.exit
 
 61:                                               ; preds = %55
-  %62 = icmp ugt i64 %54, %57
+  %62 = icmp samesign ugt i64 %54, %57
   br i1 %62, label %63, label %_ZN3spv6Module14mapInstructionEPNS_11InstructionE.exit
 
 63:                                               ; preds = %61
@@ -33484,7 +33484,7 @@ _ZN12_GLOBAL__N_122TGlslangToSpvTraverser15makeArraySizeIdERKN7glslang11TArraySi
   %2336 = getelementptr inbounds %"struct.glslang::TArraySize", ptr %2335, i64 %indvars.iv.next855
   %2337 = load i32, ptr %2336, align 8
   %2338 = mul nsw i32 %2337, %.1796
-  %2339 = icmp ugt i64 %indvars.iv854, 2
+  %2339 = icmp samesign ugt i64 %indvars.iv854, 2
   br i1 %2339, label %2292, label %.loopexit, !llvm.loop !194
 
 _ZNK7glslang11TArraySizes10getNumDimsEv.exit.thread: ; preds = %2210, %_ZNK7glslang11TArraySizes10getNumDimsEv.exit

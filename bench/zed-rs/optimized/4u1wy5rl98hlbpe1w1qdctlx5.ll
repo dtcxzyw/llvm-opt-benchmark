@@ -3245,7 +3245,7 @@ define hidden void @_ZN7tendril6stream11TendrilSink9read_from17ha0d940390f0256cd
   unreachable
 
 251:                                              ; preds = %247
-  %252 = icmp ult i64 %.sroa.6160.0.copyload.i, 9
+  %252 = icmp samesign ult i64 %.sroa.6160.0.copyload.i, 9
   br i1 %252, label %267, label %253
 
 253:                                              ; preds = %251
@@ -5451,7 +5451,7 @@ define internal fastcc i64 @"_ZN9hashbrown3raw5inner21RawTable$LT$T$C$A$GT$14res
   br i1 %24, label %26, label %28
 
 .thread:                                          ; preds = %20
-  %25 = icmp ult i64 %21, 3
+  %25 = icmp samesign ult i64 %21, 3
   %..i.i.i = select i1 %25, i64 4, i64 8
   br label %36
 
@@ -5505,7 +5505,7 @@ define internal fastcc i64 @"_ZN9hashbrown3raw5inner21RawTable$LT$T$C$A$GT$14res
   %52 = add nsw i64 %.sroa.4.0.i.ph42.i.i65, -1
   %53 = getelementptr inbounds i8, ptr %48, i64 %39
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(1) %53, i8 -1, i64 %40, i1 false), !noalias !1331
-  %54 = icmp ult i64 %.sroa.4.0.i.ph42.i.i65, 9
+  %54 = icmp samesign ult i64 %.sroa.4.0.i.ph42.i.i65, 9
   %55 = lshr i64 %.sroa.4.0.i.ph42.i.i65, 3
   %56 = mul nuw nsw i64 %55, 7
   %.sroa.03.0.i.i.i = select i1 %54, i64 %52, i64 %56
@@ -5940,7 +5940,7 @@ define hidden void @"_ZN9hashbrown3raw5inner21RawTable$LT$T$C$A$GT$22fallible_wi
   br i1 %8, label %10, label %12
 
 .thread:                                          ; preds = %5
-  %9 = icmp ult i64 %1, 4
+  %9 = icmp samesign ult i64 %1, 4
   %..i.i = select i1 %9, i64 4, i64 8
   br label %20
 
@@ -5984,7 +5984,7 @@ define hidden void @"_ZN9hashbrown3raw5inner21RawTable$LT$T$C$A$GT$22fallible_wi
   br label %"_ZN9hashbrown3raw5inner22RawTableInner$LT$A$GT$22fallible_with_capacity17h32daa5622c07a6b8E.exit.thread"
 
 "_ZN9hashbrown3raw5inner22RawTableInner$LT$A$GT$22fallible_with_capacity17h32daa5622c07a6b8E.exit": ; preds = %29
-  %36 = icmp ult i64 %.sroa.4.0.i.ph42.i40, 9
+  %36 = icmp samesign ult i64 %.sroa.4.0.i.ph42.i40, 9
   %37 = add nsw i64 %.sroa.4.0.i.ph42.i40, -1
   %38 = lshr i64 %.sroa.4.0.i.ph42.i40, 3
   %39 = mul nuw nsw i64 %38, 7

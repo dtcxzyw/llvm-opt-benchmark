@@ -593,7 +593,7 @@ define internal i32 @dissect_modbus(ptr noundef %0, ptr noundef %1, ptr noundef 
   store i16 %65, ptr %66, align 2
   %67 = getelementptr inbounds i8, ptr %37, i64 8
   store i16 %65, ptr %67, align 8
-  %68 = icmp ugt i32 %55, 4
+  %68 = icmp samesign ugt i32 %55, 4
   br i1 %68, label %69, label %73
 
 69:                                               ; preds = %64
@@ -1295,7 +1295,7 @@ proto_item_set_generated.exit473.i:               ; preds = %324, %321, %proto_i
   br label %487
 
 467:                                              ; preds = %453
-  %.not469.i = icmp ult i8 %445, 64
+  %.not469.i = icmp samesign ult i8 %445, 64
   %468 = load i32, ptr @hf_modbus_event, align 4
   br i1 %.not469.i, label %485, label %469
 

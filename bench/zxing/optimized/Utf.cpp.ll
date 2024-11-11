@@ -239,11 +239,11 @@ _ZN5ZXingL14Utf8CountBytesESt17basic_string_viewIwSt11char_traitsIwEE.exit.threa
   br i1 %7, label %12, label %8
 
 8:                                                ; preds = %.lr.ph.i.i
-  %9 = icmp ult i32 %6, 2048
+  %9 = icmp samesign ult i32 %6, 2048
   br i1 %9, label %12, label %10
 
 10:                                               ; preds = %8
-  %11 = icmp ult i32 %6, 65536
+  %11 = icmp samesign ult i32 %6, 65536
   %..i.i = select i1 %11, i32 3, i32 4
   br label %12
 
@@ -429,7 +429,7 @@ define void @_ZN5ZXing18EscapeNonGraphicalB5cxx11ESt17basic_string_viewIwSt11cha
   resume { ptr, i32 } %lpad.phi
 
 24:                                               ; preds = %.lr.ph
-  %25 = icmp ult i32 %10, 128
+  %25 = icmp samesign ult i32 %10, 128
   br i1 %25, label %.invoke39, label %27
 
 .invoke39:                                        ; preds = %switch.early.test, %24
@@ -475,7 +475,7 @@ switch.early.test:                                ; preds = %35, %31, %_ZN5ZXing
           to label %41 unwind label %.loopexit
 
 41:                                               ; preds = %39
-  %42 = icmp ult i32 %10, 256
+  %42 = icmp samesign ult i32 %10, 256
   %43 = select i1 %42, i32 2, i32 4
   %44 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsIwSt11char_traitsIwEERSt13basic_ostreamIT_T0_ES6_St5_Setw(ptr noundef nonnull align 8 dereferenceable(8) %40, i32 %43)
           to label %45 unwind label %.loopexit

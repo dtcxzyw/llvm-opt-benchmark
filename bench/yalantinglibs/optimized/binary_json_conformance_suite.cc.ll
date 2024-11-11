@@ -45371,7 +45371,7 @@ if.then.i20.i278:                                 ; preds = %if.end.i.i.i279, %i
   br i1 %cmp.i.i.i.i.i109, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i271, label %if.then.i28.i270
 
 _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i271: ; preds = %if.then.i20.i278
-  %cmp3.i.i31.i272 = icmp ult i64 %77, 16
+  %cmp3.i.i31.i272 = icmp samesign ult i64 %77, 16
   call void @llvm.assume(i1 %cmp3.i.i31.i272)
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_mutateEmmPKcm.exit293
 

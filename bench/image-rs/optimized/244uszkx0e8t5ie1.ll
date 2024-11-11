@@ -3117,7 +3117,7 @@ define hidden noundef nonnull align 8 dereferenceable(32) ptr @"_ZN5alloc11colle
 .lr.ph.i.i21.i.i:                                 ; preds = %301, %.lr.ph.i.i21.i.i
   %.sroa.0.06.i.i22.i.i = phi i64 [ %304, %.lr.ph.i.i21.i.i ], [ %280, %301 ]
   %304 = add nuw nsw i64 %.sroa.0.06.i.i22.i.i, 1
-  %305 = icmp ult i64 %.sroa.0.06.i.i22.i.i, 12
+  %305 = icmp samesign ult i64 %.sroa.0.06.i.i22.i.i, 12
   tail call void @llvm.assume(i1 %305)
   %306 = getelementptr inbounds ptr, ptr %293, i64 %.sroa.0.06.i.i22.i.i
   %307 = load ptr, ptr %306, align 8, !noalias !482, !nonnull !7, !noundef !7
@@ -4642,7 +4642,7 @@ define internal fastcc void @"_ZN5alloc11collections5btree6remove259_$LT$impl$u2
   %173 = getelementptr inbounds ptr, ptr %171, i64 %172
   %174 = getelementptr i8, ptr %173, i64 8
   tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %173, ptr align 8 %174, i64 %156, i1 false), !alias.scope !677, !noalias !658
-  %175 = icmp ult i64 %172, %147
+  %175 = icmp samesign ult i64 %172, %147
   br i1 %175, label %.lr.ph.i.i, label %"_ZN5alloc11collections5btree4node119NodeRef$LT$alloc..collections..btree..node..marker..Mut$C$K$C$V$C$alloc..collections..btree..node..marker..Internal$GT$30correct_childrens_parent_links17h6a70967897fd5e28E.exit.i"
 
 .lr.ph.i.i:                                       ; preds = %._crit_edge166.thread, %.lr.ph.i.i
@@ -16432,12 +16432,12 @@ define internal fastcc noundef zeroext i1 @"_ZN5image6codecs4webp3vp819Vp8Decode
 
 43:                                               ; preds = %40
   %44 = add i8 %41, -1
-  %or.cond = icmp ult i8 %44, 4
+  %or.cond = icmp samesign ult i8 %44, 4
   br i1 %or.cond, label %.thread75, label %45
 
 45:                                               ; preds = %43
   %46 = add i8 %41, -5
-  %or.cond3 = icmp ult i8 %46, 6
+  %or.cond3 = icmp samesign ult i8 %46, 6
   br i1 %or.cond3, label %.split.us.preheader, label %48
 
 .thread75:                                        ; preds = %43

@@ -364,7 +364,7 @@ define internal noundef range(i32 -22, 135) i32 @pci_conf2_read(i32 noundef %0, 
 
 15:                                               ; preds = %9
   %16 = lshr i32 %2, 3
-  %17 = icmp ult i32 %2, 128
+  %17 = icmp samesign ult i32 %2, 128
   br i1 %17, label %18, label %47
 
 18:                                               ; preds = %15
@@ -442,7 +442,7 @@ define internal noundef range(i32 -22, 135) i32 @pci_conf2_write(i32 noundef %0,
 
 14:                                               ; preds = %9
   %15 = lshr i32 %2, 3
-  %16 = icmp ult i32 %2, 128
+  %16 = icmp samesign ult i32 %2, 128
   br i1 %16, label %17, label %41
 
 17:                                               ; preds = %14

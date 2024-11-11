@@ -1619,7 +1619,7 @@ define internal noundef range(i32 0, 2) i32 @elf_core_dump(ptr noundef %0) #2 al
 427:                                              ; preds = %415
   %428 = mul nuw nsw i32 %425, 12
   %429 = add nuw nsw i32 %428, 8
-  %430 = icmp ugt i32 %425, 65535
+  %430 = icmp samesign ugt i32 %425, 65535
   br i1 %430, label %.loopexit64, label %431
 
 431:                                              ; preds = %427

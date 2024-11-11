@@ -123,7 +123,7 @@ define dso_local range(i32 -1, 1) i32 @pg_sockaddr_cidr_mask(ptr nocapture nound
   br i1 %29, label %37, label %30
 
 30:                                               ; preds = %28
-  %31 = icmp ugt i64 %.133, 7
+  %31 = icmp samesign ugt i64 %.133, 7
   br i1 %31, label %37, label %32
 
 32:                                               ; preds = %30

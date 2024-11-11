@@ -124,7 +124,7 @@ _ZN26GrowableArrayWithAllocatorIP7ciBlock13GrowableArrayIS1_EE6appendERKS1_.exit
   %50 = getelementptr inbounds ptr, ptr %48, i64 %49
   %51 = load ptr, ptr %50, align 8
   %52 = icmp eq ptr %51, %7
-  %.old = icmp ugt i32 %.026.in, 1
+  %.old = icmp samesign ugt i32 %.026.in, 1
   br i1 %52, label %53, label %54
 
 53:                                               ; preds = %.lr.ph

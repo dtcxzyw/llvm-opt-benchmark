@@ -1232,11 +1232,11 @@ add_tcpdump_interfaces.exit:                      ; preds = %128, %140, %112, %.
   call fastcc void @new_interface(ptr noundef %0, ptr noundef nonnull @.str.90, ptr noundef nonnull %12, ptr noundef %11, ptr noundef nonnull @.str.85)
   call fastcc void @new_interface(ptr noundef %0, ptr noundef nonnull @.str.91, ptr noundef nonnull %12, ptr noundef %11, ptr noundef nonnull @.str.87)
   call fastcc void @new_interface(ptr noundef %0, ptr noundef nonnull @.str.92, ptr noundef nonnull %12, ptr noundef %11, ptr noundef nonnull @.str.93)
-  %214 = icmp ugt i32 %155, 25
+  %214 = icmp samesign ugt i32 %155, 25
   br i1 %214, label %219, label %215
 
 215:                                              ; preds = %213
-  %216 = icmp ugt i32 %155, 23
+  %216 = icmp samesign ugt i32 %155, 23
   br i1 %216, label %219, label %217
 
 217:                                              ; preds = %215
@@ -1268,7 +1268,7 @@ add_tcpdump_interfaces.exit:                      ; preds = %128, %140, %112, %.
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %14, i8 0, i64 16, i1 false)
   %230 = getelementptr i8, ptr %223, i64 %226
   store i8 0, ptr %230, align 1
-  %231 = icmp ugt i32 %155, 23
+  %231 = icmp samesign ugt i32 %155, 23
   br i1 %231, label %.thread228, label %232
 
 232:                                              ; preds = %229
@@ -2315,19 +2315,19 @@ thread-pre-split:                                 ; preds = %114
 120:                                              ; preds = %.lr.ph285
   %121 = call i64 @g_ascii_strtoll(ptr noundef nonnull getelementptr inbounds (i8, ptr @capture_android_bluetooth_hcidump.data, i64 29), ptr noundef nonnull %5, i32 noundef 16) #16
   %122 = icmp eq i64 %121, 1
-  %123 = icmp ugt i64 %118, 3
+  %123 = icmp samesign ugt i64 %118, 3
   %or.cond225 = and i1 %123, %122
   br i1 %or.cond225, label %130, label %124
 
 124:                                              ; preds = %120
   %125 = icmp eq i64 %121, 2
-  %126 = icmp ugt i64 %118, 4
+  %126 = icmp samesign ugt i64 %118, 4
   %or.cond226 = and i1 %126, %125
   br i1 %or.cond226, label %165, label %127
 
 127:                                              ; preds = %124
   %128 = icmp eq i64 %121, 4
-  %129 = icmp ugt i64 %118, 2
+  %129 = icmp samesign ugt i64 %118, 2
   %or.cond227 = and i1 %129, %128
   br i1 %or.cond227, label %152, label %191
 
@@ -2818,7 +2818,7 @@ adb_forward.exit:                                 ; preds = %.sink.split.i, %39,
   %139 = load i8, ptr getelementptr inbounds (i8, ptr @capture_android_bluetooth_external_parser.buffer, i64 11), align 1
   %140 = zext i8 %139 to i64
   %141 = add nuw nsw i64 %140, 12
-  %.not146 = icmp ugt i64 %141, %.1
+  %.not146 = icmp samesign ugt i64 %141, %.1
   br i1 %.not146, label %142, label %.critedge
 
 142:                                              ; preds = %138, %134
@@ -2835,7 +2835,7 @@ adb_forward.exit:                                 ; preds = %.sink.split.i, %39,
   %150 = shl nuw nsw i64 %149, 8
   %151 = add nuw nsw i64 %147, 13
   %152 = add nuw nsw i64 %151, %150
-  %.not147 = icmp ugt i64 %152, %.1
+  %.not147 = icmp samesign ugt i64 %152, %.1
   br i1 %.not147, label %.outer170.loopexit, label %.critedge.thread, !llvm.loop !22
 
 .critedge.thread:                                 ; preds = %145
@@ -2853,7 +2853,7 @@ adb_forward.exit:                                 ; preds = %.sink.split.i, %39,
   %159 = load i8, ptr getelementptr inbounds (i8, ptr @capture_android_bluetooth_external_parser.buffer, i64 11), align 1
   %160 = zext i8 %159 to i64
   %161 = add nuw nsw i64 %160, 12
-  %.not148 = icmp ugt i64 %161, %.1
+  %.not148 = icmp samesign ugt i64 %161, %.1
   br i1 %.not148, label %.outer170.loopexit, label %.critedge.thread168, !llvm.loop !22
 
 .critedge.thread168:                              ; preds = %158
@@ -2871,7 +2871,7 @@ adb_forward.exit:                                 ; preds = %.sink.split.i, %39,
   %168 = load i8, ptr getelementptr inbounds (i8, ptr @capture_android_bluetooth_external_parser.buffer, i64 10), align 2
   %169 = zext i8 %168 to i64
   %170 = add nuw nsw i64 %169, 11
-  %.not149 = icmp ugt i64 %170, %.1
+  %.not149 = icmp samesign ugt i64 %170, %.1
   br i1 %.not149, label %.outer170.loopexit, label %.critedge.thread169, !llvm.loop !22
 
 .critedge.thread169:                              ; preds = %167
@@ -3131,7 +3131,7 @@ get_serial_from_interface.exit:                   ; preds = %20, %17
   %81 = sext i32 %73 to i64
   %82 = getelementptr i8, ptr getelementptr inbounds (i8, ptr @capture_android_bluetooth_btsnoop_net.packet, i64 28), i64 %81
   tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 4 getelementptr inbounds (i8, ptr @capture_android_bluetooth_btsnoop_net.packet, i64 4), ptr align 1 %82, i64 %76, i1 false)
-  %83 = icmp ugt i64 %76, 23
+  %83 = icmp samesign ugt i64 %76, 23
   br i1 %83, label %.lr.ph, label %.critedge, !llvm.loop !25
 
 .critedge:                                        ; preds = %79, %.lr.ph, %80, %46

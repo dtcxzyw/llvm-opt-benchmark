@@ -751,7 +751,7 @@ define { i64, double } @"_ZN114_$LT$statrs..distribution..geometric..Geometric$u
   br i1 %.not.i, label %"_ZN47_$LT$f64$u20$as$u20$approx..ulps_eq..UlpsEq$GT$7ulps_eq17hdd68b037342b848bE.exit", label %12
 
 12:                                               ; preds = %10
-  %13 = icmp ugt i64 %11, 4607182418800017403
+  %13 = icmp samesign ugt i64 %11, 4607182418800017403
   br i1 %13, label %"_ZN47_$LT$f64$u20$as$u20$approx..ulps_eq..UlpsEq$GT$7ulps_eq17hdd68b037342b848bE.exit.thread", label %"_ZN47_$LT$f64$u20$as$u20$approx..ulps_eq..UlpsEq$GT$7ulps_eq17hdd68b037342b848bE.exit.thread3"
 
 "_ZN47_$LT$f64$u20$as$u20$approx..ulps_eq..UlpsEq$GT$7ulps_eq17hdd68b037342b848bE.exit": ; preds = %10
@@ -828,7 +828,7 @@ define noundef double @"_ZN110_$LT$statrs..distribution..geometric..Geometric$u2
 "_ZN47_$LT$f64$u20$as$u20$approx..ulps_eq..UlpsEq$GT$7ulps_eq17hdd68b037342b848bE.exit": ; preds = %8
   %13 = bitcast double %.val1 to i64
   %.not.i = icmp ugt i64 %13, 4607182418800017408
-  %14 = icmp ugt i64 %13, 4607182418800017403
+  %14 = icmp samesign ugt i64 %13, 4607182418800017403
   %15 = add i64 %13, -4607182418800017408
   %16 = icmp ult i64 %15, 5
   %.sroa.0.0.shrunk.i = select i1 %.not.i, i1 %16, i1 %14
@@ -850,7 +850,7 @@ define noundef double @"_ZN110_$LT$statrs..distribution..geometric..Geometric$u2
   br i1 %.not.i6, label %"_ZN47_$LT$f64$u20$as$u20$approx..ulps_eq..UlpsEq$GT$7ulps_eq17hdd68b037342b848bE.exit7", label %21
 
 21:                                               ; preds = %.thread
-  %22 = icmp ugt i64 %20, 4607182418800017403
+  %22 = icmp samesign ugt i64 %20, 4607182418800017403
   br i1 %22, label %19, label %"_ZN47_$LT$f64$u20$as$u20$approx..ulps_eq..UlpsEq$GT$7ulps_eq17hdd68b037342b848bE.exit7.thread15"
 
 "_ZN47_$LT$f64$u20$as$u20$approx..ulps_eq..UlpsEq$GT$7ulps_eq17hdd68b037342b848bE.exit7.thread": ; preds = %"_ZN47_$LT$f64$u20$as$u20$approx..ulps_eq..UlpsEq$GT$7ulps_eq17hdd68b037342b848bE.exit.thread10"
@@ -1585,7 +1585,7 @@ define void @_ZN6statrs8function4beta16checked_beta_reg17hc3be34898596ccaaE(ptr 
   br i1 %.not.i86, label %"_ZN47_$LT$f64$u20$as$u20$approx..ulps_eq..UlpsEq$GT$7ulps_eq17hdd68b037342b848bE.exit87", label %27
 
 27:                                               ; preds = %25
-  %28 = icmp ugt i64 %26, 4607182418800017403
+  %28 = icmp samesign ugt i64 %26, 4607182418800017403
   br i1 %28, label %"_ZN47_$LT$f64$u20$as$u20$approx..ulps_eq..UlpsEq$GT$7ulps_eq17hdd68b037342b848bE.exit87.thread", label %"_ZN47_$LT$f64$u20$as$u20$approx..ulps_eq..UlpsEq$GT$7ulps_eq17hdd68b037342b848bE.exit87.thread94"
 
 "_ZN47_$LT$f64$u20$as$u20$approx..ulps_eq..UlpsEq$GT$7ulps_eq17hdd68b037342b848bE.exit87": ; preds = %25

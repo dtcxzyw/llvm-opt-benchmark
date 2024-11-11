@@ -5452,47 +5452,47 @@ declare void @ruby_stop(i32 noundef) local_unnamed_addr #4
 
 ; Function Attrs: noreturn nounwind sspstrong uwtable
 define dso_local noundef i64 @rb_f_exit(i32 noundef %0, ptr nocapture noundef readonly %1) local_unnamed_addr #5 {
-  %3 = icmp ugt i32 %0, 1
-  br i1 %3, label %4, label %rb_check_arity.exit
+  %or.cond.not = icmp ult i32 %0, 2
+  br i1 %or.cond.not, label %rb_check_arity.exit, label %3
 
-4:                                                ; preds = %2
+3:                                                ; preds = %2
   tail call void @rb_error_arity(i32 noundef %0, i32 noundef 0, i32 noundef 1) #28
   unreachable
 
 rb_check_arity.exit:                              ; preds = %2
-  %5 = icmp eq i32 %0, 1
-  br i1 %5, label %6, label %exit_status_code.exit
+  %4 = icmp eq i32 %0, 1
+  br i1 %4, label %5, label %exit_status_code.exit
 
-6:                                                ; preds = %rb_check_arity.exit
-  %7 = load i64, ptr %1, align 8
-  switch i64 %7, label %9 [
+5:                                                ; preds = %rb_check_arity.exit
+  %6 = load i64, ptr %1, align 8
+  switch i64 %6, label %8 [
     i64 20, label %exit_status_code.exit
-    i64 0, label %8
+    i64 0, label %7
   ]
 
-8:                                                ; preds = %6
+7:                                                ; preds = %5
   br label %exit_status_code.exit
 
-9:                                                ; preds = %6
-  %10 = and i64 %7, 1
-  %.not.i.i = icmp eq i64 %10, 0
-  br i1 %.not.i.i, label %13, label %11
+8:                                                ; preds = %5
+  %9 = and i64 %6, 1
+  %.not.i.i = icmp eq i64 %9, 0
+  br i1 %.not.i.i, label %12, label %10
 
-11:                                               ; preds = %9
-  %12 = tail call i64 @rb_fix2int(i64 noundef %7) #26
+10:                                               ; preds = %8
+  %11 = tail call i64 @rb_fix2int(i64 noundef %6) #26
   br label %rb_num2int_inline.exit.i
 
-13:                                               ; preds = %9
-  %14 = tail call i64 @rb_num2int(i64 noundef %7) #26
+12:                                               ; preds = %8
+  %13 = tail call i64 @rb_num2int(i64 noundef %6) #26
   br label %rb_num2int_inline.exit.i
 
-rb_num2int_inline.exit.i:                         ; preds = %13, %11
-  %.0.i.i = phi i64 [ %12, %11 ], [ %14, %13 ]
-  %15 = trunc i64 %.0.i.i to i32
+rb_num2int_inline.exit.i:                         ; preds = %12, %10
+  %.0.i.i = phi i64 [ %11, %10 ], [ %13, %12 ]
+  %14 = trunc i64 %.0.i.i to i32
   br label %exit_status_code.exit
 
-exit_status_code.exit:                            ; preds = %rb_num2int_inline.exit.i, %8, %6, %rb_check_arity.exit
-  %.0 = phi i32 [ 0, %rb_check_arity.exit ], [ %15, %rb_num2int_inline.exit.i ], [ 1, %8 ], [ 0, %6 ]
+exit_status_code.exit:                            ; preds = %rb_num2int_inline.exit.i, %7, %5, %rb_check_arity.exit
+  %.0 = phi i32 [ 0, %rb_check_arity.exit ], [ %14, %rb_num2int_inline.exit.i ], [ 1, %7 ], [ 0, %5 ]
   tail call void @rb_exit(i32 noundef %.0) #32
   unreachable
 }
@@ -5500,44 +5500,44 @@ exit_status_code.exit:                            ; preds = %rb_num2int_inline.e
 ; Function Attrs: noreturn nounwind sspstrong uwtable
 define dso_local noundef i64 @rb_f_abort(i32 noundef %0, ptr nocapture noundef readonly %1) local_unnamed_addr #5 {
   %3 = alloca [2 x i64], align 16
-  %4 = icmp ugt i32 %0, 1
-  br i1 %4, label %5, label %rb_check_arity.exit
+  %or.cond.not = icmp ult i32 %0, 2
+  br i1 %or.cond.not, label %rb_check_arity.exit, label %4
 
-5:                                                ; preds = %2
+4:                                                ; preds = %2
   tail call void @rb_error_arity(i32 noundef %0, i32 noundef 0, i32 noundef 1) #28
   unreachable
 
 rb_check_arity.exit:                              ; preds = %2
-  %6 = icmp eq i32 %0, 0
-  br i1 %6, label %7, label %14
+  %5 = icmp eq i32 %0, 0
+  br i1 %5, label %6, label %13
 
-7:                                                ; preds = %rb_check_arity.exit
-  %8 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @ruby_current_ec)
-  %9 = load ptr, ptr %8, align 8
-  %10 = tail call i64 @rb_ec_get_errinfo(ptr noundef %9) #26
-  %11 = icmp eq i64 %10, 4
-  br i1 %11, label %13, label %12
+6:                                                ; preds = %rb_check_arity.exit
+  %7 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @ruby_current_ec)
+  %8 = load ptr, ptr %7, align 8
+  %9 = tail call i64 @rb_ec_get_errinfo(ptr noundef %8) #26
+  %10 = icmp eq i64 %9, 4
+  br i1 %10, label %12, label %11
 
-12:                                               ; preds = %7
-  tail call void @rb_ec_error_print(ptr noundef %9, i64 noundef %10) #26
-  br label %13
+11:                                               ; preds = %6
+  tail call void @rb_ec_error_print(ptr noundef %8, i64 noundef %9) #26
+  br label %12
 
-13:                                               ; preds = %12, %7
+12:                                               ; preds = %11, %6
   tail call void @rb_exit(i32 noundef 1) #32
   unreachable
 
-14:                                               ; preds = %rb_check_arity.exit
-  %15 = load i64, ptr %1, align 8
-  store i64 %15, ptr %3, align 16
-  %16 = getelementptr inbounds i8, ptr %3, i64 8
-  store i64 %15, ptr %16, align 8
-  %17 = call i64 @rb_string_value(ptr noundef nonnull %3) #26
-  %18 = call i64 @rb_ractor_stderr() #26
-  %19 = call i64 @rb_io_puts(i32 noundef 1, ptr noundef nonnull %3, i64 noundef %18) #26
+13:                                               ; preds = %rb_check_arity.exit
+  %14 = load i64, ptr %1, align 8
+  store i64 %14, ptr %3, align 16
+  %15 = getelementptr inbounds i8, ptr %3, i64 8
+  store i64 %14, ptr %15, align 8
+  %16 = call i64 @rb_string_value(ptr noundef nonnull %3) #26
+  %17 = call i64 @rb_ractor_stderr() #26
+  %18 = call i64 @rb_io_puts(i32 noundef 1, ptr noundef nonnull %3, i64 noundef %17) #26
   store i64 3, ptr %3, align 16
-  %20 = load i64, ptr @rb_eSystemExit, align 8
-  %21 = call i64 @rb_class_new_instance(i32 noundef 2, ptr noundef nonnull %3, i64 noundef %20) #26
-  call void @rb_exc_raise(i64 noundef %21) #28
+  %19 = load i64, ptr @rb_eSystemExit, align 8
+  %20 = call i64 @rb_class_new_instance(i32 noundef 2, ptr noundef nonnull %3, i64 noundef %19) #26
+  call void @rb_exc_raise(i64 noundef %20) #28
   unreachable
 }
 
@@ -6628,47 +6628,47 @@ define internal range(i64 1, 0) i64 @rb_f_fork(i64 %0) #1 {
 
 ; Function Attrs: noreturn nounwind sspstrong uwtable
 define internal noundef i64 @rb_f_exit_bang(i32 noundef %0, ptr nocapture noundef readonly %1, i64 %2) #5 {
-  %4 = icmp ugt i32 %0, 1
-  br i1 %4, label %5, label %rb_check_arity.exit
+  %or.cond.not = icmp ult i32 %0, 2
+  br i1 %or.cond.not, label %rb_check_arity.exit, label %4
 
-5:                                                ; preds = %3
+4:                                                ; preds = %3
   tail call void @rb_error_arity(i32 noundef %0, i32 noundef 0, i32 noundef 1) #28
   unreachable
 
 rb_check_arity.exit:                              ; preds = %3
-  %6 = icmp eq i32 %0, 1
-  br i1 %6, label %7, label %exit_status_code.exit
+  %5 = icmp eq i32 %0, 1
+  br i1 %5, label %6, label %exit_status_code.exit
 
-7:                                                ; preds = %rb_check_arity.exit
-  %8 = load i64, ptr %1, align 8
-  switch i64 %8, label %10 [
+6:                                                ; preds = %rb_check_arity.exit
+  %7 = load i64, ptr %1, align 8
+  switch i64 %7, label %9 [
     i64 20, label %exit_status_code.exit
-    i64 0, label %9
+    i64 0, label %8
   ]
 
-9:                                                ; preds = %7
+8:                                                ; preds = %6
   br label %exit_status_code.exit
 
-10:                                               ; preds = %7
-  %11 = and i64 %8, 1
-  %.not.i.i = icmp eq i64 %11, 0
-  br i1 %.not.i.i, label %14, label %12
+9:                                                ; preds = %6
+  %10 = and i64 %7, 1
+  %.not.i.i = icmp eq i64 %10, 0
+  br i1 %.not.i.i, label %13, label %11
 
-12:                                               ; preds = %10
-  %13 = tail call i64 @rb_fix2int(i64 noundef %8) #26
+11:                                               ; preds = %9
+  %12 = tail call i64 @rb_fix2int(i64 noundef %7) #26
   br label %rb_num2int_inline.exit.i
 
-14:                                               ; preds = %10
-  %15 = tail call i64 @rb_num2int(i64 noundef %8) #26
+13:                                               ; preds = %9
+  %14 = tail call i64 @rb_num2int(i64 noundef %7) #26
   br label %rb_num2int_inline.exit.i
 
-rb_num2int_inline.exit.i:                         ; preds = %14, %12
-  %.0.i.i = phi i64 [ %13, %12 ], [ %15, %14 ]
-  %16 = trunc i64 %.0.i.i to i32
+rb_num2int_inline.exit.i:                         ; preds = %13, %11
+  %.0.i.i = phi i64 [ %12, %11 ], [ %14, %13 ]
+  %15 = trunc i64 %.0.i.i to i32
   br label %exit_status_code.exit
 
-exit_status_code.exit:                            ; preds = %rb_num2int_inline.exit.i, %9, %7, %rb_check_arity.exit
-  %.0 = phi i32 [ 1, %rb_check_arity.exit ], [ %16, %rb_num2int_inline.exit.i ], [ 1, %9 ], [ 0, %7 ]
+exit_status_code.exit:                            ; preds = %rb_num2int_inline.exit.i, %8, %6, %rb_check_arity.exit
+  %.0 = phi i32 [ 1, %rb_check_arity.exit ], [ %15, %rb_num2int_inline.exit.i ], [ 1, %8 ], [ 0, %6 ]
   tail call void @_exit(i32 noundef %.0) #28
   unreachable
 }
@@ -7189,62 +7189,62 @@ rb_num2int_inline.exit11:                         ; preds = %21, %23
 
 ; Function Attrs: nounwind sspstrong uwtable
 define internal i64 @rb_process_status_waitv(i32 noundef %0, ptr nocapture noundef readonly %1, i64 %2) #1 {
-  %4 = icmp ugt i32 %0, 2
-  br i1 %4, label %5, label %rb_check_arity.exit
+  %or.cond = icmp ugt i32 %0, 2
+  br i1 %or.cond, label %4, label %rb_check_arity.exit
 
-5:                                                ; preds = %3
+4:                                                ; preds = %3
   tail call void @rb_error_arity(i32 noundef %0, i32 noundef 0, i32 noundef 2) #28
   unreachable
 
 rb_check_arity.exit:                              ; preds = %3
   %.not = icmp eq i32 %0, 0
-  br i1 %.not, label %.thread, label %6
+  br i1 %.not, label %.thread, label %5
 
-6:                                                ; preds = %rb_check_arity.exit
-  %7 = load i64, ptr %1, align 8
-  %8 = and i64 %7, 1
-  %.not.i = icmp eq i64 %8, 0
-  br i1 %.not.i, label %11, label %9
+5:                                                ; preds = %rb_check_arity.exit
+  %6 = load i64, ptr %1, align 8
+  %7 = and i64 %6, 1
+  %.not.i = icmp eq i64 %7, 0
+  br i1 %.not.i, label %10, label %8
 
-9:                                                ; preds = %6
-  %10 = tail call i64 @rb_fix2int(i64 noundef %7) #26
-  br label %13
+8:                                                ; preds = %5
+  %9 = tail call i64 @rb_fix2int(i64 noundef %6) #26
+  br label %12
 
-11:                                               ; preds = %6
-  %12 = tail call i64 @rb_num2int(i64 noundef %7) #26
-  br label %13
+10:                                               ; preds = %5
+  %11 = tail call i64 @rb_num2int(i64 noundef %6) #26
+  br label %12
 
-13:                                               ; preds = %11, %9
-  %.0.i = phi i64 [ %10, %9 ], [ %12, %11 ]
-  %14 = trunc i64 %.0.i to i32
-  %15 = icmp eq i32 %0, 2
-  br i1 %15, label %16, label %.thread
+12:                                               ; preds = %10, %8
+  %.0.i = phi i64 [ %9, %8 ], [ %11, %10 ]
+  %13 = trunc i64 %.0.i to i32
+  %14 = icmp eq i32 %0, 2
+  br i1 %14, label %15, label %.thread
 
-16:                                               ; preds = %13
-  %17 = getelementptr i8, ptr %1, i64 8
-  %18 = load i64, ptr %17, align 8
-  %19 = and i64 %18, 1
-  %.not.i7 = icmp eq i64 %19, 0
-  br i1 %.not.i7, label %22, label %20
+15:                                               ; preds = %12
+  %16 = getelementptr i8, ptr %1, i64 8
+  %17 = load i64, ptr %16, align 8
+  %18 = and i64 %17, 1
+  %.not.i7 = icmp eq i64 %18, 0
+  br i1 %.not.i7, label %21, label %19
 
-20:                                               ; preds = %16
-  %21 = tail call i64 @rb_fix2int(i64 noundef %18) #26
+19:                                               ; preds = %15
+  %20 = tail call i64 @rb_fix2int(i64 noundef %17) #26
   br label %rb_num2int_inline.exit9
 
-22:                                               ; preds = %16
-  %23 = tail call i64 @rb_num2int(i64 noundef %18) #26
+21:                                               ; preds = %15
+  %22 = tail call i64 @rb_num2int(i64 noundef %17) #26
   br label %rb_num2int_inline.exit9
 
-rb_num2int_inline.exit9:                          ; preds = %20, %22
-  %.0.i8 = phi i64 [ %21, %20 ], [ %23, %22 ]
-  %24 = trunc i64 %.0.i8 to i32
+rb_num2int_inline.exit9:                          ; preds = %19, %21
+  %.0.i8 = phi i64 [ %20, %19 ], [ %22, %21 ]
+  %23 = trunc i64 %.0.i8 to i32
   br label %.thread
 
-.thread:                                          ; preds = %rb_check_arity.exit, %rb_num2int_inline.exit9, %13
-  %.0611 = phi i32 [ %14, %rb_num2int_inline.exit9 ], [ %14, %13 ], [ -1, %rb_check_arity.exit ]
-  %.0 = phi i32 [ %24, %rb_num2int_inline.exit9 ], [ 0, %13 ], [ 0, %rb_check_arity.exit ]
-  %25 = tail call i64 @rb_process_status_wait(i32 noundef %.0611, i32 noundef %.0)
-  ret i64 %25
+.thread:                                          ; preds = %rb_check_arity.exit, %rb_num2int_inline.exit9, %12
+  %.0611 = phi i32 [ %13, %rb_num2int_inline.exit9 ], [ %13, %12 ], [ -1, %rb_check_arity.exit ]
+  %.0 = phi i32 [ %23, %rb_num2int_inline.exit9 ], [ 0, %12 ], [ 0, %rb_check_arity.exit ]
+  %24 = tail call i64 @rb_process_status_wait(i32 noundef %.0611, i32 noundef %.0)
+  ret i64 %24
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
@@ -7757,57 +7757,57 @@ rb_num2int_inline.exit7:                          ; preds = %11, %13
 
 ; Function Attrs: nounwind sspstrong uwtable
 define internal range(i64 1, 4294967296) i64 @proc_getsid(i32 noundef %0, ptr nocapture noundef readonly %1, i64 %2) #1 {
-  %4 = icmp ugt i32 %0, 1
-  br i1 %4, label %5, label %rb_check_arity.exit
+  %or.cond.not = icmp ult i32 %0, 2
+  br i1 %or.cond.not, label %rb_check_arity.exit, label %4
 
-5:                                                ; preds = %3
+4:                                                ; preds = %3
   tail call void @rb_error_arity(i32 noundef %0, i32 noundef 0, i32 noundef 1) #28
   unreachable
 
 rb_check_arity.exit:                              ; preds = %3
-  %6 = icmp eq i32 %0, 1
-  br i1 %6, label %7, label %17
+  %5 = icmp eq i32 %0, 1
+  br i1 %5, label %6, label %16
 
-7:                                                ; preds = %rb_check_arity.exit
-  %8 = load i64, ptr %1, align 8
-  %9 = icmp eq i64 %8, 4
-  br i1 %9, label %17, label %10
+6:                                                ; preds = %rb_check_arity.exit
+  %7 = load i64, ptr %1, align 8
+  %8 = icmp eq i64 %7, 4
+  br i1 %8, label %16, label %9
 
-10:                                               ; preds = %7
-  %11 = and i64 %8, 1
-  %.not.i = icmp eq i64 %11, 0
-  br i1 %.not.i, label %14, label %12
+9:                                                ; preds = %6
+  %10 = and i64 %7, 1
+  %.not.i = icmp eq i64 %10, 0
+  br i1 %.not.i, label %13, label %11
 
-12:                                               ; preds = %10
-  %13 = tail call i64 @rb_fix2int(i64 noundef %8) #26
+11:                                               ; preds = %9
+  %12 = tail call i64 @rb_fix2int(i64 noundef %7) #26
   br label %rb_num2int_inline.exit
 
-14:                                               ; preds = %10
-  %15 = tail call i64 @rb_num2int(i64 noundef %8) #26
+13:                                               ; preds = %9
+  %14 = tail call i64 @rb_num2int(i64 noundef %7) #26
   br label %rb_num2int_inline.exit
 
-rb_num2int_inline.exit:                           ; preds = %12, %14
-  %.0.i = phi i64 [ %13, %12 ], [ %15, %14 ]
-  %16 = trunc i64 %.0.i to i32
-  br label %17
+rb_num2int_inline.exit:                           ; preds = %11, %13
+  %.0.i = phi i64 [ %12, %11 ], [ %14, %13 ]
+  %15 = trunc i64 %.0.i to i32
+  br label %16
 
-17:                                               ; preds = %rb_num2int_inline.exit, %7, %rb_check_arity.exit
-  %.0 = phi i32 [ 0, %7 ], [ %16, %rb_num2int_inline.exit ], [ 0, %rb_check_arity.exit ]
-  %18 = tail call i32 @getsid(i32 noundef %.0) #26
-  %19 = icmp slt i32 %18, 0
-  br i1 %19, label %20, label %23
+16:                                               ; preds = %rb_num2int_inline.exit, %6, %rb_check_arity.exit
+  %.0 = phi i32 [ 0, %6 ], [ %15, %rb_num2int_inline.exit ], [ 0, %rb_check_arity.exit ]
+  %17 = tail call i32 @getsid(i32 noundef %.0) #26
+  %18 = icmp slt i32 %17, 0
+  br i1 %18, label %19, label %22
 
-20:                                               ; preds = %17
-  %21 = tail call ptr @rb_errno_ptr() #26
-  %22 = load i32, ptr %21, align 4
-  tail call void @rb_syserr_fail(i32 noundef %22, ptr noundef null) #28
+19:                                               ; preds = %16
+  %20 = tail call ptr @rb_errno_ptr() #26
+  %21 = load i32, ptr %20, align 4
+  tail call void @rb_syserr_fail(i32 noundef %21, ptr noundef null) #28
   unreachable
 
-23:                                               ; preds = %17
-  %24 = shl nuw i32 %18, 1
-  %25 = or disjoint i32 %24, 1
-  %26 = zext i32 %25 to i64
-  ret i64 %26
+22:                                               ; preds = %16
+  %23 = shl nuw i32 %17, 1
+  %24 = or disjoint i32 %23, 1
+  %25 = zext i32 %24 to i64
+  ret i64 %25
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
@@ -8033,7 +8033,7 @@ rb_check_arity.exit:                              ; preds = %3
   %7 = load i64, ptr %1, align 8
   %8 = getelementptr i8, ptr %1, i64 8
   %9 = load i64, ptr %8, align 8
-  %10 = icmp ult i32 %0, 3
+  %10 = icmp samesign ult i32 %0, 3
   br i1 %10, label %15, label %11
 
 11:                                               ; preds = %rb_check_arity.exit
@@ -8580,102 +8580,102 @@ define internal range(i64 1, 8589934592) i64 @proc_setmaxgroups(i64 %0, i64 noun
 
 ; Function Attrs: nounwind sspstrong uwtable
 define internal range(i64 1, 4294967296) i64 @proc_daemon(i32 noundef %0, ptr nocapture noundef readonly %1, i64 %2) #1 {
-  %4 = icmp ugt i32 %0, 2
-  br i1 %4, label %5, label %rb_check_arity.exit
+  %or.cond = icmp ugt i32 %0, 2
+  br i1 %or.cond, label %4, label %rb_check_arity.exit
 
-5:                                                ; preds = %3
+4:                                                ; preds = %3
   tail call void @rb_error_arity(i32 noundef %0, i32 noundef 0, i32 noundef 2) #28
   unreachable
 
 rb_check_arity.exit:                              ; preds = %3
-  switch i32 %0, label %18 [
-    i32 2, label %6
-    i32 1, label %12
+  switch i32 %0, label %17 [
+    i32 2, label %5
+    i32 1, label %11
   ]
 
-6:                                                ; preds = %rb_check_arity.exit
-  %7 = getelementptr i8, ptr %1, i64 8
-  %8 = load i64, ptr %7, align 8
-  %9 = icmp eq i64 %8, 4
-  br i1 %9, label %12, label %10
+5:                                                ; preds = %rb_check_arity.exit
+  %6 = getelementptr i8, ptr %1, i64 8
+  %7 = load i64, ptr %6, align 8
+  %8 = icmp eq i64 %7, 4
+  br i1 %8, label %11, label %9
 
-10:                                               ; preds = %6
-  %11 = tail call i32 @rb_bool_expected(i64 noundef %8, ptr noundef nonnull @.str.262, i32 noundef 1) #26
-  br label %12
+9:                                                ; preds = %5
+  %10 = tail call i32 @rb_bool_expected(i64 noundef %7, ptr noundef nonnull @.str.262, i32 noundef 1) #26
+  br label %11
 
-12:                                               ; preds = %10, %6, %rb_check_arity.exit
-  %.1 = phi i32 [ 0, %rb_check_arity.exit ], [ %11, %10 ], [ 0, %6 ]
-  %13 = load i64, ptr %1, align 8
-  %14 = icmp eq i64 %13, 4
-  br i1 %14, label %18, label %15
+11:                                               ; preds = %9, %5, %rb_check_arity.exit
+  %.1 = phi i32 [ 0, %rb_check_arity.exit ], [ %10, %9 ], [ 0, %5 ]
+  %12 = load i64, ptr %1, align 8
+  %13 = icmp eq i64 %12, 4
+  br i1 %13, label %17, label %14
 
-15:                                               ; preds = %12
-  %16 = tail call i32 @rb_bool_expected(i64 noundef %13, ptr noundef nonnull @.str.263, i32 noundef 1) #26
-  %17 = icmp eq i32 %16, 0
-  br label %18
+14:                                               ; preds = %11
+  %15 = tail call i32 @rb_bool_expected(i64 noundef %12, ptr noundef nonnull @.str.263, i32 noundef 1) #26
+  %16 = icmp eq i32 %15, 0
+  br label %17
 
-18:                                               ; preds = %15, %12, %rb_check_arity.exit
-  %.09 = phi i32 [ 0, %rb_check_arity.exit ], [ %.1, %12 ], [ %.1, %15 ]
-  %.0 = phi i1 [ true, %rb_check_arity.exit ], [ true, %12 ], [ %17, %15 ]
-  %19 = load i64, ptr @rb_stdout, align 8
-  %20 = tail call i64 @rb_io_flush(i64 noundef %19) #26
-  %21 = load i64, ptr @rb_stderr, align 8
-  %22 = tail call i64 @rb_io_flush(i64 noundef %21) #26
-  %23 = tail call i32 @rb_fork_ruby(ptr noundef null)
-  switch i32 %23, label %24 [
+17:                                               ; preds = %14, %11, %rb_check_arity.exit
+  %.09 = phi i32 [ 0, %rb_check_arity.exit ], [ %.1, %11 ], [ %.1, %14 ]
+  %.0 = phi i1 [ true, %rb_check_arity.exit ], [ true, %11 ], [ %16, %14 ]
+  %18 = load i64, ptr @rb_stdout, align 8
+  %19 = tail call i64 @rb_io_flush(i64 noundef %18) #26
+  %20 = load i64, ptr @rb_stderr, align 8
+  %21 = tail call i64 @rb_io_flush(i64 noundef %20) #26
+  %22 = tail call i32 @rb_fork_ruby(ptr noundef null)
+  switch i32 %22, label %23 [
     i32 -1, label %rb_daemon.exit.thread
-    i32 0, label %25
+    i32 0, label %24
   ]
 
-24:                                               ; preds = %18
+23:                                               ; preds = %17
   tail call void @_exit(i32 noundef 0) #28
   unreachable
 
-25:                                               ; preds = %18
-  %26 = tail call i32 @setsid() #26
-  br i1 %.0, label %27, label %29
+24:                                               ; preds = %17
+  %25 = tail call i32 @setsid() #26
+  br i1 %.0, label %26, label %28
 
-27:                                               ; preds = %25
-  %28 = tail call i32 @chdir(ptr noundef nonnull @.str.264) #26
-  br label %29
+26:                                               ; preds = %24
+  %27 = tail call i32 @chdir(ptr noundef nonnull @.str.264) #26
+  br label %28
 
-29:                                               ; preds = %27, %25
-  %.010.i = phi i32 [ 0, %25 ], [ %28, %27 ]
+28:                                               ; preds = %26, %24
+  %.010.i = phi i32 [ 0, %24 ], [ %27, %26 ]
   %.not12.i = icmp eq i32 %.09, 0
-  br i1 %.not12.i, label %30, label %rb_daemon.exit
+  br i1 %.not12.i, label %29, label %rb_daemon.exit
 
-30:                                               ; preds = %29
-  %31 = tail call i32 @rb_cloexec_open(ptr noundef nonnull @ruby_null_device, i32 noundef 2, i32 noundef 0) #26
-  %.not13.i = icmp eq i32 %31, -1
-  br i1 %.not13.i, label %rb_daemon.exit, label %32
+29:                                               ; preds = %28
+  %30 = tail call i32 @rb_cloexec_open(ptr noundef nonnull @ruby_null_device, i32 noundef 2, i32 noundef 0) #26
+  %.not13.i = icmp eq i32 %30, -1
+  br i1 %.not13.i, label %rb_daemon.exit, label %31
 
-32:                                               ; preds = %30
-  tail call void @rb_update_max_fd(i32 noundef %31) #26
-  %33 = tail call i32 @dup2(i32 noundef %31, i32 noundef 0) #26
-  %34 = tail call i32 @dup2(i32 noundef %31, i32 noundef 1) #26
-  %35 = tail call i32 @dup2(i32 noundef %31, i32 noundef 2) #26
-  %36 = icmp sgt i32 %31, 2
-  br i1 %36, label %37, label %rb_daemon.exit
+31:                                               ; preds = %29
+  tail call void @rb_update_max_fd(i32 noundef %30) #26
+  %32 = tail call i32 @dup2(i32 noundef %30, i32 noundef 0) #26
+  %33 = tail call i32 @dup2(i32 noundef %30, i32 noundef 1) #26
+  %34 = tail call i32 @dup2(i32 noundef %30, i32 noundef 2) #26
+  %35 = icmp sgt i32 %30, 2
+  br i1 %35, label %36, label %rb_daemon.exit
 
-37:                                               ; preds = %32
-  %38 = tail call i32 @close(i32 noundef %31) #26
+36:                                               ; preds = %31
+  %37 = tail call i32 @close(i32 noundef %30) #26
   br label %rb_daemon.exit
 
-rb_daemon.exit:                                   ; preds = %29, %30, %32, %37
-  %39 = icmp slt i32 %.010.i, 0
-  br i1 %39, label %rb_daemon.exit.thread, label %42
+rb_daemon.exit:                                   ; preds = %28, %29, %31, %36
+  %38 = icmp slt i32 %.010.i, 0
+  br i1 %38, label %rb_daemon.exit.thread, label %41
 
-rb_daemon.exit.thread:                            ; preds = %18, %rb_daemon.exit
-  %40 = tail call ptr @rb_errno_ptr() #26
-  %41 = load i32, ptr %40, align 4
-  tail call void @rb_syserr_fail(i32 noundef %41, ptr noundef nonnull @.str.107) #28
+rb_daemon.exit.thread:                            ; preds = %17, %rb_daemon.exit
+  %39 = tail call ptr @rb_errno_ptr() #26
+  %40 = load i32, ptr %39, align 4
+  tail call void @rb_syserr_fail(i32 noundef %40, ptr noundef nonnull @.str.107) #28
   unreachable
 
-42:                                               ; preds = %rb_daemon.exit
-  %43 = shl nuw i32 %.010.i, 1
-  %44 = or disjoint i32 %43, 1
-  %45 = zext i32 %44 to i64
-  ret i64 %45
+41:                                               ; preds = %rb_daemon.exit
+  %42 = shl nuw i32 %.010.i, 1
+  %43 = or disjoint i32 %42, 1
+  %44 = zext i32 %43 to i64
+  ret i64 %44
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
@@ -12085,109 +12085,109 @@ declare i64 @rb_f_kill(i32 noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind sspstrong uwtable
 define internal fastcc range(i64 2, 4294967296) i64 @proc_wait(i32 noundef %0, ptr nocapture noundef readonly %1) unnamed_addr #1 {
-  %3 = icmp ugt i32 %0, 2
-  br i1 %3, label %4, label %rb_check_arity.exit
+  %or.cond = icmp ugt i32 %0, 2
+  br i1 %or.cond, label %3, label %rb_check_arity.exit
 
-4:                                                ; preds = %2
+3:                                                ; preds = %2
   tail call void @rb_error_arity(i32 noundef %0, i32 noundef 0, i32 noundef 2) #28
   unreachable
 
 rb_check_arity.exit:                              ; preds = %2
-  %5 = icmp eq i32 %0, 0
-  br i1 %5, label %22, label %6
+  %4 = icmp eq i32 %0, 0
+  br i1 %4, label %21, label %5
 
-6:                                                ; preds = %rb_check_arity.exit
-  %7 = load i64, ptr %1, align 8
-  %8 = and i64 %7, 1
-  %.not.i = icmp eq i64 %8, 0
-  br i1 %.not.i, label %11, label %9
+5:                                                ; preds = %rb_check_arity.exit
+  %6 = load i64, ptr %1, align 8
+  %7 = and i64 %6, 1
+  %.not.i = icmp eq i64 %7, 0
+  br i1 %.not.i, label %10, label %8
 
-9:                                                ; preds = %6
-  %10 = tail call i64 @rb_fix2int(i64 noundef %7) #26
+8:                                                ; preds = %5
+  %9 = tail call i64 @rb_fix2int(i64 noundef %6) #26
   br label %rb_num2int_inline.exit
 
-11:                                               ; preds = %6
-  %12 = tail call i64 @rb_num2int(i64 noundef %7) #26
+10:                                               ; preds = %5
+  %11 = tail call i64 @rb_num2int(i64 noundef %6) #26
   br label %rb_num2int_inline.exit
 
-rb_num2int_inline.exit:                           ; preds = %9, %11
-  %.0.i = phi i64 [ %10, %9 ], [ %12, %11 ]
-  %13 = trunc i64 %.0.i to i32
-  %14 = icmp eq i32 %0, 2
-  br i1 %14, label %15, label %22
+rb_num2int_inline.exit:                           ; preds = %8, %10
+  %.0.i = phi i64 [ %9, %8 ], [ %11, %10 ]
+  %12 = trunc i64 %.0.i to i32
+  %13 = icmp eq i32 %0, 2
+  br i1 %13, label %14, label %21
 
-15:                                               ; preds = %rb_num2int_inline.exit
-  %16 = getelementptr i8, ptr %1, i64 8
-  %17 = load i64, ptr %16, align 8
-  %18 = icmp eq i64 %17, 4
-  br i1 %18, label %22, label %19
+14:                                               ; preds = %rb_num2int_inline.exit
+  %15 = getelementptr i8, ptr %1, i64 8
+  %16 = load i64, ptr %15, align 8
+  %17 = icmp eq i64 %16, 4
+  br i1 %17, label %21, label %18
 
-19:                                               ; preds = %15
-  %20 = tail call i64 @rb_num2uint(i64 noundef %17) #26
-  %21 = trunc i64 %20 to i32
-  br label %22
+18:                                               ; preds = %14
+  %19 = tail call i64 @rb_num2uint(i64 noundef %16) #26
+  %20 = trunc i64 %19 to i32
+  br label %21
 
-22:                                               ; preds = %rb_check_arity.exit, %rb_num2int_inline.exit, %15, %19
-  %.011 = phi i32 [ 0, %15 ], [ %21, %19 ], [ 0, %rb_num2int_inline.exit ], [ 0, %rb_check_arity.exit ]
-  %.010 = phi i32 [ %13, %15 ], [ %13, %19 ], [ %13, %rb_num2int_inline.exit ], [ -1, %rb_check_arity.exit ]
-  %23 = tail call i64 @rb_process_status_wait(i32 noundef %.010, i32 noundef %.011)
-  %24 = icmp eq i64 %23, 4
-  br i1 %24, label %..thread_crit_edge, label %25
+21:                                               ; preds = %rb_check_arity.exit, %rb_num2int_inline.exit, %14, %18
+  %.011 = phi i32 [ 0, %14 ], [ %20, %18 ], [ 0, %rb_num2int_inline.exit ], [ 0, %rb_check_arity.exit ]
+  %.010 = phi i32 [ %12, %14 ], [ %12, %18 ], [ %12, %rb_num2int_inline.exit ], [ -1, %rb_check_arity.exit ]
+  %22 = tail call i64 @rb_process_status_wait(i32 noundef %.010, i32 noundef %.011)
+  %23 = icmp eq i64 %22, 4
+  br i1 %23, label %..thread_crit_edge, label %24
 
-..thread_crit_edge:                               ; preds = %22
+..thread_crit_edge:                               ; preds = %21
   %.pre = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @ruby_current_ec)
   br label %.thread
 
-25:                                               ; preds = %22
-  %26 = tail call ptr @rb_check_typeddata(i64 noundef %23, ptr noundef nonnull @rb_process_status_type) #26
-  %27 = load i32, ptr %26, align 4
-  %28 = icmp eq i32 %27, -1
-  br i1 %28, label %rb_waitpid.exit.thread, label %rb_waitpid.exit
+24:                                               ; preds = %21
+  %25 = tail call ptr @rb_check_typeddata(i64 noundef %22, ptr noundef nonnull @rb_process_status_type) #26
+  %26 = load i32, ptr %25, align 4
+  %27 = icmp eq i32 %26, -1
+  br i1 %27, label %rb_waitpid.exit.thread, label %rb_waitpid.exit
 
-rb_waitpid.exit.thread:                           ; preds = %25
-  %29 = getelementptr inbounds i8, ptr %26, i64 8
-  %30 = load i32, ptr %29, align 4
-  %31 = tail call ptr @rb_errno_ptr() #26
-  store i32 %30, ptr %31, align 4
-  br label %37
+rb_waitpid.exit.thread:                           ; preds = %24
+  %28 = getelementptr inbounds i8, ptr %25, i64 8
+  %29 = load i32, ptr %28, align 4
+  %30 = tail call ptr @rb_errno_ptr() #26
+  store i32 %29, ptr %30, align 4
+  br label %36
 
-rb_waitpid.exit:                                  ; preds = %25
-  %32 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @ruby_current_ec)
-  %33 = load ptr, ptr %32, align 8
-  %34 = getelementptr i8, ptr %33, i64 48
-  %.val.i.i = load ptr, ptr %34, align 8
-  %35 = getelementptr inbounds i8, ptr %.val.i.i, i64 208
-  store i64 %23, ptr %35, align 8
-  %36 = icmp slt i32 %27, 0
-  br i1 %36, label %37, label %40
+rb_waitpid.exit:                                  ; preds = %24
+  %31 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @ruby_current_ec)
+  %32 = load ptr, ptr %31, align 8
+  %33 = getelementptr i8, ptr %32, i64 48
+  %.val.i.i = load ptr, ptr %33, align 8
+  %34 = getelementptr inbounds i8, ptr %.val.i.i, i64 208
+  store i64 %22, ptr %34, align 8
+  %35 = icmp slt i32 %26, 0
+  br i1 %35, label %36, label %39
 
-37:                                               ; preds = %rb_waitpid.exit.thread, %rb_waitpid.exit
-  %38 = tail call ptr @rb_errno_ptr() #26
-  %39 = load i32, ptr %38, align 4
-  tail call void @rb_syserr_fail(i32 noundef %39, ptr noundef null) #28
+36:                                               ; preds = %rb_waitpid.exit.thread, %rb_waitpid.exit
+  %37 = tail call ptr @rb_errno_ptr() #26
+  %38 = load i32, ptr %37, align 4
+  tail call void @rb_syserr_fail(i32 noundef %38, ptr noundef null) #28
   unreachable
 
-40:                                               ; preds = %rb_waitpid.exit
-  %41 = icmp eq i32 %27, 0
-  br i1 %41, label %.thread, label %45
+39:                                               ; preds = %rb_waitpid.exit
+  %40 = icmp eq i32 %26, 0
+  br i1 %40, label %.thread, label %44
 
-.thread:                                          ; preds = %..thread_crit_edge, %40
-  %.pre-phi = phi ptr [ %.pre, %..thread_crit_edge ], [ %32, %40 ]
-  %42 = load ptr, ptr %.pre-phi, align 8
-  %43 = getelementptr i8, ptr %42, i64 48
-  %.val.i.i15 = load ptr, ptr %43, align 8
-  %44 = getelementptr inbounds i8, ptr %.val.i.i15, i64 208
-  store i64 4, ptr %44, align 8
-  br label %49
+.thread:                                          ; preds = %..thread_crit_edge, %39
+  %.pre-phi = phi ptr [ %.pre, %..thread_crit_edge ], [ %31, %39 ]
+  %41 = load ptr, ptr %.pre-phi, align 8
+  %42 = getelementptr i8, ptr %41, i64 48
+  %.val.i.i15 = load ptr, ptr %42, align 8
+  %43 = getelementptr inbounds i8, ptr %.val.i.i15, i64 208
+  store i64 4, ptr %43, align 8
+  br label %48
 
-45:                                               ; preds = %40
-  %46 = shl nuw i32 %27, 1
-  %47 = or disjoint i32 %46, 1
-  %48 = zext i32 %47 to i64
-  br label %49
+44:                                               ; preds = %39
+  %45 = shl nuw i32 %26, 1
+  %46 = or disjoint i32 %45, 1
+  %47 = zext i32 %46 to i64
+  br label %48
 
-49:                                               ; preds = %45, %.thread
-  %.0 = phi i64 [ 4, %.thread ], [ %48, %45 ]
+48:                                               ; preds = %44, %.thread
+  %.0 = phi i64 [ 4, %.thread ], [ %47, %44 ]
   ret i64 %.0
 }
 

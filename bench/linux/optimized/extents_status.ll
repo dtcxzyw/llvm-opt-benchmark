@@ -3749,7 +3749,7 @@ define internal range(i64 -2147483648, 2147483648) i64 @ext4_es_scan(ptr nocaptu
 
 135:                                              ; preds = %130
   tail call void @_raw_spin_lock(ptr noundef %39) #11
-  %136 = icmp ugt i32 %.us-phi48, 1
+  %136 = icmp samesign ugt i32 %.us-phi48, 1
   br i1 %136, label %.preheader, label %.loopexit, !llvm.loop !84
 
 .loopexit:                                        ; preds = %135, %97, %82, %43

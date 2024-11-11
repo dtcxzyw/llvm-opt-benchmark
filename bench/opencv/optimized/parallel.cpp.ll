@@ -5416,7 +5416,7 @@ _ZNSt12_Vector_baseIN2cv8parallel19ParallelBackendInfoESaIS2_EE13_M_deallocateEP
   %73 = getelementptr inbounds i8, ptr %.0910.i.i.i.i.i, i64 56
   %74 = getelementptr inbounds i8, ptr %.0811.i.i.i.i.i, i64 56
   %75 = add nsw i64 %.012.i.i.i.i.i, -1
-  %76 = icmp ugt i64 %.012.i.i.i.i.i, 1
+  %76 = icmp samesign ugt i64 %.012.i.i.i.i.i, 1
   br i1 %76, label %.lr.ph.i.i.i.i.i, label %_ZSt4copyIN9__gnu_cxx17__normal_iteratorIPKN2cv8parallel19ParallelBackendInfoESt6vectorIS4_SaIS4_EEEENS1_IPS4_S9_EEET0_T_SE_SD_.exit.loopexit, !llvm.loop !33
 
 _ZSt4copyIN9__gnu_cxx17__normal_iteratorIPKN2cv8parallel19ParallelBackendInfoESt6vectorIS4_SaIS4_EEEENS1_IPS4_S9_EEET0_T_SE_SD_.exit.loopexit: ; preds = %.lr.ph.i.i.i.i.i
@@ -5534,7 +5534,7 @@ _ZSt8_DestroyIN2cv8parallel19ParallelBackendInfoEEvPT_.exit.i.i.i30: ; preds = %
   %122 = getelementptr inbounds i8, ptr %.0910.i.i.i.i.i40, i64 56
   %123 = getelementptr inbounds i8, ptr %.0811.i.i.i.i.i39, i64 56
   %124 = add nsw i64 %.012.i.i.i.i.i38, -1
-  %125 = icmp ugt i64 %.012.i.i.i.i.i38, 1
+  %125 = icmp samesign ugt i64 %.012.i.i.i.i.i38, 1
   br i1 %125, label %.lr.ph.i.i.i.i.i37, label %_ZSt4copyIPN2cv8parallel19ParallelBackendInfoES3_ET0_T_S5_S4_.exit.loopexit, !llvm.loop !35
 
 _ZSt4copyIPN2cv8parallel19ParallelBackendInfoES3_ET0_T_S5_S4_.exit.loopexit: ; preds = %.lr.ph.i.i.i.i.i37
@@ -10180,7 +10180,7 @@ _ZN9__gnu_cxx5__ops15_Iter_comp_iterISt7greaterINSt7__cxx1112basic_stringIcSt11c
   %20 = getelementptr inbounds i8, ptr %.069.i.i.i.i.i, i64 -32
   %21 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEOS4_(ptr noundef nonnull align 8 dereferenceable(32) %20, ptr noundef nonnull align 8 dereferenceable(32) %19) #25
   %22 = add nsw i64 %.010.i.i.i.i.i, -1
-  %23 = icmp ugt i64 %.010.i.i.i.i.i, 1
+  %23 = icmp samesign ugt i64 %.010.i.i.i.i.i, 1
   br i1 %23, label %.lr.ph.i.i.i.i.i, label %.loopexit, !llvm.loop !86
 
 .loopexit:                                        ; preds = %.lr.ph.i.i.i.i.i, %13

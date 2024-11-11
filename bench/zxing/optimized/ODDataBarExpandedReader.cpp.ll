@@ -3297,7 +3297,7 @@ _ZN5ZXing4OneDL18ParseFinderPatternERKNS_11PatternViewENS0_9DirectionE.exit: ; p
   %58 = sdiv i32 %57, 2
   %59 = add nsw i32 %58, -2
   %60 = icmp sgt i32 %.sroa.0.0.extract.trunc.i.i, -422
-  %61 = icmp ult i32 %59, 10
+  %61 = icmp samesign ult i32 %59, 10
   %spec.select.i = select i1 %60, i1 %61, i1 false
   br i1 %spec.select.i, label %62, label %_ZN5ZXing8ContainsISt5arrayIiLm7EEiEEDTcmclsr3stdE5beginfp_Ecvb_EERKT_RKT0_.exit
 

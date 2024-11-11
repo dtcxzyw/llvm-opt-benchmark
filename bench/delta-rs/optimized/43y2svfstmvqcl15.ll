@@ -3417,7 +3417,7 @@ define internal fastcc void @_ZN11arrow_array20temporal_conversions11as_datetime
   br i1 %or.cond1.i.i45, label %25, label %21
 
 21:                                               ; preds = %15
-  %22 = icmp ugt i64 %.0.i2.i41, 999999999
+  %22 = icmp samesign ugt i64 %.0.i2.i41, 999999999
   %23 = urem i32 %18, 60
   %24 = icmp ne i32 %23, 59
   %or.cond3.not.i.i46 = and i1 %22, %24
@@ -3650,7 +3650,7 @@ define internal fastcc void @_ZN11arrow_array20temporal_conversions11as_datetime
   br i1 %or.cond1.i.i33, label %26, label %22
 
 22:                                               ; preds = %16
-  %23 = icmp ugt i32 %9, 999999999
+  %23 = icmp samesign ugt i32 %9, 999999999
   %24 = urem i32 %19, 60
   %25 = icmp ne i32 %24, 59
   %or.cond3.not.i.i34 = and i1 %23, %25
@@ -3779,7 +3779,7 @@ define internal fastcc void @_ZN11arrow_array20temporal_conversions11as_datetime
   br i1 %or.cond1.i.i, label %28, label %24
 
 24:                                               ; preds = %20
-  %25 = icmp ugt i32 %9, 999999999
+  %25 = icmp samesign ugt i32 %9, 999999999
   %26 = urem i32 %21, 60
   %27 = icmp ne i32 %26, 59
   %or.cond3.not.i.i = and i1 %25, %27
@@ -3908,7 +3908,7 @@ define internal fastcc void @_ZN11arrow_array20temporal_conversions11as_datetime
   br i1 %or.cond1.i.i21, label %28, label %24
 
 24:                                               ; preds = %20
-  %25 = icmp ugt i32 %9, 999999999
+  %25 = icmp samesign ugt i32 %9, 999999999
   %26 = urem i32 %21, 60
   %27 = icmp ne i32 %26, 59
   %or.cond3.not.i.i22 = and i1 %25, %27
@@ -75076,7 +75076,7 @@ define hidden void @_ZN6chrono6offset8TimeZone13timestamp_opt17h6d8be0aea756ad49
   br i1 %or.cond1.i, label %24, label %19
 
 19:                                               ; preds = %15
-  %20 = icmp ugt i32 %3, 999999999
+  %20 = icmp samesign ugt i32 %3, 999999999
   %21 = urem i32 %16, 60
   %22 = icmp ne i32 %21, 59
   %or.cond3.not.i = and i1 %20, %22
@@ -75140,7 +75140,7 @@ define hidden void @"_ZN6chrono8datetime40DateTime$LT$chrono..offset..utc..Utc$G
   br label %23
 
 18:                                               ; preds = %14
-  %19 = icmp ugt i32 %2, 999999999
+  %19 = icmp samesign ugt i32 %2, 999999999
   %20 = urem i32 %15, 60
   %21 = icmp ne i32 %20, 59
   %or.cond3.not = and i1 %19, %21
@@ -100248,7 +100248,7 @@ _ZN14deltalake_core6kernel11expressions7scalars28create_escaped_binary_string17h
 
 297:                                              ; preds = %292
   %298 = trunc nuw nsw i64 %.0.i16.i.i to i32
-  %299 = icmp ugt i32 %285, 999999999
+  %299 = icmp samesign ugt i32 %285, 999999999
   %300 = urem i32 %298, 60
   %301 = icmp ne i32 %300, 59
   %or.cond3.not.i.i = and i1 %299, %301
@@ -103588,7 +103588,7 @@ define hidden void @_ZN14deltalake_core6kernel11expressions7scalars27parse_escap
   %41 = and i8 %39, 63
   %42 = zext nneg i8 %41 to i32
   %43 = or disjoint i32 %40, %42
-  %44 = icmp ugt i8 %33, -33
+  %44 = icmp samesign ugt i8 %33, -33
   br i1 %44, label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hab6db8ca774f487dE.exit15.i", label %68
 
 45:                                               ; preds = %31
@@ -103606,7 +103606,7 @@ define hidden void @_ZN14deltalake_core6kernel11expressions7scalars27parse_escap
   %53 = or disjoint i32 %50, %52
   %54 = shl nuw nsw i32 %36, 12
   %55 = or disjoint i32 %53, %54
-  %56 = icmp ugt i8 %33, -17
+  %56 = icmp samesign ugt i8 %33, -17
   br i1 %56, label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hab6db8ca774f487dE.exit17.i", label %68
 
 "_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hab6db8ca774f487dE.exit17.i": ; preds = %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hab6db8ca774f487dE.exit15.i"
@@ -103671,7 +103671,7 @@ define hidden void @_ZN14deltalake_core6kernel11expressions7scalars27parse_escap
   %81 = and i8 %79, 63
   %82 = zext nneg i8 %81 to i32
   %83 = or disjoint i32 %80, %82
-  %84 = icmp ugt i8 %73, -33
+  %84 = icmp samesign ugt i8 %73, -33
   br i1 %84, label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hab6db8ca774f487dE.exit15.i70", label %118
 
 85:                                               ; preds = %71
@@ -103689,7 +103689,7 @@ define hidden void @_ZN14deltalake_core6kernel11expressions7scalars27parse_escap
   %93 = or disjoint i32 %90, %92
   %94 = shl nuw nsw i32 %76, 12
   %95 = or disjoint i32 %93, %94
-  %96 = icmp ugt i8 %73, -17
+  %96 = icmp samesign ugt i8 %73, -17
   br i1 %96, label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hab6db8ca774f487dE.exit17.i71", label %118
 
 "_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hab6db8ca774f487dE.exit17.i71": ; preds = %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hab6db8ca774f487dE.exit15.i70"
@@ -103766,7 +103766,7 @@ define hidden void @_ZN14deltalake_core6kernel11expressions7scalars27parse_escap
   %134 = and i8 %132, 63
   %135 = zext nneg i8 %134 to i32
   %136 = or disjoint i32 %133, %135
-  %137 = icmp ugt i8 %126, -33
+  %137 = icmp samesign ugt i8 %126, -33
   br i1 %137, label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hab6db8ca774f487dE.exit15.i76", label %.thread134
 
 138:                                              ; preds = %124
@@ -103784,7 +103784,7 @@ define hidden void @_ZN14deltalake_core6kernel11expressions7scalars27parse_escap
   %146 = or disjoint i32 %143, %145
   %147 = shl nuw nsw i32 %129, 12
   %148 = or disjoint i32 %146, %147
-  %149 = icmp ugt i8 %126, -17
+  %149 = icmp samesign ugt i8 %126, -17
   br i1 %149, label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hab6db8ca774f487dE.exit17.i77", label %.thread134
 
 "_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hab6db8ca774f487dE.exit17.i77": ; preds = %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hab6db8ca774f487dE.exit15.i76"
@@ -103847,7 +103847,7 @@ define hidden void @_ZN14deltalake_core6kernel11expressions7scalars27parse_escap
   %181 = and i8 %179, 63
   %182 = zext nneg i8 %181 to i32
   %183 = or disjoint i32 %180, %182
-  %184 = icmp ugt i8 %173, -33
+  %184 = icmp samesign ugt i8 %173, -33
   br i1 %184, label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hab6db8ca774f487dE.exit15.i82", label %.thread141
 
 185:                                              ; preds = %171
@@ -103865,7 +103865,7 @@ define hidden void @_ZN14deltalake_core6kernel11expressions7scalars27parse_escap
   %193 = or disjoint i32 %190, %192
   %194 = shl nuw nsw i32 %176, 12
   %195 = or disjoint i32 %193, %194
-  %196 = icmp ugt i8 %173, -17
+  %196 = icmp samesign ugt i8 %173, -17
   br i1 %196, label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hab6db8ca774f487dE.exit17.i83", label %.thread141
 
 "_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hab6db8ca774f487dE.exit17.i83": ; preds = %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hab6db8ca774f487dE.exit15.i82"
@@ -103905,7 +103905,7 @@ define hidden void @_ZN14deltalake_core6kernel11expressions7scalars27parse_escap
   %219 = and i8 %217, 63
   %220 = zext nneg i8 %219 to i32
   %221 = or disjoint i32 %218, %220
-  %222 = icmp ugt i8 %211, -33
+  %222 = icmp samesign ugt i8 %211, -33
   br i1 %222, label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hab6db8ca774f487dE.exit15.i88", label %.thread148
 
 223:                                              ; preds = %209
@@ -103923,7 +103923,7 @@ define hidden void @_ZN14deltalake_core6kernel11expressions7scalars27parse_escap
   %231 = or disjoint i32 %228, %230
   %232 = shl nuw nsw i32 %214, 12
   %233 = or disjoint i32 %231, %232
-  %234 = icmp ugt i8 %211, -17
+  %234 = icmp samesign ugt i8 %211, -17
   br i1 %234, label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hab6db8ca774f487dE.exit17.i89", label %.thread148
 
 "_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hab6db8ca774f487dE.exit17.i89": ; preds = %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hab6db8ca774f487dE.exit15.i88"
@@ -103963,7 +103963,7 @@ define hidden void @_ZN14deltalake_core6kernel11expressions7scalars27parse_escap
   %257 = and i8 %255, 63
   %258 = zext nneg i8 %257 to i32
   %259 = or disjoint i32 %256, %258
-  %260 = icmp ugt i8 %249, -33
+  %260 = icmp samesign ugt i8 %249, -33
   br i1 %260, label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hab6db8ca774f487dE.exit15.i94", label %.thread155
 
 261:                                              ; preds = %247
@@ -103981,7 +103981,7 @@ define hidden void @_ZN14deltalake_core6kernel11expressions7scalars27parse_escap
   %269 = or disjoint i32 %266, %268
   %270 = shl nuw nsw i32 %252, 12
   %271 = or disjoint i32 %269, %270
-  %272 = icmp ugt i8 %249, -17
+  %272 = icmp samesign ugt i8 %249, -17
   br i1 %272, label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hab6db8ca774f487dE.exit17.i95", label %.thread155
 
 "_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hab6db8ca774f487dE.exit17.i95": ; preds = %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hab6db8ca774f487dE.exit15.i94"
@@ -105163,7 +105163,7 @@ _ZN14deltalake_core6kernel8snapshot8log_data11LogicalFile17modification_time17hf
 
 54:                                               ; preds = %51
   %55 = trunc nuw nsw i64 %.0.i16.i to i32
-  %56 = icmp ugt i32 %40, 999999999
+  %56 = icmp samesign ugt i32 %40, 999999999
   %57 = urem i32 %55, 60
   %58 = icmp ne i32 %57, 59
   %or.cond3.not.i = and i1 %56, %58
@@ -105181,7 +105181,7 @@ _ZN14deltalake_core6kernel8snapshot8log_data11LogicalFile17modification_time17hf
   store i64 %19, ptr %7, align 8, !noalias !15795
   %59 = load i64, ptr %20, align 8, !alias.scope !15789, !noalias !15792, !noundef !5
   %60 = lshr i64 %59, 3
-  %61 = icmp ult i64 %19, %60
+  %61 = icmp samesign ult i64 %19, %60
   br i1 %61, label %"_ZN126_$LT$deltalake_core..errors..DeltaTableError$u20$as$u20$core..convert..From$LT$deltalake_core..protocol..ProtocolError$GT$$GT$4from17h734b83826ebe1ebeE.exit", label %62
 
 62:                                               ; preds = %"_ZN6chrono8datetime40DateTime$LT$chrono..offset..utc..Utc$GT$14from_timestamp17h2cc97507110fd0f1E.llvm.3020181528030467296.exit"
@@ -106481,7 +106481,7 @@ _ZN14deltalake_core6kernel8snapshot8log_data18DeletionVectorView17path_or_inline
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %13), !noalias !15993
   store i64 %44, ptr %13, align 8, !noalias !15993
   %223 = lshr i64 %.val1.i.i, 2
-  %224 = icmp ult i64 %44, %223
+  %224 = icmp samesign ult i64 %44, %223
   br i1 %224, label %228, label %225
 
 225:                                              ; preds = %.noexc38
@@ -106510,7 +106510,7 @@ _ZN14deltalake_core6kernel8snapshot8log_data18DeletionVectorView17path_or_inline
   %233 = getelementptr inbounds i8, ptr %232, i64 40
   %234 = load i64, ptr %233, align 8, !alias.scope !16008, !noalias !15993, !noundef !5
   %235 = lshr i64 %234, 3
-  %236 = icmp ult i64 %44, %235
+  %236 = icmp samesign ult i64 %44, %235
   br i1 %236, label %238, label %237
 
 237:                                              ; preds = %228

@@ -350,7 +350,7 @@ define internal i32 @ft_smooth_render(ptr nocapture noundef readonly %0, ptr nou
   br label %69
 
 69:                                               ; preds = %65, %68
-  %or.cond9 = icmp ult i32 %2, 2
+  %or.cond9 = icmp samesign ult i32 %2, 2
   br i1 %or.cond9, label %70, label %84
 
 70:                                               ; preds = %69

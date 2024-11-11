@@ -449,7 +449,7 @@ define hidden void @dissect_smc_readelementstatus(ptr noundef %0, ptr nocapture 
 112:                                              ; preds = %109, %107
   %113 = add i32 %.01626.i, 6
   %114 = add nsw i32 %spec.select.i, -6
-  %115 = icmp ult i32 %114, 3
+  %115 = icmp samesign ult i32 %114, 3
   br i1 %115, label %dissect_scsi_smc_element.exit.i, label %116
 
 116:                                              ; preds = %112
@@ -487,7 +487,7 @@ define hidden void @dissect_smc_readelementstatus(ptr noundef %0, ptr nocapture 
 136:                                              ; preds = %132, %124, %116
   %.0.i.i = add i32 %.01626.i, 9
   %137 = add nsw i32 %spec.select.i, -9
-  %138 = icmp ult i32 %137, 3
+  %138 = icmp samesign ult i32 %137, 3
   br i1 %138, label %dissect_scsi_smc_element.exit.i, label %139
 
 139:                                              ; preds = %136
@@ -511,7 +511,7 @@ define hidden void @dissect_smc_readelementstatus(ptr noundef %0, ptr nocapture 
   br i1 %.not171.i.i, label %170, label %151
 
 151:                                              ; preds = %149
-  %152 = icmp ult i32 %150, 36
+  %152 = icmp samesign ult i32 %150, 36
   br i1 %152, label %dissect_scsi_smc_element.exit.i, label %153
 
 153:                                              ; preds = %151
@@ -549,7 +549,7 @@ dissect_scsi_smc_volume_tag.exit23.i:             ; preds = %160, %157
   br i1 %.not172.i.i, label %190, label %171
 
 171:                                              ; preds = %170
-  %172 = icmp ult i32 %.0154.i.i, 36
+  %172 = icmp samesign ult i32 %.0154.i.i, 36
   br i1 %172, label %dissect_scsi_smc_element.exit.i, label %173
 
 173:                                              ; preds = %171
@@ -613,7 +613,7 @@ dissect_scsi_smc_volume_tag.exit.i:               ; preds = %180, %177
   br i1 %.not173.i.i, label %216, label %209
 
 209:                                              ; preds = %201
-  %210 = icmp ult i32 %207, %208
+  %210 = icmp samesign ult i32 %207, %208
   br i1 %210, label %dissect_scsi_smc_element.exit.i, label %211
 
 211:                                              ; preds = %209

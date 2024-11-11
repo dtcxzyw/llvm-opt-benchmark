@@ -3324,7 +3324,7 @@ for.body51:                                       ; preds = %if.else35, %for.bod
   tail call void (ptr, ...) @println(ptr noundef nonnull @.str.279, ptr noundef nonnull %cond39)
   tail call void (ptr, ...) @println(ptr noundef nonnull @.str.280, i32 noundef %i40.031, ptr noundef nonnull %cond37)
   %dec53 = add nsw i32 %i40.031, -1
-  %cmp50 = icmp ugt i32 %i40.031, 8
+  %cmp50 = icmp samesign ugt i32 %i40.031, 8
   br i1 %cmp50, label %for.body51, label %if.end56, !llvm.loop !26
 
 if.end56:                                         ; preds = %for.body51, %if.else35, %if.else33, %if.end16

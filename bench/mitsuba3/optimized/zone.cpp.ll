@@ -601,7 +601,7 @@ define dso_local noundef ptr @_ZN6asmjit9_abi_1_1013ZoneAllocator6_allocEmRm(ptr
   br i1 %4, label %5, label %62
 
 5:                                                ; preds = %3
-  %6 = icmp ult i64 %1, 129
+  %6 = icmp samesign ult i64 %1, 129
   br i1 %6, label %7, label %10
 
 7:                                                ; preds = %5
@@ -658,7 +658,7 @@ define dso_local noundef ptr @_ZN6asmjit9_abi_1_1013ZoneAllocator6_allocEmRm(ptr
   br label %84
 
 44:                                               ; preds = %27
-  %45 = icmp ugt i64 %40, 31
+  %45 = icmp samesign ugt i64 %40, 31
   br i1 %45, label %.preheader, label %58
 
 .preheader:                                       ; preds = %44, %.preheader

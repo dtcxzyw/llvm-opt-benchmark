@@ -10452,7 +10452,7 @@ Abc_TtStretch6.exit60.i.i:                        ; preds = %._crit_edge.us.i58.
   br i1 %149, label %156, label %150
 
 150:                                              ; preds = %.lr.ph.i.i.i
-  %151 = icmp ugt i64 %indvars.iv.next.i62.i.i, %146
+  %151 = icmp samesign ugt i64 %indvars.iv.next.i62.i.i, %146
   br i1 %151, label %152, label %154
 
 152:                                              ; preds = %150
@@ -10466,7 +10466,7 @@ Abc_TtStretch6.exit60.i.i:                        ; preds = %._crit_edge.us.i58.
 
 156:                                              ; preds = %154, %.lr.ph.i.i.i
   %.1.i.i.i = phi i32 [ %.017.i.i.i, %.lr.ph.i.i.i ], [ %155, %154 ]
-  %157 = icmp ugt i64 %indvars.iv.i61.i.i, 1
+  %157 = icmp samesign ugt i64 %indvars.iv.i61.i.i, 1
   %158 = icmp sgt i32 %.1.i.i.i, -1
   %159 = select i1 %157, i1 %158, i1 false
   br i1 %159, label %.lr.ph.i.i.i, label %Abc_TtExpand.exit.i.i, !llvm.loop !112
@@ -10493,7 +10493,7 @@ Abc_TtExpand.exit.i.i:                            ; preds = %156, %Abc_TtStretch
   br i1 %168, label %175, label %169
 
 169:                                              ; preds = %.lr.ph.i64.i.i
-  %170 = icmp ugt i64 %indvars.iv.next.i67.i.i, %165
+  %170 = icmp samesign ugt i64 %indvars.iv.next.i67.i.i, %165
   br i1 %170, label %171, label %173
 
 171:                                              ; preds = %169
@@ -10507,7 +10507,7 @@ Abc_TtExpand.exit.i.i:                            ; preds = %156, %Abc_TtStretch
 
 175:                                              ; preds = %173, %.lr.ph.i64.i.i
   %.1.i68.i.i = phi i32 [ %.017.i66.i.i, %.lr.ph.i64.i.i ], [ %174, %173 ]
-  %176 = icmp ugt i64 %indvars.iv.i65.i.i, 1
+  %176 = icmp samesign ugt i64 %indvars.iv.i65.i.i, 1
   %177 = icmp sgt i32 %.1.i68.i.i, -1
   %178 = select i1 %176, i1 %177, i1 false
   br i1 %178, label %.lr.ph.i64.i.i, label %Abc_TtExpand.exit69.i.i, !llvm.loop !112
@@ -16536,7 +16536,7 @@ Abc_TtExist.exit:                                 ; preds = %.lr.ph.i19.i, %48, 
   br i1 %119, label %.lr.ph.i.us.us.us.us.i, label %.preheader.lr.ph.i.us.us.us.us.i
 
 .preheader.lr.ph.i.us.us.us.us.i:                 ; preds = %118
-  %120 = icmp ult i64 %indvars.iv98.i, 8
+  %120 = icmp samesign ult i64 %indvars.iv98.i, 8
   %121 = trunc i64 %indvars.iv98.i to i32
   %122 = add i32 %121, -7
   %123 = shl nuw i32 1, %122

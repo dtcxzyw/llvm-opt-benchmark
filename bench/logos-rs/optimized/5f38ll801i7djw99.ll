@@ -763,13 +763,13 @@ define void @"_ZN125_$LT$regex_syntax..hir..ClassUnicode$u20$as$u20$logos_codege
   br i1 %35, label %38, label %36
 
 36:                                               ; preds = %31
-  %37 = icmp ult i32 %22, 123
+  %37 = icmp samesign ult i32 %22, 123
   br i1 %37, label %45, label %.backedge.backedge
 
 38:                                               ; preds = %31
   %39 = trunc nuw nsw i32 %34 to i8
-  %40 = icmp ult i32 %22, 98
-  %41 = icmp ugt i32 %34, 96
+  %40 = icmp samesign ult i32 %22, 98
+  %41 = icmp samesign ugt i32 %34, 96
   %or.cond2 = and i1 %40, %41
   %42 = add nsw i32 %22, -97
   %or.cond3 = icmp ult i32 %42, 26
@@ -777,7 +777,7 @@ define void @"_ZN125_$LT$regex_syntax..hir..ClassUnicode$u20$as$u20$logos_codege
   br i1 %or.cond, label %60, label %56
 
 43:                                               ; preds = %51
-  %44 = icmp ult i32 %22, 91
+  %44 = icmp samesign ult i32 %22, 91
   br i1 %44, label %54, label %.backedge.backedge
 
 45:                                               ; preds = %36
@@ -801,8 +801,8 @@ define void @"_ZN125_$LT$regex_syntax..hir..ClassUnicode$u20$as$u20$logos_codege
           to label %.invoke36 unwind label %85
 
 56:                                               ; preds = %38, %70
-  %57 = icmp ult i32 %22, 66
-  %58 = icmp ugt i32 %34, 64
+  %57 = icmp samesign ult i32 %22, 66
+  %58 = icmp samesign ugt i32 %34, 64
   %or.cond4 = and i1 %57, %58
   %59 = add nsw i32 %22, -65
   %or.cond5 = icmp ult i32 %59, 26

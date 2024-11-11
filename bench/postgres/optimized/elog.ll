@@ -2028,7 +2028,7 @@ write_syslog.exit.i:                              ; preds = %.outer.i.i, %542, %
   %594 = call i64 @write(i32 noundef %585, ptr noundef nonnull %4, i64 noundef 4096) #30
   %595 = getelementptr i8, ptr %.015.i.i, i64 4087
   %596 = add nsw i32 %.01214.i.i, -4087
-  %597 = icmp ugt i32 %.01214.i.i, 8174
+  %597 = icmp samesign ugt i32 %.01214.i.i, 8174
   br i1 %597, label %593, label %write_pipe_chunks.exit.i, !llvm.loop !13
 
 write_pipe_chunks.exit.i:                         ; preds = %593, %583
@@ -6139,7 +6139,7 @@ define dso_local void @write_pipe_chunks(ptr nocapture noundef readonly %0, i32 
   %19 = call i64 @write(i32 noundef %6, ptr noundef nonnull %4, i64 noundef 4096) #30
   %20 = getelementptr i8, ptr %.015, i64 4087
   %21 = add nsw i32 %.01214, -4087
-  %22 = icmp ugt i32 %.01214, 8174
+  %22 = icmp samesign ugt i32 %.01214, 8174
   br i1 %22, label %18, label %._crit_edge, !llvm.loop !13
 
 ._crit_edge:                                      ; preds = %18, %13

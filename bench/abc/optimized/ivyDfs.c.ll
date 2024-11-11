@@ -1123,7 +1123,7 @@ Ivy_ObjFaninId1.exit76:                           ; preds = %Ivy_ObjFaninId1.exi
 
 67:                                               ; preds = %Ivy_ObjFaninId1.exit.thread, %Ivy_ObjFaninId1.exit, %Ivy_ObjFaninId1.exit76
   %.val55104 = phi ptr [ %.val5380, %Ivy_ObjFaninId1.exit.thread ], [ %.val53, %Ivy_ObjFaninId1.exit ], [ %.val538185, %Ivy_ObjFaninId1.exit76 ]
-  %68 = icmp ugt i64 %indvars.iv, 1
+  %68 = icmp samesign ugt i64 %indvars.iv, 1
   br i1 %68, label %.lr.ph, label %.critedge.loopexit, !llvm.loop !17
 
 .lr.ph.i:                                         ; preds = %.critedge.loopexit

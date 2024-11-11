@@ -346,7 +346,7 @@ define internal fastcc void @"_ZN104_$LT$core..iter..sources..from_fn..FromFn$LT
 83:                                               ; preds = %"_ZN4core6option15Option$LT$T$GT$18get_or_insert_with17h5f29c2694bccb3afE.exit.i"
   %84 = call noundef i8 @"_ZN60_$LT$rope..point..Point$u20$as$u20$core..cmp..PartialOrd$GT$11partial_cmp17hf185a913ff4fb3daE"(ptr noalias noundef nonnull readonly align 4 dereferenceable(8) %14, ptr noalias noundef nonnull readonly align 4 dereferenceable(8) %.sroa.67.0..sroa_idx.i.i), !range !108, !noalias !18
   %85 = add nsw i8 %84, -3
-  %switch.i.i = icmp ult i8 %85, -2
+  %switch.i.i = icmp samesign ult i8 %85, -2
   br i1 %switch.i.i, label %86, label %88
 
 .loopexit.i:                                      ; preds = %"_ZN4core6option15Option$LT$T$GT$18get_or_insert_with17h5f29c2694bccb3afE.exit.i", %88

@@ -6778,7 +6778,7 @@ for.body57:                                       ; preds = %if.end76, %for.body
   br i1 %cmp61, label %if.then73, label %if.else
 
 if.else:                                          ; preds = %for.body57
-  %cmp65 = icmp ult i32 %49, 128
+  %cmp65 = icmp samesign ult i32 %49, 128
   br i1 %cmp65, label %if.then66, label %if.end76
 
 if.then66:                                        ; preds = %if.else

@@ -1137,7 +1137,7 @@ entry:
   br i1 %cmp, label %if.then, label %if.else125
 
 if.then:                                          ; preds = %entry
-  %cmp1 = icmp ult i64 %nsize, 23
+  %cmp1 = icmp samesign ult i64 %nsize, 23
   %add2 = add nuw nsw i64 %nsize, 15
   %and = and i64 %add2, 504
   %cond = select i1 %cmp1, i64 32, i64 %and

@@ -1440,7 +1440,7 @@ define internal fastcc i64 @tar_atol(ptr nocapture noundef readonly %0, i64 noun
   %.24974.i.i = phi ptr [ %48, %45 ], [ %.14892.i.i, %.preheader.i.i ]
   %.03977.in.i.i = zext nneg i8 %.03977.in.in.i.i to i32
   %.03977.i.i = add nsw i32 %.03977.in.i.i, -48
-  %38 = icmp ult i32 %.03977.i.i, 8
+  %38 = icmp samesign ult i32 %.03977.i.i, 8
   %39 = icmp ne i64 %.275.i.i, 0
   %or.cond.i.i = select i1 %38, i1 %39, i1 false
   br i1 %or.cond.i.i, label %40, label %.critedge4.i.i
@@ -1520,7 +1520,7 @@ tar_flush_unconsumed.exit:                        ; preds = %9, %11
   br i1 %19, label %.loopexit, label %20
 
 20:                                               ; preds = %18
-  %21 = icmp ult i64 %14, 512
+  %21 = icmp samesign ult i64 %14, 512
   br i1 %21, label %22, label %23
 
 22:                                               ; preds = %20
@@ -2534,7 +2534,7 @@ define internal fastcc i32 @header_pax_extensions(ptr noundef %0, ptr noundef %1
   %.24974.i.i.i.i = phi ptr [ %102, %99 ], [ %.14892.i.i.i.i, %.preheader.i.i.i.i ]
   %.03977.in.i.i.i.i = zext nneg i8 %.03977.in.in.i.i.i.i to i32
   %.03977.i.i.i.i = add nsw i32 %.03977.in.i.i.i.i, -48
-  %92 = icmp ult i32 %.03977.i.i.i.i, 10
+  %92 = icmp samesign ult i32 %.03977.i.i.i.i, 10
   %93 = icmp ne i64 %.275.i.i.i.i, 0
   %or.cond.i.i.i.i = select i1 %92, i1 %93, i1 false
   br i1 %or.cond.i.i.i.i, label %94, label %.critedge4.i.i.i.i
@@ -2703,7 +2703,7 @@ tar_atol10.exit.i.i:                              ; preds = %.critedge2.i.i.i.i,
 
 166:                                              ; preds = %.lr.ph.i.i.i
   %167 = icmp eq i64 %.02538.i.i.i, 922337203685477580
-  %168 = icmp ugt i8 %narrow.i.i.i, 7
+  %168 = icmp samesign ugt i8 %narrow.i.i.i, 7
   %or.cond35.i.i.i = select i1 %167, i1 %168, i1 false
   br i1 %or.cond35.i.i.i, label %.critedge.i.thread.i.i, label %169
 
@@ -3223,7 +3223,7 @@ url_decode.exit.thread.sink.split.i.i.i:          ; preds = %base64_decode.exit.
 
 394:                                              ; preds = %.lr.ph.i247.i.i
   %395 = icmp eq i64 %.02538.i249.i.i, 922337203685477580
-  %396 = icmp ugt i8 %narrow.i250.i.i, 7
+  %396 = icmp samesign ugt i8 %narrow.i250.i.i, 7
   %or.cond35.i251.i.i = select i1 %395, i1 %396, i1 false
   br i1 %or.cond35.i251.i.i, label %.critedge.i238.thread.i.i, label %397
 
@@ -3299,7 +3299,7 @@ pax_time.exit253.i.i:                             ; preds = %411, %.preheader.i2
 
 426:                                              ; preds = %.lr.ph.i266.i.i
   %427 = icmp eq i64 %.02538.i268.i.i, 922337203685477580
-  %428 = icmp ugt i8 %narrow.i269.i.i, 7
+  %428 = icmp samesign ugt i8 %narrow.i269.i.i, 7
   %or.cond35.i270.i.i = select i1 %427, i1 %428, i1 false
   br i1 %or.cond35.i270.i.i, label %.critedge.i257.thread.i.i, label %429
 
@@ -3403,7 +3403,7 @@ pax_time.exit272.i.i:                             ; preds = %443, %.preheader.i2
   %.24974.i.i295.i.i = phi ptr [ %471, %468 ], [ %.14892.i.i286.i.i, %.preheader.i.i281.i.i ]
   %.03977.in.i.i296.i.i = zext nneg i8 %.03977.in.in.i.i292.i.i to i32
   %.03977.i.i297.i.i = add nsw i32 %.03977.in.i.i296.i.i, -48
-  %461 = icmp ult i32 %.03977.i.i297.i.i, 10
+  %461 = icmp samesign ult i32 %.03977.i.i297.i.i, 10
   %462 = icmp ne i64 %.275.i.i294.i.i, 0
   %or.cond.i.i298.i.i = select i1 %461, i1 %462, i1 false
   br i1 %or.cond.i.i298.i.i, label %463, label %.critedge4.i.i287.i.i
@@ -3509,7 +3509,7 @@ tar_atol10.exit304.i.i:                           ; preds = %.critedge2.i.i302.i
 
 507:                                              ; preds = %.lr.ph.i317.i.i
   %508 = icmp eq i64 %.02538.i319.i.i, 922337203685477580
-  %509 = icmp ugt i8 %narrow.i320.i.i, 7
+  %509 = icmp samesign ugt i8 %narrow.i320.i.i, 7
   %or.cond35.i321.i.i = select i1 %508, i1 %509, i1 false
   br i1 %or.cond35.i321.i.i, label %.critedge.i308.thread.i.i, label %510
 
@@ -3624,7 +3624,7 @@ pax_time.exit323.i.i:                             ; preds = %524, %.preheader.i3
   %.24974.i.i346.i.i = phi ptr [ %558, %555 ], [ %.14892.i.i337.i.i, %.preheader.i.i332.i.i ]
   %.03977.in.i.i347.i.i = zext nneg i8 %.03977.in.in.i.i343.i.i to i32
   %.03977.i.i348.i.i = add nsw i32 %.03977.in.i.i347.i.i, -48
-  %548 = icmp ult i32 %.03977.i.i348.i.i, 10
+  %548 = icmp samesign ult i32 %.03977.i.i348.i.i, 10
   %549 = icmp ne i64 %.275.i.i345.i.i, 0
   %or.cond.i.i349.i.i = select i1 %548, i1 %549, i1 false
   br i1 %or.cond.i.i349.i.i, label %550, label %.critedge4.i.i338.i.i
@@ -3744,7 +3744,7 @@ tar_atol10.exit355.i.i:                           ; preds = %552, %550, %.crited
   %.24974.i.i378.i.i = phi ptr [ %593, %590 ], [ %.14892.i.i369.i.i, %.preheader.i.i364.i.i ]
   %.03977.in.i.i379.i.i = zext nneg i8 %.03977.in.in.i.i375.i.i to i32
   %.03977.i.i380.i.i = add nsw i32 %.03977.in.i.i379.i.i, -48
-  %583 = icmp ult i32 %.03977.i.i380.i.i, 10
+  %583 = icmp samesign ult i32 %.03977.i.i380.i.i, 10
   %584 = icmp ne i64 %.275.i.i377.i.i, 0
   %or.cond.i.i381.i.i = select i1 %583, i1 %584, i1 false
   br i1 %or.cond.i.i381.i.i, label %585, label %.critedge4.i.i370.i.i
@@ -4126,7 +4126,7 @@ tar_flush_unconsumed.exit.i:                      ; preds = %80, %.preheader.i
   br i1 %84, label %gnu_sparse_old_read.exit.thread, label %85
 
 85:                                               ; preds = %tar_flush_unconsumed.exit.i
-  %86 = icmp ult i64 %83, 512
+  %86 = icmp samesign ult i64 %83, 512
   br i1 %86, label %87, label %88
 
 87:                                               ; preds = %85
@@ -4417,7 +4417,7 @@ gnu_clear_sparse_list.exit:                       ; preds = %.lr.ph.i, %3
 30:                                               ; preds = %29, %28
   store ptr %23, ptr %10, align 8
   %31 = sub nuw nsw i64 9223372036854775807, %20
-  %32 = icmp ugt i64 %17, %31
+  %32 = icmp samesign ugt i64 %17, %31
   br i1 %32, label %33, label %gnu_add_sparse_entry.exit
 
 33:                                               ; preds = %30
@@ -4429,7 +4429,7 @@ gnu_add_sparse_entry.exit:                        ; preds = %30
   store i64 %17, ptr %34, align 8
   %35 = getelementptr inbounds i8, ptr %23, i64 16
   store i64 %20, ptr %35, align 8
-  %36 = icmp ugt i32 %.in, 1
+  %36 = icmp samesign ugt i32 %.in, 1
   br i1 %36, label %.lr.ph, label %._crit_edge, !llvm.loop !37
 
 ._crit_edge:                                      ; preds = %gnu_add_sparse_entry.exit, %.preheader
@@ -4626,7 +4626,7 @@ define internal fastcc i64 @tar_atol10(ptr nocapture noundef readonly %0, i64 no
   %.24974.i = phi ptr [ %20, %17 ], [ %.14892.i, %.preheader.i ]
   %.03977.in.i = zext nneg i8 %.03977.in.in.i to i32
   %.03977.i = add nsw i32 %.03977.in.i, -48
-  %10 = icmp ult i32 %.03977.i, 10
+  %10 = icmp samesign ult i32 %.03977.i, 10
   %11 = icmp ne i64 %.275.i, 0
   %or.cond.i = select i1 %10, i1 %11, i1 false
   br i1 %or.cond.i, label %12, label %.critedge4.i
@@ -4746,7 +4746,7 @@ define internal fastcc range(i32 -30, 1) i32 @gnu_sparse_01_parse(ptr noundef %0
   %.24974.i.i = phi ptr [ %35, %32 ], [ %.14892.i.i, %.preheader.i.i ]
   %.03977.in.i.i = zext nneg i8 %.03977.in.in.i.i to i32
   %.03977.i.i = add nsw i32 %.03977.in.i.i, -48
-  %25 = icmp ult i32 %.03977.i.i, 10
+  %25 = icmp samesign ult i32 %.03977.i.i, 10
   %26 = icmp ne i64 %.275.i.i, 0
   %or.cond.i.i = select i1 %25, i1 %26, i1 false
   br i1 %or.cond.i.i, label %27, label %.critedge4.i.i
@@ -4828,7 +4828,7 @@ tar_atol10.exit:                                  ; preds = %27, %29, %.critedge
   %.24974.i.i51 = phi ptr [ %58, %55 ], [ %.14892.i.i42, %.preheader.i.i37 ]
   %.03977.in.i.i52 = zext nneg i8 %.03977.in.in.i.i48 to i32
   %.03977.i.i53 = add nsw i32 %.03977.in.i.i52, -48
-  %48 = icmp ult i32 %.03977.i.i53, 10
+  %48 = icmp samesign ult i32 %.03977.i.i53, 10
   %49 = icmp ne i64 %.275.i.i50, 0
   %or.cond.i.i54 = select i1 %48, i1 %49, i1 false
   br i1 %or.cond.i.i54, label %50, label %.critedge4.i.i43
@@ -5087,7 +5087,7 @@ define internal fastcc range(i32 -30, 1) i32 @solaris_sparse_parse(ptr noundef %
   %.24974.i.i = phi ptr [ %35, %32 ], [ %.14892.i.i, %.preheader.i.i ]
   %.03977.in.i.i = zext nneg i8 %.03977.in.in.i.i to i32
   %.03977.i.i = add nsw i32 %.03977.in.i.i, -48
-  %25 = icmp ult i32 %.03977.i.i, 10
+  %25 = icmp samesign ult i32 %.03977.i.i, 10
   %26 = icmp ne i64 %.275.i.i, 0
   %or.cond.i.i = select i1 %25, i1 %26, i1 false
   br i1 %or.cond.i.i, label %27, label %.critedge4.i.i
@@ -5154,7 +5154,7 @@ tar_atol10.exit.thread:                           ; preds = %.critedge2.i.i, %.c
 50:                                               ; preds = %49, %48
   store ptr %43, ptr %6, align 8
   %51 = xor i64 %42, 9223372036854775807
-  %52 = icmp ugt i64 %.025, %51
+  %52 = icmp samesign ugt i64 %.025, %51
   br i1 %52, label %53, label %54
 
 53:                                               ; preds = %50
@@ -5640,7 +5640,7 @@ readline.exit:                                    ; preds = %25, %39
 
 69:                                               ; preds = %66
   %70 = icmp eq i64 %.0234468, 922337203685477580
-  %71 = icmp ugt i8 %narrow, 7
+  %71 = icmp samesign ugt i8 %narrow, 7
   %or.cond28 = select i1 %70, i1 %71, i1 false
   br i1 %or.cond28, label %75, label %72
 

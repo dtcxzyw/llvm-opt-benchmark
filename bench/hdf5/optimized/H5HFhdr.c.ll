@@ -194,7 +194,7 @@ define range(i32 -1, 1) i32 @H5HF__hdr_finish_init_phase1(ptr noundef %0) local_
   br label %H5VM_limit_enc_size.exit
 
 34:                                               ; preds = %15
-  %.not23.i.i = icmp ult i32 %19, 256
+  %.not23.i.i = icmp samesign ult i32 %19, 256
   br i1 %.not23.i.i, label %41, label %35
 
 35:                                               ; preds = %34
@@ -240,7 +240,7 @@ H5VM_limit_enc_size.exit:                         ; preds = %23, %29, %35, %41
   br label %H5VM_limit_enc_size.exit13
 
 59:                                               ; preds = %46
-  %.not23.i.i12 = icmp ult i32 %19, 256
+  %.not23.i.i12 = icmp samesign ult i32 %19, 256
   br i1 %.not23.i.i12, label %66, label %60
 
 60:                                               ; preds = %59

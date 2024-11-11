@@ -1417,7 +1417,7 @@ _ZNK5boost10test_tools16assertion_result7messageEv.exit253: ; preds = %_ZN5boost
   %425 = or disjoint i32 %372, 32
   store i32 %425, ptr %6, align 8
   %426 = load ptr, ptr %424, align 8, !tbaa !28
-  %427 = icmp ult i32 %425, 41
+  %427 = icmp samesign ult i32 %425, 41
   br i1 %427, label %435, label %.thread531
 
 .thread531:                                       ; preds = %420, %.thread528
@@ -3864,7 +3864,7 @@ _ZNK5boost10test_tools16assertion_result7messageEv.exit199: ; preds = %275, %278
   %340 = or disjoint i32 %287, 32
   store i32 %340, ptr %6, align 8
   %341 = load ptr, ptr %339, align 8, !tbaa !28
-  %342 = icmp ult i32 %340, 41
+  %342 = icmp samesign ult i32 %340, 41
   br i1 %342, label %350, label %.thread372
 
 .thread372:                                       ; preds = %335, %.thread369

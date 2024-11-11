@@ -456,7 +456,7 @@ if.end:                                           ; preds = %if.then, %entry
   br i1 %cmp182, label %if.end187.sink.split, label %if.else
 
 if.else:                                          ; preds = %if.end
-  %cmp184 = icmp ugt i32 %3, 27
+  %cmp184 = icmp samesign ugt i32 %3, 27
   br i1 %cmp184, label %if.end187.sink.split, label %if.end187
 
 if.end187.sink.split:                             ; preds = %if.else, %if.end
@@ -725,7 +725,7 @@ while.body:                                       ; preds = %while.cond.preheade
   %cmp287 = icmp eq i32 %dec, 0
   %conv288 = zext i1 %cmp287 to i32
   call fastcc void @describe(ptr noundef %39, i32 noundef %conv288)
-  %cmp284 = icmp ugt i32 %argc.addr.023, 1
+  %cmp284 = icmp samesign ugt i32 %argc.addr.023, 1
   br i1 %cmp284, label %while.body, label %return, !llvm.loop !5
 
 return:                                           ; preds = %while.body, %while.cond.preheader, %if.end274, %if.end221

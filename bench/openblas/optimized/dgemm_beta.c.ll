@@ -73,7 +73,7 @@ define noundef i32 @dgemm_beta(i64 noundef %0, i64 noundef %1, i64 noundef %2, d
   store double %54, ptr %45, align 8, !tbaa !3
   %55 = getelementptr inbounds i8, ptr %30, i64 64
   %56 = add nsw i64 %31, -1
-  %57 = icmp ugt i64 %31, 1
+  %57 = icmp samesign ugt i64 %31, 1
   br i1 %57, label %29, label %.loopexit12.us, !llvm.loop !7
 
 .preheader.us:                                    ; preds = %.loopexit12.us, %.preheader.us

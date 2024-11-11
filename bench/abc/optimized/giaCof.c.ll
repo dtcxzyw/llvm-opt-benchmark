@@ -2282,7 +2282,7 @@ Vec_IntStart.exit233:                             ; preds = %Vec_IntAlloc.exit.t
   br label %263
 
 209:                                              ; preds = %201
-  %210 = icmp ult i32 %128, 100
+  %210 = icmp samesign ult i32 %128, 100
   br i1 %210, label %211, label %218
 
 211:                                              ; preds = %209
@@ -2298,7 +2298,7 @@ Vec_IntStart.exit233:                             ; preds = %Vec_IntAlloc.exit.t
   br label %263
 
 218:                                              ; preds = %209
-  %219 = icmp ult i32 %128, 1000
+  %219 = icmp samesign ult i32 %128, 1000
   br i1 %219, label %220, label %227
 
 220:                                              ; preds = %218
@@ -2314,7 +2314,7 @@ Vec_IntStart.exit233:                             ; preds = %Vec_IntAlloc.exit.t
   br label %263
 
 227:                                              ; preds = %218
-  %228 = icmp ult i32 %128, 10000
+  %228 = icmp samesign ult i32 %128, 10000
   br i1 %228, label %229, label %236
 
 229:                                              ; preds = %227
@@ -2330,7 +2330,7 @@ Vec_IntStart.exit233:                             ; preds = %Vec_IntAlloc.exit.t
   br label %263
 
 236:                                              ; preds = %227
-  %237 = icmp ult i32 %128, 100000
+  %237 = icmp samesign ult i32 %128, 100000
   br i1 %237, label %238, label %245
 
 238:                                              ; preds = %236
@@ -2345,7 +2345,7 @@ Vec_IntStart.exit233:                             ; preds = %Vec_IntAlloc.exit.t
   br label %263
 
 245:                                              ; preds = %236
-  %246 = icmp ult i32 %128, 1000000
+  %246 = icmp samesign ult i32 %128, 1000000
   br i1 %246, label %247, label %254
 
 247:                                              ; preds = %245
@@ -2360,7 +2360,7 @@ Vec_IntStart.exit233:                             ; preds = %Vec_IntAlloc.exit.t
   br label %263
 
 254:                                              ; preds = %245
-  %255 = icmp ult i32 %128, 10000000
+  %255 = icmp samesign ult i32 %128, 10000000
   br i1 %255, label %256, label %263
 
 256:                                              ; preds = %254

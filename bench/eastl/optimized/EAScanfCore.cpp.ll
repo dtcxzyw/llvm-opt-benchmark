@@ -3883,7 +3883,7 @@ land.lhs.true75:                                  ; preds = %if.else73
   %cmp79 = icmp sgt i8 %10, 96
   %conv78 = zext nneg i8 %10 to i32
   %sub82 = add nsw i32 %conv78, -87
-  %cmp83 = icmp ult i32 %sub82, %nBase.addr.0102
+  %cmp83 = icmp samesign ult i32 %sub82, %nBase.addr.0102
   %or.cond92 = select i1 %cmp79, i1 %cmp83, i1 false
   br i1 %or.cond92, label %if.end91, label %if.else85
 
@@ -5241,7 +5241,7 @@ land.lhs.true80:                                  ; preds = %land.lhs.true75, %_
   %cond.i7785 = phi i32 [ %conv1.i, %_ZN2EA4StdC7TolowerEDs.exit ], [ %c.0106, %land.lhs.true75 ]
   %conv78 = and i32 %cond.i7785, 65535
   %sub82 = add nsw i32 %conv78, -87
-  %cmp83 = icmp ult i32 %sub82, %nBase.addr.0110
+  %cmp83 = icmp samesign ult i32 %sub82, %nBase.addr.0110
   br i1 %cmp83, label %if.end91, label %if.else85
 
 if.else85:                                        ; preds = %land.lhs.true80, %_ZN2EA4StdC7TolowerEDs.exit, %if.else73

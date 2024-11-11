@@ -178,7 +178,7 @@ define hidden range(i32 0, 2) i32 @mlib_ImageConvClearEdge_Bit(ptr nocapture nou
   %94 = getelementptr inbounds i8, ptr %.val, i64 %93
   %95 = and i32 %91, 7
   %96 = add nuw nsw i32 %95, %2
-  %97 = icmp ult i32 %96, 9
+  %97 = icmp samesign ult i32 %96, 9
   %98 = lshr i32 255, %95
   br i1 %97, label %99, label %119
 

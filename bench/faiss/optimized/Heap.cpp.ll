@@ -7657,7 +7657,7 @@ _ZN5faiss9heap_pushINS_4CMinIfiEEEEvmPNT_1TEPNS3_2TIES4_S6_.exit: ; preds = %_ZN
   %115 = load float, ptr %114, align 4
   %116 = getelementptr inbounds i32, ptr %43, i64 %113
   %117 = load i32, ptr %116, align 4
-  %118 = icmp ult i32 %.2107, 2
+  %118 = icmp samesign ult i32 %.2107, 2
   br i1 %118, label %_ZN5faiss8heap_popINS_4CMinIfiEEEEvmPNT_1TEPNS3_2TIE.exit, label %.lr.ph.i82
 
 .lr.ph.i82:                                       ; preds = %.lr.ph109, %147
@@ -8125,7 +8125,7 @@ _ZN5faiss9heap_pushINS_4CMaxIfiEEEEvmPNT_1TEPNS3_2TIES4_S6_.exit: ; preds = %_ZN
   %115 = load float, ptr %114, align 4
   %116 = getelementptr inbounds i32, ptr %43, i64 %113
   %117 = load i32, ptr %116, align 4
-  %118 = icmp ult i32 %.2107, 2
+  %118 = icmp samesign ult i32 %.2107, 2
   br i1 %118, label %_ZN5faiss8heap_popINS_4CMaxIfiEEEEvmPNT_1TEPNS3_2TIE.exit, label %.lr.ph.i82
 
 .lr.ph.i82:                                       ; preds = %.lr.ph109, %147
@@ -8581,7 +8581,7 @@ _ZN5faiss9heap_pushINS_4CMinIiiEEEEvmPNT_1TEPNS3_2TIES4_S6_.exit: ; preds = %_ZN
   %115 = load i32, ptr %114, align 4
   %116 = getelementptr inbounds i32, ptr %43, i64 %113
   %117 = load i32, ptr %116, align 4
-  %118 = icmp ult i32 %.2111, 2
+  %118 = icmp samesign ult i32 %.2111, 2
   br i1 %118, label %_ZN5faiss8heap_popINS_4CMinIiiEEEEvmPNT_1TEPNS3_2TIE.exit, label %.lr.ph.i85
 
 .lr.ph.i85:                                       ; preds = %.lr.ph113, %147
@@ -9037,7 +9037,7 @@ _ZN5faiss9heap_pushINS_4CMaxIiiEEEEvmPNT_1TEPNS3_2TIES4_S6_.exit: ; preds = %_ZN
   %115 = load i32, ptr %114, align 4
   %116 = getelementptr inbounds i32, ptr %43, i64 %113
   %117 = load i32, ptr %116, align 4
-  %118 = icmp ult i32 %.2111, 2
+  %118 = icmp samesign ult i32 %.2111, 2
   br i1 %118, label %_ZN5faiss8heap_popINS_4CMaxIiiEEEEvmPNT_1TEPNS3_2TIE.exit, label %.lr.ph.i85
 
 .lr.ph.i85:                                       ; preds = %.lr.ph113, %147

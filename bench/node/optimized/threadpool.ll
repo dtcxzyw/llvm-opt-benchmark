@@ -193,7 +193,7 @@ if.end7.thread.i:                                 ; preds = %if.end4.i
 
 if.end7.i:                                        ; preds = %if.end4.i
   store ptr @default_threads, ptr @threads, align 8
-  %cmp8.i = icmp ugt i32 %call1.i, 4
+  %cmp8.i = icmp samesign ugt i32 %call1.i, 4
   br i1 %cmp8.i, label %if.then10.i, label %if.end17.i
 
 if.then10.i:                                      ; preds = %if.end7.i, %if.end7.thread.i

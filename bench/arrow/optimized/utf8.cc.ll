@@ -1803,28 +1803,28 @@ if.then10:                                        ; preds = %if.end, %if.end4.i,
   %cmp11.i = phi i1 [ true, %if.end ], [ true, %if.end4.i ], [ false, %if.end13.i ], [ true, %if.end23.i ]
   %cmp5.not.i = phi i1 [ false, %if.end ], [ true, %if.end4.i ], [ false, %if.end13.i ], [ false, %if.end23.i ]
   %cp.0 = phi i32 [ %conv.i, %if.end ], [ %add.i, %if.end4.i ], [ %add16.i, %if.end13.i ], [ %add26.i, %if.end23.i ]
-  %cmp.i50 = icmp ult i32 %cp.0, 1114112
+  %cmp.i50 = icmp samesign ult i32 %cp.0, 1114112
   %11 = and i32 %cp.0, -2048
   %12 = icmp ne i32 %11, 55296
   %13 = and i1 %cmp.i50, %12
   br i1 %13, label %if.then12, label %return.sink.split
 
 if.then12:                                        ; preds = %if.then10
-  %cmp.i51 = icmp ult i32 %cp.0, 128
+  %cmp.i51 = icmp samesign ult i32 %cp.0, 128
   br i1 %cmp.i51, label %if.then.i, label %if.else.i52
 
 if.then.i:                                        ; preds = %if.then12
   br i1 %cmp.i, label %if.then14, label %return.sink.split
 
 if.else.i52:                                      ; preds = %if.then12
-  %cmp3.i = icmp ult i32 %cp.0, 2048
+  %cmp3.i = icmp samesign ult i32 %cp.0, 2048
   br i1 %cmp3.i, label %if.then4.i, label %if.else8.i
 
 if.then4.i:                                       ; preds = %if.else.i52
   br i1 %cmp5.not.i, label %if.then14, label %return.sink.split
 
 if.else8.i:                                       ; preds = %if.else.i52
-  %cmp9.i = icmp ult i32 %cp.0, 65536
+  %cmp9.i = icmp samesign ult i32 %cp.0, 65536
   %or.cond.i = and i1 %cmp11.i, %cmp9.i
   br i1 %or.cond.i, label %return.sink.split, label %if.then14
 
@@ -1945,7 +1945,7 @@ if.then:                                          ; preds = %entry
   unreachable
 
 if.end:                                           ; preds = %entry
-  %cmp = icmp ult i32 %cp, 128
+  %cmp = icmp samesign ult i32 %cp, 128
   br i1 %cmp, label %if.then1, label %if.else
 
 if.then1:                                         ; preds = %if.end
@@ -1953,7 +1953,7 @@ if.then1:                                         ; preds = %if.end
   br label %if.end96
 
 if.else:                                          ; preds = %if.end
-  %cmp7 = icmp ult i32 %cp, 2048
+  %cmp7 = icmp samesign ult i32 %cp, 2048
   br i1 %cmp7, label %if.then8, label %if.else24
 
 if.then8:                                         ; preds = %if.else
@@ -1967,7 +1967,7 @@ if.then8:                                         ; preds = %if.else
   br label %if.end96
 
 if.else24:                                        ; preds = %if.else
-  %cmp25 = icmp ult i32 %cp, 65536
+  %cmp25 = icmp samesign ult i32 %cp, 65536
   br i1 %cmp25, label %if.then26, label %if.else55
 
 if.then26:                                        ; preds = %if.else24
@@ -2154,7 +2154,7 @@ if.then.i.i7.i.i:                                 ; preds = %_ZNKSt7__cxx1112bas
 
 land.lhs.true.i.i.i.i:                            ; preds = %_ZNKSt7__cxx1112basic_stringIDsSt11char_traitsIDsESaIDsEE8capacityEv.exit.i.i.i
   %mul.i.i.i.i = shl nuw nsw i64 %cond.i1113.i.i, 1
-  %cmp3.i.i6.i.i = icmp ult i64 %add.i.i, %mul.i.i.i.i
+  %cmp3.i.i6.i.i = icmp samesign ult i64 %add.i.i, %mul.i.i.i.i
   %spec.store.select.i.i.i.i = call i64 @llvm.umin.i64(i64 %mul.i.i.i.i, i64 2305843009213693951)
   %__new_capacity.0.i.i.i = select i1 %cmp3.i.i6.i.i, i64 %spec.store.select.i.i.i.i, i64 %add.i.i
   %add.i.i.i.i = shl nuw nsw i64 %__new_capacity.0.i.i.i, 1
@@ -2179,7 +2179,7 @@ if.end19.i.i.i:                                   ; preds = %if.end.i.i.i.i.i, %
   br i1 %cmp.i.i.i.i, label %_ZNKSt7__cxx1112basic_stringIDsSt11char_traitsIDsESaIDsEE11_M_is_localEv.exit.thread.i.i.i.i, label %if.then.i30.i.i.i
 
 _ZNKSt7__cxx1112basic_stringIDsSt11char_traitsIDsESaIDsEE11_M_is_localEv.exit.thread.i.i.i.i: ; preds = %if.end19.i.i.i
-  %cmp3.i.i33.i.i.i = icmp ult i64 %2, 8
+  %cmp3.i.i33.i.i.i = icmp samesign ult i64 %2, 8
   call void @llvm.assume(i1 %cmp3.i.i33.i.i.i)
   br label %_ZNSt7__cxx1112basic_stringIDsSt11char_traitsIDsESaIDsEE9_M_mutateEmmPKDsm.exit.i.i
 
@@ -2229,7 +2229,7 @@ if.then.i.i7.i.i32:                               ; preds = %_ZNKSt7__cxx1112bas
 
 land.lhs.true.i.i.i.i16:                          ; preds = %_ZNKSt7__cxx1112basic_stringIDsSt11char_traitsIDsESaIDsEE8capacityEv.exit.i.i.i13
   %mul.i.i.i.i17 = shl nuw nsw i64 %cond.i1113.i.i14, 1
-  %cmp3.i.i6.i.i18 = icmp ult i64 %add.i.i7, %mul.i.i.i.i17
+  %cmp3.i.i6.i.i18 = icmp samesign ult i64 %add.i.i7, %mul.i.i.i.i17
   %spec.store.select.i.i.i.i19 = call i64 @llvm.umin.i64(i64 %mul.i.i.i.i17, i64 2305843009213693951)
   %__new_capacity.0.i.i.i20 = select i1 %cmp3.i.i6.i.i18, i64 %spec.store.select.i.i.i.i19, i64 %add.i.i7
   %add.i.i.i.i21 = shl nuw nsw i64 %__new_capacity.0.i.i.i20, 1
@@ -2254,7 +2254,7 @@ if.end19.i.i.i25:                                 ; preds = %if.end.i.i.i.i.i30,
   br i1 %cmp.i.i.i.i8, label %_ZNKSt7__cxx1112basic_stringIDsSt11char_traitsIDsESaIDsEE11_M_is_localEv.exit.thread.i.i.i.i28, label %if.then.i30.i.i.i26
 
 _ZNKSt7__cxx1112basic_stringIDsSt11char_traitsIDsESaIDsEE11_M_is_localEv.exit.thread.i.i.i.i28: ; preds = %if.end19.i.i.i25
-  %cmp3.i.i33.i.i.i29 = icmp ult i64 %10, 8
+  %cmp3.i.i33.i.i.i29 = icmp samesign ult i64 %10, 8
   call void @llvm.assume(i1 %cmp3.i.i33.i.i.i29)
   br label %_ZNSt7__cxx1112basic_stringIDsSt11char_traitsIDsESaIDsEE9_M_mutateEmmPKDsm.exit.i.i27
 
@@ -2301,7 +2301,7 @@ if.then.i.i7.i.i63:                               ; preds = %_ZNKSt7__cxx1112bas
 
 land.lhs.true.i.i.i.i47:                          ; preds = %_ZNKSt7__cxx1112basic_stringIDsSt11char_traitsIDsESaIDsEE8capacityEv.exit.i.i.i44
   %mul.i.i.i.i48 = shl nuw nsw i64 %cond.i1113.i.i45, 1
-  %cmp3.i.i6.i.i49 = icmp ult i64 %add.i.i38, %mul.i.i.i.i48
+  %cmp3.i.i6.i.i49 = icmp samesign ult i64 %add.i.i38, %mul.i.i.i.i48
   %spec.store.select.i.i.i.i50 = call i64 @llvm.umin.i64(i64 %mul.i.i.i.i48, i64 2305843009213693951)
   %__new_capacity.0.i.i.i51 = select i1 %cmp3.i.i6.i.i49, i64 %spec.store.select.i.i.i.i50, i64 %add.i.i38
   %add.i.i.i.i52 = shl nuw nsw i64 %__new_capacity.0.i.i.i51, 1
@@ -2326,7 +2326,7 @@ if.end19.i.i.i56:                                 ; preds = %if.end.i.i.i.i.i61,
   br i1 %cmp.i.i.i.i39, label %_ZNKSt7__cxx1112basic_stringIDsSt11char_traitsIDsESaIDsEE11_M_is_localEv.exit.thread.i.i.i.i59, label %if.then.i30.i.i.i57
 
 _ZNKSt7__cxx1112basic_stringIDsSt11char_traitsIDsESaIDsEE11_M_is_localEv.exit.thread.i.i.i.i59: ; preds = %if.end19.i.i.i56
-  %cmp3.i.i33.i.i.i60 = icmp ult i64 %15, 8
+  %cmp3.i.i33.i.i.i60 = icmp samesign ult i64 %15, 8
   call void @llvm.assume(i1 %cmp3.i.i33.i.i.i60)
   br label %_ZNSt7__cxx1112basic_stringIDsSt11char_traitsIDsESaIDsEE9_M_mutateEmmPKDsm.exit.i.i58
 

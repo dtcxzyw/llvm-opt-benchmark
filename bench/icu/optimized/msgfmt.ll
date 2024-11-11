@@ -1092,7 +1092,7 @@ if.end.i.do.body_crit_edge:                       ; preds = %if.end.i
   br label %do.body
 
 if.end3.i:                                        ; preds = %if.end.i
-  %cmp4.i = icmp ult i32 %0, 10
+  %cmp4.i = icmp samesign ult i32 %0, 10
   %mul.i = shl nsw i32 %2, 1
   %spec.select.i = tail call i32 @llvm.smax.i32(i32 %0, i32 %mul.i)
   %capacity.addr.0.i = select i1 %cmp4.i, i32 10, i32 %spec.select.i

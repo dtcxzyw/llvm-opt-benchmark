@@ -2930,7 +2930,7 @@ Vec_QueIsMember.exit:                             ; preds = %12
 
 Vec_QuePrio.exit.i.i:                             ; preds = %35, %32
   %37 = phi float [ %34, %32 ], [ %36, %35 ]
-  %38 = icmp ugt i32 %28, 1
+  %38 = icmp samesign ugt i32 %28, 1
   %39 = getelementptr inbounds i8, ptr %21, i64 8
   br i1 %38, label %.lr.ph.i.i, label %Vec_QueMoveUp.exit.thread.i
 

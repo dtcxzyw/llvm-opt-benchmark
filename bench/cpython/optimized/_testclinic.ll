@@ -1534,7 +1534,7 @@ if.end11:                                         ; preds = %if.end8
   br i1 %cmp14, label %exit, label %if.end16
 
 if.end16:                                         ; preds = %if.end11
-  %cmp17 = icmp ult i64 %nargs, 3
+  %cmp17 = icmp samesign ult i64 %nargs, 3
   br i1 %cmp17, label %skip_optional, label %if.end19
 
 if.end19:                                         ; preds = %if.end16
@@ -1879,7 +1879,7 @@ if.else58:                                        ; preds = %PyByteArray_GET_SIZ
 if.end61:                                         ; preds = %if.then.i227, %Py_SIZE.exit.i224, %PyBytes_AS_STRING.exit191
   %b.1.in = phi ptr [ %ob_sval.i189, %PyBytes_AS_STRING.exit191 ], [ %20, %if.then.i227 ], [ @_PyByteArray_empty_string, %Py_SIZE.exit.i224 ]
   %b.1 = load i8, ptr %b.1.in, align 1
-  %cmp62 = icmp ult i64 %nargs, 3
+  %cmp62 = icmp samesign ult i64 %nargs, 3
   br i1 %cmp62, label %skip_optional, label %if.end64
 
 if.end64:                                         ; preds = %if.end61
@@ -2022,7 +2022,7 @@ if.else120:                                       ; preds = %land.lhs.true112, %
 if.end123:                                        ; preds = %if.then116, %PyBytes_AS_STRING.exit272
   %d.1.in = phi ptr [ %ob_sval.i270, %PyBytes_AS_STRING.exit272 ], [ %call118, %if.then116 ]
   %d.1 = load i8, ptr %d.1.in, align 1
-  %cmp124 = icmp ult i64 %nargs, 5
+  %cmp124 = icmp samesign ult i64 %nargs, 5
   br i1 %cmp124, label %skip_optional, label %if.end126
 
 if.end126:                                        ; preds = %if.end123
@@ -2164,7 +2164,7 @@ if.else182:                                       ; preds = %land.lhs.true174, %
 if.end185:                                        ; preds = %if.then178, %PyBytes_AS_STRING.exit304
   %f.1.in = phi ptr [ %ob_sval.i302, %PyBytes_AS_STRING.exit304 ], [ %call180, %if.then178 ]
   %f.1 = load i8, ptr %f.1.in, align 1
-  %cmp186 = icmp ult i64 %nargs, 7
+  %cmp186 = icmp samesign ult i64 %nargs, 7
   br i1 %cmp186, label %skip_optional, label %if.end188
 
 if.end188:                                        ; preds = %if.end185
@@ -2306,7 +2306,7 @@ if.else244:                                       ; preds = %land.lhs.true236, %
 if.end247:                                        ; preds = %if.then240, %PyBytes_AS_STRING.exit336
   %h.1.in = phi ptr [ %ob_sval.i334, %PyBytes_AS_STRING.exit336 ], [ %call242, %if.then240 ]
   %h.1 = load i8, ptr %h.1.in, align 1
-  %cmp248 = icmp ult i64 %nargs, 9
+  %cmp248 = icmp samesign ult i64 %nargs, 9
   br i1 %cmp248, label %skip_optional, label %if.end250
 
 if.end250:                                        ; preds = %if.end247
@@ -2448,7 +2448,7 @@ if.else306:                                       ; preds = %land.lhs.true298, %
 if.end309:                                        ; preds = %if.then302, %PyBytes_AS_STRING.exit368
   %j.1.in = phi ptr [ %ob_sval.i366, %PyBytes_AS_STRING.exit368 ], [ %call304, %if.then302 ]
   %j.1 = load i8, ptr %j.1.in, align 1
-  %cmp310 = icmp ult i64 %nargs, 11
+  %cmp310 = icmp samesign ult i64 %nargs, 11
   br i1 %cmp310, label %skip_optional, label %if.end312
 
 if.end312:                                        ; preds = %if.end309
@@ -2590,7 +2590,7 @@ if.else368:                                       ; preds = %land.lhs.true360, %
 if.end371:                                        ; preds = %if.then364, %PyBytes_AS_STRING.exit400
   %l.1.in = phi ptr [ %ob_sval.i398, %PyBytes_AS_STRING.exit400 ], [ %call366, %if.then364 ]
   %l.1 = load i8, ptr %l.1.in, align 1
-  %cmp372 = icmp ult i64 %nargs, 13
+  %cmp372 = icmp samesign ult i64 %nargs, 13
   br i1 %cmp372, label %skip_optional, label %if.end374
 
 if.end374:                                        ; preds = %if.end371
@@ -2931,7 +2931,7 @@ if.then12:                                        ; preds = %land.lhs.true7, %if
   br label %exit
 
 if.else13:                                        ; preds = %if.else
-  %cmp14 = icmp ugt i64 %call5, 255
+  %cmp14 = icmp samesign ugt i64 %call5, 255
   br i1 %cmp14, label %if.then15, label %if.else16
 
 if.then15:                                        ; preds = %if.else13
@@ -2966,7 +2966,7 @@ if.then36:                                        ; preds = %land.lhs.true29, %i
   br label %exit
 
 if.else37:                                        ; preds = %if.else33
-  %cmp38 = icmp ugt i64 %call26, 255
+  %cmp38 = icmp samesign ugt i64 %call26, 255
   br i1 %cmp38, label %if.then40, label %if.else41
 
 if.then40:                                        ; preds = %if.else37
@@ -2976,7 +2976,7 @@ if.then40:                                        ; preds = %if.else37
 
 if.else41:                                        ; preds = %if.else37
   %conv42 = trunc nuw i64 %call26 to i8
-  %cmp46 = icmp ult i64 %nargs, 3
+  %cmp46 = icmp samesign ult i64 %nargs, 3
   br i1 %cmp46, label %skip_optional, label %if.end49
 
 if.end49:                                         ; preds = %if.else41
@@ -3301,7 +3301,7 @@ if.end11:                                         ; preds = %if.end8
   br i1 %tobool14.not, label %exit, label %if.end16
 
 if.end16:                                         ; preds = %if.end11
-  %cmp17 = icmp ult i64 %nargs, 3
+  %cmp17 = icmp samesign ult i64 %nargs, 3
   br i1 %cmp17, label %skip_optional, label %if.end19
 
 if.end19:                                         ; preds = %if.end16
@@ -3493,7 +3493,7 @@ land.lhs.true18:                                  ; preds = %if.end14
   br i1 %tobool20.not, label %if.end22, label %exit
 
 if.end22:                                         ; preds = %land.lhs.true18, %if.end14
-  %cmp23 = icmp ult i64 %nargs, 3
+  %cmp23 = icmp samesign ult i64 %nargs, 3
   br i1 %cmp23, label %skip_optional, label %if.end25
 
 if.end25:                                         ; preds = %if.end22
@@ -3789,7 +3789,7 @@ if.end11:                                         ; preds = %if.end8
   br i1 %tobool14.not, label %exit, label %if.end16
 
 if.end16:                                         ; preds = %if.end11
-  %cmp17 = icmp ult i64 %nargs, 3
+  %cmp17 = icmp samesign ult i64 %nargs, 3
   br i1 %cmp17, label %skip_optional, label %if.end19
 
 if.end19:                                         ; preds = %if.end16
@@ -4095,7 +4095,7 @@ if.end11:                                         ; preds = %if.end8
   br i1 %tobool14.not, label %exit, label %if.end16
 
 if.end16:                                         ; preds = %if.end11
-  %cmp17 = icmp ult i64 %nargs, 3
+  %cmp17 = icmp samesign ult i64 %nargs, 3
   br i1 %cmp17, label %skip_optional, label %if.end19
 
 if.end19:                                         ; preds = %if.end16
@@ -4404,7 +4404,7 @@ if.end11:                                         ; preds = %if.end8
   br i1 %tobool14.not, label %exit, label %if.end16
 
 if.end16:                                         ; preds = %if.end11
-  %cmp17 = icmp ult i64 %nargs, 3
+  %cmp17 = icmp samesign ult i64 %nargs, 3
   br i1 %cmp17, label %skip_optional, label %if.end19
 
 if.end19:                                         ; preds = %if.end16
@@ -4645,7 +4645,7 @@ land.lhs.true28:                                  ; preds = %if.end18, %if.end26
 
 if.end32:                                         ; preds = %land.lhs.true28, %if.end26
   %ival19.024 = phi i64 [ -1, %land.lhs.true28 ], [ %call25, %if.end26 ]
-  %cmp33 = icmp ult i64 %nargs, 3
+  %cmp33 = icmp samesign ult i64 %nargs, 3
   br i1 %cmp33, label %skip_optional, label %if.end35
 
 if.end35:                                         ; preds = %if.end32
@@ -4828,7 +4828,7 @@ if.end11:                                         ; preds = %if.end8
   br i1 %tobool14.not, label %exit, label %if.end16
 
 if.end16:                                         ; preds = %if.end11
-  %cmp17 = icmp ult i64 %nargs, 3
+  %cmp17 = icmp samesign ult i64 %nargs, 3
   br i1 %cmp17, label %skip_optional, label %if.end19
 
 if.end19:                                         ; preds = %if.end16
@@ -8615,7 +8615,7 @@ land.lhs.true21:                                  ; preds = %land.lhs.true18, %l
   br i1 %tobool23.not, label %land.lhs.true26, label %if.then29
 
 lor.lhs.false24:                                  ; preds = %lor.lhs.false
-  %cmp25 = icmp ult i64 %nargs, 3
+  %cmp25 = icmp samesign ult i64 %nargs, 3
   br i1 %cmp25, label %land.lhs.true26, label %if.end34
 
 land.lhs.true26:                                  ; preds = %land.lhs.true21, %lor.lhs.false24

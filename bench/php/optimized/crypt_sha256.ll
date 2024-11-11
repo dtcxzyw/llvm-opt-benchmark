@@ -459,7 +459,7 @@ sha256_finish_ctx.exit447:                        ; preds = %220
 
 228:                                              ; preds = %sha256_finish_ctx.exit447
   %229 = alloca i8, i64 %36, align 16
-  %230 = icmp ugt i64 %36, 31
+  %230 = icmp samesign ugt i64 %36, 31
   br i1 %230, label %.lr.ph477.preheader, label %._crit_edge478
 
 .lr.ph477.preheader:                              ; preds = %226, %228
@@ -769,7 +769,7 @@ sha256_finish_ctx.exit459:                        ; preds = %340
   %389 = add nsw i32 %.2385486, -1
   %390 = lshr i32 %.0374487, 6
   %391 = icmp ugt i32 %.0373488, 1
-  %392 = icmp ugt i32 %.2385486, 1
+  %392 = icmp samesign ugt i32 %.2385486, 1
   %393 = select i1 %391, i1 %392, i1 false
   br i1 %393, label %.lr.ph490, label %._crit_edge491
 
@@ -808,7 +808,7 @@ sha256_finish_ctx.exit459:                        ; preds = %340
   %413 = add nsw i32 %.3495, -1
   %414 = lshr i32 %.0372496, 6
   %415 = icmp ugt i32 %.0371497, 1
-  %416 = icmp ugt i32 %.3495, 1
+  %416 = icmp samesign ugt i32 %.3495, 1
   %417 = select i1 %415, i1 %416, i1 false
   br i1 %417, label %.lr.ph499, label %._crit_edge500
 
@@ -847,7 +847,7 @@ sha256_finish_ctx.exit459:                        ; preds = %340
   %437 = add nsw i32 %.4504, -1
   %438 = lshr i32 %.0370505, 6
   %439 = icmp ugt i32 %.0369506, 1
-  %440 = icmp ugt i32 %.4504, 1
+  %440 = icmp samesign ugt i32 %.4504, 1
   %441 = select i1 %439, i1 %440, i1 false
   br i1 %441, label %.lr.ph508, label %._crit_edge509
 
@@ -886,7 +886,7 @@ sha256_finish_ctx.exit459:                        ; preds = %340
   %461 = add nsw i32 %.5513, -1
   %462 = lshr i32 %.0368514, 6
   %463 = icmp ugt i32 %.0367515, 1
-  %464 = icmp ugt i32 %.5513, 1
+  %464 = icmp samesign ugt i32 %.5513, 1
   %465 = select i1 %463, i1 %464, i1 false
   br i1 %465, label %.lr.ph517, label %._crit_edge518
 
@@ -925,7 +925,7 @@ sha256_finish_ctx.exit459:                        ; preds = %340
   %485 = add nsw i32 %.6522, -1
   %486 = lshr i32 %.0366523, 6
   %487 = icmp ugt i32 %.0365524, 1
-  %488 = icmp ugt i32 %.6522, 1
+  %488 = icmp samesign ugt i32 %.6522, 1
   %489 = select i1 %487, i1 %488, i1 false
   br i1 %489, label %.lr.ph526, label %._crit_edge527
 
@@ -964,7 +964,7 @@ sha256_finish_ctx.exit459:                        ; preds = %340
   %509 = add nsw i32 %.7531, -1
   %510 = lshr i32 %.0364532, 6
   %511 = icmp ugt i32 %.0363533, 1
-  %512 = icmp ugt i32 %.7531, 1
+  %512 = icmp samesign ugt i32 %.7531, 1
   %513 = select i1 %511, i1 %512, i1 false
   br i1 %513, label %.lr.ph535, label %._crit_edge536
 
@@ -1003,7 +1003,7 @@ sha256_finish_ctx.exit459:                        ; preds = %340
   %533 = add nsw i32 %.8540, -1
   %534 = lshr i32 %.0362541, 6
   %535 = icmp ugt i32 %.0361542, 1
-  %536 = icmp ugt i32 %.8540, 1
+  %536 = icmp samesign ugt i32 %.8540, 1
   %537 = select i1 %535, i1 %536, i1 false
   br i1 %537, label %.lr.ph544, label %._crit_edge545
 
@@ -1042,7 +1042,7 @@ sha256_finish_ctx.exit459:                        ; preds = %340
   %557 = add nsw i32 %.9549, -1
   %558 = lshr i32 %.0360550, 6
   %559 = icmp ugt i32 %.0359551, 1
-  %560 = icmp ugt i32 %.9549, 1
+  %560 = icmp samesign ugt i32 %.9549, 1
   %561 = select i1 %559, i1 %560, i1 false
   br i1 %561, label %.lr.ph553, label %._crit_edge554
 
@@ -1081,7 +1081,7 @@ sha256_finish_ctx.exit459:                        ; preds = %340
   %581 = add nsw i32 %.10558, -1
   %582 = lshr i32 %.0358559, 6
   %583 = icmp ugt i32 %.0357560, 1
-  %584 = icmp ugt i32 %.10558, 1
+  %584 = icmp samesign ugt i32 %.10558, 1
   %585 = select i1 %583, i1 %584, i1 false
   br i1 %585, label %.lr.ph562, label %._crit_edge563
 
@@ -1120,7 +1120,7 @@ sha256_finish_ctx.exit459:                        ; preds = %340
   %605 = add nsw i32 %.11567, -1
   %606 = lshr i32 %.0356568, 6
   %607 = icmp ugt i32 %.0355569, 1
-  %608 = icmp ugt i32 %.11567, 1
+  %608 = icmp samesign ugt i32 %.11567, 1
   %609 = select i1 %607, i1 %608, i1 false
   br i1 %609, label %.lr.ph571, label %._crit_edge572
 
@@ -1149,12 +1149,12 @@ sha256_finish_ctx.exit459:                        ; preds = %340
   %619 = add nsw i32 %.12576, -1
   %620 = lshr i32 %.0354577, 6
   %621 = icmp ugt i32 %.0578, 1
-  %622 = icmp ugt i32 %.12576, 1
+  %622 = icmp samesign ugt i32 %.12576, 1
   %623 = select i1 %621, i1 %622, i1 false
   br i1 %623, label %.lr.ph580, label %._crit_edge581
 
 ._crit_edge581:                                   ; preds = %.lr.ph580
-  %624 = icmp ult i32 %.12576, 2
+  %624 = icmp samesign ult i32 %.12576, 2
   br i1 %624, label %._crit_edge581.thread, label %626
 
 ._crit_edge581.thread:                            ; preds = %358, %367, %._crit_edge491, %._crit_edge500, %._crit_edge509, %._crit_edge518, %._crit_edge527, %._crit_edge536, %._crit_edge545, %._crit_edge554, %._crit_edge563, %._crit_edge572, %._crit_edge581

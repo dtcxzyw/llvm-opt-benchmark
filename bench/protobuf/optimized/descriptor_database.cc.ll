@@ -7882,7 +7882,7 @@ if.end28.i:                                       ; preds = %while.end24.i, %do.
   %arrayidx.i62.i = getelementptr i8, ptr %parent.2.i, i64 10
   %15 = load i8, ptr %arrayidx.i62.i, align 1
   %conv35.i = zext i8 %15 to i64
-  %cmp36.not.not.i = icmp ult i64 %pos.2.i, %conv35.i
+  %cmp36.not.not.i = icmp samesign ult i64 %pos.2.i, %conv35.i
   br i1 %cmp36.not.not.i, label %do.body.i.backedge, label %do.body37.i
 
 do.body.i.backedge:                               ; preds = %if.end28.i, %do.end52.i
@@ -8326,7 +8326,7 @@ if.then15:                                        ; preds = %if.then7
   %conv27 = zext nneg i8 %.sroa.speculated116 to i32
   %cmp31.not = icmp samesign uge i32 %conv20, %conv27
   %narrow = add nuw nsw i8 %.sroa.speculated116, %5
-  %cmp36 = icmp ult i8 %narrow, 7
+  %cmp36 = icmp samesign ult i8 %narrow, 7
   %or.cond = select i1 %cmp31.not, i1 true, i1 %cmp36
   br i1 %or.cond, label %if.then37, label %if.end53
 
@@ -8379,7 +8379,7 @@ if.then68:                                        ; preds = %if.then59
   %sub87 = sub nsw i32 %conv85, %conv86
   %cmp88.not = icmp sle i32 %conv83, %sub87
   %narrow123 = add nuw nsw i8 %.sroa.speculated, %12
-  %cmp94 = icmp ult i8 %narrow123, 7
+  %cmp94 = icmp samesign ult i8 %narrow123, 7
   %or.cond122 = select i1 %cmp88.not, i1 true, i1 %cmp94
   br i1 %or.cond122, label %if.then95, label %if.end108
 
@@ -9248,7 +9248,7 @@ for.body.i.i.i.i.i27:                             ; preds = %_ZSt22__uninitializ
   %incdec.ptr1.i.i.i.i.i = getelementptr inbounds i8, ptr %__result.addr.06.i.i.i.i.i, i64 -32
   %call.i.i.i.i.i = tail call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEOS4_(ptr noundef nonnull align 8 dereferenceable(32) %incdec.ptr1.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(32) %incdec.ptr.i.i.i.i.i28) #29
   %dec.i.i.i.i.i = add nsw i64 %__n.07.i.i.i.i.i, -1
-  %cmp.i.i.i.i.i = icmp ugt i64 %__n.07.i.i.i.i.i, 1
+  %cmp.i.i.i.i.i = icmp samesign ugt i64 %__n.07.i.i.i.i.i, 1
   br i1 %cmp.i.i.i.i.i, label %for.body.i.i.i.i.i27, label %for.body.i.i.i.i.i30.preheader, !llvm.loop !165
 
 for.body.i.i.i.i.i30.preheader:                   ; preds = %for.body.i.i.i.i.i27, %_ZSt22__uninitialized_move_aIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES6_SaIS5_EET0_T_S9_S8_RT1_.exit
@@ -11091,7 +11091,7 @@ if.then15:                                        ; preds = %if.then7
   %conv27 = zext nneg i8 %.sroa.speculated116 to i32
   %cmp31.not = icmp samesign uge i32 %conv26, %conv27
   %narrow = add nuw nsw i8 %.sroa.speculated116, %5
-  %cmp36 = icmp ult i8 %narrow, 6
+  %cmp36 = icmp samesign ult i8 %narrow, 6
   %or.cond = select i1 %cmp31.not, i1 true, i1 %cmp36
   br i1 %or.cond, label %if.then37, label %if.end53
 
@@ -11144,7 +11144,7 @@ if.then68:                                        ; preds = %if.then59
   %sub87 = sub nsw i32 %conv85, %conv86
   %cmp88.not = icmp sle i32 %conv83, %sub87
   %narrow123 = add nuw nsw i8 %.sroa.speculated, %12
-  %cmp94 = icmp ult i8 %narrow123, 6
+  %cmp94 = icmp samesign ult i8 %narrow123, 6
   %or.cond122 = select i1 %cmp88.not, i1 true, i1 %cmp94
   br i1 %or.cond122, label %if.then95, label %if.end108
 
@@ -13301,7 +13301,7 @@ if.then15:                                        ; preds = %if.then7
   %conv27 = zext nneg i8 %.sroa.speculated116 to i32
   %cmp31.not = icmp samesign uge i32 %conv20, %conv27
   %narrow = add nuw nsw i8 %.sroa.speculated116, %5
-  %cmp36 = icmp ult i8 %narrow, 5
+  %cmp36 = icmp samesign ult i8 %narrow, 5
   %or.cond = select i1 %cmp31.not, i1 true, i1 %cmp36
   br i1 %or.cond, label %if.then37, label %if.end53
 
@@ -13354,7 +13354,7 @@ if.then68:                                        ; preds = %if.then59
   %sub87 = sub nsw i32 %conv85, %conv86
   %cmp88.not = icmp sle i32 %conv83, %sub87
   %narrow123 = add nuw nsw i8 %.sroa.speculated, %12
-  %cmp94 = icmp ult i8 %narrow123, 5
+  %cmp94 = icmp samesign ult i8 %narrow123, 5
   %or.cond122 = select i1 %cmp88.not, i1 true, i1 %cmp94
   br i1 %or.cond122, label %if.then95, label %if.end108
 
@@ -15238,7 +15238,7 @@ if.then15:                                        ; preds = %if.then7
   %conv27 = zext nneg i8 %.sroa.speculated115 to i32
   %cmp31.not = icmp samesign uge i32 %conv26, %conv27
   %narrow = add nuw nsw i8 %.sroa.speculated115, %5
-  %cmp36 = icmp ult i8 %narrow, 6
+  %cmp36 = icmp samesign ult i8 %narrow, 6
   %or.cond = select i1 %cmp31.not, i1 true, i1 %cmp36
   br i1 %or.cond, label %if.then37, label %if.end53
 
@@ -15291,7 +15291,7 @@ if.then68:                                        ; preds = %if.then59
   %sub87 = sub nsw i32 %conv85, %conv86
   %cmp88.not = icmp sle i32 %conv83, %sub87
   %narrow122 = add nuw nsw i8 %.sroa.speculated, %12
-  %cmp94 = icmp ult i8 %narrow122, 6
+  %cmp94 = icmp samesign ult i8 %narrow122, 6
   %or.cond121 = select i1 %cmp88.not, i1 true, i1 %cmp94
   br i1 %or.cond121, label %if.then95, label %if.end108
 
@@ -16422,7 +16422,7 @@ if.then15:                                        ; preds = %if.then7
   %conv27 = zext nneg i8 %.sroa.speculated115 to i32
   %cmp31.not = icmp samesign uge i32 %conv20, %conv27
   %narrow = add nuw nsw i8 %.sroa.speculated115, %5
-  %cmp36 = icmp ult i8 %narrow, 5
+  %cmp36 = icmp samesign ult i8 %narrow, 5
   %or.cond = select i1 %cmp31.not, i1 true, i1 %cmp36
   br i1 %or.cond, label %if.then37, label %if.end53
 
@@ -16475,7 +16475,7 @@ if.then68:                                        ; preds = %if.then59
   %sub87 = sub nsw i32 %conv85, %conv86
   %cmp88.not = icmp sle i32 %conv83, %sub87
   %narrow122 = add nuw nsw i8 %.sroa.speculated, %12
-  %cmp94 = icmp ult i8 %narrow122, 5
+  %cmp94 = icmp samesign ult i8 %narrow122, 5
   %or.cond121 = select i1 %cmp88.not, i1 true, i1 %cmp94
   br i1 %or.cond121, label %if.then95, label %if.end108
 
@@ -18320,7 +18320,7 @@ if.then15:                                        ; preds = %if.then7
   %conv27 = zext nneg i8 %.sroa.speculated115 to i32
   %cmp31.not = icmp samesign uge i32 %conv26, %conv27
   %narrow = add nuw nsw i8 %.sroa.speculated115, %5
-  %cmp36 = icmp ult i8 %narrow, 6
+  %cmp36 = icmp samesign ult i8 %narrow, 6
   %or.cond = select i1 %cmp31.not, i1 true, i1 %cmp36
   br i1 %or.cond, label %if.then37, label %if.end53
 
@@ -18373,7 +18373,7 @@ if.then68:                                        ; preds = %if.then59
   %sub87 = sub nsw i32 %conv85, %conv86
   %cmp88.not = icmp sle i32 %conv83, %sub87
   %narrow122 = add nuw nsw i8 %.sroa.speculated, %12
-  %cmp94 = icmp ult i8 %narrow122, 6
+  %cmp94 = icmp samesign ult i8 %narrow122, 6
   %or.cond121 = select i1 %cmp88.not, i1 true, i1 %cmp94
   br i1 %or.cond121, label %if.then95, label %if.end108
 
@@ -19437,7 +19437,7 @@ for.body.i.i.i.i.i11:                             ; preds = %for.body.i.i.i.i.i1
   %incdec.ptr.i.i.i.i.i15 = getelementptr inbounds i8, ptr %__first.addr.07.i.i.i.i.i, i64 40
   %incdec.ptr1.i.i.i.i.i = getelementptr inbounds i8, ptr %__result.addr.08.i.i.i.i.i, i64 40
   %dec.i.i.i.i.i = add nsw i64 %__n.09.i.i.i.i.i, -1
-  %cmp.i.i.i.i.i = icmp ugt i64 %__n.09.i.i.i.i.i, 1
+  %cmp.i.i.i.i.i = icmp samesign ugt i64 %__n.09.i.i.i.i.i, 1
   br i1 %cmp.i.i.i.i.i, label %for.body.i.i.i.i.i11, label %_ZSt4copyIN9__gnu_cxx17__normal_iteratorIPN6google8protobuf25EncodedDescriptorDatabase15DescriptorIndex9FileEntryESt6vectorIS6_SaIS6_EEEES7_ET0_T_SD_SC_.exit, !llvm.loop !357
 
 _ZSt4copyIN9__gnu_cxx17__normal_iteratorIPN6google8protobuf25EncodedDescriptorDatabase15DescriptorIndex9FileEntryESt6vectorIS6_SaIS6_EEEES7_ET0_T_SD_SC_.exit: ; preds = %for.body.i.i.i.i.i11, %_ZSt4copyIN4absl12lts_2023080218container_internal14btree_iteratorINS2_10btree_nodeINS2_10set_paramsIN6google8protobuf25EncodedDescriptorDatabase15DescriptorIndex9FileEntryENS9_11FileCompareESaISA_ELi256ELb0EEEEERSA_PSA_EESG_ET0_T_SJ_SI_.exit
@@ -19643,7 +19643,7 @@ for.body.i.i.i.i.i11:                             ; preds = %for.body.i.i.i.i.i1
   %incdec.ptr.i.i.i.i.i15 = getelementptr inbounds i8, ptr %__first.addr.07.i.i.i.i.i, i64 40
   %incdec.ptr1.i.i.i.i.i = getelementptr inbounds i8, ptr %__result.addr.08.i.i.i.i.i, i64 40
   %dec.i.i.i.i.i = add nsw i64 %__n.09.i.i.i.i.i, -1
-  %cmp.i.i.i.i.i = icmp ugt i64 %__n.09.i.i.i.i.i, 1
+  %cmp.i.i.i.i.i = icmp samesign ugt i64 %__n.09.i.i.i.i.i, 1
   br i1 %cmp.i.i.i.i.i, label %for.body.i.i.i.i.i11, label %_ZSt4copyIN9__gnu_cxx17__normal_iteratorIPN6google8protobuf25EncodedDescriptorDatabase15DescriptorIndex11SymbolEntryESt6vectorIS6_SaIS6_EEEES7_ET0_T_SD_SC_.exit, !llvm.loop !360
 
 _ZSt4copyIN9__gnu_cxx17__normal_iteratorIPN6google8protobuf25EncodedDescriptorDatabase15DescriptorIndex11SymbolEntryESt6vectorIS6_SaIS6_EEEES7_ET0_T_SD_SC_.exit: ; preds = %for.body.i.i.i.i.i11, %_ZSt4copyIN4absl12lts_2023080218container_internal14btree_iteratorINS2_10btree_nodeINS2_10set_paramsIN6google8protobuf25EncodedDescriptorDatabase15DescriptorIndex11SymbolEntryENS9_13SymbolCompareESaISA_ELi256ELb0EEEEERSA_PSA_EESG_ET0_T_SJ_SI_.exit
@@ -19898,7 +19898,7 @@ for.body.i.i.i.i.i13:                             ; preds = %for.body.i.i.i.i.i1
   %incdec.ptr.i.i.i.i.i19 = getelementptr inbounds i8, ptr %__first.addr.07.i.i.i.i.i, i64 48
   %incdec.ptr1.i.i.i.i.i = getelementptr inbounds i8, ptr %__result.addr.08.i.i.i.i.i, i64 48
   %dec.i.i.i.i.i = add nsw i64 %__n.09.i.i.i.i.i, -1
-  %cmp.i.i.i.i.i = icmp ugt i64 %__n.09.i.i.i.i.i, 1
+  %cmp.i.i.i.i.i = icmp samesign ugt i64 %__n.09.i.i.i.i.i, 1
   br i1 %cmp.i.i.i.i.i, label %for.body.i.i.i.i.i13, label %_ZSt4copyIN9__gnu_cxx17__normal_iteratorIPN6google8protobuf25EncodedDescriptorDatabase15DescriptorIndex14ExtensionEntryESt6vectorIS6_SaIS6_EEEES7_ET0_T_SD_SC_.exit, !llvm.loop !365
 
 _ZSt4copyIN9__gnu_cxx17__normal_iteratorIPN6google8protobuf25EncodedDescriptorDatabase15DescriptorIndex14ExtensionEntryESt6vectorIS6_SaIS6_EEEES7_ET0_T_SD_SC_.exit: ; preds = %for.body.i.i.i.i.i13, %_ZSt4copyIN4absl12lts_2023080218container_internal14btree_iteratorINS2_10btree_nodeINS2_10set_paramsIN6google8protobuf25EncodedDescriptorDatabase15DescriptorIndex14ExtensionEntryENS9_16ExtensionCompareESaISA_ELi256ELb0EEEEERSA_PSA_EESG_ET0_T_SJ_SI_.exit
@@ -20238,7 +20238,7 @@ if.then15:                                        ; preds = %if.then7
   %conv27 = zext nneg i8 %.sroa.speculated116 to i32
   %cmp31.not = icmp samesign uge i32 %conv20, %conv27
   %narrow = add nuw nsw i8 %.sroa.speculated116, %5
-  %cmp36 = icmp ult i8 %narrow, 61
+  %cmp36 = icmp samesign ult i8 %narrow, 61
   %or.cond = select i1 %cmp31.not, i1 true, i1 %cmp36
   br i1 %or.cond, label %if.then37, label %if.end53
 
@@ -20291,7 +20291,7 @@ if.then68:                                        ; preds = %if.then59
   %sub87 = sub nsw i32 %conv85, %conv86
   %cmp88.not = icmp sle i32 %conv83, %sub87
   %narrow123 = add nuw nsw i8 %.sroa.speculated, %12
-  %cmp94 = icmp ult i8 %narrow123, 61
+  %cmp94 = icmp samesign ult i8 %narrow123, 61
   %or.cond122 = select i1 %cmp88.not, i1 true, i1 %cmp94
   br i1 %or.cond122, label %if.then95, label %if.end108
 

@@ -1511,7 +1511,7 @@ define noundef zeroext i1 @_ZN6plic_t4loadEmmPh(ptr noundef nonnull align 8 dere
 18:                                               ; preds = %16
   %19 = lshr i64 %1, 2
   %20 = trunc nuw i64 %19 to i32
-  %.not.i = icmp ugt i64 %1, 3
+  %.not.i = icmp samesign ugt i64 %1, 3
   %21 = getelementptr inbounds i8, ptr %0, i64 40
   %22 = load i32, ptr %21, align 8
   %23 = icmp ugt i32 %22, %20
@@ -1711,7 +1711,7 @@ _Z23write_little_endian_regIjEvPT_mmPKh.exit:     ; preds = %.preheader
 31:                                               ; preds = %_Z23write_little_endian_regIjEvPT_mmPKh.exit
   %32 = lshr i64 %1, 2
   %33 = trunc nuw i64 %32 to i32
-  %.not.i = icmp ugt i64 %1, 3
+  %.not.i = icmp samesign ugt i64 %1, 3
   %34 = getelementptr inbounds i8, ptr %0, i64 40
   %35 = load i32, ptr %34, align 8
   %36 = icmp ugt i32 %35, %33

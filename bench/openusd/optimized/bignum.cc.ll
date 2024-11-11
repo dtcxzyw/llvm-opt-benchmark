@@ -842,7 +842,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversion6Bignum14EnsureCapac
   %26 = add nsw i64 %indvars.iv.next.i, %18
   %27 = getelementptr inbounds [128 x i32], ptr %16, i64 0, i64 %26
   store i32 %25, ptr %27, align 4
-  %28 = icmp ugt i64 %indvars.iv.i, 1
+  %28 = icmp samesign ugt i64 %indvars.iv.i, 1
   br i1 %28, label %_ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversion6Bignum14EnsureCapacityEi.exit.i, label %.preheader.i, !llvm.loop !19
 
 ._crit_edge.i:                                    ; preds = %.lr.ph20.i, %.preheader.i
@@ -1039,7 +1039,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversion6Bignum14EnsureCapac
   %27 = add nsw i64 %indvars.iv.next, %19
   %28 = getelementptr inbounds [128 x i32], ptr %17, i64 0, i64 %27
   store i32 %26, ptr %28, align 4
-  %29 = icmp ugt i64 %indvars.iv, 1
+  %29 = icmp samesign ugt i64 %indvars.iv, 1
   br i1 %29, label %_ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversion6Bignum14EnsureCapacityEi.exit, label %.preheader, !llvm.loop !19
 
 ._crit_edge:                                      ; preds = %.lr.ph20, %.preheader
@@ -1108,7 +1108,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversion6Bignum14EnsureCapac
   %27 = add nsw i64 %indvars.iv.next.i, %19
   %28 = getelementptr inbounds [128 x i32], ptr %17, i64 0, i64 %27
   store i32 %26, ptr %28, align 4
-  %29 = icmp ugt i64 %indvars.iv.i, 1
+  %29 = icmp samesign ugt i64 %indvars.iv.i, 1
   br i1 %29, label %_ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversion6Bignum14EnsureCapacityEi.exit.i, label %.preheader.i, !llvm.loop !19
 
 ._crit_edge.i:                                    ; preds = %.lr.ph20.i, %.preheader.i
@@ -2058,7 +2058,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversion6Bignum14EnsureCapac
   %33 = add nsw i64 %indvars.iv.next.i, %25
   %34 = getelementptr inbounds [128 x i32], ptr %23, i64 0, i64 %33
   store i32 %32, ptr %34, align 4
-  %35 = icmp ugt i64 %indvars.iv.i, 1
+  %35 = icmp samesign ugt i64 %indvars.iv.i, 1
   br i1 %35, label %_ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversion6Bignum14EnsureCapacityEi.exit.i, label %.preheader.i, !llvm.loop !19
 
 ._crit_edge.i:                                    ; preds = %.lr.ph20.i, %.preheader.i

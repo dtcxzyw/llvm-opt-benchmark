@@ -417,11 +417,11 @@ if.else18.i:                                      ; preds = %if.else
   br i1 %cmp19.i, label %cond.true.i, label %cond.false.i
 
 cond.true.i:                                      ; preds = %if.else18.i
-  %cmp22.i = icmp ult i64 %call1.i, 2147483648
+  %cmp22.i = icmp samesign ult i64 %call1.i, 2147483648
   br i1 %cmp22.i, label %if.end29.i, label %if.then27.i
 
 cond.false.i:                                     ; preds = %if.else18.i
-  %cmp25.not.i = icmp ult i64 %call1.i, -2147483648
+  %cmp25.not.i = icmp samesign ult i64 %call1.i, -2147483648
   br i1 %cmp25.not.i, label %if.then27.i, label %if.end29.i
 
 if.then27.i:                                      ; preds = %cond.false.i, %cond.true.i
@@ -462,11 +462,11 @@ if.else18.i20:                                    ; preds = %getfield.exit
   br i1 %cmp19.i21, label %cond.true.i30, label %cond.false.i22
 
 cond.true.i30:                                    ; preds = %if.else18.i20
-  %cmp22.i31 = icmp ult i64 %call1.i18, 2147483648
+  %cmp22.i31 = icmp samesign ult i64 %call1.i18, 2147483648
   br i1 %cmp22.i31, label %if.end29.i24, label %if.then27.i28
 
 cond.false.i22:                                   ; preds = %if.else18.i20
-  %cmp25.not.i23 = icmp ult i64 %call1.i18, -2147483648
+  %cmp25.not.i23 = icmp samesign ult i64 %call1.i18, -2147483648
   br i1 %cmp25.not.i23, label %if.then27.i28, label %if.end29.i24
 
 if.then27.i28:                                    ; preds = %cond.false.i22, %cond.true.i30
@@ -507,11 +507,11 @@ if.else18.i42:                                    ; preds = %getfield.exit37
   br i1 %cmp19.i43, label %cond.true.i52, label %cond.false.i44
 
 cond.true.i52:                                    ; preds = %if.else18.i42
-  %cmp22.i53 = icmp ult i64 %call1.i40, 2147483648
+  %cmp22.i53 = icmp samesign ult i64 %call1.i40, 2147483648
   br i1 %cmp22.i53, label %if.end29.i46, label %if.then27.i50
 
 cond.false.i44:                                   ; preds = %if.else18.i42
-  %cmp25.not.i45 = icmp ult i64 %call1.i40, -2147483648
+  %cmp25.not.i45 = icmp samesign ult i64 %call1.i40, -2147483648
   br i1 %cmp25.not.i45, label %if.then27.i50, label %if.end29.i46
 
 if.then27.i50:                                    ; preds = %cond.false.i44, %cond.true.i52
@@ -774,7 +774,7 @@ cond.true:                                        ; preds = %if.else18
 cond.false:                                       ; preds = %if.else18
   %add = or disjoint i32 %delta, -2147483648
   %conv24 = sext i32 %add to i64
-  %cmp25.not = icmp ult i64 %call1, %conv24
+  %cmp25.not = icmp samesign ult i64 %call1, %conv24
   br i1 %cmp25.not, label %if.then27, label %if.end29
 
 if.then27:                                        ; preds = %cond.false, %cond.true

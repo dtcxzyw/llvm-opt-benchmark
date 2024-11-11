@@ -181,7 +181,7 @@ while.cond.preheader.i:                           ; preds = %if.else
   %len2.i = getelementptr inbounds i8, ptr %15, i64 98
   %22 = load i16, ptr %len2.i, align 2
   %conv313.i = zext i16 %22 to i64
-  %cmp414.i = icmp ugt i64 %len, %conv313.i
+  %cmp414.i = icmp samesign ugt i64 %len, %conv313.i
   br i1 %cmp414.i, label %while.body.lr.ph.i, label %return
 
 while.body.lr.ph.i:                               ; preds = %while.cond.preheader.i
@@ -516,7 +516,7 @@ if.then.i:                                        ; preds = %while.body.i
 if.end.i14:                                       ; preds = %while.body.i
   %15 = load i16, ptr %len.i6, align 2
   %16 = zext i16 %15 to i32
-  %cmp.i.i = icmp ugt i32 %call.i12, %16
+  %cmp.i.i = icmp samesign ugt i32 %call.i12, %16
   br i1 %cmp.i.i, label %if.then.i.i, label %consume_buffer.exit.i
 
 if.then.i.i:                                      ; preds = %if.end.i14

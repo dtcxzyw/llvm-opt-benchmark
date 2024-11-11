@@ -7913,7 +7913,7 @@ select.unfold.i:                                  ; preds = %select.unfold.i, %s
   %66 = load i32, ptr %65, align 4
   %67 = xor i32 %66, -1
   store i32 %67, ptr %65, align 4
-  %68 = icmp ugt i64 %indvars.iv.i, 1
+  %68 = icmp samesign ugt i64 %indvars.iv.i, 1
   br i1 %68, label %select.unfold.i, label %Extra_TruthNot.exit, !llvm.loop !28
 
 Extra_TruthNot.exit:                              ; preds = %select.unfold.i, %59, %46
@@ -57084,7 +57084,7 @@ define internal range(i32 0, 2) i32 @Abc_CommandAbc9Shrink(ptr nocapture noundef
   br label %39
 
 34:                                               ; preds = %28
-  %35 = icmp ult i32 %29, 7
+  %35 = icmp samesign ult i32 %29, 7
   br i1 %35, label %36, label %.thread
 
 36:                                               ; preds = %34
@@ -64895,7 +64895,7 @@ define internal range(i32 0, 2) i32 @Abc_CommandAbc9If(ptr nocapture noundef %0,
   br i1 %or.cond435, label %331, label %325
 
 325:                                              ; preds = %322
-  %326 = icmp ugt i32 %281, 6
+  %326 = icmp samesign ugt i32 %281, 6
   br i1 %326, label %327, label %328
 
 327:                                              ; preds = %325
@@ -88910,7 +88910,7 @@ define internal fastcc void @Vec_WrdDumpBool(ptr noundef %0, ptr nocapture nound
   %22 = trunc i64 %21 to i32
   %23 = and i32 %22, 1
   %24 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef nonnull %7, ptr noundef nonnull @.str.1365, i32 noundef %23) #28
-  %25 = icmp ugt i32 %.0.in15.i.us, 1
+  %25 = icmp samesign ugt i32 %.0.in15.i.us, 1
   br i1 %25, label %.lr.ph.i.us, label %Vec_WrdDumpBoolOne.exit.loopexit.us, !llvm.loop !526
 
 Vec_WrdDumpBoolOne.exit.loopexit.us:              ; preds = %.lr.ph.i.us

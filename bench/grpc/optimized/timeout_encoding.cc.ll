@@ -38,7 +38,7 @@ entry:
   br i1 %cmp, label %return, label %if.else
 
 if.else:                                          ; preds = %entry
-  %cmp1 = icmp ult i64 %millis, 1000
+  %cmp1 = icmp samesign ult i64 %millis, 1000
   br i1 %cmp1, label %if.then2, label %if.else3
 
 if.then2:                                         ; preds = %if.else
@@ -46,7 +46,7 @@ if.then2:                                         ; preds = %if.else
   br label %return
 
 if.else3:                                         ; preds = %if.else
-  %cmp4 = icmp ult i64 %millis, 10000
+  %cmp4 = icmp samesign ult i64 %millis, 10000
   br i1 %cmp4, label %if.then5, label %if.else9
 
 if.then5:                                         ; preds = %if.else3
@@ -58,7 +58,7 @@ if.then5:                                         ; preds = %if.else3
   br i1 %cmp6.not, label %if.end27.thread, label %return
 
 if.else9:                                         ; preds = %if.else3
-  %cmp10 = icmp ult i64 %millis, 100000
+  %cmp10 = icmp samesign ult i64 %millis, 100000
   br i1 %cmp10, label %if.then11, label %if.else19
 
 if.then11:                                        ; preds = %if.else9
@@ -71,7 +71,7 @@ if.then11:                                        ; preds = %if.else9
   br i1 %cmp15.not, label %if.end27.thread, label %return
 
 if.else19:                                        ; preds = %if.else9
-  %cmp21 = icmp ugt i64 %millis, 9223372036854774808
+  %cmp21 = icmp samesign ugt i64 %millis, 9223372036854774808
   br i1 %cmp21, label %return, label %if.end27
 
 if.end27.thread:                                  ; preds = %if.then11, %if.then5
@@ -84,7 +84,7 @@ if.end27.thread:                                  ; preds = %if.then11, %if.then
 if.end27:                                         ; preds = %if.else19
   %add.i19 = add nuw nsw i64 %millis, 999
   %div.i2025 = udiv i64 %add.i19, 1000
-  %cmp.i = icmp ult i64 %millis, 999001
+  %cmp.i = icmp samesign ult i64 %millis, 999001
   br i1 %cmp.i, label %if.then.i, label %if.else.i
 
 if.then.i:                                        ; preds = %if.end27.thread, %if.end27
@@ -95,7 +95,7 @@ if.then.i:                                        ; preds = %if.end27.thread, %i
   br i1 %cmp1.not.i, label %if.end23.thread.i, label %return
 
 if.else.i:                                        ; preds = %if.end27
-  %cmp3.i = icmp ult i64 %millis, 9999001
+  %cmp3.i = icmp samesign ult i64 %millis, 9999001
   br i1 %cmp3.i, label %if.then4.i, label %if.else10.i
 
 if.then4.i:                                       ; preds = %if.else.i
@@ -108,7 +108,7 @@ if.then4.i:                                       ; preds = %if.else.i
   br i1 %cmp6.not.i, label %if.end23.thread.i, label %return
 
 if.else10.i:                                      ; preds = %if.else.i
-  %cmp11.i = icmp ult i64 %millis, 99999001
+  %cmp11.i = icmp samesign ult i64 %millis, 99999001
   br i1 %cmp11.i, label %if.then12.i, label %if.else.i.i
 
 if.then12.i:                                      ; preds = %if.else10.i
@@ -135,7 +135,7 @@ if.end23.i:                                       ; preds = %if.then12.i
   %div.i1739.lhs.trunc.i = add nuw nsw i32 %4, 59
   %div.i173940.i = udiv i32 %div.i1739.lhs.trunc.i, 60
   %div.i1739.zext.i = zext nneg i32 %div.i173940.i to i64
-  %cmp.i.i = icmp ult i64 %millis, 59940001
+  %cmp.i.i = icmp samesign ult i64 %millis, 59940001
   br i1 %cmp.i.i, label %if.then.i.i, label %if.then4.i.i
 
 if.then.i.i:                                      ; preds = %if.end23.i, %if.end23.thread.i
@@ -148,7 +148,7 @@ if.then.i.i:                                      ; preds = %if.end23.i, %if.end
 if.else.i.i:                                      ; preds = %if.else10.i
   %add.i1632.i = add nuw nsw i64 %div.i2025, 59
   %div.i173341.i = udiv i64 %add.i1632.i, 60
-  %cmp3.i.i = icmp ult i64 %millis, 599940001
+  %cmp3.i.i = icmp samesign ult i64 %millis, 599940001
   br i1 %cmp3.i.i, label %if.then4.i.i, label %if.else10.i.i
 
 if.then4.i.i:                                     ; preds = %if.else.i.i, %if.end23.i
@@ -162,7 +162,7 @@ if.then4.i.i:                                     ; preds = %if.else.i.i, %if.en
   br i1 %cmp6.not.i.i, label %if.end23.i.i, label %return
 
 if.else10.i.i:                                    ; preds = %if.else.i.i
-  %cmp11.i.i = icmp ult i64 %millis, 5999940001
+  %cmp11.i.i = icmp samesign ult i64 %millis, 5999940001
   br i1 %cmp11.i.i, label %if.then12.i.i, label %if.end23.i.i
 
 if.then12.i.i:                                    ; preds = %if.else10.i.i
@@ -425,15 +425,15 @@ entry:
   br i1 %cmp, label %sw.bb, label %if.else
 
 if.else:                                          ; preds = %entry
-  %cmp3 = icmp ugt i16 %0, 999
+  %cmp3 = icmp samesign ugt i16 %0, 999
   br i1 %cmp3, label %sw.bb21, label %if.else5
 
 if.else5:                                         ; preds = %if.else
-  %cmp7 = icmp ugt i16 %0, 99
+  %cmp7 = icmp samesign ugt i16 %0, 99
   br i1 %cmp7, label %sw.bb30, label %if.else9
 
 if.else9:                                         ; preds = %if.else5
-  %cmp11 = icmp ugt i16 %0, 9
+  %cmp11 = icmp samesign ugt i16 %0, 9
   br i1 %cmp11, label %sw.bb39, label %sw.bb48
 
 sw.bb:                                            ; preds = %entry
@@ -591,7 +591,7 @@ if.then2:                                         ; preds = %if.then
   br label %return
 
 if.else:                                          ; preds = %entry
-  %cmp3 = icmp ult i64 %seconds, 10000
+  %cmp3 = icmp samesign ult i64 %seconds, 10000
   br i1 %cmp3, label %if.then4, label %if.else10
 
 if.then4:                                         ; preds = %if.else
@@ -604,7 +604,7 @@ if.then4:                                         ; preds = %if.else
   br i1 %cmp6.not, label %if.end23.thread, label %return
 
 if.else10:                                        ; preds = %if.else
-  %cmp11 = icmp ult i64 %seconds, 100000
+  %cmp11 = icmp samesign ult i64 %seconds, 100000
   br i1 %cmp11, label %if.then12, label %if.else.i
 
 if.then12:                                        ; preds = %if.else10
@@ -630,7 +630,7 @@ if.end23:                                         ; preds = %if.then12
   %div.i1739.lhs.trunc = add nuw nsw i32 %2, 59
   %div.i173940 = udiv i32 %div.i1739.lhs.trunc, 60
   %div.i1739.zext = zext nneg i32 %div.i173940 to i64
-  %cmp.i = icmp ult i64 %seconds, 59941
+  %cmp.i = icmp samesign ult i64 %seconds, 59941
   br i1 %cmp.i, label %if.then.i, label %if.then4.i
 
 if.then.i:                                        ; preds = %if.end23.thread, %if.end23
@@ -708,7 +708,7 @@ if.then2:                                         ; preds = %if.then
   br label %return
 
 if.else:                                          ; preds = %entry
-  %cmp3 = icmp ult i64 %minutes, 10000
+  %cmp3 = icmp samesign ult i64 %minutes, 10000
   br i1 %cmp3, label %if.then4, label %if.else10
 
 if.then4:                                         ; preds = %if.else
@@ -721,7 +721,7 @@ if.then4:                                         ; preds = %if.else
   br i1 %cmp6.not, label %if.end23, label %return
 
 if.else10:                                        ; preds = %if.else
-  %cmp11 = icmp ult i64 %minutes, 100000
+  %cmp11 = icmp samesign ult i64 %minutes, 100000
   br i1 %cmp11, label %if.then12, label %if.end23
 
 if.then12:                                        ; preds = %if.else10

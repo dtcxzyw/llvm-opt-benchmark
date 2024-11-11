@@ -1433,7 +1433,7 @@ add_multi_line_string_to_tree.exit:               ; preds = %.lr.ph.i, %183
 653:                                              ; preds = %.lr.ph.i1099
   %654 = trunc i32 %651 to i16
   %655 = sub i16 %.090110.i, %654
-  %656 = icmp ult i32 %651, 8
+  %656 = icmp samesign ult i32 %651, 8
   br i1 %656, label %657, label %660
 
 657:                                              ; preds = %653
@@ -2016,7 +2016,7 @@ define internal fastcc range(i32 -1, 65791) i32 @dissect_address_tlv(ptr noundef
   %20 = add i32 %2, 2
   %21 = add nsw i32 %3, -2
   %22 = zext i8 %17 to i32
-  %23 = icmp ult i32 %21, %22
+  %23 = icmp samesign ult i32 %21, %22
   br i1 %23, label %24, label %28
 
 24:                                               ; preds = %15
@@ -2086,7 +2086,7 @@ define internal fastcc range(i32 -1, 65791) i32 @dissect_address_tlv(ptr noundef
   %63 = add i32 %59, 2
   %64 = add nsw i32 %56, -2
   %65 = zext i16 %60 to i32
-  %66 = icmp ult i32 %64, %65
+  %66 = icmp samesign ult i32 %64, %65
   br i1 %66, label %67, label %71
 
 67:                                               ; preds = %58

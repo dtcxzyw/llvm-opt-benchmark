@@ -160,7 +160,7 @@ blobDestroy.exit:                                 ; preds = %12, %15
   br label %16
 
 16:                                               ; preds = %blobDestroy.exit, %.lr.ph
-  %17 = icmp ugt i64 %indvars.iv, 1
+  %17 = icmp samesign ugt i64 %indvars.iv, 1
   br i1 %17, label %.lr.ph, label %._crit_edge
 
 ._crit_edge:                                      ; preds = %16, %.preheader

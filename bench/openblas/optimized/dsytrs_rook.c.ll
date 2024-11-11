@@ -180,7 +180,7 @@ define void @dsytrs_rook_(ptr noundef %0, ptr nocapture noundef readonly %1, ptr
   br label %105
 
 105:                                              ; preds = %98, %91
-  %106 = icmp ugt i32 %59, 2
+  %106 = icmp samesign ugt i32 %59, 2
   br i1 %106, label %107, label %._crit_edge
 
 ._crit_edge:                                      ; preds = %105

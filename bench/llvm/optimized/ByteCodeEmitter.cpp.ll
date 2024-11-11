@@ -117870,7 +117870,7 @@ _ZN4llvm15SmallVectorImplIN5clang6interp5ScopeEE12assignRemoteEOS4_.exit: ; pred
   %40 = getelementptr inbounds i8, ptr %.0910.i.i.i.i.i, i64 144
   %41 = getelementptr inbounds i8, ptr %.0811.i.i.i.i.i, i64 144
   %42 = add nsw i64 %.012.i.i.i.i.i, -1
-  %43 = icmp ugt i64 %.012.i.i.i.i.i, 1
+  %43 = icmp samesign ugt i64 %.012.i.i.i.i.i, 1
   br i1 %43, label %.lr.ph.i.i.i.i.i, label %_ZSt4moveIPN5clang6interp5ScopeES3_ET0_T_S5_S4_.exit, !llvm.loop !46
 
 _ZSt4moveIPN5clang6interp5ScopeES3_ET0_T_S5_S4_.exit: ; preds = %.lr.ph.i.i.i.i.i, %35, %33
@@ -118005,7 +118005,7 @@ _ZN4llvm23SmallVectorTemplateBaseIN5clang6interp5ScopeELb0EE4growEm.exit: ; pred
   %89 = getelementptr inbounds i8, ptr %.0910.i.i.i.i.i54, i64 144
   %90 = getelementptr inbounds i8, ptr %.0811.i.i.i.i.i53, i64 144
   %91 = add nsw i64 %.012.i.i.i.i.i52, -1
-  %92 = icmp ugt i64 %.012.i.i.i.i.i52, 1
+  %92 = icmp samesign ugt i64 %.012.i.i.i.i.i52, 1
   br i1 %92, label %.lr.ph.i.i.i.i.i51, label %_ZSt4moveIPN5clang6interp5ScopeES3_ET0_T_S5_S4_.exit55, !llvm.loop !46
 
 _ZSt4moveIPN5clang6interp5ScopeES3_ET0_T_S5_S4_.exit55: ; preds = %.lr.ph.i.i.i.i.i51, %84, %83, %_ZN4llvm23SmallVectorTemplateBaseIN5clang6interp5ScopeELb0EE4growEm.exit

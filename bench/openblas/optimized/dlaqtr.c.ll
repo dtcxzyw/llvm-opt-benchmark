@@ -881,7 +881,7 @@ thread-pre-split:                                 ; preds = %69
   br label %577
 
 577:                                              ; preds = %573, %566, %545
-  %578 = icmp ugt i32 %501, 1
+  %578 = icmp samesign ugt i32 %501, 1
   br i1 %578, label %579, label %772
 
 579:                                              ; preds = %577
@@ -1054,7 +1054,7 @@ thread-pre-split:                                 ; preds = %69
   br label %702
 
 702:                                              ; preds = %698, %687, %659
-  %703 = icmp ugt i32 %490, 1
+  %703 = icmp samesign ugt i32 %490, 1
   br i1 %703, label %704, label %772
 
 704:                                              ; preds = %702

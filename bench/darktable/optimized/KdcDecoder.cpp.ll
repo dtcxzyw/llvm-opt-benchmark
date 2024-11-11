@@ -600,8 +600,8 @@ define hidden void @_ZN8rawspeed10KdcDecoder17decodeRawInternalEv(ptr dead_on_un
   br i1 %68, label %69, label %73
 
 69:                                               ; preds = %53
-  %70 = icmp ult i32 %63, 4305
-  %71 = icmp ult i32 %66, 3222
+  %70 = icmp samesign ult i32 %63, 4305
+  %71 = icmp samesign ult i32 %66, 3222
   %72 = select i1 %70, i1 %71, i1 false
   br i1 %72, label %79, label %73
 

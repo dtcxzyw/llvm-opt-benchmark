@@ -703,7 +703,7 @@ Vec_IntPush.exit:                                 ; preds = %.Vec_IntGrow.exit10
   br i1 %58, label %.lr.ph.i, label %Abc_TtSupportSize.exit
 
 .lr.ph.i:                                         ; preds = %Vec_IntPush.exit
-  %59 = icmp ult i32 %1, 7
+  %59 = icmp samesign ult i32 %1, 7
   %60 = add nsw i32 %1, -6
   %61 = shl nuw i32 1, %60
   %62 = sext i32 %61 to i64
@@ -996,7 +996,7 @@ Abc_Clock.exit394:                                ; preds = %Vec_WecSizeSize.exi
   %55 = fdiv double %54, 1.000000e+06
   call void (i32, ptr, ...) @Abc_Print(i32 poison, ptr noundef nonnull @.str.34, double noundef %55)
   %56 = icmp sgt i32 %0, 0
-  %57 = icmp ult i32 %0, 7
+  %57 = icmp samesign ult i32 %0, 7
   %58 = add nsw i32 %0, -6
   %59 = shl nuw i32 1, %58
   %60 = sext i32 %59 to i64

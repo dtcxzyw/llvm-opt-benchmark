@@ -1185,7 +1185,7 @@ define internal range(i32 0, 2) i32 @nstrace_read_v20(ptr nocapture noundef read
 
 42:                                               ; preds = %31, %35
   %43 = phi i32 [ %41, %35 ], [ %34, %31 ]
-  %44 = icmp ult i32 %43, 8
+  %44 = icmp samesign ult i32 %43, 8
   br i1 %44, label %45, label %47
 
 45:                                               ; preds = %42
@@ -1348,7 +1348,7 @@ ns_hrtime2nsec.exit:                              ; preds = %47, %57, %59, %61
 
 133:                                              ; preds = %122, %126
   %134 = phi i32 [ %132, %126 ], [ %125, %122 ]
-  %135 = icmp ult i32 %134, 12
+  %135 = icmp samesign ult i32 %134, 12
   br i1 %135, label %136, label %138
 
 136:                                              ; preds = %133
@@ -1513,7 +1513,7 @@ ns_hrtime2nsec.exit1092:                          ; preds = %138, %148, %150, %1
 
 227:                                              ; preds = %216, %220
   %228 = phi i32 [ %226, %220 ], [ %219, %216 ]
-  %229 = icmp ult i32 %228, 16
+  %229 = icmp samesign ult i32 %228, 16
   br i1 %229, label %230, label %232
 
 230:                                              ; preds = %227
@@ -1677,7 +1677,7 @@ ns_hrtime2nsec.exit1095:                          ; preds = %232, %242, %244, %2
 
 320:                                              ; preds = %309, %313
   %321 = phi i32 [ %319, %313 ], [ %312, %309 ]
-  %322 = icmp ult i32 %321, 20
+  %322 = icmp samesign ult i32 %321, 20
   br i1 %322, label %323, label %325
 
 323:                                              ; preds = %320
@@ -1846,7 +1846,7 @@ ns_hrtime2nsec.exit1098:                          ; preds = %325, %335, %337, %3
 
 416:                                              ; preds = %405, %409
   %417 = phi i32 [ %415, %409 ], [ %408, %405 ]
-  %418 = icmp ult i32 %417, 18
+  %418 = icmp samesign ult i32 %417, 18
   br i1 %418, label %419, label %421
 
 419:                                              ; preds = %416
@@ -2012,7 +2012,7 @@ ns_hrtime2nsec.exit1101:                          ; preds = %421, %431, %433, %4
 
 510:                                              ; preds = %499, %503
   %511 = phi i32 [ %509, %503 ], [ %502, %499 ]
-  %512 = icmp ult i32 %511, 22
+  %512 = icmp samesign ult i32 %511, 22
   br i1 %512, label %513, label %515
 
 513:                                              ; preds = %510
@@ -2183,7 +2183,7 @@ ns_hrtime2nsec.exit1104:                          ; preds = %515, %525, %527, %5
 
 607:                                              ; preds = %596, %600
   %608 = phi i32 [ %606, %600 ], [ %599, %596 ]
-  %609 = icmp ult i32 %608, 24
+  %609 = icmp samesign ult i32 %608, 24
   br i1 %609, label %610, label %612
 
 610:                                              ; preds = %607
@@ -2322,7 +2322,7 @@ ns_hrtime2nsec.exit1104:                          ; preds = %515, %525, %527, %5
 
 688:                                              ; preds = %677, %681
   %689 = phi i32 [ %687, %681 ], [ %680, %677 ]
-  %690 = icmp ult i32 %689, 28
+  %690 = icmp samesign ult i32 %689, 28
   br i1 %690, label %691, label %693
 
 691:                                              ; preds = %688
@@ -2466,7 +2466,7 @@ ns_hrtime2nsec.exit1104:                          ; preds = %515, %525, %527, %5
 
 772:                                              ; preds = %761, %765
   %773 = phi i32 [ %771, %765 ], [ %764, %761 ]
-  %774 = icmp ult i32 %773, 29
+  %774 = icmp samesign ult i32 %773, 29
   br i1 %774, label %775, label %777
 
 775:                                              ; preds = %772
@@ -2611,7 +2611,7 @@ ns_hrtime2nsec.exit1104:                          ; preds = %515, %525, %527, %5
 
 856:                                              ; preds = %845, %849
   %857 = phi i32 [ %855, %849 ], [ %848, %845 ]
-  %858 = icmp ult i32 %857, 33
+  %858 = icmp samesign ult i32 %857, 33
   br i1 %858, label %859, label %861
 
 859:                                              ; preds = %856
@@ -2761,7 +2761,7 @@ ns_hrtime2nsec.exit1104:                          ; preds = %515, %525, %527, %5
 
 943:                                              ; preds = %932, %936
   %944 = phi i32 [ %942, %936 ], [ %935, %932 ]
-  %945 = icmp ult i32 %944, 31
+  %945 = icmp samesign ult i32 %944, 31
   br i1 %945, label %946, label %948
 
 946:                                              ; preds = %943
@@ -2912,7 +2912,7 @@ ns_hrtime2nsec.exit1104:                          ; preds = %515, %525, %527, %5
 
 1030:                                             ; preds = %1019, %1023
   %1031 = phi i32 [ %1029, %1023 ], [ %1022, %1019 ]
-  %1032 = icmp ult i32 %1031, 35
+  %1032 = icmp samesign ult i32 %1031, 35
   br i1 %1032, label %1033, label %1035
 
 1033:                                             ; preds = %1030
@@ -3068,7 +3068,7 @@ ns_hrtime2nsec.exit1104:                          ; preds = %515, %525, %527, %5
 
 1120:                                             ; preds = %1109, %1113
   %1121 = phi i32 [ %1119, %1113 ], [ %1112, %1109 ]
-  %1122 = icmp ult i32 %1121, 48
+  %1122 = icmp samesign ult i32 %1121, 48
   br i1 %1122, label %1123, label %1125
 
 1123:                                             ; preds = %1120
@@ -3221,7 +3221,7 @@ ns_hrtime2nsec.exit1104:                          ; preds = %515, %525, %527, %5
 
 1208:                                             ; preds = %1197, %1201
   %1209 = phi i32 [ %1207, %1201 ], [ %1200, %1197 ]
-  %1210 = icmp ult i32 %1209, 52
+  %1210 = icmp samesign ult i32 %1209, 52
   br i1 %1210, label %1211, label %1213
 
 1211:                                             ; preds = %1208
@@ -4773,7 +4773,7 @@ nstrace_ensure_buflen.exit:                       ; preds = %45
   store i8 36, ptr %122, align 4
   %123 = getelementptr inbounds i8, ptr %1, i64 100
   store i8 48, ptr %123, align 4
-  %124 = icmp ult i32 %106, 52
+  %124 = icmp samesign ult i32 %106, 52
   br i1 %124, label %125, label %127
 
 125:                                              ; preds = %105
@@ -5010,7 +5010,7 @@ select.unfold:                                    ; preds = %._crit_edge483
   store i16 %.val377, ptr %228, align 8
   %235 = getelementptr inbounds i8, ptr %1, i64 100
   store i8 53, ptr %235, align 4
-  %236 = icmp ult i32 %223, 35
+  %236 = icmp samesign ult i32 %223, 35
   br i1 %236, label %237, label %239
 
 237:                                              ; preds = %222

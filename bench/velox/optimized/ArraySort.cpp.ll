@@ -21308,7 +21308,7 @@ _ZN8facebook5velox9functions12_GLOBAL__N_112swapWithNullIbEEvPNS0_10FlatVectorIT
 
 for.inc:                                          ; preds = %for.body, %_ZNK8facebook5velox10BaseVector8isNullAtEi.exit, %_ZN8facebook5velox9functions12_GLOBAL__N_112swapWithNullIbEEvPNS0_10FlatVectorIT_EEii.exit
   %numNulls.1 = phi i32 [ %inc, %_ZN8facebook5velox9functions12_GLOBAL__N_112swapWithNullIbEEvPNS0_10FlatVectorIT_EEii.exit ], [ %numNulls.0213, %_ZNK8facebook5velox10BaseVector8isNullAtEi.exit ], [ %numNulls.0213, %for.body ]
-  %cmp3 = icmp ugt i64 %indvars.iv.in, 1
+  %cmp3 = icmp samesign ugt i64 %indvars.iv.in, 1
   %indvars.iv.next217 = add nsw i64 %indvars.iv216, -1
   br i1 %cmp3, label %for.body, label %for.end, !llvm.loop !183
 
@@ -24247,7 +24247,7 @@ _ZN8facebook5velox9functions12_GLOBAL__N_112swapWithNullIiEEvPNS0_10FlatVectorIT
 
 for.inc:                                          ; preds = %for.body, %_ZNK8facebook5velox10BaseVector8isNullAtEi.exit, %_ZN8facebook5velox9functions12_GLOBAL__N_112swapWithNullIiEEvPNS0_10FlatVectorIT_EEii.exit
   %numNulls.1 = phi i32 [ %inc, %_ZN8facebook5velox9functions12_GLOBAL__N_112swapWithNullIiEEvPNS0_10FlatVectorIT_EEii.exit ], [ %numNulls.028, %_ZNK8facebook5velox10BaseVector8isNullAtEi.exit ], [ %numNulls.028, %for.body ]
-  %cmp3 = icmp ugt i64 %indvars.iv.in, 1
+  %cmp3 = icmp samesign ugt i64 %indvars.iv.in, 1
   %indvars.iv.next32 = add nsw i64 %indvars.iv31, -1
   br i1 %cmp3, label %for.body, label %for.end, !llvm.loop !221
 
@@ -27381,7 +27381,7 @@ _ZN8facebook5velox9functions12_GLOBAL__N_112swapWithNullIaEEvPNS0_10FlatVectorIT
 
 for.inc:                                          ; preds = %for.body, %_ZNK8facebook5velox10BaseVector8isNullAtEi.exit, %_ZN8facebook5velox9functions12_GLOBAL__N_112swapWithNullIaEEvPNS0_10FlatVectorIT_EEii.exit
   %numNulls.1 = phi i32 [ %inc, %_ZN8facebook5velox9functions12_GLOBAL__N_112swapWithNullIaEEvPNS0_10FlatVectorIT_EEii.exit ], [ %numNulls.028, %_ZNK8facebook5velox10BaseVector8isNullAtEi.exit ], [ %numNulls.028, %for.body ]
-  %cmp3 = icmp ugt i64 %indvars.iv.in, 1
+  %cmp3 = icmp samesign ugt i64 %indvars.iv.in, 1
   %indvars.iv.next32 = add nsw i64 %indvars.iv31, -1
   br i1 %cmp3, label %for.body, label %for.end, !llvm.loop !265
 
@@ -30499,7 +30499,7 @@ _ZN8facebook5velox9functions12_GLOBAL__N_112swapWithNullIsEEvPNS0_10FlatVectorIT
 
 for.inc:                                          ; preds = %for.body, %_ZNK8facebook5velox10BaseVector8isNullAtEi.exit, %_ZN8facebook5velox9functions12_GLOBAL__N_112swapWithNullIsEEvPNS0_10FlatVectorIT_EEii.exit
   %numNulls.1 = phi i32 [ %inc, %_ZN8facebook5velox9functions12_GLOBAL__N_112swapWithNullIsEEvPNS0_10FlatVectorIT_EEii.exit ], [ %numNulls.028, %_ZNK8facebook5velox10BaseVector8isNullAtEi.exit ], [ %numNulls.028, %for.body ]
-  %cmp3 = icmp ugt i64 %indvars.iv.in, 1
+  %cmp3 = icmp samesign ugt i64 %indvars.iv.in, 1
   %indvars.iv.next32 = add nsw i64 %indvars.iv31, -1
   br i1 %cmp3, label %for.body, label %for.end, !llvm.loop !309
 
@@ -33633,7 +33633,7 @@ _ZN8facebook5velox9functions12_GLOBAL__N_112swapWithNullIlEEvPNS0_10FlatVectorIT
 
 for.inc:                                          ; preds = %for.body, %_ZNK8facebook5velox10BaseVector8isNullAtEi.exit, %_ZN8facebook5velox9functions12_GLOBAL__N_112swapWithNullIlEEvPNS0_10FlatVectorIT_EEii.exit
   %numNulls.1 = phi i32 [ %inc, %_ZN8facebook5velox9functions12_GLOBAL__N_112swapWithNullIlEEvPNS0_10FlatVectorIT_EEii.exit ], [ %numNulls.028, %_ZNK8facebook5velox10BaseVector8isNullAtEi.exit ], [ %numNulls.028, %for.body ]
-  %cmp3 = icmp ugt i64 %indvars.iv.in, 1
+  %cmp3 = icmp samesign ugt i64 %indvars.iv.in, 1
   %indvars.iv.next32 = add nsw i64 %indvars.iv31, -1
   br i1 %cmp3, label %for.body, label %for.end, !llvm.loop !353
 
@@ -36767,7 +36767,7 @@ _ZN8facebook5velox9functions12_GLOBAL__N_112swapWithNullInEEvPNS0_10FlatVectorIT
 
 for.inc:                                          ; preds = %for.body, %_ZNK8facebook5velox10BaseVector8isNullAtEi.exit, %_ZN8facebook5velox9functions12_GLOBAL__N_112swapWithNullInEEvPNS0_10FlatVectorIT_EEii.exit
   %numNulls.1 = phi i32 [ %inc, %_ZN8facebook5velox9functions12_GLOBAL__N_112swapWithNullInEEvPNS0_10FlatVectorIT_EEii.exit ], [ %numNulls.028, %_ZNK8facebook5velox10BaseVector8isNullAtEi.exit ], [ %numNulls.028, %for.body ]
-  %cmp3 = icmp ugt i64 %indvars.iv.in, 1
+  %cmp3 = icmp samesign ugt i64 %indvars.iv.in, 1
   %indvars.iv.next32 = add nsw i64 %indvars.iv31, -1
   br i1 %cmp3, label %for.body, label %for.end, !llvm.loop !397
 
@@ -40275,7 +40275,7 @@ _ZN8facebook5velox9functions12_GLOBAL__N_112swapWithNullIfEEvPNS0_10FlatVectorIT
 
 for.inc:                                          ; preds = %for.body, %_ZNK8facebook5velox10BaseVector8isNullAtEi.exit, %_ZN8facebook5velox9functions12_GLOBAL__N_112swapWithNullIfEEvPNS0_10FlatVectorIT_EEii.exit
   %numNulls.1 = phi i32 [ %inc, %_ZN8facebook5velox9functions12_GLOBAL__N_112swapWithNullIfEEvPNS0_10FlatVectorIT_EEii.exit ], [ %numNulls.028, %_ZNK8facebook5velox10BaseVector8isNullAtEi.exit ], [ %numNulls.028, %for.body ]
-  %cmp3 = icmp ugt i64 %indvars.iv.in, 1
+  %cmp3 = icmp samesign ugt i64 %indvars.iv.in, 1
   %indvars.iv.next32 = add nsw i64 %indvars.iv31, -1
   br i1 %cmp3, label %for.body, label %for.end, !llvm.loop !443
 
@@ -43409,7 +43409,7 @@ _ZN8facebook5velox9functions12_GLOBAL__N_112swapWithNullIdEEvPNS0_10FlatVectorIT
 
 for.inc:                                          ; preds = %for.body, %_ZNK8facebook5velox10BaseVector8isNullAtEi.exit, %_ZN8facebook5velox9functions12_GLOBAL__N_112swapWithNullIdEEvPNS0_10FlatVectorIT_EEii.exit
   %numNulls.1 = phi i32 [ %inc, %_ZN8facebook5velox9functions12_GLOBAL__N_112swapWithNullIdEEvPNS0_10FlatVectorIT_EEii.exit ], [ %numNulls.028, %_ZNK8facebook5velox10BaseVector8isNullAtEi.exit ], [ %numNulls.028, %for.body ]
-  %cmp3 = icmp ugt i64 %indvars.iv.in, 1
+  %cmp3 = icmp samesign ugt i64 %indvars.iv.in, 1
   %indvars.iv.next32 = add nsw i64 %indvars.iv31, -1
   br i1 %cmp3, label %for.body, label %for.end, !llvm.loop !487
 
@@ -46516,7 +46516,7 @@ _ZN8facebook5velox9functions12_GLOBAL__N_112swapWithNullINS0_10StringViewEEEvPNS
 
 for.inc:                                          ; preds = %for.body, %_ZNK8facebook5velox10BaseVector8isNullAtEi.exit, %_ZN8facebook5velox9functions12_GLOBAL__N_112swapWithNullINS0_10StringViewEEEvPNS0_10FlatVectorIT_EEii.exit
   %numNulls.1 = phi i32 [ %inc, %_ZN8facebook5velox9functions12_GLOBAL__N_112swapWithNullINS0_10StringViewEEEvPNS0_10FlatVectorIT_EEii.exit ], [ %numNulls.047, %_ZNK8facebook5velox10BaseVector8isNullAtEi.exit ], [ %numNulls.047, %for.body ]
-  %cmp3 = icmp ugt i64 %indvars.iv.in, 1
+  %cmp3 = icmp samesign ugt i64 %indvars.iv.in, 1
   %indvars.iv.next52 = add nsw i64 %indvars.iv51, -1
   br i1 %cmp3, label %for.body, label %for.end, !llvm.loop !531
 
@@ -46941,7 +46941,7 @@ if.then10.i.i.i:                                  ; preds = %if.end.i.i.i
 
 if.end14.i.i.i:                                   ; preds = %if.end.i.i.i
   %conv15.i.i.i = zext nneg i32 %sub.i.i.i to i64
-  %cmp16.i.i.i = icmp ult i32 %sub.i.i.i, 13
+  %cmp16.i.i.i = icmp samesign ult i32 %sub.i.i.i, 13
   %cmp.i.i.i.i.i = icmp ult i32 %3, 13
   %or.cond.i.i.i = and i1 %cmp.i.i.i.i.i, %cmp16.i.i.i
   %cmp.i.i15.i.i.i = icmp ult i32 %2, 13
@@ -47106,7 +47106,7 @@ if.then10.i.i.i:                                  ; preds = %if.end.i.i.i
 if.end14.i.i.i:                                   ; preds = %if.end.i.i.i
   %sub.i.i.i = add nsw i32 %10, -4
   %conv15.i.i.i = zext nneg i32 %sub.i.i.i to i64
-  %cmp16.i.i.i = icmp ult i32 %sub.i.i.i, 13
+  %cmp16.i.i.i = icmp samesign ult i32 %sub.i.i.i, 13
   %cmp.i.i.i.i.i = icmp ult i32 %9, 13
   %or.cond.i.i.i = and i1 %cmp.i.i.i.i.i, %cmp16.i.i.i
   %value_.i.i.i = getelementptr inbounds i8, ptr %add.ptr, i64 8
@@ -47183,7 +47183,7 @@ if.then10.i.i.i:                                  ; preds = %if.end.i.i.i
 
 if.end14.i.i.i:                                   ; preds = %if.end.i.i.i
   %conv15.i.i.i = zext nneg i32 %sub.i.i.i to i64
-  %cmp16.i.i.i = icmp ult i32 %sub.i.i.i, 13
+  %cmp16.i.i.i = icmp samesign ult i32 %sub.i.i.i, 13
   %cmp.i.i.i.i.i = icmp ult i32 %3, 13
   %or.cond.i.i.i = and i1 %cmp.i.i.i.i.i, %cmp16.i.i.i
   %cmp.i.i15.i.i.i = icmp ult i32 %2, 13
@@ -47242,7 +47242,7 @@ if.then10.i.i.i53:                                ; preds = %if.end.i.i.i26
 
 if.end14.i.i.i29:                                 ; preds = %if.end.i.i.i26
   %conv15.i.i.i30 = zext nneg i32 %sub.i.i.i27 to i64
-  %cmp16.i.i.i31 = icmp ult i32 %sub.i.i.i27, 13
+  %cmp16.i.i.i31 = icmp samesign ult i32 %sub.i.i.i27, 13
   %cmp.i.i.i.i.i32 = icmp ult i32 %9, 13
   %or.cond.i.i.i33 = and i1 %cmp.i.i.i.i.i32, %cmp16.i.i.i31
   %cmp.i.i15.i.i.i34 = icmp ult i32 %8, 13
@@ -47307,7 +47307,7 @@ if.then10.i.i.i90:                                ; preds = %if.end.i.i.i63
 
 if.end14.i.i.i66:                                 ; preds = %if.end.i.i.i63
   %conv15.i.i.i67 = zext nneg i32 %sub.i.i.i64 to i64
-  %cmp16.i.i.i68 = icmp ult i32 %sub.i.i.i64, 13
+  %cmp16.i.i.i68 = icmp samesign ult i32 %sub.i.i.i64, 13
   %cmp.i.i.i.i.i69 = icmp ult i32 %14, 13
   %or.cond.i.i.i70 = and i1 %cmp.i.i.i.i.i69, %cmp16.i.i.i68
   %cmp.i.i15.i.i.i71 = icmp ult i32 %13, 13
@@ -47380,7 +47380,7 @@ if.then10.i.i.i129:                               ; preds = %if.end.i.i.i102
 
 if.end14.i.i.i105:                                ; preds = %if.end.i.i.i102
   %conv15.i.i.i106 = zext nneg i32 %sub.i.i.i103 to i64
-  %cmp16.i.i.i107 = icmp ult i32 %sub.i.i.i103, 13
+  %cmp16.i.i.i107 = icmp samesign ult i32 %sub.i.i.i103, 13
   %cmp.i.i.i.i.i108 = icmp ult i32 %19, 13
   %or.cond.i.i.i109 = and i1 %cmp.i.i.i.i.i108, %cmp16.i.i.i107
   %cmp.i.i15.i.i.i110 = icmp ult i32 %18, 13
@@ -47445,7 +47445,7 @@ if.then10.i.i.i167:                               ; preds = %if.end.i.i.i140
 
 if.end14.i.i.i143:                                ; preds = %if.end.i.i.i140
   %conv15.i.i.i144 = zext nneg i32 %sub.i.i.i141 to i64
-  %cmp16.i.i.i145 = icmp ult i32 %sub.i.i.i141, 13
+  %cmp16.i.i.i145 = icmp samesign ult i32 %sub.i.i.i141, 13
   %cmp.i.i.i.i.i146 = icmp ult i32 %24, 13
   %or.cond.i.i.i147 = and i1 %cmp.i.i.i.i.i146, %cmp16.i.i.i145
   %cmp.i.i15.i.i.i148 = icmp ult i32 %23, 13
@@ -47539,7 +47539,7 @@ if.then10.i.i.i:                                  ; preds = %if.end.i.i.i
 
 if.end14.i.i.i:                                   ; preds = %if.end.i.i.i
   %conv15.i.i.i = zext nneg i32 %sub.i.i.i to i64
-  %cmp16.i.i.i = icmp ult i32 %sub.i.i.i, 13
+  %cmp16.i.i.i = icmp samesign ult i32 %sub.i.i.i, 13
   %cmp.i.i.i.i.i = icmp ult i32 %3, 13
   %or.cond.i.i.i = and i1 %cmp.i.i.i.i.i, %cmp16.i.i.i
   %cmp.i.i15.i.i.i = icmp ult i32 %2, 13
@@ -47599,7 +47599,7 @@ if.then10.i.i.i45:                                ; preds = %if.end.i.i.i18
 
 if.end14.i.i.i21:                                 ; preds = %if.end.i.i.i18
   %conv15.i.i.i22 = zext nneg i32 %sub.i.i.i19 to i64
-  %cmp16.i.i.i23 = icmp ult i32 %sub.i.i.i19, 13
+  %cmp16.i.i.i23 = icmp samesign ult i32 %sub.i.i.i19, 13
   %cmp.i.i.i.i.i24 = icmp ult i32 %9, 13
   %or.cond.i.i.i25 = and i1 %cmp.i.i.i.i.i24, %cmp16.i.i.i23
   %cmp.i.i15.i.i.i26 = icmp ult i32 %8, 13
@@ -47694,7 +47694,7 @@ if.then10.i.i.i:                                  ; preds = %if.end.i.i.i
 
 if.end14.i.i.i:                                   ; preds = %if.end.i.i.i
   %conv15.i.i.i = zext nneg i32 %sub.i.i.i to i64
-  %cmp16.i.i.i = icmp ult i32 %sub.i.i.i, 13
+  %cmp16.i.i.i = icmp samesign ult i32 %sub.i.i.i, 13
   %cmp.i.i.i.i.i = icmp ult i32 %3, 13
   %or.cond.i.i.i = and i1 %cmp.i.i.i.i.i, %cmp16.i.i.i
   %cmp.i.i15.i.i.i = icmp ult i32 %2, 13
@@ -47838,7 +47838,7 @@ if.then10.i.i.i:                                  ; preds = %if.end.i.i.i
 if.end14.i.i.i:                                   ; preds = %if.end.i.i.i
   %sub.i.i.i = add nsw i32 %9, -4
   %conv15.i.i.i = zext nneg i32 %sub.i.i.i to i64
-  %cmp16.i.i.i = icmp ult i32 %sub.i.i.i, 13
+  %cmp16.i.i.i = icmp samesign ult i32 %sub.i.i.i, 13
   %cmp.i.i15.i.i.i = icmp ult i32 %8, 13
   %or.cond21.i.i.i = and i1 %cmp.i.i15.i.i.i, %cmp16.i.i.i
   %value_22.i.i.i = getelementptr inbounds i8, ptr %__last.addr.0, i64 -8
@@ -47990,7 +47990,7 @@ if.then10.i.i.i.i:                                ; preds = %if.end.i.i.i.i
 
 if.end14.i.i.i.i:                                 ; preds = %if.end.i.i.i.i
   %conv15.i.i.i.i = zext nneg i32 %sub.i.i.i.i to i64
-  %cmp16.i.i.i.i = icmp ult i32 %sub.i.i.i.i, 13
+  %cmp16.i.i.i.i = icmp samesign ult i32 %sub.i.i.i.i, 13
   %cmp.i.i.i.i.i.i = icmp ult i32 %3, 13
   %or.cond.i.i.i.i = and i1 %cmp.i.i.i.i.i.i, %cmp16.i.i.i.i
   %cmp.i.i15.i.i.i.i = icmp ult i32 %2, 13
@@ -48155,7 +48155,7 @@ if.then10.i.i.i.i:                                ; preds = %if.end.i.i.i.i
 if.end14.i.i.i.i:                                 ; preds = %if.end.i.i.i.i
   %sub.i.i.i.i = add nsw i32 %10, -4
   %conv15.i.i.i.i = zext nneg i32 %sub.i.i.i.i to i64
-  %cmp16.i.i.i.i = icmp ult i32 %sub.i.i.i.i, 13
+  %cmp16.i.i.i.i = icmp samesign ult i32 %sub.i.i.i.i, 13
   %cmp.i.i.i.i.i.i = icmp ult i32 %9, 13
   %or.cond.i.i.i.i = and i1 %cmp.i.i.i.i.i.i, %cmp16.i.i.i.i
   %value_.i.i.i.i = getelementptr inbounds i8, ptr %add.ptr, i64 8
@@ -48232,7 +48232,7 @@ if.then10.i.i.i.i:                                ; preds = %if.end.i.i.i.i
 
 if.end14.i.i.i.i:                                 ; preds = %if.end.i.i.i.i
   %conv15.i.i.i.i = zext nneg i32 %sub.i.i.i.i to i64
-  %cmp16.i.i.i.i = icmp ult i32 %sub.i.i.i.i, 13
+  %cmp16.i.i.i.i = icmp samesign ult i32 %sub.i.i.i.i, 13
   %cmp.i.i.i.i.i.i = icmp ult i32 %3, 13
   %or.cond.i.i.i.i = and i1 %cmp.i.i.i.i.i.i, %cmp16.i.i.i.i
   %cmp.i.i15.i.i.i.i = icmp ult i32 %2, 13
@@ -48291,7 +48291,7 @@ if.then10.i.i.i.i53:                              ; preds = %if.end.i.i.i.i26
 
 if.end14.i.i.i.i29:                               ; preds = %if.end.i.i.i.i26
   %conv15.i.i.i.i30 = zext nneg i32 %sub.i.i.i.i27 to i64
-  %cmp16.i.i.i.i31 = icmp ult i32 %sub.i.i.i.i27, 13
+  %cmp16.i.i.i.i31 = icmp samesign ult i32 %sub.i.i.i.i27, 13
   %cmp.i.i.i.i.i.i32 = icmp ult i32 %9, 13
   %or.cond.i.i.i.i33 = and i1 %cmp.i.i.i.i.i.i32, %cmp16.i.i.i.i31
   %cmp.i.i15.i.i.i.i34 = icmp ult i32 %8, 13
@@ -48356,7 +48356,7 @@ if.then10.i.i.i.i90:                              ; preds = %if.end.i.i.i.i63
 
 if.end14.i.i.i.i66:                               ; preds = %if.end.i.i.i.i63
   %conv15.i.i.i.i67 = zext nneg i32 %sub.i.i.i.i64 to i64
-  %cmp16.i.i.i.i68 = icmp ult i32 %sub.i.i.i.i64, 13
+  %cmp16.i.i.i.i68 = icmp samesign ult i32 %sub.i.i.i.i64, 13
   %cmp.i.i.i.i.i.i69 = icmp ult i32 %14, 13
   %or.cond.i.i.i.i70 = and i1 %cmp.i.i.i.i.i.i69, %cmp16.i.i.i.i68
   %cmp.i.i15.i.i.i.i71 = icmp ult i32 %13, 13
@@ -48429,7 +48429,7 @@ if.then10.i.i.i.i129:                             ; preds = %if.end.i.i.i.i102
 
 if.end14.i.i.i.i105:                              ; preds = %if.end.i.i.i.i102
   %conv15.i.i.i.i106 = zext nneg i32 %sub.i.i.i.i103 to i64
-  %cmp16.i.i.i.i107 = icmp ult i32 %sub.i.i.i.i103, 13
+  %cmp16.i.i.i.i107 = icmp samesign ult i32 %sub.i.i.i.i103, 13
   %cmp.i.i.i.i.i.i108 = icmp ult i32 %19, 13
   %or.cond.i.i.i.i109 = and i1 %cmp.i.i.i.i.i.i108, %cmp16.i.i.i.i107
   %cmp.i.i15.i.i.i.i110 = icmp ult i32 %18, 13
@@ -48494,7 +48494,7 @@ if.then10.i.i.i.i167:                             ; preds = %if.end.i.i.i.i140
 
 if.end14.i.i.i.i143:                              ; preds = %if.end.i.i.i.i140
   %conv15.i.i.i.i144 = zext nneg i32 %sub.i.i.i.i141 to i64
-  %cmp16.i.i.i.i145 = icmp ult i32 %sub.i.i.i.i141, 13
+  %cmp16.i.i.i.i145 = icmp samesign ult i32 %sub.i.i.i.i141, 13
   %cmp.i.i.i.i.i.i146 = icmp ult i32 %24, 13
   %or.cond.i.i.i.i147 = and i1 %cmp.i.i.i.i.i.i146, %cmp16.i.i.i.i145
   %cmp.i.i15.i.i.i.i148 = icmp ult i32 %23, 13
@@ -48588,7 +48588,7 @@ if.then10.i.i.i.i:                                ; preds = %if.end.i.i.i.i
 
 if.end14.i.i.i.i:                                 ; preds = %if.end.i.i.i.i
   %conv15.i.i.i.i = zext nneg i32 %sub.i.i.i.i to i64
-  %cmp16.i.i.i.i = icmp ult i32 %sub.i.i.i.i, 13
+  %cmp16.i.i.i.i = icmp samesign ult i32 %sub.i.i.i.i, 13
   %cmp.i.i.i.i.i.i = icmp ult i32 %3, 13
   %or.cond.i.i.i.i = and i1 %cmp.i.i.i.i.i.i, %cmp16.i.i.i.i
   %cmp.i.i15.i.i.i.i = icmp ult i32 %2, 13
@@ -48648,7 +48648,7 @@ if.then10.i.i.i.i45:                              ; preds = %if.end.i.i.i.i18
 
 if.end14.i.i.i.i21:                               ; preds = %if.end.i.i.i.i18
   %conv15.i.i.i.i22 = zext nneg i32 %sub.i.i.i.i19 to i64
-  %cmp16.i.i.i.i23 = icmp ult i32 %sub.i.i.i.i19, 13
+  %cmp16.i.i.i.i23 = icmp samesign ult i32 %sub.i.i.i.i19, 13
   %cmp.i.i.i.i.i.i24 = icmp ult i32 %9, 13
   %or.cond.i.i.i.i25 = and i1 %cmp.i.i.i.i.i.i24, %cmp16.i.i.i.i23
   %cmp.i.i15.i.i.i.i26 = icmp ult i32 %8, 13
@@ -48743,7 +48743,7 @@ if.then10.i.i.i.i:                                ; preds = %if.end.i.i.i.i
 
 if.end14.i.i.i.i:                                 ; preds = %if.end.i.i.i.i
   %conv15.i.i.i.i = zext nneg i32 %sub.i.i.i.i to i64
-  %cmp16.i.i.i.i = icmp ult i32 %sub.i.i.i.i, 13
+  %cmp16.i.i.i.i = icmp samesign ult i32 %sub.i.i.i.i, 13
   %cmp.i.i.i.i.i.i = icmp ult i32 %3, 13
   %or.cond.i.i.i.i = and i1 %cmp.i.i.i.i.i.i, %cmp16.i.i.i.i
   %cmp.i.i15.i.i.i.i = icmp ult i32 %2, 13
@@ -48887,7 +48887,7 @@ if.then10.i.i.i.i:                                ; preds = %if.end.i.i.i.i
 if.end14.i.i.i.i:                                 ; preds = %if.end.i.i.i.i
   %sub.i.i.i.i = add nsw i32 %9, -4
   %conv15.i.i.i.i = zext nneg i32 %sub.i.i.i.i to i64
-  %cmp16.i.i.i.i = icmp ult i32 %sub.i.i.i.i, 13
+  %cmp16.i.i.i.i = icmp samesign ult i32 %sub.i.i.i.i, 13
   %cmp.i.i15.i.i.i.i = icmp ult i32 %8, 13
   %or.cond21.i.i.i.i = and i1 %cmp.i.i15.i.i.i.i, %cmp16.i.i.i.i
   %value_22.i.i.i.i = getelementptr inbounds i8, ptr %__last.addr.0, i64 -8
@@ -50670,7 +50670,7 @@ _ZN8facebook5velox9functions12_GLOBAL__N_112swapWithNullINS0_10StringViewEEEvPNS
 
 for.inc:                                          ; preds = %for.body, %_ZNK8facebook5velox10BaseVector8isNullAtEi.exit, %_ZN8facebook5velox9functions12_GLOBAL__N_112swapWithNullINS0_10StringViewEEEvPNS0_10FlatVectorIT_EEii.exit
   %numNulls.1 = phi i32 [ %inc, %_ZN8facebook5velox9functions12_GLOBAL__N_112swapWithNullINS0_10StringViewEEEvPNS0_10FlatVectorIT_EEii.exit ], [ %numNulls.047, %_ZNK8facebook5velox10BaseVector8isNullAtEi.exit ], [ %numNulls.047, %for.body ]
-  %cmp3 = icmp ugt i64 %indvars.iv.in, 1
+  %cmp3 = icmp samesign ugt i64 %indvars.iv.in, 1
   %indvars.iv.next52 = add nsw i64 %indvars.iv51, -1
   br i1 %cmp3, label %for.body, label %for.end, !llvm.loop !575
 
@@ -52535,7 +52535,7 @@ _ZN8facebook5velox9functions12_GLOBAL__N_112swapWithNullINS0_9TimestampEEEvPNS0_
 
 for.inc:                                          ; preds = %for.body, %_ZNK8facebook5velox10BaseVector8isNullAtEi.exit, %_ZN8facebook5velox9functions12_GLOBAL__N_112swapWithNullINS0_9TimestampEEEvPNS0_10FlatVectorIT_EEii.exit
   %numNulls.1 = phi i32 [ %inc, %_ZN8facebook5velox9functions12_GLOBAL__N_112swapWithNullINS0_9TimestampEEEvPNS0_10FlatVectorIT_EEii.exit ], [ %numNulls.038, %_ZNK8facebook5velox10BaseVector8isNullAtEi.exit ], [ %numNulls.038, %for.body ]
-  %cmp3 = icmp ugt i64 %indvars.iv.in, 1
+  %cmp3 = icmp samesign ugt i64 %indvars.iv.in, 1
   %indvars.iv.next42 = add nsw i64 %indvars.iv41, -1
   br i1 %cmp3, label %for.body, label %for.end, !llvm.loop !594
 

@@ -3355,15 +3355,15 @@ while.body.i:                                     ; preds = %_ZN6icu_7512_GLOBAL
   %retval.sroa.3.1.i = phi i32 [ 30, %if.end47.i ], [ %retval.sroa.3.2.i, %_ZN6icu_7512_GLOBAL__N_16Parser9nextTokenER10UErrorCode.exit143.i ]
   %token.sroa.0.1.i = phi i32 [ %token.sroa.0.0.i, %if.end47.i ], [ %match.1.i128.i, %_ZN6icu_7512_GLOBAL__N_16Parser9nextTokenER10UErrorCode.exit143.i ]
   %state.0.i = phi i32 [ 0, %if.end47.i ], [ %state.1.i, %_ZN6icu_7512_GLOBAL__N_16Parser9nextTokenER10UErrorCode.exit143.i ]
-  %cmp.i102.i = icmp ult i32 %token.sroa.0.1.i, 128
+  %cmp.i102.i = icmp samesign ult i32 %token.sroa.0.1.i, 128
   br i1 %cmp.i102.i, label %sw.bb55.i, label %if.end.i103.i
 
 if.end.i103.i:                                    ; preds = %while.body.i
-  %cmp7.i106.i = icmp ult i32 %token.sroa.0.1.i, 256
-  br i1 %cmp7.i106.i, label %nrvo.skipdtor.sink.split, label %if.end9.i107.i
+  %or.cond163.i = icmp samesign ult i32 %token.sroa.0.1.i, 256
+  br i1 %or.cond163.i, label %nrvo.skipdtor.sink.split, label %if.end9.i107.i
 
 if.end9.i107.i:                                   ; preds = %if.end.i103.i
-  %cmp11.i108.i = icmp ult i32 %token.sroa.0.1.i, 512
+  %cmp11.i108.i = icmp samesign ult i32 %token.sroa.0.1.i, 512
   br i1 %cmp11.i108.i, label %sw.bb49.i, label %invoke.cont8
 
 sw.bb49.i:                                        ; preds = %if.end9.i107.i

@@ -11247,7 +11247,7 @@ define hidden noundef ptr @"_ZN113_$LT$kafka_protocol..messages..response_header
 
 19:                                               ; preds = %15
   %20 = trunc nuw i64 %17 to i32
-  %21 = icmp ugt i64 %17, 127
+  %21 = icmp samesign ugt i64 %17, 127
   br i1 %21, label %.lr.ph.i, label %.loopexit
 
 .lr.ph.i:                                         ; preds = %19, %.lr.ph.i
@@ -68412,7 +68412,7 @@ _ZN4rand3rng3Rng3gen17h182fd14559dbd1a2E.exit7:   ; preds = %_ZN4rand3rng3Rng3ge
   %46 = add nuw nsw i64 %5, 2
   store i64 %46, ptr %4, align 16, !alias.scope !9491, !noalias !9497
   tail call void @llvm.experimental.noalias.scope.decl(metadata !9507)
-  %.not.i.i.i8 = icmp ult i64 %5, 62
+  %.not.i.i.i8 = icmp samesign ult i64 %5, 62
   br i1 %.not.i.i.i8, label %_ZN4rand3rng3Rng3gen17h182fd14559dbd1a2E.exit9, label %47
 
 47:                                               ; preds = %_ZN4rand3rng3Rng3gen17h182fd14559dbd1a2E.exit7
@@ -68683,7 +68683,7 @@ _ZN4rand3rng3Rng3gen17h182fd14559dbd1a2E.exit11.i: ; preds = %_ZN4rand3rng3Rng3g
   %51 = add nuw nsw i64 %5, 2
   store i64 %51, ptr %4, align 16, !alias.scope !9566, !noalias !9567
   %52 = trunc i32 %50 to i8
-  %.not.i.i.i12.i = icmp ult i64 %5, 62
+  %.not.i.i.i12.i = icmp samesign ult i64 %5, 62
   br i1 %.not.i.i.i12.i, label %_ZN4rand3rng3Rng3gen17h182fd14559dbd1a2E.exit13.i, label %53
 
 53:                                               ; preds = %_ZN4rand3rng3Rng3gen17h182fd14559dbd1a2E.exit11.i
@@ -68828,7 +68828,7 @@ _ZN4rand3rng3Rng3gen17h182fd14559dbd1a2E.exit17.i: ; preds = %_ZN4rand3rng3Rng3g
   %115 = add nuw nsw i64 %5, 5
   store i64 %115, ptr %4, align 16, !alias.scope !9605, !noalias !9606
   %116 = trunc i32 %114 to i8
-  %.not.i.i.i18.i = icmp ult i64 %5, 59
+  %.not.i.i.i18.i = icmp samesign ult i64 %5, 59
   br i1 %.not.i.i.i18.i, label %_ZN4rand3rng3Rng3gen17h182fd14559dbd1a2E.exit19.i, label %117
 
 117:                                              ; preds = %_ZN4rand3rng3Rng3gen17h182fd14559dbd1a2E.exit17.i
@@ -68921,7 +68921,7 @@ _ZN4rand3rng3Rng3gen17h182fd14559dbd1a2E.exit21.i: ; preds = %_ZN4rand3rng3Rng3g
   %152 = load i32, ptr %151, align 4, !alias.scope !9631, !noalias !9632, !noundef !10
   %153 = add nuw nsw i64 %5, 7
   store i64 %153, ptr %4, align 16, !alias.scope !9631, !noalias !9632
-  %.not.i.i.i22.i = icmp ult i64 %5, 57
+  %.not.i.i.i22.i = icmp samesign ult i64 %5, 57
   br i1 %.not.i.i.i22.i, label %170, label %154
 
 154:                                              ; preds = %_ZN4rand3rng3Rng3gen17h182fd14559dbd1a2E.exit21.i

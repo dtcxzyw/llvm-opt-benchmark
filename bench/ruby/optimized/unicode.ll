@@ -1789,7 +1789,7 @@ onigenc_unicode_CaseUnfold_12_lookup.exit:        ; preds = %code2_equal.exit.i
   %307 = add nuw nsw i32 %306, %293
   %308 = add nuw nsw i32 %307, %298
   %309 = add nuw nsw i32 %308, %303
-  %310 = icmp ult i32 %309, 40
+  %310 = icmp samesign ult i32 %309, 40
   br i1 %310, label %311, label %.thread
 
 311:                                              ; preds = %273
@@ -2230,7 +2230,7 @@ onigenc_unicode_CaseFold_11_lookup.exit306.thread: ; preds = %529, %498, %524, %
   %585 = add nuw nsw i32 %584, %571
   %586 = add nuw nsw i32 %585, %576
   %587 = add nuw nsw i32 %586, %581
-  %588 = icmp ult i32 %587, 40
+  %588 = icmp samesign ult i32 %587, 40
   br i1 %588, label %589, label %.thread
 
 589:                                              ; preds = %551
@@ -2337,7 +2337,7 @@ define dso_local i32 @onigenc_unicode_case_map(ptr nocapture noundef %0, ptr noc
   br i1 %30, label %31, label %50
 
 31:                                               ; preds = %23
-  %32 = icmp ugt i32 %26, 96
+  %32 = icmp samesign ugt i32 %26, 96
   br i1 %32, label %33, label %41
 
 33:                                               ; preds = %31

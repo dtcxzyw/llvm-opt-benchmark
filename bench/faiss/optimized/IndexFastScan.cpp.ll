@@ -3702,7 +3702,7 @@ _ZN5faiss12heap_heapifyINS_4CMaxIflEEEEvmPNT_1TEPNS3_2TIEPKS4_PKS6_m.exit: ; pre
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 8
   %88 = add nsw i32 %.02732.i.i, -8
   %.024.i.i = add nuw nsw i64 %.02435.i.i, 1
-  %89 = icmp ugt i32 %.02732.i.i, 16
+  %89 = icmp samesign ugt i32 %.02732.i.i, 16
   br i1 %89, label %.lr.ph.i.i, label %._crit_edge.loopexit.i.i, !llvm.loop !20
 
 ._crit_edge.loopexit.i.i:                         ; preds = %.lr.ph.i.i
@@ -3802,7 +3802,7 @@ _ZN5faiss15BitstringReader4readEi.exit.i:         ; preds = %._crit_edge.i.i, %7
   %indvars.iv.next.i61.i = add nuw nsw i64 %indvars.iv.i57.i, 8
   %136 = add nsw i32 %.02732.i60.i, -8
   %.024.i62.i = add nuw nsw i64 %.02435.i58.i, 1
-  %137 = icmp ugt i32 %.02732.i60.i, 16
+  %137 = icmp samesign ugt i32 %.02732.i60.i, 16
   br i1 %137, label %.lr.ph.i56.i, label %._crit_edge.loopexit.i63.i, !llvm.loop !20
 
 ._crit_edge.loopexit.i63.i:                       ; preds = %.lr.ph.i56.i
@@ -4357,7 +4357,7 @@ _ZNSt6vectorItSaItEE17_S_check_init_lenEmRKS0_.exit.i: ; preds = %6
   tail call void @llvm.memset.p0.i64(ptr align 2 %22, i8 0, i64 %25, i1 false)
   %26 = getelementptr inbounds i8, ptr %0, i64 96
   store ptr %20, ptr %26, align 8
-  %27 = icmp ugt i64 %16, 2305843009213693951
+  %27 = icmp samesign ugt i64 %16, 2305843009213693951
   br i1 %27, label %28, label %_ZNSt6vectorIiSaIiEE17_S_check_init_lenEmRKS0_.exit.i.thread
 
 28:                                               ; preds = %24
@@ -8455,7 +8455,7 @@ _ZN5faiss12heap_heapifyINS_4CMinIflEEEEvmPNT_1TEPNS3_2TIEPKS4_PKS6_m.exit: ; pre
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 8
   %88 = add nsw i32 %.02732.i.i, -8
   %.024.i.i = add nuw nsw i64 %.02435.i.i, 1
-  %89 = icmp ugt i32 %.02732.i.i, 16
+  %89 = icmp samesign ugt i32 %.02732.i.i, 16
   br i1 %89, label %.lr.ph.i.i, label %._crit_edge.loopexit.i.i, !llvm.loop !20
 
 ._crit_edge.loopexit.i.i:                         ; preds = %.lr.ph.i.i
@@ -8555,7 +8555,7 @@ _ZN5faiss15BitstringReader4readEi.exit.i:         ; preds = %._crit_edge.i.i, %7
   %indvars.iv.next.i61.i = add nuw nsw i64 %indvars.iv.i57.i, 8
   %136 = add nsw i32 %.02732.i60.i, -8
   %.024.i62.i = add nuw nsw i64 %.02435.i58.i, 1
-  %137 = icmp ugt i32 %.02732.i60.i, 16
+  %137 = icmp samesign ugt i32 %.02732.i60.i, 16
   br i1 %137, label %.lr.ph.i56.i, label %._crit_edge.loopexit.i63.i, !llvm.loop !20
 
 ._crit_edge.loopexit.i63.i:                       ; preds = %.lr.ph.i56.i
@@ -9090,7 +9090,7 @@ _ZNSt6vectorItSaItEE17_S_check_init_lenEmRKS0_.exit.i: ; preds = %6
   tail call void @llvm.memset.p0.i64(ptr align 2 %22, i8 0, i64 %25, i1 false)
   %26 = getelementptr inbounds i8, ptr %0, i64 96
   store ptr %20, ptr %26, align 8
-  %27 = icmp ugt i64 %16, 2305843009213693951
+  %27 = icmp samesign ugt i64 %16, 2305843009213693951
   br i1 %27, label %28, label %_ZNSt6vectorIiSaIiEE17_S_check_init_lenEmRKS0_.exit.i.thread
 
 28:                                               ; preds = %24

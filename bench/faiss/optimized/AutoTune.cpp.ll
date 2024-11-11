@@ -3421,7 +3421,7 @@ _ZNSt6vectorIN5faiss14OperatingPointESaIS1_EE9push_backERKS1_.exit52: ; preds = 
   %109 = getelementptr inbounds i8, ptr %.0910.i.i.i.i.i.i.i, i64 56
   %110 = getelementptr inbounds i8, ptr %.0811.i.i.i.i.i.i.i, i64 56
   %111 = add nsw i64 %.012.i.i.i.i.i.i.i, -1
-  %112 = icmp ugt i64 %.012.i.i.i.i.i.i.i, 1
+  %112 = icmp samesign ugt i64 %.012.i.i.i.i.i.i.i, 1
   br i1 %112, label %.lr.ph.i.i.i.i.i.i.i, label %_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPN5faiss14OperatingPointESt6vectorIS3_SaIS3_EEEES8_ET0_T_SA_S9_.exit.loopexit.i.i, !llvm.loop !31
 
 _ZSt4moveIN9__gnu_cxx17__normal_iteratorIPN5faiss14OperatingPointESt6vectorIS3_SaIS3_EEEES8_ET0_T_SA_S9_.exit.loopexit.i.i: ; preds = %.lr.ph.i.i.i.i.i.i.i
@@ -3530,7 +3530,7 @@ define linkonce_odr ptr @_ZNSt6vectorIN5faiss14OperatingPointESaIS1_EE6insertEN9
   %52 = getelementptr inbounds i8, ptr %.069.i.i.i.i.i.i, i64 -8
   store i64 %51, ptr %52, align 8
   %53 = add nsw i64 %.010.i.i.i.i.i.i, -1
-  %54 = icmp ugt i64 %.010.i.i.i.i.i.i, 1
+  %54 = icmp samesign ugt i64 %.010.i.i.i.i.i.i, 1
   br i1 %54, label %.lr.ph.i.i.i.i.i.i, label %.loopexit, !llvm.loop !33
 
 .loopexit:                                        ; preds = %.lr.ph.i.i.i.i.i.i, %23

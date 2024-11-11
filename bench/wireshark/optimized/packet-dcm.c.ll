@@ -8694,13 +8694,13 @@ dcm_export_create_tag_str.exit34.i:               ; preds = %341, %dcm_export_cr
   store i8 28, ptr %355, align 1
   %356 = getelementptr i8, ptr %348, i64 7
   store i8 0, ptr %356, align 1
-  %357 = icmp ugt i32 %.013.i33.i, 476
+  %357 = icmp samesign ugt i32 %.013.i33.i, 476
   br i1 %357, label %dcm_export_create_header.exit, label %dcm_export_create_tag_str.exit37.i
 
 dcm_export_create_tag_str.exit37.i:               ; preds = %354
   %358 = getelementptr i8, ptr %348, i64 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(28) %358, ptr noundef nonnull readonly align 1 dereferenceable(28) @.str.352, i64 28, i1 false)
-  %359 = icmp ugt i32 %.013.i33.i, 470
+  %359 = icmp samesign ugt i32 %.013.i33.i, 470
   br i1 %359, label %dcm_export_create_header.exit, label %360
 
 360:                                              ; preds = %dcm_export_create_tag_str.exit37.i
@@ -8714,7 +8714,7 @@ dcm_export_create_tag_str.exit37.i:               ; preds = %354
   store i8 0, ptr %364, align 1
   %365 = getelementptr i8, ptr %348, i64 40
   store i16 18515, ptr %365, align 1
-  %366 = icmp ugt i32 %.013.i33.i, 468
+  %366 = icmp samesign ugt i32 %.013.i33.i, 468
   br i1 %366, label %dcm_export_create_header.exit, label %367
 
 367:                                              ; preds = %360
@@ -8722,7 +8722,7 @@ dcm_export_create_tag_str.exit37.i:               ; preds = %354
   store i8 10, ptr %368, align 1
   %369 = getelementptr i8, ptr %348, i64 43
   store i8 0, ptr %369, align 1
-  %370 = icmp ugt i32 %.013.i33.i, 458
+  %370 = icmp samesign ugt i32 %.013.i33.i, 458
   br i1 %370, label %dcm_export_create_header.exit, label %371
 
 371:                                              ; preds = %367
@@ -10778,7 +10778,7 @@ dissect_dcm_assoc_role_selection.exit.i:          ; preds = %119, %93
   %209 = add i32 %.02.i, %148
   %210 = add i32 %209, 7
   %211 = tail call ptr @proto_tree_add_item(ptr noundef %139, i32 noundef %208, ptr noundef %0, i32 noundef %210, i32 noundef 1, i32 noundef 0) #10
-  %212 = icmp ult i32 %.075.i.i, 2
+  %212 = icmp samesign ult i32 %.075.i.i, 2
   br i1 %212, label %dissect_dcm_assoc_async_negotiation.exit.i, label %213
 
 213:                                              ; preds = %207

@@ -532,7 +532,7 @@ define ptr @Cudd_addTimesPlus(ptr noundef %0, ptr noundef %1, ptr noundef %2, pt
 21:                                               ; preds = %14
   tail call void @Cudd_Ref(ptr noundef nonnull %18) #7
   tail call void @Cudd_RecursiveDeref(ptr noundef nonnull %0, ptr noundef %.03743) #7
-  %22 = icmp ugt i64 %indvars.iv, 1
+  %22 = icmp samesign ugt i64 %indvars.iv, 1
   br i1 %22, label %14, label %._crit_edge, !llvm.loop !10
 
 ._crit_edge:                                      ; preds = %21, %8

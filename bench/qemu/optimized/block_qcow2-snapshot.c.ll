@@ -762,7 +762,7 @@ if.end110:                                        ; preds = %if.end103
 if.then116:                                       ; preds = %if.end110
   %conv113 = zext i32 %36 to i64
   %sub119 = add nsw i64 %conv113, -24
-  %cmp120 = icmp ult i64 %sub119, 2147483137
+  %cmp120 = icmp samesign ult i64 %sub119, 2147483137
   br i1 %cmp120, label %if.end124, label %if.else123
 
 if.else123:                                       ; preds = %if.then116

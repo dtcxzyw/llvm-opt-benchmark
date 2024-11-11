@@ -103,7 +103,7 @@ define internal fastcc i32 @dump_var_event(ptr nocapture noundef readonly %0, pt
   br label %.thread
 
 37:                                               ; preds = %15
-  %38 = icmp ult i32 %12, 1073741824
+  %38 = icmp samesign ult i32 %12, 1073741824
   %39 = getelementptr inbounds i8, ptr %0, i64 20
   %40 = load ptr, ptr %39, align 4
   br i1 %38, label %41, label %43
@@ -317,7 +317,7 @@ define dso_local i32 @snd_seq_expand_var_event_at(ptr nocapture noundef readonly
   %32 = add i32 %3, %1
   %33 = tail call i32 @llvm.smin.i32(i32 %12, i32 %32)
   %34 = select i1 %31, i32 %12, i32 %33
-  %35 = icmp ult i32 %11, 1073741824
+  %35 = icmp samesign ult i32 %11, 1073741824
   %36 = getelementptr inbounds i8, ptr %0, i64 20
   %37 = load ptr, ptr %36, align 4
   br i1 %35, label %38, label %43
@@ -566,7 +566,7 @@ define dso_local noundef range(i32 -512, 1) i32 @snd_seq_event_dup(ptr noundef %
 62:                                               ; preds = %60, %58
   %63 = sext i32 %49 to i64
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 8 %.pre28.pre, ptr align 1 %52, i64 %63, i1 false)
-  %64 = icmp ult i32 %53, 2
+  %64 = icmp samesign ult i32 %53, 2
   br i1 %64, label %.loopexit8, label %65, !llvm.loop !20
 
 65:                                               ; preds = %62
@@ -620,7 +620,7 @@ define dso_local noundef range(i32 -512, 1) i32 @snd_seq_event_dup(ptr noundef %
 
 91:                                               ; preds = %88, %86
   %92 = phi ptr [ %90, %88 ], [ null, %86 ]
-  %93 = icmp ult i32 %76, 2
+  %93 = icmp samesign ult i32 %76, 2
   br i1 %93, label %.loopexit8, label %94, !llvm.loop !20
 
 94:                                               ; preds = %91
@@ -671,7 +671,7 @@ define dso_local noundef range(i32 -512, 1) i32 @snd_seq_event_dup(ptr noundef %
   br i1 %119, label %120, label %.loopexit
 
 120:                                              ; preds = %116
-  %121 = icmp ult i32 %105, 2
+  %121 = icmp samesign ult i32 %105, 2
   br i1 %121, label %.loopexit8, label %122, !llvm.loop !20
 
 122:                                              ; preds = %120
@@ -745,7 +745,7 @@ define dso_local noundef range(i32 -512, 1) i32 @snd_seq_event_dup(ptr noundef %
 
 159:                                              ; preds = %155, %150
   %160 = phi ptr [ %152, %150 ], [ null, %155 ]
-  %161 = icmp ult i32 %140, 2
+  %161 = icmp samesign ult i32 %140, 2
   br i1 %161, label %.loopexit8, label %128, !llvm.loop !20
 
 .loopexit8:                                       ; preds = %159, %120, %91, %62, %33

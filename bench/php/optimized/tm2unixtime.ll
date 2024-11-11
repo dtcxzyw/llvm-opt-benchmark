@@ -701,7 +701,7 @@ do_range_limit.exit.i:                            ; preds = %149, %146
   br i1 %166, label %.lr.ph, label %do_range_limit_days.exit.thread
 
 .lr.ph.i:                                         ; preds = %.thread50.i
-  %167 = icmp ugt i64 %168, 1
+  %167 = icmp samesign ugt i64 %168, 1
   br i1 %167, label %.lr.ph, label %do_range_limit_days.exit
 
 .lr.ph:                                           ; preds = %.lr.ph.i.preheader, %.lr.ph.i
@@ -738,7 +738,7 @@ do_range_limit.exit.i:                            ; preds = %149, %146
   br i1 %183, label %.lr.ph.i, label %.lr.ph59.preheader.i
 
 .lr.ph59.preheader.i:                             ; preds = %.thread50.i
-  %184 = icmp ult i64 %171, 13
+  %184 = icmp samesign ult i64 %171, 13
   br i1 %184, label %.lr.ph69.preheader, label %do_range_limit_days.exit
 
 .lr.ph69.preheader:                               ; preds = %163, %.lr.ph59.preheader.i

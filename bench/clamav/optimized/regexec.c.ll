@@ -248,7 +248,7 @@ define range(i32 0, 17) i32 @cli_regexec(ptr nocapture noundef readonly %0, ptr 
   %.2.i.i = phi i32 [ %126, %.preheader.i.i ], [ %.1107.i.i, %123 ]
   %125 = call fastcc i64 @sstep(ptr noundef %91, i64 noundef range(i64 -9223372036854775807, -9223372036854775808) %28, i64 noundef %29, i64 noundef %.2117.i.i, i32 noundef %.1109.i.i, i64 noundef %.2117.i.i)
   %126 = add nsw i32 %.2.i.i, -1
-  %.old17.i.i = icmp ugt i32 %.2.i.i, 1
+  %.old17.i.i = icmp samesign ugt i32 %.2.i.i, 1
   br i1 %.old17.i.i, label %.preheader.i.i, label %.loopexit.i.i
 
 .loopexit.i.i:                                    ; preds = %.preheader.i.i, %123
@@ -845,7 +845,7 @@ smatcher.exit:                                    ; preds = %39, %._crit_edge.i,
   %398 = load ptr, ptr %6, align 8
   %399 = call fastcc ptr @lstep(ptr noundef %398, i64 noundef range(i64 -9223372036854775807, -9223372036854775808) %272, i64 noundef %273, ptr noundef %335, i32 noundef %.1118.i.i, ptr noundef %335)
   %400 = add nsw i32 %.2.i.i57, -1
-  %.old17.i.i58 = icmp ugt i32 %.2.i.i57, 1
+  %.old17.i.i58 = icmp samesign ugt i32 %.2.i.i57, 1
   br i1 %.old17.i.i58, label %.preheader.i.i56, label %.loopexit.i.i30
 
 .loopexit.i.i30:                                  ; preds = %.preheader.i.i56, %396
@@ -1323,7 +1323,7 @@ define internal fastcc ptr @sslow(ptr nocapture noundef nonnull readonly %0, ptr
   %.2 = phi i32 [ %63, %.preheader ], [ %.1101, %60 ]
   %62 = tail call fastcc i64 @sstep(ptr noundef %25, i64 noundef %3, i64 noundef %4, i64 noundef %.2107, i32 noundef %.1103, i64 noundef %.2107)
   %63 = add nsw i32 %.2, -1
-  %.old17 = icmp ugt i32 %.2, 1
+  %.old17 = icmp samesign ugt i32 %.2, 1
   br i1 %.old17, label %.preheader, label %.loopexit
 
 .loopexit:                                        ; preds = %.preheader, %60
@@ -2531,7 +2531,7 @@ define internal fastcc ptr @lslow(ptr nocapture noundef nonnull readonly %0, ptr
   %74 = load ptr, ptr %0, align 8
   %75 = tail call fastcc ptr @lstep(ptr noundef %74, i64 noundef %3, i64 noundef %4, ptr noundef %7, i32 noundef %.1110, ptr noundef %7)
   %76 = add nsw i32 %.2, -1
-  %.old17 = icmp ugt i32 %.2, 1
+  %.old17 = icmp samesign ugt i32 %.2, 1
   br i1 %.old17, label %.preheader, label %.loopexit
 
 .loopexit:                                        ; preds = %.preheader, %72

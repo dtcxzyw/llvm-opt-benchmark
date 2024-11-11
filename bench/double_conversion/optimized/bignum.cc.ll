@@ -853,7 +853,7 @@ for.body.i:                                       ; preds = %for.body.i, %for.bo
   %7 = add nsw i64 %indvars.iv.next.i, %3
   %arrayidx.i13.i = getelementptr inbounds [128 x i32], ptr %bigits_buffer_.i.i, i64 0, i64 %7
   store i32 %6, ptr %arrayidx.i13.i, align 4
-  %cmp12.i = icmp ugt i64 %indvars.iv.i, 1
+  %cmp12.i = icmp samesign ugt i64 %indvars.iv.i, 1
   br i1 %cmp12.i, label %for.body.i, label %for.cond16.preheader.i, !llvm.loop !19
 
 for.end21.i:                                      ; preds = %for.body18.lr.ph.i, %for.cond16.preheader.i
@@ -1051,7 +1051,7 @@ for.body:                                         ; preds = %for.body.lr.ph, %fo
   %8 = add nsw i64 %indvars.iv.next, %4
   %arrayidx.i13 = getelementptr inbounds [128 x i32], ptr %bigits_buffer_.i, i64 0, i64 %8
   store i32 %7, ptr %arrayidx.i13, align 4
-  %cmp12 = icmp ugt i64 %indvars.iv, 1
+  %cmp12 = icmp samesign ugt i64 %indvars.iv, 1
   br i1 %cmp12, label %for.body, label %for.cond16.preheader, !llvm.loop !19
 
 for.end21:                                        ; preds = %for.body18.lr.ph, %for.cond16.preheader
@@ -1121,7 +1121,7 @@ for.body.i:                                       ; preds = %for.body.i, %for.bo
   %8 = add nsw i64 %indvars.iv.next.i, %4
   %arrayidx.i13.i = getelementptr inbounds [128 x i32], ptr %bigits_buffer_.i.i, i64 0, i64 %8
   store i32 %7, ptr %arrayidx.i13.i, align 4
-  %cmp12.i = icmp ugt i64 %indvars.iv.i, 1
+  %cmp12.i = icmp samesign ugt i64 %indvars.iv.i, 1
   br i1 %cmp12.i, label %for.body.i, label %for.cond16.preheader.i, !llvm.loop !19
 
 for.end21.i:                                      ; preds = %for.body18.lr.ph.i, %for.cond16.preheader.i
@@ -2078,7 +2078,7 @@ for.body.i:                                       ; preds = %for.body.i, %for.bo
   %9 = add nsw i64 %indvars.iv.next.i, %5
   %arrayidx.i13.i = getelementptr inbounds [128 x i32], ptr %bigits_buffer_.i.i, i64 0, i64 %9
   store i32 %8, ptr %arrayidx.i13.i, align 4
-  %cmp12.i = icmp ugt i64 %indvars.iv.i, 1
+  %cmp12.i = icmp samesign ugt i64 %indvars.iv.i, 1
   br i1 %cmp12.i, label %for.body.i, label %for.cond16.preheader.i, !llvm.loop !19
 
 for.end21.i:                                      ; preds = %for.body18.lr.ph.i, %for.cond16.preheader.i

@@ -1145,7 +1145,7 @@ define hidden void @_ZN4core6escape12escape_ascii17h56619c08221e99ebE(ptr dead_o
   ret void
 
 14:                                               ; preds = %3
-  %15 = icmp ult i8 %1, 32
+  %15 = icmp samesign ult i8 %1, 32
   %16 = icmp eq i8 %1, 127
   %or.cond = or i1 %15, %16
   br i1 %or.cond, label %18, label %17

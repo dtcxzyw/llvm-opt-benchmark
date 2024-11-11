@@ -2133,7 +2133,7 @@ define void @_ZNK10open_spiel7sheriff11SheriffGame14ActionToStringB5cxx11Eil(ptr
   %44 = load i32, ptr %43, align 8
   %45 = add i32 %44, 3
   %46 = zext i32 %45 to i64
-  %47 = icmp ult i64 %3, %46
+  %47 = icmp samesign ult i64 %3, %46
   %48 = icmp eq i32 %2, 0
   br i1 %47, label %49, label %66
 
@@ -4526,7 +4526,7 @@ define noundef range(i32 0, -2) i32 @_ZNK10open_spiel7sheriff11SheriffGame30Dese
   %19 = add i32 %18, 2
   store i32 %19, ptr %8, align 4
   %20 = zext i32 %19 to i64
-  %.not = icmp ugt i64 %1, %20
+  %.not = icmp samesign ugt i64 %1, %20
   br i1 %.not, label %21, label %25
 
 21:                                               ; preds = %16
@@ -4598,7 +4598,7 @@ define noundef i32 @_ZNK10open_spiel7sheriff11SheriffGame16DeserializeBribeEl(pt
   %22 = add i32 %21, %13
   store i32 %22, ptr %8, align 4
   %23 = zext i32 %22 to i64
-  %.not6 = icmp ugt i64 %1, %23
+  %.not6 = icmp samesign ugt i64 %1, %23
   br i1 %.not6, label %24, label %28
 
 24:                                               ; preds = %19

@@ -2775,7 +2775,7 @@ _ZNSt12_Vector_baseIN2cv8datasets10PascalPartESaIS2_EE13_M_deallocateEPS2_m.exit
   %38 = getelementptr inbounds i8, ptr %.0910.i.i.i.i.i, i64 48
   %39 = getelementptr inbounds i8, ptr %.0811.i.i.i.i.i, i64 48
   %40 = add nsw i64 %.012.i.i.i.i.i, -1
-  %41 = icmp ugt i64 %.012.i.i.i.i.i, 1
+  %41 = icmp samesign ugt i64 %.012.i.i.i.i.i, 1
   br i1 %41, label %.lr.ph.i.i.i.i.i, label %_ZSt4copyIN9__gnu_cxx17__normal_iteratorIPKN2cv8datasets10PascalPartESt6vectorIS4_SaIS4_EEEENS1_IPS4_S9_EEET0_T_SE_SD_.exit.loopexit, !llvm.loop !11
 
 _ZSt4copyIN9__gnu_cxx17__normal_iteratorIPKN2cv8datasets10PascalPartESt6vectorIS4_SaIS4_EEEENS1_IPS4_S9_EEET0_T_SE_SD_.exit.loopexit: ; preds = %.lr.ph.i.i.i.i.i
@@ -2821,7 +2821,7 @@ _ZSt4copyIN9__gnu_cxx17__normal_iteratorIPKN2cv8datasets10PascalPartESt6vectorIS
   %52 = getelementptr inbounds i8, ptr %.0910.i.i.i.i.i33, i64 48
   %53 = getelementptr inbounds i8, ptr %.0811.i.i.i.i.i32, i64 48
   %54 = add nsw i64 %.012.i.i.i.i.i31, -1
-  %55 = icmp ugt i64 %.012.i.i.i.i.i31, 1
+  %55 = icmp samesign ugt i64 %.012.i.i.i.i.i31, 1
   br i1 %55, label %.lr.ph.i.i.i.i.i30, label %_ZSt4copyIPN2cv8datasets10PascalPartES3_ET0_T_S5_S4_.exit.loopexit, !llvm.loop !13
 
 _ZSt4copyIPN2cv8datasets10PascalPartES3_ET0_T_S5_S4_.exit.loopexit: ; preds = %.lr.ph.i.i.i.i.i30
@@ -3155,7 +3155,7 @@ _ZNSt12_Vector_baseIN2cv8datasets9PascalObjESaIS2_EE13_M_deallocateEPS2_m.exit: 
   %54 = getelementptr inbounds i8, ptr %.0910.i.i.i.i.i, i64 112
   %55 = getelementptr inbounds i8, ptr %.0811.i.i.i.i.i, i64 112
   %56 = add nsw i64 %.012.i.i.i.i.i, -1
-  %57 = icmp ugt i64 %.012.i.i.i.i.i, 1
+  %57 = icmp samesign ugt i64 %.012.i.i.i.i.i, 1
   br i1 %57, label %.lr.ph.i.i.i.i.i, label %_ZSt4copyIN9__gnu_cxx17__normal_iteratorIPKN2cv8datasets9PascalObjESt6vectorIS4_SaIS4_EEEENS1_IPS4_S9_EEET0_T_SE_SD_.exit.loopexit, !llvm.loop !15
 
 _ZSt4copyIN9__gnu_cxx17__normal_iteratorIPKN2cv8datasets9PascalObjESt6vectorIS4_SaIS4_EEEENS1_IPS4_S9_EEET0_T_SE_SD_.exit.loopexit: ; preds = %.lr.ph.i.i.i.i.i
@@ -3240,7 +3240,7 @@ _ZSt8_DestroyIN2cv8datasets9PascalObjEEvPT_.exit.i.i.i35: ; preds = %67, %_ZSt8_
   %84 = getelementptr inbounds i8, ptr %.0910.i.i.i.i.i42, i64 112
   %85 = getelementptr inbounds i8, ptr %.0811.i.i.i.i.i41, i64 112
   %86 = add nsw i64 %.012.i.i.i.i.i40, -1
-  %87 = icmp ugt i64 %.012.i.i.i.i.i40, 1
+  %87 = icmp samesign ugt i64 %.012.i.i.i.i.i40, 1
   br i1 %87, label %.lr.ph.i.i.i.i.i39, label %_ZSt4copyIPN2cv8datasets9PascalObjES3_ET0_T_S5_S4_.exit.loopexit, !llvm.loop !17
 
 _ZSt4copyIPN2cv8datasets9PascalObjES3_ET0_T_S5_S4_.exit.loopexit: ; preds = %.lr.ph.i.i.i.i.i39

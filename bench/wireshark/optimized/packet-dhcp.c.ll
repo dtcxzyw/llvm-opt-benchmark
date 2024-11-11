@@ -4406,7 +4406,7 @@ define internal i32 @dissect_dhcpopt_client_identifier(ptr noundef %0, ptr nound
   ]
 
 43:                                               ; preds = %34
-  %44 = icmp ult i32 %5, 8
+  %44 = icmp samesign ult i32 %5, 8
   br i1 %44, label %45, label %47
 
 45:                                               ; preds = %43
@@ -4443,7 +4443,7 @@ define internal i32 @dissect_dhcpopt_client_identifier(ptr noundef %0, ptr nound
   br label %.thread149
 
 64:                                               ; preds = %34
-  %65 = icmp ult i32 %5, 6
+  %65 = icmp samesign ult i32 %5, 6
   br i1 %65, label %66, label %68
 
 66:                                               ; preds = %64
@@ -4463,7 +4463,7 @@ define internal i32 @dissect_dhcpopt_client_identifier(ptr noundef %0, ptr nound
   br label %.thread149
 
 75:                                               ; preds = %34
-  %76 = icmp ult i32 %5, 4
+  %76 = icmp samesign ult i32 %5, 4
   br i1 %76, label %77, label %79
 
 77:                                               ; preds = %75
@@ -5184,8 +5184,8 @@ define internal i32 @dissect_dhcpopt_isns(ptr noundef %0, ptr noundef %1, ptr no
   %28 = zext i16 %27 to i32
   %29 = and i32 %28, 3
   %or.cond83.not.not = icmp eq i32 %29, 3
-  %30 = icmp ult i32 %6, 18
-  %or.cond85 = and i1 %30, %or.cond83.not.not
+  %30 = icmp samesign ult i32 %6, 18
+  %or.cond85 = select i1 %or.cond83.not.not, i1 %30, i1 false
   br i1 %or.cond85, label %31, label %33
 
 31:                                               ; preds = %26
@@ -5250,7 +5250,7 @@ define internal i32 @dissect_dhcpopt_isns(ptr noundef %0, ptr noundef %1, ptr no
 .lr.ph234.split.i:                                ; preds = %58, %66
   %.0173232.i = phi i32 [ %70, %66 ], [ %62, %58 ]
   %.0175231.i = phi i32 [ %69, %66 ], [ %55, %58 ]
-  %64 = icmp ult i32 %.0173232.i, 4
+  %64 = icmp samesign ult i32 %.0173232.i, 4
   br i1 %64, label %.split237.us.i, label %66
 
 .split237.us.i:                                   ; preds = %.lr.ph234.split.i
@@ -9672,7 +9672,7 @@ define internal fastcc i32 @dhcp_handle_basic_types(ptr noundef %0, ptr noundef 
   %19 = add nuw i32 %.2229.us, 2
   %20 = add i32 %.1176227.us, 2
   %21 = add nsw i32 %.1174228.us, -2
-  %22 = icmp ugt i32 %.1174228.us, 2
+  %22 = icmp samesign ugt i32 %.1174228.us, 2
   br i1 %22, label %.lr.ph.split.us, label %.loopexit, !llvm.loop !60
 
 .preheader:                                       ; preds = %9
@@ -9688,7 +9688,7 @@ define internal fastcc i32 @dhcp_handle_basic_types(ptr noundef %0, ptr noundef 
   %.1233.us = phi i32 [ %32, %31 ], [ 0, %.lr.ph234 ]
   %.0173232.us = phi i32 [ %34, %31 ], [ %6, %.lr.ph234 ]
   %.0175231.us = phi i32 [ %33, %31 ], [ %5, %.lr.ph234 ]
-  %25 = icmp ult i32 %.0173232.us, 4
+  %25 = icmp samesign ult i32 %.0173232.us, 4
   br i1 %25, label %.split237.us, label %26
 
 26:                                               ; preds = %.lr.ph234.split.us
@@ -9762,7 +9762,7 @@ define internal fastcc i32 @dhcp_handle_basic_types(ptr noundef %0, ptr noundef 
   %.1233 = phi i32 [ %62, %59 ], [ 0, %.lr.ph234 ]
   %.0173232 = phi i32 [ %64, %59 ], [ %6, %.lr.ph234 ]
   %.0175231 = phi i32 [ %63, %59 ], [ %5, %.lr.ph234 ]
-  %57 = icmp ult i32 %.0173232, 4
+  %57 = icmp samesign ult i32 %.0173232, 4
   br i1 %57, label %.split237.us, label %59
 
 .split237.us:                                     ; preds = %.lr.ph234.split, %.lr.ph234.split.us
@@ -9929,7 +9929,7 @@ define internal fastcc i32 @dhcp_handle_basic_types(ptr noundef %0, ptr noundef 
   %132 = add nuw i32 %.2229, 2
   %133 = add i32 %.1176227, 2
   %134 = add nsw i32 %.1174228, -2
-  %135 = icmp ugt i32 %.1174228, 2
+  %135 = icmp samesign ugt i32 %.1174228, 2
   br i1 %135, label %.lr.ph.split, label %.loopexit, !llvm.loop !60
 
 136:                                              ; preds = %9

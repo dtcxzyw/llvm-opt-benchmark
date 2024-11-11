@@ -437,7 +437,7 @@ define internal range(i32 0, 6) i32 @dissect_scte35_time_signal(ptr noundef %0, 
   %8 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef 0) #3
   %.not = icmp sgt i8 %8, -1
   %spec.select = select i1 %.not, i32 1, i32 5
-  %9 = icmp ult i32 %5, %spec.select
+  %9 = icmp samesign ult i32 %5, %spec.select
   br i1 %9, label %25, label %10
 
 10:                                               ; preds = %7
@@ -557,7 +557,7 @@ define internal i32 @dissect_scte35_splice_insert(ptr noundef %0, ptr nocapture 
   br i1 %.not, label %12, label %14
 
 12:                                               ; preds = %9
-  %13 = icmp ult i32 %7, 10
+  %13 = icmp samesign ult i32 %7, 10
   br i1 %13, label %129, label %14
 
 14:                                               ; preds = %12, %9
@@ -593,7 +593,7 @@ define internal i32 @dissect_scte35_splice_insert(ptr noundef %0, ptr nocapture 
   br i1 %or.cond, label %56, label %37
 
 37:                                               ; preds = %28
-  %.not135 = icmp ugt i32 %7, %.0122
+  %.not135 = icmp samesign ugt i32 %7, %.0122
   br i1 %.not135, label %38, label %129
 
 38:                                               ; preds = %37
@@ -612,7 +612,7 @@ define internal i32 @dissect_scte35_splice_insert(ptr noundef %0, ptr nocapture 
 
 49:                                               ; preds = %38
   %50 = add nuw nsw i32 %.0122, 5
-  %51 = icmp ult i32 %7, %50
+  %51 = icmp samesign ult i32 %7, %50
   br i1 %51, label %129, label %52
 
 52:                                               ; preds = %49
@@ -625,7 +625,7 @@ define internal i32 @dissect_scte35_splice_insert(ptr noundef %0, ptr nocapture 
   br i1 %35, label %57, label %.thread
 
 57:                                               ; preds = %56
-  %.not139 = icmp ugt i32 %7, %.0122
+  %.not139 = icmp samesign ugt i32 %7, %.0122
   br i1 %.not139, label %58, label %129
 
 58:                                               ; preds = %57
@@ -638,7 +638,7 @@ define internal i32 @dissect_scte35_splice_insert(ptr noundef %0, ptr nocapture 
   %64 = zext i1 %.not140 to i32
   %65 = shl nuw nsw i32 %63, %64
   %66 = add nuw nsw i32 %59, %65
-  %67 = icmp ult i32 %7, %66
+  %67 = icmp samesign ult i32 %7, %66
   br i1 %67, label %129, label %.preheader
 
 .preheader:                                       ; preds = %58
@@ -664,7 +664,7 @@ define internal i32 @dissect_scte35_splice_insert(ptr noundef %0, ptr nocapture 
   br i1 %.not43.i.us, label %76, label %74
 
 74:                                               ; preds = %72
-  %75 = icmp ult i32 %70, 6
+  %75 = icmp samesign ult i32 %70, 6
   br i1 %75, label %dissect_component.exit, label %76
 
 76:                                               ; preds = %74, %72
@@ -795,7 +795,7 @@ define internal noundef i32 @dissect_scte35_splice_schedule(ptr noundef %0, ptr 
   %10 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef 0) #3
   %11 = zext i8 %10 to i32
   %12 = mul nuw nsw i32 %11, 5
-  %.not = icmp ugt i32 %7, %12
+  %.not = icmp samesign ugt i32 %7, %12
   br i1 %.not, label %13, label %.loopexit165
 
 13:                                               ; preds = %9
@@ -1005,7 +1005,7 @@ define internal range(i32 0, 69655) i32 @dissect_scte35_splice_info(ptr noundef 
   %14 = and i16 %13, 4095
   %15 = zext nneg i16 %14 to i32
   %16 = add nuw nsw i32 %15, 20
-  %17 = icmp ult i32 %7, %16
+  %17 = icmp samesign ult i32 %7, %16
   br i1 %17, label %.loopexit, label %18
 
 18:                                               ; preds = %9
@@ -1013,14 +1013,14 @@ define internal range(i32 0, 69655) i32 @dissect_scte35_splice_info(ptr noundef 
   %20 = tail call zeroext i16 @tvb_get_ntohs(ptr noundef %0, i32 noundef %19) #3
   %21 = zext i16 %20 to i32
   %22 = add nuw nsw i32 %16, %21
-  %23 = icmp ult i32 %7, %22
+  %23 = icmp samesign ult i32 %7, %22
   br i1 %23, label %.loopexit, label %24
 
 24:                                               ; preds = %18
   %.not = icmp sgt i8 %11, -1
   %25 = add nuw nsw i32 %22, 4
   %spec.select = select i1 %.not, i32 %22, i32 %25
-  %26 = icmp ult i32 %7, %spec.select
+  %26 = icmp samesign ult i32 %7, %spec.select
   br i1 %26, label %.loopexit, label %27
 
 27:                                               ; preds = %24
@@ -1106,7 +1106,7 @@ define internal range(i32 0, 69655) i32 @dissect_scte35_splice_info(ptr noundef 
   %84 = call zeroext i8 @tvb_get_bits8(ptr noundef %71, i32 noundef 8, i32 noundef 3) #3
   %85 = zext i8 %84 to i32
   %86 = add nuw nsw i32 %85, 2
-  %87 = icmp ult i32 %81, %86
+  %87 = icmp samesign ult i32 %81, %86
   br i1 %87, label %dissect_scte35_splice_descriptor.exit.thread, label %88
 
 88:                                               ; preds = %83

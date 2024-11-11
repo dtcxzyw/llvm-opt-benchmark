@@ -6735,7 +6735,7 @@ _ZSt6fill_nIPmmmET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i: ; preds = %.noexc19
   %38 = xor i64 %notmask, -1
   store i64 %38, ptr %13, align 8
   %39 = icmp slt i32 %0, 12
-  %40 = icmp ult i32 %0, 20
+  %40 = icmp samesign ult i32 %0, 20
   %41 = add nsw i32 %0, -12
   %42 = select i1 %40, i32 %41, i32 10
   %43 = select i1 %39, i32 0, i32 %42
@@ -7268,7 +7268,7 @@ _ZNSt6vectorIlSaIlEEC2EmRKS0_.exit12:             ; preds = %_ZSt6fill_nIPlmlET_
   %24 = xor i64 %notmask, -1
   store i64 %24, ptr %11, align 8
   %25 = icmp slt i32 %0, 12
-  %26 = icmp ult i32 %0, 20
+  %26 = icmp samesign ult i32 %0, 20
   %27 = add nsw i32 %0, -12
   %28 = select i1 %26, i32 %27, i32 10
   %29 = select i1 %25, i32 0, i32 %28

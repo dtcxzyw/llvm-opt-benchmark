@@ -3948,7 +3948,7 @@ define internal i32 @dissect_c15ch_hbeat(ptr noundef %0, ptr nocapture noundef r
   br i1 %19, label %add_string_field.exit, label %20
 
 20:                                               ; preds = %10
-  %21 = icmp ugt i32 %18, 25
+  %21 = icmp samesign ugt i32 %18, 25
   br i1 %21, label %22, label %add_string_field.exit
 
 22:                                               ; preds = %20
@@ -3972,7 +3972,7 @@ add_string_field.exit:                            ; preds = %10, %20, %22
   br i1 %33, label %add_string_field.exit16, label %34
 
 34:                                               ; preds = %add_string_field.exit
-  %35 = icmp ugt i32 %32, 25
+  %35 = icmp samesign ugt i32 %32, 25
   br i1 %35, label %36, label %add_string_field.exit16
 
 36:                                               ; preds = %34
@@ -4762,7 +4762,7 @@ define internal i32 @dissect_c15ch_nitnxlate(ptr noundef %0, ptr nocapture nound
   br i1 %88, label %add_string_field.exit, label %89
 
 89:                                               ; preds = %83
-  %90 = icmp ugt i32 %87, 5
+  %90 = icmp samesign ugt i32 %87, 5
   br i1 %90, label %91, label %add_string_field.exit
 
 91:                                               ; preds = %89
@@ -4790,7 +4790,7 @@ add_string_field.exit:                            ; preds = %83, %89, %91
   br i1 %102, label %add_string_field.exit140, label %103
 
 103:                                              ; preds = %97
-  %104 = icmp ugt i32 %101, 5
+  %104 = icmp samesign ugt i32 %101, 5
   br i1 %104, label %105, label %add_string_field.exit140
 
 105:                                              ; preds = %103
@@ -4818,7 +4818,7 @@ add_string_field.exit140:                         ; preds = %97, %103, %105
   br i1 %116, label %add_string_field.exit142, label %117
 
 117:                                              ; preds = %111
-  %118 = icmp ugt i32 %115, 5
+  %118 = icmp samesign ugt i32 %115, 5
   br i1 %118, label %119, label %add_string_field.exit142
 
 119:                                              ; preds = %117
@@ -4938,7 +4938,7 @@ add_string_field.exit142:                         ; preds = %111, %117, %119
   br i1 %186, label %add_string_field.exit144, label %187
 
 187:                                              ; preds = %181
-  %188 = icmp ugt i32 %185, 65
+  %188 = icmp samesign ugt i32 %185, 65
   br i1 %188, label %189, label %add_string_field.exit144
 
 189:                                              ; preds = %187
@@ -4966,7 +4966,7 @@ add_string_field.exit144:                         ; preds = %181, %187, %189
   br i1 %199, label %add_string_field.exit146, label %200
 
 200:                                              ; preds = %194
-  %201 = icmp ugt i32 %198, 65
+  %201 = icmp samesign ugt i32 %198, 65
   br i1 %201, label %202, label %add_string_field.exit146
 
 202:                                              ; preds = %200
@@ -4999,7 +4999,7 @@ add_string_field.exit146:                         ; preds = %194, %200, %202
   br i1 %216, label %add_string_field.exit148, label %217
 
 217:                                              ; preds = %211
-  %218 = icmp ugt i32 %215, 5
+  %218 = icmp samesign ugt i32 %215, 5
   br i1 %218, label %219, label %add_string_field.exit148
 
 219:                                              ; preds = %217
@@ -5285,7 +5285,7 @@ define internal i32 @dissect_c15ch_ntwk_conn(ptr noundef %0, ptr nocapture nound
   br i1 %31, label %add_string_field.exit, label %32
 
 32:                                               ; preds = %16
-  %33 = icmp ugt i32 %30, 5
+  %33 = icmp samesign ugt i32 %30, 5
   br i1 %33, label %34, label %add_string_field.exit
 
 34:                                               ; preds = %32
@@ -5342,7 +5342,7 @@ add_string_field.exit:                            ; preds = %16, %32, %34
   br i1 %78, label %add_string_field.exit82, label %79
 
 79:                                               ; preds = %add_string_field.exit
-  %80 = icmp ugt i32 %77, 5
+  %80 = icmp samesign ugt i32 %77, 5
   br i1 %80, label %81, label %add_string_field.exit82
 
 81:                                               ; preds = %79
@@ -5444,7 +5444,7 @@ define internal i32 @dissect_c15ch_pathfind(ptr noundef %0, ptr nocapture readno
   br i1 %28, label %add_string_field.exit, label %29
 
 29:                                               ; preds = %7
-  %30 = icmp ugt i32 %27, 5
+  %30 = icmp samesign ugt i32 %27, 5
   br i1 %30, label %31, label %add_string_field.exit
 
 31:                                               ; preds = %29
@@ -5492,7 +5492,7 @@ add_string_field.exit:                            ; preds = %7, %29, %31
   br i1 %66, label %add_string_field.exit67, label %67
 
 67:                                               ; preds = %add_string_field.exit
-  %68 = icmp ugt i32 %65, 5
+  %68 = icmp samesign ugt i32 %65, 5
   br i1 %68, label %69, label %add_string_field.exit67
 
 69:                                               ; preds = %67
@@ -5563,7 +5563,7 @@ define internal i32 @dissect_c15ch_pathidle(ptr noundef %0, ptr nocapture readno
   br i1 %30, label %add_string_field.exit, label %31
 
 31:                                               ; preds = %7
-  %32 = icmp ugt i32 %29, 5
+  %32 = icmp samesign ugt i32 %29, 5
   br i1 %32, label %33, label %add_string_field.exit
 
 33:                                               ; preds = %31
@@ -5609,7 +5609,7 @@ add_string_field.exit:                            ; preds = %7, %31, %33
   br i1 %66, label %add_string_field.exit67, label %67
 
 67:                                               ; preds = %add_string_field.exit
-  %68 = icmp ugt i32 %65, 5
+  %68 = icmp samesign ugt i32 %65, 5
   br i1 %68, label %69, label %add_string_field.exit67
 
 69:                                               ; preds = %67
@@ -6130,7 +6130,7 @@ define internal i32 @dissect_c15ch_qos(ptr noundef %0, ptr nocapture noundef rea
   br i1 %65, label %add_string_field.exit, label %66
 
 66:                                               ; preds = %12
-  %67 = icmp ugt i32 %64, 13
+  %67 = icmp samesign ugt i32 %64, 13
   br i1 %67, label %68, label %add_string_field.exit
 
 68:                                               ; preds = %66
@@ -6432,7 +6432,7 @@ define internal i32 @dissect_c15ch_clli(ptr noundef %0, ptr nocapture noundef re
   br i1 %27, label %add_string_field.exit, label %28
 
 28:                                               ; preds = %18
-  %29 = icmp ugt i32 %26, 25
+  %29 = icmp samesign ugt i32 %26, 25
   br i1 %29, label %30, label %add_string_field.exit
 
 30:                                               ; preds = %28
@@ -6456,7 +6456,7 @@ add_string_field.exit:                            ; preds = %18, %28, %30
   br i1 %41, label %add_string_field.exit24, label %42
 
 42:                                               ; preds = %add_string_field.exit
-  %43 = icmp ugt i32 %40, 25
+  %43 = icmp samesign ugt i32 %40, 25
   br i1 %43, label %44, label %add_string_field.exit24
 
 44:                                               ; preds = %42
@@ -6501,7 +6501,7 @@ define internal i32 @dissect_c15ch_c15_info(ptr noundef %0, ptr nocapture readno
   br i1 %18, label %add_string_field.exit, label %19
 
 19:                                               ; preds = %7
-  %20 = icmp ugt i32 %17, 9
+  %20 = icmp samesign ugt i32 %17, 9
   br i1 %20, label %21, label %add_string_field.exit
 
 21:                                               ; preds = %19
@@ -6521,7 +6521,7 @@ add_string_field.exit:                            ; preds = %7, %19, %21
   br i1 %28, label %add_string_field.exit12, label %29
 
 29:                                               ; preds = %add_string_field.exit
-  %30 = icmp ugt i32 %27, 256
+  %30 = icmp samesign ugt i32 %27, 256
   br i1 %30, label %31, label %add_string_field.exit12
 
 31:                                               ; preds = %29
@@ -7427,7 +7427,7 @@ define internal i32 @dissect_c15ch_out_gwe_digit_scan(ptr noundef %0, ptr nocapt
   br i1 %17, label %add_string_field.exit, label %18
 
 18:                                               ; preds = %6
-  %19 = icmp ugt i32 %16, 250
+  %19 = icmp samesign ugt i32 %16, 250
   br i1 %19, label %20, label %add_string_field.exit
 
 20:                                               ; preds = %18
@@ -7783,7 +7783,7 @@ define internal i32 @dissect_c15ch_out_gwe_ring_line(ptr noundef %0, ptr nocaptu
   br i1 %17, label %add_string_field.exit, label %18
 
 18:                                               ; preds = %6
-  %19 = icmp ugt i32 %16, 100
+  %19 = icmp samesign ugt i32 %16, 100
   br i1 %19, label %20, label %add_string_field.exit
 
 20:                                               ; preds = %18
@@ -7890,7 +7890,7 @@ define internal i32 @dissect_c15ch_out_gwe_sac_list_entry(ptr noundef %0, ptr no
   br i1 %15, label %add_string_field.exit, label %16
 
 16:                                               ; preds = %6
-  %17 = icmp ugt i32 %14, 72
+  %17 = icmp samesign ugt i32 %14, 72
   br i1 %17, label %18, label %add_string_field.exit
 
 18:                                               ; preds = %16

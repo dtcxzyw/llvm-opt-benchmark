@@ -1534,7 +1534,7 @@ _ZNK4llvm9StringRef11starts_withES0_.exit331:     ; preds = %_ZNK4llvm9StringRef
   br i1 %65, label %_ZNK4llvm9StringRef11starts_withES0_.exit322.thread, label %_ZNK4llvm9StringRef11starts_withES0_.exit334
 
 _ZNK4llvm9StringRef11starts_withES0_.exit331.thread1347: ; preds = %_ZNK4llvm9StringRef11starts_withES0_.exit328.thread1346
-  %.not.i332 = icmp ult i64 %46, 16
+  %.not.i332 = icmp samesign ult i64 %46, 16
   br i1 %.not.i332, label %_ZNK4llvm9StringRef11starts_withES0_.exit334.thread1348, label %_ZNK4llvm9StringRef11starts_withES0_.exit334
 
 _ZNK4llvm9StringRef11starts_withES0_.exit334:     ; preds = %_ZNK4llvm9StringRef11starts_withES0_.exit331, %_ZNK4llvm9StringRef11starts_withES0_.exit331.thread1347
@@ -1547,7 +1547,7 @@ _ZNK4llvm9StringRef11starts_withES0_.exit322.thread: ; preds = %_ZNK4llvm9String
   br label %_ZN4llvm9StringRef13consume_frontES0_.exit.thread
 
 _ZNK4llvm9StringRef11starts_withES0_.exit334.thread1348: ; preds = %_ZN4llvmeqENS_9StringRefES0_.exit.thread1336, %_ZNK4llvm9StringRef11starts_withES0_.exit331.thread1347
-  %.not.i335 = icmp ult i64 %46, 6
+  %.not.i335 = icmp samesign ult i64 %46, 6
   br i1 %.not.i335, label %.critedge288, label %_ZNK4llvm9StringRef11starts_withES0_.exit337
 
 _ZNK4llvm9StringRef11starts_withES0_.exit337:     ; preds = %_ZNK4llvm9StringRef11starts_withES0_.exit334, %_ZNK4llvm9StringRef11starts_withES0_.exit334.thread1348
@@ -3615,7 +3615,7 @@ _ZNK4llvm9StringRef11starts_withES0_.exit.thread: ; preds = %_ZNK4llvm9StringRef
   br label %699
 
 .critedge:                                        ; preds = %_ZN4llvmeqENS_9StringRefES0_.exit346.thread1021
-  %.not.i.i352 = icmp ult i64 %.sroa.44.51172, 4
+  %.not.i.i352 = icmp samesign ult i64 %.sroa.44.51172, 4
   br i1 %.not.i.i352, label %.critedge309, label %_ZNK4llvm9StringRef11starts_withES0_.exit.i354
 
 _ZNK4llvm9StringRef11starts_withES0_.exit.i354:   ; preds = %_ZNK4llvm9StringRef11starts_withES0_.exit351, %_ZN4llvmeqENS_9StringRefES0_.exit342, %_ZN4llvmeqENS_9StringRefES0_.exit346, %.critedge
@@ -7789,7 +7789,7 @@ _ZN4llvm23SmallVectorTemplateBaseIPNS_8MetadataELb1EE9push_backES2_.exit: ; pred
   br label %_ZN4llvm11SmallVectorIPNS_8MetadataELj1EED2Ev.exit
 
 _ZNK4llvm9StringRef11starts_withES0_.exit.thread4138: ; preds = %5
-  %.not.i2033 = icmp ult i64 %1, 10
+  %.not.i2033 = icmp samesign ult i64 %1, 10
   br i1 %.not.i2033, label %_ZNK4llvm9StringRef11starts_withES0_.exit2059.thread4150, label %_ZNK4llvm9StringRef11starts_withES0_.exit2035
 
 _ZNK4llvm9StringRef11starts_withES0_.exit2035:    ; preds = %_ZNK4llvm9StringRef11starts_withES0_.exit, %_ZNK4llvm9StringRef11starts_withES0_.exit.thread4138
@@ -8024,7 +8024,7 @@ _ZNK4llvm9StringRef11starts_withES0_.exit2059.thread: ; preds = %_ZNK4llvm9Strin
 
 _ZNK4llvm9StringRef11starts_withES0_.exit2059.thread4150: ; preds = %_ZNK4llvm9StringRef11starts_withES0_.exit.thread4138, %_ZN4llvmeqENS_9StringRefES0_.exit.thread4142
   %.not.i20334956495949655129 = phi i1 [ false, %_ZN4llvmeqENS_9StringRefES0_.exit.thread4142 ], [ true, %_ZNK4llvm9StringRef11starts_withES0_.exit.thread4138 ]
-  %.not.i2060 = icmp ult i64 %1, 9
+  %.not.i2060 = icmp samesign ult i64 %1, 9
   br i1 %.not.i2060, label %_ZNK4llvm9StringRef11starts_withES0_.exit2068.thread4153, label %_ZNK4llvm9StringRef11starts_withES0_.exit2062
 
 _ZNK4llvm9StringRef11starts_withES0_.exit2062:    ; preds = %_ZNK4llvm9StringRef11starts_withES0_.exit2059, %_ZN4llvmeqENS_9StringRefES0_.exit2056.thread4148, %_ZNK4llvm9StringRef11starts_withES0_.exit2059.thread4150
@@ -8357,7 +8357,7 @@ _ZN4llvm14FunctionCalleeC2INS_8FunctionEMS2_KFPNS_12FunctionTypeEvEEEPT_.exit209
   br label %_ZN4llvm11SmallVectorIPNS_8MetadataELj1EED2Ev.exit
 
 _ZNK4llvm9StringRef11starts_withES0_.exit2091.thread4163: ; preds = %_ZNK4llvm9StringRef11starts_withES0_.exit2086.thread4162
-  %.not.i2097 = icmp ult i64 %1, 13
+  %.not.i2097 = icmp samesign ult i64 %1, 13
   br i1 %.not.i2097, label %_ZNK4llvm9StringRef11starts_withES0_.exit2111.thread4170, label %_ZNK4llvm9StringRef11starts_withES0_.exit2099
 
 _ZNK4llvm9StringRef11starts_withES0_.exit2099:    ; preds = %_ZNK4llvm9StringRef11starts_withES0_.exit2091, %_ZNK4llvm9StringRef11starts_withES0_.exit2091.thread4163
@@ -9028,7 +9028,7 @@ _ZN4llvm14FunctionCalleeC2INS_8FunctionEMS2_KFPNS_12FunctionTypeEvEEEPT_.exit218
   br label %_ZN4llvm11SmallVectorIPNS_8MetadataELj1EED2Ev.exit
 
 _ZNK4llvm9StringRef11starts_withES0_.exit2181.thread4220: ; preds = %_ZNK4llvm9StringRef11starts_withES0_.exit2178.thread4219
-  %.not.i2185 = icmp ult i64 %1, 21
+  %.not.i2185 = icmp samesign ult i64 %1, 21
   br i1 %.not.i2185, label %_ZNK4llvm9StringRef11starts_withES0_.exit2193, label %_ZNK4llvm9StringRef11starts_withES0_.exit2187
 
 _ZNK4llvm9StringRef11starts_withES0_.exit2187:    ; preds = %_ZNK4llvm9StringRef11starts_withES0_.exit2181, %_ZNK4llvm9StringRef11starts_withES0_.exit2181.thread4220
@@ -16131,7 +16131,7 @@ _ZNK4llvm11ConstantInt6isZeroEv.exit:             ; preds = %52, %55
 
 68:                                               ; preds = %60
   %69 = trunc nuw i64 %.0.i.i105.fr to i32
-  %or.cond = icmp ult i64 %.0.i.i105.fr, 2
+  %or.cond = icmp samesign ult i64 %.0.i.i105.fr, 2
   %spec.select = select i1 %or.cond, i32 7, i32 %69
   br label %.thread179
 
@@ -21988,7 +21988,7 @@ _ZN4llvm12StringSwitchIjjE5CasesENS_13StringLiteralES2_j.exit: ; preds = %_ZN4ll
   br label %_ZN4llvmeqENS_9StringRefES0_.exit240
 
 68:                                               ; preds = %38
-  %.not.i.i147 = icmp ult i64 %40, 3
+  %.not.i.i147 = icmp samesign ult i64 %40, 3
   br i1 %.not.i.i147, label %_ZN4llvm9StringRef13consume_frontES0_.exit152.thread.thread, label %_ZNK4llvm9StringRef11starts_withES0_.exit.i149
 
 _ZNK4llvm9StringRef11starts_withES0_.exit.i149:   ; preds = %_ZNK4llvm9StringRef11starts_withES0_.exit.i143, %68
@@ -22445,7 +22445,7 @@ _ZNK4llvm9StringRef11starts_withES0_.exit.i318:   ; preds = %204
   br i1 %205, label %_ZN4llvm12StringSwitchIjjE10StartsWithENS_13StringLiteralEj.exit327, label %_ZNK4llvm9StringRef11starts_withES0_.exit.i324
 
 _ZN4llvm12StringSwitchIjjE10StartsWithENS_13StringLiteralEj.exit321: ; preds = %204
-  %.not.i.i322 = icmp ult i64 %40, 4
+  %.not.i.i322 = icmp samesign ult i64 %40, 4
   br i1 %.not.i.i322, label %_ZN4llvmeqENS_9StringRefES0_.exit240, label %_ZNK4llvm9StringRef11starts_withES0_.exit.i324
 
 _ZNK4llvm9StringRef11starts_withES0_.exit.i324:   ; preds = %_ZNK4llvm9StringRef11starts_withES0_.exit.i318, %_ZN4llvm12StringSwitchIjjE10StartsWithENS_13StringLiteralEj.exit321
@@ -23615,7 +23615,7 @@ _ZNK4llvm9StringRef11starts_withES0_.exit208:     ; preds = %_ZNK4llvm9StringRef
   br i1 %18, label %_ZNK4llvm9StringRef11starts_withES0_.exit211, label %_ZNK4llvm9StringRef11starts_withES0_.exit208.thread1273.thread1832
 
 _ZNK4llvm9StringRef11starts_withES0_.exit208.thread1273: ; preds = %_ZNK4llvm9StringRef11starts_withES0_.exit205.thread1272
-  %.not.i209 = icmp ult i64 %6, 8
+  %.not.i209 = icmp samesign ult i64 %6, 8
   br i1 %.not.i209, label %_ZNK4llvm9StringRef11starts_withES0_.exit211, label %_ZNK4llvm9StringRef11starts_withES0_.exit208.thread1273.thread1832
 
 _ZNK4llvm9StringRef11starts_withES0_.exit208.thread1273.thread1832: ; preds = %_ZNK4llvm9StringRef11starts_withES0_.exit208, %_ZNK4llvm9StringRef11starts_withES0_.exit208.thread1273
@@ -24191,7 +24191,7 @@ _ZNK4llvm9StringRef11starts_withES0_.exit467:     ; preds = %_ZNK4llvm9StringRef
   br i1 %112, label %_ZNK4llvm9StringRef11starts_withES0_.exit211, label %_ZNK4llvm9StringRef11starts_withES0_.exit470
 
 _ZNK4llvm9StringRef11starts_withES0_.exit467.thread1393: ; preds = %_ZNK4llvm9StringRef11starts_withES0_.exit446.thread1386
-  %.not.i468 = icmp ult i64 %62, 6
+  %.not.i468 = icmp samesign ult i64 %62, 6
   br i1 %.not.i468, label %_ZNK4llvm9StringRef11starts_withES0_.exit473, label %_ZNK4llvm9StringRef11starts_withES0_.exit470
 
 _ZNK4llvm9StringRef11starts_withES0_.exit470:     ; preds = %_ZNK4llvm9StringRef11starts_withES0_.exit467, %_ZNK4llvm9StringRef11starts_withES0_.exit464.thread1392, %_ZNK4llvm9StringRef11starts_withES0_.exit467.thread1393
@@ -24265,7 +24265,7 @@ _ZNK4llvm9StringRef11starts_withES0_.exit500:     ; preds = %_ZNK4llvm9StringRef
   br i1 %123, label %_ZNK4llvm9StringRef11starts_withES0_.exit211, label %_ZNK4llvm9StringRef11starts_withES0_.exit503
 
 _ZNK4llvm9StringRef11starts_withES0_.exit500.thread1404: ; preds = %_ZNK4llvm9StringRef11starts_withES0_.exit443.thread1385
-  %.not.i501 = icmp ult i64 %62, 3
+  %.not.i501 = icmp samesign ult i64 %62, 3
   br i1 %.not.i501, label %_ZNK4llvm9StringRef11starts_withES0_.exit536.thread1416, label %_ZNK4llvm9StringRef11starts_withES0_.exit503.thread
 
 _ZNK4llvm9StringRef11starts_withES0_.exit503:     ; preds = %_ZNK4llvm9StringRef11starts_withES0_.exit500
@@ -25082,7 +25082,7 @@ _ZNK4llvm9StringRef11starts_withES0_.exit852:     ; preds = %243
   br i1 %246, label %_ZNK4llvm9StringRef11starts_withES0_.exit211, label %_ZNK4llvm9StringRef11starts_withES0_.exit855
 
 _ZNK4llvm9StringRef11starts_withES0_.exit852.thread1535: ; preds = %243
-  %.not.i853 = icmp ult i64 %245, 7
+  %.not.i853 = icmp samesign ult i64 %245, 7
   br i1 %.not.i853, label %_ZNK4llvm9StringRef11starts_withES0_.exit211, label %_ZNK4llvm9StringRef11starts_withES0_.exit855
 
 _ZNK4llvm9StringRef11starts_withES0_.exit855:     ; preds = %_ZNK4llvm9StringRef11starts_withES0_.exit852, %_ZNK4llvm9StringRef11starts_withES0_.exit852.thread1535
@@ -26316,7 +26316,7 @@ _ZN4llvm9remove_ifIRNS_11SmallVectorISt4pairIjPNS_6MDNodeEELj2EEEZNS_13IRBuilder
   %68 = getelementptr inbounds i8, ptr %.0910.i.i.i.i.i.i, i64 16
   %69 = getelementptr inbounds i8, ptr %.0811.i.i.i.i.i.i, i64 16
   %70 = add nsw i64 %.012.i.i.i.i.i.i, -1
-  %71 = icmp ugt i64 %.012.i.i.i.i.i.i, 1
+  %71 = icmp samesign ugt i64 %.012.i.i.i.i.i.i, 1
   br i1 %71, label %.lr.ph.i.i.i.i.i.i, label %_ZN4llvm15SmallVectorImplISt4pairIjPNS_6MDNodeEEE5eraseEPKS4_S7_.exit, !llvm.loop !134
 
 _ZN4llvm15SmallVectorImplISt4pairIjPNS_6MDNodeEEE5eraseEPKS4_S7_.exit: ; preds = %.lr.ph.i.i.i.i.i.i, %_ZN4llvm9remove_ifIRNS_11SmallVectorISt4pairIjPNS_6MDNodeEELj2EEEZNS_13IRBuilderBase25AddOrRemoveMetadataToCopyEjS4_EUlRKS5_E_EEDaOT_T0_.exit
@@ -29140,7 +29140,7 @@ define internal fastcc noundef ptr @_ZL25upgradeX86ALIGNIntrinsicsRN4llvm9IRBuil
   br label %51
 
 25:                                               ; preds = %7
-  %26 = icmp ugt i32 %.039, 16
+  %26 = icmp samesign ugt i32 %.039, 16
   br i1 %26, label %27, label %30
 
 27:                                               ; preds = %25

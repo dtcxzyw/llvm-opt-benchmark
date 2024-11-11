@@ -286,7 +286,7 @@ define internal i32 @dissect_ethertype(ptr noundef %0, ptr noundef %1, ptr nound
   br i1 %or.cond, label %42, label %44
 
 42:                                               ; preds = %39
-  %.not = icmp ult i32 %18, %37
+  %.not = icmp samesign ult i32 %18, %37
   %43 = select i1 %.not, i32 0, i32 %37
   %spec.select = sub nsw i32 %18, %43
   %spec.select105 = call i32 @llvm.smin.i32(i32 %16, i32 %spec.select)

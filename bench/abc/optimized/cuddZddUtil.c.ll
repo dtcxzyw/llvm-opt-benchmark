@@ -427,7 +427,7 @@ define range(i32 0, 2) i32 @Cudd_zddPrintDebug(ptr noundef %0, ptr noundef %1, i
   %19 = getelementptr inbounds i8, ptr %0, i64 608
   %20 = load ptr, ptr %19, align 8
   %21 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %20, ptr noundef nonnull @.str.1, i32 noundef %15, double noundef %17) #11
-  %22 = icmp ugt i32 %3, 2
+  %22 = icmp samesign ugt i32 %3, 2
   br i1 %22, label %23, label %29
 
 23:                                               ; preds = %14
@@ -451,7 +451,7 @@ cuddZddP.exit.thread:                             ; preds = %23, %cuddZddP.exit
   %.3.shrunk = phi i1 [ %narrow, %14 ], [ false, %cuddZddP.exit.thread ], [ %narrow, %cuddZddP.exit ]
   %.3 = zext i1 %.3.shrunk to i32
   %30 = icmp eq i32 %3, 2
-  %31 = icmp ugt i32 %3, 3
+  %31 = icmp samesign ugt i32 %3, 3
   %or.cond3 = or i1 %30, %31
   br i1 %or.cond3, label %32, label %.sink.split
 

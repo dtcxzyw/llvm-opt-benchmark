@@ -895,7 +895,7 @@ XLogReadRecordAlloc.exit.i:                       ; preds = %100, %96
   %160 = and i32 %133, 2
   %.not247.i = icmp eq i32 %160, 0
   %161 = select i1 %.not247.i, i32 24, i32 40
-  %162 = icmp ult i32 %125, %161
+  %162 = icmp samesign ult i32 %125, %161
   br i1 %162, label %163, label %165
 
 163:                                              ; preds = %159

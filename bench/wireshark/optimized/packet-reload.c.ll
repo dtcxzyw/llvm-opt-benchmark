@@ -2324,7 +2324,7 @@ define internal fastcc void @dissect_attachreqans(ptr noundef %0, ptr noundef %1
   %41 = add nuw nsw i32 %32, 2
   %42 = zext i16 %40 to i32
   %43 = add nuw nsw i32 %41, %42
-  %44 = icmp ugt i32 %43, %8
+  %44 = icmp samesign ugt i32 %43, %8
   %45 = load i32, ptr @hf_reload_attachreqans, align 4
   br i1 %44, label %46, label %49
 
@@ -3229,7 +3229,7 @@ define internal fastcc void @dissect_statans(ptr noundef %0, ptr noundef %1, ptr
 9:                                                ; preds = %5
   %10 = add nuw nsw i32 %7, 4
   %11 = zext i16 %4 to i32
-  %12 = icmp ugt i32 %10, %11
+  %12 = icmp samesign ugt i32 %10, %11
   br i1 %12, label %13, label %17
 
 13:                                               ; preds = %._crit_edge48, %9

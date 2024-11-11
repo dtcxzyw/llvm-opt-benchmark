@@ -925,7 +925,7 @@ define dso_local void @spi_display_xfer_agreement(ptr noundef %0) #0 align 16 {
 10:                                               ; preds = %6
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2) #17
   store i64 0, ptr %2, align 8, !annotation !8
-  %11 = icmp ult i32 %8, 13
+  %11 = icmp samesign ult i32 %8, 13
   br i1 %11, label %12, label %21
 
 12:                                               ; preds = %10
@@ -958,11 +958,11 @@ define dso_local void @spi_display_xfer_agreement(ptr noundef %0) #0 align 16 {
 
 21:                                               ; preds = %10
   %22 = mul i32 %8, 4000
-  %23 = icmp ult i32 %8, 25
+  %23 = icmp samesign ult i32 %8, 25
   br i1 %23, label %27, label %24
 
 24:                                               ; preds = %21
-  %25 = icmp ult i32 %8, 50
+  %25 = icmp samesign ult i32 %8, 50
   %26 = select i1 %25, ptr @.str.9, ptr @.str.10
   br label %27
 
@@ -1296,11 +1296,11 @@ define dso_local range(i32 1, 259) i32 @spi_print_msg(ptr nocapture noundef read
   br label %.loopexit
 
 115:                                              ; preds = %104
-  %116 = icmp ult i8 %2, 31
+  %116 = icmp samesign ult i8 %2, 31
   br i1 %116, label %117, label %130
 
 117:                                              ; preds = %115
-  %118 = icmp ult i8 %2, 24
+  %118 = icmp samesign ult i8 %2, 24
   br i1 %118, label %119, label %128
 
 119:                                              ; preds = %117
@@ -1329,7 +1329,7 @@ define dso_local range(i32 1, 259) i32 @spi_print_msg(ptr nocapture noundef read
   br label %.loopexit
 
 134:                                              ; preds = %130
-  %135 = icmp ult i8 %2, 48
+  %135 = icmp samesign ult i8 %2, 48
   br i1 %135, label %136, label %152
 
 136:                                              ; preds = %134
@@ -1385,7 +1385,7 @@ define internal fastcc void @print_nego(ptr nocapture noundef readonly %0, i32 n
   %11 = zext nneg i8 %6 to i64
   %12 = getelementptr [13 x i32], ptr @ppr_to_ps, i64 0, i64 %11
   %13 = load i32, ptr %12, align 4
-  %14 = icmp ult i8 %6, 7
+  %14 = icmp samesign ult i8 %6, 7
   br i1 %14, label %15, label %16
 
 15:                                               ; preds = %10
@@ -2780,7 +2780,7 @@ define internal range(i64 -2147483648, 2147483648) i64 @show_spi_transport_perio
   br i1 %30, label %.thread, label %31
 
 31:                                               ; preds = %27
-  %32 = icmp ult i32 %29, 13
+  %32 = icmp samesign ult i32 %29, 13
   br i1 %32, label %34, label %.thread5
 
 .thread5:                                         ; preds = %31
@@ -2791,7 +2791,7 @@ define internal range(i64 -2147483648, 2147483648) i64 @show_spi_transport_perio
   %35 = zext nneg i32 %29 to i64
   %36 = getelementptr [13 x i32], ptr @ppr_to_ps, i64 0, i64 %35
   %37 = load i32, ptr %36, align 4
-  %38 = icmp ult i32 %29, 7
+  %38 = icmp samesign ult i32 %29, 7
   br i1 %38, label %.thread, label %39
 
 .thread:                                          ; preds = %27, %34
@@ -3005,7 +3005,7 @@ define internal range(i64 -2147483648, 2147483648) i64 @show_spi_transport_min_p
   br i1 %29, label %.thread, label %30
 
 30:                                               ; preds = %26
-  %31 = icmp ult i32 %28, 13
+  %31 = icmp samesign ult i32 %28, 13
   br i1 %31, label %33, label %.thread4
 
 .thread4:                                         ; preds = %30
@@ -3016,7 +3016,7 @@ define internal range(i64 -2147483648, 2147483648) i64 @show_spi_transport_min_p
   %34 = zext nneg i32 %28 to i64
   %35 = getelementptr [13 x i32], ptr @ppr_to_ps, i64 0, i64 %34
   %36 = load i32, ptr %35, align 4
-  %37 = icmp ult i32 %28, 7
+  %37 = icmp samesign ult i32 %28, 7
   br i1 %37, label %.thread, label %38
 
 .thread:                                          ; preds = %26, %33

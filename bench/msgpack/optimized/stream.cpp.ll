@@ -2012,7 +2012,7 @@ _ZN7msgpack2v26detail7contextINS0_8unpackerEE16after_visit_procEbRm.exit: ; pred
   br label %.loopexit
 
 92:                                               ; preds = %34
-  %93 = icmp ugt i8 %35, -33
+  %93 = icmp samesign ugt i8 %35, -33
   br i1 %93, label %94, label %149
 
 94:                                               ; preds = %92
@@ -2118,7 +2118,7 @@ _ZN7msgpack2v26detail7contextINS0_8unpackerEE16after_visit_procEbRm.exit331: ; p
   br label %.loopexit
 
 149:                                              ; preds = %92
-  %150 = icmp ugt i8 %35, -61
+  %150 = icmp samesign ugt i8 %35, -61
   br i1 %150, label %151, label %160
 
 151:                                              ; preds = %149
@@ -2271,7 +2271,7 @@ _ZN7msgpack2v26detail7contextINS0_8unpackerEE16after_visit_procEbRm.exit339: ; p
   br i1 %.not290, label %thread-pre-split, label %.loopexit
 
 227:                                              ; preds = %223
-  %228 = icmp ult i8 %35, -112
+  %228 = icmp samesign ult i8 %35, -112
   br i1 %228, label %229, label %231
 
 229:                                              ; preds = %227

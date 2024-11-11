@@ -1576,7 +1576,7 @@ ParseFile.exit:                                   ; preds = %ParseIprp.exit.thre
   br label %510
 
 506:                                              ; preds = %ParseFile.exit
-  %or.cond.i = icmp ult i32 %.0.i.i, 3
+  %or.cond.i = icmp samesign ult i32 %.0.i.i, 3
   %507 = icmp eq i32 %.0.i.i, 3
   %508 = select i1 %507, i32 2, i32 3
   %509 = select i1 %or.cond.i, i32 1, i32 %508

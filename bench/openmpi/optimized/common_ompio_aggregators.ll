@@ -71,11 +71,11 @@ define noundef i32 @mca_common_ompio_simple_grouping(ptr nocapture noundef reado
   br i1 %16, label %21, label %17
 
 17:                                               ; preds = %3
-  %18 = icmp ult i32 %15, 128
+  %18 = icmp samesign ult i32 %15, 128
   br i1 %18, label %21, label %19
 
 19:                                               ; preds = %17
-  %20 = icmp ult i32 %15, 4096
+  %20 = icmp samesign ult i32 %15, 4096
   %. = select i1 %20, i32 16, i32 32
   br label %21
 

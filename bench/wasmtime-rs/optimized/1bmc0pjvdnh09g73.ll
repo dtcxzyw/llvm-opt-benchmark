@@ -419,7 +419,7 @@ define hidden void @_ZN4core5slice4sort10merge_sort17h048b7634ed7a3ff3E(ptr noal
   br label %45
 
 24:                                               ; preds = %3
-  %25 = icmp ugt i64 %1, 1
+  %25 = icmp samesign ugt i64 %1, 1
   br i1 %25, label %"_ZN115_$LT$core..ops..range..RangeInclusive$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$9index_mut17h352cf1f36585e157E.exit.i", label %_ZN4core5slice4sort25insertion_sort_shift_left17hbffb8fe895f8846eE.exit
 
 26:                                               ; preds = %62, %27
@@ -1045,7 +1045,7 @@ define hidden void @_ZN4core5slice4sort10merge_sort17h8ac4ababce05597dE(ptr noal
   br label %45
 
 24:                                               ; preds = %3
-  %25 = icmp ugt i64 %1, 1
+  %25 = icmp samesign ugt i64 %1, 1
   br i1 %25, label %"_ZN115_$LT$core..ops..range..RangeInclusive$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$9index_mut17h3cd7a00376b69335E.exit.i", label %_ZN4core5slice4sort25insertion_sort_shift_left17hccb2f87a3c9b791cE.exit
 
 26:                                               ; preds = %62, %27
@@ -1691,7 +1691,7 @@ define hidden void @_ZN4core5slice4sort10merge_sort17h9f70941f876f18c3E(ptr noal
   br label %45
 
 24:                                               ; preds = %3
-  %25 = icmp ugt i64 %1, 1
+  %25 = icmp samesign ugt i64 %1, 1
   br i1 %25, label %.preheader.i64, label %_ZN4core5slice4sort25insertion_sort_shift_left17h5b385de49902e1c2E.exit
 
 26:                                               ; preds = %68, %27
@@ -2347,7 +2347,7 @@ define hidden void @_ZN4core5slice4sort10merge_sort17he17a7f84415e5ebbE(ptr noal
   br label %45
 
 24:                                               ; preds = %3
-  %25 = icmp ugt i64 %1, 1
+  %25 = icmp samesign ugt i64 %1, 1
   br i1 %25, label %"_ZN115_$LT$core..ops..range..RangeInclusive$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$9index_mut17h63e9a37663ece9e3E.exit.i", label %_ZN4core5slice4sort25insertion_sort_shift_left17h9ff16764c98a0f0bE.exit
 
 26:                                               ; preds = %63, %27
@@ -3564,7 +3564,7 @@ _ZN4core5slice4sort25insertion_sort_shift_left17h6bead0ed0dbc6ebbE.exit: ; preds
   br i1 %36, label %"_ZN4core5slice4sort12choose_pivot28_$u7b$$u7b$closure$u7d$$u7d$17hcf38ff49708b46a2E.exit.i", label %"_ZN4core5slice4sort12choose_pivot28_$u7b$$u7b$closure$u7d$$u7d$17hcf38ff49708b46a2E.exit.thread.i"
 
 "_ZN4core5slice4sort12choose_pivot28_$u7b$$u7b$closure$u7d$$u7d$17hcf38ff49708b46a2E.exit.i": ; preds = %"_ZN4core5slice4sort12choose_pivot28_$u7b$$u7b$closure$u7d$$u7d$17h9783eced4e30f541E.exit.i.i"
-  %37 = icmp ult i64 %.2129.i, 11
+  %37 = icmp samesign ult i64 %.2129.i, 11
   br i1 %37, label %"_ZN4core5slice4sort12choose_pivot28_$u7b$$u7b$closure$u7d$$u7d$17hcf38ff49708b46a2E.exit.thread.i", label %85
 
 38:                                               ; preds = %19
@@ -4324,7 +4324,7 @@ _ZN4core5slice4sort25insertion_sort_shift_left17h437a686cbe85cc18E.exit: ; preds
   br i1 %36, label %"_ZN4core5slice4sort12choose_pivot28_$u7b$$u7b$closure$u7d$$u7d$17ha684ede7f45a0215E.exit.i", label %"_ZN4core5slice4sort12choose_pivot28_$u7b$$u7b$closure$u7d$$u7d$17ha684ede7f45a0215E.exit.thread.i"
 
 "_ZN4core5slice4sort12choose_pivot28_$u7b$$u7b$closure$u7d$$u7d$17ha684ede7f45a0215E.exit.i": ; preds = %"_ZN4core5slice4sort12choose_pivot28_$u7b$$u7b$closure$u7d$$u7d$17hd7469d3dd2d21d08E.exit.i.i"
-  %37 = icmp ult i64 %.2129.i, 11
+  %37 = icmp samesign ult i64 %.2129.i, 11
   br i1 %37, label %"_ZN4core5slice4sort12choose_pivot28_$u7b$$u7b$closure$u7d$$u7d$17ha684ede7f45a0215E.exit.thread.i", label %85
 
 38:                                               ; preds = %19
@@ -5909,7 +5909,7 @@ define hidden void @_ZN5gimli5write4line11LineProgram5write17h686013c60885eeb2E(
   %64 = load i64, ptr %32, align 8, !alias.scope !689, !noalias !686, !noundef !4
   %65 = add i64 %64, 2
   store i64 %65, ptr %32, align 8, !alias.scope !689, !noalias !686
-  %66 = icmp ugt i16 %22, 4
+  %66 = icmp samesign ugt i16 %22, 4
   br i1 %66, label %67, label %70
 
 67:                                               ; preds = %57
@@ -5977,7 +5977,7 @@ define hidden void @_ZN5gimli5write4line11LineProgram5write17h686013c60885eeb2E(
   br label %377
 
 89:                                               ; preds = %81
-  %90 = icmp ugt i16 %22, 3
+  %90 = icmp samesign ugt i16 %22, 3
   %91 = getelementptr inbounds i8, ptr %1, i64 359
   %92 = load i8, ptr %91, align 1, !noundef !4
   br i1 %90, label %97, label %95
@@ -6097,7 +6097,7 @@ define hidden void @_ZN5gimli5write4line11LineProgram5write17h686013c60885eeb2E(
   br label %377
 
 133:                                              ; preds = %128
-  %134 = icmp ult i16 %22, 5
+  %134 = icmp samesign ult i16 %22, 5
   br i1 %134, label %140, label %137
 
 135:                                              ; preds = %128

@@ -17399,7 +17399,7 @@ define internal noundef i64 @safe_delay_store(ptr noundef %0, ptr nocapture noun
   %59 = zext i32 %58 to i64
   %60 = trunc nuw nsw i64 %51 to i32
   store i32 %60, ptr %55, align 8
-  %61 = icmp ult i64 %51, %59
+  %61 = icmp samesign ult i64 %51, %59
   %62 = icmp eq i32 %58, 0
   %63 = or i1 %62, %61
   br i1 %63, label %64, label %.thread2
@@ -24569,7 +24569,7 @@ define internal void @super_1_sync(ptr noundef %0, ptr noundef %1) #0 align 16 {
   %364 = zext i32 %363 to i64
   %365 = add i64 %361, %364
   %366 = add nsw i32 %360, -4
-  %367 = icmp ugt i32 %360, 7
+  %367 = icmp samesign ugt i32 %360, 7
   br i1 %367, label %.preheader, label %.loopexit, !llvm.loop !187
 
 .loopexit:                                        ; preds = %.preheader, %.loopexit9
@@ -24707,7 +24707,7 @@ define internal noundef i64 @super_1_rdev_size_change(ptr noundef %0, i64 nounde
   %84 = zext i32 %83 to i64
   %85 = add i64 %81, %84
   %86 = add nsw i32 %80, -4
-  %87 = icmp ugt i32 %80, 7
+  %87 = icmp samesign ugt i32 %80, 7
   br i1 %87, label %.preheader, label %.loopexit4, !llvm.loop !187
 
 .loopexit4:                                       ; preds = %.preheader, %59
@@ -24833,7 +24833,7 @@ define internal fastcc i32 @calc_sb_1_csum(ptr nocapture noundef %0) unnamed_add
   %14 = zext i32 %13 to i64
   %15 = add i64 %11, %14
   %16 = add nsw i32 %10, -4
-  %17 = icmp ugt i32 %10, 7
+  %17 = icmp samesign ugt i32 %10, 7
   br i1 %17, label %.preheader, label %.loopexit, !llvm.loop !187
 
 .loopexit:                                        ; preds = %.preheader, %1

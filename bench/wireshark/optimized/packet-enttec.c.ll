@@ -378,7 +378,7 @@ define internal range(i32 0, 522) i32 @dissect_enttec_udp(ptr noundef %0, ptr no
   br i1 %130, label %131, label %.critedge.i
 
 131:                                              ; preds = %.lr.ph181.i
-  %132 = icmp ugt i32 %126, 1
+  %132 = icmp samesign ugt i32 %126, 1
   br i1 %132, label %133, label %138
 
 133:                                              ; preds = %131

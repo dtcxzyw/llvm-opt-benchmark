@@ -923,7 +923,7 @@ define void @commit_params(ptr nocapture noundef readnone %0, ptr nocapture noun
   %47 = sitofp i32 %46 to float
   %48 = zext nneg i32 %21 to i64
   %49 = and i64 %48, 3
-  %50 = icmp ult i32 %21, 4
+  %50 = icmp samesign ult i32 %21, 4
   br i1 %50, label %.loopexit9, label %51
 
 51:                                               ; preds = %43
@@ -1543,7 +1543,7 @@ define internal noundef i32 @dt_iop_zonesystem_preview_draw(ptr noundef %0, ptr 
   %94 = sitofp i32 %93 to float
   %95 = zext nneg i32 %68 to i64
   %96 = and i64 %95, 3
-  %97 = icmp ult i32 %68, 4
+  %97 = icmp samesign ult i32 %68, 4
   br i1 %97, label %.loopexit9, label %98
 
 98:                                               ; preds = %90
@@ -1953,7 +1953,7 @@ define internal noundef i32 @dt_iop_zonesystem_bar_draw(ptr noundef %0, ptr noun
   %75 = sitofp i32 %74 to float
   %76 = zext nneg i32 %49 to i64
   %77 = and i64 %76, 3
-  %78 = icmp ult i32 %49, 4
+  %78 = icmp samesign ult i32 %49, 4
   br i1 %78, label %.loopexit10, label %79
 
 79:                                               ; preds = %71
@@ -2289,7 +2289,7 @@ define internal noundef i32 @dt_iop_zonesystem_bar_motion_notify(ptr noundef %0,
   %58 = sitofp i32 %57 to float
   %59 = zext nneg i32 %32 to i64
   %60 = and i64 %59, 3
-  %61 = icmp ult i32 %32, 4
+  %61 = icmp samesign ult i32 %32, 4
   br i1 %61, label %.loopexit13, label %62
 
 62:                                               ; preds = %54
@@ -2628,7 +2628,7 @@ define internal noundef i32 @dt_iop_zonesystem_bar_button_press(ptr noundef %0, 
   %55 = sitofp i32 %54 to float
   %56 = zext nneg i32 %29 to i64
   %57 = and i64 %56, 3
-  %58 = icmp ult i32 %29, 4
+  %58 = icmp samesign ult i32 %29, 4
   br i1 %58, label %.loopexit7, label %59
 
 59:                                               ; preds = %51

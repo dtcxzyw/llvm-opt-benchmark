@@ -116,7 +116,7 @@ define noundef zeroext i1 @_ZN5draco22AdaptiveRAnsBitDecoder13StartDecodingEPNS_
   br label %_ZN5dracoL13ans_read_initEPNS_10AnsDecoderEPKhi.exit.thread14
 
 44:                                               ; preds = %30
-  %45 = icmp ult i32 %12, 3
+  %45 = icmp samesign ult i32 %12, 3
   br i1 %45, label %_ZN5draco13DecoderBuffer6DecodeIjEEbPT_.exit, label %_ZN5dracoL13ans_read_initEPNS_10AnsDecoderEPKhi.exit
 
 _ZN5dracoL13ans_read_initEPNS_10AnsDecoderEPKhi.exit.thread14: ; preds = %34, %25

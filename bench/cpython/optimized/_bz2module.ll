@@ -323,8 +323,8 @@ lor.lhs.false4:                                   ; preds = %lor.lhs.false, %lan
 if.end:                                           ; preds = %lor.lhs.false4, %land.lhs.true, %lor.lhs.false
   %3 = getelementptr i8, ptr %args, i64 16
   %args.val = load i64, ptr %3, align 8
-  %cmp10 = icmp ult i64 %args.val, 2
-  br i1 %cmp10, label %if.end16, label %lor.lhs.false11
+  %or.cond21 = icmp ult i64 %args.val, 2
+  br i1 %or.cond21, label %if.end16, label %lor.lhs.false11
 
 lor.lhs.false11:                                  ; preds = %if.end
   %call13 = tail call i32 @_PyArg_CheckPositional(ptr noundef nonnull @.str.14, i64 noundef %args.val, i64 noundef 0, i64 noundef 1) #6

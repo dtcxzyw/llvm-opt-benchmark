@@ -695,7 +695,7 @@ define internal range(i32 0, 2) i32 @test_drbd_protocol(ptr noundef %0, ptr noun
   br i1 %11, label %test_drbd_header.exit.thread, label %12
 
 12:                                               ; preds = %9
-  %13 = icmp ugt i32 %5, 15
+  %13 = icmp samesign ugt i32 %5, 15
   %14 = icmp eq i32 %10, -2044662752
   %or.cond.i = and i1 %13, %14
   br i1 %or.cond.i, label %test_drbd_header.exit.thread, label %test_drbd_header.exit
@@ -737,7 +737,7 @@ define internal range(i32 0, 2) i32 @dissect_drbd_ib(ptr noundef %0, ptr nocaptu
   br i1 %12, label %test_drbd_header.exit.thread, label %13
 
 13:                                               ; preds = %10
-  %14 = icmp ugt i32 %6, 15
+  %14 = icmp samesign ugt i32 %6, 15
   %15 = icmp eq i32 %11, -2044662752
   %or.cond.i = and i1 %14, %15
   br i1 %or.cond.i, label %test_drbd_header.exit.thread, label %test_drbd_header.exit
@@ -940,7 +940,7 @@ define internal range(i32 0, 2) i32 @test_drbd_lb_tcp_protocol(ptr noundef %0, p
   br i1 %11, label %test_drbd_header.exit.thread, label %12
 
 12:                                               ; preds = %9
-  %13 = icmp ugt i32 %5, 23
+  %13 = icmp samesign ugt i32 %5, 23
   %14 = icmp eq i32 %10, -2044662752
   %or.cond.i = and i1 %13, %14
   br i1 %or.cond.i, label %test_drbd_header.exit.thread, label %test_drbd_header.exit

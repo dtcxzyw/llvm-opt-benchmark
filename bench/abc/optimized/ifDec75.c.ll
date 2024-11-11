@@ -459,7 +459,7 @@ define i32 @If_CutPerformCheck75__(ptr noundef %0, ptr noundef %1, i32 noundef %
   br i1 %24, label %.loopexit, label %25
 
 25:                                               ; preds = %5
-  %26 = icmp ult i32 %3, 8
+  %26 = icmp samesign ult i32 %3, 8
   br i1 %26, label %27, label %29
 
 27:                                               ; preds = %25
@@ -850,7 +850,7 @@ define range(i32 0, 2) i32 @If_CutPerformCheck75(ptr noundef %0, ptr nocapture n
   br i1 %25, label %.lr.ph.i, label %Abc_TtMinimumBase.exit.thread
 
 .lr.ph.i:                                         ; preds = %24
-  %26 = icmp ult i32 %3, 7
+  %26 = icmp samesign ult i32 %3, 7
   %27 = add nsw i32 %3, -6
   %28 = shl nuw i32 1, %27
   %.fr.i.i = freeze i32 %28
@@ -1038,7 +1038,7 @@ Abc_TtHasVar.exit.i.loopexit:                     ; preds = %62
   br i1 %86, label %.lr.ph.i.us.us.us.us.i.i, label %.preheader.lr.ph.i.us.us.us.us.i.i
 
 .preheader.lr.ph.i.us.us.us.us.i.i:               ; preds = %85
-  %87 = icmp ult i64 %indvars.iv97.i.i, 8
+  %87 = icmp samesign ult i64 %indvars.iv97.i.i, 8
   %88 = trunc i64 %indvars.iv97.i.i to i32
   %89 = add i32 %88, -7
   %90 = shl nuw i32 1, %89
@@ -1127,7 +1127,7 @@ Abc_TtMinimumBase.exit:                           ; preds = %82, %.lr.ph53.i.i, 
   br i1 %132, label %Abc_TtMinimumBase.exit.thread, label %133
 
 133:                                              ; preds = %Abc_TtMinimumBase.exit
-  %134 = icmp ult i32 %.030, 8
+  %134 = icmp samesign ult i32 %.030, 8
   br i1 %134, label %135, label %137
 
 135:                                              ; preds = %133

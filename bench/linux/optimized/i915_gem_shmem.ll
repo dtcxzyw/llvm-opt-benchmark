@@ -295,7 +295,7 @@ define dso_local i32 @shmem_sg_alloc_table(ptr noundef %0, ptr noundef %1, i64 n
   %28 = load ptr, ptr %1, align 8
   %29 = getelementptr inbounds i8, ptr %1, i64 8
   store i32 0, ptr %29, align 8
-  %30 = icmp ult i64 %2, 4096
+  %30 = icmp samesign ult i64 %2, 4096
   br i1 %30, label %.loopexit9, label %31
 
 31:                                               ; preds = %22

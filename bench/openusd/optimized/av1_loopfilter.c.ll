@@ -1184,7 +1184,7 @@ define hidden void @av1_loop_filter_frame(ptr noundef %0, ptr noundef %1, ptr no
 10:                                               ; preds = %6
   %11 = lshr i32 %8, 1
   %12 = and i32 %11, 1073741816
-  %13 = icmp ugt i32 %8, 71
+  %13 = icmp samesign ugt i32 %8, 71
   %14 = lshr i32 %8, 3
   %spec.select = select i1 %13, i32 %14, i32 8
   br label %15

@@ -1743,7 +1743,7 @@ land.lhs.true.i.i.i:                              ; preds = %if.then.i45.i.i
   %mul.i54.i.i = shl i32 %122, 2
   %conv8.i.i.i = zext i32 %mul.i54.i.i to i64
   %add9.i.i.i = add nuw nsw i64 %123, %conv8.i.i.i
-  %cmp10.not.i.i.i = icmp ugt i64 %and4.i.i.i, %add9.i.i.i
+  %cmp10.not.i.i.i = icmp samesign ugt i64 %and4.i.i.i, %add9.i.i.i
   br i1 %cmp10.not.i.i.i, label %if.else.i56.i.i, label %if.then12.i.i.i
 
 if.then12.i.i.i:                                  ; preds = %land.lhs.true.i.i.i
@@ -3947,7 +3947,7 @@ if.end58.i:                                       ; preds = %if.else48.i, %if.th
   store ptr %arrayidx61.i, ptr %uport62.i, align 16
   %speedmask63.i = getelementptr inbounds i8, ptr %port.1.i, i64 24
   store i32 8, ptr %speedmask63.i, align 8
-  %cmp64.i = icmp ult i64 %indvars.iv.i, 30
+  %cmp64.i = icmp samesign ult i64 %indvars.iv.i, 30
   br i1 %cmp64.i, label %if.end67.i, label %if.else66.i
 
 if.else66.i:                                      ; preds = %if.end58.i

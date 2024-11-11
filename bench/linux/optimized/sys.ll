@@ -6298,7 +6298,7 @@ define internal fastcc noundef range(i32 -22, 1) i32 @prctl_set_mdwe(i64 noundef
   br i1 %9, label %10, label %38
 
 10:                                               ; preds = %4
-  %11 = icmp ugt i64 %0, 1
+  %11 = icmp samesign ugt i64 %0, 1
   %12 = and i64 %0, 1
   %13 = icmp eq i64 %12, 0
   %14 = and i1 %11, %13

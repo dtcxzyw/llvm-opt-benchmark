@@ -1423,7 +1423,7 @@ _ZN2cv3dnn14dnn4_v20240521L5totalERKNS_3MatEii.exit: ; preds = %140, %.preheader
   br i1 %.not28.i117, label %.invoke161, label %.preheader.i118
 
 .preheader.i118:                                  ; preds = %155
-  %156 = icmp ult i32 %spec.store.select.i, %spec.select.i115
+  %156 = icmp samesign ult i32 %spec.store.select.i, %spec.select.i115
   br i1 %156, label %.lr.ph.i120, label %_ZN2cv3dnn14dnn4_v20240521L5totalERKNS_3MatEii.exit128
 
 .lr.ph.i120:                                      ; preds = %.preheader.i118

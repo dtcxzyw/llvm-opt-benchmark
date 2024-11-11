@@ -308,7 +308,7 @@ define hidden noundef ptr @_ZNK22SerialBlockOffsetTable30block_start_reaching_in
   %16 = getelementptr inbounds i8, ptr %.014, i64 %.neg
   %.010 = load i8, ptr %16, align 1
   %17 = zext i8 %.010 to i32
-  %.not = icmp ugt i32 %10, %17
+  %.not = icmp samesign ugt i32 %10, %17
   br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !8
 
 ._crit_edge:                                      ; preds = %.lr.ph, %2

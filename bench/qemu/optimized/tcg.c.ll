@@ -2994,7 +2994,7 @@ sw.bb.i.i:                                        ; preds = %for.body17.i.i, %fo
   %conv31.i.i = zext nneg i8 %16 to i32
   %sub.i.i = add nsw i32 %conv31.i.i, -48
   tail call void @llvm.assume(i1 %cmp22.i.i)
-  %cmp40.i.i = icmp ult i32 %sub.i.i, %conv21.i.i
+  %cmp40.i.i = icmp samesign ult i32 %sub.i.i, %conv21.i.i
   tail call void @llvm.assume(i1 %cmp40.i.i)
   %17 = load ptr, ptr %args_ct231.i.i, align 8
   %idxprom46.i.i = zext nneg i32 %sub.i.i to i64
@@ -9493,7 +9493,7 @@ tcg_out_st.exit.i:                                ; preds = %tcg_out_sib_offset.
   store ptr %incdec.ptr.i44.i.i47.i.i, ptr %code_ptr, align 8
   store i8 %.sink.i630, ptr %312, align 1
   %cmp25.i.not.i = icmp eq i32 %307, 0
-  %cmp35.i.i = icmp ugt i32 %307, 127
+  %cmp35.i.i = icmp samesign ugt i32 %307, 127
   %..i.i = select i1 %cmp35.i.i, i32 128, i32 64
   %mod.0.i.i = select i1 %cmp25.i.not.i, i32 0, i32 %..i.i
   %313 = add nsw i32 %sub.i.i628, -49
@@ -9553,7 +9553,7 @@ do.body.i394:                                     ; preds = %for.body.i330
 
 for.inc.i335:                                     ; preds = %if.then87.i.i, %if.else84.i.i, %if.then82.i.i633, %tcg_out_sib_offset.exit687, %sw.bb19.i, %if.else.i.i387, %load_arg_reg.exit.i.i
   %allocated_regs.i.1 = phi i32 [ %allocated_regs.i.0, %sw.bb19.i ], [ %or.i.i, %load_arg_reg.exit.i.i ], [ %allocated_regs.i.0, %if.else.i.i387 ], [ %or.i651, %tcg_out_sib_offset.exit687 ], [ %allocated_regs.i.0, %if.then82.i.i633 ], [ %allocated_regs.i.0, %if.then87.i.i ], [ %allocated_regs.i.0, %if.else84.i.i ]
-  %cmp.i336 = icmp ugt i64 %indvars.iv.i331, 1
+  %cmp.i336 = icmp samesign ugt i64 %indvars.iv.i331, 1
   br i1 %cmp.i336, label %for.body.i330, label %for.cond23.preheader.i, !llvm.loop !45
 
 for.cond34.preheader.i:                           ; preds = %for.inc32.i, %sw.bb108
@@ -15554,7 +15554,7 @@ sw.epilog:                                        ; preds = %sw.bb101, %sw.defau
   br label %for.inc118
 
 for.inc118:                                       ; preds = %for.body87, %sw.epilog
-  %cmp85 = icmp ugt i64 %indvars.iv434, 1
+  %cmp85 = icmp samesign ugt i64 %indvars.iv434, 1
   br i1 %cmp85, label %for.body87, label %for.body123.lr.ph, !llvm.loop !81
 
 for.body123:                                      ; preds = %for.body123.lr.ph, %for.inc152

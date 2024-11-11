@@ -6679,7 +6679,7 @@ _ZN4llvm15SmallVectorImplINS_12CallLowering7ArgInfoEE7reserveEm.exit: ; preds = 
   %74 = getelementptr inbounds i8, ptr %.078.i.i.i.i.i, i64 -16
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(12) %73, ptr noundef nonnull align 8 dereferenceable(12) %74, i64 12, i1 false)
   %75 = add nsw i64 %.010.i.i.i.i.i, -1
-  %76 = icmp ugt i64 %.010.i.i.i.i.i, 1
+  %76 = icmp samesign ugt i64 %.010.i.i.i.i.i, 1
   br i1 %76, label %.lr.ph.i.i.i.i.i, label %_ZSt13move_backwardIPN4llvm12CallLowering7ArgInfoES3_ET0_T_S5_S4_.exit, !llvm.loop !141
 
 _ZSt13move_backwardIPN4llvm12CallLowering7ArgInfoES3_ET0_T_S5_S4_.exit: ; preds = %.lr.ph.i.i.i.i.i, %43
@@ -6716,7 +6716,7 @@ _ZSt13move_backwardIPN4llvm12CallLowering7ArgInfoES3_ET0_T_S5_S4_.exit: ; preds 
   %95 = getelementptr inbounds i8, ptr %.0910.i.i.i.i.i, i64 168
   %96 = getelementptr inbounds i8, ptr %.0811.i.i.i.i.i, i64 168
   %97 = add nsw i64 %.012.i.i.i.i.i, -1
-  %98 = icmp ugt i64 %.012.i.i.i.i.i, 1
+  %98 = icmp samesign ugt i64 %.012.i.i.i.i.i, 1
   br i1 %98, label %.lr.ph.i.i.i.i.i46, label %_ZSt4copyIPN4llvm12CallLowering7ArgInfoES3_ET0_T_S5_S4_.exit, !llvm.loop !142
 
 99:                                               ; preds = %_ZN4llvm15SmallVectorImplINS_12CallLowering7ArgInfoEE7reserveEm.exit

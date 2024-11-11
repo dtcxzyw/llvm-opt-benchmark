@@ -2886,7 +2886,7 @@ define dso_local i32 @expr_scanner_get_lineno(ptr nocapture noundef readonly %0,
   %13 = add nsw i32 %.0810, -1
   %14 = load i8, ptr %12, align 1
   %15 = icmp ne i8 %14, 0
-  %16 = icmp ugt i32 %.0810, 1
+  %16 = icmp samesign ugt i32 %.0810, 1
   %17 = select i1 %15, i1 %16, i1 false
   br i1 %17, label %.lr.ph, label %._crit_edge, !llvm.loop !17
 

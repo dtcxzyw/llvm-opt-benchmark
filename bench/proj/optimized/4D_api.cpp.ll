@@ -3670,7 +3670,7 @@ proj_degree_input.exit:                           ; preds = %38, %40
   %.0.in.i.i365 = phi i1 [ %.0.in.i.i, %38 ], [ %.0.in.i.i366, %40 ]
   %.0.in.in.i = phi i32 [ %39, %38 ], [ %41, %40 ]
   %.0.in.i.not = icmp eq i32 %.0.in.in.i, 5
-  %42 = icmp ult i32 %11, 2
+  %42 = icmp samesign ult i32 %11, 2
   %or.cond5 = and i1 %42, %.0.in.i.i365
   br i1 %or.cond5, label %43, label %_ZNKSt6vectorIdSaIdEE12_M_check_lenEmPKc.exit.i
 

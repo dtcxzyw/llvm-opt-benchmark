@@ -811,7 +811,7 @@ for.inc:                                          ; preds = %if.then15, %for.bod
   %sub.ptr.sub.i.i72 = sub i64 %sub.ptr.lhs.cast.i.i70, %sub.ptr.rhs.cast.i.i71
   %sub.ptr.div.i.i73 = lshr exact i64 %sub.ptr.sub.i.i72, 3
   %16 = and i64 %sub.ptr.div.i.i73, 4294967295
-  %cmp11 = icmp ult i64 %indvars.iv.next, %16
+  %cmp11 = icmp samesign ult i64 %indvars.iv.next, %16
   br i1 %cmp11, label %for.body, label %for.cond.cleanup.loopexit, !llvm.loop !55
 
 if.end26:                                         ; preds = %invoke.cont.i.i.i, %if.then5.i.i, %if.else.i.i, %if.then.i.i, %if.end

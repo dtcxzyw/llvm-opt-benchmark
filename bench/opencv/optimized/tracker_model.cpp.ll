@@ -803,7 +803,7 @@ define void @_ZN2cv6detail8tracking12TrackerModel11modelUpdateEv(ptr noundef non
   %28 = getelementptr inbounds i8, ptr %.0910.i.i.i.i.i.i.i, i64 24
   %29 = getelementptr inbounds i8, ptr %.0811.i.i.i.i.i.i.i, i64 24
   %30 = add nsw i64 %.012.i.i.i.i.i.i.i, -1
-  %31 = icmp ugt i64 %.012.i.i.i.i.i.i.i, 1
+  %31 = icmp samesign ugt i64 %.012.i.i.i.i.i.i.i, 1
   br i1 %31, label %.lr.ph.i.i.i.i.i.i.i, label %_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPSt6vectorISt4pairIN2cv3PtrINS4_6detail8tracking18TrackerTargetStateEEEfESaISA_EES2_ISC_SaISC_EEEESG_ET0_T_SI_SH_.exit.loopexit.i.i, !llvm.loop !8
 
 _ZSt4moveIN9__gnu_cxx17__normal_iteratorIPSt6vectorISt4pairIN2cv3PtrINS4_6detail8tracking18TrackerTargetStateEEEfESaISA_EES2_ISC_SaISC_EEEESG_ET0_T_SI_SH_.exit.loopexit.i.i: ; preds = %.lr.ph.i.i.i.i.i.i.i

@@ -1586,7 +1586,7 @@ define internal fastcc void @"_ZN10serde_json2de21Deserializer$LT$R$GT$13parse_d
 
 71:                                               ; preds = %29
   %72 = icmp ne i64 %.051, 1844674407370955161
-  %73 = icmp ugt i8 %24, 5
+  %73 = icmp samesign ugt i8 %24, 5
   %or.cond1 = or i1 %72, %73
   br i1 %or.cond1, label %79, label %74
 
@@ -1848,7 +1848,7 @@ define internal fastcc void @"_ZN10serde_json2de21Deserializer$LT$R$GT$13parse_i
 
 91:                                               ; preds = %88
   %92 = icmp ne i64 %.059, 1844674407370955161
-  %93 = icmp ugt i8 %63, 5
+  %93 = icmp samesign ugt i8 %63, 5
   %or.cond3 = or i1 %92, %93
   br i1 %or.cond3, label %98, label %94
 
@@ -2333,7 +2333,7 @@ define internal fastcc void @"_ZN10serde_json2de21Deserializer$LT$R$GT$14parse_e
 
 78:                                               ; preds = %42
   %79 = icmp ne i32 %.01043, 214748364
-  %80 = icmp ugt i8 %41, 7
+  %80 = icmp samesign ugt i8 %41, 7
   %or.cond2 = or i1 %79, %80
   br i1 %or.cond2, label %84, label %81
 
@@ -23886,14 +23886,14 @@ _ZN10tokenizers6models3bpe4word4Word13with_capacity17h513d274a4a7206d7E.exit: ; 
   %78 = load i8, ptr %72, align 1, !noalias !6002, !noundef !4
   %79 = and i8 %78, 63
   %80 = zext nneg i8 %79 to i32
-  %81 = icmp ugt i8 %73, -33
+  %81 = icmp samesign ugt i8 %73, -33
   br i1 %81, label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h5cf4632b25500c9eE.llvm.14160285242575610615.exit13.i.i.i.i", label %.thread490
 
 "_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h5cf4632b25500c9eE.llvm.14160285242575610615.exit13.i.i.i.i": ; preds = %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h5cf4632b25500c9eE.llvm.14160285242575610615.exit11.i.i.i.i"
   %82 = icmp ne ptr %77, %32
   call void @llvm.assume(i1 %82)
   %83 = getelementptr inbounds i8, ptr %66, i64 3
-  %84 = icmp ugt i8 %73, -17
+  %84 = icmp samesign ugt i8 %73, -17
   br i1 %84, label %"_ZN81_$LT$core..str..iter..Chars$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hf8c5eef63cfad1b8E.exit.i.i", label %.thread490
 
 "_ZN81_$LT$core..str..iter..Chars$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hf8c5eef63cfad1b8E.exit.i.i": ; preds = %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h5cf4632b25500c9eE.llvm.14160285242575610615.exit13.i.i.i.i"
@@ -23966,14 +23966,14 @@ _ZN10tokenizers6models3bpe4word4Word13with_capacity17h513d274a4a7206d7E.exit: ; 
   %117 = load i8, ptr %111, align 1, !noalias !6011, !noundef !4
   %118 = and i8 %117, 63
   %119 = zext nneg i8 %118 to i32
-  %120 = icmp ugt i8 %112, -33
+  %120 = icmp samesign ugt i8 %112, -33
   br i1 %120, label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h5cf4632b25500c9eE.llvm.14160285242575610615.exit13.i.i.i.i.i.i", label %140
 
 "_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h5cf4632b25500c9eE.llvm.14160285242575610615.exit13.i.i.i.i.i.i": ; preds = %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h5cf4632b25500c9eE.llvm.14160285242575610615.exit11.i.i.i.i.i.i"
   %121 = icmp ne ptr %116, %32
   call void @llvm.assume(i1 %121)
   %122 = getelementptr inbounds i8, ptr %106, i64 3
-  %123 = icmp ugt i8 %112, -17
+  %123 = icmp samesign ugt i8 %112, -17
   br i1 %123, label %"_ZN81_$LT$core..str..iter..Chars$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hf8c5eef63cfad1b8E.exit.i.i.i.i", label %140
 
 "_ZN81_$LT$core..str..iter..Chars$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hf8c5eef63cfad1b8E.exit.i.i.i.i": ; preds = %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h5cf4632b25500c9eE.llvm.14160285242575610615.exit13.i.i.i.i.i.i"

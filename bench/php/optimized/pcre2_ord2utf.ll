@@ -51,7 +51,7 @@ define hidden range(i32 -2147483647, -2147483648) i32 @_pcre2_ord2utf_8(i32 noun
   store i8 %14, ptr %.01622, align 1
   %16 = lshr i32 %.01721, 6
   %17 = add nsw i32 %.023, -1
-  %18 = icmp ugt i32 %.023, 1
+  %18 = icmp samesign ugt i32 %.023, 1
   br i1 %18, label %.lr.ph25, label %._crit_edge26
 
 ._crit_edge26:                                    ; preds = %.lr.ph25, %2, %._crit_edge

@@ -252,7 +252,7 @@ define hidden range(i32 0, 3) i32 @ini_parse() local_unnamed_addr #0 {
   br i1 %56, label %.loopexit502, label %57
 
 57:                                               ; preds = %55
-  %58 = icmp ult i32 %.5, 274
+  %58 = icmp samesign ult i32 %.5, 274
   br i1 %58, label %59, label %64
 
 59:                                               ; preds = %57

@@ -953,7 +953,7 @@ for.body.preheader:                               ; preds = %if.end124
   %nbDmers = getelementptr inbounds i8, ptr %ctx, i64 48
   %f186 = getelementptr inbounds i8, ptr %ctx, i64 68
   %tobool197.not = icmp eq ptr %pool.0, null
-  %cmp208 = icmp ugt i32 %8, 3
+  %cmp208 = icmp samesign ugt i32 %8, 3
   %freqs.i113 = getelementptr inbounds i8, ptr %ctx, i64 56
   %offsets.i114 = getelementptr inbounds i8, ptr %ctx, i64 8
   br label %for.body

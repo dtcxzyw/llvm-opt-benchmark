@@ -1782,7 +1782,7 @@ if.end.thread.i:                                  ; preds = %land.lhs.true.i46
   br i1 %tobool3.not20.i, label %if.end16, label %if.end28.sink.split.i
 
 if.else.i:                                        ; preds = %if.end.i47
-  %tobool12.i = icmp ugt i8 %16, 63
+  %tobool12.i = icmp samesign ugt i8 %16, 63
   %cmp.i50 = icmp ne ptr %18, null
   %or.cond.i = select i1 %tobool12.i, i1 %cmp.i50, i1 false
   br i1 %or.cond.i, label %if.then15.i, label %if.end16
@@ -2212,7 +2212,7 @@ if.end.thread.i:                                  ; preds = %land.lhs.true.i12
   br i1 %tobool3.not20.i, label %frame_get_var.exit, label %if.end28.sink.split.i
 
 if.else.i:                                        ; preds = %if.end.i13
-  %tobool12.i = icmp ugt i8 %24, 63
+  %tobool12.i = icmp samesign ugt i8 %24, 63
   %cmp.i = icmp ne ptr %26, null
   %or.cond.i = select i1 %tobool12.i, i1 %cmp.i, i1 false
   br i1 %or.cond.i, label %if.then15.i, label %frame_get_var.exit
@@ -4340,7 +4340,7 @@ while.body171:                                    ; preds = %while.cond168.prehe
   %or.i186 = or disjoint i64 %shl.i185, 3
   %retval.0.i187 = select i1 %cmp.i184, i64 -1, i64 %or.i186
   %dec = add nsw i32 %delta.1265, -1
-  %cmp169 = icmp ugt i32 %delta.1265, 1
+  %cmp169 = icmp samesign ugt i32 %delta.1265, 1
   br i1 %cmp169, label %while.body171, label %while.end173, !llvm.loop !27
 
 while.end173:                                     ; preds = %while.body171, %while.body164, %while.cond168.preheader

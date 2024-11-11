@@ -180,7 +180,7 @@ define hidden range(i32 -1, 2) i32 @netxray_open(ptr noundef %0, ptr noundef %1,
 
 51:                                               ; preds = %44, %39
   %.0118 = phi i32 [ %47, %44 ], [ %43, %39 ]
-  %52 = icmp ugt i32 %.0118, 11
+  %52 = icmp samesign ugt i32 %.0118, 11
   br i1 %52, label %58, label %53
 
 53:                                               ; preds = %51

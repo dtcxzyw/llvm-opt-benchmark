@@ -27432,7 +27432,7 @@ if.then66.i:                                      ; preds = %if.else.i689
   br label %if.end163.sink.split.i
 
 if.else93.i:                                      ; preds = %if.else.i689
-  %cmp95.i = icmp ult i8 %68, -47
+  %cmp95.i = icmp samesign ult i8 %68, -47
   br i1 %cmp95.i, label %if.then96.i, label %if.end163.i
 
 if.then96.i:                                      ; preds = %if.else93.i
@@ -27844,7 +27844,7 @@ if.then73.i:                                      ; preds = %if.else.i696
   br label %if.end174.sink.split.i
 
 if.else101.i:                                     ; preds = %if.else.i696
-  %cmp103.i = icmp ult i8 %82, -47
+  %cmp103.i = icmp samesign ult i8 %82, -47
   br i1 %cmp103.i, label %if.then104.i, label %if.end174.i
 
 if.then104.i:                                     ; preds = %if.else101.i
@@ -28264,7 +28264,7 @@ if.then66.i:                                      ; preds = %if.else.i710
   br label %if.end163.sink.split.i
 
 if.else93.i:                                      ; preds = %if.else.i710
-  %cmp95.i = icmp ult i8 %71, -47
+  %cmp95.i = icmp samesign ult i8 %71, -47
   br i1 %cmp95.i, label %if.then96.i, label %if.end163.i
 
 if.then96.i:                                      ; preds = %if.else93.i
@@ -28707,7 +28707,7 @@ if.then73.i:                                      ; preds = %if.else.i715
   br label %if.end174.sink.split.i
 
 if.else101.i:                                     ; preds = %if.else.i715
-  %cmp103.i = icmp ult i8 %85, -47
+  %cmp103.i = icmp samesign ult i8 %85, -47
   br i1 %cmp103.i, label %if.then104.i, label %if.end174.i
 
 if.then104.i:                                     ; preds = %if.else101.i
@@ -29050,7 +29050,7 @@ if.then66.i.i:                                    ; preds = %if.else.i.i
   br label %if.end163.sink.split.i.i
 
 if.else93.i.i:                                    ; preds = %if.else.i.i
-  %cmp95.i.i = icmp ult i8 %37, -47
+  %cmp95.i.i = icmp samesign ult i8 %37, -47
   br i1 %cmp95.i.i, label %if.then96.i.i, label %if.end163.i.i
 
 if.then96.i.i:                                    ; preds = %if.else93.i.i
@@ -29357,7 +29357,7 @@ if.then73.i.i:                                    ; preds = %if.else.i.i
   br label %if.end174.sink.split.i.i
 
 if.else101.i.i:                                   ; preds = %if.else.i.i
-  %cmp103.i.i = icmp ult i8 %51, -47
+  %cmp103.i.i = icmp samesign ult i8 %51, -47
   br i1 %cmp103.i.i, label %if.then104.i.i, label %if.end174.i.i
 
 if.then104.i.i:                                   ; preds = %if.else101.i.i
@@ -29765,7 +29765,7 @@ if.then71.i:                                      ; preds = %if.else.i709
   br label %if.end135.sink.split.i
 
 if.else96.i:                                      ; preds = %if.else.i709
-  %cmp98.i = icmp ult i8 %67, -47
+  %cmp98.i = icmp samesign ult i8 %67, -47
   br i1 %cmp98.i, label %if.then99.i, label %if.end135.i
 
 if.then99.i:                                      ; preds = %if.else96.i
@@ -30155,7 +30155,7 @@ if.then71.i:                                      ; preds = %if.else.i728
   br label %if.end135.sink.split.i
 
 if.else96.i:                                      ; preds = %if.else.i728
-  %cmp98.i = icmp ult i8 %70, -47
+  %cmp98.i = icmp samesign ult i8 %70, -47
   br i1 %cmp98.i, label %if.then99.i, label %if.end135.i
 
 if.then99.i:                                      ; preds = %if.else96.i
@@ -30468,7 +30468,7 @@ if.then71.i.i:                                    ; preds = %if.else.i.i
   br label %if.end135.sink.split.i.i
 
 if.else96.i.i:                                    ; preds = %if.else.i.i
-  %cmp98.i.i = icmp ult i8 %36, -47
+  %cmp98.i.i = icmp samesign ult i8 %36, -47
   br i1 %cmp98.i.i, label %if.then99.i.i, label %if.end135.i.i
 
 if.then99.i.i:                                    ; preds = %if.else96.i.i
@@ -40917,7 +40917,7 @@ if.then68.i:                                      ; preds = %if.else.i560
   br label %if.end165.sink.split.i
 
 if.else95.i:                                      ; preds = %if.else.i560
-  %cmp97.i = icmp ult i8 %96, -47
+  %cmp97.i = icmp samesign ult i8 %96, -47
   br i1 %cmp97.i, label %if.then98.i, label %if.end165.i
 
 if.then98.i:                                      ; preds = %if.else95.i
@@ -41427,7 +41427,7 @@ if.then73.i:                                      ; preds = %if.else.i571
   br label %if.end174.sink.split.i
 
 if.else101.i:                                     ; preds = %if.else.i571
-  %cmp103.i = icmp ult i8 %120, -47
+  %cmp103.i = icmp samesign ult i8 %120, -47
   br i1 %cmp103.i, label %if.then104.i, label %if.end174.i
 
 if.then104.i:                                     ; preds = %if.else101.i
@@ -41935,7 +41935,7 @@ if.then68.i:                                      ; preds = %if.else.i580
   br label %if.end165.sink.split.i
 
 if.else95.i:                                      ; preds = %if.else.i580
-  %cmp97.i = icmp ult i8 %99, -47
+  %cmp97.i = icmp samesign ult i8 %99, -47
   br i1 %cmp97.i, label %if.then98.i, label %if.end165.i
 
 if.then98.i:                                      ; preds = %if.else95.i
@@ -42476,7 +42476,7 @@ if.then73.i:                                      ; preds = %if.else.i591
   br label %if.end174.sink.split.i
 
 if.else101.i:                                     ; preds = %if.else.i591
-  %cmp103.i = icmp ult i8 %123, -47
+  %cmp103.i = icmp samesign ult i8 %123, -47
   br i1 %cmp103.i, label %if.then104.i, label %if.end174.i
 
 if.then104.i:                                     ; preds = %if.else101.i
@@ -42858,7 +42858,7 @@ if.then68.i.i:                                    ; preds = %if.else.i.i
   br label %if.end165.sink.split.i.i
 
 if.else95.i.i:                                    ; preds = %if.else.i.i
-  %cmp97.i.i = icmp ult i8 %40, -47
+  %cmp97.i.i = icmp samesign ult i8 %40, -47
   br i1 %cmp97.i.i, label %if.then98.i.i, label %if.end165.i.i
 
 if.then98.i.i:                                    ; preds = %if.else95.i.i
@@ -43214,7 +43214,7 @@ if.then73.i.i:                                    ; preds = %if.else.i.i
   br label %if.end174.sink.split.i.i
 
 if.else101.i.i:                                   ; preds = %if.else.i.i
-  %cmp103.i.i = icmp ult i8 %64, -47
+  %cmp103.i.i = icmp samesign ult i8 %64, -47
   br i1 %cmp103.i.i, label %if.then104.i.i, label %if.end174.i.i
 
 if.then104.i.i:                                   ; preds = %if.else101.i.i
@@ -43735,7 +43735,7 @@ if.then88.i:                                      ; preds = %if.else.i584
   br label %if.end152.sink.split.i
 
 if.else113.i:                                     ; preds = %if.else.i584
-  %cmp115.i = icmp ult i8 %96, -47
+  %cmp115.i = icmp samesign ult i8 %96, -47
   br i1 %cmp115.i, label %if.then116.i, label %if.end152.i
 
 if.then116.i:                                     ; preds = %if.else113.i
@@ -44238,7 +44238,7 @@ if.then88.i:                                      ; preds = %if.else.i605
   br label %if.end152.sink.split.i
 
 if.else113.i:                                     ; preds = %if.else.i605
-  %cmp115.i = icmp ult i8 %99, -47
+  %cmp115.i = icmp samesign ult i8 %99, -47
   br i1 %cmp115.i, label %if.then116.i, label %if.end152.i
 
 if.then116.i:                                     ; preds = %if.else113.i
@@ -44615,7 +44615,7 @@ if.then88.i.i:                                    ; preds = %if.else.i.i
   br label %if.end152.sink.split.i.i
 
 if.else113.i.i:                                   ; preds = %if.else.i.i
-  %cmp115.i.i = icmp ult i8 %40, -47
+  %cmp115.i.i = icmp samesign ult i8 %40, -47
   br i1 %cmp115.i.i, label %if.then116.i.i, label %if.end152.i.i
 
 if.then116.i.i:                                   ; preds = %if.else113.i.i

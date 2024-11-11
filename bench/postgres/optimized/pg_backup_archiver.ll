@@ -8393,7 +8393,7 @@ define dso_local void @ReadHead(ptr noundef %0) local_unnamed_addr #0 {
   unreachable
 
 42:                                               ; preds = %35
-  %43 = icmp ugt i32 %37, 4
+  %43 = icmp samesign ugt i32 %37, 4
   br i1 %43, label %44, label %45
 
 44:                                               ; preds = %42
@@ -8446,7 +8446,7 @@ define dso_local void @ReadHead(ptr noundef %0) local_unnamed_addr #0 {
   br i1 %68, label %69, label %.sink.split
 
 69:                                               ; preds = %67
-  %70 = icmp ult i32 %62, 66560
+  %70 = icmp samesign ult i32 %62, 66560
   %71 = load ptr, ptr %11, align 8
   %72 = call i32 %71(ptr noundef nonnull %0) #22
   br i1 %70, label %87, label %73

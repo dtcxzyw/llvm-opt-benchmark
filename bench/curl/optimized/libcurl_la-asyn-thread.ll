@@ -395,7 +395,7 @@ if.else:                                          ; preds = %entry
   br i1 %cmp, label %if.end16, label %if.else8
 
 if.else8:                                         ; preds = %if.else
-  %cmp9 = icmp ult i64 %call6, 51
+  %cmp9 = icmp samesign ult i64 %call6, 51
   br i1 %cmp9, label %if.then10, label %if.else11
 
 if.then10:                                        ; preds = %if.else8
@@ -405,7 +405,7 @@ if.then10:                                        ; preds = %if.else8
   br label %if.end16
 
 if.else11:                                        ; preds = %if.else8
-  %cmp12 = icmp ult i64 %call6, 251
+  %cmp12 = icmp samesign ult i64 %call6, 251
   %. = select i1 %cmp12, i64 50, i64 200
   br label %if.end16
 

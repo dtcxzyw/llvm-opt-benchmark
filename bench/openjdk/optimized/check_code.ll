@@ -445,7 +445,7 @@ initialize_class_hash.exit:                       ; preds = %CCinit.exit
 
 verify_field.exit:                                ; preds = %.lr.ph263
   store i32 -1, ptr %15, align 4
-  %137 = icmp ugt i32 %.0115261, 1
+  %137 = icmp samesign ugt i32 %.0115261, 1
   br i1 %137, label %.lr.ph263, label %._crit_edge264, !llvm.loop !9
 
 ._crit_edge264:                                   ; preds = %verify_field.exit, %125
@@ -1135,7 +1135,7 @@ isLegalTarget.exit347.thread.i.i:                 ; preds = %isLegalTarget.exit3
   %452 = getelementptr inbounds i32, ptr %416, i64 %indvars.iv.i.i
   store i32 %451, ptr %452, align 4
   %453 = getelementptr inbounds i32, ptr %.1309378.i.i, i64 %.0313.i.i
-  %454 = icmp ugt i64 %indvars.iv.i.i, 1
+  %454 = icmp samesign ugt i64 %indvars.iv.i.i, 1
   br i1 %454, label %437, label %._crit_edge381.i.i, !llvm.loop !14
 
 ._crit_edge381.i.i:                               ; preds = %449, %428
@@ -2068,8 +2068,8 @@ isLegalTarget.exit.thread.i125.i:                 ; preds = %isLegalTarget.exit6
 876:                                              ; preds = %isLegalTarget.exit67.i.i, %868
   %877 = load i32, ptr %229, align 4
   %878 = icmp sgt i32 %877, 0
-  %879 = icmp ult i32 %877, %862
-  %or.cond80.i.i = and i1 %878, %879
+  %879 = icmp samesign ult i32 %877, %862
+  %or.cond80.i.i = select i1 %878, i1 %879, i1 false
   br i1 %or.cond80.i.i, label %isLegalTarget.exit68.i.i, label %isLegalTarget.exit68.thread.i.i
 
 isLegalTarget.exit68.i.i:                         ; preds = %876
@@ -2208,7 +2208,7 @@ free_block.exit.i.i130.i:                         ; preds = %933, %932, %925
 
 pop_and_free.exit.i133.i:                         ; preds = %939, %938, %935
   %941 = getelementptr inbounds i8, ptr %.074.i.i, i64 32
-  %942 = icmp ugt i32 %.in75.i.i, 1
+  %942 = icmp samesign ugt i32 %.in75.i.i, 1
   br i1 %942, label %.lr.ph.i124.i, label %initialize_exception_table.exit.i, !llvm.loop !21
 
 initialize_exception_table.exit.i:                ; preds = %pop_and_free.exit.i133.i, %.preheader.i.i
@@ -6133,7 +6133,7 @@ push_stack.exit.us:                               ; preds = %999, %1047, %995, %
 
 1086:                                             ; preds = %1081, %.lr.ph.i67.us
   %.1107.i.us = phi i32 [ %.0106123.i.us, %.lr.ph.i67.us ], [ %spec.select.i70.us, %1081 ]
-  %1087 = icmp ugt i64 %indvars.iv.i68.us, 1
+  %1087 = icmp samesign ugt i64 %indvars.iv.i68.us, 1
   br i1 %1087, label %.lr.ph.i67.us, label %._crit_edge.i64.us, !llvm.loop !55
 
 ._crit_edge.i64.us:                               ; preds = %1086, %1069
@@ -6177,7 +6177,7 @@ push_stack.exit.us:                               ; preds = %999, %1047, %995, %
 
 1104:                                             ; preds = %1101, %1097, %.lr.ph127.i.us
   %.1.i65.us = phi ptr [ %1102, %1101 ], [ %.0105125.i.us, %1097 ], [ %.0105125.i.us, %.lr.ph127.i.us ]
-  %1105 = icmp ugt i64 %indvars.iv137.i.us, 1
+  %1105 = icmp samesign ugt i64 %indvars.iv137.i.us, 1
   br i1 %1105, label %.lr.ph127.i.us, label %.loopexit.i63.us, !llvm.loop !56
 
 .loopexit.i63.us:                                 ; preds = %1104, %._crit_edge.i64.us, %1065
@@ -8421,7 +8421,7 @@ split:                                            ; preds = %38
   %96 = load i32, ptr %95, align 4
   %97 = and i32 %96, %94
   %.not180 = icmp eq i32 %97, 0
-  %98 = icmp ugt i64 %indvars.iv259, 1
+  %98 = icmp samesign ugt i64 %indvars.iv259, 1
   %99 = and i1 %.not180, %98
   br i1 %99, label %.lr.ph208, label %.loopexit186.loopexit, !llvm.loop !80
 
@@ -8526,7 +8526,7 @@ split:                                            ; preds = %38
   %142 = or i32 %141, %139
   %143 = getelementptr inbounds i32, ptr %134, i64 %indvars.iv.next274
   store i32 %142, ptr %143, align 4
-  %144 = icmp ugt i64 %indvars.iv273, 1
+  %144 = icmp samesign ugt i64 %indvars.iv273, 1
   br i1 %144, label %.lr.ph218, label %._crit_edge219, !llvm.loop !84
 
 ._crit_edge219:                                   ; preds = %.lr.ph218, %125

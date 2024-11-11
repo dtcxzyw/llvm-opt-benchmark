@@ -3218,7 +3218,7 @@ define dso_local i32 @__sys_getsockname(i32 noundef %0, ptr noundef %1, ptr noun
   br i1 %32, label %move_addr_to_user.exit, label %33
 
 33:                                               ; preds = %26
-  %34 = icmp ugt i32 %31, 128
+  %34 = icmp samesign ugt i32 %31, 128
   br i1 %34, label %35, label %36, !prof !7
 
 35:                                               ; preds = %33
@@ -3389,7 +3389,7 @@ define dso_local i32 @__sys_getpeername(i32 noundef %0, ptr noundef %1, ptr noun
   br i1 %33, label %34, label %move_addr_to_user.exit
 
 34:                                               ; preds = %29
-  %35 = icmp ugt i32 %32, 128
+  %35 = icmp samesign ugt i32 %32, 128
   br i1 %35, label %36, label %37, !prof !7
 
 36:                                               ; preds = %34
@@ -4690,7 +4690,7 @@ define dso_local range(i32 -2147483648, 1) i32 @__copy_msghdr(ptr nocapture noun
   br i1 %23, label %.thread, label %24
 
 24:                                               ; preds = %3
-  %25 = icmp ugt i32 %22, 128
+  %25 = icmp samesign ugt i32 %22, 128
   br i1 %25, label %26, label %27
 
 26:                                               ; preds = %24
@@ -4814,7 +4814,7 @@ define dso_local range(i32 -2147483648, 1) i32 @sendmsg_copy_msghdr(ptr noundef 
   br i1 %32, label %__copy_msghdr.exit.thread, label %33
 
 33:                                               ; preds = %12
-  %34 = icmp ugt i32 %31, 128
+  %34 = icmp samesign ugt i32 %31, 128
   br i1 %34, label %.thread, label %35
 
 35:                                               ; preds = %33
@@ -4934,7 +4934,7 @@ define internal fastcc i32 @____sys_sendmsg(ptr noundef %0, ptr noundef %1, i32 
   br i1 %16, label %29, label %46
 
 29:                                               ; preds = %28
-  %30 = icmp ugt i64 %8, 36
+  %30 = icmp samesign ugt i64 %8, 36
   br i1 %30, label %31, label %36
 
 31:                                               ; preds = %29
@@ -5167,7 +5167,7 @@ define internal fastcc i32 @___sys_sendmsg(ptr noundef nonnull %0, ptr noundef %
   br i1 %37, label %__copy_msghdr.exit.thread, label %38
 
 38:                                               ; preds = %17
-  %39 = icmp ugt i32 %36, 128
+  %39 = icmp samesign ugt i32 %36, 128
   br i1 %39, label %.thread, label %40
 
 40:                                               ; preds = %38
@@ -5917,7 +5917,7 @@ define internal fastcc i32 @___sys_recvmsg(ptr noundef nonnull %0, ptr noundef %
   br i1 %36, label %.thread, label %37
 
 37:                                               ; preds = %16
-  %38 = icmp ugt i32 %35, 128
+  %38 = icmp samesign ugt i32 %35, 128
   br i1 %38, label %.thread1, label %39
 
 39:                                               ; preds = %37

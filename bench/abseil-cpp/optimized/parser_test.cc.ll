@@ -4605,7 +4605,7 @@ if.end157:                                        ; preds = %if.end147, %land.rh
   br i1 %cmp.i136, label %if.end227, label %if.then160
 
 if.then160:                                       ; preds = %if.end157
-  %cmp.i137 = icmp ult i8 %retval.sroa.0.0.copyload.i135, -64
+  %cmp.i137 = icmp samesign ult i8 %retval.sroa.0.0.copyload.i135, -64
   br i1 %cmp.i137, label %if.end165, label %return
 
 if.end165:                                        ; preds = %if.then160
@@ -4938,7 +4938,7 @@ if.end104:                                        ; preds = %if.end94, %land.rhs
   br i1 %cmp.i77, label %if.end174, label %if.then107
 
 if.then107:                                       ; preds = %if.end104
-  %cmp.i78 = icmp ult i8 %retval.sroa.0.0.copyload.i76, -64
+  %cmp.i78 = icmp samesign ult i8 %retval.sroa.0.0.copyload.i76, -64
   br i1 %cmp.i78, label %if.end112, label %return
 
 if.end112:                                        ; preds = %if.then107

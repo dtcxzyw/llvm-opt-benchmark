@@ -95,11 +95,11 @@ while.body:                                       ; preds = %while.cond
   br i1 %cmp8, label %if.end21, label %if.else
 
 if.else:                                          ; preds = %while.body
-  %cmp12 = icmp ult i8 %4, -32
+  %cmp12 = icmp samesign ult i8 %4, -32
   br i1 %cmp12, label %if.end21, label %if.else14
 
 if.else14:                                        ; preds = %if.else
-  %cmp17 = icmp ult i8 %4, -16
+  %cmp17 = icmp samesign ult i8 %4, -16
   br i1 %cmp17, label %if.end21, label %if.end26
 
 if.end21:                                         ; preds = %if.else14, %if.else, %while.body
@@ -1007,7 +1007,7 @@ if.then.i.i.i:                                    ; preds = %if.then.i
 
 land.rhs.i.i.i.preheader:                         ; preds = %if.then.i.i.i
   %narrow317 = add nsw i32 %93, -1
-  %94 = icmp ugt i32 %narrow317, 5
+  %94 = icmp samesign ugt i32 %narrow317, 5
   br i1 %94, label %_ZN2EA4StdC12SprintfLocal18StringFormatHelperILb1EccEclEPFiPKcmPvNS0_18WriteFunctionStateEES6_RKNS1_10FormatDataEPcS5_.exit.i, label %_ZN2EA4StdC12SprintfLocal18StringFormatHelperILb1EccEclEPFiPKcmPvNS0_18WriteFunctionStateEES6_RKNS1_10FormatDataEPcS5_.exit.loopexit.split.loop.exit.i
 
 _ZN2EA4StdC12SprintfLocal18StringFormatHelperILb1EccEclEPFiPKcmPvNS0_18WriteFunctionStateEES6_RKNS1_10FormatDataEPcS5_.exit.loopexit.split.loop.exit.i: ; preds = %land.rhs.i.i.i.preheader
@@ -1101,7 +1101,7 @@ if.then.i.i.i134:                                 ; preds = %if.then.i131
 
 land.rhs.i.i.i142.preheader:                      ; preds = %if.then.i.i.i134
   %narrow315 = add nsw i32 %103, -1
-  %104 = icmp ugt i32 %narrow315, 5
+  %104 = icmp samesign ugt i32 %narrow315, 5
   br i1 %104, label %_ZN2EA4StdC12SprintfLocal18StringFormatHelperILb1EccEclEPFiPKcmPvNS0_18WriteFunctionStateEES6_RKNS1_10FormatDataEPcS5_.exit.i137, label %_ZN2EA4StdC12SprintfLocal18StringFormatHelperILb1EccEclEPFiPKcmPvNS0_18WriteFunctionStateEES6_RKNS1_10FormatDataEPcS5_.exit.loopexit.split.loop.exit.i148
 
 _ZN2EA4StdC12SprintfLocal18StringFormatHelperILb1EccEclEPFiPKcmPvNS0_18WriteFunctionStateEES6_RKNS1_10FormatDataEPcS5_.exit.loopexit.split.loop.exit.i148: ; preds = %land.rhs.i.i.i142.preheader
@@ -1164,7 +1164,7 @@ if.then.i.i.i158:                                 ; preds = %if.then.i155
 
 land.rhs.i.i.i166.preheader:                      ; preds = %if.then.i.i.i158
   %narrow = add nsw i32 %111, -1
-  %112 = icmp ugt i32 %narrow, 5
+  %112 = icmp samesign ugt i32 %narrow, 5
   br i1 %112, label %_ZN2EA4StdC12SprintfLocal18StringFormatHelperILb1EccEclEPFiPKcmPvNS0_18WriteFunctionStateEES6_RKNS1_10FormatDataEPcS5_.exit.i161, label %_ZN2EA4StdC12SprintfLocal18StringFormatHelperILb1EccEclEPFiPKcmPvNS0_18WriteFunctionStateEES6_RKNS1_10FormatDataEPcS5_.exit.loopexit.split.loop.exit.i172
 
 _ZN2EA4StdC12SprintfLocal18StringFormatHelperILb1EccEclEPFiPKcmPvNS0_18WriteFunctionStateEES6_RKNS1_10FormatDataEPcS5_.exit.loopexit.split.loop.exit.i172: ; preds = %land.rhs.i.i.i166.preheader
@@ -4431,7 +4431,7 @@ if.then92:                                        ; preds = %lor.lhs.false90, %f
 if.end94:                                         ; preds = %if.then92, %lor.lhs.false90
   %15 = phi i8 [ %14, %if.then92 ], [ %13, %lor.lhs.false90 ]
   %pCurrent.5 = phi ptr [ %incdec.ptr93, %if.then92 ], [ %pCurrent.4150, %lor.lhs.false90 ]
-  %cmp82 = icmp ugt i64 %pTemp.0.idx151, 2
+  %cmp82 = icmp samesign ugt i64 %pTemp.0.idx151, 2
   br i1 %cmp82, label %for.body, label %for.end, !llvm.loop !78
 
 for.end:                                          ; preds = %if.end94, %if.end69
@@ -6473,7 +6473,7 @@ if.then97:                                        ; preds = %lor.lhs.false95, %f
 if.end99:                                         ; preds = %if.then97, %lor.lhs.false95
   %16 = phi i16 [ %15, %if.then97 ], [ %14, %lor.lhs.false95 ]
   %pCurrent.5 = phi ptr [ %incdec.ptr98, %if.then97 ], [ %pCurrent.4151, %lor.lhs.false95 ]
-  %cmp87 = icmp ugt i64 %pTemp.0.idx152, 4
+  %cmp87 = icmp samesign ugt i64 %pTemp.0.idx152, 4
   br i1 %cmp87, label %for.body, label %for.end, !llvm.loop !112
 
 for.end:                                          ; preds = %if.end99, %if.end74
@@ -8502,7 +8502,7 @@ if.then93:                                        ; preds = %lor.lhs.false91, %f
 if.end95:                                         ; preds = %if.then93, %lor.lhs.false91
   %15 = phi i32 [ %14, %if.then93 ], [ %13, %lor.lhs.false91 ]
   %pCurrent.5 = phi ptr [ %incdec.ptr94, %if.then93 ], [ %pCurrent.4151, %lor.lhs.false91 ]
-  %cmp85 = icmp ugt i64 %pTemp.0.idx152, 8
+  %cmp85 = icmp samesign ugt i64 %pTemp.0.idx152, 8
   br i1 %cmp85, label %for.body, label %for.end, !llvm.loop !148
 
 for.end:                                          ; preds = %if.end95, %if.end73

@@ -1703,7 +1703,7 @@ define noalias noundef ptr @Cnf_DataReadFromFile(ptr noundef %0) local_unnamed_a
 Vec_IntAlloc.exit:                                ; preds = %20
   %28 = add nuw nsw i32 %24, 1
   %29 = tail call noalias dereferenceable_or_null(16) ptr @malloc(i64 noundef 16) #25
-  %or.cond.i = icmp ult i32 %24, 15
+  %or.cond.i = icmp samesign ult i32 %24, 15
   %spec.store.select.i = select i1 %or.cond.i, i32 16, i32 %28
   %30 = getelementptr inbounds i8, ptr %29, i64 4
   store i32 0, ptr %30, align 4
@@ -1716,7 +1716,7 @@ Vec_IntAlloc.exit:                                ; preds = %20
   %35 = shl nsw i32 %24, 3
   %36 = tail call noalias dereferenceable_or_null(16) ptr @malloc(i64 noundef 16) #25
   %37 = add nsw i32 %35, -1
-  %or.cond.i85 = icmp ult i32 %37, 15
+  %or.cond.i85 = icmp samesign ult i32 %37, 15
   %spec.store.select.i86 = select i1 %or.cond.i85, i32 16, i32 %35
   %38 = getelementptr inbounds i8, ptr %36, i64 4
   store i32 0, ptr %38, align 4

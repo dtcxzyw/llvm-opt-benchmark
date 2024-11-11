@@ -227,7 +227,7 @@ if.then16:                                        ; preds = %if.end14
   %4 = load i32, ptr %0, align 8
   %subprime_len2.i = getelementptr inbounds i8, ptr %0, i64 12
   %5 = load i32, ptr %subprime_len2.i, align 4
-  %cmp.i = icmp ugt i32 %3, 2
+  %cmp.i = icmp samesign ugt i32 %3, 2
   br i1 %cmp.i, label %ffc_params_generate.exit.thread, label %if.end.i
 
 if.end.i:                                         ; preds = %if.then16

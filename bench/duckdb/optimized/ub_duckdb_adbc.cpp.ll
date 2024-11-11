@@ -16225,7 +16225,7 @@ ehcleanup13:                                      ; preds = %if.then.i.i515, %_Z
   br label %ehcleanup342
 
 sw.epilog:                                        ; preds = %if.end, %if.end
-  %cmp17 = icmp ult i32 %version, 1001000
+  %cmp17 = icmp samesign ult i32 %version, 1001000
   br i1 %cmp17, label %if.end19.1, label %if.end19
 
 if.end19:                                         ; preds = %sw.epilog
@@ -17022,7 +17022,7 @@ if.then211:                                       ; preds = %if.end209
   br label %if.end218
 
 if.end218:                                        ; preds = %if.then211, %if.end209
-  %cmp219 = icmp ugt i32 %version, 1000999
+  %cmp219 = icmp samesign ugt i32 %version, 1000999
   br i1 %cmp219, label %if.then220, label %cleanup341
 
 if.then220:                                       ; preds = %if.end218

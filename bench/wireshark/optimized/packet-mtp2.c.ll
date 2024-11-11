@@ -1313,7 +1313,7 @@ dissect_mtp2_header.exit.i:                       ; preds = %62, %36
   br label %mtp2_decode_crc16.exit.i
 
 72:                                               ; preds = %65
-  %73 = icmp ult i32 %66, %67
+  %73 = icmp samesign ult i32 %66, %67
   br i1 %73, label %74, label %77
 
 74:                                               ; preds = %72

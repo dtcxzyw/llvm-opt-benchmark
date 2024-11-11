@@ -109,7 +109,7 @@ if.end:                                           ; preds = %entry, %if.end
   %arrayidx7 = getelementptr inbounds [10 x i8], ptr %buf, i64 0, i64 %indvars.iv
   store i8 %or, ptr %arrayidx7, align 1
   %indvars.iv.next = add nsw i64 %indvars.iv, -1
-  %tobool.not = icmp ult i64 %dec1, 128
+  %tobool.not = icmp samesign ult i64 %dec1, 128
   br i1 %tobool.not, label %while.end.loopexit, label %if.end
 
 while.end.loopexit:                               ; preds = %if.end
@@ -225,7 +225,7 @@ if.end.i:                                         ; preds = %entry, %if.end.i
   %arrayidx7.i = getelementptr inbounds [10 x i8], ptr %buf.i, i64 0, i64 %indvars.iv.i
   store i8 %or.i, ptr %arrayidx7.i, align 1
   %indvars.iv.next.i = add nsw i64 %indvars.iv.i, -1
-  %tobool.not.i = icmp ult i64 %dec1.i, 128
+  %tobool.not.i = icmp samesign ult i64 %dec1.i, 128
   br i1 %tobool.not.i, label %while.end.loopexit.i, label %if.end.i
 
 while.end.loopexit.i:                             ; preds = %if.end.i
@@ -281,7 +281,7 @@ if.end.i15:                                       ; preds = %if.end, %if.end.i15
   %arrayidx7.i21 = getelementptr inbounds [10 x i8], ptr %buf.i11, i64 0, i64 %indvars.iv.i16
   store i8 %or.i20, ptr %arrayidx7.i21, align 1
   %indvars.iv.next.i22 = add nsw i64 %indvars.iv.i16, -1
-  %tobool.not.i23 = icmp ult i64 %dec1.i19, 128
+  %tobool.not.i23 = icmp samesign ult i64 %dec1.i19, 128
   br i1 %tobool.not.i23, label %while.end.loopexit.i24, label %if.end.i15
 
 while.end.loopexit.i24:                           ; preds = %if.end.i15
@@ -1607,7 +1607,7 @@ if.end.i:                                         ; preds = %entry, %if.end.i
   %arrayidx7.i = getelementptr inbounds [10 x i8], ptr %buf.i, i64 0, i64 %indvars.iv.i
   store i8 %or.i, ptr %arrayidx7.i, align 1
   %indvars.iv.next.i = add nsw i64 %indvars.iv.i, -1
-  %tobool.not.i = icmp ult i64 %dec1.i, 128
+  %tobool.not.i = icmp samesign ult i64 %dec1.i, 128
   br i1 %tobool.not.i, label %while.end.loopexit.i, label %if.end.i
 
 while.end.loopexit.i:                             ; preds = %if.end.i
@@ -1672,7 +1672,7 @@ if.end.i.i:                                       ; preds = %sw.bb, %if.end.i.i
   %arrayidx7.i.i = getelementptr inbounds [10 x i8], ptr %buf.i.i, i64 0, i64 %indvars.iv.i.i
   store i8 %or.i.i, ptr %arrayidx7.i.i, align 1
   %indvars.iv.next.i.i = add nsw i64 %indvars.iv.i.i, -1
-  %tobool.not.i.i = icmp ult i64 %dec1.i.i, 128
+  %tobool.not.i.i = icmp samesign ult i64 %dec1.i.i, 128
   br i1 %tobool.not.i.i, label %while.end.loopexit.i.i, label %if.end.i.i
 
 while.end.loopexit.i.i:                           ; preds = %if.end.i.i
@@ -2323,7 +2323,7 @@ if.end.i.i:                                       ; preds = %if.end10, %if.end.i
   %arrayidx7.i.i = getelementptr inbounds [10 x i8], ptr %buf.i.i, i64 0, i64 %indvars.iv.i.i
   store i8 %or.i.i, ptr %arrayidx7.i.i, align 1
   %indvars.iv.next.i.i = add nsw i64 %indvars.iv.i.i, -1
-  %tobool.not.i.i = icmp ult i64 %dec1.i.i, 128
+  %tobool.not.i.i = icmp samesign ult i64 %dec1.i.i, 128
   br i1 %tobool.not.i.i, label %while.end.loopexit.i.i, label %if.end.i.i
 
 while.end.loopexit.i.i:                           ; preds = %if.end.i.i
@@ -2395,7 +2395,7 @@ if.end.i.i42:                                     ; preds = %if.end23, %if.end.i
   %arrayidx7.i.i48 = getelementptr inbounds [10 x i8], ptr %buf.i.i35, i64 0, i64 %indvars.iv.i.i43
   store i8 %or.i.i47, ptr %arrayidx7.i.i48, align 1
   %indvars.iv.next.i.i49 = add nsw i64 %indvars.iv.i.i43, -1
-  %tobool.not.i.i50 = icmp ult i64 %dec1.i.i46, 128
+  %tobool.not.i.i50 = icmp samesign ult i64 %dec1.i.i46, 128
   br i1 %tobool.not.i.i50, label %while.end.loopexit.i.i51, label %if.end.i.i42
 
 while.end.loopexit.i.i51:                         ; preds = %if.end.i.i42
@@ -2462,7 +2462,7 @@ if.end.i79:                                       ; preds = %if.end36, %if.end.i
   %arrayidx7.i = getelementptr inbounds [10 x i8], ptr %buf.i, i64 0, i64 %indvars.iv.i
   store i8 %or.i, ptr %arrayidx7.i, align 1
   %indvars.iv.next.i = add nsw i64 %indvars.iv.i, -1
-  %tobool.not.i = icmp ult i64 %dec1.i, 128
+  %tobool.not.i = icmp samesign ult i64 %dec1.i, 128
   br i1 %tobool.not.i, label %while.end.loopexit.i, label %if.end.i79
 
 while.end.loopexit.i:                             ; preds = %if.end.i79
@@ -2528,7 +2528,7 @@ if.end.i.i98:                                     ; preds = %if.end47, %if.end.i
   %arrayidx7.i.i104 = getelementptr inbounds [10 x i8], ptr %buf.i.i91, i64 0, i64 %indvars.iv.i.i99
   store i8 %or.i.i103, ptr %arrayidx7.i.i104, align 1
   %indvars.iv.next.i.i105 = add nsw i64 %indvars.iv.i.i99, -1
-  %tobool.not.i.i106 = icmp ult i64 %dec1.i.i102, 128
+  %tobool.not.i.i106 = icmp samesign ult i64 %dec1.i.i102, 128
   br i1 %tobool.not.i.i106, label %while.end.loopexit.i.i107, label %if.end.i.i98
 
 while.end.loopexit.i.i107:                        ; preds = %if.end.i.i98
@@ -3100,7 +3100,7 @@ if.end.i:                                         ; preds = %entry, %if.end.i
   %arrayidx7.i = getelementptr inbounds [10 x i8], ptr %buf.i, i64 0, i64 %indvars.iv.i
   store i8 %or.i, ptr %arrayidx7.i, align 1
   %indvars.iv.next.i = add nsw i64 %indvars.iv.i, -1
-  %tobool.not.i = icmp ult i64 %dec1.i, 128
+  %tobool.not.i = icmp samesign ult i64 %dec1.i, 128
   br i1 %tobool.not.i, label %while.end.loopexit.i, label %if.end.i
 
 while.end.loopexit.i:                             ; preds = %if.end.i
@@ -3352,7 +3352,7 @@ if.then:                                          ; preds = %entry
   %conv.i = and i8 %1, 127
   %arrayidx.i = getelementptr inbounds i8, ptr %buf.i, i64 9
   store i8 %conv.i, ptr %arrayidx.i, align 1
-  %tobool.not13.i = icmp ult i32 %0, 128
+  %tobool.not13.i = icmp samesign ult i32 %0, 128
   br i1 %tobool.not13.i, label %while.end.i, label %if.end.i.preheader
 
 if.end.i.preheader:                               ; preds = %if.then
@@ -3369,7 +3369,7 @@ if.end.i:                                         ; preds = %if.end.i.preheader,
   %arrayidx7.i = getelementptr inbounds [10 x i8], ptr %buf.i, i64 0, i64 %indvars.iv.i
   store i8 %or.i, ptr %arrayidx7.i, align 1
   %indvars.iv.next.i = add nsw i64 %indvars.iv.i, -1
-  %tobool.not.i = icmp ult i64 %dec1.i, 128
+  %tobool.not.i = icmp samesign ult i64 %dec1.i, 128
   br i1 %tobool.not.i, label %while.end.loopexit.i, label %if.end.i
 
 while.end.loopexit.i:                             ; preds = %if.end.i
@@ -3429,7 +3429,7 @@ if.end.i22:                                       ; preds = %if.end14, %if.end.i
   %arrayidx7.i28 = getelementptr inbounds [10 x i8], ptr %buf.i18, i64 0, i64 %indvars.iv.i23
   store i8 %or.i27, ptr %arrayidx7.i28, align 1
   %indvars.iv.next.i29 = add nsw i64 %indvars.iv.i23, -1
-  %tobool.not.i30 = icmp ult i64 %dec1.i26, 128
+  %tobool.not.i30 = icmp samesign ult i64 %dec1.i26, 128
   br i1 %tobool.not.i30, label %while.end.loopexit.i31, label %if.end.i22
 
 while.end.loopexit.i31:                           ; preds = %if.end.i22
@@ -3497,7 +3497,7 @@ if.end.i52:                                       ; preds = %for.body, %if.end.i
   %arrayidx7.i58 = getelementptr inbounds [10 x i8], ptr %buf.i48, i64 0, i64 %indvars.iv.i53
   store i8 %or.i57, ptr %arrayidx7.i58, align 1
   %indvars.iv.next.i59 = add nsw i64 %indvars.iv.i53, -1
-  %tobool.not.i60 = icmp ult i64 %dec1.i56, 128
+  %tobool.not.i60 = icmp samesign ult i64 %dec1.i56, 128
   br i1 %tobool.not.i60, label %while.end.loopexit.i61, label %if.end.i52
 
 while.end.loopexit.i61:                           ; preds = %if.end.i52

@@ -725,7 +725,7 @@ if.then11:                                        ; preds = %if.then
   br label %if.then326
 
 if.else:                                          ; preds = %sw.bb1
-  %cmp15 = icmp ugt i32 %1, 7
+  %cmp15 = icmp samesign ugt i32 %1, 7
   br i1 %cmp15, label %if.then17, label %do.body
 
 if.then17:                                        ; preds = %if.else
@@ -772,7 +772,7 @@ if.else.i:                                        ; preds = %if.end43
   %mul2.i = shl i32 %size, 3
   %cmp1.i.i = icmp slt i32 %mul2.i, 1
   %sub.i.i = sub nuw nsw i32 32, %mul.i
-  %cmp3.not.i.i = icmp ugt i32 %mul2.i, %sub.i.i
+  %cmp3.not.i.i = icmp samesign ugt i32 %mul2.i, %sub.i.i
   %or.cond5.i.i = select i1 %cmp1.i.i, i1 true, i1 %cmp3.not.i.i
   br i1 %or.cond5.i.i, label %if.else.i.i, label %extract32.exit.i
 
@@ -819,7 +819,7 @@ if.else.i142:                                     ; preds = %sw.bb56
   %mul2.i144 = shl i32 %size, 3
   %cmp1.i.i145 = icmp slt i32 %mul2.i144, 1
   %sub.i.i146 = sub nuw nsw i32 32, %mul.i143
-  %cmp3.not.i.i147 = icmp ugt i32 %mul2.i144, %sub.i.i146
+  %cmp3.not.i.i147 = icmp samesign ugt i32 %mul2.i144, %sub.i.i146
   %or.cond5.i.i148 = select i1 %cmp1.i.i145, i1 true, i1 %cmp3.not.i.i147
   br i1 %or.cond5.i.i148, label %if.else.i.i156, label %extract32.exit.i149
 
@@ -854,7 +854,7 @@ if.else.i161:                                     ; preds = %sw.bb61
   %mul2.i163 = shl i32 %size, 3
   %cmp1.i.i165 = icmp slt i32 %mul2.i163, 1
   %sub.i.i167 = sub nuw nsw i32 32, %mul.i162
-  %cmp3.not.i.i168 = icmp ugt i32 %mul2.i163, %sub.i.i167
+  %cmp3.not.i.i168 = icmp samesign ugt i32 %mul2.i163, %sub.i.i167
   %or.cond5.i.i169 = select i1 %cmp1.i.i165, i1 true, i1 %cmp3.not.i.i168
   br i1 %or.cond5.i.i169, label %if.else.i.i177, label %extract32.exit.i170
 
@@ -895,7 +895,7 @@ if.else.i182:                                     ; preds = %sw.bb69
   %mul2.i184 = shl i32 %size, 3
   %cmp1.i.i186 = icmp slt i32 %mul2.i184, 1
   %sub.i.i188 = sub nuw nsw i32 32, %mul.i183
-  %cmp3.not.i.i189 = icmp ugt i32 %mul2.i184, %sub.i.i188
+  %cmp3.not.i.i189 = icmp samesign ugt i32 %mul2.i184, %sub.i.i188
   %or.cond5.i.i190 = select i1 %cmp1.i.i186, i1 true, i1 %cmp3.not.i.i189
   br i1 %or.cond5.i.i190, label %if.else.i.i198, label %extract32.exit.i191
 
@@ -930,7 +930,7 @@ if.else.i203:                                     ; preds = %sw.bb74
   %mul2.i205 = shl i32 %size, 3
   %cmp1.i.i207 = icmp slt i32 %mul2.i205, 1
   %sub.i.i209 = sub nuw nsw i32 32, %mul.i204
-  %cmp3.not.i.i210 = icmp ugt i32 %mul2.i205, %sub.i.i209
+  %cmp3.not.i.i210 = icmp samesign ugt i32 %mul2.i205, %sub.i.i209
   %or.cond5.i.i211 = select i1 %cmp1.i.i207, i1 true, i1 %cmp3.not.i.i210
   br i1 %or.cond5.i.i211, label %if.else.i.i219, label %extract32.exit.i212
 
@@ -965,7 +965,7 @@ if.else.i224:                                     ; preds = %sw.bb79
   %mul2.i226 = shl i32 %size, 3
   %cmp1.i.i228 = icmp slt i32 %mul2.i226, 1
   %sub.i.i230 = sub nuw nsw i32 32, %mul.i225
-  %cmp3.not.i.i231 = icmp ugt i32 %mul2.i226, %sub.i.i230
+  %cmp3.not.i.i231 = icmp samesign ugt i32 %mul2.i226, %sub.i.i230
   %or.cond5.i.i232 = select i1 %cmp1.i.i228, i1 true, i1 %cmp3.not.i.i231
   br i1 %or.cond5.i.i232, label %if.else.i.i240, label %extract32.exit.i233
 
@@ -1129,7 +1129,7 @@ if.else.i245:                                     ; preds = %sw.bb164
   %mul2.i247 = shl i32 %size, 3
   %cmp1.i.i249 = icmp slt i32 %mul2.i247, 1
   %sub.i.i251 = sub nuw nsw i32 32, %mul.i246
-  %cmp3.not.i.i252 = icmp ugt i32 %mul2.i247, %sub.i.i251
+  %cmp3.not.i.i252 = icmp samesign ugt i32 %mul2.i247, %sub.i.i251
   %or.cond5.i.i253 = select i1 %cmp1.i.i249, i1 true, i1 %cmp3.not.i.i252
   br i1 %or.cond5.i.i253, label %if.else.i.i261, label %extract32.exit.i254
 
@@ -1164,7 +1164,7 @@ if.else.i266:                                     ; preds = %sw.bb169
   %mul2.i268 = shl i32 %size, 3
   %cmp1.i.i270 = icmp slt i32 %mul2.i268, 1
   %sub.i.i272 = sub nuw nsw i32 32, %mul.i267
-  %cmp3.not.i.i273 = icmp ugt i32 %mul2.i268, %sub.i.i272
+  %cmp3.not.i.i273 = icmp samesign ugt i32 %mul2.i268, %sub.i.i272
   %or.cond5.i.i274 = select i1 %cmp1.i.i270, i1 true, i1 %cmp3.not.i.i273
   br i1 %or.cond5.i.i274, label %if.else.i.i282, label %extract32.exit.i275
 
@@ -1184,7 +1184,7 @@ ati_reg_read_offs.exit283:                        ; preds = %sw.bb169, %extract3
   %retval.0.i281 = zext i32 %retval.0.in.i280 to i64
   %conv174 = zext i32 %size to i64
   %add175 = add nuw nsw i64 %addr, %conv174
-  %cmp176 = icmp ugt i64 %add175, 615
+  %cmp176 = icmp samesign ugt i64 %add175, 615
   br i1 %cmp176, label %if.then178, label %if.end330
 
 if.then178:                                       ; preds = %ati_reg_read_offs.exit283
@@ -1213,7 +1213,7 @@ if.else.i287:                                     ; preds = %sw.bb186
   %mul2.i289 = shl i32 %size, 3
   %cmp1.i.i291 = icmp slt i32 %mul2.i289, 1
   %sub.i.i293 = sub nuw nsw i32 32, %mul.i288
-  %cmp3.not.i.i294 = icmp ugt i32 %mul2.i289, %sub.i.i293
+  %cmp3.not.i.i294 = icmp samesign ugt i32 %mul2.i289, %sub.i.i293
   %or.cond5.i.i295 = select i1 %cmp1.i.i291, i1 true, i1 %cmp3.not.i.i294
   br i1 %or.cond5.i.i295, label %if.else.i.i303, label %extract32.exit.i296
 
@@ -1233,7 +1233,7 @@ ati_reg_read_offs.exit304:                        ; preds = %sw.bb186, %extract3
   %retval.0.i302 = zext i32 %retval.0.in.i301 to i64
   %conv191 = zext i32 %size to i64
   %add192 = add nuw nsw i64 %addr, %conv191
-  %cmp193 = icmp ugt i64 %add192, 619
+  %cmp193 = icmp samesign ugt i64 %add192, 619
   br i1 %cmp193, label %if.then195, label %if.end330
 
 if.then195:                                       ; preds = %ati_reg_read_offs.exit304
@@ -1262,7 +1262,7 @@ if.else.i308:                                     ; preds = %sw.bb205
   %mul2.i310 = shl i32 %size, 3
   %cmp1.i.i312 = icmp slt i32 %mul2.i310, 1
   %sub.i.i314 = sub nuw nsw i32 32, %mul.i309
-  %cmp3.not.i.i315 = icmp ugt i32 %mul2.i310, %sub.i.i314
+  %cmp3.not.i.i315 = icmp samesign ugt i32 %mul2.i310, %sub.i.i314
   %or.cond5.i.i316 = select i1 %cmp1.i.i312, i1 true, i1 %cmp3.not.i.i315
   br i1 %or.cond5.i.i316, label %if.else.i.i324, label %extract32.exit.i317
 
@@ -1297,7 +1297,7 @@ if.else.i329:                                     ; preds = %sw.bb210
   %mul2.i331 = shl i32 %size, 3
   %cmp1.i.i333 = icmp slt i32 %mul2.i331, 1
   %sub.i.i335 = sub nuw nsw i32 32, %mul.i330
-  %cmp3.not.i.i336 = icmp ugt i32 %mul2.i331, %sub.i.i335
+  %cmp3.not.i.i336 = icmp samesign ugt i32 %mul2.i331, %sub.i.i335
   %or.cond5.i.i337 = select i1 %cmp1.i.i333, i1 true, i1 %cmp3.not.i.i336
   br i1 %or.cond5.i.i337, label %if.else.i.i345, label %extract32.exit.i338
 
@@ -1752,7 +1752,7 @@ if.then17:                                        ; preds = %if.then9
   br label %sw.epilog
 
 if.else:                                          ; preds = %sw.bb4
-  %cmp22 = icmp ugt i32 %9, 7
+  %cmp22 = icmp samesign ugt i32 %9, 7
   br i1 %cmp22, label %if.then24, label %do.body
 
 if.then24:                                        ; preds = %if.else
@@ -1801,7 +1801,7 @@ if.else.i:                                        ; preds = %if.end49
   %mul2.i = shl i32 %size, 3
   %cmp1.i.i = icmp slt i32 %mul2.i, 1
   %sub.i.i = sub nuw nsw i32 32, %mul.i
-  %cmp3.not.i.i = icmp ugt i32 %mul2.i, %sub.i.i
+  %cmp3.not.i.i = icmp samesign ugt i32 %mul2.i, %sub.i.i
   %or.cond8.i.i = select i1 %cmp1.i.i, i1 true, i1 %cmp3.not.i.i
   br i1 %or.cond8.i.i, label %if.else.i.i342, label %deposit32.exit.i
 
@@ -1890,7 +1890,7 @@ if.else.i352:                                     ; preds = %sw.bb73
   %mul2.i354 = shl i32 %size, 3
   %cmp1.i.i355 = icmp slt i32 %mul2.i354, 1
   %sub.i.i356 = sub nuw nsw i32 32, %mul.i353
-  %cmp3.not.i.i357 = icmp ugt i32 %mul2.i354, %sub.i.i356
+  %cmp3.not.i.i357 = icmp samesign ugt i32 %mul2.i354, %sub.i.i356
   %or.cond8.i.i358 = select i1 %cmp1.i.i355, i1 true, i1 %cmp3.not.i.i357
   br i1 %or.cond8.i.i358, label %if.else.i.i370, label %deposit32.exit.i359
 
@@ -1984,7 +1984,7 @@ if.else.i377:                                     ; preds = %sw.bb124
   %mul2.i379 = shl i32 %size, 3
   %cmp1.i.i381 = icmp slt i32 %mul2.i379, 1
   %sub.i.i383 = sub nuw nsw i32 32, %mul.i378
-  %cmp3.not.i.i384 = icmp ugt i32 %mul2.i379, %sub.i.i383
+  %cmp3.not.i.i384 = icmp samesign ugt i32 %mul2.i379, %sub.i.i383
   %or.cond8.i.i385 = select i1 %cmp1.i.i381, i1 true, i1 %cmp3.not.i.i384
   br i1 %or.cond8.i.i385, label %if.else.i.i397, label %deposit32.exit.i386
 
@@ -2058,10 +2058,10 @@ if.then181:                                       ; preds = %sw.bb176
   %45 = trunc i64 %addr.tr to i32
   %conv184 = add nsw i32 %45, -100
   tail call fastcc void @ati_reg_write_offs(ptr noundef nonnull %gpio_dvi_ddc, i32 noundef %conv184, i64 noundef %data, i32 noundef %size)
-  %cmp185 = icmp ult i64 %addr.tr, 103
+  %cmp185 = icmp samesign ult i64 %addr.tr, 103
   %conv188 = zext i32 %size to i64
   %add189 = add nuw nsw i64 %addr.tr, %conv188
-  %cmp190 = icmp ugt i64 %add189, 102
+  %cmp190 = icmp samesign ugt i64 %add189, 102
   %or.cond338 = select i1 %cmp185, i1 %cmp190, i1 false
   br i1 %or.cond338, label %if.then181.if.then200_crit_edge, label %lor.lhs.false192
 
@@ -2105,10 +2105,10 @@ if.then215:                                       ; preds = %sw.bb210
   br i1 %tobool223.not, label %sw.epilog, label %land.lhs.true224
 
 land.lhs.true224:                                 ; preds = %if.then215
-  %cmp225 = icmp ult i64 %addr.tr, 107
+  %cmp225 = icmp samesign ult i64 %addr.tr, 107
   %conv228 = zext i32 %size to i64
   %add229 = add nuw nsw i64 %addr.tr, %conv228
-  %cmp230 = icmp ugt i64 %add229, 106
+  %cmp230 = icmp samesign ugt i64 %add229, 106
   %or.cond339 = select i1 %cmp225, i1 %cmp230, i1 false
   br i1 %or.cond339, label %if.then240, label %lor.lhs.false232
 
@@ -2264,7 +2264,7 @@ if.else.i404:                                     ; preds = %sw.bb341
   %mul2.i406 = shl i32 %size, 3
   %cmp1.i.i408 = icmp slt i32 %mul2.i406, 1
   %sub.i.i410 = sub nuw nsw i32 32, %mul.i405
-  %cmp3.not.i.i411 = icmp ugt i32 %mul2.i406, %sub.i.i410
+  %cmp3.not.i.i411 = icmp samesign ugt i32 %mul2.i406, %sub.i.i410
   %or.cond8.i.i412 = select i1 %cmp1.i.i408, i1 true, i1 %cmp3.not.i.i411
   br i1 %or.cond8.i.i412, label %if.else.i.i424, label %deposit32.exit.i413
 
@@ -2318,7 +2318,7 @@ if.else.i431:                                     ; preds = %sw.bb354
   %mul2.i433 = shl i32 %size, 3
   %cmp1.i.i435 = icmp slt i32 %mul2.i433, 1
   %sub.i.i437 = sub nuw nsw i32 32, %mul.i432
-  %cmp3.not.i.i438 = icmp ugt i32 %mul2.i433, %sub.i.i437
+  %cmp3.not.i.i438 = icmp samesign ugt i32 %mul2.i433, %sub.i.i437
   %or.cond8.i.i439 = select i1 %cmp1.i.i435, i1 true, i1 %cmp3.not.i.i438
   br i1 %or.cond8.i.i439, label %if.else.i.i451, label %deposit32.exit.i440
 
@@ -2433,7 +2433,7 @@ if.else.i458:                                     ; preds = %sw.bb456
   %mul2.i460 = shl i32 %size, 3
   %cmp1.i.i462 = icmp slt i32 %mul2.i460, 1
   %sub.i.i464 = sub nuw nsw i32 32, %mul.i459
-  %cmp3.not.i.i465 = icmp ugt i32 %mul2.i460, %sub.i.i464
+  %cmp3.not.i.i465 = icmp samesign ugt i32 %mul2.i460, %sub.i.i464
   %or.cond8.i.i466 = select i1 %cmp1.i.i462, i1 true, i1 %cmp3.not.i.i465
   br i1 %or.cond8.i.i466, label %if.else.i.i478, label %deposit32.exit.i467
 
@@ -2482,7 +2482,7 @@ if.else.i485:                                     ; preds = %sw.bb470
   %mul2.i487 = shl i32 %size, 3
   %cmp1.i.i489 = icmp slt i32 %mul2.i487, 1
   %sub.i.i491 = sub nuw nsw i32 32, %mul.i486
-  %cmp3.not.i.i492 = icmp ugt i32 %mul2.i487, %sub.i.i491
+  %cmp3.not.i.i492 = icmp samesign ugt i32 %mul2.i487, %sub.i.i491
   %or.cond8.i.i493 = select i1 %cmp1.i.i489, i1 true, i1 %cmp3.not.i.i492
   br i1 %or.cond8.i.i493, label %if.else.i.i505, label %deposit32.exit.i494
 

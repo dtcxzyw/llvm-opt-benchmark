@@ -657,7 +657,7 @@ _ZNKSt5dequeIN3net16TransmissionInfoESaIS1_EE14_M_range_checkEm.exit.i: ; preds 
   br i1 %cmp.i.i.i.i.i, label %land.lhs.true.i.i.i.i.i, label %cond.false.i.i.i.i.i
 
 land.lhs.true.i.i.i.i.i:                          ; preds = %_ZNKSt5dequeIN3net16TransmissionInfoESaIS1_EE14_M_range_checkEm.exit.i
-  %cmp2.i.i.i.i.i = icmp ult i64 %add.i.i.i.i.i, 6
+  %cmp2.i.i.i.i.i = icmp samesign ult i64 %add.i.i.i.i.i, 6
   br i1 %cmp2.i.i.i.i.i, label %if.then.i.i.i.i.i, label %cond.true.i.i.i.i.i
 
 if.then.i.i.i.i.i:                                ; preds = %land.lhs.true.i.i.i.i.i
@@ -974,7 +974,7 @@ if.end13:
   br i1 %cmp.i.i.i.i, label %land.lhs.true.i.i.i.i, label %cond.false.i.i.i.i
 
 land.lhs.true.i.i.i.i:                            ; preds = %if.end13
-  %cmp2.i.i.i.i = icmp ult i64 %add.i.i.i.i, 6
+  %cmp2.i.i.i.i = icmp samesign ult i64 %add.i.i.i.i, 6
   br i1 %cmp2.i.i.i.i, label %if.then.i.i.i.i, label %cond.true.i.i.i.i
 
 if.then.i.i.i.i:                                  ; preds = %land.lhs.true.i.i.i.i
@@ -1042,7 +1042,7 @@ while.body:                                       ; preds = %while.body.lr.ph, %
   br i1 %cmp.i.i.i.i, label %land.lhs.true.i.i.i.i, label %cond.false.i.i.i.i
 
 land.lhs.true.i.i.i.i:                            ; preds = %while.body
-  %cmp2.i.i.i.i = icmp ult i64 %add.i.i.i.i, 6
+  %cmp2.i.i.i.i = icmp samesign ult i64 %add.i.i.i.i, 6
   br i1 %cmp2.i.i.i.i, label %if.then.i.i.i.i, label %cond.true.i.i.i.i
 
 if.then.i.i.i.i:                                  ; preds = %land.lhs.true.i.i.i.i
@@ -1137,7 +1137,7 @@ if.end13:
   br i1 %cmp.i.i.i.i, label %land.lhs.true.i.i.i.i, label %cond.false.i.i.i.i
 
 land.lhs.true.i.i.i.i:                            ; preds = %if.end13
-  %cmp2.i.i.i.i = icmp ult i64 %add.i.i.i.i, 6
+  %cmp2.i.i.i.i = icmp samesign ult i64 %add.i.i.i.i, 6
   br i1 %cmp2.i.i.i.i, label %if.then.i.i.i.i, label %cond.true.i.i.i.i
 
 if.then.i.i.i.i:                                  ; preds = %land.lhs.true.i.i.i.i
@@ -1188,7 +1188,7 @@ while.body.i:                                     ; preds = %_ZNSt5dequeIN3net16
   br i1 %cmp.i.i.i.i.i, label %land.lhs.true.i.i.i.i.i, label %cond.false.i.i.i.i.i
 
 land.lhs.true.i.i.i.i.i:                          ; preds = %while.body.i
-  %cmp2.i.i.i.i.i = icmp ult i64 %add.i.i.i.i.i, 6
+  %cmp2.i.i.i.i.i = icmp samesign ult i64 %add.i.i.i.i.i, 6
   br i1 %cmp2.i.i.i.i.i, label %if.then.i.i.i.i.i, label %cond.true.i.i.i.i.i
 
 if.then.i.i.i.i.i:                                ; preds = %land.lhs.true.i.i.i.i.i
@@ -1343,7 +1343,7 @@ if.end:                                           ; preds = %lor.lhs.false
   br i1 %cmp.i.i.i.i, label %land.lhs.true.i.i.i.i, label %cond.false.i.i.i.i
 
 land.lhs.true.i.i.i.i:                            ; preds = %if.end
-  %cmp2.i.i.i.i = icmp ult i64 %add.i.i.i.i, 6
+  %cmp2.i.i.i.i = icmp samesign ult i64 %add.i.i.i.i, 6
   br i1 %cmp2.i.i.i.i, label %if.then.i.i.i.i, label %cond.true.i.i.i.i
 
 if.then.i.i.i.i:                                  ; preds = %land.lhs.true.i.i.i.i
@@ -1471,7 +1471,7 @@ if.end13:
   br i1 %cmp.i.i.i.i, label %land.lhs.true.i.i.i.i, label %cond.false.i.i.i.i
 
 land.lhs.true.i.i.i.i:                            ; preds = %if.end13
-  %cmp2.i.i.i.i = icmp ult i64 %add.i.i.i.i, 6
+  %cmp2.i.i.i.i = icmp samesign ult i64 %add.i.i.i.i, 6
   br i1 %cmp2.i.i.i.i, label %if.then.i.i.i.i, label %cond.true.i.i.i.i
 
 if.then.i.i.i.i:                                  ; preds = %land.lhs.true.i.i.i.i
@@ -1609,7 +1609,7 @@ if.end13:
   br i1 %cmp.i.i.i.i, label %land.lhs.true.i.i.i.i, label %cond.false.i.i.i.i
 
 land.lhs.true.i.i.i.i:                            ; preds = %if.end13
-  %cmp2.i.i.i.i = icmp ult i64 %add.i.i.i.i, 6
+  %cmp2.i.i.i.i = icmp samesign ult i64 %add.i.i.i.i, 6
   br i1 %cmp2.i.i.i.i, label %if.then.i.i.i.i, label %cond.true.i.i.i.i
 
 if.then.i.i.i.i:                                  ; preds = %land.lhs.true.i.i.i.i
@@ -1698,7 +1698,7 @@ if.end13:
   br i1 %cmp.i.i.i.i, label %land.lhs.true.i.i.i.i, label %cond.false.i.i.i.i
 
 land.lhs.true.i.i.i.i:                            ; preds = %if.end13
-  %cmp2.i.i.i.i = icmp ult i64 %add.i.i.i.i, 6
+  %cmp2.i.i.i.i = icmp samesign ult i64 %add.i.i.i.i, 6
   br i1 %cmp2.i.i.i.i, label %if.then.i.i.i.i, label %cond.true.i.i.i.i
 
 if.then.i.i.i.i:                                  ; preds = %land.lhs.true.i.i.i.i
@@ -1846,7 +1846,7 @@ entry:
   br i1 %cmp.i.i.i.i, label %land.lhs.true.i.i.i.i, label %cond.false.i.i.i.i
 
 land.lhs.true.i.i.i.i:                            ; preds = %entry
-  %cmp2.i.i.i.i = icmp ult i64 %add.i.i.i.i, 6
+  %cmp2.i.i.i.i = icmp samesign ult i64 %add.i.i.i.i, 6
   br i1 %cmp2.i.i.i.i, label %if.then.i.i.i.i, label %cond.true.i.i.i.i
 
 if.then.i.i.i.i:                                  ; preds = %land.lhs.true.i.i.i.i
@@ -1898,7 +1898,7 @@ entry:
   br i1 %cmp.i.i.i.i, label %land.lhs.true.i.i.i.i, label %cond.false.i.i.i.i
 
 land.lhs.true.i.i.i.i:                            ; preds = %entry
-  %cmp2.i.i.i.i = icmp ult i64 %add.i.i.i.i, 6
+  %cmp2.i.i.i.i = icmp samesign ult i64 %add.i.i.i.i, 6
   br i1 %cmp2.i.i.i.i, label %if.then.i.i.i.i, label %cond.true.i.i.i.i
 
 if.then.i.i.i.i:                                  ; preds = %land.lhs.true.i.i.i.i
@@ -2180,7 +2180,7 @@ _ZNKSt16reverse_iteratorISt15_Deque_iteratorIN3net16TransmissionInfoERKS2_PS3_EE
   %7 = and i8 %6, 1
   %inc = zext nneg i8 %7 to i64
   %spec.select = add nuw nsw i64 %num_in_flight.033, %inc
-  %cmp6 = icmp ugt i64 %spec.select, 1
+  %cmp6 = icmp samesign ugt i64 %spec.select, 1
   br i1 %cmp6, label %return, label %if.then.i.i12
 
 _ZNKSt16reverse_iteratorISt15_Deque_iteratorIN3net16TransmissionInfoERKS2_PS3_EEptEv.exit.thread: ; preds = %for.body
@@ -2189,7 +2189,7 @@ _ZNKSt16reverse_iteratorISt15_Deque_iteratorIN3net16TransmissionInfoERKS2_PS3_EE
   %9 = and i8 %8, 1
   %inc23 = zext nneg i8 %9 to i64
   %spec.select24 = add nuw nsw i64 %num_in_flight.033, %inc23
-  %cmp625 = icmp ugt i64 %spec.select24, 1
+  %cmp625 = icmp samesign ugt i64 %spec.select24, 1
   br i1 %cmp625, label %return, label %_ZNSt16reverse_iteratorISt15_Deque_iteratorIN3net16TransmissionInfoERKS2_PS3_EEppEv.exit
 
 if.then.i.i12:                                    ; preds = %_ZNKSt16reverse_iteratorISt15_Deque_iteratorIN3net16TransmissionInfoERKS2_PS3_EEptEv.exit

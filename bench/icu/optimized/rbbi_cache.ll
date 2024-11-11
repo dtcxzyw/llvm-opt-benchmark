@@ -102,7 +102,7 @@ if.end24.thread:                                  ; preds = %_ZNK6icu_759UVector
 if.then12:                                        ; preds = %_ZNK6icu_759UVector3210elementAtiEi.exit
   %inc = add nuw nsw i32 %2, 1
   store i32 %inc, ptr %fPositionInCache, align 8
-  %cmp17.not = icmp ult i32 %inc, %3
+  %cmp17.not = icmp samesign ult i32 %inc, %3
   br i1 %cmp17.not, label %_ZNK6icu_759UVector3210elementAtiEi.exit19, label %if.then18
 
 if.then18:                                        ; preds = %if.then12
@@ -223,7 +223,7 @@ _ZNK6icu_759UVector3210elementAtiEi.exit:         ; preds = %land.lhs.true
 if.then23:                                        ; preds = %_ZNK6icu_759UVector3210elementAtiEi.exit
   %dec = add nsw i32 %3, -1
   store i32 %dec, ptr %fPositionInCache12, align 8
-  %cmp5.i17 = icmp ugt i32 %4, %dec
+  %cmp5.i17 = icmp samesign ugt i32 %4, %dec
   br i1 %cmp5.i17, label %cond.true.i20, label %_ZNK6icu_759UVector3210elementAtiEi.exit24
 
 cond.true.i20:                                    ; preds = %if.then23
@@ -1538,7 +1538,7 @@ if.end24.thread.i:                                ; preds = %_ZNK6icu_759UVector
 if.then12.i:                                      ; preds = %_ZNK6icu_759UVector3210elementAtiEi.exit.i
   %inc.i = add nuw nsw i32 %7, 1
   store i32 %inc.i, ptr %fPositionInCache.i, align 8
-  %cmp17.not.i = icmp ult i32 %inc.i, %8
+  %cmp17.not.i = icmp samesign ult i32 %inc.i, %8
   br i1 %cmp17.not.i, label %_ZNK6icu_759UVector3210elementAtiEi.exit19.i, label %if.end
 
 _ZNK6icu_759UVector3210elementAtiEi.exit19.i:     ; preds = %if.then12.i
@@ -1659,7 +1659,7 @@ if.end24.thread.i39:                              ; preds = %_ZNK6icu_759UVector
 if.then12.i40:                                    ; preds = %_ZNK6icu_759UVector3210elementAtiEi.exit.i34
   %inc.i41 = add nuw nsw i32 %27, 1
   store i32 %inc.i41, ptr %fPositionInCache.i12, align 8
-  %cmp17.not.i42 = icmp ult i32 %inc.i41, %28
+  %cmp17.not.i42 = icmp samesign ult i32 %inc.i41, %28
   br i1 %cmp17.not.i42, label %_ZNK6icu_759UVector3210elementAtiEi.exit19.i44, label %if.end22.sink.split
 
 _ZNK6icu_759UVector3210elementAtiEi.exit19.i44:   ; preds = %if.then12.i40
@@ -1896,7 +1896,7 @@ _ZNK6icu_759UVector3210elementAtiEi.exit.i:       ; preds = %land.lhs.true.i
 if.then23.i:                                      ; preds = %_ZNK6icu_759UVector3210elementAtiEi.exit.i
   %dec.i = add nsw i32 %8, -1
   store i32 %dec.i, ptr %fPositionInCache12.i, align 8
-  %cmp5.i17.i = icmp ugt i32 %9, %dec.i
+  %cmp5.i17.i = icmp samesign ugt i32 %9, %dec.i
   br i1 %cmp5.i17.i, label %cond.true.i20.i, label %if.then6
 
 cond.true.i20.i:                                  ; preds = %if.then23.i
@@ -2182,7 +2182,7 @@ if.end24.thread.i:                                ; preds = %_ZNK6icu_759UVector
 if.then12.i:                                      ; preds = %_ZNK6icu_759UVector3210elementAtiEi.exit.i66
   %inc.i70 = add nuw nsw i32 %50, 1
   store i32 %inc.i70, ptr %fPositionInCache.i57296, align 8
-  %cmp17.not.i = icmp ult i32 %inc.i70, %51
+  %cmp17.not.i = icmp samesign ult i32 %inc.i70, %51
   br i1 %cmp17.not.i, label %_ZNK6icu_759UVector3210elementAtiEi.exit19.i, label %if.end63
 
 _ZNK6icu_759UVector3210elementAtiEi.exit19.i:     ; preds = %if.then12.i

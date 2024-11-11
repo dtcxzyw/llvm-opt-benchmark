@@ -1537,7 +1537,7 @@ do.end9:                                          ; preds = %_ZN4node11Environme
 do.end6.i.i:                                      ; preds = %do.end9
   %conv.i = zext nneg i32 %13 to i64
   %sub.i = add nsw i64 %conv.i, -2
-  %cmp.i12.i = icmp ugt i64 %sub.i, 1024
+  %cmp.i12.i = icmp samesign ugt i64 %sub.i, 1024
   br i1 %cmp.i12.i, label %land.lhs.true.i.i, label %_ZN4node16MaybeStackBufferIN2v85LocalINS1_5ValueEEELm1024EE25AllocateSufficientStorageEm.exit.i
 
 land.lhs.true.i.i:                                ; preds = %do.end6.i.i

@@ -1028,7 +1028,7 @@ land.lhs.true108:                                 ; preds = %if.then96
   br i1 %cmp111, label %while.cond.preheader, label %if.end132
 
 while.cond.preheader:                             ; preds = %land.lhs.true108
-  %cmp11749 = icmp ugt i32 %0, 15
+  %cmp11749 = icmp samesign ugt i32 %0, 15
   br i1 %cmp11749, label %land.lhs.true119.preheader, label %if.end132
 
 land.lhs.true119.preheader:                       ; preds = %while.cond.preheader

@@ -857,7 +857,7 @@ Gia_ObjIsPi.exit100.thread:                       ; preds = %Gia_ObjIsPi.exit.th
   br label %99
 
 99:                                               ; preds = %44, %65, %80, %95, %97, %88, %73, %53, %55, %18, %32
-  %100 = icmp ugt i64 %indvars.iv, 1
+  %100 = icmp samesign ugt i64 %indvars.iv, 1
   br i1 %100, label %13, label %.critedge, !llvm.loop !9
 
 .critedge:                                        ; preds = %13, %99, %5
@@ -1420,7 +1420,7 @@ Vec_IntPush.exit:                                 ; preds = %.Vec_IntGrow.exit10
   br label %101
 
 101:                                              ; preds = %.sink.split, %91, %33
-  %102 = icmp ugt i64 %indvars.iv59, 1
+  %102 = icmp samesign ugt i64 %indvars.iv59, 1
   br i1 %102, label %28, label %.critedge2, !llvm.loop !12
 
 .critedge2:                                       ; preds = %28, %101

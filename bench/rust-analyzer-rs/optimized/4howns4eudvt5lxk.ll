@@ -3280,7 +3280,7 @@ _ZN6parser6parser6Parser3nth17hd61dceb9a6b1841bE.exit14.i: ; preds = %103, %95
 
 _ZN6parser6parser6Parser3nth17hd61dceb9a6b1841bE.exit19.i: ; preds = %132, %128
   %138 = phi i16 [ %136, %132 ], [ 1, %128 ]
-  %139 = icmp ult i32 %93, 14999999
+  %139 = icmp samesign ult i32 %93, 14999999
   br i1 %139, label %140, label %150
 
 140:                                              ; preds = %_ZN6parser6parser6Parser3nth17hd61dceb9a6b1841bE.exit19.i

@@ -223,7 +223,7 @@ define hidden void @zend_persist_class_entry_calc(ptr noundef %0) local_unnamed_
 .preheader.i:                                     ; preds = %120, %.preheader.i
   %.0.i = phi i32 [ %129, %.preheader.i ], [ %124, %120 ]
   %127 = lshr i32 %.0.i, 2
-  %128 = icmp ugt i32 %127, %101
+  %128 = icmp samesign ugt i32 %127, %101
   %129 = lshr i32 %.0.i, 1
   br i1 %128, label %.preheader.i, label %130
 
@@ -558,7 +558,7 @@ zend_persist_class_method_calc.exit:              ; preds = %252, %247, %243, %2
 .preheader.i511:                                  ; preds = %319, %.preheader.i511
   %.0.i512 = phi i32 [ %328, %.preheader.i511 ], [ %323, %319 ]
   %326 = lshr i32 %.0.i512, 2
-  %327 = icmp ugt i32 %326, %300
+  %327 = icmp samesign ugt i32 %326, %300
   %328 = lshr i32 %.0.i512, 1
   br i1 %327, label %.preheader.i511, label %329
 
@@ -789,7 +789,7 @@ zend_persist_class_constant_calc.exit:            ; preds = %437, %410, %402, %.
 .preheader.i519:                                  ; preds = %464, %.preheader.i519
   %.0.i520 = phi i32 [ %473, %.preheader.i519 ], [ %468, %464 ]
   %471 = lshr i32 %.0.i520, 2
-  %472 = icmp ugt i32 %471, %445
+  %472 = icmp samesign ugt i32 %471, %445
   %473 = lshr i32 %.0.i520, 1
   br i1 %472, label %.preheader.i519, label %474
 
@@ -2140,7 +2140,7 @@ define internal fastcc void @zend_persist_zval_calc(ptr nocapture noundef %0) un
 .preheader.i:                                     ; preds = %82, %.preheader.i
   %.0.i = phi i32 [ %91, %.preheader.i ], [ %86, %82 ]
   %89 = lshr i32 %.0.i, 2
-  %90 = icmp ugt i32 %89, %74
+  %90 = icmp samesign ugt i32 %89, %74
   %91 = lshr i32 %.0.i, 1
   br i1 %90, label %.preheader.i, label %zend_hash_persist_calc.exit.sink.split
 
@@ -2377,7 +2377,7 @@ define internal fastcc void @zend_persist_attributes_calc(ptr noundef nonnull %0
 .preheader.i:                                     ; preds = %28, %.preheader.i
   %.0.i = phi i32 [ %37, %.preheader.i ], [ %32, %28 ]
   %35 = lshr i32 %.0.i, 2
-  %36 = icmp ugt i32 %35, %20
+  %36 = icmp samesign ugt i32 %35, %20
   %37 = lshr i32 %.0.i, 1
   br i1 %36, label %.preheader.i, label %zend_hash_persist_calc.exit.sink.split
 
@@ -2825,7 +2825,7 @@ zend_hash_persist_calc.exit.i.thread:             ; preds = %54
 .preheader.i.i:                                   ; preds = %76, %.preheader.i.i
   %.0.i.i = phi i32 [ %85, %.preheader.i.i ], [ %80, %76 ]
   %83 = lshr i32 %.0.i.i, 2
-  %84 = icmp ugt i32 %83, %55
+  %84 = icmp samesign ugt i32 %83, %55
   %85 = lshr i32 %.0.i.i, 1
   br i1 %84, label %.preheader.i.i, label %86
 
@@ -3015,7 +3015,7 @@ zend_hash_persist_calc.exit.thread:               ; preds = %171
 .preheader.i:                                     ; preds = %193, %.preheader.i
   %.0.i = phi i32 [ %202, %.preheader.i ], [ %197, %193 ]
   %200 = lshr i32 %.0.i, 2
-  %201 = icmp ugt i32 %200, %172
+  %201 = icmp samesign ugt i32 %200, %172
   %202 = lshr i32 %.0.i, 1
   br i1 %201, label %.preheader.i, label %203
 
@@ -3585,7 +3585,7 @@ define internal fastcc void @zend_persist_op_array_calc_ex(ptr noundef %0) unnam
 .preheader.i:                                     ; preds = %89, %.preheader.i
   %.0.i = phi i32 [ %98, %.preheader.i ], [ %93, %89 ]
   %96 = lshr i32 %.0.i, 2
-  %97 = icmp ugt i32 %96, %81
+  %97 = icmp samesign ugt i32 %96, %81
   %98 = lshr i32 %.0.i, 1
   br i1 %97, label %.preheader.i, label %zend_hash_persist_calc.exit.sink.split
 

@@ -3971,7 +3971,7 @@ define range(i32 -1, 1) i32 @H5Pset_libver_bounds(i64 noundef %0, i32 noundef %1
   br label %.thread36
 
 42:                                               ; preds = %36
-  %43 = icmp ult i32 %2, %1
+  %43 = icmp samesign ult i32 %2, %1
   br i1 %43, label %44, label %48
 
 44:                                               ; preds = %42
@@ -5997,7 +5997,7 @@ define range(i32 -1, 1) i32 @H5Pset_page_buffer_size(i64 noundef %0, i64 noundef
 
 48:                                               ; preds = %42
   %49 = add nuw nsw i32 %3, %2
-  %50 = icmp ugt i32 %49, 100
+  %50 = icmp samesign ugt i32 %49, 100
   br i1 %50, label %51, label %55
 
 51:                                               ; preds = %48
@@ -7005,7 +7005,7 @@ define internal noundef i32 @H5P__facc_cache_config_enc(ptr nocapture noundef re
   br label %H5VM_limit_enc_size.exit
 
 104:                                              ; preds = %90
-  %.not27.i.i = icmp ult i64 %88, 1099511627776
+  %.not27.i.i = icmp samesign ult i64 %88, 1099511627776
   br i1 %.not27.i.i, label %111, label %105
 
 105:                                              ; preds = %104
@@ -7025,11 +7025,11 @@ define internal noundef i32 @H5P__facc_cache_config_enc(ptr nocapture noundef re
 
 116:                                              ; preds = %5
   %117 = lshr i64 %88, 16
-  %.not23.i.i = icmp ult i64 %88, 65536
+  %.not23.i.i = icmp samesign ult i64 %88, 65536
   br i1 %.not23.i.i, label %130, label %118
 
 118:                                              ; preds = %116
-  %.not25.i.i = icmp ult i64 %88, 16777216
+  %.not25.i.i = icmp samesign ult i64 %88, 16777216
   br i1 %.not25.i.i, label %125, label %119
 
 119:                                              ; preds = %118
@@ -7048,7 +7048,7 @@ define internal noundef i32 @H5P__facc_cache_config_enc(ptr nocapture noundef re
   br label %H5VM_limit_enc_size.exit
 
 130:                                              ; preds = %116
-  %.not24.i.i = icmp ult i64 %88, 256
+  %.not24.i.i = icmp samesign ult i64 %88, 256
   br i1 %.not24.i.i, label %137, label %131
 
 131:                                              ; preds = %130
@@ -7144,7 +7144,7 @@ H5VM_limit_enc_size.exit:                         ; preds = %93, %99, %105, %111
   br label %H5VM_limit_enc_size.exit396
 
 181:                                              ; preds = %167
-  %.not27.i.i392 = icmp ult i64 %165, 1099511627776
+  %.not27.i.i392 = icmp samesign ult i64 %165, 1099511627776
   br i1 %.not27.i.i392, label %188, label %182
 
 182:                                              ; preds = %181
@@ -7164,11 +7164,11 @@ H5VM_limit_enc_size.exit:                         ; preds = %93, %99, %105, %111
 
 193:                                              ; preds = %161
   %194 = lshr i64 %165, 16
-  %.not23.i.i393 = icmp ult i64 %165, 65536
+  %.not23.i.i393 = icmp samesign ult i64 %165, 65536
   br i1 %.not23.i.i393, label %207, label %195
 
 195:                                              ; preds = %193
-  %.not25.i.i394 = icmp ult i64 %165, 16777216
+  %.not25.i.i394 = icmp samesign ult i64 %165, 16777216
   br i1 %.not25.i.i394, label %202, label %196
 
 196:                                              ; preds = %195
@@ -7187,7 +7187,7 @@ H5VM_limit_enc_size.exit:                         ; preds = %93, %99, %105, %111
   br label %H5VM_limit_enc_size.exit396
 
 207:                                              ; preds = %193
-  %.not24.i.i395 = icmp ult i64 %165, 256
+  %.not24.i.i395 = icmp samesign ult i64 %165, 256
   br i1 %.not24.i.i395, label %214, label %208
 
 208:                                              ; preds = %207
@@ -7263,7 +7263,7 @@ H5VM_limit_enc_size.exit396:                      ; preds = %170, %176, %182, %1
   br label %H5VM_limit_enc_size.exit405
 
 249:                                              ; preds = %235
-  %.not27.i.i401 = icmp ult i64 %233, 1099511627776
+  %.not27.i.i401 = icmp samesign ult i64 %233, 1099511627776
   br i1 %.not27.i.i401, label %256, label %250
 
 250:                                              ; preds = %249
@@ -7283,11 +7283,11 @@ H5VM_limit_enc_size.exit396:                      ; preds = %170, %176, %182, %1
 
 261:                                              ; preds = %229
   %262 = lshr i64 %233, 16
-  %.not23.i.i402 = icmp ult i64 %233, 65536
+  %.not23.i.i402 = icmp samesign ult i64 %233, 65536
   br i1 %.not23.i.i402, label %275, label %263
 
 263:                                              ; preds = %261
-  %.not25.i.i403 = icmp ult i64 %233, 16777216
+  %.not25.i.i403 = icmp samesign ult i64 %233, 16777216
   br i1 %.not25.i.i403, label %270, label %264
 
 264:                                              ; preds = %263
@@ -7306,7 +7306,7 @@ H5VM_limit_enc_size.exit396:                      ; preds = %170, %176, %182, %1
   br label %H5VM_limit_enc_size.exit405
 
 275:                                              ; preds = %261
-  %.not24.i.i404 = icmp ult i64 %233, 256
+  %.not24.i.i404 = icmp samesign ult i64 %233, 256
   br i1 %.not24.i.i404, label %282, label %276
 
 276:                                              ; preds = %275
@@ -7468,7 +7468,7 @@ H5VM_limit_enc_size.exit405:                      ; preds = %238, %244, %250, %2
   br label %H5VM_limit_enc_size.exit414
 
 361:                                              ; preds = %347
-  %.not27.i.i410 = icmp ult i64 %345, 1099511627776
+  %.not27.i.i410 = icmp samesign ult i64 %345, 1099511627776
   br i1 %.not27.i.i410, label %368, label %362
 
 362:                                              ; preds = %361
@@ -7488,11 +7488,11 @@ H5VM_limit_enc_size.exit405:                      ; preds = %238, %244, %250, %2
 
 373:                                              ; preds = %330
   %374 = lshr i64 %345, 16
-  %.not23.i.i411 = icmp ult i64 %345, 65536
+  %.not23.i.i411 = icmp samesign ult i64 %345, 65536
   br i1 %.not23.i.i411, label %387, label %375
 
 375:                                              ; preds = %373
-  %.not25.i.i412 = icmp ult i64 %345, 16777216
+  %.not25.i.i412 = icmp samesign ult i64 %345, 16777216
   br i1 %.not25.i.i412, label %382, label %376
 
 376:                                              ; preds = %375
@@ -7511,7 +7511,7 @@ H5VM_limit_enc_size.exit405:                      ; preds = %238, %244, %250, %2
   br label %H5VM_limit_enc_size.exit414
 
 387:                                              ; preds = %373
-  %.not24.i.i413 = icmp ult i64 %345, 256
+  %.not24.i.i413 = icmp samesign ult i64 %345, 256
   br i1 %.not24.i.i413, label %394, label %388
 
 388:                                              ; preds = %387
@@ -7700,7 +7700,7 @@ H5VM_limit_enc_size.exit414:                      ; preds = %350, %356, %362, %3
   br label %H5VM_limit_enc_size.exit423
 
 486:                                              ; preds = %472
-  %.not27.i.i419 = icmp ult i64 %470, 1099511627776
+  %.not27.i.i419 = icmp samesign ult i64 %470, 1099511627776
   br i1 %.not27.i.i419, label %493, label %487
 
 487:                                              ; preds = %486
@@ -7720,11 +7720,11 @@ H5VM_limit_enc_size.exit414:                      ; preds = %350, %356, %362, %3
 
 498:                                              ; preds = %455
   %499 = lshr i64 %470, 16
-  %.not23.i.i420 = icmp ult i64 %470, 65536
+  %.not23.i.i420 = icmp samesign ult i64 %470, 65536
   br i1 %.not23.i.i420, label %512, label %500
 
 500:                                              ; preds = %498
-  %.not25.i.i421 = icmp ult i64 %470, 16777216
+  %.not25.i.i421 = icmp samesign ult i64 %470, 16777216
   br i1 %.not25.i.i421, label %507, label %501
 
 501:                                              ; preds = %500
@@ -7743,7 +7743,7 @@ H5VM_limit_enc_size.exit414:                      ; preds = %350, %356, %362, %3
   br label %H5VM_limit_enc_size.exit423
 
 512:                                              ; preds = %498
-  %.not24.i.i422 = icmp ult i64 %470, 256
+  %.not24.i.i422 = icmp samesign ult i64 %470, 256
   br i1 %.not24.i.i422, label %519, label %513
 
 513:                                              ; preds = %512
@@ -7945,7 +7945,7 @@ H5VM_limit_enc_size.exit423:                      ; preds = %475, %481, %487, %4
   br label %H5VM_limit_enc_size.exit432
 
 635:                                              ; preds = %621
-  %.not27.i.i428 = icmp ult i64 %619, 1099511627776
+  %.not27.i.i428 = icmp samesign ult i64 %619, 1099511627776
   br i1 %.not27.i.i428, label %642, label %636
 
 636:                                              ; preds = %635
@@ -7965,11 +7965,11 @@ H5VM_limit_enc_size.exit423:                      ; preds = %475, %481, %487, %4
 
 647:                                              ; preds = %617
   %648 = lshr i64 %619, 16
-  %.not23.i.i429 = icmp ult i64 %619, 65536
+  %.not23.i.i429 = icmp samesign ult i64 %619, 65536
   br i1 %.not23.i.i429, label %661, label %649
 
 649:                                              ; preds = %647
-  %.not25.i.i430 = icmp ult i64 %619, 16777216
+  %.not25.i.i430 = icmp samesign ult i64 %619, 16777216
   br i1 %.not25.i.i430, label %656, label %650
 
 650:                                              ; preds = %649
@@ -7988,7 +7988,7 @@ H5VM_limit_enc_size.exit423:                      ; preds = %475, %481, %487, %4
   br label %H5VM_limit_enc_size.exit432
 
 661:                                              ; preds = %647
-  %.not24.i.i431 = icmp ult i64 %619, 256
+  %.not24.i.i431 = icmp samesign ult i64 %619, 256
   br i1 %.not24.i.i431, label %668, label %662
 
 662:                                              ; preds = %661
@@ -8044,7 +8044,7 @@ H5VM_limit_enc_size.exit432:                      ; preds = %624, %630, %636, %6
   br label %H5VM_limit_enc_size.exit441
 
 694:                                              ; preds = %680
-  %.not27.i.i437 = icmp ult i64 %678, 1099511627776
+  %.not27.i.i437 = icmp samesign ult i64 %678, 1099511627776
   br i1 %.not27.i.i437, label %701, label %695
 
 695:                                              ; preds = %694
@@ -8064,11 +8064,11 @@ H5VM_limit_enc_size.exit432:                      ; preds = %624, %630, %636, %6
 
 706:                                              ; preds = %H5VM_limit_enc_size.exit432
   %707 = lshr i64 %678, 16
-  %.not23.i.i438 = icmp ult i64 %678, 65536
+  %.not23.i.i438 = icmp samesign ult i64 %678, 65536
   br i1 %.not23.i.i438, label %720, label %708
 
 708:                                              ; preds = %706
-  %.not25.i.i439 = icmp ult i64 %678, 16777216
+  %.not25.i.i439 = icmp samesign ult i64 %678, 16777216
   br i1 %.not25.i.i439, label %715, label %709
 
 709:                                              ; preds = %708
@@ -8087,7 +8087,7 @@ H5VM_limit_enc_size.exit432:                      ; preds = %624, %630, %636, %6
   br label %H5VM_limit_enc_size.exit441
 
 720:                                              ; preds = %706
-  %.not24.i.i440 = icmp ult i64 %678, 256
+  %.not24.i.i440 = icmp samesign ult i64 %678, 256
   br i1 %.not24.i.i440, label %727, label %721
 
 721:                                              ; preds = %720
@@ -8142,7 +8142,7 @@ H5VM_limit_enc_size.exit441:                      ; preds = %683, %689, %695, %7
   br label %H5VM_limit_enc_size.exit450
 
 752:                                              ; preds = %738
-  %.not27.i.i446 = icmp ult i64 %736, 1099511627776
+  %.not27.i.i446 = icmp samesign ult i64 %736, 1099511627776
   br i1 %.not27.i.i446, label %759, label %753
 
 753:                                              ; preds = %752
@@ -8162,11 +8162,11 @@ H5VM_limit_enc_size.exit441:                      ; preds = %683, %689, %695, %7
 
 764:                                              ; preds = %H5VM_limit_enc_size.exit441
   %765 = lshr i64 %736, 16
-  %.not23.i.i447 = icmp ult i64 %736, 65536
+  %.not23.i.i447 = icmp samesign ult i64 %736, 65536
   br i1 %.not23.i.i447, label %778, label %766
 
 766:                                              ; preds = %764
-  %.not25.i.i448 = icmp ult i64 %736, 16777216
+  %.not25.i.i448 = icmp samesign ult i64 %736, 16777216
   br i1 %.not25.i.i448, label %773, label %767
 
 767:                                              ; preds = %766
@@ -8185,7 +8185,7 @@ H5VM_limit_enc_size.exit441:                      ; preds = %683, %689, %695, %7
   br label %H5VM_limit_enc_size.exit450
 
 778:                                              ; preds = %764
-  %.not24.i.i449 = icmp ult i64 %736, 256
+  %.not24.i.i449 = icmp samesign ult i64 %736, 256
   br i1 %.not24.i.i449, label %785, label %779
 
 779:                                              ; preds = %778
@@ -8240,7 +8240,7 @@ H5VM_limit_enc_size.exit450:                      ; preds = %741, %747, %753, %7
   br label %H5VM_limit_enc_size.exit459
 
 810:                                              ; preds = %796
-  %.not27.i.i455 = icmp ult i64 %794, 1099511627776
+  %.not27.i.i455 = icmp samesign ult i64 %794, 1099511627776
   br i1 %.not27.i.i455, label %817, label %811
 
 811:                                              ; preds = %810
@@ -8260,11 +8260,11 @@ H5VM_limit_enc_size.exit450:                      ; preds = %741, %747, %753, %7
 
 822:                                              ; preds = %H5VM_limit_enc_size.exit450
   %823 = lshr i64 %794, 16
-  %.not23.i.i456 = icmp ult i64 %794, 65536
+  %.not23.i.i456 = icmp samesign ult i64 %794, 65536
   br i1 %.not23.i.i456, label %836, label %824
 
 824:                                              ; preds = %822
-  %.not25.i.i457 = icmp ult i64 %794, 16777216
+  %.not25.i.i457 = icmp samesign ult i64 %794, 16777216
   br i1 %.not25.i.i457, label %831, label %825
 
 825:                                              ; preds = %824
@@ -8283,7 +8283,7 @@ H5VM_limit_enc_size.exit450:                      ; preds = %741, %747, %753, %7
   br label %H5VM_limit_enc_size.exit459
 
 836:                                              ; preds = %822
-  %.not24.i.i458 = icmp ult i64 %794, 256
+  %.not24.i.i458 = icmp samesign ult i64 %794, 256
   br i1 %.not24.i.i458, label %843, label %837
 
 837:                                              ; preds = %836
@@ -8338,7 +8338,7 @@ H5VM_limit_enc_size.exit459:                      ; preds = %799, %805, %811, %8
   br label %H5VM_limit_enc_size.exit468
 
 868:                                              ; preds = %854
-  %.not27.i.i464 = icmp ult i64 %852, 1099511627776
+  %.not27.i.i464 = icmp samesign ult i64 %852, 1099511627776
   br i1 %.not27.i.i464, label %875, label %869
 
 869:                                              ; preds = %868
@@ -8358,11 +8358,11 @@ H5VM_limit_enc_size.exit459:                      ; preds = %799, %805, %811, %8
 
 880:                                              ; preds = %H5VM_limit_enc_size.exit459
   %881 = lshr i64 %852, 16
-  %.not23.i.i465 = icmp ult i64 %852, 65536
+  %.not23.i.i465 = icmp samesign ult i64 %852, 65536
   br i1 %.not23.i.i465, label %894, label %882
 
 882:                                              ; preds = %880
-  %.not25.i.i466 = icmp ult i64 %852, 16777216
+  %.not25.i.i466 = icmp samesign ult i64 %852, 16777216
   br i1 %.not25.i.i466, label %889, label %883
 
 883:                                              ; preds = %882
@@ -8381,7 +8381,7 @@ H5VM_limit_enc_size.exit459:                      ; preds = %799, %805, %811, %8
   br label %H5VM_limit_enc_size.exit468
 
 894:                                              ; preds = %880
-  %.not24.i.i467 = icmp ult i64 %852, 256
+  %.not24.i.i467 = icmp samesign ult i64 %852, 256
   br i1 %.not24.i.i467, label %901, label %895
 
 895:                                              ; preds = %894
@@ -10205,7 +10205,7 @@ define internal noundef i32 @H5P__facc_mdc_log_location_enc(ptr nocapture nounde
   br label %H5VM_limit_enc_size.exit
 
 22:                                               ; preds = %8
-  %.not27.i.i = icmp ult i64 %6, 1099511627776
+  %.not27.i.i = icmp samesign ult i64 %6, 1099511627776
   br i1 %.not27.i.i, label %29, label %23
 
 23:                                               ; preds = %22
@@ -10225,11 +10225,11 @@ define internal noundef i32 @H5P__facc_mdc_log_location_enc(ptr nocapture nounde
 
 34:                                               ; preds = %5
   %35 = lshr i64 %6, 16
-  %.not23.i.i = icmp ult i64 %6, 65536
+  %.not23.i.i = icmp samesign ult i64 %6, 65536
   br i1 %.not23.i.i, label %48, label %36
 
 36:                                               ; preds = %34
-  %.not25.i.i = icmp ult i64 %6, 16777216
+  %.not25.i.i = icmp samesign ult i64 %6, 16777216
   br i1 %.not25.i.i, label %43, label %37
 
 37:                                               ; preds = %36
@@ -10248,7 +10248,7 @@ define internal noundef i32 @H5P__facc_mdc_log_location_enc(ptr nocapture nounde
   br label %H5VM_limit_enc_size.exit
 
 48:                                               ; preds = %34
-  %.not24.i.i = icmp ult i64 %6, 256
+  %.not24.i.i = icmp samesign ult i64 %6, 256
   br i1 %.not24.i.i, label %.thread45, label %49
 
 49:                                               ; preds = %48

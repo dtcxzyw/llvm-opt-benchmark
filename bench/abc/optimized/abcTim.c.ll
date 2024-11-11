@@ -622,7 +622,7 @@ Abc_NodeIsWhiteBox.exit.thread:                   ; preds = %24, %20
   br label %39
 
 Abc_NodeIsWhiteBox.exit:                          ; preds = %24
-  %28 = icmp ugt i32 %.val3.i, 9
+  %28 = icmp samesign ugt i32 %.val3.i, 9
   %29 = select i1 %28, i32 0, i32 16
   %30 = and i32 %.val181, -25
   %31 = or disjoint i32 %29, %30

@@ -1287,7 +1287,7 @@ php_sprintf_appenduint.exit:                      ; preds = %436
 499:                                              ; preds = %495, %493
   %.046.i = phi i8 [ %498, %495 ], [ 46, %493 ]
   %500 = add nsw i8 %460, -71
-  %501 = icmp ult i8 %500, 2
+  %501 = icmp samesign ult i8 %500, 2
   %502 = select i1 %501, i8 69, i8 101
   %503 = call ptr @zend_gcvt(double noundef %461, i32 noundef %spec.store.select.i323, i8 noundef signext %.046.i, i8 noundef signext %502, ptr noundef nonnull %30) #15
   store i8 0, ptr %12, align 1

@@ -370,7 +370,7 @@ _ZNSt6vectorIS_IN5zxing6qrcode19FinderPatternFinder23HorizontalCheckedResultESaI
   %138 = load i32, ptr %54, align 4
   %139 = sub nsw i32 %.040.i, %138
   %140 = tail call i32 @llvm.abs.i32(i32 %139, i1 true)
-  %.not46.i = icmp ugt i32 %140, %.039.i
+  %.not46.i = icmp samesign ugt i32 %140, %.039.i
   br i1 %.not46.i, label %_ZN5zxing6qrcode19FinderPatternFinder17foundPatternCrossEPi.exit.thread, label %141
 
 _ZN5zxing6qrcode19FinderPatternFinder17foundPatternCrossEPi.exit.thread: ; preds = %94, %102, %137, %131, %127
@@ -905,7 +905,7 @@ define hidden noundef zeroext i1 @_ZN5zxing6qrcode19FinderPatternFinder17foundPa
   %55 = load i32, ptr %54, align 4
   %56 = sub nsw i32 %.040, %55
   %57 = tail call i32 @llvm.abs.i32(i32 %56, i1 true)
-  %.not46 = icmp ugt i32 %57, %.039
+  %.not46 = icmp samesign ugt i32 %57, %.039
   br i1 %.not46, label %58, label %.loopexit
 
 58:                                               ; preds = %53, %46, %41
@@ -9391,7 +9391,7 @@ _ZSt8_DestroyIPN5zxing3RefINS0_6qrcode13FinderPatternEEES4_EvT_S6_RSaIT0_E.exit.
   br label %_ZNSt6vectorIN5zxing3RefINS0_6qrcode13FinderPatternEEESaIS4_EE5eraseEN9__gnu_cxx17__normal_iteratorIPKS4_S6_EESB_.exit
 
 788:                                              ; preds = %.critedge
-  %789 = icmp ugt i64 %761, 12
+  %789 = icmp samesign ugt i64 %761, 12
   br i1 %789, label %790, label %_ZNSt6vectorIN5zxing3RefINS0_6qrcode13FinderPatternEEESaIS4_EE5eraseEN9__gnu_cxx17__normal_iteratorIPKS4_S6_EESB_.exit
 
 790:                                              ; preds = %788
@@ -9713,7 +9713,7 @@ _ZSt8_DestroyIN5zxing3RefINS0_6qrcode13FinderPatternEEEEvPT_.exit.i.i.i.i.i.i327
   br label %_ZNSt6vectorIN5zxing3RefINS0_6qrcode13FinderPatternEEESaIS4_EE5eraseEN9__gnu_cxx17__normal_iteratorIPKS4_S6_EESB_.exit340
 
 924:                                              ; preds = %_ZNSt6vectorIN5zxing3RefINS0_6qrcode13FinderPatternEEESaIS4_EE5eraseEN9__gnu_cxx17__normal_iteratorIPKS4_S6_EESB_.exit
-  %925 = icmp ugt i64 %801, 3
+  %925 = icmp samesign ugt i64 %801, 3
   br i1 %925, label %.preheader410, label %_ZNSt6vectorIN5zxing3RefINS0_6qrcode13FinderPatternEEESaIS4_EE5eraseEN9__gnu_cxx17__normal_iteratorIPKS4_S6_EESB_.exit340
 
 .preheader410:                                    ; preds = %924
@@ -10809,7 +10809,7 @@ define hidden noundef zeroext i1 @_ZN5zxing6qrcode19FinderPatternFinder18crossCh
 
 33:                                               ; preds = %16
   %34 = add nuw nsw i32 %1, 1
-  %35 = icmp ult i32 %34, %9
+  %35 = icmp samesign ult i32 %34, %9
   br i1 %35, label %36, label %42
 
 36:                                               ; preds = %33
@@ -10822,7 +10822,7 @@ define hidden noundef zeroext i1 @_ZN5zxing6qrcode19FinderPatternFinder18crossCh
   br i1 %.not162, label %42, label %.lr.ph.preheader
 
 42:                                               ; preds = %36, %33
-  %43 = icmp ugt i32 %1, 1
+  %43 = icmp samesign ugt i32 %1, 1
   br i1 %43, label %44, label %.critedge.thread
 
 44:                                               ; preds = %42
@@ -11511,7 +11511,7 @@ define hidden noundef float @_ZN5zxing6qrcode19FinderPatternFinder18crossCheckVe
   %189 = load i32, ptr %188, align 4
   %190 = sub nsw i32 %.040.i, %189
   %191 = tail call i32 @llvm.abs.i32(i32 %190, i1 true)
-  %.not46.i = icmp ugt i32 %191, %.039.i
+  %.not46.i = icmp samesign ugt i32 %191, %.039.i
   br i1 %.not46.i, label %.loopexit, label %192
 
 .loopexit:                                        ; preds = %137, %172, %180, %187, %145
@@ -11985,7 +11985,7 @@ define hidden noundef float @_ZN5zxing6qrcode19FinderPatternFinder20crossCheckHo
   %194 = load i32, ptr %193, align 4
   %195 = sub nsw i32 %.040.i, %194
   %196 = tail call i32 @llvm.abs.i32(i32 %195, i1 true)
-  %.not46.i = icmp ugt i32 %196, %.039.i
+  %.not46.i = icmp samesign ugt i32 %196, %.039.i
   br i1 %.not46.i, label %.loopexit, label %197
 
 .loopexit:                                        ; preds = %142, %177, %185, %192, %150

@@ -4380,7 +4380,7 @@ if.then3.i:                                       ; preds = %_ZNK3org6apache5arr
   br label %_ZN5arrow6StatusD2Ev.exit142
 
 if.end.i:                                         ; preds = %_ZNK3org6apache5arrow7flatbuf11RecordBatch11compressionEv.exit.i
-  %cmp.i.i.i11.i = icmp ugt i16 %39, 4
+  %cmp.i.i.i11.i = icmp samesign ugt i16 %39, 4
   br i1 %cmp.i.i.i11.i, label %_ZNK22arrow_vendored_private11flatbuffers5Table22GetOptionalFieldOffsetEt.exit.i.i13.i, label %if.end12.i
 
 _ZNK22arrow_vendored_private11flatbuffers5Table22GetOptionalFieldOffsetEt.exit.i.i13.i: ; preds = %if.end.i, %_ZNK3org6apache5arrow7flatbuf15BodyCompression6methodEv.exit.i, %_ZNK22arrow_vendored_private11flatbuffers5Table22GetOptionalFieldOffsetEt.exit.i.i.i102
@@ -28441,7 +28441,7 @@ invoke.cont316:                                   ; preds = %for.body.preheader.
   %344 = getelementptr inbounds i8, ptr %indptr_data, i64 16
   store ptr %add.ptr.i.i.i1210, ptr %344, align 8
   store ptr %scevgep.i.i.i.i.i, ptr %_M_finish.i.i7.i, align 8
-  %cmp.i.i1213 = icmp ugt i64 %sub.ptr.div.i1208, 576460752303423487
+  %cmp.i.i1213 = icmp samesign ugt i64 %sub.ptr.div.i1208, 576460752303423487
   br i1 %cmp.i.i1213, label %if.then.i.i1224, label %for.body.preheader.i.i.i.i.i1216
 
 if.then.i.i1224:                                  ; preds = %invoke.cont316
@@ -33871,7 +33871,7 @@ call5.i.i.i.i2.i.i50.i.noexc:                     ; preds = %for.body.preheader.
   %270 = getelementptr inbounds i8, ptr %indptr_data.i, i64 16
   store ptr %add.ptr.i.i.i49.i, ptr %270, align 8, !noalias !593
   store ptr %scevgep.i.i.i.i.i.i, ptr %_M_finish.i.i7.i.i570, align 8, !noalias !593
-  %cmp.i.i51.i = icmp ugt i64 %sub.ptr.div.i.i567, 576460752303423487
+  %cmp.i.i51.i = icmp samesign ugt i64 %sub.ptr.div.i.i567, 576460752303423487
   br i1 %cmp.i.i51.i, label %if.then.i.i62.i, label %for.body.preheader.i.i.i.i.i54.i
 
 if.then.i.i62.i:                                  ; preds = %call5.i.i.i.i2.i.i50.i.noexc
@@ -50259,7 +50259,7 @@ cond.true.i.i.i153:                               ; preds = %_ZNK22arrow_vendore
   br label %_ZNK22arrow_vendored_private11flatbuffers5Table22GetOptionalFieldOffsetEt.exit.i.i163
 
 _ZNK3org6apache5arrow7flatbuf12SparseTensor11sparseIndexEv.exit: ; preds = %land.lhs.true23
-  %cmp.i.i.i161 = icmp ugt i16 %42, 12
+  %cmp.i.i.i161 = icmp samesign ugt i16 %42, 12
   br i1 %cmp.i.i.i161, label %_ZNK22arrow_vendored_private11flatbuffers5Table22GetOptionalFieldOffsetEt.exit.i.i163, label %_ZNK3org6apache5arrow7flatbuf12SparseTensor16sparseIndex_typeEv.exit
 
 _ZNK22arrow_vendored_private11flatbuffers5Table22GetOptionalFieldOffsetEt.exit.i.i163: ; preds = %cond.true.i.i.i153, %_ZNK22arrow_vendored_private11flatbuffers5Table22GetOptionalFieldOffsetEt.exit.i.i.i150, %_ZNK3org6apache5arrow7flatbuf12SparseTensor11sparseIndexEv.exit
@@ -56346,8 +56346,8 @@ if.end6.i:                                        ; preds = %_ZNK3org6apache5arr
   %arrayidx.i.i.i = getelementptr inbounds i64, ptr %add.ptr.i.i.i, i64 %conv.i.i
   %33 = load i64, ptr %arrayidx.i.i.i, align 8, !noalias !1449
   store i64 %33, ptr %count.i, align 8, !noalias !1449
-  %cmp10.i = icmp ugt i64 %33, 2147483647
-  br i1 %cmp10.i, label %if.then11.i, label %_ZN5arrow3ipc12_GLOBAL__N_111ArrayLoader16GetVariadicCountEi.exit.thread
+  %or.cond.not.i = icmp ult i64 %33, 2147483648
+  br i1 %or.cond.not.i, label %_ZN5arrow3ipc12_GLOBAL__N_111ArrayLoader16GetVariadicCountEi.exit.thread, label %if.then11.i
 
 if.then11.i:                                      ; preds = %if.end6.i
   call void @_ZN5arrow6Status8FromArgsIJRA65_KcRlRA2_S2_EEES0_NS_10StatusCodeEDpOT_(ptr nonnull sret(%"class.arrow::Status") align 8 %ref.tmp12.i, i8 noundef signext 5, ptr noundef nonnull align 1 dereferenceable(65) @.str.35, ptr noundef nonnull align 8 dereferenceable(8) %count.i, ptr noundef nonnull align 1 dereferenceable(2) @.str.36), !noalias !1449
@@ -79146,7 +79146,7 @@ if.then3.i.i:                                     ; preds = %_ZNK3org6apache5arr
           to label %_ZN5arrow6StatusD2Ev.exit.i unwind label %lpad14
 
 if.end.i.i:                                       ; preds = %_ZNK3org6apache5arrow7flatbuf11RecordBatch11compressionEv.exit.i.i
-  %cmp.i.i.i11.i.i = icmp ugt i16 %58, 4
+  %cmp.i.i.i11.i.i = icmp samesign ugt i16 %58, 4
   br i1 %cmp.i.i.i11.i.i, label %_ZNK22arrow_vendored_private11flatbuffers5Table22GetOptionalFieldOffsetEt.exit.i.i13.i.i, label %if.end12.i.i
 
 _ZNK22arrow_vendored_private11flatbuffers5Table22GetOptionalFieldOffsetEt.exit.i.i13.i.i: ; preds = %if.end.i.i, %_ZNK3org6apache5arrow7flatbuf15BodyCompression6methodEv.exit.i.i, %_ZNK22arrow_vendored_private11flatbuffers5Table22GetOptionalFieldOffsetEt.exit.i.i.i.i
@@ -87786,7 +87786,7 @@ if.then3.i:                                       ; preds = %_ZNK3org6apache5arr
   br label %_ZN5arrow6StatusD2Ev.exit144
 
 if.end.i:                                         ; preds = %_ZNK3org6apache5arrow7flatbuf11RecordBatch11compressionEv.exit.i
-  %cmp.i.i.i11.i = icmp ugt i16 %20, 4
+  %cmp.i.i.i11.i = icmp samesign ugt i16 %20, 4
   br i1 %cmp.i.i.i11.i, label %_ZNK22arrow_vendored_private11flatbuffers5Table22GetOptionalFieldOffsetEt.exit.i.i13.i, label %do.end34
 
 _ZNK22arrow_vendored_private11flatbuffers5Table22GetOptionalFieldOffsetEt.exit.i.i13.i: ; preds = %if.end.i, %_ZNK3org6apache5arrow7flatbuf15BodyCompression6methodEv.exit.i, %_ZNK22arrow_vendored_private11flatbuffers5Table22GetOptionalFieldOffsetEt.exit.i.i.i104

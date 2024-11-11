@@ -6689,7 +6689,7 @@ define noundef range(i32 0, 3) i32 @button_released(ptr noundef %0, float nounde
   %363 = phi i32 [ %431, %360 ], [ %358, %357 ]
   %364 = sext i32 %363 to i64
   %365 = sub nsw i64 99, %364
-  %366 = icmp ult i64 %365, 32
+  %366 = icmp samesign ult i64 %365, 32
   br i1 %366, label %.preheader43, label %367
 
 .preheader43:                                     ; preds = %386, %362
@@ -7797,7 +7797,7 @@ define internal fastcc void @node_delete(ptr noundef %0, ptr nocapture noundef %
   %91 = phi i32 [ %159, %88 ], [ %86, %85 ]
   %92 = sext i32 %91 to i64
   %93 = sub nsw i64 99, %92
-  %94 = icmp ult i64 %93, 32
+  %94 = icmp samesign ult i64 %93, 32
   br i1 %94, label %.preheader, label %95
 
 .preheader:                                       ; preds = %114, %90

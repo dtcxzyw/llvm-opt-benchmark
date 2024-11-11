@@ -622,7 +622,7 @@ thread-pre-split:                                 ; preds = %18
 63:                                               ; preds = %49
   %64 = sub nuw nsw i32 64, %62
   %65 = zext nneg i32 %64 to i64
-  %66 = icmp ult i64 %50, %65
+  %66 = icmp samesign ult i64 %50, %65
   %67 = zext nneg i32 %62 to i64
   %68 = getelementptr inbounds [64 x i8], ptr %48, i64 0, i64 %67
   br i1 %66, label %69, label %70
@@ -641,7 +641,7 @@ thread-pre-split:                                 ; preds = %18
 74:                                               ; preds = %70, %49
   %.034.i = phi i64 [ %72, %70 ], [ %50, %49 ]
   %.0.i = phi ptr [ %71, %70 ], [ %5, %49 ]
-  %75 = icmp ugt i64 %.034.i, 63
+  %75 = icmp samesign ugt i64 %.034.i, 63
   br i1 %75, label %76, label %80
 
 76:                                               ; preds = %74

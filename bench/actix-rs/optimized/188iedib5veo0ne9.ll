@@ -11870,7 +11870,7 @@ define hidden noundef zeroext i1 @_ZN10actix_http6header6shared7quality8itoa_fmt
   br label %35
 
 ._crit_edge.i:                                    ; preds = %2
-  %17 = icmp ugt i16 %1, 99
+  %17 = icmp samesign ugt i16 %1, 99
   br i1 %17, label %18, label %26
 
 18:                                               ; preds = %._crit_edge.i

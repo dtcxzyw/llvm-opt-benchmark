@@ -638,7 +638,7 @@ for.cond.preheader:                               ; preds = %if.end24
   br i1 %cmp3992, label %for.body, label %if.end43
 
 if.then29:                                        ; preds = %if.end24
-  %cmp30 = icmp ugt i64 %sub, 1
+  %cmp30 = icmp samesign ugt i64 %sub, 1
   br i1 %cmp30, label %if.then32, label %if.end34
 
 if.then32:                                        ; preds = %if.then29

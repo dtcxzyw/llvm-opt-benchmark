@@ -4153,7 +4153,7 @@ if.end:                                           ; preds = %entry
 
 land.rhs:                                         ; preds = %if.end
   %0 = add nsw i32 %rem2, -36525
-  %cmp14 = icmp ult i32 %0, -1461
+  %cmp14 = icmp samesign ult i32 %0, -1461
   %rem.off29 = add nsw i32 %rem, -109572
   %cmp15 = icmp ult i32 %rem.off29, 36524
   %1 = select i1 %cmp14, i1 true, i1 %cmp15
@@ -6507,7 +6507,7 @@ if.then:                                          ; preds = %ymd_to_ord.exit
   br label %if.end22
 
 if.else:                                          ; preds = %ymd_to_ord.exit
-  %cmp16 = icmp ugt i32 %quo.0.i, 51
+  %cmp16 = icmp samesign ugt i32 %quo.0.i, 51
   br i1 %cmp16, label %land.lhs.true, label %if.end22
 
 land.lhs.true:                                    ; preds = %if.else
@@ -8629,7 +8629,7 @@ normalize_pair.exit.i.i:                          ; preds = %ymd_to_ord.exit
 if.end.i.i55:                                     ; preds = %normalize_pair.exit.i.i, %ymd_to_ord.exit
   %seconds.addr.1.i = phi i32 [ %add.i.i.i, %normalize_pair.exit.i.i ], [ %add78, %ymd_to_ord.exit ]
   %microseconds.addr.1.i = phi i32 [ %storemerge.i.i.i.i, %normalize_pair.exit.i.i ], [ %or91, %ymd_to_ord.exit ]
-  %or.cond7.i.i = icmp ugt i32 %seconds.addr.1.i, 86399
+  %or.cond7.i.i = icmp samesign ugt i32 %seconds.addr.1.i, 86399
   br i1 %or.cond7.i.i, label %normalize_pair.exit19.i.i, label %if.end.i56
 
 normalize_pair.exit19.i.i:                        ; preds = %if.end.i.i55
@@ -10959,7 +10959,7 @@ if.then19.i:                                      ; preds = %land.lhs.true.i
   br i1 %cmp20.i, label %_find_isoformat_datetime_separator.exit, label %if.end23.i
 
 if.end23.i:                                       ; preds = %if.then19.i
-  %cmp24.i = icmp ugt i64 %18, 10
+  %cmp24.i = icmp samesign ugt i64 %18, 10
   br i1 %cmp24.i, label %land.lhs.true26.i, label %if.end30.i
 
 land.lhs.true26.i:                                ; preds = %if.end23.i
@@ -14504,7 +14504,7 @@ normalize_pair.exit.i.i:                          ; preds = %if.else38
 if.end.i.i45:                                     ; preds = %normalize_pair.exit.i.i, %if.else38
   %seconds.addr.1.i = phi i32 [ %add.i.i.i, %normalize_pair.exit.i.i ], [ %add49, %if.else38 ]
   %microseconds.addr.1.i = phi i32 [ %storemerge.i.i.i.i, %normalize_pair.exit.i.i ], [ %or62, %if.else38 ]
-  %or.cond7.i.i = icmp ugt i32 %seconds.addr.1.i, 86399
+  %or.cond7.i.i = icmp samesign ugt i32 %seconds.addr.1.i, 86399
   br i1 %or.cond7.i.i, label %if.end.i46, label %if.end2.i
 
 if.end.i46:                                       ; preds = %if.end.i.i45
@@ -17323,7 +17323,7 @@ if.then5.i.i:                                     ; preds = %if.end2.i.i
 if.else:                                          ; preds = %entry
   %microseconds.i5 = getelementptr inbounds i8, ptr %self, i64 32
   %6 = load i32, ptr %microseconds.i5, align 8
-  %or.cond.i7.i.i6 = icmp ult i32 %0, 1000000000
+  %or.cond.i7.i.i6 = icmp samesign ult i32 %0, 1000000000
   br i1 %or.cond.i7.i.i6, label %if.end2.i.i10, label %check_delta_day_range.exit.thread.i.i7
 
 check_delta_day_range.exit.thread.i.i7:           ; preds = %if.else

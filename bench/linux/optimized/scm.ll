@@ -57,7 +57,7 @@ define dso_local void @__scm_destroy(ptr nocapture noundef %0) #0 align 16 {
   %14 = getelementptr [253 x ptr], ptr %9, i64 0, i64 %13
   %15 = load ptr, ptr %14, align 8
   tail call void @fput(ptr noundef %15) #10
-  %16 = icmp ugt i64 %12, 1
+  %16 = icmp samesign ugt i64 %12, 1
   br i1 %16, label %11, label %.loopexit, !llvm.loop !6
 
 .loopexit:                                        ; preds = %11, %5
@@ -157,7 +157,7 @@ define dso_local range(i32 -22, 1) i32 @__scm_send(ptr noundef %0, ptr nocapture
   br i1 %48, label %.thread23, label %49
 
 49:                                               ; preds = %42
-  %50 = icmp ugt i32 %47, 253
+  %50 = icmp samesign ugt i32 %47, 253
   br i1 %50, label %.thread22, label %51
 
 51:                                               ; preds = %49
@@ -429,7 +429,7 @@ define dso_local range(i32 -22, 1) i32 @__scm_send(ptr noundef %0, ptr nocapture
   %211 = getelementptr [253 x ptr], ptr %206, i64 0, i64 %210
   %212 = load ptr, ptr %211, align 8
   tail call void @fput(ptr noundef %212) #10
-  %213 = icmp ugt i64 %209, 1
+  %213 = icmp samesign ugt i64 %209, 1
   br i1 %213, label %208, label %.loopexit, !llvm.loop !6
 
 .loopexit:                                        ; preds = %208, %202
@@ -565,7 +565,7 @@ define dso_local i32 @put_cmsg(ptr noundef %0, i32 noundef %1, i32 noundef %2, i
   %65 = phi ptr [ %51, %.loopexit14 ], [ %72, %71 ]
   %66 = phi ptr [ %52, %.loopexit14 ], [ %73, %71 ]
   %67 = phi i64 [ %53, %.loopexit14 ], [ %74, %71 ]
-  %68 = icmp ugt i64 %67, 1
+  %68 = icmp samesign ugt i64 %67, 1
   br i1 %68, label %80, label %75
 
 69:                                               ; preds = %.loopexit14
@@ -877,7 +877,7 @@ define dso_local void @scm_detach_fds(ptr noundef %0, ptr noundef %1) #0 align 1
   %119 = getelementptr [253 x ptr], ptr %114, i64 0, i64 %118
   %120 = load ptr, ptr %119, align 8
   tail call void @fput(ptr noundef %120) #10
-  %121 = icmp ugt i64 %117, 1
+  %121 = icmp samesign ugt i64 %117, 1
   br i1 %121, label %116, label %.loopexit, !llvm.loop !6
 
 .loopexit:                                        ; preds = %116, %110

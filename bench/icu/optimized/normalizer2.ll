@@ -2028,7 +2028,7 @@ if.then:                                          ; preds = %_ZN6icu_7518Normali
   br i1 %cmp.i2, label %return, label %if.else.i
 
 if.else.i:                                        ; preds = %if.then
-  %cmp2.i = icmp ult i32 %c, 65536
+  %cmp2.i = icmp samesign ult i32 %c, 65536
   br i1 %cmp2.i, label %if.then3.i, label %if.end6.i
 
 if.then3.i:                                       ; preds = %if.else.i
@@ -3093,7 +3093,7 @@ cond.false.i.i:                                   ; preds = %lor.rhs.i
   %2 = load ptr, ptr %normTrie.i.i, align 8
   %data.i.i = getelementptr inbounds i8, ptr %2, i64 8
   %3 = load ptr, ptr %data.i.i, align 8
-  %cmp2.i.i = icmp ult i32 %c, 65536
+  %cmp2.i.i = icmp samesign ult i32 %c, 65536
   br i1 %cmp2.i.i, label %cond.true3.i.i, label %cond.false6.i.i
 
 cond.true3.i.i:                                   ; preds = %cond.false.i.i
@@ -3108,7 +3108,7 @@ cond.true3.i.i:                                   ; preds = %cond.false.i.i
   br label %cond.end21.i.i
 
 cond.false6.i.i:                                  ; preds = %cond.false.i.i
-  %cmp7.i.i = icmp ult i32 %c, 1114112
+  %cmp7.i.i = icmp samesign ult i32 %c, 1114112
   br i1 %cmp7.i.i, label %cond.true8.i.i, label %cond.false15.i.i
 
 cond.true8.i.i:                                   ; preds = %cond.false6.i.i
@@ -3505,7 +3505,7 @@ entry:
   br i1 %cmp.i.i, label %_ZNK6icu_7515Normalizer2Impl10isFCDInertEi.exit, label %if.else.i.i
 
 if.else.i.i:                                      ; preds = %entry
-  %cmp2.i.i = icmp ult i32 %c, 65536
+  %cmp2.i.i = icmp samesign ult i32 %c, 65536
   br i1 %cmp2.i.i, label %if.then3.i.i, label %if.end6.i.i
 
 if.then3.i.i:                                     ; preds = %if.else.i.i

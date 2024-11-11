@@ -1924,7 +1924,7 @@ define internal void @_ZNK5faiss17AdditiveQuantizer6decodeEPKhPfm.omp_outlined(p
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 8
   %63 = add nsw i32 %.02732.i, -8
   %.024.i = add nuw nsw i64 %.02435.i, 1
-  %64 = icmp ugt i32 %.02732.i, 16
+  %64 = icmp samesign ugt i32 %.02732.i, 16
   br i1 %64, label %.lr.ph.i, label %._crit_edge.loopexit.i, !llvm.loop !15
 
 ._crit_edge.loopexit.i:                           ; preds = %.lr.ph.i
@@ -3602,7 +3602,7 @@ define noundef float @_ZNK5faiss17AdditiveQuantizer22compute_1_distance_LUTILb1E
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 8
   %37 = add nsw i32 %.02732.i.i, -8
   %.024.i.i = add nuw nsw i64 %.02435.i.i, 1
-  %38 = icmp ugt i32 %.02732.i.i, 16
+  %38 = icmp samesign ugt i32 %.02732.i.i, 16
   br i1 %38, label %.lr.ph.i.i, label %._crit_edge.loopexit.i.i, !llvm.loop !15
 
 ._crit_edge.loopexit.i.i:                         ; preds = %.lr.ph.i.i
@@ -3711,7 +3711,7 @@ define noundef float @_ZNK5faiss17AdditiveQuantizer22compute_1_distance_LUTILb0E
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 8
   %37 = add nsw i32 %.02732.i.i, -8
   %.024.i.i = add nuw nsw i64 %.02435.i.i, 1
-  %38 = icmp ugt i32 %.02732.i.i, 16
+  %38 = icmp samesign ugt i32 %.02732.i.i, 16
   br i1 %38, label %.lr.ph.i.i, label %._crit_edge.loopexit.i.i, !llvm.loop !15
 
 ._crit_edge.loopexit.i.i:                         ; preds = %.lr.ph.i.i
@@ -3821,7 +3821,7 @@ define noundef float @_ZNK5faiss17AdditiveQuantizer22compute_1_distance_LUTILb0E
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 8
   %37 = add nsw i32 %.02732.i.i, -8
   %.024.i.i = add nuw nsw i64 %.02435.i.i, 1
-  %38 = icmp ugt i32 %.02732.i.i, 16
+  %38 = icmp samesign ugt i32 %.02732.i.i, 16
   br i1 %38, label %.lr.ph.i.i, label %._crit_edge.loopexit.i.i, !llvm.loop !15
 
 ._crit_edge.loopexit.i.i:                         ; preds = %.lr.ph.i.i
@@ -3890,7 +3890,7 @@ _ZN5faiss12_GLOBAL__N_114accumulate_IPsERKNS_17AdditiveQuantizerERNS_15Bitstring
   %indvars.iv.next.i9 = add nuw nsw i64 %indvars.iv.i8, 8
   %71 = add nsw i32 %.02732.i, -8
   %.024.i = add nuw nsw i64 %.02435.i, 1
-  %72 = icmp ugt i32 %.02732.i, 16
+  %72 = icmp samesign ugt i32 %.02732.i, 16
   br i1 %72, label %.lr.ph.i7, label %._crit_edge.loopexit.i, !llvm.loop !15
 
 ._crit_edge.loopexit.i:                           ; preds = %.lr.ph.i7
@@ -3980,7 +3980,7 @@ _ZN5faiss12_GLOBAL__N_114accumulate_IPsERKNS_17AdditiveQuantizerERNS_15Bitstring
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 8
   %39 = add nsw i32 %.02732.i.i, -8
   %.024.i.i = add nuw nsw i64 %.02435.i.i, 1
-  %40 = icmp ugt i32 %.02732.i.i, 16
+  %40 = icmp samesign ugt i32 %.02732.i.i, 16
   br i1 %40, label %.lr.ph.i.i, label %._crit_edge.loopexit.i.i, !llvm.loop !15
 
 ._crit_edge.loopexit.i.i:                         ; preds = %.lr.ph.i.i
@@ -4122,7 +4122,7 @@ _ZN5faiss12_GLOBAL__N_114accumulate_IPsERKNS_17AdditiveQuantizerERNS_15Bitstring
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 8
   %39 = add nsw i32 %.02732.i.i, -8
   %.024.i.i = add nuw nsw i64 %.02435.i.i, 1
-  %40 = icmp ugt i32 %.02732.i.i, 16
+  %40 = icmp samesign ugt i32 %.02732.i.i, 16
   br i1 %40, label %.lr.ph.i.i, label %._crit_edge.loopexit.i.i, !llvm.loop !15
 
 ._crit_edge.loopexit.i.i:                         ; preds = %.lr.ph.i.i
@@ -4270,7 +4270,7 @@ _ZN5faiss12_GLOBAL__N_114accumulate_IPsERKNS_17AdditiveQuantizerERNS_15Bitstring
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 8
   %39 = add nsw i32 %.02732.i.i, -8
   %.024.i.i = add nuw nsw i64 %.02435.i.i, 1
-  %40 = icmp ugt i32 %.02732.i.i, 16
+  %40 = icmp samesign ugt i32 %.02732.i.i, 16
   br i1 %40, label %.lr.ph.i.i, label %._crit_edge.loopexit.i.i, !llvm.loop !15
 
 ._crit_edge.loopexit.i.i:                         ; preds = %.lr.ph.i.i
@@ -4434,7 +4434,7 @@ _ZN5faiss12_GLOBAL__N_114accumulate_IPsERKNS_17AdditiveQuantizerERNS_15Bitstring
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 8
   %39 = add nsw i32 %.02732.i.i, -8
   %.024.i.i = add nuw nsw i64 %.02435.i.i, 1
-  %40 = icmp ugt i32 %.02732.i.i, 16
+  %40 = icmp samesign ugt i32 %.02732.i.i, 16
   br i1 %40, label %.lr.ph.i.i, label %._crit_edge.loopexit.i.i, !llvm.loop !15
 
 ._crit_edge.loopexit.i.i:                         ; preds = %.lr.ph.i.i

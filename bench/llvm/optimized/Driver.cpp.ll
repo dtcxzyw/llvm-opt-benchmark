@@ -24941,7 +24941,7 @@ _ZN5clang17DiagnosticBuilderD2Ev.exit160:         ; preds = %.lr.ph.i.i.i.i.i.i1
   %287 = getelementptr inbounds i8, ptr %.0910.i.i.i.i.i.i, i64 16
   %288 = getelementptr inbounds i8, ptr %.0811.i.i.i.i.i.i, i64 16
   %289 = add nsw i64 %.012.i.i.i.i.i.i, -1
-  %290 = icmp ugt i64 %.012.i.i.i.i.i.i, 1
+  %290 = icmp samesign ugt i64 %.012.i.i.i.i.i.i, 1
   br i1 %290, label %.lr.ph.i.i.i.i.i.i161, label %_ZN4llvm15SmallVectorImplISt4pairIN5clang6driver5types2IDEPKNS_3opt3ArgEEE5eraseEPKSA_.exit, !llvm.loop !1145
 
 _ZN4llvm15SmallVectorImplISt4pairIN5clang6driver5types2IDEPKNS_3opt3ArgEEE5eraseEPKSA_.exit: ; preds = %.lr.ph.i.i.i.i.i.i161, %273
@@ -28584,7 +28584,7 @@ _ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EED2Ev.ex
   %223 = getelementptr inbounds i8, ptr %.069.i.i.i.i.i.i.i.i.i.i, i64 -32
   %224 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEOS4_(ptr noundef nonnull align 8 dereferenceable(32) %223, ptr noundef nonnull align 8 dereferenceable(32) %222) #30
   %225 = add nsw i64 %.010.i.i.i.i.i.i.i.i.i.i, -1
-  %226 = icmp ugt i64 %.010.i.i.i.i.i.i.i.i.i.i, 1
+  %226 = icmp samesign ugt i64 %.010.i.i.i.i.i.i.i.i.i.i, 1
   br i1 %226, label %.lr.ph.i.i.i.i.i.i.i.i.i.i, label %_ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt6vectorIS7_SaIS7_EEEESC_ET0_T_SE_SD_.exit.i.i.i.i.i, !llvm.loop !1277
 
 _ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt6vectorIS7_SaIS7_EEEESC_ET0_T_SE_SD_.exit.i.i.i.i.i: ; preds = %.lr.ph.i.i.i.i.i.i.i.i.i.i
@@ -28646,7 +28646,7 @@ _ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPNSt7__cxx1112basic_stringIcS
   %240 = getelementptr inbounds i8, ptr %.069.i.i.i.i.i.i.i.i.i, i64 -32
   %241 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEOS4_(ptr noundef nonnull align 8 dereferenceable(32) %240, ptr noundef nonnull align 8 dereferenceable(32) %239) #30
   %242 = add nsw i64 %.010.i.i.i.i.i.i.i.i.i, -1
-  %243 = icmp ugt i64 %.010.i.i.i.i.i.i.i.i.i, 1
+  %243 = icmp samesign ugt i64 %.010.i.i.i.i.i.i.i.i.i, 1
   br i1 %243, label %.lr.ph.i.i.i.i.i.i.i.i.i, label %_ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt6vectorIS7_SaIS7_EEEESC_ET0_T_SE_SD_.exit.i.i.i.i, !llvm.loop !1277
 
 _ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt6vectorIS7_SaIS7_EEEESC_ET0_T_SE_SD_.exit.i.i.i.i: ; preds = %.lr.ph.i.i.i.i.i.i.i.i.i, %233

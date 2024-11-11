@@ -2330,7 +2330,7 @@ define dso_local noundef i64 @array_recv(ptr nocapture noundef readonly %0) loca
   unreachable
 
 20:                                               ; preds = %1
-  %21 = icmp ugt i32 %14, 6
+  %21 = icmp samesign ugt i32 %14, 6
   br i1 %21, label %22, label %26
 
 22:                                               ; preds = %20
@@ -3343,8 +3343,8 @@ define dso_local range(i64 -2147483648, 2147483648) i64 @array_lower(ptr nocaptu
 15:                                               ; preds = %1
   %16 = trunc i64 %6 to i32
   %17 = icmp slt i32 %16, 1
-  %18 = icmp ult i32 %11, %16
-  %or.cond25 = or i1 %17, %18
+  %18 = icmp samesign ult i32 %11, %16
+  %or.cond25 = select i1 %17, i1 true, i1 %18
   br i1 %or.cond25, label %19, label %21
 
 19:                                               ; preds = %15
@@ -3407,8 +3407,8 @@ define dso_local range(i64 -2147483648, 2147483648) i64 @array_upper(ptr nocaptu
 15:                                               ; preds = %1
   %16 = trunc i64 %6 to i32
   %17 = icmp slt i32 %16, 1
-  %18 = icmp ult i32 %11, %16
-  %or.cond30 = or i1 %17, %18
+  %18 = icmp samesign ult i32 %11, %16
+  %or.cond30 = select i1 %17, i1 true, i1 %18
   br i1 %or.cond30, label %19, label %21
 
 19:                                               ; preds = %15
@@ -3477,8 +3477,8 @@ define dso_local range(i64 -2147483648, 2147483648) i64 @array_length(ptr nocapt
 13:                                               ; preds = %1
   %14 = trunc i64 %6 to i32
   %15 = icmp slt i32 %14, 1
-  %16 = icmp ult i32 %9, %14
-  %or.cond24 = or i1 %15, %16
+  %16 = icmp samesign ult i32 %9, %14
+  %or.cond24 = select i1 %15, i1 true, i1 %16
   br i1 %or.cond24, label %17, label %19
 
 17:                                               ; preds = %13
@@ -5819,7 +5819,7 @@ array_get_isnull.exit.thread:                     ; preds = %379, %array_get_isn
   %.157.i = phi ptr [ %569, %568 ], [ %.05683.i, %564 ]
   %.143.i = phi i32 [ 1, %568 ], [ %565, %564 ]
   %.1.i264 = phi i32 [ %571, %568 ], [ %.088.i, %564 ]
-  %572 = icmp ugt i32 %.in.i, 1
+  %572 = icmp samesign ugt i32 %.in.i, 1
   br i1 %572, label %.lr.ph.i262, label %._crit_edge.i265, !llvm.loop !64
 
 ._crit_edge.i265:                                 ; preds = %.thread75.i, %567
@@ -5843,7 +5843,7 @@ array_get_isnull.exit.thread:                     ; preds = %379, %array_get_isn
   br i1 %.not82.i, label %array_bitmap_copy.exit, label %.thread318
 
 579:                                              ; preds = %.lr.ph94.i
-  %580 = icmp ugt i32 %.in99.i, 1
+  %580 = icmp samesign ugt i32 %.in99.i, 1
   br i1 %580, label %.lr.ph94.i, label %._crit_edge95.thread.sink.split.i, !llvm.loop !65
 
 .thread318:                                       ; preds = %577
@@ -5934,7 +5934,7 @@ array_get_isnull.exit.thread:                     ; preds = %379, %array_get_isn
   %.157.i282 = phi ptr [ %610, %609 ], [ %.05683.i275, %605 ]
   %.143.i283 = phi i32 [ 1, %609 ], [ %606, %605 ]
   %.1.i284 = phi i32 [ %612, %609 ], [ %.088.i270, %605 ]
-  %613 = icmp ugt i32 %.in.i269, 1
+  %613 = icmp samesign ugt i32 %.in.i269, 1
   br i1 %613, label %.lr.ph.i268, label %._crit_edge.i285, !llvm.loop !64
 
 ._crit_edge.i285:                                 ; preds = %.thread75.i281, %608
@@ -5958,7 +5958,7 @@ array_get_isnull.exit.thread:                     ; preds = %379, %array_get_isn
   br i1 %.not82.i302, label %array_bitmap_copy.exit303, label %.thread329
 
 620:                                              ; preds = %.lr.ph94.i292
-  %621 = icmp ugt i32 %.in99.i293, 1
+  %621 = icmp samesign ugt i32 %.in99.i293, 1
   br i1 %621, label %.lr.ph94.i292, label %._crit_edge95.thread.sink.split.i287, !llvm.loop !65
 
 .thread329:                                       ; preds = %618
@@ -6010,7 +6010,7 @@ define dso_local noundef ptr @construct_md_array(ptr nocapture noundef %0, ptr n
   unreachable
 
 15:                                               ; preds = %9
-  %16 = icmp ugt i32 %2, 6
+  %16 = icmp samesign ugt i32 %2, 6
   br i1 %16, label %17, label %21
 
 17:                                               ; preds = %15
@@ -6439,7 +6439,7 @@ define dso_local void @array_bitmap_copy(ptr nocapture noundef %0, i32 noundef %
   %.157 = phi ptr [ %40, %39 ], [ %.05683, %35 ]
   %.143 = phi i32 [ 1, %39 ], [ %36, %35 ]
   %.1 = phi i32 [ %42, %39 ], [ %.088, %35 ]
-  %43 = icmp ugt i32 %.in, 1
+  %43 = icmp samesign ugt i32 %.in, 1
   br i1 %43, label %.lr.ph, label %._crit_edge, !llvm.loop !64
 
 ._crit_edge:                                      ; preds = %38, %.thread75
@@ -6473,7 +6473,7 @@ define dso_local void @array_bitmap_copy(ptr nocapture noundef %0, i32 noundef %
   %.355 = phi ptr [ %51, %50 ], [ %.25491, %.lr.ph94 ]
   %.349 = phi i32 [ 1, %50 ], [ %46, %.lr.ph94 ]
   %.4 = phi i32 [ %53, %50 ], [ %45, %.lr.ph94 ]
-  %55 = icmp ugt i32 %.in99, 1
+  %55 = icmp samesign ugt i32 %.in99, 1
   br i1 %55, label %.lr.ph94, label %._crit_edge95, !llvm.loop !65
 
 ._crit_edge95:                                    ; preds = %54
@@ -7268,7 +7268,7 @@ define dso_local noundef i64 @array_set_slice(i64 noundef %0, i32 noundef %1, pt
   %.157.i.i = phi ptr [ %447, %446 ], [ %.05683.i.i, %442 ]
   %.143.i.i = phi i32 [ 1, %446 ], [ %443, %442 ]
   %.1.i.i = phi i32 [ %449, %446 ], [ %.088.i.i, %442 ]
-  %450 = icmp ugt i32 %.in.i.i, 1
+  %450 = icmp samesign ugt i32 %.in.i.i, 1
   br i1 %450, label %.lr.ph.i.i, label %._crit_edge.i.i, !llvm.loop !64
 
 ._crit_edge.i.i:                                  ; preds = %.thread75.i.i, %445
@@ -7292,7 +7292,7 @@ define dso_local noundef i64 @array_set_slice(i64 noundef %0, i32 noundef %1, pt
   br i1 %.not82.i.i, label %array_bitmap_copy.exit.i, label %.thread.i
 
 457:                                              ; preds = %.lr.ph94.i.i
-  %458 = icmp ugt i32 %.in99.i.i, 1
+  %458 = icmp samesign ugt i32 %.in99.i.i, 1
   br i1 %458, label %.lr.ph94.i.i, label %._crit_edge95.thread.sink.split.i.i, !llvm.loop !65
 
 .thread.i:                                        ; preds = %455
@@ -7428,7 +7428,7 @@ array_bitmap_copy.exit.i:                         ; preds = %436, %455, %._crit_
   %.157.i161.i = phi ptr [ %512, %511 ], [ %.05683.i154.i, %507 ]
   %.143.i162.i = phi i32 [ 1, %511 ], [ %508, %507 ]
   %.1.i163.i = phi i32 [ %514, %511 ], [ %.088.i149.i, %507 ]
-  %515 = icmp ugt i32 %.in.i148.i, 1
+  %515 = icmp samesign ugt i32 %.in.i148.i, 1
   br i1 %515, label %.lr.ph.i147.i, label %._crit_edge.i164.i, !llvm.loop !64
 
 ._crit_edge.i164.i:                               ; preds = %.thread75.i160.i, %510
@@ -7452,7 +7452,7 @@ array_bitmap_copy.exit.i:                         ; preds = %436, %455, %._crit_
   br i1 %.not82.i181.i, label %array_bitmap_copy.exit182.i, label %.thread271.i
 
 522:                                              ; preds = %.lr.ph94.i171.i
-  %523 = icmp ugt i32 %.in99.i172.i, 1
+  %523 = icmp samesign ugt i32 %.in99.i172.i, 1
   br i1 %523, label %.lr.ph94.i171.i, label %._crit_edge95.thread.sink.split.i166.i, !llvm.loop !65
 
 .thread271.i:                                     ; preds = %520
@@ -7628,7 +7628,7 @@ array_bitmap_copy.exit221.i:                      ; preds = %array_bitmap_copy.e
   %.157.i239.i = phi ptr [ %606, %605 ], [ %.05683.i232.i, %601 ]
   %.143.i240.i = phi i32 [ 1, %605 ], [ %602, %601 ]
   %.1.i241.i = phi i32 [ %608, %605 ], [ %.088.i227.i, %601 ]
-  %609 = icmp ugt i32 %.in.i226.i, 1
+  %609 = icmp samesign ugt i32 %.in.i226.i, 1
   br i1 %609, label %.lr.ph.i225.i, label %._crit_edge.i242.i, !llvm.loop !64
 
 ._crit_edge.i242.i:                               ; preds = %.thread75.i238.i, %604
@@ -7652,7 +7652,7 @@ array_bitmap_copy.exit221.i:                      ; preds = %array_bitmap_copy.e
   br i1 %.not82.i259.i, label %array_insert_slice.exit, label %.thread293.i
 
 616:                                              ; preds = %.lr.ph94.i249.i
-  %617 = icmp ugt i32 %.in99.i250.i, 1
+  %617 = icmp samesign ugt i32 %.in99.i250.i, 1
   br i1 %617, label %.lr.ph94.i249.i, label %._crit_edge95.thread.sink.split.i244.i, !llvm.loop !65
 
 .thread293.i:                                     ; preds = %614
@@ -7817,7 +7817,7 @@ array_insert_slice.exit:                          ; preds = %595, %614, %565, %.
   %.157.i = phi ptr [ %691, %690 ], [ %.05683.i, %686 ]
   %.143.i = phi i32 [ 1, %690 ], [ %687, %686 ]
   %.1.i316 = phi i32 [ %693, %690 ], [ %.088.i, %686 ]
-  %694 = icmp ugt i32 %.in.i, 1
+  %694 = icmp samesign ugt i32 %.in.i, 1
   br i1 %694, label %.lr.ph.i, label %._crit_edge.i, !llvm.loop !64
 
 ._crit_edge.i:                                    ; preds = %.thread75.i, %689
@@ -7841,7 +7841,7 @@ array_insert_slice.exit:                          ; preds = %595, %614, %565, %.
   br i1 %.not82.i, label %array_bitmap_copy.exit, label %.thread405
 
 701:                                              ; preds = %.lr.ph94.i
-  %702 = icmp ugt i32 %.in99.i, 1
+  %702 = icmp samesign ugt i32 %.in99.i, 1
   br i1 %702, label %.lr.ph94.i, label %._crit_edge95.thread.sink.split.i, !llvm.loop !65
 
 .thread405:                                       ; preds = %699
@@ -7953,7 +7953,7 @@ array_bitmap_copy.exit:                           ; preds = %680, %699, %660, %.
   %.157.i333 = phi ptr [ %747, %746 ], [ %.05683.i326, %742 ]
   %.143.i334 = phi i32 [ 1, %746 ], [ %743, %742 ]
   %.1.i335 = phi i32 [ %749, %746 ], [ %.088.i321, %742 ]
-  %750 = icmp ugt i32 %.in.i320, 1
+  %750 = icmp samesign ugt i32 %.in.i320, 1
   br i1 %750, label %.lr.ph.i319, label %._crit_edge.i336, !llvm.loop !64
 
 ._crit_edge.i336:                                 ; preds = %.thread75.i332, %745
@@ -7977,7 +7977,7 @@ array_bitmap_copy.exit:                           ; preds = %680, %699, %660, %.
   br i1 %.not82.i353, label %array_bitmap_copy.exit354, label %.thread416
 
 757:                                              ; preds = %.lr.ph94.i343
-  %758 = icmp ugt i32 %.in99.i344, 1
+  %758 = icmp samesign ugt i32 %.in99.i344, 1
   br i1 %758, label %.lr.ph94.i343, label %._crit_edge95.thread.sink.split.i338, !llvm.loop !65
 
 .thread416:                                       ; preds = %755
@@ -8080,7 +8080,7 @@ array_bitmap_copy.exit354:                        ; preds = %736, %755, %716, %.
   %.157.i371 = phi ptr [ %799, %798 ], [ %.05683.i364, %794 ]
   %.143.i372 = phi i32 [ 1, %798 ], [ %795, %794 ]
   %.1.i373 = phi i32 [ %801, %798 ], [ %.088.i359, %794 ]
-  %802 = icmp ugt i32 %.in.i358, 1
+  %802 = icmp samesign ugt i32 %.in.i358, 1
   br i1 %802, label %.lr.ph.i357, label %._crit_edge.i374, !llvm.loop !64
 
 ._crit_edge.i374:                                 ; preds = %.thread75.i370, %797
@@ -8104,7 +8104,7 @@ array_bitmap_copy.exit354:                        ; preds = %736, %755, %716, %.
   br i1 %.not82.i391, label %array_bitmap_copy.exit392, label %.thread427
 
 809:                                              ; preds = %.lr.ph94.i381
-  %810 = icmp ugt i32 %.in99.i382, 1
+  %810 = icmp samesign ugt i32 %.in99.i382, 1
   br i1 %810, label %.lr.ph94.i381, label %._crit_edge95.thread.sink.split.i376, !llvm.loop !65
 
 .thread427:                                       ; preds = %807
@@ -9283,7 +9283,7 @@ define dso_local noundef zeroext i1 @array_contains_nulls(ptr noundef %0) local_
 22:                                               ; preds = %.lr.ph
   %23 = getelementptr i8, ptr %.01524, i64 1
   %24 = add nsw i32 %.01623, -8
-  %25 = icmp ugt i32 %.01623, 15
+  %25 = icmp samesign ugt i32 %.01623, 15
   br i1 %25, label %.lr.ph, label %.preheader, !llvm.loop !73
 
 26:                                               ; preds = %.lr.ph28, %29
@@ -12479,7 +12479,7 @@ define dso_local noundef ptr @accumArrayResultArr(ptr noundef %0, i64 noundef %1
   br i1 %.not82.i, label %array_bitmap_copy.exit, label %.thread143
 
 150:                                              ; preds = %.lr.ph94.i
-  %151 = icmp ugt i32 %.in99.i, 1
+  %151 = icmp samesign ugt i32 %.in99.i, 1
   br i1 %151, label %.lr.ph94.i, label %._crit_edge95.thread.sink.split.i, !llvm.loop !65
 
 .thread143:                                       ; preds = %148
@@ -12600,7 +12600,7 @@ array_bitmap_copy.exit:                           ; preds = %148, %._crit_edge95
   %.157.i = phi ptr [ %207, %206 ], [ %.05683.i, %202 ]
   %.143.i = phi i32 [ 1, %206 ], [ %203, %202 ]
   %.1.i = phi i32 [ %209, %206 ], [ %.088.i, %202 ]
-  %210 = icmp ugt i32 %.in.i, 1
+  %210 = icmp samesign ugt i32 %.in.i, 1
   br i1 %210, label %.lr.ph.i, label %._crit_edge.i, !llvm.loop !64
 
 ._crit_edge.i:                                    ; preds = %.thread75.i, %205
@@ -12624,7 +12624,7 @@ array_bitmap_copy.exit:                           ; preds = %148, %._crit_edge95
   br i1 %.not82.i141, label %array_bitmap_copy.exit142, label %.thread154
 
 217:                                              ; preds = %.lr.ph94.i131
-  %218 = icmp ugt i32 %.in99.i132, 1
+  %218 = icmp samesign ugt i32 %.in99.i132, 1
   br i1 %218, label %.lr.ph94.i131, label %._crit_edge95.thread.sink.split.i130, !llvm.loop !65
 
 .thread154:                                       ; preds = %215
@@ -12856,7 +12856,7 @@ define dso_local noundef i64 @makeArrayResultArr(ptr noundef %0, ptr noundef %1,
   %.157.i = phi ptr [ %108, %107 ], [ %.05683.i, %103 ]
   %.143.i = phi i32 [ 1, %107 ], [ %104, %103 ]
   %.1.i = phi i32 [ %110, %107 ], [ %.088.i, %103 ]
-  %111 = icmp ugt i32 %.in.i, 1
+  %111 = icmp samesign ugt i32 %.in.i, 1
   br i1 %111, label %.lr.ph.i, label %._crit_edge.i, !llvm.loop !64
 
 ._crit_edge.i:                                    ; preds = %.thread75.i, %106
@@ -13084,8 +13084,8 @@ define dso_local range(i64 -2147483648, 2147483648) i64 @generate_subscripts(ptr
 24:                                               ; preds = %6
   %25 = trunc i64 %11 to i32
   %26 = icmp slt i32 %25, 1
-  %27 = icmp ult i32 %17, %25
-  %or.cond68 = or i1 %26, %27
+  %27 = icmp samesign ult i32 %17, %25
+  %or.cond68 = select i1 %26, i1 true, i1 %27
   br i1 %or.cond68, label %28, label %33
 
 28:                                               ; preds = %24
@@ -13355,7 +13355,7 @@ define internal fastcc noundef ptr @array_fill_internal(ptr noundef %0, ptr noun
 38:                                               ; preds = %.lr.ph.i
   %39 = getelementptr i8, ptr %.01524.i, i64 1
   %40 = add nsw i32 %.01623.i, -8
-  %41 = icmp ugt i32 %.01623.i, 15
+  %41 = icmp samesign ugt i32 %.01623.i, 15
   br i1 %41, label %.lr.ph.i, label %.preheader.i, !llvm.loop !73
 
 42:                                               ; preds = %45, %.lr.ph28.i
@@ -13417,7 +13417,7 @@ array_contains_nulls.exit:                        ; preds = %.lr.ph.i, %42
   unreachable
 
 72:                                               ; preds = %64
-  %73 = icmp ugt i32 %66, 6
+  %73 = icmp samesign ugt i32 %66, 6
   br i1 %73, label %74, label %.thread154
 
 74:                                               ; preds = %72
@@ -13502,7 +13502,7 @@ array_contains_nulls.exit:                        ; preds = %.lr.ph.i, %42
 110:                                              ; preds = %.lr.ph.i145
   %111 = getelementptr i8, ptr %.01524.i146, i64 1
   %112 = add nsw i32 %.01623.i147, -8
-  %113 = icmp ugt i32 %.01623.i147, 15
+  %113 = icmp samesign ugt i32 %.01623.i147, 15
   br i1 %113, label %.lr.ph.i145, label %.preheader.i138, !llvm.loop !73
 
 114:                                              ; preds = %117, %.lr.ph28.i142
@@ -14847,7 +14847,7 @@ define dso_local range(i64 -2147483648, 2147483648) i64 @width_bucket_array(ptr 
 43:                                               ; preds = %.lr.ph.i
   %44 = getelementptr i8, ptr %.01524.i, i64 1
   %45 = add nsw i32 %.01623.i, -8
-  %46 = icmp ugt i32 %.01623.i, 15
+  %46 = icmp samesign ugt i32 %.01623.i, 15
   br i1 %46, label %.lr.ph.i, label %.preheader.i, !llvm.loop !73
 
 47:                                               ; preds = %50, %.lr.ph28.i

@@ -2827,7 +2827,7 @@ _ZN11BigUnsignedD2Ev.exit34:                      ; preds = %40, %45
   br label %_ZN15NumberlikeArrayImE8allocateEj.exit
 
 _ZN15NumberlikeArrayImE8allocateEj.exit:          ; preds = %54, %69
-  %.not38 = icmp ult i32 %2, 64
+  %.not38 = icmp samesign ult i32 %2, 64
   br i1 %.not38, label %.preheader, label %.lr.ph
 
 .lr.ph:                                           ; preds = %_ZN15NumberlikeArrayImE8allocateEj.exit

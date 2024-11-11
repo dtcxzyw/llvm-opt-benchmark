@@ -492,7 +492,7 @@ define internal void @start_input_bmp(ptr noundef %0, ptr nocapture noundef %1) 
   br i1 %302, label %310, label %303
 
 303:                                              ; preds = %301
-  %304 = icmp ugt i32 %.0233, 256
+  %304 = icmp samesign ugt i32 %.0233, 256
   br i1 %304, label %305, label %310
 
 305:                                              ; preds = %303
@@ -850,7 +850,7 @@ read_colormap.exit:                               ; preds = %470, %.thread80.i, 
   br label %read_byte.exit
 
 read_byte.exit:                                   ; preds = %491, %496
-  %503 = icmp ugt i32 %.1230268, 1
+  %503 = icmp samesign ugt i32 %.1230268, 1
   br i1 %503, label %491, label %._crit_edge, !llvm.loop !8
 
 ._crit_edge:                                      ; preds = %read_byte.exit, %.thread270, %489

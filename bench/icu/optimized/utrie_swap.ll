@@ -79,7 +79,7 @@ lor.lhs.false35:                                  ; preds = %lor.lhs.false28
 lor.lhs.false46:                                  ; preds = %lor.lhs.false35
   %and48 = and i32 %call17, 512
   %cmp49 = icmp ne i32 %and48, 0
-  %cmp52 = icmp ult i32 %call21, 288
+  %cmp52 = icmp samesign ult i32 %call21, 288
   %or.cond5 = select i1 %cmp49, i1 %cmp52, i1 false
   br i1 %or.cond5, label %if.then53, label %if.end54
 
@@ -215,7 +215,7 @@ if.end38:                                         ; preds = %if.end11
   br i1 %cmp3, label %if.then49, label %return
 
 if.then49:                                        ; preds = %if.end38
-  %cmp50 = icmp ult i32 %length, %size.0
+  %cmp50 = icmp samesign ult i32 %length, %size.0
   br i1 %cmp50, label %if.then51, label %if.end52
 
 if.then51:                                        ; preds = %if.then49
@@ -363,7 +363,7 @@ sw.epilog:                                        ; preds = %if.end51, %sw.bb58,
   br i1 %cmp3, label %if.then64, label %return
 
 if.then64:                                        ; preds = %sw.epilog
-  %cmp65 = icmp ult i32 %length, %size.0
+  %cmp65 = icmp samesign ult i32 %length, %size.0
   br i1 %cmp65, label %if.then66, label %if.end67
 
 if.then66:                                        ; preds = %if.then64

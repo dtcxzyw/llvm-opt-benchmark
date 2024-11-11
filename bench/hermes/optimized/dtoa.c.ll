@@ -344,7 +344,7 @@ if.then125.i:                                     ; preds = %for.end121.i.thread
   br label %for.inc137.i
 
 if.else128.i:                                     ; preds = %for.end121.i
-  %cmp129.i = icmp ult i32 %nd.4.lcssa.i, 17
+  %cmp129.i = icmp samesign ult i32 %nd.4.lcssa.i, 17
   br i1 %cmp129.i, label %if.then131.i, label %for.inc137.i
 
 if.then131.i:                                     ; preds = %if.else128.i
@@ -508,7 +508,7 @@ if.end235.i:                                      ; preds = %if.end221.i
   %conv234.i = uitofp i32 %z.3.i to double
   %40 = call double @llvm.fmuladd.f64(double %39, double %conv228.i, double %conv234.i)
   store double %40, ptr %rv.i, align 8
-  %cmp236.i = icmp ult i32 %nd.2.i, 16
+  %cmp236.i = icmp samesign ult i32 %nd.2.i, 16
   %41 = bitcast double %40 to i64
   %42 = lshr i64 %41, 32
   %43 = trunc nuw i64 %42 to i32
@@ -532,7 +532,7 @@ if.end244.i:                                      ; preds = %if.then241.i
   br i1 %cmp245.i, label %if.then247.i, label %if.else268.i
 
 if.then247.i:                                     ; preds = %if.end244.i
-  %cmp248.i = icmp ult i32 %sub222.i, 23
+  %cmp248.i = icmp samesign ult i32 %sub222.i, 23
   br i1 %cmp248.i, label %if.then250.i, label %if.end254.i
 
 if.then250.i:                                     ; preds = %if.then247.i
@@ -563,7 +563,7 @@ if.then259.i:                                     ; preds = %if.end254.i
   br label %ret.i
 
 if.else268.i:                                     ; preds = %if.end244.i
-  %cmp269.i = icmp ugt i32 %sub222.i, -23
+  %cmp269.i = icmp samesign ugt i32 %sub222.i, -23
   br i1 %cmp269.i, label %if.then271.i, label %if.end277.i
 
 if.then271.i:                                     ; preds = %if.else268.i
@@ -748,7 +748,7 @@ if.end299.i:                                      ; preds = %if.else.i383.i, %if
   br label %ret.i
 
 if.end300.i:                                      ; preds = %if.then291.i
-  %cmp302848.i = icmp ugt i32 %add279.i, 31
+  %cmp302848.i = icmp samesign ugt i32 %add279.i, 31
   br i1 %cmp302848.i, label %for.body304.preheader.i, label %for.end315.i
 
 for.body304.preheader.i:                          ; preds = %if.end300.i
@@ -847,15 +847,15 @@ if.end348.i:                                      ; preds = %if.then344.i, %if.t
   %90 = phi i32 [ %87, %if.then344.i ], [ %53, %if.then340.i ]
   %rv.promoted1144.i = phi double [ %div347.i, %if.then344.i ], [ %55, %if.then340.i ]
   %shr349.i = lshr i32 %sub341.i, 4
-  %tobool350.not.i = icmp ult i32 %sub341.i, 16
+  %tobool350.not.i = icmp samesign ult i32 %sub341.i, 16
   br i1 %tobool350.not.i, label %if.end414.i, label %if.then351.i
 
 if.then351.i:                                     ; preds = %if.end348.i
-  %cmp352.i = icmp ugt i32 %sub341.i, 511
+  %cmp352.i = icmp samesign ugt i32 %sub341.i, 511
   br i1 %cmp352.i, label %undfl.i, label %for.body364.preheader.i
 
 for.body364.preheader.i:                          ; preds = %if.then351.i
-  %tobool357.not.i = icmp ult i32 %sub341.i, 256
+  %tobool357.not.i = icmp samesign ult i32 %sub341.i, 256
   br label %for.body364.i
 
 for.body364.i:                                    ; preds = %for.inc372.i, %for.body364.preheader.i
@@ -1181,7 +1181,7 @@ s2b.exit.i:                                       ; preds = %for.body14.i.i, %if
   %tobool840.i = icmp ne i32 %bc.sroa.42.0.i, 0
   %cmp881.i = icmp eq i32 %sub415.i, %nd.6.i
   %tobool885.i = icmp eq i32 %bc.sroa.42.0.i, 0
-  %or.cond18.not688.i = and i1 %tobool885.i, %cmp881.i
+  %or.cond18.not688.i = select i1 %cmp881.i, i1 %tobool885.i, i1 false
   br label %for.cond489.i
 
 for.cond489.i:                                    ; preds = %for.cond489.i.backedge, %s2b.exit.i
@@ -1321,7 +1321,7 @@ i2b.exit.i:                                       ; preds = %if.end.i.i423.i, %i
 if.then519.i:                                     ; preds = %i2b.exit.i
   %sub520.i = sub nuw nsw i32 -1021, %add514.i
   %sub521.i = sub nsw i32 %sub516.i, %sub520.i
-  %cmp522.i = icmp ugt i32 %add514.i, -1053
+  %cmp522.i = icmp samesign ugt i32 %add514.i, -1053
   br i1 %cmp522.i, label %if.then524.i, label %if.else526.i
 
 if.then524.i:                                     ; preds = %if.then519.i
@@ -1329,7 +1329,7 @@ if.then524.i:                                     ; preds = %if.then519.i
   br label %if.end535.i
 
 if.else526.i:                                     ; preds = %if.then519.i
-  %cmp527.i = icmp ugt i32 %add514.i, -1073
+  %cmp527.i = icmp samesign ugt i32 %add514.i, -1073
   br i1 %cmp527.i, label %if.then529.i, label %if.end535.i
 
 if.then529.i:                                     ; preds = %if.else526.i
@@ -3313,7 +3313,7 @@ if.then144:                                       ; preds = %if.else141
   %arrayidx147 = getelementptr inbounds [23 x double], ptr @tens, i64 0, i64 %idxprom146
   %44 = load double, ptr %arrayidx147, align 8
   %mul148 = fmul double %39, %44
-  %tobool151.not834 = icmp ult i32 %sub142, 16
+  %tobool151.not834 = icmp samesign ult i32 %sub142, 16
   br i1 %tobool151.not834, label %if.end166, label %for.body152.preheader
 
 for.body152.preheader:                            ; preds = %if.then144
@@ -6643,7 +6643,7 @@ if.then144:                                       ; preds = %if.else141
   %arrayidx147 = getelementptr inbounds [23 x double], ptr @tens, i64 0, i64 %idxprom146
   %44 = load double, ptr %arrayidx147, align 8
   %mul148 = fmul double %39, %44
-  %tobool151.not788 = icmp ult i32 %sub142, 16
+  %tobool151.not788 = icmp samesign ult i32 %sub142, 16
   br i1 %tobool151.not788, label %if.end166, label %for.body152.preheader
 
 for.body152.preheader:                            ; preds = %if.then144

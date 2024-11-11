@@ -362,7 +362,7 @@ define internal range(i32 0, 2) i32 @is_valid_mbc_string(ptr noundef readonly %0
   br i1 %5, label %23, label %6
 
 6:                                                ; preds = %.lr.ph
-  %7 = icmp ult i8 %4, -95
+  %7 = icmp samesign ult i8 %4, -95
   br i1 %7, label %8, label %14
 
 8:                                                ; preds = %6
@@ -391,11 +391,11 @@ switch.early.test:                                ; preds = %11
   ]
 
 14:                                               ; preds = %6
-  %15 = icmp ult i8 %4, -32
+  %15 = icmp samesign ult i8 %4, -32
   br i1 %15, label %23, label %16
 
 16:                                               ; preds = %14
-  %17 = icmp ult i8 %4, -3
+  %17 = icmp samesign ult i8 %4, -3
   br i1 %17, label %18, label %switch.early.test35._crit_edge
 
 18:                                               ; preds = %16

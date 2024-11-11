@@ -1196,7 +1196,7 @@ do.body19:                                        ; preds = %do.body7
   br label %if.end26
 
 if.end26:                                         ; preds = %do.body7, %do.body19
-  %cmp = icmp ugt i64 %inleft.addr.0134, 1
+  %cmp = icmp samesign ugt i64 %inleft.addr.0134, 1
   br i1 %cmp, label %while.body, label %return, !llvm.loop !11
 
 if.end27:                                         ; preds = %while.body
@@ -1391,7 +1391,7 @@ if.else:                                          ; preds = %switch.hole_check, 
   br i1 %or.cond, label %do.body73, label %do.body85
 
 do.body73:                                        ; preds = %if.else
-  %cmp74 = icmp ult i64 %inleft.addr.0134, 3
+  %cmp74 = icmp samesign ult i64 %inleft.addr.0134, 3
   br i1 %cmp74, label %return, label %do.end78
 
 do.end78:                                         ; preds = %do.body73
@@ -1429,7 +1429,7 @@ do.body25.i:                                      ; preds = %if.then19.i
   br i1 %cmp30.i, label %return, label %iso2022processg2.exit
 
 if.else35.i:                                      ; preds = %if.then19.i
-  %cmp39.i = icmp ult i8 %36, -64
+  %cmp39.i = icmp samesign ult i8 %36, -64
   br i1 %cmp39.i, label %land.lhs.true.i, label %if.else55.i
 
 land.lhs.true.i:                                  ; preds = %if.else35.i
@@ -1447,13 +1447,13 @@ do.body45.i:                                      ; preds = %land.lhs.true.i
 
 if.else55.i:                                      ; preds = %land.lhs.true.i, %if.else35.i
   %xor58.i = zext i8 %36 to i64
-  %cmp59.i = icmp ult i8 %36, -76
+  %cmp59.i = icmp samesign ult i8 %36, -76
   %cmp65.not.i = icmp eq i8 %35, 127
   %or.cond.i = or i1 %cmp65.not.i, %cmp59.i
   br i1 %or.cond.i, label %if.else93.i, label %land.lhs.true67.i
 
 land.lhs.true67.i:                                ; preds = %if.else55.i
-  %cmp71.i = icmp ugt i8 %36, -45
+  %cmp71.i = icmp samesign ugt i8 %36, -45
   br i1 %cmp71.i, label %do.body82.i, label %lor.lhs.false.i
 
 lor.lhs.false.i:                                  ; preds = %land.lhs.true67.i

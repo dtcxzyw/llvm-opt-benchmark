@@ -917,7 +917,7 @@ do.body98:                                        ; preds = %land.lhs.true
   %shl = shl nuw nsw i32 %conv, 10
   %add = add nsw i32 %shl, -56613888
   %sub = add nuw nsw i32 %add, %conv90
-  %cmp116 = icmp ult i32 %sub, 1114112
+  %cmp116 = icmp samesign ult i32 %sub, 1114112
   br i1 %cmp116, label %if.then117, label %if.else166
 
 if.then100:                                       ; preds = %for.body, %land.lhs.true
@@ -1193,7 +1193,7 @@ do.end:                                           ; preds = %land.lhs.true
   %shl = shl nuw nsw i32 %conv3, 10
   %add = add nsw i32 %shl, -56613888
   %sub = add nuw nsw i32 %add, %conv9
-  %cmp32 = icmp ult i32 %sub, 1114112
+  %cmp32 = icmp samesign ult i32 %sub, 1114112
   br i1 %cmp32, label %if.then33, label %if.else79
 
 if.then18:                                        ; preds = %do.body, %land.lhs.true

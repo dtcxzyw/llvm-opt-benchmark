@@ -49833,8 +49833,8 @@ _ZN13async_process7Command3arg17h69396701b2399f17E.exit: ; preds = %_ZN13async_p
 .thread.i.i.i.i:                                  ; preds = %852
   %860 = getelementptr inbounds i8, ptr %16, i64 16
   %861 = load i8, ptr %860, align 8, !range !3480, !alias.scope !15481, !noalias !15484, !noundef !4
-  %switch.i.i3453.i.i.i.i = icmp samesign ult i8 %861, 3
-  br i1 %switch.i.i3453.i.i.i.i, label %848, label %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h6b015cef719af1a5E.exit.i.i.i.i"
+  %or.cond54.i.i.i.i = icmp samesign ult i8 %861, 3
+  br i1 %or.cond54.i.i.i.i, label %848, label %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h6b015cef719af1a5E.exit.i.i.i.i"
 
 ._crit_edge.i.i.i.i:                              ; preds = %856
   br i1 %switch.i.i.i.i.i.i, label %848, label %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h6b015cef719af1a5E.exit.i.i.i.i"

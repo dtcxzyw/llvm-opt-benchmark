@@ -4928,7 +4928,7 @@ _ZN14num_bigint_dig7biguint7BigUint4bits17h01b8eccdbbf1b049E.exit.thread.i: ; pr
 
 128:                                              ; preds = %125
   %129 = xor i64 %86, -1
-  %130 = icmp ugt i64 %86, %127
+  %130 = icmp samesign ugt i64 %86, %127
   br i1 %130, label %131, label %132
 
 131:                                              ; preds = %128
@@ -4953,7 +4953,7 @@ _ZN14num_bigint_dig7biguint7BigUint4bits17h01b8eccdbbf1b049E.exit.thread.i: ; pr
 138:                                              ; preds = %133
   %139 = getelementptr inbounds [0 x i8], ptr %126, i64 0, i64 %136
   store i8 1, ptr %139, align 1, !noalias !1272
-  %140 = icmp ugt i64 %135, %127
+  %140 = icmp samesign ugt i64 %135, %127
   br i1 %140, label %147, label %142
 
 141:                                              ; preds = %133

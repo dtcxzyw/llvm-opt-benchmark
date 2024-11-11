@@ -2334,7 +2334,7 @@ define dso_local i32 @kernel_execve(ptr noundef %0, ptr noundef readonly %1, ptr
 
 119:                                              ; preds = %115, %111
   %120 = tail call i32 @__SCT__cond_resched() #15
-  %121 = icmp ugt i64 %.in, 1
+  %121 = icmp samesign ugt i64 %.in, 1
   br i1 %121, label %.lr.ph, label %._crit_edge
 
 ._crit_edge:                                      ; preds = %119, %98
@@ -2371,7 +2371,7 @@ define dso_local i32 @kernel_execve(ptr noundef %0, ptr noundef readonly %1, ptr
 
 140:                                              ; preds = %136, %132
   %141 = tail call i32 @__SCT__cond_resched() #15
-  %142 = icmp ugt i64 %.in54, 1
+  %142 = icmp samesign ugt i64 %.in54, 1
   br i1 %142, label %.lr.ph52, label %._crit_edge53
 
 ._crit_edge53:                                    ; preds = %140, %._crit_edge

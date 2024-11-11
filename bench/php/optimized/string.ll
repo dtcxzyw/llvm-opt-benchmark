@@ -2476,7 +2476,7 @@ define hidden void @zif_wordwrap(ptr noundef %0, ptr nocapture noundef writeonly
   br i1 %28, label %29, label %.thread668
 
 29:                                               ; preds = %27, %.critedge623
-  %30 = icmp ult i32 %8, 3
+  %30 = icmp samesign ult i32 %8, 3
   br i1 %30, label %.thread655, label %31
 
 31:                                               ; preds = %29
@@ -3052,7 +3052,7 @@ define void @php_explode(ptr noundef %0, ptr noundef %1, ptr nocapture noundef r
 
 18:                                               ; preds = %16
   %19 = icmp samesign ult i64 %7, 1024
-  %20 = icmp ult i64 %10, 9
+  %20 = icmp samesign ult i64 %10, 9
   %21 = or i1 %19, %20
   br i1 %21, label %22, label %44
 
@@ -3433,7 +3433,7 @@ define void @php_explode_negative_limit(ptr noundef %0, ptr noundef %1, ptr noca
 
 18:                                               ; preds = %16
   %19 = icmp samesign ult i64 %7, 1024
-  %20 = icmp ult i64 %10, 9
+  %20 = icmp samesign ult i64 %10, 9
   %21 = or i1 %19, %20
   br i1 %21, label %22, label %44
 
@@ -6723,7 +6723,7 @@ define internal fastcc void @_zend_strstr(ptr nocapture noundef writeonly %0, pt
 
 17:                                               ; preds = %15
   %18 = icmp samesign ult i64 %9, 1024
-  %19 = icmp ult i64 %7, 9
+  %19 = icmp samesign ult i64 %7, 9
   %20 = or i1 %19, %18
   br i1 %20, label %21, label %43
 
@@ -7214,7 +7214,7 @@ define hidden void @zif_str_contains(ptr noundef %0, ptr nocapture noundef write
 
 38:                                               ; preds = %36
   %39 = icmp samesign ult i64 %30, 1024
-  %40 = icmp ult i64 %28, 9
+  %40 = icmp samesign ult i64 %28, 9
   %41 = or i1 %40, %39
   br i1 %41, label %42, label %64
 
@@ -7411,7 +7411,7 @@ define hidden void @zflf_str_contains_2(ptr nocapture noundef writeonly %0, ptr 
 
 62:                                               ; preds = %60
   %63 = icmp samesign ult i64 %54, 1024
-  %64 = icmp ult i64 %52, 9
+  %64 = icmp samesign ult i64 %52, 9
   %65 = or i1 %64, %63
   br i1 %65, label %66, label %88
 
@@ -8788,7 +8788,7 @@ define hidden void @zif_strrpos(ptr noundef %0, ptr nocapture noundef writeonly 
 
 95:                                               ; preds = %89
   %96 = icmp slt i64 %92, 1024
-  %97 = icmp ult i64 %79, 3
+  %97 = icmp samesign ult i64 %79, 3
   %98 = or i1 %96, %97
   br i1 %98, label %99, label %121
 
@@ -9177,7 +9177,7 @@ define hidden void @zif_strripos(ptr noundef %0, ptr nocapture noundef writeonly
 
 171:                                              ; preds = %165
   %172 = icmp slt i64 %168, 1024
-  %173 = icmp ult i64 %157, 3
+  %173 = icmp samesign ult i64 %157, 3
   %174 = or i1 %172, %173
   br i1 %174, label %175, label %197
 
@@ -14233,7 +14233,7 @@ define hidden void @zif_strrev(ptr noundef %0, ptr nocapture noundef writeonly %
   %28 = load i8, ptr %.0109.ptr, align 1
   %29 = getelementptr inbounds i8, ptr %.0111160, i64 1
   store i8 %28, ptr %.0111160, align 1
-  %.not119 = icmp ult i64 %.0109.idx161, 25
+  %.not119 = icmp samesign ult i64 %.0109.idx161, 25
   br i1 %.not119, label %._crit_edge, label %.lr.ph
 
 ._crit_edge:                                      ; preds = %.lr.ph, %.thread141
@@ -15110,7 +15110,7 @@ define void @php_stripcslashes(ptr noundef %0) local_unnamed_addr #15 {
   br i1 %60, label %61, label %.critedge
 
 61:                                               ; preds = %.lr.ph
-  %62 = icmp ult i8 %59, 56
+  %62 = icmp samesign ult i8 %59, 56
   %63 = icmp samesign ult i64 %.077, 3
   %or.cond = select i1 %62, i1 %63, i1 false
   br i1 %or.cond, label %64, label %.critedge
@@ -18822,7 +18822,7 @@ define hidden void @zif_str_getcsv(ptr noundef %0, ptr nocapture noundef writeon
   %31 = getelementptr inbounds i8, ptr %30, i64 16
   %32 = load i64, ptr %31, align 8
   %33 = getelementptr inbounds i8, ptr %30, i64 24
-  %34 = icmp ult i32 %8, 3
+  %34 = icmp samesign ult i32 %8, 3
   br i1 %34, label %.thread278, label %35
 
 35:                                               ; preds = %29
@@ -19823,7 +19823,7 @@ define hidden void @zif_substr_count(ptr noundef %0, ptr nocapture noundef write
   br i1 %118, label %.thread446, label %.lr.ph466
 
 .lr.ph466:                                        ; preds = %114
-  %119 = icmp ult i64 %.fr485, 9
+  %119 = icmp samesign ult i64 %.fr485, 9
   %120 = add nsw i64 %.fr485, -1
   %121 = getelementptr inbounds i8, ptr %35, i64 %120
   %122 = sub nsw i64 0, %.fr485
@@ -20444,7 +20444,7 @@ define hidden void @zif_str_rot13(ptr noundef %0, ptr nocapture noundef writeonl
 72:                                               ; preds = %.lr.ph.i
   %73 = add nsw i8 %.fr.i, -84
   %.urem.i = add nsw i8 %.fr.i, -110
-  %.cmp.i = icmp ult i8 %73, 26
+  %.cmp.i = icmp samesign ult i8 %73, 26
   %74 = select i1 %.cmp.i, i8 %73, i8 %.urem.i
   %75 = add nuw nsw i8 %74, 97
   br label %82
@@ -20457,7 +20457,7 @@ define hidden void @zif_str_rot13(ptr noundef %0, ptr nocapture noundef writeonl
 78:                                               ; preds = %76
   %79 = add nsw i8 %.fr.i, -52
   %.urem527.i = add nsw i8 %.fr.i, -78
-  %.cmp528.i = icmp ult i8 %79, 26
+  %.cmp528.i = icmp samesign ult i8 %79, 26
   %80 = select i1 %.cmp528.i, i8 %79, i8 %.urem527.i
   %81 = add nuw nsw i8 %80, 65
   br label %82
@@ -22468,7 +22468,7 @@ define internal fastcc ptr @php_str_to_str_ex(ptr noundef %0, ptr noundef %1, i6
 
 .lr.ph511:                                        ; preds = %140
   %148 = ptrtoint ptr %12 to i64
-  %149 = icmp ult i64 %2, 9
+  %149 = icmp samesign ult i64 %2, 9
   %150 = add nsw i64 %2, -1
   %151 = getelementptr inbounds i8, ptr %1, i64 %150
   %152 = sub nsw i64 0, %2

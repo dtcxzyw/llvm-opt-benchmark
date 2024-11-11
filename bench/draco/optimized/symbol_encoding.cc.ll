@@ -1411,7 +1411,7 @@ define linkonce_odr noundef zeroext i1 @_ZN5draco16EncodeRawSymbolsINS_17RAnsSym
 13:                                               ; preds = %6
   %14 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %3, i1 true)
   %15 = sub nuw nsw i32 32, %14
-  %16 = icmp ugt i32 %3, 262143
+  %16 = icmp samesign ugt i32 %3, 262143
   br i1 %16, label %115, label %.thread
 
 .thread:                                          ; preds = %6, %13
@@ -1546,7 +1546,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit108: ;
   br label %.thread129
 
 53:                                               ; preds = %49
-  %54 = icmp ult i32 %42, 6
+  %54 = icmp samesign ult i32 %42, 6
   br i1 %54, label %55, label %57
 
 55:                                               ; preds = %53
@@ -1554,7 +1554,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit108: ;
   br label %.thread129
 
 57:                                               ; preds = %53
-  %58 = icmp ugt i32 %42, 9
+  %58 = icmp samesign ugt i32 %42, 9
   br i1 %58, label %59, label %61
 
 59:                                               ; preds = %57
@@ -1562,7 +1562,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit108: ;
   br label %.thread129
 
 61:                                               ; preds = %57
-  %62 = icmp ugt i32 %42, 7
+  %62 = icmp samesign ugt i32 %42, 7
   %63 = zext i1 %62 to i32
   %spec.select = add nuw nsw i32 %.0, %63
   br label %.thread129
@@ -1898,7 +1898,7 @@ _ZSt13move_backwardIPcS0_ET0_T_S2_S1_.exit:       ; preds = %_ZSt22__uninitializ
   %33 = getelementptr inbounds i8, ptr %.0910.i.i.i.i.i, i64 1
   %34 = getelementptr inbounds i8, ptr %.0811.i.i.i.i.i, i64 1
   %35 = add nsw i64 %.012.i.i.i.i.i, -1
-  %36 = icmp ugt i64 %.012.i.i.i.i.i, 1
+  %36 = icmp samesign ugt i64 %.012.i.i.i.i.i, 1
   br i1 %36, label %.lr.ph.i.i.i.i.i, label %_ZSt4copyIPKhN9__gnu_cxx17__normal_iteratorIPcSt6vectorIcSaIcEEEEET0_T_SA_S9_.exit, !llvm.loop !15
 
 _ZSt7advanceIPKhmEvRT_T0_.exit:                   ; preds = %16
@@ -1917,7 +1917,7 @@ _ZSt7advanceIPKhmEvRT_T0_.exit:                   ; preds = %16
   %42 = getelementptr inbounds i8, ptr %.0910.i.i.i.i.i.i.i.i, i64 1
   %43 = getelementptr inbounds i8, ptr %.0811.i.i.i.i.i.i.i.i, i64 1
   %44 = add nsw i64 %.012.i.i.i.i.i.i.i.i, -1
-  %45 = icmp ugt i64 %.012.i.i.i.i.i.i.i.i, 1
+  %45 = icmp samesign ugt i64 %.012.i.i.i.i.i.i.i.i, 1
   br i1 %45, label %.lr.ph.i.i.i.i.i.i.i.i, label %_ZSt22__uninitialized_copy_aIPKhPccET0_T_S4_S3_RSaIT1_E.exit.loopexit, !llvm.loop !15
 
 _ZSt22__uninitialized_copy_aIPKhPccET0_T_S4_S3_RSaIT1_E.exit.loopexit: ; preds = %.lr.ph.i.i.i.i.i.i.i.i
@@ -1953,7 +1953,7 @@ _ZSt22__uninitialized_move_aIPcS0_SaIcEET0_T_S3_S2_RT1_.exit56: ; preds = %_ZSt2
   %54 = getelementptr inbounds i8, ptr %.0910.i.i.i.i.i61, i64 1
   %55 = getelementptr inbounds i8, ptr %.0811.i.i.i.i.i60, i64 1
   %56 = add nsw i64 %.012.i.i.i.i.i59, -1
-  %57 = icmp ugt i64 %.012.i.i.i.i.i59, 1
+  %57 = icmp samesign ugt i64 %.012.i.i.i.i.i59, 1
   br i1 %57, label %.lr.ph.i.i.i.i.i58, label %_ZSt4copyIPKhN9__gnu_cxx17__normal_iteratorIPcSt6vectorIcSaIcEEEEET0_T_SA_S9_.exit, !llvm.loop !15
 
 58:                                               ; preds = %5

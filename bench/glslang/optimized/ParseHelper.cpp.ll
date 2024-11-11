@@ -23952,7 +23952,7 @@ _ZSteqIcSt11char_traitsIcEN7glslang14pool_allocatorIcEEEbRKNSt7__cxx1112basic_st
   br label %_ZN7glslang13TParseContext17findFunctionExactERKNS_10TSourceLocERKNS_9TFunctionERb.exit
 
 178:                                              ; preds = %153
-  %179 = icmp ult i32 %116, 400
+  %179 = icmp samesign ult i32 %116, 400
   br i1 %179, label %180, label %193
 
 180:                                              ; preds = %178
@@ -35348,8 +35348,8 @@ _ZNK7glslang10TQualifier12isPipeOutputEv.exit.i:  ; preds = %89
   %100 = getelementptr inbounds i8, ptr %0, i64 12
   %101 = load i32, ptr %100, align 4
   %102 = icmp eq i32 %101, 8
-  %103 = icmp ugt i32 %97, 419
-  %or.cond.i = or i1 %103, %102
+  %103 = icmp samesign ugt i32 %97, 419
+  %or.cond.i = select i1 %102, i1 true, i1 %103
   br i1 %or.cond.i, label %104, label %.thread.i
 
 104:                                              ; preds = %99
@@ -35853,8 +35853,8 @@ _ZNK7glslang10TQualifier12isPipeOutputEv.exit:    ; preds = %3
   %15 = getelementptr inbounds i8, ptr %0, i64 12
   %16 = load i32, ptr %15, align 4
   %17 = icmp eq i32 %16, 8
-  %18 = icmp ugt i32 %12, 419
-  %or.cond = or i1 %17, %18
+  %18 = icmp samesign ugt i32 %12, 419
+  %or.cond = select i1 %17, i1 true, i1 %18
   br i1 %or.cond, label %19, label %.thread
 
 19:                                               ; preds = %14

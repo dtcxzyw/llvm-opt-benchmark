@@ -127,7 +127,7 @@ define internal i32 @dissect_esl_header(ptr noundef %0, ptr nocapture readnone %
   br i1 %.not20.i, label %32, label %flags_to_port.exit
 
 32:                                               ; preds = %31
-  %.not21.i = icmp ult i16 %13, 16384
+  %.not21.i = icmp samesign ult i16 %13, 16384
   br i1 %.not21.i, label %33, label %flags_to_port.exit
 
 33:                                               ; preds = %32

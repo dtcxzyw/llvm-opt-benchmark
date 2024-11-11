@@ -831,7 +831,7 @@ detzcode.exit487.i:                               ; preds = %267
   %indvars.iv721.i49 = phi i64 [ %indvars.iv.next722.i50, %.lr.ph620.i ], [ %360, %.lr.ph620.preheader.i ]
   %373 = trunc nuw nsw i64 %indvars.iv.next722.i50 to i32
   store i32 %373, ptr %37, align 4
-  %374 = icmp ugt i64 %indvars.iv721.i49, 2
+  %374 = icmp samesign ugt i64 %indvars.iv721.i49, 2
   br i1 %374, label %.lr.ph620.i, label %.critedge.i, !llvm.loop !18
 
 .critedge.i:                                      ; preds = %.lr.ph, %.lr.ph620.i, %.lr.ph620.preheader.i, %358
@@ -1580,7 +1580,7 @@ getzname.exit257:                                 ; preds = %.lr.ph.i252, %67
 144:                                              ; preds = %141, %138
   %.pre-phi.i = phi i64 [ %139, %138 ], [ %142, %141 ]
   %145 = add i64 %.pre-phi.i, %.0286
-  %146 = icmp ugt i32 %.0208, 1771
+  %146 = icmp samesign ugt i32 %.0208, 1771
   br i1 %146, label %125, label %.lr.ph330, !llvm.loop !30
 
 increment_overflow_time.exit.thread:              ; preds = %138, %141

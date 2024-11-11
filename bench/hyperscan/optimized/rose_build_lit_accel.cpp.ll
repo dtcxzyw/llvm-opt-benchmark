@@ -370,7 +370,7 @@ _ZN3ue2L13mask_overhangERKNS_11AccelStringE.exit.i: ; preds = %for.inc.i.i, %for
 _ZN3ue2L13mask_overhangERKNS_11AccelStringE.exit.thread.i: ; preds = %if.then185.i
   %spec.select.i414.i = tail call noundef i64 @llvm.usub.sat.i64(i64 %sub.ptr.sub.i.i.i, i64 %31)
   %add189415.i = add nuw nsw i64 %spec.select.i414.i, %.us-phi
-  %cmp190416.i = icmp ult i64 %add189415.i, %conv186.i
+  %cmp190416.i = icmp samesign ult i64 %add189415.i, %conv186.i
   br i1 %cmp190416.i, label %cleanup208.i, label %cond.end198.i
 
 for.body.i351.i:                                  ; preds = %_ZN3ue2L13mask_overhangERKNS_11AccelStringE.exit.i, %for.inc.i358.i

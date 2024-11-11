@@ -236,7 +236,7 @@ define range(i32 -1, 1) i32 @H5B2__hdr_init(ptr noundef %0, ptr nocapture nounde
   br label %H5VM_limit_enc_size.exit
 
 110:                                              ; preds = %._crit_edge
-  %.not24.i.i = icmp ult i32 %93, 256
+  %.not24.i.i = icmp samesign ult i32 %93, 256
   br i1 %.not24.i.i, label %.thread, label %111
 
 111:                                              ; preds = %110
@@ -357,7 +357,7 @@ H5VM_limit_enc_size.exit:                         ; preds = %99, %105, %111, %.t
   br label %H5VM_limit_enc_size.exit130
 
 191:                                              ; preds = %177
-  %.not27.i.i = icmp ult i64 %175, 1099511627776
+  %.not27.i.i = icmp samesign ult i64 %175, 1099511627776
   br i1 %.not27.i.i, label %198, label %192
 
 192:                                              ; preds = %191
@@ -377,11 +377,11 @@ H5VM_limit_enc_size.exit:                         ; preds = %99, %105, %111, %.t
 
 203:                                              ; preds = %128
   %204 = lshr i64 %175, 16
-  %.not23.i.i127 = icmp ult i64 %175, 65536
+  %.not23.i.i127 = icmp samesign ult i64 %175, 65536
   br i1 %.not23.i.i127, label %217, label %205
 
 205:                                              ; preds = %203
-  %.not25.i.i128 = icmp ult i64 %175, 16777216
+  %.not25.i.i128 = icmp samesign ult i64 %175, 16777216
   br i1 %.not25.i.i128, label %212, label %206
 
 206:                                              ; preds = %205
@@ -400,7 +400,7 @@ H5VM_limit_enc_size.exit:                         ; preds = %99, %105, %111, %.t
   br label %H5VM_limit_enc_size.exit130
 
 217:                                              ; preds = %203
-  %.not24.i.i129 = icmp ult i64 %175, 256
+  %.not24.i.i129 = icmp samesign ult i64 %175, 256
   br i1 %.not24.i.i129, label %224, label %218
 
 218:                                              ; preds = %217

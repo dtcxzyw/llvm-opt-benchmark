@@ -1980,7 +1980,7 @@ ssl_write_server_hello.exit:                      ; preds = %ssl_write_hello_ver
   ]
 
 mbedtls_ssl_ciphersuite_no_pfs.exit.i:            ; preds = %913, %913, %913, %913, %913
-  %switch.i.i = icmp ult i8 %.val.i29, 9
+  %switch.i.i = icmp samesign ult i8 %.val.i29, 9
   br i1 %switch.i.i, label %ssl_get_ecdh_params_from_cert.exit.i, label %919
 
 919:                                              ; preds = %mbedtls_ssl_ciphersuite_no_pfs.exit.i

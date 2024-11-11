@@ -3753,7 +3753,7 @@ ftp_213_date.exit.thread:                         ; preds = %16, %10, %72, %ftp_
 
 136:                                              ; preds = %132
   %cond = icmp eq i8 %127, 2
-  %137 = icmp ugt i64 %130, %134
+  %137 = icmp samesign ugt i64 %130, %134
   br i1 %cond, label %150, label %138
 
 138:                                              ; preds = %136

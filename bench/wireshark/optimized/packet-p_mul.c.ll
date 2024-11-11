@@ -501,7 +501,7 @@ define internal i32 @dissect_p_mul(ptr noundef %0, ptr noundef %1, ptr noundef %
   br i1 %.not, label %44, label %45
 
 44:                                               ; preds = %38
-  %.not598 = icmp ult i8 %39, 64
+  %.not598 = icmp samesign ult i8 %39, 64
   br i1 %.not598, label %49, label %45
 
 45:                                               ; preds = %44, %38

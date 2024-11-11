@@ -772,11 +772,11 @@ define linkonce_odr hidden noundef i32 @_ZNSt3__118condition_variable8wait_forIx
   br i1 %12, label %13, label %15
 
 13:                                               ; preds = %11
-  %14 = icmp ugt i64 %.sroa.02.0.copyload, 9223372036854775
+  %14 = icmp samesign ugt i64 %.sroa.02.0.copyload, 9223372036854775
   br i1 %14, label %_ZNSt3__122__safe_nanosecond_castB8ne190000IxNS_5ratioILl1ELl1000000EEETnNS_9enable_ifIXntsr17is_floating_pointIT_EE5valueEiE4typeELi0EEENS_6chrono8durationIxNS1_ILl1ELl1000000000EEEEENS8_IS4_T0_EE.exit, label %17
 
 15:                                               ; preds = %11
-  %16 = icmp ult i64 %.sroa.02.0.copyload, -9223372036854775
+  %16 = icmp samesign ult i64 %.sroa.02.0.copyload, -9223372036854775
   br i1 %16, label %_ZNSt3__122__safe_nanosecond_castB8ne190000IxNS_5ratioILl1ELl1000000EEETnNS_9enable_ifIXntsr17is_floating_pointIT_EE5valueEiE4typeELi0EEENS_6chrono8durationIxNS1_ILl1ELl1000000000EEEEENS8_IS4_T0_EE.exit, label %17
 
 17:                                               ; preds = %15, %13

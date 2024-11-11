@@ -1054,7 +1054,7 @@ sdo_cmd_fields_scs.exit.thread.i:                 ; preds = %sdo_cmd_fields_scs.
   %244 = zext nneg i8 %.185.i to i32
   %245 = tail call ptr @proto_tree_add_item(ptr noundef %70, i32 noundef %243, ptr noundef %0, i32 noundef %.390.i, i32 noundef %244, i32 noundef 0) #3
   %246 = add nuw nsw i32 %.390.i, %244
-  %247 = icmp ult i32 %246, 8
+  %247 = icmp samesign ult i32 %246, 8
   br i1 %247, label %.thread172.i, label %dissect_sdo.exit
 
 .thread172.i:                                     ; preds = %242, %241

@@ -1768,7 +1768,7 @@ ea05.exit:                                        ; preds = %552, %554, %559
   br i1 %620, label %u2a.exit.i, label %621
 
 621:                                              ; preds = %617
-  %622 = icmp ult i32 %604, 5
+  %622 = icmp samesign ult i32 %604, 5
   %623 = load i8, ptr %3, align 16
   %624 = icmp ne i8 %623, -1
   %or.cond401.not539.i = select i1 %622, i1 true, i1 %624
@@ -1911,7 +1911,7 @@ u2a.exit.i:                                       ; preds = %.lr.ph45.i.i, %._cr
   br i1 %687, label %u2a.exit354.i, label %688
 
 688:                                              ; preds = %680
-  %689 = icmp ult i32 %665, 5
+  %689 = icmp samesign ult i32 %665, 5
   %690 = load i8, ptr %3, align 16
   %691 = icmp ne i8 %690, -1
   %or.cond406.not544.i = select i1 %689, i1 true, i1 %691

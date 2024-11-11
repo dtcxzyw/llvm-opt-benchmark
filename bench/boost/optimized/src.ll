@@ -2332,7 +2332,7 @@ _ZNK5boost4json5array6growthEm.exit:              ; preds = %39
   %46 = add nuw nsw i64 %43, %16
   %..i = tail call i64 @llvm.umax.i64(i64 %46, i64 %40)
   %.0.i = select i1 %45, i64 %40, i64 %..i
-  %47 = icmp ugt i64 %.0.i, 2147483646
+  %47 = icmp samesign ugt i64 %.0.i, 2147483646
   br i1 %47, label %48, label %_ZN5boost4json5array5table8allocateEmRKNS0_11storage_ptrE.exit
 
 48:                                               ; preds = %_ZNK5boost4json5array6growthEm.exit
@@ -5667,7 +5667,7 @@ _ZNK5boost4json5array6growthEm.exit:              ; preds = %2
   %13 = add nuw nsw i64 %10, %9
   %..i = tail call i64 @llvm.umax.i64(i64 %13, i64 %1)
   %.0.i = select i1 %12, i64 %1, i64 %..i
-  %14 = icmp ugt i64 %.0.i, 2147483646
+  %14 = icmp samesign ugt i64 %.0.i, 2147483646
   br i1 %14, label %15, label %_ZN5boost4json5array5table8allocateEmRKNS0_11storage_ptrE.exit
 
 15:                                               ; preds = %_ZNK5boost4json5array6growthEm.exit
@@ -11233,7 +11233,7 @@ _ZNK5boost4json6object6growthEm.exit:             ; preds = %2
   %.0.i = select i1 %12, i64 %1, i64 %..i
   %14 = getelementptr inbounds nuw i8, ptr %6, i64 8
   %15 = load i64, ptr %14, align 8, !tbaa !112
-  %16 = icmp ult i64 %.0.i, 19
+  %16 = icmp samesign ult i64 %.0.i, 19
   %17 = load i64, ptr %0, align 8, !tbaa !17
   %.not.i.i.i = icmp eq i64 %17, 0
   %18 = and i64 %17, -4
@@ -18430,7 +18430,7 @@ define noundef zeroext i1 @_ZN5boost4json6detail11write_int64ERNS1_6writerERNS1_
   store ptr %14, ptr %18, align 8, !tbaa !42
   %.sroa.4.0..sroa_idx.i = getelementptr inbounds i8, ptr %0, i64 64
   store ptr %17, ptr %.sroa.4.0..sroa_idx.i, align 8, !tbaa !42
-  %19 = icmp ult i64 %7, %16
+  %19 = icmp samesign ult i64 %7, %16
   br i1 %19, label %20, label %25
 
 20:                                               ; preds = %13
@@ -18527,7 +18527,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN5boost4json6detail12write_buff
   br i1 %33, label %.lr.ph.i.i, label %._crit_edge.i.i, !llvm.loop !356
 
 ._crit_edge.i.i:                                  ; preds = %.lr.ph.i.i
-  %34 = icmp ugt i64 %.02333.i.i, 99999
+  %34 = icmp samesign ugt i64 %.02333.i.i, 99999
   br i1 %34, label %._crit_edge.thread.i.i, label %42
 
 ._crit_edge.thread.i.i:                           ; preds = %._crit_edge.i.i, %16
@@ -18648,7 +18648,7 @@ define noundef zeroext i1 @_ZN5boost4json6detail12write_doubleERNS1_6writerERNS1
   store ptr %17, ptr %22, align 8, !tbaa !42
   %.sroa.4.0..sroa_idx.i = getelementptr inbounds i8, ptr %0, i64 64
   store ptr %21, ptr %.sroa.4.0..sroa_idx.i, align 8, !tbaa !42
-  %23 = icmp ult i64 %9, %20
+  %23 = icmp samesign ult i64 %9, %20
   br i1 %23, label %24, label %29
 
 24:                                               ; preds = %16
@@ -19699,7 +19699,7 @@ _ZNK5boost4json6string4sizeEv.exit:               ; preds = %24, %27
   store ptr %47, ptr %51, align 8, !tbaa !42
   %.sroa.4.0..sroa_idx.i.i = getelementptr inbounds i8, ptr %0, i64 64
   store ptr %50, ptr %.sroa.4.0..sroa_idx.i.i, align 8, !tbaa !42
-  %52 = icmp ult i64 %40, %49
+  %52 = icmp samesign ult i64 %40, %49
   br i1 %52, label %53, label %58
 
 53:                                               ; preds = %46
@@ -19776,7 +19776,7 @@ _ZN5boost4json6detail11write_int64ERNS1_6writerERNS1_6streamEl.exit: ; preds = %
   store ptr %79, ptr %84, align 8, !tbaa !42
   %.sroa.4.0..sroa_idx.i.i35 = getelementptr inbounds i8, ptr %0, i64 64
   store ptr %83, ptr %.sroa.4.0..sroa_idx.i.i35, align 8, !tbaa !42
-  %85 = icmp ult i64 %71, %82
+  %85 = icmp samesign ult i64 %71, %82
   br i1 %85, label %86, label %91
 
 86:                                               ; preds = %78
@@ -20009,7 +20009,7 @@ _ZNK5boost4json6string4sizeEv.exit:               ; preds = %29, %32
   store ptr %52, ptr %56, align 8, !tbaa !42
   %.sroa.4.0..sroa_idx.i.i = getelementptr inbounds i8, ptr %0, i64 64
   store ptr %55, ptr %.sroa.4.0..sroa_idx.i.i, align 8, !tbaa !42
-  %57 = icmp ult i64 %45, %54
+  %57 = icmp samesign ult i64 %45, %54
   br i1 %57, label %58, label %63
 
 58:                                               ; preds = %51
@@ -20086,7 +20086,7 @@ _ZN5boost4json6detail11write_int64ERNS1_6writerERNS1_6streamEl.exit: ; preds = %
   store ptr %84, ptr %89, align 8, !tbaa !42
   %.sroa.4.0..sroa_idx.i.i45 = getelementptr inbounds i8, ptr %0, i64 64
   store ptr %88, ptr %.sroa.4.0..sroa_idx.i.i45, align 8, !tbaa !42
-  %90 = icmp ult i64 %76, %87
+  %90 = icmp samesign ult i64 %76, %87
   br i1 %90, label %91, label %96
 
 91:                                               ; preds = %83
@@ -33820,7 +33820,7 @@ define noundef i32 @_ZN5boost4json6detail12format_int64EPcl(ptr nocapture nounde
   br i1 %5, label %6, label %48
 
 6:                                                ; preds = %2
-  %7 = icmp ult i64 %1, 10
+  %7 = icmp samesign ult i64 %1, 10
   br i1 %7, label %8, label %11
 
 8:                                                ; preds = %6
@@ -33832,7 +33832,7 @@ define noundef i32 @_ZN5boost4json6detail12format_int64EPcl(ptr nocapture nounde
 11:                                               ; preds = %6
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %4) #48
   %12 = getelementptr inbounds i8, ptr %4, i64 24
-  %13 = icmp ugt i64 %1, 999
+  %13 = icmp samesign ugt i64 %1, 999
   br i1 %13, label %.lr.ph.i, label %._crit_edge.thread.i
 
 .lr.ph.i:                                         ; preds = %11, %.lr.ph.i
@@ -33859,7 +33859,7 @@ define noundef i32 @_ZN5boost4json6detail12format_int64EPcl(ptr nocapture nounde
   br i1 %28, label %.lr.ph.i, label %._crit_edge.i, !llvm.loop !356
 
 ._crit_edge.i:                                    ; preds = %.lr.ph.i
-  %29 = icmp ugt i64 %.02333.i, 99999
+  %29 = icmp samesign ugt i64 %.02333.i, 99999
   br i1 %29, label %._crit_edge.thread.i, label %37
 
 ._crit_edge.thread.i:                             ; preds = %._crit_edge.i, %11
@@ -33944,7 +33944,7 @@ define noundef i32 @_ZN5boost4json6detail12format_int64EPcl(ptr nocapture nounde
   br i1 %72, label %.lr.ph.i19, label %._crit_edge.i23, !llvm.loop !356
 
 ._crit_edge.i23:                                  ; preds = %.lr.ph.i19
-  %73 = icmp ugt i64 %.02333.i21, 99999
+  %73 = icmp samesign ugt i64 %.02333.i21, 99999
   br i1 %73, label %._crit_edge.thread.i9, label %81
 
 ._crit_edge.thread.i9:                            ; preds = %._crit_edge.i23, %55
@@ -34497,7 +34497,7 @@ define linkonce_odr hidden { i64, i32 } @_ZN5boost4json6detail3ryu6detail3d2dEmj
 13:                                               ; preds = %2
   %14 = mul i32 %.0, 78913
   %15 = lshr i32 %14, 18
-  %16 = icmp ugt i32 %.0, 3
+  %16 = icmp samesign ugt i32 %.0, 3
   %.neg171 = sext i1 %16 to i32
   %17 = add nsw i32 %15, %.neg171
   %18 = mul i32 %17, 1217359
@@ -34898,68 +34898,68 @@ define linkonce_odr hidden noundef i32 @_ZN5boost4json6detail3ryu6detail8to_char
   br i1 %7, label %_ZN5boost4json6detail3ryu6detail15decimalLength17Em.exit.thread123, label %8
 
 8:                                                ; preds = %6
-  %9 = icmp ugt i64 %0, 999999999999999
+  %9 = icmp samesign ugt i64 %0, 999999999999999
   br i1 %9, label %_ZN5boost4json6detail3ryu6detail15decimalLength17Em.exit.thread123, label %10
 
 10:                                               ; preds = %8
-  %11 = icmp ugt i64 %0, 99999999999999
+  %11 = icmp samesign ugt i64 %0, 99999999999999
   br i1 %11, label %_ZN5boost4json6detail3ryu6detail15decimalLength17Em.exit.thread123, label %12
 
 12:                                               ; preds = %10
-  %13 = icmp ugt i64 %0, 9999999999999
+  %13 = icmp samesign ugt i64 %0, 9999999999999
   br i1 %13, label %_ZN5boost4json6detail3ryu6detail15decimalLength17Em.exit.thread123, label %14
 
 14:                                               ; preds = %12
-  %15 = icmp ugt i64 %0, 999999999999
+  %15 = icmp samesign ugt i64 %0, 999999999999
   br i1 %15, label %_ZN5boost4json6detail3ryu6detail15decimalLength17Em.exit.thread123, label %16
 
 16:                                               ; preds = %14
-  %17 = icmp ugt i64 %0, 99999999999
+  %17 = icmp samesign ugt i64 %0, 99999999999
   br i1 %17, label %_ZN5boost4json6detail3ryu6detail15decimalLength17Em.exit.thread123, label %18
 
 18:                                               ; preds = %16
-  %19 = icmp ugt i64 %0, 9999999999
+  %19 = icmp samesign ugt i64 %0, 9999999999
   br i1 %19, label %_ZN5boost4json6detail3ryu6detail15decimalLength17Em.exit.thread123, label %20
 
 20:                                               ; preds = %18
-  %21 = icmp ugt i64 %0, 999999999
+  %21 = icmp samesign ugt i64 %0, 999999999
   br i1 %21, label %_ZN5boost4json6detail3ryu6detail15decimalLength17Em.exit, label %22
 
 22:                                               ; preds = %20
-  %23 = icmp ugt i64 %0, 99999999
+  %23 = icmp samesign ugt i64 %0, 99999999
   br i1 %23, label %_ZN5boost4json6detail3ryu6detail15decimalLength17Em.exit.thread, label %24
 
 24:                                               ; preds = %22
-  %25 = icmp ugt i64 %0, 9999999
+  %25 = icmp samesign ugt i64 %0, 9999999
   br i1 %25, label %_ZN5boost4json6detail3ryu6detail15decimalLength17Em.exit.thread, label %26
 
 26:                                               ; preds = %24
-  %27 = icmp ugt i64 %0, 999999
+  %27 = icmp samesign ugt i64 %0, 999999
   br i1 %27, label %_ZN5boost4json6detail3ryu6detail15decimalLength17Em.exit.thread, label %28
 
 28:                                               ; preds = %26
-  %29 = icmp ugt i64 %0, 99999
+  %29 = icmp samesign ugt i64 %0, 99999
   br i1 %29, label %_ZN5boost4json6detail3ryu6detail15decimalLength17Em.exit.thread, label %30
 
 30:                                               ; preds = %28
-  %31 = icmp ugt i64 %0, 9999
+  %31 = icmp samesign ugt i64 %0, 9999
   br i1 %31, label %_ZN5boost4json6detail3ryu6detail15decimalLength17Em.exit.thread, label %32
 
 32:                                               ; preds = %30
-  %33 = icmp ugt i64 %0, 999
+  %33 = icmp samesign ugt i64 %0, 999
   br i1 %33, label %_ZN5boost4json6detail3ryu6detail15decimalLength17Em.exit.thread, label %34
 
 34:                                               ; preds = %32
-  %35 = icmp ugt i64 %0, 99
+  %35 = icmp samesign ugt i64 %0, 99
   br i1 %35, label %_ZN5boost4json6detail3ryu6detail15decimalLength17Em.exit.thread, label %36
 
 36:                                               ; preds = %34
-  %37 = icmp ugt i64 %0, 9
+  %37 = icmp samesign ugt i64 %0, 9
   %..i = select i1 %37, i32 2, i32 1
   br label %_ZN5boost4json6detail3ryu6detail15decimalLength17Em.exit.thread
 
 _ZN5boost4json6detail3ryu6detail15decimalLength17Em.exit: ; preds = %20
-  %.not = icmp ult i64 %0, 4294967296
+  %.not = icmp samesign ult i64 %0, 4294967296
   br i1 %.not, label %_ZN5boost4json6detail3ryu6detail15decimalLength17Em.exit.thread, label %_ZN5boost4json6detail3ryu6detail15decimalLength17Em.exit.thread123
 
 _ZN5boost4json6detail3ryu6detail15decimalLength17Em.exit.thread123: ; preds = %18, %16, %14, %12, %10, %8, %6, %_ZN5boost4json6detail3ryu6detail15decimalLength17Em.exit
@@ -35143,7 +35143,7 @@ _ZN5boost4json6detail3ryu6detail15decimalLength17Em.exit.thread: ; preds = %36, 
 155:                                              ; preds = %150, %143
   %.0107 = phi i32 [ %154, %150 ], [ %148, %143 ]
   %.2 = phi i32 [ %151, %150 ], [ %144, %143 ]
-  %156 = icmp ugt i32 %.0107, 99
+  %156 = icmp samesign ugt i32 %.0107, 99
   br i1 %156, label %157, label %170
 
 157:                                              ; preds = %155
@@ -35164,7 +35164,7 @@ _ZN5boost4json6detail3ryu6detail15decimalLength17Em.exit.thread: ; preds = %36, 
   br label %186
 
 170:                                              ; preds = %155
-  %171 = icmp ugt i32 %.0107, 9
+  %171 = icmp samesign ugt i32 %.0107, 9
   br i1 %171, label %172, label %180
 
 172:                                              ; preds = %170
@@ -41250,7 +41250,7 @@ _ZN5boost4json6detail14parse_unsignedEmPKcm.exit: ; preds = %._crit_edge.i, %59,
 
 224:                                              ; preds = %222
   %225 = icmp eq i32 %storemerge346373, 214748364
-  %226 = icmp ugt i8 %219, 55
+  %226 = icmp samesign ugt i8 %219, 55
   %227 = and i1 %226, %225
   br i1 %227, label %232, label %228, !prof !245
 
@@ -41280,7 +41280,7 @@ _ZN5boost4json6detail14parse_unsignedEmPKcm.exit: ; preds = %._crit_edge.i, %59,
 
 238:                                              ; preds = %235
   %239 = icmp eq i32 %233, 2147483647
-  %240 = icmp ult i32 %182, -2147483339
+  %240 = icmp samesign ult i32 %182, -2147483339
   %or.cond95 = and i1 %240, %239
   %241 = icmp ne i64 %181, 0
   %or.cond102 = select i1 %or.cond95, i1 %241, i1 false
@@ -41297,7 +41297,7 @@ _ZN5boost4json6detail14parse_unsignedEmPKcm.exit: ; preds = %._crit_edge.i, %59,
 
 247:                                              ; preds = %244
   %248 = icmp eq i32 %233, 2147483647
-  %249 = icmp ugt i32 %182, 2147483339
+  %249 = icmp samesign ugt i32 %182, 2147483339
   %or.cond98 = and i1 %249, %248
   %250 = icmp ne i64 %181, 0
   %or.cond104 = select i1 %or.cond98, i1 %250, i1 false
@@ -41895,7 +41895,7 @@ _ZN5boost4json6detail14parse_unsignedEmPKcm.exit: ; preds = %._crit_edge.i, %61,
 
 242:                                              ; preds = %240
   %243 = icmp eq i32 %storemerge383410, 214748364
-  %244 = icmp ugt i8 %237, 55
+  %244 = icmp samesign ugt i8 %237, 55
   %245 = and i1 %244, %243
   br i1 %245, label %250, label %246, !prof !245
 
@@ -41924,7 +41924,7 @@ _ZN5boost4json6detail14parse_unsignedEmPKcm.exit: ; preds = %._crit_edge.i, %61,
 
 255:                                              ; preds = %252
   %256 = icmp eq i32 %251, 2147483647
-  %257 = icmp ult i32 %192, -2147483339
+  %257 = icmp samesign ult i32 %192, -2147483339
   %or.cond118 = and i1 %257, %256
   %258 = icmp ne i64 %191, 0
   %or.cond125 = select i1 %or.cond118, i1 %258, i1 false
@@ -41941,7 +41941,7 @@ _ZN5boost4json6detail14parse_unsignedEmPKcm.exit: ; preds = %._crit_edge.i, %61,
 
 264:                                              ; preds = %261
   %265 = icmp eq i32 %251, 2147483647
-  %266 = icmp ugt i32 %192, 2147483339
+  %266 = icmp samesign ugt i32 %192, 2147483339
   %or.cond121 = and i1 %266, %265
   %267 = icmp ne i64 %191, 0
   %or.cond127 = select i1 %or.cond121, i1 %267, i1 false
@@ -42724,7 +42724,7 @@ _ZN5boost4json6detail14parse_unsignedEmPKcm.exit160: ; preds = %._crit_edge.i150
 
 232:                                              ; preds = %229
   %233 = icmp eq i64 %225, 922337203685477580
-  %234 = icmp ugt i8 %226, 56
+  %234 = icmp samesign ugt i8 %226, 56
   %or.cond8 = and i1 %234, %233
   br i1 %or.cond8, label %239, label %235
 
@@ -43074,7 +43074,7 @@ _ZN5boost4json6detail14parse_unsignedEmPKcm.exit160: ; preds = %._crit_edge.i150
 
 393:                                              ; preds = %391
   %394 = icmp eq i32 %storemerge543596, 214748364
-  %395 = icmp ugt i8 %388, 55
+  %395 = icmp samesign ugt i8 %388, 55
   %396 = and i1 %395, %394
   br i1 %396, label %401, label %397, !prof !245
 
@@ -43104,7 +43104,7 @@ _ZN5boost4json6detail14parse_unsignedEmPKcm.exit160: ; preds = %._crit_edge.i150
 
 407:                                              ; preds = %404
   %408 = icmp eq i32 %402, 2147483647
-  %409 = icmp ult i32 %350, -2147483339
+  %409 = icmp samesign ult i32 %350, -2147483339
   %or.cond140 = and i1 %409, %408
   %410 = icmp ne i64 %349, 0
   %or.cond147 = select i1 %or.cond140, i1 %410, i1 false
@@ -43121,7 +43121,7 @@ _ZN5boost4json6detail14parse_unsignedEmPKcm.exit160: ; preds = %._crit_edge.i150
 
 416:                                              ; preds = %413
   %417 = icmp eq i32 %402, 2147483647
-  %418 = icmp ugt i32 %350, 2147483339
+  %418 = icmp samesign ugt i32 %350, 2147483339
   %or.cond143 = and i1 %418, %417
   %419 = icmp ne i64 %349, 0
   %or.cond149 = select i1 %or.cond143, i1 %419, i1 false
@@ -43844,7 +43844,7 @@ _ZN5boost4json6detail14parse_unsignedEmPKcm.exit191: ; preds = %._crit_edge.i181
 
 239:                                              ; preds = %236
   %240 = icmp eq i64 %232, 922337203685477580
-  %241 = icmp ugt i8 %233, 56
+  %241 = icmp samesign ugt i8 %233, 56
   %or.cond8 = and i1 %241, %240
   br i1 %or.cond8, label %246, label %242
 
@@ -44226,7 +44226,7 @@ _ZN5boost4json6detail14parse_unsignedEmPKcm.exit191: ; preds = %._crit_edge.i181
 
 432:                                              ; preds = %430
   %433 = icmp eq i32 %storemerge596649, 214748364
-  %434 = icmp ugt i8 %427, 55
+  %434 = icmp samesign ugt i8 %427, 55
   %435 = and i1 %434, %433
   br i1 %435, label %440, label %436, !prof !245
 
@@ -44255,7 +44255,7 @@ _ZN5boost4json6detail14parse_unsignedEmPKcm.exit191: ; preds = %._crit_edge.i181
 
 445:                                              ; preds = %442
   %446 = icmp eq i32 %441, 2147483647
-  %447 = icmp ult i32 %378, -2147483339
+  %447 = icmp samesign ult i32 %378, -2147483339
   %or.cond171 = and i1 %447, %446
   %448 = icmp ne i64 %377, 0
   %or.cond178 = select i1 %or.cond171, i1 %448, i1 false
@@ -44272,7 +44272,7 @@ _ZN5boost4json6detail14parse_unsignedEmPKcm.exit191: ; preds = %._crit_edge.i181
 
 454:                                              ; preds = %451
   %455 = icmp eq i32 %441, 2147483647
-  %456 = icmp ugt i32 %378, 2147483339
+  %456 = icmp samesign ugt i32 %378, 2147483339
   %or.cond174 = and i1 %456, %455
   %457 = icmp ne i64 %377, 0
   %or.cond180 = select i1 %or.cond174, i1 %457, i1 false
@@ -45051,7 +45051,7 @@ _ZN5boost4json6detail14parse_unsignedEmPKcm.exit147: ; preds = %._crit_edge.i137
 
 191:                                              ; preds = %188
   %192 = icmp eq i64 %184, 1844674407370955161
-  %193 = icmp ugt i8 %185, 53
+  %193 = icmp samesign ugt i8 %185, 53
   %or.cond8 = and i1 %193, %192
   br i1 %or.cond8, label %198, label %194
 
@@ -45384,7 +45384,7 @@ _ZN5boost4json6detail14parse_unsignedEmPKcm.exit147: ; preds = %._crit_edge.i137
 
 343:                                              ; preds = %341
   %344 = icmp eq i32 %storemerge493547, 214748364
-  %345 = icmp ugt i8 %338, 55
+  %345 = icmp samesign ugt i8 %338, 55
   %346 = and i1 %345, %344
   br i1 %346, label %351, label %347, !prof !245
 
@@ -45414,7 +45414,7 @@ _ZN5boost4json6detail14parse_unsignedEmPKcm.exit147: ; preds = %._crit_edge.i137
 
 357:                                              ; preds = %354
   %358 = icmp eq i32 %352, 2147483647
-  %359 = icmp ult i32 %300, -2147483339
+  %359 = icmp samesign ult i32 %300, -2147483339
   %or.cond127 = and i1 %359, %358
   %360 = icmp ne i64 %299, 0
   %or.cond134 = select i1 %or.cond127, i1 %360, i1 false
@@ -45431,7 +45431,7 @@ _ZN5boost4json6detail14parse_unsignedEmPKcm.exit147: ; preds = %._crit_edge.i137
 
 366:                                              ; preds = %363
   %367 = icmp eq i32 %352, 2147483647
-  %368 = icmp ugt i32 %300, 2147483339
+  %368 = icmp samesign ugt i32 %300, 2147483339
   %or.cond130 = and i1 %368, %367
   %369 = icmp ne i64 %299, 0
   %or.cond136 = select i1 %or.cond130, i1 %369, i1 false
@@ -45827,7 +45827,7 @@ _ZN5boost4json6detail14parse_unsignedEmPKcm.exit176: ; preds = %._crit_edge.i166
 
 196:                                              ; preds = %193
   %197 = icmp eq i64 %189, 1844674407370955161
-  %198 = icmp ugt i8 %190, 53
+  %198 = icmp samesign ugt i8 %190, 53
   %or.cond8 = and i1 %198, %197
   br i1 %or.cond8, label %203, label %199
 
@@ -46180,7 +46180,7 @@ _ZN5boost4json6detail14parse_unsignedEmPKcm.exit176: ; preds = %._crit_edge.i166
 
 368:                                              ; preds = %366
   %369 = icmp eq i32 %storemerge542596, 214748364
-  %370 = icmp ugt i8 %363, 55
+  %370 = icmp samesign ugt i8 %363, 55
   %371 = and i1 %370, %369
   br i1 %371, label %376, label %372, !prof !245
 
@@ -46209,7 +46209,7 @@ _ZN5boost4json6detail14parse_unsignedEmPKcm.exit176: ; preds = %._crit_edge.i166
 
 381:                                              ; preds = %378
   %382 = icmp eq i32 %377, 2147483647
-  %383 = icmp ult i32 %317, -2147483339
+  %383 = icmp samesign ult i32 %317, -2147483339
   %or.cond156 = and i1 %383, %382
   %384 = icmp ne i64 %316, 0
   %or.cond163 = select i1 %or.cond156, i1 %384, i1 false
@@ -46226,7 +46226,7 @@ _ZN5boost4json6detail14parse_unsignedEmPKcm.exit176: ; preds = %._crit_edge.i166
 
 390:                                              ; preds = %387
   %391 = icmp eq i32 %377, 2147483647
-  %392 = icmp ugt i32 %317, 2147483339
+  %392 = icmp samesign ugt i32 %317, 2147483339
   %or.cond159 = and i1 %392, %391
   %393 = icmp ne i64 %316, 0
   %or.cond165 = select i1 %or.cond159, i1 %393, i1 false
@@ -47135,7 +47135,7 @@ _ZN5boost4json6detail6bufferILm4096EE11append_utf8Em.exit: ; preds = %157, %161,
   br label %.thread471
 
 203:                                              ; preds = %143
-  %204 = icmp ugt i32 %149, 56319
+  %204 = icmp samesign ugt i32 %149, 56319
   br i1 %204, label %205, label %216, !prof !245
 
 205:                                              ; preds = %203
@@ -47541,7 +47541,7 @@ _ZN5boost4json6detail9hex_digitEh.exit200:        ; preds = %392
   br label %.thread471
 
 404:                                              ; preds = %396
-  %405 = icmp ugt i32 %400, 56319
+  %405 = icmp samesign ugt i32 %400, 56319
   br i1 %405, label %406, label %.preheader, !prof !245
 
 406:                                              ; preds = %404
@@ -52196,7 +52196,7 @@ _ZN5boost4json6detail6bufferILm4096EE11append_utf8Em.exit: ; preds = %165, %169,
   br label %.thread502
 
 211:                                              ; preds = %151
-  %212 = icmp ugt i32 %157, 56319
+  %212 = icmp samesign ugt i32 %157, 56319
   br i1 %212, label %213, label %224, !prof !245
 
 213:                                              ; preds = %211
@@ -52698,7 +52698,7 @@ _ZN5boost4json6detail6bufferILm4096EE11append_utf8Em.exit204: ; preds = %421, %4
   br label %.thread502
 
 467:                                              ; preds = %411
-  %468 = icmp ugt i32 %417, 56319
+  %468 = icmp samesign ugt i32 %417, 56319
   br i1 %468, label %469, label %.critedge, !prof !245
 
 469:                                              ; preds = %467
@@ -53917,7 +53917,7 @@ _ZN5boost4json6detail14parse_unsignedEmPKcm.exit: ; preds = %._crit_edge.i, %63,
 
 160:                                              ; preds = %157
   %161 = icmp eq i64 %153, 922337203685477580
-  %162 = icmp ugt i8 %154, 56
+  %162 = icmp samesign ugt i8 %154, 56
   %or.cond8 = and i1 %162, %161
   br i1 %or.cond8, label %.thread501, label %163
 
@@ -53956,7 +53956,7 @@ _ZN5boost4json6detail14parse_unsignedEmPKcm.exit: ; preds = %._crit_edge.i, %63,
 
 179:                                              ; preds = %176
   %180 = icmp eq i64 %172, 1844674407370955161
-  %181 = icmp ugt i8 %173, 53
+  %181 = icmp samesign ugt i8 %173, 53
   %or.cond11 = and i1 %181, %180
   br i1 %or.cond11, label %.thread501, label %182
 
@@ -54354,7 +54354,7 @@ _ZN5boost4json6detail14parse_unsignedEmPKcm.exit: ; preds = %._crit_edge.i, %63,
 
 352:                                              ; preds = %350
   %353 = icmp eq i32 %storemerge611, 214748364
-  %354 = icmp ugt i8 %347, 55
+  %354 = icmp samesign ugt i8 %347, 55
   %355 = and i1 %354, %353
   br i1 %355, label %360, label %356, !prof !245
 
@@ -54389,7 +54389,7 @@ _ZN5boost4json6detail14parse_unsignedEmPKcm.exit: ; preds = %._crit_edge.i, %63,
 
 372:                                              ; preds = %369
   %373 = icmp eq i32 %368, 2147483647
-  %374 = icmp ult i32 %366, -2147483339
+  %374 = icmp samesign ult i32 %366, -2147483339
   %or.cond151 = and i1 %374, %373
   %375 = load i64, ptr %3, align 8
   %376 = icmp ne i64 %375, 0
@@ -54407,7 +54407,7 @@ _ZN5boost4json6detail14parse_unsignedEmPKcm.exit: ; preds = %._crit_edge.i, %63,
 
 382:                                              ; preds = %379
   %383 = icmp eq i32 %368, 2147483647
-  %384 = icmp ugt i32 %366, 2147483339
+  %384 = icmp samesign ugt i32 %366, 2147483339
   %or.cond154 = and i1 %384, %383
   %385 = load i64, ptr %3, align 8
   %386 = icmp ne i64 %385, 0
@@ -54827,7 +54827,7 @@ _ZN5boost4json6detail14parse_unsignedEmPKcm.exit: ; preds = %._crit_edge.i, %64,
 
 168:                                              ; preds = %165
   %169 = icmp eq i64 %161, 922337203685477580
-  %170 = icmp ugt i8 %162, 56
+  %170 = icmp samesign ugt i8 %162, 56
   %or.cond8 = and i1 %170, %169
   br i1 %or.cond8, label %.thread558, label %171
 
@@ -54871,7 +54871,7 @@ _ZN5boost4json6detail14parse_unsignedEmPKcm.exit: ; preds = %._crit_edge.i, %64,
 
 192:                                              ; preds = %189
   %193 = icmp eq i64 %185, 1844674407370955161
-  %194 = icmp ugt i8 %186, 53
+  %194 = icmp samesign ugt i8 %186, 53
   %or.cond11 = and i1 %194, %193
   br i1 %or.cond11, label %.thread558, label %195
 
@@ -55314,7 +55314,7 @@ _ZN5boost4json6detail14parse_unsignedEmPKcm.exit: ; preds = %._crit_edge.i, %64,
 
 410:                                              ; preds = %408
   %411 = icmp eq i32 %storemerge668, 214748364
-  %412 = icmp ugt i8 %405, 55
+  %412 = icmp samesign ugt i8 %405, 55
   %413 = and i1 %412, %411
   br i1 %413, label %418, label %414, !prof !245
 
@@ -55349,7 +55349,7 @@ _ZN5boost4json6detail14parse_unsignedEmPKcm.exit: ; preds = %._crit_edge.i, %64,
 
 430:                                              ; preds = %427
   %431 = icmp eq i32 %426, 2147483647
-  %432 = icmp ult i32 %424, -2147483339
+  %432 = icmp samesign ult i32 %424, -2147483339
   %or.cond184 = and i1 %432, %431
   %433 = load i64, ptr %3, align 8
   %434 = icmp ne i64 %433, 0
@@ -55367,7 +55367,7 @@ _ZN5boost4json6detail14parse_unsignedEmPKcm.exit: ; preds = %._crit_edge.i, %64,
 
 440:                                              ; preds = %437
   %441 = icmp eq i32 %426, 2147483647
-  %442 = icmp ugt i32 %424, 2147483339
+  %442 = icmp samesign ugt i32 %424, 2147483339
   %or.cond187 = and i1 %442, %441
   %443 = load i64, ptr %3, align 8
   %444 = icmp ne i64 %443, 0
@@ -55722,7 +55722,7 @@ define linkonce_odr hidden noundef ptr @_ZN5boost4json12basic_parserINS0_6detail
 
 126:                                              ; preds = %122
   %127 = getelementptr inbounds nuw i8, ptr %.14432, i64 1
-  %128 = icmp ugt i8 %123, 56
+  %128 = icmp samesign ugt i8 %123, 56
   br i1 %128, label %.thread488, label %.preheader.split.split
 
 .preheader543.split.split:                        ; preds = %.preheader543.split, %139
@@ -55749,7 +55749,7 @@ define linkonce_odr hidden noundef ptr @_ZN5boost4json12basic_parserINS0_6detail
 
 139:                                              ; preds = %135
   %140 = getelementptr inbounds nuw i8, ptr %.18, i64 1
-  %141 = icmp ugt i8 %136, 53
+  %141 = icmp samesign ugt i8 %136, 53
   br i1 %141, label %.thread488, label %.preheader543.split.split
 
 .thread488:                                       ; preds = %139, %126, %.thread488.loopexit545.split.us, %.thread488.loopexit.split.us
@@ -56088,7 +56088,7 @@ define linkonce_odr hidden noundef ptr @_ZN5boost4json12basic_parserINS0_6detail
 
 289:                                              ; preds = %287
   %290 = icmp eq i32 %283, 214748364
-  %291 = icmp ugt i8 %284, 55
+  %291 = icmp samesign ugt i8 %284, 55
   %292 = and i1 %291, %290
   br i1 %292, label %.critedge, label %293, !prof !245
 
@@ -56120,7 +56120,7 @@ define linkonce_odr hidden noundef ptr @_ZN5boost4json12basic_parserINS0_6detail
 
 306:                                              ; preds = %303
   %307 = icmp eq i32 %302, 2147483647
-  %308 = icmp ult i32 %300, -2147483339
+  %308 = icmp samesign ult i32 %300, -2147483339
   %or.cond143 = and i1 %308, %307
   %309 = load i64, ptr %3, align 8
   %310 = icmp ne i64 %309, 0
@@ -56138,7 +56138,7 @@ define linkonce_odr hidden noundef ptr @_ZN5boost4json12basic_parserINS0_6detail
 
 316:                                              ; preds = %313
   %317 = icmp eq i32 %302, 2147483647
-  %318 = icmp ugt i32 %300, 2147483339
+  %318 = icmp samesign ugt i32 %300, 2147483339
   %or.cond146 = and i1 %318, %317
   %319 = load i64, ptr %3, align 8
   %320 = icmp ne i64 %319, 0
@@ -57711,7 +57711,7 @@ define linkonce_odr hidden noundef i64 @_ZNK5boost4json6detail16uint64_formatter
   br i1 %26, label %.lr.ph.i, label %._crit_edge.i, !llvm.loop !356
 
 ._crit_edge.i:                                    ; preds = %.lr.ph.i
-  %27 = icmp ugt i64 %.02333.i, 99999
+  %27 = icmp samesign ugt i64 %.02333.i, 99999
   br i1 %27, label %._crit_edge.thread.i, label %35
 
 ._crit_edge.thread.i:                             ; preds = %._crit_edge.i, %9
@@ -59418,7 +59418,7 @@ define linkonce_odr hidden { ptr, i32 } @_ZN5boost4json6detail8charconv6detail10
 
 246:                                              ; preds = %235
   %247 = sub nsw i32 1, %244
-  %248 = icmp ugt i32 %247, 63
+  %248 = icmp samesign ugt i32 %247, 63
   br i1 %248, label %_ZN5boost4json6detail8charconv6detail10fast_float13compute_floatINS4_13binary_formatIdEEEENS4_17adjusted_mantissaElm.exit, label %249
 
 249:                                              ; preds = %246
@@ -59452,7 +59452,7 @@ define linkonce_odr hidden { ptr, i32 } @_ZN5boost4json6detail8charconv6detail10
   %.sroa.19.0 = add nuw nsw i32 %244, %269
   %270 = and i64 %268, 9218868437227405311
   %271 = select i1 %.not21.i, i64 0, i64 %270
-  %.not22.i = icmp ult i32 %.sroa.19.0, 2047
+  %.not22.i = icmp samesign ult i32 %.sroa.19.0, 2047
   %spec.select203 = tail call i32 @llvm.umin.i32(i32 %.sroa.19.0, i32 2047)
   %spec.select204 = select i1 %.not22.i, i64 %271, i64 0
   br label %_ZN5boost4json6detail8charconv6detail10fast_float13compute_floatINS4_13binary_formatIdEEEENS4_17adjusted_mantissaElm.exit
@@ -59524,7 +59524,7 @@ _ZN5boost4json6detail8charconv6detail10fast_float13compute_floatINS4_13binary_fo
 
 316:                                              ; preds = %305
   %317 = sub nsw i32 1, %314
-  %318 = icmp ugt i32 %317, 63
+  %318 = icmp samesign ugt i32 %317, 63
   br i1 %318, label %_ZN5boost4json6detail8charconv6detail10fast_float13compute_floatINS4_13binary_formatIdEEEENS4_17adjusted_mantissaElm.exit94, label %319
 
 319:                                              ; preds = %316
@@ -59558,7 +59558,7 @@ _ZN5boost4json6detail8charconv6detail10fast_float13compute_floatINS4_13binary_fo
   %.sroa.19158.0 = add nuw nsw i32 %314, %339
   %340 = and i64 %338, 9218868437227405311
   %341 = select i1 %.not21.i84, i64 0, i64 %340
-  %.not22.i85 = icmp ult i32 %.sroa.19158.0, 2047
+  %.not22.i85 = icmp samesign ult i32 %.sroa.19158.0, 2047
   %spec.select205 = tail call i32 @llvm.umin.i32(i32 %.sroa.19158.0, i32 2047)
   %spec.select206 = select i1 %.not22.i85, i64 %341, i64 0
   br label %_ZN5boost4json6detail8charconv6detail10fast_float13compute_floatINS4_13binary_formatIdEEEENS4_17adjusted_mantissaElm.exit94
@@ -59997,7 +59997,7 @@ _ZN5boost4json6detail8charconv6detail10fast_float10skip_zerosIcEEvRPKT_S8_.exit:
   %57 = add nuw nsw i64 %.2251323, 1
   %58 = add nuw i64 %50, 1
   store i64 %58, ptr %3, align 8, !tbaa !11
-  %59 = icmp ult i64 %.2251323, 18
+  %59 = icmp samesign ult i64 %.2251323, 18
   %.not60 = icmp ne ptr %56, %9
   %or.cond.not268 = select i1 %59, i1 %.not60, i1 false
   %60 = icmp ult i64 %58, %2
@@ -60455,7 +60455,7 @@ _ZN5boost4json6detail8charconv6detail10fast_float10skip_zerosIcEEvRPKT_S8_.exit7
   %237 = add nuw nsw i64 %.6255381, 1
   %238 = add nuw i64 %230, 1
   store i64 %238, ptr %3, align 8, !tbaa !11
-  %239 = icmp ult i64 %.6255381, 18
+  %239 = icmp samesign ult i64 %.6255381, 18
   %.not58 = icmp ne ptr %236, %186
   %or.cond64.not270 = select i1 %239, i1 %.not58, i1 false
   %240 = icmp ult i64 %238, %2
@@ -60905,7 +60905,7 @@ _ZZN5boost4json6detail8charconv6detail10fast_float19positive_digit_compIdEENS4_1
   %spec.select.v = select i1 %.not14.i, i32 1022, i32 1023
   %spec.select = add nsw i32 %spec.select.v, %76
   %78 = and i64 %77, 13510798882111487
-  %.not15.i = icmp ult i32 %spec.select, 2047
+  %.not15.i = icmp samesign ult i32 %spec.select, 2047
   %.sroa.13.1 = tail call i32 @llvm.umin.i32(i32 %spec.select, i32 2047)
   %79 = select i1 %.not15.i, i1 %.not14.i, i1 false
   %.sroa.0.1 = select i1 %79, i64 %78, i64 0
@@ -61196,7 +61196,7 @@ _ZZN5boost4json6detail8charconv6detail10fast_float19negative_digit_compIdEENS4_1
   %spec.select97.v = select i1 %.not14.i28, i32 11, i32 12
   %spec.select97 = add nsw i32 %spec.select97.v, %2
   %137 = and i64 %136, 13510798882111487
-  %.not15.i29 = icmp ult i32 %spec.select97, 2047
+  %.not15.i29 = icmp samesign ult i32 %spec.select97, 2047
   %138 = call i32 @llvm.umin.i32(i32 %spec.select97, i32 2047)
   %139 = select i1 %.not15.i29, i1 %.not14.i28, i1 false
   %spec.select100 = select i1 %139, i64 %137, i64 0
@@ -61508,7 +61508,7 @@ _ZN5boost4json6detail8charconv6detail10fast_float8stackvecILt62EE8try_pushEm.exi
   br i1 %68, label %69, label %_ZN5boost4json6detail8charconv6detail10fast_float8stackvecILt62EE10try_extendENS4_4spanImEE.exit
 
 69:                                               ; preds = %66
-  %70 = icmp ugt i64 %67, %62
+  %70 = icmp samesign ugt i64 %67, %62
   br i1 %70, label %_ZN5boost4json6detail8charconv6detail10fast_float8stackvecILt62EE10try_resizeEmm.exit.i.us, label %.sink.split.i.us
 
 _ZN5boost4json6detail8charconv6detail10fast_float8stackvecILt62EE10try_resizeEmm.exit.i.us: ; preds = %69
@@ -62723,61 +62723,61 @@ define linkonce_odr hidden noundef i32 @_ZN5boost4json6detail8charconv6detail10n
   br label %39
 
 13:                                               ; preds = %5
-  %14 = icmp ugt i64 %0, 999999999999999
+  %14 = icmp samesign ugt i64 %0, 999999999999999
   %.21 = select i1 %14, i32 16, i32 15
   br label %39
 
 15:                                               ; preds = %3
-  %16 = icmp ugt i64 %0, 999999999999
+  %16 = icmp samesign ugt i64 %0, 999999999999
   br i1 %16, label %17, label %19
 
 17:                                               ; preds = %15
-  %18 = icmp ugt i64 %0, 9999999999999
+  %18 = icmp samesign ugt i64 %0, 9999999999999
   %.22 = select i1 %18, i32 14, i32 13
   br label %39
 
 19:                                               ; preds = %15
-  %20 = icmp ugt i64 %0, 99999999999
+  %20 = icmp samesign ugt i64 %0, 99999999999
   %.23 = select i1 %20, i32 12, i32 11
   br label %39
 
 21:                                               ; preds = %1
-  %22 = icmp ugt i64 %0, 99999
+  %22 = icmp samesign ugt i64 %0, 99999
   br i1 %22, label %23, label %31
 
 23:                                               ; preds = %21
-  %24 = icmp ugt i64 %0, 9999999
+  %24 = icmp samesign ugt i64 %0, 9999999
   br i1 %24, label %25, label %29
 
 25:                                               ; preds = %23
-  %26 = icmp ugt i64 %0, 99999999
+  %26 = icmp samesign ugt i64 %0, 99999999
   br i1 %26, label %27, label %39
 
 27:                                               ; preds = %25
-  %28 = icmp ugt i64 %0, 999999999
+  %28 = icmp samesign ugt i64 %0, 999999999
   %.24 = select i1 %28, i32 10, i32 9
   br label %39
 
 29:                                               ; preds = %23
-  %30 = icmp ugt i64 %0, 999999
+  %30 = icmp samesign ugt i64 %0, 999999
   %.25 = select i1 %30, i32 7, i32 6
   br label %39
 
 31:                                               ; preds = %21
-  %32 = icmp ugt i64 %0, 99
+  %32 = icmp samesign ugt i64 %0, 99
   br i1 %32, label %33, label %37
 
 33:                                               ; preds = %31
-  %34 = icmp ugt i64 %0, 999
+  %34 = icmp samesign ugt i64 %0, 999
   br i1 %34, label %35, label %39
 
 35:                                               ; preds = %33
-  %36 = icmp ugt i64 %0, 9999
+  %36 = icmp samesign ugt i64 %0, 9999
   %.26 = select i1 %36, i32 5, i32 4
   br label %39
 
 37:                                               ; preds = %31
-  %38 = icmp ugt i64 %0, 9
+  %38 = icmp samesign ugt i64 %0, 9
   %.27 = select i1 %38, i32 2, i32 1
   br label %39
 

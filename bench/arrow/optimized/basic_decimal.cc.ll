@@ -1030,7 +1030,7 @@ for.body.i152.i:                                  ; preds = %for.body.i152.i, %f
   %shl.i155.i = shl i32 %33, %sh_prom6.i.i
   %or.i156.i = or i32 %shl.i155.i, %shr.i154.i
   store i32 %or.i156.i, ptr %arrayidx.i153.i, align 4
-  %cmp2.i.i = icmp ugt i64 %i.0.in13.i.i, 2
+  %cmp2.i.i = icmp samesign ugt i64 %i.0.in13.i.i, 2
   br i1 %cmp2.i.i, label %for.body.i152.i, label %for.end.i150.i, !llvm.loop !12
 
 for.end.i150.i:                                   ; preds = %for.body.i152.i, %for.cond.preheader.i149.i
@@ -3091,7 +3091,7 @@ for.body.i147.i:                                  ; preds = %for.body.i147.i, %f
   %shl.i150.i = shl i32 %43, %sh_prom6.i.i
   %or.i151.i = or i32 %shl.i150.i, %shr.i149.i
   store i32 %or.i151.i, ptr %arrayidx.i148.i, align 4
-  %cmp2.i.i = icmp ugt i64 %i.0.in13.i.i, 2
+  %cmp2.i.i = icmp samesign ugt i64 %i.0.in13.i.i, 2
   br i1 %cmp2.i.i, label %for.body.i147.i, label %for.end.i145.i, !llvm.loop !12
 
 for.end.i145.i:                                   ; preds = %for.body.i147.i, %for.cond.preheader.i144.i

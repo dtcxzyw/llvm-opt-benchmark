@@ -592,7 +592,7 @@ while.body:                                       ; preds = %entry, %while.body
   %sub = add nsw i64 %length.addr.020, -4
   %add.ptr = getelementptr inbounds i8, ptr %src.addr.021, i64 4
   %add.ptr18 = getelementptr inbounds i8, ptr %dest.addr.019, i64 4
-  %cmp = icmp ugt i64 %length.addr.020, 7
+  %cmp = icmp samesign ugt i64 %length.addr.020, 7
   br i1 %cmp, label %while.body, label %while.cond19.preheader, !llvm.loop !4
 
 while.body21:                                     ; preds = %while.cond19.preheader, %while.body21
@@ -608,7 +608,7 @@ while.body21:                                     ; preds = %while.cond19.prehea
   %incdec.ptr25 = getelementptr inbounds i8, ptr %dest.addr.125, i64 1
   store i8 %conv24, ptr %dest.addr.125, align 1
   %dec = add nsw i64 %length.addr.126, -1
-  %cmp20 = icmp ugt i64 %length.addr.126, 1
+  %cmp20 = icmp samesign ugt i64 %length.addr.126, 1
   br i1 %cmp20, label %while.body21, label %while.end26, !llvm.loop !6
 
 while.end26:                                      ; preds = %while.body21, %while.cond19.preheader
@@ -665,7 +665,7 @@ while.body:                                       ; preds = %entry, %while.body
   %sub = add nsw i64 %length.addr.020, -4
   %add.ptr = getelementptr inbounds i8, ptr %src.addr.021, i64 4
   %add.ptr18 = getelementptr inbounds i8, ptr %dest.addr.019, i64 4
-  %cmp = icmp ugt i64 %length.addr.020, 7
+  %cmp = icmp samesign ugt i64 %length.addr.020, 7
   br i1 %cmp, label %while.body, label %while.cond19.preheader, !llvm.loop !7
 
 while.body21:                                     ; preds = %while.cond19.preheader, %while.body21
@@ -681,7 +681,7 @@ while.body21:                                     ; preds = %while.cond19.prehea
   %incdec.ptr25 = getelementptr inbounds i8, ptr %dest.addr.125, i64 1
   store i8 %conv24, ptr %dest.addr.125, align 1
   %dec = add nsw i64 %length.addr.126, -1
-  %cmp20 = icmp ugt i64 %length.addr.126, 1
+  %cmp20 = icmp samesign ugt i64 %length.addr.126, 1
   br i1 %cmp20, label %while.body21, label %while.end26, !llvm.loop !8
 
 while.end26:                                      ; preds = %while.body21, %while.cond19.preheader
@@ -738,7 +738,7 @@ while.body:                                       ; preds = %entry, %while.body
   %sub = add nsw i64 %length.addr.020, -4
   %add.ptr = getelementptr inbounds i8, ptr %src.addr.021, i64 8
   %add.ptr18 = getelementptr inbounds i8, ptr %dest.addr.019, i64 4
-  %cmp = icmp ugt i64 %length.addr.020, 7
+  %cmp = icmp samesign ugt i64 %length.addr.020, 7
   br i1 %cmp, label %while.body, label %while.cond19.preheader, !llvm.loop !9
 
 while.body21:                                     ; preds = %while.cond19.preheader, %while.body21
@@ -754,7 +754,7 @@ while.body21:                                     ; preds = %while.cond19.prehea
   %incdec.ptr25 = getelementptr inbounds i8, ptr %dest.addr.125, i64 1
   store i8 %conv24, ptr %dest.addr.125, align 1
   %dec = add nsw i64 %length.addr.126, -1
-  %cmp20 = icmp ugt i64 %length.addr.126, 1
+  %cmp20 = icmp samesign ugt i64 %length.addr.126, 1
   br i1 %cmp20, label %while.body21, label %while.end26, !llvm.loop !10
 
 while.end26:                                      ; preds = %while.body21, %while.cond19.preheader
@@ -811,7 +811,7 @@ while.body:                                       ; preds = %entry, %while.body
   %sub = add nsw i64 %length.addr.020, -4
   %add.ptr = getelementptr inbounds i8, ptr %src.addr.021, i64 8
   %add.ptr18 = getelementptr inbounds i8, ptr %dest.addr.019, i64 4
-  %cmp = icmp ugt i64 %length.addr.020, 7
+  %cmp = icmp samesign ugt i64 %length.addr.020, 7
   br i1 %cmp, label %while.body, label %while.cond19.preheader, !llvm.loop !11
 
 while.body21:                                     ; preds = %while.cond19.preheader, %while.body21
@@ -827,7 +827,7 @@ while.body21:                                     ; preds = %while.cond19.prehea
   %incdec.ptr25 = getelementptr inbounds i8, ptr %dest.addr.125, i64 1
   store i8 %conv24, ptr %dest.addr.125, align 1
   %dec = add nsw i64 %length.addr.126, -1
-  %cmp20 = icmp ugt i64 %length.addr.126, 1
+  %cmp20 = icmp samesign ugt i64 %length.addr.126, 1
   br i1 %cmp20, label %while.body21, label %while.end26, !llvm.loop !12
 
 while.end26:                                      ; preds = %while.body21, %while.cond19.preheader
@@ -884,7 +884,7 @@ while.body:                                       ; preds = %entry, %while.body
   %sub = add nsw i64 %length.addr.020, -4
   %add.ptr = getelementptr inbounds i8, ptr %src.addr.021, i64 16
   %add.ptr18 = getelementptr inbounds i8, ptr %dest.addr.019, i64 4
-  %cmp = icmp ugt i64 %length.addr.020, 7
+  %cmp = icmp samesign ugt i64 %length.addr.020, 7
   br i1 %cmp, label %while.body, label %while.cond19.preheader, !llvm.loop !13
 
 while.body21:                                     ; preds = %while.cond19.preheader, %while.body21
@@ -900,7 +900,7 @@ while.body21:                                     ; preds = %while.cond19.prehea
   %incdec.ptr25 = getelementptr inbounds i8, ptr %dest.addr.125, i64 1
   store i8 %conv24, ptr %dest.addr.125, align 1
   %dec = add nsw i64 %length.addr.126, -1
-  %cmp20 = icmp ugt i64 %length.addr.126, 1
+  %cmp20 = icmp samesign ugt i64 %length.addr.126, 1
   br i1 %cmp20, label %while.body21, label %while.end26, !llvm.loop !14
 
 while.end26:                                      ; preds = %while.body21, %while.cond19.preheader
@@ -957,7 +957,7 @@ while.body:                                       ; preds = %entry, %while.body
   %sub = add nsw i64 %length.addr.020, -4
   %add.ptr = getelementptr inbounds i8, ptr %src.addr.021, i64 16
   %add.ptr18 = getelementptr inbounds i8, ptr %dest.addr.019, i64 4
-  %cmp = icmp ugt i64 %length.addr.020, 7
+  %cmp = icmp samesign ugt i64 %length.addr.020, 7
   br i1 %cmp, label %while.body, label %while.cond19.preheader, !llvm.loop !15
 
 while.body21:                                     ; preds = %while.cond19.preheader, %while.body21
@@ -973,7 +973,7 @@ while.body21:                                     ; preds = %while.cond19.prehea
   %incdec.ptr25 = getelementptr inbounds i8, ptr %dest.addr.125, i64 1
   store i8 %conv24, ptr %dest.addr.125, align 1
   %dec = add nsw i64 %length.addr.126, -1
-  %cmp20 = icmp ugt i64 %length.addr.126, 1
+  %cmp20 = icmp samesign ugt i64 %length.addr.126, 1
   br i1 %cmp20, label %while.body21, label %while.end26, !llvm.loop !16
 
 while.end26:                                      ; preds = %while.body21, %while.cond19.preheader
@@ -1026,7 +1026,7 @@ while.body:                                       ; preds = %entry, %while.body
   %sub = add nsw i64 %length.addr.020, -4
   %add.ptr = getelementptr inbounds i8, ptr %src.addr.021, i64 32
   %add.ptr15 = getelementptr inbounds i8, ptr %dest.addr.019, i64 4
-  %cmp = icmp ugt i64 %length.addr.020, 7
+  %cmp = icmp samesign ugt i64 %length.addr.020, 7
   br i1 %cmp, label %while.body, label %while.cond16.preheader, !llvm.loop !17
 
 while.body18:                                     ; preds = %while.cond16.preheader, %while.body18
@@ -1041,7 +1041,7 @@ while.body18:                                     ; preds = %while.cond16.prehea
   %incdec.ptr21 = getelementptr inbounds i8, ptr %dest.addr.125, i64 1
   store i8 %conv20, ptr %dest.addr.125, align 1
   %dec = add nsw i64 %length.addr.126, -1
-  %cmp17 = icmp ugt i64 %length.addr.126, 1
+  %cmp17 = icmp samesign ugt i64 %length.addr.126, 1
   br i1 %cmp17, label %while.body18, label %while.end22, !llvm.loop !18
 
 while.end22:                                      ; preds = %while.body18, %while.cond16.preheader
@@ -1094,7 +1094,7 @@ while.body:                                       ; preds = %entry, %while.body
   %sub = add nsw i64 %length.addr.020, -4
   %add.ptr = getelementptr inbounds i8, ptr %src.addr.021, i64 32
   %add.ptr15 = getelementptr inbounds i8, ptr %dest.addr.019, i64 4
-  %cmp = icmp ugt i64 %length.addr.020, 7
+  %cmp = icmp samesign ugt i64 %length.addr.020, 7
   br i1 %cmp, label %while.body, label %while.cond16.preheader, !llvm.loop !19
 
 while.body18:                                     ; preds = %while.cond16.preheader, %while.body18
@@ -1109,7 +1109,7 @@ while.body18:                                     ; preds = %while.cond16.prehea
   %incdec.ptr21 = getelementptr inbounds i8, ptr %dest.addr.125, i64 1
   store i8 %conv20, ptr %dest.addr.125, align 1
   %dec = add nsw i64 %length.addr.126, -1
-  %cmp17 = icmp ugt i64 %length.addr.126, 1
+  %cmp17 = icmp samesign ugt i64 %length.addr.126, 1
   br i1 %cmp17, label %while.body18, label %while.end22, !llvm.loop !20
 
 while.end22:                                      ; preds = %while.body18, %while.cond16.preheader
@@ -1166,7 +1166,7 @@ while.body:                                       ; preds = %entry, %while.body
   %sub = add nsw i64 %length.addr.020, -4
   %add.ptr = getelementptr inbounds i8, ptr %src.addr.021, i64 4
   %add.ptr18 = getelementptr inbounds i8, ptr %dest.addr.019, i64 4
-  %cmp = icmp ugt i64 %length.addr.020, 7
+  %cmp = icmp samesign ugt i64 %length.addr.020, 7
   br i1 %cmp, label %while.body, label %while.cond19.preheader, !llvm.loop !21
 
 while.body21:                                     ; preds = %while.cond19.preheader, %while.body21
@@ -1182,7 +1182,7 @@ while.body21:                                     ; preds = %while.cond19.prehea
   %incdec.ptr25 = getelementptr inbounds i8, ptr %dest.addr.125, i64 1
   store i8 %conv24, ptr %dest.addr.125, align 1
   %dec = add nsw i64 %length.addr.126, -1
-  %cmp20 = icmp ugt i64 %length.addr.126, 1
+  %cmp20 = icmp samesign ugt i64 %length.addr.126, 1
   br i1 %cmp20, label %while.body21, label %while.end26, !llvm.loop !22
 
 while.end26:                                      ; preds = %while.body21, %while.cond19.preheader
@@ -1239,7 +1239,7 @@ while.body:                                       ; preds = %entry, %while.body
   %sub = add nsw i64 %length.addr.020, -4
   %add.ptr = getelementptr inbounds i8, ptr %src.addr.021, i64 4
   %add.ptr18 = getelementptr inbounds i8, ptr %dest.addr.019, i64 4
-  %cmp = icmp ugt i64 %length.addr.020, 7
+  %cmp = icmp samesign ugt i64 %length.addr.020, 7
   br i1 %cmp, label %while.body, label %while.cond19.preheader, !llvm.loop !23
 
 while.body21:                                     ; preds = %while.cond19.preheader, %while.body21
@@ -1255,7 +1255,7 @@ while.body21:                                     ; preds = %while.cond19.prehea
   %incdec.ptr25 = getelementptr inbounds i8, ptr %dest.addr.125, i64 1
   store i8 %conv24, ptr %dest.addr.125, align 1
   %dec = add nsw i64 %length.addr.126, -1
-  %cmp20 = icmp ugt i64 %length.addr.126, 1
+  %cmp20 = icmp samesign ugt i64 %length.addr.126, 1
   br i1 %cmp20, label %while.body21, label %while.end26, !llvm.loop !24
 
 while.end26:                                      ; preds = %while.body21, %while.cond19.preheader
@@ -1312,7 +1312,7 @@ while.body:                                       ; preds = %entry, %while.body
   %sub = add nsw i64 %length.addr.020, -4
   %add.ptr = getelementptr inbounds i8, ptr %src.addr.021, i64 8
   %add.ptr18 = getelementptr inbounds i8, ptr %dest.addr.019, i64 4
-  %cmp = icmp ugt i64 %length.addr.020, 7
+  %cmp = icmp samesign ugt i64 %length.addr.020, 7
   br i1 %cmp, label %while.body, label %while.cond19.preheader, !llvm.loop !25
 
 while.body21:                                     ; preds = %while.cond19.preheader, %while.body21
@@ -1328,7 +1328,7 @@ while.body21:                                     ; preds = %while.cond19.prehea
   %incdec.ptr25 = getelementptr inbounds i8, ptr %dest.addr.125, i64 1
   store i8 %conv24, ptr %dest.addr.125, align 1
   %dec = add nsw i64 %length.addr.126, -1
-  %cmp20 = icmp ugt i64 %length.addr.126, 1
+  %cmp20 = icmp samesign ugt i64 %length.addr.126, 1
   br i1 %cmp20, label %while.body21, label %while.end26, !llvm.loop !26
 
 while.end26:                                      ; preds = %while.body21, %while.cond19.preheader
@@ -1385,7 +1385,7 @@ while.body:                                       ; preds = %entry, %while.body
   %sub = add nsw i64 %length.addr.020, -4
   %add.ptr = getelementptr inbounds i8, ptr %src.addr.021, i64 8
   %add.ptr18 = getelementptr inbounds i8, ptr %dest.addr.019, i64 4
-  %cmp = icmp ugt i64 %length.addr.020, 7
+  %cmp = icmp samesign ugt i64 %length.addr.020, 7
   br i1 %cmp, label %while.body, label %while.cond19.preheader, !llvm.loop !27
 
 while.body21:                                     ; preds = %while.cond19.preheader, %while.body21
@@ -1401,7 +1401,7 @@ while.body21:                                     ; preds = %while.cond19.prehea
   %incdec.ptr25 = getelementptr inbounds i8, ptr %dest.addr.125, i64 1
   store i8 %conv24, ptr %dest.addr.125, align 1
   %dec = add nsw i64 %length.addr.126, -1
-  %cmp20 = icmp ugt i64 %length.addr.126, 1
+  %cmp20 = icmp samesign ugt i64 %length.addr.126, 1
   br i1 %cmp20, label %while.body21, label %while.end26, !llvm.loop !28
 
 while.end26:                                      ; preds = %while.body21, %while.cond19.preheader
@@ -1458,7 +1458,7 @@ while.body:                                       ; preds = %entry, %while.body
   %sub = add nsw i64 %length.addr.020, -4
   %add.ptr = getelementptr inbounds i8, ptr %src.addr.021, i64 16
   %add.ptr18 = getelementptr inbounds i8, ptr %dest.addr.019, i64 4
-  %cmp = icmp ugt i64 %length.addr.020, 7
+  %cmp = icmp samesign ugt i64 %length.addr.020, 7
   br i1 %cmp, label %while.body, label %while.cond19.preheader, !llvm.loop !29
 
 while.body21:                                     ; preds = %while.cond19.preheader, %while.body21
@@ -1474,7 +1474,7 @@ while.body21:                                     ; preds = %while.cond19.prehea
   %incdec.ptr25 = getelementptr inbounds i8, ptr %dest.addr.125, i64 1
   store i8 %conv24, ptr %dest.addr.125, align 1
   %dec = add nsw i64 %length.addr.126, -1
-  %cmp20 = icmp ugt i64 %length.addr.126, 1
+  %cmp20 = icmp samesign ugt i64 %length.addr.126, 1
   br i1 %cmp20, label %while.body21, label %while.end26, !llvm.loop !30
 
 while.end26:                                      ; preds = %while.body21, %while.cond19.preheader
@@ -1531,7 +1531,7 @@ while.body:                                       ; preds = %entry, %while.body
   %sub = add nsw i64 %length.addr.020, -4
   %add.ptr = getelementptr inbounds i8, ptr %src.addr.021, i64 16
   %add.ptr18 = getelementptr inbounds i8, ptr %dest.addr.019, i64 4
-  %cmp = icmp ugt i64 %length.addr.020, 7
+  %cmp = icmp samesign ugt i64 %length.addr.020, 7
   br i1 %cmp, label %while.body, label %while.cond19.preheader, !llvm.loop !31
 
 while.body21:                                     ; preds = %while.cond19.preheader, %while.body21
@@ -1547,7 +1547,7 @@ while.body21:                                     ; preds = %while.cond19.prehea
   %incdec.ptr25 = getelementptr inbounds i8, ptr %dest.addr.125, i64 1
   store i8 %conv24, ptr %dest.addr.125, align 1
   %dec = add nsw i64 %length.addr.126, -1
-  %cmp20 = icmp ugt i64 %length.addr.126, 1
+  %cmp20 = icmp samesign ugt i64 %length.addr.126, 1
   br i1 %cmp20, label %while.body21, label %while.end26, !llvm.loop !32
 
 while.end26:                                      ; preds = %while.body21, %while.cond19.preheader
@@ -1600,7 +1600,7 @@ while.body:                                       ; preds = %entry, %while.body
   %sub = add nsw i64 %length.addr.020, -4
   %add.ptr = getelementptr inbounds i8, ptr %src.addr.021, i64 32
   %add.ptr15 = getelementptr inbounds i8, ptr %dest.addr.019, i64 4
-  %cmp = icmp ugt i64 %length.addr.020, 7
+  %cmp = icmp samesign ugt i64 %length.addr.020, 7
   br i1 %cmp, label %while.body, label %while.cond16.preheader, !llvm.loop !33
 
 while.body18:                                     ; preds = %while.cond16.preheader, %while.body18
@@ -1615,7 +1615,7 @@ while.body18:                                     ; preds = %while.cond16.prehea
   %incdec.ptr21 = getelementptr inbounds i8, ptr %dest.addr.125, i64 1
   store i8 %conv20, ptr %dest.addr.125, align 1
   %dec = add nsw i64 %length.addr.126, -1
-  %cmp17 = icmp ugt i64 %length.addr.126, 1
+  %cmp17 = icmp samesign ugt i64 %length.addr.126, 1
   br i1 %cmp17, label %while.body18, label %while.end22, !llvm.loop !34
 
 while.end22:                                      ; preds = %while.body18, %while.cond16.preheader
@@ -1668,7 +1668,7 @@ while.body:                                       ; preds = %entry, %while.body
   %sub = add nsw i64 %length.addr.020, -4
   %add.ptr = getelementptr inbounds i8, ptr %src.addr.021, i64 32
   %add.ptr15 = getelementptr inbounds i8, ptr %dest.addr.019, i64 4
-  %cmp = icmp ugt i64 %length.addr.020, 7
+  %cmp = icmp samesign ugt i64 %length.addr.020, 7
   br i1 %cmp, label %while.body, label %while.cond16.preheader, !llvm.loop !35
 
 while.body18:                                     ; preds = %while.cond16.preheader, %while.body18
@@ -1683,7 +1683,7 @@ while.body18:                                     ; preds = %while.cond16.prehea
   %incdec.ptr21 = getelementptr inbounds i8, ptr %dest.addr.125, i64 1
   store i8 %conv20, ptr %dest.addr.125, align 1
   %dec = add nsw i64 %length.addr.126, -1
-  %cmp17 = icmp ugt i64 %length.addr.126, 1
+  %cmp17 = icmp samesign ugt i64 %length.addr.126, 1
   br i1 %cmp17, label %while.body18, label %while.end22, !llvm.loop !36
 
 while.end22:                                      ; preds = %while.body18, %while.cond16.preheader
@@ -1740,7 +1740,7 @@ while.body:                                       ; preds = %entry, %while.body
   %sub = add nsw i64 %length.addr.020, -4
   %add.ptr = getelementptr inbounds i8, ptr %src.addr.021, i64 4
   %add.ptr18 = getelementptr inbounds i8, ptr %dest.addr.019, i64 8
-  %cmp = icmp ugt i64 %length.addr.020, 7
+  %cmp = icmp samesign ugt i64 %length.addr.020, 7
   br i1 %cmp, label %while.body, label %while.cond19.preheader, !llvm.loop !37
 
 while.body21:                                     ; preds = %while.cond19.preheader, %while.body21
@@ -1756,7 +1756,7 @@ while.body21:                                     ; preds = %while.cond19.prehea
   %incdec.ptr25 = getelementptr inbounds i8, ptr %dest.addr.125, i64 2
   store i16 %conv24, ptr %dest.addr.125, align 2
   %dec = add nsw i64 %length.addr.126, -1
-  %cmp20 = icmp ugt i64 %length.addr.126, 1
+  %cmp20 = icmp samesign ugt i64 %length.addr.126, 1
   br i1 %cmp20, label %while.body21, label %while.end26, !llvm.loop !38
 
 while.end26:                                      ; preds = %while.body21, %while.cond19.preheader
@@ -1813,7 +1813,7 @@ while.body:                                       ; preds = %entry, %while.body
   %sub = add nsw i64 %length.addr.020, -4
   %add.ptr = getelementptr inbounds i8, ptr %src.addr.021, i64 4
   %add.ptr18 = getelementptr inbounds i8, ptr %dest.addr.019, i64 8
-  %cmp = icmp ugt i64 %length.addr.020, 7
+  %cmp = icmp samesign ugt i64 %length.addr.020, 7
   br i1 %cmp, label %while.body, label %while.cond19.preheader, !llvm.loop !39
 
 while.body21:                                     ; preds = %while.cond19.preheader, %while.body21
@@ -1829,7 +1829,7 @@ while.body21:                                     ; preds = %while.cond19.prehea
   %incdec.ptr25 = getelementptr inbounds i8, ptr %dest.addr.125, i64 2
   store i16 %conv24, ptr %dest.addr.125, align 2
   %dec = add nsw i64 %length.addr.126, -1
-  %cmp20 = icmp ugt i64 %length.addr.126, 1
+  %cmp20 = icmp samesign ugt i64 %length.addr.126, 1
   br i1 %cmp20, label %while.body21, label %while.end26, !llvm.loop !40
 
 while.end26:                                      ; preds = %while.body21, %while.cond19.preheader
@@ -1886,7 +1886,7 @@ while.body:                                       ; preds = %entry, %while.body
   %sub = add nsw i64 %length.addr.020, -4
   %add.ptr = getelementptr inbounds i8, ptr %src.addr.021, i64 8
   %add.ptr18 = getelementptr inbounds i8, ptr %dest.addr.019, i64 8
-  %cmp = icmp ugt i64 %length.addr.020, 7
+  %cmp = icmp samesign ugt i64 %length.addr.020, 7
   br i1 %cmp, label %while.body, label %while.cond19.preheader, !llvm.loop !41
 
 while.body21:                                     ; preds = %while.cond19.preheader, %while.body21
@@ -1902,7 +1902,7 @@ while.body21:                                     ; preds = %while.cond19.prehea
   %incdec.ptr25 = getelementptr inbounds i8, ptr %dest.addr.125, i64 2
   store i16 %conv24, ptr %dest.addr.125, align 2
   %dec = add nsw i64 %length.addr.126, -1
-  %cmp20 = icmp ugt i64 %length.addr.126, 1
+  %cmp20 = icmp samesign ugt i64 %length.addr.126, 1
   br i1 %cmp20, label %while.body21, label %while.end26, !llvm.loop !42
 
 while.end26:                                      ; preds = %while.body21, %while.cond19.preheader
@@ -1959,7 +1959,7 @@ while.body:                                       ; preds = %entry, %while.body
   %sub = add nsw i64 %length.addr.020, -4
   %add.ptr = getelementptr inbounds i8, ptr %src.addr.021, i64 8
   %add.ptr18 = getelementptr inbounds i8, ptr %dest.addr.019, i64 8
-  %cmp = icmp ugt i64 %length.addr.020, 7
+  %cmp = icmp samesign ugt i64 %length.addr.020, 7
   br i1 %cmp, label %while.body, label %while.cond19.preheader, !llvm.loop !43
 
 while.body21:                                     ; preds = %while.cond19.preheader, %while.body21
@@ -1975,7 +1975,7 @@ while.body21:                                     ; preds = %while.cond19.prehea
   %incdec.ptr25 = getelementptr inbounds i8, ptr %dest.addr.125, i64 2
   store i16 %conv24, ptr %dest.addr.125, align 2
   %dec = add nsw i64 %length.addr.126, -1
-  %cmp20 = icmp ugt i64 %length.addr.126, 1
+  %cmp20 = icmp samesign ugt i64 %length.addr.126, 1
   br i1 %cmp20, label %while.body21, label %while.end26, !llvm.loop !44
 
 while.end26:                                      ; preds = %while.body21, %while.cond19.preheader
@@ -2032,7 +2032,7 @@ while.body:                                       ; preds = %entry, %while.body
   %sub = add nsw i64 %length.addr.020, -4
   %add.ptr = getelementptr inbounds i8, ptr %src.addr.021, i64 16
   %add.ptr18 = getelementptr inbounds i8, ptr %dest.addr.019, i64 8
-  %cmp = icmp ugt i64 %length.addr.020, 7
+  %cmp = icmp samesign ugt i64 %length.addr.020, 7
   br i1 %cmp, label %while.body, label %while.cond19.preheader, !llvm.loop !45
 
 while.body21:                                     ; preds = %while.cond19.preheader, %while.body21
@@ -2048,7 +2048,7 @@ while.body21:                                     ; preds = %while.cond19.prehea
   %incdec.ptr25 = getelementptr inbounds i8, ptr %dest.addr.125, i64 2
   store i16 %conv24, ptr %dest.addr.125, align 2
   %dec = add nsw i64 %length.addr.126, -1
-  %cmp20 = icmp ugt i64 %length.addr.126, 1
+  %cmp20 = icmp samesign ugt i64 %length.addr.126, 1
   br i1 %cmp20, label %while.body21, label %while.end26, !llvm.loop !46
 
 while.end26:                                      ; preds = %while.body21, %while.cond19.preheader
@@ -2105,7 +2105,7 @@ while.body:                                       ; preds = %entry, %while.body
   %sub = add nsw i64 %length.addr.020, -4
   %add.ptr = getelementptr inbounds i8, ptr %src.addr.021, i64 16
   %add.ptr18 = getelementptr inbounds i8, ptr %dest.addr.019, i64 8
-  %cmp = icmp ugt i64 %length.addr.020, 7
+  %cmp = icmp samesign ugt i64 %length.addr.020, 7
   br i1 %cmp, label %while.body, label %while.cond19.preheader, !llvm.loop !47
 
 while.body21:                                     ; preds = %while.cond19.preheader, %while.body21
@@ -2121,7 +2121,7 @@ while.body21:                                     ; preds = %while.cond19.prehea
   %incdec.ptr25 = getelementptr inbounds i8, ptr %dest.addr.125, i64 2
   store i16 %conv24, ptr %dest.addr.125, align 2
   %dec = add nsw i64 %length.addr.126, -1
-  %cmp20 = icmp ugt i64 %length.addr.126, 1
+  %cmp20 = icmp samesign ugt i64 %length.addr.126, 1
   br i1 %cmp20, label %while.body21, label %while.end26, !llvm.loop !48
 
 while.end26:                                      ; preds = %while.body21, %while.cond19.preheader
@@ -2174,7 +2174,7 @@ while.body:                                       ; preds = %entry, %while.body
   %sub = add nsw i64 %length.addr.020, -4
   %add.ptr = getelementptr inbounds i8, ptr %src.addr.021, i64 32
   %add.ptr15 = getelementptr inbounds i8, ptr %dest.addr.019, i64 8
-  %cmp = icmp ugt i64 %length.addr.020, 7
+  %cmp = icmp samesign ugt i64 %length.addr.020, 7
   br i1 %cmp, label %while.body, label %while.cond16.preheader, !llvm.loop !49
 
 while.body18:                                     ; preds = %while.cond16.preheader, %while.body18
@@ -2189,7 +2189,7 @@ while.body18:                                     ; preds = %while.cond16.prehea
   %incdec.ptr21 = getelementptr inbounds i8, ptr %dest.addr.125, i64 2
   store i16 %conv20, ptr %dest.addr.125, align 2
   %dec = add nsw i64 %length.addr.126, -1
-  %cmp17 = icmp ugt i64 %length.addr.126, 1
+  %cmp17 = icmp samesign ugt i64 %length.addr.126, 1
   br i1 %cmp17, label %while.body18, label %while.end22, !llvm.loop !50
 
 while.end22:                                      ; preds = %while.body18, %while.cond16.preheader
@@ -2242,7 +2242,7 @@ while.body:                                       ; preds = %entry, %while.body
   %sub = add nsw i64 %length.addr.020, -4
   %add.ptr = getelementptr inbounds i8, ptr %src.addr.021, i64 32
   %add.ptr15 = getelementptr inbounds i8, ptr %dest.addr.019, i64 8
-  %cmp = icmp ugt i64 %length.addr.020, 7
+  %cmp = icmp samesign ugt i64 %length.addr.020, 7
   br i1 %cmp, label %while.body, label %while.cond16.preheader, !llvm.loop !51
 
 while.body18:                                     ; preds = %while.cond16.preheader, %while.body18
@@ -2257,7 +2257,7 @@ while.body18:                                     ; preds = %while.cond16.prehea
   %incdec.ptr21 = getelementptr inbounds i8, ptr %dest.addr.125, i64 2
   store i16 %conv20, ptr %dest.addr.125, align 2
   %dec = add nsw i64 %length.addr.126, -1
-  %cmp17 = icmp ugt i64 %length.addr.126, 1
+  %cmp17 = icmp samesign ugt i64 %length.addr.126, 1
   br i1 %cmp17, label %while.body18, label %while.end22, !llvm.loop !52
 
 while.end22:                                      ; preds = %while.body18, %while.cond16.preheader
@@ -2314,7 +2314,7 @@ while.body:                                       ; preds = %entry, %while.body
   %sub = add nsw i64 %length.addr.020, -4
   %add.ptr = getelementptr inbounds i8, ptr %src.addr.021, i64 4
   %add.ptr18 = getelementptr inbounds i8, ptr %dest.addr.019, i64 8
-  %cmp = icmp ugt i64 %length.addr.020, 7
+  %cmp = icmp samesign ugt i64 %length.addr.020, 7
   br i1 %cmp, label %while.body, label %while.cond19.preheader, !llvm.loop !53
 
 while.body21:                                     ; preds = %while.cond19.preheader, %while.body21
@@ -2330,7 +2330,7 @@ while.body21:                                     ; preds = %while.cond19.prehea
   %incdec.ptr25 = getelementptr inbounds i8, ptr %dest.addr.125, i64 2
   store i16 %conv24, ptr %dest.addr.125, align 2
   %dec = add nsw i64 %length.addr.126, -1
-  %cmp20 = icmp ugt i64 %length.addr.126, 1
+  %cmp20 = icmp samesign ugt i64 %length.addr.126, 1
   br i1 %cmp20, label %while.body21, label %while.end26, !llvm.loop !54
 
 while.end26:                                      ; preds = %while.body21, %while.cond19.preheader
@@ -2387,7 +2387,7 @@ while.body:                                       ; preds = %entry, %while.body
   %sub = add nsw i64 %length.addr.020, -4
   %add.ptr = getelementptr inbounds i8, ptr %src.addr.021, i64 4
   %add.ptr18 = getelementptr inbounds i8, ptr %dest.addr.019, i64 8
-  %cmp = icmp ugt i64 %length.addr.020, 7
+  %cmp = icmp samesign ugt i64 %length.addr.020, 7
   br i1 %cmp, label %while.body, label %while.cond19.preheader, !llvm.loop !55
 
 while.body21:                                     ; preds = %while.cond19.preheader, %while.body21
@@ -2403,7 +2403,7 @@ while.body21:                                     ; preds = %while.cond19.prehea
   %incdec.ptr25 = getelementptr inbounds i8, ptr %dest.addr.125, i64 2
   store i16 %conv24, ptr %dest.addr.125, align 2
   %dec = add nsw i64 %length.addr.126, -1
-  %cmp20 = icmp ugt i64 %length.addr.126, 1
+  %cmp20 = icmp samesign ugt i64 %length.addr.126, 1
   br i1 %cmp20, label %while.body21, label %while.end26, !llvm.loop !56
 
 while.end26:                                      ; preds = %while.body21, %while.cond19.preheader
@@ -2460,7 +2460,7 @@ while.body:                                       ; preds = %entry, %while.body
   %sub = add nsw i64 %length.addr.020, -4
   %add.ptr = getelementptr inbounds i8, ptr %src.addr.021, i64 8
   %add.ptr18 = getelementptr inbounds i8, ptr %dest.addr.019, i64 8
-  %cmp = icmp ugt i64 %length.addr.020, 7
+  %cmp = icmp samesign ugt i64 %length.addr.020, 7
   br i1 %cmp, label %while.body, label %while.cond19.preheader, !llvm.loop !57
 
 while.body21:                                     ; preds = %while.cond19.preheader, %while.body21
@@ -2476,7 +2476,7 @@ while.body21:                                     ; preds = %while.cond19.prehea
   %incdec.ptr25 = getelementptr inbounds i8, ptr %dest.addr.125, i64 2
   store i16 %conv24, ptr %dest.addr.125, align 2
   %dec = add nsw i64 %length.addr.126, -1
-  %cmp20 = icmp ugt i64 %length.addr.126, 1
+  %cmp20 = icmp samesign ugt i64 %length.addr.126, 1
   br i1 %cmp20, label %while.body21, label %while.end26, !llvm.loop !58
 
 while.end26:                                      ; preds = %while.body21, %while.cond19.preheader
@@ -2533,7 +2533,7 @@ while.body:                                       ; preds = %entry, %while.body
   %sub = add nsw i64 %length.addr.020, -4
   %add.ptr = getelementptr inbounds i8, ptr %src.addr.021, i64 8
   %add.ptr18 = getelementptr inbounds i8, ptr %dest.addr.019, i64 8
-  %cmp = icmp ugt i64 %length.addr.020, 7
+  %cmp = icmp samesign ugt i64 %length.addr.020, 7
   br i1 %cmp, label %while.body, label %while.cond19.preheader, !llvm.loop !59
 
 while.body21:                                     ; preds = %while.cond19.preheader, %while.body21
@@ -2549,7 +2549,7 @@ while.body21:                                     ; preds = %while.cond19.prehea
   %incdec.ptr25 = getelementptr inbounds i8, ptr %dest.addr.125, i64 2
   store i16 %conv24, ptr %dest.addr.125, align 2
   %dec = add nsw i64 %length.addr.126, -1
-  %cmp20 = icmp ugt i64 %length.addr.126, 1
+  %cmp20 = icmp samesign ugt i64 %length.addr.126, 1
   br i1 %cmp20, label %while.body21, label %while.end26, !llvm.loop !60
 
 while.end26:                                      ; preds = %while.body21, %while.cond19.preheader
@@ -2606,7 +2606,7 @@ while.body:                                       ; preds = %entry, %while.body
   %sub = add nsw i64 %length.addr.020, -4
   %add.ptr = getelementptr inbounds i8, ptr %src.addr.021, i64 16
   %add.ptr18 = getelementptr inbounds i8, ptr %dest.addr.019, i64 8
-  %cmp = icmp ugt i64 %length.addr.020, 7
+  %cmp = icmp samesign ugt i64 %length.addr.020, 7
   br i1 %cmp, label %while.body, label %while.cond19.preheader, !llvm.loop !61
 
 while.body21:                                     ; preds = %while.cond19.preheader, %while.body21
@@ -2622,7 +2622,7 @@ while.body21:                                     ; preds = %while.cond19.prehea
   %incdec.ptr25 = getelementptr inbounds i8, ptr %dest.addr.125, i64 2
   store i16 %conv24, ptr %dest.addr.125, align 2
   %dec = add nsw i64 %length.addr.126, -1
-  %cmp20 = icmp ugt i64 %length.addr.126, 1
+  %cmp20 = icmp samesign ugt i64 %length.addr.126, 1
   br i1 %cmp20, label %while.body21, label %while.end26, !llvm.loop !62
 
 while.end26:                                      ; preds = %while.body21, %while.cond19.preheader
@@ -2679,7 +2679,7 @@ while.body:                                       ; preds = %entry, %while.body
   %sub = add nsw i64 %length.addr.020, -4
   %add.ptr = getelementptr inbounds i8, ptr %src.addr.021, i64 16
   %add.ptr18 = getelementptr inbounds i8, ptr %dest.addr.019, i64 8
-  %cmp = icmp ugt i64 %length.addr.020, 7
+  %cmp = icmp samesign ugt i64 %length.addr.020, 7
   br i1 %cmp, label %while.body, label %while.cond19.preheader, !llvm.loop !63
 
 while.body21:                                     ; preds = %while.cond19.preheader, %while.body21
@@ -2695,7 +2695,7 @@ while.body21:                                     ; preds = %while.cond19.prehea
   %incdec.ptr25 = getelementptr inbounds i8, ptr %dest.addr.125, i64 2
   store i16 %conv24, ptr %dest.addr.125, align 2
   %dec = add nsw i64 %length.addr.126, -1
-  %cmp20 = icmp ugt i64 %length.addr.126, 1
+  %cmp20 = icmp samesign ugt i64 %length.addr.126, 1
   br i1 %cmp20, label %while.body21, label %while.end26, !llvm.loop !64
 
 while.end26:                                      ; preds = %while.body21, %while.cond19.preheader
@@ -2748,7 +2748,7 @@ while.body:                                       ; preds = %entry, %while.body
   %sub = add nsw i64 %length.addr.020, -4
   %add.ptr = getelementptr inbounds i8, ptr %src.addr.021, i64 32
   %add.ptr15 = getelementptr inbounds i8, ptr %dest.addr.019, i64 8
-  %cmp = icmp ugt i64 %length.addr.020, 7
+  %cmp = icmp samesign ugt i64 %length.addr.020, 7
   br i1 %cmp, label %while.body, label %while.cond16.preheader, !llvm.loop !65
 
 while.body18:                                     ; preds = %while.cond16.preheader, %while.body18
@@ -2763,7 +2763,7 @@ while.body18:                                     ; preds = %while.cond16.prehea
   %incdec.ptr21 = getelementptr inbounds i8, ptr %dest.addr.125, i64 2
   store i16 %conv20, ptr %dest.addr.125, align 2
   %dec = add nsw i64 %length.addr.126, -1
-  %cmp17 = icmp ugt i64 %length.addr.126, 1
+  %cmp17 = icmp samesign ugt i64 %length.addr.126, 1
   br i1 %cmp17, label %while.body18, label %while.end22, !llvm.loop !66
 
 while.end22:                                      ; preds = %while.body18, %while.cond16.preheader
@@ -2816,7 +2816,7 @@ while.body:                                       ; preds = %entry, %while.body
   %sub = add nsw i64 %length.addr.020, -4
   %add.ptr = getelementptr inbounds i8, ptr %src.addr.021, i64 32
   %add.ptr15 = getelementptr inbounds i8, ptr %dest.addr.019, i64 8
-  %cmp = icmp ugt i64 %length.addr.020, 7
+  %cmp = icmp samesign ugt i64 %length.addr.020, 7
   br i1 %cmp, label %while.body, label %while.cond16.preheader, !llvm.loop !67
 
 while.body18:                                     ; preds = %while.cond16.preheader, %while.body18
@@ -2831,7 +2831,7 @@ while.body18:                                     ; preds = %while.cond16.prehea
   %incdec.ptr21 = getelementptr inbounds i8, ptr %dest.addr.125, i64 2
   store i16 %conv20, ptr %dest.addr.125, align 2
   %dec = add nsw i64 %length.addr.126, -1
-  %cmp17 = icmp ugt i64 %length.addr.126, 1
+  %cmp17 = icmp samesign ugt i64 %length.addr.126, 1
   br i1 %cmp17, label %while.body18, label %while.end22, !llvm.loop !68
 
 while.end22:                                      ; preds = %while.body18, %while.cond16.preheader
@@ -2884,7 +2884,7 @@ while.body:                                       ; preds = %entry, %while.body
   %sub = add nsw i64 %length.addr.020, -4
   %add.ptr = getelementptr inbounds i8, ptr %src.addr.021, i64 4
   %add.ptr15 = getelementptr inbounds i8, ptr %dest.addr.019, i64 16
-  %cmp = icmp ugt i64 %length.addr.020, 7
+  %cmp = icmp samesign ugt i64 %length.addr.020, 7
   br i1 %cmp, label %while.body, label %while.cond16.preheader, !llvm.loop !69
 
 while.body18:                                     ; preds = %while.cond16.preheader, %while.body18
@@ -2899,7 +2899,7 @@ while.body18:                                     ; preds = %while.cond16.prehea
   %incdec.ptr21 = getelementptr inbounds i8, ptr %dest.addr.125, i64 4
   store i32 %9, ptr %dest.addr.125, align 4
   %dec = add nsw i64 %length.addr.126, -1
-  %cmp17 = icmp ugt i64 %length.addr.126, 1
+  %cmp17 = icmp samesign ugt i64 %length.addr.126, 1
   br i1 %cmp17, label %while.body18, label %while.end22, !llvm.loop !70
 
 while.end22:                                      ; preds = %while.body18, %while.cond16.preheader
@@ -2952,7 +2952,7 @@ while.body:                                       ; preds = %entry, %while.body
   %sub = add nsw i64 %length.addr.020, -4
   %add.ptr = getelementptr inbounds i8, ptr %src.addr.021, i64 4
   %add.ptr15 = getelementptr inbounds i8, ptr %dest.addr.019, i64 16
-  %cmp = icmp ugt i64 %length.addr.020, 7
+  %cmp = icmp samesign ugt i64 %length.addr.020, 7
   br i1 %cmp, label %while.body, label %while.cond16.preheader, !llvm.loop !71
 
 while.body18:                                     ; preds = %while.cond16.preheader, %while.body18
@@ -2967,7 +2967,7 @@ while.body18:                                     ; preds = %while.cond16.prehea
   %incdec.ptr21 = getelementptr inbounds i8, ptr %dest.addr.125, i64 4
   store i32 %9, ptr %dest.addr.125, align 4
   %dec = add nsw i64 %length.addr.126, -1
-  %cmp17 = icmp ugt i64 %length.addr.126, 1
+  %cmp17 = icmp samesign ugt i64 %length.addr.126, 1
   br i1 %cmp17, label %while.body18, label %while.end22, !llvm.loop !72
 
 while.end22:                                      ; preds = %while.body18, %while.cond16.preheader
@@ -3020,7 +3020,7 @@ while.body:                                       ; preds = %entry, %while.body
   %sub = add nsw i64 %length.addr.020, -4
   %add.ptr = getelementptr inbounds i8, ptr %src.addr.021, i64 8
   %add.ptr15 = getelementptr inbounds i8, ptr %dest.addr.019, i64 16
-  %cmp = icmp ugt i64 %length.addr.020, 7
+  %cmp = icmp samesign ugt i64 %length.addr.020, 7
   br i1 %cmp, label %while.body, label %while.cond16.preheader, !llvm.loop !73
 
 while.body18:                                     ; preds = %while.cond16.preheader, %while.body18
@@ -3035,7 +3035,7 @@ while.body18:                                     ; preds = %while.cond16.prehea
   %incdec.ptr21 = getelementptr inbounds i8, ptr %dest.addr.125, i64 4
   store i32 %9, ptr %dest.addr.125, align 4
   %dec = add nsw i64 %length.addr.126, -1
-  %cmp17 = icmp ugt i64 %length.addr.126, 1
+  %cmp17 = icmp samesign ugt i64 %length.addr.126, 1
   br i1 %cmp17, label %while.body18, label %while.end22, !llvm.loop !74
 
 while.end22:                                      ; preds = %while.body18, %while.cond16.preheader
@@ -3088,7 +3088,7 @@ while.body:                                       ; preds = %entry, %while.body
   %sub = add nsw i64 %length.addr.020, -4
   %add.ptr = getelementptr inbounds i8, ptr %src.addr.021, i64 8
   %add.ptr15 = getelementptr inbounds i8, ptr %dest.addr.019, i64 16
-  %cmp = icmp ugt i64 %length.addr.020, 7
+  %cmp = icmp samesign ugt i64 %length.addr.020, 7
   br i1 %cmp, label %while.body, label %while.cond16.preheader, !llvm.loop !75
 
 while.body18:                                     ; preds = %while.cond16.preheader, %while.body18
@@ -3103,7 +3103,7 @@ while.body18:                                     ; preds = %while.cond16.prehea
   %incdec.ptr21 = getelementptr inbounds i8, ptr %dest.addr.125, i64 4
   store i32 %9, ptr %dest.addr.125, align 4
   %dec = add nsw i64 %length.addr.126, -1
-  %cmp17 = icmp ugt i64 %length.addr.126, 1
+  %cmp17 = icmp samesign ugt i64 %length.addr.126, 1
   br i1 %cmp17, label %while.body18, label %while.end22, !llvm.loop !76
 
 while.end22:                                      ; preds = %while.body18, %while.cond16.preheader
@@ -3156,7 +3156,7 @@ while.body:                                       ; preds = %entry, %while.body
   %sub = add nsw i64 %length.addr.020, -4
   %add.ptr = getelementptr inbounds i8, ptr %src.addr.021, i64 16
   %add.ptr15 = getelementptr inbounds i8, ptr %dest.addr.019, i64 16
-  %cmp = icmp ugt i64 %length.addr.020, 7
+  %cmp = icmp samesign ugt i64 %length.addr.020, 7
   br i1 %cmp, label %while.body, label %while.cond16.preheader, !llvm.loop !77
 
 while.body18:                                     ; preds = %while.cond16.preheader, %while.body18
@@ -3171,7 +3171,7 @@ while.body18:                                     ; preds = %while.cond16.prehea
   %incdec.ptr21 = getelementptr inbounds i8, ptr %dest.addr.125, i64 4
   store i32 %9, ptr %dest.addr.125, align 4
   %dec = add nsw i64 %length.addr.126, -1
-  %cmp17 = icmp ugt i64 %length.addr.126, 1
+  %cmp17 = icmp samesign ugt i64 %length.addr.126, 1
   br i1 %cmp17, label %while.body18, label %while.end22, !llvm.loop !78
 
 while.end22:                                      ; preds = %while.body18, %while.cond16.preheader
@@ -3224,7 +3224,7 @@ while.body:                                       ; preds = %entry, %while.body
   %sub = add nsw i64 %length.addr.020, -4
   %add.ptr = getelementptr inbounds i8, ptr %src.addr.021, i64 16
   %add.ptr15 = getelementptr inbounds i8, ptr %dest.addr.019, i64 16
-  %cmp = icmp ugt i64 %length.addr.020, 7
+  %cmp = icmp samesign ugt i64 %length.addr.020, 7
   br i1 %cmp, label %while.body, label %while.cond16.preheader, !llvm.loop !79
 
 while.body18:                                     ; preds = %while.cond16.preheader, %while.body18
@@ -3239,7 +3239,7 @@ while.body18:                                     ; preds = %while.cond16.prehea
   %incdec.ptr21 = getelementptr inbounds i8, ptr %dest.addr.125, i64 4
   store i32 %9, ptr %dest.addr.125, align 4
   %dec = add nsw i64 %length.addr.126, -1
-  %cmp17 = icmp ugt i64 %length.addr.126, 1
+  %cmp17 = icmp samesign ugt i64 %length.addr.126, 1
   br i1 %cmp17, label %while.body18, label %while.end22, !llvm.loop !80
 
 while.end22:                                      ; preds = %while.body18, %while.cond16.preheader
@@ -3288,7 +3288,7 @@ while.body:                                       ; preds = %entry, %while.body
   %sub = add nsw i64 %length.addr.020, -4
   %add.ptr = getelementptr inbounds i8, ptr %src.addr.021, i64 32
   %add.ptr12 = getelementptr inbounds i8, ptr %dest.addr.019, i64 16
-  %cmp = icmp ugt i64 %length.addr.020, 7
+  %cmp = icmp samesign ugt i64 %length.addr.020, 7
   br i1 %cmp, label %while.body, label %while.cond13.preheader, !llvm.loop !81
 
 while.body15:                                     ; preds = %while.cond13.preheader, %while.body15
@@ -3302,7 +3302,7 @@ while.body15:                                     ; preds = %while.cond13.prehea
   %incdec.ptr17 = getelementptr inbounds i8, ptr %dest.addr.125, i64 4
   store i32 %9, ptr %dest.addr.125, align 4
   %dec = add nsw i64 %length.addr.126, -1
-  %cmp14 = icmp ugt i64 %length.addr.126, 1
+  %cmp14 = icmp samesign ugt i64 %length.addr.126, 1
   br i1 %cmp14, label %while.body15, label %while.end18, !llvm.loop !82
 
 while.end18:                                      ; preds = %while.body15, %while.cond13.preheader
@@ -3351,7 +3351,7 @@ while.body:                                       ; preds = %entry, %while.body
   %sub = add nsw i64 %length.addr.020, -4
   %add.ptr = getelementptr inbounds i8, ptr %src.addr.021, i64 32
   %add.ptr12 = getelementptr inbounds i8, ptr %dest.addr.019, i64 16
-  %cmp = icmp ugt i64 %length.addr.020, 7
+  %cmp = icmp samesign ugt i64 %length.addr.020, 7
   br i1 %cmp, label %while.body, label %while.cond13.preheader, !llvm.loop !83
 
 while.body15:                                     ; preds = %while.cond13.preheader, %while.body15
@@ -3365,7 +3365,7 @@ while.body15:                                     ; preds = %while.cond13.prehea
   %incdec.ptr17 = getelementptr inbounds i8, ptr %dest.addr.125, i64 4
   store i32 %9, ptr %dest.addr.125, align 4
   %dec = add nsw i64 %length.addr.126, -1
-  %cmp14 = icmp ugt i64 %length.addr.126, 1
+  %cmp14 = icmp samesign ugt i64 %length.addr.126, 1
   br i1 %cmp14, label %while.body15, label %while.end18, !llvm.loop !84
 
 while.end18:                                      ; preds = %while.body15, %while.cond13.preheader
@@ -3418,7 +3418,7 @@ while.body:                                       ; preds = %entry, %while.body
   %sub = add nsw i64 %length.addr.020, -4
   %add.ptr = getelementptr inbounds i8, ptr %src.addr.021, i64 4
   %add.ptr15 = getelementptr inbounds i8, ptr %dest.addr.019, i64 16
-  %cmp = icmp ugt i64 %length.addr.020, 7
+  %cmp = icmp samesign ugt i64 %length.addr.020, 7
   br i1 %cmp, label %while.body, label %while.cond16.preheader, !llvm.loop !85
 
 while.body18:                                     ; preds = %while.cond16.preheader, %while.body18
@@ -3433,7 +3433,7 @@ while.body18:                                     ; preds = %while.cond16.prehea
   %incdec.ptr21 = getelementptr inbounds i8, ptr %dest.addr.125, i64 4
   store i32 %9, ptr %dest.addr.125, align 4
   %dec = add nsw i64 %length.addr.126, -1
-  %cmp17 = icmp ugt i64 %length.addr.126, 1
+  %cmp17 = icmp samesign ugt i64 %length.addr.126, 1
   br i1 %cmp17, label %while.body18, label %while.end22, !llvm.loop !86
 
 while.end22:                                      ; preds = %while.body18, %while.cond16.preheader
@@ -3486,7 +3486,7 @@ while.body:                                       ; preds = %entry, %while.body
   %sub = add nsw i64 %length.addr.020, -4
   %add.ptr = getelementptr inbounds i8, ptr %src.addr.021, i64 4
   %add.ptr15 = getelementptr inbounds i8, ptr %dest.addr.019, i64 16
-  %cmp = icmp ugt i64 %length.addr.020, 7
+  %cmp = icmp samesign ugt i64 %length.addr.020, 7
   br i1 %cmp, label %while.body, label %while.cond16.preheader, !llvm.loop !87
 
 while.body18:                                     ; preds = %while.cond16.preheader, %while.body18
@@ -3501,7 +3501,7 @@ while.body18:                                     ; preds = %while.cond16.prehea
   %incdec.ptr21 = getelementptr inbounds i8, ptr %dest.addr.125, i64 4
   store i32 %9, ptr %dest.addr.125, align 4
   %dec = add nsw i64 %length.addr.126, -1
-  %cmp17 = icmp ugt i64 %length.addr.126, 1
+  %cmp17 = icmp samesign ugt i64 %length.addr.126, 1
   br i1 %cmp17, label %while.body18, label %while.end22, !llvm.loop !88
 
 while.end22:                                      ; preds = %while.body18, %while.cond16.preheader
@@ -3554,7 +3554,7 @@ while.body:                                       ; preds = %entry, %while.body
   %sub = add nsw i64 %length.addr.020, -4
   %add.ptr = getelementptr inbounds i8, ptr %src.addr.021, i64 8
   %add.ptr15 = getelementptr inbounds i8, ptr %dest.addr.019, i64 16
-  %cmp = icmp ugt i64 %length.addr.020, 7
+  %cmp = icmp samesign ugt i64 %length.addr.020, 7
   br i1 %cmp, label %while.body, label %while.cond16.preheader, !llvm.loop !89
 
 while.body18:                                     ; preds = %while.cond16.preheader, %while.body18
@@ -3569,7 +3569,7 @@ while.body18:                                     ; preds = %while.cond16.prehea
   %incdec.ptr21 = getelementptr inbounds i8, ptr %dest.addr.125, i64 4
   store i32 %9, ptr %dest.addr.125, align 4
   %dec = add nsw i64 %length.addr.126, -1
-  %cmp17 = icmp ugt i64 %length.addr.126, 1
+  %cmp17 = icmp samesign ugt i64 %length.addr.126, 1
   br i1 %cmp17, label %while.body18, label %while.end22, !llvm.loop !90
 
 while.end22:                                      ; preds = %while.body18, %while.cond16.preheader
@@ -3622,7 +3622,7 @@ while.body:                                       ; preds = %entry, %while.body
   %sub = add nsw i64 %length.addr.020, -4
   %add.ptr = getelementptr inbounds i8, ptr %src.addr.021, i64 8
   %add.ptr15 = getelementptr inbounds i8, ptr %dest.addr.019, i64 16
-  %cmp = icmp ugt i64 %length.addr.020, 7
+  %cmp = icmp samesign ugt i64 %length.addr.020, 7
   br i1 %cmp, label %while.body, label %while.cond16.preheader, !llvm.loop !91
 
 while.body18:                                     ; preds = %while.cond16.preheader, %while.body18
@@ -3637,7 +3637,7 @@ while.body18:                                     ; preds = %while.cond16.prehea
   %incdec.ptr21 = getelementptr inbounds i8, ptr %dest.addr.125, i64 4
   store i32 %9, ptr %dest.addr.125, align 4
   %dec = add nsw i64 %length.addr.126, -1
-  %cmp17 = icmp ugt i64 %length.addr.126, 1
+  %cmp17 = icmp samesign ugt i64 %length.addr.126, 1
   br i1 %cmp17, label %while.body18, label %while.end22, !llvm.loop !92
 
 while.end22:                                      ; preds = %while.body18, %while.cond16.preheader
@@ -3690,7 +3690,7 @@ while.body:                                       ; preds = %entry, %while.body
   %sub = add nsw i64 %length.addr.020, -4
   %add.ptr = getelementptr inbounds i8, ptr %src.addr.021, i64 16
   %add.ptr15 = getelementptr inbounds i8, ptr %dest.addr.019, i64 16
-  %cmp = icmp ugt i64 %length.addr.020, 7
+  %cmp = icmp samesign ugt i64 %length.addr.020, 7
   br i1 %cmp, label %while.body, label %while.cond16.preheader, !llvm.loop !93
 
 while.body18:                                     ; preds = %while.cond16.preheader, %while.body18
@@ -3705,7 +3705,7 @@ while.body18:                                     ; preds = %while.cond16.prehea
   %incdec.ptr21 = getelementptr inbounds i8, ptr %dest.addr.125, i64 4
   store i32 %9, ptr %dest.addr.125, align 4
   %dec = add nsw i64 %length.addr.126, -1
-  %cmp17 = icmp ugt i64 %length.addr.126, 1
+  %cmp17 = icmp samesign ugt i64 %length.addr.126, 1
   br i1 %cmp17, label %while.body18, label %while.end22, !llvm.loop !94
 
 while.end22:                                      ; preds = %while.body18, %while.cond16.preheader
@@ -3758,7 +3758,7 @@ while.body:                                       ; preds = %entry, %while.body
   %sub = add nsw i64 %length.addr.020, -4
   %add.ptr = getelementptr inbounds i8, ptr %src.addr.021, i64 16
   %add.ptr15 = getelementptr inbounds i8, ptr %dest.addr.019, i64 16
-  %cmp = icmp ugt i64 %length.addr.020, 7
+  %cmp = icmp samesign ugt i64 %length.addr.020, 7
   br i1 %cmp, label %while.body, label %while.cond16.preheader, !llvm.loop !95
 
 while.body18:                                     ; preds = %while.cond16.preheader, %while.body18
@@ -3773,7 +3773,7 @@ while.body18:                                     ; preds = %while.cond16.prehea
   %incdec.ptr21 = getelementptr inbounds i8, ptr %dest.addr.125, i64 4
   store i32 %9, ptr %dest.addr.125, align 4
   %dec = add nsw i64 %length.addr.126, -1
-  %cmp17 = icmp ugt i64 %length.addr.126, 1
+  %cmp17 = icmp samesign ugt i64 %length.addr.126, 1
   br i1 %cmp17, label %while.body18, label %while.end22, !llvm.loop !96
 
 while.end22:                                      ; preds = %while.body18, %while.cond16.preheader
@@ -3822,7 +3822,7 @@ while.body:                                       ; preds = %entry, %while.body
   %sub = add nsw i64 %length.addr.020, -4
   %add.ptr = getelementptr inbounds i8, ptr %src.addr.021, i64 32
   %add.ptr12 = getelementptr inbounds i8, ptr %dest.addr.019, i64 16
-  %cmp = icmp ugt i64 %length.addr.020, 7
+  %cmp = icmp samesign ugt i64 %length.addr.020, 7
   br i1 %cmp, label %while.body, label %while.cond13.preheader, !llvm.loop !97
 
 while.body15:                                     ; preds = %while.cond13.preheader, %while.body15
@@ -3836,7 +3836,7 @@ while.body15:                                     ; preds = %while.cond13.prehea
   %incdec.ptr17 = getelementptr inbounds i8, ptr %dest.addr.125, i64 4
   store i32 %9, ptr %dest.addr.125, align 4
   %dec = add nsw i64 %length.addr.126, -1
-  %cmp14 = icmp ugt i64 %length.addr.126, 1
+  %cmp14 = icmp samesign ugt i64 %length.addr.126, 1
   br i1 %cmp14, label %while.body15, label %while.end18, !llvm.loop !98
 
 while.end18:                                      ; preds = %while.body15, %while.cond13.preheader
@@ -3885,7 +3885,7 @@ while.body:                                       ; preds = %entry, %while.body
   %sub = add nsw i64 %length.addr.020, -4
   %add.ptr = getelementptr inbounds i8, ptr %src.addr.021, i64 32
   %add.ptr12 = getelementptr inbounds i8, ptr %dest.addr.019, i64 16
-  %cmp = icmp ugt i64 %length.addr.020, 7
+  %cmp = icmp samesign ugt i64 %length.addr.020, 7
   br i1 %cmp, label %while.body, label %while.cond13.preheader, !llvm.loop !99
 
 while.body15:                                     ; preds = %while.cond13.preheader, %while.body15
@@ -3899,7 +3899,7 @@ while.body15:                                     ; preds = %while.cond13.prehea
   %incdec.ptr17 = getelementptr inbounds i8, ptr %dest.addr.125, i64 4
   store i32 %9, ptr %dest.addr.125, align 4
   %dec = add nsw i64 %length.addr.126, -1
-  %cmp14 = icmp ugt i64 %length.addr.126, 1
+  %cmp14 = icmp samesign ugt i64 %length.addr.126, 1
   br i1 %cmp14, label %while.body15, label %while.end18, !llvm.loop !100
 
 while.end18:                                      ; preds = %while.body15, %while.cond13.preheader
@@ -3956,7 +3956,7 @@ while.body:                                       ; preds = %entry, %while.body
   %sub = add nsw i64 %length.addr.020, -4
   %add.ptr = getelementptr inbounds i8, ptr %src.addr.021, i64 4
   %add.ptr18 = getelementptr inbounds i8, ptr %dest.addr.019, i64 32
-  %cmp = icmp ugt i64 %length.addr.020, 7
+  %cmp = icmp samesign ugt i64 %length.addr.020, 7
   br i1 %cmp, label %while.body, label %while.cond19.preheader, !llvm.loop !101
 
 while.body21:                                     ; preds = %while.cond19.preheader, %while.body21
@@ -3972,7 +3972,7 @@ while.body21:                                     ; preds = %while.cond19.prehea
   %incdec.ptr25 = getelementptr inbounds i8, ptr %dest.addr.125, i64 8
   store i64 %conv24, ptr %dest.addr.125, align 8
   %dec = add nsw i64 %length.addr.126, -1
-  %cmp20 = icmp ugt i64 %length.addr.126, 1
+  %cmp20 = icmp samesign ugt i64 %length.addr.126, 1
   br i1 %cmp20, label %while.body21, label %while.end26, !llvm.loop !102
 
 while.end26:                                      ; preds = %while.body21, %while.cond19.preheader
@@ -4029,7 +4029,7 @@ while.body:                                       ; preds = %entry, %while.body
   %sub = add nsw i64 %length.addr.020, -4
   %add.ptr = getelementptr inbounds i8, ptr %src.addr.021, i64 4
   %add.ptr18 = getelementptr inbounds i8, ptr %dest.addr.019, i64 32
-  %cmp = icmp ugt i64 %length.addr.020, 7
+  %cmp = icmp samesign ugt i64 %length.addr.020, 7
   br i1 %cmp, label %while.body, label %while.cond19.preheader, !llvm.loop !103
 
 while.body21:                                     ; preds = %while.cond19.preheader, %while.body21
@@ -4045,7 +4045,7 @@ while.body21:                                     ; preds = %while.cond19.prehea
   %incdec.ptr25 = getelementptr inbounds i8, ptr %dest.addr.125, i64 8
   store i64 %conv24, ptr %dest.addr.125, align 8
   %dec = add nsw i64 %length.addr.126, -1
-  %cmp20 = icmp ugt i64 %length.addr.126, 1
+  %cmp20 = icmp samesign ugt i64 %length.addr.126, 1
   br i1 %cmp20, label %while.body21, label %while.end26, !llvm.loop !104
 
 while.end26:                                      ; preds = %while.body21, %while.cond19.preheader
@@ -4102,7 +4102,7 @@ while.body:                                       ; preds = %entry, %while.body
   %sub = add nsw i64 %length.addr.020, -4
   %add.ptr = getelementptr inbounds i8, ptr %src.addr.021, i64 8
   %add.ptr18 = getelementptr inbounds i8, ptr %dest.addr.019, i64 32
-  %cmp = icmp ugt i64 %length.addr.020, 7
+  %cmp = icmp samesign ugt i64 %length.addr.020, 7
   br i1 %cmp, label %while.body, label %while.cond19.preheader, !llvm.loop !105
 
 while.body21:                                     ; preds = %while.cond19.preheader, %while.body21
@@ -4118,7 +4118,7 @@ while.body21:                                     ; preds = %while.cond19.prehea
   %incdec.ptr25 = getelementptr inbounds i8, ptr %dest.addr.125, i64 8
   store i64 %conv24, ptr %dest.addr.125, align 8
   %dec = add nsw i64 %length.addr.126, -1
-  %cmp20 = icmp ugt i64 %length.addr.126, 1
+  %cmp20 = icmp samesign ugt i64 %length.addr.126, 1
   br i1 %cmp20, label %while.body21, label %while.end26, !llvm.loop !106
 
 while.end26:                                      ; preds = %while.body21, %while.cond19.preheader
@@ -4175,7 +4175,7 @@ while.body:                                       ; preds = %entry, %while.body
   %sub = add nsw i64 %length.addr.020, -4
   %add.ptr = getelementptr inbounds i8, ptr %src.addr.021, i64 8
   %add.ptr18 = getelementptr inbounds i8, ptr %dest.addr.019, i64 32
-  %cmp = icmp ugt i64 %length.addr.020, 7
+  %cmp = icmp samesign ugt i64 %length.addr.020, 7
   br i1 %cmp, label %while.body, label %while.cond19.preheader, !llvm.loop !107
 
 while.body21:                                     ; preds = %while.cond19.preheader, %while.body21
@@ -4191,7 +4191,7 @@ while.body21:                                     ; preds = %while.cond19.prehea
   %incdec.ptr25 = getelementptr inbounds i8, ptr %dest.addr.125, i64 8
   store i64 %conv24, ptr %dest.addr.125, align 8
   %dec = add nsw i64 %length.addr.126, -1
-  %cmp20 = icmp ugt i64 %length.addr.126, 1
+  %cmp20 = icmp samesign ugt i64 %length.addr.126, 1
   br i1 %cmp20, label %while.body21, label %while.end26, !llvm.loop !108
 
 while.end26:                                      ; preds = %while.body21, %while.cond19.preheader
@@ -4248,7 +4248,7 @@ while.body:                                       ; preds = %entry, %while.body
   %sub = add nsw i64 %length.addr.020, -4
   %add.ptr = getelementptr inbounds i8, ptr %src.addr.021, i64 16
   %add.ptr18 = getelementptr inbounds i8, ptr %dest.addr.019, i64 32
-  %cmp = icmp ugt i64 %length.addr.020, 7
+  %cmp = icmp samesign ugt i64 %length.addr.020, 7
   br i1 %cmp, label %while.body, label %while.cond19.preheader, !llvm.loop !109
 
 while.body21:                                     ; preds = %while.cond19.preheader, %while.body21
@@ -4264,7 +4264,7 @@ while.body21:                                     ; preds = %while.cond19.prehea
   %incdec.ptr25 = getelementptr inbounds i8, ptr %dest.addr.125, i64 8
   store i64 %conv24, ptr %dest.addr.125, align 8
   %dec = add nsw i64 %length.addr.126, -1
-  %cmp20 = icmp ugt i64 %length.addr.126, 1
+  %cmp20 = icmp samesign ugt i64 %length.addr.126, 1
   br i1 %cmp20, label %while.body21, label %while.end26, !llvm.loop !110
 
 while.end26:                                      ; preds = %while.body21, %while.cond19.preheader
@@ -4321,7 +4321,7 @@ while.body:                                       ; preds = %entry, %while.body
   %sub = add nsw i64 %length.addr.020, -4
   %add.ptr = getelementptr inbounds i8, ptr %src.addr.021, i64 16
   %add.ptr18 = getelementptr inbounds i8, ptr %dest.addr.019, i64 32
-  %cmp = icmp ugt i64 %length.addr.020, 7
+  %cmp = icmp samesign ugt i64 %length.addr.020, 7
   br i1 %cmp, label %while.body, label %while.cond19.preheader, !llvm.loop !111
 
 while.body21:                                     ; preds = %while.cond19.preheader, %while.body21
@@ -4337,7 +4337,7 @@ while.body21:                                     ; preds = %while.cond19.prehea
   %incdec.ptr25 = getelementptr inbounds i8, ptr %dest.addr.125, i64 8
   store i64 %conv24, ptr %dest.addr.125, align 8
   %dec = add nsw i64 %length.addr.126, -1
-  %cmp20 = icmp ugt i64 %length.addr.126, 1
+  %cmp20 = icmp samesign ugt i64 %length.addr.126, 1
   br i1 %cmp20, label %while.body21, label %while.end26, !llvm.loop !112
 
 while.end26:                                      ; preds = %while.body21, %while.cond19.preheader
@@ -4390,7 +4390,7 @@ while.body:                                       ; preds = %entry, %while.body
   %sub = add nsw i64 %length.addr.020, -4
   %add.ptr = getelementptr inbounds i8, ptr %src.addr.021, i64 32
   %add.ptr15 = getelementptr inbounds i8, ptr %dest.addr.019, i64 32
-  %cmp = icmp ugt i64 %length.addr.020, 7
+  %cmp = icmp samesign ugt i64 %length.addr.020, 7
   br i1 %cmp, label %while.body, label %while.cond16.preheader, !llvm.loop !113
 
 while.body18:                                     ; preds = %while.cond16.preheader, %while.body18
@@ -4405,7 +4405,7 @@ while.body18:                                     ; preds = %while.cond16.prehea
   %incdec.ptr21 = getelementptr inbounds i8, ptr %dest.addr.125, i64 8
   store i64 %conv20, ptr %dest.addr.125, align 8
   %dec = add nsw i64 %length.addr.126, -1
-  %cmp17 = icmp ugt i64 %length.addr.126, 1
+  %cmp17 = icmp samesign ugt i64 %length.addr.126, 1
   br i1 %cmp17, label %while.body18, label %while.end22, !llvm.loop !114
 
 while.end22:                                      ; preds = %while.body18, %while.cond16.preheader
@@ -4458,7 +4458,7 @@ while.body:                                       ; preds = %entry, %while.body
   %sub = add nsw i64 %length.addr.020, -4
   %add.ptr = getelementptr inbounds i8, ptr %src.addr.021, i64 32
   %add.ptr15 = getelementptr inbounds i8, ptr %dest.addr.019, i64 32
-  %cmp = icmp ugt i64 %length.addr.020, 7
+  %cmp = icmp samesign ugt i64 %length.addr.020, 7
   br i1 %cmp, label %while.body, label %while.cond16.preheader, !llvm.loop !115
 
 while.body18:                                     ; preds = %while.cond16.preheader, %while.body18
@@ -4473,7 +4473,7 @@ while.body18:                                     ; preds = %while.cond16.prehea
   %incdec.ptr21 = getelementptr inbounds i8, ptr %dest.addr.125, i64 8
   store i64 %conv20, ptr %dest.addr.125, align 8
   %dec = add nsw i64 %length.addr.126, -1
-  %cmp17 = icmp ugt i64 %length.addr.126, 1
+  %cmp17 = icmp samesign ugt i64 %length.addr.126, 1
   br i1 %cmp17, label %while.body18, label %while.end22, !llvm.loop !116
 
 while.end22:                                      ; preds = %while.body18, %while.cond16.preheader
@@ -4530,7 +4530,7 @@ while.body:                                       ; preds = %entry, %while.body
   %sub = add nsw i64 %length.addr.020, -4
   %add.ptr = getelementptr inbounds i8, ptr %src.addr.021, i64 4
   %add.ptr18 = getelementptr inbounds i8, ptr %dest.addr.019, i64 32
-  %cmp = icmp ugt i64 %length.addr.020, 7
+  %cmp = icmp samesign ugt i64 %length.addr.020, 7
   br i1 %cmp, label %while.body, label %while.cond19.preheader, !llvm.loop !117
 
 while.body21:                                     ; preds = %while.cond19.preheader, %while.body21
@@ -4546,7 +4546,7 @@ while.body21:                                     ; preds = %while.cond19.prehea
   %incdec.ptr25 = getelementptr inbounds i8, ptr %dest.addr.125, i64 8
   store i64 %conv24, ptr %dest.addr.125, align 8
   %dec = add nsw i64 %length.addr.126, -1
-  %cmp20 = icmp ugt i64 %length.addr.126, 1
+  %cmp20 = icmp samesign ugt i64 %length.addr.126, 1
   br i1 %cmp20, label %while.body21, label %while.end26, !llvm.loop !118
 
 while.end26:                                      ; preds = %while.body21, %while.cond19.preheader
@@ -4603,7 +4603,7 @@ while.body:                                       ; preds = %entry, %while.body
   %sub = add nsw i64 %length.addr.020, -4
   %add.ptr = getelementptr inbounds i8, ptr %src.addr.021, i64 4
   %add.ptr18 = getelementptr inbounds i8, ptr %dest.addr.019, i64 32
-  %cmp = icmp ugt i64 %length.addr.020, 7
+  %cmp = icmp samesign ugt i64 %length.addr.020, 7
   br i1 %cmp, label %while.body, label %while.cond19.preheader, !llvm.loop !119
 
 while.body21:                                     ; preds = %while.cond19.preheader, %while.body21
@@ -4619,7 +4619,7 @@ while.body21:                                     ; preds = %while.cond19.prehea
   %incdec.ptr25 = getelementptr inbounds i8, ptr %dest.addr.125, i64 8
   store i64 %conv24, ptr %dest.addr.125, align 8
   %dec = add nsw i64 %length.addr.126, -1
-  %cmp20 = icmp ugt i64 %length.addr.126, 1
+  %cmp20 = icmp samesign ugt i64 %length.addr.126, 1
   br i1 %cmp20, label %while.body21, label %while.end26, !llvm.loop !120
 
 while.end26:                                      ; preds = %while.body21, %while.cond19.preheader
@@ -4676,7 +4676,7 @@ while.body:                                       ; preds = %entry, %while.body
   %sub = add nsw i64 %length.addr.020, -4
   %add.ptr = getelementptr inbounds i8, ptr %src.addr.021, i64 8
   %add.ptr18 = getelementptr inbounds i8, ptr %dest.addr.019, i64 32
-  %cmp = icmp ugt i64 %length.addr.020, 7
+  %cmp = icmp samesign ugt i64 %length.addr.020, 7
   br i1 %cmp, label %while.body, label %while.cond19.preheader, !llvm.loop !121
 
 while.body21:                                     ; preds = %while.cond19.preheader, %while.body21
@@ -4692,7 +4692,7 @@ while.body21:                                     ; preds = %while.cond19.prehea
   %incdec.ptr25 = getelementptr inbounds i8, ptr %dest.addr.125, i64 8
   store i64 %conv24, ptr %dest.addr.125, align 8
   %dec = add nsw i64 %length.addr.126, -1
-  %cmp20 = icmp ugt i64 %length.addr.126, 1
+  %cmp20 = icmp samesign ugt i64 %length.addr.126, 1
   br i1 %cmp20, label %while.body21, label %while.end26, !llvm.loop !122
 
 while.end26:                                      ; preds = %while.body21, %while.cond19.preheader
@@ -4749,7 +4749,7 @@ while.body:                                       ; preds = %entry, %while.body
   %sub = add nsw i64 %length.addr.020, -4
   %add.ptr = getelementptr inbounds i8, ptr %src.addr.021, i64 8
   %add.ptr18 = getelementptr inbounds i8, ptr %dest.addr.019, i64 32
-  %cmp = icmp ugt i64 %length.addr.020, 7
+  %cmp = icmp samesign ugt i64 %length.addr.020, 7
   br i1 %cmp, label %while.body, label %while.cond19.preheader, !llvm.loop !123
 
 while.body21:                                     ; preds = %while.cond19.preheader, %while.body21
@@ -4765,7 +4765,7 @@ while.body21:                                     ; preds = %while.cond19.prehea
   %incdec.ptr25 = getelementptr inbounds i8, ptr %dest.addr.125, i64 8
   store i64 %conv24, ptr %dest.addr.125, align 8
   %dec = add nsw i64 %length.addr.126, -1
-  %cmp20 = icmp ugt i64 %length.addr.126, 1
+  %cmp20 = icmp samesign ugt i64 %length.addr.126, 1
   br i1 %cmp20, label %while.body21, label %while.end26, !llvm.loop !124
 
 while.end26:                                      ; preds = %while.body21, %while.cond19.preheader
@@ -4822,7 +4822,7 @@ while.body:                                       ; preds = %entry, %while.body
   %sub = add nsw i64 %length.addr.020, -4
   %add.ptr = getelementptr inbounds i8, ptr %src.addr.021, i64 16
   %add.ptr18 = getelementptr inbounds i8, ptr %dest.addr.019, i64 32
-  %cmp = icmp ugt i64 %length.addr.020, 7
+  %cmp = icmp samesign ugt i64 %length.addr.020, 7
   br i1 %cmp, label %while.body, label %while.cond19.preheader, !llvm.loop !125
 
 while.body21:                                     ; preds = %while.cond19.preheader, %while.body21
@@ -4838,7 +4838,7 @@ while.body21:                                     ; preds = %while.cond19.prehea
   %incdec.ptr25 = getelementptr inbounds i8, ptr %dest.addr.125, i64 8
   store i64 %conv24, ptr %dest.addr.125, align 8
   %dec = add nsw i64 %length.addr.126, -1
-  %cmp20 = icmp ugt i64 %length.addr.126, 1
+  %cmp20 = icmp samesign ugt i64 %length.addr.126, 1
   br i1 %cmp20, label %while.body21, label %while.end26, !llvm.loop !126
 
 while.end26:                                      ; preds = %while.body21, %while.cond19.preheader
@@ -4895,7 +4895,7 @@ while.body:                                       ; preds = %entry, %while.body
   %sub = add nsw i64 %length.addr.020, -4
   %add.ptr = getelementptr inbounds i8, ptr %src.addr.021, i64 16
   %add.ptr18 = getelementptr inbounds i8, ptr %dest.addr.019, i64 32
-  %cmp = icmp ugt i64 %length.addr.020, 7
+  %cmp = icmp samesign ugt i64 %length.addr.020, 7
   br i1 %cmp, label %while.body, label %while.cond19.preheader, !llvm.loop !127
 
 while.body21:                                     ; preds = %while.cond19.preheader, %while.body21
@@ -4911,7 +4911,7 @@ while.body21:                                     ; preds = %while.cond19.prehea
   %incdec.ptr25 = getelementptr inbounds i8, ptr %dest.addr.125, i64 8
   store i64 %conv24, ptr %dest.addr.125, align 8
   %dec = add nsw i64 %length.addr.126, -1
-  %cmp20 = icmp ugt i64 %length.addr.126, 1
+  %cmp20 = icmp samesign ugt i64 %length.addr.126, 1
   br i1 %cmp20, label %while.body21, label %while.end26, !llvm.loop !128
 
 while.end26:                                      ; preds = %while.body21, %while.cond19.preheader
@@ -4964,7 +4964,7 @@ while.body:                                       ; preds = %entry, %while.body
   %sub = add nsw i64 %length.addr.020, -4
   %add.ptr = getelementptr inbounds i8, ptr %src.addr.021, i64 32
   %add.ptr15 = getelementptr inbounds i8, ptr %dest.addr.019, i64 32
-  %cmp = icmp ugt i64 %length.addr.020, 7
+  %cmp = icmp samesign ugt i64 %length.addr.020, 7
   br i1 %cmp, label %while.body, label %while.cond16.preheader, !llvm.loop !129
 
 while.body18:                                     ; preds = %while.cond16.preheader, %while.body18
@@ -4979,7 +4979,7 @@ while.body18:                                     ; preds = %while.cond16.prehea
   %incdec.ptr21 = getelementptr inbounds i8, ptr %dest.addr.125, i64 8
   store i64 %conv20, ptr %dest.addr.125, align 8
   %dec = add nsw i64 %length.addr.126, -1
-  %cmp17 = icmp ugt i64 %length.addr.126, 1
+  %cmp17 = icmp samesign ugt i64 %length.addr.126, 1
   br i1 %cmp17, label %while.body18, label %while.end22, !llvm.loop !130
 
 while.end22:                                      ; preds = %while.body18, %while.cond16.preheader
@@ -5032,7 +5032,7 @@ while.body:                                       ; preds = %entry, %while.body
   %sub = add nsw i64 %length.addr.020, -4
   %add.ptr = getelementptr inbounds i8, ptr %src.addr.021, i64 32
   %add.ptr15 = getelementptr inbounds i8, ptr %dest.addr.019, i64 32
-  %cmp = icmp ugt i64 %length.addr.020, 7
+  %cmp = icmp samesign ugt i64 %length.addr.020, 7
   br i1 %cmp, label %while.body, label %while.cond16.preheader, !llvm.loop !131
 
 while.body18:                                     ; preds = %while.cond16.preheader, %while.body18
@@ -5047,7 +5047,7 @@ while.body18:                                     ; preds = %while.cond16.prehea
   %incdec.ptr21 = getelementptr inbounds i8, ptr %dest.addr.125, i64 8
   store i64 %conv20, ptr %dest.addr.125, align 8
   %dec = add nsw i64 %length.addr.126, -1
-  %cmp17 = icmp ugt i64 %length.addr.126, 1
+  %cmp17 = icmp samesign ugt i64 %length.addr.126, 1
   br i1 %cmp17, label %while.body18, label %while.end22, !llvm.loop !132
 
 while.end22:                                      ; preds = %while.body18, %while.cond16.preheader
@@ -5902,7 +5902,7 @@ while.body.i:                                     ; preds = %entry, %while.body.
   %sub.i = add nsw i64 %length.addr.017.i, -4
   %add.ptr.i = getelementptr inbounds i8, ptr %src.addr.015.i, i64 32
   %add.ptr11.i = getelementptr inbounds i8, ptr %dest.addr.016.i, i64 4
-  %cmp.i = icmp ugt i64 %length.addr.017.i, 7
+  %cmp.i = icmp samesign ugt i64 %length.addr.017.i, 7
   br i1 %cmp.i, label %while.body.i, label %while.cond12.preheader.i, !llvm.loop !149
 
 while.body14.i:                                   ; preds = %while.cond12.preheader.i, %while.body14.i
@@ -5915,7 +5915,7 @@ while.body14.i:                                   ; preds = %while.cond12.prehea
   %incdec.ptr16.i = getelementptr inbounds i8, ptr %dest.addr.122.i, i64 1
   store i8 %conv15.i, ptr %dest.addr.122.i, align 1
   %dec.i = add nsw i64 %length.addr.123.i, -1
-  %cmp13.i = icmp ugt i64 %length.addr.123.i, 1
+  %cmp13.i = icmp samesign ugt i64 %length.addr.123.i, 1
   br i1 %cmp13.i, label %while.body14.i, label %_ZN5arrow8internalL16CastIntsInternalIlaEEvPKT_PT0_l.exit, !llvm.loop !150
 
 _ZN5arrow8internalL16CastIntsInternalIlaEEvPKT_PT0_l.exit: ; preds = %while.body14.i, %while.cond12.preheader.i
@@ -5960,7 +5960,7 @@ while.body.i:                                     ; preds = %entry, %while.body.
   %sub.i = add nsw i64 %length.addr.017.i, -4
   %add.ptr.i = getelementptr inbounds i8, ptr %src.addr.015.i, i64 32
   %add.ptr11.i = getelementptr inbounds i8, ptr %dest.addr.016.i, i64 8
-  %cmp.i = icmp ugt i64 %length.addr.017.i, 7
+  %cmp.i = icmp samesign ugt i64 %length.addr.017.i, 7
   br i1 %cmp.i, label %while.body.i, label %while.cond12.preheader.i, !llvm.loop !151
 
 while.body14.i:                                   ; preds = %while.cond12.preheader.i, %while.body14.i
@@ -5973,7 +5973,7 @@ while.body14.i:                                   ; preds = %while.cond12.prehea
   %incdec.ptr16.i = getelementptr inbounds i8, ptr %dest.addr.122.i, i64 2
   store i16 %conv15.i, ptr %dest.addr.122.i, align 2
   %dec.i = add nsw i64 %length.addr.123.i, -1
-  %cmp13.i = icmp ugt i64 %length.addr.123.i, 1
+  %cmp13.i = icmp samesign ugt i64 %length.addr.123.i, 1
   br i1 %cmp13.i, label %while.body14.i, label %_ZN5arrow8internalL16CastIntsInternalIlsEEvPKT_PT0_l.exit, !llvm.loop !152
 
 _ZN5arrow8internalL16CastIntsInternalIlsEEvPKT_PT0_l.exit: ; preds = %while.body14.i, %while.cond12.preheader.i
@@ -6018,7 +6018,7 @@ while.body.i:                                     ; preds = %entry, %while.body.
   %sub.i = add nsw i64 %length.addr.017.i, -4
   %add.ptr.i = getelementptr inbounds i8, ptr %src.addr.015.i, i64 32
   %add.ptr11.i = getelementptr inbounds i8, ptr %dest.addr.016.i, i64 16
-  %cmp.i = icmp ugt i64 %length.addr.017.i, 7
+  %cmp.i = icmp samesign ugt i64 %length.addr.017.i, 7
   br i1 %cmp.i, label %while.body.i, label %while.cond12.preheader.i, !llvm.loop !153
 
 while.body14.i:                                   ; preds = %while.cond12.preheader.i, %while.body14.i
@@ -6031,7 +6031,7 @@ while.body14.i:                                   ; preds = %while.cond12.prehea
   %incdec.ptr16.i = getelementptr inbounds i8, ptr %dest.addr.122.i, i64 4
   store i32 %conv15.i, ptr %dest.addr.122.i, align 4
   %dec.i = add nsw i64 %length.addr.123.i, -1
-  %cmp13.i = icmp ugt i64 %length.addr.123.i, 1
+  %cmp13.i = icmp samesign ugt i64 %length.addr.123.i, 1
   br i1 %cmp13.i, label %while.body14.i, label %_ZN5arrow8internalL16CastIntsInternalIliEEvPKT_PT0_l.exit, !llvm.loop !154
 
 _ZN5arrow8internalL16CastIntsInternalIliEEvPKT_PT0_l.exit: ; preds = %while.body14.i, %while.cond12.preheader.i
@@ -6087,7 +6087,7 @@ while.body.i:                                     ; preds = %entry, %while.body.
   %sub.i = add nsw i64 %length.addr.017.i, -4
   %add.ptr.i = getelementptr inbounds i8, ptr %src.addr.015.i, i64 32
   %add.ptr11.i = getelementptr inbounds i8, ptr %dest.addr.016.i, i64 4
-  %cmp.i = icmp ugt i64 %length.addr.017.i, 7
+  %cmp.i = icmp samesign ugt i64 %length.addr.017.i, 7
   br i1 %cmp.i, label %while.body.i, label %while.cond12.preheader.i, !llvm.loop !155
 
 while.body14.i:                                   ; preds = %while.cond12.preheader.i, %while.body14.i
@@ -6100,7 +6100,7 @@ while.body14.i:                                   ; preds = %while.cond12.prehea
   %incdec.ptr16.i = getelementptr inbounds i8, ptr %dest.addr.122.i, i64 1
   store i8 %conv15.i, ptr %dest.addr.122.i, align 1
   %dec.i = add nsw i64 %length.addr.123.i, -1
-  %cmp13.i = icmp ugt i64 %length.addr.123.i, 1
+  %cmp13.i = icmp samesign ugt i64 %length.addr.123.i, 1
   br i1 %cmp13.i, label %while.body14.i, label %_ZN5arrow8internalL16CastIntsInternalImhEEvPKT_PT0_l.exit, !llvm.loop !156
 
 _ZN5arrow8internalL16CastIntsInternalImhEEvPKT_PT0_l.exit: ; preds = %while.body14.i, %while.cond12.preheader.i
@@ -6145,7 +6145,7 @@ while.body.i:                                     ; preds = %entry, %while.body.
   %sub.i = add nsw i64 %length.addr.017.i, -4
   %add.ptr.i = getelementptr inbounds i8, ptr %src.addr.015.i, i64 32
   %add.ptr11.i = getelementptr inbounds i8, ptr %dest.addr.016.i, i64 8
-  %cmp.i = icmp ugt i64 %length.addr.017.i, 7
+  %cmp.i = icmp samesign ugt i64 %length.addr.017.i, 7
   br i1 %cmp.i, label %while.body.i, label %while.cond12.preheader.i, !llvm.loop !157
 
 while.body14.i:                                   ; preds = %while.cond12.preheader.i, %while.body14.i
@@ -6158,7 +6158,7 @@ while.body14.i:                                   ; preds = %while.cond12.prehea
   %incdec.ptr16.i = getelementptr inbounds i8, ptr %dest.addr.122.i, i64 2
   store i16 %conv15.i, ptr %dest.addr.122.i, align 2
   %dec.i = add nsw i64 %length.addr.123.i, -1
-  %cmp13.i = icmp ugt i64 %length.addr.123.i, 1
+  %cmp13.i = icmp samesign ugt i64 %length.addr.123.i, 1
   br i1 %cmp13.i, label %while.body14.i, label %_ZN5arrow8internalL16CastIntsInternalImtEEvPKT_PT0_l.exit, !llvm.loop !158
 
 _ZN5arrow8internalL16CastIntsInternalImtEEvPKT_PT0_l.exit: ; preds = %while.body14.i, %while.cond12.preheader.i
@@ -6203,7 +6203,7 @@ while.body.i:                                     ; preds = %entry, %while.body.
   %sub.i = add nsw i64 %length.addr.017.i, -4
   %add.ptr.i = getelementptr inbounds i8, ptr %src.addr.015.i, i64 32
   %add.ptr11.i = getelementptr inbounds i8, ptr %dest.addr.016.i, i64 16
-  %cmp.i = icmp ugt i64 %length.addr.017.i, 7
+  %cmp.i = icmp samesign ugt i64 %length.addr.017.i, 7
   br i1 %cmp.i, label %while.body.i, label %while.cond12.preheader.i, !llvm.loop !159
 
 while.body14.i:                                   ; preds = %while.cond12.preheader.i, %while.body14.i
@@ -6216,7 +6216,7 @@ while.body14.i:                                   ; preds = %while.cond12.prehea
   %incdec.ptr16.i = getelementptr inbounds i8, ptr %dest.addr.122.i, i64 4
   store i32 %conv15.i, ptr %dest.addr.122.i, align 4
   %dec.i = add nsw i64 %length.addr.123.i, -1
-  %cmp13.i = icmp ugt i64 %length.addr.123.i, 1
+  %cmp13.i = icmp samesign ugt i64 %length.addr.123.i, 1
   br i1 %cmp13.i, label %while.body14.i, label %_ZN5arrow8internalL16CastIntsInternalImjEEvPKT_PT0_l.exit, !llvm.loop !160
 
 _ZN5arrow8internalL16CastIntsInternalImjEEvPKT_PT0_l.exit: ; preds = %while.body14.i, %while.cond12.preheader.i
@@ -6269,7 +6269,7 @@ while.body.i:                                     ; preds = %entry, %while.body.
   %sub.i = add nsw i64 %length.addr.017.i, -4
   %add.ptr.i = getelementptr inbounds i8, ptr %src.addr.015.i, i64 16
   %add.ptr11.i = getelementptr inbounds i8, ptr %dest.addr.016.i, i64 32
-  %cmp.i = icmp ugt i64 %length.addr.017.i, 7
+  %cmp.i = icmp samesign ugt i64 %length.addr.017.i, 7
   br i1 %cmp.i, label %while.body.i, label %while.cond12.preheader.i, !llvm.loop !161
 
 while.body14.i:                                   ; preds = %while.cond12.preheader.i, %while.body14.i
@@ -6282,7 +6282,7 @@ while.body14.i:                                   ; preds = %while.cond12.prehea
   %incdec.ptr16.i = getelementptr inbounds i8, ptr %dest.addr.122.i, i64 8
   store i64 %conv15.i, ptr %dest.addr.122.i, align 8
   %dec.i = add nsw i64 %length.addr.123.i, -1
-  %cmp13.i = icmp ugt i64 %length.addr.123.i, 1
+  %cmp13.i = icmp samesign ugt i64 %length.addr.123.i, 1
   br i1 %cmp13.i, label %while.body14.i, label %_ZN5arrow8internalL16CastIntsInternalIilEEvPKT_PT0_l.exit, !llvm.loop !162
 
 _ZN5arrow8internalL16CastIntsInternalIilEEvPKT_PT0_l.exit: ; preds = %while.body14.i, %while.cond12.preheader.i
@@ -13463,7 +13463,7 @@ while.body.i.i.i.i.i:                             ; preds = %sw.bb4.i.i.i, %whil
   %sub.i.i.i.i.i = add nsw i64 %length.addr.020.i.i.i.i.i, -4
   %add.ptr.i.i.i.i.i = getelementptr inbounds i8, ptr %src.addr.021.i.i.i.i.i, i64 4
   %add.ptr18.i.i.i.i.i = getelementptr inbounds i8, ptr %dest.addr.019.i.i.i.i.i, i64 4
-  %cmp.i.i.i.i.i = icmp ugt i64 %length.addr.020.i.i.i.i.i, 7
+  %cmp.i.i.i.i.i = icmp samesign ugt i64 %length.addr.020.i.i.i.i.i, 7
   br i1 %cmp.i.i.i.i.i, label %while.body.i.i.i.i.i, label %while.cond19.preheader.i.i.i.i.i, !llvm.loop !23
 
 while.body21.i.i.i.i.i:                           ; preds = %while.cond19.preheader.i.i.i.i.i, %while.body21.i.i.i.i.i
@@ -13479,7 +13479,7 @@ while.body21.i.i.i.i.i:                           ; preds = %while.cond19.prehea
   %incdec.ptr25.i.i.i.i.i = getelementptr inbounds i8, ptr %dest.addr.125.i.i.i.i.i, i64 1
   store i8 %conv24.i.i.i.i.i, ptr %dest.addr.125.i.i.i.i.i, align 1, !noalias !636
   %dec.i.i.i.i.i = add nsw i64 %length.addr.126.i.i.i.i.i, -1
-  %cmp20.i.i.i.i.i = icmp ugt i64 %length.addr.126.i.i.i.i.i, 1
+  %cmp20.i.i.i.i.i = icmp samesign ugt i64 %length.addr.126.i.i.i.i.i, 1
   br i1 %cmp20.i.i.i.i.i, label %while.body21.i.i.i.i.i, label %_ZN5arrow8internal12_GLOBAL__N_117TransposeIntsDestIaE5VisitINS_8Int8TypeEEENSt9enable_ifIXsr15is_integer_typeIT_EE5valueENS_6StatusEE4typeERKS7_.exit.i.i.i, !llvm.loop !24
 
 _ZN5arrow8internal12_GLOBAL__N_117TransposeIntsDestIaE5VisitINS_8Int8TypeEEENSt9enable_ifIXsr15is_integer_typeIT_EE5valueENS_6StatusEE4typeERKS7_.exit.i.i.i: ; preds = %while.body21.i.i.i.i.i, %while.cond19.preheader.i.i.i.i.i
@@ -13536,7 +13536,7 @@ while.body.i.i108.i.i.i:                          ; preds = %sw.bb6.i.i.i, %whil
   %sub.i.i130.i.i.i = add nsw i64 %length.addr.020.i.i110.i.i.i, -4
   %add.ptr.i.i131.i.i.i = getelementptr inbounds i8, ptr %src.addr.021.i.i109.i.i.i, i64 4
   %add.ptr18.i.i132.i.i.i = getelementptr inbounds i8, ptr %dest.addr.019.i.i111.i.i.i, i64 4
-  %cmp.i.i133.i.i.i = icmp ugt i64 %length.addr.020.i.i110.i.i.i, 7
+  %cmp.i.i133.i.i.i = icmp samesign ugt i64 %length.addr.020.i.i110.i.i.i, 7
   br i1 %cmp.i.i133.i.i.i, label %while.body.i.i108.i.i.i, label %while.cond19.preheader.i.i92.i.i.i, !llvm.loop !7
 
 while.body21.i.i97.i.i.i:                         ; preds = %while.cond19.preheader.i.i92.i.i.i, %while.body21.i.i97.i.i.i
@@ -13552,7 +13552,7 @@ while.body21.i.i97.i.i.i:                         ; preds = %while.cond19.prehea
   %incdec.ptr25.i.i105.i.i.i = getelementptr inbounds i8, ptr %dest.addr.125.i.i100.i.i.i, i64 1
   store i8 %conv24.i.i104.i.i.i, ptr %dest.addr.125.i.i100.i.i.i, align 1, !noalias !643
   %dec.i.i106.i.i.i = add nsw i64 %length.addr.126.i.i99.i.i.i, -1
-  %cmp20.i.i107.i.i.i = icmp ugt i64 %length.addr.126.i.i99.i.i.i, 1
+  %cmp20.i.i107.i.i.i = icmp samesign ugt i64 %length.addr.126.i.i99.i.i.i, 1
   br i1 %cmp20.i.i107.i.i.i, label %while.body21.i.i97.i.i.i, label %_ZN5arrow8internal12_GLOBAL__N_117TransposeIntsDestIaE5VisitINS_9UInt8TypeEEENSt9enable_ifIXsr15is_integer_typeIT_EE5valueENS_6StatusEE4typeERKS7_.exit.i.i.i, !llvm.loop !8
 
 _ZN5arrow8internal12_GLOBAL__N_117TransposeIntsDestIaE5VisitINS_9UInt8TypeEEENSt9enable_ifIXsr15is_integer_typeIT_EE5valueENS_6StatusEE4typeERKS7_.exit.i.i.i: ; preds = %while.body21.i.i97.i.i.i, %while.cond19.preheader.i.i92.i.i.i
@@ -13609,7 +13609,7 @@ while.body.i.i156.i.i.i:                          ; preds = %sw.bb8.i.i.i, %whil
   %sub.i.i178.i.i.i = add nsw i64 %length.addr.020.i.i158.i.i.i, -4
   %add.ptr.i.i179.i.i.i = getelementptr inbounds i8, ptr %src.addr.021.i.i157.i.i.i, i64 4
   %add.ptr18.i.i180.i.i.i = getelementptr inbounds i8, ptr %dest.addr.019.i.i159.i.i.i, i64 8
-  %cmp.i.i181.i.i.i = icmp ugt i64 %length.addr.020.i.i158.i.i.i, 7
+  %cmp.i.i181.i.i.i = icmp samesign ugt i64 %length.addr.020.i.i158.i.i.i, 7
   br i1 %cmp.i.i181.i.i.i, label %while.body.i.i156.i.i.i, label %while.cond19.preheader.i.i140.i.i.i, !llvm.loop !55
 
 while.body21.i.i145.i.i.i:                        ; preds = %while.cond19.preheader.i.i140.i.i.i, %while.body21.i.i145.i.i.i
@@ -13625,7 +13625,7 @@ while.body21.i.i145.i.i.i:                        ; preds = %while.cond19.prehea
   %incdec.ptr25.i.i153.i.i.i = getelementptr inbounds i8, ptr %dest.addr.125.i.i148.i.i.i, i64 2
   store i16 %conv24.i.i152.i.i.i, ptr %dest.addr.125.i.i148.i.i.i, align 2, !noalias !650
   %dec.i.i154.i.i.i = add nsw i64 %length.addr.126.i.i147.i.i.i, -1
-  %cmp20.i.i155.i.i.i = icmp ugt i64 %length.addr.126.i.i147.i.i.i, 1
+  %cmp20.i.i155.i.i.i = icmp samesign ugt i64 %length.addr.126.i.i147.i.i.i, 1
   br i1 %cmp20.i.i155.i.i.i, label %while.body21.i.i145.i.i.i, label %_ZN5arrow8internal12_GLOBAL__N_117TransposeIntsDestIaE5VisitINS_9Int16TypeEEENSt9enable_ifIXsr15is_integer_typeIT_EE5valueENS_6StatusEE4typeERKS7_.exit.i.i.i, !llvm.loop !56
 
 _ZN5arrow8internal12_GLOBAL__N_117TransposeIntsDestIaE5VisitINS_9Int16TypeEEENSt9enable_ifIXsr15is_integer_typeIT_EE5valueENS_6StatusEE4typeERKS7_.exit.i.i.i: ; preds = %while.body21.i.i145.i.i.i, %while.cond19.preheader.i.i140.i.i.i
@@ -13682,7 +13682,7 @@ while.body.i.i204.i.i.i:                          ; preds = %sw.bb10.i.i.i, %whi
   %sub.i.i226.i.i.i = add nsw i64 %length.addr.020.i.i206.i.i.i, -4
   %add.ptr.i.i227.i.i.i = getelementptr inbounds i8, ptr %src.addr.021.i.i205.i.i.i, i64 4
   %add.ptr18.i.i228.i.i.i = getelementptr inbounds i8, ptr %dest.addr.019.i.i207.i.i.i, i64 8
-  %cmp.i.i229.i.i.i = icmp ugt i64 %length.addr.020.i.i206.i.i.i, 7
+  %cmp.i.i229.i.i.i = icmp samesign ugt i64 %length.addr.020.i.i206.i.i.i, 7
   br i1 %cmp.i.i229.i.i.i, label %while.body.i.i204.i.i.i, label %while.cond19.preheader.i.i188.i.i.i, !llvm.loop !39
 
 while.body21.i.i193.i.i.i:                        ; preds = %while.cond19.preheader.i.i188.i.i.i, %while.body21.i.i193.i.i.i
@@ -13698,7 +13698,7 @@ while.body21.i.i193.i.i.i:                        ; preds = %while.cond19.prehea
   %incdec.ptr25.i.i201.i.i.i = getelementptr inbounds i8, ptr %dest.addr.125.i.i196.i.i.i, i64 2
   store i16 %conv24.i.i200.i.i.i, ptr %dest.addr.125.i.i196.i.i.i, align 2, !noalias !657
   %dec.i.i202.i.i.i = add nsw i64 %length.addr.126.i.i195.i.i.i, -1
-  %cmp20.i.i203.i.i.i = icmp ugt i64 %length.addr.126.i.i195.i.i.i, 1
+  %cmp20.i.i203.i.i.i = icmp samesign ugt i64 %length.addr.126.i.i195.i.i.i, 1
   br i1 %cmp20.i.i203.i.i.i, label %while.body21.i.i193.i.i.i, label %_ZN5arrow8internal12_GLOBAL__N_117TransposeIntsDestIaE5VisitINS_10UInt16TypeEEENSt9enable_ifIXsr15is_integer_typeIT_EE5valueENS_6StatusEE4typeERKS7_.exit.i.i.i, !llvm.loop !40
 
 _ZN5arrow8internal12_GLOBAL__N_117TransposeIntsDestIaE5VisitINS_10UInt16TypeEEENSt9enable_ifIXsr15is_integer_typeIT_EE5valueENS_6StatusEE4typeERKS7_.exit.i.i.i: ; preds = %while.body21.i.i193.i.i.i, %while.cond19.preheader.i.i188.i.i.i
@@ -13751,7 +13751,7 @@ while.body.i.i244.i.i.i:                          ; preds = %sw.bb12.i.i.i, %whi
   %sub.i.i256.i.i.i = add nsw i64 %length.addr.020.i.i246.i.i.i, -4
   %add.ptr.i.i257.i.i.i = getelementptr inbounds i8, ptr %src.addr.021.i.i245.i.i.i, i64 4
   %add.ptr15.i.i.i.i.i = getelementptr inbounds i8, ptr %dest.addr.019.i.i247.i.i.i, i64 16
-  %cmp.i.i258.i.i.i = icmp ugt i64 %length.addr.020.i.i246.i.i.i, 7
+  %cmp.i.i258.i.i.i = icmp samesign ugt i64 %length.addr.020.i.i246.i.i.i, 7
   br i1 %cmp.i.i258.i.i.i, label %while.body.i.i244.i.i.i, label %while.cond16.preheader.i.i.i.i.i, !llvm.loop !87
 
 while.body18.i.i.i.i.i:                           ; preds = %while.cond16.preheader.i.i.i.i.i, %while.body18.i.i.i.i.i
@@ -13766,7 +13766,7 @@ while.body18.i.i.i.i.i:                           ; preds = %while.cond16.prehea
   %incdec.ptr21.i.i.i.i.i = getelementptr inbounds i8, ptr %dest.addr.125.i.i241.i.i.i, i64 4
   store i32 %57, ptr %dest.addr.125.i.i241.i.i.i, align 4, !noalias !664
   %dec.i.i243.i.i.i = add nsw i64 %length.addr.126.i.i240.i.i.i, -1
-  %cmp17.i.i.i.i.i = icmp ugt i64 %length.addr.126.i.i240.i.i.i, 1
+  %cmp17.i.i.i.i.i = icmp samesign ugt i64 %length.addr.126.i.i240.i.i.i, 1
   br i1 %cmp17.i.i.i.i.i, label %while.body18.i.i.i.i.i, label %_ZN5arrow8internal12_GLOBAL__N_117TransposeIntsDestIaE5VisitINS_9Int32TypeEEENSt9enable_ifIXsr15is_integer_typeIT_EE5valueENS_6StatusEE4typeERKS7_.exit.i.i.i, !llvm.loop !88
 
 _ZN5arrow8internal12_GLOBAL__N_117TransposeIntsDestIaE5VisitINS_9Int32TypeEEENSt9enable_ifIXsr15is_integer_typeIT_EE5valueENS_6StatusEE4typeERKS7_.exit.i.i.i: ; preds = %while.body18.i.i.i.i.i, %while.cond16.preheader.i.i.i.i.i
@@ -13819,7 +13819,7 @@ while.body.i.i280.i.i.i:                          ; preds = %sw.bb14.i.i.i, %whi
   %sub.i.i298.i.i.i = add nsw i64 %length.addr.020.i.i282.i.i.i, -4
   %add.ptr.i.i299.i.i.i = getelementptr inbounds i8, ptr %src.addr.021.i.i281.i.i.i, i64 4
   %add.ptr15.i.i300.i.i.i = getelementptr inbounds i8, ptr %dest.addr.019.i.i283.i.i.i, i64 16
-  %cmp.i.i301.i.i.i = icmp ugt i64 %length.addr.020.i.i282.i.i.i, 7
+  %cmp.i.i301.i.i.i = icmp samesign ugt i64 %length.addr.020.i.i282.i.i.i, 7
   br i1 %cmp.i.i301.i.i.i, label %while.body.i.i280.i.i.i, label %while.cond16.preheader.i.i265.i.i.i, !llvm.loop !71
 
 while.body18.i.i270.i.i.i:                        ; preds = %while.cond16.preheader.i.i265.i.i.i, %while.body18.i.i270.i.i.i
@@ -13834,7 +13834,7 @@ while.body18.i.i270.i.i.i:                        ; preds = %while.cond16.prehea
   %incdec.ptr21.i.i277.i.i.i = getelementptr inbounds i8, ptr %dest.addr.125.i.i273.i.i.i, i64 4
   store i32 %67, ptr %dest.addr.125.i.i273.i.i.i, align 4, !noalias !671
   %dec.i.i278.i.i.i = add nsw i64 %length.addr.126.i.i272.i.i.i, -1
-  %cmp17.i.i279.i.i.i = icmp ugt i64 %length.addr.126.i.i272.i.i.i, 1
+  %cmp17.i.i279.i.i.i = icmp samesign ugt i64 %length.addr.126.i.i272.i.i.i, 1
   br i1 %cmp17.i.i279.i.i.i, label %while.body18.i.i270.i.i.i, label %_ZN5arrow8internal12_GLOBAL__N_117TransposeIntsDestIaE5VisitINS_10UInt32TypeEEENSt9enable_ifIXsr15is_integer_typeIT_EE5valueENS_6StatusEE4typeERKS7_.exit.i.i.i, !llvm.loop !72
 
 _ZN5arrow8internal12_GLOBAL__N_117TransposeIntsDestIaE5VisitINS_10UInt32TypeEEENSt9enable_ifIXsr15is_integer_typeIT_EE5valueENS_6StatusEE4typeERKS7_.exit.i.i.i: ; preds = %while.body18.i.i270.i.i.i, %while.cond16.preheader.i.i265.i.i.i
@@ -13891,7 +13891,7 @@ while.body.i.i324.i.i.i:                          ; preds = %sw.bb16.i.i.i, %whi
   %sub.i.i346.i.i.i = add nsw i64 %length.addr.020.i.i326.i.i.i, -4
   %add.ptr.i.i347.i.i.i = getelementptr inbounds i8, ptr %src.addr.021.i.i325.i.i.i, i64 4
   %add.ptr18.i.i348.i.i.i = getelementptr inbounds i8, ptr %dest.addr.019.i.i327.i.i.i, i64 32
-  %cmp.i.i349.i.i.i = icmp ugt i64 %length.addr.020.i.i326.i.i.i, 7
+  %cmp.i.i349.i.i.i = icmp samesign ugt i64 %length.addr.020.i.i326.i.i.i, 7
   br i1 %cmp.i.i349.i.i.i, label %while.body.i.i324.i.i.i, label %while.cond19.preheader.i.i308.i.i.i, !llvm.loop !119
 
 while.body21.i.i313.i.i.i:                        ; preds = %while.cond19.preheader.i.i308.i.i.i, %while.body21.i.i313.i.i.i
@@ -13907,7 +13907,7 @@ while.body21.i.i313.i.i.i:                        ; preds = %while.cond19.prehea
   %incdec.ptr25.i.i321.i.i.i = getelementptr inbounds i8, ptr %dest.addr.125.i.i316.i.i.i, i64 8
   store i64 %conv24.i.i320.i.i.i, ptr %dest.addr.125.i.i316.i.i.i, align 8, !noalias !678
   %dec.i.i322.i.i.i = add nsw i64 %length.addr.126.i.i315.i.i.i, -1
-  %cmp20.i.i323.i.i.i = icmp ugt i64 %length.addr.126.i.i315.i.i.i, 1
+  %cmp20.i.i323.i.i.i = icmp samesign ugt i64 %length.addr.126.i.i315.i.i.i, 1
   br i1 %cmp20.i.i323.i.i.i, label %while.body21.i.i313.i.i.i, label %_ZN5arrow8internal12_GLOBAL__N_117TransposeIntsDestIaE5VisitINS_9Int64TypeEEENSt9enable_ifIXsr15is_integer_typeIT_EE5valueENS_6StatusEE4typeERKS7_.exit.i.i.i, !llvm.loop !120
 
 _ZN5arrow8internal12_GLOBAL__N_117TransposeIntsDestIaE5VisitINS_9Int64TypeEEENSt9enable_ifIXsr15is_integer_typeIT_EE5valueENS_6StatusEE4typeERKS7_.exit.i.i.i: ; preds = %while.body21.i.i313.i.i.i, %while.cond19.preheader.i.i308.i.i.i
@@ -13964,7 +13964,7 @@ while.body.i.i372.i.i.i:                          ; preds = %sw.bb18.i.i.i, %whi
   %sub.i.i394.i.i.i = add nsw i64 %length.addr.020.i.i374.i.i.i, -4
   %add.ptr.i.i395.i.i.i = getelementptr inbounds i8, ptr %src.addr.021.i.i373.i.i.i, i64 4
   %add.ptr18.i.i396.i.i.i = getelementptr inbounds i8, ptr %dest.addr.019.i.i375.i.i.i, i64 32
-  %cmp.i.i397.i.i.i = icmp ugt i64 %length.addr.020.i.i374.i.i.i, 7
+  %cmp.i.i397.i.i.i = icmp samesign ugt i64 %length.addr.020.i.i374.i.i.i, 7
   br i1 %cmp.i.i397.i.i.i, label %while.body.i.i372.i.i.i, label %while.cond19.preheader.i.i356.i.i.i, !llvm.loop !103
 
 while.body21.i.i361.i.i.i:                        ; preds = %while.cond19.preheader.i.i356.i.i.i, %while.body21.i.i361.i.i.i
@@ -13980,7 +13980,7 @@ while.body21.i.i361.i.i.i:                        ; preds = %while.cond19.prehea
   %incdec.ptr25.i.i369.i.i.i = getelementptr inbounds i8, ptr %dest.addr.125.i.i364.i.i.i, i64 8
   store i64 %conv24.i.i368.i.i.i, ptr %dest.addr.125.i.i364.i.i.i, align 8, !noalias !685
   %dec.i.i370.i.i.i = add nsw i64 %length.addr.126.i.i363.i.i.i, -1
-  %cmp20.i.i371.i.i.i = icmp ugt i64 %length.addr.126.i.i363.i.i.i, 1
+  %cmp20.i.i371.i.i.i = icmp samesign ugt i64 %length.addr.126.i.i363.i.i.i, 1
   br i1 %cmp20.i.i371.i.i.i, label %while.body21.i.i361.i.i.i, label %_ZN5arrow8internal12_GLOBAL__N_117TransposeIntsDestIaE5VisitINS_10UInt64TypeEEENSt9enable_ifIXsr15is_integer_typeIT_EE5valueENS_6StatusEE4typeERKS7_.exit.i.i.i, !llvm.loop !104
 
 _ZN5arrow8internal12_GLOBAL__N_117TransposeIntsDestIaE5VisitINS_10UInt64TypeEEENSt9enable_ifIXsr15is_integer_typeIT_EE5valueENS_6StatusEE4typeERKS7_.exit.i.i.i: ; preds = %while.body21.i.i361.i.i.i, %while.cond19.preheader.i.i356.i.i.i
@@ -14247,7 +14247,7 @@ while.body.i.i.i.i.i451:                          ; preds = %sw.bb4.i.i.i432, %w
   %sub.i.i.i.i.i473 = add nsw i64 %length.addr.020.i.i.i.i.i453, -4
   %add.ptr.i.i.i.i.i474 = getelementptr inbounds i8, ptr %src.addr.021.i.i.i.i.i452, i64 4
   %add.ptr18.i.i.i.i.i475 = getelementptr inbounds i8, ptr %dest.addr.019.i.i.i.i.i454, i64 4
-  %cmp.i.i.i.i.i476 = icmp ugt i64 %length.addr.020.i.i.i.i.i453, 7
+  %cmp.i.i.i.i.i476 = icmp samesign ugt i64 %length.addr.020.i.i.i.i.i453, 7
   br i1 %cmp.i.i.i.i.i476, label %while.body.i.i.i.i.i451, label %while.cond19.preheader.i.i.i.i.i435, !llvm.loop !21
 
 while.body21.i.i.i.i.i440:                        ; preds = %while.cond19.preheader.i.i.i.i.i435, %while.body21.i.i.i.i.i440
@@ -14263,7 +14263,7 @@ while.body21.i.i.i.i.i440:                        ; preds = %while.cond19.prehea
   %incdec.ptr25.i.i.i.i.i448 = getelementptr inbounds i8, ptr %dest.addr.125.i.i.i.i.i443, i64 1
   store i8 %conv24.i.i.i.i.i447, ptr %dest.addr.125.i.i.i.i.i443, align 1, !noalias !701
   %dec.i.i.i.i.i449 = add nsw i64 %length.addr.126.i.i.i.i.i442, -1
-  %cmp20.i.i.i.i.i450 = icmp ugt i64 %length.addr.126.i.i.i.i.i442, 1
+  %cmp20.i.i.i.i.i450 = icmp samesign ugt i64 %length.addr.126.i.i.i.i.i442, 1
   br i1 %cmp20.i.i.i.i.i450, label %while.body21.i.i.i.i.i440, label %_ZN5arrow8internal12_GLOBAL__N_117TransposeIntsDestIhE5VisitINS_8Int8TypeEEENSt9enable_ifIXsr15is_integer_typeIT_EE5valueENS_6StatusEE4typeERKS7_.exit.i.i.i, !llvm.loop !22
 
 _ZN5arrow8internal12_GLOBAL__N_117TransposeIntsDestIhE5VisitINS_8Int8TypeEEENSt9enable_ifIXsr15is_integer_typeIT_EE5valueENS_6StatusEE4typeERKS7_.exit.i.i.i: ; preds = %while.body21.i.i.i.i.i440, %while.cond19.preheader.i.i.i.i.i435
@@ -14320,7 +14320,7 @@ while.body.i.i108.i.i.i406:                       ; preds = %sw.bb6.i.i.i387, %w
   %sub.i.i130.i.i.i428 = add nsw i64 %length.addr.020.i.i110.i.i.i408, -4
   %add.ptr.i.i131.i.i.i429 = getelementptr inbounds i8, ptr %src.addr.021.i.i109.i.i.i407, i64 4
   %add.ptr18.i.i132.i.i.i430 = getelementptr inbounds i8, ptr %dest.addr.019.i.i111.i.i.i409, i64 4
-  %cmp.i.i133.i.i.i431 = icmp ugt i64 %length.addr.020.i.i110.i.i.i408, 7
+  %cmp.i.i133.i.i.i431 = icmp samesign ugt i64 %length.addr.020.i.i110.i.i.i408, 7
   br i1 %cmp.i.i133.i.i.i431, label %while.body.i.i108.i.i.i406, label %while.cond19.preheader.i.i92.i.i.i390, !llvm.loop !4
 
 while.body21.i.i97.i.i.i395:                      ; preds = %while.cond19.preheader.i.i92.i.i.i390, %while.body21.i.i97.i.i.i395
@@ -14336,7 +14336,7 @@ while.body21.i.i97.i.i.i395:                      ; preds = %while.cond19.prehea
   %incdec.ptr25.i.i105.i.i.i403 = getelementptr inbounds i8, ptr %dest.addr.125.i.i100.i.i.i398, i64 1
   store i8 %conv24.i.i104.i.i.i402, ptr %dest.addr.125.i.i100.i.i.i398, align 1, !noalias !708
   %dec.i.i106.i.i.i404 = add nsw i64 %length.addr.126.i.i99.i.i.i397, -1
-  %cmp20.i.i107.i.i.i405 = icmp ugt i64 %length.addr.126.i.i99.i.i.i397, 1
+  %cmp20.i.i107.i.i.i405 = icmp samesign ugt i64 %length.addr.126.i.i99.i.i.i397, 1
   br i1 %cmp20.i.i107.i.i.i405, label %while.body21.i.i97.i.i.i395, label %_ZN5arrow8internal12_GLOBAL__N_117TransposeIntsDestIhE5VisitINS_9UInt8TypeEEENSt9enable_ifIXsr15is_integer_typeIT_EE5valueENS_6StatusEE4typeERKS7_.exit.i.i.i, !llvm.loop !6
 
 _ZN5arrow8internal12_GLOBAL__N_117TransposeIntsDestIhE5VisitINS_9UInt8TypeEEENSt9enable_ifIXsr15is_integer_typeIT_EE5valueENS_6StatusEE4typeERKS7_.exit.i.i.i: ; preds = %while.body21.i.i97.i.i.i395, %while.cond19.preheader.i.i92.i.i.i390
@@ -14393,7 +14393,7 @@ while.body.i.i156.i.i.i361:                       ; preds = %sw.bb8.i.i.i342, %w
   %sub.i.i178.i.i.i383 = add nsw i64 %length.addr.020.i.i158.i.i.i363, -4
   %add.ptr.i.i179.i.i.i384 = getelementptr inbounds i8, ptr %src.addr.021.i.i157.i.i.i362, i64 4
   %add.ptr18.i.i180.i.i.i385 = getelementptr inbounds i8, ptr %dest.addr.019.i.i159.i.i.i364, i64 8
-  %cmp.i.i181.i.i.i386 = icmp ugt i64 %length.addr.020.i.i158.i.i.i363, 7
+  %cmp.i.i181.i.i.i386 = icmp samesign ugt i64 %length.addr.020.i.i158.i.i.i363, 7
   br i1 %cmp.i.i181.i.i.i386, label %while.body.i.i156.i.i.i361, label %while.cond19.preheader.i.i140.i.i.i345, !llvm.loop !53
 
 while.body21.i.i145.i.i.i350:                     ; preds = %while.cond19.preheader.i.i140.i.i.i345, %while.body21.i.i145.i.i.i350
@@ -14409,7 +14409,7 @@ while.body21.i.i145.i.i.i350:                     ; preds = %while.cond19.prehea
   %incdec.ptr25.i.i153.i.i.i358 = getelementptr inbounds i8, ptr %dest.addr.125.i.i148.i.i.i353, i64 2
   store i16 %conv24.i.i152.i.i.i357, ptr %dest.addr.125.i.i148.i.i.i353, align 2, !noalias !715
   %dec.i.i154.i.i.i359 = add nsw i64 %length.addr.126.i.i147.i.i.i352, -1
-  %cmp20.i.i155.i.i.i360 = icmp ugt i64 %length.addr.126.i.i147.i.i.i352, 1
+  %cmp20.i.i155.i.i.i360 = icmp samesign ugt i64 %length.addr.126.i.i147.i.i.i352, 1
   br i1 %cmp20.i.i155.i.i.i360, label %while.body21.i.i145.i.i.i350, label %_ZN5arrow8internal12_GLOBAL__N_117TransposeIntsDestIhE5VisitINS_9Int16TypeEEENSt9enable_ifIXsr15is_integer_typeIT_EE5valueENS_6StatusEE4typeERKS7_.exit.i.i.i, !llvm.loop !54
 
 _ZN5arrow8internal12_GLOBAL__N_117TransposeIntsDestIhE5VisitINS_9Int16TypeEEENSt9enable_ifIXsr15is_integer_typeIT_EE5valueENS_6StatusEE4typeERKS7_.exit.i.i.i: ; preds = %while.body21.i.i145.i.i.i350, %while.cond19.preheader.i.i140.i.i.i345
@@ -14466,7 +14466,7 @@ while.body.i.i204.i.i.i316:                       ; preds = %sw.bb10.i.i.i297, %
   %sub.i.i226.i.i.i338 = add nsw i64 %length.addr.020.i.i206.i.i.i318, -4
   %add.ptr.i.i227.i.i.i339 = getelementptr inbounds i8, ptr %src.addr.021.i.i205.i.i.i317, i64 4
   %add.ptr18.i.i228.i.i.i340 = getelementptr inbounds i8, ptr %dest.addr.019.i.i207.i.i.i319, i64 8
-  %cmp.i.i229.i.i.i341 = icmp ugt i64 %length.addr.020.i.i206.i.i.i318, 7
+  %cmp.i.i229.i.i.i341 = icmp samesign ugt i64 %length.addr.020.i.i206.i.i.i318, 7
   br i1 %cmp.i.i229.i.i.i341, label %while.body.i.i204.i.i.i316, label %while.cond19.preheader.i.i188.i.i.i300, !llvm.loop !37
 
 while.body21.i.i193.i.i.i305:                     ; preds = %while.cond19.preheader.i.i188.i.i.i300, %while.body21.i.i193.i.i.i305
@@ -14482,7 +14482,7 @@ while.body21.i.i193.i.i.i305:                     ; preds = %while.cond19.prehea
   %incdec.ptr25.i.i201.i.i.i313 = getelementptr inbounds i8, ptr %dest.addr.125.i.i196.i.i.i308, i64 2
   store i16 %conv24.i.i200.i.i.i312, ptr %dest.addr.125.i.i196.i.i.i308, align 2, !noalias !722
   %dec.i.i202.i.i.i314 = add nsw i64 %length.addr.126.i.i195.i.i.i307, -1
-  %cmp20.i.i203.i.i.i315 = icmp ugt i64 %length.addr.126.i.i195.i.i.i307, 1
+  %cmp20.i.i203.i.i.i315 = icmp samesign ugt i64 %length.addr.126.i.i195.i.i.i307, 1
   br i1 %cmp20.i.i203.i.i.i315, label %while.body21.i.i193.i.i.i305, label %_ZN5arrow8internal12_GLOBAL__N_117TransposeIntsDestIhE5VisitINS_10UInt16TypeEEENSt9enable_ifIXsr15is_integer_typeIT_EE5valueENS_6StatusEE4typeERKS7_.exit.i.i.i, !llvm.loop !38
 
 _ZN5arrow8internal12_GLOBAL__N_117TransposeIntsDestIhE5VisitINS_10UInt16TypeEEENSt9enable_ifIXsr15is_integer_typeIT_EE5valueENS_6StatusEE4typeERKS7_.exit.i.i.i: ; preds = %while.body21.i.i193.i.i.i305, %while.cond19.preheader.i.i188.i.i.i300
@@ -14535,7 +14535,7 @@ while.body.i.i244.i.i.i275:                       ; preds = %sw.bb12.i.i.i257, %
   %sub.i.i256.i.i.i293 = add nsw i64 %length.addr.020.i.i246.i.i.i277, -4
   %add.ptr.i.i257.i.i.i294 = getelementptr inbounds i8, ptr %src.addr.021.i.i245.i.i.i276, i64 4
   %add.ptr15.i.i.i.i.i295 = getelementptr inbounds i8, ptr %dest.addr.019.i.i247.i.i.i278, i64 16
-  %cmp.i.i258.i.i.i296 = icmp ugt i64 %length.addr.020.i.i246.i.i.i277, 7
+  %cmp.i.i258.i.i.i296 = icmp samesign ugt i64 %length.addr.020.i.i246.i.i.i277, 7
   br i1 %cmp.i.i258.i.i.i296, label %while.body.i.i244.i.i.i275, label %while.cond16.preheader.i.i.i.i.i260, !llvm.loop !85
 
 while.body18.i.i.i.i.i265:                        ; preds = %while.cond16.preheader.i.i.i.i.i260, %while.body18.i.i.i.i.i265
@@ -14550,7 +14550,7 @@ while.body18.i.i.i.i.i265:                        ; preds = %while.cond16.prehea
   %incdec.ptr21.i.i.i.i.i272 = getelementptr inbounds i8, ptr %dest.addr.125.i.i241.i.i.i268, i64 4
   store i32 %145, ptr %dest.addr.125.i.i241.i.i.i268, align 4, !noalias !729
   %dec.i.i243.i.i.i273 = add nsw i64 %length.addr.126.i.i240.i.i.i267, -1
-  %cmp17.i.i.i.i.i274 = icmp ugt i64 %length.addr.126.i.i240.i.i.i267, 1
+  %cmp17.i.i.i.i.i274 = icmp samesign ugt i64 %length.addr.126.i.i240.i.i.i267, 1
   br i1 %cmp17.i.i.i.i.i274, label %while.body18.i.i.i.i.i265, label %_ZN5arrow8internal12_GLOBAL__N_117TransposeIntsDestIhE5VisitINS_9Int32TypeEEENSt9enable_ifIXsr15is_integer_typeIT_EE5valueENS_6StatusEE4typeERKS7_.exit.i.i.i, !llvm.loop !86
 
 _ZN5arrow8internal12_GLOBAL__N_117TransposeIntsDestIhE5VisitINS_9Int32TypeEEENSt9enable_ifIXsr15is_integer_typeIT_EE5valueENS_6StatusEE4typeERKS7_.exit.i.i.i: ; preds = %while.body18.i.i.i.i.i265, %while.cond16.preheader.i.i.i.i.i260
@@ -14603,7 +14603,7 @@ while.body.i.i280.i.i.i235:                       ; preds = %sw.bb14.i.i.i217, %
   %sub.i.i298.i.i.i253 = add nsw i64 %length.addr.020.i.i282.i.i.i237, -4
   %add.ptr.i.i299.i.i.i254 = getelementptr inbounds i8, ptr %src.addr.021.i.i281.i.i.i236, i64 4
   %add.ptr15.i.i300.i.i.i255 = getelementptr inbounds i8, ptr %dest.addr.019.i.i283.i.i.i238, i64 16
-  %cmp.i.i301.i.i.i256 = icmp ugt i64 %length.addr.020.i.i282.i.i.i237, 7
+  %cmp.i.i301.i.i.i256 = icmp samesign ugt i64 %length.addr.020.i.i282.i.i.i237, 7
   br i1 %cmp.i.i301.i.i.i256, label %while.body.i.i280.i.i.i235, label %while.cond16.preheader.i.i265.i.i.i220, !llvm.loop !69
 
 while.body18.i.i270.i.i.i225:                     ; preds = %while.cond16.preheader.i.i265.i.i.i220, %while.body18.i.i270.i.i.i225
@@ -14618,7 +14618,7 @@ while.body18.i.i270.i.i.i225:                     ; preds = %while.cond16.prehea
   %incdec.ptr21.i.i277.i.i.i232 = getelementptr inbounds i8, ptr %dest.addr.125.i.i273.i.i.i228, i64 4
   store i32 %155, ptr %dest.addr.125.i.i273.i.i.i228, align 4, !noalias !736
   %dec.i.i278.i.i.i233 = add nsw i64 %length.addr.126.i.i272.i.i.i227, -1
-  %cmp17.i.i279.i.i.i234 = icmp ugt i64 %length.addr.126.i.i272.i.i.i227, 1
+  %cmp17.i.i279.i.i.i234 = icmp samesign ugt i64 %length.addr.126.i.i272.i.i.i227, 1
   br i1 %cmp17.i.i279.i.i.i234, label %while.body18.i.i270.i.i.i225, label %_ZN5arrow8internal12_GLOBAL__N_117TransposeIntsDestIhE5VisitINS_10UInt32TypeEEENSt9enable_ifIXsr15is_integer_typeIT_EE5valueENS_6StatusEE4typeERKS7_.exit.i.i.i, !llvm.loop !70
 
 _ZN5arrow8internal12_GLOBAL__N_117TransposeIntsDestIhE5VisitINS_10UInt32TypeEEENSt9enable_ifIXsr15is_integer_typeIT_EE5valueENS_6StatusEE4typeERKS7_.exit.i.i.i: ; preds = %while.body18.i.i270.i.i.i225, %while.cond16.preheader.i.i265.i.i.i220
@@ -14675,7 +14675,7 @@ while.body.i.i324.i.i.i191:                       ; preds = %sw.bb16.i.i.i172, %
   %sub.i.i346.i.i.i213 = add nsw i64 %length.addr.020.i.i326.i.i.i193, -4
   %add.ptr.i.i347.i.i.i214 = getelementptr inbounds i8, ptr %src.addr.021.i.i325.i.i.i192, i64 4
   %add.ptr18.i.i348.i.i.i215 = getelementptr inbounds i8, ptr %dest.addr.019.i.i327.i.i.i194, i64 32
-  %cmp.i.i349.i.i.i216 = icmp ugt i64 %length.addr.020.i.i326.i.i.i193, 7
+  %cmp.i.i349.i.i.i216 = icmp samesign ugt i64 %length.addr.020.i.i326.i.i.i193, 7
   br i1 %cmp.i.i349.i.i.i216, label %while.body.i.i324.i.i.i191, label %while.cond19.preheader.i.i308.i.i.i175, !llvm.loop !117
 
 while.body21.i.i313.i.i.i180:                     ; preds = %while.cond19.preheader.i.i308.i.i.i175, %while.body21.i.i313.i.i.i180
@@ -14691,7 +14691,7 @@ while.body21.i.i313.i.i.i180:                     ; preds = %while.cond19.prehea
   %incdec.ptr25.i.i321.i.i.i188 = getelementptr inbounds i8, ptr %dest.addr.125.i.i316.i.i.i183, i64 8
   store i64 %conv24.i.i320.i.i.i187, ptr %dest.addr.125.i.i316.i.i.i183, align 8, !noalias !743
   %dec.i.i322.i.i.i189 = add nsw i64 %length.addr.126.i.i315.i.i.i182, -1
-  %cmp20.i.i323.i.i.i190 = icmp ugt i64 %length.addr.126.i.i315.i.i.i182, 1
+  %cmp20.i.i323.i.i.i190 = icmp samesign ugt i64 %length.addr.126.i.i315.i.i.i182, 1
   br i1 %cmp20.i.i323.i.i.i190, label %while.body21.i.i313.i.i.i180, label %_ZN5arrow8internal12_GLOBAL__N_117TransposeIntsDestIhE5VisitINS_9Int64TypeEEENSt9enable_ifIXsr15is_integer_typeIT_EE5valueENS_6StatusEE4typeERKS7_.exit.i.i.i, !llvm.loop !118
 
 _ZN5arrow8internal12_GLOBAL__N_117TransposeIntsDestIhE5VisitINS_9Int64TypeEEENSt9enable_ifIXsr15is_integer_typeIT_EE5valueENS_6StatusEE4typeERKS7_.exit.i.i.i: ; preds = %while.body21.i.i313.i.i.i180, %while.cond19.preheader.i.i308.i.i.i175
@@ -14748,7 +14748,7 @@ while.body.i.i372.i.i.i146:                       ; preds = %sw.bb18.i.i.i127, %
   %sub.i.i394.i.i.i168 = add nsw i64 %length.addr.020.i.i374.i.i.i148, -4
   %add.ptr.i.i395.i.i.i169 = getelementptr inbounds i8, ptr %src.addr.021.i.i373.i.i.i147, i64 4
   %add.ptr18.i.i396.i.i.i170 = getelementptr inbounds i8, ptr %dest.addr.019.i.i375.i.i.i149, i64 32
-  %cmp.i.i397.i.i.i171 = icmp ugt i64 %length.addr.020.i.i374.i.i.i148, 7
+  %cmp.i.i397.i.i.i171 = icmp samesign ugt i64 %length.addr.020.i.i374.i.i.i148, 7
   br i1 %cmp.i.i397.i.i.i171, label %while.body.i.i372.i.i.i146, label %while.cond19.preheader.i.i356.i.i.i130, !llvm.loop !101
 
 while.body21.i.i361.i.i.i135:                     ; preds = %while.cond19.preheader.i.i356.i.i.i130, %while.body21.i.i361.i.i.i135
@@ -14764,7 +14764,7 @@ while.body21.i.i361.i.i.i135:                     ; preds = %while.cond19.prehea
   %incdec.ptr25.i.i369.i.i.i143 = getelementptr inbounds i8, ptr %dest.addr.125.i.i364.i.i.i138, i64 8
   store i64 %conv24.i.i368.i.i.i142, ptr %dest.addr.125.i.i364.i.i.i138, align 8, !noalias !750
   %dec.i.i370.i.i.i144 = add nsw i64 %length.addr.126.i.i363.i.i.i137, -1
-  %cmp20.i.i371.i.i.i145 = icmp ugt i64 %length.addr.126.i.i363.i.i.i137, 1
+  %cmp20.i.i371.i.i.i145 = icmp samesign ugt i64 %length.addr.126.i.i363.i.i.i137, 1
   br i1 %cmp20.i.i371.i.i.i145, label %while.body21.i.i361.i.i.i135, label %_ZN5arrow8internal12_GLOBAL__N_117TransposeIntsDestIhE5VisitINS_10UInt64TypeEEENSt9enable_ifIXsr15is_integer_typeIT_EE5valueENS_6StatusEE4typeERKS7_.exit.i.i.i, !llvm.loop !102
 
 _ZN5arrow8internal12_GLOBAL__N_117TransposeIntsDestIhE5VisitINS_10UInt64TypeEEENSt9enable_ifIXsr15is_integer_typeIT_EE5valueENS_6StatusEE4typeERKS7_.exit.i.i.i: ; preds = %while.body21.i.i361.i.i.i135, %while.cond19.preheader.i.i356.i.i.i130
@@ -15031,7 +15031,7 @@ while.body.i.i.i.i.i845:                          ; preds = %sw.bb4.i.i.i826, %w
   %sub.i.i.i.i.i867 = add nsw i64 %length.addr.020.i.i.i.i.i847, -4
   %add.ptr.i.i.i.i.i868 = getelementptr inbounds i8, ptr %src.addr.021.i.i.i.i.i846, i64 8
   %add.ptr18.i.i.i.i.i869 = getelementptr inbounds i8, ptr %dest.addr.019.i.i.i.i.i848, i64 4
-  %cmp.i.i.i.i.i870 = icmp ugt i64 %length.addr.020.i.i.i.i.i847, 7
+  %cmp.i.i.i.i.i870 = icmp samesign ugt i64 %length.addr.020.i.i.i.i.i847, 7
   br i1 %cmp.i.i.i.i.i870, label %while.body.i.i.i.i.i845, label %while.cond19.preheader.i.i.i.i.i829, !llvm.loop !27
 
 while.body21.i.i.i.i.i834:                        ; preds = %while.cond19.preheader.i.i.i.i.i829, %while.body21.i.i.i.i.i834
@@ -15047,7 +15047,7 @@ while.body21.i.i.i.i.i834:                        ; preds = %while.cond19.prehea
   %incdec.ptr25.i.i.i.i.i842 = getelementptr inbounds i8, ptr %dest.addr.125.i.i.i.i.i837, i64 1
   store i8 %conv24.i.i.i.i.i841, ptr %dest.addr.125.i.i.i.i.i837, align 1, !noalias !766
   %dec.i.i.i.i.i843 = add nsw i64 %length.addr.126.i.i.i.i.i836, -1
-  %cmp20.i.i.i.i.i844 = icmp ugt i64 %length.addr.126.i.i.i.i.i836, 1
+  %cmp20.i.i.i.i.i844 = icmp samesign ugt i64 %length.addr.126.i.i.i.i.i836, 1
   br i1 %cmp20.i.i.i.i.i844, label %while.body21.i.i.i.i.i834, label %_ZN5arrow8internal12_GLOBAL__N_117TransposeIntsDestIsE5VisitINS_8Int8TypeEEENSt9enable_ifIXsr15is_integer_typeIT_EE5valueENS_6StatusEE4typeERKS7_.exit.i.i.i, !llvm.loop !28
 
 _ZN5arrow8internal12_GLOBAL__N_117TransposeIntsDestIsE5VisitINS_8Int8TypeEEENSt9enable_ifIXsr15is_integer_typeIT_EE5valueENS_6StatusEE4typeERKS7_.exit.i.i.i: ; preds = %while.body21.i.i.i.i.i834, %while.cond19.preheader.i.i.i.i.i829
@@ -15104,7 +15104,7 @@ while.body.i.i108.i.i.i800:                       ; preds = %sw.bb6.i.i.i781, %w
   %sub.i.i130.i.i.i822 = add nsw i64 %length.addr.020.i.i110.i.i.i802, -4
   %add.ptr.i.i131.i.i.i823 = getelementptr inbounds i8, ptr %src.addr.021.i.i109.i.i.i801, i64 8
   %add.ptr18.i.i132.i.i.i824 = getelementptr inbounds i8, ptr %dest.addr.019.i.i111.i.i.i803, i64 4
-  %cmp.i.i133.i.i.i825 = icmp ugt i64 %length.addr.020.i.i110.i.i.i802, 7
+  %cmp.i.i133.i.i.i825 = icmp samesign ugt i64 %length.addr.020.i.i110.i.i.i802, 7
   br i1 %cmp.i.i133.i.i.i825, label %while.body.i.i108.i.i.i800, label %while.cond19.preheader.i.i92.i.i.i784, !llvm.loop !11
 
 while.body21.i.i97.i.i.i789:                      ; preds = %while.cond19.preheader.i.i92.i.i.i784, %while.body21.i.i97.i.i.i789
@@ -15120,7 +15120,7 @@ while.body21.i.i97.i.i.i789:                      ; preds = %while.cond19.prehea
   %incdec.ptr25.i.i105.i.i.i797 = getelementptr inbounds i8, ptr %dest.addr.125.i.i100.i.i.i792, i64 1
   store i8 %conv24.i.i104.i.i.i796, ptr %dest.addr.125.i.i100.i.i.i792, align 1, !noalias !773
   %dec.i.i106.i.i.i798 = add nsw i64 %length.addr.126.i.i99.i.i.i791, -1
-  %cmp20.i.i107.i.i.i799 = icmp ugt i64 %length.addr.126.i.i99.i.i.i791, 1
+  %cmp20.i.i107.i.i.i799 = icmp samesign ugt i64 %length.addr.126.i.i99.i.i.i791, 1
   br i1 %cmp20.i.i107.i.i.i799, label %while.body21.i.i97.i.i.i789, label %_ZN5arrow8internal12_GLOBAL__N_117TransposeIntsDestIsE5VisitINS_9UInt8TypeEEENSt9enable_ifIXsr15is_integer_typeIT_EE5valueENS_6StatusEE4typeERKS7_.exit.i.i.i, !llvm.loop !12
 
 _ZN5arrow8internal12_GLOBAL__N_117TransposeIntsDestIsE5VisitINS_9UInt8TypeEEENSt9enable_ifIXsr15is_integer_typeIT_EE5valueENS_6StatusEE4typeERKS7_.exit.i.i.i: ; preds = %while.body21.i.i97.i.i.i789, %while.cond19.preheader.i.i92.i.i.i784
@@ -15177,7 +15177,7 @@ while.body.i.i156.i.i.i755:                       ; preds = %sw.bb8.i.i.i736, %w
   %sub.i.i178.i.i.i777 = add nsw i64 %length.addr.020.i.i158.i.i.i757, -4
   %add.ptr.i.i179.i.i.i778 = getelementptr inbounds i8, ptr %src.addr.021.i.i157.i.i.i756, i64 8
   %add.ptr18.i.i180.i.i.i779 = getelementptr inbounds i8, ptr %dest.addr.019.i.i159.i.i.i758, i64 8
-  %cmp.i.i181.i.i.i780 = icmp ugt i64 %length.addr.020.i.i158.i.i.i757, 7
+  %cmp.i.i181.i.i.i780 = icmp samesign ugt i64 %length.addr.020.i.i158.i.i.i757, 7
   br i1 %cmp.i.i181.i.i.i780, label %while.body.i.i156.i.i.i755, label %while.cond19.preheader.i.i140.i.i.i739, !llvm.loop !59
 
 while.body21.i.i145.i.i.i744:                     ; preds = %while.cond19.preheader.i.i140.i.i.i739, %while.body21.i.i145.i.i.i744
@@ -15193,7 +15193,7 @@ while.body21.i.i145.i.i.i744:                     ; preds = %while.cond19.prehea
   %incdec.ptr25.i.i153.i.i.i752 = getelementptr inbounds i8, ptr %dest.addr.125.i.i148.i.i.i747, i64 2
   store i16 %conv24.i.i152.i.i.i751, ptr %dest.addr.125.i.i148.i.i.i747, align 2, !noalias !780
   %dec.i.i154.i.i.i753 = add nsw i64 %length.addr.126.i.i147.i.i.i746, -1
-  %cmp20.i.i155.i.i.i754 = icmp ugt i64 %length.addr.126.i.i147.i.i.i746, 1
+  %cmp20.i.i155.i.i.i754 = icmp samesign ugt i64 %length.addr.126.i.i147.i.i.i746, 1
   br i1 %cmp20.i.i155.i.i.i754, label %while.body21.i.i145.i.i.i744, label %_ZN5arrow8internal12_GLOBAL__N_117TransposeIntsDestIsE5VisitINS_9Int16TypeEEENSt9enable_ifIXsr15is_integer_typeIT_EE5valueENS_6StatusEE4typeERKS7_.exit.i.i.i, !llvm.loop !60
 
 _ZN5arrow8internal12_GLOBAL__N_117TransposeIntsDestIsE5VisitINS_9Int16TypeEEENSt9enable_ifIXsr15is_integer_typeIT_EE5valueENS_6StatusEE4typeERKS7_.exit.i.i.i: ; preds = %while.body21.i.i145.i.i.i744, %while.cond19.preheader.i.i140.i.i.i739
@@ -15250,7 +15250,7 @@ while.body.i.i204.i.i.i710:                       ; preds = %sw.bb10.i.i.i691, %
   %sub.i.i226.i.i.i732 = add nsw i64 %length.addr.020.i.i206.i.i.i712, -4
   %add.ptr.i.i227.i.i.i733 = getelementptr inbounds i8, ptr %src.addr.021.i.i205.i.i.i711, i64 8
   %add.ptr18.i.i228.i.i.i734 = getelementptr inbounds i8, ptr %dest.addr.019.i.i207.i.i.i713, i64 8
-  %cmp.i.i229.i.i.i735 = icmp ugt i64 %length.addr.020.i.i206.i.i.i712, 7
+  %cmp.i.i229.i.i.i735 = icmp samesign ugt i64 %length.addr.020.i.i206.i.i.i712, 7
   br i1 %cmp.i.i229.i.i.i735, label %while.body.i.i204.i.i.i710, label %while.cond19.preheader.i.i188.i.i.i694, !llvm.loop !43
 
 while.body21.i.i193.i.i.i699:                     ; preds = %while.cond19.preheader.i.i188.i.i.i694, %while.body21.i.i193.i.i.i699
@@ -15266,7 +15266,7 @@ while.body21.i.i193.i.i.i699:                     ; preds = %while.cond19.prehea
   %incdec.ptr25.i.i201.i.i.i707 = getelementptr inbounds i8, ptr %dest.addr.125.i.i196.i.i.i702, i64 2
   store i16 %conv24.i.i200.i.i.i706, ptr %dest.addr.125.i.i196.i.i.i702, align 2, !noalias !787
   %dec.i.i202.i.i.i708 = add nsw i64 %length.addr.126.i.i195.i.i.i701, -1
-  %cmp20.i.i203.i.i.i709 = icmp ugt i64 %length.addr.126.i.i195.i.i.i701, 1
+  %cmp20.i.i203.i.i.i709 = icmp samesign ugt i64 %length.addr.126.i.i195.i.i.i701, 1
   br i1 %cmp20.i.i203.i.i.i709, label %while.body21.i.i193.i.i.i699, label %_ZN5arrow8internal12_GLOBAL__N_117TransposeIntsDestIsE5VisitINS_10UInt16TypeEEENSt9enable_ifIXsr15is_integer_typeIT_EE5valueENS_6StatusEE4typeERKS7_.exit.i.i.i, !llvm.loop !44
 
 _ZN5arrow8internal12_GLOBAL__N_117TransposeIntsDestIsE5VisitINS_10UInt16TypeEEENSt9enable_ifIXsr15is_integer_typeIT_EE5valueENS_6StatusEE4typeERKS7_.exit.i.i.i: ; preds = %while.body21.i.i193.i.i.i699, %while.cond19.preheader.i.i188.i.i.i694
@@ -15319,7 +15319,7 @@ while.body.i.i244.i.i.i669:                       ; preds = %sw.bb12.i.i.i651, %
   %sub.i.i256.i.i.i687 = add nsw i64 %length.addr.020.i.i246.i.i.i671, -4
   %add.ptr.i.i257.i.i.i688 = getelementptr inbounds i8, ptr %src.addr.021.i.i245.i.i.i670, i64 8
   %add.ptr15.i.i.i.i.i689 = getelementptr inbounds i8, ptr %dest.addr.019.i.i247.i.i.i672, i64 16
-  %cmp.i.i258.i.i.i690 = icmp ugt i64 %length.addr.020.i.i246.i.i.i671, 7
+  %cmp.i.i258.i.i.i690 = icmp samesign ugt i64 %length.addr.020.i.i246.i.i.i671, 7
   br i1 %cmp.i.i258.i.i.i690, label %while.body.i.i244.i.i.i669, label %while.cond16.preheader.i.i.i.i.i654, !llvm.loop !91
 
 while.body18.i.i.i.i.i659:                        ; preds = %while.cond16.preheader.i.i.i.i.i654, %while.body18.i.i.i.i.i659
@@ -15334,7 +15334,7 @@ while.body18.i.i.i.i.i659:                        ; preds = %while.cond16.prehea
   %incdec.ptr21.i.i.i.i.i666 = getelementptr inbounds i8, ptr %dest.addr.125.i.i241.i.i.i662, i64 4
   store i32 %233, ptr %dest.addr.125.i.i241.i.i.i662, align 4, !noalias !794
   %dec.i.i243.i.i.i667 = add nsw i64 %length.addr.126.i.i240.i.i.i661, -1
-  %cmp17.i.i.i.i.i668 = icmp ugt i64 %length.addr.126.i.i240.i.i.i661, 1
+  %cmp17.i.i.i.i.i668 = icmp samesign ugt i64 %length.addr.126.i.i240.i.i.i661, 1
   br i1 %cmp17.i.i.i.i.i668, label %while.body18.i.i.i.i.i659, label %_ZN5arrow8internal12_GLOBAL__N_117TransposeIntsDestIsE5VisitINS_9Int32TypeEEENSt9enable_ifIXsr15is_integer_typeIT_EE5valueENS_6StatusEE4typeERKS7_.exit.i.i.i, !llvm.loop !92
 
 _ZN5arrow8internal12_GLOBAL__N_117TransposeIntsDestIsE5VisitINS_9Int32TypeEEENSt9enable_ifIXsr15is_integer_typeIT_EE5valueENS_6StatusEE4typeERKS7_.exit.i.i.i: ; preds = %while.body18.i.i.i.i.i659, %while.cond16.preheader.i.i.i.i.i654
@@ -15387,7 +15387,7 @@ while.body.i.i280.i.i.i629:                       ; preds = %sw.bb14.i.i.i611, %
   %sub.i.i298.i.i.i647 = add nsw i64 %length.addr.020.i.i282.i.i.i631, -4
   %add.ptr.i.i299.i.i.i648 = getelementptr inbounds i8, ptr %src.addr.021.i.i281.i.i.i630, i64 8
   %add.ptr15.i.i300.i.i.i649 = getelementptr inbounds i8, ptr %dest.addr.019.i.i283.i.i.i632, i64 16
-  %cmp.i.i301.i.i.i650 = icmp ugt i64 %length.addr.020.i.i282.i.i.i631, 7
+  %cmp.i.i301.i.i.i650 = icmp samesign ugt i64 %length.addr.020.i.i282.i.i.i631, 7
   br i1 %cmp.i.i301.i.i.i650, label %while.body.i.i280.i.i.i629, label %while.cond16.preheader.i.i265.i.i.i614, !llvm.loop !75
 
 while.body18.i.i270.i.i.i619:                     ; preds = %while.cond16.preheader.i.i265.i.i.i614, %while.body18.i.i270.i.i.i619
@@ -15402,7 +15402,7 @@ while.body18.i.i270.i.i.i619:                     ; preds = %while.cond16.prehea
   %incdec.ptr21.i.i277.i.i.i626 = getelementptr inbounds i8, ptr %dest.addr.125.i.i273.i.i.i622, i64 4
   store i32 %243, ptr %dest.addr.125.i.i273.i.i.i622, align 4, !noalias !801
   %dec.i.i278.i.i.i627 = add nsw i64 %length.addr.126.i.i272.i.i.i621, -1
-  %cmp17.i.i279.i.i.i628 = icmp ugt i64 %length.addr.126.i.i272.i.i.i621, 1
+  %cmp17.i.i279.i.i.i628 = icmp samesign ugt i64 %length.addr.126.i.i272.i.i.i621, 1
   br i1 %cmp17.i.i279.i.i.i628, label %while.body18.i.i270.i.i.i619, label %_ZN5arrow8internal12_GLOBAL__N_117TransposeIntsDestIsE5VisitINS_10UInt32TypeEEENSt9enable_ifIXsr15is_integer_typeIT_EE5valueENS_6StatusEE4typeERKS7_.exit.i.i.i, !llvm.loop !76
 
 _ZN5arrow8internal12_GLOBAL__N_117TransposeIntsDestIsE5VisitINS_10UInt32TypeEEENSt9enable_ifIXsr15is_integer_typeIT_EE5valueENS_6StatusEE4typeERKS7_.exit.i.i.i: ; preds = %while.body18.i.i270.i.i.i619, %while.cond16.preheader.i.i265.i.i.i614
@@ -15459,7 +15459,7 @@ while.body.i.i324.i.i.i585:                       ; preds = %sw.bb16.i.i.i566, %
   %sub.i.i346.i.i.i607 = add nsw i64 %length.addr.020.i.i326.i.i.i587, -4
   %add.ptr.i.i347.i.i.i608 = getelementptr inbounds i8, ptr %src.addr.021.i.i325.i.i.i586, i64 8
   %add.ptr18.i.i348.i.i.i609 = getelementptr inbounds i8, ptr %dest.addr.019.i.i327.i.i.i588, i64 32
-  %cmp.i.i349.i.i.i610 = icmp ugt i64 %length.addr.020.i.i326.i.i.i587, 7
+  %cmp.i.i349.i.i.i610 = icmp samesign ugt i64 %length.addr.020.i.i326.i.i.i587, 7
   br i1 %cmp.i.i349.i.i.i610, label %while.body.i.i324.i.i.i585, label %while.cond19.preheader.i.i308.i.i.i569, !llvm.loop !123
 
 while.body21.i.i313.i.i.i574:                     ; preds = %while.cond19.preheader.i.i308.i.i.i569, %while.body21.i.i313.i.i.i574
@@ -15475,7 +15475,7 @@ while.body21.i.i313.i.i.i574:                     ; preds = %while.cond19.prehea
   %incdec.ptr25.i.i321.i.i.i582 = getelementptr inbounds i8, ptr %dest.addr.125.i.i316.i.i.i577, i64 8
   store i64 %conv24.i.i320.i.i.i581, ptr %dest.addr.125.i.i316.i.i.i577, align 8, !noalias !808
   %dec.i.i322.i.i.i583 = add nsw i64 %length.addr.126.i.i315.i.i.i576, -1
-  %cmp20.i.i323.i.i.i584 = icmp ugt i64 %length.addr.126.i.i315.i.i.i576, 1
+  %cmp20.i.i323.i.i.i584 = icmp samesign ugt i64 %length.addr.126.i.i315.i.i.i576, 1
   br i1 %cmp20.i.i323.i.i.i584, label %while.body21.i.i313.i.i.i574, label %_ZN5arrow8internal12_GLOBAL__N_117TransposeIntsDestIsE5VisitINS_9Int64TypeEEENSt9enable_ifIXsr15is_integer_typeIT_EE5valueENS_6StatusEE4typeERKS7_.exit.i.i.i, !llvm.loop !124
 
 _ZN5arrow8internal12_GLOBAL__N_117TransposeIntsDestIsE5VisitINS_9Int64TypeEEENSt9enable_ifIXsr15is_integer_typeIT_EE5valueENS_6StatusEE4typeERKS7_.exit.i.i.i: ; preds = %while.body21.i.i313.i.i.i574, %while.cond19.preheader.i.i308.i.i.i569
@@ -15532,7 +15532,7 @@ while.body.i.i372.i.i.i540:                       ; preds = %sw.bb18.i.i.i521, %
   %sub.i.i394.i.i.i562 = add nsw i64 %length.addr.020.i.i374.i.i.i542, -4
   %add.ptr.i.i395.i.i.i563 = getelementptr inbounds i8, ptr %src.addr.021.i.i373.i.i.i541, i64 8
   %add.ptr18.i.i396.i.i.i564 = getelementptr inbounds i8, ptr %dest.addr.019.i.i375.i.i.i543, i64 32
-  %cmp.i.i397.i.i.i565 = icmp ugt i64 %length.addr.020.i.i374.i.i.i542, 7
+  %cmp.i.i397.i.i.i565 = icmp samesign ugt i64 %length.addr.020.i.i374.i.i.i542, 7
   br i1 %cmp.i.i397.i.i.i565, label %while.body.i.i372.i.i.i540, label %while.cond19.preheader.i.i356.i.i.i524, !llvm.loop !107
 
 while.body21.i.i361.i.i.i529:                     ; preds = %while.cond19.preheader.i.i356.i.i.i524, %while.body21.i.i361.i.i.i529
@@ -15548,7 +15548,7 @@ while.body21.i.i361.i.i.i529:                     ; preds = %while.cond19.prehea
   %incdec.ptr25.i.i369.i.i.i537 = getelementptr inbounds i8, ptr %dest.addr.125.i.i364.i.i.i532, i64 8
   store i64 %conv24.i.i368.i.i.i536, ptr %dest.addr.125.i.i364.i.i.i532, align 8, !noalias !815
   %dec.i.i370.i.i.i538 = add nsw i64 %length.addr.126.i.i363.i.i.i531, -1
-  %cmp20.i.i371.i.i.i539 = icmp ugt i64 %length.addr.126.i.i363.i.i.i531, 1
+  %cmp20.i.i371.i.i.i539 = icmp samesign ugt i64 %length.addr.126.i.i363.i.i.i531, 1
   br i1 %cmp20.i.i371.i.i.i539, label %while.body21.i.i361.i.i.i529, label %_ZN5arrow8internal12_GLOBAL__N_117TransposeIntsDestIsE5VisitINS_10UInt64TypeEEENSt9enable_ifIXsr15is_integer_typeIT_EE5valueENS_6StatusEE4typeERKS7_.exit.i.i.i, !llvm.loop !108
 
 _ZN5arrow8internal12_GLOBAL__N_117TransposeIntsDestIsE5VisitINS_10UInt64TypeEEENSt9enable_ifIXsr15is_integer_typeIT_EE5valueENS_6StatusEE4typeERKS7_.exit.i.i.i: ; preds = %while.body21.i.i361.i.i.i529, %while.cond19.preheader.i.i356.i.i.i524
@@ -15815,7 +15815,7 @@ while.body.i.i.i.i.i1239:                         ; preds = %sw.bb4.i.i.i1220, %
   %sub.i.i.i.i.i1261 = add nsw i64 %length.addr.020.i.i.i.i.i1241, -4
   %add.ptr.i.i.i.i.i1262 = getelementptr inbounds i8, ptr %src.addr.021.i.i.i.i.i1240, i64 8
   %add.ptr18.i.i.i.i.i1263 = getelementptr inbounds i8, ptr %dest.addr.019.i.i.i.i.i1242, i64 4
-  %cmp.i.i.i.i.i1264 = icmp ugt i64 %length.addr.020.i.i.i.i.i1241, 7
+  %cmp.i.i.i.i.i1264 = icmp samesign ugt i64 %length.addr.020.i.i.i.i.i1241, 7
   br i1 %cmp.i.i.i.i.i1264, label %while.body.i.i.i.i.i1239, label %while.cond19.preheader.i.i.i.i.i1223, !llvm.loop !25
 
 while.body21.i.i.i.i.i1228:                       ; preds = %while.cond19.preheader.i.i.i.i.i1223, %while.body21.i.i.i.i.i1228
@@ -15831,7 +15831,7 @@ while.body21.i.i.i.i.i1228:                       ; preds = %while.cond19.prehea
   %incdec.ptr25.i.i.i.i.i1236 = getelementptr inbounds i8, ptr %dest.addr.125.i.i.i.i.i1231, i64 1
   store i8 %conv24.i.i.i.i.i1235, ptr %dest.addr.125.i.i.i.i.i1231, align 1, !noalias !831
   %dec.i.i.i.i.i1237 = add nsw i64 %length.addr.126.i.i.i.i.i1230, -1
-  %cmp20.i.i.i.i.i1238 = icmp ugt i64 %length.addr.126.i.i.i.i.i1230, 1
+  %cmp20.i.i.i.i.i1238 = icmp samesign ugt i64 %length.addr.126.i.i.i.i.i1230, 1
   br i1 %cmp20.i.i.i.i.i1238, label %while.body21.i.i.i.i.i1228, label %_ZN5arrow8internal12_GLOBAL__N_117TransposeIntsDestItE5VisitINS_8Int8TypeEEENSt9enable_ifIXsr15is_integer_typeIT_EE5valueENS_6StatusEE4typeERKS7_.exit.i.i.i, !llvm.loop !26
 
 _ZN5arrow8internal12_GLOBAL__N_117TransposeIntsDestItE5VisitINS_8Int8TypeEEENSt9enable_ifIXsr15is_integer_typeIT_EE5valueENS_6StatusEE4typeERKS7_.exit.i.i.i: ; preds = %while.body21.i.i.i.i.i1228, %while.cond19.preheader.i.i.i.i.i1223
@@ -15888,7 +15888,7 @@ while.body.i.i108.i.i.i1194:                      ; preds = %sw.bb6.i.i.i1175, %
   %sub.i.i130.i.i.i1216 = add nsw i64 %length.addr.020.i.i110.i.i.i1196, -4
   %add.ptr.i.i131.i.i.i1217 = getelementptr inbounds i8, ptr %src.addr.021.i.i109.i.i.i1195, i64 8
   %add.ptr18.i.i132.i.i.i1218 = getelementptr inbounds i8, ptr %dest.addr.019.i.i111.i.i.i1197, i64 4
-  %cmp.i.i133.i.i.i1219 = icmp ugt i64 %length.addr.020.i.i110.i.i.i1196, 7
+  %cmp.i.i133.i.i.i1219 = icmp samesign ugt i64 %length.addr.020.i.i110.i.i.i1196, 7
   br i1 %cmp.i.i133.i.i.i1219, label %while.body.i.i108.i.i.i1194, label %while.cond19.preheader.i.i92.i.i.i1178, !llvm.loop !9
 
 while.body21.i.i97.i.i.i1183:                     ; preds = %while.cond19.preheader.i.i92.i.i.i1178, %while.body21.i.i97.i.i.i1183
@@ -15904,7 +15904,7 @@ while.body21.i.i97.i.i.i1183:                     ; preds = %while.cond19.prehea
   %incdec.ptr25.i.i105.i.i.i1191 = getelementptr inbounds i8, ptr %dest.addr.125.i.i100.i.i.i1186, i64 1
   store i8 %conv24.i.i104.i.i.i1190, ptr %dest.addr.125.i.i100.i.i.i1186, align 1, !noalias !838
   %dec.i.i106.i.i.i1192 = add nsw i64 %length.addr.126.i.i99.i.i.i1185, -1
-  %cmp20.i.i107.i.i.i1193 = icmp ugt i64 %length.addr.126.i.i99.i.i.i1185, 1
+  %cmp20.i.i107.i.i.i1193 = icmp samesign ugt i64 %length.addr.126.i.i99.i.i.i1185, 1
   br i1 %cmp20.i.i107.i.i.i1193, label %while.body21.i.i97.i.i.i1183, label %_ZN5arrow8internal12_GLOBAL__N_117TransposeIntsDestItE5VisitINS_9UInt8TypeEEENSt9enable_ifIXsr15is_integer_typeIT_EE5valueENS_6StatusEE4typeERKS7_.exit.i.i.i, !llvm.loop !10
 
 _ZN5arrow8internal12_GLOBAL__N_117TransposeIntsDestItE5VisitINS_9UInt8TypeEEENSt9enable_ifIXsr15is_integer_typeIT_EE5valueENS_6StatusEE4typeERKS7_.exit.i.i.i: ; preds = %while.body21.i.i97.i.i.i1183, %while.cond19.preheader.i.i92.i.i.i1178
@@ -15961,7 +15961,7 @@ while.body.i.i156.i.i.i1149:                      ; preds = %sw.bb8.i.i.i1130, %
   %sub.i.i178.i.i.i1171 = add nsw i64 %length.addr.020.i.i158.i.i.i1151, -4
   %add.ptr.i.i179.i.i.i1172 = getelementptr inbounds i8, ptr %src.addr.021.i.i157.i.i.i1150, i64 8
   %add.ptr18.i.i180.i.i.i1173 = getelementptr inbounds i8, ptr %dest.addr.019.i.i159.i.i.i1152, i64 8
-  %cmp.i.i181.i.i.i1174 = icmp ugt i64 %length.addr.020.i.i158.i.i.i1151, 7
+  %cmp.i.i181.i.i.i1174 = icmp samesign ugt i64 %length.addr.020.i.i158.i.i.i1151, 7
   br i1 %cmp.i.i181.i.i.i1174, label %while.body.i.i156.i.i.i1149, label %while.cond19.preheader.i.i140.i.i.i1133, !llvm.loop !57
 
 while.body21.i.i145.i.i.i1138:                    ; preds = %while.cond19.preheader.i.i140.i.i.i1133, %while.body21.i.i145.i.i.i1138
@@ -15977,7 +15977,7 @@ while.body21.i.i145.i.i.i1138:                    ; preds = %while.cond19.prehea
   %incdec.ptr25.i.i153.i.i.i1146 = getelementptr inbounds i8, ptr %dest.addr.125.i.i148.i.i.i1141, i64 2
   store i16 %conv24.i.i152.i.i.i1145, ptr %dest.addr.125.i.i148.i.i.i1141, align 2, !noalias !845
   %dec.i.i154.i.i.i1147 = add nsw i64 %length.addr.126.i.i147.i.i.i1140, -1
-  %cmp20.i.i155.i.i.i1148 = icmp ugt i64 %length.addr.126.i.i147.i.i.i1140, 1
+  %cmp20.i.i155.i.i.i1148 = icmp samesign ugt i64 %length.addr.126.i.i147.i.i.i1140, 1
   br i1 %cmp20.i.i155.i.i.i1148, label %while.body21.i.i145.i.i.i1138, label %_ZN5arrow8internal12_GLOBAL__N_117TransposeIntsDestItE5VisitINS_9Int16TypeEEENSt9enable_ifIXsr15is_integer_typeIT_EE5valueENS_6StatusEE4typeERKS7_.exit.i.i.i, !llvm.loop !58
 
 _ZN5arrow8internal12_GLOBAL__N_117TransposeIntsDestItE5VisitINS_9Int16TypeEEENSt9enable_ifIXsr15is_integer_typeIT_EE5valueENS_6StatusEE4typeERKS7_.exit.i.i.i: ; preds = %while.body21.i.i145.i.i.i1138, %while.cond19.preheader.i.i140.i.i.i1133
@@ -16034,7 +16034,7 @@ while.body.i.i204.i.i.i1104:                      ; preds = %sw.bb10.i.i.i1085, 
   %sub.i.i226.i.i.i1126 = add nsw i64 %length.addr.020.i.i206.i.i.i1106, -4
   %add.ptr.i.i227.i.i.i1127 = getelementptr inbounds i8, ptr %src.addr.021.i.i205.i.i.i1105, i64 8
   %add.ptr18.i.i228.i.i.i1128 = getelementptr inbounds i8, ptr %dest.addr.019.i.i207.i.i.i1107, i64 8
-  %cmp.i.i229.i.i.i1129 = icmp ugt i64 %length.addr.020.i.i206.i.i.i1106, 7
+  %cmp.i.i229.i.i.i1129 = icmp samesign ugt i64 %length.addr.020.i.i206.i.i.i1106, 7
   br i1 %cmp.i.i229.i.i.i1129, label %while.body.i.i204.i.i.i1104, label %while.cond19.preheader.i.i188.i.i.i1088, !llvm.loop !41
 
 while.body21.i.i193.i.i.i1093:                    ; preds = %while.cond19.preheader.i.i188.i.i.i1088, %while.body21.i.i193.i.i.i1093
@@ -16050,7 +16050,7 @@ while.body21.i.i193.i.i.i1093:                    ; preds = %while.cond19.prehea
   %incdec.ptr25.i.i201.i.i.i1101 = getelementptr inbounds i8, ptr %dest.addr.125.i.i196.i.i.i1096, i64 2
   store i16 %conv24.i.i200.i.i.i1100, ptr %dest.addr.125.i.i196.i.i.i1096, align 2, !noalias !852
   %dec.i.i202.i.i.i1102 = add nsw i64 %length.addr.126.i.i195.i.i.i1095, -1
-  %cmp20.i.i203.i.i.i1103 = icmp ugt i64 %length.addr.126.i.i195.i.i.i1095, 1
+  %cmp20.i.i203.i.i.i1103 = icmp samesign ugt i64 %length.addr.126.i.i195.i.i.i1095, 1
   br i1 %cmp20.i.i203.i.i.i1103, label %while.body21.i.i193.i.i.i1093, label %_ZN5arrow8internal12_GLOBAL__N_117TransposeIntsDestItE5VisitINS_10UInt16TypeEEENSt9enable_ifIXsr15is_integer_typeIT_EE5valueENS_6StatusEE4typeERKS7_.exit.i.i.i, !llvm.loop !42
 
 _ZN5arrow8internal12_GLOBAL__N_117TransposeIntsDestItE5VisitINS_10UInt16TypeEEENSt9enable_ifIXsr15is_integer_typeIT_EE5valueENS_6StatusEE4typeERKS7_.exit.i.i.i: ; preds = %while.body21.i.i193.i.i.i1093, %while.cond19.preheader.i.i188.i.i.i1088
@@ -16103,7 +16103,7 @@ while.body.i.i244.i.i.i1063:                      ; preds = %sw.bb12.i.i.i1045, 
   %sub.i.i256.i.i.i1081 = add nsw i64 %length.addr.020.i.i246.i.i.i1065, -4
   %add.ptr.i.i257.i.i.i1082 = getelementptr inbounds i8, ptr %src.addr.021.i.i245.i.i.i1064, i64 8
   %add.ptr15.i.i.i.i.i1083 = getelementptr inbounds i8, ptr %dest.addr.019.i.i247.i.i.i1066, i64 16
-  %cmp.i.i258.i.i.i1084 = icmp ugt i64 %length.addr.020.i.i246.i.i.i1065, 7
+  %cmp.i.i258.i.i.i1084 = icmp samesign ugt i64 %length.addr.020.i.i246.i.i.i1065, 7
   br i1 %cmp.i.i258.i.i.i1084, label %while.body.i.i244.i.i.i1063, label %while.cond16.preheader.i.i.i.i.i1048, !llvm.loop !89
 
 while.body18.i.i.i.i.i1053:                       ; preds = %while.cond16.preheader.i.i.i.i.i1048, %while.body18.i.i.i.i.i1053
@@ -16118,7 +16118,7 @@ while.body18.i.i.i.i.i1053:                       ; preds = %while.cond16.prehea
   %incdec.ptr21.i.i.i.i.i1060 = getelementptr inbounds i8, ptr %dest.addr.125.i.i241.i.i.i1056, i64 4
   store i32 %321, ptr %dest.addr.125.i.i241.i.i.i1056, align 4, !noalias !859
   %dec.i.i243.i.i.i1061 = add nsw i64 %length.addr.126.i.i240.i.i.i1055, -1
-  %cmp17.i.i.i.i.i1062 = icmp ugt i64 %length.addr.126.i.i240.i.i.i1055, 1
+  %cmp17.i.i.i.i.i1062 = icmp samesign ugt i64 %length.addr.126.i.i240.i.i.i1055, 1
   br i1 %cmp17.i.i.i.i.i1062, label %while.body18.i.i.i.i.i1053, label %_ZN5arrow8internal12_GLOBAL__N_117TransposeIntsDestItE5VisitINS_9Int32TypeEEENSt9enable_ifIXsr15is_integer_typeIT_EE5valueENS_6StatusEE4typeERKS7_.exit.i.i.i, !llvm.loop !90
 
 _ZN5arrow8internal12_GLOBAL__N_117TransposeIntsDestItE5VisitINS_9Int32TypeEEENSt9enable_ifIXsr15is_integer_typeIT_EE5valueENS_6StatusEE4typeERKS7_.exit.i.i.i: ; preds = %while.body18.i.i.i.i.i1053, %while.cond16.preheader.i.i.i.i.i1048
@@ -16171,7 +16171,7 @@ while.body.i.i280.i.i.i1023:                      ; preds = %sw.bb14.i.i.i1005, 
   %sub.i.i298.i.i.i1041 = add nsw i64 %length.addr.020.i.i282.i.i.i1025, -4
   %add.ptr.i.i299.i.i.i1042 = getelementptr inbounds i8, ptr %src.addr.021.i.i281.i.i.i1024, i64 8
   %add.ptr15.i.i300.i.i.i1043 = getelementptr inbounds i8, ptr %dest.addr.019.i.i283.i.i.i1026, i64 16
-  %cmp.i.i301.i.i.i1044 = icmp ugt i64 %length.addr.020.i.i282.i.i.i1025, 7
+  %cmp.i.i301.i.i.i1044 = icmp samesign ugt i64 %length.addr.020.i.i282.i.i.i1025, 7
   br i1 %cmp.i.i301.i.i.i1044, label %while.body.i.i280.i.i.i1023, label %while.cond16.preheader.i.i265.i.i.i1008, !llvm.loop !73
 
 while.body18.i.i270.i.i.i1013:                    ; preds = %while.cond16.preheader.i.i265.i.i.i1008, %while.body18.i.i270.i.i.i1013
@@ -16186,7 +16186,7 @@ while.body18.i.i270.i.i.i1013:                    ; preds = %while.cond16.prehea
   %incdec.ptr21.i.i277.i.i.i1020 = getelementptr inbounds i8, ptr %dest.addr.125.i.i273.i.i.i1016, i64 4
   store i32 %331, ptr %dest.addr.125.i.i273.i.i.i1016, align 4, !noalias !866
   %dec.i.i278.i.i.i1021 = add nsw i64 %length.addr.126.i.i272.i.i.i1015, -1
-  %cmp17.i.i279.i.i.i1022 = icmp ugt i64 %length.addr.126.i.i272.i.i.i1015, 1
+  %cmp17.i.i279.i.i.i1022 = icmp samesign ugt i64 %length.addr.126.i.i272.i.i.i1015, 1
   br i1 %cmp17.i.i279.i.i.i1022, label %while.body18.i.i270.i.i.i1013, label %_ZN5arrow8internal12_GLOBAL__N_117TransposeIntsDestItE5VisitINS_10UInt32TypeEEENSt9enable_ifIXsr15is_integer_typeIT_EE5valueENS_6StatusEE4typeERKS7_.exit.i.i.i, !llvm.loop !74
 
 _ZN5arrow8internal12_GLOBAL__N_117TransposeIntsDestItE5VisitINS_10UInt32TypeEEENSt9enable_ifIXsr15is_integer_typeIT_EE5valueENS_6StatusEE4typeERKS7_.exit.i.i.i: ; preds = %while.body18.i.i270.i.i.i1013, %while.cond16.preheader.i.i265.i.i.i1008
@@ -16243,7 +16243,7 @@ while.body.i.i324.i.i.i979:                       ; preds = %sw.bb16.i.i.i960, %
   %sub.i.i346.i.i.i1001 = add nsw i64 %length.addr.020.i.i326.i.i.i981, -4
   %add.ptr.i.i347.i.i.i1002 = getelementptr inbounds i8, ptr %src.addr.021.i.i325.i.i.i980, i64 8
   %add.ptr18.i.i348.i.i.i1003 = getelementptr inbounds i8, ptr %dest.addr.019.i.i327.i.i.i982, i64 32
-  %cmp.i.i349.i.i.i1004 = icmp ugt i64 %length.addr.020.i.i326.i.i.i981, 7
+  %cmp.i.i349.i.i.i1004 = icmp samesign ugt i64 %length.addr.020.i.i326.i.i.i981, 7
   br i1 %cmp.i.i349.i.i.i1004, label %while.body.i.i324.i.i.i979, label %while.cond19.preheader.i.i308.i.i.i963, !llvm.loop !121
 
 while.body21.i.i313.i.i.i968:                     ; preds = %while.cond19.preheader.i.i308.i.i.i963, %while.body21.i.i313.i.i.i968
@@ -16259,7 +16259,7 @@ while.body21.i.i313.i.i.i968:                     ; preds = %while.cond19.prehea
   %incdec.ptr25.i.i321.i.i.i976 = getelementptr inbounds i8, ptr %dest.addr.125.i.i316.i.i.i971, i64 8
   store i64 %conv24.i.i320.i.i.i975, ptr %dest.addr.125.i.i316.i.i.i971, align 8, !noalias !873
   %dec.i.i322.i.i.i977 = add nsw i64 %length.addr.126.i.i315.i.i.i970, -1
-  %cmp20.i.i323.i.i.i978 = icmp ugt i64 %length.addr.126.i.i315.i.i.i970, 1
+  %cmp20.i.i323.i.i.i978 = icmp samesign ugt i64 %length.addr.126.i.i315.i.i.i970, 1
   br i1 %cmp20.i.i323.i.i.i978, label %while.body21.i.i313.i.i.i968, label %_ZN5arrow8internal12_GLOBAL__N_117TransposeIntsDestItE5VisitINS_9Int64TypeEEENSt9enable_ifIXsr15is_integer_typeIT_EE5valueENS_6StatusEE4typeERKS7_.exit.i.i.i, !llvm.loop !122
 
 _ZN5arrow8internal12_GLOBAL__N_117TransposeIntsDestItE5VisitINS_9Int64TypeEEENSt9enable_ifIXsr15is_integer_typeIT_EE5valueENS_6StatusEE4typeERKS7_.exit.i.i.i: ; preds = %while.body21.i.i313.i.i.i968, %while.cond19.preheader.i.i308.i.i.i963
@@ -16316,7 +16316,7 @@ while.body.i.i372.i.i.i934:                       ; preds = %sw.bb18.i.i.i915, %
   %sub.i.i394.i.i.i956 = add nsw i64 %length.addr.020.i.i374.i.i.i936, -4
   %add.ptr.i.i395.i.i.i957 = getelementptr inbounds i8, ptr %src.addr.021.i.i373.i.i.i935, i64 8
   %add.ptr18.i.i396.i.i.i958 = getelementptr inbounds i8, ptr %dest.addr.019.i.i375.i.i.i937, i64 32
-  %cmp.i.i397.i.i.i959 = icmp ugt i64 %length.addr.020.i.i374.i.i.i936, 7
+  %cmp.i.i397.i.i.i959 = icmp samesign ugt i64 %length.addr.020.i.i374.i.i.i936, 7
   br i1 %cmp.i.i397.i.i.i959, label %while.body.i.i372.i.i.i934, label %while.cond19.preheader.i.i356.i.i.i918, !llvm.loop !105
 
 while.body21.i.i361.i.i.i923:                     ; preds = %while.cond19.preheader.i.i356.i.i.i918, %while.body21.i.i361.i.i.i923
@@ -16332,7 +16332,7 @@ while.body21.i.i361.i.i.i923:                     ; preds = %while.cond19.prehea
   %incdec.ptr25.i.i369.i.i.i931 = getelementptr inbounds i8, ptr %dest.addr.125.i.i364.i.i.i926, i64 8
   store i64 %conv24.i.i368.i.i.i930, ptr %dest.addr.125.i.i364.i.i.i926, align 8, !noalias !880
   %dec.i.i370.i.i.i932 = add nsw i64 %length.addr.126.i.i363.i.i.i925, -1
-  %cmp20.i.i371.i.i.i933 = icmp ugt i64 %length.addr.126.i.i363.i.i.i925, 1
+  %cmp20.i.i371.i.i.i933 = icmp samesign ugt i64 %length.addr.126.i.i363.i.i.i925, 1
   br i1 %cmp20.i.i371.i.i.i933, label %while.body21.i.i361.i.i.i923, label %_ZN5arrow8internal12_GLOBAL__N_117TransposeIntsDestItE5VisitINS_10UInt64TypeEEENSt9enable_ifIXsr15is_integer_typeIT_EE5valueENS_6StatusEE4typeERKS7_.exit.i.i.i, !llvm.loop !106
 
 _ZN5arrow8internal12_GLOBAL__N_117TransposeIntsDestItE5VisitINS_10UInt64TypeEEENSt9enable_ifIXsr15is_integer_typeIT_EE5valueENS_6StatusEE4typeERKS7_.exit.i.i.i: ; preds = %while.body21.i.i361.i.i.i923, %while.cond19.preheader.i.i356.i.i.i918
@@ -16599,7 +16599,7 @@ while.body.i.i.i.i.i1633:                         ; preds = %sw.bb4.i.i.i1614, %
   %sub.i.i.i.i.i1655 = add nsw i64 %length.addr.020.i.i.i.i.i1635, -4
   %add.ptr.i.i.i.i.i1656 = getelementptr inbounds i8, ptr %src.addr.021.i.i.i.i.i1634, i64 16
   %add.ptr18.i.i.i.i.i1657 = getelementptr inbounds i8, ptr %dest.addr.019.i.i.i.i.i1636, i64 4
-  %cmp.i.i.i.i.i1658 = icmp ugt i64 %length.addr.020.i.i.i.i.i1635, 7
+  %cmp.i.i.i.i.i1658 = icmp samesign ugt i64 %length.addr.020.i.i.i.i.i1635, 7
   br i1 %cmp.i.i.i.i.i1658, label %while.body.i.i.i.i.i1633, label %while.cond19.preheader.i.i.i.i.i1617, !llvm.loop !31
 
 while.body21.i.i.i.i.i1622:                       ; preds = %while.cond19.preheader.i.i.i.i.i1617, %while.body21.i.i.i.i.i1622
@@ -16615,7 +16615,7 @@ while.body21.i.i.i.i.i1622:                       ; preds = %while.cond19.prehea
   %incdec.ptr25.i.i.i.i.i1630 = getelementptr inbounds i8, ptr %dest.addr.125.i.i.i.i.i1625, i64 1
   store i8 %conv24.i.i.i.i.i1629, ptr %dest.addr.125.i.i.i.i.i1625, align 1, !noalias !896
   %dec.i.i.i.i.i1631 = add nsw i64 %length.addr.126.i.i.i.i.i1624, -1
-  %cmp20.i.i.i.i.i1632 = icmp ugt i64 %length.addr.126.i.i.i.i.i1624, 1
+  %cmp20.i.i.i.i.i1632 = icmp samesign ugt i64 %length.addr.126.i.i.i.i.i1624, 1
   br i1 %cmp20.i.i.i.i.i1632, label %while.body21.i.i.i.i.i1622, label %_ZN5arrow8internal12_GLOBAL__N_117TransposeIntsDestIiE5VisitINS_8Int8TypeEEENSt9enable_ifIXsr15is_integer_typeIT_EE5valueENS_6StatusEE4typeERKS7_.exit.i.i.i, !llvm.loop !32
 
 _ZN5arrow8internal12_GLOBAL__N_117TransposeIntsDestIiE5VisitINS_8Int8TypeEEENSt9enable_ifIXsr15is_integer_typeIT_EE5valueENS_6StatusEE4typeERKS7_.exit.i.i.i: ; preds = %while.body21.i.i.i.i.i1622, %while.cond19.preheader.i.i.i.i.i1617
@@ -16672,7 +16672,7 @@ while.body.i.i108.i.i.i1588:                      ; preds = %sw.bb6.i.i.i1569, %
   %sub.i.i130.i.i.i1610 = add nsw i64 %length.addr.020.i.i110.i.i.i1590, -4
   %add.ptr.i.i131.i.i.i1611 = getelementptr inbounds i8, ptr %src.addr.021.i.i109.i.i.i1589, i64 16
   %add.ptr18.i.i132.i.i.i1612 = getelementptr inbounds i8, ptr %dest.addr.019.i.i111.i.i.i1591, i64 4
-  %cmp.i.i133.i.i.i1613 = icmp ugt i64 %length.addr.020.i.i110.i.i.i1590, 7
+  %cmp.i.i133.i.i.i1613 = icmp samesign ugt i64 %length.addr.020.i.i110.i.i.i1590, 7
   br i1 %cmp.i.i133.i.i.i1613, label %while.body.i.i108.i.i.i1588, label %while.cond19.preheader.i.i92.i.i.i1572, !llvm.loop !15
 
 while.body21.i.i97.i.i.i1577:                     ; preds = %while.cond19.preheader.i.i92.i.i.i1572, %while.body21.i.i97.i.i.i1577
@@ -16688,7 +16688,7 @@ while.body21.i.i97.i.i.i1577:                     ; preds = %while.cond19.prehea
   %incdec.ptr25.i.i105.i.i.i1585 = getelementptr inbounds i8, ptr %dest.addr.125.i.i100.i.i.i1580, i64 1
   store i8 %conv24.i.i104.i.i.i1584, ptr %dest.addr.125.i.i100.i.i.i1580, align 1, !noalias !903
   %dec.i.i106.i.i.i1586 = add nsw i64 %length.addr.126.i.i99.i.i.i1579, -1
-  %cmp20.i.i107.i.i.i1587 = icmp ugt i64 %length.addr.126.i.i99.i.i.i1579, 1
+  %cmp20.i.i107.i.i.i1587 = icmp samesign ugt i64 %length.addr.126.i.i99.i.i.i1579, 1
   br i1 %cmp20.i.i107.i.i.i1587, label %while.body21.i.i97.i.i.i1577, label %_ZN5arrow8internal12_GLOBAL__N_117TransposeIntsDestIiE5VisitINS_9UInt8TypeEEENSt9enable_ifIXsr15is_integer_typeIT_EE5valueENS_6StatusEE4typeERKS7_.exit.i.i.i, !llvm.loop !16
 
 _ZN5arrow8internal12_GLOBAL__N_117TransposeIntsDestIiE5VisitINS_9UInt8TypeEEENSt9enable_ifIXsr15is_integer_typeIT_EE5valueENS_6StatusEE4typeERKS7_.exit.i.i.i: ; preds = %while.body21.i.i97.i.i.i1577, %while.cond19.preheader.i.i92.i.i.i1572
@@ -16745,7 +16745,7 @@ while.body.i.i156.i.i.i1543:                      ; preds = %sw.bb8.i.i.i1524, %
   %sub.i.i178.i.i.i1565 = add nsw i64 %length.addr.020.i.i158.i.i.i1545, -4
   %add.ptr.i.i179.i.i.i1566 = getelementptr inbounds i8, ptr %src.addr.021.i.i157.i.i.i1544, i64 16
   %add.ptr18.i.i180.i.i.i1567 = getelementptr inbounds i8, ptr %dest.addr.019.i.i159.i.i.i1546, i64 8
-  %cmp.i.i181.i.i.i1568 = icmp ugt i64 %length.addr.020.i.i158.i.i.i1545, 7
+  %cmp.i.i181.i.i.i1568 = icmp samesign ugt i64 %length.addr.020.i.i158.i.i.i1545, 7
   br i1 %cmp.i.i181.i.i.i1568, label %while.body.i.i156.i.i.i1543, label %while.cond19.preheader.i.i140.i.i.i1527, !llvm.loop !63
 
 while.body21.i.i145.i.i.i1532:                    ; preds = %while.cond19.preheader.i.i140.i.i.i1527, %while.body21.i.i145.i.i.i1532
@@ -16761,7 +16761,7 @@ while.body21.i.i145.i.i.i1532:                    ; preds = %while.cond19.prehea
   %incdec.ptr25.i.i153.i.i.i1540 = getelementptr inbounds i8, ptr %dest.addr.125.i.i148.i.i.i1535, i64 2
   store i16 %conv24.i.i152.i.i.i1539, ptr %dest.addr.125.i.i148.i.i.i1535, align 2, !noalias !910
   %dec.i.i154.i.i.i1541 = add nsw i64 %length.addr.126.i.i147.i.i.i1534, -1
-  %cmp20.i.i155.i.i.i1542 = icmp ugt i64 %length.addr.126.i.i147.i.i.i1534, 1
+  %cmp20.i.i155.i.i.i1542 = icmp samesign ugt i64 %length.addr.126.i.i147.i.i.i1534, 1
   br i1 %cmp20.i.i155.i.i.i1542, label %while.body21.i.i145.i.i.i1532, label %_ZN5arrow8internal12_GLOBAL__N_117TransposeIntsDestIiE5VisitINS_9Int16TypeEEENSt9enable_ifIXsr15is_integer_typeIT_EE5valueENS_6StatusEE4typeERKS7_.exit.i.i.i, !llvm.loop !64
 
 _ZN5arrow8internal12_GLOBAL__N_117TransposeIntsDestIiE5VisitINS_9Int16TypeEEENSt9enable_ifIXsr15is_integer_typeIT_EE5valueENS_6StatusEE4typeERKS7_.exit.i.i.i: ; preds = %while.body21.i.i145.i.i.i1532, %while.cond19.preheader.i.i140.i.i.i1527
@@ -16818,7 +16818,7 @@ while.body.i.i204.i.i.i1498:                      ; preds = %sw.bb10.i.i.i1479, 
   %sub.i.i226.i.i.i1520 = add nsw i64 %length.addr.020.i.i206.i.i.i1500, -4
   %add.ptr.i.i227.i.i.i1521 = getelementptr inbounds i8, ptr %src.addr.021.i.i205.i.i.i1499, i64 16
   %add.ptr18.i.i228.i.i.i1522 = getelementptr inbounds i8, ptr %dest.addr.019.i.i207.i.i.i1501, i64 8
-  %cmp.i.i229.i.i.i1523 = icmp ugt i64 %length.addr.020.i.i206.i.i.i1500, 7
+  %cmp.i.i229.i.i.i1523 = icmp samesign ugt i64 %length.addr.020.i.i206.i.i.i1500, 7
   br i1 %cmp.i.i229.i.i.i1523, label %while.body.i.i204.i.i.i1498, label %while.cond19.preheader.i.i188.i.i.i1482, !llvm.loop !47
 
 while.body21.i.i193.i.i.i1487:                    ; preds = %while.cond19.preheader.i.i188.i.i.i1482, %while.body21.i.i193.i.i.i1487
@@ -16834,7 +16834,7 @@ while.body21.i.i193.i.i.i1487:                    ; preds = %while.cond19.prehea
   %incdec.ptr25.i.i201.i.i.i1495 = getelementptr inbounds i8, ptr %dest.addr.125.i.i196.i.i.i1490, i64 2
   store i16 %conv24.i.i200.i.i.i1494, ptr %dest.addr.125.i.i196.i.i.i1490, align 2, !noalias !917
   %dec.i.i202.i.i.i1496 = add nsw i64 %length.addr.126.i.i195.i.i.i1489, -1
-  %cmp20.i.i203.i.i.i1497 = icmp ugt i64 %length.addr.126.i.i195.i.i.i1489, 1
+  %cmp20.i.i203.i.i.i1497 = icmp samesign ugt i64 %length.addr.126.i.i195.i.i.i1489, 1
   br i1 %cmp20.i.i203.i.i.i1497, label %while.body21.i.i193.i.i.i1487, label %_ZN5arrow8internal12_GLOBAL__N_117TransposeIntsDestIiE5VisitINS_10UInt16TypeEEENSt9enable_ifIXsr15is_integer_typeIT_EE5valueENS_6StatusEE4typeERKS7_.exit.i.i.i, !llvm.loop !48
 
 _ZN5arrow8internal12_GLOBAL__N_117TransposeIntsDestIiE5VisitINS_10UInt16TypeEEENSt9enable_ifIXsr15is_integer_typeIT_EE5valueENS_6StatusEE4typeERKS7_.exit.i.i.i: ; preds = %while.body21.i.i193.i.i.i1487, %while.cond19.preheader.i.i188.i.i.i1482
@@ -16887,7 +16887,7 @@ while.body.i.i244.i.i.i1457:                      ; preds = %sw.bb12.i.i.i1439, 
   %sub.i.i256.i.i.i1475 = add nsw i64 %length.addr.020.i.i246.i.i.i1459, -4
   %add.ptr.i.i257.i.i.i1476 = getelementptr inbounds i8, ptr %src.addr.021.i.i245.i.i.i1458, i64 16
   %add.ptr15.i.i.i.i.i1477 = getelementptr inbounds i8, ptr %dest.addr.019.i.i247.i.i.i1460, i64 16
-  %cmp.i.i258.i.i.i1478 = icmp ugt i64 %length.addr.020.i.i246.i.i.i1459, 7
+  %cmp.i.i258.i.i.i1478 = icmp samesign ugt i64 %length.addr.020.i.i246.i.i.i1459, 7
   br i1 %cmp.i.i258.i.i.i1478, label %while.body.i.i244.i.i.i1457, label %while.cond16.preheader.i.i.i.i.i1442, !llvm.loop !95
 
 while.body18.i.i.i.i.i1447:                       ; preds = %while.cond16.preheader.i.i.i.i.i1442, %while.body18.i.i.i.i.i1447
@@ -16902,7 +16902,7 @@ while.body18.i.i.i.i.i1447:                       ; preds = %while.cond16.prehea
   %incdec.ptr21.i.i.i.i.i1454 = getelementptr inbounds i8, ptr %dest.addr.125.i.i241.i.i.i1450, i64 4
   store i32 %409, ptr %dest.addr.125.i.i241.i.i.i1450, align 4, !noalias !924
   %dec.i.i243.i.i.i1455 = add nsw i64 %length.addr.126.i.i240.i.i.i1449, -1
-  %cmp17.i.i.i.i.i1456 = icmp ugt i64 %length.addr.126.i.i240.i.i.i1449, 1
+  %cmp17.i.i.i.i.i1456 = icmp samesign ugt i64 %length.addr.126.i.i240.i.i.i1449, 1
   br i1 %cmp17.i.i.i.i.i1456, label %while.body18.i.i.i.i.i1447, label %_ZN5arrow8internal12_GLOBAL__N_117TransposeIntsDestIiE5VisitINS_9Int32TypeEEENSt9enable_ifIXsr15is_integer_typeIT_EE5valueENS_6StatusEE4typeERKS7_.exit.i.i.i, !llvm.loop !96
 
 _ZN5arrow8internal12_GLOBAL__N_117TransposeIntsDestIiE5VisitINS_9Int32TypeEEENSt9enable_ifIXsr15is_integer_typeIT_EE5valueENS_6StatusEE4typeERKS7_.exit.i.i.i: ; preds = %while.body18.i.i.i.i.i1447, %while.cond16.preheader.i.i.i.i.i1442
@@ -16955,7 +16955,7 @@ while.body.i.i280.i.i.i1417:                      ; preds = %sw.bb14.i.i.i1399, 
   %sub.i.i298.i.i.i1435 = add nsw i64 %length.addr.020.i.i282.i.i.i1419, -4
   %add.ptr.i.i299.i.i.i1436 = getelementptr inbounds i8, ptr %src.addr.021.i.i281.i.i.i1418, i64 16
   %add.ptr15.i.i300.i.i.i1437 = getelementptr inbounds i8, ptr %dest.addr.019.i.i283.i.i.i1420, i64 16
-  %cmp.i.i301.i.i.i1438 = icmp ugt i64 %length.addr.020.i.i282.i.i.i1419, 7
+  %cmp.i.i301.i.i.i1438 = icmp samesign ugt i64 %length.addr.020.i.i282.i.i.i1419, 7
   br i1 %cmp.i.i301.i.i.i1438, label %while.body.i.i280.i.i.i1417, label %while.cond16.preheader.i.i265.i.i.i1402, !llvm.loop !79
 
 while.body18.i.i270.i.i.i1407:                    ; preds = %while.cond16.preheader.i.i265.i.i.i1402, %while.body18.i.i270.i.i.i1407
@@ -16970,7 +16970,7 @@ while.body18.i.i270.i.i.i1407:                    ; preds = %while.cond16.prehea
   %incdec.ptr21.i.i277.i.i.i1414 = getelementptr inbounds i8, ptr %dest.addr.125.i.i273.i.i.i1410, i64 4
   store i32 %419, ptr %dest.addr.125.i.i273.i.i.i1410, align 4, !noalias !931
   %dec.i.i278.i.i.i1415 = add nsw i64 %length.addr.126.i.i272.i.i.i1409, -1
-  %cmp17.i.i279.i.i.i1416 = icmp ugt i64 %length.addr.126.i.i272.i.i.i1409, 1
+  %cmp17.i.i279.i.i.i1416 = icmp samesign ugt i64 %length.addr.126.i.i272.i.i.i1409, 1
   br i1 %cmp17.i.i279.i.i.i1416, label %while.body18.i.i270.i.i.i1407, label %_ZN5arrow8internal12_GLOBAL__N_117TransposeIntsDestIiE5VisitINS_10UInt32TypeEEENSt9enable_ifIXsr15is_integer_typeIT_EE5valueENS_6StatusEE4typeERKS7_.exit.i.i.i, !llvm.loop !80
 
 _ZN5arrow8internal12_GLOBAL__N_117TransposeIntsDestIiE5VisitINS_10UInt32TypeEEENSt9enable_ifIXsr15is_integer_typeIT_EE5valueENS_6StatusEE4typeERKS7_.exit.i.i.i: ; preds = %while.body18.i.i270.i.i.i1407, %while.cond16.preheader.i.i265.i.i.i1402
@@ -17027,7 +17027,7 @@ while.body.i.i324.i.i.i1373:                      ; preds = %sw.bb16.i.i.i1354, 
   %sub.i.i346.i.i.i1395 = add nsw i64 %length.addr.020.i.i326.i.i.i1375, -4
   %add.ptr.i.i347.i.i.i1396 = getelementptr inbounds i8, ptr %src.addr.021.i.i325.i.i.i1374, i64 16
   %add.ptr18.i.i348.i.i.i1397 = getelementptr inbounds i8, ptr %dest.addr.019.i.i327.i.i.i1376, i64 32
-  %cmp.i.i349.i.i.i1398 = icmp ugt i64 %length.addr.020.i.i326.i.i.i1375, 7
+  %cmp.i.i349.i.i.i1398 = icmp samesign ugt i64 %length.addr.020.i.i326.i.i.i1375, 7
   br i1 %cmp.i.i349.i.i.i1398, label %while.body.i.i324.i.i.i1373, label %while.cond19.preheader.i.i308.i.i.i1357, !llvm.loop !127
 
 while.body21.i.i313.i.i.i1362:                    ; preds = %while.cond19.preheader.i.i308.i.i.i1357, %while.body21.i.i313.i.i.i1362
@@ -17043,7 +17043,7 @@ while.body21.i.i313.i.i.i1362:                    ; preds = %while.cond19.prehea
   %incdec.ptr25.i.i321.i.i.i1370 = getelementptr inbounds i8, ptr %dest.addr.125.i.i316.i.i.i1365, i64 8
   store i64 %conv24.i.i320.i.i.i1369, ptr %dest.addr.125.i.i316.i.i.i1365, align 8, !noalias !938
   %dec.i.i322.i.i.i1371 = add nsw i64 %length.addr.126.i.i315.i.i.i1364, -1
-  %cmp20.i.i323.i.i.i1372 = icmp ugt i64 %length.addr.126.i.i315.i.i.i1364, 1
+  %cmp20.i.i323.i.i.i1372 = icmp samesign ugt i64 %length.addr.126.i.i315.i.i.i1364, 1
   br i1 %cmp20.i.i323.i.i.i1372, label %while.body21.i.i313.i.i.i1362, label %_ZN5arrow8internal12_GLOBAL__N_117TransposeIntsDestIiE5VisitINS_9Int64TypeEEENSt9enable_ifIXsr15is_integer_typeIT_EE5valueENS_6StatusEE4typeERKS7_.exit.i.i.i, !llvm.loop !128
 
 _ZN5arrow8internal12_GLOBAL__N_117TransposeIntsDestIiE5VisitINS_9Int64TypeEEENSt9enable_ifIXsr15is_integer_typeIT_EE5valueENS_6StatusEE4typeERKS7_.exit.i.i.i: ; preds = %while.body21.i.i313.i.i.i1362, %while.cond19.preheader.i.i308.i.i.i1357
@@ -17100,7 +17100,7 @@ while.body.i.i372.i.i.i1328:                      ; preds = %sw.bb18.i.i.i1309, 
   %sub.i.i394.i.i.i1350 = add nsw i64 %length.addr.020.i.i374.i.i.i1330, -4
   %add.ptr.i.i395.i.i.i1351 = getelementptr inbounds i8, ptr %src.addr.021.i.i373.i.i.i1329, i64 16
   %add.ptr18.i.i396.i.i.i1352 = getelementptr inbounds i8, ptr %dest.addr.019.i.i375.i.i.i1331, i64 32
-  %cmp.i.i397.i.i.i1353 = icmp ugt i64 %length.addr.020.i.i374.i.i.i1330, 7
+  %cmp.i.i397.i.i.i1353 = icmp samesign ugt i64 %length.addr.020.i.i374.i.i.i1330, 7
   br i1 %cmp.i.i397.i.i.i1353, label %while.body.i.i372.i.i.i1328, label %while.cond19.preheader.i.i356.i.i.i1312, !llvm.loop !111
 
 while.body21.i.i361.i.i.i1317:                    ; preds = %while.cond19.preheader.i.i356.i.i.i1312, %while.body21.i.i361.i.i.i1317
@@ -17116,7 +17116,7 @@ while.body21.i.i361.i.i.i1317:                    ; preds = %while.cond19.prehea
   %incdec.ptr25.i.i369.i.i.i1325 = getelementptr inbounds i8, ptr %dest.addr.125.i.i364.i.i.i1320, i64 8
   store i64 %conv24.i.i368.i.i.i1324, ptr %dest.addr.125.i.i364.i.i.i1320, align 8, !noalias !945
   %dec.i.i370.i.i.i1326 = add nsw i64 %length.addr.126.i.i363.i.i.i1319, -1
-  %cmp20.i.i371.i.i.i1327 = icmp ugt i64 %length.addr.126.i.i363.i.i.i1319, 1
+  %cmp20.i.i371.i.i.i1327 = icmp samesign ugt i64 %length.addr.126.i.i363.i.i.i1319, 1
   br i1 %cmp20.i.i371.i.i.i1327, label %while.body21.i.i361.i.i.i1317, label %_ZN5arrow8internal12_GLOBAL__N_117TransposeIntsDestIiE5VisitINS_10UInt64TypeEEENSt9enable_ifIXsr15is_integer_typeIT_EE5valueENS_6StatusEE4typeERKS7_.exit.i.i.i, !llvm.loop !112
 
 _ZN5arrow8internal12_GLOBAL__N_117TransposeIntsDestIiE5VisitINS_10UInt64TypeEEENSt9enable_ifIXsr15is_integer_typeIT_EE5valueENS_6StatusEE4typeERKS7_.exit.i.i.i: ; preds = %while.body21.i.i361.i.i.i1317, %while.cond19.preheader.i.i356.i.i.i1312
@@ -17383,7 +17383,7 @@ while.body.i.i.i.i.i2027:                         ; preds = %sw.bb4.i.i.i2008, %
   %sub.i.i.i.i.i2049 = add nsw i64 %length.addr.020.i.i.i.i.i2029, -4
   %add.ptr.i.i.i.i.i2050 = getelementptr inbounds i8, ptr %src.addr.021.i.i.i.i.i2028, i64 16
   %add.ptr18.i.i.i.i.i2051 = getelementptr inbounds i8, ptr %dest.addr.019.i.i.i.i.i2030, i64 4
-  %cmp.i.i.i.i.i2052 = icmp ugt i64 %length.addr.020.i.i.i.i.i2029, 7
+  %cmp.i.i.i.i.i2052 = icmp samesign ugt i64 %length.addr.020.i.i.i.i.i2029, 7
   br i1 %cmp.i.i.i.i.i2052, label %while.body.i.i.i.i.i2027, label %while.cond19.preheader.i.i.i.i.i2011, !llvm.loop !29
 
 while.body21.i.i.i.i.i2016:                       ; preds = %while.cond19.preheader.i.i.i.i.i2011, %while.body21.i.i.i.i.i2016
@@ -17399,7 +17399,7 @@ while.body21.i.i.i.i.i2016:                       ; preds = %while.cond19.prehea
   %incdec.ptr25.i.i.i.i.i2024 = getelementptr inbounds i8, ptr %dest.addr.125.i.i.i.i.i2019, i64 1
   store i8 %conv24.i.i.i.i.i2023, ptr %dest.addr.125.i.i.i.i.i2019, align 1, !noalias !961
   %dec.i.i.i.i.i2025 = add nsw i64 %length.addr.126.i.i.i.i.i2018, -1
-  %cmp20.i.i.i.i.i2026 = icmp ugt i64 %length.addr.126.i.i.i.i.i2018, 1
+  %cmp20.i.i.i.i.i2026 = icmp samesign ugt i64 %length.addr.126.i.i.i.i.i2018, 1
   br i1 %cmp20.i.i.i.i.i2026, label %while.body21.i.i.i.i.i2016, label %_ZN5arrow8internal12_GLOBAL__N_117TransposeIntsDestIjE5VisitINS_8Int8TypeEEENSt9enable_ifIXsr15is_integer_typeIT_EE5valueENS_6StatusEE4typeERKS7_.exit.i.i.i, !llvm.loop !30
 
 _ZN5arrow8internal12_GLOBAL__N_117TransposeIntsDestIjE5VisitINS_8Int8TypeEEENSt9enable_ifIXsr15is_integer_typeIT_EE5valueENS_6StatusEE4typeERKS7_.exit.i.i.i: ; preds = %while.body21.i.i.i.i.i2016, %while.cond19.preheader.i.i.i.i.i2011
@@ -17456,7 +17456,7 @@ while.body.i.i108.i.i.i1982:                      ; preds = %sw.bb6.i.i.i1963, %
   %sub.i.i130.i.i.i2004 = add nsw i64 %length.addr.020.i.i110.i.i.i1984, -4
   %add.ptr.i.i131.i.i.i2005 = getelementptr inbounds i8, ptr %src.addr.021.i.i109.i.i.i1983, i64 16
   %add.ptr18.i.i132.i.i.i2006 = getelementptr inbounds i8, ptr %dest.addr.019.i.i111.i.i.i1985, i64 4
-  %cmp.i.i133.i.i.i2007 = icmp ugt i64 %length.addr.020.i.i110.i.i.i1984, 7
+  %cmp.i.i133.i.i.i2007 = icmp samesign ugt i64 %length.addr.020.i.i110.i.i.i1984, 7
   br i1 %cmp.i.i133.i.i.i2007, label %while.body.i.i108.i.i.i1982, label %while.cond19.preheader.i.i92.i.i.i1966, !llvm.loop !13
 
 while.body21.i.i97.i.i.i1971:                     ; preds = %while.cond19.preheader.i.i92.i.i.i1966, %while.body21.i.i97.i.i.i1971
@@ -17472,7 +17472,7 @@ while.body21.i.i97.i.i.i1971:                     ; preds = %while.cond19.prehea
   %incdec.ptr25.i.i105.i.i.i1979 = getelementptr inbounds i8, ptr %dest.addr.125.i.i100.i.i.i1974, i64 1
   store i8 %conv24.i.i104.i.i.i1978, ptr %dest.addr.125.i.i100.i.i.i1974, align 1, !noalias !968
   %dec.i.i106.i.i.i1980 = add nsw i64 %length.addr.126.i.i99.i.i.i1973, -1
-  %cmp20.i.i107.i.i.i1981 = icmp ugt i64 %length.addr.126.i.i99.i.i.i1973, 1
+  %cmp20.i.i107.i.i.i1981 = icmp samesign ugt i64 %length.addr.126.i.i99.i.i.i1973, 1
   br i1 %cmp20.i.i107.i.i.i1981, label %while.body21.i.i97.i.i.i1971, label %_ZN5arrow8internal12_GLOBAL__N_117TransposeIntsDestIjE5VisitINS_9UInt8TypeEEENSt9enable_ifIXsr15is_integer_typeIT_EE5valueENS_6StatusEE4typeERKS7_.exit.i.i.i, !llvm.loop !14
 
 _ZN5arrow8internal12_GLOBAL__N_117TransposeIntsDestIjE5VisitINS_9UInt8TypeEEENSt9enable_ifIXsr15is_integer_typeIT_EE5valueENS_6StatusEE4typeERKS7_.exit.i.i.i: ; preds = %while.body21.i.i97.i.i.i1971, %while.cond19.preheader.i.i92.i.i.i1966
@@ -17529,7 +17529,7 @@ while.body.i.i156.i.i.i1937:                      ; preds = %sw.bb8.i.i.i1918, %
   %sub.i.i178.i.i.i1959 = add nsw i64 %length.addr.020.i.i158.i.i.i1939, -4
   %add.ptr.i.i179.i.i.i1960 = getelementptr inbounds i8, ptr %src.addr.021.i.i157.i.i.i1938, i64 16
   %add.ptr18.i.i180.i.i.i1961 = getelementptr inbounds i8, ptr %dest.addr.019.i.i159.i.i.i1940, i64 8
-  %cmp.i.i181.i.i.i1962 = icmp ugt i64 %length.addr.020.i.i158.i.i.i1939, 7
+  %cmp.i.i181.i.i.i1962 = icmp samesign ugt i64 %length.addr.020.i.i158.i.i.i1939, 7
   br i1 %cmp.i.i181.i.i.i1962, label %while.body.i.i156.i.i.i1937, label %while.cond19.preheader.i.i140.i.i.i1921, !llvm.loop !61
 
 while.body21.i.i145.i.i.i1926:                    ; preds = %while.cond19.preheader.i.i140.i.i.i1921, %while.body21.i.i145.i.i.i1926
@@ -17545,7 +17545,7 @@ while.body21.i.i145.i.i.i1926:                    ; preds = %while.cond19.prehea
   %incdec.ptr25.i.i153.i.i.i1934 = getelementptr inbounds i8, ptr %dest.addr.125.i.i148.i.i.i1929, i64 2
   store i16 %conv24.i.i152.i.i.i1933, ptr %dest.addr.125.i.i148.i.i.i1929, align 2, !noalias !975
   %dec.i.i154.i.i.i1935 = add nsw i64 %length.addr.126.i.i147.i.i.i1928, -1
-  %cmp20.i.i155.i.i.i1936 = icmp ugt i64 %length.addr.126.i.i147.i.i.i1928, 1
+  %cmp20.i.i155.i.i.i1936 = icmp samesign ugt i64 %length.addr.126.i.i147.i.i.i1928, 1
   br i1 %cmp20.i.i155.i.i.i1936, label %while.body21.i.i145.i.i.i1926, label %_ZN5arrow8internal12_GLOBAL__N_117TransposeIntsDestIjE5VisitINS_9Int16TypeEEENSt9enable_ifIXsr15is_integer_typeIT_EE5valueENS_6StatusEE4typeERKS7_.exit.i.i.i, !llvm.loop !62
 
 _ZN5arrow8internal12_GLOBAL__N_117TransposeIntsDestIjE5VisitINS_9Int16TypeEEENSt9enable_ifIXsr15is_integer_typeIT_EE5valueENS_6StatusEE4typeERKS7_.exit.i.i.i: ; preds = %while.body21.i.i145.i.i.i1926, %while.cond19.preheader.i.i140.i.i.i1921
@@ -17602,7 +17602,7 @@ while.body.i.i204.i.i.i1892:                      ; preds = %sw.bb10.i.i.i1873, 
   %sub.i.i226.i.i.i1914 = add nsw i64 %length.addr.020.i.i206.i.i.i1894, -4
   %add.ptr.i.i227.i.i.i1915 = getelementptr inbounds i8, ptr %src.addr.021.i.i205.i.i.i1893, i64 16
   %add.ptr18.i.i228.i.i.i1916 = getelementptr inbounds i8, ptr %dest.addr.019.i.i207.i.i.i1895, i64 8
-  %cmp.i.i229.i.i.i1917 = icmp ugt i64 %length.addr.020.i.i206.i.i.i1894, 7
+  %cmp.i.i229.i.i.i1917 = icmp samesign ugt i64 %length.addr.020.i.i206.i.i.i1894, 7
   br i1 %cmp.i.i229.i.i.i1917, label %while.body.i.i204.i.i.i1892, label %while.cond19.preheader.i.i188.i.i.i1876, !llvm.loop !45
 
 while.body21.i.i193.i.i.i1881:                    ; preds = %while.cond19.preheader.i.i188.i.i.i1876, %while.body21.i.i193.i.i.i1881
@@ -17618,7 +17618,7 @@ while.body21.i.i193.i.i.i1881:                    ; preds = %while.cond19.prehea
   %incdec.ptr25.i.i201.i.i.i1889 = getelementptr inbounds i8, ptr %dest.addr.125.i.i196.i.i.i1884, i64 2
   store i16 %conv24.i.i200.i.i.i1888, ptr %dest.addr.125.i.i196.i.i.i1884, align 2, !noalias !982
   %dec.i.i202.i.i.i1890 = add nsw i64 %length.addr.126.i.i195.i.i.i1883, -1
-  %cmp20.i.i203.i.i.i1891 = icmp ugt i64 %length.addr.126.i.i195.i.i.i1883, 1
+  %cmp20.i.i203.i.i.i1891 = icmp samesign ugt i64 %length.addr.126.i.i195.i.i.i1883, 1
   br i1 %cmp20.i.i203.i.i.i1891, label %while.body21.i.i193.i.i.i1881, label %_ZN5arrow8internal12_GLOBAL__N_117TransposeIntsDestIjE5VisitINS_10UInt16TypeEEENSt9enable_ifIXsr15is_integer_typeIT_EE5valueENS_6StatusEE4typeERKS7_.exit.i.i.i, !llvm.loop !46
 
 _ZN5arrow8internal12_GLOBAL__N_117TransposeIntsDestIjE5VisitINS_10UInt16TypeEEENSt9enable_ifIXsr15is_integer_typeIT_EE5valueENS_6StatusEE4typeERKS7_.exit.i.i.i: ; preds = %while.body21.i.i193.i.i.i1881, %while.cond19.preheader.i.i188.i.i.i1876
@@ -17671,7 +17671,7 @@ while.body.i.i244.i.i.i1851:                      ; preds = %sw.bb12.i.i.i1833, 
   %sub.i.i256.i.i.i1869 = add nsw i64 %length.addr.020.i.i246.i.i.i1853, -4
   %add.ptr.i.i257.i.i.i1870 = getelementptr inbounds i8, ptr %src.addr.021.i.i245.i.i.i1852, i64 16
   %add.ptr15.i.i.i.i.i1871 = getelementptr inbounds i8, ptr %dest.addr.019.i.i247.i.i.i1854, i64 16
-  %cmp.i.i258.i.i.i1872 = icmp ugt i64 %length.addr.020.i.i246.i.i.i1853, 7
+  %cmp.i.i258.i.i.i1872 = icmp samesign ugt i64 %length.addr.020.i.i246.i.i.i1853, 7
   br i1 %cmp.i.i258.i.i.i1872, label %while.body.i.i244.i.i.i1851, label %while.cond16.preheader.i.i.i.i.i1836, !llvm.loop !93
 
 while.body18.i.i.i.i.i1841:                       ; preds = %while.cond16.preheader.i.i.i.i.i1836, %while.body18.i.i.i.i.i1841
@@ -17686,7 +17686,7 @@ while.body18.i.i.i.i.i1841:                       ; preds = %while.cond16.prehea
   %incdec.ptr21.i.i.i.i.i1848 = getelementptr inbounds i8, ptr %dest.addr.125.i.i241.i.i.i1844, i64 4
   store i32 %497, ptr %dest.addr.125.i.i241.i.i.i1844, align 4, !noalias !989
   %dec.i.i243.i.i.i1849 = add nsw i64 %length.addr.126.i.i240.i.i.i1843, -1
-  %cmp17.i.i.i.i.i1850 = icmp ugt i64 %length.addr.126.i.i240.i.i.i1843, 1
+  %cmp17.i.i.i.i.i1850 = icmp samesign ugt i64 %length.addr.126.i.i240.i.i.i1843, 1
   br i1 %cmp17.i.i.i.i.i1850, label %while.body18.i.i.i.i.i1841, label %_ZN5arrow8internal12_GLOBAL__N_117TransposeIntsDestIjE5VisitINS_9Int32TypeEEENSt9enable_ifIXsr15is_integer_typeIT_EE5valueENS_6StatusEE4typeERKS7_.exit.i.i.i, !llvm.loop !94
 
 _ZN5arrow8internal12_GLOBAL__N_117TransposeIntsDestIjE5VisitINS_9Int32TypeEEENSt9enable_ifIXsr15is_integer_typeIT_EE5valueENS_6StatusEE4typeERKS7_.exit.i.i.i: ; preds = %while.body18.i.i.i.i.i1841, %while.cond16.preheader.i.i.i.i.i1836
@@ -17739,7 +17739,7 @@ while.body.i.i280.i.i.i1811:                      ; preds = %sw.bb14.i.i.i1793, 
   %sub.i.i298.i.i.i1829 = add nsw i64 %length.addr.020.i.i282.i.i.i1813, -4
   %add.ptr.i.i299.i.i.i1830 = getelementptr inbounds i8, ptr %src.addr.021.i.i281.i.i.i1812, i64 16
   %add.ptr15.i.i300.i.i.i1831 = getelementptr inbounds i8, ptr %dest.addr.019.i.i283.i.i.i1814, i64 16
-  %cmp.i.i301.i.i.i1832 = icmp ugt i64 %length.addr.020.i.i282.i.i.i1813, 7
+  %cmp.i.i301.i.i.i1832 = icmp samesign ugt i64 %length.addr.020.i.i282.i.i.i1813, 7
   br i1 %cmp.i.i301.i.i.i1832, label %while.body.i.i280.i.i.i1811, label %while.cond16.preheader.i.i265.i.i.i1796, !llvm.loop !77
 
 while.body18.i.i270.i.i.i1801:                    ; preds = %while.cond16.preheader.i.i265.i.i.i1796, %while.body18.i.i270.i.i.i1801
@@ -17754,7 +17754,7 @@ while.body18.i.i270.i.i.i1801:                    ; preds = %while.cond16.prehea
   %incdec.ptr21.i.i277.i.i.i1808 = getelementptr inbounds i8, ptr %dest.addr.125.i.i273.i.i.i1804, i64 4
   store i32 %507, ptr %dest.addr.125.i.i273.i.i.i1804, align 4, !noalias !996
   %dec.i.i278.i.i.i1809 = add nsw i64 %length.addr.126.i.i272.i.i.i1803, -1
-  %cmp17.i.i279.i.i.i1810 = icmp ugt i64 %length.addr.126.i.i272.i.i.i1803, 1
+  %cmp17.i.i279.i.i.i1810 = icmp samesign ugt i64 %length.addr.126.i.i272.i.i.i1803, 1
   br i1 %cmp17.i.i279.i.i.i1810, label %while.body18.i.i270.i.i.i1801, label %_ZN5arrow8internal12_GLOBAL__N_117TransposeIntsDestIjE5VisitINS_10UInt32TypeEEENSt9enable_ifIXsr15is_integer_typeIT_EE5valueENS_6StatusEE4typeERKS7_.exit.i.i.i, !llvm.loop !78
 
 _ZN5arrow8internal12_GLOBAL__N_117TransposeIntsDestIjE5VisitINS_10UInt32TypeEEENSt9enable_ifIXsr15is_integer_typeIT_EE5valueENS_6StatusEE4typeERKS7_.exit.i.i.i: ; preds = %while.body18.i.i270.i.i.i1801, %while.cond16.preheader.i.i265.i.i.i1796
@@ -17811,7 +17811,7 @@ while.body.i.i324.i.i.i1767:                      ; preds = %sw.bb16.i.i.i1748, 
   %sub.i.i346.i.i.i1789 = add nsw i64 %length.addr.020.i.i326.i.i.i1769, -4
   %add.ptr.i.i347.i.i.i1790 = getelementptr inbounds i8, ptr %src.addr.021.i.i325.i.i.i1768, i64 16
   %add.ptr18.i.i348.i.i.i1791 = getelementptr inbounds i8, ptr %dest.addr.019.i.i327.i.i.i1770, i64 32
-  %cmp.i.i349.i.i.i1792 = icmp ugt i64 %length.addr.020.i.i326.i.i.i1769, 7
+  %cmp.i.i349.i.i.i1792 = icmp samesign ugt i64 %length.addr.020.i.i326.i.i.i1769, 7
   br i1 %cmp.i.i349.i.i.i1792, label %while.body.i.i324.i.i.i1767, label %while.cond19.preheader.i.i308.i.i.i1751, !llvm.loop !125
 
 while.body21.i.i313.i.i.i1756:                    ; preds = %while.cond19.preheader.i.i308.i.i.i1751, %while.body21.i.i313.i.i.i1756
@@ -17827,7 +17827,7 @@ while.body21.i.i313.i.i.i1756:                    ; preds = %while.cond19.prehea
   %incdec.ptr25.i.i321.i.i.i1764 = getelementptr inbounds i8, ptr %dest.addr.125.i.i316.i.i.i1759, i64 8
   store i64 %conv24.i.i320.i.i.i1763, ptr %dest.addr.125.i.i316.i.i.i1759, align 8, !noalias !1003
   %dec.i.i322.i.i.i1765 = add nsw i64 %length.addr.126.i.i315.i.i.i1758, -1
-  %cmp20.i.i323.i.i.i1766 = icmp ugt i64 %length.addr.126.i.i315.i.i.i1758, 1
+  %cmp20.i.i323.i.i.i1766 = icmp samesign ugt i64 %length.addr.126.i.i315.i.i.i1758, 1
   br i1 %cmp20.i.i323.i.i.i1766, label %while.body21.i.i313.i.i.i1756, label %_ZN5arrow8internal12_GLOBAL__N_117TransposeIntsDestIjE5VisitINS_9Int64TypeEEENSt9enable_ifIXsr15is_integer_typeIT_EE5valueENS_6StatusEE4typeERKS7_.exit.i.i.i, !llvm.loop !126
 
 _ZN5arrow8internal12_GLOBAL__N_117TransposeIntsDestIjE5VisitINS_9Int64TypeEEENSt9enable_ifIXsr15is_integer_typeIT_EE5valueENS_6StatusEE4typeERKS7_.exit.i.i.i: ; preds = %while.body21.i.i313.i.i.i1756, %while.cond19.preheader.i.i308.i.i.i1751
@@ -17884,7 +17884,7 @@ while.body.i.i372.i.i.i1722:                      ; preds = %sw.bb18.i.i.i1703, 
   %sub.i.i394.i.i.i1744 = add nsw i64 %length.addr.020.i.i374.i.i.i1724, -4
   %add.ptr.i.i395.i.i.i1745 = getelementptr inbounds i8, ptr %src.addr.021.i.i373.i.i.i1723, i64 16
   %add.ptr18.i.i396.i.i.i1746 = getelementptr inbounds i8, ptr %dest.addr.019.i.i375.i.i.i1725, i64 32
-  %cmp.i.i397.i.i.i1747 = icmp ugt i64 %length.addr.020.i.i374.i.i.i1724, 7
+  %cmp.i.i397.i.i.i1747 = icmp samesign ugt i64 %length.addr.020.i.i374.i.i.i1724, 7
   br i1 %cmp.i.i397.i.i.i1747, label %while.body.i.i372.i.i.i1722, label %while.cond19.preheader.i.i356.i.i.i1706, !llvm.loop !109
 
 while.body21.i.i361.i.i.i1711:                    ; preds = %while.cond19.preheader.i.i356.i.i.i1706, %while.body21.i.i361.i.i.i1711
@@ -17900,7 +17900,7 @@ while.body21.i.i361.i.i.i1711:                    ; preds = %while.cond19.prehea
   %incdec.ptr25.i.i369.i.i.i1719 = getelementptr inbounds i8, ptr %dest.addr.125.i.i364.i.i.i1714, i64 8
   store i64 %conv24.i.i368.i.i.i1718, ptr %dest.addr.125.i.i364.i.i.i1714, align 8, !noalias !1010
   %dec.i.i370.i.i.i1720 = add nsw i64 %length.addr.126.i.i363.i.i.i1713, -1
-  %cmp20.i.i371.i.i.i1721 = icmp ugt i64 %length.addr.126.i.i363.i.i.i1713, 1
+  %cmp20.i.i371.i.i.i1721 = icmp samesign ugt i64 %length.addr.126.i.i363.i.i.i1713, 1
   br i1 %cmp20.i.i371.i.i.i1721, label %while.body21.i.i361.i.i.i1711, label %_ZN5arrow8internal12_GLOBAL__N_117TransposeIntsDestIjE5VisitINS_10UInt64TypeEEENSt9enable_ifIXsr15is_integer_typeIT_EE5valueENS_6StatusEE4typeERKS7_.exit.i.i.i, !llvm.loop !110
 
 _ZN5arrow8internal12_GLOBAL__N_117TransposeIntsDestIjE5VisitINS_10UInt64TypeEEENSt9enable_ifIXsr15is_integer_typeIT_EE5valueENS_6StatusEE4typeERKS7_.exit.i.i.i: ; preds = %while.body21.i.i361.i.i.i1711, %while.cond19.preheader.i.i356.i.i.i1706
@@ -18163,7 +18163,7 @@ while.body.i.i.i.i.i2131:                         ; preds = %sw.bb4.i.i.i2115, %
   %sub.i.i.i.i.i2145 = add nsw i64 %length.addr.020.i.i.i.i.i2133, -4
   %add.ptr.i.i.i.i.i2146 = getelementptr inbounds i8, ptr %src.addr.021.i.i.i.i.i2132, i64 32
   %add.ptr15.i.i.i.i.i2147 = getelementptr inbounds i8, ptr %dest.addr.019.i.i.i.i.i2134, i64 4
-  %cmp.i.i.i.i.i2148 = icmp ugt i64 %length.addr.020.i.i.i.i.i2133, 7
+  %cmp.i.i.i.i.i2148 = icmp samesign ugt i64 %length.addr.020.i.i.i.i.i2133, 7
   br i1 %cmp.i.i.i.i.i2148, label %while.body.i.i.i.i.i2131, label %while.cond16.preheader.i.i.i.i.i2118, !llvm.loop !35
 
 while.body18.i.i.i.i.i2123:                       ; preds = %while.cond16.preheader.i.i.i.i.i2118, %while.body18.i.i.i.i.i2123
@@ -18178,7 +18178,7 @@ while.body18.i.i.i.i.i2123:                       ; preds = %while.cond16.prehea
   %incdec.ptr21.i.i.i.i.i2128 = getelementptr inbounds i8, ptr %dest.addr.125.i.i.i.i.i2126, i64 1
   store i8 %conv20.i.i.i.i.i, ptr %dest.addr.125.i.i.i.i.i2126, align 1, !noalias !1026
   %dec.i.i.i.i.i2129 = add nsw i64 %length.addr.126.i.i.i.i.i2125, -1
-  %cmp17.i.i.i.i.i2130 = icmp ugt i64 %length.addr.126.i.i.i.i.i2125, 1
+  %cmp17.i.i.i.i.i2130 = icmp samesign ugt i64 %length.addr.126.i.i.i.i.i2125, 1
   br i1 %cmp17.i.i.i.i.i2130, label %while.body18.i.i.i.i.i2123, label %_ZN5arrow8internal12_GLOBAL__N_117TransposeIntsDestIlE5VisitINS_8Int8TypeEEENSt9enable_ifIXsr15is_integer_typeIT_EE5valueENS_6StatusEE4typeERKS7_.exit.i.i.i, !llvm.loop !36
 
 _ZN5arrow8internal12_GLOBAL__N_117TransposeIntsDestIlE5VisitINS_8Int8TypeEEENSt9enable_ifIXsr15is_integer_typeIT_EE5valueENS_6StatusEE4typeERKS7_.exit.i.i.i: ; preds = %while.body18.i.i.i.i.i2123, %while.cond16.preheader.i.i.i.i.i2118
@@ -18231,7 +18231,7 @@ while.body.i.i107.i.i.i:                          ; preds = %sw.bb6.i.i.i2105, %
   %sub.i.i125.i.i.i = add nsw i64 %length.addr.020.i.i109.i.i.i, -4
   %add.ptr.i.i126.i.i.i = getelementptr inbounds i8, ptr %src.addr.021.i.i108.i.i.i, i64 32
   %add.ptr15.i.i127.i.i.i = getelementptr inbounds i8, ptr %dest.addr.019.i.i110.i.i.i, i64 4
-  %cmp.i.i128.i.i.i = icmp ugt i64 %length.addr.020.i.i109.i.i.i, 7
+  %cmp.i.i128.i.i.i = icmp samesign ugt i64 %length.addr.020.i.i109.i.i.i, 7
   br i1 %cmp.i.i128.i.i.i, label %while.body.i.i107.i.i.i, label %while.cond16.preheader.i.i92.i.i.i, !llvm.loop !19
 
 while.body18.i.i97.i.i.i:                         ; preds = %while.cond16.preheader.i.i92.i.i.i, %while.body18.i.i97.i.i.i
@@ -18246,7 +18246,7 @@ while.body18.i.i97.i.i.i:                         ; preds = %while.cond16.prehea
   %incdec.ptr21.i.i104.i.i.i = getelementptr inbounds i8, ptr %dest.addr.125.i.i100.i.i.i2113, i64 1
   store i8 %conv20.i.i103.i.i.i, ptr %dest.addr.125.i.i100.i.i.i2113, align 1, !noalias !1033
   %dec.i.i105.i.i.i = add nsw i64 %length.addr.126.i.i99.i.i.i2112, -1
-  %cmp17.i.i106.i.i.i = icmp ugt i64 %length.addr.126.i.i99.i.i.i2112, 1
+  %cmp17.i.i106.i.i.i = icmp samesign ugt i64 %length.addr.126.i.i99.i.i.i2112, 1
   br i1 %cmp17.i.i106.i.i.i, label %while.body18.i.i97.i.i.i, label %_ZN5arrow8internal12_GLOBAL__N_117TransposeIntsDestIlE5VisitINS_9UInt8TypeEEENSt9enable_ifIXsr15is_integer_typeIT_EE5valueENS_6StatusEE4typeERKS7_.exit.i.i.i, !llvm.loop !20
 
 _ZN5arrow8internal12_GLOBAL__N_117TransposeIntsDestIlE5VisitINS_9UInt8TypeEEENSt9enable_ifIXsr15is_integer_typeIT_EE5valueENS_6StatusEE4typeERKS7_.exit.i.i.i: ; preds = %while.body18.i.i97.i.i.i, %while.cond16.preheader.i.i92.i.i.i
@@ -18299,7 +18299,7 @@ while.body.i.i150.i.i.i:                          ; preds = %sw.bb8.i.i.i2104, %
   %sub.i.i168.i.i.i = add nsw i64 %length.addr.020.i.i152.i.i.i, -4
   %add.ptr.i.i169.i.i.i = getelementptr inbounds i8, ptr %src.addr.021.i.i151.i.i.i, i64 32
   %add.ptr15.i.i170.i.i.i = getelementptr inbounds i8, ptr %dest.addr.019.i.i153.i.i.i, i64 8
-  %cmp.i.i171.i.i.i = icmp ugt i64 %length.addr.020.i.i152.i.i.i, 7
+  %cmp.i.i171.i.i.i = icmp samesign ugt i64 %length.addr.020.i.i152.i.i.i, 7
   br i1 %cmp.i.i171.i.i.i, label %while.body.i.i150.i.i.i, label %while.cond16.preheader.i.i135.i.i.i, !llvm.loop !67
 
 while.body18.i.i140.i.i.i:                        ; preds = %while.cond16.preheader.i.i135.i.i.i, %while.body18.i.i140.i.i.i
@@ -18314,7 +18314,7 @@ while.body18.i.i140.i.i.i:                        ; preds = %while.cond16.prehea
   %incdec.ptr21.i.i147.i.i.i = getelementptr inbounds i8, ptr %dest.addr.125.i.i143.i.i.i, i64 2
   store i16 %conv20.i.i146.i.i.i, ptr %dest.addr.125.i.i143.i.i.i, align 2, !noalias !1040
   %dec.i.i148.i.i.i = add nsw i64 %length.addr.126.i.i142.i.i.i, -1
-  %cmp17.i.i149.i.i.i = icmp ugt i64 %length.addr.126.i.i142.i.i.i, 1
+  %cmp17.i.i149.i.i.i = icmp samesign ugt i64 %length.addr.126.i.i142.i.i.i, 1
   br i1 %cmp17.i.i149.i.i.i, label %while.body18.i.i140.i.i.i, label %_ZN5arrow8internal12_GLOBAL__N_117TransposeIntsDestIlE5VisitINS_9Int16TypeEEENSt9enable_ifIXsr15is_integer_typeIT_EE5valueENS_6StatusEE4typeERKS7_.exit.i.i.i, !llvm.loop !68
 
 _ZN5arrow8internal12_GLOBAL__N_117TransposeIntsDestIlE5VisitINS_9Int16TypeEEENSt9enable_ifIXsr15is_integer_typeIT_EE5valueENS_6StatusEE4typeERKS7_.exit.i.i.i: ; preds = %while.body18.i.i140.i.i.i, %while.cond16.preheader.i.i135.i.i.i
@@ -18367,7 +18367,7 @@ while.body.i.i193.i.i.i:                          ; preds = %sw.bb10.i.i.i2103, 
   %sub.i.i211.i.i.i = add nsw i64 %length.addr.020.i.i195.i.i.i, -4
   %add.ptr.i.i212.i.i.i = getelementptr inbounds i8, ptr %src.addr.021.i.i194.i.i.i, i64 32
   %add.ptr15.i.i213.i.i.i = getelementptr inbounds i8, ptr %dest.addr.019.i.i196.i.i.i, i64 8
-  %cmp.i.i214.i.i.i = icmp ugt i64 %length.addr.020.i.i195.i.i.i, 7
+  %cmp.i.i214.i.i.i = icmp samesign ugt i64 %length.addr.020.i.i195.i.i.i, 7
   br i1 %cmp.i.i214.i.i.i, label %while.body.i.i193.i.i.i, label %while.cond16.preheader.i.i178.i.i.i, !llvm.loop !51
 
 while.body18.i.i183.i.i.i:                        ; preds = %while.cond16.preheader.i.i178.i.i.i, %while.body18.i.i183.i.i.i
@@ -18382,7 +18382,7 @@ while.body18.i.i183.i.i.i:                        ; preds = %while.cond16.prehea
   %incdec.ptr21.i.i190.i.i.i = getelementptr inbounds i8, ptr %dest.addr.125.i.i186.i.i.i, i64 2
   store i16 %conv20.i.i189.i.i.i, ptr %dest.addr.125.i.i186.i.i.i, align 2, !noalias !1047
   %dec.i.i191.i.i.i = add nsw i64 %length.addr.126.i.i185.i.i.i, -1
-  %cmp17.i.i192.i.i.i = icmp ugt i64 %length.addr.126.i.i185.i.i.i, 1
+  %cmp17.i.i192.i.i.i = icmp samesign ugt i64 %length.addr.126.i.i185.i.i.i, 1
   br i1 %cmp17.i.i192.i.i.i, label %while.body18.i.i183.i.i.i, label %_ZN5arrow8internal12_GLOBAL__N_117TransposeIntsDestIlE5VisitINS_10UInt16TypeEEENSt9enable_ifIXsr15is_integer_typeIT_EE5valueENS_6StatusEE4typeERKS7_.exit.i.i.i, !llvm.loop !52
 
 _ZN5arrow8internal12_GLOBAL__N_117TransposeIntsDestIlE5VisitINS_10UInt16TypeEEENSt9enable_ifIXsr15is_integer_typeIT_EE5valueENS_6StatusEE4typeERKS7_.exit.i.i.i: ; preds = %while.body18.i.i183.i.i.i, %while.cond16.preheader.i.i178.i.i.i
@@ -18431,7 +18431,7 @@ while.body.i.i229.i.i.i:                          ; preds = %sw.bb12.i.i.i2100, 
   %sub.i.i241.i.i.i = add nsw i64 %length.addr.020.i.i231.i.i.i, -4
   %add.ptr.i.i242.i.i.i = getelementptr inbounds i8, ptr %src.addr.021.i.i230.i.i.i, i64 32
   %add.ptr12.i.i.i.i.i = getelementptr inbounds i8, ptr %dest.addr.019.i.i232.i.i.i, i64 16
-  %cmp.i.i243.i.i.i = icmp ugt i64 %length.addr.020.i.i231.i.i.i, 7
+  %cmp.i.i243.i.i.i = icmp samesign ugt i64 %length.addr.020.i.i231.i.i.i, 7
   br i1 %cmp.i.i243.i.i.i, label %while.body.i.i229.i.i.i, label %while.cond13.preheader.i.i.i.i.i, !llvm.loop !99
 
 while.body15.i.i.i.i.i:                           ; preds = %while.cond13.preheader.i.i.i.i.i, %while.body15.i.i.i.i.i
@@ -18445,7 +18445,7 @@ while.body15.i.i.i.i.i:                           ; preds = %while.cond13.prehea
   %incdec.ptr17.i.i.i.i.i = getelementptr inbounds i8, ptr %dest.addr.125.i.i226.i.i.i, i64 4
   store i32 %585, ptr %dest.addr.125.i.i226.i.i.i, align 4, !noalias !1054
   %dec.i.i228.i.i.i = add nsw i64 %length.addr.126.i.i225.i.i.i, -1
-  %cmp14.i.i.i.i.i = icmp ugt i64 %length.addr.126.i.i225.i.i.i, 1
+  %cmp14.i.i.i.i.i = icmp samesign ugt i64 %length.addr.126.i.i225.i.i.i, 1
   br i1 %cmp14.i.i.i.i.i, label %while.body15.i.i.i.i.i, label %_ZN5arrow8internal12_GLOBAL__N_117TransposeIntsDestIlE5VisitINS_9Int32TypeEEENSt9enable_ifIXsr15is_integer_typeIT_EE5valueENS_6StatusEE4typeERKS7_.exit.i.i.i, !llvm.loop !100
 
 _ZN5arrow8internal12_GLOBAL__N_117TransposeIntsDestIlE5VisitINS_9Int32TypeEEENSt9enable_ifIXsr15is_integer_typeIT_EE5valueENS_6StatusEE4typeERKS7_.exit.i.i.i: ; preds = %while.body15.i.i.i.i.i, %while.cond13.preheader.i.i.i.i.i
@@ -18494,7 +18494,7 @@ while.body.i.i264.i.i.i:                          ; preds = %sw.bb14.i.i.i2099, 
   %sub.i.i278.i.i.i = add nsw i64 %length.addr.020.i.i266.i.i.i, -4
   %add.ptr.i.i279.i.i.i = getelementptr inbounds i8, ptr %src.addr.021.i.i265.i.i.i, i64 32
   %add.ptr12.i.i280.i.i.i = getelementptr inbounds i8, ptr %dest.addr.019.i.i267.i.i.i, i64 16
-  %cmp.i.i281.i.i.i = icmp ugt i64 %length.addr.020.i.i266.i.i.i, 7
+  %cmp.i.i281.i.i.i = icmp samesign ugt i64 %length.addr.020.i.i266.i.i.i, 7
   br i1 %cmp.i.i281.i.i.i, label %while.body.i.i264.i.i.i, label %while.cond13.preheader.i.i250.i.i.i, !llvm.loop !83
 
 while.body15.i.i255.i.i.i:                        ; preds = %while.cond13.preheader.i.i250.i.i.i, %while.body15.i.i255.i.i.i
@@ -18508,7 +18508,7 @@ while.body15.i.i255.i.i.i:                        ; preds = %while.cond13.prehea
   %incdec.ptr17.i.i261.i.i.i = getelementptr inbounds i8, ptr %dest.addr.125.i.i258.i.i.i, i64 4
   store i32 %595, ptr %dest.addr.125.i.i258.i.i.i, align 4, !noalias !1061
   %dec.i.i262.i.i.i = add nsw i64 %length.addr.126.i.i257.i.i.i, -1
-  %cmp14.i.i263.i.i.i = icmp ugt i64 %length.addr.126.i.i257.i.i.i, 1
+  %cmp14.i.i263.i.i.i = icmp samesign ugt i64 %length.addr.126.i.i257.i.i.i, 1
   br i1 %cmp14.i.i263.i.i.i, label %while.body15.i.i255.i.i.i, label %_ZN5arrow8internal12_GLOBAL__N_117TransposeIntsDestIlE5VisitINS_10UInt32TypeEEENSt9enable_ifIXsr15is_integer_typeIT_EE5valueENS_6StatusEE4typeERKS7_.exit.i.i.i, !llvm.loop !84
 
 _ZN5arrow8internal12_GLOBAL__N_117TransposeIntsDestIlE5VisitINS_10UInt32TypeEEENSt9enable_ifIXsr15is_integer_typeIT_EE5valueENS_6StatusEE4typeERKS7_.exit.i.i.i: ; preds = %while.body15.i.i255.i.i.i, %while.cond13.preheader.i.i250.i.i.i
@@ -18561,7 +18561,7 @@ while.body.i.i303.i.i.i:                          ; preds = %sw.bb16.i.i.i2098, 
   %sub.i.i321.i.i.i = add nsw i64 %length.addr.020.i.i305.i.i.i, -4
   %add.ptr.i.i322.i.i.i = getelementptr inbounds i8, ptr %src.addr.021.i.i304.i.i.i, i64 32
   %add.ptr15.i.i323.i.i.i = getelementptr inbounds i8, ptr %dest.addr.019.i.i306.i.i.i, i64 32
-  %cmp.i.i324.i.i.i = icmp ugt i64 %length.addr.020.i.i305.i.i.i, 7
+  %cmp.i.i324.i.i.i = icmp samesign ugt i64 %length.addr.020.i.i305.i.i.i, 7
   br i1 %cmp.i.i324.i.i.i, label %while.body.i.i303.i.i.i, label %while.cond16.preheader.i.i288.i.i.i, !llvm.loop !131
 
 while.body18.i.i293.i.i.i:                        ; preds = %while.cond16.preheader.i.i288.i.i.i, %while.body18.i.i293.i.i.i
@@ -18576,7 +18576,7 @@ while.body18.i.i293.i.i.i:                        ; preds = %while.cond16.prehea
   %incdec.ptr21.i.i300.i.i.i = getelementptr inbounds i8, ptr %dest.addr.125.i.i296.i.i.i, i64 8
   store i64 %conv20.i.i299.i.i.i, ptr %dest.addr.125.i.i296.i.i.i, align 8, !noalias !1068
   %dec.i.i301.i.i.i = add nsw i64 %length.addr.126.i.i295.i.i.i, -1
-  %cmp17.i.i302.i.i.i = icmp ugt i64 %length.addr.126.i.i295.i.i.i, 1
+  %cmp17.i.i302.i.i.i = icmp samesign ugt i64 %length.addr.126.i.i295.i.i.i, 1
   br i1 %cmp17.i.i302.i.i.i, label %while.body18.i.i293.i.i.i, label %_ZN5arrow8internal12_GLOBAL__N_117TransposeIntsDestIlE5VisitINS_9Int64TypeEEENSt9enable_ifIXsr15is_integer_typeIT_EE5valueENS_6StatusEE4typeERKS7_.exit.i.i.i, !llvm.loop !132
 
 _ZN5arrow8internal12_GLOBAL__N_117TransposeIntsDestIlE5VisitINS_9Int64TypeEEENSt9enable_ifIXsr15is_integer_typeIT_EE5valueENS_6StatusEE4typeERKS7_.exit.i.i.i: ; preds = %while.body18.i.i293.i.i.i, %while.cond16.preheader.i.i288.i.i.i
@@ -18629,7 +18629,7 @@ while.body.i.i346.i.i.i:                          ; preds = %sw.bb18.i.i.i2097, 
   %sub.i.i364.i.i.i = add nsw i64 %length.addr.020.i.i348.i.i.i, -4
   %add.ptr.i.i365.i.i.i = getelementptr inbounds i8, ptr %src.addr.021.i.i347.i.i.i, i64 32
   %add.ptr15.i.i366.i.i.i = getelementptr inbounds i8, ptr %dest.addr.019.i.i349.i.i.i, i64 32
-  %cmp.i.i367.i.i.i = icmp ugt i64 %length.addr.020.i.i348.i.i.i, 7
+  %cmp.i.i367.i.i.i = icmp samesign ugt i64 %length.addr.020.i.i348.i.i.i, 7
   br i1 %cmp.i.i367.i.i.i, label %while.body.i.i346.i.i.i, label %while.cond16.preheader.i.i331.i.i.i, !llvm.loop !115
 
 while.body18.i.i336.i.i.i:                        ; preds = %while.cond16.preheader.i.i331.i.i.i, %while.body18.i.i336.i.i.i
@@ -18644,7 +18644,7 @@ while.body18.i.i336.i.i.i:                        ; preds = %while.cond16.prehea
   %incdec.ptr21.i.i343.i.i.i = getelementptr inbounds i8, ptr %dest.addr.125.i.i339.i.i.i, i64 8
   store i64 %conv20.i.i342.i.i.i, ptr %dest.addr.125.i.i339.i.i.i, align 8, !noalias !1075
   %dec.i.i344.i.i.i = add nsw i64 %length.addr.126.i.i338.i.i.i, -1
-  %cmp17.i.i345.i.i.i = icmp ugt i64 %length.addr.126.i.i338.i.i.i, 1
+  %cmp17.i.i345.i.i.i = icmp samesign ugt i64 %length.addr.126.i.i338.i.i.i, 1
   br i1 %cmp17.i.i345.i.i.i, label %while.body18.i.i336.i.i.i, label %_ZN5arrow8internal12_GLOBAL__N_117TransposeIntsDestIlE5VisitINS_10UInt64TypeEEENSt9enable_ifIXsr15is_integer_typeIT_EE5valueENS_6StatusEE4typeERKS7_.exit.i.i.i, !llvm.loop !116
 
 _ZN5arrow8internal12_GLOBAL__N_117TransposeIntsDestIlE5VisitINS_10UInt64TypeEEENSt9enable_ifIXsr15is_integer_typeIT_EE5valueENS_6StatusEE4typeERKS7_.exit.i.i.i: ; preds = %while.body18.i.i336.i.i.i, %while.cond16.preheader.i.i331.i.i.i
@@ -18907,7 +18907,7 @@ while.body.i.i.i.i.i2481:                         ; preds = %sw.bb4.i.i.i2463, %
   %sub.i.i.i.i.i2499 = add nsw i64 %length.addr.020.i.i.i.i.i2483, -4
   %add.ptr.i.i.i.i.i2500 = getelementptr inbounds i8, ptr %src.addr.021.i.i.i.i.i2482, i64 32
   %add.ptr15.i.i.i.i.i2501 = getelementptr inbounds i8, ptr %dest.addr.019.i.i.i.i.i2484, i64 4
-  %cmp.i.i.i.i.i2502 = icmp ugt i64 %length.addr.020.i.i.i.i.i2483, 7
+  %cmp.i.i.i.i.i2502 = icmp samesign ugt i64 %length.addr.020.i.i.i.i.i2483, 7
   br i1 %cmp.i.i.i.i.i2502, label %while.body.i.i.i.i.i2481, label %while.cond16.preheader.i.i.i.i.i2466, !llvm.loop !33
 
 while.body18.i.i.i.i.i2471:                       ; preds = %while.cond16.preheader.i.i.i.i.i2466, %while.body18.i.i.i.i.i2471
@@ -18922,7 +18922,7 @@ while.body18.i.i.i.i.i2471:                       ; preds = %while.cond16.prehea
   %incdec.ptr21.i.i.i.i.i2478 = getelementptr inbounds i8, ptr %dest.addr.125.i.i.i.i.i2474, i64 1
   store i8 %conv20.i.i.i.i.i2477, ptr %dest.addr.125.i.i.i.i.i2474, align 1, !noalias !1091
   %dec.i.i.i.i.i2479 = add nsw i64 %length.addr.126.i.i.i.i.i2473, -1
-  %cmp17.i.i.i.i.i2480 = icmp ugt i64 %length.addr.126.i.i.i.i.i2473, 1
+  %cmp17.i.i.i.i.i2480 = icmp samesign ugt i64 %length.addr.126.i.i.i.i.i2473, 1
   br i1 %cmp17.i.i.i.i.i2480, label %while.body18.i.i.i.i.i2471, label %_ZN5arrow8internal12_GLOBAL__N_117TransposeIntsDestImE5VisitINS_8Int8TypeEEENSt9enable_ifIXsr15is_integer_typeIT_EE5valueENS_6StatusEE4typeERKS7_.exit.i.i.i, !llvm.loop !34
 
 _ZN5arrow8internal12_GLOBAL__N_117TransposeIntsDestImE5VisitINS_8Int8TypeEEENSt9enable_ifIXsr15is_integer_typeIT_EE5valueENS_6StatusEE4typeERKS7_.exit.i.i.i: ; preds = %while.body18.i.i.i.i.i2471, %while.cond16.preheader.i.i.i.i.i2466
@@ -18975,7 +18975,7 @@ while.body.i.i107.i.i.i2441:                      ; preds = %sw.bb6.i.i.i2423, %
   %sub.i.i125.i.i.i2459 = add nsw i64 %length.addr.020.i.i109.i.i.i2443, -4
   %add.ptr.i.i126.i.i.i2460 = getelementptr inbounds i8, ptr %src.addr.021.i.i108.i.i.i2442, i64 32
   %add.ptr15.i.i127.i.i.i2461 = getelementptr inbounds i8, ptr %dest.addr.019.i.i110.i.i.i2444, i64 4
-  %cmp.i.i128.i.i.i2462 = icmp ugt i64 %length.addr.020.i.i109.i.i.i2443, 7
+  %cmp.i.i128.i.i.i2462 = icmp samesign ugt i64 %length.addr.020.i.i109.i.i.i2443, 7
   br i1 %cmp.i.i128.i.i.i2462, label %while.body.i.i107.i.i.i2441, label %while.cond16.preheader.i.i92.i.i.i2426, !llvm.loop !17
 
 while.body18.i.i97.i.i.i2431:                     ; preds = %while.cond16.preheader.i.i92.i.i.i2426, %while.body18.i.i97.i.i.i2431
@@ -18990,7 +18990,7 @@ while.body18.i.i97.i.i.i2431:                     ; preds = %while.cond16.prehea
   %incdec.ptr21.i.i104.i.i.i2438 = getelementptr inbounds i8, ptr %dest.addr.125.i.i100.i.i.i2434, i64 1
   store i8 %conv20.i.i103.i.i.i2437, ptr %dest.addr.125.i.i100.i.i.i2434, align 1, !noalias !1098
   %dec.i.i105.i.i.i2439 = add nsw i64 %length.addr.126.i.i99.i.i.i2433, -1
-  %cmp17.i.i106.i.i.i2440 = icmp ugt i64 %length.addr.126.i.i99.i.i.i2433, 1
+  %cmp17.i.i106.i.i.i2440 = icmp samesign ugt i64 %length.addr.126.i.i99.i.i.i2433, 1
   br i1 %cmp17.i.i106.i.i.i2440, label %while.body18.i.i97.i.i.i2431, label %_ZN5arrow8internal12_GLOBAL__N_117TransposeIntsDestImE5VisitINS_9UInt8TypeEEENSt9enable_ifIXsr15is_integer_typeIT_EE5valueENS_6StatusEE4typeERKS7_.exit.i.i.i, !llvm.loop !18
 
 _ZN5arrow8internal12_GLOBAL__N_117TransposeIntsDestImE5VisitINS_9UInt8TypeEEENSt9enable_ifIXsr15is_integer_typeIT_EE5valueENS_6StatusEE4typeERKS7_.exit.i.i.i: ; preds = %while.body18.i.i97.i.i.i2431, %while.cond16.preheader.i.i92.i.i.i2426
@@ -19043,7 +19043,7 @@ while.body.i.i150.i.i.i2401:                      ; preds = %sw.bb8.i.i.i2383, %
   %sub.i.i168.i.i.i2419 = add nsw i64 %length.addr.020.i.i152.i.i.i2403, -4
   %add.ptr.i.i169.i.i.i2420 = getelementptr inbounds i8, ptr %src.addr.021.i.i151.i.i.i2402, i64 32
   %add.ptr15.i.i170.i.i.i2421 = getelementptr inbounds i8, ptr %dest.addr.019.i.i153.i.i.i2404, i64 8
-  %cmp.i.i171.i.i.i2422 = icmp ugt i64 %length.addr.020.i.i152.i.i.i2403, 7
+  %cmp.i.i171.i.i.i2422 = icmp samesign ugt i64 %length.addr.020.i.i152.i.i.i2403, 7
   br i1 %cmp.i.i171.i.i.i2422, label %while.body.i.i150.i.i.i2401, label %while.cond16.preheader.i.i135.i.i.i2386, !llvm.loop !65
 
 while.body18.i.i140.i.i.i2391:                    ; preds = %while.cond16.preheader.i.i135.i.i.i2386, %while.body18.i.i140.i.i.i2391
@@ -19058,7 +19058,7 @@ while.body18.i.i140.i.i.i2391:                    ; preds = %while.cond16.prehea
   %incdec.ptr21.i.i147.i.i.i2398 = getelementptr inbounds i8, ptr %dest.addr.125.i.i143.i.i.i2394, i64 2
   store i16 %conv20.i.i146.i.i.i2397, ptr %dest.addr.125.i.i143.i.i.i2394, align 2, !noalias !1105
   %dec.i.i148.i.i.i2399 = add nsw i64 %length.addr.126.i.i142.i.i.i2393, -1
-  %cmp17.i.i149.i.i.i2400 = icmp ugt i64 %length.addr.126.i.i142.i.i.i2393, 1
+  %cmp17.i.i149.i.i.i2400 = icmp samesign ugt i64 %length.addr.126.i.i142.i.i.i2393, 1
   br i1 %cmp17.i.i149.i.i.i2400, label %while.body18.i.i140.i.i.i2391, label %_ZN5arrow8internal12_GLOBAL__N_117TransposeIntsDestImE5VisitINS_9Int16TypeEEENSt9enable_ifIXsr15is_integer_typeIT_EE5valueENS_6StatusEE4typeERKS7_.exit.i.i.i, !llvm.loop !66
 
 _ZN5arrow8internal12_GLOBAL__N_117TransposeIntsDestImE5VisitINS_9Int16TypeEEENSt9enable_ifIXsr15is_integer_typeIT_EE5valueENS_6StatusEE4typeERKS7_.exit.i.i.i: ; preds = %while.body18.i.i140.i.i.i2391, %while.cond16.preheader.i.i135.i.i.i2386
@@ -19111,7 +19111,7 @@ while.body.i.i193.i.i.i2361:                      ; preds = %sw.bb10.i.i.i2343, 
   %sub.i.i211.i.i.i2379 = add nsw i64 %length.addr.020.i.i195.i.i.i2363, -4
   %add.ptr.i.i212.i.i.i2380 = getelementptr inbounds i8, ptr %src.addr.021.i.i194.i.i.i2362, i64 32
   %add.ptr15.i.i213.i.i.i2381 = getelementptr inbounds i8, ptr %dest.addr.019.i.i196.i.i.i2364, i64 8
-  %cmp.i.i214.i.i.i2382 = icmp ugt i64 %length.addr.020.i.i195.i.i.i2363, 7
+  %cmp.i.i214.i.i.i2382 = icmp samesign ugt i64 %length.addr.020.i.i195.i.i.i2363, 7
   br i1 %cmp.i.i214.i.i.i2382, label %while.body.i.i193.i.i.i2361, label %while.cond16.preheader.i.i178.i.i.i2346, !llvm.loop !49
 
 while.body18.i.i183.i.i.i2351:                    ; preds = %while.cond16.preheader.i.i178.i.i.i2346, %while.body18.i.i183.i.i.i2351
@@ -19126,7 +19126,7 @@ while.body18.i.i183.i.i.i2351:                    ; preds = %while.cond16.prehea
   %incdec.ptr21.i.i190.i.i.i2358 = getelementptr inbounds i8, ptr %dest.addr.125.i.i186.i.i.i2354, i64 2
   store i16 %conv20.i.i189.i.i.i2357, ptr %dest.addr.125.i.i186.i.i.i2354, align 2, !noalias !1112
   %dec.i.i191.i.i.i2359 = add nsw i64 %length.addr.126.i.i185.i.i.i2353, -1
-  %cmp17.i.i192.i.i.i2360 = icmp ugt i64 %length.addr.126.i.i185.i.i.i2353, 1
+  %cmp17.i.i192.i.i.i2360 = icmp samesign ugt i64 %length.addr.126.i.i185.i.i.i2353, 1
   br i1 %cmp17.i.i192.i.i.i2360, label %while.body18.i.i183.i.i.i2351, label %_ZN5arrow8internal12_GLOBAL__N_117TransposeIntsDestImE5VisitINS_10UInt16TypeEEENSt9enable_ifIXsr15is_integer_typeIT_EE5valueENS_6StatusEE4typeERKS7_.exit.i.i.i, !llvm.loop !50
 
 _ZN5arrow8internal12_GLOBAL__N_117TransposeIntsDestImE5VisitINS_10UInt16TypeEEENSt9enable_ifIXsr15is_integer_typeIT_EE5valueENS_6StatusEE4typeERKS7_.exit.i.i.i: ; preds = %while.body18.i.i183.i.i.i2351, %while.cond16.preheader.i.i178.i.i.i2346
@@ -19175,7 +19175,7 @@ while.body.i.i229.i.i.i2325:                      ; preds = %sw.bb12.i.i.i2308, 
   %sub.i.i241.i.i.i2339 = add nsw i64 %length.addr.020.i.i231.i.i.i2327, -4
   %add.ptr.i.i242.i.i.i2340 = getelementptr inbounds i8, ptr %src.addr.021.i.i230.i.i.i2326, i64 32
   %add.ptr12.i.i.i.i.i2341 = getelementptr inbounds i8, ptr %dest.addr.019.i.i232.i.i.i2328, i64 16
-  %cmp.i.i243.i.i.i2342 = icmp ugt i64 %length.addr.020.i.i231.i.i.i2327, 7
+  %cmp.i.i243.i.i.i2342 = icmp samesign ugt i64 %length.addr.020.i.i231.i.i.i2327, 7
   br i1 %cmp.i.i243.i.i.i2342, label %while.body.i.i229.i.i.i2325, label %while.cond13.preheader.i.i.i.i.i2311, !llvm.loop !97
 
 while.body15.i.i.i.i.i2316:                       ; preds = %while.cond13.preheader.i.i.i.i.i2311, %while.body15.i.i.i.i.i2316
@@ -19189,7 +19189,7 @@ while.body15.i.i.i.i.i2316:                       ; preds = %while.cond13.prehea
   %incdec.ptr17.i.i.i.i.i2322 = getelementptr inbounds i8, ptr %dest.addr.125.i.i226.i.i.i2319, i64 4
   store i32 %673, ptr %dest.addr.125.i.i226.i.i.i2319, align 4, !noalias !1119
   %dec.i.i228.i.i.i2323 = add nsw i64 %length.addr.126.i.i225.i.i.i2318, -1
-  %cmp14.i.i.i.i.i2324 = icmp ugt i64 %length.addr.126.i.i225.i.i.i2318, 1
+  %cmp14.i.i.i.i.i2324 = icmp samesign ugt i64 %length.addr.126.i.i225.i.i.i2318, 1
   br i1 %cmp14.i.i.i.i.i2324, label %while.body15.i.i.i.i.i2316, label %_ZN5arrow8internal12_GLOBAL__N_117TransposeIntsDestImE5VisitINS_9Int32TypeEEENSt9enable_ifIXsr15is_integer_typeIT_EE5valueENS_6StatusEE4typeERKS7_.exit.i.i.i, !llvm.loop !98
 
 _ZN5arrow8internal12_GLOBAL__N_117TransposeIntsDestImE5VisitINS_9Int32TypeEEENSt9enable_ifIXsr15is_integer_typeIT_EE5valueENS_6StatusEE4typeERKS7_.exit.i.i.i: ; preds = %while.body15.i.i.i.i.i2316, %while.cond13.preheader.i.i.i.i.i2311
@@ -19238,7 +19238,7 @@ while.body.i.i264.i.i.i2290:                      ; preds = %sw.bb14.i.i.i2273, 
   %sub.i.i278.i.i.i2304 = add nsw i64 %length.addr.020.i.i266.i.i.i2292, -4
   %add.ptr.i.i279.i.i.i2305 = getelementptr inbounds i8, ptr %src.addr.021.i.i265.i.i.i2291, i64 32
   %add.ptr12.i.i280.i.i.i2306 = getelementptr inbounds i8, ptr %dest.addr.019.i.i267.i.i.i2293, i64 16
-  %cmp.i.i281.i.i.i2307 = icmp ugt i64 %length.addr.020.i.i266.i.i.i2292, 7
+  %cmp.i.i281.i.i.i2307 = icmp samesign ugt i64 %length.addr.020.i.i266.i.i.i2292, 7
   br i1 %cmp.i.i281.i.i.i2307, label %while.body.i.i264.i.i.i2290, label %while.cond13.preheader.i.i250.i.i.i2276, !llvm.loop !81
 
 while.body15.i.i255.i.i.i2281:                    ; preds = %while.cond13.preheader.i.i250.i.i.i2276, %while.body15.i.i255.i.i.i2281
@@ -19252,7 +19252,7 @@ while.body15.i.i255.i.i.i2281:                    ; preds = %while.cond13.prehea
   %incdec.ptr17.i.i261.i.i.i2287 = getelementptr inbounds i8, ptr %dest.addr.125.i.i258.i.i.i2284, i64 4
   store i32 %683, ptr %dest.addr.125.i.i258.i.i.i2284, align 4, !noalias !1126
   %dec.i.i262.i.i.i2288 = add nsw i64 %length.addr.126.i.i257.i.i.i2283, -1
-  %cmp14.i.i263.i.i.i2289 = icmp ugt i64 %length.addr.126.i.i257.i.i.i2283, 1
+  %cmp14.i.i263.i.i.i2289 = icmp samesign ugt i64 %length.addr.126.i.i257.i.i.i2283, 1
   br i1 %cmp14.i.i263.i.i.i2289, label %while.body15.i.i255.i.i.i2281, label %_ZN5arrow8internal12_GLOBAL__N_117TransposeIntsDestImE5VisitINS_10UInt32TypeEEENSt9enable_ifIXsr15is_integer_typeIT_EE5valueENS_6StatusEE4typeERKS7_.exit.i.i.i, !llvm.loop !82
 
 _ZN5arrow8internal12_GLOBAL__N_117TransposeIntsDestImE5VisitINS_10UInt32TypeEEENSt9enable_ifIXsr15is_integer_typeIT_EE5valueENS_6StatusEE4typeERKS7_.exit.i.i.i: ; preds = %while.body15.i.i255.i.i.i2281, %while.cond13.preheader.i.i250.i.i.i2276
@@ -19305,7 +19305,7 @@ while.body.i.i303.i.i.i2251:                      ; preds = %sw.bb16.i.i.i2233, 
   %sub.i.i321.i.i.i2269 = add nsw i64 %length.addr.020.i.i305.i.i.i2253, -4
   %add.ptr.i.i322.i.i.i2270 = getelementptr inbounds i8, ptr %src.addr.021.i.i304.i.i.i2252, i64 32
   %add.ptr15.i.i323.i.i.i2271 = getelementptr inbounds i8, ptr %dest.addr.019.i.i306.i.i.i2254, i64 32
-  %cmp.i.i324.i.i.i2272 = icmp ugt i64 %length.addr.020.i.i305.i.i.i2253, 7
+  %cmp.i.i324.i.i.i2272 = icmp samesign ugt i64 %length.addr.020.i.i305.i.i.i2253, 7
   br i1 %cmp.i.i324.i.i.i2272, label %while.body.i.i303.i.i.i2251, label %while.cond16.preheader.i.i288.i.i.i2236, !llvm.loop !129
 
 while.body18.i.i293.i.i.i2241:                    ; preds = %while.cond16.preheader.i.i288.i.i.i2236, %while.body18.i.i293.i.i.i2241
@@ -19320,7 +19320,7 @@ while.body18.i.i293.i.i.i2241:                    ; preds = %while.cond16.prehea
   %incdec.ptr21.i.i300.i.i.i2248 = getelementptr inbounds i8, ptr %dest.addr.125.i.i296.i.i.i2244, i64 8
   store i64 %conv20.i.i299.i.i.i2247, ptr %dest.addr.125.i.i296.i.i.i2244, align 8, !noalias !1133
   %dec.i.i301.i.i.i2249 = add nsw i64 %length.addr.126.i.i295.i.i.i2243, -1
-  %cmp17.i.i302.i.i.i2250 = icmp ugt i64 %length.addr.126.i.i295.i.i.i2243, 1
+  %cmp17.i.i302.i.i.i2250 = icmp samesign ugt i64 %length.addr.126.i.i295.i.i.i2243, 1
   br i1 %cmp17.i.i302.i.i.i2250, label %while.body18.i.i293.i.i.i2241, label %_ZN5arrow8internal12_GLOBAL__N_117TransposeIntsDestImE5VisitINS_9Int64TypeEEENSt9enable_ifIXsr15is_integer_typeIT_EE5valueENS_6StatusEE4typeERKS7_.exit.i.i.i, !llvm.loop !130
 
 _ZN5arrow8internal12_GLOBAL__N_117TransposeIntsDestImE5VisitINS_9Int64TypeEEENSt9enable_ifIXsr15is_integer_typeIT_EE5valueENS_6StatusEE4typeERKS7_.exit.i.i.i: ; preds = %while.body18.i.i293.i.i.i2241, %while.cond16.preheader.i.i288.i.i.i2236
@@ -19373,7 +19373,7 @@ while.body.i.i346.i.i.i2211:                      ; preds = %sw.bb18.i.i.i2193, 
   %sub.i.i364.i.i.i2229 = add nsw i64 %length.addr.020.i.i348.i.i.i2213, -4
   %add.ptr.i.i365.i.i.i2230 = getelementptr inbounds i8, ptr %src.addr.021.i.i347.i.i.i2212, i64 32
   %add.ptr15.i.i366.i.i.i2231 = getelementptr inbounds i8, ptr %dest.addr.019.i.i349.i.i.i2214, i64 32
-  %cmp.i.i367.i.i.i2232 = icmp ugt i64 %length.addr.020.i.i348.i.i.i2213, 7
+  %cmp.i.i367.i.i.i2232 = icmp samesign ugt i64 %length.addr.020.i.i348.i.i.i2213, 7
   br i1 %cmp.i.i367.i.i.i2232, label %while.body.i.i346.i.i.i2211, label %while.cond16.preheader.i.i331.i.i.i2196, !llvm.loop !113
 
 while.body18.i.i336.i.i.i2201:                    ; preds = %while.cond16.preheader.i.i331.i.i.i2196, %while.body18.i.i336.i.i.i2201
@@ -19388,7 +19388,7 @@ while.body18.i.i336.i.i.i2201:                    ; preds = %while.cond16.prehea
   %incdec.ptr21.i.i343.i.i.i2208 = getelementptr inbounds i8, ptr %dest.addr.125.i.i339.i.i.i2204, i64 8
   store i64 %conv20.i.i342.i.i.i2207, ptr %dest.addr.125.i.i339.i.i.i2204, align 8, !noalias !1140
   %dec.i.i344.i.i.i2209 = add nsw i64 %length.addr.126.i.i338.i.i.i2203, -1
-  %cmp17.i.i345.i.i.i2210 = icmp ugt i64 %length.addr.126.i.i338.i.i.i2203, 1
+  %cmp17.i.i345.i.i.i2210 = icmp samesign ugt i64 %length.addr.126.i.i338.i.i.i2203, 1
   br i1 %cmp17.i.i345.i.i.i2210, label %while.body18.i.i336.i.i.i2201, label %_ZN5arrow8internal12_GLOBAL__N_117TransposeIntsDestImE5VisitINS_10UInt64TypeEEENSt9enable_ifIXsr15is_integer_typeIT_EE5valueENS_6StatusEE4typeERKS7_.exit.i.i.i, !llvm.loop !114
 
 _ZN5arrow8internal12_GLOBAL__N_117TransposeIntsDestImE5VisitINS_10UInt64TypeEEENSt9enable_ifIXsr15is_integer_typeIT_EE5valueENS_6StatusEE4typeERKS7_.exit.i.i.i: ; preds = %while.body18.i.i336.i.i.i2201, %while.cond16.preheader.i.i331.i.i.i2196
@@ -21736,7 +21736,7 @@ while.end.i.i.thread.i:                           ; preds = %if.end.i25.i
   br label %if.else.i.i.i
 
 while.end.i.i.i:                                  ; preds = %if.end.i25.i
-  %cmp9.i.i.i = icmp ugt i8 %value, 9
+  %cmp9.i.i.i = icmp samesign ugt i8 %value, 9
   br i1 %cmp9.i.i.i, label %if.then.i.i.i, label %if.else.i.i.i
 
 if.then.i.i.i:                                    ; preds = %while.end.i.i.i
@@ -22184,7 +22184,7 @@ lpad2.loopexit.split.split.us:                    ; preds = %while.body.us74
   br label %lpad2
 
 while.body.lr.ph.split.split:                     ; preds = %while.body.lr.ph.split
-  %cmp9.i.i.i30 = icmp ugt i16 %value, 9
+  %cmp9.i.i.i30 = icmp samesign ugt i16 %value, 9
   %11 = trunc nuw i16 %value to i8
   %conv.i.i.i32 = or disjoint i8 %11, 48
   %mul11.i.i.i42 = shl nuw nsw i32 %conv.i, 1

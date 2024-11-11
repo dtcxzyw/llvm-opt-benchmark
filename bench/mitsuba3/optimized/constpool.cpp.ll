@@ -462,7 +462,7 @@ define internal fastcc void @_ZN6asmjit9_abi_1_10L16ConstPool_addGapEPNS0_9Const
   br i1 %14, label %39, label %17
 
 15:                                               ; preds = %8
-  %16 = icmp ugt i64 %10, 15
+  %16 = icmp samesign ugt i64 %10, 15
   br i1 %16, label %17, label %20
 
 17:                                               ; preds = %15, %12
@@ -471,7 +471,7 @@ define internal fastcc void @_ZN6asmjit9_abi_1_10L16ConstPool_addGapEPNS0_9Const
   br i1 %19, label %39, label %22
 
 20:                                               ; preds = %15
-  %21 = icmp ugt i64 %10, 7
+  %21 = icmp samesign ugt i64 %10, 7
   br i1 %21, label %22, label %25
 
 22:                                               ; preds = %20, %17
@@ -480,7 +480,7 @@ define internal fastcc void @_ZN6asmjit9_abi_1_10L16ConstPool_addGapEPNS0_9Const
   br i1 %24, label %39, label %27
 
 25:                                               ; preds = %20
-  %26 = icmp ugt i64 %10, 3
+  %26 = icmp samesign ugt i64 %10, 3
   br i1 %26, label %27, label %30
 
 27:                                               ; preds = %25, %22

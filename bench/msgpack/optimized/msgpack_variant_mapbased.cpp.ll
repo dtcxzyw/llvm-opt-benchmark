@@ -2258,7 +2258,7 @@ _ZN7msgpack2v26detail7contextINS1_12parse_helperINS1_21create_object_visitorEEEE
   br label %.loopexit
 
 101:                                              ; preds = %33
-  %102 = icmp ugt i8 %34, -33
+  %102 = icmp samesign ugt i8 %34, -33
   br i1 %102, label %103, label %168
 
 103:                                              ; preds = %101
@@ -2375,7 +2375,7 @@ _ZN7msgpack2v26detail7contextINS1_12parse_helperINS1_21create_object_visitorEEEE
   br label %.loopexit
 
 168:                                              ; preds = %101
-  %169 = icmp ugt i8 %34, -61
+  %169 = icmp samesign ugt i8 %34, -61
   br i1 %169, label %170, label %179
 
 170:                                              ; preds = %168
@@ -2538,7 +2538,7 @@ _ZN7msgpack2v26detail7contextINS1_12parse_helperINS1_21create_object_visitorEEEE
   br i1 %.not290, label %thread-pre-split, label %.loopexit
 
 255:                                              ; preds = %251
-  %256 = icmp ult i8 %34, -112
+  %256 = icmp samesign ult i8 %34, -112
   br i1 %256, label %257, label %259
 
 257:                                              ; preds = %255
@@ -9457,7 +9457,7 @@ define linkonce_odr dso_local void @_ZN7msgpack2v16packerINSt7__cxx1118basic_str
   br i1 %10, label %11, label %33
 
 11:                                               ; preds = %2
-  %12 = icmp ult i32 %1, -32768
+  %12 = icmp samesign ult i32 %1, -32768
   br i1 %12, label %13, label %19
 
 13:                                               ; preds = %11
@@ -9471,7 +9471,7 @@ define linkonce_odr dso_local void @_ZN7msgpack2v16packerINSt7__cxx1118basic_str
   br label %61
 
 19:                                               ; preds = %11
-  %20 = icmp ult i32 %1, -128
+  %20 = icmp samesign ult i32 %1, -128
   br i1 %20, label %21, label %28
 
 21:                                               ; preds = %19
@@ -9508,7 +9508,7 @@ define linkonce_odr dso_local void @_ZN7msgpack2v16packerINSt7__cxx1118basic_str
   br label %61
 
 39:                                               ; preds = %33
-  %40 = icmp ult i32 %1, 256
+  %40 = icmp samesign ult i32 %1, 256
   br i1 %40, label %41, label %46
 
 41:                                               ; preds = %39
@@ -9522,7 +9522,7 @@ define linkonce_odr dso_local void @_ZN7msgpack2v16packerINSt7__cxx1118basic_str
   br label %61
 
 46:                                               ; preds = %39
-  %47 = icmp ult i32 %1, 65536
+  %47 = icmp samesign ult i32 %1, 65536
   br i1 %47, label %48, label %55
 
 48:                                               ; preds = %46

@@ -1571,7 +1571,7 @@ sub_0136:                                         ; preds = %439
   unreachable
 
 473:                                              ; preds = %463
-  %474 = icmp ugt i32 %467, 149999
+  %474 = icmp samesign ugt i32 %467, 149999
   %475 = load i32, ptr @includewal, align 4
   %476 = icmp eq i32 %475, 2
   br i1 %476, label %477, label %481
@@ -1611,7 +1611,7 @@ sub_0136:                                         ; preds = %439
   br i1 %.not174.i, label %554, label %491
 
 491:                                              ; preds = %490
-  %492 = icmp ult i32 %467, 170000
+  %492 = icmp samesign ult i32 %467, 170000
   br i1 %492, label %493, label %494
 
 493:                                              ; preds = %491
@@ -4047,7 +4047,7 @@ sub_0:                                            ; preds = %6
   %24 = getelementptr i8, ptr %23, i64 -4
   %25 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %24, ptr noundef nonnull dereferenceable(5) @.str.256) #19
   %26 = icmp eq i32 %25, 0
-  %27 = icmp ugt i32 %10, 7
+  %27 = icmp samesign ugt i32 %10, 7
   br i1 %27, label %28, label %.thread
 
 28:                                               ; preds = %21

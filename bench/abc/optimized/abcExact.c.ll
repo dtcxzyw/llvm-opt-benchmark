@@ -521,7 +521,7 @@ Vec_IntPush.exit:                                 ; preds = %19, %Vec_IntGrow.ex
   %74 = add nsw i32 %73, -1
   %75 = tail call noundef i32 @llvm.smin.i32(i32 %71, i32 %74)
   tail call fastcc void @Vec_IntSetEntry(ptr noundef nonnull %7, i32 noundef %60, i32 noundef %75)
-  %76 = icmp ugt i64 %indvars.iv81, 1
+  %76 = icmp samesign ugt i64 %indvars.iv81, 1
   br i1 %76, label %.lr.ph72, label %._crit_edge, !llvm.loop !12
 
 ._crit_edge:                                      ; preds = %.lr.ph72, %.preheader
@@ -1738,7 +1738,7 @@ define internal fastcc void @Ses_ManPrintFuncs(ptr nocapture noundef readonly %0
   br label %Abc_TtPrintHexRev.exit
 
 31:                                               ; preds = %10
-  %32 = icmp ult i32 %19, 7
+  %32 = icmp samesign ult i32 %19, 7
   %33 = add nsw i32 %19, -6
   %34 = shl nuw i32 1, %33
   %35 = select i1 %32, i32 1, i32 %34
@@ -1891,7 +1891,7 @@ define internal fastcc ptr @Ses_ManFindMinimumSize(ptr noundef %0) unnamed_addr 
 .lr.ph.i:                                         ; preds = %25
   %33 = load ptr, ptr %23, align 8
   %34 = load i32, ptr %20, align 4
-  %35 = icmp ugt i32 %31, 2
+  %35 = icmp samesign ugt i32 %31, 2
   %36 = getelementptr inbounds i8, ptr %0, i64 200
   %wide.trip.count.i = zext nneg i32 %31 to i64
   br label %37
@@ -4268,7 +4268,7 @@ Abc_NormalizeArrivalTimes.exit:                   ; preds = %.lr.ph30.i, %._crit
   br label %Abc_TtPrintHexRev.exit
 
 119:                                              ; preds = %105
-  %120 = icmp ult i32 %1, 7
+  %120 = icmp samesign ult i32 %1, 7
   %121 = add nsw i32 %1, -6
   %122 = shl nuw i32 1, %121
   %123 = select i1 %120, i32 1, i32 %122
@@ -4582,7 +4582,7 @@ Abc_Clock.exit135:                                ; preds = %157, %160
   br label %Abc_TtPrintHexRev.exit.i
 
 267:                                              ; preds = %._crit_edge.i136
-  %268 = icmp ult i32 %1, 7
+  %268 = icmp samesign ult i32 %1, 7
   %269 = add nsw i32 %1, -6
   %270 = shl nuw i32 1, %269
   %271 = select i1 %268, i32 1, i32 %270

@@ -60271,7 +60271,7 @@ _ZN4llvm9remove_ifIRNS_11SmallVectorISt4pairIjPNS_6MDNodeEELj2EEEZNS_13IRBuilder
   %68 = getelementptr inbounds i8, ptr %.0910.i.i.i.i.i.i, i64 16
   %69 = getelementptr inbounds i8, ptr %.0811.i.i.i.i.i.i, i64 16
   %70 = add nsw i64 %.012.i.i.i.i.i.i, -1
-  %71 = icmp ugt i64 %.012.i.i.i.i.i.i, 1
+  %71 = icmp samesign ugt i64 %.012.i.i.i.i.i.i, 1
   br i1 %71, label %.lr.ph.i.i.i.i.i.i, label %_ZN4llvm15SmallVectorImplISt4pairIjPNS_6MDNodeEEE5eraseEPKS4_S7_.exit, !llvm.loop !606
 
 _ZN4llvm15SmallVectorImplISt4pairIjPNS_6MDNodeEEE5eraseEPKS4_S7_.exit: ; preds = %.lr.ph.i.i.i.i.i.i, %_ZN4llvm9remove_ifIRNS_11SmallVectorISt4pairIjPNS_6MDNodeEELj2EEEZNS_13IRBuilderBase25AddOrRemoveMetadataToCopyEjS4_EUlRKS5_E_EEDaOT_T0_.exit
@@ -96050,7 +96050,7 @@ define linkonce_odr noundef nonnull align 8 dereferenceable(16) ptr @_ZN4llvm15S
   %18 = getelementptr inbounds i8, ptr %.0910.i.i.i.i.i, i64 24
   %19 = getelementptr inbounds i8, ptr %.0811.i.i.i.i.i, i64 24
   %20 = add nsw i64 %.012.i.i.i.i.i, -1
-  %21 = icmp ugt i64 %.012.i.i.i.i.i, 1
+  %21 = icmp samesign ugt i64 %.012.i.i.i.i.i, 1
   br i1 %21, label %.lr.ph.i.i.i.i.i, label %_ZSt4copyIPKSt4pairIN4llvm2AA15ValueAndContextENS2_10ValueScopeEEPS5_ET0_T_SA_S9_.exit, !llvm.loop !975
 
 _ZSt4copyIPKSt4pairIN4llvm2AA15ValueAndContextENS2_10ValueScopeEEPS5_ET0_T_SA_S9_.exit: ; preds = %.lr.ph.i.i.i.i.i, %7
@@ -96100,7 +96100,7 @@ _ZSt4copyIPKSt4pairIN4llvm2AA15ValueAndContextENS2_10ValueScopeEEPS5_ET0_T_SA_S9
   %42 = getelementptr inbounds i8, ptr %.0910.i.i.i.i.i35, i64 24
   %43 = getelementptr inbounds i8, ptr %.0811.i.i.i.i.i34, i64 24
   %44 = add nsw i64 %.012.i.i.i.i.i33, -1
-  %45 = icmp ugt i64 %.012.i.i.i.i.i33, 1
+  %45 = icmp samesign ugt i64 %.012.i.i.i.i.i33, 1
   br i1 %45, label %.lr.ph.i.i.i.i.i32, label %_ZSt4copyIPKSt4pairIN4llvm2AA15ValueAndContextENS2_10ValueScopeEEPS5_ET0_T_SA_S9_.exit36, !llvm.loop !975
 
 _ZSt4copyIPKSt4pairIN4llvm2AA15ValueAndContextENS2_10ValueScopeEEPS5_ET0_T_SA_S9_.exit36: ; preds = %.lr.ph.i.i.i.i.i32, %31, %30, %26
@@ -100090,7 +100090,7 @@ _ZN4llvm15SmallVectorImplISt4pairINS_2AA15ValueAndContextENS2_10ValueScopeEEE12a
   %37 = getelementptr inbounds i8, ptr %.0910.i.i.i.i.i, i64 24
   %38 = getelementptr inbounds i8, ptr %.0811.i.i.i.i.i, i64 24
   %39 = add nsw i64 %.012.i.i.i.i.i, -1
-  %40 = icmp ugt i64 %.012.i.i.i.i.i, 1
+  %40 = icmp samesign ugt i64 %.012.i.i.i.i.i, 1
   br i1 %40, label %.lr.ph.i.i.i.i.i, label %_ZSt4moveIPSt4pairIN4llvm2AA15ValueAndContextENS2_10ValueScopeEES6_ET0_T_S8_S7_.exit, !llvm.loop !1020
 
 _ZSt4moveIPSt4pairIN4llvm2AA15ValueAndContextENS2_10ValueScopeEES6_ET0_T_S8_S7_.exit: ; preds = %.lr.ph.i.i.i.i.i, %25, %24
@@ -100144,7 +100144,7 @@ _ZSt4moveIPSt4pairIN4llvm2AA15ValueAndContextENS2_10ValueScopeEES6_ET0_T_S8_S7_.
   %63 = getelementptr inbounds i8, ptr %.0910.i.i.i.i.i39, i64 24
   %64 = getelementptr inbounds i8, ptr %.0811.i.i.i.i.i38, i64 24
   %65 = add nsw i64 %.012.i.i.i.i.i37, -1
-  %66 = icmp ugt i64 %.012.i.i.i.i.i37, 1
+  %66 = icmp samesign ugt i64 %.012.i.i.i.i.i37, 1
   br i1 %66, label %.lr.ph.i.i.i.i.i36, label %_ZSt4moveIPSt4pairIN4llvm2AA15ValueAndContextENS2_10ValueScopeEES6_ET0_T_S8_S7_.exit40, !llvm.loop !1020
 
 _ZSt4moveIPSt4pairIN4llvm2AA15ValueAndContextENS2_10ValueScopeEES6_ET0_T_S8_S7_.exit40: ; preds = %.lr.ph.i.i.i.i.i36, %52, %51, %47
@@ -150542,7 +150542,7 @@ define linkonce_odr noundef nonnull align 8 dereferenceable(16) ptr @_ZN4llvm15S
   %17 = getelementptr inbounds i8, ptr %.0910.i.i.i.i.i, i64 80
   %18 = getelementptr inbounds i8, ptr %.0811.i.i.i.i.i, i64 80
   %19 = add nsw i64 %.012.i.i.i.i.i, -1
-  %20 = icmp ugt i64 %.012.i.i.i.i.i, 1
+  %20 = icmp samesign ugt i64 %.012.i.i.i.i.i, 1
   br i1 %20, label %.lr.ph.i.i.i.i.i, label %_ZSt4copyIPKN4llvm30DiagnosticInfoOptimizationBase8ArgumentEPS2_ET0_T_S7_S6_.exit.loopexit, !llvm.loop !1561
 
 _ZSt4copyIPKN4llvm30DiagnosticInfoOptimizationBase8ArgumentEPS2_ET0_T_S7_S6_.exit.loopexit: ; preds = %.lr.ph.i.i.i.i.i
@@ -150623,7 +150623,7 @@ _ZN4llvm15SmallVectorImplINS_30DiagnosticInfoOptimizationBase8ArgumentEE5clearEv
   %47 = getelementptr inbounds i8, ptr %.0910.i.i.i.i.i35, i64 80
   %48 = getelementptr inbounds i8, ptr %.0811.i.i.i.i.i34, i64 80
   %49 = add nsw i64 %.012.i.i.i.i.i33, -1
-  %50 = icmp ugt i64 %.012.i.i.i.i.i33, 1
+  %50 = icmp samesign ugt i64 %.012.i.i.i.i.i33, 1
   br i1 %50, label %.lr.ph.i.i.i.i.i32, label %_ZSt4copyIPKN4llvm30DiagnosticInfoOptimizationBase8ArgumentEPS2_ET0_T_S7_S6_.exit36, !llvm.loop !1561
 
 _ZSt4copyIPKN4llvm30DiagnosticInfoOptimizationBase8ArgumentEPS2_ET0_T_S7_S6_.exit36: ; preds = %.lr.ph.i.i.i.i.i32, %37, %36, %_ZN4llvm15SmallVectorImplINS_30DiagnosticInfoOptimizationBase8ArgumentEE5clearEv.exit

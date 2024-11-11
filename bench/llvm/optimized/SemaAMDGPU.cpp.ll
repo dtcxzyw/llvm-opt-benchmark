@@ -310,7 +310,7 @@ _ZNK4llvm5APInt12getSExtValueEv.exit.thread:      ; preds = %39, %_ZNK4llvm5APIn
   br label %_ZN5clang4Expr10EvalResultD2Ev.exit
 
 112:                                              ; preds = %97
-  %switch = icmp ult i64 %.0.i35, 2
+  %switch = icmp samesign ult i64 %.0.i35, 2
   %113 = icmp eq i32 %1, 1441
   %or.cond = and i1 %113, %switch
   br i1 %or.cond, label %114, label %122

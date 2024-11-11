@@ -997,7 +997,7 @@ define noundef i32 @_ZNK6casadi7Monitor7eval_sxEPPKNS_6SXElemEPPS1_PxS5_(ptr nou
   %17 = getelementptr inbounds i8, ptr %.0910.i.i.i.i.i, i64 8
   %18 = getelementptr inbounds i8, ptr %.0811.i.i.i.i.i, i64 8
   %19 = add nsw i64 %.012.i.i.i.i.i, -1
-  %20 = icmp ugt i64 %.012.i.i.i.i.i, 1
+  %20 = icmp samesign ugt i64 %.012.i.i.i.i.i, 1
   br i1 %20, label %.lr.ph.i.i.i.i.i, label %_ZSt4copyIPKN6casadi6SXElemEPS1_ET0_T_S6_S5_.exit, !llvm.loop !11
 
 _ZSt4copyIPKN6casadi6SXElemEPS1_ET0_T_S6_S5_.exit: ; preds = %.lr.ph.i.i.i.i.i, %8, %5

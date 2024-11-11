@@ -744,7 +744,7 @@ define internal fastcc range(i32 0, 27) i32 @hfsplus_validate_catalog(ptr nocapt
   %15 = zext i16 %.18.val to i32
   %16 = mul i32 %.22.val, %15
   %17 = zext i32 %16 to i64
-  %18 = icmp ult i64 %8, %17
+  %18 = icmp samesign ult i64 %8, %17
   br i1 %18, label %.sink.split, label %19
 
 .sink.split:                                      ; preds = %14, %6, %1
@@ -1003,7 +1003,7 @@ define internal fastcc i32 @hfsplus_walk_catalog(ptr noundef nonnull %0, ptr noc
 147:                                              ; preds = %138
   %148 = shl nuw nsw i32 %145, 1
   %149 = add nsw i32 %132, -6
-  %.not300 = icmp ugt i32 %148, %149
+  %.not300 = icmp samesign ugt i32 %148, %149
   br i1 %.not300, label %156, label %150
 
 150:                                              ; preds = %147
@@ -1373,7 +1373,7 @@ hfsplus_check_attribute.exit.thread43:            ; preds = %284, %278, %270, %2
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 16 %17, ptr nonnull align 1 %303, i64 %298, i1 false)
   call void @free(ptr noundef nonnull %221) #12
   call void (ptr, ...) @cli_dbgmsg(ptr noundef nonnull @.str.60) #12
-  %304 = icmp ult i32 %297, 16
+  %304 = icmp samesign ult i32 %297, 16
   br i1 %304, label %305, label %306
 
 305:                                              ; preds = %302

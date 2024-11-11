@@ -1177,7 +1177,7 @@ rb_array_const_ptr.exit29:                        ; preds = %27, %30
   %46 = tail call ptr @X509_CRL_delete_ext(ptr noundef nonnull %39, i32 noundef 0) #6
   tail call void @X509_EXTENSION_free(ptr noundef %46) #6
   %47 = add nsw i64 %.140, -1
-  %48 = icmp ugt i64 %.140, 1
+  %48 = icmp samesign ugt i64 %.140, 1
   br i1 %48, label %.lr.ph, label %.preheader.preheader, !llvm.loop !13
 
 .preheader.preheader:                             ; preds = %.lr.ph, %42

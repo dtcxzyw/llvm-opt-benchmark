@@ -340,7 +340,7 @@ if.end.i:                                         ; preds = %for.cond.i
 if.end4.i:                                        ; preds = %if.end.i
   %conv.i = zext nneg i32 %call1.i to i64
   %add5.i = add nuw nsw i64 %buf_len.0, %conv.i
-  %cmp6.i = icmp ult i32 %call1.i, 256
+  %cmp6.i = icmp samesign ult i32 %call1.i, 256
   br i1 %cmp6.i, label %read_all.exit, label %for.cond.i
 
 for.end.i:                                        ; preds = %if.end.i, %for.cond.i

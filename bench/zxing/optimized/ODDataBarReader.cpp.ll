@@ -696,7 +696,7 @@ _ZN5ZXing11PatternView5shiftEi.exit.thread:       ; preds = %188, %_ZN5ZXing11Pa
   %239 = add i32 %.01617.i.i, -48
   %240 = add i32 %239, %238
   %indvars.iv.next.i.i = add nsw i64 %indvars.iv.i.i, -2
-  %241 = icmp ugt i64 %indvars.iv.i.i, 1
+  %241 = icmp samesign ugt i64 %indvars.iv.i.i, 1
   br i1 %241, label %.lr.ph.i.i, label %._crit_edge.i.i, !llvm.loop !13
 
 ._crit_edge.i.i:                                  ; preds = %.lr.ph.i.i
@@ -718,7 +718,7 @@ _ZN5ZXing11PatternView5shiftEi.exit.thread:       ; preds = %188, %_ZN5ZXing11Pa
   %246 = sext i8 %.fr26.i.i to i32
   %247 = add i32 %.1.fr21.i.i, -48
   %248 = add i32 %247, %246
-  %249 = icmp ugt i64 %indvars.iv29.i.i, 3
+  %249 = icmp samesign ugt i64 %indvars.iv29.i.i, 3
   br i1 %249, label %.lr.ph23.i.i, label %._crit_edge24.i.i, !llvm.loop !14
 
 ._crit_edge24.i.i:                                ; preds = %.lr.ph23.i.i, %._crit_edge.i.i, %217
@@ -726,7 +726,7 @@ _ZN5ZXing11PatternView5shiftEi.exit.thread:       ; preds = %188, %_ZN5ZXing11Pa
   %250 = srem i32 %.1.fr.lcssa.i.i, 10
   %251 = sub nsw i32 10, %250
   %.urem.i.i = sub nsw i32 0, %250
-  %.cmp.i.i = icmp ult i32 %251, 10
+  %.cmp.i.i = icmp samesign ult i32 %251, 10
   %252 = select i1 %.cmp.i.i, i32 %251, i32 %.urem.i.i
   %253 = invoke noundef signext i8 @_ZN5ZXing7ToDigitIcEET_i(i32 noundef %252)
           to label %_ZN5ZXing4GTIN17ComputeCheckDigitIcEET_RKNSt7__cxx1112basic_stringIS2_St11char_traitsIS2_ESaIS2_EEEb.exit.i unwind label %257, !noalias !10
@@ -1761,7 +1761,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEmcRKS3_.exit: ; pre
   %34 = or disjoint i8 %33, 48
   store i8 %34, ptr %30, align 1
   %35 = udiv i64 %.02037, 10
-  %36 = icmp ugt i64 %indvars.iv, 1
+  %36 = icmp samesign ugt i64 %indvars.iv, 1
   %37 = icmp ugt i64 %.02037, 9
   %38 = select i1 %36, i1 %37, i1 false
   br i1 %38, label %.lr.ph, label %._crit_edge, !llvm.loop !43

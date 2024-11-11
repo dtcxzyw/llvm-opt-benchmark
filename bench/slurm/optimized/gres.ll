@@ -5253,7 +5253,7 @@ define internal noundef i32 @_log_gres_slurmd_conf(ptr nocapture noundef readonl
   %30 = mul nuw nsw i32 %.071, %29
   %31 = add nuw nsw i32 %30, %.169
   %32 = mul nuw nsw i32 %.071, 10
-  %33 = icmp ugt i64 %indvars.iv, 1
+  %33 = icmp samesign ugt i64 %indvars.iv, 1
   br i1 %33, label %.lr.ph, label %._crit_edge, !llvm.loop !49
 
 ._crit_edge:                                      ; preds = %.lr.ph, %28, %20
@@ -14747,7 +14747,7 @@ define noundef i32 @gres_job_state_pack(ptr noundef %0, ptr noundef %1, i32 noun
   br i1 %175, label %.lr.ph290.us.split.us, label %.loopexit.us, !llvm.loop !141
 
 .lr.ph294.split:                                  ; preds = %.lr.ph294
-  %176 = icmp ugt i16 %4, 9983
+  %176 = icmp samesign ugt i16 %4, 9983
   br i1 %176, label %.lr.ph294.split.split.us, label %.lr.ph294.split.split
 
 .lr.ph294.split.split.us:                         ; preds = %.lr.ph294.split, %.loopexit265.us
@@ -15605,7 +15605,7 @@ _find_context_by_id.exit.us:                      ; preds = %215
   br label %224
 
 .lr.ph530.split:                                  ; preds = %.lr.ph530
-  %273 = icmp ugt i16 %3, 9983
+  %273 = icmp samesign ugt i16 %3, 9983
   br i1 %273, label %.lr.ph530.split.split.us, label %.lr.ph530.split.split
 
 .lr.ph530.split.split.us:                         ; preds = %.lr.ph530.split, %.backedge.us566
@@ -21437,7 +21437,7 @@ define noundef i32 @gres_step_state_pack(ptr noundef %0, ptr noundef %1, ptr noc
 
 .lr.ph286:                                        ; preds = %18
   %21 = icmp ugt i16 %3, 10495
-  %22 = icmp ugt i16 %3, 9983
+  %22 = icmp samesign ugt i16 %3, 9983
   br i1 %21, label %.lr.ph286.split.us, label %.lr.ph286.split
 
 .lr.ph286.split.us:                               ; preds = %.lr.ph286, %.loopexit.us
@@ -21647,7 +21647,7 @@ define noundef i32 @gres_step_state_pack(ptr noundef %0, ptr noundef %1, ptr noc
   br label %98
 
 .lr.ph286.split:                                  ; preds = %.lr.ph286
-  %124 = icmp ugt i16 %3, 10239
+  %124 = icmp samesign ugt i16 %3, 10239
   br i1 %124, label %.lr.ph286.split.split.us, label %.lr.ph286.split.split
 
 .lr.ph286.split.split.us:                         ; preds = %.lr.ph286.split, %.loopexit267.us
@@ -22086,8 +22086,8 @@ define range(i32 -1, 1) i32 @gres_step_state_unpack(ptr nocapture noundef %0, pt
   %48 = getelementptr inbounds i8, ptr %1, i64 16
   %49 = getelementptr inbounds i8, ptr %1, i64 20
   %50 = icmp ugt i16 %3, 10495
-  %51 = icmp ugt i16 %3, 10239
-  %52 = icmp ugt i16 %3, 9983
+  %51 = icmp samesign ugt i16 %3, 10239
+  %52 = icmp samesign ugt i16 %3, 9983
   br label %53
 
 53:                                               ; preds = %.lr.ph450, %.backedge

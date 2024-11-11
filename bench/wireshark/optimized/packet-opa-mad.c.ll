@@ -12329,7 +12329,7 @@ parse_Image.exit.i124:                            ; preds = %1020, %1015
   br i1 %.not229.i, label %parse_GetGroupList.exit, label %.lr.ph.preheader.i
 
 .lr.ph.preheader.i:                               ; preds = %.preheader.i140
-  %1080 = icmp ugt i32 %1073, 6
+  %1080 = icmp samesign ugt i32 %1073, 6
   %1081 = zext i16 %.8.val to i32
   %1082 = shl nuw nsw i32 %1081, 3
   br label %.lr.ph.i141

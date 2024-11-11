@@ -35,13 +35,13 @@ define void @dlaed9_(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noca
 
 32:                                               ; preds = %29
   %33 = tail call i32 @llvm.umax.i32(i32 %27, i32 1)
-  %34 = icmp ugt i32 %30, %33
+  %34 = icmp samesign ugt i32 %30, %33
   br i1 %34, label %50, label %35
 
 35:                                               ; preds = %32
   %36 = load i32, ptr %2, align 4, !tbaa !3
   %37 = tail call i32 @llvm.smax.i32(i32 %36, i32 1)
-  %38 = icmp ult i32 %37, %30
+  %38 = icmp samesign ult i32 %37, %30
   %39 = icmp sgt i32 %36, %33
   %40 = or i1 %39, %38
   br i1 %40, label %50, label %41

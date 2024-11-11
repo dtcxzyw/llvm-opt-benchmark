@@ -1583,11 +1583,11 @@ _ZN4llvm9DwarfUnit12addAttributeIPNS_15DIEInlineStringEEEvRNS_12DIEValueListENS_
   br i1 %105, label %110, label %106
 
 106:                                              ; preds = %98
-  %107 = icmp ugt i32 %104, 65535
+  %107 = icmp samesign ugt i32 %104, 65535
   br i1 %107, label %110, label %108
 
 108:                                              ; preds = %106
-  %109 = icmp ugt i32 %104, 255
+  %109 = icmp samesign ugt i32 %104, 255
   %spec.select = select i1 %109, i16 38, i16 37
   br label %110
 
@@ -11337,15 +11337,15 @@ _ZN4llvm9DwarfUnit7addSIntERNS_12DIEValueListENS_5dwarf9AttributeESt8optionalINS
   br label %357
 
 286:                                              ; preds = %257
-  %287 = icmp ult i64 %.087, 256
+  %287 = icmp samesign ult i64 %.087, 256
   br i1 %287, label %_ZN4llvm10DIEInteger8BestFormEbm.exit.i114, label %288
 
 288:                                              ; preds = %286
-  %289 = icmp ult i64 %.087, 65536
+  %289 = icmp samesign ult i64 %.087, 65536
   br i1 %289, label %_ZN4llvm10DIEInteger8BestFormEbm.exit.i114, label %290
 
 290:                                              ; preds = %288
-  %291 = icmp ult i64 %.087, 4294967296
+  %291 = icmp samesign ult i64 %.087, 4294967296
   %292 = select i1 %291, i16 6, i16 7
   br label %_ZN4llvm10DIEInteger8BestFormEbm.exit.i114
 

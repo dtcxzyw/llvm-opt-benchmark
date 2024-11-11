@@ -361,7 +361,7 @@ _ZNSt16allocator_traitsISaIPdEE8allocateERS1_m.exit.i.i.i: ; preds = %46
   %121 = load <2 x double>, ptr %120, align 1
   %122 = fmul <2 x double> %121, %121
   %invariant.gep.i.i.i.i = getelementptr inbounds i8, ptr %spec.select136, i64 48
-  %123 = icmp ugt i32 %25, 7
+  %123 = icmp samesign ugt i32 %25, 7
   br i1 %123, label %.lr.ph.i.i.i.i, label %._crit_edge.i.i.i.i
 
 .lr.ph.i.i.i.i:                                   ; preds = %119, %.lr.ph.i.i.i.i

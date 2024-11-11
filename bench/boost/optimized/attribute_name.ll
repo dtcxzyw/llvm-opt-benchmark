@@ -268,7 +268,7 @@ define weak_odr noundef nonnull align 8 dereferenceable(8) ptr @_ZN5boost3log11v
   br i1 %21, label %22, label %28
 
 22:                                               ; preds = %5
-  %23 = icmp ult i64 %20, 8
+  %23 = icmp samesign ult i64 %20, 8
   br i1 %23, label %24, label %26
 
 24:                                               ; preds = %22
@@ -350,7 +350,7 @@ define weak_odr noundef nonnull align 8 dereferenceable(8) ptr @_ZN5boost3log11v
   br i1 %21, label %22, label %28
 
 22:                                               ; preds = %5
-  %23 = icmp ult i64 %20, 8
+  %23 = icmp samesign ult i64 %20, 8
   br i1 %23, label %24, label %26
 
 24:                                               ; preds = %22
@@ -1071,7 +1071,7 @@ define noundef nonnull align 8 dereferenceable(32) ptr @_ZN5boost3log11v2_mt_pos
   br i1 %17, label %18, label %24
 
 18:                                               ; preds = %1
-  %19 = icmp ult i64 %16, 8
+  %19 = icmp samesign ult i64 %16, 8
   br i1 %19, label %20, label %22
 
 20:                                               ; preds = %18

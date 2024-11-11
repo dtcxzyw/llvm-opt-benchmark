@@ -4622,7 +4622,7 @@ for.body:                                         ; preds = %for.body.lr.ph, %fo
   %1 = load ptr, ptr %d_context, align 8
   tail call void @_ZN4cvc57context7Context3popEv(ptr noundef nonnull align 8 dereferenceable(48) %1)
   %dec = add nsw i32 %l.0125, -1
-  %cmp9 = icmp ugt i32 %l.0125, 1
+  %cmp9 = icmp samesign ugt i32 %l.0125, 1
   br i1 %cmp9, label %for.body, label %for.end, !llvm.loop !19
 
 for.end:                                          ; preds = %for.body, %if.then

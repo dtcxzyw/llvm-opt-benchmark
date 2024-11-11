@@ -1226,7 +1226,7 @@ _ZN4llvm10MIMetadataD2Ev.exit68.i.i.i.i.i:        ; preds = %350, %_ZN4llvm7Buil
   %374 = add i32 %354, %373
   call fastcc void @_ZL9emitStoreRN4llvm15MachineFunctionERNS_17MachineBasicBlockENS_26MachineInstrBundleIteratorINS_12MachineInstrELb0EEERKNS_15TargetInstrInfoEjjib(ptr noundef nonnull align 8 dereferenceable(288) %.sroa.035.064.i.i, ptr nonnull %.sroa.07.011.i.i.i, ptr noundef nonnull align 8 dereferenceable(80) %113, i32 noundef %370, i32 noundef %371, i32 noundef %374, i1 noundef zeroext false)
   %indvars.iv.next.i.i.i.i.i = add nsw i64 %indvars.iv.i.i.i.i.i, -2
-  %375 = icmp ugt i64 %indvars.iv.i.i.i.i.i, 1
+  %375 = icmp samesign ugt i64 %indvars.iv.i.i.i.i.i, 1
   br i1 %375, label %.lr.ph130.i.i.i.i.i, label %._crit_edge131.i.i.i.i.i, !llvm.loop !19
 
 ._crit_edge131.i.i.i.i.i:                         ; preds = %.lr.ph130.i.i.i.i.i, %.thread.i.i.i.i.i

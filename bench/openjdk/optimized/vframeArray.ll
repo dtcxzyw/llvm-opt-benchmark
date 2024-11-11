@@ -1648,7 +1648,7 @@ _ZN12ResourceMarkD2Ev.exit65:                     ; preds = %218, %216, %174
   br label %226
 
 226:                                              ; preds = %225, %_ZN12ResourceMarkD2Ev.exit65
-  %227 = icmp ugt i64 %indvars.iv87, 1
+  %227 = icmp samesign ugt i64 %indvars.iv87, 1
   br i1 %227, label %84, label %._crit_edge85, !llvm.loop !22
 
 ._crit_edge85:                                    ; preds = %226

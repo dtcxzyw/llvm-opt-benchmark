@@ -852,7 +852,7 @@ _ZNK4llvm9StringRef9ends_withES0_.exit.i:         ; preds = %_ZN4llvmeqENS_9Stri
   br i1 %13, label %.thread, label %_ZNK4llvm9StringRef9ends_withES0_.exit.thread28.thread.i
 
 _ZNK4llvm9StringRef9ends_withES0_.exit.thread28.i: ; preds = %_ZN4llvmeqENS_9StringRefES0_.exit6.thread26.i
-  %.not.i9.i = icmp ult i64 %.sroa.2.0.copyload.i, 11
+  %.not.i9.i = icmp samesign ult i64 %.sroa.2.0.copyload.i, 11
   br i1 %.not.i9.i, label %_ZL11isAnonymousN4llvm9StringRefE.exit, label %_ZNK4llvm9StringRef9ends_withES0_.exit.thread28.thread.i
 
 _ZNK4llvm9StringRef9ends_withES0_.exit.thread28.thread.i: ; preds = %_ZNK4llvm9StringRef9ends_withES0_.exit.thread28.i, %_ZNK4llvm9StringRef9ends_withES0_.exit.i, %_ZN4llvmeqENS_9StringRefES0_.exit.i

@@ -874,7 +874,7 @@ define internal float @FastLog2Slow_C(i32 noundef %0) #7 {
   %9 = load float, ptr %8, align 4
   %10 = sitofp i32 %5 to float
   %11 = fadd float %9, %10
-  %12 = icmp ugt i32 %0, 4095
+  %12 = icmp samesign ugt i32 %0, 4095
   br i1 %12, label %13, label %29
 
 13:                                               ; preds = %3

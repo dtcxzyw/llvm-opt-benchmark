@@ -138,7 +138,7 @@ define dso_local range(i64 -2147483648, 2147483648) i64 @arch_ptrace(ptr noundef
   br i1 %10, label %86, label %11
 
 11:                                               ; preds = %6
-  %12 = icmp ult i64 %2, 216
+  %12 = icmp samesign ult i64 %2, 216
   br i1 %12, label %13, label %15
 
 13:                                               ; preds = %11
@@ -176,7 +176,7 @@ define dso_local range(i64 -2147483648, 2147483648) i64 @arch_ptrace(ptr noundef
   br i1 %35, label %86, label %36
 
 36:                                               ; preds = %31
-  %37 = icmp ult i64 %2, 216
+  %37 = icmp samesign ult i64 %2, 216
   br i1 %37, label %38, label %40
 
 38:                                               ; preds = %36
@@ -1429,7 +1429,7 @@ define internal fastcc noundef range(i32 -5, 1) i32 @getreg32(ptr noundef %0, i3
 118:                                              ; preds = %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3
   %119 = add nsw i32 %1, -252
   %120 = lshr i32 %119, 2
-  %121 = icmp ult i32 %119, 16
+  %121 = icmp samesign ult i32 %119, 16
   br i1 %121, label %122, label %135
 
 122:                                              ; preds = %118

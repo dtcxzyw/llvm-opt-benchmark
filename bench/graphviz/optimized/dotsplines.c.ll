@@ -3271,7 +3271,7 @@ makeFlatEnd.exit112.i:                            ; preds = %1728, %makeFlatEnd.
   %indvars.iv.next119.i = add nsw i64 %indvars.iv118.i, -1
   %1753 = getelementptr inbounds [20 x %struct.boxf], ptr %543, i64 0, i64 %indvars.iv.next119.i
   call void @add_box(ptr noundef nonnull %43, ptr noundef nonnull byval(%struct.boxf) align 8 %1753) #23
-  %1754 = icmp ugt i64 %indvars.iv118.i, 1
+  %1754 = icmp samesign ugt i64 %indvars.iv118.i, 1
   br i1 %1754, label %.lr.ph116.i, label %._crit_edge.i519
 
 ._crit_edge.i519:                                 ; preds = %.lr.ph116.i, %1749
@@ -3674,7 +3674,7 @@ makeBottomFlatEnd.exit115.i:                      ; preds = %1923, %makeBottomFl
   %indvars.iv.next125.i = add nsw i64 %indvars.iv124.i, -1
   %1957 = getelementptr inbounds [20 x %struct.boxf], ptr %581, i64 0, i64 %indvars.iv.next125.i
   call void @add_box(ptr noundef nonnull %43, ptr noundef nonnull byval(%struct.boxf) align 8 %1957) #23
-  %1958 = icmp ugt i64 %indvars.iv124.i, 1
+  %1958 = icmp samesign ugt i64 %indvars.iv124.i, 1
   br i1 %1958, label %.lr.ph119.i, label %._crit_edge.i500
 
 ._crit_edge.i500:                                 ; preds = %.lr.ph119.i, %1953
@@ -3876,7 +3876,7 @@ make_flat_bottom_edges.exit:                      ; preds = %1967, %1966
   %indvars.iv.next1047 = add nsw i64 %indvars.iv1046, -1
   %2059 = getelementptr inbounds [20 x %struct.boxf], ptr %568, i64 0, i64 %indvars.iv.next1047
   call void @add_box(ptr noundef nonnull %43, ptr noundef nonnull byval(%struct.boxf) align 8 %2059) #23
-  %2060 = icmp ugt i64 %indvars.iv1046, 1
+  %2060 = icmp samesign ugt i64 %indvars.iv1046, 1
   br i1 %2060, label %.lr.ph854, label %._crit_edge855
 
 ._crit_edge855:                                   ; preds = %.lr.ph854, %2055
@@ -8420,7 +8420,7 @@ bot_bound.exit85:                                 ; preds = %228
   %indvars.iv.next124 = add nsw i64 %indvars.iv123, -1
   %260 = getelementptr inbounds [20 x %struct.boxf], ptr %257, i64 0, i64 %indvars.iv.next124
   tail call void @add_box(ptr noundef nonnull %0, ptr noundef nonnull byval(%struct.boxf) align 8 %260) #23
-  %261 = icmp ugt i64 %indvars.iv123, 1
+  %261 = icmp samesign ugt i64 %indvars.iv123, 1
   br i1 %261, label %259, label %._crit_edge118
 
 ._crit_edge118:                                   ; preds = %259, %._crit_edge114

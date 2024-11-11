@@ -77123,7 +77123,7 @@ if.end.i.i.i:                                     ; preds = %if.then
   %4 = load i32, ptr %gep.i.i2, align 4, !tbaa !37
   store i64 %1, ptr %agg.tmp.i.i.i, align 8, !tbaa !55
   call fastcc void @"_ZSt13__adjust_heapISt16reverse_iteratorIN9__gnu_cxx17__normal_iteratorIPN4entt6entityESt6vectorIS4_SaIS4_EEEEElS4_NS1_5__ops15_Iter_comp_iterIZNS3_14basic_registryIS4_S7_E4sortI8positionZZN25Benchmark_SortSingle_Test8TestBodyEvENK3$_0clEvEUlRKT_RKT0_E_NS3_8std_sortEJEEEvSM_T1_DpOT2_EUlSJ_SM_E_EEEvSJ_SM_SM_SR_T2_"(ptr noundef nonnull %agg.tmp.i.i.i, i64 noundef %div2021.i.i.i, i64 noundef %sub.ptr.div.i.i.i.i.i, i32 noundef %4, ptr %__comp.coerce)
-  %cmp5.not.i.i.i14 = icmp ult i64 %sub.i.i.i, 2
+  %cmp5.not.i.i.i14 = icmp samesign ult i64 %sub.i.i.i, 2
   br i1 %cmp5.not.i.i.i14, label %"_ZSt11__make_heapISt16reverse_iteratorIN9__gnu_cxx17__normal_iteratorIPN4entt6entityESt6vectorIS4_SaIS4_EEEEENS1_5__ops15_Iter_comp_iterIZNS3_14basic_registryIS4_S7_E4sortI8positionZZN25Benchmark_SortSingle_Test8TestBodyEvENK3$_0clEvEUlRKT_RKT0_E_NS3_8std_sortEJEEEvSM_T1_DpOT2_EUlSJ_SM_E_EEEvSJ_SJ_RSM_.exit.i.i.thread", label %while.cond.i.i.i.split, !llvm.loop !2617
 
 "_ZSt11__make_heapISt16reverse_iteratorIN9__gnu_cxx17__normal_iteratorIPN4entt6entityESt6vectorIS4_SaIS4_EEEEENS1_5__ops15_Iter_comp_iterIZNS3_14basic_registryIS4_S7_E4sortI8positionZZN25Benchmark_SortSingle_Test8TestBodyEvENK3$_0clEvEUlRKT_RKT0_E_NS3_8std_sortEJEEEvSM_T1_DpOT2_EUlSJ_SM_E_EEEvSJ_SJ_RSM_.exit.i.i.thread": ; preds = %if.end.i.i.i
@@ -77664,7 +77664,7 @@ if.then5:                                         ; preds = %for.body
   br i1 %cmp9.i.i.i.i.i, label %for.body.i.i.i.i.i.preheader, label %for.inc
 
 for.body.i.i.i.i.i.preheader:                     ; preds = %if.then5
-  %min.iters.check = icmp ult i64 %sub.ptr.div.i.i.i.i.i.i, 8
+  %min.iters.check = icmp samesign ult i64 %sub.ptr.div.i.i.i.i.i.i, 8
   br i1 %min.iters.check, label %for.body.i.i.i.i.i, label %vector.ph
 
 vector.ph:                                        ; preds = %for.body.i.i.i.i.i.preheader
@@ -77857,7 +77857,7 @@ if.end.i.i.i:                                     ; preds = %if.then
   %4 = load i32, ptr %gep.i.i2, align 4, !tbaa !37
   store i64 %1, ptr %agg.tmp.i.i.i, align 8, !tbaa !55
   call fastcc void @"_ZSt13__adjust_heapISt16reverse_iteratorIN9__gnu_cxx17__normal_iteratorIPN4entt6entityESt6vectorIS4_SaIS4_EEEEElS4_NS1_5__ops15_Iter_comp_iterIZNS3_14basic_registryIS4_S7_E4sortI8positionZN24Benchmark_SortMulti_Test8TestBodyEvE3$_0NS3_8std_sortEJEEEvT0_T1_DpOT2_EUlT_SK_E_EEEvSP_SK_SK_SL_T2_"(ptr noundef nonnull %agg.tmp.i.i.i, i64 noundef %div2021.i.i.i, i64 noundef %sub.ptr.div.i.i.i.i.i, i32 noundef %4, ptr %__comp.coerce)
-  %cmp5.not.i.i.i14 = icmp ult i64 %sub.i.i.i, 2
+  %cmp5.not.i.i.i14 = icmp samesign ult i64 %sub.i.i.i, 2
   br i1 %cmp5.not.i.i.i14, label %"_ZSt11__make_heapISt16reverse_iteratorIN9__gnu_cxx17__normal_iteratorIPN4entt6entityESt6vectorIS4_SaIS4_EEEEENS1_5__ops15_Iter_comp_iterIZNS3_14basic_registryIS4_S7_E4sortI8positionZN24Benchmark_SortMulti_Test8TestBodyEvE3$_0NS3_8std_sortEJEEEvT0_T1_DpOT2_EUlT_SK_E_EEEvSP_SP_RSK_.exit.i.i.thread", label %while.cond.i.i.i.split, !llvm.loop !2647
 
 "_ZSt11__make_heapISt16reverse_iteratorIN9__gnu_cxx17__normal_iteratorIPN4entt6entityESt6vectorIS4_SaIS4_EEEEENS1_5__ops15_Iter_comp_iterIZNS3_14basic_registryIS4_S7_E4sortI8positionZN24Benchmark_SortMulti_Test8TestBodyEvE3$_0NS3_8std_sortEJEEEvT0_T1_DpOT2_EUlT_SK_E_EEEvSP_SP_RSK_.exit.i.i.thread": ; preds = %if.end.i.i.i
@@ -78395,7 +78395,7 @@ if.then5:                                         ; preds = %for.body
   br i1 %cmp9.i.i.i.i.i, label %for.body.i.i.i.i.i.preheader, label %for.inc
 
 for.body.i.i.i.i.i.preheader:                     ; preds = %if.then5
-  %min.iters.check = icmp ult i64 %sub.ptr.div.i.i.i.i.i.i, 8
+  %min.iters.check = icmp samesign ult i64 %sub.ptr.div.i.i.i.i.i.i, 8
   br i1 %min.iters.check, label %for.body.i.i.i.i.i, label %vector.ph
 
 vector.ph:                                        ; preds = %for.body.i.i.i.i.i.preheader
@@ -78588,7 +78588,7 @@ if.end.i.i.i:                                     ; preds = %if.then
   %4 = load i32, ptr %gep.i.i2, align 4, !tbaa !37
   store i64 %1, ptr %agg.tmp.i.i.i, align 8, !tbaa !55
   call fastcc void @"_ZSt13__adjust_heapISt16reverse_iteratorIN9__gnu_cxx17__normal_iteratorIPN4entt6entityESt6vectorIS4_SaIS4_EEEEElS4_NS1_5__ops15_Iter_comp_iterIZNS3_14basic_registryIS4_S7_E4sortI8positionZZN34Benchmark_AlmostSortedStdSort_Test8TestBodyEvENK3$_0clEvEUlRKT_RKT0_E_NS3_8std_sortEJEEEvSM_T1_DpOT2_EUlSJ_SM_E_EEEvSJ_SM_SM_SR_T2_"(ptr noundef nonnull %agg.tmp.i.i.i, i64 noundef %div2021.i.i.i, i64 noundef %sub.ptr.div.i.i.i.i.i, i32 noundef %4, ptr %__comp.coerce)
-  %cmp5.not.i.i.i14 = icmp ult i64 %sub.i.i.i, 2
+  %cmp5.not.i.i.i14 = icmp samesign ult i64 %sub.i.i.i, 2
   br i1 %cmp5.not.i.i.i14, label %"_ZSt11__make_heapISt16reverse_iteratorIN9__gnu_cxx17__normal_iteratorIPN4entt6entityESt6vectorIS4_SaIS4_EEEEENS1_5__ops15_Iter_comp_iterIZNS3_14basic_registryIS4_S7_E4sortI8positionZZN34Benchmark_AlmostSortedStdSort_Test8TestBodyEvENK3$_0clEvEUlRKT_RKT0_E_NS3_8std_sortEJEEEvSM_T1_DpOT2_EUlSJ_SM_E_EEEvSJ_SJ_RSM_.exit.i.i.thread", label %while.cond.i.i.i.split, !llvm.loop !2675
 
 "_ZSt11__make_heapISt16reverse_iteratorIN9__gnu_cxx17__normal_iteratorIPN4entt6entityESt6vectorIS4_SaIS4_EEEEENS1_5__ops15_Iter_comp_iterIZNS3_14basic_registryIS4_S7_E4sortI8positionZZN34Benchmark_AlmostSortedStdSort_Test8TestBodyEvENK3$_0clEvEUlRKT_RKT0_E_NS3_8std_sortEJEEEvSM_T1_DpOT2_EUlSJ_SM_E_EEEvSJ_SJ_RSM_.exit.i.i.thread": ; preds = %if.end.i.i.i
@@ -79126,7 +79126,7 @@ if.then5:                                         ; preds = %for.body
   br i1 %cmp9.i.i.i.i.i, label %for.body.i.i.i.i.i.preheader, label %for.inc
 
 for.body.i.i.i.i.i.preheader:                     ; preds = %if.then5
-  %min.iters.check = icmp ult i64 %sub.ptr.div.i.i.i.i.i.i, 8
+  %min.iters.check = icmp samesign ult i64 %sub.ptr.div.i.i.i.i.i.i, 8
   br i1 %min.iters.check, label %for.body.i.i.i.i.i, label %vector.ph
 
 vector.ph:                                        ; preds = %for.body.i.i.i.i.i.preheader

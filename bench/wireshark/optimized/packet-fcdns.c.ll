@@ -1231,7 +1231,7 @@ define internal fastcc void @dissect_fcdns_gfdid(ptr noundef %0, ptr noundef %1,
   %15 = tail call ptr @proto_tree_add_item(ptr noundef nonnull %1, i32 noundef %14, ptr noundef %0, i32 noundef %.022, i32 noundef %13, i32 noundef 0) #4
   %16 = add nsw i32 %.01821, -255
   %17 = add nuw i32 %.022, 256
-  %18 = icmp ugt i32 %.01821, 255
+  %18 = icmp samesign ugt i32 %.01821, 255
   br i1 %18, label %.lr.ph, label %.loopexit, !llvm.loop !4
 
 .loopexit:                                        ; preds = %.lr.ph, %9, %5, %3
@@ -1765,7 +1765,7 @@ define internal fastcc void @dissect_fcdns_rfdid(ptr noundef %0, ptr noundef %1,
   %14 = tail call ptr @proto_tree_add_item(ptr noundef %1, i32 noundef %12, ptr noundef %0, i32 noundef %13, i32 noundef %.021, i32 noundef 0) #4
   %15 = add nuw i32 %.01920, 256
   %16 = add nsw i32 %.021, -256
-  %17 = icmp ugt i32 %.021, 256
+  %17 = icmp samesign ugt i32 %.021, 256
   br i1 %17, label %.lr.ph, label %.loopexit, !llvm.loop !14
 
 .loopexit:                                        ; preds = %.lr.ph, %4, %3

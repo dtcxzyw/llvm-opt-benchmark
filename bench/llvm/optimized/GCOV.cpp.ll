@@ -4239,7 +4239,7 @@ _ZN4llvm15SmallVectorImplIcE5eraseEPKc.exit:      ; preds = %238, %241
 310:                                              ; preds = %286
   %311 = add i32 %300, 1
   %312 = zext i32 %311 to i64
-  %313 = icmp ult i64 %309, %312
+  %313 = icmp samesign ult i64 %309, %312
   br i1 %313, label %314, label %316
 
 314:                                              ; preds = %310
@@ -4248,7 +4248,7 @@ _ZN4llvm15SmallVectorImplIcE5eraseEPKc.exit:      ; preds = %238, %241
   br label %_ZNSt6vectorIS_IPKN4llvm12GCOVFunctionESaIS3_EESaIS5_EE6resizeEm.exit.i
 
 316:                                              ; preds = %310
-  %317 = icmp ugt i64 %309, %312
+  %317 = icmp samesign ugt i64 %309, %312
   br i1 %317, label %318, label %_ZNSt6vectorIS_IPKN4llvm12GCOVFunctionESaIS3_EESaIS5_EE6resizeEm.exit.i
 
 318:                                              ; preds = %316
@@ -4428,7 +4428,7 @@ _ZN4llvm11max_elementIRKNS_11SmallVectorIjLj4EEEEEDaOT_.exit.i: ; preds = %.lr.p
 390:                                              ; preds = %_ZN4llvm11max_elementIRKNS_11SmallVectorIjLj4EEEEEDaOT_.exit.i
   %391 = add i32 %384, 1
   %392 = zext i32 %391 to i64
-  %393 = icmp ult i64 %389, %392
+  %393 = icmp samesign ult i64 %389, %392
   br i1 %393, label %394, label %460
 
 394:                                              ; preds = %390
@@ -4610,7 +4610,7 @@ _ZNSt12_Vector_baseIN12_GLOBAL__N_18LineInfoESaIS1_EE13_M_deallocateEPS1_m.exit.
   br label %_ZNSt6vectorIN12_GLOBAL__N_18LineInfoESaIS1_EE6resizeEm.exit.i
 
 460:                                              ; preds = %390
-  %461 = icmp ugt i64 %389, %392
+  %461 = icmp samesign ugt i64 %389, %392
   br i1 %461, label %462, label %_ZNSt6vectorIN12_GLOBAL__N_18LineInfoESaIS1_EE6resizeEm.exit.i
 
 462:                                              ; preds = %460

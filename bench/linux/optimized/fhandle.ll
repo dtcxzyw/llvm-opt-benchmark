@@ -50,7 +50,7 @@ define internal fastcc range(i64 -2147483648, 2147483648) i64 @__se_sys_name_to_
   %18 = and i32 %17, 1
   %19 = lshr exact i32 %11, 8
   %20 = and i32 %19, 2
-  %21 = icmp ult i32 %11, 4096
+  %21 = icmp samesign ult i32 %11, 4096
   %22 = or disjoint i32 %18, 16384
   %23 = select i1 %21, i32 %18, i32 %22
   %24 = call i32 @user_path_at_empty(i32 noundef %16, ptr noundef %15, i32 noundef %23, ptr noundef nonnull %8, ptr noundef null) #8

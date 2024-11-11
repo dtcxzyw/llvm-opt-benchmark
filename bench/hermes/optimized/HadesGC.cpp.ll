@@ -1295,7 +1295,7 @@ for.end:                                          ; preds = %for.inc
   br i1 %cmp.i.i.i.i, label %land.lhs.true.i.i.i.i, label %cond.false.i.i.i.i
 
 land.lhs.true.i.i.i.i:                            ; preds = %for.end
-  %cmp2.i.i.i.i64 = icmp ult i64 %add.i.i.i.i60, 16
+  %cmp2.i.i.i.i64 = icmp samesign ult i64 %add.i.i.i.i60, 16
   br i1 %cmp2.i.i.i.i64, label %if.then.i.i.i.i65, label %cond.true.i.i.i.i
 
 if.then.i.i.i.i65:                                ; preds = %land.lhs.true.i.i.i.i
@@ -4767,7 +4767,7 @@ if.then.i110:                                     ; preds = %if.then75.critedge
   br label %if.end76
 
 if.else.i109:                                     ; preds = %if.then75.critedge
-  %cmp9.i = icmp ugt i64 %sub.i.i.i.i107, 20999999
+  %cmp9.i = icmp samesign ugt i64 %sub.i.i.i.i107, 20999999
   br i1 %cmp9.i, label %if.then10.i, label %if.end76
 
 if.then10.i:                                      ; preds = %if.else.i109
@@ -12269,7 +12269,7 @@ if.then:                                          ; preds = %entry
   br label %if.end17
 
 if.else:                                          ; preds = %entry
-  %cmp9 = icmp ugt i64 %sub.i.i.i, 20999999
+  %cmp9 = icmp samesign ugt i64 %sub.i.i.i, 20999999
   br i1 %cmp9, label %if.then10, label %if.end17
 
 if.then10:                                        ; preds = %if.else
@@ -12528,7 +12528,7 @@ entry:
   br i1 %cmp.i.i.i.i, label %land.lhs.true.i.i.i.i, label %cond.false.i.i.i.i
 
 land.lhs.true.i.i.i.i:                            ; preds = %entry
-  %cmp2.i.i.i.i = icmp ult i64 %add.i.i.i.i, 16
+  %cmp2.i.i.i.i = icmp samesign ult i64 %add.i.i.i.i, 16
   br i1 %cmp2.i.i.i.i, label %if.then.i.i.i.i, label %cond.true.i.i.i.i
 
 if.then.i.i.i.i:                                  ; preds = %land.lhs.true.i.i.i.i
@@ -19334,7 +19334,7 @@ cond.false.i.i.i.i.i.us:                          ; preds = %for.body.us
   br label %cond.end.i.i.i.i.i.us
 
 land.lhs.true.i.i.i.i.i.us:                       ; preds = %for.body.us
-  %cmp2.i.i.i.i.i.us = icmp ult i64 %add.i.i.i.i.i.us, 16
+  %cmp2.i.i.i.i.i.us = icmp samesign ult i64 %add.i.i.i.i.i.us, 16
   br i1 %cmp2.i.i.i.i.i.us, label %if.then.i.i.i.i.i.us, label %cond.true.i.i.i.i.i.us
 
 cond.true.i.i.i.i.i.us:                           ; preds = %land.lhs.true.i.i.i.i.i.us
@@ -19375,7 +19375,7 @@ for.body:                                         ; preds = %for.body.lr.ph, %_Z
   br i1 %cmp.i.i.i.i.i, label %land.lhs.true.i.i.i.i.i, label %cond.false.i.i.i.i.i
 
 land.lhs.true.i.i.i.i.i:                          ; preds = %for.body
-  %cmp2.i.i.i.i.i = icmp ult i64 %add.i.i.i.i.i, 16
+  %cmp2.i.i.i.i.i = icmp samesign ult i64 %add.i.i.i.i.i, 16
   br i1 %cmp2.i.i.i.i.i, label %if.then.i.i.i.i.i, label %cond.true.i.i.i.i.i
 
 if.then.i.i.i.i.i:                                ; preds = %land.lhs.true.i.i.i.i.i
@@ -20638,7 +20638,7 @@ for.end29:                                        ; preds = %for.inc27, %if.end2
   %endGCSmallHermesValue = getelementptr inbounds i8, ptr %offsets, i64 2
   %14 = load i8, ptr %endGCSmallHermesValue, align 1
   %conv3158 = zext i8 %14 to i64
-  %cmp3259 = icmp ult i64 %i.3, %conv3158
+  %cmp3259 = icmp samesign ult i64 %i.3, %conv3158
   br i1 %cmp3259, label %for.body33.lr.ph, label %for.end71
 
 for.body33.lr.ph:                                 ; preds = %for.end29
@@ -20680,7 +20680,7 @@ for.inc48:                                        ; preds = %if.then.i.i43, %if.
   %20 = phi i8 [ %.pre67, %if.then.i.i43 ], [ %15, %if.end47 ], [ %15, %for.body33 ]
   %inc49 = add nuw nsw i64 %i.460, 1
   %conv31 = zext i8 %20 to i64
-  %cmp32 = icmp ult i64 %inc49, %conv31
+  %cmp32 = icmp samesign ult i64 %inc49, %conv31
   br i1 %cmp32, label %for.body33, label %for.end71, !llvm.loop !290
 
 for.end71:                                        ; preds = %if.end42, %for.inc48, %for.end29
@@ -21741,7 +21741,7 @@ for.body:                                         ; preds = %for.body.lr.ph, %_Z
   br i1 %cmp.i.i.i.i.i, label %land.lhs.true.i.i.i.i.i, label %cond.false.i.i.i.i.i
 
 land.lhs.true.i.i.i.i.i:                          ; preds = %for.body
-  %cmp2.i.i.i.i.i = icmp ult i64 %add.i.i.i.i.i, 16
+  %cmp2.i.i.i.i.i = icmp samesign ult i64 %add.i.i.i.i.i, 16
   br i1 %cmp2.i.i.i.i.i, label %if.then.i.i.i.i.i, label %cond.true.i.i.i.i.i
 
 if.then.i.i.i.i.i:                                ; preds = %land.lhs.true.i.i.i.i.i
@@ -22948,7 +22948,7 @@ for.end29:                                        ; preds = %for.inc27, %if.end2
   %endGCSmallHermesValue = getelementptr inbounds i8, ptr %offsets, i64 2
   %22 = load i8, ptr %endGCSmallHermesValue, align 1
   %conv3154 = zext i8 %22 to i64
-  %cmp3255 = icmp ult i64 %i.3, %conv3154
+  %cmp3255 = icmp samesign ult i64 %i.3, %conv3154
   br i1 %cmp3255, label %for.body33.lr.ph, label %for.end71
 
 for.body33.lr.ph:                                 ; preds = %for.end29
@@ -22979,7 +22979,7 @@ for.inc48:                                        ; preds = %for.body33, %if.end
   %26 = phi i8 [ %23, %for.body33 ], [ %.pre63, %if.end47 ]
   %inc49 = add nuw nsw i64 %i.456, 1
   %conv31 = zext i8 %26 to i64
-  %cmp32 = icmp ult i64 %inc49, %conv31
+  %cmp32 = icmp samesign ult i64 %inc49, %conv31
   br i1 %cmp32, label %for.body33, label %for.end71, !llvm.loop !308
 
 for.end71:                                        ; preds = %if.end42, %for.inc48, %for.end29

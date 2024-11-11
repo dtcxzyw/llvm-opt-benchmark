@@ -933,7 +933,7 @@ _ZN4ncnn9ParamDict5clearEv.exit:                  ; preds = %28
 41:                                               ; preds = %38
   %42 = sub nuw nsw i32 -23300, %39
   store i32 %42, ptr %3, align 4
-  %43 = icmp ult i32 %39, -23331
+  %43 = icmp samesign ult i32 %39, -23331
   br i1 %43, label %45, label %49
 
 .thread:                                          ; preds = %38
@@ -1538,7 +1538,7 @@ _ZN4ncnn9ParamDict5clearEv.exit:                  ; preds = %26
 39:                                               ; preds = %37
   %40 = sub nuw nsw i32 -23300, %36
   store i32 %40, ptr %3, align 4
-  %41 = icmp ult i32 %36, -23331
+  %41 = icmp samesign ult i32 %36, -23331
   br i1 %41, label %43, label %47
 
 .thread:                                          ; preds = %37

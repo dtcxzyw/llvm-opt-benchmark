@@ -2798,7 +2798,7 @@ define internal range(i32 0, 2) i32 @dissect_biev_parameter(ptr noundef %0, ptr 
   br label %43
 
 28:                                               ; preds = %14
-  %29 = icmp ugt i32 %22, 2
+  %29 = icmp samesign ugt i32 %22, 2
   br i1 %29, label %30, label %43
 
 30:                                               ; preds = %28

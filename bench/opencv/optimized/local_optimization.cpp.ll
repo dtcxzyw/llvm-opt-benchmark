@@ -3428,8 +3428,8 @@ define linkonce_odr hidden void @_ZN2cv6detail7GCGraphIdE8addEdgesEiidd(ptr noun
 
 32:                                               ; preds = %15
   %33 = icmp sgt i32 %2, -1
-  %34 = icmp ult i32 %2, %23
-  %or.cond59 = and i1 %33, %34
+  %34 = icmp samesign ult i32 %2, %23
+  %or.cond59 = select i1 %33, i1 %34, i1 false
   br i1 %or.cond59, label %42, label %35
 
 35:                                               ; preds = %32

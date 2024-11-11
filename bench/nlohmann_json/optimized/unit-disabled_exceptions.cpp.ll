@@ -2265,7 +2265,7 @@ if.then58:                                        ; preds = %if.end56
   br label %sw.epilog249.sink.split
 
 if.else59:                                        ; preds = %if.end56
-  %cmp60 = icmp ult i32 %codepoint.1.i, 2048
+  %cmp60 = icmp samesign ult i32 %codepoint.1.i, 2048
   br i1 %cmp60, label %if.then61, label %if.else63
 
 if.then61:                                        ; preds = %if.else59
@@ -2279,7 +2279,7 @@ if.then61:                                        ; preds = %if.else59
   br label %sw.epilog249.sink.split
 
 if.else63:                                        ; preds = %if.else59
-  %cmp64 = icmp ult i32 %codepoint.1.i, 65536
+  %cmp64 = icmp samesign ult i32 %codepoint.1.i, 65536
   br i1 %cmp64, label %if.then65, label %if.else73
 
 if.then65:                                        ; preds = %if.else63
@@ -19821,7 +19821,7 @@ if.then58:                                        ; preds = %if.end56
   br label %sw.epilog249.sink.split
 
 if.else59:                                        ; preds = %if.end56
-  %cmp60 = icmp ult i32 %codepoint.1.i, 2048
+  %cmp60 = icmp samesign ult i32 %codepoint.1.i, 2048
   br i1 %cmp60, label %if.then61, label %if.else63
 
 if.then61:                                        ; preds = %if.else59
@@ -19835,7 +19835,7 @@ if.then61:                                        ; preds = %if.else59
   br label %sw.epilog249.sink.split
 
 if.else63:                                        ; preds = %if.else59
-  %cmp64 = icmp ult i32 %codepoint.1.i, 65536
+  %cmp64 = icmp samesign ult i32 %codepoint.1.i, 65536
   br i1 %cmp64, label %if.then65, label %if.else73
 
 if.then65:                                        ; preds = %if.else63

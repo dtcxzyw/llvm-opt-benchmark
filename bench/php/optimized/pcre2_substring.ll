@@ -335,7 +335,7 @@ define range(i32 -2147483648, 1) i32 @php_pcre2_substring_copy_bynumber(ptr noca
   %22 = getelementptr inbounds i8, ptr %0, i64 98
   %23 = load i16, ptr %22, align 2
   %24 = zext i16 %23 to i32
-  %.not42.i = icmp ult i32 %1, %24
+  %.not42.i = icmp samesign ult i32 %1, %24
   br i1 %.not42.i, label %25, label %php_pcre2_substring_length_bynumber.exit.thread
 
 25:                                               ; preds = %21
@@ -442,7 +442,7 @@ define range(i32 -2147483648, 1) i32 @php_pcre2_substring_length_bynumber(ptr no
   %21 = getelementptr inbounds i8, ptr %0, i64 98
   %22 = load i16, ptr %21, align 2
   %23 = zext i16 %22 to i32
-  %.not42 = icmp ult i32 %1, %23
+  %.not42 = icmp samesign ult i32 %1, %23
   br i1 %.not42, label %24, label %52
 
 24:                                               ; preds = %20
@@ -736,7 +736,7 @@ define range(i32 -2147483648, 1) i32 @php_pcre2_substring_get_bynumber(ptr nound
   %22 = getelementptr inbounds i8, ptr %0, i64 98
   %23 = load i16, ptr %22, align 2
   %24 = zext i16 %23 to i32
-  %.not42.i = icmp ult i32 %1, %24
+  %.not42.i = icmp samesign ult i32 %1, %24
   br i1 %.not42.i, label %25, label %php_pcre2_substring_length_bynumber.exit.thread
 
 25:                                               ; preds = %21

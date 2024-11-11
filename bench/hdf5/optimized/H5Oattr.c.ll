@@ -295,7 +295,7 @@ define internal ptr @H5O__attr_shared_decode(ptr noundef %0, ptr noundef %1, i32
   %110 = getelementptr inbounds i8, ptr %23, i64 48
   store i64 %109, ptr %110, align 8
   %111 = getelementptr inbounds i8, ptr %5, i64 8
-  %112 = icmp ugt i8 %42, 2
+  %112 = icmp samesign ugt i8 %42, 2
   br i1 %112, label %113, label %127
 
 113:                                              ; preds = %107

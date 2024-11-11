@@ -1006,7 +1006,7 @@ path_length.exit:                                 ; preds = %is_all_ascii.exit, 
   br i1 %245, label %dos_time.exit, label %246
 
 246:                                              ; preds = %217
-  %247 = icmp ugt i32 %244, 207
+  %247 = icmp samesign ugt i32 %244, 207
   br i1 %247, label %dos_time.exit, label %248
 
 248:                                              ; preds = %246
@@ -1281,7 +1281,7 @@ cd_alloc.exit:                                    ; preds = %353, %361, %368
   br i1 %417, label %dos_time.exit370, label %418
 
 418:                                              ; preds = %408
-  %419 = icmp ugt i32 %416, 207
+  %419 = icmp samesign ugt i32 %416, 207
   br i1 %419, label %dos_time.exit370, label %420
 
 420:                                              ; preds = %418

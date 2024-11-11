@@ -2990,7 +2990,7 @@ _ZSt22__uninitialized_move_aIPN2cv7GRunArgES2_SaIS1_EET0_T_S5_S4_RT1_.exit: ; pr
   %42 = getelementptr inbounds i8, ptr %.069.i.i.i.i.i, i64 -160
   %43 = tail call noundef nonnull align 8 dereferenceable(160) ptr @_ZN2cv7GRunArgaSEOS0_(ptr noundef nonnull align 8 dereferenceable(160) %42, ptr noundef nonnull align 8 dereferenceable(160) %41)
   %44 = add nsw i64 %.010.i.i.i.i.i, -1
-  %45 = icmp ugt i64 %.010.i.i.i.i.i, 1
+  %45 = icmp samesign ugt i64 %.010.i.i.i.i.i, 1
   br i1 %45, label %.lr.ph.i.i.i.i.i51, label %_ZSt13move_backwardIPN2cv7GRunArgES2_ET0_T_S4_S3_.exit, !llvm.loop !32
 
 _ZSt13move_backwardIPN2cv7GRunArgES2_ET0_T_S4_S3_.exit: ; preds = %.lr.ph.i.i.i.i.i51, %_ZSt22__uninitialized_move_aIPN2cv7GRunArgES2_SaIS1_EET0_T_S5_S4_RT1_.exit
@@ -3009,7 +3009,7 @@ _ZSt13move_backwardIPN2cv7GRunArgES2_ET0_T_S4_S3_.exit: ; preds = %.lr.ph.i.i.i.
   %49 = getelementptr inbounds i8, ptr %.0910.i.i.i.i.i, i64 160
   %50 = getelementptr inbounds i8, ptr %.0811.i.i.i.i.i, i64 160
   %51 = add nsw i64 %.012.i.i.i.i.i, -1
-  %52 = icmp ugt i64 %.012.i.i.i.i.i, 1
+  %52 = icmp samesign ugt i64 %.012.i.i.i.i.i, 1
   br i1 %52, label %.lr.ph.i.i.i.i.i53, label %_ZSt4copyIN9__gnu_cxx17__normal_iteratorIPKN2cv7GRunArgESt6vectorIS3_SaIS3_EEEENS1_IPS3_S8_EEET0_T_SD_SC_.exit, !llvm.loop !33
 
 _ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPKN2cv7GRunArgESt6vectorIS3_SaIS3_EEEEmEvRT_T0_.exit: ; preds = %17
@@ -3132,7 +3132,7 @@ _ZSt22__uninitialized_move_aIPN2cv7GRunArgES2_SaIS1_EET0_T_S5_S4_RT1_.exit62: ; 
   %86 = getelementptr inbounds i8, ptr %.0910.i.i.i.i.i68, i64 160
   %87 = getelementptr inbounds i8, ptr %.0811.i.i.i.i.i67, i64 160
   %88 = add nsw i64 %.012.i.i.i.i.i66, -1
-  %89 = icmp ugt i64 %.012.i.i.i.i.i66, 1
+  %89 = icmp samesign ugt i64 %.012.i.i.i.i.i66, 1
   br i1 %89, label %.lr.ph.i.i.i.i.i65, label %_ZSt4copyIN9__gnu_cxx17__normal_iteratorIPKN2cv7GRunArgESt6vectorIS3_SaIS3_EEEENS1_IPS3_S8_EEET0_T_SD_SC_.exit, !llvm.loop !33
 
 90:                                               ; preds = %5

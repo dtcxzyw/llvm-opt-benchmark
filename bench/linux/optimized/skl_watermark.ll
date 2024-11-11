@@ -2038,7 +2038,7 @@ define dso_local void @skl_wm_init(ptr noundef %0) local_unnamed_addr #0 align 1
   br label %73
 
 44:                                               ; preds = %35
-  %45 = icmp ugt i16 %36, 11
+  %45 = icmp samesign ugt i16 %36, 11
   br i1 %45, label %46, label %61
 
 46:                                               ; preds = %44
@@ -2077,7 +2077,7 @@ define dso_local void @skl_wm_init(ptr noundef %0) local_unnamed_addr #0 align 1
   br i1 %62, label %73, label %63
 
 63:                                               ; preds = %61
-  %64 = icmp ugt i16 %36, 8
+  %64 = icmp samesign ugt i16 %36, 8
   br i1 %64, label %65, label %72
 
 65:                                               ; preds = %63
@@ -2312,7 +2312,7 @@ define dso_local void @skl_wm_init(ptr noundef %0) local_unnamed_addr #0 align 1
   br label %325
 
 216:                                              ; preds = %136
-  %217 = icmp ugt i16 %113, 11
+  %217 = icmp samesign ugt i16 %113, 11
   %218 = getelementptr i8, ptr %0, i64 7188
   %219 = load i32, ptr %218, align 4
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %2) #15
@@ -2737,7 +2737,7 @@ define dso_local void @intel_mbus_dbox_update(ptr noundef %0) local_unnamed_addr
   br i1 %28, label %41, label %29
 
 29:                                               ; preds = %26
-  %30 = icmp ugt i16 %27, 11
+  %30 = icmp samesign ugt i16 %27, 11
   %31 = select i1 %30, i32 16973824, i32 0
   %32 = getelementptr i8, ptr %3, i64 7188
   %33 = load i32, ptr %32, align 4
@@ -2940,7 +2940,7 @@ define dso_local range(i32 0, 65540) i32 @skl_watermark_max_latency(ptr nocaptur
   br i1 %17, label %.thread.split.loop.exit1, label %.thread.split.loop.exit
 
 .backedge:                                        ; preds = %.lr.ph
-  %18 = icmp ugt i64 %.in, 1
+  %18 = icmp samesign ugt i64 %.in, 1
   br i1 %18, label %.lr.ph, label %.thread, !llvm.loop !64
 
 .thread.split.loop.exit:                          ; preds = %15
@@ -3536,7 +3536,7 @@ select.unfold:                                    ; preds = %279, %275
   br i1 %.not, label %.thread127, label %297
 
 .thread127:                                       ; preds = %.thread125, %268
-  %296 = icmp ugt i64 %269, 1
+  %296 = icmp samesign ugt i64 %269, 1
   br i1 %296, label %268, label %.thread131, !llvm.loop !80
 
 297:                                              ; preds = %.thread125
@@ -5247,7 +5247,7 @@ mbus_ddb_offset.exit:                             ; preds = %628, %661, %664
   br i1 %1444, label %.loopexit195, label %1428, !llvm.loop !128
 
 1445:                                             ; preds = %1415
-  %1446 = icmp ugt i16 %1417, 8
+  %1446 = icmp samesign ugt i16 %1417, 8
   br i1 %1446, label %1447, label %.loopexit194
 
 1447:                                             ; preds = %1445
@@ -7563,7 +7563,7 @@ define internal fastcc noundef range(i32 -22, 1) i32 @skl_compute_wm_params(ptr 
   %91 = add nsw i64 %90, -1
   %92 = add nuw nsw i64 %91, %89
   %93 = udiv i64 %92, %90
-  %94 = icmp ugt i64 %93, 4294967295
+  %94 = icmp samesign ugt i64 %93, 4294967295
   br i1 %94, label %95, label %96, !prof !11
 
 95:                                               ; preds = %77
@@ -7598,7 +7598,7 @@ define internal fastcc noundef range(i32 -22, 1) i32 @skl_compute_wm_params(ptr 
 110:                                              ; preds = %108, %105
   %111 = phi i32 [ %109, %108 ], [ %102, %105 ]
   %112 = getelementptr inbounds i8, ptr %6, i64 24
-  %113 = icmp ugt i32 %111, 65535
+  %113 = icmp samesign ugt i32 %111, 65535
   br i1 %113, label %114, label %115, !prof !11
 
 114:                                              ; preds = %110
@@ -7675,7 +7675,7 @@ define internal fastcc noundef range(i32 -22, 1) i32 @skl_compute_wm_params(ptr 
   %153 = add nsw i64 %152, -1
   %154 = add nuw nsw i64 %153, %151
   %155 = udiv i64 %154, %152
-  %156 = icmp ugt i64 %155, 4294967295
+  %156 = icmp samesign ugt i64 %155, 4294967295
   br i1 %156, label %157, label %158, !prof !11
 
 157:                                              ; preds = %147
@@ -7984,7 +7984,7 @@ thread-pre-split:                                 ; preds = %79, %91, %95
 .thread10.thread:                                 ; preds = %152, %144, %133, %123, %127
   %.ph15 = phi i32 [ %132, %127 ], [ %116, %123 ], [ %116, %133 ], [ %151, %144 ], [ %116, %152 ]
   %.ph16 = phi i32 [ %119, %127 ], [ %119, %123 ], [ %119, %133 ], [ %145, %144 ], [ %119, %152 ]
-  %177 = icmp ugt i16 %.pre1113, 9
+  %177 = icmp samesign ugt i16 %.pre1113, 9
   %178 = or i1 %29, %177
   %179 = select i1 %178, i32 %.ph16, i32 0
   br label %186

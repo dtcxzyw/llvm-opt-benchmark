@@ -2007,7 +2007,7 @@ if.then.i.i47:                                    ; preds = %invoke.cont12
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit51: ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i48, %if.then.i.i47
   call void @_ZNSaIcED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp6) #32
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp8) #32
-  %cmp17 = icmp ugt i32 %argc, 3
+  %cmp17 = icmp samesign ugt i32 %argc, 3
   br i1 %cmp17, label %if.then18, label %if.end82
 
 if.then18:                                        ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit51
@@ -2123,7 +2123,7 @@ if.end:                                           ; preds = %_ZNSt7__cxx1112basi
   %34 = load i64, ptr getelementptr inbounds (i8, ptr @config, i64 32), align 8
   %call.i.i.i77 = call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %33) #32
   %call3.i.i = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE10_M_replaceEmmPKcm(ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds (i8, ptr @config, i64 24), i64 noundef 0, i64 noundef %34, ptr noundef %33, i64 noundef %call.i.i.i77)
-  %cmp38 = icmp ugt i32 %argc, 5
+  %cmp38 = icmp samesign ugt i32 %argc, 5
   br i1 %cmp38, label %if.end42, label %if.end82
 
 if.end42:                                         ; preds = %if.end
@@ -2248,7 +2248,7 @@ if.then.i.i100:                                   ; preds = %invoke.cont57
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit104: ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i101, %if.then.i.i100
   call void @_ZNSaIcED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp51) #32
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp53) #32
-  %cmp62 = icmp ugt i32 %argc, 8
+  %cmp62 = icmp samesign ugt i32 %argc, 8
   br i1 %cmp62, label %if.then63, label %if.end82
 
 if.then63:                                        ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit104
@@ -3730,7 +3730,7 @@ for.body22:                                       ; preds = %for.cond19.preheade
   br i1 %cmp.i.i.i.i, label %land.lhs.true.i.i.i.i, label %cond.false.i.i.i.i
 
 land.lhs.true.i.i.i.i:                            ; preds = %for.body22
-  %cmp2.i.i.i.i = icmp ult i64 %add.i.i.i.i, 32
+  %cmp2.i.i.i.i = icmp samesign ult i64 %add.i.i.i.i, 32
   br i1 %cmp2.i.i.i.i, label %if.then.i.i.i.i, label %cond.true.i.i.i.i
 
 if.then.i.i.i.i:                                  ; preds = %land.lhs.true.i.i.i.i
@@ -4405,7 +4405,7 @@ if.end:                                           ; preds = %_ZNSt6futureIvED2Ev
   br i1 %cmp.i.i.i.i84, label %land.lhs.true.i.i.i.i94, label %cond.false.i.i.i.i85
 
 land.lhs.true.i.i.i.i94:                          ; preds = %if.end
-  %cmp2.i.i.i.i95 = icmp ult i64 %sub.ptr.div.i.i.i.i82, 32
+  %cmp2.i.i.i.i95 = icmp samesign ult i64 %sub.ptr.div.i.i.i.i82, 32
   br i1 %cmp2.i.i.i.i95, label %_ZNSt5dequeIN4asio10io_contextESaIS1_EEixEm.exit100, label %cond.true.i.i.i.i96
 
 cond.true.i.i.i.i96:                              ; preds = %land.lhs.true.i.i.i.i94
@@ -4470,7 +4470,7 @@ invoke.cont67:                                    ; preds = %_ZNSt5dequeIN4asio1
   br i1 %cmp.i.i.i.i111, label %land.lhs.true.i.i.i.i121, label %cond.false.i.i.i.i112
 
 land.lhs.true.i.i.i.i121:                         ; preds = %invoke.cont67
-  %cmp2.i.i.i.i122 = icmp ult i64 %sub.ptr.div.i.i.i.i109, 32
+  %cmp2.i.i.i.i122 = icmp samesign ult i64 %sub.ptr.div.i.i.i.i109, 32
   br i1 %cmp2.i.i.i.i122, label %_ZNSt5dequeIN4asio10io_contextESaIS1_EEixEm.exit127, label %cond.true.i.i.i.i123
 
 cond.true.i.i.i.i123:                             ; preds = %land.lhs.true.i.i.i.i121
@@ -34181,7 +34181,7 @@ entry:
   br i1 %cmp.i.i.i.i, label %land.lhs.true.i.i.i.i, label %cond.false.i.i.i.i
 
 land.lhs.true.i.i.i.i:                            ; preds = %entry
-  %cmp2.i.i.i.i = icmp ult i64 %add.i.i.i.i, 32
+  %cmp2.i.i.i.i = icmp samesign ult i64 %add.i.i.i.i, 32
   br i1 %cmp2.i.i.i.i, label %if.then.i.i.i.i, label %cond.true.i.i.i.i
 
 if.then.i.i.i.i:                                  ; preds = %land.lhs.true.i.i.i.i
@@ -34229,7 +34229,7 @@ _ZNSt5dequeIN4asio10io_contextESaIS1_EEixEm.exit: ; preds = %if.then.i.i.i.i, %c
   br i1 %cmp.i.i.i.i9, label %land.lhs.true.i.i.i.i19, label %cond.false.i.i.i.i10
 
 land.lhs.true.i.i.i.i19:                          ; preds = %_ZNSt5dequeIN4asio10io_contextESaIS1_EEixEm.exit
-  %cmp2.i.i.i.i20 = icmp ult i64 %add.i.i.i.i8, 32
+  %cmp2.i.i.i.i20 = icmp samesign ult i64 %add.i.i.i.i8, 32
   br i1 %cmp2.i.i.i.i20, label %if.then.i.i.i.i23, label %cond.true.i.i.i.i21
 
 if.then.i.i.i.i23:                                ; preds = %land.lhs.true.i.i.i.i19
@@ -34817,7 +34817,7 @@ if.else.i:                                        ; preds = %if.then.i
 if.else20.i:                                      ; preds = %if.else.i
   %sub.i.i26.i = sub nuw nsw i64 9223372036854775807, %retval.sroa.0.0.copyload.i.i.i
   %sub.i.i29.i = sub nsw i64 0, %call.i
-  %cmp.i30.i = icmp ult i64 %sub.i.i26.i, %sub.i.i29.i
+  %cmp.i30.i = icmp samesign ult i64 %sub.i.i26.i, %sub.i.i29.i
   %sub.i.i33.i = sub nsw i64 %retval.sroa.0.0.copyload.i.i.i, %call.i
   br i1 %cmp.i30.i, label %if.end5.i, label %if.end.i
 
@@ -34834,7 +34834,7 @@ _ZN4asio6detail18chrono_time_traitsINSt6chrono3_V212steady_clockENS_11wait_trait
 
 if.end.i:                                         ; preds = %if.else43.i, %if.else20.i, %_ZN4asio6detail18chrono_time_traitsINSt6chrono3_V212steady_clockENS_11wait_traitsIS4_EEE8subtractERKNS2_10time_pointIS4_NS2_8durationIlSt5ratioILl1ELl1000000000EEEEEESF_.exit
   %retval.sroa.0.0.i9 = phi i64 [ %retval.sroa.0.0.i.old, %_ZN4asio6detail18chrono_time_traitsINSt6chrono3_V212steady_clockENS_11wait_traitsIS4_EEE8subtractERKNS2_10time_pointIS4_NS2_8durationIlSt5ratioILl1ELl1000000000EEEEEESF_.exit ], [ %sub.i.i33.i, %if.else20.i ], [ %retval.sroa.0.0.i, %if.else43.i ]
-  %cmp3.i = icmp ult i64 %retval.sroa.0.0.i9, 1000000
+  %cmp3.i = icmp samesign ult i64 %retval.sroa.0.0.i9, 1000000
   br i1 %cmp3.i, label %return, label %if.end5.i
 
 if.end5.i:                                        ; preds = %if.else20.i, %if.else.i, %if.end.i
@@ -34875,7 +34875,7 @@ if.else.i:                                        ; preds = %if.then.i
 if.else20.i:                                      ; preds = %if.else.i
   %sub.i.i26.i = sub nuw nsw i64 9223372036854775807, %retval.sroa.0.0.copyload.i.i.i
   %sub.i.i29.i = sub nsw i64 0, %call.i
-  %cmp.i30.i = icmp ult i64 %sub.i.i26.i, %sub.i.i29.i
+  %cmp.i30.i = icmp samesign ult i64 %sub.i.i26.i, %sub.i.i29.i
   %sub.i.i33.i = sub nsw i64 %retval.sroa.0.0.copyload.i.i.i, %call.i
   br i1 %cmp.i30.i, label %if.end5.i, label %if.end.i
 
@@ -34892,7 +34892,7 @@ _ZN4asio6detail18chrono_time_traitsINSt6chrono3_V212steady_clockENS_11wait_trait
 
 if.end.i:                                         ; preds = %if.else43.i, %if.else20.i, %_ZN4asio6detail18chrono_time_traitsINSt6chrono3_V212steady_clockENS_11wait_traitsIS4_EEE8subtractERKNS2_10time_pointIS4_NS2_8durationIlSt5ratioILl1ELl1000000000EEEEEESF_.exit
   %retval.sroa.0.0.i9 = phi i64 [ %retval.sroa.0.0.i.old, %_ZN4asio6detail18chrono_time_traitsINSt6chrono3_V212steady_clockENS_11wait_traitsIS4_EEE8subtractERKNS2_10time_pointIS4_NS2_8durationIlSt5ratioILl1ELl1000000000EEEEEESF_.exit ], [ %sub.i.i33.i, %if.else20.i ], [ %retval.sroa.0.0.i, %if.else43.i ]
-  %cmp3.i = icmp ult i64 %retval.sroa.0.0.i9, 1000
+  %cmp3.i = icmp samesign ult i64 %retval.sroa.0.0.i9, 1000
   br i1 %cmp3.i, label %return, label %if.end5.i
 
 if.end5.i:                                        ; preds = %if.else20.i, %if.else.i, %if.end.i

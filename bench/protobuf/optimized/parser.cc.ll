@@ -3722,7 +3722,7 @@ call.i.i.i.noexc:                                 ; preds = %call2.i.i.noexc
 
 if.then.i.i.i:                                    ; preds = %call.i.i.i.noexc
   %8 = load ptr, ptr %data.i.i.i, align 8
-  %cmp.i.i.i.i = icmp ugt i32 %6, 16
+  %cmp.i.i.i.i = icmp samesign ugt i32 %6, 16
   %idx.ext.i.i.i.i = zext nneg i32 %6 to i64
   %add.ptr.i.i.i.i = getelementptr inbounds i8, ptr %8, i64 %idx.ext.i.i.i.i
   %add.ptr2.i.i.i.i = getelementptr inbounds i8, ptr %add.ptr.i.i.i.i, i64 -16
@@ -15775,7 +15775,7 @@ if.end:                                           ; preds = %if.then
   br label %if.end27
 
 if.else:                                          ; preds = %entry
-  %cmp5 = icmp ugt i64 %len, 8
+  %cmp5 = icmp samesign ugt i64 %len, 8
   br i1 %cmp5, label %if.then6, label %if.else14
 
 if.then6:                                         ; preds = %if.else
@@ -15796,7 +15796,7 @@ if.then6:                                         ; preds = %if.else
   br label %return
 
 if.else14:                                        ; preds = %if.else
-  %cmp15 = icmp ugt i64 %len, 3
+  %cmp15 = icmp samesign ugt i64 %len, 3
   br i1 %cmp15, label %if.then16, label %if.else18
 
 if.then16:                                        ; preds = %if.else14
@@ -21662,7 +21662,7 @@ call.i.i.i31.noexc.i.i.i.i:                       ; preds = %call2.i.i.noexc.i.i
 
 if.then.i.i.i33.i.i.i.i:                          ; preds = %call.i.i.i31.noexc.i.i.i.i
   %50 = load ptr, ptr %data.i.i.i.i.i.i.i, align 8, !noalias !430
-  %cmp.i.i.i.i34.i.i.i.i = icmp ugt i32 %48, 16
+  %cmp.i.i.i.i34.i.i.i.i = icmp samesign ugt i32 %48, 16
   %idx.ext.i.i.i.i.i.i.i.i = zext nneg i32 %48 to i64
   %add.ptr.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %50, i64 %idx.ext.i.i.i.i.i.i.i.i
   %add.ptr2.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %add.ptr.i.i.i.i.i.i.i.i, i64 -16
@@ -23485,7 +23485,7 @@ call.i.i.i31.noexc.i:                             ; preds = %call2.i.i.noexc.i
 
 if.then.i.i.i33.i:                                ; preds = %call.i.i.i31.noexc.i
   %311 = load ptr, ptr %data.i.i.i.i, align 8, !noalias !452
-  %cmp.i.i.i.i34.i = icmp ugt i32 %309, 16
+  %cmp.i.i.i.i34.i = icmp samesign ugt i32 %309, 16
   %idx.ext.i.i.i.i.i = zext nneg i32 %309 to i64
   %add.ptr.i.i.i.i.i = getelementptr inbounds i8, ptr %311, i64 %idx.ext.i.i.i.i.i
   %add.ptr2.i.i.i.i.i = getelementptr inbounds i8, ptr %add.ptr.i.i.i.i.i, i64 -16
@@ -25254,7 +25254,7 @@ call.i.i.i31.noexc.i:                             ; preds = %call2.i.i.noexc.i
 
 if.then.i.i.i33.i:                                ; preds = %call.i.i.i31.noexc.i
   %28 = load ptr, ptr %data.i.i.i.i, align 8, !noalias !492
-  %cmp.i.i.i.i34.i = icmp ugt i32 %26, 16
+  %cmp.i.i.i.i34.i = icmp samesign ugt i32 %26, 16
   %idx.ext.i.i.i.i.i = zext nneg i32 %26 to i64
   %add.ptr.i.i.i.i.i = getelementptr inbounds i8, ptr %28, i64 %idx.ext.i.i.i.i.i
   %add.ptr2.i.i.i.i.i = getelementptr inbounds i8, ptr %add.ptr.i.i.i.i.i, i64 -16
@@ -26618,7 +26618,7 @@ call.i.i.i.noexc:                                 ; preds = %call2.i.i.noexc
 
 if.then.i.i.i11:                                  ; preds = %call.i.i.i.noexc
   %31 = load ptr, ptr %data.i.i.i, align 8, !noalias !559
-  %cmp.i.i.i.i12 = icmp ugt i32 %29, 16
+  %cmp.i.i.i.i12 = icmp samesign ugt i32 %29, 16
   %idx.ext.i.i.i.i = zext nneg i32 %29 to i64
   %add.ptr.i.i.i.i13 = getelementptr inbounds i8, ptr %31, i64 %idx.ext.i.i.i.i
   %add.ptr2.i.i.i.i = getelementptr inbounds i8, ptr %add.ptr.i.i.i.i13, i64 -16
@@ -26952,7 +26952,7 @@ call.i.i.i.noexc:                                 ; preds = %call2.i.i.noexc
 
 if.then.i.i.i11:                                  ; preds = %call.i.i.i.noexc
   %31 = load ptr, ptr %data.i.i.i, align 8, !noalias !574
-  %cmp.i.i.i.i12 = icmp ugt i32 %29, 16
+  %cmp.i.i.i.i12 = icmp samesign ugt i32 %29, 16
   %idx.ext.i.i.i.i = zext nneg i32 %29 to i64
   %add.ptr.i.i.i.i13 = getelementptr inbounds i8, ptr %31, i64 %idx.ext.i.i.i.i
   %add.ptr2.i.i.i.i = getelementptr inbounds i8, ptr %add.ptr.i.i.i.i13, i64 -16
@@ -27793,7 +27793,7 @@ call.i.i.i31.noexc.i.i:                           ; preds = %call2.i.i.noexc.i.i
 
 if.then.i.i.i33.i.i:                              ; preds = %call.i.i.i31.noexc.i.i
   %94 = load ptr, ptr %data.i.i.i.i.i, align 8, !noalias !613
-  %cmp.i.i.i.i34.i.i = icmp ugt i32 %92, 16
+  %cmp.i.i.i.i34.i.i = icmp samesign ugt i32 %92, 16
   %idx.ext.i.i.i.i.i.i = zext nneg i32 %92 to i64
   %add.ptr.i.i.i.i.i.i = getelementptr inbounds i8, ptr %94, i64 %idx.ext.i.i.i.i.i.i
   %add.ptr2.i.i.i.i.i.i = getelementptr inbounds i8, ptr %add.ptr.i.i.i.i.i.i, i64 -16
@@ -30320,7 +30320,7 @@ call.i.i.i31.noexc._ZN4absl12lts_202308026StatusD2Ev.exit42_crit_edge.i.i.i.i.i:
 
 if.then.i.i.i33.i.i.i.i.i:                        ; preds = %call.i.i.i31.noexc.i.i.i.i.i
   %91 = load ptr, ptr %data.i.i.i.i.i.i.i.i, align 8, !noalias !657
-  %cmp.i.i.i.i34.i.i.i.i.i = icmp ugt i32 %89, 16
+  %cmp.i.i.i.i34.i.i.i.i.i = icmp samesign ugt i32 %89, 16
   %idx.ext.i.i.i.i.i.i.i.i.i = zext nneg i32 %89 to i64
   %add.ptr.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %91, i64 %idx.ext.i.i.i.i.i.i.i.i.i
   %add.ptr2.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %add.ptr.i.i.i.i.i.i.i.i.i, i64 -16

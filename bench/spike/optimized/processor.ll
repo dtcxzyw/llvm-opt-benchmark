@@ -2316,7 +2316,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7_S_copyEPcPKcm.exit27.i: ;
   br i1 %22, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i63, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i62
 
 _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i63: ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7_S_copyEPcPKcm.exit27.i
-  %39 = icmp ult i64 %19, 16
+  %39 = icmp samesign ult i64 %19, 16
   call void @llvm.assume(i1 %39)
   br label %.noexc.i
 
@@ -134711,7 +134711,7 @@ _ZNSt6vectorISt4pairImmESaIS1_EEC2INSt8__detail14_Node_iteratorIS0_IKmmELb0ELb0E
   %42 = getelementptr inbounds i8, ptr %.069.i.i.i.i.i.i.i.i.i, i64 -8
   store i64 %41, ptr %42, align 8
   %43 = add nsw i64 %.010.i.i.i.i.i.i.i.i.i, -1
-  %44 = icmp ugt i64 %.010.i.i.i.i.i.i.i.i.i, 1
+  %44 = icmp samesign ugt i64 %.010.i.i.i.i.i.i.i.i.i, 1
   br i1 %44, label %.lr.ph.i.i.i.i.i.i.i.i.i, label %_ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPSt4pairImmESt6vectorIS3_SaIS3_EEEES8_ET0_T_SA_S9_.exit.i.i.i.i, !llvm.loop !21
 
 _ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPSt4pairImmESt6vectorIS3_SaIS3_EEEES8_ET0_T_SA_S9_.exit.i.i.i.i: ; preds = %.lr.ph.i.i.i.i.i.i.i.i.i
@@ -134832,7 +134832,7 @@ _ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPSt4pairImmESt6vectorIS3_SaIS
   %84 = getelementptr inbounds i8, ptr %.069.i.i.i.i.i.i40.i.i.i, i64 -8
   store i64 %83, ptr %84, align 8
   %85 = add nsw i64 %.010.i.i.i.i.i.i39.i.i.i, -1
-  %86 = icmp ugt i64 %.010.i.i.i.i.i.i39.i.i.i, 1
+  %86 = icmp samesign ugt i64 %.010.i.i.i.i.i.i39.i.i.i, 1
   br i1 %86, label %.lr.ph.i.i.i.i.i.i38.i.i.i, label %_ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPSt4pairImmESt6vectorIS3_SaIS3_EEEES8_ET0_T_SA_S9_.exit.i36.i.i.i, !llvm.loop !21
 
 _ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPSt4pairImmESt6vectorIS3_SaIS3_EEEES8_ET0_T_SA_S9_.exit.i36.i.i.i: ; preds = %.lr.ph.i.i.i.i.i.i38.i.i.i, %73
@@ -183307,7 +183307,7 @@ define void @_ZN11processor_t14take_interruptEm(ptr noundef nonnull align 8 dere
   br label %112
 
 95:                                               ; preds = %92
-  %.not47 = icmp ult i64 %.0, 2048
+  %.not47 = icmp samesign ult i64 %.0, 2048
   br i1 %.not47, label %96, label %112
 
 96:                                               ; preds = %95
@@ -183336,7 +183336,7 @@ define void @_ZN11processor_t14take_interruptEm(ptr noundef nonnull align 8 dere
   br i1 %.not52, label %106, label %112
 
 106:                                              ; preds = %104
-  %.not53 = icmp ult i64 %.0, 1024
+  %.not53 = icmp samesign ult i64 %.0, 1024
   br i1 %.not53, label %107, label %112
 
 107:                                              ; preds = %106

@@ -3339,7 +3339,7 @@ dissect_rtcp_app_poc1.exit.i:                     ; preds = %688, %.loopexit.i.i
   %869 = add i32 %.3298.i.i, 4
   %870 = add nsw i32 %.1251297.i.i, -4
   %871 = add nuw nsw i32 %.0252296.i.i, 1
-  %872 = icmp ugt i32 %.1251297.i.i, 4
+  %872 = icmp samesign ugt i32 %.1251297.i.i, 4
   br i1 %872, label %.preheader.i.i, label %.loopexit.i173.i, !llvm.loop !12
 
 873:                                              ; preds = %767
@@ -3884,7 +3884,7 @@ dissect_rtcp_app.exit:                            ; preds = %dissect_rtcp_app_po
 
 parse_xr_type_specific_field.exit.i:              ; preds = %1168, %1167, %1161
   %.0492.i = phi i32 [ 0, %1168 ], [ 0, %1167 ], [ %1166, %1161 ]
-  %1171 = icmp ugt i32 %.1469509.i, 3
+  %1171 = icmp samesign ugt i32 %.1469509.i, 3
   br i1 %1171, label %1172, label %validate_xr_block_length.exit.i
 
 1172:                                             ; preds = %parse_xr_type_specific_field.exit.i
@@ -3935,7 +3935,7 @@ validate_xr_block_length.exit.i:                  ; preds = %.sink.split.i.i390,
   %1188 = load ptr, ptr %10, align 8
   %1189 = add nuw nsw i32 %.0471.i, 4
   call void @proto_item_set_len(ptr noundef %1188, i32 noundef %1189) #7
-  %1190 = icmp ugt i32 %.0471.i, %.1469509.i
+  %1190 = icmp samesign ugt i32 %.0471.i, %.1469509.i
   br i1 %1190, label %1191, label %1194
 
 1191:                                             ; preds = %validate_xr_block_length.exit.i
@@ -4281,7 +4281,7 @@ validate_xr_block_length.exit.i:                  ; preds = %.sink.split.i.i390,
   br i1 %.not487.i, label %1432, label %1437
 
 1432:                                             ; preds = %1431
-  %.not488.i = icmp ult i16 %1425, 16384
+  %.not488.i = icmp samesign ult i16 %1425, 16384
   %1433 = select i1 %.not488.i, ptr @.str.929, ptr @.str.928
   %1434 = and i32 %1426, 16383
   %1435 = load i32, ptr @hf_rtcp_xr_chunk_length, align 4

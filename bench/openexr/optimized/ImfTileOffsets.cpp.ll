@@ -1021,7 +1021,7 @@ lpad40:                                           ; preds = %if.then38
 
 if.end42:                                         ; preds = %if.else
   call void @llvm.lifetime.start.p0(i64 1024, ptr nonnull %c.i59)
-  %cmp9.i60 = icmp ugt i32 %30, 1023
+  %cmp9.i60 = icmp samesign ugt i32 %30, 1023
   br i1 %cmp9.i60, label %while.body.i68, label %while.end.i61
 
 while.body.i68:                                   ; preds = %if.end42, %if.end.i73

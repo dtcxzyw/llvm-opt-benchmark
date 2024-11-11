@@ -225,7 +225,7 @@ define noundef i16 @"_ZN9softposit5p16e14math7acos_pi41_$LT$impl$u20$softposit..
   br i1 %9, label %44, label %42
 
 10:                                               ; preds = %6
-  %11 = icmp ult i16 %0, 8192
+  %11 = icmp samesign ult i16 %0, 8192
   br i1 %11, label %.lr.ph.i, label %_ZN9softposit5p16e14math7acos_pi18to_fixed28_acos_pi17hef468dc48a093872E.exit
 
 .lr.ph.i:                                         ; preds = %10, %.lr.ph.i
@@ -272,7 +272,7 @@ _ZN9softposit5p16e14math7acos_pi18to_fixed28_acos_pi17hef468dc48a093872E.exit: ;
   br label %139
 
 42:                                               ; preds = %8
-  %43 = icmp ugt i16 %0, -12288
+  %43 = icmp samesign ugt i16 %0, -12288
   br i1 %43, label %105, label %74
 
 44:                                               ; preds = %8
@@ -1019,7 +1019,7 @@ define noundef i16 @"_ZN9softposit5p16e14math4ceil41_$LT$impl$u20$softposit..p16
 
 5:                                                ; preds = %1
   %6 = sub nsw i16 0, %0
-  %7 = icmp ult i16 %6, 16385
+  %7 = icmp samesign ult i16 %6, 16385
   br i1 %7, label %16, label %14
 
 8:                                                ; preds = %3
@@ -1036,7 +1036,7 @@ define noundef i16 @"_ZN9softposit5p16e14math4ceil41_$LT$impl$u20$softposit..p16
   br i1 %13, label %22, label %18
 
 14:                                               ; preds = %5
-  %15 = icmp ult i16 %6, 20481
+  %15 = icmp samesign ult i16 %6, 20481
   br i1 %15, label %17, label %12
 
 16:                                               ; preds = %5
@@ -1312,7 +1312,7 @@ define noundef i16 @"_ZN9softposit5p16e14math3exp41_$LT$impl$u20$softposit..p16e
   br i1 %5, label %10, label %8
 
 6:                                                ; preds = %1
-  %7 = icmp ult i16 %0, 192
+  %7 = icmp samesign ult i16 %0, 192
   br i1 %7, label %13, label %97
 
 8:                                                ; preds = %4
@@ -1320,7 +1320,7 @@ define noundef i16 @"_ZN9softposit5p16e14math3exp41_$LT$impl$u20$softposit..p16e
   br i1 %9, label %13, label %12
 
 10:                                               ; preds = %4
-  %11 = icmp ugt i16 %0, -129
+  %11 = icmp samesign ugt i16 %0, -129
   br i1 %11, label %13, label %14
 
 12:                                               ; preds = %8
@@ -1459,7 +1459,7 @@ define noundef i16 @"_ZN9softposit5p16e14math3exp41_$LT$impl$u20$softposit..p16e
   br label %86
 
 97:                                               ; preds = %6
-  %98 = icmp ult i16 %0, 16384
+  %98 = icmp samesign ult i16 %0, 16384
   br i1 %98, label %.preheader, label %.preheader93
 
 .preheader93:                                     ; preds = %97
@@ -1468,7 +1468,7 @@ define noundef i16 @"_ZN9softposit5p16e14math3exp41_$LT$impl$u20$softposit..p16e
   br i1 %100, label %.loopexit.thread, label %.lr.ph109
 
 .preheader:                                       ; preds = %97
-  %101 = icmp ult i16 %0, 8192
+  %101 = icmp samesign ult i16 %0, 8192
   br i1 %101, label %.lr.ph114, label %.loopexit.thread
 
 .lr.ph114:                                        ; preds = %.preheader, %.lr.ph114
@@ -1600,7 +1600,7 @@ define noundef i16 @"_ZN9softposit5p16e14math4exp241_$LT$impl$u20$softposit..p16
   br i1 %5, label %10, label %8
 
 6:                                                ; preds = %1
-  %7 = icmp ult i16 %0, 221
+  %7 = icmp samesign ult i16 %0, 221
   br i1 %7, label %13, label %92
 
 8:                                                ; preds = %4
@@ -1608,7 +1608,7 @@ define noundef i16 @"_ZN9softposit5p16e14math4exp241_$LT$impl$u20$softposit..p16
   br i1 %9, label %13, label %12
 
 10:                                               ; preds = %4
-  %11 = icmp ugt i16 %0, -157
+  %11 = icmp samesign ugt i16 %0, -157
   br i1 %11, label %13, label %14
 
 12:                                               ; preds = %8
@@ -1741,7 +1741,7 @@ define noundef i16 @"_ZN9softposit5p16e14math4exp241_$LT$impl$u20$softposit..p16
   br label %81
 
 92:                                               ; preds = %6
-  %93 = icmp ult i16 %0, 16384
+  %93 = icmp samesign ult i16 %0, 16384
   br i1 %93, label %.preheader, label %.preheader87
 
 .preheader87:                                     ; preds = %92
@@ -1750,7 +1750,7 @@ define noundef i16 @"_ZN9softposit5p16e14math4exp241_$LT$impl$u20$softposit..p16
   br i1 %95, label %.loopexit.thread, label %.lr.ph103
 
 .preheader:                                       ; preds = %92
-  %96 = icmp ult i16 %0, 8192
+  %96 = icmp samesign ult i16 %0, 8192
   br i1 %96, label %.lr.ph108, label %.loopexit.thread
 
 .lr.ph108:                                        ; preds = %.preheader, %.lr.ph108
@@ -1878,7 +1878,7 @@ define noundef i16 @"_ZN9softposit5p16e14math5floor41_$LT$impl$u20$softposit..p1
 
 5:                                                ; preds = %1
   %6 = sub nsw i16 0, %0
-  %7 = icmp ult i16 %6, 16384
+  %7 = icmp samesign ult i16 %6, 16384
   br i1 %7, label %45, label %12
 
 8:                                                ; preds = %3
@@ -1891,7 +1891,7 @@ define noundef i16 @"_ZN9softposit5p16e14math5floor41_$LT$impl$u20$softposit..p1
   br i1 %11, label %19, label %15
 
 12:                                               ; preds = %5
-  %13 = icmp ult i16 %6, 20480
+  %13 = icmp samesign ult i16 %6, 20480
   br i1 %13, label %14, label %10
 
 14:                                               ; preds = %12
@@ -1970,7 +1970,7 @@ define noundef i16 @"_ZN9softposit5p16e14math2ln41_$LT$impl$u20$softposit..p16e1
 
 2:                                                ; preds = %1
   %3 = zext nneg i16 %0 to i64
-  %4 = icmp ult i16 %0, 16384
+  %4 = icmp samesign ult i16 %0, 16384
   br i1 %4, label %.preheader75, label %.preheader76
 
 .preheader76:                                     ; preds = %2
@@ -1979,7 +1979,7 @@ define noundef i16 @"_ZN9softposit5p16e14math2ln41_$LT$impl$u20$softposit..p16e1
   br i1 %6, label %.loopexit, label %.lr.ph
 
 .preheader75:                                     ; preds = %2
-  %7 = icmp ult i16 %0, 8192
+  %7 = icmp samesign ult i16 %0, 8192
   br i1 %7, label %.lr.ph83, label %.loopexit
 
 .lr.ph83:                                         ; preds = %.preheader75, %.lr.ph83
@@ -2199,7 +2199,7 @@ define noundef i16 @"_ZN9softposit5p16e14math4log241_$LT$impl$u20$softposit..p16
 
 2:                                                ; preds = %1
   %3 = zext nneg i16 %0 to i64
-  %4 = icmp ult i16 %0, 16384
+  %4 = icmp samesign ult i16 %0, 16384
   br i1 %4, label %.preheader71, label %.preheader72
 
 .preheader72:                                     ; preds = %2
@@ -2208,7 +2208,7 @@ define noundef i16 @"_ZN9softposit5p16e14math4log241_$LT$impl$u20$softposit..p16
   br i1 %6, label %.loopexit, label %.lr.ph
 
 .preheader71:                                     ; preds = %2
-  %7 = icmp ult i16 %0, 8192
+  %7 = icmp samesign ult i16 %0, 8192
   br i1 %7, label %.lr.ph79, label %.loopexit
 
 .lr.ph79:                                         ; preds = %.preheader71, %.lr.ph79
@@ -2286,7 +2286,7 @@ define noundef i16 @"_ZN9softposit5p16e14math4log241_$LT$impl$u20$softposit..p16
   br i1 %52, label %87, label %.preheader
 
 .preheader:                                       ; preds = %51
-  %53 = icmp ult i64 %.461, 134217728
+  %53 = icmp samesign ult i64 %.461, 134217728
   br i1 %53, label %.lr.ph89, label %._crit_edge90
 
 ._crit_edge:                                      ; preds = %.lr.ph84, %.preheader70
@@ -2694,7 +2694,7 @@ define noundef i16 @"_ZN9softposit5p16e14math4sqrt41_$LT$impl$u20$softposit..p16
   br i1 %6, label %9, label %7
 
 7:                                                ; preds = %5
-  %8 = icmp ult i16 %0, 16384
+  %8 = icmp samesign ult i16 %0, 16384
   br i1 %8, label %.lr.ph59, label %.lr.ph
 
 9:                                                ; preds = %5, %1, %96
@@ -4484,7 +4484,7 @@ define noundef i16 @"_ZN9softposit5p16e13ops75_$LT$impl$u20$core..ops..arith..Re
 
 9:                                                ; preds = %5
   %10 = sub nsw i16 0, %3
-  %11 = icmp ult i16 %10, 16385
+  %11 = icmp samesign ult i16 %10, 16385
   br i1 %11, label %16, label %14
 
 12:                                               ; preds = %14, %7
@@ -4493,7 +4493,7 @@ define noundef i16 @"_ZN9softposit5p16e13ops75_$LT$impl$u20$core..ops..arith..Re
   br i1 %13, label %22, label %18
 
 14:                                               ; preds = %9
-  %15 = icmp ult i16 %10, 20481
+  %15 = icmp samesign ult i16 %10, 20481
   br i1 %15, label %17, label %12
 
 16:                                               ; preds = %9
@@ -4566,19 +4566,19 @@ define noundef i16 @"_ZN9softposit5p16e13ops75_$LT$impl$u20$core..ops..arith..Re
   br label %"_ZN9softposit5p16e14math4ceil41_$LT$impl$u20$softposit..p16e1..P16E1$GT$4ceil17hb349e44a5c5d708bE.exit.i"
 
 49:                                               ; preds = %2
-  %50 = icmp ult i16 %3, 16384
+  %50 = icmp samesign ult i16 %3, 16384
   br i1 %50, label %"_ZN9softposit5p16e14math4ceil41_$LT$impl$u20$softposit..p16e1..P16E1$GT$4ceil17hb349e44a5c5d708bE.exit.i", label %51
 
 51:                                               ; preds = %49
-  %52 = icmp ult i16 %3, 20480
+  %52 = icmp samesign ult i16 %3, 20480
   br i1 %52, label %"_ZN9softposit5p16e14math4ceil41_$LT$impl$u20$softposit..p16e1..P16E1$GT$4ceil17hb349e44a5c5d708bE.exit.i", label %53
 
 53:                                               ; preds = %51
-  %54 = icmp ult i16 %3, 22528
+  %54 = icmp samesign ult i16 %3, 22528
   br i1 %54, label %"_ZN9softposit5p16e14math4ceil41_$LT$impl$u20$softposit..p16e1..P16E1$GT$4ceil17hb349e44a5c5d708bE.exit.i", label %55
 
 55:                                               ; preds = %53
-  %56 = icmp ugt i16 %3, 31743
+  %56 = icmp samesign ugt i16 %3, 31743
   br i1 %56, label %"_ZN9softposit5p16e14math4ceil41_$LT$impl$u20$softposit..p16e1..P16E1$GT$4ceil17hb349e44a5c5d708bE.exit.i", label %.preheader.i5.i
 
 .preheader.i5.i:                                  ; preds = %55
@@ -5047,7 +5047,7 @@ define noundef i16 @"_ZN68_$LT$softposit..p16e1..P16E1$u20$as$u20$num_traits..fl
 
 5:                                                ; preds = %1
   %6 = sub nsw i16 0, %0
-  %7 = icmp ult i16 %6, 16384
+  %7 = icmp samesign ult i16 %6, 16384
   br i1 %7, label %44, label %12
 
 8:                                                ; preds = %3
@@ -5060,7 +5060,7 @@ define noundef i16 @"_ZN68_$LT$softposit..p16e1..P16E1$u20$as$u20$num_traits..fl
   br i1 %11, label %19, label %15
 
 12:                                               ; preds = %5
-  %13 = icmp ult i16 %6, 20480
+  %13 = icmp samesign ult i16 %6, 20480
   br i1 %13, label %14, label %10
 
 14:                                               ; preds = %12
@@ -5143,7 +5143,7 @@ define noundef i16 @"_ZN68_$LT$softposit..p16e1..P16E1$u20$as$u20$num_traits..fl
 
 5:                                                ; preds = %1
   %6 = sub nsw i16 0, %0
-  %7 = icmp ult i16 %6, 16385
+  %7 = icmp samesign ult i16 %6, 16385
   br i1 %7, label %16, label %14
 
 8:                                                ; preds = %3
@@ -5160,7 +5160,7 @@ define noundef i16 @"_ZN68_$LT$softposit..p16e1..P16E1$u20$as$u20$num_traits..fl
   br i1 %13, label %22, label %18
 
 14:                                               ; preds = %5
-  %15 = icmp ult i16 %6, 20481
+  %15 = icmp samesign ult i16 %6, 20481
   br i1 %15, label %17, label %12
 
 16:                                               ; preds = %5
@@ -5332,7 +5332,7 @@ define noundef i16 @"_ZN68_$LT$softposit..p16e1..P16E1$u20$as$u20$num_traits..fl
 
 7:                                                ; preds = %3
   %8 = sub nsw i16 0, %0
-  %9 = icmp ult i16 %8, 16385
+  %9 = icmp samesign ult i16 %8, 16385
   br i1 %9, label %14, label %12
 
 10:                                               ; preds = %5, %12
@@ -5341,7 +5341,7 @@ define noundef i16 @"_ZN68_$LT$softposit..p16e1..P16E1$u20$as$u20$num_traits..fl
   br i1 %11, label %20, label %16
 
 12:                                               ; preds = %7
-  %13 = icmp ult i16 %8, 20481
+  %13 = icmp samesign ult i16 %8, 20481
   br i1 %13, label %15, label %10
 
 14:                                               ; preds = %7
@@ -5414,19 +5414,19 @@ define noundef i16 @"_ZN68_$LT$softposit..p16e1..P16E1$u20$as$u20$num_traits..fl
   br label %"_ZN9softposit5p16e14math4ceil41_$LT$impl$u20$softposit..p16e1..P16E1$GT$4ceil17hb349e44a5c5d708bE.exit"
 
 47:                                               ; preds = %1
-  %48 = icmp ult i16 %0, 16384
+  %48 = icmp samesign ult i16 %0, 16384
   br i1 %48, label %"_ZN9softposit5p16e14math4ceil41_$LT$impl$u20$softposit..p16e1..P16E1$GT$4ceil17hb349e44a5c5d708bE.exit", label %49
 
 49:                                               ; preds = %47
-  %50 = icmp ult i16 %0, 20480
+  %50 = icmp samesign ult i16 %0, 20480
   br i1 %50, label %"_ZN9softposit5p16e14math4ceil41_$LT$impl$u20$softposit..p16e1..P16E1$GT$4ceil17hb349e44a5c5d708bE.exit", label %51
 
 51:                                               ; preds = %49
-  %52 = icmp ult i16 %0, 22528
+  %52 = icmp samesign ult i16 %0, 22528
   br i1 %52, label %"_ZN9softposit5p16e14math4ceil41_$LT$impl$u20$softposit..p16e1..P16E1$GT$4ceil17hb349e44a5c5d708bE.exit", label %53
 
 53:                                               ; preds = %51
-  %54 = icmp ugt i16 %0, 31743
+  %54 = icmp samesign ugt i16 %0, 31743
   br i1 %54, label %"_ZN9softposit5p16e14math4ceil41_$LT$impl$u20$softposit..p16e1..P16E1$GT$4ceil17hb349e44a5c5d708bE.exit", label %.preheader.i5
 
 .preheader.i5:                                    ; preds = %53
@@ -5482,7 +5482,7 @@ define noundef i16 @"_ZN68_$LT$softposit..p16e1..P16E1$u20$as$u20$num_traits..fl
 
 7:                                                ; preds = %3
   %8 = sub nsw i16 0, %0
-  %9 = icmp ult i16 %8, 16385
+  %9 = icmp samesign ult i16 %8, 16385
   br i1 %9, label %14, label %12
 
 10:                                               ; preds = %12, %5
@@ -5491,7 +5491,7 @@ define noundef i16 @"_ZN68_$LT$softposit..p16e1..P16E1$u20$as$u20$num_traits..fl
   br i1 %11, label %20, label %16
 
 12:                                               ; preds = %7
-  %13 = icmp ult i16 %8, 20481
+  %13 = icmp samesign ult i16 %8, 20481
   br i1 %13, label %15, label %10
 
 14:                                               ; preds = %7
@@ -5564,19 +5564,19 @@ define noundef i16 @"_ZN68_$LT$softposit..p16e1..P16E1$u20$as$u20$num_traits..fl
   br label %"_ZN9softposit5p16e14math4ceil41_$LT$impl$u20$softposit..p16e1..P16E1$GT$4ceil17hb349e44a5c5d708bE.exit.i"
 
 47:                                               ; preds = %1
-  %48 = icmp ult i16 %0, 16384
+  %48 = icmp samesign ult i16 %0, 16384
   br i1 %48, label %"_ZN9softposit5p16e14math4ceil41_$LT$impl$u20$softposit..p16e1..P16E1$GT$4ceil17hb349e44a5c5d708bE.exit.i", label %49
 
 49:                                               ; preds = %47
-  %50 = icmp ult i16 %0, 20480
+  %50 = icmp samesign ult i16 %0, 20480
   br i1 %50, label %"_ZN9softposit5p16e14math4ceil41_$LT$impl$u20$softposit..p16e1..P16E1$GT$4ceil17hb349e44a5c5d708bE.exit.i", label %51
 
 51:                                               ; preds = %49
-  %52 = icmp ult i16 %0, 22528
+  %52 = icmp samesign ult i16 %0, 22528
   br i1 %52, label %"_ZN9softposit5p16e14math4ceil41_$LT$impl$u20$softposit..p16e1..P16E1$GT$4ceil17hb349e44a5c5d708bE.exit.i", label %53
 
 53:                                               ; preds = %51
-  %54 = icmp ugt i16 %0, 31743
+  %54 = icmp samesign ugt i16 %0, 31743
   br i1 %54, label %"_ZN9softposit5p16e14math4ceil41_$LT$impl$u20$softposit..p16e1..P16E1$GT$4ceil17hb349e44a5c5d708bE.exit.i", label %.preheader.i5.i
 
 .preheader.i5.i:                                  ; preds = %53

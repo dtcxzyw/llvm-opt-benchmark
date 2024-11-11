@@ -1229,7 +1229,7 @@ _ZNKSt7__cxx1112basic_stringIDsSt11char_traitsIDsESaIDsEE8capacityEv.exit.i.i.i:
 
 _ZNSt7__cxx1112basic_stringIDsSt11char_traitsIDsESaIDsEE9_M_createERmm.exit.i.i.i: ; preds = %120
   %123 = shl nuw nsw i64 %118, 1
-  %124 = icmp ult i64 %111, %123
+  %124 = icmp samesign ult i64 %111, %123
   %spec.store.select.i.i.i.i = call i64 @llvm.umin.i64(i64 %123, i64 2305843009213693951)
   %.0.i.i.i = select i1 %124, i64 %spec.store.select.i.i.i.i, i64 %111
   %125 = shl nuw nsw i64 %.0.i.i.i, 1
@@ -2094,7 +2094,7 @@ _ZNKSt7__cxx1112basic_stringIDsSt11char_traitsIDsESaIDsEE8capacityEv.exit.i.i: ;
 
 _ZNSt7__cxx1112basic_stringIDsSt11char_traitsIDsESaIDsEE9_M_createERmm.exit.i.i: ; preds = %16
   %19 = shl nuw nsw i64 %14, 1
-  %20 = icmp ult i64 %5, %19
+  %20 = icmp samesign ult i64 %5, %19
   %spec.store.select.i.i.i = tail call i64 @llvm.umin.i64(i64 %19, i64 2305843009213693951)
   %.0.i.i = select i1 %20, i64 %spec.store.select.i.i.i, i64 %5
   %21 = shl nuw nsw i64 %.0.i.i, 1
@@ -2576,7 +2576,7 @@ _ZNKSt7__cxx1112basic_stringIDsSt11char_traitsIDsESaIDsEE8capacityEv.exit.i.i.i:
 
 _ZNSt7__cxx1112basic_stringIDsSt11char_traitsIDsESaIDsEE9_M_createERmm.exit.i.i.i: ; preds = %99
   %102 = shl nuw nsw i64 %97, 1
-  %103 = icmp ult i64 %90, %102
+  %103 = icmp samesign ult i64 %90, %102
   %spec.store.select.i.i.i.i = call i64 @llvm.umin.i64(i64 %102, i64 2305843009213693951)
   %.0.i.i.i = select i1 %103, i64 %spec.store.select.i.i.i.i, i64 %90
   %104 = shl nuw nsw i64 %.0.i.i.i, 1
@@ -3256,7 +3256,7 @@ _ZNKSt7__cxx1112basic_stringIDsSt11char_traitsIDsESaIDsEE8capacityEv.exit.i.i.i:
 
 _ZNSt7__cxx1112basic_stringIDsSt11char_traitsIDsESaIDsEE9_M_createERmm.exit.i.i.i: ; preds = %98
   %101 = shl nuw nsw i64 %96, 1
-  %102 = icmp ult i64 %89, %101
+  %102 = icmp samesign ult i64 %89, %101
   %spec.store.select.i.i.i.i = call i64 @llvm.umin.i64(i64 %101, i64 2305843009213693951)
   %.0.i.i.i = select i1 %102, i64 %spec.store.select.i.i.i.i, i64 %89
   %103 = shl nuw nsw i64 %.0.i.i.i, 1
@@ -4085,7 +4085,7 @@ _ZNKSt7__cxx1112basic_stringIDsSt11char_traitsIDsESaIDsEE8capacityEv.exit.i.i.i:
 
 _ZNSt7__cxx1112basic_stringIDsSt11char_traitsIDsESaIDsEE9_M_createERmm.exit.i.i.i: ; preds = %126
   %129 = shl nuw nsw i64 %124, 1
-  %130 = icmp ult i64 %117, %129
+  %130 = icmp samesign ult i64 %117, %129
   %spec.store.select.i.i.i.i = call i64 @llvm.umin.i64(i64 %129, i64 2305843009213693951)
   %.0.i.i.i = select i1 %130, i64 %spec.store.select.i.i.i.i, i64 %117
   %131 = shl nuw nsw i64 %.0.i.i.i, 1
@@ -5190,7 +5190,7 @@ _ZNKSt7__cxx1112basic_stringIDsSt11char_traitsIDsESaIDsEE8capacityEv.exit.i.i.i:
 
 _ZNSt7__cxx1112basic_stringIDsSt11char_traitsIDsESaIDsEE9_M_createERmm.exit.i.i.i: ; preds = %127
   %130 = shl nuw nsw i64 %125, 1
-  %131 = icmp ult i64 %118, %130
+  %131 = icmp samesign ult i64 %118, %130
   %spec.store.select.i.i.i.i = call i64 @llvm.umin.i64(i64 %130, i64 2305843009213693951)
   %.0.i.i.i = select i1 %131, i64 %spec.store.select.i.i.i.i, i64 %118
   %132 = shl nuw nsw i64 %.0.i.i.i, 1
@@ -6025,7 +6025,7 @@ _ZNKSt7__cxx1112basic_stringIDsSt11char_traitsIDsESaIDsEE8capacityEv.exit.i.i.i:
 
 _ZNSt7__cxx1112basic_stringIDsSt11char_traitsIDsESaIDsEE9_M_createERmm.exit.i.i.i: ; preds = %127
   %130 = shl nuw nsw i64 %125, 1
-  %131 = icmp ult i64 %118, %130
+  %131 = icmp samesign ult i64 %118, %130
   %spec.store.select.i.i.i.i = call i64 @llvm.umin.i64(i64 %130, i64 2305843009213693951)
   %.0.i.i.i = select i1 %131, i64 %spec.store.select.i.i.i.i, i64 %118
   %132 = shl nuw nsw i64 %.0.i.i.i, 1
@@ -6479,7 +6479,7 @@ _ZNKSt7__cxx1112basic_stringIDsSt11char_traitsIDsESaIDsEE8capacityEv.exit.i.i.i1
 
 _ZNSt7__cxx1112basic_stringIDsSt11char_traitsIDsESaIDsEE9_M_createERmm.exit.i.i.i128: ; preds = %272
   %275 = shl nuw nsw i64 %270, 1
-  %276 = icmp ult i64 %263, %275
+  %276 = icmp samesign ult i64 %263, %275
   %spec.store.select.i.i.i.i129 = call i64 @llvm.umin.i64(i64 %275, i64 2305843009213693951)
   %.0.i.i.i130 = select i1 %276, i64 %spec.store.select.i.i.i.i129, i64 %263
   %277 = shl nuw nsw i64 %.0.i.i.i130, 1
@@ -6681,7 +6681,7 @@ _ZNKSt7__cxx1112basic_stringIDsSt11char_traitsIDsESaIDsEE8capacityEv.exit.i.i.i1
 
 _ZNSt7__cxx1112basic_stringIDsSt11char_traitsIDsESaIDsEE9_M_createERmm.exit.i.i.i158: ; preds = %340
   %343 = shl nuw nsw i64 %338, 1
-  %344 = icmp ult i64 %329, %343
+  %344 = icmp samesign ult i64 %329, %343
   %spec.store.select.i.i.i.i159 = call i64 @llvm.umin.i64(i64 %343, i64 2305843009213693951)
   %.0.i.i.i160 = select i1 %344, i64 %spec.store.select.i.i.i.i159, i64 %329
   %345 = shl nuw nsw i64 %.0.i.i.i160, 1
@@ -7288,7 +7288,7 @@ _ZNKSt7__cxx1112basic_stringIDsSt11char_traitsIDsESaIDsEE8capacityEv.exit.i.i.i:
 
 _ZNSt7__cxx1112basic_stringIDsSt11char_traitsIDsESaIDsEE9_M_createERmm.exit.i.i.i: ; preds = %127
   %129 = shl nuw nsw i64 %125, 1
-  %130 = icmp ult i64 %118, %129
+  %130 = icmp samesign ult i64 %118, %129
   %spec.store.select.i.i.i.i = call i64 @llvm.umin.i64(i64 %129, i64 2305843009213693951)
   %.0.i.i.i = select i1 %130, i64 %spec.store.select.i.i.i.i, i64 %118
   %131 = shl nuw nsw i64 %.0.i.i.i, 1
@@ -7384,7 +7384,7 @@ _ZNKSt7__cxx1112basic_stringIDsSt11char_traitsIDsESaIDsEE8capacityEv.exit.i.i.i8
 
 _ZNSt7__cxx1112basic_stringIDsSt11char_traitsIDsESaIDsEE9_M_createERmm.exit.i.i.i95: ; preds = %158
   %160 = shl nuw nsw i64 %156, 1
-  %161 = icmp ult i64 %147, %160
+  %161 = icmp samesign ult i64 %147, %160
   %spec.store.select.i.i.i.i96 = call i64 @llvm.umin.i64(i64 %160, i64 2305843009213693951)
   %.0.i.i.i97 = select i1 %161, i64 %spec.store.select.i.i.i.i96, i64 %147
   %162 = shl nuw nsw i64 %.0.i.i.i97, 1
@@ -7975,7 +7975,7 @@ _ZNKSt7__cxx1112basic_stringIDsSt11char_traitsIDsESaIDsEE8capacityEv.exit.i.i.i:
 
 _ZNSt7__cxx1112basic_stringIDsSt11char_traitsIDsESaIDsEE9_M_createERmm.exit.i.i.i: ; preds = %135
   %137 = shl nuw nsw i64 %133, 1
-  %138 = icmp ult i64 %126, %137
+  %138 = icmp samesign ult i64 %126, %137
   %spec.store.select.i.i.i.i = call i64 @llvm.umin.i64(i64 %137, i64 2305843009213693951)
   %.0.i.i.i = select i1 %138, i64 %spec.store.select.i.i.i.i, i64 %126
   %139 = shl nuw nsw i64 %.0.i.i.i, 1
@@ -8067,7 +8067,7 @@ _ZNKSt7__cxx1112basic_stringIDsSt11char_traitsIDsESaIDsEE8capacityEv.exit.i.i.i8
 
 _ZNSt7__cxx1112basic_stringIDsSt11char_traitsIDsESaIDsEE9_M_createERmm.exit.i.i.i91: ; preds = %165
   %167 = shl nuw nsw i64 %163, 1
-  %168 = icmp ult i64 %154, %167
+  %168 = icmp samesign ult i64 %154, %167
   %spec.store.select.i.i.i.i92 = call i64 @llvm.umin.i64(i64 %167, i64 2305843009213693951)
   %.0.i.i.i93 = select i1 %168, i64 %spec.store.select.i.i.i.i92, i64 %154
   %169 = shl nuw nsw i64 %.0.i.i.i93, 1
@@ -17170,7 +17170,7 @@ define linkonce_odr hidden ptr @_ZN3fmt2v96detail17write_significandINS0_8append
   store i16 %40, ptr %35, align 1
   %41 = udiv i32 %.03350.i, 100
   %42 = add nsw i32 %.03251.i, -1
-  %43 = icmp ugt i32 %.03251.i, 1
+  %43 = icmp samesign ugt i32 %.03251.i, 1
   br i1 %43, label %.lr.ph.i, label %._crit_edge.i, !llvm.loop !73
 
 ._crit_edge.i:                                    ; preds = %.lr.ph.i, %30
@@ -17347,7 +17347,7 @@ _ZNSt20back_insert_iteratorIN3fmt2v96detail6bufferIcEEEaSEOc.exit18: ; preds = %
 
 27:                                               ; preds = %_ZNSt20back_insert_iteratorIN3fmt2v96detail6bufferIcEEEaSEOc.exit18, %_ZNSt20back_insert_iteratorIN3fmt2v96detail6bufferIcEEEaSEOc.exit
   %.0 = phi i32 [ %18, %_ZNSt20back_insert_iteratorIN3fmt2v96detail6bufferIcEEEaSEOc.exit ], [ %0, %_ZNSt20back_insert_iteratorIN3fmt2v96detail6bufferIcEEEaSEOc.exit18 ]
-  %28 = icmp ugt i32 %.0, 99
+  %28 = icmp samesign ugt i32 %.0, 99
   br i1 %28, label %29, label %67
 
 29:                                               ; preds = %27
@@ -17356,7 +17356,7 @@ _ZNSt20back_insert_iteratorIN3fmt2v96detail6bufferIcEEEaSEOc.exit18: ; preds = %
   %32 = shl nuw nsw i32 %30, 1
   %33 = zext nneg i32 %32 to i64
   %34 = getelementptr inbounds [201 x i8], ptr @.str.130, i64 0, i64 %33
-  %35 = icmp ugt i32 %.0, 999
+  %35 = icmp samesign ugt i32 %.0, 999
   br i1 %35, label %36, label %51
 
 36:                                               ; preds = %29
@@ -20499,7 +20499,7 @@ define linkonce_odr hidden ptr @_ZN3fmt2v96detail17write_significandINS0_8append
   store i16 %37, ptr %33, align 1
   %38 = udiv i64 %.03350.i, 100
   %39 = add nsw i32 %.03251.i, -1
-  %40 = icmp ugt i32 %.03251.i, 1
+  %40 = icmp samesign ugt i32 %.03251.i, 1
   br i1 %40, label %.lr.ph.i, label %._crit_edge.i, !llvm.loop !76
 
 ._crit_edge.i:                                    ; preds = %.lr.ph.i, %28
@@ -29239,7 +29239,7 @@ _ZZN3fmt2v96detail10vformat_toIcEEvRNS1_6bufferIT_EENS0_17basic_string_viewIS4_E
   br i1 %38, label %_ZNK3fmt2v920basic_format_contextINS0_8appenderEcE3argEi.exit.i, label %_ZNK3fmt2v920basic_format_contextINS0_8appenderEcE3argEi.exit.thread.i
 
 39:                                               ; preds = %_ZZN3fmt2v96detail10vformat_toIcEEvRNS1_6bufferIT_EENS0_17basic_string_viewIS4_EENS0_17basic_format_argsINS0_20basic_format_contextINSt11conditionalIXsr3std7is_sameINS0_13type_identityIS4_E4typeEcEE5valueENS0_8appenderESt20back_insert_iteratorINS3_ISE_EEEE4typeESE_EEEENS1_10locale_refEEN14format_handler9on_arg_idEv.exit
-  %40 = icmp ugt i32 %28, 14
+  %40 = icmp samesign ugt i32 %28, 14
   br i1 %40, label %_ZNK3fmt2v920basic_format_contextINS0_8appenderEcE3argEi.exit.thread.i, label %41
 
 41:                                               ; preds = %39
@@ -30424,7 +30424,7 @@ _ZN3fmt2v96detail11parse_alignIcRNS1_13specs_checkerINS1_13specs_handlerIcEEEEEE
   unreachable
 
 _ZN3fmt2v96detail13specs_checkerINS1_13specs_handlerIcEEE24require_numeric_argumentEv.exit.i: ; preds = %115
-  %118 = icmp ult i32 %42, 9
+  %118 = icmp samesign ult i32 %42, 9
   br i1 %118, label %switch.hole_check, label %.sink.split
 
 119:                                              ; preds = %switch.hole_check
@@ -30440,7 +30440,7 @@ _ZN3fmt2v96detail13specs_checkerINS1_13specs_handlerIcEEE24require_numeric_argum
   unreachable
 
 _ZN3fmt2v96detail13specs_checkerINS1_13specs_handlerIcEEE24require_numeric_argumentEv.exit.i351: ; preds = %120
-  %123 = icmp ult i32 %42, 9
+  %123 = icmp samesign ult i32 %42, 9
   br i1 %123, label %switch.hole_check481, label %.sink.split
 
 124:                                              ; preds = %switch.hole_check481
@@ -30456,7 +30456,7 @@ _ZN3fmt2v96detail13specs_checkerINS1_13specs_handlerIcEEE24require_numeric_argum
   unreachable
 
 _ZN3fmt2v96detail13specs_checkerINS1_13specs_handlerIcEEE24require_numeric_argumentEv.exit.i353: ; preds = %125
-  %128 = icmp ult i32 %42, 9
+  %128 = icmp samesign ult i32 %42, 9
   br i1 %128, label %switch.hole_check488, label %.sink.split
 
 129:                                              ; preds = %switch.hole_check488
@@ -31330,7 +31330,7 @@ _ZN3fmt2v926basic_format_parse_contextIcNS0_6detail13error_handlerEE11next_arg_i
   br i1 %62, label %_ZNK3fmt2v920basic_format_contextINS0_8appenderEcE3argEi.exit.i.i.i.i, label %_ZNK3fmt2v920basic_format_contextINS0_8appenderEcE3argEi.exit.thread.i.i.i.i
 
 63:                                               ; preds = %_ZN3fmt2v926basic_format_parse_contextIcNS0_6detail13error_handlerEE11next_arg_idEv.exit.i.i.i
-  %64 = icmp ugt i32 %52, 14
+  %64 = icmp samesign ugt i32 %52, 14
   br i1 %64, label %_ZNK3fmt2v920basic_format_contextINS0_8appenderEcE3argEi.exit.thread.i.i.i.i, label %65
 
 65:                                               ; preds = %63
@@ -31528,7 +31528,7 @@ _ZN3fmt2v926basic_format_parse_contextIcNS0_6detail13error_handlerEE11next_arg_i
   br i1 %66, label %_ZNK3fmt2v920basic_format_contextINS0_8appenderEcE3argEi.exit.i.i.i.i, label %_ZNK3fmt2v920basic_format_contextINS0_8appenderEcE3argEi.exit.thread.i.i.i.i
 
 67:                                               ; preds = %_ZN3fmt2v926basic_format_parse_contextIcNS0_6detail13error_handlerEE11next_arg_idEv.exit.i.i.i
-  %68 = icmp ugt i32 %56, 14
+  %68 = icmp samesign ugt i32 %56, 14
   br i1 %68, label %_ZNK3fmt2v920basic_format_contextINS0_8appenderEcE3argEi.exit.thread.i.i.i.i, label %69
 
 69:                                               ; preds = %67
@@ -32035,7 +32035,7 @@ _ZNK3fmt2v917basic_format_argsINS0_20basic_format_contextINS0_8appenderEcEEE6get
   br label %_ZNK3fmt2v917basic_format_argsINS0_20basic_format_contextINS0_8appenderEcEEE3getEi.exit
 
 35:                                               ; preds = %26
-  %36 = icmp ugt i32 %24, 14
+  %36 = icmp samesign ugt i32 %24, 14
   br i1 %36, label %_ZNK3fmt2v917basic_format_argsINS0_20basic_format_contextINS0_8appenderEcEEE3getEi.exit, label %37
 
 37:                                               ; preds = %35
@@ -39132,7 +39132,7 @@ _ZN3fmt2v96detail19get_round_directionEmmm.exit.i: ; preds = %.thread258
   %202 = load i8, ptr %gep, align 1
   %203 = add i8 %202, 1
   store i8 %203, ptr %gep, align 1
-  %204 = icmp ugt i64 %indvars.iv.i, 2
+  %204 = icmp samesign ugt i64 %indvars.iv.i, 2
   br i1 %204, label %.lr.ph.i137, label %.critedge.i, !llvm.loop !232
 
 .critedge.i:                                      ; preds = %201, %.lr.ph.i137, %_ZN3fmt2v96detail19get_round_directionEmmm.exit.i
@@ -39231,7 +39231,7 @@ _ZN3fmt2v96detail19get_round_directionEmmm.exit.i145: ; preds = %234
   %246 = load i8, ptr %gep326, align 1
   %247 = add i8 %246, 1
   store i8 %247, ptr %gep326, align 1
-  %248 = icmp ugt i64 %indvars.iv.i149, 2
+  %248 = icmp samesign ugt i64 %indvars.iv.i149, 2
   br i1 %248, label %.lr.ph.i148, label %.critedge.i146, !llvm.loop !232
 
 .critedge.i146:                                   ; preds = %245, %.lr.ph.i148
@@ -42760,7 +42760,7 @@ _ZNKSt7__cxx1112basic_stringIDsSt11char_traitsIDsESaIDsEE8capacityEv.exit: ; pre
 
 23:                                               ; preds = %21
   %24 = shl nuw nsw i64 %18, 1
-  %25 = icmp ult i64 %11, %24
+  %25 = icmp samesign ult i64 %11, %24
   br i1 %25, label %26, label %_ZNSt7__cxx1112basic_stringIDsSt11char_traitsIDsESaIDsEE9_M_createERmm.exit
 
 26:                                               ; preds = %23

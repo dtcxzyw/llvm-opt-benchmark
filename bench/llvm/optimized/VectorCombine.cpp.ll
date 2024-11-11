@@ -12436,7 +12436,7 @@ _ZN4llvm9remove_ifIRNS_11SmallVectorISt4pairIjPNS_6MDNodeEELj2EEEZNS_13IRBuilder
   %68 = getelementptr inbounds i8, ptr %.0910.i.i.i.i.i.i, i64 16
   %69 = getelementptr inbounds i8, ptr %.0811.i.i.i.i.i.i, i64 16
   %70 = add nsw i64 %.012.i.i.i.i.i.i, -1
-  %71 = icmp ugt i64 %.012.i.i.i.i.i.i, 1
+  %71 = icmp samesign ugt i64 %.012.i.i.i.i.i.i, 1
   br i1 %71, label %.lr.ph.i.i.i.i.i.i, label %_ZN4llvm15SmallVectorImplISt4pairIjPNS_6MDNodeEEE5eraseEPKS4_S7_.exit, !llvm.loop !146
 
 _ZN4llvm15SmallVectorImplISt4pairIjPNS_6MDNodeEEE5eraseEPKS4_S7_.exit: ; preds = %.lr.ph.i.i.i.i.i.i, %_ZN4llvm9remove_ifIRNS_11SmallVectorISt4pairIjPNS_6MDNodeEELj2EEEZNS_13IRBuilderBase25AddOrRemoveMetadataToCopyEjS4_EUlRKS5_E_EEDaOT_T0_.exit
@@ -19519,7 +19519,7 @@ define internal fastcc void @"_ZSt16__insertion_sortIPSt4pairIiiEN9__gnu_cxx5__o
   %22 = getelementptr inbounds i8, ptr %.069.i.i.i.i.i, i64 -4
   store i32 %21, ptr %22, align 4
   %23 = add nsw i64 %.010.i.i.i.i.i, -1
-  %24 = icmp ugt i64 %.010.i.i.i.i.i, 1
+  %24 = icmp samesign ugt i64 %.010.i.i.i.i.i, 1
   br i1 %24, label %.lr.ph.i.i.i.i.i, label %_ZSt13move_backwardIPSt4pairIiiES2_ET0_T_S4_S3_.exit, !llvm.loop !209
 
 _ZSt13move_backwardIPSt4pairIiiES2_ET0_T_S4_S3_.exit: ; preds = %.lr.ph.i.i.i.i.i, %11
@@ -20313,7 +20313,7 @@ tailrecurse._crit_edge:                           ; preds = %tailrecurse, %8
   %19 = getelementptr inbounds i8, ptr %.0910.i.i.i.i.i, i64 8
   %20 = getelementptr inbounds i8, ptr %.0811.i.i.i.i.i, i64 8
   %21 = add nsw i64 %.012.i.i.i.i.i, -1
-  %22 = icmp ugt i64 %.012.i.i.i.i.i, 1
+  %22 = icmp samesign ugt i64 %.012.i.i.i.i.i, 1
   br i1 %22, label %.lr.ph.i.i.i.i.i, label %_ZSt4moveIPSt4pairIiiES2_ET0_T_S4_S3_.exit, !llvm.loop !218
 
 _ZSt4moveIPSt4pairIiiES2_ET0_T_S4_S3_.exit:       ; preds = %.lr.ph.i.i.i.i.i
@@ -20374,7 +20374,7 @@ _ZSt4moveIPSt4pairIiiES2_ET0_T_S4_S3_.exit:       ; preds = %.lr.ph.i.i.i.i.i
   %38 = getelementptr inbounds i8, ptr %.0910.i.i.i.i.i.i, i64 8
   %39 = getelementptr inbounds i8, ptr %.0811.i.i.i.i.i.i, i64 8
   %40 = add nsw i64 %.012.i.i.i.i.i.i, -1
-  %41 = icmp ugt i64 %.012.i.i.i.i.i.i, 1
+  %41 = icmp samesign ugt i64 %.012.i.i.i.i.i.i, 1
   br i1 %41, label %.lr.ph.i.i.i.i.i.i, label %"_ZSt21__move_merge_adaptiveIPSt4pairIiiES2_S2_N9__gnu_cxx5__ops15_Iter_comp_iterIZN12_GLOBAL__N_113VectorCombine17foldSelectShuffleERN4llvm11InstructionEbE3$_4EEEvT_SD_T0_SE_T1_T2_.exit", !llvm.loop !218
 
 42:                                               ; preds = %.lr.ph, %tailrecurse
@@ -20406,7 +20406,7 @@ _ZSt4moveIPSt4pairIiiES2_ET0_T_S4_S3_.exit:       ; preds = %.lr.ph.i.i.i.i.i
   %52 = getelementptr inbounds i8, ptr %.0910.i.i.i.i.i74, i64 8
   %53 = getelementptr inbounds i8, ptr %.0811.i.i.i.i.i73, i64 8
   %54 = add nsw i64 %.012.i.i.i.i.i72, -1
-  %55 = icmp ugt i64 %.012.i.i.i.i.i72, 1
+  %55 = icmp samesign ugt i64 %.012.i.i.i.i.i72, 1
   br i1 %55, label %.lr.ph.i.i.i.i.i71, label %_ZSt4moveIPSt4pairIiiES2_ET0_T_S4_S3_.exit75, !llvm.loop !218
 
 _ZSt4moveIPSt4pairIiiES2_ET0_T_S4_S3_.exit75:     ; preds = %.lr.ph.i.i.i.i.i71, %43
@@ -20437,7 +20437,7 @@ _ZSt4moveIPSt4pairIiiES2_ET0_T_S4_S3_.exit75:     ; preds = %.lr.ph.i.i.i.i.i71,
   %68 = getelementptr inbounds i8, ptr %.069.i.i.i.i.i.i, i64 -4
   store i32 %67, ptr %68, align 4
   %69 = add nsw i64 %.010.i.i.i.i.i.i, -1
-  %70 = icmp ugt i64 %.010.i.i.i.i.i.i, 1
+  %70 = icmp samesign ugt i64 %.010.i.i.i.i.i.i, 1
   br i1 %70, label %.lr.ph.i.i.i.i.i.i76, label %"_ZSt21__move_merge_adaptiveIPSt4pairIiiES2_S2_N9__gnu_cxx5__ops15_Iter_comp_iterIZN12_GLOBAL__N_113VectorCombine17foldSelectShuffleERN4llvm11InstructionEbE3$_4EEEvT_SD_T0_SE_T1_T2_.exit", !llvm.loop !209
 
 71:                                               ; preds = %_ZSt4moveIPSt4pairIiiES2_ET0_T_S4_S3_.exit75
@@ -20497,7 +20497,7 @@ _ZSt4moveIPSt4pairIiiES2_ET0_T_S4_S3_.exit75:     ; preds = %.lr.ph.i.i.i.i.i71,
   %96 = getelementptr inbounds i8, ptr %.069.i.i.i.i.i36.i, i64 -4
   store i32 %95, ptr %96, align 4
   %97 = add nsw i64 %.010.i.i.i.i.i35.i, -1
-  %98 = icmp ugt i64 %.010.i.i.i.i.i35.i, 1
+  %98 = icmp samesign ugt i64 %.010.i.i.i.i.i35.i, 1
   br i1 %98, label %.lr.ph.i.i.i.i.i34.i, label %"_ZSt21__move_merge_adaptiveIPSt4pairIiiES2_S2_N9__gnu_cxx5__ops15_Iter_comp_iterIZN12_GLOBAL__N_113VectorCombine17foldSelectShuffleERN4llvm11InstructionEbE3$_4EEEvT_SD_T0_SE_T1_T2_.exit", !llvm.loop !209
 
 99:                                               ; preds = %75
@@ -20894,7 +20894,7 @@ _ZNK4llvm15SmallPtrSetImplIPNS_11InstructionEE8containsEPKS1_.exit.i20.i: ; pred
   %134 = getelementptr inbounds i8, ptr %.0910.i.i.i.i.i.i, i64 8
   %135 = getelementptr inbounds i8, ptr %.0811.i.i.i.i.i.i, i64 8
   %136 = add nsw i64 %.012.i.i.i.i.i.i, -1
-  %137 = icmp ugt i64 %.012.i.i.i.i.i.i, 1
+  %137 = icmp samesign ugt i64 %.012.i.i.i.i.i.i, 1
   br i1 %137, label %.lr.ph.i.i.i.i.i.i, label %_ZSt4moveIPSt4pairIiiES2_ET0_T_S4_S3_.exit.i, !llvm.loop !218
 
 _ZSt4moveIPSt4pairIiiES2_ET0_T_S4_S3_.exit.i:     ; preds = %.lr.ph.i.i.i.i.i.i, %._crit_edge.i
@@ -20919,7 +20919,7 @@ _ZSt4moveIPSt4pairIiiES2_ET0_T_S4_S3_.exit.i:     ; preds = %.lr.ph.i.i.i.i.i.i,
   %147 = getelementptr inbounds i8, ptr %.0910.i.i.i.i.i26.i, i64 8
   %148 = getelementptr inbounds i8, ptr %.0811.i.i.i.i.i25.i, i64 8
   %149 = add nsw i64 %.012.i.i.i.i.i24.i, -1
-  %150 = icmp ugt i64 %.012.i.i.i.i.i24.i, 1
+  %150 = icmp samesign ugt i64 %.012.i.i.i.i.i24.i, 1
   br i1 %150, label %.lr.ph.i.i.i.i.i23.i, label %"_ZSt12__move_mergeIPSt4pairIiiES2_N9__gnu_cxx5__ops15_Iter_comp_iterIZN12_GLOBAL__N_113VectorCombine17foldSelectShuffleERN4llvm11InstructionEbE3$_4EEET0_T_SE_SE_SE_SD_T1_.exit", !llvm.loop !218
 
 "_ZSt12__move_mergeIPSt4pairIiiES2_N9__gnu_cxx5__ops15_Iter_comp_iterIZN12_GLOBAL__N_113VectorCombine17foldSelectShuffleERN4llvm11InstructionEbE3$_4EEET0_T_SE_SE_SE_SD_T1_.exit": ; preds = %.lr.ph.i.i.i.i.i23.i, %_ZSt4moveIPSt4pairIiiES2_ET0_T_S4_S3_.exit.i
@@ -20989,7 +20989,7 @@ _ZSt4moveIPSt4pairIiiES2_ET0_T_S4_S3_.exit.i:     ; preds = %.lr.ph.i.i.i.i.i.i,
   %172 = getelementptr inbounds i8, ptr %.0910.i.i.i.i.i.i40, i64 8
   %173 = getelementptr inbounds i8, ptr %.0811.i.i.i.i.i.i39, i64 8
   %174 = add nsw i64 %.012.i.i.i.i.i.i38, -1
-  %175 = icmp ugt i64 %.012.i.i.i.i.i.i38, 1
+  %175 = icmp samesign ugt i64 %.012.i.i.i.i.i.i38, 1
   br i1 %175, label %.lr.ph.i.i.i.i.i.i37, label %_ZSt4moveIPSt4pairIiiES2_ET0_T_S4_S3_.exit.i30, !llvm.loop !218
 
 _ZSt4moveIPSt4pairIiiES2_ET0_T_S4_S3_.exit.i30:   ; preds = %.lr.ph.i.i.i.i.i.i37, %._crit_edge.i26
@@ -21013,7 +21013,7 @@ _ZSt4moveIPSt4pairIiiES2_ET0_T_S4_S3_.exit.i30:   ; preds = %.lr.ph.i.i.i.i.i.i3
   %184 = getelementptr inbounds i8, ptr %.0910.i.i.i.i.i26.i36, i64 8
   %185 = getelementptr inbounds i8, ptr %.0811.i.i.i.i.i25.i35, i64 8
   %186 = add nsw i64 %.012.i.i.i.i.i24.i34, -1
-  %187 = icmp ugt i64 %.012.i.i.i.i.i24.i34, 1
+  %187 = icmp samesign ugt i64 %.012.i.i.i.i.i24.i34, 1
   br i1 %187, label %.lr.ph.i.i.i.i.i23.i33, label %"_ZSt12__move_mergeIPSt4pairIiiES2_N9__gnu_cxx5__ops15_Iter_comp_iterIZN12_GLOBAL__N_113VectorCombine17foldSelectShuffleERN4llvm11InstructionEbE3$_4EEET0_T_SE_SE_SE_SD_T1_.exit53", !llvm.loop !218
 
 "_ZSt12__move_mergeIPSt4pairIiiES2_N9__gnu_cxx5__ops15_Iter_comp_iterIZN12_GLOBAL__N_113VectorCombine17foldSelectShuffleERN4llvm11InstructionEbE3$_4EEET0_T_SE_SE_SE_SD_T1_.exit53": ; preds = %.lr.ph.i.i.i.i.i23.i33, %_ZSt4moveIPSt4pairIiiES2_ET0_T_S4_S3_.exit.i30
@@ -21052,7 +21052,7 @@ define linkonce_odr noundef ptr @_ZSt17__rotate_adaptiveIPSt4pairIiiES2_lET_S3_S
   %20 = getelementptr inbounds i8, ptr %.0910.i.i.i.i.i, i64 8
   %21 = getelementptr inbounds i8, ptr %.0811.i.i.i.i.i, i64 8
   %22 = add nsw i64 %.012.i.i.i.i.i, -1
-  %23 = icmp ugt i64 %.012.i.i.i.i.i, 1
+  %23 = icmp samesign ugt i64 %.012.i.i.i.i.i, 1
   br i1 %23, label %.lr.ph.i.i.i.i.i, label %_ZSt4moveIPSt4pairIiiES2_ET0_T_S4_S3_.exit, !llvm.loop !218
 
 _ZSt4moveIPSt4pairIiiES2_ET0_T_S4_S3_.exit:       ; preds = %.lr.ph.i.i.i.i.i, %10
@@ -21076,7 +21076,7 @@ _ZSt4moveIPSt4pairIiiES2_ET0_T_S4_S3_.exit:       ; preds = %.lr.ph.i.i.i.i.i, %
   %33 = getelementptr inbounds i8, ptr %.069.i.i.i.i.i, i64 -4
   store i32 %32, ptr %33, align 4
   %34 = add nsw i64 %.010.i.i.i.i.i, -1
-  %35 = icmp ugt i64 %.010.i.i.i.i.i, 1
+  %35 = icmp samesign ugt i64 %.010.i.i.i.i.i, 1
   br i1 %35, label %.lr.ph.i.i.i.i.i36, label %_ZSt13move_backwardIPSt4pairIiiES2_ET0_T_S4_S3_.exit, !llvm.loop !209
 
 _ZSt13move_backwardIPSt4pairIiiES2_ET0_T_S4_S3_.exit: ; preds = %.lr.ph.i.i.i.i.i36, %_ZSt4moveIPSt4pairIiiES2_ET0_T_S4_S3_.exit
@@ -21100,7 +21100,7 @@ _ZSt13move_backwardIPSt4pairIiiES2_ET0_T_S4_S3_.exit: ; preds = %.lr.ph.i.i.i.i.
   %45 = getelementptr inbounds i8, ptr %.0910.i.i.i.i.i41, i64 8
   %46 = getelementptr inbounds i8, ptr %.0811.i.i.i.i.i40, i64 8
   %47 = add nsw i64 %.012.i.i.i.i.i39, -1
-  %48 = icmp ugt i64 %.012.i.i.i.i.i39, 1
+  %48 = icmp samesign ugt i64 %.012.i.i.i.i.i39, 1
   br i1 %48, label %.lr.ph.i.i.i.i.i38, label %_ZSt4moveIPSt4pairIiiES2_ET0_T_S4_S3_.exit42, !llvm.loop !218
 
 49:                                               ; preds = %7
@@ -21132,7 +21132,7 @@ _ZSt13move_backwardIPSt4pairIiiES2_ET0_T_S4_S3_.exit: ; preds = %.lr.ph.i.i.i.i.
   %61 = getelementptr inbounds i8, ptr %.0910.i.i.i.i.i47, i64 8
   %62 = getelementptr inbounds i8, ptr %.0811.i.i.i.i.i46, i64 8
   %63 = add nsw i64 %.012.i.i.i.i.i45, -1
-  %64 = icmp ugt i64 %.012.i.i.i.i.i45, 1
+  %64 = icmp samesign ugt i64 %.012.i.i.i.i.i45, 1
   br i1 %64, label %.lr.ph.i.i.i.i.i44, label %_ZSt4moveIPSt4pairIiiES2_ET0_T_S4_S3_.exit48, !llvm.loop !218
 
 _ZSt4moveIPSt4pairIiiES2_ET0_T_S4_S3_.exit48:     ; preds = %.lr.ph.i.i.i.i.i44, %51
@@ -21156,7 +21156,7 @@ _ZSt4moveIPSt4pairIiiES2_ET0_T_S4_S3_.exit48:     ; preds = %.lr.ph.i.i.i.i.i44,
   %73 = getelementptr inbounds i8, ptr %.0910.i.i.i.i.i53, i64 8
   %74 = getelementptr inbounds i8, ptr %.0811.i.i.i.i.i52, i64 8
   %75 = add nsw i64 %.012.i.i.i.i.i51, -1
-  %76 = icmp ugt i64 %.012.i.i.i.i.i51, 1
+  %76 = icmp samesign ugt i64 %.012.i.i.i.i.i51, 1
   br i1 %76, label %.lr.ph.i.i.i.i.i50, label %_ZSt4moveIPSt4pairIiiES2_ET0_T_S4_S3_.exit54, !llvm.loop !218
 
 _ZSt4moveIPSt4pairIiiES2_ET0_T_S4_S3_.exit54:     ; preds = %.lr.ph.i.i.i.i.i50, %_ZSt4moveIPSt4pairIiiES2_ET0_T_S4_S3_.exit48
@@ -21180,7 +21180,7 @@ _ZSt4moveIPSt4pairIiiES2_ET0_T_S4_S3_.exit54:     ; preds = %.lr.ph.i.i.i.i.i50,
   %87 = getelementptr inbounds i8, ptr %.069.i.i.i.i.i58, i64 -4
   store i32 %86, ptr %87, align 4
   %88 = add nsw i64 %.010.i.i.i.i.i57, -1
-  %89 = icmp ugt i64 %.010.i.i.i.i.i57, 1
+  %89 = icmp samesign ugt i64 %.010.i.i.i.i.i57, 1
   br i1 %89, label %.lr.ph.i.i.i.i.i56, label %_ZSt4moveIPSt4pairIiiES2_ET0_T_S4_S3_.exit42, !llvm.loop !209
 
 90:                                               ; preds = %49
@@ -21374,7 +21374,7 @@ define internal fastcc void @"_ZSt16__insertion_sortIPSt4pairIiiEN9__gnu_cxx5__o
   %22 = getelementptr inbounds i8, ptr %.069.i.i.i.i.i, i64 -4
   store i32 %21, ptr %22, align 4
   %23 = add nsw i64 %.010.i.i.i.i.i, -1
-  %24 = icmp ugt i64 %.010.i.i.i.i.i, 1
+  %24 = icmp samesign ugt i64 %.010.i.i.i.i.i, 1
   br i1 %24, label %.lr.ph.i.i.i.i.i, label %_ZSt13move_backwardIPSt4pairIiiES2_ET0_T_S4_S3_.exit, !llvm.loop !209
 
 _ZSt13move_backwardIPSt4pairIiiES2_ET0_T_S4_S3_.exit: ; preds = %.lr.ph.i.i.i.i.i, %11
@@ -21814,7 +21814,7 @@ tailrecurse._crit_edge:                           ; preds = %tailrecurse, %8
   %19 = getelementptr inbounds i8, ptr %.0910.i.i.i.i.i, i64 8
   %20 = getelementptr inbounds i8, ptr %.0811.i.i.i.i.i, i64 8
   %21 = add nsw i64 %.012.i.i.i.i.i, -1
-  %22 = icmp ugt i64 %.012.i.i.i.i.i, 1
+  %22 = icmp samesign ugt i64 %.012.i.i.i.i.i, 1
   br i1 %22, label %.lr.ph.i.i.i.i.i, label %_ZSt4moveIPSt4pairIiiES2_ET0_T_S4_S3_.exit, !llvm.loop !218
 
 _ZSt4moveIPSt4pairIiiES2_ET0_T_S4_S3_.exit:       ; preds = %.lr.ph.i.i.i.i.i
@@ -21875,7 +21875,7 @@ _ZSt4moveIPSt4pairIiiES2_ET0_T_S4_S3_.exit:       ; preds = %.lr.ph.i.i.i.i.i
   %38 = getelementptr inbounds i8, ptr %.0910.i.i.i.i.i.i, i64 8
   %39 = getelementptr inbounds i8, ptr %.0811.i.i.i.i.i.i, i64 8
   %40 = add nsw i64 %.012.i.i.i.i.i.i, -1
-  %41 = icmp ugt i64 %.012.i.i.i.i.i.i, 1
+  %41 = icmp samesign ugt i64 %.012.i.i.i.i.i.i, 1
   br i1 %41, label %.lr.ph.i.i.i.i.i.i, label %"_ZSt21__move_merge_adaptiveIPSt4pairIiiES2_S2_N9__gnu_cxx5__ops15_Iter_comp_iterIZN12_GLOBAL__N_113VectorCombine17foldSelectShuffleERN4llvm11InstructionEbE3$_5EEEvT_SD_T0_SE_T1_T2_.exit", !llvm.loop !218
 
 42:                                               ; preds = %.lr.ph, %tailrecurse
@@ -21907,7 +21907,7 @@ _ZSt4moveIPSt4pairIiiES2_ET0_T_S4_S3_.exit:       ; preds = %.lr.ph.i.i.i.i.i
   %52 = getelementptr inbounds i8, ptr %.0910.i.i.i.i.i74, i64 8
   %53 = getelementptr inbounds i8, ptr %.0811.i.i.i.i.i73, i64 8
   %54 = add nsw i64 %.012.i.i.i.i.i72, -1
-  %55 = icmp ugt i64 %.012.i.i.i.i.i72, 1
+  %55 = icmp samesign ugt i64 %.012.i.i.i.i.i72, 1
   br i1 %55, label %.lr.ph.i.i.i.i.i71, label %_ZSt4moveIPSt4pairIiiES2_ET0_T_S4_S3_.exit75, !llvm.loop !218
 
 _ZSt4moveIPSt4pairIiiES2_ET0_T_S4_S3_.exit75:     ; preds = %.lr.ph.i.i.i.i.i71, %43
@@ -21938,7 +21938,7 @@ _ZSt4moveIPSt4pairIiiES2_ET0_T_S4_S3_.exit75:     ; preds = %.lr.ph.i.i.i.i.i71,
   %68 = getelementptr inbounds i8, ptr %.069.i.i.i.i.i.i, i64 -4
   store i32 %67, ptr %68, align 4
   %69 = add nsw i64 %.010.i.i.i.i.i.i, -1
-  %70 = icmp ugt i64 %.010.i.i.i.i.i.i, 1
+  %70 = icmp samesign ugt i64 %.010.i.i.i.i.i.i, 1
   br i1 %70, label %.lr.ph.i.i.i.i.i.i76, label %"_ZSt21__move_merge_adaptiveIPSt4pairIiiES2_S2_N9__gnu_cxx5__ops15_Iter_comp_iterIZN12_GLOBAL__N_113VectorCombine17foldSelectShuffleERN4llvm11InstructionEbE3$_5EEEvT_SD_T0_SE_T1_T2_.exit", !llvm.loop !209
 
 71:                                               ; preds = %_ZSt4moveIPSt4pairIiiES2_ET0_T_S4_S3_.exit75
@@ -21998,7 +21998,7 @@ _ZSt4moveIPSt4pairIiiES2_ET0_T_S4_S3_.exit75:     ; preds = %.lr.ph.i.i.i.i.i71,
   %96 = getelementptr inbounds i8, ptr %.069.i.i.i.i.i36.i, i64 -4
   store i32 %95, ptr %96, align 4
   %97 = add nsw i64 %.010.i.i.i.i.i35.i, -1
-  %98 = icmp ugt i64 %.010.i.i.i.i.i35.i, 1
+  %98 = icmp samesign ugt i64 %.010.i.i.i.i.i35.i, 1
   br i1 %98, label %.lr.ph.i.i.i.i.i34.i, label %"_ZSt21__move_merge_adaptiveIPSt4pairIiiES2_S2_N9__gnu_cxx5__ops15_Iter_comp_iterIZN12_GLOBAL__N_113VectorCombine17foldSelectShuffleERN4llvm11InstructionEbE3$_5EEEvT_SD_T0_SE_T1_T2_.exit", !llvm.loop !209
 
 99:                                               ; preds = %75
@@ -22395,7 +22395,7 @@ _ZNK4llvm15SmallPtrSetImplIPNS_11InstructionEE8containsEPKS1_.exit.i20.i: ; pred
   %134 = getelementptr inbounds i8, ptr %.0910.i.i.i.i.i.i, i64 8
   %135 = getelementptr inbounds i8, ptr %.0811.i.i.i.i.i.i, i64 8
   %136 = add nsw i64 %.012.i.i.i.i.i.i, -1
-  %137 = icmp ugt i64 %.012.i.i.i.i.i.i, 1
+  %137 = icmp samesign ugt i64 %.012.i.i.i.i.i.i, 1
   br i1 %137, label %.lr.ph.i.i.i.i.i.i, label %_ZSt4moveIPSt4pairIiiES2_ET0_T_S4_S3_.exit.i, !llvm.loop !218
 
 _ZSt4moveIPSt4pairIiiES2_ET0_T_S4_S3_.exit.i:     ; preds = %.lr.ph.i.i.i.i.i.i, %._crit_edge.i
@@ -22420,7 +22420,7 @@ _ZSt4moveIPSt4pairIiiES2_ET0_T_S4_S3_.exit.i:     ; preds = %.lr.ph.i.i.i.i.i.i,
   %147 = getelementptr inbounds i8, ptr %.0910.i.i.i.i.i26.i, i64 8
   %148 = getelementptr inbounds i8, ptr %.0811.i.i.i.i.i25.i, i64 8
   %149 = add nsw i64 %.012.i.i.i.i.i24.i, -1
-  %150 = icmp ugt i64 %.012.i.i.i.i.i24.i, 1
+  %150 = icmp samesign ugt i64 %.012.i.i.i.i.i24.i, 1
   br i1 %150, label %.lr.ph.i.i.i.i.i23.i, label %"_ZSt12__move_mergeIPSt4pairIiiES2_N9__gnu_cxx5__ops15_Iter_comp_iterIZN12_GLOBAL__N_113VectorCombine17foldSelectShuffleERN4llvm11InstructionEbE3$_5EEET0_T_SE_SE_SE_SD_T1_.exit", !llvm.loop !218
 
 "_ZSt12__move_mergeIPSt4pairIiiES2_N9__gnu_cxx5__ops15_Iter_comp_iterIZN12_GLOBAL__N_113VectorCombine17foldSelectShuffleERN4llvm11InstructionEbE3$_5EEET0_T_SE_SE_SE_SD_T1_.exit": ; preds = %.lr.ph.i.i.i.i.i23.i, %_ZSt4moveIPSt4pairIiiES2_ET0_T_S4_S3_.exit.i
@@ -22490,7 +22490,7 @@ _ZSt4moveIPSt4pairIiiES2_ET0_T_S4_S3_.exit.i:     ; preds = %.lr.ph.i.i.i.i.i.i,
   %172 = getelementptr inbounds i8, ptr %.0910.i.i.i.i.i.i40, i64 8
   %173 = getelementptr inbounds i8, ptr %.0811.i.i.i.i.i.i39, i64 8
   %174 = add nsw i64 %.012.i.i.i.i.i.i38, -1
-  %175 = icmp ugt i64 %.012.i.i.i.i.i.i38, 1
+  %175 = icmp samesign ugt i64 %.012.i.i.i.i.i.i38, 1
   br i1 %175, label %.lr.ph.i.i.i.i.i.i37, label %_ZSt4moveIPSt4pairIiiES2_ET0_T_S4_S3_.exit.i30, !llvm.loop !218
 
 _ZSt4moveIPSt4pairIiiES2_ET0_T_S4_S3_.exit.i30:   ; preds = %.lr.ph.i.i.i.i.i.i37, %._crit_edge.i26
@@ -22514,7 +22514,7 @@ _ZSt4moveIPSt4pairIiiES2_ET0_T_S4_S3_.exit.i30:   ; preds = %.lr.ph.i.i.i.i.i.i3
   %184 = getelementptr inbounds i8, ptr %.0910.i.i.i.i.i26.i36, i64 8
   %185 = getelementptr inbounds i8, ptr %.0811.i.i.i.i.i25.i35, i64 8
   %186 = add nsw i64 %.012.i.i.i.i.i24.i34, -1
-  %187 = icmp ugt i64 %.012.i.i.i.i.i24.i34, 1
+  %187 = icmp samesign ugt i64 %.012.i.i.i.i.i24.i34, 1
   br i1 %187, label %.lr.ph.i.i.i.i.i23.i33, label %"_ZSt12__move_mergeIPSt4pairIiiES2_N9__gnu_cxx5__ops15_Iter_comp_iterIZN12_GLOBAL__N_113VectorCombine17foldSelectShuffleERN4llvm11InstructionEbE3$_5EEET0_T_SE_SE_SE_SD_T1_.exit53", !llvm.loop !218
 
 "_ZSt12__move_mergeIPSt4pairIiiES2_N9__gnu_cxx5__ops15_Iter_comp_iterIZN12_GLOBAL__N_113VectorCombine17foldSelectShuffleERN4llvm11InstructionEbE3$_5EEET0_T_SE_SE_SE_SD_T1_.exit53": ; preds = %.lr.ph.i.i.i.i.i23.i33, %_ZSt4moveIPSt4pairIiiES2_ET0_T_S4_S3_.exit.i30
@@ -24690,7 +24690,7 @@ _ZN4llvm15SmallVectorImplISt4pairIPNS_3UseEiEE12assignRemoteEOS5_.exit: ; preds 
   %34 = getelementptr inbounds i8, ptr %.0910.i.i.i.i.i, i64 16
   %35 = getelementptr inbounds i8, ptr %.0811.i.i.i.i.i, i64 16
   %36 = add nsw i64 %.012.i.i.i.i.i, -1
-  %37 = icmp ugt i64 %.012.i.i.i.i.i, 1
+  %37 = icmp samesign ugt i64 %.012.i.i.i.i.i, 1
   br i1 %37, label %.lr.ph.i.i.i.i.i, label %_ZSt4moveIPSt4pairIPN4llvm3UseEiES5_ET0_T_S7_S6_.exit, !llvm.loop !255
 
 _ZSt4moveIPSt4pairIPN4llvm3UseEiES5_ET0_T_S7_S6_.exit: ; preds = %.lr.ph.i.i.i.i.i, %25, %24
@@ -24740,7 +24740,7 @@ _ZSt4moveIPSt4pairIPN4llvm3UseEiES5_ET0_T_S7_S6_.exit: ; preds = %.lr.ph.i.i.i.i
   %57 = getelementptr inbounds i8, ptr %.0910.i.i.i.i.i38, i64 16
   %58 = getelementptr inbounds i8, ptr %.0811.i.i.i.i.i37, i64 16
   %59 = add nsw i64 %.012.i.i.i.i.i36, -1
-  %60 = icmp ugt i64 %.012.i.i.i.i.i36, 1
+  %60 = icmp samesign ugt i64 %.012.i.i.i.i.i36, 1
   br i1 %60, label %.lr.ph.i.i.i.i.i35, label %_ZSt4moveIPSt4pairIPN4llvm3UseEiES5_ET0_T_S7_S6_.exit39, !llvm.loop !255
 
 _ZSt4moveIPSt4pairIPN4llvm3UseEiES5_ET0_T_S7_S6_.exit39: ; preds = %.lr.ph.i.i.i.i.i35, %49, %48, %44
@@ -24804,7 +24804,7 @@ define linkonce_odr noundef nonnull align 8 dereferenceable(16) ptr @_ZN4llvm15S
   %15 = getelementptr inbounds i8, ptr %.0910.i.i.i.i.i, i64 16
   %16 = getelementptr inbounds i8, ptr %.0811.i.i.i.i.i, i64 16
   %17 = add nsw i64 %.012.i.i.i.i.i, -1
-  %18 = icmp ugt i64 %.012.i.i.i.i.i, 1
+  %18 = icmp samesign ugt i64 %.012.i.i.i.i.i, 1
   br i1 %18, label %.lr.ph.i.i.i.i.i, label %_ZSt4copyIPKSt4pairIPN4llvm3UseEiEPS4_ET0_T_S9_S8_.exit, !llvm.loop !256
 
 _ZSt4copyIPKSt4pairIPN4llvm3UseEiEPS4_ET0_T_S9_S8_.exit: ; preds = %.lr.ph.i.i.i.i.i, %7
@@ -24850,7 +24850,7 @@ _ZSt4copyIPKSt4pairIPN4llvm3UseEiEPS4_ET0_T_S9_S8_.exit: ; preds = %.lr.ph.i.i.i
   %36 = getelementptr inbounds i8, ptr %.0910.i.i.i.i.i34, i64 16
   %37 = getelementptr inbounds i8, ptr %.0811.i.i.i.i.i33, i64 16
   %38 = add nsw i64 %.012.i.i.i.i.i32, -1
-  %39 = icmp ugt i64 %.012.i.i.i.i.i32, 1
+  %39 = icmp samesign ugt i64 %.012.i.i.i.i.i32, 1
   br i1 %39, label %.lr.ph.i.i.i.i.i31, label %_ZSt4copyIPKSt4pairIPN4llvm3UseEiEPS4_ET0_T_S9_S8_.exit35, !llvm.loop !256
 
 _ZSt4copyIPKSt4pairIPN4llvm3UseEiEPS4_ET0_T_S9_S8_.exit35: ; preds = %.lr.ph.i.i.i.i.i31, %28, %27, %23

@@ -1873,7 +1873,7 @@ define dso_local i32 @tcp_current_mss(ptr noundef %0) local_unnamed_addr #0 alig
   br i1 %117, label %127, label %118, !prof !27
 
 118:                                              ; preds = %102
-  %119 = icmp ult i32 %109, 29
+  %119 = icmp samesign ult i32 %109, 29
   br i1 %119, label %120, label %127, !prof !27
 
 120:                                              ; preds = %118
@@ -3525,7 +3525,7 @@ define internal fastcc zeroext i1 @tcp_write_xmit(ptr noundef %0, i32 noundef %1
   tail call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; orb ${1:b},$0", "=*m,iq,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i8) %336, i32 1, ptr elementtype(i8) %336) #18, !srcloc !55
   %781 = load volatile i32, ptr %335, align 4
   %782 = zext i32 %781 to i64
-  %783 = icmp ult i64 %765, %782
+  %783 = icmp samesign ult i64 %765, %782
   br i1 %783, label %.thread68, label %784
 
 784:                                              ; preds = %780, %776, %769, %764
@@ -5561,7 +5561,7 @@ define dso_local void @tcp_xmit_retransmit_queue(ptr noundef %0) local_unnamed_a
   tail call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; orb ${1:b},$0", "=*m,iq,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i8) %67, i32 1, ptr elementtype(i8) %67) #18, !srcloc !55
   %179 = load volatile i32, ptr %66, align 4
   %180 = zext i32 %179 to i64
-  %181 = icmp ult i64 %163, %180
+  %181 = icmp samesign ult i64 %163, %180
   br i1 %181, label %.thread, label %182
 
 182:                                              ; preds = %178, %174, %167, %162
@@ -6690,7 +6690,7 @@ define dso_local ptr @tcp_make_synack(ptr noundef %0, ptr noundef %1, ptr nounde
   %166 = zext i8 %165 to i32
   %167 = add nuw nsw i32 %164, %166
   %168 = and i32 %167, 508
-  %169 = icmp ult i32 %154, %168
+  %169 = icmp samesign ult i32 %154, %168
   br i1 %169, label %174, label %170
 
 170:                                              ; preds = %160
@@ -8698,7 +8698,7 @@ define internal fastcc i32 @__tcp_transmit_skb(ptr noundef %0, ptr noundef %1, i
   br i1 %122, label %134, label %123, !prof !27
 
 123:                                              ; preds = %113
-  %124 = icmp ult i32 %114, 29
+  %124 = icmp samesign ult i32 %114, 29
   br i1 %124, label %125, label %134, !prof !27
 
 125:                                              ; preds = %123
@@ -10921,7 +10921,7 @@ define internal fastcc range(i32 4, 41) i32 @tcp_syn_options(ptr noundef %0, ptr
   %135 = zext i8 %134 to i32
   %136 = add nuw nsw i32 %133, %135
   %137 = and i32 %136, 508
-  %138 = icmp ult i32 %123, %137
+  %138 = icmp samesign ult i32 %123, %137
   br i1 %138, label %151, label %139
 
 139:                                              ; preds = %129

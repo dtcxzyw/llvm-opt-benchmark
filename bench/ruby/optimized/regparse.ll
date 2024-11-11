@@ -2460,7 +2460,7 @@ define internal fastcc i32 @fetch_token(ptr noundef nonnull %0, ptr nocapture no
   %417 = getelementptr inbounds i8, ptr %3, i64 92
   %418 = load i32, ptr %417, align 4
   %419 = icmp sle i32 %412, %418
-  %420 = icmp ult i32 %412, 10
+  %420 = icmp samesign ult i32 %412, 10
   %or.cond5 = or i1 %420, %419
   br i1 %or.cond5, label %421, label %440
 
@@ -14884,7 +14884,7 @@ CC_DUP_WARN.exit:                                 ; preds = %40, %36, %30, %26, 
   br i1 %or.cond.not, label %79, label %add_code_range.exit.thread
 
 79:                                               ; preds = %77
-  %80 = icmp ugt i32 %76, %3
+  %80 = icmp samesign ugt i32 %76, %3
   br i1 %80, label %81, label %87
 
 81:                                               ; preds = %79

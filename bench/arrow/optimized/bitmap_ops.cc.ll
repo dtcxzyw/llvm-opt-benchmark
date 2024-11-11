@@ -1471,7 +1471,7 @@ while.body.i:                                     ; preds = %if.end36.i, %while.
 
 land.lhs.true.i:                                  ; preds = %while.body.i
   %add15.i = add nuw nsw i64 %rem7.i, %length.addr.051.i
-  %cmp16.i = icmp ult i64 %add15.i, 8
+  %cmp16.i = icmp samesign ult i64 %add15.i, 8
   br i1 %cmp16.i, label %if.then.i, label %if.end.i
 
 if.then.i:                                        ; preds = %land.lhs.true.i

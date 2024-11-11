@@ -34955,7 +34955,7 @@ _ZN5clang22TypoCorrectionConsumer19getBestEditDistanceEb.exit: ; preds = %.threa
   %65 = load ptr, ptr %64, align 8
   %66 = load i64, ptr %65, align 8
   %67 = trunc i64 %66 to i32
-  %.not = icmp ult i32 %56, 50
+  %.not = icmp samesign ult i32 %56, 50
   br i1 %.not, label %74, label %68
 
 68:                                               ; preds = %_ZN5clang22TypoCorrectionConsumer19getBestEditDistanceEb.exit.thread, %_ZN5clang22TypoCorrectionConsumer19getBestEditDistanceEb.exit
@@ -50912,7 +50912,7 @@ define linkonce_odr noundef nonnull align 8 dereferenceable(16) ptr @_ZN4llvm15S
   %18 = getelementptr inbounds i8, ptr %.0910.i.i.i.i.i, i64 64
   %19 = getelementptr inbounds i8, ptr %.0811.i.i.i.i.i, i64 64
   %20 = add nsw i64 %.012.i.i.i.i.i, -1
-  %21 = icmp ugt i64 %.012.i.i.i.i.i, 1
+  %21 = icmp samesign ugt i64 %.012.i.i.i.i.i, 1
   br i1 %21, label %.lr.ph.i.i.i.i.i, label %_ZSt4copyIPKN5clang9FixItHintEPS1_ET0_T_S6_S5_.exit.loopexit, !llvm.loop !524
 
 _ZSt4copyIPKN5clang9FixItHintEPS1_ET0_T_S6_S5_.exit.loopexit: ; preds = %.lr.ph.i.i.i.i.i
@@ -50993,7 +50993,7 @@ _ZN4llvm15SmallVectorImplIN5clang9FixItHintEE5clearEv.exit: ; preds = %.lr.ph.i.
   %49 = getelementptr inbounds i8, ptr %.0910.i.i.i.i.i34, i64 64
   %50 = getelementptr inbounds i8, ptr %.0811.i.i.i.i.i33, i64 64
   %51 = add nsw i64 %.012.i.i.i.i.i32, -1
-  %52 = icmp ugt i64 %.012.i.i.i.i.i32, 1
+  %52 = icmp samesign ugt i64 %.012.i.i.i.i.i32, 1
   br i1 %52, label %.lr.ph.i.i.i.i.i31, label %_ZSt4copyIPKN5clang9FixItHintEPS1_ET0_T_S6_S5_.exit35, !llvm.loop !524
 
 _ZSt4copyIPKN5clang9FixItHintEPS1_ET0_T_S6_S5_.exit35: ; preds = %.lr.ph.i.i.i.i.i31, %38, %37, %_ZN4llvm15SmallVectorImplIN5clang9FixItHintEE5clearEv.exit
@@ -51470,7 +51470,7 @@ _ZNSt12_Vector_baseIN5clang17PartialDiagnosticESaIS1_EE13_M_deallocateEPS1_m.exi
   %55 = getelementptr inbounds i8, ptr %.0910.i.i.i.i.i, i64 24
   %56 = getelementptr inbounds i8, ptr %.0811.i.i.i.i.i, i64 24
   %57 = add nsw i64 %.012.i.i.i.i.i, -1
-  %58 = icmp ugt i64 %.012.i.i.i.i.i, 1
+  %58 = icmp samesign ugt i64 %.012.i.i.i.i.i, 1
   br i1 %58, label %.lr.ph.i.i.i.i.i, label %_ZSt4copyIN9__gnu_cxx17__normal_iteratorIPKN5clang17PartialDiagnosticESt6vectorIS3_SaIS3_EEEENS1_IPS3_S8_EEET0_T_SD_SC_.exit.loopexit, !llvm.loop !528
 
 _ZSt4copyIN9__gnu_cxx17__normal_iteratorIPKN5clang17PartialDiagnosticESt6vectorIS3_SaIS3_EEEENS1_IPS3_S8_EEET0_T_SD_SC_.exit.loopexit: ; preds = %.lr.ph.i.i.i.i.i
@@ -51549,7 +51549,7 @@ _ZSt8_DestroyIN5clang17PartialDiagnosticEEvPT_.exit.i.i.i31: ; preds = %_ZN5clan
   %82 = getelementptr inbounds i8, ptr %.0910.i.i.i.i.i38, i64 24
   %83 = getelementptr inbounds i8, ptr %.0811.i.i.i.i.i37, i64 24
   %84 = add nsw i64 %.012.i.i.i.i.i36, -1
-  %85 = icmp ugt i64 %.012.i.i.i.i.i36, 1
+  %85 = icmp samesign ugt i64 %.012.i.i.i.i.i36, 1
   br i1 %85, label %.lr.ph.i.i.i.i.i35, label %_ZSt4copyIPN5clang17PartialDiagnosticES2_ET0_T_S4_S3_.exit.loopexit, !llvm.loop !530
 
 _ZSt4copyIPN5clang17PartialDiagnosticES2_ET0_T_S4_S3_.exit.loopexit: ; preds = %.lr.ph.i.i.i.i.i35
@@ -59385,7 +59385,7 @@ define linkonce_odr hidden noundef ptr @_ZN4llvm15SmallVectorImplISt4pairIPN5cla
   %16 = getelementptr inbounds i8, ptr %.0910.i.i.i.i.i, i64 80
   %17 = getelementptr inbounds i8, ptr %.0811.i.i.i.i.i, i64 80
   %18 = add nsw i64 %.012.i.i.i.i.i, -1
-  %19 = icmp ugt i64 %.012.i.i.i.i.i, 1
+  %19 = icmp samesign ugt i64 %.012.i.i.i.i.i, 1
   br i1 %19, label %.lr.ph.i.i.i.i.i, label %_ZSt4moveIPSt4pairIPN5clang8TypoExprENS1_4Sema13TypoExprStateEES7_ET0_T_S9_S8_.exit, !llvm.loop !579
 
 _ZSt4moveIPSt4pairIPN5clang8TypoExprENS1_4Sema13TypoExprStateEES7_ET0_T_S9_S8_.exit: ; preds = %.lr.ph.i.i.i.i.i, %2

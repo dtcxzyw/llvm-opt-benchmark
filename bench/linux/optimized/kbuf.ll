@@ -831,7 +831,7 @@ define dso_local noundef range(i32 -75, 1) i32 @io_provide_buffers_prep(ptr noca
 
 41:                                               ; preds = %33
   %42 = add nuw nsw i64 %39, %24
-  %43 = icmp ugt i64 %42, 65536
+  %43 = icmp samesign ugt i64 %42, 65536
   br i1 %43, label %47, label %44
 
 44:                                               ; preds = %41

@@ -208,12 +208,12 @@ define void @gres_filter_sock_core(ptr nocapture noundef readonly %0, ptr nocapt
 105:                                              ; preds = %101
   %106 = load i32, ptr %7, align 4
   %107 = zext i32 %106 to i64
-  %108 = icmp ult i64 %99, %107
+  %108 = icmp samesign ult i64 %99, %107
   br i1 %108, label %.loopexit704.sink.split, label %109
 
 109:                                              ; preds = %105
   %110 = icmp eq i32 %102, -2
-  %111 = icmp ult i64 %99, %103
+  %111 = icmp samesign ult i64 %99, %103
   %or.cond634 = or i1 %110, %111
   br i1 %or.cond634, label %112, label %114
 

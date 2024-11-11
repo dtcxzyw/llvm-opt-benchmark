@@ -4310,7 +4310,7 @@ define dso_local void @_Z42Vmycpu_top___024root___nba_sequent__TOP__0P20Vmycpu_t
   br i1 %or.cond6512, label %1335, label %1354
 
 1335:                                             ; preds = %1314
-  %.not5281 = icmp ult i32 %1334, 134217728
+  %.not5281 = icmp samesign ult i32 %1334, 134217728
   br i1 %.not5281, label %1338, label %1336
 
 1336:                                             ; preds = %1335
@@ -4318,7 +4318,7 @@ define dso_local void @_Z42Vmycpu_top___024root___nba_sequent__TOP__0P20Vmycpu_t
   br label %1350
 
 1338:                                             ; preds = %1335
-  %.not5282 = icmp ult i32 %1334, 67108864
+  %.not5282 = icmp samesign ult i32 %1334, 67108864
   br i1 %.not5282, label %1344, label %1339
 
 1339:                                             ; preds = %1338
@@ -9411,7 +9411,7 @@ define dso_local void @_Z42Vmycpu_top___024root___nba_sequent__TOP__0P20Vmycpu_t
   br label %4605
 
 4359:                                             ; preds = %4280
-  %.not5727 = icmp ult i32 %4166, 1073741824
+  %.not5727 = icmp samesign ult i32 %4166, 1073741824
   br i1 %.not5727, label %4467, label %4360
 
 4360:                                             ; preds = %4359
@@ -9710,15 +9710,15 @@ define dso_local void @_Z42Vmycpu_top___024root___nba_sequent__TOP__0P20Vmycpu_t
   br label %4605
 
 4467:                                             ; preds = %4359
-  %.not5728.not = icmp ult i32 %4166, 536870912
+  %.not5728.not = icmp samesign ult i32 %4166, 536870912
   br i1 %.not5728.not, label %4468, label %4497
 
 4468:                                             ; preds = %4467
-  %or.cond6534 = icmp ult i32 %4166, 134217728
+  %or.cond6534 = icmp samesign ult i32 %4166, 134217728
   br i1 %or.cond6534, label %4469, label %4512
 
 4469:                                             ; preds = %4468
-  %.not5731 = icmp ult i32 %4166, 67108864
+  %.not5731 = icmp samesign ult i32 %4166, 67108864
   br i1 %.not5731, label %4480, label %4470
 
 4470:                                             ; preds = %4469
@@ -9833,7 +9833,7 @@ define dso_local void @_Z42Vmycpu_top___024root___nba_sequent__TOP__0P20Vmycpu_t
   br label %4605
 
 4512:                                             ; preds = %4468
-  %.not5767 = icmp ult i32 %4166, 268435456
+  %.not5767 = icmp samesign ult i32 %4166, 268435456
   br i1 %.not5767, label %4518, label %4513
 
 4513:                                             ; preds = %4512
@@ -10371,7 +10371,7 @@ define dso_local void @_Z42Vmycpu_top___024root___nba_sequent__TOP__0P20Vmycpu_t
   br label %5030
 
 4759:                                             ; preds = %4605
-  %.not5956 = icmp ult i32 %4165, 1073741824
+  %.not5956 = icmp samesign ult i32 %4165, 1073741824
   br i1 %.not5956, label %4865, label %4760
 
 4760:                                             ; preds = %4759
@@ -10665,11 +10665,11 @@ define dso_local void @_Z42Vmycpu_top___024root___nba_sequent__TOP__0P20Vmycpu_t
   br label %5030
 
 4865:                                             ; preds = %4759
-  %or.cond6562 = icmp ult i32 %4165, 134217728
+  %or.cond6562 = icmp samesign ult i32 %4165, 134217728
   br i1 %or.cond6562, label %4866, label %4894
 
 4866:                                             ; preds = %4865
-  %.not5960 = icmp ult i32 %4165, 67108864
+  %.not5960 = icmp samesign ult i32 %4165, 67108864
   br i1 %.not5960, label %4878, label %4867
 
 4867:                                             ; preds = %4866

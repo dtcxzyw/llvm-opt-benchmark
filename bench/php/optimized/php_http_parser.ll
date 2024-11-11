@@ -130,7 +130,7 @@ define hidden i64 @php_http_parser_execute(ptr noundef %0, ptr nocapture noundef
   %.010191868 = phi i32 [ %39, %.lr.ph ], [ %.31022, %1042 ]
   %.010231866 = phi ptr [ %2, %.lr.ph ], [ %1043, %1042 ]
   %57 = load i8, ptr %.010231866, align 1
-  %58 = icmp ult i32 %.010191868, 46
+  %58 = icmp samesign ult i32 %.010191868, 46
   br i1 %58, label %59, label %66
 
 59:                                               ; preds = %56

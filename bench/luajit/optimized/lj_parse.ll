@@ -4073,7 +4073,7 @@ fs_fixup_ret.exit:                                ; preds = %for.body.i, %for.in
   %add16 = add nuw nsw i64 %mul14, %add10
   %sub.i64 = add i32 %22, -1
   %cmp.i = icmp slt i32 %sub, 256
-  %cmp1.i = icmp ult i32 %sub, 65536
+  %cmp1.i = icmp samesign ult i32 %sub, 65536
   %cond.i = select i1 %cmp1.i, i32 1, i32 2
   %cond2.i = select i1 %cmp.i, i32 0, i32 %cond.i
   %shl.i65 = shl i32 %sub.i64, %cond2.i
@@ -7525,7 +7525,7 @@ land.lhs.true76:                                  ; preds = %if.end72
   br i1 %cmp79.not, label %if.then81, label %if.else82
 
 if.then81:                                        ; preds = %land.lhs.true76
-  %cmp.i129 = icmp ult i32 %46, 3
+  %cmp.i129 = icmp samesign ult i32 %46, 3
   br i1 %cmp.i129, label %if.then.i136, label %if.else.i130
 
 if.then.i136:                                     ; preds = %if.then81
@@ -8758,7 +8758,7 @@ if.then12.i:                                      ; preds = %if.then9.i
   br label %if.end35.i
 
 if.else19.i:                                      ; preds = %if.then9.i
-  %cmp20.i = icmp ugt i32 %51, 255
+  %cmp20.i = icmp samesign ugt i32 %51, 255
   br i1 %cmp20.i, label %if.then21.i, label %if.else28.i
 
 if.then21.i:                                      ; preds = %if.else19.i
@@ -9217,7 +9217,7 @@ if.then79:                                        ; preds = %if.else72
   br label %if.end113
 
 if.else88:                                        ; preds = %if.else72
-  %cmp89 = icmp ugt i32 %40, 255
+  %cmp89 = icmp samesign ugt i32 %40, 255
   %shl92 = shl i32 %call74, 8
   %42 = load i32, ptr %var, align 8
   %shl96 = shl i32 %42, 24
@@ -9337,7 +9337,7 @@ if.then12:                                        ; preds = %if.then9
   br label %if.end35
 
 if.else19:                                        ; preds = %if.then9
-  %cmp20 = icmp ugt i32 %9, 255
+  %cmp20 = icmp samesign ugt i32 %9, 255
   br i1 %cmp20, label %if.then21, label %if.else28
 
 if.then21:                                        ; preds = %if.else19
@@ -9927,7 +9927,7 @@ sw.bb20.i:                                        ; preds = %if.then.i50
   br i1 %or.cond.i, label %if.end35.i, label %if.then25.i
 
 if.then25.i:                                      ; preds = %sw.bb20.i
-  %cmp28.i = icmp ugt i32 %reg, %shr21.i
+  %cmp28.i = icmp samesign ugt i32 %reg, %shr21.i
   br i1 %cmp28.i, label %if.then29.i, label %noins
 
 if.then29.i:                                      ; preds = %if.then25.i

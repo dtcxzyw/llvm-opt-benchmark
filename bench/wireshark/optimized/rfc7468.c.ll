@@ -35,7 +35,7 @@ define hidden range(i32 -1, 2) i32 @rfc7468_open(ptr nocapture noundef %0, ptr n
   %12 = zext nneg i32 %6 to i64
   %13 = getelementptr i8, ptr %4, i64 %12
   %14 = ptrtoint ptr %13 to i64
-  %15 = icmp ult i32 %6, 11
+  %15 = icmp samesign ult i32 %6, 11
   br i1 %15, label %.loopexit, label %.lr.ph
 
 16:                                               ; preds = %24

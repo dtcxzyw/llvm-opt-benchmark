@@ -87,7 +87,7 @@ cond.end17:                                       ; preds = %if.end11
 
 land.lhs.true:                                    ; preds = %cond.end17
   %2 = icmp ugt i32 %call15, 8388607
-  %3 = icmp ugt i32 %operation_id, 255
+  %3 = icmp samesign ugt i32 %operation_id, 255
   %or.cond.i.not = or i1 %3, %2
   br i1 %or.cond.i.not, label %if.then24, label %lor.lhs.false30
 
@@ -146,7 +146,7 @@ if.end45:                                         ; preds = %if.then43, %if.then
 
 if.then49:                                        ; preds = %if.end45
   %5 = icmp ult i32 %name_id.2, 8388608
-  %6 = icmp ult i32 %operation_id, 256
+  %6 = icmp samesign ult i32 %operation_id, 256
   %or.cond.i50 = and i1 %6, %5
   %shl.i51 = shl nuw nsw i32 %name_id.2, 8
   %or.i52 = add nuw nsw i32 %shl.i51, %operation_id

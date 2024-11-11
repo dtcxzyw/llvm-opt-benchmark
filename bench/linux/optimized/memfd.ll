@@ -292,7 +292,7 @@ define internal fastcc range(i64 -2147483648, 2147483648) i64 @__se_sys_memfd_cr
   br i1 %48, label %.thread, label %49
 
 49:                                               ; preds = %46
-  %50 = icmp ugt i64 %47, 250
+  %50 = icmp samesign ugt i64 %47, 250
   br i1 %50, label %.thread, label %51
 
 51:                                               ; preds = %49

@@ -1388,7 +1388,7 @@ define void @Mvc_CoverInverse(ptr nocapture noundef readonly %0) local_unnamed_a
   %34 = load i32, ptr %33, align 4
   %35 = xor i32 %34, -1
   store i32 %35, ptr %33, align 4
-  %36 = icmp ugt i64 %indvars.iv, 1
+  %36 = icmp samesign ugt i64 %indvars.iv, 1
   br i1 %36, label %.lr.ph, label %.loopexit, !llvm.loop !26
 
 .loopexit:                                        ; preds = %.lr.ph, %6, %13

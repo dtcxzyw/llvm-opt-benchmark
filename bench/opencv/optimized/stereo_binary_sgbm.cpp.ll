@@ -2920,7 +2920,7 @@ common.resume:                                    ; preds = %21, %23, %11, %13
   store i32 %1, ptr %16, align 4
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %3)
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %4)
-  %17 = icmp ugt i32 %1, 10
+  %17 = icmp samesign ugt i32 %1, 10
   br i1 %17, label %_ZN2cv6stereo8Matching15setMaxDisparityEi.exit, label %18
 
 18:                                               ; preds = %15

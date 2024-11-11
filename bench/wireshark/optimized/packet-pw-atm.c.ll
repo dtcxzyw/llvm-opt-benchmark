@@ -544,7 +544,7 @@ proto_item_set_hidden.exit132:                    ; preds = %79, %76, %75, %73, 
 83:                                               ; preds = %proto_item_set_hidden.exit132, %proto_item_set_hidden.exit132, %proto_item_set_hidden.exit132
   %84 = load i32, ptr @hf_pref_cw_len, align 4
   %.off124 = add nsw i32 %.pr135, -1
-  %switch125 = icmp ult i32 %.off124, 2
+  %switch125 = icmp samesign ult i32 %.off124, 2
   %85 = load i32, ptr @hf_pref_cw_rsvlen, align 4
   br i1 %switch125, label %86, label %88
 
@@ -1457,7 +1457,7 @@ define internal i32 @dissect_aal5_sdu(ptr noundef %0, ptr noundef %1, ptr nounde
   unreachable
 
 number_of_cells.exit:                             ; preds = %.thread91
-  %64 = icmp ugt i32 %.07197, 51
+  %64 = icmp samesign ugt i32 %.07197, 51
   %.neg.i = select i1 %64, i32 -52, i32 0
   %storemerge.i = sub nsw i32 0, %.07197
   %65 = icmp eq i32 %.neg.i, %storemerge.i
@@ -1623,7 +1623,7 @@ define internal i32 @dissect_11_or_aal5_pdu(ptr noundef %0, ptr noundef %1, ptr 
   br i1 %13, label %18, label %14
 
 14:                                               ; preds = %9
-  %.not87 = icmp ult i8 %12, 64
+  %.not87 = icmp samesign ult i8 %12, 64
   %15 = getelementptr inbounds i8, ptr %5, i64 12
   br i1 %.not87, label %17, label %16
 
@@ -1716,10 +1716,10 @@ pw_cell_size.exit28.i:                            ; preds = %pw_cell_size.exit.t
 number_of_cells.exit105:                          ; preds = %45
   %49 = urem i32 %46, 48
   %.neg39.i96 = sub nsw i32 %49, %46
-  %50 = icmp ult i32 %46, 48
+  %50 = icmp samesign ult i32 %46, 48
   %storemerge.i99 = sub i32 4, %.fr113
   %51 = icmp ne i32 %.neg39.i96, %storemerge.i99
-  %or.cond6 = or i1 %51, %50
+  %or.cond6 = select i1 %50, i1 true, i1 %51
   br i1 %or.cond6, label %.sink.split, label %53
 
 .sink.split:                                      ; preds = %number_of_cells.exit105, %pw_cell_size.exit28.i
@@ -2040,7 +2040,7 @@ define internal i32 @dissect_n1_cw(ptr noundef %0, ptr noundef %1, ptr noundef %
 number_of_cells.exit:                             ; preds = %52
   %56 = udiv i32 %.064, 52
   %.neg39.i = mul nsw i32 %56, -52
-  %57 = icmp ult i32 %.064, 52
+  %57 = icmp samesign ult i32 %.064, 52
   %storemerge.i = sub nsw i32 0, %.064
   %58 = icmp ne i32 %.neg39.i, %storemerge.i
   %or.cond = select i1 %57, i1 true, i1 %58
@@ -2154,7 +2154,7 @@ define internal i32 @dissect_n1_nocw(ptr noundef %0, ptr noundef %1, ptr noundef
 number_of_cells.exit:                             ; preds = %4
   %12 = udiv i32 %7, 52
   %.neg39.i = mul nsw i32 %12, -52
-  %13 = icmp ugt i32 %7, 51
+  %13 = icmp samesign ugt i32 %7, 51
   %storemerge.i = sub nsw i32 0, %7
   %14 = icmp eq i32 %.neg39.i, %storemerge.i
   %or.cond.not = select i1 %13, i1 %14, i1 false

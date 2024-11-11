@@ -310,7 +310,7 @@ define dso_local zeroext i1 @drm_edid_block_valid(ptr noundef %0, i32 noundef %1
   br label %.thread5
 
 28:                                               ; preds = %20
-  %29 = icmp ugt i32 %17, 7
+  %29 = icmp samesign ugt i32 %17, 7
   br i1 %29, label %.preheader27, label %53
 
 .preheader27:                                     ; preds = %28, %8
@@ -384,7 +384,7 @@ define dso_local zeroext i1 @drm_edid_block_valid(ptr noundef %0, i32 noundef %1
   br label %.thread5
 
 74:                                               ; preds = %66
-  %75 = icmp ugt i32 %63, 7
+  %75 = icmp samesign ugt i32 %63, 7
   br i1 %75, label %.preheader, label %.thread5
 
 .preheader:                                       ; preds = %74, %.preheader
@@ -571,7 +571,7 @@ define internal fastcc void @edid_block_dump(ptr noundef %0, ptr noundef %1, i32
   br i1 %25, label %edid_block_check.exit.thread3, label %.thread
 
 26:                                               ; preds = %19
-  %27 = icmp ugt i32 %16, 7
+  %27 = icmp samesign ugt i32 %16, 7
   br i1 %27, label %.preheader, label %.thread
 
 .preheader:                                       ; preds = %26, %7
@@ -838,7 +838,7 @@ define dso_local noundef zeroext i1 @drm_edid_valid(ptr noundef readonly %0) #3 
   br label %.thread12
 
 114:                                              ; preds = %108
-  %115 = icmp ugt i32 %105, 7
+  %115 = icmp samesign ugt i32 %105, 7
   br i1 %115, label %.preheader32, label %.thread12
 
 .preheader32:                                     ; preds = %114, %96
@@ -1679,7 +1679,7 @@ define internal fastcc ptr @_drm_do_get_edid(ptr noundef %0, ptr nocapture nound
   br i1 %45, label %select.unfold53, label %.thread62
 
 46:                                               ; preds = %39
-  %47 = icmp ugt i32 %36, 7
+  %47 = icmp samesign ugt i32 %36, 7
   br i1 %47, label %.preheader74, label %65
 
 .preheader74:                                     ; preds = %46, %.preheader74
@@ -1736,7 +1736,7 @@ define internal fastcc ptr @_drm_do_get_edid(ptr noundef %0, ptr nocapture nound
   br i1 %81, label %select.unfold53, label %.thread62
 
 82:                                               ; preds = %78
-  %83 = icmp ugt i32 %75, 7
+  %83 = icmp samesign ugt i32 %75, 7
   br i1 %83, label %.preheader75, label %.thread62
 
 .preheader75:                                     ; preds = %82, %.preheader75
@@ -2820,7 +2820,7 @@ define dso_local i32 @drm_edid_get_panel_id(ptr noundef %0) #3 align 16 {
   br i1 %53, label %select.unfold18, label %.thread27
 
 54:                                               ; preds = %47
-  %55 = icmp ugt i32 %44, 7
+  %55 = icmp samesign ugt i32 %44, 7
   br i1 %55, label %.preheader, label %73
 
 .preheader:                                       ; preds = %54, %.preheader
@@ -2877,7 +2877,7 @@ define dso_local i32 @drm_edid_get_panel_id(ptr noundef %0) #3 align 16 {
   br i1 %89, label %select.unfold18, label %.thread27
 
 90:                                               ; preds = %86
-  %91 = icmp ugt i32 %83, 7
+  %91 = icmp samesign ugt i32 %83, 7
   br i1 %91, label %.preheader34, label %.thread27
 
 .preheader34:                                     ; preds = %90, %.preheader34
@@ -4188,7 +4188,7 @@ define internal fastcc i32 @get_monitor_name(ptr noundef readonly %0, ptr nounde
 
 94:                                               ; preds = %88
   %95 = xor i8 %90, 126
-  %96 = icmp ult i8 %95, 18
+  %96 = icmp samesign ult i8 %95, 18
   br i1 %96, label %.loopexit, label %97
 
 97:                                               ; preds = %94
@@ -5168,7 +5168,7 @@ get_monitor_range.exit66:                         ; preds = %76, %84, %88, %92, 
 
 181:                                              ; preds = %175
   %182 = xor i8 %177, 126
-  %183 = icmp ult i8 %182, 18
+  %183 = icmp samesign ult i8 %182, 18
   br i1 %183, label %.loopexit.i, label %184
 
 184:                                              ; preds = %181
@@ -7400,7 +7400,7 @@ do_standard_modes.exit77:                         ; preds = %84, %.preheader133,
 
 150:                                              ; preds = %144
   %151 = xor i8 %146, 126
-  %152 = icmp ult i8 %151, 18
+  %152 = icmp samesign ult i8 %151, 18
   br i1 %152, label %.loopexit.i, label %153
 
 153:                                              ; preds = %150
@@ -9863,7 +9863,7 @@ define internal fastcc ptr @edid_filter_invalid_blocks(ptr noundef %0, ptr nocap
   br label %.thread
 
 28:                                               ; preds = %22
-  %29 = icmp ugt i32 %19, 7
+  %29 = icmp samesign ugt i32 %19, 7
   br i1 %29, label %.preheader, label %.thread
 
 .preheader:                                       ; preds = %28, %10
@@ -10092,7 +10092,7 @@ define internal fastcc void @drm_for_each_detailed_block(ptr noundef readonly %0
 
 75:                                               ; preds = %69
   %76 = xor i8 %71, 126
-  %77 = icmp ult i8 %76, 18
+  %77 = icmp samesign ult i8 %76, 18
   br i1 %77, label %.loopexit, label %78
 
 78:                                               ; preds = %75
@@ -11476,7 +11476,7 @@ get_timing_level.exit23:                          ; preds = %33, %34, %17, %22, 
 
 98:                                               ; preds = %92
   %99 = xor i8 %94, 126
-  %100 = icmp ult i8 %99, 18
+  %100 = icmp samesign ult i8 %99, 18
   br i1 %100, label %.loopexit.i, label %101
 
 101:                                              ; preds = %98
@@ -11604,7 +11604,7 @@ get_timing_level.exit:                            ; preds = %155, %156, %138, %1
   br i1 %164, label %165, label %drm_for_each_detailed_block.exit
 
 165:                                              ; preds = %162, %160
-  %166 = icmp ugt i8 %12, 1
+  %166 = icmp samesign ugt i8 %12, 1
   %167 = zext i1 %166 to i32
   br label %drm_for_each_detailed_block.exit
 
@@ -11900,7 +11900,7 @@ is_rb.exit25:                                     ; preds = %275, %258, %263, %2
 
 342:                                              ; preds = %336
   %343 = xor i8 %338, 126
-  %344 = icmp ult i8 %343, 18
+  %344 = icmp samesign ult i8 %343, 18
   br i1 %344, label %.loopexit.i19, label %345
 
 345:                                              ; preds = %342
@@ -12352,7 +12352,7 @@ define internal fastcc ptr @drm_gtf2_mode(ptr noundef %0, ptr noundef readonly %
 
 113:                                              ; preds = %107
   %114 = xor i8 %109, 126
-  %115 = icmp ult i8 %114, 18
+  %115 = icmp samesign ult i8 %114, 18
   br i1 %115, label %.loopexit79, label %116
 
 116:                                              ; preds = %113
@@ -12577,7 +12577,7 @@ define internal fastcc ptr @drm_gtf2_mode(ptr noundef %0, ptr noundef readonly %
 
 259:                                              ; preds = %253
   %260 = xor i8 %255, 126
-  %261 = icmp ult i8 %260, 18
+  %261 = icmp samesign ult i8 %260, 18
   br i1 %261, label %.loopexit77, label %262
 
 262:                                              ; preds = %259
@@ -12802,7 +12802,7 @@ define internal fastcc ptr @drm_gtf2_mode(ptr noundef %0, ptr noundef readonly %
 
 405:                                              ; preds = %399
   %406 = xor i8 %401, 126
-  %407 = icmp ult i8 %406, 18
+  %407 = icmp samesign ult i8 %406, 18
   br i1 %407, label %.loopexit75, label %408
 
 408:                                              ; preds = %405
@@ -13027,7 +13027,7 @@ define internal fastcc ptr @drm_gtf2_mode(ptr noundef %0, ptr noundef readonly %
 
 551:                                              ; preds = %545
   %552 = xor i8 %547, 126
-  %553 = icmp ult i8 %552, 18
+  %553 = icmp samesign ult i8 %552, 18
   br i1 %553, label %.loopexit, label %554
 
 554:                                              ; preds = %551
@@ -13288,7 +13288,7 @@ define internal fastcc range(i32 0, 511) i32 @drm_gtf2_hbreak(ptr noundef readon
 
 93:                                               ; preds = %87
   %94 = xor i8 %89, 126
-  %95 = icmp ult i8 %94, 18
+  %95 = icmp samesign ult i8 %94, 18
   br i1 %95, label %.loopexit, label %96
 
 96:                                               ; preds = %93

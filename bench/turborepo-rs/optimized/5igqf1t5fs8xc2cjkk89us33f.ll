@@ -2857,7 +2857,7 @@ define noundef align 8 dereferenceable_or_null(32) ptr @_RNvMNtCs8mTrBI1stz4_15t
   %5 = getelementptr inbounds i8, ptr %0, i64 56
   %6 = load i64, ptr %5, align 8, !alias.scope !584, !noundef !7
   %7 = zext i16 %1 to i64
-  %.not.i = icmp ugt i64 %6, %7
+  %.not.i = icmp samesign ugt i64 %6, %7
   %8 = getelementptr inbounds { { { i64, ptr, {} }, i64 }, i8, [7 x i8] }, ptr %4, i64 %7
   %.sroa.0.0.i = select i1 %.not.i, ptr %8, ptr null
   ret ptr %.sroa.0.0.i
@@ -2870,7 +2870,7 @@ define noundef align 8 dereferenceable_or_null(32) ptr @_RNvMNtCs8mTrBI1stz4_15t
   %5 = getelementptr inbounds i8, ptr %0, i64 56
   %6 = load i64, ptr %5, align 8, !alias.scope !587, !noundef !7
   %7 = zext i16 %1 to i64
-  %.not.i = icmp ugt i64 %6, %7
+  %.not.i = icmp samesign ugt i64 %6, %7
   %8 = getelementptr inbounds { { { i64, ptr, {} }, i64 }, i8, [7 x i8] }, ptr %4, i64 %7
   %.sroa.0.0.i = select i1 %.not.i, ptr %8, ptr null
   ret ptr %.sroa.0.0.i
@@ -2883,7 +2883,7 @@ define noundef nonnull align 8 dereferenceable(32) ptr @_RNvMNtCs8mTrBI1stz4_15t
   %4 = getelementptr inbounds i8, ptr %0, i64 56
   %5 = load i64, ptr %4, align 8, !alias.scope !590, !noundef !7
   %6 = zext i16 %3 to i64
-  %.not.i.i.not = icmp ugt i64 %5, %6
+  %.not.i.i.not = icmp samesign ugt i64 %5, %6
   br i1 %.not.i.i.not, label %8, label %7
 
 7:                                                ; preds = %1
@@ -2980,7 +2980,7 @@ define noundef align 4 dereferenceable_or_null(36) ptr @_RNvMNtCs8mTrBI1stz4_15t
   %4 = getelementptr inbounds i8, ptr %0, i64 56
   %5 = load i64, ptr %4, align 8, !alias.scope !624, !noundef !7
   %6 = zext i16 %1 to i64
-  %.not.i.i.not = icmp ugt i64 %5, %6
+  %.not.i.i.not = icmp samesign ugt i64 %5, %6
   br i1 %.not.i.i.not, label %7, label %18
 
 7:                                                ; preds = %3
@@ -3007,7 +3007,7 @@ define noundef align 4 dereferenceable_or_null(36) ptr @_RNvMNtCs8mTrBI1stz4_15t
   %4 = getelementptr inbounds i8, ptr %0, i64 56
   %5 = load i64, ptr %4, align 8, !alias.scope !632, !noundef !7
   %6 = zext i16 %1 to i64
-  %.not.i.i.not = icmp ugt i64 %5, %6
+  %.not.i.i.not = icmp samesign ugt i64 %5, %6
   br i1 %.not.i.i.not, label %7, label %18
 
 7:                                                ; preds = %3
@@ -4690,7 +4690,7 @@ define void @_RNvMNtCs8mTrBI1stz4_15turborepo_vt1004gridNtB2_4Grid31write_cursor
   %38 = getelementptr inbounds i8, ptr %0, i64 56
   %39 = load i64, ptr %38, align 8, !noundef !7
   %40 = zext i16 %28 to i64
-  %.not.i.i.not.i = icmp ugt i64 %39, %40
+  %.not.i.i.not.i = icmp samesign ugt i64 %39, %40
   br i1 %.not.i.i.not.i, label %41, label %75
 
 41:                                               ; preds = %36
@@ -5402,7 +5402,7 @@ define void @_RNvMNtCs8mTrBI1stz4_15turborepo_vt1004gridNtB2_4Grid17erase_all_fo
   %18 = ptrtoint ptr %.sroa.0.0 to i64
   %19 = sub nuw i64 %13, %18
   %20 = lshr exact i64 %19, 5
-  %.not.i.not = icmp ult i64 %.sroa.10.0, %20
+  %.not.i.not = icmp samesign ult i64 %.sroa.10.0, %20
   %21 = getelementptr inbounds { { { i64, ptr, {} }, i64 }, i8, [7 x i8] }, ptr %.sroa.0.0, i64 %.sroa.10.0
   br i1 %.not.i.not, label %_RNvXs32_NtNtCs1LoaDTb72WA_4core5slice4iterINtB6_7IterMutNtNtCs8mTrBI1stz4_15turborepo_vt1003row3RowENtNtNtNtBa_4iter6traits8iterator8Iterator4nextBW_.llvm.18144538392194903364.exit.thread11, label %_RNvXs32_NtNtCs1LoaDTb72WA_4core5slice4iterINtB6_7IterMutNtNtCs8mTrBI1stz4_15turborepo_vt1003row3RowENtNtNtNtBa_4iter6traits8iterator8Iterator4nextBW_.llvm.18144538392194903364.exit.thread
 
@@ -5410,7 +5410,7 @@ _RNvXs32_NtNtCs1LoaDTb72WA_4core5slice4iterINtB6_7IterMutNtNtCs8mTrBI1stz4_15tur
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1019)
   %22 = getelementptr inbounds i8, ptr %0, i64 114
   %23 = load i16, ptr %22, align 2, !alias.scope !1019, !noalias !1022, !noundef !7
-  %.not.i.i.not.i.i = icmp ugt i64 %9, %11
+  %.not.i.i.not.i.i = icmp samesign ugt i64 %9, %11
   br i1 %.not.i.i.not.i.i, label %_RNvMNtCs8mTrBI1stz4_15turborepo_vt1004gridNtB2_4Grid15current_row_mut.exit.i, label %24
 
 24:                                               ; preds = %_RNvXs32_NtNtCs1LoaDTb72WA_4core5slice4iterINtB6_7IterMutNtNtCs8mTrBI1stz4_15turborepo_vt1003row3RowENtNtNtNtBa_4iter6traits8iterator8Iterator4nextBW_.llvm.18144538392194903364.exit.thread
@@ -5490,7 +5490,7 @@ define void @_RNvMNtCs8mTrBI1stz4_15turborepo_vt1004gridNtB2_4Grid18erase_all_ba
 
 _RNvXs32_NtNtCs1LoaDTb72WA_4core5slice4iterINtB6_7IterMutNtNtCs8mTrBI1stz4_15turborepo_vt1003row3RowENtNtNtNtBa_4iter6traits8iterator8Iterator4nextBW_.llvm.18144538392194903364.exit.thread: ; preds = %_RNvMNtCs8mTrBI1stz4_15turborepo_vt1003rowNtB2_3Row5clear.exit, %.lr.ph, %2
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1041)
-  %.not.i.i.not.i.i = icmp ugt i64 %9, %11
+  %.not.i.i.not.i.i = icmp samesign ugt i64 %9, %11
   br i1 %.not.i.i.not.i.i, label %_RNvMNtCs8mTrBI1stz4_15turborepo_vt1004gridNtB2_4Grid15current_row_mut.exit.i, label %15
 
 15:                                               ; preds = %_RNvXs32_NtNtCs1LoaDTb72WA_4core5slice4iterINtB6_7IterMutNtNtCs8mTrBI1stz4_15turborepo_vt1003row3RowENtNtNtNtBa_4iter6traits8iterator8Iterator4nextBW_.llvm.18144538392194903364.exit.thread
@@ -5561,7 +5561,7 @@ define void @_RNvMNtCs8mTrBI1stz4_15turborepo_vt1004gridNtB2_4Grid9erase_row(ptr
   %5 = getelementptr inbounds i8, ptr %0, i64 56
   %6 = load i64, ptr %5, align 8, !alias.scope !1066, !noundef !7
   %7 = zext i16 %4 to i64
-  %.not.i.i.not.i = icmp ugt i64 %6, %7
+  %.not.i.i.not.i = icmp samesign ugt i64 %6, %7
   br i1 %.not.i.i.not.i, label %_RNvMNtCs8mTrBI1stz4_15turborepo_vt1004gridNtB2_4Grid15current_row_mut.exit, label %8
 
 8:                                                ; preds = %2
@@ -5612,7 +5612,7 @@ define void @_RNvMNtCs8mTrBI1stz4_15turborepo_vt1004gridNtB2_4Grid17erase_row_fo
   %10 = getelementptr inbounds i8, ptr %0, i64 56
   %11 = load i64, ptr %10, align 8, !alias.scope !1087, !noundef !7
   %12 = zext i16 %9 to i64
-  %.not.i.i.not.i = icmp ugt i64 %11, %12
+  %.not.i.i.not.i = icmp samesign ugt i64 %11, %12
   br i1 %.not.i.i.not.i, label %_RNvMNtCs8mTrBI1stz4_15turborepo_vt1004gridNtB2_4Grid15current_row_mut.exit, label %13
 
 13:                                               ; preds = %2
@@ -5653,7 +5653,7 @@ define void @_RNvMNtCs8mTrBI1stz4_15turborepo_vt1004gridNtB2_4Grid18erase_row_ba
   %10 = getelementptr inbounds i8, ptr %0, i64 56
   %11 = load i64, ptr %10, align 8, !alias.scope !1095, !noundef !7
   %12 = zext i16 %9 to i64
-  %.not.i.i.not.i = icmp ugt i64 %11, %12
+  %.not.i.i.not.i = icmp samesign ugt i64 %11, %12
   br i1 %.not.i.i.not.i, label %_RNvMNtCs8mTrBI1stz4_15turborepo_vt1004gridNtB2_4Grid15current_row_mut.exit, label %13
 
 13:                                               ; preds = %2
@@ -5708,7 +5708,7 @@ define void @_RNvMNtCs8mTrBI1stz4_15turborepo_vt1004gridNtB2_4Grid12insert_cells
   %12 = getelementptr inbounds i8, ptr %0, i64 56
   %13 = load i64, ptr %12, align 8, !noundef !7
   %14 = zext i16 %10 to i64
-  %.not.i.i.not.i = icmp ugt i64 %13, %14
+  %.not.i.i.not.i = icmp samesign ugt i64 %13, %14
   br i1 %.not.i.i.not.i, label %15, label %61
 
 15:                                               ; preds = %11
@@ -5726,7 +5726,7 @@ define void @_RNvMNtCs8mTrBI1stz4_15turborepo_vt1004gridNtB2_4Grid12insert_cells
   %24 = phi i64 [ %.pre36, %._crit_edge34 ], [ %13, %_RNvMNtCs8mTrBI1stz4_15turborepo_vt1004gridNtB2_4Grid12drawing_cell.exit ]
   %.sroa.0.0 = phi i1 [ false, %._crit_edge34 ], [ %67, %_RNvMNtCs8mTrBI1stz4_15turborepo_vt1004gridNtB2_4Grid12drawing_cell.exit ]
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1118)
-  %.not.i.i.not.i10 = icmp ugt i64 %24, %.pre-phi
+  %.not.i.i.not.i10 = icmp samesign ugt i64 %24, %.pre-phi
   br i1 %.not.i.i.not.i10, label %_RNvMNtCs8mTrBI1stz4_15turborepo_vt1004gridNtB2_4Grid15current_row_mut.exit, label %25
 
 25:                                               ; preds = %23
@@ -5939,7 +5939,7 @@ define void @_RNvMNtCs8mTrBI1stz4_15turborepo_vt1004gridNtB2_4Grid12delete_cells
   %11 = getelementptr inbounds i8, ptr %0, i64 56
   %12 = load i64, ptr %11, align 8, !alias.scope !1181, !noundef !7
   %13 = zext i16 %10 to i64
-  %.not.i.i.not.i = icmp ugt i64 %12, %13
+  %.not.i.i.not.i = icmp samesign ugt i64 %12, %13
   br i1 %.not.i.i.not.i, label %_RNvMNtCs8mTrBI1stz4_15turborepo_vt1004gridNtB2_4Grid15current_row_mut.exit, label %14
 
 14:                                               ; preds = %2
@@ -6019,7 +6019,7 @@ _RNvMNtCs8mTrBI1stz4_15turborepo_vt1003rowNtB2_3Row6resize.exit: ; preds = %_RNv
   unreachable
 
 46:                                               ; preds = %40
-  %.not.i.i = icmp ult i8 %43, 64
+  %.not.i.i = icmp samesign ult i8 %43, 64
   br i1 %.not.i.i, label %_RNvMNtCs8mTrBI1stz4_15turborepo_vt1003rowNtB2_3Row6remove.exit, label %49
 
 47:                                               ; preds = %40
@@ -6074,7 +6074,7 @@ define void @_RNvMNtCs8mTrBI1stz4_15turborepo_vt1004gridNtB2_4Grid11erase_cells(
   %11 = getelementptr inbounds i8, ptr %0, i64 56
   %12 = load i64, ptr %11, align 8, !alias.scope !1226, !noundef !7
   %13 = zext i16 %10 to i64
-  %.not.i.i.not.i = icmp ugt i64 %12, %13
+  %.not.i.i.not.i = icmp samesign ugt i64 %12, %13
   br i1 %.not.i.i.not.i, label %_RNvMNtCs8mTrBI1stz4_15turborepo_vt1004gridNtB2_4Grid15current_row_mut.exit, label %14
 
 14:                                               ; preds = %3
@@ -7128,7 +7128,7 @@ _RNvMNtCs8mTrBI1stz4_15turborepo_vt1004gridNtB2_4Grid14row_inc_scroll.exit: ; pr
   %27 = getelementptr inbounds i8, ptr %0, i64 56
   %28 = load i64, ptr %27, align 8, !alias.scope !1425, !noundef !7
   %29 = zext i16 %26 to i64
-  %.not.i.i6.not = icmp ugt i64 %28, %29
+  %.not.i.i6.not = icmp samesign ugt i64 %28, %29
   br i1 %.not.i.i6.not, label %32, label %31
 
 30:                                               ; preds = %3, %32

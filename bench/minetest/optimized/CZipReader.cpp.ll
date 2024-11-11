@@ -1548,7 +1548,7 @@ if.then.i.i.i:                                    ; preds = %if.then5.i.i
   br label %_ZN3irr4core5arrayINS_2io13SZipFileEntryEE10reallocateEjb.exit
 
 if.else.i:                                        ; preds = %while.end
-  %cmp3.i.i = icmp ult i64 %sub.ptr.div.i.i, %conv.i125
+  %cmp3.i.i = icmp samesign ult i64 %sub.ptr.div.i.i, %conv.i125
   br i1 %cmp3.i.i, label %_ZNSt12_Vector_baseIN3irr2io13SZipFileEntryESaIS2_EE11_M_allocateEm.exit.i.i, label %_ZN3irr4core5arrayINS_2io13SZipFileEntryEE10reallocateEjb.exit
 
 _ZNSt12_Vector_baseIN3irr2io13SZipFileEntryESaIS2_EE11_M_allocateEm.exit.i.i: ; preds = %if.else.i

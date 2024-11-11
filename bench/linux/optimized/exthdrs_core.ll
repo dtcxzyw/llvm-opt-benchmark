@@ -246,7 +246,7 @@ define dso_local i32 @ipv6_find_tlv(ptr nocapture noundef readonly %0, i32 nound
   %44 = load i8, ptr %43, align 1
   %45 = zext i8 %44 to i32
   %46 = add nuw nsw i32 %45, 2
-  %47 = icmp ugt i32 %46, %29
+  %47 = icmp samesign ugt i32 %46, %29
   br i1 %47, label %.thread4, label %48
 
 48:                                               ; preds = %36, %40

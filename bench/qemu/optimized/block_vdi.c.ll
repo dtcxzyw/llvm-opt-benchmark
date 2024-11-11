@@ -250,7 +250,7 @@ if.else47:                                        ; preds = %if.else43
   %30 = load i32, ptr %blocks_in_image, align 1
   %conv = zext i32 %30 to i64
   %mul = shl nuw nsw i64 %conv, 20
-  %cmp51 = icmp ugt i64 %23, %mul
+  %cmp51 = icmp samesign ugt i64 %23, %mul
   br i1 %cmp51, label %if.then53, label %if.else60
 
 if.then53:                                        ; preds = %if.else47

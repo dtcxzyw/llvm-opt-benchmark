@@ -1919,7 +1919,7 @@ findFrame1Position.exit277:                       ; preds = %148, %149, %155
 
 206:                                              ; preds = %198, %197
   %207 = zext nneg i16 %.1 to i32
-  %208 = icmp ugt i16 %.1, %.1228
+  %208 = icmp samesign ugt i16 %.1, %.1228
   %209 = sub i32 %64, %187
   %210 = select i1 %208, i32 %207, i32 %209
   %211 = sub i32 %64, %210
@@ -1929,7 +1929,7 @@ findFrame1Position.exit277:                       ; preds = %148, %149, %155
 .thread328:                                       ; preds = %185
   %.pre = zext nneg i16 %.1228 to i32
   %213 = zext nneg i16 %.1 to i32
-  %214 = icmp ugt i16 %.1, %.1228
+  %214 = icmp samesign ugt i16 %.1, %.1228
   %215 = sub i32 %64, %.pre
   %216 = select i1 %214, i32 %213, i32 %215
   %217 = sub i32 %64, %216

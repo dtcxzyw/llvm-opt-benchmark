@@ -2766,7 +2766,7 @@ check_end.exit73.i:                               ; preds = %lor.lhs.false22.i
   br i1 %tobool24.not.i, label %for.cond.backedge.i, label %check_end.exit83.i
 
 lor.lhs.false25.i:                                ; preds = %lor.lhs.false22.i
-  %cmp.i76.i = icmp ult i64 %call1.i.i, 6
+  %cmp.i76.i = icmp samesign ult i64 %call1.i.i, 6
   br i1 %cmp.i76.i, label %for.cond31.i.preheader, label %check_end.exit83.i
 
 check_end.exit83.i:                               ; preds = %lor.lhs.false25.i, %check_end.exit73.i

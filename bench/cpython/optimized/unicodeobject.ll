@@ -1783,7 +1783,7 @@ if.then16:                                        ; preds = %if.end14
 if.end17:                                         ; preds = %if.end14
   %sub = xor i64 %struct_size.0, 9223372036854775807
   %div = udiv i64 %sub, %char_size.0
-  %cmp19.not = icmp ult i64 %size, %div
+  %cmp19.not = icmp samesign ult i64 %size, %div
   br i1 %cmp19.not, label %if.end22, label %if.then20
 
 if.then20:                                        ; preds = %if.end17
@@ -7408,7 +7408,7 @@ if.then:                                          ; preds = %entry
   br label %return
 
 if.end:                                           ; preds = %entry
-  %cmp.i = icmp ult i32 %ordinal, 256
+  %cmp.i = icmp samesign ult i32 %ordinal, 256
   br i1 %cmp.i, label %if.then.i, label %if.end.i
 
 if.then.i:                                        ; preds = %if.end
@@ -12638,11 +12638,11 @@ if.end55.i:                                       ; preds = %if.end48.i, %while.
   %p.2.i = phi ptr [ %p.3.i49, %if.end48.i ], [ %p.0120.i, %while.body.i42 ]
   %s.2.i = phi ptr [ %s.3.i, %if.end48.i ], [ %s.0121.i, %while.body.i42 ]
   %ch.0.i = phi i32 [ %ch.1.i, %if.end48.i ], [ %conv.i, %while.body.i42 ]
-  %cmp56.i = icmp ult i32 %ch.0.i, 224
+  %cmp56.i = icmp samesign ult i32 %ch.0.i, 224
   br i1 %cmp56.i, label %if.then58.i, label %if.end76.i
 
 if.then58.i:                                      ; preds = %if.end55.i
-  %cmp59.i = icmp ult i32 %ch.0.i, 194
+  %cmp59.i = icmp samesign ult i32 %ch.0.i, 194
   br i1 %cmp59.i, label %asciilib_utf8_decode.exit, label %if.end62.i
 
 if.end62.i:                                       ; preds = %if.then58.i
@@ -12667,7 +12667,7 @@ if.end74.i:                                       ; preds = %if.end66.i
   br label %asciilib_utf8_decode.exit
 
 if.end76.i:                                       ; preds = %if.end55.i
-  %cmp77.i = icmp ult i32 %ch.0.i, 240
+  %cmp77.i = icmp samesign ult i32 %ch.0.i, 240
   br i1 %cmp77.i, label %if.then79.i, label %if.end149.i
 
 if.then79.i:                                      ; preds = %if.end76.i
@@ -12688,7 +12688,7 @@ if.end93.i:                                       ; preds = %if.then86.i
   br i1 %or.cond1.i, label %lor.lhs.false.i, label %InvalidContinuation1.i
 
 lor.lhs.false.i:                                  ; preds = %if.end93.i
-  %cmp101.i = icmp ult i8 %43, -96
+  %cmp101.i = icmp samesign ult i8 %43, -96
   br i1 %cmp101.i, label %cond.true.i44, label %cond.false.i43
 
 cond.true.i44:                                    ; preds = %lor.lhs.false.i
@@ -12714,12 +12714,12 @@ if.end120.i:                                      ; preds = %if.end109.i
   br i1 %cmp121.i, label %if.then123.i, label %if.else.i
 
 if.then123.i:                                     ; preds = %if.end120.i
-  %cmp124.i = icmp ult i8 %44, -96
+  %cmp124.i = icmp samesign ult i8 %44, -96
   br i1 %cmp124.i, label %InvalidContinuation1.i, label %if.end135.i
 
 if.else.i:                                        ; preds = %if.end120.i
   %cmp128.i = icmp eq i32 %ch.0.i, 237
-  %cmp131.i = icmp ugt i8 %44, -97
+  %cmp131.i = icmp samesign ugt i8 %44, -97
   %or.cond3.i = and i1 %cmp128.i, %cmp131.i
   br i1 %or.cond3.i, label %InvalidContinuation1.i, label %if.end135.i
 
@@ -12737,7 +12737,7 @@ if.end142.i:                                      ; preds = %if.end135.i
   br label %asciilib_utf8_decode.exit
 
 if.end149.i:                                      ; preds = %if.end76.i
-  %cmp150.i = icmp ult i32 %ch.0.i, 245
+  %cmp150.i = icmp samesign ult i32 %ch.0.i, 245
   br i1 %cmp150.i, label %if.then152.i, label %asciilib_utf8_decode.exit
 
 if.then152.i:                                     ; preds = %if.end149.i
@@ -12758,7 +12758,7 @@ if.end167.i:                                      ; preds = %if.then160.i
   br i1 %or.cond5.i, label %lor.lhs.false175.i, label %InvalidContinuation1.i
 
 lor.lhs.false175.i:                               ; preds = %if.end167.i
-  %cmp176.i = icmp ult i8 %46, -112
+  %cmp176.i = icmp samesign ult i8 %46, -112
   br i1 %cmp176.i, label %cond.true178.i, label %cond.false181.i
 
 cond.true178.i:                                   ; preds = %lor.lhs.false175.i
@@ -12797,12 +12797,12 @@ if.end215.i:                                      ; preds = %if.end202.i
   br i1 %cmp216.i, label %if.then218.i, label %if.else223.i
 
 if.then218.i:                                     ; preds = %if.end215.i
-  %cmp219.i = icmp ult i8 %48, -112
+  %cmp219.i = icmp samesign ult i8 %48, -112
   br i1 %cmp219.i, label %InvalidContinuation1.i, label %if.end231.i
 
 if.else223.i:                                     ; preds = %if.end215.i
   %cmp224.i = icmp eq i32 %ch.0.i, 244
-  %cmp227.i = icmp ugt i8 %48, -113
+  %cmp227.i = icmp samesign ugt i8 %48, -113
   %or.cond8.i = and i1 %cmp224.i, %cmp227.i
   br i1 %or.cond8.i, label %InvalidContinuation1.i, label %if.end231.i
 
@@ -12946,11 +12946,11 @@ if.end55.i67:                                     ; preds = %if.end48.i109, %whi
   %p.2.i68 = phi ptr [ %p.3.i110, %if.end48.i109 ], [ %p.0129.i, %while.body.i64 ]
   %s.2.i69 = phi ptr [ %s.3.i111, %if.end48.i109 ], [ %s.0130.i, %while.body.i64 ]
   %ch.0.i70 = phi i32 [ %ch.1.i112, %if.end48.i109 ], [ %conv.i65, %while.body.i64 ]
-  %cmp56.i71 = icmp ult i32 %ch.0.i70, 224
+  %cmp56.i71 = icmp samesign ult i32 %ch.0.i70, 224
   br i1 %cmp56.i71, label %if.then58.i89, label %if.end82.i
 
 if.then58.i89:                                    ; preds = %if.end55.i67
-  %cmp59.i90 = icmp ult i32 %ch.0.i70, 194
+  %cmp59.i90 = icmp samesign ult i32 %ch.0.i70, 194
   br i1 %cmp59.i90, label %ucs1lib_utf8_decode.exit, label %if.end62.i91
 
 if.end62.i91:                                     ; preds = %if.then58.i89
@@ -12971,11 +12971,11 @@ if.end74.i98:                                     ; preds = %if.end66.i95
   %add.i101 = add nsw i32 %shl.i100, -12416
   %sub.i102 = add nuw nsw i32 %add.i101, %conv68.i99
   %add.ptr75.i103 = getelementptr i8, ptr %s.2.i69, i64 2
-  %cmp76.i = icmp ugt i32 %sub.i102, 255
+  %cmp76.i = icmp samesign ugt i32 %sub.i102, 255
   br i1 %cmp76.i, label %ucs1lib_utf8_decode.exit, label %while.cond.backedge.i
 
 if.end82.i:                                       ; preds = %if.end55.i67
-  %cmp83.i = icmp ult i32 %ch.0.i70, 240
+  %cmp83.i = icmp samesign ult i32 %ch.0.i70, 240
   br i1 %cmp83.i, label %if.then85.i, label %if.end155.i
 
 if.then85.i:                                      ; preds = %if.end82.i
@@ -12995,7 +12995,7 @@ if.end99.i:                                       ; preds = %if.then92.i
   br i1 %or.cond1.i85, label %lor.lhs.false.i86, label %InvalidContinuation1.i74
 
 lor.lhs.false.i86:                                ; preds = %if.end99.i
-  %cmp107.i = icmp ult i8 %56, -96
+  %cmp107.i = icmp samesign ult i8 %56, -96
   br i1 %cmp107.i, label %cond.true.i88, label %cond.false.i87
 
 cond.true.i88:                                    ; preds = %lor.lhs.false.i86
@@ -13021,12 +13021,12 @@ if.end126.i:                                      ; preds = %if.end115.i
   br i1 %cmp127.i, label %if.then129.i, label %if.else.i82
 
 if.then129.i:                                     ; preds = %if.end126.i
-  %cmp130.i = icmp ult i8 %57, -96
+  %cmp130.i = icmp samesign ult i8 %57, -96
   br i1 %cmp130.i, label %InvalidContinuation1.i74, label %if.end141.i
 
 if.else.i82:                                      ; preds = %if.end126.i
   %cmp134.i = icmp eq i32 %ch.0.i70, 237
-  %cmp137.i = icmp ugt i8 %57, -97
+  %cmp137.i = icmp samesign ugt i8 %57, -97
   %or.cond3.i83 = and i1 %cmp134.i, %cmp137.i
   br i1 %or.cond3.i83, label %InvalidContinuation1.i74, label %if.end141.i
 
@@ -13044,7 +13044,7 @@ if.end148.i:                                      ; preds = %if.end141.i
   br label %ucs1lib_utf8_decode.exit
 
 if.end155.i:                                      ; preds = %if.end82.i
-  %cmp156.i = icmp ult i32 %ch.0.i70, 245
+  %cmp156.i = icmp samesign ult i32 %ch.0.i70, 245
   br i1 %cmp156.i, label %if.then158.i, label %ucs1lib_utf8_decode.exit
 
 if.then158.i:                                     ; preds = %if.end155.i
@@ -13064,7 +13064,7 @@ if.end173.i:                                      ; preds = %if.then166.i
   br i1 %or.cond5.i78, label %lor.lhs.false181.i, label %InvalidContinuation1.i74
 
 lor.lhs.false181.i:                               ; preds = %if.end173.i
-  %cmp182.i79 = icmp ult i8 %59, -112
+  %cmp182.i79 = icmp samesign ult i8 %59, -112
   br i1 %cmp182.i79, label %cond.true184.i, label %cond.false187.i
 
 cond.true184.i:                                   ; preds = %lor.lhs.false181.i
@@ -13104,12 +13104,12 @@ if.end221.i:                                      ; preds = %if.end208.i
   br i1 %cmp222.i, label %if.then224.i, label %if.else229.i
 
 if.then224.i:                                     ; preds = %if.end221.i
-  %cmp225.i = icmp ult i8 %61, -112
+  %cmp225.i = icmp samesign ult i8 %61, -112
   br i1 %cmp225.i, label %InvalidContinuation1.i74, label %if.end237.i
 
 if.else229.i:                                     ; preds = %if.end221.i
   %cmp230.i = icmp eq i32 %ch.0.i70, 244
-  %cmp233.i = icmp ugt i8 %61, -113
+  %cmp233.i = icmp samesign ugt i8 %61, -113
   %or.cond8.i75 = and i1 %cmp230.i, %cmp233.i
   br i1 %or.cond8.i75, label %InvalidContinuation1.i74, label %if.end237.i
 
@@ -13257,11 +13257,11 @@ if.end55.i161:                                    ; preds = %if.end48.i217, %whi
   %p.2.i162 = phi ptr [ %p.3.i218, %if.end48.i217 ], [ %p.0138.i, %while.body.i158 ]
   %s.2.i163 = phi ptr [ %s.3.i219, %if.end48.i217 ], [ %s.0139.i, %while.body.i158 ]
   %ch.0.i164 = phi i32 [ %ch.1.i220, %if.end48.i217 ], [ %conv.i159, %while.body.i158 ]
-  %cmp56.i165 = icmp ult i32 %ch.0.i164, 224
+  %cmp56.i165 = icmp samesign ult i32 %ch.0.i164, 224
   br i1 %cmp56.i165, label %if.then58.i200, label %if.end78.i
 
 if.then58.i200:                                   ; preds = %if.end55.i161
-  %cmp59.i201 = icmp ult i32 %ch.0.i164, 194
+  %cmp59.i201 = icmp samesign ult i32 %ch.0.i164, 194
   br i1 %cmp59.i201, label %ucs2lib_utf8_decode.exit, label %if.end62.i202
 
 if.end62.i202:                                    ; preds = %if.then58.i200
@@ -13288,7 +13288,7 @@ if.end74.i209:                                    ; preds = %if.end66.i206
   br label %while.cond.backedge.i189
 
 if.end78.i:                                       ; preds = %if.end55.i161
-  %cmp79.i = icmp ult i32 %ch.0.i164, 240
+  %cmp79.i = icmp samesign ult i32 %ch.0.i164, 240
   br i1 %cmp79.i, label %if.then81.i, label %if.end153.i
 
 if.then81.i:                                      ; preds = %if.end78.i
@@ -13308,7 +13308,7 @@ if.end95.i:                                       ; preds = %if.then88.i
   br i1 %or.cond1.i193, label %lor.lhs.false.i194, label %InvalidContinuation1.i173
 
 lor.lhs.false.i194:                               ; preds = %if.end95.i
-  %cmp103.i195 = icmp ult i8 %79, -96
+  %cmp103.i195 = icmp samesign ult i8 %79, -96
   br i1 %cmp103.i195, label %cond.true.i198, label %cond.false.i196
 
 cond.true.i198:                                   ; preds = %lor.lhs.false.i194
@@ -13334,12 +13334,12 @@ if.end122.i:                                      ; preds = %if.end111.i
   br i1 %cmp123.i, label %if.then125.i, label %if.else.i185
 
 if.then125.i:                                     ; preds = %if.end122.i
-  %cmp126.i = icmp ult i8 %80, -96
+  %cmp126.i = icmp samesign ult i8 %80, -96
   br i1 %cmp126.i, label %InvalidContinuation1.i173, label %if.end137.i
 
 if.else.i185:                                     ; preds = %if.end122.i
   %cmp130.i186 = icmp eq i32 %ch.0.i164, 237
-  %cmp133.i = icmp ugt i8 %80, -97
+  %cmp133.i = icmp samesign ugt i8 %80, -97
   %or.cond3.i187 = and i1 %cmp130.i186, %cmp133.i
   br i1 %or.cond3.i187, label %InvalidContinuation1.i173, label %if.end137.i
 
@@ -13360,7 +13360,7 @@ if.end144.i:                                      ; preds = %if.end137.i
   br label %while.cond.backedge.i189
 
 if.end153.i:                                      ; preds = %if.end78.i
-  %cmp154.i = icmp ult i32 %ch.0.i164, 245
+  %cmp154.i = icmp samesign ult i32 %ch.0.i164, 245
   br i1 %cmp154.i, label %if.then156.i, label %ucs2lib_utf8_decode.exit
 
 if.then156.i:                                     ; preds = %if.end153.i
@@ -13380,7 +13380,7 @@ if.end171.i:                                      ; preds = %if.then164.i
   br i1 %or.cond5.i179, label %lor.lhs.false179.i, label %InvalidContinuation1.i173
 
 lor.lhs.false179.i:                               ; preds = %if.end171.i
-  %cmp180.i = icmp ult i8 %83, -112
+  %cmp180.i = icmp samesign ult i8 %83, -112
   br i1 %cmp180.i, label %cond.true182.i, label %cond.false185.i
 
 cond.true182.i:                                   ; preds = %lor.lhs.false179.i
@@ -13420,12 +13420,12 @@ if.end219.i:                                      ; preds = %if.end206.i
   br i1 %cmp220.i, label %if.then222.i, label %if.else227.i
 
 if.then222.i:                                     ; preds = %if.end219.i
-  %cmp223.i = icmp ult i8 %85, -112
+  %cmp223.i = icmp samesign ult i8 %85, -112
   br i1 %cmp223.i, label %InvalidContinuation1.i173, label %if.end235.i
 
 if.else227.i:                                     ; preds = %if.end219.i
   %cmp228.i = icmp eq i32 %ch.0.i164, 244
-  %cmp231.i = icmp ugt i8 %85, -113
+  %cmp231.i = icmp samesign ugt i8 %85, -113
   %or.cond8.i174 = and i1 %cmp228.i, %cmp231.i
   br i1 %or.cond8.i174, label %InvalidContinuation1.i173, label %if.end235.i
 
@@ -16967,11 +16967,11 @@ if.end54:                                         ; preds = %if.end48, %while.bo
   %p.2 = phi ptr [ %p.3, %if.end48 ], [ %p.0139, %while.body ]
   %s.2 = phi ptr [ %s.3, %if.end48 ], [ %s.0140, %while.body ]
   %ch.0 = phi i32 [ %ch.1, %if.end48 ], [ %conv, %while.body ]
-  %cmp55 = icmp ult i32 %ch.0, 224
+  %cmp55 = icmp samesign ult i32 %ch.0, 224
   br i1 %cmp55, label %if.then57, label %if.end76
 
 if.then57:                                        ; preds = %if.end54
-  %cmp58 = icmp ult i32 %ch.0, 194
+  %cmp58 = icmp samesign ult i32 %ch.0, 194
   br i1 %cmp58, label %Return, label %if.end61
 
 if.end61:                                         ; preds = %if.then57
@@ -16997,7 +16997,7 @@ if.end73:                                         ; preds = %if.end65
   br label %while.cond.backedge
 
 if.end76:                                         ; preds = %if.end54
-  %cmp77 = icmp ult i32 %ch.0, 240
+  %cmp77 = icmp samesign ult i32 %ch.0, 240
   br i1 %cmp77, label %if.then79, label %if.end150
 
 if.then79:                                        ; preds = %if.end76
@@ -17017,7 +17017,7 @@ if.end93:                                         ; preds = %if.then86
   br i1 %or.cond1, label %lor.lhs.false, label %InvalidContinuation1
 
 lor.lhs.false:                                    ; preds = %if.end93
-  %cmp101 = icmp ult i8 %14, -96
+  %cmp101 = icmp samesign ult i8 %14, -96
   br i1 %cmp101, label %cond.true, label %cond.false
 
 cond.true:                                        ; preds = %lor.lhs.false
@@ -17043,12 +17043,12 @@ if.end120:                                        ; preds = %if.end109
   br i1 %cmp121, label %if.then123, label %if.else
 
 if.then123:                                       ; preds = %if.end120
-  %cmp124 = icmp ult i8 %15, -96
+  %cmp124 = icmp samesign ult i8 %15, -96
   br i1 %cmp124, label %InvalidContinuation1, label %if.end135
 
 if.else:                                          ; preds = %if.end120
   %cmp128 = icmp eq i32 %ch.0, 237
-  %cmp131 = icmp ugt i8 %15, -97
+  %cmp131 = icmp samesign ugt i8 %15, -97
   %or.cond3 = and i1 %cmp128, %cmp131
   br i1 %or.cond3, label %InvalidContinuation1, label %if.end135
 
@@ -17068,7 +17068,7 @@ if.end142:                                        ; preds = %if.end135
   br label %while.cond.backedge
 
 if.end150:                                        ; preds = %if.end76
-  %cmp151 = icmp ult i32 %ch.0, 245
+  %cmp151 = icmp samesign ult i32 %ch.0, 245
   br i1 %cmp151, label %if.then153, label %Return
 
 if.then153:                                       ; preds = %if.end150
@@ -17088,7 +17088,7 @@ if.end168:                                        ; preds = %if.then161
   br i1 %or.cond5, label %lor.lhs.false176, label %InvalidContinuation1
 
 lor.lhs.false176:                                 ; preds = %if.end168
-  %cmp177 = icmp ult i8 %17, -112
+  %cmp177 = icmp samesign ult i8 %17, -112
   br i1 %cmp177, label %cond.true179, label %cond.false182
 
 cond.true179:                                     ; preds = %lor.lhs.false176
@@ -17128,12 +17128,12 @@ if.end216:                                        ; preds = %if.end203
   br i1 %cmp217, label %if.then219, label %if.else224
 
 if.then219:                                       ; preds = %if.end216
-  %cmp220 = icmp ult i8 %19, -112
+  %cmp220 = icmp samesign ult i8 %19, -112
   br i1 %cmp220, label %InvalidContinuation1, label %if.end232
 
 if.else224:                                       ; preds = %if.end216
   %cmp225 = icmp eq i32 %ch.0, 244
-  %cmp228 = icmp ugt i8 %19, -113
+  %cmp228 = icmp samesign ugt i8 %19, -113
   %or.cond8 = and i1 %cmp225, %cmp228
   br i1 %or.cond8, label %InvalidContinuation1, label %if.end232
 
@@ -20278,7 +20278,7 @@ if.end147:                                        ; preds = %land.lhs.true132
   %add144 = add nsw i32 %shl141, -48
   %sub145 = add nsw i32 %add144, %conv143
   store i32 %sub145, ptr %ch, align 4
-  %cmp148 = icmp ugt i32 %sub145, 255
+  %cmp148 = icmp samesign ugt i32 %sub145, 255
   br i1 %cmp148, label %if.then150, label %do.body157
 
 if.then150:                                       ; preds = %if.end147
@@ -32374,7 +32374,7 @@ PyUnicode_DATA.exit318:                           ; preds = %if.then.i311, %if.e
   %add.ptr = getelementptr i8, ptr %retval.0.i315, i64 %mul89
   %mul91 = mul i64 %str1.val, %conv
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %add.ptr, ptr align 1 %buf2.1, i64 %mul91, i1 false)
-  %cmp92405 = icmp ugt i64 %maxcount.addr.0, 1
+  %cmp92405 = icmp samesign ugt i64 %maxcount.addr.0, 1
   br i1 %cmp92405, label %while.body, label %if.end271
 
 while.body:                                       ; preds = %PyUnicode_DATA.exit318, %if.end101
@@ -32423,7 +32423,7 @@ if.end.i.i:                                       ; preds = %sw.bb.i
   br i1 %cmp1.i.i, label %if.then2.i.i, label %if.end4.i.i
 
 if.then2.i.i:                                     ; preds = %if.end.i.i
-  %cmp3.i.i = icmp ult i64 %self.val, %maxcount.addr.0
+  %cmp3.i.i = icmp samesign ult i64 %self.val, %maxcount.addr.0
   %add.i.i = add nuw i64 %self.val, 1
   %cond.i.i = select i1 %cmp3.i.i, i64 %add.i.i, i64 %maxcount.addr.0
   br label %if.end125
@@ -32440,7 +32440,7 @@ if.end.i12.i:                                     ; preds = %sw.bb1.i
   br i1 %cmp1.i13.i, label %if.then2.i18.i, label %if.end4.i14.i
 
 if.then2.i18.i:                                   ; preds = %if.end.i12.i
-  %cmp3.i19.i = icmp ult i64 %self.val, %maxcount.addr.0
+  %cmp3.i19.i = icmp samesign ult i64 %self.val, %maxcount.addr.0
   %add.i20.i = add nuw i64 %self.val, 1
   %cond.i21.i = select i1 %cmp3.i19.i, i64 %add.i20.i, i64 %maxcount.addr.0
   br label %if.end125
@@ -32457,7 +32457,7 @@ if.end.i23.i:                                     ; preds = %sw.bb3.i
   br i1 %cmp1.i24.i, label %if.then2.i29.i, label %if.end4.i25.i
 
 if.then2.i29.i:                                   ; preds = %if.end.i23.i
-  %cmp3.i30.i = icmp ult i64 %self.val, %maxcount.addr.0
+  %cmp3.i30.i = icmp samesign ult i64 %self.val, %maxcount.addr.0
   %add.i31.i = add nuw i64 %self.val, 1
   %cond.i32.i = select i1 %cmp3.i30.i, i64 %add.i31.i, i64 %maxcount.addr.0
   br label %if.end125
@@ -42375,7 +42375,7 @@ if.end12.thread:                                  ; preds = %PyUnicode_MAX_CHAR_
 if.end12:                                         ; preds = %PyUnicode_MAX_CHAR_VALUE.exit
   %call10 = tail call i32 @_PyUnicode_FindMaxChar(ptr noundef nonnull %str, i64 noundef %start, i64 noundef %end)
   %sub = sub i64 %end, %start
-  %cmp14.not = icmp ugt i32 %call10, %3
+  %cmp14.not = icmp samesign ugt i32 %call10, %3
   br i1 %cmp14.not, label %cond.false, label %land.lhs.true15
 
 land.lhs.true15:                                  ; preds = %if.end12.thread, %if.end12
@@ -49194,7 +49194,7 @@ PyUnicode_MAX_CHAR_VALUE.exit:                    ; preds = %if.end, %if.end.i
 
 if.end19:                                         ; preds = %PyUnicode_MAX_CHAR_VALUE.exit
   %call17 = tail call i32 @_PyUnicode_FindMaxChar(ptr noundef nonnull %str, i64 noundef 0, i64 noundef %length.0)
-  %cmp21.not = icmp ugt i32 %call17, %3
+  %cmp21.not = icmp samesign ugt i32 %call17, %3
   br i1 %cmp21.not, label %cond.false25, label %land.lhs.true22
 
 land.lhs.true22:                                  ; preds = %PyUnicode_MAX_CHAR_VALUE.exit, %if.end19
@@ -50371,7 +50371,7 @@ if.then19:                                        ; preds = %PyUnicode_READ.exit
 if.else47:                                        ; preds = %PyUnicode_READ.exit54.thread, %PyUnicode_READ.exit54
   %incdec.ptr61 = phi ptr [ %incdec.ptr56, %PyUnicode_READ.exit54.thread ], [ %incdec.ptr, %PyUnicode_READ.exit54 ]
   %retval.0.i4858 = phi i32 [ %retval.0.i48.ph, %PyUnicode_READ.exit54.thread ], [ %12, %PyUnicode_READ.exit54 ]
-  %cmp48 = icmp ugt i32 %retval.0.i4858, 255
+  %cmp48 = icmp samesign ugt i32 %retval.0.i4858, 255
   %incdec.ptr50 = getelementptr i8, ptr %str.addr.088, i64 2
   br i1 %cmp48, label %if.then49, label %if.else61
 
@@ -51083,10 +51083,10 @@ if.then19:                                        ; preds = %if.end17
   br i1 %cmp20, label %if.then27, label %lor.lhs.false21
 
 lor.lhs.false21:                                  ; preds = %if.then19
-  %cmp22 = icmp ult i64 %m, 100
-  %cmp24 = icmp ult i64 %n, 30000
+  %cmp22 = icmp samesign ult i64 %m, 100
+  %cmp24 = icmp samesign ult i64 %n, 30000
   %or.cond1 = and i1 %cmp24, %cmp22
-  %cmp26 = icmp ult i64 %m, 6
+  %cmp26 = icmp samesign ult i64 %m, 6
   %or.cond2 = or i1 %cmp26, %or.cond1
   br i1 %or.cond2, label %if.then27, label %if.else29
 
@@ -51301,7 +51301,7 @@ for.body.i79:                                     ; preds = %for.body.i79, %if.e
   %cmp14.i = icmp eq i8 %24, %15
   %sub16.i = add nsw i64 %i.041.i, -1
   %spec.select.i = select i1 %cmp14.i, i64 %sub16.i, i64 %skip.043.i
-  %cmp.i80 = icmp ugt i64 %i.041.i, 1
+  %cmp.i80 = icmp samesign ugt i64 %i.041.i, 1
   br i1 %cmp.i80, label %for.body.i79, label %for.cond17.preheader.i, !llvm.loop !281
 
 return:                                           ; preds = %if.end48.us.i, %if.then44.us.i, %for.inc76.us.i, %if.else60.us.i, %for.inc40.us.i, %while.cond.i, %if.end15.i, %for.inc.i, %if.then.i70, %for.cond17.preheader.i, %for.end82.i, %if.else14, %if.then11.i56, %if.then3.i64, %if.then.i60, %if.then11.i, %if.then3.i, %if.then.i, %while.cond.preheader.i, %if.then4, %entry, %if.else38, %if.else36, %if.then34
@@ -52385,10 +52385,10 @@ if.then19:                                        ; preds = %if.end17
   br i1 %cmp20, label %if.then27, label %lor.lhs.false21
 
 lor.lhs.false21:                                  ; preds = %if.then19
-  %cmp22 = icmp ult i64 %m, 100
-  %cmp24 = icmp ult i64 %n, 30000
+  %cmp22 = icmp samesign ult i64 %m, 100
+  %cmp24 = icmp samesign ult i64 %n, 30000
   %or.cond1 = and i1 %cmp24, %cmp22
-  %cmp26 = icmp ult i64 %m, 6
+  %cmp26 = icmp samesign ult i64 %m, 6
   %or.cond2 = or i1 %cmp26, %or.cond1
   br i1 %or.cond2, label %if.then27, label %if.else29
 
@@ -52598,7 +52598,7 @@ for.body.i85:                                     ; preds = %for.body.i85, %if.e
   %cmp14.i = icmp eq i16 %34, %25
   %sub16.i = add nsw i64 %i.041.i, -1
   %spec.select.i = select i1 %cmp14.i, i64 %sub16.i, i64 %skip.043.i
-  %cmp.i86 = icmp ugt i64 %i.041.i, 1
+  %cmp.i86 = icmp samesign ugt i64 %i.041.i, 1
   br i1 %cmp.i86, label %for.body.i85, label %for.cond17.preheader.i, !llvm.loop !299
 
 return:                                           ; preds = %if.end48.us.i, %if.then44.us.i, %for.inc76.us.i, %if.else60.us.i, %for.inc40.us.i, %if.end.i62, %do.body.i59, %while.cond46.i, %do.body.i, %if.end72.i, %for.inc.i, %if.then.i74, %for.cond17.preheader.i, %for.end82.i, %if.else14, %if.then55.i, %if.then31.i, %if.then67.i, %if.end58.i, %if.then44.i, %if.then15.i, %if.then4, %entry, %lor.lhs.false, %if.else38, %if.else36, %if.then34
@@ -53612,10 +53612,10 @@ if.then19:                                        ; preds = %if.end17
   br i1 %cmp20, label %if.then27, label %lor.lhs.false21
 
 lor.lhs.false21:                                  ; preds = %if.then19
-  %cmp22 = icmp ult i64 %m, 100
-  %cmp24 = icmp ult i64 %n, 30000
+  %cmp22 = icmp samesign ult i64 %m, 100
+  %cmp24 = icmp samesign ult i64 %n, 30000
   %or.cond1 = and i1 %cmp24, %cmp22
-  %cmp26 = icmp ult i64 %m, 6
+  %cmp26 = icmp samesign ult i64 %m, 6
   %or.cond2 = or i1 %cmp26, %or.cond1
   br i1 %or.cond2, label %if.then27, label %if.else29
 
@@ -53830,7 +53830,7 @@ for.body.i74:                                     ; preds = %for.body.i74, %if.e
   %cmp10.i76 = icmp eq i32 %22, %16
   %sub11.i = add nsw i64 %i.041.i, -1
   %spec.select.i = select i1 %cmp10.i76, i64 %sub11.i, i64 %skip.043.i
-  %cmp.i77 = icmp ugt i64 %i.041.i, 1
+  %cmp.i77 = icmp samesign ugt i64 %i.041.i, 1
   br i1 %cmp.i77, label %for.body.i74, label %for.cond12.preheader.i, !llvm.loop !317
 
 return:                                           ; preds = %if.end34.us.i, %if.then31.us.i, %for.inc58.us.i, %if.else44.us.i, %for.inc27.us.i85, %if.end.i, %do.body.i, %while.cond41.i, %if.end11.i, %for.inc.i, %if.then.i62, %for.cond12.preheader.i, %for.end65.i, %if.else14, %if.then48.i, %if.then26.i, %if.then6.i, %if.then2.i, %if.then.i, %while.cond.preheader.i, %if.then4, %entry, %if.else38, %if.else36, %if.then34
@@ -54761,10 +54761,10 @@ if.then19:                                        ; preds = %if.end17
   br i1 %cmp20, label %if.then27, label %lor.lhs.false21
 
 lor.lhs.false21:                                  ; preds = %if.then19
-  %cmp22 = icmp ult i64 %m, 100
-  %cmp24 = icmp ult i64 %n, 30000
+  %cmp22 = icmp samesign ult i64 %m, 100
+  %cmp24 = icmp samesign ult i64 %n, 30000
   %or.cond1 = and i1 %cmp24, %cmp22
-  %cmp26 = icmp ult i64 %m, 6
+  %cmp26 = icmp samesign ult i64 %m, 6
   %or.cond2 = or i1 %cmp26, %or.cond1
   br i1 %or.cond2, label %if.then27, label %if.else29
 
@@ -54947,7 +54947,7 @@ for.body.i73:                                     ; preds = %for.body.i73, %if.e
   %cmp14.i = icmp eq i8 %23, %14
   %sub16.i = add nsw i64 %i.041.i, -1
   %spec.select.i = select i1 %cmp14.i, i64 %sub16.i, i64 %skip.043.i
-  %cmp.i74 = icmp ugt i64 %i.041.i, 1
+  %cmp.i74 = icmp samesign ugt i64 %i.041.i, 1
   br i1 %cmp.i74, label %for.body.i73, label %for.cond17.preheader.i, !llvm.loop !336
 
 return:                                           ; preds = %for.inc80.us.i, %for.end41.us.i, %for.inc39.us.i, %for.inc76.us.i, %if.else60.us.i, %for.inc40.us.i, %while.cond.i, %if.end15.i, %for.cond17.preheader.i, %for.end.i, %if.then11.i56, %if.then3.i64, %if.then.i60, %if.then11.i, %if.then3.i, %if.then.i, %while.cond.preheader.i, %if.then4, %entry, %if.else38, %if.then34
@@ -55879,7 +55879,7 @@ if.then18.i41:                                    ; preds = %if.end15.i38
   br i1 %cmp.i.i, label %if.end10, label %lor.lhs.false.i.i
 
 lor.lhs.false.i.i:                                ; preds = %if.then18.i41
-  %cmp.i.i.i = icmp ugt i64 %sub.ptr.div.i, 40
+  %cmp.i.i.i = icmp samesign ugt i64 %sub.ptr.div.i, 40
   br i1 %cmp.i.i.i, label %do.body.i.i.i, label %if.end58.i.i.i
 
 do.body.i.i.i:                                    ; preds = %lor.lhs.false.i.i, %do.cond.i.i.i

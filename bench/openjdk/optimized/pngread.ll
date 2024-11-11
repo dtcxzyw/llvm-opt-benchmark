@@ -3743,7 +3743,7 @@ make_ga_colormap.exit.thread.thread572:           ; preds = %773, %._crit_edge, 
 
 797:                                              ; preds = %794
   %798 = icmp ne i32 %.0394556568, 254
-  %799 = icmp ult i32 %.0383559564, 255
+  %799 = icmp samesign ult i32 %.0383559564, 255
   %or.cond = or i1 %798, %799
   br i1 %or.cond, label %802, label %803
 
@@ -4810,7 +4810,7 @@ set_file_encoding.exit:                           ; preds = %28, %png_gamma_not_
   br label %232
 
 232:                                              ; preds = %228, %226
-  %233 = icmp ult i32 %.1149, 65535
+  %233 = icmp samesign ult i32 %.1149, 65535
   br i1 %233, label %234, label %245
 
 234:                                              ; preds = %232
@@ -4858,7 +4858,7 @@ set_file_encoding.exit:                           ; preds = %28, %png_gamma_not_
   br label %262
 
 262:                                              ; preds = %257, %226
-  %263 = icmp ult i32 %.1149, 65535
+  %263 = icmp samesign ult i32 %.1149, 65535
   br i1 %263, label %264, label %269
 
 264:                                              ; preds = %262

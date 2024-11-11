@@ -16141,8 +16141,8 @@ _ZNK32pxrInternal_v0_24__pxrReserved__7TfTokencvRKNSt7__cxx1112basic_stringIcSt1
   br i1 %35, label %36, label %.critedge.i.i
 
 36:                                               ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__7TfTokencvRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEv.exit3.i
-  %37 = icmp ult i8 %28, 64
-  %38 = icmp ult i8 %30, 64
+  %37 = icmp samesign ult i8 %28, 64
+  %38 = icmp samesign ult i8 %30, 64
   %39 = xor i32 %33, %31
   %40 = and i32 %39, 95
   %.not.i.i = icmp eq i32 %40, 0
@@ -16275,8 +16275,8 @@ _ZNK32pxrInternal_v0_24__pxrReserved__7TfTokencvRKNSt7__cxx1112basic_stringIcSt1
   br i1 %30, label %31, label %.critedge.i
 
 31:                                               ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__7TfTokencvRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEv.exit2
-  %32 = icmp ult i8 %23, 64
-  %33 = icmp ult i8 %25, 64
+  %32 = icmp samesign ult i8 %23, 64
+  %33 = icmp samesign ult i8 %25, 64
   %34 = xor i32 %28, %26
   %35 = and i32 %34, 95
   %.not.i = icmp eq i32 %35, 0
@@ -16541,8 +16541,8 @@ _ZNK32pxrInternal_v0_24__pxrReserved__7TfTokencvRKNSt7__cxx1112basic_stringIcSt1
   br i1 %30, label %31, label %.critedge.i
 
 31:                                               ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__7TfTokencvRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEv.exit3
-  %32 = icmp ult i8 %23, 64
-  %33 = icmp ult i8 %25, 64
+  %32 = icmp samesign ult i8 %23, 64
+  %33 = icmp samesign ult i8 %25, 64
   %34 = xor i32 %28, %26
   %35 = and i32 %34, 95
   %.not.i = icmp eq i32 %35, 0
@@ -16693,8 +16693,8 @@ _ZNK32pxrInternal_v0_24__pxrReserved__7TfTokencvRKNSt7__cxx1112basic_stringIcSt1
   br i1 %33, label %34, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN32pxrInternal_v0_24__pxrReserved__20TfDictionaryLessThanEEclINS_17__normal_iteratorIPNS2_7TfTokenESt6vectorIS7_SaIS7_EEEESC_EEbT_T0_.exit
 
 34:                                               ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__7TfTokencvRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEv.exit2.i
-  %35 = icmp ult i8 %26, 64
-  %36 = icmp ult i8 %28, 64
+  %35 = icmp samesign ult i8 %26, 64
+  %36 = icmp samesign ult i8 %28, 64
   %37 = xor i32 %31, %29
   %38 = and i32 %37, 95
   %.not.i.i = icmp eq i32 %38, 0
@@ -16770,8 +16770,8 @@ _ZNK32pxrInternal_v0_24__pxrReserved__7TfTokencvRKNSt7__cxx1112basic_stringIcSt1
   br i1 %76, label %77, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN32pxrInternal_v0_24__pxrReserved__20TfDictionaryLessThanEEclINS_17__normal_iteratorIPNS2_7TfTokenESt6vectorIS7_SaIS7_EEEESC_EEbT_T0_.exit16
 
 77:                                               ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__7TfTokencvRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEv.exit2.i11
-  %78 = icmp ult i8 %69, 64
-  %79 = icmp ult i8 %71, 64
+  %78 = icmp samesign ult i8 %69, 64
+  %79 = icmp samesign ult i8 %71, 64
   %80 = xor i32 %74, %72
   %81 = and i32 %80, 95
   %.not.i.i14 = icmp eq i32 %81, 0
@@ -17040,8 +17040,8 @@ _ZNK32pxrInternal_v0_24__pxrReserved__7TfTokencvRKNSt7__cxx1112basic_stringIcSt1
   br i1 %30, label %31, label %.critedge.i
 
 31:                                               ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__7TfTokencvRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEv.exit3
-  %32 = icmp ult i8 %23, 64
-  %33 = icmp ult i8 %25, 64
+  %32 = icmp samesign ult i8 %23, 64
+  %33 = icmp samesign ult i8 %25, 64
   %34 = xor i32 %28, %26
   %35 = and i32 %34, 95
   %.not.i = icmp eq i32 %35, 0
@@ -24213,7 +24213,7 @@ _ZNSt16allocator_traitsISaIN32pxrInternal_v0_24__pxrReserved__9SdfHandleINS0_15S
 
 .noexc:                                           ; preds = %.lr.ph.i.i.i.i.i.i.i.i.i
   %46 = add nsw i64 %.010.i.i.i.i.i.i.i.i.i, -1
-  %47 = icmp ugt i64 %.010.i.i.i.i.i.i.i.i.i, 1
+  %47 = icmp samesign ugt i64 %.010.i.i.i.i.i.i.i.i.i, 1
   br i1 %47, label %.lr.ph.i.i.i.i.i.i.i.i.i, label %_ZNSt6vectorIN32pxrInternal_v0_24__pxrReserved__9SdfHandleINS0_15SdfPropertySpecEEESaIS3_EE13_M_insert_auxIS3_EEvN9__gnu_cxx17__normal_iteratorIPS3_S5_EEOT_.exit.i.i.i, !llvm.loop !322
 
 _ZNSt6vectorIN32pxrInternal_v0_24__pxrReserved__9SdfHandleINS0_15SdfPropertySpecEEESaIS3_EE13_M_insert_auxIS3_EEvN9__gnu_cxx17__normal_iteratorIPS3_S5_EEOT_.exit.i.i.i: ; preds = %.noexc, %_ZNSt16allocator_traitsISaIN32pxrInternal_v0_24__pxrReserved__9SdfHandleINS0_15SdfPropertySpecEEEEE9constructIS3_JS3_EEEvRS4_PT_DpOT0_.exit.i.i.i.i
@@ -25098,8 +25098,8 @@ _ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__c
   br i1 %62, label %63, label %.critedge.i
 
 63:                                               ; preds = %_ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__cxx1112basic_stringIS2_St11char_traitsIS2_ESaIS2_EEESC_.exit.thread1
-  %64 = icmp ult i8 %55, 64
-  %65 = icmp ult i8 %57, 64
+  %64 = icmp samesign ult i8 %55, 64
+  %65 = icmp samesign ult i8 %57, 64
   %66 = xor i32 %60, %58
   %67 = and i32 %66, 95
   %.not.i = icmp eq i32 %67, 0
@@ -25180,7 +25180,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__9SdfHandleINS_15SdfPropertySpecEEC2ERKS2_.e
 
 .noexc:                                           ; preds = %.lr.ph.i.i.i.i.i
   %21 = add nsw i64 %.010.i.i.i.i.i, -1
-  %22 = icmp ugt i64 %.010.i.i.i.i.i, 1
+  %22 = icmp samesign ugt i64 %.010.i.i.i.i.i, 1
   br i1 %22, label %.lr.ph.i.i.i.i.i, label %.loopexit17, !llvm.loop !322
 
 .loopexit17:                                      ; preds = %.noexc, %_ZN32pxrInternal_v0_24__pxrReserved__9SdfHandleINS_15SdfPropertySpecEEC2ERKS2_.exit
@@ -27774,7 +27774,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__9SdfHandleINS_14SdfVariantSpecEEC2ERKS2_.ex
 
 .noexc:                                           ; preds = %.lr.ph.i.i.i.i.i
   %21 = add nsw i64 %.010.i.i.i.i.i, -1
-  %22 = icmp ugt i64 %.010.i.i.i.i.i, 1
+  %22 = icmp samesign ugt i64 %.010.i.i.i.i.i, 1
   br i1 %22, label %.lr.ph.i.i.i.i.i, label %.loopexit17, !llvm.loop !395
 
 .loopexit17:                                      ; preds = %.noexc, %_ZN32pxrInternal_v0_24__pxrReserved__9SdfHandleINS_14SdfVariantSpecEEC2ERKS2_.exit

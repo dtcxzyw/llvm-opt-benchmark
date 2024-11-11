@@ -1964,7 +1964,7 @@ if.end26.i.i:                                     ; preds = %sz_s2u.exit38.i1539
   br i1 %or.cond, label %do.end4, label %if.end38.i.i
 
 if.end38.i.i:                                     ; preds = %if.end26.i.i
-  %cmp.i161.i = icmp ult i64 %retval.i1420.0, 14337
+  %cmp.i161.i = icmp samesign ult i64 %retval.i1420.0, 14337
   %cant_access_tsd_items_directly_use_a_getter_or_setter_tcache.i1209 = getelementptr inbounds i8, ptr %retval.i1211.0802, i64 864
   %call12.i1171 = tail call ptr @arena_palloc(ptr noundef nonnull %retval.i1211.0802, ptr noundef null, i64 noundef %retval.i1420.0, i64 noundef %alignment, i1 noundef zeroext false, i1 noundef zeroext %cmp.i161.i, ptr noundef nonnull %cant_access_tsd_items_directly_use_a_getter_or_setter_tcache.i1209) #18
   %cmp53.i = icmp eq ptr %call12.i1171, null
@@ -2117,7 +2117,7 @@ if.end38.i.i190:                                  ; preds = %if.end26.i.i182
   %cant_access_tsd_items_directly_use_a_getter_or_setter_reentrancy_level.i1999 = getelementptr inbounds i8, ptr %call13.i, i64 1
   %21 = load i8, ptr %cant_access_tsd_items_directly_use_a_getter_or_setter_reentrancy_level.i1999, align 1
   %cmp35.i247 = icmp slt i8 %21, 1
-  %cmp.i161.i201 = icmp ult i64 %retval.i1322.0, 14337
+  %cmp.i161.i201 = icmp samesign ult i64 %retval.i1322.0, 14337
   br i1 %cmp35.i247, label %tcache_get_from_ind.exit.i.thread, label %if.else.i24.i
 
 tcache_get_from_ind.exit.i.thread:                ; preds = %if.end38.i.i190
@@ -2377,7 +2377,7 @@ if.end26.i.i:                                     ; preds = %sz_s2u.exit38.i1539
   br i1 %or.cond, label %if.then113.i, label %if.end38.i.i
 
 if.end38.i.i:                                     ; preds = %if.end26.i.i
-  %cmp.i161.i = icmp ult i64 %retval.i1420.0, 14337
+  %cmp.i161.i = icmp samesign ult i64 %retval.i1420.0, 14337
   %cant_access_tsd_items_directly_use_a_getter_or_setter_tcache.i1209 = getelementptr inbounds i8, ptr %retval.i1211.0805, i64 864
   %call12.i1171 = tail call ptr @arena_palloc(ptr noundef nonnull %retval.i1211.0805, ptr noundef null, i64 noundef %retval.i1420.0, i64 noundef %alignment, i1 noundef zeroext false, i1 noundef zeroext %cmp.i161.i, ptr noundef nonnull %cant_access_tsd_items_directly_use_a_getter_or_setter_tcache.i1209) #18
   %cmp53.i = icmp eq ptr %call12.i1171, null
@@ -2535,7 +2535,7 @@ if.end38.i.i190:                                  ; preds = %if.end26.i.i182
   %cant_access_tsd_items_directly_use_a_getter_or_setter_reentrancy_level.i1999 = getelementptr inbounds i8, ptr %call13.i, i64 1
   %21 = load i8, ptr %cant_access_tsd_items_directly_use_a_getter_or_setter_reentrancy_level.i1999, align 1
   %cmp35.i247 = icmp slt i8 %21, 1
-  %cmp.i161.i201 = icmp ult i64 %retval.i1322.0, 14337
+  %cmp.i161.i201 = icmp samesign ult i64 %retval.i1322.0, 14337
   br i1 %cmp35.i247, label %tcache_get_from_ind.exit.i.thread, label %if.else.i24.i
 
 tcache_get_from_ind.exit.i.thread:                ; preds = %if.end38.i.i190
@@ -3952,7 +3952,7 @@ if.then.i1503:                                    ; preds = %if.else.i144.i
   %add.i1505 = add nuw nsw i64 %sub.i, %size
   %add2.i1507 = sub nsw i64 0, %alignment
   %and.i1508 = and i64 %add.i1505, %add2.i1507
-  %cmp.i30.i1509 = icmp ult i64 %and.i1508, 4097
+  %cmp.i30.i1509 = icmp samesign ult i64 %and.i1508, 4097
   br i1 %cmp.i30.i1509, label %if.then.i36.i1558, label %if.end14.i.i1522
 
 if.then.i36.i1558:                                ; preds = %if.then.i1503
@@ -4028,7 +4028,7 @@ if.end26.i.i:                                     ; preds = %sz_s2u.exit38.i1539
   br i1 %or.cond, label %do.end4, label %if.end38.i.i
 
 if.end38.i.i:                                     ; preds = %if.end26.i.i
-  %cmp.i161.i = icmp ult i64 %retval.i1420.0, 14337
+  %cmp.i161.i = icmp samesign ult i64 %retval.i1420.0, 14337
   %cant_access_tsd_items_directly_use_a_getter_or_setter_tcache.i1209 = getelementptr inbounds i8, ptr %retval.i1211.0793, i64 864
   %call12.i1171 = tail call ptr @arena_palloc(ptr noundef nonnull %retval.i1211.0793, ptr noundef null, i64 noundef %retval.i1420.0, i64 noundef %alignment, i1 noundef zeroext false, i1 noundef zeroext %cmp.i161.i, ptr noundef nonnull %cant_access_tsd_items_directly_use_a_getter_or_setter_tcache.i1209) #18
   %cmp53.i = icmp eq ptr %call12.i1171, null
@@ -4096,7 +4096,7 @@ if.then.i1341:                                    ; preds = %land.lhs.true.i.i34
   %add.i = add nuw nsw i64 %sub.i153, %size
   %add2.i = sub nsw i64 0, %alignment
   %and.i1343 = and i64 %add.i, %add2.i
-  %cmp.i30.i = icmp ult i64 %and.i1343, 4097
+  %cmp.i30.i = icmp samesign ult i64 %and.i1343, 4097
   br i1 %cmp.i30.i, label %if.then.i36.i, label %if.end14.i.i1347
 
 if.then.i36.i:                                    ; preds = %if.then.i1341
@@ -4175,7 +4175,7 @@ if.end38.i.i190:                                  ; preds = %if.end26.i.i182
   %cant_access_tsd_items_directly_use_a_getter_or_setter_reentrancy_level.i1999 = getelementptr inbounds i8, ptr %call13.i, i64 1
   %21 = load i8, ptr %cant_access_tsd_items_directly_use_a_getter_or_setter_reentrancy_level.i1999, align 1
   %cmp35.i247 = icmp slt i8 %21, 1
-  %cmp.i161.i201 = icmp ult i64 %retval.i1322.0, 14337
+  %cmp.i161.i201 = icmp samesign ult i64 %retval.i1322.0, 14337
   br i1 %cmp35.i247, label %tcache_get_from_ind.exit.i.thread, label %if.else.i24.i
 
 tcache_get_from_ind.exit.i.thread:                ; preds = %if.end38.i.i190
@@ -4406,7 +4406,7 @@ if.end26.i.i:                                     ; preds = %sz_s2u.exit38.i1538
   br i1 %or.cond, label %do.end3, label %if.end38.i.i
 
 if.end38.i.i:                                     ; preds = %if.end26.i.i
-  %cmp.i161.i = icmp ult i64 %retval.i1419.0, 14337
+  %cmp.i161.i = icmp samesign ult i64 %retval.i1419.0, 14337
   %cant_access_tsd_items_directly_use_a_getter_or_setter_tcache.i1208 = getelementptr inbounds i8, ptr %retval.i1210.0789, i64 864
   %call12.i1170 = tail call ptr @arena_palloc(ptr noundef nonnull %retval.i1210.0789, ptr noundef null, i64 noundef %retval.i1419.0, i64 noundef 4096, i1 noundef zeroext false, i1 noundef zeroext %cmp.i161.i, ptr noundef nonnull %cant_access_tsd_items_directly_use_a_getter_or_setter_tcache.i1208) #18
   %cmp53.i = icmp eq ptr %call12.i1170, null
@@ -4531,7 +4531,7 @@ if.end38.i.i189:                                  ; preds = %if.end26.i.i181
   %cant_access_tsd_items_directly_use_a_getter_or_setter_reentrancy_level.i1998 = getelementptr inbounds i8, ptr %call13.i, i64 1
   %21 = load i8, ptr %cant_access_tsd_items_directly_use_a_getter_or_setter_reentrancy_level.i1998, align 1
   %cmp35.i246 = icmp slt i8 %21, 1
-  %cmp.i161.i200 = icmp ult i64 %retval.i1321.0, 14337
+  %cmp.i161.i200 = icmp samesign ult i64 %retval.i1321.0, 14337
   br i1 %cmp35.i246, label %tcache_get_from_ind.exit.i.thread, label %if.else.i24.i
 
 tcache_get_from_ind.exit.i.thread:                ; preds = %if.end38.i.i189
@@ -4693,7 +4693,7 @@ if.else.i144.i:                                   ; preds = %entry, %tsd_fetch_i
   br i1 %cmp.i1423, label %if.then.i1502, label %if.end9.i1429
 
 if.then.i1502:                                    ; preds = %if.else.i144.i
-  %cmp.i30.i1508 = icmp ult i64 %and, 4097
+  %cmp.i30.i1508 = icmp samesign ult i64 %and, 4097
   br i1 %cmp.i30.i1508, label %sz_s2u.exit38.i1538, label %sz_s2u.exit38.i1538.thread
 
 sz_s2u.exit38.i1538.thread:                       ; preds = %if.then.i1502
@@ -4756,7 +4756,7 @@ if.end26.i.i:                                     ; preds = %sz_s2u.exit38.i1538
   br i1 %or.cond, label %do.end3, label %if.end38.i.i
 
 if.end38.i.i:                                     ; preds = %if.end26.i.i
-  %cmp.i161.i = icmp ult i64 %retval.i1419.0, 14337
+  %cmp.i161.i = icmp samesign ult i64 %retval.i1419.0, 14337
   %cant_access_tsd_items_directly_use_a_getter_or_setter_tcache.i1208 = getelementptr inbounds i8, ptr %retval.i1210.0793, i64 864
   %call12.i1170 = tail call ptr @arena_palloc(ptr noundef nonnull %retval.i1210.0793, ptr noundef null, i64 noundef %retval.i1419.0, i64 noundef 4096, i1 noundef zeroext false, i1 noundef zeroext %cmp.i161.i, ptr noundef nonnull %cant_access_tsd_items_directly_use_a_getter_or_setter_tcache.i1208) #18
   %cmp53.i = icmp eq ptr %call12.i1170, null
@@ -4809,7 +4809,7 @@ land.lhs.true.i.i342:                             ; preds = %land.lhs.true.i.i45
   br i1 %cmp.i1325, label %if.then.i1340, label %if.end9.i
 
 if.then.i1340:                                    ; preds = %land.lhs.true.i.i342
-  %cmp.i30.i = icmp ult i64 %and, 4097
+  %cmp.i30.i = icmp samesign ult i64 %and, 4097
   br i1 %cmp.i30.i, label %sz_s2u.exit38.i, label %sz_s2u.exit38.i.thread
 
 sz_s2u.exit38.i.thread:                           ; preds = %if.then.i1340
@@ -4875,7 +4875,7 @@ if.end38.i.i189:                                  ; preds = %if.end26.i.i181
   %cant_access_tsd_items_directly_use_a_getter_or_setter_reentrancy_level.i1998 = getelementptr inbounds i8, ptr %call13.i, i64 1
   %21 = load i8, ptr %cant_access_tsd_items_directly_use_a_getter_or_setter_reentrancy_level.i1998, align 1
   %cmp35.i246 = icmp slt i8 %21, 1
-  %cmp.i161.i200 = icmp ult i64 %retval.i1321.0, 14337
+  %cmp.i161.i200 = icmp samesign ult i64 %retval.i1321.0, 14337
   br i1 %cmp35.i246, label %tcache_get_from_ind.exit.i.thread, label %if.else.i24.i
 
 tcache_get_from_ind.exit.i.thread:                ; preds = %if.end38.i.i189
@@ -5129,7 +5129,7 @@ if.then.i1534:                                    ; preds = %if.else.i144.i
   %add.i1536 = add nsw i64 %sub.i93, %dopts.sroa.34.0
   %add2.i1538 = sub nsw i64 0, %dopts.sroa.34.0
   %and.i1539 = and i64 %add.i1536, %add2.i1538
-  %cmp.i30.i1540 = icmp ult i64 %and.i1539, 4097
+  %cmp.i30.i1540 = icmp samesign ult i64 %and.i1539, 4097
   br i1 %cmp.i30.i1540, label %if.then.i36.i1589, label %if.end14.i.i1553
 
 if.then.i36.i1589:                                ; preds = %if.then.i1534
@@ -5387,7 +5387,7 @@ if.then.i159.i845:                                ; preds = %if.end11.i204.i912
 
 if.end.i165.i851:                                 ; preds = %if.then.i159.i845
   tail call void @tcache_bin_flush_stashed(ptr noundef nonnull %retval.i1241.0879, ptr noundef nonnull %tcache.i.i697.0, ptr noundef nonnull %arrayidx.i.i928, i32 noundef %ind.i.0826, i1 noundef zeroext false) #18
-  %cmp.i220.i852 = icmp ult i64 %size, 4097
+  %cmp.i220.i852 = icmp samesign ult i64 %size, 4097
   br i1 %cmp.i220.i852, label %if.then.i225.i903, label %if.end.i224.i856
 
 if.then.i225.i903:                                ; preds = %if.end.i165.i851
@@ -5401,7 +5401,7 @@ if.then.i225.i903:                                ; preds = %if.end.i165.i851
   br label %sz_s2u.exit.i882
 
 if.end.i224.i856:                                 ; preds = %if.end.i165.i851
-  %cmp.i234.i857 = icmp ugt i64 %size, 8070450532247928832
+  %cmp.i234.i857 = icmp samesign ugt i64 %size, 8070450532247928832
   br i1 %cmp.i234.i857, label %sz_s2u.exit.i882, label %if.end14.i.i865
 
 if.end14.i.i865:                                  ; preds = %if.end.i224.i856
@@ -5548,7 +5548,7 @@ if.then.i1371:                                    ; preds = %if.else.i144.i208
   %add.i = add nsw i64 %sub.i183, %dopts.sroa.34.0
   %add2.i = sub nsw i64 0, %dopts.sroa.34.0
   %and.i1373 = and i64 %add.i, %add2.i
-  %cmp.i30.i = icmp ult i64 %and.i1373, 4097
+  %cmp.i30.i = icmp samesign ult i64 %and.i1373, 4097
   br i1 %cmp.i30.i, label %if.then.i36.i, label %if.end14.i.i1377
 
 if.then.i36.i:                                    ; preds = %if.then.i1371
@@ -5814,7 +5814,7 @@ if.then.i159.i:                                   ; preds = %if.end11.i204.i
 
 if.end.i165.i:                                    ; preds = %if.then.i159.i
   tail call void @tcache_bin_flush_stashed(ptr noundef nonnull %call13.i, ptr noundef nonnull %tcache.i.i.0, ptr noundef nonnull %arrayidx.i.i534, i32 noundef %ind.i168.0855, i1 noundef zeroext false) #18
-  %cmp.i220.i = icmp ult i64 %size, 4097
+  %cmp.i220.i = icmp samesign ult i64 %size, 4097
   br i1 %cmp.i220.i, label %if.then.i225.i, label %if.end.i224.i
 
 if.then.i225.i:                                   ; preds = %if.end.i165.i
@@ -5828,7 +5828,7 @@ if.then.i225.i:                                   ; preds = %if.end.i165.i
   br label %sz_s2u.exit.i519
 
 if.end.i224.i:                                    ; preds = %if.end.i165.i
-  %cmp.i234.i = icmp ugt i64 %size, 8070450532247928832
+  %cmp.i234.i = icmp samesign ugt i64 %size, 8070450532247928832
   br i1 %cmp.i234.i, label %sz_s2u.exit.i519, label %if.end14.i.i503
 
 if.end14.i.i503:                                  ; preds = %if.end.i224.i
@@ -6096,7 +6096,7 @@ if.then.i482:                                     ; preds = %if.else.i103
   %add.i484 = add nuw nsw i64 %sub.i483, %size
   %add2.i486 = sub nsw i64 0, %and1
   %and.i487 = and i64 %add.i484, %add2.i486
-  %cmp.i30.i488 = icmp ult i64 %and.i487, 4097
+  %cmp.i30.i488 = icmp samesign ult i64 %and.i487, 4097
   br i1 %cmp.i30.i488, label %if.then.i36.i537, label %if.end14.i.i501
 
 if.then.i36.i537:                                 ; preds = %if.then.i482
@@ -6182,7 +6182,7 @@ if.end38.i:                                       ; preds = %if.end26.i
   store i64 %conv, ptr %arrayinit.element26, align 8
   %arrayinit.element27 = getelementptr inbounds i8, ptr %hook_args, i64 32
   store i64 0, ptr %arrayinit.element27, align 8
-  %cmp.i.i = icmp ult i64 %usize.1, 14337
+  %cmp.i.i = icmp samesign ult i64 %usize.1, 14337
   br i1 %cmp.i102, label %iralloct_explicit_slab.exit, label %land.lhs.true.i272
 
 land.lhs.true.i272:                               ; preds = %if.end38.i
@@ -6192,8 +6192,8 @@ land.lhs.true.i272:                               ; preds = %if.end38.i
   br i1 %cmp4.i275.not, label %iralloct_explicit_slab.exit, label %if.then.i276
 
 if.then.i276:                                     ; preds = %land.lhs.true.i272
-  %cmp.i335 = icmp ult i64 %size, 14337
-  %cmp1.i352 = icmp ult i64 %and1, 4097
+  %cmp.i335 = icmp samesign ult i64 %size, 14337
+  %cmp1.i352 = icmp samesign ult i64 %and1, 4097
   %or.cond2 = select i1 %cmp.i335, i1 %cmp1.i352, i1 false
   br i1 %or.cond2, label %if.then.i353, label %if.end9.i
 
@@ -6201,7 +6201,7 @@ if.then.i353:                                     ; preds = %if.then.i276
   %add.i355 = add nuw nsw i64 %sub.i273, %size
   %add2.i = sub nsw i64 0, %and1
   %and.i357 = and i64 %add.i355, %add2.i
-  %cmp.i30.i = icmp ult i64 %and.i357, 4097
+  %cmp.i30.i = icmp samesign ult i64 %and.i357, 4097
   br i1 %cmp.i30.i, label %if.then.i36.i, label %if.end14.i.i
 
 if.then.i36.i:                                    ; preds = %if.then.i353
@@ -6231,11 +6231,11 @@ sz_s2u.exit38.i:                                  ; preds = %if.end14.i.i, %if.t
   br i1 %cmp3.i358, label %sz_sa2u.exit, label %if.end18.i
 
 if.end9.i:                                        ; preds = %if.then.i276
-  %cmp10.i341 = icmp ult i64 %size, 16385
+  %cmp10.i341 = icmp samesign ult i64 %size, 16385
   br i1 %cmp10.i341, label %if.end18.i, label %if.end.i.i347
 
 if.end.i.i347:                                    ; preds = %if.end9.i
-  %cmp.i62.i = icmp ugt i64 %size, 8070450532247928832
+  %cmp.i62.i = icmp samesign ugt i64 %size, 8070450532247928832
   br i1 %cmp.i62.i, label %sz_s2u.exit.i, label %if.end14.i70.i
 
 if.end14.i70.i:                                   ; preds = %if.end.i.i347
@@ -6251,7 +6251,7 @@ if.end14.i70.i:                                   ; preds = %if.end.i.i347
 
 sz_s2u.exit.i:                                    ; preds = %if.end14.i70.i, %if.end.i.i347
   %retval.i53.i.0 = phi i64 [ %and.i85.i, %if.end14.i70.i ], [ 0, %if.end.i.i347 ]
-  %cmp14.i = icmp ult i64 %retval.i53.i.0, %size
+  %cmp14.i = icmp samesign ult i64 %retval.i53.i.0, %size
   br i1 %cmp14.i, label %return, label %if.end18.i
 
 if.end18.i:                                       ; preds = %sz_s2u.exit38.i, %if.end9.i, %sz_s2u.exit.i
@@ -8077,7 +8077,7 @@ if.then.i293:                                     ; preds = %if.else.i108
   %add.i295 = add nsw i64 %sub.i294, %and1.i
   %add2.i = sub nsw i64 0, %and1.i
   %and.i297 = and i64 %add.i295, %add2.i
-  %cmp.i30.i = icmp ult i64 %and.i297, 4097
+  %cmp.i30.i = icmp samesign ult i64 %and.i297, 4097
   br i1 %cmp.i30.i, label %if.then.i36.i, label %if.end14.i.i
 
 if.then.i36.i:                                    ; preds = %if.then.i293
@@ -8657,7 +8657,7 @@ if.then.i121:                                     ; preds = %if.else.i
   %add.i123 = add nsw i64 %sub.i122, %and1.i
   %add2.i = sub nsw i64 0, %and1.i
   %and.i125 = and i64 %add.i123, %add2.i
-  %cmp.i30.i = icmp ult i64 %and.i125, 4097
+  %cmp.i30.i = icmp samesign ult i64 %and.i125, 4097
   br i1 %cmp.i30.i, label %if.then.i36.i, label %if.end14.i.i
 
 if.then.i36.i:                                    ; preds = %if.then.i121
@@ -9001,7 +9001,7 @@ if.then.i379:                                     ; preds = %if.else.i190
   %add.i381 = add nsw i64 %sub.i380, %and7
   %add2.i = sub nsw i64 0, %and7
   %and.i383 = and i64 %add.i381, %add2.i
-  %cmp.i30.i = icmp ult i64 %and.i383, 4097
+  %cmp.i30.i = icmp samesign ult i64 %and.i383, 4097
   br i1 %cmp.i30.i, label %if.then.i36.i, label %if.end14.i.i
 
 if.then.i36.i:                                    ; preds = %if.then.i379
@@ -9077,7 +9077,7 @@ if.end26.i:                                       ; preds = %sz_s2u.exit38.i, %i
   br i1 %or.cond, label %label_done, label %if.end38.i
 
 if.end38.i:                                       ; preds = %if.end26.i
-  %cmp.i210 = icmp ult i64 %usize.1, 4097
+  %cmp.i210 = icmp samesign ult i64 %usize.1, 4097
   br i1 %cmp.i210, label %if.then.i216, label %sz_size2index_compute.exit
 
 if.then.i216:                                     ; preds = %if.end38.i

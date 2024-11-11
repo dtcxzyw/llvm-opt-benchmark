@@ -1699,7 +1699,7 @@ define internal noundef range(i32 -12, 1) i32 @pfifo_fast_change_tx_queue_len(pt
   br i1 %16, label %.loopexit12.thread, label %.split
 
 19:                                               ; preds = %29
-  %20 = icmp ult i32 %1, 32
+  %20 = icmp samesign ult i32 %1, 32
   %21 = select i1 %20, i32 1, i32 16
   %22 = icmp ne i32 %1, 0
   br label %32

@@ -185,7 +185,7 @@ define hidden { ptr, ptr } @"_ZN108_$LT$alloc..collections..btree..map..Iter$LT$
 _ZN5alloc11collections5btree3mem7replace17h47db29bdd423c4bdE.llvm.7242839918964869051.exit: ; preds = %.loopexit.i.i
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %4), !noalias !19
   %39 = getelementptr inbounds i8, ptr %.sroa.0.0.ph.i.i, i64 8
-  %40 = icmp ult i64 %.sroa.8.013.ph.i.i, 11
+  %40 = icmp samesign ult i64 %.sroa.8.013.ph.i.i, 11
   tail call void @llvm.assume(i1 %40)
   %41 = getelementptr inbounds i64, ptr %39, i64 %.sroa.8.013.ph.i.i
   %42 = getelementptr inbounds i8, ptr %.sroa.0.0.ph.i.i, i64 96
@@ -8586,7 +8586,7 @@ define hidden { ptr, ptr } @_ZN5alloc11collections5btree3mem7replace17h47db29bdd
 25:                                               ; preds = %.loopexit.i
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %4), !noalias !1132
   %26 = getelementptr inbounds i8, ptr %.sroa.0.0.ph.i, i64 8
-  %27 = icmp ult i64 %.sroa.8.013.ph.i, 11
+  %27 = icmp samesign ult i64 %.sroa.8.013.ph.i, 11
   tail call void @llvm.assume(i1 %27)
   %28 = getelementptr inbounds i64, ptr %26, i64 %.sroa.8.013.ph.i
   %29 = getelementptr inbounds i8, ptr %.sroa.0.0.ph.i, i64 96
@@ -10114,7 +10114,7 @@ define hidden void @"_ZN5alloc11collections5btree8navigate263_$LT$impl$u20$alloc
   call void @"_ZN5alloc11collections5btree8navigate235_$LT$impl$u20$alloc..collections..btree..node..Handle$LT$alloc..collections..btree..node..NodeRef$LT$BorrowType$C$K$C$V$C$alloc..collections..btree..node..marker..LeafOrInternal$GT$$C$alloc..collections..btree..node..marker..KV$GT$$GT$14next_leaf_edge17h0dcdda364400eef0E"(ptr noalias nocapture noundef nonnull sret([24 x i8]) align 8 dereferenceable(24) %0, ptr noalias nocapture noundef nonnull align 8 dereferenceable(24) %4)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %4)
   %27 = getelementptr inbounds i8, ptr %.sroa.0.0.ph, i64 8
-  %28 = icmp ult i64 %.sroa.8.013.ph, 11
+  %28 = icmp samesign ult i64 %.sroa.8.013.ph, 11
   tail call void @llvm.assume(i1 %28)
   %29 = getelementptr inbounds i64, ptr %27, i64 %.sroa.8.013.ph
   %30 = getelementptr inbounds i8, ptr %.sroa.0.0.ph, i64 96
@@ -16091,7 +16091,7 @@ define internal fastcc i64 @"_ZN9hashbrown3raw5inner21RawTable$LT$T$C$A$GT$14res
   br i1 %25, label %35, label %28
 
 26:                                               ; preds = %21
-  %27 = icmp ult i64 %22, 3
+  %27 = icmp samesign ult i64 %22, 3
   %..i.i = select i1 %27, i64 4, i64 8
   br label %37
 
@@ -16112,7 +16112,7 @@ define internal fastcc i64 @"_ZN9hashbrown3raw5inner21RawTable$LT$T$C$A$GT$14res
 37:                                               ; preds = %28, %26
   %.sroa.4.0.i.ph.i = phi i64 [ %34, %28 ], [ %..i.i, %26 ]
   %38 = shl i64 %.sroa.4.0.i.ph.i, 3
-  %39 = icmp ugt i64 %.sroa.4.0.i.ph.i, 2305843009213693951
+  %39 = icmp samesign ugt i64 %.sroa.4.0.i.ph.i, 2305843009213693951
   %40 = icmp ugt i64 %38, -16
   %or.cond.i.i = or i1 %39, %40
   br i1 %or.cond.i.i, label %50, label %41
@@ -16145,7 +16145,7 @@ _ZN9hashbrown3raw5inner11TableLayout20calculate_layout_for17hc48ee78c4b12348aE.l
   br label %_ZN9hashbrown3raw5inner13RawTableInner22fallible_with_capacity17h9db34d9477698e9fE.exit.thread
 
 _ZN9hashbrown3raw5inner13RawTableInner22fallible_with_capacity17h9db34d9477698e9fE.exit: ; preds = %_ZN9hashbrown3raw5inner11TableLayout20calculate_layout_for17hc48ee78c4b12348aE.llvm.7242839918964869051.exit.i.i
-  %57 = icmp ult i64 %.sroa.4.0.i.ph.i, 9
+  %57 = icmp samesign ult i64 %.sroa.4.0.i.ph.i, 9
   %58 = add nsw i64 %.sroa.4.0.i.ph.i, -1
   %59 = lshr i64 %.sroa.4.0.i.ph.i, 3
   %60 = mul nuw nsw i64 %59, 7

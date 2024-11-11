@@ -108,7 +108,7 @@ define dso_local noundef range(i32 0, 3) i32 @_Z25cmCommandArgument_yyparsePv(pt
   br i1 %25, label %.thread240.thread, label %26
 
 26:                                               ; preds = %24
-  %27 = icmp ult i32 %.4, 270
+  %27 = icmp samesign ult i32 %.4, 270
   br i1 %27, label %28, label %33
 
 28:                                               ; preds = %26

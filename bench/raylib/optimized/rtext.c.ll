@@ -10925,7 +10925,7 @@ define noalias noundef ptr @LoadUTF8(ptr nocapture noundef readonly %0, i32 noun
   br label %CodepointToUTF8.exit
 
 12:                                               ; preds = %.lr.ph
-  %13 = icmp ult i32 %8, 2048
+  %13 = icmp samesign ult i32 %8, 2048
   br i1 %13, label %14, label %21
 
 14:                                               ; preds = %12
@@ -10940,7 +10940,7 @@ define noalias noundef ptr @LoadUTF8(ptr nocapture noundef readonly %0, i32 noun
   br label %CodepointToUTF8.exit
 
 21:                                               ; preds = %12
-  %22 = icmp ult i32 %8, 65536
+  %22 = icmp samesign ult i32 %8, 65536
   br i1 %22, label %23, label %34
 
 23:                                               ; preds = %21
@@ -10960,7 +10960,7 @@ define noalias noundef ptr @LoadUTF8(ptr nocapture noundef readonly %0, i32 noun
   br label %CodepointToUTF8.exit
 
 34:                                               ; preds = %21
-  %35 = icmp ult i32 %8, 1114112
+  %35 = icmp samesign ult i32 %8, 1114112
   br i1 %35, label %36, label %CodepointToUTF8.exit
 
 36:                                               ; preds = %34
@@ -11019,7 +11019,7 @@ define noundef nonnull ptr @CodepointToUTF8(i32 noundef %0, ptr nocapture nounde
   br label %45
 
 6:                                                ; preds = %2
-  %7 = icmp ult i32 %0, 2048
+  %7 = icmp samesign ult i32 %0, 2048
   br i1 %7, label %8, label %15
 
 8:                                                ; preds = %6
@@ -11034,7 +11034,7 @@ define noundef nonnull ptr @CodepointToUTF8(i32 noundef %0, ptr nocapture nounde
   br label %45
 
 15:                                               ; preds = %6
-  %16 = icmp ult i32 %0, 65536
+  %16 = icmp samesign ult i32 %0, 65536
   br i1 %16, label %17, label %28
 
 17:                                               ; preds = %15
@@ -11054,7 +11054,7 @@ define noundef nonnull ptr @CodepointToUTF8(i32 noundef %0, ptr nocapture nounde
   br label %45
 
 28:                                               ; preds = %15
-  %29 = icmp ult i32 %0, 1114112
+  %29 = icmp samesign ult i32 %0, 1114112
   br i1 %29, label %30, label %45
 
 30:                                               ; preds = %28
@@ -11289,8 +11289,8 @@ define range(i32 -128, 2097152) i32 @GetCodepoint(ptr nocapture noundef readonly
 53:                                               ; preds = %24
   %54 = and i32 %4, 248
   %55 = icmp ne i32 %54, 240
-  %56 = icmp ugt i8 %3, -12
-  %or.cond119 = or i1 %56, %55
+  %56 = icmp samesign ugt i8 %3, -12
+  %or.cond119 = select i1 %55, i1 true, i1 %56
   br i1 %or.cond119, label %.thread, label %57
 
 57:                                               ; preds = %53
@@ -11347,7 +11347,7 @@ define range(i32 -128, 2097152) i32 @GetCodepoint(ptr nocapture noundef readonly
   br label %.thread
 
 78:                                               ; preds = %75
-  %79 = icmp ugt i8 %3, -17
+  %79 = icmp samesign ugt i8 %3, -17
   br i1 %79, label %80, label %.thread
 
 80:                                               ; preds = %78
@@ -11739,7 +11739,7 @@ stbtt__buf_get8.exit.i33.i:                       ; preds = %stbtt__buf_peek8.ex
 
 31:                                               ; preds = %stbtt__buf_get8.exit.i33.i
   %32 = add nsw i8 %29, 9
-  %or.cond3.i.i = icmp ult i8 %32, 4
+  %or.cond3.i.i = icmp samesign ult i8 %32, 4
   br i1 %or.cond3.i.i, label %33, label %34
 
 33:                                               ; preds = %31
@@ -11748,7 +11748,7 @@ stbtt__buf_get8.exit.i33.i:                       ; preds = %stbtt__buf_peek8.ex
 
 34:                                               ; preds = %31
   %35 = add nsw i8 %29, 5
-  %or.cond5.i.i = icmp ult i8 %35, 4
+  %or.cond5.i.i = icmp samesign ult i8 %35, 4
   br i1 %or.cond5.i.i, label %36, label %37
 
 36:                                               ; preds = %34
@@ -11870,7 +11870,7 @@ stbtt__buf_get8.exit.i8:                          ; preds = %stbtt__buf_get8.exi
 
 79:                                               ; preds = %stbtt__buf_get8.exit.i8
   %80 = add nsw i8 %74, 9
-  %or.cond3.i = icmp ult i8 %80, 4
+  %or.cond3.i = icmp samesign ult i8 %80, 4
   br i1 %or.cond3.i, label %81, label %91
 
 81:                                               ; preds = %79
@@ -11895,7 +11895,7 @@ stbtt__buf_get8.exit24.i:                         ; preds = %83, %81
 
 91:                                               ; preds = %79
   %92 = add nsw i8 %74, 5
-  %or.cond5.i = icmp ult i8 %92, 4
+  %or.cond5.i = icmp samesign ult i8 %92, 4
   br i1 %or.cond5.i, label %93, label %103
 
 93:                                               ; preds = %91
@@ -13791,7 +13791,7 @@ stbtt__buf_get8.exit:                             ; preds = %stbtt__buf_get8.exi
 243:                                              ; preds = %241
   %244 = and i32 %.0239438, 1
   %245 = add nuw nsw i32 %244, 3
-  %246 = icmp ult i32 %245, %.0239438
+  %246 = icmp samesign ult i32 %245, %.0239438
   br i1 %246, label %.lr.ph, label %.thread
 
 .lr.ph:                                           ; preds = %243
@@ -14310,7 +14310,7 @@ stbtt__buf_get8.exit.i287:                        ; preds = %478
 
 490:                                              ; preds = %stbtt__buf_get8.exit.i287
   %491 = add nsw i8 %485, 9
-  %or.cond3.i = icmp ult i8 %491, 4
+  %or.cond3.i = icmp samesign ult i8 %491, 4
   br i1 %or.cond3.i, label %492, label %502
 
 492:                                              ; preds = %490
@@ -14337,7 +14337,7 @@ stbtt__buf_get8.exit24.i:                         ; preds = %494, %492
 
 502:                                              ; preds = %490
   %503 = add nsw i8 %485, 5
-  %or.cond5.i = icmp ult i8 %503, 4
+  %or.cond5.i = icmp samesign ult i8 %503, 4
   br i1 %or.cond5.i, label %504, label %514
 
 504:                                              ; preds = %502

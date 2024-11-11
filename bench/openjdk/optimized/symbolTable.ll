@@ -1066,7 +1066,7 @@ define hidden noundef ptr @_ZN11SymbolTable13lookup_sharedEPKcij(ptr nocapture n
   %14 = zext i8 %13 to i32
   %15 = add i32 %12, %14
   %16 = getelementptr inbounds i8, ptr %.056.i.i, i64 1
-  %17 = icmp ugt i32 %.047.i.i, 1
+  %17 = icmp samesign ugt i32 %.047.i.i, 1
   br i1 %17, label %.lr.ph.i.i, label %_ZL18hash_shared_symbolPKci.exit, !llvm.loop !18
 
 _ZL18hash_shared_symbolPKci.exit:                 ; preds = %.lr.ph.i.i, %6, %9
@@ -1304,7 +1304,7 @@ define hidden noundef ptr @_ZN11SymbolTable10new_symbolEPKci(ptr noundef %0, i32
   %13 = zext i8 %12 to i32
   %14 = add i32 %11, %13
   %15 = getelementptr inbounds i8, ptr %.056.i.i, i64 1
-  %16 = icmp ugt i32 %.047.i.i, 1
+  %16 = icmp samesign ugt i32 %.047.i.i, 1
   br i1 %16, label %.lr.ph.i.i, label %_ZL11hash_symbolPKcib.exit, !llvm.loop !18
 
 _ZL11hash_symbolPKcib.exit:                       ; preds = %.lr.ph.i.i, %5, %8
@@ -1754,7 +1754,7 @@ define hidden noundef ptr @_ZN11SymbolTable10new_symbolEPK6Symbolii(ptr noundef 
   %18 = zext i8 %17 to i32
   %19 = add i32 %16, %18
   %20 = getelementptr inbounds i8, ptr %.056.i.i, i64 1
-  %21 = icmp ugt i32 %.047.i.i, 1
+  %21 = icmp samesign ugt i32 %.047.i.i, 1
   br i1 %21, label %.lr.ph.i.i, label %_ZL11hash_symbolPKcib.exit, !llvm.loop !18
 
 _ZL11hash_symbolPKcib.exit:                       ; preds = %.lr.ph.i.i, %10, %13
@@ -1826,7 +1826,7 @@ define hidden noundef ptr @_ZN11SymbolTable11lookup_onlyEPKciRj(ptr noundef %0, 
   %14 = zext i8 %13 to i32
   %15 = add i32 %12, %14
   %16 = getelementptr inbounds i8, ptr %.056.i.i, i64 1
-  %17 = icmp ugt i32 %.047.i.i, 1
+  %17 = icmp samesign ugt i32 %.047.i.i, 1
   br i1 %17, label %.lr.ph.i.i, label %_ZL11hash_symbolPKcib.exit, !llvm.loop !18
 
 _ZL11hash_symbolPKcib.exit:                       ; preds = %.lr.ph.i.i, %6, %9
@@ -2735,7 +2735,7 @@ define hidden void @_ZN11SymbolTable24copy_shared_symbol_tableEP13GrowableArrayI
   %20 = zext i8 %19 to i32
   %21 = add i32 %18, %20
   %22 = getelementptr inbounds i8, ptr %.056.i.i, i64 1
-  %23 = icmp ugt i32 %.047.i.i, 1
+  %23 = icmp samesign ugt i32 %.047.i.i, 1
   br i1 %23, label %.lr.ph.i.i, label %_ZL18hash_shared_symbolPKci.exit, !llvm.loop !18
 
 _ZL18hash_shared_symbolPKci.exit:                 ; preds = %.lr.ph.i.i, %7
@@ -3607,7 +3607,7 @@ _ZN19ConcurrentHashTableI17SymbolTableConfigL8MEMFLAGS11EE6Bucket9cas_firstEPNS2
   %43 = zext i8 %42 to i32
   %44 = add i32 %41, %43
   %45 = getelementptr inbounds i8, ptr %.056.i.i.i, i64 1
-  %46 = icmp ugt i32 %.047.i.i.i, 1
+  %46 = icmp samesign ugt i32 %.047.i.i.i, 1
   br i1 %46, label %.lr.ph.i.i.i, label %_ZN17SymbolTableConfig8get_hashERK6SymbolPb.exit.thread24, !llvm.loop !18
 
 _ZN17SymbolTableConfig8get_hashERK6SymbolPb.exit.thread24: ; preds = %.lr.ph.i.i.i, %39, %36
@@ -5296,7 +5296,7 @@ _ZN17SymbolTableConfig8get_hashERK6SymbolPb.exit.thread: ; preds = %20
   %53 = zext i8 %52 to i32
   %54 = add i32 %51, %53
   %55 = getelementptr inbounds i8, ptr %.056.i.i.i, i64 1
-  %56 = icmp ugt i32 %.047.i.i.i, 1
+  %56 = icmp samesign ugt i32 %.047.i.i.i, 1
   br i1 %56, label %.lr.ph.i.i.i, label %_ZN17SymbolTableConfig8get_hashERK6SymbolPb.exit, !llvm.loop !18
 
 _ZN17SymbolTableConfig8get_hashERK6SymbolPb.exit.thread52: ; preds = %45, %49

@@ -3078,7 +3078,7 @@ send_string_noreconn.exit:                        ; preds = %35
   br i1 %52, label %.lr.ph, label %._crit_edge.loopexit
 
 ._crit_edge.loopexit:                             ; preds = %43
-  %53 = icmp ugt i64 %51, 1
+  %53 = icmp samesign ugt i64 %51, 1
   %54 = load ptr, ptr getelementptr inbounds (i8, ptr @global, i64 16), align 8
   tail call void @free(ptr noundef %54) #26
   %55 = load ptr, ptr getelementptr inbounds (i8, ptr @global, i64 32), align 8
@@ -4320,7 +4320,7 @@ define internal fastcc void @show_bar(ptr noundef %0, i64 noundef range(i64 2, 5
 
 52:                                               ; preds = %45
   %53 = zext nneg i16 %49 to i32
-  %54 = icmp ugt i16 %49, 1
+  %54 = icmp samesign ugt i16 %49, 1
   %55 = add nsw i32 %53, -2
   %spec.select = select i1 %54, i32 %55, i32 0
   %56 = tail call i32 @wmove(ptr noundef nonnull %0, i32 noundef %47, i32 noundef %spec.select) #26

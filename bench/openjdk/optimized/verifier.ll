@@ -2361,7 +2361,7 @@ define hidden void @_ZNK12ErrorContext16stackmap_detailsEP12outputStreamPK6Metho
   br i1 %.not.i.i51.i, label %_ZNK15stack_map_frame6verifyEPhS0_.exit, label %_ZNK15stack_map_frame6verifyEPhS0_.exit.thread
 
 51:                                               ; preds = %45
-  %52 = icmp ugt i8 %30, -6
+  %52 = icmp samesign ugt i8 %30, -6
   %53 = and i8 %30, -4
   %54 = icmp ne i8 %53, -8
   %spec.select.i.i53.not.i = or i1 %52, %54
@@ -2374,7 +2374,7 @@ define hidden void @_ZNK12ErrorContext16stackmap_detailsEP12outputStreamPK6Metho
 
 57:                                               ; preds = %51
   %58 = zext i8 %30 to i32
-  %59 = icmp ult i8 %30, -4
+  %59 = icmp samesign ult i8 %30, -4
   %60 = add nsw i32 %58, -255
   %61 = icmp ult i32 %60, -4
   %spec.select.i.i55.not.i = select i1 %59, i1 true, i1 %61
@@ -2400,7 +2400,7 @@ _ZN22verification_type_info6verifyEPhS0_.exit.thread.i: ; preds = %65
   %or.cond.i.i.i.i = icmp ult i8 %69, 2
   %..i.i.i.i = select i1 %or.cond.i.i.i.i, i64 3, i64 1
   %70 = getelementptr inbounds i8, ptr %63, i64 %..i.i.i.i
-  %71 = icmp ult i8 %30, -3
+  %71 = icmp samesign ult i8 %30, -3
   br i1 %71, label %_ZNK15stack_map_frame6verifyEPhS0_.exit.thread, label %72
 
 72:                                               ; preds = %_ZN22verification_type_info6verifyEPhS0_.exit.thread.i
@@ -2421,7 +2421,7 @@ _ZN22verification_type_info6verifyEPhS0_.exit21.thread.i: ; preds = %74
   %or.cond.i.i.i22.i = icmp ult i8 %77, 2
   %..i.i.i23.i = select i1 %or.cond.i.i.i22.i, i64 3, i64 1
   %78 = getelementptr inbounds i8, ptr %70, i64 %..i.i.i23.i
-  %79 = icmp ult i32 %68, 3
+  %79 = icmp samesign ult i32 %68, 3
   br i1 %79, label %_ZNK15stack_map_frame6verifyEPhS0_.exit.thread, label %80
 
 80:                                               ; preds = %_ZN22verification_type_info6verifyEPhS0_.exit21.thread.i
@@ -2488,7 +2488,7 @@ _ZNK15stack_map_frame6verifyEPhS0_.exit.thread:   ; preds = %83, %_ZN22verificat
   br i1 %.not39.i, label %125, label %103
 
 103:                                              ; preds = %102
-  %104 = icmp ugt i8 %92, -6
+  %104 = icmp samesign ugt i8 %92, -6
   %105 = and i8 %92, -4
   %106 = icmp ne i8 %105, -8
   %spec.select.i.i.not.i = or i1 %104, %106
@@ -2546,7 +2546,7 @@ _ZNK15stack_map_frame12offset_deltaEv.exit:       ; preds = %_ZNK15stack_map_fra
 
 .thread47.thread:                                 ; preds = %107, %.thread47.thread72
   %133 = phi i32 [ %124, %.thread47.thread72 ], [ %.02761, %107 ]
-  %134 = icmp ugt i8 %92, -6
+  %134 = icmp samesign ugt i8 %92, -6
   %135 = and i8 %92, -4
   %136 = icmp ne i8 %135, -8
   %spec.select.i.i.not.i.i = or i1 %134, %136
@@ -2554,7 +2554,7 @@ _ZNK15stack_map_frame12offset_deltaEv.exit:       ; preds = %_ZNK15stack_map_fra
 
 137:                                              ; preds = %.thread47.thread
   %138 = zext i8 %92 to i32
-  %139 = icmp ult i8 %92, -4
+  %139 = icmp samesign ult i8 %92, -4
   %140 = add nsw i32 %138, -255
   %141 = icmp ult i32 %140, -4
   %spec.select.i.i33.not.i.i = select i1 %139, i1 true, i1 %141
@@ -2744,7 +2744,7 @@ define linkonce_odr hidden void @_ZNK15stack_map_frame15print_truncatedEP12outpu
   br label %59
 
 30:                                               ; preds = %23
-  %31 = icmp ugt i8 %4, -6
+  %31 = icmp samesign ugt i8 %4, -6
   %32 = and i8 %4, -4
   %33 = icmp ne i8 %32, -8
   %spec.select.i.i.not = or i1 %31, %33
@@ -2764,7 +2764,7 @@ define linkonce_odr hidden void @_ZNK15stack_map_frame15print_truncatedEP12outpu
 
 41:                                               ; preds = %30
   %42 = zext i8 %4 to i32
-  %43 = icmp ult i8 %4, -4
+  %43 = icmp samesign ult i8 %4, -4
   %44 = add nsw i32 %42, -255
   %45 = icmp ult i32 %44, -4
   %spec.select.i.i45.not = select i1 %43, i1 true, i1 %45
@@ -2857,7 +2857,7 @@ define linkonce_odr hidden void @_ZNK15stack_map_frame8print_onEP12outputStreami
   br label %51
 
 32:                                               ; preds = %24
-  %33 = icmp ugt i8 %4, -6
+  %33 = icmp samesign ugt i8 %4, -6
   %34 = and i8 %4, -4
   %35 = icmp ne i8 %34, -8
   %spec.select.i.i.not = or i1 %33, %35
@@ -2877,7 +2877,7 @@ define linkonce_odr hidden void @_ZNK15stack_map_frame8print_onEP12outputStreami
 
 43:                                               ; preds = %32
   %44 = zext i8 %4 to i32
-  %45 = icmp ult i8 %4, -4
+  %45 = icmp samesign ult i8 %4, -4
   %46 = add nsw i32 %44, -255
   %47 = icmp ult i32 %46, -4
   %spec.select.i.i46.not = select i1 %45, i1 true, i1 %47
@@ -10651,7 +10651,7 @@ _ZN13StackMapFrame9pop_stackE16VerificationTypeP10JavaThread.exit: ; preds = %_Z
   br i1 %110, label %113, label %.preheader81
 
 .preheader81:                                     ; preds = %109
-  %111 = icmp ugt i32 %76, 1
+  %111 = icmp samesign ugt i32 %76, 1
   br i1 %111, label %.lr.ph87.preheader, label %.loopexit82
 
 .lr.ph87.preheader:                               ; preds = %.preheader81

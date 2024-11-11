@@ -2964,7 +2964,7 @@ define i32 @Mop_ManMergeDist1All(ptr nocapture noundef readonly %0, ptr nocaptur
 
 25:                                               ; preds = %9, %18
   %.1 = phi i32 [ %.027, %9 ], [ %24, %18 ]
-  %26 = icmp ugt i64 %indvars.iv, 1
+  %26 = icmp samesign ugt i64 %indvars.iv, 1
   br i1 %26, label %9, label %.critedge, !llvm.loop !43
 
 .critedge:                                        ; preds = %25, %4, %15
@@ -3469,7 +3469,7 @@ Mop_ManCountOutputLits.exit:                      ; preds = %Mop_ManCountOnes.ex
 
 79:                                               ; preds = %74, %65
   %.1.i = phi i32 [ %.027.i, %65 ], [ %78, %74 ]
-  %80 = icmp ugt i64 %indvars.iv.i39, 1
+  %80 = icmp samesign ugt i64 %indvars.iv.i39, 1
   br i1 %80, label %65, label %.lr.ph31.i45, !llvm.loop !43
 
 .lr.ph31.i45:                                     ; preds = %79, %71
@@ -3540,7 +3540,7 @@ Mop_ManCountOutputLits.exit:                      ; preds = %Mop_ManCountOnes.ex
 
 106:                                              ; preds = %101, %92
   %.1.i74 = phi i32 [ %.027.i69, %92 ], [ %105, %101 ]
-  %107 = icmp ugt i64 %indvars.iv.i68, 1
+  %107 = icmp samesign ugt i64 %indvars.iv.i68, 1
   br i1 %107, label %92, label %.lr.ph31.i79, !llvm.loop !43
 
 .lr.ph31.i79:                                     ; preds = %106, %98

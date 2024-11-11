@@ -393,7 +393,7 @@ if.end:                                           ; preds = %entry
   br i1 %cmp, label %if.then38, label %if.else
 
 if.then38:                                        ; preds = %if.end
-  %cmp41 = icmp ult i64 %34, -2147481748
+  %cmp41 = icmp samesign ult i64 %34, -2147481748
   br i1 %cmp41, label %if.then42, label %if.end66
 
 if.then42:                                        ; preds = %if.then38
@@ -407,7 +407,7 @@ if.then42:                                        ; preds = %if.then38
   br label %return
 
 if.else:                                          ; preds = %if.end
-  %cmp55 = icmp ugt i64 %34, 2147485547
+  %cmp55 = icmp samesign ugt i64 %34, 2147485547
   br i1 %cmp55, label %if.then56, label %if.end66
 
 if.then56:                                        ; preds = %if.else
@@ -1142,7 +1142,7 @@ entry:
   br i1 %cmp8, label %if.then9, label %if.else
 
 if.then9:                                         ; preds = %entry
-  %cmp10 = icmp ugt i64 %add7, 146097
+  %cmp10 = icmp samesign ugt i64 %add7, 146097
   br i1 %cmp10, label %if.then11, label %if.end23
 
 if.then11:                                        ; preds = %if.then9
@@ -1185,7 +1185,7 @@ if.else19:                                        ; preds = %if.else
 if.end23:                                         ; preds = %_ZN4absl13time_internal4cctz6detail4impl13days_per_yearEla.exit, %if.else19, %if.then9, %if.then11
   %ey.1 = phi i64 [ %add12, %if.then11 ], [ %add5, %if.then9 ], [ %sub17, %_ZN4absl13time_internal4cctz6detail4impl13days_per_yearEla.exit ], [ %sub20, %if.else19 ]
   %d.addr.0 = phi i64 [ %sub13, %if.then11 ], [ %add7, %if.then9 ], [ %add18, %_ZN4absl13time_internal4cctz6detail4impl13days_per_yearEla.exit ], [ %add21, %if.else19 ]
-  %cmp24 = icmp ugt i64 %d.addr.0, 365
+  %cmp24 = icmp samesign ugt i64 %d.addr.0, 365
   br i1 %cmp24, label %if.then25, label %if.end66
 
 if.then25:                                        ; preds = %if.end23
@@ -1201,7 +1201,7 @@ if.then25:                                        ; preds = %if.end23
   %cmp1.i90 = icmp sgt i32 %cond.i, 300
   %2 = or i1 %cmp.i6189, %cmp1.i90
   %conv2891 = select i1 %2, i64 36525, i64 36524
-  %cmp29.not92 = icmp ugt i64 %d.addr.0, %conv2891
+  %cmp29.not92 = icmp samesign ugt i64 %d.addr.0, %conv2891
   br i1 %cmp29.not92, label %if.end31, label %for.cond40.preheader
 
 if.end31:                                         ; preds = %if.then25, %if.end31
@@ -1218,7 +1218,7 @@ if.end31:                                         ; preds = %if.then25, %if.end3
   %cmp1.i = icmp sgt i32 %spec.select, 300
   %3 = or i1 %cmp.i61, %cmp1.i
   %conv28 = select i1 %3, i64 36525, i64 36524
-  %cmp29.not = icmp ugt i64 %sub33, %conv28
+  %cmp29.not = icmp samesign ugt i64 %sub33, %conv28
   br i1 %cmp29.not, label %if.end31, label %for.cond40.preheader, !llvm.loop !9
 
 for.cond40.preheader:                             ; preds = %if.end31, %if.then25
@@ -1245,7 +1245,7 @@ lor.rhs.i:                                        ; preds = %for.cond40
 
 _ZN4absl13time_internal4cctz6detail4impl15days_per_4yearsEi.exit: ; preds = %for.cond40, %lor.rhs.i
   %conv.i = phi i64 [ 1461, %for.cond40 ], [ %4, %lor.rhs.i ]
-  %cmp44.not = icmp ugt i64 %d.addr.3, %conv.i
+  %cmp44.not = icmp samesign ugt i64 %d.addr.3, %conv.i
   br i1 %cmp44.not, label %if.end46, label %for.cond56
 
 if.end46:                                         ; preds = %_ZN4absl13time_internal4cctz6detail4impl15days_per_4yearsEi.exit
@@ -1275,7 +1275,7 @@ land.rhs.i.i71:                                   ; preds = %for.cond56
 
 _ZN4absl13time_internal4cctz6detail4impl13days_per_yearEla.exit78: ; preds = %for.cond56, %land.rhs.i.i71
   %conv59 = phi i64 [ 365, %for.cond56 ], [ %6, %land.rhs.i.i71 ]
-  %cmp60.not = icmp ugt i64 %d.addr.4, %conv59
+  %cmp60.not = icmp samesign ugt i64 %d.addr.4, %conv59
   br i1 %cmp60.not, label %if.end62, label %if.end66
 
 if.end62:                                         ; preds = %_ZN4absl13time_internal4cctz6detail4impl13days_per_yearEla.exit78
@@ -1286,7 +1286,7 @@ if.end62:                                         ; preds = %_ZN4absl13time_inte
 if.end66:                                         ; preds = %_ZN4absl13time_internal4cctz6detail4impl13days_per_yearEla.exit78, %if.end23
   %ey.2 = phi i64 [ %ey.1, %if.end23 ], [ %ey.5, %_ZN4absl13time_internal4cctz6detail4impl13days_per_yearEla.exit78 ]
   %d.addr.1 = phi i64 [ %d.addr.0, %if.end23 ], [ %d.addr.4, %_ZN4absl13time_internal4cctz6detail4impl13days_per_yearEla.exit78 ]
-  %cmp67 = icmp ugt i64 %d.addr.1, 28
+  %cmp67 = icmp samesign ugt i64 %d.addr.1, 28
   br i1 %cmp67, label %for.cond69, label %if.end85
 
 for.cond69:                                       ; preds = %if.end66, %if.end75

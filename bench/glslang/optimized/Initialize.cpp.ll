@@ -3941,7 +3941,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcEN7glslang14pool_allocatorIcEEE8c
   %61 = load ptr, ptr %50, align 8
   %62 = getelementptr inbounds i8, ptr %61, i64 %49
   store i8 0, ptr %62, align 1
-  %63 = icmp ugt i32 %1, 309
+  %63 = icmp samesign ugt i32 %1, 309
   br label %86
 
 64:                                               ; preds = %_ZN7glslang9TBuiltIns17addTabledBuiltinsEi8EProfileRKNS_10SpvVersionE.exit
@@ -3992,7 +3992,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcEN7glslang14pool_allocatorIcEEE8c
   %83 = load ptr, ptr %72, align 8
   %84 = getelementptr inbounds i8, ptr %83, i64 %71
   store i8 0, ptr %84, align 1
-  %85 = icmp ugt i32 %1, 449
+  %85 = icmp samesign ugt i32 %1, 449
   br label %89
 
 86:                                               ; preds = %.thread, %64
@@ -4048,7 +4048,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcEN7glslang14pool_allocatorIcEEE8c
   %109 = load ptr, ptr %97, align 8
   %110 = getelementptr inbounds i8, ptr %109, i64 %96
   store i8 0, ptr %110, align 1
-  %111 = icmp ugt i32 %1, 429
+  %111 = icmp samesign ugt i32 %1, 429
   %or.cond9 = and i1 %111, %42
   br i1 %or.cond9, label %113, label %135
 
@@ -10854,11 +10854,11 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcEN7glslang14pool_allocatorIcEEE8c
   %2839 = load ptr, ptr %2827, align 8
   %2840 = getelementptr inbounds i8, ptr %2839, i64 %2826
   store i8 0, ptr %2840, align 1
-  %2841 = icmp ult i32 %1, 150
+  %2841 = icmp samesign ult i32 %1, 150
   br i1 %2841, label %2861, label %2918
 
 .thread3064:                                      ; preds = %_ZN7glslang13IncludeLegacyEi8EProfileRKNS_10SpvVersionE.exit1855
-  %2842 = icmp ult i32 %1, 150
+  %2842 = icmp samesign ult i32 %1, 150
   br i1 %2842, label %_ZN7glslang13IncludeLegacyEi8EProfileRKNS_10SpvVersionE.exit1871, label %2918
 
 2843:                                             ; preds = %2816, %2814
@@ -13045,7 +13045,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcEN7glslang14pool_allocatorIcEEE6ap
   %3720 = load ptr, ptr %3626, align 8
   %3721 = getelementptr inbounds i8, ptr %3720, i64 %3710
   store i8 0, ptr %3721, align 1
-  %3722 = icmp ugt i32 %1, 409
+  %3722 = icmp samesign ugt i32 %1, 409
   br i1 %3722, label %3723, label %3787
 
 3723:                                             ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcEN7glslang14pool_allocatorIcEEE6appendEPKc.exit2151
@@ -13440,7 +13440,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcEN7glslang14pool_allocatorIcEEE6ap
   %3876 = load ptr, ptr %3816, align 8
   %3877 = getelementptr inbounds i8, ptr %3876, i64 %3866
   store i8 0, ptr %3877, align 1
-  %3878 = icmp ugt i32 %1, 409
+  %3878 = icmp samesign ugt i32 %1, 409
   br i1 %3878, label %3879, label %.thread2963
 
 3879:                                             ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcEN7glslang14pool_allocatorIcEEE6appendEPKc.exit2205
@@ -13836,7 +13836,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcEN7glslang14pool_allocatorIcEEE8c
   %4033 = load ptr, ptr %2018, align 8
   %4034 = getelementptr inbounds i8, ptr %4033, i64 %4023
   store i8 0, ptr %4034, align 1
-  %.old2991 = icmp ult i32 %1, 420
+  %.old2991 = icmp samesign ult i32 %1, 420
   %or.cond305.old = or i1 %.old2991, %532
   br i1 %or.cond305.old, label %_ZN7glslang13IncludeLegacyEi8EProfileRKNS_10SpvVersionE.exit2263.thread, label %.thread2969
 
@@ -13958,7 +13958,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcEN7glslang14pool_allocatorIcEEE8c
   %4080 = load ptr, ptr %2018, align 8
   %4081 = getelementptr inbounds i8, ptr %4080, i64 %4069
   store i8 0, ptr %4081, align 1
-  %4082 = icmp ult i32 %1, 131
+  %4082 = icmp samesign ult i32 %1, 131
   br i1 %4082, label %.thread2970, label %_ZN7glslang13IncludeLegacyEi8EProfileRKNS_10SpvVersionE.exit2285
 
 _ZN7glslang13IncludeLegacyEi8EProfileRKNS_10SpvVersionE.exit2285: ; preds = %4079
@@ -13970,7 +13970,7 @@ _ZN7glslang13IncludeLegacyEi8EProfileRKNS_10SpvVersionE.exit2285: ; preds = %407
   br i1 %spec.select.i2284, label %4086, label %4117
 
 4086:                                             ; preds = %_ZN7glslang13IncludeLegacyEi8EProfileRKNS_10SpvVersionE.exit2285
-  %4087 = icmp ult i32 %1, 150
+  %4087 = icmp samesign ult i32 %1, 150
   br i1 %4087, label %.thread2970, label %4101
 
 .thread2970:                                      ; preds = %4079, %4086
@@ -27733,7 +27733,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcEN7glslang14pool_allocatorIcEEE6ap
   unreachable
 
 _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcEN7glslang14pool_allocatorIcEEE8capacityEv.exit.i.i215: ; preds = %126
-  %.not.i.i216 = icmp ugt i64 %128, 15
+  %.not.i.i216 = icmp samesign ugt i64 %128, 15
   br i1 %.not.i.i216, label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcEN7glslang14pool_allocatorIcEEE7_S_copyEPcPKcm.exit.i543, label %131
 
 131:                                              ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcEN7glslang14pool_allocatorIcEEE8capacityEv.exit.i.i215
@@ -32694,7 +32694,7 @@ define void @_ZN7glslang9TBuiltIns18addGatherFunctionsENS_8TSamplerERKNSt7__cxx1
   unreachable
 
 _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcEN7glslang14pool_allocatorIcEEE8capacityEv.exit.i.i111: ; preds = %45
-  %.not.i.i112 = icmp ugt i64 %48, 15
+  %.not.i.i112 = icmp samesign ugt i64 %48, 15
   br i1 %.not.i.i112, label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcEN7glslang14pool_allocatorIcEEE7_S_copyEPcPKcm.exit.i412, label %51
 
 51:                                               ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcEN7glslang14pool_allocatorIcEEE8capacityEv.exit.i.i111
@@ -34735,7 +34735,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcEN7glslang14pool_allocatorIcEEED2E
   unreachable
 
 _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcEN7glslang14pool_allocatorIcEEE8capacityEv.exit.i.i237: ; preds = %743
-  %.not.i.i238 = icmp ugt i64 %745, 15
+  %.not.i.i238 = icmp samesign ugt i64 %745, 15
   br i1 %.not.i.i238, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcEN7glslang14pool_allocatorIcEEE8capacityEv.exit.i736, label %748
 
 748:                                              ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcEN7glslang14pool_allocatorIcEEE8capacityEv.exit.i.i237
@@ -44733,7 +44733,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcEN7glslang14pool_allocatorIcEEE9_M
   %2629 = load ptr, ptr %1923, align 8
   %2630 = getelementptr inbounds i8, ptr %2629, i64 %2595
   store i8 0, ptr %2630, align 1
-  %2631 = icmp ugt i32 %2, 149
+  %2631 = icmp samesign ugt i32 %2, 149
   br i1 %2631, label %.critedge, label %.critedge356
 
 .critedge:                                        ; preds = %2628
@@ -52950,7 +52950,7 @@ define void @_ZN7glslang9TBuiltIns16identifyBuiltInsEi8EProfileRKNS_10SpvVersion
   tail call fastcc void @_ZN7glslangL15BuiltInVariableEPKcNS_16TBuiltInVariableERNS_12TSymbolTableE(ptr noundef nonnull @.str.615, i32 noundef 27, ptr noundef nonnull align 8 dereferenceable(40) %5)
   tail call fastcc void @_ZN7glslangL15BuiltInVariableEPKcNS_16TBuiltInVariableERNS_12TSymbolTableE(ptr noundef nonnull @.str.616, i32 noundef 28, ptr noundef nonnull align 8 dereferenceable(40) %5)
   tail call fastcc void @_ZN7glslangL15BuiltInVariableEPKcNS_16TBuiltInVariableERNS_12TSymbolTableE(ptr noundef nonnull @.str.617, i32 noundef 29, ptr noundef nonnull align 8 dereferenceable(40) %5)
-  %37 = icmp ugt i32 %1, 459
+  %37 = icmp samesign ugt i32 %1, 459
   br i1 %37, label %38, label %.thread
 
 38:                                               ; preds = %36
@@ -53840,7 +53840,7 @@ _ZN7glslang12TSymbolTable21setFunctionExtensionsEPKciPKS2_.exit2307: ; preds = %
   tail call void @_ZN7glslang12TSymbolTable21setVariableExtensionsEPKciPKS2_(ptr noundef nonnull align 8 dereferenceable(40) %5, ptr noundef nonnull @.str.714, i32 noundef 1, ptr noundef nonnull @_ZN7glslangL31E_GL_EXT_primitive_bounding_boxE)
   tail call fastcc void @_ZN7glslangL15BuiltInVariableEPKcNS_16TBuiltInVariableERNS_12TSymbolTableE(ptr noundef nonnull @.str.715, i32 noundef 58, ptr noundef nonnull align 8 dereferenceable(40) %5)
   tail call void @_ZN7glslang12TSymbolTable21setVariableExtensionsEPKciPKS2_(ptr noundef nonnull align 8 dereferenceable(40) %5, ptr noundef nonnull @.str.715, i32 noundef 1, ptr noundef nonnull @_ZN7glslangL31E_GL_OES_primitive_bounding_boxE)
-  %514 = icmp ugt i32 %1, 319
+  %514 = icmp samesign ugt i32 %1, 319
   br i1 %514, label %515, label %516
 
 515:                                              ; preds = %513
@@ -54796,7 +54796,7 @@ _ZN7glslang12TSymbolTable21setFunctionExtensionsEPKciPKS2_.exit2311.thread: ; pr
 961:                                              ; preds = %959
   call fastcc void @_ZN7glslangL15BuiltInVariableEPKcNS_16TBuiltInVariableERNS_12TSymbolTableE(ptr noundef nonnull @.str.807, i32 noundef 71, ptr noundef nonnull align 8 dereferenceable(40) %5)
   %962 = icmp eq i32 %2, 8
-  %963 = icmp ult i32 %1, 320
+  %963 = icmp samesign ult i32 %1, 320
   %or.cond35 = and i1 %963, %962
   br i1 %or.cond35, label %964, label %965
 

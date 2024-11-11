@@ -145758,7 +145758,7 @@ define hidden void @"_ZN3vim3Vim13input_ignored28_$u7b$$u7b$closure$u7d$$u7d$17h
   %41 = and i8 %39, 63
   %42 = zext nneg i8 %41 to i32
   %43 = or disjoint i32 %40, %42
-  %44 = icmp ugt i8 %33, -33
+  %44 = icmp samesign ugt i8 %33, -33
   br i1 %44, label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hddaaca7a7ac86ca4E.exit14.i.i.i", label %_ZN4core3str11validations15next_code_point17h0603fe6d9162d691E.exit.thread.i.i
 
 45:                                               ; preds = %32
@@ -145776,7 +145776,7 @@ define hidden void @"_ZN3vim3Vim13input_ignored28_$u7b$$u7b$closure$u7d$$u7d$17h
   %53 = or disjoint i32 %50, %52
   %54 = shl nuw nsw i32 %37, 12
   %55 = or disjoint i32 %53, %54
-  %56 = icmp ugt i8 %33, -17
+  %56 = icmp samesign ugt i8 %33, -17
   br i1 %56, label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hddaaca7a7ac86ca4E.exit16.i.i.i", label %_ZN4core3str11validations15next_code_point17h0603fe6d9162d691E.exit.thread.i.i
 
 "_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hddaaca7a7ac86ca4E.exit16.i.i.i": ; preds = %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hddaaca7a7ac86ca4E.exit14.i.i.i"

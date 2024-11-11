@@ -188,7 +188,7 @@ define hidden range(i32 0, 3) i32 @WebPAllocateDecBuffer(i32 noundef %0, i32 nou
   %64 = zext nneg i32 %63 to i64
   %65 = zext nneg i32 %.037 to i64
   %66 = mul nuw nsw i64 %64, %65
-  %67 = icmp ugt i32 %41, 10
+  %67 = icmp samesign ugt i32 %41, 10
   br i1 %67, label %68, label %78
 
 68:                                               ; preds = %61
@@ -572,7 +572,7 @@ define internal fastcc range(i32 0, 3) i32 @CheckDecBuffer(ptr nocapture noundef
   br i1 %7, label %.thread, label %8
 
 8:                                                ; preds = %1
-  %9 = icmp ugt i32 %2, 10
+  %9 = icmp samesign ugt i32 %2, 10
   %10 = getelementptr inbounds i8, ptr %0, i64 16
   br i1 %9, label %11, label %86
 

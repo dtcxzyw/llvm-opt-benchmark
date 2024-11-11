@@ -654,7 +654,7 @@ shrunk_size.exit:                                 ; preds = %126, %str_end_with_
   br i1 %139, label %shrink_space.exit, label %140
 
 140:                                              ; preds = %shrunk_size.exit
-  %141 = icmp ult i64 %138, 18
+  %141 = icmp samesign ult i64 %138, 18
   br i1 %141, label %142, label %shrink_space.exit
 
 142:                                              ; preds = %140
@@ -985,7 +985,7 @@ zonetab.exit:                                     ; preds = %gperf_case_strncmp.
   %320 = call i64 @ruby_scan_digits(ptr noundef nonnull %253, i64 noundef %319, i32 noundef 10, ptr noundef nonnull %7, ptr noundef nonnull %8) #13
   %321 = getelementptr inbounds i8, ptr %253, i64 %319
   %322 = call i64 @ruby_scan_digits(ptr noundef nonnull %321, i64 noundef 2, i32 noundef 10, ptr noundef nonnull %7, ptr noundef nonnull %8) #13
-  %323 = icmp ugt i64 %.1106, 5
+  %323 = icmp samesign ugt i64 %.1106, 5
   br i1 %323, label %324, label %328
 
 324:                                              ; preds = %316

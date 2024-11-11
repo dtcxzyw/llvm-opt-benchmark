@@ -306,7 +306,7 @@ if.end123:                                        ; preds = %if.end123.sink.spli
   %mul124 = shl i32 %size, 3
   %cmp1.i79 = icmp slt i32 %mul124, 1
   %sub.i = sub nuw nsw i32 32, %mul
-  %cmp3.not.i = icmp ugt i32 %mul124, %sub.i
+  %cmp3.not.i = icmp samesign ugt i32 %mul124, %sub.i
   %or.cond.i = select i1 %cmp1.i79, i1 true, i1 %cmp3.not.i
   br i1 %or.cond.i, label %if.else.i, label %extract32.exit
 
@@ -347,7 +347,7 @@ if.end:                                           ; preds = %entry
   %mul5 = shl i32 %size, 3
   %cmp1.i33 = icmp slt i32 %mul5, 1
   %sub.i = sub nuw nsw i32 32, %mul
-  %cmp3.not.i = icmp ugt i32 %mul5, %sub.i
+  %cmp3.not.i = icmp samesign ugt i32 %mul5, %sub.i
   %or.cond.i = select i1 %cmp1.i33, i1 true, i1 %cmp3.not.i
   br i1 %or.cond.i, label %if.else.i, label %deposit32.exit
 

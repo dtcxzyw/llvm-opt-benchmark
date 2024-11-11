@@ -214,7 +214,7 @@ _ZN9softposit7quire325Q32E26is_nar17h609ee7b07649a137E.exit.thread: ; preds = %_
   %95 = and i32 %94, 31
   %96 = lshr i32 2147483647, %95
   %97 = xor i32 %96, 2147483647
-  %98 = icmp ugt i8 %57, 29
+  %98 = icmp samesign ugt i8 %57, 29
   br i1 %98, label %107, label %105
 
 99:                                               ; preds = %"_ZN110_$LT$core..iter..adapters..enumerate..Enumerate$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17ha54595ee08877e97E.exit.thread"

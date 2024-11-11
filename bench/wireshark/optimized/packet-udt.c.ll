@@ -455,7 +455,7 @@ get_sqn.exit242.thread:                           ; preds = %129, %get_sqn.exit2
   %147 = tail call ptr @proto_tree_add_item(ptr noundef nonnull %90, i32 noundef %146, ptr noundef %0, i32 noundef 24, i32 noundef 4, i32 noundef 0) #3
   %148 = load i32, ptr @hf_udt_bufavail, align 4
   %149 = tail call ptr @proto_tree_add_item(ptr noundef nonnull %90, i32 noundef %148, ptr noundef %0, i32 noundef 28, i32 noundef 4, i32 noundef 0) #3
-  %150 = icmp ugt i32 %130, 39
+  %150 = icmp samesign ugt i32 %130, 39
   br i1 %150, label %151, label %156
 
 151:                                              ; preds = %143

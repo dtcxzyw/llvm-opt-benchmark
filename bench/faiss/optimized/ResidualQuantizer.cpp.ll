@@ -2999,7 +2999,7 @@ _ZNSt6vectorIfSaIfEEC2EmRKS0_.exit111:            ; preds = %_ZSt6fill_nIPfmfET_
   %indvars.iv.next.i.us = add nuw nsw i64 %indvars.iv.i.us, 8
   %134 = add nsw i32 %.02732.i.us, -8
   %.024.i.us = add nuw nsw i64 %.02435.i.us, 1
-  %135 = icmp ugt i32 %.02732.i.us, 16
+  %135 = icmp samesign ugt i32 %.02732.i.us, 16
   br i1 %135, label %.lr.ph.i.us, label %._crit_edge.loopexit.i.us, !llvm.loop !14
 
 ._crit_edge.loopexit.i.us:                        ; preds = %.lr.ph.i.us

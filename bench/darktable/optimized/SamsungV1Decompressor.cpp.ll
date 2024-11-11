@@ -561,7 +561,7 @@ define hidden void @_ZNK8rawspeed21SamsungV1Decompressor10decompressEv(ptr nocap
   %191 = zext nneg i8 %190 to i32
   %192 = icmp ult i8 %190, 33
   tail call void @llvm.assume(i1 %192)
-  %193 = icmp uge i32 %187, %191
+  %193 = icmp samesign uge i32 %187, %191
   tail call void @llvm.assume(i1 %193)
   %194 = sub nsw i32 %187, %191
   %195 = zext nneg i8 %190 to i64

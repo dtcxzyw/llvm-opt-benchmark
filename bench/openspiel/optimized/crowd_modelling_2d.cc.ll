@@ -3065,7 +3065,7 @@ _ZNSt6vectorISt4pairIldESaIS1_EE9push_backEOS1_.exit121: ; preds = %_ZNSt6vector
   %358 = getelementptr inbounds i8, ptr %.069.i.i.i.i.i.i305, i64 -8
   store double %357, ptr %358, align 8
   %359 = add nsw i64 %.010.i.i.i.i.i.i304, -1
-  %360 = icmp ugt i64 %.010.i.i.i.i.i.i304, 1
+  %360 = icmp samesign ugt i64 %.010.i.i.i.i.i.i304, 1
   br i1 %360, label %.lr.ph.i.i.i.i.i.i303, label %_ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPSt4pairIldESt6vectorIS3_SaIS3_EEEES8_ET0_T_SA_S9_.exit.i301, !llvm.loop !21
 
 _ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPSt4pairIldESt6vectorIS3_SaIS3_EEEES8_ET0_T_SA_S9_.exit.i301: ; preds = %.lr.ph.i.i.i.i.i.i303
@@ -3197,7 +3197,7 @@ _ZSt25__unguarded_linear_insertIN9__gnu_cxx17__normal_iteratorIPSt4pairIldESt6ve
   %410 = getelementptr inbounds i8, ptr %.069.i.i.i.i.i.i, i64 -8
   store double %409, ptr %410, align 8
   %411 = add nsw i64 %.010.i.i.i.i.i.i, -1
-  %412 = icmp ugt i64 %.010.i.i.i.i.i.i, 1
+  %412 = icmp samesign ugt i64 %.010.i.i.i.i.i.i, 1
   br i1 %412, label %.lr.ph.i.i.i.i.i.i284, label %_ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPSt4pairIldESt6vectorIS3_SaIS3_EEEES8_ET0_T_SA_S9_.exit.i, !llvm.loop !21
 
 _ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPSt4pairIldESt6vectorIS3_SaIS3_EEEES8_ET0_T_SA_S9_.exit.i: ; preds = %.lr.ph.i.i.i.i.i.i284, %399
@@ -3457,7 +3457,7 @@ _ZNSt6vectorIN4absl7debian211string_viewESaIS2_EED2Ev.exit138: ; preds = %_ZNSt6
 504:                                              ; preds = %495
   store i32 %497, ptr %40, align 4
   store i32 %470, ptr %41, align 4
-  %.not.not65 = icmp ult i32 %497, %.pre450
+  %.not.not65 = icmp samesign ult i32 %497, %.pre450
   br i1 %.not.not65, label %471, label %505
 
 505:                                              ; preds = %504
@@ -3830,7 +3830,7 @@ _ZNSt6vectorIN4absl7debian211string_viewESaIS2_EED2Ev.exit174: ; preds = %_ZNSt6
 650:                                              ; preds = %641
   store i32 %643, ptr %66, align 4
   store i32 %603, ptr %67, align 4
-  %.not.not60 = icmp ult i32 %643, %602
+  %.not.not60 = icmp samesign ult i32 %643, %602
   br i1 %.not.not60, label %625, label %651
 
 651:                                              ; preds = %650
@@ -5355,7 +5355,7 @@ define internal fastcc noundef range(i32 0, -2147483648) i32 @_ZN10open_spiel18c
 37:                                               ; preds = %31
   store i32 %1, ptr %16, align 4
   store i32 %26, ptr %17, align 4
-  %.not.not12 = icmp ult i32 %1, %2
+  %.not.not12 = icmp samesign ult i32 %1, %2
   br i1 %.not.not12, label %42, label %38
 
 38:                                               ; preds = %37
@@ -7285,7 +7285,7 @@ _ZNSt6vectorIdSaIdEED2Ev.exit:                    ; preds = %2
   %55 = mul nsw i32 %54, %54
   store i32 %55, ptr %13, align 4
   %56 = zext nneg i32 %55 to i64
-  %57 = icmp ult i64 %1, %56
+  %57 = icmp samesign ult i64 %1, %56
   br i1 %57, label %62, label %58
 
 58:                                               ; preds = %52

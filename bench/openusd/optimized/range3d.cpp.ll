@@ -218,7 +218,7 @@ define void @_ZNK32pxrInternal_v0_24__pxrReserved__9GfRange3d9GetCornerEm(ptr de
   %16 = select i1 %.not5, ptr %1, ptr %13
   %17 = getelementptr inbounds i8, ptr %16, i64 8
   %18 = load double, ptr %17, align 8
-  %.not6 = icmp ult i64 %2, 4
+  %.not6 = icmp samesign ult i64 %2, 4
   %19 = select i1 %.not6, ptr %1, ptr %13
   %20 = getelementptr inbounds i8, ptr %19, i64 16
   %21 = load double, ptr %20, align 8
@@ -266,7 +266,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__9GfRange3d9GetCornerEm.exit: ; preds = %3
   %15 = select i1 %.not5.i, ptr %1, ptr %12
   %16 = getelementptr inbounds i8, ptr %15, i64 8
   %17 = load double, ptr %16, align 8, !noalias !5
-  %.not6.i = icmp ult i64 %2, 4
+  %.not6.i = icmp samesign ult i64 %2, 4
   %18 = select i1 %.not6.i, ptr %1, ptr %12
   %19 = getelementptr inbounds i8, ptr %18, i64 16
   %20 = load double, ptr %19, align 8, !noalias !5

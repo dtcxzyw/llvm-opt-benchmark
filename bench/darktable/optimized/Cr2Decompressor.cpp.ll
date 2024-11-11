@@ -1958,7 +1958,7 @@ define linkonce_odr hidden noundef i32 @_ZNK8rawspeed15Cr2DecompressorINS_20Pref
   br label %647
 
 575:                                              ; preds = %569
-  %576 = icmp ugt i32 %564, 10
+  %576 = icmp samesign ugt i32 %564, 10
   call void @llvm.assume(i1 %576)
   %577 = add nsw i32 %564, -11
   %578 = shl i64 %566, 11
@@ -2951,7 +2951,7 @@ define linkonce_odr hidden noundef i32 @_ZNK8rawspeed15Cr2DecompressorINS_20Pref
   br label %647
 
 575:                                              ; preds = %569
-  %576 = icmp ugt i32 %564, 10
+  %576 = icmp samesign ugt i32 %564, 10
   call void @llvm.assume(i1 %576)
   %577 = add nsw i32 %564, -11
   %578 = shl i64 %566, 11
@@ -3936,7 +3936,7 @@ define linkonce_odr hidden noundef i32 @_ZNK8rawspeed15Cr2DecompressorINS_20Pref
   br label %642
 
 570:                                              ; preds = %564
-  %571 = icmp ugt i32 %559, 10
+  %571 = icmp samesign ugt i32 %559, 10
   call void @llvm.assume(i1 %571)
   %572 = add nsw i32 %559, -11
   %573 = shl i64 %561, 11
@@ -4901,7 +4901,7 @@ define linkonce_odr hidden noundef i32 @_ZNK8rawspeed15Cr2DecompressorINS_20Pref
   br label %626
 
 554:                                              ; preds = %548
-  %555 = icmp ugt i32 %543, 10
+  %555 = icmp samesign ugt i32 %543, 10
   call void @llvm.assume(i1 %555)
   %556 = add nsw i32 %543, -11
   %557 = shl i64 %545, 11

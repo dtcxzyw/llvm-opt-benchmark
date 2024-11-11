@@ -1285,7 +1285,7 @@ define dso_local noundef ptr @xhci_alloc_stream_info(ptr nocapture noundef %0, i
   br label %60
 
 50:                                               ; preds = %37
-  %51 = icmp ugt i32 %1, 16
+  %51 = icmp samesign ugt i32 %1, 16
   br i1 %51, label %52, label %56
 
 52:                                               ; preds = %50
@@ -1437,7 +1437,7 @@ define dso_local noundef ptr @xhci_alloc_stream_info(ptr nocapture noundef %0, i
   br label %149
 
 141:                                              ; preds = %130
-  %142 = icmp ugt i32 %131, 16
+  %142 = icmp samesign ugt i32 %131, 16
   br i1 %142, label %143, label %146
 
 143:                                              ; preds = %141
@@ -1744,7 +1744,7 @@ define dso_local void @xhci_free_stream_info(ptr nocapture noundef %0, ptr nound
   br label %62
 
 54:                                               ; preds = %42
-  %55 = icmp ugt i32 %44, 16
+  %55 = icmp samesign ugt i32 %44, 16
   br i1 %55, label %56, label %59
 
 56:                                               ; preds = %54
@@ -3848,7 +3848,7 @@ define dso_local void @xhci_mem_cleanup(ptr noundef %0) local_unnamed_addr #0 al
   %94 = phi i32 [ %95, %.preheader19 ], [ %92, %.loopexit24 ]
   tail call fastcc void @xhci_free_virt_devices_depth_first(ptr noundef %0, i32 noundef %94)
   %95 = add nsw i32 %94, -1
-  %96 = icmp ugt i32 %94, 1
+  %96 = icmp samesign ugt i32 %94, 1
   br i1 %96, label %.preheader19, label %.loopexit20, !llvm.loop !86
 
 .loopexit20:                                      ; preds = %.preheader19, %.loopexit24

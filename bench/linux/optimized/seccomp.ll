@@ -1144,7 +1144,7 @@ define internal fastcc i64 @do_seccomp(i32 noundef %0, i32 noundef %1, ptr nound
   %42 = icmp eq i64 %41, 0
   %43 = and i64 %36, 25
   %44 = icmp eq i64 %43, 9
-  %45 = icmp ugt i32 %1, 31
+  %45 = icmp samesign ugt i32 %1, 31
   %46 = and i1 %45, %42
   %47 = or i1 %44, %46
   br i1 %47, label %.thread23, label %48

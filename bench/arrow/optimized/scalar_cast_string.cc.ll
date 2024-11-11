@@ -45764,8 +45764,8 @@ entry:
 sw.bb3.i.i.i:                                     ; preds = %entry
   call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %buffer.i.i.i.i), !noalias !1993
   %buffer21.i.i.i.i = ptrtoint ptr %buffer.i.i.i.i to i64
-  %cmp.i.i.i.i.i.i = icmp ult i32 %0, 86400000
-  br i1 %cmp.i.i.i.i.i.i, label %if.end.i.i.i.i, label %if.then.i.i.i.i
+  %spec.select.i.i.i.i.i = icmp ult i32 %0, 86400000
+  br i1 %spec.select.i.i.i.i.i, label %if.end.i.i.i.i, label %if.then.i.i.i.i
 
 if.then.i.i.i.i:                                  ; preds = %sw.bb3.i.i.i
   call fastcc void @_ZN5arrow8internal6detail16FormatOutOfRangeIRiRZZNS_7compute8internal12_GLOBAL__N_127TemporalToStringCastFunctorINS_10StringTypeENS_10Time32TypeEE4ExecEPNS4_13KernelContextERKNS4_8ExecSpanEPNS4_10ExecResultEENKUliE_clEiEUlSt17basic_string_viewIcSt11char_traitsIcEEE_EEDTclclsr3stdE7declvalIT0_EEtlSM_EEEOT_OSP_(ptr noalias nonnull align 8 %agg.result, i32 %0, ptr noundef nonnull readonly align 8 dereferenceable(8) %ref.tmp.i)
@@ -45907,8 +45907,8 @@ _ZN5arrow8internal15StringFormatterINS_10Time32TypeEvEclINSt6chrono8durationIlSt
 sw.bb4.i.i.i:                                     ; preds = %entry
   call void @llvm.lifetime.start.p0(i64 15, ptr nonnull %buffer.i10.i.i.i), !noalias !1993
   %buffer20.i.i.i.i = ptrtoint ptr %buffer.i10.i.i.i to i64
-  %cmp.i.i.i11.i.i.i = icmp sgt i32 %0, -1
-  br i1 %cmp.i.i.i11.i.i.i, label %if.end.i13.i.i.i, label %if.then.i12.i.i.i
+  %spec.select.i.i11.i.i.i = icmp sgt i32 %0, -1
+  br i1 %spec.select.i.i11.i.i.i, label %if.end.i13.i.i.i, label %if.then.i12.i.i.i
 
 if.then.i12.i.i.i:                                ; preds = %sw.bb4.i.i.i
   call fastcc void @_ZN5arrow8internal6detail16FormatOutOfRangeIRiRZZNS_7compute8internal12_GLOBAL__N_127TemporalToStringCastFunctorINS_10StringTypeENS_10Time32TypeEE4ExecEPNS4_13KernelContextERKNS4_8ExecSpanEPNS4_10ExecResultEENKUliE_clEiEUlSt17basic_string_viewIcSt11char_traitsIcEEE_EEDTclclsr3stdE7declvalIT0_EEtlSM_EEEOT_OSP_(ptr noalias nonnull align 8 %agg.result, i32 %0, ptr noundef nonnull readonly align 8 dereferenceable(8) %ref.tmp.i)
@@ -46041,8 +46041,8 @@ _ZN5arrow8internal15StringFormatterINS_10Time32TypeEvEclINSt6chrono8durationIlSt
 sw.bb7.i.i.i:                                     ; preds = %entry
   call void @llvm.lifetime.start.p0(i64 18, ptr nonnull %buffer.i78.i.i.i), !noalias !1993
   %buffer20.i79.i.i.i = ptrtoint ptr %buffer.i78.i.i.i to i64
-  %cmp.i.i.i80.i.i.i = icmp sgt i32 %0, -1
-  br i1 %cmp.i.i.i80.i.i.i, label %if.end.i82.i.i.i, label %if.then.i81.i.i.i
+  %spec.select.i.i80.i.i.i = icmp sgt i32 %0, -1
+  br i1 %spec.select.i.i80.i.i.i, label %if.end.i82.i.i.i, label %if.then.i81.i.i.i
 
 if.then.i81.i.i.i:                                ; preds = %sw.bb7.i.i.i
   call fastcc void @_ZN5arrow8internal6detail16FormatOutOfRangeIRiRZZNS_7compute8internal12_GLOBAL__N_127TemporalToStringCastFunctorINS_10StringTypeENS_10Time32TypeEE4ExecEPNS4_13KernelContextERKNS4_8ExecSpanEPNS4_10ExecResultEENKUliE_clEiEUlSt17basic_string_viewIcSt11char_traitsIcEEE_EEDTclclsr3stdE7declvalIT0_EEtlSM_EEEOT_OSP_(ptr noalias nonnull align 8 %agg.result, i32 %0, ptr noundef nonnull readonly align 8 dereferenceable(8) %ref.tmp.i)
@@ -46164,8 +46164,8 @@ _ZN5arrow8internal15StringFormatterINS_10Time32TypeEvEclINSt6chrono8durationIlSt
 
 sw.epilog.i.i.i:                                  ; preds = %entry
   call void @llvm.lifetime.start.p0(i64 9, ptr nonnull %buffer.i140.i.i.i), !noalias !1993
-  %cmp.i.i.i141.i.i.i = icmp ult i32 %0, 86400
-  br i1 %cmp.i.i.i141.i.i.i, label %if.end.i143.i.i.i, label %if.then.i142.i.i.i
+  %spec.select.i.i141.i.i.i = icmp ult i32 %0, 86400
+  br i1 %spec.select.i.i141.i.i.i, label %if.end.i143.i.i.i, label %if.then.i142.i.i.i
 
 if.then.i142.i.i.i:                               ; preds = %sw.epilog.i.i.i
   call fastcc void @_ZN5arrow8internal6detail16FormatOutOfRangeIRiRZZNS_7compute8internal12_GLOBAL__N_127TemporalToStringCastFunctorINS_10StringTypeENS_10Time32TypeEE4ExecEPNS4_13KernelContextERKNS4_8ExecSpanEPNS4_10ExecResultEENKUliE_clEiEUlSt17basic_string_viewIcSt11char_traitsIcEEE_EEDTclclsr3stdE7declvalIT0_EEtlSM_EEEOT_OSP_(ptr noalias nonnull align 8 %agg.result, i32 %0, ptr noundef nonnull readonly align 8 dereferenceable(8) %ref.tmp.i)
@@ -46301,8 +46301,8 @@ entry:
 sw.bb3.i.i.i:                                     ; preds = %entry
   call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %buffer.i.i.i.i), !noalias !2014
   %buffer21.i.i.i.i = ptrtoint ptr %buffer.i.i.i.i to i64
-  %cmp.i.i.i.i.i.i = icmp ult i64 %0, 86400000
-  br i1 %cmp.i.i.i.i.i.i, label %if.end.i.i.i.i, label %if.then.i.i.i.i
+  %spec.select.i.i.i.i.i = icmp ult i64 %0, 86400000
+  br i1 %spec.select.i.i.i.i.i, label %if.end.i.i.i.i, label %if.then.i.i.i.i
 
 if.then.i.i.i.i:                                  ; preds = %sw.bb3.i.i.i
   call fastcc void @_ZN5arrow8internal6detail16FormatOutOfRangeIRlRZZNS_7compute8internal12_GLOBAL__N_127TemporalToStringCastFunctorINS_10StringTypeENS_10Time64TypeEE4ExecEPNS4_13KernelContextERKNS4_8ExecSpanEPNS4_10ExecResultEENKUllE_clElEUlSt17basic_string_viewIcSt11char_traitsIcEEE_EEDTclclsr3stdE7declvalIT0_EEtlSM_EEEOT_OSP_(ptr noalias nonnull align 8 %agg.result, i64 %0, ptr noundef nonnull readonly align 8 dereferenceable(8) %ref.tmp.i)
@@ -46444,8 +46444,8 @@ _ZN5arrow8internal15StringFormatterINS_10Time64TypeEvEclINSt6chrono8durationIlSt
 sw.bb4.i.i.i:                                     ; preds = %entry
   call void @llvm.lifetime.start.p0(i64 15, ptr nonnull %buffer.i10.i.i.i), !noalias !2014
   %buffer18.i.i.i.i = ptrtoint ptr %buffer.i10.i.i.i to i64
-  %cmp.i.i.i11.i.i.i = icmp ult i64 %0, 86400000000
-  br i1 %cmp.i.i.i11.i.i.i, label %if.end.i13.i.i.i, label %if.then.i12.i.i.i
+  %spec.select.i.i11.i.i.i = icmp ult i64 %0, 86400000000
+  br i1 %spec.select.i.i11.i.i.i, label %if.end.i13.i.i.i, label %if.then.i12.i.i.i
 
 if.then.i12.i.i.i:                                ; preds = %sw.bb4.i.i.i
   call fastcc void @_ZN5arrow8internal6detail16FormatOutOfRangeIRlRZZNS_7compute8internal12_GLOBAL__N_127TemporalToStringCastFunctorINS_10StringTypeENS_10Time64TypeEE4ExecEPNS4_13KernelContextERKNS4_8ExecSpanEPNS4_10ExecResultEENKUllE_clElEUlSt17basic_string_viewIcSt11char_traitsIcEEE_EEDTclclsr3stdE7declvalIT0_EEtlSM_EEEOT_OSP_(ptr noalias nonnull align 8 %agg.result, i64 %0, ptr noundef nonnull readonly align 8 dereferenceable(8) %ref.tmp.i)
@@ -46582,8 +46582,8 @@ _ZN5arrow8internal15StringFormatterINS_10Time64TypeEvEclINSt6chrono8durationIlSt
 sw.bb7.i.i.i:                                     ; preds = %entry
   call void @llvm.lifetime.start.p0(i64 18, ptr nonnull %buffer.i81.i.i.i), !noalias !2014
   %buffer18.i82.i.i.i = ptrtoint ptr %buffer.i81.i.i.i to i64
-  %cmp.i.i.i83.i.i.i = icmp ult i64 %0, 86400000000000
-  br i1 %cmp.i.i.i83.i.i.i, label %if.end.i85.i.i.i, label %if.then.i84.i.i.i
+  %spec.select.i.i83.i.i.i = icmp ult i64 %0, 86400000000000
+  br i1 %spec.select.i.i83.i.i.i, label %if.end.i85.i.i.i, label %if.then.i84.i.i.i
 
 if.then.i84.i.i.i:                                ; preds = %sw.bb7.i.i.i
   call fastcc void @_ZN5arrow8internal6detail16FormatOutOfRangeIRlRZZNS_7compute8internal12_GLOBAL__N_127TemporalToStringCastFunctorINS_10StringTypeENS_10Time64TypeEE4ExecEPNS4_13KernelContextERKNS4_8ExecSpanEPNS4_10ExecResultEENKUllE_clElEUlSt17basic_string_viewIcSt11char_traitsIcEEE_EEDTclclsr3stdE7declvalIT0_EEtlSM_EEEOT_OSP_(ptr noalias nonnull align 8 %agg.result, i64 %0, ptr noundef nonnull readonly align 8 dereferenceable(8) %ref.tmp.i)
@@ -46719,8 +46719,8 @@ _ZN5arrow8internal15StringFormatterINS_10Time64TypeEvEclINSt6chrono8durationIlSt
 
 sw.epilog.i.i.i:                                  ; preds = %entry
   call void @llvm.lifetime.start.p0(i64 9, ptr nonnull %buffer.i157.i.i.i), !noalias !2014
-  %cmp.i.i.i158.i.i.i = icmp ult i64 %0, 86400
-  br i1 %cmp.i.i.i158.i.i.i, label %if.end.i160.i.i.i, label %if.then.i159.i.i.i
+  %spec.select.i.i158.i.i.i = icmp ult i64 %0, 86400
+  br i1 %spec.select.i.i158.i.i.i, label %if.end.i160.i.i.i, label %if.then.i159.i.i.i
 
 if.then.i159.i.i.i:                               ; preds = %sw.epilog.i.i.i
   call fastcc void @_ZN5arrow8internal6detail16FormatOutOfRangeIRlRZZNS_7compute8internal12_GLOBAL__N_127TemporalToStringCastFunctorINS_10StringTypeENS_10Time64TypeEE4ExecEPNS4_13KernelContextERKNS4_8ExecSpanEPNS4_10ExecResultEENKUllE_clElEUlSt17basic_string_viewIcSt11char_traitsIcEEE_EEDTclclsr3stdE7declvalIT0_EEtlSM_EEEOT_OSP_(ptr noalias nonnull align 8 %agg.result, i64 %0, ptr noundef nonnull readonly align 8 dereferenceable(8) %ref.tmp.i)
@@ -51316,7 +51316,7 @@ _ZNK14arrow_vendored4date14year_month_day2okEv.exit1164: ; preds = %land.rhs.i.i
 
 invoke.cont879:                                   ; preds = %_ZNK14arrow_vendored4date14year_month_day2okEv.exit1164
   %conv.i.i.i1165 = sext i16 %142 to i32
-  %cmp.i.i.i.i1167 = icmp ult i8 %143, 3
+  %cmp.i.i.i.i1167 = icmp samesign ult i8 %143, 3
   %conv.neg.i.i1168 = sext i1 %cmp.i.i.i.i1167 to i32
   %sub.i.i1169 = add nsw i32 %conv.neg.i.i1168, %conv.i.i.i1165
   %conv.i11.i.i1170 = zext nneg i8 %143 to i32
@@ -51327,7 +51327,7 @@ invoke.cont879:                                   ; preds = %_ZNK14arrow_vendore
   %div.i.i1176 = sdiv i32 %cond.i.i1175, 400
   %mul.neg.i.i1177 = mul nsw i32 %div.i.i1176, -400
   %sub7.i.i1178 = add nsw i32 %mul.neg.i.i1177, %sub.i.i1169
-  %cmp8.i.i1179 = icmp ugt i8 %143, 2
+  %cmp8.i.i1179 = icmp samesign ugt i8 %143, 2
   %cond13.v.i.i1180 = select i1 %cmp8.i.i1179, i32 -3, i32 9
   %cond13.i.i1181 = add nsw i32 %cond13.v.i.i1180, %conv.i11.i.i1170
   %mul14.i.i1182 = mul nsw i32 %cond13.i.i1181, 153
@@ -53485,7 +53485,7 @@ _ZNK14arrow_vendored4date14year_month_day2okEv.exit34: ; preds = %land.rhs.i.i.i
 
 if.then5:                                         ; preds = %_ZNK14arrow_vendored4date14year_month_day2okEv.exit34
   %conv.i.i.i35 = sext i16 %0 to i32
-  %cmp.i.i.i.i = icmp ult i8 %1, 3
+  %cmp.i.i.i.i = icmp samesign ult i8 %1, 3
   %conv.neg.i.i = sext i1 %cmp.i.i.i.i to i32
   %sub.i.i36 = add nsw i32 %conv.neg.i.i, %conv.i.i.i35
   %conv.i11.i.i = zext nneg i8 %1 to i32
@@ -53496,7 +53496,7 @@ if.then5:                                         ; preds = %_ZNK14arrow_vendore
   %div.i.i = sdiv i32 %cond.i.i, 400
   %mul.neg.i.i = mul nsw i32 %div.i.i, -400
   %sub7.i.i = add nsw i32 %mul.neg.i.i, %sub.i.i36
-  %cmp8.i.i = icmp ugt i8 %1, 2
+  %cmp8.i.i = icmp samesign ugt i8 %1, 2
   %cond13.v.i.i = select i1 %cmp8.i.i, i32 -3, i32 9
   %cond13.i.i = add nsw i32 %cond13.v.i.i, %conv.i11.i.i
   %mul14.i.i = mul nsw i32 %cond13.i.i, 153
@@ -56378,7 +56378,7 @@ _ZNK14arrow_vendored4date14year_month_day2okEv.exit1164: ; preds = %land.rhs.i.i
 
 invoke.cont855:                                   ; preds = %_ZNK14arrow_vendored4date14year_month_day2okEv.exit1164
   %conv.i.i.i1165 = sext i16 %142 to i32
-  %cmp.i.i.i.i1167 = icmp ult i8 %143, 3
+  %cmp.i.i.i.i1167 = icmp samesign ult i8 %143, 3
   %conv.neg.i.i1168 = sext i1 %cmp.i.i.i.i1167 to i32
   %sub.i.i1169 = add nsw i32 %conv.neg.i.i1168, %conv.i.i.i1165
   %conv.i11.i.i1170 = zext nneg i8 %143 to i32
@@ -56389,7 +56389,7 @@ invoke.cont855:                                   ; preds = %_ZNK14arrow_vendore
   %div.i.i1176 = sdiv i32 %cond.i.i1175, 400
   %mul.neg.i.i1177 = mul nsw i32 %div.i.i1176, -400
   %sub7.i.i1178 = add nsw i32 %mul.neg.i.i1177, %sub.i.i1169
-  %cmp8.i.i1179 = icmp ugt i8 %143, 2
+  %cmp8.i.i1179 = icmp samesign ugt i8 %143, 2
   %cond13.v.i.i1180 = select i1 %cmp8.i.i1179, i32 -3, i32 9
   %cond13.i.i1181 = add nsw i32 %cond13.v.i.i1180, %conv.i11.i.i1170
   %mul14.i.i1182 = mul nsw i32 %cond13.i.i1181, 153
@@ -58545,7 +58545,7 @@ _ZNK14arrow_vendored4date14year_month_day2okEv.exit34: ; preds = %land.rhs.i.i.i
 
 if.then5:                                         ; preds = %_ZNK14arrow_vendored4date14year_month_day2okEv.exit34
   %conv.i.i.i35 = sext i16 %0 to i32
-  %cmp.i.i.i.i = icmp ult i8 %1, 3
+  %cmp.i.i.i.i = icmp samesign ult i8 %1, 3
   %conv.neg.i.i = sext i1 %cmp.i.i.i.i to i32
   %sub.i.i36 = add nsw i32 %conv.neg.i.i, %conv.i.i.i35
   %conv.i11.i.i = zext nneg i8 %1 to i32
@@ -58556,7 +58556,7 @@ if.then5:                                         ; preds = %_ZNK14arrow_vendore
   %div.i.i = sdiv i32 %cond.i.i, 400
   %mul.neg.i.i = mul nsw i32 %div.i.i, -400
   %sub7.i.i = add nsw i32 %mul.neg.i.i, %sub.i.i36
-  %cmp8.i.i = icmp ugt i8 %1, 2
+  %cmp8.i.i = icmp samesign ugt i8 %1, 2
   %cond13.v.i.i = select i1 %cmp8.i.i, i32 -3, i32 9
   %cond13.i.i = add nsw i32 %cond13.v.i.i, %conv.i11.i.i
   %mul14.i.i = mul nsw i32 %cond13.i.i, 153
@@ -61272,7 +61272,7 @@ _ZNK14arrow_vendored4date14year_month_day2okEv.exit1164: ; preds = %land.rhs.i.i
 
 invoke.cont855:                                   ; preds = %_ZNK14arrow_vendored4date14year_month_day2okEv.exit1164
   %conv.i.i.i1165 = sext i16 %142 to i32
-  %cmp.i.i.i.i1167 = icmp ult i8 %143, 3
+  %cmp.i.i.i.i1167 = icmp samesign ult i8 %143, 3
   %conv.neg.i.i1168 = sext i1 %cmp.i.i.i.i1167 to i32
   %sub.i.i1169 = add nsw i32 %conv.neg.i.i1168, %conv.i.i.i1165
   %conv.i11.i.i1170 = zext nneg i8 %143 to i32
@@ -61283,7 +61283,7 @@ invoke.cont855:                                   ; preds = %_ZNK14arrow_vendore
   %div.i.i1176 = sdiv i32 %cond.i.i1175, 400
   %mul.neg.i.i1177 = mul nsw i32 %div.i.i1176, -400
   %sub7.i.i1178 = add nsw i32 %mul.neg.i.i1177, %sub.i.i1169
-  %cmp8.i.i1179 = icmp ugt i8 %143, 2
+  %cmp8.i.i1179 = icmp samesign ugt i8 %143, 2
   %cond13.v.i.i1180 = select i1 %cmp8.i.i1179, i32 -3, i32 9
   %cond13.i.i1181 = add nsw i32 %cond13.v.i.i1180, %conv.i11.i.i1170
   %mul14.i.i1182 = mul nsw i32 %cond13.i.i1181, 153
@@ -63439,7 +63439,7 @@ _ZNK14arrow_vendored4date14year_month_day2okEv.exit34: ; preds = %land.rhs.i.i.i
 
 if.then5:                                         ; preds = %_ZNK14arrow_vendored4date14year_month_day2okEv.exit34
   %conv.i.i.i35 = sext i16 %0 to i32
-  %cmp.i.i.i.i = icmp ult i8 %1, 3
+  %cmp.i.i.i.i = icmp samesign ult i8 %1, 3
   %conv.neg.i.i = sext i1 %cmp.i.i.i.i to i32
   %sub.i.i36 = add nsw i32 %conv.neg.i.i, %conv.i.i.i35
   %conv.i11.i.i = zext nneg i8 %1 to i32
@@ -63450,7 +63450,7 @@ if.then5:                                         ; preds = %_ZNK14arrow_vendore
   %div.i.i = sdiv i32 %cond.i.i, 400
   %mul.neg.i.i = mul nsw i32 %div.i.i, -400
   %sub7.i.i = add nsw i32 %mul.neg.i.i, %sub.i.i36
-  %cmp8.i.i = icmp ugt i8 %1, 2
+  %cmp8.i.i = icmp samesign ugt i8 %1, 2
   %cond13.v.i.i = select i1 %cmp8.i.i, i32 -3, i32 9
   %cond13.i.i = add nsw i32 %cond13.v.i.i, %conv.i11.i.i
   %mul14.i.i = mul nsw i32 %cond13.i.i, 153
@@ -66156,7 +66156,7 @@ _ZNK14arrow_vendored4date14year_month_day2okEv.exit1164: ; preds = %land.rhs.i.i
 
 invoke.cont855:                                   ; preds = %_ZNK14arrow_vendored4date14year_month_day2okEv.exit1164
   %conv.i.i.i1165 = sext i16 %142 to i32
-  %cmp.i.i.i.i1167 = icmp ult i8 %143, 3
+  %cmp.i.i.i.i1167 = icmp samesign ult i8 %143, 3
   %conv.neg.i.i1168 = sext i1 %cmp.i.i.i.i1167 to i32
   %sub.i.i1169 = add nsw i32 %conv.neg.i.i1168, %conv.i.i.i1165
   %conv.i11.i.i1170 = zext nneg i8 %143 to i32
@@ -66167,7 +66167,7 @@ invoke.cont855:                                   ; preds = %_ZNK14arrow_vendore
   %div.i.i1176 = sdiv i32 %cond.i.i1175, 400
   %mul.neg.i.i1177 = mul nsw i32 %div.i.i1176, -400
   %sub7.i.i1178 = add nsw i32 %mul.neg.i.i1177, %sub.i.i1169
-  %cmp8.i.i1179 = icmp ugt i8 %143, 2
+  %cmp8.i.i1179 = icmp samesign ugt i8 %143, 2
   %cond13.v.i.i1180 = select i1 %cmp8.i.i1179, i32 -3, i32 9
   %cond13.i.i1181 = add nsw i32 %cond13.v.i.i1180, %conv.i11.i.i1170
   %mul14.i.i1182 = mul nsw i32 %cond13.i.i1181, 153
@@ -68323,7 +68323,7 @@ _ZNK14arrow_vendored4date14year_month_day2okEv.exit34: ; preds = %land.rhs.i.i.i
 
 if.then5:                                         ; preds = %_ZNK14arrow_vendored4date14year_month_day2okEv.exit34
   %conv.i.i.i35 = sext i16 %0 to i32
-  %cmp.i.i.i.i = icmp ult i8 %1, 3
+  %cmp.i.i.i.i = icmp samesign ult i8 %1, 3
   %conv.neg.i.i = sext i1 %cmp.i.i.i.i to i32
   %sub.i.i36 = add nsw i32 %conv.neg.i.i, %conv.i.i.i35
   %conv.i11.i.i = zext nneg i8 %1 to i32
@@ -68334,7 +68334,7 @@ if.then5:                                         ; preds = %_ZNK14arrow_vendore
   %div.i.i = sdiv i32 %cond.i.i, 400
   %mul.neg.i.i = mul nsw i32 %div.i.i, -400
   %sub7.i.i = add nsw i32 %mul.neg.i.i, %sub.i.i36
-  %cmp8.i.i = icmp ugt i8 %1, 2
+  %cmp8.i.i = icmp samesign ugt i8 %1, 2
   %cond13.v.i.i = select i1 %cmp8.i.i, i32 -3, i32 9
   %cond13.i.i = add nsw i32 %cond13.v.i.i, %conv.i11.i.i
   %mul14.i.i = mul nsw i32 %cond13.i.i, 153
@@ -87821,8 +87821,8 @@ entry:
 sw.bb3.i.i.i:                                     ; preds = %entry
   call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %buffer.i.i.i.i), !noalias !3995
   %buffer21.i.i.i.i = ptrtoint ptr %buffer.i.i.i.i to i64
-  %cmp.i.i.i.i.i.i = icmp ult i32 %0, 86400000
-  br i1 %cmp.i.i.i.i.i.i, label %if.end.i.i.i.i, label %if.then.i.i.i.i
+  %spec.select.i.i.i.i.i = icmp ult i32 %0, 86400000
+  br i1 %spec.select.i.i.i.i.i, label %if.end.i.i.i.i, label %if.then.i.i.i.i
 
 if.then.i.i.i.i:                                  ; preds = %sw.bb3.i.i.i
   call fastcc void @_ZN5arrow8internal6detail16FormatOutOfRangeIRiRZZNS_7compute8internal12_GLOBAL__N_127TemporalToStringCastFunctorINS_15LargeStringTypeENS_10Time32TypeEE4ExecEPNS4_13KernelContextERKNS4_8ExecSpanEPNS4_10ExecResultEENKUliE_clEiEUlSt17basic_string_viewIcSt11char_traitsIcEEE_EEDTclclsr3stdE7declvalIT0_EEtlSM_EEEOT_OSP_(ptr noalias nonnull align 8 %agg.result, i32 %0, ptr noundef nonnull readonly align 8 dereferenceable(8) %ref.tmp.i)
@@ -87963,8 +87963,8 @@ _ZN5arrow8internal15StringFormatterINS_10Time32TypeEvEclINSt6chrono8durationIlSt
 sw.bb4.i.i.i:                                     ; preds = %entry
   call void @llvm.lifetime.start.p0(i64 15, ptr nonnull %buffer.i10.i.i.i), !noalias !3995
   %buffer20.i.i.i.i = ptrtoint ptr %buffer.i10.i.i.i to i64
-  %cmp.i.i.i11.i.i.i = icmp sgt i32 %0, -1
-  br i1 %cmp.i.i.i11.i.i.i, label %if.end.i13.i.i.i, label %if.then.i12.i.i.i
+  %spec.select.i.i11.i.i.i = icmp sgt i32 %0, -1
+  br i1 %spec.select.i.i11.i.i.i, label %if.end.i13.i.i.i, label %if.then.i12.i.i.i
 
 if.then.i12.i.i.i:                                ; preds = %sw.bb4.i.i.i
   call fastcc void @_ZN5arrow8internal6detail16FormatOutOfRangeIRiRZZNS_7compute8internal12_GLOBAL__N_127TemporalToStringCastFunctorINS_15LargeStringTypeENS_10Time32TypeEE4ExecEPNS4_13KernelContextERKNS4_8ExecSpanEPNS4_10ExecResultEENKUliE_clEiEUlSt17basic_string_viewIcSt11char_traitsIcEEE_EEDTclclsr3stdE7declvalIT0_EEtlSM_EEEOT_OSP_(ptr noalias nonnull align 8 %agg.result, i32 %0, ptr noundef nonnull readonly align 8 dereferenceable(8) %ref.tmp.i)
@@ -88096,8 +88096,8 @@ _ZN5arrow8internal15StringFormatterINS_10Time32TypeEvEclINSt6chrono8durationIlSt
 sw.bb7.i.i.i:                                     ; preds = %entry
   call void @llvm.lifetime.start.p0(i64 18, ptr nonnull %buffer.i77.i.i.i), !noalias !3995
   %buffer20.i78.i.i.i = ptrtoint ptr %buffer.i77.i.i.i to i64
-  %cmp.i.i.i79.i.i.i = icmp sgt i32 %0, -1
-  br i1 %cmp.i.i.i79.i.i.i, label %if.end.i81.i.i.i, label %if.then.i80.i.i.i
+  %spec.select.i.i79.i.i.i = icmp sgt i32 %0, -1
+  br i1 %spec.select.i.i79.i.i.i, label %if.end.i81.i.i.i, label %if.then.i80.i.i.i
 
 if.then.i80.i.i.i:                                ; preds = %sw.bb7.i.i.i
   call fastcc void @_ZN5arrow8internal6detail16FormatOutOfRangeIRiRZZNS_7compute8internal12_GLOBAL__N_127TemporalToStringCastFunctorINS_15LargeStringTypeENS_10Time32TypeEE4ExecEPNS4_13KernelContextERKNS4_8ExecSpanEPNS4_10ExecResultEENKUliE_clEiEUlSt17basic_string_viewIcSt11char_traitsIcEEE_EEDTclclsr3stdE7declvalIT0_EEtlSM_EEEOT_OSP_(ptr noalias nonnull align 8 %agg.result, i32 %0, ptr noundef nonnull readonly align 8 dereferenceable(8) %ref.tmp.i)
@@ -88218,8 +88218,8 @@ _ZN5arrow8internal15StringFormatterINS_10Time32TypeEvEclINSt6chrono8durationIlSt
 
 sw.epilog.i.i.i:                                  ; preds = %entry
   call void @llvm.lifetime.start.p0(i64 9, ptr nonnull %buffer.i138.i.i.i), !noalias !3995
-  %cmp.i.i.i139.i.i.i = icmp ult i32 %0, 86400
-  br i1 %cmp.i.i.i139.i.i.i, label %if.end.i141.i.i.i, label %if.then.i140.i.i.i
+  %spec.select.i.i139.i.i.i = icmp ult i32 %0, 86400
+  br i1 %spec.select.i.i139.i.i.i, label %if.end.i141.i.i.i, label %if.then.i140.i.i.i
 
 if.then.i140.i.i.i:                               ; preds = %sw.epilog.i.i.i
   call fastcc void @_ZN5arrow8internal6detail16FormatOutOfRangeIRiRZZNS_7compute8internal12_GLOBAL__N_127TemporalToStringCastFunctorINS_15LargeStringTypeENS_10Time32TypeEE4ExecEPNS4_13KernelContextERKNS4_8ExecSpanEPNS4_10ExecResultEENKUliE_clEiEUlSt17basic_string_viewIcSt11char_traitsIcEEE_EEDTclclsr3stdE7declvalIT0_EEtlSM_EEEOT_OSP_(ptr noalias nonnull align 8 %agg.result, i32 %0, ptr noundef nonnull readonly align 8 dereferenceable(8) %ref.tmp.i)
@@ -88354,8 +88354,8 @@ entry:
 sw.bb3.i.i.i:                                     ; preds = %entry
   call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %buffer.i.i.i.i), !noalias !4015
   %buffer21.i.i.i.i = ptrtoint ptr %buffer.i.i.i.i to i64
-  %cmp.i.i.i.i.i.i = icmp ult i64 %0, 86400000
-  br i1 %cmp.i.i.i.i.i.i, label %if.end.i.i.i.i, label %if.then.i.i.i.i
+  %spec.select.i.i.i.i.i = icmp ult i64 %0, 86400000
+  br i1 %spec.select.i.i.i.i.i, label %if.end.i.i.i.i, label %if.then.i.i.i.i
 
 if.then.i.i.i.i:                                  ; preds = %sw.bb3.i.i.i
   call fastcc void @_ZN5arrow8internal6detail16FormatOutOfRangeIRlRZZNS_7compute8internal12_GLOBAL__N_127TemporalToStringCastFunctorINS_15LargeStringTypeENS_10Time64TypeEE4ExecEPNS4_13KernelContextERKNS4_8ExecSpanEPNS4_10ExecResultEENKUllE_clElEUlSt17basic_string_viewIcSt11char_traitsIcEEE_EEDTclclsr3stdE7declvalIT0_EEtlSM_EEEOT_OSP_(ptr noalias nonnull align 8 %agg.result, i64 %0, ptr noundef nonnull readonly align 8 dereferenceable(8) %ref.tmp.i)
@@ -88496,8 +88496,8 @@ _ZN5arrow8internal15StringFormatterINS_10Time64TypeEvEclINSt6chrono8durationIlSt
 sw.bb4.i.i.i:                                     ; preds = %entry
   call void @llvm.lifetime.start.p0(i64 15, ptr nonnull %buffer.i10.i.i.i), !noalias !4015
   %buffer18.i.i.i.i = ptrtoint ptr %buffer.i10.i.i.i to i64
-  %cmp.i.i.i11.i.i.i = icmp ult i64 %0, 86400000000
-  br i1 %cmp.i.i.i11.i.i.i, label %if.end.i13.i.i.i, label %if.then.i12.i.i.i
+  %spec.select.i.i11.i.i.i = icmp ult i64 %0, 86400000000
+  br i1 %spec.select.i.i11.i.i.i, label %if.end.i13.i.i.i, label %if.then.i12.i.i.i
 
 if.then.i12.i.i.i:                                ; preds = %sw.bb4.i.i.i
   call fastcc void @_ZN5arrow8internal6detail16FormatOutOfRangeIRlRZZNS_7compute8internal12_GLOBAL__N_127TemporalToStringCastFunctorINS_15LargeStringTypeENS_10Time64TypeEE4ExecEPNS4_13KernelContextERKNS4_8ExecSpanEPNS4_10ExecResultEENKUllE_clElEUlSt17basic_string_viewIcSt11char_traitsIcEEE_EEDTclclsr3stdE7declvalIT0_EEtlSM_EEEOT_OSP_(ptr noalias nonnull align 8 %agg.result, i64 %0, ptr noundef nonnull readonly align 8 dereferenceable(8) %ref.tmp.i)
@@ -88633,8 +88633,8 @@ _ZN5arrow8internal15StringFormatterINS_10Time64TypeEvEclINSt6chrono8durationIlSt
 sw.bb7.i.i.i:                                     ; preds = %entry
   call void @llvm.lifetime.start.p0(i64 18, ptr nonnull %buffer.i80.i.i.i), !noalias !4015
   %buffer18.i81.i.i.i = ptrtoint ptr %buffer.i80.i.i.i to i64
-  %cmp.i.i.i82.i.i.i = icmp ult i64 %0, 86400000000000
-  br i1 %cmp.i.i.i82.i.i.i, label %if.end.i84.i.i.i, label %if.then.i83.i.i.i
+  %spec.select.i.i82.i.i.i = icmp ult i64 %0, 86400000000000
+  br i1 %spec.select.i.i82.i.i.i, label %if.end.i84.i.i.i, label %if.then.i83.i.i.i
 
 if.then.i83.i.i.i:                                ; preds = %sw.bb7.i.i.i
   call fastcc void @_ZN5arrow8internal6detail16FormatOutOfRangeIRlRZZNS_7compute8internal12_GLOBAL__N_127TemporalToStringCastFunctorINS_15LargeStringTypeENS_10Time64TypeEE4ExecEPNS4_13KernelContextERKNS4_8ExecSpanEPNS4_10ExecResultEENKUllE_clElEUlSt17basic_string_viewIcSt11char_traitsIcEEE_EEDTclclsr3stdE7declvalIT0_EEtlSM_EEEOT_OSP_(ptr noalias nonnull align 8 %agg.result, i64 %0, ptr noundef nonnull readonly align 8 dereferenceable(8) %ref.tmp.i)
@@ -88769,8 +88769,8 @@ _ZN5arrow8internal15StringFormatterINS_10Time64TypeEvEclINSt6chrono8durationIlSt
 
 sw.epilog.i.i.i:                                  ; preds = %entry
   call void @llvm.lifetime.start.p0(i64 9, ptr nonnull %buffer.i155.i.i.i), !noalias !4015
-  %cmp.i.i.i156.i.i.i = icmp ult i64 %0, 86400
-  br i1 %cmp.i.i.i156.i.i.i, label %if.end.i158.i.i.i, label %if.then.i157.i.i.i
+  %spec.select.i.i156.i.i.i = icmp ult i64 %0, 86400
+  br i1 %spec.select.i.i156.i.i.i, label %if.end.i158.i.i.i, label %if.then.i157.i.i.i
 
 if.then.i157.i.i.i:                               ; preds = %sw.epilog.i.i.i
   call fastcc void @_ZN5arrow8internal6detail16FormatOutOfRangeIRlRZZNS_7compute8internal12_GLOBAL__N_127TemporalToStringCastFunctorINS_15LargeStringTypeENS_10Time64TypeEE4ExecEPNS4_13KernelContextERKNS4_8ExecSpanEPNS4_10ExecResultEENKUllE_clElEUlSt17basic_string_viewIcSt11char_traitsIcEEE_EEDTclclsr3stdE7declvalIT0_EEtlSM_EEEOT_OSP_(ptr noalias nonnull align 8 %agg.result, i64 %0, ptr noundef nonnull readonly align 8 dereferenceable(8) %ref.tmp.i)

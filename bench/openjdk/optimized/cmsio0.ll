@@ -1637,7 +1637,7 @@ define hidden void @cmsSetProfileVersion(ptr nocapture noundef writeonly %0, dou
   %16 = load i8, ptr %15, align 1
   %17 = sext i8 %16 to i32
   %18 = add i32 %14, %17
-  %19 = icmp ugt i64 %indvars.iv26.i, 1
+  %19 = icmp samesign ugt i64 %indvars.iv26.i, 1
   br i1 %19, label %.lr.ph22.i, label %BaseToBase.exit.loopexit, !llvm.loop !18
 
 BaseToBase.exit.loopexit:                         ; preds = %.lr.ph22.i
@@ -1692,7 +1692,7 @@ define hidden double @cmsGetProfileVersion(ptr nocapture noundef readonly %0) lo
   %13 = load i8, ptr %12, align 1
   %14 = sext i8 %13 to i32
   %15 = add i32 %11, %14
-  %16 = icmp ugt i64 %indvars.iv26.i, 1
+  %16 = icmp samesign ugt i64 %indvars.iv26.i, 1
   br i1 %16, label %.lr.ph22.i, label %BaseToBase.exit.loopexit, !llvm.loop !18
 
 BaseToBase.exit.loopexit:                         ; preds = %.lr.ph22.i
@@ -2355,7 +2355,7 @@ define internal fastcc range(i32 0, 2) i32 @SaveTags(ptr nocapture noundef %0, p
   %17 = load i8, ptr %16, align 1
   %18 = sext i8 %17 to i32
   %19 = add i32 %15, %18
-  %20 = icmp ugt i64 %indvars.iv26.i.i, 1
+  %20 = icmp samesign ugt i64 %indvars.iv26.i.i, 1
   br i1 %20, label %.lr.ph22.i.i, label %BaseToBase.exit.loopexit.i, !llvm.loop !18
 
 BaseToBase.exit.loopexit.i:                       ; preds = %.lr.ph22.i.i
@@ -3251,7 +3251,7 @@ _cmsNewTag.exit:                                  ; preds = %_cmsSearchTag.exit.
   %103 = load i8, ptr %102, align 1
   %104 = sext i8 %103 to i32
   %105 = add i32 %101, %104
-  %106 = icmp ugt i64 %indvars.iv26.i.i, 1
+  %106 = icmp samesign ugt i64 %indvars.iv26.i.i, 1
   br i1 %106, label %.lr.ph22.i.i, label %BaseToBase.exit.loopexit.i, !llvm.loop !18
 
 BaseToBase.exit.loopexit.i:                       ; preds = %.lr.ph22.i.i

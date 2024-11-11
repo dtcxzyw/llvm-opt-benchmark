@@ -266,7 +266,7 @@ define hidden void @zend_optimize_temporary_variables(ptr nocapture noundef %0, 
   %154 = load i64, ptr %153, align 8
   %155 = or i64 %154, %150
   store i64 %155, ptr %153, align 8
-  %156 = icmp ugt i32 %.0365442, 2
+  %156 = icmp samesign ugt i32 %.0365442, 2
   br i1 %156, label %.lr.ph443, label %.loopexit
 
 157:                                              ; preds = %101

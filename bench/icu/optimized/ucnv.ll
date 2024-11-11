@@ -3112,7 +3112,7 @@ if.end197:                                        ; preds = %do.body187, %if.the
   %28 = load i16, ptr %arrayidx203, align 2
   %UCharErrorBuffer204 = getelementptr inbounds i8, ptr %cnv, i64 144
   store i16 %28, ptr %UCharErrorBuffer204, align 8
-  %cmp206 = icmp ugt i32 %sub182, 1
+  %cmp206 = icmp samesign ugt i32 %sub182, 1
   br i1 %cmp206, label %if.then207, label %if.end213
 
 if.then207:                                       ; preds = %if.end197
@@ -4463,7 +4463,7 @@ if.end3:                                          ; preds = %if.end
   br i1 %cmp4, label %if.then5, label %if.else
 
 if.then5:                                         ; preds = %if.end3
-  %cmp7 = icmp ult i32 %1, 65536
+  %cmp7 = icmp samesign ult i32 %1, 65536
   %cond = select i1 %cmp7, i32 1, i32 2
   %preFromULength = getelementptr inbounds i8, ptr %cnv, i64 281
   %2 = load i8, ptr %preFromULength, align 1

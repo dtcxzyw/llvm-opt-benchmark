@@ -1246,7 +1246,7 @@ Vec_IntPush.exit:                                 ; preds = %.Vec_IntGrow.exit10
   %.val39 = load ptr, ptr %4, align 8
   %88 = getelementptr inbounds i32, ptr %.val39, i64 %71
   store i32 %70, ptr %88, align 4
-  %89 = icmp ugt i64 %indvars.iv, 2
+  %89 = icmp samesign ugt i64 %indvars.iv, 2
   br i1 %89, label %68, label %._crit_edge, !llvm.loop !11
 
 ._crit_edge:                                      ; preds = %86, %68, %Vec_IntPush.exit
@@ -7117,7 +7117,7 @@ Vec_QueIsMember.exit:                             ; preds = %137
 
 Vec_QuePrio.exit.i.i:                             ; preds = %157, %154
   %159 = phi float [ %156, %154 ], [ %158, %157 ]
-  %160 = icmp ugt i32 %150, 1
+  %160 = icmp samesign ugt i32 %150, 1
   %161 = getelementptr inbounds i8, ptr %144, i64 8
   br i1 %160, label %.lr.ph.i.i, label %Vec_QueMoveUp.exit.thread.i
 

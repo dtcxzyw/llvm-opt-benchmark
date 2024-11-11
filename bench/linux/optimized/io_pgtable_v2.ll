@@ -163,7 +163,7 @@ define internal noundef range(i32 -22, 1) i32 @iommu_v2_map_pages(ptr noundef %0
   br i1 %24, label %.thread19, label %25
 
 25:                                               ; preds = %23
-  %26 = icmp ult i64 %3, 2097152
+  %26 = icmp samesign ult i64 %3, 2097152
   %27 = select i1 %26, i64 4096, i64 2097152
   %28 = icmp ugt i64 %3, 1073741823
   %29 = select i1 %28, i64 1073741824, i64 %27

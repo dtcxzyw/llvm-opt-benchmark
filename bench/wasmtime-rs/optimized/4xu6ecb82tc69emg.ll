@@ -423,7 +423,7 @@ define void @_ZN4core5slice4sort10merge_sort17h1f0d3ad145fef165E(ptr align 8 %0,
   br label %37
 
 28:                                               ; preds = %3
-  %29 = icmp ugt i64 %13, 1
+  %29 = icmp samesign ugt i64 %13, 1
   br i1 %29, label %.preheader.i50, label %36
 
 30:                                               ; preds = %.body, %31
@@ -925,7 +925,7 @@ define void @_ZN4core5slice4sort10merge_sort17h6bbfbc75e71540afE(ptr align 8 %0,
   br label %37
 
 28:                                               ; preds = %3
-  %29 = icmp ugt i64 %13, 1
+  %29 = icmp samesign ugt i64 %13, 1
   br i1 %29, label %.preheader.i50, label %36
 
 30:                                               ; preds = %.body, %31
@@ -1427,7 +1427,7 @@ define void @_ZN4core5slice4sort10merge_sort17h8c9148157a4442aaE(ptr align 8 %0,
   br label %37
 
 28:                                               ; preds = %3
-  %29 = icmp ugt i64 %13, 1
+  %29 = icmp samesign ugt i64 %13, 1
   br i1 %29, label %.preheader.i50, label %36
 
 30:                                               ; preds = %.body, %31
@@ -1929,7 +1929,7 @@ define void @_ZN4core5slice4sort10merge_sort17ha82410be37d79667E(ptr align 8 %0,
   br label %37
 
 28:                                               ; preds = %3
-  %29 = icmp ugt i64 %13, 1
+  %29 = icmp samesign ugt i64 %13, 1
   br i1 %29, label %.preheader.i50, label %36
 
 30:                                               ; preds = %.body, %31
@@ -2435,7 +2435,7 @@ define void @_ZN4core5slice4sort10merge_sort17hd3b592fed9f537eaE(ptr align 2 %0,
   br label %37
 
 28:                                               ; preds = %3
-  %29 = icmp ugt i64 %13, 1
+  %29 = icmp samesign ugt i64 %13, 1
   br i1 %29, label %.preheader.i50, label %36
 
 30:                                               ; preds = %.body, %31
@@ -2941,7 +2941,7 @@ define void @_ZN4core5slice4sort10merge_sort17heb26124698d14d2fE(ptr align 8 %0,
   br label %37
 
 28:                                               ; preds = %3
-  %29 = icmp ugt i64 %13, 1
+  %29 = icmp samesign ugt i64 %13, 1
   br i1 %29, label %.preheader.i50, label %36
 
 30:                                               ; preds = %.body, %31

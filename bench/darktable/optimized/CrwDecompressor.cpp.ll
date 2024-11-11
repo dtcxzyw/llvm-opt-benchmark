@@ -2193,7 +2193,7 @@ define linkonce_odr hidden void @_ZN8rawspeed15CrwDecompressor11decodeBlockEPSt5
 
 71:                                               ; preds = %54
   %72 = add nuw nsw i32 %55, 8
-  %73 = icmp ugt i32 %72, %56
+  %73 = icmp samesign ugt i32 %72, %56
   br i1 %73, label %77, label %74
 
 74:                                               ; preds = %71
@@ -2203,7 +2203,7 @@ define linkonce_odr hidden void @_ZN8rawspeed15CrwDecompressor11decodeBlockEPSt5
 
 77:                                               ; preds = %71
   %78 = add nuw nsw i32 %56, 16
-  %79 = icmp ugt i32 %55, %78
+  %79 = icmp samesign ugt i32 %55, %78
   br i1 %79, label %80, label %81
 
 80:                                               ; preds = %77

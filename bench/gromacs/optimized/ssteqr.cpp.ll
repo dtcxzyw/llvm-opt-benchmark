@@ -79,9 +79,9 @@ switch.lookup:                                    ; preds = %switch.hole_check
 38:                                               ; preds = %switch.lookup
   %39 = load i32, ptr %5, align 4
   %40 = icmp slt i32 %39, 1
-  %41 = icmp ugt i32 %35, %39
+  %41 = icmp samesign ugt i32 %35, %39
   %or.cond = and i1 %41, %switch.masked
-  %or.cond726 = or i1 %40, %or.cond
+  %or.cond726 = select i1 %40, i1 true, i1 %or.cond
   br i1 %or.cond726, label %42, label %43
 
 42:                                               ; preds = %38

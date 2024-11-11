@@ -2684,7 +2684,7 @@ _ZN2cv3dnn14dnn4_v20240521L5totalERKSt6vectorIiSaIiEEii.exit.i: ; preds = %.lr.p
   br i1 %.not28.i156.i, label %159, label %.preheader.i.i
 
 .preheader.i.i:                                   ; preds = %156
-  %157 = icmp ult i32 %spec.store.select.i.i, %spec.select.i154.i
+  %157 = icmp samesign ult i32 %spec.store.select.i.i, %spec.select.i154.i
   br i1 %157, label %.lr.ph.preheader.i147.i, label %_ZN2cv3dnn14dnn4_v20240521L5totalERKSt6vectorIiSaIiEEii.exit152.i
 
 .lr.ph.preheader.i147.i:                          ; preds = %.preheader.i.i
@@ -2739,7 +2739,7 @@ _ZN2cv3dnn14dnn4_v20240521L5totalERKSt6vectorIiSaIiEEii.exit152.i: ; preds = %.l
   br i1 %.not28.i156.i, label %176, label %.preheader.i157.i
 
 .preheader.i157.i:                                ; preds = %173
-  %174 = icmp ult i32 %spec.store.select.i153.i, %spec.select.i154.i
+  %174 = icmp samesign ult i32 %spec.store.select.i153.i, %spec.select.i154.i
   br i1 %174, label %.lr.ph.preheader.i159.i, label %_ZN2cv3dnn14dnn4_v20240521L5totalERKSt6vectorIiSaIiEEii.exit164.i
 
 .lr.ph.preheader.i159.i:                          ; preds = %.preheader.i157.i
@@ -2817,7 +2817,7 @@ _ZN2cv3dnn14dnn4_v20240521L5totalERKSt6vectorIiSaIiEEii.exit176.thread239.us.pre
 .preheader.i169.i:                                ; preds = %.lr.ph309.split.i.preheader, %.lr.ph309.split.i
   %.sroa.0217.1307.i171 = phi i32 [ %201, %.lr.ph309.split.i ], [ %.sroa.0217.0.i, %.lr.ph309.split.i.preheader ]
   %spec.store.select.i165308.i170 = phi i32 [ %201, %.lr.ph309.split.i ], [ %spec.store.select.i165306.i, %.lr.ph309.split.i.preheader ]
-  %189 = icmp ult i32 %spec.store.select.i165308.i170, %spec.select.i166.i
+  %189 = icmp samesign ult i32 %spec.store.select.i165308.i170, %spec.select.i166.i
   br i1 %189, label %.lr.ph.preheader.i171.i, label %_ZN2cv3dnn14dnn4_v20240521L5totalERKSt6vectorIiSaIiEEii.exit176.thread.i
 
 .lr.ph.preheader.i171.i:                          ; preds = %.preheader.i169.i
@@ -2874,7 +2874,7 @@ _ZN2cv3dnn14dnn4_v20240521L5totalERKSt6vectorIiSaIiEEii.exit176.thread.i: ; pred
   unreachable
 
 .preheader.i181.i:                                ; preds = %205
-  %207 = icmp ult i32 %spec.store.select.i177.i, %spec.select.i166.i
+  %207 = icmp samesign ult i32 %spec.store.select.i177.i, %spec.select.i166.i
   br i1 %207, label %.lr.ph.preheader.i183.i, label %_ZN2cv3dnn14dnn4_v20240521L5totalERKSt6vectorIiSaIiEEii.exit188.i
 
 .lr.ph.preheader.i183.i:                          ; preds = %.preheader.i181.i

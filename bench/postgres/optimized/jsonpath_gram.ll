@@ -141,7 +141,7 @@ define dso_local range(i32 0, 3) i32 @jsonpath_yyparse(ptr noundef %0, ptr nound
   br i1 %52, label %.loopexit539, label %53
 
 53:                                               ; preds = %51
-  %54 = icmp ult i32 %.4, 307
+  %54 = icmp samesign ult i32 %.4, 307
   br i1 %54, label %55, label %60
 
 55:                                               ; preds = %53

@@ -200,7 +200,7 @@ define internal fastcc range(i64 -2147483648, 1) i64 @__se_sys_mincore(i64 nound
   br i1 %93, label %.loopexit, label %94
 
 94:                                               ; preds = %91
-  %95 = icmp ugt i64 %88, 2147483647
+  %95 = icmp samesign ugt i64 %88, 2147483647
   br i1 %95, label %.critedge, label %96, !prof !10
 
 .critedge:                                        ; preds = %94

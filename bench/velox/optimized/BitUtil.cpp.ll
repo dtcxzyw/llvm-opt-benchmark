@@ -736,7 +736,7 @@ if.then:                                          ; preds = %entry
   %conv = trunc nuw nsw i64 %size to i32
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %result.i)
   store volatile i64 0, ptr %result.i, align 8
-  %cmp.i = icmp ugt i64 %size, 3
+  %cmp.i = icmp samesign ugt i64 %size, 3
   br i1 %cmp.i, label %if.then.i, label %if.end.i
 
 if.then.i:                                        ; preds = %if.then
@@ -751,7 +751,7 @@ if.end.i:                                         ; preds = %if.then.i, %if.then
   %resultPtr.0.i = phi ptr [ %add.ptr1.i, %if.then.i ], [ %result.i, %if.then ]
   %begin.0.i = phi ptr [ %add.ptr.i, %if.then.i ], [ %data, %if.then ]
   %toGo.0.i = phi i32 [ %sub.i, %if.then.i ], [ %conv, %if.then ]
-  %cmp2.i = icmp ugt i32 %toGo.0.i, 1
+  %cmp2.i = icmp samesign ugt i32 %toGo.0.i, 1
   br i1 %cmp2.i, label %if.then3.i, label %if.end7.i
 
 if.then3.i:                                       ; preds = %if.end.i
@@ -811,7 +811,7 @@ while.body:                                       ; preds = %if.end, %while.body
   %11 = tail call noundef i64 @llvm.x86.sse42.crc32.64.64(i64 %conv.i.i.i44, i64 %10)
   %add.ptr = getelementptr inbounds i8, ptr %words.0129, i64 24
   %sub = add nsw i32 %toGo.0128, -24
-  %cmp11 = icmp ugt i32 %toGo.0128, 47
+  %cmp11 = icmp samesign ugt i32 %toGo.0128, 47
   br i1 %cmp11, label %while.body, label %while.end, !llvm.loop !12
 
 while.end:                                        ; preds = %while.body, %if.end
@@ -835,7 +835,7 @@ if.then27:                                        ; preds = %while.end
   %sub40 = add nsw i32 %toGo.0.lcssa, -16
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %result.i50)
   store volatile i64 0, ptr %result.i50, align 8
-  %cmp.i51 = icmp ugt i32 %sub40, 3
+  %cmp.i51 = icmp samesign ugt i32 %sub40, 3
   br i1 %cmp.i51, label %if.then.i67, label %if.end.i52
 
 if.then.i67:                                      ; preds = %if.then27
@@ -850,7 +850,7 @@ if.end.i52:                                       ; preds = %if.then.i67, %if.th
   %resultPtr.0.i53 = phi ptr [ %add.ptr1.i69, %if.then.i67 ], [ %result.i50, %if.then27 ]
   %begin.0.i54 = phi ptr [ %add.ptr.i68, %if.then.i67 ], [ %add.ptr39, %if.then27 ]
   %toGo.0.i55 = phi i32 [ %sub.i70, %if.then.i67 ], [ %sub40, %if.then27 ]
-  %cmp2.i56 = icmp ugt i32 %toGo.0.i55, 1
+  %cmp2.i56 = icmp samesign ugt i32 %toGo.0.i55, 1
   br i1 %cmp2.i56, label %if.then3.i63, label %if.end7.i57
 
 if.then3.i63:                                     ; preds = %if.end.i52
@@ -900,7 +900,7 @@ cond.false:                                       ; preds = %if.then46
   %sub56 = add nsw i32 %toGo.0.lcssa, -8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %result.i76)
   store volatile i64 0, ptr %result.i76, align 8
-  %cmp.i77 = icmp ugt i32 %sub56, 3
+  %cmp.i77 = icmp samesign ugt i32 %sub56, 3
   br i1 %cmp.i77, label %if.then.i93, label %if.end.i78
 
 if.then.i93:                                      ; preds = %cond.false
@@ -915,7 +915,7 @@ if.end.i78:                                       ; preds = %if.then.i93, %cond.
   %resultPtr.0.i79 = phi ptr [ %add.ptr1.i95, %if.then.i93 ], [ %result.i76, %cond.false ]
   %begin.0.i80 = phi ptr [ %add.ptr.i94, %if.then.i93 ], [ %arrayidx54, %cond.false ]
   %toGo.0.i81 = phi i32 [ %sub.i96, %if.then.i93 ], [ %sub56, %cond.false ]
-  %cmp2.i82 = icmp ugt i32 %toGo.0.i81, 1
+  %cmp2.i82 = icmp samesign ugt i32 %toGo.0.i81, 1
   br i1 %cmp2.i82, label %if.then3.i89, label %if.end7.i83
 
 if.then3.i89:                                     ; preds = %if.end.i78
@@ -964,7 +964,7 @@ cond.true66:                                      ; preds = %if.then63
 cond.false68:                                     ; preds = %if.then63
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %result.i100)
   store volatile i64 0, ptr %result.i100, align 8
-  %cmp.i101 = icmp ugt i32 %toGo.0.lcssa, 3
+  %cmp.i101 = icmp samesign ugt i32 %toGo.0.lcssa, 3
   br i1 %cmp.i101, label %if.then.i117, label %if.end.i102
 
 if.then.i117:                                     ; preds = %cond.false68
@@ -979,7 +979,7 @@ if.end.i102:                                      ; preds = %if.then.i117, %cond
   %resultPtr.0.i103 = phi ptr [ %add.ptr1.i119, %if.then.i117 ], [ %result.i100, %cond.false68 ]
   %begin.0.i104 = phi ptr [ %add.ptr.i118, %if.then.i117 ], [ %words.0.lcssa, %cond.false68 ]
   %toGo.0.i105 = phi i32 [ %sub.i120, %if.then.i117 ], [ %toGo.0.lcssa, %cond.false68 ]
-  %cmp2.i106 = icmp ugt i32 %toGo.0.i105, 1
+  %cmp2.i106 = icmp samesign ugt i32 %toGo.0.i105, 1
   br i1 %cmp2.i106, label %if.then3.i113, label %if.end7.i107
 
 if.then3.i113:                                    ; preds = %if.end.i102

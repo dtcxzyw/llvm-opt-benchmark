@@ -573,7 +573,7 @@ select.unfold:                                    ; preds = %44, %38
   %203 = add nsw i32 %14, -1
   %204 = zext nneg i32 %203 to i64
   %205 = tail call ptr @palloc(i64 noundef %204) #11
-  %206 = icmp ugt i32 %14, 2
+  %206 = icmp samesign ugt i32 %14, 2
   br i1 %206, label %.lr.ph.i.preheader, label %debackslash.exit
 
 .lr.ph.i.preheader:                               ; preds = %202

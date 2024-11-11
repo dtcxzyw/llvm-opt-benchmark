@@ -1740,7 +1740,7 @@ define dso_local void @intel_psr_compute_config(ptr noundef %0, ptr noundef %1, 
   br i1 %205, label %222, label %214
 
 206:                                              ; preds = %200
-  %207 = icmp ugt i16 %202, 11
+  %207 = icmp samesign ugt i16 %202, 11
   br i1 %207, label %208, label %210
 
 208:                                              ; preds = %206
@@ -1748,7 +1748,7 @@ define dso_local void @intel_psr_compute_config(ptr noundef %0, ptr noundef %1, 
   br i1 %209, label %222, label %214
 
 210:                                              ; preds = %206
-  %211 = icmp ugt i16 %202, 8
+  %211 = icmp samesign ugt i16 %202, 8
   %212 = icmp eq i32 %197, 4
   %213 = and i1 %212, %211
   br i1 %213, label %222, label %214
@@ -1852,7 +1852,7 @@ define dso_local void @intel_psr_compute_config(ptr noundef %0, ptr noundef %1, 
   br i1 %268, label %274, label %269
 
 269:                                              ; preds = %264
-  %270 = icmp ugt i16 %267, 9
+  %270 = icmp samesign ugt i16 %267, 9
   br i1 %270, label %274, label %271
 
 271:                                              ; preds = %269
@@ -2767,7 +2767,7 @@ define internal fastcc void @intel_psr_exit(ptr noundef %0) unnamed_addr #1 alig
   br i1 %19, label %28, label %58
 
 20:                                               ; preds = %14
-  %21 = icmp ugt i16 %16, 11
+  %21 = icmp samesign ugt i16 %16, 11
   br i1 %21, label %22, label %24
 
 22:                                               ; preds = %20
@@ -2775,7 +2775,7 @@ define internal fastcc void @intel_psr_exit(ptr noundef %0) unnamed_addr #1 alig
   br i1 %23, label %28, label %58
 
 24:                                               ; preds = %20
-  %25 = icmp ugt i16 %16, 8
+  %25 = icmp samesign ugt i16 %16, 8
   %26 = icmp eq i32 %5, 4
   %27 = and i1 %26, %25
   br i1 %27, label %28, label %58
@@ -3086,7 +3086,7 @@ define internal fastcc void @intel_psr_activate(ptr nocapture noundef %0) unname
   br i1 %15, label %24, label %54
 
 16:                                               ; preds = %10
-  %17 = icmp ugt i16 %12, 11
+  %17 = icmp samesign ugt i16 %12, 11
   br i1 %17, label %18, label %20
 
 18:                                               ; preds = %16
@@ -3094,7 +3094,7 @@ define internal fastcc void @intel_psr_activate(ptr nocapture noundef %0) unname
   br i1 %19, label %24, label %54
 
 20:                                               ; preds = %16
-  %21 = icmp ugt i16 %12, 8
+  %21 = icmp samesign ugt i16 %12, 8
   %22 = icmp eq i32 %5, 4
   %23 = and i1 %22, %21
   br i1 %23, label %24, label %54
@@ -3365,7 +3365,7 @@ define internal fastcc void @intel_psr_activate(ptr nocapture noundef %0) unname
   br i1 %210, label %214, label %211
 
 211:                                              ; preds = %209
-  %212 = icmp ult i32 %207, 501
+  %212 = icmp samesign ult i32 %207, 501
   %213 = select i1 %212, i32 0, i32 512
   br label %214
 
@@ -3488,7 +3488,7 @@ define internal fastcc void @intel_psr_activate(ptr nocapture noundef %0) unname
   br label %308
 
 291:                                              ; preds = %274
-  %292 = icmp ugt i16 %275, 8
+  %292 = icmp samesign ugt i16 %275, 8
   br i1 %292, label %.thread34, label %.thread13
 
 .thread13:                                        ; preds = %291
@@ -3726,7 +3726,7 @@ define internal fastcc void @intel_psr_activate(ptr nocapture noundef %0) unname
   br label %455
 
 451:                                              ; preds = %447
-  %452 = icmp ult i32 %443, 501
+  %452 = icmp samesign ult i32 %443, 501
   %453 = or disjoint i32 %435, 32
   %454 = select i1 %452, i32 %435, i32 %453
   br label %455
@@ -3751,7 +3751,7 @@ define internal fastcc void @intel_psr_activate(ptr nocapture noundef %0) unname
   br label %470
 
 466:                                              ; preds = %462
-  %467 = icmp ult i32 %458, 501
+  %467 = icmp samesign ult i32 %458, 501
   %468 = or i32 %456, 512
   %469 = select i1 %467, i32 %456, i32 %468
   br label %470
@@ -3806,7 +3806,7 @@ define internal fastcc void @intel_psr_activate(ptr nocapture noundef %0) unname
   br label %503
 
 501:                                              ; preds = %.thread15
-  %502 = icmp ugt i16 %492, 7
+  %502 = icmp samesign ugt i16 %492, 7
   br i1 %502, label %503, label %517
 
 503:                                              ; preds = %.thread17, %501

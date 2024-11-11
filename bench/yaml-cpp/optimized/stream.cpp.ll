@@ -386,7 +386,7 @@ if.end:                                           ; preds = %entry
   br i1 %cmp.i.i.i.i, label %land.lhs.true.i.i.i.i, label %cond.false.i.i.i.i
 
 land.lhs.true.i.i.i.i:                            ; preds = %if.end
-  %cmp2.i.i.i.i = icmp ult i64 %sub.ptr.sub.i.i.i.i, 512
+  %cmp2.i.i.i.i = icmp samesign ult i64 %sub.ptr.sub.i.i.i.i, 512
   br i1 %cmp2.i.i.i.i, label %_ZNSt5dequeIcSaIcEEixEm.exit, label %cond.true.i.i.i.i
 
 cond.true.i.i.i.i:                                ; preds = %land.lhs.true.i.i.i.i
@@ -447,7 +447,7 @@ land.rhs:                                         ; preds = %lor.rhs
   br i1 %cmp.i.i.i.i, label %land.lhs.true.i.i.i.i, label %cond.false.i.i.i.i
 
 land.lhs.true.i.i.i.i:                            ; preds = %land.rhs
-  %cmp2.i.i.i.i = icmp ult i64 %sub.ptr.sub.i.i.i.i, 512
+  %cmp2.i.i.i.i = icmp samesign ult i64 %sub.ptr.sub.i.i.i.i, 512
   br i1 %cmp2.i.i.i.i, label %_ZNSt5dequeIcSaIcEEixEm.exit, label %cond.true.i.i.i.i
 
 cond.true.i.i.i.i:                                ; preds = %land.lhs.true.i.i.i.i
@@ -507,7 +507,7 @@ if.end.i:                                         ; preds = %entry
   br i1 %cmp.i.i.i.i.i, label %land.lhs.true.i.i.i.i.i, label %cond.false.i.i.i.i.i
 
 land.lhs.true.i.i.i.i.i:                          ; preds = %if.end.i
-  %cmp2.i.i.i.i.i = icmp ult i64 %sub.ptr.sub.i.i.i.i.i, 512
+  %cmp2.i.i.i.i.i = icmp samesign ult i64 %sub.ptr.sub.i.i.i.i.i, 512
   br i1 %cmp2.i.i.i.i.i, label %if.then.i, label %cond.true.i.i.i.i.i
 
 cond.true.i.i.i.i.i:                              ; preds = %land.lhs.true.i.i.i.i.i

@@ -22579,7 +22579,7 @@ invoke.cont7:                                     ; preds = %invoke.cont5
   %11 = extractvalue { i64, ptr } %call, 1
   %12 = getelementptr inbounds i8, ptr %call4.i.i.i2, i64 8
   store i64 2, ptr %12, align 8
-  %cmp.i.i.i.i.i = icmp ult i64 %and.i.i.i.i.i, 513
+  %cmp.i.i.i.i.i = icmp samesign ult i64 %and.i.i.i.i.i, 513
   %.sink8.i.i.i.i.i = select i1 %cmp.i.i.i.i.i, i64 3, i64 6
   %.sink.i.i.i.i.i = select i1 %cmp.i.i.i.i.i, i64 2, i64 58
   %div36.i.i.i.i.i = lshr i64 %and.i.i.i.i.i, %.sink8.i.i.i.i.i
@@ -47280,7 +47280,7 @@ invoke.cont:                                      ; preds = %invoke.cont.lr.ph, 
 invoke.cont2:                                     ; preds = %invoke.cont
   %2 = getelementptr inbounds i8, ptr %call4.i.i.i2, i64 8
   store i64 2, ptr %2, align 8
-  %cmp.i.i.i.i.i = icmp ult i64 %and.i.i.i.i.i, 513
+  %cmp.i.i.i.i.i = icmp samesign ult i64 %and.i.i.i.i.i, 513
   %.sink8.i.i.i.i.i = select i1 %cmp.i.i.i.i.i, i64 3, i64 6
   %.sink.i.i.i.i.i = select i1 %cmp.i.i.i.i.i, i64 2, i64 58
   %div36.i.i.i.i.i = lshr i64 %and.i.i.i.i.i, %.sink8.i.i.i.i.i
@@ -50582,7 +50582,7 @@ invoke.cont8:                                     ; preds = %call.i.i33.noexc
   %3 = extractvalue { i64, ptr } %call7, 1
   %4 = getelementptr inbounds i8, ptr %call4.i.i.i54, i64 8
   store i64 2, ptr %4, align 8
-  %cmp.i.i.i.i.i46 = icmp ult i64 %and.i.i.i.i.i44, 513
+  %cmp.i.i.i.i.i46 = icmp samesign ult i64 %and.i.i.i.i.i44, 513
   %.sink8.i.i.i.i.i47 = select i1 %cmp.i.i.i.i.i46, i64 3, i64 6
   %.sink.i.i.i.i.i48 = select i1 %cmp.i.i.i.i.i46, i64 2, i64 58
   %div36.i.i.i.i.i49 = lshr i64 %and.i.i.i.i.i44, %.sink8.i.i.i.i.i47

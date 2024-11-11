@@ -722,7 +722,7 @@ define dso_local noundef zeroext i1 @_ZNK4llvm5APInt9isAlignedENS_5AlignE(ptr no
 
 18:                                               ; preds = %13
   %19 = add i32 %.016.i.i, 64
-  %20 = icmp ugt i64 %indvars.iv.i, 1
+  %20 = icmp samesign ugt i64 %indvars.iv.i, 1
   br i1 %20, label %13, label %_ZNK4llvm5APInt6isZeroEv.exit, !llvm.loop !9
 
 21:                                               ; preds = %13
@@ -3309,7 +3309,7 @@ _ZN4llvm5APInt23getSufficientBitsNeededENS_9StringRefEh.exit: ; preds = %11, %13
 
 56:                                               ; preds = %51
   %57 = add i32 %.016.i.i.i.i, 64
-  %58 = icmp ugt i64 %indvars.iv.i.i.i, 1
+  %58 = icmp samesign ugt i64 %indvars.iv.i.i.i, 1
   br i1 %58, label %51, label %_ZNK4llvm5APInt25countLeadingZerosSlowCaseEv.exit.i.i.i, !llvm.loop !9
 
 59:                                               ; preds = %51
@@ -3640,7 +3640,7 @@ _ZN4llvm5APIntC2ERKS0_.exit:                      ; preds = %3
   %46 = shl i64 %45, %39
   %47 = getelementptr inbounds i64, ptr %31, i64 %indvars.iv.next.i1.i
   store i64 %46, ptr %47, align 8
-  %48 = icmp ult i32 %.sroa.speculated.i.i, %indvars.i2.i
+  %48 = icmp samesign ult i32 %.sroa.speculated.i.i, %indvars.i2.i
   br i1 %48, label %.lr.ph.preheader.i, label %_ZNK4llvm5APInt3shlEj.exit
 
 .lr.ph.preheader.i:                               ; preds = %.lr.ph.i.i
@@ -4188,7 +4188,7 @@ _ZNK4llvm5APIntlsEj.exit.thread.us:               ; preds = %.lr.ph, %_ZNK4llvm5
   %81 = shl i64 %80, %74
   %82 = getelementptr inbounds i64, ptr %68, i64 %indvars.iv.next.i1.i
   store i64 %81, ptr %82, align 8
-  %83 = icmp ult i32 %.sroa.speculated.i.i, %indvars.i2.i
+  %83 = icmp samesign ult i32 %.sroa.speculated.i.i, %indvars.i2.i
   br i1 %83, label %.lr.ph.preheader.i, label %.loopexit.i.i
 
 .lr.ph.preheader.i:                               ; preds = %.lr.ph.i.i8
@@ -4290,7 +4290,7 @@ define dso_local noundef i32 @_ZNK4llvm5APInt25countLeadingZerosSlowCaseEv(ptr n
 
 14:                                               ; preds = %9
   %15 = add i32 %.016, 64
-  %16 = icmp ugt i32 %.01117.in, 1
+  %16 = icmp samesign ugt i32 %.01117.in, 1
   br i1 %16, label %9, label %.loopexit, !llvm.loop !9
 
 17:                                               ; preds = %9
@@ -5082,7 +5082,7 @@ _ZN4llvm5APIntC2Ejmbb.exit15.split:               ; preds = %_ZN4llvm5APIntC2Ejm
 
 189:                                              ; preds = %184
   %190 = add i32 %.016.i.i.i.i.i, 64
-  %191 = icmp ugt i64 %indvars.iv.i.i.i.i, 1
+  %191 = icmp samesign ugt i64 %indvars.iv.i.i.i.i, 1
   br i1 %191, label %184, label %_ZNK4llvm5APInt13getActiveBitsEv.exit.i.i, !llvm.loop !9
 
 192:                                              ; preds = %184
@@ -5233,7 +5233,7 @@ _ZNK4llvm5APInteqERKS0_.exit:                     ; preds = %3
 
 31:                                               ; preds = %26
   %32 = add i32 %.016.i.i.i, 64
-  %33 = icmp ugt i64 %indvars.iv.i.i, 1
+  %33 = icmp samesign ugt i64 %indvars.iv.i.i, 1
   br i1 %33, label %26, label %_ZNK4llvm5APIntntEv.exit, !llvm.loop !9
 
 34:                                               ; preds = %26
@@ -5294,7 +5294,7 @@ _ZNK4llvm5APIntntEv.exit:                         ; preds = %31, %34
 
 64:                                               ; preds = %59
   %65 = add i32 %.016.i.i.i18, 64
-  %66 = icmp ugt i64 %indvars.iv.i.i17, 1
+  %66 = icmp samesign ugt i64 %indvars.iv.i.i17, 1
   br i1 %66, label %59, label %_ZNK4llvm5APIntntEv.exit26, !llvm.loop !9
 
 67:                                               ; preds = %59
@@ -6228,7 +6228,7 @@ define dso_local void @_ZN4llvm8APIntOps18RoundDoubleToAPIntEdj(ptr dead_on_unwi
 95:                                               ; preds = %30
   %96 = zext i32 %2 to i64
   %97 = add nsw i64 %8, -1075
-  %.not23 = icmp ult i64 %97, %96
+  %.not23 = icmp samesign ult i64 %97, %96
   br i1 %.not23, label %117, label %98
 
 98:                                               ; preds = %95
@@ -6317,7 +6317,7 @@ define dso_local void @_ZN4llvm8APIntOps18RoundDoubleToAPIntEdj(ptr dead_on_unwi
   %150 = shl i64 %149, %143
   %151 = getelementptr inbounds i64, ptr %123, i64 %indvars.iv.next.i1.i
   store i64 %150, ptr %151, align 8
-  %152 = icmp ult i32 %.sroa.speculated.i.i, %indvars.i2.i
+  %152 = icmp samesign ult i32 %.sroa.speculated.i.i, %indvars.i2.i
   br i1 %152, label %.lr.ph.preheader.i, label %.loopexit.i.i
 
 .lr.ph.preheader.i:                               ; preds = %.lr.ph.i.i
@@ -6469,7 +6469,7 @@ define dso_local noundef double @_ZNK4llvm5APInt13roundToDoubleEb(ptr nocapture 
 
 16:                                               ; preds = %11
   %17 = add i32 %.016.i.i.i, 64
-  %18 = icmp ugt i64 %indvars.iv.i.i, 1
+  %18 = icmp samesign ugt i64 %indvars.iv.i.i, 1
   br i1 %18, label %11, label %_ZNK4llvm5APInt13getActiveBitsEv.exit, !llvm.loop !9
 
 19:                                               ; preds = %11
@@ -6580,7 +6580,7 @@ _ZN4llvm5APIntD2Ev.exit:                          ; preds = %55, %.thread
 
 77:                                               ; preds = %72
   %78 = add i32 %.016.i.i.i36, 64
-  %79 = icmp ugt i64 %indvars.iv.i.i35, 1
+  %79 = icmp samesign ugt i64 %indvars.iv.i.i35, 1
   br i1 %79, label %72, label %_ZNK4llvm5APInt25countLeadingZerosSlowCaseEv.exit.i.i38, !llvm.loop !9
 
 80:                                               ; preds = %72
@@ -6621,7 +6621,7 @@ _ZNK4llvm5APInt13getActiveBitsEv.exit45:          ; preds = %64, %_ZNK4llvm5APIn
 94:                                               ; preds = %90
   %95 = inttoptr i64 %.sroa.0.054 to ptr
   %96 = load i64, ptr %95, align 8
-  %97 = icmp ugt i32 %86, 52
+  %97 = icmp samesign ugt i32 %86, 52
   br i1 %97, label %98, label %118
 
 98:                                               ; preds = %94
@@ -6795,7 +6795,7 @@ define dso_local void @_ZNK4llvm5APInt9truncUSatEj(ptr dead_on_unwind noalias no
 
 21:                                               ; preds = %16
   %22 = add i32 %.016.i.i.i.i, 64
-  %23 = icmp ugt i64 %indvars.iv.i.i.i, 1
+  %23 = icmp samesign ugt i64 %indvars.iv.i.i.i, 1
   br i1 %23, label %16, label %_ZNK4llvm5APInt25countLeadingZerosSlowCaseEv.exit.i.i.i, !llvm.loop !9
 
 24:                                               ; preds = %16
@@ -7291,7 +7291,7 @@ define dso_local void @_ZN4llvm5APInt11ashrInPlaceERKS0_(ptr nocapture noundef n
 
 18:                                               ; preds = %13
   %19 = add i32 %.016.i.i.i.i.i, 64
-  %20 = icmp ugt i64 %indvars.iv.i.i.i.i, 1
+  %20 = icmp samesign ugt i64 %indvars.iv.i.i.i.i, 1
   br i1 %20, label %13, label %_ZNK4llvm5APInt13getActiveBitsEv.exit.i.i, !llvm.loop !9
 
 21:                                               ; preds = %13
@@ -7541,7 +7541,7 @@ define dso_local void @_ZN4llvm5APInt11lshrInPlaceERKS0_(ptr nocapture noundef n
 
 18:                                               ; preds = %13
   %19 = add i32 %.016.i.i.i.i.i, 64
-  %20 = icmp ugt i64 %indvars.iv.i.i.i.i, 1
+  %20 = icmp samesign ugt i64 %indvars.iv.i.i.i.i, 1
   br i1 %20, label %13, label %_ZNK4llvm5APInt13getActiveBitsEv.exit.i.i, !llvm.loop !9
 
 21:                                               ; preds = %13
@@ -7861,7 +7861,7 @@ define dso_local noundef nonnull align 8 dereferenceable(12) ptr @_ZN4llvm5APInt
 
 18:                                               ; preds = %13
   %19 = add i32 %.016.i.i.i.i.i, 64
-  %20 = icmp ugt i64 %indvars.iv.i.i.i.i, 1
+  %20 = icmp samesign ugt i64 %indvars.iv.i.i.i.i, 1
   br i1 %20, label %13, label %_ZNK4llvm5APInt13getActiveBitsEv.exit.i.i, !llvm.loop !9
 
 21:                                               ; preds = %13
@@ -8324,7 +8324,7 @@ _ZN4llvm5APIntD2Ev.exit13:                        ; preds = %86, %91, %_ZN4llvm5
 
 105:                                              ; preds = %100
   %106 = add i32 %.016.i.i.i.i.i, 64
-  %107 = icmp ugt i64 %indvars.iv.i.i.i.i, 1
+  %107 = icmp samesign ugt i64 %indvars.iv.i.i.i.i, 1
   br i1 %107, label %100, label %_ZNK4llvm5APInt13getActiveBitsEv.exit.i.i, !llvm.loop !9
 
 108:                                              ; preds = %100
@@ -8551,7 +8551,7 @@ _ZNK4llvm5APInt4lshrEj.exit:                      ; preds = %.lr.ph.i.i.i, %_ZNK
   %99 = shl i64 %98, %92
   %100 = getelementptr inbounds i64, ptr %85, i64 %indvars.iv.next.i1.i
   store i64 %99, ptr %100, align 8
-  %101 = icmp ult i32 %.sroa.speculated.i.i, %indvars.i2.i
+  %101 = icmp samesign ult i32 %.sroa.speculated.i.i, %indvars.i2.i
   br i1 %101, label %.lr.ph.preheader.i, label %.loopexit.i.i
 
 .lr.ph.preheader.i:                               ; preds = %.lr.ph.i.i
@@ -8673,7 +8673,7 @@ define dso_local noundef i32 @_ZNK4llvm5APInt15nearestLogBase2Ev(ptr nocapture n
 
 23:                                               ; preds = %18
   %24 = add i32 %.016.i.i, 64
-  %25 = icmp ugt i64 %indvars.iv.i, 1
+  %25 = icmp samesign ugt i64 %indvars.iv.i, 1
   br i1 %25, label %18, label %_ZNK4llvm5APInt6isZeroEv.exit, !llvm.loop !9
 
 26:                                               ; preds = %18
@@ -8712,7 +8712,7 @@ _ZNK4llvm5APInt6isZeroEv.exit:                    ; preds = %23, %26
 
 41:                                               ; preds = %.lr.ph.i.i.i.i
   %42 = add i32 %.016.i.i.i.i, 64
-  %43 = icmp ugt i64 %indvars.iv.i.i.i, 1
+  %43 = icmp samesign ugt i64 %indvars.iv.i.i.i, 1
   br i1 %43, label %.lr.ph.i.i.i.i, label %_ZNK4llvm5APInt25countLeadingZerosSlowCaseEv.exit.i.i.i, !llvm.loop !9
 
 44:                                               ; preds = %.lr.ph.i.i.i.i
@@ -8783,7 +8783,7 @@ define dso_local void @_ZNK4llvm5APInt4sqrtEv(ptr dead_on_unwind noalias nocaptu
 
 22:                                               ; preds = %17
   %23 = add i32 %.016.i.i.i, 64
-  %24 = icmp ugt i64 %indvars.iv.i.i, 1
+  %24 = icmp samesign ugt i64 %indvars.iv.i.i, 1
   br i1 %24, label %17, label %_ZNK4llvm5APInt13getActiveBitsEv.exit, !llvm.loop !9
 
 25:                                               ; preds = %17
@@ -8986,7 +8986,7 @@ _ZN4llvm5APIntC2Ejmbb.exit26:                     ; preds = %.thread462
   %150 = select i1 %142, ptr null, ptr %149
   %151 = inttoptr i64 %spec.store.select.i.i19 to ptr
   store ptr %150, ptr %4, align 8
-  %.not417 = icmp ugt i32 %11, 4
+  %.not417 = icmp samesign ugt i32 %11, 4
   br i1 %.not417, label %.lr.ph, label %_ZNK4llvm5APInt3shlEj.exit.thread
 
 .lr.ph:                                           ; preds = %_ZN4llvm5APIntC2Ejmbb.exit26.thread, %_ZN4llvm5APIntC2Ejmbb.exit26
@@ -9113,7 +9113,7 @@ _ZNK4llvm5APInt3shlEj.exit.thread:                ; preds = %_ZN4llvm5APIntC2Ejm
   %222 = shl i64 %221, %215
   %223 = getelementptr inbounds i64, ptr %206, i64 %indvars.iv.next.i1.i
   store i64 %222, ptr %223, align 8
-  %224 = icmp ult i32 %.sroa.speculated.i.i, %indvars.i2.i
+  %224 = icmp samesign ult i32 %.sroa.speculated.i.i, %indvars.i2.i
   br i1 %224, label %.lr.ph.preheader.i, label %.loopexit.i.i
 
 .lr.ph.preheader.i:                               ; preds = %.lr.ph.i.i173
@@ -10059,7 +10059,7 @@ _ZN4llvm5APIntC2Ejmbb.exit:                       ; preds = %3
 
 27:                                               ; preds = %22
   %28 = add i32 %.016.i.i.i, 64
-  %29 = icmp ugt i64 %indvars.iv.i.i, 1
+  %29 = icmp samesign ugt i64 %indvars.iv.i.i, 1
   br i1 %29, label %22, label %_ZNK4llvm5APInt13getActiveBitsEv.exit, !llvm.loop !9
 
 30:                                               ; preds = %22
@@ -10113,7 +10113,7 @@ _ZNK4llvm5APInt13getActiveBitsEv.exit:            ; preds = %27, %30
 
 59:                                               ; preds = %54
   %60 = add i32 %.016.i.i.i18, 64
-  %61 = icmp ugt i64 %indvars.iv.i.i17, 1
+  %61 = icmp samesign ugt i64 %indvars.iv.i.i17, 1
   br i1 %61, label %54, label %_ZNK4llvm5APInt25countLeadingZerosSlowCaseEv.exit.i.i20, !llvm.loop !9
 
 62:                                               ; preds = %54
@@ -10510,7 +10510,7 @@ _ZN4llvm5APIntaSEOS0_.exit:                       ; preds = %_ZN4llvm5APInt14tcM
 
 140:                                              ; preds = %135
   %141 = add i32 %.016.i.i, 64
-  %142 = icmp ugt i64 %indvars.iv.i, 1
+  %142 = icmp samesign ugt i64 %indvars.iv.i, 1
   br i1 %142, label %135, label %_ZN4llvm5APIntD2Ev.exit, !llvm.loop !9
 
 143:                                              ; preds = %135
@@ -11289,7 +11289,7 @@ _ZN4llvm5APIntC2Ejmbb.exit:                       ; preds = %3
 
 27:                                               ; preds = %22
   %28 = add i32 %.016.i.i.i, 64
-  %29 = icmp ugt i64 %indvars.iv.i.i, 1
+  %29 = icmp samesign ugt i64 %indvars.iv.i.i, 1
   br i1 %29, label %22, label %_ZNK4llvm5APInt13getActiveBitsEv.exit, !llvm.loop !9
 
 30:                                               ; preds = %22
@@ -11361,7 +11361,7 @@ _ZN4llvm5APIntC2ERKS0_.exit:                      ; preds = %55
 
 65:                                               ; preds = %.lr.ph.i.i.i.i
   %66 = add i32 %.016.i.i.i.i, 64
-  %67 = icmp ugt i64 %indvars.iv.i.i.i, 1
+  %67 = icmp samesign ugt i64 %indvars.iv.i.i.i, 1
   br i1 %67, label %.lr.ph.i.i.i.i, label %_ZNK4llvm5APInt13getActiveBitsEv.exit.i, !llvm.loop !9
 
 68:                                               ; preds = %.lr.ph.i.i.i.i
@@ -11419,7 +11419,7 @@ _ZN4llvm5APIntC2Ejmbb.exit11:                     ; preds = %_ZNK4llvm5APInt3ult
 
 94:                                               ; preds = %.lr.ph.i.i.i.i13
   %95 = add i32 %.016.i.i.i.i15, 64
-  %96 = icmp ugt i64 %indvars.iv.i.i.i14, 1
+  %96 = icmp samesign ugt i64 %indvars.iv.i.i.i14, 1
   br i1 %96, label %.lr.ph.i.i.i.i13, label %_ZNK4llvm5APInt13getActiveBitsEv.exit.i17, !llvm.loop !9
 
 97:                                               ; preds = %.lr.ph.i.i.i.i13
@@ -11971,7 +11971,7 @@ _ZN4llvm5APIntC2Ejmbb.exit:                       ; preds = %3
 
 27:                                               ; preds = %22
   %28 = add i32 %.016.i.i.i, 64
-  %29 = icmp ugt i64 %indvars.iv.i.i, 1
+  %29 = icmp samesign ugt i64 %indvars.iv.i.i, 1
   br i1 %29, label %22, label %_ZNK4llvm5APInt13getActiveBitsEv.exit, !llvm.loop !9
 
 30:                                               ; preds = %22
@@ -12025,7 +12025,7 @@ _ZNK4llvm5APInt13getActiveBitsEv.exit:            ; preds = %27, %30
 
 59:                                               ; preds = %54
   %60 = add i32 %.016.i.i.i18, 64
-  %61 = icmp ugt i64 %indvars.iv.i.i17, 1
+  %61 = icmp samesign ugt i64 %indvars.iv.i.i17, 1
   br i1 %61, label %54, label %_ZNK4llvm5APInt25countLeadingZerosSlowCaseEv.exit.i.i20, !llvm.loop !9
 
 62:                                               ; preds = %54
@@ -12202,7 +12202,7 @@ define dso_local noundef i64 @_ZNK4llvm5APInt4uremEm(ptr nocapture noundef nonnu
 
 20:                                               ; preds = %15
   %21 = add i32 %.016.i.i.i, 64
-  %22 = icmp ugt i64 %indvars.iv.i.i, 1
+  %22 = icmp samesign ugt i64 %indvars.iv.i.i, 1
   br i1 %22, label %15, label %_ZNK4llvm5APInt13getActiveBitsEv.exit, !llvm.loop !9
 
 23:                                               ; preds = %15
@@ -12240,7 +12240,7 @@ _ZNK4llvm5APInt13getActiveBitsEv.exit:            ; preds = %20, %23
 
 40:                                               ; preds = %.lr.ph.i.i.i.i
   %41 = add i32 %.016.i.i.i.i, 64
-  %42 = icmp ugt i64 %indvars.iv.i.i.i, 1
+  %42 = icmp samesign ugt i64 %indvars.iv.i.i.i, 1
   br i1 %42, label %.lr.ph.i.i.i.i, label %_ZNK4llvm5APInt13getActiveBitsEv.exit.i, !llvm.loop !9
 
 43:                                               ; preds = %.lr.ph.i.i.i.i
@@ -12276,7 +12276,7 @@ _ZNK4llvm5APInt3ultEm.exit:                       ; preds = %_ZNK4llvm5APInt13ge
 
 55:                                               ; preds = %.lr.ph.i.i.i.i8
   %56 = add i32 %.016.i.i.i.i10, 64
-  %57 = icmp ugt i64 %indvars.iv.i.i.i9, 1
+  %57 = icmp samesign ugt i64 %indvars.iv.i.i.i9, 1
   br i1 %57, label %.lr.ph.i.i.i.i8, label %_ZNK4llvm5APInt13getActiveBitsEv.exit.i12, !llvm.loop !9
 
 58:                                               ; preds = %.lr.ph.i.i.i.i8
@@ -12821,7 +12821,7 @@ _ZN4llvm5APIntD2Ev.exit70:                        ; preds = %33, %30, %_ZN4llvm5
 
 43:                                               ; preds = %38
   %44 = add i32 %.016.i.i.i, 64
-  %45 = icmp ugt i64 %indvars.iv.i.i, 1
+  %45 = icmp samesign ugt i64 %indvars.iv.i.i, 1
   br i1 %45, label %38, label %_ZNK4llvm5APInt13getActiveBitsEv.exit, !llvm.loop !9
 
 46:                                               ; preds = %38
@@ -12874,7 +12874,7 @@ _ZNK4llvm5APInt13getActiveBitsEv.exit:            ; preds = %43, %46
 
 74:                                               ; preds = %69
   %75 = add i32 %.016.i.i.i73, 64
-  %76 = icmp ugt i64 %indvars.iv.i.i72, 1
+  %76 = icmp samesign ugt i64 %indvars.iv.i.i72, 1
   br i1 %76, label %69, label %_ZNK4llvm5APInt25countLeadingZerosSlowCaseEv.exit.i.i75, !llvm.loop !9
 
 77:                                               ; preds = %69
@@ -13480,7 +13480,7 @@ _ZN4llvm5APIntD2Ev.exit:                          ; preds = %25, %22, %_ZN4llvm5
 
 35:                                               ; preds = %30
   %36 = add i32 %.016.i.i.i, 64
-  %37 = icmp ugt i64 %indvars.iv.i.i, 1
+  %37 = icmp samesign ugt i64 %indvars.iv.i.i, 1
   br i1 %37, label %30, label %_ZNK4llvm5APInt13getActiveBitsEv.exit, !llvm.loop !9
 
 38:                                               ; preds = %30
@@ -13608,7 +13608,7 @@ _ZN4llvm5APIntaSERKS0_.exit:                      ; preds = %73, %90
 
 98:                                               ; preds = %.lr.ph.i.i.i.i
   %99 = add i32 %.016.i.i.i.i, 64
-  %100 = icmp ugt i64 %indvars.iv.i.i.i, 1
+  %100 = icmp samesign ugt i64 %indvars.iv.i.i.i, 1
   br i1 %100, label %.lr.ph.i.i.i.i, label %_ZNK4llvm5APInt13getActiveBitsEv.exit.i, !llvm.loop !9
 
 101:                                              ; preds = %.lr.ph.i.i.i.i
@@ -13682,7 +13682,7 @@ _ZN4llvm5APIntD2Ev.exit52:                        ; preds = %129, %126, %_ZN4llv
 
 134:                                              ; preds = %.lr.ph.i.i.i.i54
   %135 = add i32 %.016.i.i.i.i56, 64
-  %136 = icmp ugt i64 %indvars.iv.i.i.i55, 1
+  %136 = icmp samesign ugt i64 %indvars.iv.i.i.i55, 1
   br i1 %136, label %.lr.ph.i.i.i.i54, label %_ZNK4llvm5APInt13getActiveBitsEv.exit.i58, !llvm.loop !9
 
 137:                                              ; preds = %.lr.ph.i.i.i.i54
@@ -15083,7 +15083,7 @@ _ZNK4llvm5APIntmlERKS0_.exit:                     ; preds = %_ZN4llvm5APIntC2Ejm
 
 59:                                               ; preds = %54
   %60 = add i32 %.016.i.i.i.i.i, 64
-  %61 = icmp ugt i64 %indvars.iv.i.i.i.i, 1
+  %61 = icmp samesign ugt i64 %indvars.iv.i.i.i.i, 1
   br i1 %61, label %54, label %_ZNK4llvm5APInt13getActiveBitsEv.exit.i.i, !llvm.loop !9
 
 62:                                               ; preds = %54
@@ -15330,7 +15330,7 @@ define dso_local void @_ZNK4llvm5APInt7umul_ovERKS0_Rb(ptr dead_on_unwind noalia
 
 24:                                               ; preds = %19
   %25 = add i32 %.016.i.i, 64
-  %26 = icmp ugt i64 %indvars.iv.i, 1
+  %26 = icmp samesign ugt i64 %indvars.iv.i, 1
   br i1 %26, label %19, label %_ZNK4llvm5APInt25countLeadingZerosSlowCaseEv.exit.i, !llvm.loop !9
 
 27:                                               ; preds = %19
@@ -15386,7 +15386,7 @@ _ZNK4llvm5APInt11countl_zeroEv.exit:              ; preds = %8, %_ZNK4llvm5APInt
 
 54:                                               ; preds = %49
   %55 = add i32 %.016.i.i12, 64
-  %56 = icmp ugt i64 %indvars.iv.i11, 1
+  %56 = icmp samesign ugt i64 %indvars.iv.i11, 1
   br i1 %56, label %49, label %_ZNK4llvm5APInt25countLeadingZerosSlowCaseEv.exit.i14, !llvm.loop !9
 
 57:                                               ; preds = %49
@@ -15778,7 +15778,7 @@ define dso_local void @_ZNK4llvm5APInt7sshl_ovERKS0_Rb(ptr dead_on_unwind noalia
 
 20:                                               ; preds = %15
   %21 = add i32 %.016.i.i.i.i.i, 64
-  %22 = icmp ugt i64 %indvars.iv.i.i.i.i, 1
+  %22 = icmp samesign ugt i64 %indvars.iv.i.i.i.i, 1
   br i1 %22, label %15, label %_ZNK4llvm5APInt13getActiveBitsEv.exit.i.i, !llvm.loop !9
 
 23:                                               ; preds = %15
@@ -15907,7 +15907,7 @@ define dso_local void @_ZNK4llvm5APInt7sshl_ovEjRb(ptr dead_on_unwind noalias no
 
 56:                                               ; preds = %51
   %57 = add i32 %.016.i.i, 64
-  %58 = icmp ugt i64 %indvars.iv.i, 1
+  %58 = icmp samesign ugt i64 %indvars.iv.i, 1
   br i1 %58, label %51, label %_ZNK4llvm5APInt25countLeadingZerosSlowCaseEv.exit.i, !llvm.loop !9
 
 59:                                               ; preds = %51
@@ -16064,7 +16064,7 @@ define dso_local void @_ZNK4llvm5APInt7ushl_ovERKS0_Rb(ptr dead_on_unwind noalia
 
 20:                                               ; preds = %15
   %21 = add i32 %.016.i.i.i.i.i, 64
-  %22 = icmp ugt i64 %indvars.iv.i.i.i.i, 1
+  %22 = icmp samesign ugt i64 %indvars.iv.i.i.i.i, 1
   br i1 %22, label %15, label %_ZNK4llvm5APInt13getActiveBitsEv.exit.i.i, !llvm.loop !9
 
 23:                                               ; preds = %15
@@ -16179,7 +16179,7 @@ define dso_local void @_ZNK4llvm5APInt7ushl_ovEjRb(ptr dead_on_unwind noalias no
 
 46:                                               ; preds = %41
   %47 = add i32 %.016.i.i, 64
-  %48 = icmp ugt i64 %indvars.iv.i, 1
+  %48 = icmp samesign ugt i64 %indvars.iv.i, 1
   br i1 %48, label %41, label %_ZNK4llvm5APInt25countLeadingZerosSlowCaseEv.exit.i, !llvm.loop !9
 
 49:                                               ; preds = %41
@@ -17188,7 +17188,7 @@ define dso_local void @_ZNK4llvm5APInt8sshl_satERKS0_(ptr dead_on_unwind noalias
 
 19:                                               ; preds = %14
   %20 = add i32 %.016.i.i.i.i.i, 64
-  %21 = icmp ugt i64 %indvars.iv.i.i.i.i, 1
+  %21 = icmp samesign ugt i64 %indvars.iv.i.i.i.i, 1
   br i1 %21, label %14, label %_ZNK4llvm5APInt13getActiveBitsEv.exit.i.i, !llvm.loop !9
 
 22:                                               ; preds = %14
@@ -17410,7 +17410,7 @@ define dso_local void @_ZNK4llvm5APInt8ushl_satERKS0_(ptr dead_on_unwind noalias
 
 19:                                               ; preds = %14
   %20 = add i32 %.016.i.i.i.i.i, 64
-  %21 = icmp ugt i64 %indvars.iv.i.i.i.i, 1
+  %21 = icmp samesign ugt i64 %indvars.iv.i.i.i.i, 1
   br i1 %21, label %14, label %_ZNK4llvm5APInt13getActiveBitsEv.exit.i.i, !llvm.loop !9
 
 22:                                               ; preds = %14
@@ -17593,7 +17593,7 @@ switch.lookup:                                    ; preds = %7
 
 37:                                               ; preds = %32
   %38 = add i32 %.016.i.i, 64
-  %39 = icmp ugt i64 %indvars.iv.i, 1
+  %39 = icmp samesign ugt i64 %indvars.iv.i, 1
   br i1 %39, label %32, label %_ZNK4llvm5APInt6isZeroEv.exit, !llvm.loop !9
 
 40:                                               ; preds = %32
@@ -17918,7 +17918,7 @@ _ZN4llvm23SmallVectorTemplateBaseIcLb1EE9push_backEc.exit106: ; preds = %151, %1
 
 191:                                              ; preds = %186
   %192 = add i32 %.016.i.i.i, 64
-  %193 = icmp ugt i64 %indvars.iv.i.i, 1
+  %193 = icmp samesign ugt i64 %indvars.iv.i.i, 1
   br i1 %193, label %186, label %_ZNK4llvm5APInt12getBoolValueEv.exit, !llvm.loop !9
 
 194:                                              ; preds = %186
@@ -18069,7 +18069,7 @@ _ZN4llvm5APInt11lshrInPlaceEj.exit:               ; preds = %.lr.ph.i.i116, %_ZN
 
 268:                                              ; preds = %263
   %269 = add i32 %.016.i.i.i119, 64
-  %270 = icmp ugt i64 %indvars.iv.i.i118, 1
+  %270 = icmp samesign ugt i64 %indvars.iv.i.i118, 1
   br i1 %270, label %263, label %_ZNK4llvm5APInt12getBoolValueEv.exit127, !llvm.loop !9
 
 271:                                              ; preds = %263
@@ -18958,7 +18958,7 @@ define dso_local void @_ZN4llvm8APIntOps12RoundingUDivERKNS_5APIntES3_NS1_8Round
 
 26:                                               ; preds = %21
   %27 = add i32 %.016.i.i, 64
-  %28 = icmp ugt i64 %indvars.iv.i, 1
+  %28 = icmp samesign ugt i64 %indvars.iv.i, 1
   br i1 %28, label %21, label %_ZNK4llvm5APInt6isZeroEv.exit, !llvm.loop !9
 
 29:                                               ; preds = %21
@@ -19127,7 +19127,7 @@ define dso_local void @_ZN4llvm8APIntOps12RoundingSDivERKNS_5APIntES3_NS1_8Round
 
 25:                                               ; preds = %20
   %26 = add i32 %.016.i.i, 64
-  %27 = icmp ugt i64 %indvars.iv.i, 1
+  %27 = icmp samesign ugt i64 %indvars.iv.i, 1
   br i1 %27, label %20, label %_ZNK4llvm5APInt6isZeroEv.exit, !llvm.loop !9
 
 28:                                               ; preds = %20
@@ -19539,7 +19539,7 @@ _ZNK4llvm5APInt6isZeroEv.exit.thread:             ; preds = %_ZNK4llvm5APInt6isZ
 
 99:                                               ; preds = %94
   %100 = add i32 %.016.i.i, 64
-  %101 = icmp ugt i64 %indvars.iv.i, 1
+  %101 = icmp samesign ugt i64 %indvars.iv.i, 1
   br i1 %101, label %94, label %.loopexit, !llvm.loop !9
 
 102:                                              ; preds = %94
@@ -19943,7 +19943,7 @@ _ZN4llvm5APIntD2Ev.exit21:                        ; preds = %303, %300, %297
 
 327:                                              ; preds = %322
   %328 = add i32 %.016.i.i.i, 64
-  %329 = icmp ugt i64 %indvars.iv.i.i23, 1
+  %329 = icmp samesign ugt i64 %indvars.iv.i.i23, 1
   br i1 %329, label %322, label %_ZNK4llvm5APInt18isStrictlyPositiveEv.exit, !llvm.loop !9
 
 330:                                              ; preds = %322
@@ -21320,7 +21320,7 @@ _ZN4llvm5APIntD2Ev.exit177:                       ; preds = %_ZN4llvm5APIntD2Ev.
 
 1026:                                             ; preds = %1021
   %1027 = add i32 %.016.i.i202, 64
-  %1028 = icmp ugt i64 %indvars.iv.i201, 1
+  %1028 = icmp samesign ugt i64 %indvars.iv.i201, 1
   br i1 %1028, label %1021, label %_ZNK4llvm5APInt6isZeroEv.exit210, !llvm.loop !9
 
 1029:                                             ; preds = %1021
@@ -21711,7 +21711,7 @@ _ZN4llvm5APIntD2Ev.exit336.cont:                  ; preds = %_ZN4llvm5APIntD2Ev.
 
 1239:                                             ; preds = %1234
   %1240 = add i32 %.016.i.i341, 64
-  %1241 = icmp ugt i64 %indvars.iv.i340, 1
+  %1241 = icmp samesign ugt i64 %indvars.iv.i340, 1
   br i1 %1241, label %1234, label %_ZNK4llvm5APInt25countLeadingZerosSlowCaseEv.exit.i343, !llvm.loop !9
 
 1242:                                             ; preds = %1234
@@ -21756,7 +21756,7 @@ _ZNK4llvm5APInt6isZeroEv.exit349:                 ; preds = %1229, %_ZNK4llvm5AP
 
 1259:                                             ; preds = %1254
   %1260 = add i32 %.016.i.i352, 64
-  %1261 = icmp ugt i64 %indvars.iv.i351, 1
+  %1261 = icmp samesign ugt i64 %indvars.iv.i351, 1
   br i1 %1261, label %1254, label %_ZNK4llvm5APInt25countLeadingZerosSlowCaseEv.exit.i354, !llvm.loop !9
 
 1262:                                             ; preds = %1254
@@ -22101,7 +22101,7 @@ _ZN4llvm5APIntD2Ev.exit:                          ; preds = %_ZNK4llvm5APInt3abs
 
 61:                                               ; preds = %56
   %62 = add i32 %.016.i.i, 64
-  %63 = icmp ugt i64 %indvars.iv.i, 1
+  %63 = icmp samesign ugt i64 %indvars.iv.i, 1
   br i1 %63, label %56, label %_ZNK4llvm5APInt6isZeroEv.exit, !llvm.loop !9
 
 64:                                               ; preds = %56
@@ -22419,7 +22419,7 @@ _ZN4llvmeoENS_5APIntERKS0_.exit.thread:           ; preds = %6
 
 32:                                               ; preds = %.lr.ph.i.i
   %33 = add i32 %.016.i.i, 64
-  %34 = icmp ugt i64 %indvars.iv.i, 1
+  %34 = icmp samesign ugt i64 %indvars.iv.i, 1
   br i1 %34, label %.lr.ph.i.i, label %_ZNK4llvm5APInt11countl_zeroEv.exit, !llvm.loop !9
 
 35:                                               ; preds = %.lr.ph.i.i
@@ -22539,7 +22539,7 @@ _ZN4llvm5APInt7getZeroEj.exit:                    ; preds = %22, %25
 
 55:                                               ; preds = %50
   %56 = add i32 %.016.i.i, 64
-  %57 = icmp ugt i64 %indvars.iv.i, 1
+  %57 = icmp samesign ugt i64 %indvars.iv.i, 1
   br i1 %57, label %50, label %_ZNK4llvm5APInt6isZeroEv.exit, !llvm.loop !9
 
 58:                                               ; preds = %50
@@ -22800,7 +22800,7 @@ _ZNK4llvm5APInt6isZeroEv.exit59.thread:           ; preds = %.split
 
 194:                                              ; preds = %189
   %195 = add i32 %.016.i.i51, 64
-  %196 = icmp ugt i64 %indvars.iv.i50, 1
+  %196 = icmp samesign ugt i64 %indvars.iv.i50, 1
   br i1 %196, label %189, label %.loopexit93, !llvm.loop !9
 
 197:                                              ; preds = %189
@@ -24067,7 +24067,7 @@ define linkonce_odr hidden noundef i32 @_ZNK4llvm5APInt14getNumSignBitsEv(ptr no
 
 68:                                               ; preds = %63
   %69 = add i32 %.016.i.i2, 64
-  %70 = icmp ugt i64 %indvars.iv.i, 1
+  %70 = icmp samesign ugt i64 %indvars.iv.i, 1
   br i1 %70, label %63, label %_ZNK4llvm5APInt25countLeadingZerosSlowCaseEv.exit.i, !llvm.loop !9
 
 71:                                               ; preds = %63

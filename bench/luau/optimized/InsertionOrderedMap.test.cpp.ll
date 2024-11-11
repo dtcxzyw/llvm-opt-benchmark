@@ -6329,7 +6329,7 @@ _ZNSt13unordered_mapIPimSt4hashIS0_ESt8equal_toIS0_ESaISt4pairIKS0_mEEE5eraseENS
   %92 = getelementptr inbounds i8, ptr %.0910.i.i.i.i.i.i.i, i64 16
   %93 = getelementptr inbounds i8, ptr %.0811.i.i.i.i.i.i.i, i64 16
   %94 = add nsw i64 %.012.i.i.i.i.i.i.i, -1
-  %95 = icmp ugt i64 %.012.i.i.i.i.i.i.i, 1
+  %95 = icmp samesign ugt i64 %.012.i.i.i.i.i.i.i, 1
   br i1 %95, label %.lr.ph.i.i.i.i.i.i.i, label %_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPSt4pairIPiiESt6vectorIS4_SaIS4_EEEES9_ET0_T_SB_SA_.exit.loopexit.i.i, !llvm.loop !127
 
 _ZSt4moveIN9__gnu_cxx17__normal_iteratorIPSt4pairIPiiESt6vectorIS4_SaIS4_EEEES9_ET0_T_SB_SA_.exit.loopexit.i.i: ; preds = %.lr.ph.i.i.i.i.i.i.i

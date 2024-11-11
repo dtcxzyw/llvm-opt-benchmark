@@ -1666,7 +1666,7 @@ dump_buffer.exit35.i84:                           ; preds = %335
 345:                                              ; preds = %dump_buffer.exit35.i84, %329, %326
   %346 = shl i32 %.03142.i82, 8
   %347 = add nsw i32 %.03043.i81, -8
-  %348 = icmp ugt i32 %.03043.i81, 15
+  %348 = icmp samesign ugt i32 %.03043.i81, 15
   br i1 %348, label %.lr.ph.i80, label %.loopexit, !llvm.loop !30
 
 .loopexit:                                        ; preds = %345, %301

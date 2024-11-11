@@ -1347,7 +1347,7 @@ define dso_local noundef range(i32 -22, 1) i32 @do_settimeofday64(ptr noundef %0
   %8 = getelementptr inbounds i8, ptr %0, i64 8
   %9 = load i64, ptr %8, align 8
   %10 = icmp ult i64 %9, 1000000000
-  %11 = icmp ult i64 %5, 8277292036
+  %11 = icmp samesign ult i64 %5, 8277292036
   %12 = and i1 %11, %10
   br i1 %12, label %13, label %140
 
@@ -1886,7 +1886,7 @@ define internal fastcc noundef range(i32 -22, 1) i32 @timekeeping_inject_offset(
 
 80:                                               ; preds = %76
   %81 = icmp ult i64 %66, 1000000000
-  %82 = icmp ult i64 %64, 8277292036
+  %82 = icmp samesign ult i64 %64, 8277292036
   %83 = and i1 %82, %81
   br i1 %83, label %84, label %.thread
 
@@ -2372,7 +2372,7 @@ define dso_local void @timekeeping_init() local_unnamed_addr #7 section ".init.t
   %7 = getelementptr inbounds i8, ptr %2, i64 8
   %8 = load i64, ptr %7, align 8
   %9 = icmp ult i64 %8, 1000000000
-  %10 = icmp ult i64 %4, 8277292036
+  %10 = icmp samesign ult i64 %4, 8277292036
   %11 = and i1 %10, %9
   br i1 %11, label %12, label %16
 
@@ -2658,7 +2658,7 @@ define dso_local void @timekeeping_resume() #0 align 16 {
 
 36:                                               ; preds = %31
   %37 = icmp ult i64 %33, 1000000000
-  %38 = icmp ult i64 %32, 9223372036
+  %38 = icmp samesign ult i64 %32, 9223372036
   %39 = and i1 %38, %37
   br i1 %39, label %42, label %40
 
@@ -3775,11 +3775,11 @@ define dso_local i32 @do_adjtimex(ptr noundef %0) local_unnamed_addr #0 align 16
   br i1 %41, label %44, label %42
 
 42:                                               ; preds = %38
-  %43 = icmp ugt i64 %36, 999999999
+  %43 = icmp samesign ugt i64 %36, 999999999
   br i1 %43, label %.thread, label %46
 
 44:                                               ; preds = %38
-  %45 = icmp ugt i64 %36, 999999
+  %45 = icmp samesign ugt i64 %36, 999999
   br i1 %45, label %.thread, label %46
 
 46:                                               ; preds = %44, %42, %28

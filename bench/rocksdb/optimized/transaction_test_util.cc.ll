@@ -432,7 +432,7 @@ invoke.cont5:                                     ; preds = %call5.i.i.i.i2.i.i.
   br label %for.body.i.preheader
 
 for.body.i.preheader:                             ; preds = %invoke.cont5, %call5.i.i.i.i2.i.i.noexc
-  %__first.addr.0.i.i.i.i.i424 = phi ptr [ %add.ptr.i.i.i, %invoke.cont5 ], [ %incdec.ptr.i.i.i.i.i, %call5.i.i.i.i2.i.i.noexc ]
+  %__first.addr.0.i.i.i.i.i425 = phi ptr [ %add.ptr.i.i.i, %invoke.cont5 ], [ %incdec.ptr.i.i.i.i.i, %call5.i.i.i.i2.i.i.noexc ]
   br label %for.body.i
 
 for.body.i:                                       ; preds = %for.body.i.preheader, %for.body.i
@@ -441,11 +441,11 @@ for.body.i:                                       ; preds = %for.body.i.preheade
   store i16 %__value.addr.06.i, ptr %__first.sroa.0.05.i, align 2
   %inc.i = add i16 %__value.addr.06.i, 1
   %incdec.ptr.i.i = getelementptr inbounds i8, ptr %__first.sroa.0.05.i, i64 2
-  %cmp.i.not.i = icmp eq ptr %incdec.ptr.i.i, %__first.addr.0.i.i.i.i.i424
+  %cmp.i.not.i = icmp eq ptr %incdec.ptr.i.i, %__first.addr.0.i.i.i.i.i425
   br i1 %cmp.i.not.i, label %_ZSt4iotaIN9__gnu_cxx17__normal_iteratorIPtSt6vectorItSaItEEEEtEvT_S7_T0_.exit, label %for.body.i, !llvm.loop !4
 
 _ZSt4iotaIN9__gnu_cxx17__normal_iteratorIPtSt6vectorItSaItEEEEtEvT_S7_T0_.exit: ; preds = %for.body.i, %invoke.cont3
-  %__first.addr.0.i.i.i.i.i372 = phi ptr [ null, %invoke.cont3 ], [ %__first.addr.0.i.i.i.i.i424, %for.body.i ]
+  %__first.addr.0.i.i.i.i.i372 = phi ptr [ null, %invoke.cont3 ], [ %__first.addr.0.i.i.i.i.i425, %for.body.i ]
   %set_vec.sroa.0.0363 = phi ptr [ null, %invoke.cont3 ], [ %call5.i.i.i.i2.i.i57, %for.body.i ]
   invoke void @_ZN7rocksdb13RandomShuffleIN9__gnu_cxx17__normal_iteratorIPtSt6vectorItSaItEEEEEEvT_S8_(ptr %set_vec.sroa.0.0363, ptr %__first.addr.0.i.i.i.i.i372)
           to label %for.cond.preheader unwind label %lpad12.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
@@ -761,8 +761,8 @@ if.end81:                                         ; preds = %_ZN7rocksdb6StatusD
 
 land.lhs.true:                                    ; preds = %if.end81
   switch i8 %.pr378, label %if.then92 [
-    i8 11, label %cleanup163.thread428
-    i8 9, label %cleanup163.thread428
+    i8 11, label %cleanup163.thread429
+    i8 9, label %cleanup163.thread429
     i8 0, label %if.end100
   ]
 
@@ -873,7 +873,7 @@ _ZN7rocksdb6StatusD2Ev.exit148:                   ; preds = %invoke.cont121, %_Z
   store ptr null, ptr %state_.i145, align 8
   br label %cleanup
 
-cleanup163.thread428:                             ; preds = %land.lhs.true, %land.lhs.true
+cleanup163.thread429:                             ; preds = %land.lhs.true, %land.lhs.true
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %sum) #18
   br label %invoke.cont168.sink.split
 
@@ -975,7 +975,7 @@ ehcleanup166:                                     ; preds = %lpad30.loopexit, %l
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %full_key) #18
   br label %ehcleanup401
 
-invoke.cont168.sink.split:                        ; preds = %invoke.cont56, %lor.lhs.false, %lor.lhs.false, %lor.lhs.false, %cleanup163.thread428
+invoke.cont168.sink.split:                        ; preds = %invoke.cont56, %lor.lhs.false, %lor.lhs.false, %lor.lhs.false, %cleanup163.thread429
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %full_key) #18
   br label %invoke.cont168
 
@@ -1002,8 +1002,8 @@ call.i.i.i.i.i.noexc159:                          ; preds = %land.rhs
   %conv2.i.i.i.i.i153 = trunc i128 %mul.i.i.i.i.i152 to i64
   %extract9.i.i.i.i.i155 = lshr i128 %mul.i.i.i.i.i152, 64
   %extract.t10.i.i.i.i.i156 = trunc nuw nsw i128 %extract9.i.i.i.i.i155 to i64
-  %cmp315.i.i.i.i.i = icmp ult i64 %conv2.i.i.i.i.i153, 6
-  br i1 %cmp315.i.i.i.i.i, label %while.body.i.i.i.i.i, label %invoke.cont175
+  %or.cond = icmp ult i64 %conv2.i.i.i.i.i153, 6
+  br i1 %or.cond, label %while.body.i.i.i.i.i, label %invoke.cont175
 
 while.body.i.i.i.i.i:                             ; preds = %call.i.i.i.i.i.noexc159, %call4.i.i.i.i.i.noexc
   %call4.i.i.i.i.i161 = invoke noundef i64 @_ZNSt23mersenne_twister_engineImLm64ELm312ELm156ELm31ELm13043109905998158313ELm29ELm6148914691236517205ELm17ELm8202884508482404352ELm37ELm18444473444759240704ELm43ELm6364136223846793005EEclEv(ptr noundef nonnull align 8 dereferenceable(2504) %65)
@@ -1140,8 +1140,8 @@ call.i.i.i.i.i.noexc203:                          ; preds = %invoke.cont216
   %extract9.i.i.i.i.i189 = lshr i128 %mul.i.i.i.i.i186, 64
   %extract.t10.i.i.i.i.i190 = trunc nuw nsw i128 %extract9.i.i.i.i.i189 to i64
   %81 = and i128 %mul.i.i.i.i.i186, 18446744073709551600
-  %cmp315.i.i.i.i.i192 = icmp eq i128 %81, 0
-  br i1 %cmp315.i.i.i.i.i192, label %while.body.i.i.i.i.i195, label %invoke.cont221
+  %or.cond400 = icmp eq i128 %81, 0
+  br i1 %or.cond400, label %while.body.i.i.i.i.i195, label %invoke.cont221
 
 while.body.i.i.i.i.i195:                          ; preds = %call.i.i.i.i.i.noexc203, %call4.i.i.i.i.i.noexc205
   %call4.i.i.i.i.i206 = invoke noundef i64 @_ZNSt23mersenne_twister_engineImLm64ELm312ELm156ELm31ELm13043109905998158313ELm29ELm6148914691236517205ELm17ELm8202884508482404352ELm37ELm18444473444759240704ELm43ELm6364136223846793005EEclEv(ptr noundef nonnull align 8 dereferenceable(2504) %80)
@@ -1301,8 +1301,8 @@ call.i.i.i.i.i.noexc251:                          ; preds = %if.end248
   %extract9.i.i.i.i.i237 = lshr i128 %mul.i.i.i.i.i234, 64
   %extract.t10.i.i.i.i.i238 = trunc nuw nsw i128 %extract9.i.i.i.i.i237 to i64
   %104 = and i128 %mul.i.i.i.i.i234, 18446744073709551600
-  %cmp315.i.i.i.i.i240 = icmp eq i128 %104, 0
-  br i1 %cmp315.i.i.i.i.i240, label %while.body.i.i.i.i.i243, label %invoke.cont250
+  %or.cond401 = icmp eq i128 %104, 0
+  br i1 %or.cond401, label %while.body.i.i.i.i.i243, label %invoke.cont250
 
 while.body.i.i.i.i.i243:                          ; preds = %call.i.i.i.i.i.noexc251, %call4.i.i.i.i.i.noexc253
   %call4.i.i.i.i.i254 = invoke noundef i64 @_ZNSt23mersenne_twister_engineImLm64ELm312ELm156ELm31ELm13043109905998158313ELm29ELm6148914691236517205ELm17ELm8202884508482404352ELm37ELm18444473444759240704ELm43ELm6364136223846793005EEclEv(ptr noundef nonnull align 8 dereferenceable(2504) %103)
@@ -3486,8 +3486,8 @@ call.i.i.i.i.i.noexc:                             ; preds = %land.rhs
   %conv2.i.i.i.i.i = trunc i128 %mul.i.i.i.i.i to i64
   %extract9.i.i.i.i.i = lshr i128 %mul.i.i.i.i.i, 64
   %extract.t10.i.i.i.i.i = trunc nuw nsw i128 %extract9.i.i.i.i.i to i64
-  %cmp315.i.i.i.i.i = icmp ult i64 %conv2.i.i.i.i.i, 6
-  br i1 %cmp315.i.i.i.i.i, label %while.body.i.i.i.i.i, label %land.end
+  %or.cond118 = icmp ult i64 %conv2.i.i.i.i.i, 6
+  br i1 %or.cond118, label %while.body.i.i.i.i.i, label %land.end
 
 while.body.i.i.i.i.i:                             ; preds = %call.i.i.i.i.i.noexc, %call4.i.i.i.i.i.noexc
   %call4.i.i.i.i.i47 = invoke noundef i64 @_ZNSt23mersenne_twister_engineImLm64ELm312ELm156ELm31ELm13043109905998158313ELm29ELm6148914691236517205ELm17ELm8202884508482404352ELm37ELm18444473444759240704ELm43ELm6364136223846793005EEclEv(ptr noundef nonnull align 8 dereferenceable(2504) %rand)

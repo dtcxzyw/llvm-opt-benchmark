@@ -857,7 +857,7 @@ if.end271:                                        ; preds = %if.else267, %if.the
   %add.ptr275 = getelementptr inbounds i16, ptr %dest.addr.12214, i64 %idx.ext274
   %dest.addr.13 = select i1 %cmp272.not, ptr null, ptr %add.ptr275
   %sub277 = sub nsw i32 %destSize.addr.6213, %storemerge175
-  %cmp256 = icmp ugt i32 %dec255215.in, 1
+  %cmp256 = icmp samesign ugt i32 %dec255215.in, 1
   br i1 %cmp256, label %for.body257, label %if.end368, !llvm.loop !15
 
 if.else279:                                       ; preds = %if.else249
@@ -1002,7 +1002,7 @@ if.end362:                                        ; preds = %if.then360, %if.the
 if.end365:                                        ; preds = %if.end341, %if.end362, %if.end305, %if.end324
   %destSize.addr.9 = phi i32 [ %dec325, %if.end324 ], [ %sub315, %if.end305 ], [ %sub348, %if.end341 ], [ %dec363, %if.end362 ]
   %dest.addr.19 = phi ptr [ %dest.addr.18, %if.end324 ], [ %dest.addr.17, %if.end305 ], [ %dest.addr.22, %if.end341 ], [ %dest.addr.23, %if.end362 ]
-  %cmp286 = icmp ugt i32 %dec285210.in, 1
+  %cmp286 = icmp samesign ugt i32 %dec285210.in, 1
   br i1 %cmp286, label %for.body287, label %if.end368, !llvm.loop !16
 
 if.end368:                                        ; preds = %if.end365, %if.end271, %for.inc245, %if.end91, %if.else279, %for.cond254.preheader, %if.else97, %for.cond.preheader
@@ -1171,7 +1171,7 @@ while.body:                                       ; preds = %if.then66, %while.b
   %or.cond88.not = select i1 %or.cond87.not95, i1 %cmp80, i1 false
   %dec82 = sext i1 %or.cond88.not to i32
   %remaining.2 = add nsw i32 %remaining.1109, %dec82
-  %cmp68 = icmp ugt i32 %srcLength.addr.1107, 2
+  %cmp68 = icmp samesign ugt i32 %srcLength.addr.1107, 2
   br i1 %cmp68, label %while.body, label %while.end, !llvm.loop !19
 
 while.end:                                        ; preds = %while.body, %if.then66
@@ -1269,7 +1269,7 @@ while.body139:                                    ; preds = %if.then136, %while.
   %dec151 = sext i1 %or.cond93.not to i32
   %remaining93.2 = add nsw i32 %remaining93.1105, %dec151
   %dec153 = add nsw i32 %srcLength.addr.3103, -1
-  %cmp138 = icmp ugt i32 %srcLength.addr.3103, 1
+  %cmp138 = icmp samesign ugt i32 %srcLength.addr.3103, 1
   br i1 %cmp138, label %while.body139, label %while.end154, !llvm.loop !21
 
 while.end154:                                     ; preds = %while.body139, %if.then136

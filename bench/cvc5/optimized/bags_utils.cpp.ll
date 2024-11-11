@@ -16557,7 +16557,7 @@ if.then.i.i17:                                    ; preds = %invoke.cont3
 
 _ZNSt6vectorIjSaIjEE17_S_check_init_lenEmRKS0_.exit.i: ; preds = %invoke.cont3
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %indices1, i8 0, i64 24, i1 false)
-  %cmp.not.i.i.i.i = icmp ult i64 %sub.ptr.div.i, 2
+  %cmp.not.i.i.i.i = icmp samesign ult i64 %sub.ptr.div.i, 2
   br i1 %cmp.not.i.i.i.i, label %invoke.cont11, label %if.then.i.i.i.i.i
 
 if.then.i.i.i.i.i:                                ; preds = %_ZNSt6vectorIjSaIjEE17_S_check_init_lenEmRKS0_.exit.i

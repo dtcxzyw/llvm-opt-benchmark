@@ -860,7 +860,7 @@ if.end162:                                        ; preds = %if.end157, %if.end1
 for.cond.preheader.i:                             ; preds = %if.end162, %Tls13DeriveKey.exit180, %Tls13DeriveKey.exit191, %Tls13DeriveKey.exit202, %Tls13DeriveKey.exit180.thread, %Tls13DeriveKey.exit191.thread, %Tls13DeriveKey.exit202.thread
   %ret.1 = phi i32 [ %call.i.i177, %Tls13DeriveKey.exit180 ], [ %call.i.i188, %Tls13DeriveKey.exit191 ], [ %call.i.i199, %Tls13DeriveKey.exit202 ], [ %call164, %if.end162 ], [ -232, %Tls13DeriveKey.exit180.thread ], [ -232, %Tls13DeriveKey.exit191.thread ], [ -232, %Tls13DeriveKey.exit202.thread ]
   %i.0 = phi i32 [ %i.1, %Tls13DeriveKey.exit180 ], [ %i.2, %Tls13DeriveKey.exit191 ], [ %i.3, %Tls13DeriveKey.exit202 ], [ %i.4, %if.end162 ], [ %i.1, %Tls13DeriveKey.exit180.thread ], [ %i.2, %Tls13DeriveKey.exit191.thread ], [ %i.3, %Tls13DeriveKey.exit202.thread ]
-  %cmp515.i = icmp ugt i32 %i.0, 7
+  %cmp515.i = icmp samesign ugt i32 %i.0, 7
   br i1 %cmp515.i, label %for.body.i, label %while.cond9.preheader.i
 
 while.cond9.preheader.i:                          ; preds = %for.body.i, %for.cond.preheader.i
@@ -5897,7 +5897,7 @@ if.end46:                                         ; preds = %if.else
 lor.lhs.false:                                    ; preds = %if.end46
   %3 = load i16, ptr %length40, align 4
   %conv51 = zext i16 %3 to i32
-  %cmp52 = icmp ult i32 %sub30, %conv51
+  %cmp52 = icmp samesign ult i32 %sub30, %conv51
   br i1 %cmp52, label %do.end350, label %if.end55
 
 if.end55:                                         ; preds = %lor.lhs.false

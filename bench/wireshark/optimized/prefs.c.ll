@@ -10467,7 +10467,7 @@ define internal void @gui_callback() #18 {
   br i1 %10, label %.sink.split, label %11
 
 11:                                               ; preds = %8
-  %12 = icmp ugt i32 %9, 10
+  %12 = icmp samesign ugt i32 %9, 10
   br i1 %12, label %.sink.split, label %13
 
 .sink.split:                                      ; preds = %11, %8
@@ -10481,7 +10481,7 @@ define internal void @gui_callback() #18 {
   br i1 %15, label %.sink.split3, label %16
 
 16:                                               ; preds = %13
-  %17 = icmp ugt i32 %14, 10
+  %17 = icmp samesign ugt i32 %14, 10
   br i1 %17, label %.sink.split3, label %18
 
 .sink.split3:                                     ; preds = %16, %13
@@ -10495,7 +10495,7 @@ define internal void @gui_callback() #18 {
   br i1 %20, label %.sink.split5, label %21
 
 21:                                               ; preds = %18
-  %22 = icmp ugt i32 %19, 10
+  %22 = icmp samesign ugt i32 %19, 10
   br i1 %22, label %.sink.split5, label %23
 
 .sink.split5:                                     ; preds = %21, %18
@@ -12012,7 +12012,7 @@ define internal void @stats_callback() #18 {
   br i1 %6, label %.sink.split, label %7
 
 7:                                                ; preds = %4
-  %8 = icmp ugt i32 %5, 600000
+  %8 = icmp samesign ugt i32 %5, 600000
   br i1 %8, label %.sink.split, label %9
 
 .sink.split:                                      ; preds = %7, %4
@@ -12027,7 +12027,7 @@ define internal void @stats_callback() #18 {
   %13 = urem i32 %12, %10
   %14 = sub nsw i32 %12, %13
   %15 = udiv i32 %12, %10
-  %16 = icmp ugt i32 %15, 100
+  %16 = icmp samesign ugt i32 %15, 100
   %17 = mul nuw nsw i32 %10, 100
   %spec.select = select i1 %16, i32 %17, i32 %14
   store i32 %spec.select, ptr getelementptr inbounds (i8, ptr @prefs, i64 556), align 4

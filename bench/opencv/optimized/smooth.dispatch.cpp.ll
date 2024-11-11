@@ -367,7 +367,7 @@ define hidden void @_ZN2cv12cpu_baseline22GaussianBlurFixedPointItEEvRKNS_3MatER
   %spec.select.i.i = select i1 %126, ptr @_ZN2cv12cpu_baseline12_GLOBAL__N_114hlineSmooth1N1IhNS_12_GLOBAL__N_113ufixedpoint16EEEvPKT_iPKT0_iPS8_ii, ptr @_ZN2cv12cpu_baseline12_GLOBAL__N_120hlineSmoothONa_yzy_aIhNS_12_GLOBAL__N_113ufixedpoint16EEEvPKT_iPKT0_iPS8_ii
   %127 = getelementptr inbounds i8, ptr %11, i64 88
   store ptr %spec.select.i.i, ptr %127, align 8
-  %.not162.i.i = icmp ult i32 %3, 2
+  %.not162.i.i = icmp samesign ult i32 %3, 2
   br i1 %.not162.i.i, label %.loopexit158.i.i, label %.lr.ph.preheader.i.i
 
 .lr.ph.preheader.i.i:                             ; preds = %120
@@ -496,7 +496,7 @@ define hidden void @_ZN2cv12cpu_baseline22GaussianBlurFixedPointItEEvRKNS_3MatER
 
 187:                                              ; preds = %183
   store ptr @_ZN2cv12cpu_baseline12_GLOBAL__N_120vlineSmoothONa_yzy_aIhNS_12_GLOBAL__N_113ufixedpoint16EEEvPKPKT0_S7_iPT_i, ptr %186, align 8
-  %.not163.i.i = icmp ult i32 %5, 2
+  %.not163.i.i = icmp samesign ult i32 %5, 2
   br i1 %.not163.i.i, label %_ZN2cv12cpu_baseline12_GLOBAL__N_118fixedSmoothInvokerIhNS_12_GLOBAL__N_113ufixedpoint16EEC2EPKhmPhmiiiPKS4_iSA_ii.exit.i, label %.lr.ph161.preheader.i.i
 
 .lr.ph161.preheader.i.i:                          ; preds = %187
@@ -822,7 +822,7 @@ define hidden void @_ZN2cv12cpu_baseline22GaussianBlurFixedPointIjEEvRKNS_3MatER
   %spec.select.i.i = select i1 %126, ptr @_ZN2cv12cpu_baseline12_GLOBAL__N_114hlineSmooth1N1ItNS_12_GLOBAL__N_113ufixedpoint32EEEvPKT_iPKT0_iPS8_ii, ptr @_ZN2cv12cpu_baseline12_GLOBAL__N_120hlineSmoothONa_yzy_aItNS_12_GLOBAL__N_113ufixedpoint32EEEvPKT_iPKT0_iPS8_ii
   %127 = getelementptr inbounds i8, ptr %11, i64 88
   store ptr %spec.select.i.i, ptr %127, align 8
-  %.not160.i.i = icmp ult i32 %3, 2
+  %.not160.i.i = icmp samesign ult i32 %3, 2
   br i1 %.not160.i.i, label %.loopexit156.i.i, label %.lr.ph.preheader.i.i
 
 .lr.ph.preheader.i.i:                             ; preds = %120
@@ -951,7 +951,7 @@ define hidden void @_ZN2cv12cpu_baseline22GaussianBlurFixedPointIjEEvRKNS_3MatER
 
 187:                                              ; preds = %183
   store ptr @_ZN2cv12cpu_baseline12_GLOBAL__N_120vlineSmoothONa_yzy_aItNS_12_GLOBAL__N_113ufixedpoint32EEEvPKPKT0_S7_iPT_i, ptr %186, align 8
-  %.not161.i.i = icmp ult i32 %5, 2
+  %.not161.i.i = icmp samesign ult i32 %5, 2
   br i1 %.not161.i.i, label %_ZN2cv12cpu_baseline12_GLOBAL__N_118fixedSmoothInvokerItNS_12_GLOBAL__N_113ufixedpoint32EEC2EPKtmPtmiiiPKS4_iSA_ii.exit.i, label %.lr.ph159.preheader.i.i
 
 .lr.ph159.preheader.i.i:                          ; preds = %187
@@ -1885,7 +1885,7 @@ _ZNSt6vectorIN2cv10softdoubleESaIS1_EE13_M_assign_auxIPS1_EEvT_S6_St20forward_it
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(1088) %scevgep.i, i8 0, i64 1088, i1 false)
   store ptr %scevgep.i, ptr %26, align 8
   %223 = getelementptr inbounds i8, ptr %26, i64 8
-  %.not.i.i = icmp ugt i32 %219, 271
+  %.not.i.i = icmp samesign ugt i32 %219, 271
   store i64 %222, ptr %223, align 8
   br i1 %.not.i.i, label %.thread, label %226
 
@@ -1899,7 +1899,7 @@ _ZNSt6vectorIN2cv10softdoubleESaIS1_EE13_M_assign_auxIPS1_EEvT_S6_St20forward_it
 
 226:                                              ; preds = %218
   store i64 0, ptr %27, align 8, !alias.scope !119
-  %.not215 = icmp ult i32 %2, 3
+  %.not215 = icmp samesign ult i32 %2, 3
   br i1 %.not215, label %._crit_edge, label %.lr.ph.preheader
 
 .lr.ph.preheader:                                 ; preds = %.thread, %226

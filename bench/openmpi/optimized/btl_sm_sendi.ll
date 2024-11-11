@@ -478,7 +478,7 @@ define internal fastcc noundef zeroext i1 @mca_btl_sm_fbox_sendi(ptr noundef %0,
   %39 = zext nneg i32 %32 to i64
   %40 = getelementptr inbounds i8, ptr %23, i64 %39
   %41 = zext i32 %36 to i64
-  %42 = icmp ugt i64 %38, %41
+  %42 = icmp samesign ugt i64 %38, %41
   br i1 %42, label %43, label %77
 
 43:                                               ; preds = %22
@@ -498,7 +498,7 @@ define internal fastcc noundef zeroext i1 @mca_btl_sm_fbox_sendi(ptr noundef %0,
   fence acquire
   %.not = icmp ne i32 %53, 0
   %54 = zext i32 %53 to i64
-  %55 = icmp ugt i64 %38, %54
+  %55 = icmp samesign ugt i64 %38, %54
   %or.cond = and i1 %.not, %55
   %56 = icmp samesign ule i32 %47, %32
   %or.cond110 = select i1 %or.cond, i1 %56, i1 false
@@ -536,7 +536,7 @@ define internal fastcc noundef zeroext i1 @mca_btl_sm_fbox_sendi(ptr noundef %0,
   %.190 = phi i32 [ %53, %43 ], [ %67, %57 ]
   %.188 = phi ptr [ %40, %43 ], [ %69, %57 ]
   %.1 = phi i8 [ %27, %43 ], [ %63, %57 ]
-  %70 = icmp ugt i64 %38, %.pre-phi
+  %70 = icmp samesign ugt i64 %38, %.pre-phi
   br i1 %70, label %71, label %77
 
 71:                                               ; preds = %.critedge
@@ -576,7 +576,7 @@ define internal fastcc noundef zeroext i1 @mca_btl_sm_fbox_sendi(ptr noundef %0,
 
 87:                                               ; preds = %81
   %88 = zext i32 %.089 to i64
-  %89 = icmp ult i64 %38, %88
+  %89 = icmp samesign ult i64 %38, %88
   br i1 %89, label %90, label %94
 
 90:                                               ; preds = %87

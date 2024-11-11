@@ -208,7 +208,7 @@ entry:
   br i1 %cmp.i.i, label %return, label %if.end
 
 if.end:                                           ; preds = %entry
-  %cmp.i.i2 = icmp ugt i64 %2, -844424930131969
+  %cmp.i.i2 = icmp samesign ugt i64 %2, -844424930131969
   br i1 %cmp.i.i2, label %cond.true.i, label %if.then7
 
 cond.true.i:                                      ; preds = %if.end
@@ -260,7 +260,7 @@ entry:
   br i1 %cmp.i.i, label %if.end9, label %if.else
 
 if.else:                                          ; preds = %entry
-  %cmp.i.i12 = icmp ugt i64 %2, -844424930131969
+  %cmp.i.i12 = icmp samesign ugt i64 %2, -844424930131969
   br i1 %cmp.i.i12, label %cond.true.i, label %if.then6
 
 cond.true.i:                                      ; preds = %if.else
@@ -396,7 +396,7 @@ entry:
   br i1 %cmp.i.i, label %if.end9, label %if.else
 
 if.else:                                          ; preds = %entry
-  %cmp.i.i4 = icmp ugt i64 %1, -844424930131969
+  %cmp.i.i4 = icmp samesign ugt i64 %1, -844424930131969
   br i1 %cmp.i.i4, label %cond.true.i, label %if.then6
 
 cond.true.i:                                      ; preds = %if.else
@@ -522,7 +522,7 @@ if.end11:                                         ; preds = %if.end
   br i1 %cmp.i.i25, label %if.end32, label %if.else
 
 if.else:                                          ; preds = %if.end11
-  %cmp.i.i.i = icmp ugt i64 %9, -844424930131969
+  %cmp.i.i.i = icmp samesign ugt i64 %9, -844424930131969
   br i1 %cmp.i.i.i, label %_ZN6hermes2vm5vmisaINS0_8JSNumberEEEbNS0_11HermesValueE.exit.i, label %_ZN6hermes2vm6HandleINS0_8JSNumberEE10dyn_vmcastERKNS0_10HandleBaseE.exit
 
 _ZN6hermes2vm5vmisaINS0_8JSNumberEEEbNS0_11HermesValueE.exit.i: ; preds = %if.else
@@ -1058,7 +1058,7 @@ entry:
   br i1 %cmp.i.i, label %if.end15, label %if.else
 
 if.else:                                          ; preds = %entry
-  %cmp.i.i.i = icmp ugt i64 %2, -844424930131969
+  %cmp.i.i.i = icmp samesign ugt i64 %2, -844424930131969
   br i1 %cmp.i.i.i, label %_ZN6hermes2vm5vmisaINS0_8JSNumberEEEbNS0_11HermesValueE.exit.i, label %_ZN6hermes2vm6HandleINS0_8JSNumberEE10dyn_vmcastERKNS0_10HandleBaseE.exit
 
 _ZN6hermes2vm5vmisaINS0_8JSNumberEEEbNS0_11HermesValueE.exit.i: ; preds = %if.else
@@ -1400,7 +1400,7 @@ entry:
   br i1 %cmp.i.i, label %if.end15, label %if.else
 
 if.else:                                          ; preds = %entry
-  %cmp.i.i.i = icmp ugt i64 %2, -844424930131969
+  %cmp.i.i.i = icmp samesign ugt i64 %2, -844424930131969
   br i1 %cmp.i.i.i, label %_ZN6hermes2vm5vmisaINS0_8JSNumberEEEbNS0_11HermesValueE.exit.i, label %_ZN6hermes2vm6HandleINS0_8JSNumberEE10dyn_vmcastERKNS0_10HandleBaseE.exit
 
 _ZN6hermes2vm5vmisaINS0_8JSNumberEEEbNS0_11HermesValueE.exit.i: ; preds = %if.else

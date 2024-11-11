@@ -4001,7 +4001,7 @@ _ZNSt4pairIN4llvm14PointerIntPairIPKNS0_5ValueELj1EbNS0_21PointerLikeTypeTraitsI
   %106 = and i64 %95, 4611686018427387904
   %107 = icmp ne i64 %106, 0
   %.not543 = icmp samesign ult i64 %102, %104
-  %or.cond = or i1 %107, %.not543
+  %or.cond = select i1 %107, i1 true, i1 %.not543
   br i1 %or.cond, label %.critedge270, label %123
 
 108:                                              ; preds = %96, %96

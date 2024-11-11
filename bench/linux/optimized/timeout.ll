@@ -855,7 +855,7 @@ define internal fastcc noundef range(i32 -22, 1) i32 @__io_timeout_prep(ptr noun
 
 46:                                               ; preds = %44, %37, %33
   %47 = getelementptr inbounds i8, ptr %0, i64 16
-  %48 = icmp ugt i32 %23, 63
+  %48 = icmp samesign ugt i32 %23, 63
   %49 = select i1 %48, i32 %6, i32 0
   store i32 %49, ptr %47, align 8
   %50 = getelementptr inbounds i8, ptr %0, i64 68

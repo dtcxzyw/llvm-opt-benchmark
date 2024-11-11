@@ -308,7 +308,7 @@ palette_add_to_cache.exit66:                      ; preds = %66, %70
 
 palette_add_to_cache.exit67:                      ; preds = %90, %94
   %.6 = phi i32 [ %.27593, %90 ], [ %95, %94 ]
-  %98 = icmp ugt i32 %.395, 1
+  %98 = icmp samesign ugt i32 %.395, 1
   br i1 %98, label %.lr.ph96, label %.preheader, !llvm.loop !6
 
 .lr.ph103:                                        ; preds = %.lr.ph103.preheader, %palette_add_to_cache.exit68
@@ -338,7 +338,7 @@ palette_add_to_cache.exit67:                      ; preds = %90, %94
 
 palette_add_to_cache.exit68:                      ; preds = %103, %107
   %.7 = phi i32 [ %.376100, %103 ], [ %108, %107 ]
-  %111 = icmp ugt i32 %.353102, 1
+  %111 = icmp samesign ugt i32 %.353102, 1
   br i1 %111, label %.lr.ph103, label %.loopexit, !llvm.loop !7
 
 .loopexit:                                        ; preds = %palette_add_to_cache.exit68, %.preheader, %32
@@ -578,7 +578,7 @@ has_uni_comp_refs.exit:                           ; preds = %24
   %28 = getelementptr inbounds nuw i8, ptr %25, i64 16
   %29 = load i8, ptr %28, align 8
   %30 = icmp sgt i8 %29, 4
-  %31 = icmp ult i8 %.val77, 5
+  %31 = icmp samesign ult i8 %.val77, 5
   %32 = xor i1 %31, %30
   %33 = select i1 %32, i32 3, i32 1
   br label %has_uni_comp_refs.exit83.thread
@@ -618,13 +618,13 @@ has_uni_comp_refs.exit:                           ; preds = %24
 
 53:                                               ; preds = %52
   %54 = icmp sgt i8 %42, 4
-  %55 = icmp ult i8 %.val75, 5
+  %55 = icmp samesign ult i8 %.val75, 5
   %56 = xor i1 %55, %54
   br i1 %56, label %60, label %has_uni_comp_refs.exit83.thread
 
 has_uni_comp_refs.exit83:                         ; preds = %51
   %57 = icmp sgt i8 %40, 4
-  %58 = icmp ult i8 %.val76, 5
+  %58 = icmp samesign ult i8 %.val76, 5
   %59 = xor i1 %58, %57
   br i1 %59, label %60, label %has_uni_comp_refs.exit83.thread
 
@@ -639,10 +639,10 @@ has_uni_comp_refs.exit83:                         ; preds = %51
 
 has_uni_comp_refs.exit87:                         ; preds = %50
   %67 = icmp sgt i8 %40, 4
-  %68 = icmp ult i8 %.val76, 5
+  %68 = icmp samesign ult i8 %.val76, 5
   %69 = xor i1 %68, %67
   %70 = icmp sgt i8 %42, 4
-  %71 = icmp ult i8 %.val75, 5
+  %71 = icmp samesign ult i8 %.val75, 5
   %72 = xor i1 %71, %70
   %or.cond11 = select i1 %69, i1 true, i1 %72
   br i1 %or.cond11, label %73, label %has_uni_comp_refs.exit83.thread
@@ -686,7 +686,7 @@ has_uni_comp_refs.exit94:                         ; preds = %is_inter_block.exit
   %89 = getelementptr inbounds nuw i8, ptr %81, i64 16
   %90 = load i8, ptr %89, align 8
   %91 = icmp sgt i8 %90, 4
-  %92 = icmp ult i8 %.val, 5
+  %92 = icmp samesign ult i8 %.val, 5
   %93 = xor i1 %92, %91
   %94 = select i1 %93, i32 4, i32 0
   br label %has_uni_comp_refs.exit83.thread

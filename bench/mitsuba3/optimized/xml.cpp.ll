@@ -21856,7 +21856,7 @@ _ZNSt3__15tupleIJNS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEES6_bE
 487:                                              ; preds = %199
   %488 = add nsw i64 %.0, -1
   %489 = lshr i64 %31, 1
-  %490 = icmp ugt i64 %30, 7168
+  %490 = icmp samesign ugt i64 %30, 7168
   %491 = getelementptr inbounds %"class.std::__1::tuple", ptr %.021, i64 %489
   br i1 %490, label %492, label %507
 
@@ -23372,11 +23372,11 @@ define linkonce_odr hidden noundef i64 @_ZNKSt3__121__murmur2_or_cityhashImLm64E
   br i1 %4, label %5, label %91
 
 5:                                                ; preds = %3
-  %6 = icmp ult i64 %2, 17
+  %6 = icmp samesign ult i64 %2, 17
   br i1 %6, label %7, label %64
 
 7:                                                ; preds = %5
-  %8 = icmp ugt i64 %2, 8
+  %8 = icmp samesign ugt i64 %2, 8
   br i1 %8, label %9, label %24
 
 9:                                                ; preds = %7
@@ -23399,7 +23399,7 @@ define linkonce_odr hidden noundef i64 @_ZNKSt3__121__murmur2_or_cityhashImLm64E
   br label %_ZNSt3__121__murmur2_or_cityhashImLm64EE18__hash_len_0_to_16B8ne190000EPKcm.exit
 
 24:                                               ; preds = %7
-  %25 = icmp ugt i64 %2, 3
+  %25 = icmp samesign ugt i64 %2, 3
   br i1 %25, label %26, label %42
 
 26:                                               ; preds = %24

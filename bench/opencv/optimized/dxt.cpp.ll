@@ -426,7 +426,7 @@ define linkonce_odr hidden void @_ZN2cv15OcvDftBasicImpl4initEiiiiPb(ptr noundef
 
 42:                                               ; preds = %40
   %43 = udiv i32 %1, %39
-  %44 = icmp ugt i32 %43, 1
+  %44 = icmp samesign ugt i32 %43, 1
   br i1 %44, label %.lr.ph.i.preheader, label %.critedge.i
 
 .lr.ph.i.preheader:                               ; preds = %42, %35
@@ -6141,7 +6141,7 @@ define internal fastcc void @_ZN2cvL7DFTInitEiiPKiPiiPvi(i32 noundef %0, i32 nou
   br label %.loopexit268
 
 76:                                               ; preds = %71
-  %77 = icmp ult i32 %14, 257
+  %77 = icmp samesign ult i32 %14, 257
   %invariant.op285 = add nsw i32 %66, %72
   br i1 %77, label %78, label %.lr.ph284.preheader
 
@@ -13443,7 +13443,7 @@ define internal fastcc void @_ZN2cvL9ExpandCCSEPhii(ptr nocapture noundef %0, i3
   %35 = load float, ptr %34, align 4
   %36 = getelementptr inbounds float, ptr %0, i64 %indvars.iv89
   store float %35, ptr %36, align 4
-  %37 = icmp ugt i64 %indvars.iv89, 2
+  %37 = icmp samesign ugt i64 %indvars.iv89, 2
   br i1 %37, label %.lr.ph75, label %._crit_edge76, !llvm.loop !144
 
 ._crit_edge76:                                    ; preds = %.lr.ph75, %31
@@ -13503,7 +13503,7 @@ define internal fastcc void @_ZN2cvL9ExpandCCSEPhii(ptr nocapture noundef %0, i3
   %63 = load double, ptr %62, align 8
   %64 = getelementptr inbounds double, ptr %0, i64 %indvars.iv79
   store double %63, ptr %64, align 8
-  %65 = icmp ugt i64 %indvars.iv79, 2
+  %65 = icmp samesign ugt i64 %indvars.iv79, 2
   br i1 %65, label %.lr.ph67, label %._crit_edge68, !llvm.loop !146
 
 ._crit_edge68:                                    ; preds = %.lr.ph67, %59
@@ -13783,7 +13783,7 @@ define linkonce_odr hidden void @_ZN2cv10OcvDctImpl5applyEPKhmPhm(ptr noundef no
 
 82:                                               ; preds = %80
   %83 = udiv i32 %.155, %79
-  %84 = icmp ugt i32 %83, 1
+  %84 = icmp samesign ugt i32 %83, 1
   br i1 %84, label %.lr.ph.i.preheader, label %.critedge.i
 
 .lr.ph.i.preheader:                               ; preds = %82, %75

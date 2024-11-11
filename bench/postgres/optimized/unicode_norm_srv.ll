@@ -737,14 +737,14 @@ define dso_local range(i32 -1, 2) i32 @unicode_is_normalized_quickcheck(i32 noun
 
 .preheader:                                       ; preds = %2
   %7 = load i32, ptr %1, align 4
-  %.not37 = icmp eq i32 %7, 0
-  br i1 %.not37, label %.loopexit, label %.lr.ph
+  %.not36 = icmp eq i32 %7, 0
+  br i1 %.not36, label %.loopexit, label %.lr.ph
 
 .lr.ph:                                           ; preds = %.preheader, %qc_is_allowed.exit.thread
   %8 = phi i32 [ %97, %qc_is_allowed.exit.thread ], [ %7, %.preheader ]
-  %.02040 = phi i8 [ %.0.i30, %qc_is_allowed.exit.thread ], [ 0, %.preheader ]
-  %.02139 = phi i32 [ %.1, %qc_is_allowed.exit.thread ], [ 1, %.preheader ]
-  %.02238 = phi ptr [ %96, %qc_is_allowed.exit.thread ], [ %1, %.preheader ]
+  %.02039 = phi i8 [ %.0.i29, %qc_is_allowed.exit.thread ], [ 0, %.preheader ]
+  %.02138 = phi i32 [ %.1, %qc_is_allowed.exit.thread ], [ 1, %.preheader ]
+  %.02237 = phi ptr [ %96, %qc_is_allowed.exit.thread ], [ %1, %.preheader ]
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %5)
   %9 = tail call i32 @llvm.bswap.i32(i32 %8)
   store i32 %9, ptr %5, align 4
@@ -796,13 +796,13 @@ get_canonical_class.exit:                         ; preds = %30
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5)
   %34 = getelementptr inbounds i8, ptr %32, i64 4
   %35 = load i8, ptr %34, align 4
-  %36 = icmp ugt i8 %.02040, %35
+  %36 = icmp ugt i8 %.02039, %35
   %37 = icmp ne i8 %35, 0
   %or.cond4 = and i1 %36, %37
   br i1 %or.cond4, label %.loopexit, label %38
 
 38:                                               ; preds = %get_canonical_class.exit.thread, %get_canonical_class.exit
-  %.0.i30 = phi i8 [ 0, %get_canonical_class.exit.thread ], [ %35, %get_canonical_class.exit ]
+  %.0.i29 = phi i8 [ 0, %get_canonical_class.exit.thread ], [ %35, %get_canonical_class.exit ]
   switch i32 %0, label %qc_is_allowed.exit.thread [
     i32 0, label %39
     i32 2, label %65
@@ -841,8 +841,8 @@ NFC_QC_hash_func.exit.i:                          ; preds = %40
   %57 = load i16, ptr %56, align 2
   %58 = sext i16 %57 to i32
   %59 = add nsw i32 %58, %53
-  %.not.i.i27 = icmp ult i32 %59, 1231
-  br i1 %.not.i.i27, label %60, label %qc_hash_lookup.exit.i
+  %or.cond.i = icmp ult i32 %59, 1231
+  br i1 %or.cond.i, label %60, label %qc_hash_lookup.exit.i
 
 60:                                               ; preds = %NFC_QC_hash_func.exit.i
   %61 = zext nneg i32 %59 to i64
@@ -891,8 +891,8 @@ NFKC_QC_hash_func.exit.i:                         ; preds = %66
   %83 = load i16, ptr %82, align 2
   %84 = sext i16 %83 to i32
   %85 = add nsw i32 %84, %79
-  %.not.i6.i = icmp ult i32 %85, 5039
-  br i1 %.not.i6.i, label %86, label %qc_hash_lookup.exit10.i
+  %or.cond19.i = icmp ult i32 %85, 5039
+  br i1 %or.cond19.i, label %86, label %qc_hash_lookup.exit10.i
 
 86:                                               ; preds = %NFKC_QC_hash_func.exit.i
   %87 = zext nneg i32 %85 to i64
@@ -926,8 +926,8 @@ qc_is_allowed.exit:                               ; preds = %91
   br label %qc_is_allowed.exit.thread
 
 qc_is_allowed.exit.thread:                        ; preds = %38, %91, %qc_is_allowed.exit, %95
-  %.1 = phi i32 [ -1, %95 ], [ %.02139, %qc_is_allowed.exit ], [ %.02139, %91 ], [ %.02139, %38 ]
-  %96 = getelementptr i8, ptr %.02238, i64 4
+  %.1 = phi i32 [ -1, %95 ], [ %.02138, %qc_is_allowed.exit ], [ %.02138, %91 ], [ %.02138, %38 ]
+  %96 = getelementptr i8, ptr %.02237, i64 4
   %97 = load i32, ptr %96, align 4
   %.not = icmp eq i32 %97, 0
   br i1 %.not, label %.loopexit, label %.lr.ph, !llvm.loop !16

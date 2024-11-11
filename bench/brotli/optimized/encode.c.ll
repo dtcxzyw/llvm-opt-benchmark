@@ -562,7 +562,7 @@ if.else.i.i:                                      ; preds = %if.end.i.i
   %3 = load i32, ptr %large_window7.i.i, align 4
   %tobool.i.not.i = icmp eq i32 %3, 0
   %cond.i56.i = select i1 %tobool.i.not.i, i32 24, i32 30
-  %cmp9.i.i = icmp ugt i32 %2, %cond.i56.i
+  %cmp9.i.i = icmp samesign ugt i32 %2, %cond.i56.i
   br i1 %cmp9.i.i, label %SanitizeParams.exit.sink.split.i, label %SanitizeParams.exit.i
 
 SanitizeParams.exit.sink.split.i:                 ; preds = %if.else.i.i, %if.end.i.i
@@ -578,7 +578,7 @@ SanitizeParams.exit.i:                            ; preds = %SanitizeParams.exit
   br i1 %switch.i, label %ComputeLgBlock.exit.i, label %if.else.i63.i
 
 if.else.i63.i:                                    ; preds = %SanitizeParams.exit.i
-  %cmp5.i.i = icmp ult i32 %1, 4
+  %cmp5.i.i = icmp samesign ult i32 %1, 4
   br i1 %cmp5.i.i, label %ComputeLgBlock.exit.i, label %if.else7.i.i
 
 if.else7.i.i:                                     ; preds = %if.else.i63.i
@@ -586,9 +586,9 @@ if.else7.i.i:                                     ; preds = %if.else.i63.i
   br i1 %cmp8.i.i, label %if.then9.i.i, label %if.else16.i.i
 
 if.then9.i.i:                                     ; preds = %if.else7.i.i
-  %cmp11.i.i = icmp ugt i32 %1, 8
-  %cmp13.i.i = icmp ugt i32 %4, 16
-  %or.cond.i = and i1 %cmp11.i.i, %cmp13.i.i
+  %cmp11.i.i = icmp samesign ugt i32 %1, 8
+  %cmp13.i.i = icmp samesign ugt i32 %4, 16
+  %or.cond.i = select i1 %cmp11.i.i, i1 %cmp13.i.i, i1 false
   br i1 %or.cond.i, label %if.then14.i.i, label %if.then.i90.i
 
 if.then14.i.i:                                    ; preds = %if.then9.i.i
@@ -2380,8 +2380,8 @@ if.else12.i.i:                                    ; preds = %if.else6.i.i
   br i1 %cmp13.i.i, label %if.then14.i.i, label %if.else21.i.i
 
 if.then14.i.i:                                    ; preds = %if.else12.i.i
-  %cmp16.i.i = icmp ult i32 %44, 7
-  %cmp18.i.i = icmp ult i32 %44, 9
+  %cmp16.i.i = icmp samesign ult i32 %44, 7
+  %cmp18.i.i = icmp samesign ult i32 %44, 9
   %cond.i.i382 = select i1 %cmp18.i.i, i32 41, i32 42
   %cond19.i.i = select i1 %cmp16.i.i, i32 40, i32 %cond.i.i382
   store i32 %cond19.i.i, ptr %hasher2.i, align 4
@@ -2391,7 +2391,7 @@ if.else21.i.i:                                    ; preds = %if.else12.i.i
   %size_hint22.i.i = getelementptr inbounds i8, ptr %s, i64 24
   %47 = load i64, ptr %size_hint22.i.i, align 8
   %cmp23.i.i = icmp ugt i64 %47, 1048575
-  %cmp26.i.i = icmp ugt i32 %46, 18
+  %cmp26.i.i = icmp samesign ugt i32 %46, 18
   %or.cond1116 = and i1 %cmp26.i.i, %cmp23.i.i
   %sub.i.i = add nsw i32 %44, -1
   %block_bits.i.i = getelementptr inbounds i8, ptr %s, i64 48
@@ -2402,8 +2402,8 @@ if.then27.i.i:                                    ; preds = %if.else21.i.i
   store i32 %sub.i.i, ptr %block_bits.i.i, align 4
   %bucket_bits.i.i = getelementptr inbounds i8, ptr %s, i64 44
   store i32 15, ptr %bucket_bits.i.i, align 4
-  %cmp31.i.i = icmp ult i32 %44, 7
-  %cmp35.i.i = icmp ult i32 %44, 9
+  %cmp31.i.i = icmp samesign ult i32 %44, 7
+  %cmp35.i.i = icmp samesign ult i32 %44, 9
   %cond36.i.i = select i1 %cmp35.i.i, i32 10, i32 16
   %cond38.i.i = select i1 %cmp31.i.i, i32 4, i32 %cond36.i.i
   %num_last_distances_to_check.i.i = getelementptr inbounds i8, ptr %s, i64 52
@@ -2413,11 +2413,11 @@ if.then27.i.i:                                    ; preds = %if.else21.i.i
 if.else39.i.i:                                    ; preds = %if.else21.i.i
   store i32 5, ptr %hasher2.i, align 4
   store i32 %sub.i.i, ptr %block_bits.i.i, align 4
-  %cmp45.i.i = icmp ult i32 %44, 7
+  %cmp45.i.i = icmp samesign ult i32 %44, 7
   %cond46.i.i = select i1 %cmp45.i.i, i32 14, i32 15
   %bucket_bits47.i.i = getelementptr inbounds i8, ptr %s, i64 44
   store i32 %cond46.i.i, ptr %bucket_bits47.i.i, align 4
-  %cmp53.i.i = icmp ult i32 %44, 9
+  %cmp53.i.i = icmp samesign ult i32 %44, 9
   %cond54.i.i = select i1 %cmp53.i.i, i32 10, i32 16
   %cond56.i.i = select i1 %cmp45.i.i, i32 4, i32 %cond54.i.i
   %num_last_distances_to_check57.i.i = getelementptr inbounds i8, ptr %s, i64 52
@@ -5228,7 +5228,7 @@ entry:
   br i1 %switch, label %ComputeLgBlock.exit.thread, label %if.else.i157
 
 if.else.i157:                                     ; preds = %entry
-  %cmp5.i = icmp ult i32 %quality, 4
+  %cmp5.i = icmp samesign ult i32 %quality, 4
   br i1 %cmp5.i, label %ComputeLgBlock.exit.thread, label %if.else7.i
 
 if.else7.i:                                       ; preds = %if.else.i157
@@ -5236,7 +5236,7 @@ if.else7.i:                                       ; preds = %if.else.i157
   br i1 %cmp8.i, label %if.then9.i, label %if.else16.i
 
 if.then9.i:                                       ; preds = %if.else7.i
-  %cmp11.i = icmp ugt i32 %quality, 8
+  %cmp11.i = icmp samesign ugt i32 %quality, 8
   br i1 %cmp11.i, label %land.lhs.true.i, label %ComputeLgBlock.exit.thread
 
 land.lhs.true.i:                                  ; preds = %if.then9.i
@@ -5260,7 +5260,7 @@ ComputeLgBlock.exit.thread:                       ; preds = %entry, %if.else.i15
 ComputeLgBlock.exit:                              ; preds = %land.lhs.true.i, %if.then14.i, %if.else16.i
   %lgblock.i.0 = phi i32 [ %2, %if.then14.i ], [ 16, %land.lhs.true.i ], [ %cond.i.i161, %if.else16.i ]
   %hasher = getelementptr inbounds i8, ptr %params, i64 40
-  %cmp.i168 = icmp ugt i32 %quality, 9
+  %cmp.i168 = icmp samesign ugt i32 %quality, 9
   br i1 %cmp.i168, label %if.end61.i, label %if.else.i169
 
 if.else.i169:                                     ; preds = %ComputeLgBlock.exit.thread, %ComputeLgBlock.exit
@@ -5288,8 +5288,8 @@ if.else12.i:                                      ; preds = %if.else6.i
   br i1 %cmp13.i172, label %ChooseHasher.exit.thread, label %if.else21.i
 
 ChooseHasher.exit.thread:                         ; preds = %if.else12.i
-  %cmp16.i = icmp ult i32 %quality, 7
-  %cmp18.i = icmp ult i32 %quality, 9
+  %cmp16.i = icmp samesign ult i32 %quality, 7
+  %cmp18.i = icmp samesign ult i32 %quality, 9
   %cond.i176 = select i1 %cmp18.i, i32 41, i32 42
   %cond19.i = select i1 %cmp16.i, i32 40, i32 %cond.i176
   store i32 %cond19.i, ptr %hasher215, align 4
@@ -5312,7 +5312,7 @@ if.then27.i:                                      ; preds = %if.else21.i
 if.else39.i:                                      ; preds = %if.else21.i
   store i32 5, ptr %hasher215, align 4
   store i32 %sub.i, ptr %block_bits.i, align 8
-  %cmp45.i = icmp ult i32 %quality, 7
+  %cmp45.i = icmp samesign ult i32 %quality, 7
   %cond46.i = select i1 %cmp45.i, i32 14, i32 15
   %bucket_bits47.i = getelementptr inbounds i8, ptr %params, i64 44
   store i32 %cond46.i, ptr %bucket_bits47.i, align 4
@@ -5492,7 +5492,7 @@ HasherSize.exit:                                  ; preds = %if.else33, %land.lh
   %hash_size47.sroa.25.0 = phi i64 [ 0, %if.else33 ], [ 0, %land.lhs.true.i366 ], [ 67108864, %sw.bb11.i ], [ 67108864, %HashMemAllocInBytesH55.exit ], [ 67108864, %HashMemAllocInBytesH35.exit ], [ 0, %sw.bb8.i ], [ 0, %sw.bb7.i ], [ 0, %sw.bb6.i ], [ 0, %sw.bb5.i ], [ 0, %sw.bb4.i ], [ 0, %sw.bb3.i ], [ 0, %sw.bb2.i ], [ 0, %sw.bb1.i ], [ 0, %sw.bb.i ]
   %hash_size47.sroa.15.0 = phi i64 [ 0, %if.else33 ], [ %mul.i364, %land.lhs.true.i366 ], [ %mul5.i.i203, %sw.bb11.i ], [ 0, %HashMemAllocInBytesH55.exit ], [ 0, %HashMemAllocInBytesH35.exit ], [ 0, %sw.bb8.i ], [ 1048576, %sw.bb7.i ], [ 262144, %sw.bb6.i ], [ 262144, %sw.bb5.i ], [ %mul5.i266204, %sw.bb4.i ], [ %mul5.i205, %sw.bb3.i ], [ 0, %sw.bb2.i ], [ 0, %sw.bb1.i ], [ 0, %sw.bb.i ]
   %hash_size47.sroa.0.0 = phi i64 [ 0, %if.else33 ], [ 524288, %land.lhs.true.i366 ], [ %mul.i.i, %sw.bb11.i ], [ 4194304, %HashMemAllocInBytesH55.exit ], [ 262144, %HashMemAllocInBytesH35.exit ], [ 4194304, %sw.bb8.i ], [ 262144, %sw.bb7.i ], [ 262144, %sw.bb6.i ], [ 262144, %sw.bb5.i ], [ %mul.i264, %sw.bb4.i ], [ %mul.i, %sw.bb3.i ], [ 524288, %sw.bb2.i ], [ 262144, %sw.bb1.i ], [ 262144, %sw.bb.i ]
-  %cmp61 = icmp ult i32 %quality, 4
+  %cmp61 = icmp samesign ult i32 %quality, 4
   br i1 %cmp61, label %if.then63, label %if.end67
 
 if.then63:                                        ; preds = %HasherSize.exit
@@ -5506,7 +5506,7 @@ if.end67:                                         ; preds = %if.then63, %HasherS
   br i1 %cmp.i168216224229, label %if.end88, label %if.else72
 
 if.else72:                                        ; preds = %if.end67
-  %cmp74 = icmp ugt i32 %quality, 3
+  %cmp74 = icmp samesign ugt i32 %quality, 3
   br i1 %cmp74, label %if.then76, label %if.end88
 
 if.then76:                                        ; preds = %if.else72

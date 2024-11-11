@@ -1273,7 +1273,7 @@ define hidden void @_ZN11CodeSection8relocateEPhN9relocInfo9relocTypeEii(ptr nou
   %70 = getelementptr inbounds i8, ptr %.131.i, i64 2
   store i16 255, ptr %.131.i, align 2
   %71 = add nsw i32 %.032.i, -255
-  %.not27.i = icmp ult i32 %.032.i, 511
+  %.not27.i = icmp samesign ult i32 %.032.i, 511
   br i1 %.not27.i, label %._crit_edge.i, label %.lr.ph.i, !llvm.loop !25
 
 ._crit_edge.i:                                    ; preds = %.lr.ph.i, %69, %41
@@ -1363,7 +1363,7 @@ define hidden void @_ZN11CodeSection8relocateEPhRK16RelocationHolderi(ptr nounde
   %44 = getelementptr inbounds i8, ptr %.131, i64 2
   store i16 255, ptr %.131, align 2
   %45 = add nsw i32 %.032, -255
-  %.not27 = icmp ult i32 %.032, 511
+  %.not27 = icmp samesign ult i32 %.032, 511
   br i1 %.not27, label %._crit_edge, label %.lr.ph, !llvm.loop !25
 
 ._crit_edge:                                      ; preds = %.lr.ph, %15, %43
@@ -1492,7 +1492,7 @@ define hidden void @_ZN11CodeSection22initialize_shared_locsEP9relocInfoi(ptr no
   %11 = ptrtoint ptr %9 to i64
   %12 = and i64 %11, 7
   %13 = icmp ne i64 %12, 0
-  %14 = icmp ugt i32 %.011, 1
+  %14 = icmp samesign ugt i32 %.011, 1
   %15 = select i1 %13, i1 %14, i1 false
   br i1 %15, label %.lr.ph, label %._crit_edge, !llvm.loop !26
 
@@ -1548,7 +1548,7 @@ define hidden void @_ZN11CodeSection20initialize_locs_fromEPKS_(ptr nocapture no
   %19 = ptrtoint ptr %17 to i64
   %20 = and i64 %19, 7
   %21 = icmp ne i64 %20, 0
-  %22 = icmp ugt i32 %.011.i, 1
+  %22 = icmp samesign ugt i32 %.011.i, 1
   %23 = select i1 %21, i1 %22, i1 false
   br i1 %23, label %.lr.ph.i, label %._crit_edge.i, !llvm.loop !26
 
@@ -3045,7 +3045,7 @@ _ZN4Copy14disjoint_wordsEPKP12HeapWordImplPS1_m.exit: ; preds = %22, %61, %63
   %104 = ptrtoint ptr %102 to i64
   %105 = and i64 %104, 7
   %106 = icmp ne i64 %105, 0
-  %107 = icmp ugt i32 %.011.i.i, 1
+  %107 = icmp samesign ugt i32 %.011.i.i, 1
   %108 = select i1 %106, i1 %107, i1 false
   br i1 %108, label %.lr.ph.i.i, label %._crit_edge.i.i, !llvm.loop !26
 

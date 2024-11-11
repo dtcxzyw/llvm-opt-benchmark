@@ -6768,7 +6768,7 @@ _ZNSt5dequeIP11AstNodeExprSaIS1_EEC2Ev.exit:      ; preds = %_ZNSt5dequeIP11AstN
   br i1 %229, label %230, label %236
 
 230:                                              ; preds = %223
-  %231 = icmp ult i64 %228, 64
+  %231 = icmp samesign ult i64 %228, 64
   br i1 %231, label %232, label %234
 
 232:                                              ; preds = %230
@@ -8683,7 +8683,7 @@ _ZN11AstArraySelC2EP8FileLineP11AstNodeExprS3_.exit: ; preds = %.noexc537, %901
   br i1 %956, label %957, label %963
 
 957:                                              ; preds = %946
-  %958 = icmp ult i64 %955, 64
+  %958 = icmp samesign ult i64 %955, 64
   br i1 %958, label %959, label %961
 
 959:                                              ; preds = %957

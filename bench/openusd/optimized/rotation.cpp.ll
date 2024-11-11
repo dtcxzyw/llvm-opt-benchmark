@@ -707,7 +707,7 @@ define void @_ZN32pxrInternal_v0_24__pxrReserved__10GfRotation25MatchClosestEule
   store double %2, ptr %24, align 8
   %25 = getelementptr inbounds i8, ptr %9, i64 24
   store double %3, ptr %25, align 8
-  %26 = icmp ult i32 %.3100, 3
+  %26 = icmp samesign ult i32 %.3100, 3
   br i1 %26, label %27, label %46
 
 27:                                               ; preds = %22

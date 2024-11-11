@@ -2587,7 +2587,7 @@ cvAltSum.exit27.i.i.i:                            ; preds = %.preheader.i20.i.i.
   %682 = call double @llvm.fmuladd.f64(double %680, double %667, double %681)
   store double %682, ptr %678, align 8
   %indvars.iv.next49.i.i.i.i = add nsw i64 %indvars.iv48.i.i.i.i, -1
-  %683 = icmp ugt i64 %indvars.iv48.i.i.i.i, 1
+  %683 = icmp samesign ugt i64 %indvars.iv48.i.i.i.i, 1
   br i1 %683, label %.lr.ph45.i.i.i.i, label %._crit_edge46.i.i.i.i
 
 ._crit_edge46.i.i.i.i:                            ; preds = %.lr.ph45.i.i.i.i, %.preheader.i35.i.i.i
@@ -3410,7 +3410,7 @@ cvRescale.exit109.i.i:                            ; preds = %.lr.ph.i105.i.i, %1
   %1069 = load double, ptr %1068, align 8
   %1070 = getelementptr inbounds [14 x double], ptr %375, i64 0, i64 %indvars.iv.i95.i
   store double %1069, ptr %1070, align 8
-  %1071 = icmp ugt i64 %indvars.iv.i95.i, 2
+  %1071 = icmp samesign ugt i64 %indvars.iv.i95.i, 2
   br i1 %1071, label %1067, label %._crit_edge.i93.i
 
 ._crit_edge.i93.i:                                ; preds = %1067, %1058

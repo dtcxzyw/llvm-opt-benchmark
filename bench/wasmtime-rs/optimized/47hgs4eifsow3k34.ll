@@ -1232,7 +1232,7 @@ define internal fastcc void @_ZN16wasmtime_runtime9component8libcalls17run_utf8_
   %38 = and i8 %36, 63
   %39 = zext nneg i8 %38 to i32
   %40 = or disjoint i32 %37, %39
-  %41 = icmp ugt i8 %30, -33
+  %41 = icmp samesign ugt i8 %30, -33
   br i1 %41, label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hcc82d61b7f5d2dadE.exit15.i.i.i", label %_ZN4core4char7methods16encode_utf16_raw17h320237ac03d2da94E.exit.i.i
 
 42:                                               ; preds = %28
@@ -1250,7 +1250,7 @@ define internal fastcc void @_ZN16wasmtime_runtime9component8libcalls17run_utf8_
   %50 = or disjoint i32 %47, %49
   %51 = shl nuw nsw i32 %33, 12
   %52 = or disjoint i32 %50, %51
-  %53 = icmp ugt i8 %30, -17
+  %53 = icmp samesign ugt i8 %30, -17
   br i1 %53, label %54, label %.thread8.i.i
 
 54:                                               ; preds = %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hcc82d61b7f5d2dadE.exit15.i.i.i"
@@ -1271,7 +1271,7 @@ define internal fastcc void @_ZN16wasmtime_runtime9component8libcalls17run_utf8_
 .thread8.i.i:                                     ; preds = %54, %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hcc82d61b7f5d2dadE.exit15.i.i.i"
   %.sroa.015.3 = phi ptr [ %56, %54 ], [ %45, %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hcc82d61b7f5d2dadE.exit15.i.i.i" ]
   %.sroa.4.0.i.ph10.i.i = phi i32 [ %64, %54 ], [ %52, %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hcc82d61b7f5d2dadE.exit15.i.i.i" ]
-  %66 = icmp ugt i32 %.sroa.4.0.i.ph10.i.i, 65535
+  %66 = icmp samesign ugt i32 %.sroa.4.0.i.ph10.i.i, 65535
   br i1 %66, label %68, label %_ZN4core4char7methods16encode_utf16_raw17h320237ac03d2da94E.exit.i.i
 
 _ZN4core4char7methods16encode_utf16_raw17h320237ac03d2da94E.exit.i.i: ; preds = %.thread8.i.i, %42, %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hcc82d61b7f5d2dadE.exit13.i.i.i"
@@ -1558,7 +1558,7 @@ _ZN16wasmtime_runtime9component8libcalls17assert_no_overlap17hec5426d07a251dedE.
 
 122:                                              ; preds = %118, %120, %51
   %.0 = phi i64 [ 1, %51 ], [ %., %120 ], [ 2, %118 ]
-  %123 = icmp ult i64 %.sroa.5.0, %.0
+  %123 = icmp samesign ult i64 %.sroa.5.0, %.0
   br i1 %123, label %38, label %53
 
 124:                                              ; preds = %99, %86, %78, %76

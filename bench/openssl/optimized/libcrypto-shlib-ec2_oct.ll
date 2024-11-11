@@ -326,7 +326,7 @@ while.end:                                        ; preds = %while.body.preheade
   br i1 %cmp78.not, label %if.end81, label %if.then118.sink.split
 
 if.end81:                                         ; preds = %while.end
-  %or.cond2.not = icmp ult i32 %form, 4
+  %or.cond2.not = icmp samesign ult i32 %form, 4
   br i1 %or.cond2.not, label %if.end108, label %if.then86
 
 if.then86:                                        ; preds = %if.end81

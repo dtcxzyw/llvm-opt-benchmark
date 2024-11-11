@@ -799,7 +799,7 @@ for.body.lr.ph:                                   ; preds = %for.cond.preheader
   %sub.i.i = xor i64 %notmask.i.i, -1
   %retval.0.i.i = select i1 %cmp.i.i, i64 -1, i64 %sub.i.i
   %sub.i18 = add i64 %count, 63
-  %cmp.i.i.i = icmp ugt i64 %count, 63
+  %cmp.i.i.i = icmp samesign ugt i64 %count, 63
   %retval.0.i.i.i = select i1 %cmp.i.i.i, i64 -1, i64 %sub.i.i
   br label %for.body
 

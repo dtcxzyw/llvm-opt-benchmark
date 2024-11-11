@@ -2959,11 +2959,11 @@ define internal void @_ZN12_GLOBAL__N_110SequenceOp5applyERN4llvm9SetTheoryEPKNS
   unreachable
 
 106:                                              ; preds = %97
-  %.not82 = icmp ugt i64 %84, %99
+  %.not82 = icmp samesign ugt i64 %84, %99
   %107 = sub nsw i32 0, %.0
   %108 = select i1 %.not82, i32 %107, i32 %.0
   %109 = icmp sgt i32 %108, 0
-  %110 = icmp ugt i64 %84, %99
+  %110 = icmp samesign ugt i64 %84, %99
   %or.cond8597 = and i1 %109, %110
   br i1 %or.cond8597, label %._crit_edge, label %.lr.ph
 

@@ -29,7 +29,7 @@ while.body:                                       ; preds = %entry, %while.body
   %incdec.ptr1 = getelementptr inbounds i8, ptr %us.addr.04, i64 2
   store i16 %conv, ptr %us.addr.04, align 2
   %dec = add nsw i32 %length.addr.03, -1
-  %cmp = icmp ugt i32 %length.addr.03, 1
+  %cmp = icmp samesign ugt i32 %length.addr.03, 1
   br i1 %cmp, label %while.body, label %while.end, !llvm.loop !4
 
 while.end:                                        ; preds = %while.body, %entry
@@ -899,7 +899,7 @@ while.body:                                       ; preds = %if.end, %while.body
   %dec = add nsw i32 %n.addr.112, -1
   %6 = load i8, ptr %incdec.ptr, align 1
   %tobool = icmp ne i8 %6, 0
-  %cmp1 = icmp ugt i32 %n.addr.112, 1
+  %cmp1 = icmp samesign ugt i32 %n.addr.112, 1
   %7 = select i1 %tobool, i1 %cmp1, i1 false
   br i1 %7, label %while.body, label %while.cond3.preheader, !llvm.loop !16
 
@@ -954,7 +954,7 @@ while.body:                                       ; preds = %if.end, %while.body
   %dec = add nsw i32 %n.addr.113, -1
   %6 = load i8, ptr %incdec.ptr, align 1
   %tobool = icmp ne i8 %6, 0
-  %cmp1 = icmp ugt i32 %n.addr.113, 1
+  %cmp1 = icmp samesign ugt i32 %n.addr.113, 1
   %7 = select i1 %tobool, i1 %cmp1, i1 false
   br i1 %7, label %while.body, label %while.cond7.preheader, !llvm.loop !17
 

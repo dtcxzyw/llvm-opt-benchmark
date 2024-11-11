@@ -1195,7 +1195,7 @@ for.body.i.i.i.i.i.i.i.i.i.i:                     ; preds = %for.body.i.i.i.i.i.
   %call2.i.i.i.i.i.i.i.i.i.i.i.i = call noundef double @_ZNK8QuantLib18GaussianQuadratureclIZNKS_30GaussianQuadMultidimIntegrator16scalarIntegratorILi9EEEdRKSt8functionIFdRKSt6vectorIdSaIdEEEEdEUldE_EEdRKT_(ptr noundef nonnull align 8 dereferenceable(144) %8, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp.i.i.i.i.i.i.i.i.i.i.i.i)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %ref.tmp.i.i.i.i.i.i.i.i.i.i.i.i) #13
   %46 = call double @llvm.fmuladd.f64(double %42, double %call2.i.i.i.i.i.i.i.i.i.i.i.i, double %sum.07.i.i.i.i.i.i.i.i.i.i)
-  %cmp.i.i.i.i.i.i.i.i.i.i = icmp ugt i64 %indvars.iv.i.i.i.i.i.i.i.i.i.i, 1
+  %cmp.i.i.i.i.i.i.i.i.i.i = icmp samesign ugt i64 %indvars.iv.i.i.i.i.i.i.i.i.i.i, 1
   br i1 %cmp.i.i.i.i.i.i.i.i.i.i, label %for.body.i.i.i.i.i.i.i.i.i.i, label %_ZZNK8QuantLib30GaussianQuadMultidimIntegrator16scalarIntegratorILi11EEEdRKSt8functionIFdRKSt6vectorIdSaIdEEEEdENKUldE_clEd.exit.i.i.i.i.i.i.i, !llvm.loop !60
 
 _ZZNK8QuantLib30GaussianQuadMultidimIntegrator16scalarIntegratorILi11EEEdRKSt8functionIFdRKSt6vectorIdSaIdEEEEdENKUldE_clEd.exit.i.i.i.i.i.i.i: ; preds = %for.body.i.i.i.i.i.i.i.i.i.i, %for.body.i.i.i.i.i.i.i
@@ -1219,7 +1219,7 @@ _ZZNK8QuantLib30GaussianQuadMultidimIntegrator16scalarIntegratorILi13EEEdRKSt8fu
 _ZNK8QuantLib18GaussianQuadratureclIZNKS_30GaussianQuadMultidimIntegrator16scalarIntegratorILi13EEEdRKSt8functionIFdRKSt6vectorIdSaIdEEEEdEUldE_EEdRKT_.exit: ; preds = %_ZZNK8QuantLib30GaussianQuadMultidimIntegrator16scalarIntegratorILi13EEEdRKSt8functionIFdRKSt6vectorIdSaIdEEEEdENKUldE_clEd.exit.i, %for.body.i.i.i
   %sum.0.lcssa.i = phi double [ 0.000000e+00, %for.body.i.i.i ], [ %49, %_ZZNK8QuantLib30GaussianQuadMultidimIntegrator16scalarIntegratorILi13EEEdRKSt8functionIFdRKSt6vectorIdSaIdEEEEdENKUldE_clEd.exit.i ]
   %50 = call double @llvm.fmuladd.f64(double %14, double %sum.0.lcssa.i, double %sum.07.i.i.i)
-  %cmp.i.i.i = icmp ugt i64 %indvars.iv.i.i.i, 1
+  %cmp.i.i.i = icmp samesign ugt i64 %indvars.iv.i.i.i, 1
   br i1 %cmp.i.i.i, label %for.body.i.i.i, label %_ZZNK8QuantLib30GaussianQuadMultidimIntegrator16scalarIntegratorILi15EEEdRKSt8functionIFdRKSt6vectorIdSaIdEEEEdENKUldE_clEd.exit, !llvm.loop !64
 
 _ZZNK8QuantLib30GaussianQuadMultidimIntegrator16scalarIntegratorILi15EEEdRKSt8functionIFdRKSt6vectorIdSaIdEEEEdENKUldE_clEd.exit: ; preds = %_ZNK8QuantLib18GaussianQuadratureclIZNKS_30GaussianQuadMultidimIntegrator16scalarIntegratorILi13EEEdRKSt8functionIFdRKSt6vectorIdSaIdEEEEdEUldE_EEdRKT_.exit, %for.body
@@ -1343,7 +1343,7 @@ for.body.i.i.i.i.i.i.i.i.i:                       ; preds = %for.body.i.i.i.i.i.
   %call2.i.i.i.i.i.i.i.i.i.i.i = call noundef double @_ZNK8QuantLib18GaussianQuadratureclIZNKS_30GaussianQuadMultidimIntegrator16scalarIntegratorILi9EEEdRKSt8functionIFdRKSt6vectorIdSaIdEEEEdEUldE_EEdRKT_(ptr noundef nonnull align 8 dereferenceable(144) %8, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp.i.i.i.i.i.i.i.i.i.i.i)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %ref.tmp.i.i.i.i.i.i.i.i.i.i.i) #13
   %32 = call double @llvm.fmuladd.f64(double %28, double %call2.i.i.i.i.i.i.i.i.i.i.i, double %sum.07.i.i.i.i.i.i.i.i.i)
-  %cmp.i.i.i.i.i.i.i.i.i = icmp ugt i64 %indvars.iv.i.i.i.i.i.i.i.i.i, 1
+  %cmp.i.i.i.i.i.i.i.i.i = icmp samesign ugt i64 %indvars.iv.i.i.i.i.i.i.i.i.i, 1
   br i1 %cmp.i.i.i.i.i.i.i.i.i, label %for.body.i.i.i.i.i.i.i.i.i, label %_ZZNK8QuantLib30GaussianQuadMultidimIntegrator16scalarIntegratorILi11EEEdRKSt8functionIFdRKSt6vectorIdSaIdEEEEdENKUldE_clEd.exit.i.i.i.i.i.i, !llvm.loop !60
 
 _ZZNK8QuantLib30GaussianQuadMultidimIntegrator16scalarIntegratorILi11EEEdRKSt8functionIFdRKSt6vectorIdSaIdEEEEdENKUldE_clEd.exit.i.i.i.i.i.i: ; preds = %for.body.i.i.i.i.i.i.i.i.i, %for.body.i.i.i.i.i.i
@@ -1569,7 +1569,7 @@ _ZZNK8QuantLib30GaussianQuadMultidimIntegrator16scalarIntegratorILi2EEEdRKSt8fun
   %60 = load ptr, ptr %_M_invoker.i.i.i.i.i.i.i.i.i.i.i.i.i.i, align 8, !tbaa !50
   %call2.i.i.i.i.i.i.i.i.i.i.i.i.i.i = tail call noundef double %60(ptr noundef nonnull align 8 dereferenceable(32) %8, ptr noundef nonnull align 8 dereferenceable(24) %varBuffer_.i.i)
   %61 = tail call double @llvm.fmuladd.f64(double %55, double %call2.i.i.i.i.i.i.i.i.i.i.i.i.i.i, double %sum.08.i.i.i.i.i.i.i.i.i.i.i)
-  %cmp.i.i.i.i.i.i.i.i.i.i.i = icmp ugt i64 %indvars.iv.i.i.i.i.i.i.i.i.i.i.i, 1
+  %cmp.i.i.i.i.i.i.i.i.i.i.i = icmp samesign ugt i64 %indvars.iv.i.i.i.i.i.i.i.i.i.i.i, 1
   br i1 %cmp.i.i.i.i.i.i.i.i.i.i.i, label %for.body.i.i.i.i.i.i.i.i.i.i.i, label %_ZZNK8QuantLib30GaussianQuadMultidimIntegrator16scalarIntegratorILi3EEEdRKSt8functionIFdRKSt6vectorIdSaIdEEEEdENKUldE_clEd.exit.i.i.i.i.i.i.i.i, !llvm.loop !70
 
 _ZZNK8QuantLib30GaussianQuadMultidimIntegrator16scalarIntegratorILi3EEEdRKSt8functionIFdRKSt6vectorIdSaIdEEEEdENKUldE_clEd.exit.i.i.i.i.i.i.i.i: ; preds = %_ZZNK8QuantLib30GaussianQuadMultidimIntegrator16scalarIntegratorILi2EEEdRKSt8functionIFdRKSt6vectorIdSaIdEEEEdENKUldE_clEd.exit.i.i.i.i.i.i.i.i.i.i.i, %for.body.i.i.i.i.i.i.i.i
@@ -1593,7 +1593,7 @@ _ZZNK8QuantLib30GaussianQuadMultidimIntegrator16scalarIntegratorILi5EEEdRKSt8fun
 _ZNK8QuantLib18GaussianQuadratureclIZNKS_30GaussianQuadMultidimIntegrator16scalarIntegratorILi5EEEdRKSt8functionIFdRKSt6vectorIdSaIdEEEEdEUldE_EEdRKT_.exit.i: ; preds = %_ZZNK8QuantLib30GaussianQuadMultidimIntegrator16scalarIntegratorILi5EEEdRKSt8functionIFdRKSt6vectorIdSaIdEEEEdENKUldE_clEd.exit.i.i, %for.body.i.i.i.i
   %sum.0.lcssa.i.i = phi double [ 0.000000e+00, %for.body.i.i.i.i ], [ %64, %_ZZNK8QuantLib30GaussianQuadMultidimIntegrator16scalarIntegratorILi5EEEdRKSt8functionIFdRKSt6vectorIdSaIdEEEEdENKUldE_clEd.exit.i.i ]
   %65 = tail call double @llvm.fmuladd.f64(double %27, double %sum.0.lcssa.i.i, double %sum.07.i.i.i.i)
-  %cmp.i.i.i.i = icmp ugt i64 %indvars.iv.i.i.i.i, 1
+  %cmp.i.i.i.i = icmp samesign ugt i64 %indvars.iv.i.i.i.i, 1
   br i1 %cmp.i.i.i.i, label %for.body.i.i.i.i, label %_ZZNK8QuantLib30GaussianQuadMultidimIntegrator16scalarIntegratorILi7EEEdRKSt8functionIFdRKSt6vectorIdSaIdEEEEdENKUldE_clEd.exit.i, !llvm.loop !74
 
 _ZZNK8QuantLib30GaussianQuadMultidimIntegrator16scalarIntegratorILi7EEEdRKSt8functionIFdRKSt6vectorIdSaIdEEEEdENKUldE_clEd.exit.i: ; preds = %_ZNK8QuantLib18GaussianQuadratureclIZNKS_30GaussianQuadMultidimIntegrator16scalarIntegratorILi5EEEdRKSt8functionIFdRKSt6vectorIdSaIdEEEEdEUldE_EEdRKT_.exit.i, %for.body.i
@@ -1605,7 +1605,7 @@ _ZZNK8QuantLib30GaussianQuadMultidimIntegrator16scalarIntegratorILi7EEEdRKSt8fun
 _ZNK8QuantLib18GaussianQuadratureclIZNKS_30GaussianQuadMultidimIntegrator16scalarIntegratorILi7EEEdRKSt8functionIFdRKSt6vectorIdSaIdEEEEdEUldE_EEdRKT_.exit: ; preds = %_ZZNK8QuantLib30GaussianQuadMultidimIntegrator16scalarIntegratorILi7EEEdRKSt8functionIFdRKSt6vectorIdSaIdEEEEdENKUldE_clEd.exit.i, %for.body.i.i.i
   %sum.0.lcssa.i = phi double [ 0.000000e+00, %for.body.i.i.i ], [ %66, %_ZZNK8QuantLib30GaussianQuadMultidimIntegrator16scalarIntegratorILi7EEEdRKSt8functionIFdRKSt6vectorIdSaIdEEEEdENKUldE_clEd.exit.i ]
   %67 = tail call double @llvm.fmuladd.f64(double %13, double %sum.0.lcssa.i, double %sum.07.i.i.i)
-  %cmp.i.i.i = icmp ugt i64 %indvars.iv.i.i.i, 1
+  %cmp.i.i.i = icmp samesign ugt i64 %indvars.iv.i.i.i, 1
   br i1 %cmp.i.i.i, label %for.body.i.i.i, label %_ZZNK8QuantLib30GaussianQuadMultidimIntegrator16scalarIntegratorILi9EEEdRKSt8functionIFdRKSt6vectorIdSaIdEEEEdENKUldE_clEd.exit, !llvm.loop !76
 
 _ZZNK8QuantLib30GaussianQuadMultidimIntegrator16scalarIntegratorILi9EEEdRKSt8functionIFdRKSt6vectorIdSaIdEEEEdENKUldE_clEd.exit: ; preds = %_ZNK8QuantLib18GaussianQuadratureclIZNKS_30GaussianQuadMultidimIntegrator16scalarIntegratorILi7EEEdRKSt8functionIFdRKSt6vectorIdSaIdEEEEdEUldE_EEdRKT_.exit, %for.body
@@ -1775,7 +1775,7 @@ _ZZNK8QuantLib30GaussianQuadMultidimIntegrator16scalarIntegratorILi2EEEdRKSt8fun
   %46 = load ptr, ptr %_M_invoker.i.i.i.i.i.i.i.i.i.i.i.i.i, align 8, !tbaa !50
   %call2.i.i.i.i.i.i.i.i.i.i.i.i.i = tail call noundef double %46(ptr noundef nonnull align 8 dereferenceable(32) %8, ptr noundef nonnull align 8 dereferenceable(24) %varBuffer_.i.i)
   %47 = tail call double @llvm.fmuladd.f64(double %41, double %call2.i.i.i.i.i.i.i.i.i.i.i.i.i, double %sum.08.i.i.i.i.i.i.i.i.i.i)
-  %cmp.i.i.i.i.i.i.i.i.i.i = icmp ugt i64 %indvars.iv.i.i.i.i.i.i.i.i.i.i, 1
+  %cmp.i.i.i.i.i.i.i.i.i.i = icmp samesign ugt i64 %indvars.iv.i.i.i.i.i.i.i.i.i.i, 1
   br i1 %cmp.i.i.i.i.i.i.i.i.i.i, label %for.body.i.i.i.i.i.i.i.i.i.i, label %_ZZNK8QuantLib30GaussianQuadMultidimIntegrator16scalarIntegratorILi3EEEdRKSt8functionIFdRKSt6vectorIdSaIdEEEEdENKUldE_clEd.exit.i.i.i.i.i.i.i, !llvm.loop !70
 
 _ZZNK8QuantLib30GaussianQuadMultidimIntegrator16scalarIntegratorILi3EEEdRKSt8functionIFdRKSt6vectorIdSaIdEEEEdENKUldE_clEd.exit.i.i.i.i.i.i.i: ; preds = %_ZZNK8QuantLib30GaussianQuadMultidimIntegrator16scalarIntegratorILi2EEEdRKSt8functionIFdRKSt6vectorIdSaIdEEEEdENKUldE_clEd.exit.i.i.i.i.i.i.i.i.i.i, %for.body.i.i.i.i.i.i.i
@@ -1799,7 +1799,7 @@ _ZZNK8QuantLib30GaussianQuadMultidimIntegrator16scalarIntegratorILi5EEEdRKSt8fun
 _ZNK8QuantLib18GaussianQuadratureclIZNKS_30GaussianQuadMultidimIntegrator16scalarIntegratorILi5EEEdRKSt8functionIFdRKSt6vectorIdSaIdEEEEdEUldE_EEdRKT_.exit: ; preds = %_ZZNK8QuantLib30GaussianQuadMultidimIntegrator16scalarIntegratorILi5EEEdRKSt8functionIFdRKSt6vectorIdSaIdEEEEdENKUldE_clEd.exit.i, %for.body.i.i.i
   %sum.0.lcssa.i = phi double [ 0.000000e+00, %for.body.i.i.i ], [ %50, %_ZZNK8QuantLib30GaussianQuadMultidimIntegrator16scalarIntegratorILi5EEEdRKSt8functionIFdRKSt6vectorIdSaIdEEEEdENKUldE_clEd.exit.i ]
   %51 = tail call double @llvm.fmuladd.f64(double %13, double %sum.0.lcssa.i, double %sum.07.i.i.i)
-  %cmp.i.i.i = icmp ugt i64 %indvars.iv.i.i.i, 1
+  %cmp.i.i.i = icmp samesign ugt i64 %indvars.iv.i.i.i, 1
   br i1 %cmp.i.i.i, label %for.body.i.i.i, label %_ZZNK8QuantLib30GaussianQuadMultidimIntegrator16scalarIntegratorILi7EEEdRKSt8functionIFdRKSt6vectorIdSaIdEEEEdENKUldE_clEd.exit, !llvm.loop !74
 
 _ZZNK8QuantLib30GaussianQuadMultidimIntegrator16scalarIntegratorILi7EEEdRKSt8functionIFdRKSt6vectorIdSaIdEEEEdENKUldE_clEd.exit: ; preds = %_ZNK8QuantLib18GaussianQuadratureclIZNKS_30GaussianQuadMultidimIntegrator16scalarIntegratorILi5EEEdRKSt8functionIFdRKSt6vectorIdSaIdEEEEdEUldE_EEdRKT_.exit, %for.body
@@ -1925,7 +1925,7 @@ _ZZNK8QuantLib30GaussianQuadMultidimIntegrator16scalarIntegratorILi2EEEdRKSt8fun
   %32 = load ptr, ptr %_M_invoker.i.i.i.i.i.i.i.i.i.i.i.i, align 8, !tbaa !50
   %call2.i.i.i.i.i.i.i.i.i.i.i.i = tail call noundef double %32(ptr noundef nonnull align 8 dereferenceable(32) %8, ptr noundef nonnull align 8 dereferenceable(24) %varBuffer_.i.i)
   %33 = tail call double @llvm.fmuladd.f64(double %27, double %call2.i.i.i.i.i.i.i.i.i.i.i.i, double %sum.08.i.i.i.i.i.i.i.i.i)
-  %cmp.i.i.i.i.i.i.i.i.i = icmp ugt i64 %indvars.iv.i.i.i.i.i.i.i.i.i, 1
+  %cmp.i.i.i.i.i.i.i.i.i = icmp samesign ugt i64 %indvars.iv.i.i.i.i.i.i.i.i.i, 1
   br i1 %cmp.i.i.i.i.i.i.i.i.i, label %for.body.i.i.i.i.i.i.i.i.i, label %_ZZNK8QuantLib30GaussianQuadMultidimIntegrator16scalarIntegratorILi3EEEdRKSt8functionIFdRKSt6vectorIdSaIdEEEEdENKUldE_clEd.exit.i.i.i.i.i.i, !llvm.loop !70
 
 _ZZNK8QuantLib30GaussianQuadMultidimIntegrator16scalarIntegratorILi3EEEdRKSt8functionIFdRKSt6vectorIdSaIdEEEEdENKUldE_clEd.exit.i.i.i.i.i.i: ; preds = %_ZZNK8QuantLib30GaussianQuadMultidimIntegrator16scalarIntegratorILi2EEEdRKSt8functionIFdRKSt6vectorIdSaIdEEEEdENKUldE_clEd.exit.i.i.i.i.i.i.i.i.i, %for.body.i.i.i.i.i.i
@@ -5409,7 +5409,7 @@ for.body.i.i.i:                                   ; preds = %call2.i.i.i.i.i.noe
 call2.i.i.i.i.i.noexc:                            ; preds = %for.body.i.i.i
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %ref.tmp.i.i.i.i.i) #13
   %13 = call double @llvm.fmuladd.f64(double %9, double %call2.i.i.i.i.i1, double %sum.07.i.i.i)
-  %cmp.i.i.i = icmp ugt i64 %indvars.iv.i.i.i, 1
+  %cmp.i.i.i = icmp samesign ugt i64 %indvars.iv.i.i.i, 1
   br i1 %cmp.i.i.i, label %for.body.i.i.i, label %invoke.cont.loopexit, !llvm.loop !64
 
 invoke.cont.loopexit:                             ; preds = %call2.i.i.i.i.i.noexc
@@ -5976,7 +5976,7 @@ for.body.i.i.i.i.i.i.i.i.i:                       ; preds = %call2.i.i.i.i.i.i.i
 call2.i.i.i.i.i.i.i.i.i.i.i.noexc:                ; preds = %for.body.i.i.i.i.i.i.i.i.i
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %ref.tmp.i.i.i.i.i.i.i.i.i.i.i) #13
   %27 = call double @llvm.fmuladd.f64(double %23, double %call2.i.i.i.i.i.i.i.i.i.i.i1, double %sum.07.i.i.i.i.i.i.i.i.i)
-  %cmp.i.i.i.i.i.i.i.i.i = icmp ugt i64 %indvars.iv.i.i.i.i.i.i.i.i.i, 1
+  %cmp.i.i.i.i.i.i.i.i.i = icmp samesign ugt i64 %indvars.iv.i.i.i.i.i.i.i.i.i, 1
   br i1 %cmp.i.i.i.i.i.i.i.i.i, label %for.body.i.i.i.i.i.i.i.i.i, label %_ZZNK8QuantLib30GaussianQuadMultidimIntegrator16scalarIntegratorILi11EEEdRKSt8functionIFdRKSt6vectorIdSaIdEEEEdENKUldE_clEd.exit.i.i.i.i.i.i, !llvm.loop !60
 
 _ZZNK8QuantLib30GaussianQuadMultidimIntegrator16scalarIntegratorILi11EEEdRKSt8functionIFdRKSt6vectorIdSaIdEEEEdENKUldE_clEd.exit.i.i.i.i.i.i: ; preds = %call2.i.i.i.i.i.i.i.i.i.i.i.noexc, %for.body.i.i.i.i.i.i
@@ -6291,7 +6291,7 @@ for.body.i.i.i.i.i.i:                             ; preds = %call2.i.i.i.i.i.i.i
 call2.i.i.i.i.i.i.i.i.noexc:                      ; preds = %for.body.i.i.i.i.i.i
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %ref.tmp.i.i.i.i.i.i.i.i) #13
   %20 = call double @llvm.fmuladd.f64(double %16, double %call2.i.i.i.i.i.i.i.i1, double %sum.07.i.i.i.i.i.i)
-  %cmp.i.i.i.i.i.i = icmp ugt i64 %indvars.iv.i.i.i.i.i.i, 1
+  %cmp.i.i.i.i.i.i = icmp samesign ugt i64 %indvars.iv.i.i.i.i.i.i, 1
   br i1 %cmp.i.i.i.i.i.i, label %for.body.i.i.i.i.i.i, label %_ZZNK8QuantLib30GaussianQuadMultidimIntegrator16scalarIntegratorILi11EEEdRKSt8functionIFdRKSt6vectorIdSaIdEEEEdENKUldE_clEd.exit.i.i.i, !llvm.loop !60
 
 _ZZNK8QuantLib30GaussianQuadMultidimIntegrator16scalarIntegratorILi11EEEdRKSt8functionIFdRKSt6vectorIdSaIdEEEEdENKUldE_clEd.exit.i.i.i: ; preds = %call2.i.i.i.i.i.i.i.i.noexc, %for.body.i.i.i
@@ -6578,7 +6578,7 @@ for.body.i.i.i:                                   ; preds = %call2.i.i.i.i.i.noe
 call2.i.i.i.i.i.noexc:                            ; preds = %for.body.i.i.i
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %ref.tmp.i.i.i.i.i) #13
   %13 = call double @llvm.fmuladd.f64(double %9, double %call2.i.i.i.i.i1, double %sum.07.i.i.i)
-  %cmp.i.i.i = icmp ugt i64 %indvars.iv.i.i.i, 1
+  %cmp.i.i.i = icmp samesign ugt i64 %indvars.iv.i.i.i, 1
   br i1 %cmp.i.i.i, label %for.body.i.i.i, label %invoke.cont.loopexit, !llvm.loop !60
 
 invoke.cont.loopexit:                             ; preds = %call2.i.i.i.i.i.noexc
@@ -7101,7 +7101,7 @@ for.body.i.i.i:                                   ; preds = %call2.i.i.i.i.i.noe
 call2.i.i.i.i.i.noexc:                            ; preds = %for.body.i.i.i
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %ref.tmp.i.i.i.i.i) #13
   %13 = call double @llvm.fmuladd.f64(double %9, double %call2.i.i.i.i.i1, double %sum.07.i.i.i)
-  %cmp.i.i.i = icmp ugt i64 %indvars.iv.i.i.i, 1
+  %cmp.i.i.i = icmp samesign ugt i64 %indvars.iv.i.i.i, 1
   br i1 %cmp.i.i.i, label %for.body.i.i.i, label %invoke.cont.loopexit, !llvm.loop !76
 
 invoke.cont.loopexit:                             ; preds = %call2.i.i.i.i.i.noexc
@@ -7624,7 +7624,7 @@ for.body.i.i.i:                                   ; preds = %call2.i.i.i.i.i.noe
 call2.i.i.i.i.i.noexc:                            ; preds = %for.body.i.i.i
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %ref.tmp.i.i.i.i.i) #13
   %13 = call double @llvm.fmuladd.f64(double %9, double %call2.i.i.i.i.i1, double %sum.07.i.i.i)
-  %cmp.i.i.i = icmp ugt i64 %indvars.iv.i.i.i, 1
+  %cmp.i.i.i = icmp samesign ugt i64 %indvars.iv.i.i.i, 1
   br i1 %cmp.i.i.i, label %for.body.i.i.i, label %invoke.cont.loopexit, !llvm.loop !74
 
 invoke.cont.loopexit:                             ; preds = %call2.i.i.i.i.i.noexc
@@ -8198,7 +8198,7 @@ _ZZNK8QuantLib30GaussianQuadMultidimIntegrator16scalarIntegratorILi2EEEdRKSt8fun
 
 call2.i.i.i.i.i.i.i.i.i.i.i.i.noexc:              ; preds = %_ZZNK8QuantLib30GaussianQuadMultidimIntegrator16scalarIntegratorILi2EEEdRKSt8functionIFdRKSt6vectorIdSaIdEEEEdENKUldE_clEd.exit.i.i.i.i.i.i.i.i.i
   %28 = call double @llvm.fmuladd.f64(double %22, double %call2.i.i.i.i.i.i.i.i.i.i.i.i1, double %sum.08.i.i.i.i.i.i.i.i.i)
-  %cmp.i.i.i.i.i.i.i.i.i = icmp ugt i64 %indvars.iv.i.i.i.i.i.i.i.i.i, 1
+  %cmp.i.i.i.i.i.i.i.i.i = icmp samesign ugt i64 %indvars.iv.i.i.i.i.i.i.i.i.i, 1
   br i1 %cmp.i.i.i.i.i.i.i.i.i, label %for.body.i.i.i.i.i.i.i.i.i, label %_ZZNK8QuantLib30GaussianQuadMultidimIntegrator16scalarIntegratorILi3EEEdRKSt8functionIFdRKSt6vectorIdSaIdEEEEdENKUldE_clEd.exit.i.i.i.i.i.i, !llvm.loop !70
 
 _ZZNK8QuantLib30GaussianQuadMultidimIntegrator16scalarIntegratorILi3EEEdRKSt8functionIFdRKSt6vectorIdSaIdEEEEdENKUldE_clEd.exit.i.i.i.i.i.i: ; preds = %call2.i.i.i.i.i.i.i.i.i.i.i.i.noexc, %for.body.i.i.i.i.i.i
@@ -8602,7 +8602,7 @@ _ZZNK8QuantLib30GaussianQuadMultidimIntegrator16scalarIntegratorILi2EEEdRKSt8fun
 
 call2.i.i.i.i.i.i.i.i.i.noexc:                    ; preds = %_ZZNK8QuantLib30GaussianQuadMultidimIntegrator16scalarIntegratorILi2EEEdRKSt8functionIFdRKSt6vectorIdSaIdEEEEdENKUldE_clEd.exit.i.i.i.i.i.i
   %21 = call double @llvm.fmuladd.f64(double %15, double %call2.i.i.i.i.i.i.i.i.i1, double %sum.08.i.i.i.i.i.i)
-  %cmp.i.i.i.i.i.i = icmp ugt i64 %indvars.iv.i.i.i.i.i.i, 1
+  %cmp.i.i.i.i.i.i = icmp samesign ugt i64 %indvars.iv.i.i.i.i.i.i, 1
   br i1 %cmp.i.i.i.i.i.i, label %for.body.i.i.i.i.i.i, label %_ZZNK8QuantLib30GaussianQuadMultidimIntegrator16scalarIntegratorILi3EEEdRKSt8functionIFdRKSt6vectorIdSaIdEEEEdENKUldE_clEd.exit.i.i.i, !llvm.loop !70
 
 _ZZNK8QuantLib30GaussianQuadMultidimIntegrator16scalarIntegratorILi3EEEdRKSt8functionIFdRKSt6vectorIdSaIdEEEEdENKUldE_clEd.exit.i.i.i: ; preds = %call2.i.i.i.i.i.i.i.i.i.noexc, %for.body.i.i.i
@@ -8815,7 +8815,7 @@ _ZZNK8QuantLib30GaussianQuadMultidimIntegrator16scalarIntegratorILi2EEEdRKSt8fun
 
 call2.i.i.i.i.i.i.noexc:                          ; preds = %_ZZNK8QuantLib30GaussianQuadMultidimIntegrator16scalarIntegratorILi2EEEdRKSt8functionIFdRKSt6vectorIdSaIdEEEEdENKUldE_clEd.exit.i.i.i
   %14 = call double @llvm.fmuladd.f64(double %8, double %call2.i.i.i.i.i.i1, double %sum.08.i.i.i)
-  %cmp.i.i.i = icmp ugt i64 %indvars.iv.i.i.i, 1
+  %cmp.i.i.i = icmp samesign ugt i64 %indvars.iv.i.i.i, 1
   br i1 %cmp.i.i.i, label %for.body.i.i.i, label %invoke.cont.loopexit, !llvm.loop !70
 
 invoke.cont.loopexit:                             ; preds = %call2.i.i.i.i.i.i.noexc

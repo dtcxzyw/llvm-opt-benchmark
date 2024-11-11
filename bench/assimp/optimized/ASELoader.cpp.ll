@@ -2017,7 +2017,7 @@ for.body.i.i.i.i.i.i:                             ; preds = %if.then27.i, %for.b
   %incdec.ptr.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__first.addr.07.i.i.i.i.i.i, i64 8
   %incdec.ptr1.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__result.addr.08.i.i.i.i.i.i, i64 8
   %dec.i.i.i.i.i.i = add nsw i64 %__n.09.i.i.i.i.i.i, -1
-  %cmp.i.i.i.i.i.i = icmp ugt i64 %__n.09.i.i.i.i.i.i, 1
+  %cmp.i.i.i.i.i.i = icmp samesign ugt i64 %__n.09.i.i.i.i.i.i, 1
   br i1 %cmp.i.i.i.i.i.i, label %for.body.i.i.i.i.i.i, label %if.end69.i, !llvm.loop !21
 
 if.else49.i:                                      ; preds = %if.else.i246
@@ -2038,7 +2038,7 @@ for.body.i.i.i.i.i37.i:                           ; preds = %if.else49.i, %for.b
   %incdec.ptr.i.i.i.i.i43.i = getelementptr inbounds i8, ptr %__first.addr.07.i.i.i.i.i40.i, i64 8
   %incdec.ptr1.i.i.i.i.i44.i = getelementptr inbounds i8, ptr %__result.addr.08.i.i.i.i.i39.i, i64 8
   %dec.i.i.i.i.i45.i = add nsw i64 %__n.09.i.i.i.i.i38.i, -1
-  %cmp.i.i.i.i.i46.i = icmp ugt i64 %__n.09.i.i.i.i.i38.i, 1
+  %cmp.i.i.i.i.i46.i = icmp samesign ugt i64 %__n.09.i.i.i.i.i38.i, 1
   br i1 %cmp.i.i.i.i.i46.i, label %for.body.i.i.i.i.i37.i, label %_ZSt4copyIPSt4pairIifES2_ET0_T_S4_S3_.exit.loopexit.i, !llvm.loop !22
 
 _ZSt4copyIPSt4pairIifES2_ET0_T_S4_S3_.exit.loopexit.i: ; preds = %for.body.i.i.i.i.i37.i

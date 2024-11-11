@@ -187,7 +187,7 @@ if.else.i.i:                                      ; preds = %if.then25.i.i
 
 arena_ichoose.exit:                               ; preds = %if.then5.i.i, %if.then3.i.i.i, %cond.end.i.i, %if.then21.i.i, %do.end33.i.i, %if.then37.i.i, %if.else.i.i
   %retval.0.i.i = phi ptr [ %call4.i.i.i, %if.then3.i.i.i ], [ %10, %if.then5.i.i ], [ %call23.i.i, %if.then37.i.i ], [ %call23.i.i, %do.end33.i.i ], [ %call23.i.i, %if.else.i.i ], [ %call23.i.i, %if.then21.i.i ], [ %11, %cond.end.i.i ]
-  %cmp.i161 = icmp ult i64 %retval.i.0, 14337
+  %cmp.i161 = icmp samesign ult i64 %retval.i.0, 14337
   %call12.i = tail call ptr @arena_palloc(ptr noundef nonnull %tsd, ptr noundef %retval.0.i.i, i64 noundef %retval.i.0, i64 noundef 64, i1 noundef zeroext true, i1 noundef zeroext %cmp.i161, ptr noundef null) #13
   %cmp.i155.not = icmp eq ptr %call12.i, null
   br i1 %cmp.i155.not, label %ipallocztm_explicit_slab.exit, label %emap_alloc_ctx_lookup.exit
@@ -497,7 +497,7 @@ if.else.i.i.i:                                    ; preds = %if.then25.i.i.i
 
 arena_ichoose.exit.i:                             ; preds = %if.else.i.i.i, %if.then37.i.i.i, %do.end33.i.i.i, %if.then21.i.i.i, %cond.end.i.i.i, %if.then3.i.i.i.i, %if.then5.i.i.i
   %retval.0.i.i.i = phi ptr [ %call4.i.i.i.i, %if.then3.i.i.i.i ], [ %11, %if.then5.i.i.i ], [ %call23.i.i.i, %if.then37.i.i.i ], [ %call23.i.i.i, %do.end33.i.i.i ], [ %call23.i.i.i, %if.else.i.i.i ], [ %call23.i.i.i, %if.then21.i.i.i ], [ %12, %cond.end.i.i.i ]
-  %cmp.i198.i = icmp ult i64 %retval.i.0.i, 14337
+  %cmp.i198.i = icmp samesign ult i64 %retval.i.0.i, 14337
   %call12.i189.i = call ptr @arena_palloc(ptr noundef nonnull %tsd, ptr noundef %retval.0.i.i.i, i64 noundef %retval.i.0.i, i64 noundef 64, i1 noundef zeroext true, i1 noundef zeroext %cmp.i198.i, ptr noundef null) #13
   %cond.i = icmp eq ptr %call12.i189.i, null
   br i1 %cond.i, label %ckh_grow.exit.thread, label %emap_alloc_ctx_lookup.exit.i
@@ -1205,7 +1205,7 @@ if.else.i.i.i:                                    ; preds = %if.then25.i.i.i
 
 arena_ichoose.exit.i:                             ; preds = %if.else.i.i.i, %if.then37.i.i.i, %do.end33.i.i.i, %if.then21.i.i.i, %cond.end.i.i.i, %if.then3.i.i.i.i, %if.then5.i.i.i
   %retval.0.i.i.i = phi ptr [ %call4.i.i.i.i, %if.then3.i.i.i.i ], [ %30, %if.then5.i.i.i ], [ %call23.i.i.i, %if.then37.i.i.i ], [ %call23.i.i.i, %do.end33.i.i.i ], [ %call23.i.i.i, %if.else.i.i.i ], [ %call23.i.i.i, %if.then21.i.i.i ], [ %31, %cond.end.i.i.i ]
-  %cmp.i198.i = icmp ult i64 %retval.i.0.i, 14337
+  %cmp.i198.i = icmp samesign ult i64 %retval.i.0.i, 14337
   %call12.i189.i = call ptr @arena_palloc(ptr noundef nonnull %tsd, ptr noundef %retval.0.i.i.i, i64 noundef %retval.i.0.i, i64 noundef 64, i1 noundef zeroext true, i1 noundef zeroext %cmp.i198.i, ptr noundef null) #13
   %cond.i = icmp eq ptr %call12.i189.i, null
   br i1 %cond.i, label %ckh_shrink.exit, label %emap_alloc_ctx_lookup.exit.i

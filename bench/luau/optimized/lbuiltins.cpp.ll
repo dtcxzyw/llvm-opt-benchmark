@@ -602,7 +602,7 @@ define internal noundef range(i32 -1, 2) i32 @_ZL9luauF_maxP9lua_StateP10lua_TVa
   %19 = load double, ptr %4, align 8
   %20 = fcmp ogt double %19, %18
   %21 = select i1 %20, double %19, double %18
-  %.not30 = icmp ult i32 %5, 3
+  %.not30 = icmp samesign ult i32 %5, 3
   br i1 %.not30, label %._crit_edge, label %.lr.ph.preheader
 
 .lr.ph.preheader:                                 ; preds = %17
@@ -664,7 +664,7 @@ define internal noundef range(i32 -1, 2) i32 @_ZL9luauF_minP9lua_StateP10lua_TVa
   %19 = load double, ptr %4, align 8
   %20 = fcmp olt double %19, %18
   %21 = select i1 %20, double %19, double %18
-  %.not30 = icmp ult i32 %5, 3
+  %.not30 = icmp samesign ult i32 %5, 3
   br i1 %.not30, label %._crit_edge, label %.lr.ph.preheader
 
 .lr.ph.preheader:                                 ; preds = %17
@@ -990,7 +990,7 @@ define internal noundef range(i32 -1, 2) i32 @_ZL10luauF_bandP9lua_StateP10lua_T
   %21 = fptosi double %19 to i64
   %22 = and i64 %21, %20
   %23 = trunc i64 %22 to i32
-  %.not29 = icmp ult i32 %5, 3
+  %.not29 = icmp samesign ult i32 %5, 3
   br i1 %.not29, label %._crit_edge, label %.lr.ph.preheader
 
 .lr.ph.preheader:                                 ; preds = %17
@@ -1085,7 +1085,7 @@ define internal noundef range(i32 -1, 2) i32 @_ZL9luauF_borP9lua_StateP10lua_TVa
   %21 = fptosi double %19 to i64
   %22 = or i64 %21, %20
   %23 = trunc i64 %22 to i32
-  %.not29 = icmp ult i32 %5, 3
+  %.not29 = icmp samesign ult i32 %5, 3
   br i1 %.not29, label %._crit_edge, label %.lr.ph.preheader
 
 .lr.ph.preheader:                                 ; preds = %17
@@ -1151,7 +1151,7 @@ define internal noundef range(i32 -1, 2) i32 @_ZL10luauF_bxorP9lua_StateP10lua_T
   %21 = fptosi double %19 to i64
   %22 = xor i64 %21, %20
   %23 = trunc i64 %22 to i32
-  %.not29 = icmp ult i32 %5, 3
+  %.not29 = icmp samesign ult i32 %5, 3
   br i1 %.not29, label %._crit_edge, label %.lr.ph.preheader
 
 .lr.ph.preheader:                                 ; preds = %17
@@ -1217,7 +1217,7 @@ define internal noundef range(i32 -1, 2) i32 @_ZL11luauF_btestP9lua_StateP10lua_
   %21 = fptosi double %19 to i64
   %22 = and i64 %21, %20
   %23 = trunc i64 %22 to i32
-  %.not29 = icmp ult i32 %5, 3
+  %.not29 = icmp samesign ult i32 %5, 3
   br i1 %.not29, label %._crit_edge, label %.lr.ph.preheader
 
 .lr.ph.preheader:                                 ; preds = %17
@@ -2271,7 +2271,7 @@ define internal noundef range(i32 -2147483647, -2147483648) i32 @_ZL13luauF_tunp
   %44 = trunc i64 %43 to i32
   %.not41 = icmp sle i32 %.037, %44
   %45 = add nuw nsw i32 %.037, %5
-  %46 = icmp ult i32 %45, 8001
+  %46 = icmp samesign ult i32 %45, 8001
   %or.cond43 = select i1 %.not41, i1 %46, i1 false
   br i1 %or.cond43, label %47, label %.thread
 

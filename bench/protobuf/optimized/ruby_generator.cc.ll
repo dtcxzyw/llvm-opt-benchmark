@@ -1382,7 +1382,7 @@ invoke.cont13.i.i.i7.i:                           ; preds = %invoke.cont5.i
 
 _ZN6google8protobuf2io7Printer5PrintIJEEEvSt17basic_string_viewIcSt11char_traitsIcEEDpRKT_.exit: ; preds = %invoke.cont5.i, %invoke.cont13.i.i.i7.i
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %map.i)
-  %cmp = icmp ugt i32 %levels.addr.04, 1
+  %cmp = icmp samesign ugt i32 %levels.addr.04, 1
   br i1 %cmp, label %while.body, label %while.end, !llvm.loop !56
 
 while.end:                                        ; preds = %_ZN6google8protobuf2io7Printer5PrintIJEEEvSt17basic_string_viewIcSt11char_traitsIcEEDpRKT_.exit, %entry
@@ -1962,7 +1962,7 @@ invoke.cont13.i.i.i7.i.i:                         ; preds = %invoke.cont5.i.i
 
 _ZN6google8protobuf2io7Printer5PrintIJEEEvSt17basic_string_viewIcSt11char_traitsIcEEDpRKT_.exit.i: ; preds = %invoke.cont13.i.i.i7.i.i, %invoke.cont5.i.i
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %map.i.i)
-  %cmp.i = icmp ugt i32 %levels.addr.04.i, 1
+  %cmp.i = icmp samesign ugt i32 %levels.addr.04.i, 1
   br i1 %cmp.i, label %while.body.i, label %_ZN6google8protobuf8compiler4ruby17EndPackageModulesEiPNS0_2io7PrinterE.exit, !llvm.loop !56
 
 _ZN6google8protobuf8compiler4ruby17EndPackageModulesEiPNS0_2io7PrinterE.exit: ; preds = %_ZN6google8protobuf2io7Printer5PrintIJEEEvSt17basic_string_viewIcSt11char_traitsIcEEDpRKT_.exit.i, %for.end31
@@ -2706,7 +2706,7 @@ if.end:                                           ; preds = %if.then
   br label %if.end27
 
 if.else:                                          ; preds = %entry
-  %cmp5 = icmp ugt i64 %len, 8
+  %cmp5 = icmp samesign ugt i64 %len, 8
   br i1 %cmp5, label %if.then6, label %if.else14
 
 if.then6:                                         ; preds = %if.else
@@ -2727,7 +2727,7 @@ if.then6:                                         ; preds = %if.else
   br label %return
 
 if.else14:                                        ; preds = %if.else
-  %cmp15 = icmp ugt i64 %len, 3
+  %cmp15 = icmp samesign ugt i64 %len, 3
   br i1 %cmp15, label %if.then16, label %if.else18
 
 if.then16:                                        ; preds = %if.else14

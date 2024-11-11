@@ -1377,7 +1377,7 @@ sub_0:                                            ; preds = %25
   br i1 %290, label %.thread60, label %291
 
 291:                                              ; preds = %288
-  %292 = icmp ugt i32 %1, 1
+  %292 = icmp samesign ugt i32 %1, 1
   br i1 %292, label %293, label %298
 
 293:                                              ; preds = %291
@@ -1712,7 +1712,7 @@ define internal fastcc noundef range(i32 -22, 2) i32 @message_stats_print(ptr no
   br i1 %18, label %334, label %19
 
 19:                                               ; preds = %11
-  %20 = icmp ugt i32 %1, 3
+  %20 = icmp samesign ugt i32 %1, 3
   br i1 %20, label %sub_0, label %37
 
 sub_0:                                            ; preds = %19
@@ -2306,7 +2306,7 @@ define internal fastcc i32 @dm_stats_create(ptr noundef %0, i64 noundef %1, i64 
   %30 = udiv i64 %29, %27
   %31 = shl nuw nsw i64 %20, 3
   %32 = icmp ne i64 %30, %31
-  %33 = icmp ugt i64 %28, 134217728
+  %33 = icmp samesign ugt i64 %28, 134217728
   %34 = or i1 %33, %32
   br i1 %34, label %213, label %35
 

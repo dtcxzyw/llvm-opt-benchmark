@@ -2184,15 +2184,15 @@ define void @_ZN4ring4test15parse_test_case17h56558da9db1a9fdaE(ptr noalias noca
   br i1 %153, label %_ZN5alloc6string6String3pop17hda4727335b5a2109E.exit.thread, label %154
 
 154:                                              ; preds = %148
-  %155 = icmp ult i32 %.013.i.i, 2
+  %155 = icmp samesign ult i32 %.013.i.i, 2
   br i1 %155, label %_ZN5alloc6string6String3pop17hda4727335b5a2109E.exit, label %156
 
 156:                                              ; preds = %154
-  %157 = icmp ult i32 %.013.i.i, 32
+  %157 = icmp samesign ult i32 %.013.i.i, 32
   br i1 %157, label %_ZN5alloc6string6String3pop17hda4727335b5a2109E.exit, label %158
 
 158:                                              ; preds = %156
-  %159 = icmp ult i32 %.013.i.i, 1024
+  %159 = icmp samesign ult i32 %.013.i.i, 1024
   %..i = select i1 %159, i64 -3, i64 -4
   br label %_ZN5alloc6string6String3pop17hda4727335b5a2109E.exit
 
@@ -2221,7 +2221,7 @@ _ZN5alloc6string6String3pop17hda4727335b5a2109E.exit.thread: ; preds = %148, %_Z
   %170 = and i8 %168, 63
   %171 = zext nneg i8 %170 to i32
   %172 = or disjoint i32 %169, %171
-  %173 = icmp ugt i8 %162, -33
+  %173 = icmp samesign ugt i8 %162, -33
   br i1 %173, label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h8b5fbdb0409945e9E.exit15.i.i", label %.thread13.i
 
 "_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h8b5fbdb0409945e9E.exit15.i.i": ; preds = %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h8b5fbdb0409945e9E.exit13.i.i"
@@ -2235,7 +2235,7 @@ _ZN5alloc6string6String3pop17hda4727335b5a2109E.exit.thread: ; preds = %148, %_Z
   %180 = or disjoint i32 %177, %179
   %181 = shl nuw nsw i32 %166, 12
   %182 = or disjoint i32 %180, %181
-  %183 = icmp ugt i8 %162, -17
+  %183 = icmp samesign ugt i8 %162, -17
   br i1 %183, label %184, label %.thread13.i
 
 184:                                              ; preds = %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h8b5fbdb0409945e9E.exit15.i.i"

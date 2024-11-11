@@ -1053,7 +1053,7 @@ _ZNK10OpenSubdiv6v3_6_03Bfr10FaceVertex18GetFaceIndexOffsetEi.exit: ; preds = %3
   %64 = add nsw i32 %.0813.i, -1
   %.0.in.i = load i16, ptr %63, align 2
   %.0.i = sext i16 %.0.in.i to i32
-  %65 = icmp ugt i32 %.0813.i, 1
+  %65 = icmp samesign ugt i32 %.0813.i, 1
   br i1 %65, label %59, label %_ZNK10OpenSubdiv6v3_6_03Bfr10FaceVertex12GetFaceAfterEi.exit49, !llvm.loop !10
 
 _ZNK10OpenSubdiv6v3_6_03Bfr10FaceVertex12GetFaceAfterEi.exit49: ; preds = %59, %50
@@ -1182,7 +1182,7 @@ _ZNK10OpenSubdiv6v3_6_03Bfr10FaceVertex18GetFaceIndexOffsetEi.exit56: ; preds = 
   %151 = add nsw i32 %.0813.i59, -1
   %.0.in.i60 = load i16, ptr %150, align 2
   %.0.i61 = sext i16 %.0.in.i60 to i32
-  %152 = icmp ugt i32 %.0813.i59, 1
+  %152 = icmp samesign ugt i32 %.0813.i59, 1
   br i1 %152, label %146, label %_ZNK10OpenSubdiv6v3_6_03Bfr10FaceVertex12GetFaceAfterEi.exit63, !llvm.loop !10
 
 _ZNK10OpenSubdiv6v3_6_03Bfr10FaceVertex12GetFaceAfterEi.exit63: ; preds = %146, %137
@@ -1308,7 +1308,7 @@ _ZNK10OpenSubdiv6v3_6_03Bfr10FaceVertex18GetFaceIndexOffsetEi.exit70: ; preds = 
   %235 = add nsw i32 %.0813.i73, -1
   %.0.in.i74 = load i16, ptr %234, align 2
   %.0.i75 = sext i16 %.0.in.i74 to i32
-  %236 = icmp ugt i32 %.0813.i73, 1
+  %236 = icmp samesign ugt i32 %.0813.i73, 1
   br i1 %236, label %230, label %_ZNK10OpenSubdiv6v3_6_03Bfr10FaceVertex12GetFaceAfterEi.exit77, !llvm.loop !10
 
 _ZNK10OpenSubdiv6v3_6_03Bfr10FaceVertex12GetFaceAfterEi.exit77: ; preds = %230, %221

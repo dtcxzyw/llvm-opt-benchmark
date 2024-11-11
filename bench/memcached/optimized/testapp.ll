@@ -3410,7 +3410,7 @@ if.then.i:                                        ; preds = %sw.epilog.i
   call void @llvm.memcpy.p0.p0.i64(ptr align 1 %add.ptr.i, ptr nonnull align 8 %command.i, i64 %len.0.i, i1 false)
   %2 = load volatile i8, ptr @hickup_thread_running, align 1
   %tobool.i = trunc i8 %2 to i1
-  %cmp.i = icmp ult i64 %add44.i, 66536
+  %cmp.i = icmp samesign ult i64 %add44.i, 66536
   %3 = and i1 %cmp.i, %tobool.i
   br i1 %3, label %while.body.i, label %test_binary_pipeline_hickup_chunk.exit, !llvm.loop !22
 

@@ -5780,7 +5780,7 @@ terminate.lpad.i130:                              ; preds = %if.then.i.i129
 
 if.end82:                                         ; preds = %invoke.cont7, %_ZN4absl12lts_202308028StatusOrItED2Ev.exit
   %rune.1 = phi i32 [ %rune.0, %_ZN4absl12lts_202308028StatusOrItED2Ev.exit ], [ %conv, %invoke.cont7 ]
-  %cmp83 = icmp ult i32 %rune.1, 128
+  %cmp83 = icmp samesign ult i32 %rune.1, 128
   br i1 %cmp83, label %if.then84, label %if.else88
 
 if.then84:                                        ; preds = %if.end82
@@ -5789,7 +5789,7 @@ if.then84:                                        ; preds = %if.end82
   br label %cleanup157.sink.split.sink.split
 
 if.else88:                                        ; preds = %if.end82
-  %cmp89 = icmp ult i32 %rune.1, 2048
+  %cmp89 = icmp samesign ult i32 %rune.1, 2048
   br i1 %cmp89, label %if.then90, label %if.else102
 
 if.then90:                                        ; preds = %if.else88
@@ -5805,7 +5805,7 @@ if.then90:                                        ; preds = %if.else88
   br label %cleanup157.sink.split.sink.split
 
 if.else102:                                       ; preds = %if.else88
-  %cmp103 = icmp ult i32 %rune.1, 65536
+  %cmp103 = icmp samesign ult i32 %rune.1, 65536
   %arrayidx114 = getelementptr inbounds i8, ptr %out_utf8, i64 1
   br i1 %cmp103, label %if.then104, label %if.then124
 

@@ -1633,7 +1633,7 @@ while.body:                                       ; preds = %entry, %while.body
   %inc = add i8 %val.04, 1
   %incdec.ptr = getelementptr inbounds i8, ptr %buf.addr.02, i64 1
   store i8 %val.04, ptr %buf.addr.02, align 1
-  %cmp = icmp ugt i32 %num.addr.03, 1
+  %cmp = icmp samesign ugt i32 %num.addr.03, 1
   br i1 %cmp, label %while.body, label %while.end, !llvm.loop !7
 
 while.end:                                        ; preds = %while.body, %entry

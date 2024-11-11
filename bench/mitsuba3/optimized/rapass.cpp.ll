@@ -1216,7 +1216,7 @@ define hidden noundef i32 @_ZN6asmjit9_abi_1_1010BaseRAPass13buildCFGViewsEv(ptr
   br i1 %196, label %197, label %212
 
 197:                                              ; preds = %191
-  %198 = icmp ult i32 %193, 1032
+  %198 = icmp samesign ult i32 %193, 1032
   br i1 %198, label %199, label %202
 
 199:                                              ; preds = %197
@@ -5190,7 +5190,7 @@ define linkonce_odr hidden void @_ZN6asmjit9_abi_1_1013ZoneBitVector7releaseEPNS
   br i1 %10, label %11, label %26
 
 11:                                               ; preds = %5
-  %12 = icmp ult i32 %7, 1032
+  %12 = icmp samesign ult i32 %7, 1032
   br i1 %12, label %13, label %16
 
 13:                                               ; preds = %11
@@ -5835,7 +5835,7 @@ define linkonce_odr hidden void @_ZN6asmjit9_abi_1_1010ZoneVectorIjE7releaseEPNS
   br i1 %10, label %11, label %26
 
 11:                                               ; preds = %5
-  %12 = icmp ult i32 %8, 129
+  %12 = icmp samesign ult i32 %8, 129
   br i1 %12, label %13, label %16
 
 13:                                               ; preds = %11
@@ -6232,7 +6232,7 @@ split:                                            ; preds = %125, %._crit_edge
 
 156:                                              ; preds = %154
   %157 = getelementptr inbounds i8, ptr %62, i64 %67
-  %158 = icmp ugt i64 %68, 1
+  %158 = icmp samesign ugt i64 %68, 1
   br i1 %158, label %159, label %.loopexit149
 
 159:                                              ; preds = %156

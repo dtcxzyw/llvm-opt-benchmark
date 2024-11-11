@@ -5351,7 +5351,7 @@ define internal fastcc void @_ZL9save_argsP14MacroAssembleriiP9VMRegPair(ptr nou
   %34 = icmp slt i32 %33, 3
   %35 = icmp sgt i32 %28, 79
   %36 = select i1 %34, i32 336, i32 592
-  %37 = icmp ult i32 %28, %36
+  %37 = icmp samesign ult i32 %28, %36
   %38 = select i1 %35, i1 %37, i1 false
   br i1 %38, label %39, label %48
 
@@ -5452,7 +5452,7 @@ define internal fastcc void @_ZL12restore_argsP14MacroAssembleriiP9VMRegPair(ptr
   %38 = icmp slt i32 %37, 3
   %39 = icmp sgt i32 %32, 79
   %40 = select i1 %38, i32 336, i32 592
-  %41 = icmp ult i32 %32, %40
+  %41 = icmp samesign ult i32 %32, %40
   %42 = select i1 %39, i1 %41, i1 false
   br i1 %42, label %43, label %56
 
@@ -7691,7 +7691,7 @@ define hidden void @_ZN13SharedRuntime19montgomery_multiplyEPiS0_S0_ilS0_(ptr no
   %29 = tail call noundef i64 @llvm.fshl.i64(i64 %28, i64 %28, i64 32)
   store i64 %29, ptr %27, align 8
   %30 = getelementptr inbounds i8, ptr %.078.i, i64 8
-  %31 = icmp ugt i32 %.010.i, 1
+  %31 = icmp samesign ugt i32 %.010.i, 1
   br i1 %31, label %.lr.ph.i, label %.lr.ph.preheader.i30, !llvm.loop !38
 
 .lr.ph.preheader.i30:                             ; preds = %.lr.ph.i
@@ -7708,7 +7708,7 @@ define hidden void @_ZN13SharedRuntime19montgomery_multiplyEPiS0_S0_ilS0_(ptr no
   %36 = tail call noundef i64 @llvm.fshl.i64(i64 %35, i64 %35, i64 32)
   store i64 %36, ptr %34, align 8
   %37 = getelementptr inbounds i8, ptr %.078.i34, i64 8
-  %38 = icmp ugt i32 %.010.i32, 1
+  %38 = icmp samesign ugt i32 %.010.i32, 1
   br i1 %38, label %.lr.ph.i31, label %.lr.ph.preheader.i36, !llvm.loop !38
 
 .lr.ph.preheader.i36:                             ; preds = %.lr.ph.i31
@@ -7725,7 +7725,7 @@ define hidden void @_ZN13SharedRuntime19montgomery_multiplyEPiS0_S0_ilS0_(ptr no
   %43 = tail call noundef i64 @llvm.fshl.i64(i64 %42, i64 %42, i64 32)
   store i64 %43, ptr %41, align 8
   %44 = getelementptr inbounds i8, ptr %.078.i40, i64 8
-  %45 = icmp ugt i32 %.010.i38, 1
+  %45 = icmp samesign ugt i32 %.010.i38, 1
   br i1 %45, label %.lr.ph.i37, label %_ZL13reverse_wordsPmS_i.exit41, !llvm.loop !38
 
 _ZL13reverse_wordsPmS_i.exit41.thread:            ; preds = %10
@@ -7747,7 +7747,7 @@ _ZL13reverse_wordsPmS_i.exit41:                   ; preds = %.lr.ph.i37
   %50 = call noundef i64 @llvm.fshl.i64(i64 %49, i64 %49, i64 32)
   store i64 %50, ptr %48, align 8
   %51 = getelementptr inbounds i8, ptr %.078.i46, i64 8
-  %52 = icmp ugt i32 %.010.i44, 1
+  %52 = icmp samesign ugt i32 %.010.i44, 1
   br i1 %52, label %.lr.ph.i43, label %_ZL13reverse_wordsPmS_i.exit47, !llvm.loop !38
 
 _ZL13reverse_wordsPmS_i.exit47:                   ; preds = %.lr.ph.i43, %_ZL13reverse_wordsPmS_i.exit41.thread
@@ -7948,7 +7948,7 @@ define hidden void @_ZN13SharedRuntime17montgomery_squareEPiS0_ilS0_(ptr nocaptu
   %26 = tail call noundef i64 @llvm.fshl.i64(i64 %25, i64 %25, i64 32)
   store i64 %26, ptr %24, align 8
   %27 = getelementptr inbounds i8, ptr %.078.i, i64 8
-  %28 = icmp ugt i32 %.010.i, 1
+  %28 = icmp samesign ugt i32 %.010.i, 1
   br i1 %28, label %.lr.ph.i, label %.lr.ph.preheader.i31, !llvm.loop !38
 
 .lr.ph.preheader.i31:                             ; preds = %.lr.ph.i
@@ -7965,7 +7965,7 @@ define hidden void @_ZN13SharedRuntime17montgomery_squareEPiS0_ilS0_(ptr nocaptu
   %33 = tail call noundef i64 @llvm.fshl.i64(i64 %32, i64 %32, i64 32)
   store i64 %33, ptr %31, align 8
   %34 = getelementptr inbounds i8, ptr %.078.i35, i64 8
-  %35 = icmp ugt i32 %.010.i33, 1
+  %35 = icmp samesign ugt i32 %.010.i33, 1
   br i1 %35, label %.lr.ph.i32, label %_ZL13reverse_wordsPmS_i.exit36, !llvm.loop !38
 
 _ZL13reverse_wordsPmS_i.exit36:                   ; preds = %.lr.ph.i32
@@ -8219,7 +8219,7 @@ _ZL13reverse_wordsPmS_i.exit36.thread:            ; preds = %11, %_ZL13reverse_w
   %140 = call noundef i64 @llvm.fshl.i64(i64 %139, i64 %139, i64 32)
   store i64 %140, ptr %138, align 8
   %141 = getelementptr inbounds i8, ptr %.078.i44, i64 8
-  %142 = icmp ugt i32 %.010.i42, 1
+  %142 = icmp samesign ugt i32 %.010.i42, 1
   br i1 %142, label %.lr.ph.i41, label %_ZL13reverse_wordsPmS_i.exit45, !llvm.loop !38
 
 _ZL13reverse_wordsPmS_i.exit45:                   ; preds = %.lr.ph.i41, %134

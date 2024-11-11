@@ -3722,7 +3722,7 @@ for.body.i:                                       ; preds = %call6.i.noexc, %for
 
 call6.i.noexc:                                    ; preds = %for.body.i
   %144 = call double @llvm.fmuladd.f64(double %141, double %call6.i257, double %sum.07.i)
-  %cmp.i256 = icmp ugt i64 %indvars.iv.i, 1
+  %cmp.i256 = icmp samesign ugt i64 %indvars.iv.i, 1
   br i1 %cmp.i256, label %for.body.i, label %invoke.cont236, !llvm.loop !151
 
 invoke.cont236:                                   ; preds = %call6.i.noexc, %_ZN8QuantLib6HandleINS_18YieldTermStructureEED2Ev.exit255
@@ -3838,7 +3838,7 @@ for.body.i265:                                    ; preds = %call6.i.noexc272, %
 
 call6.i.noexc272:                                 ; preds = %for.body.i265
   %162 = call double @llvm.fmuladd.f64(double %159, double %call6.i273, double %sum.07.i267)
-  %cmp.i271 = icmp ugt i64 %indvars.iv.i266, 1
+  %cmp.i271 = icmp samesign ugt i64 %indvars.iv.i266, 1
   br i1 %cmp.i271, label %for.body.i265, label %invoke.cont304, !llvm.loop !163
 
 invoke.cont304:                                   ; preds = %call6.i.noexc272, %invoke.cont301

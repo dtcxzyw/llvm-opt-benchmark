@@ -89,7 +89,7 @@ sub_1:                                            ; preds = %sub_0
   %29 = getelementptr inbounds i8, ptr %25, i64 2
   %30 = load i8, ptr %29, align 1
   %31 = icmp eq i8 %30, 0
-  %32 = icmp ult i32 %.071, 3
+  %32 = icmp samesign ult i32 %.071, 3
   %or.cond3 = select i1 %31, i1 %32, i1 false
   br i1 %or.cond3, label %34, label %sub_0119.thread
 
@@ -118,7 +118,7 @@ sub_1120:                                         ; preds = %sub_1, %sub_0119.th
 42:                                               ; preds = %.tail118
   %puts92 = call i32 @puts(ptr nonnull dereferenceable(1) @str.2)
   %43 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.10, i32 noundef 2)
-  %44 = icmp ugt i32 %.071, 2
+  %44 = icmp samesign ugt i32 %.071, 2
   %45 = add nsw i32 %.071, -2
   %46 = getelementptr inbounds i8, ptr %.072, i64 16
   %wide.trip.count.i = zext nneg i32 %45 to i64

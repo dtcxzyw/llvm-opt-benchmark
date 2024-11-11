@@ -292,7 +292,7 @@ for.body84:                                       ; preds = %for.body84.preheade
   %arrayidx86 = getelementptr ptr, ptr %call59, i64 %indvars.iv.next71
   %16 = load ptr, ptr %arrayidx86, align 8
   call void @qemu_del_net_client(ptr noundef %16) #13
-  %cmp82 = icmp ugt i64 %indvars.iv70, 1
+  %cmp82 = icmp samesign ugt i64 %indvars.iv70, 1
   br i1 %cmp82, label %for.body84, label %if.end90, !llvm.loop !7
 
 if.end90:                                         ; preds = %for.body84, %vhost_vdpa_net_valid_svq_features.exit.thread, %vhost_vdpa_get_features.exit.thread, %vhost_vdpa_net_valid_svq_features.exit, %if.then48, %err

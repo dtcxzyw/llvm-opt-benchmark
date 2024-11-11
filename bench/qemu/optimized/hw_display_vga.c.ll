@@ -1481,7 +1481,7 @@ if.end80:                                         ; preds = %if.then78, %if.end7
 if.then95:                                        ; preds = %if.end80
   store i16 0, ptr %arrayidx74, align 2
   %add104 = add nuw nsw i32 %mul90, %div8454
-  %cmp106 = icmp ugt i32 %add104, %8
+  %cmp106 = icmp samesign ugt i32 %add104, %8
   br i1 %cmp106, label %if.then108, label %if.end111
 
 if.then108:                                       ; preds = %if.then95

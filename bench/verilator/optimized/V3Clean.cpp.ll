@@ -3937,7 +3937,7 @@ _ZNK7AstNode5widthEv.exit.i:                      ; preds = %2
   br i1 %10, label %_ZN12CleanVisitor8cppWidthEP7AstNode.exit, label %_ZNK7AstNode5widthEv.exit4.i
 
 _ZNK7AstNode5widthEv.exit4.i:                     ; preds = %_ZNK7AstNode5widthEv.exit.i
-  %11 = icmp ult i32 %9, 65
+  %11 = icmp samesign ult i32 %9, 65
   br i1 %11, label %_ZN12CleanVisitor8cppWidthEP7AstNode.exit, label %_ZNK7AstNode10widthWordsEv.exit.i
 
 _ZNK7AstNode10widthWordsEv.exit.i:                ; preds = %_ZNK7AstNode5widthEv.exit4.i
@@ -4357,7 +4357,7 @@ _ZNK7AstNode5widthEv.exit.i:                      ; preds = %_ZN11AstNodeExpr12u
   br i1 %29, label %_ZN12CleanVisitor8cppWidthEP7AstNode.exit, label %_ZNK7AstNode5widthEv.exit4.i
 
 _ZNK7AstNode5widthEv.exit4.i:                     ; preds = %_ZNK7AstNode5widthEv.exit.i
-  %30 = icmp ult i32 %28, 65
+  %30 = icmp samesign ult i32 %28, 65
   br i1 %30, label %_ZN12CleanVisitor8cppWidthEP7AstNode.exit, label %_ZNK7AstNode10widthWordsEv.exit.i
 
 _ZNK7AstNode10widthWordsEv.exit.i:                ; preds = %_ZNK7AstNode5widthEv.exit4.i

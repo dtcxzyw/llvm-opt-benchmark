@@ -458,7 +458,7 @@ _get_local_node_info.exit._crit_edge:             ; preds = %_get_local_node_inf
   %175 = zext nneg i32 %174 to i64
   call void @slurm_bit_clear(ptr noundef %90, i64 noundef %175) #8
   %176 = add nsw i32 %.3106, -1
-  %177 = icmp ugt i32 %.0.in107, 1
+  %177 = icmp samesign ugt i32 %.0.in107, 1
   %178 = icmp ne i32 %176, 0
   %179 = select i1 %177, i1 %178, i1 false
   br i1 %179, label %.lr.ph109, label %.loopexit, !llvm.loop !14
@@ -1485,7 +1485,7 @@ switch.early.test:                                ; preds = %220
   br label %_task_layout_lllp_cyclic.exit
 
 362:                                              ; preds = %.thread.i
-  %363 = icmp ult i32 %353, %322
+  %363 = icmp samesign ult i32 %353, %322
   br i1 %363, label %364, label %374
 
 364:                                              ; preds = %362
@@ -2573,7 +2573,7 @@ define internal fastcc range(i32 0, 4034) i32 @_task_layout_lllp_block(ptr nocap
   br label %192
 
 61:                                               ; preds = %.thread
-  %62 = icmp ult i32 %52, %20
+  %62 = icmp samesign ult i32 %52, %20
   br i1 %62, label %63, label %72
 
 63:                                               ; preds = %61

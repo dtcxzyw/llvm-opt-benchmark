@@ -5852,7 +5852,7 @@ H5VM_power2up.exit:                               ; preds = %128
   br label %H5VM_log2_gen.exit
 
 157:                                              ; preds = %143
-  %.not27.i = icmp ult i64 %.0.i137, 1099511627776
+  %.not27.i = icmp samesign ult i64 %.0.i137, 1099511627776
   br i1 %.not27.i, label %164, label %158
 
 158:                                              ; preds = %157
@@ -5872,11 +5872,11 @@ H5VM_power2up.exit:                               ; preds = %128
 
 169:                                              ; preds = %141
   %170 = lshr i64 %.0.i137, 16
-  %.not23.i = icmp ult i64 %.0.i137, 65536
+  %.not23.i = icmp samesign ult i64 %.0.i137, 65536
   br i1 %.not23.i, label %183, label %171
 
 171:                                              ; preds = %169
-  %.not25.i = icmp ult i64 %.0.i137, 16777216
+  %.not25.i = icmp samesign ult i64 %.0.i137, 16777216
   br i1 %.not25.i, label %178, label %172
 
 172:                                              ; preds = %171
@@ -5895,7 +5895,7 @@ H5VM_power2up.exit:                               ; preds = %128
   br label %H5VM_log2_gen.exit
 
 183:                                              ; preds = %169
-  %.not24.i = icmp ult i64 %.0.i137, 256
+  %.not24.i = icmp samesign ult i64 %.0.i137, 256
   br i1 %.not24.i, label %190, label %184
 
 184:                                              ; preds = %183

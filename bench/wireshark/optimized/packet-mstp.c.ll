@@ -131,7 +131,7 @@ define hidden void @dissect_mstp(ptr noundef %0, ptr noundef %1, ptr noundef %2,
 29:                                               ; preds = %5
   %30 = zext i16 %11 to i32
   %31 = add nsw i32 %27, -2
-  %32 = icmp ult i32 %31, %30
+  %32 = icmp samesign ult i32 %31, %30
   br i1 %32, label %33, label %.preheader
 
 33:                                               ; preds = %29

@@ -1052,7 +1052,7 @@ invoke.cont9.i.i.i.us.i.i.i:                      ; preds = %invoke.cont9.i.i.i.
   store double %110, ptr %ite.sroa.5.016.i.i.i.us.i.i.i, align 8, !tbaa !39
   %incdec.ptr.i.i.i.i.i.i.us.i.i.i = getelementptr inbounds nuw i8, ptr %it.sroa.5.017.i.i.i.us.i.i.i, i64 8
   %incdec.ptr.i.i.i12.i.i.i.us.i.i.i = getelementptr inbounds nuw i8, ptr %ite.sroa.5.016.i.i.i.us.i.i.i, i64 8
-  %cmp.i.i.i.us.i.i.i = icmp ugt i64 %size.018.i.i.i.us.i.i.i, 1
+  %cmp.i.i.i.us.i.i.i = icmp samesign ugt i64 %size.018.i.i.i.us.i.i.i, 1
   br i1 %cmp.i.i.i.us.i.i.i, label %invoke.cont9.i.i.i.us.i.i.i, label %for.inc.us.i.i.i
 
 for.inc.us.i.i.i:                                 ; preds = %invoke.cont9.i.i.i.us.i.i.i, %for.body.us.i.i.i
@@ -1619,7 +1619,7 @@ invoke.cont9.i.i.i:                               ; preds = %invoke.cont9.i.i.i,
   store double %13, ptr %ite.sroa.5.016.i.i.i, align 8, !tbaa !39
   %incdec.ptr.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %it.sroa.5.017.i.i.i, i64 8
   %incdec.ptr.i.i.i12.i.i.i = getelementptr inbounds nuw i8, ptr %ite.sroa.5.016.i.i.i, i64 8
-  %cmp.i.i.i = icmp ugt i64 %size.018.i.i.i, 1
+  %cmp.i.i.i = icmp samesign ugt i64 %size.018.i.i.i, 1
   br i1 %cmp.i.i.i, label %invoke.cont9.i.i.i, label %invoke.cont35
 
 invoke.cont35:                                    ; preds = %invoke.cont9.i.i.i, %invoke.cont21, %if.then

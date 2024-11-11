@@ -76,7 +76,7 @@ define internal range(i32 0, 61) i32 @uudecode_bidder_bid(ptr nocapture readnone
   br i1 %21, label %26, label %22
 
 22:                                               ; preds = %20
-  %23 = icmp ugt i64 %18, 17
+  %23 = icmp samesign ugt i64 %18, 17
   br i1 %23, label %24, label %.thread
 
 24:                                               ; preds = %22
@@ -875,7 +875,7 @@ ensure_in_buff_size.exit286:                      ; preds = %107
   br i1 %142, label %147, label %143
 
 143:                                              ; preds = %141
-  %144 = icmp ugt i64 %139, 17
+  %144 = icmp samesign ugt i64 %139, 17
   br i1 %144, label %145, label %.thread300
 
 145:                                              ; preds = %143
@@ -992,7 +992,7 @@ ensure_in_buff_size.exit286:                      ; preds = %107
   %212 = and i8 %202, 63
   %213 = xor i8 %212, 32
   %214 = zext nneg i8 %213 to i64
-  %.not254 = icmp ugt i64 %201, %214
+  %.not254 = icmp samesign ugt i64 %201, %214
   br i1 %.not254, label %218, label %215
 
 215:                                              ; preds = %211

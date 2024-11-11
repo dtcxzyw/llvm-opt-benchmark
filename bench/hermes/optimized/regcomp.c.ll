@@ -5162,7 +5162,7 @@ if.then174:                                       ; preds = %othercase.exit
   br label %for.inc
 
 for.inc:                                          ; preds = %for.body, %land.lhs.true162, %if.then174, %othercase.exit
-  %cmp152 = icmp ugt i64 %indvars.iv, 1
+  %cmp152 = icmp samesign ugt i64 %indvars.iv, 1
   br i1 %cmp152, label %for.body, label %if.end194.loopexit, !llvm.loop !30
 
 if.end194.loopexit:                               ; preds = %for.inc
@@ -5212,7 +5212,7 @@ if.else228:                                       ; preds = %for.body204
 for.inc243:                                       ; preds = %if.then214, %if.else228
   %storemerge = phi i8 [ %conv227, %if.then214 ], [ %conv241, %if.else228 ]
   store i8 %storemerge, ptr %hash.i, align 1
-  %cmp202 = icmp ugt i32 %i197.0361.in, 1
+  %cmp202 = icmp samesign ugt i32 %i197.0361.in, 1
   br i1 %cmp202, label %for.body204, label %for.end245.loopexit, !llvm.loop !31
 
 for.end245.loopexit:                              ; preds = %for.inc243

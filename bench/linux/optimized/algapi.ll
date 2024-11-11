@@ -752,7 +752,7 @@ define dso_local noundef i32 @crypto_register_alg(ptr noundef %0) #0 align 16 {
 
 32:                                               ; preds = %25
   %33 = icmp ugt i32 %16, 15
-  %34 = icmp ugt i32 %23, 16
+  %34 = icmp samesign ugt i32 %23, 16
   %35 = or i1 %33, %34
   br i1 %35, label %.thread, label %36
 
@@ -1490,7 +1490,7 @@ define dso_local noundef i32 @crypto_register_instance(ptr noundef %0, ptr nound
 
 32:                                               ; preds = %27
   %33 = icmp ugt i32 %14, 15
-  %34 = icmp ugt i32 %21, 16
+  %34 = icmp samesign ugt i32 %21, 16
   %35 = or i1 %33, %34
   br i1 %35, label %.thread, label %36
 

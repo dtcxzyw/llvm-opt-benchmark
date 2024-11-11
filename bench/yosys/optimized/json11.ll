@@ -6073,7 +6073,7 @@ define internal fastcc void @_ZN6json1112_GLOBAL__N_110JsonParser11encode_utf8El
   br i1 %3, label %52, label %4
 
 4:                                                ; preds = %2
-  %5 = icmp ult i64 %0, 128
+  %5 = icmp samesign ult i64 %0, 128
   br i1 %5, label %6, label %8
 
 6:                                                ; preds = %4
@@ -6081,7 +6081,7 @@ define internal fastcc void @_ZN6json1112_GLOBAL__N_110JsonParser11encode_utf8El
   br label %.sink.split
 
 8:                                                ; preds = %4
-  %9 = icmp ult i64 %0, 2048
+  %9 = icmp samesign ult i64 %0, 2048
   br i1 %9, label %10, label %18
 
 10:                                               ; preds = %8
@@ -6095,7 +6095,7 @@ define internal fastcc void @_ZN6json1112_GLOBAL__N_110JsonParser11encode_utf8El
   br label %.sink.split
 
 18:                                               ; preds = %8
-  %19 = icmp ult i64 %0, 65536
+  %19 = icmp samesign ult i64 %0, 65536
   br i1 %19, label %20, label %33
 
 20:                                               ; preds = %18

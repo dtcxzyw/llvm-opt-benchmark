@@ -48293,7 +48293,7 @@ _ZNK12QDomNodeList4sizeEv.exit443:                ; preds = %679
   call void @_ZN8QDomNodeD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %73) #31
   call void @_ZN8QDomNodeD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %71) #31
   call void @_ZN8QDomNodeD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %69) #31
-  %680 = icmp ugt i32 %.0542.in, 1
+  %680 = icmp samesign ugt i32 %.0542.in, 1
   br i1 %680, label %.lr.ph543, label %.loopexit, !llvm.loop !298
 
 681:                                              ; preds = %_ZNK12QDomNodeList2atEi.exit445

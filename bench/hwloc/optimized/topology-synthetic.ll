@@ -140,7 +140,7 @@ define i32 @hwloc_topology_export_synthetic(ptr noundef %0, ptr nocapture nounde
   br label %hwloc__export_synthetic_update_status.exit.thread.sink.split
 
 20:                                               ; preds = %13
-  %.not68 = icmp ult i64 %3, 8
+  %.not68 = icmp samesign ult i64 %3, 8
   br i1 %.not68, label %21, label %65
 
 21:                                               ; preds = %20

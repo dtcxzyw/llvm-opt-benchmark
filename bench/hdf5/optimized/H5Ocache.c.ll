@@ -1329,7 +1329,7 @@ define internal fastcc range(i32 -1, 1) i32 @H5O__prefix_deserialize(ptr noundef
 67:                                               ; preds = %59
   %68 = getelementptr inbounds i8, ptr %5, i64 284
   store i32 1, ptr %68, align 4
-  %.not289 = icmp ult i8 %61, 32
+  %.not289 = icmp samesign ult i8 %61, 32
   br i1 %.not289, label %96, label %69
 
 69:                                               ; preds = %67
@@ -2613,7 +2613,7 @@ H5O__add_cont_msg.exit:                           ; preds = %._crit_edge.i, %408
   br i1 %466, label %467, label %.thread
 
 467:                                              ; preds = %464
-  %468 = icmp ult i64 %462, 8
+  %468 = icmp samesign ult i64 %462, 8
   br i1 %468, label %475, label %491
 
 .thread:                                          ; preds = %464
@@ -2622,7 +2622,7 @@ H5O__add_cont_msg.exit:                           ; preds = %._crit_edge.i, %408
   %471 = and i8 %470, 2
   %472 = or disjoint i8 %471, 4
   %473 = zext nneg i8 %472 to i64
-  %474 = icmp ult i64 %462, %473
+  %474 = icmp samesign ult i64 %462, %473
   br i1 %474, label %479, label %491
 
 475:                                              ; preds = %467

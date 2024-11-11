@@ -3432,7 +3432,7 @@ lpad:                                             ; preds = %if.then8
   resume { ptr, i32 } %7
 
 if.end11:                                         ; preds = %_ZN6icu_7513UnicodeString6insertEiDs.exit, %for.body
-  %cmp = icmp ugt i64 %indvars.iv, 1
+  %cmp = icmp samesign ugt i64 %indvars.iv, 1
   br i1 %cmp, label %for.body, label %return, !llvm.loop !14
 
 return:                                           ; preds = %if.end11, %entry, %if.end

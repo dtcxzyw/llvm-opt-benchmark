@@ -393,7 +393,7 @@ define internal i32 @dissect_jxta_udp(ptr noundef %0, ptr noundef %1, ptr nounde
   %30 = add nuw i32 %18, 4
   %31 = tail call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %30) #12
   %32 = zext i32 %31 to i64
-  %33 = icmp ugt i64 %22, %32
+  %33 = icmp samesign ugt i64 %22, %32
   %34 = trunc nuw i64 %22 to i32
   br i1 %33, label %35, label %.thread
 
@@ -658,7 +658,7 @@ copy_address_wmem.exit141:                        ; preds = %71, %85
 118:                                              ; preds = %114
   %119 = tail call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %107) #12
   %120 = zext i32 %119 to i64
-  %.not = icmp ugt i64 %111, %120
+  %.not = icmp samesign ugt i64 %111, %120
   %121 = trunc nuw i64 %111 to i32
   br i1 %.not, label %230, label %122
 

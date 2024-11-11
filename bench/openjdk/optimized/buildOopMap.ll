@@ -1084,7 +1084,7 @@ _ZN10Block_List4pushEP5Block.exit.i:              ; preds = %105, %92
   %indvars.iv267.i = phi i64 [ %157, %.lr.ph221.i ], [ %indvars.iv.next268.i, %296 ]
   %159 = load i32, ptr %155, align 8
   %160 = zext i32 %159 to i64
-  %161 = icmp ult i64 %indvars.iv267.i, %160
+  %161 = icmp samesign ult i64 %indvars.iv267.i, %160
   br i1 %161, label %162, label %_ZNK5Block8get_nodeEj.exit.i
 
 162:                                              ; preds = %158

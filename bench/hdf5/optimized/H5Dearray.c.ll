@@ -230,7 +230,7 @@ define internal range(i32 -1, 1) i32 @H5D__earray_idx_create(ptr nocapture nound
   br label %H5VM_log2_gen.exit
 
 27:                                               ; preds = %8
-  %.not23.i = icmp ult i32 %12, 256
+  %.not23.i = icmp samesign ult i32 %12, 256
   br i1 %.not23.i, label %34, label %28
 
 28:                                               ; preds = %27
@@ -1463,7 +1463,7 @@ define internal noalias ptr @H5D__earray_crt_context(ptr nocapture noundef reado
   br label %H5VM_log2_gen.exit
 
 28:                                               ; preds = %8
-  %.not23.i = icmp ult i32 %13, 256
+  %.not23.i = icmp samesign ult i32 %13, 256
   br i1 %.not23.i, label %35, label %29
 
 29:                                               ; preds = %28

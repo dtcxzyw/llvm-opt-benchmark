@@ -200,7 +200,7 @@ land.lhs.true15.i:                                ; preds = %_resume.i
   %arrayidx17.i = getelementptr inbounds i8, ptr %add.ptr.i, i64 1
   %9 = load i8, ptr %arrayidx17.i, align 1
   %conv18.i = zext i8 %9 to i32
-  %cmp19.not.i = icmp ugt i32 %conv13.i, %conv18.i
+  %cmp19.not.i = icmp samesign ugt i32 %conv13.i, %conv18.i
   %sub.i = sub nsw i32 %conv13.i, %conv12.i
   %spec.select.i = select i1 %cmp19.not.i, i32 %conv9.i, i32 %sub.i
   br label %cond.end.i

@@ -1066,7 +1066,7 @@ define internal noundef range(i64 -22, 4097) i64 @proc_scsi_devinfo_write(ptr no
   br i1 %14, label %15, label %25
 
 15:                                               ; preds = %12
-  %16 = icmp ult i64 %2, 4096
+  %16 = icmp samesign ult i64 %2, 4096
   br i1 %16, label %17, label %19
 
 17:                                               ; preds = %15

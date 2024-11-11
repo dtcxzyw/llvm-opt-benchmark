@@ -563,11 +563,11 @@ define void @process(ptr nocapture noundef readonly %0, ptr noundef %1, ptr noca
   %74 = sub nsw i64 20, %70
   %75 = getelementptr i8, ptr %10, i64 %74
   %76 = getelementptr i8, ptr %10, i64 36
-  %77 = icmp ult i32 %46, 16
+  %77 = icmp samesign ult i32 %46, 16
   %78 = and i64 %63, 1
   %79 = icmp ne i64 %78, 0
   %80 = and i1 %79, %66
-  %81 = icmp ugt i64 %63, 1
+  %81 = icmp samesign ugt i64 %63, 1
   %82 = or i1 %81, %80
   %83 = trunc nuw nsw i64 %63 to i32
   %84 = and i64 %62, 1
@@ -759,11 +759,11 @@ define void @process(ptr nocapture noundef readonly %0, ptr noundef %1, ptr noca
   %236 = sub nsw i64 20, %220
   %237 = getelementptr i8, ptr %10, i64 %236
   %238 = getelementptr i8, ptr %10, i64 36
-  %239 = icmp ult i32 %196, 16
+  %239 = icmp samesign ult i32 %196, 16
   %240 = and i64 %213, 1
   %241 = icmp ne i64 %240, 0
   %242 = and i1 %241, %216
-  %243 = icmp ugt i64 %213, 1
+  %243 = icmp samesign ugt i64 %213, 1
   %244 = or i1 %243, %242
   %245 = trunc nuw nsw i64 %213 to i32
   %246 = icmp ugt ptr %235, %3
@@ -772,7 +772,7 @@ define void @process(ptr nocapture noundef readonly %0, ptr noundef %1, ptr noca
   %249 = icmp slt i32 %204, 0
   %250 = or i1 %249, %248
   %251 = and i64 %212, 3
-  %252 = icmp ult i32 %196, 4
+  %252 = icmp samesign ult i32 %196, 4
   %253 = and i64 %212, 2147483644
   %254 = icmp eq i64 %251, 0
   br label %255
@@ -967,7 +967,7 @@ define void @process(ptr nocapture noundef readonly %0, ptr noundef %1, ptr noca
   %406 = getelementptr i8, ptr %10, i64 %397
   %407 = getelementptr i8, ptr %406, i64 32
   %408 = getelementptr i8, ptr %3, i64 %399
-  %409 = icmp ult i32 %376, 32
+  %409 = icmp samesign ult i32 %376, 32
   %410 = and i64 %394, 2147483616
   %411 = icmp eq i64 %410, %394
   %412 = and i64 %394, 3

@@ -730,7 +730,7 @@ define internal void @_Z14spread_on_gridPK9gmx_pme_tP11PmeAtomCommP14PmeAndFftGr
   %179 = load i32, ptr %178, align 4
   %180 = getelementptr inbounds i32, ptr %.0114.i, i64 %indvars.iv.next139.i
   store i32 %179, ptr %180, align 4
-  %181 = icmp ugt i64 %indvars.iv138.i, 2
+  %181 = icmp samesign ugt i64 %indvars.iv138.i, 2
   br i1 %181, label %.lr.ph125.i, label %._crit_edge126.i, !llvm.loop !20
 
 ._crit_edge126.i:                                 ; preds = %.lr.ph125.i, %.noexc

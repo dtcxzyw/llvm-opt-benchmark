@@ -304,7 +304,7 @@ define dso_local noundef range(i32 -22, 1) i32 @ext4fs_dirhash(ptr noundef %0, p
   %254 = add i32 %239, %83
   %255 = add nsw i32 %82, -32
   %256 = getelementptr i8, ptr %81, i64 32
-  %257 = icmp ugt i32 %82, 32
+  %257 = icmp samesign ugt i32 %82, 32
   br i1 %257, label %80, label %.loopexit, !llvm.loop !12
 
 258:                                              ; preds = %.loopexit6

@@ -594,7 +594,7 @@ if.then5:                                         ; preds = %if.end
   br label %if.end10
 
 if.else:                                          ; preds = %if.end
-  %cmp7 = icmp ult i32 %call1, 2
+  %cmp7 = icmp samesign ult i32 %call1, 2
   %spec.store.select = select i1 %cmp7, i32 -1, i32 %call1
   br label %if.end10
 
@@ -679,7 +679,7 @@ lpad:                                             ; preds = %if.end39, %invoke.c
 
 if.end39:                                         ; preds = %invoke.cont32, %land.lhs.true, %if.end25
   %25 = load i32, ptr %len.i, align 8
-  %cmp42 = icmp ugt i32 %argc.addr.0, 2
+  %cmp42 = icmp samesign ugt i32 %argc.addr.0, 2
   %26 = load i8, ptr @VERBOSE, align 1
   %tobool43 = icmp ne i8 %26, 0
   %27 = select i1 %cmp42, i1 true, i1 %tobool43

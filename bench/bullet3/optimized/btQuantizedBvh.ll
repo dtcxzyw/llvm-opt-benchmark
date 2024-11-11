@@ -1813,7 +1813,7 @@ entry:
   %cmp.i18 = icmp sgt i32 %2, -1
   %sub.i20 = sub nsw i32 0, %2
   %cond11 = select i1 %cmp.i18, i32 1, i32 %sub.i20
-  %cmp = icmp ult i32 %spec.select, 129
+  %cmp = icmp samesign ult i32 %spec.select, 129
   br i1 %cmp, label %if.then, label %if.end
 
 if.then:                                          ; preds = %entry

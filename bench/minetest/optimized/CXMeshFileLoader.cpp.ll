@@ -917,7 +917,7 @@ if.then.i.i.i547:                                 ; preds = %if.then5.i.i
   br label %_ZN3irr4core5arrayIPNS_5scene15SSkinMeshBufferEE10reallocateEjb.exit
 
 if.else.i:                                        ; preds = %if.end19
-  %cmp3.i.i = icmp ult i64 %sub.ptr.div.i.i543, %conv.i544.pre-phi
+  %cmp3.i.i = icmp samesign ult i64 %sub.ptr.div.i.i543, %conv.i544.pre-phi
   br i1 %cmp3.i.i, label %_ZNSt12_Vector_baseIPN3irr5scene15SSkinMeshBufferESaIS3_EE11_M_allocateEm.exit.i.i, label %_ZN3irr4core5arrayIPNS_5scene15SSkinMeshBufferEE10reallocateEjb.exit
 
 _ZNSt12_Vector_baseIPN3irr5scene15SSkinMeshBufferESaIS3_EE11_M_allocateEm.exit.i.i: ; preds = %if.else.i
@@ -1816,7 +1816,7 @@ if.then.i.i.i816:                                 ; preds = %if.then5.i.i813
   br label %_ZN3irr4core5arrayINS_5video17S3DVertex2TCoordsEE10reallocateEjb.exit
 
 if.else.i793:                                     ; preds = %for.body203
-  %cmp3.i.i794 = icmp ult i64 %sub.ptr.div.i.i790, %conv.i791
+  %cmp3.i.i794 = icmp samesign ult i64 %sub.ptr.div.i.i790, %conv.i791
   br i1 %cmp3.i.i794, label %_ZNSt12_Vector_baseIN3irr5video17S3DVertex2TCoordsESaIS2_EE11_M_allocateEm.exit.i.i, label %_ZN3irr4core5arrayINS_5video17S3DVertex2TCoordsEE10reallocateEjb.exit
 
 _ZNSt12_Vector_baseIN3irr5video17S3DVertex2TCoordsESaIS2_EE11_M_allocateEm.exit.i.i: ; preds = %if.else.i793
@@ -1918,7 +1918,7 @@ if.then.i.i.i865:                                 ; preds = %if.then5.i.i862
   br label %_ZN3irr4core5arrayINS_5video9S3DVertexEE10reallocateEjb.exit
 
 if.else.i836:                                     ; preds = %for.body217
-  %cmp3.i.i837 = icmp ult i64 %sub.ptr.div.i.i833, %conv.i834
+  %cmp3.i.i837 = icmp samesign ult i64 %sub.ptr.div.i.i833, %conv.i834
   br i1 %cmp3.i.i837, label %_ZNSt12_Vector_baseIN3irr5video9S3DVertexESaIS2_EE11_M_allocateEm.exit.i.i, label %_ZN3irr4core5arrayINS_5video9S3DVertexEE10reallocateEjb.exit
 
 _ZNSt12_Vector_baseIN3irr5video9S3DVertexESaIS2_EE11_M_allocateEm.exit.i.i: ; preds = %if.else.i836
@@ -2387,7 +2387,7 @@ if.then.i.i.i1059:                                ; preds = %if.then5.i.i1056
   br label %_ZN3irr4core5arrayItE10reallocateEjb.exit
 
 if.else.i1035:                                    ; preds = %for.body295
-  %cmp3.i.i1036 = icmp ult i64 %sub.ptr.div.i.i1032, %conv.i1033
+  %cmp3.i.i1036 = icmp samesign ult i64 %sub.ptr.div.i.i1032, %conv.i1033
   br i1 %cmp3.i.i1036, label %_ZNSt12_Vector_baseItSaItEE11_M_allocateEm.exit.i.i, label %_ZN3irr4core5arrayItE10reallocateEjb.exit
 
 _ZNSt12_Vector_baseItSaItEE11_M_allocateEm.exit.i.i: ; preds = %if.else.i1035
@@ -11525,7 +11525,7 @@ if.then2:                                         ; preds = %if.then
   br label %if.end7
 
 if.else:                                          ; preds = %entry
-  %cmp3.i = icmp ult i64 %sub.ptr.div.i, %conv
+  %cmp3.i = icmp samesign ult i64 %sub.ptr.div.i, %conv
   br i1 %cmp3.i, label %_ZNSt12_Vector_baseIN3irr4core8vector2dIfEESaIS3_EE11_M_allocateEm.exit.i, label %if.end7
 
 _ZNSt12_Vector_baseIN3irr4core8vector2dIfEESaIS3_EE11_M_allocateEm.exit.i: ; preds = %if.else
@@ -12131,7 +12131,7 @@ if.then.i142:                                     ; preds = %if.end39
   br label %_ZN3irr4core5arrayINS_5scene12ISkinnedMesh7SWeightEE10reallocateEjb.exit
 
 if.else.i:                                        ; preds = %if.end39
-  %cmp3.i.i = icmp ult i64 %sub.ptr.div.i.i137, %conv.i138
+  %cmp3.i.i = icmp samesign ult i64 %sub.ptr.div.i.i137, %conv.i138
   br i1 %cmp3.i.i, label %_ZNSt12_Vector_baseIN3irr5scene12ISkinnedMesh7SWeightESaIS3_EE11_M_allocateEm.exit.i.i, label %_ZN3irr4core5arrayINS_5scene12ISkinnedMesh7SWeightEE10reallocateEjb.exit
 
 _ZNSt12_Vector_baseIN3irr5scene12ISkinnedMesh7SWeightESaIS3_EE11_M_allocateEm.exit.i.i: ; preds = %if.else.i
@@ -12209,7 +12209,7 @@ if.then.i.i.i168:                                 ; preds = %if.then5.i.i
   br label %_ZN3irr4core5arrayIjE10reallocateEjb.exit
 
 if.else.i156:                                     ; preds = %_ZN3irr4core5arrayINS_5scene12ISkinnedMesh7SWeightEE10reallocateEjb.exit
-  %cmp3.i.i157 = icmp ult i64 %sub.ptr.div.i.i153, %conv.i154
+  %cmp3.i.i157 = icmp samesign ult i64 %sub.ptr.div.i.i153, %conv.i154
   br i1 %cmp3.i.i157, label %_ZNSt12_Vector_baseIjSaIjEE11_M_allocateEm.exit.i.i, label %_ZN3irr4core5arrayIjE10reallocateEjb.exit
 
 _ZNSt12_Vector_baseIjSaIjEE11_M_allocateEm.exit.i.i: ; preds = %if.else.i156
@@ -12282,7 +12282,7 @@ if.then.i.i.i210:                                 ; preds = %if.then5.i.i207
   br label %_ZN3irr4core5arrayIjE10reallocateEjb.exit213
 
 if.else.i183:                                     ; preds = %_ZN3irr4core5arrayIjE10reallocateEjb.exit
-  %cmp3.i.i184 = icmp ult i64 %sub.ptr.div.i.i180, %conv.i181
+  %cmp3.i.i184 = icmp samesign ult i64 %sub.ptr.div.i.i180, %conv.i181
   br i1 %cmp3.i.i184, label %_ZNSt12_Vector_baseIjSaIjEE11_M_allocateEm.exit.i.i185, label %_ZN3irr4core5arrayIjE10reallocateEjb.exit213
 
 _ZNSt12_Vector_baseIjSaIjEE11_M_allocateEm.exit.i.i185: ; preds = %if.else.i183
@@ -13641,7 +13641,7 @@ if.then.i205:                                     ; preds = %if.end79
   br label %_ZN3irr4core5arrayINS_5scene12ISkinnedMesh12SPositionKeyEE10reallocateEjb.exit
 
 if.else.i:                                        ; preds = %if.end79
-  %cmp3.i.i = icmp ult i64 %sub.ptr.div.i.i200, %conv.i201
+  %cmp3.i.i = icmp samesign ult i64 %sub.ptr.div.i.i200, %conv.i201
   br i1 %cmp3.i.i, label %_ZNSt12_Vector_baseIN3irr5scene12ISkinnedMesh12SPositionKeyESaIS3_EE11_M_allocateEm.exit.i.i, label %_ZN3irr4core5arrayINS_5scene12ISkinnedMesh12SPositionKeyEE10reallocateEjb.exit
 
 _ZNSt12_Vector_baseIN3irr5scene12ISkinnedMesh12SPositionKeyESaIS3_EE11_M_allocateEm.exit.i.i: ; preds = %if.else.i
@@ -13721,7 +13721,7 @@ if.then.i249:                                     ; preds = %for.cond.cleanup
   br label %_ZN3irr4core5arrayINS_5scene12ISkinnedMesh9SScaleKeyEE10reallocateEjb.exit
 
 if.else.i231:                                     ; preds = %for.cond.cleanup
-  %cmp3.i.i232 = icmp ult i64 %sub.ptr.div.i.i228, %conv.i229
+  %cmp3.i.i232 = icmp samesign ult i64 %sub.ptr.div.i.i228, %conv.i229
   br i1 %cmp3.i.i232, label %_ZNSt12_Vector_baseIN3irr5scene12ISkinnedMesh9SScaleKeyESaIS3_EE11_M_allocateEm.exit.i.i, label %_ZN3irr4core5arrayINS_5scene12ISkinnedMesh9SScaleKeyEE10reallocateEjb.exit
 
 _ZNSt12_Vector_baseIN3irr5scene12ISkinnedMesh9SScaleKeyESaIS3_EE11_M_allocateEm.exit.i.i: ; preds = %if.else.i231
@@ -13909,7 +13909,7 @@ if.then.i.i.i302:                                 ; preds = %if.then5.i.i
   br label %_ZN3irr4core5arrayINS_5scene12ISkinnedMesh12SRotationKeyEE10reallocateEjb.exit
 
 if.else.i282:                                     ; preds = %for.cond.cleanup102
-  %cmp3.i.i283 = icmp ult i64 %sub.ptr.div.i.i279, %conv.i280
+  %cmp3.i.i283 = icmp samesign ult i64 %sub.ptr.div.i.i279, %conv.i280
   br i1 %cmp3.i.i283, label %_ZNSt12_Vector_baseIN3irr5scene12ISkinnedMesh12SRotationKeyESaIS3_EE11_M_allocateEm.exit.i.i, label %_ZN3irr4core5arrayINS_5scene12ISkinnedMesh12SRotationKeyEE10reallocateEjb.exit
 
 _ZNSt12_Vector_baseIN3irr5scene12ISkinnedMesh12SRotationKeyESaIS3_EE11_M_allocateEm.exit.i.i: ; preds = %if.else.i282

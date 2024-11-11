@@ -2596,7 +2596,7 @@ select.unfold633:                                 ; preds = %._crit_edge.i.us.i3
   br label %787
 
 552:                                              ; preds = %546
-  %553 = icmp ult i8 %548, 2
+  %553 = icmp samesign ult i8 %548, 2
   %554 = and i8 %548, 1
   %555 = load i8, ptr %.sroa.4162.0..sroa_idx, align 4, !range !327, !alias.scope !724, !noalias !727, !noundef !4
   %556 = trunc nuw i8 %555 to i1
@@ -2713,7 +2713,7 @@ select.unfold633:                                 ; preds = %._crit_edge.i.us.i3
 
 580:                                              ; preds = %566
   %581 = add nsw i64 %.sroa.6302.0.copyload.i, 32
-  %582 = icmp ugt i64 %581, %480
+  %582 = icmp samesign ugt i64 %581, %480
   br i1 %582, label %640, label %635
 
 "_ZN4core3ptr46drop_in_place$LT$alloc..vec..Vec$LT$u8$GT$$GT$17hfed631b09689acf2E.exit.i418": ; preds = %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.9404759115765858575.exit.i.i1.i.i420", %607, %583
@@ -3998,7 +3998,7 @@ _ZN10image_webp7decoder13WebPRiffChunk9to_fourcc17h74241023cfa56b10E.exit.i: ; p
 .noexc16:                                         ; preds = %159
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %15), !noalias !1159
   store i8 3, ptr %.sroa.3.0..sroa_idx, align 8, !alias.scope !1053, !noalias !1050
-  %166 = icmp ugt i32 %.sroa.0.0.copyload.i589.i, 268435455
+  %166 = icmp samesign ugt i32 %.sroa.0.0.copyload.i589.i, 268435455
   %167 = zext i1 %166 to i8
   store i8 %167, ptr %33, align 1, !alias.scope !1053, !noalias !1050
   br label %.thread176
@@ -7535,7 +7535,7 @@ define hidden { i64, ptr } @_ZN3std2io19default_read_to_end17h2efa466aac713e0bE(
   %49 = inttoptr i64 %.sroa.0.0.sroa.speculated.i.i6.i.i.i.i to ptr
   %50 = sub nuw i64 %34, %.sroa.0.0.sroa.speculated.i.i6.i.i.i.i
   store i64 %50, ptr %33, align 8, !alias.scope !1888, !noalias !1889
-  %51 = icmp ult i64 %23, %.sroa.0.0.sroa.speculated.i.i6.i.i.i.i
+  %51 = icmp samesign ult i64 %23, %.sroa.0.0.sroa.speculated.i.i6.i.i.i.i
   br i1 %51, label %.noexc5.i, label %_ZN3std2io19default_read_to_end16small_probe_read17h808fe871f0a1001dE.exit
 
 .noexc5.i:                                        ; preds = %"_ZN56_$LT$std..io..Take$LT$T$GT$$u20$as$u20$std..io..Read$GT$4read17h36bb811a10261a16E.exit.i"
@@ -7861,7 +7861,7 @@ define hidden { i64, ptr } @_ZN3std2io19default_read_to_end17h712248f055df69b4E(
 "_ZN77_$LT$tiff..decoder..stream..SmartReader$LT$R$GT$$u20$as$u20$std..io..Read$GT$4read17h633a2815124df1e1E.llvm.3233214882447289910.exit.i": ; preds = %40, %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$15copy_from_slice17h59b2a21229ed7044E.exit.i.i.i.i"
   %42 = add i64 %.sroa.0.0.sroa.speculated.i.i6.i.i.i, %34
   store i64 %42, ptr %33, align 8, !alias.scope !2027, !noalias !2028
-  %43 = icmp ugt i64 %.sroa.0.0.sroa.speculated.i.i6.i.i.i, %23
+  %43 = icmp samesign ugt i64 %.sroa.0.0.sroa.speculated.i.i6.i.i.i, %23
   br i1 %43, label %.noexc5.i, label %_ZN3std2io19default_read_to_end16small_probe_read17hc2c719c0cdf06387E.exit
 
 .noexc5.i:                                        ; preds = %"_ZN77_$LT$tiff..decoder..stream..SmartReader$LT$R$GT$$u20$as$u20$std..io..Read$GT$4read17h633a2815124df1e1E.llvm.3233214882447289910.exit.i"
@@ -8684,7 +8684,7 @@ define internal fastcc { i64, ptr } @_ZN3std2io19default_read_to_end17hd6c06a3a0
   %52 = inttoptr i64 %.sroa.0.0.sroa.speculated.i.i6.i.i.i.i.i to ptr
   %53 = sub nuw i64 %37, %.sroa.0.0.sroa.speculated.i.i6.i.i.i.i.i
   store i64 %53, ptr %36, align 8, !alias.scope !2180, !noalias !2181
-  %54 = icmp ult i64 %25, %.sroa.0.0.sroa.speculated.i.i6.i.i.i.i.i
+  %54 = icmp samesign ult i64 %25, %.sroa.0.0.sroa.speculated.i.i6.i.i.i.i.i
   br i1 %54, label %.noexc5.i, label %_ZN3std2io19default_read_to_end16small_probe_read17h96f5629edfa85d1dE.exit
 
 .noexc5.i:                                        ; preds = %"_ZN56_$LT$std..io..Take$LT$T$GT$$u20$as$u20$std..io..Read$GT$4read17hea49143d2de2d919E.exit.i"
@@ -26814,7 +26814,7 @@ define internal fastcc void @"_ZN5image6codecs3bmp7decoder19BmpDecoder$LT$R$GT$1
   br label %"_ZN5image6codecs3bmp7decoder19BmpDecoder$LT$R$GT$23read_bitmap_info_header17hb8338d3a368dd213E.exit.thread"
 
 159:                                              ; preds = %153
-  %160 = icmp ugt i32 %.sroa.0.0.copyload.i.i116, 65535
+  %160 = icmp samesign ugt i32 %.sroa.0.0.copyload.i.i116, 65535
   %161 = icmp sgt i32 %.sroa.0.0.copyload.i190.i, 65535
   %or.cond5.i = or i1 %160, %161
   br i1 %or.cond5.i, label %281, label %164
@@ -32025,7 +32025,7 @@ default.unreachable:                              ; preds = %.noexc221, %.noexc2
   %169 = and i8 %167, 63
   %170 = zext nneg i8 %169 to i32
   %171 = or disjoint i32 %168, %170
-  %172 = icmp ugt i8 %161, -33
+  %172 = icmp samesign ugt i8 %161, -33
   br i1 %172, label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h37fd65ca9994417cE.llvm.3233214882447289910.exit14.i.i.i.i.i.i", label %195
 
 173:                                              ; preds = %.lr.ph.i.i.i
@@ -32043,7 +32043,7 @@ default.unreachable:                              ; preds = %.noexc221, %.noexc2
   %181 = or disjoint i32 %178, %180
   %182 = shl nuw nsw i32 %164, 12
   %183 = or disjoint i32 %181, %182
-  %184 = icmp ugt i8 %161, -17
+  %184 = icmp samesign ugt i8 %161, -17
   br i1 %184, label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h37fd65ca9994417cE.llvm.3233214882447289910.exit16.i.i.i.i.i.i", label %195
 
 "_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h37fd65ca9994417cE.llvm.3233214882447289910.exit16.i.i.i.i.i.i": ; preds = %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h37fd65ca9994417cE.llvm.3233214882447289910.exit14.i.i.i.i.i.i"
@@ -32063,7 +32063,7 @@ default.unreachable:                              ; preds = %.noexc221, %.noexc2
 195:                                              ; preds = %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h37fd65ca9994417cE.llvm.3233214882447289910.exit16.i.i.i.i.i.i", %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h37fd65ca9994417cE.llvm.3233214882447289910.exit14.i.i.i.i.i.i", %173, %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h37fd65ca9994417cE.llvm.3233214882447289910.exit12.i.i.i.i.i.i"
   %196 = phi ptr [ %166, %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h37fd65ca9994417cE.llvm.3233214882447289910.exit12.i.i.i.i.i.i" ], [ %176, %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h37fd65ca9994417cE.llvm.3233214882447289910.exit14.i.i.i.i.i.i" ], [ %186, %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h37fd65ca9994417cE.llvm.3233214882447289910.exit16.i.i.i.i.i.i" ], [ %160, %173 ]
   %.sroa.4.0.i.ph.i.i.i.i.i = phi i32 [ %171, %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h37fd65ca9994417cE.llvm.3233214882447289910.exit12.i.i.i.i.i.i" ], [ %183, %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h37fd65ca9994417cE.llvm.3233214882447289910.exit14.i.i.i.i.i.i" ], [ %194, %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h37fd65ca9994417cE.llvm.3233214882447289910.exit16.i.i.i.i.i.i" ], [ %174, %173 ]
-  %197 = icmp ult i32 %.sroa.4.0.i.ph.i.i.i.i.i, 1114112
+  %197 = icmp samesign ult i32 %.sroa.4.0.i.ph.i.i.i.i.i, 1114112
   call void @llvm.assume(i1 %197)
   %198 = ptrtoint ptr %196 to i64
   %199 = sub i64 %157, %159

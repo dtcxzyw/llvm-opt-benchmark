@@ -153451,7 +153451,7 @@ _ZSt4copyIPPN5clang4ExprES3_ET0_T_S5_S4_.exit29:  ; preds = %_ZSt4copyIPPN5clang
   %100 = getelementptr inbounds i8, ptr %.0910.i.i.i.i.i, i64 56
   %101 = getelementptr inbounds i8, ptr %.0811.i.i.i.i.i, i64 56
   %102 = add nsw i64 %.012.i.i.i.i.i, -1
-  %103 = icmp ugt i64 %.012.i.i.i.i.i, 1
+  %103 = icmp samesign ugt i64 %.012.i.i.i.i.i, 1
   br i1 %103, label %.lr.ph.i.i.i.i.i, label %_ZSt4copyIPN5clang14OMPInteropInfoES2_ET0_T_S4_S3_.exit, !llvm.loop !46
 
 _ZSt4copyIPN5clang14OMPInteropInfoES2_ET0_T_S4_S3_.exit: ; preds = %.lr.ph.i.i.i.i.i, %_ZSt4copyIPPN5clang4ExprES3_ET0_T_S5_S4_.exit29
@@ -153559,7 +153559,7 @@ _ZnamRKN5clang10ASTContextEm.exit:                ; preds = %35, %.critedge.i.i.
   %57 = getelementptr inbounds i8, ptr %.0910.i.i.i.i.i, i64 56
   %58 = getelementptr inbounds i8, ptr %.0811.i.i.i.i.i, i64 56
   %59 = add nsw i64 %.012.i.i.i.i.i, -1
-  %60 = icmp ugt i64 %.012.i.i.i.i.i, 1
+  %60 = icmp samesign ugt i64 %.012.i.i.i.i.i, 1
   br i1 %60, label %.lr.ph.i.i.i.i.i, label %_ZSt4copyIPN5clang14OMPInteropInfoES2_ET0_T_S4_S3_.exit, !llvm.loop !46
 
 _ZSt4copyIPN5clang14OMPInteropInfoES2_ET0_T_S4_S3_.exit: ; preds = %.lr.ph.i.i.i.i.i, %.loopexit

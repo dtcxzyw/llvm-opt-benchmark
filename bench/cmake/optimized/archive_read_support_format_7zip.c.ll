@@ -360,7 +360,7 @@ define internal i32 @archive_read_format_7zip_read_header(ptr noundef %0, ptr no
 
 57:                                               ; preds = %54
   %58 = getelementptr inbounds i8, ptr %47, i64 %55
-  %59 = icmp ugt i64 %55, 32
+  %59 = icmp samesign ugt i64 %55, 32
   br i1 %59, label %.lr.ph51.i.i, label %.outer.i.i
 
 .lr.ph51.i.i:                                     ; preds = %57, %74

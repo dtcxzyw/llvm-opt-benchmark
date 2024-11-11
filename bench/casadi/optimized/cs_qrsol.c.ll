@@ -123,7 +123,7 @@ define range(i32 0, 2) i32 @cs_qrsol(i32 noundef %0, ptr noundef %1, ptr noundef
   %72 = load double, ptr %71, align 8
   %73 = trunc nuw nsw i64 %indvars.iv.next99 to i32
   %74 = tail call i32 @cs_happly(ptr noundef %69, i32 noundef %73, double noundef %72, ptr noundef nonnull %54) #2
-  %75 = icmp ugt i64 %indvars.iv98, 1
+  %75 = icmp samesign ugt i64 %indvars.iv98, 1
   br i1 %75, label %68, label %._crit_edge96, !llvm.loop !6
 
 ._crit_edge96:                                    ; preds = %68, %58

@@ -114,7 +114,7 @@ define internal fastcc i32 @vsprintf_internal(ptr noundef %0, ptr nocapture noun
   br i1 %or.cond, label %39, label %48
 
 39:                                               ; preds = %.thread
-  %.not540 = icmp ult i16 %.0441, 256
+  %.not540 = icmp samesign ult i16 %.0441, 256
   %40 = zext nneg i8 %38 to i32
   br i1 %.not540, label %44, label %41
 
@@ -136,7 +136,7 @@ define internal fastcc i32 @vsprintf_internal(ptr noundef %0, ptr nocapture noun
   ]
 
 49:                                               ; preds = %48
-  %.not539 = icmp ult i16 %.0441, 256
+  %.not539 = icmp samesign ult i16 %.0441, 256
   %50 = load i32, ptr %2, align 8
   %51 = icmp ult i32 %50, 41
   br i1 %.not539, label %64, label %52
@@ -194,7 +194,7 @@ define internal fastcc i32 @vsprintf_internal(ptr noundef %0, ptr nocapture noun
   br label %96
 
 81:                                               ; preds = %48
-  %.not538 = icmp ult i16 %.0441, 256
+  %.not538 = icmp samesign ult i16 %.0441, 256
   br i1 %.not538, label %82, label %.loopexit58
 
 82:                                               ; preds = %81
@@ -674,7 +674,7 @@ define internal fastcc i32 @vsprintf_internal(ptr noundef %0, ptr nocapture noun
   call void %287(ptr noundef nonnull %0, i32 noundef %295) #5
   %296 = add i8 %.042595, 1
   %297 = zext i8 %296 to i32
-  %.not577 = icmp ult i32 %.4480.fr, %297
+  %.not577 = icmp samesign ult i32 %.4480.fr, %297
   br i1 %.not577, label %.loopexit47, label %285, !llvm.loop !11
 
 298:                                              ; preds = %278
@@ -723,7 +723,7 @@ define internal fastcc i32 @vsprintf_internal(ptr noundef %0, ptr nocapture noun
   %319 = call ptr @__ultoa_invert(i64 noundef %318, ptr noundef nonnull %4, i32 noundef 10) #5
   %320 = ptrtoint ptr %319 to i64
   %321 = sub i64 %320, %9
-  %or.cond17 = icmp ult i32 %.0440, 10
+  %or.cond17 = icmp samesign ult i32 %.0440, 10
   br i1 %or.cond17, label %322, label %325
 
 322:                                              ; preds = %315
@@ -1305,7 +1305,7 @@ define internal fastcc i32 @vsprintf_internal(ptr noundef %0, ptr nocapture noun
   call void %594(ptr noundef %0, i32 noundef 32) #5
   %595 = add i8 %.4473101, 1
   %596 = zext i8 %595 to i32
-  %597 = icmp ugt i32 %.2486102835183, %596
+  %597 = icmp samesign ugt i32 %.2486102835183, %596
   br i1 %597, label %.lr.ph103, label %.loopexit45, !llvm.loop !14
 
 .loopexit45:                                      ; preds = %.lr.ph103, %..loopexit45_crit_edge, %590

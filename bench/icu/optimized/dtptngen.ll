@@ -8695,7 +8695,7 @@ delete.notnull.i47:                               ; preds = %new.notnull31
 if.end45:                                         ; preds = %_ZN6icu_7512LocalPointerINS_11PtnSkeletonEE29adoptInsteadAndCheckErrorCodeEPS1_R10UErrorCode.exit
   %skeletonWasSpecified48 = getelementptr inbounds i8, ptr %call20, i64 144
   store i8 %skeletonWasSpecified, ptr %skeletonWasSpecified48, align 8
-  %cmp50 = icmp ugt i16 %5, 96
+  %cmp50 = icmp samesign ugt i16 %5, 96
   %boot54 = getelementptr inbounds i8, ptr %this, i64 8
   br i1 %cmp50, label %if.then51, label %if.else60
 

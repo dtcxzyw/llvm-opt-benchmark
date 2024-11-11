@@ -427,7 +427,7 @@ define range(i32 -1, 1) i32 @mca_coll_han_init_dynamic_rules() local_unnamed_add
 
 198:                                              ; preds = %189
   %199 = icmp eq i64 %indvars.iv358, 0
-  %200 = icmp ugt i64 %196, 1
+  %200 = icmp samesign ugt i64 %196, 1
   %or.cond19 = select i1 %199, i1 %200, i1 false
   br i1 %or.cond19, label %201, label %208
 

@@ -204,7 +204,7 @@ objplpmks.exit.i.i:                               ; preds = %63, %gv_alloc.exit.
   %105 = xor i32 %104, %102
   %106 = xor i32 %105, %.031.i.i.i
   %107 = xor i32 %105, %.02530.i.i.i
-  %108 = icmp ugt i32 %.026.in29.i.i.i, 1
+  %108 = icmp samesign ugt i32 %.026.in29.i.i.i, 1
   br i1 %108, label %.lr.ph.i.i.i, label %hd_hil_s_from_xy.exit.i.i
 
 hd_hil_s_from_xy.exit.i.i:                        ; preds = %.lr.ph.i.i.i, %objplpmks.exit.i.i

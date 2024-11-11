@@ -193,7 +193,7 @@ define i32 @Lzma2Dec_DecodeToDic(ptr noundef %0, i64 noundef %1, ptr noundef %2,
   br i1 %44, label %45, label %48
 
 45:                                               ; preds = %43
-  %46 = icmp ugt i8 %38, 2
+  %46 = icmp samesign ugt i8 %38, 2
   br i1 %46, label %Lzma2Dec_UpdateState.exit, label %47
 
 47:                                               ; preds = %45
@@ -364,7 +364,7 @@ Lzma2Dec_UpdateState.exit:                        ; preds = %35, %40, %45, %47, 
   %125 = load i32, ptr %.phi.trans.insert.i, align 8
   %126 = sub i32 %124, %125
   %127 = zext i32 %126 to i64
-  %.not.i117 = icmp ult i64 %113, %127
+  %.not.i117 = icmp samesign ult i64 %113, %127
   br i1 %.not.i117, label %LzmaDec_UpdateWithUncompressed.exit, label %128
 
 128:                                              ; preds = %123

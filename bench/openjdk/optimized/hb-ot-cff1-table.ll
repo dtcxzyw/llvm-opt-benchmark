@@ -2113,7 +2113,7 @@ _ZN3CFF11cff_stack_tINS_8number_tELi513EEixEj.exit26: ; preds = %_ZN3CFF11cff_st
   %22 = bitcast i64 %21 to double
   %23 = getelementptr inbounds i8, ptr %1, i64 40
   %24 = load ptr, ptr %23, align 8
-  %.not.i27 = icmp ugt i32 %7, 1
+  %.not.i27 = icmp samesign ugt i32 %7, 1
   br i1 %.not.i27, label %28, label %25
 
 25:                                               ; preds = %_ZN3CFF11cff_stack_tINS_8number_tELi513EEixEj.exit26
@@ -2165,7 +2165,7 @@ _ZN2OT4cff132lookup_standard_encoding_for_sidEj.exit.i: ; preds = %_ZN3CFF11cff_
   %55 = getelementptr inbounds i8, ptr %37, i64 244
   %56 = load i32, ptr %55, align 4
   %57 = icmp eq i32 %56, 0
-  %58 = icmp ult i32 %42, 229
+  %58 = icmp samesign ult i32 %42, 229
   %or.cond.i = and i1 %58, %57
   %..i = select i1 %or.cond.i, i32 %47, i32 0
   br label %_ZNK2OT4cff119accelerator_templ_tIN3CFF25cff1_private_dict_opset_tENS2_31cff1_private_dict_values_base_tINS2_10dict_val_tEEEE17std_code_to_glyphEj.exit
@@ -2218,7 +2218,7 @@ _ZN2OT4cff132lookup_standard_encoding_for_sidEj.exit.i36: ; preds = %_ZN3CFF11cf
   %83 = getelementptr inbounds i8, ptr %60, i64 244
   %84 = load i32, ptr %83, align 4
   %85 = icmp eq i32 %84, 0
-  %86 = icmp ult i32 %70, 229
+  %86 = icmp samesign ult i32 %70, 229
   %or.cond.i38 = and i1 %86, %85
   %..i39 = select i1 %or.cond.i38, i32 %75, i32 0
   br label %_ZNK2OT4cff119accelerator_templ_tIN3CFF25cff1_private_dict_opset_tENS2_31cff1_private_dict_values_base_tINS2_10dict_val_tEEEE17std_code_to_glyphEj.exit40
@@ -2628,7 +2628,7 @@ _ZNK3CFF14biased_subrs_tINS_5SubrsIN2OT7IntTypeItLj2EEEEEE9get_countEv.exit.i.i:
   %108 = load i8, ptr %107, align 1
   %109 = zext i8 %108 to i32
   %110 = or disjoint i32 %106, %109
-  %.not.i.i131 = icmp ult i32 %99, %110
+  %.not.i.i131 = icmp samesign ult i32 %99, %110
   br i1 %.not.i.i131, label %_ZN3CFF15cs_interp_env_tINS_8number_tENS_5SubrsIN2OT7IntTypeItLj2EEEEEE12pop_subr_numERKNS_14biased_subrs_tIS6_EERj.exit.i, label %_ZN3CFF15cs_interp_env_tINS_8number_tENS_5SubrsIN2OT7IntTypeItLj2EEEEEE12pop_subr_numERKNS_14biased_subrs_tIS6_EERj.exit.thread.i
 
 _ZN3CFF15cs_interp_env_tINS_8number_tENS_5SubrsIN2OT7IntTypeItLj2EEEEEE12pop_subr_numERKNS_14biased_subrs_tIS6_EERj.exit.i: ; preds = %_ZNK3CFF14biased_subrs_tINS_5SubrsIN2OT7IntTypeItLj2EEEEEE9get_countEv.exit.i.i
@@ -2666,7 +2666,7 @@ _ZN3CFF11cff_stack_tINS_14call_context_tELi10EE4pushERKS1_.exit.i: ; preds = %_Z
   %129 = load i8, ptr %128, align 1
   %130 = zext i8 %129 to i32
   %131 = or disjoint i32 %127, %130
-  %.not3.i.i = icmp ult i32 %99, %131
+  %.not3.i.i = icmp samesign ult i32 %99, %131
   br i1 %.not3.i.i, label %132, label %_ZNK3CFF14biased_subrs_tINS_5SubrsIN2OT7IntTypeItLj2EEEEEEixEj.exit.i
 
 132:                                              ; preds = %124
@@ -2735,7 +2735,7 @@ _ZNK3CFF14biased_subrs_tINS_5SubrsIN2OT7IntTypeItLj2EEEEEE9get_countEv.exit.i.i1
   %164 = load i8, ptr %163, align 1
   %165 = zext i8 %164 to i32
   %166 = or disjoint i32 %162, %165
-  %.not.i.i137 = icmp ult i32 %155, %166
+  %.not.i.i137 = icmp samesign ult i32 %155, %166
   br i1 %.not.i.i137, label %_ZN3CFF15cs_interp_env_tINS_8number_tENS_5SubrsIN2OT7IntTypeItLj2EEEEEE12pop_subr_numERKNS_14biased_subrs_tIS6_EERj.exit.i139, label %_ZN3CFF15cs_interp_env_tINS_8number_tENS_5SubrsIN2OT7IntTypeItLj2EEEEEE12pop_subr_numERKNS_14biased_subrs_tIS6_EERj.exit.thread.i138
 
 _ZN3CFF15cs_interp_env_tINS_8number_tENS_5SubrsIN2OT7IntTypeItLj2EEEEEE12pop_subr_numERKNS_14biased_subrs_tIS6_EERj.exit.i139: ; preds = %_ZNK3CFF14biased_subrs_tINS_5SubrsIN2OT7IntTypeItLj2EEEEEE9get_countEv.exit.i.i136
@@ -2773,7 +2773,7 @@ _ZN3CFF11cff_stack_tINS_14call_context_tELi10EE4pushERKS1_.exit.i140: ; preds = 
   %185 = load i8, ptr %184, align 1
   %186 = zext i8 %185 to i32
   %187 = or disjoint i32 %183, %186
-  %.not3.i.i142 = icmp ult i32 %155, %187
+  %.not3.i.i142 = icmp samesign ult i32 %155, %187
   br i1 %.not3.i.i142, label %188, label %_ZNK3CFF14biased_subrs_tINS_5SubrsIN2OT7IntTypeItLj2EEEEEEixEj.exit.i143
 
 188:                                              ; preds = %180
@@ -7468,7 +7468,7 @@ _ZN3CFF11cff_stack_tINS_8number_tELi513EEixEj.exit30: ; preds = %_ZN3CFF11cff_st
   store i64 %54, ptr %55, align 8
   %56 = getelementptr inbounds i8, ptr %1, i64 24
   %57 = load ptr, ptr %56, align 8
-  %.not.i31 = icmp ugt i32 %41, 1
+  %.not.i31 = icmp samesign ugt i32 %41, 1
   br i1 %.not.i31, label %61, label %58
 
 58:                                               ; preds = %_ZN3CFF11cff_stack_tINS_8number_tELi513EEixEj.exit30
@@ -7516,7 +7516,7 @@ _ZN2OT4cff132lookup_standard_encoding_for_sidEj.exit.i: ; preds = %_ZN3CFF11cff_
   %84 = getelementptr inbounds i8, ptr %68, i64 244
   %85 = load i32, ptr %84, align 4
   %86 = icmp eq i32 %85, 0
-  %87 = icmp ult i32 %71, 229
+  %87 = icmp samesign ult i32 %71, 229
   %or.cond.i = and i1 %87, %86
   %..i = select i1 %or.cond.i, i32 %76, i32 0
   br label %_ZNK2OT4cff119accelerator_templ_tIN3CFF25cff1_private_dict_opset_tENS2_31cff1_private_dict_values_base_tINS2_10dict_val_tEEEE17std_code_to_glyphEj.exit
@@ -7569,7 +7569,7 @@ _ZN2OT4cff132lookup_standard_encoding_for_sidEj.exit.i40: ; preds = %_ZN3CFF11cf
   %112 = getelementptr inbounds i8, ptr %89, i64 244
   %113 = load i32, ptr %112, align 4
   %114 = icmp eq i32 %113, 0
-  %115 = icmp ult i32 %99, 229
+  %115 = icmp samesign ult i32 %99, 229
   %or.cond.i42 = and i1 %115, %114
   %..i43 = select i1 %or.cond.i42, i32 %104, i32 0
   br label %_ZNK2OT4cff119accelerator_templ_tIN3CFF25cff1_private_dict_opset_tENS2_31cff1_private_dict_values_base_tINS2_10dict_val_tEEEE17std_code_to_glyphEj.exit44
@@ -7842,7 +7842,7 @@ _ZNK3CFF14biased_subrs_tINS_5SubrsIN2OT7IntTypeItLj2EEEEEE9get_countEv.exit.i.i:
   %112 = load i8, ptr %111, align 1
   %113 = zext i8 %112 to i32
   %114 = or disjoint i32 %110, %113
-  %.not.i.i131 = icmp ult i32 %103, %114
+  %.not.i.i131 = icmp samesign ult i32 %103, %114
   br i1 %.not.i.i131, label %_ZN3CFF15cs_interp_env_tINS_8number_tENS_5SubrsIN2OT7IntTypeItLj2EEEEEE12pop_subr_numERKNS_14biased_subrs_tIS6_EERj.exit.i, label %_ZN3CFF15cs_interp_env_tINS_8number_tENS_5SubrsIN2OT7IntTypeItLj2EEEEEE12pop_subr_numERKNS_14biased_subrs_tIS6_EERj.exit.thread.i
 
 _ZN3CFF15cs_interp_env_tINS_8number_tENS_5SubrsIN2OT7IntTypeItLj2EEEEEE12pop_subr_numERKNS_14biased_subrs_tIS6_EERj.exit.i: ; preds = %_ZNK3CFF14biased_subrs_tINS_5SubrsIN2OT7IntTypeItLj2EEEEEE9get_countEv.exit.i.i
@@ -7880,7 +7880,7 @@ _ZN3CFF11cff_stack_tINS_14call_context_tELi10EE4pushERKS1_.exit.i: ; preds = %_Z
   %133 = load i8, ptr %132, align 1
   %134 = zext i8 %133 to i32
   %135 = or disjoint i32 %131, %134
-  %.not3.i.i = icmp ult i32 %103, %135
+  %.not3.i.i = icmp samesign ult i32 %103, %135
   br i1 %.not3.i.i, label %136, label %_ZNK3CFF14biased_subrs_tINS_5SubrsIN2OT7IntTypeItLj2EEEEEEixEj.exit.i
 
 136:                                              ; preds = %128
@@ -7949,7 +7949,7 @@ _ZNK3CFF14biased_subrs_tINS_5SubrsIN2OT7IntTypeItLj2EEEEEE9get_countEv.exit.i.i1
   %168 = load i8, ptr %167, align 1
   %169 = zext i8 %168 to i32
   %170 = or disjoint i32 %166, %169
-  %.not.i.i137 = icmp ult i32 %159, %170
+  %.not.i.i137 = icmp samesign ult i32 %159, %170
   br i1 %.not.i.i137, label %_ZN3CFF15cs_interp_env_tINS_8number_tENS_5SubrsIN2OT7IntTypeItLj2EEEEEE12pop_subr_numERKNS_14biased_subrs_tIS6_EERj.exit.i139, label %_ZN3CFF15cs_interp_env_tINS_8number_tENS_5SubrsIN2OT7IntTypeItLj2EEEEEE12pop_subr_numERKNS_14biased_subrs_tIS6_EERj.exit.thread.i138
 
 _ZN3CFF15cs_interp_env_tINS_8number_tENS_5SubrsIN2OT7IntTypeItLj2EEEEEE12pop_subr_numERKNS_14biased_subrs_tIS6_EERj.exit.i139: ; preds = %_ZNK3CFF14biased_subrs_tINS_5SubrsIN2OT7IntTypeItLj2EEEEEE9get_countEv.exit.i.i136
@@ -7987,7 +7987,7 @@ _ZN3CFF11cff_stack_tINS_14call_context_tELi10EE4pushERKS1_.exit.i140: ; preds = 
   %189 = load i8, ptr %188, align 1
   %190 = zext i8 %189 to i32
   %191 = or disjoint i32 %187, %190
-  %.not3.i.i142 = icmp ult i32 %159, %191
+  %.not3.i.i142 = icmp samesign ult i32 %159, %191
   br i1 %.not3.i.i142, label %192, label %_ZNK3CFF14biased_subrs_tINS_5SubrsIN2OT7IntTypeItLj2EEEEEEixEj.exit.i143
 
 192:                                              ; preds = %184
@@ -11765,7 +11765,7 @@ _ZN2OT4cff132lookup_standard_encoding_for_sidEj.exit.i: ; preds = %_ZN3CFF11cff_
   %39 = getelementptr inbounds i8, ptr %26, i64 244
   %40 = load i32, ptr %39, align 4
   %41 = icmp eq i32 %40, 0
-  %42 = icmp ult i32 %23, 229
+  %42 = icmp samesign ult i32 %23, 229
   %or.cond.i = and i1 %42, %41
   %..i = select i1 %or.cond.i, i32 %31, i32 0
   br label %_ZNK2OT4cff119accelerator_templ_tIN3CFF32cff1_private_dict_opset_subset_tENS2_31cff1_private_dict_values_base_tINS2_8op_str_tEEEE17std_code_to_glyphEj.exit
@@ -11798,7 +11798,7 @@ _ZN2OT4cff132lookup_standard_encoding_for_sidEj.exit.i16: ; preds = %_ZNK2OT4cff
   %57 = getelementptr inbounds i8, ptr %43, i64 244
   %58 = load i32, ptr %57, align 4
   %59 = icmp eq i32 %58, 0
-  %60 = icmp ult i32 %25, 229
+  %60 = icmp samesign ult i32 %25, 229
   %or.cond.i18 = and i1 %60, %59
   %..i19 = select i1 %or.cond.i18, i32 %49, i32 0
   br label %_ZNK2OT4cff119accelerator_templ_tIN3CFF32cff1_private_dict_opset_subset_tENS2_31cff1_private_dict_values_base_tINS2_8op_str_tEEEE17std_code_to_glyphEj.exit20
@@ -12036,7 +12036,7 @@ _ZNK3CFF14biased_subrs_tINS_5SubrsIN2OT7IntTypeItLj2EEEEEE9get_countEv.exit.i.i:
   %108 = load i8, ptr %107, align 1
   %109 = zext i8 %108 to i32
   %110 = or disjoint i32 %106, %109
-  %.not.i.i131 = icmp ult i32 %99, %110
+  %.not.i.i131 = icmp samesign ult i32 %99, %110
   br i1 %.not.i.i131, label %_ZN3CFF15cs_interp_env_tINS_8number_tENS_5SubrsIN2OT7IntTypeItLj2EEEEEE12pop_subr_numERKNS_14biased_subrs_tIS6_EERj.exit.i, label %_ZN3CFF15cs_interp_env_tINS_8number_tENS_5SubrsIN2OT7IntTypeItLj2EEEEEE12pop_subr_numERKNS_14biased_subrs_tIS6_EERj.exit.thread.i
 
 _ZN3CFF15cs_interp_env_tINS_8number_tENS_5SubrsIN2OT7IntTypeItLj2EEEEEE12pop_subr_numERKNS_14biased_subrs_tIS6_EERj.exit.i: ; preds = %_ZNK3CFF14biased_subrs_tINS_5SubrsIN2OT7IntTypeItLj2EEEEEE9get_countEv.exit.i.i
@@ -12074,7 +12074,7 @@ _ZN3CFF11cff_stack_tINS_14call_context_tELi10EE4pushERKS1_.exit.i: ; preds = %_Z
   %129 = load i8, ptr %128, align 1
   %130 = zext i8 %129 to i32
   %131 = or disjoint i32 %127, %130
-  %.not3.i.i = icmp ult i32 %99, %131
+  %.not3.i.i = icmp samesign ult i32 %99, %131
   br i1 %.not3.i.i, label %132, label %_ZNK3CFF14biased_subrs_tINS_5SubrsIN2OT7IntTypeItLj2EEEEEEixEj.exit.i
 
 132:                                              ; preds = %124
@@ -12143,7 +12143,7 @@ _ZNK3CFF14biased_subrs_tINS_5SubrsIN2OT7IntTypeItLj2EEEEEE9get_countEv.exit.i.i1
   %164 = load i8, ptr %163, align 1
   %165 = zext i8 %164 to i32
   %166 = or disjoint i32 %162, %165
-  %.not.i.i137 = icmp ult i32 %155, %166
+  %.not.i.i137 = icmp samesign ult i32 %155, %166
   br i1 %.not.i.i137, label %_ZN3CFF15cs_interp_env_tINS_8number_tENS_5SubrsIN2OT7IntTypeItLj2EEEEEE12pop_subr_numERKNS_14biased_subrs_tIS6_EERj.exit.i139, label %_ZN3CFF15cs_interp_env_tINS_8number_tENS_5SubrsIN2OT7IntTypeItLj2EEEEEE12pop_subr_numERKNS_14biased_subrs_tIS6_EERj.exit.thread.i138
 
 _ZN3CFF15cs_interp_env_tINS_8number_tENS_5SubrsIN2OT7IntTypeItLj2EEEEEE12pop_subr_numERKNS_14biased_subrs_tIS6_EERj.exit.i139: ; preds = %_ZNK3CFF14biased_subrs_tINS_5SubrsIN2OT7IntTypeItLj2EEEEEE9get_countEv.exit.i.i136
@@ -12181,7 +12181,7 @@ _ZN3CFF11cff_stack_tINS_14call_context_tELi10EE4pushERKS1_.exit.i140: ; preds = 
   %185 = load i8, ptr %184, align 1
   %186 = zext i8 %185 to i32
   %187 = or disjoint i32 %183, %186
-  %.not3.i.i142 = icmp ult i32 %155, %187
+  %.not3.i.i142 = icmp samesign ult i32 %155, %187
   br i1 %.not3.i.i142, label %188, label %_ZNK3CFF14biased_subrs_tINS_5SubrsIN2OT7IntTypeItLj2EEEEEEixEj.exit.i143
 
 188:                                              ; preds = %180

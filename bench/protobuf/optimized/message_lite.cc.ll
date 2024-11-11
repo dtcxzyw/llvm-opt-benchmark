@@ -3055,11 +3055,11 @@ _ZNK4absl12lts_202308024Cord5emptyEv.exit.i:      ; preds = %cond.false.i.i.i.i,
 
 if.then.i:                                        ; preds = %_ZNK4absl12lts_202308024Cord5emptyEv.exit.i
   tail call void @llvm.experimental.noalias.scope.decl(metadata !15)
-  %cmp.i2.i = icmp ugt i64 %call, 15
+  %cmp.i2.i = icmp samesign ugt i64 %call, 15
   br i1 %cmp.i2.i, label %if.then.i.i, label %_ZN4absl12lts_202308024Cord15GetAppendBufferEmm.exit.thread
 
 if.then.i.i:                                      ; preds = %if.then.i
-  %cmp.i.i.i.i = icmp ult i64 %call, 20
+  %cmp.i.i.i.i = icmp samesign ult i64 %call, 20
   %spec.store.select.i.i.i.i = tail call i64 @llvm.umin.i64(i64 %call, i64 4083)
   %6 = add nuw nsw i64 %spec.store.select.i.i.i.i, 13
   %len.addr.0.i.i.i.i = select i1 %cmp.i.i.i.i, i64 32, i64 %6
@@ -3072,7 +3072,7 @@ if.then.i.i:                                      ; preds = %if.then.i
   %call4.i.i.i.i = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %and.i.i.i.i.i.i) #27, !noalias !18
   %7 = getelementptr inbounds i8, ptr %call4.i.i.i.i, i64 8
   store i64 4, ptr %7, align 8, !noalias !18
-  %cmp.i.i.i.i.i.i = icmp ult i64 %and.i.i.i.i.i.i, 513
+  %cmp.i.i.i.i.i.i = icmp samesign ult i64 %and.i.i.i.i.i.i, 513
   %.sink8.i.i.i.i.i.i = select i1 %cmp.i.i.i.i.i.i, i64 3, i64 6
   %.sink.i.i.i.i.i.i = select i1 %cmp.i.i.i.i.i.i, i64 2, i64 58
   %div36.i.i.i.i.i.i = lshr i64 %and.i.i.i.i.i.i, %.sink8.i.i.i.i.i.i
@@ -3309,7 +3309,7 @@ invoke.cont50:                                    ; preds = %if.then.i40, %_ZN4a
   store i8 %frombool.i44, ptr %is_serialization_deterministic_.i49, align 2
   %skip_check_consistency.i50 = getelementptr inbounds i8, ptr %out44, i64 59
   store i8 0, ptr %skip_check_consistency.i50, align 1
-  %cmp.i.i51 = icmp ugt i32 %conv46, 16
+  %cmp.i.i51 = icmp samesign ugt i32 %conv46, 16
   %add.ptr.i.i52 = getelementptr inbounds i8, ptr %add.ptr.i.pn.i96102106, i64 %sub.i.pn.i98101108
   %add.ptr2.i.i = getelementptr inbounds i8, ptr %add.ptr.i.i52, i64 -16
   %add.ptr4.i.i = getelementptr inbounds i8, ptr %buffer_.i, i64 %sub.i.pn.i98101108
@@ -4492,7 +4492,7 @@ if.then:                                          ; preds = %land.lhs.true
   %data_.i.i = getelementptr inbounds i8, ptr %ctx.i, i64 96
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %data_.i.i, i8 0, i64 16, i1 false)
   store i32 0, ptr %overall_limit_.i.i.i, align 4
-  %cmp.i.i.i = icmp ugt i64 %flat.sroa.0.0.ph, 16
+  %cmp.i.i.i = icmp samesign ugt i64 %flat.sroa.0.0.ph, 16
   br i1 %cmp.i.i.i, label %if.then.i.i.i, label %if.else.i.i.i
 
 if.then.i.i.i:                                    ; preds = %if.then

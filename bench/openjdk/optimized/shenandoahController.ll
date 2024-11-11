@@ -156,7 +156,7 @@ switch.lookup:                                    ; preds = %22
   br i1 %31, label %_Z24byte_size_in_proper_unitImET_S0_.exit, label %32
 
 32:                                               ; preds = %switch.lookup
-  %33 = icmp ugt i64 %30, 104857599
+  %33 = icmp samesign ugt i64 %30, 104857599
   br i1 %33, label %.thread, label %36
 
 .thread:                                          ; preds = %32
@@ -168,7 +168,7 @@ _Z24byte_size_in_proper_unitImET_S0_.exit:        ; preds = %switch.lookup
   br label %_Z25proper_unit_for_byte_sizem.exit
 
 36:                                               ; preds = %32
-  %37 = icmp ugt i64 %30, 102399
+  %37 = icmp samesign ugt i64 %30, 102399
   %38 = lshr i64 %30, 10
   %spec.select.i = select i1 %37, i64 %38, i64 %30
   %.str.17..str.18.i = select i1 %37, ptr @.str.17, ptr @.str.18
@@ -303,7 +303,7 @@ _ZN20ShenandoahController24try_set_alloc_failure_gcEb.exit: ; preds = %_ZN20Shen
   br i1 %21, label %_Z24byte_size_in_proper_unitImET_S0_.exit, label %22
 
 22:                                               ; preds = %19
-  %23 = icmp ugt i64 %20, 104857599
+  %23 = icmp samesign ugt i64 %20, 104857599
   br i1 %23, label %.thread, label %26
 
 .thread:                                          ; preds = %22
@@ -315,7 +315,7 @@ _Z24byte_size_in_proper_unitImET_S0_.exit:        ; preds = %19
   br label %_Z25proper_unit_for_byte_sizem.exit
 
 26:                                               ; preds = %22
-  %27 = icmp ugt i64 %20, 102399
+  %27 = icmp samesign ugt i64 %20, 102399
   %28 = lshr i64 %20, 10
   %spec.select.i = select i1 %27, i64 %28, i64 %20
   %.str.17..str.18.i = select i1 %27, ptr @.str.17, ptr @.str.18

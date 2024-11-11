@@ -5486,7 +5486,7 @@ define linkonce_odr dso_local void @_ZNSt5dequeIN4Json6Reader9ErrorInfoESaIS2_EE
   br i1 %51, label %52, label %58
 
 52:                                               ; preds = %45
-  %53 = icmp ult i64 %50, 8
+  %53 = icmp samesign ult i64 %50, 8
   br i1 %53, label %54, label %56
 
 54:                                               ; preds = %52
@@ -5572,7 +5572,7 @@ _ZSt25__uninitialized_default_aISt15_Deque_iteratorIN4Json6Reader9ErrorInfoERS3_
   br i1 %87, label %88, label %94
 
 88:                                               ; preds = %77
-  %89 = icmp ult i64 %86, 8
+  %89 = icmp samesign ult i64 %86, 8
   br i1 %89, label %90, label %92
 
 90:                                               ; preds = %88
@@ -12163,7 +12163,7 @@ define linkonce_odr dso_local void @_ZNSt5dequeIN4Json9OurReader9ErrorInfoESaIS2
   br i1 %51, label %52, label %58
 
 52:                                               ; preds = %45
-  %53 = icmp ult i64 %50, 8
+  %53 = icmp samesign ult i64 %50, 8
   br i1 %53, label %54, label %56
 
 54:                                               ; preds = %52
@@ -12249,7 +12249,7 @@ _ZSt25__uninitialized_default_aISt15_Deque_iteratorIN4Json9OurReader9ErrorInfoER
   br i1 %87, label %88, label %94
 
 88:                                               ; preds = %77
-  %89 = icmp ult i64 %86, 8
+  %89 = icmp samesign ult i64 %86, 8
   br i1 %89, label %90, label %92
 
 90:                                               ; preds = %88

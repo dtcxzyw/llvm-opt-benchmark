@@ -370,7 +370,7 @@ tailrecurse:                                      ; preds = %28
   br label %.loopexit
 
 55:                                               ; preds = %48, %46
-  %.not77 = icmp ult i32 %8, %44
+  %.not77 = icmp samesign ult i32 %8, %44
   br i1 %.not77, label %65, label %56
 
 56:                                               ; preds = %55

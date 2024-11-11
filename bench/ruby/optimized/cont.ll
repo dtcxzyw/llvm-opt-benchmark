@@ -2375,7 +2375,7 @@ define hidden void @Init_Cont() local_unnamed_addr #0 {
   br label %30
 
 27:                                               ; preds = %24
-  %28 = icmp ugt i32 %25, 1
+  %28 = icmp samesign ugt i32 %25, 1
   br i1 %28, label %29, label %30
 
 29:                                               ; preds = %27

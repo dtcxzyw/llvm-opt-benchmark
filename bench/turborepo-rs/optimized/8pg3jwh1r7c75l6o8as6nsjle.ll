@@ -3422,7 +3422,7 @@ define hidden void @_RNvMs1_NtCs8mTrBI1stz4_15turborepo_vt1006screenNtB5_6Screen
   br i1 %18, label %21, label %_RNvMs_NtCs8mTrBI1stz4_15turborepo_vt1004cellNtB4_4Cell6append.exit
 
 19:                                               ; preds = %2
-  %20 = icmp ugt i32 %1, 31
+  %20 = icmp samesign ugt i32 %1, 31
   br i1 %20, label %.split48, label %_RNvMs_NtCs8mTrBI1stz4_15turborepo_vt1004cellNtB4_4Cell6append.exit
 
 21:                                               ; preds = %17
@@ -3482,7 +3482,7 @@ define hidden void @_RNvMs1_NtCs8mTrBI1stz4_15turborepo_vt1006screenNtB5_6Screen
   %56 = getelementptr inbounds i8, ptr %.sroa.0.0.i, i64 56
   %57 = load i64, ptr %56, align 8, !noundef !5
   %58 = zext i16 %8 to i64
-  %.not.i.i.not.i = icmp ugt i64 %57, %58
+  %.not.i.i.not.i = icmp samesign ugt i64 %57, %58
   br i1 %.not.i.i.not.i, label %59, label %85
 
 59:                                               ; preds = %55
@@ -3507,7 +3507,7 @@ _RNvMNtCs8mTrBI1stz4_15turborepo_vt1004gridNtB2_4Grid14row_inc_scroll.exit.i: ; 
   %.sroa.0.0.i.i66 = phi i16 [ %spec.select208, %68 ], [ 0, %_RNvMNtCs8mTrBI1stz4_15turborepo_vt1004gridNtB2_4Grid12drawing_cell.exit ]
   %70 = sub i16 %8, %.sroa.0.0.i.i66
   %71 = zext i16 %70 to i64
-  %.not.i.i6.not.i = icmp ugt i64 %69, %71
+  %.not.i.i6.not.i = icmp samesign ugt i64 %69, %71
   br i1 %.not.i.i6.not.i, label %73, label %72
 
 72:                                               ; preds = %_RNvMNtCs8mTrBI1stz4_15turborepo_vt1004gridNtB2_4Grid14row_inc_scroll.exit.i
@@ -3572,7 +3572,7 @@ _RNvMNtCs8mTrBI1stz4_15turborepo_vt1004gridNtB2_4Grid12drawing_cell.exit: ; pred
   %99 = getelementptr inbounds i8, ptr %.sroa.0.0.i69, i64 56
   %100 = load i64, ptr %99, align 8, !noundef !5
   %101 = zext i16 %81 to i64
-  %.not.i.i.not.i73 = icmp ugt i64 %100, %101
+  %.not.i.i.not.i73 = icmp samesign ugt i64 %100, %101
   br i1 %.not.i.i.not.i73, label %102, label %193
 
 102:                                              ; preds = %98
@@ -3593,7 +3593,7 @@ _RNvMNtCs8mTrBI1stz4_15turborepo_vt1004gridNtB2_4Grid12drawing_cell.exit: ; pred
   %112 = getelementptr inbounds i8, ptr %.sroa.0.0.i69, i64 56
   %113 = load i64, ptr %112, align 8, !noundef !5
   %114 = zext i16 %81 to i64
-  %.not.i.i.not.i80 = icmp ugt i64 %113, %114
+  %.not.i.i.not.i80 = icmp samesign ugt i64 %113, %114
   br i1 %.not.i.i.not.i80, label %115, label %168
 
 115:                                              ; preds = %111
@@ -3614,7 +3614,7 @@ _RNvMNtCs8mTrBI1stz4_15turborepo_vt1004gridNtB2_4Grid12drawing_cell.exit: ; pred
   %128 = getelementptr inbounds i8, ptr %.sroa.0.0.i69, i64 56
   %129 = load i64, ptr %128, align 8, !noundef !5
   %130 = zext i16 %125 to i64
-  %.not.i.i.not = icmp ugt i64 %129, %130
+  %.not.i.i.not = icmp samesign ugt i64 %129, %130
   %131 = getelementptr inbounds { { { i64, ptr, {} }, i64 }, i8, [7 x i8] }, ptr %127, i64 %130
   br i1 %.not.i.i.not, label %133, label %132
 
@@ -3772,7 +3772,7 @@ _RNvMNtCs8mTrBI1stz4_15turborepo_vt1004gridNtB2_4Grid12drawing_cell.exit76: ; pr
   %.sroa.0.0.i112 = getelementptr inbounds i8, ptr %0, i64 %.sroa.0.0.idx.i111
   %200 = getelementptr inbounds i8, ptr %.sroa.0.0.i112, i64 56
   %201 = load i64, ptr %200, align 8, !noundef !5
-  %.not.i.i.not.i113 = icmp ugt i64 %201, %101
+  %.not.i.i.not.i113 = icmp samesign ugt i64 %201, %101
   br i1 %.not.i.i.not.i113, label %202, label %217
 
 202:                                              ; preds = %199
@@ -3826,7 +3826,7 @@ _RNvMNtCs8mTrBI1stz4_15turborepo_vt1004gridNtB2_4Grid12drawing_cell.exit116: ; p
   tail call void @llvm.experimental.noalias.scope.decl(metadata !671)
   %224 = getelementptr inbounds i8, ptr %.sroa.0.0.i126, i64 56
   %225 = load i64, ptr %224, align 8, !alias.scope !674, !noundef !5
-  %.not.i.i.not.i127 = icmp ugt i64 %225, %101
+  %.not.i.i.not.i127 = icmp samesign ugt i64 %225, %101
   br i1 %.not.i.i.not.i127, label %226, label %243
 
 226:                                              ; preds = %223
@@ -3945,7 +3945,7 @@ _RNvMs_NtCs8mTrBI1stz4_15turborepo_vt1004cellNtB4_4Cell3set.exit: ; preds = %_RN
   %289 = getelementptr inbounds i8, ptr %.sroa.0.0.i140, i64 56
   %290 = load i64, ptr %289, align 8, !noundef !5
   %291 = zext i16 %288 to i64
-  %.not.i.i.not.i147 = icmp ugt i64 %290, %291
+  %.not.i.i.not.i147 = icmp samesign ugt i64 %290, %291
   br i1 %.not.i.i.not.i147, label %292, label %300
 
 292:                                              ; preds = %286
@@ -3979,7 +3979,7 @@ _RNvMNtCs8mTrBI1stz4_15turborepo_vt1004gridNtB2_4Grid12drawing_cell.exit150: ; p
   tail call void @llvm.experimental.noalias.scope.decl(metadata !713)
   %309 = getelementptr inbounds i8, ptr %.sroa.0.0.i153, i64 56
   %310 = load i64, ptr %309, align 8, !alias.scope !716, !noundef !5
-  %.not.i.i.not.i154 = icmp ugt i64 %310, %291
+  %.not.i.i.not.i154 = icmp samesign ugt i64 %310, %291
   br i1 %.not.i.i.not.i154, label %311, label %337
 
 311:                                              ; preds = %306
@@ -4022,7 +4022,7 @@ _RNvMNtCs8mTrBI1stz4_15turborepo_vt1004gridNtB2_4Grid16drawing_cell_mut.exit164:
   %.sroa.0.0.i167 = getelementptr inbounds i8, ptr %0, i64 %.sroa.0.0.idx.i166
   %330 = getelementptr inbounds i8, ptr %.sroa.0.0.i167, i64 56
   %331 = load i64, ptr %330, align 8, !alias.scope !730, !noundef !5
-  %.not.i.i168.not = icmp ugt i64 %331, %291
+  %.not.i.i168.not = icmp samesign ugt i64 %331, %291
   br i1 %.not.i.i168.not, label %333, label %332
 
 332:                                              ; preds = %328
@@ -4761,7 +4761,7 @@ define hidden void @_RNvMs1_NtCs8mTrBI1stz4_15turborepo_vt1006screenNtB5_6Screen
   %30 = ptrtoint ptr %.sroa.0.0.i5 to i64
   %31 = sub nuw i64 %25, %30
   %32 = lshr exact i64 %31, 5
-  %.not.i.not.i = icmp ult i64 %.sroa.10.0.i, %32
+  %.not.i.not.i = icmp samesign ult i64 %.sroa.10.0.i, %32
   %33 = getelementptr inbounds { { { i64, ptr, {} }, i64 }, i8, [7 x i8] }, ptr %.sroa.0.0.i5, i64 %.sroa.10.0.i
   br i1 %.not.i.not.i, label %_RNvXs32_NtNtCs1LoaDTb72WA_4core5slice4iterINtB6_7IterMutNtNtCs8mTrBI1stz4_15turborepo_vt1003row3RowENtNtNtNtBa_4iter6traits8iterator8Iterator4nextBW_.llvm.18144538392194903364.exit.thread11.i, label %_RNvXs32_NtNtCs1LoaDTb72WA_4core5slice4iterINtB6_7IterMutNtNtCs8mTrBI1stz4_15turborepo_vt1003row3RowENtNtNtNtBa_4iter6traits8iterator8Iterator4nextBW_.llvm.18144538392194903364.exit.thread.i
 
@@ -4769,7 +4769,7 @@ _RNvXs32_NtNtCs1LoaDTb72WA_4core5slice4iterINtB6_7IterMutNtNtCs8mTrBI1stz4_15tur
   tail call void @llvm.experimental.noalias.scope.decl(metadata !977)
   %34 = getelementptr inbounds i8, ptr %.sroa.0.0.i, i64 114
   %35 = load i16, ptr %34, align 2, !alias.scope !980, !noalias !981, !noundef !5
-  %.not.i.i.not.i.i.i = icmp ugt i64 %21, %23
+  %.not.i.i.not.i.i.i = icmp samesign ugt i64 %21, %23
   br i1 %.not.i.i.not.i.i.i, label %_RNvMNtCs8mTrBI1stz4_15turborepo_vt1004gridNtB2_4Grid15current_row_mut.exit.i.i, label %36
 
 36:                                               ; preds = %_RNvXs32_NtNtCs1LoaDTb72WA_4core5slice4iterINtB6_7IterMutNtNtCs8mTrBI1stz4_15turborepo_vt1003row3RowENtNtNtNtBa_4iter6traits8iterator8Iterator4nextBW_.llvm.18144538392194903364.exit.thread.i
@@ -4850,7 +4850,7 @@ _RNvMNtCs8mTrBI1stz4_15turborepo_vt1003rowNtB2_3Row5clear.exit.i: ; preds = %.lr
 
 _RNvXs32_NtNtCs1LoaDTb72WA_4core5slice4iterINtB6_7IterMutNtNtCs8mTrBI1stz4_15turborepo_vt1003row3RowENtNtNtNtBa_4iter6traits8iterator8Iterator4nextBW_.llvm.18144538392194903364.exit.thread.i13: ; preds = %_RNvMNtCs8mTrBI1stz4_15turborepo_vt1003rowNtB2_3Row5clear.exit.i12, %.lr.ph.i, %54
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1010)
-  %.not.i.i.not.i.i.i14 = icmp ugt i64 %63, %65
+  %.not.i.i.not.i.i.i14 = icmp samesign ugt i64 %63, %65
   br i1 %.not.i.i.not.i.i.i14, label %_RNvMNtCs8mTrBI1stz4_15turborepo_vt1004gridNtB2_4Grid15current_row_mut.exit.i.i15, label %69
 
 69:                                               ; preds = %_RNvXs32_NtNtCs1LoaDTb72WA_4core5slice4iterINtB6_7IterMutNtNtCs8mTrBI1stz4_15turborepo_vt1003row3RowENtNtNtNtBa_4iter6traits8iterator8Iterator4nextBW_.llvm.18144538392194903364.exit.thread.i13
@@ -5030,7 +5030,7 @@ define hidden void @_RNvMs1_NtCs8mTrBI1stz4_15turborepo_vt1006screenNtB5_6Screen
   %22 = getelementptr inbounds i8, ptr %.sroa.0.0.i, i64 56
   %23 = load i64, ptr %22, align 8, !alias.scope !1073, !noalias !1067, !noundef !5
   %24 = zext i16 %21 to i64
-  %.not.i.i.not.i.i = icmp ugt i64 %23, %24
+  %.not.i.i.not.i.i = icmp samesign ugt i64 %23, %24
   br i1 %.not.i.i.not.i.i, label %_RNvMNtCs8mTrBI1stz4_15turborepo_vt1004gridNtB2_4Grid15current_row_mut.exit.i, label %25
 
 25:                                               ; preds = %12
@@ -5072,7 +5072,7 @@ _RNvMNtCs8mTrBI1stz4_15turborepo_vt1004gridNtB2_4Grid15current_row_mut.exit.i: ;
   %41 = getelementptr inbounds i8, ptr %.sroa.0.0.i7, i64 56
   %42 = load i64, ptr %41, align 8, !alias.scope !1094, !noalias !1088, !noundef !5
   %43 = zext i16 %40 to i64
-  %.not.i.i.not.i.i8 = icmp ugt i64 %42, %43
+  %.not.i.i.not.i.i8 = icmp samesign ugt i64 %42, %43
   br i1 %.not.i.i.not.i.i8, label %_RNvMNtCs8mTrBI1stz4_15turborepo_vt1004gridNtB2_4Grid15current_row_mut.exit.i9, label %44
 
 44:                                               ; preds = %31
@@ -5114,7 +5114,7 @@ _RNvMNtCs8mTrBI1stz4_15turborepo_vt1004gridNtB2_4Grid15current_row_mut.exit.i9: 
   %58 = getelementptr inbounds i8, ptr %.sroa.0.0.i12, i64 56
   %59 = load i64, ptr %58, align 8, !alias.scope !1115, !noalias !1113, !noundef !5
   %60 = zext i16 %57 to i64
-  %.not.i.i.not.i.i13 = icmp ugt i64 %59, %60
+  %.not.i.i.not.i.i13 = icmp samesign ugt i64 %59, %60
   br i1 %.not.i.i.not.i.i13, label %_RNvMNtCs8mTrBI1stz4_15turborepo_vt1004gridNtB2_4Grid15current_row_mut.exit.i14, label %61
 
 61:                                               ; preds = %52
@@ -5266,7 +5266,7 @@ define hidden void @_RNvMs1_NtCs8mTrBI1stz4_15turborepo_vt1006screenNtB5_6Screen
   %14 = getelementptr inbounds i8, ptr %.sroa.0.0.i, i64 56
   %15 = load i64, ptr %14, align 8, !alias.scope !1173, !noalias !1167, !noundef !5
   %16 = zext i16 %13 to i64
-  %.not.i.i.not.i.i = icmp ugt i64 %15, %16
+  %.not.i.i.not.i.i = icmp samesign ugt i64 %15, %16
   br i1 %.not.i.i.not.i.i, label %_RNvMNtCs8mTrBI1stz4_15turborepo_vt1004gridNtB2_4Grid15current_row_mut.exit.i, label %17
 
 17:                                               ; preds = %2

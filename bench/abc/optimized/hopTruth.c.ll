@@ -514,7 +514,7 @@ select.unfold.i:                                  ; preds = %select.unfold.i, %s
   %114 = load i32, ptr %113, align 4
   %115 = getelementptr inbounds i32, ptr %.0.i, i64 %indvars.iv.next.i76
   store i32 %114, ptr %115, align 4
-  %116 = icmp ugt i64 %indvars.iv.i75, 1
+  %116 = icmp samesign ugt i64 %indvars.iv.i75, 1
   br i1 %116, label %select.unfold.i, label %Hop_ManTruthCopy.exit, !llvm.loop !16
 
 Hop_ManTruthCopy.exit:                            ; preds = %select.unfold.i
@@ -529,7 +529,7 @@ select.unfold.i79:                                ; preds = %Hop_ManTruthCopy.ex
   %119 = load i32, ptr %118, align 4
   %120 = xor i32 %119, -1
   store i32 %120, ptr %118, align 4
-  %121 = icmp ugt i64 %indvars.iv.i80, 1
+  %121 = icmp samesign ugt i64 %indvars.iv.i80, 1
   br i1 %121, label %select.unfold.i79, label %Hop_ManTruthNot.exit, !llvm.loop !17
 
 Hop_ManTruthNot.exit:                             ; preds = %select.unfold.i79, %Hop_ManTruthCopy.exit, %.loopexit

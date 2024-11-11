@@ -141,7 +141,7 @@ define internal i32 @dissect_pw_fr(ptr noundef %0, ptr noundef %1, ptr noundef %
   %21 = and i8 %20, 63
   %22 = zext nneg i8 %21 to i32
   %23 = add nsw i32 %5, -4
-  %24 = icmp ult i32 %5, 68
+  %24 = icmp samesign ult i32 %5, 68
   %25 = icmp eq i8 %21, 0
   br i1 %24, label %26, label %35
 
@@ -153,7 +153,7 @@ define internal i32 @dissect_pw_fr(ptr noundef %0, ptr noundef %1, ptr noundef %
   br label %37
 
 29:                                               ; preds = %26
-  %30 = icmp ult i32 %23, %22
+  %30 = icmp samesign ult i32 %23, %22
   br i1 %30, label %31, label %33
 
 31:                                               ; preds = %29

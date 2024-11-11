@@ -12269,7 +12269,7 @@ _ZNSt10unique_ptrIN5osgeo4proj22HorizontalShiftGridSetESt14default_deleteIS2_EED
   br label %_ZNSt10unique_ptrIN5osgeo4proj4FileESt14default_deleteIS2_EED2Ev.exit68
 
 149:                                              ; preds = %95
-  %150 = icmp ugt i64 %82, 8
+  %150 = icmp samesign ugt i64 %82, 8
   br i1 %150, label %.thread, label %221
 
 .thread:                                          ; preds = %97, %99, %102, %149
@@ -12463,7 +12463,7 @@ _ZNKSt14default_deleteIN5osgeo4proj4FileEEclEPS2_.exit.i101: ; preds = %215
   br label %_ZNSt10unique_ptrIN5osgeo4proj4FileESt14default_deleteIS2_EED2Ev.exit68
 
 221:                                              ; preds = %149
-  %222 = icmp ugt i64 %82, 3
+  %222 = icmp samesign ugt i64 %82, 3
   br i1 %222, label %..thread133_crit_edge, label %_ZN5osgeo4projL6IsTIFFEmPKh.exit.thread136
 
 ..thread133_crit_edge:                            ; preds = %221
@@ -13559,7 +13559,7 @@ define hidden noundef zeroext i1 @_ZNK5osgeo4proj16GTiffGenericGrid7valueAtEiiiR
   %10 = getelementptr inbounds i8, ptr %9, i64 160
   %11 = load i16, ptr %10, align 8
   %12 = zext i16 %11 to i32
-  %.not = icmp ult i32 %3, %12
+  %.not = icmp samesign ult i32 %3, %12
   br i1 %.not, label %13, label %16
 
 13:                                               ; preds = %7

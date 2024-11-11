@@ -3157,7 +3157,7 @@ define dso_local noundef nonnull align 8 dereferenceable(8) ptr @_ZN5vcpkg4Json5
   store ptr null, ptr %29, align 8
   tail call void @_ZNSt15__uniq_ptr_implIN5vcpkg4Json4impl9ValueImplESt14default_deleteIS3_EE5resetEPS3_(ptr noundef nonnull align 8 dereferenceable(8) %30, ptr noundef %31) #27
   %32 = add nsw i64 %.010.i.i.i.i.i.i.i.i, -1
-  %33 = icmp ugt i64 %.010.i.i.i.i.i.i.i.i, 1
+  %33 = icmp samesign ugt i64 %.010.i.i.i.i.i.i.i.i, 1
   br i1 %33, label %.lr.ph.i.i.i.i.i.i.i.i, label %_ZNSt6vectorIN5vcpkg4Json5ValueESaIS2_EE13_M_insert_auxIS2_EEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEOT_.exit.i.i, !llvm.loop !87
 
 _ZNSt6vectorIN5vcpkg4Json5ValueESaIS2_EE13_M_insert_auxIS2_EEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEOT_.exit.i.i: ; preds = %.lr.ph.i.i.i.i.i.i.i.i, %18
@@ -3259,7 +3259,7 @@ _ZN5vcpkg4Json5Value6objectEONS0_6ObjectE.exit:   ; preds = %3
   store ptr null, ptr %44, align 8
   call void @_ZNSt15__uniq_ptr_implIN5vcpkg4Json4impl9ValueImplESt14default_deleteIS3_EE5resetEPS3_(ptr noundef nonnull align 8 dereferenceable(8) %45, ptr noundef %46) #27
   %47 = add nsw i64 %.010.i.i.i.i.i.i.i.i.i, -1
-  %48 = icmp ugt i64 %.010.i.i.i.i.i.i.i.i.i, 1
+  %48 = icmp samesign ugt i64 %.010.i.i.i.i.i.i.i.i.i, 1
   br i1 %48, label %.lr.ph.i.i.i.i.i.i.i.i.i, label %_ZNSt6vectorIN5vcpkg4Json5ValueESaIS2_EE13_M_insert_auxIS2_EEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEOT_.exit.i.i.i, !llvm.loop !87
 
 _ZNSt6vectorIN5vcpkg4Json5ValueESaIS2_EE13_M_insert_auxIS2_EEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEOT_.exit.i.i.i: ; preds = %.lr.ph.i.i.i.i.i.i.i.i.i, %33
@@ -3519,7 +3519,7 @@ _ZN5vcpkg4Json5Value5arrayEONS0_5ArrayE.exit:     ; preds = %3
   store ptr null, ptr %44, align 8
   call void @_ZNSt15__uniq_ptr_implIN5vcpkg4Json4impl9ValueImplESt14default_deleteIS3_EE5resetEPS3_(ptr noundef nonnull align 8 dereferenceable(8) %45, ptr noundef %46) #27
   %47 = add nsw i64 %.010.i.i.i.i.i.i.i.i.i, -1
-  %48 = icmp ugt i64 %.010.i.i.i.i.i.i.i.i.i, 1
+  %48 = icmp samesign ugt i64 %.010.i.i.i.i.i.i.i.i.i, 1
   br i1 %48, label %.lr.ph.i.i.i.i.i.i.i.i.i, label %_ZNSt6vectorIN5vcpkg4Json5ValueESaIS2_EE13_M_insert_auxIS2_EEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEOT_.exit.i.i.i, !llvm.loop !87
 
 _ZNSt6vectorIN5vcpkg4Json5ValueESaIS2_EE13_M_insert_auxIS2_EEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEOT_.exit.i.i.i: ; preds = %.lr.ph.i.i.i.i.i.i.i.i.i, %33
@@ -5477,7 +5477,7 @@ define dso_local noundef zeroext i1 @_ZN5vcpkg4Json6Object6removeENS_10StringVie
   %25 = getelementptr inbounds i8, ptr %.0910.i.i.i.i.i.i.i, i64 40
   %26 = getelementptr inbounds i8, ptr %.0811.i.i.i.i.i.i.i, i64 40
   %27 = add nsw i64 %.012.i.i.i.i.i.i.i, -1
-  %28 = icmp ugt i64 %.012.i.i.i.i.i.i.i, 1
+  %28 = icmp samesign ugt i64 %.012.i.i.i.i.i.i.i, 1
   br i1 %28, label %.lr.ph.i.i.i.i.i.i.i, label %_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPSt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN5vcpkg4Json5ValueEESt6vectorISC_SaISC_EEEESH_ET0_T_SJ_SI_.exit.loopexit.i.i, !llvm.loop !163
 
 _ZSt4moveIN9__gnu_cxx17__normal_iteratorIPSt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN5vcpkg4Json5ValueEESt6vectorISC_SaISC_EEEESH_ET0_T_SJ_SI_.exit.loopexit.i.i: ; preds = %.lr.ph.i.i.i.i.i.i.i
@@ -12111,7 +12111,7 @@ _ZN3fmt3v106detail11parse_alignEc.exit53:         ; preds = %_ZZN3fmt3v106detail
   unreachable
 
 33:                                               ; preds = %21
-  %.not.i58 = icmp ult i32 %.sroa.0158.0, 4
+  %.not.i58 = icmp samesign ult i32 %.sroa.0158.0, 4
   br i1 %.not.i58, label %_ZZN3fmt3v106detail18parse_format_specsIcEEPKT_S5_S5_RNS1_20dynamic_format_specsIS3_EERNS0_26basic_format_parse_contextIS3_EENS1_4typeEENUt_clENS1_5stateEb.exit59, label %34
 
 34:                                               ; preds = %33
@@ -12123,7 +12123,7 @@ _ZZN3fmt3v106detail18parse_format_specsIcEEPKT_S5_S5_RNS1_20dynamic_format_specs
   unreachable
 
 35:                                               ; preds = %21, %21, %21, %21, %21, %21, %21, %21, %21, %21
-  %.not.i60 = icmp ult i32 %.sroa.0158.0, 5
+  %.not.i60 = icmp samesign ult i32 %.sroa.0158.0, 5
   br i1 %.not.i60, label %_ZZN3fmt3v106detail18parse_format_specsIcEEPKT_S5_S5_RNS1_20dynamic_format_specsIS3_EERNS0_26basic_format_parse_contextIS3_EENS1_4typeEENUt_clENS1_5stateEb.exit61, label %36
 
 36:                                               ; preds = %35
@@ -12135,7 +12135,7 @@ _ZZN3fmt3v106detail18parse_format_specsIcEEPKT_S5_S5_RNS1_20dynamic_format_specs
   br label %95
 
 38:                                               ; preds = %21
-  %.not.i62 = icmp ult i32 %.sroa.0158.0, 6
+  %.not.i62 = icmp samesign ult i32 %.sroa.0158.0, 6
   br i1 %.not.i62, label %_ZZN3fmt3v106detail18parse_format_specsIcEEPKT_S5_S5_RNS1_20dynamic_format_specsIS3_EERNS0_26basic_format_parse_contextIS3_EENS1_4typeEENUt_clENS1_5stateEb.exit63, label %39
 
 39:                                               ; preds = %38
@@ -13003,7 +13003,7 @@ _ZNK3fmt3v1017basic_format_argsINS0_20basic_format_contextINS0_8appenderEcEEE6ge
   br label %_ZNK3fmt3v1017basic_format_argsINS0_20basic_format_contextINS0_8appenderEcEEE3getEi.exit
 
 35:                                               ; preds = %26
-  %36 = icmp ugt i32 %24, 14
+  %36 = icmp samesign ugt i32 %24, 14
   br i1 %36, label %_ZNK3fmt3v1017basic_format_argsINS0_20basic_format_contextINS0_8appenderEcEEE3getEi.exit, label %37
 
 37:                                               ; preds = %35
@@ -17391,7 +17391,7 @@ _ZNKSt14default_deleteIN5vcpkg4Json4impl9ValueImplEEclEPS3_.exit.i: ; preds = %5
 
 _ZNSt15__uniq_ptr_implIN5vcpkg4Json4impl9ValueImplESt14default_deleteIS3_EE5resetEPS3_.exit: ; preds = %.lr.ph.i.i.i.i.i, %_ZNKSt14default_deleteIN5vcpkg4Json4impl9ValueImplEEclEPS3_.exit.i
   %53 = add nsw i64 %.010.i.i.i.i.i, -1
-  %54 = icmp ugt i64 %.010.i.i.i.i.i, 1
+  %54 = icmp samesign ugt i64 %.010.i.i.i.i.i, 1
   br i1 %54, label %.lr.ph.i.i.i.i.i, label %.loopexit, !llvm.loop !540
 
 .loopexit:                                        ; preds = %_ZNSt15__uniq_ptr_implIN5vcpkg4Json4impl9ValueImplESt14default_deleteIS3_EE5resetEPS3_.exit, %14

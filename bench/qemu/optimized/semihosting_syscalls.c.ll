@@ -45,7 +45,7 @@ if.then.i.i:                                      ; preds = %if.then
   br i1 %cmp2.i.i, label %if.then.i, label %if.end.i.i
 
 if.end.i.i:                                       ; preds = %if.then.i.i
-  %cmp4.i.i = icmp ugt i64 %call1.i.i, 2147483646
+  %cmp4.i.i = icmp samesign ugt i64 %call1.i.i, 2147483646
   br i1 %cmp4.i.i, label %if.then.i, label %if.end6.i.i
 
 if.end6.i.i:                                      ; preds = %if.end.i.i
@@ -90,7 +90,7 @@ if.then.i.i.i:                                    ; preds = %if.else
   br i1 %cmp2.i.i.i, label %if.then.i7, label %if.end.i.i.i
 
 if.end.i.i.i:                                     ; preds = %if.then.i.i.i
-  %cmp4.i.i.i = icmp ugt i64 %call1.i.i.i, 2147483646
+  %cmp4.i.i.i = icmp samesign ugt i64 %call1.i.i.i, 2147483646
   br i1 %cmp4.i.i.i, label %if.then.i7, label %if.end6.i.i.i
 
 if.end6.i.i.i:                                    ; preds = %if.end.i.i.i
@@ -854,7 +854,7 @@ if.then.i.i:                                      ; preds = %if.then
   br i1 %cmp2.i.i, label %if.then.i, label %if.end.i.i
 
 if.end.i.i:                                       ; preds = %if.then.i.i
-  %cmp4.i.i = icmp ugt i64 %call1.i.i, 2147483646
+  %cmp4.i.i = icmp samesign ugt i64 %call1.i.i, 2147483646
   br i1 %cmp4.i.i, label %if.then.i, label %if.end6.i.i
 
 if.end6.i.i:                                      ; preds = %if.end.i.i
@@ -900,7 +900,7 @@ if.then.i.i.i:                                    ; preds = %if.else
   br i1 %cmp2.i.i.i, label %if.then.i6, label %if.end.i.i.i
 
 if.end.i.i.i:                                     ; preds = %if.then.i.i.i
-  %cmp4.i.i.i = icmp ugt i64 %call1.i.i.i, 2147483646
+  %cmp4.i.i.i = icmp samesign ugt i64 %call1.i.i.i, 2147483646
   br i1 %cmp4.i.i.i, label %if.then.i6, label %if.end6.i.i.i
 
 if.end6.i.i.i:                                    ; preds = %if.end.i.i.i
@@ -1062,7 +1062,7 @@ if.then.i.i:                                      ; preds = %if.then
   br i1 %cmp2.i.i, label %if.then.i, label %if.end.i.i
 
 if.end.i.i:                                       ; preds = %if.then.i.i
-  %cmp4.i.i = icmp ugt i64 %call1.i.i, 2147483646
+  %cmp4.i.i = icmp samesign ugt i64 %call1.i.i, 2147483646
   br i1 %cmp4.i.i, label %if.then.i, label %if.end6.i.i
 
 if.end6.i.i:                                      ; preds = %if.end.i.i
@@ -1106,7 +1106,7 @@ if.then.i.i.i:                                    ; preds = %if.else
   br i1 %cmp2.i.i.i, label %if.then.i5, label %if.end.i.i.i
 
 if.end.i.i.i:                                     ; preds = %if.then.i.i.i
-  %cmp4.i.i.i = icmp ugt i64 %call1.i.i.i, 2147483646
+  %cmp4.i.i.i = icmp samesign ugt i64 %call1.i.i.i, 2147483646
   br i1 %cmp4.i.i.i, label %if.then.i5, label %if.end6.i.i.i
 
 if.end6.i.i.i:                                    ; preds = %if.end.i.i.i
@@ -1177,7 +1177,7 @@ if.then.i.i:                                      ; preds = %if.then
   br i1 %cmp2.i.i, label %if.then.i, label %if.end.i.i
 
 if.end.i.i:                                       ; preds = %if.then.i.i
-  %cmp4.i.i = icmp ugt i64 %call1.i.i, 2147483646
+  %cmp4.i.i = icmp samesign ugt i64 %call1.i.i, 2147483646
   br i1 %cmp4.i.i, label %if.then.i, label %if.end6.i.i
 
 if.end6.i.i:                                      ; preds = %if.end.i.i
@@ -1218,7 +1218,7 @@ if.then.i25.i:                                    ; preds = %if.end.i
   br i1 %cmp2.i27.i, label %if.then3.i, label %if.end.i28.i
 
 if.end.i28.i:                                     ; preds = %if.then.i25.i
-  %cmp4.i29.i = icmp ugt i64 %call1.i26.i, 2147483646
+  %cmp4.i29.i = icmp samesign ugt i64 %call1.i26.i, 2147483646
   br i1 %cmp4.i29.i, label %if.then3.i, label %if.end6.i30.i
 
 if.end6.i30.i:                                    ; preds = %if.end.i28.i
@@ -1262,7 +1262,7 @@ if.then.i.i.i:                                    ; preds = %if.else
   br i1 %cmp2.i.i.i, label %if.then.i7, label %if.end.i.i.i
 
 if.end.i.i.i:                                     ; preds = %if.then.i.i.i
-  %cmp4.i.i.i = icmp ugt i64 %call1.i.i.i, 2147483646
+  %cmp4.i.i.i = icmp samesign ugt i64 %call1.i.i.i, 2147483646
   br i1 %cmp4.i.i.i, label %if.then.i7, label %if.end6.i.i.i
 
 if.end6.i.i.i:                                    ; preds = %if.end.i.i.i
@@ -1306,7 +1306,7 @@ if.then.i.i33.i:                                  ; preds = %if.end.i9
   br i1 %cmp2.i.i35.i, label %if.then4.i, label %if.end.i.i36.i
 
 if.end.i.i36.i:                                   ; preds = %if.then.i.i33.i
-  %cmp4.i.i37.i = icmp ugt i64 %call1.i.i34.i, 2147483646
+  %cmp4.i.i37.i = icmp samesign ugt i64 %call1.i.i34.i, 2147483646
   br i1 %cmp4.i.i37.i, label %if.then4.i, label %if.end6.i.i38.i
 
 if.end6.i.i38.i:                                  ; preds = %if.end.i.i36.i
@@ -1377,7 +1377,7 @@ if.then.i.i:                                      ; preds = %if.then
   br i1 %cmp2.i.i, label %if.then.i, label %if.end.i.i
 
 if.end.i.i:                                       ; preds = %if.then.i.i
-  %cmp4.i.i = icmp ugt i64 %call1.i.i, 2147483646
+  %cmp4.i.i = icmp samesign ugt i64 %call1.i.i, 2147483646
   br i1 %cmp4.i.i, label %if.then.i, label %if.end6.i.i
 
 if.end6.i.i:                                      ; preds = %if.end.i.i
@@ -1421,7 +1421,7 @@ if.then.i.i.i:                                    ; preds = %if.else
   br i1 %cmp2.i.i.i, label %if.then.i5, label %if.end.i.i.i
 
 if.end.i.i.i:                                     ; preds = %if.then.i.i.i
-  %cmp4.i.i.i = icmp ugt i64 %call1.i.i.i, 2147483646
+  %cmp4.i.i.i = icmp samesign ugt i64 %call1.i.i.i, 2147483646
   br i1 %cmp4.i.i.i, label %if.then.i5, label %if.end6.i.i.i
 
 if.end6.i.i.i:                                    ; preds = %if.end.i.i.i

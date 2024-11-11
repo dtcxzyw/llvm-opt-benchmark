@@ -3125,7 +3125,7 @@ define internal void @ulp_CPICH_RSCP_fmt(ptr nocapture noundef writeonly %0, i32
   br label %22
 
 14:                                               ; preds = %11
-  %15 = icmp ult i32 %1, 91
+  %15 = icmp samesign ult i32 %1, 91
   br i1 %15, label %16, label %20
 
 16:                                               ; preds = %14

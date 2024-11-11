@@ -2040,27 +2040,27 @@ match.exit.backedge:                              ; preds = %match.exit102.lr.ph
 
 24:                                               ; preds = %23
   %25 = zext i8 %11 to i64
-  %26 = icmp ult i8 %11, -64
+  %26 = icmp samesign ult i8 %11, -64
   br i1 %26, label %scan_utf8.exit.thread, label %27
 
 27:                                               ; preds = %24
-  %28 = icmp ult i8 %11, -32
+  %28 = icmp samesign ult i8 %11, -32
   br i1 %28, label %37, label %29
 
 29:                                               ; preds = %27
-  %30 = icmp ult i8 %11, -16
+  %30 = icmp samesign ult i8 %11, -16
   br i1 %30, label %37, label %31
 
 31:                                               ; preds = %29
-  %32 = icmp ult i8 %11, -8
+  %32 = icmp samesign ult i8 %11, -8
   br i1 %32, label %37, label %33
 
 33:                                               ; preds = %31
-  %34 = icmp ult i8 %11, -4
+  %34 = icmp samesign ult i8 %11, -4
   br i1 %34, label %37, label %35
 
 35:                                               ; preds = %33
-  %36 = icmp ult i8 %11, -2
+  %36 = icmp samesign ult i8 %11, -2
   br i1 %36, label %37, label %scan_utf8.exit.thread
 
 37:                                               ; preds = %35, %33, %31, %29, %27
@@ -2139,7 +2139,7 @@ backtrack.exit:                                   ; preds = %55, %58
 61:                                               ; preds = %scan_utf8.exit.thread120
   %62 = getelementptr inbounds i8, ptr %39, i64 2
   store ptr %62, ptr %2, align 8
-  %63 = icmp ugt i64 %40, 65535
+  %63 = icmp samesign ugt i64 %40, 65535
   %64 = select i1 %63, i32 4, i32 2
   br label %181
 

@@ -141,7 +141,7 @@ define i16 @softfloat_mulAddF16(i64 noundef %0, i64 noundef %1, i64 noundef %2, 
   %78 = sext i8 %73 to i64
   %79 = trunc i64 %.0145 to i32
   %80 = sub nsw i64 16, %78
-  %81 = icmp ult i64 %80, 31
+  %81 = icmp samesign ult i64 %80, 31
   br i1 %81, label %82, label %91
 
 82:                                               ; preds = %77
@@ -167,7 +167,7 @@ softfloat_shiftRightJam32.exit:                   ; preds = %82, %91
   br label %117
 
 97:                                               ; preds = %75
-  %98 = icmp ult i8 %73, 31
+  %98 = icmp samesign ult i8 %73, 31
   br i1 %98, label %99, label %softfloat_shiftRightJam32.exit178
 
 99:                                               ; preds = %97
@@ -214,7 +214,7 @@ softfloat_shiftRightJam32.exit178:                ; preds = %97, %99
   %126 = sext i8 %73 to i64
   %127 = trunc i64 %.0145 to i32
   %128 = sub nsw i64 0, %126
-  %129 = icmp ult i64 %128, 31
+  %129 = icmp samesign ult i64 %128, 31
   br i1 %129, label %130, label %139
 
 130:                                              ; preds = %125
@@ -259,7 +259,7 @@ softfloat_shiftRightJam32.exit179:                ; preds = %130, %139
   br label %168
 
 153:                                              ; preds = %145
-  %154 = icmp ult i8 %73, 31
+  %154 = icmp samesign ult i8 %73, 31
   br i1 %154, label %155, label %softfloat_shiftRightJam32.exit180
 
 155:                                              ; preds = %153

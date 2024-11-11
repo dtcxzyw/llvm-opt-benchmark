@@ -133832,7 +133832,7 @@ _ZN10serde_json3ser9Formatter17begin_array_value17h44a11688ca4787a7E.exit.i: ; p
 
 31:                                               ; preds = %_ZN10serde_json3ser9Formatter17begin_array_value17h44a11688ca4787a7E.exit.i
   %.01825.i.sroa.gep1.i.i.i.i = getelementptr inbounds i8, ptr %2, i64 3
-  %32 = icmp ult i8 %.0.in.i.i.i.i.i, 10
+  %32 = icmp samesign ult i8 %.0.in.i.i.i.i.i, 10
   br i1 %32, label %39, label %33
 
 33:                                               ; preds = %31
@@ -133957,7 +133957,7 @@ _ZN10serde_json3ser9Formatter17begin_array_value17h44a11688ca4787a7E.exit.i: ; p
 
 31:                                               ; preds = %_ZN10serde_json3ser9Formatter17begin_array_value17h44a11688ca4787a7E.exit.i
   %.01823.i.sroa.gep1.i.i.i.i = getelementptr inbounds i8, ptr %2, i64 2
-  %32 = icmp ult i8 %.0.val, 10
+  %32 = icmp samesign ult i8 %.0.val, 10
   br i1 %32, label %39, label %33
 
 33:                                               ; preds = %31

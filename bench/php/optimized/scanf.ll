@@ -118,7 +118,7 @@ define range(i32 -2, 1) i32 @ValidateFormat(ptr noundef %0, i32 noundef %1, ptr 
   br i1 %14, label %45, label %51
 
 45:                                               ; preds = %44
-  %46 = icmp ugt i32 %35, 255
+  %46 = icmp samesign ugt i32 %35, 255
   br i1 %46, label %.thread, label %47
 
 47:                                               ; preds = %45

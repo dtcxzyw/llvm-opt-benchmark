@@ -3087,7 +3087,7 @@ list_length.exit193.thread.i:                     ; preds = %list_length.exit191
   %392 = add nsw i32 %.1261.i, -1
   %393 = tail call ptr @lcons(ptr noundef null, ptr noundef %391) #12
   store ptr %393, ptr %379, align 8
-  %394 = icmp ugt i32 %.1261.i, 1
+  %394 = icmp samesign ugt i32 %.1261.i, 1
   br i1 %394, label %390, label %.preheader.i577, !llvm.loop !13
 
 .lr.ph266.i:                                      ; preds = %.preheader.i577, %.lr.ph266.i
@@ -4983,7 +4983,7 @@ list_length.exit.i.i528:                          ; preds = %1305
   %1315 = load ptr, ptr %1311, align 8
   %1316 = call ptr @create_group_result_path(ptr noundef %0, ptr noundef nonnull %.0.i.i, ptr noundef %1314, ptr noundef %1315) #12
   %1317 = call ptr @lappend(ptr noundef %.02.i.i, ptr noundef %1316) #12
-  %1318 = icmp ugt i32 %.0191.i.i, 1
+  %1318 = icmp samesign ugt i32 %.0191.i.i, 1
   br i1 %1318, label %1312, label %1319, !llvm.loop !22
 
 1319:                                             ; preds = %1312

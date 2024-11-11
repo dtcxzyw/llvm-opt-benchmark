@@ -249,7 +249,7 @@ sub_2:                                            ; preds = %sub_1
 
 96:                                               ; preds = %._crit_edge544
   %97 = alloca i8, i64 %36, align 16
-  %98 = icmp ugt i64 %36, 63
+  %98 = icmp samesign ugt i64 %36, 63
   br i1 %98, label %.lr.ph548.preheader, label %._crit_edge549
 
 .lr.ph548.preheader:                              ; preds = %94, %96
@@ -424,7 +424,7 @@ sub_2:                                            ; preds = %sub_1
   %170 = add nsw i32 %.2473558, -1
   %171 = lshr i32 %.0462559, 6
   %172 = icmp ugt i32 %.0461560, 1
-  %173 = icmp ugt i32 %.2473558, 1
+  %173 = icmp samesign ugt i32 %.2473558, 1
   %174 = select i1 %172, i1 %173, i1 false
   br i1 %174, label %.lr.ph562, label %._crit_edge563
 
@@ -463,7 +463,7 @@ sub_2:                                            ; preds = %sub_1
   %194 = add nsw i32 %.3567, -1
   %195 = lshr i32 %.0460568, 6
   %196 = icmp ugt i32 %.0459569, 1
-  %197 = icmp ugt i32 %.3567, 1
+  %197 = icmp samesign ugt i32 %.3567, 1
   %198 = select i1 %196, i1 %197, i1 false
   br i1 %198, label %.lr.ph571, label %._crit_edge572
 
@@ -502,7 +502,7 @@ sub_2:                                            ; preds = %sub_1
   %218 = add nsw i32 %.4576, -1
   %219 = lshr i32 %.0458577, 6
   %220 = icmp ugt i32 %.0457578, 1
-  %221 = icmp ugt i32 %.4576, 1
+  %221 = icmp samesign ugt i32 %.4576, 1
   %222 = select i1 %220, i1 %221, i1 false
   br i1 %222, label %.lr.ph580, label %._crit_edge581
 
@@ -541,7 +541,7 @@ sub_2:                                            ; preds = %sub_1
   %242 = add nsw i32 %.5585, -1
   %243 = lshr i32 %.0456586, 6
   %244 = icmp ugt i32 %.0455587, 1
-  %245 = icmp ugt i32 %.5585, 1
+  %245 = icmp samesign ugt i32 %.5585, 1
   %246 = select i1 %244, i1 %245, i1 false
   br i1 %246, label %.lr.ph589, label %._crit_edge590
 
@@ -580,7 +580,7 @@ sub_2:                                            ; preds = %sub_1
   %266 = add nsw i32 %.6594, -1
   %267 = lshr i32 %.0454595, 6
   %268 = icmp ugt i32 %.0453596, 1
-  %269 = icmp ugt i32 %.6594, 1
+  %269 = icmp samesign ugt i32 %.6594, 1
   %270 = select i1 %268, i1 %269, i1 false
   br i1 %270, label %.lr.ph598, label %._crit_edge599
 
@@ -619,7 +619,7 @@ sub_2:                                            ; preds = %sub_1
   %290 = add nsw i32 %.7603, -1
   %291 = lshr i32 %.0452604, 6
   %292 = icmp ugt i32 %.0451605, 1
-  %293 = icmp ugt i32 %.7603, 1
+  %293 = icmp samesign ugt i32 %.7603, 1
   %294 = select i1 %292, i1 %293, i1 false
   br i1 %294, label %.lr.ph607, label %._crit_edge608
 
@@ -658,7 +658,7 @@ sub_2:                                            ; preds = %sub_1
   %314 = add nsw i32 %.8612, -1
   %315 = lshr i32 %.0450613, 6
   %316 = icmp ugt i32 %.0449614, 1
-  %317 = icmp ugt i32 %.8612, 1
+  %317 = icmp samesign ugt i32 %.8612, 1
   %318 = select i1 %316, i1 %317, i1 false
   br i1 %318, label %.lr.ph616, label %._crit_edge617
 
@@ -697,7 +697,7 @@ sub_2:                                            ; preds = %sub_1
   %338 = add nsw i32 %.9621, -1
   %339 = lshr i32 %.0448622, 6
   %340 = icmp ugt i32 %.0447623, 1
-  %341 = icmp ugt i32 %.9621, 1
+  %341 = icmp samesign ugt i32 %.9621, 1
   %342 = select i1 %340, i1 %341, i1 false
   br i1 %342, label %.lr.ph625, label %._crit_edge626
 
@@ -736,7 +736,7 @@ sub_2:                                            ; preds = %sub_1
   %362 = add nsw i32 %.10630, -1
   %363 = lshr i32 %.0446631, 6
   %364 = icmp ugt i32 %.0445632, 1
-  %365 = icmp ugt i32 %.10630, 1
+  %365 = icmp samesign ugt i32 %.10630, 1
   %366 = select i1 %364, i1 %365, i1 false
   br i1 %366, label %.lr.ph634, label %._crit_edge635
 
@@ -775,7 +775,7 @@ sub_2:                                            ; preds = %sub_1
   %386 = add nsw i32 %.11639, -1
   %387 = lshr i32 %.0444640, 6
   %388 = icmp ugt i32 %.0443641, 1
-  %389 = icmp ugt i32 %.11639, 1
+  %389 = icmp samesign ugt i32 %.11639, 1
   %390 = select i1 %388, i1 %389, i1 false
   br i1 %390, label %.lr.ph643, label %._crit_edge644
 
@@ -814,7 +814,7 @@ sub_2:                                            ; preds = %sub_1
   %410 = add nsw i32 %.12648, -1
   %411 = lshr i32 %.0442649, 6
   %412 = icmp ugt i32 %.0441650, 1
-  %413 = icmp ugt i32 %.12648, 1
+  %413 = icmp samesign ugt i32 %.12648, 1
   %414 = select i1 %412, i1 %413, i1 false
   br i1 %414, label %.lr.ph652, label %._crit_edge653
 
@@ -853,7 +853,7 @@ sub_2:                                            ; preds = %sub_1
   %434 = add nsw i32 %.13657, -1
   %435 = lshr i32 %.0440658, 6
   %436 = icmp ugt i32 %.0439659, 1
-  %437 = icmp ugt i32 %.13657, 1
+  %437 = icmp samesign ugt i32 %.13657, 1
   %438 = select i1 %436, i1 %437, i1 false
   br i1 %438, label %.lr.ph661, label %._crit_edge662
 
@@ -892,7 +892,7 @@ sub_2:                                            ; preds = %sub_1
   %458 = add nsw i32 %.14666, -1
   %459 = lshr i32 %.0438667, 6
   %460 = icmp ugt i32 %.0437668, 1
-  %461 = icmp ugt i32 %.14666, 1
+  %461 = icmp samesign ugt i32 %.14666, 1
   %462 = select i1 %460, i1 %461, i1 false
   br i1 %462, label %.lr.ph670, label %._crit_edge671
 
@@ -931,7 +931,7 @@ sub_2:                                            ; preds = %sub_1
   %482 = add nsw i32 %.15675, -1
   %483 = lshr i32 %.0436676, 6
   %484 = icmp ugt i32 %.0435677, 1
-  %485 = icmp ugt i32 %.15675, 1
+  %485 = icmp samesign ugt i32 %.15675, 1
   %486 = select i1 %484, i1 %485, i1 false
   br i1 %486, label %.lr.ph679, label %._crit_edge680
 
@@ -970,7 +970,7 @@ sub_2:                                            ; preds = %sub_1
   %506 = add nsw i32 %.16684, -1
   %507 = lshr i32 %.0434685, 6
   %508 = icmp ugt i32 %.0433686, 1
-  %509 = icmp ugt i32 %.16684, 1
+  %509 = icmp samesign ugt i32 %.16684, 1
   %510 = select i1 %508, i1 %509, i1 false
   br i1 %510, label %.lr.ph688, label %._crit_edge689
 
@@ -1009,7 +1009,7 @@ sub_2:                                            ; preds = %sub_1
   %530 = add nsw i32 %.17693, -1
   %531 = lshr i32 %.0432694, 6
   %532 = icmp ugt i32 %.0431695, 1
-  %533 = icmp ugt i32 %.17693, 1
+  %533 = icmp samesign ugt i32 %.17693, 1
   %534 = select i1 %532, i1 %533, i1 false
   br i1 %534, label %.lr.ph697, label %._crit_edge698
 
@@ -1048,7 +1048,7 @@ sub_2:                                            ; preds = %sub_1
   %554 = add nsw i32 %.18702, -1
   %555 = lshr i32 %.0430703, 6
   %556 = icmp ugt i32 %.0429704, 1
-  %557 = icmp ugt i32 %.18702, 1
+  %557 = icmp samesign ugt i32 %.18702, 1
   %558 = select i1 %556, i1 %557, i1 false
   br i1 %558, label %.lr.ph706, label %._crit_edge707
 
@@ -1087,7 +1087,7 @@ sub_2:                                            ; preds = %sub_1
   %578 = add nsw i32 %.19711, -1
   %579 = lshr i32 %.0428712, 6
   %580 = icmp ugt i32 %.0427713, 1
-  %581 = icmp ugt i32 %.19711, 1
+  %581 = icmp samesign ugt i32 %.19711, 1
   %582 = select i1 %580, i1 %581, i1 false
   br i1 %582, label %.lr.ph715, label %._crit_edge716
 
@@ -1126,7 +1126,7 @@ sub_2:                                            ; preds = %sub_1
   %602 = add nsw i32 %.20720, -1
   %603 = lshr i32 %.0426721, 6
   %604 = icmp ugt i32 %.0425722, 1
-  %605 = icmp ugt i32 %.20720, 1
+  %605 = icmp samesign ugt i32 %.20720, 1
   %606 = select i1 %604, i1 %605, i1 false
   br i1 %606, label %.lr.ph724, label %._crit_edge725
 
@@ -1165,7 +1165,7 @@ sub_2:                                            ; preds = %sub_1
   %626 = add nsw i32 %.21729, -1
   %627 = lshr i32 %.0424730, 6
   %628 = icmp ugt i32 %.0423731, 1
-  %629 = icmp ugt i32 %.21729, 1
+  %629 = icmp samesign ugt i32 %.21729, 1
   %630 = select i1 %628, i1 %629, i1 false
   br i1 %630, label %.lr.ph733, label %._crit_edge734
 
@@ -1204,7 +1204,7 @@ sub_2:                                            ; preds = %sub_1
   %650 = add nsw i32 %.22738, -1
   %651 = lshr i32 %.0422739, 6
   %652 = icmp ugt i32 %.0421740, 1
-  %653 = icmp ugt i32 %.22738, 1
+  %653 = icmp samesign ugt i32 %.22738, 1
   %654 = select i1 %652, i1 %653, i1 false
   br i1 %654, label %.lr.ph742, label %._crit_edge743
 
@@ -1233,12 +1233,12 @@ sub_2:                                            ; preds = %sub_1
   %664 = add nsw i32 %.23747, -1
   %665 = lshr i32 %.0420748, 6
   %666 = icmp ugt i32 %.0749, 1
-  %667 = icmp ugt i32 %.23747, 1
+  %667 = icmp samesign ugt i32 %.23747, 1
   %668 = select i1 %666, i1 %667, i1 false
   br i1 %668, label %.lr.ph751, label %._crit_edge752
 
 ._crit_edge752:                                   ; preds = %.lr.ph751
-  %669 = icmp ult i32 %.23747, 2
+  %669 = icmp samesign ult i32 %.23747, 2
   br i1 %669, label %._crit_edge752.thread, label %671
 
 ._crit_edge752.thread:                            ; preds = %140, %149, %._crit_edge563, %._crit_edge572, %._crit_edge581, %._crit_edge590, %._crit_edge599, %._crit_edge608, %._crit_edge617, %._crit_edge626, %._crit_edge635, %._crit_edge644, %._crit_edge653, %._crit_edge662, %._crit_edge671, %._crit_edge680, %._crit_edge689, %._crit_edge698, %._crit_edge707, %._crit_edge716, %._crit_edge725, %._crit_edge734, %._crit_edge743, %._crit_edge752

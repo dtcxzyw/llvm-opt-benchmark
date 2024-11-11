@@ -1622,7 +1622,7 @@ define internal fastcc void @_ZN10image_webp8extended16read_alpha_chunk17h370917
 
 21:                                               ; preds = %13
   %22 = lshr i8 %14, 4
-  %switch55 = icmp ult i8 %14, 32
+  %switch55 = icmp samesign ult i8 %14, 32
   br i1 %switch55, label %27, label %25
 
 23:                                               ; preds = %13
@@ -107432,7 +107432,7 @@ _ZN10image_webp7decoder13WebPRiffChunk9to_fourcc17h74241023cfa56b10E.exit.i.i.i.
 .noexc28.i.i.i:                                   ; preds = %249
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %43), !noalias !23909
   store i8 3, ptr %.sroa.3.0..sroa_idx.i.i.i, align 8, !alias.scope !23907, !noalias !23925
-  %256 = icmp ugt i32 %243, 268435455
+  %256 = icmp samesign ugt i32 %243, 268435455
   %257 = zext i1 %256 to i8
   store i8 %257, ptr %129, align 1, !alias.scope !23907, !noalias !23925
   br label %"_ZN10image_webp7decoder20WebPDecoder$LT$R$GT$3new17hbe51801fce8ca0a0E.exit.i.i"
@@ -129299,7 +129299,7 @@ select.unfold646.i.i:                             ; preds = %._crit_edge.i.us.i3
   br label %823
 
 586:                                              ; preds = %582
-  %587 = icmp ult i8 %580, 2
+  %587 = icmp samesign ult i8 %580, 2
   %588 = and i8 %580, 1
   %589 = load i8, ptr %.sroa.4162.0..sroa_idx.i.i, align 4, !range !611, !alias.scope !27136, !noalias !27137, !noundef !22
   %590 = trunc nuw i8 %589 to i1

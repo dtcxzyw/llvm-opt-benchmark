@@ -786,7 +786,7 @@ _ZN4llvm15SmallVectorImplIN12_GLOBAL__N_15StateEE12assignRemoteEOS3_.exit.i.i.i.
   %251 = getelementptr inbounds i8, ptr %.0910.i.i.i.i.i.i.i.i.i.i, i64 48
   %252 = getelementptr inbounds i8, ptr %.0811.i.i.i.i.i.i.i.i.i.i, i64 48
   %253 = add nsw i64 %.012.i.i.i.i.i.i.i.i.i.i, -1
-  %254 = icmp ugt i64 %.012.i.i.i.i.i.i.i.i.i.i, 1
+  %254 = icmp samesign ugt i64 %.012.i.i.i.i.i.i.i.i.i.i, 1
   br i1 %254, label %.lr.ph.i.i.i.i.i.i.i.i.i.i, label %_ZSt4moveIPN12_GLOBAL__N_15StateES2_ET0_T_S4_S3_.exit.i.i.i.i.i, !llvm.loop !8
 
 _ZSt4moveIPN12_GLOBAL__N_15StateES2_ET0_T_S4_S3_.exit.i.i.i.i.i: ; preds = %.lr.ph.i.i.i.i.i.i.i.i.i.i, %247, %246
@@ -971,7 +971,7 @@ _ZN4llvm23SmallVectorTemplateBaseIN12_GLOBAL__N_15StateELb0EE4growEm.exit.i.i.i.
   %310 = getelementptr inbounds i8, ptr %.0910.i.i.i.i.i63.i.i.i.i.i, i64 48
   %311 = getelementptr inbounds i8, ptr %.0811.i.i.i.i.i62.i.i.i.i.i, i64 48
   %312 = add nsw i64 %.012.i.i.i.i.i61.i.i.i.i.i, -1
-  %313 = icmp ugt i64 %.012.i.i.i.i.i61.i.i.i.i.i, 1
+  %313 = icmp samesign ugt i64 %.012.i.i.i.i.i61.i.i.i.i.i, 1
   br i1 %313, label %.lr.ph.i.i.i.i.i60.i.i.i.i.i, label %_ZSt4moveIPN12_GLOBAL__N_15StateES2_ET0_T_S4_S3_.exit64.i.i.i.i.i, !llvm.loop !8
 
 _ZSt4moveIPN12_GLOBAL__N_15StateES2_ET0_T_S4_S3_.exit64.i.i.i.i.i: ; preds = %.lr.ph.i.i.i.i.i60.i.i.i.i.i, %307, %306, %_ZN4llvm23SmallVectorTemplateBaseIN12_GLOBAL__N_15StateELb0EE4growEm.exit.i.i.i.i.i
@@ -5728,7 +5728,7 @@ _ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_117CalledOnceChecker21hasConventi
   br i1 %5, label %_ZN4llvm6any_ofIRA5_KNS_13StringLiteralEZN12_GLOBAL__N_117CalledOnceChecker21hasConventionalSuffixENS_9StringRefEEUlS7_E_EEbOT_T0_.exit, label %_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_117CalledOnceChecker21hasConventionalSuffixEN4llvm9StringRefEEUlS5_E_EclIPKNS4_13StringLiteralEEEbT_.exit56.i.i.i.i.i.i
 
 _ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_117CalledOnceChecker21hasConventionalSuffixEN4llvm9StringRefEEUlS5_E_EclIPKNS4_13StringLiteralEEEbT_.exit.thread78.i.i.i.i.i.i: ; preds = %2
-  %.not.i.i.i54.i.i.i.i.i.i = icmp ult i64 %1, 14
+  %.not.i.i.i54.i.i.i.i.i.i = icmp samesign ult i64 %1, 14
   br i1 %.not.i.i.i54.i.i.i.i.i.i, label %_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_117CalledOnceChecker21hasConventionalSuffixEN4llvm9StringRefEEUlS5_E_EclIPKNS4_13StringLiteralEEEbT_.exit59.thread80.i.i.i.i.i.i, label %_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_117CalledOnceChecker21hasConventionalSuffixEN4llvm9StringRefEEUlS5_E_EclIPKNS4_13StringLiteralEEEbT_.exit56.i.i.i.i.i.i
 
 _ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_117CalledOnceChecker21hasConventionalSuffixEN4llvm9StringRefEEUlS5_E_EclIPKNS4_13StringLiteralEEEbT_.exit56.i.i.i.i.i.i: ; preds = %_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_117CalledOnceChecker21hasConventionalSuffixEN4llvm9StringRefEEUlS5_E_EclIPKNS4_13StringLiteralEEEbT_.exit.thread78.i.i.i.i.i.i, %_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_117CalledOnceChecker21hasConventionalSuffixEN4llvm9StringRefEEUlS5_E_EclIPKNS4_13StringLiteralEEEbT_.exit.i.i.i.i.i.i
@@ -5748,7 +5748,7 @@ _ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_117CalledOnceChecker21hasConventi
   br i1 %9, label %_ZN4llvm6any_ofIRA5_KNS_13StringLiteralEZN12_GLOBAL__N_117CalledOnceChecker21hasConventionalSuffixENS_9StringRefEEUlS7_E_EEbOT_T0_.exit, label %_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_117CalledOnceChecker21hasConventionalSuffixEN4llvm9StringRefEEUlS5_E_EclIPKNS4_13StringLiteralEEEbT_.exit62.i.i.i.i.i.i
 
 _ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_117CalledOnceChecker21hasConventionalSuffixEN4llvm9StringRefEEUlS5_E_EclIPKNS4_13StringLiteralEEEbT_.exit59.thread80.i.i.i.i.i.i: ; preds = %_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_117CalledOnceChecker21hasConventionalSuffixEN4llvm9StringRefEEUlS5_E_EclIPKNS4_13StringLiteralEEEbT_.exit.thread78.i.i.i.i.i.i
-  %.not.i.i.i60.i.i.i.i.i.i = icmp ult i64 %1, 11
+  %.not.i.i.i60.i.i.i.i.i.i = icmp samesign ult i64 %1, 11
   br i1 %.not.i.i.i60.i.i.i.i.i.i, label %_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_117CalledOnceChecker21hasConventionalSuffixEN4llvm9StringRefEEUlS5_E_EclIPKNS4_13StringLiteralEEEbT_.exit62.thread81.i.i.i.i.i.i, label %_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_117CalledOnceChecker21hasConventionalSuffixEN4llvm9StringRefEEUlS5_E_EclIPKNS4_13StringLiteralEEEbT_.exit62.i.i.i.i.i.i
 
 _ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_117CalledOnceChecker21hasConventionalSuffixEN4llvm9StringRefEEUlS5_E_EclIPKNS4_13StringLiteralEEEbT_.exit62.i.i.i.i.i.i: ; preds = %_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_117CalledOnceChecker21hasConventionalSuffixEN4llvm9StringRefEEUlS5_E_EclIPKNS4_13StringLiteralEEEbT_.exit59.thread80.i.i.i.i.i.i, %_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_117CalledOnceChecker21hasConventionalSuffixEN4llvm9StringRefEEUlS5_E_EclIPKNS4_13StringLiteralEEEbT_.exit59.i.i.i.i.i.i, %_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_117CalledOnceChecker21hasConventionalSuffixEN4llvm9StringRefEEUlS5_E_EclIPKNS4_13StringLiteralEEEbT_.exit56.thread79.i.i.i.i.i.i
@@ -5758,7 +5758,7 @@ _ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_117CalledOnceChecker21hasConventi
   br i1 %11, label %_ZN4llvm6any_ofIRA5_KNS_13StringLiteralEZN12_GLOBAL__N_117CalledOnceChecker21hasConventionalSuffixENS_9StringRefEEUlS7_E_EEbOT_T0_.exit, label %_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_117CalledOnceChecker21hasConventionalSuffixEN4llvm9StringRefEEUlS5_E_EclIPKNS4_13StringLiteralEEEbT_.exit71.i.i.i.i.i.i
 
 _ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_117CalledOnceChecker21hasConventionalSuffixEN4llvm9StringRefEEUlS5_E_EclIPKNS4_13StringLiteralEEEbT_.exit62.thread81.i.i.i.i.i.i: ; preds = %_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_117CalledOnceChecker21hasConventionalSuffixEN4llvm9StringRefEEUlS5_E_EclIPKNS4_13StringLiteralEEEbT_.exit59.thread80.i.i.i.i.i.i
-  %.not.i.i.i69.i.i.i.i.i.i = icmp ult i64 %1, 9
+  %.not.i.i.i69.i.i.i.i.i.i = icmp samesign ult i64 %1, 9
   br i1 %.not.i.i.i69.i.i.i.i.i.i, label %_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_117CalledOnceChecker21hasConventionalSuffixEN4llvm9StringRefEEUlS5_E_EclIPKNS4_13StringLiteralEEEbT_.exit71.thread84.i.i.i.i.i.i, label %_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_117CalledOnceChecker21hasConventionalSuffixEN4llvm9StringRefEEUlS5_E_EclIPKNS4_13StringLiteralEEEbT_.exit71.i.i.i.i.i.i
 
 _ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_117CalledOnceChecker21hasConventionalSuffixEN4llvm9StringRefEEUlS5_E_EclIPKNS4_13StringLiteralEEEbT_.exit71.i.i.i.i.i.i: ; preds = %_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_117CalledOnceChecker21hasConventionalSuffixEN4llvm9StringRefEEUlS5_E_EclIPKNS4_13StringLiteralEEEbT_.exit62.thread81.i.i.i.i.i.i, %_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_117CalledOnceChecker21hasConventionalSuffixEN4llvm9StringRefEEUlS5_E_EclIPKNS4_13StringLiteralEEEbT_.exit62.i.i.i.i.i.i

@@ -1479,7 +1479,7 @@ define internal fastcc i32 @dissect_iscsi(ptr noundef %0, ptr noundef %1, ptr no
 304:                                              ; preds = %302
   %305 = load i32, ptr @iscsi_desegment, align 4
   %306 = icmp ne i32 %305, 0
-  %307 = icmp ugt i32 %.0465, 7
+  %307 = icmp samesign ugt i32 %.0465, 7
   %308 = and i1 %307, %306
   br i1 %308, label %.critedge, label %.thread640
 

@@ -282,7 +282,7 @@ if.end.i:                                         ; preds = %while.body.i
   %indvars.iv.next.i = add nsw i64 %indvars.iv.i, 1
   %arrayidx6.i = getelementptr inbounds i8, ptr %_websocket_key, i64 %indvars.iv.i
   store i8 %4, ptr %arrayidx6.i, align 1
-  %cmp1.i = icmp ugt i32 %rem.135.i, 11
+  %cmp1.i = icmp samesign ugt i32 %rem.135.i, 11
   br i1 %cmp1.i, label %while.body.i, label %for.inc.loopexit.i, !llvm.loop !4
 
 for.inc.loopexit.i:                               ; preds = %if.end.i
@@ -418,7 +418,7 @@ if.end:                                           ; preds = %while.body
   %indvars.iv.next = add nsw i64 %indvars.iv, 1
   %arrayidx6 = getelementptr inbounds i8, ptr %out_, i64 %indvars.iv
   store i8 %2, ptr %arrayidx6, align 1
-  %cmp1 = icmp ugt i32 %rem.135, 11
+  %cmp1 = icmp samesign ugt i32 %rem.135, 11
   br i1 %cmp1, label %while.body, label %for.inc.loopexit, !llvm.loop !4
 
 for.inc.loopexit:                                 ; preds = %if.end

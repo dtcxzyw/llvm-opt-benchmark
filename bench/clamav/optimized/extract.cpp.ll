@@ -2411,7 +2411,7 @@ _Z9uiMsgBaseIRA2048_wJS1_EEvR10uiMsgStoreOT_DpOT0_.exit.i349: ; preds = %492
   br i1 %or.cond410, label %551, label %562
 
 551:                                              ; preds = %544
-  %552 = icmp ult i64 %542, 100000000
+  %552 = icmp samesign ult i64 %542, 100000000
   br i1 %552, label %558, label %553
 
 553:                                              ; preds = %551

@@ -10,7 +10,7 @@ entry:
   br i1 %cmp, label %return, label %while.cond.preheader
 
 while.cond.preheader:                             ; preds = %entry
-  %tobool.not58 = icmp ult i32 %num, 4
+  %tobool.not58 = icmp samesign ult i32 %num, 4
   br i1 %tobool.not58, label %do.body38, label %do.body
 
 do.body:                                          ; preds = %while.cond.preheader, %do.body
@@ -114,7 +114,7 @@ entry:
   br i1 %cmp, label %return, label %while.cond.preheader
 
 while.cond.preheader:                             ; preds = %entry
-  %tobool.not50 = icmp ult i32 %num, 4
+  %tobool.not50 = icmp samesign ult i32 %num, 4
   br i1 %tobool.not50, label %do.body38, label %do.body
 
 do.body:                                          ; preds = %while.cond.preheader, %do.body
@@ -225,7 +225,7 @@ entry:
   br i1 %cmp, label %if.end44, label %while.cond.preheader
 
 while.cond.preheader:                             ; preds = %entry
-  %tobool.not27 = icmp ult i32 %n, 4
+  %tobool.not27 = icmp samesign ult i32 %n, 4
   br i1 %tobool.not27, label %if.then21, label %while.body
 
 while.body:                                       ; preds = %while.cond.preheader, %while.body

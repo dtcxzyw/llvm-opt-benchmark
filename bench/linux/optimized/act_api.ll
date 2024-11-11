@@ -164,7 +164,7 @@ declare dso_local i32 @sch_frag_xmit_hook(ptr noundef, ptr noundef) local_unname
 define dso_local noundef range(i32 -22, 1) i32 @tcf_action_check_ctrlact(i32 noundef %0, ptr noundef readonly %1, ptr noundef writeonly %2, ptr noundef writeonly %3) #0 align 16 {
   %5 = and i32 %0, -268435456
   %6 = icmp eq i32 %5, 0
-  %7 = icmp ugt i32 %0, 8
+  %7 = icmp samesign ugt i32 %0, 8
   %8 = select i1 %7, i32 -22, i32 0
   %9 = icmp slt i32 %5, 536870913
   %10 = select i1 %9, i32 0, i32 -22

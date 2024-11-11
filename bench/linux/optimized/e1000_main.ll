@@ -4817,7 +4817,7 @@ define internal i32 @e1000_clean(ptr noundef %0, i32 noundef %1) #4 align 16 {
   br i1 %637, label %656, label %638
 
 638:                                              ; preds = %634
-  %639 = icmp ult i32 %617, 36
+  %639 = icmp samesign ult i32 %617, 36
   %640 = zext i1 %639 to i16
   br label %656
 
@@ -4897,7 +4897,7 @@ define internal i32 @e1000_clean(ptr noundef %0, i32 noundef %1) #4 align 16 {
   br i1 %686, label %705, label %687
 
 687:                                              ; preds = %683
-  %688 = icmp ult i32 %665, 36
+  %688 = icmp samesign ult i32 %665, 36
   %689 = zext i1 %688 to i16
   br label %705
 

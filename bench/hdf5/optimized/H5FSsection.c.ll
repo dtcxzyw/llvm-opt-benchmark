@@ -162,7 +162,7 @@ define ptr @H5FS__sinfo_new(ptr noundef %0, ptr noundef %1) local_unnamed_addr #
   br label %H5VM_log2_gen.exit
 
 27:                                               ; preds = %13
-  %.not27.i = icmp ult i64 %11, 1099511627776
+  %.not27.i = icmp samesign ult i64 %11, 1099511627776
   br i1 %.not27.i, label %34, label %28
 
 28:                                               ; preds = %27
@@ -182,11 +182,11 @@ define ptr @H5FS__sinfo_new(ptr noundef %0, ptr noundef %1) local_unnamed_addr #
 
 39:                                               ; preds = %9
   %40 = lshr i64 %11, 16
-  %.not23.i = icmp ult i64 %11, 65536
+  %.not23.i = icmp samesign ult i64 %11, 65536
   br i1 %.not23.i, label %53, label %41
 
 41:                                               ; preds = %39
-  %.not25.i = icmp ult i64 %11, 16777216
+  %.not25.i = icmp samesign ult i64 %11, 16777216
   br i1 %.not25.i, label %48, label %42
 
 42:                                               ; preds = %41
@@ -205,7 +205,7 @@ define ptr @H5FS__sinfo_new(ptr noundef %0, ptr noundef %1) local_unnamed_addr #
   br label %H5VM_log2_gen.exit
 
 53:                                               ; preds = %39
-  %.not24.i = icmp ult i64 %11, 256
+  %.not24.i = icmp samesign ult i64 %11, 256
   br i1 %.not24.i, label %60, label %54
 
 54:                                               ; preds = %53
@@ -267,7 +267,7 @@ H5VM_log2_gen.exit:                               ; preds = %16, %22, %28, %34, 
   br label %H5VM_limit_enc_size.exit
 
 91:                                               ; preds = %77
-  %.not27.i.i = icmp ult i64 %75, 1099511627776
+  %.not27.i.i = icmp samesign ult i64 %75, 1099511627776
   br i1 %.not27.i.i, label %98, label %92
 
 92:                                               ; preds = %91
@@ -287,11 +287,11 @@ H5VM_log2_gen.exit:                               ; preds = %16, %22, %28, %34, 
 
 103:                                              ; preds = %H5VM_log2_gen.exit
   %104 = lshr i64 %75, 16
-  %.not23.i.i = icmp ult i64 %75, 65536
+  %.not23.i.i = icmp samesign ult i64 %75, 65536
   br i1 %.not23.i.i, label %117, label %105
 
 105:                                              ; preds = %103
-  %.not25.i.i = icmp ult i64 %75, 16777216
+  %.not25.i.i = icmp samesign ult i64 %75, 16777216
   br i1 %.not25.i.i, label %112, label %106
 
 106:                                              ; preds = %105
@@ -310,7 +310,7 @@ H5VM_log2_gen.exit:                               ; preds = %16, %22, %28, %34, 
   br label %H5VM_limit_enc_size.exit
 
 117:                                              ; preds = %103
-  %.not24.i.i = icmp ult i64 %75, 256
+  %.not24.i.i = icmp samesign ult i64 %75, 256
   br i1 %.not24.i.i, label %124, label %118
 
 118:                                              ; preds = %117
@@ -591,7 +591,7 @@ define internal fastcc range(i32 -1, 1) i32 @H5FS__sect_remove_real(ptr nocaptur
   br label %H5VM_log2_gen.exit.i
 
 28:                                               ; preds = %14
-  %.not27.i.i = icmp ult i64 %12, 1099511627776
+  %.not27.i.i = icmp samesign ult i64 %12, 1099511627776
   br i1 %.not27.i.i, label %35, label %29
 
 29:                                               ; preds = %28
@@ -611,11 +611,11 @@ define internal fastcc range(i32 -1, 1) i32 @H5FS__sect_remove_real(ptr nocaptur
 
 40:                                               ; preds = %2
   %41 = lshr i64 %12, 16
-  %.not23.i.i = icmp ult i64 %12, 65536
+  %.not23.i.i = icmp samesign ult i64 %12, 65536
   br i1 %.not23.i.i, label %54, label %42
 
 42:                                               ; preds = %40
-  %.not25.i.i = icmp ult i64 %12, 16777216
+  %.not25.i.i = icmp samesign ult i64 %12, 16777216
   br i1 %.not25.i.i, label %49, label %43
 
 43:                                               ; preds = %42
@@ -634,7 +634,7 @@ define internal fastcc range(i32 -1, 1) i32 @H5FS__sect_remove_real(ptr nocaptur
   br label %H5VM_log2_gen.exit.i
 
 54:                                               ; preds = %40
-  %.not24.i.i = icmp ult i64 %12, 256
+  %.not24.i.i = icmp samesign ult i64 %12, 256
   br i1 %.not24.i.i, label %61, label %55
 
 55:                                               ; preds = %54
@@ -1390,7 +1390,7 @@ define internal fastcc range(i32 -1, 1) i32 @H5FS__sect_link(ptr nocapture nound
   br label %H5VM_log2_gen.exit.i
 
 29:                                               ; preds = %15
-  %.not27.i.i = icmp ult i64 %13, 1099511627776
+  %.not27.i.i = icmp samesign ult i64 %13, 1099511627776
   br i1 %.not27.i.i, label %36, label %30
 
 30:                                               ; preds = %29
@@ -1410,11 +1410,11 @@ define internal fastcc range(i32 -1, 1) i32 @H5FS__sect_link(ptr nocapture nound
 
 41:                                               ; preds = %3
   %42 = lshr i64 %13, 16
-  %.not23.i.i = icmp ult i64 %13, 65536
+  %.not23.i.i = icmp samesign ult i64 %13, 65536
   br i1 %.not23.i.i, label %55, label %43
 
 43:                                               ; preds = %41
-  %.not25.i.i = icmp ult i64 %13, 16777216
+  %.not25.i.i = icmp samesign ult i64 %13, 16777216
   br i1 %.not25.i.i, label %50, label %44
 
 44:                                               ; preds = %43
@@ -1433,7 +1433,7 @@ define internal fastcc range(i32 -1, 1) i32 @H5FS__sect_link(ptr nocapture nound
   br label %H5VM_log2_gen.exit.i
 
 55:                                               ; preds = %41
-  %.not24.i.i = icmp ult i64 %13, 256
+  %.not24.i.i = icmp samesign ult i64 %13, 256
   br i1 %.not24.i.i, label %62, label %56
 
 56:                                               ; preds = %55
@@ -1731,7 +1731,7 @@ H5FS__sect_link_size.exit:                        ; preds = %141
   br label %H5VM_limit_enc_size.exit.i.i.i
 
 234:                                              ; preds = %220
-  %.not27.i.i.i.i.i = icmp ult i64 %211, 1099511627776
+  %.not27.i.i.i.i.i = icmp samesign ult i64 %211, 1099511627776
   br i1 %.not27.i.i.i.i.i, label %241, label %235
 
 235:                                              ; preds = %234
@@ -1751,11 +1751,11 @@ H5FS__sect_link_size.exit:                        ; preds = %141
 
 246:                                              ; preds = %216
   %247 = lshr i64 %211, 16
-  %.not23.i.i.i.i.i = icmp ult i64 %211, 65536
+  %.not23.i.i.i.i.i = icmp samesign ult i64 %211, 65536
   br i1 %.not23.i.i.i.i.i, label %260, label %248
 
 248:                                              ; preds = %246
-  %.not25.i.i.i.i.i = icmp ult i64 %211, 16777216
+  %.not25.i.i.i.i.i = icmp samesign ult i64 %211, 16777216
   br i1 %.not25.i.i.i.i.i, label %255, label %249
 
 249:                                              ; preds = %248
@@ -1774,7 +1774,7 @@ H5FS__sect_link_size.exit:                        ; preds = %141
   br label %H5VM_limit_enc_size.exit.i.i.i
 
 260:                                              ; preds = %246
-  %.not24.i.i.i.i.i = icmp ult i64 %211, 256
+  %.not24.i.i.i.i.i = icmp samesign ult i64 %211, 256
   br i1 %.not24.i.i.i.i.i, label %267, label %261
 
 261:                                              ; preds = %260
@@ -2096,7 +2096,7 @@ define range(i32 -1, 2) i32 @H5FS_sect_find(ptr noundef %0, ptr noundef %1, i64 
   br label %H5VM_log2_gen.exit.i
 
 31:                                               ; preds = %17
-  %.not27.i.i = icmp ult i64 %2, 1099511627776
+  %.not27.i.i = icmp samesign ult i64 %2, 1099511627776
   br i1 %.not27.i.i, label %38, label %32
 
 32:                                               ; preds = %31
@@ -2116,11 +2116,11 @@ define range(i32 -1, 2) i32 @H5FS_sect_find(ptr noundef %0, ptr noundef %1, i64 
 
 43:                                               ; preds = %15
   %44 = lshr i64 %2, 16
-  %.not23.i.i = icmp ult i64 %2, 65536
+  %.not23.i.i = icmp samesign ult i64 %2, 65536
   br i1 %.not23.i.i, label %57, label %45
 
 45:                                               ; preds = %43
-  %.not25.i.i = icmp ult i64 %2, 16777216
+  %.not25.i.i = icmp samesign ult i64 %2, 16777216
   br i1 %.not25.i.i, label %52, label %46
 
 46:                                               ; preds = %45
@@ -2139,7 +2139,7 @@ define range(i32 -1, 2) i32 @H5FS_sect_find(ptr noundef %0, ptr noundef %1, i64 
   br label %H5VM_log2_gen.exit.i
 
 57:                                               ; preds = %43
-  %.not24.i.i = icmp ult i64 %2, 256
+  %.not24.i.i = icmp samesign ult i64 %2, 256
   br i1 %.not24.i.i, label %64, label %58
 
 58:                                               ; preds = %57
@@ -2598,7 +2598,7 @@ define range(i32 -1, 1) i32 @H5FS_sect_change_class(ptr noundef %0, ptr noundef 
   br label %H5VM_log2_gen.exit
 
 38:                                               ; preds = %24
-  %.not27.i = icmp ult i64 %22, 1099511627776
+  %.not27.i = icmp samesign ult i64 %22, 1099511627776
   br i1 %.not27.i, label %45, label %39
 
 39:                                               ; preds = %38
@@ -2618,11 +2618,11 @@ define range(i32 -1, 1) i32 @H5FS_sect_change_class(ptr noundef %0, ptr noundef 
 
 50:                                               ; preds = %20
   %51 = lshr i64 %22, 16
-  %.not23.i = icmp ult i64 %22, 65536
+  %.not23.i = icmp samesign ult i64 %22, 65536
   br i1 %.not23.i, label %64, label %52
 
 52:                                               ; preds = %50
-  %.not25.i = icmp ult i64 %22, 16777216
+  %.not25.i = icmp samesign ult i64 %22, 16777216
   br i1 %.not25.i, label %59, label %53
 
 53:                                               ; preds = %52
@@ -2641,7 +2641,7 @@ define range(i32 -1, 1) i32 @H5FS_sect_change_class(ptr noundef %0, ptr noundef 
   br label %H5VM_log2_gen.exit
 
 64:                                               ; preds = %50
-  %.not24.i = icmp ult i64 %22, 256
+  %.not24.i = icmp samesign ult i64 %22, 256
   br i1 %.not24.i, label %71, label %65
 
 65:                                               ; preds = %64
@@ -2896,7 +2896,7 @@ H5VM_log2_gen.exit:                               ; preds = %27, %33, %39, %45, 
   br label %H5VM_limit_enc_size.exit.i
 
 227:                                              ; preds = %213
-  %.not27.i.i.i = icmp ult i64 %204, 1099511627776
+  %.not27.i.i.i = icmp samesign ult i64 %204, 1099511627776
   br i1 %.not27.i.i.i, label %234, label %228
 
 228:                                              ; preds = %227
@@ -2916,11 +2916,11 @@ H5VM_log2_gen.exit:                               ; preds = %27, %33, %39, %45, 
 
 239:                                              ; preds = %209
   %240 = lshr i64 %204, 16
-  %.not23.i.i.i = icmp ult i64 %204, 65536
+  %.not23.i.i.i = icmp samesign ult i64 %204, 65536
   br i1 %.not23.i.i.i, label %253, label %241
 
 241:                                              ; preds = %239
-  %.not25.i.i.i = icmp ult i64 %204, 16777216
+  %.not25.i.i.i = icmp samesign ult i64 %204, 16777216
   br i1 %.not25.i.i.i, label %248, label %242
 
 242:                                              ; preds = %241
@@ -2939,7 +2939,7 @@ H5VM_log2_gen.exit:                               ; preds = %27, %33, %39, %45, 
   br label %H5VM_limit_enc_size.exit.i
 
 253:                                              ; preds = %239
-  %.not24.i.i.i = icmp ult i64 %204, 256
+  %.not24.i.i.i = icmp samesign ult i64 %204, 256
   br i1 %.not24.i.i.i, label %260, label %254
 
 254:                                              ; preds = %253
@@ -3426,7 +3426,7 @@ define internal fastcc range(i32 -1, 1) i32 @H5FS__sect_unlink_rest(ptr nocaptur
   br label %H5VM_limit_enc_size.exit.i.i
 
 62:                                               ; preds = %48
-  %.not27.i.i.i.i = icmp ult i64 %39, 1099511627776
+  %.not27.i.i.i.i = icmp samesign ult i64 %39, 1099511627776
   br i1 %.not27.i.i.i.i, label %69, label %63
 
 63:                                               ; preds = %62
@@ -3446,11 +3446,11 @@ define internal fastcc range(i32 -1, 1) i32 @H5FS__sect_unlink_rest(ptr nocaptur
 
 74:                                               ; preds = %44
   %75 = lshr i64 %39, 16
-  %.not23.i.i.i.i = icmp ult i64 %39, 65536
+  %.not23.i.i.i.i = icmp samesign ult i64 %39, 65536
   br i1 %.not23.i.i.i.i, label %88, label %76
 
 76:                                               ; preds = %74
-  %.not25.i.i.i.i = icmp ult i64 %39, 16777216
+  %.not25.i.i.i.i = icmp samesign ult i64 %39, 16777216
   br i1 %.not25.i.i.i.i, label %83, label %77
 
 77:                                               ; preds = %76
@@ -3469,7 +3469,7 @@ define internal fastcc range(i32 -1, 1) i32 @H5FS__sect_unlink_rest(ptr nocaptur
   br label %H5VM_limit_enc_size.exit.i.i
 
 88:                                               ; preds = %74
-  %.not24.i.i.i.i = icmp ult i64 %39, 256
+  %.not24.i.i.i.i = icmp samesign ult i64 %39, 256
   br i1 %.not24.i.i.i.i, label %95, label %89
 
 89:                                               ; preds = %88

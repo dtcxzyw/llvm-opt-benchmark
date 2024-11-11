@@ -7196,7 +7196,7 @@ define hidden void @_ZN8PhaseCCP7analyzeEv(ptr noundef nonnull align 8 dereferen
   %12 = getelementptr inbounds i8, ptr %10, i64 8
   %13 = load i32, ptr %12, align 8
   %14 = zext i32 %13 to i64
-  %.not.i = icmp ult i64 %indvars.iv, %14
+  %.not.i = icmp samesign ult i64 %indvars.iv, %14
   br i1 %.not.i, label %._ZN10Type_Array3mapEjPK4Type.exit_crit_edge, label %15
 
 ._ZN10Type_Array3mapEjPK4Type.exit_crit_edge:     ; preds = %9
@@ -7276,7 +7276,7 @@ _ZN10Type_Array3mapEjPK4Type.exit:                ; preds = %._ZN10Type_Array3ma
   %53 = getelementptr inbounds i8, ptr %52, i64 592
   %54 = load i32, ptr %53, align 8
   %55 = zext i32 %54 to i64
-  %56 = icmp ult i64 %indvars.iv.next.pre-phi, %55
+  %56 = icmp samesign ult i64 %indvars.iv.next.pre-phi, %55
   br i1 %56, label %9, label %._crit_edge, !llvm.loop !51
 
 ._crit_edge:                                      ; preds = %_ZN10Type_Array3mapEjPK4Type.exit, %1

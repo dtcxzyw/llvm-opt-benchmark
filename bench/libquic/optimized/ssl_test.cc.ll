@@ -2320,8 +2320,8 @@ if.then128:                                       ; preds = %if.then109
   br label %cleanup
 
 if.end131:                                        ; preds = %if.then109
-  %cmp132.not = icmp ugt i64 %call101, %call104
-  %cmp134.not = icmp ugt i64 %call107, %call98
+  %cmp132.not = icmp samesign ugt i64 %call101, %call104
+  %cmp134.not = icmp samesign ugt i64 %call107, %call98
   %or.cond = select i1 %cmp132.not, i1 %cmp134.not, i1 false
   br i1 %or.cond, label %if.end146, label %if.then135
 

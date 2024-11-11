@@ -3695,7 +3695,7 @@ invoke.cont:                                      ; preds = %if.then.i.i.i.i.i
   %incdec.ptr.i.i.i.i.i = getelementptr i8, ptr %call5.i.i.i.i2.i.i49, i64 4
   %2 = add nsw i64 %mul.i.i.i.i.i.i, -4
   tail call void @llvm.memset.p0.i64(ptr align 4 %incdec.ptr.i.i.i.i.i, i8 0, i64 %2, i1 false)
-  %cmp.i.i51 = icmp ugt i64 %1, 1152921504606846975
+  %cmp.i.i51 = icmp samesign ugt i64 %1, 1152921504606846975
   br i1 %cmp.i.i51, label %if.then.i.i62, label %if.then.i.i.i.i.i53
 
 if.then.i.i62:                                    ; preds = %invoke.cont
@@ -8383,7 +8383,7 @@ lpad:                                             ; preds = %if.then.i, %if.then
   resume { ptr, i32 } %16
 
 if.else:                                          ; preds = %_ZNSt6vectorIN7rocksdb12DeadlockPathESaIS1_EED2Ev.exit
-  %cmp.i = icmp ult i64 %sub.ptr.div.i, %conv
+  %cmp.i = icmp samesign ult i64 %sub.ptr.div.i, %conv
   br i1 %cmp.i, label %if.then.i, label %invoke.cont28
 
 if.then.i:                                        ; preds = %if.else

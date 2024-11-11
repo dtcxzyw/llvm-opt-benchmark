@@ -33553,7 +33553,7 @@ land.lhs.true:                                    ; preds = %for.body
 
 for.inc:                                          ; preds = %land.lhs.true, %for.body
   %sumRi.1 = phi float [ %sumRi.0459, %for.body ], [ %spec.select83, %land.lhs.true ]
-  %cmp146 = icmp ugt i64 %indvars.iv, 2
+  %cmp146 = icmp samesign ugt i64 %indvars.iv, 2
   br i1 %cmp146, label %for.body, label %for.cond176.preheader, !llvm.loop !446
 
 for.body178:                                      ; preds = %for.body178.lr.ph, %cond.true192

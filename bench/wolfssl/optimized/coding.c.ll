@@ -583,7 +583,7 @@ if.end101:                                        ; preds = %if.end88
   %idxprom15.i = zext nneg i32 %or.i to i64
   %arrayidx16.i = getelementptr inbounds [80 x i8], ptr @base64Decode, i64 0, i64 %idxprom15.i
   %30 = load i8, ptr %arrayidx16.i, align 1
-  %.inv8.i = icmp ult i8 %6, 107
+  %.inv8.i = icmp samesign ult i8 %6, 107
   %or237.i = select i1 %.inv8.i, i8 %29, i8 %30
   %sub.i247 = add nsw i8 %13, -43
   %conv2.i248 = zext nneg i8 %sub.i247 to i32
@@ -596,7 +596,7 @@ if.end101:                                        ; preds = %if.end88
   %idxprom15.i255 = zext nneg i32 %or.i254 to i64
   %arrayidx16.i256 = getelementptr inbounds [80 x i8], ptr @base64Decode, i64 0, i64 %idxprom15.i255
   %32 = load i8, ptr %arrayidx16.i256, align 1
-  %.inv8.i257 = icmp ult i8 %13, 107
+  %.inv8.i257 = icmp samesign ult i8 %13, 107
   %or237.i258 = select i1 %.inv8.i257, i8 %31, i8 %32
   br i1 %cmp42, label %cond.false, label %cond.end
 
@@ -612,7 +612,7 @@ cond.false:                                       ; preds = %if.end101
   %idxprom15.i267 = zext nneg i32 %or.i266 to i64
   %arrayidx16.i268 = getelementptr inbounds [80 x i8], ptr @base64Decode, i64 0, i64 %idxprom15.i267
   %34 = load i8, ptr %arrayidx16.i268, align 1
-  %.inv8.i269 = icmp ult i8 %20, 107
+  %.inv8.i269 = icmp samesign ult i8 %20, 107
   %or237.i270 = select i1 %.inv8.i269, i8 %33, i8 %34
   %35 = zext i8 %or237.i270 to i32
   br label %cond.end
@@ -633,7 +633,7 @@ cond.false114:                                    ; preds = %cond.end
   %idxprom15.i279 = zext nneg i32 %or.i278 to i64
   %arrayidx16.i280 = getelementptr inbounds [80 x i8], ptr @base64Decode, i64 0, i64 %idxprom15.i279
   %37 = load i8, ptr %arrayidx16.i280, align 1
-  %.inv8.i281 = icmp ult i8 %27, 107
+  %.inv8.i281 = icmp samesign ult i8 %27, 107
   %or237.i282 = select i1 %.inv8.i281, i8 %36, i8 %37
   %38 = zext i8 %or237.i282 to i32
   br label %cond.end117

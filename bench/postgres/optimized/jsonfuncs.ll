@@ -1769,7 +1769,7 @@ define dso_local i64 @jsonb_get_element(ptr noundef %0, ptr nocapture noundef re
   %87 = and i32 %81, 268435455
   %88 = icmp eq i32 %70, -2147483648
   %89 = sub nsw i32 0, %70
-  %90 = icmp ult i32 %87, %89
+  %90 = icmp samesign ult i32 %87, %89
   %or.cond92 = select i1 %88, i1 true, i1 %90
   br i1 %or.cond92, label %91, label %92
 
@@ -2060,7 +2060,7 @@ define internal fastcc ptr @setPath(ptr noundef nonnull %0, ptr noundef %1, ptr 
   %.01.i68 = phi i32 [ %95, %.lr.ph.i67 ], [ %.2121.i, %94 ]
   %95 = add nsw i32 %.01.i68, -1
   %96 = call ptr @pushJsonbValue(ptr noundef nonnull %4, i32 noundef 3, ptr noundef nonnull %9) #15
-  %97 = icmp ugt i32 %.01.i68, 1
+  %97 = icmp samesign ugt i32 %.01.i68, 1
   br i1 %97, label %.lr.ph.i67, label %push_null_elements.exit69, !llvm.loop !9
 
 push_null_elements.exit69:                        ; preds = %.lr.ph.i67
@@ -2177,7 +2177,7 @@ push_null_elements.exit69:                        ; preds = %.lr.ph.i67
   %.01.i65 = phi i32 [ %138, %.lr.ph.i64 ], [ %136, %135 ]
   %138 = add nsw i32 %.01.i65, -1
   %139 = call ptr @pushJsonbValue(ptr noundef nonnull %4, i32 noundef 3, ptr noundef nonnull %10) #15
-  %140 = icmp ugt i32 %.01.i65, 1
+  %140 = icmp samesign ugt i32 %.01.i65, 1
   br i1 %140, label %.lr.ph.i64, label %push_null_elements.exit66, !llvm.loop !9
 
 push_null_elements.exit66:                        ; preds = %.lr.ph.i64, %135
@@ -2209,7 +2209,7 @@ push_null_elements.exit66:                        ; preds = %.lr.ph.i64, %135
   %.01.i = phi i32 [ %150, %.lr.ph.i ], [ %148, %147 ]
   %150 = add nsw i32 %.01.i, -1
   %151 = call ptr @pushJsonbValue(ptr noundef nonnull %4, i32 noundef 3, ptr noundef nonnull %11) #15
-  %152 = icmp ugt i32 %.01.i, 1
+  %152 = icmp samesign ugt i32 %.01.i, 1
   br i1 %152, label %.lr.ph.i, label %push_null_elements.exit, !llvm.loop !9
 
 push_null_elements.exit:                          ; preds = %.lr.ph.i, %147
@@ -9969,7 +9969,7 @@ define internal fastcc void @push_path(ptr noundef nonnull %0, i32 noundef %1, p
   %.01.i = phi i32 [ %43, %.lr.ph.i ], [ %28, %40 ]
   %43 = add nsw i32 %.01.i, -1
   %44 = call ptr @pushJsonbValue(ptr noundef nonnull %0, i32 noundef 3, ptr noundef nonnull %7) #15
-  %45 = icmp ugt i32 %.01.i, 1
+  %45 = icmp samesign ugt i32 %.01.i, 1
   br i1 %45, label %.lr.ph.i, label %push_null_elements.exit, !llvm.loop !9
 
 push_null_elements.exit:                          ; preds = %.lr.ph.i, %40

@@ -2460,7 +2460,7 @@ colorMatch.exit.i:                                ; preds = %126, %124, %102, %9
 
 169:                                              ; preds = %164
   %170 = udiv i32 2147483647, %166
-  %171 = icmp ugt i32 %170, %11
+  %171 = icmp samesign ugt i32 %170, %11
   br i1 %171, label %172, label %storeICMarray.exit
 
 172:                                              ; preds = %169
@@ -2485,14 +2485,14 @@ colorMatch.exit.i:                                ; preds = %126, %124, %102, %9
 
 185:                                              ; preds = %180
   %186 = udiv i32 2147483647, %178
-  %.not120 = icmp ult i32 %186, %182
+  %.not120 = icmp samesign ult i32 %186, %182
   br i1 %.not120, label %storeICMarray.exit, label %187
 
 187:                                              ; preds = %185
   %188 = mul nsw i32 %183, %178
   %189 = icmp sgt i32 %176, -1
   %190 = sub nuw nsw i32 2147483647, %176
-  %191 = icmp ugt i32 %190, %188
+  %191 = icmp samesign ugt i32 %190, %188
   %or.cond122 = select i1 %189, i1 %191, i1 false
   br i1 %or.cond122, label %192, label %storeICMarray.exit
 
@@ -2511,13 +2511,13 @@ colorMatch.exit.i:                                ; preds = %126, %124, %102, %9
 
 201:                                              ; preds = %197
   %202 = udiv i32 2147483647, %195
-  %203 = icmp ugt i32 %202, %199
+  %203 = icmp samesign ugt i32 %202, %199
   br i1 %203, label %204, label %storeICMarray.exit
 
 204:                                              ; preds = %201
   %205 = mul nuw nsw i32 %199, %195
   %206 = sub nuw nsw i32 2147483647, %205
-  %207 = icmp ule i32 %206, %193
+  %207 = icmp samesign ule i32 %206, %193
   %208 = add nuw nsw i32 %205, %193
   %209 = icmp slt i32 %.0102, %208
   %or.cond124 = select i1 %207, i1 true, i1 %209
@@ -3215,7 +3215,7 @@ define internal fastcc range(i32 -1, 1) i32 @allocateRasterArray(ptr noundef %0,
   br i1 %24, label %25, label %375
 
 25:                                               ; preds = %23
-  %26 = icmp ult i32 %21, 429496730
+  %26 = icmp samesign ult i32 %21, 429496730
   %27 = add i32 %9, -1
   %28 = icmp ult i32 %27, 429496729
   %or.cond221 = select i1 %26, i1 %28, i1 false
@@ -3372,7 +3372,7 @@ define internal fastcc range(i32 -1, 1) i32 @allocateRasterArray(ptr noundef %0,
   br i1 %130, label %131, label %375
 
 131:                                              ; preds = %129
-  %132 = icmp ult i32 %127, 715827883
+  %132 = icmp samesign ult i32 %127, 715827883
   %133 = icmp sgt i32 %9, 0
   %or.cond10 = select i1 %132, i1 %133, i1 false
   br i1 %or.cond10, label %135, label %375
@@ -3925,14 +3925,14 @@ define internal fastcc range(i32 -2, 1) i32 @storeRasterArray(ptr noundef %0, pt
 
 41:                                               ; preds = %36
   %42 = udiv i32 2147483647, %34
-  %.not.i = icmp ult i32 %42, %38
+  %.not.i = icmp samesign ult i32 %42, %38
   br i1 %.not.i, label %setPackedBCR.exit, label %43
 
 43:                                               ; preds = %41
   %44 = mul nsw i32 %39, %34
   %45 = icmp sgt i32 %32, -1
   %46 = sub nuw nsw i32 2147483647, %32
-  %47 = icmp ugt i32 %46, %44
+  %47 = icmp samesign ugt i32 %46, %44
   %or.cond.i = select i1 %45, i1 %47, i1 false
   br i1 %or.cond.i, label %48, label %setPackedBCR.exit
 
@@ -3942,7 +3942,7 @@ define internal fastcc range(i32 -2, 1) i32 @storeRasterArray(ptr noundef %0, pt
   %51 = load i32, ptr %50, align 8
   %or.cond126.i = icmp ugt i32 %51, 2147483646
   %52 = sub nuw nsw i32 2147483647, %51
-  %53 = icmp ule i32 %52, %49
+  %53 = icmp samesign ule i32 %52, %49
   %or.cond128.not132.i = select i1 %or.cond126.i, i1 true, i1 %53
   %54 = add nuw nsw i32 %51, %49
   %55 = icmp slt i32 %29, %54
@@ -4137,14 +4137,14 @@ setPackedBCR.exit:                                ; preds = %12, %17, %25, %36, 
 
 158:                                              ; preds = %153
   %159 = udiv i32 2147483647, %151
-  %.not.i18 = icmp ult i32 %159, %155
+  %.not.i18 = icmp samesign ult i32 %159, %155
   br i1 %.not.i18, label %setPackedSCR.exit, label %160
 
 160:                                              ; preds = %158
   %161 = mul nsw i32 %156, %151
   %162 = icmp sgt i32 %149, -1
   %163 = sub nuw nsw i32 2147483647, %149
-  %164 = icmp ugt i32 %163, %161
+  %164 = icmp samesign ugt i32 %163, %161
   %or.cond.i19 = select i1 %162, i1 %164, i1 false
   br i1 %or.cond.i19, label %165, label %setPackedSCR.exit
 
@@ -4154,7 +4154,7 @@ setPackedBCR.exit:                                ; preds = %12, %17, %25, %36, 
   %168 = load i32, ptr %167, align 8
   %or.cond125.i = icmp ugt i32 %168, 2147483646
   %169 = sub nuw nsw i32 2147483647, %168
-  %170 = icmp ule i32 %169, %166
+  %170 = icmp samesign ule i32 %169, %166
   %or.cond127.not131.i = select i1 %or.cond125.i, i1 true, i1 %170
   %171 = add nuw nsw i32 %168, %166
   %172 = icmp slt i32 %146, %171
@@ -4359,14 +4359,14 @@ setPackedSCR.exit:                                ; preds = %129, %134, %142, %1
 
 283:                                              ; preds = %278
   %284 = udiv i32 2147483647, %276
-  %.not.i41 = icmp ult i32 %284, %280
+  %.not.i41 = icmp samesign ult i32 %284, %280
   br i1 %.not.i41, label %setPackedICR.exit, label %285
 
 285:                                              ; preds = %283
   %286 = mul nsw i32 %281, %276
   %287 = icmp sgt i32 %274, -1
   %288 = sub nuw nsw i32 2147483647, %274
-  %289 = icmp ugt i32 %288, %286
+  %289 = icmp samesign ugt i32 %288, %286
   %or.cond.i42 = select i1 %287, i1 %289, i1 false
   br i1 %or.cond.i42, label %290, label %setPackedICR.exit
 
@@ -4376,7 +4376,7 @@ setPackedSCR.exit:                                ; preds = %129, %134, %142, %1
   %293 = load i32, ptr %292, align 8
   %or.cond125.i43 = icmp ugt i32 %293, 2147483646
   %294 = sub nuw nsw i32 2147483647, %293
-  %295 = icmp ule i32 %294, %291
+  %295 = icmp samesign ule i32 %294, %291
   %or.cond127.not131.i44 = select i1 %or.cond125.i43, i1 true, i1 %295
   %296 = add nuw nsw i32 %293, %291
   %297 = icmp slt i32 %271, %296
@@ -7319,14 +7319,14 @@ define internal fastcc range(i32 -2, 1) i32 @setPackedBCRdefault(ptr noundef %0,
 
 35:                                               ; preds = %30
   %36 = udiv i32 2147483647, %28
-  %.not = icmp ult i32 %36, %32
+  %.not = icmp samesign ult i32 %36, %32
   br i1 %.not, label %170, label %37
 
 37:                                               ; preds = %35
   %38 = mul nsw i32 %33, %28
   %39 = icmp sgt i32 %26, -1
   %40 = sub nuw nsw i32 2147483647, %26
-  %41 = icmp ugt i32 %40, %38
+  %41 = icmp samesign ugt i32 %40, %38
   %or.cond = select i1 %39, i1 %41, i1 false
   br i1 %or.cond, label %42, label %170
 
@@ -7336,7 +7336,7 @@ define internal fastcc range(i32 -2, 1) i32 @setPackedBCRdefault(ptr noundef %0,
   %45 = load i32, ptr %44, align 8
   %or.cond163 = icmp ugt i32 %45, 2147483646
   %46 = sub nuw nsw i32 2147483647, %45
-  %47 = icmp ule i32 %46, %43
+  %47 = icmp samesign ule i32 %46, %43
   %or.cond165.not169 = select i1 %or.cond163, i1 true, i1 %47
   %48 = add nuw nsw i32 %45, %43
   %49 = icmp slt i32 %23, %48
@@ -7624,14 +7624,14 @@ define internal fastcc range(i32 -2, 1) i32 @setPackedSCRdefault(ptr noundef %0,
 
 35:                                               ; preds = %30
   %36 = udiv i32 2147483647, %28
-  %.not = icmp ult i32 %36, %32
+  %.not = icmp samesign ult i32 %36, %32
   br i1 %.not, label %183, label %37
 
 37:                                               ; preds = %35
   %38 = mul nsw i32 %33, %28
   %39 = icmp sgt i32 %26, -1
   %40 = sub nuw nsw i32 2147483647, %26
-  %41 = icmp ugt i32 %40, %38
+  %41 = icmp samesign ugt i32 %40, %38
   %or.cond = select i1 %39, i1 %41, i1 false
   br i1 %or.cond, label %42, label %183
 
@@ -7641,7 +7641,7 @@ define internal fastcc range(i32 -2, 1) i32 @setPackedSCRdefault(ptr noundef %0,
   %45 = load i32, ptr %44, align 8
   %or.cond161 = icmp ugt i32 %45, 2147483646
   %46 = sub nuw nsw i32 2147483647, %45
-  %47 = icmp ule i32 %46, %43
+  %47 = icmp samesign ule i32 %46, %43
   %or.cond163.not167 = select i1 %or.cond161, i1 true, i1 %47
   %48 = add nuw nsw i32 %45, %43
   %49 = icmp slt i32 %23, %48
@@ -7951,14 +7951,14 @@ define internal fastcc range(i32 -2, 1) i32 @setPackedICRdefault(ptr noundef %0,
 
 35:                                               ; preds = %30
   %36 = udiv i32 2147483647, %28
-  %.not = icmp ult i32 %36, %32
+  %.not = icmp samesign ult i32 %36, %32
   br i1 %.not, label %180, label %37
 
 37:                                               ; preds = %35
   %38 = mul nsw i32 %33, %28
   %39 = icmp sgt i32 %26, -1
   %40 = sub nuw nsw i32 2147483647, %26
-  %41 = icmp ugt i32 %40, %38
+  %41 = icmp samesign ugt i32 %40, %38
   %or.cond = select i1 %39, i1 %41, i1 false
   br i1 %or.cond, label %42, label %180
 
@@ -7968,7 +7968,7 @@ define internal fastcc range(i32 -2, 1) i32 @setPackedICRdefault(ptr noundef %0,
   %45 = load i32, ptr %44, align 8
   %or.cond161 = icmp ugt i32 %45, 2147483646
   %46 = sub nuw nsw i32 2147483647, %45
-  %47 = icmp ule i32 %46, %43
+  %47 = icmp samesign ule i32 %46, %43
   %or.cond163.not167 = select i1 %or.cond161, i1 true, i1 %47
   %48 = add nuw nsw i32 %45, %43
   %49 = icmp slt i32 %23, %48

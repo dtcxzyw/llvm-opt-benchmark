@@ -833,7 +833,7 @@ if.else.i:                                        ; preds = %if.end14
   %bf.clear18 = and i32 %bf.load, 65535
   %cond.i.i = tail call i32 @llvm.umax.i32(i32 %fill, i32 1)
   %cmp7.i = icmp ugt i64 %add16, 8192
-  %cmp10.i = icmp uge i32 %bf.clear18, %cond.i.i
+  %cmp10.i = icmp samesign uge i32 %bf.clear18, %cond.i.i
   %spec.select.i = or i1 %cmp10.i, %cmp7.i
   br label %quicklistNodeExceedsLimit.exit
 
@@ -896,7 +896,7 @@ if.else.i:                                        ; preds = %if.end10
   %add19 = add nuw nsw i32 %bf.clear18, %bf.clear15
   %cond.i.i = tail call i32 @llvm.umax.i32(i32 %fill, i32 1)
   %cmp7.i = icmp samesign ugt i64 %conv13, 8192
-  %cmp10.i = icmp ugt i32 %add19, %cond.i.i
+  %cmp10.i = icmp samesign ugt i32 %add19, %cond.i.i
   %spec.select.i = or i1 %cmp10.i, %cmp7.i
   br label %quicklistNodeExceedsLimit.exit
 
@@ -977,7 +977,7 @@ _quicklistNodeAllowInsert.exit:                   ; preds = %if.end14.i
   %bf.clear18.i = and i32 %bf.load.i, 65535
   %cond.i.i.i = tail call i32 @llvm.umax.i32(i32 %bf.cast, i32 1)
   %cmp7.i.i = icmp ugt i64 %add16.i, 8192
-  %cmp10.i.i = icmp uge i32 %bf.clear18.i, %cond.i.i.i
+  %cmp10.i.i = icmp samesign uge i32 %bf.clear18.i, %cond.i.i.i
   %spec.select.i.i = or i1 %cmp10.i.i, %cmp7.i.i
   br i1 %spec.select.i.i, label %if.else, label %if.then11
 
@@ -1114,7 +1114,7 @@ _quicklistNodeAllowInsert.exit:                   ; preds = %if.end14.i
   %bf.clear18.i = and i32 %bf.load.i, 65535
   %cond.i.i.i = tail call i32 @llvm.umax.i32(i32 %bf.cast, i32 1)
   %cmp7.i.i = icmp ugt i64 %add16.i, 8192
-  %cmp10.i.i = icmp uge i32 %bf.clear18.i, %cond.i.i.i
+  %cmp10.i.i = icmp samesign uge i32 %bf.clear18.i, %cond.i.i.i
   %spec.select.i.i = or i1 %cmp10.i.i, %cmp7.i.i
   br i1 %spec.select.i.i, label %if.else, label %if.then11
 
@@ -2170,7 +2170,7 @@ _quicklistNodeAllowMerge.exit:                    ; preds = %if.end10.i
   %add19.i = add nuw nsw i32 %bf.clear18.i, %bf.clear15.i
   %cond.i.i.i = tail call i32 @llvm.umax.i32(i32 %bf.cast, i32 1)
   %cmp7.i.i = icmp samesign ugt i64 %conv13.i, 8192
-  %cmp10.i.i = icmp ugt i32 %add19.i, %cond.i.i.i
+  %cmp10.i.i = icmp samesign ugt i32 %add19.i, %cond.i.i.i
   %spec.select.i.i = or i1 %cmp10.i.i, %cmp7.i.i
   br i1 %spec.select.i.i, label %if.end26, label %if.then24
 
@@ -2224,7 +2224,7 @@ _quicklistNodeAllowMerge.exit67:                  ; preds = %if.end10.i43
   %add19.i62 = add nuw nsw i32 %bf.clear18.i61, %bf.clear15.i60
   %cond.i.i.i63 = tail call i32 @llvm.umax.i32(i32 %bf.cast, i32 1)
   %cmp7.i.i64 = icmp samesign ugt i64 %conv13.i48, 8192
-  %cmp10.i.i65 = icmp ugt i32 %add19.i62, %cond.i.i.i63
+  %cmp10.i.i65 = icmp samesign ugt i32 %add19.i62, %cond.i.i.i63
   %spec.select.i.i66 = or i1 %cmp10.i.i65, %cmp7.i.i64
   br i1 %spec.select.i.i66, label %if.end31, label %if.then29
 
@@ -2277,7 +2277,7 @@ _quicklistNodeAllowMerge.exit104:                 ; preds = %if.end10.i80
   %add19.i99 = add nuw nsw i32 %bf.clear18.i98, %bf.clear15.i97
   %cond.i.i.i100 = tail call i32 @llvm.umax.i32(i32 %bf.cast, i32 1)
   %cmp7.i.i101 = icmp samesign ugt i64 %conv13.i85, 8192
-  %cmp10.i.i102 = icmp ugt i32 %add19.i99, %cond.i.i.i100
+  %cmp10.i.i102 = icmp samesign ugt i32 %add19.i99, %cond.i.i.i100
   %spec.select.i.i103 = or i1 %cmp10.i.i102, %cmp7.i.i101
   br i1 %spec.select.i.i103, label %if.end38, label %if.then35
 
@@ -2334,7 +2334,7 @@ _quicklistNodeAllowMerge.exit141:                 ; preds = %if.end10.i117
   %add19.i136 = add nuw nsw i32 %bf.clear18.i135, %bf.clear15.i134
   %cond.i.i.i137 = tail call i32 @llvm.umax.i32(i32 %bf.cast, i32 1)
   %cmp7.i.i138 = icmp samesign ugt i64 %conv13.i122, 8192
-  %cmp10.i.i139 = icmp ugt i32 %add19.i136, %cond.i.i.i137
+  %cmp10.i.i139 = icmp samesign ugt i32 %add19.i136, %cond.i.i.i137
   %spec.select.i.i140 = or i1 %cmp10.i.i139, %cmp7.i.i138
   br i1 %spec.select.i.i140, label %if.end45, label %if.then42
 
@@ -2553,7 +2553,7 @@ if.else.i.i:                                      ; preds = %if.end14.i
   %bf.clear18.i = and i32 %bf.load.i218, 65535
   %cond.i.i.i = tail call i32 @llvm.umax.i32(i32 %bf.cast, i32 1)
   %cmp7.i.i = icmp ugt i64 %add16.i, 8192
-  %cmp10.i.i = icmp uge i32 %bf.clear18.i, %cond.i.i.i
+  %cmp10.i.i = icmp samesign uge i32 %bf.clear18.i, %cond.i.i.i
   %spec.select.i.i = or i1 %cmp10.i.i, %cmp7.i.i
   br label %quicklistNodeExceedsLimit.exit.i
 
@@ -2614,7 +2614,7 @@ _quicklistNodeAllowInsert.exit247:                ; preds = %if.end14.i226
   %bf.clear18.i242 = and i32 %bf.load.i223, 65535
   %cond.i.i.i243 = tail call i32 @llvm.umax.i32(i32 %bf.cast, i32 1)
   %cmp7.i.i244 = icmp ugt i64 %add16.i229, 8192
-  %cmp10.i.i245 = icmp uge i32 %bf.clear18.i242, %cond.i.i.i243
+  %cmp10.i.i245 = icmp samesign uge i32 %bf.clear18.i242, %cond.i.i.i243
   %spec.select.i.i246 = or i1 %cmp10.i.i245, %cmp7.i.i244
   %cond.fr = freeze i1 %spec.select.i.i246
   br i1 %cond.fr, label %_quicklistNodeAllowInsert.exit247.thread, label %if.end55
@@ -2667,7 +2667,7 @@ _quicklistNodeAllowInsert.exit275:                ; preds = %if.end14.i254
   %bf.clear18.i270 = and i32 %bf.load.i251, 65535
   %cond.i.i.i271 = tail call i32 @llvm.umax.i32(i32 %bf.cast, i32 1)
   %cmp7.i.i272 = icmp ugt i64 %add16.i257, 8192
-  %cmp10.i.i273 = icmp uge i32 %bf.clear18.i270, %cond.i.i.i271
+  %cmp10.i.i273 = icmp samesign uge i32 %bf.clear18.i270, %cond.i.i.i271
   %spec.select.i.i274 = or i1 %cmp10.i.i273, %cmp7.i.i272
   %cond.fr342 = freeze i1 %spec.select.i.i274
   br i1 %cond.fr342, label %_quicklistNodeAllowInsert.exit275.thread, label %if.end55

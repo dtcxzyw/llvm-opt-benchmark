@@ -1416,7 +1416,7 @@ define hidden void @ir_dump_live_ranges(ptr nocapture noundef readonly %0, ptr n
   br label %184
 
 127:                                              ; preds = %.lr.ph198
-  %.not170 = icmp ult i8 %115, 64
+  %.not170 = icmp samesign ult i8 %115, 64
   br i1 %.not170, label %151, label %128
 
 128:                                              ; preds = %127

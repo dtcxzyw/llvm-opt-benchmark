@@ -64,7 +64,7 @@ define dso_local void @_ZN4llvm7msgpack6Writer5writeEl(ptr nocapture noundef non
   br label %56
 
 14:                                               ; preds = %2
-  %15 = icmp ugt i64 %1, -33
+  %15 = icmp samesign ugt i64 %1, -33
   br i1 %15, label %16, label %20
 
 16:                                               ; preds = %14
@@ -77,7 +77,7 @@ define dso_local void @_ZN4llvm7msgpack6Writer5writeEl(ptr nocapture noundef non
   br label %56
 
 20:                                               ; preds = %14
-  %21 = icmp ugt i64 %1, -129
+  %21 = icmp samesign ugt i64 %1, -129
   br i1 %21, label %22, label %28
 
 22:                                               ; preds = %20
@@ -95,7 +95,7 @@ define dso_local void @_ZN4llvm7msgpack6Writer5writeEl(ptr nocapture noundef non
   br label %56
 
 28:                                               ; preds = %20
-  %29 = icmp ugt i64 %1, -32769
+  %29 = icmp samesign ugt i64 %1, -32769
   br i1 %29, label %30, label %38
 
 30:                                               ; preds = %28
@@ -118,7 +118,7 @@ define dso_local void @_ZN4llvm7msgpack6Writer5writeEl(ptr nocapture noundef non
   br label %56
 
 38:                                               ; preds = %28
-  %39 = icmp ugt i64 %1, -2147483649
+  %39 = icmp samesign ugt i64 %1, -2147483649
   %40 = load ptr, ptr %0, align 8
   br i1 %39, label %41, label %49
 

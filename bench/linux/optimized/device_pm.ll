@@ -1109,7 +1109,7 @@ define dso_local i32 @acpi_pm_device_sleep_state(ptr noundef %0, ptr noundef wri
   br i1 %6, label %49, label %7
 
 7:                                                ; preds = %3
-  %8 = icmp ugt i32 %2, 2
+  %8 = icmp samesign ugt i32 %2, 2
   br i1 %8, label %9, label %13
 
 9:                                                ; preds = %7

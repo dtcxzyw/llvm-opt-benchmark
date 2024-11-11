@@ -4458,7 +4458,7 @@ define dso_local void @ExecEvalArrayExpr(ptr nocapture readnone %0, ptr nocaptur
 
 65:                                               ; preds = %64
   %66 = add nuw i32 %62, 1
-  %or.cond = icmp ugt i32 %62, 5
+  %or.cond = icmp samesign ugt i32 %62, 5
   br i1 %or.cond, label %67, label %71
 
 67:                                               ; preds = %65
@@ -5274,7 +5274,7 @@ expanded_record_get_field.exit:                   ; preds = %73, %83
   %135 = getelementptr inbounds i8, ptr %87, i64 18
   %136 = load i16, ptr %135, align 2
   %137 = and i16 %136, 2047
-  %138 = icmp ugt i16 %6, %137
+  %138 = icmp samesign ugt i16 %6, %137
   br i1 %138, label %139, label %141
 
 139:                                              ; preds = %130

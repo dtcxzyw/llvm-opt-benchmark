@@ -238,19 +238,19 @@ define internal range(i32 0, 2) i32 @sipstat_packet(ptr noundef %0, ptr nocaptur
   br i1 %or.cond, label %97, label %62
 
 62:                                               ; preds = %59
-  %63 = icmp ult i32 %60, 200
+  %63 = icmp samesign ult i32 %60, 200
   br i1 %63, label %71, label %64
 
 64:                                               ; preds = %62
-  %65 = icmp ult i32 %60, 300
+  %65 = icmp samesign ult i32 %60, 300
   br i1 %65, label %71, label %66
 
 66:                                               ; preds = %64
-  %67 = icmp ult i32 %60, 400
+  %67 = icmp samesign ult i32 %60, 400
   br i1 %67, label %71, label %68
 
 68:                                               ; preds = %66
-  %69 = icmp ult i32 %60, 500
+  %69 = icmp samesign ult i32 %60, 500
   br i1 %69, label %71, label %70
 
 70:                                               ; preds = %68

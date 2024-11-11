@@ -1141,7 +1141,7 @@ Vec_IntGrow.exit23.i:                             ; preds = %Vec_IntGrow.exit23t
 49:                                               ; preds = %.lr.ph.i
   %50 = getelementptr inbounds i32, ptr %45, i64 %indvars.iv.i
   store i32 %47, ptr %50, align 4
-  %51 = icmp ugt i64 %indvars.iv.i, 1
+  %51 = icmp samesign ugt i64 %indvars.iv.i, 1
   br i1 %51, label %.lr.ph.i, label %Vec_IntPushOrder.exit, !llvm.loop !13
 
 ._crit_edge.loopexit.split.loop.exit.i:           ; preds = %.lr.ph.i
@@ -3731,7 +3731,7 @@ Vec_IntPush.exit:                                 ; preds = %.Vec_IntGrow.exit10
   br i1 %131, label %.lr.ph.i, label %Abc_TtMinimumBase.exit.thread
 
 .lr.ph.i:                                         ; preds = %129
-  %132 = icmp ult i32 %.val100, 7
+  %132 = icmp samesign ult i32 %.val100, 7
   %133 = add nsw i32 %.val100, -6
   %134 = shl nuw i32 1, %133
   %.fr.i.i = freeze i32 %134
@@ -3920,7 +3920,7 @@ Abc_TtHasVar.exit.i.loopexit:                     ; preds = %169
   br i1 %193, label %.lr.ph.i.us.us.us.us.i.i, label %.preheader.lr.ph.i.us.us.us.us.i.i
 
 .preheader.lr.ph.i.us.us.us.us.i.i:               ; preds = %192
-  %194 = icmp ult i64 %indvars.iv97.i.i, 8
+  %194 = icmp samesign ult i64 %indvars.iv97.i.i, 8
   %195 = trunc i64 %indvars.iv97.i.i to i32
   %196 = add i32 %195, -7
   %197 = shl nuw i32 1, %196

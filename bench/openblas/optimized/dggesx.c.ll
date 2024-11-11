@@ -203,17 +203,17 @@ define void @dggesx_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocaptu
 128:                                              ; preds = %125
   %129 = load i32, ptr %15, align 4, !tbaa !3
   %130 = icmp slt i32 %129, 1
-  %131 = icmp ult i32 %129, %119
+  %131 = icmp samesign ult i32 %129, %119
   %132 = and i1 %131, %69
-  %or.cond = or i1 %130, %132
+  %or.cond = select i1 %130, i1 true, i1 %132
   br i1 %or.cond, label %.thread25.sink.split, label %133
 
 133:                                              ; preds = %128
   %134 = load i32, ptr %17, align 4, !tbaa !3
   %135 = icmp slt i32 %134, 1
-  %136 = icmp ult i32 %134, %119
+  %136 = icmp samesign ult i32 %134, %119
   %137 = and i1 %136, %78
-  %or.cond49 = or i1 %135, %137
+  %or.cond49 = select i1 %135, i1 true, i1 %137
   br i1 %or.cond49, label %.thread25.sink.split, label %138
 
 138:                                              ; preds = %133

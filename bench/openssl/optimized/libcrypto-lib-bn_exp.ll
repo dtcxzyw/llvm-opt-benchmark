@@ -1275,7 +1275,7 @@ cond.false88:                                     ; preds = %cond.false
 
 cond.end96:                                       ; preds = %cond.false88, %cond.false, %if.end84
   %cond97 = phi i32 [ 6, %if.end84 ], [ %cond93, %cond.false88 ], [ 5, %cond.false ]
-  %cmp98 = icmp ugt i32 %cond97, 4
+  %cmp98 = icmp samesign ugt i32 %cond97, 4
   %cmp100 = icmp slt i32 %0, 513
   %or.cond = and i1 %cmp100, %cmp98
   %mul102 = shl i32 %0, 3
@@ -1576,7 +1576,7 @@ while.body:                                       ; preds = %while.cond.preheade
   %sub364 = add nsw i32 %bits.0348, -5
   %call365 = call i32 @bn_get_bits5(ptr noundef %75, i32 noundef %sub364) #5
   call void @bn_mul_mont_gather5(ptr noundef %74, ptr noundef %74, ptr noundef nonnull %add.ptr, ptr noundef %add.ptr224, ptr noundef nonnull %n0199, i32 noundef %0, i32 noundef %call365) #5
-  %cmp339 = icmp ugt i32 %bits.0348, 5
+  %cmp339 = icmp samesign ugt i32 %bits.0348, 5
   br i1 %cmp339, label %while.body, label %if.end377, !llvm.loop !23
 
 while.body370:                                    ; preds = %while.cond367.preheader, %while.body370
@@ -1586,7 +1586,7 @@ while.body370:                                    ; preds = %while.cond367.prehe
   %sub374 = add nsw i32 %bits.1350, -5
   %call375 = call i32 @bn_get_bits5(ptr noundef %77, i32 noundef %sub374) #5
   call void @bn_power5(ptr noundef %76, ptr noundef %76, ptr noundef nonnull %add.ptr, ptr noundef %add.ptr224, ptr noundef nonnull %n0199, i32 noundef %0, i32 noundef %call375) #5
-  %cmp368 = icmp ugt i32 %bits.1350, 5
+  %cmp368 = icmp samesign ugt i32 %bits.1350, 5
   br i1 %cmp368, label %while.body370, label %if.end377, !llvm.loop !24
 
 if.end377:                                        ; preds = %while.body, %while.body370, %while.cond.preheader, %while.cond367.preheader

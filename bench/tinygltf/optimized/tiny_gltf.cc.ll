@@ -4259,7 +4259,7 @@ _ZL14stbi__zreceiveP10stbi__zbufi.exit76.i.i:     ; preds = %_ZL11stbi__zget8P10
   br i1 %or.cond.i.i, label %_ZL27stbi__compute_huffman_codesP10stbi__zbuf.exit.thread.sink.split.i, label %289
 
 289:                                              ; preds = %.preheader.i42.i
-  %290 = icmp ult i32 %288, 16
+  %290 = icmp samesign ult i32 %288, 16
   br i1 %290, label %291, label %296
 
 291:                                              ; preds = %289
@@ -4576,7 +4576,7 @@ _ZL27stbi__compute_huffman_codesP10stbi__zbuf.exit.i: ; preds = %381
   br i1 %427, label %_ZL25stbi__parse_huffman_blockP10stbi__zbuf.exit.i, label %_ZL25stbi__parse_huffman_blockP10stbi__zbuf.exit.thread.i
 
 428:                                              ; preds = %421
-  %429 = icmp ugt i32 %390, 285
+  %429 = icmp samesign ugt i32 %390, 285
   br i1 %429, label %_ZL25stbi__parse_huffman_blockP10stbi__zbuf.exit.i, label %430
 
 430:                                              ; preds = %428
@@ -4654,7 +4654,7 @@ _ZL14stbi__zreceiveP10stbi__zbufi.exit.i52.i:     ; preds = %_ZL11stbi__zget8P10
   %465 = zext nneg i32 %463 to i64
   %466 = getelementptr inbounds [32 x i32], ptr @_ZL16stbi__zdist_base, i64 0, i64 %465
   %467 = load i32, ptr %466, align 4
-  %.not68.i.i = icmp ult i32 %463, 4
+  %.not68.i.i = icmp samesign ult i32 %463, 4
   br i1 %.not68.i.i, label %494, label %468
 
 468:                                              ; preds = %464
@@ -7844,7 +7844,7 @@ _ZL14stbiw__sbgrowfPPvii.exit.i394:               ; preds = %494, %.thread.i391,
   store i8 %496, ptr %501, align 1
   %502 = lshr i32 %.26683, 8
   %503 = add nsw i32 %.26654, -8
-  %504 = icmp ugt i32 %.26654, 15
+  %504 = icmp samesign ugt i32 %.26654, 15
   br i1 %504, label %.lr.ph.i388, label %_ZL18stbiw__zlib_flushfPhPjPi.exit396, !llvm.loop !42
 
 505:                                              ; preds = %.lr.ph764
@@ -7926,7 +7926,7 @@ _ZL14stbiw__sbgrowfPPvii.exit.i410:               ; preds = %535, %.thread.i407,
   store i8 %537, ptr %542, align 1
   %543 = lshr i32 %.28685, 8
   %544 = add nsw i32 %.28656, -8
-  %545 = icmp ugt i32 %.28656, 15
+  %545 = icmp samesign ugt i32 %.28656, 15
   br i1 %545, label %.lr.ph.i404, label %_ZL18stbiw__zlib_flushfPhPjPi.exit396, !llvm.loop !42
 
 _ZL18stbiw__zlib_flushfPhPjPi.exit396:            ; preds = %_ZL14stbiw__sbgrowfPPvii.exit.i410, %_ZL14stbiw__sbgrowfPPvii.exit.i394, %_ZL18stbiw__zlib_bitrevii.exit401, %_ZL18stbiw__zlib_bitrevii.exit385
@@ -8071,7 +8071,7 @@ _ZL14stbiw__sbgrowfPPvii.exit.i437:               ; preds = %595, %.thread.i434,
   store i8 %597, ptr %602, align 1
   %603 = lshr i32 %.32689, 8
   %604 = add nsw i32 %.32, -8
-  %605 = icmp ugt i32 %.32, 15
+  %605 = icmp samesign ugt i32 %.32, 15
   br i1 %605, label %.lr.ph.i431, label %_ZL18stbiw__zlib_flushfPhPjPi.exit439, !llvm.loop !42
 
 _ZL18stbiw__zlib_flushfPhPjPi.exit439:            ; preds = %_ZL14stbiw__sbgrowfPPvii.exit.i437, %.lr.ph772
@@ -17804,7 +17804,7 @@ define noundef zeroext i1 @_ZN8tinygltf13DecodeDataURIEPSt6vectorIhSaIhEERNSt7__
   %146 = getelementptr inbounds i8, ptr %.0910.i.i.i.i.i, i64 1
   %147 = getelementptr inbounds i8, ptr %.0811.i.i.i.i.i, i64 1
   %148 = add nsw i64 %.012.i.i.i.i.i, -1
-  %149 = icmp ugt i64 %.012.i.i.i.i.i, 1
+  %149 = icmp samesign ugt i64 %.012.i.i.i.i.i, 1
   br i1 %149, label %.lr.ph.i.i.i.i.i, label %_ZSt4copyIN9__gnu_cxx17__normal_iteratorIPcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEENS1_IPhSt6vectorIhSaIhEEEEET0_T_SG_SF_.exit, !llvm.loop !119
 
 _ZSt4copyIN9__gnu_cxx17__normal_iteratorIPcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEENS1_IPhSt6vectorIhSaIhEEEEET0_T_SG_SF_.exit: ; preds = %.lr.ph.i.i.i.i.i, %137, %135, %131
@@ -63507,7 +63507,7 @@ _ZL21stbi__mul2sizes_validii.exit.thread15.i.i:   ; preds = %_ZL21stbi__mul2size
 
 _ZL21stbi__mul2sizes_validii.exit12.i.i:          ; preds = %272
   %274 = udiv i32 2147483647, %266
-  %.not.i.i93 = icmp ugt i32 %270, %274
+  %.not.i.i93 = icmp samesign ugt i32 %270, %274
   br i1 %.not.i.i93, label %275, label %_ZL21stbi__mad3sizes_validiiii.exit.i
 
 275:                                              ; preds = %_ZL21stbi__mul2sizes_validii.exit12.i.i, %_ZL21stbi__mul2sizes_validii.exit.thread15.i.i, %_ZL21stbi__mul2sizes_validii.exit.i.i, %257
@@ -63527,7 +63527,7 @@ _ZL21stbi__mul2sizes_validii.exit.thread15.i.i.i: ; preds = %_ZL21stbi__mul2size
 
 _ZL21stbi__mul2sizes_validii.exit12.i.i.i:        ; preds = %_ZL21stbi__mul2sizes_validii.exit.thread15.i.i.i
   %277 = udiv i32 2147483647, %266
-  %.not.i.i.i94 = icmp ugt i32 %270, %277
+  %.not.i.i.i94 = icmp samesign ugt i32 %270, %277
   br i1 %.not.i.i.i94, label %_ZL17stbi__malloc_mad3iiii.exit.thread.i, label %_ZL17stbi__malloc_mad3iiii.exit.i
 
 _ZL17stbi__malloc_mad3iiii.exit.i:                ; preds = %_ZL21stbi__mul2sizes_validii.exit12.i.i.i, %_ZL21stbi__mul2sizes_validii.exit.thread15.i.i.i
@@ -64940,7 +64940,7 @@ _ZL10stbi__skipP13stbi__contexti.exit451.i:       ; preds = %996, %992, %.loopex
   %1012 = getelementptr inbounds i8, ptr %280, i64 %indvars.iv90.i
   store i8 -1, ptr %1012, align 1
   %indvars.iv.next91.i = add nsw i64 %indvars.iv90.i, -4
-  %1013 = icmp ugt i64 %indvars.iv90.i, 3
+  %1013 = icmp samesign ugt i64 %indvars.iv90.i, 3
   br i1 %1013, label %.lr.ph77.i, label %.loopexit25.i, !llvm.loop !1738
 
 .loopexit25.i:                                    ; preds = %.lr.ph77.i, %1005, %.loopexit27.i
@@ -71483,7 +71483,7 @@ _ZL10stbi__get8P13stbi__context.exit.us.us:       ; preds = %127, %_ZL19stbi__re
 
 134:                                              ; preds = %_ZL10stbi__get8P13stbi__context.exit.us.us
   %135 = icmp eq i8 %.0.i152.us.us, 0
-  %136 = icmp ult i32 %102, %132
+  %136 = icmp samesign ult i32 %102, %132
   %or.cond147.us.us = or i1 %135, %136
   br i1 %or.cond147.us.us, label %.thread, label %.preheader13.us.us.preheader
 
@@ -71610,7 +71610,7 @@ _ZL10stbi__get8P13stbi__context.exit158.us.us:    ; preds = %192, %_ZL19stbi__re
   %.0.i157.us.us = phi i8 [ %194, %192 ], [ %191, %_ZL19stbi__refill_bufferP13stbi__context.exit.i155.us.us ], [ 0, %171 ]
   %195 = and i8 %.0.i152.us.us, 127
   %196 = zext nneg i8 %195 to i32
-  %197 = icmp ult i32 %102, %196
+  %197 = icmp samesign ult i32 %102, %196
   br i1 %197, label %.split52.us, label %.preheader.us.us
 
 .loopexit.us.us.loopexit:                         ; preds = %.lr.ph45.us.us
@@ -74345,7 +74345,7 @@ _ZL10stbi__get8P13stbi__context.exit301.thread:   ; preds = %261, %_ZL10stbi__ge
 293:                                              ; preds = %292
   %294 = and i32 %194, 2
   %295 = or disjoint i32 %294, 1
-  %.not265 = icmp ugt i8 %.0.i282340342, 3
+  %.not265 = icmp samesign ugt i8 %.0.i282340342, 3
   %296 = zext i1 %.not265 to i32
   %297 = add nuw nsw i32 %295, %296
   store i32 %297, ptr %58, align 8
@@ -77656,7 +77656,7 @@ _ZL21stbi__mad3sizes_validiiii.exit._crit_edge:   ; preds = %39, %_ZL21stbi__mul
   store i8 %341, ptr %338, align 1
   %343 = add nsw i32 %.14842, -2
   %344 = getelementptr inbounds i8, ptr %.0517844, i64 1
-  %345 = icmp ugt i32 %.14842, 3
+  %345 = icmp samesign ugt i32 %.14842, 3
   br i1 %345, label %.lr.ph845, label %._crit_edge846, !llvm.loop !1895
 
 ._crit_edge846:                                   ; preds = %.lr.ph845, %.preheader692
@@ -77701,7 +77701,7 @@ _ZL21stbi__mad3sizes_validiiii.exit._crit_edge:   ; preds = %39, %_ZL21stbi__mul
   store i8 %367, ptr %364, align 1
   %369 = add nsw i32 %.15834, -4
   %370 = getelementptr inbounds i8, ptr %.1518836, i64 1
-  %371 = icmp ugt i32 %.15834, 7
+  %371 = icmp samesign ugt i32 %.15834, 7
   br i1 %371, label %.lr.ph837, label %._crit_edge838, !llvm.loop !1896
 
 ._crit_edge838:                                   ; preds = %.lr.ph837, %.preheader693
@@ -77790,7 +77790,7 @@ _ZL21stbi__mad3sizes_validiiii.exit._crit_edge:   ; preds = %39, %_ZL21stbi__mul
   store i8 %419, ptr %416, align 1
   %421 = add nsw i32 %.16826, -8
   %422 = getelementptr inbounds i8, ptr %.2828, i64 1
-  %423 = icmp ugt i32 %.16826, 15
+  %423 = icmp samesign ugt i32 %.16826, 15
   br i1 %423, label %.lr.ph829, label %._crit_edge830, !llvm.loop !1897
 
 ._crit_edge830:                                   ; preds = %.lr.ph829, %.preheader694
@@ -77815,7 +77815,7 @@ _ZL21stbi__mad3sizes_validiiii.exit._crit_edge:   ; preds = %39, %_ZL21stbi__mul
   %.not585 = icmp eq i8 %431, 0
   %432 = select i1 %.not585, i8 0, i8 %334
   store i8 %432, ptr %429, align 1
-  %433 = icmp ugt i32 %.16.lcssa, 2
+  %433 = icmp samesign ugt i32 %.16.lcssa, 2
   br i1 %433, label %434, label %.thread664
 
 434:                                              ; preds = %428
@@ -77835,7 +77835,7 @@ _ZL21stbi__mad3sizes_validiiii.exit._crit_edge:   ; preds = %39, %_ZL21stbi__mul
   %.not587 = icmp eq i8 %442, 0
   %443 = select i1 %.not587, i8 0, i8 %334
   store i8 %443, ptr %440, align 1
-  %444 = icmp ugt i32 %.16.lcssa, 4
+  %444 = icmp samesign ugt i32 %.16.lcssa, 4
   br i1 %444, label %445, label %.thread664
 
 445:                                              ; preds = %439
@@ -78738,8 +78738,8 @@ define internal fastcc noundef ptr @_ZL19stbi__gif_load_nextP13stbi__contextP9st
   %10 = load i32, ptr %1, align 8
   %11 = getelementptr inbounds i8, ptr %1, i64 4
   %12 = load i32, ptr %11, align 4
-  %.not23.i = icmp ugt i32 %10, 536870911
-  br i1 %.not23.i, label %_ZL24stbi__process_gif_rasterP13stbi__contextP9stbi__gif.exit.thread.sink.split, label %_ZL21stbi__mul2sizes_validii.exit.thread15.i
+  %or.cond298.not = icmp ult i32 %10, 536870912
+  br i1 %or.cond298.not, label %_ZL21stbi__mul2sizes_validii.exit.thread15.i, label %_ZL24stbi__process_gif_rasterP13stbi__contextP9stbi__gif.exit.thread.sink.split
 
 _ZL21stbi__mul2sizes_validii.exit.thread15.i:     ; preds = %9
   %13 = shl nuw nsw i32 %10, 2
@@ -81113,7 +81113,7 @@ _ZL10stbi__get8P13stbi__context.exit:             ; preds = %20, %_ZL19stbi__ref
   br i1 %49, label %50, label %83
 
 50:                                               ; preds = %48
-  %.not36 = icmp ugt i32 %16, %46
+  %.not36 = icmp samesign ugt i32 %16, %46
   br i1 %.not36, label %.thread53, label %._crit_edge
 
 .thread53:                                        ; preds = %23, %50
@@ -81185,7 +81185,7 @@ _ZL10stbi__get8P13stbi__context.exit43:           ; preds = %57, %60, %_ZL19stbi
 
 83:                                               ; preds = %48
   %84 = sub nuw nsw i32 257, %46
-  %85 = icmp ugt i32 %84, %16
+  %85 = icmp samesign ugt i32 %84, %16
   br i1 %85, label %._crit_edge, label %86
 
 86:                                               ; preds = %83
@@ -100046,7 +100046,7 @@ _ZN8nlohmann6detail5lexerINS_10basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stri
   br label %_ZN8nlohmann6detail5lexerINS_10basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS_14adl_serializerES4_IhSaIhEEEENS0_22iterator_input_adapterIPKcEEE18next_byte_in_rangeESt16initializer_listIiE.exit.thread.sink.split
 
 76:                                               ; preds = %72
-  %77 = icmp ult i32 %.1.i, 2048
+  %77 = icmp samesign ult i32 %.1.i, 2048
   br i1 %77, label %78, label %85
 
 78:                                               ; preds = %76
@@ -100060,7 +100060,7 @@ _ZN8nlohmann6detail5lexerINS_10basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stri
   br label %_ZN8nlohmann6detail5lexerINS_10basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS_14adl_serializerES4_IhSaIhEEEENS0_22iterator_input_adapterIPKcEEE18next_byte_in_rangeESt16initializer_listIiE.exit.thread.sink.split
 
 85:                                               ; preds = %76
-  %86 = icmp ult i32 %.1.i, 65536
+  %86 = icmp samesign ult i32 %.1.i, 65536
   br i1 %86, label %87, label %98
 
 87:                                               ; preds = %85
@@ -112350,7 +112350,7 @@ _ZN8nlohmann6detail10serializerINS_10basic_jsonISt3mapSt6vectorNSt7__cxx1112basi
   br label %280
 
 ._crit_edge.i:                                    ; preds = %_ZN8nlohmann6detail10serializerINS_10basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS_14adl_serializerES4_IhSaIhEEEEE12count_digitsEm.exit.i
-  %272 = icmp ugt i8 %251, 9
+  %272 = icmp samesign ugt i8 %251, 9
   br i1 %272, label %273, label %280
 
 273:                                              ; preds = %._crit_edge.i
@@ -112433,7 +112433,7 @@ _ZN8nlohmann6detail10serializerINS_10basic_jsonISt3mapSt6vectorNSt7__cxx1112basi
   br label %327
 
 ._crit_edge.i86:                                  ; preds = %_ZN8nlohmann6detail10serializerINS_10basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS_14adl_serializerES4_IhSaIhEEEEE12count_digitsEm.exit.i85
-  %319 = icmp ugt i8 %297, 9
+  %319 = icmp samesign ugt i8 %297, 9
   br i1 %319, label %320, label %327
 
 320:                                              ; preds = %._crit_edge.i86
@@ -112682,7 +112682,7 @@ _ZN8nlohmann6detail10serializerINS_10basic_jsonISt3mapSt6vectorNSt7__cxx1112basi
   br label %466
 
 ._crit_edge.i96:                                  ; preds = %_ZN8nlohmann6detail10serializerINS_10basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS_14adl_serializerES4_IhSaIhEEEEE12count_digitsEm.exit.i95
-  %458 = icmp ugt i8 %437, 9
+  %458 = icmp samesign ugt i8 %437, 9
   br i1 %458, label %459, label %466
 
 459:                                              ; preds = %._crit_edge.i96
@@ -112764,7 +112764,7 @@ _ZN8nlohmann6detail10serializerINS_10basic_jsonISt3mapSt6vectorNSt7__cxx1112basi
   br label %512
 
 ._crit_edge.i103:                                 ; preds = %_ZN8nlohmann6detail10serializerINS_10basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS_14adl_serializerES4_IhSaIhEEEEE12count_digitsEm.exit.i102
-  %504 = icmp ugt i8 %482, 9
+  %504 = icmp samesign ugt i8 %482, 9
   br i1 %504, label %505, label %512
 
 505:                                              ; preds = %._crit_edge.i103
@@ -113860,7 +113860,7 @@ _ZN8nlohmann6detail10serializerINS_10basic_jsonISt3mapSt6vectorNSt7__cxx1112basi
   br label %_ZN8nlohmann6detail10serializerINS_10basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS_14adl_serializerES4_IhSaIhEEEEE12count_digitsEm.exit33
 
 30:                                               ; preds = %8
-  %31 = icmp ult i64 %1, 10
+  %31 = icmp samesign ult i64 %1, 10
   br i1 %31, label %._crit_edge.thread, label %.lr.ph.i29
 
 ._crit_edge.thread:                               ; preds = %30
@@ -114338,35 +114338,35 @@ define linkonce_odr void @_ZN8nlohmann6detail9dtoa_impl16grisu2_digit_genEPcRiS3
   br i1 %21, label %_ZN8nlohmann6detail9dtoa_impl18find_largest_pow10EjRj.exit.preheader, label %22
 
 22:                                               ; preds = %7
-  %23 = icmp ugt i32 %18, 99999999
+  %23 = icmp samesign ugt i32 %18, 99999999
   br i1 %23, label %_ZN8nlohmann6detail9dtoa_impl18find_largest_pow10EjRj.exit.preheader, label %24
 
 24:                                               ; preds = %22
-  %25 = icmp ugt i32 %18, 9999999
+  %25 = icmp samesign ugt i32 %18, 9999999
   br i1 %25, label %_ZN8nlohmann6detail9dtoa_impl18find_largest_pow10EjRj.exit.preheader, label %26
 
 26:                                               ; preds = %24
-  %27 = icmp ugt i32 %18, 999999
+  %27 = icmp samesign ugt i32 %18, 999999
   br i1 %27, label %_ZN8nlohmann6detail9dtoa_impl18find_largest_pow10EjRj.exit.preheader, label %28
 
 28:                                               ; preds = %26
-  %29 = icmp ugt i32 %18, 99999
+  %29 = icmp samesign ugt i32 %18, 99999
   br i1 %29, label %_ZN8nlohmann6detail9dtoa_impl18find_largest_pow10EjRj.exit.preheader, label %30
 
 30:                                               ; preds = %28
-  %31 = icmp ugt i32 %18, 9999
+  %31 = icmp samesign ugt i32 %18, 9999
   br i1 %31, label %_ZN8nlohmann6detail9dtoa_impl18find_largest_pow10EjRj.exit.preheader, label %32
 
 32:                                               ; preds = %30
-  %33 = icmp ugt i32 %18, 999
+  %33 = icmp samesign ugt i32 %18, 999
   br i1 %33, label %_ZN8nlohmann6detail9dtoa_impl18find_largest_pow10EjRj.exit.preheader, label %34
 
 34:                                               ; preds = %32
-  %35 = icmp ugt i32 %18, 99
+  %35 = icmp samesign ugt i32 %18, 99
   br i1 %35, label %_ZN8nlohmann6detail9dtoa_impl18find_largest_pow10EjRj.exit.preheader, label %36
 
 36:                                               ; preds = %34
-  %37 = icmp ugt i32 %18, 9
+  %37 = icmp samesign ugt i32 %18, 9
   %..i = select i1 %37, i32 10, i32 1
   %.20.i = select i1 %37, i32 2, i32 1
   br label %_ZN8nlohmann6detail9dtoa_impl18find_largest_pow10EjRj.exit.preheader
@@ -114440,7 +114440,7 @@ _ZN8nlohmann6detail9dtoa_impl18find_largest_pow10EjRj.exit: ; preds = %_ZN8nlohm
 
 70:                                               ; preds = %_ZN8nlohmann6detail9dtoa_impl18find_largest_pow10EjRj.exit
   %71 = udiv i32 %.07381, 10
-  %72 = icmp ugt i32 %.04782, 1
+  %72 = icmp samesign ugt i32 %.04782, 1
   br i1 %72, label %_ZN8nlohmann6detail9dtoa_impl18find_largest_pow10EjRj.exit, label %.preheader, !llvm.loop !2240
 
 .preheader:                                       ; preds = %70, %.preheader

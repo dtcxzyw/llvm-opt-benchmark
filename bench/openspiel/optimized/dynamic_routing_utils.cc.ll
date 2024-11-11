@@ -1093,7 +1093,7 @@ _ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE5clearE
   %101 = getelementptr inbounds i8, ptr %.sroa.0239.0312, i64 10
   %102 = load i8, ptr %101, align 1
   %103 = zext i8 %102 to i32
-  %104 = icmp ult i32 %.sroa.8.0313, %103
+  %104 = icmp samesign ult i32 %.sroa.8.0313, %103
   br i1 %104, label %106, label %105
 
 105:                                              ; preds = %100
@@ -1181,11 +1181,11 @@ _ZN4absl7debian211string_viewC2ISaIcEEERKNSt7__cxx1112basic_stringIcSt11char_tra
   unreachable
 
 _ZNK4absl7debian218container_internal12raw_hash_setINS1_17FlatHashMapPolicyINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEiEENS1_10StringHashENS1_12StringHashEq2EqESaISt4pairIKS9_iEEE4findIS9_EENSI_14const_iteratorERKT_.exit.i: ; preds = %130
-  %135 = icmp ugt i64 %132, 16
+  %135 = icmp samesign ugt i64 %132, 16
   br i1 %135, label %136, label %142
 
 136:                                              ; preds = %_ZNK4absl7debian218container_internal12raw_hash_setINS1_17FlatHashMapPolicyINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEiEENS1_10StringHashENS1_12StringHashEq2EqESaISt4pairIKS9_iEEE4findIS9_EENSI_14const_iteratorERKT_.exit.i
-  %137 = icmp ugt i64 %132, 1024
+  %137 = icmp samesign ugt i64 %132, 1024
   br i1 %137, label %138, label %140
 
 138:                                              ; preds = %136
@@ -1197,7 +1197,7 @@ _ZNK4absl7debian218container_internal12raw_hash_setINS1_17FlatHashMapPolicyINSt7
           to label %.noexc204 unwind label %.loopexit251
 
 142:                                              ; preds = %_ZNK4absl7debian218container_internal12raw_hash_setINS1_17FlatHashMapPolicyINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEiEENS1_10StringHashENS1_12StringHashEq2EqESaISt4pairIKS9_iEEE4findIS9_EENSI_14const_iteratorERKT_.exit.i
-  %143 = icmp ugt i64 %132, 8
+  %143 = icmp samesign ugt i64 %132, 8
   br i1 %143, label %144, label %156
 
 144:                                              ; preds = %142
@@ -1217,7 +1217,7 @@ _ZNK4absl7debian218container_internal12raw_hash_setINS1_17FlatHashMapPolicyINSt7
   br label %.noexc204
 
 156:                                              ; preds = %142
-  %157 = icmp ugt i64 %132, 3
+  %157 = icmp samesign ugt i64 %132, 3
   br i1 %157, label %158, label %167
 
 158:                                              ; preds = %156
@@ -1437,7 +1437,7 @@ _ZN4absl7debian211string_viewC2ISaIcEEERKNSt7__cxx1112basic_stringIcSt11char_tra
   br i1 %.inv.i.i.i.i213, label %.thread.i215, label %_ZNK4absl7debian218container_internal22StringBtreeDefaultLessclENS0_11string_viewES3_.exit.thread.i214
 
 _ZNK4absl7debian218container_internal22StringBtreeDefaultLessclENS0_11string_viewES3_.exit.i223: ; preds = %245, %_ZN4absl7debian211string_viewC2ISaIcEEERKNSt7__cxx1112basic_stringIcSt11char_traitsIcET_EE.exit17.i212
-  %249 = icmp ult i64 %236, %240
+  %249 = icmp samesign ult i64 %236, %240
   br i1 %249, label %_ZNK4absl7debian218container_internal22StringBtreeDefaultLessclENS0_11string_viewES3_.exit.thread.i214, label %251
 
 _ZNK4absl7debian218container_internal22StringBtreeDefaultLessclENS0_11string_viewES3_.exit.thread.i214: ; preds = %_ZNK4absl7debian218container_internal22StringBtreeDefaultLessclENS0_11string_viewES3_.exit.i223, %248
@@ -1525,7 +1525,7 @@ _ZN4absl7debian211string_viewC2ISaIcEEERKNSt7__cxx1112basic_stringIcSt11char_tra
   br i1 %.inv.i.i.i.i, label %.thread.i, label %_ZNK4absl7debian218container_internal22StringBtreeDefaultLessclENS0_11string_viewES3_.exit.thread.i
 
 _ZNK4absl7debian218container_internal22StringBtreeDefaultLessclENS0_11string_viewES3_.exit.i: ; preds = %279, %_ZN4absl7debian211string_viewC2ISaIcEEERKNSt7__cxx1112basic_stringIcSt11char_traitsIcET_EE.exit17.i
-  %283 = icmp ult i64 %270, %274
+  %283 = icmp samesign ult i64 %270, %274
   br i1 %283, label %_ZNK4absl7debian218container_internal22StringBtreeDefaultLessclENS0_11string_viewES3_.exit.thread.i, label %285
 
 _ZNK4absl7debian218container_internal22StringBtreeDefaultLessclENS0_11string_viewES3_.exit.thread.i: ; preds = %_ZNK4absl7debian218container_internal22StringBtreeDefaultLessclENS0_11string_viewES3_.exit.i, %282
@@ -1599,7 +1599,7 @@ _ZN4absl7debian218container_internal15btree_containerINS1_5btreeINS1_10map_param
   %302 = getelementptr inbounds i8, ptr %.sroa.02.0.i.i.i.i, i64 10
   %303 = load i8, ptr %302, align 1
   %304 = zext i8 %303 to i32
-  %305 = icmp ult i32 %.sroa.33.0.i.i.i.i, %304
+  %305 = icmp samesign ult i32 %.sroa.33.0.i.i.i.i, %304
   br i1 %305, label %307, label %306
 
 306:                                              ; preds = %301
@@ -5517,7 +5517,7 @@ define linkonce_odr noundef i64 @_ZN4absl7debian213hash_internal9HashState21Comb
   br label %56
 
 11:                                               ; preds = %3
-  %12 = icmp ugt i64 %2, 8
+  %12 = icmp samesign ugt i64 %2, 8
   br i1 %12, label %13, label %25
 
 13:                                               ; preds = %11
@@ -5537,7 +5537,7 @@ define linkonce_odr noundef i64 @_ZN4absl7debian213hash_internal9HashState21Comb
   br label %56
 
 25:                                               ; preds = %11
-  %26 = icmp ugt i64 %2, 3
+  %26 = icmp samesign ugt i64 %2, 3
   br i1 %26, label %27, label %36
 
 27:                                               ; preds = %25
@@ -9464,7 +9464,7 @@ _ZN4absl7debian211string_viewC2ISaIcEEERKNSt7__cxx1112basic_stringIcSt11char_tra
   br i1 %35, label %.thread.i.i.i, label %_ZNK4absl7debian218container_internal5btreeINS1_10map_paramsINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt6vectorIS9_SaIS9_EESt4lessIS9_ESaISt4pairIKS9_SC_EELi256ELb0EEEE12compare_keysIS9_S9_EEbRKT_RKT0_.exit
 
 .thread.i.i.i:                                    ; preds = %33, %_ZN4absl7debian211string_viewC2ISaIcEEERKNSt7__cxx1112basic_stringIcSt11char_traitsIcET_EE.exit3.i
-  %36 = icmp ult i64 %24, %28
+  %36 = icmp samesign ult i64 %24, %28
   br i1 %36, label %.critedge, label %89
 
 _ZNK4absl7debian218container_internal5btreeINS1_10map_paramsINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt6vectorIS9_SaIS9_EESt4lessIS9_ESaISt4pairIKS9_SC_EELi256ELb0EEEE12compare_keysIS9_S9_EEbRKT_RKT0_.exit: ; preds = %33
@@ -9574,7 +9574,7 @@ _ZN4absl7debian211string_viewC2ISaIcEEERKNSt7__cxx1112basic_stringIcSt11char_tra
   br i1 %85, label %.thread.i.i.i48, label %_ZNK4absl7debian218container_internal5btreeINS1_10map_paramsINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt6vectorIS9_SaIS9_EESt4lessIS9_ESaISt4pairIKS9_SC_EELi256ELb0EEEE12compare_keysIS9_S9_EEbRKT_RKT0_.exit49
 
 .thread.i.i.i48:                                  ; preds = %83, %_ZN4absl7debian211string_viewC2ISaIcEEERKNSt7__cxx1112basic_stringIcSt11char_traitsIcET_EE.exit3.i46
-  %86 = icmp ult i64 %74, %78
+  %86 = icmp samesign ult i64 %74, %78
   br i1 %86, label %.critedge2, label %160
 
 _ZNK4absl7debian218container_internal5btreeINS1_10map_paramsINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt6vectorIS9_SaIS9_EESt4lessIS9_ESaISt4pairIKS9_SC_EELi256ELb0EEEE12compare_keysIS9_S9_EEbRKT_RKT0_.exit49: ; preds = %83
@@ -9623,7 +9623,7 @@ _ZN4absl7debian211string_viewC2ISaIcEEERKNSt7__cxx1112basic_stringIcSt11char_tra
   br i1 %102, label %.thread.i.i.i53, label %_ZNK4absl7debian218container_internal5btreeINS1_10map_paramsINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt6vectorIS9_SaIS9_EESt4lessIS9_ESaISt4pairIKS9_SC_EELi256ELb0EEEE12compare_keysIS9_S9_EEbRKT_RKT0_.exit54
 
 .thread.i.i.i53:                                  ; preds = %100, %_ZN4absl7debian211string_viewC2ISaIcEEERKNSt7__cxx1112basic_stringIcSt11char_traitsIcET_EE.exit3.i51
-  %103 = icmp ult i64 %91, %95
+  %103 = icmp samesign ult i64 %91, %95
   br i1 %103, label %104, label %158
 
 _ZNK4absl7debian218container_internal5btreeINS1_10map_paramsINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt6vectorIS9_SaIS9_EESt4lessIS9_ESaISt4pairIKS9_SC_EELi256ELb0EEEE12compare_keysIS9_S9_EEbRKT_RKT0_.exit54: ; preds = %100
@@ -9725,7 +9725,7 @@ _ZN4absl7debian211string_viewC2ISaIcEEERKNSt7__cxx1112basic_stringIcSt11char_tra
   br i1 %154, label %.thread.i.i.i60, label %_ZNK4absl7debian218container_internal5btreeINS1_10map_paramsINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt6vectorIS9_SaIS9_EESt4lessIS9_ESaISt4pairIKS9_SC_EELi256ELb0EEEE12compare_keysIS9_S9_EEbRKT_RKT0_.exit61
 
 .thread.i.i.i60:                                  ; preds = %152, %_ZN4absl7debian211string_viewC2ISaIcEEERKNSt7__cxx1112basic_stringIcSt11char_traitsIcET_EE.exit3.i58
-  %155 = icmp ult i64 %140, %147
+  %155 = icmp samesign ult i64 %140, %147
   br i1 %155, label %.critedge4, label %160
 
 _ZNK4absl7debian218container_internal5btreeINS1_10map_paramsINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt6vectorIS9_SaIS9_EESt4lessIS9_ESaISt4pairIKS9_SC_EELi256ELb0EEEE12compare_keysIS9_S9_EEbRKT_RKT0_.exit61: ; preds = %152
@@ -10083,7 +10083,7 @@ define linkonce_odr void @_ZN4absl7debian218container_internal5btreeINS1_10map_p
   %59 = sub nsw i32 %58, %.sroa.speculated
   %.not73 = icmp sle i32 %52, %59
   %narrow = add nuw nsw i8 %55, %49
-  %60 = icmp ult i8 %narrow, 4
+  %60 = icmp samesign ult i8 %narrow, 4
   %or.cond91 = select i1 %.not73, i1 true, i1 %60
   br i1 %or.cond91, label %61, label %71
 
@@ -11777,7 +11777,7 @@ _ZNK9__gnu_cxx5__ops15_Iter_less_iterclINS_17__normal_iteratorIPNSt7__cxx1112bas
   %20 = getelementptr inbounds i8, ptr %.069.i.i.i.i.i, i64 -32
   %21 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEOS4_(ptr noundef nonnull align 8 dereferenceable(32) %20, ptr noundef nonnull align 8 dereferenceable(32) %19) #23
   %22 = add nsw i64 %.010.i.i.i.i.i, -1
-  %23 = icmp ugt i64 %.010.i.i.i.i.i, 1
+  %23 = icmp samesign ugt i64 %.010.i.i.i.i.i, 1
   br i1 %23, label %.lr.ph.i.i.i.i.i, label %.loopexit, !llvm.loop !155
 
 .loopexit:                                        ; preds = %.lr.ph.i.i.i.i.i, %13

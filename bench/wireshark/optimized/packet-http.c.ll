@@ -1794,19 +1794,19 @@ define internal noundef i32 @http_stats_tree_packet(ptr noundef %0, ptr nocaptur
   br i1 %or.cond, label %22, label %14
 
 14:                                               ; preds = %10
-  %15 = icmp ult i32 %8, 200
+  %15 = icmp samesign ult i32 %8, 200
   br i1 %15, label %22, label %16
 
 16:                                               ; preds = %14
-  %17 = icmp ult i32 %8, 300
+  %17 = icmp samesign ult i32 %8, 300
   br i1 %17, label %22, label %18
 
 18:                                               ; preds = %16
-  %19 = icmp ult i32 %8, 400
+  %19 = icmp samesign ult i32 %8, 400
   br i1 %19, label %22, label %20
 
 20:                                               ; preds = %18
-  %21 = icmp ult i32 %8, 500
+  %21 = icmp samesign ult i32 %8, 500
   %st_node_resp_400.st_node_resp_500 = select i1 %21, ptr @st_node_resp_400, ptr @st_node_resp_500
   %.str.526..str.527 = select i1 %21, ptr @.str.526, ptr @.str.527
   br label %22
@@ -2698,7 +2698,7 @@ cmp_address.exit.thread.thread:                   ; preds = %cmp_address.exit.th
   br i1 %75, label %.loopexit, label %76
 
 76:                                               ; preds = %73
-  %77 = icmp ugt i32 %74, 3
+  %77 = icmp samesign ugt i32 %74, 3
   br i1 %77, label %78, label %82
 
 78:                                               ; preds = %76
@@ -4927,7 +4927,7 @@ sub_0:                                            ; preds = %5
   %16 = phi i32 [ %2, %sub_0 ], [ %spec.select, %.tail ]
   %17 = phi i64 [ 0, %sub_0 ], [ %spec.select57, %.tail ]
   %.0130 = getelementptr i8, ptr %1, i64 %17
-  %18 = icmp ugt i32 %16, 4
+  %18 = icmp samesign ugt i32 %16, 4
   br i1 %18, label %19, label %22
 
 19:                                               ; preds = %.thread
@@ -4936,7 +4936,7 @@ sub_0:                                            ; preds = %5
   br i1 %21, label %30, label %sub_019
 
 22:                                               ; preds = %.thread
-  %23 = icmp ugt i32 %16, 2
+  %23 = icmp samesign ugt i32 %16, 2
   br i1 %23, label %sub_019, label %.thread12
 
 sub_019:                                          ; preds = %22, %19

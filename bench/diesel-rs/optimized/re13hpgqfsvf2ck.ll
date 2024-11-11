@@ -2084,7 +2084,7 @@ define hidden void @"_ZN5alloc11collections5btree4node210Handle$LT$alloc..collec
 .lr.ph.i.i24.i:                                   ; preds = %302, %.lr.ph.i.i24.i
   %.sroa.0.06.i.i25.i = phi i64 [ %305, %.lr.ph.i.i24.i ], [ %282, %302 ]
   %305 = add nuw nsw i64 %.sroa.0.06.i.i25.i, 1
-  %306 = icmp ult i64 %.sroa.0.06.i.i25.i, 12
+  %306 = icmp samesign ult i64 %.sroa.0.06.i.i25.i, 12
   tail call void @llvm.assume(i1 %306)
   %307 = getelementptr inbounds ptr, ptr %294, i64 %.sroa.0.06.i.i25.i
   %308 = load ptr, ptr %307, align 8, !noalias !311, !nonnull !21, !noundef !21
@@ -3517,7 +3517,7 @@ define noundef range(i64 0, 86400000001) i64 @"_ZN6diesel2pg5types13date_and_tim
   %2 = tail call noundef i64 @"_ZN56_$LT$u64$u20$as$u20$quickcheck..arbitrary..Arbitrary$GT$9arbitrary17h31a461148d074cb2E"(ptr noalias noundef nonnull align 8 dereferenceable(40) %0)
   %3 = lshr i64 %2, 63
   %.0 = lshr i64 %2, %3
-  %4 = icmp ugt i64 %.0, 86400000000
+  %4 = icmp samesign ugt i64 %.0, 86400000000
   %5 = urem i64 %.0, 86400000000
   %.1 = select i1 %4, i64 %5, i64 %.0
   ret i64 %.1

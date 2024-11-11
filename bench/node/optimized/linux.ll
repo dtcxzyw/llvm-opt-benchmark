@@ -135,7 +135,7 @@ if.then30:                                        ; preds = %if.end27
   br i1 %cmp31, label %calculate_version.sink.split, label %if.else
 
 if.else:                                          ; preds = %if.then30
-  %cmp33 = icmp ugt i32 %3, 39
+  %cmp33 = icmp samesign ugt i32 %3, 39
   br i1 %cmp33, label %calculate_version.sink.split, label %calculate_version
 
 calculate_version.sink.split:                     ; preds = %if.else, %if.then30

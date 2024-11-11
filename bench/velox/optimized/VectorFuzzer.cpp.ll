@@ -4588,7 +4588,7 @@ call88.i.i.i.i.noexc.i.i.i:                       ; preds = %_ZNSt23mersenne_twi
   br i1 %cmp92.not.i.i.i.i.i.i.i, label %for.cond85.i.i.i.i.i.i.i, label %invoke.cont6.i.i.i, !llvm.loop !11
 
 invoke.cont6.i.i.i:                               ; preds = %call88.i.i.i.i.noexc.i.i.i
-  %tobool.i.i.i.i = icmp ugt i64 %xor9.i.i.i.i, 2147483647
+  %tobool.i.i.i.i = icmp samesign ugt i64 %xor9.i.i.i.i, 2147483647
   %conv4.i.i.i = trunc i64 %i.04.i.i.i to i32
   invoke void @_ZN8facebook5velox10FlatVectorIbE3setEib(ptr noundef nonnull align 8 dereferenceable(184) %28, i32 noundef %conv4.i.i.i, i1 noundef zeroext %tobool.i.i.i.i)
           to label %for.inc.i.i.i unwind label %lpad5.i.i.i
@@ -10566,7 +10566,7 @@ for.cond85.i.i.i.i.i.i:                           ; preds = %for.cond85.i.i.i.i.
   br i1 %cmp92.not.i.i.i.i.i.i, label %for.cond85.i.i.i.i.i.i, label %_ZN8facebook5velox12_GLOBAL__N_14randIbEET_RSt23mersenne_twister_engineImLm32ELm624ELm397ELm31ELm2567483615ELm11ELm4294967295ELm7ELm2636928640ELm15ELm4022730752ELm18ELm1812433253EE.exit.i.i, !llvm.loop !11
 
 _ZN8facebook5velox12_GLOBAL__N_14randIbEET_RSt23mersenne_twister_engineImLm32ELm624ELm397ELm31ELm2567483615ELm11ELm4294967295ELm7ELm2636928640ELm15ELm4022730752ELm18ELm1812433253EE.exit.i.i: ; preds = %for.cond85.i.i.i.i.i.i
-  %tobool.i.i.i = icmp ugt i64 %call88.i.i.i.i.i.i, 2147483647
+  %tobool.i.i.i = icmp samesign ugt i64 %call88.i.i.i.i.i.i, 2147483647
   %frombool.i.i = zext i1 %tobool.i.i.i to i8
   store i8 %frombool.i.i, ptr %ref.tmp15.i.i, align 1, !noalias !70
   %call5.i.i.i3.i.i.i.i50.i.i = tail call noalias noundef nonnull align 32 dereferenceable(224) ptr @_ZnwmSt11align_val_t(i64 noundef 224, i64 noundef 32) #35, !noalias !77
@@ -19267,7 +19267,7 @@ for.cond85.i.i.i.i:                               ; preds = %entry, %for.cond85.
   br i1 %cmp92.not.i.i.i.i, label %for.cond85.i.i.i.i, label %_ZN8facebook5velox12_GLOBAL__N_14randIbEET_RSt23mersenne_twister_engineImLm32ELm624ELm397ELm31ELm2567483615ELm11ELm4294967295ELm7ELm2636928640ELm15ELm4022730752ELm18ELm1812433253EE.exit, !llvm.loop !11
 
 _ZN8facebook5velox12_GLOBAL__N_14randIbEET_RSt23mersenne_twister_engineImLm32ELm624ELm397ELm31ELm2567483615ELm11ELm4294967295ELm7ELm2636928640ELm15ELm4022730752ELm18ELm1812433253EE.exit: ; preds = %for.cond85.i.i.i.i
-  %tobool.i = icmp ugt i64 %call88.i.i.i.i, 2147483647
+  %tobool.i = icmp samesign ugt i64 %call88.i.i.i.i, 2147483647
   br i1 %tobool.i, label %if.then, label %for.cond85.i.i.i.i13
 
 if.then:                                          ; preds = %_ZN8facebook5velox12_GLOBAL__N_14randIbEET_RSt23mersenne_twister_engineImLm32ELm624ELm397ELm31ELm2567483615ELm11ELm4294967295ELm7ELm2636928640ELm15ELm4022730752ELm18ELm1812433253EE.exit, %entry
@@ -19280,7 +19280,7 @@ for.cond85.i.i.i.i13:                             ; preds = %_ZN8facebook5velox1
   br i1 %cmp92.not.i.i.i.i15, label %for.cond85.i.i.i.i13, label %_ZN8facebook5velox12_GLOBAL__N_14randIbEET_RSt23mersenne_twister_engineImLm32ELm624ELm397ELm31ELm2567483615ELm11ELm4294967295ELm7ELm2636928640ELm15ELm4022730752ELm18ELm1812433253EE.exit17, !llvm.loop !11
 
 _ZN8facebook5velox12_GLOBAL__N_14randIbEET_RSt23mersenne_twister_engineImLm32ELm624ELm397ELm31ELm2567483615ELm11ELm4294967295ELm7ELm2636928640ELm15ELm4022730752ELm18ELm1812433253EE.exit17: ; preds = %for.cond85.i.i.i.i13
-  %tobool.i16 = icmp ugt i64 %call88.i.i.i.i14, 2147483647
+  %tobool.i16 = icmp samesign ugt i64 %call88.i.i.i.i14, 2147483647
   br i1 %tobool.i16, label %if.then2, label %if.end3
 
 if.then2:                                         ; preds = %_ZN8facebook5velox12_GLOBAL__N_14randIbEET_RSt23mersenne_twister_engineImLm32ELm624ELm397ELm31ELm2567483615ELm11ELm4294967295ELm7ELm2636928640ELm15ELm4022730752ELm18ELm1812433253EE.exit17
@@ -19730,7 +19730,7 @@ for.cond85.i.i.i.i:                               ; preds = %entry, %for.cond85.
   br i1 %cmp92.not.i.i.i.i, label %for.cond85.i.i.i.i, label %_ZN8facebook5velox12_GLOBAL__N_14randIbEET_RSt23mersenne_twister_engineImLm32ELm624ELm397ELm31ELm2567483615ELm11ELm4294967295ELm7ELm2636928640ELm15ELm4022730752ELm18ELm1812433253EE.exit, !llvm.loop !11
 
 _ZN8facebook5velox12_GLOBAL__N_14randIbEET_RSt23mersenne_twister_engineImLm32ELm624ELm397ELm31ELm2567483615ELm11ELm4294967295ELm7ELm2636928640ELm15ELm4022730752ELm18ELm1812433253EE.exit: ; preds = %for.cond85.i.i.i.i
-  %tobool.i = icmp ugt i64 %call88.i.i.i.i, 2147483647
+  %tobool.i = icmp samesign ugt i64 %call88.i.i.i.i, 2147483647
   br i1 %tobool.i, label %if.then, label %if.end
 
 if.then:                                          ; preds = %_ZN8facebook5velox12_GLOBAL__N_14randIbEET_RSt23mersenne_twister_engineImLm32ELm624ELm397ELm31ELm2567483615ELm11ELm4294967295ELm7ELm2636928640ELm15ELm4022730752ELm18ELm1812433253EE.exit, %entry
@@ -54667,7 +54667,7 @@ if.then.i.i54:                                    ; preds = %invoke.cont27
   unreachable
 
 if.end.i.i:                                       ; preds = %invoke.cont27
-  %cmp.i.i.i.i = icmp ult i32 %conv.i51, 13
+  %cmp.i.i.i.i = icmp samesign ult i32 %conv.i51, 13
   br i1 %cmp.i.i.i.i, label %if.then2.i.i, label %if.else.i.i53
 
 if.then2.i.i:                                     ; preds = %if.end.i.i
@@ -54861,7 +54861,7 @@ if.then.i.i12:                                    ; preds = %_ZNKSt7__cxx1112bas
 
 land.lhs.true.i.i:                                ; preds = %_ZNKSt7__cxx1112basic_stringIDsSt11char_traitsIDsESaIDsEE8capacityEv.exit.i2
   %mul.i.i = shl nuw nsw i64 %cond.i.i1719, 1
-  %cmp3.i.i = icmp ult i64 %sub.i, %mul.i.i
+  %cmp3.i.i = icmp samesign ult i64 %sub.i, %mul.i.i
   %spec.store.select.i.i = tail call i64 @llvm.umin.i64(i64 %mul.i.i, i64 2305843009213693951)
   %__new_capacity.0.i = select i1 %cmp3.i.i, i64 %spec.store.select.i.i, i64 %sub.i
   %add.i.i = shl nuw nsw i64 %__new_capacity.0.i, 1
@@ -57677,7 +57677,7 @@ if.then10.i.i:                                    ; preds = %if.end.i.i
 
 if.end14.i.i:                                     ; preds = %if.end.i.i
   %conv15.i.i = zext nneg i32 %sub.i.i to i64
-  %cmp16.i.i = icmp ult i32 %sub.i.i, 13
+  %cmp16.i.i = icmp samesign ult i32 %sub.i.i, 13
   %cmp.i.i.i.i = icmp ult i32 %3, 13
   %or.cond.i.i = and i1 %cmp.i.i.i.i, %cmp16.i.i
   %cmp.i.i15.i.i = icmp ult i32 %2, 13
@@ -57724,7 +57724,7 @@ if.end.i:                                         ; preds = %cond.false
   br i1 %cmp.i.i.i, label %if.then4.i, label %if.end9.i
 
 if.then4.i:                                       ; preds = %if.end.i
-  %cmp5.i = icmp ult i32 %9, 5
+  %cmp5.i = icmp samesign ult i32 %9, 5
   br i1 %cmp5.i, label %_ZNK8facebook5velox10StringVieweqERKS1_.exit, label %lor.rhs.i
 
 lor.rhs.i:                                        ; preds = %if.then4.i

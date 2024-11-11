@@ -5176,7 +5176,7 @@ _ZNK7Compile21is_method_compilationEv.exit:       ; preds = %122
   %137 = getelementptr inbounds i8, ptr %136, i64 760
   %138 = load i32, ptr %137, align 8
   %139 = zext i32 %138 to i64
-  %140 = icmp ult i64 %indvars.iv127, %139
+  %140 = icmp samesign ult i64 %indvars.iv127, %139
   br i1 %140, label %141, label %_ZNK10Node_ArrayixEj.exit
 
 141:                                              ; preds = %135

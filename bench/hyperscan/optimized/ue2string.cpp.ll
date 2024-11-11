@@ -2482,7 +2482,7 @@ entry:
 
 for.body.i.i.i.i.i.i.i.preheader:                 ; preds = %entry
   %xtraiter = and i64 %sub.ptr.div.i.i.i.i.i.i.i, 3
-  %2 = icmp ult i64 %sub.ptr.div.i.i.i.i.i.i.i, 4
+  %2 = icmp samesign ult i64 %sub.ptr.div.i.i.i.i.i.i.i, 4
   br i1 %2, label %_ZNK3ue219hash_dynamic_bitsetclERKN5boost14dynamic_bitsetImSaImEEE.exit.loopexit.unr-lcssa, label %for.body.i.i.i.i.i.i.i.preheader.new
 
 for.body.i.i.i.i.i.i.i.preheader.new:             ; preds = %for.body.i.i.i.i.i.i.i.preheader

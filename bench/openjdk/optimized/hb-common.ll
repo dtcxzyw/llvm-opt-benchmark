@@ -6070,7 +6070,7 @@ _ZN11hb_vector_tIiLb0EE5allocEjb.exit.thread21.i: ; preds = %245, %.thread.i.i27
   br label %.loopexit.i
 
 263:                                              ; preds = %257
-  %.not42.i = icmp ult i8 %252, 64
+  %.not42.i = icmp samesign ult i8 %252, 64
   br i1 %.not42.i, label %283, label %264
 
 264:                                              ; preds = %263
@@ -6221,7 +6221,7 @@ _ZN11hb_vector_tIiLb0EE14realloc_vectorIiTnPN12hb_enable_ifIXsr3std28is_triviall
   br label %.loopexit.i301
 
 322:                                              ; preds = %316
-  %.not42.i311 = icmp ult i8 %311, 64
+  %.not42.i311 = icmp samesign ult i8 %311, 64
   br i1 %.not42.i311, label %342, label %323
 
 323:                                              ; preds = %322
@@ -8308,7 +8308,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN2OT18TupleVariationData13unpac
   br i1 %21, label %_ZN11hb_vector_tIjLb0EE6resizeEibb.exit.thread, label %22
 
 22:                                               ; preds = %19
-  %.not.i.i = icmp ugt i32 %.044, %20
+  %.not.i.i = icmp samesign ugt i32 %.044, %20
   br i1 %.not.i.i, label %.preheader.i.i, label %_ZN11hb_vector_tIjLb0EE6resizeEibb.exit
 
 .preheader.i.i:                                   ; preds = %22, %.preheader.i.i
@@ -9859,7 +9859,7 @@ _ZN21hb_sanitize_context_t14end_processingEv.exit.i: ; preds = %16
   br i1 %101, label %_ZN11hb_vector_tI9hb_pair_tIiiELb0EE6resizeEibb.exit.thread, label %102
 
 102:                                              ; preds = %64
-  %.not.i.i = icmp ugt i32 %99, %100
+  %.not.i.i = icmp samesign ugt i32 %99, %100
   br i1 %.not.i.i, label %.preheader.i.i, label %119
 
 .preheader.i.i:                                   ; preds = %102, %.preheader.i.i

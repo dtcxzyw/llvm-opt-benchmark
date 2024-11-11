@@ -257,7 +257,7 @@ define dso_local noundef range(i32 -22, 1) i32 @ata_timing_compute(ptr nocapture
   br i1 %29, label %30, label %51
 
 30:                                               ; preds = %27
-  %31 = icmp ult i16 %1, 11
+  %31 = icmp samesign ult i16 %1, 11
   br i1 %31, label %32, label %36
 
 32:                                               ; preds = %30
@@ -268,7 +268,7 @@ define dso_local noundef range(i32 -22, 1) i32 @ata_timing_compute(ptr nocapture
   br label %57
 
 36:                                               ; preds = %30
-  %37 = icmp ult i16 %1, 13
+  %37 = icmp samesign ult i16 %1, 13
   br i1 %37, label %47, label %38
 
 38:                                               ; preds = %36

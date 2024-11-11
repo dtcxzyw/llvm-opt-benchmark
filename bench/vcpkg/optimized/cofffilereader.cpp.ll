@@ -2996,7 +2996,7 @@ _ZN5vcpkg9ExpectedTINS_4UnitENS_15LocalizedStringEED2Ev.exit.i: ; preds = %115, 
   %119 = lshr i64 %spec.select.i.i, 2
   %120 = add nsw i64 %119, -1
   %121 = zext i32 %118 to i64
-  %122 = icmp ult i64 %120, %121
+  %122 = icmp samesign ult i64 %120, %121
   br i1 %122, label %123, label %127
 
 123:                                              ; preds = %116
@@ -3473,7 +3473,7 @@ _ZN5vcpkg9ExpectedTINS_4UnitENS_15LocalizedStringEED2Ev.exit31.i: ; preds = %272
   %275 = add nsw i64 %274, -1
   %276 = load i32, ptr %22, align 4, !noalias !182
   %277 = zext i32 %276 to i64
-  %278 = icmp ult i64 %275, %277
+  %278 = icmp samesign ult i64 %275, %277
   br i1 %278, label %279, label %283
 
 279:                                              ; preds = %273
@@ -4668,7 +4668,7 @@ _ZN3fmt3v106detail11parse_alignEc.exit53:         ; preds = %_ZZN3fmt3v106detail
   unreachable
 
 33:                                               ; preds = %21
-  %.not.i58 = icmp ult i32 %.sroa.0158.0, 4
+  %.not.i58 = icmp samesign ult i32 %.sroa.0158.0, 4
   br i1 %.not.i58, label %_ZZN3fmt3v106detail18parse_format_specsIcEEPKT_S5_S5_RNS1_20dynamic_format_specsIS3_EERNS0_26basic_format_parse_contextIS3_EENS1_4typeEENUt_clENS1_5stateEb.exit59, label %34
 
 34:                                               ; preds = %33
@@ -4680,7 +4680,7 @@ _ZZN3fmt3v106detail18parse_format_specsIcEEPKT_S5_S5_RNS1_20dynamic_format_specs
   unreachable
 
 35:                                               ; preds = %21, %21, %21, %21, %21, %21, %21, %21, %21, %21
-  %.not.i60 = icmp ult i32 %.sroa.0158.0, 5
+  %.not.i60 = icmp samesign ult i32 %.sroa.0158.0, 5
   br i1 %.not.i60, label %_ZZN3fmt3v106detail18parse_format_specsIcEEPKT_S5_S5_RNS1_20dynamic_format_specsIS3_EERNS0_26basic_format_parse_contextIS3_EENS1_4typeEENUt_clENS1_5stateEb.exit61, label %36
 
 36:                                               ; preds = %35
@@ -4692,7 +4692,7 @@ _ZZN3fmt3v106detail18parse_format_specsIcEEPKT_S5_S5_RNS1_20dynamic_format_specs
   br label %95
 
 38:                                               ; preds = %21
-  %.not.i62 = icmp ult i32 %.sroa.0158.0, 6
+  %.not.i62 = icmp samesign ult i32 %.sroa.0158.0, 6
   br i1 %.not.i62, label %_ZZN3fmt3v106detail18parse_format_specsIcEEPKT_S5_S5_RNS1_20dynamic_format_specsIS3_EERNS0_26basic_format_parse_contextIS3_EENS1_4typeEENUt_clENS1_5stateEb.exit63, label %39
 
 39:                                               ; preds = %38
@@ -5560,7 +5560,7 @@ _ZNK3fmt3v1017basic_format_argsINS0_20basic_format_contextINS0_8appenderEcEEE6ge
   br label %_ZNK3fmt3v1017basic_format_argsINS0_20basic_format_contextINS0_8appenderEcEEE3getEi.exit
 
 35:                                               ; preds = %26
-  %36 = icmp ugt i32 %24, 14
+  %36 = icmp samesign ugt i32 %24, 14
   br i1 %36, label %_ZNK3fmt3v1017basic_format_argsINS0_20basic_format_contextINS0_8appenderEcEEE3getEi.exit, label %37
 
 37:                                               ; preds = %35

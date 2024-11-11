@@ -887,7 +887,7 @@ lpad:                                             ; preds = %_ZNSt11char_traitsI
   br label %eh.resume
 
 if.else:                                          ; preds = %entry
-  %cmp.not.i.i16 = icmp ult i64 %1, 6
+  %cmp.not.i.i16 = icmp samesign ult i64 %1, 6
   br i1 %cmp.not.i.i16, label %_ZN9struct_pb8compiler19string_strip_suffixESt17basic_string_viewIcSt11char_traitsIcEES4_.exit29, label %land.rhs.i.i17
 
 land.rhs.i.i17:                                   ; preds = %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i, %if.else

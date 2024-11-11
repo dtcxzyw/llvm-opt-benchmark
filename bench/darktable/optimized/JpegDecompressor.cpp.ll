@@ -273,8 +273,8 @@ define hidden void @_ZN8rawspeed16JpegDecompressor6decodeEjj(ptr nocapture nound
   %151 = mul nuw nsw i64 %150, %142
   %152 = add nuw nsw i64 %151, %144
   %153 = getelementptr i8, ptr %55, i64 %152
-  %154 = icmp ult i32 %134, 8
-  %155 = icmp ult i32 %134, 32
+  %154 = icmp samesign ult i32 %134, 8
+  %155 = icmp samesign ult i32 %134, 32
   %156 = and i64 %144, 2147483616
   %157 = insertelement <16 x i64> poison, i64 %138, i64 0
   %158 = shufflevector <16 x i64> %157, <16 x i64> poison, <16 x i32> zeroinitializer

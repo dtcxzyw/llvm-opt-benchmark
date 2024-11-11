@@ -386,7 +386,7 @@ if.end:                                           ; preds = %sw.epilog
   br i1 %cmp7, label %return, label %if.end9
 
 if.end9:                                          ; preds = %if.end
-  %cmp12 = icmp ult i32 %n, 15361
+  %cmp12 = icmp samesign ult i32 %n, 15361
   %. = select i1 %cmp12, i16 256, i16 1200
   %conv = zext nneg i32 %n to i64
   %mul = mul nuw nsw i64 %conv, 181704
@@ -401,7 +401,7 @@ while.body.i:                                     ; preds = %while.body.i, %if.e
   br i1 %cmp.i, label %while.body.i, label %for.body.i.preheader, !llvm.loop !4
 
 for.body.i.preheader:                             ; preds = %while.body.i
-  %cmp10 = icmp ult i32 %n, 7681
+  %cmp10 = icmp samesign ult i32 %n, 7681
   br label %for.body.i
 
 for.body.i:                                       ; preds = %for.body.i.preheader, %for.body.i

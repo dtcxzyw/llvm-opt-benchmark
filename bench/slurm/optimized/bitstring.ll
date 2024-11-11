@@ -2001,7 +2001,7 @@ define range(i64 -63, 9223372036854775807) i64 @bit_fls(ptr nocapture noundef re
   br i1 %.not.i, label %13, label %bit_fls_from_bit.exit
 
 13:                                               ; preds = %7
-  %14 = icmp ugt i64 %.01923.i.in, 1
+  %14 = icmp samesign ugt i64 %.01923.i.in, 1
   br i1 %14, label %.lr.ph.i, label %bit_fls_from_bit.exit, !llvm.loop !31
 
 .lr.ph31.i:                                       ; preds = %.lr.ph.i, %.outer.i
@@ -2153,7 +2153,7 @@ bit_ffs.exit:                                     ; preds = %.lr.ph.split.i
   br i1 %.not.i.i, label %20, label %bit_fls.exit
 
 20:                                               ; preds = %14
-  %21 = icmp ugt i64 %.01923.i.in.i, 1
+  %21 = icmp samesign ugt i64 %.01923.i.in.i, 1
   br i1 %21, label %.lr.ph.i.i, label %bit_fls.exit, !llvm.loop !31
 
 .lr.ph31.i.i:                                     ; preds = %.lr.ph.i.i, %.outer.i.i
@@ -3184,7 +3184,7 @@ bit_nclear.exit:                                  ; preds = %.critedge.i, %19, %
 29:                                               ; preds = %25
   %30 = zext nneg i32 %23 to i64
   %31 = zext nneg i32 %27 to i64
-  %.not20.i = icmp ule i32 %23, %27
+  %.not20.i = icmp samesign ule i32 %23, %27
   %32 = and i64 %30, 7
   %33 = icmp ne i64 %32, 0
   %or.cond21.i = and i1 %33, %.not20.i
@@ -3426,7 +3426,7 @@ define internal fastcc ptr @_bit_fmt_hexmask(ptr nocapture noundef readonly %0, 
   br i1 %.not.i.i, label %15, label %bit_fls.exit
 
 15:                                               ; preds = %9
-  %16 = icmp ugt i64 %.01923.i.in.i, 1
+  %16 = icmp samesign ugt i64 %.01923.i.in.i, 1
   br i1 %16, label %.lr.ph.i.i, label %bit_fls.exit, !llvm.loop !31
 
 .lr.ph31.i.i:                                     ; preds = %.lr.ph.i.i, %.outer.i.i
@@ -3583,7 +3583,7 @@ bit_fls.exit:                                     ; preds = %9, %15, %.outer.i.i
 92:                                               ; preds = %84, %82
   %.463 = phi i64 [ %.362, %82 ], [ %85, %84 ]
   %.3 = phi i8 [ %.257, %82 ], [ %spec.select76, %84 ]
-  %93 = icmp ult i8 %.3, 10
+  %93 = icmp samesign ult i8 %.3, 10
   %94 = or disjoint i8 %.3, 48
   %95 = add nuw nsw i8 %.3, 55
   %.4 = select i1 %93, i8 %94, i8 %95

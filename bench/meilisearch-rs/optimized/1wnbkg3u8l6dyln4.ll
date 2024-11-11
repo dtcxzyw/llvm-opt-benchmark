@@ -5624,14 +5624,14 @@ _ZN19brotli_decompressor6decode26TakeDistanceFromRingBuffer17h634c3938ac365414E.
   %854 = lshr i32 %834, 1
   %855 = add nuw nsw i32 %854, 1
   call void @llvm.experimental.noalias.scope.decl(metadata !675)
-  %856 = icmp ult i32 %834, 16
+  %856 = icmp samesign ult i32 %834, 16
   %857 = load i32, ptr %144, align 8, !alias.scope !636, !noalias !639
   %858 = icmp ugt i32 %857, 55
   %or.cond.i42.i = select i1 %856, i1 %858, i1 false
   br i1 %or.cond.i42.i, label %862, label %859
 
 859:                                              ; preds = %853
-  %860 = icmp ult i32 %834, 32
+  %860 = icmp samesign ult i32 %834, 32
   %861 = icmp ugt i32 %857, 47
   %or.cond5.i43.i = select i1 %860, i1 %861, i1 false
   br i1 %or.cond5.i43.i, label %888, label %886
@@ -5752,7 +5752,7 @@ _ZN19brotli_decompressor10bit_reader19BrotliFillBitWindow17hab5584557a4a3b1aE.ex
 _ZN19brotli_decompressor10bit_reader19BrotliFillBitWindow17hab5584557a4a3b1aE.exit47.i: ; preds = %_ZN19brotli_decompressor10bit_reader14BrotliLoad32LE17h04e9d7952feb68faE.exit.i44.i, %886
   %926 = phi i32 [ %857, %886 ], [ %912, %_ZN19brotli_decompressor10bit_reader14BrotliLoad32LE17h04e9d7952feb68faE.exit.i44.i ]
   %927 = zext nneg i32 %855 to i64
-  %928 = icmp ult i32 %834, 64
+  %928 = icmp samesign ult i32 %834, 64
   br i1 %928, label %_ZN19brotli_decompressor10bit_reader19BrotliFillBitWindow17hab5584557a4a3b1aE.exit47.i._crit_edge, label %.invoke, !prof !589
 
 _ZN19brotli_decompressor10bit_reader19BrotliFillBitWindow17hab5584557a4a3b1aE.exit47.i._crit_edge: ; preds = %_ZN19brotli_decompressor10bit_reader19BrotliFillBitWindow17hab5584557a4a3b1aE.exit47.i
@@ -5767,14 +5767,14 @@ _ZN19brotli_decompressor10bit_reader19BrotliFillBitWindow17hab5584557a4a3b1aE.ex
   %933 = lshr i32 %932, 1
   %934 = add nuw nsw i32 %933, 1
   call void @llvm.experimental.noalias.scope.decl(metadata !699)
-  %935 = icmp ult i32 %932, 16
+  %935 = icmp samesign ult i32 %932, 16
   %936 = load i32, ptr %144, align 8, !alias.scope !636, !noalias !639
   %937 = icmp ugt i32 %936, 55
   %or.cond.i.i228 = select i1 %935, i1 %937, i1 false
   br i1 %or.cond.i.i228, label %941, label %938
 
 938:                                              ; preds = %929
-  %939 = icmp ult i32 %932, 32
+  %939 = icmp samesign ult i32 %932, 32
   %940 = icmp ugt i32 %936, 47
   %or.cond5.i.i229 = select i1 %939, i1 %940, i1 false
   br i1 %or.cond5.i.i229, label %967, label %965
@@ -5895,7 +5895,7 @@ _ZN19brotli_decompressor10bit_reader19BrotliFillBitWindow17hab5584557a4a3b1aE.ex
 _ZN19brotli_decompressor10bit_reader19BrotliFillBitWindow17hab5584557a4a3b1aE.exit.i230: ; preds = %_ZN19brotli_decompressor10bit_reader14BrotliLoad32LE17h04e9d7952feb68faE.exit.i.i232, %965
   %1005 = phi i32 [ %936, %965 ], [ %991, %_ZN19brotli_decompressor10bit_reader14BrotliLoad32LE17h04e9d7952feb68faE.exit.i.i232 ]
   %1006 = zext nneg i32 %934 to i64
-  %1007 = icmp ult i32 %932, 64
+  %1007 = icmp samesign ult i32 %932, 64
   br i1 %1007, label %_ZN19brotli_decompressor10bit_reader19BrotliFillBitWindow17hab5584557a4a3b1aE.exit.i230._crit_edge, label %.invoke, !prof !723
 
 _ZN19brotli_decompressor10bit_reader19BrotliFillBitWindow17hab5584557a4a3b1aE.exit.i230._crit_edge: ; preds = %_ZN19brotli_decompressor10bit_reader19BrotliFillBitWindow17hab5584557a4a3b1aE.exit.i230
@@ -6044,7 +6044,7 @@ _ZN19brotli_decompressor6decode20ReadDistanceInternal17hcdf64eb40eb91d2dE.exit.t
   br i1 %1094, label %1095, label %thread-pre-split
 
 1095:                                             ; preds = %1093
-  %1096 = icmp ugt i32 %1060, 32
+  %1096 = icmp samesign ugt i32 %1060, 32
   %.val167 = load ptr, ptr %131, align 8, !nonnull !7, !align !119, !noundef !7
   %.val168 = load i64, ptr %132, align 8, !noundef !7
   br i1 %1096, label %1112, label %1097
@@ -16255,7 +16255,7 @@ define hidden void @_ZN4core5slice4sort10merge_sort17h897e5a440cde95b9E(ptr noal
   br label %47
 
 24:                                               ; preds = %3
-  %25 = icmp ugt i64 %1, 1
+  %25 = icmp samesign ugt i64 %1, 1
   br i1 %25, label %245, label %45
 
 26:                                               ; preds = %46, %27
@@ -16859,7 +16859,7 @@ define hidden void @_ZN4core5slice4sort10merge_sort17h8dea7c04a44eccf8E(ptr noal
   br label %47
 
 24:                                               ; preds = %3
-  %25 = icmp ugt i64 %1, 1
+  %25 = icmp samesign ugt i64 %1, 1
   br i1 %25, label %"_ZN115_$LT$core..ops..range..RangeInclusive$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$9index_mut17hf1e29d12f6102135E.exit.i", label %_ZN4core5slice4sort25insertion_sort_shift_left17h64f656715d37b298E.exit
 
 26:                                               ; preds = %45, %27
@@ -17485,7 +17485,7 @@ define hidden void @_ZN4core5slice4sort10merge_sort17hb87b1ae02811eee9E(ptr noal
   br label %47
 
 24:                                               ; preds = %3
-  %25 = icmp ugt i64 %1, 1
+  %25 = icmp samesign ugt i64 %1, 1
   br i1 %25, label %238, label %45
 
 26:                                               ; preds = %46, %27
@@ -18076,7 +18076,7 @@ define hidden void @_ZN4core5slice4sort10merge_sort17hcd3875c9f50e177bE(ptr noal
   br label %47
 
 24:                                               ; preds = %3
-  %25 = icmp ugt i64 %1, 1
+  %25 = icmp samesign ugt i64 %1, 1
   br i1 %25, label %254, label %45
 
 26:                                               ; preds = %46, %27
@@ -18708,7 +18708,7 @@ define hidden void @_ZN4core5slice4sort10merge_sort17hed108a7295bbbed7E(ptr noal
   br label %47
 
 24:                                               ; preds = %3
-  %25 = icmp ugt i64 %1, 1
+  %25 = icmp samesign ugt i64 %1, 1
   br i1 %25, label %245, label %45
 
 26:                                               ; preds = %46, %27
@@ -21282,7 +21282,7 @@ _ZN4core5slice4sort25insertion_sort_shift_left17h31ba256e3b75905cE.exit: ; preds
   br i1 %44, label %"_ZN4core5slice4sort12choose_pivot28_$u7b$$u7b$closure$u7d$$u7d$17h1896211eb07b2592E.exit.i", label %"_ZN4core5slice4sort12choose_pivot28_$u7b$$u7b$closure$u7d$$u7d$17h1896211eb07b2592E.exit.thread.i"
 
 "_ZN4core5slice4sort12choose_pivot28_$u7b$$u7b$closure$u7d$$u7d$17h1896211eb07b2592E.exit.i": ; preds = %"_ZN4core5slice4sort12choose_pivot28_$u7b$$u7b$closure$u7d$$u7d$17h6dd0722ed22109cdE.exit.i.i"
-  %45 = icmp ult i64 %.sroa.0.2123.i, 11
+  %45 = icmp samesign ult i64 %.sroa.0.2123.i, 11
   br i1 %45, label %"_ZN4core5slice4sort12choose_pivot28_$u7b$$u7b$closure$u7d$$u7d$17h1896211eb07b2592E.exit.thread.i", label %93
 
 46:                                               ; preds = %27
@@ -22029,7 +22029,7 @@ _ZN4core5slice4sort25insertion_sort_shift_left17ha60a1d7638ea3f00E.exit: ; preds
   br i1 %42, label %"_ZN4core5slice4sort12choose_pivot28_$u7b$$u7b$closure$u7d$$u7d$17hed5c47105d249d06E.exit.i", label %"_ZN4core5slice4sort12choose_pivot28_$u7b$$u7b$closure$u7d$$u7d$17hed5c47105d249d06E.exit.thread.i"
 
 "_ZN4core5slice4sort12choose_pivot28_$u7b$$u7b$closure$u7d$$u7d$17hed5c47105d249d06E.exit.i": ; preds = %"_ZN4core5slice4sort12choose_pivot28_$u7b$$u7b$closure$u7d$$u7d$17h79a4a12137350d6eE.exit.i.i"
-  %43 = icmp ult i64 %.sroa.0.2123.i, 11
+  %43 = icmp samesign ult i64 %.sroa.0.2123.i, 11
   br i1 %43, label %"_ZN4core5slice4sort12choose_pivot28_$u7b$$u7b$closure$u7d$$u7d$17hed5c47105d249d06E.exit.thread.i", label %91
 
 44:                                               ; preds = %25
@@ -23832,7 +23832,7 @@ _ZN4core5slice4sort25insertion_sort_shift_left17h64f656715d37b298E.exit: ; preds
   br i1 %35, label %"_ZN4core5slice4sort12choose_pivot28_$u7b$$u7b$closure$u7d$$u7d$17h2b3edf29bf3e5aa0E.exit.i", label %"_ZN4core5slice4sort12choose_pivot28_$u7b$$u7b$closure$u7d$$u7d$17h2b3edf29bf3e5aa0E.exit.thread.i"
 
 "_ZN4core5slice4sort12choose_pivot28_$u7b$$u7b$closure$u7d$$u7d$17h2b3edf29bf3e5aa0E.exit.i": ; preds = %"_ZN4core5slice4sort12choose_pivot28_$u7b$$u7b$closure$u7d$$u7d$17hed8b86deb7adfa6bE.exit.i.i"
-  %36 = icmp ult i64 %.sroa.0.2123.i, 11
+  %36 = icmp samesign ult i64 %.sroa.0.2123.i, 11
   br i1 %36, label %"_ZN4core5slice4sort12choose_pivot28_$u7b$$u7b$closure$u7d$$u7d$17h2b3edf29bf3e5aa0E.exit.thread.i", label %84
 
 37:                                               ; preds = %18

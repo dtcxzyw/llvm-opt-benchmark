@@ -1741,7 +1741,7 @@ define dso_local i32 @iomap_file_buffered_write_punch_delalloc(ptr noundef %0, p
   br label %.thread27
 
 70:                                               ; preds = %64
-  %71 = icmp ugt i64 %66, %50
+  %71 = icmp samesign ugt i64 %66, %50
   br i1 %71, label %73, label %72, !prof !13
 
 72:                                               ; preds = %70
@@ -1762,7 +1762,7 @@ define dso_local i32 @iomap_file_buffered_write_punch_delalloc(ptr noundef %0, p
 
 76:                                               ; preds = %75, %73
   %77 = add nsw i64 %66, -1
-  %78 = icmp ult i64 %50, %66
+  %78 = icmp samesign ult i64 %50, %66
   br i1 %78, label %.lr.ph, label %.loopexit30
 
 .lr.ph:                                           ; preds = %76, %230

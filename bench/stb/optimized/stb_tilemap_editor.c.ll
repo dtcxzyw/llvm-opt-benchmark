@@ -5184,7 +5184,7 @@ cond.end112:                                      ; preds = %land.lhs.true96, %i
   br label %return
 
 for.inc:                                          ; preds = %if.end80, %lor.lhs.false86, %for.body
-  %cmp70 = icmp ugt i64 %indvars.iv, 1
+  %cmp70 = icmp samesign ugt i64 %indvars.iv, 1
   br i1 %cmp70, label %for.body, label %if.end117, !llvm.loop !31
 
 if.end117:                                        ; preds = %for.inc, %if.then69, %if.end64
@@ -5465,7 +5465,7 @@ cond.end165:                                      ; preds = %if.end150, %cond.tr
   br label %return
 
 for.inc:                                          ; preds = %if.end120, %lor.lhs.false126, %for.body
-  %cmp105 = icmp ugt i64 %indvars.iv, 1
+  %cmp105 = icmp samesign ugt i64 %indvars.iv, 1
   br i1 %cmp105, label %for.body, label %if.end175, !llvm.loop !33
 
 if.end175:                                        ; preds = %for.inc, %if.then104, %if.end99
@@ -7918,7 +7918,7 @@ for.body13:                                       ; preds = %for.body, %for.body
   %i.0.in33 = phi i32 [ %i.0, %for.body13 ], [ %19, %for.body ]
   %i.0 = add nsw i32 %i.0.in33, -1
   tail call void @stbte__drag_update(ptr noundef %tm, i32 noundef %i.0, i32 noundef %j.036, i32 noundef %retval.0.i)
-  %cmp12 = icmp ugt i32 %i.0.in33, 1
+  %cmp12 = icmp samesign ugt i32 %i.0.in33, 1
   br i1 %cmp12, label %for.body13, label %for.cond.loopexit, !llvm.loop !55
 
 for.cond21.preheader:                             ; preds = %for.cond21.preheader.lr.ph, %for.inc27

@@ -1163,7 +1163,7 @@ define internal fastcc i32 @create_log_context(ptr nocapture noundef writeonly %
   br label %166
 
 12:                                               ; preds = %5
-  %13 = icmp ugt i32 %2, 1
+  %13 = icmp samesign ugt i32 %2, 1
   br i1 %13, label %14, label %24
 
 14:                                               ; preds = %12

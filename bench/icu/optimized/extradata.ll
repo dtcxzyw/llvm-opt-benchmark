@@ -578,7 +578,7 @@ entry:
 
 land.lhs.true:                                    ; preds = %entry
   %cmp2 = icmp slt i32 %c, 128
-  %cmp5 = icmp ugt i32 %0, 127
+  %cmp5 = icmp samesign ugt i32 %0, 127
   %or.cond9 = and i1 %cmp2, %cmp5
   br i1 %or.cond9, label %return, label %land.lhs.true6
 
@@ -838,7 +838,7 @@ land.lhs.true:                                    ; preds = %sw.bb16
 
 land.lhs.true.i:                                  ; preds = %land.lhs.true
   %cmp2.i = icmp slt i32 %c, 128
-  %cmp5.i = icmp ugt i32 %11, 127
+  %cmp5.i = icmp samesign ugt i32 %11, 127
   %or.cond9.i = and i1 %cmp2.i, %cmp5.i
   br i1 %or.cond9.i, label %if.end, label %land.lhs.true6.i
 
@@ -886,7 +886,7 @@ land.lhs.true24:                                  ; preds = %sw.bb21
 
 land.lhs.true.i43:                                ; preds = %land.lhs.true24
   %cmp2.i44 = icmp slt i32 %c, 128
-  %cmp5.i45 = icmp ugt i32 %17, 127
+  %cmp5.i45 = icmp samesign ugt i32 %17, 127
   %or.cond9.i46 = and i1 %cmp2.i44, %cmp5.i45
   br i1 %or.cond9.i46, label %if.end28, label %land.lhs.true6.i47
 

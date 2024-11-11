@@ -1607,7 +1607,7 @@ _ZSt13move_backwardIPPN4llvm17MachineBasicBlockES3_ET0_T_S5_S4_.exit: ; preds = 
   store ptr %78, ptr %.045.i.i.i.i.i, align 8
   %79 = getelementptr inbounds i8, ptr %.045.i.i.i.i.i, i64 8
   %80 = add nsw i64 %.06.i.i.i.i.i, -1
-  %81 = icmp ugt i64 %.06.i.i.i.i.i, 1
+  %81 = icmp samesign ugt i64 %.06.i.i.i.i.i, 1
   br i1 %81, label %.lr.ph.i.i.i.i.i, label %_ZSt4copyISt16reverse_iteratorIPPN4llvm17MachineBasicBlockEES4_ET0_T_S7_S6_.exit, !llvm.loop !47
 
 82:                                               ; preds = %_ZN4llvm15SmallVectorImplIPNS_17MachineBasicBlockEE7reserveEm.exit
@@ -1668,7 +1668,7 @@ _ZN4llvm23SmallVectorTemplateBaseIPNS_17MachineBasicBlockELb1EE18uninitialized_m
   store ptr %108, ptr %.045.i.i.i.i.i.i.i.i, align 8
   %109 = getelementptr inbounds i8, ptr %.045.i.i.i.i.i.i.i.i, i64 8
   %110 = add nsw i64 %.06.i.i.i.i.i.i.i.i, -1
-  %111 = icmp ugt i64 %.06.i.i.i.i.i.i.i.i, 1
+  %111 = icmp samesign ugt i64 %.06.i.i.i.i.i.i.i.i, 1
   br i1 %111, label %.lr.ph.i.i.i.i.i.i.i.i, label %_ZSt4copyISt16reverse_iteratorIPPN4llvm17MachineBasicBlockEES4_ET0_T_S7_S6_.exit, !llvm.loop !47
 
 _ZSt4copyISt16reverse_iteratorIPPN4llvm17MachineBasicBlockEES4_ET0_T_S7_S6_.exit: ; preds = %.lr.ph.i.i.i.i.i, %.lr.ph.i.i.i.i.i.i.i.i, %._crit_edge, %_ZSt13move_backwardIPPN4llvm17MachineBasicBlockES3_ET0_T_S5_S4_.exit, %15
@@ -9724,7 +9724,7 @@ _ZN4llvm15SmallVectorImplIPNS_17MachineBasicBlockEE7reserveEm.exit: ; preds = %3
   store ptr %27, ptr %.045.i.i.i.i.i.i.i.i, align 8
   %28 = getelementptr inbounds i8, ptr %.045.i.i.i.i.i.i.i.i, i64 8
   %29 = add nsw i64 %.06.i.i.i.i.i.i.i.i, -1
-  %30 = icmp ugt i64 %.06.i.i.i.i.i.i.i.i, 1
+  %30 = icmp samesign ugt i64 %.06.i.i.i.i.i.i.i.i, 1
   br i1 %30, label %.lr.ph.i.i.i.i.i.i.i.i, label %_ZN4llvm23SmallVectorTemplateBaseIPNS_17MachineBasicBlockELb1EE18uninitialized_copyISt16reverse_iteratorIPS2_ES6_EEvT_S8_T0_.exit, !llvm.loop !47
 
 _ZN4llvm23SmallVectorTemplateBaseIPNS_17MachineBasicBlockELb1EE18uninitialized_copyISt16reverse_iteratorIPS2_ES6_EEvT_S8_T0_.exit: ; preds = %.lr.ph.i.i.i.i.i.i.i.i, %_ZN4llvm15SmallVectorImplIPNS_17MachineBasicBlockEE7reserveEm.exit

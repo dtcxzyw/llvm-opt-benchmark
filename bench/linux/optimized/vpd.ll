@@ -1103,7 +1103,7 @@ define internal fastcc i64 @pci_vpd_read(ptr noundef %0, i64 noundef %1, i64 nou
 
 17:                                               ; preds = %13, %12
   %18 = phi i64 [ %16, %13 ], [ 32768, %12 ]
-  %19 = icmp ugt i64 %18, %1
+  %19 = icmp samesign ugt i64 %18, %1
   br i1 %19, label %20, label %86
 
 20:                                               ; preds = %17

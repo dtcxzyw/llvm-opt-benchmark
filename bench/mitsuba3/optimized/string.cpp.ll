@@ -3293,7 +3293,7 @@ define linkonce_odr hidden { ptr, i32 } @_ZN10fast_float19from_chars_advancedIfE
 
 262:                                              ; preds = %255
   %263 = sub nsw i32 1, %260
-  %264 = icmp ugt i32 %263, 63
+  %264 = icmp samesign ugt i32 %263, 63
   br i1 %264, label %288, label %265
 
 265:                                              ; preds = %262
@@ -3327,7 +3327,7 @@ define linkonce_odr hidden { ptr, i32 } @_ZN10fast_float19from_chars_advancedIfE
   %.sroa.18601.0 = add nuw nsw i32 %260, %285
   %286 = and i64 %284, 58720255
   %287 = select i1 %.not554, i64 0, i64 %286
-  %.not555 = icmp ult i32 %.sroa.18601.0, 255
+  %.not555 = icmp samesign ult i32 %.sroa.18601.0, 255
   %spec.select650 = select i1 %.not555, i64 %287, i64 0
   %spec.select651 = tail call i32 @llvm.umin.i32(i32 %.sroa.18601.0, i32 255)
   br label %288
@@ -3414,7 +3414,7 @@ define linkonce_odr hidden { ptr, i32 } @_ZN10fast_float19from_chars_advancedIfE
 
 344:                                              ; preds = %337
   %345 = sub nsw i32 1, %342
-  %346 = icmp ugt i32 %345, 63
+  %346 = icmp samesign ugt i32 %345, 63
   br i1 %346, label %370, label %347
 
 347:                                              ; preds = %344
@@ -3448,7 +3448,7 @@ define linkonce_odr hidden { ptr, i32 } @_ZN10fast_float19from_chars_advancedIfE
   %.sroa.18.0 = add nuw nsw i32 %342, %367
   %368 = and i64 %366, 58720255
   %369 = select i1 %.not558, i64 0, i64 %368
-  %.not559 = icmp ult i32 %.sroa.18.0, 255
+  %.not559 = icmp samesign ult i32 %.sroa.18.0, 255
   %spec.select652 = select i1 %.not559, i64 %369, i64 0
   %spec.select653 = tail call i32 @llvm.umin.i32(i32 %.sroa.18.0, i32 255)
   br label %370
@@ -4827,7 +4827,7 @@ _ZZN10fast_float19positive_digit_compIfEENS_17adjusted_mantissaERNS_6bigintEiENK
   %spec.select.v = select i1 %.not20, i32 126, i32 127
   %spec.select = add nsw i32 %spec.select.v, %78
   %80 = and i64 %79, 25165823
-  %.not21 = icmp ult i32 %spec.select, 255
+  %.not21 = icmp samesign ult i32 %spec.select, 255
   %.sroa.13.0 = tail call i32 @llvm.umin.i32(i32 %spec.select, i32 255)
   %81 = select i1 %.not21, i1 %.not20, i1 false
   %.sroa.0.0 = select i1 %81, i64 %80, i64 0
@@ -5142,7 +5142,7 @@ _ZZN10fast_float19negative_digit_compIfEENS_17adjusted_mantissaERNS_6bigintES1_i
   %spec.select159.v = select i1 %.not95, i32 40, i32 41
   %spec.select159 = add nsw i32 %spec.select159.v, %2
   %148 = and i64 %147, 25165823
-  %.not96 = icmp ult i32 %spec.select159, 255
+  %.not96 = icmp samesign ult i32 %spec.select159, 255
   %149 = call i32 @llvm.umin.i32(i32 %spec.select159, i32 255)
   %150 = select i1 %.not96, i1 %.not95, i1 false
   %spec.select162 = select i1 %150, i64 %148, i64 0
@@ -5464,7 +5464,7 @@ _ZN10fast_float9small_mulILt62EEEbRNS_8stackvecIXT_EEEm.exit29.thread.us: ; pred
   br i1 %68, label %69, label %_ZN10fast_float8stackvecILt62EE10try_extendENS_4spanImEE.exit
 
 69:                                               ; preds = %66
-  %70 = icmp ugt i64 %67, %62
+  %70 = icmp samesign ugt i64 %67, %62
   br i1 %70, label %.lr.ph.i.i.i.i.preheader.i.i.i.us, label %.sink.split.i.us
 
 .lr.ph.i.i.i.i.preheader.i.i.i.us:                ; preds = %69
@@ -6196,7 +6196,7 @@ define linkonce_odr hidden { ptr, i32 } @_ZN10fast_float19from_chars_advancedIdE
 
 262:                                              ; preds = %255
   %263 = sub nsw i32 1, %260
-  %264 = icmp ugt i32 %263, 63
+  %264 = icmp samesign ugt i32 %263, 63
   br i1 %264, label %288, label %265
 
 265:                                              ; preds = %262
@@ -6230,7 +6230,7 @@ define linkonce_odr hidden { ptr, i32 } @_ZN10fast_float19from_chars_advancedIdE
   %.sroa.18609.0 = add nuw nsw i32 %260, %285
   %286 = and i64 %284, 9218868437227405311
   %287 = select i1 %.not562, i64 0, i64 %286
-  %.not563 = icmp ult i32 %.sroa.18609.0, 2047
+  %.not563 = icmp samesign ult i32 %.sroa.18609.0, 2047
   %spec.select658 = select i1 %.not563, i64 %287, i64 0
   %spec.select659 = tail call i32 @llvm.umin.i32(i32 %.sroa.18609.0, i32 2047)
   br label %288
@@ -6317,7 +6317,7 @@ define linkonce_odr hidden { ptr, i32 } @_ZN10fast_float19from_chars_advancedIdE
 
 344:                                              ; preds = %337
   %345 = sub nsw i32 1, %342
-  %346 = icmp ugt i32 %345, 63
+  %346 = icmp samesign ugt i32 %345, 63
   br i1 %346, label %370, label %347
 
 347:                                              ; preds = %344
@@ -6351,7 +6351,7 @@ define linkonce_odr hidden { ptr, i32 } @_ZN10fast_float19from_chars_advancedIdE
   %.sroa.18.0 = add nuw nsw i32 %342, %367
   %368 = and i64 %366, 9218868437227405311
   %369 = select i1 %.not566, i64 0, i64 %368
-  %.not567 = icmp ult i32 %.sroa.18.0, 2047
+  %.not567 = icmp samesign ult i32 %.sroa.18.0, 2047
   %spec.select660 = select i1 %.not567, i64 %369, i64 0
   %spec.select661 = tail call i32 @llvm.umin.i32(i32 %.sroa.18.0, i32 2047)
   br label %370
@@ -6830,7 +6830,7 @@ _ZZN10fast_float19positive_digit_compIdEENS_17adjusted_mantissaERNS_6bigintEiENK
   %spec.select.v = select i1 %.not20, i32 1022, i32 1023
   %spec.select = add nsw i32 %spec.select.v, %78
   %80 = and i64 %79, 13510798882111487
-  %.not21 = icmp ult i32 %spec.select, 2047
+  %.not21 = icmp samesign ult i32 %spec.select, 2047
   %.sroa.13.0 = tail call i32 @llvm.umin.i32(i32 %spec.select, i32 2047)
   %81 = select i1 %.not21, i1 %.not20, i1 false
   %.sroa.0.0 = select i1 %81, i64 %80, i64 0
@@ -7145,7 +7145,7 @@ _ZZN10fast_float19negative_digit_compIdEENS_17adjusted_mantissaERNS_6bigintES1_i
   %spec.select159.v = select i1 %.not95, i32 11, i32 12
   %spec.select159 = add nsw i32 %spec.select159.v, %2
   %149 = and i64 %148, 13510798882111487
-  %.not96 = icmp ult i32 %spec.select159, 2047
+  %.not96 = icmp samesign ult i32 %spec.select159, 2047
   %150 = call i32 @llvm.umin.i32(i32 %spec.select159, i32 2047)
   %151 = select i1 %.not96, i1 %.not95, i1 false
   %spec.select162 = select i1 %151, i64 %149, i64 0

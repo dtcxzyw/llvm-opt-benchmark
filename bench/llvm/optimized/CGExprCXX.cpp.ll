@@ -6642,7 +6642,7 @@ _ZL22CalculateCookiePaddingRN5clang7CodeGen15CodeGenFunctionEPKNS_10CXXNewExprE.
   %199 = xor i32 %198, 63
   %200 = zext nneg i32 %199 to i64
   %201 = lshr i64 -1, %200
-  %202 = icmp ult i32 %182, 256
+  %202 = icmp samesign ult i32 %182, 256
   %spec.store.select.i.i.i = select i1 %202, i64 0, i64 %201
   %203 = and i64 %.sroa.0.0.i.i, %spec.store.select.i.i.i
   store i64 %203, ptr %33, align 8
@@ -6708,7 +6708,7 @@ _ZNK5clang10CXXNewExpr12getArraySizeEv.exit192.i: ; preds = %_ZNK5clang10CXXNewE
   br i1 %195, label %234, label %236
 
 234:                                              ; preds = %_ZNK5clang10CXXNewExpr12getArraySizeEv.exit192.i
-  %235 = icmp ugt i32 %182, 255
+  %235 = icmp samesign ugt i32 %182, 255
   %spec.store.select.i.i194.i = zext i1 %235 to i64
   store i64 %spec.store.select.i.i194.i, ptr %35, align 8
   br label %_ZN4llvm5APIntC2Ejmbb.exit195.i
@@ -6833,7 +6833,7 @@ _ZN4llvm5APIntD2Ev.exit.i:                        ; preds = %284, %281, %_ZNK5cl
   %297 = xor i32 %296, 63
   %298 = zext nneg i32 %297 to i64
   %299 = lshr i64 -1, %298
-  %300 = icmp ult i32 %182, 256
+  %300 = icmp samesign ult i32 %182, 256
   %spec.store.select.i.i198.i = select i1 %300, i64 0, i64 %299
   %301 = and i64 %292, %spec.store.select.i.i198.i
   store i64 %301, ptr %37, align 8

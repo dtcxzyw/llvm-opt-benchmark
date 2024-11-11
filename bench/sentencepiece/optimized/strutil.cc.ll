@@ -964,7 +964,7 @@ switch.early.test:                                ; preds = %_ZN6google8protobuf
 
 _ZN6google8protobuf8isxdigitEc.exit69.thread:     ; preds = %switch.early.test, %switch.early.test, %switch.early.test, %switch.early.test, %switch.early.test, %switch.early.test, %switch.early.test, %switch.early.test, %switch.early.test, %switch.early.test, %switch.early.test, %switch.early.test, %_ZN6google8protobuf8isxdigitEc.exit
   %45 = shl i8 %.050, 4
-  %46 = icmp ugt i8 %.fr76, 57
+  %46 = icmp samesign ugt i8 %.fr76, 57
   %47 = add nuw nsw i8 %.fr76, 9
   %spec.select.i = select i1 %46, i8 %47, i8 %.fr76
   %48 = and i8 %spec.select.i, 15
@@ -1220,7 +1220,7 @@ switch.early.test:                                ; preds = %52
   ]
 
 _ZN6google8protobuf8isxdigitEc.exit.thread:       ; preds = %switch.early.test, %switch.early.test, %switch.early.test, %switch.early.test, %switch.early.test, %switch.early.test, %switch.early.test, %switch.early.test, %switch.early.test, %switch.early.test, %switch.early.test, %switch.early.test, %52, %48
-  %54 = icmp ult i32 %12, 4
+  %54 = icmp samesign ult i32 %12, 4
   br i1 %54, label %.loopexit, label %55
 
 55:                                               ; preds = %_ZN6google8protobuf8isxdigitEc.exit.thread
@@ -1599,7 +1599,7 @@ define noundef nonnull ptr @_ZN6google8protobuf17FastInt64ToBufferElPc(i64 nound
   br i1 %.not30, label %.loopexit, label %.preheader, !llvm.loop !21
 
 11:                                               ; preds = %2
-  %12 = icmp ugt i64 %0, -10
+  %12 = icmp samesign ugt i64 %0, -10
   br i1 %12, label %13, label %17
 
 13:                                               ; preds = %11
@@ -1663,7 +1663,7 @@ define noundef nonnull ptr @_ZN6google8protobuf17FastInt32ToBufferEiPc(i32 nound
   br i1 %.not30, label %.loopexit, label %.preheader, !llvm.loop !23
 
 11:                                               ; preds = %2
-  %12 = icmp ugt i32 %0, -10
+  %12 = icmp samesign ugt i32 %0, -10
   br i1 %12, label %13, label %17
 
 13:                                               ; preds = %11
@@ -1787,7 +1787,7 @@ define noundef ptr @_ZN6google8protobuf23InternalFastHexToBufferEmPci(i64 nounde
   %11 = getelementptr inbounds i8, ptr %1, i64 %indvars.iv.next
   store i8 %10, ptr %11, align 1
   %12 = lshr i64 %.0910, 4
-  %13 = icmp ugt i64 %indvars.iv, 1
+  %13 = icmp samesign ugt i64 %indvars.iv, 1
   br i1 %13, label %.lr.ph, label %._crit_edge, !llvm.loop !26
 
 ._crit_edge:                                      ; preds = %.lr.ph, %3
@@ -1810,7 +1810,7 @@ define noundef ptr @_ZN6google8protobuf17FastHex64ToBufferEmPc(i64 noundef %0, p
   %7 = getelementptr inbounds i8, ptr %1, i64 %indvars.iv.next.i
   store i8 %6, ptr %7, align 1
   %8 = lshr i64 %.0910.i, 4
-  %9 = icmp ugt i64 %indvars.iv.i, 1
+  %9 = icmp samesign ugt i64 %indvars.iv.i, 1
   br i1 %9, label %.lr.ph.i, label %_ZN6google8protobuf23InternalFastHexToBufferEmPci.exit, !llvm.loop !26
 
 _ZN6google8protobuf23InternalFastHexToBufferEmPci.exit: ; preds = %.lr.ph.i
@@ -1834,7 +1834,7 @@ define noundef ptr @_ZN6google8protobuf17FastHex32ToBufferEjPc(i32 noundef %0, p
   %8 = getelementptr inbounds i8, ptr %1, i64 %indvars.iv.next.i
   store i8 %7, ptr %8, align 1
   %9 = lshr i64 %.0910.i, 4
-  %10 = icmp ugt i64 %indvars.iv.i, 1
+  %10 = icmp samesign ugt i64 %indvars.iv.i, 1
   br i1 %10, label %.lr.ph.i, label %_ZN6google8protobuf23InternalFastHexToBufferEmPci.exit, !llvm.loop !26
 
 _ZN6google8protobuf23InternalFastHexToBufferEmPci.exit: ; preds = %.lr.ph.i
@@ -1955,11 +1955,11 @@ define noundef nonnull ptr @_ZN6google8protobuf22FastUInt32ToBufferLeftEjPc(i32 
   ret ptr %.8
 
 57:                                               ; preds = %2
-  %58 = icmp ult i32 %0, 100
+  %58 = icmp samesign ult i32 %0, 100
   br i1 %58, label %59, label %65
 
 59:                                               ; preds = %57
-  %60 = icmp ugt i32 %0, 9
+  %60 = icmp samesign ugt i32 %0, 9
   br i1 %60, label %48, label %61
 
 61:                                               ; preds = %59
@@ -1970,11 +1970,11 @@ define noundef nonnull ptr @_ZN6google8protobuf22FastUInt32ToBufferLeftEjPc(i32 
   br label %56
 
 65:                                               ; preds = %57
-  %66 = icmp ult i32 %0, 10000
+  %66 = icmp samesign ult i32 %0, 10000
   br i1 %66, label %67, label %74
 
 67:                                               ; preds = %65
-  %68 = icmp ugt i32 %0, 999
+  %68 = icmp samesign ugt i32 %0, 999
   br i1 %68, label %37, label %69
 
 69:                                               ; preds = %67
@@ -1988,11 +1988,11 @@ define noundef nonnull ptr @_ZN6google8protobuf22FastUInt32ToBufferLeftEjPc(i32 
   br label %46
 
 74:                                               ; preds = %65
-  %75 = icmp ult i32 %0, 1000000
+  %75 = icmp samesign ult i32 %0, 1000000
   br i1 %75, label %76, label %83
 
 76:                                               ; preds = %74
-  %77 = icmp ugt i32 %0, 99999
+  %77 = icmp samesign ugt i32 %0, 99999
   br i1 %77, label %26, label %78
 
 78:                                               ; preds = %76
@@ -2004,11 +2004,11 @@ define noundef nonnull ptr @_ZN6google8protobuf22FastUInt32ToBufferLeftEjPc(i32 
   br label %35
 
 83:                                               ; preds = %74
-  %84 = icmp ult i32 %0, 100000000
+  %84 = icmp samesign ult i32 %0, 100000000
   br i1 %84, label %85, label %92
 
 85:                                               ; preds = %83
-  %86 = icmp ugt i32 %0, 9999999
+  %86 = icmp samesign ugt i32 %0, 9999999
   br i1 %86, label %15, label %87
 
 87:                                               ; preds = %85
@@ -2163,7 +2163,7 @@ define void @_ZN6google8protobuf10SimpleItoaB5cxx11Ei(ptr dead_on_unwind noalias
   br i1 %.not30.i, label %_ZN6google8protobuf17FastInt32ToBufferEiPc.exit, label %.preheader.i, !llvm.loop !23
 
 13:                                               ; preds = %2
-  %14 = icmp ugt i32 %1, -10
+  %14 = icmp samesign ugt i32 %1, -10
   br i1 %14, label %15, label %19
 
 15:                                               ; preds = %13
@@ -2301,7 +2301,7 @@ define void @_ZN6google8protobuf10SimpleItoaB5cxx11El(ptr dead_on_unwind noalias
   br i1 %.not30.i, label %_ZN6google8protobuf17FastInt64ToBufferElPc.exit, label %.preheader.i, !llvm.loop !21
 
 13:                                               ; preds = %2
-  %14 = icmp ugt i64 %1, -10
+  %14 = icmp samesign ugt i64 %1, -10
   br i1 %14, label %15, label %19
 
 15:                                               ; preds = %13
@@ -2439,7 +2439,7 @@ define void @_ZN6google8protobuf10SimpleItoaB5cxx11Ex(ptr dead_on_unwind noalias
   br i1 %.not30.i, label %_ZN6google8protobuf17FastInt64ToBufferElPc.exit, label %.preheader.i, !llvm.loop !21
 
 13:                                               ; preds = %2
-  %14 = icmp ugt i64 %1, -10
+  %14 = icmp samesign ugt i64 %1, -10
   br i1 %14, label %15, label %19
 
 15:                                               ; preds = %13
@@ -5054,7 +5054,7 @@ define noundef i32 @_ZN6google8protobuf22Base64UnescapeInternalEPKciPciPKa(ptr n
   ]
 
 _ZN6google8protobuf13ascii_isspaceEc.exit:        ; preds = %49, %49, %49, %49, %49, %49
-  %50 = icmp ugt i32 %.1211, 4
+  %50 = icmp samesign ugt i32 %.1211, 4
   br i1 %50, label %40, label %_ZN6google8protobuf13ascii_isspaceEc.exit.thread.loopexit340
 
 51:                                               ; preds = %.preheader338, %_ZN6google8protobuf13ascii_isspaceEc.exit307
@@ -5261,7 +5261,7 @@ _ZN6google8protobuf13ascii_isspaceEc.exit309:     ; preds = %87, %87, %87, %87, 
   ]
 
 _ZN6google8protobuf13ascii_isspaceEc.exit310:     ; preds = %151, %151, %151, %151, %151, %151
-  %152 = icmp ugt i32 %.8, 4
+  %152 = icmp samesign ugt i32 %.8, 4
   br i1 %152, label %143, label %_ZN6google8protobuf13ascii_isspaceEc.exit.thread.loopexit333
 
 .preheader331:                                    ; preds = %143, %_ZN6google8protobuf13ascii_isspaceEc.exit311
@@ -5488,7 +5488,7 @@ switch.early.test:                                ; preds = %_ZN6google8protobuf
   %.5253.us = select i1 %224, i32 %225, i32 %.4252.ph559.us
   %.3247.us = select i1 %224, i32 0, i32 %223
   %.9238.us = select i1 %224, i32 0, i32 %222
-  %226 = icmp ugt i32 %.14541.us, 1
+  %226 = icmp samesign ugt i32 %.14541.us, 1
   br i1 %226, label %.lr.ph542.us, label %.fold.split, !llvm.loop !43
 
 227:                                              ; preds = %212
@@ -5505,7 +5505,7 @@ switch.early.test:                                ; preds = %_ZN6google8protobuf
   ]
 
 _ZN6google8protobuf13ascii_isspaceEc.exit315.us:  ; preds = %227, %227, %227, %227, %227, %227
-  %228 = icmp ugt i32 %.14541.us, 1
+  %228 = icmp samesign ugt i32 %.14541.us, 1
   br i1 %228, label %212, label %.fold.split.loopexit1226, !llvm.loop !43
 
 229:                                              ; preds = %switch.early.test
@@ -5556,7 +5556,7 @@ _ZN6google8protobuf13ascii_isspaceEc.exit314.thread: ; preds = %229, %229, %229,
   ]
 
 _ZN6google8protobuf13ascii_isspaceEc.exit315:     ; preds = %242, %242, %242, %242, %242, %242
-  %243 = icmp ugt i32 %.14541, 1
+  %243 = icmp samesign ugt i32 %.14541, 1
   br i1 %243, label %234, label %.fold.split.loopexit1255, !llvm.loop !43
 
 244:                                              ; preds = %234
@@ -5591,7 +5591,7 @@ _ZN6google8protobuf13ascii_isspaceEc.exit315:     ; preds = %242, %242, %242, %2
   %.5253 = phi i32 [ %251, %253 ], [ %.4252.ph559, %244 ]
   %.3247 = phi i32 [ 0, %253 ], [ %248, %244 ]
   %.9238 = phi i32 [ 0, %253 ], [ %247, %244 ]
-  %263 = icmp ugt i32 %.14541, 1
+  %263 = icmp samesign ugt i32 %.14541, 1
   br i1 %263, label %.lr.ph542, label %.fold.split, !llvm.loop !43
 
 .lr.ph542:                                        ; preds = %.lr.ph542.preheader, %.outer
@@ -5884,7 +5884,7 @@ define noundef i32 @_ZN6google8protobuf20Base64EscapeInternalEPKhiPciPKcb(ptr no
   br i1 %5, label %71, label %139
 
 71:                                               ; preds = %57
-  %72 = icmp ult i32 %50, 4
+  %72 = icmp samesign ult i32 %50, 4
   br i1 %72, label %144, label %73
 
 73:                                               ; preds = %71

@@ -187,7 +187,7 @@ if.then5:                                         ; preds = %if.end
 if.else:                                          ; preds = %if.end
   %shr = lshr i32 %windowBits, 4
   %add = add nuw nsw i32 %shr, 1
-  %cmp6 = icmp ult i32 %windowBits, 48
+  %cmp6 = icmp samesign ult i32 %windowBits, 48
   %and = and i32 %windowBits, 15
   %spec.select = select i1 %cmp6, i32 %and, i32 %windowBits
   br label %if.end9
@@ -368,7 +368,7 @@ if.then5.i:                                       ; preds = %if.end.i
 if.else.i:                                        ; preds = %if.end.i
   %shr.i = lshr i32 %windowBits, 4
   %add.i = add nuw nsw i32 %shr.i, 1
-  %cmp6.i = icmp ult i32 %windowBits, 48
+  %cmp6.i = icmp samesign ult i32 %windowBits, 48
   %and.i = and i32 %windowBits, 15
   %spec.select = select i1 %cmp6.i, i32 %and.i, i32 %windowBits
   br label %if.end9.i
@@ -520,7 +520,7 @@ if.then5:                                         ; preds = %if.end
   br label %return
 
 if.end7:                                          ; preds = %if.end
-  %cmp8 = icmp ugt i32 %bits, 16
+  %cmp8 = icmp samesign ugt i32 %bits, 16
   br i1 %cmp8, label %return, label %lor.lhs.false9
 
 lor.lhs.false9:                                   ; preds = %if.end7
@@ -1909,7 +1909,7 @@ while.body893:                                    ; preds = %while.cond889.prehe
   %idxprom899 = zext i16 %117 to i64
   %arrayidx900 = getelementptr inbounds [320 x i16], ptr %lens, i64 0, i64 %idxprom899
   store i16 0, ptr %arrayidx900, align 2
-  %cmp891 = icmp ult i32 %116, 18
+  %cmp891 = icmp samesign ult i32 %116, 18
   br i1 %cmp891, label %while.body893, label %while.end901.loopexit, !llvm.loop !18
 
 while.end901.loopexit:                            ; preds = %while.body893
@@ -3243,7 +3243,7 @@ land.lhs.true1828:                                ; preds = %lor.lhs.false1824
   br i1 %cmp1830, label %land.lhs.true1832, label %if.end1848
 
 land.lhs.true1832:                                ; preds = %land.lhs.true1828
-  %cmp1834 = icmp ult i32 %245, 26
+  %cmp1834 = icmp samesign ult i32 %245, 26
   %cmp1837 = icmp ne i32 %flush, 4
   %or.cond3 = or i1 %cmp1837, %cmp1834
   br i1 %or.cond3, label %if.then1839, label %if.end1848
@@ -3807,7 +3807,7 @@ while.body.i:                                     ; preds = %while.body.i, %whil
   %arrayidx.i = getelementptr inbounds i8, ptr %buf, i64 %indvars.iv.i
   %8 = load i8, ptr %arrayidx.i, align 1
   %conv.i = zext i8 %8 to i32
-  %cmp2.i = icmp ult i32 %got.013.i, 2
+  %cmp2.i = icmp samesign ult i32 %got.013.i, 2
   %cond.i = select i1 %cmp2.i, i32 0, i32 255
   %cmp4.i = icmp eq i32 %cond.i, %conv.i
   %inc.i = add nuw nsw i32 %got.013.i, 1
@@ -3817,7 +3817,7 @@ while.body.i:                                     ; preds = %while.body.i, %whil
   %got.1.i = select i1 %cmp4.i, i32 %inc.i, i32 %spec.select.i
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %cmp.i = icmp samesign ult i64 %indvars.iv.next.i, %7
-  %cmp1.i = icmp ult i32 %got.1.i, 4
+  %cmp1.i = icmp samesign ult i32 %got.1.i, 4
   %9 = select i1 %cmp.i, i1 %cmp1.i, i1 false
   br i1 %9, label %while.body.i, label %syncsearch.exit, !llvm.loop !30
 
@@ -3848,7 +3848,7 @@ while.body.i38:                                   ; preds = %while.body.i38, %wh
   %arrayidx.i41 = getelementptr inbounds i8, ptr %12, i64 %indvars.iv.i39
   %15 = load i8, ptr %arrayidx.i41, align 1
   %conv.i42 = zext i8 %15 to i32
-  %cmp2.i43 = icmp ult i32 %got.013.i40, 2
+  %cmp2.i43 = icmp samesign ult i32 %got.013.i40, 2
   %cond.i44 = select i1 %cmp2.i43, i32 0, i32 255
   %cmp4.i45 = icmp eq i32 %cond.i44, %conv.i42
   %inc.i46 = add nuw nsw i32 %got.013.i40, 1
@@ -3858,7 +3858,7 @@ while.body.i38:                                   ; preds = %while.body.i38, %wh
   %got.1.i50 = select i1 %cmp4.i45, i32 %inc.i46, i32 %spec.select.i49
   %indvars.iv.next.i51 = add nuw nsw i64 %indvars.iv.i39, 1
   %cmp.i52 = icmp samesign ult i64 %indvars.iv.next.i51, %14
-  %cmp1.i53 = icmp ult i32 %got.1.i50, 4
+  %cmp1.i53 = icmp samesign ult i32 %got.1.i50, 4
   %16 = select i1 %cmp.i52, i1 %cmp1.i53, i1 false
   br i1 %16, label %while.body.i38, label %while.end.loopexit.i54, !llvm.loop !30
 

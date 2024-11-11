@@ -4637,7 +4637,7 @@ if.then99:                                        ; preds = %while.end
   br i1 %cmp.i.i.i.i, label %land.lhs.true.i.i.i.i, label %cond.false.i.i.i.i
 
 land.lhs.true.i.i.i.i:                            ; preds = %if.then99
-  %cmp2.i.i.i.i = icmp ult i64 %add.i.i.i.i, 6
+  %cmp2.i.i.i.i = icmp samesign ult i64 %add.i.i.i.i, 6
   br i1 %cmp2.i.i.i.i, label %if.then.i.i.i.i, label %cond.true.i.i.i.i
 
 if.then.i.i.i.i:                                  ; preds = %land.lhs.true.i.i.i.i

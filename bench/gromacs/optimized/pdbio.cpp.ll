@@ -2364,7 +2364,7 @@ _ZL9read_atomP8t_symtabPKc13PdbRecordTypeiP7t_atomsPA3_fi.exit: ; preds = %.preh
   br i1 %218, label %223, label %219
 
 219:                                              ; preds = %214, %208
-  %220 = icmp ugt i64 %indvars.iv.i, 1
+  %220 = icmp samesign ugt i64 %indvars.iv.i, 1
   br i1 %220, label %208, label %._crit_edge.i, !llvm.loop !16
 
 ._crit_edge.i:                                    ; preds = %219, %.noexc120

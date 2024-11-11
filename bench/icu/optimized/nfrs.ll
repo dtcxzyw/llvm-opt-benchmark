@@ -2094,7 +2094,7 @@ if.end74:                                         ; preds = %invoke.cont70, %lan
   br label %for.cond34.backedge
 
 for.cond34.backedge:                              ; preds = %if.end74, %land.lhs.true43
-  %cmp35 = icmp ugt i64 %indvars.iv75, 1
+  %cmp35 = icmp samesign ugt i64 %indvars.iv75, 1
   br i1 %cmp35, label %invoke.cont38, label %for.end77, !llvm.loop !26
 
 for.end77:                                        ; preds = %invoke.cont38, %for.cond34.backedge, %invoke.cont29

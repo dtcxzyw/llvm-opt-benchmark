@@ -466,7 +466,7 @@ define dso_local range(i64 0, -9223372036854775807) i64 @hrtimer_forward(ptr noc
   %15 = load i32, ptr @hrtimer_resolution, align 4
   %16 = zext i32 %15 to i64
   %17 = tail call i64 @llvm.smax.i64(i64 %16, i64 %2)
-  %18 = icmp ult i64 %6, %17
+  %18 = icmp samesign ult i64 %6, %17
   br i1 %18, label %._crit_edge, label %19, !prof !19
 
 ._crit_edge:                                      ; preds = %14
@@ -2914,7 +2914,7 @@ define internal fastcc noundef range(i64 -516, 1) i64 @__se_sys_nanosleep(i64 no
   store i32 %21, ptr %22, align 4
   %23 = getelementptr inbounds i8, ptr %18, i64 1288
   store ptr %6, ptr %23, align 8
-  %24 = icmp ugt i64 %10, 9223372035
+  %24 = icmp samesign ugt i64 %10, 9223372035
   %25 = mul i64 %10, 1000000000
   %26 = add i64 %13, %25
   %27 = select i1 %24, i64 9223372036854775807, i64 %26, !prof !25
@@ -3025,7 +3025,7 @@ define internal fastcc noundef range(i64 -516, 1) i64 @__se_sys_nanosleep_time32
   store i32 %21, ptr %22, align 4
   %23 = getelementptr inbounds i8, ptr %18, i64 1288
   store ptr %6, ptr %23, align 8
-  %24 = icmp ugt i64 %10, 9223372035
+  %24 = icmp samesign ugt i64 %10, 9223372035
   %25 = mul i64 %10, 1000000000
   %26 = add i64 %13, %25
   %27 = select i1 %24, i64 9223372036854775807, i64 %26, !prof !25

@@ -303,7 +303,7 @@ define internal i32 @dissect_fcoib(ptr noundef %0, ptr noundef %1, ptr noundef %
   %.0 = phi i32 [ 0, %40 ], [ %44, %42 ]
   %46 = and i32 %6, 3
   %47 = icmp ne i32 %46, 0
-  %48 = icmp ult i32 %7, 24
+  %48 = icmp samesign ult i32 %7, 24
   %or.cond = or i1 %47, %48
   %spec.store.select = select i1 %or.cond, ptr @.str.55, ptr @.str.50
   %49 = load i32, ptr @proto_fcoib, align 4

@@ -139,7 +139,7 @@ define dso_local range(i32 0, 3) i32 @spec_yyparse() local_unnamed_addr #0 {
   br label %.loopexit
 
 53:                                               ; preds = %50
-  %54 = icmp ult i32 %47, 268
+  %54 = icmp samesign ult i32 %47, 268
   br i1 %54, label %55, label %60
 
 55:                                               ; preds = %53

@@ -16806,7 +16806,7 @@ _ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit497: ; preds = %
   %.0.i496 = phi ptr [ %111, %110 ], [ %.3, %107 ]
   store i8 42, ptr %.0.i496, align 1
   %.0440550 = getelementptr inbounds i8, ptr %.0.i496, i64 1
-  %112 = icmp ugt i32 %105, 127
+  %112 = icmp samesign ugt i32 %105, 127
   br i1 %112, label %.lr.ph553, label %._crit_edge554
 
 .lr.ph553:                                        ; preds = %_ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit497, %.lr.ph553
@@ -16959,7 +16959,7 @@ _ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit504: ; preds = %
   %.0.i503 = phi ptr [ %176, %175 ], [ %.5.lcssa, %172 ]
   store i8 58, ptr %.0.i503, align 1
   %.0429564 = getelementptr inbounds i8, ptr %.0.i503, i64 1
-  %177 = icmp ugt i32 %170, 127
+  %177 = icmp samesign ugt i32 %170, 127
   br i1 %177, label %.lr.ph567, label %._crit_edge568
 
 .lr.ph567:                                        ; preds = %_ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit504, %.lr.ph567
@@ -17217,7 +17217,7 @@ _ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit516: ; preds = %
   %.0.i515 = phi ptr [ %301, %300 ], [ %.9, %297 ]
   store i8 90, ptr %.0.i515, align 1
   %.0416580 = getelementptr inbounds i8, ptr %.0.i515, i64 1
-  %302 = icmp ugt i32 %295, 127
+  %302 = icmp samesign ugt i32 %295, 127
   br i1 %302, label %.lr.ph583, label %._crit_edge584
 
 .lr.ph583:                                        ; preds = %_ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit516, %.lr.ph583

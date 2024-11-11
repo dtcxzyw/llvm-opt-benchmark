@@ -2700,7 +2700,7 @@ for.body.i.i.i.i.i.us.i:                          ; preds = %for.body.i.i.i.i.i.
   %incdec.ptr.i.i.i.i.i.us.i = getelementptr inbounds nuw i8, ptr %__first.addr.08.i.i.i.i.i.us.i, i64 8
   %add.ptr.i.i.i.i.i.i.us.i = getelementptr inbounds double, ptr %__result.sroa.0.07.i.i.i.i.i.us.i, i64 %16
   %dec.i.i.i.i.i.us.i = add nsw i64 %__n.09.i.i.i.i.i.us.i, -1
-  %cmp.i.i.i.i.i.us.i = icmp ugt i64 %__n.09.i.i.i.i.i.us.i, 1
+  %cmp.i.i.i.i.i.us.i = icmp samesign ugt i64 %__n.09.i.i.i.i.i.us.i, 1
   br i1 %cmp.i.i.i.i.i.us.i, label %for.body.i.i.i.i.i.us.i, label %invoke.cont9.loopexit.us.i, !llvm.loop !67
 
 invoke.cont9.loopexit.us.i:                       ; preds = %for.body.i.i.i.i.i.us.i
@@ -2816,7 +2816,7 @@ for.body.i.i.i.i.i.us.i57:                        ; preds = %for.body.i.i.i.i.i.
   %incdec.ptr.i.i.i.i.i.us.i61 = getelementptr inbounds nuw i8, ptr %__first.addr.08.i.i.i.i.i.us.i59, i64 8
   %add.ptr.i.i.i.i.i.i.us.i62 = getelementptr inbounds double, ptr %__result.sroa.0.07.i.i.i.i.i.us.i60, i64 %29
   %dec.i.i.i.i.i.us.i63 = add nsw i64 %__n.09.i.i.i.i.i.us.i58, -1
-  %cmp.i.i.i.i.i.us.i64 = icmp ugt i64 %__n.09.i.i.i.i.i.us.i58, 1
+  %cmp.i.i.i.i.i.us.i64 = icmp samesign ugt i64 %__n.09.i.i.i.i.i.us.i58, 1
   br i1 %cmp.i.i.i.i.i.us.i64, label %for.body.i.i.i.i.i.us.i57, label %invoke.cont9.loopexit.us.i65, !llvm.loop !67
 
 invoke.cont9.loopexit.us.i65:                     ; preds = %for.body.i.i.i.i.i.us.i57

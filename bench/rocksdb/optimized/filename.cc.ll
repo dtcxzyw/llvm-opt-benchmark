@@ -555,7 +555,7 @@ while.body:                                       ; preds = %land.rhs
   %mul = mul i64 %sub, %base.012
   %add = add i64 %mul, %number.011
   %mul13 = mul i64 %base.012, 10
-  %cmp = icmp ugt i64 %indvars.iv, 1
+  %cmp = icmp samesign ugt i64 %indvars.iv, 1
   br i1 %cmp, label %land.lhs.true, label %while.end, !llvm.loop !7
 
 while.end:                                        ; preds = %land.rhs, %while.body, %land.lhs.true, %entry
@@ -1494,7 +1494,7 @@ if.end42:                                         ; preds = %if.then36
   br label %return
 
 if.else43:                                        ; preds = %if.else33
-  %cmp.not.i108 = icmp ult i64 %2, 7
+  %cmp.not.i108 = icmp samesign ult i64 %2, 7
   br i1 %cmp.not.i108, label %if.else54, label %_ZNK7rocksdb5Slice11starts_withERKS0_.exit112
 
 _ZNK7rocksdb5Slice11starts_withERKS0_.exit112:    ; preds = %_ZNK7rocksdb5Slice11starts_withERKS0_.exit98, %if.else43

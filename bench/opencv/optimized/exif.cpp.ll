@@ -2805,7 +2805,7 @@ _ZNSt12_Vector_baseISt4pairIjjESaIS1_EE13_M_deallocateEPS1_m.exit: ; preds = %_Z
   %39 = getelementptr inbounds i8, ptr %.0910.i.i.i.i.i, i64 8
   %40 = getelementptr inbounds i8, ptr %.0811.i.i.i.i.i, i64 8
   %41 = add nsw i64 %.012.i.i.i.i.i, -1
-  %42 = icmp ugt i64 %.012.i.i.i.i.i, 1
+  %42 = icmp samesign ugt i64 %.012.i.i.i.i.i, 1
   br i1 %42, label %.lr.ph.i.i.i.i.i, label %_ZSt22__uninitialized_copy_aIPSt4pairIjjES2_S1_ET0_T_S4_S3_RSaIT1_E.exit, !llvm.loop !42
 
 43:                                               ; preds = %28
@@ -2826,7 +2826,7 @@ _ZNSt12_Vector_baseISt4pairIjjESaIS1_EE13_M_deallocateEPS1_m.exit: ; preds = %_Z
   %50 = getelementptr inbounds i8, ptr %.0910.i.i.i.i.i29, i64 8
   %51 = getelementptr inbounds i8, ptr %.0811.i.i.i.i.i28, i64 8
   %52 = add nsw i64 %.012.i.i.i.i.i27, -1
-  %53 = icmp ugt i64 %.012.i.i.i.i.i27, 1
+  %53 = icmp samesign ugt i64 %.012.i.i.i.i.i27, 1
   br i1 %53, label %.lr.ph.i.i.i.i.i26, label %_ZSt4copyIPSt4pairIjjES2_ET0_T_S4_S3_.exit.loopexit, !llvm.loop !43
 
 _ZSt4copyIPSt4pairIjjES2_ET0_T_S4_S3_.exit.loopexit: ; preds = %.lr.ph.i.i.i.i.i26

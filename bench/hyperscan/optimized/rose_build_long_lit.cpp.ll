@@ -2723,14 +2723,14 @@ _ZSt13move_backwardIPhS0_ET0_T_S2_S1_.exit:       ; preds = %if.then.i.i.i.i.i, 
   br i1 %cmp7.i.i.i.i.i, label %iter.check292, label %if.end108
 
 iter.check292:                                    ; preds = %_ZSt13move_backwardIPhS0_ET0_T_S2_S1_.exit
-  %min.iters.check290 = icmp ult i64 %sub.ptr.sub.i.i.i, 8
+  %min.iters.check290 = icmp samesign ult i64 %sub.ptr.sub.i.i.i, 8
   %3 = sub i64 %sub.ptr.rhs.cast.i, %sub.ptr.rhs.cast.i.i.i
   %diff.check287 = icmp ult i64 %3, 32
   %or.cond = or i1 %diff.check287, %min.iters.check290
   br i1 %or.cond, label %for.body.i.i.i.i.i.preheader, label %vector.main.loop.iter.check294
 
 vector.main.loop.iter.check294:                   ; preds = %iter.check292
-  %min.iters.check293 = icmp ult i64 %sub.ptr.sub.i.i.i, 32
+  %min.iters.check293 = icmp samesign ult i64 %sub.ptr.sub.i.i.i, 32
   br i1 %min.iters.check293, label %vec.epilog.ph315, label %vector.ph295
 
 vector.ph295:                                     ; preds = %vector.main.loop.iter.check294
@@ -2811,14 +2811,14 @@ _ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPKcNSt7__cxx1112basic_stringIcSt11ch
   br i1 %cmp7.i.i.i.i.i.i.i.i, label %iter.check, label %_ZSt22__uninitialized_copy_aIN9__gnu_cxx17__normal_iteratorIPKcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEPhhET0_T_SD_SC_RSaIT1_E.exit
 
 iter.check:                                       ; preds = %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPKcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEmEvRT_T0_.exit
-  %min.iters.check = icmp ult i64 %sub.ptr.sub.i.i.i.i.i.i.i.i, 8
+  %min.iters.check = icmp samesign ult i64 %sub.ptr.sub.i.i.i.i.i.i.i.i, 8
   %9 = sub i64 %sub.ptr.rhs.cast.i, %sub.ptr.rhs.cast.i.i.i
   %diff.check = icmp ult i64 %9, 32
   %or.cond337 = or i1 %diff.check, %min.iters.check
   br i1 %or.cond337, label %for.body.i.i.i.i.i.i.i.i.preheader, label %vector.main.loop.iter.check
 
 vector.main.loop.iter.check:                      ; preds = %iter.check
-  %min.iters.check212 = icmp ult i64 %sub.ptr.sub.i.i.i.i.i.i.i.i, 32
+  %min.iters.check212 = icmp samesign ult i64 %sub.ptr.sub.i.i.i.i.i.i.i.i, 32
   br i1 %min.iters.check212, label %vec.epilog.ph, label %vector.ph
 
 vector.ph:                                        ; preds = %vector.main.loop.iter.check
@@ -2917,14 +2917,14 @@ _ZSt22__uninitialized_move_aIPhS0_SaIhEET0_T_S3_S2_RT1_.exit148: ; preds = %_ZSt
   br i1 %cmp7.i.i.i.i.i152, label %iter.check241, label %if.end108
 
 iter.check241:                                    ; preds = %_ZSt22__uninitialized_move_aIPhS0_SaIhEET0_T_S3_S2_RT1_.exit148
-  %min.iters.check239 = icmp ult i64 %sub.ptr.sub.i, 8
+  %min.iters.check239 = icmp samesign ult i64 %sub.ptr.sub.i, 8
   %16 = sub i64 %sub.ptr.rhs.cast.i, %sub.ptr.rhs.cast.i.i.i
   %diff.check237 = icmp ult i64 %16, 32
   %or.cond338 = or i1 %diff.check237, %min.iters.check239
   br i1 %or.cond338, label %for.body.i.i.i.i.i158.preheader, label %vector.main.loop.iter.check243
 
 vector.main.loop.iter.check243:                   ; preds = %iter.check241
-  %min.iters.check242 = icmp ult i64 %sub.ptr.sub.i, 32
+  %min.iters.check242 = icmp samesign ult i64 %sub.ptr.sub.i, 32
   br i1 %min.iters.check242, label %vec.epilog.ph264, label %vector.ph244
 
 vector.ph244:                                     ; preds = %vector.main.loop.iter.check243
@@ -4266,7 +4266,7 @@ if.then13:                                        ; preds = %for.cond
 
 for.body.preheader:                               ; preds = %if.then13
   %add.ptr.i69 = getelementptr %"struct.std::pair", ptr %__p.sroa.0.0, i64 %__k.0
-  %min.iters.check = icmp ult i64 %sub11, 26
+  %min.iters.check = icmp samesign ult i64 %sub11, 26
   br i1 %min.iters.check, label %for.body.preheader10, label %vector.memcheck
 
 for.body.preheader10:                             ; preds = %middle.block, %vector.memcheck, %for.body.preheader
@@ -4602,7 +4602,7 @@ if.then:                                          ; preds = %entry
   br i1 %cmp7.i.i.i.i.i, label %for.body.i.i.i.i.i.preheader, label %if.end79
 
 for.body.i.i.i.i.i.preheader:                     ; preds = %if.then
-  %min.iters.check = icmp ult i64 %sub.ptr.div.i.i.i.i.i.i, 8
+  %min.iters.check = icmp samesign ult i64 %sub.ptr.div.i.i.i.i.i.i, 8
   br i1 %min.iters.check, label %for.body.i.i.i.i.i.preheader88, label %vector.memcheck
 
 vector.memcheck:                                  ; preds = %for.body.i.i.i.i.i.preheader
@@ -4767,7 +4767,7 @@ if.then11.i:                                      ; preds = %land.rhs.i
   br i1 %cmp6.i.i.i.i.i.i, label %for.body.i.i.i.i.i.i.preheader, label %if.end79
 
 for.body.i.i.i.i.i.i.preheader:                   ; preds = %if.then11.i
-  %min.iters.check353 = icmp ult i64 %sub.ptr.div.i.i.i.i.i.i109, 8
+  %min.iters.check353 = icmp samesign ult i64 %sub.ptr.div.i.i.i.i.i.i109, 8
   br i1 %min.iters.check353, label %for.body.i.i.i.i.i.i.preheader83, label %vector.memcheck345
 
 vector.memcheck345:                               ; preds = %for.body.i.i.i.i.i.i.preheader
@@ -4843,7 +4843,7 @@ if.then11:                                        ; preds = %if.else
   br i1 %cmp7.i.i.i.i.i115, label %for.body.i.i.i.i.i117.preheader, label %_ZSt4moveIN5boost9container12vec_iteratorIPSt4pairIjjELb0EEES5_ET0_T_S8_S7_.exit127
 
 for.body.i.i.i.i.i117.preheader:                  ; preds = %if.then11
-  %min.iters.check387 = icmp ult i64 %sub.ptr.div.i.i.i.i.i.i114, 8
+  %min.iters.check387 = icmp samesign ult i64 %sub.ptr.div.i.i.i.i.i.i114, 8
   br i1 %min.iters.check387, label %for.body.i.i.i.i.i117.preheader81, label %vector.memcheck379
 
 vector.memcheck379:                               ; preds = %for.body.i.i.i.i.i117.preheader
@@ -4926,7 +4926,7 @@ if.then.i162:                                     ; preds = %_ZSt4moveIN5boost9c
   br i1 %cmp5.i.i.i.i.i.i, label %for.body.i.i.i.i.i.i168.preheader, label %if.end79
 
 for.body.i.i.i.i.i.i168.preheader:                ; preds = %if.then.i162
-  %min.iters.check453 = icmp ult i64 %sub.ptr.div.i.i.i.i.i.i166, 10
+  %min.iters.check453 = icmp samesign ult i64 %sub.ptr.div.i.i.i.i.i.i166, 10
   br i1 %min.iters.check453, label %for.body.i.i.i.i.i.i168.preheader77, label %vector.memcheck445
 
 vector.memcheck445:                               ; preds = %for.body.i.i.i.i.i.i168.preheader
@@ -5086,7 +5086,7 @@ if.then13.i:                                      ; preds = %if.then7.i
   br i1 %cmp5.i.i.i.i.i44.i, label %for.body.i.i.i.i.i46.i.preheader, label %if.end79
 
 for.body.i.i.i.i.i46.i.preheader:                 ; preds = %if.then13.i
-  %min.iters.check422 = icmp ult i64 %sub.ptr.div.i.i.i.i.i43.i, 12
+  %min.iters.check422 = icmp samesign ult i64 %sub.ptr.div.i.i.i.i.i43.i, 12
   br i1 %min.iters.check422, label %for.body.i.i.i.i.i46.i.preheader78, label %vector.memcheck413
 
 vector.memcheck413:                               ; preds = %for.body.i.i.i.i.i46.i.preheader
@@ -5508,7 +5508,7 @@ while.end:                                        ; preds = %if.end, %entry
   br i1 %cmp7.i.i.i.i.i, label %for.body.i.i.i.i.i.preheader, label %_ZSt4moveIN5boost9container12vec_iteratorIPSt4pairIjjELb0EEES5_ET0_T_S8_S7_.exit
 
 for.body.i.i.i.i.i.preheader:                     ; preds = %while.end
-  %min.iters.check = icmp ult i64 %sub.ptr.div.i.i.i.i.i.i, 8
+  %min.iters.check = icmp samesign ult i64 %sub.ptr.div.i.i.i.i.i.i, 8
   br i1 %min.iters.check, label %for.body.i.i.i.i.i.preheader8, label %vector.memcheck
 
 vector.memcheck:                                  ; preds = %for.body.i.i.i.i.i.preheader
@@ -5579,7 +5579,7 @@ _ZSt4moveIN5boost9container12vec_iteratorIPSt4pairIjjELb0EEES5_ET0_T_S8_S7_.exit
   br i1 %cmp7.i.i.i.i.i28, label %for.body.i.i.i.i.i30.preheader, label %_ZSt4moveIN5boost9container12vec_iteratorIPSt4pairIjjELb0EEES5_ET0_T_S8_S7_.exit40
 
 for.body.i.i.i.i.i30.preheader:                   ; preds = %_ZSt4moveIN5boost9container12vec_iteratorIPSt4pairIjjELb0EEES5_ET0_T_S8_S7_.exit
-  %min.iters.check77 = icmp ult i64 %sub.ptr.div.i.i.i.i.i.i27, 8
+  %min.iters.check77 = icmp samesign ult i64 %sub.ptr.div.i.i.i.i.i.i27, 8
   br i1 %min.iters.check77, label %for.body.i.i.i.i.i30.preheader7, label %vector.memcheck69
 
 vector.memcheck69:                                ; preds = %for.body.i.i.i.i.i30.preheader
@@ -5759,7 +5759,7 @@ while.end:                                        ; preds = %while.end.loopexit,
   br i1 %cmp6.i.i.i.i.i, label %for.body.i.i.i.i.i.preheader, label %_ZSt4moveIPSt4pairIjjEN5boost9container12vec_iteratorIS2_Lb0EEEET0_T_S8_S7_.exit
 
 for.body.i.i.i.i.i.preheader:                     ; preds = %while.end
-  %min.iters.check = icmp ult i64 %sub.ptr.div.i.i.i.i.i, 8
+  %min.iters.check = icmp samesign ult i64 %sub.ptr.div.i.i.i.i.i, 8
   br i1 %min.iters.check, label %for.body.i.i.i.i.i.preheader5, label %vector.memcheck
 
 vector.memcheck:                                  ; preds = %for.body.i.i.i.i.i.preheader
@@ -5832,7 +5832,7 @@ _ZSt4moveIPSt4pairIjjEN5boost9container12vec_iteratorIS2_Lb0EEEET0_T_S8_S7_.exit
   br i1 %cmp6.i.i.i.i.i26, label %for.body.i.i.i.i.i27.preheader, label %_ZSt4moveIPSt4pairIjjEN5boost9container12vec_iteratorIS2_Lb0EEEET0_T_S8_S7_.exit37
 
 for.body.i.i.i.i.i27.preheader:                   ; preds = %_ZSt4moveIPSt4pairIjjEN5boost9container12vec_iteratorIS2_Lb0EEEET0_T_S8_S7_.exit
-  %min.iters.check64 = icmp ult i64 %sub.ptr.div.i.i.i.i.i25, 8
+  %min.iters.check64 = icmp samesign ult i64 %sub.ptr.div.i.i.i.i.i25, 8
   br i1 %min.iters.check64, label %for.body.i.i.i.i.i27.preheader4, label %vector.memcheck56
 
 vector.memcheck56:                                ; preds = %for.body.i.i.i.i.i27.preheader
@@ -5925,7 +5925,7 @@ if.then2:                                         ; preds = %if.then
   br i1 %cmp7.i.i.i.i.i, label %for.body.i.i.i.i.i.preheader, label %_ZSt4moveIN5boost9container12vec_iteratorIPSt4pairIjjELb0EEES5_ET0_T_S8_S7_.exit
 
 for.body.i.i.i.i.i.preheader:                     ; preds = %if.then2
-  %min.iters.check = icmp ult i64 %sub.ptr.div.i.i.i.i.i.i, 8
+  %min.iters.check = icmp samesign ult i64 %sub.ptr.div.i.i.i.i.i.i, 8
   br i1 %min.iters.check, label %for.body.i.i.i.i.i.preheader22, label %vector.memcheck
 
 vector.memcheck:                                  ; preds = %for.body.i.i.i.i.i.preheader
@@ -6005,7 +6005,7 @@ _ZSt4moveIN5boost9container12vec_iteratorIPSt4pairIjjELb0EEES5_ET0_T_S8_S7_.exit
   br i1 %cmp8.i.i.i.i.i, label %for.body.i.i.i.i.i39.preheader, label %_ZSt13move_backwardIN5boost9container12vec_iteratorIPSt4pairIjjELb0EEES6_ET0_T_S8_S7_.exit
 
 for.body.i.i.i.i.i39.preheader:                   ; preds = %_ZSt4moveIN5boost9container12vec_iteratorIPSt4pairIjjELb0EEES5_ET0_T_S8_S7_.exit
-  %min.iters.check126 = icmp ult i64 %sub.ptr.div.i.i.i.i.i.i38, 10
+  %min.iters.check126 = icmp samesign ult i64 %sub.ptr.div.i.i.i.i.i.i38, 10
   br i1 %min.iters.check126, label %for.body.i.i.i.i.i39.preheader21, label %vector.memcheck118
 
 vector.memcheck118:                               ; preds = %for.body.i.i.i.i.i39.preheader
@@ -6080,7 +6080,7 @@ _ZSt13move_backwardIN5boost9container12vec_iteratorIPSt4pairIjjELb0EEES6_ET0_T_S
   br i1 %cmp6.i.i.i.i.i, label %for.body.i.i.i.i.i46.preheader, label %_ZSt4moveIPSt4pairIjjEN5boost9container12vec_iteratorIS2_Lb0EEEET0_T_S8_S7_.exit
 
 for.body.i.i.i.i.i46.preheader:                   ; preds = %_ZSt13move_backwardIN5boost9container12vec_iteratorIPSt4pairIjjELb0EEES6_ET0_T_S8_S7_.exit
-  %min.iters.check157 = icmp ult i64 %sub.ptr.div.i.i.i.i.i, 8
+  %min.iters.check157 = icmp samesign ult i64 %sub.ptr.div.i.i.i.i.i, 8
   br i1 %min.iters.check157, label %for.body.i.i.i.i.i46.preheader20, label %vector.memcheck149
 
 vector.memcheck149:                               ; preds = %for.body.i.i.i.i.i46.preheader
@@ -6169,7 +6169,7 @@ if.then12:                                        ; preds = %if.then10
   br i1 %cmp7.i.i.i.i.i58, label %for.body.i.i.i.i.i60.preheader, label %_ZSt4moveIN5boost9container12vec_iteratorIPSt4pairIjjELb0EEES5_ET0_T_S8_S7_.exit70
 
 for.body.i.i.i.i.i60.preheader:                   ; preds = %if.then12
-  %min.iters.check191 = icmp ult i64 %sub.ptr.div.i.i.i.i.i.i57, 8
+  %min.iters.check191 = icmp samesign ult i64 %sub.ptr.div.i.i.i.i.i.i57, 8
   br i1 %min.iters.check191, label %for.body.i.i.i.i.i60.preheader18, label %vector.memcheck183
 
 vector.memcheck183:                               ; preds = %for.body.i.i.i.i.i60.preheader
@@ -6249,7 +6249,7 @@ _ZSt4moveIN5boost9container12vec_iteratorIPSt4pairIjjELb0EEES5_ET0_T_S8_S7_.exit
   br i1 %cmp8.i.i.i.i.i75, label %for.body.i.i.i.i.i76.preheader, label %_ZSt4moveIN5boost9container12vec_iteratorIPSt4pairIjjELb0EEES6_ET0_T_S8_S7_.exit
 
 for.body.i.i.i.i.i76.preheader:                   ; preds = %_ZSt4moveIN5boost9container12vec_iteratorIPSt4pairIjjELb0EEES5_ET0_T_S8_S7_.exit70
-  %min.iters.check225 = icmp ult i64 %sub.ptr.div.i.i.i.i.i.i74, 8
+  %min.iters.check225 = icmp samesign ult i64 %sub.ptr.div.i.i.i.i.i.i74, 8
   br i1 %min.iters.check225, label %for.body.i.i.i.i.i76.preheader17, label %vector.memcheck217
 
 vector.memcheck217:                               ; preds = %for.body.i.i.i.i.i76.preheader
@@ -6326,7 +6326,7 @@ _ZSt4moveIN5boost9container12vec_iteratorIPSt4pairIjjELb0EEES6_ET0_T_S8_S7_.exit
   br i1 %cmp5.i.i.i.i.i, label %for.body.i.i.i.i.i90.preheader, label %_ZSt13move_backwardIPSt4pairIjjEN5boost9container12vec_iteratorIS2_Lb0EEEET0_T_S8_S7_.exit
 
 for.body.i.i.i.i.i90.preheader:                   ; preds = %_ZSt4moveIN5boost9container12vec_iteratorIPSt4pairIjjELb0EEES6_ET0_T_S8_S7_.exit
-  %min.iters.check259 = icmp ult i64 %sub.ptr.div.i.i.i.i.i89, 10
+  %min.iters.check259 = icmp samesign ult i64 %sub.ptr.div.i.i.i.i.i89, 10
   br i1 %min.iters.check259, label %for.body.i.i.i.i.i90.preheader16, label %vector.memcheck251
 
 vector.memcheck251:                               ; preds = %for.body.i.i.i.i.i90.preheader
@@ -7135,7 +7135,7 @@ while.end.i.i:                                    ; preds = %if.end.i.i, %land.r
   br i1 %cmp7.i.i.i.i.i.i.i, label %for.body.i.i.i.i.i.i.i35.preheader, label %_ZSt4moveIN5boost9container12vec_iteratorIPSt4pairIjjELb0EEES5_ET0_T_S8_S7_.exit.i.i
 
 for.body.i.i.i.i.i.i.i35.preheader:               ; preds = %while.end.i.i
-  %min.iters.check369 = icmp ult i64 %sub.ptr.div.i.i.i.i.i.i.i.i29, 8
+  %min.iters.check369 = icmp samesign ult i64 %sub.ptr.div.i.i.i.i.i.i.i.i29, 8
   br i1 %min.iters.check369, label %for.body.i.i.i.i.i.i.i35.preheader8, label %vector.memcheck361
 
 vector.memcheck361:                               ; preds = %for.body.i.i.i.i.i.i.i35.preheader
@@ -7206,7 +7206,7 @@ _ZSt4moveIN5boost9container12vec_iteratorIPSt4pairIjjELb0EEES5_ET0_T_S8_S7_.exit
   br i1 %cmp7.i.i.i.i.i27.i.i, label %for.body.i.i.i.i.i29.i.i.preheader, label %"_ZSt12__move_mergeIN5boost9container12vec_iteratorIPSt4pairIjjELb0EEES5_N9__gnu_cxx5__ops15_Iter_comp_iterIZN3ue2L16computeLitHashesERKSt6vectorINSA_15ue2_case_stringESaISC_EEmbE3$_2EEET0_T_SK_SK_SK_SJ_T1_.exit.i"
 
 for.body.i.i.i.i.i29.i.i.preheader:               ; preds = %_ZSt4moveIN5boost9container12vec_iteratorIPSt4pairIjjELb0EEES5_ET0_T_S8_S7_.exit.i.i
-  %min.iters.check335 = icmp ult i64 %sub.ptr.div.i.i.i.i.i.i26.i.i, 8
+  %min.iters.check335 = icmp samesign ult i64 %sub.ptr.div.i.i.i.i.i.i26.i.i, 8
   br i1 %min.iters.check335, label %for.body.i.i.i.i.i29.i.i.preheader7, label %vector.memcheck327
 
 vector.memcheck327:                               ; preds = %for.body.i.i.i.i.i29.i.i.preheader
@@ -7337,7 +7337,7 @@ while.end.i45.i:                                  ; preds = %if.end.i42.i, %land
   br i1 %cmp7.i.i.i.i.i.i53.i, label %for.body.i.i.i.i.i.i72.i.preheader, label %_ZSt4moveIN5boost9container12vec_iteratorIPSt4pairIjjELb0EEES5_ET0_T_S8_S7_.exit.i54.i
 
 for.body.i.i.i.i.i.i72.i.preheader:               ; preds = %while.end.i45.i
-  %min.iters.check301 = icmp ult i64 %sub.ptr.div.i.i.i.i.i.i.i52.i, 8
+  %min.iters.check301 = icmp samesign ult i64 %sub.ptr.div.i.i.i.i.i.i.i52.i, 8
   br i1 %min.iters.check301, label %for.body.i.i.i.i.i.i72.i.preheader12, label %vector.memcheck293
 
 vector.memcheck293:                               ; preds = %for.body.i.i.i.i.i.i72.i.preheader
@@ -7407,7 +7407,7 @@ _ZSt4moveIN5boost9container12vec_iteratorIPSt4pairIjjELb0EEES5_ET0_T_S8_S7_.exit
   br i1 %cmp7.i.i.i.i.i27.i60.i, label %for.body.i.i.i.i.i29.i62.i.preheader, label %"_ZSt17__merge_sort_loopIN5boost9container12vec_iteratorIPSt4pairIjjELb0EEES5_lN9__gnu_cxx5__ops15_Iter_comp_iterIZN3ue2L16computeLitHashesERKSt6vectorINSA_15ue2_case_stringESaISC_EEmbE3$_2EEEvT_SJ_T0_T1_T2_.exit"
 
 for.body.i.i.i.i.i29.i62.i.preheader:             ; preds = %_ZSt4moveIN5boost9container12vec_iteratorIPSt4pairIjjELb0EEES5_ET0_T_S8_S7_.exit.i54.i
-  %min.iters.check267 = icmp ult i64 %sub.ptr.div.i.i.i.i.i.i26.i59.i, 8
+  %min.iters.check267 = icmp samesign ult i64 %sub.ptr.div.i.i.i.i.i.i26.i59.i, 8
   br i1 %min.iters.check267, label %for.body.i.i.i.i.i29.i62.i.preheader11, label %vector.memcheck259
 
 vector.memcheck259:                               ; preds = %for.body.i.i.i.i.i29.i62.i.preheader
@@ -7528,7 +7528,7 @@ while.end.i.i59:                                  ; preds = %if.end.i.i55
   br i1 %cmp6.i.i.i.i.i.i.i, label %for.body.i.i.i.i.i.i.i66.preheader, label %_ZSt4moveIPSt4pairIjjEN5boost9container12vec_iteratorIS2_Lb0EEEET0_T_S8_S7_.exit.i.i
 
 for.body.i.i.i.i.i.i.i66.preheader:               ; preds = %while.end.i.i59
-  %min.iters.check233 = icmp ult i64 %sub.ptr.div.i.i.i.i.i.i.i, 8
+  %min.iters.check233 = icmp samesign ult i64 %sub.ptr.div.i.i.i.i.i.i.i, 8
   br i1 %min.iters.check233, label %for.body.i.i.i.i.i.i.i66.preheader6, label %vector.memcheck225
 
 vector.memcheck225:                               ; preds = %for.body.i.i.i.i.i.i.i66.preheader
@@ -7599,7 +7599,7 @@ _ZSt4moveIPSt4pairIjjEN5boost9container12vec_iteratorIS2_Lb0EEEET0_T_S8_S7_.exit
   br i1 %cmp6.i.i.i.i.i25.i.i, label %for.body.i.i.i.i.i26.i.i.preheader, label %"_ZSt12__move_mergeIPSt4pairIjjEN5boost9container12vec_iteratorIS2_Lb0EEEN9__gnu_cxx5__ops15_Iter_comp_iterIZN3ue2L16computeLitHashesERKSt6vectorINSA_15ue2_case_stringESaISC_EEmbE3$_2EEET0_T_SK_SK_SK_SJ_T1_.exit.i"
 
 for.body.i.i.i.i.i26.i.i.preheader:               ; preds = %_ZSt4moveIPSt4pairIjjEN5boost9container12vec_iteratorIS2_Lb0EEEET0_T_S8_S7_.exit.i.i
-  %min.iters.check199 = icmp ult i64 %sub.ptr.div.i.i.i.i.i24.i.i, 8
+  %min.iters.check199 = icmp samesign ult i64 %sub.ptr.div.i.i.i.i.i24.i.i, 8
   br i1 %min.iters.check199, label %for.body.i.i.i.i.i26.i.i.preheader5, label %vector.memcheck191
 
 vector.memcheck191:                               ; preds = %for.body.i.i.i.i.i26.i.i.preheader
@@ -7729,7 +7729,7 @@ while.end.i34.i:                                  ; preds = %if.end.i80.i, %whil
   br i1 %cmp6.i.i.i.i.i.i41.i, label %for.body.i.i.i.i.i.i58.i.preheader, label %_ZSt4moveIPSt4pairIjjEN5boost9container12vec_iteratorIS2_Lb0EEEET0_T_S8_S7_.exit.i42.i
 
 for.body.i.i.i.i.i.i58.i.preheader:               ; preds = %while.end.i34.i
-  %min.iters.check165 = icmp ult i64 %sub.ptr.div.i.i.i.i.i.i40.i, 8
+  %min.iters.check165 = icmp samesign ult i64 %sub.ptr.div.i.i.i.i.i.i40.i, 8
   br i1 %min.iters.check165, label %for.body.i.i.i.i.i.i58.i.preheader10, label %vector.memcheck157
 
 vector.memcheck157:                               ; preds = %for.body.i.i.i.i.i.i58.i.preheader
@@ -7799,7 +7799,7 @@ _ZSt4moveIPSt4pairIjjEN5boost9container12vec_iteratorIS2_Lb0EEEET0_T_S8_S7_.exit
   br i1 %cmp6.i.i.i.i.i25.i47.i, label %for.body.i.i.i.i.i26.i48.i.preheader, label %"_ZSt17__merge_sort_loopIPSt4pairIjjEN5boost9container12vec_iteratorIS2_Lb0EEElN9__gnu_cxx5__ops15_Iter_comp_iterIZN3ue2L16computeLitHashesERKSt6vectorINSA_15ue2_case_stringESaISC_EEmbE3$_2EEEvT_SJ_T0_T1_T2_.exit"
 
 for.body.i.i.i.i.i26.i48.i.preheader:             ; preds = %_ZSt4moveIPSt4pairIjjEN5boost9container12vec_iteratorIS2_Lb0EEEET0_T_S8_S7_.exit.i42.i
-  %min.iters.check131 = icmp ult i64 %sub.ptr.div.i.i.i.i.i24.i46.i, 8
+  %min.iters.check131 = icmp samesign ult i64 %sub.ptr.div.i.i.i.i.i24.i46.i, 8
   br i1 %min.iters.check131, label %for.body.i.i.i.i.i26.i48.i.preheader9, label %vector.memcheck
 
 vector.memcheck:                                  ; preds = %for.body.i.i.i.i.i26.i48.i.preheader
@@ -7897,7 +7897,7 @@ if.then:                                          ; preds = %entry
   br i1 %cmp7.i.i.i.i.i, label %for.body.i.i.i.i.i.preheader, label %if.end56
 
 for.body.i.i.i.i.i.preheader:                     ; preds = %if.then
-  %min.iters.check = icmp ult i64 %sub.ptr.div.i.i.i.i.i.i, 8
+  %min.iters.check = icmp samesign ult i64 %sub.ptr.div.i.i.i.i.i.i, 8
   br i1 %min.iters.check, label %for.body.i.i.i.i.i.preheader92, label %vector.memcheck
 
 vector.memcheck:                                  ; preds = %for.body.i.i.i.i.i.preheader
@@ -8018,7 +8018,7 @@ if.then10.i:                                      ; preds = %land.rhs.i
   br i1 %cmp6.i.i.i.i.i.i, label %for.body.i.i.i.i.i.i.preheader, label %if.end56
 
 for.body.i.i.i.i.i.i.preheader:                   ; preds = %if.then10.i
-  %min.iters.check269 = icmp ult i64 %sub.ptr.div.i.i.i.i.i.i90, 8
+  %min.iters.check269 = icmp samesign ult i64 %sub.ptr.div.i.i.i.i.i.i90, 8
   br i1 %min.iters.check269, label %for.body.i.i.i.i.i.i.preheader87, label %vector.memcheck261
 
 vector.memcheck261:                               ; preds = %for.body.i.i.i.i.i.i.preheader
@@ -8094,7 +8094,7 @@ if.then8:                                         ; preds = %if.else
   br i1 %cmp7.i.i.i.i.i96, label %for.body.i.i.i.i.i98.preheader, label %_ZSt4moveIN5boost9container12vec_iteratorIPSt4pairIjjELb0EEES5_ET0_T_S8_S7_.exit108
 
 for.body.i.i.i.i.i98.preheader:                   ; preds = %if.then8
-  %min.iters.check303 = icmp ult i64 %sub.ptr.div.i.i.i.i.i.i95, 8
+  %min.iters.check303 = icmp samesign ult i64 %sub.ptr.div.i.i.i.i.i.i95, 8
   br i1 %min.iters.check303, label %for.body.i.i.i.i.i98.preheader85, label %vector.memcheck295
 
 vector.memcheck295:                               ; preds = %for.body.i.i.i.i.i98.preheader
@@ -8177,7 +8177,7 @@ if.then.i120:                                     ; preds = %_ZSt4moveIN5boost9c
   br i1 %cmp5.i.i.i.i.i.i, label %for.body.i.i.i.i.i.i126.preheader, label %if.end56
 
 for.body.i.i.i.i.i.i126.preheader:                ; preds = %if.then.i120
-  %min.iters.check368 = icmp ult i64 %sub.ptr.div.i.i.i.i.i.i124, 10
+  %min.iters.check368 = icmp samesign ult i64 %sub.ptr.div.i.i.i.i.i.i124, 10
   br i1 %min.iters.check368, label %for.body.i.i.i.i.i.i126.preheader77, label %vector.memcheck360
 
 vector.memcheck360:                               ; preds = %for.body.i.i.i.i.i.i126.preheader
@@ -8285,7 +8285,7 @@ if.then12.i:                                      ; preds = %if.then6.i
   br i1 %cmp5.i.i.i.i.i43.i, label %for.body.i.i.i.i.i45.i.preheader, label %if.end56
 
 for.body.i.i.i.i.i45.i.preheader:                 ; preds = %if.then12.i
-  %min.iters.check337 = icmp ult i64 %sub.ptr.div.i.i.i.i.i42.i, 14
+  %min.iters.check337 = icmp samesign ult i64 %sub.ptr.div.i.i.i.i.i42.i, 14
   br i1 %min.iters.check337, label %for.body.i.i.i.i.i45.i.preheader78, label %vector.memcheck329
 
 vector.memcheck329:                               ; preds = %for.body.i.i.i.i.i45.i.preheader

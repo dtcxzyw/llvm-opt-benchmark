@@ -644,7 +644,7 @@ _ZN2cvL7makePtrINS_3dnn8FastConvEJEEENS_3PtrIT_EEDpRKT0_.exit: ; preds = %14
   %248 = getelementptr inbounds i8, ptr %52, i64 212
   store i32 %11, ptr %248, align 4
   store i32 %3, ptr %55, align 8
-  %249 = icmp ugt i32 %3, 1
+  %249 = icmp samesign ugt i32 %3, 1
   %250 = icmp eq i32 %3, %4
   %or.cond179 = and i1 %249, %250
   %251 = icmp eq i32 %3, %5
@@ -1093,7 +1093,7 @@ _ZN2cv3dnn14dnn4_v20240521L5shapeERKNS_3MatE.exit: ; preds = %_ZNK2cv11_InputArr
 430:                                              ; preds = %325
   store i32 %63, ptr %42, align 4
   %431 = udiv i32 %5, %3
-  %432 = icmp ugt i32 %3, %5
+  %432 = icmp samesign ugt i32 %3, %5
   %.sroa.speculated = select i1 %432, i32 1, i32 %431
   store i32 %.sroa.speculated, ptr %43, align 4
   %433 = mul i32 %189, %.sroa.speculated

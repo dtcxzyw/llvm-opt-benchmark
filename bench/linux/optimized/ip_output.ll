@@ -1624,7 +1624,7 @@ define dso_local void @ip_fraglist_init(ptr nocapture noundef %0, ptr noundef %1
   %25 = getelementptr i8, ptr %20, i64 %.idx
   %26 = load i32, ptr %25, align 8
   %27 = add i32 %26, %23
-  %28 = icmp ugt i64 %22, 1
+  %28 = icmp samesign ugt i64 %22, 1
   br i1 %28, label %21, label %.loopexit, !llvm.loop !18
 
 .loopexit:                                        ; preds = %21, %4
@@ -2374,7 +2374,7 @@ define dso_local i32 @ip_do_fragment(ptr noundef %0, ptr noundef %1, ptr noundef
   %156 = getelementptr i8, ptr %151, i64 %.idx
   %157 = load i32, ptr %156, align 8
   %158 = add i32 %157, %154
-  %159 = icmp ugt i64 %153, 1
+  %159 = icmp samesign ugt i64 %153, 1
   br i1 %159, label %152, label %.loopexit26, !llvm.loop !18
 
 .loopexit26:                                      ; preds = %152, %141

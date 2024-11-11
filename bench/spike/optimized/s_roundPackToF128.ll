@@ -87,7 +87,7 @@ softfloat_lt128.exit:                             ; preds = %29, %23
   br label %60
 
 44:                                               ; preds = %21
-  %45 = icmp ugt i64 %1, 32765
+  %45 = icmp samesign ugt i64 %1, 32765
   br i1 %45, label %52, label %46
 
 46:                                               ; preds = %44

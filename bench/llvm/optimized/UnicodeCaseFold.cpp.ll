@@ -21,7 +21,7 @@ define dso_local noundef i32 @_ZN4llvm3sys7unicode14foldCharSimpleEi(i32 noundef
   br i1 %2, label %645, label %3
 
 3:                                                ; preds = %1
-  %4 = icmp ult i32 %0, 91
+  %4 = icmp samesign ult i32 %0, 91
   br i1 %4, label %5, label %7
 
 5:                                                ; preds = %3
@@ -33,11 +33,11 @@ define dso_local noundef i32 @_ZN4llvm3sys7unicode14foldCharSimpleEi(i32 noundef
   br i1 %8, label %645, label %9
 
 9:                                                ; preds = %7
-  %10 = icmp ult i32 %0, 192
+  %10 = icmp samesign ult i32 %0, 192
   br i1 %10, label %645, label %11
 
 11:                                               ; preds = %9
-  %12 = icmp ult i32 %0, 215
+  %12 = icmp samesign ult i32 %0, 215
   br i1 %12, label %13, label %15
 
 13:                                               ; preds = %11
@@ -49,7 +49,7 @@ define dso_local noundef i32 @_ZN4llvm3sys7unicode14foldCharSimpleEi(i32 noundef
   br i1 %16, label %645, label %17
 
 17:                                               ; preds = %15
-  %18 = icmp ult i32 %0, 223
+  %18 = icmp samesign ult i32 %0, 223
   br i1 %18, label %19, label %21
 
 19:                                               ; preds = %17
@@ -57,11 +57,11 @@ define dso_local noundef i32 @_ZN4llvm3sys7unicode14foldCharSimpleEi(i32 noundef
   br label %645
 
 21:                                               ; preds = %17
-  %22 = icmp ult i32 %0, 256
+  %22 = icmp samesign ult i32 %0, 256
   br i1 %22, label %645, label %23
 
 23:                                               ; preds = %21
-  %24 = icmp ult i32 %0, 303
+  %24 = icmp samesign ult i32 %0, 303
   br i1 %24, label %25, label %27
 
 25:                                               ; preds = %23
@@ -69,11 +69,11 @@ define dso_local noundef i32 @_ZN4llvm3sys7unicode14foldCharSimpleEi(i32 noundef
   br label %645
 
 27:                                               ; preds = %23
-  %28 = icmp ult i32 %0, 306
+  %28 = icmp samesign ult i32 %0, 306
   br i1 %28, label %645, label %29
 
 29:                                               ; preds = %27
-  %30 = icmp ult i32 %0, 311
+  %30 = icmp samesign ult i32 %0, 311
   br i1 %30, label %31, label %33
 
 31:                                               ; preds = %29
@@ -81,11 +81,11 @@ define dso_local noundef i32 @_ZN4llvm3sys7unicode14foldCharSimpleEi(i32 noundef
   br label %645
 
 33:                                               ; preds = %29
-  %34 = icmp ult i32 %0, 313
+  %34 = icmp samesign ult i32 %0, 313
   br i1 %34, label %645, label %35
 
 35:                                               ; preds = %33
-  %36 = icmp ugt i32 %0, 327
+  %36 = icmp samesign ugt i32 %0, 327
   %37 = and i32 %0, 1
   %.not = icmp eq i32 %37, 0
   %or.cond = or i1 %36, %.not
@@ -96,11 +96,11 @@ define dso_local noundef i32 @_ZN4llvm3sys7unicode14foldCharSimpleEi(i32 noundef
   br label %645
 
 40:                                               ; preds = %35
-  %41 = icmp ult i32 %0, 330
+  %41 = icmp samesign ult i32 %0, 330
   br i1 %41, label %645, label %42
 
 42:                                               ; preds = %40
-  %43 = icmp ult i32 %0, 375
+  %43 = icmp samesign ult i32 %0, 375
   br i1 %43, label %44, label %46
 
 44:                                               ; preds = %42
@@ -112,11 +112,11 @@ define dso_local noundef i32 @_ZN4llvm3sys7unicode14foldCharSimpleEi(i32 noundef
   br i1 %47, label %645, label %48
 
 48:                                               ; preds = %46
-  %49 = icmp ult i32 %0, 377
+  %49 = icmp samesign ult i32 %0, 377
   br i1 %49, label %645, label %50
 
 50:                                               ; preds = %48
-  %51 = icmp ugt i32 %0, 381
+  %51 = icmp samesign ugt i32 %0, 381
   %or.cond511 = or i1 %51, %.not
   br i1 %or.cond511, label %54, label %52
 
@@ -134,11 +134,11 @@ define dso_local noundef i32 @_ZN4llvm3sys7unicode14foldCharSimpleEi(i32 noundef
   br label %645
 
 56:                                               ; preds = %54
-  %57 = icmp ult i32 %0, 386
+  %57 = icmp samesign ult i32 %0, 386
   br i1 %57, label %645, label %58
 
 58:                                               ; preds = %56
-  %59 = icmp ult i32 %0, 389
+  %59 = icmp samesign ult i32 %0, 389
   br i1 %59, label %60, label %62
 
 60:                                               ; preds = %58
@@ -155,11 +155,11 @@ define dso_local noundef i32 @_ZN4llvm3sys7unicode14foldCharSimpleEi(i32 noundef
   br label %645
 
 64:                                               ; preds = %62
-  %65 = icmp ult i32 %0, 393
+  %65 = icmp samesign ult i32 %0, 393
   br i1 %65, label %645, label %66
 
 66:                                               ; preds = %64
-  %67 = icmp ult i32 %0, 395
+  %67 = icmp samesign ult i32 %0, 395
   br i1 %67, label %68, label %70
 
 68:                                               ; preds = %66
@@ -172,11 +172,11 @@ define dso_local noundef i32 @_ZN4llvm3sys7unicode14foldCharSimpleEi(i32 noundef
   br i1 %71, label %switch.hole_check, label %72
 
 72:                                               ; preds = %switch.hole_check, %70
-  %73 = icmp ult i32 %0, 416
+  %73 = icmp samesign ult i32 %0, 416
   br i1 %73, label %645, label %74
 
 74:                                               ; preds = %72
-  %75 = icmp ult i32 %0, 421
+  %75 = icmp samesign ult i32 %0, 421
   br i1 %75, label %76, label %78
 
 76:                                               ; preds = %74
@@ -189,11 +189,11 @@ define dso_local noundef i32 @_ZN4llvm3sys7unicode14foldCharSimpleEi(i32 noundef
   br i1 %79, label %switch.hole_check535, label %80
 
 80:                                               ; preds = %switch.hole_check535, %78
-  %81 = icmp ult i32 %0, 433
+  %81 = icmp samesign ult i32 %0, 433
   br i1 %81, label %645, label %82
 
 82:                                               ; preds = %80
-  %83 = icmp ult i32 %0, 435
+  %83 = icmp samesign ult i32 %0, 435
   br i1 %83, label %84, label %86
 
 84:                                               ; preds = %82
@@ -201,7 +201,7 @@ define dso_local noundef i32 @_ZN4llvm3sys7unicode14foldCharSimpleEi(i32 noundef
   br label %645
 
 86:                                               ; preds = %82
-  %87 = icmp ugt i32 %0, 437
+  %87 = icmp samesign ugt i32 %0, 437
   %or.cond512 = or i1 %87, %.not
   br i1 %or.cond512, label %90, label %88
 
@@ -214,11 +214,11 @@ define dso_local noundef i32 @_ZN4llvm3sys7unicode14foldCharSimpleEi(i32 noundef
   br i1 %91, label %645, label %92
 
 92:                                               ; preds = %90
-  %93 = icmp ult i32 %0, 440
+  %93 = icmp samesign ult i32 %0, 440
   br i1 %93, label %645, label %94
 
 94:                                               ; preds = %92
-  %95 = icmp ult i32 %0, 445
+  %95 = icmp samesign ult i32 %0, 445
   %96 = and i32 %0, 3
   %97 = icmp eq i32 %96, 0
   %or.cond514 = and i1 %95, %97
@@ -234,11 +234,11 @@ define dso_local noundef i32 @_ZN4llvm3sys7unicode14foldCharSimpleEi(i32 noundef
   br i1 %101, label %switch.hole_check543, label %102
 
 102:                                              ; preds = %switch.hole_check543, %100
-  %103 = icmp ult i32 %0, 459
+  %103 = icmp samesign ult i32 %0, 459
   br i1 %103, label %645, label %104
 
 104:                                              ; preds = %102
-  %105 = icmp ugt i32 %0, 475
+  %105 = icmp samesign ugt i32 %0, 475
   %or.cond515 = or i1 %105, %.not
   br i1 %or.cond515, label %108, label %106
 
@@ -247,11 +247,11 @@ define dso_local noundef i32 @_ZN4llvm3sys7unicode14foldCharSimpleEi(i32 noundef
   br label %645
 
 108:                                              ; preds = %104
-  %109 = icmp ult i32 %0, 478
+  %109 = icmp samesign ult i32 %0, 478
   br i1 %109, label %645, label %110
 
 110:                                              ; preds = %108
-  %111 = icmp ult i32 %0, 495
+  %111 = icmp samesign ult i32 %0, 495
   br i1 %111, label %112, label %114
 
 112:                                              ; preds = %110
@@ -263,11 +263,11 @@ define dso_local noundef i32 @_ZN4llvm3sys7unicode14foldCharSimpleEi(i32 noundef
   br i1 %115, label %645, label %116
 
 116:                                              ; preds = %114
-  %117 = icmp ult i32 %0, 498
+  %117 = icmp samesign ult i32 %0, 498
   br i1 %117, label %645, label %118
 
 118:                                              ; preds = %116
-  %119 = icmp ult i32 %0, 501
+  %119 = icmp samesign ult i32 %0, 501
   br i1 %119, label %120, label %122
 
 120:                                              ; preds = %118
@@ -284,11 +284,11 @@ define dso_local noundef i32 @_ZN4llvm3sys7unicode14foldCharSimpleEi(i32 noundef
   br label %645
 
 124:                                              ; preds = %122
-  %125 = icmp ult i32 %0, 504
+  %125 = icmp samesign ult i32 %0, 504
   br i1 %125, label %645, label %126
 
 126:                                              ; preds = %124
-  %127 = icmp ult i32 %0, 543
+  %127 = icmp samesign ult i32 %0, 543
   br i1 %127, label %128, label %130
 
 128:                                              ; preds = %126
@@ -300,11 +300,11 @@ define dso_local noundef i32 @_ZN4llvm3sys7unicode14foldCharSimpleEi(i32 noundef
   br i1 %131, label %645, label %132
 
 132:                                              ; preds = %130
-  %133 = icmp ult i32 %0, 546
+  %133 = icmp samesign ult i32 %0, 546
   br i1 %133, label %645, label %134
 
 134:                                              ; preds = %132
-  %135 = icmp ult i32 %0, 563
+  %135 = icmp samesign ult i32 %0, 563
   br i1 %135, label %136, label %138
 
 136:                                              ; preds = %134
@@ -317,11 +317,11 @@ define dso_local noundef i32 @_ZN4llvm3sys7unicode14foldCharSimpleEi(i32 noundef
   br i1 %139, label %switch.hole_check552, label %140
 
 140:                                              ; preds = %switch.hole_check552, %138
-  %141 = icmp ult i32 %0, 582
+  %141 = icmp samesign ult i32 %0, 582
   br i1 %141, label %645, label %142
 
 142:                                              ; preds = %140
-  %143 = icmp ult i32 %0, 591
+  %143 = icmp samesign ult i32 %0, 591
   br i1 %143, label %144, label %146
 
 144:                                              ; preds = %142
@@ -333,11 +333,11 @@ define dso_local noundef i32 @_ZN4llvm3sys7unicode14foldCharSimpleEi(i32 noundef
   br i1 %147, label %645, label %148
 
 148:                                              ; preds = %146
-  %149 = icmp ult i32 %0, 880
+  %149 = icmp samesign ult i32 %0, 880
   br i1 %149, label %645, label %150
 
 150:                                              ; preds = %148
-  %151 = icmp ult i32 %0, 883
+  %151 = icmp samesign ult i32 %0, 883
   br i1 %151, label %152, label %154
 
 152:                                              ; preds = %150
@@ -358,11 +358,11 @@ define dso_local noundef i32 @_ZN4llvm3sys7unicode14foldCharSimpleEi(i32 noundef
   br label %645
 
 157:                                              ; preds = %154
-  %158 = icmp ult i32 %0, 904
+  %158 = icmp samesign ult i32 %0, 904
   br i1 %158, label %645, label %159
 
 159:                                              ; preds = %157
-  %160 = icmp ult i32 %0, 907
+  %160 = icmp samesign ult i32 %0, 907
   br i1 %160, label %161, label %163
 
 161:                                              ; preds = %159
@@ -374,11 +374,11 @@ define dso_local noundef i32 @_ZN4llvm3sys7unicode14foldCharSimpleEi(i32 noundef
   br i1 %164, label %645, label %165
 
 165:                                              ; preds = %163
-  %166 = icmp ult i32 %0, 910
+  %166 = icmp samesign ult i32 %0, 910
   br i1 %166, label %645, label %167
 
 167:                                              ; preds = %165
-  %168 = icmp ult i32 %0, 912
+  %168 = icmp samesign ult i32 %0, 912
   br i1 %168, label %169, label %171
 
 169:                                              ; preds = %167
@@ -390,7 +390,7 @@ define dso_local noundef i32 @_ZN4llvm3sys7unicode14foldCharSimpleEi(i32 noundef
   br i1 %172, label %645, label %173
 
 173:                                              ; preds = %171
-  %174 = icmp ult i32 %0, 930
+  %174 = icmp samesign ult i32 %0, 930
   br i1 %174, label %175, label %177
 
 175:                                              ; preds = %173
@@ -402,7 +402,7 @@ define dso_local noundef i32 @_ZN4llvm3sys7unicode14foldCharSimpleEi(i32 noundef
   br i1 %178, label %645, label %179
 
 179:                                              ; preds = %177
-  %180 = icmp ult i32 %0, 940
+  %180 = icmp samesign ult i32 %0, 940
   br i1 %180, label %181, label %183
 
 181:                                              ; preds = %179
@@ -435,11 +435,11 @@ define dso_local noundef i32 @_ZN4llvm3sys7unicode14foldCharSimpleEi(i32 noundef
   br label %645
 
 189:                                              ; preds = %183
-  %190 = icmp ult i32 %0, 984
+  %190 = icmp samesign ult i32 %0, 984
   br i1 %190, label %645, label %191
 
 191:                                              ; preds = %189
-  %192 = icmp ult i32 %0, 1007
+  %192 = icmp samesign ult i32 %0, 1007
   br i1 %192, label %193, label %195
 
 193:                                              ; preds = %191
@@ -452,11 +452,11 @@ define dso_local noundef i32 @_ZN4llvm3sys7unicode14foldCharSimpleEi(i32 noundef
   br i1 %196, label %switch.hole_check561, label %197
 
 197:                                              ; preds = %switch.hole_check561, %195
-  %198 = icmp ult i32 %0, 1021
+  %198 = icmp samesign ult i32 %0, 1021
   br i1 %198, label %645, label %199
 
 199:                                              ; preds = %197
-  %200 = icmp ult i32 %0, 1024
+  %200 = icmp samesign ult i32 %0, 1024
   br i1 %200, label %201, label %203
 
 201:                                              ; preds = %199
@@ -464,7 +464,7 @@ define dso_local noundef i32 @_ZN4llvm3sys7unicode14foldCharSimpleEi(i32 noundef
   br label %645
 
 203:                                              ; preds = %199
-  %204 = icmp ult i32 %0, 1040
+  %204 = icmp samesign ult i32 %0, 1040
   br i1 %204, label %205, label %207
 
 205:                                              ; preds = %203
@@ -472,7 +472,7 @@ define dso_local noundef i32 @_ZN4llvm3sys7unicode14foldCharSimpleEi(i32 noundef
   br label %645
 
 207:                                              ; preds = %203
-  %208 = icmp ult i32 %0, 1072
+  %208 = icmp samesign ult i32 %0, 1072
   br i1 %208, label %209, label %211
 
 209:                                              ; preds = %207
@@ -480,11 +480,11 @@ define dso_local noundef i32 @_ZN4llvm3sys7unicode14foldCharSimpleEi(i32 noundef
   br label %645
 
 211:                                              ; preds = %207
-  %212 = icmp ult i32 %0, 1120
+  %212 = icmp samesign ult i32 %0, 1120
   br i1 %212, label %645, label %213
 
 213:                                              ; preds = %211
-  %214 = icmp ult i32 %0, 1153
+  %214 = icmp samesign ult i32 %0, 1153
   br i1 %214, label %215, label %217
 
 215:                                              ; preds = %213
@@ -492,11 +492,11 @@ define dso_local noundef i32 @_ZN4llvm3sys7unicode14foldCharSimpleEi(i32 noundef
   br label %645
 
 217:                                              ; preds = %213
-  %218 = icmp ult i32 %0, 1162
+  %218 = icmp samesign ult i32 %0, 1162
   br i1 %218, label %645, label %219
 
 219:                                              ; preds = %217
-  %220 = icmp ult i32 %0, 1215
+  %220 = icmp samesign ult i32 %0, 1215
   br i1 %220, label %221, label %223
 
 221:                                              ; preds = %219
@@ -508,11 +508,11 @@ define dso_local noundef i32 @_ZN4llvm3sys7unicode14foldCharSimpleEi(i32 noundef
   br i1 %224, label %645, label %225
 
 225:                                              ; preds = %223
-  %226 = icmp ult i32 %0, 1217
+  %226 = icmp samesign ult i32 %0, 1217
   br i1 %226, label %645, label %227
 
 227:                                              ; preds = %225
-  %228 = icmp ugt i32 %0, 1229
+  %228 = icmp samesign ugt i32 %0, 1229
   %or.cond516 = or i1 %228, %.not
   br i1 %or.cond516, label %231, label %229
 
@@ -521,11 +521,11 @@ define dso_local noundef i32 @_ZN4llvm3sys7unicode14foldCharSimpleEi(i32 noundef
   br label %645
 
 231:                                              ; preds = %227
-  %232 = icmp ult i32 %0, 1232
+  %232 = icmp samesign ult i32 %0, 1232
   br i1 %232, label %645, label %233
 
 233:                                              ; preds = %231
-  %234 = icmp ult i32 %0, 1327
+  %234 = icmp samesign ult i32 %0, 1327
   br i1 %234, label %235, label %237
 
 235:                                              ; preds = %233
@@ -533,11 +533,11 @@ define dso_local noundef i32 @_ZN4llvm3sys7unicode14foldCharSimpleEi(i32 noundef
   br label %645
 
 237:                                              ; preds = %233
-  %238 = icmp ult i32 %0, 1329
+  %238 = icmp samesign ult i32 %0, 1329
   br i1 %238, label %645, label %239
 
 239:                                              ; preds = %237
-  %240 = icmp ult i32 %0, 1367
+  %240 = icmp samesign ult i32 %0, 1367
   br i1 %240, label %241, label %243
 
 241:                                              ; preds = %239
@@ -545,11 +545,11 @@ define dso_local noundef i32 @_ZN4llvm3sys7unicode14foldCharSimpleEi(i32 noundef
   br label %645
 
 243:                                              ; preds = %239
-  %244 = icmp ult i32 %0, 4256
+  %244 = icmp samesign ult i32 %0, 4256
   br i1 %244, label %645, label %245
 
 245:                                              ; preds = %243
-  %246 = icmp ult i32 %0, 4294
+  %246 = icmp samesign ult i32 %0, 4294
   br i1 %246, label %247, label %249
 
 247:                                              ; preds = %245
@@ -561,7 +561,7 @@ define dso_local noundef i32 @_ZN4llvm3sys7unicode14foldCharSimpleEi(i32 noundef
   br i1 %250, label %645, label %251
 
 251:                                              ; preds = %249
-  %252 = icmp ult i32 %0, 4302
+  %252 = icmp samesign ult i32 %0, 4302
   %253 = urem i32 %0, 6
   %254 = icmp eq i32 %253, 5
   %or.cond518 = and i1 %252, %254
@@ -572,11 +572,11 @@ define dso_local noundef i32 @_ZN4llvm3sys7unicode14foldCharSimpleEi(i32 noundef
   br label %645
 
 257:                                              ; preds = %251
-  %258 = icmp ult i32 %0, 5112
+  %258 = icmp samesign ult i32 %0, 5112
   br i1 %258, label %645, label %259
 
 259:                                              ; preds = %257
-  %260 = icmp ult i32 %0, 5118
+  %260 = icmp samesign ult i32 %0, 5118
   br i1 %260, label %261, label %263
 
 261:                                              ; preds = %259
@@ -589,11 +589,11 @@ define dso_local noundef i32 @_ZN4llvm3sys7unicode14foldCharSimpleEi(i32 noundef
   br i1 %264, label %switch.lookup568, label %265
 
 265:                                              ; preds = %263
-  %266 = icmp ult i32 %0, 7299
+  %266 = icmp samesign ult i32 %0, 7299
   br i1 %266, label %645, label %267
 
 267:                                              ; preds = %265
-  %268 = icmp ult i32 %0, 7301
+  %268 = icmp samesign ult i32 %0, 7301
   br i1 %268, label %269, label %271
 
 269:                                              ; preds = %267
@@ -606,11 +606,11 @@ define dso_local noundef i32 @_ZN4llvm3sys7unicode14foldCharSimpleEi(i32 noundef
   br i1 %272, label %switch.lookup572, label %273
 
 273:                                              ; preds = %271
-  %274 = icmp ult i32 %0, 7312
+  %274 = icmp samesign ult i32 %0, 7312
   br i1 %274, label %645, label %275
 
 275:                                              ; preds = %273
-  %276 = icmp ult i32 %0, 7355
+  %276 = icmp samesign ult i32 %0, 7355
   br i1 %276, label %277, label %279
 
 277:                                              ; preds = %275
@@ -618,11 +618,11 @@ define dso_local noundef i32 @_ZN4llvm3sys7unicode14foldCharSimpleEi(i32 noundef
   br label %645
 
 279:                                              ; preds = %275
-  %280 = icmp ult i32 %0, 7357
+  %280 = icmp samesign ult i32 %0, 7357
   br i1 %280, label %645, label %281
 
 281:                                              ; preds = %279
-  %282 = icmp ult i32 %0, 7360
+  %282 = icmp samesign ult i32 %0, 7360
   br i1 %282, label %283, label %285
 
 283:                                              ; preds = %281
@@ -630,11 +630,11 @@ define dso_local noundef i32 @_ZN4llvm3sys7unicode14foldCharSimpleEi(i32 noundef
   br label %645
 
 285:                                              ; preds = %281
-  %286 = icmp ult i32 %0, 7680
+  %286 = icmp samesign ult i32 %0, 7680
   br i1 %286, label %645, label %287
 
 287:                                              ; preds = %285
-  %288 = icmp ult i32 %0, 7829
+  %288 = icmp samesign ult i32 %0, 7829
   br i1 %288, label %289, label %291
 
 289:                                              ; preds = %287
@@ -651,11 +651,11 @@ define dso_local noundef i32 @_ZN4llvm3sys7unicode14foldCharSimpleEi(i32 noundef
   br label %645
 
 293:                                              ; preds = %291
-  %294 = icmp ult i32 %0, 7840
+  %294 = icmp samesign ult i32 %0, 7840
   br i1 %294, label %645, label %295
 
 295:                                              ; preds = %293
-  %296 = icmp ult i32 %0, 7935
+  %296 = icmp samesign ult i32 %0, 7935
   br i1 %296, label %297, label %299
 
 297:                                              ; preds = %295
@@ -663,11 +663,11 @@ define dso_local noundef i32 @_ZN4llvm3sys7unicode14foldCharSimpleEi(i32 noundef
   br label %645
 
 299:                                              ; preds = %295
-  %300 = icmp ult i32 %0, 7944
+  %300 = icmp samesign ult i32 %0, 7944
   br i1 %300, label %645, label %301
 
 301:                                              ; preds = %299
-  %302 = icmp ult i32 %0, 7952
+  %302 = icmp samesign ult i32 %0, 7952
   br i1 %302, label %303, label %305
 
 303:                                              ; preds = %301
@@ -675,11 +675,11 @@ define dso_local noundef i32 @_ZN4llvm3sys7unicode14foldCharSimpleEi(i32 noundef
   br label %645
 
 305:                                              ; preds = %301
-  %306 = icmp ult i32 %0, 7960
+  %306 = icmp samesign ult i32 %0, 7960
   br i1 %306, label %645, label %307
 
 307:                                              ; preds = %305
-  %308 = icmp ult i32 %0, 7966
+  %308 = icmp samesign ult i32 %0, 7966
   br i1 %308, label %309, label %311
 
 309:                                              ; preds = %307
@@ -687,11 +687,11 @@ define dso_local noundef i32 @_ZN4llvm3sys7unicode14foldCharSimpleEi(i32 noundef
   br label %645
 
 311:                                              ; preds = %307
-  %312 = icmp ult i32 %0, 7976
+  %312 = icmp samesign ult i32 %0, 7976
   br i1 %312, label %645, label %313
 
 313:                                              ; preds = %311
-  %314 = icmp ult i32 %0, 7984
+  %314 = icmp samesign ult i32 %0, 7984
   br i1 %314, label %315, label %317
 
 315:                                              ; preds = %313
@@ -699,11 +699,11 @@ define dso_local noundef i32 @_ZN4llvm3sys7unicode14foldCharSimpleEi(i32 noundef
   br label %645
 
 317:                                              ; preds = %313
-  %318 = icmp ult i32 %0, 7992
+  %318 = icmp samesign ult i32 %0, 7992
   br i1 %318, label %645, label %319
 
 319:                                              ; preds = %317
-  %320 = icmp ult i32 %0, 8000
+  %320 = icmp samesign ult i32 %0, 8000
   br i1 %320, label %321, label %323
 
 321:                                              ; preds = %319
@@ -711,11 +711,11 @@ define dso_local noundef i32 @_ZN4llvm3sys7unicode14foldCharSimpleEi(i32 noundef
   br label %645
 
 323:                                              ; preds = %319
-  %324 = icmp ult i32 %0, 8008
+  %324 = icmp samesign ult i32 %0, 8008
   br i1 %324, label %645, label %325
 
 325:                                              ; preds = %323
-  %326 = icmp ult i32 %0, 8014
+  %326 = icmp samesign ult i32 %0, 8014
   br i1 %326, label %327, label %329
 
 327:                                              ; preds = %325
@@ -723,11 +723,11 @@ define dso_local noundef i32 @_ZN4llvm3sys7unicode14foldCharSimpleEi(i32 noundef
   br label %645
 
 329:                                              ; preds = %325
-  %330 = icmp ult i32 %0, 8025
+  %330 = icmp samesign ult i32 %0, 8025
   br i1 %330, label %645, label %331
 
 331:                                              ; preds = %329
-  %332 = icmp ugt i32 %0, 8031
+  %332 = icmp samesign ugt i32 %0, 8031
   %or.cond519 = or i1 %332, %.not
   br i1 %or.cond519, label %335, label %333
 
@@ -736,11 +736,11 @@ define dso_local noundef i32 @_ZN4llvm3sys7unicode14foldCharSimpleEi(i32 noundef
   br label %645
 
 335:                                              ; preds = %331
-  %336 = icmp ult i32 %0, 8040
+  %336 = icmp samesign ult i32 %0, 8040
   br i1 %336, label %645, label %337
 
 337:                                              ; preds = %335
-  %338 = icmp ult i32 %0, 8048
+  %338 = icmp samesign ult i32 %0, 8048
   br i1 %338, label %339, label %341
 
 339:                                              ; preds = %337
@@ -748,11 +748,11 @@ define dso_local noundef i32 @_ZN4llvm3sys7unicode14foldCharSimpleEi(i32 noundef
   br label %645
 
 341:                                              ; preds = %337
-  %342 = icmp ult i32 %0, 8072
+  %342 = icmp samesign ult i32 %0, 8072
   br i1 %342, label %645, label %343
 
 343:                                              ; preds = %341
-  %344 = icmp ult i32 %0, 8080
+  %344 = icmp samesign ult i32 %0, 8080
   br i1 %344, label %345, label %347
 
 345:                                              ; preds = %343
@@ -760,11 +760,11 @@ define dso_local noundef i32 @_ZN4llvm3sys7unicode14foldCharSimpleEi(i32 noundef
   br label %645
 
 347:                                              ; preds = %343
-  %348 = icmp ult i32 %0, 8088
+  %348 = icmp samesign ult i32 %0, 8088
   br i1 %348, label %645, label %349
 
 349:                                              ; preds = %347
-  %350 = icmp ult i32 %0, 8096
+  %350 = icmp samesign ult i32 %0, 8096
   br i1 %350, label %351, label %353
 
 351:                                              ; preds = %349
@@ -772,11 +772,11 @@ define dso_local noundef i32 @_ZN4llvm3sys7unicode14foldCharSimpleEi(i32 noundef
   br label %645
 
 353:                                              ; preds = %349
-  %354 = icmp ult i32 %0, 8104
+  %354 = icmp samesign ult i32 %0, 8104
   br i1 %354, label %645, label %355
 
 355:                                              ; preds = %353
-  %356 = icmp ult i32 %0, 8112
+  %356 = icmp samesign ult i32 %0, 8112
   br i1 %356, label %357, label %359
 
 357:                                              ; preds = %355
@@ -784,11 +784,11 @@ define dso_local noundef i32 @_ZN4llvm3sys7unicode14foldCharSimpleEi(i32 noundef
   br label %645
 
 359:                                              ; preds = %355
-  %360 = icmp ult i32 %0, 8120
+  %360 = icmp samesign ult i32 %0, 8120
   br i1 %360, label %645, label %361
 
 361:                                              ; preds = %359
-  %362 = icmp ult i32 %0, 8122
+  %362 = icmp samesign ult i32 %0, 8122
   br i1 %362, label %363, label %365
 
 363:                                              ; preds = %361
@@ -796,7 +796,7 @@ define dso_local noundef i32 @_ZN4llvm3sys7unicode14foldCharSimpleEi(i32 noundef
   br label %645
 
 365:                                              ; preds = %361
-  %366 = icmp ult i32 %0, 8124
+  %366 = icmp samesign ult i32 %0, 8124
   br i1 %366, label %367, label %369
 
 367:                                              ; preds = %365
@@ -813,11 +813,11 @@ define dso_local noundef i32 @_ZN4llvm3sys7unicode14foldCharSimpleEi(i32 noundef
   br label %645
 
 371:                                              ; preds = %369
-  %372 = icmp ult i32 %0, 8136
+  %372 = icmp samesign ult i32 %0, 8136
   br i1 %372, label %645, label %373
 
 373:                                              ; preds = %371
-  %374 = icmp ult i32 %0, 8140
+  %374 = icmp samesign ult i32 %0, 8140
   br i1 %374, label %375, label %377
 
 375:                                              ; preds = %373
@@ -834,11 +834,11 @@ define dso_local noundef i32 @_ZN4llvm3sys7unicode14foldCharSimpleEi(i32 noundef
   br label %645
 
 379:                                              ; preds = %377
-  %380 = icmp ult i32 %0, 8152
+  %380 = icmp samesign ult i32 %0, 8152
   br i1 %380, label %645, label %381
 
 381:                                              ; preds = %379
-  %382 = icmp ult i32 %0, 8154
+  %382 = icmp samesign ult i32 %0, 8154
   br i1 %382, label %383, label %385
 
 383:                                              ; preds = %381
@@ -846,7 +846,7 @@ define dso_local noundef i32 @_ZN4llvm3sys7unicode14foldCharSimpleEi(i32 noundef
   br label %645
 
 385:                                              ; preds = %381
-  %386 = icmp ult i32 %0, 8156
+  %386 = icmp samesign ult i32 %0, 8156
   br i1 %386, label %387, label %389
 
 387:                                              ; preds = %385
@@ -858,11 +858,11 @@ define dso_local noundef i32 @_ZN4llvm3sys7unicode14foldCharSimpleEi(i32 noundef
   br i1 %390, label %645, label %391
 
 391:                                              ; preds = %389
-  %392 = icmp ult i32 %0, 8168
+  %392 = icmp samesign ult i32 %0, 8168
   br i1 %392, label %645, label %393
 
 393:                                              ; preds = %391
-  %394 = icmp ult i32 %0, 8170
+  %394 = icmp samesign ult i32 %0, 8170
   br i1 %394, label %395, label %397
 
 395:                                              ; preds = %393
@@ -870,7 +870,7 @@ define dso_local noundef i32 @_ZN4llvm3sys7unicode14foldCharSimpleEi(i32 noundef
   br label %645
 
 397:                                              ; preds = %393
-  %398 = icmp ult i32 %0, 8172
+  %398 = icmp samesign ult i32 %0, 8172
   br i1 %398, label %399, label %401
 
 399:                                              ; preds = %397
@@ -882,11 +882,11 @@ define dso_local noundef i32 @_ZN4llvm3sys7unicode14foldCharSimpleEi(i32 noundef
   br i1 %402, label %645, label %403
 
 403:                                              ; preds = %401
-  %404 = icmp ult i32 %0, 8184
+  %404 = icmp samesign ult i32 %0, 8184
   br i1 %404, label %645, label %405
 
 405:                                              ; preds = %403
-  %406 = icmp ult i32 %0, 8186
+  %406 = icmp samesign ult i32 %0, 8186
   br i1 %406, label %407, label %409
 
 407:                                              ; preds = %405
@@ -894,7 +894,7 @@ define dso_local noundef i32 @_ZN4llvm3sys7unicode14foldCharSimpleEi(i32 noundef
   br label %645
 
 409:                                              ; preds = %405
-  %410 = icmp ult i32 %0, 8188
+  %410 = icmp samesign ult i32 %0, 8188
   br i1 %410, label %411, label %413
 
 411:                                              ; preds = %409
@@ -923,11 +923,11 @@ define dso_local noundef i32 @_ZN4llvm3sys7unicode14foldCharSimpleEi(i32 noundef
   br label %645
 
 418:                                              ; preds = %413
-  %419 = icmp ult i32 %0, 8544
+  %419 = icmp samesign ult i32 %0, 8544
   br i1 %419, label %645, label %420
 
 420:                                              ; preds = %418
-  %421 = icmp ult i32 %0, 8560
+  %421 = icmp samesign ult i32 %0, 8560
   br i1 %421, label %422, label %424
 
 422:                                              ; preds = %420
@@ -939,11 +939,11 @@ define dso_local noundef i32 @_ZN4llvm3sys7unicode14foldCharSimpleEi(i32 noundef
   br i1 %425, label %645, label %426
 
 426:                                              ; preds = %424
-  %427 = icmp ult i32 %0, 9398
+  %427 = icmp samesign ult i32 %0, 9398
   br i1 %427, label %645, label %428
 
 428:                                              ; preds = %426
-  %429 = icmp ult i32 %0, 9424
+  %429 = icmp samesign ult i32 %0, 9424
   br i1 %429, label %430, label %432
 
 430:                                              ; preds = %428
@@ -951,11 +951,11 @@ define dso_local noundef i32 @_ZN4llvm3sys7unicode14foldCharSimpleEi(i32 noundef
   br label %645
 
 432:                                              ; preds = %428
-  %433 = icmp ult i32 %0, 11264
+  %433 = icmp samesign ult i32 %0, 11264
   br i1 %433, label %645, label %434
 
 434:                                              ; preds = %432
-  %435 = icmp ult i32 %0, 11312
+  %435 = icmp samesign ult i32 %0, 11312
   br i1 %435, label %436, label %438
 
 436:                                              ; preds = %434
@@ -968,11 +968,11 @@ define dso_local noundef i32 @_ZN4llvm3sys7unicode14foldCharSimpleEi(i32 noundef
   br i1 %439, label %switch.hole_check578, label %440
 
 440:                                              ; preds = %switch.hole_check578, %438
-  %441 = icmp ult i32 %0, 11367
+  %441 = icmp samesign ult i32 %0, 11367
   br i1 %441, label %645, label %442
 
 442:                                              ; preds = %440
-  %443 = icmp ugt i32 %0, 11371
+  %443 = icmp samesign ugt i32 %0, 11371
   %or.cond520 = or i1 %443, %.not
   br i1 %or.cond520, label %446, label %444
 
@@ -986,11 +986,11 @@ define dso_local noundef i32 @_ZN4llvm3sys7unicode14foldCharSimpleEi(i32 noundef
   br i1 %447, label %switch.lookup585, label %448
 
 448:                                              ; preds = %446
-  %449 = icmp ult i32 %0, 11378
+  %449 = icmp samesign ult i32 %0, 11378
   br i1 %449, label %645, label %450
 
 450:                                              ; preds = %448
-  %451 = icmp ult i32 %0, 11382
+  %451 = icmp samesign ult i32 %0, 11382
   %452 = urem i32 %0, 3
   %453 = icmp eq i32 %452, 2
   %or.cond522 = and i1 %451, %453
@@ -1001,11 +1001,11 @@ define dso_local noundef i32 @_ZN4llvm3sys7unicode14foldCharSimpleEi(i32 noundef
   br label %645
 
 456:                                              ; preds = %450
-  %457 = icmp ult i32 %0, 11390
+  %457 = icmp samesign ult i32 %0, 11390
   br i1 %457, label %645, label %458
 
 458:                                              ; preds = %456
-  %459 = icmp ult i32 %0, 11392
+  %459 = icmp samesign ult i32 %0, 11392
   br i1 %459, label %460, label %462
 
 460:                                              ; preds = %458
@@ -1013,7 +1013,7 @@ define dso_local noundef i32 @_ZN4llvm3sys7unicode14foldCharSimpleEi(i32 noundef
   br label %645
 
 462:                                              ; preds = %458
-  %463 = icmp ult i32 %0, 11491
+  %463 = icmp samesign ult i32 %0, 11491
   br i1 %463, label %464, label %466
 
 464:                                              ; preds = %462
@@ -1021,11 +1021,11 @@ define dso_local noundef i32 @_ZN4llvm3sys7unicode14foldCharSimpleEi(i32 noundef
   br label %645
 
 466:                                              ; preds = %462
-  %467 = icmp ult i32 %0, 11499
+  %467 = icmp samesign ult i32 %0, 11499
   br i1 %467, label %645, label %468
 
 468:                                              ; preds = %466
-  %469 = icmp ugt i32 %0, 11501
+  %469 = icmp samesign ugt i32 %0, 11501
   %or.cond523 = or i1 %469, %.not
   br i1 %or.cond523, label %472, label %470
 
@@ -1034,11 +1034,11 @@ define dso_local noundef i32 @_ZN4llvm3sys7unicode14foldCharSimpleEi(i32 noundef
   br label %645
 
 472:                                              ; preds = %468
-  %473 = icmp ult i32 %0, 11506
+  %473 = icmp samesign ult i32 %0, 11506
   br i1 %473, label %645, label %474
 
 474:                                              ; preds = %472
-  %475 = icmp ult i32 %0, 42561
+  %475 = icmp samesign ult i32 %0, 42561
   %476 = urem i32 %0, 31054
   %477 = icmp eq i32 %476, 11506
   %or.cond525 = and i1 %475, %477
@@ -1049,11 +1049,11 @@ define dso_local noundef i32 @_ZN4llvm3sys7unicode14foldCharSimpleEi(i32 noundef
   br label %645
 
 480:                                              ; preds = %474
-  %481 = icmp ult i32 %0, 42562
+  %481 = icmp samesign ult i32 %0, 42562
   br i1 %481, label %645, label %482
 
 482:                                              ; preds = %480
-  %483 = icmp ult i32 %0, 42605
+  %483 = icmp samesign ult i32 %0, 42605
   br i1 %483, label %484, label %486
 
 484:                                              ; preds = %482
@@ -1061,11 +1061,11 @@ define dso_local noundef i32 @_ZN4llvm3sys7unicode14foldCharSimpleEi(i32 noundef
   br label %645
 
 486:                                              ; preds = %482
-  %487 = icmp ult i32 %0, 42624
+  %487 = icmp samesign ult i32 %0, 42624
   br i1 %487, label %645, label %488
 
 488:                                              ; preds = %486
-  %489 = icmp ult i32 %0, 42651
+  %489 = icmp samesign ult i32 %0, 42651
   br i1 %489, label %490, label %492
 
 490:                                              ; preds = %488
@@ -1073,11 +1073,11 @@ define dso_local noundef i32 @_ZN4llvm3sys7unicode14foldCharSimpleEi(i32 noundef
   br label %645
 
 492:                                              ; preds = %488
-  %493 = icmp ult i32 %0, 42786
+  %493 = icmp samesign ult i32 %0, 42786
   br i1 %493, label %645, label %494
 
 494:                                              ; preds = %492
-  %495 = icmp ult i32 %0, 42799
+  %495 = icmp samesign ult i32 %0, 42799
   br i1 %495, label %496, label %498
 
 496:                                              ; preds = %494
@@ -1085,11 +1085,11 @@ define dso_local noundef i32 @_ZN4llvm3sys7unicode14foldCharSimpleEi(i32 noundef
   br label %645
 
 498:                                              ; preds = %494
-  %499 = icmp ult i32 %0, 42802
+  %499 = icmp samesign ult i32 %0, 42802
   br i1 %499, label %645, label %500
 
 500:                                              ; preds = %498
-  %501 = icmp ult i32 %0, 42863
+  %501 = icmp samesign ult i32 %0, 42863
   br i1 %501, label %502, label %504
 
 502:                                              ; preds = %500
@@ -1097,11 +1097,11 @@ define dso_local noundef i32 @_ZN4llvm3sys7unicode14foldCharSimpleEi(i32 noundef
   br label %645
 
 504:                                              ; preds = %500
-  %505 = icmp ult i32 %0, 42873
+  %505 = icmp samesign ult i32 %0, 42873
   br i1 %505, label %645, label %506
 
 506:                                              ; preds = %504
-  %507 = icmp ugt i32 %0, 42875
+  %507 = icmp samesign ugt i32 %0, 42875
   %or.cond526 = or i1 %507, %.not
   br i1 %or.cond526, label %510, label %508
 
@@ -1114,11 +1114,11 @@ define dso_local noundef i32 @_ZN4llvm3sys7unicode14foldCharSimpleEi(i32 noundef
   br i1 %511, label %645, label %512
 
 512:                                              ; preds = %510
-  %513 = icmp ult i32 %0, 42878
+  %513 = icmp samesign ult i32 %0, 42878
   br i1 %513, label %645, label %514
 
 514:                                              ; preds = %512
-  %515 = icmp ult i32 %0, 42887
+  %515 = icmp samesign ult i32 %0, 42887
   br i1 %515, label %516, label %518
 
 516:                                              ; preds = %514
@@ -1135,11 +1135,11 @@ define dso_local noundef i32 @_ZN4llvm3sys7unicode14foldCharSimpleEi(i32 noundef
   br label %645
 
 520:                                              ; preds = %518
-  %521 = icmp ult i32 %0, 42896
+  %521 = icmp samesign ult i32 %0, 42896
   br i1 %521, label %645, label %522
 
 522:                                              ; preds = %520
-  %523 = icmp ult i32 %0, 42899
+  %523 = icmp samesign ult i32 %0, 42899
   br i1 %523, label %524, label %526
 
 524:                                              ; preds = %522
@@ -1147,11 +1147,11 @@ define dso_local noundef i32 @_ZN4llvm3sys7unicode14foldCharSimpleEi(i32 noundef
   br label %645
 
 526:                                              ; preds = %522
-  %527 = icmp ult i32 %0, 42902
+  %527 = icmp samesign ult i32 %0, 42902
   br i1 %527, label %645, label %528
 
 528:                                              ; preds = %526
-  %529 = icmp ult i32 %0, 42921
+  %529 = icmp samesign ult i32 %0, 42921
   br i1 %529, label %530, label %532
 
 530:                                              ; preds = %528
@@ -1164,11 +1164,11 @@ define dso_local noundef i32 @_ZN4llvm3sys7unicode14foldCharSimpleEi(i32 noundef
   br i1 %533, label %switch.hole_check591, label %534
 
 534:                                              ; preds = %switch.hole_check591, %532
-  %535 = icmp ult i32 %0, 42932
+  %535 = icmp samesign ult i32 %0, 42932
   br i1 %535, label %645, label %536
 
 536:                                              ; preds = %534
-  %537 = icmp ult i32 %0, 42947
+  %537 = icmp samesign ult i32 %0, 42947
   br i1 %537, label %538, label %540
 
 538:                                              ; preds = %536
@@ -1181,11 +1181,11 @@ define dso_local noundef i32 @_ZN4llvm3sys7unicode14foldCharSimpleEi(i32 noundef
   br i1 %541, label %switch.lookup598, label %542
 
 542:                                              ; preds = %540
-  %543 = icmp ult i32 %0, 42951
+  %543 = icmp samesign ult i32 %0, 42951
   br i1 %543, label %645, label %544
 
 544:                                              ; preds = %542
-  %545 = icmp ugt i32 %0, 42953
+  %545 = icmp samesign ugt i32 %0, 42953
   %or.cond527 = or i1 %545, %.not
   br i1 %or.cond527, label %548, label %546
 
@@ -1194,11 +1194,11 @@ define dso_local noundef i32 @_ZN4llvm3sys7unicode14foldCharSimpleEi(i32 noundef
   br label %645
 
 548:                                              ; preds = %544
-  %549 = icmp ult i32 %0, 42960
+  %549 = icmp samesign ult i32 %0, 42960
   br i1 %549, label %645, label %550
 
 550:                                              ; preds = %548
-  %551 = icmp ult i32 %0, 42967
+  %551 = icmp samesign ult i32 %0, 42967
   %552 = icmp eq i32 %253, 0
   %or.cond529 = and i1 %551, %552
   br i1 %or.cond529, label %553, label %555
@@ -1208,11 +1208,11 @@ define dso_local noundef i32 @_ZN4llvm3sys7unicode14foldCharSimpleEi(i32 noundef
   br label %645
 
 555:                                              ; preds = %550
-  %556 = icmp ult i32 %0, 42968
+  %556 = icmp samesign ult i32 %0, 42968
   br i1 %556, label %645, label %557
 
 557:                                              ; preds = %555
-  %558 = icmp ult i32 %0, 42998
+  %558 = icmp samesign ult i32 %0, 42998
   %559 = urem i32 %0, 29
   %560 = icmp eq i32 %559, 19
   %or.cond531 = and i1 %558, %560
@@ -1223,11 +1223,11 @@ define dso_local noundef i32 @_ZN4llvm3sys7unicode14foldCharSimpleEi(i32 noundef
   br label %645
 
 563:                                              ; preds = %557
-  %564 = icmp ult i32 %0, 43888
+  %564 = icmp samesign ult i32 %0, 43888
   br i1 %564, label %645, label %565
 
 565:                                              ; preds = %563
-  %566 = icmp ult i32 %0, 43968
+  %566 = icmp samesign ult i32 %0, 43968
   br i1 %566, label %567, label %569
 
 567:                                              ; preds = %565
@@ -1239,11 +1239,11 @@ define dso_local noundef i32 @_ZN4llvm3sys7unicode14foldCharSimpleEi(i32 noundef
   br i1 %570, label %645, label %571
 
 571:                                              ; preds = %569
-  %572 = icmp ult i32 %0, 65313
+  %572 = icmp samesign ult i32 %0, 65313
   br i1 %572, label %645, label %573
 
 573:                                              ; preds = %571
-  %574 = icmp ult i32 %0, 65339
+  %574 = icmp samesign ult i32 %0, 65339
   br i1 %574, label %575, label %577
 
 575:                                              ; preds = %573
@@ -1251,11 +1251,11 @@ define dso_local noundef i32 @_ZN4llvm3sys7unicode14foldCharSimpleEi(i32 noundef
   br label %645
 
 577:                                              ; preds = %573
-  %578 = icmp ult i32 %0, 66560
+  %578 = icmp samesign ult i32 %0, 66560
   br i1 %578, label %645, label %579
 
 579:                                              ; preds = %577
-  %580 = icmp ult i32 %0, 66600
+  %580 = icmp samesign ult i32 %0, 66600
   br i1 %580, label %581, label %583
 
 581:                                              ; preds = %579
@@ -1263,11 +1263,11 @@ define dso_local noundef i32 @_ZN4llvm3sys7unicode14foldCharSimpleEi(i32 noundef
   br label %645
 
 583:                                              ; preds = %579
-  %584 = icmp ult i32 %0, 66736
+  %584 = icmp samesign ult i32 %0, 66736
   br i1 %584, label %645, label %585
 
 585:                                              ; preds = %583
-  %586 = icmp ult i32 %0, 66772
+  %586 = icmp samesign ult i32 %0, 66772
   br i1 %586, label %587, label %589
 
 587:                                              ; preds = %585
@@ -1275,11 +1275,11 @@ define dso_local noundef i32 @_ZN4llvm3sys7unicode14foldCharSimpleEi(i32 noundef
   br label %645
 
 589:                                              ; preds = %585
-  %590 = icmp ult i32 %0, 66928
+  %590 = icmp samesign ult i32 %0, 66928
   br i1 %590, label %645, label %591
 
 591:                                              ; preds = %589
-  %592 = icmp ult i32 %0, 66939
+  %592 = icmp samesign ult i32 %0, 66939
   br i1 %592, label %593, label %595
 
 593:                                              ; preds = %591
@@ -1291,7 +1291,7 @@ define dso_local noundef i32 @_ZN4llvm3sys7unicode14foldCharSimpleEi(i32 noundef
   br i1 %596, label %645, label %597
 
 597:                                              ; preds = %595
-  %598 = icmp ult i32 %0, 66955
+  %598 = icmp samesign ult i32 %0, 66955
   br i1 %598, label %599, label %601
 
 599:                                              ; preds = %597
@@ -1303,7 +1303,7 @@ define dso_local noundef i32 @_ZN4llvm3sys7unicode14foldCharSimpleEi(i32 noundef
   br i1 %602, label %645, label %603
 
 603:                                              ; preds = %601
-  %604 = icmp ult i32 %0, 66963
+  %604 = icmp samesign ult i32 %0, 66963
   br i1 %604, label %605, label %607
 
 605:                                              ; preds = %603
@@ -1315,7 +1315,7 @@ define dso_local noundef i32 @_ZN4llvm3sys7unicode14foldCharSimpleEi(i32 noundef
   br i1 %608, label %645, label %609
 
 609:                                              ; preds = %607
-  %610 = icmp ult i32 %0, 66966
+  %610 = icmp samesign ult i32 %0, 66966
   br i1 %610, label %611, label %613
 
 611:                                              ; preds = %609
@@ -1323,11 +1323,11 @@ define dso_local noundef i32 @_ZN4llvm3sys7unicode14foldCharSimpleEi(i32 noundef
   br label %645
 
 613:                                              ; preds = %609
-  %614 = icmp ult i32 %0, 68736
+  %614 = icmp samesign ult i32 %0, 68736
   br i1 %614, label %645, label %615
 
 615:                                              ; preds = %613
-  %616 = icmp ult i32 %0, 68787
+  %616 = icmp samesign ult i32 %0, 68787
   br i1 %616, label %617, label %619
 
 617:                                              ; preds = %615
@@ -1335,11 +1335,11 @@ define dso_local noundef i32 @_ZN4llvm3sys7unicode14foldCharSimpleEi(i32 noundef
   br label %645
 
 619:                                              ; preds = %615
-  %620 = icmp ult i32 %0, 71840
+  %620 = icmp samesign ult i32 %0, 71840
   br i1 %620, label %645, label %621
 
 621:                                              ; preds = %619
-  %622 = icmp ult i32 %0, 71872
+  %622 = icmp samesign ult i32 %0, 71872
   br i1 %622, label %623, label %625
 
 623:                                              ; preds = %621
@@ -1347,11 +1347,11 @@ define dso_local noundef i32 @_ZN4llvm3sys7unicode14foldCharSimpleEi(i32 noundef
   br label %645
 
 625:                                              ; preds = %621
-  %626 = icmp ult i32 %0, 93760
+  %626 = icmp samesign ult i32 %0, 93760
   br i1 %626, label %645, label %627
 
 627:                                              ; preds = %625
-  %628 = icmp ult i32 %0, 93792
+  %628 = icmp samesign ult i32 %0, 93792
   br i1 %628, label %629, label %631
 
 629:                                              ; preds = %627

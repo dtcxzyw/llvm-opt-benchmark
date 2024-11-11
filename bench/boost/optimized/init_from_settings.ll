@@ -18138,7 +18138,7 @@ _ZN9__gnu_cxx5__ops15_Iter_comp_iterIN5boost3log11v2_mt_posix3aux21dispatching_m
   %33 = getelementptr inbounds i8, ptr %.069.i.i.i.i.i, i64 -8
   store ptr %32, ptr %33, align 8, !tbaa !863
   %34 = add nsw i64 %.010.i.i.i.i.i, -1
-  %35 = icmp ugt i64 %.010.i.i.i.i.i, 1
+  %35 = icmp samesign ugt i64 %.010.i.i.i.i.i, 1
   br i1 %35, label %.lr.ph.i.i.i.i.i, label %_ZSt13move_backwardIPSt4pairIN5boost9typeindex14stl_type_indexEPvES6_ET0_T_S8_S7_.exit, !llvm.loop !906
 
 _ZSt13move_backwardIPSt4pairIN5boost9typeindex14stl_type_indexEPvES6_ET0_T_S8_S7_.exit: ; preds = %.lr.ph.i.i.i.i.i, %22
@@ -44128,7 +44128,7 @@ _ZN5boost3log11v2_mt_posix9anonymous10is_weekdayIwEEbPKT_mRKNS1_20basic_string_l
   %.2.i.i.i70 = phi ptr [ %scevgep131.i.i.i, %.split.loop.exit82.i.i.i ], [ %89, %.split.loop.exit86.i.i.i ], [ %89, %.split.loop.exit90.i.i.i ], [ %.04774.i.i.i, %.critedge.i.i.i66 ], [ %.04774.i.i.i, %.lr.ph110.preheader.i.i.i ], [ %11, %80 ]
   %.1.i.i.i71 = phi i64 [ 2, %.split.loop.exit82.i.i.i ], [ 1, %.split.loop.exit86.i.i.i ], [ 1, %.split.loop.exit90.i.i.i ], [ 0, %.critedge.i.i.i66 ], [ 0, %.lr.ph110.preheader.i.i.i ], [ 0, %80 ]
   %101 = add nuw nsw i64 %.1.i.i.i71, %.046.lcssa.i.i.i68244
-  %102 = icmp ugt i64 %101, 1
+  %102 = icmp samesign ugt i64 %101, 1
   br i1 %102, label %_ZN5boost6spirit2qi12extract_uintIhLj10ELj2ELi2ELb0ELb0EE4callIPKwEEbRT_RKS7_Rh.exit, label %_ZN5boost6spirit2qi12extract_uintIhLj10ELj2ELi2ELb0ELb0EE4callIPKwEEbRT_RKS7_Rh.exit.thread
 
 _ZN5boost6spirit2qi12extract_uintIhLj10ELj2ELi2ELb0ELb0EE4callIPKwEEbRT_RKS7_Rh.exit: ; preds = %.split.loop.exit94.i.i.i
@@ -44163,7 +44163,7 @@ _ZN5boost6spirit2qi12extract_uintIhLj10ELj2ELi2ELb0ELb0EE4callIPKwEEbRT_RKS7_Rh.
 .critedge.i.i.i78:                                ; preds = %110, %.lr.ph.i.i.i74
   %.047.lcssa.i.i.i79 = phi ptr [ %111, %110 ], [ %.04774.i.i.i76, %.lr.ph.i.i.i74 ]
   %.046.lcssa.i.i.i80 = phi i64 [ %112, %110 ], [ %.04675.i.i.i75, %.lr.ph.i.i.i74 ]
-  %113 = icmp ugt i64 %.046.lcssa.i.i.i80, 1
+  %113 = icmp samesign ugt i64 %.046.lcssa.i.i.i80, 1
   %114 = icmp eq ptr %.047.lcssa.i.i.i79, %11
   %or.cond56106.i.i.i81 = or i1 %114, %113
   br i1 %or.cond56106.i.i.i81, label %.split.loop.exit94.i.i.i85, label %.lr.ph110.preheader.i.i.i82
@@ -44209,7 +44209,7 @@ _ZN5boost6spirit2qi12extract_uintIhLj10ELj2ELi2ELb0ELb0EE4callIPKwEEbRT_RKS7_Rh.
   %.2.i.i.i87 = phi ptr [ %scevgep131.i.i.i83, %.split.loop.exit82.i.i.i94 ], [ %119, %.split.loop.exit86.i.i.i93 ], [ %119, %.split.loop.exit90.i.i.i95 ], [ %.047.lcssa.i.i.i79, %.critedge.i.i.i78 ], [ %.047.lcssa.i.i.i79, %.lr.ph110.preheader.i.i.i82 ]
   %.1.i.i.i88 = phi i64 [ 2, %.split.loop.exit82.i.i.i94 ], [ 1, %.split.loop.exit86.i.i.i93 ], [ 1, %.split.loop.exit90.i.i.i95 ], [ 0, %.critedge.i.i.i78 ], [ 0, %.lr.ph110.preheader.i.i.i82 ]
   %131 = add nuw nsw i64 %.1.i.i.i88, %.046.lcssa.i.i.i80
-  %132 = icmp ugt i64 %131, 1
+  %132 = icmp samesign ugt i64 %131, 1
   br i1 %132, label %_ZN5boost6spirit2qi12extract_uintIhLj10ELj2ELi2ELb0ELb0EE4callIPKwEEbRT_RKS7_Rh.exit97, label %_ZN5boost6spirit2qi12extract_uintIhLj10ELj2ELi2ELb0ELb0EE4callIPKwEEbRT_RKS7_Rh.exit97.thread
 
 _ZN5boost6spirit2qi12extract_uintIhLj10ELj2ELi2ELb0ELb0EE4callIPKwEEbRT_RKS7_Rh.exit97: ; preds = %.split.loop.exit94.i.i.i85
@@ -44244,7 +44244,7 @@ _ZN5boost6spirit2qi12extract_uintIhLj10ELj2ELi2ELb0ELb0EE4callIPKwEEbRT_RKS7_Rh.
 .critedge.i.i.i102:                               ; preds = %140, %.lr.ph.i.i.i98
   %.047.lcssa.i.i.i103 = phi ptr [ %141, %140 ], [ %.04774.i.i.i100, %.lr.ph.i.i.i98 ]
   %.046.lcssa.i.i.i104 = phi i64 [ %142, %140 ], [ %.04675.i.i.i99, %.lr.ph.i.i.i98 ]
-  %143 = icmp ugt i64 %.046.lcssa.i.i.i104, 1
+  %143 = icmp samesign ugt i64 %.046.lcssa.i.i.i104, 1
   %144 = icmp eq ptr %.047.lcssa.i.i.i103, %11
   %or.cond56106.i.i.i105 = or i1 %144, %143
   br i1 %or.cond56106.i.i.i105, label %.split.loop.exit94.i.i.i109, label %.lr.ph110.preheader.i.i.i106
@@ -44290,7 +44290,7 @@ _ZN5boost6spirit2qi12extract_uintIhLj10ELj2ELi2ELb0ELb0EE4callIPKwEEbRT_RKS7_Rh.
   %.2.i.i.i111 = phi ptr [ %scevgep131.i.i.i107, %.split.loop.exit82.i.i.i118 ], [ %149, %.split.loop.exit86.i.i.i117 ], [ %149, %.split.loop.exit90.i.i.i119 ], [ %.047.lcssa.i.i.i103, %.critedge.i.i.i102 ], [ %.047.lcssa.i.i.i103, %.lr.ph110.preheader.i.i.i106 ]
   %.1.i.i.i112 = phi i64 [ 2, %.split.loop.exit82.i.i.i118 ], [ 1, %.split.loop.exit86.i.i.i117 ], [ 1, %.split.loop.exit90.i.i.i119 ], [ 0, %.critedge.i.i.i102 ], [ 0, %.lr.ph110.preheader.i.i.i106 ]
   %161 = add nuw nsw i64 %.1.i.i.i112, %.046.lcssa.i.i.i104
-  %162 = icmp ugt i64 %161, 1
+  %162 = icmp samesign ugt i64 %161, 1
   %.not31 = icmp eq ptr %.2.i.i.i111, %11
   %or.cond228 = select i1 %162, i1 %.not31, i1 false
   br i1 %or.cond228, label %163, label %_ZN5boost6spirit2qi12extract_uintIhLj10ELj2ELi2ELb0ELb0EE4callIPKwEEbRT_RKS7_Rh.exit121.thread

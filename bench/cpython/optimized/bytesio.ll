@@ -2985,7 +2985,7 @@ entry:
 
 if.end:                                           ; preds = %entry
   %div17 = lshr i64 %.val18, 1
-  %cmp1 = icmp ult i64 %size, %div17
+  %cmp1 = icmp samesign ult i64 %size, %div17
   br i1 %cmp1, label %if.then2, label %if.else
 
 if.then2:                                         ; preds = %if.end
@@ -3006,7 +3006,7 @@ if.else5:                                         ; preds = %if.else
 if.then9:                                         ; preds = %if.else5
   %shr = lshr i64 %size, 3
   %add10 = add nuw i64 %shr, %size
-  %cmp11 = icmp ult i64 %size, 9
+  %cmp11 = icmp samesign ult i64 %size, 9
   %conv13 = select i1 %cmp11, i64 3, i64 6
   %add14 = add nuw i64 %add10, %conv13
   br label %if.end23

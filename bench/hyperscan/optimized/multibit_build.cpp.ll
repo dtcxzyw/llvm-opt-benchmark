@@ -1182,7 +1182,7 @@ if.end:                                           ; preds = %entry
   br i1 %cmp, label %for.cond.preheader, label %if.end60
 
 for.cond.preheader:                               ; preds = %if.end
-  %cmp2352 = icmp ugt i32 %total_bits, 64
+  %cmp2352 = icmp samesign ugt i32 %total_bits, 64
   br i1 %cmp2352, label %for.body.lr.ph, label %for.end
 
 for.body.lr.ph:                                   ; preds = %for.cond.preheader
@@ -1334,7 +1334,7 @@ if.then3.i:                                       ; preds = %if.end.i
 
 _ZL14get_flat_masksjjj.exit:                      ; preds = %if.then3.i, %if.end.i, %for.end
   %retval.0.i = phi i64 [ 0, %for.end ], [ %and.i, %if.then3.i ], [ %cond.i, %if.end.i ]
-  %cmp6 = icmp ult i32 %bits.0.lcssa, 9
+  %cmp6 = icmp samesign ult i32 %bits.0.lcssa, 9
   br i1 %cmp6, label %if.then7, label %if.else
 
 if.then7:                                         ; preds = %_ZL14get_flat_masksjjj.exit
@@ -1418,7 +1418,7 @@ _ZN3ue2L11add_scatterI15scatter_unit_u8EEvPSt6vectorIT_SaIS3_EEjy.exit: ; preds 
   br label %cleanup.cont147
 
 if.else:                                          ; preds = %_ZL14get_flat_masksjjj.exit
-  %cmp9 = icmp ult i32 %bits.0.lcssa, 17
+  %cmp9 = icmp samesign ult i32 %bits.0.lcssa, 17
   br i1 %cmp9, label %if.then10, label %if.else12
 
 if.then10:                                        ; preds = %if.else
@@ -1502,7 +1502,7 @@ _ZN3ue2L11add_scatterI16scatter_unit_u16EEvPSt6vectorIT_SaIS3_EEjy.exit: ; preds
   br label %cleanup.cont147
 
 if.else12:                                        ; preds = %if.else
-  %cmp13 = icmp ult i32 %bits.0.lcssa, 25
+  %cmp13 = icmp samesign ult i32 %bits.0.lcssa, 25
   br i1 %cmp13, label %if.then14, label %if.else19
 
 if.then14:                                        ; preds = %if.else12
@@ -1665,7 +1665,7 @@ _ZN3ue2L11add_scatterI15scatter_unit_u8EEvPSt6vectorIT_SaIS3_EEjy.exit124: ; pre
   br label %cleanup.cont147
 
 if.else19:                                        ; preds = %if.else12
-  %cmp20 = icmp ult i32 %bits.0.lcssa, 33
+  %cmp20 = icmp samesign ult i32 %bits.0.lcssa, 33
   br i1 %cmp20, label %if.then21, label %if.else23
 
 if.then21:                                        ; preds = %if.else19
@@ -1674,7 +1674,7 @@ if.then21:                                        ; preds = %if.else19
   br label %cleanup.cont147
 
 if.else23:                                        ; preds = %if.else19
-  %cmp24 = icmp ult i32 %bits.0.lcssa, 41
+  %cmp24 = icmp samesign ult i32 %bits.0.lcssa, 41
   br i1 %cmp24, label %if.then25, label %if.else31
 
 if.then25:                                        ; preds = %if.else23
@@ -1687,7 +1687,7 @@ if.then25:                                        ; preds = %if.else23
   br label %cleanup.cont147
 
 if.else31:                                        ; preds = %if.else23
-  %cmp32 = icmp ult i32 %bits.0.lcssa, 49
+  %cmp32 = icmp samesign ult i32 %bits.0.lcssa, 49
   br i1 %cmp32, label %if.then33, label %if.else39
 
 if.then33:                                        ; preds = %if.else31
@@ -1700,7 +1700,7 @@ if.then33:                                        ; preds = %if.else31
   br label %cleanup.cont147
 
 if.else39:                                        ; preds = %if.else31
-  %cmp40 = icmp ult i32 %bits.0.lcssa, 57
+  %cmp40 = icmp samesign ult i32 %bits.0.lcssa, 57
   br i1 %cmp40, label %if.then41, label %if.else50
 
 if.then41:                                        ; preds = %if.else39

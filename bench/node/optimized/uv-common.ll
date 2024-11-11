@@ -2244,7 +2244,7 @@ entry:
 if.end7:                                          ; preds = %entry
   %call = tail call i32 @uv__udp_init_ex(ptr noundef %loop, ptr noundef %handle, i32 noundef %flags, i32 noundef %and) #25
   %cmp8 = icmp ne i32 %call, 0
-  %tobool11.not = icmp ult i32 %flags, 256
+  %tobool11.not = icmp samesign ult i32 %flags, 256
   %or.cond10 = or i1 %tobool11.not, %cmp8
   br i1 %or.cond10, label %return, label %if.then12
 

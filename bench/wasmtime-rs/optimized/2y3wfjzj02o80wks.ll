@@ -2210,9 +2210,9 @@ define void @_ZN18cranelift_frontend8frontend15FunctionBuilder22emit_small_memor
 
 46:                                               ; preds = %42
   %47 = zext i8 %7 to i64
-  %.not19 = icmp ugt i64 %.01454, %47
+  %.not19 = icmp samesign ugt i64 %.01454, %47
   %48 = zext i8 %6 to i64
-  %.not20 = icmp ugt i64 %.01454, %48
+  %.not20 = icmp samesign ugt i64 %.01454, %48
   %or.cond = or i1 %.not19, %.not20
   br i1 %or.cond, label %62, label %75
 
@@ -2727,7 +2727,7 @@ define void @_ZN18cranelift_frontend8frontend15FunctionBuilder17emit_small_memse
   unreachable
 
 43:                                               ; preds = %38
-  %.not23 = icmp ugt i64 %.01640, %22
+  %.not23 = icmp samesign ugt i64 %.01640, %22
   br i1 %.not23, label %66, label %68
 
 44:                                               ; preds = %38

@@ -24239,7 +24239,7 @@ while.body.i.i.i.i:                               ; preds = %if.else, %while.bod
   br i1 %cmp1.i.i.i.i, label %while.body.i.i.i.i, label %while.end.i.i.i.i, !llvm.loop !341
 
 while.end.i.i.i.i:                                ; preds = %while.body.i.i.i.i
-  %cmp4.i.i.i.i = icmp ult i32 %value.addr.021.i.i.i.i, 1000
+  %cmp4.i.i.i.i = icmp samesign ult i32 %value.addr.021.i.i.i.i, 1000
   br i1 %cmp4.i.i.i.i, label %if.then.i.i.i.i, label %if.end.i.i.i.i
 
 if.then.i.i.i.i:                                  ; preds = %while.end.i.i.i.i
@@ -32175,7 +32175,7 @@ for.body.i:                                       ; preds = %for.body.i, %for.bo
   store i16 %6, ptr %add.ptr2.i, align 1
   %div4.i = udiv i32 %significand.addr.048.i, 100
   %dec.i = add nsw i32 %i.049.i, -1
-  %cmp.i = icmp ugt i32 %i.049.i, 1
+  %cmp.i = icmp samesign ugt i32 %i.049.i, 1
   br i1 %cmp.i, label %for.body.i, label %for.end.i, !llvm.loop !371
 
 for.end.i:                                        ; preds = %for.body.i, %if.end.i
@@ -32353,7 +32353,7 @@ _ZNSt20back_insert_iteratorIN3fmt2v96detail6bufferIcEEEaSEOc.exit23: ; preds = %
 
 if.end:                                           ; preds = %_ZNSt20back_insert_iteratorIN3fmt2v96detail6bufferIcEEEaSEOc.exit23, %_ZNSt20back_insert_iteratorIN3fmt2v96detail6bufferIcEEEaSEOc.exit
   %exp.addr.0 = phi i32 [ %sub, %_ZNSt20back_insert_iteratorIN3fmt2v96detail6bufferIcEEEaSEOc.exit ], [ %exp, %_ZNSt20back_insert_iteratorIN3fmt2v96detail6bufferIcEEEaSEOc.exit23 ]
-  %cmp17 = icmp ugt i32 %exp.addr.0, 99
+  %cmp17 = icmp samesign ugt i32 %exp.addr.0, 99
   br i1 %cmp17, label %if.then18, label %if.end39
 
 if.then18:                                        ; preds = %if.end
@@ -32362,7 +32362,7 @@ if.then18:                                        ; preds = %if.end
   %8 = shl nuw nsw i32 %div, 1
   %mul.i = zext nneg i32 %8 to i64
   %arrayidx.i = getelementptr inbounds [201 x i8], ptr @.str.70, i64 0, i64 %mul.i
-  %cmp21 = icmp ugt i32 %exp.addr.0, 999
+  %cmp21 = icmp samesign ugt i32 %exp.addr.0, 999
   br i1 %cmp21, label %if.then22, label %if.end30
 
 if.then22:                                        ; preds = %if.then18
@@ -35051,7 +35051,7 @@ for.body.i:                                       ; preds = %for.body.i, %for.bo
   store i16 %3, ptr %add.ptr2.i, align 1
   %div4.i = udiv i64 %significand.addr.048.i, 100
   %dec.i = add nsw i32 %i.049.i, -1
-  %cmp.i = icmp ugt i32 %i.049.i, 1
+  %cmp.i = icmp samesign ugt i32 %i.049.i, 1
   br i1 %cmp.i, label %for.body.i, label %for.end.i, !llvm.loop !372
 
 for.end.i:                                        ; preds = %for.body.i, %if.end.i
@@ -43804,7 +43804,7 @@ if.then.i.i.i:                                    ; preds = %_ZZN3fmt2v96detail1
   br i1 %cmp.i.i.i, label %_ZNK3fmt2v920basic_format_contextINS0_8appenderEcE3argEi.exit.i, label %if.then.i94
 
 if.end4.i.i.i:                                    ; preds = %_ZZN3fmt2v96detail10vformat_toIcEEvRNS1_6bufferIT_EENS0_17basic_string_viewIS4_EENS0_17basic_format_argsINS0_20basic_format_contextINSt11conditionalIXsr3std7is_sameINS0_13type_identityIS4_E4typeEcEE5valueENS0_8appenderESt20back_insert_iteratorINS3_ISE_EEEE4typeESE_EEEENS1_10locale_refEEN14format_handler9on_arg_idEv.exit
-  %cmp5.i.i.i = icmp ugt i32 %1, 14
+  %cmp5.i.i.i = icmp samesign ugt i32 %1, 14
   br i1 %cmp5.i.i.i, label %if.then.i94, label %if.end7.i.i.i
 
 if.end7.i.i.i:                                    ; preds = %if.end4.i.i.i
@@ -44991,7 +44991,7 @@ if.then.i.i:                                      ; preds = %sw.bb.i35
   unreachable
 
 _ZN3fmt2v96detail13specs_checkerINS1_13specs_handlerIcEEE24require_numeric_argumentEv.exit.i: ; preds = %sw.bb.i35
-  %30 = icmp ult i32 %14, 9
+  %30 = icmp samesign ult i32 %14, 9
   br i1 %30, label %switch.hole_check, label %sw.epilog.i33.sink.split
 
 if.then.i156:                                     ; preds = %switch.hole_check
@@ -45007,7 +45007,7 @@ if.then.i.i158:                                   ; preds = %sw.bb20.i34
   unreachable
 
 _ZN3fmt2v96detail13specs_checkerINS1_13specs_handlerIcEEE24require_numeric_argumentEv.exit.i159: ; preds = %sw.bb20.i34
-  %32 = icmp ult i32 %14, 9
+  %32 = icmp samesign ult i32 %14, 9
   br i1 %32, label %switch.hole_check335, label %sw.epilog.i33.sink.split
 
 if.then.i165:                                     ; preds = %switch.hole_check335
@@ -45023,7 +45023,7 @@ if.then.i.i168:                                   ; preds = %sw.bb22.i32
   unreachable
 
 _ZN3fmt2v96detail13specs_checkerINS1_13specs_handlerIcEEE24require_numeric_argumentEv.exit.i169: ; preds = %sw.bb22.i32
-  %34 = icmp ult i32 %14, 9
+  %34 = icmp samesign ult i32 %14, 9
   br i1 %34, label %switch.hole_check342, label %sw.epilog.i33.sink.split
 
 if.then.i175:                                     ; preds = %switch.hole_check342
@@ -45817,7 +45817,7 @@ if.then.i.i.i.i.i.i:                              ; preds = %_ZN3fmt2v926basic_f
   br i1 %cmp.i.i.i.i.i.i, label %_ZNK3fmt2v920basic_format_contextINS0_8appenderEcE3argEi.exit.i.i.i.i, label %if.then.i1.i.i.i
 
 if.end4.i.i.i.i.i.i:                              ; preds = %_ZN3fmt2v926basic_format_parse_contextIcNS0_6detail13error_handlerEE11next_arg_idEv.exit.i.i.i
-  %cmp5.i.i.i.i.i.i = icmp ugt i32 %12, 14
+  %cmp5.i.i.i.i.i.i = icmp samesign ugt i32 %12, 14
   br i1 %cmp5.i.i.i.i.i.i, label %if.then.i1.i.i.i, label %if.end7.i.i.i.i.i.i
 
 if.end7.i.i.i.i.i.i:                              ; preds = %if.end4.i.i.i.i.i.i
@@ -46016,7 +46016,7 @@ if.then.i.i.i.i.i.i:                              ; preds = %_ZN3fmt2v926basic_f
   br i1 %cmp.i.i.i.i.i.i, label %_ZNK3fmt2v920basic_format_contextINS0_8appenderEcE3argEi.exit.i.i.i.i, label %if.then.i1.i.i.i
 
 if.end4.i.i.i.i.i.i:                              ; preds = %_ZN3fmt2v926basic_format_parse_contextIcNS0_6detail13error_handlerEE11next_arg_idEv.exit.i.i.i
-  %cmp5.i.i.i.i.i.i = icmp ugt i32 %13, 14
+  %cmp5.i.i.i.i.i.i = icmp samesign ugt i32 %13, 14
   br i1 %cmp5.i.i.i.i.i.i, label %if.then.i1.i.i.i, label %if.end7.i.i.i.i.i.i
 
 if.end7.i.i.i.i.i.i:                              ; preds = %if.end4.i.i.i.i.i.i
@@ -46526,7 +46526,7 @@ if.then3.i:                                       ; preds = %if.then.i
   br label %cond.end
 
 if.end4.i:                                        ; preds = %cond.true
-  %cmp5.i = icmp ugt i32 %7, 14
+  %cmp5.i = icmp samesign ugt i32 %7, 14
   br i1 %cmp5.i, label %cond.end, label %if.end7.i
 
 if.end7.i:                                        ; preds = %if.end4.i
@@ -53649,7 +53649,7 @@ for.body.i:                                       ; preds = %land.rhs32.i
   %36 = load i8, ptr %gep, align 1
   %inc45.i = add i8 %36, 1
   store i8 %inc45.i, ptr %gep, align 1
-  %cmp31.i = icmp ugt i64 %indvars.iv.i, 2
+  %cmp31.i = icmp samesign ugt i64 %indvars.iv.i, 2
   br i1 %cmp31.i, label %land.rhs32.i, label %for.end.i, !llvm.loop !527
 
 for.end.i:                                        ; preds = %for.body.i, %land.rhs32.i, %if.end22.i
@@ -53748,7 +53748,7 @@ for.body.i178:                                    ; preds = %land.rhs32.i173
   %46 = load i8, ptr %gep355, align 1
   %inc45.i180 = add i8 %46, 1
   store i8 %inc45.i180, ptr %gep355, align 1
-  %cmp31.i181 = icmp ugt i64 %indvars.iv.i174, 2
+  %cmp31.i181 = icmp samesign ugt i64 %indvars.iv.i174, 2
   br i1 %cmp31.i181, label %land.rhs32.i173, label %for.end.i160, !llvm.loop !527
 
 for.end.i160:                                     ; preds = %for.body.i178, %land.rhs32.i173

@@ -23506,7 +23506,7 @@ define linkonce_odr noundef i32 @_ZN5Eigen8internal27computeFromTridiagonal_impl
 
 .preheader93:                                     ; preds = %.critedge, %33
   %.171.in = phi i64 [ %.171, %33 ], [ %.1, %.critedge ]
-  %32 = icmp ugt i64 %.171.in, 1
+  %32 = icmp samesign ugt i64 %.171.in, 1
   br i1 %32, label %33, label %.critedge2
 
 33:                                               ; preds = %.preheader93
@@ -31786,7 +31786,7 @@ _ZNSt6vectorIN3vcg6KdTreeIfE9QueryNodeESaIS3_EEC2EmRKS4_.exit: ; preds = %_ZNSt1
   %127 = getelementptr inbounds %"struct.vcg::HeapMaxPriorityQueue<int, float>::Element", ptr %120, i64 %126
   %128 = load i64, ptr %122, align 4
   store i64 %128, ptr %127, align 4
-  %129 = icmp ugt i32 %.03035.i, 3
+  %129 = icmp samesign ugt i32 %.03035.i, 3
   br i1 %129, label %.lr.ph.i, label %._crit_edge.i, !llvm.loop !300
 
 ._crit_edge.i:                                    ; preds = %125, %.lr.ph.i, %116

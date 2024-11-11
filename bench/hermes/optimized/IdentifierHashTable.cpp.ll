@@ -1443,7 +1443,7 @@ while.cond.i.preheader.i:                         ; preds = %if.end28
   br i1 %switch.i2.i, label %while.body.i.i, label %sw.bb5.i.i.i
 
 entry.split.us.i.i:                               ; preds = %if.end28
-  %cmp.i.i.i.i = icmp ult i32 %retval.0.i.i23, 256
+  %cmp.i.i.i.i = icmp samesign ult i32 %retval.0.i.i23, 256
   br i1 %cmp.i.i.i.i, label %while.cond.us.us.i.i, label %while.cond.us.i.i
 
 while.cond.us.us.i.i:                             ; preds = %entry.split.us.i.i

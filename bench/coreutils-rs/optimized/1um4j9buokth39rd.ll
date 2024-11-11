@@ -2269,7 +2269,7 @@ _ZN4rand3rng3Rng3gen17hb4e086ffc20c4290E.exit18:  ; preds = %_ZN4rand3rng3Rng3ge
   store i64 %78, ptr %21, align 16, !alias.scope !390, !noalias !396
   %79 = trunc i32 %77 to i8
   tail call void @llvm.experimental.noalias.scope.decl(metadata !410)
-  %80 = icmp ugt i64 %22, 61
+  %80 = icmp samesign ugt i64 %22, 61
   br i1 %80, label %81, label %_ZN4rand3rng3Rng3gen17hb4e086ffc20c4290E.exit20
 
 81:                                               ; preds = %_ZN4rand3rng3Rng3gen17hb4e086ffc20c4290E.exit18

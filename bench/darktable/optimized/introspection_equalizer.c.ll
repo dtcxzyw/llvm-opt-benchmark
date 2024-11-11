@@ -207,7 +207,7 @@ define void @process(ptr nocapture noundef readnone %0, ptr nocapture noundef re
 112:                                              ; preds = %106
   %113 = sext i32 %102 to i64
   %114 = getelementptr float, ptr %110, i64 %113
-  %115 = icmp ult i32 %104, 32
+  %115 = icmp samesign ult i32 %104, 32
   br i1 %115, label %.preheader203, label %116
 
 .preheader203:                                    ; preds = %137, %112
@@ -251,7 +251,7 @@ define void @process(ptr nocapture noundef readnone %0, ptr nocapture noundef re
   %140 = zext nneg i32 %102 to i64
   %141 = getelementptr float, ptr %110, i64 %140
   %142 = and i64 %140, 3
-  %143 = icmp ult i32 %102, 4
+  %143 = icmp samesign ult i32 %102, 4
   %144 = and i64 %140, 2147483644
   %145 = icmp eq i64 %142, 0
   br label %146

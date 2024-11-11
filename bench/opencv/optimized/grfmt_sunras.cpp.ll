@@ -366,8 +366,8 @@ define hidden noundef zeroext i1 @_ZN2cv16SunRasterDecoder10readHeaderEv(ptr nou
   %.not = icmp sle i32 %31, %23
   %54 = icmp sgt i32 %31, 0
   %or.cond37 = and i1 %.not, %54
-  %55 = icmp ult i32 %39, 9
-  %or.cond39 = and i1 %or.cond37, %55
+  %55 = icmp samesign ult i32 %39, 9
+  %or.cond39 = select i1 %or.cond37, i1 %55, i1 false
   br i1 %or.cond39, label %56, label %125
 
 56:                                               ; preds = %53
@@ -470,7 +470,7 @@ define hidden noundef zeroext i1 @_ZN2cv16SunRasterDecoder10readHeaderEv(ptr nou
 102:                                              ; preds = %48
   %103 = getelementptr inbounds i8, ptr %0, i64 336
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(1024) %103, i8 0, i64 1024, i1 false)
-  %104 = icmp ult i32 %39, 9
+  %104 = icmp samesign ult i32 %39, 9
   %105 = select i1 %104, i32 0, i32 16
   %106 = getelementptr inbounds i8, ptr %0, i64 16
   store i32 %105, ptr %106, align 8

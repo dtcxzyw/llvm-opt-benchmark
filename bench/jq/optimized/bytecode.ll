@@ -336,7 +336,7 @@ define void @dump_operation(ptr nocapture noundef readonly %0, ptr noundef %1) l
   %43 = getelementptr inbounds i8, ptr %.034.i, i64 64
   %44 = load ptr, ptr %43, align 8
   %45 = add nsw i32 %.05.i, -1
-  %46 = icmp ugt i32 %.05.i, 1
+  %46 = icmp samesign ugt i32 %.05.i, 1
   br i1 %46, label %.lr.ph.i, label %getlevel.exit, !llvm.loop !8
 
 getlevel.exit:                                    ; preds = %.lr.ph.i, %40
@@ -374,7 +374,7 @@ getlevel.exit:                                    ; preds = %.lr.ph.i, %40
   %65 = getelementptr inbounds i8, ptr %.034.i98, i64 64
   %66 = load ptr, ptr %65, align 8
   %67 = add nsw i32 %.05.i97, -1
-  %68 = icmp ugt i32 %.05.i97, 1
+  %68 = icmp samesign ugt i32 %.05.i97, 1
   br i1 %68, label %.lr.ph.i96, label %getlevel.exit100, !llvm.loop !8
 
 getlevel.exit100:                                 ; preds = %.lr.ph.i96, %63
@@ -491,7 +491,7 @@ getlevel.exit100:                                 ; preds = %.lr.ph.i96, %63
   %139 = getelementptr inbounds i8, ptr %.034.i104, i64 64
   %140 = load ptr, ptr %139, align 8
   %141 = add nsw i32 %.05.i103, -1
-  %142 = icmp ugt i32 %.05.i103, 1
+  %142 = icmp samesign ugt i32 %.05.i103, 1
   br i1 %142, label %.lr.ph.i102, label %getlevel.exit106, !llvm.loop !8
 
 getlevel.exit106:                                 ; preds = %.lr.ph.i102, %134

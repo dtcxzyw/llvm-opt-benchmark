@@ -215,7 +215,7 @@ define void @_ZN5draco21ShannonEntropyTracker13UpdateSymbolsEPKjib(ptr dead_on_u
   %29 = add i32 %20, 1
   %30 = zext i32 %29 to i64
   store i32 0, ptr %6, align 4
-  %31 = icmp ult i64 %26, %30
+  %31 = icmp samesign ult i64 %26, %30
   br i1 %31, label %32, label %34
 
 32:                                               ; preds = %28
@@ -225,7 +225,7 @@ define void @_ZN5draco21ShannonEntropyTracker13UpdateSymbolsEPKjib(ptr dead_on_u
   br label %_ZNSt6vectorIiSaIiEE6resizeEmRKi.exit
 
 34:                                               ; preds = %28
-  %35 = icmp ugt i64 %26, %30
+  %35 = icmp samesign ugt i64 %26, %30
   br i1 %35, label %36, label %_ZNSt6vectorIiSaIiEE6resizeEmRKi.exit
 
 36:                                               ; preds = %34

@@ -353,7 +353,7 @@ define void @dsptrf_(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noun
   %245 = call double @llvm.fmuladd.f64(double %244, double %224, double %241)
   store double %245, ptr %236, align 8, !tbaa !7
   %246 = add nsw i64 %235, -1
-  %247 = icmp ugt i64 %235, 1
+  %247 = icmp samesign ugt i64 %235, 1
   br i1 %247, label %234, label %248, !llvm.loop !13
 
 248:                                              ; preds = %234

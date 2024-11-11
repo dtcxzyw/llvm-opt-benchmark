@@ -573,7 +573,7 @@ define hidden void @_ZN2cv8obsensor21getStreamChannelGroupEj(ptr dead_on_unwind 
   %45 = getelementptr inbounds i8, ptr %.0910.i.i.i.i.i.i, i64 104
   %46 = getelementptr inbounds i8, ptr %.0811.i.i.i.i.i.i, i64 104
   %47 = add nsw i64 %.012.i.i.i.i.i.i, -1
-  %48 = icmp ugt i64 %.012.i.i.i.i.i.i, 1
+  %48 = icmp samesign ugt i64 %.012.i.i.i.i.i.i, 1
   br i1 %48, label %.lr.ph.i.i.i.i.i.i, label %_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPN2cv8obsensor13UvcDeviceInfoESt6vectorIS4_SaIS4_EEEES9_ET0_T_SB_SA_.exit.loopexit.i, !llvm.loop !8
 
 _ZSt4moveIN9__gnu_cxx17__normal_iteratorIPN2cv8obsensor13UvcDeviceInfoESt6vectorIS4_SaIS4_EEEES9_ET0_T_SB_SA_.exit.loopexit.i: ; preds = %.lr.ph.i.i.i.i.i.i

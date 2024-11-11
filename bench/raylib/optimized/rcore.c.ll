@@ -18607,7 +18607,7 @@ define void @rlBegin(i32 noundef %0) local_unnamed_addr #0 {
   br label %23
 
 18:                                               ; preds = %15
-  %19 = icmp ult i32 %13, 4
+  %19 = icmp samesign ult i32 %13, 4
   %20 = and i32 %13, 3
   %21 = sub nuw nsw i32 4, %20
   %22 = select i1 %19, i32 1, i32 %21
@@ -19822,7 +19822,7 @@ define void @rlSetTexture(i32 noundef %0) local_unnamed_addr #0 {
   br label %39
 
 34:                                               ; preds = %30
-  %35 = icmp ult i32 %28, 4
+  %35 = icmp samesign ult i32 %28, 4
   %36 = and i32 %28, 3
   %37 = sub nuw nsw i32 4, %36
   %38 = select i1 %35, i32 1, i32 %37
@@ -20186,7 +20186,7 @@ define void @rlActiveDrawBuffers(i32 noundef %0) local_unnamed_addr #0 {
   br i1 %3, label %4, label %9
 
 4:                                                ; preds = %1
-  %5 = icmp ugt i32 %0, 8
+  %5 = icmp samesign ugt i32 %0, 8
   br i1 %5, label %6, label %7
 
 6:                                                ; preds = %4
@@ -35598,7 +35598,7 @@ sdefl_fnd.exit152:                                ; preds = %124, %127, %92
   store i32 %205, ptr %208, align 4
   store i32 %206, ptr %204, align 4
   %indvars.iv.next = add nsw i64 %indvars.iv, %198
-  %209 = icmp ugt i32 %.1280, 1
+  %209 = icmp samesign ugt i32 %.1280, 1
   br i1 %209, label %.lr.ph, label %.loopexit.loopexit
 
 .loopexit.loopexit:                               ; preds = %.lr.ph

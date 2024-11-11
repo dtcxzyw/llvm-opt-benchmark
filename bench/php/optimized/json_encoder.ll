@@ -1294,7 +1294,7 @@ thread-pre-split:                                 ; preds = %thread-pre-split.ou
   br label %629
 
 601:                                              ; preds = %329
-  %602 = icmp ult i8 %167, 32
+  %602 = icmp samesign ult i8 %167, 32
   call void @llvm.assume(i1 %602)
   %603 = load ptr, ptr %0, align 8
   %.not1048 = icmp eq ptr %603, null

@@ -937,7 +937,7 @@ define internal i32 @dissect_selfm_tcp(ptr noundef %0, ptr noundef %1, ptr nound
 13:                                               ; preds = %9
   %14 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef 2) #4
   %15 = zext i8 %14 to i32
-  %16 = icmp ult i32 %5, %15
+  %16 = icmp samesign ult i32 %5, %15
   br i1 %16, label %17, label %21
 
 17:                                               ; preds = %13

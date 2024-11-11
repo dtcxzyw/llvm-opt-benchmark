@@ -2649,7 +2649,7 @@ define internal fastcc void @dissect_mpls_echo_tlv_dd_map(ptr noundef %0, ptr no
   %75 = add nsw i32 %.1278314, -4
   %76 = add i32 %.1275315, 4
   %77 = zext i16 %74 to i32
-  %78 = icmp ult i32 %75, %77
+  %78 = icmp samesign ult i32 %75, %77
   br i1 %78, label %79, label %81
 
 79:                                               ; preds = %.lr.ph317

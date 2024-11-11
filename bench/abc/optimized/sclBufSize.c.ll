@@ -1715,7 +1715,7 @@ Bus_SclCompareFanouts.exit:                       ; preds = %72, %70
   %.val38 = load ptr, ptr %47, align 8
   %81 = getelementptr inbounds ptr, ptr %.val38, i64 %indvars.iv.next53
   store ptr %52, ptr %81, align 8
-  %82 = icmp ugt i64 %indvars.iv52, 2
+  %82 = icmp samesign ugt i64 %indvars.iv52, 2
   br i1 %82, label %49, label %Bus_SclCompareFanouts.exit.thread, !llvm.loop !15
 
 Bus_SclCompareFanouts.exit.thread:                ; preds = %Bus_SclCompareFanouts.exit, %49, %72, %Vec_PtrPush.exit
@@ -3251,7 +3251,7 @@ Bus_SclCompareFanouts.exit.i:                     ; preds = %302, %300
   %.val38.i = load ptr, ptr %277, align 8
   %311 = getelementptr inbounds ptr, ptr %.val38.i, i64 %indvars.iv.next53.i
   store ptr %282, ptr %311, align 8
-  %312 = icmp ugt i64 %indvars.iv52.i, 2
+  %312 = icmp samesign ugt i64 %indvars.iv52.i, 2
   br i1 %312, label %279, label %Bus_SclInsertFanout.exit, !llvm.loop !15
 
 Bus_SclInsertFanout.exit:                         ; preds = %279, %302, %Bus_SclCompareFanouts.exit.i, %Vec_PtrPush.exit.i

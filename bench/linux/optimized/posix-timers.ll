@@ -1740,7 +1740,7 @@ define dso_local range(i64 -2147483648, 2147483648) i64 @__x64_sys_clock_settime
   br label %22
 
 13:                                               ; preds = %1
-  %14 = icmp ugt i32 %7, 11
+  %14 = icmp samesign ugt i32 %7, 11
   br i1 %14, label %.thread, label %15
 
 .thread:                                          ; preds = %13
@@ -1805,7 +1805,7 @@ define dso_local range(i64 -2147483648, 2147483648) i64 @__ia32_sys_clock_settim
   br label %23
 
 15:                                               ; preds = %1
-  %16 = icmp ugt i32 %9, 11
+  %16 = icmp samesign ugt i32 %9, 11
   br i1 %16, label %.thread, label %17
 
 .thread:                                          ; preds = %15
@@ -1867,7 +1867,7 @@ define dso_local range(i64 -2147483648, 2147483648) i64 @__x64_sys_clock_gettime
   br label %22
 
 13:                                               ; preds = %1
-  %14 = icmp ugt i32 %7, 11
+  %14 = icmp samesign ugt i32 %7, 11
   br i1 %14, label %.thread, label %15
 
 .thread:                                          ; preds = %13
@@ -1933,7 +1933,7 @@ define dso_local range(i64 -2147483648, 2147483648) i64 @__ia32_sys_clock_gettim
   br label %23
 
 15:                                               ; preds = %1
-  %16 = icmp ugt i32 %9, 11
+  %16 = icmp samesign ugt i32 %9, 11
   br i1 %16, label %.thread, label %17
 
 .thread:                                          ; preds = %15
@@ -1987,7 +1987,7 @@ define dso_local i32 @do_clock_adjtime(i32 noundef %0, ptr noundef %1) local_unn
   br label %18
 
 7:                                                ; preds = %2
-  %8 = icmp ugt i32 %0, 11
+  %8 = icmp samesign ugt i32 %0, 11
   br i1 %8, label %.thread, label %9
 
 9:                                                ; preds = %7
@@ -2043,7 +2043,7 @@ define dso_local range(i64 -2147483648, 2147483648) i64 @__x64_sys_clock_adjtime
   br label %25
 
 16:                                               ; preds = %11
-  %17 = icmp ugt i32 %7, 11
+  %17 = icmp samesign ugt i32 %7, 11
   br i1 %17, label %.thread4, label %18
 
 18:                                               ; preds = %16
@@ -2111,7 +2111,7 @@ define dso_local range(i64 -2147483648, 2147483648) i64 @__ia32_sys_clock_adjtim
   br label %26
 
 18:                                               ; preds = %13
-  %19 = icmp ugt i32 %9, 11
+  %19 = icmp samesign ugt i32 %9, 11
   br i1 %19, label %.thread4, label %20
 
 20:                                               ; preds = %18
@@ -2171,7 +2171,7 @@ define dso_local range(i64 -2147483648, 2147483648) i64 @__x64_sys_clock_getres(
   br label %22
 
 13:                                               ; preds = %1
-  %14 = icmp ugt i32 %7, 11
+  %14 = icmp samesign ugt i32 %7, 11
   br i1 %14, label %.thread, label %15
 
 .thread:                                          ; preds = %13
@@ -2238,7 +2238,7 @@ define dso_local range(i64 -2147483648, 2147483648) i64 @__ia32_sys_clock_getres
   br label %23
 
 15:                                               ; preds = %1
-  %16 = icmp ugt i32 %9, 11
+  %16 = icmp samesign ugt i32 %9, 11
   br i1 %16, label %.thread, label %17
 
 .thread:                                          ; preds = %15
@@ -2302,7 +2302,7 @@ define dso_local range(i64 -2147483648, 2147483648) i64 @__x64_sys_clock_settime
   br label %22
 
 13:                                               ; preds = %1
-  %14 = icmp ugt i32 %7, 11
+  %14 = icmp samesign ugt i32 %7, 11
   br i1 %14, label %.thread, label %15
 
 .thread:                                          ; preds = %13
@@ -2367,7 +2367,7 @@ define dso_local range(i64 -2147483648, 2147483648) i64 @__ia32_sys_clock_settim
   br label %23
 
 15:                                               ; preds = %1
-  %16 = icmp ugt i32 %9, 11
+  %16 = icmp samesign ugt i32 %9, 11
   br i1 %16, label %.thread, label %17
 
 .thread:                                          ; preds = %15
@@ -2429,7 +2429,7 @@ define dso_local range(i64 -2147483648, 2147483648) i64 @__x64_sys_clock_gettime
   br label %22
 
 13:                                               ; preds = %1
-  %14 = icmp ugt i32 %7, 11
+  %14 = icmp samesign ugt i32 %7, 11
   br i1 %14, label %.thread, label %15
 
 .thread:                                          ; preds = %13
@@ -2495,7 +2495,7 @@ define dso_local range(i64 -2147483648, 2147483648) i64 @__ia32_sys_clock_gettim
   br label %23
 
 15:                                               ; preds = %1
-  %16 = icmp ugt i32 %9, 11
+  %16 = icmp samesign ugt i32 %9, 11
   br i1 %16, label %.thread, label %17
 
 .thread:                                          ; preds = %15
@@ -2567,7 +2567,7 @@ define dso_local range(i64 -2147483648, 2147483648) i64 @__x64_sys_clock_adjtime
   br label %27
 
 18:                                               ; preds = %13
-  %19 = icmp ugt i32 %7, 11
+  %19 = icmp samesign ugt i32 %7, 11
   br i1 %19, label %.thread5, label %20
 
 20:                                               ; preds = %18
@@ -2639,7 +2639,7 @@ define dso_local range(i64 -2147483648, 2147483648) i64 @__ia32_sys_clock_adjtim
   br label %28
 
 20:                                               ; preds = %15
-  %21 = icmp ugt i32 %9, 11
+  %21 = icmp samesign ugt i32 %9, 11
   br i1 %21, label %.thread5, label %22
 
 22:                                               ; preds = %20
@@ -2699,7 +2699,7 @@ define dso_local range(i64 -2147483648, 2147483648) i64 @__x64_sys_clock_getres_
   br label %22
 
 13:                                               ; preds = %1
-  %14 = icmp ugt i32 %7, 11
+  %14 = icmp samesign ugt i32 %7, 11
   br i1 %14, label %.thread, label %15
 
 .thread:                                          ; preds = %13
@@ -2764,7 +2764,7 @@ define dso_local range(i64 -2147483648, 2147483648) i64 @__ia32_sys_clock_getres
   br label %23
 
 15:                                               ; preds = %1
-  %16 = icmp ugt i32 %9, 11
+  %16 = icmp samesign ugt i32 %9, 11
   br i1 %16, label %.thread, label %17
 
 .thread:                                          ; preds = %15
@@ -2832,7 +2832,7 @@ define dso_local range(i64 -2147483648, 2147483648) i64 @__x64_sys_clock_nanosle
   br label %28
 
 19:                                               ; preds = %1
-  %20 = icmp ugt i32 %11, 11
+  %20 = icmp samesign ugt i32 %11, 11
   br i1 %20, label %.thread, label %21
 
 .thread:                                          ; preds = %19
@@ -2926,7 +2926,7 @@ define dso_local range(i64 -2147483648, 2147483648) i64 @__ia32_sys_clock_nanosl
   br label %30
 
 22:                                               ; preds = %1
-  %23 = icmp ugt i32 %14, 11
+  %23 = icmp samesign ugt i32 %14, 11
   br i1 %23, label %.thread, label %24
 
 .thread:                                          ; preds = %22
@@ -3016,7 +3016,7 @@ define dso_local range(i64 -2147483648, 2147483648) i64 @__x64_sys_clock_nanosle
   br label %28
 
 19:                                               ; preds = %1
-  %20 = icmp ugt i32 %11, 11
+  %20 = icmp samesign ugt i32 %11, 11
   br i1 %20, label %.thread, label %21
 
 .thread:                                          ; preds = %19
@@ -3110,7 +3110,7 @@ define dso_local range(i64 -2147483648, 2147483648) i64 @__ia32_sys_clock_nanosl
   br label %30
 
 22:                                               ; preds = %1
-  %23 = icmp ugt i32 %14, 11
+  %23 = icmp samesign ugt i32 %14, 11
   br i1 %23, label %.thread, label %24
 
 .thread:                                          ; preds = %22
@@ -3193,7 +3193,7 @@ define internal fastcc i32 @do_timer_create(i32 noundef %0, ptr noundef readonly
   br label %20
 
 9:                                                ; preds = %3
-  %10 = icmp ugt i32 %0, 11
+  %10 = icmp samesign ugt i32 %0, 11
   br i1 %10, label %.thread, label %11
 
 .thread:                                          ; preds = %9

@@ -6939,7 +6939,7 @@ Io_MvSplitIntoTokens.exit:                        ; preds = %36, %Io_MvFindArrow
   %49 = zext i1 %47 to i32
   %.273 = add nuw nsw i32 %.172139, %49
   %indvars.iv.next = add nsw i64 %indvars.iv, -1
-  %50 = icmp ugt i64 %indvars.iv, 1
+  %50 = icmp samesign ugt i64 %indvars.iv, 1
   br i1 %50, label %44, label %.loopexit, !llvm.loop !64
 
 .loopexit:                                        ; preds = %44, %Io_MvSplitIntoTokens.exit

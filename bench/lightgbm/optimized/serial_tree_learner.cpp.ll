@@ -6101,7 +6101,7 @@ define noundef nonnull ptr @_ZN8LightGBM17SerialTreeLearner5TrainEPKfS2_b(ptr no
   br i1 %89, label %91, label %.preheader.i
 
 .preheader.i:                                     ; preds = %84
-  %90 = icmp ugt i64 %88, 1
+  %90 = icmp samesign ugt i64 %88, 1
   br i1 %90, label %.lr.ph.i, label %_ZN8LightGBM9ArrayArgsINS_9SplitInfoEE6ArgMaxERKSt6vectorIS1_SaIS1_EE.exit
 
 91:                                               ; preds = %84
@@ -8832,7 +8832,7 @@ _ZNSt15__exception_ptr13exception_ptrC2ERKS0_.exit.i48: ; preds = %220
   br i1 %238, label %240, label %.preheader.i
 
 .preheader.i:                                     ; preds = %233
-  %239 = icmp ugt i64 %237, 1
+  %239 = icmp samesign ugt i64 %237, 1
   br i1 %239, label %.lr.ph.i, label %_ZN8LightGBM9ArrayArgsINS_9SplitInfoEE6ArgMaxERKSt6vectorIS1_SaIS1_EE.exit
 
 240:                                              ; preds = %233
@@ -8923,7 +8923,7 @@ _ZN8LightGBM9ArrayArgsINS_9SplitInfoEE6ArgMaxERKSt6vectorIS1_SaIS1_EE.exit: ; pr
   br i1 %289, label %291, label %.preheader.i56
 
 .preheader.i56:                                   ; preds = %284
-  %290 = icmp ugt i64 %288, 1
+  %290 = icmp samesign ugt i64 %288, 1
   br i1 %290, label %.lr.ph.i58, label %_ZN8LightGBM9ArrayArgsINS_9SplitInfoEE6ArgMaxERKSt6vectorIS1_SaIS1_EE.exit67
 
 291:                                              ; preds = %284
@@ -13009,7 +13009,7 @@ _ZN8LightGBM20BasicLeafConstraints5ResetEv.exit:  ; preds = %.lr.ph.i, %1
   %18 = zext nneg i32 %17 to i64
   %19 = getelementptr inbounds i64, ptr %12, i64 %18
   %20 = and i32 %14, 63
-  %.not.i.i.i.i = icmp ult i32 %14, 64
+  %.not.i.i.i.i = icmp samesign ult i32 %14, 64
   br i1 %.not.i.i.i.i, label %28, label %21
 
 21:                                               ; preds = %16
@@ -275542,7 +275542,7 @@ _ZN8LightGBM9SplitInfoD2Ev.exit341:               ; preds = %1054, %1056
   br i1 %1070, label %1072, label %.preheader.i
 
 .preheader.i:                                     ; preds = %1065
-  %1071 = icmp ugt i64 %1069, 1
+  %1071 = icmp samesign ugt i64 %1069, 1
   br i1 %1071, label %.lr.ph.i, label %_ZN8LightGBM9ArrayArgsINS_9SplitInfoEE6ArgMaxERKSt6vectorIS1_SaIS1_EE.exit
 
 1072:                                             ; preds = %1065
@@ -289274,7 +289274,7 @@ _ZNSt15__exception_ptr13exception_ptrC2ERKS0_.exit.i: ; preds = %166
   br i1 %184, label %186, label %.preheader.i
 
 .preheader.i:                                     ; preds = %179
-  %185 = icmp ugt i64 %183, 1
+  %185 = icmp samesign ugt i64 %183, 1
   br i1 %185, label %.lr.ph.i, label %_ZN8LightGBM9ArrayArgsINS_9SplitInfoEE6ArgMaxERKSt6vectorIS1_SaIS1_EE.exit
 
 186:                                              ; preds = %179

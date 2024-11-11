@@ -1646,7 +1646,7 @@ define void @_ZN9Scheduler9SortTraceEv(ptr nocapture noundef nonnull align 8 der
   br label %68
 
 50:                                               ; preds = %41
-  %51 = icmp ult i32 %43, 16
+  %51 = icmp samesign ult i32 %43, 16
   br i1 %51, label %52, label %55
 
 52:                                               ; preds = %50
@@ -1655,7 +1655,7 @@ define void @_ZN9Scheduler9SortTraceEv(ptr nocapture noundef nonnull align 8 der
   br label %68
 
 55:                                               ; preds = %50
-  %56 = icmp ugt i32 %43, 48
+  %56 = icmp samesign ugt i32 %43, 48
   br i1 %56, label %57, label %60
 
 57:                                               ; preds = %55

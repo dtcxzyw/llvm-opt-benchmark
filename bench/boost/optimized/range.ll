@@ -29967,7 +29967,7 @@ _ZN5boost9unit_test9framework4impl12_GLOBAL__N_111s_frk_stateEv.exit15: ; preds 
   br label %57
 
 57:                                               ; preds = %_ZN5boost9unit_test9framework4impl12_GLOBAL__N_111s_frk_stateEv.exit11, %_ZN5boost9unit_test9framework4impl12_GLOBAL__N_111s_frk_stateEv.exit15
-  %58 = icmp ugt i64 %indvars.iv, 1
+  %58 = icmp samesign ugt i64 %indvars.iv, 1
   br i1 %58, label %.lr.ph, label %.loopexit, !llvm.loop !653
 
 59:                                               ; preds = %1
@@ -34585,7 +34585,7 @@ _ZNSt6vectorImSaImEE9push_backERKm.exit:          ; preds = %_ZNSt6vectorImSaImE
   br label %385
 
 385:                                              ; preds = %380, %.lr.ph.i
-  %386 = icmp ugt i64 %.0.in13.i, 2
+  %386 = icmp samesign ugt i64 %.0.in13.i, 2
   br i1 %386, label %.lr.ph.i, label %_ZN5boost9unit_test9framework4impl14random_shuffleIN9__gnu_cxx17__normal_iteratorIPmSt6vectorImSaImEEEEKNS1_5state23random_generator_helperEEEvT_SE_RT0_.exit, !llvm.loop !747
 
 _ZN5boost9unit_test9framework4impl14random_shuffleIN9__gnu_cxx17__normal_iteratorIPmSt6vectorImSaImEEEEKNS1_5state23random_generator_helperEEEvT_SE_RT0_.exit: ; preds = %385, %._crit_edge920
@@ -42358,7 +42358,7 @@ _ZNK5boost10test_tools16assertion_result7messageEv.exit253: ; preds = %_ZN5boost
   %425 = or disjoint i32 %372, 32
   store i32 %425, ptr %6, align 8
   %426 = load ptr, ptr %424, align 8, !tbaa !173
-  %427 = icmp ult i32 %425, 41
+  %427 = icmp samesign ult i32 %425, 41
   br i1 %427, label %435, label %.thread531
 
 .thread531:                                       ; preds = %420, %.thread528
@@ -44832,7 +44832,7 @@ _ZNK5boost10test_tools16assertion_result7messageEv.exit199: ; preds = %275, %278
   %340 = or disjoint i32 %287, 32
   store i32 %340, ptr %6, align 8
   %341 = load ptr, ptr %339, align 8, !tbaa !173
-  %342 = icmp ult i32 %340, 41
+  %342 = icmp samesign ult i32 %340, 41
   br i1 %342, label %350, label %.thread372
 
 .thread372:                                       ; preds = %335, %.thread369
@@ -55913,7 +55913,7 @@ _ZN5boost9unit_test12_GLOBAL__N_110s_log_implEv.exit13: ; preds = %_ZNK5boost9un
 define dso_local void @_ZN5boost9unit_test15unit_test_log_t16exception_caughtERKNS_19execution_exceptionE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull align 8 dereferenceable(64) %1) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %3 = load i32, ptr %1, align 8, !tbaa !201
   %4 = icmp slt i32 %3, 206
-  %5 = icmp ult i32 %3, 216
+  %5 = icmp samesign ult i32 %3, 216
   %6 = select i1 %5, i32 6, i32 7
   %7 = select i1 %4, i32 5, i32 %6
   %8 = load atomic i8, ptr @_ZGVZN5boost9unit_test12_GLOBAL__N_110s_log_implEvE8the_inst acquire, align 8
@@ -162705,7 +162705,7 @@ _ZNSt12_Vector_baseIN3bgt18CopyableAndMovableESaIS1_EE13_M_deallocateEPS1_m.exit
   %36 = getelementptr inbounds nuw i8, ptr %.0910.i.i.i.i.i, i64 4
   %37 = getelementptr inbounds nuw i8, ptr %.0811.i.i.i.i.i, i64 4
   %38 = add nsw i64 %.012.i.i.i.i.i, -1
-  %39 = icmp ugt i64 %.012.i.i.i.i.i, 1
+  %39 = icmp samesign ugt i64 %.012.i.i.i.i.i, 1
   br i1 %39, label %.lr.ph.i.i.i.i.i, label %_ZSt22__uninitialized_copy_aIPN3bgt18CopyableAndMovableES2_S1_ET0_T_S4_S3_RSaIT1_E.exit, !llvm.loop !2943
 
 40:                                               ; preds = %28
@@ -162723,7 +162723,7 @@ _ZNSt12_Vector_baseIN3bgt18CopyableAndMovableESaIS1_EE13_M_deallocateEPS1_m.exit
   %45 = getelementptr inbounds nuw i8, ptr %.0910.i.i.i.i.i29, i64 4
   %46 = getelementptr inbounds nuw i8, ptr %.0811.i.i.i.i.i28, i64 4
   %47 = add nsw i64 %.012.i.i.i.i.i27, -1
-  %48 = icmp ugt i64 %.012.i.i.i.i.i27, 1
+  %48 = icmp samesign ugt i64 %.012.i.i.i.i.i27, 1
   br i1 %48, label %.lr.ph.i.i.i.i.i26, label %_ZSt4copyIPN3bgt18CopyableAndMovableES2_ET0_T_S4_S3_.exit, !llvm.loop !2944
 
 _ZSt4copyIPN3bgt18CopyableAndMovableES2_ET0_T_S4_S3_.exit: ; preds = %.lr.ph.i.i.i.i.i26, %40

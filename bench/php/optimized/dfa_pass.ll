@@ -5096,7 +5096,7 @@ define internal fastcc noundef zeroext i1 @zend_dfa_try_to_replace_result(ptr no
   ]
 
 61:                                               ; preds = %55
-  %62 = icmp ugt i32 %41, %2
+  %62 = icmp samesign ugt i32 %41, %2
   br i1 %62, label %.lr.ph, label %.loopexit
 
 .lr.ph:                                           ; preds = %61, %86

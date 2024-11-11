@@ -12352,7 +12352,7 @@ define linkonce_odr void @_ZSt21__inplace_stable_sortIN5QListIP15QTreeWidgetItem
   %23 = getelementptr i8, ptr %.sroa.0.09.i.i.i.i.i.i, i64 -8
   store ptr %22, ptr %23, align 8
   %24 = add nsw i64 %.010.i.i.i.i.i.i, -1
-  %25 = icmp ugt i64 %.010.i.i.i.i.i.i, 1
+  %25 = icmp samesign ugt i64 %.010.i.i.i.i.i.i, 1
   br i1 %25, label %.lr.ph.i.i.i.i.i.i, label %_ZSt13move_backwardIN5QListIP15QTreeWidgetItemE8iteratorES4_ET0_T_S6_S5_.exit.i, !llvm.loop !82
 
 26:                                               ; preds = %.lr.ph.i
@@ -12707,7 +12707,7 @@ _ZSt4moveIN5QListIP15QTreeWidgetItemE8iteratorES4_ET0_T_S6_S5_.exit: ; preds = %
   %59 = getelementptr i8, ptr %.sroa.0.09.i.i.i.i.i, i64 -8
   store ptr %58, ptr %59, align 8
   %60 = add nsw i64 %.010.i.i.i.i.i, -1
-  %61 = icmp ugt i64 %.010.i.i.i.i.i, 1
+  %61 = icmp samesign ugt i64 %.010.i.i.i.i.i, 1
   br i1 %61, label %.lr.ph.i.i.i.i.i33, label %_ZSt13move_backwardIN5QListIP15QTreeWidgetItemE8iteratorES4_ET0_T_S6_S5_.exit, !llvm.loop !82
 
 _ZSt13move_backwardIN5QListIP15QTreeWidgetItemE8iteratorES4_ET0_T_S6_S5_.exit: ; preds = %.lr.ph.i.i.i.i.i33, %49
@@ -12782,7 +12782,7 @@ tailrecurse._crit_edge:                           ; preds = %tailrecurse, %8
   %17 = getelementptr i8, ptr %.sroa.05.07.i.i.i.i.i, i64 8
   %18 = getelementptr i8, ptr %.09.i.i.i.i.i, i64 8
   %19 = add nsw i64 %.048.i.i.i.i.i, -1
-  %20 = icmp ugt i64 %.048.i.i.i.i.i, 1
+  %20 = icmp samesign ugt i64 %.048.i.i.i.i.i, 1
   br i1 %20, label %.lr.ph.i.i.i.i.i, label %_ZSt4moveIN5QListIP15QTreeWidgetItemE8iteratorEPS2_ET0_T_S7_S6_.exit, !llvm.loop !92
 
 _ZSt4moveIN5QListIP15QTreeWidgetItemE8iteratorEPS2_ET0_T_S7_S6_.exit: ; preds = %.lr.ph.i.i.i.i.i
@@ -12828,7 +12828,7 @@ _ZSt4moveIN5QListIP15QTreeWidgetItemE8iteratorEPS2_ET0_T_S7_S6_.exit: ; preds = 
   %32 = getelementptr i8, ptr %.058.i.i.i.i.i.i, i64 8
   %33 = getelementptr i8, ptr %.sroa.0.07.i.i.i.i.i.i, i64 8
   %34 = add nsw i64 %.09.i.i.i.i.i.i, -1
-  %35 = icmp ugt i64 %.09.i.i.i.i.i.i, 1
+  %35 = icmp samesign ugt i64 %.09.i.i.i.i.i.i, 1
   br i1 %35, label %.lr.ph.i.i.i.i.i.i, label %_ZSt21__move_merge_adaptiveIPP15QTreeWidgetItemN5QListIS1_E8iteratorES5_N9__gnu_cxx5__ops15_Iter_comp_iterIPFbPKS0_SA_EEEEvT_SE_T0_SF_T1_T2_.exit, !llvm.loop !94
 
 36:                                               ; preds = %.lr.ph, %tailrecurse
@@ -12856,7 +12856,7 @@ _ZSt4moveIN5QListIP15QTreeWidgetItemE8iteratorEPS2_ET0_T_S7_S6_.exit: ; preds = 
   %43 = getelementptr i8, ptr %.sroa.05.07.i.i.i.i.i83, i64 8
   %44 = getelementptr i8, ptr %.09.i.i.i.i.i81, i64 8
   %45 = add nsw i64 %.048.i.i.i.i.i82, -1
-  %46 = icmp ugt i64 %.048.i.i.i.i.i82, 1
+  %46 = icmp samesign ugt i64 %.048.i.i.i.i.i82, 1
   br i1 %46, label %.lr.ph.i.i.i.i.i80, label %_ZSt4moveIN5QListIP15QTreeWidgetItemE8iteratorEPS2_ET0_T_S7_S6_.exit84, !llvm.loop !92
 
 _ZSt4moveIN5QListIP15QTreeWidgetItemE8iteratorEPS2_ET0_T_S7_S6_.exit84: ; preds = %.lr.ph.i.i.i.i.i80, %38
@@ -12881,7 +12881,7 @@ _ZSt4moveIN5QListIP15QTreeWidgetItemE8iteratorEPS2_ET0_T_S7_S6_.exit84: ; preds 
   %56 = getelementptr i8, ptr %.sroa.0.06.i.i.i.i.i.i, i64 -8
   store ptr %55, ptr %56, align 8
   %57 = add nsw i64 %.08.i.i.i.i.i.i, -1
-  %58 = icmp ugt i64 %.08.i.i.i.i.i.i, 1
+  %58 = icmp samesign ugt i64 %.08.i.i.i.i.i.i, 1
   br i1 %58, label %.lr.ph.i.i.i.i.i.i86, label %_ZSt21__move_merge_adaptiveIPP15QTreeWidgetItemN5QListIS1_E8iteratorES5_N9__gnu_cxx5__ops15_Iter_comp_iterIPFbPKS0_SA_EEEEvT_SE_T0_SF_T1_T2_.exit, !llvm.loop !95
 
 59:                                               ; preds = %_ZSt4moveIN5QListIP15QTreeWidgetItemE8iteratorEPS2_ET0_T_S7_S6_.exit84
@@ -12932,7 +12932,7 @@ _ZSt4moveIN5QListIP15QTreeWidgetItemE8iteratorEPS2_ET0_T_S7_S6_.exit84: ; preds 
   %80 = getelementptr i8, ptr %.sroa.0.06.i.i.i.i.i24.i, i64 -8
   store ptr %79, ptr %80, align 8
   %81 = add nsw i64 %.08.i.i.i.i.i22.i, -1
-  %82 = icmp ugt i64 %.08.i.i.i.i.i22.i, 1
+  %82 = icmp samesign ugt i64 %.08.i.i.i.i.i22.i, 1
   br i1 %82, label %.lr.ph.i.i.i.i.i21.i, label %_ZSt21__move_merge_adaptiveIPP15QTreeWidgetItemN5QListIS1_E8iteratorES5_N9__gnu_cxx5__ops15_Iter_comp_iterIPFbPKS0_SA_EEEEvT_SE_T0_SF_T1_T2_.exit, !llvm.loop !95
 
 83:                                               ; preds = %63
@@ -13099,7 +13099,7 @@ _ZSt16__insertion_sortIN5QListIP15QTreeWidgetItemE8iteratorEN9__gnu_cxx5__ops15_
   %28 = getelementptr i8, ptr %.sroa.0.09.i.i.i.i.i.i, i64 -8
   store ptr %27, ptr %28, align 8
   %29 = add nsw i64 %.010.i.i.i.i.i.i, -1
-  %30 = icmp ugt i64 %.010.i.i.i.i.i.i, 1
+  %30 = icmp samesign ugt i64 %.010.i.i.i.i.i.i, 1
   br i1 %30, label %.lr.ph.i.i.i.i.i.i, label %_ZSt13move_backwardIN5QListIP15QTreeWidgetItemE8iteratorES4_ET0_T_S6_S5_.exit.i, !llvm.loop !82
 
 31:                                               ; preds = %.lr.ph.i
@@ -13169,7 +13169,7 @@ _ZSt16__insertion_sortIN5QListIP15QTreeWidgetItemE8iteratorEN9__gnu_cxx5__ops15_
   %53 = getelementptr i8, ptr %.sroa.0.09.i.i.i.i.i.i27, i64 -8
   store ptr %52, ptr %53, align 8
   %54 = add nsw i64 %.010.i.i.i.i.i.i26, -1
-  %55 = icmp ugt i64 %.010.i.i.i.i.i.i26, 1
+  %55 = icmp samesign ugt i64 %.010.i.i.i.i.i.i26, 1
   br i1 %55, label %.lr.ph.i.i.i.i.i.i25, label %_ZSt13move_backwardIN5QListIP15QTreeWidgetItemE8iteratorES4_ET0_T_S6_S5_.exit.i16, !llvm.loop !82
 
 56:                                               ; preds = %.lr.ph.i13
@@ -13264,7 +13264,7 @@ define linkonce_odr void @_ZSt17__merge_sort_loopIN5QListIP15QTreeWidgetItemE8it
   %28 = getelementptr i8, ptr %.sroa.05.07.i.i.i.i.i.i, i64 8
   %29 = getelementptr i8, ptr %.09.i.i.i.i.i.i, i64 8
   %30 = add nsw i64 %.048.i.i.i.i.i.i, -1
-  %31 = icmp ugt i64 %.048.i.i.i.i.i.i, 1
+  %31 = icmp samesign ugt i64 %.048.i.i.i.i.i.i, 1
   br i1 %31, label %.lr.ph.i.i.i.i.i.i, label %_ZSt4moveIN5QListIP15QTreeWidgetItemE8iteratorEPS2_ET0_T_S7_S6_.exit.i, !llvm.loop !92
 
 _ZSt4moveIN5QListIP15QTreeWidgetItemE8iteratorEPS2_ET0_T_S7_S6_.exit.i: ; preds = %.lr.ph.i.i.i.i.i.i, %.critedge.i
@@ -13285,7 +13285,7 @@ _ZSt4moveIN5QListIP15QTreeWidgetItemE8iteratorEPS2_ET0_T_S7_S6_.exit.i: ; preds 
   %38 = getelementptr i8, ptr %.sroa.05.07.i.i.i.i.i17.i, i64 8
   %39 = getelementptr i8, ptr %.09.i.i.i.i.i15.i, i64 8
   %40 = add nsw i64 %.048.i.i.i.i.i16.i, -1
-  %41 = icmp ugt i64 %.048.i.i.i.i.i16.i, 1
+  %41 = icmp samesign ugt i64 %.048.i.i.i.i.i16.i, 1
   br i1 %41, label %.lr.ph.i.i.i.i.i14.i, label %_ZSt12__move_mergeIN5QListIP15QTreeWidgetItemE8iteratorEPS2_N9__gnu_cxx5__ops15_Iter_comp_iterIPFbPKS1_SA_EEEET0_T_SF_SF_SF_SE_T1_.exit, !llvm.loop !92
 
 _ZSt12__move_mergeIN5QListIP15QTreeWidgetItemE8iteratorEPS2_N9__gnu_cxx5__ops15_Iter_comp_iterIPFbPKS1_SA_EEEET0_T_SF_SF_SF_SE_T1_.exit: ; preds = %.lr.ph.i.i.i.i.i14.i, %_ZSt4moveIN5QListIP15QTreeWidgetItemE8iteratorEPS2_ET0_T_S7_S6_.exit.i
@@ -13347,7 +13347,7 @@ _ZSt12__move_mergeIN5QListIP15QTreeWidgetItemE8iteratorEPS2_N9__gnu_cxx5__ops15_
   %59 = getelementptr i8, ptr %.sroa.05.07.i.i.i.i.i.i32, i64 8
   %60 = getelementptr i8, ptr %.09.i.i.i.i.i.i30, i64 8
   %61 = add nsw i64 %.048.i.i.i.i.i.i31, -1
-  %62 = icmp ugt i64 %.048.i.i.i.i.i.i31, 1
+  %62 = icmp samesign ugt i64 %.048.i.i.i.i.i.i31, 1
   br i1 %62, label %.lr.ph.i.i.i.i.i.i29, label %_ZSt4moveIN5QListIP15QTreeWidgetItemE8iteratorEPS2_ET0_T_S7_S6_.exit.i22, !llvm.loop !92
 
 _ZSt4moveIN5QListIP15QTreeWidgetItemE8iteratorEPS2_ET0_T_S7_S6_.exit.i22: ; preds = %.lr.ph.i.i.i.i.i.i29, %.critedge.i18
@@ -13367,7 +13367,7 @@ _ZSt4moveIN5QListIP15QTreeWidgetItemE8iteratorEPS2_ET0_T_S7_S6_.exit.i22: ; pred
   %68 = getelementptr i8, ptr %.sroa.05.07.i.i.i.i.i17.i28, i64 8
   %69 = getelementptr i8, ptr %.09.i.i.i.i.i15.i26, i64 8
   %70 = add nsw i64 %.048.i.i.i.i.i16.i27, -1
-  %71 = icmp ugt i64 %.048.i.i.i.i.i16.i27, 1
+  %71 = icmp samesign ugt i64 %.048.i.i.i.i.i16.i27, 1
   br i1 %71, label %.lr.ph.i.i.i.i.i14.i25, label %_ZSt12__move_mergeIN5QListIP15QTreeWidgetItemE8iteratorEPS2_N9__gnu_cxx5__ops15_Iter_comp_iterIPFbPKS1_SA_EEEET0_T_SF_SF_SF_SE_T1_.exit44, !llvm.loop !92
 
 _ZSt12__move_mergeIN5QListIP15QTreeWidgetItemE8iteratorEPS2_N9__gnu_cxx5__ops15_Iter_comp_iterIPFbPKS1_SA_EEEET0_T_SF_SF_SF_SE_T1_.exit44: ; preds = %.lr.ph.i.i.i.i.i14.i25, %_ZSt4moveIN5QListIP15QTreeWidgetItemE8iteratorEPS2_ET0_T_S7_S6_.exit.i22
@@ -13440,7 +13440,7 @@ define linkonce_odr void @_ZSt17__merge_sort_loopIPP15QTreeWidgetItemN5QListIS1_
   %30 = getelementptr i8, ptr %.058.i.i.i.i.i.i, i64 8
   %31 = getelementptr i8, ptr %.sroa.0.07.i.i.i.i.i.i, i64 8
   %32 = add nsw i64 %.09.i.i.i.i.i.i, -1
-  %33 = icmp ugt i64 %.09.i.i.i.i.i.i, 1
+  %33 = icmp samesign ugt i64 %.09.i.i.i.i.i.i, 1
   br i1 %33, label %.lr.ph.i.i.i.i.i.i, label %_ZSt4moveIPP15QTreeWidgetItemN5QListIS1_E8iteratorEET0_T_S7_S6_.exit.i, !llvm.loop !94
 
 _ZSt4moveIPP15QTreeWidgetItemN5QListIS1_E8iteratorEET0_T_S7_S6_.exit.i: ; preds = %.lr.ph.i.i.i.i.i.i, %._crit_edge.i
@@ -13461,7 +13461,7 @@ _ZSt4moveIPP15QTreeWidgetItemN5QListIS1_E8iteratorEET0_T_S7_S6_.exit.i: ; preds 
   %40 = getelementptr i8, ptr %.058.i.i.i.i.i21.i, i64 8
   %41 = getelementptr i8, ptr %.sroa.0.07.i.i.i.i.i22.i, i64 8
   %42 = add nsw i64 %.09.i.i.i.i.i20.i, -1
-  %43 = icmp ugt i64 %.09.i.i.i.i.i20.i, 1
+  %43 = icmp samesign ugt i64 %.09.i.i.i.i.i20.i, 1
   br i1 %43, label %.lr.ph.i.i.i.i.i19.i, label %_ZSt12__move_mergeIPP15QTreeWidgetItemN5QListIS1_E8iteratorEN9__gnu_cxx5__ops15_Iter_comp_iterIPFbPKS0_SA_EEEET0_T_SF_SF_SF_SE_T1_.exit, !llvm.loop !94
 
 _ZSt12__move_mergeIPP15QTreeWidgetItemN5QListIS1_E8iteratorEN9__gnu_cxx5__ops15_Iter_comp_iterIPFbPKS0_SA_EEEET0_T_SF_SF_SF_SE_T1_.exit: ; preds = %.lr.ph.i.i.i.i.i19.i, %_ZSt4moveIPP15QTreeWidgetItemN5QListIS1_E8iteratorEET0_T_S7_S6_.exit.i
@@ -13523,7 +13523,7 @@ _ZSt12__move_mergeIPP15QTreeWidgetItemN5QListIS1_E8iteratorEN9__gnu_cxx5__ops15_
   %63 = getelementptr i8, ptr %.058.i.i.i.i.i.i37, i64 8
   %64 = getelementptr i8, ptr %.sroa.0.07.i.i.i.i.i.i38, i64 8
   %65 = add nsw i64 %.09.i.i.i.i.i.i36, -1
-  %66 = icmp ugt i64 %.09.i.i.i.i.i.i36, 1
+  %66 = icmp samesign ugt i64 %.09.i.i.i.i.i.i36, 1
   br i1 %66, label %.lr.ph.i.i.i.i.i.i35, label %_ZSt4moveIPP15QTreeWidgetItemN5QListIS1_E8iteratorEET0_T_S7_S6_.exit.i28, !llvm.loop !94
 
 _ZSt4moveIPP15QTreeWidgetItemN5QListIS1_E8iteratorEET0_T_S7_S6_.exit.i28: ; preds = %.lr.ph.i.i.i.i.i.i35, %._crit_edge.i24
@@ -13543,7 +13543,7 @@ _ZSt4moveIPP15QTreeWidgetItemN5QListIS1_E8iteratorEET0_T_S7_S6_.exit.i28: ; pred
   %72 = getelementptr i8, ptr %.058.i.i.i.i.i21.i33, i64 8
   %73 = getelementptr i8, ptr %.sroa.0.07.i.i.i.i.i22.i34, i64 8
   %74 = add nsw i64 %.09.i.i.i.i.i20.i32, -1
-  %75 = icmp ugt i64 %.09.i.i.i.i.i20.i32, 1
+  %75 = icmp samesign ugt i64 %.09.i.i.i.i.i20.i32, 1
   br i1 %75, label %.lr.ph.i.i.i.i.i19.i31, label %_ZSt12__move_mergeIPP15QTreeWidgetItemN5QListIS1_E8iteratorEN9__gnu_cxx5__ops15_Iter_comp_iterIPFbPKS0_SA_EEEET0_T_SF_SF_SF_SE_T1_.exit49, !llvm.loop !94
 
 _ZSt12__move_mergeIPP15QTreeWidgetItemN5QListIS1_E8iteratorEN9__gnu_cxx5__ops15_Iter_comp_iterIPFbPKS0_SA_EEEET0_T_SF_SF_SF_SE_T1_.exit49: ; preds = %.lr.ph.i.i.i.i.i19.i31, %_ZSt4moveIPP15QTreeWidgetItemN5QListIS1_E8iteratorEET0_T_S7_S6_.exit.i28
@@ -13578,7 +13578,7 @@ define linkonce_odr ptr @_ZSt17__rotate_adaptiveIN5QListIP15QTreeWidgetItemE8ite
   %17 = getelementptr i8, ptr %.sroa.05.07.i.i.i.i.i, i64 8
   %18 = getelementptr i8, ptr %.09.i.i.i.i.i, i64 8
   %19 = add nsw i64 %.048.i.i.i.i.i, -1
-  %20 = icmp ugt i64 %.048.i.i.i.i.i, 1
+  %20 = icmp samesign ugt i64 %.048.i.i.i.i.i, 1
   br i1 %20, label %.lr.ph.i.i.i.i.i, label %_ZSt4moveIN5QListIP15QTreeWidgetItemE8iteratorEPS2_ET0_T_S7_S6_.exit, !llvm.loop !92
 
 _ZSt4moveIN5QListIP15QTreeWidgetItemE8iteratorEPS2_ET0_T_S7_S6_.exit: ; preds = %.lr.ph.i.i.i.i.i, %10
@@ -13598,7 +13598,7 @@ _ZSt4moveIN5QListIP15QTreeWidgetItemE8iteratorEPS2_ET0_T_S7_S6_.exit: ; preds = 
   %27 = getelementptr i8, ptr %.sroa.0.09.i.i.i.i.i, i64 -8
   store ptr %26, ptr %27, align 8
   %28 = add nsw i64 %.010.i.i.i.i.i, -1
-  %29 = icmp ugt i64 %.010.i.i.i.i.i, 1
+  %29 = icmp samesign ugt i64 %.010.i.i.i.i.i, 1
   br i1 %29, label %.lr.ph.i.i.i.i.i37, label %_ZSt13move_backwardIN5QListIP15QTreeWidgetItemE8iteratorES4_ET0_T_S6_S5_.exit, !llvm.loop !82
 
 _ZSt13move_backwardIN5QListIP15QTreeWidgetItemE8iteratorES4_ET0_T_S6_S5_.exit: ; preds = %.lr.ph.i.i.i.i.i37, %_ZSt4moveIN5QListIP15QTreeWidgetItemE8iteratorEPS2_ET0_T_S7_S6_.exit
@@ -13618,7 +13618,7 @@ _ZSt13move_backwardIN5QListIP15QTreeWidgetItemE8iteratorES4_ET0_T_S6_S5_.exit: ;
   %36 = getelementptr i8, ptr %.058.i.i.i.i.i, i64 8
   %37 = getelementptr i8, ptr %.sroa.0.07.i.i.i.i.i, i64 8
   %38 = add nsw i64 %.09.i.i.i.i.i40, -1
-  %39 = icmp ugt i64 %.09.i.i.i.i.i40, 1
+  %39 = icmp samesign ugt i64 %.09.i.i.i.i.i40, 1
   br i1 %39, label %.lr.ph.i.i.i.i.i39, label %_ZSt4moveIPP15QTreeWidgetItemN5QListIS1_E8iteratorEET0_T_S7_S6_.exit, !llvm.loop !94
 
 40:                                               ; preds = %7
@@ -13646,7 +13646,7 @@ _ZSt13move_backwardIN5QListIP15QTreeWidgetItemE8iteratorES4_ET0_T_S6_S5_.exit: ;
   %49 = getelementptr i8, ptr %.sroa.05.07.i.i.i.i.i45, i64 8
   %50 = getelementptr i8, ptr %.09.i.i.i.i.i43, i64 8
   %51 = add nsw i64 %.048.i.i.i.i.i44, -1
-  %52 = icmp ugt i64 %.048.i.i.i.i.i44, 1
+  %52 = icmp samesign ugt i64 %.048.i.i.i.i.i44, 1
   br i1 %52, label %.lr.ph.i.i.i.i.i42, label %_ZSt4moveIN5QListIP15QTreeWidgetItemE8iteratorEPS2_ET0_T_S7_S6_.exit46, !llvm.loop !92
 
 _ZSt4moveIN5QListIP15QTreeWidgetItemE8iteratorEPS2_ET0_T_S7_S6_.exit46: ; preds = %.lr.ph.i.i.i.i.i42, %42
@@ -13666,7 +13666,7 @@ _ZSt4moveIN5QListIP15QTreeWidgetItemE8iteratorEPS2_ET0_T_S7_S6_.exit46: ; preds 
   %58 = getelementptr i8, ptr %.sroa.05.07.i.i.i.i.i50, i64 8
   %59 = getelementptr i8, ptr %.sroa.0.08.i.i.i.i.i, i64 8
   %60 = add nsw i64 %.09.i.i.i.i.i49, -1
-  %61 = icmp ugt i64 %.09.i.i.i.i.i49, 1
+  %61 = icmp samesign ugt i64 %.09.i.i.i.i.i49, 1
   br i1 %61, label %.lr.ph.i.i.i.i.i48, label %_ZSt4moveIN5QListIP15QTreeWidgetItemE8iteratorES4_ET0_T_S6_S5_.exit, !llvm.loop !102
 
 _ZSt4moveIN5QListIP15QTreeWidgetItemE8iteratorES4_ET0_T_S6_S5_.exit: ; preds = %.lr.ph.i.i.i.i.i48, %_ZSt4moveIN5QListIP15QTreeWidgetItemE8iteratorEPS2_ET0_T_S7_S6_.exit46
@@ -13686,7 +13686,7 @@ _ZSt4moveIN5QListIP15QTreeWidgetItemE8iteratorES4_ET0_T_S6_S5_.exit: ; preds = %
   %69 = getelementptr i8, ptr %.sroa.0.06.i.i.i.i.i, i64 -8
   store ptr %68, ptr %69, align 8
   %70 = add nsw i64 %.08.i.i.i.i.i, -1
-  %71 = icmp ugt i64 %.08.i.i.i.i.i, 1
+  %71 = icmp samesign ugt i64 %.08.i.i.i.i.i, 1
   br i1 %71, label %.lr.ph.i.i.i.i.i52, label %_ZSt4moveIPP15QTreeWidgetItemN5QListIS1_E8iteratorEET0_T_S7_S6_.exit, !llvm.loop !95
 
 72:                                               ; preds = %40

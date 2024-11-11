@@ -4381,7 +4381,7 @@ define hidden range(i32 -1, 1) i32 @zend_jit_trace_hot_side(ptr noundef %0, i32 
   %70 = load i32, ptr %69, align 8
   %71 = zext i32 %70 to i64
   %72 = add nsw i64 %55, -1
-  %.not96 = icmp ugt i64 %72, %71
+  %.not96 = icmp samesign ugt i64 %72, %71
   br i1 %.not96, label %75, label %73
 
 73:                                               ; preds = %68
@@ -19749,7 +19749,7 @@ define internal fastcc range(i32 -1, 1) i32 @zend_jit_parse_config_num(i64 nound
   %24 = select i1 %.not, i32 0, i32 4
   %25 = or disjoint i32 %24, %19
   store i32 %25, ptr getelementptr inbounds (i8, ptr @jit_globals, i64 4), align 4
-  %.not21 = icmp ult i64 %0, 10000
+  %.not21 = icmp samesign ult i64 %0, 10000
   br i1 %.not21, label %.sink.split, label %26
 
 .sink.split:                                      ; preds = %23, %1
@@ -47188,7 +47188,7 @@ thread-pre-split12620:                            ; preds = %15030, %15058, %150
 
 15908:                                            ; preds = %15877, %15871
   %.off12068 = add nsw i8 %15858, -23
-  %switch12069 = icmp ult i8 %.off12068, 3
+  %switch12069 = icmp samesign ult i8 %.off12068, 3
   br i1 %switch12069, label %15909, label %15917
 
 15909:                                            ; preds = %15908
@@ -50016,7 +50016,7 @@ zend_jit_free_ctx.exit:                           ; preds = %zend_jit_stack_chec
   store i32 %17423, ptr %17421, align 4
   %17424 = getelementptr inbounds i8, ptr %17420, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(144) %17424, i8 0, i64 144, i1 false)
-  %17425 = icmp ugt i64 %indvars.iv13214, 1
+  %17425 = icmp samesign ugt i64 %indvars.iv13214, 1
   br i1 %17425, label %.lr.ph13027, label %._crit_edge13028
 
 ._crit_edge13028:                                 ; preds = %.lr.ph13027, %17411

@@ -2738,7 +2738,7 @@ switch.hole_check:                                ; preds = %288
   %671 = load double, ptr %670, align 8
   %672 = getelementptr inbounds double, ptr %669, i64 %indvars.iv.next388.i
   store double %671, ptr %672, align 8
-  %673 = icmp ugt i64 %indvars.iv387.i, 1
+  %673 = icmp samesign ugt i64 %indvars.iv387.i, 1
   br i1 %673, label %654, label %.loopexit, !llvm.loop !21
 
 674:                                              ; preds = %595, %423

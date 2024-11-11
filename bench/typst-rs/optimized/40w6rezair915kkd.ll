@@ -760,7 +760,7 @@ define hidden { ptr, i64 } @"_ZN100_$LT$unicode_segmentation..grapheme..Grapheme
   %42 = and i8 %40, 63
   %43 = zext nneg i8 %42 to i32
   %44 = or disjoint i32 %41, %43
-  %45 = icmp ugt i8 %34, -33
+  %45 = icmp samesign ugt i8 %34, -33
   br i1 %45, label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h56b22c765953e12eE.llvm.4930786928582598558.exit15.i.i", label %.preheader.i
 
 46:                                               ; preds = %32
@@ -778,7 +778,7 @@ define hidden { ptr, i64 } @"_ZN100_$LT$unicode_segmentation..grapheme..Grapheme
   %54 = or disjoint i32 %51, %53
   %55 = shl nuw nsw i32 %37, 12
   %56 = or disjoint i32 %54, %55
-  %57 = icmp ugt i8 %34, -17
+  %57 = icmp samesign ugt i8 %34, -17
   br i1 %57, label %58, label %.preheader.i
 
 58:                                               ; preds = %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h56b22c765953e12eE.llvm.4930786928582598558.exit15.i.i"
@@ -888,7 +888,7 @@ define hidden { ptr, i64 } @"_ZN100_$LT$unicode_segmentation..grapheme..Grapheme
   %111 = and i8 %109, 63
   %112 = zext nneg i8 %111 to i32
   %113 = or disjoint i32 %110, %112
-  %114 = icmp ugt i8 %103, -33
+  %114 = icmp samesign ugt i8 %103, -33
   br i1 %114, label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h56b22c765953e12eE.llvm.4930786928582598558.exit15.i49.i", label %.sink.split
 
 115:                                              ; preds = %101
@@ -906,7 +906,7 @@ define hidden { ptr, i64 } @"_ZN100_$LT$unicode_segmentation..grapheme..Grapheme
   %123 = or disjoint i32 %120, %122
   %124 = shl nuw nsw i32 %106, 12
   %125 = or disjoint i32 %123, %124
-  %126 = icmp ugt i8 %103, -17
+  %126 = icmp samesign ugt i8 %103, -17
   br i1 %126, label %127, label %.sink.split
 
 127:                                              ; preds = %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h56b22c765953e12eE.llvm.4930786928582598558.exit15.i49.i"
@@ -17597,7 +17597,7 @@ define internal fastcc noundef range(i8 0, 20) i8 @_ZN20unicode_segmentation4wor
   %24 = and i8 %22, 63
   %25 = zext nneg i8 %24 to i32
   %26 = or disjoint i32 %23, %25
-  %27 = icmp ugt i8 %16, -33
+  %27 = icmp samesign ugt i8 %16, -33
   br i1 %27, label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h56b22c765953e12eE.llvm.4930786928582598558.exit15.i", label %.thread6
 
 "_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h56b22c765953e12eE.llvm.4930786928582598558.exit15.i": ; preds = %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h56b22c765953e12eE.llvm.4930786928582598558.exit13.i"
@@ -17611,7 +17611,7 @@ define internal fastcc noundef range(i8 0, 20) i8 @_ZN20unicode_segmentation4wor
   %34 = or disjoint i32 %31, %33
   %35 = shl nuw nsw i32 %20, 12
   %36 = or disjoint i32 %34, %35
-  %37 = icmp ugt i8 %16, -17
+  %37 = icmp samesign ugt i8 %16, -17
   br i1 %37, label %38, label %.thread6
 
 38:                                               ; preds = %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h56b22c765953e12eE.llvm.4930786928582598558.exit15.i"
@@ -17696,7 +17696,7 @@ define internal fastcc noundef range(i8 0, 20) i8 @_ZN20unicode_segmentation4wor
   %77 = and i8 %75, 63
   %78 = zext nneg i8 %77 to i32
   %79 = or disjoint i32 %76, %78
-  %80 = icmp ugt i8 %68, -33
+  %80 = icmp samesign ugt i8 %68, -33
   br i1 %80, label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h56b22c765953e12eE.llvm.4930786928582598558.exit15.i35", label %.thread14
 
 81:                                               ; preds = %"_ZN4core3str6traits112_$LT$impl$u20$core..slice..index..SliceIndex$LT$str$GT$$u20$for$u20$core..ops..range..RangeFrom$LT$usize$GT$$GT$3get17hed0867ec8f33457eE.exit31.thread19"
@@ -17715,7 +17715,7 @@ define internal fastcc noundef range(i8 0, 20) i8 @_ZN20unicode_segmentation4wor
   %90 = or disjoint i32 %87, %89
   %91 = shl nuw nsw i32 %73, 12
   %92 = or disjoint i32 %90, %91
-  %93 = icmp ugt i8 %68, -17
+  %93 = icmp samesign ugt i8 %68, -17
   br i1 %93, label %94, label %.thread14
 
 94:                                               ; preds = %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h56b22c765953e12eE.llvm.4930786928582598558.exit15.i35"
@@ -17775,7 +17775,7 @@ define hidden noundef zeroext i1 @_ZN20unicode_segmentation4word16has_alphanumer
   %17 = and i8 %15, 63
   %18 = zext nneg i8 %17 to i32
   %19 = or disjoint i32 %16, %18
-  %20 = icmp ugt i8 %9, -33
+  %20 = icmp samesign ugt i8 %9, -33
   br i1 %20, label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h56b22c765953e12eE.llvm.4930786928582598558.exit15.i.i.i", label %"_ZN81_$LT$core..str..iter..Chars$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h0282f441031caae2E.exit.thread.i"
 
 21:                                               ; preds = %.lr.ph
@@ -17793,7 +17793,7 @@ define hidden noundef zeroext i1 @_ZN20unicode_segmentation4word16has_alphanumer
   %29 = or disjoint i32 %26, %28
   %30 = shl nuw nsw i32 %12, 12
   %31 = or disjoint i32 %29, %30
-  %32 = icmp ugt i8 %9, -17
+  %32 = icmp samesign ugt i8 %9, -17
   br i1 %32, label %"_ZN81_$LT$core..str..iter..Chars$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h0282f441031caae2E.exit.i", label %"_ZN81_$LT$core..str..iter..Chars$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h0282f441031caae2E.exit.thread.i"
 
 "_ZN81_$LT$core..str..iter..Chars$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h0282f441031caae2E.exit.i": ; preds = %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h56b22c765953e12eE.llvm.4930786928582598558.exit15.i.i.i"
@@ -27335,7 +27335,7 @@ define hidden void @_ZN4core5slice4sort10merge_sort17h0a2592351140fdc4E(ptr noal
   br label %45
 
 24:                                               ; preds = %3
-  %25 = icmp ugt i64 %1, 1
+  %25 = icmp samesign ugt i64 %1, 1
   br i1 %25, label %"_ZN115_$LT$core..ops..range..RangeInclusive$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$9index_mut17hf89ed395a24ba964E.exit.i", label %_ZN4core5slice4sort25insertion_sort_shift_left17h1181bd0ccc9c4759E.exit
 
 26:                                               ; preds = %62, %27
@@ -27959,7 +27959,7 @@ define hidden void @_ZN4core5slice4sort10merge_sort17h40123d05b9f23e21E(ptr noal
   br label %45
 
 24:                                               ; preds = %3
-  %25 = icmp ugt i64 %1, 1
+  %25 = icmp samesign ugt i64 %1, 1
   br i1 %25, label %.preheader.i72, label %_ZN4core5slice4sort25insertion_sort_shift_left17h8b7d20d47e0a276dE.exit
 
 26:                                               ; preds = %.body, %27
@@ -28700,7 +28700,7 @@ define hidden void @_ZN4core5slice4sort10merge_sort17h414c88ad8f59f4e2E(ptr noal
   br label %49
 
 27:                                               ; preds = %3
-  %28 = icmp ugt i64 %1, 1
+  %28 = icmp samesign ugt i64 %1, 1
   br i1 %28, label %289, label %48
 
 29:                                               ; preds = %.body, %30
@@ -29436,7 +29436,7 @@ define hidden void @_ZN4core5slice4sort10merge_sort17h865376415ce62479E(ptr noal
   br label %46
 
 24:                                               ; preds = %3
-  %25 = icmp ugt i64 %1, 1
+  %25 = icmp samesign ugt i64 %1, 1
   br i1 %25, label %243, label %45
 
 26:                                               ; preds = %.body, %27
@@ -29518,7 +29518,7 @@ define hidden void @_ZN4core5slice4sort10merge_sort17h865376415ce62479E(ptr noal
   %58 = getelementptr i8, ptr %50, i64 232
   %.val28.i = load i8, ptr %58, align 8, !range !6782, !alias.scope !10188, !noundef !4
   %59 = icmp samesign ult i8 %.val28.i, %.val30.i
-  %or.cond12.i = or i1 %55, %59
+  %or.cond12.i = select i1 %55, i1 true, i1 %59
   br i1 %or.cond12.i, label %"_ZN5alloc5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$11sort_by_key28_$u7b$$u7b$closure$u7d$$u7d$17h3cd7e45f5e94876bE.exit.preheader.i", label %.critedge.preheader.i
 
 "_ZN5alloc5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$11sort_by_key28_$u7b$$u7b$closure$u7d$$u7d$17h3cd7e45f5e94876bE.exit.preheader.i": ; preds = %"_ZN65_$LT$typst..layout..abs..Abs$u20$as$u20$core..cmp..PartialOrd$GT$11partial_cmp17h03e3f7912dbb1ce0E.exit.i.i.i"
@@ -29554,7 +29554,7 @@ define hidden void @_ZN4core5slice4sort10merge_sort17h865376415ce62479E(ptr noal
   %67 = getelementptr i8, ptr %60, i64 24
   %.val32.i = load i8, ptr %67, align 8, !range !6782, !alias.scope !10188, !noundef !4
   %68 = icmp samesign ult i8 %.val32.i, %.val34.i
-  %or.cond.i = or i1 %64, %68
+  %or.cond.i = select i1 %64, i1 true, i1 %68
   br i1 %or.cond.i, label %.loopexit81, label %"_ZN5alloc5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$11sort_by_key28_$u7b$$u7b$closure$u7d$$u7d$17h3cd7e45f5e94876bE.exit41.thread4.i"
 
 "_ZN5alloc5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$11sort_by_key28_$u7b$$u7b$closure$u7d$$u7d$17h3cd7e45f5e94876bE.exit41.thread4.i": ; preds = %"_ZN65_$LT$typst..layout..abs..Abs$u20$as$u20$core..cmp..PartialOrd$GT$11partial_cmp17h03e3f7912dbb1ce0E.exit.i.i39.i", %65
@@ -29580,7 +29580,7 @@ define hidden void @_ZN4core5slice4sort10merge_sort17h865376415ce62479E(ptr noal
   %74 = getelementptr i8, ptr %70, i64 24
   %.val36.i = load i8, ptr %74, align 8, !range !6782, !alias.scope !10188, !noundef !4
   %75 = icmp samesign ult i8 %.val36.i, %.val38.i
-  %or.cond10.i = or i1 %72, %75
+  %or.cond10.i = select i1 %72, i1 true, i1 %75
   br i1 %or.cond10.i, label %"_ZN5alloc5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$11sort_by_key28_$u7b$$u7b$closure$u7d$$u7d$17h3cd7e45f5e94876bE.exit44.thread.i", label %.loopexit83
 
 "_ZN5alloc5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$11sort_by_key28_$u7b$$u7b$closure$u7d$$u7d$17h3cd7e45f5e94876bE.exit44.thread.i": ; preds = %"_ZN65_$LT$typst..layout..abs..Abs$u20$as$u20$core..cmp..PartialOrd$GT$11partial_cmp17h03e3f7912dbb1ce0E.exit.i.i42.i"
@@ -30103,7 +30103,7 @@ define hidden void @_ZN4core5slice4sort10merge_sort17h898ffe90d6eaa31fE(ptr noal
   br label %48
 
 27:                                               ; preds = %3
-  %28 = icmp ugt i64 %1, 1
+  %28 = icmp samesign ugt i64 %1, 1
   br i1 %28, label %"_ZN115_$LT$core..ops..range..RangeInclusive$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$9index_mut17h22363a8060229c3dE.exit.lr.ph.i", label %_ZN4core5slice4sort25insertion_sort_shift_left17he0ba1a8be77fa193E.exit
 
 29:                                               ; preds = %.body, %30
@@ -30832,7 +30832,7 @@ define hidden void @_ZN4core5slice4sort10merge_sort17hbb991be4c31247b1E(ptr noal
   br label %45
 
 24:                                               ; preds = %3
-  %25 = icmp ugt i64 %1, 1
+  %25 = icmp samesign ugt i64 %1, 1
   br i1 %25, label %"_ZN115_$LT$core..ops..range..RangeInclusive$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$9index_mut17h60a01cbfbff26c60E.exit.i", label %_ZN4core5slice4sort25insertion_sort_shift_left17hcf4b0661fb1b5b94E.exit
 
 26:                                               ; preds = %62, %27
@@ -31463,7 +31463,7 @@ define internal fastcc void @_ZN4core5slice4sort25insertion_sort_shift_left17h35
   %15 = getelementptr i8, ptr %8, i64 -184
   %.val12.i = load i8, ptr %15, align 8, !range !6782, !alias.scope !10359, !noundef !4
   %16 = icmp samesign ult i8 %.val10.i, %.val12.i
-  %or.cond.i = or i1 %12, %16
+  %or.cond.i = select i1 %12, i1 true, i1 %16
   br i1 %or.cond.i, label %"_ZN5alloc5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$11sort_by_key28_$u7b$$u7b$closure$u7d$$u7d$17h3cd7e45f5e94876bE.exit.thread.i", label %_ZN4core5slice4sort11insert_tail17hd9e3535530a032eaE.exit
 
 "_ZN5alloc5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$11sort_by_key28_$u7b$$u7b$closure$u7d$$u7d$17h3cd7e45f5e94876bE.exit.thread.i": ; preds = %"_ZN65_$LT$typst..layout..abs..Abs$u20$as$u20$core..cmp..PartialOrd$GT$11partial_cmp17h03e3f7912dbb1ce0E.exit.i.i.i"
@@ -37149,7 +37149,7 @@ define internal fastcc void @"_ZN4ecow3vec15EcoVec$LT$T$GT$4grow17h0161c438790e6
   unreachable
 
 5:                                                ; preds = %2
-  %6 = icmp ult i64 %1, 576460752303423488
+  %6 = icmp samesign ult i64 %1, 576460752303423488
   %7 = shl nuw i64 %1, 5
   %8 = or disjoint i64 %7, 16
   %9 = icmp ult i64 %8, 9223372036854775799
@@ -37217,7 +37217,7 @@ define hidden void @"_ZN4ecow3vec15EcoVec$LT$T$GT$4grow17h157332d79063e634E"(ptr
   unreachable
 
 5:                                                ; preds = %2
-  %6 = icmp ugt i64 %1, 9223372036854775782
+  %6 = icmp samesign ugt i64 %1, 9223372036854775782
   br i1 %6, label %7, label %"_ZN4ecow3vec15EcoVec$LT$T$GT$4size17h0b32c2da58c1bbf5E.exit"
 
 7:                                                ; preds = %5
@@ -37282,7 +37282,7 @@ define internal fastcc void @"_ZN4ecow3vec15EcoVec$LT$T$GT$4grow17h315b45b609553
   unreachable
 
 5:                                                ; preds = %2
-  %6 = icmp ult i64 %1, 144115188075855872
+  %6 = icmp samesign ult i64 %1, 144115188075855872
   %7 = shl nuw i64 %1, 7
   %8 = or disjoint i64 %7, 16
   %9 = icmp ult i64 %8, 9223372036854775791
@@ -37590,14 +37590,14 @@ define hidden void @"_ZN4ecow3vec15EcoVec$LT$T$GT$4grow17h7ea6f34f619ce264E.llvm
   unreachable
 
 5:                                                ; preds = %2
-  %6 = icmp ugt i64 %1, 4611686018427387903
+  %6 = icmp samesign ugt i64 %1, 4611686018427387903
   br i1 %6, label %.thread.i, label %7
 
 7:                                                ; preds = %5
   %8 = shl nuw i64 %1, 2
   %9 = tail call { i64, i1 } @llvm.uadd.with.overflow.i64(i64 %8, i64 16)
   %10 = extractvalue { i64, i1 } %9, 1
-  %11 = icmp ugt i64 %1, 2305843009213693945
+  %11 = icmp samesign ugt i64 %1, 2305843009213693945
   %or.cond.i.not.i = or i1 %11, %10
   br i1 %or.cond.i.not.i, label %.thread.i, label %"_ZN4ecow3vec15EcoVec$LT$T$GT$4size17h3a9d12ef8a8d4490E.exit"
 
@@ -37627,7 +37627,7 @@ define hidden void @"_ZN4ecow3vec15EcoVec$LT$T$GT$4grow17h7ea6f34f619ce264E.llvm
   %20 = shl nuw i64 %.val.i.i, 2
   %21 = tail call { i64, i1 } @llvm.uadd.with.overflow.i64(i64 %20, i64 16)
   %22 = extractvalue { i64, i1 } %21, 1
-  %23 = icmp ugt i64 %.val.i.i, 2305843009213693945
+  %23 = icmp samesign ugt i64 %.val.i.i, 2305843009213693945
   %or.cond.i.not.i35 = or i1 %23, %22
   br i1 %or.cond.i.not.i35, label %.thread.i36, label %"_ZN4ecow3vec15EcoVec$LT$T$GT$4size17h3a9d12ef8a8d4490E.exit40"
 
@@ -37748,7 +37748,7 @@ define hidden void @"_ZN4ecow3vec15EcoVec$LT$T$GT$4grow17h9bf3c2d15eea538dE"(ptr
   unreachable
 
 5:                                                ; preds = %2
-  %6 = icmp ult i64 %1, 576460752303423488
+  %6 = icmp samesign ult i64 %1, 576460752303423488
   %7 = shl nuw i64 %1, 5
   %8 = or disjoint i64 %7, 16
   %9 = icmp ult i64 %8, 9223372036854775799
@@ -37816,7 +37816,7 @@ define hidden void @"_ZN4ecow3vec15EcoVec$LT$T$GT$4grow17ha291022fa7282789E.llvm
   unreachable
 
 5:                                                ; preds = %2
-  %6 = icmp ult i64 %1, 288230376151711744
+  %6 = icmp samesign ult i64 %1, 288230376151711744
   %7 = shl nuw i64 %1, 6
   %8 = or disjoint i64 %7, 16
   %9 = icmp ult i64 %8, 9223372036854775791
@@ -37964,7 +37964,7 @@ define hidden void @"_ZN4ecow3vec15EcoVec$LT$T$GT$4grow17hd9aadeef0cffb5d3E.llvm
   unreachable
 
 5:                                                ; preds = %2
-  %6 = icmp ult i64 %1, 288230376151711744
+  %6 = icmp samesign ult i64 %1, 288230376151711744
   %7 = shl nuw i64 %1, 6
   %8 = or disjoint i64 %7, 16
   %9 = icmp ult i64 %8, 9223372036854775799
@@ -38112,14 +38112,14 @@ define hidden void @"_ZN4ecow3vec15EcoVec$LT$T$GT$4grow17hf6a9642cc850289cE.llvm
   unreachable
 
 5:                                                ; preds = %2
-  %6 = icmp ugt i64 %1, 1152921504606846975
+  %6 = icmp samesign ugt i64 %1, 1152921504606846975
   br i1 %6, label %.thread.i, label %7
 
 7:                                                ; preds = %5
   %8 = shl nuw i64 %1, 4
   %9 = tail call { i64, i1 } @llvm.uadd.with.overflow.i64(i64 %8, i64 16)
   %10 = extractvalue { i64, i1 } %9, 1
-  %11 = icmp ugt i64 %1, 576460752303423486
+  %11 = icmp samesign ugt i64 %1, 576460752303423486
   %or.cond.i.not.i = or i1 %11, %10
   br i1 %or.cond.i.not.i, label %.thread.i, label %"_ZN4ecow3vec15EcoVec$LT$T$GT$4size17hfa1591b0d00f0378E.exit"
 
@@ -38149,7 +38149,7 @@ define hidden void @"_ZN4ecow3vec15EcoVec$LT$T$GT$4grow17hf6a9642cc850289cE.llvm
   %21 = shl nuw i64 %.val.i.i, 4
   %22 = tail call { i64, i1 } @llvm.uadd.with.overflow.i64(i64 %21, i64 16)
   %23 = extractvalue { i64, i1 } %22, 1
-  %24 = icmp ugt i64 %.val.i.i, 576460752303423486
+  %24 = icmp samesign ugt i64 %.val.i.i, 576460752303423486
   %or.cond.i.not.i34 = or i1 %24, %23
   br i1 %or.cond.i.not.i34, label %.thread.i35, label %"_ZN4ecow3vec15EcoVec$LT$T$GT$4size17hfa1591b0d00f0378E.exit39"
 
@@ -55505,7 +55505,7 @@ define internal fastcc void @"_ZN80_$LT$core..str..pattern..StrSearcher$u20$as$u
   %40 = and i8 %38, 63
   %41 = zext nneg i8 %40 to i32
   %42 = or disjoint i32 %39, %41
-  %43 = icmp ugt i8 %32, -33
+  %43 = icmp samesign ugt i8 %32, -33
   br i1 %43, label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h56b22c765953e12eE.llvm.4930786928582598558.exit15.i.i", label %_ZN4core3str11validations15next_code_point17h34adc5e17767eaceE.exit.thread.i
 
 44:                                               ; preds = %31
@@ -55523,7 +55523,7 @@ define internal fastcc void @"_ZN80_$LT$core..str..pattern..StrSearcher$u20$as$u
   %52 = or disjoint i32 %49, %51
   %53 = shl nuw nsw i32 %36, 12
   %54 = or disjoint i32 %52, %53
-  %55 = icmp ugt i8 %32, -17
+  %55 = icmp samesign ugt i8 %32, -17
   br i1 %55, label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h56b22c765953e12eE.llvm.4930786928582598558.exit17.i.i", label %_ZN4core3str11validations15next_code_point17h34adc5e17767eaceE.exit.thread.i
 
 "_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h56b22c765953e12eE.llvm.4930786928582598558.exit17.i.i": ; preds = %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h56b22c765953e12eE.llvm.4930786928582598558.exit15.i.i"
@@ -59069,7 +59069,7 @@ define hidden { ptr, i64 } @"_ZN91_$LT$core..str..iter..SplitWhitespace$u20$as$u
   %29 = and i8 %27, 63
   %30 = zext nneg i8 %29 to i32
   %31 = or disjoint i32 %28, %30
-  %32 = icmp ugt i8 %21, -33
+  %32 = icmp samesign ugt i8 %21, -33
   br i1 %32, label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h56b22c765953e12eE.llvm.4930786928582598558.exit15.i.i.i.i.i.i.i", label %"_ZN87_$LT$core..str..iter..CharIndices$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h099a0adc53c2c528E.exit.thread11.i.i.i.i.i"
 
 33:                                               ; preds = %.lr.ph.i.i.i.i
@@ -59087,7 +59087,7 @@ define hidden { ptr, i64 } @"_ZN91_$LT$core..str..iter..SplitWhitespace$u20$as$u
   %41 = or disjoint i32 %38, %40
   %42 = shl nuw nsw i32 %24, 12
   %43 = or disjoint i32 %41, %42
-  %44 = icmp ugt i8 %21, -17
+  %44 = icmp samesign ugt i8 %21, -17
   br i1 %44, label %45, label %"_ZN87_$LT$core..str..iter..CharIndices$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h099a0adc53c2c528E.exit.thread11.i.i.i.i.i"
 
 45:                                               ; preds = %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h56b22c765953e12eE.llvm.4930786928582598558.exit15.i.i.i.i.i.i.i"
@@ -65857,7 +65857,7 @@ define hidden void @"_ZN91_$LT$ecow..vec..EcoVec$LT$T$GT$$u20$as$u20$core..iter.
   %25 = and i8 %23, 63
   %26 = zext nneg i8 %25 to i32
   %27 = or disjoint i32 %24, %26
-  %28 = icmp ugt i8 %17, -33
+  %28 = icmp samesign ugt i8 %17, -33
   br i1 %28, label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h56b22c765953e12eE.llvm.4930786928582598558.exit15.i.i.i", label %52
 
 29:                                               ; preds = %15
@@ -65875,7 +65875,7 @@ define hidden void @"_ZN91_$LT$ecow..vec..EcoVec$LT$T$GT$$u20$as$u20$core..iter.
   %37 = or disjoint i32 %34, %36
   %38 = shl nuw nsw i32 %20, 12
   %39 = or disjoint i32 %37, %38
-  %40 = icmp ugt i8 %17, -17
+  %40 = icmp samesign ugt i8 %17, -17
   br i1 %40, label %"_ZN81_$LT$core..str..iter..Chars$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h0282f441031caae2E.exit.i", label %52
 
 "_ZN81_$LT$core..str..iter..Chars$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h0282f441031caae2E.exit.i": ; preds = %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h56b22c765953e12eE.llvm.4930786928582598558.exit15.i.i.i"
@@ -85262,7 +85262,7 @@ define internal fastcc { ptr, i64 } @"_ZN99_$LT$unicode_segmentation..word..Unic
   %28 = and i8 %26, 63
   %29 = zext nneg i8 %28 to i32
   %30 = or disjoint i32 %27, %29
-  %31 = icmp ugt i8 %20, -33
+  %31 = icmp samesign ugt i8 %20, -33
   br i1 %31, label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h56b22c765953e12eE.llvm.4930786928582598558.exit15.i.i.i.i", label %"_ZN87_$LT$core..str..iter..CharIndices$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h099a0adc53c2c528E.exit.thread173.i.i"
 
 32:                                               ; preds = %17
@@ -85280,7 +85280,7 @@ define internal fastcc { ptr, i64 } @"_ZN99_$LT$unicode_segmentation..word..Unic
   %40 = or disjoint i32 %37, %39
   %41 = shl nuw nsw i32 %23, 12
   %42 = or disjoint i32 %40, %41
-  %43 = icmp ugt i8 %20, -17
+  %43 = icmp samesign ugt i8 %20, -17
   br i1 %43, label %44, label %"_ZN87_$LT$core..str..iter..CharIndices$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h099a0adc53c2c528E.exit.thread173.i.i"
 
 44:                                               ; preds = %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h56b22c765953e12eE.llvm.4930786928582598558.exit15.i.i.i.i"
@@ -85698,7 +85698,7 @@ default.unreachable:                              ; preds = %70
   %154 = and i8 %152, 63
   %155 = zext nneg i8 %154 to i32
   %156 = or disjoint i32 %153, %155
-  %157 = icmp ugt i8 %146, -33
+  %157 = icmp samesign ugt i8 %146, -33
   br i1 %157, label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h56b22c765953e12eE.llvm.4930786928582598558.exit15.i.i.i", label %.thread201.i.i
 
 "_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h56b22c765953e12eE.llvm.4930786928582598558.exit15.i.i.i": ; preds = %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h56b22c765953e12eE.llvm.4930786928582598558.exit13.i.i.i"
@@ -85712,7 +85712,7 @@ default.unreachable:                              ; preds = %70
   %164 = or disjoint i32 %161, %163
   %165 = shl nuw nsw i32 %150, 12
   %166 = or disjoint i32 %164, %165
-  %167 = icmp ugt i8 %146, -17
+  %167 = icmp samesign ugt i8 %146, -17
   br i1 %167, label %168, label %.thread201.i.i
 
 168:                                              ; preds = %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h56b22c765953e12eE.llvm.4930786928582598558.exit15.i.i.i"
@@ -90747,7 +90747,7 @@ define void @_ZN5typst4math3ctx11MathContext11layout_text17h1f95b07ee387930cE(pt
   %105 = and i8 %103, 63
   %106 = zext nneg i8 %105 to i32
   %107 = or disjoint i32 %104, %106
-  %108 = icmp ugt i8 %97, -33
+  %108 = icmp samesign ugt i8 %97, -33
   br i1 %108, label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h56b22c765953e12eE.llvm.4930786928582598558.exit15.i", label %.thread316
 
 109:                                              ; preds = %95
@@ -90765,7 +90765,7 @@ define void @_ZN5typst4math3ctx11MathContext11layout_text17h1f95b07ee387930cE(pt
   %117 = or disjoint i32 %114, %116
   %118 = shl nuw nsw i32 %100, 12
   %119 = or disjoint i32 %117, %118
-  %120 = icmp ugt i8 %97, -17
+  %120 = icmp samesign ugt i8 %97, -17
   br i1 %120, label %121, label %.thread316
 
 121:                                              ; preds = %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h56b22c765953e12eE.llvm.4930786928582598558.exit15.i"
@@ -90798,14 +90798,14 @@ define void @_ZN5typst4math3ctx11MathContext11layout_text17h1f95b07ee387930cE(pt
   %136 = getelementptr inbounds i8, ptr %.sroa.0.0.ph320, i64 1
   %137 = icmp ne ptr %136, %87
   call void @llvm.assume(i1 %137)
-  %138 = icmp ugt i8 %134, -33
+  %138 = icmp samesign ugt i8 %134, -33
   br i1 %138, label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h56b22c765953e12eE.llvm.4930786928582598558.exit15.i.i.i", label %.thread
 
 "_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h56b22c765953e12eE.llvm.4930786928582598558.exit15.i.i.i": ; preds = %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h56b22c765953e12eE.llvm.4930786928582598558.exit13.i.i.i"
   %139 = getelementptr inbounds i8, ptr %.sroa.0.0.ph320, i64 2
   %140 = icmp ne ptr %139, %87
   call void @llvm.assume(i1 %140)
-  %141 = icmp ugt i8 %134, -17
+  %141 = icmp samesign ugt i8 %134, -17
   br i1 %141, label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h56b22c765953e12eE.llvm.4930786928582598558.exit17.i.i.i", label %.thread
 
 "_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h56b22c765953e12eE.llvm.4930786928582598558.exit17.i.i.i": ; preds = %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h56b22c765953e12eE.llvm.4930786928582598558.exit15.i.i.i"
@@ -91257,7 +91257,7 @@ _ZN5typst4math8fragment19script_alternatives17h3f13278ce2573cd8E.llvm.5857379167
   %333 = and i8 %331, 63
   %334 = zext nneg i8 %333 to i32
   %335 = or disjoint i32 %332, %334
-  %336 = icmp ugt i8 %325, -33
+  %336 = icmp samesign ugt i8 %325, -33
   br i1 %336, label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h56b22c765953e12eE.llvm.4930786928582598558.exit15.i.i.i163", label %"_ZN81_$LT$core..str..iter..Chars$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h0282f441031caae2E.exit.thread.i"
 
 337:                                              ; preds = %323
@@ -91275,7 +91275,7 @@ _ZN5typst4math8fragment19script_alternatives17h3f13278ce2573cd8E.llvm.5857379167
   %345 = or disjoint i32 %342, %344
   %346 = shl nuw nsw i32 %328, 12
   %347 = or disjoint i32 %345, %346
-  %348 = icmp ugt i8 %325, -17
+  %348 = icmp samesign ugt i8 %325, -17
   br i1 %348, label %"_ZN81_$LT$core..str..iter..Chars$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h0282f441031caae2E.exit.i", label %"_ZN81_$LT$core..str..iter..Chars$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h0282f441031caae2E.exit.thread.i"
 
 "_ZN81_$LT$core..str..iter..Chars$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h0282f441031caae2E.exit.i": ; preds = %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h56b22c765953e12eE.llvm.4930786928582598558.exit15.i.i.i163"
@@ -91490,7 +91490,7 @@ _ZN5typst4math8fragment19script_alternatives17h3f13278ce2573cd8E.llvm.5857379167
   %418 = and i8 %416, 63
   %419 = zext nneg i8 %418 to i32
   %420 = or disjoint i32 %417, %419
-  %421 = icmp ugt i8 %410, -33
+  %421 = icmp samesign ugt i8 %410, -33
   br i1 %421, label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h56b22c765953e12eE.llvm.4930786928582598558.exit15.i.i.i.i", label %"_ZN81_$LT$core..str..iter..Chars$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h0282f441031caae2E.exit.thread.i.i"
 
 422:                                              ; preds = %408
@@ -91508,7 +91508,7 @@ _ZN5typst4math8fragment19script_alternatives17h3f13278ce2573cd8E.llvm.5857379167
   %430 = or disjoint i32 %427, %429
   %431 = shl nuw nsw i32 %413, 12
   %432 = or disjoint i32 %430, %431
-  %433 = icmp ugt i8 %410, -17
+  %433 = icmp samesign ugt i8 %410, -17
   br i1 %433, label %"_ZN81_$LT$core..str..iter..Chars$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h0282f441031caae2E.exit.i.i", label %"_ZN81_$LT$core..str..iter..Chars$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h0282f441031caae2E.exit.thread.i.i"
 
 "_ZN81_$LT$core..str..iter..Chars$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h0282f441031caae2E.exit.i.i": ; preds = %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h56b22c765953e12eE.llvm.4930786928582598558.exit15.i.i.i.i"
@@ -91611,7 +91611,7 @@ _ZN5typst4math8fragment19script_alternatives17h3f13278ce2573cd8E.llvm.5857379167
   %483 = and i8 %481, 63
   %484 = zext nneg i8 %483 to i32
   %485 = or disjoint i32 %482, %484
-  %486 = icmp ugt i8 %475, -33
+  %486 = icmp samesign ugt i8 %475, -33
   br i1 %486, label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h56b22c765953e12eE.llvm.4930786928582598558.exit15.i.i.i.i.i", label %"_ZN87_$LT$core..str..iter..CharIndices$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h099a0adc53c2c528E.exit.thread7.i.i.i"
 
 487:                                              ; preds = %473
@@ -91629,7 +91629,7 @@ _ZN5typst4math8fragment19script_alternatives17h3f13278ce2573cd8E.llvm.5857379167
   %495 = or disjoint i32 %492, %494
   %496 = shl nuw nsw i32 %478, 12
   %497 = or disjoint i32 %495, %496
-  %498 = icmp ugt i8 %475, -17
+  %498 = icmp samesign ugt i8 %475, -17
   br i1 %498, label %499, label %"_ZN87_$LT$core..str..iter..CharIndices$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h099a0adc53c2c528E.exit.thread7.i.i.i"
 
 499:                                              ; preds = %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h56b22c765953e12eE.llvm.4930786928582598558.exit15.i.i.i.i.i"
@@ -91785,7 +91785,7 @@ _ZN5typst4math8fragment19script_alternatives17h3f13278ce2573cd8E.llvm.5857379167
   %553 = and i8 %551, 63
   %554 = zext nneg i8 %553 to i32
   %555 = or disjoint i32 %552, %554
-  %556 = icmp ugt i8 %545, -33
+  %556 = icmp samesign ugt i8 %545, -33
   br i1 %556, label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h56b22c765953e12eE.llvm.4930786928582598558.exit15.i.i.i.i.i.i.i", label %"_ZN87_$LT$core..str..iter..CharIndices$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h099a0adc53c2c528E.exit.thread7.i.i.i.i.i"
 
 557:                                              ; preds = %543
@@ -91803,7 +91803,7 @@ _ZN5typst4math8fragment19script_alternatives17h3f13278ce2573cd8E.llvm.5857379167
   %565 = or disjoint i32 %562, %564
   %566 = shl nuw nsw i32 %548, 12
   %567 = or disjoint i32 %565, %566
-  %568 = icmp ugt i8 %545, -17
+  %568 = icmp samesign ugt i8 %545, -17
   br i1 %568, label %569, label %"_ZN87_$LT$core..str..iter..CharIndices$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h099a0adc53c2c528E.exit.thread7.i.i.i.i.i"
 
 569:                                              ; preds = %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h56b22c765953e12eE.llvm.4930786928582598558.exit15.i.i.i.i.i.i.i"
@@ -92322,7 +92322,7 @@ _ZN5typst4math8fragment19script_alternatives17h3f13278ce2573cd8E.llvm.5857379167
   %734 = and i8 %732, 63
   %735 = zext nneg i8 %734 to i32
   %736 = or disjoint i32 %733, %735
-  %737 = icmp ugt i8 %726, -33
+  %737 = icmp samesign ugt i8 %726, -33
   br i1 %737, label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h56b22c765953e12eE.llvm.4930786928582598558.exit15.i243", label %.thread415
 
 738:                                              ; preds = %724
@@ -92340,7 +92340,7 @@ _ZN5typst4math8fragment19script_alternatives17h3f13278ce2573cd8E.llvm.5857379167
   %746 = or disjoint i32 %743, %745
   %747 = shl nuw nsw i32 %729, 12
   %748 = or disjoint i32 %746, %747
-  %749 = icmp ugt i8 %726, -17
+  %749 = icmp samesign ugt i8 %726, -17
   br i1 %749, label %750, label %.thread415
 
 750:                                              ; preds = %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h56b22c765953e12eE.llvm.4930786928582598558.exit15.i243"
@@ -93911,7 +93911,7 @@ _ZN5typst5model10numbering_13NumberingKind9from_char17h2c74da6d5069f7a3E.exit: ;
   %30 = and i8 %28, 63
   %31 = zext nneg i8 %30 to i32
   %32 = or disjoint i32 %29, %31
-  %33 = icmp ugt i8 %22, -33
+  %33 = icmp samesign ugt i8 %22, -33
   br i1 %33, label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h56b22c765953e12eE.llvm.4930786928582598558.exit15.i.i", label %.thread94
 
 34:                                               ; preds = %20
@@ -93929,7 +93929,7 @@ _ZN5typst5model10numbering_13NumberingKind9from_char17h2c74da6d5069f7a3E.exit: ;
   %42 = or disjoint i32 %39, %41
   %43 = shl nuw nsw i32 %25, 12
   %44 = or disjoint i32 %42, %43
-  %45 = icmp ugt i8 %22, -17
+  %45 = icmp samesign ugt i8 %22, -17
   br i1 %45, label %46, label %.thread94
 
 46:                                               ; preds = %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h56b22c765953e12eE.llvm.4930786928582598558.exit15.i.i"
@@ -94731,7 +94731,7 @@ common.resume:                                    ; preds = %.body.i, %143, %146
   %93 = and i8 %91, 63
   %94 = zext nneg i8 %93 to i32
   %95 = or disjoint i32 %92, %94
-  %96 = icmp ugt i8 %85, -33
+  %96 = icmp samesign ugt i8 %85, -33
   br i1 %96, label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h56b22c765953e12eE.llvm.4930786928582598558.exit15.i", label %.thread100
 
 97:                                               ; preds = %83
@@ -94749,7 +94749,7 @@ common.resume:                                    ; preds = %.body.i, %143, %146
   %105 = or disjoint i32 %102, %104
   %106 = shl nuw nsw i32 %88, 12
   %107 = or disjoint i32 %105, %106
-  %108 = icmp ugt i8 %85, -17
+  %108 = icmp samesign ugt i8 %85, -17
   br i1 %108, label %109, label %.thread100
 
 109:                                              ; preds = %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h56b22c765953e12eE.llvm.4930786928582598558.exit15.i"
@@ -95544,7 +95544,7 @@ define { i64, i64 } @_ZN5typst4text4font4book8FontBook15select_fallback17h664968
   %22 = and i8 %20, 63
   %23 = zext nneg i8 %22 to i32
   %24 = or disjoint i32 %21, %23
-  %25 = icmp ugt i8 %14, -33
+  %25 = icmp samesign ugt i8 %14, -33
   br i1 %25, label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h56b22c765953e12eE.llvm.4930786928582598558.exit15.i.i.i", label %"_ZN81_$LT$core..str..iter..Chars$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h0282f441031caae2E.exit.thread.i"
 
 26:                                               ; preds = %12
@@ -95562,7 +95562,7 @@ define { i64, i64 } @_ZN5typst4text4font4book8FontBook15select_fallback17h664968
   %34 = or disjoint i32 %31, %33
   %35 = shl nuw nsw i32 %17, 12
   %36 = or disjoint i32 %34, %35
-  %37 = icmp ugt i8 %14, -17
+  %37 = icmp samesign ugt i8 %14, -17
   br i1 %37, label %"_ZN81_$LT$core..str..iter..Chars$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h0282f441031caae2E.exit.i", label %"_ZN81_$LT$core..str..iter..Chars$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h0282f441031caae2E.exit.thread.i"
 
 "_ZN81_$LT$core..str..iter..Chars$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h0282f441031caae2E.exit.i": ; preds = %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h56b22c765953e12eE.llvm.4930786928582598558.exit15.i.i.i"
@@ -97389,7 +97389,7 @@ define void @_ZN5typst4text4font4book8Coverage8from_vec17h3c3fd47f3af37917E(ptr 
   br label %52
 
 31:                                               ; preds = %2
-  %32 = icmp ugt i64 %14, 1
+  %32 = icmp samesign ugt i64 %14, 1
   br i1 %32, label %"_ZN115_$LT$core..ops..range..RangeInclusive$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$9index_mut17h6c59734b5282e143E.exit.i.i.i", label %_ZN5alloc5slice11stable_sort17hcbbeeee1277fc099E.exit
 
 33:                                               ; preds = %68, %34

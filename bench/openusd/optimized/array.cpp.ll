@@ -72761,7 +72761,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_10GfIntervalEE9_IsUniqueEv.exi
   %81 = getelementptr inbounds i8, ptr %.0910.i.i.i.i.i, i64 32
   %82 = getelementptr inbounds i8, ptr %.0811.i.i.i.i.i, i64 32
   %83 = add nsw i64 %.012.i.i.i.i.i, -1
-  %84 = icmp ugt i64 %.012.i.i.i.i.i, 1
+  %84 = icmp samesign ugt i64 %.012.i.i.i.i.i, 1
   br i1 %84, label %.lr.ph.i.i.i.i.i, label %_ZSt4moveIPN32pxrInternal_v0_24__pxrReserved__10GfIntervalES2_ET0_T_S4_S3_.exit, !llvm.loop !462
 
 _ZSt4moveIPN32pxrInternal_v0_24__pxrReserved__10GfIntervalES2_ET0_T_S4_S3_.exit: ; preds = %.lr.ph.i.i.i.i.i, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_10GfIntervalEE9_IsUniqueEv.exit.thread
@@ -128087,7 +128087,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINSt7__cxx1112basic_stringIcSt11ch
   %48 = getelementptr inbounds i8, ptr %.0910.i.i.i.i.i, i64 32
   %49 = getelementptr inbounds i8, ptr %.0811.i.i.i.i.i, i64 32
   %50 = add nsw i64 %.012.i.i.i.i.i, -1
-  %51 = icmp ugt i64 %.012.i.i.i.i.i, 1
+  %51 = icmp samesign ugt i64 %.012.i.i.i.i.i, 1
   br i1 %51, label %.lr.ph.i.i.i.i.i, label %_ZSt4moveIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES6_ET0_T_S8_S7_.exit, !llvm.loop !842
 
 _ZSt4moveIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES6_ET0_T_S8_S7_.exit: ; preds = %.lr.ph.i.i.i.i.i, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE9_IsUniqueEv.exit.thread

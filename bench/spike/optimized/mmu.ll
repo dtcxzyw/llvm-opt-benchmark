@@ -749,8 +749,8 @@ _ZN5mmu_t8pte_loadEmmb11access_typem.exit:        ; preds = %84, %86
   %115 = and i64 %.0.i, -2305843009213693744
   %.not146 = icmp eq i64 %115, 0
   %116 = shl nuw nsw i64 %88, 12
-  %117 = icmp ugt i64 %indvars.iv, 1
-  %or.cond = and i1 %.not146, %117
+  %117 = icmp samesign ugt i64 %indvars.iv, 1
+  %or.cond = select i1 %.not146, i1 %117, i1 false
   br i1 %or.cond, label %76, label %.loopexit, !llvm.loop !9
 
 118:                                              ; preds = %111
@@ -3107,7 +3107,7 @@ _ZN5mmu_t8pte_loadEmmb11access_typem.exit:        ; preds = %68, %70
   %100 = and i64 %.0.i, -2305843009213693744
   %.not119 = icmp eq i64 %100, 0
   %101 = shl nuw nsw i64 %72, 12
-  %102 = icmp ugt i64 %indvars.iv, 1
+  %102 = icmp samesign ugt i64 %indvars.iv, 1
   %or.cond = select i1 %.not119, i1 %102, i1 false
   br i1 %or.cond, label %56, label %.loopexit, !llvm.loop !34
 

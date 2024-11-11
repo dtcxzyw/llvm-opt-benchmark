@@ -32,7 +32,7 @@ define hidden noundef ptr @mlib_ImageSet(ptr noundef writeonly %0, i32 noundef %
 
 20:                                               ; preds = %9
   %21 = udiv i32 2147483647, %3
-  %22 = icmp ugt i32 %21, %2
+  %22 = icmp samesign ugt i32 %21, %2
   br i1 %22, label %23, label %66
 
 23:                                               ; preds = %20
@@ -48,7 +48,7 @@ define hidden noundef ptr @mlib_ImageSet(ptr noundef writeonly %0, i32 noundef %
   ]
 
 25:                                               ; preds = %23
-  %26 = icmp ult i32 %24, 238609295
+  %26 = icmp samesign ult i32 %24, 238609295
   br i1 %26, label %27, label %66
 
 27:                                               ; preds = %25
@@ -56,7 +56,7 @@ define hidden noundef ptr @mlib_ImageSet(ptr noundef writeonly %0, i32 noundef %
   br label %42
 
 29:                                               ; preds = %23, %23
-  %30 = icmp ult i32 %24, 429496730
+  %30 = icmp samesign ult i32 %24, 429496730
   br i1 %30, label %31, label %66
 
 31:                                               ; preds = %29
@@ -64,7 +64,7 @@ define hidden noundef ptr @mlib_ImageSet(ptr noundef writeonly %0, i32 noundef %
   br label %42
 
 33:                                               ; preds = %23, %23
-  %34 = icmp ult i32 %24, 715827883
+  %34 = icmp samesign ult i32 %24, 715827883
   br i1 %34, label %35, label %66
 
 35:                                               ; preds = %33
@@ -72,7 +72,7 @@ define hidden noundef ptr @mlib_ImageSet(ptr noundef writeonly %0, i32 noundef %
   br label %42
 
 37:                                               ; preds = %23
-  %38 = icmp ult i32 %24, 2147483640
+  %38 = icmp samesign ult i32 %24, 2147483640
   br i1 %38, label %39, label %66
 
 39:                                               ; preds = %37
@@ -166,7 +166,7 @@ define ptr @j2d_mlib_ImageCreate(i32 noundef %0, i32 noundef %1, i32 noundef %2,
 
 9:                                                ; preds = %4
   %10 = udiv i32 2147483647, %2
-  %11 = icmp ugt i32 %10, %1
+  %11 = icmp samesign ugt i32 %10, %1
   br i1 %11, label %12, label %66
 
 12:                                               ; preds = %9
@@ -182,7 +182,7 @@ define ptr @j2d_mlib_ImageCreate(i32 noundef %0, i32 noundef %1, i32 noundef %2,
   ]
 
 14:                                               ; preds = %12
-  %15 = icmp ult i32 %13, 238609295
+  %15 = icmp samesign ult i32 %13, 238609295
   br i1 %15, label %16, label %66
 
 16:                                               ; preds = %14
@@ -190,7 +190,7 @@ define ptr @j2d_mlib_ImageCreate(i32 noundef %0, i32 noundef %1, i32 noundef %2,
   br label %31
 
 18:                                               ; preds = %12, %12
-  %19 = icmp ult i32 %13, 429496730
+  %19 = icmp samesign ult i32 %13, 429496730
   br i1 %19, label %20, label %66
 
 20:                                               ; preds = %18
@@ -198,7 +198,7 @@ define ptr @j2d_mlib_ImageCreate(i32 noundef %0, i32 noundef %1, i32 noundef %2,
   br label %31
 
 22:                                               ; preds = %12, %12
-  %23 = icmp ult i32 %13, 715827883
+  %23 = icmp samesign ult i32 %13, 715827883
   br i1 %23, label %24, label %66
 
 24:                                               ; preds = %22
@@ -206,7 +206,7 @@ define ptr @j2d_mlib_ImageCreate(i32 noundef %0, i32 noundef %1, i32 noundef %2,
   br label %31
 
 26:                                               ; preds = %12
-  %27 = icmp ult i32 %13, 2147483640
+  %27 = icmp samesign ult i32 %13, 2147483640
   br i1 %27, label %28, label %66
 
 28:                                               ; preds = %26
@@ -217,7 +217,7 @@ define ptr @j2d_mlib_ImageCreate(i32 noundef %0, i32 noundef %1, i32 noundef %2,
 31:                                               ; preds = %16, %20, %24, %28, %12
   %.077 = phi i32 [ %30, %28 ], [ %13, %12 ], [ %25, %24 ], [ %21, %20 ], [ %17, %16 ]
   %32 = udiv i32 2147483647, %.077
-  %33 = icmp ugt i32 %32, %3
+  %33 = icmp samesign ugt i32 %32, %3
   br i1 %33, label %34, label %66
 
 34:                                               ; preds = %31

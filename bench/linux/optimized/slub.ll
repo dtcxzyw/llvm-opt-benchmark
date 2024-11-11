@@ -1902,7 +1902,7 @@ define dso_local noalias ptr @__kmalloc_node(i64 noundef %0, i32 noundef %1, i32
   br i1 %16, label %202, label %17, !prof !15
 
 17:                                               ; preds = %15
-  %18 = icmp ult i64 %0, 193
+  %18 = icmp samesign ult i64 %0, 193
   br i1 %18, label %19, label %26
 
 19:                                               ; preds = %17
@@ -2221,7 +2221,7 @@ define dso_local noalias ptr @__kmalloc(i64 noundef %0, i32 noundef %1) #7 align
   br i1 %15, label %174, label %16, !prof !15
 
 16:                                               ; preds = %14
-  %17 = icmp ult i64 %0, 193
+  %17 = icmp samesign ult i64 %0, 193
   br i1 %17, label %18, label %25
 
 18:                                               ; preds = %16
@@ -2497,7 +2497,7 @@ define dso_local noalias ptr @__kmalloc_node_track_caller(i64 noundef %0, i32 no
   br i1 %15, label %201, label %16, !prof !15
 
 16:                                               ; preds = %14
-  %17 = icmp ult i64 %0, 193
+  %17 = icmp samesign ult i64 %0, 193
   br i1 %17, label %18, label %25
 
 18:                                               ; preds = %16
@@ -5690,7 +5690,7 @@ define dso_local range(i32 0, 2) i32 @__kmem_cache_shrink(ptr noundef %0) local_
   br label %77
 
 66:                                               ; preds = %44
-  %67 = icmp ult i32 %41, 33
+  %67 = icmp samesign ult i32 %41, 33
   br i1 %67, label %68, label %77
 
 68:                                               ; preds = %66
@@ -6198,11 +6198,11 @@ define dso_local i32 @__kmem_cache_create(ptr noundef %0, i32 noundef %1) local_
   br i1 %57, label %63, label %58
 
 58:                                               ; preds = %55
-  %59 = icmp ugt i32 %56, 1023
+  %59 = icmp samesign ugt i32 %56, 1023
   br i1 %59, label %63, label %60
 
 60:                                               ; preds = %58
-  %61 = icmp ugt i32 %56, 255
+  %61 = icmp samesign ugt i32 %56, 255
   %62 = select i1 %61, i32 52, i32 120
   br label %63
 

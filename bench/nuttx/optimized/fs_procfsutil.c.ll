@@ -64,7 +64,7 @@ define void @procfs_sprintf(ptr nocapture noundef writeonly %0, i64 noundef %1, 
   br i1 %11, label %12, label %20
 
 12:                                               ; preds = %4
-  %13 = icmp ult i32 %8, %10
+  %13 = icmp samesign ult i32 %8, %10
   br i1 %13, label %14, label %16
 
 14:                                               ; preds = %12

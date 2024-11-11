@@ -2787,7 +2787,7 @@ _ZNK4llvm4Type13getScalarTypeEv.exit:             ; preds = %3, %9
   %21 = xor i32 %20, 63
   %22 = zext nneg i32 %21 to i64
   %23 = lshr i64 -1, %22
-  %24 = icmp ult i32 %13, 256
+  %24 = icmp samesign ult i32 %13, 256
   %spec.store.select.i.i.i = select i1 %24, i64 0, i64 %23
   %25 = and i64 %spec.store.select.i.i.i, %1
   store i64 %25, ptr %4, align 8
@@ -3823,7 +3823,7 @@ define dso_local noundef ptr @_ZN4llvm8Constant15getAllOnesValueEPNS_4TypeE(ptr 
   %16 = xor i32 %15, 63
   %17 = zext nneg i32 %16 to i64
   %18 = lshr i64 -1, %17
-  %19 = icmp ult i32 %5, 256
+  %19 = icmp samesign ult i32 %5, 256
   %spec.store.select.i.i.i = select i1 %19, i64 0, i64 %18
   store i64 %spec.store.select.i.i.i, ptr %2, align 8, !alias.scope !36
   br label %_ZN4llvm5APInt10getAllOnesEj.exit
@@ -7431,7 +7431,7 @@ define dso_local noundef ptr @_ZN4llvm11ConstantInt7getTrueERNS_11LLVMContextE(p
   br i1 %13, label %14, label %16
 
 14:                                               ; preds = %6
-  %15 = icmp ugt i32 %10, 255
+  %15 = icmp samesign ugt i32 %10, 255
   %spec.store.select.i.i.i = zext i1 %15 to i64
   store i64 %spec.store.select.i.i.i, ptr %2, align 8
   br label %_ZN4llvm5APIntC2Ejmbb.exit.i
@@ -7483,7 +7483,7 @@ define dso_local noundef ptr @_ZN4llvm11ConstantInt3getEPNS_11IntegerTypeEmb(ptr
   %14 = xor i32 %13, 63
   %15 = zext nneg i32 %14 to i64
   %16 = lshr i64 -1, %15
-  %17 = icmp ult i32 %7, 256
+  %17 = icmp samesign ult i32 %7, 256
   %spec.store.select.i.i = select i1 %17, i64 0, i64 %16
   %18 = and i64 %spec.store.select.i.i, %1
   store i64 %18, ptr %4, align 8
@@ -7594,7 +7594,7 @@ define dso_local noundef ptr @_ZN4llvm11ConstantInt7getBoolERNS_11LLVMContextEb(
   br i1 %16, label %17, label %19
 
 17:                                               ; preds = %9
-  %18 = icmp ugt i32 %13, 255
+  %18 = icmp samesign ugt i32 %13, 255
   %spec.store.select.i.i.i.i = zext i1 %18 to i64
   store i64 %spec.store.select.i.i.i.i, ptr %4, align 8
   br label %_ZN4llvm5APIntC2Ejmbb.exit.i.i
@@ -7697,7 +7697,7 @@ define dso_local noundef ptr @_ZN4llvm11ConstantInt7getTrueEPNS_4TypeE(ptr nocap
   br i1 %14, label %15, label %17
 
 15:                                               ; preds = %7
-  %16 = icmp ugt i32 %11, 255
+  %16 = icmp samesign ugt i32 %11, 255
   %spec.store.select.i.i.i.i = zext i1 %16 to i64
   store i64 %spec.store.select.i.i.i.i, ptr %2, align 8
   br label %_ZN4llvm5APIntC2Ejmbb.exit.i.i
@@ -12716,7 +12716,7 @@ define dso_local noundef zeroext i1 @_ZN4llvm11ConstantInt19isValueValidForTypeE
   br i1 %10, label %_ZN4llvm7isUIntNEjm.exit, label %11
 
 11:                                               ; preds = %9
-  %12 = icmp ult i32 %4, 256
+  %12 = icmp samesign ult i32 %4, 256
   %narrow.i = sub nuw nsw i32 64, %5
   %13 = zext nneg i32 %narrow.i to i64
   %14 = lshr i64 -1, %13
@@ -12750,7 +12750,7 @@ define dso_local noundef zeroext i1 @_ZN4llvm11ConstantInt19isValueValidForTypeE
 
 11:                                               ; preds = %9
   %12 = zext nneg i32 %5 to i64
-  %13 = icmp ult i32 %4, 256
+  %13 = icmp samesign ult i32 %4, 256
   %14 = add nsw i64 %12, -1
   %.neg.i.i = shl nsw i64 -1, %14
   %.0.i.i = select i1 %13, i64 0, i64 %.neg.i.i
@@ -17158,7 +17158,7 @@ define dso_local noundef ptr @_ZN4llvm12ConstantExpr9getSizeOfEPNS_4TypeE(ptr no
   br i1 %11, label %12, label %14
 
 12:                                               ; preds = %1
-  %13 = icmp ugt i32 %8, 255
+  %13 = icmp samesign ugt i32 %8, 255
   %spec.store.select.i.i.i = zext i1 %13 to i64
   store i64 %spec.store.select.i.i.i, ptr %2, align 8
   br label %_ZN4llvm5APIntC2Ejmbb.exit.i
@@ -17397,7 +17397,7 @@ _ZN4llvm11ConstantInt3getEPNS_11IntegerTypeEmb.exit: ; preds = %_ZN4llvm5APIntC2
   br i1 %39, label %40, label %42
 
 40:                                               ; preds = %_ZN4llvm11ConstantInt3getEPNS_11IntegerTypeEmb.exit
-  %41 = icmp ugt i32 %36, 255
+  %41 = icmp samesign ugt i32 %36, 255
   %spec.store.select.i.i.i12 = zext i1 %41 to i64
   store i64 %spec.store.select.i.i.i12, ptr %2, align 8
   br label %_ZN4llvm5APIntC2Ejmbb.exit.i11
@@ -18607,7 +18607,7 @@ _ZN4llvm5APInt10getAllOnesEj.exit.thread.i:       ; preds = %65
   %73 = xor i32 %72, 63
   %74 = zext nneg i32 %73 to i64
   %75 = lshr i64 -1, %74
-  %76 = icmp ult i32 %67, 256
+  %76 = icmp samesign ult i32 %67, 256
   %spec.store.select.i.i.i.i = select i1 %76, i64 0, i64 %75
   %77 = zext nneg i32 %72 to i64
   %78 = shl nuw i64 1, %77
@@ -19395,7 +19395,7 @@ _ZN4llvm15SmallVectorImplIhE7reserveEm.exit:      ; preds = %3, %11
   %18 = getelementptr inbounds i8, ptr %.0910.i.i.i.i.i.i.i.i, i64 1
   %19 = getelementptr inbounds i8, ptr %.0811.i.i.i.i.i.i.i.i, i64 1
   %20 = add nsw i64 %.012.i.i.i.i.i.i.i.i, -1
-  %21 = icmp ugt i64 %.012.i.i.i.i.i.i.i.i, 1
+  %21 = icmp samesign ugt i64 %.012.i.i.i.i.i.i.i.i, 1
   br i1 %21, label %.lr.ph.i.i.i.i.i.i.i.i, label %_ZN4llvm23SmallVectorTemplateBaseIhLb1EE18uninitialized_copyIPKcPhEEvT_S6_T0_.exit, !llvm.loop !182
 
 _ZN4llvm23SmallVectorTemplateBaseIhLb1EE18uninitialized_copyIPKcPhEEvT_S6_T0_.exit: ; preds = %.lr.ph.i.i.i.i.i.i.i.i, %_ZN4llvm15SmallVectorImplIhE7reserveEm.exit

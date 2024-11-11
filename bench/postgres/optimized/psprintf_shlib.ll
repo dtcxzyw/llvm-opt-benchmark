@@ -65,7 +65,7 @@ define range(i64 0, 2147483648) i64 @pvsnprintf(ptr noundef %0, i64 noundef %1, 
   br i1 %15, label %24, label %16
 
 16:                                               ; preds = %13
-  %17 = icmp ugt i32 %5, 1073741822
+  %17 = icmp samesign ugt i32 %5, 1073741822
   br i1 %17, label %18, label %21
 
 18:                                               ; preds = %16

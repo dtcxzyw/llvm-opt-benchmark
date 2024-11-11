@@ -1370,7 +1370,7 @@ for.body.i.i.i.i.i.i.i.i:                         ; preds = %cond.end.i, %for.bo
   %incdec.ptr.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__first.addr.07.i.i.i.i.i.i.i.i, i64 2
   %incdec.ptr1.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__result.addr.08.i.i.i.i.i.i.i.i, i64 4
   %dec.i.i.i.i.i.i.i.i = add nsw i64 %__n.09.i.i.i.i.i.i.i.i, -1
-  %cmp.i.i.i.i.i.i.i.i = icmp ugt i64 %__n.09.i.i.i.i.i.i.i.i, 1
+  %cmp.i.i.i.i.i.i.i.i = icmp samesign ugt i64 %__n.09.i.i.i.i.i.i.i.i, 1
   br i1 %cmp.i.i.i.i.i.i.i.i, label %for.body.i.i.i.i.i.i.i.i, label %_ZNK3gsl4spanIiLm18446744073709551615EE7subspanEmm.exit, !llvm.loop !10
 
 _ZNK3gsl4spanIiLm18446744073709551615EE7subspanEmm.exit: ; preds = %for.body.i.i.i.i.i.i.i.i
@@ -1387,7 +1387,7 @@ for.body.i.i.i.i.i.i.i.i57:                       ; preds = %_ZNK3gsl4spanIiLm18
   %incdec.ptr.i.i.i.i.i.i.i.i62 = getelementptr inbounds i8, ptr %__first.addr.07.i.i.i.i.i.i.i.i60, i64 2
   %incdec.ptr1.i.i.i.i.i.i.i.i63 = getelementptr inbounds i8, ptr %__result.addr.08.i.i.i.i.i.i.i.i59, i64 4
   %dec.i.i.i.i.i.i.i.i64 = add nsw i64 %__n.09.i.i.i.i.i.i.i.i58, -1
-  %cmp.i.i.i.i.i.i.i.i65 = icmp ugt i64 %__n.09.i.i.i.i.i.i.i.i58, 1
+  %cmp.i.i.i.i.i.i.i.i65 = icmp samesign ugt i64 %__n.09.i.i.i.i.i.i.i.i58, 1
   br i1 %cmp.i.i.i.i.i.i.i.i65, label %for.body.i.i.i.i.i.i.i.i57, label %for.cond.preheader, !llvm.loop !10
 
 for.cond.preheader:                               ; preds = %for.body.i.i.i.i.i.i.i.i57
@@ -1609,7 +1609,7 @@ for.body.i.i.i.i.i.i.i.i98:                       ; preds = %for.end, %for.body.
   %incdec.ptr.i.i.i.i.i.i.i.i103 = getelementptr inbounds i8, ptr %__first.addr.07.i.i.i.i.i.i.i.i101, i64 2
   %incdec.ptr1.i.i.i.i.i.i.i.i104 = getelementptr inbounds i8, ptr %__result.addr.08.i.i.i.i.i.i.i.i100, i64 4
   %dec.i.i.i.i.i.i.i.i105 = add nsw i64 %__n.09.i.i.i.i.i.i.i.i99, -1
-  %cmp.i.i.i.i.i.i.i.i106 = icmp ugt i64 %__n.09.i.i.i.i.i.i.i.i99, 1
+  %cmp.i.i.i.i.i.i.i.i106 = icmp samesign ugt i64 %__n.09.i.i.i.i.i.i.i.i99, 1
   br i1 %cmp.i.i.i.i.i.i.i.i106, label %for.body.i.i.i.i.i.i.i.i98, label %_ZNK3gsl4spanIiLm18446744073709551615EE7subspanEmm.exit119, !llvm.loop !10
 
 _ZNK3gsl4spanIiLm18446744073709551615EE7subspanEmm.exit119: ; preds = %for.body.i.i.i.i.i.i.i.i98
@@ -1626,7 +1626,7 @@ for.body.i.i.i.i.i.i.i.i121:                      ; preds = %_ZNK3gsl4spanIiLm18
   %incdec.ptr.i.i.i.i.i.i.i.i126 = getelementptr inbounds i8, ptr %__first.addr.07.i.i.i.i.i.i.i.i124, i64 2
   %incdec.ptr1.i.i.i.i.i.i.i.i127 = getelementptr inbounds i8, ptr %__result.addr.08.i.i.i.i.i.i.i.i123, i64 4
   %dec.i.i.i.i.i.i.i.i128 = add nsw i64 %__n.09.i.i.i.i.i.i.i.i122, -1
-  %cmp.i.i.i.i.i.i.i.i129 = icmp ugt i64 %__n.09.i.i.i.i.i.i.i.i122, 1
+  %cmp.i.i.i.i.i.i.i.i129 = icmp samesign ugt i64 %__n.09.i.i.i.i.i.i.i.i122, 1
   br i1 %cmp.i.i.i.i.i.i.i.i129, label %for.body.i.i.i.i.i.i.i.i121, label %for.cond69.preheader, !llvm.loop !10
 
 for.cond69.preheader:                             ; preds = %for.body.i.i.i.i.i.i.i.i121
@@ -1848,7 +1848,7 @@ for.body.i.i.i.i.i.i.i.i173:                      ; preds = %cond.end.i172, %for
   %incdec.ptr.i.i.i.i.i.i.i.i178 = getelementptr inbounds i8, ptr %__first.addr.07.i.i.i.i.i.i.i.i176, i64 2
   %incdec.ptr1.i.i.i.i.i.i.i.i179 = getelementptr inbounds i8, ptr %__result.addr.08.i.i.i.i.i.i.i.i175, i64 4
   %dec.i.i.i.i.i.i.i.i180 = add nsw i64 %__n.09.i.i.i.i.i.i.i.i174, -1
-  %cmp.i.i.i.i.i.i.i.i181 = icmp ugt i64 %__n.09.i.i.i.i.i.i.i.i174, 1
+  %cmp.i.i.i.i.i.i.i.i181 = icmp samesign ugt i64 %__n.09.i.i.i.i.i.i.i.i174, 1
   br i1 %cmp.i.i.i.i.i.i.i.i181, label %for.body.i.i.i.i.i.i.i.i173, label %_ZNK3gsl4spanIiLm10EE7subspanEmm.exit, !llvm.loop !10
 
 _ZNK3gsl4spanIiLm10EE7subspanEmm.exit:            ; preds = %for.body.i.i.i.i.i.i.i.i173
@@ -1865,7 +1865,7 @@ for.body.i.i.i.i.i.i.i.i186:                      ; preds = %_ZNK3gsl4spanIiLm10
   %incdec.ptr.i.i.i.i.i.i.i.i191 = getelementptr inbounds i8, ptr %__first.addr.07.i.i.i.i.i.i.i.i189, i64 2
   %incdec.ptr1.i.i.i.i.i.i.i.i192 = getelementptr inbounds i8, ptr %__result.addr.08.i.i.i.i.i.i.i.i188, i64 4
   %dec.i.i.i.i.i.i.i.i193 = add nsw i64 %__n.09.i.i.i.i.i.i.i.i187, -1
-  %cmp.i.i.i.i.i.i.i.i194 = icmp ugt i64 %__n.09.i.i.i.i.i.i.i.i187, 1
+  %cmp.i.i.i.i.i.i.i.i194 = icmp samesign ugt i64 %__n.09.i.i.i.i.i.i.i.i187, 1
   br i1 %cmp.i.i.i.i.i.i.i.i194, label %for.body.i.i.i.i.i.i.i.i186, label %for.cond148.preheader, !llvm.loop !10
 
 for.cond148.preheader:                            ; preds = %for.body.i.i.i.i.i.i.i.i186
@@ -2087,7 +2087,7 @@ for.body.i.i.i.i.i.i.i.i235:                      ; preds = %for.body.i.i.i.i.i.
   %incdec.ptr.i.i.i.i.i.i.i.i240 = getelementptr inbounds i8, ptr %__first.addr.07.i.i.i.i.i.i.i.i238, i64 2
   %incdec.ptr1.i.i.i.i.i.i.i.i241 = getelementptr inbounds i8, ptr %__result.addr.08.i.i.i.i.i.i.i.i237, i64 4
   %dec.i.i.i.i.i.i.i.i242 = add nsw i64 %__n.09.i.i.i.i.i.i.i.i236, -1
-  %cmp.i.i.i.i.i.i.i.i243 = icmp ugt i64 %__n.09.i.i.i.i.i.i.i.i236, 1
+  %cmp.i.i.i.i.i.i.i.i243 = icmp samesign ugt i64 %__n.09.i.i.i.i.i.i.i.i236, 1
   br i1 %cmp.i.i.i.i.i.i.i.i243, label %for.body.i.i.i.i.i.i.i.i235, label %_ZNK3gsl4spanIiLm10EE7subspanEmm.exit250, !llvm.loop !10
 
 _ZNK3gsl4spanIiLm10EE7subspanEmm.exit250:         ; preds = %for.body.i.i.i.i.i.i.i.i235
@@ -2104,7 +2104,7 @@ for.body.i.i.i.i.i.i.i.i252:                      ; preds = %_ZNK3gsl4spanIiLm10
   %incdec.ptr.i.i.i.i.i.i.i.i257 = getelementptr inbounds i8, ptr %__first.addr.07.i.i.i.i.i.i.i.i255, i64 2
   %incdec.ptr1.i.i.i.i.i.i.i.i258 = getelementptr inbounds i8, ptr %__result.addr.08.i.i.i.i.i.i.i.i254, i64 4
   %dec.i.i.i.i.i.i.i.i259 = add nsw i64 %__n.09.i.i.i.i.i.i.i.i253, -1
-  %cmp.i.i.i.i.i.i.i.i260 = icmp ugt i64 %__n.09.i.i.i.i.i.i.i.i253, 1
+  %cmp.i.i.i.i.i.i.i.i260 = icmp samesign ugt i64 %__n.09.i.i.i.i.i.i.i.i253, 1
   br i1 %cmp.i.i.i.i.i.i.i.i260, label %for.body.i.i.i.i.i.i.i.i252, label %for.cond231.preheader, !llvm.loop !10
 
 for.cond231.preheader:                            ; preds = %for.body.i.i.i.i.i.i.i.i252

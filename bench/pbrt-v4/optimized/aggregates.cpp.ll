@@ -4176,7 +4176,7 @@ land.rhs:                                         ; preds = %land.lhs.true, %if.
 do.body:                                          ; preds = %land.lhs.true
   store i32 %3, ptr %va, align 4
   store i32 65536, ptr %vb, align 4
-  %cmp8 = icmp ult i32 %3, 65536
+  %cmp8 = icmp samesign ult i32 %3, 65536
   br i1 %cmp8, label %do.end, label %if.then9
 
 if.then9:                                         ; preds = %do.body
@@ -5954,7 +5954,7 @@ if.then76:                                        ; preds = %_ZN4pbrt6Tuple3INS_
 do.body79:                                        ; preds = %_ZN4pbrt6Tuple3INS_6Point3EfEixEi.exit157
   store i32 %spec.store.select, ptr %va80, align 4
   store i32 12, ptr %vb81, align 4
-  %cmp82 = icmp ult i32 %spec.store.select, 12
+  %cmp82 = icmp samesign ult i32 %spec.store.select, 12
   br i1 %cmp82, label %do.end85, label %if.then83
 
 if.then83:                                        ; preds = %do.body79
@@ -9131,7 +9131,7 @@ if.end166:                                        ; preds = %land.end
   %badRefines.addr.0 = add nsw i32 %badRefines, %inc169
   %mul171 = fmul float %conv30, 4.000000e+00
   %cmp172 = fcmp ogt float %bestCost.1.lcssa, %mul171
-  %cmp174 = icmp ult i64 %primNums.coerce1, 16
+  %cmp174 = icmp samesign ult i64 %primNums.coerce1, 16
   %or.cond4 = and i1 %cmp174, %cmp172
   %or.cond5 = or i1 %or.cond4, %cmp159
   %cmp178 = icmp eq i32 %badRefines.addr.0, 3
@@ -22147,7 +22147,7 @@ if.then13:                                        ; preds = %_ZNK4pbrt6Tuple3INS
 do.body15:                                        ; preds = %_ZNK4pbrt6Tuple3INS_6Point3EfEixEi.exit32
   store i32 %spec.store.select, ptr %va16, align 4
   store i32 12, ptr %vb17, align 4
-  %cmp18 = icmp ult i32 %spec.store.select, 12
+  %cmp18 = icmp samesign ult i32 %spec.store.select, 12
   br i1 %cmp18, label %do.end21, label %if.then19
 
 if.then19:                                        ; preds = %do.body15

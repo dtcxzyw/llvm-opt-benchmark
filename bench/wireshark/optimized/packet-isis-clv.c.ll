@@ -74,7 +74,7 @@ define hidden void @isis_dissect_area_address_clv(ptr noundef %0, ptr noundef %1
   br i1 %12, label %.split.us, label %13
 
 13:                                               ; preds = %.lr.ph56.split.us
-  %.not.us = icmp ugt i32 %.04154.us, %10
+  %.not.us = icmp samesign ugt i32 %.04154.us, %10
   br i1 %.not.us, label %14, label %.split58.us
 
 14:                                               ; preds = %13
@@ -99,7 +99,7 @@ define hidden void @isis_dissect_area_address_clv(ptr noundef %0, ptr noundef %1
   br label %.loopexit47
 
 24:                                               ; preds = %.lr.ph56.split
-  %.not = icmp ugt i32 %.04154, %20
+  %.not = icmp samesign ugt i32 %.04154, %20
   br i1 %.not, label %26, label %.split58.us
 
 .split58.us:                                      ; preds = %24, %13
@@ -178,7 +178,7 @@ define hidden void @isis_dissect_instance_identifier_clv(ptr noundef %0, ptr nou
   %.019 = add i32 %.019.in21, 2
   %17 = tail call ptr @proto_tree_add_item(ptr noundef %0, i32 noundef %5, ptr noundef %2, i32 noundef %.019, i32 noundef 2, i32 noundef 0) #2
   %18 = add nsw i32 %.022, -2
-  %19 = icmp ugt i32 %.022, 2
+  %19 = icmp samesign ugt i32 %.022, 2
   br i1 %19, label %.lr.ph, label %.loopexit, !llvm.loop !7
 
 .loopexit:                                        ; preds = %.lr.ph, %13, %11
@@ -307,7 +307,7 @@ define hidden void @isis_dissect_mt_clv(ptr noundef %0, ptr noundef %1, ptr noun
   %17 = tail call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_uint_format(ptr noundef %2, i32 noundef %5, ptr noundef %0, i32 noundef %.025, i32 noundef 2, i32 noundef %11, ptr noundef nonnull @.str.14, ptr noundef %13, i32 noundef %12, ptr noundef nonnull %14, ptr noundef nonnull %16) #2
   %18 = add nsw i32 %.02024, -2
   %19 = add i32 %.025, 2
-  %20 = icmp ugt i32 %.02024, 2
+  %20 = icmp samesign ugt i32 %.02024, 2
   br i1 %20, label %.lr.ph, label %.loopexit, !llvm.loop !8
 
 21:                                               ; preds = %.lr.ph

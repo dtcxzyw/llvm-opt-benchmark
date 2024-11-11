@@ -11541,7 +11541,7 @@ lpad110:                                          ; preds = %.noexc274, %if.then
   br label %ehcleanup184
 
 if.else:                                          ; preds = %invoke.cont111
-  %cmp117 = icmp ugt i32 %conv113, 6
+  %cmp117 = icmp samesign ugt i32 %conv113, 6
   br i1 %cmp117, label %if.then118, label %if.end122
 
 if.then118:                                       ; preds = %if.else

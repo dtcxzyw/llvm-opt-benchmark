@@ -2533,7 +2533,7 @@ define dso_local void @intel_ddi_compute_min_voltage_level(ptr nocapture noundef
   br label %36
 
 12:                                               ; preds = %1
-  %13 = icmp ugt i16 %5, 11
+  %13 = icmp samesign ugt i16 %5, 11
   br i1 %13, label %14, label %19
 
 14:                                               ; preds = %12
@@ -3380,7 +3380,7 @@ define internal fastcc void @intel_ddi_get_config(ptr noundef %0, ptr noundef %1
   br label %451
 
 427:                                              ; preds = %416
-  %428 = icmp ugt i16 %420, 11
+  %428 = icmp samesign ugt i16 %420, 11
   br i1 %428, label %429, label %434
 
 429:                                              ; preds = %427
@@ -4050,7 +4050,7 @@ define dso_local void @intel_ddi_init(ptr noundef %0, ptr noundef %1) local_unna
   br i1 %239, label %263, label %240
 
 240:                                              ; preds = %237
-  %241 = icmp ugt i16 %204, 11
+  %241 = icmp samesign ugt i16 %204, 11
   br i1 %241, label %242, label %247
 
 242:                                              ; preds = %240
@@ -4090,7 +4090,7 @@ define dso_local void @intel_ddi_init(ptr noundef %0, ptr noundef %1) local_unna
   br label %.thread14
 
 263:                                              ; preds = %237
-  %264 = icmp ugt i16 %204, 10
+  %264 = icmp samesign ugt i16 %204, 10
   br i1 %264, label %265, label %275
 
 265:                                              ; preds = %263
@@ -4180,7 +4180,7 @@ define dso_local void @intel_ddi_init(ptr noundef %0, ptr noundef %1) local_unna
   br label %325
 
 304:                                              ; preds = %.thread13
-  %305 = icmp ugt i16 %204, 11
+  %305 = icmp samesign ugt i16 %204, 11
   br i1 %305, label %306, label %311
 
 306:                                              ; preds = %304
@@ -5150,7 +5150,7 @@ define internal i32 @intel_ddi_compute_config(ptr noundef %0, ptr noundef %1, pt
   br label %98
 
 74:                                               ; preds = %63
-  %75 = icmp ugt i16 %67, 11
+  %75 = icmp samesign ugt i16 %67, 11
   br i1 %75, label %76, label %81
 
 76:                                               ; preds = %74
@@ -6764,7 +6764,7 @@ intel_dp_sink_set_fec_ready.exit:                 ; preds = %289, %304, %312
   br i1 %153, label %833, label %834
 
 357:                                              ; preds = %138
-  %358 = icmp ugt i16 %140, 11
+  %358 = icmp samesign ugt i16 %140, 11
   %359 = load i32, ptr %37, align 8
   br i1 %358, label %360, label %607
 
@@ -11528,7 +11528,7 @@ define internal fastcc void @intel_wait_ddi_buf_active(ptr noundef %0, i32 nound
   br i1 %14, label %15, label %thread-pre-split
 
 15:                                               ; preds = %10
-  %16 = icmp ugt i16 %5, 11
+  %16 = icmp samesign ugt i16 %5, 11
   br i1 %16, label %17, label %thread-pre-split
 
 17:                                               ; preds = %15
@@ -13515,7 +13515,7 @@ define internal zeroext range(i8 0, 4) i8 @intel_ddi_dp_voltage_max(ptr noundef 
   br label %36
 
 22:                                               ; preds = %2
-  %23 = icmp ugt i32 %9, 10
+  %23 = icmp samesign ugt i32 %9, 10
   br i1 %23, label %24, label %36, !prof !396
 
 24:                                               ; preds = %22

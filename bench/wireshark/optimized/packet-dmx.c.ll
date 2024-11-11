@@ -291,7 +291,7 @@ define internal i32 @dissect_dmx_chan(ptr noundef %0, ptr nocapture noundef read
   br i1 %31, label %32, label %.critedge
 
 32:                                               ; preds = %.lr.ph
-  %33 = icmp ugt i32 %27, 1
+  %33 = icmp samesign ugt i32 %27, 1
   br i1 %33, label %34, label %39
 
 34:                                               ; preds = %32

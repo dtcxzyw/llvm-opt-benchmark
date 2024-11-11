@@ -547,7 +547,7 @@ define internal i32 @dissect_eobi_message(ptr noundef %0, ptr noundef %1, ptr no
   unreachable
 
 46:                                               ; preds = %39
-  %47 = icmp ult i16 %41, 276
+  %47 = icmp samesign ult i16 %41, 276
   br i1 %47, label %50, label %48
 
 48:                                               ; preds = %46
@@ -579,7 +579,7 @@ define internal i32 @dissect_eobi_message(ptr noundef %0, ptr noundef %1, ptr no
 
 55:                                               ; preds = %51
   %56 = zext nneg i32 %.0456617 to i64
-  %57 = icmp ult i32 %.0456617, 279
+  %57 = icmp samesign ult i32 %.0456617, 279
   br i1 %57, label %59, label %58
 
 58:                                               ; preds = %55
@@ -597,7 +597,7 @@ define internal i32 @dissect_eobi_message(ptr noundef %0, ptr noundef %1, ptr no
 
 63:                                               ; preds = %59
   %64 = zext nneg i32 %.0458616 to i64
-  %65 = icmp ult i32 %.0458616, 276
+  %65 = icmp samesign ult i32 %.0458616, 276
   br i1 %65, label %67, label %66
 
 66:                                               ; preds = %63

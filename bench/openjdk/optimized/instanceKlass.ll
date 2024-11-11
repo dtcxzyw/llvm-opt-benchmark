@@ -6127,7 +6127,7 @@ _ZN11MutexLockerC2EP6ThreadP5MutexNS2_18SafepointCheckFlagE.exit: ; preds = %2, 
   %13 = getelementptr ptr, ptr %12, i64 %indvars.iv.i
   %14 = load ptr, ptr %13, align 8
   call void @_ZN13InstanceKlass15add_implementorEPS_(ptr noundef nonnull align 8 dereferenceable(464) %14, ptr noundef nonnull align 8 dereferenceable(464) %0)
-  %15 = icmp ugt i64 %indvars.iv.i, 1
+  %15 = icmp samesign ugt i64 %indvars.iv.i, 1
   br i1 %15, label %.lr.ph.i, label %_ZN13InstanceKlass18process_interfacesEv.exit, !llvm.loop !37
 
 _ZN13InstanceKlass18process_interfacesEv.exit:    ; preds = %.lr.ph.i, %_ZN11MutexLockerC2EP6ThreadP5MutexNS2_18SafepointCheckFlagE.exit
@@ -6173,7 +6173,7 @@ define hidden void @_ZN13InstanceKlass18process_interfacesEv(ptr noundef nonnull
   %8 = getelementptr ptr, ptr %7, i64 %indvars.iv
   %9 = load ptr, ptr %8, align 8
   tail call void @_ZN13InstanceKlass15add_implementorEPS_(ptr noundef nonnull align 8 dereferenceable(464) %9, ptr noundef nonnull %0)
-  %10 = icmp ugt i64 %indvars.iv, 1
+  %10 = icmp samesign ugt i64 %indvars.iv, 1
   br i1 %10, label %.lr.ph, label %._crit_edge, !llvm.loop !37
 
 ._crit_edge:                                      ; preds = %.lr.ph, %1
@@ -16071,7 +16071,7 @@ define hidden void @_ZN13InstanceKlass9verify_onEP12outputStream(ptr noundef non
   unreachable
 
 172:                                              ; preds = %166
-  %173 = icmp ult i32 %168, %145
+  %173 = icmp samesign ult i32 %168, %145
   br i1 %173, label %176, label %174
 
 174:                                              ; preds = %172

@@ -709,19 +709,19 @@ _ZN3gmx12_GLOBAL__N_114anySmallerZeroISt5arrayIiLm3EEEEbRKT_.exit15: ; preds = %
   %18 = getelementptr inbounds i8, ptr %0, i64 944
   %.2.val.i.i.i.i.i.i12 = load i32, ptr %18, align 8
   %19 = icmp slt i32 %.2.val.i.i.i.i.i.i12, 0
-  %20 = icmp ugt i32 %.029.val32.i.i.i.i.i.i, 100000
-  %or.cond38 = or i1 %20, %19
-  %21 = icmp ugt i32 %.1.val.i.i.i.i.i.i, 100000
+  %20 = icmp samesign ugt i32 %.029.val32.i.i.i.i.i.i, 100000
+  %or.cond38 = select i1 %19, i1 true, i1 %20
+  %21 = icmp samesign ugt i32 %.1.val.i.i.i.i.i.i, 100000
   %or.cond40 = select i1 %or.cond38, i1 true, i1 %21
   br i1 %or.cond40, label %_ZN3gmx12_GLOBAL__N_114anySmallerZeroISt5arrayIiLm3EEEEbRKT_.exit.thread, label %_ZN3gmx12_GLOBAL__N_118anyLargerThanValueISt5arrayIiLm3EEEEbRKT_NS4_10value_typeE.exit
 
 _ZN3gmx12_GLOBAL__N_118anyLargerThanValueISt5arrayIiLm3EEEEbRKT_NS4_10value_typeE.exit: ; preds = %_ZN3gmx12_GLOBAL__N_114anySmallerZeroISt5arrayIiLm3EEEEbRKT_.exit15
-  %22 = icmp ugt i32 %.2.val.i.i.i.i.i.i, 100000
-  %23 = icmp ugt i32 %.029.val32.i.i.i.i.i.i10, 100000
-  %or.cond41 = or i1 %23, %22
-  %24 = icmp ugt i32 %.1.val.i.i.i.i.i.i11, 100000
+  %22 = icmp samesign ugt i32 %.2.val.i.i.i.i.i.i, 100000
+  %23 = icmp samesign ugt i32 %.029.val32.i.i.i.i.i.i10, 100000
+  %or.cond41 = select i1 %22, i1 true, i1 %23
+  %24 = icmp samesign ugt i32 %.1.val.i.i.i.i.i.i11, 100000
   %or.cond43 = select i1 %or.cond41, i1 true, i1 %24
-  %25 = icmp ugt i32 %.2.val.i.i.i.i.i.i12, 100000
+  %25 = icmp samesign ugt i32 %.2.val.i.i.i.i.i.i12, 100000
   %or.cond50 = or i1 %or.cond43, %25
   br i1 %or.cond50, label %_ZN3gmx12_GLOBAL__N_114anySmallerZeroISt5arrayIiLm3EEEEbRKT_.exit.thread, label %26
 

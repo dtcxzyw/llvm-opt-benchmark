@@ -1573,7 +1573,7 @@ define dso_local i32 @fib_nh_match(ptr nocapture noundef readnone %0, ptr nocapt
   %108 = load i16, ptr %82, align 4
   %109 = icmp ult i16 %108, 8
   %110 = zext i16 %108 to i32
-  %.not = icmp ult i32 %81, %110
+  %.not = icmp samesign ult i32 %81, %110
   %or.cond = select i1 %109, i1 true, i1 %.not
   br i1 %or.cond, label %.critedge.thread, label %111
 
@@ -3511,7 +3511,7 @@ define internal fastcc i32 @fib_get_nhs(ptr nocapture noundef nonnull %0, ptr no
   %48 = load i16, ptr %21, align 4
   %49 = icmp ult i16 %48, 8
   %50 = zext i16 %48 to i32
-  %.not = icmp ult i32 %20, %50
+  %.not = icmp samesign ult i32 %20, %50
   %or.cond = select i1 %49, i1 true, i1 %.not
   br i1 %or.cond, label %.critedge, label %51
 

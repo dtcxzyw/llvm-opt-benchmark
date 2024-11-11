@@ -295,7 +295,7 @@ define i32 @Region_CountIterationRects(ptr nocapture noundef readonly %0) local_
   %38 = icmp sgt i32 %37, %2
   %39 = zext i1 %38 to i32
   %spec.select = add nsw i32 %.3, %39
-  %.old1 = icmp ugt i32 %.1, 1
+  %.old1 = icmp samesign ugt i32 %.1, 1
   br i1 %.old1, label %.preheader, label %.loopexit
 
 .loopexit.loopexit.split.loop.exit:               ; preds = %.preheader
@@ -618,7 +618,7 @@ Region_StartIteration.exit:                       ; preds = %25, %52
   %91 = icmp sgt i32 %90, %30
   %92 = zext i1 %91 to i32
   %spec.select.i = add nsw i32 %.3.i, %92
-  %.old1.i = icmp ugt i32 %.1.i, 1
+  %.old1.i = icmp samesign ugt i32 %.1.i, 1
   br i1 %.old1.i, label %.preheader.i, label %.loopexit.i
 
 .loopexit.loopexit.split.loop.exit.i:             ; preds = %.preheader.i

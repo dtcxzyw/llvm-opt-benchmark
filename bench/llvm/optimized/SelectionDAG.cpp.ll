@@ -17797,7 +17797,7 @@ define dso_local { ptr, i32 } @_ZN4llvm12SelectionDAG11getCondCodeENS_3ISD8CondC
   br label %_ZNSt6vectorIPN4llvm14CondCodeSDNodeESaIS2_EE6resizeEm.exit
 
 18:                                               ; preds = %12
-  %19 = icmp ugt i64 %11, %14
+  %19 = icmp samesign ugt i64 %11, %14
   br i1 %19, label %20, label %_ZNSt6vectorIPN4llvm14CondCodeSDNodeESaIS2_EE6resizeEm.exit
 
 20:                                               ; preds = %18
@@ -22174,7 +22174,7 @@ _ZNSt5dequeIN4llvm7SDValueESaIS1_EE9push_backEOS1_.exit: ; preds = %72, %75
   br i1 %107, label %108, label %113
 
 108:                                              ; preds = %102
-  %109 = icmp ult i64 %106, 32
+  %109 = icmp samesign ult i64 %106, 32
   br i1 %109, label %_ZNSt5dequeIN4llvm7SDValueESaIS1_EEixEm.exit.thread, label %111
 
 _ZNSt5dequeIN4llvm7SDValueESaIS1_EEixEm.exit.thread: ; preds = %108
@@ -22204,7 +22204,7 @@ _ZNSt5dequeIN4llvm7SDValueESaIS1_EEixEm.exit:     ; preds = %111, %113
 
 123:                                              ; preds = %_ZNSt5dequeIN4llvm7SDValueESaIS1_EEixEm.exit.thread, %_ZNSt5dequeIN4llvm7SDValueESaIS1_EEixEm.exit
   %124 = phi i64 [ %110, %_ZNSt5dequeIN4llvm7SDValueESaIS1_EEixEm.exit.thread ], [ %121, %_ZNSt5dequeIN4llvm7SDValueESaIS1_EEixEm.exit ]
-  %125 = icmp ult i64 %124, 32
+  %125 = icmp samesign ult i64 %124, 32
   br i1 %125, label %126, label %128
 
 126:                                              ; preds = %123
@@ -22331,7 +22331,7 @@ _ZNSt5dequeIN4llvm7SDValueESaIS1_EE9pop_frontEv.exit50: ; preds = %164, %166
   br i1 %178, label %179, label %183
 
 179:                                              ; preds = %173
-  %180 = icmp ult i64 %177, 32
+  %180 = icmp samesign ult i64 %177, 32
   br i1 %180, label %_ZNSt5dequeIN4llvm7SDValueESaIS1_EEixEm.exit52, label %181
 
 181:                                              ; preds = %179
@@ -25727,7 +25727,7 @@ _ZN4llvm7isUIntNEjm.exit:                         ; preds = %405
   %420 = and i64 %narrow.i, 127
   %421 = lshr i64 -1, %420
   %.0.i.i933 = select i1 %419, i64 0, i64 %421
-  %.not1395 = icmp ult i64 %.0.i.i933, %418
+  %.not1395 = icmp samesign ult i64 %.0.i.i933, %418
   br i1 %.not1395, label %.critedge2, label %_ZN4llvm7isUIntNEjm.exit.thread
 
 _ZN4llvm7isUIntNEjm.exit.thread:                  ; preds = %405, %_ZN4llvm7isUIntNEjm.exit
@@ -47647,8 +47647,8 @@ _ZNK4llvm3EVT21getVectorElementCountEv.exit.thread: ; preds = %535
   %spec.select.i.i.i = icmp ult i16 %543, 53
   %.sroa.0994.0.extract.trunc1145 = zext i16 %542 to i32
   %.sroa.5997.0.extract.trunc1147 = zext i1 %spec.select.i.i.i to i8
-  %spec.select.i.i816 = icmp ult i16 %536, 120
-  %or.cond1186 = and i1 %533, %spec.select.i.i816
+  %spec.select.i.i816 = icmp samesign ult i16 %536, 120
+  %or.cond1186 = select i1 %533, i1 %spec.select.i.i816, i1 false
   br i1 %or.cond1186, label %545, label %.critedge31
 
 _ZNK4llvm3EVT19isFixedLengthVectorEv.exit:        ; preds = %_ZNK4llvm3EVT21getVectorElementCountEv.exit

@@ -131,7 +131,7 @@ define hidden range(i32 -16, 1) i32 @mbedtls_mpi_shrink(ptr nocapture noundef %0
   br label %20
 
 8:                                                ; preds = %4
-  %9 = icmp ult i64 %6, %1
+  %9 = icmp samesign ult i64 %6, %1
   br i1 %9, label %10, label %mbedtls_mpi_grow.exit
 
 10:                                               ; preds = %8
@@ -2586,7 +2586,7 @@ define hidden i32 @mbedtls_mpi_cmp_int(ptr nocapture noundef readonly %0, i64 no
   br label %mbedtls_mpi_cmp_mpi.exit
 
 18:                                               ; preds = %14
-  %19 = icmp ult i64 %.035.lcssa.i, %spec.select
+  %19 = icmp samesign ult i64 %.035.lcssa.i, %spec.select
   br i1 %19, label %mbedtls_mpi_cmp_mpi.exit, label %20
 
 20:                                               ; preds = %18
@@ -4772,12 +4772,12 @@ mbedtls_mpi_bitlen.exit248:                       ; preds = %89, %mbedtls_clz.ex
   br i1 %96, label %.thread287, label %97
 
 97:                                               ; preds = %mbedtls_mpi_bitlen.exit248
-  %98 = icmp ugt i64 %.fr, 239
+  %98 = icmp samesign ugt i64 %.fr, 239
   br i1 %98, label %.thread287, label %99
 
 99:                                               ; preds = %97
-  %100 = icmp ugt i64 %.fr, 79
-  %101 = icmp ugt i64 %.fr, 23
+  %100 = icmp samesign ugt i64 %.fr, 79
+  %101 = icmp samesign ugt i64 %.fr, 23
   %.292 = select i1 %101, i64 3, i64 1
   %spec.select293 = select i1 %100, i64 4, i64 %.292
   br label %.thread287
@@ -6139,7 +6139,7 @@ mbedtls_mpi_bitlen.exit.thread:                   ; preds = %5
   br label %mbedtls_mpi_cmp_int.exit
 
 41:                                               ; preds = %37
-  %42 = icmp ult i64 %.035.lcssa.i.i, %spec.select.i
+  %42 = icmp samesign ult i64 %.035.lcssa.i.i, %spec.select.i
   br i1 %42, label %mbedtls_mpi_cmp_int.exit.thread, label %43
 
 43:                                               ; preds = %41
@@ -7926,55 +7926,55 @@ define hidden i32 @mbedtls_mpi_gen_prime(ptr noundef %0, i64 noundef %1, i32 nou
   br i1 %24, label %25, label %38
 
 25:                                               ; preds = %16
-  %26 = icmp ugt i64 %1, 1299
+  %26 = icmp samesign ugt i64 %1, 1299
   br i1 %26, label %55, label %27
 
 27:                                               ; preds = %25
-  %28 = icmp ugt i64 %1, 849
+  %28 = icmp samesign ugt i64 %1, 849
   br i1 %28, label %55, label %29
 
 29:                                               ; preds = %27
-  %30 = icmp ugt i64 %1, 649
+  %30 = icmp samesign ugt i64 %1, 649
   br i1 %30, label %55, label %31
 
 31:                                               ; preds = %29
-  %32 = icmp ugt i64 %1, 349
+  %32 = icmp samesign ugt i64 %1, 349
   br i1 %32, label %55, label %33
 
 33:                                               ; preds = %31
-  %34 = icmp ugt i64 %1, 249
-  %35 = icmp ugt i64 %1, 149
+  %34 = icmp samesign ugt i64 %1, 249
+  %35 = icmp samesign ugt i64 %1, 149
   %36 = select i1 %35, i32 18, i32 27
   %37 = select i1 %34, i32 12, i32 %36
   br label %55
 
 38:                                               ; preds = %16
-  %39 = icmp ugt i64 %1, 1449
+  %39 = icmp samesign ugt i64 %1, 1449
   br i1 %39, label %55, label %40
 
 40:                                               ; preds = %38
-  %41 = icmp ugt i64 %1, 1149
+  %41 = icmp samesign ugt i64 %1, 1149
   br i1 %41, label %55, label %42
 
 42:                                               ; preds = %40
-  %43 = icmp ugt i64 %1, 999
+  %43 = icmp samesign ugt i64 %1, 999
   br i1 %43, label %55, label %44
 
 44:                                               ; preds = %42
-  %45 = icmp ugt i64 %1, 849
+  %45 = icmp samesign ugt i64 %1, 849
   br i1 %45, label %55, label %46
 
 46:                                               ; preds = %44
-  %47 = icmp ugt i64 %1, 749
+  %47 = icmp samesign ugt i64 %1, 749
   br i1 %47, label %55, label %48
 
 48:                                               ; preds = %46
-  %49 = icmp ugt i64 %1, 499
+  %49 = icmp samesign ugt i64 %1, 499
   br i1 %49, label %55, label %50
 
 50:                                               ; preds = %48
-  %51 = icmp ugt i64 %1, 249
-  %52 = icmp ugt i64 %1, 149
+  %51 = icmp samesign ugt i64 %1, 249
+  %52 = icmp samesign ugt i64 %1, 149
   %53 = select i1 %52, i32 40, i32 51
   %54 = select i1 %51, i32 28, i32 %53
   br label %55
@@ -7991,7 +7991,7 @@ define hidden i32 @mbedtls_mpi_gen_prime(ptr noundef %0, i64 noundef %1, i32 nou
   %59 = getelementptr inbounds i8, ptr %0, i64 8
   %60 = getelementptr inbounds i8, ptr %0, i64 16
   %61 = shl nuw nsw i64 %22, 6
-  %62 = icmp ugt i64 %61, %1
+  %62 = icmp samesign ugt i64 %61, %1
   %63 = sub nuw nsw i64 %61, %1
   %64 = and i32 %2, 1
   %65 = icmp eq i32 %64, 0

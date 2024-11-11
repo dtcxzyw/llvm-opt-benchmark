@@ -3699,7 +3699,7 @@ if.then43.i:                                      ; preds = %if.end37.i
   br label %_ZN5arrow6StatusD2Ev.exit
 
 if.end44.i:                                       ; preds = %if.end37.i
-  %cmp45.i = icmp ugt i32 %18, %19
+  %cmp45.i = icmp samesign ugt i32 %18, %19
   br i1 %cmp45.i, label %if.then46.i, label %nrvo.skipdtor.thread
 
 if.then46.i:                                      ; preds = %if.end44.i
@@ -3978,7 +3978,7 @@ if.then43.i:                                      ; preds = %if.end37.i
   br label %_ZN5arrow8internal12_GLOBAL__N_117ValidateArrayImpl18ValidateBinaryLikeINS_10BinaryTypeEEENS_6StatusERKT_.exit
 
 if.end44.i:                                       ; preds = %if.end37.i
-  %cmp45.i = icmp ugt i32 %18, %19
+  %cmp45.i = icmp samesign ugt i32 %18, %19
   br i1 %cmp45.i, label %if.then46.i, label %if.end48.i
 
 if.then46.i:                                      ; preds = %if.end44.i
@@ -4193,7 +4193,7 @@ if.then41.i:                                      ; preds = %if.end37.i
   br label %_ZN5arrow6StatusD2Ev.exit
 
 if.end42.i:                                       ; preds = %if.end37.i
-  %cmp43.i = icmp ugt i64 %18, %19
+  %cmp43.i = icmp samesign ugt i64 %18, %19
   br i1 %cmp43.i, label %if.then44.i, label %nrvo.skipdtor.thread
 
 if.then44.i:                                      ; preds = %if.end42.i
@@ -4433,7 +4433,7 @@ if.then41.i:                                      ; preds = %if.end37.i
   br label %_ZN5arrow8internal12_GLOBAL__N_117ValidateArrayImpl18ValidateBinaryLikeINS_15LargeBinaryTypeEEENS_6StatusERKT_.exit
 
 if.end42.i:                                       ; preds = %if.end37.i
-  %cmp43.i = icmp ugt i64 %18, %19
+  %cmp43.i = icmp samesign ugt i64 %18, %19
   br i1 %cmp43.i, label %if.then44.i, label %if.end46.i
 
 if.then44.i:                                      ; preds = %if.end42.i
@@ -6153,7 +6153,7 @@ if.then44.i:                                      ; preds = %if.end38.i
           to label %_ZN5arrow8internal12_GLOBAL__N_117ValidateArrayImpl16ValidateListLikeINS_8ListTypeEEENS_6StatusERKT_.exit unwind label %lpad.i
 
 if.end46.i:                                       ; preds = %if.end38.i
-  %cmp47.i = icmp ugt i32 %23, %24
+  %cmp47.i = icmp samesign ugt i32 %23, %24
   br i1 %cmp47.i, label %if.then48.i, label %if.end51.i
 
 if.then48.i:                                      ; preds = %if.end46.i
@@ -6482,7 +6482,7 @@ if.then42.i:                                      ; preds = %if.end38.i
           to label %_ZN5arrow8internal12_GLOBAL__N_117ValidateArrayImpl16ValidateListLikeINS_13LargeListTypeEEENS_6StatusERKT_.exit unwind label %lpad.i
 
 if.end44.i:                                       ; preds = %if.end38.i
-  %cmp45.i = icmp ugt i64 %23, %24
+  %cmp45.i = icmp samesign ugt i64 %23, %24
   br i1 %cmp45.i, label %if.then46.i, label %if.end49.i
 
 if.then46.i:                                      ; preds = %if.end44.i
@@ -7542,7 +7542,7 @@ if.then44.i:                                      ; preds = %if.end38.i
           to label %_ZN5arrow8internal12_GLOBAL__N_117ValidateArrayImpl16ValidateListLikeINS_7MapTypeEEENS_6StatusERKT_.exit unwind label %lpad.i
 
 if.end46.i:                                       ; preds = %if.end38.i
-  %cmp47.i = icmp ugt i32 %23, %24
+  %cmp47.i = icmp samesign ugt i32 %23, %24
   br i1 %cmp47.i, label %if.then48.i, label %if.end51.i
 
 if.then48.i:                                      ; preds = %if.end46.i
@@ -13440,7 +13440,7 @@ if.then32:                                        ; preds = %if.end28
   br label %return
 
 if.end35:                                         ; preds = %if.end28
-  %cmp.i = icmp ult i32 %26, 13
+  %cmp.i = icmp samesign ult i32 %26, 13
   br i1 %cmp.i, label %if.then38, label %if.end60
 
 if.then38:                                        ; preds = %if.end35

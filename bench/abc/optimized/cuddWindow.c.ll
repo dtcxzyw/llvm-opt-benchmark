@@ -895,7 +895,7 @@ define internal fastcc range(i32 0, 25) i32 @ddPermuteWindow4(ptr noundef %0, i3
 
 23:                                               ; preds = %20
   %24 = icmp eq i32 %21, %.1329
-  %25 = icmp ugt i32 %.1, 8
+  %25 = icmp samesign ugt i32 %.1, 8
   %or.cond = and i1 %25, %24
   br i1 %or.cond, label %26, label %28
 
@@ -923,7 +923,7 @@ define internal fastcc range(i32 0, 25) i32 @ddPermuteWindow4(ptr noundef %0, i3
 
 36:                                               ; preds = %33
   %37 = icmp eq i32 %34, %.3331
-  %38 = icmp ugt i32 %.3, 9
+  %38 = icmp samesign ugt i32 %.3, 9
   %or.cond3 = and i1 %38, %37
   br i1 %or.cond3, label %39, label %41
 
@@ -973,7 +973,7 @@ define internal fastcc range(i32 0, 25) i32 @ddPermuteWindow4(ptr noundef %0, i3
 
 59:                                               ; preds = %56
   %60 = icmp eq i32 %57, %.7335
-  %61 = icmp ugt i32 %.7, 19
+  %61 = icmp samesign ugt i32 %.7, 19
   %or.cond5 = select i1 %60, i1 %61, i1 false
   br i1 %or.cond5, label %62, label %64
 
@@ -990,7 +990,7 @@ define internal fastcc range(i32 0, 25) i32 @ddPermuteWindow4(ptr noundef %0, i3
 
 67:                                               ; preds = %64
   %68 = icmp eq i32 %65, %.8336
-  %69 = icmp ugt i32 %.8, 21
+  %69 = icmp samesign ugt i32 %.8, 21
   %or.cond7 = select i1 %68, i1 %69, i1 false
   br i1 %or.cond7, label %70, label %72
 
@@ -1018,7 +1018,7 @@ define internal fastcc range(i32 0, 25) i32 @ddPermuteWindow4(ptr noundef %0, i3
 
 80:                                               ; preds = %77
   %81 = icmp eq i32 %78, %.10338
-  %82 = icmp ugt i32 %.10, 22
+  %82 = icmp samesign ugt i32 %.10, 22
   %or.cond9 = select i1 %81, i1 %82, i1 false
   br i1 %or.cond9, label %83, label %85
 
@@ -1035,7 +1035,7 @@ define internal fastcc range(i32 0, 25) i32 @ddPermuteWindow4(ptr noundef %0, i3
 
 88:                                               ; preds = %85
   %89 = icmp eq i32 %86, %.11339
-  %90 = icmp ugt i32 %.11, 18
+  %90 = icmp samesign ugt i32 %.11, 18
   %or.cond11 = select i1 %89, i1 %90, i1 false
   br i1 %or.cond11, label %91, label %93
 
@@ -1052,7 +1052,7 @@ define internal fastcc range(i32 0, 25) i32 @ddPermuteWindow4(ptr noundef %0, i3
 
 96:                                               ; preds = %93
   %97 = icmp eq i32 %94, %.12340
-  %98 = icmp ugt i32 %.12, 12
+  %98 = icmp samesign ugt i32 %.12, 12
   %or.cond13 = select i1 %97, i1 %98, i1 false
   br i1 %or.cond13, label %99, label %101
 
@@ -1069,7 +1069,7 @@ define internal fastcc range(i32 0, 25) i32 @ddPermuteWindow4(ptr noundef %0, i3
 
 104:                                              ; preds = %101
   %105 = icmp eq i32 %102, %.13341
-  %106 = icmp ugt i32 %.13, 17
+  %106 = icmp samesign ugt i32 %.13, 17
   %or.cond15 = select i1 %105, i1 %106, i1 false
   br i1 %or.cond15, label %107, label %109
 
@@ -1086,7 +1086,7 @@ define internal fastcc range(i32 0, 25) i32 @ddPermuteWindow4(ptr noundef %0, i3
 
 112:                                              ; preds = %109
   %113 = icmp eq i32 %110, %.14342
-  %114 = icmp ugt i32 %.14, 11
+  %114 = icmp samesign ugt i32 %.14, 11
   %or.cond17 = select i1 %113, i1 %114, i1 false
   br i1 %or.cond17, label %115, label %117
 
@@ -1103,7 +1103,7 @@ define internal fastcc range(i32 0, 25) i32 @ddPermuteWindow4(ptr noundef %0, i3
 
 120:                                              ; preds = %117
   %121 = icmp eq i32 %118, %.15343
-  %122 = icmp ugt i32 %.15, 16
+  %122 = icmp samesign ugt i32 %.15, 16
   %or.cond19 = select i1 %121, i1 %122, i1 false
   br i1 %or.cond19, label %123, label %125
 
@@ -1120,7 +1120,7 @@ define internal fastcc range(i32 0, 25) i32 @ddPermuteWindow4(ptr noundef %0, i3
 
 128:                                              ; preds = %125
   %129 = icmp eq i32 %126, %.16344
-  %130 = icmp ugt i32 %.16, 10
+  %130 = icmp samesign ugt i32 %.16, 10
   %or.cond21 = select i1 %129, i1 %130, i1 false
   br i1 %or.cond21, label %131, label %133
 
@@ -1137,7 +1137,7 @@ define internal fastcc range(i32 0, 25) i32 @ddPermuteWindow4(ptr noundef %0, i3
 
 136:                                              ; preds = %133
   %137 = icmp eq i32 %134, %.17345
-  %138 = icmp ugt i32 %.17, 5
+  %138 = icmp samesign ugt i32 %.17, 5
   %or.cond23 = select i1 %137, i1 %138, i1 false
   br i1 %or.cond23, label %139, label %141
 
@@ -1154,7 +1154,7 @@ define internal fastcc range(i32 0, 25) i32 @ddPermuteWindow4(ptr noundef %0, i3
 
 144:                                              ; preds = %141
   %145 = icmp eq i32 %142, %.18346
-  %146 = icmp ugt i32 %.18, 3
+  %146 = icmp samesign ugt i32 %.18, 3
   %or.cond25 = select i1 %145, i1 %146, i1 false
   br i1 %or.cond25, label %147, label %149
 
@@ -1171,7 +1171,7 @@ define internal fastcc range(i32 0, 25) i32 @ddPermuteWindow4(ptr noundef %0, i3
 
 152:                                              ; preds = %149
   %153 = icmp eq i32 %150, %.19347
-  %154 = icmp ugt i32 %.19, 6
+  %154 = icmp samesign ugt i32 %.19, 6
   %or.cond27 = select i1 %153, i1 %154, i1 false
   br i1 %or.cond27, label %155, label %157
 
@@ -1188,7 +1188,7 @@ define internal fastcc range(i32 0, 25) i32 @ddPermuteWindow4(ptr noundef %0, i3
 
 160:                                              ; preds = %157
   %161 = icmp eq i32 %158, %.20348
-  %162 = icmp ugt i32 %.20, 4
+  %162 = icmp samesign ugt i32 %.20, 4
   %or.cond29 = select i1 %161, i1 %162, i1 false
   br i1 %or.cond29, label %163, label %165
 
@@ -1205,7 +1205,7 @@ define internal fastcc range(i32 0, 25) i32 @ddPermuteWindow4(ptr noundef %0, i3
 
 168:                                              ; preds = %165
   %169 = icmp eq i32 %166, %.21349
-  %170 = icmp ugt i32 %.21, 2
+  %170 = icmp samesign ugt i32 %.21, 2
   %or.cond31 = select i1 %169, i1 %170, i1 false
   br i1 %or.cond31, label %171, label %173
 

@@ -1685,7 +1685,7 @@ define hidden void @"_ZN3gif7encoder16Encoder$LT$W$GT$18write_frame_header17h686
   %.zext.i = zext nneg i16 %43 to i64
   %44 = tail call noundef i8 @_ZN3gif7encoder9flag_size17h27039767396eba9dE(i64 noundef %.zext.i), !noalias !454
   %45 = mul nuw nsw i64 %.zext.i, 3
-  %46 = icmp ugt i64 %45, %40
+  %46 = icmp samesign ugt i64 %45, %40
   br i1 %46, label %47, label %49
 
 47:                                               ; preds = %42
@@ -1895,7 +1895,7 @@ define hidden void @"_ZN3gif7encoder16Encoder$LT$W$GT$20write_global_palette17h3
 
 .noexc:                                           ; preds = %10
   %13 = mul nuw nsw i64 %.zext.i, 3
-  %14 = icmp ugt i64 %13, %3
+  %14 = icmp samesign ugt i64 %13, %3
   br i1 %14, label %15, label %17
 
 15:                                               ; preds = %.noexc
@@ -1925,7 +1925,7 @@ define hidden void @"_ZN3gif7encoder16Encoder$LT$W$GT$20write_global_palette17h3
   %19 = zext nneg i8 %18 to i64
   %20 = shl i64 2, %19
   %21 = sub i64 %20, %.zext.i
-  %22 = icmp ugt i64 %3, 2
+  %22 = icmp samesign ugt i64 %3, 2
   %23 = getelementptr inbounds i8, ptr %1, i64 36
   %24 = zext i1 %22 to i8
   store i8 %24, ptr %23, align 4

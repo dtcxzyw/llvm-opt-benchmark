@@ -1720,7 +1720,7 @@ unreachable.i.i.i:                                ; preds = %lpad.body.i.i.i
   unreachable
 
 if.else.i.i351:                                   ; preds = %while.body.i
-  %cmp4.i.i = icmp ult i64 %add.i349, %sub.ptr.div.i32.i
+  %cmp4.i.i = icmp samesign ult i64 %add.i349, %sub.ptr.div.i32.i
   br i1 %cmp4.i.i, label %if.then5.i.i, label %_ZNSt6vectorIN12_GLOBAL__N_111MovableTypeESaIS1_EE6resizeEm.exit.i
 
 if.then5.i.i:                                     ; preds = %if.else.i.i351
@@ -2045,7 +2045,7 @@ for.body.i.i.i.i.i.i.i.i433:                      ; preds = %for.body.i.i.i.i.i.
   %incdec.ptr.i.i.i.i.i.i.i.i434 = getelementptr inbounds i8, ptr %__first.addr.07.i.i.i.i.i.i.i.i, i64 8
   %incdec.ptr1.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__result.addr.08.i.i.i.i.i.i.i.i, i64 8
   %dec.i.i.i.i.i.i.i.i = add nsw i64 %__n.09.i.i.i.i.i.i.i.i, -1
-  %cmp.i.i.i.i.i.i.i.i = icmp ugt i64 %__n.09.i.i.i.i.i.i.i.i, 1
+  %cmp.i.i.i.i.i.i.i.i = icmp samesign ugt i64 %__n.09.i.i.i.i.i.i.i.i, 1
   br i1 %cmp.i.i.i.i.i.i.i.i, label %for.body.i.i.i.i.i.i.i.i433, label %if.end.i.i.i, !llvm.loop !37
 
 if.end.i.i.i:                                     ; preds = %for.body.i.i.i.i.i.i.i.i433, %if.then.i.i.i423, %while.body.i420
@@ -2123,7 +2123,7 @@ for.body.i.i.i.i.i.i.i463:                        ; preds = %for.body.i.i.i.i.i.
   %141 = load ptr, ptr %incdec.ptr2.i.i.i.i.i.i.i, align 8
   store ptr %141, ptr %result.addr.08.i.i.i.i.i.i.i, align 8
   store ptr %.pre.i462, ptr %incdec.ptr2.i.i.i.i.i.i.i, align 8
-  %cmp.i.i.i.i.i.i.i464 = icmp ugt i64 %n.09.i.i.i.i.i.i.i, 1
+  %cmp.i.i.i.i.i.i.i464 = icmp samesign ugt i64 %n.09.i.i.i.i.i.i.i, 1
   br i1 %cmp.i.i.i.i.i.i.i464, label %for.body.i.i.i.i.i.i.i463, label %for.body.i.i.preheader.i.i.i, !llvm.loop !39
 
 for.body.i.i.preheader.i.i.i:                     ; preds = %for.body.i.i.i.i.i.i.i463, %while.body.i453
@@ -2589,7 +2589,7 @@ _ZN12_GLOBAL__N_112AutoRefCountINS_10RefCountedEEaSEOS2_.exit.i.i.i.i.i.i.i: ; p
   %173 = load ptr, ptr %incdec.ptr2.i.i.i.i.i.i.i604, align 8
   store ptr %173, ptr %result.addr.08.i.i.i.i.i.i.i603, align 8
   store ptr null, ptr %incdec.ptr2.i.i.i.i.i.i.i604, align 8
-  %cmp.i.i.i.i.i.i.i611 = icmp ugt i64 %n.09.i.i.i.i.i.i.in.i602, 2
+  %cmp.i.i.i.i.i.i.i611 = icmp samesign ugt i64 %n.09.i.i.i.i.i.i.in.i602, 2
   br i1 %cmp.i.i.i.i.i.i.i611, label %for.body.i.i.i.i.i.i.i601, label %for.body.i.i.preheader.i.i.i588, !llvm.loop !55
 
 for.body.i.i.preheader.i.i.i588:                  ; preds = %_ZN12_GLOBAL__N_112AutoRefCountINS_10RefCountedEEaSEOS2_.exit.i.i.i.i.i.i.i, %while.body.i583
@@ -3693,7 +3693,7 @@ for.body.i.i.i.i.i.i.i1210:                       ; preds = %if.else.i1199, %for
   %add.ptr.i.i.i.i.i.i.i.i.i.i1212 = getelementptr inbounds i8, ptr %__last.addr.05.i.i.i.i.i.i.i, i64 -56
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %add.ptr.i.i.i.i.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(56) %add.ptr.i.i.i.i.i.i.i.i.i.i1212, i64 56, i1 false)
   %dec.i.i.i.i.i.i.i1213 = add nsw i64 %__n.07.i.i.i.i.i.i.i, -1
-  %cmp.i.i.i.i.i.i.i1214 = icmp ugt i64 %__n.07.i.i.i.i.i.i.i, 1
+  %cmp.i.i.i.i.i.i.i1214 = icmp samesign ugt i64 %__n.07.i.i.i.i.i.i.i, 1
   br i1 %cmp.i.i.i.i.i.i.i1214, label %for.body.i.i.i.i.i.i.i1210, label %invoke.cont.i1207, !llvm.loop !85
 
 invoke.cont.i1207:                                ; preds = %for.body.i.i.i.i.i.i.i1210, %if.else.i1199
@@ -3967,7 +3967,7 @@ for.body.i.i.i.i.i.i.i.i1014:                     ; preds = %if.then.i.i.i996, %
   %incdec.ptr.i.i.i.i.i.i.i.i1018 = getelementptr inbounds i8, ptr %__first.addr.07.i.i.i.i.i.i.i.i1017, i64 64
   %incdec.ptr1.i.i.i.i.i.i.i.i1019 = getelementptr inbounds i8, ptr %__result.addr.08.i.i.i.i.i.i.i.i1016, i64 64
   %dec.i.i.i.i.i.i.i.i1020 = add nsw i64 %__n.09.i.i.i.i.i.i.i.i1015, -1
-  %cmp.i.i.i.i.i.i.i.i1021 = icmp ugt i64 %__n.09.i.i.i.i.i.i.i.i1015, 1
+  %cmp.i.i.i.i.i.i.i.i1021 = icmp samesign ugt i64 %__n.09.i.i.i.i.i.i.i.i1015, 1
   br i1 %cmp.i.i.i.i.i.i.i.i1021, label %for.body.i.i.i.i.i.i.i.i1014, label %_ZNSt6vectorIN5eastl5tupleIJm13PaddingStructEEESaIS3_EE5eraseEN9__gnu_cxx17__normal_iteratorIPKS3_S5_EE.exit.i, !llvm.loop !91
 
 _ZNSt6vectorIN5eastl5tupleIJm13PaddingStructEEESaIS3_EE5eraseEN9__gnu_cxx17__normal_iteratorIPKS3_S5_EE.exit.i: ; preds = %for.body.i.i.i.i.i.i.i.i1014, %if.then.i.i.i996, %for.body.i987
@@ -6002,7 +6002,7 @@ for.body.i.i:                                     ; preds = %_ZN5eastl8pop_heapI
   store i64 %17, ptr %add.ptr.i.i.i13.i, align 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %add.ptr.i.i.i.i.i14.i, ptr noundef nonnull align 8 dereferenceable(56) %add.ptr.i.i.i2.i.i.i, i64 56, i1 false)
   %sub.i.i15.i = add nsw i64 %sub.ptr.div.i16.i.i, -1
-  %cmp31.i.i.i.i.i = icmp ugt i64 %sub.ptr.div.i16.i.i, 3
+  %cmp31.i.i.i.i.i = icmp samesign ugt i64 %sub.ptr.div.i16.i.i, 3
   br i1 %cmp31.i.i.i.i.i, label %for.body.i.i.i.i20.i, label %for.end.i.i.i.thread.i.i
 
 for.body.i.i.i.i20.i:                             ; preds = %for.body.i.i, %for.body.i.i.i.i20.i

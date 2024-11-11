@@ -1324,7 +1324,7 @@ _ZN4llvm13DIDumpOptionsD2Ev.exit:                 ; preds = %_ZNSt8functionIFvN4
 
 121:                                              ; preds = %103
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %4), !noalias !15
-  %122 = icmp ult i16 %51, 46
+  %122 = icmp samesign ult i16 %51, 46
   br i1 %122, label %123, label %127
 
 123:                                              ; preds = %121

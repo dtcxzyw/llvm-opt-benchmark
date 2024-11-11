@@ -1211,7 +1211,7 @@ _ZNK6icu_756BMPSet12containsSlowEiii.exit:        ; preds = %if.else.i.i, %if.el
   br i1 %tobool43.not, label %if.end199, label %do.cond
 
 if.else47:                                        ; preds = %if.else16
-  %cmp49 = icmp ugt i16 %9, -9217
+  %cmp49 = icmp samesign ugt i16 %9, -9217
   br i1 %cmp49, label %if.then59, label %lor.lhs.false50
 
 lor.lhs.false50:                                  ; preds = %if.else47
@@ -1406,7 +1406,7 @@ _ZNK6icu_756BMPSet12containsSlowEiii.exit134:     ; preds = %if.else.i.i122, %if
   br i1 %tobool149.not, label %do.cond195, label %if.end199
 
 if.else153:                                       ; preds = %if.else115
-  %cmp155 = icmp ugt i16 %28, -9217
+  %cmp155 = icmp samesign ugt i16 %28, -9217
   br i1 %cmp155, label %if.then166, label %lor.lhs.false156
 
 lor.lhs.false156:                                 ; preds = %if.else153
@@ -1646,7 +1646,7 @@ _ZNK6icu_756BMPSet12containsSlowEiii.exit:        ; preds = %if.else.i.i, %if.el
   br i1 %tobool43.not, label %return, label %if.end85
 
 if.else47:                                        ; preds = %if.else16
-  %cmp49 = icmp ult i16 %9, -9216
+  %cmp49 = icmp samesign ult i16 %9, -9216
   %cmp51 = icmp eq ptr %s, %incdec.ptr
   %or.cond53 = or i1 %cmp49, %cmp51
   br i1 %or.cond53, label %if.then58, label %lor.lhs.false52
@@ -1839,7 +1839,7 @@ _ZNK6icu_756BMPSet12containsSlowEiii.exit138:     ; preds = %if.else.i.i126, %if
   br i1 %tobool151.not, label %if.end195, label %return
 
 if.else155:                                       ; preds = %if.else117
-  %cmp157 = icmp ult i16 %28, -9216
+  %cmp157 = icmp samesign ult i16 %28, -9216
   %cmp159 = icmp eq ptr %s, %incdec.ptr91
   %or.cond54 = or i1 %cmp157, %cmp159
   br i1 %or.cond54, label %if.then167, label %lor.lhs.false160
@@ -2004,7 +2004,7 @@ if.end26:                                         ; preds = %if.end24, %entry
   br i1 %cmp32, label %if.then33, label %if.end76
 
 if.then33:                                        ; preds = %if.end26
-  %cmp35 = icmp ult i8 %5, -64
+  %cmp35 = icmp samesign ult i8 %5, -64
   br i1 %cmp35, label %if.then36, label %if.else68
 
 if.then36:                                        ; preds = %if.then33
@@ -2424,7 +2424,7 @@ if.then53:                                        ; preds = %if.then45
   br label %return
 
 if.else56:                                        ; preds = %if.end42
-  %cmp57 = icmp ult i32 %call, 65536
+  %cmp57 = icmp samesign ult i32 %call, 65536
   br i1 %cmp57, label %if.then58, label %if.else86
 
 if.then58:                                        ; preds = %if.else56

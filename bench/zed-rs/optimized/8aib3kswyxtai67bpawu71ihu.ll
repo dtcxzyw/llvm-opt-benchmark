@@ -947,7 +947,7 @@ define hidden void @"_ZN111_$LT$alloc..vec..Vec$LT$T$GT$$u20$as$u20$alloc..vec..
 
 "_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$9size_hint17h0e7d977a292bbb61E.exit.i.i": ; preds = %37, %31, %30
   %.sink20.i.i.i.i = phi i64 [ %39, %37 ], [ %36, %31 ], [ %spec.select.i.i.i.i, %30 ]
-  %40 = icmp ugt i64 %.sink20.i.i.i.i, %24
+  %40 = icmp samesign ugt i64 %.sink20.i.i.i.i, %24
   br i1 %40, label %41, label %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$14extend_trusted17ha343a4041ad322d6E.exit.i"
 
 41:                                               ; preds = %"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$9size_hint17h0e7d977a292bbb61E.exit.i.i"

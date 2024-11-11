@@ -1416,7 +1416,7 @@ define internal fastcc i64 @DoPortalRunFetch(ptr nocapture noundef %0, i32 nound
   %12 = getelementptr inbounds i8, ptr %0, i64 208
   %13 = load i64, ptr %12, align 8
   %14 = lshr i64 %13, 1
-  %.not87 = icmp ule i64 %11, %14
+  %.not87 = icmp samesign ule i64 %11, %14
   %15 = icmp ugt i64 %13, 9223372036854775806
   %or.cond = or i1 %15, %.not87
   br i1 %or.cond, label %16, label %20
@@ -1437,7 +1437,7 @@ define internal fastcc i64 @DoPortalRunFetch(ptr nocapture noundef %0, i32 nound
   %23 = and i8 %22, 1
   %24 = zext nneg i8 %23 to i64
   %spec.select94 = add nuw nsw i64 %13, %24
-  %.not88 = icmp ugt i64 %2, %spec.select94
+  %.not88 = icmp samesign ugt i64 %2, %spec.select94
   br i1 %.not88, label %29, label %25
 
 25:                                               ; preds = %20
@@ -1449,7 +1449,7 @@ define internal fastcc i64 @DoPortalRunFetch(ptr nocapture noundef %0, i32 nound
 
 29:                                               ; preds = %20
   %30 = add nuw nsw i64 %spec.select94, 1
-  %31 = icmp ugt i64 %2, %30
+  %31 = icmp samesign ugt i64 %2, %30
   br i1 %31, label %32, label %37
 
 32:                                               ; preds = %29

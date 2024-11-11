@@ -879,7 +879,7 @@ if.end.i:                                         ; preds = %for.body.i
   br i1 %cmp5.i, label %land.lhs.true.i, label %if.else.i
 
 land.lhs.true.i:                                  ; preds = %if.end.i
-  %cmp8.i = icmp ugt i8 %1, 57
+  %cmp8.i = icmp samesign ugt i8 %1, 57
   %cmp10.i = icmp ugt i64 %num_size.027.i, 3
   %or.cond22.i = select i1 %cmp8.i, i1 true, i1 %cmp10.i
   br i1 %or.cond22.i, label %if.then12, label %if.end12.i
@@ -3353,7 +3353,7 @@ if.end.i:                                         ; preds = %for.body.i
   br i1 %cmp5.i, label %land.lhs.true.i, label %if.else.i
 
 land.lhs.true.i:                                  ; preds = %if.end.i
-  %cmp8.i = icmp ugt i8 %0, 57
+  %cmp8.i = icmp samesign ugt i8 %0, 57
   %cmp10.i = icmp ugt i64 %num_size.027.i, 3
   %or.cond22.i = select i1 %cmp8.i, i1 true, i1 %cmp10.i
   br i1 %or.cond22.i, label %_ZL21looks_like_ip_addressSt17basic_string_viewIcSt11char_traitsIcEE.exit, label %if.end12.i
@@ -4878,7 +4878,7 @@ if.then:                                          ; preds = %entry
   br i1 %cmp1, label %if.end5.sink.split, label %if.else
 
 if.else:                                          ; preds = %if.then
-  %cmp3 = icmp ult i64 %0, 1024
+  %cmp3 = icmp samesign ult i64 %0, 1024
   br i1 %cmp3, label %if.end5.sink.split, label %if.end5
 
 if.end5.sink.split:                               ; preds = %if.else, %if.then

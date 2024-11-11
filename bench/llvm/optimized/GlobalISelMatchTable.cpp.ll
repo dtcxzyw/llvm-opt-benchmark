@@ -34310,7 +34310,7 @@ _ZSt14__copy_move_a1ILb1EPSt10unique_ptrIN4llvm2gi23OperandPredicateMatcherESt14
   br i1 %119, label %120, label %126
 
 120:                                              ; preds = %_ZSt14__copy_move_a1ILb1EPSt10unique_ptrIN4llvm2gi23OperandPredicateMatcherESt14default_deleteIS3_EES7_ET1_T0_S9_S8_.exit.i.i.i
-  %121 = icmp ult i64 %118, 64
+  %121 = icmp samesign ult i64 %118, 64
   br i1 %121, label %122, label %124
 
 122:                                              ; preds = %120
@@ -34361,7 +34361,7 @@ _ZNSt15_Deque_iteratorISt10unique_ptrIN4llvm2gi23OperandPredicateMatcherESt14def
   br i1 %151, label %152, label %158
 
 152:                                              ; preds = %138
-  %153 = icmp ult i64 %150, 64
+  %153 = icmp samesign ult i64 %150, 64
   br i1 %153, label %154, label %156
 
 154:                                              ; preds = %152
@@ -35049,7 +35049,7 @@ _ZSt11swap_rangesISt15_Deque_iteratorISt10unique_ptrIN4llvm2gi23OperandPredicate
   br i1 %120, label %121, label %127
 
 121:                                              ; preds = %99
-  %122 = icmp ult i64 %119, 64
+  %122 = icmp samesign ult i64 %119, 64
   br i1 %122, label %123, label %125
 
 123:                                              ; preds = %121
@@ -35103,7 +35103,7 @@ _ZStplRKSt15_Deque_iteratorISt10unique_ptrIN4llvm2gi23OperandPredicateMatcherESt
   br i1 %146, label %147, label %153
 
 147:                                              ; preds = %144
-  %148 = icmp ult i64 %145, 64
+  %148 = icmp samesign ult i64 %145, 64
   br i1 %148, label %149, label %151
 
 149:                                              ; preds = %147
@@ -35200,7 +35200,7 @@ _ZNSt15_Deque_iteratorISt10unique_ptrIN4llvm2gi23OperandPredicateMatcherESt14def
   br i1 %185, label %186, label %192
 
 186:                                              ; preds = %183
-  %187 = icmp ult i64 %184, 64
+  %187 = icmp samesign ult i64 %184, 64
   br i1 %187, label %188, label %190
 
 188:                                              ; preds = %186
@@ -35241,7 +35241,7 @@ _ZStplRKSt15_Deque_iteratorISt10unique_ptrIN4llvm2gi23OperandPredicateMatcherESt
   br i1 %207, label %208, label %214
 
 208:                                              ; preds = %_ZStplRKSt15_Deque_iteratorISt10unique_ptrIN4llvm2gi23OperandPredicateMatcherESt14default_deleteIS3_EERS6_PS6_El.exit13
-  %209 = icmp ult i64 %206, 64
+  %209 = icmp samesign ult i64 %206, 64
   br i1 %209, label %210, label %212
 
 210:                                              ; preds = %208
@@ -35556,7 +35556,7 @@ define linkonce_odr void @_ZNSt5dequeISt10unique_ptrIN4llvm2gi23OperandPredicate
   br i1 %146, label %147, label %153
 
 147:                                              ; preds = %134
-  %148 = icmp ult i64 %145, 64
+  %148 = icmp samesign ult i64 %145, 64
   br i1 %148, label %149, label %151
 
 149:                                              ; preds = %147
@@ -35656,7 +35656,7 @@ _ZStplRKSt15_Deque_iteratorISt10unique_ptrIN4llvm2gi23OperandPredicateMatcherESt
   br i1 %187, label %188, label %194
 
 188:                                              ; preds = %178
-  %189 = icmp ult i64 %186, 64
+  %189 = icmp samesign ult i64 %186, 64
   br i1 %189, label %190, label %192
 
 190:                                              ; preds = %188
@@ -35711,7 +35711,7 @@ _ZStmiRKSt15_Deque_iteratorISt10unique_ptrIN4llvm2gi23OperandPredicateMatcherESt
   br i1 %217, label %218, label %224
 
 218:                                              ; preds = %204
-  %219 = icmp ult i64 %216, 64
+  %219 = icmp samesign ult i64 %216, 64
   br i1 %219, label %220, label %222
 
 220:                                              ; preds = %218
@@ -36133,7 +36133,7 @@ _ZSt23__copy_move_backward_a1ILb1EPSt10unique_ptrIN4llvm2gi23OperandPredicateMat
   br i1 %55, label %56, label %62
 
 56:                                               ; preds = %_ZSt23__copy_move_backward_a1ILb1EPSt10unique_ptrIN4llvm2gi23OperandPredicateMatcherESt14default_deleteIS3_EES7_ET1_T0_S9_S8_.exit.i
-  %57 = icmp ult i64 %54, 64
+  %57 = icmp samesign ult i64 %54, 64
   br i1 %57, label %58, label %60
 
 58:                                               ; preds = %56
@@ -36273,7 +36273,7 @@ _ZSt23__copy_move_backward_a1ILb1EPSt10unique_ptrIN4llvm2gi23OperandPredicateMat
   br i1 %116, label %117, label %123
 
 117:                                              ; preds = %_ZSt23__copy_move_backward_a1ILb1EPSt10unique_ptrIN4llvm2gi23OperandPredicateMatcherESt14default_deleteIS3_EES7_ET1_T0_S9_S8_.exit.i16
-  %118 = icmp ult i64 %115, 64
+  %118 = icmp samesign ult i64 %115, 64
   br i1 %118, label %119, label %121
 
 119:                                              ; preds = %117
@@ -36413,7 +36413,7 @@ _ZSt23__copy_move_backward_a1ILb1EPSt10unique_ptrIN4llvm2gi23OperandPredicateMat
   br i1 %179, label %180, label %186
 
 180:                                              ; preds = %_ZSt23__copy_move_backward_a1ILb1EPSt10unique_ptrIN4llvm2gi23OperandPredicateMatcherESt14default_deleteIS3_EES7_ET1_T0_S9_S8_.exit.i46
-  %181 = icmp ult i64 %178, 64
+  %181 = icmp samesign ult i64 %178, 64
   br i1 %181, label %182, label %184
 
 182:                                              ; preds = %180
@@ -36545,7 +36545,7 @@ _ZSt23__copy_move_backward_a1ILb1EPSt10unique_ptrIN4llvm2gi23OperandPredicateMat
   br i1 %244, label %245, label %251
 
 245:                                              ; preds = %_ZSt23__copy_move_backward_a1ILb1EPSt10unique_ptrIN4llvm2gi23OperandPredicateMatcherESt14default_deleteIS3_EES7_ET1_T0_S9_S8_.exit.i76
-  %246 = icmp ult i64 %243, 64
+  %246 = icmp samesign ult i64 %243, 64
   br i1 %246, label %247, label %249
 
 247:                                              ; preds = %245
@@ -36672,7 +36672,7 @@ _ZSt14__copy_move_a1ILb1EPSt10unique_ptrIN4llvm2gi23OperandPredicateMatcherESt14
   br i1 %44, label %45, label %51
 
 45:                                               ; preds = %_ZSt14__copy_move_a1ILb1EPSt10unique_ptrIN4llvm2gi23OperandPredicateMatcherESt14default_deleteIS3_EES7_ET1_T0_S9_S8_.exit.i
-  %46 = icmp ult i64 %43, 64
+  %46 = icmp samesign ult i64 %43, 64
   br i1 %46, label %47, label %49
 
 47:                                               ; preds = %45
@@ -36780,7 +36780,7 @@ _ZSt14__copy_move_a1ILb1EPSt10unique_ptrIN4llvm2gi23OperandPredicateMatcherESt14
   br i1 %92, label %93, label %99
 
 93:                                               ; preds = %_ZSt14__copy_move_a1ILb1EPSt10unique_ptrIN4llvm2gi23OperandPredicateMatcherESt14default_deleteIS3_EES7_ET1_T0_S9_S8_.exit.i13
-  %94 = icmp ult i64 %91, 64
+  %94 = icmp samesign ult i64 %91, 64
   br i1 %94, label %95, label %97
 
 95:                                               ; preds = %93
@@ -36889,7 +36889,7 @@ _ZSt14__copy_move_a1ILb1EPSt10unique_ptrIN4llvm2gi23OperandPredicateMatcherESt14
   br i1 %143, label %144, label %150
 
 144:                                              ; preds = %_ZSt14__copy_move_a1ILb1EPSt10unique_ptrIN4llvm2gi23OperandPredicateMatcherESt14default_deleteIS3_EES7_ET1_T0_S9_S8_.exit.i36
-  %145 = icmp ult i64 %142, 64
+  %145 = icmp samesign ult i64 %142, 64
   br i1 %145, label %146, label %148
 
 146:                                              ; preds = %144
@@ -36988,7 +36988,7 @@ _ZSt14__copy_move_a1ILb1EPSt10unique_ptrIN4llvm2gi23OperandPredicateMatcherESt14
   br i1 %194, label %195, label %201
 
 195:                                              ; preds = %_ZSt14__copy_move_a1ILb1EPSt10unique_ptrIN4llvm2gi23OperandPredicateMatcherESt14default_deleteIS3_EES7_ET1_T0_S9_S8_.exit.i59
-  %196 = icmp ult i64 %193, 64
+  %196 = icmp samesign ult i64 %193, 64
   br i1 %196, label %197, label %199
 
 197:                                              ; preds = %195

@@ -2381,7 +2381,7 @@ define dso_local i32 @cdrom_get_last_written(ptr noundef %0, ptr nocapture nound
   %124 = load i24, ptr %82, align 1
   %125 = and i24 %124, 131072
   %126 = icmp ne i24 %125, 0
-  %127 = icmp ugt i32 %121, 31
+  %127 = icmp samesign ugt i32 %121, 31
   %128 = and i1 %127, %126
   br i1 %128, label %129, label %134
 
@@ -4648,7 +4648,7 @@ define internal fastcc i32 @mmc_ioctl_cdrom_read_audio(ptr noundef %0, ptr nound
 62:                                               ; preds = %56
   %63 = getelementptr inbounds i8, ptr %0, i64 24
   %64 = getelementptr inbounds i8, ptr %0, i64 96
-  %65 = icmp ugt i32 %.fr7, 1
+  %65 = icmp samesign ugt i32 %.fr7, 1
   br i1 %65, label %.split, label %.split.us
 
 .split.us:                                        ; preds = %62
@@ -6248,7 +6248,7 @@ define internal fastcc i32 @mmc_ioctl_cdrom_next_writable(ptr noundef %0, ptr no
   %121 = load i24, ptr %81, align 1
   %122 = and i24 %121, 65536
   %123 = icmp ne i24 %122, 0
-  %124 = icmp ugt i32 %120, 15
+  %124 = icmp samesign ugt i32 %120, 15
   %125 = and i1 %124, %123
   br i1 %125, label %126, label %131
 

@@ -1577,7 +1577,7 @@ if.else:                                          ; preds = %entry
   unreachable
 
 do.end:                                           ; preds = %entry
-  %cmp1 = icmp ult i32 %n, 128
+  %cmp1 = icmp samesign ult i32 %n, 128
   %conv = trunc i32 %n to i8
   br i1 %cmp1, label %return, label %if.else3
 

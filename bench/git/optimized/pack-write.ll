@@ -157,7 +157,7 @@ lor.lhs.false.i:                                  ; preds = %if.end19
   %off32_limit.i = getelementptr inbounds i8, ptr %opts, i64 8
   %3 = load i32, ptr %off32_limit.i, align 8
   %conv.i = zext i32 %3 to i64
-  %cmp.i68 = icmp ugt i64 %last_obj_offset.2, %conv.i
+  %cmp.i68 = icmp samesign ugt i64 %last_obj_offset.2, %conv.i
   br i1 %cmp.i68, label %need_large_offset.exit.thread, label %if.end.i
 
 if.end.i:                                         ; preds = %lor.lhs.false.i
@@ -365,7 +365,7 @@ for.body91:                                       ; preds = %for.body91.lr.ph, %
 lor.lhs.false.i92:                                ; preds = %for.body91
   %28 = load i32, ptr %off32_limit.i93, align 8
   %conv.i94 = zext i32 %28 to i64
-  %cmp.i95 = icmp ugt i64 %27, %conv.i94
+  %cmp.i95 = icmp samesign ugt i64 %27, %conv.i94
   br i1 %cmp.i95, label %need_large_offset.exit106.thread, label %if.end.i96
 
 if.end.i96:                                       ; preds = %lor.lhs.false.i92
@@ -435,7 +435,7 @@ while.body111:                                    ; preds = %while.body111.lr.ph
 lor.lhs.false.i116:                               ; preds = %while.body111
   %36 = load i32, ptr %off32_limit.i117, align 8
   %conv.i118 = zext i32 %36 to i64
-  %cmp.i119 = icmp ugt i64 %35, %conv.i118
+  %cmp.i119 = icmp samesign ugt i64 %35, %conv.i118
   br i1 %cmp.i119, label %need_large_offset.exit130.thread, label %if.end.i120
 
 if.end.i120:                                      ; preds = %lor.lhs.false.i116

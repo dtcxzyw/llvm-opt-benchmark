@@ -714,7 +714,7 @@ if.then5:                                         ; preds = %if.end
   br label %return
 
 if.end6:                                          ; preds = %if.end
-  %cmp7 = icmp ult i32 %length, 32
+  %cmp7 = icmp samesign ult i32 %length, 32
   br i1 %cmp7, label %if.then8, label %if.end9
 
 if.then8:                                         ; preds = %if.end6
@@ -831,7 +831,7 @@ if.end71:                                         ; preds = %if.end65, %lor.lhs.
   %13 = load i16, ptr %p.0, align 2
   %conv73 = zext i16 %13 to i32
   %add = add nuw nsw i32 %conv73, 64
-  %cmp74 = icmp ult i32 %length, %add
+  %cmp74 = icmp samesign ult i32 %length, %add
   br i1 %cmp74, label %if.then75, label %if.end76
 
 if.then75:                                        ; preds = %if.end71

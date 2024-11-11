@@ -343,7 +343,7 @@ define void @_ZN5ZXing6QRCode6EncodeERKNSt7__cxx1112basic_stringIwSt11char_trait
   br i1 %144, label %.loopexit134, label %.preheader133, !llvm.loop !22
 
 145:                                              ; preds = %135
-  %146 = icmp ult i32 %124, 16384
+  %146 = icmp samesign ult i32 %124, 16384
   br i1 %146, label %147, label %158
 
 147:                                              ; preds = %145

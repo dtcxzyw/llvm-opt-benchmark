@@ -14268,7 +14268,7 @@ select.unfold.i.i:                                ; preds = %"_ZN73_$LT$$u5b$A$u
 565:                                              ; preds = %544, %536
   %566 = phi ptr [ %527, %536 ], [ %545, %544 ]
   %.sroa.4.1.i.ph.i.i.i.i.i.i = phi i32 [ %537, %536 ], [ %549, %544 ]
-  %567 = icmp ult i32 %.sroa.4.1.i.ph.i.i.i.i.i.i, 1114112
+  %567 = icmp samesign ult i32 %.sroa.4.1.i.ph.i.i.i.i.i.i, 1114112
   call void @llvm.assume(i1 %567)
   switch i32 %.sroa.4.1.i.ph.i.i.i.i.i.i, label %568 [
     i32 32, label %594

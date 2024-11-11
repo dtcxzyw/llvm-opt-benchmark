@@ -862,7 +862,7 @@ if.else14:                                        ; preds = %_ZNK6icu_7513Unicod
   br i1 %cmp16.not, label %for.inc, label %return
 
 for.inc:                                          ; preds = %if.then13, %if.else14
-  %cmp2 = icmp ugt i64 %indvars.iv67, 1
+  %cmp2 = icmp samesign ugt i64 %indvars.iv67, 1
   br i1 %cmp2, label %for.body, label %for.end.loopexit, !llvm.loop !6
 
 for.end.loopexit:                                 ; preds = %for.inc

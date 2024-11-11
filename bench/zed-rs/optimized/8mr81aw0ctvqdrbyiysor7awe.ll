@@ -8340,8 +8340,8 @@ define internal fastcc noundef zeroext i1 @"_ZN9hashbrown3raw21RawTable$LT$T$C$A
 .thread.i.i.i:                                    ; preds = %42
   %50 = getelementptr inbounds i8, ptr %6, i64 16
   %51 = load i8, ptr %50, align 8, !range !1318, !alias.scope !1316, !noalias !1313, !noundef !9
-  %switch.i.i3453.i.i.i = icmp samesign ult i8 %51, 3
-  br i1 %switch.i.i3453.i.i.i, label %38, label %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17hfffacfe60dd02fefE.exit.i.i.i"
+  %or.cond54.i.i.i = icmp samesign ult i8 %51, 3
+  br i1 %or.cond54.i.i.i, label %38, label %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17hfffacfe60dd02fefE.exit.i.i.i"
 
 ._crit_edge.i.i.i:                                ; preds = %46
   br i1 %switch.i.i.i.i.i, label %38, label %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17hfffacfe60dd02fefE.exit.i.i.i"

@@ -33,7 +33,7 @@ define internal range(i32 -400, 3) i32 @big5_code_to_mbclen(i32 noundef %0) #3 {
   br i1 %.not, label %2, label %13
 
 2:                                                ; preds = %1
-  %.not5 = icmp ult i32 %0, 256
+  %.not5 = icmp samesign ult i32 %0, 256
   br i1 %.not5, label %8, label %3
 
 3:                                                ; preds = %2

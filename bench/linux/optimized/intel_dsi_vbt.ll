@@ -1708,7 +1708,7 @@ define internal noundef ptr @mipi_exec_gpio(ptr nocapture noundef readonly %0, p
   br label %328
 
 252:                                              ; preds = %229
-  %253 = icmp ugt i8 %32, 72
+  %253 = icmp samesign ugt i8 %32, 72
   %254 = load ptr, ptr getelementptr inbounds (i8, ptr @kmalloc_caches, i64 56), align 8
   %255 = tail call noalias align 8 dereferenceable_or_null(104) ptr @kmalloc_trace(ptr noundef %254, i32 noundef 3520, i64 noundef 104) #12
   %256 = icmp eq ptr %255, null

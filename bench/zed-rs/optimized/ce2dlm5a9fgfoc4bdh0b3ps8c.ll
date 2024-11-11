@@ -39872,7 +39872,7 @@ common.ret.sink.split.i23.i.i.i:                  ; preds = %874, %.body.i.i.i
 
 1682:                                             ; preds = %1676
   %1683 = add nsw i64 %1679, -1
-  %1684 = icmp ult i64 %1683, 513
+  %1684 = icmp samesign ult i64 %1683, 513
   br i1 %1684, label %1692, label %1689
 
 1685:                                             ; preds = %1676

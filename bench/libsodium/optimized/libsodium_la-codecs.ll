@@ -358,7 +358,7 @@ if.then8:                                         ; preds = %if.end6
   unreachable
 
 if.end9:                                          ; preds = %if.end6
-  %cmp11.not = icmp ult i32 %variant, 4
+  %cmp11.not = icmp samesign ult i32 %variant, 4
   %cmp41140.not = icmp eq i64 %bin_len, 0
   br i1 %cmp11.not, label %while.cond40.preheader, label %while.cond.preheader
 
@@ -577,7 +577,7 @@ while.cond.preheader:                             ; preds = %entry
   br i1 %cmp106136.not, label %lor.lhs.false, label %while.body.lr.ph.lr.ph
 
 while.body.lr.ph.lr.ph:                           ; preds = %while.cond.preheader
-  %tobool.not = icmp ult i32 %variant, 4
+  %tobool.not = icmp samesign ult i32 %variant, 4
   %cmp6.not = icmp eq ptr %ignore, null
   br i1 %tobool.not, label %while.body.lr.ph.us, label %while.body.lr.ph
 

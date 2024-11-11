@@ -655,7 +655,7 @@ for.body:                                         ; preds = %for.body.preheader,
   %arrayidx = getelementptr inbounds i16, ptr %src, i64 %2
   %3 = load i16, ptr %arrayidx, align 2
   %cmp17 = icmp ne i16 %3, 45
-  %cmp16 = icmp ugt i64 %indvars.iv, 1
+  %cmp16 = icmp samesign ugt i64 %indvars.iv, 1
   %or.cond2 = and i1 %cmp16, %cmp17
   br i1 %or.cond2, label %for.body, label %for.end, !llvm.loop !12
 
@@ -688,7 +688,7 @@ if.then29.us:                                     ; preds = %if.end27.us
   br label %if.end42.us
 
 if.end42.us:                                      ; preds = %if.then29.us, %if.end27.us
-  %cmp20.us = icmp ugt i64 %indvars.iv199, 1
+  %cmp20.us = icmp samesign ugt i64 %indvars.iv199, 1
   br i1 %cmp20.us, label %while.body.us, label %while.end, !llvm.loop !13
 
 while.body:                                       ; preds = %while.body.lr.ph, %if.end42
@@ -718,7 +718,7 @@ if.then29:                                        ; preds = %if.end27
   br label %if.end42
 
 if.end42:                                         ; preds = %if.then29, %if.end27
-  %cmp20 = icmp ugt i64 %indvars.iv196, 1
+  %cmp20 = icmp samesign ugt i64 %indvars.iv196, 1
   br i1 %cmp20, label %while.body, label %while.end, !llvm.loop !13
 
 while.end:                                        ; preds = %if.end42, %if.end42.us
@@ -765,11 +765,11 @@ if.end50:                                         ; preds = %for.cond47.preheade
   br i1 %cmp.i137, label %if.then.i, label %if.else7.i
 
 if.then.i:                                        ; preds = %if.end50
-  %cmp1.i = icmp ult i16 %14, 58
+  %cmp1.i = icmp samesign ult i16 %14, 58
   br i1 %cmp1.i, label %if.then2.i, label %if.else5.i
 
 if.then2.i:                                       ; preds = %if.then.i
-  %cmp3.i = icmp ult i16 %14, 48
+  %cmp3.i = icmp samesign ult i16 %14, 48
   %add.i = add nsw i32 %conv53, -22
   br i1 %cmp3.i, label %if.then56, label %if.end57
 

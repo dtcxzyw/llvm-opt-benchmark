@@ -11047,7 +11047,7 @@ _ZNSt12_Vector_baseI11TextureInfoSaIS0_EE13_M_deallocateEPS0_m.exit: ; preds = %
   %53 = getelementptr inbounds i8, ptr %.0910.i.i.i.i.i, i64 24
   %54 = getelementptr inbounds i8, ptr %.0811.i.i.i.i.i, i64 24
   %55 = add nsw i64 %.012.i.i.i.i.i, -1
-  %56 = icmp ugt i64 %.012.i.i.i.i.i, 1
+  %56 = icmp samesign ugt i64 %.012.i.i.i.i.i, 1
   br i1 %56, label %.lr.ph.i.i.i.i.i25, label %_ZSt4copyIN9__gnu_cxx17__normal_iteratorIPK11TextureInfoSt6vectorIS2_SaIS2_EEEENS1_IPS2_S7_EEET0_T_SC_SB_.exit.loopexit, !llvm.loop !98
 
 _ZSt4copyIN9__gnu_cxx17__normal_iteratorIPK11TextureInfoSt6vectorIS2_SaIS2_EEEENS1_IPS2_S7_EEET0_T_SC_SB_.exit.loopexit: ; preds = %.lr.ph.i.i.i.i.i25
@@ -11114,7 +11114,7 @@ _ZSt8_DestroyI11TextureInfoEvPT_.exit.i.i.i28:    ; preds = %_ZN9QtPrivate8RefCo
   %71 = getelementptr inbounds i8, ptr %.0910.i.i.i.i.i40, i64 24
   %72 = getelementptr inbounds i8, ptr %.0811.i.i.i.i.i39, i64 24
   %73 = add nsw i64 %.012.i.i.i.i.i38, -1
-  %74 = icmp ugt i64 %.012.i.i.i.i.i38, 1
+  %74 = icmp samesign ugt i64 %.012.i.i.i.i.i38, 1
   br i1 %74, label %.lr.ph.i.i.i.i.i37, label %_ZSt4copyIP11TextureInfoS1_ET0_T_S3_S2_.exit.loopexit, !llvm.loop !100
 
 _ZSt4copyIP11TextureInfoS1_ET0_T_S3_S2_.exit.loopexit: ; preds = %.lr.ph.i.i.i.i.i37

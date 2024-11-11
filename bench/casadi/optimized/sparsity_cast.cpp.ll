@@ -624,7 +624,7 @@ define noundef i32 @_ZNK6casadi12SparsityCast7eval_sxEPPKNS_6SXElemEPPS1_PxS5_(p
   %17 = getelementptr inbounds i8, ptr %.0910.i.i.i.i.i.i, i64 8
   %18 = getelementptr inbounds i8, ptr %.0811.i.i.i.i.i.i, i64 8
   %19 = add nsw i64 %.012.i.i.i.i.i.i, -1
-  %20 = icmp ugt i64 %.012.i.i.i.i.i.i, 1
+  %20 = icmp samesign ugt i64 %.012.i.i.i.i.i.i, 1
   br i1 %20, label %.lr.ph.i.i.i.i.i.i, label %_ZNK6casadi12SparsityCast8eval_genINS_6SXElemEEEiPPKT_PPS3_PxS7_.exit, !llvm.loop !9
 
 _ZNK6casadi12SparsityCast8eval_genINS_6SXElemEEEiPPKT_PPS3_PxS7_.exit: ; preds = %.lr.ph.i.i.i.i.i.i, %5, %8

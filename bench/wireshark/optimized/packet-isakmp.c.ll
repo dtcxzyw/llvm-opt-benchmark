@@ -3319,7 +3319,7 @@ dissect_cert.exit:                                ; preds = %508, %510, %520, %5
   %559 = call ptr @proto_tree_add_item(ptr noundef %84, i32 noundef %558, ptr noundef %0, i32 noundef %.0.i158, i32 noundef 20, i32 noundef 0) #17
   %560 = add i32 %.0.i158, 20
   %561 = add nsw i32 %.031.i, -20
-  %.old1.i = icmp ugt i32 %.031.i, 20
+  %.old1.i = icmp samesign ugt i32 %.031.i, 20
   br i1 %.old1.i, label %.preheader.i, label %dissect_certreq.exit
 
 dissect_certreq.exit:                             ; preds = %.preheader.i, %537, %539, %546, %549, %552
@@ -4010,7 +4010,7 @@ dissect_notif.exit:                               ; preds = %.lr.ph.i161, %.lr.p
   br label %.thread.i
 
 923:                                              ; preds = %895
-  %924 = icmp ugt i16 %85, 17
+  %924 = icmp samesign ugt i16 %85, 17
   br i1 %924, label %.thread.i, label %957
 
 .thread.i:                                        ; preds = %923, %906, %904
@@ -4037,7 +4037,7 @@ dissect_notif.exit:                               ; preds = %.lr.ph.i161, %.lr.p
 
 938:                                              ; preds = %926, %.thread.i
   %.1.i171 = phi i32 [ %937, %926 ], [ %.088.i, %.thread.i ]
-  %939 = icmp ugt i32 %90, 15
+  %939 = icmp samesign ugt i32 %90, 15
   br i1 %939, label %940, label %.thread98.i
 
 940:                                              ; preds = %938
@@ -4054,7 +4054,7 @@ dissect_notif.exit:                               ; preds = %.lr.ph.i161, %.lr.p
 
 947:                                              ; preds = %942, %940
   %.2.i = phi i32 [ %946, %942 ], [ %.1.i171, %940 ]
-  %948 = icmp ugt i32 %90, 18
+  %948 = icmp samesign ugt i32 %90, 18
   br i1 %948, label %949, label %.thread98.i
 
 949:                                              ; preds = %947
@@ -4071,7 +4071,7 @@ dissect_notif.exit:                               ; preds = %.lr.ph.i161, %.lr.p
   br label %.thread98.i
 
 957:                                              ; preds = %923
-  %958 = icmp ugt i16 %85, 15
+  %958 = icmp samesign ugt i16 %85, 15
   br i1 %958, label %.thread98.i, label %dissect_sa.exit
 
 .thread98.i:                                      ; preds = %957, %951, %949, %947, %938
@@ -5288,7 +5288,7 @@ dissect_sa.exit:                                  ; preds = %dissect_ts.exit.i, 
   br label %1634
 
 1628:                                             ; preds = %83
-  %1629 = icmp ult i32 %.0153247, %86
+  %1629 = icmp samesign ult i32 %.0153247, %86
   br i1 %1629, label %1630, label %1632
 
 1630:                                             ; preds = %1628

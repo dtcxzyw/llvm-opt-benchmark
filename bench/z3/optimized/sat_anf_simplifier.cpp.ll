@@ -631,7 +631,7 @@ while.body.i:                                     ; preds = %while.body.i, %whil
   %14 = load i32, ptr %arrayidx2.i, align 4
   store i32 %14, ptr %arrayidx.i52, align 4
   store i32 %13, ptr %arrayidx2.i, align 4
-  %cmp.i53 = icmp ugt i64 %indvars.iv.i, 2
+  %cmp.i53 = icmp samesign ugt i64 %indvars.iv.i, 2
   br i1 %cmp.i53, label %while.body.i, label %for.body20.preheader, !llvm.loop !6
 
 for.body20.preheader:                             ; preds = %while.body.i, %_ZNK6vectorIjLb0EjE4sizeEv.exit, %for.end
@@ -9249,7 +9249,7 @@ for.body.i.i.i.i.i.i:                             ; preds = %for.body.i.i.i.i.i.
   %second3.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__result.addr.06.i.i.i.i.i.i, i64 -4
   store i32 %6, ptr %second3.i.i.i.i.i.i.i, align 4
   %dec.i.i.i.i.i.i = add nsw i64 %__n.07.i.i.i.i.i.i, -1
-  %cmp.i.i.i.i.i.i = icmp ugt i64 %__n.07.i.i.i.i.i.i, 1
+  %cmp.i.i.i.i.i.i = icmp samesign ugt i64 %__n.07.i.i.i.i.i.i, 1
   br i1 %cmp.i.i.i.i.i.i, label %for.body.i.i.i.i.i.i, label %_ZSt13move_backwardIPSt4pairIjjES2_ET0_T_S4_S3_.exit.i, !llvm.loop !100
 
 _ZSt13move_backwardIPSt4pairIjjES2_ET0_T_S4_S3_.exit.i: ; preds = %for.body.i.i.i.i.i.i
@@ -9414,7 +9414,7 @@ for.body.i.i.i.i.i.i73:                           ; preds = %for.body.i.i.i.i.i.
   %second3.i.i.i.i.i.i.i80 = getelementptr inbounds i8, ptr %__result.addr.06.i.i.i.i.i.i75, i64 -4
   store i32 %21, ptr %second3.i.i.i.i.i.i.i80, align 4
   %dec.i.i.i.i.i.i81 = add nsw i64 %__n.07.i.i.i.i.i.i74, -1
-  %cmp.i.i.i.i.i.i82 = icmp ugt i64 %__n.07.i.i.i.i.i.i74, 1
+  %cmp.i.i.i.i.i.i82 = icmp samesign ugt i64 %__n.07.i.i.i.i.i.i74, 1
   br i1 %cmp.i.i.i.i.i.i82, label %for.body.i.i.i.i.i.i73, label %_ZSt13move_backwardIPSt4pairIjjES2_ET0_T_S4_S3_.exit.i70, !llvm.loop !100
 
 _ZSt13move_backwardIPSt4pairIjjES2_ET0_T_S4_S3_.exit.i70: ; preds = %for.body.i.i.i.i.i.i73, %if.then2.i62

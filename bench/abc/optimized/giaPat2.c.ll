@@ -453,7 +453,7 @@ Min_LitIsNode.exit:                               ; preds = %8
 
 select.unfold:                                    ; preds = %25, %28
   %.1 = phi i8 [ %..i, %28 ], [ %27, %25 ]
-  %33 = icmp ult i8 %.1, 2
+  %33 = icmp samesign ult i8 %.1, 2
   br i1 %33, label %.thread, label %.thread41
 
 .thread:                                          ; preds = %28, %select.unfold
@@ -972,7 +972,7 @@ Min_LitIsCi.exit.thread:                          ; preds = %38, %Min_LitIsCi.ex
   %148 = sext i32 %30 to i64
   %149 = getelementptr inbounds i16, ptr %.val89, i64 %148
   store i16 514, ptr %149, align 2
-  %150 = icmp ugt i64 %indvars.iv106, 1
+  %150 = icmp samesign ugt i64 %indvars.iv106, 1
   br i1 %150, label %28, label %.critedge2, !llvm.loop !13
 
 .critedge2:                                       ; preds = %147, %.critedge

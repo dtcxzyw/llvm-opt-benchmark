@@ -1049,7 +1049,7 @@ define internal fastcc noundef zeroext i1 @efi_memmap_entry_valid(ptr noundef %0
 14:                                               ; preds = %12
   %15 = xor i64 %5, 4503599627370495
   %16 = lshr i64 %8, 12
-  %17 = icmp ult i64 %15, %16
+  %17 = icmp samesign ult i64 %15, %16
   br i1 %17, label %18, label %39
 
 18:                                               ; preds = %14, %12

@@ -5048,7 +5048,7 @@ define hidden void @_ZN8LIR_List6appendEP19LIR_InsertionBuffer(ptr noundef nonnu
   %69 = getelementptr inbounds ptr, ptr %68, i64 %indvars.iv55
   store ptr %67, ptr %69, align 8
   %70 = add nsw i32 %.034, -1
-  %71 = icmp ugt i32 %.034, 1
+  %71 = icmp samesign ugt i32 %.034, 1
   br i1 %71, label %.lr.ph36, label %.loopexit.loopexit, !llvm.loop !13
 
 .loopexit28:                                      ; preds = %.loopexit, %._crit_edge.i, %2

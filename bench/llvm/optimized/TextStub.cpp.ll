@@ -651,7 +651,7 @@ _ZNK4llvm9StringRef11starts_withES0_.exit17:      ; preds = %_ZNK4llvm9StringRef
   br i1 %49, label %_ZNK4llvm9StringRef11starts_withES0_.exit17.thread, label %_ZNK4llvm9StringRef11starts_withES0_.exit20
 
 _ZNK4llvm9StringRef11starts_withES0_.exit17.thread63: ; preds = %_ZNK4llvm9StringRef9ends_withES0_.exit5.thread
-  %.not.i18 = icmp ult i64 %.sroa.speculated.i.i.i.i, 10
+  %.not.i18 = icmp samesign ult i64 %.sroa.speculated.i.i.i.i, 10
   br i1 %.not.i18, label %_ZN4llvm5ErrorD2Ev.exit21, label %_ZNK4llvm9StringRef11starts_withES0_.exit20
 
 _ZNK4llvm9StringRef11starts_withES0_.exit20:      ; preds = %_ZNK4llvm9StringRef11starts_withES0_.exit17, %_ZNK4llvm9StringRef11starts_withES0_.exit8.thread60, %_ZNK4llvm9StringRef11starts_withES0_.exit17.thread63

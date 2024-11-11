@@ -445,7 +445,7 @@ _ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPhSt6vectorIhSaIhEEEEmEvRT_T0_.exit:
   %26 = getelementptr inbounds i8, ptr %.0910.i.i.i.i.i, i64 1
   %27 = getelementptr inbounds i8, ptr %.0811.i.i.i.i.i, i64 1
   %28 = add nsw i64 %.012.i.i.i.i.i, -1
-  %29 = icmp ugt i64 %.012.i.i.i.i.i, 1
+  %29 = icmp samesign ugt i64 %.012.i.i.i.i.i, 1
   br i1 %29, label %.lr.ph.i.i.i.i.i, label %_ZSt4copyIN9__gnu_cxx17__normal_iteratorIPKcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEENS1_IPhSt6vectorIhSaIhEEEEET0_T_SH_SG_.exit, !llvm.loop !7
 
 _ZSt4copyIN9__gnu_cxx17__normal_iteratorIPKcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEENS1_IPhSt6vectorIhSaIhEEEEET0_T_SH_SG_.exit: ; preds = %.lr.ph.i.i.i.i.i, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPhSt6vectorIhSaIhEEEEmEvRT_T0_.exit
@@ -555,7 +555,7 @@ _ZN4LIEF15vector_iostream5writeIhvEERS0_RKT_.exit.us: ; preds = %22, %.lr.ph14
   br i1 %32, label %.lr.ph14, label %.critedge, !llvm.loop !9
 
 .split:                                           ; preds = %2
-  %33 = icmp ugt i64 %1, 63
+  %33 = icmp samesign ugt i64 %1, 63
   %.sroa.0.0.copyload.i.i9.pre = load i64, ptr %0, align 8
   br i1 %33, label %.lr.ph, label %.critedge
 
@@ -587,7 +587,7 @@ _ZN4LIEF15vector_iostream5writeIhvEERS0_RKT_.exit: ; preds = %.lr.ph, %44
   %48 = add nsw i64 %47, 1
   store i64 %48, ptr %0, align 8
   %49 = trunc i64 %35 to i8
-  %50 = icmp ugt i64 %.in, 8191
+  %50 = icmp samesign ugt i64 %.in, 8191
   br i1 %50, label %.lr.ph, label %.critedge, !llvm.loop !9
 
 .critedge:                                        ; preds = %_ZN4LIEF15vector_iostream5writeIhvEERS0_RKT_.exit, %_ZN4LIEF15vector_iostream5writeIhvEERS0_RKT_.exit.us, %.split, %.split.us

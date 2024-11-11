@@ -1059,7 +1059,7 @@ define internal fastcc i64 @__se_sys_mremap(i64 noundef %0, i64 noundef %1, i64 
   br i1 %21, label %201, label %22
 
 22:                                               ; preds = %18
-  %23 = icmp ult i64 %3, 4
+  %23 = icmp samesign ult i64 %3, 4
   br i1 %23, label %31, label %24
 
 24:                                               ; preds = %22
@@ -1154,7 +1154,7 @@ define internal fastcc i64 @__se_sys_mremap(i64 noundef %0, i64 noundef %1, i64 
 87:                                               ; preds = %58, %53
   %88 = phi i64 [ %76, %58 ], [ %36, %53 ]
   %89 = phi i64 [ %78, %58 ], [ %38, %53 ]
-  %90 = icmp ult i64 %3, 2
+  %90 = icmp samesign ult i64 %3, 2
   br i1 %90, label %93, label %91
 
 91:                                               ; preds = %87

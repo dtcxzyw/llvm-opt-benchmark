@@ -25407,10 +25407,10 @@ _ZN3vcg4Box3IiE9IntersectERKS1_.exit.thread:      ; preds = %97
   br label %_ZNK3vcg4Box3IiE6IsNullEv.exit
 
 _ZN3vcg4Box3IiE9IntersectERKS1_.exit:             ; preds = %97
-  %102 = icmp ule i32 %81, %92
-  %103 = icmp ule i32 %85, %95
+  %102 = icmp samesign ule i32 %81, %92
+  %103 = icmp samesign ule i32 %85, %95
   %or.cond.not = select i1 %102, i1 %103, i1 false
-  %104 = icmp ule i32 %89, %98
+  %104 = icmp samesign ule i32 %89, %98
   %spec.select = select i1 %or.cond.not, i1 %104, i1 false
   br label %_ZNK3vcg4Box3IiE6IsNullEv.exit
 

@@ -363,7 +363,7 @@ define void @cli_detect_swizz_str(ptr nocapture noundef readonly %0, i32 noundef
   %.163 = phi i64 [ %.06295, %31 ], [ %37, %33 ], [ %.06295, %30 ], [ %.06295, %20 ]
   %40 = add i64 %.096, 2
   %41 = icmp ult i64 %40, %12
-  %42 = icmp ult i64 %.163, 4094
+  %42 = icmp samesign ult i64 %.163, 4094
   %43 = select i1 %41, i1 %42, i1 false
   br i1 %43, label %.lr.ph, label %._crit_edge
 
@@ -670,7 +670,7 @@ define range(i32 0, 2) i32 @cli_detect_swizz(ptr nocapture noundef readonly %0) 
   br i1 %52, label %53, label %59
 
 53:                                               ; preds = %.split44.us
-  %54 = icmp ugt i32 %51, 22980
+  %54 = icmp samesign ugt i32 %51, 22980
   br i1 %54, label %55, label %swizz_j48_global.exit
 
 55:                                               ; preds = %53

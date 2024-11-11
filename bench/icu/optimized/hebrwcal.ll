@@ -544,7 +544,7 @@ while.body4:                                      ; preds = %while.cond2.prehead
   %cmp1.i.not.i14 = icmp slt i32 %rem.i.i11, %cond.i.i13
   %cond.i15.neg = select i1 %cmp1.i.not.i14, i32 -12, i32 -13
   %sub = add i32 %cond.i15.neg, %month.addr.122
-  %cmp3 = icmp ugt i32 %sub, 12
+  %cmp3 = icmp samesign ugt i32 %sub, 12
   br i1 %cmp3, label %while.body4, label %while.end6, !llvm.loop !8
 
 while.end6:                                       ; preds = %while.body4, %while.body, %while.cond2.preheader
@@ -860,7 +860,7 @@ while.body4:                                      ; preds = %while.cond2.prehead
   %cmp1.i.not.i19 = icmp slt i32 %rem.i.i16, %cond.i.i18
   %cond.i20.neg = select i1 %cmp1.i.not.i19, i32 -12, i32 -13
   %sub = add i32 %cond.i20.neg, %month.addr.142
-  %cmp3 = icmp ugt i32 %sub, 12
+  %cmp3 = icmp samesign ugt i32 %sub, 12
   br i1 %cmp3, label %while.body4, label %while.end6, !llvm.loop !12
 
 while.end6:                                       ; preds = %while.body4, %while.body, %while.cond2.preheader

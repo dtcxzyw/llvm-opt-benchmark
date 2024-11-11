@@ -98,7 +98,7 @@ if.end9:                                          ; preds = %if.end
   %.val = load ptr, ptr getelementptr inbounds (i8, ptr @options, i64 368), align 16
   %.val61 = load ptr, ptr getelementptr inbounds (i8, ptr @options, i64 328), align 8
   %icuUniDataDir.0 = select i1 %tobool10.not, ptr %.val, ptr %.val61
-  %cmp13 = icmp ult i32 %call1, 2
+  %cmp13 = icmp samesign ult i32 %call1, 2
   br i1 %cmp13, label %if.then15, label %if.else17
 
 if.then15:                                        ; preds = %if.end9

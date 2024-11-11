@@ -3596,7 +3596,7 @@ proto_item_set_generated.exit:                    ; preds = %57, %60, %63
   %70 = getelementptr inbounds i8, ptr %3, i64 3
   %71 = load i8, ptr %70, align 1
   %72 = zext i8 %71 to i32
-  %73 = icmp ult i32 %.0116, %72
+  %73 = icmp samesign ult i32 %.0116, %72
   br i1 %73, label %74, label %78
 
 74:                                               ; preds = %69
@@ -7101,7 +7101,7 @@ dissect_opt_calipso.exit:                         ; preds = %556, %558
   %591 = call ptr @proto_tree_add_item(ptr noundef %96, i32 noundef %590, ptr noundef %0, i32 noundef range(i32 -2147483646, 2050) %123, i32 noundef 1, i32 noundef 0) #13
   %592 = add nsw i32 %.0293, 3
   %593 = add nsw i32 %92, -1
-  %.not40.i = icmp ult i8 %582, 16
+  %.not40.i = icmp samesign ult i8 %582, 16
   br i1 %.not40.i, label %601, label %594
 
 594:                                              ; preds = %587

@@ -1460,7 +1460,7 @@ dissect_iap_request.exit.i.i:                     ; preds = %.thread132.i.i.i, %
   %383 = load i32, ptr @hf_iap_list_len, align 4
   %384 = call ptr @proto_tree_add_item(ptr noundef %367, i32 noundef %383, ptr noundef %.0.i.i, i32 noundef 2, i32 noundef 2, i32 noundef 0) #6
   %385 = icmp ugt i32 %300, 4
-  %386 = icmp ult i32 %.0209251.i.i.i, %382
+  %386 = icmp samesign ult i32 %.0209251.i.i.i, %382
   %387 = select i1 %385, i1 %386, i1 false
   br i1 %387, label %.lr.ph267.i.i.i, label %.thread253.i.i.i
 

@@ -773,7 +773,7 @@ land.rhs:                                         ; preds = %entry
   %recvWindow_ = getelementptr inbounds i8, ptr %this, i64 80
   %call = tail call noundef i32 @_ZNK8proxygen6Window11getCapacityEv(ptr noundef nonnull align 4 dereferenceable(8) %recvWindow_)
   %div4 = lshr i32 %call, 1
-  %cmp4 = icmp ugt i32 %add, %div4
+  %cmp4 = icmp samesign ugt i32 %add, %div4
   br label %land.end
 
 land.end:                                         ; preds = %land.rhs, %entry

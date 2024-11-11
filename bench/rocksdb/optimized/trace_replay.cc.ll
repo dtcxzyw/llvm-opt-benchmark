@@ -3521,7 +3521,7 @@ if.else.i62:                                      ; preds = %_ZNKSt6vectorIPN7ro
   store ptr %add.ptr37.i, ptr %_M_end_of_storage.i, align 8
   %_M_finish.i.i9 = getelementptr inbounds i8, ptr %v_keys, i64 8
   %_M_end_of_storage.i53 = getelementptr inbounds i8, ptr %v_keys, i64 16
-  %cmp.i.i63 = icmp ugt i64 %num_keys, 576460752303423487
+  %cmp.i.i63 = icmp samesign ugt i64 %num_keys, 576460752303423487
   br i1 %cmp.i.i63, label %if.then.i.i71, label %_ZNKSt6vectorIN7rocksdb5SliceESaIS1_EE12_M_check_lenEmPKc.exit.i
 
 if.then.i.i71:                                    ; preds = %if.else.i62
@@ -3906,7 +3906,7 @@ if.else.i61:                                      ; preds = %_ZNKSt6vectorIPN7ro
   store ptr %add.ptr37.i, ptr %_M_end_of_storage.i, align 8
   %_M_finish.i.i8 = getelementptr inbounds i8, ptr %v_keys, i64 8
   %_M_end_of_storage.i52 = getelementptr inbounds i8, ptr %v_keys, i64 16
-  %cmp.i.i62 = icmp ugt i64 %num_keys, 576460752303423487
+  %cmp.i.i62 = icmp samesign ugt i64 %num_keys, 576460752303423487
   br i1 %cmp.i.i62, label %if.then.i.i70, label %_ZNKSt6vectorIN7rocksdb5SliceESaIS1_EE12_M_check_lenEmPKc.exit.i
 
 if.then.i.i70:                                    ; preds = %if.else.i61

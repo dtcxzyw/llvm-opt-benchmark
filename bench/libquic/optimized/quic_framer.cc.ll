@@ -6155,7 +6155,7 @@ cleanup:                                          ; preds = %if.end17
   br i1 %call19, label %while.cond.backedge, label %return
 
 if.end22:                                         ; preds = %if.then8
-  %tobool25.not = icmp ult i8 %4, 64
+  %tobool25.not = icmp samesign ult i8 %4, 64
   br i1 %tobool25.not, label %if.end52, label %if.then26
 
 if.then26:                                        ; preds = %if.end22

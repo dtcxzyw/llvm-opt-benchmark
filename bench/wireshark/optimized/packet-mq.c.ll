@@ -3518,7 +3518,7 @@ define internal fastcc i32 @dissect_mq_od(ptr noundef %0, ptr noundef readonly %
   br label %106
 
 106:                                              ; preds = %73, %46
-  %107 = icmp ugt i32 %17, 2
+  %107 = icmp samesign ugt i32 %17, 2
   br i1 %107, label %108, label %.thread172
 
 108:                                              ; preds = %106
@@ -3760,7 +3760,7 @@ define internal fastcc range(i32 0, 365) i32 @dissect_mq_md(ptr noundef %0, ptr 
   %122 = add i32 %2, 320
   %123 = load i32, ptr %38, align 4
   %124 = tail call ptr @proto_tree_add_item(ptr noundef %36, i32 noundef %121, ptr noundef %0, i32 noundef %122, i32 noundef 4, i32 noundef %123) #7
-  %125 = icmp ugt i32 %16, 1
+  %125 = icmp samesign ugt i32 %16, 1
   br i1 %125, label %126, label %.thread152
 
 126:                                              ; preds = %34
@@ -3893,7 +3893,7 @@ dissect_mq_MQGMO.exit:                            ; preds = %49, %53
   %67 = load i32, ptr @hf_mq_gmo_resolvqname, align 4
   %68 = load i32, ptr %23, align 4
   %69 = tail call ptr @proto_tree_add_item(ptr noundef %35, i32 noundef %67, ptr noundef %0, i32 noundef %22, i32 noundef 48, i32 noundef %68) #7
-  %70 = icmp ugt i32 %16, 1
+  %70 = icmp samesign ugt i32 %16, 1
   br i1 %70, label %71, label %.thread101
 
 71:                                               ; preds = %dissect_mq_MQGMO.exit
@@ -3940,7 +3940,7 @@ dissect_mq_MQGMO.exit:                            ; preds = %49, %53
   %103 = add i32 %3, 96
   %104 = load i32, ptr %14, align 4
   %105 = tail call ptr @proto_tree_add_item(ptr noundef %35, i32 noundef %102, ptr noundef %0, i32 noundef %103, i32 noundef 4, i32 noundef %104) #7
-  %106 = icmp ugt i32 %16, 3
+  %106 = icmp samesign ugt i32 %16, 3
   br i1 %106, label %107, label %.thread101
 
 107:                                              ; preds = %98
@@ -4081,7 +4081,7 @@ dissect_mq_MQPMO.exit:                            ; preds = %55, %59
   %85 = add i32 %3, 80
   %86 = load i32, ptr %26, align 4
   %87 = tail call ptr @proto_tree_add_item(ptr noundef %41, i32 noundef %84, ptr noundef %0, i32 noundef %85, i32 noundef 48, i32 noundef %86) #7
-  %88 = icmp ugt i32 %18, 1
+  %88 = icmp samesign ugt i32 %18, 1
   br i1 %88, label %89, label %.thread168
 
 89:                                               ; preds = %dissect_mq_MQPMO.exit
@@ -4131,7 +4131,7 @@ dissect_mq_MQPMO.exit:                            ; preds = %55, %59
   br label %.thread167
 
 130:                                              ; preds = %38
-  %131 = icmp ugt i32 %18, 1
+  %131 = icmp samesign ugt i32 %18, 1
   br i1 %131, label %..thread167_crit_edge, label %.thread168
 
 ..thread167_crit_edge:                            ; preds = %130
@@ -5014,7 +5014,7 @@ dissect_mq_addCR_colinfo.exit2542:                ; preds = %269, %277
   br i1 %472, label %473, label %540
 
 473:                                              ; preds = %470
-  %474 = icmp ugt i32 %471, 23
+  %474 = icmp samesign ugt i32 %471, 23
   %475 = icmp ne i32 %425, 28
   %or.cond59 = select i1 %474, i1 %475, i1 false
   br i1 %or.cond59, label %476, label %480
@@ -5027,7 +5027,7 @@ dissect_mq_addCR_colinfo.exit2542:                ; preds = %269, %277
 
 480:                                              ; preds = %476, %473
   %.02411 = phi i32 [ %479, %476 ], [ %471, %473 ]
-  %481 = icmp ugt i32 %.02411, 47
+  %481 = icmp samesign ugt i32 %.02411, 47
   %or.cond62 = select i1 %481, i1 %475, i1 false
   br i1 %or.cond62, label %482, label %486
 
@@ -5068,7 +5068,7 @@ dissect_mq_addCR_colinfo.exit2542:                ; preds = %269, %277
 505:                                              ; preds = %490
   %506 = load i32, ptr @hf_mq_fcno_conn_tag, align 4
   %507 = tail call ptr @ptvcursor_add(ptr noundef %455, i32 noundef %506, i32 noundef 128, i32 noundef 0) #7
-  %508 = icmp ugt i32 %492, 2
+  %508 = icmp samesign ugt i32 %492, 2
   br i1 %508, label %509, label %.thread2555
 
 509:                                              ; preds = %505
@@ -5083,7 +5083,7 @@ dissect_mq_addCR_colinfo.exit2542:                ; preds = %269, %277
   br i1 %514, label %515, label %537
 
 515:                                              ; preds = %.thread2555
-  %516 = icmp ugt i32 %513, 23
+  %516 = icmp samesign ugt i32 %513, 23
   %517 = icmp ne i32 %425, 28
   %or.cond65 = select i1 %516, i1 %517, i1 false
   br i1 %or.cond65, label %518, label %522
@@ -5096,7 +5096,7 @@ dissect_mq_addCR_colinfo.exit2542:                ; preds = %269, %277
 
 522:                                              ; preds = %518, %515
   %.02413 = phi i32 [ %521, %518 ], [ %513, %515 ]
-  %523 = icmp ugt i32 %.02413, 47
+  %523 = icmp samesign ugt i32 %.02413, 47
   %or.cond68 = select i1 %523, i1 %517, i1 false
   br i1 %or.cond68, label %524, label %528
 
@@ -6030,7 +6030,7 @@ thread-pre-split2567:                             ; preds = %1063
   br i1 %1108, label %1109, label %thread-pre-split2572
 
 1109:                                             ; preds = %1106
-  %1110 = icmp ult i8 %314, -70
+  %1110 = icmp samesign ult i8 %314, -70
   %1111 = icmp sgt i32 %181, 15
   %or.cond77 = select i1 %1110, i1 %1111, i1 false
   br i1 %or.cond77, label %1112, label %thread-pre-split2572

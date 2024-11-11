@@ -3465,7 +3465,7 @@ if.else.i.i73:                                    ; preds = %if.then.i.i71
 trace_vhost_vdpa_listener_region_del.exit:        ; preds = %int128_get64.exit, %land.lhs.true5.i.i68, %if.then8.i.i74, %if.else.i.i73
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %_now.i.i64)
   %a.sroa.0.0.insert.ext.i80 = zext i64 %and31 to i128
-  %cmp.i81.not = icmp ugt i128 %a.sroa.0.0.insert.insert.i, %a.sroa.0.0.insert.ext.i80
+  %cmp.i81.not = icmp samesign ugt i128 %a.sroa.0.0.insert.insert.i, %a.sroa.0.0.insert.ext.i80
   br i1 %cmp.i81.not, label %if.end47, label %return
 
 if.end47:                                         ; preds = %trace_vhost_vdpa_listener_region_del.exit

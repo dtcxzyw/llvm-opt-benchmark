@@ -2025,7 +2025,7 @@ define dso_local noundef range(i32 -95, 1) i32 @sock_set_timestamping(ptr nounde
   br i1 %8, label %9, label %122
 
 9:                                                ; preds = %3
-  %10 = icmp ugt i32 %5, 65535
+  %10 = icmp samesign ugt i32 %5, 65535
   %11 = and i32 %5, 128
   %12 = icmp eq i32 %11, 0
   %13 = and i1 %10, %12
@@ -3540,7 +3540,7 @@ define internal fastcc range(i32 -33, 1) i32 @sock_set_timeout(ptr noundef %0, p
 31:                                               ; preds = %13
   %32 = or i64 %14, %11
   %33 = icmp ne i64 %32, 0
-  %34 = icmp ult i64 %14, 9223372036854774
+  %34 = icmp samesign ult i64 %14, 9223372036854774
   %35 = and i1 %34, %33
   br i1 %35, label %36, label %41
 
@@ -4182,7 +4182,7 @@ thread-pre-split:                                 ; preds = %21
 
 251:                                              ; preds = %29
   call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %9) #22
-  %252 = icmp ugt i32 %27, 12
+  %252 = icmp samesign ugt i32 %27, 12
   br i1 %252, label %253, label %254
 
 253:                                              ; preds = %251
@@ -4233,7 +4233,7 @@ thread-pre-split:                                 ; preds = %21
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %10) #22
   store ptr null, ptr %10, align 8
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %11) #22
-  %281 = icmp ugt i32 %27, 4
+  %281 = icmp samesign ugt i32 %27, 4
   br i1 %281, label %282, label %283
 
 282:                                              ; preds = %280
@@ -4509,7 +4509,7 @@ thread-pre-split:                                 ; preds = %21
   br label %525
 
 435:                                              ; preds = %29
-  %436 = icmp ugt i32 %27, 7
+  %436 = icmp samesign ugt i32 %27, 7
   %437 = getelementptr inbounds i8, ptr %0, i64 464
   %438 = load volatile i64, ptr %437, align 8
   br i1 %436, label %439, label %440
@@ -4585,7 +4585,7 @@ thread-pre-split:                                 ; preds = %21
   br label %525
 
 483:                                              ; preds = %29
-  %484 = icmp ult i32 %27, 8
+  %484 = icmp samesign ult i32 %27, 8
   br i1 %484, label %.thread11, label %485
 
 485:                                              ; preds = %483

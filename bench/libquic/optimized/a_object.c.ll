@@ -102,7 +102,7 @@ if.end22.lr.ph:                                   ; preds = %if.end15
   %2 = load i8, ptr %incdec.ptr, align 1
   %conv17 = sext i8 %2 to i32
   %incdec.ptr16 = getelementptr inbounds i8, ptr %buf, i64 2
-  %cmp84 = icmp ult i8 %0, 50
+  %cmp84 = icmp samesign ult i8 %0, 50
   %3 = mul nuw nsw i64 %conv4, 40
   %mul93 = add nuw nsw i64 %3, 4294965376
   %conv94 = and i64 %mul93, 4294967288
@@ -202,7 +202,7 @@ if.end80:                                         ; preds = %lor.lhs.false70, %i
   %bl.384 = phi ptr [ %bl.383, %lor.lhs.false70 ], [ %bl.2137, %if.else77 ]
   %use_bn.181 = phi i32 [ %use_bn.182, %lor.lhs.false70 ], [ 0, %if.else77 ]
   %l.1 = phi i64 [ %l.0136, %lor.lhs.false70 ], [ %add, %if.else77 ]
-  %cmp31 = icmp ult i32 %num.addr.2133, 2
+  %cmp31 = icmp samesign ult i32 %num.addr.2133, 2
   br i1 %cmp31, label %for.end, label %if.end34
 
 for.end:                                          ; preds = %if.end80, %if.end34, %if.end34
@@ -337,7 +337,7 @@ while.body154:                                    ; preds = %while.body154.prehe
   %indvars.iv.next207 = add nsw i64 %indvars.iv206, 1
   %arrayidx161 = getelementptr inbounds i8, ptr %out, i64 %indvars.iv206
   store i8 %or, ptr %arrayidx161, align 1
-  %cmp152 = icmp ugt i64 %indvars.iv208, 2
+  %cmp152 = icmp samesign ugt i64 %indvars.iv208, 2
   br i1 %cmp152, label %while.body154, label %while.end162.loopexit, !llvm.loop !9
 
 while.end162.loopexit:                            ; preds = %while.body154

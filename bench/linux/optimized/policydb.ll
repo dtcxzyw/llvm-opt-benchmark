@@ -1126,7 +1126,7 @@ define dso_local i32 @policydb_read(ptr noundef %0, ptr noundef %1) local_unname
 
 66:                                               ; preds = %63
   store i32 1, ptr %0, align 8
-  %67 = icmp ult i32 %49, 19
+  %67 = icmp samesign ult i32 %49, 19
   br i1 %67, label %68, label %70
 
 68:                                               ; preds = %66
@@ -1142,7 +1142,7 @@ define dso_local i32 @policydb_read(ptr noundef %0, ptr noundef %1) local_unname
   %76 = and i8 %73, 3
   %77 = or disjoint i8 %75, %76
   store i8 %77, ptr %71, align 4
-  %78 = icmp ugt i32 %49, 21
+  %78 = icmp samesign ugt i32 %49, 21
   br i1 %78, label %79, label %.thread
 
 79:                                               ; preds = %70

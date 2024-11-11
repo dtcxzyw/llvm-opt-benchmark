@@ -1688,7 +1688,7 @@ if.then.i:                                        ; preds = %entry
   br label %_ZN3zmq5msg_t9set_groupEPKcm.exit
 
 if.end.i:                                         ; preds = %entry
-  %cmp2.i = icmp ugt i64 %call, 14
+  %cmp2.i = icmp samesign ugt i64 %call, 14
   br i1 %cmp2.i, label %if.then3.i, label %if.else.i
 
 if.then3.i:                                       ; preds = %if.end.i
@@ -1732,7 +1732,7 @@ if.then:                                          ; preds = %entry
   br label %return
 
 if.end:                                           ; preds = %entry
-  %cmp2 = icmp ugt i64 %length_, 14
+  %cmp2 = icmp samesign ugt i64 %length_, 14
   br i1 %cmp2, label %if.then3, label %if.else
 
 if.then3:                                         ; preds = %if.end

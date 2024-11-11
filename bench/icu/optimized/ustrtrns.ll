@@ -1028,7 +1028,7 @@ if.then256:                                       ; preds = %land.lhs.true248
   br label %do.cond
 
 if.else264:                                       ; preds = %land.lhs.true204, %land.lhs.true207, %land.lhs.true219, %land.lhs.true248, %if.else242
-  %cmp265 = icmp ugt i8 %39, -17
+  %cmp265 = icmp samesign ugt i8 %39, -17
   %or.cond11 = or i1 %cmp267, %cmp265
   br i1 %or.cond11, label %if.then268, label %if.end273
 
@@ -1489,7 +1489,7 @@ while.cond.backedge:                              ; preds = %if.then17, %if.then
   br i1 %5, label %while.body, label %while.end95, !llvm.loop !17
 
 if.else:                                          ; preds = %while.body
-  %cmp20 = icmp ult i8 %3, -32
+  %cmp20 = icmp samesign ult i8 %3, -32
   br i1 %cmp20, label %if.then21, label %if.else30
 
 if.then21:                                        ; preds = %if.else
@@ -1510,7 +1510,7 @@ if.then24:                                        ; preds = %if.then21
   br label %while.cond.backedge
 
 if.else30:                                        ; preds = %if.else
-  %cmp31 = icmp ult i8 %3, -16
+  %cmp31 = icmp samesign ult i8 %3, -16
   %arrayidx33 = getelementptr inbounds i8, ptr %pSrc.0156, i64 1
   %8 = load i8, ptr %arrayidx33, align 1
   %conv34 = zext i8 %8 to i32
@@ -1615,7 +1615,7 @@ while.cond96.backedge:                            ; preds = %while.body99, %land
   br i1 %cmp98.not, label %if.end300, label %while.body99, !llvm.loop !18
 
 if.else103:                                       ; preds = %while.body99
-  %cmp104 = icmp ult i8 %17, -32
+  %cmp104 = icmp samesign ult i8 %17, -32
   br i1 %cmp104, label %if.then105, label %if.else113
 
 if.then105:                                       ; preds = %if.else103
@@ -1625,7 +1625,7 @@ if.then105:                                       ; preds = %if.else103
   br i1 %cmp108.not, label %if.end145, label %while.cond96.backedge
 
 if.else113:                                       ; preds = %if.else103
-  %cmp114 = icmp ult i8 %17, -16
+  %cmp114 = icmp samesign ult i8 %17, -16
   %arrayidx116 = getelementptr inbounds i8, ptr %pSrc.3167, i64 1
   %20 = load i8, ptr %arrayidx116, align 1
   %cmp118.not = icmp eq i8 %20, 0
@@ -1663,7 +1663,7 @@ if.else148:                                       ; preds = %if.end10
   %idx.ext151 = zext nneg i32 %srcLength to i64
   %add.ptr152 = getelementptr inbounds i8, ptr %src, i64 %idx.ext151
   %cond155 = select i1 %cmp, ptr null, ptr %add.ptr152
-  %cmp156 = icmp ult i32 %destCapacity, %srcLength
+  %cmp156 = icmp samesign ult i32 %destCapacity, %srcLength
   br i1 %cmp156, label %if.then157, label %if.end161
 
 if.then157:                                       ; preds = %if.else148
@@ -1705,7 +1705,7 @@ if.then168:                                       ; preds = %do.body
   br label %do.cond
 
 if.else171:                                       ; preds = %do.body
-  %cmp172 = icmp ult i8 %24, -32
+  %cmp172 = icmp samesign ult i8 %24, -32
   %incdec.ptr175 = getelementptr inbounds i8, ptr %pSrc.5, i64 2
   %25 = load i8, ptr %incdec.ptr165, align 1
   %conv176 = zext i8 %25 to i32
@@ -1721,7 +1721,7 @@ if.then173:                                       ; preds = %if.else171
   br label %do.cond
 
 if.else181:                                       ; preds = %if.else171
-  %cmp182 = icmp ult i8 %24, -16
+  %cmp182 = icmp samesign ult i8 %24, -16
   br i1 %cmp182, label %if.then183, label %if.else195
 
 if.then183:                                       ; preds = %if.else181
@@ -1798,7 +1798,7 @@ while.cond223.backedge:                           ; preds = %if.then229, %if.the
   br i1 %cmp224, label %while.body225, label %if.end300, !llvm.loop !20
 
 if.else232:                                       ; preds = %while.body225
-  %cmp233 = icmp ult i8 %34, -32
+  %cmp233 = icmp samesign ult i8 %34, -32
   br i1 %cmp233, label %if.then234, label %if.else245
 
 if.then234:                                       ; preds = %if.else232
@@ -1818,7 +1818,7 @@ if.then236:                                       ; preds = %if.then234
   br label %while.cond223.backedge
 
 if.else245:                                       ; preds = %if.else232
-  %cmp246 = icmp ult i8 %34, -16
+  %cmp246 = icmp samesign ult i8 %34, -16
   %sub.ptr.rhs.cast249 = ptrtoint ptr %incdec.ptr226 to i64
   %sub.ptr.sub250 = sub i64 %sub.ptr.lhs.cast, %sub.ptr.rhs.cast249
   br i1 %cmp246, label %if.then247, label %if.else266
@@ -2193,11 +2193,11 @@ while.end:                                        ; preds = %if.then23, %if.then
 
 while.body122.lr.ph:                              ; preds = %while.end
   %cmp146 = icmp sgt i32 %subchar, -1
-  %cmp148 = icmp ult i32 %subchar, 128
-  %cmp151 = icmp ult i32 %subchar, 2048
-  %cmp154 = icmp ult i32 %subchar, 55296
-  %cmp157 = icmp ult i32 %subchar, 57344
-  %cmp162 = icmp ult i32 %subchar, 65536
+  %cmp148 = icmp samesign ult i32 %subchar, 128
+  %cmp151 = icmp samesign ult i32 %subchar, 2048
+  %cmp154 = icmp samesign ult i32 %subchar, 55296
+  %cmp157 = icmp samesign ult i32 %subchar, 57344
+  %cmp162 = icmp samesign ult i32 %subchar, 65536
   %cond163 = select i1 %cmp162, i32 3, i32 4
   %cond165 = select i1 %cmp157, i32 0, i32 %cond163
   %.mux = select i1 %cmp148, i32 1, i32 2
@@ -2734,11 +2734,11 @@ while.end399:                                     ; preds = %if.end398, %if.then
 
 while.body402.lr.ph:                              ; preds = %while.end399
   %cmp430 = icmp sgt i32 %subchar, -1
-  %cmp432 = icmp ult i32 %subchar, 128
-  %cmp435 = icmp ult i32 %subchar, 2048
-  %cmp438 = icmp ult i32 %subchar, 55296
-  %cmp441 = icmp ult i32 %subchar, 57344
-  %cmp446 = icmp ult i32 %subchar, 65536
+  %cmp432 = icmp samesign ult i32 %subchar, 128
+  %cmp435 = icmp samesign ult i32 %subchar, 2048
+  %cmp438 = icmp samesign ult i32 %subchar, 55296
+  %cmp441 = icmp samesign ult i32 %subchar, 57344
+  %cmp446 = icmp samesign ult i32 %subchar, 65536
   %cond447 = select i1 %cmp446, i32 3, i32 4
   %cond449 = select i1 %cmp441, i32 0, i32 %cond447
   %.mux404 = select i1 %cmp432, i32 1, i32 2
@@ -3075,11 +3075,11 @@ if.then80:                                        ; preds = %do.body
   br label %do.cond
 
 if.else:                                          ; preds = %do.body
-  %cmp83 = icmp ugt i8 %15, -33
+  %cmp83 = icmp samesign ugt i8 %15, -33
   br i1 %cmp83, label %if.then84, label %if.else111
 
 if.then84:                                        ; preds = %if.else
-  %cmp85 = icmp ult i8 %15, -16
+  %cmp85 = icmp samesign ult i8 %15, -16
   br i1 %cmp85, label %land.lhs.true86, label %if.end130
 
 land.lhs.true86:                                  ; preds = %if.then84
@@ -3114,7 +3114,7 @@ if.then102:                                       ; preds = %land.lhs.true94
   br label %do.cond
 
 if.else111:                                       ; preds = %if.else
-  %cmp112 = icmp ugt i8 %15, -65
+  %cmp112 = icmp samesign ugt i8 %15, -65
   br i1 %cmp112, label %land.lhs.true113, label %if.end130
 
 land.lhs.true113:                                 ; preds = %if.else111
@@ -3171,7 +3171,7 @@ for.end:                                          ; preds = %if.end64, %while.bo
   br i1 %22, label %while.body154.lr.ph.lr.ph, label %while.end246
 
 while.body154.lr.ph.lr.ph:                        ; preds = %for.end
-  %cmp226 = icmp ult i32 %subchar, 65536
+  %cmp226 = icmp samesign ult i32 %subchar, 65536
   %shr = lshr i32 %subchar, 10
   %23 = trunc i32 %shr to i16
   %conv232 = add i16 %23, -10304
@@ -3204,11 +3204,11 @@ if.then161:                                       ; preds = %while.body154
   br label %if.end245
 
 if.else164:                                       ; preds = %while.body154
-  %cmp165 = icmp ugt i8 %27, -33
+  %cmp165 = icmp samesign ugt i8 %27, -33
   br i1 %cmp165, label %if.then166, label %if.else199
 
 if.then166:                                       ; preds = %if.else164
-  %cmp167 = icmp ult i8 %27, -16
+  %cmp167 = icmp samesign ult i8 %27, -16
   br i1 %cmp167, label %land.lhs.true168, label %if.end220
 
 land.lhs.true168:                                 ; preds = %if.then166
@@ -3256,7 +3256,7 @@ while.cond149.backedge:                           ; preds = %if.then188, %if.the
   br i1 %31, label %while.body154, label %while.end246, !llvm.loop !30
 
 if.else199:                                       ; preds = %if.else164
-  %cmp200 = icmp ugt i8 %27, -65
+  %cmp200 = icmp samesign ugt i8 %27, -65
   %cmp202 = icmp slt i32 %inc155, %srcLength.addr.0
   %or.cond149 = select i1 %cmp200, i1 %cmp202, i1 false
   br i1 %or.cond149, label %land.lhs.true203, label %if.end220
@@ -3342,11 +3342,11 @@ while.body249:                                    ; preds = %while.body249.lr.ph
   br i1 %cmp255, label %if.end311, label %if.else258
 
 if.else258:                                       ; preds = %while.body249
-  %cmp259 = icmp ugt i8 %35, -33
+  %cmp259 = icmp samesign ugt i8 %35, -33
   br i1 %cmp259, label %if.then260, label %if.else286
 
 if.then260:                                       ; preds = %if.else258
-  %cmp261 = icmp ult i8 %35, -16
+  %cmp261 = icmp samesign ult i8 %35, -16
   br i1 %cmp261, label %land.lhs.true262, label %if.end302
 
 land.lhs.true262:                                 ; preds = %if.then260
@@ -3377,7 +3377,7 @@ while.cond247.backedge:                           ; preds = %land.lhs.true273, %
   br i1 %cmp248, label %while.body249, label %while.end312, !llvm.loop !31
 
 if.else286:                                       ; preds = %if.else258
-  %cmp287 = icmp ugt i8 %35, -65
+  %cmp287 = icmp samesign ugt i8 %35, -65
   %cmp289 = icmp slt i32 %inc250, %srcLength.addr.0
   %or.cond150 = select i1 %cmp287, i1 %cmp289, i1 false
   br i1 %or.cond150, label %land.lhs.true290, label %if.end302

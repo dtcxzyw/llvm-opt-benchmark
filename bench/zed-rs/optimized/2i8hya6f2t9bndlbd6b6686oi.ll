@@ -26819,7 +26819,7 @@ default.unreachable305:                           ; preds = %4
   %95 = and i8 %93, 63
   %96 = zext nneg i8 %95 to i32
   %97 = or disjoint i32 %94, %96
-  %98 = icmp ugt i8 %87, -33
+  %98 = icmp samesign ugt i8 %87, -33
   br i1 %98, label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h86b36d18441cd9dbE.llvm.15006262148341195119.exit14.i.i.i", label %_ZN4core4char7methods16encode_utf16_raw17h33f542e54e4c5311E.exit.i.i
 
 99:                                               ; preds = %85
@@ -26837,7 +26837,7 @@ default.unreachable305:                           ; preds = %4
   %107 = or disjoint i32 %104, %106
   %108 = shl nuw nsw i32 %90, 12
   %109 = or disjoint i32 %107, %108
-  %110 = icmp ugt i8 %87, -17
+  %110 = icmp samesign ugt i8 %87, -17
   br i1 %110, label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h86b36d18441cd9dbE.llvm.15006262148341195119.exit16.i.i.i", label %121
 
 "_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h86b36d18441cd9dbE.llvm.15006262148341195119.exit16.i.i.i": ; preds = %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h86b36d18441cd9dbE.llvm.15006262148341195119.exit14.i.i.i"
@@ -26857,7 +26857,7 @@ default.unreachable305:                           ; preds = %4
 121:                                              ; preds = %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h86b36d18441cd9dbE.llvm.15006262148341195119.exit16.i.i.i", %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h86b36d18441cd9dbE.llvm.15006262148341195119.exit14.i.i.i"
   %.sroa.0212.3 = phi ptr [ %112, %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h86b36d18441cd9dbE.llvm.15006262148341195119.exit16.i.i.i" ], [ %102, %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h86b36d18441cd9dbE.llvm.15006262148341195119.exit14.i.i.i" ]
   %.sroa.4.0.i.ph.i.i = phi i32 [ %120, %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h86b36d18441cd9dbE.llvm.15006262148341195119.exit16.i.i.i" ], [ %109, %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h86b36d18441cd9dbE.llvm.15006262148341195119.exit14.i.i.i" ]
-  %122 = icmp ult i32 %.sroa.4.0.i.ph.i.i, 1114112
+  %122 = icmp samesign ult i32 %.sroa.4.0.i.ph.i.i, 1114112
   tail call void @llvm.assume(i1 %122)
   %123 = icmp samesign ugt i32 %.sroa.4.0.i.ph.i.i, 65535
   br i1 %123, label %125, label %_ZN4core4char7methods16encode_utf16_raw17h33f542e54e4c5311E.exit.i.i
@@ -26991,7 +26991,7 @@ _ZN4core4char7methods16encode_utf16_raw17h33f542e54e4c5311E.exit.i.i: ; preds = 
   %183 = and i8 %181, 63
   %184 = zext nneg i8 %183 to i32
   %185 = or disjoint i32 %182, %184
-  %186 = icmp ugt i8 %175, -33
+  %186 = icmp samesign ugt i8 %175, -33
   br i1 %186, label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h86b36d18441cd9dbE.llvm.15006262148341195119.exit14.i.i", label %210
 
 .thread:                                          ; preds = %.lr.ph
@@ -27011,7 +27011,7 @@ _ZN4core4char7methods16encode_utf16_raw17h33f542e54e4c5311E.exit.i.i: ; preds = 
   %196 = or disjoint i32 %193, %195
   %197 = shl nuw nsw i32 %178, 12
   %198 = or disjoint i32 %196, %197
-  %199 = icmp ugt i8 %175, -17
+  %199 = icmp samesign ugt i8 %175, -17
   br i1 %199, label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h86b36d18441cd9dbE.llvm.15006262148341195119.exit16.i.i", label %210
 
 "_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h86b36d18441cd9dbE.llvm.15006262148341195119.exit16.i.i": ; preds = %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h86b36d18441cd9dbE.llvm.15006262148341195119.exit14.i.i"
@@ -27031,7 +27031,7 @@ _ZN4core4char7methods16encode_utf16_raw17h33f542e54e4c5311E.exit.i.i: ; preds = 
 210:                                              ; preds = %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h86b36d18441cd9dbE.llvm.15006262148341195119.exit16.i.i", %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h86b36d18441cd9dbE.llvm.15006262148341195119.exit14.i.i", %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h86b36d18441cd9dbE.llvm.15006262148341195119.exit12.i.i"
   %.sroa.0217.1 = phi ptr [ %201, %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h86b36d18441cd9dbE.llvm.15006262148341195119.exit16.i.i" ], [ %191, %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h86b36d18441cd9dbE.llvm.15006262148341195119.exit14.i.i" ], [ %180, %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h86b36d18441cd9dbE.llvm.15006262148341195119.exit12.i.i" ]
   %.sroa.4.0.i.ph.i179 = phi i32 [ %209, %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h86b36d18441cd9dbE.llvm.15006262148341195119.exit16.i.i" ], [ %198, %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h86b36d18441cd9dbE.llvm.15006262148341195119.exit14.i.i" ], [ %185, %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h86b36d18441cd9dbE.llvm.15006262148341195119.exit12.i.i" ]
-  %211 = icmp ult i32 %.sroa.4.0.i.ph.i179, 1114112
+  %211 = icmp samesign ult i32 %.sroa.4.0.i.ph.i179, 1114112
   tail call void @llvm.assume(i1 %211)
   %212 = ptrtoint ptr %.sroa.0217.1 to i64
   %213 = sub i64 %.sroa.11.0283, %173
@@ -27219,7 +27219,7 @@ _ZN4core4char7methods16encode_utf16_raw17h33f542e54e4c5311E.exit.i.i: ; preds = 
   %299 = and i8 %297, 63
   %300 = zext nneg i8 %299 to i32
   %301 = or disjoint i32 %298, %300
-  %302 = icmp ugt i8 %291, -33
+  %302 = icmp samesign ugt i8 %291, -33
   br i1 %302, label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h86b36d18441cd9dbE.llvm.15006262148341195119.exit14.i.i.i191", label %_ZN4core4char7methods16encode_utf16_raw17h33f542e54e4c5311E.exit.i.i189
 
 303:                                              ; preds = %289
@@ -27237,7 +27237,7 @@ _ZN4core4char7methods16encode_utf16_raw17h33f542e54e4c5311E.exit.i.i: ; preds = 
   %311 = or disjoint i32 %308, %310
   %312 = shl nuw nsw i32 %294, 12
   %313 = or disjoint i32 %311, %312
-  %314 = icmp ugt i8 %291, -17
+  %314 = icmp samesign ugt i8 %291, -17
   br i1 %314, label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h86b36d18441cd9dbE.llvm.15006262148341195119.exit16.i.i.i193", label %325
 
 "_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h86b36d18441cd9dbE.llvm.15006262148341195119.exit16.i.i.i193": ; preds = %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h86b36d18441cd9dbE.llvm.15006262148341195119.exit14.i.i.i191"
@@ -27257,7 +27257,7 @@ _ZN4core4char7methods16encode_utf16_raw17h33f542e54e4c5311E.exit.i.i: ; preds = 
 325:                                              ; preds = %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h86b36d18441cd9dbE.llvm.15006262148341195119.exit16.i.i.i193", %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h86b36d18441cd9dbE.llvm.15006262148341195119.exit14.i.i.i191"
   %.sroa.0232.3 = phi ptr [ %316, %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h86b36d18441cd9dbE.llvm.15006262148341195119.exit16.i.i.i193" ], [ %306, %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h86b36d18441cd9dbE.llvm.15006262148341195119.exit14.i.i.i191" ]
   %.sroa.4.0.i.ph.i.i192 = phi i32 [ %324, %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h86b36d18441cd9dbE.llvm.15006262148341195119.exit16.i.i.i193" ], [ %313, %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h86b36d18441cd9dbE.llvm.15006262148341195119.exit14.i.i.i191" ]
-  %326 = icmp ult i32 %.sroa.4.0.i.ph.i.i192, 1114112
+  %326 = icmp samesign ult i32 %.sroa.4.0.i.ph.i.i192, 1114112
   tail call void @llvm.assume(i1 %326)
   %327 = icmp samesign ugt i32 %.sroa.4.0.i.ph.i.i192, 65535
   br i1 %327, label %329, label %_ZN4core4char7methods16encode_utf16_raw17h33f542e54e4c5311E.exit.i.i189
@@ -35449,7 +35449,7 @@ define hidden void @"_ZN8wasmtime7runtime9component4func5typed32TypedFunc$LT$Par
   unreachable
 
 132:                                              ; preds = %128
-  %133 = icmp ugt i64 %129, 16
+  %133 = icmp samesign ugt i64 %129, 16
   br i1 %133, label %134, label %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17h3413fa4e4c42bf29E.llvm.15006262148341195119.exit68.i.i.i.i"
 
 134:                                              ; preds = %132
@@ -35573,7 +35573,7 @@ define hidden void @"_ZN8wasmtime7runtime9component4func5typed32TypedFunc$LT$Par
   br i1 %176, label %181, label %177
 
 177:                                              ; preds = %175
-  %178 = icmp ugt i64 %169, 16
+  %178 = icmp samesign ugt i64 %169, 16
   br i1 %178, label %179, label %182
 
 179:                                              ; preds = %177
@@ -35650,7 +35650,7 @@ define hidden void @"_ZN8wasmtime7runtime9component4func5typed32TypedFunc$LT$Par
   br i1 %206, label %211, label %207
 
 207:                                              ; preds = %205
-  %208 = icmp ugt i64 %201, 16
+  %208 = icmp samesign ugt i64 %201, 16
   br i1 %208, label %209, label %212
 
 209:                                              ; preds = %207
@@ -36247,7 +36247,7 @@ define hidden void @"_ZN8wasmtime7runtime9component4func5typed32TypedFunc$LT$Par
   unreachable
 
 132:                                              ; preds = %128
-  %133 = icmp ugt i64 %129, 16
+  %133 = icmp samesign ugt i64 %129, 16
   br i1 %133, label %134, label %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17h3413fa4e4c42bf29E.llvm.15006262148341195119.exit68.i.i.i.i"
 
 134:                                              ; preds = %132
@@ -36371,7 +36371,7 @@ define hidden void @"_ZN8wasmtime7runtime9component4func5typed32TypedFunc$LT$Par
   br i1 %176, label %181, label %177
 
 177:                                              ; preds = %175
-  %178 = icmp ugt i64 %169, 16
+  %178 = icmp samesign ugt i64 %169, 16
   br i1 %178, label %179, label %182
 
 179:                                              ; preds = %177
@@ -36448,7 +36448,7 @@ define hidden void @"_ZN8wasmtime7runtime9component4func5typed32TypedFunc$LT$Par
   br i1 %206, label %211, label %207
 
 207:                                              ; preds = %205
-  %208 = icmp ugt i64 %201, 16
+  %208 = icmp samesign ugt i64 %201, 16
   br i1 %208, label %209, label %212
 
 209:                                              ; preds = %207
@@ -36974,7 +36974,7 @@ define hidden void @"_ZN8wasmtime7runtime9component4func5typed32TypedFunc$LT$Par
   unreachable
 
 132:                                              ; preds = %128
-  %133 = icmp ugt i64 %129, 16
+  %133 = icmp samesign ugt i64 %129, 16
   br i1 %133, label %134, label %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17h3413fa4e4c42bf29E.llvm.15006262148341195119.exit68.i.i.i.i"
 
 134:                                              ; preds = %132
@@ -37098,7 +37098,7 @@ define hidden void @"_ZN8wasmtime7runtime9component4func5typed32TypedFunc$LT$Par
   br i1 %176, label %181, label %177
 
 177:                                              ; preds = %175
-  %178 = icmp ugt i64 %169, 16
+  %178 = icmp samesign ugt i64 %169, 16
   br i1 %178, label %179, label %182
 
 179:                                              ; preds = %177
@@ -37175,7 +37175,7 @@ define hidden void @"_ZN8wasmtime7runtime9component4func5typed32TypedFunc$LT$Par
   br i1 %206, label %211, label %207
 
 207:                                              ; preds = %205
-  %208 = icmp ugt i64 %201, 16
+  %208 = icmp samesign ugt i64 %201, 16
   br i1 %208, label %209, label %212
 
 209:                                              ; preds = %207
@@ -37772,7 +37772,7 @@ define hidden void @"_ZN8wasmtime7runtime9component4func5typed32TypedFunc$LT$Par
   unreachable
 
 132:                                              ; preds = %128
-  %133 = icmp ugt i64 %129, 16
+  %133 = icmp samesign ugt i64 %129, 16
   br i1 %133, label %134, label %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17h3413fa4e4c42bf29E.llvm.15006262148341195119.exit68.i.i.i.i"
 
 134:                                              ; preds = %132
@@ -37896,7 +37896,7 @@ define hidden void @"_ZN8wasmtime7runtime9component4func5typed32TypedFunc$LT$Par
   br i1 %176, label %181, label %177
 
 177:                                              ; preds = %175
-  %178 = icmp ugt i64 %169, 16
+  %178 = icmp samesign ugt i64 %169, 16
   br i1 %178, label %179, label %182
 
 179:                                              ; preds = %177
@@ -37973,7 +37973,7 @@ define hidden void @"_ZN8wasmtime7runtime9component4func5typed32TypedFunc$LT$Par
   br i1 %206, label %211, label %207
 
 207:                                              ; preds = %205
-  %208 = icmp ugt i64 %201, 16
+  %208 = icmp samesign ugt i64 %201, 16
   br i1 %208, label %209, label %212
 
 209:                                              ; preds = %207
@@ -39422,7 +39422,7 @@ define hidden void @"_ZN8wasmtime7runtime9component4func5typed32TypedFunc$LT$Par
   unreachable
 
 132:                                              ; preds = %128
-  %133 = icmp ugt i64 %129, 16
+  %133 = icmp samesign ugt i64 %129, 16
   br i1 %133, label %134, label %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17h3413fa4e4c42bf29E.llvm.15006262148341195119.exit68.i.i.i.i"
 
 134:                                              ; preds = %132
@@ -39546,7 +39546,7 @@ define hidden void @"_ZN8wasmtime7runtime9component4func5typed32TypedFunc$LT$Par
   br i1 %176, label %181, label %177
 
 177:                                              ; preds = %175
-  %178 = icmp ugt i64 %169, 16
+  %178 = icmp samesign ugt i64 %169, 16
   br i1 %178, label %179, label %182
 
 179:                                              ; preds = %177
@@ -39623,7 +39623,7 @@ define hidden void @"_ZN8wasmtime7runtime9component4func5typed32TypedFunc$LT$Par
   br i1 %206, label %211, label %207
 
 207:                                              ; preds = %205
-  %208 = icmp ugt i64 %201, 16
+  %208 = icmp samesign ugt i64 %201, 16
   br i1 %208, label %209, label %212
 
 209:                                              ; preds = %207
@@ -40571,7 +40571,7 @@ define hidden void @"_ZN8wasmtime7runtime9component4func5typed32TypedFunc$LT$Par
   unreachable
 
 129:                                              ; preds = %125
-  %130 = icmp ugt i64 %126, 8
+  %130 = icmp samesign ugt i64 %126, 8
   br i1 %130, label %131, label %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17h3413fa4e4c42bf29E.llvm.15006262148341195119.exit46.i.i.i.i"
 
 131:                                              ; preds = %129
@@ -40700,7 +40700,7 @@ define hidden void @"_ZN8wasmtime7runtime9component4func5typed32TypedFunc$LT$Par
   br i1 %174, label %179, label %175
 
 175:                                              ; preds = %173
-  %176 = icmp ugt i64 %166, 8
+  %176 = icmp samesign ugt i64 %166, 8
   br i1 %176, label %177, label %180
 
 177:                                              ; preds = %175
@@ -52885,7 +52885,7 @@ define hidden void @"_ZN122_$LT$extension..wasm_host..wit..since_v0_0_6..CodeLab
   unreachable
 
 101:                                              ; preds = %97
-  %102 = icmp ugt i64 %98, 4
+  %102 = icmp samesign ugt i64 %98, 4
   br i1 %102, label %103, label %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17hf7aa09d9f18fb9d2E.llvm.15006262148341195119.exit30.i"
 
 103:                                              ; preds = %101
@@ -52914,7 +52914,7 @@ define hidden void @"_ZN122_$LT$extension..wasm_host..wit..since_v0_0_6..CodeLab
   unreachable
 
 113:                                              ; preds = %109
-  %114 = icmp ugt i64 %110, 4
+  %114 = icmp samesign ugt i64 %110, 4
   br i1 %114, label %115, label %118
 
 115:                                              ; preds = %113
@@ -53031,7 +53031,7 @@ define hidden void @"_ZN122_$LT$extension..wasm_host..wit..since_v0_0_6..CodeLab
   unreachable
 
 152:                                              ; preds = %148
-  %153 = icmp ugt i64 %149, 12
+  %153 = icmp samesign ugt i64 %149, 12
   br i1 %153, label %154, label %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17h3413fa4e4c42bf29E.llvm.15006262148341195119.exit46.i"
 
 154:                                              ; preds = %152
@@ -53160,7 +53160,7 @@ define hidden void @"_ZN122_$LT$extension..wasm_host..wit..since_v0_0_6..CodeLab
   br i1 %197, label %202, label %198
 
 198:                                              ; preds = %196
-  %199 = icmp ugt i64 %189, 8
+  %199 = icmp samesign ugt i64 %189, 8
   br i1 %199, label %200, label %203
 
 200:                                              ; preds = %198
@@ -53987,7 +53987,7 @@ define hidden void @"_ZN122_$LT$extension..wasm_host..wit..since_v0_1_0..CodeLab
   unreachable
 
 101:                                              ; preds = %97
-  %102 = icmp ugt i64 %98, 4
+  %102 = icmp samesign ugt i64 %98, 4
   br i1 %102, label %103, label %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17hf7aa09d9f18fb9d2E.llvm.15006262148341195119.exit30.i"
 
 103:                                              ; preds = %101
@@ -54016,7 +54016,7 @@ define hidden void @"_ZN122_$LT$extension..wasm_host..wit..since_v0_1_0..CodeLab
   unreachable
 
 113:                                              ; preds = %109
-  %114 = icmp ugt i64 %110, 4
+  %114 = icmp samesign ugt i64 %110, 4
   br i1 %114, label %115, label %118
 
 115:                                              ; preds = %113
@@ -54133,7 +54133,7 @@ define hidden void @"_ZN122_$LT$extension..wasm_host..wit..since_v0_1_0..CodeLab
   unreachable
 
 152:                                              ; preds = %148
-  %153 = icmp ugt i64 %149, 12
+  %153 = icmp samesign ugt i64 %149, 12
   br i1 %153, label %154, label %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17h3413fa4e4c42bf29E.llvm.15006262148341195119.exit46.i"
 
 154:                                              ; preds = %152
@@ -54262,7 +54262,7 @@ define hidden void @"_ZN122_$LT$extension..wasm_host..wit..since_v0_1_0..CodeLab
   br i1 %197, label %202, label %198
 
 198:                                              ; preds = %196
-  %199 = icmp ugt i64 %189, 8
+  %199 = icmp samesign ugt i64 %189, 8
   br i1 %199, label %200, label %203
 
 200:                                              ; preds = %198
@@ -55553,7 +55553,7 @@ define hidden void @"_ZN122_$LT$extension..wasm_host..wit..since_v0_2_0..CodeLab
   unreachable
 
 122:                                              ; preds = %118
-  %123 = icmp ugt i64 %119, 12
+  %123 = icmp samesign ugt i64 %119, 12
   br i1 %123, label %124, label %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17h3413fa4e4c42bf29E.llvm.15006262148341195119.exit46.i"
 
 124:                                              ; preds = %122
@@ -55682,7 +55682,7 @@ define hidden void @"_ZN122_$LT$extension..wasm_host..wit..since_v0_2_0..CodeLab
   br i1 %167, label %172, label %168
 
 168:                                              ; preds = %166
-  %169 = icmp ugt i64 %159, 8
+  %169 = icmp samesign ugt i64 %159, 8
   br i1 %169, label %170, label %173
 
 170:                                              ; preds = %168

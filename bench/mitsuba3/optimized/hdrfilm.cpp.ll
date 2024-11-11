@@ -6707,13 +6707,13 @@ define linkonce_odr hidden void @_ZNSt3__111__introsortINS_17_ClassicAlgPolicyER
   tail call void @_ZNSt3__110__pop_heapB8ne190000INS_17_ClassicAlgPolicyENS_6__lessIvvEEPNS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEEEEvT1_SB_RT0_NS_15iterator_traitsISB_E15difference_typeE(ptr noundef %.073, ptr noundef %.01314.i.i, ptr noundef nonnull align 1 dereferenceable(1) %2, i64 noundef %.015.i.i)
   %69 = getelementptr inbounds i8, ptr %.01314.i.i, i64 -24
   %70 = add nsw i64 %.015.i.i, -1
-  %71 = icmp ugt i64 %.015.i.i, 2
+  %71 = icmp samesign ugt i64 %.015.i.i, 2
   br i1 %71, label %.lr.ph.i.i, label %_ZNSt3__114__partial_sortB8ne190000INS_17_ClassicAlgPolicyERNS_6__lessIvvEEPNS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEESB_EET1_SC_SC_T2_RT0_.exit, !llvm.loop !43
 
 72:                                               ; preds = %58
   %73 = add nsw i64 %.0, -1
   %74 = lshr i64 %14, 1
-  %75 = icmp ugt i64 %13, 3072
+  %75 = icmp samesign ugt i64 %13, 3072
   %76 = getelementptr inbounds %"class.std::__1::basic_string", ptr %.073, i64 %74
   br i1 %75, label %77, label %88
 

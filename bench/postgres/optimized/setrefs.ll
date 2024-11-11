@@ -6337,7 +6337,7 @@ define internal fastcc noundef ptr @search_indexed_tlist_for_var(ptr nocapture n
   br label %.loopexit
 
 61:                                               ; preds = %16, %.lr.ph
-  %62 = icmp ugt i32 %.in, 1
+  %62 = icmp samesign ugt i32 %.in, 1
   br i1 %62, label %.lr.ph, label %.loopexit, !llvm.loop !13
 
 .loopexit:                                        ; preds = %61, %5, %52, %59

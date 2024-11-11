@@ -877,7 +877,7 @@ cond.false136:                                    ; preds = %if.else108
   br i1 %cmp137, label %if.end149, label %cond.false139
 
 cond.false139:                                    ; preds = %cond.false136
-  %cmp140 = icmp ugt i32 %15, 999
+  %cmp140 = icmp samesign ugt i32 %15, 999
   %cond144 = select i1 %cmp140, i32 -1, i32 %15
   br label %if.end149
 
@@ -934,7 +934,7 @@ if.then174:                                       ; preds = %if.else172
   br i1 %cmp185, label %cond.end198, label %cond.false187
 
 cond.false187:                                    ; preds = %if.then174
-  %cmp188 = icmp ult i32 %20, %cond184
+  %cmp188 = icmp samesign ult i32 %20, %cond184
   br i1 %cmp188, label %cond.end198, label %cond.false190
 
 cond.false190:                                    ; preds = %cond.false187

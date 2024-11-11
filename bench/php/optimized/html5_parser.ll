@@ -208,7 +208,7 @@ lxb_dom_attr_value.exit.i:                        ; preds = %67, %lxb_dom_attr_l
   store ptr %83, ptr %84, align 8
   %85 = getelementptr inbounds i8, ptr %76, i64 64
   store ptr %6, ptr %85, align 8
-  %86 = icmp ult i64 %.0140.i, 16
+  %86 = icmp samesign ult i64 %.0140.i, 16
   br i1 %86, label %87, label %lexbor_libxml2_bridge_new_text_node_fast.exit.i
 
 87:                                               ; preds = %78
@@ -295,7 +295,7 @@ lexbor_libxml2_bridge_new_text_node_fast.exit.thread.i: ; preds = %lexbor_libxml
 124:                                              ; preds = %120
   %125 = getelementptr inbounds i8, ptr %21, i64 104
   %126 = load ptr, ptr %125, align 8
-  %127 = icmp ult i64 %122, 16
+  %127 = icmp samesign ult i64 %122, 16
   %or.cond.i.i = and i1 %2, %127
   br i1 %or.cond.i.i, label %128, label %lexbor_libxml2_bridge_new_text_node_fast.exit130.i
 

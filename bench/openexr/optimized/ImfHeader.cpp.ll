@@ -4632,8 +4632,8 @@ ehcleanup239:                                     ; preds = %lpad236, %lpad228
 if.end241:                                        ; preds = %if.end217
   %63 = load i32, ptr @_ZN7Imf_3_212_GLOBAL__N_113maxTileHeightE, align 4
   %cmp242 = icmp sgt i32 %63, 0
-  %cmp245 = icmp ult i32 %63, %56
-  %or.cond = and i1 %cmp242, %cmp245
+  %cmp245 = icmp samesign ult i32 %63, %56
+  %or.cond = select i1 %cmp242, i1 %cmp245, i1 false
   br i1 %or.cond, label %do.body247, label %if.end266
 
 do.body247:                                       ; preds = %if.end241

@@ -282,7 +282,7 @@ entry:
   br i1 %cmp.i, label %_ZN8facebook5velox10expression9calculate6Parser12yytranslate_Ei.exit, label %if.else.i
 
 if.else.i:                                        ; preds = %entry
-  %cmp1.i = icmp ult i32 %t, 280
+  %cmp1.i = icmp samesign ult i32 %t, 280
   br i1 %cmp1.i, label %if.then2.i, label %_ZN8facebook5velox10expression9calculate6Parser12yytranslate_Ei.exit
 
 if.then2.i:                                       ; preds = %if.else.i
@@ -305,7 +305,7 @@ entry:
   br i1 %cmp, label %return, label %if.else
 
 if.else:                                          ; preds = %entry
-  %cmp1 = icmp ult i32 %t, 280
+  %cmp1 = icmp samesign ult i32 %t, 280
   br i1 %cmp1, label %if.then2, label %return
 
 if.then2:                                         ; preds = %if.else
@@ -913,7 +913,7 @@ invoke.cont16:                                    ; preds = %if.then14
   br i1 %cmp.i42, label %_ZN8facebook5velox10expression9calculate6Parser12yytranslate_Ei.exit, label %if.else.i
 
 if.else.i:                                        ; preds = %invoke.cont16
-  %cmp1.i = icmp ult i32 %call17, 280
+  %cmp1.i = icmp samesign ult i32 %call17, 280
   br i1 %cmp1.i, label %if.then2.i, label %_ZN8facebook5velox10expression9calculate6Parser12yytranslate_Ei.exit
 
 if.then2.i:                                       ; preds = %if.else.i

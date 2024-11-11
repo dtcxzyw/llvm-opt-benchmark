@@ -593,7 +593,7 @@ define hidden noundef zeroext range(i8 0, 64) i8 @_ZN5Klass17compute_hash_slotEP
   %15 = zext i8 %14 to i32
   %16 = add i32 %13, %15
   %17 = getelementptr inbounds i8, ptr %.056.i, i64 1
-  %18 = icmp ugt i32 %.047.i, 1
+  %18 = icmp samesign ugt i32 %.047.i, 1
   br i1 %18, label %.lr.ph.i, label %_ZN16java_lang_String9hash_codeEPKai.exit.loopexit, !llvm.loop !8
 
 _ZN16java_lang_String9hash_codeEPKai.exit.loopexit: ; preds = %.lr.ph.i
@@ -672,7 +672,7 @@ define hidden void @_ZN5Klass8set_nameEP6Symbol(ptr noundef nonnull align 8 dere
   %24 = zext i8 %23 to i32
   %25 = add i32 %22, %24
   %26 = getelementptr inbounds i8, ptr %.056.i.i, i64 1
-  %27 = icmp ugt i32 %.047.i.i, 1
+  %27 = icmp samesign ugt i32 %.047.i.i, 1
   br i1 %27, label %.lr.ph.i.i, label %_ZN16java_lang_String9hash_codeEPKai.exit.loopexit.i, !llvm.loop !8
 
 _ZN16java_lang_String9hash_codeEPKai.exit.loopexit.i: ; preds = %.lr.ph.i.i

@@ -585,7 +585,7 @@ define internal fastcc i32 @fastlz2_compress(ptr noundef %0, i32 noundef %1, ptr
   br i1 %.not215, label %78, label %265
 
 78:                                               ; preds = %72
-  %79 = icmp ugt i32 %64, 8190
+  %79 = icmp samesign ugt i32 %64, 8190
   br i1 %79, label %80, label %91
 
 80:                                               ; preds = %78

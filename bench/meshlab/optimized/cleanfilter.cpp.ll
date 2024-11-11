@@ -5317,7 +5317,7 @@ _ZN9QtPrivate8RefCount5derefEv.exit._ZN9QtPrivate8RefCount5derefEv.exit.thread2_
 .noexc8.i.i.i:                                    ; preds = %.lr.ph.i.i.i.i.i.i.i.i
   %720 = getelementptr inbounds i8, ptr %.056.i.i.i.i.i.i.i.i, i64 8
   %721 = add nsw i64 %.07.i.i.i.i.i.i.i.i, -1
-  %722 = icmp ugt i64 %.07.i.i.i.i.i.i.i.i, 1
+  %722 = icmp samesign ugt i64 %.07.i.i.i.i.i.i.i.i, 1
   br i1 %722, label %.lr.ph.i.i.i.i.i.i.i.i, label %_ZN11QStringListC2ESt16initializer_listI7QStringE.exit, !llvm.loop !20
 
 .loopexit.i.i.i:                                  ; preds = %.lr.ph.i.i.i.i.i.i.i.i
@@ -6100,7 +6100,7 @@ _ZN9QtPrivate8RefCount5derefEv.exit._ZN9QtPrivate8RefCount5derefEv.exit.thread2_
 .noexc8.i.i.i623:                                 ; preds = %.lr.ph.i.i.i.i.i.i.i.i617
   %918 = getelementptr inbounds i8, ptr %.056.i.i.i.i.i.i.i.i619, i64 8
   %919 = add nsw i64 %.07.i.i.i.i.i.i.i.i618, -1
-  %920 = icmp ugt i64 %.07.i.i.i.i.i.i.i.i618, 1
+  %920 = icmp samesign ugt i64 %.07.i.i.i.i.i.i.i.i618, 1
   br i1 %920, label %.lr.ph.i.i.i.i.i.i.i.i617, label %_ZN11QStringListC2ESt16initializer_listI7QStringE.exit628, !llvm.loop !20
 
 .loopexit.i.i.i620:                               ; preds = %.lr.ph.i.i.i.i.i.i.i.i617
@@ -28225,7 +28225,7 @@ _ZNSt6vectorIN3vcg6KdTreeIfE9QueryNodeESaIS3_EEC2EmRKS4_.exit: ; preds = %_ZNSt1
   %127 = getelementptr inbounds %"struct.vcg::HeapMaxPriorityQueue<int, float>::Element", ptr %120, i64 %126
   %128 = load i64, ptr %122, align 4
   store i64 %128, ptr %127, align 4
-  %129 = icmp ugt i32 %.03035.i, 3
+  %129 = icmp samesign ugt i32 %.03035.i, 3
   br i1 %129, label %.lr.ph.i, label %._crit_edge.i, !llvm.loop !315
 
 ._crit_edge.i:                                    ; preds = %125, %.lr.ph.i, %116
@@ -50934,10 +50934,10 @@ _ZN3vcg4Box3IiE9IntersectERKS1_.exit.thread:      ; preds = %97
   br label %_ZNK3vcg4Box3IiE6IsNullEv.exit
 
 _ZN3vcg4Box3IiE9IntersectERKS1_.exit:             ; preds = %97
-  %102 = icmp ule i32 %81, %92
-  %103 = icmp ule i32 %85, %95
+  %102 = icmp samesign ule i32 %81, %92
+  %103 = icmp samesign ule i32 %85, %95
   %or.cond.not = select i1 %102, i1 %103, i1 false
-  %104 = icmp ule i32 %89, %98
+  %104 = icmp samesign ule i32 %89, %98
   %spec.select = select i1 %or.cond.not, i1 %104, i1 false
   br label %_ZNK3vcg4Box3IiE6IsNullEv.exit
 

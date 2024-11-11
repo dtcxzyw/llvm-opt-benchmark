@@ -4092,7 +4092,7 @@ define linkonce_odr hidden void @_ZZN2cv3dnn16ScatterLayerImpl12forward_implIhZN
   %56 = add i64 %55, %.04451
   %57 = icmp eq i64 %indvars.iv.next, %39
   %spec.select = select i1 %57, i64 %51, i64 %.04649
-  %58 = icmp ugt i64 %indvars.iv, 1
+  %58 = icmp samesign ugt i64 %indvars.iv, 1
   br i1 %58, label %40, label %._crit_edge, !llvm.loop !69
 
 ._crit_edge:                                      ; preds = %40, %19
@@ -4284,7 +4284,7 @@ define linkonce_odr hidden void @_ZZN2cv3dnn16ScatterLayerImpl12forward_implIhZN
   %56 = add i64 %55, %.04451
   %57 = icmp eq i64 %indvars.iv.next, %39
   %spec.select = select i1 %57, i64 %51, i64 %.04649
-  %58 = icmp ugt i64 %indvars.iv, 1
+  %58 = icmp samesign ugt i64 %indvars.iv, 1
   br i1 %58, label %40, label %._crit_edge, !llvm.loop !71
 
 ._crit_edge:                                      ; preds = %40, %19
@@ -4478,7 +4478,7 @@ define linkonce_odr hidden void @_ZZN2cv3dnn16ScatterLayerImpl12forward_implIhZN
   %56 = add i64 %55, %.04451
   %57 = icmp eq i64 %indvars.iv.next, %39
   %spec.select = select i1 %57, i64 %51, i64 %.04649
-  %58 = icmp ugt i64 %indvars.iv, 1
+  %58 = icmp samesign ugt i64 %indvars.iv, 1
   br i1 %58, label %40, label %._crit_edge, !llvm.loop !73
 
 ._crit_edge:                                      ; preds = %40, %19
@@ -4672,7 +4672,7 @@ define linkonce_odr hidden void @_ZZN2cv3dnn16ScatterLayerImpl12forward_implIhZN
   %56 = add i64 %55, %.04451
   %57 = icmp eq i64 %indvars.iv.next, %39
   %spec.select = select i1 %57, i64 %51, i64 %.04649
-  %58 = icmp ugt i64 %indvars.iv, 1
+  %58 = icmp samesign ugt i64 %indvars.iv, 1
   br i1 %58, label %40, label %._crit_edge, !llvm.loop !75
 
 ._crit_edge:                                      ; preds = %40, %19
@@ -4866,7 +4866,7 @@ define linkonce_odr hidden void @_ZZN2cv3dnn16ScatterLayerImpl12forward_implIhZN
   %56 = add i64 %55, %.04451
   %57 = icmp eq i64 %indvars.iv.next, %39
   %spec.select = select i1 %57, i64 %51, i64 %.04649
-  %58 = icmp ugt i64 %indvars.iv, 1
+  %58 = icmp samesign ugt i64 %indvars.iv, 1
   br i1 %58, label %40, label %._crit_edge, !llvm.loop !77
 
 ._crit_edge:                                      ; preds = %40, %19
@@ -6785,7 +6785,7 @@ define linkonce_odr hidden void @_ZZN2cv3dnn16ScatterLayerImpl12forward_implIiZN
   %56 = add i64 %55, %.04451
   %57 = icmp eq i64 %indvars.iv.next, %39
   %spec.select = select i1 %57, i64 %51, i64 %.04649
-  %58 = icmp ugt i64 %indvars.iv, 1
+  %58 = icmp samesign ugt i64 %indvars.iv, 1
   br i1 %58, label %40, label %._crit_edge, !llvm.loop !134
 
 ._crit_edge:                                      ; preds = %40, %19
@@ -6976,7 +6976,7 @@ define linkonce_odr hidden void @_ZZN2cv3dnn16ScatterLayerImpl12forward_implIiZN
   %56 = add i64 %55, %.04451
   %57 = icmp eq i64 %indvars.iv.next, %39
   %spec.select = select i1 %57, i64 %51, i64 %.04649
-  %58 = icmp ugt i64 %indvars.iv, 1
+  %58 = icmp samesign ugt i64 %indvars.iv, 1
   br i1 %58, label %40, label %._crit_edge, !llvm.loop !136
 
 ._crit_edge:                                      ; preds = %40, %19
@@ -7169,7 +7169,7 @@ define linkonce_odr hidden void @_ZZN2cv3dnn16ScatterLayerImpl12forward_implIiZN
   %56 = add i64 %55, %.04451
   %57 = icmp eq i64 %indvars.iv.next, %39
   %spec.select = select i1 %57, i64 %51, i64 %.04649
-  %58 = icmp ugt i64 %indvars.iv, 1
+  %58 = icmp samesign ugt i64 %indvars.iv, 1
   br i1 %58, label %40, label %._crit_edge, !llvm.loop !138
 
 ._crit_edge:                                      ; preds = %40, %19
@@ -7362,7 +7362,7 @@ define linkonce_odr hidden void @_ZZN2cv3dnn16ScatterLayerImpl12forward_implIiZN
   %56 = add i64 %55, %.04451
   %57 = icmp eq i64 %indvars.iv.next, %39
   %spec.select = select i1 %57, i64 %51, i64 %.04649
-  %58 = icmp ugt i64 %indvars.iv, 1
+  %58 = icmp samesign ugt i64 %indvars.iv, 1
   br i1 %58, label %40, label %._crit_edge, !llvm.loop !140
 
 ._crit_edge:                                      ; preds = %40, %19
@@ -7555,7 +7555,7 @@ define linkonce_odr hidden void @_ZZN2cv3dnn16ScatterLayerImpl12forward_implIiZN
   %56 = add i64 %55, %.04451
   %57 = icmp eq i64 %indvars.iv.next, %39
   %spec.select = select i1 %57, i64 %51, i64 %.04649
-  %58 = icmp ugt i64 %indvars.iv, 1
+  %58 = icmp samesign ugt i64 %indvars.iv, 1
   br i1 %58, label %40, label %._crit_edge, !llvm.loop !142
 
 ._crit_edge:                                      ; preds = %40, %19
@@ -9473,7 +9473,7 @@ define linkonce_odr hidden void @_ZZN2cv3dnn16ScatterLayerImpl12forward_implIfZN
   %56 = add i64 %55, %.04451
   %57 = icmp eq i64 %indvars.iv.next, %39
   %spec.select = select i1 %57, i64 %51, i64 %.04649
-  %58 = icmp ugt i64 %indvars.iv, 1
+  %58 = icmp samesign ugt i64 %indvars.iv, 1
   br i1 %58, label %40, label %._crit_edge, !llvm.loop !199
 
 ._crit_edge:                                      ; preds = %40, %19
@@ -9665,7 +9665,7 @@ define linkonce_odr hidden void @_ZZN2cv3dnn16ScatterLayerImpl12forward_implIfZN
   %56 = add i64 %55, %.04451
   %57 = icmp eq i64 %indvars.iv.next, %39
   %spec.select = select i1 %57, i64 %51, i64 %.04649
-  %58 = icmp ugt i64 %indvars.iv, 1
+  %58 = icmp samesign ugt i64 %indvars.iv, 1
   br i1 %58, label %40, label %._crit_edge, !llvm.loop !201
 
 ._crit_edge:                                      ; preds = %40, %19
@@ -9859,7 +9859,7 @@ define linkonce_odr hidden void @_ZZN2cv3dnn16ScatterLayerImpl12forward_implIfZN
   %56 = add i64 %55, %.04451
   %57 = icmp eq i64 %indvars.iv.next, %39
   %spec.select = select i1 %57, i64 %51, i64 %.04649
-  %58 = icmp ugt i64 %indvars.iv, 1
+  %58 = icmp samesign ugt i64 %indvars.iv, 1
   br i1 %58, label %40, label %._crit_edge, !llvm.loop !203
 
 ._crit_edge:                                      ; preds = %40, %19
@@ -10053,7 +10053,7 @@ define linkonce_odr hidden void @_ZZN2cv3dnn16ScatterLayerImpl12forward_implIfZN
   %56 = add i64 %55, %.04451
   %57 = icmp eq i64 %indvars.iv.next, %39
   %spec.select = select i1 %57, i64 %51, i64 %.04649
-  %58 = icmp ugt i64 %indvars.iv, 1
+  %58 = icmp samesign ugt i64 %indvars.iv, 1
   br i1 %58, label %40, label %._crit_edge, !llvm.loop !205
 
 ._crit_edge:                                      ; preds = %40, %19
@@ -10248,7 +10248,7 @@ define linkonce_odr hidden void @_ZZN2cv3dnn16ScatterLayerImpl12forward_implIfZN
   %56 = add i64 %55, %.04451
   %57 = icmp eq i64 %indvars.iv.next, %39
   %spec.select = select i1 %57, i64 %51, i64 %.04649
-  %58 = icmp ugt i64 %indvars.iv, 1
+  %58 = icmp samesign ugt i64 %indvars.iv, 1
   br i1 %58, label %40, label %._crit_edge, !llvm.loop !207
 
 ._crit_edge:                                      ; preds = %40, %19

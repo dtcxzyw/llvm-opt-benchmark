@@ -622,7 +622,7 @@ define internal fastcc void @internal_construct(ptr noundef %0, ptr nocapture no
 
 39:                                               ; preds = %35, %.thread6
   %.ph = phi ptr [ %.23749, %.thread6 ], [ %.2374, %35 ]
-  %40 = icmp ult i32 %13, 3
+  %40 = icmp samesign ult i32 %13, 3
   br i1 %40, label %.thread45, label %41
 
 41:                                               ; preds = %39

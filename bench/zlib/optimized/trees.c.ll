@@ -1973,7 +1973,7 @@ do.body.i.i:                                      ; preds = %do.body.i.i, %if.en
   %shr.i.i = lshr i16 %code.addr.0.i.i, 1
   %shl.i.i = shl i16 %or.i.i, 1
   %dec.i.i = add nsw i32 %len.addr.0.i.i, -1
-  %cmp.i.i = icmp ugt i32 %len.addr.0.i.i, 1
+  %cmp.i.i = icmp samesign ugt i32 %len.addr.0.i.i, 1
   br i1 %cmp.i.i, label %do.body.i.i, label %bi_reverse.exit.i, !llvm.loop !24
 
 bi_reverse.exit.i:                                ; preds = %do.body.i.i

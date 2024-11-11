@@ -785,7 +785,7 @@ define dso_local noundef zeroext i1 @prb_reserve(ptr nocapture noundef %0, ptr n
   %49 = trunc nuw nsw i64 %48 to i32
   %50 = select i1 %47, i32 %49, i32 -1
   %51 = add nsw i32 %50, 1
-  %52 = icmp ult i32 %51, 2
+  %52 = icmp samesign ult i32 %51, 2
   br i1 %52, label %select.unfold, label %53
 
 53:                                               ; preds = %37
@@ -862,7 +862,7 @@ select.unfold:                                    ; preds = %53, %37
   %99 = trunc nuw nsw i64 %98 to i32
   %100 = select i1 %97, i32 %99, i32 -1
   %101 = add nsw i32 %100, 1
-  %102 = icmp ult i32 %101, 2
+  %102 = icmp samesign ult i32 %101, 2
   br i1 %102, label %110, label %103
 
 103:                                              ; preds = %85
@@ -1329,7 +1329,7 @@ define internal fastcc noundef zeroext i1 @_prb_read_valid(ptr noundef %0, ptr n
   %37 = trunc nuw nsw i64 %36 to i32
   %38 = select i1 %35, i32 %37, i32 -1
   %39 = add nsw i32 %38, 1
-  %40 = icmp ult i32 %39, 2
+  %40 = icmp samesign ult i32 %39, 2
   br i1 %40, label %51, label %41
 
 41:                                               ; preds = %18
@@ -1469,7 +1469,7 @@ define internal fastcc noundef zeroext i1 @_prb_read_valid(ptr noundef %0, ptr n
   %126 = trunc nuw nsw i64 %125 to i32
   %127 = select i1 %124, i32 %126, i32 -1
   %128 = add nsw i32 %127, 1
-  %129 = icmp ult i32 %128, 2
+  %129 = icmp samesign ult i32 %128, 2
   br i1 %129, label %140, label %130
 
 130:                                              ; preds = %113
@@ -1547,7 +1547,7 @@ define internal fastcc noundef zeroext i1 @_prb_read_valid(ptr noundef %0, ptr n
   %175 = trunc nuw nsw i64 %174 to i32
   %176 = select i1 %173, i32 %175, i32 -1
   %177 = add nsw i32 %176, 1
-  %178 = icmp ult i32 %177, 2
+  %178 = icmp samesign ult i32 %177, 2
   br i1 %178, label %188, label %179
 
 179:                                              ; preds = %160
@@ -1651,7 +1651,7 @@ define dso_local i64 @prb_next_seq(ptr noundef %0) local_unnamed_addr #0 align 1
   %19 = trunc nuw nsw i64 %18 to i32
   %20 = select i1 %17, i32 %19, i32 -1
   %21 = add nsw i32 %20, 1
-  %22 = icmp ult i32 %21, 2
+  %22 = icmp samesign ult i32 %21, 2
   br i1 %22, label %.thread, label %23
 
 23:                                               ; preds = %1
@@ -1818,7 +1818,7 @@ define internal fastcc noundef zeroext i1 @data_push_tail(ptr noundef %0, i64 no
   %44 = trunc nuw nsw i64 %43 to i32
   %45 = select i1 %42, i32 %44, i32 -1
   %46 = add nsw i32 %45, 1
-  %47 = icmp ult i32 %46, 2
+  %47 = icmp samesign ult i32 %46, 2
   br i1 %47, label %select.unfold, label %48
 
 48:                                               ; preds = %22

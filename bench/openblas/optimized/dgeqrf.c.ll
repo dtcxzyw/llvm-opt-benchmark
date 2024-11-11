@@ -128,7 +128,7 @@ define void @dgeqrf_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
   %73 = icmp sge i32 %70, %69
   %74 = icmp slt i32 %70, %48
   %75 = and i1 %73, %74
-  %76 = icmp ult i32 %71, %48
+  %76 = icmp samesign ult i32 %71, %48
   %77 = and i1 %75, %76
   br i1 %77, label %78, label %.loopexit
 

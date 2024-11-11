@@ -52508,7 +52508,7 @@ define hidden void @_ZN17cranelift_codegen3isa3x645lower17is_mergeable_load17hf6
   br i1 %21, label %_ZN17cranelift_codegen8machinst7helpers7ty_bits17hc68604df68927d5dE.exit, label %22
 
 22:                                               ; preds = %19
-  %23 = icmp ult i16 %20, 128
+  %23 = icmp samesign ult i16 %20, 128
   %24 = and i16 %20, 15
   %25 = or disjoint i16 %24, 112
   %.0.i.i.i.i = select i1 %23, i16 %20, i16 %25

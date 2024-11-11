@@ -727,7 +727,7 @@ define noundef zeroext i1 @_ZN10OpenSubdiv6v3_6_03Far22TopologyRefinerFactoryINS
   %39 = getelementptr inbounds i32, ptr %21, i64 %indvars.iv.next43
   store i32 %38, ptr %39, align 4
   %indvars.iv.next41 = add nsw i64 %indvars.iv40, 1
-  %40 = icmp ugt i64 %indvars.iv42, 2
+  %40 = icmp samesign ugt i64 %indvars.iv42, 2
   br i1 %40, label %.lr.ph29, label %.loopexit.loopexit, !llvm.loop !19
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
@@ -1017,7 +1017,7 @@ define noundef zeroext i1 @_ZN10OpenSubdiv6v3_6_03Far22TopologyRefinerFactoryINS
   %39 = getelementptr inbounds i32, ptr %.fca.0.extract, i64 %indvars.iv.next60
   store i32 %38, ptr %39, align 4
   %indvars.iv.next58 = add nsw i64 %indvars.iv57, 1
-  %40 = icmp ugt i64 %indvars.iv59, 2
+  %40 = icmp samesign ugt i64 %indvars.iv59, 2
   br i1 %40, label %.lr.ph43, label %.loopexit.loopexit, !llvm.loop !25
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph

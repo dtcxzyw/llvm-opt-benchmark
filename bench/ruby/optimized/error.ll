@@ -5568,7 +5568,7 @@ define internal noundef i64 @warning_write(i32 noundef %0, ptr nocapture noundef
   %6 = getelementptr i8, ptr %.034, i64 8
   %7 = load i64, ptr %.034, align 8
   %8 = tail call i64 @rb_str_append(i64 noundef %2, i64 noundef %7) #29
-  %9 = icmp ugt i32 %.05, 1
+  %9 = icmp samesign ugt i32 %.05, 1
   br i1 %9, label %.lr.ph, label %._crit_edge, !llvm.loop !28
 
 ._crit_edge:                                      ; preds = %.lr.ph, %3
@@ -9658,7 +9658,7 @@ rb_num2long_inline.exit:                          ; preds = %34, %36
   br i1 %44, label %.thread68, label %59
 
 45:                                               ; preds = %29
-  %46 = icmp ugt i32 %24, 1
+  %46 = icmp samesign ugt i32 %24, 1
   br i1 %46, label %end_with_asciichar.exit.thread, label %47
 
 47:                                               ; preds = %45

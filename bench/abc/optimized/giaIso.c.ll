@@ -2717,7 +2717,7 @@ Gia_IsoUpdate.exit79:                             ; preds = %133, %.sink.split.i
   br label %152
 
 152:                                              ; preds = %Gia_IsoUpdate.exit79, %94
-  %153 = icmp ugt i64 %indvars.iv102, 2
+  %153 = icmp samesign ugt i64 %indvars.iv102, 2
   br i1 %153, label %90, label %..critedge2.loopexit_crit_edge, !llvm.loop !28
 
 ..critedge2.loopexit_crit_edge:                   ; preds = %152

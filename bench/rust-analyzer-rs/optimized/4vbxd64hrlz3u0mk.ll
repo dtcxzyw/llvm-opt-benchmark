@@ -12039,7 +12039,7 @@ define hidden void @_ZN5rayon5slice9mergesort13par_mergesort17hf60aad578df942c8E
   br i1 %22, label %25, label %29
 
 23:                                               ; preds = %3
-  %24 = icmp ugt i64 %1, 1
+  %24 = icmp samesign ugt i64 %1, 1
   br i1 %24, label %.lr.ph, label %.loopexit
 
 common.resume:                                    ; preds = %.body, %300

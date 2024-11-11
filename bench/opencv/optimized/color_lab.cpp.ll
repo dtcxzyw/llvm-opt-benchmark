@@ -1467,7 +1467,7 @@ _ZN2cv10softdoubleaSERKS0_.exit61:                ; preds = %_ZN2cv10softdoublea
 77:                                               ; preds = %72
   %78 = add nuw nsw i32 %70, %67
   %79 = add nuw nsw i32 %78, %75
-  %80 = icmp ult i32 %79, 8192
+  %80 = icmp samesign ult i32 %79, 8192
   br i1 %80, label %44, label %81
 
 81:                                               ; preds = %77, %72, %69, %.split69.us

@@ -3775,7 +3775,7 @@ if.then.i:                                        ; preds = %call5.i.i.i.i2.i.i.
   unreachable
 
 if.end.i:                                         ; preds = %call5.i.i.i.i2.i.i.noexc
-  %cmp3.i = icmp ugt i64 %conv165, 1
+  %cmp3.i = icmp samesign ugt i64 %conv165, 1
   br i1 %cmp3.i, label %_ZNSt12_Vector_baseIdSaIdEE11_M_allocateEm.exit.i, label %_ZNSt6vectorIdSaIdEE7reserveEm.exit
 
 _ZNSt12_Vector_baseIdSaIdEE11_M_allocateEm.exit.i: ; preds = %if.end.i
@@ -5225,7 +5225,7 @@ for.body.i.i.i.i.i.i.i:                           ; preds = %if.else.i.i678, %fo
   %incdec.ptr.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %__first.addr.07.i.i.i.i.i.i.i, i64 24
   %incdec.ptr1.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %__result.addr.08.i.i.i.i.i.i.i, i64 24
   %dec.i.i.i.i.i.i.i = add nsw i64 %__n.09.i.i.i.i.i.i.i, -1
-  %cmp.i.i.i.i.i.i.i = icmp ugt i64 %__n.09.i.i.i.i.i.i.i, 1
+  %cmp.i.i.i.i.i.i.i = icmp samesign ugt i64 %__n.09.i.i.i.i.i.i.i, 1
   br i1 %cmp.i.i.i.i.i.i.i, label %for.body.i.i.i.i.i.i.i, label %_ZSt4copyIPKSt5tupleIJddbEEPS1_ET0_T_S6_S5_.exit.i.i, !llvm.loop !212
 
 _ZSt4copyIPKSt5tupleIJddbEEPS1_ET0_T_S6_S5_.exit.i.i: ; preds = %for.body.i.i.i.i.i.i.i
@@ -5263,7 +5263,7 @@ for.body.i.i.i.i.i32.i.i:                         ; preds = %for.body.i.i.i.i.i3
   %incdec.ptr.i.i.i.i.i40.i.i = getelementptr inbounds nuw i8, ptr %__first.addr.07.i.i.i.i.i35.i.i, i64 24
   %incdec.ptr1.i.i.i.i.i41.i.i = getelementptr inbounds nuw i8, ptr %__result.addr.08.i.i.i.i.i34.i.i, i64 24
   %dec.i.i.i.i.i42.i.i = add nsw i64 %__n.09.i.i.i.i.i33.i.i, -1
-  %cmp.i.i.i.i.i43.i.i = icmp ugt i64 %__n.09.i.i.i.i.i33.i.i, 1
+  %cmp.i.i.i.i.i43.i.i = icmp samesign ugt i64 %__n.09.i.i.i.i.i33.i.i, 1
   br i1 %cmp.i.i.i.i.i43.i.i, label %for.body.i.i.i.i.i32.i.i, label %_ZSt4copyIPKSt5tupleIJddbEEPS1_ET0_T_S6_S5_.exit44.i.i, !llvm.loop !212
 
 _ZSt4copyIPKSt5tupleIJddbEEPS1_ET0_T_S6_S5_.exit44.i.i: ; preds = %for.body.i.i.i.i.i32.i.i, %if.else29.i.i
@@ -5372,7 +5372,7 @@ for.body.i.i.i.i.i.i122.i:                        ; preds = %if.else.i113.i, %fo
   %incdec.ptr.i.i.i.i.i.i130.i = getelementptr inbounds nuw i8, ptr %__first.addr.07.i.i.i.i.i.i125.i, i64 24
   %incdec.ptr1.i.i.i.i.i.i131.i = getelementptr inbounds nuw i8, ptr %__result.addr.08.i.i.i.i.i.i124.i, i64 24
   %dec.i.i.i.i.i.i132.i = add nsw i64 %__n.09.i.i.i.i.i.i123.i, -1
-  %cmp.i.i.i.i.i.i133.i = icmp ugt i64 %__n.09.i.i.i.i.i.i123.i, 1
+  %cmp.i.i.i.i.i.i133.i = icmp samesign ugt i64 %__n.09.i.i.i.i.i.i123.i, 1
   br i1 %cmp.i.i.i.i.i.i133.i, label %for.body.i.i.i.i.i.i122.i, label %_ZSt4copyIPKSt5tupleIJddbEEPS1_ET0_T_S6_S5_.exit.i119.i, !llvm.loop !212
 
 _ZSt4copyIPKSt5tupleIJddbEEPS1_ET0_T_S6_S5_.exit.i119.i: ; preds = %for.body.i.i.i.i.i.i122.i
@@ -5410,7 +5410,7 @@ for.body.i.i.i.i.i32.i149.i:                      ; preds = %for.body.i.i.i.i.i3
   %incdec.ptr.i.i.i.i.i40.i157.i = getelementptr inbounds nuw i8, ptr %__first.addr.07.i.i.i.i.i35.i152.i, i64 24
   %incdec.ptr1.i.i.i.i.i41.i158.i = getelementptr inbounds nuw i8, ptr %__result.addr.08.i.i.i.i.i34.i151.i, i64 24
   %dec.i.i.i.i.i42.i159.i = add nsw i64 %__n.09.i.i.i.i.i33.i150.i, -1
-  %cmp.i.i.i.i.i43.i160.i = icmp ugt i64 %__n.09.i.i.i.i.i33.i150.i, 1
+  %cmp.i.i.i.i.i43.i160.i = icmp samesign ugt i64 %__n.09.i.i.i.i.i33.i150.i, 1
   br i1 %cmp.i.i.i.i.i43.i160.i, label %for.body.i.i.i.i.i32.i149.i, label %_ZSt4copyIPKSt5tupleIJddbEEPS1_ET0_T_S6_S5_.exit44.i137.i, !llvm.loop !212
 
 _ZSt4copyIPKSt5tupleIJddbEEPS1_ET0_T_S6_S5_.exit44.i137.i: ; preds = %for.body.i.i.i.i.i32.i149.i, %if.else29.i134.i
@@ -5519,7 +5519,7 @@ for.body.i.i.i.i.i.i187.i:                        ; preds = %if.else.i178.i, %fo
   %incdec.ptr.i.i.i.i.i.i195.i = getelementptr inbounds nuw i8, ptr %__first.addr.07.i.i.i.i.i.i190.i, i64 24
   %incdec.ptr1.i.i.i.i.i.i196.i = getelementptr inbounds nuw i8, ptr %__result.addr.08.i.i.i.i.i.i189.i, i64 24
   %dec.i.i.i.i.i.i197.i = add nsw i64 %__n.09.i.i.i.i.i.i188.i, -1
-  %cmp.i.i.i.i.i.i198.i = icmp ugt i64 %__n.09.i.i.i.i.i.i188.i, 1
+  %cmp.i.i.i.i.i.i198.i = icmp samesign ugt i64 %__n.09.i.i.i.i.i.i188.i, 1
   br i1 %cmp.i.i.i.i.i.i198.i, label %for.body.i.i.i.i.i.i187.i, label %_ZSt4copyIPKSt5tupleIJddbEEPS1_ET0_T_S6_S5_.exit.i184.i, !llvm.loop !212
 
 _ZSt4copyIPKSt5tupleIJddbEEPS1_ET0_T_S6_S5_.exit.i184.i: ; preds = %for.body.i.i.i.i.i.i187.i
@@ -5557,7 +5557,7 @@ for.body.i.i.i.i.i32.i214.i:                      ; preds = %for.body.i.i.i.i.i3
   %incdec.ptr.i.i.i.i.i40.i222.i = getelementptr inbounds nuw i8, ptr %__first.addr.07.i.i.i.i.i35.i217.i, i64 24
   %incdec.ptr1.i.i.i.i.i41.i223.i = getelementptr inbounds nuw i8, ptr %__result.addr.08.i.i.i.i.i34.i216.i, i64 24
   %dec.i.i.i.i.i42.i224.i = add nsw i64 %__n.09.i.i.i.i.i33.i215.i, -1
-  %cmp.i.i.i.i.i43.i225.i = icmp ugt i64 %__n.09.i.i.i.i.i33.i215.i, 1
+  %cmp.i.i.i.i.i43.i225.i = icmp samesign ugt i64 %__n.09.i.i.i.i.i33.i215.i, 1
   br i1 %cmp.i.i.i.i.i43.i225.i, label %for.body.i.i.i.i.i32.i214.i, label %_ZSt4copyIPKSt5tupleIJddbEEPS1_ET0_T_S6_S5_.exit44.i202.i, !llvm.loop !212
 
 _ZSt4copyIPKSt5tupleIJddbEEPS1_ET0_T_S6_S5_.exit44.i202.i: ; preds = %for.body.i.i.i.i.i32.i214.i, %if.else29.i199.i
@@ -14589,7 +14589,7 @@ if.then.i.i32:                                    ; preds = %if.then.i.i.i.i.i.i
           to label %.noexc unwind label %lpad45
 
 .noexc:                                           ; preds = %if.then.i.i32
-  %cmp.i1.i.i = icmp ugt i64 %sub.ptr.sub.i.i.i.i.i, 128
+  %cmp.i1.i.i = icmp samesign ugt i64 %sub.ptr.sub.i.i.i.i.i, 128
   %scevgep.i.i.i = getelementptr i8, ptr %call5.i.i.i.i1.i, i64 8
   br i1 %cmp.i1.i.i, label %for.body.i.i.i.i, label %if.else.i.i.i
 
@@ -25726,7 +25726,7 @@ for.body.i.i.i.i.i.i.i.i.i.i:                     ; preds = %for.body.i.i.i.i.i.
   %add.ptr.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds double, ptr %__first.sroa.0.08.i.i.i.i.i.i.i.i.i.i, i64 %agg.tmp.sroa.2.0.copyload
   %incdec.ptr.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %__result.addr.09.i.i.i.i.i.i.i.i.i.i, i64 8
   %dec.i.i.i.i.i.i.i.i.i.i = add nsw i64 %__n.010.i.i.i.i.i.i.i.i.i.i, -1
-  %cmp.i.i.i.i.i.i.i.i.i.i = icmp ugt i64 %__n.010.i.i.i.i.i.i.i.i.i.i, 1
+  %cmp.i.i.i.i.i.i.i.i.i.i = icmp samesign ugt i64 %__n.010.i.i.i.i.i.i.i.i.i.i, 1
   br i1 %cmp.i.i.i.i.i.i.i.i.i.i, label %for.body.i.i.i.i.i.i.i.i.i.i, label %invoke.cont, !llvm.loop !474
 
 invoke.cont:                                      ; preds = %for.body.i.i.i.i.i.i.i.i.i.i, %_ZNSt6vectorIdSaIdEE17_S_check_init_lenEmRKS0_.exit.i.i

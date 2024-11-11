@@ -311,7 +311,7 @@ define dso_local void @intel_engine_set_hwsp_writemask(ptr nocapture noundef rea
   br i1 %15, label %16, label %32
 
 16:                                               ; preds = %12
-  %17 = icmp ugt i8 %5, 2
+  %17 = icmp samesign ugt i8 %5, 2
   %18 = getelementptr inbounds i8, ptr %0, i64 16
   %19 = load ptr, ptr %18, align 8
   %20 = getelementptr inbounds i8, ptr %0, i64 72
@@ -1562,7 +1562,7 @@ thread-pre-split51.thread:                        ; preds = %525, %518, %thread-
   br i1 %664, label %665, label %678
 
 665:                                              ; preds = %662
-  %666 = icmp ugt i8 %657, 2
+  %666 = icmp samesign ugt i8 %657, 2
   %667 = load ptr, ptr %476, align 8
   %668 = load i32, ptr %504, align 8
   %669 = add i32 %668, 152
@@ -1661,7 +1661,7 @@ thread-pre-split51.thread:                        ; preds = %525, %518, %thread-
   br i1 %718, label %725, label %719
 
 719:                                              ; preds = %715
-  %720 = icmp ugt i8 %717, 8
+  %720 = icmp samesign ugt i8 %717, 8
   br i1 %720, label %721, label %.thread64
 
 721:                                              ; preds = %719
@@ -1694,7 +1694,7 @@ thread-pre-split51.thread:                        ; preds = %525, %518, %thread-
   br i1 %741, label %.thread63, label %762
 
 742:                                              ; preds = %725
-  %743 = icmp ugt i8 %.pr61.pre, 8
+  %743 = icmp samesign ugt i8 %.pr61.pre, 8
   br i1 %743, label %..thread63_crit_edge, label %.thread64
 
 ..thread63_crit_edge:                             ; preds = %721, %742
@@ -2933,7 +2933,7 @@ define internal fastcc void @cleanup_status_page(ptr nocapture noundef %0) unnam
   br i1 %14, label %15, label %30
 
 15:                                               ; preds = %11
-  %16 = icmp ugt i8 %4, 2
+  %16 = icmp samesign ugt i8 %4, 2
   %17 = getelementptr inbounds i8, ptr %0, i64 16
   %18 = load ptr, ptr %17, align 8
   %19 = getelementptr inbounds i8, ptr %0, i64 72
@@ -3039,7 +3039,7 @@ define dso_local i64 @intel_engine_get_active_head(ptr nocapture noundef readonl
   br label %30
 
 14:                                               ; preds = %1
-  %15 = icmp ugt i8 %4, 3
+  %15 = icmp samesign ugt i8 %4, 3
   %16 = getelementptr inbounds i8, ptr %0, i64 16
   %17 = load ptr, ptr %16, align 8
   %18 = getelementptr inbounds i8, ptr %0, i64 72
@@ -3776,7 +3776,7 @@ define dso_local void @intel_engine_get_instdone(ptr nocapture noundef readonly 
   br label %.loopexit
 
 240:                                              ; preds = %220
-  %241 = icmp ugt i8 %11, 3
+  %241 = icmp samesign ugt i8 %11, 3
   br i1 %241, label %242, label %254
 
 242:                                              ; preds = %240
@@ -4800,7 +4800,7 @@ define dso_local void @intel_engine_dump(ptr noundef %0, ptr noundef %1, ptr nou
   br label %262
 
 248:                                              ; preds = %237
-  %249 = icmp ugt i8 %240, 3
+  %249 = icmp samesign ugt i8 %240, 3
   %250 = load ptr, ptr %109, align 8
   %251 = load i32, ptr %107, align 8
   %252 = getelementptr inbounds i8, ptr %250, i64 144
@@ -4865,7 +4865,7 @@ define dso_local void @intel_engine_dump(ptr noundef %0, ptr noundef %1, ptr nou
   br label %309
 
 295:                                              ; preds = %282
-  %296 = icmp ugt i8 %287, 3
+  %296 = icmp samesign ugt i8 %287, 3
   %297 = load ptr, ptr %109, align 8
   %298 = load i32, ptr %107, align 8
   %299 = getelementptr inbounds i8, ptr %297, i64 144

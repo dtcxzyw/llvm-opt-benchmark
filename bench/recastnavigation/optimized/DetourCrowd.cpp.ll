@@ -1173,7 +1173,7 @@ _ZNK14dtPathCorridor11getLastPolyEv.exit:         ; preds = %147, %152
   br label %.sink.split
 
 200:                                              ; preds = %192
-  %.not160 = icmp ult i32 %195, 1073741824
+  %.not160 = icmp samesign ult i32 %195, 1073741824
   br i1 %.not160, label %297, label %201
 
 201:                                              ; preds = %200

@@ -7656,7 +7656,7 @@ _ZN5boost6system10error_code6assignEiRKNS0_14error_categoryE.exit: ; preds = %39
   br label %_ZN5boost10filesystem4path6assignEPKcS3_.exit
 
 47:                                               ; preds = %8
-  %48 = icmp ult i64 %12, 1024
+  %48 = icmp samesign ult i64 %12, 1024
   br i1 %48, label %49, label %.preheader, !prof !32
 
 49:                                               ; preds = %47
@@ -7761,7 +7761,7 @@ _ZN5boost6system10error_code6assignEiRKNS0_14error_categoryE.exit54.thread: ; pr
   br label %98
 
 88:                                               ; preds = %83
-  %89 = icmp ult i64 %84, %.02877
+  %89 = icmp samesign ult i64 %84, %.02877
   br i1 %89, label %90, label %94, !prof !32
 
 90:                                               ; preds = %88
@@ -7782,7 +7782,7 @@ _ZNSt10unique_ptrIA_cSt14default_deleteIS0_EED2Ev.exit: ; preds = %90
 94:                                               ; preds = %88
   tail call void @_ZdaPv(ptr noundef nonnull %82) #31
   %95 = shl nuw nsw i64 %.02877, 1
-  %96 = icmp ugt i64 %.02877, 16384
+  %96 = icmp samesign ugt i64 %.02877, 16384
   br i1 %96, label %54, label %.preheader, !prof !63, !llvm.loop !141
 
 97:                                               ; preds = %83

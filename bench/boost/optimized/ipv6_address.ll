@@ -487,7 +487,7 @@ define noundef i64 @_ZNK5boost4urls12ipv6_address10print_implEPc(ptr noundef non
   br label %"_ZZNK5boost4urls12ipv6_address10print_implEPcENK3$_1clES2_t.exit"
 
 100:                                              ; preds = %83
-  %101 = icmp ugt i16 %59, 15
+  %101 = icmp samesign ugt i16 %59, 15
   br i1 %101, label %102, label %113
 
 102:                                              ; preds = %100
@@ -626,7 +626,7 @@ define noundef i64 @_ZNK5boost4urls12ipv6_address10print_implEPc(ptr noundef non
   br label %"_ZZNK5boost4urls12ipv6_address10print_implEPcENK3$_1clES2_t.exit71"
 
 182:                                              ; preds = %165
-  %183 = icmp ugt i16 %141, 15
+  %183 = icmp samesign ugt i16 %141, 15
   br i1 %183, label %184, label %195
 
 184:                                              ; preds = %182

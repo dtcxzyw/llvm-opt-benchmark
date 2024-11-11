@@ -10553,7 +10553,7 @@ _ZN4llvm15SmallVectorImplIPKNS_9StringRefEE7reserveEm.exit.i: ; preds = %15, %5
   %20 = getelementptr inbounds i8, ptr %.sroa.05.08.i.i.i.i.i.i.i.i.i, i64 16
   %21 = getelementptr inbounds i8, ptr %.049.i.i.i.i.i.i.i.i.i, i64 8
   %22 = add nsw i64 %.010.i.i.i.i.i.i.i.i.i, -1
-  %23 = icmp ugt i64 %.010.i.i.i.i.i.i.i.i.i, 1
+  %23 = icmp samesign ugt i64 %.010.i.i.i.i.i.i.i.i.i, 1
   br i1 %23, label %.lr.ph.i.i.i.i.i.i.i.i.i, label %_ZN4llvm15SmallVectorImplIPKNS_9StringRefEE6appendINS_16pointer_iteratorIS3_S3_EEvEEvT_S8_.exit, !llvm.loop !649
 
 _ZN4llvm15SmallVectorImplIPKNS_9StringRefEE6appendINS_16pointer_iteratorIS3_S3_EEvEEvT_S8_.exit: ; preds = %.lr.ph.i.i.i.i.i.i.i.i.i, %_ZN4llvm15SmallVectorImplIPKNS_9StringRefEE7reserveEm.exit.i

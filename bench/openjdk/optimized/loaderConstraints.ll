@@ -372,7 +372,7 @@ _ZN16SymbolHandleBaseILb0EED2Ev.exit:             ; preds = %31
   br i1 %65, label %.loopexit, label %66
 
 66:                                               ; preds = %.lr.ph, %62
-  %67 = icmp ugt i64 %indvars.iv, 1
+  %67 = icmp samesign ugt i64 %indvars.iv, 1
   br i1 %67, label %.lr.ph, label %._crit_edge.loopexit, !llvm.loop !8
 
 ._crit_edge.loopexit:                             ; preds = %66

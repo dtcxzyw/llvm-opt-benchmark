@@ -5369,7 +5369,7 @@ define hidden void @_ZN4time10formatting22format_number_pad_zero17hc8e3981a7ebb6
   br label %25
 
 17:                                               ; preds = %._crit_edge
-  %18 = icmp ult i8 %2, 10
+  %18 = icmp samesign ult i8 %2, 10
   br i1 %18, label %25, label %19
 
 19:                                               ; preds = %17

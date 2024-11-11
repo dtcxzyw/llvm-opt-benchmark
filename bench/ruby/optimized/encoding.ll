@@ -4497,7 +4497,7 @@ str_to_encindex.exit:                             ; preds = %.critedge
   br i1 %25, label %rb_enc_from_encoding_index.exit, label %26
 
 26:                                               ; preds = %str_to_encindex.exit
-  %27 = icmp ult i32 %21, 256
+  %27 = icmp samesign ult i32 %21, 256
   br i1 %27, label %28, label %.thread.i.i
 
 28:                                               ; preds = %26

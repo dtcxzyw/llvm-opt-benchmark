@@ -6348,23 +6348,23 @@ define range(i32 -1, 1) i32 @H5T__conv_schar__Float16(ptr noundef readonly %0, p
   br i1 %.not561.us.us, label %137, label %.critedge.us.us
 
 137:                                              ; preds = %136
-  %.not562.us.us = icmp ult i8 %135, 64
+  %.not562.us.us = icmp samesign ult i8 %135, 64
   br i1 %.not562.us.us, label %138, label %.critedge.us.us
 
 138:                                              ; preds = %137
-  %.not563.us.us = icmp ult i8 %135, 32
+  %.not563.us.us = icmp samesign ult i8 %135, 32
   br i1 %.not563.us.us, label %139, label %.critedge.us.us
 
 139:                                              ; preds = %138
-  %.not564.us.us = icmp ult i8 %135, 16
+  %.not564.us.us = icmp samesign ult i8 %135, 16
   br i1 %.not564.us.us, label %140, label %.critedge.us.us
 
 140:                                              ; preds = %139
-  %.not565.us.us = icmp ult i8 %135, 8
+  %.not565.us.us = icmp samesign ult i8 %135, 8
   br i1 %.not565.us.us, label %141, label %.critedge.us.us
 
 141:                                              ; preds = %140
-  %.not566.us.us = icmp ult i8 %135, 4
+  %.not566.us.us = icmp samesign ult i8 %135, 4
   br i1 %.not566.us.us, label %142, label %.critedge.us.us
 
 142:                                              ; preds = %141
@@ -6559,23 +6559,23 @@ define range(i32 -1, 1) i32 @H5T__conv_schar__Float16(ptr noundef readonly %0, p
   br i1 %.not543.us.us, label %213, label %.critedge585.us.us
 
 213:                                              ; preds = %212
-  %.not544.us.us = icmp ult i8 %211, 64
+  %.not544.us.us = icmp samesign ult i8 %211, 64
   br i1 %.not544.us.us, label %214, label %.critedge585.us.us
 
 214:                                              ; preds = %213
-  %.not545.us.us = icmp ult i8 %211, 32
+  %.not545.us.us = icmp samesign ult i8 %211, 32
   br i1 %.not545.us.us, label %215, label %.critedge585.us.us
 
 215:                                              ; preds = %214
-  %.not546.us.us = icmp ult i8 %211, 16
+  %.not546.us.us = icmp samesign ult i8 %211, 16
   br i1 %.not546.us.us, label %216, label %.critedge585.us.us
 
 216:                                              ; preds = %215
-  %.not547.us.us = icmp ult i8 %211, 8
+  %.not547.us.us = icmp samesign ult i8 %211, 8
   br i1 %.not547.us.us, label %217, label %.critedge585.us.us
 
 217:                                              ; preds = %216
-  %.not548.us.us = icmp ult i8 %211, 4
+  %.not548.us.us = icmp samesign ult i8 %211, 4
   br i1 %.not548.us.us, label %218, label %.critedge585.us.us
 
 218:                                              ; preds = %217
@@ -6755,23 +6755,23 @@ define range(i32 -1, 1) i32 @H5T__conv_schar__Float16(ptr noundef readonly %0, p
   br i1 %.not525.us.us, label %284, label %.critedge590.us.us
 
 284:                                              ; preds = %283
-  %.not526.us.us = icmp ult i8 %282, 64
+  %.not526.us.us = icmp samesign ult i8 %282, 64
   br i1 %.not526.us.us, label %285, label %.critedge590.us.us
 
 285:                                              ; preds = %284
-  %.not527.us.us = icmp ult i8 %282, 32
+  %.not527.us.us = icmp samesign ult i8 %282, 32
   br i1 %.not527.us.us, label %286, label %.critedge590.us.us
 
 286:                                              ; preds = %285
-  %.not528.us.us = icmp ult i8 %282, 16
+  %.not528.us.us = icmp samesign ult i8 %282, 16
   br i1 %.not528.us.us, label %287, label %.critedge590.us.us
 
 287:                                              ; preds = %286
-  %.not529.us.us = icmp ult i8 %282, 8
+  %.not529.us.us = icmp samesign ult i8 %282, 8
   br i1 %.not529.us.us, label %288, label %.critedge590.us.us
 
 288:                                              ; preds = %287
-  %.not530.us.us = icmp ult i8 %282, 4
+  %.not530.us.us = icmp samesign ult i8 %282, 4
   br i1 %.not530.us.us, label %289, label %.critedge590.us.us
 
 289:                                              ; preds = %288
@@ -6939,23 +6939,23 @@ define range(i32 -1, 1) i32 @H5T__conv_schar__Float16(ptr noundef readonly %0, p
   br i1 %.not507.us, label %358, label %.critedge595.us
 
 358:                                              ; preds = %357
-  %.not508.us = icmp ult i8 %356, 64
+  %.not508.us = icmp samesign ult i8 %356, 64
   br i1 %.not508.us, label %359, label %.critedge595.us
 
 359:                                              ; preds = %358
-  %.not509.us = icmp ult i8 %356, 32
+  %.not509.us = icmp samesign ult i8 %356, 32
   br i1 %.not509.us, label %360, label %.critedge595.us
 
 360:                                              ; preds = %359
-  %.not510.us = icmp ult i8 %356, 16
+  %.not510.us = icmp samesign ult i8 %356, 16
   br i1 %.not510.us, label %361, label %.critedge595.us
 
 361:                                              ; preds = %360
-  %.not511.us = icmp ult i8 %356, 8
+  %.not511.us = icmp samesign ult i8 %356, 8
   br i1 %.not511.us, label %362, label %.critedge595.us
 
 362:                                              ; preds = %361
-  %.not512.us = icmp ult i8 %356, 4
+  %.not512.us = icmp samesign ult i8 %356, 4
   br i1 %.not512.us, label %363, label %.critedge595.us
 
 363:                                              ; preds = %362
@@ -7344,23 +7344,23 @@ define range(i32 -1, 1) i32 @H5T__conv_schar_float(ptr noundef readonly %0, ptr 
   br i1 %.not561.us.us, label %137, label %.critedge.us.us
 
 137:                                              ; preds = %136
-  %.not562.us.us = icmp ult i8 %135, 64
+  %.not562.us.us = icmp samesign ult i8 %135, 64
   br i1 %.not562.us.us, label %138, label %.critedge.us.us
 
 138:                                              ; preds = %137
-  %.not563.us.us = icmp ult i8 %135, 32
+  %.not563.us.us = icmp samesign ult i8 %135, 32
   br i1 %.not563.us.us, label %139, label %.critedge.us.us
 
 139:                                              ; preds = %138
-  %.not564.us.us = icmp ult i8 %135, 16
+  %.not564.us.us = icmp samesign ult i8 %135, 16
   br i1 %.not564.us.us, label %140, label %.critedge.us.us
 
 140:                                              ; preds = %139
-  %.not565.us.us = icmp ult i8 %135, 8
+  %.not565.us.us = icmp samesign ult i8 %135, 8
   br i1 %.not565.us.us, label %141, label %.critedge.us.us
 
 141:                                              ; preds = %140
-  %.not566.us.us = icmp ult i8 %135, 4
+  %.not566.us.us = icmp samesign ult i8 %135, 4
   br i1 %.not566.us.us, label %142, label %.critedge.us.us
 
 142:                                              ; preds = %141
@@ -7555,23 +7555,23 @@ define range(i32 -1, 1) i32 @H5T__conv_schar_float(ptr noundef readonly %0, ptr 
   br i1 %.not543.us.us, label %213, label %.critedge585.us.us
 
 213:                                              ; preds = %212
-  %.not544.us.us = icmp ult i8 %211, 64
+  %.not544.us.us = icmp samesign ult i8 %211, 64
   br i1 %.not544.us.us, label %214, label %.critedge585.us.us
 
 214:                                              ; preds = %213
-  %.not545.us.us = icmp ult i8 %211, 32
+  %.not545.us.us = icmp samesign ult i8 %211, 32
   br i1 %.not545.us.us, label %215, label %.critedge585.us.us
 
 215:                                              ; preds = %214
-  %.not546.us.us = icmp ult i8 %211, 16
+  %.not546.us.us = icmp samesign ult i8 %211, 16
   br i1 %.not546.us.us, label %216, label %.critedge585.us.us
 
 216:                                              ; preds = %215
-  %.not547.us.us = icmp ult i8 %211, 8
+  %.not547.us.us = icmp samesign ult i8 %211, 8
   br i1 %.not547.us.us, label %217, label %.critedge585.us.us
 
 217:                                              ; preds = %216
-  %.not548.us.us = icmp ult i8 %211, 4
+  %.not548.us.us = icmp samesign ult i8 %211, 4
   br i1 %.not548.us.us, label %218, label %.critedge585.us.us
 
 218:                                              ; preds = %217
@@ -7751,23 +7751,23 @@ define range(i32 -1, 1) i32 @H5T__conv_schar_float(ptr noundef readonly %0, ptr 
   br i1 %.not525.us.us, label %284, label %.critedge590.us.us
 
 284:                                              ; preds = %283
-  %.not526.us.us = icmp ult i8 %282, 64
+  %.not526.us.us = icmp samesign ult i8 %282, 64
   br i1 %.not526.us.us, label %285, label %.critedge590.us.us
 
 285:                                              ; preds = %284
-  %.not527.us.us = icmp ult i8 %282, 32
+  %.not527.us.us = icmp samesign ult i8 %282, 32
   br i1 %.not527.us.us, label %286, label %.critedge590.us.us
 
 286:                                              ; preds = %285
-  %.not528.us.us = icmp ult i8 %282, 16
+  %.not528.us.us = icmp samesign ult i8 %282, 16
   br i1 %.not528.us.us, label %287, label %.critedge590.us.us
 
 287:                                              ; preds = %286
-  %.not529.us.us = icmp ult i8 %282, 8
+  %.not529.us.us = icmp samesign ult i8 %282, 8
   br i1 %.not529.us.us, label %288, label %.critedge590.us.us
 
 288:                                              ; preds = %287
-  %.not530.us.us = icmp ult i8 %282, 4
+  %.not530.us.us = icmp samesign ult i8 %282, 4
   br i1 %.not530.us.us, label %289, label %.critedge590.us.us
 
 289:                                              ; preds = %288
@@ -7935,23 +7935,23 @@ define range(i32 -1, 1) i32 @H5T__conv_schar_float(ptr noundef readonly %0, ptr 
   br i1 %.not507.us, label %358, label %.critedge595.us
 
 358:                                              ; preds = %357
-  %.not508.us = icmp ult i8 %356, 64
+  %.not508.us = icmp samesign ult i8 %356, 64
   br i1 %.not508.us, label %359, label %.critedge595.us
 
 359:                                              ; preds = %358
-  %.not509.us = icmp ult i8 %356, 32
+  %.not509.us = icmp samesign ult i8 %356, 32
   br i1 %.not509.us, label %360, label %.critedge595.us
 
 360:                                              ; preds = %359
-  %.not510.us = icmp ult i8 %356, 16
+  %.not510.us = icmp samesign ult i8 %356, 16
   br i1 %.not510.us, label %361, label %.critedge595.us
 
 361:                                              ; preds = %360
-  %.not511.us = icmp ult i8 %356, 8
+  %.not511.us = icmp samesign ult i8 %356, 8
   br i1 %.not511.us, label %362, label %.critedge595.us
 
 362:                                              ; preds = %361
-  %.not512.us = icmp ult i8 %356, 4
+  %.not512.us = icmp samesign ult i8 %356, 4
   br i1 %.not512.us, label %363, label %.critedge595.us
 
 363:                                              ; preds = %362
@@ -8340,23 +8340,23 @@ define range(i32 -1, 1) i32 @H5T__conv_schar_double(ptr noundef readonly %0, ptr
   br i1 %.not561.us.us, label %137, label %.critedge.us.us
 
 137:                                              ; preds = %136
-  %.not562.us.us = icmp ult i8 %135, 64
+  %.not562.us.us = icmp samesign ult i8 %135, 64
   br i1 %.not562.us.us, label %138, label %.critedge.us.us
 
 138:                                              ; preds = %137
-  %.not563.us.us = icmp ult i8 %135, 32
+  %.not563.us.us = icmp samesign ult i8 %135, 32
   br i1 %.not563.us.us, label %139, label %.critedge.us.us
 
 139:                                              ; preds = %138
-  %.not564.us.us = icmp ult i8 %135, 16
+  %.not564.us.us = icmp samesign ult i8 %135, 16
   br i1 %.not564.us.us, label %140, label %.critedge.us.us
 
 140:                                              ; preds = %139
-  %.not565.us.us = icmp ult i8 %135, 8
+  %.not565.us.us = icmp samesign ult i8 %135, 8
   br i1 %.not565.us.us, label %141, label %.critedge.us.us
 
 141:                                              ; preds = %140
-  %.not566.us.us = icmp ult i8 %135, 4
+  %.not566.us.us = icmp samesign ult i8 %135, 4
   br i1 %.not566.us.us, label %142, label %.critedge.us.us
 
 142:                                              ; preds = %141
@@ -8551,23 +8551,23 @@ define range(i32 -1, 1) i32 @H5T__conv_schar_double(ptr noundef readonly %0, ptr
   br i1 %.not543.us.us, label %213, label %.critedge585.us.us
 
 213:                                              ; preds = %212
-  %.not544.us.us = icmp ult i8 %211, 64
+  %.not544.us.us = icmp samesign ult i8 %211, 64
   br i1 %.not544.us.us, label %214, label %.critedge585.us.us
 
 214:                                              ; preds = %213
-  %.not545.us.us = icmp ult i8 %211, 32
+  %.not545.us.us = icmp samesign ult i8 %211, 32
   br i1 %.not545.us.us, label %215, label %.critedge585.us.us
 
 215:                                              ; preds = %214
-  %.not546.us.us = icmp ult i8 %211, 16
+  %.not546.us.us = icmp samesign ult i8 %211, 16
   br i1 %.not546.us.us, label %216, label %.critedge585.us.us
 
 216:                                              ; preds = %215
-  %.not547.us.us = icmp ult i8 %211, 8
+  %.not547.us.us = icmp samesign ult i8 %211, 8
   br i1 %.not547.us.us, label %217, label %.critedge585.us.us
 
 217:                                              ; preds = %216
-  %.not548.us.us = icmp ult i8 %211, 4
+  %.not548.us.us = icmp samesign ult i8 %211, 4
   br i1 %.not548.us.us, label %218, label %.critedge585.us.us
 
 218:                                              ; preds = %217
@@ -8747,23 +8747,23 @@ define range(i32 -1, 1) i32 @H5T__conv_schar_double(ptr noundef readonly %0, ptr
   br i1 %.not525.us.us, label %284, label %.critedge590.us.us
 
 284:                                              ; preds = %283
-  %.not526.us.us = icmp ult i8 %282, 64
+  %.not526.us.us = icmp samesign ult i8 %282, 64
   br i1 %.not526.us.us, label %285, label %.critedge590.us.us
 
 285:                                              ; preds = %284
-  %.not527.us.us = icmp ult i8 %282, 32
+  %.not527.us.us = icmp samesign ult i8 %282, 32
   br i1 %.not527.us.us, label %286, label %.critedge590.us.us
 
 286:                                              ; preds = %285
-  %.not528.us.us = icmp ult i8 %282, 16
+  %.not528.us.us = icmp samesign ult i8 %282, 16
   br i1 %.not528.us.us, label %287, label %.critedge590.us.us
 
 287:                                              ; preds = %286
-  %.not529.us.us = icmp ult i8 %282, 8
+  %.not529.us.us = icmp samesign ult i8 %282, 8
   br i1 %.not529.us.us, label %288, label %.critedge590.us.us
 
 288:                                              ; preds = %287
-  %.not530.us.us = icmp ult i8 %282, 4
+  %.not530.us.us = icmp samesign ult i8 %282, 4
   br i1 %.not530.us.us, label %289, label %.critedge590.us.us
 
 289:                                              ; preds = %288
@@ -8931,23 +8931,23 @@ define range(i32 -1, 1) i32 @H5T__conv_schar_double(ptr noundef readonly %0, ptr
   br i1 %.not507.us, label %358, label %.critedge595.us
 
 358:                                              ; preds = %357
-  %.not508.us = icmp ult i8 %356, 64
+  %.not508.us = icmp samesign ult i8 %356, 64
   br i1 %.not508.us, label %359, label %.critedge595.us
 
 359:                                              ; preds = %358
-  %.not509.us = icmp ult i8 %356, 32
+  %.not509.us = icmp samesign ult i8 %356, 32
   br i1 %.not509.us, label %360, label %.critedge595.us
 
 360:                                              ; preds = %359
-  %.not510.us = icmp ult i8 %356, 16
+  %.not510.us = icmp samesign ult i8 %356, 16
   br i1 %.not510.us, label %361, label %.critedge595.us
 
 361:                                              ; preds = %360
-  %.not511.us = icmp ult i8 %356, 8
+  %.not511.us = icmp samesign ult i8 %356, 8
   br i1 %.not511.us, label %362, label %.critedge595.us
 
 362:                                              ; preds = %361
-  %.not512.us = icmp ult i8 %356, 4
+  %.not512.us = icmp samesign ult i8 %356, 4
   br i1 %.not512.us, label %363, label %.critedge595.us
 
 363:                                              ; preds = %362
@@ -9338,23 +9338,23 @@ define range(i32 -1, 1) i32 @H5T__conv_schar_ldouble(ptr noundef readonly %0, pt
   br i1 %.not561.us.us, label %137, label %.critedge.us.us
 
 137:                                              ; preds = %136
-  %.not562.us.us = icmp ult i8 %135, 64
+  %.not562.us.us = icmp samesign ult i8 %135, 64
   br i1 %.not562.us.us, label %138, label %.critedge.us.us
 
 138:                                              ; preds = %137
-  %.not563.us.us = icmp ult i8 %135, 32
+  %.not563.us.us = icmp samesign ult i8 %135, 32
   br i1 %.not563.us.us, label %139, label %.critedge.us.us
 
 139:                                              ; preds = %138
-  %.not564.us.us = icmp ult i8 %135, 16
+  %.not564.us.us = icmp samesign ult i8 %135, 16
   br i1 %.not564.us.us, label %140, label %.critedge.us.us
 
 140:                                              ; preds = %139
-  %.not565.us.us = icmp ult i8 %135, 8
+  %.not565.us.us = icmp samesign ult i8 %135, 8
   br i1 %.not565.us.us, label %141, label %.critedge.us.us
 
 141:                                              ; preds = %140
-  %.not566.us.us = icmp ult i8 %135, 4
+  %.not566.us.us = icmp samesign ult i8 %135, 4
   br i1 %.not566.us.us, label %142, label %.critedge.us.us
 
 142:                                              ; preds = %141
@@ -9536,23 +9536,23 @@ define range(i32 -1, 1) i32 @H5T__conv_schar_ldouble(ptr noundef readonly %0, pt
   br i1 %.not543.us.us, label %208, label %.critedge585.us.us
 
 208:                                              ; preds = %207
-  %.not544.us.us = icmp ult i8 %206, 64
+  %.not544.us.us = icmp samesign ult i8 %206, 64
   br i1 %.not544.us.us, label %209, label %.critedge585.us.us
 
 209:                                              ; preds = %208
-  %.not545.us.us = icmp ult i8 %206, 32
+  %.not545.us.us = icmp samesign ult i8 %206, 32
   br i1 %.not545.us.us, label %210, label %.critedge585.us.us
 
 210:                                              ; preds = %209
-  %.not546.us.us = icmp ult i8 %206, 16
+  %.not546.us.us = icmp samesign ult i8 %206, 16
   br i1 %.not546.us.us, label %211, label %.critedge585.us.us
 
 211:                                              ; preds = %210
-  %.not547.us.us = icmp ult i8 %206, 8
+  %.not547.us.us = icmp samesign ult i8 %206, 8
   br i1 %.not547.us.us, label %212, label %.critedge585.us.us
 
 212:                                              ; preds = %211
-  %.not548.us.us = icmp ult i8 %206, 4
+  %.not548.us.us = icmp samesign ult i8 %206, 4
   br i1 %.not548.us.us, label %213, label %.critedge585.us.us
 
 213:                                              ; preds = %212
@@ -9729,23 +9729,23 @@ define range(i32 -1, 1) i32 @H5T__conv_schar_ldouble(ptr noundef readonly %0, pt
   br i1 %.not525.us.us, label %279, label %.critedge590.us.us
 
 279:                                              ; preds = %278
-  %.not526.us.us = icmp ult i8 %277, 64
+  %.not526.us.us = icmp samesign ult i8 %277, 64
   br i1 %.not526.us.us, label %280, label %.critedge590.us.us
 
 280:                                              ; preds = %279
-  %.not527.us.us = icmp ult i8 %277, 32
+  %.not527.us.us = icmp samesign ult i8 %277, 32
   br i1 %.not527.us.us, label %281, label %.critedge590.us.us
 
 281:                                              ; preds = %280
-  %.not528.us.us = icmp ult i8 %277, 16
+  %.not528.us.us = icmp samesign ult i8 %277, 16
   br i1 %.not528.us.us, label %282, label %.critedge590.us.us
 
 282:                                              ; preds = %281
-  %.not529.us.us = icmp ult i8 %277, 8
+  %.not529.us.us = icmp samesign ult i8 %277, 8
   br i1 %.not529.us.us, label %283, label %.critedge590.us.us
 
 283:                                              ; preds = %282
-  %.not530.us.us = icmp ult i8 %277, 4
+  %.not530.us.us = icmp samesign ult i8 %277, 4
   br i1 %.not530.us.us, label %284, label %.critedge590.us.us
 
 284:                                              ; preds = %283
@@ -9905,23 +9905,23 @@ define range(i32 -1, 1) i32 @H5T__conv_schar_ldouble(ptr noundef readonly %0, pt
   br i1 %.not507.us, label %348, label %.critedge595.us
 
 348:                                              ; preds = %347
-  %.not508.us = icmp ult i8 %346, 64
+  %.not508.us = icmp samesign ult i8 %346, 64
   br i1 %.not508.us, label %349, label %.critedge595.us
 
 349:                                              ; preds = %348
-  %.not509.us = icmp ult i8 %346, 32
+  %.not509.us = icmp samesign ult i8 %346, 32
   br i1 %.not509.us, label %350, label %.critedge595.us
 
 350:                                              ; preds = %349
-  %.not510.us = icmp ult i8 %346, 16
+  %.not510.us = icmp samesign ult i8 %346, 16
   br i1 %.not510.us, label %351, label %.critedge595.us
 
 351:                                              ; preds = %350
-  %.not511.us = icmp ult i8 %346, 8
+  %.not511.us = icmp samesign ult i8 %346, 8
   br i1 %.not511.us, label %352, label %.critedge595.us
 
 352:                                              ; preds = %351
-  %.not512.us = icmp ult i8 %346, 4
+  %.not512.us = icmp samesign ult i8 %346, 4
   br i1 %.not512.us, label %353, label %.critedge595.us
 
 353:                                              ; preds = %352
@@ -14121,23 +14121,23 @@ define range(i32 -1, 1) i32 @H5T__conv_uchar__Float16(ptr noundef readonly %0, p
   br i1 %.not561.us.us, label %137, label %.critedge.us.us
 
 137:                                              ; preds = %136
-  %.not562.us.us = icmp ult i8 %135, 64
+  %.not562.us.us = icmp samesign ult i8 %135, 64
   br i1 %.not562.us.us, label %138, label %.critedge.us.us
 
 138:                                              ; preds = %137
-  %.not563.us.us = icmp ult i8 %135, 32
+  %.not563.us.us = icmp samesign ult i8 %135, 32
   br i1 %.not563.us.us, label %139, label %.critedge.us.us
 
 139:                                              ; preds = %138
-  %.not564.us.us = icmp ult i8 %135, 16
+  %.not564.us.us = icmp samesign ult i8 %135, 16
   br i1 %.not564.us.us, label %140, label %.critedge.us.us
 
 140:                                              ; preds = %139
-  %.not565.us.us = icmp ult i8 %135, 8
+  %.not565.us.us = icmp samesign ult i8 %135, 8
   br i1 %.not565.us.us, label %141, label %.critedge.us.us
 
 141:                                              ; preds = %140
-  %.not566.us.us = icmp ult i8 %135, 4
+  %.not566.us.us = icmp samesign ult i8 %135, 4
   br i1 %.not566.us.us, label %142, label %.critedge.us.us
 
 142:                                              ; preds = %141
@@ -14332,23 +14332,23 @@ define range(i32 -1, 1) i32 @H5T__conv_uchar__Float16(ptr noundef readonly %0, p
   br i1 %.not543.us.us, label %213, label %.critedge585.us.us
 
 213:                                              ; preds = %212
-  %.not544.us.us = icmp ult i8 %211, 64
+  %.not544.us.us = icmp samesign ult i8 %211, 64
   br i1 %.not544.us.us, label %214, label %.critedge585.us.us
 
 214:                                              ; preds = %213
-  %.not545.us.us = icmp ult i8 %211, 32
+  %.not545.us.us = icmp samesign ult i8 %211, 32
   br i1 %.not545.us.us, label %215, label %.critedge585.us.us
 
 215:                                              ; preds = %214
-  %.not546.us.us = icmp ult i8 %211, 16
+  %.not546.us.us = icmp samesign ult i8 %211, 16
   br i1 %.not546.us.us, label %216, label %.critedge585.us.us
 
 216:                                              ; preds = %215
-  %.not547.us.us = icmp ult i8 %211, 8
+  %.not547.us.us = icmp samesign ult i8 %211, 8
   br i1 %.not547.us.us, label %217, label %.critedge585.us.us
 
 217:                                              ; preds = %216
-  %.not548.us.us = icmp ult i8 %211, 4
+  %.not548.us.us = icmp samesign ult i8 %211, 4
   br i1 %.not548.us.us, label %218, label %.critedge585.us.us
 
 218:                                              ; preds = %217
@@ -14528,23 +14528,23 @@ define range(i32 -1, 1) i32 @H5T__conv_uchar__Float16(ptr noundef readonly %0, p
   br i1 %.not525.us.us, label %284, label %.critedge590.us.us
 
 284:                                              ; preds = %283
-  %.not526.us.us = icmp ult i8 %282, 64
+  %.not526.us.us = icmp samesign ult i8 %282, 64
   br i1 %.not526.us.us, label %285, label %.critedge590.us.us
 
 285:                                              ; preds = %284
-  %.not527.us.us = icmp ult i8 %282, 32
+  %.not527.us.us = icmp samesign ult i8 %282, 32
   br i1 %.not527.us.us, label %286, label %.critedge590.us.us
 
 286:                                              ; preds = %285
-  %.not528.us.us = icmp ult i8 %282, 16
+  %.not528.us.us = icmp samesign ult i8 %282, 16
   br i1 %.not528.us.us, label %287, label %.critedge590.us.us
 
 287:                                              ; preds = %286
-  %.not529.us.us = icmp ult i8 %282, 8
+  %.not529.us.us = icmp samesign ult i8 %282, 8
   br i1 %.not529.us.us, label %288, label %.critedge590.us.us
 
 288:                                              ; preds = %287
-  %.not530.us.us = icmp ult i8 %282, 4
+  %.not530.us.us = icmp samesign ult i8 %282, 4
   br i1 %.not530.us.us, label %289, label %.critedge590.us.us
 
 289:                                              ; preds = %288
@@ -14712,23 +14712,23 @@ define range(i32 -1, 1) i32 @H5T__conv_uchar__Float16(ptr noundef readonly %0, p
   br i1 %.not507.us, label %358, label %.critedge595.us
 
 358:                                              ; preds = %357
-  %.not508.us = icmp ult i8 %356, 64
+  %.not508.us = icmp samesign ult i8 %356, 64
   br i1 %.not508.us, label %359, label %.critedge595.us
 
 359:                                              ; preds = %358
-  %.not509.us = icmp ult i8 %356, 32
+  %.not509.us = icmp samesign ult i8 %356, 32
   br i1 %.not509.us, label %360, label %.critedge595.us
 
 360:                                              ; preds = %359
-  %.not510.us = icmp ult i8 %356, 16
+  %.not510.us = icmp samesign ult i8 %356, 16
   br i1 %.not510.us, label %361, label %.critedge595.us
 
 361:                                              ; preds = %360
-  %.not511.us = icmp ult i8 %356, 8
+  %.not511.us = icmp samesign ult i8 %356, 8
   br i1 %.not511.us, label %362, label %.critedge595.us
 
 362:                                              ; preds = %361
-  %.not512.us = icmp ult i8 %356, 4
+  %.not512.us = icmp samesign ult i8 %356, 4
   br i1 %.not512.us, label %363, label %.critedge595.us
 
 363:                                              ; preds = %362
@@ -15117,23 +15117,23 @@ define range(i32 -1, 1) i32 @H5T__conv_uchar_float(ptr noundef readonly %0, ptr 
   br i1 %.not561.us.us, label %137, label %.critedge.us.us
 
 137:                                              ; preds = %136
-  %.not562.us.us = icmp ult i8 %135, 64
+  %.not562.us.us = icmp samesign ult i8 %135, 64
   br i1 %.not562.us.us, label %138, label %.critedge.us.us
 
 138:                                              ; preds = %137
-  %.not563.us.us = icmp ult i8 %135, 32
+  %.not563.us.us = icmp samesign ult i8 %135, 32
   br i1 %.not563.us.us, label %139, label %.critedge.us.us
 
 139:                                              ; preds = %138
-  %.not564.us.us = icmp ult i8 %135, 16
+  %.not564.us.us = icmp samesign ult i8 %135, 16
   br i1 %.not564.us.us, label %140, label %.critedge.us.us
 
 140:                                              ; preds = %139
-  %.not565.us.us = icmp ult i8 %135, 8
+  %.not565.us.us = icmp samesign ult i8 %135, 8
   br i1 %.not565.us.us, label %141, label %.critedge.us.us
 
 141:                                              ; preds = %140
-  %.not566.us.us = icmp ult i8 %135, 4
+  %.not566.us.us = icmp samesign ult i8 %135, 4
   br i1 %.not566.us.us, label %142, label %.critedge.us.us
 
 142:                                              ; preds = %141
@@ -15328,23 +15328,23 @@ define range(i32 -1, 1) i32 @H5T__conv_uchar_float(ptr noundef readonly %0, ptr 
   br i1 %.not543.us.us, label %213, label %.critedge585.us.us
 
 213:                                              ; preds = %212
-  %.not544.us.us = icmp ult i8 %211, 64
+  %.not544.us.us = icmp samesign ult i8 %211, 64
   br i1 %.not544.us.us, label %214, label %.critedge585.us.us
 
 214:                                              ; preds = %213
-  %.not545.us.us = icmp ult i8 %211, 32
+  %.not545.us.us = icmp samesign ult i8 %211, 32
   br i1 %.not545.us.us, label %215, label %.critedge585.us.us
 
 215:                                              ; preds = %214
-  %.not546.us.us = icmp ult i8 %211, 16
+  %.not546.us.us = icmp samesign ult i8 %211, 16
   br i1 %.not546.us.us, label %216, label %.critedge585.us.us
 
 216:                                              ; preds = %215
-  %.not547.us.us = icmp ult i8 %211, 8
+  %.not547.us.us = icmp samesign ult i8 %211, 8
   br i1 %.not547.us.us, label %217, label %.critedge585.us.us
 
 217:                                              ; preds = %216
-  %.not548.us.us = icmp ult i8 %211, 4
+  %.not548.us.us = icmp samesign ult i8 %211, 4
   br i1 %.not548.us.us, label %218, label %.critedge585.us.us
 
 218:                                              ; preds = %217
@@ -15524,23 +15524,23 @@ define range(i32 -1, 1) i32 @H5T__conv_uchar_float(ptr noundef readonly %0, ptr 
   br i1 %.not525.us.us, label %284, label %.critedge590.us.us
 
 284:                                              ; preds = %283
-  %.not526.us.us = icmp ult i8 %282, 64
+  %.not526.us.us = icmp samesign ult i8 %282, 64
   br i1 %.not526.us.us, label %285, label %.critedge590.us.us
 
 285:                                              ; preds = %284
-  %.not527.us.us = icmp ult i8 %282, 32
+  %.not527.us.us = icmp samesign ult i8 %282, 32
   br i1 %.not527.us.us, label %286, label %.critedge590.us.us
 
 286:                                              ; preds = %285
-  %.not528.us.us = icmp ult i8 %282, 16
+  %.not528.us.us = icmp samesign ult i8 %282, 16
   br i1 %.not528.us.us, label %287, label %.critedge590.us.us
 
 287:                                              ; preds = %286
-  %.not529.us.us = icmp ult i8 %282, 8
+  %.not529.us.us = icmp samesign ult i8 %282, 8
   br i1 %.not529.us.us, label %288, label %.critedge590.us.us
 
 288:                                              ; preds = %287
-  %.not530.us.us = icmp ult i8 %282, 4
+  %.not530.us.us = icmp samesign ult i8 %282, 4
   br i1 %.not530.us.us, label %289, label %.critedge590.us.us
 
 289:                                              ; preds = %288
@@ -15708,23 +15708,23 @@ define range(i32 -1, 1) i32 @H5T__conv_uchar_float(ptr noundef readonly %0, ptr 
   br i1 %.not507.us, label %358, label %.critedge595.us
 
 358:                                              ; preds = %357
-  %.not508.us = icmp ult i8 %356, 64
+  %.not508.us = icmp samesign ult i8 %356, 64
   br i1 %.not508.us, label %359, label %.critedge595.us
 
 359:                                              ; preds = %358
-  %.not509.us = icmp ult i8 %356, 32
+  %.not509.us = icmp samesign ult i8 %356, 32
   br i1 %.not509.us, label %360, label %.critedge595.us
 
 360:                                              ; preds = %359
-  %.not510.us = icmp ult i8 %356, 16
+  %.not510.us = icmp samesign ult i8 %356, 16
   br i1 %.not510.us, label %361, label %.critedge595.us
 
 361:                                              ; preds = %360
-  %.not511.us = icmp ult i8 %356, 8
+  %.not511.us = icmp samesign ult i8 %356, 8
   br i1 %.not511.us, label %362, label %.critedge595.us
 
 362:                                              ; preds = %361
-  %.not512.us = icmp ult i8 %356, 4
+  %.not512.us = icmp samesign ult i8 %356, 4
   br i1 %.not512.us, label %363, label %.critedge595.us
 
 363:                                              ; preds = %362
@@ -16113,23 +16113,23 @@ define range(i32 -1, 1) i32 @H5T__conv_uchar_double(ptr noundef readonly %0, ptr
   br i1 %.not561.us.us, label %137, label %.critedge.us.us
 
 137:                                              ; preds = %136
-  %.not562.us.us = icmp ult i8 %135, 64
+  %.not562.us.us = icmp samesign ult i8 %135, 64
   br i1 %.not562.us.us, label %138, label %.critedge.us.us
 
 138:                                              ; preds = %137
-  %.not563.us.us = icmp ult i8 %135, 32
+  %.not563.us.us = icmp samesign ult i8 %135, 32
   br i1 %.not563.us.us, label %139, label %.critedge.us.us
 
 139:                                              ; preds = %138
-  %.not564.us.us = icmp ult i8 %135, 16
+  %.not564.us.us = icmp samesign ult i8 %135, 16
   br i1 %.not564.us.us, label %140, label %.critedge.us.us
 
 140:                                              ; preds = %139
-  %.not565.us.us = icmp ult i8 %135, 8
+  %.not565.us.us = icmp samesign ult i8 %135, 8
   br i1 %.not565.us.us, label %141, label %.critedge.us.us
 
 141:                                              ; preds = %140
-  %.not566.us.us = icmp ult i8 %135, 4
+  %.not566.us.us = icmp samesign ult i8 %135, 4
   br i1 %.not566.us.us, label %142, label %.critedge.us.us
 
 142:                                              ; preds = %141
@@ -16324,23 +16324,23 @@ define range(i32 -1, 1) i32 @H5T__conv_uchar_double(ptr noundef readonly %0, ptr
   br i1 %.not543.us.us, label %213, label %.critedge585.us.us
 
 213:                                              ; preds = %212
-  %.not544.us.us = icmp ult i8 %211, 64
+  %.not544.us.us = icmp samesign ult i8 %211, 64
   br i1 %.not544.us.us, label %214, label %.critedge585.us.us
 
 214:                                              ; preds = %213
-  %.not545.us.us = icmp ult i8 %211, 32
+  %.not545.us.us = icmp samesign ult i8 %211, 32
   br i1 %.not545.us.us, label %215, label %.critedge585.us.us
 
 215:                                              ; preds = %214
-  %.not546.us.us = icmp ult i8 %211, 16
+  %.not546.us.us = icmp samesign ult i8 %211, 16
   br i1 %.not546.us.us, label %216, label %.critedge585.us.us
 
 216:                                              ; preds = %215
-  %.not547.us.us = icmp ult i8 %211, 8
+  %.not547.us.us = icmp samesign ult i8 %211, 8
   br i1 %.not547.us.us, label %217, label %.critedge585.us.us
 
 217:                                              ; preds = %216
-  %.not548.us.us = icmp ult i8 %211, 4
+  %.not548.us.us = icmp samesign ult i8 %211, 4
   br i1 %.not548.us.us, label %218, label %.critedge585.us.us
 
 218:                                              ; preds = %217
@@ -16520,23 +16520,23 @@ define range(i32 -1, 1) i32 @H5T__conv_uchar_double(ptr noundef readonly %0, ptr
   br i1 %.not525.us.us, label %284, label %.critedge590.us.us
 
 284:                                              ; preds = %283
-  %.not526.us.us = icmp ult i8 %282, 64
+  %.not526.us.us = icmp samesign ult i8 %282, 64
   br i1 %.not526.us.us, label %285, label %.critedge590.us.us
 
 285:                                              ; preds = %284
-  %.not527.us.us = icmp ult i8 %282, 32
+  %.not527.us.us = icmp samesign ult i8 %282, 32
   br i1 %.not527.us.us, label %286, label %.critedge590.us.us
 
 286:                                              ; preds = %285
-  %.not528.us.us = icmp ult i8 %282, 16
+  %.not528.us.us = icmp samesign ult i8 %282, 16
   br i1 %.not528.us.us, label %287, label %.critedge590.us.us
 
 287:                                              ; preds = %286
-  %.not529.us.us = icmp ult i8 %282, 8
+  %.not529.us.us = icmp samesign ult i8 %282, 8
   br i1 %.not529.us.us, label %288, label %.critedge590.us.us
 
 288:                                              ; preds = %287
-  %.not530.us.us = icmp ult i8 %282, 4
+  %.not530.us.us = icmp samesign ult i8 %282, 4
   br i1 %.not530.us.us, label %289, label %.critedge590.us.us
 
 289:                                              ; preds = %288
@@ -16704,23 +16704,23 @@ define range(i32 -1, 1) i32 @H5T__conv_uchar_double(ptr noundef readonly %0, ptr
   br i1 %.not507.us, label %358, label %.critedge595.us
 
 358:                                              ; preds = %357
-  %.not508.us = icmp ult i8 %356, 64
+  %.not508.us = icmp samesign ult i8 %356, 64
   br i1 %.not508.us, label %359, label %.critedge595.us
 
 359:                                              ; preds = %358
-  %.not509.us = icmp ult i8 %356, 32
+  %.not509.us = icmp samesign ult i8 %356, 32
   br i1 %.not509.us, label %360, label %.critedge595.us
 
 360:                                              ; preds = %359
-  %.not510.us = icmp ult i8 %356, 16
+  %.not510.us = icmp samesign ult i8 %356, 16
   br i1 %.not510.us, label %361, label %.critedge595.us
 
 361:                                              ; preds = %360
-  %.not511.us = icmp ult i8 %356, 8
+  %.not511.us = icmp samesign ult i8 %356, 8
   br i1 %.not511.us, label %362, label %.critedge595.us
 
 362:                                              ; preds = %361
-  %.not512.us = icmp ult i8 %356, 4
+  %.not512.us = icmp samesign ult i8 %356, 4
   br i1 %.not512.us, label %363, label %.critedge595.us
 
 363:                                              ; preds = %362
@@ -17111,23 +17111,23 @@ define range(i32 -1, 1) i32 @H5T__conv_uchar_ldouble(ptr noundef readonly %0, pt
   br i1 %.not561.us.us, label %137, label %.critedge.us.us
 
 137:                                              ; preds = %136
-  %.not562.us.us = icmp ult i8 %135, 64
+  %.not562.us.us = icmp samesign ult i8 %135, 64
   br i1 %.not562.us.us, label %138, label %.critedge.us.us
 
 138:                                              ; preds = %137
-  %.not563.us.us = icmp ult i8 %135, 32
+  %.not563.us.us = icmp samesign ult i8 %135, 32
   br i1 %.not563.us.us, label %139, label %.critedge.us.us
 
 139:                                              ; preds = %138
-  %.not564.us.us = icmp ult i8 %135, 16
+  %.not564.us.us = icmp samesign ult i8 %135, 16
   br i1 %.not564.us.us, label %140, label %.critedge.us.us
 
 140:                                              ; preds = %139
-  %.not565.us.us = icmp ult i8 %135, 8
+  %.not565.us.us = icmp samesign ult i8 %135, 8
   br i1 %.not565.us.us, label %141, label %.critedge.us.us
 
 141:                                              ; preds = %140
-  %.not566.us.us = icmp ult i8 %135, 4
+  %.not566.us.us = icmp samesign ult i8 %135, 4
   br i1 %.not566.us.us, label %142, label %.critedge.us.us
 
 142:                                              ; preds = %141
@@ -17309,23 +17309,23 @@ define range(i32 -1, 1) i32 @H5T__conv_uchar_ldouble(ptr noundef readonly %0, pt
   br i1 %.not543.us.us, label %208, label %.critedge585.us.us
 
 208:                                              ; preds = %207
-  %.not544.us.us = icmp ult i8 %206, 64
+  %.not544.us.us = icmp samesign ult i8 %206, 64
   br i1 %.not544.us.us, label %209, label %.critedge585.us.us
 
 209:                                              ; preds = %208
-  %.not545.us.us = icmp ult i8 %206, 32
+  %.not545.us.us = icmp samesign ult i8 %206, 32
   br i1 %.not545.us.us, label %210, label %.critedge585.us.us
 
 210:                                              ; preds = %209
-  %.not546.us.us = icmp ult i8 %206, 16
+  %.not546.us.us = icmp samesign ult i8 %206, 16
   br i1 %.not546.us.us, label %211, label %.critedge585.us.us
 
 211:                                              ; preds = %210
-  %.not547.us.us = icmp ult i8 %206, 8
+  %.not547.us.us = icmp samesign ult i8 %206, 8
   br i1 %.not547.us.us, label %212, label %.critedge585.us.us
 
 212:                                              ; preds = %211
-  %.not548.us.us = icmp ult i8 %206, 4
+  %.not548.us.us = icmp samesign ult i8 %206, 4
   br i1 %.not548.us.us, label %213, label %.critedge585.us.us
 
 213:                                              ; preds = %212
@@ -17502,23 +17502,23 @@ define range(i32 -1, 1) i32 @H5T__conv_uchar_ldouble(ptr noundef readonly %0, pt
   br i1 %.not525.us.us, label %279, label %.critedge590.us.us
 
 279:                                              ; preds = %278
-  %.not526.us.us = icmp ult i8 %277, 64
+  %.not526.us.us = icmp samesign ult i8 %277, 64
   br i1 %.not526.us.us, label %280, label %.critedge590.us.us
 
 280:                                              ; preds = %279
-  %.not527.us.us = icmp ult i8 %277, 32
+  %.not527.us.us = icmp samesign ult i8 %277, 32
   br i1 %.not527.us.us, label %281, label %.critedge590.us.us
 
 281:                                              ; preds = %280
-  %.not528.us.us = icmp ult i8 %277, 16
+  %.not528.us.us = icmp samesign ult i8 %277, 16
   br i1 %.not528.us.us, label %282, label %.critedge590.us.us
 
 282:                                              ; preds = %281
-  %.not529.us.us = icmp ult i8 %277, 8
+  %.not529.us.us = icmp samesign ult i8 %277, 8
   br i1 %.not529.us.us, label %283, label %.critedge590.us.us
 
 283:                                              ; preds = %282
-  %.not530.us.us = icmp ult i8 %277, 4
+  %.not530.us.us = icmp samesign ult i8 %277, 4
   br i1 %.not530.us.us, label %284, label %.critedge590.us.us
 
 284:                                              ; preds = %283
@@ -17678,23 +17678,23 @@ define range(i32 -1, 1) i32 @H5T__conv_uchar_ldouble(ptr noundef readonly %0, pt
   br i1 %.not507.us, label %348, label %.critedge595.us
 
 348:                                              ; preds = %347
-  %.not508.us = icmp ult i8 %346, 64
+  %.not508.us = icmp samesign ult i8 %346, 64
   br i1 %.not508.us, label %349, label %.critedge595.us
 
 349:                                              ; preds = %348
-  %.not509.us = icmp ult i8 %346, 32
+  %.not509.us = icmp samesign ult i8 %346, 32
   br i1 %.not509.us, label %350, label %.critedge595.us
 
 350:                                              ; preds = %349
-  %.not510.us = icmp ult i8 %346, 16
+  %.not510.us = icmp samesign ult i8 %346, 16
   br i1 %.not510.us, label %351, label %.critedge595.us
 
 351:                                              ; preds = %350
-  %.not511.us = icmp ult i8 %346, 8
+  %.not511.us = icmp samesign ult i8 %346, 8
   br i1 %.not511.us, label %352, label %.critedge595.us
 
 352:                                              ; preds = %351
-  %.not512.us = icmp ult i8 %346, 4
+  %.not512.us = icmp samesign ult i8 %346, 4
   br i1 %.not512.us, label %353, label %.critedge595.us
 
 353:                                              ; preds = %352
@@ -18657,7 +18657,7 @@ define range(i32 -1, 1) i32 @H5T__conv_short_uchar(ptr noundef readonly %0, ptr 
   br i1 %98, label %109, label %99
 
 99:                                               ; preds = %.preheader346.us
-  %100 = icmp ugt i16 %97, 255
+  %100 = icmp samesign ugt i16 %97, 255
   br i1 %100, label %103, label %101
 
 101:                                              ; preds = %99
@@ -18782,7 +18782,7 @@ define range(i32 -1, 1) i32 @H5T__conv_short_uchar(ptr noundef readonly %0, ptr 
   br i1 %150, label %161, label %151
 
 151:                                              ; preds = %.preheader350.us
-  %152 = icmp ugt i16 %149, 255
+  %152 = icmp samesign ugt i16 %149, 255
   br i1 %152, label %155, label %153
 
 153:                                              ; preds = %151
@@ -18903,7 +18903,7 @@ define range(i32 -1, 1) i32 @H5T__conv_short_uchar(ptr noundef readonly %0, ptr 
   br i1 %201, label %212, label %202
 
 202:                                              ; preds = %.preheader354.us
-  %203 = icmp ugt i16 %200, 255
+  %203 = icmp samesign ugt i16 %200, 255
   br i1 %203, label %206, label %204
 
 204:                                              ; preds = %202
@@ -19076,7 +19076,7 @@ define range(i32 -1, 1) i32 @H5T__conv_short_uchar(ptr noundef readonly %0, ptr 
   br label %.loopexit360
 
 282:                                              ; preds = %.preheader358
-  %283 = icmp ugt i16 %270, 255
+  %283 = icmp samesign ugt i16 %270, 255
   br i1 %283, label %284, label %294
 
 284:                                              ; preds = %282
@@ -37142,7 +37142,7 @@ define range(i32 -1, 1) i32 @H5T__conv_int_uchar(ptr noundef readonly %0, ptr no
   br i1 %98, label %109, label %99
 
 99:                                               ; preds = %.preheader346.us
-  %100 = icmp ugt i32 %97, 255
+  %100 = icmp samesign ugt i32 %97, 255
   br i1 %100, label %103, label %101
 
 101:                                              ; preds = %99
@@ -37267,7 +37267,7 @@ define range(i32 -1, 1) i32 @H5T__conv_int_uchar(ptr noundef readonly %0, ptr no
   br i1 %150, label %161, label %151
 
 151:                                              ; preds = %.preheader350.us
-  %152 = icmp ugt i32 %149, 255
+  %152 = icmp samesign ugt i32 %149, 255
   br i1 %152, label %155, label %153
 
 153:                                              ; preds = %151
@@ -37388,7 +37388,7 @@ define range(i32 -1, 1) i32 @H5T__conv_int_uchar(ptr noundef readonly %0, ptr no
   br i1 %201, label %212, label %202
 
 202:                                              ; preds = %.preheader354.us
-  %203 = icmp ugt i32 %200, 255
+  %203 = icmp samesign ugt i32 %200, 255
   br i1 %203, label %206, label %204
 
 204:                                              ; preds = %202
@@ -37561,7 +37561,7 @@ define range(i32 -1, 1) i32 @H5T__conv_int_uchar(ptr noundef readonly %0, ptr no
   br label %.loopexit360
 
 282:                                              ; preds = %.preheader358
-  %283 = icmp ugt i32 %270, 255
+  %283 = icmp samesign ugt i32 %270, 255
   br i1 %283, label %284, label %294
 
 284:                                              ; preds = %282
@@ -38462,7 +38462,7 @@ define range(i32 -1, 1) i32 @H5T__conv_int_ushort(ptr noundef readonly %0, ptr n
   br i1 %98, label %109, label %99
 
 99:                                               ; preds = %.preheader346.us
-  %100 = icmp ugt i32 %97, 65535
+  %100 = icmp samesign ugt i32 %97, 65535
   br i1 %100, label %103, label %101
 
 101:                                              ; preds = %99
@@ -38587,7 +38587,7 @@ define range(i32 -1, 1) i32 @H5T__conv_int_ushort(ptr noundef readonly %0, ptr n
   br i1 %150, label %161, label %151
 
 151:                                              ; preds = %.preheader350.us
-  %152 = icmp ugt i32 %149, 65535
+  %152 = icmp samesign ugt i32 %149, 65535
   br i1 %152, label %155, label %153
 
 153:                                              ; preds = %151
@@ -38708,7 +38708,7 @@ define range(i32 -1, 1) i32 @H5T__conv_int_ushort(ptr noundef readonly %0, ptr n
   br i1 %201, label %212, label %202
 
 202:                                              ; preds = %.preheader354.us
-  %203 = icmp ugt i32 %200, 65535
+  %203 = icmp samesign ugt i32 %200, 65535
   br i1 %203, label %206, label %204
 
 204:                                              ; preds = %202
@@ -38881,7 +38881,7 @@ define range(i32 -1, 1) i32 @H5T__conv_int_ushort(ptr noundef readonly %0, ptr n
   br label %.loopexit360
 
 282:                                              ; preds = %.preheader358
-  %283 = icmp ugt i32 %270, 65535
+  %283 = icmp samesign ugt i32 %270, 65535
   br i1 %283, label %284, label %294
 
 284:                                              ; preds = %282
@@ -56557,7 +56557,7 @@ define range(i32 -1, 1) i32 @H5T__conv_long_uchar(ptr noundef readonly %0, ptr n
   br i1 %98, label %109, label %99
 
 99:                                               ; preds = %.preheader346.us
-  %100 = icmp ugt i64 %97, 255
+  %100 = icmp samesign ugt i64 %97, 255
   br i1 %100, label %103, label %101
 
 101:                                              ; preds = %99
@@ -56682,7 +56682,7 @@ define range(i32 -1, 1) i32 @H5T__conv_long_uchar(ptr noundef readonly %0, ptr n
   br i1 %150, label %161, label %151
 
 151:                                              ; preds = %.preheader350.us
-  %152 = icmp ugt i64 %149, 255
+  %152 = icmp samesign ugt i64 %149, 255
   br i1 %152, label %155, label %153
 
 153:                                              ; preds = %151
@@ -56803,7 +56803,7 @@ define range(i32 -1, 1) i32 @H5T__conv_long_uchar(ptr noundef readonly %0, ptr n
   br i1 %201, label %212, label %202
 
 202:                                              ; preds = %.preheader354.us
-  %203 = icmp ugt i64 %200, 255
+  %203 = icmp samesign ugt i64 %200, 255
   br i1 %203, label %206, label %204
 
 204:                                              ; preds = %202
@@ -56976,7 +56976,7 @@ define range(i32 -1, 1) i32 @H5T__conv_long_uchar(ptr noundef readonly %0, ptr n
   br label %.loopexit360
 
 282:                                              ; preds = %.preheader358
-  %283 = icmp ugt i64 %270, 255
+  %283 = icmp samesign ugt i64 %270, 255
   br i1 %283, label %284, label %294
 
 284:                                              ; preds = %282
@@ -57877,7 +57877,7 @@ define range(i32 -1, 1) i32 @H5T__conv_long_ushort(ptr noundef readonly %0, ptr 
   br i1 %98, label %109, label %99
 
 99:                                               ; preds = %.preheader346.us
-  %100 = icmp ugt i64 %97, 65535
+  %100 = icmp samesign ugt i64 %97, 65535
   br i1 %100, label %103, label %101
 
 101:                                              ; preds = %99
@@ -58002,7 +58002,7 @@ define range(i32 -1, 1) i32 @H5T__conv_long_ushort(ptr noundef readonly %0, ptr 
   br i1 %150, label %161, label %151
 
 151:                                              ; preds = %.preheader350.us
-  %152 = icmp ugt i64 %149, 65535
+  %152 = icmp samesign ugt i64 %149, 65535
   br i1 %152, label %155, label %153
 
 153:                                              ; preds = %151
@@ -58123,7 +58123,7 @@ define range(i32 -1, 1) i32 @H5T__conv_long_ushort(ptr noundef readonly %0, ptr 
   br i1 %201, label %212, label %202
 
 202:                                              ; preds = %.preheader354.us
-  %203 = icmp ugt i64 %200, 65535
+  %203 = icmp samesign ugt i64 %200, 65535
   br i1 %203, label %206, label %204
 
 204:                                              ; preds = %202
@@ -58296,7 +58296,7 @@ define range(i32 -1, 1) i32 @H5T__conv_long_ushort(ptr noundef readonly %0, ptr 
   br label %.loopexit360
 
 282:                                              ; preds = %.preheader358
-  %283 = icmp ugt i64 %270, 65535
+  %283 = icmp samesign ugt i64 %270, 65535
   br i1 %283, label %284, label %294
 
 284:                                              ; preds = %282
@@ -59197,7 +59197,7 @@ define range(i32 -1, 1) i32 @H5T__conv_long_uint(ptr noundef readonly %0, ptr no
   br i1 %98, label %109, label %99
 
 99:                                               ; preds = %.preheader346.us
-  %100 = icmp ugt i64 %97, 4294967295
+  %100 = icmp samesign ugt i64 %97, 4294967295
   br i1 %100, label %103, label %101
 
 101:                                              ; preds = %99
@@ -59322,7 +59322,7 @@ define range(i32 -1, 1) i32 @H5T__conv_long_uint(ptr noundef readonly %0, ptr no
   br i1 %150, label %161, label %151
 
 151:                                              ; preds = %.preheader350.us
-  %152 = icmp ugt i64 %149, 4294967295
+  %152 = icmp samesign ugt i64 %149, 4294967295
   br i1 %152, label %155, label %153
 
 153:                                              ; preds = %151
@@ -59443,7 +59443,7 @@ define range(i32 -1, 1) i32 @H5T__conv_long_uint(ptr noundef readonly %0, ptr no
   br i1 %201, label %212, label %202
 
 202:                                              ; preds = %.preheader354.us
-  %203 = icmp ugt i64 %200, 4294967295
+  %203 = icmp samesign ugt i64 %200, 4294967295
   br i1 %203, label %206, label %204
 
 204:                                              ; preds = %202
@@ -59616,7 +59616,7 @@ define range(i32 -1, 1) i32 @H5T__conv_long_uint(ptr noundef readonly %0, ptr no
   br label %.loopexit360
 
 282:                                              ; preds = %.preheader358
-  %283 = icmp ugt i64 %270, 4294967295
+  %283 = icmp samesign ugt i64 %270, 4294967295
   br i1 %283, label %284, label %294
 
 284:                                              ; preds = %282
@@ -76006,7 +76006,7 @@ define range(i32 -1, 1) i32 @H5T__conv_llong_uchar(ptr noundef readonly %0, ptr 
   br i1 %98, label %109, label %99
 
 99:                                               ; preds = %.preheader346.us
-  %100 = icmp ugt i64 %97, 255
+  %100 = icmp samesign ugt i64 %97, 255
   br i1 %100, label %103, label %101
 
 101:                                              ; preds = %99
@@ -76131,7 +76131,7 @@ define range(i32 -1, 1) i32 @H5T__conv_llong_uchar(ptr noundef readonly %0, ptr 
   br i1 %150, label %161, label %151
 
 151:                                              ; preds = %.preheader350.us
-  %152 = icmp ugt i64 %149, 255
+  %152 = icmp samesign ugt i64 %149, 255
   br i1 %152, label %155, label %153
 
 153:                                              ; preds = %151
@@ -76252,7 +76252,7 @@ define range(i32 -1, 1) i32 @H5T__conv_llong_uchar(ptr noundef readonly %0, ptr 
   br i1 %201, label %212, label %202
 
 202:                                              ; preds = %.preheader354.us
-  %203 = icmp ugt i64 %200, 255
+  %203 = icmp samesign ugt i64 %200, 255
   br i1 %203, label %206, label %204
 
 204:                                              ; preds = %202
@@ -76425,7 +76425,7 @@ define range(i32 -1, 1) i32 @H5T__conv_llong_uchar(ptr noundef readonly %0, ptr 
   br label %.loopexit360
 
 282:                                              ; preds = %.preheader358
-  %283 = icmp ugt i64 %270, 255
+  %283 = icmp samesign ugt i64 %270, 255
   br i1 %283, label %284, label %294
 
 284:                                              ; preds = %282
@@ -77326,7 +77326,7 @@ define range(i32 -1, 1) i32 @H5T__conv_llong_ushort(ptr noundef readonly %0, ptr
   br i1 %98, label %109, label %99
 
 99:                                               ; preds = %.preheader346.us
-  %100 = icmp ugt i64 %97, 65535
+  %100 = icmp samesign ugt i64 %97, 65535
   br i1 %100, label %103, label %101
 
 101:                                              ; preds = %99
@@ -77451,7 +77451,7 @@ define range(i32 -1, 1) i32 @H5T__conv_llong_ushort(ptr noundef readonly %0, ptr
   br i1 %150, label %161, label %151
 
 151:                                              ; preds = %.preheader350.us
-  %152 = icmp ugt i64 %149, 65535
+  %152 = icmp samesign ugt i64 %149, 65535
   br i1 %152, label %155, label %153
 
 153:                                              ; preds = %151
@@ -77572,7 +77572,7 @@ define range(i32 -1, 1) i32 @H5T__conv_llong_ushort(ptr noundef readonly %0, ptr
   br i1 %201, label %212, label %202
 
 202:                                              ; preds = %.preheader354.us
-  %203 = icmp ugt i64 %200, 65535
+  %203 = icmp samesign ugt i64 %200, 65535
   br i1 %203, label %206, label %204
 
 204:                                              ; preds = %202
@@ -77745,7 +77745,7 @@ define range(i32 -1, 1) i32 @H5T__conv_llong_ushort(ptr noundef readonly %0, ptr
   br label %.loopexit360
 
 282:                                              ; preds = %.preheader358
-  %283 = icmp ugt i64 %270, 65535
+  %283 = icmp samesign ugt i64 %270, 65535
   br i1 %283, label %284, label %294
 
 284:                                              ; preds = %282
@@ -78646,7 +78646,7 @@ define range(i32 -1, 1) i32 @H5T__conv_llong_uint(ptr noundef readonly %0, ptr n
   br i1 %98, label %109, label %99
 
 99:                                               ; preds = %.preheader346.us
-  %100 = icmp ugt i64 %97, 4294967295
+  %100 = icmp samesign ugt i64 %97, 4294967295
   br i1 %100, label %103, label %101
 
 101:                                              ; preds = %99
@@ -78771,7 +78771,7 @@ define range(i32 -1, 1) i32 @H5T__conv_llong_uint(ptr noundef readonly %0, ptr n
   br i1 %150, label %161, label %151
 
 151:                                              ; preds = %.preheader350.us
-  %152 = icmp ugt i64 %149, 4294967295
+  %152 = icmp samesign ugt i64 %149, 4294967295
   br i1 %152, label %155, label %153
 
 153:                                              ; preds = %151
@@ -78892,7 +78892,7 @@ define range(i32 -1, 1) i32 @H5T__conv_llong_uint(ptr noundef readonly %0, ptr n
   br i1 %201, label %212, label %202
 
 202:                                              ; preds = %.preheader354.us
-  %203 = icmp ugt i64 %200, 4294967295
+  %203 = icmp samesign ugt i64 %200, 4294967295
   br i1 %203, label %206, label %204
 
 204:                                              ; preds = %202
@@ -79065,7 +79065,7 @@ define range(i32 -1, 1) i32 @H5T__conv_llong_uint(ptr noundef readonly %0, ptr n
   br label %.loopexit360
 
 282:                                              ; preds = %.preheader358
-  %283 = icmp ugt i64 %270, 4294967295
+  %283 = icmp samesign ugt i64 %270, 4294967295
   br i1 %283, label %284, label %294
 
 284:                                              ; preds = %282

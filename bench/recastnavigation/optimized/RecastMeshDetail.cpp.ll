@@ -1026,7 +1026,7 @@ _ZN10rcIntArrayixEi.exit11.i:                     ; preds = %411, %406, %.noexc5
   %471 = zext i16 %470 to i32
   %472 = sub nsw i32 %441, %471
   %473 = call noundef i32 @llvm.abs.i32(i32 %472, i1 true)
-  %474 = icmp ult i32 %473, %.3174238.i.i
+  %474 = icmp samesign ult i32 %473, %.3174238.i.i
   br i1 %474, label %475, label %477
 
 475:                                              ; preds = %.lr.ph.i.i
@@ -2715,7 +2715,7 @@ _ZL13distancePtSegPKfS0_S0_.exit.i:               ; preds = %1169, %1167, %1151
   store i32 %1217, ptr %1216, align 4
   %indvars.iv.next979 = add nsw i64 %indvars.iv978, 1
   %indvars.iv.next528.i = add nsw i64 %indvars.iv527.i, -1
-  %1218 = icmp ugt i64 %indvars.iv527.i, 1
+  %1218 = icmp samesign ugt i64 %indvars.iv527.i, 1
   br i1 %1218, label %.lr.ph436.i, label %.loopexit401.loopexit.i, !llvm.loop !30
 
 .lr.ph431.i:                                      ; preds = %.lr.ph431.i, %.lr.ph431.preheader.i
@@ -4225,7 +4225,7 @@ _ZN10rcIntArrayixEi.exit309.i:                    ; preds = %1897, %1893, %.noex
 
 .noexc589:                                        ; preds = %.noexc588
   %1917 = icmp eq ptr %1916, null
-  %1918 = icmp ult i64 %.0.i.i581, 2305843009213693952
+  %1918 = icmp samesign ult i64 %.0.i.i581, 2305843009213693952
   %or.cond.i.i582 = or i1 %1917, %1918
   br i1 %or.cond.i.i582, label %.noexc590, label %1919
 

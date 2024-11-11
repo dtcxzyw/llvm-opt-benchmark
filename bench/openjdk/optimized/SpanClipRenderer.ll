@@ -158,7 +158,7 @@ define void @Java_sun_java2d_pipe_SpanClipRenderer_fillTile(ptr noundef %0, ptr 
   tail call void @llvm.memset.p0.i64(ptr align 1 %.019.us.i, i8 -1, i64 %60, i1 false)
   %scevgep.i = getelementptr i8, ptr %.019.us.i, i64 %60
   %62 = getelementptr inbounds i8, ptr %scevgep.i, i64 %57
-  %63 = icmp ugt i32 %.in.i, 1
+  %63 = icmp samesign ugt i32 %.in.i, 1
   br i1 %63, label %.preheader.us.i, label %fill.exit, !llvm.loop !6
 
 fill.exit:                                        ; preds = %.preheader.us.i, %53, %.preheader.lr.ph.i
@@ -456,7 +456,7 @@ define void @Java_sun_java2d_pipe_SpanClipRenderer_eraseTile(ptr noundef %0, ptr
   tail call void @llvm.memset.p0.i64(ptr align 1 %.019.us.i, i8 0, i64 %105, i1 false)
   %scevgep.i = getelementptr i8, ptr %.019.us.i, i64 %105
   %166 = getelementptr inbounds i8, ptr %scevgep.i, i64 %104
-  %167 = icmp ugt i32 %.in.i, 1
+  %167 = icmp samesign ugt i32 %.in.i, 1
   br i1 %167, label %.preheader.us.i, label %fill.exit.loopexit, !llvm.loop !6
 
 fill.exit.loopexit:                               ; preds = %.preheader.us.i
@@ -500,7 +500,7 @@ fill.exit:                                        ; preds = %fill.exit.loopexit,
   tail call void @llvm.memset.p0.i64(ptr align 1 %.019.us.i232, i8 0, i64 %185, i1 false)
   %scevgep.i233 = getelementptr i8, ptr %.019.us.i232, i64 %185
   %187 = getelementptr inbounds i8, ptr %scevgep.i233, i64 %179
-  %188 = icmp ugt i32 %.in.i231, 1
+  %188 = icmp samesign ugt i32 %.in.i231, 1
   br i1 %188, label %.preheader.us.i230, label %fill.exit234, !llvm.loop !6
 
 fill.exit234:                                     ; preds = %.preheader.us.i230, %.preheader.lr.ph.i228, %171, %fill.exit
@@ -556,7 +556,7 @@ nextXBand.exit.thread:                            ; preds = %fill.exit234, %148,
   tail call void @llvm.memset.p0.i64(ptr align 1 %.019.us.i239, i8 0, i64 %208, i1 false)
   %scevgep.i240 = getelementptr i8, ptr %.019.us.i239, i64 %208
   %210 = getelementptr inbounds i8, ptr %scevgep.i240, i64 %202
-  %211 = icmp ugt i32 %.in.i238, 1
+  %211 = icmp samesign ugt i32 %.in.i238, 1
   br i1 %211, label %.preheader.us.i237, label %fill.exit241.loopexit, !llvm.loop !6
 
 fill.exit241.loopexit:                            ; preds = %.preheader.us.i237

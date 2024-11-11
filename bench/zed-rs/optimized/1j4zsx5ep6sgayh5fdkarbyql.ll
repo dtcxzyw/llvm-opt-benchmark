@@ -42294,7 +42294,7 @@ define hidden noundef zeroext i1 @_ZN4core3cmp10PartialOrd2le17he2b3594bbd7c054a
   %.1.i.i = sext i1 %6 to i8
   %.sroa.0.0.i.i = select i1 %5, i8 %..i.i, i8 %.1.i.i
   %7 = add nsw i8 %.sroa.0.0.i.i, -3
-  %switch = icmp ult i8 %7, -2
+  %switch = icmp samesign ult i8 %7, -2
   ret i1 %switch
 }
 
@@ -121182,7 +121182,7 @@ define hidden noundef zeroext i1 @"_ZN8sum_tree6cursor19Cursor$LT$T$C$D$GT$13see
 95:                                               ; preds = %._crit_edge186
   %96 = load i32, ptr %65, align 8, !noundef !16
   %97 = zext i32 %96 to i64
-  %98 = icmp ugt i64 %85, %97
+  %98 = icmp samesign ugt i64 %85, %97
   br i1 %98, label %109, label %100
 
 99:                                               ; preds = %._crit_edge186
@@ -121319,7 +121319,7 @@ define hidden noundef zeroext i1 @"_ZN8sum_tree6cursor19Cursor$LT$T$C$D$GT$13see
   %142 = getelementptr inbounds i8, ptr %64, i64 408
   %143 = load i32, ptr %142, align 8, !noundef !16
   %144 = zext i32 %143 to i64
-  %145 = icmp ugt i64 %83, %144
+  %145 = icmp samesign ugt i64 %83, %144
   br i1 %145, label %154, label %147
 
 146:                                              ; preds = %79
@@ -121671,7 +121671,7 @@ define hidden noundef zeroext i1 @"_ZN8sum_tree6cursor19Cursor$LT$T$C$D$GT$13see
 115:                                              ; preds = %101
   %116 = load i32, ptr %73, align 8, !noundef !16
   %117 = zext i32 %116 to i64
-  %118 = icmp ugt i64 %102, %117
+  %118 = icmp samesign ugt i64 %102, %117
   br i1 %118, label %128, label %120
 
 119:                                              ; preds = %101
@@ -121847,7 +121847,7 @@ define hidden noundef zeroext i1 @"_ZN8sum_tree6cursor19Cursor$LT$T$C$D$GT$13see
   %183 = getelementptr inbounds i8, ptr %72, i64 408
   %184 = load i32, ptr %183, align 8, !noundef !16
   %185 = zext i32 %184 to i64
-  %186 = icmp ugt i64 %99, %185
+  %186 = icmp samesign ugt i64 %99, %185
   br i1 %186, label %195, label %188
 
 187:                                              ; preds = %96
@@ -122178,7 +122178,7 @@ define hidden noundef zeroext i1 @"_ZN8sum_tree6cursor19Cursor$LT$T$C$D$GT$13see
 87:                                               ; preds = %._crit_edge158
   %88 = load i32, ptr %60, align 8, !noundef !16
   %89 = zext i32 %88 to i64
-  %90 = icmp ugt i64 %78, %89
+  %90 = icmp samesign ugt i64 %78, %89
   br i1 %90, label %100, label %92
 
 91:                                               ; preds = %._crit_edge158
@@ -122296,7 +122296,7 @@ define hidden noundef zeroext i1 @"_ZN8sum_tree6cursor19Cursor$LT$T$C$D$GT$13see
   %129 = getelementptr inbounds i8, ptr %59, i64 408
   %130 = load i32, ptr %129, align 8, !noundef !16
   %131 = zext i32 %130 to i64
-  %132 = icmp ugt i64 %76, %131
+  %132 = icmp samesign ugt i64 %76, %131
   br i1 %132, label %141, label %134
 
 133:                                              ; preds = %72
@@ -123043,7 +123043,7 @@ _ZN8arrayvec13arrayvec_impl12ArrayVecImpl3pop17hd9a6c44d5420a1c2E.exit: ; preds 
   %94 = getelementptr inbounds i8, ptr %81, i64 408
   %95 = load i32, ptr %94, align 8, !noundef !16
   %96 = zext i32 %95 to i64
-  %97 = icmp ult i64 %79, %96
+  %97 = icmp samesign ult i64 %79, %96
   br i1 %97, label %98, label %110
 
 98:                                               ; preds = %93
@@ -130108,7 +130108,7 @@ default.unreachable:                              ; preds = %32
   br i1 %190, label %191, label %"_ZN4core3str6traits108_$LT$impl$u20$core..slice..index..SliceIndex$LT$str$GT$$u20$for$u20$core..ops..range..Range$LT$usize$GT$$GT$3get17hb559ab979e767ef6E.exit159"
 
 191:                                              ; preds = %187
-  %192 = icmp ugt i64 %53, 6
+  %192 = icmp samesign ugt i64 %53, 6
   br i1 %192, label %193, label %197
 
 193:                                              ; preds = %191
@@ -131543,7 +131543,7 @@ define hidden { float, float } @"_ZN4gpui8geometry14Point$LT$T$GT$3min17h0a8729e
   %.1.i.i.i = sext i1 %6 to i8
   %.sroa.0.0.i.i.i = select i1 %5, i8 %..i.i.i, i8 %.1.i.i.i
   %7 = add nsw i8 %.sroa.0.0.i.i.i, -3
-  %switch.i = icmp ult i8 %7, -2
+  %switch.i = icmp samesign ult i8 %7, -2
   %. = select i1 %switch.i, float %3, float %4
   %8 = getelementptr inbounds i8, ptr %0, i64 4
   %9 = getelementptr inbounds i8, ptr %1, i64 4
@@ -131555,7 +131555,7 @@ define hidden { float, float } @"_ZN4gpui8geometry14Point$LT$T$GT$3min17h0a8729e
   %.1.i.i.i4 = sext i1 %13 to i8
   %.sroa.0.0.i.i.i5 = select i1 %12, i8 %..i.i.i3, i8 %.1.i.i.i4
   %14 = add nsw i8 %.sroa.0.0.i.i.i5, -3
-  %switch.i6 = icmp ult i8 %14, -2
+  %switch.i6 = icmp samesign ult i8 %14, -2
   %.sroa.01.0 = select i1 %switch.i6, float %10, float %11
   %15 = insertvalue { float, float } poison, float %., 0
   %16 = insertvalue { float, float } %15, float %.sroa.01.0, 1
@@ -132306,7 +132306,7 @@ define hidden void @"_ZN4gpui8geometry15Bounds$LT$T$GT$9intersect17h7c6dbd620846
   %.1.i.i.i.i = sext i1 %25 to i8
   %.sroa.0.0.i.i.i.i = select i1 %24, i8 %..i.i.i.i, i8 %.1.i.i.i.i
   %26 = add nsw i8 %.sroa.0.0.i.i.i.i, -3
-  %switch.i.i = icmp ult i8 %26, -2
+  %switch.i.i = icmp samesign ult i8 %26, -2
   %..i4 = select i1 %switch.i.i, float %14, float %20
   %27 = fcmp ugt float %17, %23
   %28 = fcmp ult float %17, %23
@@ -132314,7 +132314,7 @@ define hidden void @"_ZN4gpui8geometry15Bounds$LT$T$GT$9intersect17h7c6dbd620846
   %.1.i.i.i4.i = sext i1 %28 to i8
   %.sroa.0.0.i.i.i5.i = select i1 %27, i8 %..i.i.i3.i, i8 %.1.i.i.i4.i
   %29 = add nsw i8 %.sroa.0.0.i.i.i5.i, -3
-  %switch.i6.i = icmp ult i8 %29, -2
+  %switch.i6.i = icmp samesign ult i8 %29, -2
   %.sroa.01.0.i5 = select i1 %switch.i6.i, float %17, float %23
   %30 = fsub float %..i4, %..i
   %31 = fsub float %.sroa.01.0.i5, %.sroa.01.0.i
@@ -132432,7 +132432,7 @@ define hidden void @"_ZN4gpui8geometry15Bounds$LT$T$GT$5union17h8a8f643cdbb93c6a
   %.1.i.i.i.i = sext i1 %7 to i8
   %.sroa.0.0.i.i.i.i = select i1 %6, i8 %..i.i.i.i, i8 %.1.i.i.i.i
   %8 = add nsw i8 %.sroa.0.0.i.i.i.i, -3
-  %switch.i.i = icmp ult i8 %8, -2
+  %switch.i.i = icmp samesign ult i8 %8, -2
   %..i = select i1 %switch.i.i, float %4, float %5
   %9 = getelementptr inbounds i8, ptr %1, i64 4
   %10 = getelementptr inbounds i8, ptr %2, i64 4
@@ -132444,7 +132444,7 @@ define hidden void @"_ZN4gpui8geometry15Bounds$LT$T$GT$5union17h8a8f643cdbb93c6a
   %.1.i.i.i4.i = sext i1 %14 to i8
   %.sroa.0.0.i.i.i5.i = select i1 %13, i8 %..i.i.i3.i, i8 %.1.i.i.i4.i
   %15 = add nsw i8 %.sroa.0.0.i.i.i5.i, -3
-  %switch.i6.i = icmp ult i8 %15, -2
+  %switch.i6.i = icmp samesign ult i8 %15, -2
   %.sroa.01.0.i = select i1 %switch.i6.i, float %11, float %12
   %16 = getelementptr inbounds i8, ptr %1, i64 8
   %17 = load float, ptr %16, align 4, !alias.scope !29764, !noundef !16
@@ -132925,7 +132925,7 @@ define hidden noundef zeroext i1 @"_ZN4gpui8geometry15Bounds$LT$T$GT$8is_empty17
   %.1.i.i.i = sext i1 %5 to i8
   %.sroa.0.0.i.i.i = select i1 %4, i8 %..i.i.i, i8 %.1.i.i.i
   %6 = add nsw i8 %.sroa.0.0.i.i.i, -3
-  %switch.i = icmp ult i8 %6, -2
+  %switch.i = icmp samesign ult i8 %6, -2
   br i1 %switch.i, label %13, label %7
 
 7:                                                ; preds = %1
@@ -132937,7 +132937,7 @@ define hidden noundef zeroext i1 @"_ZN4gpui8geometry15Bounds$LT$T$GT$8is_empty17
   %.1.i.i.i4 = sext i1 %11 to i8
   %.sroa.0.0.i.i.i5 = select i1 %10, i8 %..i.i.i3, i8 %.1.i.i.i4
   %12 = add nsw i8 %.sroa.0.0.i.i.i5, -3
-  %switch.i6 = icmp ult i8 %12, -2
+  %switch.i6 = icmp samesign ult i8 %12, -2
   br label %13
 
 13:                                               ; preds = %1, %7

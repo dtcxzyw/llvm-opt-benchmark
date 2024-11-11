@@ -350,7 +350,7 @@ if.then4.i:                                       ; preds = %if.then.i
 if.end8.i:                                        ; preds = %if.then4.i, %if.then.i, %required_blocks.exit
   %2 = shufflevector <16 x i8> %j.sroa.0.12.vec.insert, <16 x i8> poison, <16 x i32> <i32 15, i32 14, i32 13, i32 12, i32 11, i32 10, i32 9, i32 8, i32 7, i32 6, i32 5, i32 4, i32 3, i32 2, i32 1, i32 0>
   %3 = bitcast <16 x i8> %2 to <2 x i64>
-  %cmp12.i = icmp ugt i64 %m_len_, 223
+  %cmp12.i = icmp samesign ugt i64 %m_len_, 223
   br i1 %cmp12.i, label %for.body.i.i, label %if.end89.i
 
 for.body.i.i:                                     ; preds = %if.end8.i, %for.body.i.i
@@ -1684,7 +1684,7 @@ if.then4.i:                                       ; preds = %if.then.i
 if.end8.i:                                        ; preds = %if.then4.i, %if.then.i, %required_blocks.exit
   %17 = shufflevector <16 x i8> %j.sroa.0.12.vec.insert, <16 x i8> poison, <16 x i32> <i32 15, i32 14, i32 13, i32 12, i32 11, i32 10, i32 9, i32 8, i32 7, i32 6, i32 5, i32 4, i32 3, i32 2, i32 1, i32 0>
   %18 = bitcast <16 x i8> %17 to <2 x i64>
-  %cmp12.not439.i = icmp ult i64 %c_len_, 224
+  %cmp12.not439.i = icmp samesign ult i64 %c_len_, 224
   br i1 %cmp12.not439.i, label %for.cond45.preheader.i, label %for.body.i.preheader.lr.ph.i
 
 for.body.i.preheader.lr.ph.i:                     ; preds = %if.end8.i

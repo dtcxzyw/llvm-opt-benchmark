@@ -619,7 +619,7 @@ define range(i32 -1, 1) i32 @H5MF__start_fstype(ptr noundef %0, i32 noundef %1) 
   br label %H5VM_log2_gen.exit.i
 
 39:                                               ; preds = %25
-  %.not27.i.i = icmp ult i64 %23, 1099511627776
+  %.not27.i.i = icmp samesign ult i64 %23, 1099511627776
   br i1 %.not27.i.i, label %46, label %40
 
 40:                                               ; preds = %39
@@ -639,11 +639,11 @@ define range(i32 -1, 1) i32 @H5MF__start_fstype(ptr noundef %0, i32 noundef %1) 
 
 51:                                               ; preds = %19
   %52 = lshr i64 %23, 16
-  %.not23.i.i = icmp ult i64 %23, 65536
+  %.not23.i.i = icmp samesign ult i64 %23, 65536
   br i1 %.not23.i.i, label %65, label %53
 
 53:                                               ; preds = %51
-  %.not25.i.i = icmp ult i64 %23, 16777216
+  %.not25.i.i = icmp samesign ult i64 %23, 16777216
   br i1 %.not25.i.i, label %60, label %54
 
 54:                                               ; preds = %53
@@ -662,7 +662,7 @@ define range(i32 -1, 1) i32 @H5MF__start_fstype(ptr noundef %0, i32 noundef %1) 
   br label %H5VM_log2_gen.exit.i
 
 65:                                               ; preds = %51
-  %.not24.i.i = icmp ult i64 %23, 256
+  %.not24.i.i = icmp samesign ult i64 %23, 256
   br i1 %.not24.i.i, label %72, label %66
 
 66:                                               ; preds = %65

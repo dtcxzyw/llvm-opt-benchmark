@@ -29516,7 +29516,7 @@ for.body.i.epil:                                  ; preds = %for.body.lr.ph.i, %
   %arrayidx.i.epil = getelementptr inbounds i16, ptr %add.ptr3.i, i64 %.unr6
   %9 = load i16, ptr %arrayidx.i.epil, align 2, !tbaa !525
   %conv.i17.epil = zext i16 %9 to i64
-  %cmp5.not.i.epil = icmp ult i64 %.unr237, %conv.i17.epil
+  %cmp5.not.i.epil = icmp samesign ult i64 %.unr237, %conv.i17.epil
   br i1 %cmp5.not.i.epil, label %for.cond.for.cond.cleanup_crit_edge.i, label %if.then.i.epil
 
 if.then.i.epil:                                   ; preds = %for.body.i.epil
@@ -29554,7 +29554,7 @@ for.inc.i:                                        ; preds = %if.then.i, %for.bod
   %13 = phi i64 [ %inc7.i, %if.then.i ], [ %10, %for.body.i ]
   %14 = phi i64 [ 0, %if.then.i ], [ %inc.i, %for.body.i ]
   %inc.i.1 = add nuw nsw i64 %14, 1
-  %cmp5.not.i.1 = icmp ult i64 %inc.i.1, %conv.i17.1.pre-phi
+  %cmp5.not.i.1 = icmp samesign ult i64 %inc.i.1, %conv.i17.1.pre-phi
   br i1 %cmp5.not.i.1, label %for.inc.i.1, label %if.then.i.1
 
 if.then.i.1:                                      ; preds = %for.inc.i
@@ -29664,7 +29664,7 @@ for.inc.i:                                        ; preds = %if.then.i, %for.bod
   %9 = phi i64 [ %inc7.i, %if.then.i ], [ %6, %for.body.i ]
   %10 = phi i64 [ 0, %if.then.i ], [ %inc.i, %for.body.i ]
   %inc.i.1 = add nuw nsw i64 %10, 1
-  %cmp5.not.i.1 = icmp ult i64 %inc.i.1, %conv.i.1.pre-phi
+  %cmp5.not.i.1 = icmp samesign ult i64 %inc.i.1, %conv.i.1.pre-phi
   br i1 %cmp5.not.i.1, label %for.inc.i.1, label %if.then.i.1
 
 if.then.i.1:                                      ; preds = %for.inc.i
@@ -31116,7 +31116,7 @@ for.inc.i:                                        ; preds = %if.then14.i, %for.b
   %arrayidx.i.i.1 = getelementptr inbounds i16, ptr %add.ptr6.i, i64 %inc.i41.i
   %11 = load i16, ptr %arrayidx.i.i.1, align 2, !tbaa !525
   %conv.i.i.1 = zext i16 %11 to i64
-  %cmp.i.not.i.1 = icmp ult i64 %inc.i.1, %conv.i.i.1
+  %cmp.i.not.i.1 = icmp samesign ult i64 %inc.i.1, %conv.i.i.1
   br i1 %cmp.i.not.i.1, label %for.inc.i.1, label %if.then14.i.1
 
 if.then14.i.1:                                    ; preds = %for.inc.i
@@ -31246,7 +31246,7 @@ for.body.i.epil:                                  ; preds = %for.body.lr.ph.i, %
   %arrayidx.i.epil = getelementptr inbounds i16, ptr %add.ptr3.i, i64 %.unr6
   %9 = load i16, ptr %arrayidx.i.epil, align 2, !tbaa !525
   %conv.i17.epil = zext i16 %9 to i64
-  %cmp5.not.i.epil = icmp ult i64 %.unr237, %conv.i17.epil
+  %cmp5.not.i.epil = icmp samesign ult i64 %.unr237, %conv.i17.epil
   br i1 %cmp5.not.i.epil, label %for.cond.for.cond.cleanup_crit_edge.i, label %if.then.i.epil
 
 if.then.i.epil:                                   ; preds = %for.body.i.epil
@@ -31284,7 +31284,7 @@ for.inc.i:                                        ; preds = %if.then.i, %for.bod
   %13 = phi i64 [ %inc7.i, %if.then.i ], [ %10, %for.body.i ]
   %14 = phi i64 [ 0, %if.then.i ], [ %inc.i, %for.body.i ]
   %inc.i.1 = add nuw nsw i64 %14, 1
-  %cmp5.not.i.1 = icmp ult i64 %inc.i.1, %conv.i17.1.pre-phi
+  %cmp5.not.i.1 = icmp samesign ult i64 %inc.i.1, %conv.i17.1.pre-phi
   br i1 %cmp5.not.i.1, label %for.inc.i.1, label %if.then.i.1
 
 if.then.i.1:                                      ; preds = %for.inc.i
@@ -31394,7 +31394,7 @@ for.inc.i:                                        ; preds = %if.then.i, %for.bod
   %9 = phi i64 [ %inc7.i, %if.then.i ], [ %6, %for.body.i ]
   %10 = phi i64 [ 0, %if.then.i ], [ %inc.i, %for.body.i ]
   %inc.i.1 = add nuw nsw i64 %10, 1
-  %cmp5.not.i.1 = icmp ult i64 %inc.i.1, %conv.i.1.pre-phi
+  %cmp5.not.i.1 = icmp samesign ult i64 %inc.i.1, %conv.i.1.pre-phi
   br i1 %cmp5.not.i.1, label %for.inc.i.1, label %if.then.i.1
 
 if.then.i.1:                                      ; preds = %for.inc.i
@@ -31961,7 +31961,7 @@ for.inc:                                          ; preds = %if.then14, %for.bod
   %arrayidx.i40.1 = getelementptr inbounds i16, ptr %add.ptr6, i64 %inc.i45
   %19 = load i16, ptr %arrayidx.i40.1, align 2, !tbaa !525
   %conv.i.1 = zext i16 %19 to i64
-  %cmp.i.not.1 = icmp ult i64 %inc.1, %conv.i.1
+  %cmp.i.not.1 = icmp samesign ult i64 %inc.1, %conv.i.1
   br i1 %cmp.i.not.1, label %for.inc.1, label %if.then14.1
 
 if.then14.1:                                      ; preds = %for.inc
@@ -32893,7 +32893,7 @@ for.inc.i:                                        ; preds = %if.then14.i, %for.b
   %gep.i.1 = getelementptr i32, ptr %invariant.gep.i, i64 %inc16.i
   store i32 %9, ptr %gep.i.1, align 4, !tbaa !116
   %inc.i.1 = add nuw nsw i64 %10, 1
-  %cmp.i.not.i.1 = icmp ult i64 %inc.i.1, %conv.i.i.1.pre-phi
+  %cmp.i.not.i.1 = icmp samesign ult i64 %inc.i.1, %conv.i.i.1.pre-phi
   br i1 %cmp.i.not.i.1, label %for.inc.i.1, label %if.then14.i.1
 
 if.then14.i.1:                                    ; preds = %for.inc.i
@@ -33023,7 +33023,7 @@ for.body.i.epil:                                  ; preds = %for.body.lr.ph.i, %
   %arrayidx.i.epil = getelementptr inbounds i16, ptr %add.ptr3.i, i64 %.unr6
   %9 = load i16, ptr %arrayidx.i.epil, align 2, !tbaa !525
   %conv.i17.epil = zext i16 %9 to i64
-  %cmp5.not.i.epil = icmp ult i64 %.unr237, %conv.i17.epil
+  %cmp5.not.i.epil = icmp samesign ult i64 %.unr237, %conv.i17.epil
   br i1 %cmp5.not.i.epil, label %for.cond.for.cond.cleanup_crit_edge.i, label %if.then.i.epil
 
 if.then.i.epil:                                   ; preds = %for.body.i.epil
@@ -33061,7 +33061,7 @@ for.inc.i:                                        ; preds = %if.then.i, %for.bod
   %13 = phi i64 [ %inc7.i, %if.then.i ], [ %10, %for.body.i ]
   %14 = phi i64 [ 0, %if.then.i ], [ %inc.i, %for.body.i ]
   %inc.i.1 = add nuw nsw i64 %14, 1
-  %cmp5.not.i.1 = icmp ult i64 %inc.i.1, %conv.i17.1.pre-phi
+  %cmp5.not.i.1 = icmp samesign ult i64 %inc.i.1, %conv.i17.1.pre-phi
   br i1 %cmp5.not.i.1, label %for.inc.i.1, label %if.then.i.1
 
 if.then.i.1:                                      ; preds = %for.inc.i
@@ -33171,7 +33171,7 @@ for.inc.i:                                        ; preds = %if.then.i, %for.bod
   %9 = phi i64 [ %inc7.i, %if.then.i ], [ %6, %for.body.i ]
   %10 = phi i64 [ 0, %if.then.i ], [ %inc.i, %for.body.i ]
   %inc.i.1 = add nuw nsw i64 %10, 1
-  %cmp5.not.i.1 = icmp ult i64 %inc.i.1, %conv.i.1.pre-phi
+  %cmp5.not.i.1 = icmp samesign ult i64 %inc.i.1, %conv.i.1.pre-phi
   br i1 %cmp5.not.i.1, label %for.inc.i.1, label %if.then.i.1
 
 if.then.i.1:                                      ; preds = %for.inc.i
@@ -33740,7 +33740,7 @@ for.inc:                                          ; preds = %if.then14, %for.bod
   %gep.1 = getelementptr i32, ptr %invariant.gep, i64 %inc16
   store i32 %17, ptr %gep.1, align 4, !tbaa !116
   %inc.1 = add nuw nsw i64 %18, 1
-  %cmp.i.not.1 = icmp ult i64 %inc.1, %conv.i.1.pre-phi
+  %cmp.i.not.1 = icmp samesign ult i64 %inc.1, %conv.i.1.pre-phi
   br i1 %cmp.i.not.1, label %for.inc.1, label %if.then14.1
 
 if.then14.1:                                      ; preds = %for.inc
@@ -34746,7 +34746,7 @@ for.body.i.epil:                                  ; preds = %for.body.lr.ph.i, %
   %arrayidx.i.epil = getelementptr inbounds i16, ptr %add.ptr3.i, i64 %.unr6
   %9 = load i16, ptr %arrayidx.i.epil, align 2, !tbaa !525
   %conv.i17.epil = zext i16 %9 to i64
-  %cmp5.not.i.epil = icmp ult i64 %.unr237, %conv.i17.epil
+  %cmp5.not.i.epil = icmp samesign ult i64 %.unr237, %conv.i17.epil
   br i1 %cmp5.not.i.epil, label %for.cond.for.cond.cleanup_crit_edge.i, label %if.then.i.epil
 
 if.then.i.epil:                                   ; preds = %for.body.i.epil
@@ -34784,7 +34784,7 @@ for.inc.i:                                        ; preds = %if.then.i, %for.bod
   %13 = phi i64 [ %inc7.i, %if.then.i ], [ %10, %for.body.i ]
   %14 = phi i64 [ 0, %if.then.i ], [ %inc.i, %for.body.i ]
   %inc.i.1 = add nuw nsw i64 %14, 1
-  %cmp5.not.i.1 = icmp ult i64 %inc.i.1, %conv.i17.1.pre-phi
+  %cmp5.not.i.1 = icmp samesign ult i64 %inc.i.1, %conv.i17.1.pre-phi
   br i1 %cmp5.not.i.1, label %for.inc.i.1, label %if.then.i.1
 
 if.then.i.1:                                      ; preds = %for.inc.i
@@ -34894,7 +34894,7 @@ for.inc.i:                                        ; preds = %if.then.i, %for.bod
   %9 = phi i64 [ %inc7.i, %if.then.i ], [ %6, %for.body.i ]
   %10 = phi i64 [ 0, %if.then.i ], [ %inc.i, %for.body.i ]
   %inc.i.1 = add nuw nsw i64 %10, 1
-  %cmp5.not.i.1 = icmp ult i64 %inc.i.1, %conv.i.1.pre-phi
+  %cmp5.not.i.1 = icmp samesign ult i64 %inc.i.1, %conv.i.1.pre-phi
   br i1 %cmp5.not.i.1, label %for.inc.i.1, label %if.then.i.1
 
 if.then.i.1:                                      ; preds = %for.inc.i
@@ -36169,7 +36169,7 @@ for.body.i.epil:                                  ; preds = %for.body.lr.ph.i, %
   %arrayidx.i.epil = getelementptr inbounds i16, ptr %add.ptr3.i, i64 %.unr6
   %9 = load i16, ptr %arrayidx.i.epil, align 2, !tbaa !525
   %conv.i17.epil = zext i16 %9 to i64
-  %cmp5.not.i.epil = icmp ult i64 %.unr237, %conv.i17.epil
+  %cmp5.not.i.epil = icmp samesign ult i64 %.unr237, %conv.i17.epil
   br i1 %cmp5.not.i.epil, label %for.cond.for.cond.cleanup_crit_edge.i, label %if.then.i.epil
 
 if.then.i.epil:                                   ; preds = %for.body.i.epil
@@ -36207,7 +36207,7 @@ for.inc.i:                                        ; preds = %if.then.i, %for.bod
   %13 = phi i64 [ %inc7.i, %if.then.i ], [ %10, %for.body.i ]
   %14 = phi i64 [ 0, %if.then.i ], [ %inc.i, %for.body.i ]
   %inc.i.1 = add nuw nsw i64 %14, 1
-  %cmp5.not.i.1 = icmp ult i64 %inc.i.1, %conv.i17.1.pre-phi
+  %cmp5.not.i.1 = icmp samesign ult i64 %inc.i.1, %conv.i17.1.pre-phi
   br i1 %cmp5.not.i.1, label %for.inc.i.1, label %if.then.i.1
 
 if.then.i.1:                                      ; preds = %for.inc.i
@@ -36316,7 +36316,7 @@ for.inc.i:                                        ; preds = %if.then.i, %for.bod
   %9 = phi i64 [ %inc7.i, %if.then.i ], [ %6, %for.body.i ]
   %10 = phi i64 [ 0, %if.then.i ], [ %inc.i, %for.body.i ]
   %inc.i.1 = add nuw nsw i64 %10, 1
-  %cmp5.not.i.1 = icmp ult i64 %inc.i.1, %conv.i.1.pre-phi
+  %cmp5.not.i.1 = icmp samesign ult i64 %inc.i.1, %conv.i.1.pre-phi
   br i1 %cmp5.not.i.1, label %for.inc.i.1, label %if.then.i.1
 
 if.then.i.1:                                      ; preds = %for.inc.i
@@ -37862,7 +37862,7 @@ for.body.i.epil:                                  ; preds = %for.body.lr.ph.i, %
   %arrayidx.i.epil = getelementptr inbounds i16, ptr %add.ptr3.i, i64 %.unr6
   %9 = load i16, ptr %arrayidx.i.epil, align 2, !tbaa !525
   %conv.i17.epil = zext i16 %9 to i64
-  %cmp5.not.i.epil = icmp ult i64 %.unr237, %conv.i17.epil
+  %cmp5.not.i.epil = icmp samesign ult i64 %.unr237, %conv.i17.epil
   br i1 %cmp5.not.i.epil, label %for.cond.for.cond.cleanup_crit_edge.i, label %if.then.i.epil
 
 if.then.i.epil:                                   ; preds = %for.body.i.epil
@@ -37900,7 +37900,7 @@ for.inc.i:                                        ; preds = %if.then.i, %for.bod
   %13 = phi i64 [ %inc7.i, %if.then.i ], [ %10, %for.body.i ]
   %14 = phi i64 [ 0, %if.then.i ], [ %inc.i, %for.body.i ]
   %inc.i.1 = add nuw nsw i64 %14, 1
-  %cmp5.not.i.1 = icmp ult i64 %inc.i.1, %conv.i17.1.pre-phi
+  %cmp5.not.i.1 = icmp samesign ult i64 %inc.i.1, %conv.i17.1.pre-phi
   br i1 %cmp5.not.i.1, label %for.inc.i.1, label %if.then.i.1
 
 if.then.i.1:                                      ; preds = %for.inc.i
@@ -38010,7 +38010,7 @@ for.inc.i:                                        ; preds = %if.then.i, %for.bod
   %9 = phi i64 [ %inc7.i, %if.then.i ], [ %6, %for.body.i ]
   %10 = phi i64 [ 0, %if.then.i ], [ %inc.i, %for.body.i ]
   %inc.i.1 = add nuw nsw i64 %10, 1
-  %cmp5.not.i.1 = icmp ult i64 %inc.i.1, %conv.i.1.pre-phi
+  %cmp5.not.i.1 = icmp samesign ult i64 %inc.i.1, %conv.i.1.pre-phi
   br i1 %cmp5.not.i.1, label %for.inc.i.1, label %if.then.i.1
 
 if.then.i.1:                                      ; preds = %for.inc.i
@@ -39458,7 +39458,7 @@ for.inc.i:                                        ; preds = %if.then14.i, %for.b
   %arrayidx.i.i.1 = getelementptr inbounds i16, ptr %add.ptr6.i, i64 %inc.i41.i
   %11 = load i16, ptr %arrayidx.i.i.1, align 2, !tbaa !525
   %conv.i.i.1 = zext i16 %11 to i64
-  %cmp.i.not.i.1 = icmp ult i64 %inc.i.1, %conv.i.i.1
+  %cmp.i.not.i.1 = icmp samesign ult i64 %inc.i.1, %conv.i.i.1
   br i1 %cmp.i.not.i.1, label %for.inc.i.1, label %if.then14.i.1
 
 if.then14.i.1:                                    ; preds = %for.inc.i
@@ -39588,7 +39588,7 @@ for.body.i.epil:                                  ; preds = %for.body.lr.ph.i, %
   %arrayidx.i.epil = getelementptr inbounds i16, ptr %add.ptr3.i, i64 %.unr6
   %9 = load i16, ptr %arrayidx.i.epil, align 2, !tbaa !525
   %conv.i17.epil = zext i16 %9 to i64
-  %cmp5.not.i.epil = icmp ult i64 %.unr237, %conv.i17.epil
+  %cmp5.not.i.epil = icmp samesign ult i64 %.unr237, %conv.i17.epil
   br i1 %cmp5.not.i.epil, label %for.cond.for.cond.cleanup_crit_edge.i, label %if.then.i.epil
 
 if.then.i.epil:                                   ; preds = %for.body.i.epil
@@ -39626,7 +39626,7 @@ for.inc.i:                                        ; preds = %if.then.i, %for.bod
   %13 = phi i64 [ %inc7.i, %if.then.i ], [ %10, %for.body.i ]
   %14 = phi i64 [ 0, %if.then.i ], [ %inc.i, %for.body.i ]
   %inc.i.1 = add nuw nsw i64 %14, 1
-  %cmp5.not.i.1 = icmp ult i64 %inc.i.1, %conv.i17.1.pre-phi
+  %cmp5.not.i.1 = icmp samesign ult i64 %inc.i.1, %conv.i17.1.pre-phi
   br i1 %cmp5.not.i.1, label %for.inc.i.1, label %if.then.i.1
 
 if.then.i.1:                                      ; preds = %for.inc.i
@@ -39736,7 +39736,7 @@ for.inc.i:                                        ; preds = %if.then.i, %for.bod
   %9 = phi i64 [ %inc7.i, %if.then.i ], [ %6, %for.body.i ]
   %10 = phi i64 [ 0, %if.then.i ], [ %inc.i, %for.body.i ]
   %inc.i.1 = add nuw nsw i64 %10, 1
-  %cmp5.not.i.1 = icmp ult i64 %inc.i.1, %conv.i.1.pre-phi
+  %cmp5.not.i.1 = icmp samesign ult i64 %inc.i.1, %conv.i.1.pre-phi
   br i1 %cmp5.not.i.1, label %for.inc.i.1, label %if.then.i.1
 
 if.then.i.1:                                      ; preds = %for.inc.i
@@ -40303,7 +40303,7 @@ for.inc:                                          ; preds = %if.then14, %for.bod
   %arrayidx.i40.1 = getelementptr inbounds i16, ptr %add.ptr6, i64 %inc.i45
   %19 = load i16, ptr %arrayidx.i40.1, align 2, !tbaa !525
   %conv.i.1 = zext i16 %19 to i64
-  %cmp.i.not.1 = icmp ult i64 %inc.1, %conv.i.1
+  %cmp.i.not.1 = icmp samesign ult i64 %inc.1, %conv.i.1
   br i1 %cmp.i.not.1, label %for.inc.1, label %if.then14.1
 
 if.then14.1:                                      ; preds = %for.inc
@@ -41235,7 +41235,7 @@ for.inc.i:                                        ; preds = %if.then14.i, %for.b
   %gep.i.1 = getelementptr i32, ptr %invariant.gep.i, i64 %inc16.i
   store i32 %9, ptr %gep.i.1, align 4, !tbaa !116
   %inc.i.1 = add nuw nsw i64 %10, 1
-  %cmp.i.not.i.1 = icmp ult i64 %inc.i.1, %conv.i.i.1.pre-phi
+  %cmp.i.not.i.1 = icmp samesign ult i64 %inc.i.1, %conv.i.i.1.pre-phi
   br i1 %cmp.i.not.i.1, label %for.inc.i.1, label %if.then14.i.1
 
 if.then14.i.1:                                    ; preds = %for.inc.i
@@ -41365,7 +41365,7 @@ for.body.i.epil:                                  ; preds = %for.body.lr.ph.i, %
   %arrayidx.i.epil = getelementptr inbounds i16, ptr %add.ptr3.i, i64 %.unr6
   %9 = load i16, ptr %arrayidx.i.epil, align 2, !tbaa !525
   %conv.i17.epil = zext i16 %9 to i64
-  %cmp5.not.i.epil = icmp ult i64 %.unr237, %conv.i17.epil
+  %cmp5.not.i.epil = icmp samesign ult i64 %.unr237, %conv.i17.epil
   br i1 %cmp5.not.i.epil, label %for.cond.for.cond.cleanup_crit_edge.i, label %if.then.i.epil
 
 if.then.i.epil:                                   ; preds = %for.body.i.epil
@@ -41403,7 +41403,7 @@ for.inc.i:                                        ; preds = %if.then.i, %for.bod
   %13 = phi i64 [ %inc7.i, %if.then.i ], [ %10, %for.body.i ]
   %14 = phi i64 [ 0, %if.then.i ], [ %inc.i, %for.body.i ]
   %inc.i.1 = add nuw nsw i64 %14, 1
-  %cmp5.not.i.1 = icmp ult i64 %inc.i.1, %conv.i17.1.pre-phi
+  %cmp5.not.i.1 = icmp samesign ult i64 %inc.i.1, %conv.i17.1.pre-phi
   br i1 %cmp5.not.i.1, label %for.inc.i.1, label %if.then.i.1
 
 if.then.i.1:                                      ; preds = %for.inc.i
@@ -41513,7 +41513,7 @@ for.inc.i:                                        ; preds = %if.then.i, %for.bod
   %9 = phi i64 [ %inc7.i, %if.then.i ], [ %6, %for.body.i ]
   %10 = phi i64 [ 0, %if.then.i ], [ %inc.i, %for.body.i ]
   %inc.i.1 = add nuw nsw i64 %10, 1
-  %cmp5.not.i.1 = icmp ult i64 %inc.i.1, %conv.i.1.pre-phi
+  %cmp5.not.i.1 = icmp samesign ult i64 %inc.i.1, %conv.i.1.pre-phi
   br i1 %cmp5.not.i.1, label %for.inc.i.1, label %if.then.i.1
 
 if.then.i.1:                                      ; preds = %for.inc.i
@@ -42082,7 +42082,7 @@ for.inc:                                          ; preds = %if.then14, %for.bod
   %gep.1 = getelementptr i32, ptr %invariant.gep, i64 %inc16
   store i32 %17, ptr %gep.1, align 4, !tbaa !116
   %inc.1 = add nuw nsw i64 %18, 1
-  %cmp.i.not.1 = icmp ult i64 %inc.1, %conv.i.1.pre-phi
+  %cmp.i.not.1 = icmp samesign ult i64 %inc.1, %conv.i.1.pre-phi
   br i1 %cmp.i.not.1, label %for.inc.1, label %if.then14.1
 
 if.then14.1:                                      ; preds = %for.inc
@@ -43084,7 +43084,7 @@ for.body.i.epil:                                  ; preds = %for.body.lr.ph.i, %
   %arrayidx.i.epil = getelementptr inbounds i16, ptr %add.ptr3.i, i64 %.unr6
   %9 = load i16, ptr %arrayidx.i.epil, align 2, !tbaa !525
   %conv.i17.epil = zext i16 %9 to i64
-  %cmp5.not.i.epil = icmp ult i64 %.unr237, %conv.i17.epil
+  %cmp5.not.i.epil = icmp samesign ult i64 %.unr237, %conv.i17.epil
   br i1 %cmp5.not.i.epil, label %for.cond.for.cond.cleanup_crit_edge.i, label %if.then.i.epil
 
 if.then.i.epil:                                   ; preds = %for.body.i.epil
@@ -43122,7 +43122,7 @@ for.inc.i:                                        ; preds = %if.then.i, %for.bod
   %13 = phi i64 [ %inc7.i, %if.then.i ], [ %10, %for.body.i ]
   %14 = phi i64 [ 0, %if.then.i ], [ %inc.i, %for.body.i ]
   %inc.i.1 = add nuw nsw i64 %14, 1
-  %cmp5.not.i.1 = icmp ult i64 %inc.i.1, %conv.i17.1.pre-phi
+  %cmp5.not.i.1 = icmp samesign ult i64 %inc.i.1, %conv.i17.1.pre-phi
   br i1 %cmp5.not.i.1, label %for.inc.i.1, label %if.then.i.1
 
 if.then.i.1:                                      ; preds = %for.inc.i
@@ -43232,7 +43232,7 @@ for.inc.i:                                        ; preds = %if.then.i, %for.bod
   %9 = phi i64 [ %inc7.i, %if.then.i ], [ %6, %for.body.i ]
   %10 = phi i64 [ 0, %if.then.i ], [ %inc.i, %for.body.i ]
   %inc.i.1 = add nuw nsw i64 %10, 1
-  %cmp5.not.i.1 = icmp ult i64 %inc.i.1, %conv.i.1.pre-phi
+  %cmp5.not.i.1 = icmp samesign ult i64 %inc.i.1, %conv.i.1.pre-phi
   br i1 %cmp5.not.i.1, label %for.inc.i.1, label %if.then.i.1
 
 if.then.i.1:                                      ; preds = %for.inc.i
@@ -44680,7 +44680,7 @@ for.inc.i:                                        ; preds = %if.then14.i, %for.b
   %gep.i.1 = getelementptr float, ptr %invariant.gep.i, i64 %inc16.i
   store float %9, ptr %gep.i.1, align 4, !tbaa !491
   %inc.i.1 = add nuw nsw i64 %10, 1
-  %cmp.i.not.i.1 = icmp ult i64 %inc.i.1, %conv.i.i.1.pre-phi
+  %cmp.i.not.i.1 = icmp samesign ult i64 %inc.i.1, %conv.i.i.1.pre-phi
   br i1 %cmp.i.not.i.1, label %for.inc.i.1, label %if.then14.i.1
 
 if.then14.i.1:                                    ; preds = %for.inc.i
@@ -44810,7 +44810,7 @@ for.body.i.epil:                                  ; preds = %for.body.lr.ph.i, %
   %arrayidx.i.epil = getelementptr inbounds i16, ptr %add.ptr3.i, i64 %.unr6
   %9 = load i16, ptr %arrayidx.i.epil, align 2, !tbaa !525
   %conv.i17.epil = zext i16 %9 to i64
-  %cmp5.not.i.epil = icmp ult i64 %.unr237, %conv.i17.epil
+  %cmp5.not.i.epil = icmp samesign ult i64 %.unr237, %conv.i17.epil
   br i1 %cmp5.not.i.epil, label %for.cond.for.cond.cleanup_crit_edge.i, label %if.then.i.epil
 
 if.then.i.epil:                                   ; preds = %for.body.i.epil
@@ -44848,7 +44848,7 @@ for.inc.i:                                        ; preds = %if.then.i, %for.bod
   %13 = phi i64 [ %inc7.i, %if.then.i ], [ %10, %for.body.i ]
   %14 = phi i64 [ 0, %if.then.i ], [ %inc.i, %for.body.i ]
   %inc.i.1 = add nuw nsw i64 %14, 1
-  %cmp5.not.i.1 = icmp ult i64 %inc.i.1, %conv.i17.1.pre-phi
+  %cmp5.not.i.1 = icmp samesign ult i64 %inc.i.1, %conv.i17.1.pre-phi
   br i1 %cmp5.not.i.1, label %for.inc.i.1, label %if.then.i.1
 
 if.then.i.1:                                      ; preds = %for.inc.i
@@ -44958,7 +44958,7 @@ for.inc.i:                                        ; preds = %if.then.i, %for.bod
   %9 = phi i64 [ %inc7.i, %if.then.i ], [ %6, %for.body.i ]
   %10 = phi i64 [ 0, %if.then.i ], [ %inc.i, %for.body.i ]
   %inc.i.1 = add nuw nsw i64 %10, 1
-  %cmp5.not.i.1 = icmp ult i64 %inc.i.1, %conv.i.1.pre-phi
+  %cmp5.not.i.1 = icmp samesign ult i64 %inc.i.1, %conv.i.1.pre-phi
   br i1 %cmp5.not.i.1, label %for.inc.i.1, label %if.then.i.1
 
 if.then.i.1:                                      ; preds = %for.inc.i
@@ -45534,7 +45534,7 @@ for.inc:                                          ; preds = %if.then14, %for.bod
   %gep.1 = getelementptr float, ptr %invariant.gep, i64 %inc16
   store float %17, ptr %gep.1, align 4, !tbaa !491
   %inc.1 = add nuw nsw i64 %18, 1
-  %cmp.i.not.1 = icmp ult i64 %inc.1, %conv.i.1.pre-phi
+  %cmp.i.not.1 = icmp samesign ult i64 %inc.1, %conv.i.1.pre-phi
   br i1 %cmp.i.not.1, label %for.inc.1, label %if.then14.1
 
 if.then14.1:                                      ; preds = %for.inc
@@ -46466,7 +46466,7 @@ for.inc.i:                                        ; preds = %if.then14.i, %for.b
   %gep.i.1 = getelementptr double, ptr %invariant.gep.i, i64 %inc16.i
   store double %9, ptr %gep.i.1, align 8, !tbaa !545
   %inc.i.1 = add nuw nsw i64 %10, 1
-  %cmp.i.not.i.1 = icmp ult i64 %inc.i.1, %conv.i.i.1.pre-phi
+  %cmp.i.not.i.1 = icmp samesign ult i64 %inc.i.1, %conv.i.i.1.pre-phi
   br i1 %cmp.i.not.i.1, label %for.inc.i.1, label %if.then14.i.1
 
 if.then14.i.1:                                    ; preds = %for.inc.i
@@ -46596,7 +46596,7 @@ for.body.i.epil:                                  ; preds = %for.body.lr.ph.i, %
   %arrayidx.i.epil = getelementptr inbounds i16, ptr %add.ptr3.i, i64 %.unr6
   %9 = load i16, ptr %arrayidx.i.epil, align 2, !tbaa !525
   %conv.i17.epil = zext i16 %9 to i64
-  %cmp5.not.i.epil = icmp ult i64 %.unr237, %conv.i17.epil
+  %cmp5.not.i.epil = icmp samesign ult i64 %.unr237, %conv.i17.epil
   br i1 %cmp5.not.i.epil, label %for.cond.for.cond.cleanup_crit_edge.i, label %if.then.i.epil
 
 if.then.i.epil:                                   ; preds = %for.body.i.epil
@@ -46634,7 +46634,7 @@ for.inc.i:                                        ; preds = %if.then.i, %for.bod
   %13 = phi i64 [ %inc7.i, %if.then.i ], [ %10, %for.body.i ]
   %14 = phi i64 [ 0, %if.then.i ], [ %inc.i, %for.body.i ]
   %inc.i.1 = add nuw nsw i64 %14, 1
-  %cmp5.not.i.1 = icmp ult i64 %inc.i.1, %conv.i17.1.pre-phi
+  %cmp5.not.i.1 = icmp samesign ult i64 %inc.i.1, %conv.i17.1.pre-phi
   br i1 %cmp5.not.i.1, label %for.inc.i.1, label %if.then.i.1
 
 if.then.i.1:                                      ; preds = %for.inc.i
@@ -46744,7 +46744,7 @@ for.inc.i:                                        ; preds = %if.then.i, %for.bod
   %9 = phi i64 [ %inc7.i, %if.then.i ], [ %6, %for.body.i ]
   %10 = phi i64 [ 0, %if.then.i ], [ %inc.i, %for.body.i ]
   %inc.i.1 = add nuw nsw i64 %10, 1
-  %cmp5.not.i.1 = icmp ult i64 %inc.i.1, %conv.i.1.pre-phi
+  %cmp5.not.i.1 = icmp samesign ult i64 %inc.i.1, %conv.i.1.pre-phi
   br i1 %cmp5.not.i.1, label %for.inc.i.1, label %if.then.i.1
 
 if.then.i.1:                                      ; preds = %for.inc.i
@@ -47320,7 +47320,7 @@ for.inc:                                          ; preds = %if.then14, %for.bod
   %gep.1 = getelementptr double, ptr %invariant.gep, i64 %inc16
   store double %17, ptr %gep.1, align 8, !tbaa !545
   %inc.1 = add nuw nsw i64 %18, 1
-  %cmp.i.not.1 = icmp ult i64 %inc.1, %conv.i.1.pre-phi
+  %cmp.i.not.1 = icmp samesign ult i64 %inc.1, %conv.i.1.pre-phi
   br i1 %cmp.i.not.1, label %for.inc.1, label %if.then14.1
 
 if.then14.1:                                      ; preds = %for.inc
@@ -57811,7 +57811,7 @@ for.body.lr.ph:                                   ; preds = %for.cond.preheader
   %compression_buffer = getelementptr inbounds i8, ptr %this, i64 4104
   %7 = load ptr, ptr %compression_buffer, align 8, !tbaa !1405
   %delta_buffer = getelementptr inbounds i8, ptr %this, i64 4112
-  %min.iters.check = icmp ult i64 %6, 16
+  %min.iters.check = icmp samesign ult i64 %6, 16
   br i1 %min.iters.check, label %for.body.preheader, label %vector.memcheck
 
 vector.memcheck:                                  ; preds = %for.body.lr.ph
@@ -61601,7 +61601,7 @@ for.body.lr.ph:                                   ; preds = %for.cond.preheader
   %compression_buffer = getelementptr inbounds i8, ptr %this, i64 8200
   %7 = load ptr, ptr %compression_buffer, align 8, !tbaa !1496
   %delta_buffer = getelementptr inbounds i8, ptr %this, i64 8208
-  %min.iters.check = icmp ult i64 %6, 12
+  %min.iters.check = icmp samesign ult i64 %6, 12
   br i1 %min.iters.check, label %for.body.preheader, label %vector.memcheck
 
 vector.memcheck:                                  ; preds = %for.body.lr.ph
@@ -72539,7 +72539,7 @@ for.body.lr.ph:                                   ; preds = %for.cond.preheader
   %compression_buffer = getelementptr inbounds i8, ptr %this, i64 4104
   %3 = load ptr, ptr %compression_buffer, align 8, !tbaa !1735
   %delta_buffer = getelementptr inbounds i8, ptr %this, i64 4112
-  %min.iters.check = icmp ult i64 %1, 16
+  %min.iters.check = icmp samesign ult i64 %1, 16
   br i1 %min.iters.check, label %for.body.preheader, label %vector.memcheck
 
 vector.memcheck:                                  ; preds = %for.body.lr.ph
@@ -75974,7 +75974,7 @@ for.body.lr.ph:                                   ; preds = %for.cond.preheader
   %compression_buffer = getelementptr inbounds i8, ptr %this, i64 8200
   %3 = load ptr, ptr %compression_buffer, align 8, !tbaa !1822
   %delta_buffer = getelementptr inbounds i8, ptr %this, i64 8208
-  %min.iters.check = icmp ult i64 %1, 12
+  %min.iters.check = icmp samesign ult i64 %1, 12
   br i1 %min.iters.check, label %for.body.preheader, label %vector.memcheck
 
 vector.memcheck:                                  ; preds = %for.body.lr.ph

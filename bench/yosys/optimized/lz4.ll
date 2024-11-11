@@ -129,12 +129,12 @@ define internal fastcc noundef i32 @_ZL20LZ4_compress_genericPvPKcPcii23limitedO
   %.0228 = phi ptr [ %1, %27 ], [ %.0228.ph, %.sink.split ]
   %.0227 = phi ptr [ %1, %27 ], [ %33, %.sink.split ]
   %35 = icmp eq i32 %6, 2
-  %36 = icmp ugt i32 %3, 65546
+  %36 = icmp samesign ugt i32 %3, 65546
   %or.cond = and i1 %36, %35
   br i1 %or.cond, label %.loopexit, label %37
 
 37:                                               ; preds = %34
-  %38 = icmp ult i32 %3, 13
+  %38 = icmp samesign ult i32 %3, 13
   br i1 %38, label %.loopexit364, label %39
 
 39:                                               ; preds = %37
@@ -1039,7 +1039,7 @@ define i32 @LZ4_loadDict(ptr nocapture noundef %0, ptr noundef %1, i32 noundef %
 
 19:                                               ; preds = %13
   %20 = ptrtoint ptr %5 to i64
-  %21 = icmp ugt i32 %2, 65536
+  %21 = icmp samesign ugt i32 %2, 65536
   %22 = getelementptr inbounds i8, ptr %5, i64 -65536
   %spec.select = select i1 %21, ptr %22, ptr %1
   %23 = getelementptr inbounds i8, ptr %0, i64 16384
@@ -2074,12 +2074,12 @@ define internal fastcc noundef i32 @_ZL29LZ4_compress_destSize_genericPvPKcPcPii
 
 17:                                               ; preds = %6
   %.not234 = icmp eq i32 %5, 2
-  %18 = icmp ugt i32 %7, 65546
+  %18 = icmp samesign ugt i32 %7, 65546
   %or.cond = select i1 %.not234, i1 %18, i1 false
   br i1 %or.cond, label %270, label %19
 
 19:                                               ; preds = %17
-  %20 = icmp ult i32 %7, 13
+  %20 = icmp samesign ult i32 %7, 13
   br i1 %20, label %.loopexit, label %21
 
 21:                                               ; preds = %19

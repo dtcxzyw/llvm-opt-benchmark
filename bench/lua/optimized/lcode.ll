@@ -560,7 +560,7 @@ entry:
   br i1 %cmp, label %if.then, label %if.end9
 
 if.then:                                          ; preds = %entry
-  %cmp3 = icmp ugt i32 %add, 254
+  %cmp3 = icmp samesign ugt i32 %add, 254
   br i1 %cmp3, label %if.then5, label %if.end
 
 if.then5:                                         ; preds = %if.then
@@ -593,7 +593,7 @@ entry:
   br i1 %cmp.i, label %if.then.i, label %luaK_checkstack.exit
 
 if.then.i:                                        ; preds = %entry
-  %cmp3.i = icmp ugt i32 %add.i, 254
+  %cmp3.i = icmp samesign ugt i32 %add.i, 254
   br i1 %cmp3.i, label %if.then5.i, label %if.end.i
 
 if.then5.i:                                       ; preds = %if.then.i

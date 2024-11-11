@@ -189,7 +189,7 @@ _ZN4llvm13ManagedStaticINS_2cl3optImLb0ENS1_6parserImEEEEN12_GLOBAL__N_110Create
   %43 = getelementptr inbounds i8, ptr %.0910.i.i.i.i.i.i, i64 1
   %44 = getelementptr inbounds i8, ptr %.0811.i.i.i.i.i.i, i64 4
   %45 = add nsw i64 %.012.i.i.i.i.i.i, -1
-  %46 = icmp ugt i64 %.012.i.i.i.i.i.i, 1
+  %46 = icmp samesign ugt i64 %.012.i.i.i.i.i.i, 1
   br i1 %46, label %.lr.ph.i.i.i.i.i.i, label %_ZN4llvm4copyIRNS_9StringRefEN9__gnu_cxx17__normal_iteratorIPjSt6vectorIjSaIjEEEEEET0_OT_SA_.exit, !llvm.loop !6
 
 _ZN4llvm4copyIRNS_9StringRefEN9__gnu_cxx17__normal_iteratorIPjSt6vectorIjSaIjEEEEEET0_OT_SA_.exit: ; preds = %.lr.ph.i.i.i.i.i.i, %_ZN4llvm13ManagedStaticINS_2cl3optImLb0ENS1_6parserImEEEEN12_GLOBAL__N_110CreateSeedENS_14object_deleterIS5_EEEdeEv.exit6
@@ -994,15 +994,15 @@ define linkonce_odr void @_ZNSt8seed_seq8generateIPjEEvT_S2_(ptr noundef nonnull
   br i1 %20, label %30, label %21
 
 21:                                               ; preds = %.lr.ph.i.i.i.preheader
-  %22 = icmp ugt i64 %12, 67
+  %22 = icmp samesign ugt i64 %12, 67
   br i1 %22, label %30, label %23
 
 23:                                               ; preds = %21
-  %24 = icmp ugt i64 %12, 38
+  %24 = icmp samesign ugt i64 %12, 38
   br i1 %24, label %30, label %25
 
 25:                                               ; preds = %23
-  %26 = icmp ugt i64 %12, 6
+  %26 = icmp samesign ugt i64 %12, 6
   %27 = add nsw i64 %12, -1
   %28 = lshr i64 %27, 1
   %29 = select i1 %26, i64 3, i64 %28

@@ -6017,7 +6017,7 @@ _ZN2cv10AutoBufferIfLm264EEC2Em.exit.thread.i:    ; preds = %615
 _ZN2cv10AutoBufferIfLm264EEC2Em.exit.i161:        ; preds = %615
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(1116) %scevgep.i.i, i8 0, i64 1116, i1 false)
   store ptr %scevgep.i.i, ptr %52, align 8
-  %.not.i.i138.i = icmp ugt i32 %599, 93
+  %.not.i.i138.i = icmp samesign ugt i32 %599, 93
   store i64 %617, ptr %185, align 8
   br i1 %.not.i.i138.i, label %622, label %_ZN2cv10AutoBufferINS_7Point3_IfEELm93EEC2Em.exit.i
 

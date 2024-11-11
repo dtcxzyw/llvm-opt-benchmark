@@ -455,7 +455,7 @@ define hidden noundef double @_ZN5osgeo4proj8internal13c_locale_stodERKNSt7__cxx
 16:                                               ; preds = %12, %8
   %.034 = phi i64 [ 1, %8 ], [ %spec.select, %12 ]
   %.032 = phi i64 [ -1, %8 ], [ 1, %12 ]
-  %17 = icmp ult i64 %.034, %6
+  %17 = icmp samesign ult i64 %.034, %6
   br i1 %17, label %.lr.ph, label %._crit_edge.thread
 
 .lr.ph:                                           ; preds = %16, %29

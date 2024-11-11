@@ -1294,7 +1294,7 @@ define dso_local i32 @power_supply_vbat2ri(ptr nocapture noundef readonly %0, i3
 
 22:                                               ; preds = %19
   %23 = add nsw i32 %15, -1
-  %24 = icmp ugt i32 %15, 1
+  %24 = icmp samesign ugt i32 %15, 1
   br i1 %24, label %25, label %.loopexit
 
 25:                                               ; preds = %22

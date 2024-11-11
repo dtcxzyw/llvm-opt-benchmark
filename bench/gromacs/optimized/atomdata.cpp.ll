@@ -3209,7 +3209,7 @@ _ZNKSt14default_deleteIN3gmx22EnergyGroupsPerClusterEEclEPS1_.exit.i.i.i.i.i: ; 
   br i1 %spec.select.i.i, label %506, label %518
 
 506:                                              ; preds = %505
-  %.not69 = icmp ult i32 %3, 2
+  %.not69 = icmp samesign ult i32 %3, 2
   br i1 %.not69, label %516, label %_ZN5NbnxmL15sc_iClusterSizeENS_10KernelTypeE.exit
 
 _ZN5NbnxmL15sc_iClusterSizeENS_10KernelTypeE.exit: ; preds = %506
@@ -5205,7 +5205,7 @@ define void @_Z28nbnxn_atomdata_copy_shiftvecbN3gmx8ArrayRefINS_11BasicVectorIfE
   %14 = getelementptr inbounds i8, ptr %.sroa.05.07.i.i.i.i.i, i64 12
   %15 = getelementptr inbounds i8, ptr %.09.i.i.i.i.i, i64 12
   %16 = add nsw i64 %.048.i.i.i.i.i, -1
-  %17 = icmp ugt i64 %.048.i.i.i.i.i, 1
+  %17 = icmp samesign ugt i64 %.048.i.i.i.i.i, 1
   br i1 %17, label %.lr.ph.i.i.i.i.i, label %_ZSt4copyIN3gmx12ArrayRefIterINS0_11BasicVectorIfEEEEN9__gnu_cxx17__normal_iteratorIPS3_St6vectorIS3_NS0_9AllocatorIS3_NS0_20HostAllocationPolicyEEEEEEET0_T_SF_SE_.exit, !llvm.loop !93
 
 _ZSt4copyIN3gmx12ArrayRefIterINS0_11BasicVectorIfEEEEN9__gnu_cxx17__normal_iteratorIPS3_St6vectorIS3_NS0_9AllocatorIS3_NS0_20HostAllocationPolicyEEEEEEET0_T_SF_SE_.exit: ; preds = %.lr.ph.i.i.i.i.i, %4

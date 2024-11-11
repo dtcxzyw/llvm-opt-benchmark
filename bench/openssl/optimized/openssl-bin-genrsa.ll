@@ -204,7 +204,7 @@ if.then38:                                        ; preds = %while.end
   br i1 %or.cond1, label %end, label %if.end44
 
 if.end44:                                         ; preds = %if.then38
-  %cmp45 = icmp ugt i32 %2, 16384
+  %cmp45 = icmp samesign ugt i32 %2, 16384
   br i1 %cmp45, label %if.then46, label %if.end53
 
 if.then46:                                        ; preds = %if.end44

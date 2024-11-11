@@ -214,7 +214,7 @@ switch.lookup:
   br label %84
 
 74:                                               ; preds = %65
-  %75 = icmp ult i64 %.080187.i, 14
+  %75 = icmp samesign ult i64 %.080187.i, 14
   br i1 %75, label %76, label %80
 
 76:                                               ; preds = %74

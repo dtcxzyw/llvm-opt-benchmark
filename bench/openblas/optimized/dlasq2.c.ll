@@ -339,7 +339,7 @@ define void @dlasq2_(ptr noundef %0, ptr noundef %1, ptr nocapture noundef write
   %196 = getelementptr i8, ptr %189, i64 -24
   store double %195, ptr %196, align 8, !tbaa !7
   %197 = add nsw i64 %186, -2
-  %198 = icmp ugt i64 %186, 3
+  %198 = icmp samesign ugt i64 %186, 3
   br i1 %198, label %185, label %.loopexit58, !llvm.loop !13
 
 .loopexit58:                                      ; preds = %185, %178
@@ -1097,7 +1097,7 @@ define void @dlasq2_(ptr noundef %0, ptr noundef %1, ptr nocapture noundef write
   %690 = load double, ptr %689, align 8, !tbaa !7
   %691 = fadd double %688, %690
   %692 = add nsw i64 %687, -1
-  %693 = icmp ugt i64 %687, 1
+  %693 = icmp samesign ugt i64 %687, 1
   br i1 %693, label %686, label %.loopexit44, !llvm.loop !29
 
 .loopexit44:                                      ; preds = %686, %.loopexit45

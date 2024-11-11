@@ -392,7 +392,7 @@ define dso_local void @_ZN4Luau7CodeGen11callEpilogCEP9lua_Stateii(ptr nocapture
   %25 = getelementptr inbounds i8, ptr %.132, i64 16
   %26 = getelementptr inbounds i8, ptr %.132, i64 12
   store i32 0, ptr %26, align 4
-  %27 = icmp ugt i32 %.12631, 1
+  %27 = icmp samesign ugt i32 %.12631, 1
   br i1 %27, label %.lr.ph33, label %._crit_edge, !llvm.loop !10
 
 ._crit_edge:                                      ; preds = %.lr.ph33, %.preheader
@@ -624,7 +624,7 @@ define dso_local noundef ptr @_ZN4Luau7CodeGen12callFallbackEP9lua_StateP10lua_T
   %94 = getelementptr inbounds i8, ptr %.18091, i64 16
   %95 = getelementptr inbounds i8, ptr %.18091, i64 12
   store i32 0, ptr %95, align 4
-  %96 = icmp ugt i32 %.192, 1
+  %96 = icmp samesign ugt i32 %.192, 1
   br i1 %96, label %.lr.ph93, label %._crit_edge, !llvm.loop !13
 
 ._crit_edge:                                      ; preds = %.lr.ph93, %.preheader

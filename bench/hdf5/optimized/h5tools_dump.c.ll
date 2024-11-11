@@ -2563,7 +2563,7 @@ define range(i32 -1, 1) i32 @h5tools_print_dataspace(ptr noundef %0, i64 noundef
   %53 = load ptr, ptr %52, align 8
   %54 = load i64, ptr %3, align 16
   %55 = call ptr (ptr, ptr, ...) @h5tools_str_append(ptr noundef %0, ptr noundef nonnull @.str.171, ptr noundef %51, ptr noundef nonnull @.str.172, ptr noundef %53, i64 noundef %54) #12
-  %56 = icmp ugt i32 %5, 1
+  %56 = icmp samesign ugt i32 %5, 1
   br i1 %56, label %.lr.ph.preheader, label %._crit_edge
 
 .lr.ph.preheader:                                 ; preds = %48
@@ -5142,7 +5142,7 @@ define range(i32 -1, 1) i32 @h5tools_dump_dset(ptr nocapture readnone %0, ptr no
 91:                                               ; preds = %72
   %92 = getelementptr inbounds i8, ptr %2, i64 20
   store i32 %73, ptr %92, align 4
-  %93 = icmp ugt i32 %73, 32
+  %93 = icmp samesign ugt i32 %73, 32
   br i1 %93, label %94, label %110
 
 94:                                               ; preds = %91
@@ -6677,7 +6677,7 @@ define range(i32 -1, 1) i32 @h5tools_dump_mem(ptr nocapture readnone %0, ptr nou
 88:                                               ; preds = %69
   %89 = getelementptr inbounds i8, ptr %2, i64 20
   store i32 %70, ptr %89, align 4
-  %90 = icmp ugt i32 %70, 32
+  %90 = icmp samesign ugt i32 %70, 32
   br i1 %90, label %91, label %107
 
 91:                                               ; preds = %88

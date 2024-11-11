@@ -533,11 +533,11 @@ if.then77:                                        ; preds = %if.else56
   br i1 %cmp78.not, label %if.then150, label %land.lhs.true79
 
 land.lhs.true79:                                  ; preds = %if.then77
-  %cmp80 = icmp ugt i8 %12, -33
+  %cmp80 = icmp samesign ugt i8 %12, -33
   br i1 %cmp80, label %cond.true, label %cond.false128
 
 cond.true:                                        ; preds = %land.lhs.true79
-  %cmp81 = icmp ult i8 %12, -16
+  %cmp81 = icmp samesign ult i8 %12, -16
   br i1 %cmp81, label %cond.true82, label %cond.false
 
 cond.true82:                                      ; preds = %cond.true
@@ -562,7 +562,7 @@ land.lhs.true92:                                  ; preds = %cond.true82
 
 cond.false:                                       ; preds = %cond.true
   %sub = add nsw i32 %conv74, -240
-  %cmp96 = icmp ult i8 %12, -11
+  %cmp96 = icmp samesign ult i8 %12, -11
   br i1 %cmp96, label %land.lhs.true97, label %if.then150
 
 land.lhs.true97:                                  ; preds = %cond.false
@@ -608,7 +608,7 @@ land.lhs.true122:                                 ; preds = %land.lhs.true92, %l
   br i1 %cmp127.not, label %if.then150, label %land.lhs.true132
 
 cond.false128:                                    ; preds = %land.lhs.true79
-  %cmp129 = icmp ugt i8 %12, -63
+  %cmp129 = icmp samesign ugt i8 %12, -63
   br i1 %cmp129, label %land.lhs.true130, label %if.then150
 
 land.lhs.true130:                                 ; preds = %cond.false128

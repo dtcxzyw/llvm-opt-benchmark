@@ -749,7 +749,7 @@ define dso_local void @_ZN17FileLineSingleton21fileNameNumMapDumpXmlERSo(ptr nou
   br i1 %35, label %36, label %42
 
 36:                                               ; preds = %25
-  %37 = icmp ult i64 %34, 512
+  %37 = icmp samesign ult i64 %34, 512
   br i1 %37, label %38, label %40
 
 38:                                               ; preds = %36
@@ -988,7 +988,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit32: ; 
   br i1 %73, label %74, label %80
 
 74:                                               ; preds = %63
-  %75 = icmp ult i64 %72, 512
+  %75 = icmp samesign ult i64 %72, 512
   br i1 %75, label %76, label %78
 
 76:                                               ; preds = %74
@@ -2379,7 +2379,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit: ; pr
   br i1 %99, label %100, label %106
 
 100:                                              ; preds = %91
-  %101 = icmp ult i64 %98, 16
+  %101 = icmp samesign ult i64 %98, 16
   br i1 %101, label %102, label %104
 
 102:                                              ; preds = %100
@@ -3475,7 +3475,7 @@ _ZN8FileLine9singletonEv.exit:                    ; preds = %2, %5, %8
   br i1 %23, label %24, label %30
 
 24:                                               ; preds = %_ZN8FileLine9singletonEv.exit
-  %25 = icmp ult i64 %22, 16
+  %25 = icmp samesign ult i64 %22, 16
   br i1 %25, label %26, label %28
 
 26:                                               ; preds = %24
@@ -7896,7 +7896,7 @@ define linkonce_odr dso_local void @_ZNK17FileLineSingleton12numberToNameB5cxx11
   br i1 %16, label %17, label %23
 
 17:                                               ; preds = %3
-  %18 = icmp ult i64 %15, 16
+  %18 = icmp samesign ult i64 %15, 16
   br i1 %18, label %19, label %21
 
 19:                                               ; preds = %17

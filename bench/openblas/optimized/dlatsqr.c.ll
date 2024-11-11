@@ -45,7 +45,7 @@ define void @dlatsqr_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nounde
   br i1 %35, label %55, label %36
 
 36:                                               ; preds = %33
-  %37 = icmp ule i32 %34, %28
+  %37 = icmp samesign ule i32 %34, %28
   %38 = icmp eq i32 %28, 0
   %39 = or i1 %38, %37
   br i1 %39, label %40, label %55
@@ -84,7 +84,7 @@ define void @dlatsqr_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nounde
   br label %120
 
 59:                                               ; preds = %51
-  %60 = icmp ult i32 %31, %25
+  %60 = icmp samesign ult i32 %31, %25
   br i1 %60, label %62, label %61
 
 61:                                               ; preds = %59

@@ -4239,7 +4239,7 @@ _ZNSt12_Vector_baseISt4pairIldESaIS1_EE13_M_deallocateEPS1_m.exit: ; preds = %_Z
   %39 = getelementptr inbounds i8, ptr %.0910.i.i.i.i.i, i64 16
   %40 = getelementptr inbounds i8, ptr %.0811.i.i.i.i.i, i64 16
   %41 = add nsw i64 %.012.i.i.i.i.i, -1
-  %42 = icmp ugt i64 %.012.i.i.i.i.i, 1
+  %42 = icmp samesign ugt i64 %.012.i.i.i.i.i, 1
   br i1 %42, label %.lr.ph.i.i.i.i.i, label %_ZSt22__uninitialized_copy_aIPSt4pairIldES2_S1_ET0_T_S4_S3_RSaIT1_E.exit, !llvm.loop !61
 
 43:                                               ; preds = %28
@@ -4260,7 +4260,7 @@ _ZNSt12_Vector_baseISt4pairIldESaIS1_EE13_M_deallocateEPS1_m.exit: ; preds = %_Z
   %50 = getelementptr inbounds i8, ptr %.0910.i.i.i.i.i29, i64 16
   %51 = getelementptr inbounds i8, ptr %.0811.i.i.i.i.i28, i64 16
   %52 = add nsw i64 %.012.i.i.i.i.i27, -1
-  %53 = icmp ugt i64 %.012.i.i.i.i.i27, 1
+  %53 = icmp samesign ugt i64 %.012.i.i.i.i.i27, 1
   br i1 %53, label %.lr.ph.i.i.i.i.i26, label %_ZSt4copyIPSt4pairIldES2_ET0_T_S4_S3_.exit.loopexit, !llvm.loop !62
 
 _ZSt4copyIPSt4pairIldES2_ET0_T_S4_S3_.exit.loopexit: ; preds = %.lr.ph.i.i.i.i.i26
@@ -9450,7 +9450,7 @@ define linkonce_odr noundef i64 @_ZN4absl7debian213hash_internal9HashState21Comb
   br label %56
 
 11:                                               ; preds = %3
-  %12 = icmp ugt i64 %2, 8
+  %12 = icmp samesign ugt i64 %2, 8
   br i1 %12, label %13, label %25
 
 13:                                               ; preds = %11
@@ -9470,7 +9470,7 @@ define linkonce_odr noundef i64 @_ZN4absl7debian213hash_internal9HashState21Comb
   br label %56
 
 25:                                               ; preds = %11
-  %26 = icmp ugt i64 %2, 3
+  %26 = icmp samesign ugt i64 %2, 3
   br i1 %26, label %27, label %36
 
 27:                                               ; preds = %25
@@ -10670,7 +10670,7 @@ define linkonce_odr void @_ZN4absl7debian218container_internal5btreeINS1_10set_p
   %59 = sub nsw i32 %58, %.sroa.speculated
   %.not73 = icmp sle i32 %52, %59
   %narrow = add nuw nsw i8 %55, %49
-  %60 = icmp ult i8 %narrow, 30
+  %60 = icmp samesign ult i8 %narrow, 30
   %or.cond91 = select i1 %.not73, i1 true, i1 %60
   br i1 %or.cond91, label %61, label %71
 
@@ -11388,7 +11388,7 @@ _ZNSt12_Vector_baseIlSaIlEE11_M_allocateEm.exit:  ; preds = %_ZSt8distanceIN4abs
   %49 = getelementptr inbounds i8, ptr %.sroa.04.021.i.i.i.i.i.i.i.i, i64 10
   %50 = load i8, ptr %49, align 1
   %51 = zext i8 %50 to i32
-  %52 = icmp ult i32 %.sroa.8.022.i.i.i.i.i.i.i.i, %51
+  %52 = icmp samesign ult i32 %.sroa.8.022.i.i.i.i.i.i.i.i, %51
   br i1 %52, label %_ZNK4absl7debian218container_internal14btree_iteratorINS1_10btree_nodeINS1_10set_paramsIlSt4lessIlESaIlELi256ELb0EEEEERlPlEdeEv.exit.i.i.i.i.i.i.i.i, label %53
 
 53:                                               ; preds = %48

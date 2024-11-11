@@ -4654,7 +4654,7 @@ find_job_record.exit:                             ; preds = %.lr.ph.i, %find_job
   br label %898
 
 564:                                              ; preds = %3
-  %565 = icmp ugt i16 %2, 9983
+  %565 = icmp samesign ugt i16 %2, 9983
   br i1 %565, label %566, label %896
 
 566:                                              ; preds = %564
@@ -17872,11 +17872,11 @@ define internal fastcc noundef zeroext i1 @_parse_array_tok(ptr noundef nonnull 
   %.019 = phi i64 [ %20, %42 ], [ %7, %16 ], [ %7, %16 ]
   %.1 = phi i64 [ %.0, %42 ], [ 1, %16 ], [ 1, %16 ]
   %45 = zext i32 %2 to i64
-  %.not35 = icmp ult i64 %.019, %45
+  %.not35 = icmp samesign ult i64 %.019, %45
   br i1 %.not35, label %.preheader, label %.loopexit
 
 .preheader:                                       ; preds = %44
-  %.not3637 = icmp ugt i64 %7, %.019
+  %.not3637 = icmp samesign ugt i64 %7, %.019
   br i1 %.not3637, label %.loopexit, label %.lr.ph
 
 .lr.ph:                                           ; preds = %.preheader, %.lr.ph
@@ -19538,7 +19538,7 @@ _mem_per_node_part.exit.thread:                   ; preds = %50
   br i1 %.not143, label %.thread188, label %.thread
 
 72:                                               ; preds = %_mem_per_node_part.exit
-  %.not160 = icmp ugt i64 %.0114, %.0117
+  %.not160 = icmp samesign ugt i64 %.0114, %.0117
   br i1 %.not160, label %73, label %.thread188
 
 73:                                               ; preds = %72

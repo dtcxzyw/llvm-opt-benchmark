@@ -3492,7 +3492,7 @@ for.end.i174:                                     ; preds = %if.then57.i, %if.el
   br i1 %cmp65.i, label %if.then66.i, label %if.else74.i
 
 if.then66.i:                                      ; preds = %for.end.i174
-  %cmp68.i = icmp ult i32 %78, 100
+  %cmp68.i = icmp samesign ult i32 %78, 100
   br i1 %cmp68.i, label %if.then69.i, label %if.else72.i
 
 if.then69.i:                                      ; preds = %if.then66.i

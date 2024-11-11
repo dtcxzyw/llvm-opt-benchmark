@@ -1903,7 +1903,7 @@ if.end26.i.thread.i.i:                            ; preds = %decode_hex4.exit118
   br label %if.then29.i.i.i
 
 if.end35.i.i:                                     ; preds = %if.end.i.i
-  %cmp.i.i.i = icmp ult i32 %add13.i.i.i, 128
+  %cmp.i.i.i = icmp samesign ult i32 %add13.i.i.i, 128
   br i1 %cmp.i.i.i, label %if.then.i.i.i, label %if.end.i.i.i
 
 if.then.i.i.i:                                    ; preds = %if.end35.i.i
@@ -1912,7 +1912,7 @@ if.then.i.i.i:                                    ; preds = %if.end35.i.i
   br label %json_append_unicode_escape.exit.i
 
 if.end.i.i.i:                                     ; preds = %if.end35.i.i
-  %cmp1.i.i.i = icmp ult i32 %add13.i.i.i, 2048
+  %cmp1.i.i.i = icmp samesign ult i32 %add13.i.i.i, 2048
   br i1 %cmp1.i.i.i, label %if.then3.i.i.i, label %if.end9.i.i.i
 
 if.then3.i.i.i:                                   ; preds = %if.end.i.i.i
@@ -1927,7 +1927,7 @@ if.then3.i.i.i:                                   ; preds = %if.end.i.i.i
   br label %json_append_unicode_escape.exit.i
 
 if.end9.i.i.i:                                    ; preds = %if.end.i.i.i
-  %cmp10.i.i.i = icmp ult i32 %add13.i.i.i, 65536
+  %cmp10.i.i.i = icmp samesign ult i32 %add13.i.i.i, 65536
   br i1 %cmp10.i.i.i, label %if.then12.i.i.i, label %if.then29.i.i.i
 
 if.then12.i.i.i:                                  ; preds = %if.end9.i.i.i

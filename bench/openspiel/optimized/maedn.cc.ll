@@ -4122,7 +4122,7 @@ _ZNSt6vectorIlSaIlEE17_M_realloc_insertIJRKlEEEvN9__gnu_cxx17__normal_iteratorIP
   br label %_ZNSt6vectorIlSaIlEE9push_backERKl.exit
 
 72:                                               ; preds = %47, %.thread
-  %73 = icmp ult i32 %35, 4
+  %73 = icmp samesign ult i32 %35, 4
   br i1 %73, label %.thread50, label %.loopexit.thread
 
 .thread50:                                        ; preds = %28, %72

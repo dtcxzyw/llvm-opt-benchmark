@@ -643,7 +643,7 @@ if.then142:                                       ; preds = %if.else139
   br label %if.end176
 
 if.else151:                                       ; preds = %if.else139
-  %cmp152 = icmp ult i32 %call135, %call16.fr
+  %cmp152 = icmp samesign ult i32 %call135, %call16.fr
   br i1 %cmp152, label %if.then154, label %if.else167
 
 if.then154:                                       ; preds = %if.else151

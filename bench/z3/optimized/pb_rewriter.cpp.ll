@@ -13270,7 +13270,7 @@ for.body:                                         ; preds = %for.body.preheader,
   %bf.set34.i.i22.i.i.i = or disjoint i8 %bf.clear33.i.i21.i.i.i, %bf.clear19.i.i16.i.i.i
   store i8 %bf.set34.i.i22.i.i.i, ptr %m_owner4.i.i7.i.i.i, align 4
   %dec = add nsw i64 %__n.07, -1
-  %cmp = icmp ugt i64 %__n.07, 1
+  %cmp = icmp samesign ugt i64 %__n.07, 1
   br i1 %cmp, label %for.body, label %for.end, !llvm.loop !101
 
 for.end:                                          ; preds = %for.body, %entry

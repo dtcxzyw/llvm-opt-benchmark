@@ -301,7 +301,7 @@ mbc_to_code.exit:                                 ; preds = %.lr.ph.i, %22, %.pr
   br i1 %55, label %56, label %get_lower_case.exit
 
 56:                                               ; preds = %53
-  %57 = icmp ugt i32 %.017.i, 33870
+  %57 = icmp samesign ugt i32 %.017.i, 33870
   %58 = select i1 %57, i32 49, i32 48
   %59 = add nuw nsw i32 %58, %.017.i
   br label %get_lower_case.exit
@@ -471,7 +471,7 @@ mbc_enc_len.exit:                                 ; preds = %40, %44, %48
   br i1 %66, label %67, label %get_lower_case.exit
 
 67:                                               ; preds = %64
-  %68 = icmp ugt i32 %.017.i3941, 33870
+  %68 = icmp samesign ugt i32 %.017.i3941, 33870
   %69 = select i1 %68, i32 49, i32 48
   %70 = add nuw nsw i32 %69, %.017.i3941
   br label %get_lower_case.exit.thread.thread
@@ -504,7 +504,7 @@ get_lower_case.exit.thread.thread:                ; preds = %57, %62, %67, %get_
   br i1 %or.cond.i33, label %83, label %get_upper_case.exit
 
 83:                                               ; preds = %get_lower_case.exit.thread.thread
-  %84 = icmp ugt i32 %.017.i3941, 33919
+  %84 = icmp samesign ugt i32 %.017.i3941, 33919
   %.neg.i = select i1 %84, i32 -47, i32 -48
   %85 = add nsw i32 %.neg.i, %.017.i3941
   br label %get_upper_case.exit

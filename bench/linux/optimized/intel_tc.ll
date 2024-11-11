@@ -372,7 +372,7 @@ define dso_local noundef range(i32 1, 5) i32 @intel_tc_port_max_lane_count(ptr n
   br label %125
 
 55:                                               ; preds = %33
-  %56 = icmp ugt i16 %35, 13
+  %56 = icmp samesign ugt i16 %35, 13
   %57 = load ptr, ptr %0, align 8
   %58 = tail call i64 @intel_display_power_get(ptr noundef %57, i32 noundef 0) #7
   %59 = icmp eq i64 %58, 0
@@ -1966,7 +1966,7 @@ define dso_local noundef range(i32 -22, 1) i32 @intel_tc_port_init(ptr noundef %
   br label %41
 
 36:                                               ; preds = %32
-  %37 = icmp ugt i16 %28, 11
+  %37 = icmp samesign ugt i16 %28, 11
   %38 = getelementptr inbounds i8, ptr %23, i64 8
   br i1 %37, label %39, label %40
 

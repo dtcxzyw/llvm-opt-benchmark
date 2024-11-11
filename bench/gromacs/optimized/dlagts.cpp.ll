@@ -626,7 +626,7 @@ thread-pre-split353:                              ; preds = %47, %31, %36
   br label %364
 
 364:                                              ; preds = %350, %357
-  %365 = icmp ugt i64 %indvars.iv422, 2
+  %365 = icmp samesign ugt i64 %indvars.iv422, 2
   br i1 %365, label %.lr.ph383, label %.thread, !llvm.loop !11
 
 .thread.sink.split:                               ; preds = %21, %10, %146, %155, %270, %279

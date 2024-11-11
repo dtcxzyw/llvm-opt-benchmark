@@ -7423,7 +7423,7 @@ define hidden void @_ZN17C2_MacroAssembler16string_indexofC8E8RegisterS0_S0_S0_i
   call void @_ZN9Assembler4movlE8Registeri(ptr noundef nonnull align 8 dereferenceable(40) %0, i32 %4, i32 noundef %38) #11
   call void @_ZN9Assembler4negqE8Register(ptr noundef nonnull align 8 dereferenceable(40) %0, i32 %4) #11
   call void @_ZN17AbstractAssembler4bindER5Label(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(33) %29) #11
-  %151 = icmp ult i32 %5, 1073741824
+  %151 = icmp samesign ult i32 %5, 1073741824
   br i1 %151, label %152, label %173
 
 152:                                              ; preds = %139
@@ -15896,7 +15896,7 @@ define hidden void @_ZN17C2_MacroAssembler22vector_long_to_maskvecE11XMMRegister
   br label %27
 
 27:                                               ; preds = %23, %24, %26
-  %28 = icmp ugt i32 %.070.in, 16
+  %28 = icmp samesign ugt i32 %.070.in, 16
   br i1 %28, label %.lr.ph, label %._crit_edge, !llvm.loop !18
 
 ._crit_edge:                                      ; preds = %27, %16

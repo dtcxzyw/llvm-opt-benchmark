@@ -432,7 +432,7 @@ _ZN10open_spiel9dou_dizhu10CardToRankEi.exit:     ; preds = %2
 21:                                               ; preds = %_ZN10open_spiel9dou_dizhu10CardToRankEi.exit
   store i32 %15, ptr %8, align 4
   store i32 4, ptr %9, align 4
-  %22 = icmp ult i32 %15, 4
+  %22 = icmp samesign ult i32 %15, 4
   br i1 %22, label %_ZN4absl7debian219str_format_internal18FormatSpecTemplateIJLNS0_23FormatConversionCharSetE131067ELS3_131067EEEC2EUa9enable_ifIXclL_ZNS1_15ValidFormatImplIJLS3_131067ELS3_131067EEEEbNS0_11string_viewEEfL0p_EEEPKc.exit, label %23
 
 23:                                               ; preds = %21
@@ -886,7 +886,7 @@ define { i64, i64 } @_ZN10open_spiel9dou_dizhu21GetAirplaneCombParamsEi(i32 noun
   br label %41
 
 15:                                               ; preds = %1
-  %16 = icmp ult i32 %0, 23104
+  %16 = icmp samesign ult i32 %0, 23104
   %_ZN10open_spiel9dou_dizhu25GetAirplaneSoloActionBaseEi._ZN10open_spiel9dou_dizhu25GetAirplanePairActionBaseEi = select i1 %16, ptr @_ZN10open_spiel9dou_dizhu25GetAirplaneSoloActionBaseEi, ptr @_ZN10open_spiel9dou_dizhu25GetAirplanePairActionBaseEi
   %_ZN10open_spiel9dou_dizhu29GetNumKickersAirplaneSoloCombEi._ZN10open_spiel9dou_dizhu29GetNumKickersAirplanePairCombEi = select i1 %16, ptr @_ZN10open_spiel9dou_dizhu29GetNumKickersAirplaneSoloCombEi, ptr @_ZN10open_spiel9dou_dizhu29GetNumKickersAirplanePairCombEi
   %. = select i1 %16, i32 23104, i32 26043
@@ -1598,8 +1598,8 @@ _ZNK4absl7debian24SpanIKiEixEm.exit28.us:         ; preds = %_ZNK4absl7debian24S
   %41 = trunc nsw i64 %indvars.iv180 to i32
   %42 = add i32 %41, -15
   %or.cond.us = icmp ult i32 %42, -2
-  %43 = icmp ult i32 %37, 2
-  %or.cond211 = or i1 %or.cond.us, %43
+  %43 = icmp samesign ult i32 %37, 2
+  %or.cond211 = select i1 %or.cond.us, i1 true, i1 %43
   br i1 %or.cond211, label %_ZNK4absl7debian24SpanIKiEixEm.exit30.preheader.us, label %.split65.us
 
 _ZNK4absl7debian24SpanIKiEixEm.exit30.preheader.us: ; preds = %40
@@ -1840,7 +1840,7 @@ _ZNK4absl7debian24SpanIKiEixEm.exit28:            ; preds = %_ZNK4absl7debian24S
 _ZNK4absl7debian24SpanIKiEixEm.exit29:            ; preds = %105
   store i32 %96, ptr %20, align 4
   store i32 1, ptr %21, align 4
-  %108 = icmp ult i32 %96, 2
+  %108 = icmp samesign ult i32 %96, 2
   br i1 %108, label %_ZNK4absl7debian24SpanIKiEixEm.exit31, label %.split65
 
 .split65:                                         ; preds = %_ZNK4absl7debian24SpanIKiEixEm.exit29, %.split65.us
@@ -2551,7 +2551,7 @@ switch.lookup:                                    ; preds = %59
   br i1 %71, label %_ZN4absl7debian219str_format_internal18FormatSpecTemplateIJLNS0_23FormatConversionCharSetE131067EEEC2EUa9enable_ifIXclL_ZNS1_15ValidFormatImplIJLS3_131067EEEEbNS0_11string_viewEEfL0p_EEEPKc.exit, label %.preheader
 
 .preheader:                                       ; preds = %switch.lookup
-  %72 = icmp ult i32 %switch.load, %.139
+  %72 = icmp samesign ult i32 %switch.load, %.139
   br i1 %72, label %.lr.ph.preheader, label %._crit_edge
 
 .lr.ph.preheader:                                 ; preds = %.preheader
@@ -3193,7 +3193,7 @@ define { i64, i64 } @_ZN10open_spiel9dou_dizhu23GetSingleTrioCombParamsEi(i32 no
 
 13:                                               ; preds = %1
   %14 = add nsw i32 %0, -133
-  %or.cond.i = icmp ult i32 %14, 182
+  %or.cond.i = icmp samesign ult i32 %14, 182
   %.v = select i1 %or.cond.i, i32 123, i32 197
   %15 = add nuw nsw i32 %0, %.v
   %.018.i2429 = select i1 %or.cond.i, i64 1, i64 2
@@ -4635,7 +4635,7 @@ define void @_ZN10open_spiel9dou_dizhu16AirplaneCombHandEi(ptr dead_on_unwind no
 22:                                               ; preds = %2
   store i32 %1, ptr %8, align 4
   store i32 26043, ptr %9, align 4
-  %23 = icmp ult i32 %1, 26043
+  %23 = icmp samesign ult i32 %1, 26043
   br i1 %23, label %28, label %24
 
 24:                                               ; preds = %22

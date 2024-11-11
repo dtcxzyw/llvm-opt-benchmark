@@ -3028,7 +3028,7 @@ _ZNSt6vectorIN2cv6Point_IfEESaIS2_EED2Ev.exit:    ; preds = %75, %77
 84:                                               ; preds = %79
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(32) %83, i8 0, i64 32, i1 false)
   %85 = lshr i64 %61, 2
-  %.not = icmp ult i64 %61, 4
+  %.not = icmp samesign ult i64 %61, 4
   br i1 %.not, label %_ZNSt6vectorIN2cv6Point_IfEESaIS2_EED2Ev.exit91, label %.lr.ph
 
 .lr.ph:                                           ; preds = %84

@@ -2839,7 +2839,7 @@ define internal fastcc i32 @match_at(ptr noundef %0, ptr noundef %1, ptr noundef
   %513 = getelementptr inbounds i8, ptr %.114462279, i64 2
   %514 = getelementptr inbounds i8, ptr %503, i64 2
   store ptr %514, ptr %15, align 8
-  %515 = icmp ugt i32 %.in2304, 1
+  %515 = icmp samesign ugt i32 %.in2304, 1
   br i1 %515, label %.lr.ph2281, label %._crit_edge2282, !llvm.loop !18
 
 ._crit_edge2282:                                  ; preds = %512, %499
@@ -2899,7 +2899,7 @@ define internal fastcc i32 @match_at(ptr noundef %0, ptr noundef %1, ptr noundef
   %546 = getelementptr inbounds i8, ptr %.214472274, i64 3
   %547 = getelementptr inbounds i8, ptr %531, i64 3
   store ptr %547, ptr %15, align 8
-  %548 = icmp ugt i32 %.in2303, 1
+  %548 = icmp samesign ugt i32 %.in2303, 1
   br i1 %548, label %.lr.ph2276, label %._crit_edge2277, !llvm.loop !19
 
 ._crit_edge2277:                                  ; preds = %545, %527
@@ -9781,7 +9781,7 @@ onig_region_free.exit:                            ; preds = %10, %history_root_f
   br i1 %.not36, label %51, label %.loopexit
 
 51:                                               ; preds = %47
-  %52 = icmp ugt i32 %7, 1
+  %52 = icmp samesign ugt i32 %7, 1
   br i1 %52, label %53, label %58
 
 53:                                               ; preds = %51
@@ -10346,7 +10346,7 @@ define range(i32 -30, 1) i32 @onig_get_capture_range_in_callout(ptr nocapture no
   br i1 %.not, label %48, label %20
 
 20:                                               ; preds = %14
-  %21 = icmp ult i32 %1, 32
+  %21 = icmp samesign ult i32 %1, 32
   %22 = getelementptr inbounds i8, ptr %6, i64 68
   %23 = load i32, ptr %22, align 4
   %24 = shl nuw i32 1, %1

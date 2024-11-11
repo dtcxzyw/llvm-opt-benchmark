@@ -4059,7 +4059,7 @@ define internal i32 @g4x_sprite_check(ptr noundef %0, ptr noundef %1) #2 align 1
 
 97:                                               ; preds = %90
   %98 = icmp slt i32 %71, %91
-  %99 = icmp ugt i32 %65, 2048
+  %99 = icmp samesign ugt i32 %65, 2048
   %100 = or i1 %99, %98
   %101 = icmp sgt i32 %71, 2048
   %102 = or i1 %101, %100

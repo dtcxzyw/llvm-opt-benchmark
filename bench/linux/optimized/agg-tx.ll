@@ -930,7 +930,7 @@ define dso_local noundef range(i32 -22, 1) i32 @ieee80211_start_tx_ba_session(pt
   br i1 %63, label %64, label %141
 
 64:                                               ; preds = %60
-  %65 = icmp ugt i16 %1, 7
+  %65 = icmp samesign ugt i16 %1, 7
   br i1 %65, label %66, label %67, !prof !23
 
 66:                                               ; preds = %64
@@ -988,7 +988,7 @@ define dso_local noundef range(i32 -22, 1) i32 @ieee80211_start_tx_ba_session(pt
   br i1 %95, label %139, label %96
 
 96:                                               ; preds = %89
-  %97 = icmp ugt i8 %94, 3
+  %97 = icmp samesign ugt i8 %94, 3
   br i1 %97, label %98, label %106
 
 98:                                               ; preds = %96

@@ -620,7 +620,7 @@ _ZNK10OpenSubdiv6v3_6_03Bfr10FaceVertex11GetFaceSizeEi.exit113: ; preds = %204, 
   %270 = add nsw i32 %.0813.i.i, -1
   %.0.in.i.i = load i16, ptr %269, align 2
   %.0.i.i = sext i16 %.0.in.i.i to i32
-  %271 = icmp ugt i32 %.0813.i.i, 1
+  %271 = icmp samesign ugt i32 %.0813.i.i, 1
   br i1 %271, label %266, label %_ZNK10OpenSubdiv6v3_6_03Bfr10FaceVertex12GetFaceFirstERKNS1_16FaceVertexSubsetE.exit, !llvm.loop !8
 
 _ZNK10OpenSubdiv6v3_6_03Bfr10FaceVertex12GetFaceFirstERKNS1_16FaceVertexSubsetE.exit: ; preds = %266, %243
@@ -1693,7 +1693,7 @@ _ZN10OpenSubdiv6v3_6_03Bfr21IrregularPatchBuilder22addMeshControlVerticesEPKii.e
   %439 = add nsw i32 %.0813.i.i, -1
   %.0.in.i.i = load i16, ptr %438, align 2
   %.0.i.i = sext i16 %.0.in.i.i to i32
-  %440 = icmp ugt i32 %.0813.i.i, 1
+  %440 = icmp samesign ugt i32 %.0813.i.i, 1
   br i1 %440, label %435, label %_ZNK10OpenSubdiv6v3_6_03Bfr10FaceVertex12GetFaceFirstERKNS1_16FaceVertexSubsetE.exit, !llvm.loop !8
 
 _ZNK10OpenSubdiv6v3_6_03Bfr10FaceVertex12GetFaceFirstERKNS1_16FaceVertexSubsetE.exit: ; preds = %435, %412
@@ -2945,7 +2945,7 @@ thread-pre-split:                                 ; preds = %._crit_edge
   %275 = add nsw i32 %.0813.i, -1
   %.0.in.i = load i16, ptr %274, align 2
   %.0.i99 = sext i16 %.0.in.i to i32
-  %276 = icmp ugt i32 %.0813.i, 1
+  %276 = icmp samesign ugt i32 %.0813.i, 1
   br i1 %276, label %270, label %_ZNK10OpenSubdiv6v3_6_03Bfr10FaceVertex12GetFaceAfterEi.exit100, !llvm.loop !21
 
 _ZNK10OpenSubdiv6v3_6_03Bfr10FaceVertex12GetFaceAfterEi.exit100: ; preds = %270, %235, %242, %251, %266
@@ -3055,7 +3055,7 @@ _ZNK10OpenSubdiv6v3_6_03Bfr10FaceVertex20GetFaceIndexTrailingEiPKi.exit: ; preds
   %343 = add nsw i32 %.0813.i.i, -1
   %.0.in.i.i = load i16, ptr %342, align 2
   %.0.i.i = sext i16 %.0.in.i.i to i32
-  %344 = icmp ugt i32 %.0813.i.i, 1
+  %344 = icmp samesign ugt i32 %.0813.i.i, 1
   br i1 %344, label %339, label %_ZNK10OpenSubdiv6v3_6_03Bfr10FaceVertex12GetFaceFirstERKNS1_16FaceVertexSubsetE.exit, !llvm.loop !8
 
 _ZNK10OpenSubdiv6v3_6_03Bfr10FaceVertex12GetFaceFirstERKNS1_16FaceVertexSubsetE.exit: ; preds = %339, %316
@@ -3774,7 +3774,7 @@ thread-pre-split:                                 ; preds = %_ZNK10OpenSubdiv6v3
   %297 = add nsw i32 %.0813.i.i, -1
   %.0.in.i.i = load i16, ptr %296, align 2
   %.0.i.i = sext i16 %.0.in.i.i to i32
-  %298 = icmp ugt i32 %.0813.i.i, 1
+  %298 = icmp samesign ugt i32 %.0813.i.i, 1
   br i1 %298, label %293, label %_ZNK10OpenSubdiv6v3_6_03Bfr10FaceVertex12GetFaceFirstERKNS1_16FaceVertexSubsetE.exit, !llvm.loop !8
 
 _ZNK10OpenSubdiv6v3_6_03Bfr10FaceVertex12GetFaceFirstERKNS1_16FaceVertexSubsetE.exit: ; preds = %293, %270
@@ -4645,7 +4645,7 @@ _ZNK10OpenSubdiv6v3_6_03Bfr10FaceVertex12GetFaceFirstERKNS1_16FaceVertexSubsetE.
   %235 = add nsw i32 %.0813.i.i, -1
   %.0.in.i.i = load i16, ptr %234, align 2
   %.0.i.i = sext i16 %.0.in.i.i to i32
-  %236 = icmp ugt i32 %.0813.i.i, 1
+  %236 = icmp samesign ugt i32 %.0813.i.i, 1
   br i1 %236, label %231, label %_ZNK10OpenSubdiv6v3_6_03Bfr10FaceVertex12GetFaceFirstERKNS1_16FaceVertexSubsetE.exit, !llvm.loop !8
 
 _ZNK10OpenSubdiv6v3_6_03Bfr10FaceVertex12GetFaceFirstERKNS1_16FaceVertexSubsetE.exit: ; preds = %231, %207

@@ -13427,7 +13427,7 @@ define internal range(i32 -2147483648, 1) i32 @rtl_set_coalesce(ptr nocapture no
   %20 = getelementptr inbounds i8, ptr %1, i64 20
   %21 = load i32, ptr %20, align 4
   %22 = tail call i32 @llvm.umax.i32(i32 %19, i32 %21)
-  %23 = icmp ult i32 %11, 5
+  %23 = icmp samesign ult i32 %11, 5
   %24 = select i1 %23, ptr @rtl_coalesce_info_8169, ptr @rtl_coalesce_info_8168_8136
   %25 = getelementptr i8, ptr %0, i64 2328
   %26 = load ptr, ptr %25, align 8

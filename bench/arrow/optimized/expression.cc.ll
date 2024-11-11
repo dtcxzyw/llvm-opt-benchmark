@@ -52152,11 +52152,11 @@ if.else.i.i.i.i.i266.i.i:                         ; preds = %if.then.i.i.i261.i.
   br label %invoke.cont15.i
 
 if.end58.i.i:                                     ; preds = %_ZNK5arrow5Datum9scalar_asINS_11Int32ScalarEEERKT_v.exit.i.i
-  %cmp61.not.i.i = icmp ugt i32 %69, 32767
+  %cmp61.not.i.i = icmp samesign ugt i32 %69, 32767
   br i1 %cmp61.not.i.i, label %if.end71.i.i, label %if.then66.i.i
 
 land.lhs.true62.i.i:                              ; preds = %land.lhs.true49.i.i
-  %cmp65.not.i.i = icmp ult i32 %69, -32768
+  %cmp65.not.i.i = icmp samesign ult i32 %69, -32768
   br i1 %cmp65.not.i.i, label %if.end71.i.i, label %if.then66.i.i
 
 if.then66.i.i:                                    ; preds = %land.lhs.true62.i.i, %if.end58.i.i
@@ -52354,11 +52354,11 @@ if.else.i.i.i.i.i418.i.i:                         ; preds = %if.then.i.i.i413.i.
   br label %invoke.cont15.i
 
 if.end116.i.i:                                    ; preds = %_ZNK5arrow5Datum9scalar_asINS_11Int64ScalarEEERKT_v.exit.i.i
-  %cmp119.not.i.i = icmp ugt i64 %105, 32767
+  %cmp119.not.i.i = icmp samesign ugt i64 %105, 32767
   br i1 %cmp119.not.i.i, label %if.end129.i.i, label %if.then124.i.i
 
 land.lhs.true120.i.i:                             ; preds = %land.lhs.true107.i.i
-  %cmp123.not.i.i = icmp ult i64 %105, -32768
+  %cmp123.not.i.i = icmp samesign ult i64 %105, -32768
   br i1 %cmp123.not.i.i, label %land.lhs.true133.i.i, label %if.then124.i.i
 
 if.then124.i.i:                                   ; preds = %land.lhs.true120.i.i, %if.end116.i.i
@@ -52389,11 +52389,11 @@ if.else.i.i.i.i.i431.i.i:                         ; preds = %if.then.i.i.i426.i.
   br label %invoke.cont15.i
 
 if.end129.i.i:                                    ; preds = %if.end116.i.i
-  %cmp132.not.i.i = icmp ugt i64 %105, 2147483647
+  %cmp132.not.i.i = icmp samesign ugt i64 %105, 2147483647
   br i1 %cmp132.not.i.i, label %if.end142.i.i, label %if.then137.i.i
 
 land.lhs.true133.i.i:                             ; preds = %land.lhs.true120.i.i
-  %cmp136.not.i.i = icmp ult i64 %105, -2147483648
+  %cmp136.not.i.i = icmp samesign ult i64 %105, -2147483648
   br i1 %cmp136.not.i.i, label %if.end142.i.i, label %if.then137.i.i
 
 if.then137.i.i:                                   ; preds = %land.lhs.true133.i.i, %if.end129.i.i
@@ -62355,7 +62355,7 @@ call3.i.i.i.i.i.i.i.i.i.i.i.noexc:                ; preds = %for.body.i.i.i.i.i.
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %__node_gen.i.i.i.i.i.i.i.i.i)
   %incdec.ptr.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__first.addr.05.i.i.i.i.i.i, i64 16
   %dec.i.i.i.i.i.i = add nsw i64 %__n.06.i.i.i.i.i.i, -1
-  %cmp.i.i.i.i.i.i = icmp ugt i64 %__n.06.i.i.i.i.i.i, 1
+  %cmp.i.i.i.i.i.i = icmp samesign ugt i64 %__n.06.i.i.i.i.i.i, 1
   br i1 %cmp.i.i.i.i.i.i, label %for.body.i.i.i.i.i.i, label %invoke.cont24, !llvm.loop !959
 
 invoke.cont24:                                    ; preds = %call3.i.i.i.i.i.i.i.i.i.i.i.noexc, %if.then21
@@ -63297,7 +63297,7 @@ call3.i.i.i.i.i.i.i.i.i.i.i.noexc216:             ; preds = %for.body.i.i.i.i.i.
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %__node_gen.i.i.i.i.i.i.i.i.i204)
   %incdec.ptr.i.i.i.i.i.i213 = getelementptr inbounds i8, ptr %__first.addr.05.i.i.i.i.i.i212, i64 16
   %dec.i.i.i.i.i.i214 = add nsw i64 %__n.06.i.i.i.i.i.i211, -1
-  %cmp.i.i.i.i.i.i215 = icmp ugt i64 %__n.06.i.i.i.i.i.i211, 1
+  %cmp.i.i.i.i.i.i215 = icmp samesign ugt i64 %__n.06.i.i.i.i.i.i211, 1
   br i1 %cmp.i.i.i.i.i.i215, label %for.body.i.i.i.i.i.i210, label %invoke.cont91, !llvm.loop !959
 
 invoke.cont91:                                    ; preds = %call3.i.i.i.i.i.i.i.i.i.i.i.noexc216, %_ZSt10_ConstructIN5arrow7compute10ExpressionEJRKS2_EEvPT_DpOT0_.exit.i.i.i.i.i.i

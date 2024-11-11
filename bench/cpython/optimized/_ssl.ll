@@ -4317,7 +4317,7 @@ Py_DECREF.exit318:                                ; preds = %if.then71, %if.then
   br label %if.then240
 
 if.else:                                          ; preds = %if.end66
-  %cmp73 = icmp ugt i32 %call68, 2047
+  %cmp73 = icmp samesign ugt i32 %call68, 2047
   br i1 %cmp73, label %if.then75, label %if.else77
 
 if.then75:                                        ; preds = %if.else
@@ -4972,7 +4972,7 @@ if.then:                                          ; preds = %entry
   br label %return
 
 if.end:                                           ; preds = %entry
-  %cmp2 = icmp ugt i32 %call, 255
+  %cmp2 = icmp samesign ugt i32 %call, 255
   br i1 %cmp2, label %if.then3, label %if.end18
 
 if.then3:                                         ; preds = %if.end
@@ -10204,7 +10204,7 @@ if.then:                                          ; preds = %entry
   br label %return
 
 if.else:                                          ; preds = %entry
-  %cmp2 = icmp ugt i64 %len, 2147483647
+  %cmp2 = icmp samesign ugt i64 %len, 2147483647
   br i1 %cmp2, label %if.then3, label %if.end4
 
 if.then3:                                         ; preds = %if.else

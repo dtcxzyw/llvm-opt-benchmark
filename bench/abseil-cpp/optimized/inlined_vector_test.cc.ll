@@ -19218,7 +19218,7 @@ _ZN4absl23inlined_vector_internal13MallocAdapterISaISt4pairINSt7__cxx1112basic_s
   br i1 %cmp18.not, label %for.inc.preheader.i, label %invoke.cont4.i
 
 invoke.cont24:                                    ; preds = %if.end
-  %cmp6.not.i = icmp ult i64 %1, 2
+  %cmp6.not.i = icmp samesign ult i64 %1, 2
   br i1 %cmp6.not.i, label %invoke.cont44.thread, label %for.inc.preheader.i
 
 invoke.cont44.thread:                             ; preds = %invoke.cont24
@@ -21707,7 +21707,7 @@ _ZN4absl23inlined_vector_internal13MallocAdapterISaINSt7__cxx1112basic_stringIcS
   br i1 %cmp18.not, label %for.inc.preheader.i, label %invoke.cont4.i
 
 invoke.cont24:                                    ; preds = %if.end
-  %cmp6.not.i = icmp ult i64 %1, 2
+  %cmp6.not.i = icmp samesign ult i64 %1, 2
   br i1 %cmp6.not.i, label %invoke.cont44.thread, label %for.inc.preheader.i
 
 invoke.cont44.thread:                             ; preds = %invoke.cont24
@@ -93120,7 +93120,7 @@ if.end.thread.i:                                  ; preds = %if.then.i.i.i.i, %c
 
 if.end.i:                                         ; preds = %if.end.thread
   %data_.i4.i = getelementptr inbounds i8, ptr %this, i64 24
-  %cmp6.not.i.i = icmp ult i64 %.fr, 2
+  %cmp6.not.i.i = icmp samesign ult i64 %.fr, 2
   br i1 %cmp6.not.i.i, label %_ZN4absl23inlined_vector_internal7StorageIiLm4ENS_18container_internal17CountingAllocatorIiEEE10InitializeINS0_20IteratorValueAdapterIS4_St13move_iteratorIPiEEEEEvT_m.exit, label %for.body.lr.ph.i.i
 
 for.body.lr.ph.i.i:                               ; preds = %if.end.i, %if.end.thread.i
@@ -97420,7 +97420,7 @@ invoke.cont4.i.thread:                            ; preds = %invoke.cont14.threa
   br label %cleanup.cont
 
 invoke.cont24:                                    ; preds = %if.end
-  %cmp6.not.i = icmp ult i64 %1, 2
+  %cmp6.not.i = icmp samesign ult i64 %1, 2
   br i1 %cmp6.not.i, label %invoke.cont39, label %for.body.lr.ph.i
 
 for.body.lr.ph.i:                                 ; preds = %invoke.cont14, %invoke.cont14.thread, %invoke.cont24
@@ -104325,7 +104325,7 @@ lpad32:                                           ; preds = %lpad23
           to label %ehcleanup unwind label %terminate.lpad
 
 invoke.cont35:                                    ; preds = %invoke.cont24
-  %cmp.not3.i = icmp ult i64 %1, 2
+  %cmp.not3.i = icmp samesign ult i64 %1, 2
   br i1 %cmp.not3.i, label %invoke.cont40, label %for.body.i
 
 for.body.i:                                       ; preds = %invoke.cont35, %_ZNSt16allocator_traitsISt24scoped_allocator_adaptorIN4absl18container_internal17CountingAllocatorISt6vectorIiNS3_IiEEEEEJEEE7destroyIS6_EEvRS8_PT_.exit.i

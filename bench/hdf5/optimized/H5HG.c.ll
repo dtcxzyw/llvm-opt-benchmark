@@ -1273,7 +1273,7 @@ define i32 @H5HG_link(ptr noundef %0, ptr nocapture noundef readonly %1, i32 nou
   br label %76
 
 63:                                               ; preds = %55
-  %64 = icmp ugt i32 %57, 65535
+  %64 = icmp samesign ugt i32 %57, 65535
   br i1 %64, label %65, label %69
 
 65:                                               ; preds = %63

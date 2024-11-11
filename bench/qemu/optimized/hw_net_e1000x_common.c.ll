@@ -644,7 +644,7 @@ entry.land.lhs.true2_crit_edge:                   ; preds = %entry
   br label %land.lhs.true2
 
 lor.lhs.false:                                    ; preds = %entry
-  %cmp1 = icmp ugt i64 %size, 1518
+  %cmp1 = icmp samesign ugt i64 %size, 1518
   br i1 %cmp1, label %land.lhs.true, label %return
 
 land.lhs.true:                                    ; preds = %lor.lhs.false

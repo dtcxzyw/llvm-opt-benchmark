@@ -1650,7 +1650,7 @@ define internal fastcc i64 @"_ZN9hashbrown3raw5inner21RawTable$LT$T$C$A$GT$14res
   br i1 %26, label %29, label %37
 
 27:                                               ; preds = %21
-  %28 = icmp ult i64 %.0.sroa.speculated.i, 4
+  %28 = icmp samesign ult i64 %.0.sroa.speculated.i, 4
   %..i.i.i = select i1 %28, i64 4, i64 8
   br label %.thread.thread.i.i
 

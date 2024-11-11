@@ -1356,7 +1356,7 @@ for.body.i:                                       ; preds = %if.end5.i, %for.bod
 if.end5.i:                                        ; preds = %for.body.i
   %spec.select.i = tail call i8 @llvm.umin.i8(i8 %1, i8 %minLevel.019.i)
   %maxLevel.1.i = tail call i8 @llvm.umax.i8(i8 %1, i8 %maxLevel.020.i)
-  %cmp2.i = icmp ugt i64 %indvars.iv.i, 1
+  %cmp2.i = icmp samesign ugt i64 %indvars.iv.i, 1
   br i1 %cmp2.i, label %for.body.i, label %for.body18.i, !llvm.loop !22
 
 for.body18.i:                                     ; preds = %if.end5.i, %for.body18.i
@@ -1491,7 +1491,7 @@ for.body.i:                                       ; preds = %if.end5.i, %for.bod
 if.end5.i:                                        ; preds = %for.body.i
   %spec.select.i = tail call i8 @llvm.umin.i8(i8 %1, i8 %minLevel.019.i)
   %maxLevel.1.i = tail call i8 @llvm.umax.i8(i8 %1, i8 %maxLevel.020.i)
-  %cmp2.i = icmp ugt i64 %indvars.iv.i, 1
+  %cmp2.i = icmp samesign ugt i64 %indvars.iv.i, 1
   br i1 %cmp2.i, label %for.body.i, label %for.body18.i, !llvm.loop !22
 
 for.body18.i:                                     ; preds = %if.end5.i, %for.body18.i
@@ -2706,7 +2706,7 @@ if.end71:                                         ; preds = %if.then66, %for.bod
   %k.1 = phi i32 [ %dec67, %if.then66 ], [ %k.0134, %for.body60 ]
   %markFound.4 = phi i32 [ %dec70, %if.then66 ], [ %markFound.3135, %for.body60 ]
   %markFound.4.fr = freeze i32 %markFound.4
-  %cmp72 = icmp ugt i64 %indvars.iv180, 1
+  %cmp72 = icmp samesign ugt i64 %indvars.iv180, 1
   br i1 %cmp72, label %cond.true, label %cond.end
 
 cond.true:                                        ; preds = %if.end71

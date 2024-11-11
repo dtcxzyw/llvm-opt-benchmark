@@ -6245,7 +6245,7 @@ if.then.i.i18.i1822:                              ; preds = %invoke.cont.i1741
   unreachable
 
 if.end.i.i.i1742:                                 ; preds = %invoke.cont.i1741
-  %cmp.i.i.i.i.i1743 = icmp ult i32 %conv.i.i, 13
+  %cmp.i.i.i.i.i1743 = icmp samesign ult i32 %conv.i.i, 13
   br i1 %cmp.i.i.i.i.i1743, label %if.then2.i.i.i, label %if.else.i.i.i
 
 if.then2.i.i.i:                                   ; preds = %if.end.i.i.i1742
@@ -6863,7 +6863,7 @@ if.then.i.i18.i2075:                              ; preds = %invoke.cont.i1919
   unreachable
 
 if.end.i.i.i1924:                                 ; preds = %invoke.cont.i1919
-  %cmp.i.i.i.i.i1925 = icmp ult i32 %conv.i.i1922, 13
+  %cmp.i.i.i.i.i1925 = icmp samesign ult i32 %conv.i.i1922, 13
   br i1 %cmp.i.i.i.i.i1925, label %if.then2.i.i.i2071, label %if.else.i.i.i1926
 
 if.then2.i.i.i2071:                               ; preds = %if.end.i.i.i1924

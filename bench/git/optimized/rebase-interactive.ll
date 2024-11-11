@@ -618,7 +618,7 @@ commit_seen_at.exit94:                            ; preds = %if.end12.i.i75, %if
 for.inc21:                                        ; preds = %for.body9, %commit_seen_at.exit57, %commit_seen_at.exit94
   %commit_seen.sroa.14.4 = phi i32 [ %commit_seen.sroa.14.3148, %for.body9 ], [ %commit_seen.sroa.14.7, %commit_seen_at.exit94 ], [ %commit_seen.sroa.14.6, %commit_seen_at.exit57 ]
   %commit_seen.sroa.27.4 = phi ptr [ %commit_seen.sroa.27.3149, %for.body9 ], [ %commit_seen.sroa.27.7, %commit_seen_at.exit94 ], [ %commit_seen.sroa.27.6, %commit_seen_at.exit57 ]
-  %cmp8 = icmp ugt i64 %indvars.iv163, 1
+  %cmp8 = icmp samesign ugt i64 %indvars.iv163, 1
   br i1 %cmp8, label %for.body9, label %for.end22, !llvm.loop !7
 
 for.end22:                                        ; preds = %for.inc21, %for.end

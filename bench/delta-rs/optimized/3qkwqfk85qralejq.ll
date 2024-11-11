@@ -40188,7 +40188,7 @@ define hidden void @_ZN4core5slice4sort10merge_sort17h31f9d8181ed0fb00E(ptr noal
   br label %45
 
 24:                                               ; preds = %3
-  %25 = icmp ugt i64 %1, 1
+  %25 = icmp samesign ugt i64 %1, 1
   br i1 %25, label %"_ZN115_$LT$core..ops..range..RangeInclusive$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$9index_mut17hf66c2c67774bf21dE.exit.i", label %_ZN4core5slice4sort25insertion_sort_shift_left17hfcda9fab09a272d8E.exit
 
 26:                                               ; preds = %62, %27
@@ -40834,7 +40834,7 @@ define hidden void @_ZN4core5slice4sort10merge_sort17h6596031d336ccbecE(ptr noal
   br label %46
 
 24:                                               ; preds = %3
-  %25 = icmp ugt i64 %1, 1
+  %25 = icmp samesign ugt i64 %1, 1
   br i1 %25, label %246, label %45
 
 26:                                               ; preds = %83, %27
@@ -41440,7 +41440,7 @@ define hidden void @_ZN4core5slice4sort10merge_sort17h87cbbad37fa37c1fE(ptr noal
   br label %46
 
 24:                                               ; preds = %3
-  %25 = icmp ugt i64 %1, 1
+  %25 = icmp samesign ugt i64 %1, 1
   br i1 %25, label %240, label %45
 
 26:                                               ; preds = %79, %27
@@ -42043,7 +42043,7 @@ define hidden void @_ZN4core5slice4sort10merge_sort17hadfb94173fb139e5E(ptr noal
   br label %45
 
 24:                                               ; preds = %3
-  %25 = icmp ugt i64 %1, 1
+  %25 = icmp samesign ugt i64 %1, 1
   br i1 %25, label %"_ZN115_$LT$core..ops..range..RangeInclusive$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$9index_mut17h0888bc5633150c3bE.exit.i", label %_ZN4core5slice4sort25insertion_sort_shift_left17h5e0eef4e6777627fE.exit
 
 26:                                               ; preds = %63, %27
@@ -90085,7 +90085,7 @@ define void @"_ZN14deltalake_core7storage5utils133_$LT$impl$u20$core..convert..T
   br i1 %or.cond1.i, label %"_ZN126_$LT$deltalake_core..errors..DeltaTableError$u20$as$u20$core..convert..From$LT$deltalake_core..protocol..ProtocolError$GT$$GT$4from17h734b83826ebe1ebeE.exit", label %31
 
 31:                                               ; preds = %27
-  %32 = icmp ugt i32 %16, 999999999
+  %32 = icmp samesign ugt i32 %16, 999999999
   %33 = urem i32 %28, 60
   %34 = icmp ne i32 %33, 59
   %or.cond3.not.i = and i1 %32, %34

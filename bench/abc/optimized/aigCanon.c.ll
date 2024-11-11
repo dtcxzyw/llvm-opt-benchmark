@@ -680,7 +680,7 @@ define void @Aig_RManComputeVSigs(ptr noundef %0, i32 noundef %1, ptr noundef %2
   br i1 %5, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %4
-  %6 = icmp ult i32 %1, 6
+  %6 = icmp samesign ult i32 %1, 6
   %7 = add nsw i32 %1, -5
   %8 = shl nuw i32 1, %7
   %spec.select.i = select i1 %6, i32 1, i32 %8
@@ -724,7 +724,7 @@ select.unfold.i:                                  ; preds = %12, %select.unfold.
   %33 = lshr i32 %31, 16
   %34 = add nuw nsw i32 %33, %.08.i
   %35 = add nuw nsw i32 %34, %32
-  %36 = icmp ugt i64 %indvars.iv.i, 1
+  %36 = icmp samesign ugt i64 %indvars.iv.i, 1
   br i1 %36, label %select.unfold.i, label %Kit_TruthCountOnes.exit, !llvm.loop !19
 
 Kit_TruthCountOnes.exit:                          ; preds = %select.unfold.i, %12
@@ -800,7 +800,7 @@ select.unfold.i39:                                ; preds = %Aig_RManSortNums.ex
   %72 = lshr i32 %70, 16
   %73 = add nuw nsw i32 %72, %.08.i41
   %74 = add nuw nsw i32 %73, %71
-  %75 = icmp ugt i64 %indvars.iv.i40, 1
+  %75 = icmp samesign ugt i64 %indvars.iv.i40, 1
   br i1 %75, label %select.unfold.i39, label %Kit_TruthCountOnes.exit43, !llvm.loop !19
 
 Kit_TruthCountOnes.exit43:                        ; preds = %select.unfold.i39, %Aig_RManSortNums.exit
@@ -1091,7 +1091,7 @@ select.unfold.i:                                  ; preds = %select.unfold.i, %s
   %48 = load i32, ptr %47, align 4
   %49 = getelementptr inbounds i32, ptr %.us-phi101, i64 %indvars.iv.next.i
   store i32 %48, ptr %49, align 4
-  %50 = icmp ugt i64 %indvars.iv.i, 1
+  %50 = icmp samesign ugt i64 %indvars.iv.i, 1
   br i1 %50, label %select.unfold.i, label %Kit_TruthCopy.exit, !llvm.loop !26
 
 Kit_TruthCopy.exit:                               ; preds = %select.unfold.i, %41, %.split.us
@@ -1318,7 +1318,7 @@ select.unfold.i:                                  ; preds = %select.unfold.i, %s
   %67 = load i32, ptr %66, align 4
   %68 = xor i32 %67, -1
   store i32 %68, ptr %66, align 4
-  %69 = icmp ugt i64 %indvars.iv.i, 1
+  %69 = icmp samesign ugt i64 %indvars.iv.i, 1
   br i1 %69, label %select.unfold.i, label %Kit_TruthNot.exit, !llvm.loop !29
 
 Kit_TruthNot.exit:                                ; preds = %select.unfold.i, %43

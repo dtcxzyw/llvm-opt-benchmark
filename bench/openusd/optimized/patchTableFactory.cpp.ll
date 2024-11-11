@@ -4600,7 +4600,7 @@ define void @_ZN10OpenSubdiv6v3_6_03Far17PatchTableBuilder20BuildUniformPolygons
   %sext = sub nsw i8 0, %60
   %.neg = sext i8 %sext to i32
   %61 = add i32 %.1182, %.neg
-  %62 = icmp ugt i64 %indvars.iv, 1
+  %62 = icmp samesign ugt i64 %indvars.iv, 1
   br i1 %62, label %57, label %.loopexit180, !llvm.loop !30
 
 .loopexit180:                                     ; preds = %57, %43

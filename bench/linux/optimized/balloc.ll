@@ -1630,7 +1630,7 @@ define internal fastcc noundef range(i32 -117, 1) i32 @ext4_validate_block_bitma
 122:                                              ; preds = %117
   %123 = load i32, ptr %106, align 4
   %124 = lshr i32 %120, %123
-  %125 = icmp ult i32 %124, %86
+  %125 = icmp samesign ult i32 %124, %86
   br i1 %125, label %126, label %ext4_valid_block_bitmap.exit
 
 126:                                              ; preds = %122
@@ -1652,7 +1652,7 @@ define internal fastcc noundef range(i32 -117, 1) i32 @ext4_validate_block_bitma
 137:                                              ; preds = %132
   %138 = load i32, ptr %106, align 4
   %139 = lshr i32 %135, %138
-  %140 = icmp ult i32 %139, %86
+  %140 = icmp samesign ult i32 %139, %86
   br i1 %140, label %141, label %ext4_valid_block_bitmap.exit
 
 141:                                              ; preds = %137

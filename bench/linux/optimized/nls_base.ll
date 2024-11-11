@@ -166,7 +166,7 @@ define dso_local i32 @utf32_to_utf8(i32 noundef %0, ptr noundef writeonly %1, i3
   %40 = and i8 %39, 63
   %41 = or disjoint i8 %40, -128
   store i8 %41, ptr %37, align 1
-  %42 = icmp ugt i64 %34, 6
+  %42 = icmp samesign ugt i64 %34, 6
   br i1 %42, label %.preheader, label %.loopexit, !llvm.loop !8
 
 43:                                               ; preds = %16
@@ -375,11 +375,11 @@ define dso_local i32 @utf16s_to_utf8s(ptr nocapture noundef readonly %0, i32 nou
   br i1 %33, label %36, label %34
 
 34:                                               ; preds = %38, %31
-  %35 = icmp ugt i32 %18, 1
+  %35 = icmp samesign ugt i32 %18, 1
   br i1 %35, label %16, label %.loopexit11, !llvm.loop !11
 
 36:                                               ; preds = %31
-  %37 = icmp ult i32 %18, 2
+  %37 = icmp samesign ult i32 %18, 2
   br i1 %37, label %.loopexit11, label %38
 
 38:                                               ; preds = %36
@@ -409,7 +409,7 @@ define dso_local i32 @utf16s_to_utf8s(ptr nocapture noundef readonly %0, i32 nou
   br i1 %56, label %.loopexit, label %57
 
 57:                                               ; preds = %.loopexit12
-  %58 = icmp ult i64 %55, 1114112
+  %58 = icmp samesign ult i64 %55, 1114112
   %59 = and i64 %55, 2095104
   %60 = icmp ne i64 %59, 55296
   %61 = and i1 %58, %60
@@ -453,7 +453,7 @@ define dso_local i32 @utf16s_to_utf8s(ptr nocapture noundef readonly %0, i32 nou
   %89 = and i8 %88, 63
   %90 = or disjoint i8 %89, -128
   store i8 %90, ptr %86, align 1
-  %91 = icmp ugt i64 %83, 6
+  %91 = icmp samesign ugt i64 %83, 6
   br i1 %91, label %.preheader, label %.loopexit, !llvm.loop !8
 
 92:                                               ; preds = %65

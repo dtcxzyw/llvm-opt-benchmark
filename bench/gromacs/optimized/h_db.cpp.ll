@@ -3125,7 +3125,7 @@ _ZN21MoleculePatchDatabaseC2EOS_.exit:            ; preds = %22
   %44 = getelementptr inbounds i8, ptr %.069.i.i.i.i.i, i64 -280
   %45 = call noundef nonnull align 8 dereferenceable(280) ptr @_ZN21MoleculePatchDatabaseaSEOS_(ptr noundef nonnull align 8 dereferenceable(280) %44, ptr noundef nonnull align 8 dereferenceable(280) %43) #19
   %46 = add nsw i64 %.010.i.i.i.i.i, -1
-  %47 = icmp ugt i64 %.010.i.i.i.i.i, 1
+  %47 = icmp samesign ugt i64 %.010.i.i.i.i.i, 1
   br i1 %47, label %.lr.ph.i.i.i.i.i, label %.loopexit, !llvm.loop !53
 
 .loopexit:                                        ; preds = %.lr.ph.i.i.i.i.i, %_ZN21MoleculePatchDatabaseC2EOS_.exit

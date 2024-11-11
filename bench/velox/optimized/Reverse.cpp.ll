@@ -4699,7 +4699,7 @@ if.then36.i:                                      ; preds = %if.end29.i
   br label %_ZL18utf8proc_codepointPKcS0_Ri.exit
 
 if.end47.i:                                       ; preds = %if.end29.i
-  %cmp51.i = icmp ugt i64 %gepdiff, 3
+  %cmp51.i = icmp samesign ugt i64 %gepdiff, 3
   %33 = and i8 %27, -8
   %or.cond2.i = icmp eq i8 %33, -16
   %or.cond31.i = and i1 %cmp51.i, %or.cond2.i
@@ -4810,7 +4810,7 @@ if.then.i.i:                                      ; preds = %.noexc82
   unreachable
 
 if.end.i.i:                                       ; preds = %.noexc82
-  %cmp.i.i.i.i = icmp ult i32 %conv.i81, 13
+  %cmp.i.i.i.i = icmp samesign ult i32 %conv.i81, 13
   %prefix_.i.i = getelementptr inbounds i8, ptr %ref.tmp16.i, i64 4
   br i1 %cmp.i.i.i.i, label %if.then2.i.i, label %if.else.i.i
 
@@ -12632,7 +12632,7 @@ if.then.i.i:                                      ; preds = %.noexc19
   unreachable
 
 if.end.i.i:                                       ; preds = %.noexc19
-  %cmp.i.i.i.i = icmp ult i32 %conv.i18, 13
+  %cmp.i.i.i.i = icmp samesign ult i32 %conv.i18, 13
   %prefix_.i.i = getelementptr inbounds i8, ptr %ref.tmp16.i, i64 4
   br i1 %cmp.i.i.i.i, label %if.then2.i.i, label %if.else.i.i
 
@@ -13164,7 +13164,7 @@ if.then36.i:                                      ; preds = %if.end29.i
   br label %_ZL18utf8proc_codepointPKcS0_Ri.exit
 
 if.end47.i:                                       ; preds = %if.end29.i
-  %cmp51.i = icmp ugt i64 %gepdiff, 3
+  %cmp51.i = icmp samesign ugt i64 %gepdiff, 3
   %18 = and i8 %12, -8
   %or.cond2.i = icmp eq i8 %18, -16
   %or.cond31.i = and i1 %cmp51.i, %or.cond2.i
@@ -13267,7 +13267,7 @@ if.then.i.i:                                      ; preds = %.noexc37
   unreachable
 
 if.end.i.i:                                       ; preds = %.noexc37
-  %cmp.i.i.i.i = icmp ult i32 %conv.i36, 13
+  %cmp.i.i.i.i = icmp samesign ult i32 %conv.i36, 13
   %prefix_.i.i = getelementptr inbounds i8, ptr %ref.tmp16.i, i64 4
   br i1 %cmp.i.i.i.i, label %if.then2.i.i, label %if.else.i.i
 

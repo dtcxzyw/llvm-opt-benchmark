@@ -1860,7 +1860,7 @@ do.body.i.i:                                      ; preds = %do.body.i.i.prehead
 
 do.end.i.i:                                       ; preds = %do.body.i.i
   %cmp.i.i = icmp ugt i64 %add.i.i, 7
-  %tobool9.not.i.i = icmp ult i8 %47, 64
+  %tobool9.not.i.i = icmp samesign ult i8 %47, 64
   %or.cond.i.i = or i1 %cmp.i.i, %tobool9.not.i.i
   %sh_prom10.i.i = trunc i64 %add.i.i to i32
   %shl11.neg.i.i = shl nsw i32 -1, %sh_prom10.i.i
@@ -2255,7 +2255,7 @@ do.body.i.i:                                      ; preds = %do.body.i.i.prehead
 
 do.end.i.i:                                       ; preds = %do.body.i.i
   %cmp.i.i = icmp ugt i64 %add.i.i, 15
-  %tobool9.not.i.i = icmp ult i8 %47, 64
+  %tobool9.not.i.i = icmp samesign ult i8 %47, 64
   %or.cond.i.i = or i1 %cmp.i.i, %tobool9.not.i.i
   %sh_prom10.i.i = trunc i64 %add.i.i to i32
   %shl11.neg.i.i = shl nsw i32 -1, %sh_prom10.i.i
@@ -2649,7 +2649,7 @@ do.body.i.i:                                      ; preds = %do.body.i.i.prehead
 
 do.end.i.i:                                       ; preds = %do.body.i.i
   %cmp.i.i = icmp ugt i64 %add.i.i, 31
-  %tobool5.not.i.i = icmp ult i8 %47, 64
+  %tobool5.not.i.i = icmp samesign ult i8 %47, 64
   %or.cond.i.i = or i1 %cmp.i.i, %tobool5.not.i.i
   %sh_prom6.i.i = trunc i64 %add.i.i to i32
   %shl7.neg.i.i = shl nsw i32 -1, %sh_prom6.i.i
@@ -3040,7 +3040,7 @@ do.body.i.i:                                      ; preds = %do.body.i.i.prehead
 
 do.end.i.i:                                       ; preds = %do.body.i.i
   %cmp.i.i = icmp ugt i64 %add.i.i, 63
-  %tobool6.not.i.i = icmp ult i8 %47, 64
+  %tobool6.not.i.i = icmp samesign ult i8 %47, 64
   %or.cond.i.i = or i1 %cmp.i.i, %tobool6.not.i.i
   %shl7.neg.i.i = shl nsw i64 -1, %add.i.i
   %or8.i.i = select i1 %or.cond.i.i, i64 0, i64 %shl7.neg.i.i

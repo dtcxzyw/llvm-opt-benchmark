@@ -23964,7 +23964,7 @@ land.lhs.true12.i.i:                              ; preds = %require_align.exit.
   br i1 %cmp.i7.i.i, label %st_index_check.exit, label %lor.rhs.i8.i.i
 
 lor.rhs.i8.i.i:                                   ; preds = %land.lhs.true12.i.i
-  %cmp3.not.i.i9.i.i = icmp ugt i8 %s.val6.i, 32
+  %cmp3.not.i.i9.i.i = icmp samesign ugt i8 %s.val6.i, 32
   br i1 %cmp3.not.i.i9.i.i, label %if.else.i.i17.i.i, label %require_align.exit18.i.i
 
 if.else.i.i17.i.i:                                ; preds = %lor.rhs.i8.i.i
@@ -24492,7 +24492,7 @@ land.lhs.true12.i.i:                              ; preds = %require_align.exit.
   br i1 %cmp.i7.i.i, label %st_index_check.exit, label %lor.rhs.i8.i.i
 
 lor.rhs.i8.i.i:                                   ; preds = %land.lhs.true12.i.i
-  %cmp3.not.i.i9.i.i = icmp ugt i8 %s.val6.i, 32
+  %cmp3.not.i.i9.i.i = icmp samesign ugt i8 %s.val6.i, 32
   br i1 %cmp3.not.i.i9.i.i, label %if.else.i.i17.i.i, label %require_align.exit18.i.i
 
 if.else.i.i17.i.i:                                ; preds = %lor.rhs.i8.i.i
@@ -24748,7 +24748,7 @@ land.lhs.true12.i.i:                              ; preds = %require_align.exit.
   br i1 %cmp.i7.i.i, label %st_index_check.exit, label %lor.rhs.i8.i.i
 
 lor.rhs.i8.i.i:                                   ; preds = %land.lhs.true12.i.i
-  %cmp3.not.i.i9.i.i = icmp ugt i8 %s.val6.i, 32
+  %cmp3.not.i.i9.i.i = icmp samesign ugt i8 %s.val6.i, 32
   br i1 %cmp3.not.i.i9.i.i, label %if.else.i.i17.i.i, label %require_align.exit18.i.i
 
 if.else.i.i17.i.i:                                ; preds = %lor.rhs.i8.i.i
@@ -25004,7 +25004,7 @@ land.lhs.true12.i.i:                              ; preds = %require_align.exit.
   br i1 %cmp.i7.i.i, label %st_index_check.exit, label %lor.rhs.i8.i.i
 
 lor.rhs.i8.i.i:                                   ; preds = %land.lhs.true12.i.i
-  %cmp3.not.i.i9.i.i = icmp ugt i8 %s.val6.i, 32
+  %cmp3.not.i.i9.i.i = icmp samesign ugt i8 %s.val6.i, 32
   br i1 %cmp3.not.i.i9.i.i, label %if.else.i.i17.i.i, label %require_align.exit18.i.i
 
 if.else.i.i17.i.i:                                ; preds = %lor.rhs.i8.i.i
@@ -49800,7 +49800,7 @@ land.lhs.true.i.i.i:                              ; preds = %land.rhs.i
   br i1 %cmp.i.i.i.i, label %if.end, label %lor.rhs.i.i.i.i
 
 lor.rhs.i.i.i.i:                                  ; preds = %land.lhs.true.i.i.i
-  %cmp3.not.i.i.i.i.i = icmp ugt i8 %7, 32
+  %cmp3.not.i.i.i.i.i = icmp samesign ugt i8 %7, 32
   br i1 %cmp3.not.i.i.i.i.i, label %if.else.i.i.i.i.i, label %require_align.exit.i.i.i
 
 if.else.i.i.i.i.i:                                ; preds = %lor.rhs.i.i.i.i
@@ -49974,7 +49974,7 @@ land.lhs.true.i.i.i.i:                            ; preds = %land.rhs.i.i
   br i1 %cmp.i.i.i.i.i, label %land.rhs.i, label %lor.rhs.i.i.i.i.i
 
 lor.rhs.i.i.i.i.i:                                ; preds = %land.lhs.true.i.i.i.i
-  %cmp3.not.i.i.i.i.i.i = icmp ugt i8 %7, 32
+  %cmp3.not.i.i.i.i.i.i = icmp samesign ugt i8 %7, 32
   br i1 %cmp3.not.i.i.i.i.i.i, label %if.else.i.i.i.i.i.i, label %require_align.exit.i.i.i.i
 
 if.else.i.i.i.i.i.i:                              ; preds = %lor.rhs.i.i.i.i.i
@@ -50160,7 +50160,7 @@ land.lhs.true.i.i.i:                              ; preds = %land.rhs.i
   br i1 %cmp.i.i.i.i, label %if.end, label %lor.rhs.i.i.i.i
 
 lor.rhs.i.i.i.i:                                  ; preds = %land.lhs.true.i.i.i
-  %cmp3.not.i.i.i.i.i = icmp ugt i8 %7, 32
+  %cmp3.not.i.i.i.i.i = icmp samesign ugt i8 %7, 32
   br i1 %cmp3.not.i.i.i.i.i, label %if.else.i.i.i.i.i, label %require_align.exit.i.i.i
 
 if.else.i.i.i.i.i:                                ; preds = %lor.rhs.i.i.i.i
@@ -50334,7 +50334,7 @@ land.lhs.true.i.i.i:                              ; preds = %land.rhs.i
   br i1 %cmp.i.i.i.i, label %if.end, label %lor.rhs.i.i.i.i
 
 lor.rhs.i.i.i.i:                                  ; preds = %land.lhs.true.i.i.i
-  %cmp3.not.i.i.i.i.i = icmp ugt i8 %7, 32
+  %cmp3.not.i.i.i.i.i = icmp samesign ugt i8 %7, 32
   br i1 %cmp3.not.i.i.i.i.i, label %if.else.i.i.i.i.i, label %require_align.exit.i.i.i
 
 if.else.i.i.i.i.i:                                ; preds = %lor.rhs.i.i.i.i
@@ -50508,7 +50508,7 @@ land.lhs.true.i.i.i:                              ; preds = %land.rhs.i
   br i1 %cmp.i.i.i.i, label %if.end, label %lor.rhs.i.i.i.i
 
 lor.rhs.i.i.i.i:                                  ; preds = %land.lhs.true.i.i.i
-  %cmp3.not.i.i.i.i.i = icmp ugt i8 %7, 32
+  %cmp3.not.i.i.i.i.i = icmp samesign ugt i8 %7, 32
   br i1 %cmp3.not.i.i.i.i.i, label %if.else.i.i.i.i.i, label %require_align.exit.i.i.i
 
 if.else.i.i.i.i.i:                                ; preds = %lor.rhs.i.i.i.i
@@ -50682,7 +50682,7 @@ land.lhs.true.i.i.i:                              ; preds = %land.rhs.i
   br i1 %cmp.i.i.i.i, label %if.end, label %lor.rhs.i.i.i.i
 
 lor.rhs.i.i.i.i:                                  ; preds = %land.lhs.true.i.i.i
-  %cmp3.not.i.i.i.i.i = icmp ugt i8 %7, 32
+  %cmp3.not.i.i.i.i.i = icmp samesign ugt i8 %7, 32
   br i1 %cmp3.not.i.i.i.i.i, label %if.else.i.i.i.i.i, label %require_align.exit.i.i.i
 
 if.else.i.i.i.i.i:                                ; preds = %lor.rhs.i.i.i.i
@@ -50856,7 +50856,7 @@ land.lhs.true.i.i.i:                              ; preds = %land.rhs.i
   br i1 %cmp.i.i.i.i, label %if.end, label %lor.rhs.i.i.i.i
 
 lor.rhs.i.i.i.i:                                  ; preds = %land.lhs.true.i.i.i
-  %cmp3.not.i.i.i.i.i = icmp ugt i8 %7, 32
+  %cmp3.not.i.i.i.i.i = icmp samesign ugt i8 %7, 32
   br i1 %cmp3.not.i.i.i.i.i, label %if.else.i.i.i.i.i, label %require_align.exit.i.i.i
 
 if.else.i.i.i.i.i:                                ; preds = %lor.rhs.i.i.i.i
@@ -51030,7 +51030,7 @@ land.lhs.true.i.i.i:                              ; preds = %land.rhs.i
   br i1 %cmp.i.i.i.i, label %if.end, label %lor.rhs.i.i.i.i
 
 lor.rhs.i.i.i.i:                                  ; preds = %land.lhs.true.i.i.i
-  %cmp3.not.i.i.i.i.i = icmp ugt i8 %7, 32
+  %cmp3.not.i.i.i.i.i = icmp samesign ugt i8 %7, 32
   br i1 %cmp3.not.i.i.i.i.i, label %if.else.i.i.i.i.i, label %require_align.exit.i.i.i
 
 if.else.i.i.i.i.i:                                ; preds = %lor.rhs.i.i.i.i
@@ -51204,7 +51204,7 @@ land.lhs.true.i.i.i:                              ; preds = %land.rhs.i
   br i1 %cmp.i.i.i.i, label %if.end, label %lor.rhs.i.i.i.i
 
 lor.rhs.i.i.i.i:                                  ; preds = %land.lhs.true.i.i.i
-  %cmp3.not.i.i.i.i.i = icmp ugt i8 %7, 32
+  %cmp3.not.i.i.i.i.i = icmp samesign ugt i8 %7, 32
   br i1 %cmp3.not.i.i.i.i.i, label %if.else.i.i.i.i.i, label %require_align.exit.i.i.i
 
 if.else.i.i.i.i.i:                                ; preds = %lor.rhs.i.i.i.i
@@ -51378,7 +51378,7 @@ land.lhs.true.i.i.i:                              ; preds = %land.rhs.i
   br i1 %cmp.i.i.i.i, label %if.end, label %lor.rhs.i.i.i.i
 
 lor.rhs.i.i.i.i:                                  ; preds = %land.lhs.true.i.i.i
-  %cmp3.not.i.i.i.i.i = icmp ugt i8 %7, 32
+  %cmp3.not.i.i.i.i.i = icmp samesign ugt i8 %7, 32
   br i1 %cmp3.not.i.i.i.i.i, label %if.else.i.i.i.i.i, label %require_align.exit.i.i.i
 
 if.else.i.i.i.i.i:                                ; preds = %lor.rhs.i.i.i.i
@@ -51549,7 +51549,7 @@ require_align.exit38.thread.i:                    ; preds = %land.lhs.true2.i
   br label %land.lhs.true15.i
 
 lor.rhs.i.i:                                      ; preds = %land.lhs.true2.i
-  %cmp3.not.i.i.i = icmp ugt i8 %3, 32
+  %cmp3.not.i.i.i = icmp samesign ugt i8 %3, 32
   br i1 %cmp3.not.i.i.i, label %if.else.i.i.i, label %require_align.exit.i
 
 if.else.i.i.i:                                    ; preds = %lor.rhs.i.i
@@ -51689,7 +51689,7 @@ land.lhs.true13.i:                                ; preds = %land.lhs.true.i
   br i1 %cmp.i35.i, label %land.lhs.true18.i, label %lor.rhs.i.i
 
 lor.rhs.i.i:                                      ; preds = %land.lhs.true13.i
-  %cmp3.not.i.i.i = icmp ugt i8 %1, 32
+  %cmp3.not.i.i.i = icmp samesign ugt i8 %1, 32
   br i1 %cmp3.not.i.i.i, label %if.else.i.i.i, label %require_align.exit.i
 
 if.else.i.i.i:                                    ; preds = %lor.rhs.i.i
@@ -51714,7 +51714,7 @@ land.lhs.true18.i:                                ; preds = %require_align.exit.
   br i1 %cmp.i36.i, label %land.lhs.true22.i, label %lor.rhs.i37.i
 
 lor.rhs.i37.i:                                    ; preds = %land.lhs.true18.i
-  %cmp3.not.i.i38.i = icmp ugt i8 %add.i, 32
+  %cmp3.not.i.i38.i = icmp samesign ugt i8 %add.i, 32
   br i1 %cmp3.not.i.i38.i, label %if.else.i.i46.i, label %require_align.exit47.i
 
 if.else.i.i46.i:                                  ; preds = %lor.rhs.i37.i
@@ -51887,7 +51887,7 @@ land.lhs.true.i.i.i:                              ; preds = %land.lhs.true2.i
   br i1 %cmp.i.i.i.i, label %if.then, label %lor.rhs.i.i.i.i
 
 lor.rhs.i.i.i.i:                                  ; preds = %land.lhs.true.i.i.i
-  %cmp3.not.i.i.i.i.i = icmp ugt i8 %5, 32
+  %cmp3.not.i.i.i.i.i = icmp samesign ugt i8 %5, 32
   br i1 %cmp3.not.i.i.i.i.i, label %if.else.i.i.i.i.i, label %require_align.exit.i.i.i
 
 if.else.i.i.i.i.i:                                ; preds = %lor.rhs.i.i.i.i
@@ -52099,7 +52099,7 @@ land.lhs.true.i.i.i:                              ; preds = %land.lhs.true2.i
   br i1 %cmp.i.i.i.i, label %if.then, label %lor.rhs.i.i.i.i
 
 lor.rhs.i.i.i.i:                                  ; preds = %land.lhs.true.i.i.i
-  %cmp3.not.i.i.i.i.i = icmp ugt i8 %5, 32
+  %cmp3.not.i.i.i.i.i = icmp samesign ugt i8 %5, 32
   br i1 %cmp3.not.i.i.i.i.i, label %if.else.i.i.i.i.i, label %require_align.exit.i.i.i
 
 if.else.i.i.i.i.i:                                ; preds = %lor.rhs.i.i.i.i
@@ -52313,7 +52313,7 @@ land.lhs.true.i.i.i.i:                            ; preds = %land.rhs.i.i
   br i1 %cmp.i.i.i.i.i, label %land.rhs.i, label %lor.rhs.i.i.i.i.i
 
 lor.rhs.i.i.i.i.i:                                ; preds = %land.lhs.true.i.i.i.i
-  %cmp3.not.i.i.i.i.i.i = icmp ugt i8 %7, 32
+  %cmp3.not.i.i.i.i.i.i = icmp samesign ugt i8 %7, 32
   br i1 %cmp3.not.i.i.i.i.i.i, label %if.else.i.i.i.i.i.i, label %require_align.exit.i.i.i.i
 
 if.else.i.i.i.i.i.i:                              ; preds = %lor.rhs.i.i.i.i.i
@@ -52499,7 +52499,7 @@ land.lhs.true.i.i.i.i:                            ; preds = %land.rhs.i.i
   br i1 %cmp.i.i.i.i.i, label %land.rhs.i, label %lor.rhs.i.i.i.i.i
 
 lor.rhs.i.i.i.i.i:                                ; preds = %land.lhs.true.i.i.i.i
-  %cmp3.not.i.i.i.i.i.i = icmp ugt i8 %7, 32
+  %cmp3.not.i.i.i.i.i.i = icmp samesign ugt i8 %7, 32
   br i1 %cmp3.not.i.i.i.i.i.i, label %if.else.i.i.i.i.i.i, label %require_align.exit.i.i.i.i
 
 if.else.i.i.i.i.i.i:                              ; preds = %lor.rhs.i.i.i.i.i
@@ -52683,7 +52683,7 @@ land.lhs.true.i.i.i:                              ; preds = %land.lhs.true2.i
   br i1 %cmp.i.i.i.i, label %if.then, label %lor.rhs.i.i.i.i
 
 lor.rhs.i.i.i.i:                                  ; preds = %land.lhs.true.i.i.i
-  %cmp3.not.i.i.i.i.i = icmp ugt i8 %5, 32
+  %cmp3.not.i.i.i.i.i = icmp samesign ugt i8 %5, 32
   br i1 %cmp3.not.i.i.i.i.i, label %if.else.i.i.i.i.i, label %require_align.exit.i.i.i
 
 if.else.i.i.i.i.i:                                ; preds = %lor.rhs.i.i.i.i
@@ -52799,7 +52799,7 @@ land.lhs.true2:                                   ; preds = %land.lhs.true
   br i1 %cmp.i.i.i, label %if.then, label %lor.rhs.i.i.i
 
 lor.rhs.i.i.i:                                    ; preds = %land.lhs.true2
-  %cmp3.not.i.i.i.i = icmp ugt i8 %4, 32
+  %cmp3.not.i.i.i.i = icmp samesign ugt i8 %4, 32
   br i1 %cmp3.not.i.i.i.i, label %if.else.i.i.i.i, label %require_align.exit.i.i
 
 if.else.i.i.i.i:                                  ; preds = %lor.rhs.i.i.i
@@ -53567,7 +53567,7 @@ land.rhs.i.i:                                     ; preds = %land.lhs.true.i.i
   br i1 %cmp.i.i.i.i, label %reduction_check.exit.i, label %lor.rhs.i.i.i.i
 
 lor.rhs.i.i.i.i:                                  ; preds = %land.rhs.i.i
-  %cmp3.not.i.i.i.i.i = icmp ugt i8 %3, 32
+  %cmp3.not.i.i.i.i.i = icmp samesign ugt i8 %3, 32
   br i1 %cmp3.not.i.i.i.i.i, label %if.else.i.i.i.i.i, label %require_align.exit.i.i.i
 
 if.else.i.i.i.i.i:                                ; preds = %lor.rhs.i.i.i.i
@@ -53866,7 +53866,7 @@ land.rhs.i.i:                                     ; preds = %land.lhs.true.i.i
   br i1 %cmp.i.i.i.i, label %reduction_check.exit.i, label %lor.rhs.i.i.i.i
 
 lor.rhs.i.i.i.i:                                  ; preds = %land.rhs.i.i
-  %cmp3.not.i.i.i.i.i = icmp ugt i8 %3, 32
+  %cmp3.not.i.i.i.i.i = icmp samesign ugt i8 %3, 32
   br i1 %cmp3.not.i.i.i.i.i, label %if.else.i.i.i.i.i, label %require_align.exit.i.i.i
 
 if.else.i.i.i.i.i:                                ; preds = %lor.rhs.i.i.i.i
@@ -54165,7 +54165,7 @@ land.rhs.i.i:                                     ; preds = %land.lhs.true.i.i
   br i1 %cmp.i.i.i.i, label %reduction_check.exit.i, label %lor.rhs.i.i.i.i
 
 lor.rhs.i.i.i.i:                                  ; preds = %land.rhs.i.i
-  %cmp3.not.i.i.i.i.i = icmp ugt i8 %3, 32
+  %cmp3.not.i.i.i.i.i = icmp samesign ugt i8 %3, 32
   br i1 %cmp3.not.i.i.i.i.i, label %if.else.i.i.i.i.i, label %require_align.exit.i.i.i
 
 if.else.i.i.i.i.i:                                ; preds = %lor.rhs.i.i.i.i
@@ -54464,7 +54464,7 @@ land.rhs.i.i:                                     ; preds = %land.lhs.true.i.i
   br i1 %cmp.i.i.i.i, label %reduction_check.exit.i, label %lor.rhs.i.i.i.i
 
 lor.rhs.i.i.i.i:                                  ; preds = %land.rhs.i.i
-  %cmp3.not.i.i.i.i.i = icmp ugt i8 %3, 32
+  %cmp3.not.i.i.i.i.i = icmp samesign ugt i8 %3, 32
   br i1 %cmp3.not.i.i.i.i.i, label %if.else.i.i.i.i.i, label %require_align.exit.i.i.i
 
 if.else.i.i.i.i.i:                                ; preds = %lor.rhs.i.i.i.i
@@ -58454,7 +58454,7 @@ land.rhs.i:                                       ; preds = %land.lhs.true.i
   br i1 %cmp.i.i.i, label %reduction_check.exit, label %lor.rhs.i.i.i
 
 lor.rhs.i.i.i:                                    ; preds = %land.rhs.i
-  %cmp3.not.i.i.i.i = icmp ugt i8 %3, 32
+  %cmp3.not.i.i.i.i = icmp samesign ugt i8 %3, 32
   br i1 %cmp3.not.i.i.i.i, label %if.else.i.i.i.i, label %require_align.exit.i.i
 
 if.else.i.i.i.i:                                  ; preds = %lor.rhs.i.i.i
@@ -58565,7 +58565,7 @@ land.rhs.i:                                       ; preds = %land.lhs.true.i
   br i1 %cmp.i.i.i, label %reduction_check.exit, label %lor.rhs.i.i.i
 
 lor.rhs.i.i.i:                                    ; preds = %land.rhs.i
-  %cmp3.not.i.i.i.i = icmp ugt i8 %3, 32
+  %cmp3.not.i.i.i.i = icmp samesign ugt i8 %3, 32
   br i1 %cmp3.not.i.i.i.i, label %if.else.i.i.i.i, label %require_align.exit.i.i
 
 if.else.i.i.i.i:                                  ; preds = %lor.rhs.i.i.i
@@ -58676,7 +58676,7 @@ land.rhs.i:                                       ; preds = %land.lhs.true.i
   br i1 %cmp.i.i.i, label %reduction_check.exit, label %lor.rhs.i.i.i
 
 lor.rhs.i.i.i:                                    ; preds = %land.rhs.i
-  %cmp3.not.i.i.i.i = icmp ugt i8 %3, 32
+  %cmp3.not.i.i.i.i = icmp samesign ugt i8 %3, 32
   br i1 %cmp3.not.i.i.i.i, label %if.else.i.i.i.i, label %require_align.exit.i.i
 
 if.else.i.i.i.i:                                  ; preds = %lor.rhs.i.i.i
@@ -58787,7 +58787,7 @@ land.rhs.i:                                       ; preds = %land.lhs.true.i
   br i1 %cmp.i.i.i, label %reduction_check.exit, label %lor.rhs.i.i.i
 
 lor.rhs.i.i.i:                                    ; preds = %land.rhs.i
-  %cmp3.not.i.i.i.i = icmp ugt i8 %3, 32
+  %cmp3.not.i.i.i.i = icmp samesign ugt i8 %3, 32
   br i1 %cmp3.not.i.i.i.i, label %if.else.i.i.i.i, label %require_align.exit.i.i
 
 if.else.i.i.i.i:                                  ; preds = %lor.rhs.i.i.i
@@ -58898,7 +58898,7 @@ land.rhs.i:                                       ; preds = %land.lhs.true.i
   br i1 %cmp.i.i.i, label %reduction_check.exit, label %lor.rhs.i.i.i
 
 lor.rhs.i.i.i:                                    ; preds = %land.rhs.i
-  %cmp3.not.i.i.i.i = icmp ugt i8 %3, 32
+  %cmp3.not.i.i.i.i = icmp samesign ugt i8 %3, 32
   br i1 %cmp3.not.i.i.i.i, label %if.else.i.i.i.i, label %require_align.exit.i.i
 
 if.else.i.i.i.i:                                  ; preds = %lor.rhs.i.i.i
@@ -59009,7 +59009,7 @@ land.rhs.i:                                       ; preds = %land.lhs.true.i
   br i1 %cmp.i.i.i, label %reduction_check.exit, label %lor.rhs.i.i.i
 
 lor.rhs.i.i.i:                                    ; preds = %land.rhs.i
-  %cmp3.not.i.i.i.i = icmp ugt i8 %3, 32
+  %cmp3.not.i.i.i.i = icmp samesign ugt i8 %3, 32
   br i1 %cmp3.not.i.i.i.i, label %if.else.i.i.i.i, label %require_align.exit.i.i
 
 if.else.i.i.i.i:                                  ; preds = %lor.rhs.i.i.i
@@ -59120,7 +59120,7 @@ land.rhs.i:                                       ; preds = %land.lhs.true.i
   br i1 %cmp.i.i.i, label %reduction_check.exit, label %lor.rhs.i.i.i
 
 lor.rhs.i.i.i:                                    ; preds = %land.rhs.i
-  %cmp3.not.i.i.i.i = icmp ugt i8 %3, 32
+  %cmp3.not.i.i.i.i = icmp samesign ugt i8 %3, 32
   br i1 %cmp3.not.i.i.i.i, label %if.else.i.i.i.i, label %require_align.exit.i.i
 
 if.else.i.i.i.i:                                  ; preds = %lor.rhs.i.i.i
@@ -59231,7 +59231,7 @@ land.rhs.i:                                       ; preds = %land.lhs.true.i
   br i1 %cmp.i.i.i, label %reduction_check.exit, label %lor.rhs.i.i.i
 
 lor.rhs.i.i.i:                                    ; preds = %land.rhs.i
-  %cmp3.not.i.i.i.i = icmp ugt i8 %3, 32
+  %cmp3.not.i.i.i.i = icmp samesign ugt i8 %3, 32
   br i1 %cmp3.not.i.i.i.i, label %if.else.i.i.i.i, label %require_align.exit.i.i
 
 if.else.i.i.i.i:                                  ; preds = %lor.rhs.i.i.i
@@ -59352,7 +59352,7 @@ land.lhs.true.i.i.i:                              ; preds = %land.rhs.i
   br i1 %cmp.i.i.i.i, label %if.then, label %lor.rhs.i.i.i.i
 
 lor.rhs.i.i.i.i:                                  ; preds = %land.lhs.true.i.i.i
-  %cmp3.not.i.i.i.i.i = icmp ugt i8 %7, 32
+  %cmp3.not.i.i.i.i.i = icmp samesign ugt i8 %7, 32
   br i1 %cmp3.not.i.i.i.i.i, label %if.else.i.i.i.i.i, label %require_align.exit.i.i.i
 
 if.else.i.i.i.i.i:                                ; preds = %lor.rhs.i.i.i.i
@@ -59476,7 +59476,7 @@ land.lhs.true.i.i.i:                              ; preds = %land.rhs.i
   br i1 %cmp.i.i.i.i, label %if.then, label %lor.rhs.i.i.i.i
 
 lor.rhs.i.i.i.i:                                  ; preds = %land.lhs.true.i.i.i
-  %cmp3.not.i.i.i.i.i = icmp ugt i8 %7, 32
+  %cmp3.not.i.i.i.i.i = icmp samesign ugt i8 %7, 32
   br i1 %cmp3.not.i.i.i.i.i, label %if.else.i.i.i.i.i, label %require_align.exit.i.i.i
 
 if.else.i.i.i.i.i:                                ; preds = %lor.rhs.i.i.i.i
@@ -59600,7 +59600,7 @@ land.lhs.true.i.i.i:                              ; preds = %land.rhs.i
   br i1 %cmp.i.i.i.i, label %if.then, label %lor.rhs.i.i.i.i
 
 lor.rhs.i.i.i.i:                                  ; preds = %land.lhs.true.i.i.i
-  %cmp3.not.i.i.i.i.i = icmp ugt i8 %7, 32
+  %cmp3.not.i.i.i.i.i = icmp samesign ugt i8 %7, 32
   br i1 %cmp3.not.i.i.i.i.i, label %if.else.i.i.i.i.i, label %require_align.exit.i.i.i
 
 if.else.i.i.i.i.i:                                ; preds = %lor.rhs.i.i.i.i
@@ -59724,7 +59724,7 @@ land.lhs.true.i.i.i:                              ; preds = %land.rhs.i
   br i1 %cmp.i.i.i.i, label %if.then, label %lor.rhs.i.i.i.i
 
 lor.rhs.i.i.i.i:                                  ; preds = %land.lhs.true.i.i.i
-  %cmp3.not.i.i.i.i.i = icmp ugt i8 %7, 32
+  %cmp3.not.i.i.i.i.i = icmp samesign ugt i8 %7, 32
   br i1 %cmp3.not.i.i.i.i.i, label %if.else.i.i.i.i.i, label %require_align.exit.i.i.i
 
 if.else.i.i.i.i.i:                                ; preds = %lor.rhs.i.i.i.i
@@ -59848,7 +59848,7 @@ land.lhs.true.i.i.i.i:                            ; preds = %land.rhs.i.i
   br i1 %cmp.i.i.i.i.i, label %land.lhs.true.i, label %lor.rhs.i.i.i.i.i
 
 lor.rhs.i.i.i.i.i:                                ; preds = %land.lhs.true.i.i.i.i
-  %cmp3.not.i.i.i.i.i.i = icmp ugt i8 %7, 32
+  %cmp3.not.i.i.i.i.i.i = icmp samesign ugt i8 %7, 32
   br i1 %cmp3.not.i.i.i.i.i.i, label %if.else.i.i.i.i.i.i, label %require_align.exit.i.i.i.i
 
 if.else.i.i.i.i.i.i:                              ; preds = %lor.rhs.i.i.i.i.i
@@ -59980,7 +59980,7 @@ land.lhs.true.i.i.i.i:                            ; preds = %land.rhs.i.i
   br i1 %cmp.i.i.i.i.i, label %land.lhs.true.i, label %lor.rhs.i.i.i.i.i
 
 lor.rhs.i.i.i.i.i:                                ; preds = %land.lhs.true.i.i.i.i
-  %cmp3.not.i.i.i.i.i.i = icmp ugt i8 %7, 32
+  %cmp3.not.i.i.i.i.i.i = icmp samesign ugt i8 %7, 32
   br i1 %cmp3.not.i.i.i.i.i.i, label %if.else.i.i.i.i.i.i, label %require_align.exit.i.i.i.i
 
 if.else.i.i.i.i.i.i:                              ; preds = %lor.rhs.i.i.i.i.i
@@ -60612,7 +60612,7 @@ land.lhs.true.i.i:                                ; preds = %land.rhs.i
   br i1 %cmp.i.i.i, label %if.then, label %lor.rhs.i.i.i
 
 lor.rhs.i.i.i:                                    ; preds = %land.lhs.true.i.i
-  %cmp3.not.i.i.i.i = icmp ugt i8 %9, 32
+  %cmp3.not.i.i.i.i = icmp samesign ugt i8 %9, 32
   br i1 %cmp3.not.i.i.i.i, label %if.else.i.i.i.i, label %require_align.exit.i.i
 
 if.else.i.i.i.i:                                  ; preds = %lor.rhs.i.i.i
@@ -60740,7 +60740,7 @@ land.lhs.true.i.i:                                ; preds = %land.rhs.i
   br i1 %cmp.i.i.i, label %if.then, label %lor.rhs.i.i.i
 
 lor.rhs.i.i.i:                                    ; preds = %land.lhs.true.i.i
-  %cmp3.not.i.i.i.i = icmp ugt i8 %9, 32
+  %cmp3.not.i.i.i.i = icmp samesign ugt i8 %9, 32
   br i1 %cmp3.not.i.i.i.i, label %if.else.i.i.i.i, label %require_align.exit.i.i
 
 if.else.i.i.i.i:                                  ; preds = %lor.rhs.i.i.i
@@ -60862,7 +60862,7 @@ land.lhs.true.i.i:                                ; preds = %land.rhs.i
   br i1 %cmp.i.i.i, label %if.then, label %lor.rhs.i.i.i
 
 lor.rhs.i.i.i:                                    ; preds = %land.lhs.true.i.i
-  %cmp3.not.i.i.i.i = icmp ugt i8 %8, 32
+  %cmp3.not.i.i.i.i = icmp samesign ugt i8 %8, 32
   br i1 %cmp3.not.i.i.i.i, label %if.else.i.i.i.i, label %require_align.exit.i.i
 
 if.else.i.i.i.i:                                  ; preds = %lor.rhs.i.i.i
@@ -60984,7 +60984,7 @@ land.lhs.true.i.i:                                ; preds = %land.rhs.i
   br i1 %cmp.i.i.i, label %if.then, label %lor.rhs.i.i.i
 
 lor.rhs.i.i.i:                                    ; preds = %land.lhs.true.i.i
-  %cmp3.not.i.i.i.i = icmp ugt i8 %8, 32
+  %cmp3.not.i.i.i.i = icmp samesign ugt i8 %8, 32
   br i1 %cmp3.not.i.i.i.i, label %if.else.i.i.i.i, label %require_align.exit.i.i
 
 if.else.i.i.i.i:                                  ; preds = %lor.rhs.i.i.i
@@ -61106,7 +61106,7 @@ land.lhs.true.i.i:                                ; preds = %land.rhs.i
   br i1 %cmp.i.i.i, label %if.then, label %lor.rhs.i.i.i
 
 lor.rhs.i.i.i:                                    ; preds = %land.lhs.true.i.i
-  %cmp3.not.i.i.i.i = icmp ugt i8 %8, 32
+  %cmp3.not.i.i.i.i = icmp samesign ugt i8 %8, 32
   br i1 %cmp3.not.i.i.i.i, label %if.else.i.i.i.i, label %require_align.exit.i.i
 
 if.else.i.i.i.i:                                  ; preds = %lor.rhs.i.i.i
@@ -61228,7 +61228,7 @@ land.lhs.true.i.i:                                ; preds = %land.rhs.i
   br i1 %cmp.i.i.i, label %if.then, label %lor.rhs.i.i.i
 
 lor.rhs.i.i.i:                                    ; preds = %land.lhs.true.i.i
-  %cmp3.not.i.i.i.i = icmp ugt i8 %8, 32
+  %cmp3.not.i.i.i.i = icmp samesign ugt i8 %8, 32
   br i1 %cmp3.not.i.i.i.i, label %if.else.i.i.i.i, label %require_align.exit.i.i
 
 if.else.i.i.i.i:                                  ; preds = %lor.rhs.i.i.i
@@ -61610,7 +61610,7 @@ land.lhs.true12:                                  ; preds = %land.lhs.true8
   br i1 %cmp.i37, label %land.lhs.true18, label %lor.rhs.i
 
 lor.rhs.i:                                        ; preds = %land.lhs.true12
-  %cmp3.not.i.i = icmp ugt i8 %3, 32
+  %cmp3.not.i.i = icmp samesign ugt i8 %3, 32
   br i1 %cmp3.not.i.i, label %if.else.i.i, label %require_align.exit
 
 if.else.i.i:                                      ; preds = %lor.rhs.i
@@ -61709,7 +61709,7 @@ land.lhs.true2:                                   ; preds = %land.lhs.true
   br i1 %cmp.i28, label %land.lhs.true5, label %lor.rhs.i
 
 lor.rhs.i:                                        ; preds = %land.lhs.true2
-  %cmp3.not.i.i = icmp ugt i8 %3, 32
+  %cmp3.not.i.i = icmp samesign ugt i8 %3, 32
   br i1 %cmp3.not.i.i, label %if.else.i.i, label %require_align.exit
 
 if.else.i.i:                                      ; preds = %lor.rhs.i
@@ -61810,7 +61810,7 @@ require_align.exit26.thread.i:                    ; preds = %land.lhs.true2.i
   br label %land.lhs.true10.i
 
 lor.rhs.i.i:                                      ; preds = %land.lhs.true2.i
-  %cmp3.not.i.i.i = icmp ugt i8 %3, 32
+  %cmp3.not.i.i.i = icmp samesign ugt i8 %3, 32
   br i1 %cmp3.not.i.i.i, label %if.else.i.i.i, label %require_align.exit.i
 
 if.else.i.i.i:                                    ; preds = %lor.rhs.i.i
@@ -62426,7 +62426,7 @@ land.lhs.true.i.i:                                ; preds = %land.rhs.i
   br i1 %cmp.i.i.i, label %if.end, label %lor.rhs.i.i.i
 
 lor.rhs.i.i.i:                                    ; preds = %land.lhs.true.i.i
-  %cmp3.not.i.i.i.i = icmp ugt i8 %6, 32
+  %cmp3.not.i.i.i.i = icmp samesign ugt i8 %6, 32
   br i1 %cmp3.not.i.i.i.i, label %if.else.i.i.i.i, label %require_align.exit.i.i
 
 if.else.i.i.i.i:                                  ; preds = %lor.rhs.i.i.i
@@ -62539,7 +62539,7 @@ land.lhs.true.i.i:                                ; preds = %land.rhs.i
   br i1 %cmp.i.i.i, label %if.end, label %lor.rhs.i.i.i
 
 lor.rhs.i.i.i:                                    ; preds = %land.lhs.true.i.i
-  %cmp3.not.i.i.i.i = icmp ugt i8 %6, 32
+  %cmp3.not.i.i.i.i = icmp samesign ugt i8 %6, 32
   br i1 %cmp3.not.i.i.i.i, label %if.else.i.i.i.i, label %require_align.exit.i.i
 
 if.else.i.i.i.i:                                  ; preds = %lor.rhs.i.i.i
@@ -62655,7 +62655,7 @@ land.lhs.true.i.i:                                ; preds = %land.rhs.i
   br i1 %cmp.i.i.i, label %if.end, label %lor.rhs.i.i.i
 
 lor.rhs.i.i.i:                                    ; preds = %land.lhs.true.i.i
-  %cmp3.not.i.i.i.i = icmp ugt i8 %6, 32
+  %cmp3.not.i.i.i.i = icmp samesign ugt i8 %6, 32
   br i1 %cmp3.not.i.i.i.i, label %if.else.i.i.i.i, label %require_align.exit.i.i
 
 if.else.i.i.i.i:                                  ; preds = %lor.rhs.i.i.i
@@ -62768,7 +62768,7 @@ land.lhs.true.i.i:                                ; preds = %land.rhs.i
   br i1 %cmp.i.i.i, label %if.end, label %lor.rhs.i.i.i
 
 lor.rhs.i.i.i:                                    ; preds = %land.lhs.true.i.i
-  %cmp3.not.i.i.i.i = icmp ugt i8 %6, 32
+  %cmp3.not.i.i.i.i = icmp samesign ugt i8 %6, 32
   br i1 %cmp3.not.i.i.i.i, label %if.else.i.i.i.i, label %require_align.exit.i.i
 
 if.else.i.i.i.i:                                  ; preds = %lor.rhs.i.i.i
@@ -62881,7 +62881,7 @@ land.lhs.true.i.i:                                ; preds = %land.rhs.i
   br i1 %cmp.i.i.i, label %if.end, label %lor.rhs.i.i.i
 
 lor.rhs.i.i.i:                                    ; preds = %land.lhs.true.i.i
-  %cmp3.not.i.i.i.i = icmp ugt i8 %6, 32
+  %cmp3.not.i.i.i.i = icmp samesign ugt i8 %6, 32
   br i1 %cmp3.not.i.i.i.i, label %if.else.i.i.i.i, label %require_align.exit.i.i
 
 if.else.i.i.i.i:                                  ; preds = %lor.rhs.i.i.i
@@ -62991,7 +62991,7 @@ require_align.exit22.thread.i:                    ; preds = %land.lhs.true2.i
   br label %land.lhs.true10.i
 
 lor.rhs.i.i:                                      ; preds = %land.lhs.true2.i
-  %cmp3.not.i.i.i = icmp ugt i8 %3, 32
+  %cmp3.not.i.i.i = icmp samesign ugt i8 %3, 32
   br i1 %cmp3.not.i.i.i, label %if.else.i.i.i, label %require_align.exit.i
 
 if.else.i.i.i:                                    ; preds = %lor.rhs.i.i
@@ -63126,7 +63126,7 @@ land.rhs.i:                                       ; preds = %land.lhs.true.i
   br i1 %cmp.i.i.i, label %slideup_check.exit, label %lor.rhs.i.i.i
 
 lor.rhs.i.i.i:                                    ; preds = %land.rhs.i
-  %cmp3.not.i.i.i.i = icmp ugt i8 %s.val6.i, 32
+  %cmp3.not.i.i.i.i = icmp samesign ugt i8 %s.val6.i, 32
   br i1 %cmp3.not.i.i.i.i, label %if.else.i.i.i.i, label %require_align.exit.i.i
 
 if.else.i.i.i.i:                                  ; preds = %lor.rhs.i.i.i
@@ -63199,7 +63199,7 @@ land.rhs.i:                                       ; preds = %land.lhs.true.i
   br i1 %cmp.i.i.i, label %slidedown_check.exit, label %lor.rhs.i.i.i
 
 lor.rhs.i.i.i:                                    ; preds = %land.rhs.i
-  %cmp3.not.i.i.i.i = icmp ugt i8 %s.val6.i, 32
+  %cmp3.not.i.i.i.i = icmp samesign ugt i8 %s.val6.i, 32
   br i1 %cmp3.not.i.i.i.i, label %if.else.i.i.i.i, label %require_align.exit.i.i
 
 if.else.i.i.i.i:                                  ; preds = %lor.rhs.i.i.i
@@ -63276,7 +63276,7 @@ land.lhs.true.i.i:                                ; preds = %land.lhs.true2.i
   br i1 %cmp.i.i.i, label %if.then, label %lor.rhs.i.i.i
 
 lor.rhs.i.i.i:                                    ; preds = %land.lhs.true.i.i
-  %cmp3.not.i.i.i.i = icmp ugt i8 %4, 32
+  %cmp3.not.i.i.i.i = icmp samesign ugt i8 %4, 32
   br i1 %cmp3.not.i.i.i.i, label %if.else.i.i.i.i, label %require_align.exit.i.i
 
 if.else.i.i.i.i:                                  ; preds = %lor.rhs.i.i.i
@@ -63391,7 +63391,7 @@ land.lhs.true.i.i.i:                              ; preds = %land.rhs.i.i
   br i1 %cmp.i.i.i.i, label %land.rhs.i, label %lor.rhs.i.i.i.i
 
 lor.rhs.i.i.i.i:                                  ; preds = %land.lhs.true.i.i.i
-  %cmp3.not.i.i.i.i.i = icmp ugt i8 %6, 32
+  %cmp3.not.i.i.i.i.i = icmp samesign ugt i8 %6, 32
   br i1 %cmp3.not.i.i.i.i.i, label %if.else.i.i.i.i.i, label %require_align.exit.i.i.i
 
 if.else.i.i.i.i.i:                                ; preds = %lor.rhs.i.i.i.i
@@ -63524,7 +63524,7 @@ land.lhs.true.i.i:                                ; preds = %land.lhs.true2.i
   br i1 %cmp.i.i.i, label %if.then, label %lor.rhs.i.i.i
 
 lor.rhs.i.i.i:                                    ; preds = %land.lhs.true.i.i
-  %cmp3.not.i.i.i.i = icmp ugt i8 %4, 32
+  %cmp3.not.i.i.i.i = icmp samesign ugt i8 %4, 32
   br i1 %cmp3.not.i.i.i.i, label %if.else.i.i.i.i, label %require_align.exit.i.i
 
 if.else.i.i.i.i:                                  ; preds = %lor.rhs.i.i.i
@@ -63587,7 +63587,7 @@ land.lhs.true2:                                   ; preds = %land.lhs.true
   br i1 %cmp.i.i, label %if.then, label %lor.rhs.i.i
 
 lor.rhs.i.i:                                      ; preds = %land.lhs.true2
-  %cmp3.not.i.i.i = icmp ugt i8 %3, 32
+  %cmp3.not.i.i.i = icmp samesign ugt i8 %3, 32
   br i1 %cmp3.not.i.i.i, label %if.else.i.i.i, label %require_align.exit.i
 
 if.else.i.i.i:                                    ; preds = %lor.rhs.i.i
@@ -63977,7 +63977,7 @@ land.lhs.true.i.i:                                ; preds = %land.rhs.i
   br i1 %cmp.i.i.i, label %if.end, label %lor.rhs.i.i.i
 
 lor.rhs.i.i.i:                                    ; preds = %land.lhs.true.i.i
-  %cmp3.not.i.i.i.i = icmp ugt i8 %6, 32
+  %cmp3.not.i.i.i.i = icmp samesign ugt i8 %6, 32
   br i1 %cmp3.not.i.i.i.i, label %if.else.i.i.i.i, label %require_align.exit.i.i
 
 if.else.i.i.i.i:                                  ; preds = %lor.rhs.i.i.i
@@ -64130,7 +64130,7 @@ land.lhs.true.i.i.i:                              ; preds = %land.rhs.i.i
   br i1 %cmp.i.i.i.i, label %land.rhs.i, label %lor.rhs.i.i.i.i
 
 lor.rhs.i.i.i.i:                                  ; preds = %land.lhs.true.i.i.i
-  %cmp3.not.i.i.i.i.i = icmp ugt i8 %6, 32
+  %cmp3.not.i.i.i.i.i = icmp samesign ugt i8 %6, 32
   br i1 %cmp3.not.i.i.i.i.i, label %if.else.i.i.i.i.i, label %require_align.exit.i.i.i
 
 if.else.i.i.i.i.i:                                ; preds = %lor.rhs.i.i.i.i
@@ -64296,7 +64296,7 @@ land.lhs.true.i.i:                                ; preds = %land.rhs.i
   br i1 %cmp.i.i.i, label %if.end, label %lor.rhs.i.i.i
 
 lor.rhs.i.i.i:                                    ; preds = %land.lhs.true.i.i
-  %cmp3.not.i.i.i.i = icmp ugt i8 %6, 32
+  %cmp3.not.i.i.i.i = icmp samesign ugt i8 %6, 32
   br i1 %cmp3.not.i.i.i.i, label %if.else.i.i.i.i, label %require_align.exit.i.i
 
 if.else.i.i.i.i:                                  ; preds = %lor.rhs.i.i.i
@@ -64449,7 +64449,7 @@ land.lhs.true.i.i:                                ; preds = %land.rhs.i
   br i1 %cmp.i.i.i, label %if.end, label %lor.rhs.i.i.i
 
 lor.rhs.i.i.i:                                    ; preds = %land.lhs.true.i.i
-  %cmp3.not.i.i.i.i = icmp ugt i8 %6, 32
+  %cmp3.not.i.i.i.i = icmp samesign ugt i8 %6, 32
   br i1 %cmp3.not.i.i.i.i, label %if.else.i.i.i.i, label %require_align.exit.i.i
 
 if.else.i.i.i.i:                                  ; preds = %lor.rhs.i.i.i
@@ -64518,7 +64518,7 @@ land.lhs.true.i.i:                                ; preds = %land.rhs.i
   br i1 %cmp.i.i.i, label %if.then, label %lor.rhs.i.i.i
 
 lor.rhs.i.i.i:                                    ; preds = %land.lhs.true.i.i
-  %cmp3.not.i.i.i.i = icmp ugt i8 %6, 32
+  %cmp3.not.i.i.i.i = icmp samesign ugt i8 %6, 32
   br i1 %cmp3.not.i.i.i.i, label %if.else.i.i.i.i, label %require_align.exit.i.i
 
 if.else.i.i.i.i:                                  ; preds = %lor.rhs.i.i.i
@@ -64589,7 +64589,7 @@ land.lhs.true.i.i:                                ; preds = %land.rhs.i
   br i1 %cmp.i.i.i, label %if.then, label %lor.rhs.i.i.i
 
 lor.rhs.i.i.i:                                    ; preds = %land.lhs.true.i.i
-  %cmp3.not.i.i.i.i = icmp ugt i8 %6, 32
+  %cmp3.not.i.i.i.i = icmp samesign ugt i8 %6, 32
   br i1 %cmp3.not.i.i.i.i, label %if.else.i.i.i.i, label %require_align.exit.i.i
 
 if.else.i.i.i.i:                                  ; preds = %lor.rhs.i.i.i
@@ -64660,7 +64660,7 @@ land.lhs.true.i.i:                                ; preds = %land.rhs.i
   br i1 %cmp.i.i.i, label %if.then, label %lor.rhs.i.i.i
 
 lor.rhs.i.i.i:                                    ; preds = %land.lhs.true.i.i
-  %cmp3.not.i.i.i.i = icmp ugt i8 %6, 32
+  %cmp3.not.i.i.i.i = icmp samesign ugt i8 %6, 32
   br i1 %cmp3.not.i.i.i.i, label %if.else.i.i.i.i, label %require_align.exit.i.i
 
 if.else.i.i.i.i:                                  ; preds = %lor.rhs.i.i.i
@@ -64731,7 +64731,7 @@ land.lhs.true.i.i:                                ; preds = %land.rhs.i
   br i1 %cmp.i.i.i, label %if.then, label %lor.rhs.i.i.i
 
 lor.rhs.i.i.i:                                    ; preds = %land.lhs.true.i.i
-  %cmp3.not.i.i.i.i = icmp ugt i8 %6, 32
+  %cmp3.not.i.i.i.i = icmp samesign ugt i8 %6, 32
   br i1 %cmp3.not.i.i.i.i, label %if.else.i.i.i.i, label %require_align.exit.i.i
 
 if.else.i.i.i.i:                                  ; preds = %lor.rhs.i.i.i
@@ -64802,7 +64802,7 @@ land.lhs.true.i.i:                                ; preds = %land.rhs.i
   br i1 %cmp.i.i.i, label %if.end, label %lor.rhs.i.i.i
 
 lor.rhs.i.i.i:                                    ; preds = %land.lhs.true.i.i
-  %cmp3.not.i.i.i.i = icmp ugt i8 %6, 32
+  %cmp3.not.i.i.i.i = icmp samesign ugt i8 %6, 32
   br i1 %cmp3.not.i.i.i.i, label %if.else.i.i.i.i, label %require_align.exit.i.i
 
 if.else.i.i.i.i:                                  ; preds = %lor.rhs.i.i.i
@@ -64955,7 +64955,7 @@ land.lhs.true.i.i:                                ; preds = %land.rhs.i
   br i1 %cmp.i.i.i, label %if.end, label %lor.rhs.i.i.i
 
 lor.rhs.i.i.i:                                    ; preds = %land.lhs.true.i.i
-  %cmp3.not.i.i.i.i = icmp ugt i8 %6, 32
+  %cmp3.not.i.i.i.i = icmp samesign ugt i8 %6, 32
   br i1 %cmp3.not.i.i.i.i, label %if.else.i.i.i.i, label %require_align.exit.i.i
 
 if.else.i.i.i.i:                                  ; preds = %lor.rhs.i.i.i
@@ -65108,7 +65108,7 @@ land.lhs.true.i.i:                                ; preds = %land.rhs.i
   br i1 %cmp.i.i.i, label %if.end, label %lor.rhs.i.i.i
 
 lor.rhs.i.i.i:                                    ; preds = %land.lhs.true.i.i
-  %cmp3.not.i.i.i.i = icmp ugt i8 %6, 32
+  %cmp3.not.i.i.i.i = icmp samesign ugt i8 %6, 32
   br i1 %cmp3.not.i.i.i.i, label %if.else.i.i.i.i, label %require_align.exit.i.i
 
 if.else.i.i.i.i:                                  ; preds = %lor.rhs.i.i.i
@@ -65258,7 +65258,7 @@ require_align.exit22.thread.i:                    ; preds = %land.lhs.true2.i
   br label %land.lhs.true10.i
 
 lor.rhs.i.i:                                      ; preds = %land.lhs.true2.i
-  %cmp3.not.i.i.i = icmp ugt i8 %3, 32
+  %cmp3.not.i.i.i = icmp samesign ugt i8 %3, 32
   br i1 %cmp3.not.i.i.i, label %if.else.i.i.i, label %require_align.exit.i
 
 if.else.i.i.i:                                    ; preds = %lor.rhs.i.i
@@ -65500,7 +65500,7 @@ land.rhs.i:                                       ; preds = %land.lhs.true.i
   br i1 %cmp.i.i.i, label %slideup_check.exit, label %lor.rhs.i.i.i
 
 lor.rhs.i.i.i:                                    ; preds = %land.rhs.i
-  %cmp3.not.i.i.i.i = icmp ugt i8 %s.val6.i, 32
+  %cmp3.not.i.i.i.i = icmp samesign ugt i8 %s.val6.i, 32
   br i1 %cmp3.not.i.i.i.i, label %if.else.i.i.i.i, label %require_align.exit.i.i
 
 if.else.i.i.i.i:                                  ; preds = %lor.rhs.i.i.i
@@ -65573,7 +65573,7 @@ land.rhs.i:                                       ; preds = %land.lhs.true.i
   br i1 %cmp.i.i.i, label %slidedown_check.exit, label %lor.rhs.i.i.i
 
 lor.rhs.i.i.i:                                    ; preds = %land.rhs.i
-  %cmp3.not.i.i.i.i = icmp ugt i8 %s.val6.i, 32
+  %cmp3.not.i.i.i.i = icmp samesign ugt i8 %s.val6.i, 32
   br i1 %cmp3.not.i.i.i.i, label %if.else.i.i.i.i, label %require_align.exit.i.i
 
 if.else.i.i.i.i:                                  ; preds = %lor.rhs.i.i.i
@@ -65650,7 +65650,7 @@ land.lhs.true.i.i:                                ; preds = %land.lhs.true2.i
   br i1 %cmp.i.i.i, label %if.then, label %lor.rhs.i.i.i
 
 lor.rhs.i.i.i:                                    ; preds = %land.lhs.true.i.i
-  %cmp3.not.i.i.i.i = icmp ugt i8 %4, 32
+  %cmp3.not.i.i.i.i = icmp samesign ugt i8 %4, 32
   br i1 %cmp3.not.i.i.i.i, label %if.else.i.i.i.i, label %require_align.exit.i.i
 
 if.else.i.i.i.i:                                  ; preds = %lor.rhs.i.i.i
@@ -65763,7 +65763,7 @@ land.lhs.true.i.i:                                ; preds = %land.lhs.true2.i
   br i1 %cmp.i.i.i, label %if.then, label %lor.rhs.i.i.i
 
 lor.rhs.i.i.i:                                    ; preds = %land.lhs.true.i.i
-  %cmp3.not.i.i.i.i = icmp ugt i8 %4, 32
+  %cmp3.not.i.i.i.i = icmp samesign ugt i8 %4, 32
   br i1 %cmp3.not.i.i.i.i, label %if.else.i.i.i.i, label %require_align.exit.i.i
 
 if.else.i.i.i.i:                                  ; preds = %lor.rhs.i.i.i
@@ -65878,7 +65878,7 @@ land.lhs.true.i.i.i:                              ; preds = %land.rhs.i.i
   br i1 %cmp.i.i.i.i, label %land.rhs.i, label %lor.rhs.i.i.i.i
 
 lor.rhs.i.i.i.i:                                  ; preds = %land.lhs.true.i.i.i
-  %cmp3.not.i.i.i.i.i = icmp ugt i8 %6, 32
+  %cmp3.not.i.i.i.i.i = icmp samesign ugt i8 %6, 32
   br i1 %cmp3.not.i.i.i.i.i, label %if.else.i.i.i.i.i, label %require_align.exit.i.i.i
 
 if.else.i.i.i.i.i:                                ; preds = %lor.rhs.i.i.i.i
@@ -66037,7 +66037,7 @@ land.lhs.true.i.i.i:                              ; preds = %land.rhs.i.i
   br i1 %cmp.i.i.i.i, label %land.rhs.i, label %lor.rhs.i.i.i.i
 
 lor.rhs.i.i.i.i:                                  ; preds = %land.lhs.true.i.i.i
-  %cmp3.not.i.i.i.i.i = icmp ugt i8 %6, 32
+  %cmp3.not.i.i.i.i.i = icmp samesign ugt i8 %6, 32
   br i1 %cmp3.not.i.i.i.i.i, label %if.else.i.i.i.i.i, label %require_align.exit.i.i.i
 
 if.else.i.i.i.i.i:                                ; preds = %lor.rhs.i.i.i.i
@@ -66194,7 +66194,7 @@ land.lhs.true.i.i:                                ; preds = %land.lhs.true2.i
   br i1 %cmp.i.i.i, label %if.then, label %lor.rhs.i.i.i
 
 lor.rhs.i.i.i:                                    ; preds = %land.lhs.true.i.i
-  %cmp3.not.i.i.i.i = icmp ugt i8 %4, 32
+  %cmp3.not.i.i.i.i = icmp samesign ugt i8 %4, 32
   br i1 %cmp3.not.i.i.i.i, label %if.else.i.i.i.i, label %require_align.exit.i.i
 
 if.else.i.i.i.i:                                  ; preds = %lor.rhs.i.i.i
@@ -66257,7 +66257,7 @@ land.lhs.true2:                                   ; preds = %land.lhs.true
   br i1 %cmp.i.i, label %if.then, label %lor.rhs.i.i
 
 lor.rhs.i.i:                                      ; preds = %land.lhs.true2
-  %cmp3.not.i.i.i = icmp ugt i8 %3, 32
+  %cmp3.not.i.i.i = icmp samesign ugt i8 %3, 32
   br i1 %cmp3.not.i.i.i, label %if.else.i.i.i, label %require_align.exit.i
 
 if.else.i.i.i:                                    ; preds = %lor.rhs.i.i
@@ -67394,7 +67394,7 @@ land.rhs.i.i:                                     ; preds = %land.lhs.true.i.i
   br i1 %cmp.i.i.i.i, label %slideup_check.exit.i, label %lor.rhs.i.i.i.i
 
 lor.rhs.i.i.i.i:                                  ; preds = %land.rhs.i.i
-  %cmp3.not.i.i.i.i.i = icmp ugt i8 %s.val6.i.i, 32
+  %cmp3.not.i.i.i.i.i = icmp samesign ugt i8 %s.val6.i.i, 32
   br i1 %cmp3.not.i.i.i.i.i, label %if.else.i.i.i.i.i, label %require_align.exit.i.i.i
 
 if.else.i.i.i.i.i:                                ; preds = %lor.rhs.i.i.i.i
@@ -67575,7 +67575,7 @@ land.rhs.i.i:                                     ; preds = %land.lhs.true.i.i
   br i1 %cmp.i.i.i.i, label %slidedown_check.exit.i, label %lor.rhs.i.i.i.i
 
 lor.rhs.i.i.i.i:                                  ; preds = %land.rhs.i.i
-  %cmp3.not.i.i.i.i.i = icmp ugt i8 %s.val6.i.i, 32
+  %cmp3.not.i.i.i.i.i = icmp samesign ugt i8 %s.val6.i.i, 32
   br i1 %cmp3.not.i.i.i.i.i, label %if.else.i.i.i.i.i, label %require_align.exit.i.i.i
 
 if.else.i.i.i.i.i:                                ; preds = %lor.rhs.i.i.i.i
@@ -67999,7 +67999,7 @@ land.lhs.true4:                                   ; preds = %land.lhs.true2
   br i1 %cmp.i48, label %if.then, label %lor.rhs.i
 
 lor.rhs.i:                                        ; preds = %land.lhs.true4
-  %cmp3.not.i.i = icmp ugt i8 %11, 32
+  %cmp3.not.i.i = icmp samesign ugt i8 %11, 32
   br i1 %cmp3.not.i.i, label %if.else.i.i, label %require_align.exit
 
 if.else.i.i:                                      ; preds = %lor.rhs.i
@@ -69053,7 +69053,7 @@ land.lhs.true.i.i:                                ; preds = %land.rhs.i
   br i1 %cmp.i.i.i, label %if.then, label %lor.rhs.i.i.i
 
 lor.rhs.i.i.i:                                    ; preds = %land.lhs.true.i.i
-  %cmp3.not.i.i.i.i = icmp ugt i8 %6, 32
+  %cmp3.not.i.i.i.i = icmp samesign ugt i8 %6, 32
   br i1 %cmp3.not.i.i.i.i, label %if.else.i.i.i.i, label %require_align.exit.i.i
 
 if.else.i.i.i.i:                                  ; preds = %lor.rhs.i.i.i
@@ -69124,7 +69124,7 @@ land.lhs.true.i.i:                                ; preds = %land.rhs.i
   br i1 %cmp.i.i.i, label %if.then, label %lor.rhs.i.i.i
 
 lor.rhs.i.i.i:                                    ; preds = %land.lhs.true.i.i
-  %cmp3.not.i.i.i.i = icmp ugt i8 %6, 32
+  %cmp3.not.i.i.i.i = icmp samesign ugt i8 %6, 32
   br i1 %cmp3.not.i.i.i.i, label %if.else.i.i.i.i, label %require_align.exit.i.i
 
 if.else.i.i.i.i:                                  ; preds = %lor.rhs.i.i.i
@@ -69195,7 +69195,7 @@ land.lhs.true.i.i:                                ; preds = %land.rhs.i
   br i1 %cmp.i.i.i, label %if.then, label %lor.rhs.i.i.i
 
 lor.rhs.i.i.i:                                    ; preds = %land.lhs.true.i.i
-  %cmp3.not.i.i.i.i = icmp ugt i8 %6, 32
+  %cmp3.not.i.i.i.i = icmp samesign ugt i8 %6, 32
   br i1 %cmp3.not.i.i.i.i, label %if.else.i.i.i.i, label %require_align.exit.i.i
 
 if.else.i.i.i.i:                                  ; preds = %lor.rhs.i.i.i
@@ -69266,7 +69266,7 @@ land.lhs.true.i.i:                                ; preds = %land.rhs.i
   br i1 %cmp.i.i.i, label %if.then, label %lor.rhs.i.i.i
 
 lor.rhs.i.i.i:                                    ; preds = %land.lhs.true.i.i
-  %cmp3.not.i.i.i.i = icmp ugt i8 %6, 32
+  %cmp3.not.i.i.i.i = icmp samesign ugt i8 %6, 32
   br i1 %cmp3.not.i.i.i.i, label %if.else.i.i.i.i, label %require_align.exit.i.i
 
 if.else.i.i.i.i:                                  ; preds = %lor.rhs.i.i.i
@@ -69337,7 +69337,7 @@ land.lhs.true.i.i.i:                              ; preds = %land.rhs.i.i
   br i1 %cmp.i.i.i.i, label %land.lhs.true.i, label %lor.rhs.i.i.i.i
 
 lor.rhs.i.i.i.i:                                  ; preds = %land.lhs.true.i.i.i
-  %cmp3.not.i.i.i.i.i = icmp ugt i8 %6, 32
+  %cmp3.not.i.i.i.i.i = icmp samesign ugt i8 %6, 32
   br i1 %cmp3.not.i.i.i.i.i, label %if.else.i.i.i.i.i, label %require_align.exit.i.i.i
 
 if.else.i.i.i.i.i:                                ; preds = %lor.rhs.i.i.i.i
@@ -69417,7 +69417,7 @@ land.lhs.true.i.i.i:                              ; preds = %land.rhs.i.i
   br i1 %cmp.i.i.i.i, label %land.lhs.true.i, label %lor.rhs.i.i.i.i
 
 lor.rhs.i.i.i.i:                                  ; preds = %land.lhs.true.i.i.i
-  %cmp3.not.i.i.i.i.i = icmp ugt i8 %6, 32
+  %cmp3.not.i.i.i.i.i = icmp samesign ugt i8 %6, 32
   br i1 %cmp3.not.i.i.i.i.i, label %if.else.i.i.i.i.i, label %require_align.exit.i.i.i
 
 if.else.i.i.i.i.i:                                ; preds = %lor.rhs.i.i.i.i
@@ -69492,7 +69492,7 @@ land.rhs.i:                                       ; preds = %land.lhs.true.i
   br i1 %cmp.i.i.i, label %slideup_check.exit, label %lor.rhs.i.i.i
 
 lor.rhs.i.i.i:                                    ; preds = %land.rhs.i
-  %cmp3.not.i.i.i.i = icmp ugt i8 %s.val6.i, 32
+  %cmp3.not.i.i.i.i = icmp samesign ugt i8 %s.val6.i, 32
   br i1 %cmp3.not.i.i.i.i, label %if.else.i.i.i.i, label %require_align.exit.i.i
 
 if.else.i.i.i.i:                                  ; preds = %lor.rhs.i.i.i
@@ -69565,7 +69565,7 @@ land.rhs.i:                                       ; preds = %land.lhs.true.i
   br i1 %cmp.i.i.i, label %slidedown_check.exit, label %lor.rhs.i.i.i
 
 lor.rhs.i.i.i:                                    ; preds = %land.rhs.i
-  %cmp3.not.i.i.i.i = icmp ugt i8 %s.val6.i, 32
+  %cmp3.not.i.i.i.i = icmp samesign ugt i8 %s.val6.i, 32
   br i1 %cmp3.not.i.i.i.i, label %if.else.i.i.i.i, label %require_align.exit.i.i
 
 if.else.i.i.i.i:                                  ; preds = %lor.rhs.i.i.i
@@ -69725,7 +69725,7 @@ land.lhs.true.i.i.i:                              ; preds = %land.rhs.i
   br i1 %cmp.i.i.i.i, label %if.then, label %lor.rhs.i.i.i.i
 
 lor.rhs.i.i.i.i:                                  ; preds = %land.lhs.true.i.i.i
-  %cmp3.not.i.i.i.i.i = icmp ugt i8 %7, 32
+  %cmp3.not.i.i.i.i.i = icmp samesign ugt i8 %7, 32
   br i1 %cmp3.not.i.i.i.i.i, label %if.else.i.i.i.i.i, label %require_align.exit.i.i.i
 
 if.else.i.i.i.i.i:                                ; preds = %lor.rhs.i.i.i.i
@@ -69849,7 +69849,7 @@ land.lhs.true.i.i.i:                              ; preds = %land.rhs.i
   br i1 %cmp.i.i.i.i, label %if.then, label %lor.rhs.i.i.i.i
 
 lor.rhs.i.i.i.i:                                  ; preds = %land.lhs.true.i.i.i
-  %cmp3.not.i.i.i.i.i = icmp ugt i8 %7, 32
+  %cmp3.not.i.i.i.i.i = icmp samesign ugt i8 %7, 32
   br i1 %cmp3.not.i.i.i.i.i, label %if.else.i.i.i.i.i, label %require_align.exit.i.i.i
 
 if.else.i.i.i.i.i:                                ; preds = %lor.rhs.i.i.i.i
@@ -69973,7 +69973,7 @@ land.lhs.true.i.i.i:                              ; preds = %land.rhs.i
   br i1 %cmp.i.i.i.i, label %if.then, label %lor.rhs.i.i.i.i
 
 lor.rhs.i.i.i.i:                                  ; preds = %land.lhs.true.i.i.i
-  %cmp3.not.i.i.i.i.i = icmp ugt i8 %7, 32
+  %cmp3.not.i.i.i.i.i = icmp samesign ugt i8 %7, 32
   br i1 %cmp3.not.i.i.i.i.i, label %if.else.i.i.i.i.i, label %require_align.exit.i.i.i
 
 if.else.i.i.i.i.i:                                ; preds = %lor.rhs.i.i.i.i
@@ -70097,7 +70097,7 @@ land.lhs.true.i.i.i:                              ; preds = %land.rhs.i
   br i1 %cmp.i.i.i.i, label %if.then, label %lor.rhs.i.i.i.i
 
 lor.rhs.i.i.i.i:                                  ; preds = %land.lhs.true.i.i.i
-  %cmp3.not.i.i.i.i.i = icmp ugt i8 %7, 32
+  %cmp3.not.i.i.i.i.i = icmp samesign ugt i8 %7, 32
   br i1 %cmp3.not.i.i.i.i.i, label %if.else.i.i.i.i.i, label %require_align.exit.i.i.i
 
 if.else.i.i.i.i.i:                                ; preds = %lor.rhs.i.i.i.i
@@ -70221,7 +70221,7 @@ land.lhs.true.i.i.i:                              ; preds = %land.rhs.i
   br i1 %cmp.i.i.i.i, label %if.end, label %lor.rhs.i.i.i.i
 
 lor.rhs.i.i.i.i:                                  ; preds = %land.lhs.true.i.i.i
-  %cmp3.not.i.i.i.i.i = icmp ugt i8 %7, 32
+  %cmp3.not.i.i.i.i.i = icmp samesign ugt i8 %7, 32
   br i1 %cmp3.not.i.i.i.i.i, label %if.else.i.i.i.i.i, label %require_align.exit.i.i.i
 
 if.else.i.i.i.i.i:                                ; preds = %lor.rhs.i.i.i.i
@@ -70395,7 +70395,7 @@ land.lhs.true.i.i.i.i:                            ; preds = %land.rhs.i.i
   br i1 %cmp.i.i.i.i.i, label %land.rhs.i, label %lor.rhs.i.i.i.i.i
 
 lor.rhs.i.i.i.i.i:                                ; preds = %land.lhs.true.i.i.i.i
-  %cmp3.not.i.i.i.i.i.i = icmp ugt i8 %7, 32
+  %cmp3.not.i.i.i.i.i.i = icmp samesign ugt i8 %7, 32
   br i1 %cmp3.not.i.i.i.i.i.i, label %if.else.i.i.i.i.i.i, label %require_align.exit.i.i.i.i
 
 if.else.i.i.i.i.i.i:                              ; preds = %lor.rhs.i.i.i.i.i
@@ -70528,7 +70528,7 @@ land.lhs.true.i.i.i:                              ; preds = %land.rhs.i
   br i1 %cmp.i.i.i.i, label %if.end, label %lor.rhs.i.i.i.i
 
 lor.rhs.i.i.i.i:                                  ; preds = %land.lhs.true.i.i.i
-  %cmp3.not.i.i.i.i.i = icmp ugt i8 %7, 32
+  %cmp3.not.i.i.i.i.i = icmp samesign ugt i8 %7, 32
   br i1 %cmp3.not.i.i.i.i.i, label %if.else.i.i.i.i.i, label %require_align.exit.i.i.i
 
 if.else.i.i.i.i.i:                                ; preds = %lor.rhs.i.i.i.i
@@ -70702,7 +70702,7 @@ land.lhs.true.i.i.i:                              ; preds = %land.rhs.i
   br i1 %cmp.i.i.i.i, label %if.end, label %lor.rhs.i.i.i.i
 
 lor.rhs.i.i.i.i:                                  ; preds = %land.lhs.true.i.i.i
-  %cmp3.not.i.i.i.i.i = icmp ugt i8 %7, 32
+  %cmp3.not.i.i.i.i.i = icmp samesign ugt i8 %7, 32
   br i1 %cmp3.not.i.i.i.i.i, label %if.else.i.i.i.i.i, label %require_align.exit.i.i.i
 
 if.else.i.i.i.i.i:                                ; preds = %lor.rhs.i.i.i.i
@@ -70876,7 +70876,7 @@ land.lhs.true.i.i.i:                              ; preds = %land.rhs.i
   br i1 %cmp.i.i.i.i, label %if.then, label %lor.rhs.i.i.i.i
 
 lor.rhs.i.i.i.i:                                  ; preds = %land.lhs.true.i.i.i
-  %cmp3.not.i.i.i.i.i = icmp ugt i8 %7, 32
+  %cmp3.not.i.i.i.i.i = icmp samesign ugt i8 %7, 32
   br i1 %cmp3.not.i.i.i.i.i, label %if.else.i.i.i.i.i, label %require_align.exit.i.i.i
 
 if.else.i.i.i.i.i:                                ; preds = %lor.rhs.i.i.i.i
@@ -71000,7 +71000,7 @@ land.lhs.true.i.i.i:                              ; preds = %land.rhs.i
   br i1 %cmp.i.i.i.i, label %if.then, label %lor.rhs.i.i.i.i
 
 lor.rhs.i.i.i.i:                                  ; preds = %land.lhs.true.i.i.i
-  %cmp3.not.i.i.i.i.i = icmp ugt i8 %7, 32
+  %cmp3.not.i.i.i.i.i = icmp samesign ugt i8 %7, 32
   br i1 %cmp3.not.i.i.i.i.i, label %if.else.i.i.i.i.i, label %require_align.exit.i.i.i
 
 if.else.i.i.i.i.i:                                ; preds = %lor.rhs.i.i.i.i
@@ -71123,7 +71123,7 @@ land.rhs.i.i:                                     ; preds = %land.rhs.i
   br i1 %cmp.i.i.i, label %if.then, label %lor.rhs.i.i.i
 
 lor.rhs.i.i.i:                                    ; preds = %land.rhs.i.i
-  %cmp3.not.i.i.i.i = icmp ugt i8 %6, 32
+  %cmp3.not.i.i.i.i = icmp samesign ugt i8 %6, 32
   br i1 %cmp3.not.i.i.i.i, label %if.else.i.i.i.i, label %opiwv_narrow_check.exit
 
 if.else.i.i.i.i:                                  ; preds = %lor.rhs.i.i.i
@@ -71230,7 +71230,7 @@ land.rhs.i.i:                                     ; preds = %land.rhs.i
   br i1 %cmp.i.i.i, label %if.then, label %lor.rhs.i.i.i
 
 lor.rhs.i.i.i:                                    ; preds = %land.rhs.i.i
-  %cmp3.not.i.i.i.i = icmp ugt i8 %6, 32
+  %cmp3.not.i.i.i.i = icmp samesign ugt i8 %6, 32
   br i1 %cmp3.not.i.i.i.i, label %if.else.i.i.i.i, label %opiwv_narrow_check.exit
 
 if.else.i.i.i.i:                                  ; preds = %lor.rhs.i.i.i
@@ -71337,7 +71337,7 @@ land.rhs.i.i:                                     ; preds = %land.rhs.i
   br i1 %cmp.i.i.i, label %if.then, label %lor.rhs.i.i.i
 
 lor.rhs.i.i.i:                                    ; preds = %land.rhs.i.i
-  %cmp3.not.i.i.i.i = icmp ugt i8 %6, 32
+  %cmp3.not.i.i.i.i = icmp samesign ugt i8 %6, 32
   br i1 %cmp3.not.i.i.i.i, label %if.else.i.i.i.i, label %opiwv_narrow_check.exit
 
 if.else.i.i.i.i:                                  ; preds = %lor.rhs.i.i.i
@@ -71444,7 +71444,7 @@ land.rhs.i.i:                                     ; preds = %land.rhs.i
   br i1 %cmp.i.i.i, label %if.then, label %lor.rhs.i.i.i
 
 lor.rhs.i.i.i:                                    ; preds = %land.rhs.i.i
-  %cmp3.not.i.i.i.i = icmp ugt i8 %6, 32
+  %cmp3.not.i.i.i.i = icmp samesign ugt i8 %6, 32
   br i1 %cmp3.not.i.i.i.i, label %if.else.i.i.i.i, label %opiwv_narrow_check.exit
 
 if.else.i.i.i.i:                                  ; preds = %lor.rhs.i.i.i
@@ -72803,7 +72803,7 @@ land.rhs.i.i.i:                                   ; preds = %land.lhs.true.i.i.i
   br i1 %cmp.i.i.i.i.i, label %reduction_check.exit.i.i, label %lor.rhs.i.i.i.i.i
 
 lor.rhs.i.i.i.i.i:                                ; preds = %land.rhs.i.i.i
-  %cmp3.not.i.i.i.i.i.i = icmp ugt i8 %3, 32
+  %cmp3.not.i.i.i.i.i.i = icmp samesign ugt i8 %3, 32
   br i1 %cmp3.not.i.i.i.i.i.i, label %if.else.i.i.i.i.i.i, label %require_align.exit.i.i.i.i
 
 if.else.i.i.i.i.i.i:                              ; preds = %lor.rhs.i.i.i.i.i
@@ -73141,7 +73141,7 @@ land.rhs.i.i.i:                                   ; preds = %land.lhs.true.i.i.i
   br i1 %cmp.i.i.i.i.i, label %reduction_check.exit.i.i, label %lor.rhs.i.i.i.i.i
 
 lor.rhs.i.i.i.i.i:                                ; preds = %land.rhs.i.i.i
-  %cmp3.not.i.i.i.i.i.i = icmp ugt i8 %3, 32
+  %cmp3.not.i.i.i.i.i.i = icmp samesign ugt i8 %3, 32
   br i1 %cmp3.not.i.i.i.i.i.i, label %if.else.i.i.i.i.i.i, label %require_align.exit.i.i.i.i
 
 if.else.i.i.i.i.i.i:                              ; preds = %lor.rhs.i.i.i.i.i
@@ -73367,7 +73367,7 @@ land.rhs.i.i:                                     ; preds = %land.rhs.i
   br i1 %cmp.i.i.i, label %if.then, label %lor.rhs.i.i.i
 
 lor.rhs.i.i.i:                                    ; preds = %land.rhs.i.i
-  %cmp3.not.i.i.i.i = icmp ugt i8 %12, 31
+  %cmp3.not.i.i.i.i = icmp samesign ugt i8 %12, 31
   br i1 %cmp3.not.i.i.i.i, label %if.else.i.i.i.i, label %opfwv_widen_check.exit
 
 if.else.i.i.i.i:                                  ; preds = %lor.rhs.i.i.i
@@ -73541,7 +73541,7 @@ land.rhs.i.i:                                     ; preds = %land.rhs.i
   br i1 %cmp.i.i.i, label %if.then, label %lor.rhs.i.i.i
 
 lor.rhs.i.i.i:                                    ; preds = %land.rhs.i.i
-  %cmp3.not.i.i.i.i = icmp ugt i8 %12, 31
+  %cmp3.not.i.i.i.i = icmp samesign ugt i8 %12, 31
   br i1 %cmp3.not.i.i.i.i, label %if.else.i.i.i.i, label %opfwv_widen_check.exit
 
 if.else.i.i.i.i:                                  ; preds = %lor.rhs.i.i.i
@@ -74562,7 +74562,7 @@ land.lhs.true.i.i.i:                              ; preds = %land.rhs.i
   br i1 %cmp.i.i.i.i, label %if.then, label %lor.rhs.i.i.i.i
 
 lor.rhs.i.i.i.i:                                  ; preds = %land.lhs.true.i.i.i
-  %cmp3.not.i.i.i.i.i = icmp ugt i8 %7, 32
+  %cmp3.not.i.i.i.i.i = icmp samesign ugt i8 %7, 32
   br i1 %cmp3.not.i.i.i.i.i, label %if.else.i.i.i.i.i, label %require_align.exit.i.i.i
 
 if.else.i.i.i.i.i:                                ; preds = %lor.rhs.i.i.i.i
@@ -74686,7 +74686,7 @@ land.lhs.true.i.i.i:                              ; preds = %land.rhs.i
   br i1 %cmp.i.i.i.i, label %if.then, label %lor.rhs.i.i.i.i
 
 lor.rhs.i.i.i.i:                                  ; preds = %land.lhs.true.i.i.i
-  %cmp3.not.i.i.i.i.i = icmp ugt i8 %7, 32
+  %cmp3.not.i.i.i.i.i = icmp samesign ugt i8 %7, 32
   br i1 %cmp3.not.i.i.i.i.i, label %if.else.i.i.i.i.i, label %require_align.exit.i.i.i
 
 if.else.i.i.i.i.i:                                ; preds = %lor.rhs.i.i.i.i
@@ -74810,7 +74810,7 @@ land.lhs.true.i.i.i:                              ; preds = %land.rhs.i
   br i1 %cmp.i.i.i.i, label %if.then, label %lor.rhs.i.i.i.i
 
 lor.rhs.i.i.i.i:                                  ; preds = %land.lhs.true.i.i.i
-  %cmp3.not.i.i.i.i.i = icmp ugt i8 %7, 32
+  %cmp3.not.i.i.i.i.i = icmp samesign ugt i8 %7, 32
   br i1 %cmp3.not.i.i.i.i.i, label %if.else.i.i.i.i.i, label %require_align.exit.i.i.i
 
 if.else.i.i.i.i.i:                                ; preds = %lor.rhs.i.i.i.i
@@ -74934,7 +74934,7 @@ land.lhs.true.i.i.i:                              ; preds = %land.rhs.i
   br i1 %cmp.i.i.i.i, label %if.then, label %lor.rhs.i.i.i.i
 
 lor.rhs.i.i.i.i:                                  ; preds = %land.lhs.true.i.i.i
-  %cmp3.not.i.i.i.i.i = icmp ugt i8 %7, 32
+  %cmp3.not.i.i.i.i.i = icmp samesign ugt i8 %7, 32
   br i1 %cmp3.not.i.i.i.i.i, label %if.else.i.i.i.i.i, label %require_align.exit.i.i.i
 
 if.else.i.i.i.i.i:                                ; preds = %lor.rhs.i.i.i.i
@@ -75058,7 +75058,7 @@ land.lhs.true.i.i.i.i:                            ; preds = %land.rhs.i.i
   br i1 %cmp.i.i.i.i.i, label %land.rhs.i, label %lor.rhs.i.i.i.i.i
 
 lor.rhs.i.i.i.i.i:                                ; preds = %land.lhs.true.i.i.i.i
-  %cmp3.not.i.i.i.i.i.i = icmp ugt i8 %7, 32
+  %cmp3.not.i.i.i.i.i.i = icmp samesign ugt i8 %7, 32
   br i1 %cmp3.not.i.i.i.i.i.i, label %if.else.i.i.i.i.i.i, label %require_align.exit.i.i.i.i
 
 if.else.i.i.i.i.i.i:                              ; preds = %lor.rhs.i.i.i.i.i
@@ -75191,7 +75191,7 @@ land.lhs.true.i.i.i:                              ; preds = %land.rhs.i
   br i1 %cmp.i.i.i.i, label %if.end, label %lor.rhs.i.i.i.i
 
 lor.rhs.i.i.i.i:                                  ; preds = %land.lhs.true.i.i.i
-  %cmp3.not.i.i.i.i.i = icmp ugt i8 %7, 32
+  %cmp3.not.i.i.i.i.i = icmp samesign ugt i8 %7, 32
   br i1 %cmp3.not.i.i.i.i.i, label %if.else.i.i.i.i.i, label %require_align.exit.i.i.i
 
 if.else.i.i.i.i.i:                                ; preds = %lor.rhs.i.i.i.i
@@ -75365,7 +75365,7 @@ land.lhs.true.i.i.i.i:                            ; preds = %land.rhs.i.i
   br i1 %cmp.i.i.i.i.i, label %land.rhs.i, label %lor.rhs.i.i.i.i.i
 
 lor.rhs.i.i.i.i.i:                                ; preds = %land.lhs.true.i.i.i.i
-  %cmp3.not.i.i.i.i.i.i = icmp ugt i8 %7, 32
+  %cmp3.not.i.i.i.i.i.i = icmp samesign ugt i8 %7, 32
   br i1 %cmp3.not.i.i.i.i.i.i, label %if.else.i.i.i.i.i.i, label %require_align.exit.i.i.i.i
 
 if.else.i.i.i.i.i.i:                              ; preds = %lor.rhs.i.i.i.i.i
@@ -75498,7 +75498,7 @@ land.lhs.true.i.i.i.i:                            ; preds = %land.rhs.i.i
   br i1 %cmp.i.i.i.i.i, label %land.rhs.i, label %lor.rhs.i.i.i.i.i
 
 lor.rhs.i.i.i.i.i:                                ; preds = %land.lhs.true.i.i.i.i
-  %cmp3.not.i.i.i.i.i.i = icmp ugt i8 %7, 32
+  %cmp3.not.i.i.i.i.i.i = icmp samesign ugt i8 %7, 32
   br i1 %cmp3.not.i.i.i.i.i.i, label %if.else.i.i.i.i.i.i, label %require_align.exit.i.i.i.i
 
 if.else.i.i.i.i.i.i:                              ; preds = %lor.rhs.i.i.i.i.i
@@ -75631,7 +75631,7 @@ land.lhs.true.i.i.i:                              ; preds = %land.rhs.i
   br i1 %cmp.i.i.i.i, label %if.then, label %lor.rhs.i.i.i.i
 
 lor.rhs.i.i.i.i:                                  ; preds = %land.lhs.true.i.i.i
-  %cmp3.not.i.i.i.i.i = icmp ugt i8 %7, 32
+  %cmp3.not.i.i.i.i.i = icmp samesign ugt i8 %7, 32
   br i1 %cmp3.not.i.i.i.i.i, label %if.else.i.i.i.i.i, label %require_align.exit.i.i.i
 
 if.else.i.i.i.i.i:                                ; preds = %lor.rhs.i.i.i.i
@@ -75755,7 +75755,7 @@ land.lhs.true.i.i.i:                              ; preds = %land.rhs.i
   br i1 %cmp.i.i.i.i, label %if.then, label %lor.rhs.i.i.i.i
 
 lor.rhs.i.i.i.i:                                  ; preds = %land.lhs.true.i.i.i
-  %cmp3.not.i.i.i.i.i = icmp ugt i8 %7, 32
+  %cmp3.not.i.i.i.i.i = icmp samesign ugt i8 %7, 32
   br i1 %cmp3.not.i.i.i.i.i, label %if.else.i.i.i.i.i, label %require_align.exit.i.i.i
 
 if.else.i.i.i.i.i:                                ; preds = %lor.rhs.i.i.i.i
@@ -75879,7 +75879,7 @@ land.lhs.true.i.i.i:                              ; preds = %land.rhs.i
   br i1 %cmp.i.i.i.i, label %if.then, label %lor.rhs.i.i.i.i
 
 lor.rhs.i.i.i.i:                                  ; preds = %land.lhs.true.i.i.i
-  %cmp3.not.i.i.i.i.i = icmp ugt i8 %7, 32
+  %cmp3.not.i.i.i.i.i = icmp samesign ugt i8 %7, 32
   br i1 %cmp3.not.i.i.i.i.i, label %if.else.i.i.i.i.i, label %require_align.exit.i.i.i
 
 if.else.i.i.i.i.i:                                ; preds = %lor.rhs.i.i.i.i
@@ -76003,7 +76003,7 @@ land.lhs.true.i.i.i:                              ; preds = %land.rhs.i
   br i1 %cmp.i.i.i.i, label %if.then, label %lor.rhs.i.i.i.i
 
 lor.rhs.i.i.i.i:                                  ; preds = %land.lhs.true.i.i.i
-  %cmp3.not.i.i.i.i.i = icmp ugt i8 %7, 32
+  %cmp3.not.i.i.i.i.i = icmp samesign ugt i8 %7, 32
   br i1 %cmp3.not.i.i.i.i.i, label %if.else.i.i.i.i.i, label %require_align.exit.i.i.i
 
 if.else.i.i.i.i.i:                                ; preds = %lor.rhs.i.i.i.i
@@ -76125,7 +76125,7 @@ land.lhs.true.i.i:                                ; preds = %land.rhs.i
   br i1 %cmp.i.i.i, label %if.then, label %lor.rhs.i.i.i
 
 lor.rhs.i.i.i:                                    ; preds = %land.lhs.true.i.i
-  %cmp3.not.i.i.i.i = icmp ugt i8 %6, 32
+  %cmp3.not.i.i.i.i = icmp samesign ugt i8 %6, 32
   br i1 %cmp3.not.i.i.i.i, label %if.else.i.i.i.i, label %require_align.exit.i.i
 
 if.else.i.i.i.i:                                  ; preds = %lor.rhs.i.i.i
@@ -76196,7 +76196,7 @@ land.lhs.true.i.i:                                ; preds = %land.rhs.i
   br i1 %cmp.i.i.i, label %if.then, label %lor.rhs.i.i.i
 
 lor.rhs.i.i.i:                                    ; preds = %land.lhs.true.i.i
-  %cmp3.not.i.i.i.i = icmp ugt i8 %6, 32
+  %cmp3.not.i.i.i.i = icmp samesign ugt i8 %6, 32
   br i1 %cmp3.not.i.i.i.i, label %if.else.i.i.i.i, label %require_align.exit.i.i
 
 if.else.i.i.i.i:                                  ; preds = %lor.rhs.i.i.i
@@ -76267,7 +76267,7 @@ land.lhs.true.i.i:                                ; preds = %land.rhs.i
   br i1 %cmp.i.i.i, label %if.end, label %lor.rhs.i.i.i
 
 lor.rhs.i.i.i:                                    ; preds = %land.lhs.true.i.i
-  %cmp3.not.i.i.i.i = icmp ugt i8 %6, 32
+  %cmp3.not.i.i.i.i = icmp samesign ugt i8 %6, 32
   br i1 %cmp3.not.i.i.i.i, label %if.else.i.i.i.i, label %require_align.exit.i.i
 
 if.else.i.i.i.i:                                  ; preds = %lor.rhs.i.i.i
@@ -76665,7 +76665,7 @@ land.lhs.true.i.i:                                ; preds = %land.rhs.i
   br i1 %cmp.i.i.i, label %if.end, label %lor.rhs.i.i.i
 
 lor.rhs.i.i.i:                                    ; preds = %land.lhs.true.i.i
-  %cmp3.not.i.i.i.i = icmp ugt i8 %6, 32
+  %cmp3.not.i.i.i.i = icmp samesign ugt i8 %6, 32
   br i1 %cmp3.not.i.i.i.i, label %if.else.i.i.i.i, label %require_align.exit.i.i
 
 if.else.i.i.i.i:                                  ; preds = %lor.rhs.i.i.i
@@ -76788,7 +76788,7 @@ land.lhs.true.i.i:                                ; preds = %land.rhs.i
   br i1 %cmp.i.i.i, label %if.end, label %lor.rhs.i.i.i
 
 lor.rhs.i.i.i:                                    ; preds = %land.lhs.true.i.i
-  %cmp3.not.i.i.i.i = icmp ugt i8 %6, 32
+  %cmp3.not.i.i.i.i = icmp samesign ugt i8 %6, 32
   br i1 %cmp3.not.i.i.i.i, label %if.else.i.i.i.i, label %require_align.exit.i.i
 
 if.else.i.i.i.i:                                  ; preds = %lor.rhs.i.i.i
@@ -76911,7 +76911,7 @@ land.lhs.true.i.i:                                ; preds = %land.rhs.i
   br i1 %cmp.i.i.i, label %if.then, label %lor.rhs.i.i.i
 
 lor.rhs.i.i.i:                                    ; preds = %land.lhs.true.i.i
-  %cmp3.not.i.i.i.i = icmp ugt i8 %6, 32
+  %cmp3.not.i.i.i.i = icmp samesign ugt i8 %6, 32
   br i1 %cmp3.not.i.i.i.i, label %if.else.i.i.i.i, label %require_align.exit.i.i
 
 if.else.i.i.i.i:                                  ; preds = %lor.rhs.i.i.i
@@ -76982,7 +76982,7 @@ land.lhs.true.i.i:                                ; preds = %land.rhs.i
   br i1 %cmp.i.i.i, label %if.then, label %lor.rhs.i.i.i
 
 lor.rhs.i.i.i:                                    ; preds = %land.lhs.true.i.i
-  %cmp3.not.i.i.i.i = icmp ugt i8 %6, 32
+  %cmp3.not.i.i.i.i = icmp samesign ugt i8 %6, 32
   br i1 %cmp3.not.i.i.i.i, label %if.else.i.i.i.i, label %require_align.exit.i.i
 
 if.else.i.i.i.i:                                  ; preds = %lor.rhs.i.i.i
@@ -77256,7 +77256,7 @@ land.lhs.true.i.i:                                ; preds = %land.rhs.i
   br i1 %cmp.i.i.i, label %if.then, label %lor.rhs.i.i.i
 
 lor.rhs.i.i.i:                                    ; preds = %land.lhs.true.i.i
-  %cmp3.not.i.i.i.i = icmp ugt i8 %6, 32
+  %cmp3.not.i.i.i.i = icmp samesign ugt i8 %6, 32
   br i1 %cmp3.not.i.i.i.i, label %if.else.i.i.i.i, label %require_align.exit.i.i
 
 if.else.i.i.i.i:                                  ; preds = %lor.rhs.i.i.i
@@ -77327,7 +77327,7 @@ land.lhs.true.i.i:                                ; preds = %land.rhs.i
   br i1 %cmp.i.i.i, label %if.then, label %lor.rhs.i.i.i
 
 lor.rhs.i.i.i:                                    ; preds = %land.lhs.true.i.i
-  %cmp3.not.i.i.i.i = icmp ugt i8 %6, 32
+  %cmp3.not.i.i.i.i = icmp samesign ugt i8 %6, 32
   br i1 %cmp3.not.i.i.i.i, label %if.else.i.i.i.i, label %require_align.exit.i.i
 
 if.else.i.i.i.i:                                  ; preds = %lor.rhs.i.i.i
@@ -77398,7 +77398,7 @@ land.lhs.true.i.i:                                ; preds = %land.rhs.i
   br i1 %cmp.i.i.i, label %if.then, label %lor.rhs.i.i.i
 
 lor.rhs.i.i.i:                                    ; preds = %land.lhs.true.i.i
-  %cmp3.not.i.i.i.i = icmp ugt i8 %6, 32
+  %cmp3.not.i.i.i.i = icmp samesign ugt i8 %6, 32
   br i1 %cmp3.not.i.i.i.i, label %if.else.i.i.i.i, label %require_align.exit.i.i
 
 if.else.i.i.i.i:                                  ; preds = %lor.rhs.i.i.i
@@ -77469,7 +77469,7 @@ land.lhs.true.i.i:                                ; preds = %land.rhs.i
   br i1 %cmp.i.i.i, label %if.then, label %lor.rhs.i.i.i
 
 lor.rhs.i.i.i:                                    ; preds = %land.lhs.true.i.i
-  %cmp3.not.i.i.i.i = icmp ugt i8 %6, 32
+  %cmp3.not.i.i.i.i = icmp samesign ugt i8 %6, 32
   br i1 %cmp3.not.i.i.i.i, label %if.else.i.i.i.i, label %require_align.exit.i.i
 
 if.else.i.i.i.i:                                  ; preds = %lor.rhs.i.i.i
@@ -77540,7 +77540,7 @@ land.lhs.true.i.i:                                ; preds = %land.rhs.i
   br i1 %cmp.i.i.i, label %if.end, label %lor.rhs.i.i.i
 
 lor.rhs.i.i.i:                                    ; preds = %land.lhs.true.i.i
-  %cmp3.not.i.i.i.i = icmp ugt i8 %6, 32
+  %cmp3.not.i.i.i.i = icmp samesign ugt i8 %6, 32
   br i1 %cmp3.not.i.i.i.i, label %if.else.i.i.i.i, label %require_align.exit.i.i
 
 if.else.i.i.i.i:                                  ; preds = %lor.rhs.i.i.i
@@ -77686,7 +77686,7 @@ land.lhs.true.i.i.i:                              ; preds = %land.rhs.i.i
   br i1 %cmp.i.i.i.i, label %land.rhs.i, label %lor.rhs.i.i.i.i
 
 lor.rhs.i.i.i.i:                                  ; preds = %land.lhs.true.i.i.i
-  %cmp3.not.i.i.i.i.i = icmp ugt i8 %6, 32
+  %cmp3.not.i.i.i.i.i = icmp samesign ugt i8 %6, 32
   br i1 %cmp3.not.i.i.i.i.i, label %if.else.i.i.i.i.i, label %require_align.exit.i.i.i
 
 if.else.i.i.i.i.i:                                ; preds = %lor.rhs.i.i.i.i
@@ -77766,7 +77766,7 @@ land.lhs.true.i.i:                                ; preds = %land.rhs.i
   br i1 %cmp.i.i.i, label %if.end, label %lor.rhs.i.i.i
 
 lor.rhs.i.i.i:                                    ; preds = %land.lhs.true.i.i
-  %cmp3.not.i.i.i.i = icmp ugt i8 %6, 32
+  %cmp3.not.i.i.i.i = icmp samesign ugt i8 %6, 32
   br i1 %cmp3.not.i.i.i.i, label %if.else.i.i.i.i, label %require_align.exit.i.i
 
 if.else.i.i.i.i:                                  ; preds = %lor.rhs.i.i.i
@@ -77912,7 +77912,7 @@ land.lhs.true.i.i:                                ; preds = %land.rhs.i
   br i1 %cmp.i.i.i, label %if.end, label %lor.rhs.i.i.i
 
 lor.rhs.i.i.i:                                    ; preds = %land.lhs.true.i.i
-  %cmp3.not.i.i.i.i = icmp ugt i8 %6, 32
+  %cmp3.not.i.i.i.i = icmp samesign ugt i8 %6, 32
   br i1 %cmp3.not.i.i.i.i, label %if.else.i.i.i.i, label %require_align.exit.i.i
 
 if.else.i.i.i.i:                                  ; preds = %lor.rhs.i.i.i
@@ -78058,7 +78058,7 @@ land.lhs.true.i.i:                                ; preds = %land.rhs.i
   br i1 %cmp.i.i.i, label %if.then, label %lor.rhs.i.i.i
 
 lor.rhs.i.i.i:                                    ; preds = %land.lhs.true.i.i
-  %cmp3.not.i.i.i.i = icmp ugt i8 %6, 32
+  %cmp3.not.i.i.i.i = icmp samesign ugt i8 %6, 32
   br i1 %cmp3.not.i.i.i.i, label %if.else.i.i.i.i, label %require_align.exit.i.i
 
 if.else.i.i.i.i:                                  ; preds = %lor.rhs.i.i.i
@@ -78129,7 +78129,7 @@ land.lhs.true.i.i:                                ; preds = %land.rhs.i
   br i1 %cmp.i.i.i, label %if.then, label %lor.rhs.i.i.i
 
 lor.rhs.i.i.i:                                    ; preds = %land.lhs.true.i.i
-  %cmp3.not.i.i.i.i = icmp ugt i8 %6, 32
+  %cmp3.not.i.i.i.i = icmp samesign ugt i8 %6, 32
   br i1 %cmp3.not.i.i.i.i, label %if.else.i.i.i.i, label %require_align.exit.i.i
 
 if.else.i.i.i.i:                                  ; preds = %lor.rhs.i.i.i
@@ -80838,7 +80838,7 @@ land.lhs.true.i.i:                                ; preds = %land.rhs.i
   br i1 %cmp.i.i.i, label %if.then, label %lor.rhs.i.i.i
 
 lor.rhs.i.i.i:                                    ; preds = %land.lhs.true.i.i
-  %cmp3.not.i.i.i.i = icmp ugt i8 %6, 32
+  %cmp3.not.i.i.i.i = icmp samesign ugt i8 %6, 32
   br i1 %cmp3.not.i.i.i.i, label %if.else.i.i.i.i, label %require_align.exit.i.i
 
 if.else.i.i.i.i:                                  ; preds = %lor.rhs.i.i.i
@@ -80909,7 +80909,7 @@ land.lhs.true.i.i:                                ; preds = %land.rhs.i
   br i1 %cmp.i.i.i, label %if.then, label %lor.rhs.i.i.i
 
 lor.rhs.i.i.i:                                    ; preds = %land.lhs.true.i.i
-  %cmp3.not.i.i.i.i = icmp ugt i8 %6, 32
+  %cmp3.not.i.i.i.i = icmp samesign ugt i8 %6, 32
   br i1 %cmp3.not.i.i.i.i, label %if.else.i.i.i.i, label %require_align.exit.i.i
 
 if.else.i.i.i.i:                                  ; preds = %lor.rhs.i.i.i
@@ -80980,7 +80980,7 @@ land.lhs.true.i.i:                                ; preds = %land.rhs.i
   br i1 %cmp.i.i.i, label %if.then, label %lor.rhs.i.i.i
 
 lor.rhs.i.i.i:                                    ; preds = %land.lhs.true.i.i
-  %cmp3.not.i.i.i.i = icmp ugt i8 %6, 32
+  %cmp3.not.i.i.i.i = icmp samesign ugt i8 %6, 32
   br i1 %cmp3.not.i.i.i.i, label %if.else.i.i.i.i, label %require_align.exit.i.i
 
 if.else.i.i.i.i:                                  ; preds = %lor.rhs.i.i.i
@@ -81051,7 +81051,7 @@ land.lhs.true.i.i:                                ; preds = %land.rhs.i
   br i1 %cmp.i.i.i, label %if.then, label %lor.rhs.i.i.i
 
 lor.rhs.i.i.i:                                    ; preds = %land.lhs.true.i.i
-  %cmp3.not.i.i.i.i = icmp ugt i8 %6, 32
+  %cmp3.not.i.i.i.i = icmp samesign ugt i8 %6, 32
   br i1 %cmp3.not.i.i.i.i, label %if.else.i.i.i.i, label %require_align.exit.i.i
 
 if.else.i.i.i.i:                                  ; preds = %lor.rhs.i.i.i
@@ -81122,7 +81122,7 @@ land.lhs.true.i.i.i:                              ; preds = %land.rhs.i.i
   br i1 %cmp.i.i.i.i, label %land.rhs.i, label %lor.rhs.i.i.i.i
 
 lor.rhs.i.i.i.i:                                  ; preds = %land.lhs.true.i.i.i
-  %cmp3.not.i.i.i.i.i = icmp ugt i8 %6, 32
+  %cmp3.not.i.i.i.i.i = icmp samesign ugt i8 %6, 32
   br i1 %cmp3.not.i.i.i.i.i, label %if.else.i.i.i.i.i, label %require_align.exit.i.i.i
 
 if.else.i.i.i.i.i:                                ; preds = %lor.rhs.i.i.i.i
@@ -81202,7 +81202,7 @@ land.lhs.true.i.i:                                ; preds = %land.rhs.i
   br i1 %cmp.i.i.i, label %if.end, label %lor.rhs.i.i.i
 
 lor.rhs.i.i.i:                                    ; preds = %land.lhs.true.i.i
-  %cmp3.not.i.i.i.i = icmp ugt i8 %6, 32
+  %cmp3.not.i.i.i.i = icmp samesign ugt i8 %6, 32
   br i1 %cmp3.not.i.i.i.i, label %if.else.i.i.i.i, label %require_align.exit.i.i
 
 if.else.i.i.i.i:                                  ; preds = %lor.rhs.i.i.i
@@ -81355,7 +81355,7 @@ land.lhs.true.i.i.i:                              ; preds = %land.rhs.i.i
   br i1 %cmp.i.i.i.i, label %land.rhs.i, label %lor.rhs.i.i.i.i
 
 lor.rhs.i.i.i.i:                                  ; preds = %land.lhs.true.i.i.i
-  %cmp3.not.i.i.i.i.i = icmp ugt i8 %6, 32
+  %cmp3.not.i.i.i.i.i = icmp samesign ugt i8 %6, 32
   br i1 %cmp3.not.i.i.i.i.i, label %if.else.i.i.i.i.i, label %require_align.exit.i.i.i
 
 if.else.i.i.i.i.i:                                ; preds = %lor.rhs.i.i.i.i
@@ -81435,7 +81435,7 @@ land.lhs.true.i.i.i:                              ; preds = %land.rhs.i.i
   br i1 %cmp.i.i.i.i, label %land.rhs.i, label %lor.rhs.i.i.i.i
 
 lor.rhs.i.i.i.i:                                  ; preds = %land.lhs.true.i.i.i
-  %cmp3.not.i.i.i.i.i = icmp ugt i8 %6, 32
+  %cmp3.not.i.i.i.i.i = icmp samesign ugt i8 %6, 32
   br i1 %cmp3.not.i.i.i.i.i, label %if.else.i.i.i.i.i, label %require_align.exit.i.i.i
 
 if.else.i.i.i.i.i:                                ; preds = %lor.rhs.i.i.i.i
@@ -81515,7 +81515,7 @@ land.lhs.true.i.i:                                ; preds = %land.rhs.i
   br i1 %cmp.i.i.i, label %if.then, label %lor.rhs.i.i.i
 
 lor.rhs.i.i.i:                                    ; preds = %land.lhs.true.i.i
-  %cmp3.not.i.i.i.i = icmp ugt i8 %6, 32
+  %cmp3.not.i.i.i.i = icmp samesign ugt i8 %6, 32
   br i1 %cmp3.not.i.i.i.i, label %if.else.i.i.i.i, label %require_align.exit.i.i
 
 if.else.i.i.i.i:                                  ; preds = %lor.rhs.i.i.i
@@ -81586,7 +81586,7 @@ land.lhs.true.i.i:                                ; preds = %land.rhs.i
   br i1 %cmp.i.i.i, label %if.then, label %lor.rhs.i.i.i
 
 lor.rhs.i.i.i:                                    ; preds = %land.lhs.true.i.i
-  %cmp3.not.i.i.i.i = icmp ugt i8 %6, 32
+  %cmp3.not.i.i.i.i = icmp samesign ugt i8 %6, 32
   br i1 %cmp3.not.i.i.i.i, label %if.else.i.i.i.i, label %require_align.exit.i.i
 
 if.else.i.i.i.i:                                  ; preds = %lor.rhs.i.i.i
@@ -81657,7 +81657,7 @@ land.lhs.true.i.i:                                ; preds = %land.rhs.i
   br i1 %cmp.i.i.i, label %if.then, label %lor.rhs.i.i.i
 
 lor.rhs.i.i.i:                                    ; preds = %land.lhs.true.i.i
-  %cmp3.not.i.i.i.i = icmp ugt i8 %6, 32
+  %cmp3.not.i.i.i.i = icmp samesign ugt i8 %6, 32
   br i1 %cmp3.not.i.i.i.i, label %if.else.i.i.i.i, label %require_align.exit.i.i
 
 if.else.i.i.i.i:                                  ; preds = %lor.rhs.i.i.i
@@ -81728,7 +81728,7 @@ land.lhs.true.i.i:                                ; preds = %land.rhs.i
   br i1 %cmp.i.i.i, label %if.then, label %lor.rhs.i.i.i
 
 lor.rhs.i.i.i:                                    ; preds = %land.lhs.true.i.i
-  %cmp3.not.i.i.i.i = icmp ugt i8 %6, 32
+  %cmp3.not.i.i.i.i = icmp samesign ugt i8 %6, 32
   br i1 %cmp3.not.i.i.i.i, label %if.else.i.i.i.i, label %require_align.exit.i.i
 
 if.else.i.i.i.i:                                  ; preds = %lor.rhs.i.i.i
@@ -83488,7 +83488,7 @@ land.lhs.true.i.i.i:                              ; preds = %land.rhs.i
   br i1 %cmp.i.i.i.i, label %if.then, label %lor.rhs.i.i.i.i
 
 lor.rhs.i.i.i.i:                                  ; preds = %land.lhs.true.i.i.i
-  %cmp3.not.i.i.i.i.i = icmp ugt i8 %1, 32
+  %cmp3.not.i.i.i.i.i = icmp samesign ugt i8 %1, 32
   br i1 %cmp3.not.i.i.i.i.i, label %if.else.i.i.i.i.i, label %require_align.exit.i.i.i
 
 if.else.i.i.i.i.i:                                ; preds = %lor.rhs.i.i.i.i
@@ -83664,7 +83664,7 @@ land.lhs.true.i:                                  ; preds = %zvksed_check.exit.i
   br i1 %cmp.i.i, label %if.then, label %lor.rhs.i.i
 
 lor.rhs.i.i:                                      ; preds = %land.lhs.true.i
-  %cmp3.not.i.i.i = icmp ugt i8 %s.val8.i.i, 32
+  %cmp3.not.i.i.i = icmp samesign ugt i8 %s.val8.i.i, 32
   br i1 %cmp3.not.i.i.i, label %if.else.i.i.i, label %require_align.exit.i
 
 if.else.i.i.i:                                    ; preds = %lor.rhs.i.i
@@ -83868,7 +83868,7 @@ land.lhs.true16.i:                                ; preds = %land.lhs.true7.i
   br i1 %cmp.i12.i, label %if.then, label %lor.rhs.i.i
 
 lor.rhs.i.i:                                      ; preds = %land.lhs.true16.i
-  %cmp3.not.i.i.i = icmp ugt i8 %s.val11.i, 32
+  %cmp3.not.i.i.i = icmp samesign ugt i8 %s.val11.i, 32
   br i1 %cmp3.not.i.i.i, label %if.else.i.i.i, label %require_align.exit.i
 
 if.else.i.i.i:                                    ; preds = %lor.rhs.i.i
@@ -84070,7 +84070,7 @@ land.lhs.true11.i:                                ; preds = %land.lhs.true7.i
   br i1 %cmp.i12.i, label %vaes_check_vv.exit, label %lor.rhs.i.i
 
 lor.rhs.i.i:                                      ; preds = %land.lhs.true11.i
-  %cmp3.not.i.i.i = icmp ugt i8 %s.val11.i, 32
+  %cmp3.not.i.i.i = icmp samesign ugt i8 %s.val11.i, 32
   br i1 %cmp3.not.i.i.i, label %if.else.i.i.i, label %require_align.exit.i
 
 if.else.i.i.i:                                    ; preds = %lor.rhs.i.i
@@ -84273,7 +84273,7 @@ land.lhs.true11.i:                                ; preds = %land.lhs.true7.i
   br i1 %cmp.i12.i, label %vaes_check_vv.exit, label %lor.rhs.i.i
 
 lor.rhs.i.i:                                      ; preds = %land.lhs.true11.i
-  %cmp3.not.i.i.i = icmp ugt i8 %s.val11.i, 32
+  %cmp3.not.i.i.i = icmp samesign ugt i8 %s.val11.i, 32
   br i1 %cmp3.not.i.i.i, label %if.else.i.i.i, label %require_align.exit.i
 
 if.else.i.i.i:                                    ; preds = %lor.rhs.i.i
@@ -84476,7 +84476,7 @@ land.lhs.true11.i:                                ; preds = %land.lhs.true7.i
   br i1 %cmp.i12.i, label %vaes_check_vv.exit, label %lor.rhs.i.i
 
 lor.rhs.i.i:                                      ; preds = %land.lhs.true11.i
-  %cmp3.not.i.i.i = icmp ugt i8 %s.val11.i, 32
+  %cmp3.not.i.i.i = icmp samesign ugt i8 %s.val11.i, 32
   br i1 %cmp3.not.i.i.i, label %if.else.i.i.i, label %require_align.exit.i
 
 if.else.i.i.i:                                    ; preds = %lor.rhs.i.i
@@ -84679,7 +84679,7 @@ land.lhs.true11.i:                                ; preds = %land.lhs.true7.i
   br i1 %cmp.i12.i, label %vaes_check_vv.exit, label %lor.rhs.i.i
 
 lor.rhs.i.i:                                      ; preds = %land.lhs.true11.i
-  %cmp3.not.i.i.i = icmp ugt i8 %s.val11.i, 32
+  %cmp3.not.i.i.i = icmp samesign ugt i8 %s.val11.i, 32
   br i1 %cmp3.not.i.i.i, label %if.else.i.i.i, label %require_align.exit.i
 
 if.else.i.i.i:                                    ; preds = %lor.rhs.i.i
@@ -84884,7 +84884,7 @@ land.lhs.true.i:                                  ; preds = %zvksed_check.exit.i
   br i1 %cmp.i.i, label %if.then, label %lor.rhs.i.i
 
 lor.rhs.i.i:                                      ; preds = %land.lhs.true.i
-  %cmp3.not.i.i.i = icmp ugt i8 %s.val8.i.i, 32
+  %cmp3.not.i.i.i = icmp samesign ugt i8 %s.val8.i.i, 32
   br i1 %cmp3.not.i.i.i, label %if.else.i.i.i, label %require_align.exit.i
 
 if.else.i.i.i:                                    ; preds = %lor.rhs.i.i
@@ -85089,7 +85089,7 @@ land.lhs.true.i.i:                                ; preds = %land.lhs.true11.i
   br i1 %cmp.i.i.i, label %vgmul_check.exit, label %lor.rhs.i.i.i
 
 lor.rhs.i.i.i:                                    ; preds = %land.lhs.true.i.i
-  %cmp3.not.i.i.i.i = icmp ugt i8 %s.val11.i, 32
+  %cmp3.not.i.i.i.i = icmp samesign ugt i8 %s.val11.i, 32
   br i1 %cmp3.not.i.i.i.i, label %if.else.i.i.i.i, label %require_align.exit.i.i
 
 if.else.i.i.i.i:                                  ; preds = %lor.rhs.i.i.i
@@ -85309,7 +85309,7 @@ land.lhs.true14.i:                                ; preds = %land.lhs.true11.i
   br i1 %cmp.i.i, label %vaes_check_vs.exit, label %lor.rhs.i.i
 
 lor.rhs.i.i:                                      ; preds = %land.lhs.true14.i
-  %cmp3.not.i.i.i = icmp ugt i8 %s.val13.i, 32
+  %cmp3.not.i.i.i = icmp samesign ugt i8 %s.val13.i, 32
   br i1 %cmp3.not.i.i.i, label %if.else.i.i.i, label %require_align.exit.i
 
 if.else.i.i.i:                                    ; preds = %lor.rhs.i.i
@@ -85522,7 +85522,7 @@ land.lhs.true14.i:                                ; preds = %land.lhs.true11.i
   br i1 %cmp.i.i, label %vaes_check_vs.exit, label %lor.rhs.i.i
 
 lor.rhs.i.i:                                      ; preds = %land.lhs.true14.i
-  %cmp3.not.i.i.i = icmp ugt i8 %s.val13.i, 32
+  %cmp3.not.i.i.i = icmp samesign ugt i8 %s.val13.i, 32
   br i1 %cmp3.not.i.i.i, label %if.else.i.i.i, label %require_align.exit.i
 
 if.else.i.i.i:                                    ; preds = %lor.rhs.i.i
@@ -85735,7 +85735,7 @@ land.lhs.true14.i:                                ; preds = %land.lhs.true11.i
   br i1 %cmp.i.i, label %vaes_check_vs.exit, label %lor.rhs.i.i
 
 lor.rhs.i.i:                                      ; preds = %land.lhs.true14.i
-  %cmp3.not.i.i.i = icmp ugt i8 %s.val13.i, 32
+  %cmp3.not.i.i.i = icmp samesign ugt i8 %s.val13.i, 32
   br i1 %cmp3.not.i.i.i, label %if.else.i.i.i, label %require_align.exit.i
 
 if.else.i.i.i:                                    ; preds = %lor.rhs.i.i
@@ -85948,7 +85948,7 @@ land.lhs.true14.i:                                ; preds = %land.lhs.true11.i
   br i1 %cmp.i.i, label %vaes_check_vs.exit, label %lor.rhs.i.i
 
 lor.rhs.i.i:                                      ; preds = %land.lhs.true14.i
-  %cmp3.not.i.i.i = icmp ugt i8 %s.val13.i, 32
+  %cmp3.not.i.i.i = icmp samesign ugt i8 %s.val13.i, 32
   br i1 %cmp3.not.i.i.i, label %if.else.i.i.i, label %require_align.exit.i
 
 if.else.i.i.i:                                    ; preds = %lor.rhs.i.i
@@ -86161,7 +86161,7 @@ land.lhs.true14.i:                                ; preds = %land.lhs.true11.i
   br i1 %cmp.i.i, label %vaes_check_vs.exit, label %lor.rhs.i.i
 
 lor.rhs.i.i:                                      ; preds = %land.lhs.true14.i
-  %cmp3.not.i.i.i = icmp ugt i8 %s.val13.i, 32
+  %cmp3.not.i.i.i = icmp samesign ugt i8 %s.val13.i, 32
   br i1 %cmp3.not.i.i.i, label %if.else.i.i.i, label %require_align.exit.i
 
 if.else.i.i.i:                                    ; preds = %lor.rhs.i.i
@@ -86377,7 +86377,7 @@ land.rhs.i:                                       ; preds = %land.lhs.true.i
   br i1 %cmp.i.i, label %if.then, label %lor.rhs.i.i
 
 lor.rhs.i.i:                                      ; preds = %land.rhs.i
-  %cmp3.not.i.i.i = icmp ugt i8 %s.val8.i.i, 32
+  %cmp3.not.i.i.i = icmp samesign ugt i8 %s.val8.i.i, 32
   br i1 %cmp3.not.i.i.i, label %if.else.i.i.i, label %vsm4r_vs_check.exit
 
 if.else.i.i.i:                                    ; preds = %lor.rhs.i.i
@@ -86566,7 +86566,7 @@ land.lhs.true16.i:                                ; preds = %land.lhs.true7.i
   br i1 %cmp.i12.i, label %if.then, label %lor.rhs.i.i
 
 lor.rhs.i.i:                                      ; preds = %land.lhs.true16.i
-  %cmp3.not.i.i.i = icmp ugt i8 %s.val11.i, 32
+  %cmp3.not.i.i.i = icmp samesign ugt i8 %s.val11.i, 32
   br i1 %cmp3.not.i.i.i, label %if.else.i.i.i, label %require_align.exit.i
 
 if.else.i.i.i:                                    ; preds = %lor.rhs.i.i
@@ -86797,7 +86797,7 @@ land.lhs.true.i5.i:                               ; preds = %land.rhs.i
   br i1 %cmp.i.i.i, label %if.then, label %lor.rhs.i.i.i
 
 lor.rhs.i.i.i:                                    ; preds = %land.lhs.true.i5.i
-  %cmp3.not.i.i.i.i = icmp ugt i8 %1, 32
+  %cmp3.not.i.i.i.i = icmp samesign ugt i8 %1, 32
   br i1 %cmp3.not.i.i.i.i, label %if.else.i.i.i.i, label %require_align.exit.i.i
 
 if.else.i.i.i.i:                                  ; preds = %lor.rhs.i.i.i
@@ -86996,7 +86996,7 @@ land.lhs.true.i.i.i.i:                            ; preds = %land.rhs.i.i
   br i1 %cmp.i.i.i.i.i, label %vghsh_check.exit, label %lor.rhs.i.i.i.i.i
 
 lor.rhs.i.i.i.i.i:                                ; preds = %land.lhs.true.i.i.i.i
-  %cmp3.not.i.i.i.i.i.i = icmp ugt i8 %10, 32
+  %cmp3.not.i.i.i.i.i.i = icmp samesign ugt i8 %10, 32
   br i1 %cmp3.not.i.i.i.i.i.i, label %if.else.i.i.i.i.i.i, label %require_align.exit.i.i.i.i
 
 if.else.i.i.i.i.i.i:                              ; preds = %lor.rhs.i.i.i.i.i
@@ -88494,7 +88494,7 @@ land.lhs.true12.i.i:                              ; preds = %require_align.exit.
   br i1 %cmp.i7.i.i, label %vext_check_st_index.exit.i, label %lor.rhs.i8.i.i
 
 lor.rhs.i8.i.i:                                   ; preds = %land.lhs.true12.i.i
-  %cmp3.not.i.i9.i.i = icmp ugt i8 %s.val7, 32
+  %cmp3.not.i.i9.i.i = icmp samesign ugt i8 %s.val7, 32
   br i1 %cmp3.not.i.i9.i.i, label %if.else.i.i17.i.i, label %require_align.exit18.i.i
 
 if.else.i.i17.i.i:                                ; preds = %lor.rhs.i8.i.i
@@ -94342,7 +94342,7 @@ land.rhs:                                         ; preds = %entry
   br i1 %cmp.i, label %land.end, label %lor.rhs.i
 
 lor.rhs.i:                                        ; preds = %land.rhs
-  %cmp3.not.i.i = icmp ugt i8 %1, 32
+  %cmp3.not.i.i = icmp samesign ugt i8 %1, 32
   br i1 %cmp3.not.i.i, label %if.else.i.i, label %extract32.exit.i
 
 if.else.i.i:                                      ; preds = %lor.rhs.i
@@ -94434,7 +94434,7 @@ entry:
   br i1 %cmp.i, label %require_align.exit, label %lor.rhs.i
 
 lor.rhs.i:                                        ; preds = %entry
-  %cmp3.not.i.i = icmp ugt i8 %s.137.val, 32
+  %cmp3.not.i.i = icmp samesign ugt i8 %s.137.val, 32
   br i1 %cmp3.not.i.i, label %if.else.i.i, label %extract32.exit.i
 
 if.else.i.i:                                      ; preds = %lor.rhs.i
@@ -95587,7 +95587,7 @@ land.lhs.true.i.i:                                ; preds = %land.rhs
   br i1 %cmp.i.i.i, label %land.end, label %lor.rhs.i.i.i
 
 lor.rhs.i.i.i:                                    ; preds = %land.lhs.true.i.i
-  %cmp3.not.i.i.i.i = icmp ugt i8 %15, 32
+  %cmp3.not.i.i.i.i = icmp samesign ugt i8 %15, 32
   br i1 %cmp3.not.i.i.i.i, label %if.else.i.i.i.i, label %require_align.exit.i.i
 
 if.else.i.i.i.i:                                  ; preds = %lor.rhs.i.i.i
@@ -96555,7 +96555,7 @@ land.lhs.true.i:                                  ; preds = %land.rhs
   br i1 %cmp.i.i, label %land.end, label %lor.rhs.i.i
 
 lor.rhs.i.i:                                      ; preds = %land.lhs.true.i
-  %cmp3.not.i.i.i = icmp ugt i8 %14, 32
+  %cmp3.not.i.i.i = icmp samesign ugt i8 %14, 32
   br i1 %cmp3.not.i.i.i, label %if.else.i.i.i, label %require_align.exit.i
 
 if.else.i.i.i:                                    ; preds = %lor.rhs.i.i
@@ -99120,7 +99120,7 @@ land.lhs.true13:                                  ; preds = %land.lhs.true10
   br i1 %cmp.i17, label %land.lhs.true18, label %lor.rhs.i
 
 lor.rhs.i:                                        ; preds = %land.lhs.true13
-  %cmp3.not.i.i = icmp ugt i8 %6, 32
+  %cmp3.not.i.i = icmp samesign ugt i8 %6, 32
   br i1 %cmp3.not.i.i, label %if.else.i.i, label %require_align.exit
 
 if.else.i.i:                                      ; preds = %lor.rhs.i
@@ -99144,7 +99144,7 @@ land.lhs.true18:                                  ; preds = %land.lhs.true13, %r
   br i1 %cmp.i18, label %land.lhs.true28, label %lor.rhs.i19
 
 lor.rhs.i19:                                      ; preds = %land.lhs.true18
-  %cmp3.not.i.i20 = icmp ugt i8 %sub24, 32
+  %cmp3.not.i.i20 = icmp samesign ugt i8 %sub24, 32
   br i1 %cmp3.not.i.i20, label %if.else.i.i28, label %require_align.exit29
 
 if.else.i.i28:                                    ; preds = %lor.rhs.i19
@@ -103491,7 +103491,7 @@ land.lhs.true.i:                                  ; preds = %land.rhs
   br i1 %cmp.i.i, label %land.end, label %lor.rhs.i.i
 
 lor.rhs.i.i:                                      ; preds = %land.lhs.true.i
-  %cmp3.not.i.i.i = icmp ugt i8 %14, 32
+  %cmp3.not.i.i.i = icmp samesign ugt i8 %14, 32
   br i1 %cmp3.not.i.i.i, label %if.else.i.i.i, label %require_align.exit.i
 
 if.else.i.i.i:                                    ; preds = %lor.rhs.i.i
@@ -106648,7 +106648,7 @@ land.rhs.i:                                       ; preds = %land.lhs.true.i
   br i1 %cmp.i.i.i, label %reduction_check.exit, label %lor.rhs.i.i.i
 
 lor.rhs.i.i.i:                                    ; preds = %land.rhs.i
-  %cmp3.not.i.i.i.i = icmp ugt i8 %3, 32
+  %cmp3.not.i.i.i.i = icmp samesign ugt i8 %3, 32
   br i1 %cmp3.not.i.i.i.i, label %if.else.i.i.i.i, label %require_align.exit.i.i
 
 if.else.i.i.i.i:                                  ; preds = %lor.rhs.i.i.i
@@ -106901,7 +106901,7 @@ land.lhs.true:                                    ; preds = %entry
   br i1 %cmp.i, label %land.rhs, label %lor.rhs.i
 
 lor.rhs.i:                                        ; preds = %land.lhs.true
-  %cmp3.not.i.i = icmp ugt i8 %0, 32
+  %cmp3.not.i.i = icmp samesign ugt i8 %0, 32
   br i1 %cmp3.not.i.i, label %if.else.i.i, label %require_align.exit
 
 if.else.i.i:                                      ; preds = %lor.rhs.i
@@ -109453,7 +109453,7 @@ land.rhs.i.i:                                     ; preds = %land.rhs.i
   br i1 %cmp.i.i.i, label %if.then, label %lor.rhs.i.i.i
 
 lor.rhs.i.i.i:                                    ; preds = %land.rhs.i.i
-  %cmp3.not.i.i.i.i = icmp ugt i8 %6, 31
+  %cmp3.not.i.i.i.i = icmp samesign ugt i8 %6, 31
   br i1 %cmp3.not.i.i.i.i, label %if.else.i.i.i.i, label %opiwv_widen_check.exit
 
 if.else.i.i.i.i:                                  ; preds = %lor.rhs.i.i.i
@@ -115119,7 +115119,7 @@ land.lhs.true.i.i.i:                              ; preds = %land.rhs.i
   br i1 %cmp.i.i.i.i, label %land.lhs.true, label %lor.rhs.i.i.i.i
 
 lor.rhs.i.i.i.i:                                  ; preds = %land.lhs.true.i.i.i
-  %cmp3.not.i.i.i.i.i = icmp ugt i8 %1, 32
+  %cmp3.not.i.i.i.i.i = icmp samesign ugt i8 %1, 32
   br i1 %cmp3.not.i.i.i.i.i, label %if.else.i.i.i.i.i, label %require_align.exit.i.i.i
 
 if.else.i.i.i.i.i:                                ; preds = %lor.rhs.i.i.i.i
@@ -116721,7 +116721,7 @@ lor.lhs.false.i:                                  ; preds = %if.end.i24
   %idxprom12.i27 = sext i32 %4 to i64
   %arrayidx13.i28 = getelementptr [32 x ptr], ptr @cpu_gpr, i64 0, i64 %idxprom12.i27
   %7 = load ptr, ptr %arrayidx13.i28, align 8
-  %cmp1.i = icmp ult i32 %6, 2
+  %cmp1.i = icmp samesign ult i32 %6, 2
   br i1 %cmp1.i, label %if.then.i38, label %dest_gpr.exit
 
 if.then.i38:                                      ; preds = %get_gpr.exit34.thread, %lor.lhs.false.i

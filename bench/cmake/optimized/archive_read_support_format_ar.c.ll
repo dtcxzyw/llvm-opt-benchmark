@@ -264,7 +264,7 @@ thread-pre-split.thread.i:                        ; preds = %30, %21
 
 64:                                               ; preds = %62
   %65 = icmp eq i64 %.02635.i.i, 1844674407370955161
-  %66 = icmp ugt i32 %.038.i.i, 5
+  %66 = icmp samesign ugt i32 %.038.i.i, 5
   %or.cond30.i.i = select i1 %65, i1 %66, i1 false
   br i1 %or.cond30.i.i, label %ar_atol10.exit.thread.i, label %67
 
@@ -396,7 +396,7 @@ ar_atol10.exit.thread.i:                          ; preds = %64, %62, %ar_atol10
 
 111:                                              ; preds = %109
   %112 = icmp eq i64 %.02635.i182.i, 1844674407370955161
-  %113 = icmp ugt i32 %.038.i179.i, 5
+  %113 = icmp samesign ugt i32 %.038.i179.i, 5
   %or.cond30.i184.i = select i1 %112, i1 %113, i1 false
   br i1 %or.cond30.i184.i, label %ar_atol10.exit189.i, label %114
 
@@ -497,7 +497,7 @@ ar_atol10.exit189.i:                              ; preds = %114, %111, %109, %.
 
 145:                                              ; preds = %143
   %146 = icmp eq i64 %.02635.i208.i, 1844674407370955161
-  %147 = icmp ugt i32 %.038.i205.i, 5
+  %147 = icmp samesign ugt i32 %.038.i205.i, 5
   %or.cond30.i210.i = select i1 %146, i1 %147, i1 false
   br i1 %or.cond30.i210.i, label %ar_atol10.exit215.thread.i, label %148
 
@@ -785,7 +785,7 @@ define internal fastcc void @ar_parse_common_header(ptr nocapture noundef writeo
 
 16:                                               ; preds = %14
   %17 = icmp eq i64 %.02635.i, 1844674407370955161
-  %18 = icmp ugt i32 %.038.i, 5
+  %18 = icmp samesign ugt i32 %.038.i, 5
   %or.cond30.i = select i1 %17, i1 %18, i1 false
   br i1 %or.cond30.i, label %ar_atol10.exit, label %19
 
@@ -856,7 +856,7 @@ ar_atol10.exit:                                   ; preds = %.lr.ph.i, %14, %16,
 
 37:                                               ; preds = %35
   %38 = icmp eq i64 %.02635.i34, 1844674407370955161
-  %39 = icmp ugt i32 %.038.i31, 5
+  %39 = icmp samesign ugt i32 %.038.i31, 5
   %or.cond30.i36 = select i1 %38, i1 %39, i1 false
   br i1 %or.cond30.i36, label %ar_atol10.exit41.loopexit, label %40
 
@@ -932,7 +932,7 @@ ar_atol10.exit41:                                 ; preds = %ar_atol10.exit41.lo
 
 59:                                               ; preds = %57
   %60 = icmp eq i64 %.02635.i60, 1844674407370955161
-  %61 = icmp ugt i32 %.038.i57, 5
+  %61 = icmp samesign ugt i32 %.038.i57, 5
   %or.cond30.i62 = select i1 %60, i1 %61, i1 false
   br i1 %or.cond30.i62, label %ar_atol10.exit67.loopexit, label %62
 
@@ -1078,7 +1078,7 @@ ar_atol8.exit:                                    ; preds = %ar_atol8.exit.loope
 
 100:                                              ; preds = %98
   %101 = icmp eq i64 %.02635.i98, 1844674407370955161
-  %102 = icmp ugt i32 %.038.i95, 5
+  %102 = icmp samesign ugt i32 %.038.i95, 5
   %or.cond30.i100 = select i1 %101, i1 %102, i1 false
   br i1 %or.cond30.i100, label %ar_atol10.exit105, label %103
 

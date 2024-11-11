@@ -2820,7 +2820,7 @@ define hidden range(i64 0, 9007199254740992) i64 @"_ZN99_$LT$core..char..decode.
   br label %"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hf35b251e799852baE.exit.thread"
 
 20:                                               ; preds = %17
-  %21 = icmp ugt i16 %.0, -9217
+  %21 = icmp samesign ugt i16 %.0, -9217
   br i1 %21, label %27, label %22
 
 22:                                               ; preds = %20
@@ -2916,7 +2916,7 @@ define hidden range(i64 0, 9007199254740992) i64 @"_ZN99_$LT$core..char..decode.
   br label %"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h8932de1f98b719c5E.exit.thread"
 
 16:                                               ; preds = %13
-  %17 = icmp ugt i16 %.0, -9217
+  %17 = icmp samesign ugt i16 %.0, -9217
   br i1 %17, label %23, label %18
 
 18:                                               ; preds = %16

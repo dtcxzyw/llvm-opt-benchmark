@@ -642,7 +642,7 @@ _ZNSt6vectorIP6aiMeshSaIS1_EE6resizeEm.exit:      ; preds = %if.else, %invoke.co
   %11 = phi i32 [ %2, %if.else ], [ %.pre, %invoke.cont.i.i ]
   %12 = add nuw nsw i64 %indvars.iv, 1
   %13 = zext i32 %11 to i64
-  %cmp8147 = icmp ult i64 %12, %13
+  %cmp8147 = icmp samesign ult i64 %12, %13
   br i1 %cmp8147, label %for.body9.preheader, label %for.end
 
 for.body9.preheader:                              ; preds = %_ZNSt6vectorIP6aiMeshSaIS1_EE6resizeEm.exit

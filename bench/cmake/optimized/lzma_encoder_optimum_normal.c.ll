@@ -299,7 +299,7 @@ fill_align_prices.exit:                           ; preds = %rc_bittree_reverse_
   br i1 %163, label %164, label %.thread.i
 
 164:                                              ; preds = %156
-  %165 = icmp ult i32 %162, 2
+  %165 = icmp samesign ult i32 %162, 2
   br i1 %165, label %166, label %.thread.i
 
 166:                                              ; preds = %164
@@ -316,7 +316,7 @@ fill_align_prices.exit:                           ; preds = %rc_bittree_reverse_
   %171 = getelementptr inbounds i8, ptr %0, i64 740
   %invariant.gep.i = getelementptr i8, ptr %169, i64 -2
   %.val218.i = load i16, ptr %170, align 1, !noalias !33
-  %172 = icmp ugt i32 %167, 2
+  %172 = icmp samesign ugt i32 %167, 2
   %173 = zext nneg i32 %167 to i64
   br label %174
 
@@ -1015,7 +1015,7 @@ helper1.exit:                                     ; preds = %517, %445
   br label %.loopexit690.i
 
 602:                                              ; preds = %561
-  %603 = icmp ult i32 %573, 7
+  %603 = icmp samesign ult i32 %573, 7
   %604 = select i1 %603, i32 8, i32 11
   br i1 %569, label %611, label %.loopexit690.i.loopexit153
 
@@ -1056,7 +1056,7 @@ helper1.exit:                                     ; preds = %517, %445
   %617 = zext nneg i32 %616 to i64
   %618 = add nsw i64 %617, -4
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %scevgep, ptr nonnull align 4 %gep151, i64 %618, i1 false)
-  %619 = icmp ult i32 %.0561665.i, 3
+  %619 = icmp samesign ult i32 %.0561665.i, 3
   br i1 %619, label %.lr.ph707.preheader.i, label %.loopexit690.i
 
 .lr.ph707.preheader.i:                            ; preds = %611, %.lr.ph.preheader.i

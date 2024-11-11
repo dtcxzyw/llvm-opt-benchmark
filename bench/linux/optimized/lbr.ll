@@ -2386,7 +2386,7 @@ define dso_local noundef range(i32 -95, 1) i32 @intel_pmu_setup_lbr_filter(ptr n
   br i1 %35, label %36, label %.thread
 
 36:                                               ; preds = %32
-  %37 = icmp ult i32 %26, 4
+  %37 = icmp samesign ult i32 %26, 4
   br i1 %37, label %38, label %.thread
 
 38:                                               ; preds = %36

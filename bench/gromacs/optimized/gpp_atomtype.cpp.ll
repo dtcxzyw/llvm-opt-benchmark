@@ -2568,7 +2568,7 @@ _ZNSt12_Vector_baseI12AtomTypeDataSaIS0_EE13_M_deallocateEPS0_m.exit: ; preds = 
   %54 = getelementptr inbounds i8, ptr %.0910.i.i.i.i.i, i64 184
   %55 = getelementptr inbounds i8, ptr %.0811.i.i.i.i.i, i64 184
   %56 = add nsw i64 %.012.i.i.i.i.i, -1
-  %57 = icmp ugt i64 %.012.i.i.i.i.i, 1
+  %57 = icmp samesign ugt i64 %.012.i.i.i.i.i, 1
   br i1 %57, label %.lr.ph.i.i.i.i.i, label %_ZSt4copyIN9__gnu_cxx17__normal_iteratorIPK12AtomTypeDataSt6vectorIS2_SaIS2_EEEENS1_IPS2_S7_EEET0_T_SC_SB_.exit.loopexit, !llvm.loop !35
 
 _ZSt4copyIN9__gnu_cxx17__normal_iteratorIPK12AtomTypeDataSt6vectorIS2_SaIS2_EEEENS1_IPS2_S7_EEET0_T_SC_SB_.exit.loopexit: ; preds = %.lr.ph.i.i.i.i.i
@@ -2640,7 +2640,7 @@ _ZSt8_DestroyI12AtomTypeDataEvPT_.exit.i.i.i28:   ; preds = %64, %.lr.ph.i.i.i26
   %84 = getelementptr inbounds i8, ptr %.0910.i.i.i.i.i35, i64 184
   %85 = getelementptr inbounds i8, ptr %.0811.i.i.i.i.i34, i64 184
   %86 = add nsw i64 %.012.i.i.i.i.i33, -1
-  %87 = icmp ugt i64 %.012.i.i.i.i.i33, 1
+  %87 = icmp samesign ugt i64 %.012.i.i.i.i.i33, 1
   br i1 %87, label %.lr.ph.i.i.i.i.i32, label %_ZSt4copyIP12AtomTypeDataS1_ET0_T_S3_S2_.exit.loopexit, !llvm.loop !37
 
 _ZSt4copyIP12AtomTypeDataS1_ET0_T_S3_S2_.exit.loopexit: ; preds = %.lr.ph.i.i.i.i.i32
@@ -2812,7 +2812,7 @@ _ZNSt12_Vector_baseI17InteractionOfTypeSaIS0_EE13_M_deallocateEPS0_m.exit: ; pre
   %44 = getelementptr inbounds i8, ptr %.0910.i.i.i.i.i, i64 104
   %45 = getelementptr inbounds i8, ptr %.0811.i.i.i.i.i, i64 104
   %46 = add nsw i64 %.012.i.i.i.i.i, -1
-  %47 = icmp ugt i64 %.012.i.i.i.i.i, 1
+  %47 = icmp samesign ugt i64 %.012.i.i.i.i.i, 1
   br i1 %47, label %.lr.ph.i.i.i.i.i, label %_ZSt4copyIN9__gnu_cxx17__normal_iteratorIPK17InteractionOfTypeSt6vectorIS2_SaIS2_EEEENS1_IPS2_S7_EEET0_T_SC_SB_.exit.loopexit, !llvm.loop !39
 
 _ZSt4copyIN9__gnu_cxx17__normal_iteratorIPK17InteractionOfTypeSt6vectorIS2_SaIS2_EEEENS1_IPS2_S7_EEET0_T_SC_SB_.exit.loopexit: ; preds = %.lr.ph.i.i.i.i.i
@@ -2871,7 +2871,7 @@ _ZSt8_DestroyI17InteractionOfTypeEvPT_.exit.i.i.i28: ; preds = %53, %.lr.ph.i.i.
   %64 = getelementptr inbounds i8, ptr %.0910.i.i.i.i.i35, i64 104
   %65 = getelementptr inbounds i8, ptr %.0811.i.i.i.i.i34, i64 104
   %66 = add nsw i64 %.012.i.i.i.i.i33, -1
-  %67 = icmp ugt i64 %.012.i.i.i.i.i33, 1
+  %67 = icmp samesign ugt i64 %.012.i.i.i.i.i33, 1
   br i1 %67, label %.lr.ph.i.i.i.i.i32, label %_ZSt4copyIP17InteractionOfTypeS1_ET0_T_S3_S2_.exit.loopexit, !llvm.loop !41
 
 _ZSt4copyIP17InteractionOfTypeS1_ET0_T_S3_S2_.exit.loopexit: ; preds = %.lr.ph.i.i.i.i.i32

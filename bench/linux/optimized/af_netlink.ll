@@ -4354,7 +4354,7 @@ define internal i32 @netlink_proto_init() #10 section ".init.text" align 16 {
   %21 = getelementptr %struct.netlink_table, ptr %20, i64 %19
   tail call void @rhashtable_destroy(ptr noundef %21) #23
   %22 = add nsw i64 %19, -1
-  %23 = icmp ugt i64 %19, 1
+  %23 = icmp samesign ugt i64 %19, 1
   br i1 %23, label %18, label %.loopexit, !llvm.loop !114
 
 .loopexit:                                        ; preds = %18, %13
@@ -6225,7 +6225,7 @@ define internal range(i32 -92, 1) i32 @netlink_getsockopt(ptr nocapture noundef 
   %25 = getelementptr inbounds i8, ptr %8, i64 768
   %26 = load i32, ptr %25, align 8
   %27 = icmp eq i32 %26, 0
-  %28 = icmp ult i32 %14, 4
+  %28 = icmp samesign ult i32 %14, 4
   %29 = select i1 %27, i1 true, i1 %28
   br i1 %29, label %.loopexit, label %30
 
@@ -6299,7 +6299,7 @@ define internal range(i32 -92, 1) i32 @netlink_getsockopt(ptr nocapture noundef 
 
 79:                                               ; preds = %78, %77, %76, %23, %22, %21
   %80 = phi i64 [ 7, %78 ], [ 6, %77 ], [ 5, %76 ], [ 3, %23 ], [ 2, %22 ], [ 1, %21 ]
-  %81 = icmp ult i32 %14, 4
+  %81 = icmp samesign ult i32 %14, 4
   br i1 %81, label %98, label %82
 
 82:                                               ; preds = %79

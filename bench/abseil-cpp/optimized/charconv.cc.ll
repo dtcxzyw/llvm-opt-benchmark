@@ -118,7 +118,7 @@ if.then.i.i.i:                                    ; preds = %if.end31.i
   br label %_ZN4absl12_GLOBAL__N_130CalculateFromParsedHexadecimalIdEENS0_15CalculatedFloatERKNS_16strings_internal11ParsedFloatE.exit.i
 
 if.end.i.i.i:                                     ; preds = %if.end31.i
-  %cmp3.i.i.i = icmp ugt i32 %.sroa.speculated.i.i.i, 127
+  %cmp3.i.i.i = icmp samesign ugt i32 %.sroa.speculated.i.i.i, 127
   br i1 %cmp3.i.i.i, label %_ZN4absl12_GLOBAL__N_130CalculateFromParsedHexadecimalIdEENS0_15CalculatedFloatERKNS_16strings_internal11ParsedFloatE.exit.i, label %if.end5.i.i.i
 
 if.end5.i.i.i:                                    ; preds = %if.end.i.i.i
@@ -285,7 +285,7 @@ if.then.i.i119.i:                                 ; preds = %if.end49.i
   br label %_ZN4absl12_GLOBAL__N_130CalculateFromParsedHexadecimalIdEENS0_15CalculatedFloatERKNS_16strings_internal11ParsedFloatE.exit125.i
 
 if.end.i.i85.i:                                   ; preds = %if.end49.i
-  %cmp3.i.i86.i = icmp ugt i32 %.sroa.speculated.i.i83.i, 127
+  %cmp3.i.i86.i = icmp samesign ugt i32 %.sroa.speculated.i.i83.i, 127
   br i1 %cmp3.i.i86.i, label %_ZN4absl12_GLOBAL__N_130CalculateFromParsedHexadecimalIdEENS0_15CalculatedFloatERKNS_16strings_internal11ParsedFloatE.exit125.i, label %if.end5.i.i87.i
 
 if.end5.i.i87.i:                                  ; preds = %if.end.i.i85.i
@@ -533,7 +533,7 @@ if.end69.i.i:                                     ; preds = %land.lhs.true60.i.i
   %sub5624.i.i = sub nsw i64 %conv.i.i, %xor20.pn.i.i
   %and70.i.i = and i64 %shr5523.i.i, 1
   %add71.i.i = add nuw nsw i64 %and70.i.i, %shr5523.i.i
-  %cmp74.not.i.i = icmp ugt i64 %add71.i.i, 18014398509481983
+  %cmp74.not.i.i = icmp samesign ugt i64 %add71.i.i, 18014398509481983
   %add76.i.i = zext i1 %cmp74.not.i.i to i64
   %spec.select.i.i = add nsw i64 %sub5624.i.i, %add76.i.i
   %30 = add nsw i64 %spec.select.i.i, -2047
@@ -667,7 +667,7 @@ if.end24.i.i:                                     ; preds = %_ZN4absl12_GLOBAL__
   br i1 %cmp.i52.i.i, label %_ZN4absl12_GLOBAL__N_118ShiftRightAndRoundENS_7uint128EibPb.exit.i.i, label %if.end.i53.i.i
 
 if.end.i53.i.i:                                   ; preds = %if.end24.i.i
-  %cmp3.i.i202.i = icmp ugt i32 %.sroa.speculated.i.i201.i, 127
+  %cmp3.i.i202.i = icmp samesign ugt i32 %.sroa.speculated.i.i201.i, 127
   br i1 %cmp3.i.i202.i, label %if.end36.i.i, label %if.end5.i.i203.i
 
 if.end5.i.i203.i:                                 ; preds = %if.end.i53.i.i
@@ -875,7 +875,7 @@ if.then.i.i.i:                                    ; preds = %if.end32.i
   br label %_ZN4absl12_GLOBAL__N_130CalculateFromParsedHexadecimalIfEENS0_15CalculatedFloatERKNS_16strings_internal11ParsedFloatE.exit.i
 
 if.end.i.i.i:                                     ; preds = %if.end32.i
-  %cmp3.i.i.i = icmp ugt i32 %.sroa.speculated.i.i.i, 127
+  %cmp3.i.i.i = icmp samesign ugt i32 %.sroa.speculated.i.i.i, 127
   br i1 %cmp3.i.i.i, label %_ZN4absl12_GLOBAL__N_130CalculateFromParsedHexadecimalIfEENS0_15CalculatedFloatERKNS_16strings_internal11ParsedFloatE.exit.i, label %if.end5.i.i.i
 
 if.end5.i.i.i:                                    ; preds = %if.end.i.i.i
@@ -1042,7 +1042,7 @@ if.then.i.i120.i:                                 ; preds = %if.end50.i
   br label %_ZN4absl12_GLOBAL__N_130CalculateFromParsedHexadecimalIfEENS0_15CalculatedFloatERKNS_16strings_internal11ParsedFloatE.exit126.i
 
 if.end.i.i86.i:                                   ; preds = %if.end50.i
-  %cmp3.i.i87.i = icmp ugt i32 %.sroa.speculated.i.i84.i, 127
+  %cmp3.i.i87.i = icmp samesign ugt i32 %.sroa.speculated.i.i84.i, 127
   br i1 %cmp3.i.i87.i, label %_ZN4absl12_GLOBAL__N_130CalculateFromParsedHexadecimalIfEENS0_15CalculatedFloatERKNS_16strings_internal11ParsedFloatE.exit126.i, label %if.end5.i.i88.i
 
 if.end5.i.i88.i:                                  ; preds = %if.end.i.i86.i
@@ -1290,7 +1290,7 @@ if.end70.i.i:                                     ; preds = %land.lhs.true61.i.i
   %sub5724.i.i = sub nsw i64 %conv9.i.i, %xor20.pn.i.i
   %and71.i.i = and i64 %shr5623.i.i, 1
   %add72.i.i = add nuw nsw i64 %and71.i.i, %shr5623.i.i
-  %cmp75.not.i.i = icmp ugt i64 %add72.i.i, 33554431
+  %cmp75.not.i.i = icmp samesign ugt i64 %add72.i.i, 33554431
   %add77.i.i = zext i1 %cmp75.not.i.i to i64
   %spec.select.i.i = add nsw i64 %sub5724.i.i, %add77.i.i
   %30 = add nsw i64 %spec.select.i.i, -255
@@ -1427,7 +1427,7 @@ if.end24.i.i:                                     ; preds = %_ZN4absl12_GLOBAL__
   br i1 %cmp.i52.i.i, label %_ZN4absl12_GLOBAL__N_118ShiftRightAndRoundENS_7uint128EibPb.exit.i.i, label %if.end.i53.i.i
 
 if.end.i53.i.i:                                   ; preds = %if.end24.i.i
-  %cmp3.i.i205.i = icmp ugt i32 %.sroa.speculated.i.i204.i, 127
+  %cmp3.i.i205.i = icmp samesign ugt i32 %.sroa.speculated.i.i204.i, 127
   br i1 %cmp3.i.i205.i, label %if.end36.i.i, label %if.end5.i.i206.i
 
 if.end5.i.i206.i:                                 ; preds = %if.end.i53.i.i

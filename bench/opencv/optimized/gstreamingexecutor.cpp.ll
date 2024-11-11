@@ -26419,7 +26419,7 @@ _ZNSt6vectorIPN2cv5gimpl6stream1QESaIS4_EE17_S_check_init_lenEmRKS5_.exit.i: ; p
   %34 = getelementptr i8, ptr %32, i64 8
   %35 = add nsw i64 %31, -8
   tail call void @llvm.memset.p0.i64(ptr align 8 %34, i8 0, i64 %35, i1 false)
-  %36 = icmp ugt i64 %18, 384307168202282325
+  %36 = icmp samesign ugt i64 %18, 384307168202282325
   br i1 %36, label %37, label %.lr.ph.preheader.i.i.i.i.i
 
 37:                                               ; preds = %_ZNSt6vectorIPN2cv5gimpl6stream1QESaIS4_EE17_S_check_init_lenEmRKS5_.exit.i
@@ -55235,7 +55235,7 @@ _ZNSt12_Vector_baseIN2cv7GRunArgESaIS1_EE13_M_deallocateEPS1_m.exit: ; preds = %
   %35 = getelementptr inbounds i8, ptr %.0910.i.i.i.i.i, i64 160
   %36 = getelementptr inbounds i8, ptr %.0811.i.i.i.i.i, i64 160
   %37 = add nsw i64 %.012.i.i.i.i.i, -1
-  %38 = icmp ugt i64 %.012.i.i.i.i.i, 1
+  %38 = icmp samesign ugt i64 %.012.i.i.i.i.i, 1
   br i1 %38, label %.lr.ph.i.i.i.i.i, label %_ZSt4copyIN9__gnu_cxx17__normal_iteratorIPKN2cv7GRunArgESt6vectorIS3_SaIS3_EEEENS1_IPS3_S8_EEET0_T_SD_SC_.exit.loopexit, !llvm.loop !835
 
 _ZSt4copyIN9__gnu_cxx17__normal_iteratorIPKN2cv7GRunArgESt6vectorIS3_SaIS3_EEEENS1_IPS3_S8_EEET0_T_SD_SC_.exit.loopexit: ; preds = %.lr.ph.i.i.i.i.i
@@ -55267,7 +55267,7 @@ _ZSt4copyIN9__gnu_cxx17__normal_iteratorIPKN2cv7GRunArgESt6vectorIS3_SaIS3_EEEEN
   %46 = getelementptr inbounds i8, ptr %.0910.i.i.i.i.i30, i64 160
   %47 = getelementptr inbounds i8, ptr %.0811.i.i.i.i.i29, i64 160
   %48 = add nsw i64 %.012.i.i.i.i.i28, -1
-  %49 = icmp ugt i64 %.012.i.i.i.i.i28, 1
+  %49 = icmp samesign ugt i64 %.012.i.i.i.i.i28, 1
   br i1 %49, label %.lr.ph.i.i.i.i.i27, label %_ZSt4copyIPN2cv7GRunArgES2_ET0_T_S4_S3_.exit.loopexit, !llvm.loop !836
 
 _ZSt4copyIPN2cv7GRunArgES2_ET0_T_S4_S3_.exit.loopexit: ; preds = %.lr.ph.i.i.i.i.i27

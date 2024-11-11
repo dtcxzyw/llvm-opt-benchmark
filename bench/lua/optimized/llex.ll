@@ -129,7 +129,7 @@ if.else4:                                         ; preds = %entry
   %idxprom5 = zext nneg i32 %sub to i64
   %arrayidx6 = getelementptr inbounds [37 x ptr], ptr @luaX_tokens, i64 0, i64 %idxprom5
   %3 = load ptr, ptr %arrayidx6, align 8
-  %cmp7 = icmp ult i32 %token, 288
+  %cmp7 = icmp samesign ult i32 %token, 288
   br i1 %cmp7, label %if.then9, label %return
 
 if.then9:                                         ; preds = %if.else4
@@ -245,7 +245,7 @@ if.else4.i:                                       ; preds = %sw.default.i
   %idxprom5.i = zext nneg i32 %sub.i to i64
   %arrayidx6.i = getelementptr inbounds [37 x ptr], ptr @luaX_tokens, i64 0, i64 %idxprom5.i
   %15 = load ptr, ptr %arrayidx6.i, align 8
-  %cmp7.i = icmp ult i32 %token, 288
+  %cmp7.i = icmp samesign ult i32 %token, 288
   br i1 %cmp7.i, label %if.then9.i, label %txtToken.exit
 
 if.then9.i:                                       ; preds = %if.else4.i

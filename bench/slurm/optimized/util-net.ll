@@ -130,7 +130,7 @@ define noundef ptr @get_host_by_name(ptr noundef %0, ptr noundef %1, i32 noundef
   br i1 %44, label %copy_hostent.exit, label %47
 
 ._crit_edge110.thread.i:                          ; preds = %32
-  %45 = icmp ult i32 %30, 8
+  %45 = icmp samesign ult i32 %30, 8
   br i1 %45, label %copy_hostent.exit, label %.thread.i
 
 .thread.i:                                        ; preds = %._crit_edge110.thread.i

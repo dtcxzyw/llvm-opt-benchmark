@@ -319,7 +319,7 @@ if.then2:                                         ; preds = %if.end
 
 if.then6:                                         ; preds = %if.then2
   %mul = shl nuw i64 %2, 1
-  %cmp.not.i = icmp ult i64 %2, 1152921504606846976
+  %cmp.not.i = icmp samesign ult i64 %2, 1152921504606846976
   br i1 %cmp.not.i, label %if.end.i, label %if.end19
 
 if.end.i:                                         ; preds = %if.then6

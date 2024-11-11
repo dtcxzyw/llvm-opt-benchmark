@@ -66822,7 +66822,7 @@ _ZNSt12_Vector_baseIN5Yosys7hashlib4dictINS0_5RTLIL5ConstES4_NS1_8hash_opsIS4_EE
   %54 = getelementptr inbounds i8, ptr %.0910.i.i.i.i.i, i64 72
   %55 = getelementptr inbounds i8, ptr %.0811.i.i.i.i.i, i64 72
   %56 = add nsw i64 %.012.i.i.i.i.i, -1
-  %57 = icmp ugt i64 %.012.i.i.i.i.i, 1
+  %57 = icmp samesign ugt i64 %.012.i.i.i.i.i, 1
   br i1 %57, label %.lr.ph.i.i.i.i.i, label %_ZSt4copyIN9__gnu_cxx17__normal_iteratorIPKN5Yosys7hashlib4dictINS2_5RTLIL5ConstES6_NS3_8hash_opsIS6_EEE7entry_tESt6vectorISA_SaISA_EEEENS1_IPSA_SF_EEET0_T_SK_SJ_.exit.loopexit, !llvm.loop !543
 
 _ZSt4copyIN9__gnu_cxx17__normal_iteratorIPKN5Yosys7hashlib4dictINS2_5RTLIL5ConstES6_NS3_8hash_opsIS6_EEE7entry_tESt6vectorISA_SaISA_EEEENS1_IPSA_SF_EEET0_T_SK_SJ_.exit.loopexit: ; preds = %.lr.ph.i.i.i.i.i
@@ -66899,7 +66899,7 @@ _ZSt8_DestroyIN5Yosys7hashlib4dictINS0_5RTLIL5ConstES4_NS1_8hash_opsIS4_EEE7entr
   %84 = getelementptr inbounds i8, ptr %.0910.i.i.i.i.i37, i64 72
   %85 = getelementptr inbounds i8, ptr %.0811.i.i.i.i.i36, i64 72
   %86 = add nsw i64 %.012.i.i.i.i.i35, -1
-  %87 = icmp ugt i64 %.012.i.i.i.i.i35, 1
+  %87 = icmp samesign ugt i64 %.012.i.i.i.i.i35, 1
   br i1 %87, label %.lr.ph.i.i.i.i.i34, label %_ZSt4copyIPN5Yosys7hashlib4dictINS0_5RTLIL5ConstES4_NS1_8hash_opsIS4_EEE7entry_tES9_ET0_T_SB_SA_.exit.loopexit, !llvm.loop !545
 
 _ZSt4copyIPN5Yosys7hashlib4dictINS0_5RTLIL5ConstES4_NS1_8hash_opsIS4_EEE7entry_tES9_ET0_T_SB_SA_.exit.loopexit: ; preds = %.lr.ph.i.i.i.i.i34

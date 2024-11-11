@@ -2338,13 +2338,13 @@ _ZN2cvL17actualScalarDepthEPKdi.exit.thread:      ; preds = %234, %236, %231, %.
 
 263:                                              ; preds = %262
   %264 = icmp slt i32 %.0657, 2
-  %265 = icmp ult i32 %.0737, 2
+  %265 = icmp samesign ult i32 %.0737, 2
   %or.cond17 = and i1 %264, %265
   br i1 %or.cond17, label %270, label %266
 
 266:                                              ; preds = %263
   %267 = icmp slt i32 %.0657, 5
-  %268 = icmp ult i32 %.0737, 5
+  %268 = icmp samesign ult i32 %.0737, 5
   %or.cond19 = and i1 %267, %268
   br i1 %or.cond19, label %270, label %269
 
@@ -2360,7 +2360,7 @@ _ZN2cvL17actualScalarDepthEPKdi.exit.thread:      ; preds = %234, %236, %231, %.
 
 274:                                              ; preds = %270
   %275 = icmp slt i32 %.0657, 5
-  %276 = icmp ult i32 %.0737, 5
+  %276 = icmp samesign ult i32 %.0737, 5
   %or.cond21 = or i1 %275, %276
   %spec.select697 = select i1 %or.cond21, i32 4, i32 %272
   br label %281

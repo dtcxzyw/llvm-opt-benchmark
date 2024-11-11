@@ -158,7 +158,7 @@ define noundef ptr @tvb_uncompress(ptr noundef %0, i32 noundef %1, i32 noundef %
   br i1 %68, label %69, label %133
 
 69:                                               ; preds = %66
-  %70 = icmp ult i32 %.0187, 10
+  %70 = icmp samesign ult i32 %.0187, 10
   br i1 %70, label %73, label %71
 
 71:                                               ; preds = %69

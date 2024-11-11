@@ -85220,7 +85220,7 @@ define dso_local noundef range(i32 1, 9) i32 @_ZNK13AstBasicDType15widthAlignByt
   br i1 %4, label %_ZNK7AstNode6isQuadEv.exit.thread, label %5
 
 5:                                                ; preds = %1
-  %6 = icmp ult i32 %3, 17
+  %6 = icmp samesign ult i32 %3, 17
   br i1 %6, label %_ZNK7AstNode6isQuadEv.exit.thread, label %7
 
 7:                                                ; preds = %5
@@ -85277,7 +85277,7 @@ define dso_local noundef range(i32 1, 268435453) i32 @_ZNK13AstBasicDType15width
   br i1 %4, label %16, label %5
 
 5:                                                ; preds = %1
-  %6 = icmp ult i32 %3, 17
+  %6 = icmp samesign ult i32 %3, 17
   br i1 %6, label %16, label %7
 
 7:                                                ; preds = %5
@@ -85390,7 +85390,7 @@ define dso_local noundef range(i32 1, 268435453) i32 @_ZNK21AstNodeUOrStructDTyp
   br i1 %4, label %16, label %5
 
 5:                                                ; preds = %1
-  %6 = icmp ult i32 %3, 17
+  %6 = icmp samesign ult i32 %3, 17
   br i1 %6, label %16, label %7
 
 7:                                                ; preds = %5
@@ -85425,11 +85425,11 @@ define dso_local noundef range(i32 1, 9) i32 @_ZNK21AstNodeUOrStructDType15width
   br i1 %4, label %9, label %5
 
 5:                                                ; preds = %1
-  %6 = icmp ult i32 %3, 17
+  %6 = icmp samesign ult i32 %3, 17
   br i1 %6, label %9, label %7
 
 7:                                                ; preds = %5
-  %8 = icmp ult i32 %3, 33
+  %8 = icmp samesign ult i32 %3, 33
   %. = select i1 %8, i32 4, i32 8
   br label %9
 
@@ -87664,11 +87664,11 @@ _ZNK7AstNode8widthMinEv.exit:                     ; preds = %_ZNK7AstNode8isDoub
   br i1 %41, label %.invoke, label %42
 
 42:                                               ; preds = %_ZNK7AstNode8widthMinEv.exit
-  %43 = icmp ult i32 %40, 17
+  %43 = icmp samesign ult i32 %40, 17
   br i1 %43, label %.invoke, label %44
 
 44:                                               ; preds = %42
-  %45 = icmp ult i32 %40, 33
+  %45 = icmp samesign ult i32 %40, 33
   br i1 %45, label %.invoke, label %46
 
 46:                                               ; preds = %44
@@ -89252,7 +89252,7 @@ _ZNK7AstNode8widthMinEv.exit40:                   ; preds = %_ZNK7AstNode8widthM
   br i1 %86, label %.invoke, label %87
 
 87:                                               ; preds = %_ZNK7AstNode8widthMinEv.exit40
-  %88 = icmp ult i32 %84, 65
+  %88 = icmp samesign ult i32 %84, 65
   %.str.311..str.310 = select i1 %88, ptr @.str.311, ptr @.str.310
   br label %.invoke
 
@@ -90264,7 +90264,7 @@ _ZNK7AstNode8widthMinEv.exit95.thread:            ; preds = %173
   br label %.body
 
 _ZNK7AstNode8widthMinEv.exit98:                   ; preds = %_ZNK7AstNode8widthMinEv.exit95
-  %196 = icmp ult i32 %179, 17
+  %196 = icmp samesign ult i32 %179, 17
   br i1 %196, label %_ZNK7AstNode8widthMinEv.exit98._ZNK7AstNode8widthMinEv.exit98.thread_crit_edge, label %202
 
 _ZNK7AstNode8widthMinEv.exit98._ZNK7AstNode8widthMinEv.exit98.thread_crit_edge: ; preds = %.thread113, %_ZNK7AstNode8widthMinEv.exit98
@@ -91458,7 +91458,7 @@ _ZNK13AstBasicDType8isOpaqueEv.exit.thread:       ; preds = %324, %324, %324, %3
   br label %_ZNK7AstNode6isWideEv.exit.thread.sink.split
 
 386:                                              ; preds = %376
-  %387 = icmp ult i32 %381, 17
+  %387 = icmp samesign ult i32 %381, 17
   br i1 %387, label %388, label %391
 
 388:                                              ; preds = %386
@@ -91470,7 +91470,7 @@ _ZNK13AstBasicDType8isOpaqueEv.exit.thread:       ; preds = %324, %324, %324, %3
   br label %_ZNK7AstNode6isWideEv.exit.thread.sink.split
 
 391:                                              ; preds = %386
-  %392 = icmp ult i32 %381, 33
+  %392 = icmp samesign ult i32 %381, 33
   br i1 %392, label %393, label %396
 
 393:                                              ; preds = %391
@@ -109039,7 +109039,7 @@ _ZNSt6vectorIP7AstNodeSaIS1_EED2Ev.exit.i.i:      ; preds = %.loopexit.split-lp.
   br label %.lr.ph.preheader.i.i
 
 .preheader.i.i:                                   ; preds = %52
-  %55 = icmp ugt i64 %.5.idx.i.i, 16
+  %55 = icmp samesign ugt i64 %.5.idx.i.i, 16
   br i1 %55, label %.lr.ph.preheader.i.i, label %.preheader.thread.i.i
 
 .lr.ph.preheader.i.i:                             ; preds = %.preheader.i.i, %.preheader.thread91.i.i
@@ -171922,7 +171922,7 @@ _ZN8FileLine9singletonEv.exit:                    ; preds = %2, %5, %8
   br i1 %23, label %24, label %30
 
 24:                                               ; preds = %_ZN8FileLine9singletonEv.exit
-  %25 = icmp ult i64 %22, 16
+  %25 = icmp samesign ult i64 %22, 16
   br i1 %25, label %26, label %28
 
 26:                                               ; preds = %24
@@ -171991,7 +171991,7 @@ define linkonce_odr dso_local void @_ZNK17FileLineSingleton12numberToNameB5cxx11
   br i1 %16, label %17, label %23
 
 17:                                               ; preds = %3
-  %18 = icmp ult i64 %15, 16
+  %18 = icmp samesign ult i64 %15, 16
   br i1 %18, label %19, label %21
 
 19:                                               ; preds = %17
@@ -172300,7 +172300,7 @@ _ZNSt6vectorIP7AstNodeSaIS1_EED2Ev.exit:          ; preds = %8, %10
   br label %.loopexit
 
 .preheader:                                       ; preds = %35
-  %38 = icmp ugt i64 %.5.idx, 16
+  %38 = icmp samesign ugt i64 %.5.idx, 16
   br i1 %38, label %.lr.ph.preheader, label %.loopexit
 
 .lr.ph.preheader:                                 ; preds = %.preheader.thread97, %.preheader

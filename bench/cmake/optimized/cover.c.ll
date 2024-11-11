@@ -1798,7 +1798,7 @@ define dso_local i64 @ZDICT_optimizeTrainFromBuffer_cover(ptr nocapture noundef 
   %95 = icmp sgt i32 %36, 0
   %96 = trunc i64 %1 to i32
   %.not139 = icmp eq ptr %.0114, null
-  %97 = icmp ugt i32 %36, 3
+  %97 = icmp samesign ugt i32 %36, 3
   %98 = getelementptr inbounds i8, ptr %8, i64 48
   %99 = getelementptr inbounds i8, ptr %8, i64 64
   %100 = getelementptr inbounds i8, ptr %8, i64 72

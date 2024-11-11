@@ -41657,7 +41657,7 @@ define linkonce_odr void @_ZSt22__final_insertion_sortIN5QListIiE8iteratorEN9__g
   %20 = getelementptr i8, ptr %.sroa.0.09.i.i.i.i.i.i, i64 -4
   store i32 %19, ptr %20, align 4
   %21 = add nsw i64 %.010.i.i.i.i.i.i, -1
-  %22 = icmp ugt i64 %.010.i.i.i.i.i.i, 1
+  %22 = icmp samesign ugt i64 %.010.i.i.i.i.i.i, 1
   br i1 %22, label %.lr.ph.i.i.i.i.i.i, label %_ZSt13move_backwardIN5QListIiE8iteratorES2_ET0_T_S4_S3_.exit.i, !llvm.loop !225
 
 23:                                               ; preds = %8
@@ -41745,7 +41745,7 @@ _ZSt25__unguarded_linear_insertIN5QListIiE8iteratorEN9__gnu_cxx5__ops14_Val_less
   %49 = getelementptr i8, ptr %.sroa.0.09.i.i.i.i.i.i30, i64 -4
   store i32 %48, ptr %49, align 4
   %50 = add nsw i64 %.010.i.i.i.i.i.i29, -1
-  %51 = icmp ugt i64 %.010.i.i.i.i.i.i29, 1
+  %51 = icmp samesign ugt i64 %.010.i.i.i.i.i.i29, 1
   br i1 %51, label %.lr.ph.i.i.i.i.i.i28, label %_ZSt13move_backwardIN5QListIiE8iteratorES2_ET0_T_S4_S3_.exit.i19, !llvm.loop !225
 
 52:                                               ; preds = %.lr.ph.i16

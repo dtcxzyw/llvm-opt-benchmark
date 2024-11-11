@@ -2416,7 +2416,7 @@ switch.edge229:                                   ; preds = %240, %240, %240, %2
   br label %292
 
 278:                                              ; preds = %269
-  %279 = icmp ugt i16 %273, 2
+  %279 = icmp samesign ugt i16 %273, 2
   br i1 %279, label %280, label %283
 
 280:                                              ; preds = %278

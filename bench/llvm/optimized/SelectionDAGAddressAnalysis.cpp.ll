@@ -252,7 +252,7 @@ define dso_local noundef zeroext i1 @_ZN4llvm15BaseIndexOffset15computeAliasingE
 
 19:                                               ; preds = %17
   %20 = and i64 %1, 4611686018427387903
-  %.not95 = icmp ugt i64 %20, %14
+  %.not95 = icmp samesign ugt i64 %20, %14
   br label %.thread.sink.split
 
 21:                                               ; preds = %13

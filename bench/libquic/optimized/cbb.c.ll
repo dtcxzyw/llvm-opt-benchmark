@@ -247,19 +247,19 @@ if.then28:                                        ; preds = %if.end23
   br i1 %cmp29, label %return, label %if.else
 
 if.else:                                          ; preds = %if.then28
-  %cmp32 = icmp ugt i64 %sub, 16777215
+  %cmp32 = icmp samesign ugt i64 %sub, 16777215
   br i1 %cmp32, label %if.then56, label %if.else35
 
 if.else35:                                        ; preds = %if.else
-  %cmp36 = icmp ugt i64 %sub, 65535
+  %cmp36 = icmp samesign ugt i64 %sub, 65535
   br i1 %cmp36, label %if.then56, label %if.else39
 
 if.else39:                                        ; preds = %if.else35
-  %cmp40 = icmp ugt i64 %sub, 255
+  %cmp40 = icmp samesign ugt i64 %sub, 255
   br i1 %cmp40, label %if.then56, label %if.else43
 
 if.else43:                                        ; preds = %if.else39
-  %cmp44 = icmp ugt i64 %sub, 127
+  %cmp44 = icmp samesign ugt i64 %sub, 127
   br i1 %cmp44, label %if.then56, label %if.end53
 
 if.end53:                                         ; preds = %if.else43

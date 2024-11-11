@@ -3749,7 +3749,7 @@ lpad:                                             ; preds = %if.then.i, %if.then
   resume { ptr, i32 } %16
 
 if.else:                                          ; preds = %_ZNSt6vectorIN7rocksdb17RangeDeadlockPathESaIS1_EED2Ev.exit
-  %cmp.i = icmp ult i64 %sub.ptr.div.i, %conv
+  %cmp.i = icmp samesign ult i64 %sub.ptr.div.i, %conv
   br i1 %cmp.i, label %if.then.i, label %invoke.cont28
 
 if.then.i:                                        ; preds = %if.else

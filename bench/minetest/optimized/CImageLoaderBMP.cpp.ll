@@ -606,7 +606,7 @@ for.body:                                         ; preds = %if.end42, %if.end57
   %conv52 = zext i8 %17 to i32
   %shr = lshr i32 %conv52, %readShift.0301
   %and = and i32 %shr, 15
-  %cmp54 = icmp ult i32 %readShift.0301, 4
+  %cmp54 = icmp samesign ult i32 %readShift.0301, 4
   br i1 %cmp54, label %if.then55, label %if.end57
 
 if.then55:                                        ; preds = %for.body
@@ -625,7 +625,7 @@ if.end57:                                         ; preds = %if.then55, %for.bod
   %or = or i32 %and61, %19
   %conv65 = trunc i32 %or to i8
   store i8 %conv65, ptr %d.1303, align 1, !tbaa !17
-  %cmp67 = icmp ult i32 %shift.1302, 4
+  %cmp67 = icmp samesign ult i32 %shift.1302, 4
   %spec.select = select i1 %cmp67, i32 4, i32 0
   %spec.select231.idx = zext i1 %cmp67 to i64
   %spec.select231 = getelementptr inbounds i8, ptr %d.1303, i64 %spec.select231.idx
@@ -678,7 +678,7 @@ for.body113:                                      ; preds = %if.end94, %for.body
   %or128 = or i32 %25, %and124
   %conv129 = trunc i32 %or128 to i8
   store i8 %conv129, ptr %d.4298, align 1, !tbaa !17
-  %cmp131 = icmp ult i32 %shift.4296, 4
+  %cmp131 = icmp samesign ult i32 %shift.4296, 4
   %spec.select232 = select i1 %cmp131, i32 4, i32 0
   %spec.select233.idx = zext i1 %cmp131 to i64
   %spec.select233 = getelementptr inbounds i8, ptr %d.4298, i64 %spec.select233.idx

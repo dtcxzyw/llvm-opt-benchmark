@@ -23007,7 +23007,7 @@ define hidden void @_ZN4core5slice4sort10merge_sort17h5f9b67225cb4ab77E(ptr noal
   br label %40
 
 23:                                               ; preds = %3
-  %24 = icmp ugt i64 %1, 1
+  %24 = icmp samesign ugt i64 %1, 1
   br i1 %24, label %"_ZN115_$LT$core..ops..range..RangeInclusive$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$9index_mut17hc5d05eba58fc15e7E.exit.i", label %_ZN4core5slice4sort25insertion_sort_shift_left17hee175d721b74baccE.exit
 
 25:                                               ; preds = %70, %26
@@ -24699,7 +24699,7 @@ _ZN4core5slice4sort25insertion_sort_shift_left17h885286f5218ed87cE.exit: ; preds
   br i1 %41, label %"_ZN4core5slice4sort12choose_pivot28_$u7b$$u7b$closure$u7d$$u7d$17h4cecfc37dbde0a7dE.exit.i", label %"_ZN4core5slice4sort12choose_pivot28_$u7b$$u7b$closure$u7d$$u7d$17h4cecfc37dbde0a7dE.exit.thread.i"
 
 "_ZN4core5slice4sort12choose_pivot28_$u7b$$u7b$closure$u7d$$u7d$17h4cecfc37dbde0a7dE.exit.i": ; preds = %"_ZN4core5slice4sort12choose_pivot28_$u7b$$u7b$closure$u7d$$u7d$17h81747a318fed53fbE.exit.i.i"
-  %42 = icmp ult i64 %.2129.i, 11
+  %42 = icmp samesign ult i64 %.2129.i, 11
   br i1 %42, label %"_ZN4core5slice4sort12choose_pivot28_$u7b$$u7b$closure$u7d$$u7d$17h4cecfc37dbde0a7dE.exit.thread.i", label %90
 
 43:                                               ; preds = %24
@@ -25426,7 +25426,7 @@ _ZN4core5slice4sort25insertion_sort_shift_left17h569270ca0a41796cE.exit: ; preds
   br i1 %39, label %"_ZN4core5slice4sort12choose_pivot28_$u7b$$u7b$closure$u7d$$u7d$17hb5fd61d54c89b447E.exit.i", label %"_ZN4core5slice4sort12choose_pivot28_$u7b$$u7b$closure$u7d$$u7d$17hb5fd61d54c89b447E.exit.thread.i"
 
 "_ZN4core5slice4sort12choose_pivot28_$u7b$$u7b$closure$u7d$$u7d$17hb5fd61d54c89b447E.exit.i": ; preds = %"_ZN4core5slice4sort12choose_pivot28_$u7b$$u7b$closure$u7d$$u7d$17hb5fd61d54c89b447E.exit23.i"
-  %40 = icmp ult i64 %.295.i, 11
+  %40 = icmp samesign ult i64 %.295.i, 11
   br i1 %40, label %"_ZN4core5slice4sort12choose_pivot28_$u7b$$u7b$closure$u7d$$u7d$17hb5fd61d54c89b447E.exit.thread.i", label %93
 
 "_ZN4core5slice4sort12choose_pivot28_$u7b$$u7b$closure$u7d$$u7d$17h390b691b601f2ac2E.exit.i15.i": ; preds = %20
@@ -26193,7 +26193,7 @@ _ZN4core5slice4sort25insertion_sort_shift_left17h099bd04b4c65b740E.exit: ; preds
   br i1 %34, label %"_ZN4core5slice4sort12choose_pivot28_$u7b$$u7b$closure$u7d$$u7d$17hfa2268823b63a741E.exit.i", label %"_ZN4core5slice4sort12choose_pivot28_$u7b$$u7b$closure$u7d$$u7d$17hfa2268823b63a741E.exit.thread.i"
 
 "_ZN4core5slice4sort12choose_pivot28_$u7b$$u7b$closure$u7d$$u7d$17hfa2268823b63a741E.exit.i": ; preds = %"_ZN4core5slice4sort12choose_pivot28_$u7b$$u7b$closure$u7d$$u7d$17hcbff910070d727c8E.exit.i.i"
-  %35 = icmp ult i64 %.2129.i, 11
+  %35 = icmp samesign ult i64 %.2129.i, 11
   br i1 %35, label %"_ZN4core5slice4sort12choose_pivot28_$u7b$$u7b$closure$u7d$$u7d$17hfa2268823b63a741E.exit.thread.i", label %83
 
 36:                                               ; preds = %17
@@ -26885,7 +26885,7 @@ _ZN4core5slice4sort25insertion_sort_shift_left17h2005c1be752b2f26E.exit: ; preds
   br i1 %39, label %"_ZN4core5slice4sort12choose_pivot28_$u7b$$u7b$closure$u7d$$u7d$17hac62b8c93583604fE.exit.i", label %"_ZN4core5slice4sort12choose_pivot28_$u7b$$u7b$closure$u7d$$u7d$17hac62b8c93583604fE.exit.thread.i"
 
 "_ZN4core5slice4sort12choose_pivot28_$u7b$$u7b$closure$u7d$$u7d$17hac62b8c93583604fE.exit.i": ; preds = %"_ZN4core5slice4sort12choose_pivot28_$u7b$$u7b$closure$u7d$$u7d$17hac62b8c93583604fE.exit23.i"
-  %40 = icmp ult i64 %.295.i, 11
+  %40 = icmp samesign ult i64 %.295.i, 11
   br i1 %40, label %"_ZN4core5slice4sort12choose_pivot28_$u7b$$u7b$closure$u7d$$u7d$17hac62b8c93583604fE.exit.thread.i", label %93
 
 "_ZN4core5slice4sort12choose_pivot28_$u7b$$u7b$closure$u7d$$u7d$17h88a06619fb959a91E.exit.i15.i": ; preds = %20
@@ -34873,7 +34873,7 @@ define hidden { i64, i64 } @"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$14reserve_r
   br i1 %30, label %33, label %41
 
 31:                                               ; preds = %25
-  %32 = icmp ult i64 %.0.sroa.speculated.i, 4
+  %32 = icmp samesign ult i64 %.0.sroa.speculated.i, 4
   %..i.i.i = select i1 %32, i64 4, i64 8
   br label %.thread.i.i
 
@@ -35171,7 +35171,7 @@ define hidden { i64, i64 } @"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$14reserve_r
   br i1 %30, label %33, label %41
 
 31:                                               ; preds = %25
-  %32 = icmp ult i64 %.0.sroa.speculated.i, 4
+  %32 = icmp samesign ult i64 %.0.sroa.speculated.i, 4
   %..i.i.i = select i1 %32, i64 4, i64 8
   br label %.thread.i.i.thread
 
@@ -35471,7 +35471,7 @@ define hidden { i64, i64 } @"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$14reserve_r
   br i1 %30, label %33, label %41
 
 31:                                               ; preds = %25
-  %32 = icmp ult i64 %.0.sroa.speculated.i, 4
+  %32 = icmp samesign ult i64 %.0.sroa.speculated.i, 4
   %..i.i.i = select i1 %32, i64 4, i64 8
   br label %.thread.i.i.thread
 

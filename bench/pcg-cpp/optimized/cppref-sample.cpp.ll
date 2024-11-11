@@ -152,8 +152,8 @@ if.then.i.i:                                      ; preds = %for.end.i.i.i.i.i
   %conv.i.i.i = zext i32 %or.i.i.i.i.i.i to i64
   %mul.i.i.i = mul nuw nsw i64 %conv.i.i.i, 6
   %5 = and i64 %mul.i.i.i, 4294967292
-  %cmp317.i.i.i = icmp eq i64 %5, 0
-  br i1 %cmp317.i.i.i, label %while.body.i.i.i, label %invoke.cont2
+  %or.cond = icmp eq i64 %5, 0
+  br i1 %or.cond, label %while.body.i.i.i, label %invoke.cont2
 
 while.body.i.i.i:                                 ; preds = %if.then.i.i, %while.body.i.i.i
   %6 = phi i64 [ %add.i.i.i11.i.i.i, %while.body.i.i.i ], [ %add.i.i.i.i.i.i, %if.then.i.i ]

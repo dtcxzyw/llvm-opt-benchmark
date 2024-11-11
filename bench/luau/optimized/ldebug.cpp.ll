@@ -86,7 +86,7 @@ _ZL11getluaprotoP8CallInfo.exit:                  ; preds = %25
   %34 = getelementptr inbounds i8, ptr %30, i64 4
   %35 = load i8, ptr %34, align 4
   %36 = zext i8 %35 to i32
-  %.not37 = icmp ugt i32 %2, %36
+  %.not37 = icmp samesign ugt i32 %2, %36
   br i1 %.not37, label %48, label %37
 
 37:                                               ; preds = %33

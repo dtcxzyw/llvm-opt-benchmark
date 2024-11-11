@@ -2018,7 +2018,7 @@ define internal fastcc range(i32 -2147483648, 1) i32 @validate_linkmsg(ptr nound
   %46 = getelementptr inbounds i8, ptr %0, i64 2116
   %47 = load i16, ptr %46, align 4
   %48 = zext i16 %47 to i32
-  %49 = icmp ugt i32 %43, %48
+  %49 = icmp samesign ugt i32 %43, %48
   br i1 %49, label %50, label %52
 
 50:                                               ; preds = %45, %41
@@ -2103,7 +2103,7 @@ define internal fastcc range(i32 -2147483648, 1) i32 @validate_linkmsg(ptr nound
   %97 = icmp ult i16 %96, 4
   %98 = zext i16 %96 to i32
   %.not = icmp samesign ult i32 %95, %98
-  %or.cond = or i1 %97, %.not
+  %or.cond = select i1 %97, i1 true, i1 %.not
   br i1 %or.cond, label %.thread16, label %99
 
 99:                                               ; preds = %.lr.ph
@@ -13103,7 +13103,7 @@ define internal fastcc i32 @do_setlink(ptr noundef %0, ptr noundef %1, ptr nocap
   %397 = icmp ult i16 %396, 4
   %398 = zext i16 %396 to i32
   %.not = icmp samesign ult i32 %395, %398
-  %or.cond188 = or i1 %397, %.not
+  %or.cond188 = select i1 %397, i1 true, i1 %.not
   br i1 %or.cond188, label %.thread172, label %399
 
 399:                                              ; preds = %.lr.ph221
@@ -13737,7 +13737,7 @@ define internal fastcc i32 @do_setlink(ptr noundef %0, ptr noundef %1, ptr nocap
   %777 = icmp ult i16 %776, 4
   %778 = zext i16 %776 to i32
   %.not120 = icmp samesign ult i32 %775, %778
-  %or.cond189 = or i1 %777, %.not120
+  %or.cond189 = select i1 %777, i1 true, i1 %.not120
   br i1 %or.cond189, label %.thread184, label %779
 
 779:                                              ; preds = %.lr.ph229
@@ -13880,7 +13880,7 @@ define internal fastcc i32 @do_setlink(ptr noundef %0, ptr noundef %1, ptr nocap
   br i1 %860, label %878, label %.thread186
 
 861:                                              ; preds = %854
-  %862 = icmp ult i32 %848, 16
+  %862 = icmp samesign ult i32 %848, 16
   br i1 %862, label %.thread186, label %863
 
 863:                                              ; preds = %861

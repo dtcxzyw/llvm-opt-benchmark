@@ -1269,7 +1269,7 @@ Res6_FindSupportSize.exit:                        ; preds = %2, %10
 
 .lr.ph:                                           ; preds = %Res6_FindSupportSize.exit
   %13 = getelementptr i8, ptr %0, i64 8
-  %14 = icmp ult i32 %1, 28
+  %14 = icmp samesign ult i32 %1, 28
   %15 = icmp sgt i32 %1, 27
   %wide.trip.count = zext nneg i32 %4 to i64
   br label %16

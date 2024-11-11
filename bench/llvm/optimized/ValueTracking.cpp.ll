@@ -1780,7 +1780,7 @@ _ZN4llvm9KnownBits8resetAllEv.exit190:            ; preds = %469, %470
   br label %507
 
 499:                                              ; preds = %495
-  %switch.selectcmp.i.i.i.i.i.i.i = icmp ugt i8 %488, 3
+  %switch.selectcmp.i.i.i.i.i.i.i = icmp samesign ugt i8 %488, 3
   br i1 %switch.selectcmp.i.i.i.i.i.i.i, label %507, label %500
 
 500:                                              ; preds = %499
@@ -51354,7 +51354,7 @@ _ZSt13move_backwardIPPKN4llvm5ValueES4_ET0_T_S6_S5_.exit: ; preds = %_ZN4llvm15S
   %68 = getelementptr inbounds i8, ptr %.0910.i.i.i.i.i, i64 32
   %69 = getelementptr inbounds i8, ptr %.0811.i.i.i.i.i, i64 8
   %70 = add nsw i64 %.012.i.i.i.i.i, -1
-  %71 = icmp ugt i64 %.012.i.i.i.i.i, 1
+  %71 = icmp samesign ugt i64 %.012.i.i.i.i.i, 1
   br i1 %71, label %.lr.ph.i.i.i.i.i, label %_ZSt4copyIPKN4llvm3UseEPPKNS0_5ValueEET0_T_S9_S8_.exit, !llvm.loop !713
 
 72:                                               ; preds = %_ZN4llvm15SmallVectorImplIPKNS_5ValueEE7reserveEm.exit

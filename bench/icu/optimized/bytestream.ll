@@ -105,7 +105,7 @@ if.end:                                           ; preds = %entry
   %appended_ = getelementptr inbounds i8, ptr %this, i64 24
   %0 = load i32, ptr %appended_, align 8
   %sub = sub nsw i32 2147483647, %0
-  %cmp2 = icmp ugt i32 %n, %sub
+  %cmp2 = icmp samesign ugt i32 %n, %sub
   br i1 %cmp2, label %if.then3, label %if.end5
 
 if.then3:                                         ; preds = %if.end

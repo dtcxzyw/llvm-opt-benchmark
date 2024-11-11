@@ -1290,7 +1290,7 @@ define hidden i32 @dissect_geographical_description(ptr noundef %0, ptr nocaptur
   ]
 
 15:                                               ; preds = %13, %13, %13, %13, %13, %13
-  %16 = icmp ult i32 %9, 4
+  %16 = icmp samesign ult i32 %9, 4
   br i1 %16, label %proto_item_set_generated.exit, label %17
 
 17:                                               ; preds = %15
@@ -1312,7 +1312,7 @@ define hidden i32 @dissect_geographical_description(ptr noundef %0, ptr nocaptur
   %31 = fmul double %30, 9.000000e+01
   %32 = call noalias ptr (ptr, ptr, ...) @wmem_strdup_printf(ptr noundef %24, ptr noundef nonnull @.str.30, ptr noundef nonnull %27, double noundef %31) #6
   call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %22, ptr noundef nonnull @.str.33, ptr noundef %32) #6
-  %33 = icmp ult i32 %9, 7
+  %33 = icmp samesign ult i32 %9, 7
   br i1 %33, label %proto_item_set_generated.exit, label %34
 
 34:                                               ; preds = %17

@@ -182,7 +182,7 @@ define dso_local noundef i64 @_ZN4llvm11xxh3_64bitsENS_8ArrayRefIhEE(ptr %0, i64
   br i1 %4, label %5, label %74
 
 5:                                                ; preds = %2
-  %6 = icmp ugt i64 %1, 8
+  %6 = icmp samesign ugt i64 %1, 8
   br i1 %6, label %7, label %27
 
 7:                                                ; preds = %5
@@ -216,7 +216,7 @@ define dso_local noundef i64 @_ZN4llvm11xxh3_64bitsENS_8ArrayRefIhEE(ptr %0, i64
   br label %341
 
 27:                                               ; preds = %5
-  %28 = icmp ugt i64 %1, 3
+  %28 = icmp samesign ugt i64 %1, 3
   br i1 %28, label %29, label %48
 
 29:                                               ; preds = %27
@@ -322,7 +322,7 @@ define dso_local noundef i64 @_ZN4llvm11xxh3_64bitsENS_8ArrayRefIhEE(ptr %0, i64
   %96 = lshr i128 %95, 64
   %97 = xor i128 %96, %95
   %98 = trunc i128 %97 to i64
-  %99 = icmp ugt i64 %1, 32
+  %99 = icmp samesign ugt i64 %1, 32
   br i1 %99, label %100, label %171
 
 100:                                              ; preds = %76
@@ -360,7 +360,7 @@ define dso_local noundef i64 @_ZN4llvm11xxh3_64bitsENS_8ArrayRefIhEE(ptr %0, i64
   %120 = xor i128 %119, %118
   %121 = trunc i128 %120 to i64
   %122 = add i64 %121, %98
-  %123 = icmp ugt i64 %1, 64
+  %123 = icmp samesign ugt i64 %1, 64
   br i1 %123, label %124, label %171
 
 124:                                              ; preds = %100
@@ -398,7 +398,7 @@ define dso_local noundef i64 @_ZN4llvm11xxh3_64bitsENS_8ArrayRefIhEE(ptr %0, i64
   %144 = xor i128 %143, %142
   %145 = trunc i128 %144 to i64
   %146 = add i64 %122, %145
-  %147 = icmp ugt i64 %1, 96
+  %147 = icmp samesign ugt i64 %1, 96
   br i1 %147, label %148, label %171
 
 148:                                              ; preds = %124
@@ -758,7 +758,7 @@ define dso_local { i64, i64 } @_ZN4llvm12xxh3_128bitsENS_8ArrayRefIhEE(ptr %0, i
   br i1 %4, label %5, label %114
 
 5:                                                ; preds = %2
-  %6 = icmp ugt i64 %1, 8
+  %6 = icmp samesign ugt i64 %1, 8
   br i1 %6, label %7, label %44
 
 7:                                                ; preds = %5
@@ -809,7 +809,7 @@ define dso_local { i64, i64 } @_ZN4llvm12xxh3_128bitsENS_8ArrayRefIhEE(ptr %0, i
   br label %502
 
 44:                                               ; preds = %5
-  %45 = icmp ugt i64 %1, 3
+  %45 = icmp samesign ugt i64 %1, 3
   br i1 %45, label %46, label %76
 
 46:                                               ; preds = %44
@@ -909,15 +909,15 @@ define dso_local { i64, i64 } @_ZN4llvm12xxh3_128bitsENS_8ArrayRefIhEE(ptr %0, i
 
 116:                                              ; preds = %114
   %117 = mul i64 %1, -7046029288634856825
-  %118 = icmp ugt i64 %1, 32
+  %118 = icmp samesign ugt i64 %1, 32
   br i1 %118, label %119, label %206
 
 119:                                              ; preds = %116
-  %120 = icmp ugt i64 %1, 64
+  %120 = icmp samesign ugt i64 %1, 64
   br i1 %120, label %121, label %178
 
 121:                                              ; preds = %119
-  %122 = icmp ugt i64 %1, 96
+  %122 = icmp samesign ugt i64 %1, 96
   br i1 %122, label %123, label %150
 
 123:                                              ; preds = %121

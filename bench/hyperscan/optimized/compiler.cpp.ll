@@ -962,7 +962,7 @@ ehcleanup48:                                      ; preds = %invoke.cont43, %inv
 if.end53:                                         ; preds = %land.lhs.true35, %if.end27
   %and55 = and i64 %0, 8
   %tobool56.not = icmp eq i64 %and55, 0
-  %tobool60.not = icmp ult i64 %0, 16
+  %tobool60.not = icmp samesign ult i64 %0, 16
   %or.cond20 = or i1 %tobool60.not, %tobool56.not
   br i1 %or.cond20, label %if.end76, label %if.then61
 
@@ -1082,7 +1082,7 @@ cleanup.action:                                   ; preds = %ehcleanup.thread, %
   br label %eh.resume
 
 if.end:                                           ; preds = %if.then
-  %tobool10.not = icmp ult i32 %flags, 1024
+  %tobool10.not = icmp samesign ult i32 %flags, 1024
   br i1 %tobool10.not, label %if.else, label %cleanup.cont
 
 if.else:                                          ; preds = %if.end
@@ -1151,7 +1151,7 @@ if.then42:                                        ; preds = %if.end38
 
 if.end44:                                         ; preds = %if.then42, %if.end38
   %min_offset.1 = phi i64 [ %5, %if.then42 ], [ 0, %if.end38 ]
-  %tobool47.not = icmp ult i64 %2, 2
+  %tobool47.not = icmp samesign ult i64 %2, 2
   br i1 %tobool47.not, label %if.end51, label %if.then48
 
 if.then48:                                        ; preds = %if.end44

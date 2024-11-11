@@ -3112,7 +3112,7 @@ local_heap_sort.exit:                             ; preds = %540, %._crit_edge13
   %841 = getelementptr inbounds i8, ptr %838, i64 %840
   store ptr %841, ptr %824, align 8
   store i32 1, ptr %7, align 8
-  %842 = icmp ugt i32 %.0505, 1
+  %842 = icmp samesign ugt i32 %.0505, 1
   br i1 %842, label %.lr.ph628, label %.loopexit
 
 .lr.ph628:                                        ; preds = %827, %887

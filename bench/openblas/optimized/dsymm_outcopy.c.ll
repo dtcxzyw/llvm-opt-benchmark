@@ -57,7 +57,7 @@ define noundef i32 @dsymm_outcopy(i64 noundef %0, i64 noundef %1, ptr nocapture 
   %48 = getelementptr inbounds i8, ptr %36, i64 16
   %49 = add nsw i64 %34, -1
   %50 = add nsw i64 %35, -1
-  %51 = icmp ugt i64 %35, 1
+  %51 = icmp samesign ugt i64 %35, 1
   br i1 %51, label %31, label %.loopexit2.us, !llvm.loop !7
 
 .loopexit2.us:                                    ; preds = %31
@@ -101,7 +101,7 @@ define noundef i32 @dsymm_outcopy(i64 noundef %0, i64 noundef %1, ptr nocapture 
   %81 = getelementptr inbounds i8, ptr %75, i64 8
   %82 = add nsw i64 %73, -1
   %83 = add nsw i64 %74, -1
-  %84 = icmp ugt i64 %74, 1
+  %84 = icmp samesign ugt i64 %74, 1
   br i1 %84, label %71, label %.loopexit, !llvm.loop !11
 
 .loopexit:                                        ; preds = %71, %10, %.loopexit3

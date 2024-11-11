@@ -1418,7 +1418,7 @@ define dso_local noundef range(i32 -2, 1) i32 @tcp_v4_err(ptr noundef %0, i32 no
   %171 = zext nneg i8 %18 to i64
   %172 = getelementptr [0 x %struct.icmp_err], ptr @icmp_err_convert, i64 0, i64 %171
   %173 = load i32, ptr %172, align 4
-  %174 = icmp ult i8 %18, 2
+  %174 = icmp samesign ult i8 %18, 2
   %175 = select i1 %122, i1 %174, i1 false
   br i1 %175, label %176, label %178
 

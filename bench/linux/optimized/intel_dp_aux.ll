@@ -126,7 +126,7 @@ define dso_local void @intel_dp_aux_init(ptr noundef %0) local_unnamed_addr #2 a
   br label %39
 
 13:                                               ; preds = %1
-  %14 = icmp ugt i16 %8, 11
+  %14 = icmp samesign ugt i16 %8, 11
   br i1 %14, label %15, label %18
 
 15:                                               ; preds = %13
@@ -137,7 +137,7 @@ define dso_local void @intel_dp_aux_init(ptr noundef %0) local_unnamed_addr #2 a
   br label %39
 
 18:                                               ; preds = %13
-  %19 = icmp ugt i16 %8, 8
+  %19 = icmp samesign ugt i16 %8, 8
   br i1 %19, label %20, label %23
 
 20:                                               ; preds = %18
@@ -298,7 +298,7 @@ define internal range(i32 409616, 1506833) i32 @xelpdp_aux_ctl_reg(ptr nocapture
   br i1 %9, label %10, label %16
 
 10:                                               ; preds = %6
-  %11 = icmp ugt i32 %5, 2
+  %11 = icmp samesign ugt i32 %5, 2
   %12 = shl nuw nsw i32 %5, 9
   %13 = add nuw nsw i32 %12, 3584
   %14 = select i1 %11, i32 %12, i32 %13
@@ -306,7 +306,7 @@ define internal range(i32 409616, 1506833) i32 @xelpdp_aux_ctl_reg(ptr nocapture
   br label %29
 
 16:                                               ; preds = %6
-  %17 = icmp ult i32 %5, 3
+  %17 = icmp samesign ult i32 %5, 3
   %18 = shl nuw nsw i32 %5, 8
   %19 = add nuw nsw i32 %18, 409616
   %20 = shl nuw nsw i32 %5, 9
@@ -355,7 +355,7 @@ define internal i32 @xelpdp_aux_data_reg(ptr nocapture noundef readonly %0, i32 
   br i1 %10, label %11, label %19
 
 11:                                               ; preds = %7
-  %12 = icmp ugt i32 %6, 2
+  %12 = icmp samesign ugt i32 %6, 2
   %13 = shl nuw nsw i32 %6, 9
   %14 = add nuw nsw i32 %13, 3584
   %15 = select i1 %12, i32 %13, i32 %14
@@ -365,7 +365,7 @@ define internal i32 @xelpdp_aux_data_reg(ptr nocapture noundef readonly %0, i32 
   br label %36
 
 19:                                               ; preds = %7
-  %20 = icmp ult i32 %6, 3
+  %20 = icmp samesign ult i32 %6, 3
   %21 = shl nuw nsw i32 %6, 8
   %22 = add nuw nsw i32 %21, 409620
   %23 = shl nuw nsw i32 %6, 9

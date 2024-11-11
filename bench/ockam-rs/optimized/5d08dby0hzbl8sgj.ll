@@ -2674,7 +2674,7 @@ define hidden void @"_ZN5alloc11collections5btree6remove259_$LT$impl$u20$alloc..
   %173 = getelementptr inbounds ptr, ptr %171, i64 %172
   %174 = getelementptr i8, ptr %173, i64 8
   tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %173, ptr align 8 %174, i64 %155, i1 false), !alias.scope !436, !noalias !419
-  %175 = icmp ult i64 %172, %146
+  %175 = icmp samesign ult i64 %172, %146
   br i1 %175, label %.lr.ph.i.i, label %"_ZN5alloc11collections5btree4node119NodeRef$LT$alloc..collections..btree..node..marker..Mut$C$K$C$V$C$alloc..collections..btree..node..marker..Internal$GT$30correct_childrens_parent_links17h0b6908af1abe28f9E.exit.i"
 
 .lr.ph.i.i:                                       ; preds = %._crit_edge177.thread, %.lr.ph.i.i
@@ -3195,7 +3195,7 @@ define hidden void @"_ZN5alloc11collections5btree6remove259_$LT$impl$u20$alloc..
   %173 = getelementptr inbounds ptr, ptr %171, i64 %172
   %174 = getelementptr i8, ptr %173, i64 8
   tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %173, ptr align 8 %174, i64 %155, i1 false), !alias.scope !521, !noalias !504
-  %175 = icmp ult i64 %172, %146
+  %175 = icmp samesign ult i64 %172, %146
   br i1 %175, label %.lr.ph.i.i, label %"_ZN5alloc11collections5btree4node119NodeRef$LT$alloc..collections..btree..node..marker..Mut$C$K$C$V$C$alloc..collections..btree..node..marker..Internal$GT$30correct_childrens_parent_links17ha8c48818a2f58463E.exit.i"
 
 .lr.ph.i.i:                                       ; preds = %._crit_edge177.thread, %.lr.ph.i.i

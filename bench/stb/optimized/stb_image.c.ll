@@ -2970,7 +2970,7 @@ for.body547:                                      ; preds = %for.body547.prehead
   %arrayidx549 = getelementptr inbounds i8, ptr %call.i.i, i64 %indvars.iv825
   store i8 -1, ptr %arrayidx549, align 1
   %indvars.iv.next826 = add nsw i64 %indvars.iv825, -4
-  %cmp545 = icmp ugt i64 %indvars.iv825, 3
+  %cmp545 = icmp samesign ugt i64 %indvars.iv825, 3
   br i1 %cmp545, label %for.body547, label %if.end553, !llvm.loop !14
 
 if.end553:                                        ; preds = %for.body547, %if.then538, %if.end532
@@ -4844,7 +4844,7 @@ stbi__get8.exit.us.us:                            ; preds = %if.then.i112.us.us,
 
 if.else194.us.us:                                 ; preds = %stbi__get8.exit.us.us
   %cmp196.us.us = icmp eq i8 %retval.0.i111.us.us, 0
-  %cmp200.us.us = icmp ult i32 %sub226.us.us, %conv163.us.us
+  %cmp200.us.us = icmp samesign ult i32 %sub226.us.us, %conv163.us.us
   %or.cond93.us.us = or i1 %cmp196.us.us, %cmp200.us.us
   br i1 %or.cond93.us.us, label %if.then202, label %for.body211.us.us.preheader
 
@@ -4971,7 +4971,7 @@ stbi__get8.exit145.us.us:                         ; preds = %if.then.i143.us.us,
   %retval.0.i140.us.us = phi i8 [ %57, %if.then.i143.us.us ], [ %56, %stbi__refill_buffer.exit.i137.us.us ], [ 0, %if.end.i116.us.us ]
   %sub169.us.us = and i8 %retval.0.i111.us.us, 127
   %conv171.us.us = zext nneg i8 %sub169.us.us to i32
-  %cmp176.us.us = icmp ult i32 %sub226.us.us, %conv171.us.us
+  %cmp176.us.us = icmp samesign ult i32 %sub226.us.us, %conv171.us.us
   br i1 %cmp176.us.us, label %if.then178, label %for.cond183.preheader.us.us
 
 if.end221.us.us.loopexit:                         ; preds = %for.body187.us.us
@@ -11409,7 +11409,7 @@ if.end.i61:                                       ; preds = %if.end11
 if.then7.i:                                       ; preds = %if.end.i61
   %div.i151152 = udiv i16 32767, %20
   %div.i151.zext = zext nneg i16 %div.i151152 to i32
-  %cmp8.i65.not = icmp ugt i32 %add, %div.i151.zext
+  %cmp8.i65.not = icmp samesign ugt i32 %add, %div.i151.zext
   br i1 %cmp8.i65.not, label %return.sink.split, label %if.end25
 
 stbi__mul2shorts_valid.exit:                      ; preds = %if.end.i61
@@ -17700,8 +17700,8 @@ land.rhs17:                                       ; preds = %lor.rhs
 land.end19:                                       ; preds = %land.rhs, %land.rhs17, %lor.rhs, %if.end5
   %11 = phi i1 [ false, %if.end5 ], [ true, %land.rhs ], [ false, %lor.rhs ], [ %tobool18.not, %land.rhs17 ]
   %cmp22 = icmp ne i32 %7, 3
-  %cmp23 = icmp ugt i32 %cond11, 2
-  %or.cond1.not230 = or i1 %cmp22, %cmp23
+  %cmp23 = icmp samesign ugt i32 %cond11, 2
+  %or.cond1.not230 = select i1 %cmp22, i1 true, i1 %cmp23
   %or.cond2 = select i1 %or.cond1.not230, i1 true, i1 %11
   %. = select i1 %or.cond2, i32 %7, i32 1
   %cmp30 = icmp slt i32 %., 1
@@ -19479,7 +19479,7 @@ land.lhs.true:                                    ; preds = %if.then14
   br i1 %cmp17, label %return.sink.split, label %return
 
 if.end22:                                         ; preds = %if.else
-  %cmp23 = icmp ugt i32 %call, 285
+  %cmp23 = icmp samesign ugt i32 %call, 285
   br i1 %cmp23, label %return.sink.split, label %if.end27
 
 if.end27:                                         ; preds = %if.end22
@@ -19557,7 +19557,7 @@ if.end43:                                         ; preds = %if.end35
   %idxprom44 = zext nneg i32 %call36 to i64
   %arrayidx45 = getelementptr inbounds [32 x i32], ptr @stbi__zdist_base, i64 0, i64 %idxprom44
   %19 = load i32, ptr %arrayidx45, align 4
-  %tobool48.not = icmp ult i32 %call36, 4
+  %tobool48.not = icmp samesign ult i32 %call36, 4
   br i1 %tobool48.not, label %if.end54, label %if.then49
 
 if.then49:                                        ; preds = %if.end43
@@ -19976,7 +19976,7 @@ if.then18:                                        ; preds = %while.body
   br label %return
 
 if.end20:                                         ; preds = %while.body
-  %cmp21 = icmp ult i32 %call13, 16
+  %cmp21 = icmp samesign ult i32 %call13, 16
   br i1 %cmp21, label %if.then23, label %if.else
 
 if.then23:                                        ; preds = %if.end20
@@ -20294,7 +20294,7 @@ while.body:                                       ; preds = %while.body.lr.ph, %
   store i8 %conv, ptr %arrayidx, align 1
   %shr = lshr i32 %10, 8
   %sub = add nsw i32 %11, -8
-  %cmp = icmp ugt i32 %11, 8
+  %cmp = icmp samesign ugt i32 %11, 8
   br i1 %cmp, label %while.body, label %while.end, !llvm.loop !172
 
 while.end:                                        ; preds = %while.body
@@ -21359,7 +21359,7 @@ stbi__mul2sizes_valid.exit.i207:                  ; preds = %if.end.i.i205
 stbi__mad2sizes_valid.exit:                       ; preds = %if.end.i.i205, %stbi__mul2sizes_valid.exit.i207
   %mul.i211 = mul nuw nsw i32 %shr, %y
   %sub.i.i = xor i32 %shr, 2147483647
-  %cmp1.i.i212.not = icmp ugt i32 %mul.i211, %sub.i.i
+  %cmp1.i.i212.not = icmp samesign ugt i32 %mul.i211, %sub.i.i
   br i1 %cmp1.i.i212.not, label %if.then17, label %if.end19
 
 if.then17:                                        ; preds = %if.end12, %stbi__mul2sizes_valid.exit.i207, %stbi__mad2sizes_valid.exit
@@ -23171,7 +23171,7 @@ if.end98:                                         ; preds = %lor.lhs.false
 if.then100:                                       ; preds = %if.end98
   %and101 = and i32 %conv50524528, 2
   %cond = or disjoint i32 %and101, 1
-  %tobool104.not = icmp ugt i8 %retval.0.i228523530, 3
+  %tobool104.not = icmp samesign ugt i8 %retval.0.i228523530, 3
   %cond105 = zext i1 %tobool104.not to i32
   %add = add nuw nsw i32 %cond, %cond105
   store i32 %add, ptr %img_n208, align 8
@@ -25756,7 +25756,7 @@ if.else:                                          ; preds = %stbi__get8.exit
   br i1 %cmp3, label %if.then5, label %if.then15
 
 if.then5:                                         ; preds = %if.else
-  %cmp6.not = icmp ugt i32 %sub107, %conv
+  %cmp6.not = icmp samesign ugt i32 %sub107, %conv
   br i1 %cmp6.not, label %if.end, label %return
 
 if.end:                                           ; preds = %if.end.i, %if.then5
@@ -25828,7 +25828,7 @@ stbi__get8.exit53:                                ; preds = %if.then.i51, %if.en
 
 if.then15:                                        ; preds = %if.else
   %sub16 = sub nuw nsw i32 257, %conv
-  %cmp17 = icmp ugt i32 %sub16, %sub107
+  %cmp17 = icmp samesign ugt i32 %sub16, %sub107
   br i1 %cmp17, label %return, label %if.end20
 
 if.end20:                                         ; preds = %if.then15
@@ -26918,7 +26918,7 @@ stbi__at_eof.exit230:                             ; preds = %if.end.i221.stbi__a
 
 if.end65:                                         ; preds = %if.then.i216, %stbi__at_eof.exit230
   %conv66 = zext i8 %retval.0.i208 to i32
-  %cmp67 = icmp ult i32 %left.0537, %conv66
+  %cmp67 = icmp samesign ult i32 %left.0537, %conv66
   %conv70 = trunc nuw i32 %left.0537 to i8
   %spec.select = select i1 %cmp67, i8 %conv70, i8 %retval.0.i208
   %92 = load i8, ptr %channel72, align 1
@@ -27318,7 +27318,7 @@ stbi__copyval.exit421:                            ; preds = %for.inc.i417
 
 if.else143:                                       ; preds = %if.end107
   %inc144 = add nuw nsw i32 %conv99, 1
-  %cmp145.not = icmp ugt i32 %left92.0529, %conv99
+  %cmp145.not = icmp samesign ugt i32 %left92.0529, %conv99
   br i1 %cmp145.not, label %for.body155, label %return.sink.split
 
 for.body155:                                      ; preds = %if.else143, %for.inc162
@@ -29442,8 +29442,8 @@ if.end:                                           ; preds = %if.then
   %1 = load i32, ptr %g, align 8
   %h = getelementptr inbounds i8, ptr %g, i64 4
   %2 = load i32, ptr %h, align 4
-  %cmp5.i.not.i = icmp ugt i32 %1, 536870911
-  br i1 %cmp5.i.not.i, label %return.sink.split, label %land.lhs.true.i
+  %or.cond455.not = icmp ult i32 %1, 536870912
+  br i1 %or.cond455.not, label %land.lhs.true.i, label %return.sink.split
 
 land.lhs.true.i:                                  ; preds = %if.end
   %mul.i = shl nuw nsw i32 %1, 2

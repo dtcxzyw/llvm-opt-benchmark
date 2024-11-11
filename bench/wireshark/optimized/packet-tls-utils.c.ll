@@ -8275,11 +8275,11 @@ define hidden range(i32 0, 2) i32 @ssl_add_vector(ptr noundef %0, ptr noundef %1
   br i1 %21, label %26, label %22
 
 22:                                               ; preds = %20
-  %23 = icmp ugt i32 %9, 65535
+  %23 = icmp samesign ugt i32 %9, 65535
   br i1 %23, label %26, label %24
 
 24:                                               ; preds = %22
-  %25 = icmp ugt i32 %9, 255
+  %25 = icmp samesign ugt i32 %9, 255
   %. = select i1 %25, i32 2, i32 1
   br label %26
 
@@ -11042,7 +11042,7 @@ ssl_dissect_hnd_hello_ext_token_binding.exit:     ; preds = %.lr.ph.i439, %574, 
   %617 = call zeroext i16 @tvb_get_ntohs(ptr noundef %1, i32 noundef %616) #23
   %618 = zext i16 %617 to i32
   %619 = add nuw nsw i32 %618, 6
-  %.not.not.i = icmp ugt i32 %619, %276
+  %.not.not.i = icmp samesign ugt i32 %619, %276
   br i1 %.not.not.i, label %.thread.i, label %620
 
 620:                                              ; preds = %615

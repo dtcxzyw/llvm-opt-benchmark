@@ -633,7 +633,7 @@ define dso_local void @_ZN4llvm7objcarc8PtrState5MergeERKS1_b(ptr noundef nonnul
 
 17:                                               ; preds = %14
   %18 = add nsw i32 %15, -1
-  %or.cond3.i = icmp ult i32 %18, 2
+  %or.cond3.i = icmp samesign ult i32 %18, 2
   %19 = and i32 %16, 254
   %or.cond5.i = icmp eq i32 %19, 2
   %or.cond29.i = and i1 %or.cond3.i, %or.cond5.i

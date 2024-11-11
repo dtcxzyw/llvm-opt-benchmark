@@ -1126,7 +1126,7 @@ define internal fastcc void @dissect_cemi_link_layer(ptr noundef %0, ptr noundef
   tail call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %83, ptr noundef nonnull @.str.632, i32 noundef %85) #8
   %86 = add i32 %.029.us.us.i, 1
   %87 = add nsw i32 %.02428.us.us.i, -1
-  %88 = icmp ugt i32 %.02428.us.us.i, 1
+  %88 = icmp samesign ugt i32 %.02428.us.us.i, 1
   br i1 %88, label %.lr.ph.split.us.split.us.i, label %proto_tree_add_data.exit, !llvm.loop !4
 
 proto_tree_add_data.exit:                         ; preds = %.lr.ph.split.us.split.us.i
@@ -2689,7 +2689,7 @@ define internal fastcc ptr @proto_tree_add_data(ptr noundef %0, ptr noundef %1, 
   tail call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %11, ptr noundef nonnull @.str.632, i32 noundef %18) #8
   %19 = add i32 %.029.us.us, 1
   %20 = add nsw i32 %.02428.us.us, -1
-  %21 = icmp ugt i32 %.02428.us.us, 1
+  %21 = icmp samesign ugt i32 %.02428.us.us, 1
   br i1 %21, label %.lr.ph.split.us.split.us, label %._crit_edge, !llvm.loop !4
 
 .lr.ph.split.us.split:                            ; preds = %.lr.ph.split.us, %.lr.ph.split.us.split
@@ -2701,7 +2701,7 @@ define internal fastcc ptr @proto_tree_add_data(ptr noundef %0, ptr noundef %1, 
   tail call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %11, ptr noundef nonnull @.str.632, i32 noundef %23) #8
   %24 = add i32 %.029.us, 1
   %25 = add nsw i32 %.02428.us, -1
-  %26 = icmp ugt i32 %.02428.us, 1
+  %26 = icmp samesign ugt i32 %.02428.us, 1
   br i1 %26, label %.lr.ph.split.us.split, label %._crit_edge, !llvm.loop !4
 
 .lr.ph.split:                                     ; preds = %.lr.ph
@@ -2716,7 +2716,7 @@ define internal fastcc ptr @proto_tree_add_data(ptr noundef %0, ptr noundef %1, 
   tail call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %11, ptr noundef nonnull @.str.632, i32 noundef %28) #8
   %29 = add i32 %.029.us30, 1
   %30 = add nsw i32 %.02428.us31, -1
-  %31 = icmp ugt i32 %.02428.us31, 1
+  %31 = icmp samesign ugt i32 %.02428.us31, 1
   br i1 %31, label %.lr.ph.split.split.us, label %._crit_edge, !llvm.loop !4
 
 .lr.ph.split.split:                               ; preds = %.lr.ph.split, %.lr.ph.split.split
@@ -2729,7 +2729,7 @@ define internal fastcc ptr @proto_tree_add_data(ptr noundef %0, ptr noundef %1, 
   tail call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %11, ptr noundef nonnull @.str.632, i32 noundef %33) #8
   %34 = add i32 %.029, 1
   %35 = add nsw i32 %.02428, -1
-  %36 = icmp ugt i32 %.02428, 1
+  %36 = icmp samesign ugt i32 %.02428, 1
   br i1 %36, label %.lr.ph.split.split, label %._crit_edge, !llvm.loop !4
 
 ._crit_edge:                                      ; preds = %.lr.ph.split.split, %.lr.ph.split.split.us, %.lr.ph.split.us.split, %.lr.ph.split.us.split.us, %15
@@ -3183,7 +3183,7 @@ define internal fastcc void @dissect_data_security_service(ptr noundef %0, ptr n
   tail call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %68, ptr noundef nonnull @.str.632, i32 noundef %70) #8
   %71 = add i32 %.029.us.us.i, 1
   %72 = add nsw i32 %.02428.us.us.i, -1
-  %73 = icmp ugt i32 %.02428.us.us.i, 1
+  %73 = icmp samesign ugt i32 %.02428.us.us.i, 1
   br i1 %73, label %.lr.ph.split.us.split.us.i, label %proto_tree_add_data.exit, !llvm.loop !4
 
 proto_tree_add_data.exit:                         ; preds = %.lr.ph.split.us.split.us.i
@@ -3205,7 +3205,7 @@ proto_tree_add_data.exit:                         ; preds = %.lr.ph.split.us.spl
   tail call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %78, ptr noundef nonnull @.str.632, i32 noundef %81) #8
   %82 = add i32 %.029.us.us.i223, 1
   %83 = add nsw i32 %.02428.us.us.i224, -1
-  %84 = icmp ugt i32 %.02428.us.us.i224, 1
+  %84 = icmp samesign ugt i32 %.02428.us.us.i224, 1
   br i1 %84, label %.lr.ph.split.us.split.us.i222, label %proto_tree_add_data.exit225, !llvm.loop !4
 
 proto_tree_add_data.exit225:                      ; preds = %.lr.ph.split.us.split.us.i222, %75
@@ -3585,7 +3585,7 @@ proto_tree_add_data.exit232:                      ; preds = %.lr.ph.split.us.spl
   call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %207, ptr noundef nonnull @.str.632, i32 noundef %209) #8
   %210 = add i32 %.029.us.us.i235, 1
   %211 = add nsw i32 %.02428.us.us.i236, -1
-  %212 = icmp ugt i32 %.02428.us.us.i236, 1
+  %212 = icmp samesign ugt i32 %.02428.us.us.i236, 1
   br i1 %212, label %.lr.ph.split.us.split.us.i234, label %proto_tree_add_data.exit238, !llvm.loop !4
 
 proto_tree_add_data.exit238:                      ; preds = %.lr.ph.split.us.split.us.i234

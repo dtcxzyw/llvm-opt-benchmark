@@ -596,7 +596,7 @@ switch.early.test.i:                              ; preds = %15
   %.1.i = phi i32 [ %.04554.i, %.preheader.i ], [ %18, %17 ], [ %.04554.i, %.preheader.i ]
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %25 = icmp samesign ult i64 %indvars.iv.next.i, %9
-  %26 = icmp ult i32 %.1.i, 32
+  %26 = icmp samesign ult i32 %.1.i, 32
   %27 = select i1 %25, i1 %26, i1 false
   br i1 %27, label %.preheader.i, label %28, !llvm.loop !4
 
@@ -2436,7 +2436,7 @@ proto_item_set_generated.exit425:                 ; preds = %proto_item_set_gene
   %663 = sub i32 %.090.i, %583
   %664 = add i32 %663, %656
   %665 = and i32 %664, %655
-  %666 = icmp ugt i32 %665, 15
+  %666 = icmp samesign ugt i32 %665, 15
   %667 = getelementptr inbounds i8, ptr %637, i64 28
   %668 = getelementptr inbounds i8, ptr %637, i64 16
   br i1 %666, label %669, label %679
@@ -3057,7 +3057,7 @@ proto_item_set_generated.exit198.i:               ; preds = %930, %927, %920
   br label %1001
 
 1001:                                             ; preds = %.sink.split.i.i, %993, %985, %977, %969, %967, %962
-  %1002 = icmp ugt i64 %indvars.iv.i.i, 1
+  %1002 = icmp samesign ugt i64 %indvars.iv.i.i, 1
   br i1 %1002, label %962, label %look_up_keys_record.exit.thread217.i, !llvm.loop !9
 
 1003:                                             ; preds = %1004

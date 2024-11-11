@@ -708,7 +708,7 @@ if.end14:                                         ; preds = %if.end14.lr.ph, %if
 
 if.end26:                                         ; preds = %if.end14
   store i32 0, ptr %arrayidx21, align 4
-  %cmp11 = icmp ult i64 %indvars.iv16, 2
+  %cmp11 = icmp samesign ult i64 %indvars.iv16, 2
   br i1 %cmp11, label %if.then12, label %if.end14, !llvm.loop !11
 
 return:                                           ; preds = %if.end14, %if.then12, %if.then

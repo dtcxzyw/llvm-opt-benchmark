@@ -2235,7 +2235,7 @@ _php_filter_validate_ipv4.exit:                   ; preds = %40
 132:                                              ; preds = %130
   %133 = sub nsw i32 8, %.3
   %134 = add nuw nsw i32 %133, %.2126
-  %135 = icmp ult i32 %134, 7
+  %135 = icmp samesign ult i32 %134, 7
   br i1 %135, label %.lr.ph188.preheader, label %.lr.ph192.preheader
 
 .lr.ph188.preheader:                              ; preds = %132

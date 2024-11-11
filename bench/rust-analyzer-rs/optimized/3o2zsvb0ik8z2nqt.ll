@@ -40673,7 +40673,7 @@ _ZN5alloc3fmt6format17h7ead8f60e83381d7E.exit287.i: ; preds = %380
   %550 = and i8 %548, 63
   %551 = zext nneg i8 %550 to i32
   %552 = or disjoint i32 %549, %551
-  %553 = icmp ugt i8 %542, -33
+  %553 = icmp samesign ugt i8 %542, -33
   br i1 %553, label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h2ea37cf85b945feaE.exit15.i.i.i.i.i.i", label %_ZN4core3str11validations15next_code_point17h2d4461115af74b93E.exit.thread.i.i.i.i.i
 
 554:                                              ; preds = %541
@@ -40691,7 +40691,7 @@ _ZN5alloc3fmt6format17h7ead8f60e83381d7E.exit287.i: ; preds = %380
   %562 = or disjoint i32 %559, %561
   %563 = shl nuw nsw i32 %546, 12
   %564 = or disjoint i32 %562, %563
-  %565 = icmp ugt i8 %542, -17
+  %565 = icmp samesign ugt i8 %542, -17
   br i1 %565, label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h2ea37cf85b945feaE.exit17.i.i.i.i.i.i", label %_ZN4core3str11validations15next_code_point17h2d4461115af74b93E.exit.thread.i.i.i.i.i
 
 "_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h2ea37cf85b945feaE.exit17.i.i.i.i.i.i": ; preds = %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h2ea37cf85b945feaE.exit15.i.i.i.i.i.i"
@@ -51895,7 +51895,7 @@ define hidden void @"_ZN11ide_assists14assist_context7Assists3add28_$u7b$$u7b$cl
   %55 = and i8 %53, 63
   %56 = zext nneg i8 %55 to i32
   %57 = or disjoint i32 %54, %56
-  %58 = icmp ugt i8 %47, -33
+  %58 = icmp samesign ugt i8 %47, -33
   br i1 %58, label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h2ea37cf85b945feaE.exit15.i.i.i.i", label %"_ZN81_$LT$core..str..iter..Chars$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17ha3bb299ebebfcc3aE.exit.thread.i.i"
 
 59:                                               ; preds = %45
@@ -51913,7 +51913,7 @@ define hidden void @"_ZN11ide_assists14assist_context7Assists3add28_$u7b$$u7b$cl
   %67 = or disjoint i32 %64, %66
   %68 = shl nuw nsw i32 %50, 12
   %69 = or disjoint i32 %67, %68
-  %70 = icmp ugt i8 %47, -17
+  %70 = icmp samesign ugt i8 %47, -17
   br i1 %70, label %"_ZN81_$LT$core..str..iter..Chars$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17ha3bb299ebebfcc3aE.exit.i.i", label %"_ZN81_$LT$core..str..iter..Chars$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17ha3bb299ebebfcc3aE.exit.thread.i.i"
 
 "_ZN81_$LT$core..str..iter..Chars$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17ha3bb299ebebfcc3aE.exit.i.i": ; preds = %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h2ea37cf85b945feaE.exit15.i.i.i.i"

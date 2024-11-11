@@ -3759,7 +3759,7 @@ if.then.i.i:                                      ; preds = %entry
   unreachable
 
 _ZNSt6vectorIhSaIhEE17_S_check_init_lenEmRKS0_.exit.i: ; preds = %entry
-  %cmp.not.i.i.i.i = icmp ult i64 %sext, 4294967296
+  %cmp.not.i.i.i.i = icmp samesign ult i64 %sext, 4294967296
   br i1 %cmp.not.i.i.i.i, label %invoke.cont, label %if.then.i.i.i.i.i.i.i.i.i
 
 if.then.i.i.i.i.i.i.i.i.i:                        ; preds = %_ZNSt6vectorIhSaIhEE17_S_check_init_lenEmRKS0_.exit.i
@@ -3963,7 +3963,7 @@ if.then.i.i:                                      ; preds = %entry
   unreachable
 
 _ZNSt6vectorIhSaIhEE17_S_check_init_lenEmRKS0_.exit.i: ; preds = %entry
-  %cmp.not.i.i.i.i = icmp ult i64 %sext, 4294967296
+  %cmp.not.i.i.i.i = icmp samesign ult i64 %sext, 4294967296
   br i1 %cmp.not.i.i.i.i, label %invoke.cont, label %if.then.i.i.i.i.i.i.i.i.i
 
 if.then.i.i.i.i.i.i.i.i.i:                        ; preds = %_ZNSt6vectorIhSaIhEE17_S_check_init_lenEmRKS0_.exit.i
@@ -4167,7 +4167,7 @@ if.then.i.i:                                      ; preds = %entry
   unreachable
 
 _ZNSt6vectorIhSaIhEE17_S_check_init_lenEmRKS0_.exit.i: ; preds = %entry
-  %cmp.not.i.i.i.i = icmp ult i64 %sext, 4294967296
+  %cmp.not.i.i.i.i = icmp samesign ult i64 %sext, 4294967296
   br i1 %cmp.not.i.i.i.i, label %invoke.cont, label %if.then.i.i.i.i.i.i.i.i.i
 
 if.then.i.i.i.i.i.i.i.i.i:                        ; preds = %_ZNSt6vectorIhSaIhEE17_S_check_init_lenEmRKS0_.exit.i
@@ -4371,7 +4371,7 @@ if.then.i.i:                                      ; preds = %entry
   unreachable
 
 _ZNSt6vectorIhSaIhEE17_S_check_init_lenEmRKS0_.exit.i: ; preds = %entry
-  %cmp.not.i.i.i.i = icmp ult i64 %sext, 4294967296
+  %cmp.not.i.i.i.i = icmp samesign ult i64 %sext, 4294967296
   br i1 %cmp.not.i.i.i.i, label %invoke.cont, label %if.then.i.i.i.i.i.i.i.i.i
 
 if.then.i.i.i.i.i.i.i.i.i:                        ; preds = %_ZNSt6vectorIhSaIhEE17_S_check_init_lenEmRKS0_.exit.i
@@ -7133,7 +7133,7 @@ for.end24:                                        ; preds = %for.cond8.for.inc22
   br i1 %cmp.i.i42, label %if.then.i.i51, label %if.then.i.i.i.i.i44
 
 for.end24.thread130:                              ; preds = %for.cond8.preheader.lr.ph
-  %cmp.i.i42131 = icmp ugt i64 %size, 1152921504606846975
+  %cmp.i.i42131 = icmp samesign ugt i64 %size, 1152921504606846975
   br i1 %cmp.i.i42131, label %if.then.i.i51, label %if.then.i.i.i.i.i44
 
 if.then.i.i51:                                    ; preds = %for.end24.thread130, %for.end24
@@ -7602,7 +7602,7 @@ for.end24:                                        ; preds = %for.cond8.for.inc22
   br i1 %cmp.i.i36, label %if.then.i.i47, label %if.then.i.i.i.i.i38
 
 for.end24.thread126:                              ; preds = %for.cond8.preheader.lr.ph
-  %cmp.i.i36127 = icmp ugt i64 %size, 1152921504606846975
+  %cmp.i.i36127 = icmp samesign ugt i64 %size, 1152921504606846975
   br i1 %cmp.i.i36127, label %if.then.i.i47, label %if.then.i.i.i.i.i38
 
 if.then.i.i47:                                    ; preds = %for.end24.thread126, %for.end24
@@ -8072,7 +8072,7 @@ for.end24:                                        ; preds = %for.cond8.for.inc22
   br i1 %cmp.i.i36, label %if.then.i.i47, label %if.then.i.i.i.i.i38
 
 for.end24.thread126:                              ; preds = %for.cond8.preheader.lr.ph
-  %cmp.i.i36127 = icmp ugt i64 %size, 1152921504606846975
+  %cmp.i.i36127 = icmp samesign ugt i64 %size, 1152921504606846975
   br i1 %cmp.i.i36127, label %if.then.i.i47, label %if.then.i.i.i.i.i38
 
 if.then.i.i47:                                    ; preds = %for.end24.thread126, %for.end24
@@ -8997,7 +8997,7 @@ for.end24:                                        ; preds = %for.cond8.for.inc22
   br i1 %cmp.i.i36, label %if.then.i.i47, label %if.then.i.i.i.i.i38
 
 for.end24.thread126:                              ; preds = %for.cond8.preheader.lr.ph
-  %cmp.i.i36127 = icmp ugt i64 %size, 1152921504606846975
+  %cmp.i.i36127 = icmp samesign ugt i64 %size, 1152921504606846975
   br i1 %cmp.i.i36127, label %if.then.i.i47, label %if.then.i.i.i.i.i38
 
 if.then.i.i47:                                    ; preds = %for.end24.thread126, %for.end24
@@ -9468,7 +9468,7 @@ for.end24:                                        ; preds = %for.cond8.for.inc22
   br i1 %cmp.i.i42, label %if.then.i.i53, label %if.then.i.i.i.i.i44
 
 for.end24.thread133:                              ; preds = %for.cond8.preheader.lr.ph
-  %cmp.i.i42134 = icmp ugt i64 %size, 1152921504606846975
+  %cmp.i.i42134 = icmp samesign ugt i64 %size, 1152921504606846975
   br i1 %cmp.i.i42134, label %if.then.i.i53, label %if.then.i.i.i.i.i44
 
 if.then.i.i53:                                    ; preds = %for.end24.thread133, %for.end24
@@ -9940,7 +9940,7 @@ for.end24:                                        ; preds = %for.cond8.for.inc22
   br i1 %cmp.i.i39, label %if.then.i.i50, label %if.then.i.i.i.i.i41
 
 for.end24.thread129:                              ; preds = %for.cond8.preheader.lr.ph
-  %cmp.i.i39130 = icmp ugt i64 %size, 1152921504606846975
+  %cmp.i.i39130 = icmp samesign ugt i64 %size, 1152921504606846975
   br i1 %cmp.i.i39130, label %if.then.i.i50, label %if.then.i.i.i.i.i41
 
 if.then.i.i50:                                    ; preds = %for.end24.thread129, %for.end24
@@ -10868,7 +10868,7 @@ for.end24:                                        ; preds = %for.cond8.for.inc22
   br i1 %cmp.i.i36, label %if.then.i.i47, label %if.then.i.i.i.i.i38
 
 for.end24.thread126:                              ; preds = %for.cond8.preheader.lr.ph
-  %cmp.i.i36127 = icmp ugt i64 %size, 1152921504606846975
+  %cmp.i.i36127 = icmp samesign ugt i64 %size, 1152921504606846975
   br i1 %cmp.i.i36127, label %if.then.i.i47, label %if.then.i.i.i.i.i38
 
 if.then.i.i47:                                    ; preds = %for.end24.thread126, %for.end24
@@ -11339,7 +11339,7 @@ for.end24:                                        ; preds = %for.cond8.for.inc22
   br i1 %cmp.i.i39, label %if.then.i.i50, label %if.then.i.i.i.i.i41
 
 for.end24.thread129:                              ; preds = %for.cond8.preheader.lr.ph
-  %cmp.i.i39130 = icmp ugt i64 %size, 1152921504606846975
+  %cmp.i.i39130 = icmp samesign ugt i64 %size, 1152921504606846975
   br i1 %cmp.i.i39130, label %if.then.i.i50, label %if.then.i.i.i.i.i41
 
 if.then.i.i50:                                    ; preds = %for.end24.thread129, %for.end24
@@ -11811,7 +11811,7 @@ for.end24:                                        ; preds = %for.cond8.for.inc22
   br i1 %cmp.i.i42, label %if.then.i.i53, label %if.then.i.i.i.i.i44
 
 for.end24.thread133:                              ; preds = %for.cond8.preheader.lr.ph
-  %cmp.i.i42134 = icmp ugt i64 %size, 1152921504606846975
+  %cmp.i.i42134 = icmp samesign ugt i64 %size, 1152921504606846975
   br i1 %cmp.i.i42134, label %if.then.i.i53, label %if.then.i.i.i.i.i44
 
 if.then.i.i53:                                    ; preds = %for.end24.thread133, %for.end24
@@ -12739,7 +12739,7 @@ for.end24:                                        ; preds = %for.cond8.for.inc22
   br i1 %cmp.i.i36, label %if.then.i.i49, label %if.then.i.i.i.i.i39
 
 for.end24.thread130:                              ; preds = %for.cond8.preheader.lr.ph
-  %cmp.i.i36131 = icmp ugt i64 %size, 1152921504606846975
+  %cmp.i.i36131 = icmp samesign ugt i64 %size, 1152921504606846975
   br i1 %cmp.i.i36131, label %if.then.i.i49, label %if.then.i.i.i.i.i39
 
 if.then.i.i49:                                    ; preds = %for.end24.thread130, %for.end24
@@ -13209,7 +13209,7 @@ for.end24:                                        ; preds = %for.cond8.for.inc22
   br i1 %cmp.i.i39, label %if.then.i.i52, label %if.then.i.i.i.i.i42
 
 for.end24.thread133:                              ; preds = %for.cond8.preheader.lr.ph
-  %cmp.i.i39134 = icmp ugt i64 %size, 1152921504606846975
+  %cmp.i.i39134 = icmp samesign ugt i64 %size, 1152921504606846975
   br i1 %cmp.i.i39134, label %if.then.i.i52, label %if.then.i.i.i.i.i42
 
 if.then.i.i52:                                    ; preds = %for.end24.thread133, %for.end24
@@ -13680,7 +13680,7 @@ for.end24:                                        ; preds = %for.cond8.for.inc22
   br i1 %cmp.i.i39, label %if.then.i.i52, label %if.then.i.i.i.i.i42
 
 for.end24.thread133:                              ; preds = %for.cond8.preheader.lr.ph
-  %cmp.i.i39134 = icmp ugt i64 %size, 1152921504606846975
+  %cmp.i.i39134 = icmp samesign ugt i64 %size, 1152921504606846975
   br i1 %cmp.i.i39134, label %if.then.i.i52, label %if.then.i.i.i.i.i42
 
 if.then.i.i52:                                    ; preds = %for.end24.thread133, %for.end24

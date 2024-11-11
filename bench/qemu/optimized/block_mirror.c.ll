@@ -330,7 +330,7 @@ if.then61:                                        ; preds = %if.end57
   br label %if.then176
 
 if.end64:                                         ; preds = %if.end57
-  %cmp65 = icmp ult i64 %call58, %call52
+  %cmp65 = icmp samesign ult i64 %call58, %call52
   %spec.select = select i1 %cmp65, i64 10, i64 2
   br label %if.end75
 
@@ -3631,7 +3631,7 @@ if.else:                                          ; preds = %entry
   unreachable
 
 if.end:                                           ; preds = %entry
-  %cmp20 = icmp ult i64 %2, 4294967296
+  %cmp20 = icmp samesign ult i64 %2, 4294967296
   br i1 %cmp20, label %if.end24, label %if.else23
 
 if.else23:                                        ; preds = %if.end
@@ -3883,7 +3883,7 @@ if.end77:                                         ; preds = %if.then73, %while.b
   %33 = load i64, ptr %granularity, align 8
   %cond90 = tail call i64 @llvm.umin.i64(i64 %33, i64 %sub66)
   tail call void @qemu_iovec_add(ptr noundef nonnull %qiov, ptr noundef nonnull %28, i64 noundef %cond90) #12
-  %cmp61 = icmp ugt i32 %dec82.in, 1
+  %cmp61 = icmp samesign ugt i32 %dec82.in, 1
   br i1 %cmp61, label %while.body63, label %while.end91, !llvm.loop !19
 
 while.end91:                                      ; preds = %if.end77, %while.end

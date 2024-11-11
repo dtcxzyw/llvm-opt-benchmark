@@ -18702,7 +18702,7 @@ _ZN5eastl13DequeIteratorI7Align64PS1_RS1_Lj4EEppEv.exit13.i.i.i.i: ; preds = %if
   %agg.tmp2.sroa.12.1.i.i.i = phi ptr [ %incdec.ptr3.i10.i.i.i.i, %if.then.i8.i.i.i.i ], [ %agg.tmp2.sroa.12.0.i.i.i, %_ZN5eastl13DequeIteratorI7Align64PS1_RS1_Lj4EEppEv.exit.i.i.i.i ]
   %agg.tmp2.sroa.8.1.i.i.i = phi ptr [ %add.ptr.i12.i.i.i.i, %if.then.i8.i.i.i.i ], [ %agg.tmp2.sroa.8.0.i.i.i, %_ZN5eastl13DequeIteratorI7Align64PS1_RS1_Lj4EEppEv.exit.i.i.i.i ]
   %agg.tmp2.sroa.0.1.i.i.i = phi ptr [ %41, %if.then.i8.i.i.i.i ], [ %incdec.ptr.i5.i.i.i.i, %_ZN5eastl13DequeIteratorI7Align64PS1_RS1_Lj4EEppEv.exit.i.i.i.i ]
-  %cmp.i.i.i.i = icmp ugt i64 %n.018.i.i.i.i, 1
+  %cmp.i.i.i.i = icmp samesign ugt i64 %n.018.i.i.i.i, 1
   br i1 %cmp.i.i.i.i, label %for.body.i.i.i.i, label %_ZN5eastl4copyINS_13DequeIteratorI7Align64PS2_RS2_Lj4EEES5_EET0_T_S7_S6_.exit, !llvm.loop !275
 
 _ZN5eastl4copyINS_13DequeIteratorI7Align64PS2_RS2_Lj4EEES5_EET0_T_S7_S6_.exit: ; preds = %_ZN5eastl13DequeIteratorI7Align64PS1_RS1_Lj4EEppEv.exit13.i.i.i.i, %_ZN5eastl18uninitialized_copyINS_13DequeIteratorI7Align64PS2_RS2_Lj4EEES5_EET0_T_S7_S6_.exit
@@ -18742,7 +18742,7 @@ _ZN5eastl13DequeIteratorI7Align64PS1_RS1_Lj4EEppEv.exit.i.i.i.i195: ; preds = %i
   %agg.tmp.sroa.12.1.i.i.i196 = phi ptr [ %incdec.ptr3.i.i.i.i.i201, %if.then.i.i.i.i.i200 ], [ %agg.tmp.sroa.12.0.i.i.i189, %for.body.i.i.i.i188 ]
   %agg.tmp.sroa.8.1.i.i.i197 = phi ptr [ %add.ptr.i.i.i.i.i202, %if.then.i.i.i.i.i200 ], [ %agg.tmp.sroa.8.0.i.i.i190, %for.body.i.i.i.i188 ]
   %agg.tmp.sroa.0.1.i.i.i198 = phi ptr [ %47, %if.then.i.i.i.i.i200 ], [ %incdec.ptr.i.i.i.i.i193, %for.body.i.i.i.i188 ]
-  %cmp.i.i.i.i199 = icmp ugt i64 %n.09.i.i.i.i, 1
+  %cmp.i.i.i.i199 = icmp samesign ugt i64 %n.09.i.i.i.i, 1
   br i1 %cmp.i.i.i.i199, label %for.body.i.i.i.i188, label %if.end, !llvm.loop !285
 
 if.else37:                                        ; preds = %_ZNK5eastl13DequeIteratorI7Align64PS1_RS1_Lj4EEplEl.exit
@@ -18860,7 +18860,7 @@ _ZN5eastl13DequeIteratorI7Align64PS1_RS1_Lj4EEppEv.exit.i.i.i.i260: ; preds = %i
   %agg.tmp.sroa.12.1.i.i.i261 = phi ptr [ %incdec.ptr3.i.i.i.i.i267, %if.then.i.i.i.i.i266 ], [ %agg.tmp.sroa.12.0.i.i.i250, %for.body.i.i.i.i249 ]
   %agg.tmp.sroa.8.1.i.i.i262 = phi ptr [ %add.ptr.i.i.i.i.i268, %if.then.i.i.i.i.i266 ], [ %agg.tmp.sroa.8.0.i.i.i251, %for.body.i.i.i.i249 ]
   %agg.tmp.sroa.0.1.i.i.i264 = phi ptr [ %59, %if.then.i.i.i.i.i266 ], [ %incdec.ptr.i.i.i.i.i258, %for.body.i.i.i.i249 ]
-  %cmp.i.i.i.i265 = icmp ugt i64 %n.09.i.i.i.i254, 1
+  %cmp.i.i.i.i265 = icmp samesign ugt i64 %n.09.i.i.i.i254, 1
   br i1 %cmp.i.i.i.i265, label %for.body.i.i.i.i249, label %if.end, !llvm.loop !285
 
 if.end:                                           ; preds = %_ZN5eastl13DequeIteratorI7Align64PS1_RS1_Lj4EEppEv.exit.i.i.i.i195, %_ZN5eastl13DequeIteratorI7Align64PS1_RS1_Lj4EEppEv.exit.i.i.i.i260, %_ZN5eastl23uninitialized_copy_copyINS_13DequeIteratorI7Align64PS2_RS2_Lj4EEEPKS2_S5_EET1_T_S9_T0_SA_S8_.exit, %_ZN5eastl4copyINS_13DequeIteratorI7Align64PS2_RS2_Lj4EEES5_EET0_T_S7_S6_.exit
@@ -19071,7 +19071,7 @@ _ZN5eastl13DequeIteratorI7Align64PS1_RS1_Lj4EEppEv.exit.i.i.i.i478: ; preds = %i
   %agg.tmp.sroa.12.1.i.i.i479 = phi ptr [ %incdec.ptr3.i.i.i.i.i485, %if.then.i.i.i.i.i484 ], [ %agg.tmp.sroa.12.0.i.i.i468, %for.body.i.i.i.i467 ]
   %agg.tmp.sroa.8.1.i.i.i480 = phi ptr [ %add.ptr.i.i.i.i.i486, %if.then.i.i.i.i.i484 ], [ %agg.tmp.sroa.8.0.i.i.i469, %for.body.i.i.i.i467 ]
   %agg.tmp.sroa.0.1.i.i.i482 = phi ptr [ %76, %if.then.i.i.i.i.i484 ], [ %incdec.ptr.i.i.i.i.i476, %for.body.i.i.i.i467 ]
-  %cmp.i.i.i.i483 = icmp ugt i64 %n.09.i.i.i.i472, 1
+  %cmp.i.i.i.i483 = icmp samesign ugt i64 %n.09.i.i.i.i472, 1
   br i1 %cmp.i.i.i.i483, label %for.body.i.i.i.i467, label %if.end78, !llvm.loop !285
 
 if.else68:                                        ; preds = %_ZNK5eastl13DequeIteratorI7Align64PS1_RS1_Lj4EEmiEl.exit
@@ -19184,7 +19184,7 @@ _ZN5eastl13DequeIteratorI7Align64PS1_RS1_Lj4EEppEv.exit.i.i.i.i590: ; preds = %i
   %agg.tmp.sroa.12.1.i.i.i591 = phi ptr [ %incdec.ptr3.i.i.i.i.i597, %if.then.i.i.i.i.i596 ], [ %agg.tmp.sroa.12.0.i.i.i580, %for.body.i.i.i.i579 ]
   %agg.tmp.sroa.8.1.i.i.i592 = phi ptr [ %add.ptr.i.i.i.i.i598, %if.then.i.i.i.i.i596 ], [ %agg.tmp.sroa.8.0.i.i.i581, %for.body.i.i.i.i579 ]
   %agg.tmp.sroa.0.1.i.i.i594 = phi ptr [ %86, %if.then.i.i.i.i.i596 ], [ %incdec.ptr.i.i.i.i.i588, %for.body.i.i.i.i579 ]
-  %cmp.i.i.i.i595 = icmp ugt i64 %n.09.i.i.i.i584, 1
+  %cmp.i.i.i.i595 = icmp samesign ugt i64 %n.09.i.i.i.i584, 1
   br i1 %cmp.i.i.i.i595, label %for.body.i.i.i.i579, label %if.end78, !llvm.loop !285
 
 if.end78:                                         ; preds = %_ZN5eastl13DequeIteratorI7Align64PS1_RS1_Lj4EEppEv.exit.i.i.i.i590, %_ZN5eastl13DequeIteratorI7Align64PS1_RS1_Lj4EEppEv.exit.i.i.i.i478, %_ZN5eastl23uninitialized_copy_copyIPK7Align64NS_13DequeIteratorIS1_PS1_RS1_Lj4EEES7_EET1_T_S9_T0_SA_S8_.exit, %_ZN5eastl13copy_backwardINS_13DequeIteratorI7Align64PS2_RS2_Lj4EEES5_EET0_T_S7_S6_.exit

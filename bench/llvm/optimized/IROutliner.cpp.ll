@@ -15916,7 +15916,7 @@ _ZN4llvm15SmallVectorImplIPKNS_5ValueEE7reserveEm.exit.i: ; preds = %44, %_ZNK4l
   %49 = getelementptr inbounds i8, ptr %.sroa.05.08.i.i.i.i.i.i.i.i.i, i64 32
   %50 = getelementptr inbounds i8, ptr %.049.i.i.i.i.i.i.i.i.i, i64 8
   %51 = add nsw i64 %.010.i.i.i.i.i.i.i.i.i, -1
-  %52 = icmp ugt i64 %.010.i.i.i.i.i.i.i.i.i, 1
+  %52 = icmp samesign ugt i64 %.010.i.i.i.i.i.i.i.i.i, 1
   br i1 %52, label %.lr.ph.i.i.i.i.i.i.i.i.i, label %_ZN4llvm15SmallVectorImplIPKNS_5ValueEE6appendINS_4User23const_value_op_iteratorEvEEvT_S8_.exit, !llvm.loop !281
 
 _ZN4llvm15SmallVectorImplIPKNS_5ValueEE6appendINS_4User23const_value_op_iteratorEvEEvT_S8_.exit: ; preds = %.lr.ph.i.i.i.i.i.i.i.i.i, %_ZN4llvm15SmallVectorImplIPKNS_5ValueEE7reserveEm.exit.i
@@ -21719,7 +21719,7 @@ _ZN4llvm15SmallVectorImplIPKNS_5ValueEE7reserveEm.exit: ; preds = %3, %12
   %19 = getelementptr inbounds i8, ptr %.sroa.05.08.i.i.i.i.i.i.i.i, i64 32
   %20 = getelementptr inbounds i8, ptr %.049.i.i.i.i.i.i.i.i, i64 8
   %21 = add nsw i64 %.010.i.i.i.i.i.i.i.i, -1
-  %22 = icmp ugt i64 %.010.i.i.i.i.i.i.i.i, 1
+  %22 = icmp samesign ugt i64 %.010.i.i.i.i.i.i.i.i, 1
   br i1 %22, label %.lr.ph.i.i.i.i.i.i.i.i, label %_ZN4llvm23SmallVectorTemplateBaseIPKNS_5ValueELb1EE18uninitialized_copyINS_4User23const_value_op_iteratorEPS3_EEvT_S9_T0_.exit, !llvm.loop !281
 
 _ZN4llvm23SmallVectorTemplateBaseIPKNS_5ValueELb1EE18uninitialized_copyINS_4User23const_value_op_iteratorEPS3_EEvT_S9_T0_.exit: ; preds = %.lr.ph.i.i.i.i.i.i.i.i, %_ZN4llvm15SmallVectorImplIPKNS_5ValueEE7reserveEm.exit
@@ -32356,7 +32356,7 @@ define internal fastcc void @"_ZSt16__insertion_sortIN9__gnu_cxx17__normal_itera
   store i32 %138, ptr %123, align 4
   store i32 %137, ptr %136, align 4
   %139 = add nsw i64 %.010.i.i.i.i.i, -1
-  %140 = icmp ugt i64 %.010.i.i.i.i.i, 1
+  %140 = icmp samesign ugt i64 %.010.i.i.i.i.i, 1
   br i1 %140, label %.lr.ph.i.i.i.i.i, label %_ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPN4llvm12IRSimilarity21IRSimilarityCandidateESt6vectorIS4_SaIS4_EEEES9_ET0_T_SB_SA_.exit, !llvm.loop !446
 
 _ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPN4llvm12IRSimilarity21IRSimilarityCandidateESt6vectorIS4_SaIS4_EEEES9_ET0_T_SB_SA_.exit: ; preds = %.lr.ph.i.i.i.i.i, %23
@@ -33833,7 +33833,7 @@ define internal fastcc void @"_ZSt24__merge_sort_with_bufferIN9__gnu_cxx17__norm
   %259 = getelementptr inbounds i8, ptr %.0910.i.i.i.i.i.i.i, i64 120
   %260 = getelementptr inbounds i8, ptr %.0811.i.i.i.i.i.i.i, i64 120
   %261 = add nsw i64 %.012.i.i.i.i.i.i.i, -1
-  %262 = icmp ugt i64 %.012.i.i.i.i.i.i.i, 1
+  %262 = icmp samesign ugt i64 %.012.i.i.i.i.i.i.i, 1
   br i1 %262, label %.lr.ph.i.i.i.i.i.i.i, label %_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPN4llvm12IRSimilarity21IRSimilarityCandidateESt6vectorIS4_SaIS4_EEEES5_ET0_T_SB_SA_.exit.i.i, !llvm.loop !457
 
 _ZSt4moveIN9__gnu_cxx17__normal_iteratorIPN4llvm12IRSimilarity21IRSimilarityCandidateESt6vectorIS4_SaIS4_EEEES5_ET0_T_SB_SA_.exit.i.i: ; preds = %.lr.ph.i.i.i.i.i.i.i, %.critedge.i.i
@@ -33972,7 +33972,7 @@ _ZSt4moveIN9__gnu_cxx17__normal_iteratorIPN4llvm12IRSimilarity21IRSimilarityCand
   %344 = getelementptr inbounds i8, ptr %.0910.i.i.i.i.i14.i.i, i64 120
   %345 = getelementptr inbounds i8, ptr %.0811.i.i.i.i.i13.i.i, i64 120
   %346 = add nsw i64 %.012.i.i.i.i.i12.i.i, -1
-  %347 = icmp ugt i64 %.012.i.i.i.i.i12.i.i, 1
+  %347 = icmp samesign ugt i64 %.012.i.i.i.i.i12.i.i, 1
   br i1 %347, label %.lr.ph.i.i.i.i.i11.i.i, label %"_ZSt12__move_mergeIN9__gnu_cxx17__normal_iteratorIPN4llvm12IRSimilarity21IRSimilarityCandidateESt6vectorIS4_SaIS4_EEEES5_NS0_5__ops15_Iter_comp_iterIZNS2_10IROutliner24pruneIncompatibleRegionsERS8_R15OutlinableGroupE3$_0EEET0_T_SJ_SJ_SJ_SI_T1_.exit.i", !llvm.loop !457
 
 "_ZSt12__move_mergeIN9__gnu_cxx17__normal_iteratorIPN4llvm12IRSimilarity21IRSimilarityCandidateESt6vectorIS4_SaIS4_EEEES5_NS0_5__ops15_Iter_comp_iterIZNS2_10IROutliner24pruneIncompatibleRegionsERS8_R15OutlinableGroupE3$_0EEET0_T_SJ_SJ_SJ_SI_T1_.exit.i": ; preds = %.lr.ph.i.i.i.i.i11.i.i, %_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPN4llvm12IRSimilarity21IRSimilarityCandidateESt6vectorIS4_SaIS4_EEEES5_ET0_T_SB_SA_.exit.i.i
@@ -34387,7 +34387,7 @@ _ZSt4moveIN9__gnu_cxx17__normal_iteratorIPN4llvm12IRSimilarity21IRSimilarityCand
   %591 = getelementptr inbounds i8, ptr %.0910.i.i.i.i.i.i33.i, i64 120
   %592 = getelementptr inbounds i8, ptr %.0811.i.i.i.i.i.i32.i, i64 120
   %593 = add nsw i64 %.012.i.i.i.i.i.i31.i, -1
-  %594 = icmp ugt i64 %.012.i.i.i.i.i.i31.i, 1
+  %594 = icmp samesign ugt i64 %.012.i.i.i.i.i.i31.i, 1
   br i1 %594, label %.lr.ph.i.i.i.i.i.i30.i, label %_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPN4llvm12IRSimilarity21IRSimilarityCandidateESt6vectorIS4_SaIS4_EEEES5_ET0_T_SB_SA_.exit.i21.i, !llvm.loop !457
 
 _ZSt4moveIN9__gnu_cxx17__normal_iteratorIPN4llvm12IRSimilarity21IRSimilarityCandidateESt6vectorIS4_SaIS4_EEEES5_ET0_T_SB_SA_.exit.i21.i: ; preds = %.lr.ph.i.i.i.i.i.i30.i, %.critedge.i17.i
@@ -34525,7 +34525,7 @@ _ZSt4moveIN9__gnu_cxx17__normal_iteratorIPN4llvm12IRSimilarity21IRSimilarityCand
   %675 = getelementptr inbounds i8, ptr %.0910.i.i.i.i.i14.i28.i, i64 120
   %676 = getelementptr inbounds i8, ptr %.0811.i.i.i.i.i13.i27.i, i64 120
   %677 = add nsw i64 %.012.i.i.i.i.i12.i26.i, -1
-  %678 = icmp ugt i64 %.012.i.i.i.i.i12.i26.i, 1
+  %678 = icmp samesign ugt i64 %.012.i.i.i.i.i12.i26.i, 1
   br i1 %678, label %.lr.ph.i.i.i.i.i11.i25.i, label %"_ZSt17__merge_sort_loopIN9__gnu_cxx17__normal_iteratorIPN4llvm12IRSimilarity21IRSimilarityCandidateESt6vectorIS4_SaIS4_EEEES5_lNS0_5__ops15_Iter_comp_iterIZNS2_10IROutliner24pruneIncompatibleRegionsERS8_R15OutlinableGroupE3$_0EEEvT_SI_T0_T1_T2_.exit", !llvm.loop !457
 
 "_ZSt17__merge_sort_loopIN9__gnu_cxx17__normal_iteratorIPN4llvm12IRSimilarity21IRSimilarityCandidateESt6vectorIS4_SaIS4_EEEES5_lNS0_5__ops15_Iter_comp_iterIZNS2_10IROutliner24pruneIncompatibleRegionsERS8_R15OutlinableGroupE3$_0EEEvT_SI_T0_T1_T2_.exit": ; preds = %.lr.ph.i.i.i.i.i11.i25.i, %_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPN4llvm12IRSimilarity21IRSimilarityCandidateESt6vectorIS4_SaIS4_EEEES5_ET0_T_SB_SA_.exit.i21.i
@@ -34931,7 +34931,7 @@ _ZSt4moveIN9__gnu_cxx17__normal_iteratorIPN4llvm12IRSimilarity21IRSimilarityCand
   %921 = getelementptr inbounds i8, ptr %.0910.i.i.i.i.i.i.i33, i64 120
   %922 = getelementptr inbounds i8, ptr %.0811.i.i.i.i.i.i.i32, i64 120
   %923 = add nsw i64 %.012.i.i.i.i.i.i.i31, -1
-  %924 = icmp ugt i64 %.012.i.i.i.i.i.i.i31, 1
+  %924 = icmp samesign ugt i64 %.012.i.i.i.i.i.i.i31, 1
   br i1 %924, label %.lr.ph.i.i.i.i.i.i.i30, label %_ZSt4moveIPN4llvm12IRSimilarity21IRSimilarityCandidateEN9__gnu_cxx17__normal_iteratorIS3_St6vectorIS2_SaIS2_EEEEET0_T_SB_SA_.exit.i.i, !llvm.loop !457
 
 _ZSt4moveIPN4llvm12IRSimilarity21IRSimilarityCandidateEN9__gnu_cxx17__normal_iteratorIS3_St6vectorIS2_SaIS2_EEEEET0_T_SB_SA_.exit.i.i: ; preds = %.lr.ph.i.i.i.i.i.i.i30, %._crit_edge.i.i
@@ -35074,7 +35074,7 @@ _ZSt4moveIPN4llvm12IRSimilarity21IRSimilarityCandidateEN9__gnu_cxx17__normal_ite
   %1010 = getelementptr inbounds i8, ptr %.0910.i.i.i.i.i23.i.i, i64 120
   %1011 = getelementptr inbounds i8, ptr %.0811.i.i.i.i.i22.i.i, i64 120
   %1012 = add nsw i64 %.012.i.i.i.i.i21.i.i, -1
-  %1013 = icmp ugt i64 %.012.i.i.i.i.i21.i.i, 1
+  %1013 = icmp samesign ugt i64 %.012.i.i.i.i.i21.i.i, 1
   br i1 %1013, label %.lr.ph.i.i.i.i.i20.i.i, label %_ZSt4moveIPN4llvm12IRSimilarity21IRSimilarityCandidateEN9__gnu_cxx17__normal_iteratorIS3_St6vectorIS2_SaIS2_EEEEET0_T_SB_SA_.exit24.loopexit.i.i, !llvm.loop !457
 
 _ZSt4moveIPN4llvm12IRSimilarity21IRSimilarityCandidateEN9__gnu_cxx17__normal_iteratorIS3_St6vectorIS2_SaIS2_EEEEET0_T_SB_SA_.exit24.loopexit.i.i: ; preds = %.lr.ph.i.i.i.i.i20.i.i
@@ -35495,7 +35495,7 @@ _ZSt4moveIPN4llvm12IRSimilarity21IRSimilarityCandidateEN9__gnu_cxx17__normal_ite
   %1262 = getelementptr inbounds i8, ptr %.0910.i.i.i.i.i.i42.i, i64 120
   %1263 = getelementptr inbounds i8, ptr %.0811.i.i.i.i.i.i41.i, i64 120
   %1264 = add nsw i64 %.012.i.i.i.i.i.i40.i, -1
-  %1265 = icmp ugt i64 %.012.i.i.i.i.i.i40.i, 1
+  %1265 = icmp samesign ugt i64 %.012.i.i.i.i.i.i40.i, 1
   br i1 %1265, label %.lr.ph.i.i.i.i.i.i39.i, label %_ZSt4moveIPN4llvm12IRSimilarity21IRSimilarityCandidateEN9__gnu_cxx17__normal_iteratorIS3_St6vectorIS2_SaIS2_EEEEET0_T_SB_SA_.exit.i29.i, !llvm.loop !457
 
 _ZSt4moveIPN4llvm12IRSimilarity21IRSimilarityCandidateEN9__gnu_cxx17__normal_iteratorIS3_St6vectorIS2_SaIS2_EEEEET0_T_SB_SA_.exit.i29.i: ; preds = %.lr.ph.i.i.i.i.i.i39.i, %._crit_edge.i25.i
@@ -35637,7 +35637,7 @@ _ZSt4moveIPN4llvm12IRSimilarity21IRSimilarityCandidateEN9__gnu_cxx17__normal_ite
   %1350 = getelementptr inbounds i8, ptr %.0910.i.i.i.i.i23.i36.i, i64 120
   %1351 = getelementptr inbounds i8, ptr %.0811.i.i.i.i.i22.i35.i, i64 120
   %1352 = add nsw i64 %.012.i.i.i.i.i21.i34.i, -1
-  %1353 = icmp ugt i64 %.012.i.i.i.i.i21.i34.i, 1
+  %1353 = icmp samesign ugt i64 %.012.i.i.i.i.i21.i34.i, 1
   br i1 %1353, label %.lr.ph.i.i.i.i.i20.i33.i, label %"_ZSt17__merge_sort_loopIPN4llvm12IRSimilarity21IRSimilarityCandidateEN9__gnu_cxx17__normal_iteratorIS3_St6vectorIS2_SaIS2_EEEElNS4_5__ops15_Iter_comp_iterIZNS0_10IROutliner24pruneIncompatibleRegionsERS8_R15OutlinableGroupE3$_0EEEvT_SI_T0_T1_T2_.exit", !llvm.loop !457
 
 "_ZSt17__merge_sort_loopIPN4llvm12IRSimilarity21IRSimilarityCandidateEN9__gnu_cxx17__normal_iteratorIS3_St6vectorIS2_SaIS2_EEEElNS4_5__ops15_Iter_comp_iterIZNS0_10IROutliner24pruneIncompatibleRegionsERS8_R15OutlinableGroupE3$_0EEEvT_SI_T0_T1_T2_.exit": ; preds = %.lr.ph.i.i.i.i.i20.i33.i, %_ZSt4moveIPN4llvm12IRSimilarity21IRSimilarityCandidateEN9__gnu_cxx17__normal_iteratorIS3_St6vectorIS2_SaIS2_EEEEET0_T_SB_SA_.exit.i29.i
@@ -35680,7 +35680,7 @@ tailrecurse._crit_edge:                           ; preds = %tailrecurse, %7
   %15 = getelementptr inbounds i8, ptr %.0910.i.i.i.i.i, i64 120
   %16 = getelementptr inbounds i8, ptr %.0811.i.i.i.i.i, i64 120
   %17 = add nsw i64 %.012.i.i.i.i.i, -1
-  %18 = icmp ugt i64 %.012.i.i.i.i.i, 1
+  %18 = icmp samesign ugt i64 %.012.i.i.i.i.i, 1
   br i1 %18, label %.lr.ph.i.i.i.i.i, label %.lr.ph.i, !llvm.loop !457
 
 .lr.ph.i:                                         ; preds = %.lr.ph.i.i.i.i.i, %27
@@ -35732,7 +35732,7 @@ tailrecurse._crit_edge:                           ; preds = %tailrecurse, %7
   %35 = getelementptr inbounds i8, ptr %.0910.i.i.i.i.i.i, i64 120
   %36 = getelementptr inbounds i8, ptr %.0811.i.i.i.i.i.i, i64 120
   %37 = add nsw i64 %.012.i.i.i.i.i.i, -1
-  %38 = icmp ugt i64 %.012.i.i.i.i.i.i, 1
+  %38 = icmp samesign ugt i64 %.012.i.i.i.i.i.i, 1
   br i1 %38, label %.lr.ph.i.i.i.i.i.i, label %"_ZSt21__move_merge_adaptiveIPN4llvm12IRSimilarity21IRSimilarityCandidateEN9__gnu_cxx17__normal_iteratorIS3_St6vectorIS2_SaIS2_EEEES9_NS4_5__ops15_Iter_comp_iterIZNS0_10IROutliner24pruneIncompatibleRegionsERS8_R15OutlinableGroupE3$_0EEEvT_SI_T0_SJ_T1_T2_.exit", !llvm.loop !457
 
 39:                                               ; preds = %.lr.ph, %tailrecurse
@@ -35762,7 +35762,7 @@ tailrecurse._crit_edge:                           ; preds = %tailrecurse, %7
   %46 = getelementptr inbounds i8, ptr %.0910.i.i.i.i.i88, i64 120
   %47 = getelementptr inbounds i8, ptr %.0811.i.i.i.i.i87, i64 120
   %48 = add nsw i64 %.012.i.i.i.i.i86, -1
-  %49 = icmp ugt i64 %.012.i.i.i.i.i86, 1
+  %49 = icmp samesign ugt i64 %.012.i.i.i.i.i86, 1
   br i1 %49, label %.lr.ph.i.i.i.i.i85, label %_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPN4llvm12IRSimilarity21IRSimilarityCandidateESt6vectorIS4_SaIS4_EEEES5_ET0_T_SB_SA_.exit89, !llvm.loop !457
 
 _ZSt4moveIN9__gnu_cxx17__normal_iteratorIPN4llvm12IRSimilarity21IRSimilarityCandidateESt6vectorIS4_SaIS4_EEEES5_ET0_T_SB_SA_.exit89: ; preds = %.lr.ph.i.i.i.i.i85, %41
@@ -35789,7 +35789,7 @@ _ZSt4moveIN9__gnu_cxx17__normal_iteratorIPN4llvm12IRSimilarity21IRSimilarityCand
   %58 = getelementptr inbounds i8, ptr %.069.i.i.i.i.i.i, i64 -120
   %59 = tail call noundef nonnull align 8 dereferenceable(120) ptr @_ZN4llvm12IRSimilarity21IRSimilarityCandidateaSEOS1_(ptr noundef nonnull align 8 dereferenceable(120) %58, ptr noundef nonnull align 8 dereferenceable(120) %57)
   %60 = add nsw i64 %.010.i.i.i.i.i.i, -1
-  %61 = icmp ugt i64 %.010.i.i.i.i.i.i, 1
+  %61 = icmp samesign ugt i64 %.010.i.i.i.i.i.i, 1
   br i1 %61, label %.lr.ph.i.i.i.i.i.i93, label %"_ZSt21__move_merge_adaptiveIPN4llvm12IRSimilarity21IRSimilarityCandidateEN9__gnu_cxx17__normal_iteratorIS3_St6vectorIS2_SaIS2_EEEES9_NS4_5__ops15_Iter_comp_iterIZNS0_10IROutliner24pruneIncompatibleRegionsERS8_R15OutlinableGroupE3$_0EEEvT_SI_T0_SJ_T1_T2_.exit", !llvm.loop !446
 
 62:                                               ; preds = %_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPN4llvm12IRSimilarity21IRSimilarityCandidateESt6vectorIS4_SaIS4_EEEES5_ET0_T_SB_SA_.exit89
@@ -35841,7 +35841,7 @@ _ZSt4moveIN9__gnu_cxx17__normal_iteratorIPN4llvm12IRSimilarity21IRSimilarityCand
   %80 = getelementptr inbounds i8, ptr %.069.i.i.i.i.i22.i, i64 -120
   %81 = tail call noundef nonnull align 8 dereferenceable(120) ptr @_ZN4llvm12IRSimilarity21IRSimilarityCandidateaSEOS1_(ptr noundef nonnull align 8 dereferenceable(120) %80, ptr noundef nonnull align 8 dereferenceable(120) %79)
   %82 = add nsw i64 %.010.i.i.i.i.i21.i, -1
-  %83 = icmp ugt i64 %.010.i.i.i.i.i21.i, 1
+  %83 = icmp samesign ugt i64 %.010.i.i.i.i.i21.i, 1
   br i1 %83, label %.lr.ph.i.i.i.i.i20.i, label %"_ZSt21__move_merge_adaptiveIPN4llvm12IRSimilarity21IRSimilarityCandidateEN9__gnu_cxx17__normal_iteratorIS3_St6vectorIS2_SaIS2_EEEES9_NS4_5__ops15_Iter_comp_iterIZNS0_10IROutliner24pruneIncompatibleRegionsERS8_R15OutlinableGroupE3$_0EEEvT_SI_T0_SJ_T1_T2_.exit", !llvm.loop !446
 
 84:                                               ; preds = %66
@@ -35981,7 +35981,7 @@ define linkonce_odr ptr @_ZSt17__rotate_adaptiveIN9__gnu_cxx17__normal_iteratorI
   %17 = getelementptr inbounds i8, ptr %.0910.i.i.i.i.i, i64 120
   %18 = getelementptr inbounds i8, ptr %.0811.i.i.i.i.i, i64 120
   %19 = add nsw i64 %.012.i.i.i.i.i, -1
-  %20 = icmp ugt i64 %.012.i.i.i.i.i, 1
+  %20 = icmp samesign ugt i64 %.012.i.i.i.i.i, 1
   br i1 %20, label %.lr.ph.i.i.i.i.i, label %_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPN4llvm12IRSimilarity21IRSimilarityCandidateESt6vectorIS4_SaIS4_EEEES5_ET0_T_SB_SA_.exit, !llvm.loop !457
 
 _ZSt4moveIN9__gnu_cxx17__normal_iteratorIPN4llvm12IRSimilarity21IRSimilarityCandidateESt6vectorIS4_SaIS4_EEEES5_ET0_T_SB_SA_.exit: ; preds = %.lr.ph.i.i.i.i.i, %10
@@ -36003,7 +36003,7 @@ _ZSt4moveIN9__gnu_cxx17__normal_iteratorIPN4llvm12IRSimilarity21IRSimilarityCand
   %26 = getelementptr inbounds i8, ptr %.069.i.i.i.i.i, i64 -120
   %27 = tail call noundef nonnull align 8 dereferenceable(120) ptr @_ZN4llvm12IRSimilarity21IRSimilarityCandidateaSEOS1_(ptr noundef nonnull align 8 dereferenceable(120) %26, ptr noundef nonnull align 8 dereferenceable(120) %25)
   %28 = add nsw i64 %.010.i.i.i.i.i, -1
-  %29 = icmp ugt i64 %.010.i.i.i.i.i, 1
+  %29 = icmp samesign ugt i64 %.010.i.i.i.i.i, 1
   br i1 %29, label %.lr.ph.i.i.i.i.i38, label %_ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPN4llvm12IRSimilarity21IRSimilarityCandidateESt6vectorIS4_SaIS4_EEEES9_ET0_T_SB_SA_.exit, !llvm.loop !446
 
 _ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPN4llvm12IRSimilarity21IRSimilarityCandidateESt6vectorIS4_SaIS4_EEEES9_ET0_T_SB_SA_.exit: ; preds = %.lr.ph.i.i.i.i.i38, %_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPN4llvm12IRSimilarity21IRSimilarityCandidateESt6vectorIS4_SaIS4_EEEES5_ET0_T_SB_SA_.exit
@@ -36025,7 +36025,7 @@ _ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPN4llvm12IRSimilarity21IRSimi
   %36 = getelementptr inbounds i8, ptr %.0910.i.i.i.i.i44, i64 120
   %37 = getelementptr inbounds i8, ptr %.0811.i.i.i.i.i43, i64 120
   %38 = add nsw i64 %.012.i.i.i.i.i42, -1
-  %39 = icmp ugt i64 %.012.i.i.i.i.i42, 1
+  %39 = icmp samesign ugt i64 %.012.i.i.i.i.i42, 1
   br i1 %39, label %.lr.ph.i.i.i.i.i41, label %_ZSt4moveIPN4llvm12IRSimilarity21IRSimilarityCandidateEN9__gnu_cxx17__normal_iteratorIS3_St6vectorIS2_SaIS2_EEEEET0_T_SB_SA_.exit.loopexit, !llvm.loop !457
 
 _ZSt4moveIPN4llvm12IRSimilarity21IRSimilarityCandidateEN9__gnu_cxx17__normal_iteratorIS3_St6vectorIS2_SaIS2_EEEEET0_T_SB_SA_.exit.loopexit: ; preds = %.lr.ph.i.i.i.i.i41
@@ -36065,7 +36065,7 @@ _ZSt4moveIPN4llvm12IRSimilarity21IRSimilarityCandidateEN9__gnu_cxx17__normal_ite
   %51 = getelementptr inbounds i8, ptr %.0910.i.i.i.i.i50, i64 120
   %52 = getelementptr inbounds i8, ptr %.0811.i.i.i.i.i49, i64 120
   %53 = add nsw i64 %.012.i.i.i.i.i48, -1
-  %54 = icmp ugt i64 %.012.i.i.i.i.i48, 1
+  %54 = icmp samesign ugt i64 %.012.i.i.i.i.i48, 1
   br i1 %54, label %.lr.ph.i.i.i.i.i47, label %_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPN4llvm12IRSimilarity21IRSimilarityCandidateESt6vectorIS4_SaIS4_EEEES5_ET0_T_SB_SA_.exit51, !llvm.loop !457
 
 _ZSt4moveIN9__gnu_cxx17__normal_iteratorIPN4llvm12IRSimilarity21IRSimilarityCandidateESt6vectorIS4_SaIS4_EEEES5_ET0_T_SB_SA_.exit51: ; preds = %.lr.ph.i.i.i.i.i47, %44
@@ -36087,7 +36087,7 @@ _ZSt4moveIN9__gnu_cxx17__normal_iteratorIPN4llvm12IRSimilarity21IRSimilarityCand
   %60 = getelementptr inbounds i8, ptr %.0910.i.i.i.i.i57, i64 120
   %61 = getelementptr inbounds i8, ptr %.0811.i.i.i.i.i56, i64 120
   %62 = add nsw i64 %.012.i.i.i.i.i55, -1
-  %63 = icmp ugt i64 %.012.i.i.i.i.i55, 1
+  %63 = icmp samesign ugt i64 %.012.i.i.i.i.i55, 1
   br i1 %63, label %.lr.ph.i.i.i.i.i54, label %_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPN4llvm12IRSimilarity21IRSimilarityCandidateESt6vectorIS4_SaIS4_EEEES9_ET0_T_SB_SA_.exit, !llvm.loop !457
 
 _ZSt4moveIN9__gnu_cxx17__normal_iteratorIPN4llvm12IRSimilarity21IRSimilarityCandidateESt6vectorIS4_SaIS4_EEEES9_ET0_T_SB_SA_.exit: ; preds = %.lr.ph.i.i.i.i.i54, %_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPN4llvm12IRSimilarity21IRSimilarityCandidateESt6vectorIS4_SaIS4_EEEES5_ET0_T_SB_SA_.exit51
@@ -36109,7 +36109,7 @@ _ZSt4moveIN9__gnu_cxx17__normal_iteratorIPN4llvm12IRSimilarity21IRSimilarityCand
   %70 = getelementptr inbounds i8, ptr %.069.i.i.i.i.i62, i64 -120
   %71 = tail call noundef nonnull align 8 dereferenceable(120) ptr @_ZN4llvm12IRSimilarity21IRSimilarityCandidateaSEOS1_(ptr noundef nonnull align 8 dereferenceable(120) %70, ptr noundef nonnull align 8 dereferenceable(120) %69)
   %72 = add nsw i64 %.010.i.i.i.i.i61, -1
-  %73 = icmp ugt i64 %.010.i.i.i.i.i61, 1
+  %73 = icmp samesign ugt i64 %.010.i.i.i.i.i61, 1
   br i1 %73, label %.lr.ph.i.i.i.i.i60, label %_ZSt13move_backwardIPN4llvm12IRSimilarity21IRSimilarityCandidateEN9__gnu_cxx17__normal_iteratorIS3_St6vectorIS2_SaIS2_EEEEET0_T_SB_SA_.exit.loopexit, !llvm.loop !446
 
 _ZSt13move_backwardIPN4llvm12IRSimilarity21IRSimilarityCandidateEN9__gnu_cxx17__normal_iteratorIS3_St6vectorIS2_SaIS2_EEEEET0_T_SB_SA_.exit.loopexit: ; preds = %.lr.ph.i.i.i.i.i60
@@ -36393,7 +36393,7 @@ _ZSt8_DestroyIPN4llvm12IRSimilarity21IRSimilarityCandidateES2_EvT_S4_RSaIT0_E.ex
 
 _ZNSt6vectorIN4llvm12IRSimilarity21IRSimilarityCandidateESaIS2_EED2Ev.exit: ; preds = %_ZSt8_DestroyIPN4llvm12IRSimilarity21IRSimilarityCandidateES2_EvT_S4_RSaIT0_E.exit.i, %82
   %86 = add nsw i64 %.010.i.i.i.i.i, -1
-  %87 = icmp ugt i64 %.010.i.i.i.i.i, 1
+  %87 = icmp samesign ugt i64 %.010.i.i.i.i.i, 1
   br i1 %87, label %44, label %_ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPSt6vectorIN4llvm12IRSimilarity21IRSimilarityCandidateESaIS5_EES2_IS7_SaIS7_EEEESB_ET0_T_SD_SC_.exit.loopexit, !llvm.loop !464
 
 _ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPSt6vectorIN4llvm12IRSimilarity21IRSimilarityCandidateESaIS5_EES2_IS7_SaIS7_EEEESB_ET0_T_SD_SC_.exit.loopexit: ; preds = %_ZNSt6vectorIN4llvm12IRSimilarity21IRSimilarityCandidateESaIS2_EED2Ev.exit
@@ -37064,7 +37064,7 @@ tailrecurse._crit_edge:                           ; preds = %tailrecurse, %7
   %36 = getelementptr inbounds i8, ptr %.0910.i.i.i.i.i, i64 24
   %37 = getelementptr inbounds i8, ptr %.0811.i.i.i.i.i, i64 24
   %38 = add nsw i64 %.012.i.i.i.i.i, -1
-  %39 = icmp ugt i64 %.012.i.i.i.i.i, 1
+  %39 = icmp samesign ugt i64 %.012.i.i.i.i.i, 1
   br i1 %39, label %25, label %.lr.ph.i, !llvm.loop !477
 
 .lr.ph.i:                                         ; preds = %25
@@ -37196,7 +37196,7 @@ tailrecurse._crit_edge:                           ; preds = %tailrecurse, %7
   %103 = getelementptr inbounds i8, ptr %.0910.i.i.i.i.i.i, i64 24
   %104 = getelementptr inbounds i8, ptr %.0811.i.i.i.i.i.i, i64 24
   %105 = add nsw i64 %.012.i.i.i.i.i.i, -1
-  %106 = icmp ugt i64 %.012.i.i.i.i.i.i, 1
+  %106 = icmp samesign ugt i64 %.012.i.i.i.i.i.i, 1
   br i1 %106, label %92, label %"_ZSt21__move_merge_adaptiveIPSt6vectorIN4llvm12IRSimilarity21IRSimilarityCandidateESaIS3_EEN9__gnu_cxx17__normal_iteratorIS6_S0_IS5_SaIS5_EEEESB_NS7_5__ops15_Iter_comp_iterIZNS1_10IROutliner9doOutlineERNS1_6ModuleEE3$_0EEEvT_SJ_T0_SK_T1_T2_.exit", !llvm.loop !477
 
 107:                                              ; preds = %.lr.ph, %tailrecurse
@@ -37247,7 +37247,7 @@ tailrecurse._crit_edge:                           ; preds = %tailrecurse, %7
   %126 = getelementptr inbounds i8, ptr %.0910.i.i.i.i.i89, i64 24
   %127 = getelementptr inbounds i8, ptr %.0811.i.i.i.i.i88, i64 24
   %128 = add nsw i64 %.012.i.i.i.i.i87, -1
-  %129 = icmp ugt i64 %.012.i.i.i.i.i87, 1
+  %129 = icmp samesign ugt i64 %.012.i.i.i.i.i87, 1
   br i1 %129, label %115, label %_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPSt6vectorIN4llvm12IRSimilarity21IRSimilarityCandidateESaIS5_EES2_IS7_SaIS7_EEEES8_ET0_T_SD_SC_.exit90, !llvm.loop !477
 
 _ZSt4moveIN9__gnu_cxx17__normal_iteratorIPSt6vectorIN4llvm12IRSimilarity21IRSimilarityCandidateESaIS5_EES2_IS7_SaIS7_EEEES8_ET0_T_SD_SC_.exit90: ; preds = %115, %109
@@ -37295,7 +37295,7 @@ _ZSt4moveIN9__gnu_cxx17__normal_iteratorIPSt6vectorIN4llvm12IRSimilarity21IRSimi
   call void @_ZNSt6vectorIN4llvm12IRSimilarity21IRSimilarityCandidateESaIS2_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %11) #24
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %11)
   %152 = add nsw i64 %.010.i.i.i.i.i.i, -1
-  %153 = icmp ugt i64 %.010.i.i.i.i.i.i, 1
+  %153 = icmp samesign ugt i64 %.010.i.i.i.i.i.i, 1
   br i1 %153, label %139, label %"_ZSt21__move_merge_adaptiveIPSt6vectorIN4llvm12IRSimilarity21IRSimilarityCandidateESaIS3_EEN9__gnu_cxx17__normal_iteratorIS6_S0_IS5_SaIS5_EEEESB_NS7_5__ops15_Iter_comp_iterIZNS1_10IROutliner9doOutlineERNS1_6ModuleEE3$_0EEEvT_SJ_T0_SK_T1_T2_.exit", !llvm.loop !464
 
 154:                                              ; preds = %_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPSt6vectorIN4llvm12IRSimilarity21IRSimilarityCandidateESaIS5_EES2_IS7_SaIS7_EEEES8_ET0_T_SD_SC_.exit90
@@ -37410,7 +37410,7 @@ _ZSt4moveIN9__gnu_cxx17__normal_iteratorIPSt6vectorIN4llvm12IRSimilarity21IRSimi
   call void @_ZNSt6vectorIN4llvm12IRSimilarity21IRSimilarityCandidateESaIS2_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %9) #24
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %9)
   %216 = add nsw i64 %.010.i.i.i.i.i21.i, -1
-  %217 = icmp ugt i64 %.010.i.i.i.i.i21.i, 1
+  %217 = icmp samesign ugt i64 %.010.i.i.i.i.i21.i, 1
   br i1 %217, label %203, label %"_ZSt21__move_merge_adaptiveIPSt6vectorIN4llvm12IRSimilarity21IRSimilarityCandidateESaIS3_EEN9__gnu_cxx17__normal_iteratorIS6_S0_IS5_SaIS5_EEEESB_NS7_5__ops15_Iter_comp_iterIZNS1_10IROutliner9doOutlineERNS1_6ModuleEE3$_0EEEvT_SJ_T0_SK_T1_T2_.exit", !llvm.loop !464
 
 218:                                              ; preds = %163
@@ -37716,7 +37716,7 @@ define internal fastcc noundef ptr @"_ZSt12__move_mergeIN9__gnu_cxx17__normal_it
   %76 = getelementptr inbounds i8, ptr %.0910.i.i.i.i.i, i64 24
   %77 = getelementptr inbounds i8, ptr %.0811.i.i.i.i.i, i64 24
   %78 = add nsw i64 %.012.i.i.i.i.i, -1
-  %79 = icmp ugt i64 %.012.i.i.i.i.i, 1
+  %79 = icmp samesign ugt i64 %.012.i.i.i.i.i, 1
   br i1 %79, label %65, label %_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPSt6vectorIN4llvm12IRSimilarity21IRSimilarityCandidateESaIS5_EES2_IS7_SaIS7_EEEES8_ET0_T_SD_SC_.exit, !llvm.loop !477
 
 _ZSt4moveIN9__gnu_cxx17__normal_iteratorIPSt6vectorIN4llvm12IRSimilarity21IRSimilarityCandidateESaIS5_EES2_IS7_SaIS7_EEEES8_ET0_T_SD_SC_.exit: ; preds = %65, %.critedge
@@ -37760,7 +37760,7 @@ _ZSt4moveIN9__gnu_cxx17__normal_iteratorIPSt6vectorIN4llvm12IRSimilarity21IRSimi
   %98 = getelementptr inbounds i8, ptr %.0910.i.i.i.i.i13, i64 24
   %99 = getelementptr inbounds i8, ptr %.0811.i.i.i.i.i12, i64 24
   %100 = add nsw i64 %.012.i.i.i.i.i11, -1
-  %101 = icmp ugt i64 %.012.i.i.i.i.i11, 1
+  %101 = icmp samesign ugt i64 %.012.i.i.i.i.i11, 1
   br i1 %101, label %87, label %_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPSt6vectorIN4llvm12IRSimilarity21IRSimilarityCandidateESaIS5_EES2_IS7_SaIS7_EEEES8_ET0_T_SD_SC_.exit14, !llvm.loop !477
 
 _ZSt4moveIN9__gnu_cxx17__normal_iteratorIPSt6vectorIN4llvm12IRSimilarity21IRSimilarityCandidateESaIS5_EES2_IS7_SaIS7_EEEES8_ET0_T_SD_SC_.exit14: ; preds = %87, %_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPSt6vectorIN4llvm12IRSimilarity21IRSimilarityCandidateESaIS5_EES2_IS7_SaIS7_EEEES8_ET0_T_SD_SC_.exit
@@ -37909,7 +37909,7 @@ define internal fastcc ptr @"_ZSt12__move_mergeIPSt6vectorIN4llvm12IRSimilarity2
   %78 = getelementptr inbounds i8, ptr %.0910.i.i.i.i.i, i64 24
   %79 = getelementptr inbounds i8, ptr %.0811.i.i.i.i.i, i64 24
   %80 = add nsw i64 %.012.i.i.i.i.i, -1
-  %81 = icmp ugt i64 %.012.i.i.i.i.i, 1
+  %81 = icmp samesign ugt i64 %.012.i.i.i.i.i, 1
   br i1 %81, label %67, label %_ZSt4moveIPSt6vectorIN4llvm12IRSimilarity21IRSimilarityCandidateESaIS3_EEN9__gnu_cxx17__normal_iteratorIS6_S0_IS5_SaIS5_EEEEET0_T_SD_SC_.exit, !llvm.loop !477
 
 _ZSt4moveIPSt6vectorIN4llvm12IRSimilarity21IRSimilarityCandidateESaIS3_EEN9__gnu_cxx17__normal_iteratorIS6_S0_IS5_SaIS5_EEEEET0_T_SD_SC_.exit: ; preds = %67, %._crit_edge
@@ -37957,7 +37957,7 @@ _ZSt4moveIPSt6vectorIN4llvm12IRSimilarity21IRSimilarityCandidateESaIS3_EEN9__gnu
   %104 = getelementptr inbounds i8, ptr %.0910.i.i.i.i.i24, i64 24
   %105 = getelementptr inbounds i8, ptr %.0811.i.i.i.i.i23, i64 24
   %106 = add nsw i64 %.012.i.i.i.i.i22, -1
-  %107 = icmp ugt i64 %.012.i.i.i.i.i22, 1
+  %107 = icmp samesign ugt i64 %.012.i.i.i.i.i22, 1
   br i1 %107, label %93, label %_ZSt4moveIPSt6vectorIN4llvm12IRSimilarity21IRSimilarityCandidateESaIS3_EEN9__gnu_cxx17__normal_iteratorIS6_S0_IS5_SaIS5_EEEEET0_T_SD_SC_.exit25.loopexit, !llvm.loop !477
 
 _ZSt4moveIPSt6vectorIN4llvm12IRSimilarity21IRSimilarityCandidateESaIS3_EEN9__gnu_cxx17__normal_iteratorIS6_S0_IS5_SaIS5_EEEEET0_T_SD_SC_.exit25.loopexit: ; preds = %93
@@ -38028,7 +38028,7 @@ define linkonce_odr ptr @_ZSt17__rotate_adaptiveIN9__gnu_cxx17__normal_iteratorI
   %35 = getelementptr inbounds i8, ptr %.0910.i.i.i.i.i, i64 24
   %36 = getelementptr inbounds i8, ptr %.0811.i.i.i.i.i, i64 24
   %37 = add nsw i64 %.012.i.i.i.i.i, -1
-  %38 = icmp ugt i64 %.012.i.i.i.i.i, 1
+  %38 = icmp samesign ugt i64 %.012.i.i.i.i.i, 1
   br i1 %38, label %24, label %_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPSt6vectorIN4llvm12IRSimilarity21IRSimilarityCandidateESaIS5_EES2_IS7_SaIS7_EEEES8_ET0_T_SD_SC_.exit, !llvm.loop !477
 
 _ZSt4moveIN9__gnu_cxx17__normal_iteratorIPSt6vectorIN4llvm12IRSimilarity21IRSimilarityCandidateESaIS5_EES2_IS7_SaIS7_EEEES8_ET0_T_SD_SC_.exit: ; preds = %24, %16
@@ -38071,7 +38071,7 @@ _ZSt4moveIN9__gnu_cxx17__normal_iteratorIPSt6vectorIN4llvm12IRSimilarity21IRSimi
   call void @_ZNSt6vectorIN4llvm12IRSimilarity21IRSimilarityCandidateESaIS2_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %12) #24
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %12)
   %58 = add nsw i64 %.010.i.i.i.i.i, -1
-  %59 = icmp ugt i64 %.010.i.i.i.i.i, 1
+  %59 = icmp samesign ugt i64 %.010.i.i.i.i.i, 1
   br i1 %59, label %45, label %_ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPSt6vectorIN4llvm12IRSimilarity21IRSimilarityCandidateESaIS5_EES2_IS7_SaIS7_EEEESB_ET0_T_SD_SC_.exit, !llvm.loop !464
 
 _ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPSt6vectorIN4llvm12IRSimilarity21IRSimilarityCandidateESaIS5_EES2_IS7_SaIS7_EEEESB_ET0_T_SD_SC_.exit: ; preds = %45, %_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPSt6vectorIN4llvm12IRSimilarity21IRSimilarityCandidateESaIS5_EES2_IS7_SaIS7_EEEES8_ET0_T_SD_SC_.exit
@@ -38114,7 +38114,7 @@ _ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPSt6vectorIN4llvm12IRSimilari
   %78 = getelementptr inbounds i8, ptr %.0910.i.i.i.i.i42, i64 24
   %79 = getelementptr inbounds i8, ptr %.0811.i.i.i.i.i41, i64 24
   %80 = add nsw i64 %.012.i.i.i.i.i40, -1
-  %81 = icmp ugt i64 %.012.i.i.i.i.i40, 1
+  %81 = icmp samesign ugt i64 %.012.i.i.i.i.i40, 1
   br i1 %81, label %67, label %_ZSt4moveIPSt6vectorIN4llvm12IRSimilarity21IRSimilarityCandidateESaIS3_EEN9__gnu_cxx17__normal_iteratorIS6_S0_IS5_SaIS5_EEEEET0_T_SD_SC_.exit.loopexit, !llvm.loop !477
 
 _ZSt4moveIPSt6vectorIN4llvm12IRSimilarity21IRSimilarityCandidateESaIS3_EEN9__gnu_cxx17__normal_iteratorIS6_S0_IS5_SaIS5_EEEEET0_T_SD_SC_.exit.loopexit: ; preds = %67
@@ -38175,7 +38175,7 @@ _ZSt4moveIPSt6vectorIN4llvm12IRSimilarity21IRSimilarityCandidateESaIS3_EEN9__gnu
   %105 = getelementptr inbounds i8, ptr %.0910.i.i.i.i.i47, i64 24
   %106 = getelementptr inbounds i8, ptr %.0811.i.i.i.i.i46, i64 24
   %107 = add nsw i64 %.012.i.i.i.i.i45, -1
-  %108 = icmp ugt i64 %.012.i.i.i.i.i45, 1
+  %108 = icmp samesign ugt i64 %.012.i.i.i.i.i45, 1
   br i1 %108, label %94, label %_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPSt6vectorIN4llvm12IRSimilarity21IRSimilarityCandidateESaIS5_EES2_IS7_SaIS7_EEEES8_ET0_T_SD_SC_.exit48, !llvm.loop !477
 
 _ZSt4moveIN9__gnu_cxx17__normal_iteratorIPSt6vectorIN4llvm12IRSimilarity21IRSimilarityCandidateESaIS5_EES2_IS7_SaIS7_EEEES8_ET0_T_SD_SC_.exit48: ; preds = %94, %86
@@ -38218,7 +38218,7 @@ _ZSt4moveIN9__gnu_cxx17__normal_iteratorIPSt6vectorIN4llvm12IRSimilarity21IRSimi
   %126 = getelementptr inbounds i8, ptr %.0910.i.i.i.i.i53, i64 24
   %127 = getelementptr inbounds i8, ptr %.0811.i.i.i.i.i52, i64 24
   %128 = add nsw i64 %.012.i.i.i.i.i51, -1
-  %129 = icmp ugt i64 %.012.i.i.i.i.i51, 1
+  %129 = icmp samesign ugt i64 %.012.i.i.i.i.i51, 1
   br i1 %129, label %115, label %_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPSt6vectorIN4llvm12IRSimilarity21IRSimilarityCandidateESaIS5_EES2_IS7_SaIS7_EEEESB_ET0_T_SD_SC_.exit, !llvm.loop !477
 
 _ZSt4moveIN9__gnu_cxx17__normal_iteratorIPSt6vectorIN4llvm12IRSimilarity21IRSimilarityCandidateESaIS5_EES2_IS7_SaIS7_EEEESB_ET0_T_SD_SC_.exit: ; preds = %115, %_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPSt6vectorIN4llvm12IRSimilarity21IRSimilarityCandidateESaIS5_EES2_IS7_SaIS7_EEEES8_ET0_T_SD_SC_.exit48
@@ -38261,7 +38261,7 @@ _ZSt4moveIN9__gnu_cxx17__normal_iteratorIPSt6vectorIN4llvm12IRSimilarity21IRSimi
   call void @_ZNSt6vectorIN4llvm12IRSimilarity21IRSimilarityCandidateESaIS2_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %8) #24
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %8)
   %150 = add nsw i64 %.010.i.i.i.i.i56, -1
-  %151 = icmp ugt i64 %.010.i.i.i.i.i56, 1
+  %151 = icmp samesign ugt i64 %.010.i.i.i.i.i56, 1
   br i1 %151, label %137, label %_ZSt13move_backwardIPSt6vectorIN4llvm12IRSimilarity21IRSimilarityCandidateESaIS3_EEN9__gnu_cxx17__normal_iteratorIS6_S0_IS5_SaIS5_EEEEET0_T_SD_SC_.exit.loopexit, !llvm.loop !464
 
 _ZSt13move_backwardIPSt6vectorIN4llvm12IRSimilarity21IRSimilarityCandidateESaIS3_EEN9__gnu_cxx17__normal_iteratorIS6_S0_IS5_SaIS5_EEEEET0_T_SD_SC_.exit.loopexit: ; preds = %137

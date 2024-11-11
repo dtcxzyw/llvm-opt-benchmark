@@ -1143,7 +1143,7 @@ define hidden void @ScaleSlope(i32 noundef %0, i32 noundef %1, i32 noundef %2, i
 
 41:                                               ; preds = %26
   %42 = icmp sgt i32 %0, 1
-  %43 = icmp ugt i32 %spec.select, 1
+  %43 = icmp samesign ugt i32 %spec.select, 1
   %or.cond5 = and i1 %42, %43
   br i1 %or.cond5, label %44, label %52
 
@@ -1230,7 +1230,7 @@ define hidden void @ScaleSlope(i32 noundef %0, i32 noundef %1, i32 noundef %2, i
 
 92:                                               ; preds = %77
   %93 = icmp sgt i32 %0, 1
-  %94 = icmp ugt i32 %spec.select, 1
+  %94 = icmp samesign ugt i32 %spec.select, 1
   %or.cond9 = and i1 %93, %94
   br i1 %or.cond9, label %95, label %103
 

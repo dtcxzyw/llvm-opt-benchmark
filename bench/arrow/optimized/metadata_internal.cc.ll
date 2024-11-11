@@ -2266,7 +2266,7 @@ _ZNK3org6apache5arrow7flatbuf7Decimal8bitWidthEv.exit: ; preds = %_ZNK22arrow_ve
   ]
 
 if.then:                                          ; preds = %sw.bb28
-  %cmp.i.i.i403 = icmp ugt i16 %197, 4
+  %cmp.i.i.i403 = icmp samesign ugt i16 %197, 4
   br i1 %cmp.i.i.i403, label %_ZNK22arrow_vendored_private11flatbuffers5Table22GetOptionalFieldOffsetEt.exit.i.i405, label %_ZNK3org6apache5arrow7flatbuf7Decimal5scaleEv.exit
 
 _ZNK22arrow_vendored_private11flatbuffers5Table22GetOptionalFieldOffsetEt.exit.i.i405: ; preds = %_ZNK3org6apache5arrow7flatbuf7Decimal8bitWidthEv.exit, %_ZNK22arrow_vendored_private11flatbuffers5Table22GetOptionalFieldOffsetEt.exit.i.i394, %if.then
@@ -17496,7 +17496,7 @@ cond.true.i.i.i209:                               ; preds = %_ZNK22arrow_vendore
   br label %_ZNK22arrow_vendored_private11flatbuffers5Table22GetOptionalFieldOffsetEt.exit.i.i219
 
 _ZNK3org6apache5arrow7flatbuf6Tensor4typeEv.exit: ; preds = %if.end44
-  %cmp.i.i.i217 = icmp ugt i16 %53, 4
+  %cmp.i.i.i217 = icmp samesign ugt i16 %53, 4
   br i1 %cmp.i.i.i217, label %_ZNK22arrow_vendored_private11flatbuffers5Table22GetOptionalFieldOffsetEt.exit.i.i219, label %_ZNK3org6apache5arrow7flatbuf6Tensor9type_typeEv.exit
 
 _ZNK22arrow_vendored_private11flatbuffers5Table22GetOptionalFieldOffsetEt.exit.i.i219: ; preds = %cond.true.i.i.i209, %_ZNK22arrow_vendored_private11flatbuffers5Table22GetOptionalFieldOffsetEt.exit.i.i.i206, %_ZNK3org6apache5arrow7flatbuf6Tensor4typeEv.exit
@@ -34574,7 +34574,7 @@ cond.true.i.i.i153:                               ; preds = %_ZNK22arrow_vendore
   br label %_ZNK22arrow_vendored_private11flatbuffers5Table22GetOptionalFieldOffsetEt.exit.i.i163
 
 _ZNK3org6apache5arrow7flatbuf12SparseTensor11sparseIndexEv.exit: ; preds = %land.lhs.true23
-  %cmp.i.i.i161 = icmp ugt i16 %42, 12
+  %cmp.i.i.i161 = icmp samesign ugt i16 %42, 12
   br i1 %cmp.i.i.i161, label %_ZNK22arrow_vendored_private11flatbuffers5Table22GetOptionalFieldOffsetEt.exit.i.i163, label %_ZNK3org6apache5arrow7flatbuf12SparseTensor16sparseIndex_typeEv.exit
 
 _ZNK22arrow_vendored_private11flatbuffers5Table22GetOptionalFieldOffsetEt.exit.i.i163: ; preds = %cond.true.i.i.i153, %_ZNK22arrow_vendored_private11flatbuffers5Table22GetOptionalFieldOffsetEt.exit.i.i.i150, %_ZNK3org6apache5arrow7flatbuf12SparseTensor11sparseIndexEv.exit

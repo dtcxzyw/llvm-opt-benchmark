@@ -436,7 +436,7 @@ define void @dsyconvf_(ptr noundef %0, ptr noundef %1, ptr nocapture noundef rea
   %257 = zext nneg i32 %256 to i64
   %258 = getelementptr inbounds i32, ptr %15, i64 %257
   %259 = load i32, ptr %258, align 4, !tbaa !3
-  %260 = icmp ult i32 %238, 3
+  %260 = icmp samesign ult i32 %238, 3
   %261 = sub nsw i32 0, %259
   %262 = icmp eq i32 %238, %261
   %263 = select i1 %260, i1 true, i1 %262

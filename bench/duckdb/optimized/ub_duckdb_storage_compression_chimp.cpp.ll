@@ -3061,7 +3061,7 @@ if.end:                                           ; preds = %entry
 _ZN6duckdb15OutputBitStreamILb0EE14WriteInCurrentEhh.exit: ; preds = %if.end
   %shr = lshr i32 %value, %sub
   %conv7 = trunc i32 %shr to i8
-  %cmp.i.i34 = icmp ult i8 %1, 8
+  %cmp.i.i34 = icmp samesign ult i8 %1, 8
   %conv1.i.i = zext i1 %cmp.i.i34 to i8
   %and.i.i = and i8 %1, 7
   %shl.i.i = shl nuw i8 %conv1.i.i, %and.i.i
@@ -3332,7 +3332,7 @@ if.end.thread.i:                                  ; preds = %if.end20
   br label %if.end9.thread.i
 
 if.end.i:                                         ; preds = %if.end20
-  %cmp4.i = icmp ugt i8 %conv21.pre-phi, 23
+  %cmp4.i = icmp samesign ugt i8 %conv21.pre-phi, 23
   br i1 %cmp4.i, label %if.end9.thread.i, label %if.end9.i
 
 if.end9.thread.i:                                 ; preds = %if.end.i, %if.end.thread.i
@@ -3348,7 +3348,7 @@ if.end9.thread.i:                                 ; preds = %if.end.i, %if.end.t
   br label %if.end16.thread.i
 
 if.end9.i:                                        ; preds = %if.end.i
-  %cmp11.i = icmp ugt i8 %conv21.pre-phi, 15
+  %cmp11.i = icmp samesign ugt i8 %conv21.pre-phi, 15
   br i1 %cmp11.i, label %if.end16.thread.i, label %if.end16.i
 
 if.end16.thread.i:                                ; preds = %if.end9.i, %if.end9.thread.i
@@ -3364,7 +3364,7 @@ if.end16.thread.i:                                ; preds = %if.end9.i, %if.end9
   br label %if.then19.i
 
 if.end16.i:                                       ; preds = %if.end9.i
-  %cmp18.i = icmp ugt i8 %conv21.pre-phi, 7
+  %cmp18.i = icmp samesign ugt i8 %conv21.pre-phi, 7
   br i1 %cmp18.i, label %if.then19.i, label %return
 
 if.then19.i:                                      ; preds = %if.end16.i, %if.end16.thread.i
@@ -7193,7 +7193,7 @@ _ZN6duckdb15OutputBitStreamILb0EE14WriteInCurrentEhh.exit: ; preds = %if.end
   %sh_prom = zext nneg i8 %narrow to i64
   %shr = lshr i64 %value, %sh_prom
   %conv7 = trunc i64 %shr to i8
-  %cmp.i.i35 = icmp ult i8 %1, 8
+  %cmp.i.i35 = icmp samesign ult i8 %1, 8
   %conv1.i.i = zext i1 %cmp.i.i35 to i8
   %and.i.i = and i8 %1, 7
   %shl.i.i = shl nuw i8 %conv1.i.i, %and.i.i
@@ -7301,7 +7301,7 @@ if.end9.thread:                                   ; preds = %if.end, %if.end.thr
   br label %if.end16.thread
 
 if.end9:                                          ; preds = %if.end
-  %cmp11 = icmp ugt i8 %i, 47
+  %cmp11 = icmp samesign ugt i8 %i, 47
   br i1 %cmp11, label %if.end16.thread, label %if.end16
 
 if.end16.thread:                                  ; preds = %if.end9, %if.end9.thread
@@ -7317,7 +7317,7 @@ if.end16.thread:                                  ; preds = %if.end9, %if.end9.t
   br label %if.end23.thread
 
 if.end16:                                         ; preds = %if.end9
-  %cmp18 = icmp ugt i8 %i, 39
+  %cmp18 = icmp samesign ugt i8 %i, 39
   br i1 %cmp18, label %if.end23.thread, label %if.end23
 
 if.end23.thread:                                  ; preds = %if.end16, %if.end16.thread
@@ -7333,7 +7333,7 @@ if.end23.thread:                                  ; preds = %if.end16, %if.end16
   br label %if.end30.thread
 
 if.end23:                                         ; preds = %if.end16
-  %cmp25 = icmp ugt i8 %i, 31
+  %cmp25 = icmp samesign ugt i8 %i, 31
   br i1 %cmp25, label %if.end30.thread, label %if.end30
 
 if.end30.thread:                                  ; preds = %if.end23, %if.end23.thread
@@ -7349,7 +7349,7 @@ if.end30.thread:                                  ; preds = %if.end23, %if.end23
   br label %if.end37.thread
 
 if.end30:                                         ; preds = %if.end23
-  %cmp32 = icmp ugt i8 %i, 23
+  %cmp32 = icmp samesign ugt i8 %i, 23
   br i1 %cmp32, label %if.end37.thread, label %if.end37
 
 if.end37.thread:                                  ; preds = %if.end30, %if.end30.thread
@@ -7365,7 +7365,7 @@ if.end37.thread:                                  ; preds = %if.end30, %if.end30
   br label %if.end44.thread
 
 if.end37:                                         ; preds = %if.end30
-  %cmp39 = icmp ugt i8 %i, 15
+  %cmp39 = icmp samesign ugt i8 %i, 15
   br i1 %cmp39, label %if.end44.thread, label %if.end44
 
 if.end44.thread:                                  ; preds = %if.end37, %if.end37.thread
@@ -7381,7 +7381,7 @@ if.end44.thread:                                  ; preds = %if.end37, %if.end37
   br label %if.then47
 
 if.end44:                                         ; preds = %if.end37
-  %cmp46 = icmp ugt i8 %i, 7
+  %cmp46 = icmp samesign ugt i8 %i, 7
   br i1 %cmp46, label %if.then47, label %if.end49
 
 if.then47:                                        ; preds = %if.end44, %if.end44.thread

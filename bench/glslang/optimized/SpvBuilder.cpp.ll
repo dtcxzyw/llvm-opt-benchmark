@@ -1608,7 +1608,7 @@ _ZN3spv11Instruction16addStringOperandEPKc.exit:  ; preds = %.thread.i, %23, %24
 35:                                               ; preds = %_ZN3spv11Instruction16addStringOperandEPKc.exit
   %36 = add i32 %25, 16
   %37 = zext i32 %36 to i64
-  %38 = icmp ult i64 %34, %37
+  %38 = icmp samesign ult i64 %34, %37
   br i1 %38, label %39, label %41
 
 39:                                               ; preds = %35
@@ -1618,7 +1618,7 @@ _ZN3spv11Instruction16addStringOperandEPKc.exit:  ; preds = %.thread.i, %23, %24
   br label %_ZN3spv6Module14mapInstructionEPNS_11InstructionE.exit
 
 41:                                               ; preds = %35
-  %42 = icmp ugt i64 %34, %37
+  %42 = icmp samesign ugt i64 %34, %37
   br i1 %42, label %43, label %_ZN3spv6Module14mapInstructionEPNS_11InstructionE.exit
 
 43:                                               ; preds = %41
@@ -1830,7 +1830,7 @@ _ZNSt10unique_ptrIN3spv11InstructionESt14default_deleteIS1_EED2Ev.exit: ; preds 
 77:                                               ; preds = %_ZNSt10unique_ptrIN3spv11InstructionESt14default_deleteIS1_EED2Ev.exit
   %78 = add i32 %67, 16
   %79 = zext i32 %78 to i64
-  %80 = icmp ult i64 %76, %79
+  %80 = icmp samesign ult i64 %76, %79
   br i1 %80, label %81, label %83
 
 81:                                               ; preds = %77
@@ -1840,7 +1840,7 @@ _ZNSt10unique_ptrIN3spv11InstructionESt14default_deleteIS1_EED2Ev.exit: ; preds 
   br label %_ZN3spv6Module14mapInstructionEPNS_11InstructionE.exit
 
 83:                                               ; preds = %77
-  %84 = icmp ugt i64 %76, %79
+  %84 = icmp samesign ugt i64 %76, %79
   br i1 %84, label %85, label %_ZN3spv6Module14mapInstructionEPNS_11InstructionE.exit
 
 85:                                               ; preds = %83
@@ -2117,7 +2117,7 @@ _ZNSt10unique_ptrIN3spv11InstructionESt14default_deleteIS1_EED2Ev.exit: ; preds 
 77:                                               ; preds = %_ZNSt10unique_ptrIN3spv11InstructionESt14default_deleteIS1_EED2Ev.exit
   %78 = add i32 %67, 16
   %79 = zext i32 %78 to i64
-  %80 = icmp ult i64 %76, %79
+  %80 = icmp samesign ult i64 %76, %79
   br i1 %80, label %81, label %83
 
 81:                                               ; preds = %77
@@ -2127,7 +2127,7 @@ _ZNSt10unique_ptrIN3spv11InstructionESt14default_deleteIS1_EED2Ev.exit: ; preds 
   br label %_ZN3spv6Module14mapInstructionEPNS_11InstructionE.exit
 
 83:                                               ; preds = %77
-  %84 = icmp ugt i64 %76, %79
+  %84 = icmp samesign ugt i64 %76, %79
   br i1 %84, label %85, label %_ZN3spv6Module14mapInstructionEPNS_11InstructionE.exit
 
 85:                                               ; preds = %83
@@ -2427,7 +2427,7 @@ _ZNSt10unique_ptrIN3spv11InstructionESt14default_deleteIS1_EED2Ev.exit: ; preds 
 133:                                              ; preds = %_ZNSt10unique_ptrIN3spv11InstructionESt14default_deleteIS1_EED2Ev.exit
   %134 = add i32 %123, 16
   %135 = zext i32 %134 to i64
-  %136 = icmp ult i64 %132, %135
+  %136 = icmp samesign ult i64 %132, %135
   br i1 %136, label %137, label %139
 
 137:                                              ; preds = %133
@@ -2437,7 +2437,7 @@ _ZNSt10unique_ptrIN3spv11InstructionESt14default_deleteIS1_EED2Ev.exit: ; preds 
   br label %_ZN3spv6Module14mapInstructionEPNS_11InstructionE.exit
 
 139:                                              ; preds = %133
-  %140 = icmp ugt i64 %132, %135
+  %140 = icmp samesign ugt i64 %132, %135
   br i1 %140, label %141, label %_ZN3spv6Module14mapInstructionEPNS_11InstructionE.exit
 
 141:                                              ; preds = %139
@@ -2696,7 +2696,7 @@ _ZNSt10unique_ptrIN3spv11InstructionESt14default_deleteIS1_EED2Ev.exit: ; preds 
 78:                                               ; preds = %_ZNSt10unique_ptrIN3spv11InstructionESt14default_deleteIS1_EED2Ev.exit
   %79 = add i32 %68, 16
   %80 = zext i32 %79 to i64
-  %81 = icmp ult i64 %77, %80
+  %81 = icmp samesign ult i64 %77, %80
   br i1 %81, label %82, label %84
 
 82:                                               ; preds = %78
@@ -2706,7 +2706,7 @@ _ZNSt10unique_ptrIN3spv11InstructionESt14default_deleteIS1_EED2Ev.exit: ; preds 
   br label %_ZN3spv6Module14mapInstructionEPNS_11InstructionE.exit
 
 84:                                               ; preds = %78
-  %85 = icmp ugt i64 %77, %80
+  %85 = icmp samesign ugt i64 %77, %80
   br i1 %85, label %86, label %_ZN3spv6Module14mapInstructionEPNS_11InstructionE.exit
 
 86:                                               ; preds = %84
@@ -3134,7 +3134,7 @@ _ZNSt10unique_ptrIN3spv11InstructionESt14default_deleteIS1_EED2Ev.exit: ; preds 
 172:                                              ; preds = %_ZNSt10unique_ptrIN3spv11InstructionESt14default_deleteIS1_EED2Ev.exit
   %173 = add i32 %162, 16
   %174 = zext i32 %173 to i64
-  %175 = icmp ult i64 %171, %174
+  %175 = icmp samesign ult i64 %171, %174
   br i1 %175, label %176, label %178
 
 176:                                              ; preds = %172
@@ -3144,7 +3144,7 @@ _ZNSt10unique_ptrIN3spv11InstructionESt14default_deleteIS1_EED2Ev.exit: ; preds 
   br label %_ZN3spv6Module14mapInstructionEPNS_11InstructionE.exit
 
 178:                                              ; preds = %172
-  %179 = icmp ugt i64 %171, %174
+  %179 = icmp samesign ugt i64 %171, %174
   br i1 %179, label %180, label %_ZN3spv6Module14mapInstructionEPNS_11InstructionE.exit
 
 180:                                              ; preds = %178
@@ -3388,7 +3388,7 @@ _ZNSt10unique_ptrIN3spv11InstructionESt14default_deleteIS1_EED2Ev.exit: ; preds 
 113:                                              ; preds = %_ZNSt10unique_ptrIN3spv11InstructionESt14default_deleteIS1_EED2Ev.exit
   %114 = add i32 %103, 16
   %115 = zext i32 %114 to i64
-  %116 = icmp ult i64 %112, %115
+  %116 = icmp samesign ult i64 %112, %115
   br i1 %116, label %117, label %119
 
 117:                                              ; preds = %113
@@ -3398,7 +3398,7 @@ _ZNSt10unique_ptrIN3spv11InstructionESt14default_deleteIS1_EED2Ev.exit: ; preds 
   br label %_ZN3spv6Module14mapInstructionEPNS_11InstructionE.exit
 
 119:                                              ; preds = %113
-  %120 = icmp ugt i64 %112, %115
+  %120 = icmp samesign ugt i64 %112, %115
   br i1 %120, label %121, label %_ZN3spv6Module14mapInstructionEPNS_11InstructionE.exit
 
 121:                                              ; preds = %119
@@ -3873,7 +3873,7 @@ _ZNSt10unique_ptrIN3spv11InstructionESt14default_deleteIS1_EED2Ev.exit: ; preds 
 110:                                              ; preds = %_ZNSt10unique_ptrIN3spv11InstructionESt14default_deleteIS1_EED2Ev.exit
   %111 = add i32 %100, 16
   %112 = zext i32 %111 to i64
-  %113 = icmp ult i64 %109, %112
+  %113 = icmp samesign ult i64 %109, %112
   br i1 %113, label %114, label %116
 
 114:                                              ; preds = %110
@@ -3883,7 +3883,7 @@ _ZNSt10unique_ptrIN3spv11InstructionESt14default_deleteIS1_EED2Ev.exit: ; preds 
   br label %_ZN3spv6Module14mapInstructionEPNS_11InstructionE.exit
 
 116:                                              ; preds = %110
-  %117 = icmp ugt i64 %109, %112
+  %117 = icmp samesign ugt i64 %109, %112
   br i1 %117, label %118, label %_ZN3spv6Module14mapInstructionEPNS_11InstructionE.exit
 
 118:                                              ; preds = %116
@@ -3980,7 +3980,7 @@ _ZNSt10unique_ptrIN3spv11InstructionESt14default_deleteIS1_EED2Ev.exit: ; preds 
 37:                                               ; preds = %_ZNSt10unique_ptrIN3spv11InstructionESt14default_deleteIS1_EED2Ev.exit
   %38 = add i32 %27, 16
   %39 = zext i32 %38 to i64
-  %40 = icmp ult i64 %36, %39
+  %40 = icmp samesign ult i64 %36, %39
   br i1 %40, label %41, label %43
 
 41:                                               ; preds = %37
@@ -3990,7 +3990,7 @@ _ZNSt10unique_ptrIN3spv11InstructionESt14default_deleteIS1_EED2Ev.exit: ; preds 
   br label %_ZN3spv6Module14mapInstructionEPNS_11InstructionE.exit
 
 43:                                               ; preds = %37
-  %44 = icmp ugt i64 %36, %39
+  %44 = icmp samesign ugt i64 %36, %39
   br i1 %44, label %45, label %_ZN3spv6Module14mapInstructionEPNS_11InstructionE.exit
 
 45:                                               ; preds = %43
@@ -4197,7 +4197,7 @@ _ZNSt10unique_ptrIN3spv11InstructionESt14default_deleteIS1_EED2Ev.exit: ; preds 
 82:                                               ; preds = %_ZNSt10unique_ptrIN3spv11InstructionESt14default_deleteIS1_EED2Ev.exit
   %83 = add i32 %72, 16
   %84 = zext i32 %83 to i64
-  %85 = icmp ult i64 %81, %84
+  %85 = icmp samesign ult i64 %81, %84
   br i1 %85, label %86, label %88
 
 86:                                               ; preds = %82
@@ -4207,7 +4207,7 @@ _ZNSt10unique_ptrIN3spv11InstructionESt14default_deleteIS1_EED2Ev.exit: ; preds 
   br label %_ZN3spv6Module14mapInstructionEPNS_11InstructionE.exit
 
 88:                                               ; preds = %82
-  %89 = icmp ugt i64 %81, %84
+  %89 = icmp samesign ugt i64 %81, %84
   br i1 %89, label %90, label %_ZN3spv6Module14mapInstructionEPNS_11InstructionE.exit
 
 90:                                               ; preds = %88
@@ -4438,7 +4438,7 @@ _ZNSt10unique_ptrIN3spv11InstructionESt14default_deleteIS1_EED2Ev.exit: ; preds 
 112:                                              ; preds = %_ZNSt10unique_ptrIN3spv11InstructionESt14default_deleteIS1_EED2Ev.exit
   %113 = add i32 %102, 16
   %114 = zext i32 %113 to i64
-  %115 = icmp ult i64 %111, %114
+  %115 = icmp samesign ult i64 %111, %114
   br i1 %115, label %116, label %118
 
 116:                                              ; preds = %112
@@ -4448,7 +4448,7 @@ _ZNSt10unique_ptrIN3spv11InstructionESt14default_deleteIS1_EED2Ev.exit: ; preds 
   br label %_ZN3spv6Module14mapInstructionEPNS_11InstructionE.exit
 
 118:                                              ; preds = %112
-  %119 = icmp ugt i64 %111, %114
+  %119 = icmp samesign ugt i64 %111, %114
   br i1 %119, label %120, label %_ZN3spv6Module14mapInstructionEPNS_11InstructionE.exit
 
 120:                                              ; preds = %118
@@ -4708,7 +4708,7 @@ _ZNSt10unique_ptrIN3spv11InstructionESt14default_deleteIS1_EED2Ev.exit: ; preds 
 116:                                              ; preds = %_ZNSt10unique_ptrIN3spv11InstructionESt14default_deleteIS1_EED2Ev.exit
   %117 = add i32 %106, 16
   %118 = zext i32 %117 to i64
-  %119 = icmp ult i64 %115, %118
+  %119 = icmp samesign ult i64 %115, %118
   br i1 %119, label %120, label %122
 
 120:                                              ; preds = %116
@@ -4718,7 +4718,7 @@ _ZNSt10unique_ptrIN3spv11InstructionESt14default_deleteIS1_EED2Ev.exit: ; preds 
   br label %_ZN3spv6Module14mapInstructionEPNS_11InstructionE.exit
 
 122:                                              ; preds = %116
-  %123 = icmp ugt i64 %115, %118
+  %123 = icmp samesign ugt i64 %115, %118
   br i1 %123, label %124, label %_ZN3spv6Module14mapInstructionEPNS_11InstructionE.exit
 
 124:                                              ; preds = %122
@@ -5091,7 +5091,7 @@ _ZNSt10unique_ptrIN3spv11InstructionESt14default_deleteIS1_EED2Ev.exit: ; preds 
 142:                                              ; preds = %_ZNSt10unique_ptrIN3spv11InstructionESt14default_deleteIS1_EED2Ev.exit
   %143 = add i32 %132, 16
   %144 = zext i32 %143 to i64
-  %145 = icmp ult i64 %141, %144
+  %145 = icmp samesign ult i64 %141, %144
   br i1 %145, label %146, label %148
 
 146:                                              ; preds = %142
@@ -5101,7 +5101,7 @@ _ZNSt10unique_ptrIN3spv11InstructionESt14default_deleteIS1_EED2Ev.exit: ; preds 
   br label %_ZN3spv6Module14mapInstructionEPNS_11InstructionE.exit
 
 148:                                              ; preds = %142
-  %149 = icmp ugt i64 %141, %144
+  %149 = icmp samesign ugt i64 %141, %144
   br i1 %149, label %150, label %_ZN3spv6Module14mapInstructionEPNS_11InstructionE.exit
 
 150:                                              ; preds = %148
@@ -5320,7 +5320,7 @@ _ZNSt10unique_ptrIN3spv11InstructionESt14default_deleteIS1_EED2Ev.exit: ; preds 
 102:                                              ; preds = %_ZNSt10unique_ptrIN3spv11InstructionESt14default_deleteIS1_EED2Ev.exit
   %103 = add i32 %92, 16
   %104 = zext i32 %103 to i64
-  %105 = icmp ult i64 %101, %104
+  %105 = icmp samesign ult i64 %101, %104
   br i1 %105, label %106, label %108
 
 106:                                              ; preds = %102
@@ -5330,7 +5330,7 @@ _ZNSt10unique_ptrIN3spv11InstructionESt14default_deleteIS1_EED2Ev.exit: ; preds 
   br label %_ZN3spv6Module14mapInstructionEPNS_11InstructionE.exit
 
 108:                                              ; preds = %102
-  %109 = icmp ugt i64 %101, %104
+  %109 = icmp samesign ugt i64 %101, %104
   br i1 %109, label %110, label %_ZN3spv6Module14mapInstructionEPNS_11InstructionE.exit
 
 110:                                              ; preds = %108
@@ -5678,7 +5678,7 @@ _ZNSt10unique_ptrIN3spv11InstructionESt14default_deleteIS1_EED2Ev.exit: ; preds 
 130:                                              ; preds = %_ZNSt10unique_ptrIN3spv11InstructionESt14default_deleteIS1_EED2Ev.exit
   %131 = add i32 %120, 16
   %132 = zext i32 %131 to i64
-  %133 = icmp ult i64 %129, %132
+  %133 = icmp samesign ult i64 %129, %132
   br i1 %133, label %134, label %136
 
 134:                                              ; preds = %130
@@ -5688,7 +5688,7 @@ _ZNSt10unique_ptrIN3spv11InstructionESt14default_deleteIS1_EED2Ev.exit: ; preds 
   br label %_ZN3spv6Module14mapInstructionEPNS_11InstructionE.exit
 
 136:                                              ; preds = %130
-  %137 = icmp ugt i64 %129, %132
+  %137 = icmp samesign ugt i64 %129, %132
   br i1 %137, label %138, label %_ZN3spv6Module14mapInstructionEPNS_11InstructionE.exit
 
 138:                                              ; preds = %136
@@ -5887,7 +5887,7 @@ _ZNSt10unique_ptrIN3spv11InstructionESt14default_deleteIS1_EED2Ev.exit: ; preds 
 91:                                               ; preds = %_ZNSt10unique_ptrIN3spv11InstructionESt14default_deleteIS1_EED2Ev.exit
   %92 = add i32 %81, 16
   %93 = zext i32 %92 to i64
-  %94 = icmp ult i64 %90, %93
+  %94 = icmp samesign ult i64 %90, %93
   br i1 %94, label %95, label %97
 
 95:                                               ; preds = %91
@@ -5897,7 +5897,7 @@ _ZNSt10unique_ptrIN3spv11InstructionESt14default_deleteIS1_EED2Ev.exit: ; preds 
   br label %_ZN3spv6Module14mapInstructionEPNS_11InstructionE.exit
 
 97:                                               ; preds = %91
-  %98 = icmp ugt i64 %90, %93
+  %98 = icmp samesign ugt i64 %90, %93
   br i1 %98, label %99, label %_ZN3spv6Module14mapInstructionEPNS_11InstructionE.exit
 
 99:                                               ; preds = %97
@@ -6340,7 +6340,7 @@ _ZNSt10unique_ptrIN3spv11InstructionESt14default_deleteIS1_EED2Ev.exit: ; preds 
 113:                                              ; preds = %_ZNSt10unique_ptrIN3spv11InstructionESt14default_deleteIS1_EED2Ev.exit
   %114 = add i32 %103, 16
   %115 = zext i32 %114 to i64
-  %116 = icmp ult i64 %112, %115
+  %116 = icmp samesign ult i64 %112, %115
   br i1 %116, label %117, label %119
 
 117:                                              ; preds = %113
@@ -6350,7 +6350,7 @@ _ZNSt10unique_ptrIN3spv11InstructionESt14default_deleteIS1_EED2Ev.exit: ; preds 
   br label %_ZN3spv6Module14mapInstructionEPNS_11InstructionE.exit
 
 119:                                              ; preds = %113
-  %120 = icmp ugt i64 %112, %115
+  %120 = icmp samesign ugt i64 %112, %115
   br i1 %120, label %121, label %_ZN3spv6Module14mapInstructionEPNS_11InstructionE.exit
 
 121:                                              ; preds = %119
@@ -6609,7 +6609,7 @@ _ZNSt10unique_ptrIN3spv11InstructionESt14default_deleteIS1_EED2Ev.exit: ; preds 
 115:                                              ; preds = %_ZNSt10unique_ptrIN3spv11InstructionESt14default_deleteIS1_EED2Ev.exit
   %116 = add i32 %105, 16
   %117 = zext i32 %116 to i64
-  %118 = icmp ult i64 %114, %117
+  %118 = icmp samesign ult i64 %114, %117
   br i1 %118, label %119, label %121
 
 119:                                              ; preds = %115
@@ -6619,7 +6619,7 @@ _ZNSt10unique_ptrIN3spv11InstructionESt14default_deleteIS1_EED2Ev.exit: ; preds 
   br label %_ZN3spv6Module14mapInstructionEPNS_11InstructionE.exit
 
 121:                                              ; preds = %115
-  %122 = icmp ugt i64 %114, %117
+  %122 = icmp samesign ugt i64 %114, %117
   br i1 %122, label %123, label %_ZN3spv6Module14mapInstructionEPNS_11InstructionE.exit
 
 123:                                              ; preds = %121
@@ -6882,7 +6882,7 @@ _ZNSt10unique_ptrIN3spv11InstructionESt14default_deleteIS1_EED2Ev.exit: ; preds 
 125:                                              ; preds = %_ZNSt10unique_ptrIN3spv11InstructionESt14default_deleteIS1_EED2Ev.exit
   %126 = add i32 %115, 16
   %127 = zext i32 %126 to i64
-  %128 = icmp ult i64 %124, %127
+  %128 = icmp samesign ult i64 %124, %127
   br i1 %128, label %129, label %131
 
 129:                                              ; preds = %125
@@ -6892,7 +6892,7 @@ _ZNSt10unique_ptrIN3spv11InstructionESt14default_deleteIS1_EED2Ev.exit: ; preds 
   br label %_ZN3spv6Module14mapInstructionEPNS_11InstructionE.exit
 
 131:                                              ; preds = %125
-  %132 = icmp ugt i64 %124, %127
+  %132 = icmp samesign ugt i64 %124, %127
   br i1 %132, label %133, label %_ZN3spv6Module14mapInstructionEPNS_11InstructionE.exit
 
 133:                                              ; preds = %131
@@ -7148,7 +7148,7 @@ _ZNSt10unique_ptrIN3spv11InstructionESt14default_deleteIS1_EED2Ev.exit: ; preds 
 127:                                              ; preds = %_ZNSt10unique_ptrIN3spv11InstructionESt14default_deleteIS1_EED2Ev.exit
   %128 = add i32 %117, 16
   %129 = zext i32 %128 to i64
-  %130 = icmp ult i64 %126, %129
+  %130 = icmp samesign ult i64 %126, %129
   br i1 %130, label %131, label %133
 
 131:                                              ; preds = %127
@@ -7158,7 +7158,7 @@ _ZNSt10unique_ptrIN3spv11InstructionESt14default_deleteIS1_EED2Ev.exit: ; preds 
   br label %_ZN3spv6Module14mapInstructionEPNS_11InstructionE.exit
 
 133:                                              ; preds = %127
-  %134 = icmp ugt i64 %126, %129
+  %134 = icmp samesign ugt i64 %126, %129
   br i1 %134, label %135, label %_ZN3spv6Module14mapInstructionEPNS_11InstructionE.exit
 
 135:                                              ; preds = %133
@@ -7407,7 +7407,7 @@ _ZNSt10unique_ptrIN3spv11InstructionESt14default_deleteIS1_EED2Ev.exit: ; preds 
 122:                                              ; preds = %_ZNSt10unique_ptrIN3spv11InstructionESt14default_deleteIS1_EED2Ev.exit
   %123 = add i32 %112, 16
   %124 = zext i32 %123 to i64
-  %125 = icmp ult i64 %121, %124
+  %125 = icmp samesign ult i64 %121, %124
   br i1 %125, label %126, label %128
 
 126:                                              ; preds = %122
@@ -7417,7 +7417,7 @@ _ZNSt10unique_ptrIN3spv11InstructionESt14default_deleteIS1_EED2Ev.exit: ; preds 
   br label %_ZN3spv6Module14mapInstructionEPNS_11InstructionE.exit
 
 128:                                              ; preds = %122
-  %129 = icmp ugt i64 %121, %124
+  %129 = icmp samesign ugt i64 %121, %124
   br i1 %129, label %130, label %_ZN3spv6Module14mapInstructionEPNS_11InstructionE.exit
 
 130:                                              ; preds = %128
@@ -7775,7 +7775,7 @@ _ZNSt10unique_ptrIN3spv11InstructionESt14default_deleteIS1_EED2Ev.exit: ; preds 
 154:                                              ; preds = %_ZNSt10unique_ptrIN3spv11InstructionESt14default_deleteIS1_EED2Ev.exit
   %155 = add i32 %144, 16
   %156 = zext i32 %155 to i64
-  %157 = icmp ult i64 %153, %156
+  %157 = icmp samesign ult i64 %153, %156
   br i1 %157, label %158, label %160
 
 158:                                              ; preds = %154
@@ -7785,7 +7785,7 @@ _ZNSt10unique_ptrIN3spv11InstructionESt14default_deleteIS1_EED2Ev.exit: ; preds 
   br label %_ZN3spv6Module14mapInstructionEPNS_11InstructionE.exit
 
 160:                                              ; preds = %154
-  %161 = icmp ugt i64 %153, %156
+  %161 = icmp samesign ugt i64 %153, %156
   br i1 %161, label %162, label %_ZN3spv6Module14mapInstructionEPNS_11InstructionE.exit
 
 162:                                              ; preds = %160
@@ -8026,7 +8026,7 @@ _ZNSt10unique_ptrIN3spv11InstructionESt14default_deleteIS1_EED2Ev.exit: ; preds 
 116:                                              ; preds = %_ZNSt10unique_ptrIN3spv11InstructionESt14default_deleteIS1_EED2Ev.exit
   %117 = add i32 %106, 16
   %118 = zext i32 %117 to i64
-  %119 = icmp ult i64 %115, %118
+  %119 = icmp samesign ult i64 %115, %118
   br i1 %119, label %120, label %122
 
 120:                                              ; preds = %116
@@ -8036,7 +8036,7 @@ _ZNSt10unique_ptrIN3spv11InstructionESt14default_deleteIS1_EED2Ev.exit: ; preds 
   br label %_ZN3spv6Module14mapInstructionEPNS_11InstructionE.exit
 
 122:                                              ; preds = %116
-  %123 = icmp ugt i64 %115, %118
+  %123 = icmp samesign ugt i64 %115, %118
   br i1 %123, label %124, label %_ZN3spv6Module14mapInstructionEPNS_11InstructionE.exit
 
 124:                                              ; preds = %122
@@ -8151,7 +8151,7 @@ _ZNSt10unique_ptrIN3spv11InstructionESt14default_deleteIS1_EED2Ev.exit: ; preds 
 37:                                               ; preds = %_ZNSt10unique_ptrIN3spv11InstructionESt14default_deleteIS1_EED2Ev.exit
   %38 = add i32 %27, 16
   %39 = zext i32 %38 to i64
-  %40 = icmp ult i64 %36, %39
+  %40 = icmp samesign ult i64 %36, %39
   br i1 %40, label %41, label %43
 
 41:                                               ; preds = %37
@@ -8161,7 +8161,7 @@ _ZNSt10unique_ptrIN3spv11InstructionESt14default_deleteIS1_EED2Ev.exit: ; preds 
   br label %_ZN3spv6Module14mapInstructionEPNS_11InstructionE.exit
 
 43:                                               ; preds = %37
-  %44 = icmp ugt i64 %36, %39
+  %44 = icmp samesign ugt i64 %36, %39
   br i1 %44, label %45, label %_ZN3spv6Module14mapInstructionEPNS_11InstructionE.exit
 
 45:                                               ; preds = %43
@@ -8525,7 +8525,7 @@ _ZNSt10unique_ptrIN3spv11InstructionESt14default_deleteIS1_EED2Ev.exit: ; preds 
 175:                                              ; preds = %_ZNSt10unique_ptrIN3spv11InstructionESt14default_deleteIS1_EED2Ev.exit
   %176 = add i32 %165, 16
   %177 = zext i32 %176 to i64
-  %178 = icmp ult i64 %174, %177
+  %178 = icmp samesign ult i64 %174, %177
   br i1 %178, label %179, label %181
 
 179:                                              ; preds = %175
@@ -8535,7 +8535,7 @@ _ZNSt10unique_ptrIN3spv11InstructionESt14default_deleteIS1_EED2Ev.exit: ; preds 
   br label %_ZN3spv6Module14mapInstructionEPNS_11InstructionE.exit
 
 181:                                              ; preds = %175
-  %182 = icmp ugt i64 %174, %177
+  %182 = icmp samesign ugt i64 %174, %177
   br i1 %182, label %183, label %_ZN3spv6Module14mapInstructionEPNS_11InstructionE.exit
 
 183:                                              ; preds = %181
@@ -8744,7 +8744,7 @@ _ZNSt10unique_ptrIN3spv11InstructionESt14default_deleteIS1_EED2Ev.exit: ; preds 
 90:                                               ; preds = %_ZNSt10unique_ptrIN3spv11InstructionESt14default_deleteIS1_EED2Ev.exit
   %91 = add i32 %80, 16
   %92 = zext i32 %91 to i64
-  %93 = icmp ult i64 %89, %92
+  %93 = icmp samesign ult i64 %89, %92
   br i1 %93, label %94, label %96
 
 94:                                               ; preds = %90
@@ -8754,7 +8754,7 @@ _ZNSt10unique_ptrIN3spv11InstructionESt14default_deleteIS1_EED2Ev.exit: ; preds 
   br label %_ZN3spv6Module14mapInstructionEPNS_11InstructionE.exit
 
 96:                                               ; preds = %90
-  %97 = icmp ugt i64 %89, %92
+  %97 = icmp samesign ugt i64 %89, %92
   br i1 %97, label %98, label %_ZN3spv6Module14mapInstructionEPNS_11InstructionE.exit
 
 98:                                               ; preds = %96
@@ -9074,7 +9074,7 @@ _ZNSt10unique_ptrIN3spv11InstructionESt14default_deleteIS1_EED2Ev.exit: ; preds 
 146:                                              ; preds = %_ZNSt10unique_ptrIN3spv11InstructionESt14default_deleteIS1_EED2Ev.exit
   %147 = add i32 %136, 16
   %148 = zext i32 %147 to i64
-  %149 = icmp ult i64 %145, %148
+  %149 = icmp samesign ult i64 %145, %148
   br i1 %149, label %150, label %152
 
 150:                                              ; preds = %146
@@ -9084,7 +9084,7 @@ _ZNSt10unique_ptrIN3spv11InstructionESt14default_deleteIS1_EED2Ev.exit: ; preds 
   br label %_ZN3spv6Module14mapInstructionEPNS_11InstructionE.exit
 
 152:                                              ; preds = %146
-  %153 = icmp ugt i64 %145, %148
+  %153 = icmp samesign ugt i64 %145, %148
   br i1 %153, label %154, label %_ZN3spv6Module14mapInstructionEPNS_11InstructionE.exit
 
 154:                                              ; preds = %152
@@ -10021,7 +10021,7 @@ _ZNSt10unique_ptrIN3spv11InstructionESt14default_deleteIS1_EED2Ev.exit: ; preds 
 103:                                              ; preds = %_ZNSt10unique_ptrIN3spv11InstructionESt14default_deleteIS1_EED2Ev.exit
   %104 = add i32 %93, 16
   %105 = zext i32 %104 to i64
-  %106 = icmp ult i64 %102, %105
+  %106 = icmp samesign ult i64 %102, %105
   br i1 %106, label %107, label %109
 
 107:                                              ; preds = %103
@@ -10031,7 +10031,7 @@ _ZNSt10unique_ptrIN3spv11InstructionESt14default_deleteIS1_EED2Ev.exit: ; preds 
   br label %_ZN3spv6Module14mapInstructionEPNS_11InstructionE.exit
 
 109:                                              ; preds = %103
-  %110 = icmp ugt i64 %102, %105
+  %110 = icmp samesign ugt i64 %102, %105
   br i1 %110, label %111, label %_ZN3spv6Module14mapInstructionEPNS_11InstructionE.exit
 
 111:                                              ; preds = %109
@@ -10160,7 +10160,7 @@ _ZNSt10unique_ptrIN3spv11InstructionESt14default_deleteIS1_EED2Ev.exit: ; preds 
 46:                                               ; preds = %_ZNSt10unique_ptrIN3spv11InstructionESt14default_deleteIS1_EED2Ev.exit
   %47 = add i32 %36, 16
   %48 = zext i32 %47 to i64
-  %49 = icmp ult i64 %45, %48
+  %49 = icmp samesign ult i64 %45, %48
   br i1 %49, label %50, label %52
 
 50:                                               ; preds = %46
@@ -10170,7 +10170,7 @@ _ZNSt10unique_ptrIN3spv11InstructionESt14default_deleteIS1_EED2Ev.exit: ; preds 
   br label %_ZN3spv6Module14mapInstructionEPNS_11InstructionE.exit
 
 52:                                               ; preds = %46
-  %53 = icmp ugt i64 %45, %48
+  %53 = icmp samesign ugt i64 %45, %48
   br i1 %53, label %54, label %_ZN3spv6Module14mapInstructionEPNS_11InstructionE.exit
 
 54:                                               ; preds = %52
@@ -10318,7 +10318,7 @@ _ZNSt10unique_ptrIN3spv11InstructionESt14default_deleteIS1_EED2Ev.exit: ; preds 
 55:                                               ; preds = %_ZNSt10unique_ptrIN3spv11InstructionESt14default_deleteIS1_EED2Ev.exit
   %56 = add i32 %45, 16
   %57 = zext i32 %56 to i64
-  %58 = icmp ult i64 %54, %57
+  %58 = icmp samesign ult i64 %54, %57
   br i1 %58, label %59, label %61
 
 59:                                               ; preds = %55
@@ -10328,7 +10328,7 @@ _ZNSt10unique_ptrIN3spv11InstructionESt14default_deleteIS1_EED2Ev.exit: ; preds 
   br label %_ZN3spv6Module14mapInstructionEPNS_11InstructionE.exit
 
 61:                                               ; preds = %55
-  %62 = icmp ugt i64 %54, %57
+  %62 = icmp samesign ugt i64 %54, %57
   br i1 %62, label %63, label %_ZN3spv6Module14mapInstructionEPNS_11InstructionE.exit
 
 63:                                               ; preds = %61
@@ -10598,7 +10598,7 @@ _ZNSt10unique_ptrIN3spv11InstructionESt14default_deleteIS1_EED2Ev.exit: ; preds 
 122:                                              ; preds = %_ZNSt10unique_ptrIN3spv11InstructionESt14default_deleteIS1_EED2Ev.exit
   %123 = add i32 %112, 16
   %124 = zext i32 %123 to i64
-  %125 = icmp ult i64 %121, %124
+  %125 = icmp samesign ult i64 %121, %124
   br i1 %125, label %126, label %128
 
 126:                                              ; preds = %122
@@ -10608,7 +10608,7 @@ _ZNSt10unique_ptrIN3spv11InstructionESt14default_deleteIS1_EED2Ev.exit: ; preds 
   br label %_ZN3spv6Module14mapInstructionEPNS_11InstructionE.exit
 
 128:                                              ; preds = %122
-  %129 = icmp ugt i64 %121, %124
+  %129 = icmp samesign ugt i64 %121, %124
   br i1 %129, label %130, label %_ZN3spv6Module14mapInstructionEPNS_11InstructionE.exit
 
 130:                                              ; preds = %128
@@ -10845,7 +10845,7 @@ _ZNSt6vectorIPN3spv11InstructionESaIS2_EE9push_backERKS2_.exit: ; preds = %75, %
 111:                                              ; preds = %_ZNSt6vectorIPN3spv11InstructionESaIS2_EE9push_backERKS2_.exit
   %112 = add i32 %101, 16
   %113 = zext i32 %112 to i64
-  %114 = icmp ult i64 %110, %113
+  %114 = icmp samesign ult i64 %110, %113
   br i1 %114, label %115, label %117
 
 115:                                              ; preds = %111
@@ -10855,7 +10855,7 @@ _ZNSt6vectorIPN3spv11InstructionESaIS2_EE9push_backERKS2_.exit: ; preds = %75, %
   br label %_ZN3spv6Module14mapInstructionEPNS_11InstructionE.exit
 
 117:                                              ; preds = %111
-  %118 = icmp ugt i64 %110, %113
+  %118 = icmp samesign ugt i64 %110, %113
   br i1 %118, label %119, label %_ZN3spv6Module14mapInstructionEPNS_11InstructionE.exit
 
 119:                                              ; preds = %117
@@ -11071,7 +11071,7 @@ _ZNSt10unique_ptrIN3spv11InstructionESt14default_deleteIS1_EED2Ev.exit: ; preds 
 100:                                              ; preds = %_ZNSt10unique_ptrIN3spv11InstructionESt14default_deleteIS1_EED2Ev.exit
   %101 = add i32 %90, 16
   %102 = zext i32 %101 to i64
-  %103 = icmp ult i64 %99, %102
+  %103 = icmp samesign ult i64 %99, %102
   br i1 %103, label %104, label %106
 
 104:                                              ; preds = %100
@@ -11081,7 +11081,7 @@ _ZNSt10unique_ptrIN3spv11InstructionESt14default_deleteIS1_EED2Ev.exit: ; preds 
   br label %_ZN3spv6Module14mapInstructionEPNS_11InstructionE.exit
 
 106:                                              ; preds = %100
-  %107 = icmp ugt i64 %99, %102
+  %107 = icmp samesign ugt i64 %99, %102
   br i1 %107, label %108, label %_ZN3spv6Module14mapInstructionEPNS_11InstructionE.exit
 
 108:                                              ; preds = %106
@@ -11315,7 +11315,7 @@ _ZNSt10unique_ptrIN3spv11InstructionESt14default_deleteIS1_EED2Ev.exit: ; preds 
 105:                                              ; preds = %_ZNSt10unique_ptrIN3spv11InstructionESt14default_deleteIS1_EED2Ev.exit
   %106 = add i32 %95, 16
   %107 = zext i32 %106 to i64
-  %108 = icmp ult i64 %104, %107
+  %108 = icmp samesign ult i64 %104, %107
   br i1 %108, label %109, label %111
 
 109:                                              ; preds = %105
@@ -11325,7 +11325,7 @@ _ZNSt10unique_ptrIN3spv11InstructionESt14default_deleteIS1_EED2Ev.exit: ; preds 
   br label %_ZN3spv6Module14mapInstructionEPNS_11InstructionE.exit
 
 111:                                              ; preds = %105
-  %112 = icmp ugt i64 %104, %107
+  %112 = icmp samesign ugt i64 %104, %107
   br i1 %112, label %113, label %_ZN3spv6Module14mapInstructionEPNS_11InstructionE.exit
 
 113:                                              ; preds = %111
@@ -11457,7 +11457,7 @@ _ZNSt10unique_ptrIN3spv11InstructionESt14default_deleteIS1_EED2Ev.exit: ; preds 
 57:                                               ; preds = %_ZNSt10unique_ptrIN3spv11InstructionESt14default_deleteIS1_EED2Ev.exit
   %58 = add i32 %47, 16
   %59 = zext i32 %58 to i64
-  %60 = icmp ult i64 %56, %59
+  %60 = icmp samesign ult i64 %56, %59
   br i1 %60, label %61, label %63
 
 61:                                               ; preds = %57
@@ -11467,7 +11467,7 @@ _ZNSt10unique_ptrIN3spv11InstructionESt14default_deleteIS1_EED2Ev.exit: ; preds 
   br label %_ZN3spv6Module14mapInstructionEPNS_11InstructionE.exit
 
 63:                                               ; preds = %57
-  %64 = icmp ugt i64 %56, %59
+  %64 = icmp samesign ugt i64 %56, %59
   br i1 %64, label %65, label %_ZN3spv6Module14mapInstructionEPNS_11InstructionE.exit
 
 65:                                               ; preds = %63
@@ -11647,7 +11647,7 @@ _ZNSt10unique_ptrIN3spv11InstructionESt14default_deleteIS1_EED2Ev.exit: ; preds 
 72:                                               ; preds = %_ZNSt10unique_ptrIN3spv11InstructionESt14default_deleteIS1_EED2Ev.exit
   %73 = add i32 %62, 16
   %74 = zext i32 %73 to i64
-  %75 = icmp ult i64 %71, %74
+  %75 = icmp samesign ult i64 %71, %74
   br i1 %75, label %76, label %78
 
 76:                                               ; preds = %72
@@ -11657,7 +11657,7 @@ _ZNSt10unique_ptrIN3spv11InstructionESt14default_deleteIS1_EED2Ev.exit: ; preds 
   br label %_ZN3spv6Module14mapInstructionEPNS_11InstructionE.exit
 
 78:                                               ; preds = %72
-  %79 = icmp ugt i64 %71, %74
+  %79 = icmp samesign ugt i64 %71, %74
   br i1 %79, label %80, label %_ZN3spv6Module14mapInstructionEPNS_11InstructionE.exit
 
 80:                                               ; preds = %78
@@ -11831,7 +11831,7 @@ _ZNSt10unique_ptrIN3spv11InstructionESt14default_deleteIS1_EED2Ev.exit: ; preds 
 84:                                               ; preds = %_ZNSt10unique_ptrIN3spv11InstructionESt14default_deleteIS1_EED2Ev.exit
   %85 = add i32 %74, 16
   %86 = zext i32 %85 to i64
-  %87 = icmp ult i64 %83, %86
+  %87 = icmp samesign ult i64 %83, %86
   br i1 %87, label %88, label %90
 
 88:                                               ; preds = %84
@@ -11841,7 +11841,7 @@ _ZNSt10unique_ptrIN3spv11InstructionESt14default_deleteIS1_EED2Ev.exit: ; preds 
   br label %_ZN3spv6Module14mapInstructionEPNS_11InstructionE.exit
 
 90:                                               ; preds = %84
-  %91 = icmp ugt i64 %83, %86
+  %91 = icmp samesign ugt i64 %83, %86
   br i1 %91, label %92, label %_ZN3spv6Module14mapInstructionEPNS_11InstructionE.exit
 
 92:                                               ; preds = %90
@@ -11953,7 +11953,7 @@ _ZNSt10unique_ptrIN3spv11InstructionESt14default_deleteIS1_EED2Ev.exit: ; preds 
 46:                                               ; preds = %_ZNSt10unique_ptrIN3spv11InstructionESt14default_deleteIS1_EED2Ev.exit
   %47 = add i32 %36, 16
   %48 = zext i32 %47 to i64
-  %49 = icmp ult i64 %45, %48
+  %49 = icmp samesign ult i64 %45, %48
   br i1 %49, label %50, label %52
 
 50:                                               ; preds = %46
@@ -11963,7 +11963,7 @@ _ZNSt10unique_ptrIN3spv11InstructionESt14default_deleteIS1_EED2Ev.exit: ; preds 
   br label %_ZN3spv6Module14mapInstructionEPNS_11InstructionE.exit
 
 52:                                               ; preds = %46
-  %53 = icmp ugt i64 %45, %48
+  %53 = icmp samesign ugt i64 %45, %48
   br i1 %53, label %54, label %_ZN3spv6Module14mapInstructionEPNS_11InstructionE.exit
 
 54:                                               ; preds = %52
@@ -12204,7 +12204,7 @@ _ZNSt6vectorISt10unique_ptrIN3spv11InstructionESt14default_deleteIS2_EESaIS5_EE9
 96:                                               ; preds = %82
   %97 = add i32 %81, 16
   %98 = zext i32 %97 to i64
-  %99 = icmp ult i64 %95, %98
+  %99 = icmp samesign ult i64 %95, %98
   br i1 %99, label %100, label %102
 
 100:                                              ; preds = %96
@@ -12214,7 +12214,7 @@ _ZNSt6vectorISt10unique_ptrIN3spv11InstructionESt14default_deleteIS2_EESaIS5_EE9
   br label %_ZN3spv6Module14mapInstructionEPNS_11InstructionE.exit.i
 
 102:                                              ; preds = %96
-  %103 = icmp ugt i64 %95, %98
+  %103 = icmp samesign ugt i64 %95, %98
   br i1 %103, label %104, label %_ZN3spv6Module14mapInstructionEPNS_11InstructionE.exit.i
 
 104:                                              ; preds = %102
@@ -12393,7 +12393,7 @@ _ZNSt6vectorISt10unique_ptrIN3spv11InstructionESt14default_deleteIS2_EESaIS5_EE9
 189:                                              ; preds = %175
   %190 = add i32 %174, 16
   %191 = zext i32 %190 to i64
-  %192 = icmp ult i64 %188, %191
+  %192 = icmp samesign ult i64 %188, %191
   br i1 %192, label %193, label %195
 
 193:                                              ; preds = %189
@@ -12403,7 +12403,7 @@ _ZNSt6vectorISt10unique_ptrIN3spv11InstructionESt14default_deleteIS2_EESaIS5_EE9
   br label %_ZN3spv6Module14mapInstructionEPNS_11InstructionE.exit.i17
 
 195:                                              ; preds = %189
-  %196 = icmp ugt i64 %188, %191
+  %196 = icmp samesign ugt i64 %188, %191
   br i1 %196, label %197, label %_ZN3spv6Module14mapInstructionEPNS_11InstructionE.exit.i17
 
 197:                                              ; preds = %195
@@ -12545,7 +12545,7 @@ _ZNSt6vectorISt10unique_ptrIN3spv11InstructionESt14default_deleteIS2_EESaIS5_EE9
 268:                                              ; preds = %254
   %269 = add i32 %253, 16
   %270 = zext i32 %269 to i64
-  %271 = icmp ult i64 %267, %270
+  %271 = icmp samesign ult i64 %267, %270
   br i1 %271, label %272, label %274
 
 272:                                              ; preds = %268
@@ -12555,7 +12555,7 @@ _ZNSt6vectorISt10unique_ptrIN3spv11InstructionESt14default_deleteIS2_EESaIS5_EE9
   br label %_ZN3spv6Module14mapInstructionEPNS_11InstructionE.exit.i36
 
 274:                                              ; preds = %268
-  %275 = icmp ugt i64 %267, %270
+  %275 = icmp samesign ugt i64 %267, %270
   br i1 %275, label %276, label %_ZN3spv6Module14mapInstructionEPNS_11InstructionE.exit.i36
 
 276:                                              ; preds = %274
@@ -12648,7 +12648,7 @@ _ZNSt6vectorISt10unique_ptrIN3spv11InstructionESt14default_deleteIS2_EESaIS5_EE9
 315:                                              ; preds = %301
   %316 = add i32 %300, 16
   %317 = zext i32 %316 to i64
-  %318 = icmp ult i64 %314, %317
+  %318 = icmp samesign ult i64 %314, %317
   br i1 %318, label %319, label %321
 
 319:                                              ; preds = %315
@@ -12658,7 +12658,7 @@ _ZNSt6vectorISt10unique_ptrIN3spv11InstructionESt14default_deleteIS2_EESaIS5_EE9
   br label %_ZN3spv6Module14mapInstructionEPNS_11InstructionE.exit.i50
 
 321:                                              ; preds = %315
-  %322 = icmp ugt i64 %314, %317
+  %322 = icmp samesign ugt i64 %314, %317
   br i1 %322, label %323, label %_ZN3spv6Module14mapInstructionEPNS_11InstructionE.exit.i50
 
 323:                                              ; preds = %321
@@ -12911,7 +12911,7 @@ _ZNSt10unique_ptrIN3spv11InstructionESt14default_deleteIS1_EED2Ev.exit: ; preds 
 78:                                               ; preds = %_ZNSt10unique_ptrIN3spv11InstructionESt14default_deleteIS1_EED2Ev.exit
   %79 = add i32 %68, 16
   %80 = zext i32 %79 to i64
-  %81 = icmp ult i64 %77, %80
+  %81 = icmp samesign ult i64 %77, %80
   br i1 %81, label %82, label %84
 
 82:                                               ; preds = %78
@@ -12921,7 +12921,7 @@ _ZNSt10unique_ptrIN3spv11InstructionESt14default_deleteIS1_EED2Ev.exit: ; preds 
   br label %_ZN3spv6Module14mapInstructionEPNS_11InstructionE.exit
 
 84:                                               ; preds = %78
-  %85 = icmp ugt i64 %77, %80
+  %85 = icmp samesign ugt i64 %77, %80
   br i1 %85, label %86, label %_ZN3spv6Module14mapInstructionEPNS_11InstructionE.exit
 
 86:                                               ; preds = %84
@@ -13126,7 +13126,7 @@ _ZNSt10unique_ptrIN3spv11InstructionESt14default_deleteIS1_EED2Ev.exit: ; preds 
 78:                                               ; preds = %_ZNSt10unique_ptrIN3spv11InstructionESt14default_deleteIS1_EED2Ev.exit
   %79 = add i32 %68, 16
   %80 = zext i32 %79 to i64
-  %81 = icmp ult i64 %77, %80
+  %81 = icmp samesign ult i64 %77, %80
   br i1 %81, label %82, label %84
 
 82:                                               ; preds = %78
@@ -13136,7 +13136,7 @@ _ZNSt10unique_ptrIN3spv11InstructionESt14default_deleteIS1_EED2Ev.exit: ; preds 
   br label %_ZN3spv6Module14mapInstructionEPNS_11InstructionE.exit
 
 84:                                               ; preds = %78
-  %85 = icmp ugt i64 %77, %80
+  %85 = icmp samesign ugt i64 %77, %80
   br i1 %85, label %86, label %_ZN3spv6Module14mapInstructionEPNS_11InstructionE.exit
 
 86:                                               ; preds = %84
@@ -13339,7 +13339,7 @@ _ZNSt10unique_ptrIN3spv11InstructionESt14default_deleteIS1_EED2Ev.exit: ; preds 
 76:                                               ; preds = %_ZNSt10unique_ptrIN3spv11InstructionESt14default_deleteIS1_EED2Ev.exit
   %77 = add i32 %66, 16
   %78 = zext i32 %77 to i64
-  %79 = icmp ult i64 %75, %78
+  %79 = icmp samesign ult i64 %75, %78
   br i1 %79, label %80, label %82
 
 80:                                               ; preds = %76
@@ -13349,7 +13349,7 @@ _ZNSt10unique_ptrIN3spv11InstructionESt14default_deleteIS1_EED2Ev.exit: ; preds 
   br label %_ZN3spv6Module14mapInstructionEPNS_11InstructionE.exit
 
 82:                                               ; preds = %76
-  %83 = icmp ugt i64 %75, %78
+  %83 = icmp samesign ugt i64 %75, %78
   br i1 %83, label %84, label %_ZN3spv6Module14mapInstructionEPNS_11InstructionE.exit
 
 84:                                               ; preds = %82
@@ -14244,7 +14244,7 @@ _ZNSt6vectorIPN3spv11InstructionESaIS2_EE9push_backERKS2_.exit: ; preds = %48, %
 84:                                               ; preds = %_ZNSt6vectorIPN3spv11InstructionESaIS2_EE9push_backERKS2_.exit
   %85 = add i32 %74, 16
   %86 = zext i32 %85 to i64
-  %87 = icmp ult i64 %83, %86
+  %87 = icmp samesign ult i64 %83, %86
   br i1 %87, label %88, label %90
 
 88:                                               ; preds = %84
@@ -14254,7 +14254,7 @@ _ZNSt6vectorIPN3spv11InstructionESaIS2_EE9push_backERKS2_.exit: ; preds = %48, %
   br label %_ZN3spv6Module14mapInstructionEPNS_11InstructionE.exit
 
 90:                                               ; preds = %84
-  %91 = icmp ugt i64 %83, %86
+  %91 = icmp samesign ugt i64 %83, %86
   br i1 %91, label %92, label %_ZN3spv6Module14mapInstructionEPNS_11InstructionE.exit
 
 92:                                               ; preds = %90
@@ -14500,7 +14500,7 @@ _ZNSt6vectorIPN3spv11InstructionESaIS2_EE9push_backERKS2_.exit: ; preds = %79, %
 115:                                              ; preds = %_ZNSt6vectorIPN3spv11InstructionESaIS2_EE9push_backERKS2_.exit
   %116 = add i32 %105, 16
   %117 = zext i32 %116 to i64
-  %118 = icmp ult i64 %114, %117
+  %118 = icmp samesign ult i64 %114, %117
   br i1 %118, label %119, label %121
 
 119:                                              ; preds = %115
@@ -14510,7 +14510,7 @@ _ZNSt6vectorIPN3spv11InstructionESaIS2_EE9push_backERKS2_.exit: ; preds = %79, %
   br label %_ZN3spv6Module14mapInstructionEPNS_11InstructionE.exit
 
 121:                                              ; preds = %115
-  %122 = icmp ugt i64 %114, %117
+  %122 = icmp samesign ugt i64 %114, %117
   br i1 %122, label %123, label %_ZN3spv6Module14mapInstructionEPNS_11InstructionE.exit
 
 123:                                              ; preds = %121
@@ -14776,7 +14776,7 @@ _ZNSt6vectorIPN3spv11InstructionESaIS2_EE9push_backERKS2_.exit: ; preds = %91, %
 127:                                              ; preds = %_ZNSt6vectorIPN3spv11InstructionESaIS2_EE9push_backERKS2_.exit
   %128 = add i32 %117, 16
   %129 = zext i32 %128 to i64
-  %130 = icmp ult i64 %126, %129
+  %130 = icmp samesign ult i64 %126, %129
   br i1 %130, label %131, label %133
 
 131:                                              ; preds = %127
@@ -14786,7 +14786,7 @@ _ZNSt6vectorIPN3spv11InstructionESaIS2_EE9push_backERKS2_.exit: ; preds = %91, %
   br label %_ZN3spv6Module14mapInstructionEPNS_11InstructionE.exit
 
 133:                                              ; preds = %127
-  %134 = icmp ugt i64 %126, %129
+  %134 = icmp samesign ugt i64 %126, %129
   br i1 %134, label %135, label %_ZN3spv6Module14mapInstructionEPNS_11InstructionE.exit
 
 135:                                              ; preds = %133
@@ -15034,7 +15034,7 @@ _ZNSt6vectorIPN3spv11InstructionESaIS2_EE9push_backERKS2_.exit: ; preds = %80, %
 116:                                              ; preds = %_ZNSt6vectorIPN3spv11InstructionESaIS2_EE9push_backERKS2_.exit
   %117 = add i32 %106, 16
   %118 = zext i32 %117 to i64
-  %119 = icmp ult i64 %115, %118
+  %119 = icmp samesign ult i64 %115, %118
   br i1 %119, label %120, label %122
 
 120:                                              ; preds = %116
@@ -15044,7 +15044,7 @@ _ZNSt6vectorIPN3spv11InstructionESaIS2_EE9push_backERKS2_.exit: ; preds = %80, %
   br label %_ZN3spv6Module14mapInstructionEPNS_11InstructionE.exit
 
 122:                                              ; preds = %116
-  %123 = icmp ugt i64 %115, %118
+  %123 = icmp samesign ugt i64 %115, %118
   br i1 %123, label %124, label %_ZN3spv6Module14mapInstructionEPNS_11InstructionE.exit
 
 124:                                              ; preds = %122
@@ -15312,7 +15312,7 @@ _ZNSt6vectorIPN3spv11InstructionESaIS2_EE9push_backERKS2_.exit: ; preds = %92, %
 128:                                              ; preds = %_ZNSt6vectorIPN3spv11InstructionESaIS2_EE9push_backERKS2_.exit
   %129 = add i32 %118, 16
   %130 = zext i32 %129 to i64
-  %131 = icmp ult i64 %127, %130
+  %131 = icmp samesign ult i64 %127, %130
   br i1 %131, label %132, label %134
 
 132:                                              ; preds = %128
@@ -15322,7 +15322,7 @@ _ZNSt6vectorIPN3spv11InstructionESaIS2_EE9push_backERKS2_.exit: ; preds = %92, %
   br label %_ZN3spv6Module14mapInstructionEPNS_11InstructionE.exit
 
 134:                                              ; preds = %128
-  %135 = icmp ugt i64 %127, %130
+  %135 = icmp samesign ugt i64 %127, %130
   br i1 %135, label %136, label %_ZN3spv6Module14mapInstructionEPNS_11InstructionE.exit
 
 136:                                              ; preds = %134
@@ -15576,7 +15576,7 @@ _ZNSt6vectorIPN3spv11InstructionESaIS2_EE9push_backERKS2_.exit: ; preds = %82, %
 118:                                              ; preds = %_ZNSt6vectorIPN3spv11InstructionESaIS2_EE9push_backERKS2_.exit
   %119 = add i32 %108, 16
   %120 = zext i32 %119 to i64
-  %121 = icmp ult i64 %117, %120
+  %121 = icmp samesign ult i64 %117, %120
   br i1 %121, label %122, label %124
 
 122:                                              ; preds = %118
@@ -15586,7 +15586,7 @@ _ZNSt6vectorIPN3spv11InstructionESaIS2_EE9push_backERKS2_.exit: ; preds = %82, %
   br label %_ZN3spv6Module14mapInstructionEPNS_11InstructionE.exit
 
 124:                                              ; preds = %118
-  %125 = icmp ugt i64 %117, %120
+  %125 = icmp samesign ugt i64 %117, %120
   br i1 %125, label %126, label %_ZN3spv6Module14mapInstructionEPNS_11InstructionE.exit
 
 126:                                              ; preds = %124
@@ -16503,7 +16503,7 @@ _ZNSt6vectorIPN3spv11InstructionESaIS2_EE9push_backERKS2_.exit: ; preds = %_ZNSt
 234:                                              ; preds = %_ZNSt6vectorIPN3spv11InstructionESaIS2_EE9push_backERKS2_.exit
   %235 = add i32 %225, 16
   %236 = zext i32 %235 to i64
-  %237 = icmp ult i64 %233, %236
+  %237 = icmp samesign ult i64 %233, %236
   br i1 %237, label %238, label %240
 
 238:                                              ; preds = %234
@@ -16513,7 +16513,7 @@ _ZNSt6vectorIPN3spv11InstructionESaIS2_EE9push_backERKS2_.exit: ; preds = %_ZNSt
   br label %_ZN3spv6Module14mapInstructionEPNS_11InstructionE.exit
 
 240:                                              ; preds = %234
-  %241 = icmp ugt i64 %233, %236
+  %241 = icmp samesign ugt i64 %233, %236
   br i1 %241, label %242, label %_ZN3spv6Module14mapInstructionEPNS_11InstructionE.exit
 
 242:                                              ; preds = %240
@@ -19071,7 +19071,7 @@ _ZN3spv11Instruction15reserveOperandsEm.exit:     ; preds = %45, %50
 61:                                               ; preds = %_ZN3spv11Instruction15reserveOperandsEm.exit
   %62 = add i32 %51, 16
   %63 = zext i32 %62 to i64
-  %64 = icmp ult i64 %60, %63
+  %64 = icmp samesign ult i64 %60, %63
   br i1 %64, label %65, label %67
 
 65:                                               ; preds = %61
@@ -19081,7 +19081,7 @@ _ZN3spv11Instruction15reserveOperandsEm.exit:     ; preds = %45, %50
   br label %_ZN3spv6Module14mapInstructionEPNS_11InstructionE.exit
 
 67:                                               ; preds = %61
-  %68 = icmp ugt i64 %60, %63
+  %68 = icmp samesign ugt i64 %60, %63
   br i1 %68, label %69, label %_ZN3spv6Module14mapInstructionEPNS_11InstructionE.exit
 
 69:                                               ; preds = %67
@@ -19228,7 +19228,7 @@ _ZN3spv6Module11addFunctionEPNS_8FunctionE.exit:  ; preds = %79, %_ZNSt6vectorIP
 143:                                              ; preds = %122
   %144 = add i32 %125, 16
   %145 = zext i32 %144 to i64
-  %146 = icmp ult i64 %142, %145
+  %146 = icmp samesign ult i64 %142, %145
   br i1 %146, label %147, label %149
 
 147:                                              ; preds = %143
@@ -19238,7 +19238,7 @@ _ZN3spv6Module11addFunctionEPNS_8FunctionE.exit:  ; preds = %79, %_ZNSt6vectorIP
   br label %_ZN3spv6Module14mapInstructionEPNS_11InstructionE.exit23
 
 149:                                              ; preds = %143
-  %150 = icmp ugt i64 %142, %145
+  %150 = icmp samesign ugt i64 %142, %145
   br i1 %150, label %151, label %_ZN3spv6Module14mapInstructionEPNS_11InstructionE.exit23
 
 151:                                              ; preds = %149
@@ -19415,7 +19415,7 @@ _ZNSt10unique_ptrIN3spv11InstructionESt14default_deleteIS1_EED2Ev.exit: ; preds 
 41:                                               ; preds = %_ZNSt10unique_ptrIN3spv11InstructionESt14default_deleteIS1_EED2Ev.exit
   %42 = add i32 %31, 16
   %43 = zext i32 %42 to i64
-  %44 = icmp ult i64 %40, %43
+  %44 = icmp samesign ult i64 %40, %43
   br i1 %44, label %45, label %47
 
 45:                                               ; preds = %41
@@ -19425,7 +19425,7 @@ _ZNSt10unique_ptrIN3spv11InstructionESt14default_deleteIS1_EED2Ev.exit: ; preds 
   br label %_ZN3spv6Module14mapInstructionEPNS_11InstructionE.exit
 
 47:                                               ; preds = %41
-  %48 = icmp ugt i64 %40, %43
+  %48 = icmp samesign ugt i64 %40, %43
   br i1 %48, label %49, label %_ZN3spv6Module14mapInstructionEPNS_11InstructionE.exit
 
 49:                                               ; preds = %47
@@ -19792,7 +19792,7 @@ _ZNSt10unique_ptrIN3spv11InstructionESt14default_deleteIS1_EED2Ev.exit: ; preds 
 65:                                               ; preds = %_ZNSt10unique_ptrIN3spv11InstructionESt14default_deleteIS1_EED2Ev.exit
   %66 = add i32 %55, 16
   %67 = zext i32 %66 to i64
-  %68 = icmp ult i64 %64, %67
+  %68 = icmp samesign ult i64 %64, %67
   br i1 %68, label %69, label %71
 
 69:                                               ; preds = %65
@@ -19802,7 +19802,7 @@ _ZNSt10unique_ptrIN3spv11InstructionESt14default_deleteIS1_EED2Ev.exit: ; preds 
   br label %_ZN3spv6Module14mapInstructionEPNS_11InstructionE.exit
 
 71:                                               ; preds = %65
-  %72 = icmp ugt i64 %64, %67
+  %72 = icmp samesign ugt i64 %64, %67
   br i1 %72, label %73, label %_ZN3spv6Module14mapInstructionEPNS_11InstructionE.exit
 
 73:                                               ; preds = %71
@@ -19938,7 +19938,7 @@ _ZNSt10unique_ptrIN3spv11InstructionESt14default_deleteIS1_EED2Ev.exit: ; preds 
 65:                                               ; preds = %_ZNSt10unique_ptrIN3spv11InstructionESt14default_deleteIS1_EED2Ev.exit
   %66 = add i32 %55, 16
   %67 = zext i32 %66 to i64
-  %68 = icmp ult i64 %64, %67
+  %68 = icmp samesign ult i64 %64, %67
   br i1 %68, label %69, label %71
 
 69:                                               ; preds = %65
@@ -19948,7 +19948,7 @@ _ZNSt10unique_ptrIN3spv11InstructionESt14default_deleteIS1_EED2Ev.exit: ; preds 
   br label %_ZN3spv6Module14mapInstructionEPNS_11InstructionE.exit
 
 71:                                               ; preds = %65
-  %72 = icmp ugt i64 %64, %67
+  %72 = icmp samesign ugt i64 %64, %67
   br i1 %72, label %73, label %_ZN3spv6Module14mapInstructionEPNS_11InstructionE.exit
 
 73:                                               ; preds = %71
@@ -20817,7 +20817,7 @@ _ZNSt10unique_ptrIN3spv11InstructionESt14default_deleteIS1_EED2Ev.exit.i: ; pred
 57:                                               ; preds = %_ZNSt10unique_ptrIN3spv11InstructionESt14default_deleteIS1_EED2Ev.exit.i
   %58 = add i32 %47, 16
   %59 = zext i32 %58 to i64
-  %60 = icmp ult i64 %56, %59
+  %60 = icmp samesign ult i64 %56, %59
   br i1 %60, label %61, label %63
 
 61:                                               ; preds = %57
@@ -20827,7 +20827,7 @@ _ZNSt10unique_ptrIN3spv11InstructionESt14default_deleteIS1_EED2Ev.exit.i: ; pred
   br label %_ZNSt10unique_ptrIN3spv11InstructionESt14default_deleteIS1_EED2Ev.exit
 
 63:                                               ; preds = %57
-  %64 = icmp ugt i64 %56, %59
+  %64 = icmp samesign ugt i64 %56, %59
   br i1 %64, label %65, label %_ZNSt10unique_ptrIN3spv11InstructionESt14default_deleteIS1_EED2Ev.exit
 
 65:                                               ; preds = %63
@@ -20913,7 +20913,7 @@ _ZNSt10unique_ptrIN3spv11InstructionESt14default_deleteIS1_EED2Ev.exit33: ; pred
 104:                                              ; preds = %_ZNSt10unique_ptrIN3spv11InstructionESt14default_deleteIS1_EED2Ev.exit33
   %105 = add i32 %94, 16
   %106 = zext i32 %105 to i64
-  %107 = icmp ult i64 %103, %106
+  %107 = icmp samesign ult i64 %103, %106
   br i1 %107, label %108, label %110
 
 108:                                              ; preds = %104
@@ -20923,7 +20923,7 @@ _ZNSt10unique_ptrIN3spv11InstructionESt14default_deleteIS1_EED2Ev.exit33: ; pred
   br label %_ZN3spv6Module14mapInstructionEPNS_11InstructionE.exit
 
 110:                                              ; preds = %104
-  %111 = icmp ugt i64 %103, %106
+  %111 = icmp samesign ugt i64 %103, %106
   br i1 %111, label %112, label %_ZN3spv6Module14mapInstructionEPNS_11InstructionE.exit
 
 112:                                              ; preds = %110
@@ -21581,7 +21581,7 @@ _ZN3spv11Instruction15reserveOperandsEm.exit:     ; preds = %36, %37
 64:                                               ; preds = %._crit_edge75
   %65 = add i32 %54, 16
   %66 = zext i32 %65 to i64
-  %67 = icmp ult i64 %63, %66
+  %67 = icmp samesign ult i64 %63, %66
   br i1 %67, label %68, label %70
 
 68:                                               ; preds = %64
@@ -21591,7 +21591,7 @@ _ZN3spv11Instruction15reserveOperandsEm.exit:     ; preds = %36, %37
   br label %_ZN3spv6Module14mapInstructionEPNS_11InstructionE.exit
 
 70:                                               ; preds = %64
-  %71 = icmp ugt i64 %63, %66
+  %71 = icmp samesign ugt i64 %63, %66
   br i1 %71, label %72, label %_ZN3spv6Module14mapInstructionEPNS_11InstructionE.exit
 
 72:                                               ; preds = %70

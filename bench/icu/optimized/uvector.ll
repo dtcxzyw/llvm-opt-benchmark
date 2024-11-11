@@ -385,7 +385,7 @@ if.then5.i:                                       ; preds = %if.end3.i
 if.end9.i:                                        ; preds = %if.then5.i
   %mul.i = shl nsw i32 %2, 1
   %spec.select.i = tail call i32 @llvm.smax.i32(i32 %mul.i, i32 %0)
-  %cmp14.i = icmp ugt i32 %spec.select.i, 268435455
+  %cmp14.i = icmp samesign ugt i32 %spec.select.i, 268435455
   br i1 %cmp14.i, label %if.end21.sink.split, label %if.end16.i
 
 if.end16.i:                                       ; preds = %if.end9.i
@@ -490,7 +490,7 @@ if.then8:                                         ; preds = %if.then5
 if.end9:                                          ; preds = %if.then5
   %mul = shl nsw i32 %1, 1
   %spec.select = tail call i32 @llvm.smax.i32(i32 %mul, i32 %minimumCapacity)
-  %cmp14 = icmp ugt i32 %spec.select, 268435455
+  %cmp14 = icmp samesign ugt i32 %spec.select, 268435455
   br i1 %cmp14, label %if.then15, label %if.end16
 
 if.then15:                                        ; preds = %if.end9
@@ -552,7 +552,7 @@ if.then8.i:                                       ; preds = %if.then5.i
 if.end9.i:                                        ; preds = %if.then5.i
   %mul.i = shl nsw i32 %1, 1
   %spec.select.i = tail call i32 @llvm.smax.i32(i32 %mul.i, i32 %newSize)
-  %cmp14.i = icmp ugt i32 %spec.select.i, 268435455
+  %cmp14.i = icmp samesign ugt i32 %spec.select.i, 268435455
   br i1 %cmp14.i, label %if.then15.i, label %if.end16.i
 
 if.then15.i:                                      ; preds = %if.end9.i
@@ -584,7 +584,7 @@ if.end:                                           ; preds = %if.end21.i, %if.end
   br i1 %cmp, label %for.cond.preheader, label %for.cond7.preheader
 
 for.cond7.preheader:                              ; preds = %if.end
-  %cmp8.not.not14 = icmp ugt i32 %4, %newSize
+  %cmp8.not.not14 = icmp samesign ugt i32 %4, %newSize
   br i1 %cmp8.not.not14, label %for.body9.lr.ph, label %if.end12
 
 for.body9.lr.ph:                                  ; preds = %for.cond7.preheader
@@ -620,7 +620,7 @@ if.then.i.i:                                      ; preds = %for.body9
   %arrayidx.i.i = getelementptr inbounds %union.UElement, ptr %8, i64 %idxprom.i.i
   %9 = load ptr, ptr %arrayidx.i.i, align 8
   %sub7.i.i = add nsw i32 %7, -1
-  %cmp48.i.i = icmp ult i32 %i5.0, %sub7.i.i
+  %cmp48.i.i = icmp samesign ult i32 %i5.0, %sub7.i.i
   br i1 %cmp48.i.i, label %for.body.i.i, label %_ZN6icu_757UVector15orphanElementAtEi.exit.i
 
 for.body.i.i:                                     ; preds = %if.then.i.i, %for.body.i.i
@@ -752,7 +752,7 @@ if.then8.i:                                       ; preds = %if.then5.i
 if.end9.i:                                        ; preds = %if.then5.i
   %mul.i = shl nsw i32 %2, 1
   %spec.select.i = tail call i32 @llvm.smax.i32(i32 %mul.i, i32 %add)
-  %cmp14.i = icmp ugt i32 %spec.select.i, 268435455
+  %cmp14.i = icmp samesign ugt i32 %spec.select.i, 268435455
   br i1 %cmp14.i, label %if.then15.i, label %if.end16.i
 
 if.then15.i:                                      ; preds = %if.end9.i
@@ -825,7 +825,7 @@ if.then5.i:                                       ; preds = %if.end3.i
 if.end9.i:                                        ; preds = %if.then5.i
   %mul.i = shl nsw i32 %2, 1
   %spec.select.i = tail call i32 @llvm.smax.i32(i32 %mul.i, i32 %add)
-  %cmp14.i = icmp ugt i32 %spec.select.i, 268435455
+  %cmp14.i = icmp samesign ugt i32 %spec.select.i, 268435455
   br i1 %cmp14.i, label %if.else.sink.split, label %if.end16.i
 
 if.end16.i:                                       ; preds = %if.end9.i
@@ -909,7 +909,7 @@ if.then8.i:                                       ; preds = %if.then5.i
 if.end9.i:                                        ; preds = %if.then5.i
   %mul.i = shl nsw i32 %2, 1
   %spec.select.i = tail call i32 @llvm.smax.i32(i32 %mul.i, i32 %add)
-  %cmp14.i = icmp ugt i32 %spec.select.i, 268435455
+  %cmp14.i = icmp samesign ugt i32 %spec.select.i, 268435455
   br i1 %cmp14.i, label %if.then15.i, label %if.end16.i
 
 if.then15.i:                                      ; preds = %if.end9.i
@@ -1058,7 +1058,7 @@ if.then5.i:                                       ; preds = %if.end3.i
 if.end9.i:                                        ; preds = %if.then5.i
   %mul.i = shl nsw i32 %2, 1
   %spec.select.i = tail call i32 @llvm.smax.i32(i32 %mul.i, i32 %add)
-  %cmp14.i = icmp ugt i32 %spec.select.i, 268435455
+  %cmp14.i = icmp samesign ugt i32 %spec.select.i, 268435455
   br i1 %cmp14.i, label %land.lhs.true17.sink.split, label %if.end16.i
 
 if.end16.i:                                       ; preds = %if.end9.i
@@ -1171,7 +1171,7 @@ if.then8.i:                                       ; preds = %if.then5.i
 if.end9.i:                                        ; preds = %if.then5.i
   %mul.i = shl nsw i32 %2, 1
   %spec.select.i = tail call i32 @llvm.smax.i32(i32 %mul.i, i32 %add)
-  %cmp14.i = icmp ugt i32 %spec.select.i, 268435455
+  %cmp14.i = icmp samesign ugt i32 %spec.select.i, 268435455
   br i1 %cmp14.i, label %if.then15.i, label %if.end16.i
 
 if.then15.i:                                      ; preds = %if.end9.i
@@ -1748,7 +1748,7 @@ if.then.i.i:                                      ; preds = %land.lhs.true.i.i
   %arrayidx.i.i = getelementptr inbounds %union.UElement, ptr %13, i64 %idxprom.i.i
   %14 = load ptr, ptr %arrayidx.i.i, align 8
   %sub7.i.i = add nsw i32 %12, -1
-  %cmp48.i.i = icmp ugt i32 %sub7.i.i, %retval.0.i
+  %cmp48.i.i = icmp samesign ugt i32 %sub7.i.i, %retval.0.i
   br i1 %cmp48.i.i, label %for.body.i.i, label %_ZN6icu_757UVector15orphanElementAtEi.exit.i
 
 for.body.i.i:                                     ; preds = %if.then.i.i, %for.body.i.i
@@ -1812,7 +1812,7 @@ if.then.i:                                        ; preds = %land.lhs.true.i
   %arrayidx.i = getelementptr inbounds %union.UElement, ptr %1, i64 %idxprom.i
   %2 = load ptr, ptr %arrayidx.i, align 8
   %sub7.i = add nsw i32 %0, -1
-  %cmp48.i = icmp ult i32 %index, %sub7.i
+  %cmp48.i = icmp samesign ult i32 %index, %sub7.i
   br i1 %cmp48.i, label %for.body.i, label %_ZN6icu_757UVector15orphanElementAtEi.exit
 
 for.body.i:                                       ; preds = %if.then.i, %for.body.i
@@ -1941,7 +1941,7 @@ if.then.i.i:                                      ; preds = %land.lhs.true.i.i
   %17 = load ptr, ptr %arrayidx.i.i, align 8
   %sub7.i.i = add nsw i32 %14, -1
   %18 = zext i32 %sub7.i.i to i64
-  %cmp48.i.i = icmp ult i64 %indvars.iv.next, %18
+  %cmp48.i.i = icmp samesign ult i64 %indvars.iv.next, %18
   br i1 %cmp48.i.i, label %for.body.i.i, label %_ZN6icu_757UVector15orphanElementAtEi.exit.i
 
 for.body.i.i:                                     ; preds = %if.then.i.i, %for.body.i.i
@@ -2002,7 +2002,7 @@ if.then:                                          ; preds = %land.lhs.true
   %arrayidx = getelementptr inbounds %union.UElement, ptr %1, i64 %idxprom
   %2 = load ptr, ptr %arrayidx, align 8
   %sub7 = add nsw i32 %0, -1
-  %cmp48 = icmp ult i32 %index, %sub7
+  %cmp48 = icmp samesign ult i32 %index, %sub7
   br i1 %cmp48, label %for.body, label %for.end
 
 for.body:                                         ; preds = %if.then, %for.body
@@ -2103,7 +2103,7 @@ if.then.i.i:                                      ; preds = %land.lhs.true.i.i
   %arrayidx.i.i4 = getelementptr inbounds %union.UElement, ptr %9, i64 %idxprom.i.i
   %10 = load ptr, ptr %arrayidx.i.i4, align 8
   %sub7.i.i = add nsw i32 %8, -1
-  %cmp48.i.i = icmp ugt i32 %sub7.i.i, %retval.0.i.i
+  %cmp48.i.i = icmp samesign ugt i32 %sub7.i.i, %retval.0.i.i
   br i1 %cmp48.i.i, label %for.body.i.i5, label %_ZN6icu_757UVector15orphanElementAtEi.exit.i
 
 for.body.i.i5:                                    ; preds = %if.then.i.i, %for.body.i.i5
@@ -2445,7 +2445,7 @@ if.then5.i:                                       ; preds = %if.end3.i
 if.end9.i:                                        ; preds = %if.then5.i
   %mul.i = shl nsw i32 %2, 1
   %spec.select.i = tail call i32 @llvm.smax.i32(i32 %mul.i, i32 %add)
-  %cmp14.i = icmp ugt i32 %spec.select.i, 268435455
+  %cmp14.i = icmp samesign ugt i32 %spec.select.i, 268435455
   br i1 %cmp14.i, label %if.then.sink.split, label %if.end16.i
 
 if.end16.i:                                       ; preds = %if.end9.i

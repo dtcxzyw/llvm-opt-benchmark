@@ -1003,7 +1003,7 @@ for.body111:                                      ; preds = %for.cond109.prehead
   %indvars.iv.next139 = add nuw nsw i64 %indvars.iv138, 1
   %arrayidx117 = getelementptr inbounds [7 x i8], ptr %tmpTargetBuffer, i64 0, i64 %indvars.iv138
   store i8 %conv114, ptr %arrayidx117, align 1
-  %cmp110 = icmp ugt i32 %n.1.in113, 1
+  %cmp110 = icmp samesign ugt i32 %n.1.in113, 1
   br i1 %cmp110, label %for.body111, label %if.end123.loopexit, !llvm.loop !16
 
 if.end123.loopexit:                               ; preds = %for.body111

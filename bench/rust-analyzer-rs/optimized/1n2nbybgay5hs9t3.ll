@@ -1547,7 +1547,7 @@ define hidden void @_ZN14cargo_metadata24deserialize_rust_version17hf458d69513d9
   %65 = and i8 %63, 63
   %66 = zext nneg i8 %65 to i32
   %67 = or disjoint i32 %64, %66
-  %68 = icmp ugt i8 %57, -33
+  %68 = icmp samesign ugt i8 %57, -33
   br i1 %68, label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17he5343f9d86836a26E.llvm.3506456842714578515.exit15.i", label %92
 
 69:                                               ; preds = %55
@@ -1565,7 +1565,7 @@ define hidden void @_ZN14cargo_metadata24deserialize_rust_version17hf458d69513d9
   %77 = or disjoint i32 %74, %76
   %78 = shl nuw nsw i32 %60, 12
   %79 = or disjoint i32 %77, %78
-  %80 = icmp ugt i8 %57, -17
+  %80 = icmp samesign ugt i8 %57, -17
   br i1 %80, label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17he5343f9d86836a26E.llvm.3506456842714578515.exit17.i", label %92
 
 "_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17he5343f9d86836a26E.llvm.3506456842714578515.exit17.i": ; preds = %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17he5343f9d86836a26E.llvm.3506456842714578515.exit15.i"

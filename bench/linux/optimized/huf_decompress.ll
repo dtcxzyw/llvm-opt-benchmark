@@ -47,7 +47,7 @@ define dso_local i64 @HUF_readDTableX1_wksp_bmi2(ptr nocapture noundef %0, ptr n
   br i1 %23, label %63, label %24
 
 24:                                               ; preds = %16
-  %25 = icmp ult i32 %22, %20
+  %25 = icmp samesign ult i32 %22, %20
   br i1 %25, label %26, label %.thread
 
 26:                                               ; preds = %24
@@ -2391,7 +2391,7 @@ define dso_local i64 @HUF_readDTableX2_wksp_bmi2(ptr noundef %0, ptr noundef %1,
   br i1 %40, label %32, label %45, !llvm.loop !28
 
 45:                                               ; preds = %32
-  %46 = icmp ult i32 %27, 12
+  %46 = icmp samesign ult i32 %27, 12
   %47 = select i1 %46, i1 %30, i1 false
   %48 = select i1 %47, i32 11, i32 %13
   %49 = add i32 %36, 1

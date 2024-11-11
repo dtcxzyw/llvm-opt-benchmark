@@ -1754,7 +1754,7 @@ define hidden void @_ZNK8rawspeed10OrfDecoder29decodeUncompressedInterleavedENS_
 
 61:                                               ; preds = %54
   %62 = add nuw nsw i32 %45, %55
-  %63 = icmp ule i32 %62, %29
+  %63 = icmp samesign ule i32 %62, %29
   tail call void @llvm.assume(i1 %63)
   %64 = icmp sgt i32 %55, -1
   tail call void @llvm.assume(i1 %64)

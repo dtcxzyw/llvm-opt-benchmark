@@ -14011,7 +14011,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__12TfStaticDataINS_24HdTokens_StaticTokenTy
   %.sroa.063.0.insert.insert.us = or disjoint i64 %.sroa.264.0.insert.shift.us, %.sroa.063.0.insert.ext.us
   store i64 %.sroa.063.0.insert.insert.us, ptr %109, align 4
   %110 = add nsw i32 %.04699.us, -1
-  %111 = icmp ugt i32 %.04699.us, 1
+  %111 = icmp samesign ugt i32 %.04699.us, 1
   br i1 %111, label %96, label %.loopexit.us.loopexit, !llvm.loop !147
 
 .loopexit.us.loopexit:                            ; preds = %96

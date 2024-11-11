@@ -318,7 +318,7 @@ entry:
   br i1 %cmp.i, label %_ZN8facebook5velox4type6Parser12yytranslate_Ei.exit, label %if.else.i
 
 if.else.i:                                        ; preds = %entry
-  %cmp1.i = icmp ult i32 %t, 270
+  %cmp1.i = icmp samesign ult i32 %t, 270
   br i1 %cmp1.i, label %if.then2.i, label %_ZN8facebook5velox4type6Parser12yytranslate_Ei.exit
 
 if.then2.i:                                       ; preds = %if.else.i
@@ -341,7 +341,7 @@ entry:
   br i1 %cmp, label %return, label %if.else
 
 if.else:                                          ; preds = %entry
-  %cmp1 = icmp ult i32 %t, 270
+  %cmp1 = icmp samesign ult i32 %t, 270
   br i1 %cmp1, label %if.then2, label %return
 
 if.then2:                                         ; preds = %if.else
@@ -1072,7 +1072,7 @@ for.body.i:                                       ; preds = %for.body.i, %for.bo
   store ptr %incdec.ptr.i.i, ptr %_M_finish.i.i, align 8
   tail call void @_ZN8facebook5velox4type6Parser12basic_symbolINS2_8by_stateEE5clearEv(ptr noundef nonnull align 16 dereferenceable(64) %incdec.ptr.i.i) #26
   %dec.i = add nsw i64 %n.addr.03.i, -1
-  %cmp.i = icmp ugt i64 %n.addr.03.i, 1
+  %cmp.i = icmp samesign ugt i64 %n.addr.03.i, 1
   br i1 %cmp.i, label %for.body.i, label %_ZN8facebook5velox4type6Parser5stackINS2_17stack_symbol_typeESt6vectorIS4_SaIS4_EEE3popEl.exit, !llvm.loop !6
 
 _ZN8facebook5velox4type6Parser5stackINS2_17stack_symbol_typeESt6vectorIS4_SaIS4_EEE3popEl.exit: ; preds = %for.body.i, %entry
@@ -1304,7 +1304,7 @@ invoke.cont16:                                    ; preds = %if.then14
   br i1 %cmp.i50, label %_ZN8facebook5velox4type6Parser12yytranslate_Ei.exit, label %if.else.i
 
 if.else.i:                                        ; preds = %invoke.cont16
-  %cmp1.i = icmp ult i32 %call17, 270
+  %cmp1.i = icmp samesign ult i32 %call17, 270
   br i1 %cmp1.i, label %if.then2.i, label %_ZN8facebook5velox4type6Parser12yytranslate_Ei.exit
 
 if.then2.i:                                       ; preds = %if.else.i
@@ -2731,7 +2731,7 @@ for.body.i.i:                                     ; preds = %for.body.i.i, %for.
   store ptr %incdec.ptr.i.i.i, ptr %_M_finish.i.i.i, align 8
   call void @_ZN8facebook5velox4type6Parser12basic_symbolINS2_8by_stateEE5clearEv(ptr noundef nonnull align 16 dereferenceable(64) %incdec.ptr.i.i.i) #26
   %dec.i.i = add nsw i64 %n.addr.03.i.i, -1
-  %cmp.i.i = icmp ugt i64 %n.addr.03.i.i, 1
+  %cmp.i.i = icmp samesign ugt i64 %n.addr.03.i.i, 1
   br i1 %cmp.i.i, label %for.body.i.i, label %_ZN8facebook5velox4type6Parser6yypop_Ei.exit, !llvm.loop !6
 
 _ZN8facebook5velox4type6Parser6yypop_Ei.exit:     ; preds = %for.body.i.i, %try.cont752
@@ -2857,7 +2857,7 @@ for.body.i.i500:                                  ; preds = %for.body.i.i500, %f
   store ptr %incdec.ptr.i.i.i502, ptr %_M_finish.i.i.i, align 8
   call void @_ZN8facebook5velox4type6Parser12basic_symbolINS2_8by_stateEE5clearEv(ptr noundef nonnull align 16 dereferenceable(64) %incdec.ptr.i.i.i502) #26
   %dec.i.i503 = add nsw i64 %n.addr.03.i.i501, -1
-  %cmp.i.i504 = icmp ugt i64 %n.addr.03.i.i501, 1
+  %cmp.i.i504 = icmp samesign ugt i64 %n.addr.03.i.i501, 1
   br i1 %cmp.i.i504, label %for.body.i.i500, label %for.cond.preheader, !llvm.loop !6
 
 for.cond.preheader:                               ; preds = %for.body.i.i500, %if.then766, %yyerrlab, %yyerrorlab, %if.end764.thread, %invoke.cont20, %if.then771, %if.then26

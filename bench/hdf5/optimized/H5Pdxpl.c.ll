@@ -3149,7 +3149,7 @@ define internal range(i32 -1, 1) i32 @H5P__dxfr_xform_enc(ptr nocapture noundef 
   br label %H5VM_limit_enc_size.exit
 
 33:                                               ; preds = %19
-  %.not27.i.i = icmp ult i64 %14, 1099511627776
+  %.not27.i.i = icmp samesign ult i64 %14, 1099511627776
   br i1 %.not27.i.i, label %40, label %34
 
 34:                                               ; preds = %33
@@ -3169,11 +3169,11 @@ define internal range(i32 -1, 1) i32 @H5P__dxfr_xform_enc(ptr nocapture noundef 
 
 45:                                               ; preds = %17
   %46 = lshr i64 %14, 16
-  %.not23.i.i = icmp ult i64 %14, 65536
+  %.not23.i.i = icmp samesign ult i64 %14, 65536
   br i1 %.not23.i.i, label %59, label %47
 
 47:                                               ; preds = %45
-  %.not25.i.i = icmp ult i64 %14, 16777216
+  %.not25.i.i = icmp samesign ult i64 %14, 16777216
   br i1 %.not25.i.i, label %54, label %48
 
 48:                                               ; preds = %47
@@ -3192,7 +3192,7 @@ define internal range(i32 -1, 1) i32 @H5P__dxfr_xform_enc(ptr nocapture noundef 
   br label %H5VM_limit_enc_size.exit
 
 59:                                               ; preds = %45
-  %.not24.i.i = icmp ult i64 %14, 256
+  %.not24.i.i = icmp samesign ult i64 %14, 256
   br i1 %.not24.i.i, label %.thread74, label %60
 
 60:                                               ; preds = %59
@@ -3285,7 +3285,7 @@ H5VM_limit_enc_size.exit:                         ; preds = %22, %28, %34, %40, 
   br label %H5VM_limit_enc_size.exit52
 
 104:                                              ; preds = %90
-  %.not27.i.i48 = icmp ult i64 %.03757, 1099511627776
+  %.not27.i.i48 = icmp samesign ult i64 %.03757, 1099511627776
   br i1 %.not27.i.i48, label %111, label %105
 
 105:                                              ; preds = %104
@@ -3305,11 +3305,11 @@ H5VM_limit_enc_size.exit:                         ; preds = %22, %28, %34, %40, 
 
 116:                                              ; preds = %88
   %117 = lshr i64 %.03757, 16
-  %.not23.i.i49 = icmp ult i64 %.03757, 65536
+  %.not23.i.i49 = icmp samesign ult i64 %.03757, 65536
   br i1 %.not23.i.i49, label %130, label %118
 
 118:                                              ; preds = %116
-  %.not25.i.i50 = icmp ult i64 %.03757, 16777216
+  %.not25.i.i50 = icmp samesign ult i64 %.03757, 16777216
   br i1 %.not25.i.i50, label %125, label %119
 
 119:                                              ; preds = %118
@@ -3328,7 +3328,7 @@ H5VM_limit_enc_size.exit:                         ; preds = %22, %28, %34, %40, 
   br label %H5VM_limit_enc_size.exit52
 
 130:                                              ; preds = %116
-  %.not24.i.i51 = icmp ult i64 %.03757, 256
+  %.not24.i.i51 = icmp samesign ult i64 %.03757, 256
   br i1 %.not24.i.i51, label %.thread94, label %131
 
 131:                                              ; preds = %130

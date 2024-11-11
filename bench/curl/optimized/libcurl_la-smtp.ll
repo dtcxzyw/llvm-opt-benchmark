@@ -1490,7 +1490,7 @@ land.lhs.true14.i:                                ; preds = %if.then11.i
   br i1 %tobool.not.i, label %if.end107.sink.split.i, label %land.lhs.true20.i
 
 if.else17.i:                                      ; preds = %if.then11.i
-  %cmp18.i = icmp ugt i64 %sub.i, 3
+  %cmp18.i = icmp samesign ugt i64 %sub.i, 3
   br i1 %cmp18.i, label %land.lhs.true20.thread.i, label %if.end107.i
 
 land.lhs.true20.i:                                ; preds = %land.lhs.true14.i

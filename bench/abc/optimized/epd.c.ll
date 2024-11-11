@@ -147,7 +147,7 @@ EpdGetValueAndDecimalExponent.exit:               ; preds = %13, %17, %25, %30
   br i1 %35, label %36, label %43
 
 36:                                               ; preds = %EpdGetValueAndDecimalExponent.exit
-  %37 = icmp ult i32 %.0, 10
+  %37 = icmp samesign ult i32 %.0, 10
   %38 = getelementptr inbounds i8, ptr %strchr, i64 1
   br i1 %37, label %39, label %41
 
@@ -161,7 +161,7 @@ EpdGetValueAndDecimalExponent.exit:               ; preds = %13, %17, %25, %30
 
 43:                                               ; preds = %EpdGetValueAndDecimalExponent.exit
   %44 = sub nsw i32 0, %.0
-  %45 = icmp ugt i32 %.0, -10
+  %45 = icmp samesign ugt i32 %.0, -10
   %46 = getelementptr inbounds i8, ptr %strchr, i64 1
   br i1 %45, label %47, label %49
 

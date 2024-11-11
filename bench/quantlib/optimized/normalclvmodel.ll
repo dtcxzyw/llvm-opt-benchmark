@@ -4040,7 +4040,7 @@ for.body.i.i.i.i.i:                               ; preds = %for.body.i.i.i.i.i.
   %incdec.ptr.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %__first.addr.08.i.i.i.i.i, i64 8
   %add.ptr.i.i.i.i.i.i = getelementptr inbounds double, ptr %__result.sroa.0.07.i.i.i.i.i, i64 %18
   %dec.i.i.i.i.i = add nsw i64 %__n.09.i.i.i.i.i, -1
-  %cmp.i.i.i.i.i = icmp ugt i64 %__n.09.i.i.i.i.i, 1
+  %cmp.i.i.i.i.i = icmp samesign ugt i64 %__n.09.i.i.i.i.i, 1
   br i1 %cmp.i.i.i.i.i, label %for.body.i.i.i.i.i, label %invoke.cont24, !llvm.loop !131
 
 invoke.cont24:                                    ; preds = %for.body.i.i.i.i.i, %invoke.cont22

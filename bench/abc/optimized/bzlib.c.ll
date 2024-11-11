@@ -3370,7 +3370,7 @@ define noundef ptr @BZ2_bzReadOpen(ptr noundef writeonly %0, ptr noundef %1, i32
   store i32 %44, ptr %32, align 8
   %45 = getelementptr inbounds i8, ptr %.07485, i64 1
   %46 = add nsw i32 %.07386, -1
-  %47 = icmp ugt i32 %.07386, 1
+  %47 = icmp samesign ugt i32 %.07386, 1
   br i1 %47, label %38, label %._crit_edge, !llvm.loop !6
 
 ._crit_edge:                                      ; preds = %38, %29

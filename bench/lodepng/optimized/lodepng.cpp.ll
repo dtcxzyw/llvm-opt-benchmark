@@ -1018,7 +1018,7 @@ if.then.i:                                        ; preds = %if.end3
   br label %_ZL11ensureBits9P16LodePNGBitReaderm.exit
 
 if.else.i:                                        ; preds = %if.end3
-  %cmp12.i = icmp ult i64 %shr.i, %insize
+  %cmp12.i = icmp samesign ult i64 %shr.i, %insize
   br i1 %cmp12.i, label %if.then13.i, label %_ZL11ensureBits9P16LodePNGBitReaderm.exit
 
 if.then13.i:                                      ; preds = %if.else.i
@@ -1206,7 +1206,7 @@ if.then.i.i.i45:                                  ; preds = %if.end.i68.i
   br label %_ZL12ensureBits17P16LodePNGBitReaderm.exit.i.i.sink.split
 
 if.else.i.i.i:                                    ; preds = %if.end.i68.i
-  %cmp18.i.i.i = icmp ult i64 %shr.i.i.i36, %insize
+  %cmp18.i.i.i = icmp samesign ult i64 %shr.i.i.i36, %insize
   br i1 %cmp18.i.i.i, label %if.then19.i.i.i, label %if.end.i.i.i
 
 if.then19.i.i.i:                                  ; preds = %if.else.i.i.i
@@ -1218,7 +1218,7 @@ if.then19.i.i.i:                                  ; preds = %if.else.i.i.i
 if.end.i.i.i:                                     ; preds = %if.then19.i.i.i, %if.else.i.i.i
   %21 = phi i32 [ %conv23.i.i.i, %if.then19.i.i.i ], [ 0, %if.else.i.i.i ]
   %add26.i.i.i = add nuw nsw i64 %shr.i.i.i36, 1
-  %cmp27.i.i.i = icmp ult i64 %add26.i.i.i, %insize
+  %cmp27.i.i.i = icmp samesign ult i64 %add26.i.i.i, %insize
   br i1 %cmp27.i.i.i, label %_ZL12ensureBits17P16LodePNGBitReaderm.exit.i.i.sink.split, label %_ZL12ensureBits17P16LodePNGBitReaderm.exit.i.i
 
 _ZL12ensureBits17P16LodePNGBitReaderm.exit.i.i.sink.split: ; preds = %if.end.i.i.i, %if.then.i.i.i45
@@ -1289,7 +1289,7 @@ if.then.i122.i.i:                                 ; preds = %for.body.i.i
   br label %_ZL11ensureBits9P16LodePNGBitReaderm.exit.i.i
 
 if.else.i120.i.i:                                 ; preds = %for.body.i.i
-  %cmp12.i.i.i = icmp ult i64 %shr.i116.i.i, %insize
+  %cmp12.i.i.i = icmp samesign ult i64 %shr.i116.i.i, %insize
   br i1 %cmp12.i.i.i, label %if.then13.i.i.i, label %_ZL11ensureBits9P16LodePNGBitReaderm.exit.i.i
 
 if.then13.i.i.i:                                  ; preds = %if.else.i120.i.i
@@ -1393,7 +1393,7 @@ if.then.i145.i.i:                                 ; preds = %while.body42.i.i
   br label %_ZL12ensureBits25P16LodePNGBitReaderm.exit.i.i
 
 if.else.i143.i.i:                                 ; preds = %while.body42.i.i
-  %cmp24.i.i.i = icmp ult i64 %shr.i139.i.i, %insize
+  %cmp24.i.i.i = icmp samesign ult i64 %shr.i139.i.i, %insize
   br i1 %cmp24.i.i.i, label %if.then25.i.i.i, label %if.end.i144.i.i
 
 if.then25.i.i.i:                                  ; preds = %if.else.i143.i.i
@@ -1405,7 +1405,7 @@ if.then25.i.i.i:                                  ; preds = %if.else.i143.i.i
 if.end.i144.i.i:                                  ; preds = %if.then25.i.i.i, %if.else.i143.i.i
   %38 = phi i32 [ %conv29.i.i.i, %if.then25.i.i.i ], [ 0, %if.else.i143.i.i ]
   %add32.i.i.i = add nuw nsw i64 %shr.i139.i.i, 1
-  %cmp33.i.i.i = icmp ult i64 %add32.i.i.i, %insize
+  %cmp33.i.i.i = icmp samesign ult i64 %add32.i.i.i, %insize
   br i1 %cmp33.i.i.i, label %if.then34.i.i.i, label %if.end42.i.i.i
 
 if.then34.i.i.i:                                  ; preds = %if.end.i144.i.i
@@ -1419,7 +1419,7 @@ if.then34.i.i.i:                                  ; preds = %if.end.i144.i.i
 if.end42.i.i.i:                                   ; preds = %if.then34.i.i.i, %if.end.i144.i.i
   %40 = phi i32 [ %or41.i.i.i, %if.then34.i.i.i ], [ %38, %if.end.i144.i.i ]
   %add43.i.i.i = add nuw nsw i64 %shr.i139.i.i, 2
-  %cmp44.i.i.i = icmp ult i64 %add43.i.i.i, %insize
+  %cmp44.i.i.i = icmp samesign ult i64 %add43.i.i.i, %insize
   br i1 %cmp44.i.i.i, label %if.then45.i.i.i, label %_ZL12ensureBits25P16LodePNGBitReaderm.exit.i.i
 
 if.then45.i.i.i:                                  ; preds = %if.end42.i.i.i
@@ -1727,7 +1727,7 @@ if.then.i84.i:                                    ; preds = %while.body.i
   br label %_ZL12ensureBits32P16LodePNGBitReaderm.exit.i
 
 if.else.i.i:                                      ; preds = %while.body.i
-  %cmp35.i.i = icmp ult i64 %shr.i77.i, %insize
+  %cmp35.i.i = icmp samesign ult i64 %shr.i77.i, %insize
   br i1 %cmp35.i.i, label %if.then36.i.i, label %if.end.i80.i
 
 if.then36.i.i:                                    ; preds = %if.else.i.i
@@ -1739,7 +1739,7 @@ if.then36.i.i:                                    ; preds = %if.else.i.i
 if.end.i80.i:                                     ; preds = %if.then36.i.i, %if.else.i.i
   %67 = phi i32 [ %conv40.i.i, %if.then36.i.i ], [ 0, %if.else.i.i ]
   %add43.i.i = add nuw nsw i64 %shr.i77.i, 1
-  %cmp44.i81.i = icmp ult i64 %add43.i.i, %insize
+  %cmp44.i81.i = icmp samesign ult i64 %add43.i.i, %insize
   br i1 %cmp44.i81.i, label %if.then45.i83.i, label %if.end53.i.i
 
 if.then45.i83.i:                                  ; preds = %if.end.i80.i
@@ -1753,7 +1753,7 @@ if.then45.i83.i:                                  ; preds = %if.end.i80.i
 if.end53.i.i:                                     ; preds = %if.then45.i83.i, %if.end.i80.i
   %69 = phi i32 [ %or52.i.i, %if.then45.i83.i ], [ %67, %if.end.i80.i ]
   %add54.i.i = add nuw nsw i64 %shr.i77.i, 2
-  %cmp55.i.i = icmp ult i64 %add54.i.i, %insize
+  %cmp55.i.i = icmp samesign ult i64 %add54.i.i, %insize
   br i1 %cmp55.i.i, label %if.then56.i.i, label %if.end64.i.i
 
 if.then56.i.i:                                    ; preds = %if.end53.i.i
@@ -1767,7 +1767,7 @@ if.then56.i.i:                                    ; preds = %if.end53.i.i
 if.end64.i.i:                                     ; preds = %if.then56.i.i, %if.end53.i.i
   %71 = phi i32 [ %or63.i.i, %if.then56.i.i ], [ %69, %if.end53.i.i ]
   %add65.i.i = add nuw nsw i64 %shr.i77.i, 3
-  %cmp66.i.i = icmp ult i64 %add65.i.i, %insize
+  %cmp66.i.i = icmp samesign ult i64 %add65.i.i, %insize
   br i1 %cmp66.i.i, label %if.then67.i.i, label %if.end75.i.i
 
 if.then67.i.i:                                    ; preds = %if.end64.i.i
@@ -1936,7 +1936,7 @@ if.then.i148.i:                                   ; preds = %if.then30.i
   br label %_ZL12ensureBits25P16LodePNGBitReaderm.exit.i
 
 if.else.i138.i:                                   ; preds = %if.then30.i
-  %cmp24.i.i = icmp ult i64 %shr.i134.i, %insize
+  %cmp24.i.i = icmp samesign ult i64 %shr.i134.i, %insize
   br i1 %cmp24.i.i, label %if.then25.i.i, label %if.end.i139.i
 
 if.then25.i.i:                                    ; preds = %if.else.i138.i
@@ -1948,7 +1948,7 @@ if.then25.i.i:                                    ; preds = %if.else.i138.i
 if.end.i139.i:                                    ; preds = %if.then25.i.i, %if.else.i138.i
   %97 = phi i32 [ %conv29.i.i, %if.then25.i.i ], [ 0, %if.else.i138.i ]
   %add32.i.i = add nuw nsw i64 %shr.i134.i, 1
-  %cmp33.i.i = icmp ult i64 %add32.i.i, %insize
+  %cmp33.i.i = icmp samesign ult i64 %add32.i.i, %insize
   br i1 %cmp33.i.i, label %if.then34.i.i, label %if.end42.i.i
 
 if.then34.i.i:                                    ; preds = %if.end.i139.i
@@ -1962,7 +1962,7 @@ if.then34.i.i:                                    ; preds = %if.end.i139.i
 if.end42.i.i:                                     ; preds = %if.then34.i.i, %if.end.i139.i
   %99 = phi i32 [ %or41.i.i, %if.then34.i.i ], [ %97, %if.end.i139.i ]
   %add43.i140.i = add nuw nsw i64 %shr.i134.i, 2
-  %cmp44.i141.i = icmp ult i64 %add43.i140.i, %insize
+  %cmp44.i141.i = icmp samesign ult i64 %add43.i140.i, %insize
   br i1 %cmp44.i141.i, label %if.then45.i143.i, label %_ZL12ensureBits25P16LodePNGBitReaderm.exit.i
 
 if.then45.i143.i:                                 ; preds = %if.end42.i.i
@@ -2011,7 +2011,7 @@ if.then.i199.i:                                   ; preds = %if.end35.i
   br label %_ZL12ensureBits32P16LodePNGBitReaderm.exit210.i
 
 if.else.i165.i:                                   ; preds = %if.end35.i
-  %cmp35.i167.i = icmp ult i64 %shr.i161.i, %insize
+  %cmp35.i167.i = icmp samesign ult i64 %shr.i161.i, %insize
   br i1 %cmp35.i167.i, label %if.then36.i196.i, label %if.end.i168.i
 
 if.then36.i196.i:                                 ; preds = %if.else.i165.i
@@ -2023,7 +2023,7 @@ if.then36.i196.i:                                 ; preds = %if.else.i165.i
 if.end.i168.i:                                    ; preds = %if.then36.i196.i, %if.else.i165.i
   %107 = phi i32 [ %conv40.i198.i, %if.then36.i196.i ], [ 0, %if.else.i165.i ]
   %add43.i169.i = add nuw nsw i64 %shr.i161.i, 1
-  %cmp44.i170.i = icmp ult i64 %add43.i169.i, %insize
+  %cmp44.i170.i = icmp samesign ult i64 %add43.i169.i, %insize
   br i1 %cmp44.i170.i, label %if.then45.i191.i, label %if.end53.i171.i
 
 if.then45.i191.i:                                 ; preds = %if.end.i168.i
@@ -2037,7 +2037,7 @@ if.then45.i191.i:                                 ; preds = %if.end.i168.i
 if.end53.i171.i:                                  ; preds = %if.then45.i191.i, %if.end.i168.i
   %109 = phi i32 [ %or52.i195.i, %if.then45.i191.i ], [ %107, %if.end.i168.i ]
   %add54.i172.i = add nuw nsw i64 %shr.i161.i, 2
-  %cmp55.i173.i = icmp ult i64 %add54.i172.i, %insize
+  %cmp55.i173.i = icmp samesign ult i64 %add54.i172.i, %insize
   br i1 %cmp55.i173.i, label %if.then56.i186.i, label %if.end64.i174.i
 
 if.then56.i186.i:                                 ; preds = %if.end53.i171.i
@@ -2051,7 +2051,7 @@ if.then56.i186.i:                                 ; preds = %if.end53.i171.i
 if.end64.i174.i:                                  ; preds = %if.then56.i186.i, %if.end53.i171.i
   %111 = phi i32 [ %or63.i190.i, %if.then56.i186.i ], [ %109, %if.end53.i171.i ]
   %add65.i175.i = add nuw nsw i64 %shr.i161.i, 3
-  %cmp66.i176.i = icmp ult i64 %add65.i175.i, %insize
+  %cmp66.i176.i = icmp samesign ult i64 %add65.i175.i, %insize
   br i1 %cmp66.i176.i, label %if.then67.i181.i, label %if.end75.i177.i
 
 if.then67.i181.i:                                 ; preds = %if.end64.i174.i
@@ -2126,7 +2126,7 @@ if.end42.i:                                       ; preds = %_ZL19huffmanDecodeS
   %idxprom43.i = zext nneg i16 %retval.0.in.i238.i to i64
   %arrayidx44.i = getelementptr inbounds [30 x i32], ptr @_ZL12DISTANCEBASE, i64 0, i64 %idxprom43.i
   %120 = load i32, ptr %arrayidx44.i, align 4
-  %cmp47.not.i = icmp ult i16 %retval.0.in.i238.i, 4
+  %cmp47.not.i = icmp samesign ult i16 %retval.0.in.i238.i, 4
   br i1 %cmp47.not.i, label %if.end52.i, label %if.then48.i
 
 if.then48.i:                                      ; preds = %if.end42.i
@@ -2152,7 +2152,7 @@ if.end57.i:                                       ; preds = %if.end52.i
   %sub59.i = sub nuw i64 %122, %conv54.i
   %add61.i = add i64 %122, %length.0.i
   store i64 %add61.i, ptr %size23.i, align 8
-  %cmp63.i = icmp ugt i64 %length.0.i, %conv54.i
+  %cmp63.i = icmp samesign ugt i64 %length.0.i, %conv54.i
   br i1 %cmp63.i, label %if.then64.i, label %if.else80.i
 
 if.then64.i:                                      ; preds = %if.end57.i
@@ -9601,7 +9601,7 @@ if.then5.i:                                       ; preds = %if.end.i166
 
 _ZL20getValueRequiredBitsh.exit:                  ; preds = %if.then224, %if.end.i166, %if.then5.i
   %retval.0.i167 = phi i32 [ %cond.i, %if.then5.i ], [ 1, %if.then224 ], [ 8, %if.end.i166 ]
-  %cmp228 = icmp ugt i32 %retval.0.i167, %.pr.pre
+  %cmp228 = icmp samesign ugt i32 %retval.0.i167, %.pr.pre
   br i1 %cmp228, label %if.then229, label %if.end232
 
 if.then229:                                       ; preds = %_ZL20getValueRequiredBitsh.exit

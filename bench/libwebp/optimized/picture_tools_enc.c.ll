@@ -40,7 +40,7 @@ define hidden void @WebPReplaceTransparentPixels(ptr noundef readonly %0, i32 no
   %18 = load i32, ptr %13, align 8
   %19 = sext i32 %18 to i64
   %20 = getelementptr inbounds i32, ptr %.014, i64 %19
-  %21 = icmp ugt i32 %.01013, 1
+  %21 = icmp samesign ugt i32 %.01013, 1
   br i1 %21, label %14, label %.loopexit, !llvm.loop !4
 
 .loopexit:                                        ; preds = %14, %5, %3, %2

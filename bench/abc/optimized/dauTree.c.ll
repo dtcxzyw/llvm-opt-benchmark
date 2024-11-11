@@ -3133,7 +3133,7 @@ Abc_TtStretch6.exit:                              ; preds = %50, %Abc_TtCopy.exi
   br label %Abc_TtPrintHexRev.exit
 
 65:                                               ; preds = %Abc_TtStretch6.exit
-  %66 = icmp ult i32 %53, 7
+  %66 = icmp samesign ult i32 %53, 7
   %67 = add nsw i32 %53, -6
   %68 = shl nuw i32 1, %67
   %69 = select i1 %66, i32 1, i32 %68

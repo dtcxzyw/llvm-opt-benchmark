@@ -926,7 +926,7 @@ for.body:                                         ; preds = %for.body.preheader,
   %10 = load ptr, ptr %call, align 8
   %arrayidx446 = getelementptr inbounds i64, ptr %10, i64 %6
   store i64 %or442, ptr %arrayidx446, align 8
-  %cmp5 = icmp ugt i64 %indvars.iv, 1
+  %cmp5 = icmp samesign ugt i64 %indvars.iv, 1
   br i1 %cmp5, label %for.body, label %for.end.loopexit, !llvm.loop !17
 
 for.end.loopexit:                                 ; preds = %for.body

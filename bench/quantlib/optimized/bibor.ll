@@ -988,7 +988,7 @@ switch.lookup:                                    ; preds = %invoke.cont8
   %24 = zext nneg i32 %tenor.val to i64
   %switch.gep = getelementptr inbounds [4 x i32], ptr @switch.table._ZN8QuantLib5BiborC2ERKNS_6PeriodERKNS_6HandleINS_18YieldTermStructureEEE, i64 0, i64 %24
   %switch.load = load i32, ptr %switch.gep, align 4
-  %switch = icmp ugt i32 %tenor.val, 1
+  %switch = icmp samesign ugt i32 %tenor.val, 1
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %ref.tmp13) #20
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %agg.tmp.i)
   invoke void @_ZN8QuantLib14Actual365Fixed14implementationENS0_10ConventionE(ptr dead_on_unwind nonnull writable sret(%"class.boost::shared_ptr.16") align 8 %agg.tmp.i, i32 noundef 0)

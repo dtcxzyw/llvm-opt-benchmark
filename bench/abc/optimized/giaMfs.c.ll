@@ -2623,7 +2623,7 @@ Vec_IntPush.exit398:                              ; preds = %.Vec_IntGrow.exit10
   %346 = add nsw i32 %.val275, -6
   %347 = shl nuw i32 1, %346
   %.fr.i.i.i = freeze i32 %347
-  %348 = icmp ult i32 %.val275, 7
+  %348 = icmp samesign ult i32 %.val275, 7
   %349 = sext i32 %.fr.i.i.i to i64
   %350 = getelementptr inbounds i64, ptr %276, i64 %349
   %.not.i399 = icmp eq i32 %346, 31
@@ -3122,7 +3122,7 @@ Abc_TtHasVar.exit.thread.i.i:                     ; preds = %._crit_edge.us.i.i.
   br i1 %564, label %.lr.ph.i.us.us.us.us.i.i.i, label %.preheader.lr.ph.i.us.us.us.us.i.i.i
 
 .preheader.lr.ph.i.us.us.us.us.i.i.i:             ; preds = %563
-  %565 = icmp ult i64 %indvars.iv97.i.i.i, 8
+  %565 = icmp samesign ult i64 %indvars.iv97.i.i.i, 8
   %566 = trunc i64 %indvars.iv97.i.i.i to i32
   %567 = add i32 %566, -7
   %568 = shl nuw i32 1, %567

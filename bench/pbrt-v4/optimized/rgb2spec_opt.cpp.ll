@@ -1303,7 +1303,7 @@ for.inc16.i:                                      ; preds = %for.body7.i, %for.b
 for.cond25.preheader.i:                           ; preds = %for.inc16.i, %for.end40.i
   %indvars.iv47.i = phi i64 [ %indvars.iv.next48.i, %for.end40.i ], [ 3, %for.inc16.i ]
   %indvars.iv.next48.i = add nsw i64 %indvars.iv47.i, -1
-  %cmp2635.i = icmp ult i64 %indvars.iv47.i, 3
+  %cmp2635.i = icmp samesign ult i64 %indvars.iv47.i, 3
   br i1 %cmp2635.i, label %for.body27.lr.ph.i, label %for.cond25.preheader.for.end40_crit_edge.i
 
 for.cond25.preheader.for.end40_crit_edge.i:       ; preds = %for.cond25.preheader.i

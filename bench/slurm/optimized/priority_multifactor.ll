@@ -4806,7 +4806,7 @@ define internal fastcc i64 @_next_reset(i16 noundef zeroext %0, i64 noundef %1) 
   br label %73
 
 57:                                               ; preds = %51
-  %58 = icmp ult i32 %54, 6
+  %58 = icmp samesign ult i32 %54, 6
   br i1 %58, label %59, label %60
 
 59:                                               ; preds = %57
@@ -4814,7 +4814,7 @@ define internal fastcc i64 @_next_reset(i16 noundef zeroext %0, i64 noundef %1) 
   br label %73
 
 60:                                               ; preds = %57
-  %61 = icmp ult i32 %54, 9
+  %61 = icmp samesign ult i32 %54, 9
   br i1 %61, label %62, label %63
 
 62:                                               ; preds = %60

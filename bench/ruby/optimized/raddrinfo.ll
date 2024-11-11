@@ -1667,7 +1667,7 @@ RSTRING_PTR.exit:                                 ; preds = %6, %10
   unreachable
 
 17:                                               ; preds = %13
-  %.not.i.i5 = icmp ult i64 %4, 2147483648
+  %.not.i.i5 = icmp samesign ult i64 %4, 2147483648
   br i1 %.not.i.i5, label %RSTRING_LENINT.exit, label %18
 
 18:                                               ; preds = %17
@@ -4854,7 +4854,7 @@ ai_get_afamily.exit.thread:                       ; preds = %get_addrinfo.exit, 
 
 rai_unixsocket_len.exit:                          ; preds = %15
   %gepdiff.i.i = add nsw i64 %.0.idx.i.i, -2
-  %18 = icmp ugt i64 %gepdiff.i.i, 108
+  %18 = icmp samesign ugt i64 %gepdiff.i.i, 108
   br i1 %18, label %19, label %rai_unixsocket_len.exit.thread
 
 19:                                               ; preds = %rai_unixsocket_len.exit

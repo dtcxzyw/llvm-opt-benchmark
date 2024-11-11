@@ -1029,8 +1029,8 @@ call.i.i.i.noexc:                                 ; preds = %if.then.i.i162
   %extract9.i.i.i = lshr i128 %mul.i.i.i, 64
   %extract.t10.i.i.i = trunc nuw nsw i128 %extract9.i.i.i to i32
   %25 = and i128 %mul.i.i.i, 18446744073709551612
-  %cmp315.i.i.i = icmp eq i128 %25, 0
-  br i1 %cmp315.i.i.i, label %while.body.i.i.i, label %invoke.cont46
+  %or.cond = icmp eq i128 %25, 0
+  br i1 %or.cond, label %while.body.i.i.i, label %invoke.cont46
 
 while.body.i.i.i:                                 ; preds = %call.i.i.i.noexc, %call4.i.i.i.noexc
   %call4.i.i.i165 = invoke noundef i64 @_ZNSt23mersenne_twister_engineImLm64ELm312ELm156ELm31ELm13043109905998158313ELm29ELm6148914691236517205ELm17ELm8202884508482404352ELm37ELm18444473444759240704ELm43ELm6364136223846793005EEclEv(ptr noundef nonnull align 8 dereferenceable(2504) %rng)

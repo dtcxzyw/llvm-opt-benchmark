@@ -12993,7 +12993,7 @@ define internal i32 @e1000e_poll(ptr noundef %0, i32 noundef %1) #1 align 16 {
   br i1 %81, label %100, label %82
 
 82:                                               ; preds = %78
-  %83 = icmp ult i32 %59, 36
+  %83 = icmp samesign ult i32 %59, 36
   %84 = zext i1 %83 to i32
   br label %100
 
@@ -13075,7 +13075,7 @@ define internal i32 @e1000e_poll(ptr noundef %0, i32 noundef %1) #1 align 16 {
   br i1 %132, label %151, label %133
 
 133:                                              ; preds = %129
-  %134 = icmp ult i32 %110, 36
+  %134 = icmp samesign ult i32 %110, 36
   %135 = zext i1 %134 to i32
   br label %151
 
@@ -16422,7 +16422,7 @@ define internal noundef range(i32 -22, 1) i32 @e1000_change_mtu(ptr noundef %0, 
 
 45:                                               ; preds = %44, %.loopexit
   %46 = getelementptr i8, ptr %0, i64 3012
-  %47 = icmp ugt i32 %4, 2048
+  %47 = icmp samesign ugt i32 %4, 2048
   %48 = select i1 %47, i32 4096, i32 2048
   %.inv = icmp sgt i32 %4, 1522
   %spec.select = select i1 %.inv, i32 %48, i32 1522

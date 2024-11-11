@@ -295,7 +295,7 @@ define linkonce_odr void @_ZN32pxrInternal_v0_24__pxrReserved__18Sdf_IdRegistryI
   %.01.i.i.i.i.i = phi i32 [ %14, %.lr.ph.i.i.i.i.i ], [ %.sroa.0.02.i.i.i, %12 ]
   %14 = add nsw i32 %.01.i.i.i.i.i, -1
   tail call void @llvm.x86.sse2.pause()
-  %15 = icmp ugt i32 %.01.i.i.i.i.i, 1
+  %15 = icmp samesign ugt i32 %.01.i.i.i.i.i, 1
   br i1 %15, label %.lr.ph.i.i.i.i.i, label %_ZN3tbb6detail2d0L13machine_pauseEi.exit.i.i.i.i, !llvm.loop !5
 
 _ZN3tbb6detail2d0L13machine_pauseEi.exit.i.i.i.i: ; preds = %.lr.ph.i.i.i.i.i, %12
@@ -649,7 +649,7 @@ define linkonce_odr void @_ZN32pxrInternal_v0_24__pxrReserved__18Sdf_IdRegistryI
   %.01.i.i.i.i.i = phi i32 [ %13, %.lr.ph.i.i.i.i.i ], [ %.sroa.0.02.i.i.i, %11 ]
   %13 = add nsw i32 %.01.i.i.i.i.i, -1
   tail call void @llvm.x86.sse2.pause()
-  %14 = icmp ugt i32 %.01.i.i.i.i.i, 1
+  %14 = icmp samesign ugt i32 %.01.i.i.i.i.i, 1
   br i1 %14, label %.lr.ph.i.i.i.i.i, label %_ZN3tbb6detail2d0L13machine_pauseEi.exit.i.i.i.i, !llvm.loop !5
 
 _ZN3tbb6detail2d0L13machine_pauseEi.exit.i.i.i.i: ; preds = %.lr.ph.i.i.i.i.i, %11
@@ -887,7 +887,7 @@ define linkonce_odr void @_ZN32pxrInternal_v0_24__pxrReserved__18Sdf_IdRegistryI
   %.01.i.i.i.i.i = phi i32 [ %12, %.lr.ph.i.i.i.i.i ], [ %.sroa.0.02.i.i.i, %10 ]
   %12 = add nsw i32 %.01.i.i.i.i.i, -1
   tail call void @llvm.x86.sse2.pause()
-  %13 = icmp ugt i32 %.01.i.i.i.i.i, 1
+  %13 = icmp samesign ugt i32 %.01.i.i.i.i.i, 1
   br i1 %13, label %.lr.ph.i.i.i.i.i, label %_ZN3tbb6detail2d0L13machine_pauseEi.exit.i.i.i.i, !llvm.loop !5
 
 _ZN3tbb6detail2d0L13machine_pauseEi.exit.i.i.i.i: ; preds = %.lr.ph.i.i.i.i.i, %10
@@ -2747,7 +2747,7 @@ define linkonce_odr void @_ZN32pxrInternal_v0_24__pxrReserved__18Sdf_IdRegistryI
   %.01.i.i.i.i.i = phi i32 [ %8, %.lr.ph.i.i.i.i.i ], [ %.sroa.0.02.i.i.i, %6 ]
   %8 = add nsw i32 %.01.i.i.i.i.i, -1
   tail call void @llvm.x86.sse2.pause()
-  %9 = icmp ugt i32 %.01.i.i.i.i.i, 1
+  %9 = icmp samesign ugt i32 %.01.i.i.i.i.i, 1
   br i1 %9, label %.lr.ph.i.i.i.i.i, label %_ZN3tbb6detail2d0L13machine_pauseEi.exit.i.i.i.i, !llvm.loop !5
 
 _ZN3tbb6detail2d0L13machine_pauseEi.exit.i.i.i.i: ; preds = %.lr.ph.i.i.i.i.i, %6

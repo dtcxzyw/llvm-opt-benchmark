@@ -713,7 +713,7 @@ _ZNK11QModelIndex7isValidEv.exit.thread:          ; preds = %4
   %22 = load ptr, ptr %21, align 8
   %23 = getelementptr ptr, ptr %22, i64 %15
   %24 = load ptr, ptr %23, align 8
-  %25 = icmp ugt i32 %8, 2
+  %25 = icmp samesign ugt i32 %8, 2
   br i1 %25, label %26, label %28
 
 26:                                               ; preds = %20

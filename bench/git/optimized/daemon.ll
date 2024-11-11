@@ -3041,7 +3041,7 @@ for.body:                                         ; preds = %for.body.lr.ph, %fo
   br i1 %cmp, label %for.inc, label %if.end10
 
 if.end10:                                         ; preds = %for.body
-  %cmp11 = icmp ugt i32 %call8, 1023
+  %cmp11 = icmp samesign ugt i32 %call8, 1023
   br i1 %cmp11, label %if.then12, label %if.end14
 
 if.then12:                                        ; preds = %if.end10

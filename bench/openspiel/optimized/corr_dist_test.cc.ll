@@ -19619,7 +19619,7 @@ _ZNSt12_Vector_baseIN10open_spiel10algorithms29NormalFormJointPolicyWithProbESaI
   %49 = getelementptr inbounds i8, ptr %.0910.i.i.i.i.i, i64 32
   %50 = getelementptr inbounds i8, ptr %.0811.i.i.i.i.i, i64 32
   %51 = add nsw i64 %.012.i.i.i.i.i, -1
-  %52 = icmp ugt i64 %.012.i.i.i.i.i, 1
+  %52 = icmp samesign ugt i64 %.012.i.i.i.i.i, 1
   br i1 %52, label %.lr.ph.i.i.i.i.i, label %_ZSt4copyIPKN10open_spiel10algorithms29NormalFormJointPolicyWithProbEPS2_ET0_T_S7_S6_.exit.loopexit, !llvm.loop !152
 
 _ZSt4copyIPKN10open_spiel10algorithms29NormalFormJointPolicyWithProbEPS2_ET0_T_S7_S6_.exit.loopexit: ; preds = %.lr.ph.i.i.i.i.i
@@ -19675,7 +19675,7 @@ _ZSt7advanceIPKN10open_spiel10algorithms29NormalFormJointPolicyWithProbEmEvRT_T0
   %69 = getelementptr inbounds i8, ptr %.0910.i.i.i.i.i21, i64 32
   %70 = getelementptr inbounds i8, ptr %.0811.i.i.i.i.i20, i64 32
   %71 = add nsw i64 %.012.i.i.i.i.i19, -1
-  %72 = icmp ugt i64 %.012.i.i.i.i.i19, 1
+  %72 = icmp samesign ugt i64 %.012.i.i.i.i.i19, 1
   br i1 %72, label %.lr.ph.i.i.i.i.i18, label %_ZSt4copyIPKN10open_spiel10algorithms29NormalFormJointPolicyWithProbEPS2_ET0_T_S7_S6_.exit22.loopexit, !llvm.loop !152
 
 _ZSt4copyIPKN10open_spiel10algorithms29NormalFormJointPolicyWithProbEPS2_ET0_T_S7_S6_.exit22.loopexit: ; preds = %.lr.ph.i.i.i.i.i18
@@ -20986,7 +20986,7 @@ define linkonce_odr dso_local noundef i64 @_ZN4absl7debian213hash_internal9HashS
   br label %56
 
 11:                                               ; preds = %3
-  %12 = icmp ugt i64 %2, 8
+  %12 = icmp samesign ugt i64 %2, 8
   br i1 %12, label %13, label %25
 
 13:                                               ; preds = %11
@@ -21006,7 +21006,7 @@ define linkonce_odr dso_local noundef i64 @_ZN4absl7debian213hash_internal9HashS
   br label %56
 
 25:                                               ; preds = %11
-  %26 = icmp ugt i64 %2, 3
+  %26 = icmp samesign ugt i64 %2, 3
   br i1 %26, label %27, label %36
 
 27:                                               ; preds = %25

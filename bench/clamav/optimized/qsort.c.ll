@@ -138,7 +138,7 @@ swapfunc.exit.us.us590:                           ; preds = %.lr.ph577.us
   %50 = getelementptr inbounds i8, ptr %.022.i.us.us.us.us, i64 8
   store i64 %47, ptr %.022.i.us.us.us.us, align 8
   %51 = add nsw i64 %.0.i.us.us.us.us, -1
-  %52 = icmp ugt i64 %.0.i.us.us.us.us, 1
+  %52 = icmp samesign ugt i64 %.0.i.us.us.us.us, 1
   br i1 %52, label %.preheader719, label %swapfunc.exit.loopexit.us.us.us.us
 
 swapfunc.exit.loopexit.us.us.us.us:               ; preds = %.preheader719
@@ -173,7 +173,7 @@ swapfunc.exit.loopexit.us.us.us.us:               ; preds = %.preheader719
   %62 = getelementptr inbounds i8, ptr %.022.i.us.us, i64 8
   store i64 %59, ptr %.022.i.us.us, align 8
   %63 = add nsw i64 %.0.i.us.us, -1
-  %64 = icmp ugt i64 %.0.i.us.us, 1
+  %64 = icmp samesign ugt i64 %.0.i.us.us, 1
   br i1 %64, label %.preheader721, label %swapfunc.exit.loopexit.us.us
 
 swapfunc.exit.loopexit.us.us:                     ; preds = %.preheader721
@@ -576,7 +576,7 @@ med3.exit403:                                     ; preds = %247, %245, %241, %2
   %277 = getelementptr inbounds i8, ptr %.022.i407, i64 8
   store i64 %274, ptr %.022.i407, align 8
   %278 = add nsw i64 %.0.i409, -1
-  %279 = icmp ugt i64 %.0.i409, 1
+  %279 = icmp samesign ugt i64 %.0.i409, 1
   br i1 %279, label %.preheader624, label %swapfunc.exit410
 
 .preheader496:                                    ; preds = %273, %.preheader496
@@ -658,7 +658,7 @@ swapfunc.exit410:                                 ; preds = %.preheader496, %.pr
   %310 = getelementptr inbounds i8, ptr %.022.i414, i64 8
   store i64 %307, ptr %.022.i414, align 8
   %311 = add nsw i64 %.0.i416, -1
-  %312 = icmp ugt i64 %.0.i416, 1
+  %312 = icmp samesign ugt i64 %.0.i416, 1
   br i1 %312, label %.preheader617, label %swapfunc.exit417
 
 .preheader488:                                    ; preds = %306, %.preheader488
@@ -742,7 +742,7 @@ swapfunc.exit417:                                 ; preds = %.preheader488, %.pr
   %341 = getelementptr inbounds i8, ptr %.022.i421, i64 8
   store i64 %338, ptr %.022.i421, align 8
   %342 = add nsw i64 %.0.i423, -1
-  %343 = icmp ugt i64 %.0.i423, 1
+  %343 = icmp samesign ugt i64 %.0.i423, 1
   br i1 %343, label %.preheader615, label %swapfunc.exit424
 
 .preheader486:                                    ; preds = %337, %.preheader486
@@ -794,7 +794,7 @@ swapfunc.exit424:                                 ; preds = %.preheader486, %.pr
   %360 = getelementptr inbounds i8, ptr %.022.i428, i64 8
   store i64 %357, ptr %.022.i428, align 8
   %361 = add nsw i64 %.0.i430, -1
-  %362 = icmp ugt i64 %.0.i430, 1
+  %362 = icmp samesign ugt i64 %.0.i430, 1
   br i1 %362, label %.preheader619, label %swapfunc.exit431
 
 .preheader490:                                    ; preds = %356, %.preheader490
@@ -928,7 +928,7 @@ swapfunc.exit438.us.us564:                        ; preds = %.lr.ph552.us
   %407 = getelementptr inbounds i8, ptr %.022.i435.us.us.us.us, i64 8
   store i64 %404, ptr %.022.i435.us.us.us.us, align 8
   %408 = add nsw i64 %.0.i437.us.us.us.us, -1
-  %409 = icmp ugt i64 %.0.i437.us.us.us.us, 1
+  %409 = icmp samesign ugt i64 %.0.i437.us.us.us.us, 1
   br i1 %409, label %.preheader727, label %swapfunc.exit438.loopexit.us.us.us.us
 
 swapfunc.exit438.loopexit.us.us.us.us:            ; preds = %.preheader727
@@ -963,7 +963,7 @@ swapfunc.exit438.loopexit.us.us.us.us:            ; preds = %.preheader727
   %420 = getelementptr inbounds i8, ptr %.022.i435.us.us, i64 8
   store i64 %417, ptr %.022.i435.us.us, align 8
   %421 = add nsw i64 %.0.i437.us.us, -1
-  %422 = icmp ugt i64 %.0.i437.us.us, 1
+  %422 = icmp samesign ugt i64 %.0.i437.us.us, 1
   br i1 %422, label %.preheader729, label %swapfunc.exit438.loopexit.us.us
 
 swapfunc.exit438.loopexit.us.us:                  ; preds = %.preheader729
@@ -1076,7 +1076,7 @@ swapfunc.exit438.loopexit482:                     ; preds = %.preheader481
   %469 = getelementptr inbounds i8, ptr %.022.i442, i64 8
   store i64 %466, ptr %.022.i442, align 8
   %470 = add nsw i64 %.0.i444, -1
-  %471 = icmp ugt i64 %.0.i444, 1
+  %471 = icmp samesign ugt i64 %.0.i444, 1
   br i1 %471, label %465, label %swapfunc.exit445
 
 .preheader494:                                    ; preds = %459, %.preheader494
@@ -1090,7 +1090,7 @@ swapfunc.exit438.loopexit482:                     ; preds = %.preheader481
   %475 = getelementptr inbounds i8, ptr %.018.i441, i64 1
   store i8 %472, ptr %.018.i441, align 1
   %476 = add nsw i64 %.020.i439, -1
-  %477 = icmp ugt i64 %.020.i439, 1
+  %477 = icmp samesign ugt i64 %.020.i439, 1
   br i1 %477, label %.preheader494, label %swapfunc.exit445
 
 swapfunc.exit445:                                 ; preds = %.preheader494, %465, %452
@@ -1126,7 +1126,7 @@ swapfunc.exit445:                                 ; preds = %.preheader494, %465
   %496 = getelementptr inbounds i8, ptr %.022.i449, i64 8
   store i64 %493, ptr %.022.i449, align 8
   %497 = add nsw i64 %.0.i451, -1
-  %498 = icmp ugt i64 %.0.i451, 1
+  %498 = icmp samesign ugt i64 %.0.i451, 1
   br i1 %498, label %492, label %swapfunc.exit452
 
 .preheader492:                                    ; preds = %486, %.preheader492
@@ -1140,7 +1140,7 @@ swapfunc.exit445:                                 ; preds = %.preheader494, %465
   %502 = getelementptr inbounds i8, ptr %.018.i448, i64 1
   store i8 %499, ptr %.018.i448, align 1
   %503 = add nsw i64 %.020.i446, -1
-  %504 = icmp ugt i64 %.020.i446, 1
+  %504 = icmp samesign ugt i64 %.020.i446, 1
   br i1 %504, label %.preheader492, label %swapfunc.exit452
 
 swapfunc.exit452:                                 ; preds = %.preheader492, %492, %swapfunc.exit445
@@ -1312,7 +1312,7 @@ swapfunc.exit.us.us599:                           ; preds = %.lr.ph586.us
   %51 = getelementptr inbounds i8, ptr %.022.i.us.us.us.us, i64 8
   store i64 %48, ptr %.022.i.us.us.us.us, align 8
   %52 = add nsw i64 %.0.i.us.us.us.us, -1
-  %53 = icmp ugt i64 %.0.i.us.us.us.us, 1
+  %53 = icmp samesign ugt i64 %.0.i.us.us.us.us, 1
   br i1 %53, label %.preheader728, label %swapfunc.exit.loopexit.us.us.us.us
 
 swapfunc.exit.loopexit.us.us.us.us:               ; preds = %.preheader728
@@ -1347,7 +1347,7 @@ swapfunc.exit.loopexit.us.us.us.us:               ; preds = %.preheader728
   %63 = getelementptr inbounds i8, ptr %.022.i.us.us, i64 8
   store i64 %60, ptr %.022.i.us.us, align 8
   %64 = add nsw i64 %.0.i.us.us, -1
-  %65 = icmp ugt i64 %.0.i.us.us, 1
+  %65 = icmp samesign ugt i64 %.0.i.us.us, 1
   br i1 %65, label %.preheader730, label %swapfunc.exit.loopexit.us.us
 
 swapfunc.exit.loopexit.us.us:                     ; preds = %.preheader730
@@ -1750,7 +1750,7 @@ med3_r.exit412:                                   ; preds = %248, %246, %242, %2
   %278 = getelementptr inbounds i8, ptr %.022.i416, i64 8
   store i64 %275, ptr %.022.i416, align 8
   %279 = add nsw i64 %.0.i418, -1
-  %280 = icmp ugt i64 %.0.i418, 1
+  %280 = icmp samesign ugt i64 %.0.i418, 1
   br i1 %280, label %.preheader633, label %swapfunc.exit419
 
 .preheader505:                                    ; preds = %274, %.preheader505
@@ -1832,7 +1832,7 @@ swapfunc.exit419:                                 ; preds = %.preheader505, %.pr
   %311 = getelementptr inbounds i8, ptr %.022.i423, i64 8
   store i64 %308, ptr %.022.i423, align 8
   %312 = add nsw i64 %.0.i425, -1
-  %313 = icmp ugt i64 %.0.i425, 1
+  %313 = icmp samesign ugt i64 %.0.i425, 1
   br i1 %313, label %.preheader626, label %swapfunc.exit426
 
 .preheader497:                                    ; preds = %307, %.preheader497
@@ -1916,7 +1916,7 @@ swapfunc.exit426:                                 ; preds = %.preheader497, %.pr
   %342 = getelementptr inbounds i8, ptr %.022.i430, i64 8
   store i64 %339, ptr %.022.i430, align 8
   %343 = add nsw i64 %.0.i432, -1
-  %344 = icmp ugt i64 %.0.i432, 1
+  %344 = icmp samesign ugt i64 %.0.i432, 1
   br i1 %344, label %.preheader624, label %swapfunc.exit433
 
 .preheader495:                                    ; preds = %338, %.preheader495
@@ -1968,7 +1968,7 @@ swapfunc.exit433:                                 ; preds = %.preheader495, %.pr
   %361 = getelementptr inbounds i8, ptr %.022.i437, i64 8
   store i64 %358, ptr %.022.i437, align 8
   %362 = add nsw i64 %.0.i439, -1
-  %363 = icmp ugt i64 %.0.i439, 1
+  %363 = icmp samesign ugt i64 %.0.i439, 1
   br i1 %363, label %.preheader628, label %swapfunc.exit440
 
 .preheader499:                                    ; preds = %357, %.preheader499
@@ -2102,7 +2102,7 @@ swapfunc.exit447.us.us573:                        ; preds = %.lr.ph561.us
   %408 = getelementptr inbounds i8, ptr %.022.i444.us.us.us.us, i64 8
   store i64 %405, ptr %.022.i444.us.us.us.us, align 8
   %409 = add nsw i64 %.0.i446.us.us.us.us, -1
-  %410 = icmp ugt i64 %.0.i446.us.us.us.us, 1
+  %410 = icmp samesign ugt i64 %.0.i446.us.us.us.us, 1
   br i1 %410, label %.preheader736, label %swapfunc.exit447.loopexit.us.us.us.us
 
 swapfunc.exit447.loopexit.us.us.us.us:            ; preds = %.preheader736
@@ -2137,7 +2137,7 @@ swapfunc.exit447.loopexit.us.us.us.us:            ; preds = %.preheader736
   %421 = getelementptr inbounds i8, ptr %.022.i444.us.us, i64 8
   store i64 %418, ptr %.022.i444.us.us, align 8
   %422 = add nsw i64 %.0.i446.us.us, -1
-  %423 = icmp ugt i64 %.0.i446.us.us, 1
+  %423 = icmp samesign ugt i64 %.0.i446.us.us, 1
   br i1 %423, label %.preheader738, label %swapfunc.exit447.loopexit.us.us
 
 swapfunc.exit447.loopexit.us.us:                  ; preds = %.preheader738
@@ -2250,7 +2250,7 @@ swapfunc.exit447.loopexit491:                     ; preds = %.preheader490
   %470 = getelementptr inbounds i8, ptr %.022.i451, i64 8
   store i64 %467, ptr %.022.i451, align 8
   %471 = add nsw i64 %.0.i453, -1
-  %472 = icmp ugt i64 %.0.i453, 1
+  %472 = icmp samesign ugt i64 %.0.i453, 1
   br i1 %472, label %466, label %swapfunc.exit454
 
 .preheader503:                                    ; preds = %460, %.preheader503
@@ -2264,7 +2264,7 @@ swapfunc.exit447.loopexit491:                     ; preds = %.preheader490
   %476 = getelementptr inbounds i8, ptr %.018.i450, i64 1
   store i8 %473, ptr %.018.i450, align 1
   %477 = add nsw i64 %.020.i448, -1
-  %478 = icmp ugt i64 %.020.i448, 1
+  %478 = icmp samesign ugt i64 %.020.i448, 1
   br i1 %478, label %.preheader503, label %swapfunc.exit454
 
 swapfunc.exit454:                                 ; preds = %.preheader503, %466, %453
@@ -2300,7 +2300,7 @@ swapfunc.exit454:                                 ; preds = %.preheader503, %466
   %497 = getelementptr inbounds i8, ptr %.022.i458, i64 8
   store i64 %494, ptr %.022.i458, align 8
   %498 = add nsw i64 %.0.i460, -1
-  %499 = icmp ugt i64 %.0.i460, 1
+  %499 = icmp samesign ugt i64 %.0.i460, 1
   br i1 %499, label %493, label %swapfunc.exit461
 
 .preheader501:                                    ; preds = %487, %.preheader501
@@ -2314,7 +2314,7 @@ swapfunc.exit454:                                 ; preds = %.preheader503, %466
   %503 = getelementptr inbounds i8, ptr %.018.i457, i64 1
   store i8 %500, ptr %.018.i457, align 1
   %504 = add nsw i64 %.020.i455, -1
-  %505 = icmp ugt i64 %.020.i455, 1
+  %505 = icmp samesign ugt i64 %.020.i455, 1
   br i1 %505, label %.preheader501, label %swapfunc.exit461
 
 swapfunc.exit461:                                 ; preds = %.preheader501, %493, %swapfunc.exit454

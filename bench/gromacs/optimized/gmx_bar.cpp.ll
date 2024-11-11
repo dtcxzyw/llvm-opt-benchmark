@@ -3864,7 +3864,7 @@ _ZL15lambda_vec_samePK12lambda_vec_tS1_.exit.thread.i.i: ; preds = %1249, %_ZL15
   br i1 %.not429.i, label %.thread.i231, label %1461
 
 1461:                                             ; preds = %1459
-  %1462 = icmp ugt i32 %1440, 4
+  %1462 = icmp samesign ugt i32 %1440, 4
   br i1 %1462, label %1463, label %1467
 
 1463:                                             ; preds = %1461

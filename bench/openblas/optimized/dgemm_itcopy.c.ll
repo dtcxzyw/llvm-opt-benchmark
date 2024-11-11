@@ -72,7 +72,7 @@ define noundef i32 @dgemm_itcopy(i64 noundef %0, i64 noundef %1, ptr noundef rea
   store <8 x double> %42, ptr %50, align 1, !tbaa !3
   %51 = getelementptr inbounds i8, ptr %27, i64 %.idx23
   %52 = add nsw i64 %22, -16
-  %53 = icmp ugt i64 %22, 31
+  %53 = icmp samesign ugt i64 %22, 31
   br i1 %53, label %.preheader49, label %.loopexit50, !llvm.loop !6
 
 .loopexit50:                                      ; preds = %.preheader49, %14
@@ -270,7 +270,7 @@ define noundef i32 @dgemm_itcopy(i64 noundef %0, i64 noundef %1, ptr noundef rea
   store <8 x double> %184, ptr %188, align 1, !tbaa !3
   %189 = getelementptr inbounds i8, ptr %177, i64 %.idx31
   %190 = add nsw i64 %174, -16
-  %191 = icmp ugt i64 %174, 31
+  %191 = icmp samesign ugt i64 %174, 31
   br i1 %191, label %173, label %.loopexit47.us, !llvm.loop !12
 
 192:                                              ; preds = %.loopexit47.us
@@ -493,7 +493,7 @@ define noundef i32 @dgemm_itcopy(i64 noundef %0, i64 noundef %1, ptr noundef rea
   store <8 x double> %332, ptr %334, align 1, !tbaa !3
   %335 = getelementptr inbounds i8, ptr %329, i64 %.idx39
   %336 = add nsw i64 %327, -16
-  %337 = icmp ugt i64 %327, 31
+  %337 = icmp samesign ugt i64 %327, 31
   br i1 %337, label %326, label %.loopexit, !llvm.loop !14
 
 .loopexit:                                        ; preds = %326, %321

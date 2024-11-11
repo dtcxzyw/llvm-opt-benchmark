@@ -917,7 +917,7 @@ define internal range(i64 7, 157) i64 @fun_si_from_utf_16(ptr nocapture noundef 
   br i1 %or.cond, label %28, label %20
 
 20:                                               ; preds = %17
-  %21 = icmp ult i8 %18, -36
+  %21 = icmp samesign ult i8 %18, -36
   br i1 %21, label %28, label %.thread
 
 22:                                               ; preds = %3
@@ -928,7 +928,7 @@ define internal range(i64 7, 157) i64 @fun_si_from_utf_16(ptr nocapture noundef 
   br i1 %or.cond16, label %28, label %26
 
 26:                                               ; preds = %22
-  %27 = icmp ult i8 %24, -36
+  %27 = icmp samesign ult i8 %24, -36
   br i1 %27, label %28, label %.thread
 
 .thread:                                          ; preds = %5, %7, %26, %20, %12, %3

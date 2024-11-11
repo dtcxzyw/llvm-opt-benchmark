@@ -6356,7 +6356,7 @@ define i32 @H5T_cmp(ptr noundef readonly %0, ptr noundef readonly %1, i1 noundef
   %indvars.iv636 = phi i64 [ %69, %.preheader507.lr.ph ], [ %indvars.iv.next637, %.loopexit508 ]
   %.0379571.in = phi i32 [ %62, %.preheader507.lr.ph ], [ %.0379571, %.loopexit508 ]
   %.0379571 = add nsw i32 %.0379571.in, -1
-  %70 = icmp ugt i32 %.0379571.in, 1
+  %70 = icmp samesign ugt i32 %.0379571.in, 1
   br i1 %70, label %.lr.ph568.preheader, label %._crit_edge572
 
 .lr.ph568.preheader:                              ; preds = %.preheader507
@@ -6412,7 +6412,7 @@ define i32 @H5T_cmp(ptr noundef readonly %0, ptr noundef readonly %1, i1 noundef
   %indvars.iv645 = phi i64 [ %91, %.preheader.lr.ph ], [ %indvars.iv.next646, %.loopexit505 ]
   %.1380578.in = phi i32 [ %87, %.preheader.lr.ph ], [ %.1380578, %.loopexit505 ]
   %.1380578 = add nsw i32 %.1380578.in, -1
-  %92 = icmp ugt i32 %.1380578.in, 1
+  %92 = icmp samesign ugt i32 %.1380578.in, 1
   br i1 %92, label %.lr.ph575.preheader, label %.loopexit506
 
 .lr.ph575.preheader:                              ; preds = %.preheader
@@ -6604,7 +6604,7 @@ define i32 @H5T_cmp(ptr noundef readonly %0, ptr noundef readonly %1, i1 noundef
   %indvars.iv607 = phi i64 [ %195, %.preheader518.lr.ph ], [ %indvars.iv.next608, %.loopexit519 ]
   %.0367536.in = phi i32 [ %190, %.preheader518.lr.ph ], [ %.0367536, %.loopexit519 ]
   %.0367536 = add nsw i32 %.0367536.in, -1
-  %196 = icmp ugt i32 %.0367536.in, 1
+  %196 = icmp samesign ugt i32 %.0367536.in, 1
   br i1 %196, label %.lr.ph533.preheader, label %.loopexit521
 
 .lr.ph533.preheader:                              ; preds = %.preheader518
@@ -6677,7 +6677,7 @@ define i32 @H5T_cmp(ptr noundef readonly %0, ptr noundef readonly %1, i1 noundef
   %indvars.iv619 = phi i64 [ %220, %.preheader514.lr.ph ], [ %indvars.iv.next620, %.loopexit515 ]
   %.0363547.in = phi i32 [ %213, %.preheader514.lr.ph ], [ %.0363547, %.loopexit515 ]
   %.0363547 = add nsw i32 %.0363547.in, -1
-  %221 = icmp ugt i32 %.0363547.in, 1
+  %221 = icmp samesign ugt i32 %.0363547.in, 1
   br i1 %221, label %.lr.ph544.preheader, label %.loopexit517
 
 .lr.ph544.preheader:                              ; preds = %.preheader514
@@ -9494,7 +9494,7 @@ H5T_path_match.exit:                              ; preds = %187, %182, %173, %1
   br label %.loopexit
 
 207:                                              ; preds = %H5T_path_match.exit, %191
-  %208 = icmp ugt i64 %indvars.iv93, 2
+  %208 = icmp samesign ugt i64 %indvars.iv93, 2
   br i1 %208, label %150, label %.loopexit
 
 .loopexit:                                        ; preds = %207, %.loopexit59, %203
@@ -12402,7 +12402,7 @@ H5T__path_table_search.exit..thread_crit_edge:    ; preds = %H5T__path_table_sea
 320:                                              ; preds = %313, %311, %237, %229
   %.6118.i = phi ptr [ %.5117258.i, %229 ], [ %.5117258.i, %237 ], [ %.8120.i, %311 ], [ %.8120.i, %313 ]
   %.6110.i = phi ptr [ %.5109259.i, %229 ], [ %.5109259.i, %237 ], [ %.7111.i, %311 ], [ null, %313 ]
-  %321 = icmp ugt i64 %indvars.iv.i, 1
+  %321 = icmp samesign ugt i64 %indvars.iv.i, 1
   br i1 %321, label %227, label %.critedge.thread.i
 
 .critedge.i:                                      ; preds = %294, %193, %182

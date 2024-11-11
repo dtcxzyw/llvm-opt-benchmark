@@ -3712,7 +3712,7 @@ switch.lookup:                                    ; preds = %switch.hole_check, 
   %97 = phi i1 [ false, %95 ], [ true, %94 ], [ true, %switch.lookup ], [ true, %switch.lookup ], [ true, %switch.lookup ], [ true, %switch.lookup ], [ true, %switch.lookup ]
   %98 = phi i1 [ false, %95 ], [ true, %94 ], [ false, %switch.lookup ], [ false, %switch.lookup ], [ false, %switch.lookup ], [ false, %switch.lookup ], [ false, %switch.lookup ]
   %.sroa.098.0 = phi i8 [ 2, %95 ], [ 1, %94 ], [ 0, %switch.lookup ], [ 0, %switch.lookup ], [ 0, %switch.lookup ], [ 0, %switch.lookup ], [ 0, %switch.lookup ]
-  %99 = icmp ult i8 %3, 4
+  %99 = icmp samesign ult i8 %3, 4
   br i1 %99, label %switch.lookup496, label %101
 
 100:                                              ; preds = %switch.hole_check495, %104
@@ -3721,7 +3721,7 @@ switch.lookup:                                    ; preds = %switch.hole_check, 
 
 101:                                              ; preds = %96
   %102 = icmp ne i8 %3, 4
-  %103 = icmp ult i8 %3, 8
+  %103 = icmp samesign ult i8 %3, 8
   %or.cond17 = and i1 %102, %103
   br i1 %or.cond17, label %switch.lookup496, label %104
 
@@ -5376,7 +5376,7 @@ _ZN4core4iter6traits8iterator8Iterator6reduce17h51948a7316e52ce1E.exit: ; preds 
   br i1 %344, label %376, label %347
 
 345:                                              ; preds = %342
-  %346 = icmp ugt i8 %336, 31
+  %346 = icmp samesign ugt i8 %336, 31
   br i1 %346, label %380, label %352
 
 347:                                              ; preds = %352, %343
@@ -15946,7 +15946,7 @@ _ZN3vte4ansi11PrivateMode3new17h86949433fa76faa0E.exit648.i: ; preds = %1577, %1
   br i1 %or.cond.i.i, label %2107, label %.lr.ph89.i.i
 
 2056:                                             ; preds = %2048
-  %2057 = icmp ugt i64 %2035, 2
+  %2057 = icmp samesign ugt i64 %2035, 2
   br i1 %2057, label %2182, label %2050
 
 2058:                                             ; preds = %2051
@@ -16889,7 +16889,7 @@ _ZN3vte4ansi11PrivateMode3new17h86949433fa76faa0E.exit648.i: ; preds = %1577, %1
   br i1 %.not85.i.i, label %2383, label %2384
 
 2381:                                             ; preds = %2270
-  %2382 = icmp ult i64 %2035, 3
+  %2382 = icmp samesign ult i64 %2035, 3
   br i1 %2382, label %2410, label %2400
 
 2383:                                             ; preds = %2390, %2384, %2380
@@ -17256,7 +17256,7 @@ switch.lookup129:                                 ; preds = %2393
   br label %.thread
 
 2528:                                             ; preds = %2020
-  %2529 = icmp ult i64 %847, 16
+  %2529 = icmp samesign ult i64 %847, 16
   br i1 %2529, label %2024, label %2531
 
 2530:                                             ; preds = %2020
@@ -17311,7 +17311,7 @@ switch.lookup129:                                 ; preds = %2393
   br label %"_ZN66_$LT$vte..ansi..Performer$LT$H$C$T$GT$$u20$as$u20$vte..Perform$GT$6unhook17h8dcb0156c0b818b0E.exit"
 
 2551:                                             ; preds = %2543
-  %2552 = icmp ult i64 %2534, 16
+  %2552 = icmp samesign ult i64 %2534, 16
   br i1 %2552, label %2554, label %2561
 
 2553:                                             ; preds = %2543

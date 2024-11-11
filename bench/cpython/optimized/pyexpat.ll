@@ -8496,7 +8496,7 @@ if.end11:                                         ; preds = %if.end3
   br i1 %cmp12, label %return, label %if.end15
 
 if.end15:                                         ; preds = %if.end11
-  %cmp16 = icmp ugt i64 %call4, 2147483647
+  %cmp16 = icmp samesign ugt i64 %call4, 2147483647
   br i1 %cmp16, label %if.then18, label %if.end20
 
 if.then18:                                        ; preds = %if.end15

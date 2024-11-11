@@ -15,7 +15,7 @@ entry:
   br i1 %cmp, label %return, label %if.else
 
 if.else:                                          ; preds = %entry
-  %cmp1 = icmp ult i32 %c, 256
+  %cmp1 = icmp samesign ult i32 %c, 256
   br i1 %cmp1, label %if.then2, label %if.else6
 
 if.then2:                                         ; preds = %if.else
@@ -27,11 +27,11 @@ if.then2:                                         ; preds = %if.else
   br label %return
 
 if.else6:                                         ; preds = %if.else
-  %cmp7 = icmp ult i32 %c, 8208
+  %cmp7 = icmp samesign ult i32 %c, 8208
   br i1 %cmp7, label %return, label %if.else9
 
 if.else9:                                         ; preds = %if.else6
-  %cmp10 = icmp ult i32 %c, 12337
+  %cmp10 = icmp samesign ult i32 %c, 12337
   br i1 %cmp10, label %if.then11, label %if.else21
 
 if.then11:                                        ; preds = %if.else9
@@ -72,7 +72,7 @@ entry:
   br i1 %cmp, label %return, label %if.else
 
 if.else:                                          ; preds = %entry
-  %cmp1 = icmp ult i32 %c, 256
+  %cmp1 = icmp samesign ult i32 %c, 256
   br i1 %cmp1, label %if.then2, label %if.else4
 
 if.then2:                                         ; preds = %if.else
@@ -83,11 +83,11 @@ if.then2:                                         ; preds = %if.else
   br label %return
 
 if.else4:                                         ; preds = %if.else
-  %cmp5 = icmp ult i32 %c, 8206
+  %cmp5 = icmp samesign ult i32 %c, 8206
   br i1 %cmp5, label %return, label %if.else7
 
 if.else7:                                         ; preds = %if.else4
-  %cmp8 = icmp ult i32 %c, 12337
+  %cmp8 = icmp samesign ult i32 %c, 12337
   br i1 %cmp8, label %if.then9, label %if.else18
 
 if.then9:                                         ; preds = %if.else7
@@ -128,7 +128,7 @@ entry:
   br i1 %cmp, label %return, label %if.else
 
 if.else:                                          ; preds = %entry
-  %cmp1 = icmp ult i32 %c, 256
+  %cmp1 = icmp samesign ult i32 %c, 256
   br i1 %cmp1, label %if.then2, label %if.else6
 
 if.then2:                                         ; preds = %if.else

@@ -612,7 +612,7 @@ if.then8.i.i:                                     ; preds = %for.body.i28.i
   br label %for.inc.i30.i
 
 for.inc.i30.i:                                    ; preds = %if.then8.i.i, %for.body.i28.i
-  %cmp.i31.i = icmp ugt i32 %i.032.in.i.i, 1
+  %cmp.i31.i = icmp samesign ugt i32 %i.032.in.i.i, 1
   br i1 %cmp.i31.i, label %for.body.i28.i, label %for.cond13.i.i.preheader, !llvm.loop !13
 
 for.cond13.i.i.preheader:                         ; preds = %for.inc.i30.i, %if.then.i.i, %do.body.i
@@ -648,7 +648,7 @@ if.then25.i.i:                                    ; preds = %for.body20.i.i
   br label %for.inc32.i.i
 
 for.inc32.i.i:                                    ; preds = %if.then25.i.i, %for.body20.i.i
-  %cmp19.i.i = icmp ugt i32 %i.135.in.i.i, 1
+  %cmp19.i.i = icmp samesign ugt i32 %i.135.in.i.i, 1
   br i1 %cmp19.i.i, label %for.body20.i.i, label %for.end34.i.i, !llvm.loop !14
 
 for.end34.i.i:                                    ; preds = %for.inc32.i.i, %for.cond13.i.i

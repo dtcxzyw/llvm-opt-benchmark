@@ -1139,7 +1139,7 @@ dissect_nhrp_mand.exit:                           ; preds = %266, %267, %268, %2
   br label %396
 
 396:                                              ; preds = %.sink.split.i, %382
-  %397 = icmp ult i32 %378, %328
+  %397 = icmp samesign ult i32 %378, %328
   br i1 %397, label %398, label %407
 
 398:                                              ; preds = %396

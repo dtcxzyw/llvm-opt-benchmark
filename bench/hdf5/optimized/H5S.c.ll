@@ -2033,7 +2033,7 @@ define range(i64 -1, -9223372036854775808) i64 @H5Screate_simple(i32 noundef %0,
   br label %.thread83
 
 30:                                               ; preds = %23
-  %31 = icmp ugt i32 %0, 32
+  %31 = icmp samesign ugt i32 %0, 32
   br i1 %31, label %32, label %36
 
 32:                                               ; preds = %30

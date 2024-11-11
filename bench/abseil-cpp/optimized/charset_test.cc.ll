@@ -4190,7 +4190,7 @@ _ZN4absl7CharSet12RangeForWordEccm.exit23.i:      ; preds = %_ZN4absl7CharSet12R
   br i1 %cmp.not.i3.i36.i, label %cond.false.i5.i39.i, label %invoke.cont25
 
 cond.false.i5.i39.i:                              ; preds = %_ZN4absl7CharSet12RangeForWordEccm.exit23.i
-  %cmp2.not.i7.i40.i = icmp ult i8 %conv, -64
+  %cmp2.not.i7.i40.i = icmp samesign ult i8 %conv, -64
   %13 = select i1 %cmp2.not.i7.i40.i, i64 %10, i64 0
   br label %invoke.cont25
 
@@ -4200,7 +4200,7 @@ invoke.cont25:                                    ; preds = %_ZN4absl7CharSet12R
   %.pre-phi.i = phi i64 [ %10, %cond.false.i5.i39.i ], [ %10, %_ZN4absl7CharSet12RangeForWordEccm.exit23.i ], [ %10, %_ZN4absl7CharSet12RangeForWordEccm.exit.i ], [ poison, %invoke.cont18 ]
   %cond6.i4.i37.i = phi i64 [ %13, %cond.false.i5.i39.i ], [ -1, %_ZN4absl7CharSet12RangeForWordEccm.exit23.i ], [ -1, %_ZN4absl7CharSet12RangeForWordEccm.exit.i ], [ -1, %invoke.cont18 ]
   %cmp.not.i.not.i25.i = icmp sgt i8 %conv23, -1
-  %cmp2.not.i.i28.i = icmp ult i8 %conv23, -65
+  %cmp2.not.i.i28.i = icmp samesign ult i8 %conv23, -65
   %14 = add i64 %9, 1
   %15 = and i64 %14, 63
   %narrow.i = sub nuw nsw i64 64, %15

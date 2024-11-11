@@ -423,7 +423,7 @@ PACKET_get_1.exit:                                ; preds = %entry
   %0 = load ptr, ptr %data, align 8
   %1 = load i8, ptr %0, align 1
   %cmp6 = icmp ne i8 %1, 22
-  %cmp.i.i = icmp ult i64 %call, 3
+  %cmp.i.i = icmp samesign ult i64 %call, 3
   %or.cond272 = or i1 %cmp.i.i, %cmp6
   br i1 %or.cond272, label %return, label %PACKET_get_net_2.exit
 
@@ -438,7 +438,7 @@ PACKET_get_net_2.exit:                            ; preds = %PACKET_get_1.exit
   %or.i.i = or disjoint i32 %shl.i.i, %conv2.i.i
   %cmp12 = icmp ne i32 %or.i.i, 256
   %4 = add nsw i64 %call, -3
-  %5 = icmp ult i64 %4, 11
+  %5 = icmp samesign ult i64 %4, 11
   %or.cond278 = select i1 %cmp12, i1 true, i1 %5
   br i1 %or.cond278, label %return, label %PACKET_get_1.exit28
 
@@ -447,10 +447,10 @@ PACKET_get_1.exit28:                              ; preds = %PACKET_get_net_2.ex
   %6 = load i8, ptr %add.ptr.i.i18, align 1
   %sub.i.i26 = add nsw i64 %call, -14
   %cmp22 = icmp ne i8 %6, 1
-  %cmp.i30 = icmp ult i64 %sub.i.i26, 11
+  %cmp.i30 = icmp samesign ult i64 %sub.i.i26, 11
   %or.cond274 = select i1 %cmp22, i1 true, i1 %cmp.i30
   %sub.i.i33 = add nsw i64 %call, -25
-  %cmp.i.i37 = icmp ult i64 %sub.i.i33, 2
+  %cmp.i.i37 = icmp samesign ult i64 %sub.i.i33, 2
   %or.cond279 = select i1 %or.cond274, i1 true, i1 %cmp.i.i37
   br i1 %or.cond279, label %return, label %PACKET_get_net_2.exit47
 
@@ -465,7 +465,7 @@ PACKET_get_net_2.exit47:                          ; preds = %PACKET_get_1.exit28
   %or.i.i43 = or disjoint i32 %shl.i.i40, %conv2.i.i42
   %sub.i.i45 = add nsw i64 %call, -27
   %cmp32 = icmp ne i32 %or.i.i43, 256
-  %cmp.i.i49 = icmp ult i64 %sub.i.i45, 32
+  %cmp.i.i49 = icmp samesign ult i64 %sub.i.i45, 32
   %or.cond275 = select i1 %cmp32, i1 true, i1 %cmp.i.i49
   br i1 %or.cond275, label %return, label %if.end38
 
@@ -480,7 +480,7 @@ lor.lhs.false.i:                                  ; preds = %if.end38
   %9 = load i8, ptr %add.ptr.i.i51, align 1
   %sub.i.i.i = add nsw i64 %call, -60
   %conv.i = zext i8 %9 to i64
-  %cmp.i.i.i = icmp ult i64 %sub.i.i.i, %conv.i
+  %cmp.i.i.i = icmp samesign ult i64 %sub.i.i.i, %conv.i
   br i1 %cmp.i.i.i, label %return, label %lor.lhs.false41
 
 lor.lhs.false41:                                  ; preds = %lor.lhs.false.i
@@ -500,7 +500,7 @@ lor.lhs.false.i63:                                ; preds = %PACKET_equal.exit
   %10 = load i8, ptr %add.ptr.i.i5.i, align 1
   %sub.i.i.i65 = add nsw i64 %call, -93
   %conv.i66 = zext i8 %10 to i64
-  %cmp.i.i.i67 = icmp ult i64 %sub.i.i.i65, %conv.i66
+  %cmp.i.i.i67 = icmp samesign ult i64 %sub.i.i.i65, %conv.i66
   br i1 %cmp.i.i.i67, label %return, label %if.end49
 
 if.end49:                                         ; preds = %lor.lhs.false.i63
@@ -521,7 +521,7 @@ PACKET_equal.exit81:                              ; preds = %if.then52
 
 if.end57:                                         ; preds = %PACKET_equal.exit81, %if.end49
   %cookie_found.0 = phi i32 [ 1, %if.end49 ], [ 2, %PACKET_equal.exit81 ]
-  %cmp.i.i83 = icmp ult i64 %sub.i.i6.i71, 2
+  %cmp.i.i83 = icmp samesign ult i64 %sub.i.i6.i71, 2
   br i1 %cmp.i.i83, label %return, label %lor.lhs.false60
 
 lor.lhs.false60:                                  ; preds = %if.end57
@@ -543,12 +543,12 @@ lor.lhs.false67:                                  ; preds = %lor.lhs.false60
   %14 = xor i64 %or.i.i89, -1
   %sub.i.i106 = add nsw i64 %sub.i.i91, %14
   %conv68 = zext i8 %13 to i64
-  %cmp.i110 = icmp ult i64 %sub.i.i106, %conv68
+  %cmp.i110 = icmp samesign ult i64 %sub.i.i106, %conv68
   br i1 %cmp.i110, label %return, label %if.end72
 
 if.end72:                                         ; preds = %lor.lhs.false67
   %sub.i.i113 = sub nuw nsw i64 %sub.i.i106, %conv68
-  %cmp.i.i117 = icmp ult i64 %sub.i.i113, 2
+  %cmp.i.i117 = icmp samesign ult i64 %sub.i.i113, 2
   br i1 %cmp.i.i117, label %return, label %lor.lhs.false75
 
 lor.lhs.false75:                                  ; preds = %if.end72
@@ -668,7 +668,7 @@ PACKET_get_1.exit:                                ; preds = %entry
   %0 = load ptr, ptr %data, align 8
   %1 = load i8, ptr %0, align 1
   %cmp6 = icmp ne i8 %1, 20
-  %cmp.i.i = icmp ult i64 %call, 3
+  %cmp.i.i = icmp samesign ult i64 %call, 3
   %or.cond154 = or i1 %cmp.i.i, %cmp6
   br i1 %or.cond154, label %return, label %PACKET_get_net_2.exit
 
@@ -683,7 +683,7 @@ PACKET_get_net_2.exit:                            ; preds = %PACKET_get_1.exit
   %or.i.i = or disjoint i32 %shl.i.i, %conv2.i.i
   %cmp12 = icmp ne i32 %or.i.i, 256
   %4 = add nsw i64 %call, -3
-  %5 = icmp ult i64 %4, 11
+  %5 = icmp samesign ult i64 %4, 11
   %or.cond159 = select i1 %cmp12, i1 true, i1 %5
   br i1 %or.cond159, label %return, label %PACKET_get_1.exit25
 
@@ -715,7 +715,7 @@ PACKET_get_1.exit45:                              ; preds = %PACKET_get_net_2.ex
   %10 = load i8, ptr %add.ptr.i2.i34, align 1
   %sub.i.i43 = add nsw i64 %call, -17
   %cmp34 = icmp ne i8 %10, 22
-  %cmp.i.i47 = icmp ult i64 %sub.i.i43, 2
+  %cmp.i.i47 = icmp samesign ult i64 %sub.i.i43, 2
   %or.cond158 = select i1 %cmp34, i1 true, i1 %cmp.i.i47
   br i1 %or.cond158, label %return, label %PACKET_get_net_2.exit57
 
@@ -730,7 +730,7 @@ PACKET_get_net_2.exit57:                          ; preds = %PACKET_get_1.exit45
   %or.i.i53 = or disjoint i32 %shl.i.i50, %conv2.i.i52
   %cmp40.not = icmp ne i32 %or.i.i53, 256
   %sub.i.i55 = add nsw i64 %call, -19
-  %cmp.i.i59 = icmp ult i64 %sub.i.i55, 2
+  %cmp.i.i59 = icmp samesign ult i64 %sub.i.i55, 2
   %or.cond160 = select i1 %cmp40.not, i1 true, i1 %cmp.i.i59
   br i1 %or.cond160, label %return, label %if.end.i60
 

@@ -314,7 +314,7 @@ define dso_local i32 @__unix_dgram_recvmsg(ptr noundef %0, ptr noundef %1, i64 n
   br i1 %102, label %109, label %103
 
 103:                                              ; preds = %96
-  %104 = icmp ult i64 %2, %101
+  %104 = icmp samesign ult i64 %2, %101
   br i1 %104, label %105, label %109
 
 105:                                              ; preds = %103

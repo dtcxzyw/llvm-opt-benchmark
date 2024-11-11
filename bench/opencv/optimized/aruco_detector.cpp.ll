@@ -2682,7 +2682,7 @@ define linkonce_odr hidden void @_ZN2cv5aruco13ArucoDetector17ArucoDetectorImpl1
   br label %197
 
 30:                                               ; preds = %18
-  %.not.i = icmp ult i32 %20, %16
+  %.not.i = icmp samesign ult i32 %20, %16
   br i1 %.not.i, label %31, label %39
 
 31:                                               ; preds = %30
@@ -4646,7 +4646,7 @@ _ZNSt12_Vector_baseIN2cv5aruco19MarkerCandidateTreeESaIS2_EEC2EmRKS3_.exit.i188:
 .loopexit:                                        ; preds = %579, %570
   %581 = phi ptr [ %573, %570 ], [ %547, %579 ]
   %indvars.iv.next = add nsw i32 %indvars.iv561, -1
-  %582 = icmp ugt i64 %indvars.iv.next442562, 1
+  %582 = icmp samesign ugt i64 %indvars.iv.next442562, 1
   br i1 %582, label %.lr.ph405, label %._crit_edge411, !llvm.loop !33
 
 ._crit_edge411:                                   ; preds = %.loopexit, %.lr.ph410, %._crit_edge401
@@ -14027,7 +14027,7 @@ _ZSt8_DestroyIPN2cv5aruco15MarkerCandidateES2_EvT_S4_RSaIT0_E.exit.i.i.i.i: ; pr
 
 _ZN2cv5aruco19MarkerCandidateTreeaSEOS1_.exit:    ; preds = %_ZSt8_DestroyIPN2cv5aruco15MarkerCandidateES2_EvT_S4_RSaIT0_E.exit.i.i.i.i, %92
   %93 = add nsw i64 %.010.i.i.i.i.i, -1
-  %94 = icmp ugt i64 %.010.i.i.i.i.i, 1
+  %94 = icmp samesign ugt i64 %.010.i.i.i.i.i, 1
   br i1 %94, label %.lr.ph.i.i.i.i.i, label %.loopexit, !llvm.loop !198
 
 .loopexit:                                        ; preds = %_ZN2cv5aruco19MarkerCandidateTreeaSEOS1_.exit, %22
@@ -14976,7 +14976,7 @@ tailrecurse._crit_edge:                           ; preds = %tailrecurse, %7
   %15 = getelementptr inbounds i8, ptr %.0910.i.i.i.i.i, i64 88
   %16 = getelementptr inbounds i8, ptr %.0811.i.i.i.i.i, i64 88
   %17 = add nsw i64 %.012.i.i.i.i.i, -1
-  %18 = icmp ugt i64 %.012.i.i.i.i.i, 1
+  %18 = icmp samesign ugt i64 %.012.i.i.i.i.i, 1
   br i1 %18, label %.lr.ph.i.i.i.i.i, label %.lr.ph.i, !llvm.loop !207
 
 .lr.ph.i:                                         ; preds = %.lr.ph.i.i.i.i.i, %31
@@ -15030,7 +15030,7 @@ tailrecurse._crit_edge:                           ; preds = %tailrecurse, %7
   %39 = getelementptr inbounds i8, ptr %.0910.i.i.i.i.i.i, i64 88
   %40 = getelementptr inbounds i8, ptr %.0811.i.i.i.i.i.i, i64 88
   %41 = add nsw i64 %.012.i.i.i.i.i.i, -1
-  %42 = icmp ugt i64 %.012.i.i.i.i.i.i, 1
+  %42 = icmp samesign ugt i64 %.012.i.i.i.i.i.i, 1
   br i1 %42, label %.lr.ph.i.i.i.i.i.i, label %_ZSt21__move_merge_adaptiveIPN2cv5aruco19MarkerCandidateTreeEN9__gnu_cxx17__normal_iteratorIS3_St6vectorIS2_SaIS2_EEEES9_NS4_5__ops15_Iter_less_iterEEvT_SC_T0_SD_T1_T2_.exit, !llvm.loop !207
 
 43:                                               ; preds = %.lr.ph, %tailrecurse
@@ -15060,7 +15060,7 @@ tailrecurse._crit_edge:                           ; preds = %tailrecurse, %7
   %50 = getelementptr inbounds i8, ptr %.0910.i.i.i.i.i75, i64 88
   %51 = getelementptr inbounds i8, ptr %.0811.i.i.i.i.i74, i64 88
   %52 = add nsw i64 %.012.i.i.i.i.i73, -1
-  %53 = icmp ugt i64 %.012.i.i.i.i.i73, 1
+  %53 = icmp samesign ugt i64 %.012.i.i.i.i.i73, 1
   br i1 %53, label %.lr.ph.i.i.i.i.i72, label %_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPN2cv5aruco19MarkerCandidateTreeESt6vectorIS4_SaIS4_EEEES5_ET0_T_SB_SA_.exit76, !llvm.loop !207
 
 _ZSt4moveIN9__gnu_cxx17__normal_iteratorIPN2cv5aruco19MarkerCandidateTreeESt6vectorIS4_SaIS4_EEEES5_ET0_T_SB_SA_.exit76: ; preds = %.lr.ph.i.i.i.i.i72, %45
@@ -15087,7 +15087,7 @@ _ZSt4moveIN9__gnu_cxx17__normal_iteratorIPN2cv5aruco19MarkerCandidateTreeESt6vec
   %62 = getelementptr inbounds i8, ptr %.069.i.i.i.i.i.i, i64 -88
   %63 = tail call noundef nonnull align 8 dereferenceable(88) ptr @_ZN2cv5aruco19MarkerCandidateTreeaSEOS1_(ptr noundef nonnull align 8 dereferenceable(88) %62, ptr noundef nonnull align 8 dereferenceable(88) %61) #28
   %64 = add nsw i64 %.010.i.i.i.i.i.i, -1
-  %65 = icmp ugt i64 %.010.i.i.i.i.i.i, 1
+  %65 = icmp samesign ugt i64 %.010.i.i.i.i.i.i, 1
   br i1 %65, label %.lr.ph.i.i.i.i.i.i79, label %_ZSt21__move_merge_adaptiveIPN2cv5aruco19MarkerCandidateTreeEN9__gnu_cxx17__normal_iteratorIS3_St6vectorIS2_SaIS2_EEEES9_NS4_5__ops15_Iter_less_iterEEvT_SC_T0_SD_T1_T2_.exit, !llvm.loop !198
 
 66:                                               ; preds = %_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPN2cv5aruco19MarkerCandidateTreeESt6vectorIS4_SaIS4_EEEES5_ET0_T_SB_SA_.exit76
@@ -15141,7 +15141,7 @@ _ZSt4moveIN9__gnu_cxx17__normal_iteratorIPN2cv5aruco19MarkerCandidateTreeESt6vec
   %88 = getelementptr inbounds i8, ptr %.069.i.i.i.i.i22.i, i64 -88
   %89 = tail call noundef nonnull align 8 dereferenceable(88) ptr @_ZN2cv5aruco19MarkerCandidateTreeaSEOS1_(ptr noundef nonnull align 8 dereferenceable(88) %88, ptr noundef nonnull align 8 dereferenceable(88) %87) #28
   %90 = add nsw i64 %.010.i.i.i.i.i21.i, -1
-  %91 = icmp ugt i64 %.010.i.i.i.i.i21.i, 1
+  %91 = icmp samesign ugt i64 %.010.i.i.i.i.i21.i, 1
   br i1 %91, label %.lr.ph.i.i.i.i.i20.i, label %_ZSt21__move_merge_adaptiveIPN2cv5aruco19MarkerCandidateTreeEN9__gnu_cxx17__normal_iteratorIS3_St6vectorIS2_SaIS2_EEEES9_NS4_5__ops15_Iter_less_iterEEvT_SC_T0_SD_T1_T2_.exit, !llvm.loop !198
 
 92:                                               ; preds = %71
@@ -15625,7 +15625,7 @@ _ZN2cv5aruco19MarkerCandidateTreeaSEOS1_.exit52:  ; preds = %_ZSt8_DestroyIPN2cv
   %158 = getelementptr inbounds i8, ptr %.0910.i.i.i.i.i.i, i64 88
   %159 = getelementptr inbounds i8, ptr %.0811.i.i.i.i.i.i, i64 88
   %160 = add nsw i64 %.012.i.i.i.i.i.i, -1
-  %161 = icmp ugt i64 %.012.i.i.i.i.i.i, 1
+  %161 = icmp samesign ugt i64 %.012.i.i.i.i.i.i, 1
   br i1 %161, label %.lr.ph.i.i.i.i.i.i, label %_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPN2cv5aruco19MarkerCandidateTreeESt6vectorIS4_SaIS4_EEEES5_ET0_T_SB_SA_.exit.i, !llvm.loop !207
 
 _ZSt4moveIN9__gnu_cxx17__normal_iteratorIPN2cv5aruco19MarkerCandidateTreeESt6vectorIS4_SaIS4_EEEES5_ET0_T_SB_SA_.exit.i: ; preds = %_ZN2cv5aruco19MarkerCandidateTreeaSEOS1_.exit52, %.critedge.i
@@ -15749,7 +15749,7 @@ _ZN2cv5aruco19MarkerCandidateTreeaSEOS1_.exit:    ; preds = %_ZSt8_DestroyIPN2cv
   %211 = getelementptr inbounds i8, ptr %.0910.i.i.i.i.i14.i, i64 88
   %212 = getelementptr inbounds i8, ptr %.0811.i.i.i.i.i13.i, i64 88
   %213 = add nsw i64 %.012.i.i.i.i.i12.i, -1
-  %214 = icmp ugt i64 %.012.i.i.i.i.i12.i, 1
+  %214 = icmp samesign ugt i64 %.012.i.i.i.i.i12.i, 1
   br i1 %214, label %.lr.ph.i.i.i.i.i11.i, label %_ZSt12__move_mergeIN9__gnu_cxx17__normal_iteratorIPN2cv5aruco19MarkerCandidateTreeESt6vectorIS4_SaIS4_EEEES5_NS0_5__ops15_Iter_less_iterEET0_T_SD_SD_SD_SC_T1_.exit, !llvm.loop !207
 
 _ZSt12__move_mergeIN9__gnu_cxx17__normal_iteratorIPN2cv5aruco19MarkerCandidateTreeESt6vectorIS4_SaIS4_EEEES5_NS0_5__ops15_Iter_less_iterEET0_T_SD_SD_SD_SC_T1_.exit: ; preds = %_ZN2cv5aruco19MarkerCandidateTreeaSEOS1_.exit, %_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPN2cv5aruco19MarkerCandidateTreeESt6vectorIS4_SaIS4_EEEES5_ET0_T_SB_SA_.exit.i
@@ -15822,7 +15822,7 @@ _ZSt12__move_mergeIN9__gnu_cxx17__normal_iteratorIPN2cv5aruco19MarkerCandidateTr
   %241 = getelementptr inbounds i8, ptr %.0910.i.i.i.i.i.i29, i64 88
   %242 = getelementptr inbounds i8, ptr %.0811.i.i.i.i.i.i28, i64 88
   %243 = add nsw i64 %.012.i.i.i.i.i.i27, -1
-  %244 = icmp ugt i64 %.012.i.i.i.i.i.i27, 1
+  %244 = icmp samesign ugt i64 %.012.i.i.i.i.i.i27, 1
   br i1 %244, label %.lr.ph.i.i.i.i.i.i26, label %_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPN2cv5aruco19MarkerCandidateTreeESt6vectorIS4_SaIS4_EEEES5_ET0_T_SB_SA_.exit.i17, !llvm.loop !207
 
 _ZSt4moveIN9__gnu_cxx17__normal_iteratorIPN2cv5aruco19MarkerCandidateTreeESt6vectorIS4_SaIS4_EEEES5_ET0_T_SB_SA_.exit.i17: ; preds = %.lr.ph.i.i.i.i.i.i26, %.critedge.i13
@@ -15844,7 +15844,7 @@ _ZSt4moveIN9__gnu_cxx17__normal_iteratorIPN2cv5aruco19MarkerCandidateTreeESt6vec
   %250 = getelementptr inbounds i8, ptr %.0910.i.i.i.i.i14.i24, i64 88
   %251 = getelementptr inbounds i8, ptr %.0811.i.i.i.i.i13.i23, i64 88
   %252 = add nsw i64 %.012.i.i.i.i.i12.i22, -1
-  %253 = icmp ugt i64 %.012.i.i.i.i.i12.i22, 1
+  %253 = icmp samesign ugt i64 %.012.i.i.i.i.i12.i22, 1
   br i1 %253, label %.lr.ph.i.i.i.i.i11.i21, label %_ZSt12__move_mergeIN9__gnu_cxx17__normal_iteratorIPN2cv5aruco19MarkerCandidateTreeESt6vectorIS4_SaIS4_EEEES5_NS0_5__ops15_Iter_less_iterEET0_T_SD_SD_SD_SC_T1_.exit37, !llvm.loop !207
 
 _ZSt12__move_mergeIN9__gnu_cxx17__normal_iteratorIPN2cv5aruco19MarkerCandidateTreeESt6vectorIS4_SaIS4_EEEES5_NS0_5__ops15_Iter_less_iterEET0_T_SD_SD_SD_SC_T1_.exit37: ; preds = %.lr.ph.i.i.i.i.i11.i21, %_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPN2cv5aruco19MarkerCandidateTreeESt6vectorIS4_SaIS4_EEEES5_ET0_T_SB_SA_.exit.i17
@@ -16221,7 +16221,7 @@ _ZN2cv5aruco19MarkerCandidateTreeaSEOS1_.exit60:  ; preds = %_ZSt8_DestroyIPN2cv
   %159 = getelementptr inbounds i8, ptr %.0910.i.i.i.i.i.i, i64 88
   %160 = getelementptr inbounds i8, ptr %.0811.i.i.i.i.i.i, i64 88
   %161 = add nsw i64 %.012.i.i.i.i.i.i, -1
-  %162 = icmp ugt i64 %.012.i.i.i.i.i.i, 1
+  %162 = icmp samesign ugt i64 %.012.i.i.i.i.i.i, 1
   br i1 %162, label %.lr.ph.i.i.i.i.i.i, label %_ZSt4moveIPN2cv5aruco19MarkerCandidateTreeEN9__gnu_cxx17__normal_iteratorIS3_St6vectorIS2_SaIS2_EEEEET0_T_SB_SA_.exit.i, !llvm.loop !207
 
 _ZSt4moveIPN2cv5aruco19MarkerCandidateTreeEN9__gnu_cxx17__normal_iteratorIS3_St6vectorIS2_SaIS2_EEEEET0_T_SB_SA_.exit.i: ; preds = %_ZN2cv5aruco19MarkerCandidateTreeaSEOS1_.exit60, %._crit_edge.i
@@ -16349,7 +16349,7 @@ _ZN2cv5aruco19MarkerCandidateTreeaSEOS1_.exit:    ; preds = %_ZSt8_DestroyIPN2cv
   %216 = getelementptr inbounds i8, ptr %.0910.i.i.i.i.i23.i, i64 88
   %217 = getelementptr inbounds i8, ptr %.0811.i.i.i.i.i22.i, i64 88
   %218 = add nsw i64 %.012.i.i.i.i.i21.i, -1
-  %219 = icmp ugt i64 %.012.i.i.i.i.i21.i, 1
+  %219 = icmp samesign ugt i64 %.012.i.i.i.i.i21.i, 1
   br i1 %219, label %.lr.ph.i.i.i.i.i20.i, label %_ZSt4moveIPN2cv5aruco19MarkerCandidateTreeEN9__gnu_cxx17__normal_iteratorIS3_St6vectorIS2_SaIS2_EEEEET0_T_SB_SA_.exit24.loopexit.i, !llvm.loop !207
 
 _ZSt4moveIPN2cv5aruco19MarkerCandidateTreeEN9__gnu_cxx17__normal_iteratorIS3_St6vectorIS2_SaIS2_EEEEET0_T_SB_SA_.exit24.loopexit.i: ; preds = %_ZN2cv5aruco19MarkerCandidateTreeaSEOS1_.exit
@@ -16428,7 +16428,7 @@ _ZSt12__move_mergeIPN2cv5aruco19MarkerCandidateTreeEN9__gnu_cxx17__normal_iterat
   %251 = getelementptr inbounds i8, ptr %.0910.i.i.i.i.i.i38, i64 88
   %252 = getelementptr inbounds i8, ptr %.0811.i.i.i.i.i.i37, i64 88
   %253 = add nsw i64 %.012.i.i.i.i.i.i36, -1
-  %254 = icmp ugt i64 %.012.i.i.i.i.i.i36, 1
+  %254 = icmp samesign ugt i64 %.012.i.i.i.i.i.i36, 1
   br i1 %254, label %.lr.ph.i.i.i.i.i.i35, label %_ZSt4moveIPN2cv5aruco19MarkerCandidateTreeEN9__gnu_cxx17__normal_iteratorIS3_St6vectorIS2_SaIS2_EEEEET0_T_SB_SA_.exit.i25, !llvm.loop !207
 
 _ZSt4moveIPN2cv5aruco19MarkerCandidateTreeEN9__gnu_cxx17__normal_iteratorIS3_St6vectorIS2_SaIS2_EEEEET0_T_SB_SA_.exit.i25: ; preds = %.lr.ph.i.i.i.i.i.i35, %._crit_edge.i21
@@ -16454,7 +16454,7 @@ _ZSt4moveIPN2cv5aruco19MarkerCandidateTreeEN9__gnu_cxx17__normal_iteratorIS3_St6
   %264 = getelementptr inbounds i8, ptr %.0910.i.i.i.i.i23.i32, i64 88
   %265 = getelementptr inbounds i8, ptr %.0811.i.i.i.i.i22.i31, i64 88
   %266 = add nsw i64 %.012.i.i.i.i.i21.i30, -1
-  %267 = icmp ugt i64 %.012.i.i.i.i.i21.i30, 1
+  %267 = icmp samesign ugt i64 %.012.i.i.i.i.i21.i30, 1
   br i1 %267, label %.lr.ph.i.i.i.i.i20.i29, label %_ZSt12__move_mergeIPN2cv5aruco19MarkerCandidateTreeEN9__gnu_cxx17__normal_iteratorIS3_St6vectorIS2_SaIS2_EEEENS4_5__ops15_Iter_less_iterEET0_T_SD_SD_SD_SC_T1_.exit45, !llvm.loop !207
 
 _ZSt12__move_mergeIPN2cv5aruco19MarkerCandidateTreeEN9__gnu_cxx17__normal_iteratorIS3_St6vectorIS2_SaIS2_EEEENS4_5__ops15_Iter_less_iterEET0_T_SD_SD_SD_SC_T1_.exit45: ; preds = %.lr.ph.i.i.i.i.i20.i29, %_ZSt4moveIPN2cv5aruco19MarkerCandidateTreeEN9__gnu_cxx17__normal_iteratorIS3_St6vectorIS2_SaIS2_EEEEET0_T_SB_SA_.exit.i25
@@ -16491,7 +16491,7 @@ define linkonce_odr hidden ptr @_ZSt17__rotate_adaptiveIN9__gnu_cxx17__normal_it
   %17 = getelementptr inbounds i8, ptr %.0910.i.i.i.i.i, i64 88
   %18 = getelementptr inbounds i8, ptr %.0811.i.i.i.i.i, i64 88
   %19 = add nsw i64 %.012.i.i.i.i.i, -1
-  %20 = icmp ugt i64 %.012.i.i.i.i.i, 1
+  %20 = icmp samesign ugt i64 %.012.i.i.i.i.i, 1
   br i1 %20, label %.lr.ph.i.i.i.i.i, label %_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPN2cv5aruco19MarkerCandidateTreeESt6vectorIS4_SaIS4_EEEES5_ET0_T_SB_SA_.exit, !llvm.loop !207
 
 _ZSt4moveIN9__gnu_cxx17__normal_iteratorIPN2cv5aruco19MarkerCandidateTreeESt6vectorIS4_SaIS4_EEEES5_ET0_T_SB_SA_.exit: ; preds = %.lr.ph.i.i.i.i.i, %10
@@ -16513,7 +16513,7 @@ _ZSt4moveIN9__gnu_cxx17__normal_iteratorIPN2cv5aruco19MarkerCandidateTreeESt6vec
   %26 = getelementptr inbounds i8, ptr %.069.i.i.i.i.i, i64 -88
   %27 = tail call noundef nonnull align 8 dereferenceable(88) ptr @_ZN2cv5aruco19MarkerCandidateTreeaSEOS1_(ptr noundef nonnull align 8 dereferenceable(88) %26, ptr noundef nonnull align 8 dereferenceable(88) %25) #28
   %28 = add nsw i64 %.010.i.i.i.i.i, -1
-  %29 = icmp ugt i64 %.010.i.i.i.i.i, 1
+  %29 = icmp samesign ugt i64 %.010.i.i.i.i.i, 1
   br i1 %29, label %.lr.ph.i.i.i.i.i38, label %_ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPN2cv5aruco19MarkerCandidateTreeESt6vectorIS4_SaIS4_EEEES9_ET0_T_SB_SA_.exit, !llvm.loop !198
 
 _ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPN2cv5aruco19MarkerCandidateTreeESt6vectorIS4_SaIS4_EEEES9_ET0_T_SB_SA_.exit: ; preds = %.lr.ph.i.i.i.i.i38, %_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPN2cv5aruco19MarkerCandidateTreeESt6vectorIS4_SaIS4_EEEES5_ET0_T_SB_SA_.exit
@@ -16535,7 +16535,7 @@ _ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPN2cv5aruco19MarkerCandidateT
   %36 = getelementptr inbounds i8, ptr %.0910.i.i.i.i.i44, i64 88
   %37 = getelementptr inbounds i8, ptr %.0811.i.i.i.i.i43, i64 88
   %38 = add nsw i64 %.012.i.i.i.i.i42, -1
-  %39 = icmp ugt i64 %.012.i.i.i.i.i42, 1
+  %39 = icmp samesign ugt i64 %.012.i.i.i.i.i42, 1
   br i1 %39, label %.lr.ph.i.i.i.i.i41, label %_ZSt4moveIPN2cv5aruco19MarkerCandidateTreeEN9__gnu_cxx17__normal_iteratorIS3_St6vectorIS2_SaIS2_EEEEET0_T_SB_SA_.exit.loopexit, !llvm.loop !207
 
 _ZSt4moveIPN2cv5aruco19MarkerCandidateTreeEN9__gnu_cxx17__normal_iteratorIS3_St6vectorIS2_SaIS2_EEEEET0_T_SB_SA_.exit.loopexit: ; preds = %.lr.ph.i.i.i.i.i41
@@ -16575,7 +16575,7 @@ _ZSt4moveIPN2cv5aruco19MarkerCandidateTreeEN9__gnu_cxx17__normal_iteratorIS3_St6
   %51 = getelementptr inbounds i8, ptr %.0910.i.i.i.i.i50, i64 88
   %52 = getelementptr inbounds i8, ptr %.0811.i.i.i.i.i49, i64 88
   %53 = add nsw i64 %.012.i.i.i.i.i48, -1
-  %54 = icmp ugt i64 %.012.i.i.i.i.i48, 1
+  %54 = icmp samesign ugt i64 %.012.i.i.i.i.i48, 1
   br i1 %54, label %.lr.ph.i.i.i.i.i47, label %_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPN2cv5aruco19MarkerCandidateTreeESt6vectorIS4_SaIS4_EEEES5_ET0_T_SB_SA_.exit51, !llvm.loop !207
 
 _ZSt4moveIN9__gnu_cxx17__normal_iteratorIPN2cv5aruco19MarkerCandidateTreeESt6vectorIS4_SaIS4_EEEES5_ET0_T_SB_SA_.exit51: ; preds = %.lr.ph.i.i.i.i.i47, %44
@@ -16597,7 +16597,7 @@ _ZSt4moveIN9__gnu_cxx17__normal_iteratorIPN2cv5aruco19MarkerCandidateTreeESt6vec
   %60 = getelementptr inbounds i8, ptr %.0910.i.i.i.i.i57, i64 88
   %61 = getelementptr inbounds i8, ptr %.0811.i.i.i.i.i56, i64 88
   %62 = add nsw i64 %.012.i.i.i.i.i55, -1
-  %63 = icmp ugt i64 %.012.i.i.i.i.i55, 1
+  %63 = icmp samesign ugt i64 %.012.i.i.i.i.i55, 1
   br i1 %63, label %.lr.ph.i.i.i.i.i54, label %_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPN2cv5aruco19MarkerCandidateTreeESt6vectorIS4_SaIS4_EEEES9_ET0_T_SB_SA_.exit, !llvm.loop !207
 
 _ZSt4moveIN9__gnu_cxx17__normal_iteratorIPN2cv5aruco19MarkerCandidateTreeESt6vectorIS4_SaIS4_EEEES9_ET0_T_SB_SA_.exit: ; preds = %.lr.ph.i.i.i.i.i54, %_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPN2cv5aruco19MarkerCandidateTreeESt6vectorIS4_SaIS4_EEEES5_ET0_T_SB_SA_.exit51
@@ -16619,7 +16619,7 @@ _ZSt4moveIN9__gnu_cxx17__normal_iteratorIPN2cv5aruco19MarkerCandidateTreeESt6vec
   %70 = getelementptr inbounds i8, ptr %.069.i.i.i.i.i62, i64 -88
   %71 = tail call noundef nonnull align 8 dereferenceable(88) ptr @_ZN2cv5aruco19MarkerCandidateTreeaSEOS1_(ptr noundef nonnull align 8 dereferenceable(88) %70, ptr noundef nonnull align 8 dereferenceable(88) %69) #28
   %72 = add nsw i64 %.010.i.i.i.i.i61, -1
-  %73 = icmp ugt i64 %.010.i.i.i.i.i61, 1
+  %73 = icmp samesign ugt i64 %.010.i.i.i.i.i61, 1
   br i1 %73, label %.lr.ph.i.i.i.i.i60, label %_ZSt13move_backwardIPN2cv5aruco19MarkerCandidateTreeEN9__gnu_cxx17__normal_iteratorIS3_St6vectorIS2_SaIS2_EEEEET0_T_SB_SA_.exit.loopexit, !llvm.loop !198
 
 _ZSt13move_backwardIPN2cv5aruco19MarkerCandidateTreeEN9__gnu_cxx17__normal_iteratorIS3_St6vectorIS2_SaIS2_EEEEET0_T_SB_SA_.exit.loopexit: ; preds = %.lr.ph.i.i.i.i.i60
@@ -20342,7 +20342,7 @@ _ZNSt12_Vector_baseISt6vectorIN2cv6Point_IfEESaIS3_EESaIS5_EE13_M_deallocateEPS5
   %38 = getelementptr inbounds i8, ptr %.0910.i.i.i.i.i, i64 24
   %39 = getelementptr inbounds i8, ptr %.0811.i.i.i.i.i, i64 24
   %40 = add nsw i64 %.012.i.i.i.i.i, -1
-  %41 = icmp ugt i64 %.012.i.i.i.i.i, 1
+  %41 = icmp samesign ugt i64 %.012.i.i.i.i.i, 1
   br i1 %41, label %.lr.ph.i.i.i.i.i, label %_ZSt4copyIN9__gnu_cxx17__normal_iteratorIPKSt6vectorIN2cv6Point_IfEESaIS5_EES2_IS7_SaIS7_EEEENS1_IPS7_SB_EEET0_T_SG_SF_.exit.loopexit, !llvm.loop !282
 
 _ZSt4copyIN9__gnu_cxx17__normal_iteratorIPKSt6vectorIN2cv6Point_IfEESaIS5_EES2_IS7_SaIS7_EEEENS1_IPS7_SB_EEET0_T_SG_SF_.exit.loopexit: ; preds = %.lr.ph.i.i.i.i.i
@@ -20393,7 +20393,7 @@ _ZSt8_DestroyISt6vectorIN2cv6Point_IfEESaIS3_EEEvPT_.exit.i.i.i28: ; preds = %46
   %52 = getelementptr inbounds i8, ptr %.0910.i.i.i.i.i35, i64 24
   %53 = getelementptr inbounds i8, ptr %.0811.i.i.i.i.i34, i64 24
   %54 = add nsw i64 %.012.i.i.i.i.i33, -1
-  %55 = icmp ugt i64 %.012.i.i.i.i.i33, 1
+  %55 = icmp samesign ugt i64 %.012.i.i.i.i.i33, 1
   br i1 %55, label %.lr.ph.i.i.i.i.i32, label %_ZSt4copyIPSt6vectorIN2cv6Point_IfEESaIS3_EES6_ET0_T_S8_S7_.exit.loopexit, !llvm.loop !284
 
 _ZSt4copyIPSt6vectorIN2cv6Point_IfEESaIS3_EES6_ET0_T_S8_S7_.exit.loopexit: ; preds = %.lr.ph.i.i.i.i.i32
@@ -21023,7 +21023,7 @@ _ZN2cv3MatC2INS_6Point_IfEEEERKSt6vectorIT_SaIS5_EEb.exit.i.i.i: ; preds = %88, 
           to label %.noexc21.i.i.i unwind label %.loopexit.i.i.i
 
 .noexc21.i.i.i:                                   ; preds = %.noexc20.i.i.i
-  %112 = icmp ugt i64 %indvars.iv.i.i.i.i, 1
+  %112 = icmp samesign ugt i64 %indvars.iv.i.i.i.i, 1
   br i1 %112, label %101, label %.loopexit13.i.i.i
 
 .loopexit13.i.i.i:                                ; preds = %.noexc21.i.i.i, %96

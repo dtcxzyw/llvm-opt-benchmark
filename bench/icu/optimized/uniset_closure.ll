@@ -1142,7 +1142,7 @@ if.then15.i.us:                                   ; preds = %call13.i.noexc.us
           to label %.noexc.us unwind label %lpad41.loopexit.split-lp.loopexit.split-lp.split.us
 
 .noexc.us:                                        ; preds = %if.then15.i.us
-  %cmp16.i.us = icmp ult i32 %c.0.i.us, 65536
+  %cmp16.i.us = icmp samesign ult i32 %c.0.i.us, 65536
   %cond.neg.i.us = select i1 %cmp16.i.us, i32 -1, i32 -2
   %sub17.i.us = add i32 %cond.neg.i.us, %i.1.i.us
   %12 = load i16, ptr %fUnion2.i, align 8
@@ -1412,7 +1412,7 @@ invoke.cont15:                                    ; preds = %for.body14
   br i1 %cmp.i29, label %if.then.i, label %invoke.cont17
 
 if.then.i:                                        ; preds = %invoke.cont15
-  %cmp1.i = icmp ugt i32 %call16, 31
+  %cmp1.i = icmp samesign ugt i32 %call16, 31
   br i1 %cmp1.i, label %if.then2.i, label %if.else.i
 
 if.then2.i:                                       ; preds = %if.then.i
@@ -1449,7 +1449,7 @@ invoke.cont18:                                    ; preds = %invoke.cont17
   br i1 %cmp.i34, label %if.then.i35, label %invoke.cont20
 
 if.then.i35:                                      ; preds = %invoke.cont18
-  %cmp1.i36 = icmp ugt i32 %call19, 31
+  %cmp1.i36 = icmp samesign ugt i32 %call19, 31
   br i1 %cmp1.i36, label %if.then2.i41, label %if.else.i37
 
 if.then2.i41:                                     ; preds = %if.then.i35
@@ -1486,7 +1486,7 @@ invoke.cont21:                                    ; preds = %invoke.cont20
   br i1 %cmp.i50, label %if.then.i51, label %invoke.cont23
 
 if.then.i51:                                      ; preds = %invoke.cont21
-  %cmp1.i52 = icmp ugt i32 %call22, 31
+  %cmp1.i52 = icmp samesign ugt i32 %call22, 31
   br i1 %cmp1.i52, label %if.then2.i57, label %if.else.i53
 
 if.then2.i57:                                     ; preds = %if.then.i51
@@ -1523,7 +1523,7 @@ invoke.cont24:                                    ; preds = %invoke.cont23
   br i1 %cmp.i66, label %if.then.i67, label %for.inc
 
 if.then.i67:                                      ; preds = %invoke.cont24
-  %cmp1.i68 = icmp ugt i32 %call25, 31
+  %cmp1.i68 = icmp samesign ugt i32 %call25, 31
   br i1 %cmp1.i68, label %if.then2.i73, label %if.else.i69
 
 if.then2.i73:                                     ; preds = %if.then.i67

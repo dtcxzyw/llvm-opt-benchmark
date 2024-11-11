@@ -1234,7 +1234,7 @@ default.unreachable:                              ; preds = %102
 
 126:                                              ; preds = %121, %118
   %.1 = phi i32 [ %11, %118 ], [ %spec.select, %121 ]
-  %127 = icmp ult i32 %.1, 48
+  %127 = icmp samesign ult i32 %.1, 48
   br i1 %127, label %128, label %130
 
 128:                                              ; preds = %126

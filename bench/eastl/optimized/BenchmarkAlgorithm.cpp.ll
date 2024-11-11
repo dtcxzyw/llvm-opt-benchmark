@@ -13996,7 +13996,7 @@ for.body.i.i.i.i266:                              ; preds = %for.body.i.i.i.i266
   %dec.i.i.i.i = add nsw i64 %n.08.i.i.i.i, -1
   %incdec.ptr.i.i.i.i = getelementptr inbounds i8, ptr %first.addr.07.i.i.i.i, i64 4
   %incdec.ptr.i.i.i.i.i267 = getelementptr inbounds i8, ptr %result.sroa.0.06.i.i.i.i, i64 4
-  %cmp.i.i.i.i268 = icmp ugt i64 %n.08.i.i.i.i, 1
+  %cmp.i.i.i.i268 = icmp samesign ugt i64 %n.08.i.i.i.i, 1
   br i1 %cmp.i.i.i.i268, label %for.body.i.i.i.i266, label %for.body.i.i.i.i276, !llvm.loop !304
 
 for.body.i.i.i.i276:                              ; preds = %for.body.i.i.i.i266, %for.body.i.i.i.i276
@@ -14008,7 +14008,7 @@ for.body.i.i.i.i276:                              ; preds = %for.body.i.i.i.i266
   %dec.i.i.i.i280 = add nsw i64 %n.08.i.i.i.i277, -1
   %incdec.ptr.i.i.i.i281 = getelementptr inbounds i8, ptr %first.addr.07.i.i.i.i278, i64 4
   %incdec.ptr.i.i.i.i.i282 = getelementptr inbounds i8, ptr %result.sroa.0.06.i.i.i.i279, i64 4
-  %cmp.i.i.i.i283 = icmp ugt i64 %n.08.i.i.i.i277, 1
+  %cmp.i.i.i.i283 = icmp samesign ugt i64 %n.08.i.i.i.i277, 1
   br i1 %cmp.i.i.i.i283, label %for.body.i.i.i.i276, label %invoke.cont104, !llvm.loop !304
 
 invoke.cont104:                                   ; preds = %for.body.i.i.i.i276
@@ -17303,7 +17303,7 @@ _ZN10TestObjectaSEOS_.exit.i.i.i.i.i:             ; preds = %_ZN10TestObjectaSEO
   store i8 %frombool.i.i.i.i.i.i.i, ptr %mbThrowOnCopy4.i.i.i.i.i.i, align 1
   %.pre.i.i.i.i.i = load i64, ptr @_ZN10TestObject18sTOMoveAssignCountE, align 8
   %dec.i.i.i.i.i = add nsw i64 %__n.07.i.i.i.i.i, -1
-  %cmp.i.i.i.i.i = icmp ugt i64 %__n.07.i.i.i.i.i, 1
+  %cmp.i.i.i.i.i = icmp samesign ugt i64 %__n.07.i.i.i.i.i, 1
   br i1 %cmp.i.i.i.i.i, label %_ZN10TestObjectaSEOS_.exit.i.i.i.i.i, label %invoke.cont, !llvm.loop !334
 
 invoke.cont:                                      ; preds = %_ZN10TestObjectaSEOS_.exit.i.i.i.i.i, %if.then9

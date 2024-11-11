@@ -5101,7 +5101,7 @@ _ZN20BigEndianEncoderImpl6encodeItEEmT_Ph.exit.i.thread.i6.i.i.i77.i.i.i.i: ; pr
   br label %_ZN10WriterHostI11EncoderHostI20BigEndianEncoderImplS1_ES2_16MemoryWriterHostI18NoOwnershipAdapter8StackObj21ExclusiveAccessAssertEE5writeItEEvT_.exit67.sink.split.i.i.i.i
 
 1458:                                             ; preds = %1415
-  %1459 = icmp ugt i8 %1374, -10
+  %1459 = icmp samesign ugt i8 %1374, -10
   br i1 %1459, label %1460, label %_ZN10WriterHostI11EncoderHostI20BigEndianEncoderImplS1_ES2_16MemoryWriterHostI18NoOwnershipAdapter8StackObj21ExclusiveAccessAssertEE5writeItEEvT_.exit67.i.i.i.i
 
 1460:                                             ; preds = %1458
@@ -8225,7 +8225,7 @@ _ZN18AnnotationIteratorC2EPK13InstanceKlassP5ArrayIhE.exit.i: ; preds = %_ZNK13I
   %22 = add nsw i32 %.020.i.i.i, -1
   %23 = add nsw i32 %.01419.i.i.i, 2
   %24 = call fastcc noundef i32 @_ZL21skip_annotation_valuePhii(ptr noundef %.sroa.8.0.i, i32 noundef %.sroa.317.1.i, i32 noundef %23)
-  %25 = icmp ugt i32 %.020.i.i.i, 1
+  %25 = icmp samesign ugt i32 %.020.i.i.i, 1
   %26 = icmp slt i32 %24, %.sroa.317.1.i
   %27 = and i1 %25, %26
   br i1 %27, label %.lr.ph.i.i.i, label %_ZNK18AnnotationIterator12move_to_nextEv.exit.i, !llvm.loop !34
@@ -8382,7 +8382,7 @@ define internal fastcc noundef i32 @_ZL21skip_annotation_valuePhii(ptr noundef %
   %.135 = phi i32 [ %23, %.lr.ph37 ], [ %14, %.lr.ph37.preheader ]
   %22 = add nsw i32 %.036, -1
   %23 = tail call fastcc noundef i32 @_ZL21skip_annotation_valuePhii(ptr noundef %0, i32 noundef %1, i32 noundef %.135)
-  %24 = icmp ugt i32 %.036, 1
+  %24 = icmp samesign ugt i32 %.036, 1
   %25 = icmp slt i32 %23, %1
   %26 = and i1 %25, %24
   br i1 %26, label %.lr.ph37, label %_ZL21next_annotation_indexPhii.exit, !llvm.loop !37
@@ -8411,7 +8411,7 @@ define internal fastcc noundef i32 @_ZL21skip_annotation_valuePhii(ptr noundef %
   %36 = add nsw i32 %.0.i34, -1
   %37 = add nsw i32 %.014.i33, 2
   %38 = tail call fastcc noundef i32 @_ZL21skip_annotation_valuePhii(ptr noundef %0, i32 noundef %1, i32 noundef %37)
-  %39 = icmp ugt i32 %.0.i34, 1
+  %39 = icmp samesign ugt i32 %.0.i34, 1
   %40 = icmp slt i32 %38, %1
   %41 = and i1 %40, %39
   br i1 %41, label %.lr.ph, label %_ZL21next_annotation_indexPhii.exit, !llvm.loop !34

@@ -338,9 +338,9 @@ define hidden void @_ZNK8rawspeed10StiDecoder18DecodeUncompressedEPKNS_7TiffIFDE
 32:                                               ; preds = %21
   %33 = and i32 %26, 1
   %34 = icmp ne i32 %33, 0
-  %35 = icmp ugt i32 %23, 4992
+  %35 = icmp samesign ugt i32 %23, 4992
   %36 = or i1 %35, %34
-  %37 = icmp ugt i32 %26, 6668
+  %37 = icmp samesign ugt i32 %26, 6668
   %38 = or i1 %37, %36
   br i1 %38, label %39, label %40
 

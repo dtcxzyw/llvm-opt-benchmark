@@ -542,7 +542,7 @@ define dso_local noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_
   %spec.select.i23 = add nuw nsw i32 %33, %36
   %.0.i24 = select i1 %34, i32 %35, i32 %spec.select.i23
   %37 = zext i32 %.0.i24 to i64
-  %.not21 = icmp ult i64 %.1, %37
+  %.not21 = icmp samesign ult i64 %.1, %37
   br i1 %.not21, label %27, label %38, !llvm.loop !9
 
 38:                                               ; preds = %27
@@ -3808,7 +3808,7 @@ define dso_local void @_ZN4llvm14raw_fd_ostreamC2EibbNS_11raw_ostream11OStreamKi
 
 25:                                               ; preds = %5
   store i8 1, ptr %9, align 8
-  %26 = icmp ult i32 %1, 3
+  %26 = icmp samesign ult i32 %1, 3
   br i1 %26, label %27, label %28
 
 27:                                               ; preds = %25

@@ -3079,7 +3079,7 @@ define noundef range(i32 0, 3) i32 @_Z21textFileFormatYyparsePN32pxrInternal_v0_
   br i1 %438, label %446, label %439
 
 439:                                              ; preds = %437
-  %440 = icmp ult i32 %.4, 311
+  %440 = icmp samesign ult i32 %.4, 311
   br i1 %440, label %441, label %446
 
 441:                                              ; preds = %439
@@ -17185,11 +17185,11 @@ _ZN12_GLOBAL__N_113_ToItemVectorIiEESt6vectorIT_SaIS2_EERKN32pxrInternal_v0_24__
   store ptr %.sink.i.i.i, ptr %195, align 8
   %196 = getelementptr inbounds nuw i8, ptr %57, i64 8
   store ptr %.sink.i.i.i, ptr %196, align 8, !alias.scope !22
-  %197 = icmp ult i64 %190, 8
+  %197 = icmp samesign ult i64 %190, 8
   br i1 %197, label %_ZL14_HasDuplicatesIiEbRKSt6vectorIT_SaIS1_EE.exit.thread.i.i.i, label %198
 
 198:                                              ; preds = %.noexc21.i.i
-  %199 = icmp ult i64 %190, 44
+  %199 = icmp samesign ult i64 %190, 44
   br i1 %199, label %.lr.ph19.i.i.preheader.i.i, label %.preheader.i.i.i.i.i.i
 
 .lr.ph19.i.i.preheader.i.i:                       ; preds = %198
@@ -17668,11 +17668,11 @@ _ZN12_GLOBAL__N_113_ToItemVectorIlEESt6vectorIT_SaIS2_EERKN32pxrInternal_v0_24__
   store ptr %.sink.i.i26.i, ptr %351, align 8
   %352 = getelementptr inbounds nuw i8, ptr %48, i64 8
   store ptr %.sink.i.i26.i, ptr %352, align 8, !alias.scope !32
-  %353 = icmp ult i64 %346, 16
+  %353 = icmp samesign ult i64 %346, 16
   br i1 %353, label %_ZL14_HasDuplicatesIlEbRKSt6vectorIT_SaIS1_EE.exit.thread.i.i.i, label %354
 
 354:                                              ; preds = %.noexc21.i25.i
-  %355 = icmp ult i64 %346, 88
+  %355 = icmp samesign ult i64 %346, 88
   br i1 %355, label %.lr.ph19.i.i.preheader.i60.i, label %.preheader.i.i.i.i.i27.i
 
 .lr.ph19.i.i.preheader.i60.i:                     ; preds = %354
@@ -18151,11 +18151,11 @@ _ZN12_GLOBAL__N_113_ToItemVectorIjEESt6vectorIT_SaIS2_EERKN32pxrInternal_v0_24__
   store ptr %.sink.i.i91.i, ptr %507, align 8
   %508 = getelementptr inbounds nuw i8, ptr %39, i64 8
   store ptr %.sink.i.i91.i, ptr %508, align 8, !alias.scope !42
-  %509 = icmp ult i64 %502, 8
+  %509 = icmp samesign ult i64 %502, 8
   br i1 %509, label %_ZL14_HasDuplicatesIjEbRKSt6vectorIT_SaIS1_EE.exit.thread.i.i.i, label %510
 
 510:                                              ; preds = %.noexc21.i90.i
-  %511 = icmp ult i64 %502, 44
+  %511 = icmp samesign ult i64 %502, 44
   br i1 %511, label %.lr.ph19.i.i.preheader.i125.i, label %.preheader.i.i.i.i.i92.i
 
 .lr.ph19.i.i.preheader.i125.i:                    ; preds = %510
@@ -18634,11 +18634,11 @@ _ZN12_GLOBAL__N_113_ToItemVectorImEESt6vectorIT_SaIS2_EERKN32pxrInternal_v0_24__
   store ptr %.sink.i.i156.i, ptr %663, align 8
   %664 = getelementptr inbounds nuw i8, ptr %30, i64 8
   store ptr %.sink.i.i156.i, ptr %664, align 8, !alias.scope !52
-  %665 = icmp ult i64 %658, 16
+  %665 = icmp samesign ult i64 %658, 16
   br i1 %665, label %_ZL14_HasDuplicatesImEbRKSt6vectorIT_SaIS1_EE.exit.thread.i.i.i, label %666
 
 666:                                              ; preds = %.noexc21.i155.i
-  %667 = icmp ult i64 %658, 88
+  %667 = icmp samesign ult i64 %658, 88
   br i1 %667, label %.lr.ph19.i.i.preheader.i190.i, label %.preheader.i.i.i.i.i157.i
 
 .lr.ph19.i.i.preheader.i190.i:                    ; preds = %666
@@ -41719,7 +41719,7 @@ _ZNK9__gnu_cxx5__ops15_Iter_less_iterclINS_17__normal_iteratorIPNSt7__cxx1112bas
   %20 = getelementptr inbounds i8, ptr %.069.i.i.i.i.i, i64 -32
   %21 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEOS4_(ptr noundef nonnull align 8 dereferenceable(32) %20, ptr noundef nonnull align 8 dereferenceable(32) %19) #25
   %22 = add nsw i64 %.010.i.i.i.i.i, -1
-  %23 = icmp ugt i64 %.010.i.i.i.i.i, 1
+  %23 = icmp samesign ugt i64 %.010.i.i.i.i.i, 1
   br i1 %23, label %.lr.ph.i.i.i.i.i, label %.loopexit, !llvm.loop !237
 
 .loopexit:                                        ; preds = %.lr.ph.i.i.i.i.i, %13
@@ -55032,7 +55032,7 @@ _ZNKSt14default_deleteISt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcE
 
 _ZN32pxrInternal_v0_24__pxrReserved__12SdfReferenceaSEOS0_.exit: ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__7SdfPathaSEOS0_.exit.i, %_ZNKSt14default_deleteISt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN32pxrInternal_v0_24__pxrReserved__7VtValueESt4lessIvESaISt4pairIKS6_S8_EEEEclEPSF_.exit.i.i.i.i.i.i
   %64 = add nsw i64 %.010.i.i.i.i.i, -1
-  %65 = icmp ugt i64 %.010.i.i.i.i.i, 1
+  %65 = icmp samesign ugt i64 %.010.i.i.i.i.i, 1
   br i1 %65, label %.lr.ph.i.i.i.i.i, label %.loopexit, !llvm.loop !358
 
 .loopexit:                                        ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__12SdfReferenceaSEOS0_.exit, %12

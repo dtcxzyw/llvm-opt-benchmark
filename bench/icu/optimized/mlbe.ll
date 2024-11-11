@@ -1300,7 +1300,7 @@ if.then7:                                         ; preds = %if.then3
   %cmp10 = icmp ult i32 %call9, 65536
   %cond11 = select i1 %cmp10, i32 1, i32 2
   %add12 = add nuw nsw i32 %cond11, %cond
-  %cmp13 = icmp ugt i32 %call2, 2
+  %cmp13 = icmp samesign ugt i32 %call2, 2
   br i1 %cmp13, label %if.then14, label %return
 
 if.then14:                                        ; preds = %if.then7

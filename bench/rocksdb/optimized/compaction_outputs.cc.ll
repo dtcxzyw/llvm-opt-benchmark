@@ -1694,7 +1694,7 @@ for.body:                                         ; preds = %invoke.cont10
   %file_size.i12 = getelementptr inbounds i8, ptr %15, i64 16
   %16 = load i64, ptr %file_size.i12, align 8
   %add17 = add i64 %16, %overlapped_bytes.018
-  %cmp = icmp ugt i64 %i.019.in, 1
+  %cmp = icmp samesign ugt i64 %i.019.in, 1
   br i1 %cmp, label %land.rhs, label %for.end, !llvm.loop !7
 
 lpad.loopexit:                                    ; preds = %land.rhs

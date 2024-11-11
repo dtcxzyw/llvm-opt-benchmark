@@ -8333,7 +8333,7 @@ _ZN4llvm5APIntD2Ev.exit:                          ; preds = %_ZNK4llvm5APInt15ge
 _ZNK4llvm9KnownBits20countMinLeadingZerosEv.exit: ; preds = %67, %69, %77
   %.0.i.i = phi i32 [ %76, %69 ], [ %78, %77 ], [ 0, %67 ]
   %79 = zext i32 %.0.i.i to i64
-  %.not = icmp ugt i64 %57, %79
+  %.not = icmp samesign ugt i64 %57, %79
   br i1 %.not, label %81, label %80
 
 80:                                               ; preds = %_ZNK4llvm9KnownBits20countMinLeadingZerosEv.exit
@@ -8427,7 +8427,7 @@ _ZNK4llvm9KnownBits20countMinLeadingZerosEv.exit: ; preds = %67, %69, %77
 _ZNK4llvm9KnownBits16countMinSignBitsEv.exit:     ; preds = %99, %101, %108, %110, %127, %129, %136
   %.0.i = phi i32 [ 1, %110 ], [ %107, %101 ], [ %109, %108 ], [ 0, %99 ], [ %135, %129 ], [ %137, %136 ], [ 0, %127 ]
   %138 = zext i32 %.0.i to i64
-  %139 = icmp ult i64 %57, %138
+  %139 = icmp samesign ult i64 %57, %138
   br i1 %139, label %152, label %140
 
 140:                                              ; preds = %_ZNK4llvm9KnownBits16countMinSignBitsEv.exit
@@ -8441,7 +8441,7 @@ _ZNK4llvm9KnownBits16countMinSignBitsEv.exit:     ; preds = %99, %101, %108, %11
   %148 = load ptr, ptr %147, align 8
   %149 = call noundef i32 @_ZN4llvm18ComputeNumSignBitsEPKNS_5ValueERKNS_10DataLayoutEjPNS_15AssumptionCacheEPKNS_11InstructionEPKNS_13DominatorTreeEb(ptr noundef %141, ptr noundef nonnull align 8 dereferenceable(512) %142, i32 noundef 0, ptr noundef %144, ptr noundef %146, ptr noundef %148, i1 noundef zeroext true) #13
   %150 = zext i32 %149 to i64
-  %151 = icmp ult i64 %57, %150
+  %151 = icmp samesign ult i64 %57, %150
   br i1 %151, label %152, label %166
 
 152:                                              ; preds = %140, %_ZNK4llvm9KnownBits16countMinSignBitsEv.exit
@@ -8468,7 +8468,7 @@ _ZNK4llvm9KnownBits16countMinSignBitsEv.exit:     ; preds = %99, %101, %108, %11
 _ZNK4llvm9KnownBits21countMinTrailingZerosEv.exit: ; preds = %157, %162
   %.0.i.i34 = phi i32 [ %161, %157 ], [ %163, %162 ]
   %164 = zext i32 %.0.i.i34 to i64
-  %165 = icmp ule i64 %57, %164
+  %165 = icmp samesign ule i64 %57, %164
   call void @_ZN4llvm11Instruction10setIsExactEb(ptr noundef nonnull align 8 dereferenceable(72) %0, i1 noundef zeroext %165) #13
   br label %166
 
@@ -14741,7 +14741,7 @@ _ZN4llvm9remove_ifIRNS_11SmallVectorISt4pairIjPNS_6MDNodeEELj2EEEZNS_13IRBuilder
   %68 = getelementptr inbounds i8, ptr %.0910.i.i.i.i.i.i, i64 16
   %69 = getelementptr inbounds i8, ptr %.0811.i.i.i.i.i.i, i64 16
   %70 = add nsw i64 %.012.i.i.i.i.i.i, -1
-  %71 = icmp ugt i64 %.012.i.i.i.i.i.i, 1
+  %71 = icmp samesign ugt i64 %.012.i.i.i.i.i.i, 1
   br i1 %71, label %.lr.ph.i.i.i.i.i.i, label %_ZN4llvm15SmallVectorImplISt4pairIjPNS_6MDNodeEEE5eraseEPKS4_S7_.exit, !llvm.loop !190
 
 _ZN4llvm15SmallVectorImplISt4pairIjPNS_6MDNodeEEE5eraseEPKS4_S7_.exit: ; preds = %.lr.ph.i.i.i.i.i.i, %_ZN4llvm9remove_ifIRNS_11SmallVectorISt4pairIjPNS_6MDNodeEELj2EEEZNS_13IRBuilderBase25AddOrRemoveMetadataToCopyEjS4_EUlRKS5_E_EEDaOT_T0_.exit

@@ -184,7 +184,7 @@ if.then17:                                        ; preds = %_ZN4llvh15SmallVect
   br i1 %cmp.i24, label %if.end15.sink.split.i36, label %if.else.i25
 
 if.else.i25:                                      ; preds = %if.then17
-  %cmp5.i26.not = icmp ult i32 %call16, %16
+  %cmp5.i26.not = icmp samesign ult i32 %call16, %16
   br i1 %cmp5.i26.not, label %_ZN4llvh15SmallVectorImplIDsE6resizeEm.exit41, label %if.then6.i27
 
 if.then6.i27:                                     ; preds = %if.else.i25
@@ -227,7 +227,7 @@ _ZN4llvh15SmallVectorImplIDsE6resizeEm.exit41:    ; preds = %if.else.i25, %if.en
   br i1 %cmp.i44, label %if.end23.sink.split, label %if.else.i45
 
 if.else.i45:                                      ; preds = %_ZN4llvh15SmallVectorImplIDsE6resizeEm.exit41
-  %cmp5.i46 = icmp ugt i32 %call16, %22
+  %cmp5.i46 = icmp samesign ugt i32 %call16, %22
   br i1 %cmp5.i46, label %if.then6.i47, label %if.end23
 
 if.then6.i47:                                     ; preds = %if.else.i45

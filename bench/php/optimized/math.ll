@@ -3372,7 +3372,7 @@ define ptr @_php_math_number_format_ex(double noundef %0, i32 noundef %1, ptr no
   %82 = load i8, ptr %.2194.ptr.us, align 1
   %83 = getelementptr inbounds i8, ptr %.3248.us, i64 -1
   store i8 %82, ptr %.3248.us, align 1
-  %.not228.us = icmp ult i64 %.2194.idx247.us, 25
+  %.not228.us = icmp samesign ult i64 %.2194.idx247.us, 25
   br i1 %.not228.us, label %._crit_edge252, label %.lr.ph251.split.us
 
 .lr.ph251.split:                                  ; preds = %.lr.ph251, %92
@@ -3399,7 +3399,7 @@ define ptr @_php_math_number_format_ex(double noundef %0, i32 noundef %1, ptr no
 
 92:                                               ; preds = %89, %.lr.ph251.split
   %.4 = phi ptr [ %90, %89 ], [ %85, %.lr.ph251.split ]
-  %.not228 = icmp ult i64 %.2194.idx247, 25
+  %.not228 = icmp samesign ult i64 %.2194.idx247, 25
   br i1 %.not228, label %._crit_edge252, label %.lr.ph251.split
 
 ._crit_edge252:                                   ; preds = %92, %.lr.ph251.split.us, %80
@@ -3453,7 +3453,7 @@ define noundef ptr @_php_math_number_format_long(i64 noundef %0, i64 noundef %1,
   br i1 %7, label %8, label %.thread
 
 8:                                                ; preds = %6
-  %9 = icmp ult i64 %1, -19
+  %9 = icmp samesign ult i64 %1, -19
   br i1 %9, label %.thread, label %10
 
 10:                                               ; preds = %8
@@ -3571,7 +3571,7 @@ define noundef ptr @_php_math_number_format_long(i64 noundef %0, i64 noundef %1,
   %57 = load i8, ptr %.0169.ptr.us, align 1
   %58 = getelementptr inbounds i8, ptr %.2223.us, i64 -1
   store i8 %57, ptr %.2223.us, align 1
-  %.not204.us = icmp ult i64 %.0169.idx222.us, 25
+  %.not204.us = icmp samesign ult i64 %.0169.idx222.us, 25
   br i1 %.not204.us, label %._crit_edge, label %.lr.ph.split.us
 
 .lr.ph.split:                                     ; preds = %.lr.ph, %67
@@ -3598,7 +3598,7 @@ define noundef ptr @_php_math_number_format_long(i64 noundef %0, i64 noundef %1,
 
 67:                                               ; preds = %64, %.lr.ph.split
   %.3 = phi ptr [ %65, %64 ], [ %60, %.lr.ph.split ]
-  %.not204 = icmp ult i64 %.0169.idx222, 25
+  %.not204 = icmp samesign ult i64 %.0169.idx222, 25
   br i1 %.not204, label %._crit_edge, label %.lr.ph.split
 
 ._crit_edge:                                      ; preds = %67, %.lr.ph.split.us, %55
@@ -3689,7 +3689,7 @@ define hidden void @zif_number_format(ptr noundef %0, ptr nocapture noundef writ
   br i1 %27, label %28, label %.thread
 
 28:                                               ; preds = %26, %.critedge242
-  %29 = icmp ult i32 %8, 3
+  %29 = icmp samesign ult i32 %8, 3
   br i1 %29, label %.thread269, label %30
 
 30:                                               ; preds = %28

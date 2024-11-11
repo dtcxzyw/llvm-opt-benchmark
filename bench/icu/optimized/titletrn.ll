@@ -295,7 +295,7 @@ if.end42:                                         ; preds = %if.end35
   br i1 %cmp43, label %if.then44, label %if.end75
 
 if.then44:                                        ; preds = %if.end42
-  %cmp45 = icmp ult i32 %result.0, 32
+  %cmp45 = icmp samesign ult i32 %result.0, 32
   br i1 %cmp45, label %if.then46, label %if.else54
 
 if.then46:                                        ; preds = %if.then44

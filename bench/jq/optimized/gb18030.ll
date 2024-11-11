@@ -60,11 +60,11 @@ define internal range(i32 -400, 5) i32 @gb18030_code_to_mbclen(i32 noundef %0) #
   br i1 %12, label %32, label %31
 
 13:                                               ; preds = %1
-  %.not13 = icmp ult i32 %0, 65536
+  %.not13 = icmp samesign ult i32 %0, 65536
   br i1 %.not13, label %14, label %32
 
 14:                                               ; preds = %13
-  %.not14 = icmp ult i32 %0, 256
+  %.not14 = icmp samesign ult i32 %0, 256
   br i1 %.not14, label %28, label %15
 
 15:                                               ; preds = %14

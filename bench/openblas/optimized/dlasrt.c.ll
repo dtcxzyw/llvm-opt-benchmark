@@ -47,7 +47,7 @@ define void @dlasrt_(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noca
   br label %.loopexit96
 
 23:                                               ; preds = %17
-  %24 = icmp ult i32 %14, 2
+  %24 = icmp samesign ult i32 %14, 2
   br i1 %24, label %.loopexit96, label %25
 
 25:                                               ; preds = %23

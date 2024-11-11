@@ -351,7 +351,7 @@ SegmentsAreEquivalent.exit.thread.i:              ; preds = %SegmentsAreEquivale
   %172 = and i8 %163, -97
   %173 = or disjoint i8 %171, %172
   store i8 %173, ptr %162, align 4
-  %174 = icmp ugt i64 %indvars.iv76.i, 1
+  %174 = icmp samesign ugt i64 %indvars.iv76.i, 1
   br i1 %174, label %160, label %.lr.ph68.i, !llvm.loop !10
 
 .lr.ph68.i:                                       ; preds = %160, %151

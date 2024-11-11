@@ -908,7 +908,7 @@ BTPageIsRecyclable.exit:                          ; preds = %35, %37
 BTPageGetDeleteXid.exit:                          ; preds = %48, %58
   %.sroa.0.0.i = phi i64 [ %.sroa.0.0.copyload.i, %58 ], [ 3, %48 ]
   store i64 %.sroa.0.0.i, ptr %51, align 8
-  %60 = icmp ugt i32 %46, 1
+  %60 = icmp samesign ugt i32 %46, 1
   br i1 %60, label %61, label %80
 
 61:                                               ; preds = %BTPageGetDeleteXid.exit

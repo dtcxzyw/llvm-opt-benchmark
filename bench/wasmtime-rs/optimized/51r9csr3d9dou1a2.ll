@@ -33861,7 +33861,7 @@ switch.lookup:                                    ; preds = %147
   %177 = load ptr, ptr %106, align 8, !alias.scope !5530, !noalias !5533, !nonnull !5, !align !32, !noundef !5
   %178 = zext i32 %.0.sroa.speculated.i.i.i to i64
   %.val60 = load ptr, ptr %108, align 8, !nonnull !5, !noundef !5
-  %179 = icmp ult i64 %.val57, %178
+  %179 = icmp samesign ult i64 %.val57, %178
   br i1 %179, label %180, label %183
 
 180:                                              ; preds = %172
@@ -33994,7 +33994,7 @@ switch.lookup:                                    ; preds = %147
   %.0.sroa.speculated.i.i.i83 = call noundef i32 @llvm.umin.i32(i32 %169, i32 %213)
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %16)
   %214 = zext i32 %.0.sroa.speculated.i.i.i83 to i64
-  %215 = icmp ult i64 %.val59, %214
+  %215 = icmp samesign ult i64 %.val59, %214
   br i1 %215, label %216, label %219
 
 216:                                              ; preds = %206

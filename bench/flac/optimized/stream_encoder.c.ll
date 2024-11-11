@@ -1747,7 +1747,7 @@ if.end70:                                         ; preds = %if.end61
   br i1 %cmp73, label %return, label %if.end75
 
 if.end75:                                         ; preds = %if.end70
-  %cmp80 = icmp ult i32 %17, %19
+  %cmp80 = icmp samesign ult i32 %17, %19
   br i1 %cmp80, label %return, label %if.end82
 
 if.end82:                                         ; preds = %if.end75
@@ -1765,7 +1765,7 @@ if.then85:                                        ; preds = %if.end82
 if.then89:                                        ; preds = %if.then85
   %div570 = lshr i32 %21, 1
   %add = add nuw nsw i32 %div570, 2
-  %cmp92.inv = icmp ugt i32 %21, 5
+  %cmp92.inv = icmp samesign ugt i32 %21, 5
   %cond = select i1 %cmp92.inv, i32 %add, i32 5
   br label %if.end185.sink.split
 
@@ -1774,36 +1774,36 @@ if.else99:                                        ; preds = %if.then85
   br i1 %cmp102, label %if.then103, label %if.else154
 
 if.then103:                                       ; preds = %if.else99
-  %cmp106 = icmp ult i32 %17, 193
+  %cmp106 = icmp samesign ult i32 %17, 193
   br i1 %cmp106, label %if.end185.sink.split, label %if.else110
 
 if.else110:                                       ; preds = %if.then103
-  %cmp113 = icmp ult i32 %17, 385
+  %cmp113 = icmp samesign ult i32 %17, 385
   br i1 %cmp113, label %if.end185.sink.split, label %if.else117
 
 if.else117:                                       ; preds = %if.else110
-  %cmp120 = icmp ult i32 %17, 577
+  %cmp120 = icmp samesign ult i32 %17, 577
   br i1 %cmp120, label %if.end185.sink.split, label %if.else124
 
 if.else124:                                       ; preds = %if.else117
-  %cmp127 = icmp ult i32 %17, 1153
+  %cmp127 = icmp samesign ult i32 %17, 1153
   br i1 %cmp127, label %if.end185.sink.split, label %if.else131
 
 if.else131:                                       ; preds = %if.else124
-  %cmp134 = icmp ult i32 %17, 2305
+  %cmp134 = icmp samesign ult i32 %17, 2305
   br i1 %cmp134, label %if.end185.sink.split, label %if.else138
 
 if.else138:                                       ; preds = %if.else131
-  %cmp141 = icmp ult i32 %17, 4609
+  %cmp141 = icmp samesign ult i32 %17, 4609
   %.797 = select i1 %cmp141, i32 12, i32 13
   br label %if.end185.sink.split
 
 if.else154:                                       ; preds = %if.else99
-  %cmp157 = icmp ult i32 %17, 385
+  %cmp157 = icmp samesign ult i32 %17, 385
   br i1 %cmp157, label %if.end185.sink.split, label %if.else161
 
 if.else161:                                       ; preds = %if.else154
-  %cmp164 = icmp ult i32 %17, 1153
+  %cmp164 = icmp samesign ult i32 %17, 1153
   %.798 = select i1 %cmp164, i32 14, i32 15
   br label %if.end185.sink.split
 
@@ -9399,7 +9399,7 @@ if.then8:                                         ; preds = %if.then6
   %15 = tail call range(i32 0, 32) i32 @llvm.ctlz.i32(i32 %mul, i1 true)
   %xor.i = xor i32 %15, 31
   %add = add nuw nsw i32 %xor.i, %subframe_bps
-  %cmp11 = icmp ult i32 %add, 32
+  %cmp11 = icmp samesign ult i32 %add, 32
   %16 = load ptr, ptr %private_, align 8
   %add.ptr = getelementptr inbounds i8, ptr %integer_signal, i64 16
   %sub15 = add i32 %13, -4
@@ -9834,7 +9834,7 @@ if.else23.i:                                      ; preds = %if.end.i
 
 if.else27.i:                                      ; preds = %while.body
   %div.i = udiv i32 %73, %74
-  %cmp29.i = icmp ult i32 %div.i, 33
+  %cmp29.i = icmp samesign ult i32 %div.i, 33
   br i1 %cmp29.i, label %if.then31.i, label %if.end35.i
 
 if.then31.i:                                      ; preds = %if.else27.i

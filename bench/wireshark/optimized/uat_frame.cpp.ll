@@ -3762,7 +3762,7 @@ _ZNK11QModelIndex7isValidEv.exit:                 ; preds = %13
   %33 = load ptr, ptr %6, align 8
   %34 = getelementptr inbounds i8, ptr %33, i64 56
   %35 = load ptr, ptr %34, align 8
-  %36 = icmp ugt i32 %10, 1
+  %36 = icmp samesign ugt i32 %10, 1
   call void @_ZN7QWidget10setEnabledEb(ptr noundef nonnull align 8 dereferenceable(40) %35, i1 noundef zeroext %36)
   %37 = load ptr, ptr %6, align 8
   %38 = getelementptr inbounds i8, ptr %37, i64 64

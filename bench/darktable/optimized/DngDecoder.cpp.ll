@@ -652,14 +652,14 @@ define hidden void @_ZNK8rawspeed10DngDecoder15parseACTIVEAREAEPKNS_7TiffIFDE(pt
   br i1 %67, label %68, label %76
 
 68:                                               ; preds = %64
-  %69 = icmp ule i32 %47, %35
-  %70 = icmp ule i32 %52, %37
+  %69 = icmp samesign ule i32 %47, %35
+  %70 = icmp samesign ule i32 %52, %37
   %71 = select i1 %69, i1 %70, i1 false
   br i1 %71, label %72, label %76
 
 72:                                               ; preds = %68
-  %73 = icmp uge i32 %47, %50
-  %74 = icmp uge i32 %52, %51
+  %73 = icmp samesign uge i32 %47, %50
+  %74 = icmp samesign uge i32 %52, %51
   %75 = select i1 %73, i1 %74, i1 false
   br i1 %75, label %80, label %76
 
@@ -6104,14 +6104,14 @@ define hidden noundef zeroext i1 @_ZNK8rawspeed10DngDecoder17decodeMaskedAreasEP
   br i1 %81, label %82, label %90
 
 82:                                               ; preds = %78
-  %83 = icmp ule i32 %67, %39
-  %84 = icmp ule i32 %70, %41
+  %83 = icmp samesign ule i32 %67, %39
+  %84 = icmp samesign ule i32 %70, %41
   %85 = select i1 %83, i1 %84, i1 false
   br i1 %85, label %86, label %90
 
 86:                                               ; preds = %82
-  %87 = icmp ult i32 %62, %67
-  %88 = icmp ult i32 %64, %70
+  %87 = icmp samesign ult i32 %62, %67
+  %88 = icmp samesign ult i32 %64, %70
   %89 = select i1 %87, i1 %88, i1 false
   br i1 %89, label %94, label %90
 
@@ -6683,7 +6683,7 @@ define hidden noundef zeroext i1 @_ZNK8rawspeed10DngDecoder17decodeBlackLevelsEP
   %213 = phi i32 [ %176, %210 ], [ %131, %98 ]
   %214 = phi ptr [ %153, %210 ], [ %108, %98 ]
   %215 = phi i32 [ %211, %210 ], [ %132, %98 ]
-  %216 = icmp ugt i32 %213, 3
+  %216 = icmp samesign ugt i32 %213, 3
   tail call void @llvm.assume(i1 %216)
   %217 = getelementptr inbounds i8, ptr %214, i64 12
   store i32 %215, ptr %217, align 4, !tbaa !125

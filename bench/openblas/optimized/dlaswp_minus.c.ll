@@ -45,7 +45,7 @@ define noundef i32 @dlaswp_minus(i64 noundef %0, i64 noundef %1, i64 noundef %2,
   br i1 %37, label %.loopexit, label %.preheader, !llvm.loop !9
 
 38:                                               ; preds = %21
-  %39 = icmp ult i64 %0, 4
+  %39 = icmp samesign ult i64 %0, 4
   br i1 %39, label %.loopexit60, label %40
 
 40:                                               ; preds = %38
@@ -55,7 +55,7 @@ define noundef i32 @dlaswp_minus(i64 noundef %0, i64 noundef %1, i64 noundef %2,
   %44 = getelementptr inbounds i32, ptr %17, i64 %9
   %45 = lshr i64 %14, 1
   %46 = getelementptr inbounds i32, ptr %44, i64 %9
-  %47 = icmp ugt i64 %14, 3
+  %47 = icmp samesign ugt i64 %14, 3
   %48 = and i64 %14, 1
   %49 = icmp eq i64 %48, 0
   %.idx = shl nsw i64 %5, 5
@@ -655,7 +655,7 @@ define noundef i32 @dlaswp_minus(i64 noundef %0, i64 noundef %1, i64 noundef %2,
   %306 = getelementptr inbounds double, ptr %231, i64 %305
   %307 = getelementptr inbounds double, ptr %306, i64 %5
   %308 = getelementptr inbounds i32, ptr %273, i64 %9
-  %309 = icmp ugt i64 %251, 2
+  %309 = icmp samesign ugt i64 %251, 2
   br i1 %309, label %250, label %.loopexit57, !llvm.loop !14
 
 .loopexit57:                                      ; preds = %299, %234
@@ -927,7 +927,7 @@ define noundef i32 @dlaswp_minus(i64 noundef %0, i64 noundef %1, i64 noundef %2,
   %431 = sext i32 %400 to i64
   %432 = getelementptr inbounds double, ptr %370, i64 %431
   %433 = getelementptr inbounds i32, ptr %401, i64 %9
-  %434 = icmp ugt i64 %387, 2
+  %434 = icmp samesign ugt i64 %387, 2
   br i1 %434, label %386, label %.loopexit56, !llvm.loop !15
 
 .loopexit56:                                      ; preds = %427, %373

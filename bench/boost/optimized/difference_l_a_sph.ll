@@ -30715,7 +30715,7 @@ _ZN5boost9unit_test9framework4impl12_GLOBAL__N_111s_frk_stateEv.exit15: ; preds 
   br label %57
 
 57:                                               ; preds = %_ZN5boost9unit_test9framework4impl12_GLOBAL__N_111s_frk_stateEv.exit11, %_ZN5boost9unit_test9framework4impl12_GLOBAL__N_111s_frk_stateEv.exit15
-  %58 = icmp ugt i64 %indvars.iv, 1
+  %58 = icmp samesign ugt i64 %indvars.iv, 1
   br i1 %58, label %.lr.ph, label %.loopexit, !llvm.loop !653
 
 59:                                               ; preds = %1
@@ -35333,7 +35333,7 @@ _ZNSt6vectorImSaImEE9push_backERKm.exit:          ; preds = %_ZNSt6vectorImSaImE
   br label %385
 
 385:                                              ; preds = %380, %.lr.ph.i
-  %386 = icmp ugt i64 %.0.in13.i, 2
+  %386 = icmp samesign ugt i64 %.0.in13.i, 2
   br i1 %386, label %.lr.ph.i, label %_ZN5boost9unit_test9framework4impl14random_shuffleIN9__gnu_cxx17__normal_iteratorIPmSt6vectorImSaImEEEEKNS1_5state23random_generator_helperEEEvT_SE_RT0_.exit, !llvm.loop !747
 
 _ZN5boost9unit_test9framework4impl14random_shuffleIN9__gnu_cxx17__normal_iteratorIPmSt6vectorImSaImEEEEKNS1_5state23random_generator_helperEEEvT_SE_RT0_.exit: ; preds = %385, %._crit_edge920
@@ -43106,7 +43106,7 @@ _ZNK5boost10test_tools16assertion_result7messageEv.exit253: ; preds = %_ZN5boost
   %425 = or disjoint i32 %372, 32
   store i32 %425, ptr %6, align 8
   %426 = load ptr, ptr %424, align 8, !tbaa !173
-  %427 = icmp ult i32 %425, 41
+  %427 = icmp samesign ult i32 %425, 41
   br i1 %427, label %435, label %.thread531
 
 .thread531:                                       ; preds = %420, %.thread528
@@ -45580,7 +45580,7 @@ _ZNK5boost10test_tools16assertion_result7messageEv.exit199: ; preds = %275, %278
   %340 = or disjoint i32 %287, 32
   store i32 %340, ptr %6, align 8
   %341 = load ptr, ptr %339, align 8, !tbaa !173
-  %342 = icmp ult i32 %340, 41
+  %342 = icmp samesign ult i32 %340, 41
   br i1 %342, label %350, label %.thread372
 
 .thread372:                                       ; preds = %335, %.thread369
@@ -56661,7 +56661,7 @@ _ZN5boost9unit_test12_GLOBAL__N_110s_log_implEv.exit13: ; preds = %_ZNK5boost9un
 define dso_local void @_ZN5boost9unit_test15unit_test_log_t16exception_caughtERKNS_19execution_exceptionE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull align 8 dereferenceable(64) %1) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %3 = load i32, ptr %1, align 8, !tbaa !201
   %4 = icmp slt i32 %3, 206
-  %5 = icmp ult i32 %3, 216
+  %5 = icmp samesign ult i32 %3, 216
   %6 = select i1 %5, i32 6, i32 7
   %7 = select i1 %4, i32 5, i32 %6
   %8 = load atomic i8, ptr @_ZGVZN5boost9unit_test12_GLOBAL__N_110s_log_implEvE8the_inst acquire, align 8
@@ -163834,7 +163834,7 @@ _ZN5boost8geometry13segment_ratioIdE4zeroEv.exit52: ; preds = %50, %63, %65
   %.1 = phi i32 [ %69, %_ZN5boost8geometry13segment_ratioIdE4zeroEv.exit52 ], [ %.0, %48 ]
   %71 = add i32 %5, -1
   %or.cond7 = icmp ult i32 %71, 3
-  %72 = icmp ult i32 %.1, 2
+  %72 = icmp samesign ult i32 %.1, 2
   %or.cond9 = select i1 %or.cond7, i1 %72, i1 false
   br i1 %or.cond9, label %73, label %99
 
@@ -163899,7 +163899,7 @@ _ZN5boost8geometry13segment_ratioIdE3oneEv.exit55: ; preds = %_ZN5boost8geometry
 99:                                               ; preds = %_ZN5boost8geometry13segment_ratioIdE3oneEv.exit55, %70
   %.2 = phi i32 [ %98, %_ZN5boost8geometry13segment_ratioIdE3oneEv.exit55 ], [ %.1, %70 ]
   %100 = icmp eq i32 %7, 2
-  %101 = icmp ult i32 %.2, 2
+  %101 = icmp samesign ult i32 %.2, 2
   %or.cond11 = select i1 %100, i1 %101, i1 false
   br i1 %or.cond11, label %102, label %123
 
@@ -168791,7 +168791,7 @@ define linkonce_odr hidden void @_ZSt22__final_insertion_sortISt15_Deque_iterato
   br i1 %49, label %50, label %56
 
 50:                                               ; preds = %37
-  %51 = icmp ult i64 %48, 2
+  %51 = icmp samesign ult i64 %48, 2
   br i1 %51, label %52, label %54
 
 52:                                               ; preds = %50
@@ -168836,7 +168836,7 @@ _ZStplRKSt15_Deque_iteratorIN5boost8geometry6detail7overlay9turn_infoINS1_5model
   br i1 %75, label %76, label %82
 
 76:                                               ; preds = %_ZStplRKSt15_Deque_iteratorIN5boost8geometry6detail7overlay9turn_infoINS1_5model5pointIdLm2ENS1_2cs20spherical_equatorialINS1_6degreeEEEEENS1_13segment_ratioIdEENS3_21turn_operation_linearISB_SD_EESt5arrayISF_Lm2EEEERSI_PSI_El.exit
-  %77 = icmp ult i64 %74, 2
+  %77 = icmp samesign ult i64 %74, 2
   br i1 %77, label %78, label %80
 
 78:                                               ; preds = %76
@@ -169131,7 +169131,7 @@ define linkonce_odr hidden void @_ZSt27__unguarded_partition_pivotISt15_Deque_it
   br i1 %45, label %46, label %52
 
 46:                                               ; preds = %3
-  %47 = icmp ult i64 %44, 2
+  %47 = icmp samesign ult i64 %44, 2
   br i1 %47, label %48, label %50
 
 48:                                               ; preds = %46
@@ -169180,7 +169180,7 @@ _ZStplRKSt15_Deque_iteratorIN5boost8geometry6detail7overlay9turn_infoINS1_5model
   br i1 %69, label %70, label %76
 
 70:                                               ; preds = %_ZStplRKSt15_Deque_iteratorIN5boost8geometry6detail7overlay9turn_infoINS1_5model5pointIdLm2ENS1_2cs20spherical_equatorialINS1_6degreeEEEEENS1_13segment_ratioIdEENS3_21turn_operation_linearISB_SD_EESt5arrayISF_Lm2EEEERSI_PSI_El.exit
-  %71 = icmp ult i64 %68, 2
+  %71 = icmp samesign ult i64 %68, 2
   br i1 %71, label %72, label %74
 
 72:                                               ; preds = %70
@@ -169284,7 +169284,7 @@ _ZStmiRKSt15_Deque_iteratorIN5boost8geometry6detail7overlay9turn_infoINS1_5model
   br i1 %124, label %125, label %131
 
 125:                                              ; preds = %_ZStmiRKSt15_Deque_iteratorIN5boost8geometry6detail7overlay9turn_infoINS1_5model5pointIdLm2ENS1_2cs20spherical_equatorialINS1_6degreeEEEEENS1_13segment_ratioIdEENS3_21turn_operation_linearISB_SD_EESt5arrayISF_Lm2EEEERSI_PSI_El.exit
-  %126 = icmp ult i64 %123, 2
+  %126 = icmp samesign ult i64 %123, 2
   br i1 %126, label %127, label %129
 
 127:                                              ; preds = %125
@@ -169397,7 +169397,7 @@ define linkonce_odr hidden void @_ZSt13__heap_selectISt15_Deque_iteratorIN5boost
   br i1 %50, label %51, label %57
 
 51:                                               ; preds = %48
-  %52 = icmp ult i64 %49, 2
+  %52 = icmp samesign ult i64 %49, 2
   br i1 %52, label %53, label %55
 
 53:                                               ; preds = %51
@@ -169648,7 +169648,7 @@ define linkonce_odr hidden void @_ZSt13__adjust_heapISt15_Deque_iteratorIN5boost
   br i1 %23, label %24, label %30
 
 24:                                               ; preds = %12
-  %25 = icmp ult i64 %22, 2
+  %25 = icmp samesign ult i64 %22, 2
   br i1 %25, label %26, label %28
 
 26:                                               ; preds = %24
@@ -169680,7 +169680,7 @@ _ZStplRKSt15_Deque_iteratorIN5boost8geometry6detail7overlay9turn_infoINS1_5model
   br i1 %41, label %42, label %48
 
 42:                                               ; preds = %_ZStplRKSt15_Deque_iteratorIN5boost8geometry6detail7overlay9turn_infoINS1_5model5pointIdLm2ENS1_2cs20spherical_equatorialINS1_6degreeEEEEENS1_13segment_ratioIdEENS3_21turn_operation_linearISB_SD_EESt5arrayISF_Lm2EEEERSI_PSI_El.exit
-  %43 = icmp ult i64 %40, 2
+  %43 = icmp samesign ult i64 %40, 2
   br i1 %43, label %44, label %46
 
 44:                                               ; preds = %42
@@ -169807,7 +169807,7 @@ _ZN9__gnu_cxx5__ops15_Iter_comp_iterIN5boost8geometry6detail6relate5turns4lessIL
   br i1 %117, label %118, label %124
 
 118:                                              ; preds = %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN5boost8geometry6detail6relate5turns4lessILm0ENS6_27less_op_linear_areal_singleILm0EEENS3_10strategies6relate9sphericalIvEEEEEclISt15_Deque_iteratorINS4_7overlay9turn_infoINS3_5model5pointIdLm2ENS3_2cs20spherical_equatorialINS3_6degreeEEEEENS3_13segment_ratioIdEENSI_21turn_operation_linearISQ_SS_EESt5arrayISU_Lm2EEEERSX_PSX_ES10_EEbT_T0_.exit.thread52
-  %119 = icmp ult i64 %116, 2
+  %119 = icmp samesign ult i64 %116, 2
   br i1 %119, label %120, label %122
 
 120:                                              ; preds = %118
@@ -169838,7 +169838,7 @@ _ZStplRKSt15_Deque_iteratorIN5boost8geometry6detail7overlay9turn_infoINS1_5model
   br i1 %134, label %135, label %141
 
 135:                                              ; preds = %_ZStplRKSt15_Deque_iteratorIN5boost8geometry6detail7overlay9turn_infoINS1_5model5pointIdLm2ENS1_2cs20spherical_equatorialINS1_6degreeEEEEENS1_13segment_ratioIdEENS3_21turn_operation_linearISB_SD_EESt5arrayISF_Lm2EEEERSI_PSI_El.exit25
-  %136 = icmp ult i64 %133, 2
+  %136 = icmp samesign ult i64 %133, 2
   br i1 %136, label %137, label %139
 
 137:                                              ; preds = %135
@@ -169897,7 +169897,7 @@ _ZStplRKSt15_Deque_iteratorIN5boost8geometry6detail7overlay9turn_infoINS1_5model
   br i1 %170, label %171, label %177
 
 171:                                              ; preds = %157
-  %172 = icmp ult i64 %169, 2
+  %172 = icmp samesign ult i64 %169, 2
   br i1 %172, label %173, label %175
 
 173:                                              ; preds = %171
@@ -169928,7 +169928,7 @@ _ZStplRKSt15_Deque_iteratorIN5boost8geometry6detail7overlay9turn_infoINS1_5model
   br i1 %187, label %188, label %194
 
 188:                                              ; preds = %_ZStplRKSt15_Deque_iteratorIN5boost8geometry6detail7overlay9turn_infoINS1_5model5pointIdLm2ENS1_2cs20spherical_equatorialINS1_6degreeEEEEENS1_13segment_ratioIdEENS3_21turn_operation_linearISB_SD_EESt5arrayISF_Lm2EEEERSI_PSI_El.exit29
-  %189 = icmp ult i64 %186, 2
+  %189 = icmp samesign ult i64 %186, 2
   br i1 %189, label %190, label %192
 
 190:                                              ; preds = %188
@@ -170010,7 +170010,7 @@ define linkonce_odr hidden void @_ZSt11__push_heapISt15_Deque_iteratorIN5boost8g
   br i1 %23, label %24, label %30
 
 24:                                               ; preds = %14
-  %25 = icmp ult i64 %22, 2
+  %25 = icmp samesign ult i64 %22, 2
   br i1 %25, label %26, label %28
 
 26:                                               ; preds = %24
@@ -170132,7 +170132,7 @@ _ZN9__gnu_cxx5__ops14_Iter_comp_valIN5boost8geometry6detail6relate5turns4lessILm
   br i1 %84, label %85, label %91
 
 85:                                               ; preds = %_ZN9__gnu_cxx5__ops14_Iter_comp_valIN5boost8geometry6detail6relate5turns4lessILm0ENS6_27less_op_linear_areal_singleILm0EEENS3_10strategies6relate9sphericalIvEEEEEclISt15_Deque_iteratorINS4_7overlay9turn_infoINS3_5model5pointIdLm2ENS3_2cs20spherical_equatorialINS3_6degreeEEEEENS3_13segment_ratioIdEENSI_21turn_operation_linearISQ_SS_EESt5arrayISU_Lm2EEEERSX_PSX_ESX_EEbT_RT0_.exit.thread
-  %86 = icmp ult i64 %.pre-phi52, 2
+  %86 = icmp samesign ult i64 %.pre-phi52, 2
   br i1 %86, label %87, label %89
 
 87:                                               ; preds = %85
@@ -170163,7 +170163,7 @@ _ZStplRKSt15_Deque_iteratorIN5boost8geometry6detail7overlay9turn_infoINS1_5model
   br i1 %101, label %102, label %108
 
 102:                                              ; preds = %_ZStplRKSt15_Deque_iteratorIN5boost8geometry6detail7overlay9turn_infoINS1_5model5pointIdLm2ENS1_2cs20spherical_equatorialINS1_6degreeEEEEENS1_13segment_ratioIdEENS3_21turn_operation_linearISB_SD_EESt5arrayISF_Lm2EEEERSI_PSI_El.exit11
-  %103 = icmp ult i64 %100, 2
+  %103 = icmp samesign ult i64 %100, 2
   br i1 %103, label %104, label %106
 
 104:                                              ; preds = %102
@@ -170209,7 +170209,7 @@ _ZStplRKSt15_Deque_iteratorIN5boost8geometry6detail7overlay9turn_infoINS1_5model
   br i1 %128, label %129, label %135
 
 129:                                              ; preds = %.critedge
-  %130 = icmp ult i64 %127, 2
+  %130 = icmp samesign ult i64 %127, 2
   br i1 %130, label %131, label %133
 
 131:                                              ; preds = %129
@@ -171296,7 +171296,7 @@ define linkonce_odr hidden void @_ZSt16__insertion_sortISt15_Deque_iteratorIN5bo
   br i1 %24, label %25, label %31
 
 25:                                               ; preds = %12
-  %26 = icmp ult i64 %23, 2
+  %26 = icmp samesign ult i64 %23, 2
   br i1 %26, label %27, label %29
 
 27:                                               ; preds = %25
@@ -171454,7 +171454,7 @@ _ZN9__gnu_cxx5__ops15_Iter_comp_iterIN5boost8geometry6detail6relate5turns4lessIL
   br i1 %115, label %116, label %122
 
 116:                                              ; preds = %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN5boost8geometry6detail6relate5turns4lessILm0ENS6_27less_op_linear_areal_singleILm0EEENS3_10strategies6relate9sphericalIvEEEEEclISt15_Deque_iteratorINS4_7overlay9turn_infoINS3_5model5pointIdLm2ENS3_2cs20spherical_equatorialINS3_6degreeEEEEENS3_13segment_ratioIdEENSI_21turn_operation_linearISQ_SS_EESt5arrayISU_Lm2EEEERSX_PSX_ES10_EEbT_T0_.exit.thread
-  %117 = icmp ult i64 %114, 2
+  %117 = icmp samesign ult i64 %114, 2
   br i1 %117, label %118, label %120
 
 118:                                              ; preds = %116
@@ -171764,7 +171764,7 @@ _ZSt23__copy_move_backward_a1ILb1EPN5boost8geometry6detail7overlay9turn_infoINS1
   br i1 %42, label %43, label %49
 
 43:                                               ; preds = %_ZSt23__copy_move_backward_a1ILb1EPN5boost8geometry6detail7overlay9turn_infoINS1_5model5pointIdLm2ENS1_2cs20spherical_equatorialINS1_6degreeEEEEENS1_13segment_ratioIdEENS3_21turn_operation_linearISB_SD_EESt5arrayISF_Lm2EEEESJ_ET1_T0_SL_SK_.exit.i
-  %44 = icmp ult i64 %41, 2
+  %44 = icmp samesign ult i64 %41, 2
   br i1 %44, label %45, label %47
 
 45:                                               ; preds = %43
@@ -171879,7 +171879,7 @@ _ZSt23__copy_move_backward_a1ILb1EPN5boost8geometry6detail7overlay9turn_infoINS1
   br i1 %95, label %96, label %102
 
 96:                                               ; preds = %_ZSt23__copy_move_backward_a1ILb1EPN5boost8geometry6detail7overlay9turn_infoINS1_5model5pointIdLm2ENS1_2cs20spherical_equatorialINS1_6degreeEEEEENS1_13segment_ratioIdEENS3_21turn_operation_linearISB_SD_EESt5arrayISF_Lm2EEEESJ_ET1_T0_SL_SK_.exit.i26
-  %97 = icmp ult i64 %94, 2
+  %97 = icmp samesign ult i64 %94, 2
   br i1 %97, label %98, label %100
 
 98:                                               ; preds = %96
@@ -171965,7 +171965,7 @@ _ZSt23__copy_move_backward_a1ILb1EPN5boost8geometry6detail7overlay9turn_infoINS1
   br i1 %135, label %136, label %142
 
 136:                                              ; preds = %_ZSt23__copy_move_backward_a1ILb1EPN5boost8geometry6detail7overlay9turn_infoINS1_5model5pointIdLm2ENS1_2cs20spherical_equatorialINS1_6degreeEEEEENS1_13segment_ratioIdEENS3_21turn_operation_linearISB_SD_EESt5arrayISF_Lm2EEEESJ_ET1_T0_SL_SK_.exit.i52
-  %137 = icmp ult i64 %134, 2
+  %137 = icmp samesign ult i64 %134, 2
   br i1 %137, label %138, label %140
 
 138:                                              ; preds = %136
@@ -172076,7 +172076,7 @@ _ZSt23__copy_move_backward_a1ILb1EPN5boost8geometry6detail7overlay9turn_infoINS1
   br i1 %188, label %189, label %195
 
 189:                                              ; preds = %_ZSt23__copy_move_backward_a1ILb1EPN5boost8geometry6detail7overlay9turn_infoINS1_5model5pointIdLm2ENS1_2cs20spherical_equatorialINS1_6degreeEEEEENS1_13segment_ratioIdEENS3_21turn_operation_linearISB_SD_EESt5arrayISF_Lm2EEEESJ_ET1_T0_SL_SK_.exit.i78
-  %190 = icmp ult i64 %187, 2
+  %190 = icmp samesign ult i64 %187, 2
   br i1 %190, label %191, label %193
 
 191:                                              ; preds = %189

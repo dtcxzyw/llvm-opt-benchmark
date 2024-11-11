@@ -108,7 +108,7 @@ define i32 @f32_rem(i32 %0, i32 %1) local_unnamed_addr #0 {
   %55 = mul nuw i64 %50, %54
   %56 = lshr i64 %55, 32
   %57 = trunc nuw i64 %56 to i32
-  %58 = icmp ult i64 %33, 31
+  %58 = icmp samesign ult i64 %33, 31
   %.pre = trunc i64 %53 to i32
   br i1 %58, label %._crit_edge, label %.lr.ph
 
@@ -122,7 +122,7 @@ define i32 @f32_rem(i32 %0, i32 %1) local_unnamed_addr #0 {
   %64 = mul nuw i64 %50, %63
   %65 = lshr i64 %64, 32
   %66 = trunc nuw i64 %65 to i32
-  %67 = icmp ult i64 %.092115, 29
+  %67 = icmp samesign ult i64 %.092115, 29
   br i1 %67, label %._crit_edge, label %.lr.ph
 
 ._crit_edge:                                      ; preds = %.lr.ph, %47

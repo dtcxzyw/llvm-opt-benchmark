@@ -925,7 +925,7 @@ if.then:                                          ; preds = %sw.bb3
 
 if.else:                                          ; preds = %sw.bb3
   %conv7 = add i32 %add14.i31, 1
-  %cmp12 = icmp ugt i64 %add10, 12
+  %cmp12 = icmp samesign ugt i64 %add10, 12
   br i1 %cmp12, label %if.then13, label %if.end14
 
 if.then13:                                        ; preds = %if.else
@@ -4713,7 +4713,7 @@ if.end170.thread:                                 ; preds = %if.then164
   br label %if.end174
 
 if.end170:                                        ; preds = %if.then164
-  %cmp172 = icmp ugt i32 %71, 23
+  %cmp172 = icmp samesign ugt i32 %71, 23
   br i1 %cmp172, label %return, label %if.end174
 
 if.end174:                                        ; preds = %if.end170.thread, %if.end170
@@ -4992,7 +4992,7 @@ if.then225:                                       ; preds = %if.end223
   br label %sw.epilog
 
 if.end230:                                        ; preds = %if.end223
-  %cmp231 = icmp ult i32 %add.i312, 69
+  %cmp231 = icmp samesign ult i32 %add.i312, 69
   br i1 %cmp231, label %if.then232, label %if.else235
 
 if.then232:                                       ; preds = %if.end230

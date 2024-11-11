@@ -12360,7 +12360,7 @@ _ZN4llvm12DenseMapBaseINS_8DenseMapIN12_GLOBAL__N_120CallsiteContextGraphINS2_26
   %3505 = getelementptr inbounds i8, ptr %.0910.i.i.i.i.i.i.i.i, i64 24
   %3506 = getelementptr inbounds i8, ptr %.0811.i.i.i.i.i.i.i.i, i64 24
   %3507 = add nsw i64 %.012.i.i.i.i.i.i.i.i, -1
-  %3508 = icmp ugt i64 %.012.i.i.i.i.i.i.i.i, 1
+  %3508 = icmp samesign ugt i64 %.012.i.i.i.i.i.i.i.i, 1
   br i1 %3508, label %.lr.ph.i.i.i.i.i.i.i118.i, label %_ZN4llvm9MapVectorIN12_GLOBAL__N_120CallsiteContextGraphINS1_26ModuleCallsiteContextGraphENS_8FunctionEPNS_11InstructionEE8CallInfoEPNS7_11ContextNodeENS_8DenseMapIS8_jNS_12DenseMapInfoIS8_vEENS_6detail12DenseMapPairIS8_jEEEENS_11SmallVectorISt4pairIS8_SA_ELj0EEEE9remove_ifIZNS7_34handleCallsitesWithMultipleTargetsEvEUlRKT_E_EEvSO_.exit.i, !llvm.loop !245
 
 _ZN4llvm9MapVectorIN12_GLOBAL__N_120CallsiteContextGraphINS1_26ModuleCallsiteContextGraphENS_8FunctionEPNS_11InstructionEE8CallInfoEPNS7_11ContextNodeENS_8DenseMapIS8_jNS_12DenseMapInfoIS8_vEENS_6detail12DenseMapPairIS8_jEEEENS_11SmallVectorISt4pairIS8_SA_ELj0EEEE9remove_ifIZNS7_34handleCallsitesWithMultipleTargetsEvEUlRKT_E_EEvSO_.exit.i: ; preds = %.lr.ph.i.i.i.i.i.i.i118.i, %._crit_edge.i117.i
@@ -16176,7 +16176,7 @@ _ZNSt12_Vector_baseIN12_GLOBAL__N_120CallsiteContextGraphINS0_25IndexCallsiteCon
   %1401 = getelementptr inbounds i8, ptr %.0910.i.i.i.i.i.i, i64 16
   %1402 = getelementptr inbounds i8, ptr %.0811.i.i.i.i.i.i, i64 16
   %1403 = add nsw i64 %.012.i.i.i.i.i.i, -1
-  %1404 = icmp ugt i64 %.012.i.i.i.i.i.i, 1
+  %1404 = icmp samesign ugt i64 %.012.i.i.i.i.i.i, 1
   br i1 %1404, label %.lr.ph.i.i.i.i.i.i78, label %_ZSt22__uninitialized_copy_aIPN12_GLOBAL__N_120CallsiteContextGraphINS0_25IndexCallsiteContextGraphEN4llvm15FunctionSummaryENS0_9IndexCallEE8CallInfoES8_S7_ET0_T_SA_S9_RSaIT1_E.exit.i, !llvm.loop !343
 
 1405:                                             ; preds = %1391
@@ -16197,7 +16197,7 @@ _ZNSt12_Vector_baseIN12_GLOBAL__N_120CallsiteContextGraphINS0_25IndexCallsiteCon
   %1412 = getelementptr inbounds i8, ptr %.0910.i.i.i.i.i44.i, i64 16
   %1413 = getelementptr inbounds i8, ptr %.0811.i.i.i.i.i43.i, i64 16
   %1414 = add nsw i64 %.012.i.i.i.i.i42.i, -1
-  %1415 = icmp ugt i64 %.012.i.i.i.i.i42.i, 1
+  %1415 = icmp samesign ugt i64 %.012.i.i.i.i.i42.i, 1
   br i1 %1415, label %.lr.ph.i.i.i.i.i41.i, label %_ZSt4copyIPN12_GLOBAL__N_120CallsiteContextGraphINS0_25IndexCallsiteContextGraphEN4llvm15FunctionSummaryENS0_9IndexCallEE8CallInfoES8_ET0_T_SA_S9_.exit.loopexit.i, !llvm.loop !344
 
 _ZSt4copyIPN12_GLOBAL__N_120CallsiteContextGraphINS0_25IndexCallsiteContextGraphEN4llvm15FunctionSummaryENS0_9IndexCallEE8CallInfoES8_ET0_T_SA_S9_.exit.loopexit.i: ; preds = %.lr.ph.i.i.i.i.i41.i
@@ -21353,7 +21353,7 @@ _ZN4llvm12DenseMapBaseINS_8DenseMapIN12_GLOBAL__N_120CallsiteContextGraphINS2_25
   %3699 = getelementptr inbounds i8, ptr %.0910.i.i.i.i.i.i.i.i, i64 24
   %3700 = getelementptr inbounds i8, ptr %.0811.i.i.i.i.i.i.i.i, i64 24
   %3701 = add nsw i64 %.012.i.i.i.i.i.i.i.i, -1
-  %3702 = icmp ugt i64 %.012.i.i.i.i.i.i.i.i, 1
+  %3702 = icmp samesign ugt i64 %.012.i.i.i.i.i.i.i.i, 1
   br i1 %3702, label %.lr.ph.i.i.i.i.i.i.i124.i, label %_ZN4llvm9MapVectorIN12_GLOBAL__N_120CallsiteContextGraphINS1_25IndexCallsiteContextGraphENS_15FunctionSummaryENS1_9IndexCallEE8CallInfoEPNS6_11ContextNodeENS_8DenseMapIS7_jNS_12DenseMapInfoIS7_vEENS_6detail12DenseMapPairIS7_jEEEENS_11SmallVectorISt4pairIS7_S9_ELj0EEEE9remove_ifIZNS6_34handleCallsitesWithMultipleTargetsEvEUlRKT_E_EEvSN_.exit.i, !llvm.loop !415
 
 _ZN4llvm9MapVectorIN12_GLOBAL__N_120CallsiteContextGraphINS1_25IndexCallsiteContextGraphENS_15FunctionSummaryENS1_9IndexCallEE8CallInfoEPNS6_11ContextNodeENS_8DenseMapIS7_jNS_12DenseMapInfoIS7_vEENS_6detail12DenseMapPairIS7_jEEEENS_11SmallVectorISt4pairIS7_S9_ELj0EEEE9remove_ifIZNS6_34handleCallsitesWithMultipleTargetsEvEUlRKT_E_EEvSN_.exit.i: ; preds = %.lr.ph.i.i.i.i.i.i.i124.i, %._crit_edge.i123.i
@@ -22028,7 +22028,7 @@ _ZNK12_GLOBAL__N_120CallsiteContextGraphINS_25IndexCallsiteContextGraphEN4llvm15
 288:                                              ; preds = %284
   %289 = add nuw nsw i64 %281, 63
   %290 = lshr i64 %289, 6
-  %291 = icmp ugt i64 %281, 192
+  %291 = icmp samesign ugt i64 %281, 192
   br i1 %291, label %_ZNSt5dequeIPN12_GLOBAL__N_120CallsiteContextGraphINS0_25IndexCallsiteContextGraphEN4llvm15FunctionSummaryENS0_9IndexCallEE11ContextNodeESaIS8_EE23_M_reserve_map_at_frontEm.exit.i.i.thread.i, label %.lr.ph.i.i747.preheader.i
 
 _ZNSt5dequeIPN12_GLOBAL__N_120CallsiteContextGraphINS0_25IndexCallsiteContextGraphEN4llvm15FunctionSummaryENS0_9IndexCallEE11ContextNodeESaIS8_EE23_M_reserve_map_at_frontEm.exit.i.i.thread.i: ; preds = %288
@@ -22073,7 +22073,7 @@ _ZNSt5dequeIPN12_GLOBAL__N_120CallsiteContextGraphINS0_25IndexCallsiteContextGra
   br i1 %304, label %305, label %311
 
 305:                                              ; preds = %_ZNSt5dequeIPN12_GLOBAL__N_120CallsiteContextGraphINS0_25IndexCallsiteContextGraphEN4llvm15FunctionSummaryENS0_9IndexCallEE11ContextNodeESaIS8_EE24_M_new_elements_at_frontEm.exit.i.i
-  %306 = icmp ult i64 %303, 64
+  %306 = icmp samesign ult i64 %303, 64
   br i1 %306, label %307, label %309
 
 307:                                              ; preds = %305
@@ -22136,7 +22136,7 @@ _ZSt14__copy_move_a1ILb0EPPN12_GLOBAL__N_120CallsiteContextGraphINS0_25IndexCall
   br i1 %332, label %333, label %339
 
 333:                                              ; preds = %_ZSt14__copy_move_a1ILb0EPPN12_GLOBAL__N_120CallsiteContextGraphINS0_25IndexCallsiteContextGraphEN4llvm15FunctionSummaryENS0_9IndexCallEE11ContextNodeES9_ET1_T0_SB_SA_.exit.i.i.i.i.i.i.i.i.i
-  %334 = icmp ult i64 %331, 64
+  %334 = icmp samesign ult i64 %331, 64
   br i1 %334, label %335, label %337
 
 335:                                              ; preds = %333
@@ -22199,7 +22199,7 @@ _ZSt22__uninitialized_copy_aIN9__gnu_cxx17__normal_iteratorIPPN12_GLOBAL__N_120C
 362:                                              ; preds = %357
   %363 = add nuw nsw i64 %358, 63
   %364 = lshr i64 %363, 6
-  %.not8.i.i742.i = icmp ult i64 %358, 257
+  %.not8.i.i742.i = icmp samesign ult i64 %358, 257
   br i1 %.not8.i.i742.i, label %.lr.ph.i.i743.preheader.i, label %_ZNSt5dequeIPN12_GLOBAL__N_120CallsiteContextGraphINS0_25IndexCallsiteContextGraphEN4llvm15FunctionSummaryENS0_9IndexCallEE11ContextNodeESaIS8_EE22_M_reserve_map_at_backEm.exit.i.i.thread.i
 
 _ZNSt5dequeIPN12_GLOBAL__N_120CallsiteContextGraphINS0_25IndexCallsiteContextGraphEN4llvm15FunctionSummaryENS0_9IndexCallEE11ContextNodeESaIS8_EE22_M_reserve_map_at_backEm.exit.i.i.thread.i: ; preds = %362
@@ -22241,7 +22241,7 @@ _ZNSt5dequeIPN12_GLOBAL__N_120CallsiteContextGraphINS0_25IndexCallsiteContextGra
   br i1 %373, label %374, label %380
 
 374:                                              ; preds = %_ZNSt5dequeIPN12_GLOBAL__N_120CallsiteContextGraphINS0_25IndexCallsiteContextGraphEN4llvm15FunctionSummaryENS0_9IndexCallEE11ContextNodeESaIS8_EE23_M_new_elements_at_backEm.exit.i.i
-  %375 = icmp ult i64 %372, 64
+  %375 = icmp samesign ult i64 %372, 64
   br i1 %375, label %376, label %378
 
 376:                                              ; preds = %374
@@ -22304,7 +22304,7 @@ _ZSt14__copy_move_a1ILb0EPPN12_GLOBAL__N_120CallsiteContextGraphINS0_25IndexCall
   br i1 %401, label %402, label %408
 
 402:                                              ; preds = %_ZSt14__copy_move_a1ILb0EPPN12_GLOBAL__N_120CallsiteContextGraphINS0_25IndexCallsiteContextGraphEN4llvm15FunctionSummaryENS0_9IndexCallEE11ContextNodeES9_ET1_T0_SB_SA_.exit.i.i.i.i.i.i24.i.i.i
-  %403 = icmp ult i64 %400, 64
+  %403 = icmp samesign ult i64 %400, 64
   br i1 %403, label %404, label %406
 
 404:                                              ; preds = %402
@@ -29044,7 +29044,7 @@ _ZNSt12_Vector_baseIN12_GLOBAL__N_120CallsiteContextGraphINS0_26ModuleCallsiteCo
   %31 = getelementptr inbounds i8, ptr %.0910.i.i.i.i.i, i64 16
   %32 = getelementptr inbounds i8, ptr %.0811.i.i.i.i.i, i64 16
   %33 = add nsw i64 %.012.i.i.i.i.i, -1
-  %34 = icmp ugt i64 %.012.i.i.i.i.i, 1
+  %34 = icmp samesign ugt i64 %.012.i.i.i.i.i, 1
   br i1 %34, label %.lr.ph.i.i.i.i.i, label %_ZSt22__uninitialized_copy_aIPN12_GLOBAL__N_120CallsiteContextGraphINS0_26ModuleCallsiteContextGraphEN4llvm8FunctionEPNS3_11InstructionEE8CallInfoES9_S8_ET0_T_SB_SA_RSaIT1_E.exit, !llvm.loop !514
 
 35:                                               ; preds = %21
@@ -29065,7 +29065,7 @@ _ZNSt12_Vector_baseIN12_GLOBAL__N_120CallsiteContextGraphINS0_26ModuleCallsiteCo
   %42 = getelementptr inbounds i8, ptr %.0910.i.i.i.i.i44, i64 16
   %43 = getelementptr inbounds i8, ptr %.0811.i.i.i.i.i43, i64 16
   %44 = add nsw i64 %.012.i.i.i.i.i42, -1
-  %45 = icmp ugt i64 %.012.i.i.i.i.i42, 1
+  %45 = icmp samesign ugt i64 %.012.i.i.i.i.i42, 1
   br i1 %45, label %.lr.ph.i.i.i.i.i41, label %_ZSt4copyIPN12_GLOBAL__N_120CallsiteContextGraphINS0_26ModuleCallsiteContextGraphEN4llvm8FunctionEPNS3_11InstructionEE8CallInfoES9_ET0_T_SB_SA_.exit.loopexit, !llvm.loop !515
 
 _ZSt4copyIPN12_GLOBAL__N_120CallsiteContextGraphINS0_26ModuleCallsiteContextGraphEN4llvm8FunctionEPNS3_11InstructionEE8CallInfoES9_ET0_T_SB_SA_.exit.loopexit: ; preds = %.lr.ph.i.i.i.i.i41
@@ -65650,7 +65650,7 @@ _ZNSt5dequeIPN12_GLOBAL__N_120CallsiteContextGraphINS0_26ModuleCallsiteContextGr
   br i1 %272, label %273, label %279
 
 273:                                              ; preds = %_ZNSt5dequeIPN12_GLOBAL__N_120CallsiteContextGraphINS0_26ModuleCallsiteContextGraphEN4llvm8FunctionEPNS3_11InstructionEE11ContextNodeESaIS9_EE24_M_new_elements_at_frontEm.exit.i
-  %274 = icmp ult i64 %271, 64
+  %274 = icmp samesign ult i64 %271, 64
   br i1 %274, label %275, label %277
 
 275:                                              ; preds = %273
@@ -65713,7 +65713,7 @@ _ZSt14__copy_move_a1ILb0EPPN12_GLOBAL__N_120CallsiteContextGraphINS0_26ModuleCal
   br i1 %300, label %301, label %307
 
 301:                                              ; preds = %_ZSt14__copy_move_a1ILb0EPPN12_GLOBAL__N_120CallsiteContextGraphINS0_26ModuleCallsiteContextGraphEN4llvm8FunctionEPNS3_11InstructionEE11ContextNodeESA_ET1_T0_SC_SB_.exit.i.i.i.i.i.i.i.i
-  %302 = icmp ult i64 %299, 64
+  %302 = icmp samesign ult i64 %299, 64
   br i1 %302, label %303, label %305
 
 303:                                              ; preds = %301
@@ -65815,7 +65815,7 @@ _ZNSt5dequeIPN12_GLOBAL__N_120CallsiteContextGraphINS0_26ModuleCallsiteContextGr
   br i1 %345, label %346, label %352
 
 346:                                              ; preds = %_ZNSt5dequeIPN12_GLOBAL__N_120CallsiteContextGraphINS0_26ModuleCallsiteContextGraphEN4llvm8FunctionEPNS3_11InstructionEE11ContextNodeESaIS9_EE23_M_new_elements_at_backEm.exit.i
-  %347 = icmp ult i64 %344, 64
+  %347 = icmp samesign ult i64 %344, 64
   br i1 %347, label %348, label %350
 
 348:                                              ; preds = %346
@@ -65878,7 +65878,7 @@ _ZSt14__copy_move_a1ILb0EPPN12_GLOBAL__N_120CallsiteContextGraphINS0_26ModuleCal
   br i1 %373, label %374, label %380
 
 374:                                              ; preds = %_ZSt14__copy_move_a1ILb0EPPN12_GLOBAL__N_120CallsiteContextGraphINS0_26ModuleCallsiteContextGraphEN4llvm8FunctionEPNS3_11InstructionEE11ContextNodeESA_ET1_T0_SC_SB_.exit.i.i.i.i.i.i24.i.i
-  %375 = icmp ult i64 %372, 64
+  %375 = icmp samesign ult i64 %372, 64
   br i1 %375, label %376, label %378
 
 376:                                              ; preds = %374
@@ -82403,7 +82403,7 @@ _ZNSt12_Vector_baseIN12_GLOBAL__N_120CallsiteContextGraphINS0_25IndexCallsiteCon
   %119 = getelementptr inbounds i8, ptr %.0910.i.i.i.i.i.i, i64 16
   %120 = getelementptr inbounds i8, ptr %.0811.i.i.i.i.i.i, i64 16
   %121 = add nsw i64 %.012.i.i.i.i.i.i, -1
-  %122 = icmp ugt i64 %.012.i.i.i.i.i.i, 1
+  %122 = icmp samesign ugt i64 %.012.i.i.i.i.i.i, 1
   br i1 %122, label %.lr.ph.i.i.i.i.i.i, label %_ZSt22__uninitialized_copy_aIPN12_GLOBAL__N_120CallsiteContextGraphINS0_25IndexCallsiteContextGraphEN4llvm15FunctionSummaryENS0_9IndexCallEE8CallInfoES8_S7_ET0_T_SA_S9_RSaIT1_E.exit.i, !llvm.loop !343
 
 123:                                              ; preds = %109
@@ -82424,7 +82424,7 @@ _ZNSt12_Vector_baseIN12_GLOBAL__N_120CallsiteContextGraphINS0_25IndexCallsiteCon
   %130 = getelementptr inbounds i8, ptr %.0910.i.i.i.i.i44.i, i64 16
   %131 = getelementptr inbounds i8, ptr %.0811.i.i.i.i.i43.i, i64 16
   %132 = add nsw i64 %.012.i.i.i.i.i42.i, -1
-  %133 = icmp ugt i64 %.012.i.i.i.i.i42.i, 1
+  %133 = icmp samesign ugt i64 %.012.i.i.i.i.i42.i, 1
   br i1 %133, label %.lr.ph.i.i.i.i.i41.i, label %_ZSt4copyIPN12_GLOBAL__N_120CallsiteContextGraphINS0_25IndexCallsiteContextGraphEN4llvm15FunctionSummaryENS0_9IndexCallEE8CallInfoES8_ET0_T_SA_S9_.exit.loopexit.i, !llvm.loop !344
 
 _ZSt4copyIPN12_GLOBAL__N_120CallsiteContextGraphINS0_25IndexCallsiteContextGraphEN4llvm15FunctionSummaryENS0_9IndexCallEE8CallInfoES8_ET0_T_SA_S9_.exit.loopexit.i: ; preds = %.lr.ph.i.i.i.i.i41.i

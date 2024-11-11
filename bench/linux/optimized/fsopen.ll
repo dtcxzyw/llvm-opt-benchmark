@@ -250,7 +250,7 @@ define internal fastcc range(i64 -2147483648, 2147483648) i64 @__se_sys_fspick(i
   %16 = icmp eq i32 %15, 0
   %17 = and i32 %14, 1
   %18 = select i1 %16, i32 %14, i32 %17
-  %19 = icmp ult i32 %7, 8
+  %19 = icmp samesign ult i32 %7, 8
   %20 = or disjoint i32 %18, 16384
   %21 = select i1 %19, i32 %18, i32 %20
   %22 = call i32 @user_path_at_empty(i32 noundef %5, ptr noundef %6, i32 noundef %21, ptr noundef nonnull %4, ptr noundef null) #6

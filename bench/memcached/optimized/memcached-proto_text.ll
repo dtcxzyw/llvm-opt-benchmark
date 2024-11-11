@@ -586,7 +586,7 @@ if.end:                                           ; preds = %if.then
   br i1 %tobool3.not, label %if.then4, label %if.end10
 
 if.then4:                                         ; preds = %if.end
-  %cmp6 = icmp ugt i32 %1, 2048
+  %cmp6 = icmp samesign ugt i32 %1, 2048
   br i1 %cmp6, label %if.then8, label %return
 
 if.then8:                                         ; preds = %if.then4
@@ -1763,7 +1763,7 @@ if.else67:                                        ; preds = %if.then58
 if.end69:                                         ; preds = %if.else67, %if.then64
   %p.0 = phi ptr [ %call66, %if.then64 ], [ %add.ptr68, %if.else67 ]
   %sub71 = add nsw i64 %ntokens, -1
-  %cmp72245 = icmp ugt i64 %sub71, 2
+  %cmp72245 = icmp samesign ugt i64 %sub71, 2
   br i1 %cmp72245, label %for.body.lr.ph, label %for.end
 
 for.body.lr.ph:                                   ; preds = %if.end69
@@ -2265,7 +2265,7 @@ if.end436:                                        ; preds = %if.then435, %if.els
   store i16 20037, ptr %p.6, align 1
   %add.ptr437 = getelementptr inbounds i8, ptr %p.6, i64 2
   %sub440 = add nsw i64 %ntokens, -1
-  %cmp441253 = icmp ugt i64 %sub440, 2
+  %cmp441253 = icmp samesign ugt i64 %sub440, 2
   br i1 %cmp441253, label %for.body443, label %for.end487
 
 for.body443:                                      ; preds = %if.end436, %for.inc485
@@ -2800,7 +2800,7 @@ if.end10:                                         ; preds = %if.end7
   %4 = load ptr, ptr %arrayidx, align 8
   %5 = load i64, ptr %length, align 8
   %sub = add nsw i64 %ntokens, -1
-  %cmp1485 = icmp ugt i64 %sub, 2
+  %cmp1485 = icmp samesign ugt i64 %sub, 2
   br i1 %cmp1485, label %for.body, label %for.end
 
 for.body:                                         ; preds = %if.end10, %for.inc
@@ -3262,7 +3262,7 @@ sw.epilog108:                                     ; preds = %if.then44, %if.else
 
 for.cond213.preheader:                            ; preds = %sw.epilog108
   %sub215 = add nsw i64 %ntokens, -1
-  %cmp216159 = icmp ugt i64 %sub215, 2
+  %cmp216159 = icmp samesign ugt i64 %sub215, 2
   br i1 %cmp216159, label %for.body218, label %if.end263
 
 if.then110:                                       ; preds = %sw.epilog108
@@ -3287,7 +3287,7 @@ if.else123:                                       ; preds = %if.then110
 if.end125:                                        ; preds = %if.else123, %if.then119
   %p.1 = phi ptr [ %call122, %if.then119 ], [ %add.ptr124, %if.else123 ]
   %sub = add nsw i64 %ntokens, -1
-  %cmp127155 = icmp ugt i64 %sub, 2
+  %cmp127155 = icmp samesign ugt i64 %sub, 2
   br i1 %cmp127155, label %for.body.lr.ph, label %for.end
 
 for.body.lr.ph:                                   ; preds = %if.end125

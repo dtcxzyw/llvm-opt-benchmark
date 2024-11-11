@@ -161,7 +161,7 @@ define noundef zeroext i1 @_ZN5RarVM21ExecuteStandardFilterE18VM_StandardFilters
   br label %.sink.split
 
 29:                                               ; preds = %22
-  %.not270 = icmp ugt i32 %23, 16777215
+  %.not270 = icmp samesign ugt i32 %23, 16777215
   br i1 %.not270, label %32, label %30
 
 30:                                               ; preds = %29

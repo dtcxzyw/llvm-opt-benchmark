@@ -10630,7 +10630,7 @@ define internal fastcc ptr @receive_mergeable_xdp(ptr noundef %0, ptr nocapture 
   store i8 0, ptr %157, align 2
   %158 = getelementptr i8, ptr %156, i64 -284
   store i32 0, ptr %158, align 4
-  %159 = icmp ugt i32 %150, 18
+  %159 = icmp samesign ugt i32 %150, 18
   br i1 %159, label %.thread12, label %.thread10.thread, !prof !118
 
 .thread10.thread:                                 ; preds = %154
@@ -11576,7 +11576,7 @@ define internal fastcc void @mergeable_buf_free(ptr nocapture noundef readonly %
   br label %95
 
 95:                                               ; preds = %94, %88
-  %96 = icmp ugt i32 %11, 2
+  %96 = icmp samesign ugt i32 %11, 2
   br i1 %96, label %10, label %.loopexit, !llvm.loop !128
 
 .loopexit:                                        ; preds = %95, %21, %4

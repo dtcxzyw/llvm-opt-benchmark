@@ -1467,8 +1467,8 @@ _ZN4absl15random_internal17NonsecureURBGBaseISt23mersenne_twister_engineImLm32EL
   %call.i.i.i.i.i.i.i.i.i = call noundef i64 @_ZNSt23mersenne_twister_engineImLm32ELm624ELm397ELm31ELm2567483615ELm11ELm4294967295ELm7ELm2636928640ELm15ELm4022730752ELm18ELm1812433253EEclEv(ptr noundef nonnull align 8 dereferenceable(5000) %rbg)
   %2 = trunc i64 %call.i.i.i.i.i.i.i.i.i to i32
   %conv.i13.i.i.i.i.i.i = mul i32 %2, 100
-  %cmp1022.i.i.i.i.i.i = icmp ult i32 %conv.i13.i.i.i.i.i.i, 96
-  br i1 %cmp1022.i.i.i.i.i.i, label %while.body.i.i.i.i.i.i, label %while.body.i.i.i.i.preheader
+  %or.cond = icmp ult i32 %conv.i13.i.i.i.i.i.i, 96
+  br i1 %or.cond, label %while.body.i.i.i.i.i.i, label %while.body.i.i.i.i.preheader
 
 while.body.i.i.i.i.i.i:                           ; preds = %_ZN4absl15random_internal17NonsecureURBGBaseISt23mersenne_twister_engineImLm32ELm624ELm397ELm31ELm2567483615ELm11ELm4294967295ELm7ELm2636928640ELm15ELm4022730752ELm18ELm1812433253EENS0_17RandenPoolSeedSeqEEC2Ev.exit, %while.body.i.i.i.i.i.i
   %call.i.i.i15.i.i.i.i.i.i = call noundef i64 @_ZNSt23mersenne_twister_engineImLm32ELm624ELm397ELm31ELm2567483615ELm11ELm4294967295ELm7ELm2636928640ELm15ELm4022730752ELm18ELm1812433253EEclEv(ptr noundef nonnull align 8 dereferenceable(5000) %rbg)
@@ -3891,7 +3891,7 @@ for.body.i.i.i.i.i.i:                             ; preds = %invoke.cont, %call.
 call.i.i.i.i.i.i.i.i.i.noexc:                     ; preds = %for.body.i.i.i.i.i.i
   %incdec.ptr.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__first.addr.05.i.i.i.i.i.i, i64 4
   %dec.i.i.i.i.i.i = add nsw i64 %__n.06.i.i.i.i.i.i, -1
-  %cmp.i.i.i.i.i.i = icmp ugt i64 %__n.06.i.i.i.i.i.i, 1
+  %cmp.i.i.i.i.i.i = icmp samesign ugt i64 %__n.06.i.i.i.i.i.i, 1
   br i1 %cmp.i.i.i.i.i.i, label %for.body.i.i.i.i.i.i, label %invoke.cont2.loopexit, !llvm.loop !54
 
 invoke.cont2.loopexit:                            ; preds = %call.i.i.i.i.i.i.i.i.i.noexc
@@ -4245,15 +4245,15 @@ for.body.i.i.i.preheader:                         ; preds = %entry
   br i1 %cmp2, label %cond.end16, label %cond.false
 
 cond.false:                                       ; preds = %for.body.i.i.i.preheader
-  %cmp3 = icmp ugt i64 %sub.ptr.div, 67
+  %cmp3 = icmp samesign ugt i64 %sub.ptr.div, 67
   br i1 %cmp3, label %cond.end16, label %cond.false5
 
 cond.false5:                                      ; preds = %cond.false
-  %cmp6 = icmp ugt i64 %sub.ptr.div, 38
+  %cmp6 = icmp samesign ugt i64 %sub.ptr.div, 38
   br i1 %cmp6, label %cond.end16, label %cond.false8
 
 cond.false8:                                      ; preds = %cond.false5
-  %cmp9 = icmp ugt i64 %sub.ptr.div, 6
+  %cmp9 = icmp samesign ugt i64 %sub.ptr.div, 6
   %sub = add nsw i64 %sub.ptr.div, -1
   %div86 = lshr i64 %sub, 1
   %cond = select i1 %cmp9, i64 3, i64 %div86

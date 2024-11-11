@@ -953,7 +953,7 @@ define hidden void @_ZN8rawspeed15RawImageDataU1615scaleBlackWhiteEv(ptr noundef
   %80 = zext nneg i32 %69 to i64
   %81 = zext nneg i32 %7 to i64
   %82 = add nsw i64 %81, -250
-  %83 = icmp ult i64 %82, 32
+  %83 = icmp samesign ult i64 %82, 32
   %84 = and i64 %82, -32
   %85 = add nuw nsw i64 %84, 250
   %86 = insertelement <8 x i64> poison, i64 %75, i64 0
@@ -2301,7 +2301,7 @@ define hidden void @_ZN8rawspeed15RawImageDataU1611fixBadPixelEjji(ptr nocapture
 
 133:                                              ; preds = %154, %96
   %134 = phi i32 [ %94, %96 ], [ %155, %154 ]
-  %135 = icmp ugt i32 %13, %134
+  %135 = icmp samesign ugt i32 %13, %134
   tail call void @llvm.assume(i1 %135)
   %136 = mul nuw nsw i32 %134, %28
   %137 = add nuw nsw i32 %136, %28

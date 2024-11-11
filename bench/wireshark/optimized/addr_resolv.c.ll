@@ -4589,7 +4589,7 @@ define internal fastcc range(i32 0, 2) i32 @parse_ether_address(ptr noundef %0, 
 ._crit_edge:                                      ; preds = %36, %42
   %43 = trunc nuw nsw i64 %31 to i32
   store i32 %43, ptr %2, align 4
-  %44 = icmp ugt i64 %31, 7
+  %44 = icmp samesign ugt i64 %31, 7
   %45 = add i64 %31, 34359738360
   %46 = lshr i64 %45, 3
   %47 = trunc i64 %46 to i32
@@ -5789,7 +5789,7 @@ define internal fastcc void @eth_resolved_name_fill(ptr nocapture noundef writeo
 64:                                               ; preds = %48, %46
   %.039 = phi i32 [ %63, %48 ], [ %41, %46 ]
   %.0 = phi i32 [ %62, %48 ], [ %44, %46 ]
-  %65 = icmp ugt i32 %.039, 5
+  %65 = icmp samesign ugt i32 %.039, 5
   %66 = icmp sgt i32 %.0, 63
   %or.cond44 = or i1 %65, %66
   br i1 %or.cond44, label %.loopexit, label %.lr.ph.preheader

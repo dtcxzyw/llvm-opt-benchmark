@@ -706,7 +706,7 @@ define hidden noundef range(i64 0, 2049) i64 @_ZN21G1CMObjArrayProcessor13proces
   %44 = getelementptr inbounds i8, ptr %.014.i.i.i, i64 %.neg.i.i.i
   %.010.i.i.i = load volatile i8, ptr %44, align 1
   %45 = zext i8 %.010.i.i.i to i32
-  %.not.i.i.i = icmp ugt i32 %38, %45
+  %.not.i.i.i = icmp samesign ugt i32 %38, %45
   br i1 %.not.i.i.i, label %_ZNK18G1BlockOffsetTable30block_start_reaching_into_cardEPKv.exit.i.i, label %.lr.ph.i.i.i, !llvm.loop !7
 
 _ZNK18G1BlockOffsetTable30block_start_reaching_into_cardEPKv.exit.i.i: ; preds = %.lr.ph.i.i.i, %27

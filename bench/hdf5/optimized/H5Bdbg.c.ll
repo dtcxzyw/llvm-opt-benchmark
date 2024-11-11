@@ -179,7 +179,7 @@ define range(i32 -1, 1) i32 @H5B_debug(ptr noundef %0, i64 noundef %1, ptr nound
   %indvars.iv.next.pre-phi = phi i64 [ %.pre, %._crit_edge102 ], [ %92, %79 ]
   %98 = load i32, ptr %55, align 4
   %99 = zext i32 %98 to i64
-  %100 = icmp ult i64 %indvars.iv.next.pre-phi, %99
+  %100 = icmp samesign ult i64 %indvars.iv.next.pre-phi, %99
   br i1 %100, label %71, label %._crit_edge
 
 ._crit_edge:                                      ; preds = %97, %27

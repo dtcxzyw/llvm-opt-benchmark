@@ -729,7 +729,7 @@ _ZNSt6vectorIlSaIlEEC2EmRKS0_.exit:               ; preds = %_ZNSt6vectorIlSaIlE
   tail call void @llvm.memset.p0.i64(ptr align 8 %incdec.ptr.i.i.i.i.i, i8 0, i64 %3, i1 false)
   store ptr %add.ptr.i.i.i, ptr %2, align 8
   store i64 2, ptr %call5.i.i.i.i.i.i, align 8
-  %cmp27 = icmp ugt i64 %sub.ptr.div.i, 1
+  %cmp27 = icmp samesign ugt i64 %sub.ptr.div.i, 1
   br i1 %cmp27, label %for.body, label %for.end
 
 for.body:                                         ; preds = %_ZNSt6vectorIlSaIlEEC2EmRKS0_.exit, %for.body
@@ -1097,7 +1097,7 @@ _ZNSt6vectorIlSaIlEEC2EmRKS0_.exit:               ; preds = %if.then.i.i.i.i.i
   %3 = add nsw i64 %mul.i.i.i.i.i.i, -8
   tail call void @llvm.memset.p0.i64(ptr align 8 %incdec.ptr.i.i.i.i.i, i8 0, i64 %3, i1 false)
   store ptr %add.ptr.i.i.i, ptr %2, align 8
-  %cmp25 = icmp ugt i64 %sub.ptr.div.i, 1
+  %cmp25 = icmp samesign ugt i64 %sub.ptr.div.i, 1
   br i1 %cmp25, label %for.body.preheader, label %for.end
 
 for.body.preheader:                               ; preds = %_ZNSt6vectorIlSaIlEEC2EmRKS0_.exit

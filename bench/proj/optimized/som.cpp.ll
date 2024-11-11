@@ -676,7 +676,7 @@ define hidden noundef ptr @_Z33pj_projection_specific_setup_lsatP8PJconsts(ptr n
   %17 = load ptr, ptr %9, align 8
   %18 = tail call i64 @_Z8pj_paramP6pj_ctxP8ARG_listPKc(ptr noundef %16, ptr noundef %17, ptr noundef nonnull @.str.8)
   %.sroa.0.0.extract.trunc = trunc i64 %18 to i32
-  %19 = icmp ult i32 %.sroa.03.0.extract.trunc, 4
+  %19 = icmp samesign ult i32 %.sroa.03.0.extract.trunc, 4
   %20 = select i1 %19, i32 251, i32 233
   %21 = icmp slt i32 %.sroa.0.0.extract.trunc, 1
   %22 = icmp slt i32 %20, %.sroa.0.0.extract.trunc

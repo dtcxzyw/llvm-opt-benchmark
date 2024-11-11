@@ -311,7 +311,7 @@ geohashEstimateStepsByRadius.exit:                ; preds = %cond.end, %if.end11
   %56 = select i1 %cmp50, i1 true, i1 %cmp44
   %57 = select i1 %56, i1 true, i1 %cmp38
   %narrow = select i1 %57, i1 true, i1 %cmp35
-  %cmp54 = icmp ugt i8 %retval.0.i, 1
+  %cmp54 = icmp samesign ugt i8 %retval.0.i, 1
   %or.cond = and i1 %cmp54, %narrow
   br i1 %or.cond, label %if.then56, label %if.end60
 
@@ -331,7 +331,7 @@ if.then56:                                        ; preds = %geohashEstimateStep
 
 if.end60:                                         ; preds = %if.then56, %geohashEstimateStepsByRadius.exit
   %steps.0 = phi i32 [ %dec, %if.then56 ], [ %conv, %geohashEstimateStepsByRadius.exit ]
-  %cmp61 = icmp ugt i32 %steps.0, 1
+  %cmp61 = icmp samesign ugt i32 %steps.0, 1
   br i1 %cmp61, label %if.then63, label %if.end130
 
 if.then63:                                        ; preds = %if.end60

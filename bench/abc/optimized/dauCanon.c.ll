@@ -653,7 +653,7 @@ define void @Abc_TtCofactorTest10(ptr nocapture noundef readonly %0, i32 noundef
   br i1 %5, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %3
-  %6 = icmp ult i32 %1, 7
+  %6 = icmp samesign ult i32 %1, 7
   %7 = add nsw i32 %1, -6
   %8 = shl nuw i32 1, %7
   %9 = select i1 %6, i32 1, i32 %8
@@ -1188,7 +1188,7 @@ Abc_TtCopy.exit:                                  ; preds = %.lr.ph18.i
   br i1 %38, label %.lr.ph.i, label %Abc_TtSwapAdjacent.exit.preheader, !llvm.loop !21
 
 .preheader.lr.ph.i:                               ; preds = %30
-  %39 = icmp ult i32 %1, 7
+  %39 = icmp samesign ult i32 %1, 7
   %40 = add nsw i32 %1, -6
   %41 = shl nuw i32 1, %40
   %42 = select i1 %39, i32 1, i32 %41
@@ -1689,7 +1689,7 @@ Abc_TtCopy.exit145.thread:                        ; preds = %Abc_TtCompareRev.ex
   br i1 %271, label %.lr.ph.i154.preheader, label %.thread441
 
 .thread441:                                       ; preds = %.thread434
-  %274 = icmp ult i32 %1, 7
+  %274 = icmp samesign ult i32 %1, 7
   %275 = add nsw i32 %1, -6
   %276 = shl nuw i32 1, %275
   br i1 %274, label %.preheader.us.preheader.i147, label %.preheader.lr.ph.i146
@@ -1715,7 +1715,7 @@ Abc_TtCopy.exit145.thread:                        ; preds = %Abc_TtCompareRev.ex
   br i1 %284, label %.lr.ph.i154, label %Abc_TtSwapAdjacent.exit161, !llvm.loop !21
 
 285:                                              ; preds = %267
-  %286 = icmp ult i32 %1, 7
+  %286 = icmp samesign ult i32 %1, 7
   %287 = add nsw i32 %1, -6
   %288 = shl nuw i32 1, %287
   %289 = select i1 %286, i32 1, i32 %288
@@ -2197,7 +2197,7 @@ Abc_TtCopy.exit256.thread:                        ; preds = %Abc_TtCompareRev.ex
   br i1 %512, label %.lr.ph.i265.preheader, label %.thread461
 
 .thread461:                                       ; preds = %.thread454
-  %515 = icmp ult i32 %1, 7
+  %515 = icmp samesign ult i32 %1, 7
   br i1 %515, label %.preheader.us.preheader.i258, label %.preheader.lr.ph.i257.thread469
 
 516:                                              ; preds = %508
@@ -2224,7 +2224,7 @@ Abc_TtCopy.exit256.thread:                        ; preds = %Abc_TtCompareRev.ex
   br i1 %5, label %Abc_TtCopy.exit55, label %.preheader.lr.ph.i257
 
 .preheader.lr.ph.i257:                            ; preds = %524
-  %525 = icmp ult i32 %1, 7
+  %525 = icmp samesign ult i32 %1, 7
   %526 = add nsw i32 %1, -6
   %527 = shl nuw i32 1, %526
   %528 = select i1 %525, i32 1, i32 %527
@@ -2482,7 +2482,7 @@ define range(i32 0, 8) i32 @Abc_TtCofactorPermConfig(ptr noundef %0, i32 noundef
   br i1 %46, label %Abc_TtCompare2VarCofsRev.exit, label %Abc_TtSwapAdjacent.exit
 
 47:                                               ; preds = %36
-  %48 = icmp ult i32 %1, 7
+  %48 = icmp samesign ult i32 %1, 7
   %49 = add nsw i32 %1, -6
   %50 = shl nuw i32 1, %49
   %51 = select i1 %48, i32 1, i32 %50
@@ -2590,7 +2590,7 @@ Abc_TtCompare2VarCofsRev.exit:                    ; preds = %70, %45, %34
   br i1 %104, label %.lr.ph.i, label %Abc_TtSwapAdjacent.exit, !llvm.loop !21
 
 105:                                              ; preds = %93
-  %106 = icmp ult i32 %1, 7
+  %106 = icmp samesign ult i32 %1, 7
   %107 = add nsw i32 %1, -6
   %108 = shl nuw i32 1, %107
   %109 = select i1 %106, i32 1, i32 %108
@@ -2690,7 +2690,7 @@ Abc_TtCompare2VarCofsRev.exit:                    ; preds = %70, %45, %34
   br label %Abc_TtCompare2VarCofsRev.exit141
 
 157:                                              ; preds = %146
-  %158 = icmp ult i32 %1, 7
+  %158 = icmp samesign ult i32 %1, 7
   %159 = add nsw i32 %1, -6
   %160 = shl nuw i32 1, %159
   %161 = select i1 %158, i32 1, i32 %160
@@ -2808,7 +2808,7 @@ Abc_TtCompare2VarCofsRev.exit141:                 ; preds = %.loopexit97.i128, %
   %209 = phi i64 [ %200, %._crit_edge ], [ %148, %157 ]
   %.0.i131223225 = phi i32 [ %.0.i131, %._crit_edge ], [ 0, %157 ]
   %210 = getelementptr inbounds i64, ptr %0, i64 %209
-  %211 = icmp ult i32 %1, 7
+  %211 = icmp samesign ult i32 %1, 7
   %212 = select i1 %211, i32 1, i32 %.pre-phi356
   %213 = shl nsw i32 %212, 2
   %214 = sext i32 %213 to i64
@@ -2941,7 +2941,7 @@ Abc_TtCompare2VarCofsRev.exit141:                 ; preds = %.loopexit97.i128, %
   %.pre-phi = phi i32 [ %.pre, %._crit_edge350 ], [ %.pre-phi354, %.thread238 ]
   %271 = phi i64 [ %261, %._crit_edge350 ], [ %236, %.thread238 ]
   %272 = getelementptr inbounds i64, ptr %0, i64 %271
-  %273 = icmp ult i32 %1, 7
+  %273 = icmp samesign ult i32 %1, 7
   %274 = select i1 %273, i32 1, i32 %.pre-phi352
   %275 = shl nsw i32 %274, 2
   %276 = sext i32 %275 to i64
@@ -3133,7 +3133,7 @@ Abc_TtCompare2VarCofsRev.exit161:                 ; preds = %231, %207, %196
   br i1 %360, label %Abc_TtCompare2VarCofsRev.exit201, label %Abc_TtSwapAdjacent.exit
 
 361:                                              ; preds = %350
-  %362 = icmp ult i32 %1, 7
+  %362 = icmp samesign ult i32 %1, 7
   %363 = add nsw i32 %1, -6
   %364 = shl nuw i32 1, %363
   %365 = select i1 %362, i32 1, i32 %364
@@ -3241,7 +3241,7 @@ Abc_TtCompare2VarCofsRev.exit201:                 ; preds = %384, %359, %348
   br i1 %418, label %.lr.ph.i210, label %Abc_TtSwapAdjacent.exit217, !llvm.loop !21
 
 419:                                              ; preds = %407
-  %420 = icmp ult i32 %1, 7
+  %420 = icmp samesign ult i32 %1, 7
   %421 = add nsw i32 %1, -6
   %422 = shl nuw i32 1, %421
   %423 = select i1 %420, i32 1, i32 %422
@@ -3361,7 +3361,7 @@ define internal fastcc range(i32 -1, 2) i32 @Abc_TtCompare2VarCofsRev(ptr nounde
   br label %.loopexit
 
 45:                                               ; preds = %29
-  %46 = icmp ult i32 %2, 7
+  %46 = icmp samesign ult i32 %2, 7
   %47 = add nsw i32 %2, -6
   %48 = shl nuw i32 1, %47
   %49 = select i1 %46, i32 1, i32 %48
@@ -8363,7 +8363,7 @@ Abc_TtEqual.exit.i90.us.i:                        ; preds = %260, %.lr.ph.i.i104
   br i1 %261, label %Abc_TtFlip.exit.thread.i.us.i, label %269
 
 269:                                              ; preds = %268
-  %270 = icmp ult i32 %.14181.i.us.i, 6
+  %270 = icmp samesign ult i32 %.14181.i.us.i, 6
   br i1 %270, label %285, label %271
 
 271:                                              ; preds = %269
@@ -8832,7 +8832,7 @@ Abc_TtIsSymmetricHigh.exit.us.i:                  ; preds = %Abc_TtEqual.exit48.
 
 .lr.ph125.us.i:                                   ; preds = %119
   %467 = getelementptr inbounds [16 x i32], ptr %4, i64 0, i64 %indvars.iv159.i
-  %468 = icmp ult i8 %116, 6
+  %468 = icmp samesign ult i8 %116, 6
   %469 = add nsw i32 %117, -6
   %.not.i17.i.us.i = icmp eq i32 %469, 31
   %470 = shl i32 2, %469
@@ -12905,7 +12905,7 @@ Abc_TgExpendSymmetry.exit:                        ; preds = %.lr.ph38.i, %._crit
   br i1 %93, label %.lr.ph.i50, label %Abc_TtSwapAdjacent.exit, !llvm.loop !21
 
 94:                                               ; preds = %82
-  %95 = icmp ult i8 %51, 7
+  %95 = icmp samesign ult i8 %51, 7
   %96 = add nsw i32 %52, -6
   %97 = shl nuw i32 1, %96
   %98 = select i1 %95, i32 1, i32 %97

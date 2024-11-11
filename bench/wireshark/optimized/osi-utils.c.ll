@@ -139,7 +139,7 @@ define hidden void @print_system_id_buf(ptr nocapture noundef readonly %0, i32 n
   br i1 %or.cond5, label %16, label %.preheader98
 
 .preheader98:                                     ; preds = %9
-  %.not = icmp ult i32 %1, 4
+  %.not = icmp samesign ult i32 %1, 4
   br i1 %.not, label %.preheader, label %.lr.ph
 
 .lr.ph:                                           ; preds = %.preheader98
@@ -337,7 +337,7 @@ define internal fastcc void @print_address_prefix_buf(ptr nocapture noundef read
   ]
 
 .preheader125:                                    ; preds = %71, %11
-  %.not134 = icmp ult i32 %1, 8
+  %.not134 = icmp samesign ult i32 %1, 8
   br i1 %.not134, label %.preheader, label %.lr.ph
 
 .lr.ph:                                           ; preds = %.preheader125

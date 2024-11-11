@@ -324,7 +324,7 @@ sw.bb165:                                         ; preds = %if.then1, %sw.bb160
   br i1 %tobool169.not, label %if.else179, label %if.then170
 
 if.then170:                                       ; preds = %sw.bb165
-  %cmp171 = icmp ult i64 %addr, 24
+  %cmp171 = icmp samesign ult i64 %addr, 24
   br i1 %cmp171, label %if.then173, label %if.end339
 
 if.then173:                                       ; preds = %if.then170
@@ -1049,7 +1049,7 @@ sw.bb19:                                          ; preds = %if.then1, %if.then1
   br i1 %tobool23.not, label %if.else30, label %if.then24
 
 if.then24:                                        ; preds = %sw.bb19
-  %cmp25 = icmp ult i64 %addr, 24
+  %cmp25 = icmp samesign ult i64 %addr, 24
   br i1 %cmp25, label %if.then27, label %do.end75
 
 if.then27:                                        ; preds = %if.then24

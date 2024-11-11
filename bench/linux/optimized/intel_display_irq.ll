@@ -2587,15 +2587,15 @@ define dso_local void @gen8_de_irq_handler(ptr noundef %0, i32 noundef %1) local
   br i1 %165, label %175, label %166
 
 166:                                              ; preds = %161
-  %167 = icmp ugt i16 %164, 13
+  %167 = icmp samesign ugt i16 %164, 13
   br i1 %167, label %175, label %168
 
 168:                                              ; preds = %166
-  %169 = icmp ugt i16 %164, 11
+  %169 = icmp samesign ugt i16 %164, 11
   br i1 %169, label %175, label %170
 
 170:                                              ; preds = %168
-  %171 = icmp ugt i16 %164, 8
+  %171 = icmp samesign ugt i16 %164, 8
   %172 = select i1 %171, i32 234881025, i32 1
   %173 = icmp eq i16 %164, 11
   %174 = select i1 %173, i32 1040187393, i32 %172
@@ -2945,11 +2945,11 @@ define dso_local void @gen8_de_irq_handler(ptr noundef %0, i32 noundef %1) local
   br i1 %391, label %392, label %397
 
 392:                                              ; preds = %388
-  %393 = icmp ugt i16 %386, 10
+  %393 = icmp samesign ugt i16 %386, 10
   br i1 %393, label %397, label %394
 
 394:                                              ; preds = %392
-  %395 = icmp ugt i16 %386, 8
+  %395 = icmp samesign ugt i16 %386, 8
   %396 = select i1 %395, i32 3968, i32 1792
   br label %397
 
@@ -4009,11 +4009,11 @@ define dso_local void @gen8_de_irq_postinstall(ptr noundef %0) local_unnamed_add
   br i1 %11, label %12, label %19
 
 12:                                               ; preds = %7
-  %13 = icmp ugt i16 %5, 10
+  %13 = icmp samesign ugt i16 %5, 10
   br i1 %13, label %19, label %.thread8
 
 .thread8:                                         ; preds = %12
-  %14 = icmp ugt i16 %5, 8
+  %14 = icmp samesign ugt i16 %5, 8
   %15 = select i1 %14, i32 3968, i32 1792
   br label %21
 
@@ -4033,7 +4033,7 @@ define dso_local void @gen8_de_irq_postinstall(ptr noundef %0) local_unnamed_add
 
 21:                                               ; preds = %.thread8, %19
   %.ph10 = phi i32 [ %15, %.thread8 ], [ %.ph, %19 ]
-  %22 = icmp ugt i16 %5, 8
+  %22 = icmp samesign ugt i16 %5, 8
   %23 = select i1 %22, i32 234881025, i32 1
   %24 = icmp eq i16 %5, 11
   %25 = select i1 %24, i32 1040187393, i32 %23
@@ -4116,7 +4116,7 @@ define dso_local void @gen8_de_irq_postinstall(ptr noundef %0) local_unnamed_add
   br i1 %69, label %76, label %70
 
 70:                                               ; preds = %55
-  %71 = icmp ugt i16 %60, 10
+  %71 = icmp samesign ugt i16 %60, 10
   br i1 %71, label %72, label %76
 
 72:                                               ; preds = %70

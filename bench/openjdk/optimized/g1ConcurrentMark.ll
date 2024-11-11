@@ -1232,7 +1232,7 @@ _ZN16GenericTaskQueueI16G1TaskQueueEntryL8MEMFLAGS5ELj131072EE9pop_localERS0_j.e
   %49 = sub i32 %46, %48
   %50 = and i32 %49, 131071
   %51 = icmp ne i32 %50, 131071
-  %.not1430 = icmp ugt i32 %50, %.0
+  %.not1430 = icmp samesign ugt i32 %50, %.0
   %.not31 = select i1 %51, i1 %.not1430, i1 false
   br i1 %.not31, label %.lr.ph32, label %.loopexit
 
@@ -1306,7 +1306,7 @@ _ZN16GenericTaskQueueI16G1TaskQueueEntryL8MEMFLAGS5ELj131072EE14pop_local_slowEj
   %87 = sub i32 %84, %86
   %88 = and i32 %87, 131071
   %89 = icmp ne i32 %88, 131071
-  %.not14 = icmp ugt i32 %88, %.0
+  %.not14 = icmp samesign ugt i32 %88, %.0
   %.not = select i1 %89, i1 %.not14, i1 false
   br i1 %.not, label %.lr.ph32, label %.loopexit, !llvm.loop !12
 

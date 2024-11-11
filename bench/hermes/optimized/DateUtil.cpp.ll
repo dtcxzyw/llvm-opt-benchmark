@@ -1816,7 +1816,7 @@ if.else13.i.i.i.i:                                ; preds = %if.else.i.i.i.i
   br label %if.end.i.i66.i
 
 if.end.i.i:                                       ; preds = %entry
-  %tobool.not.i4.i.i = icmp ult i32 %u16str.sroa.5.8.extract.trunc.i, 1073741824
+  %tobool.not.i4.i.i = icmp samesign ult i32 %u16str.sroa.5.8.extract.trunc.i, 1073741824
   br i1 %tobool.not.i4.i.i, label %if.end.i35.i, label %if.end.i5.i.i
 
 if.end.i5.i.i:                                    ; preds = %if.end.i.i
@@ -2722,7 +2722,7 @@ if.else13.i.i.i.i88:                              ; preds = %if.else.i.i.i.i79
   br label %if.end.i.i77.i
 
 if.end.i.i12:                                     ; preds = %if.end
-  %tobool.not.i4.i.i13 = icmp ult i32 %u16str.sroa.5.8.extract.trunc.i, 1073741824
+  %tobool.not.i4.i.i13 = icmp samesign ult i32 %u16str.sroa.5.8.extract.trunc.i, 1073741824
   br i1 %tobool.not.i4.i.i13, label %if.end.i46.i, label %if.end.i5.i.i14
 
 if.end.i5.i.i14:                                  ; preds = %if.end.i.i12
@@ -2959,7 +2959,7 @@ _ZNK6hermes2vm10StringView13castToCharPtrEv.exit.i456: ; preds = %_ZNK6hermes2vm
   br label %_ZNK6hermes2vm10StringView3endEv.exit476
 
 if.end.i410:                                      ; preds = %_ZNK6hermes2vm10StringView3endEv.exit.i24
-  %tobool.not.i4.i411 = icmp ult i32 %u16str.sroa.5.8.extract.trunc.i, 1073741824
+  %tobool.not.i4.i411 = icmp samesign ult i32 %u16str.sroa.5.8.extract.trunc.i, 1073741824
   br i1 %tobool.not.i4.i411, label %_ZNK6hermes2vm10StringView15castToChar16PtrEv.exit.i421, label %if.end.i5.i412
 
 if.end.i5.i412:                                   ; preds = %if.end.i410
@@ -3093,7 +3093,7 @@ _ZNK6hermes2vm10StringView13castToCharPtrEv.exit.i390: ; preds = %_ZNK6hermes2vm
   br label %_ZNK6hermes2vm10StringView5beginEv.exit
 
 if.end.i347:                                      ; preds = %if.end.i107.i
-  %tobool.not.i4.i348 = icmp ult i32 %bf.load.i.i345, 1073741824
+  %tobool.not.i4.i348 = icmp samesign ult i32 %bf.load.i.i345, 1073741824
   %159 = load ptr, ptr %str.i, align 8
   br i1 %tobool.not.i4.i348, label %_ZNK6hermes2vm10StringView15castToChar16PtrEv.exit.i358, label %if.end.i5.i349
 
@@ -3281,7 +3281,7 @@ _ZNK6hermes2vm10StringView13castToCharPtrEv.exit.i160.i: ; preds = %_ZNK6hermes2
   br label %_ZNK6hermes2vm10StringView3endEv.exit180.i
 
 if.end.i114.i:                                    ; preds = %while.cond.i
-  %tobool.not.i4.i115.i = icmp ult i32 %bf.load.i.i112.i, 1073741824
+  %tobool.not.i4.i115.i = icmp samesign ult i32 %bf.load.i.i112.i, 1073741824
   %178 = load ptr, ptr %str.i, align 8
   br i1 %tobool.not.i4.i115.i, label %_ZNK6hermes2vm10StringView15castToChar16PtrEv.exit.i125.i, label %if.end.i5.i116.i
 
@@ -3431,7 +3431,7 @@ _ZNK6hermes2vm10StringView13castToCharPtrEv.exit.i323: ; preds = %_ZNK6hermes2vm
   br label %_ZNK6hermes2vm10StringView3endEv.exit343
 
 if.end.i277:                                      ; preds = %while.cond.i.i
-  %tobool.not.i4.i278 = icmp ult i32 %bf.load.i.i275, 1073741824
+  %tobool.not.i4.i278 = icmp samesign ult i32 %bf.load.i.i275, 1073741824
   %198 = load ptr, ptr %str.i, align 8
   br i1 %tobool.not.i4.i278, label %_ZNK6hermes2vm10StringView15castToChar16PtrEv.exit.i288, label %if.end.i5.i279
 
@@ -3697,7 +3697,7 @@ _ZNK6hermes2vm10StringView13castToCharPtrEv.exit.i526: ; preds = %_ZNK6hermes2vm
   br label %_ZNK6hermes2vm10StringView3endEv.exit546
 
 if.end.i480:                                      ; preds = %while.cond.i254
-  %tobool.not.i4.i481 = icmp ult i32 %bf.load.i.i478, 1073741824
+  %tobool.not.i4.i481 = icmp samesign ult i32 %bf.load.i.i478, 1073741824
   %231 = load ptr, ptr %str.i, align 8
   br i1 %tobool.not.i4.i481, label %_ZNK6hermes2vm10StringView15castToChar16PtrEv.exit.i491, label %if.end.i5.i482
 
@@ -3905,7 +3905,7 @@ _ZNK6hermes2vm10StringView13castToCharPtrEv.exit.i232: ; preds = %_ZNK6hermes2vm
   br label %_ZNK6hermes2vm10StringView3endEv.exit252
 
 if.end.i186:                                      ; preds = %while.cond.i217.i
-  %tobool.not.i4.i187 = icmp ult i32 %bf.load.i.i184, 1073741824
+  %tobool.not.i4.i187 = icmp samesign ult i32 %bf.load.i.i184, 1073741824
   %252 = load ptr, ptr %str.i, align 8
   br i1 %tobool.not.i4.i187, label %_ZNK6hermes2vm10StringView15castToChar16PtrEv.exit.i197, label %if.end.i5.i188
 
@@ -4096,7 +4096,7 @@ _ZNK6hermes2vm10StringView13castToCharPtrEv.exit.i: ; preds = %_ZNK6hermes2vm15S
   br label %_ZNK6hermes2vm10StringView3endEv.exit
 
 if.end.i:                                         ; preds = %while.cond.i247.i
-  %tobool.not.i4.i = icmp ult i32 %bf.load.i.i, 1073741824
+  %tobool.not.i4.i = icmp samesign ult i32 %bf.load.i.i, 1073741824
   %273 = load ptr, ptr %str.i, align 8
   br i1 %tobool.not.i4.i, label %_ZNK6hermes2vm10StringView15castToChar16PtrEv.exit.i, label %if.end.i5.i
 
@@ -4658,7 +4658,7 @@ _ZNK6hermes2vm10StringView13castToCharPtrEv.exit: ; preds = %if.then, %_ZNK6herm
   br label %return
 
 if.end:                                           ; preds = %entry
-  %tobool.not.i4 = icmp ult i32 %bf.load.i, 1073741824
+  %tobool.not.i4 = icmp samesign ult i32 %bf.load.i, 1073741824
   %4 = load ptr, ptr %this, align 8
   br i1 %tobool.not.i4, label %_ZNK6hermes2vm10StringView15castToChar16PtrEv.exit, label %if.end.i5
 
@@ -4783,7 +4783,7 @@ _ZNK6hermes2vm10StringView13castToCharPtrEv.exit: ; preds = %if.then, %_ZNK6herm
   br label %return
 
 if.end:                                           ; preds = %entry
-  %tobool.not.i4 = icmp ult i32 %bf.load.i, 1073741824
+  %tobool.not.i4 = icmp samesign ult i32 %bf.load.i, 1073741824
   %5 = load ptr, ptr %this, align 8
   br i1 %tobool.not.i4, label %_ZNK6hermes2vm10StringView15castToChar16PtrEv.exit, label %if.end.i5
 
@@ -5166,7 +5166,7 @@ for.body.i.i.i.i.i:                               ; preds = %for.body.i.i.i.i.i,
   br i1 %or.cond.not, label %for.body.i.i.i.i.i, label %return, !llvm.loop !50
 
 if.end:                                           ; preds = %entry
-  %tobool.not.i6 = icmp ult i32 %bf.load.i, 1073741824
+  %tobool.not.i6 = icmp samesign ult i32 %bf.load.i, 1073741824
   %7 = load ptr, ptr %this, align 8
   br i1 %tobool.not.i6, label %_ZNK6hermes2vm10StringView15castToChar16PtrEv.exit, label %if.end.i7
 

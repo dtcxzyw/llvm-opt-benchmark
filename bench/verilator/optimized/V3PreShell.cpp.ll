@@ -2594,7 +2594,7 @@ _ZN8FileLine9singletonEv.exit:                    ; preds = %1, %4, %7
   br i1 %21, label %22, label %28
 
 22:                                               ; preds = %_ZN8FileLine9singletonEv.exit
-  %23 = icmp ult i64 %20, 512
+  %23 = icmp samesign ult i64 %20, 512
   br i1 %23, label %24, label %26
 
 24:                                               ; preds = %22
@@ -3662,7 +3662,7 @@ _ZN8FileLine9singletonEv.exit:                    ; preds = %2, %5, %8
   br i1 %22, label %23, label %29
 
 23:                                               ; preds = %_ZN8FileLine9singletonEv.exit
-  %24 = icmp ult i64 %21, 512
+  %24 = icmp samesign ult i64 %21, 512
   br i1 %24, label %25, label %27
 
 25:                                               ; preds = %23
@@ -3783,7 +3783,7 @@ _ZN8FileLine9singletonEv.exit:                    ; preds = %2, %5, %8
   br i1 %23, label %24, label %30
 
 24:                                               ; preds = %_ZN8FileLine9singletonEv.exit
-  %25 = icmp ult i64 %22, 16
+  %25 = icmp samesign ult i64 %22, 16
   br i1 %25, label %26, label %28
 
 26:                                               ; preds = %24
@@ -3831,7 +3831,7 @@ define linkonce_odr dso_local void @_ZNK17FileLineSingleton12numberToNameB5cxx11
   br i1 %16, label %17, label %23
 
 17:                                               ; preds = %3
-  %18 = icmp ult i64 %15, 16
+  %18 = icmp samesign ult i64 %15, 16
   br i1 %18, label %19, label %21
 
 19:                                               ; preds = %17

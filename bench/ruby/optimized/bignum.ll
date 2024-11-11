@@ -617,7 +617,7 @@ define internal fastcc void @bary_sq_fast(ptr nocapture noundef %0, i64 noundef 
   %46 = add nuw nsw i64 %.080.lcssa, %45
   %47 = trunc i64 %46 to i32
   store i32 %47, ptr %gep, align 4
-  %.not91 = icmp ult i64 %46, 4294967296
+  %.not91 = icmp samesign ult i64 %46, 4294967296
   br i1 %.not91, label %54, label %48
 
 48:                                               ; preds = %43
@@ -1794,7 +1794,7 @@ bary_2comp.exit280:                               ; preds = %164, %.lr.ph26.i275
 
 rbimpl_size_mul_or_raise.exit:                    ; preds = %bary_2comp.exit280
   %175 = shl nuw i64 %44, 2
-  %.not.i281 = icmp ult i64 %.0191, 2
+  %.not.i281 = icmp samesign ult i64 %.0191, 2
   br i1 %.not.i281, label %ruby_nonempty_memcpy.exit, label %176
 
 176:                                              ; preds = %rbimpl_size_mul_or_raise.exit
@@ -8699,7 +8699,7 @@ BIGNUM_DIGITS.exit78:                             ; preds = %BIGNUM_DIGITS.exit7
   %masksel.i.i = select i1 %161, i64 0, i64 8192
   %.sink.i.i = or disjoint i64 %174, %masksel.i.i
   store i64 %.sink.i.i, ptr %172, align 8
-  %175 = icmp ult i64 %.056115, 7
+  %175 = icmp samesign ult i64 %.056115, 7
   br i1 %175, label %176, label %189
 
 176:                                              ; preds = %167
@@ -8754,7 +8754,7 @@ bignew_1.exit81:                                  ; preds = %176, %189
 
 BIGNUM_DIGITS.exit84:                             ; preds = %195, %197
   %.0.i83 = phi ptr [ %196, %195 ], [ %199, %197 ]
-  %200 = icmp ugt i64 %.056115, 4611686018427387903
+  %200 = icmp samesign ugt i64 %.056115, 4611686018427387903
   br i1 %200, label %201, label %rbimpl_size_mul_or_raise.exit
 
 201:                                              ; preds = %BIGNUM_DIGITS.exit84
@@ -9520,7 +9520,7 @@ bigdivrem_single.exit.i.i:                        ; preds = %bigdivrem_single.ex
 .lr.ph83.i.i.i:                                   ; preds = %188, %.lr.ph.i.i10.preheader.i
   %.182.i.i.i = phi i64 [ %194, %188 ], [ 1, %.lr.ph.i.i10.preheader.i ]
   %.15981.i.i.in.i = phi i64 [ %192, %188 ], [ %184, %.lr.ph.i.i10.preheader.i ]
-  %187 = icmp ult i64 %.15981.i.i.in.i, 4294967296
+  %187 = icmp samesign ult i64 %.15981.i.i.in.i, 4294967296
   br i1 %187, label %bary_add.exit.i, label %188
 
 188:                                              ; preds = %.lr.ph83.i.i.i
@@ -10651,7 +10651,7 @@ define internal fastcc void @validate_integer_pack_format(i64 noundef %0, i64 no
 
 36:                                               ; preds = %32
   %37 = lshr i64 %2, 3
-  %.not31 = icmp ugt i64 %1, %37
+  %.not31 = icmp samesign ugt i64 %1, %37
   br i1 %.not31, label %40, label %38
 
 38:                                               ; preds = %36
@@ -11140,7 +11140,7 @@ bary_swap.exit214:                                ; preds = %.lr.ph.i210, %.lr.p
   store i32 %177, ptr %.5297, align 4
   %179 = lshr i64 %.3288, 32
   %180 = add nsw i32 %.3284, -32
-  %181 = icmp ugt i32 %180, 31
+  %181 = icmp samesign ugt i32 %180, 31
   br i1 %181, label %.lr.ph.i228, label %integer_unpack_push_bits.exit, !llvm.loop !79
 
 integer_unpack_push_bits.exit:                    ; preds = %.lr.ph.i228, %.lr.ph
@@ -11180,7 +11180,7 @@ integer_unpack_push_bits.exit:                    ; preds = %.lr.ph.i228, %.lr.p
   store i32 %195, ptr %.7, align 4
   %197 = lshr i64 %.5290, 32
   %198 = add nsw i32 %.5, -32
-  %199 = icmp ugt i32 %198, 31
+  %199 = icmp samesign ugt i32 %198, 31
   br i1 %199, label %.lr.ph.i229, label %integer_unpack_push_bits.exit230, !llvm.loop !79
 
 integer_unpack_push_bits.exit230:                 ; preds = %.lr.ph.i229, %185, %._crit_edge
@@ -11454,7 +11454,7 @@ define dso_local i64 @rb_int_parse_cstr(ptr noundef %0, i64 noundef %1, ptr noun
 
 43:                                               ; preds = %40, %40
   %44 = add nsw i64 %.0251, -1
-  %or.cond9 = icmp ult i64 %44, 2
+  %or.cond9 = icmp samesign ult i64 %44, 2
   br i1 %or.cond9, label %str2big_scan_digits.exit.thread, label %45
 
 45:                                               ; preds = %43
@@ -11464,7 +11464,7 @@ define dso_local i64 @rb_int_parse_cstr(ptr noundef %0, i64 noundef %1, ptr noun
 
 48:                                               ; preds = %40, %40
   %49 = add nsw i64 %.0251, -1
-  %or.cond11 = icmp ult i64 %49, 2
+  %or.cond11 = icmp samesign ult i64 %49, 2
   br i1 %or.cond11, label %str2big_scan_digits.exit.thread, label %50
 
 50:                                               ; preds = %48
@@ -11474,7 +11474,7 @@ define dso_local i64 @rb_int_parse_cstr(ptr noundef %0, i64 noundef %1, ptr noun
 
 53:                                               ; preds = %40, %40
   %54 = add nsw i64 %.0251, -1
-  %or.cond13 = icmp ult i64 %54, 2
+  %or.cond13 = icmp samesign ult i64 %54, 2
   br i1 %or.cond13, label %str2big_scan_digits.exit.thread, label %55
 
 55:                                               ; preds = %53
@@ -11484,7 +11484,7 @@ define dso_local i64 @rb_int_parse_cstr(ptr noundef %0, i64 noundef %1, ptr noun
 
 58:                                               ; preds = %40, %40
   %59 = add nsw i64 %.0251, -1
-  %or.cond15 = icmp ult i64 %59, 2
+  %or.cond15 = icmp samesign ult i64 %59, 2
   br i1 %or.cond15, label %str2big_scan_digits.exit.thread, label %60
 
 60:                                               ; preds = %58
@@ -15576,7 +15576,7 @@ rb_integer_pack.exit.i.i:                         ; preds = %BIGNUM_LEN.exit.loo
   br i1 %.not27.i.i, label %rb_big2str1.exit, label %.lr.ph.i.i, !llvm.loop !118
 
 131:                                              ; preds = %61
-  %132 = icmp ugt i64 %.041.i, 20
+  %132 = icmp samesign ugt i64 %.041.i, 20
   br i1 %132, label %133, label %168
 
 133:                                              ; preds = %131
@@ -27918,7 +27918,7 @@ bary_zero_p.exit.i:                               ; preds = %103, %bary_zero_p.e
   %114 = trunc i64 %.151.i to i32
   %115 = call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %114, i1 false)
   %116 = add nuw nsw i32 %115, %111
-  %117 = icmp ugt i32 %116, 31
+  %117 = icmp samesign ugt i32 %116, 31
   br i1 %117, label %121, label %118
 
 118:                                              ; preds = %113

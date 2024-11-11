@@ -22701,7 +22701,7 @@ land.rhs:                                         ; preds = %_ZN4abslleENS_8Dura
   br i1 %cmp.not.i.i101, label %land.end, label %cond.true.i.i102
 
 cond.true.i.i102:                                 ; preds = %land.rhs
-  %cmp8.i.i103.old = icmp ugt i64 %retval.sroa.0.0.copyload.i.i, 2
+  %cmp8.i.i103.old = icmp samesign ugt i64 %retval.sroa.0.0.copyload.i.i, 2
   br i1 %cmp8.i.i103.old, label %cond.false72, label %while.cond89
 
 land.end:                                         ; preds = %land.rhs
@@ -22846,7 +22846,7 @@ land.rhs163:                                      ; preds = %_ZN4abslleENS_8Dura
   br i1 %cmp.not.i.i162, label %land.end169, label %cond.true.i.i163
 
 cond.true.i.i163:                                 ; preds = %land.rhs163
-  %cmp8.i.i164.old = icmp ugt i64 %retval.sroa.0.0.copyload.i.i143, 2
+  %cmp8.i.i164.old = icmp samesign ugt i64 %retval.sroa.0.0.copyload.i.i143, 2
   br i1 %cmp8.i.i164.old, label %cond.false172, label %cleanup.done185
 
 land.end169:                                      ; preds = %land.rhs163
@@ -22970,7 +22970,7 @@ land.rhs251:                                      ; preds = %_ZN4abslleENS_8Dura
   br i1 %cmp.not.i.i216, label %land.end257, label %cond.true.i.i217
 
 cond.true.i.i217:                                 ; preds = %land.rhs251
-  %cmp8.i.i218.old = icmp ugt i64 %retval.sroa.0.0.copyload.i.i197, 6
+  %cmp8.i.i218.old = icmp samesign ugt i64 %retval.sroa.0.0.copyload.i.i197, 6
   br i1 %cmp8.i.i218.old, label %cond.false260, label %while.cond277
 
 land.end257:                                      ; preds = %land.rhs251
@@ -23114,7 +23114,7 @@ land.rhs352:                                      ; preds = %_ZN4abslleENS_8Dura
   br i1 %cmp.not.i.i276, label %land.end358, label %cond.true.i.i277
 
 cond.true.i.i277:                                 ; preds = %land.rhs352
-  %cmp8.i.i278.old = icmp ugt i64 %retval.sroa.0.0.copyload.i.i257, 2
+  %cmp8.i.i278.old = icmp samesign ugt i64 %retval.sroa.0.0.copyload.i.i257, 2
   br i1 %cmp8.i.i278.old, label %cond.false361, label %cleanup.done374
 
 land.end358:                                      ; preds = %land.rhs352
@@ -23235,7 +23235,7 @@ land.rhs439:                                      ; preds = %_ZN4abslleENS_8Dura
   br i1 %cmp.not.i.i330, label %land.end445, label %cond.true.i.i331
 
 cond.true.i.i331:                                 ; preds = %land.rhs439
-  %cmp8.i.i332.old = icmp ugt i64 %retval.sroa.0.0.copyload.i.i311, 2
+  %cmp8.i.i332.old = icmp samesign ugt i64 %retval.sroa.0.0.copyload.i.i311, 2
   br i1 %cmp8.i.i332.old, label %cond.false448, label %while.cond465
 
 land.end445:                                      ; preds = %land.rhs439

@@ -1704,7 +1704,7 @@ define noundef zeroext i1 @_ZNK10OpenSubdiv6v3_6_03Bfr10FaceVertex23subsetHasIrr
   %51 = add nsw i32 %.0813.i.i, -1
   %.0.in.i.i = load i16, ptr %50, align 2
   %.0.i.i = sext i16 %.0.in.i.i to i32
-  %52 = icmp ugt i32 %.0813.i.i, 1
+  %52 = icmp samesign ugt i32 %.0813.i.i, 1
   br i1 %52, label %47, label %_ZNK10OpenSubdiv6v3_6_03Bfr10FaceVertex12GetFaceFirstERKNS1_16FaceVertexSubsetE.exit, !llvm.loop !20
 
 _ZNK10OpenSubdiv6v3_6_03Bfr10FaceVertex12GetFaceFirstERKNS1_16FaceVertexSubsetE.exit: ; preds = %47, %14, %22, %30, %43
@@ -1877,7 +1877,7 @@ define noundef zeroext i1 @_ZNK10OpenSubdiv6v3_6_03Bfr10FaceVertex22subsetHasInf
   %54 = add nsw i32 %.0813.i.i, -1
   %.0.in.i.i = load i16, ptr %53, align 2
   %.0.i.i = sext i16 %.0.in.i.i to i32
-  %55 = icmp ugt i32 %.0813.i.i, 1
+  %55 = icmp samesign ugt i32 %.0813.i.i, 1
   br i1 %55, label %50, label %_ZNK10OpenSubdiv6v3_6_03Bfr10FaceVertex12GetFaceFirstERKNS1_16FaceVertexSubsetE.exit, !llvm.loop !20
 
 _ZNK10OpenSubdiv6v3_6_03Bfr10FaceVertex12GetFaceFirstERKNS1_16FaceVertexSubsetE.exit: ; preds = %50, %17, %25, %33, %46
@@ -2025,7 +2025,7 @@ define noundef zeroext i1 @_ZNK10OpenSubdiv6v3_6_03Bfr10FaceVertex23subsetHasSem
   %54 = add nsw i32 %.0813.i.i, -1
   %.0.in.i.i = load i16, ptr %53, align 2
   %.0.i.i = sext i16 %.0.in.i.i to i32
-  %55 = icmp ugt i32 %.0813.i.i, 1
+  %55 = icmp samesign ugt i32 %.0813.i.i, 1
   br i1 %55, label %50, label %_ZNK10OpenSubdiv6v3_6_03Bfr10FaceVertex12GetFaceFirstERKNS1_16FaceVertexSubsetE.exit, !llvm.loop !20
 
 _ZNK10OpenSubdiv6v3_6_03Bfr10FaceVertex12GetFaceFirstERKNS1_16FaceVertexSubsetE.exit: ; preds = %50, %17, %25, %33, %46

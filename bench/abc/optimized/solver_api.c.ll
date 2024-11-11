@@ -3713,7 +3713,7 @@ define void @satoko_write_dimacs(ptr nocapture noundef readonly %0, ptr noundef 
   %46 = getelementptr i8, ptr %45, i64 4
   %.val60.us = load i32, ptr %46, align 4
   %47 = zext i32 %.val60.us to i64
-  %48 = icmp ult i64 %indvars.iv.next94.pre-phi, %47
+  %48 = icmp samesign ult i64 %indvars.iv.next94.pre-phi, %47
   br i1 %48, label %.lr.ph.split.us, label %._crit_edge, !llvm.loop !39
 
 .lr.ph.split:                                     ; preds = %.lr.ph, %59

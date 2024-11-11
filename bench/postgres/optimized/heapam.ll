@@ -1312,7 +1312,7 @@ BufferGetPage.exit59:                             ; preds = %80, %86
   %157 = getelementptr inbounds i8, ptr %156, i64 18
   %158 = load i16, ptr %157, align 2
   %159 = and i16 %158, 2047
-  %160 = icmp ugt i16 %152, %159
+  %160 = icmp samesign ugt i16 %152, %159
   br i1 %160, label %161, label %163
 
 161:                                              ; preds = %155
@@ -1921,7 +1921,7 @@ HeapKeyTest.exit.loopexit73.split.us:             ; preds = %158
   %208 = getelementptr inbounds i8, ptr %207, i64 18
   %209 = load i16, ptr %208, align 2
   %210 = and i16 %209, 2047
-  %211 = icmp ugt i16 %203, %210
+  %211 = icmp samesign ugt i16 %203, %210
   br i1 %211, label %212, label %214
 
 212:                                              ; preds = %206
@@ -7307,7 +7307,7 @@ BufferGetPage.exit.i:                             ; preds = %686, %680
   %738 = add i16 %storemerge117.i, 1
   store i16 %738, ptr %14, align 2
   %739 = zext i16 %738 to i32
-  %740 = icmp ugt i32 %730, %739
+  %740 = icmp samesign ugt i32 %730, %739
   br i1 %740, label %.lr.ph.i366, label %._crit_edge.i367, !llvm.loop !24
 
 ._crit_edge.i367:                                 ; preds = %737, %.lr.ph.i366
@@ -7346,7 +7346,7 @@ BufferGetPage.exit.i:                             ; preds = %686, %680
   %758 = add i16 %storemerge94122.i, 1
   store i16 %758, ptr %15, align 2
   %759 = zext i16 %758 to i32
-  %760 = icmp ugt i32 %745, %759
+  %760 = icmp samesign ugt i32 %745, %759
   br i1 %760, label %.lr.ph124.i, label %._crit_edge125.i, !llvm.loop !25
 
 ._crit_edge125.i:                                 ; preds = %757, %.lr.ph124.i
@@ -11468,7 +11468,7 @@ index_delete_sort.exit:                           ; preds = %._crit_edge.i
   %123 = add nsw i64 %.022.i.i, -3
   %124 = icmp sgt i64 %123, %.pre.i.i
   %125 = add nuw nsw i64 %.022.i.i, 3
-  %126 = icmp ult i64 %125, %.pre.i.i
+  %126 = icmp samesign ult i64 %125, %.pre.i.i
   %or.cond.i.i = select i1 %124, i1 true, i1 %126
   br i1 %or.cond.i.i, label %._crit_edge.loopexit.split.loop.exit.i.i, label %.lr.ph._crit_edge.i.i
 
@@ -15104,7 +15104,7 @@ define internal fastcc i64 @heap_getattr(ptr noundef %0, i32 noundef range(i32 -
   %10 = load i16, ptr %9, align 2
   %11 = and i16 %10, 2047
   %12 = zext nneg i16 %11 to i32
-  %13 = icmp ugt i32 %1, %12
+  %13 = icmp samesign ugt i32 %1, %12
   br i1 %13, label %14, label %16
 
 14:                                               ; preds = %6

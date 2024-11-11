@@ -5408,7 +5408,7 @@ invoke.cont363:                                   ; preds = %if.end362
   %switch.select.i.i = select i1 %switch.selectcmp.i.i, i32 65535, i32 196607
   %switch.selectcmp1.i.i = icmp eq i32 %call.i.i494, 0
   %switch.select2.i.i = select i1 %switch.selectcmp1.i.i, i32 255, i32 %switch.select.i.i
-  %cmp365 = icmp ugt i32 %call358, %switch.select2.i.i
+  %cmp365 = icmp samesign ugt i32 %call358, %switch.select2.i.i
   br i1 %cmp365, label %if.then552.invoke, label %if.end368
 
 if.end368:                                        ; preds = %invoke.cont363

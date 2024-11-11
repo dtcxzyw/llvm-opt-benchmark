@@ -247,7 +247,7 @@ define noundef ptr @_Z9RemoveEOLPw(ptr noundef returned %0) local_unnamed_addr #
 
 .critedge2:                                       ; preds = %.lr.ph, %.lr.ph, %.lr.ph, %.lr.ph
   store i32 0, ptr %6, align 4
-  %8 = icmp ugt i64 %indvars.iv, 1
+  %8 = icmp samesign ugt i64 %indvars.iv, 1
   br i1 %8, label %.lr.ph, label %.critedge, !llvm.loop !8
 
 .critedge:                                        ; preds = %.critedge2, %.lr.ph, %1
@@ -280,7 +280,7 @@ define noundef ptr @_Z8RemoveLFPw(ptr noundef returned %0) local_unnamed_addr #6
 
 .critedge2:                                       ; preds = %.lr.ph, %.lr.ph
   store i32 0, ptr %6, align 4
-  %8 = icmp ugt i64 %indvars.iv, 1
+  %8 = icmp samesign ugt i64 %indvars.iv, 1
   br i1 %8, label %.lr.ph, label %.critedge, !llvm.loop !9
 
 .critedge:                                        ; preds = %.critedge2, %.lr.ph, %1

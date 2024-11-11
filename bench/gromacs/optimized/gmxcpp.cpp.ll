@@ -4548,7 +4548,7 @@ define linkonce_odr ptr @_ZNSt6vectorI8t_defineSaIS0_EE5eraseEN9__gnu_cxx17__nor
   %21 = getelementptr inbounds i8, ptr %.0910.i.i.i.i.i.i, i64 64
   %22 = getelementptr inbounds i8, ptr %.0811.i.i.i.i.i.i, i64 64
   %23 = add nsw i64 %.012.i.i.i.i.i.i, -1
-  %24 = icmp ugt i64 %.012.i.i.i.i.i.i, 1
+  %24 = icmp samesign ugt i64 %.012.i.i.i.i.i.i, 1
   br i1 %24, label %.lr.ph.i.i.i.i.i.i, label %_ZSt4moveIN9__gnu_cxx17__normal_iteratorIP8t_defineSt6vectorIS2_SaIS2_EEEES7_ET0_T_S9_S8_.exit.loopexit.i, !llvm.loop !76
 
 _ZSt4moveIN9__gnu_cxx17__normal_iteratorIP8t_defineSt6vectorIS2_SaIS2_EEEES7_ET0_T_S9_S8_.exit.loopexit.i: ; preds = %.lr.ph.i.i.i.i.i.i

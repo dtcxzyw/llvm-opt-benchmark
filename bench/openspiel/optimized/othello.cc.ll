@@ -1057,7 +1057,7 @@ define linkonce_odr void @_ZN10open_spiel7othello4MoveC2Ei(ptr noundef nonnull a
 19:                                               ; preds = %2
   store i32 %1, ptr %7, align 4
   store i32 64, ptr %8, align 4
-  %20 = icmp ult i32 %1, 64
+  %20 = icmp samesign ult i32 %1, 64
   br i1 %20, label %25, label %21
 
 21:                                               ; preds = %19

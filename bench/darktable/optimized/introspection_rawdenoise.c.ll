@@ -330,7 +330,7 @@ compute_channel_noise.exit:                       ; preds = %56, %68, %69
   %130 = lshr i32 %127, 1
   %131 = zext nneg i32 %116 to i64
   %132 = zext nneg i32 %130 to i64
-  %133 = icmp ult i32 %127, 66
+  %133 = icmp samesign ult i32 %127, 66
   %134 = and i64 %132, 31
   %135 = icmp eq i64 %134, 0
   %136 = select i1 %135, i64 32, i64 %134
@@ -455,7 +455,7 @@ compute_channel_noise.exit:                       ; preds = %56, %68, %69
   %222 = lshr i32 %219, 1
   %223 = zext nneg i32 %211 to i64
   %224 = zext nneg i32 %222 to i64
-  %225 = icmp ult i32 %219, 64
+  %225 = icmp samesign ult i32 %219, 64
   %226 = and i64 %224, 1073741792
   %227 = icmp eq i64 %226, %224
   br label %228

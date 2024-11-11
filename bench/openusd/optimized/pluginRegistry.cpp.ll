@@ -2964,7 +2964,7 @@ define linkonce_odr void @_ZSt16__insertion_sortIN9__gnu_cxx17__normal_iteratorI
 
 .noexc:                                           ; preds = %.lr.ph.i.i.i.i.i
   %18 = add nsw i64 %.010.i.i.i.i.i, -1
-  %19 = icmp ugt i64 %.010.i.i.i.i.i, 1
+  %19 = icmp samesign ugt i64 %.010.i.i.i.i.i, 1
   br i1 %19, label %.lr.ph.i.i.i.i.i, label %.loopexit15, !llvm.loop !30
 
 .loopexit15:                                      ; preds = %.noexc, %9

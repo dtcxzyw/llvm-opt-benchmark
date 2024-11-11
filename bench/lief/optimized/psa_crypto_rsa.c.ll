@@ -194,7 +194,7 @@ define hidden i32 @mbedtls_psa_rsa_import_key(ptr nocapture noundef readonly %0,
   br label %43
 
 36:                                               ; preds = %30
-  %37 = icmp ugt i64 %4, %31
+  %37 = icmp samesign ugt i64 %4, %31
   br i1 %37, label %38, label %43
 
 38:                                               ; preds = %36
@@ -269,7 +269,7 @@ define hidden i32 @mbedtls_psa_rsa_export_key(i16 noundef zeroext %0, ptr nounde
   br label %33
 
 26:                                               ; preds = %20
-  %27 = icmp ugt i64 %3, %21
+  %27 = icmp samesign ugt i64 %3, %21
   br i1 %27, label %28, label %33
 
 28:                                               ; preds = %26
@@ -352,7 +352,7 @@ define hidden i32 @mbedtls_psa_rsa_export_public_key(ptr nocapture noundef reado
   br label %33
 
 26:                                               ; preds = %20
-  %27 = icmp ugt i64 %4, %21
+  %27 = icmp samesign ugt i64 %4, %21
   br i1 %27, label %28, label %33
 
 28:                                               ; preds = %26
@@ -474,7 +474,7 @@ define hidden i32 @mbedtls_psa_rsa_generate_key(ptr nocapture noundef readonly %
   br label %57
 
 50:                                               ; preds = %44
-  %51 = icmp ugt i64 %2, %45
+  %51 = icmp samesign ugt i64 %2, %45
   br i1 %51, label %52, label %57
 
 52:                                               ; preds = %50

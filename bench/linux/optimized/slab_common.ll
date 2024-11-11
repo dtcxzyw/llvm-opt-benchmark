@@ -3029,7 +3029,7 @@ define dso_local i64 @kmalloc_size_roundup(i64 noundef %0) #13 align 16 {
   br i1 %3, label %4, label %26
 
 4:                                                ; preds = %1
-  %5 = icmp ult i64 %0, 193
+  %5 = icmp samesign ult i64 %0, 193
   br i1 %5, label %6, label %13
 
 6:                                                ; preds = %4

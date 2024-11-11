@@ -19738,7 +19738,7 @@ _ZSt13move_backwardIPPN4llvm10BasicBlockES3_ET0_T_S5_S4_.exit: ; preds = %_ZSt22
   %37 = add nsw i32 %.sroa.2.08.i.i.i.i.i, 1
   %38 = getelementptr inbounds i8, ptr %.049.i.i.i.i.i, i64 8
   %39 = add nsw i32 %.010.i.i.i.i.i, -1
-  %40 = icmp ugt i32 %.010.i.i.i.i.i, 1
+  %40 = icmp samesign ugt i32 %.010.i.i.i.i.i, 1
   br i1 %40, label %.lr.ph.i.i.i.i.i, label %_ZSt4copyIN4llvm12SuccIteratorINS0_11InstructionENS0_10BasicBlockEEEN9__gnu_cxx17__normal_iteratorIPPS3_St6vectorIS7_SaIS7_EEEEET0_T_SE_SD_.exit, !llvm.loop !197
 
 _ZSt7advanceIN4llvm12SuccIteratorINS0_11InstructionENS0_10BasicBlockEEEmEvRT_T0_.exit: ; preds = %18
@@ -19790,7 +19790,7 @@ _ZSt22__uninitialized_move_aIPPN4llvm10BasicBlockES3_SaIS2_EET0_T_S6_S5_RT1_.exi
   %54 = add nsw i32 %.sroa.2.08.i.i.i.i.i67, 1
   %55 = getelementptr inbounds i8, ptr %.049.i.i.i.i.i66, i64 8
   %56 = add nsw i32 %.010.i.i.i.i.i65, -1
-  %57 = icmp ugt i32 %.010.i.i.i.i.i65, 1
+  %57 = icmp samesign ugt i32 %.010.i.i.i.i.i65, 1
   br i1 %57, label %.lr.ph.i.i.i.i.i64, label %_ZSt4copyIN4llvm12SuccIteratorINS0_11InstructionENS0_10BasicBlockEEEN9__gnu_cxx17__normal_iteratorIPPS3_St6vectorIS7_SaIS7_EEEEET0_T_SE_SD_.exit, !llvm.loop !197
 
 58:                                               ; preds = %7
@@ -20570,7 +20570,7 @@ define linkonce_odr noundef nonnull align 8 dereferenceable(16) ptr @_ZN4llvm15S
   %15 = getelementptr inbounds i8, ptr %.0910.i.i.i.i.i, i64 16
   %16 = getelementptr inbounds i8, ptr %.0811.i.i.i.i.i, i64 16
   %17 = add nsw i64 %.012.i.i.i.i.i, -1
-  %18 = icmp ugt i64 %.012.i.i.i.i.i, 1
+  %18 = icmp samesign ugt i64 %.012.i.i.i.i.i, 1
   br i1 %18, label %.lr.ph.i.i.i.i.i, label %_ZSt4copyIPKSt4pairIPN4llvm10BasicBlockEPNS1_5ValueEEPS6_ET0_T_SB_SA_.exit, !llvm.loop !207
 
 _ZSt4copyIPKSt4pairIPN4llvm10BasicBlockEPNS1_5ValueEEPS6_ET0_T_SB_SA_.exit: ; preds = %.lr.ph.i.i.i.i.i, %7
@@ -20616,7 +20616,7 @@ _ZSt4copyIPKSt4pairIPN4llvm10BasicBlockEPNS1_5ValueEEPS6_ET0_T_SB_SA_.exit: ; pr
   %36 = getelementptr inbounds i8, ptr %.0910.i.i.i.i.i34, i64 16
   %37 = getelementptr inbounds i8, ptr %.0811.i.i.i.i.i33, i64 16
   %38 = add nsw i64 %.012.i.i.i.i.i32, -1
-  %39 = icmp ugt i64 %.012.i.i.i.i.i32, 1
+  %39 = icmp samesign ugt i64 %.012.i.i.i.i.i32, 1
   br i1 %39, label %.lr.ph.i.i.i.i.i31, label %_ZSt4copyIPKSt4pairIPN4llvm10BasicBlockEPNS1_5ValueEEPS6_ET0_T_SB_SA_.exit35, !llvm.loop !207
 
 _ZSt4copyIPKSt4pairIPN4llvm10BasicBlockEPNS1_5ValueEEPS6_ET0_T_SB_SA_.exit35: ; preds = %.lr.ph.i.i.i.i.i31, %28, %27, %23

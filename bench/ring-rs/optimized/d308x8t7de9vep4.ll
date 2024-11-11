@@ -967,7 +967,7 @@ common.resume:                                    ; preds = %61, %44
   br label %84
 
 57:                                               ; preds = %49
-  %58 = icmp ult i64 %51, 4
+  %58 = icmp samesign ult i64 %51, 4
   br i1 %58, label %85, label %59
 
 59:                                               ; preds = %57
@@ -1216,7 +1216,7 @@ common.resume:                                    ; preds = %61, %44
   br label %84
 
 57:                                               ; preds = %49
-  %58 = icmp ult i64 %51, 4
+  %58 = icmp samesign ult i64 %51, 4
   br i1 %58, label %85, label %59
 
 59:                                               ; preds = %57
@@ -1465,7 +1465,7 @@ common.resume:                                    ; preds = %61, %44
   br label %84
 
 57:                                               ; preds = %49
-  %58 = icmp ult i64 %51, 4
+  %58 = icmp samesign ult i64 %51, 4
   br i1 %58, label %85, label %59
 
 59:                                               ; preds = %57
@@ -1714,7 +1714,7 @@ common.resume:                                    ; preds = %61, %44
   br label %84
 
 57:                                               ; preds = %49
-  %58 = icmp ult i64 %51, 4
+  %58 = icmp samesign ult i64 %51, 4
   br i1 %58, label %85, label %59
 
 59:                                               ; preds = %57

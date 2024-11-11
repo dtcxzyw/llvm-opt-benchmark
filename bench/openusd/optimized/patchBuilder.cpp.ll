@@ -4312,7 +4312,7 @@ define i64 @_ZNK10OpenSubdiv6v3_6_03Far12PatchBuilder17ComputePatchParamEiiRKNS1
   %.193.us = phi i32 [ %.092145.us, %53 ], [ %.092145.us, %54 ], [ %57, %56 ], [ %59, %58 ], [ %.092145.us, %45 ], [ %.092145.us, %46 ], [ %49, %48 ], [ %51, %50 ]
   %62 = shl nuw nsw i32 %.099143.us, 1
   %63 = and i32 %62, 65534
-  %64 = icmp ugt i64 %indvars.iv188, 1
+  %64 = icmp samesign ugt i64 %indvars.iv188, 1
   br i1 %64, label %.lr.ph147.split.us, label %._crit_edge.split.us, !llvm.loop !24
 
 .unreachabledefault:                              ; preds = %45

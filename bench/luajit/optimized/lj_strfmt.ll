@@ -182,7 +182,7 @@ if.then113:                                       ; preds = %if.then109
   %conv111 = zext i8 %16 to i32
   %add.ptr114 = getelementptr inbounds i8, ptr %p.5, i64 1
   store ptr %add.ptr114, ptr %fs, align 8
-  %tobool117.not = icmp ult i32 %sub104, 32
+  %tobool117.not = icmp samesign ult i32 %sub104, 32
   %cond = select i1 %tobool117.not, i32 8192, i32 0
   %or116 = or i32 %cond, %sf.3
   %or118 = or i32 %or116, %conv111
@@ -241,15 +241,15 @@ if.end:                                           ; preds = %if.then, %entry
   br i1 %cmp1, label %if.then2, label %if.else
 
 if.then2:                                         ; preds = %if.end
-  %cmp3 = icmp ult i32 %u.0, 10
+  %cmp3 = icmp samesign ult i32 %u.0, 10
   br i1 %cmp3, label %dig1, label %if.end5
 
 if.end5:                                          ; preds = %if.then2
-  %cmp6 = icmp ult i32 %u.0, 100
+  %cmp6 = icmp samesign ult i32 %u.0, 100
   br i1 %cmp6, label %dig2, label %if.end8
 
 if.end8:                                          ; preds = %if.end5
-  %cmp9 = icmp ult i32 %u.0, 1000
+  %cmp9 = icmp samesign ult i32 %u.0, 1000
   br i1 %cmp9, label %dig3, label %if.end66
 
 if.else:                                          ; preds = %if.end
@@ -260,15 +260,15 @@ if.else:                                          ; preds = %if.end
   br i1 %cmp12, label %if.then13, label %if.else23
 
 if.then13:                                        ; preds = %if.else
-  %cmp14 = icmp ult i32 %u.0, 100000
+  %cmp14 = icmp samesign ult i32 %u.0, 100000
   br i1 %cmp14, label %dig5, label %if.end16
 
 if.end16:                                         ; preds = %if.then13
-  %cmp17 = icmp ult i32 %u.0, 1000000
+  %cmp17 = icmp samesign ult i32 %u.0, 1000000
   br i1 %cmp17, label %dig6, label %if.end19
 
 if.end19:                                         ; preds = %if.end16
-  %cmp20 = icmp ult i32 %u.0, 10000000
+  %cmp20 = icmp samesign ult i32 %u.0, 10000000
   br i1 %cmp20, label %dig7, label %if.end38
 
 if.else23:                                        ; preds = %if.else
@@ -781,7 +781,7 @@ if.then20:                                        ; preds = %lor.lhs.false14, %i
   br label %tens
 
 if.else28:                                        ; preds = %lor.lhs.false14
-  %cmp29 = icmp ugt i8 %3, 9
+  %cmp29 = icmp samesign ugt i8 %3, 9
   br i1 %cmp29, label %tens, label %if.end38
 
 tens:                                             ; preds = %if.then20, %if.else28
@@ -1517,7 +1517,7 @@ lj_strfmt_parse.exit:                             ; preds = %if.then109.i
   %17 = load i8, ptr %arrayidx110.i, align 1
   %conv111.i = zext i8 %17 to i32
   %add.ptr114.i = getelementptr inbounds i8, ptr %p.5.i, i64 1
-  %tobool117.not.i = icmp ult i32 %sub104.i, 32
+  %tobool117.not.i = icmp samesign ult i32 %sub104.i, 32
   %cond.i = select i1 %tobool117.not.i, i32 8192, i32 0
   %18 = or disjoint i32 %cond.i, %conv111.i
   %or118.i = or i32 %18, %sf.3.i
@@ -1712,7 +1712,7 @@ if.then93:                                        ; preds = %land.lhs.true89
   store ptr %incdec.ptr101, ptr %top, align 8
   %42 = load i64, ptr %incdec.ptr101, align 8
   store i64 %42, ptr %arrayidx99, align 8
-  %cmp102 = icmp ult i32 %retry.addr.0, 2
+  %cmp102 = icmp samesign ult i32 %retry.addr.0, 2
   br i1 %cmp102, label %while.cond.backedge, label %if.end106
 
 if.end106:                                        ; preds = %land.lhs.true89.if.end106_crit_edge, %sw.bb67, %if.then93, %land.end83

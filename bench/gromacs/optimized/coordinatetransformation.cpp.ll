@@ -600,7 +600,7 @@ define void @_ZN3gmx20AffineTransformationC2ENS_12basic_mdspanIKfNS_7extentsIJLl
   %7 = getelementptr inbounds i8, ptr %.058.i.i.i.i.i, i64 4
   %8 = getelementptr inbounds i8, ptr %.sroa.0.07.i.i.i.i.i, i64 4
   %9 = add nsw i64 %.09.i.i.i.i.i, -1
-  %10 = icmp ugt i64 %.09.i.i.i.i.i, 1
+  %10 = icmp samesign ugt i64 %.09.i.i.i.i.i, 1
   br i1 %10, label %.lr.ph.i.i.i.i.i, label %_ZSt4copyIPKfN3gmx12ArrayRefIterIfEEET0_T_S6_S5_.exit, !llvm.loop !7
 
 _ZSt4copyIPKfN3gmx12ArrayRefIterIfEEET0_T_S6_S5_.exit: ; preds = %.lr.ph.i.i.i.i.i

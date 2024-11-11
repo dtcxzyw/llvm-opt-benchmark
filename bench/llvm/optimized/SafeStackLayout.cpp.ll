@@ -2990,7 +2990,7 @@ _ZN4llvm9safestack11StackLayout11StackRegionC2EOS2_.exit: ; preds = %13, %32
   %57 = getelementptr inbounds i8, ptr %.069.i.i.i.i.i, i64 -8
   store i32 %56, ptr %57, align 8
   %58 = add nsw i64 %.010.i.i.i.i.i, -1
-  %59 = icmp ugt i64 %.010.i.i.i.i.i, 1
+  %59 = icmp samesign ugt i64 %.010.i.i.i.i.i, 1
   br i1 %59, label %.lr.ph.i.i.i.i.i, label %_ZSt13move_backwardIPN4llvm9safestack11StackLayout11StackRegionES4_ET0_T_S6_S5_.exit, !llvm.loop !25
 
 _ZSt13move_backwardIPN4llvm9safestack11StackLayout11StackRegionES4_ET0_T_S6_S5_.exit: ; preds = %.lr.ph.i.i.i.i.i, %_ZN4llvm9safestack11StackLayout11StackRegionC2EOS2_.exit
@@ -3309,7 +3309,7 @@ _ZN4llvm9safestack11StackLayout11StackObjectC2EOS2_.exit: ; preds = %20, %23
   %39 = getelementptr inbounds i8, ptr %.069.i.i.i.i.i, i64 -8
   store i32 %38, ptr %39, align 8
   %40 = add nsw i64 %.010.i.i.i.i.i, -1
-  %41 = icmp ugt i64 %.010.i.i.i.i.i, 1
+  %41 = icmp samesign ugt i64 %.010.i.i.i.i.i, 1
   br i1 %41, label %.lr.ph.i.i.i.i.i, label %_ZSt13move_backwardIPN4llvm9safestack11StackLayout11StackObjectES4_ET0_T_S6_S5_.exit, !llvm.loop !27
 
 _ZSt13move_backwardIPN4llvm9safestack11StackLayout11StackObjectES4_ET0_T_S6_S5_.exit: ; preds = %.lr.ph.i.i.i.i.i, %_ZN4llvm9safestack11StackLayout11StackObjectC2EOS2_.exit
@@ -3871,7 +3871,7 @@ define internal fastcc void @"_ZSt24__merge_sort_with_bufferIPN4llvm9safestack11
   %50 = getelementptr inbounds i8, ptr %.0910.i.i.i.i.i.i, i64 88
   %51 = getelementptr inbounds i8, ptr %.0811.i.i.i.i.i.i, i64 88
   %52 = add nsw i64 %.012.i.i.i.i.i.i, -1
-  %53 = icmp ugt i64 %.012.i.i.i.i.i.i, 1
+  %53 = icmp samesign ugt i64 %.012.i.i.i.i.i.i, 1
   br i1 %53, label %.lr.ph.i.i.i.i.i.i, label %_ZSt4moveIPN4llvm9safestack11StackLayout11StackObjectES4_ET0_T_S6_S5_.exit.i, !llvm.loop !38
 
 _ZSt4moveIPN4llvm9safestack11StackLayout11StackObjectES4_ET0_T_S6_S5_.exit.i: ; preds = %.lr.ph.i.i.i.i.i.i, %._crit_edge.i
@@ -3901,7 +3901,7 @@ _ZSt4moveIPN4llvm9safestack11StackLayout11StackObjectES4_ET0_T_S6_S5_.exit.i: ; 
   %65 = getelementptr inbounds i8, ptr %.0910.i.i.i.i.i26.i, i64 88
   %66 = getelementptr inbounds i8, ptr %.0811.i.i.i.i.i25.i, i64 88
   %67 = add nsw i64 %.012.i.i.i.i.i24.i, -1
-  %68 = icmp ugt i64 %.012.i.i.i.i.i24.i, 1
+  %68 = icmp samesign ugt i64 %.012.i.i.i.i.i24.i, 1
   br i1 %68, label %.lr.ph.i.i.i.i.i23.i, label %"_ZSt12__move_mergeIPN4llvm9safestack11StackLayout11StackObjectES4_N9__gnu_cxx5__ops15_Iter_comp_iterIZNS2_13computeLayoutEvE3$_0EEET0_T_SB_SB_SB_SA_T1_.exit", !llvm.loop !38
 
 "_ZSt12__move_mergeIPN4llvm9safestack11StackLayout11StackObjectES4_N9__gnu_cxx5__ops15_Iter_comp_iterIZNS2_13computeLayoutEvE3$_0EEET0_T_SB_SB_SB_SA_T1_.exit": ; preds = %.lr.ph.i.i.i.i.i23.i, %_ZSt4moveIPN4llvm9safestack11StackLayout11StackObjectES4_ET0_T_S6_S5_.exit.i
@@ -4002,7 +4002,7 @@ _ZSt4moveIPN4llvm9safestack11StackLayout11StackObjectES4_ET0_T_S6_S5_.exit.i: ; 
   %104 = getelementptr inbounds i8, ptr %.0910.i.i.i.i.i.i53, i64 88
   %105 = getelementptr inbounds i8, ptr %.0811.i.i.i.i.i.i52, i64 88
   %106 = add nsw i64 %.012.i.i.i.i.i.i51, -1
-  %107 = icmp ugt i64 %.012.i.i.i.i.i.i51, 1
+  %107 = icmp samesign ugt i64 %.012.i.i.i.i.i.i51, 1
   br i1 %107, label %.lr.ph.i.i.i.i.i.i50, label %_ZSt4moveIPN4llvm9safestack11StackLayout11StackObjectES4_ET0_T_S6_S5_.exit.i41, !llvm.loop !38
 
 _ZSt4moveIPN4llvm9safestack11StackLayout11StackObjectES4_ET0_T_S6_S5_.exit.i41: ; preds = %.lr.ph.i.i.i.i.i.i50, %._crit_edge.i37
@@ -4032,7 +4032,7 @@ _ZSt4moveIPN4llvm9safestack11StackLayout11StackObjectES4_ET0_T_S6_S5_.exit.i41: 
   %119 = getelementptr inbounds i8, ptr %.0910.i.i.i.i.i26.i48, i64 88
   %120 = getelementptr inbounds i8, ptr %.0811.i.i.i.i.i25.i47, i64 88
   %121 = add nsw i64 %.012.i.i.i.i.i24.i46, -1
-  %122 = icmp ugt i64 %.012.i.i.i.i.i24.i46, 1
+  %122 = icmp samesign ugt i64 %.012.i.i.i.i.i24.i46, 1
   br i1 %122, label %.lr.ph.i.i.i.i.i23.i45, label %"_ZSt12__move_mergeIPN4llvm9safestack11StackLayout11StackObjectES4_N9__gnu_cxx5__ops15_Iter_comp_iterIZNS2_13computeLayoutEvE3$_0EEET0_T_SB_SB_SB_SA_T1_.exit65", !llvm.loop !38
 
 "_ZSt12__move_mergeIPN4llvm9safestack11StackLayout11StackObjectES4_N9__gnu_cxx5__ops15_Iter_comp_iterIZNS2_13computeLayoutEvE3$_0EEET0_T_SB_SB_SB_SA_T1_.exit65": ; preds = %.lr.ph.i.i.i.i.i23.i45, %_ZSt4moveIPN4llvm9safestack11StackLayout11StackObjectES4_ET0_T_S6_S5_.exit.i41
@@ -4095,7 +4095,7 @@ tailrecurse._crit_edge:                           ; preds = %tailrecurse, %7
   %20 = getelementptr inbounds i8, ptr %.0910.i.i.i.i.i, i64 88
   %21 = getelementptr inbounds i8, ptr %.0811.i.i.i.i.i, i64 88
   %22 = add nsw i64 %.012.i.i.i.i.i, -1
-  %23 = icmp ugt i64 %.012.i.i.i.i.i, 1
+  %23 = icmp samesign ugt i64 %.012.i.i.i.i.i, 1
   br i1 %23, label %.lr.ph.i.i.i.i.i, label %_ZSt4moveIPN4llvm9safestack11StackLayout11StackObjectES4_ET0_T_S6_S5_.exit, !llvm.loop !38
 
 _ZSt4moveIPN4llvm9safestack11StackLayout11StackObjectES4_ET0_T_S6_S5_.exit: ; preds = %.lr.ph.i.i.i.i.i
@@ -4173,7 +4173,7 @@ _ZSt4moveIPN4llvm9safestack11StackLayout11StackObjectES4_ET0_T_S6_S5_.exit: ; pr
   %53 = getelementptr inbounds i8, ptr %.0910.i.i.i.i.i.i, i64 88
   %54 = getelementptr inbounds i8, ptr %.0811.i.i.i.i.i.i, i64 88
   %55 = add nsw i64 %.012.i.i.i.i.i.i, -1
-  %56 = icmp ugt i64 %.012.i.i.i.i.i.i, 1
+  %56 = icmp samesign ugt i64 %.012.i.i.i.i.i.i, 1
   br i1 %56, label %.lr.ph.i.i.i.i.i.i, label %"_ZSt21__move_merge_adaptiveIPN4llvm9safestack11StackLayout11StackObjectES4_S4_N9__gnu_cxx5__ops15_Iter_comp_iterIZNS2_13computeLayoutEvE3$_0EEEvT_SA_T0_SB_T1_T2_.exit", !llvm.loop !38
 
 57:                                               ; preds = %.lr.ph, %tailrecurse
@@ -4210,7 +4210,7 @@ _ZSt4moveIPN4llvm9safestack11StackLayout11StackObjectES4_ET0_T_S6_S5_.exit: ; pr
   %69 = getelementptr inbounds i8, ptr %.0910.i.i.i.i.i78, i64 88
   %70 = getelementptr inbounds i8, ptr %.0811.i.i.i.i.i77, i64 88
   %71 = add nsw i64 %.012.i.i.i.i.i76, -1
-  %72 = icmp ugt i64 %.012.i.i.i.i.i76, 1
+  %72 = icmp samesign ugt i64 %.012.i.i.i.i.i76, 1
   br i1 %72, label %.lr.ph.i.i.i.i.i75, label %_ZSt4moveIPN4llvm9safestack11StackLayout11StackObjectES4_ET0_T_S6_S5_.exit79, !llvm.loop !38
 
 _ZSt4moveIPN4llvm9safestack11StackLayout11StackObjectES4_ET0_T_S6_S5_.exit79: ; preds = %.lr.ph.i.i.i.i.i75, %59
@@ -4244,7 +4244,7 @@ _ZSt4moveIPN4llvm9safestack11StackLayout11StackObjectES4_ET0_T_S6_S5_.exit79: ; 
   %87 = getelementptr inbounds i8, ptr %.069.i.i.i.i.i.i, i64 -8
   store i32 %86, ptr %87, align 8
   %88 = add nsw i64 %.010.i.i.i.i.i.i, -1
-  %89 = icmp ugt i64 %.010.i.i.i.i.i.i, 1
+  %89 = icmp samesign ugt i64 %.010.i.i.i.i.i.i, 1
   br i1 %89, label %.lr.ph.i.i.i.i.i.i82, label %"_ZSt21__move_merge_adaptiveIPN4llvm9safestack11StackLayout11StackObjectES4_S4_N9__gnu_cxx5__ops15_Iter_comp_iterIZNS2_13computeLayoutEvE3$_0EEEvT_SA_T0_SB_T1_T2_.exit", !llvm.loop !27
 
 90:                                               ; preds = %_ZSt4moveIPN4llvm9safestack11StackLayout11StackObjectES4_ET0_T_S6_S5_.exit79
@@ -4312,7 +4312,7 @@ _ZSt4moveIPN4llvm9safestack11StackLayout11StackObjectES4_ET0_T_S6_S5_.exit79: ; 
   %121 = getelementptr inbounds i8, ptr %.069.i.i.i.i.i36.i, i64 -8
   store i32 %120, ptr %121, align 8
   %122 = add nsw i64 %.010.i.i.i.i.i35.i, -1
-  %123 = icmp ugt i64 %.010.i.i.i.i.i35.i, 1
+  %123 = icmp samesign ugt i64 %.010.i.i.i.i.i35.i, 1
   br i1 %123, label %.lr.ph.i.i.i.i.i34.i, label %"_ZSt21__move_merge_adaptiveIPN4llvm9safestack11StackLayout11StackObjectES4_S4_N9__gnu_cxx5__ops15_Iter_comp_iterIZNS2_13computeLayoutEvE3$_0EEEvT_SA_T0_SB_T1_T2_.exit", !llvm.loop !27
 
 124:                                              ; preds = %95
@@ -4507,7 +4507,7 @@ define internal fastcc void @"_ZSt12__move_mergeIPN4llvm9safestack11StackLayout1
   %38 = getelementptr inbounds i8, ptr %.0910.i.i.i.i.i, i64 88
   %39 = getelementptr inbounds i8, ptr %.0811.i.i.i.i.i, i64 88
   %40 = add nsw i64 %.012.i.i.i.i.i, -1
-  %41 = icmp ugt i64 %.012.i.i.i.i.i, 1
+  %41 = icmp samesign ugt i64 %.012.i.i.i.i.i, 1
   br i1 %41, label %.lr.ph.i.i.i.i.i, label %_ZSt4moveIPN4llvm9safestack11StackLayout11StackObjectES4_ET0_T_S6_S5_.exit, !llvm.loop !38
 
 _ZSt4moveIPN4llvm9safestack11StackLayout11StackObjectES4_ET0_T_S6_S5_.exit: ; preds = %.lr.ph.i.i.i.i.i, %._crit_edge
@@ -4537,7 +4537,7 @@ _ZSt4moveIPN4llvm9safestack11StackLayout11StackObjectES4_ET0_T_S6_S5_.exit: ; pr
   %53 = getelementptr inbounds i8, ptr %.0910.i.i.i.i.i26, i64 88
   %54 = getelementptr inbounds i8, ptr %.0811.i.i.i.i.i25, i64 88
   %55 = add nsw i64 %.012.i.i.i.i.i24, -1
-  %56 = icmp ugt i64 %.012.i.i.i.i.i24, 1
+  %56 = icmp samesign ugt i64 %.012.i.i.i.i.i24, 1
   br i1 %56, label %.lr.ph.i.i.i.i.i23, label %_ZSt4moveIPN4llvm9safestack11StackLayout11StackObjectES4_ET0_T_S6_S5_.exit27, !llvm.loop !38
 
 _ZSt4moveIPN4llvm9safestack11StackLayout11StackObjectES4_ET0_T_S6_S5_.exit27: ; preds = %.lr.ph.i.i.i.i.i23, %_ZSt4moveIPN4llvm9safestack11StackLayout11StackObjectES4_ET0_T_S6_S5_.exit
@@ -4581,7 +4581,7 @@ define linkonce_odr noundef ptr @_ZSt17__rotate_adaptiveIPN4llvm9safestack11Stac
   %22 = getelementptr inbounds i8, ptr %.0910.i.i.i.i.i, i64 88
   %23 = getelementptr inbounds i8, ptr %.0811.i.i.i.i.i, i64 88
   %24 = add nsw i64 %.012.i.i.i.i.i, -1
-  %25 = icmp ugt i64 %.012.i.i.i.i.i, 1
+  %25 = icmp samesign ugt i64 %.012.i.i.i.i.i, 1
   br i1 %25, label %.lr.ph.i.i.i.i.i, label %_ZSt4moveIPN4llvm9safestack11StackLayout11StackObjectES4_ET0_T_S6_S5_.exit, !llvm.loop !38
 
 _ZSt4moveIPN4llvm9safestack11StackLayout11StackObjectES4_ET0_T_S6_S5_.exit: ; preds = %.lr.ph.i.i.i.i.i, %10
@@ -4610,7 +4610,7 @@ _ZSt4moveIPN4llvm9safestack11StackLayout11StackObjectES4_ET0_T_S6_S5_.exit: ; pr
   %37 = getelementptr inbounds i8, ptr %.069.i.i.i.i.i, i64 -8
   store i32 %36, ptr %37, align 8
   %38 = add nsw i64 %.010.i.i.i.i.i, -1
-  %39 = icmp ugt i64 %.010.i.i.i.i.i, 1
+  %39 = icmp samesign ugt i64 %.010.i.i.i.i.i, 1
   br i1 %39, label %.lr.ph.i.i.i.i.i37, label %_ZSt13move_backwardIPN4llvm9safestack11StackLayout11StackObjectES4_ET0_T_S6_S5_.exit, !llvm.loop !27
 
 _ZSt13move_backwardIPN4llvm9safestack11StackLayout11StackObjectES4_ET0_T_S6_S5_.exit: ; preds = %.lr.ph.i.i.i.i.i37, %_ZSt4moveIPN4llvm9safestack11StackLayout11StackObjectES4_ET0_T_S6_S5_.exit
@@ -4639,7 +4639,7 @@ _ZSt13move_backwardIPN4llvm9safestack11StackLayout11StackObjectES4_ET0_T_S6_S5_.
   %51 = getelementptr inbounds i8, ptr %.0910.i.i.i.i.i43, i64 88
   %52 = getelementptr inbounds i8, ptr %.0811.i.i.i.i.i42, i64 88
   %53 = add nsw i64 %.012.i.i.i.i.i41, -1
-  %54 = icmp ugt i64 %.012.i.i.i.i.i41, 1
+  %54 = icmp samesign ugt i64 %.012.i.i.i.i.i41, 1
   br i1 %54, label %.lr.ph.i.i.i.i.i40, label %_ZSt4moveIPN4llvm9safestack11StackLayout11StackObjectES4_ET0_T_S6_S5_.exit44, !llvm.loop !38
 
 55:                                               ; preds = %7
@@ -4676,7 +4676,7 @@ _ZSt13move_backwardIPN4llvm9safestack11StackLayout11StackObjectES4_ET0_T_S6_S5_.
   %69 = getelementptr inbounds i8, ptr %.0910.i.i.i.i.i50, i64 88
   %70 = getelementptr inbounds i8, ptr %.0811.i.i.i.i.i49, i64 88
   %71 = add nsw i64 %.012.i.i.i.i.i48, -1
-  %72 = icmp ugt i64 %.012.i.i.i.i.i48, 1
+  %72 = icmp samesign ugt i64 %.012.i.i.i.i.i48, 1
   br i1 %72, label %.lr.ph.i.i.i.i.i47, label %_ZSt4moveIPN4llvm9safestack11StackLayout11StackObjectES4_ET0_T_S6_S5_.exit51, !llvm.loop !38
 
 _ZSt4moveIPN4llvm9safestack11StackLayout11StackObjectES4_ET0_T_S6_S5_.exit51: ; preds = %.lr.ph.i.i.i.i.i47, %57
@@ -4705,7 +4705,7 @@ _ZSt4moveIPN4llvm9safestack11StackLayout11StackObjectES4_ET0_T_S6_S5_.exit51: ; 
   %83 = getelementptr inbounds i8, ptr %.0910.i.i.i.i.i57, i64 88
   %84 = getelementptr inbounds i8, ptr %.0811.i.i.i.i.i56, i64 88
   %85 = add nsw i64 %.012.i.i.i.i.i55, -1
-  %86 = icmp ugt i64 %.012.i.i.i.i.i55, 1
+  %86 = icmp samesign ugt i64 %.012.i.i.i.i.i55, 1
   br i1 %86, label %.lr.ph.i.i.i.i.i54, label %_ZSt4moveIPN4llvm9safestack11StackLayout11StackObjectES4_ET0_T_S6_S5_.exit58, !llvm.loop !38
 
 _ZSt4moveIPN4llvm9safestack11StackLayout11StackObjectES4_ET0_T_S6_S5_.exit58: ; preds = %.lr.ph.i.i.i.i.i54, %_ZSt4moveIPN4llvm9safestack11StackLayout11StackObjectES4_ET0_T_S6_S5_.exit51
@@ -4734,7 +4734,7 @@ _ZSt4moveIPN4llvm9safestack11StackLayout11StackObjectES4_ET0_T_S6_S5_.exit58: ; 
   %99 = getelementptr inbounds i8, ptr %.069.i.i.i.i.i63, i64 -8
   store i32 %98, ptr %99, align 8
   %100 = add nsw i64 %.010.i.i.i.i.i62, -1
-  %101 = icmp ugt i64 %.010.i.i.i.i.i62, 1
+  %101 = icmp samesign ugt i64 %.010.i.i.i.i.i62, 1
   br i1 %101, label %.lr.ph.i.i.i.i.i61, label %_ZSt4moveIPN4llvm9safestack11StackLayout11StackObjectES4_ET0_T_S6_S5_.exit44, !llvm.loop !27
 
 102:                                              ; preds = %55

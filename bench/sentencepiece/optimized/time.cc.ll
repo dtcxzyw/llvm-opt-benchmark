@@ -63,7 +63,7 @@ define noundef zeroext i1 @_ZN6google8protobuf8internal17SecondsToDateTimeElPNS1
   %13 = urem i16 %.lhs.trunc134, 400
   %14 = icmp samesign ugt i16 %13, 300
   %.0.i106 = select i1 %14, i64 3155760000, i64 3155673600
-  %.not107 = icmp ult i64 %.050, %.0.i106
+  %.not107 = icmp samesign ult i64 %.050, %.0.i106
   br i1 %.not107, label %.preheader100, label %.lr.ph
 
 .preheader100:                                    ; preds = %.lr.ph, %12
@@ -305,7 +305,7 @@ define noundef zeroext i1 @_ZN6google8protobuf8internal17DateTimeToSecondsERKNS1
   br i1 %or.cond39.i, label %_ZN6google8protobuf8internal12_GLOBAL__N_116ValidateDateTimeERKNS1_8DateTimeE.exit, label %_ZN6google8protobuf8internal12_GLOBAL__N_110IsLeapYearEi.exit.thread.i
 
 _ZN6google8protobuf8internal12_GLOBAL__N_110IsLeapYearEi.exit.thread.i: ; preds = %24, %21
-  %28 = icmp ult i32 %11, 30
+  %28 = icmp samesign ult i32 %11, 30
   br i1 %28, label %32, label %_ZN6google8protobuf8internal12_GLOBAL__N_116ValidateDateTimeERKNS1_8DateTimeE.exit.thread
 
 _ZN6google8protobuf8internal12_GLOBAL__N_116ValidateDateTimeERKNS1_8DateTimeE.exit: ; preds = %19, %24
@@ -316,7 +316,7 @@ _ZN6google8protobuf8internal12_GLOBAL__N_116ValidateDateTimeERKNS1_8DateTimeE.ex
   br i1 %.not, label %_ZN6google8protobuf8internal12_GLOBAL__N_116ValidateDateTimeERKNS1_8DateTimeE.exit.thread, label %32
 
 32:                                               ; preds = %_ZN6google8protobuf8internal12_GLOBAL__N_110IsLeapYearEi.exit.thread.i, %_ZN6google8protobuf8internal12_GLOBAL__N_116ValidateDateTimeERKNS1_8DateTimeE.exit
-  %33 = icmp ugt i32 %.fr47.i, 400
+  %33 = icmp samesign ugt i32 %.fr47.i, 400
   br i1 %33, label %34, label %41
 
 34:                                               ; preds = %32

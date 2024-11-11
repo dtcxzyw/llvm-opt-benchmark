@@ -10473,7 +10473,7 @@ define internal fastcc void @dissect_zcl_met_get_sampled_data_rsp(ptr noundef %0
   %39 = add i32 %38, 3
   store i32 %39, ptr %2, align 4
   %40 = add nsw i32 %.032, -3
-  %41 = icmp ugt i32 %.032, 5
+  %41 = icmp samesign ugt i32 %.032, 5
   br i1 %41, label %.lr.ph, label %._crit_edge, !llvm.loop !27
 
 ._crit_edge:                                      ; preds = %.lr.ph, %3
@@ -10580,7 +10580,7 @@ define internal fastcc void @dissect_zcl_met_configure_notification_flags(ptr no
   %38 = add i32 %37, 1
   store i32 %38, ptr %2, align 4
   %39 = add nsw i32 %.034, -1
-  %40 = icmp ugt i32 %.034, 1
+  %40 = icmp samesign ugt i32 %.034, 1
   br i1 %40, label %.lr.ph, label %._crit_edge, !llvm.loop !28
 
 ._crit_edge:                                      ; preds = %.lr.ph, %3

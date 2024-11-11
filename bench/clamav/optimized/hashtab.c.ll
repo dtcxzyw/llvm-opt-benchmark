@@ -2094,7 +2094,7 @@ define range(i64 -1, 4294967296) i64 @cli_hashset_toarray(ptr nocapture noundef 
   %.01823 = phi i64 [ 0, %.lr.ph ], [ %35, %33 ]
   %15 = load i32, ptr %4, align 8
   %16 = zext i32 %15 to i64
-  %17 = icmp ult i64 %.01724, %16
+  %17 = icmp samesign ult i64 %.01724, %16
   br i1 %17, label %18, label %.critedge
 
 18:                                               ; preds = %13

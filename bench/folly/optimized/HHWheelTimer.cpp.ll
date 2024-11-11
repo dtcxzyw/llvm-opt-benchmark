@@ -2332,7 +2332,7 @@ if.then.i:                                        ; preds = %if.end
   br label %_ZN5folly16HHWheelTimerBaseINSt6chrono8durationIlSt5ratioILl1ELl1000EEEEE19scheduleTimeoutImplEPNS6_8CallbackElll.exit
 
 if.else.i:                                        ; preds = %if.end
-  %cmp11.i = icmp ult i64 %sub.i, 256
+  %cmp11.i = icmp samesign ult i64 %sub.i, 256
   br i1 %cmp11.i, label %if.then12.i, label %if.else26.i
 
 if.then12.i:                                      ; preds = %if.else.i
@@ -2353,7 +2353,7 @@ if.then12.i:                                      ; preds = %if.else.i
   br label %_ZN5folly16HHWheelTimerBaseINSt6chrono8durationIlSt5ratioILl1ELl1000EEEEE19scheduleTimeoutImplEPNS6_8CallbackElll.exit
 
 if.else26.i:                                      ; preds = %if.else.i
-  %cmp27.i = icmp ult i64 %sub.i, 65536
+  %cmp27.i = icmp samesign ult i64 %sub.i, 65536
   br i1 %cmp27.i, label %if.then28.i, label %if.else33.i
 
 if.then28.i:                                      ; preds = %if.else26.i
@@ -2364,7 +2364,7 @@ if.then28.i:                                      ; preds = %if.else26.i
   br label %_ZN5folly16HHWheelTimerBaseINSt6chrono8durationIlSt5ratioILl1ELl1000EEEEE19scheduleTimeoutImplEPNS6_8CallbackElll.exit
 
 if.else33.i:                                      ; preds = %if.else26.i
-  %cmp34.i = icmp ult i64 %sub.i, 16777216
+  %cmp34.i = icmp samesign ult i64 %sub.i, 16777216
   br i1 %cmp34.i, label %if.then35.i, label %if.else41.i
 
 if.then35.i:                                      ; preds = %if.else33.i
@@ -2375,7 +2375,7 @@ if.then35.i:                                      ; preds = %if.else33.i
   br label %_ZN5folly16HHWheelTimerBaseINSt6chrono8durationIlSt5ratioILl1ELl1000EEEEE19scheduleTimeoutImplEPNS6_8CallbackElll.exit
 
 if.else41.i:                                      ; preds = %if.else33.i
-  %cmp42.i = icmp ugt i64 %sub.i, 4294967295
+  %cmp42.i = icmp samesign ugt i64 %sub.i, 4294967295
   %add.i = add nsw i64 %baseTick.0, 4294967295
   %spec.select.i = select i1 %cmp42.i, i64 %add.i, i64 %add
   %arrayidx45.i = getelementptr inbounds i8, ptr %this, i64 12528
@@ -2621,7 +2621,7 @@ if.then:                                          ; preds = %entry
   br label %if.end52
 
 if.else:                                          ; preds = %entry
-  %cmp11 = icmp ult i64 %sub, 256
+  %cmp11 = icmp samesign ult i64 %sub, 256
   br i1 %cmp11, label %if.then12, label %if.else26
 
 if.then12:                                        ; preds = %if.else
@@ -2642,7 +2642,7 @@ if.then12:                                        ; preds = %if.else
   br label %if.end52
 
 if.else26:                                        ; preds = %if.else
-  %cmp27 = icmp ult i64 %sub, 65536
+  %cmp27 = icmp samesign ult i64 %sub, 65536
   br i1 %cmp27, label %if.then28, label %if.else33
 
 if.then28:                                        ; preds = %if.else26
@@ -2653,7 +2653,7 @@ if.then28:                                        ; preds = %if.else26
   br label %if.end52
 
 if.else33:                                        ; preds = %if.else26
-  %cmp34 = icmp ult i64 %sub, 16777216
+  %cmp34 = icmp samesign ult i64 %sub, 16777216
   br i1 %cmp34, label %if.then35, label %if.else41
 
 if.then35:                                        ; preds = %if.else33
@@ -2664,7 +2664,7 @@ if.then35:                                        ; preds = %if.else33
   br label %if.end52
 
 if.else41:                                        ; preds = %if.else33
-  %cmp42 = icmp ugt i64 %sub, 4294967295
+  %cmp42 = icmp samesign ugt i64 %sub, 4294967295
   %add = add nsw i64 %nextTickToProcess, 4294967295
   %spec.select = select i1 %cmp42, i64 %add, i64 %dueTick
   %arrayidx45 = getelementptr inbounds i8, ptr %this, i64 12528
@@ -3176,7 +3176,7 @@ if.then.i:                                        ; preds = %invoke.cont18
   br label %_ZN5folly16HHWheelTimerBaseINSt6chrono8durationIlSt5ratioILl1ELl1000EEEEE19scheduleTimeoutImplEPNS6_8CallbackElll.exit
 
 if.else.i:                                        ; preds = %invoke.cont18
-  %cmp11.i = icmp ult i64 %sub.i, 256
+  %cmp11.i = icmp samesign ult i64 %sub.i, 256
   br i1 %cmp11.i, label %if.then12.i, label %if.else26.i
 
 if.then12.i:                                      ; preds = %if.else.i
@@ -3196,7 +3196,7 @@ if.then12.i:                                      ; preds = %if.else.i
   br label %_ZN5folly16HHWheelTimerBaseINSt6chrono8durationIlSt5ratioILl1ELl1000EEEEE19scheduleTimeoutImplEPNS6_8CallbackElll.exit
 
 if.else26.i:                                      ; preds = %if.else.i
-  %cmp27.i = icmp ult i64 %sub.i, 65536
+  %cmp27.i = icmp samesign ult i64 %sub.i, 65536
   br i1 %cmp27.i, label %if.then28.i, label %if.else33.i
 
 if.then28.i:                                      ; preds = %if.else26.i
@@ -3206,7 +3206,7 @@ if.then28.i:                                      ; preds = %if.else26.i
   br label %_ZN5folly16HHWheelTimerBaseINSt6chrono8durationIlSt5ratioILl1ELl1000EEEEE19scheduleTimeoutImplEPNS6_8CallbackElll.exit
 
 if.else33.i:                                      ; preds = %if.else26.i
-  %cmp34.i = icmp ult i64 %sub.i, 16777216
+  %cmp34.i = icmp samesign ult i64 %sub.i, 16777216
   br i1 %cmp34.i, label %if.then35.i, label %if.else41.i
 
 if.then35.i:                                      ; preds = %if.else33.i
@@ -3216,7 +3216,7 @@ if.then35.i:                                      ; preds = %if.else33.i
   br label %_ZN5folly16HHWheelTimerBaseINSt6chrono8durationIlSt5ratioILl1ELl1000EEEEE19scheduleTimeoutImplEPNS6_8CallbackElll.exit
 
 if.else41.i:                                      ; preds = %if.else33.i
-  %cmp42.i = icmp ugt i64 %sub.i, 4294967295
+  %cmp42.i = icmp samesign ugt i64 %sub.i, 4294967295
   %add.i = add nsw i64 %16, 4294967295
   %spec.select.i = select i1 %cmp42.i, i64 %add.i, i64 %add
   %shr46.i = lshr i64 %spec.select.i, 24
@@ -4943,7 +4943,7 @@ if.then.i:                                        ; preds = %if.end
   br label %_ZN5folly16HHWheelTimerBaseINSt6chrono8durationIlSt5ratioILl1ELl1000000EEEEE19scheduleTimeoutImplEPNS6_8CallbackElll.exit
 
 if.else.i:                                        ; preds = %if.end
-  %cmp11.i = icmp ult i64 %sub.i, 256
+  %cmp11.i = icmp samesign ult i64 %sub.i, 256
   br i1 %cmp11.i, label %if.then12.i, label %if.else26.i
 
 if.then12.i:                                      ; preds = %if.else.i
@@ -4964,7 +4964,7 @@ if.then12.i:                                      ; preds = %if.else.i
   br label %_ZN5folly16HHWheelTimerBaseINSt6chrono8durationIlSt5ratioILl1ELl1000000EEEEE19scheduleTimeoutImplEPNS6_8CallbackElll.exit
 
 if.else26.i:                                      ; preds = %if.else.i
-  %cmp27.i = icmp ult i64 %sub.i, 65536
+  %cmp27.i = icmp samesign ult i64 %sub.i, 65536
   br i1 %cmp27.i, label %if.then28.i, label %if.else33.i
 
 if.then28.i:                                      ; preds = %if.else26.i
@@ -4975,7 +4975,7 @@ if.then28.i:                                      ; preds = %if.else26.i
   br label %_ZN5folly16HHWheelTimerBaseINSt6chrono8durationIlSt5ratioILl1ELl1000000EEEEE19scheduleTimeoutImplEPNS6_8CallbackElll.exit
 
 if.else33.i:                                      ; preds = %if.else26.i
-  %cmp34.i = icmp ult i64 %sub.i, 16777216
+  %cmp34.i = icmp samesign ult i64 %sub.i, 16777216
   br i1 %cmp34.i, label %if.then35.i, label %if.else41.i
 
 if.then35.i:                                      ; preds = %if.else33.i
@@ -4986,7 +4986,7 @@ if.then35.i:                                      ; preds = %if.else33.i
   br label %_ZN5folly16HHWheelTimerBaseINSt6chrono8durationIlSt5ratioILl1ELl1000000EEEEE19scheduleTimeoutImplEPNS6_8CallbackElll.exit
 
 if.else41.i:                                      ; preds = %if.else33.i
-  %cmp42.i = icmp ugt i64 %sub.i, 4294967295
+  %cmp42.i = icmp samesign ugt i64 %sub.i, 4294967295
   %add.i = add nsw i64 %baseTick.0, 4294967295
   %spec.select.i = select i1 %cmp42.i, i64 %add.i, i64 %add
   %arrayidx45.i = getelementptr inbounds i8, ptr %this, i64 12528
@@ -5230,7 +5230,7 @@ if.then:                                          ; preds = %entry
   br label %if.end52
 
 if.else:                                          ; preds = %entry
-  %cmp11 = icmp ult i64 %sub, 256
+  %cmp11 = icmp samesign ult i64 %sub, 256
   br i1 %cmp11, label %if.then12, label %if.else26
 
 if.then12:                                        ; preds = %if.else
@@ -5251,7 +5251,7 @@ if.then12:                                        ; preds = %if.else
   br label %if.end52
 
 if.else26:                                        ; preds = %if.else
-  %cmp27 = icmp ult i64 %sub, 65536
+  %cmp27 = icmp samesign ult i64 %sub, 65536
   br i1 %cmp27, label %if.then28, label %if.else33
 
 if.then28:                                        ; preds = %if.else26
@@ -5262,7 +5262,7 @@ if.then28:                                        ; preds = %if.else26
   br label %if.end52
 
 if.else33:                                        ; preds = %if.else26
-  %cmp34 = icmp ult i64 %sub, 16777216
+  %cmp34 = icmp samesign ult i64 %sub, 16777216
   br i1 %cmp34, label %if.then35, label %if.else41
 
 if.then35:                                        ; preds = %if.else33
@@ -5273,7 +5273,7 @@ if.then35:                                        ; preds = %if.else33
   br label %if.end52
 
 if.else41:                                        ; preds = %if.else33
-  %cmp42 = icmp ugt i64 %sub, 4294967295
+  %cmp42 = icmp samesign ugt i64 %sub, 4294967295
   %add = add nsw i64 %nextTickToProcess, 4294967295
   %spec.select = select i1 %cmp42, i64 %add, i64 %dueTick
   %arrayidx45 = getelementptr inbounds i8, ptr %this, i64 12528
@@ -5713,7 +5713,7 @@ if.then.i:                                        ; preds = %invoke.cont18
   br label %_ZN5folly16HHWheelTimerBaseINSt6chrono8durationIlSt5ratioILl1ELl1000000EEEEE19scheduleTimeoutImplEPNS6_8CallbackElll.exit
 
 if.else.i:                                        ; preds = %invoke.cont18
-  %cmp11.i = icmp ult i64 %sub.i, 256
+  %cmp11.i = icmp samesign ult i64 %sub.i, 256
   br i1 %cmp11.i, label %if.then12.i, label %if.else26.i
 
 if.then12.i:                                      ; preds = %if.else.i
@@ -5733,7 +5733,7 @@ if.then12.i:                                      ; preds = %if.else.i
   br label %_ZN5folly16HHWheelTimerBaseINSt6chrono8durationIlSt5ratioILl1ELl1000000EEEEE19scheduleTimeoutImplEPNS6_8CallbackElll.exit
 
 if.else26.i:                                      ; preds = %if.else.i
-  %cmp27.i = icmp ult i64 %sub.i, 65536
+  %cmp27.i = icmp samesign ult i64 %sub.i, 65536
   br i1 %cmp27.i, label %if.then28.i, label %if.else33.i
 
 if.then28.i:                                      ; preds = %if.else26.i
@@ -5743,7 +5743,7 @@ if.then28.i:                                      ; preds = %if.else26.i
   br label %_ZN5folly16HHWheelTimerBaseINSt6chrono8durationIlSt5ratioILl1ELl1000000EEEEE19scheduleTimeoutImplEPNS6_8CallbackElll.exit
 
 if.else33.i:                                      ; preds = %if.else26.i
-  %cmp34.i = icmp ult i64 %sub.i, 16777216
+  %cmp34.i = icmp samesign ult i64 %sub.i, 16777216
   br i1 %cmp34.i, label %if.then35.i, label %if.else41.i
 
 if.then35.i:                                      ; preds = %if.else33.i
@@ -5753,7 +5753,7 @@ if.then35.i:                                      ; preds = %if.else33.i
   br label %_ZN5folly16HHWheelTimerBaseINSt6chrono8durationIlSt5ratioILl1ELl1000000EEEEE19scheduleTimeoutImplEPNS6_8CallbackElll.exit
 
 if.else41.i:                                      ; preds = %if.else33.i
-  %cmp42.i = icmp ugt i64 %sub.i, 4294967295
+  %cmp42.i = icmp samesign ugt i64 %sub.i, 4294967295
   %add.i = add nsw i64 %16, 4294967295
   %spec.select.i = select i1 %cmp42.i, i64 %add.i, i64 %add
   %shr46.i = lshr i64 %spec.select.i, 24

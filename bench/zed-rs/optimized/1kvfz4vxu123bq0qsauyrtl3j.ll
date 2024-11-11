@@ -3459,7 +3459,7 @@ define internal fastcc i64 @"_ZN9hashbrown3raw5inner21RawTable$LT$T$C$A$GT$14res
   br i1 %25, label %35, label %28
 
 26:                                               ; preds = %21
-  %27 = icmp ult i64 %22, 3
+  %27 = icmp samesign ult i64 %22, 3
   %..i.i = select i1 %27, i64 4, i64 8
   br label %37
 
@@ -3480,7 +3480,7 @@ define internal fastcc i64 @"_ZN9hashbrown3raw5inner21RawTable$LT$T$C$A$GT$14res
 37:                                               ; preds = %28, %26
   %.sroa.4.0.i.ph.i = phi i64 [ %34, %28 ], [ %..i.i, %26 ]
   %38 = shl i64 %.sroa.4.0.i.ph.i, 3
-  %39 = icmp ugt i64 %.sroa.4.0.i.ph.i, 2305843009213693951
+  %39 = icmp samesign ugt i64 %.sroa.4.0.i.ph.i, 2305843009213693951
   %40 = icmp ugt i64 %38, -16
   %or.cond.i.i = or i1 %39, %40
   br i1 %or.cond.i.i, label %50, label %41
@@ -3513,7 +3513,7 @@ _ZN9hashbrown3raw5inner11TableLayout20calculate_layout_for17hc48ee78c4b12348aE.l
   br label %_ZN9hashbrown3raw5inner13RawTableInner22fallible_with_capacity17h34c40759b3f36f87E.exit.thread
 
 _ZN9hashbrown3raw5inner13RawTableInner22fallible_with_capacity17h34c40759b3f36f87E.exit: ; preds = %_ZN9hashbrown3raw5inner11TableLayout20calculate_layout_for17hc48ee78c4b12348aE.llvm.7353555270774193422.exit.i.i
-  %57 = icmp ult i64 %.sroa.4.0.i.ph.i, 9
+  %57 = icmp samesign ult i64 %.sroa.4.0.i.ph.i, 9
   %58 = add nsw i64 %.sroa.4.0.i.ph.i, -1
   %59 = lshr i64 %.sroa.4.0.i.ph.i, 3
   %60 = mul nuw nsw i64 %59, 7

@@ -3228,7 +3228,7 @@ define internal void @dissect_pcep_xro_obj(ptr noundef %0, ptr noundef %1, ptr n
   %19 = load i32, ptr @hf_pcep_xro_flags_f, align 4
   %20 = tail call ptr @proto_tree_add_item(ptr noundef %18, i32 noundef %19, ptr noundef %2, i32 noundef %15, i32 noundef 2, i32 noundef 0) #2
   %21 = add nsw i32 %4, -8
-  %22 = icmp ult i32 %21, 2
+  %22 = icmp samesign ult i32 %21, 2
   br i1 %22, label %25, label %.preheader
 
 .preheader:                                       ; preds = %11
@@ -3583,7 +3583,7 @@ define internal void @dissect_pcep_obj_unreach_destination(ptr noundef %0, ptr n
 .lr.ph.split.us:                                  ; preds = %.lr.ph, %11
   %.042.us = phi i32 [ %15, %11 ], [ %8, %.lr.ph ]
   %.03441.us = phi i32 [ %14, %11 ], [ %3, %.lr.ph ]
-  %10 = icmp ult i32 %.042.us, 4
+  %10 = icmp samesign ult i32 %.042.us, 4
   br i1 %10, label %.split.us, label %11
 
 11:                                               ; preds = %.lr.ph.split.us
@@ -3597,7 +3597,7 @@ define internal void @dissect_pcep_obj_unreach_destination(ptr noundef %0, ptr n
 .lr.ph.split.us44:                                ; preds = %.lr.ph, %18
   %.042.us45 = phi i32 [ %22, %18 ], [ %8, %.lr.ph ]
   %.03441.us46 = phi i32 [ %21, %18 ], [ %3, %.lr.ph ]
-  %17 = icmp ult i32 %.042.us45, 16
+  %17 = icmp samesign ult i32 %.042.us45, 16
   br i1 %17, label %.split48.us, label %18
 
 18:                                               ; preds = %.lr.ph.split.us44

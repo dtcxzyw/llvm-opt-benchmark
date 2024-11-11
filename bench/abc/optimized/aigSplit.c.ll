@@ -689,7 +689,7 @@ Abc_Clock.exit:                                   ; preds = %3, %9
   br label %116
 
 18:                                               ; preds = %15
-  %19 = icmp ugt i32 %1, 16
+  %19 = icmp samesign ugt i32 %1, 16
   br i1 %19, label %20, label %21
 
 20:                                               ; preds = %18

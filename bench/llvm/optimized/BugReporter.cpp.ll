@@ -13482,7 +13482,7 @@ _ZN9__gnu_cxx5__ops15_Iter_comp_iterIN12_GLOBAL__N_113BugPathGetter15PriorityCom
   %73 = getelementptr inbounds i8, ptr %.069.i.i.i.i.i, i64 -8
   store ptr %72, ptr %73, align 8
   %74 = add nsw i64 %.010.i.i.i.i.i, -1
-  %75 = icmp ugt i64 %.010.i.i.i.i.i, 1
+  %75 = icmp samesign ugt i64 %.010.i.i.i.i.i, 1
   br i1 %75, label %.lr.ph.i.i.i.i.i, label %_ZSt13move_backwardIPSt4pairIPN5clang4ento22PathSensitiveBugReportEPKNS2_12ExplodedNodeEES9_ET0_T_SB_SA_.exit, !llvm.loop !243
 
 _ZSt13move_backwardIPSt4pairIPN5clang4ento22PathSensitiveBugReportEPKNS2_12ExplodedNodeEES9_ET0_T_SB_SA_.exit: ; preds = %.lr.ph.i.i.i.i.i, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN12_GLOBAL__N_113BugPathGetter15PriorityCompareILb1EEEEclIPSt4pairIPN5clang4ento22PathSensitiveBugReportEPKNSA_12ExplodedNodeEESH_EEbT_T0_.exit.thread

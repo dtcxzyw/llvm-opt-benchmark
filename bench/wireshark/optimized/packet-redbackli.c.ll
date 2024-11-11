@@ -105,7 +105,7 @@ define internal i32 @redbackli_dissect(ptr noundef %0, ptr noundef %1, ptr nound
   %15 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %14) #2
   %16 = add nsw i32 %.035.us, -2
   %17 = zext i8 %15 to i32
-  %18 = icmp ult i32 %16, %17
+  %18 = icmp samesign ult i32 %16, %17
   br i1 %18, label %._crit_edge, label %redbackli_dissect_avp.exit.us
 
 redbackli_dissect_avp.exit.us:                    ; preds = %.lr.ph.split.us
@@ -125,7 +125,7 @@ redbackli_dissect_avp.exit.us:                    ; preds = %.lr.ph.split.us
   %27 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %26) #2
   %28 = add nsw i32 %.035, -2
   %29 = zext i8 %27 to i32
-  %30 = icmp ult i32 %28, %29
+  %30 = icmp samesign ult i32 %28, %29
   br i1 %30, label %._crit_edge, label %31
 
 31:                                               ; preds = %.lr.ph.split

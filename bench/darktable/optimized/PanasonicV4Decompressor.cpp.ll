@@ -176,7 +176,7 @@ define hidden void @_ZN8rawspeed23PanasonicV4DecompressorC2ENS_8RawImageENS_10By
 
 68:                                               ; preds = %62, %52
   %69 = phi i64 [ %59, %52 ], [ %67, %62 ]
-  %70 = icmp ugt i64 %69, 4294967295
+  %70 = icmp samesign ugt i64 %69, 4294967295
   br i1 %70, label %71, label %75
 
 71:                                               ; preds = %68
@@ -199,7 +199,7 @@ define hidden void @_ZN8rawspeed23PanasonicV4DecompressorC2ENS_8RawImageENS_10By
   %80 = getelementptr inbounds i8, ptr %2, i64 8
   %81 = load i32, ptr %80, align 8, !tbaa !17, !noalias !99
   %82 = zext i32 %81 to i64
-  %83 = icmp ugt i64 %79, %82
+  %83 = icmp samesign ugt i64 %79, %82
   br i1 %83, label %84, label %86
 
 84:                                               ; preds = %75

@@ -333,7 +333,7 @@ define dso_local range(i64 -22, -9223372036854775808) i64 @dcache_dir_lseek(ptr 
   %21 = load ptr, ptr %20, align 8
   %22 = getelementptr inbounds i8, ptr %21, i64 160
   tail call void @down_read(ptr noundef %22) #15
-  %23 = icmp ugt i64 %11, 2
+  %23 = icmp samesign ugt i64 %11, 2
   br i1 %23, label %24, label %28
 
 24:                                               ; preds = %17
@@ -1689,7 +1689,7 @@ define dso_local noundef range(i32 -39, 1) i32 @simple_rename(ptr nocapture read
   br i1 %10, label %11, label %74
 
 11:                                               ; preds = %6
-  %12 = icmp ult i32 %5, 2
+  %12 = icmp samesign ult i32 %5, 2
   br i1 %12, label %15, label %13
 
 13:                                               ; preds = %11

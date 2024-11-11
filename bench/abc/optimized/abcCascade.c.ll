@@ -1780,7 +1780,7 @@ Abc_ResPrint.exit:                                ; preds = %._crit_edge.us.i
   br i1 %exitcond886.not, label %.loopexit, label %40, !llvm.loop !31
 
 176:                                              ; preds = %23
-  %177 = icmp ult i32 %2, 19
+  %177 = icmp samesign ult i32 %2, 19
   br i1 %177, label %178, label %488
 
 178:                                              ; preds = %176
@@ -2450,7 +2450,7 @@ Abc_ResPrint.exit380:                             ; preds = %._crit_edge.us.i377
   br i1 %exitcond885.not, label %.loopexit, label %196, !llvm.loop !33
 
 488:                                              ; preds = %176
-  %489 = icmp ult i32 %2, 25
+  %489 = icmp samesign ult i32 %2, 25
   br i1 %489, label %490, label %.loopexit
 
 490:                                              ; preds = %488

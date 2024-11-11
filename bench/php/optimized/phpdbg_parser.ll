@@ -187,7 +187,7 @@ define hidden range(i32 0, 3) i32 @phpdbg_parse() local_unnamed_addr #0 {
   br i1 %49, label %.thread578, label %50
 
 50:                                               ; preds = %48
-  %51 = icmp ult i32 %.5, 278
+  %51 = icmp samesign ult i32 %.5, 278
   br i1 %51, label %52, label %57
 
 52:                                               ; preds = %50

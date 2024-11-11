@@ -565,7 +565,7 @@ if.else37:                                        ; preds = %do.body
   %conv20 = zext i16 %5 to i32
   %add = add nsw i32 %shl, -56613888
   %sub21 = add nuw nsw i32 %add, %conv20
-  %cmp38 = icmp ult i32 %sub21, 65536
+  %cmp38 = icmp samesign ult i32 %sub21, 65536
   br i1 %cmp38, label %if.then39, label %if.else46
 
 if.then39:                                        ; preds = %if.else30, %if.else37

@@ -2250,7 +2250,7 @@ proto_item_set_hidden.exit242.i.i:                ; preds = %461, %458, %452
   %480 = load i8, ptr %162, align 4
   %481 = or i8 %480, 8
   store i8 %481, ptr %162, align 4
-  %482 = icmp ugt i8 %178, 2
+  %482 = icmp samesign ugt i8 %178, 2
   br i1 %482, label %483, label %487
 
 483:                                              ; preds = %478
@@ -2280,7 +2280,7 @@ proto_item_set_hidden.exit242.i.i:                ; preds = %461, %458, %452
   %499 = load i32, ptr @hf_reserved, align 4
   %500 = call ptr @proto_tree_add_item(ptr noundef nonnull %338, i32 noundef %499, ptr noundef %72, i32 noundef %498, i32 noundef 4, i32 noundef 0) #7
   %501 = add i32 %.0218.i.i, 5
-  %502 = icmp ugt i8 %178, 1
+  %502 = icmp samesign ugt i8 %178, 1
   br i1 %502, label %503, label %507
 
 503:                                              ; preds = %495
@@ -2848,7 +2848,7 @@ define internal range(i32 0, 65536) i32 @dissect_dpt_trailer_noise_low(ptr nound
   %25 = tail call ptr @tfs_get_string(i32 noundef %.0181, ptr noundef null) #7
   %26 = tail call ptr @tfs_get_string(i32 noundef %.0181, ptr noundef nonnull @f5tfs_ing) #7
   %27 = tail call ptr (ptr, i32, ptr, i32, i32, i64, ptr, ...) @proto_tree_add_boolean_format_value(ptr noundef %15, i32 noundef %23, ptr noundef %0, i32 noundef 8, i32 noundef 1, i64 noundef %24, ptr noundef nonnull @.str.290, ptr noundef %25, ptr noundef %26) #7
-  %28 = icmp ugt i16 %9, 2
+  %28 = icmp samesign ugt i16 %9, 2
   br i1 %28, label %29, label %40
 
 29:                                               ; preds = %11
@@ -2906,7 +2906,7 @@ proto_item_set_generated.exit:                    ; preds = %29, %30, %33
   br label %61
 
 61:                                               ; preds = %58, %40
-  %62 = icmp ult i16 %9, 4
+  %62 = icmp samesign ult i16 %9, 4
   br i1 %62, label %63, label %88
 
 63:                                               ; preds = %61

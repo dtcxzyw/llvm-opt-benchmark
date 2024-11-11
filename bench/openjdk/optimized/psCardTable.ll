@@ -11631,7 +11631,7 @@ define linkonce_odr hidden noundef ptr @_ZNK16ObjectStartArray12object_startEPP1
   %18 = getelementptr inbounds i8, ptr %.010.i, i64 %.neg.i
   %19 = load i8, ptr %18, align 1
   %20 = zext i8 %19 to i32
-  %21 = icmp ugt i32 %10, %20
+  %21 = icmp samesign ugt i32 %10, %20
   br i1 %21, label %_ZNK16ObjectStartArray30block_start_reaching_into_cardEPP12HeapWordImpl.exit, label %.lr.ph.i, !llvm.loop !93
 
 _ZNK16ObjectStartArray30block_start_reaching_into_cardEPP12HeapWordImpl.exit: ; preds = %.lr.ph.i, %2

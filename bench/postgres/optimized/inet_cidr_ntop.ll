@@ -41,7 +41,7 @@ define dso_local noundef ptr @pg_inet_cidr_ntop(i32 noundef %0, ptr nocapture no
   br label %56
 
 17:                                               ; preds = %11
-  %.not67.i = icmp ult i32 %2, 8
+  %.not67.i = icmp samesign ult i32 %2, 8
   br i1 %.not67.i, label %._crit_edge.i, label %.lr.ph.preheader.i
 
 .lr.ph.preheader.i:                               ; preds = %17

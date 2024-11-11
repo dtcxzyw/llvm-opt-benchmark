@@ -31951,7 +31951,7 @@ default.unreachable1259:                          ; preds = %283
   %342 = add nsw i32 %340, -1
   %343 = add nsw i32 %342, %341
   %344 = lshr i32 %343, %.0181.i
-  %345 = icmp ugt i32 %344, 65535
+  %345 = icmp samesign ugt i32 %344, 65535
   %346 = trunc nuw i32 %344 to i16
   %.sroa.5173.2.i = select i1 %345, i16 %.sroa.5173.0.i1836, i16 %346
   call void @llvm.lifetime.start.p0(i64 0, ptr nonnull %6)

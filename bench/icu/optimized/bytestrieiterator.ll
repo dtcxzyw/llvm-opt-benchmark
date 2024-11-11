@@ -919,7 +919,7 @@ if.else46:                                        ; preds = %land.lhs.true, %lor
   br i1 %cmp.i48, label %if.then.i, label %if.end49
 
 if.then.i:                                        ; preds = %if.else46
-  %cmp1.i = icmp ult i8 %.lcssa63, -40
+  %cmp1.i = icmp samesign ult i8 %.lcssa63, -40
   br i1 %cmp1.i, label %if.then2.i, label %if.else.i
 
 if.then2.i:                                       ; preds = %if.then.i
@@ -927,7 +927,7 @@ if.then2.i:                                       ; preds = %if.then.i
   br label %if.end49
 
 if.else.i:                                        ; preds = %if.then.i
-  %cmp3.i = icmp ult i8 %.lcssa63, -4
+  %cmp3.i = icmp samesign ult i8 %.lcssa63, -4
   br i1 %cmp3.i, label %if.then4.i, label %if.else5.i
 
 if.then4.i:                                       ; preds = %if.else.i
@@ -969,11 +969,11 @@ if.then58:                                        ; preds = %land.lhs.true53
   br label %return
 
 if.end60:                                         ; preds = %land.lhs.true53
-  %cmp61 = icmp ult i8 %24, 16
+  %cmp61 = icmp samesign ult i8 %24, 16
   br i1 %cmp61, label %if.then62, label %land.lhs.true78
 
 if.end60.thread:                                  ; preds = %if.end50
-  %cmp6156 = icmp ult i8 %24, 16
+  %cmp6156 = icmp samesign ult i8 %24, 16
   br i1 %cmp6156, label %if.then62, label %if.else72.thread
 
 if.else72.thread:                                 ; preds = %if.end60.thread
@@ -1056,7 +1056,7 @@ while.body:                                       ; preds = %while.body.lr.ph, %
   br i1 %cmp.i, label %if.then.i, label %_ZN6icu_759BytesTrie9skipDeltaEPKh.exit
 
 if.then.i:                                        ; preds = %while.body
-  %cmp1.i = icmp ult i8 %1, -16
+  %cmp1.i = icmp samesign ult i8 %1, -16
   br i1 %cmp1.i, label %if.then2.i, label %if.else.i
 
 if.then2.i:                                       ; preds = %if.then.i
@@ -1064,7 +1064,7 @@ if.then2.i:                                       ; preds = %if.then.i
   br label %_ZN6icu_759BytesTrie9skipDeltaEPKh.exit
 
 if.else.i:                                        ; preds = %if.then.i
-  %cmp4.i = icmp ult i8 %1, -2
+  %cmp4.i = icmp samesign ult i8 %1, -2
   br i1 %cmp4.i, label %if.then5.i, label %if.else6.i
 
 if.then5.i:                                       ; preds = %if.else.i
@@ -1158,7 +1158,7 @@ if.then.i26:                                      ; preds = %_ZN6icu_759UVector3
 
 _ZN6icu_759UVector3210addElementEiR10UErrorCode.exit37: ; preds = %_ZN6icu_759UVector3214ensureCapacityEiR10UErrorCode.exit.i31, %if.then.i26
   %call5 = tail call noundef ptr @_ZN6icu_759BytesTrie11jumpByDeltaEPKh(ptr noundef nonnull %incdec.ptr)
-  %cmp = icmp ugt i32 %length.addr.082, 11
+  %cmp = icmp samesign ugt i32 %length.addr.082, 11
   br i1 %cmp, label %while.body, label %while.end, !llvm.loop !6
 
 while.end:                                        ; preds = %_ZN6icu_759UVector3210addElementEiR10UErrorCode.exit37, %entry
@@ -1176,7 +1176,7 @@ while.end:                                        ; preds = %_ZN6icu_759UVector3
   br i1 %cmp.i38, label %if.then.i40, label %_ZN6icu_759BytesTrie9skipValueEPKhi.exit
 
 if.then.i40:                                      ; preds = %while.end
-  %cmp1.i41 = icmp ult i8 %20, -40
+  %cmp1.i41 = icmp samesign ult i8 %20, -40
   br i1 %cmp1.i41, label %if.then2.i44, label %if.else.i42
 
 if.then2.i44:                                     ; preds = %if.then.i40
@@ -1184,7 +1184,7 @@ if.then2.i44:                                     ; preds = %if.then.i40
   br label %_ZN6icu_759BytesTrie9skipValueEPKhi.exit
 
 if.else.i42:                                      ; preds = %if.then.i40
-  %cmp3.i = icmp ult i8 %20, -4
+  %cmp3.i = icmp samesign ult i8 %20, -4
   br i1 %cmp3.i, label %if.then4.i, label %if.else5.i
 
 if.then4.i:                                       ; preds = %if.else.i42

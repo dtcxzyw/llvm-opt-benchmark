@@ -6271,7 +6271,7 @@ keytype_for_cksumtype.exit.i76.i:                 ; preds = %434, %433
   br label %verify_krb5_pac_full_checksum.exit.i
 
 566:                                              ; preds = %557
-  %567 = icmp ult i32 %536, 5
+  %567 = icmp samesign ult i32 %536, 5
   br i1 %567, label %572, label %568
 
 568:                                              ; preds = %566

@@ -124,7 +124,7 @@ if.end77:                                         ; preds = %if.end73
   br i1 %tobool80.not, label %err, label %if.end82
 
 if.end82:                                         ; preds = %if.end77
-  %cmp83 = icmp ugt i32 %cond44, 1
+  %cmp83 = icmp samesign ugt i32 %cond44, 1
   br i1 %cmp83, label %if.then84, label %if.end105
 
 if.then84:                                        ; preds = %if.end82

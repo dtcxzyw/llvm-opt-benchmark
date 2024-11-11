@@ -5828,7 +5828,7 @@ define void @Abc_SclUndoRecentChanges(ptr nocapture noundef readonly %0, ptr noc
   br label %31
 
 31:                                               ; preds = %10, %28, %30
-  %32 = icmp ugt i64 %indvars.iv, 1
+  %32 = icmp samesign ugt i64 %indvars.iv, 1
   br i1 %32, label %10, label %._crit_edge, !llvm.loop !48
 
 ._crit_edge:                                      ; preds = %31, %2
@@ -7043,7 +7043,7 @@ Abc_Clock.exit296:                                ; preds = %376, %379
   br label %436
 
 436:                                              ; preds = %435, %433, %415
-  %437 = icmp ugt i64 %indvars.iv.i299, 1
+  %437 = icmp samesign ugt i64 %indvars.iv.i299, 1
   br i1 %437, label %415, label %Abc_SclUndoRecentChanges.exit, !llvm.loop !48
 
 Abc_SclUndoRecentChanges.exit:                    ; preds = %436

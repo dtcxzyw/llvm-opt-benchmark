@@ -12,7 +12,7 @@ entry:
   br i1 %cmp.i, label %land.lhs.true, label %if.end.i
 
 if.end.i:                                         ; preds = %entry
-  %cmp1.i = icmp ult i32 %tag, 31
+  %cmp1.i = icmp samesign ult i32 %tag, 31
   br i1 %cmp1.i, label %int_start_context.exit, label %land.end
 
 int_start_context.exit:                           ; preds = %if.end.i
@@ -88,7 +88,7 @@ entry:
   br i1 %cmp.i, label %land.lhs.true, label %if.end.i
 
 if.end.i:                                         ; preds = %entry
-  %cmp1.i = icmp ult i32 %tag, 31
+  %cmp1.i = icmp samesign ult i32 %tag, 31
   br i1 %cmp1.i, label %int_start_context.exit, label %land.end
 
 int_start_context.exit:                           ; preds = %if.end.i
@@ -180,7 +180,7 @@ entry:
   br i1 %cmp.i, label %land.lhs.true, label %if.end.i
 
 if.end.i:                                         ; preds = %entry
-  %cmp1.i = icmp ult i32 %tag, 31
+  %cmp1.i = icmp samesign ult i32 %tag, 31
   br i1 %cmp1.i, label %int_start_context.exit, label %land.end
 
 int_start_context.exit:                           ; preds = %if.end.i
@@ -300,7 +300,7 @@ entry:
   br i1 %cmp.i, label %land.lhs.true, label %if.end.i
 
 if.end.i:                                         ; preds = %entry
-  %cmp1.i = icmp ult i32 %tag, 31
+  %cmp1.i = icmp samesign ult i32 %tag, 31
   br i1 %cmp1.i, label %int_start_context.exit, label %land.end
 
 int_start_context.exit:                           ; preds = %if.end.i
@@ -497,7 +497,7 @@ entry:
   br i1 %cmp.i, label %land.lhs.true, label %if.end.i
 
 if.end.i:                                         ; preds = %entry
-  %cmp1.i = icmp ult i32 %tag, 31
+  %cmp1.i = icmp samesign ult i32 %tag, 31
   br i1 %cmp1.i, label %int_start_context.exit, label %land.end
 
 int_start_context.exit:                           ; preds = %if.end.i
@@ -572,7 +572,7 @@ entry:
   br i1 %cmp.i, label %land.rhs, label %if.end.i
 
 if.end.i:                                         ; preds = %entry
-  %cmp1.i = icmp ult i32 %tag, 31
+  %cmp1.i = icmp samesign ult i32 %tag, 31
   br i1 %cmp1.i, label %int_start_context.exit, label %land.end
 
 int_start_context.exit:                           ; preds = %if.end.i
@@ -635,7 +635,7 @@ land.rhs:                                         ; preds = %cond.false, %cond.t
   br i1 %cmp.i, label %int_end_context.exit, label %if.end.i
 
 if.end.i:                                         ; preds = %land.rhs
-  %cmp1.i = icmp ult i32 %tag, 31
+  %cmp1.i = icmp samesign ult i32 %tag, 31
   br i1 %cmp1.i, label %if.end7.i, label %int_end_context.exit
 
 if.end7.i:                                        ; preds = %if.end.i

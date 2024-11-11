@@ -325,7 +325,7 @@ define dso_local void @ResourceOwnerForget(ptr nocapture noundef %0, i64 noundef
   br label %75
 
 28:                                               ; preds = %16, %20
-  %29 = icmp ugt i64 %indvars.iv, 1
+  %29 = icmp samesign ugt i64 %indvars.iv, 1
   br i1 %29, label %16, label %._crit_edge, !llvm.loop !8
 
 ._crit_edge:                                      ; preds = %28, %11

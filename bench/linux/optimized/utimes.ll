@@ -235,7 +235,7 @@ define dso_local range(i64 -2147483648, 2147483648) i64 @do_utimes(i32 noundef %
   %26 = lshr exact i32 %3, 8
   %27 = and i32 %26, 1
   %28 = xor i32 %27, 1
-  %29 = icmp ult i32 %3, 4096
+  %29 = icmp samesign ult i32 %3, 4096
   %30 = or disjoint i32 %28, 16384
   %31 = select i1 %29, i32 %28, i32 %30
   %32 = call i32 @user_path_at_empty(i32 noundef %0, ptr noundef %1, i32 noundef %31, ptr noundef nonnull %5, ptr noundef null) #7

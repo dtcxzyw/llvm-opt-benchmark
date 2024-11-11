@@ -183,7 +183,7 @@ uloc_getAvailable_75.exit:                        ; preds = %invoke.cont2.i, %if
   call void @_ZN6icu_759ErrorCodeD1Ev(ptr noundef nonnull align 8 dereferenceable(12) %status.i4) #13
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %status.i4)
   call void @_ZN6icu_756Locale14setFromPOSIXIDEPKc(ptr noundef nonnull align 8 dereferenceable(217) %arrayidx, ptr noundef %retval.0.i7)
-  %cmp11 = icmp ugt i64 %indvars.iv, 1
+  %cmp11 = icmp samesign ugt i64 %indvars.iv, 1
   br i1 %cmp11, label %for.body, label %for.end, !llvm.loop !4
 
 for.end:                                          ; preds = %uloc_getAvailable_75.exit, %if.end10.thread, %if.end10

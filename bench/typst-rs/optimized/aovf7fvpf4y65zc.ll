@@ -5049,7 +5049,7 @@ define hidden void @"_ZN68_$LT$ecow..vec..EcoVec$LT$T$GT$$u20$as$u20$core..ops..
   %9 = shl nuw i64 %.val.i.i, 4
   %10 = tail call { i64, i1 } @llvm.uadd.with.overflow.i64(i64 %9, i64 16)
   %11 = extractvalue { i64, i1 } %10, 1
-  %12 = icmp ugt i64 %.val.i.i, 576460752303423486
+  %12 = icmp samesign ugt i64 %.val.i.i, 576460752303423486
   %or.cond.i.not.i = or i1 %12, %11
   br i1 %or.cond.i.not.i, label %.thread.i, label %"_ZN4ecow3vec15EcoVec$LT$T$GT$4size17ha289bedffb069a9fE.exit"
 

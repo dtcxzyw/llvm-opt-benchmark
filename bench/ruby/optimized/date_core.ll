@@ -1318,7 +1318,7 @@ f_negative_p.exit.i.i:                            ; preds = %56
   br label %guess_style.exit.i
 
 67:                                               ; preds = %62
-  %68 = icmp ugt i64 %63, 1930
+  %68 = icmp samesign ugt i64 %63, 1930
   br i1 %68, label %69, label %guess_style.exit.thread.i
 
 69:                                               ; preds = %67
@@ -3502,7 +3502,7 @@ f_negative_p.exit.i:                              ; preds = %94
   br label %guess_style.exit
 
 105:                                              ; preds = %100
-  %106 = icmp ugt i64 %101, 1930
+  %106 = icmp samesign ugt i64 %101, 1930
   br i1 %106, label %107, label %guess_style.exit.thread
 
 107:                                              ; preds = %105
@@ -3931,7 +3931,7 @@ m_real_jd.exit26.i:                               ; preds = %17, %14
   %41 = add i32 %40, %36
   %42 = icmp slt i32 %41, 0
   %43 = add nsw i32 %41, 86400
-  %44 = icmp ugt i32 %41, 86399
+  %44 = icmp samesign ugt i32 %41, 86399
   %45 = add nsw i32 %41, -86400
   %spec.select.i.i.i.i = select i1 %44, i32 %45, i32 %41
   %.0.i.i.i.i = select i1 %42, i32 %43, i32 %spec.select.i.i.i.i
@@ -4203,7 +4203,7 @@ define internal i64 @d_lite_day_fraction(i64 noundef %0) #0 {
   %21 = add i32 %20, %16
   %22 = icmp slt i32 %21, 0
   %23 = add nsw i32 %21, 86400
-  %24 = icmp ugt i32 %21, 86399
+  %24 = icmp samesign ugt i32 %21, 86399
   %25 = add nsw i32 %21, -86400
   %spec.select.i.i.i.i = select i1 %24, i32 %25, i32 %21
   %.0.i.i.i.i = select i1 %22, i32 %23, i32 %spec.select.i.i.i.i
@@ -4219,7 +4219,7 @@ m_sf.exit.i:                                      ; preds = %7, %.get_c_df.exit_
   %28 = add nsw i32 %.val.i.i, %.val3.i.i
   %29 = icmp slt i32 %28, 0
   %30 = add nsw i32 %28, 86400
-  %31 = icmp ugt i32 %28, 86399
+  %31 = icmp samesign ugt i32 %28, 86399
   %32 = add nsw i32 %28, -86400
   %spec.select.i.i4.i.i = select i1 %31, i32 %32, i32 %28
   %.0.i.i5.i.i = select i1 %29, i32 %30, i32 %spec.select.i.i4.i.i
@@ -4923,7 +4923,7 @@ m_nth.exit:                                       ; preds = %rb_type.exit.thread
   br i1 %48, label %.sink.split, label %49
 
 49:                                               ; preds = %45
-  %50 = icmp ugt i32 %47, 213447716
+  %50 = icmp samesign ugt i32 %47, 213447716
   br i1 %50, label %.sink.split, label %53
 
 .sink.split:                                      ; preds = %49, %45
@@ -5105,7 +5105,7 @@ rbimpl_intern_const.exit334:                      ; preds = %.lr.ph.i332, %124
   br i1 %132, label %.sink.split750, label %133
 
 133:                                              ; preds = %130
-  %134 = icmp ugt i32 %131, 213447716
+  %134 = icmp samesign ugt i32 %131, 213447716
   br i1 %134, label %.sink.split750, label %137
 
 .sink.split750:                                   ; preds = %133, %130
@@ -5456,7 +5456,7 @@ f_lt_p.exit.thread597:                            ; preds = %286, %f_lt_p.exit
   br label %m_sf.exit
 
 291:                                              ; preds = %286
-  %.not.i377 = icmp ult i64 %284, 2000000000
+  %.not.i377 = icmp samesign ult i64 %284, 2000000000
   br i1 %.not.i377, label %m_sf.exit, label %f_ge_p.exit.thread604
 
 f_ge_p.exit:                                      ; preds = %f_lt_p.exit
@@ -5509,7 +5509,7 @@ m_sf.exit:                                        ; preds = %291, %276, %f_zero_
   %315 = add i32 %314, %310
   %316 = icmp slt i32 %315, 0
   %317 = add nsw i32 %315, 86400
-  %318 = icmp ugt i32 %315, 86399
+  %318 = icmp samesign ugt i32 %315, 86399
   %319 = add nsw i32 %315, -86400
   %spec.select.i.i.i = select i1 %318, i32 %319, i32 %315
   %.0.i.i.i = select i1 %316, i32 %317, i32 %spec.select.i.i.i
@@ -5549,7 +5549,7 @@ m_sf.exit:                                        ; preds = %291, %276, %f_zero_
   %339 = add i32 %338, %334
   %340 = icmp slt i32 %339, 0
   %341 = add nsw i32 %339, 86400
-  %342 = icmp ugt i32 %339, 86399
+  %342 = icmp samesign ugt i32 %339, 86399
   %343 = add nsw i32 %339, -86400
   %spec.select.i.i.i388 = select i1 %342, i32 %343, i32 %339
   %.0.i.i.i389 = select i1 %340, i32 %341, i32 %spec.select.i.i.i388
@@ -5571,7 +5571,7 @@ m_df.exit390:                                     ; preds = %322, %.get_c_df.exi
   br label %m_df.exit
 
 351:                                              ; preds = %m_df.exit390
-  %352 = icmp ugt i32 %346, 86399
+  %352 = icmp samesign ugt i32 %346, 86399
   br i1 %352, label %353, label %m_df.exit
 
 353:                                              ; preds = %351
@@ -6115,7 +6115,7 @@ f_lt_p.exit492.thread644:                         ; preds = %536, %f_lt_p.exit49
   br label %m_sf.exit486
 
 541:                                              ; preds = %536
-  %.not.i494 = icmp ult i64 %534, 2000000000
+  %.not.i494 = icmp samesign ult i64 %534, 2000000000
   br i1 %.not.i494, label %m_sf.exit486, label %f_ge_p.exit496.thread651
 
 f_ge_p.exit496:                                   ; preds = %f_lt_p.exit492
@@ -6168,7 +6168,7 @@ m_sf.exit486:                                     ; preds = %541, %526, %f_zero_
   %565 = add i32 %564, %560
   %566 = icmp slt i32 %565, 0
   %567 = add nsw i32 %565, 86400
-  %568 = icmp ugt i32 %565, 86399
+  %568 = icmp samesign ugt i32 %565, 86399
   %569 = add nsw i32 %565, -86400
   %spec.select.i.i.i503 = select i1 %568, i32 %569, i32 %565
   %.0.i.i.i504 = select i1 %566, i32 %567, i32 %spec.select.i.i.i503
@@ -6208,7 +6208,7 @@ m_sf.exit486:                                     ; preds = %541, %526, %f_zero_
   %589 = add i32 %588, %584
   %590 = icmp slt i32 %589, 0
   %591 = add nsw i32 %589, 86400
-  %592 = icmp ugt i32 %589, 86399
+  %592 = icmp samesign ugt i32 %589, 86399
   %593 = add nsw i32 %589, -86400
   %spec.select.i.i.i512 = select i1 %592, i32 %593, i32 %589
   %.0.i.i.i513 = select i1 %590, i32 %591, i32 %spec.select.i.i.i512
@@ -6230,7 +6230,7 @@ m_df.exit514:                                     ; preds = %572, %.get_c_df.exi
   br label %m_df.exit505
 
 601:                                              ; preds = %m_df.exit514
-  %602 = icmp ugt i32 %596, 86399
+  %602 = icmp samesign ugt i32 %596, 86399
   br i1 %602, label %603, label %m_df.exit505
 
 603:                                              ; preds = %601
@@ -6251,7 +6251,7 @@ m_df.exit505:                                     ; preds = %551, %.get_c_df.exi
   br i1 %609, label %.sink.split754, label %610
 
 610:                                              ; preds = %607
-  %611 = icmp ugt i32 %608, 213447716
+  %611 = icmp samesign ugt i32 %608, 213447716
   br i1 %611, label %.sink.split754, label %614
 
 .sink.split754:                                   ; preds = %610, %607
@@ -6594,7 +6594,7 @@ m_nth.exit82.i:                                   ; preds = %13, %m_nth.exit.i
   %36 = add i32 %35, %31
   %37 = icmp slt i32 %36, 0
   %38 = add nsw i32 %36, 86400
-  %39 = icmp ugt i32 %36, 86399
+  %39 = icmp samesign ugt i32 %36, 86399
   %40 = add nsw i32 %36, -86400
   %spec.select.i.i.i.i = select i1 %39, i32 %40, i32 %36
   %.0.i.i.i.i = select i1 %37, i32 %38, i32 %spec.select.i.i.i.i
@@ -6639,7 +6639,7 @@ m_df.exit.i:                                      ; preds = %22, %.get_c_df.exit
   %62 = add i32 %61, %57
   %63 = icmp slt i32 %62, 0
   %64 = add nsw i32 %62, 86400
-  %65 = icmp ugt i32 %62, 86399
+  %65 = icmp samesign ugt i32 %62, 86399
   %66 = add nsw i32 %62, -86400
   %spec.select.i.i.i91.i = select i1 %65, i32 %66, i32 %62
   %.0.i.i.i92.i = select i1 %63, i32 %64, i32 %spec.select.i.i.i91.i
@@ -6682,7 +6682,7 @@ m_sf.exit98.i:                                    ; preds = %77, %m_sf.exit.i
   br i1 %81, label %.sink.split.i, label %82
 
 82:                                               ; preds = %m_sf.exit98.i
-  %83 = icmp ugt i32 %17, 213447716
+  %83 = icmp samesign ugt i32 %17, 213447716
   br i1 %83, label %.sink.split.i, label %86
 
 .sink.split.i:                                    ; preds = %82, %m_sf.exit98.i
@@ -6704,7 +6704,7 @@ m_sf.exit98.i:                                    ; preds = %77, %m_sf.exit.i
   br label %96
 
 91:                                               ; preds = %86
-  %92 = icmp ugt i32 %71, 86399
+  %92 = icmp samesign ugt i32 %71, 86399
   br i1 %92, label %93, label %96
 
 93:                                               ; preds = %91
@@ -6729,7 +6729,7 @@ f_lt_p.exit.i:                                    ; preds = %96
   br i1 %.not.i, label %f_ge_p.exit.i, label %f_ge_p.exit.thread.sink.split.i
 
 101:                                              ; preds = %98
-  %.not.i100.i = icmp ult i64 %80, 2000000000
+  %.not.i100.i = icmp samesign ult i64 %80, 2000000000
   br i1 %.not.i100.i, label %f_ge_p.exit.thread.i, label %f_ge_p.exit.thread.sink.split.i
 
 f_ge_p.exit.i:                                    ; preds = %f_lt_p.exit.i
@@ -7766,7 +7766,7 @@ f_eqeq_p.exit.thread72.i:                         ; preds = %f_eqeq_p.exit.i, %7
   %101 = add i32 %100, %96
   %102 = icmp slt i32 %101, 0
   %103 = add nsw i32 %101, 86400
-  %104 = icmp ugt i32 %101, 86399
+  %104 = icmp samesign ugt i32 %101, 86399
   %105 = add nsw i32 %101, -86400
   %spec.select.i.i.i.i = select i1 %104, i32 %105, i32 %101
   %.0.i.i.i.i = select i1 %102, i32 %103, i32 %spec.select.i.i.i.i
@@ -7810,7 +7810,7 @@ m_df.exit.i:                                      ; preds = %87, %.get_c_df.exit
   %126 = add i32 %125, %121
   %127 = icmp slt i32 %126, 0
   %128 = add nsw i32 %126, 86400
-  %129 = icmp ugt i32 %126, 86399
+  %129 = icmp samesign ugt i32 %126, 86399
   %130 = add nsw i32 %126, -86400
   %spec.select.i.i.i53.i = select i1 %129, i32 %130, i32 %126
   %.0.i.i.i54.i = select i1 %127, i32 %128, i32 %spec.select.i.i.i53.i
@@ -8185,7 +8185,7 @@ m_nth.exit:                                       ; preds = %1, %6
   %28 = add i32 %27, %23
   %29 = icmp slt i32 %28, 0
   %30 = add nsw i32 %28, 86400
-  %31 = icmp ugt i32 %28, 86399
+  %31 = icmp samesign ugt i32 %28, 86399
   %32 = add nsw i32 %28, -86400
   %spec.select.i.i.i = select i1 %31, i32 %32, i32 %28
   %.0.i.i.i = select i1 %29, i32 %30, i32 %spec.select.i.i.i
@@ -8319,7 +8319,7 @@ m_real_jd.exit.i:                                 ; preds = %8, %1
   %29 = add i32 %28, %24
   %30 = icmp slt i32 %29, 0
   %31 = add nsw i32 %29, 86400
-  %32 = icmp ugt i32 %29, 86399
+  %32 = icmp samesign ugt i32 %29, 86399
   %33 = add nsw i32 %29, -86400
   %spec.select.i.i.i.i = select i1 %32, i32 %33, i32 %29
   %.0.i.i.i.i = select i1 %30, i32 %31, i32 %spec.select.i.i.i.i
@@ -8610,19 +8610,19 @@ m_real_local_jd.exit:                             ; preds = %1, %12
   br i1 %20, label %jisx0301_date_format.exit, label %21
 
 21:                                               ; preds = %17
-  %22 = icmp ult i32 %19, 2419614
+  %22 = icmp samesign ult i32 %19, 2419614
   br i1 %22, label %29, label %23
 
 23:                                               ; preds = %21
-  %24 = icmp ult i32 %19, 2424875
+  %24 = icmp samesign ult i32 %19, 2424875
   br i1 %24, label %29, label %25
 
 25:                                               ; preds = %23
-  %26 = icmp ult i32 %19, 2447535
+  %26 = icmp samesign ult i32 %19, 2447535
   br i1 %26, label %29, label %27
 
 27:                                               ; preds = %25
-  %28 = icmp ult i32 %19, 2458605
+  %28 = icmp samesign ult i32 %19, 2458605
   %..i = select i1 %28, i64 -1988, i64 -2018
   %.16.i = select i1 %28, i32 72, i32 82
   br label %29
@@ -8730,7 +8730,7 @@ m_nth.exit:                                       ; preds = %1, %5
   %28 = add i32 %27, %23
   %29 = icmp slt i32 %28, 0
   %30 = add nsw i32 %28, 86400
-  %31 = icmp ugt i32 %28, 86399
+  %31 = icmp samesign ugt i32 %28, 86399
   %32 = add nsw i32 %28, -86400
   %spec.select.i.i.i = select i1 %31, i32 %32, i32 %28
   %.0.i.i.i = select i1 %29, i32 %30, i32 %spec.select.i.i.i
@@ -8971,11 +8971,11 @@ div_day.exit.i.i:                                 ; preds = %.lr.ph.i.i.i.i, %69
   br i1 %78, label %79, label %80
 
 79:                                               ; preds = %76
-  %.not9.i.i.i.i.i = icmp ugt i64 %77, -53375995583650
+  %.not9.i.i.i.i.i = icmp samesign ugt i64 %77, -53375995583650
   br i1 %.not9.i.i.i.i.i, label %safe_mul_p.exit.i.i.i.i, label %84
 
 80:                                               ; preds = %76
-  %.not.i.i.i.i.i = icmp ult i64 %77, 53375995583650
+  %.not.i.i.i.i.i = icmp samesign ult i64 %77, 53375995583650
   br i1 %.not.i.i.i.i.i, label %safe_mul_p.exit.i.i.i.i, label %84
 
 safe_mul_p.exit.i.i.i.i:                          ; preds = %80, %79
@@ -9014,11 +9014,11 @@ div_df.exit.i.i:                                  ; preds = %.lr.ph.i.i6.i.i, %d
   br i1 %92, label %93, label %94
 
 93:                                               ; preds = %90
-  %.not9.i.i.i.i = icmp ugt i64 %91, -4611686018
+  %.not9.i.i.i.i = icmp samesign ugt i64 %91, -4611686018
   br i1 %.not9.i.i.i.i, label %safe_mul_p.exit.i.i.i, label %98
 
 94:                                               ; preds = %90
-  %.not.i.i8.i.i = icmp ult i64 %91, 4611686018
+  %.not.i.i8.i.i = icmp samesign ult i64 %91, 4611686018
   br i1 %.not.i.i8.i.i, label %safe_mul_p.exit.i.i.i, label %98
 
 safe_mul_p.exit.i.i.i:                            ; preds = %94, %93
@@ -9043,11 +9043,11 @@ decode_day.exit.i:                                ; preds = %98, %safe_mul_p.exi
   br i1 %103, label %104, label %105
 
 104:                                              ; preds = %101
-  %.not9.i.i.i = icmp ugt i64 %102, -53375995583650
+  %.not9.i.i.i = icmp samesign ugt i64 %102, -53375995583650
   br i1 %.not9.i.i.i, label %safe_mul_p.exit.i.i, label %109
 
 105:                                              ; preds = %101
-  %.not.i.i.i = icmp ult i64 %102, 53375995583650
+  %.not.i.i.i = icmp samesign ult i64 %102, 53375995583650
   br i1 %.not.i.i.i, label %safe_mul_p.exit.i.i, label %109
 
 safe_mul_p.exit.i.i:                              ; preds = %105, %104
@@ -9141,8 +9141,8 @@ rb_num2int_inline.exit32.i:                       ; preds = %127, %125
   br i1 %or.cond.not.i33.i, label %f_lt_p.exit.i, label %135
 
 135:                                              ; preds = %133
-  %.not.i35.i = icmp ult i64 %.0.i.i.i, 2000000000
-  br i1 %.not.i35.i, label %f_ge_p.exit.thread.i, label %f_lt_p.exit.thread49.i
+  %or.cond146 = icmp ult i64 %.0.i.i.i, 2000000000
+  br i1 %or.cond146, label %f_ge_p.exit.thread.i, label %f_lt_p.exit.thread49.i
 
 f_lt_p.exit.i:                                    ; preds = %133
   %136 = tail call i64 (i64, i64, i32, ...) @rb_funcall(i64 noundef %.0.i.i.i, i64 noundef 60, i32 noundef 1, i64 noundef 1) #20
@@ -9869,7 +9869,7 @@ f_zero_p.exit57:                                  ; preds = %84, %84, %84, %84, 
   br i1 %.not37, label %f_zero_p.exit57.thread, label %f_zero_p.exit57.thread112
 
 f_zero_p.exit57.thread:                           ; preds = %93, %rb_type.exit.i51, %rb_type.exit.thread8.i54, %f_zero_p.exit57
-  %97 = icmp ugt i32 %0, 3
+  %97 = icmp samesign ugt i32 %0, 3
   br i1 %97, label %98, label %f_zero_p.exit57.thread112
 
 98:                                               ; preds = %f_zero_p.exit57.thread
@@ -9960,7 +9960,7 @@ f_zero_p.exit69:                                  ; preds = %119, %119, %119, %1
   br i1 %.not38, label %f_zero_p.exit69.thread, label %f_zero_p.exit69.thread120
 
 f_zero_p.exit69.thread:                           ; preds = %128, %rb_type.exit.i63, %rb_type.exit.thread8.i66, %f_zero_p.exit69
-  %132 = icmp ugt i32 %0, 2
+  %132 = icmp samesign ugt i32 %0, 2
   br i1 %132, label %133, label %f_zero_p.exit69.thread120
 
 133:                                              ; preds = %f_zero_p.exit69.thread
@@ -10040,7 +10040,7 @@ f_zero_p.exit78:                                  ; preds = %148, %148, %148, %1
   br i1 %.not39, label %f_zero_p.exit78.thread, label %f_zero_p.exit78.thread128
 
 f_zero_p.exit78.thread:                           ; preds = %157, %rb_type.exit.i72, %rb_type.exit.thread8.i75, %f_zero_p.exit78
-  %161 = icmp ugt i32 %0, 1
+  %161 = icmp samesign ugt i32 %0, 1
   br i1 %161, label %162, label %f_zero_p.exit78.thread128
 
 162:                                              ; preds = %f_zero_p.exit78.thread
@@ -10100,7 +10100,7 @@ c_valid_time_p.exit.thread:                       ; preds = %f_zero_p.exit78.thr
   %187 = add nuw nsw i32 %185, %181
   %188 = add nuw nsw i32 %187, %184
   %189 = sub i32 %188, %186
-  %190 = icmp ugt i32 %189, 86399
+  %190 = icmp samesign ugt i32 %189, 86399
   %191 = zext i1 %190 to i32
   %.inv.i = icmp sgt i32 %189, -1
   %.0.v.i = select i1 %.inv.i, i32 %191, i32 -1
@@ -10465,7 +10465,7 @@ f_zero_p.exit66:                                  ; preds = %87, %87, %87, %87, 
   br i1 %.not45, label %f_zero_p.exit66.thread, label %f_zero_p.exit66.thread126
 
 f_zero_p.exit66.thread:                           ; preds = %96, %rb_type.exit.i60, %rb_type.exit.thread8.i63, %f_zero_p.exit66
-  %100 = icmp ugt i32 %0, 4
+  %100 = icmp samesign ugt i32 %0, 4
   br i1 %100, label %101, label %f_zero_p.exit66.thread126
 
 101:                                              ; preds = %f_zero_p.exit66.thread
@@ -10556,7 +10556,7 @@ f_zero_p.exit78:                                  ; preds = %122, %122, %122, %1
   br i1 %.not46, label %f_zero_p.exit78.thread, label %f_zero_p.exit78.thread134
 
 f_zero_p.exit78.thread:                           ; preds = %131, %rb_type.exit.i72, %rb_type.exit.thread8.i75, %f_zero_p.exit78
-  %135 = icmp ugt i32 %0, 3
+  %135 = icmp samesign ugt i32 %0, 3
   br i1 %135, label %136, label %f_zero_p.exit78.thread134
 
 136:                                              ; preds = %f_zero_p.exit78.thread
@@ -10648,7 +10648,7 @@ f_zero_p.exit90:                                  ; preds = %157, %157, %157, %1
   br i1 %.not47, label %f_zero_p.exit90.thread, label %f_zero_p.exit90.thread142
 
 f_zero_p.exit90.thread:                           ; preds = %166, %rb_type.exit.i84, %rb_type.exit.thread8.i87, %f_zero_p.exit90
-  %170 = icmp ugt i32 %0, 2
+  %170 = icmp samesign ugt i32 %0, 2
   br i1 %170, label %171, label %f_zero_p.exit90.thread142
 
 171:                                              ; preds = %f_zero_p.exit90.thread
@@ -10742,7 +10742,7 @@ c_valid_time_p.exit.thread:                       ; preds = %184, %c_valid_time_
   %205 = add nuw nsw i32 %.030.i, %203
   %206 = add nuw nsw i32 %205, %202
   %207 = sub i32 %206, %204
-  %208 = icmp ugt i32 %207, 86399
+  %208 = icmp samesign ugt i32 %207, 86399
   %209 = zext i1 %208 to i32
   %.inv.i = icmp sgt i32 %207, -1
   %.0.v.i = select i1 %.inv.i, i32 %209, i32 -1
@@ -11175,7 +11175,7 @@ f_zero_p.exit112.i:                               ; preds = %rb_type.exit.i106.i
   br i1 %.not89.i, label %f_zero_p.exit112.thread.i, label %f_zero_p.exit112.thread202.i
 
 f_zero_p.exit112.thread.i:                        ; preds = %f_zero_p.exit112.i, %124, %rb_type.exit.thread8.i109.i, %rb_type.exit.i106.i
-  %128 = icmp ugt i32 %0, 5
+  %128 = icmp samesign ugt i32 %0, 5
   br i1 %128, label %129, label %f_zero_p.exit112.thread202.i
 
 129:                                              ; preds = %f_zero_p.exit112.thread.i
@@ -11266,7 +11266,7 @@ f_zero_p.exit124.i:                               ; preds = %rb_type.exit.i118.i
   br i1 %.not90.i, label %f_zero_p.exit124.thread.i, label %f_zero_p.exit124.thread210.i
 
 f_zero_p.exit124.thread.i:                        ; preds = %f_zero_p.exit124.i, %159, %rb_type.exit.thread8.i121.i, %rb_type.exit.i118.i
-  %163 = icmp ugt i32 %0, 4
+  %163 = icmp samesign ugt i32 %0, 4
   br i1 %163, label %164, label %f_zero_p.exit124.thread210.i
 
 164:                                              ; preds = %f_zero_p.exit124.thread.i
@@ -11358,7 +11358,7 @@ f_zero_p.exit136.i:                               ; preds = %rb_type.exit.i130.i
   br i1 %.not91.i, label %f_zero_p.exit136.thread.i, label %f_zero_p.exit136.thread218.i
 
 f_zero_p.exit136.thread.i:                        ; preds = %f_zero_p.exit136.i, %194, %rb_type.exit.thread8.i133.i, %rb_type.exit.i130.i
-  %198 = icmp ugt i32 %0, 3
+  %198 = icmp samesign ugt i32 %0, 3
   br i1 %198, label %199, label %f_zero_p.exit136.thread218.i
 
 199:                                              ; preds = %f_zero_p.exit136.thread.i
@@ -11464,7 +11464,7 @@ f_negative_p.exit.i.i:                            ; preds = %225
   br label %guess_style.exit.i
 
 236:                                              ; preds = %231
-  %237 = icmp ugt i64 %232, 1930
+  %237 = icmp samesign ugt i64 %232, 1930
   br i1 %237, label %238, label %guess_style.exit.thread.i
 
 238:                                              ; preds = %236
@@ -11687,7 +11687,7 @@ c_valid_time_p.exit155.thread.i:                  ; preds = %c_valid_time_p.exit
   %346 = add nuw nsw i32 %.030.i150.i, %344
   %347 = add nuw nsw i32 %346, %343
   %348 = sub i32 %347, %345
-  %349 = icmp ugt i32 %348, 86399
+  %349 = icmp samesign ugt i32 %348, 86399
   %350 = zext i1 %349 to i32
   %.inv.i.i = icmp sgt i32 %348, -1
   %.0.v.i.i = select i1 %.inv.i.i, i32 %350, i32 -1
@@ -12074,7 +12074,7 @@ f_zero_p.exit74:                                  ; preds = %90, %90, %90, %90, 
   br i1 %.not53, label %f_zero_p.exit74.thread, label %f_zero_p.exit74.thread139
 
 f_zero_p.exit74.thread:                           ; preds = %99, %rb_type.exit.i68, %rb_type.exit.thread8.i71, %f_zero_p.exit74
-  %103 = icmp ugt i32 %0, 5
+  %103 = icmp samesign ugt i32 %0, 5
   br i1 %103, label %104, label %f_zero_p.exit74.thread139
 
 104:                                              ; preds = %f_zero_p.exit74.thread
@@ -12165,7 +12165,7 @@ f_zero_p.exit86:                                  ; preds = %125, %125, %125, %1
   br i1 %.not54, label %f_zero_p.exit86.thread, label %f_zero_p.exit86.thread147
 
 f_zero_p.exit86.thread:                           ; preds = %134, %rb_type.exit.i80, %rb_type.exit.thread8.i83, %f_zero_p.exit86
-  %138 = icmp ugt i32 %0, 4
+  %138 = icmp samesign ugt i32 %0, 4
   br i1 %138, label %139, label %f_zero_p.exit86.thread147
 
 139:                                              ; preds = %f_zero_p.exit86.thread
@@ -12257,7 +12257,7 @@ f_zero_p.exit98:                                  ; preds = %160, %160, %160, %1
   br i1 %.not55, label %f_zero_p.exit98.thread, label %f_zero_p.exit98.thread155
 
 f_zero_p.exit98.thread:                           ; preds = %169, %rb_type.exit.i92, %rb_type.exit.thread8.i95, %f_zero_p.exit98
-  %173 = icmp ugt i32 %0, 3
+  %173 = icmp samesign ugt i32 %0, 3
   br i1 %173, label %174, label %f_zero_p.exit98.thread155
 
 174:                                              ; preds = %f_zero_p.exit98.thread
@@ -12391,7 +12391,7 @@ c_valid_time_p.exit.thread:                       ; preds = %201, %c_valid_time_
   %222 = add nuw nsw i32 %.030.i, %220
   %223 = add nuw nsw i32 %222, %219
   %224 = sub i32 %223, %221
-  %225 = icmp ugt i32 %224, 86399
+  %225 = icmp samesign ugt i32 %224, 86399
   %226 = zext i1 %225 to i32
   %.inv.i = icmp sgt i32 %224, -1
   %.0.v.i = select i1 %.inv.i, i32 %226, i32 -1
@@ -13181,7 +13181,7 @@ define internal range(i64 1, 64) i64 @d_lite_hour(i64 noundef %0) #0 {
   %14 = add nsw i32 %13, %11
   %15 = icmp slt i32 %14, 0
   %16 = add nsw i32 %14, 86400
-  %17 = icmp ugt i32 %14, 86399
+  %17 = icmp samesign ugt i32 %14, 86399
   %18 = add nsw i32 %14, -86400
   %spec.select.i.i.i = select i1 %17, i32 %18, i32 %14
   %.0.i.i.i = select i1 %15, i32 %16, i32 %spec.select.i.i.i
@@ -13239,7 +13239,7 @@ define internal range(i64 1, 128) i64 @d_lite_min(i64 noundef %0) #0 {
   %14 = add nsw i32 %13, %11
   %15 = icmp slt i32 %14, 0
   %16 = add nsw i32 %14, 86400
-  %17 = icmp ugt i32 %14, 86399
+  %17 = icmp samesign ugt i32 %14, 86399
   %18 = add nsw i32 %14, -86400
   %spec.select.i.i.i = select i1 %17, i32 %18, i32 %14
   %.0.i.i.i = select i1 %15, i32 %16, i32 %spec.select.i.i.i
@@ -13297,7 +13297,7 @@ define internal range(i64 1, 128) i64 @d_lite_sec(i64 noundef %0) #0 {
   %14 = add nsw i32 %13, %11
   %15 = icmp slt i32 %14, 0
   %16 = add nsw i32 %14, 86400
-  %17 = icmp ugt i32 %14, 86399
+  %17 = icmp samesign ugt i32 %14, 86399
   %18 = add nsw i32 %14, -86400
   %spec.select.i.i.i = select i1 %17, i32 %18, i32 %14
   %.0.i.i.i = select i1 %15, i32 %16, i32 %spec.select.i.i.i
@@ -13859,11 +13859,11 @@ rbimpl_intern_const.exit62:                       ; preds = %.lr.ph.i60, %rbimpl
   br i1 %26, label %27, label %28
 
 27:                                               ; preds = %24
-  %.not9.i.i = icmp ugt i64 %25, -4611686018
+  %.not9.i.i = icmp samesign ugt i64 %25, -4611686018
   br i1 %.not9.i.i, label %safe_mul_p.exit.i, label %32
 
 28:                                               ; preds = %24
-  %.not.i.i = icmp ult i64 %25, 4611686018
+  %.not.i.i = icmp samesign ult i64 %25, 4611686018
   br i1 %.not.i.i, label %safe_mul_p.exit.i, label %32
 
 safe_mul_p.exit.i:                                ; preds = %28, %27
@@ -14102,7 +14102,7 @@ rbimpl_intern_const.exit:                         ; preds = %.lr.ph.i, %8
   %25 = add nsw i32 %24, %22
   %26 = icmp slt i32 %25, 0
   %27 = add nsw i32 %25, 86400
-  %28 = icmp ugt i32 %25, 86399
+  %28 = icmp samesign ugt i32 %25, 86399
   %29 = add nsw i32 %25, -86400
   %spec.select.i.i.i = select i1 %28, i32 %29, i32 %25
   %.0.i.i.i = select i1 %26, i32 %27, i32 %spec.select.i.i.i
@@ -14152,7 +14152,7 @@ m_min.exit:                                       ; preds = %41
   %59 = add nsw i32 %58, %56
   %60 = icmp slt i32 %59, 0
   %61 = add nsw i32 %59, 86400
-  %62 = icmp ugt i32 %59, 86399
+  %62 = icmp samesign ugt i32 %59, 86399
   %63 = add nsw i32 %59, -86400
   %spec.select.i.i.i19 = select i1 %62, i32 %63, i32 %59
   %.0.i.i.i20 = select i1 %60, i32 %61, i32 %spec.select.i.i.i19
@@ -14535,7 +14535,7 @@ f_negative_p.exit.i:                              ; preds = %12
   br label %guess_style.exit
 
 23:                                               ; preds = %18
-  %24 = icmp ugt i64 %19, 1930
+  %24 = icmp samesign ugt i64 %19, 1930
   br i1 %24, label %25, label %guess_style.exit.thread
 
 25:                                               ; preds = %23
@@ -15002,7 +15002,7 @@ define internal fastcc void @decode_year(i64 noundef %0, double noundef %1, ptr 
   %18 = shl nuw nsw i64 %16, 1
   %19 = or disjoint i64 %18, 1
   store i64 %19, ptr %2, align 8
-  %.not = icmp ult i64 %12, %15
+  %.not = icmp samesign ult i64 %12, %15
   %spec.select = select i1 %.not, i64 %12, i64 %17
   br label %56
 
@@ -15338,7 +15338,7 @@ f_negative_p.exit.i:                              ; preds = %15
   br label %guess_style.exit
 
 26:                                               ; preds = %21
-  %27 = icmp ugt i64 %22, 1930
+  %27 = icmp samesign ugt i64 %22, 1930
   br i1 %27, label %28, label %guess_style.exit.thread
 
 28:                                               ; preds = %26
@@ -15582,7 +15582,7 @@ f_negative_p.exit.i:                              ; preds = %15
   br label %guess_style.exit
 
 26:                                               ; preds = %21
-  %27 = icmp ugt i64 %22, 1930
+  %27 = icmp samesign ugt i64 %22, 1930
   br i1 %27, label %28, label %guess_style.exit.thread
 
 28:                                               ; preds = %26
@@ -16201,7 +16201,7 @@ get_s_jd.exit:                                    ; preds = %5, %7
   %67 = add i32 %66, %62
   %68 = icmp slt i32 %67, 0
   %69 = add nsw i32 %67, 86400
-  %70 = icmp ugt i32 %67, 86399
+  %70 = icmp samesign ugt i32 %67, 86399
   %71 = add nsw i32 %67, -86400
   %spec.select.i.i = select i1 %70, i32 %71, i32 %67
   %.0.i.i12 = select i1 %68, i32 %69, i32 %spec.select.i.i
@@ -16296,7 +16296,7 @@ define internal fastcc void @get_c_jd(ptr nocapture noundef %0) unnamed_addr #0 
   %47 = add nsw i32 %46, %44
   %48 = icmp slt i32 %47, 0
   %49 = add nsw i32 %47, 86400
-  %50 = icmp ugt i32 %47, 86399
+  %50 = icmp samesign ugt i32 %47, 86399
   %51 = add nsw i32 %47, -86400
   %spec.select.i.i = select i1 %50, i32 %51, i32 %47
   %.0.i.i = select i1 %48, i32 %49, i32 %spec.select.i.i
@@ -16331,7 +16331,7 @@ get_c_time.exit:                                  ; preds = %.get_c_time.exit_cr
   %73 = sub i32 %70, %64
   %74 = add i32 %73, %71
   %75 = add i32 %74, %72
-  %76 = icmp ugt i32 %75, 86399
+  %76 = icmp samesign ugt i32 %75, 86399
   %77 = zext i1 %76 to i32
   %.inv.i = icmp sgt i32 %75, -1
   %.0.v.i = select i1 %.inv.i, i32 %77, i32 -1
@@ -19682,7 +19682,7 @@ f_negative_p.exit.i.i:                            ; preds = %36
   br label %guess_style.exit.i
 
 47:                                               ; preds = %42
-  %48 = icmp ugt i64 %43, 1930
+  %48 = icmp samesign ugt i64 %43, 1930
   br i1 %48, label %49, label %guess_style.exit.thread.i
 
 49:                                               ; preds = %47
@@ -20204,7 +20204,7 @@ m_real_jd.exit27:                                 ; preds = %1
   %39 = add i32 %38, %34
   %40 = icmp slt i32 %39, 0
   %41 = add nsw i32 %39, 86400
-  %42 = icmp ugt i32 %39, 86399
+  %42 = icmp samesign ugt i32 %39, 86399
   %43 = add nsw i32 %39, -86400
   %spec.select.i.i.i = select i1 %42, i32 %43, i32 %39
   %.0.i.i.i = select i1 %40, i32 %41, i32 %spec.select.i.i.i
@@ -20434,7 +20434,7 @@ define internal fastcc void @get_c_civil(ptr nocapture noundef %0) unnamed_addr 
   %20 = add i32 %19, %15
   %21 = icmp slt i32 %20, 0
   %22 = add nsw i32 %20, 86400
-  %23 = icmp ugt i32 %20, 86399
+  %23 = icmp samesign ugt i32 %20, 86399
   %24 = add nsw i32 %20, -86400
   %spec.select.i.i = select i1 %23, i32 %24, i32 %20
   %.0.i.i = select i1 %21, i32 %22, i32 %spec.select.i.i
@@ -20450,7 +20450,7 @@ get_c_df.exit:                                    ; preds = %.get_c_df.exit_crit
   %29 = getelementptr inbounds i8, ptr %0, i64 4
   %30 = load i32, ptr %29, align 4
   %31 = add nsw i32 %27, %28
-  %32 = icmp ugt i32 %31, 86399
+  %32 = icmp samesign ugt i32 %31, 86399
   %33 = zext i1 %32 to i32
   %.inv.i = icmp sgt i32 %31, -1
   %.0.v.i = select i1 %.inv.i, i32 %33, i32 -1
@@ -20607,7 +20607,7 @@ define internal fastcc i32 @m_local_jd(ptr nocapture noundef %0) unnamed_addr #0
   %62 = add i32 %61, %57
   %63 = icmp slt i32 %62, 0
   %64 = add nsw i32 %62, 86400
-  %65 = icmp ugt i32 %62, 86399
+  %65 = icmp samesign ugt i32 %62, 86399
   %66 = add nsw i32 %62, -86400
   %spec.select.i.i = select i1 %65, i32 %66, i32 %62
   %.0.i.i7 = select i1 %63, i32 %64, i32 %spec.select.i.i
@@ -20623,7 +20623,7 @@ get_c_df.exit:                                    ; preds = %.get_c_df.exit_crit
   %71 = getelementptr inbounds i8, ptr %0, i64 4
   %72 = load i32, ptr %71, align 4
   %73 = add nsw i32 %69, %70
-  %74 = icmp ugt i32 %73, 86399
+  %74 = icmp samesign ugt i32 %73, 86399
   %75 = zext i1 %74 to i32
   %.inv.i.i = icmp sgt i32 %73, -1
   %.0.v.i.i = select i1 %.inv.i.i, i32 %75, i32 -1
@@ -22161,7 +22161,7 @@ define internal range(i32 0, 32) i32 @m_hour(ptr nocapture noundef %0) #16 {
   %13 = add nsw i32 %12, %10
   %14 = icmp slt i32 %13, 0
   %15 = add nsw i32 %13, 86400
-  %16 = icmp ugt i32 %13, 86399
+  %16 = icmp samesign ugt i32 %13, 86399
   %17 = add nsw i32 %13, -86400
   %spec.select.i.i = select i1 %16, i32 %17, i32 %13
   %.0.i.i = select i1 %14, i32 %15, i32 %spec.select.i.i
@@ -22216,7 +22216,7 @@ define internal range(i32 0, 64) i32 @m_min(ptr nocapture noundef %0) #16 {
   %13 = add nsw i32 %12, %10
   %14 = icmp slt i32 %13, 0
   %15 = add nsw i32 %13, 86400
-  %16 = icmp ugt i32 %13, 86399
+  %16 = icmp samesign ugt i32 %13, 86399
   %17 = add nsw i32 %13, -86400
   %spec.select.i.i = select i1 %16, i32 %17, i32 %13
   %.0.i.i = select i1 %14, i32 %15, i32 %spec.select.i.i
@@ -22271,7 +22271,7 @@ define internal range(i32 0, 64) i32 @m_sec(ptr nocapture noundef %0) #16 {
   %13 = add nsw i32 %12, %10
   %14 = icmp slt i32 %13, 0
   %15 = add nsw i32 %13, 86400
-  %16 = icmp ugt i32 %13, 86399
+  %16 = icmp samesign ugt i32 %13, 86399
   %17 = add nsw i32 %13, -86400
   %spec.select.i.i = select i1 %16, i32 %17, i32 %13
   %.0.i.i = select i1 %14, i32 %15, i32 %spec.select.i.i
@@ -22374,11 +22374,11 @@ m_real_jd.exit:                                   ; preds = %1, %5
   br i1 %12, label %13, label %14
 
 13:                                               ; preds = %10
-  %.not9.i.i = icmp ugt i64 %11, -53375995583650
+  %.not9.i.i = icmp samesign ugt i64 %11, -53375995583650
   br i1 %.not9.i.i, label %safe_mul_p.exit.i, label %18
 
 14:                                               ; preds = %10
-  %.not.i.i11 = icmp ult i64 %11, 53375995583650
+  %.not.i.i11 = icmp samesign ult i64 %11, 53375995583650
   br i1 %.not.i.i11, label %safe_mul_p.exit.i, label %18
 
 safe_mul_p.exit.i:                                ; preds = %14, %13
@@ -22425,7 +22425,7 @@ day_to_sec.exit:                                  ; preds = %safe_mul_p.exit.i, 
   %38 = add i32 %37, %33
   %39 = icmp slt i32 %38, 0
   %40 = add nsw i32 %38, 86400
-  %41 = icmp ugt i32 %38, 86399
+  %41 = icmp samesign ugt i32 %38, 86399
   %42 = add nsw i32 %38, -86400
   %spec.select.i.i.i = select i1 %41, i32 %42, i32 %38
   %.0.i.i.i = select i1 %39, i32 %40, i32 %spec.select.i.i.i
@@ -22465,11 +22465,11 @@ define internal i64 @tmx_m_msecs(ptr nocapture noundef %0) #0 {
   br i1 %6, label %7, label %8
 
 7:                                                ; preds = %4
-  %.not9.i.i = icmp ugt i64 %5, -4611686018427387
+  %.not9.i.i = icmp samesign ugt i64 %5, -4611686018427387
   br i1 %.not9.i.i, label %safe_mul_p.exit.i, label %12
 
 8:                                                ; preds = %4
-  %.not.i.i = icmp ult i64 %5, 4611686018427387
+  %.not.i.i = icmp samesign ult i64 %5, 4611686018427387
   br i1 %.not.i.i, label %safe_mul_p.exit.i, label %12
 
 safe_mul_p.exit.i:                                ; preds = %8, %7
@@ -22924,7 +22924,7 @@ dup_obj_as_complex.exit:                          ; preds = %rb_obj_write.exit.i
   %97 = add i32 %96, %92
   %98 = icmp slt i32 %97, 0
   %99 = add nsw i32 %97, 86400
-  %100 = icmp ugt i32 %97, 86399
+  %100 = icmp samesign ugt i32 %97, 86399
   %101 = add nsw i32 %97, -86400
   %spec.select.i.i.i = select i1 %100, i32 %101, i32 %97
   %.0.i.i.i = select i1 %98, i32 %99, i32 %spec.select.i.i.i
@@ -23028,7 +23028,7 @@ m_wday.exit:                                      ; preds = %32, %36
   %57 = add nsw i32 %56, %54
   %58 = icmp slt i32 %57, 0
   %59 = add nsw i32 %57, 86400
-  %60 = icmp ugt i32 %57, 86399
+  %60 = icmp samesign ugt i32 %57, 86399
   %61 = add nsw i32 %57, -86400
   %spec.select.i.i.i = select i1 %60, i32 %61, i32 %57
   %.0.i.i.i = select i1 %58, i32 %59, i32 %spec.select.i.i.i
@@ -23082,7 +23082,7 @@ m_hour.exit:                                      ; preds = %44, %get_c_time.exi
   %91 = add nsw i32 %90, %88
   %92 = icmp slt i32 %91, 0
   %93 = add nsw i32 %91, 86400
-  %94 = icmp ugt i32 %91, 86399
+  %94 = icmp samesign ugt i32 %91, 86399
   %95 = add nsw i32 %91, -86400
   %spec.select.i.i.i99 = select i1 %94, i32 %95, i32 %91
   %.0.i.i.i100 = select i1 %92, i32 %93, i32 %spec.select.i.i.i99
@@ -23136,7 +23136,7 @@ m_min.exit:                                       ; preds = %m_hour.exit, %get_c
   %125 = add nsw i32 %124, %122
   %126 = icmp slt i32 %125, 0
   %127 = add nsw i32 %125, 86400
-  %128 = icmp ugt i32 %125, 86399
+  %128 = icmp samesign ugt i32 %125, 86399
   %129 = add nsw i32 %125, -86400
   %spec.select.i.i.i108 = select i1 %128, i32 %129, i32 %125
   %.0.i.i.i109 = select i1 %126, i32 %127, i32 %spec.select.i.i.i108
@@ -23396,7 +23396,7 @@ m_wday.exit120:                                   ; preds = %242, %246
   %267 = add nsw i32 %266, %265
   %268 = icmp slt i32 %267, 0
   %269 = add nsw i32 %267, 86400
-  %270 = icmp ugt i32 %267, 86399
+  %270 = icmp samesign ugt i32 %267, 86399
   %271 = add nsw i32 %267, -86400
   %spec.select.i.i.i125 = select i1 %270, i32 %271, i32 %267
   %.0.i.i.i126 = select i1 %268, i32 %269, i32 %spec.select.i.i.i125
@@ -23454,7 +23454,7 @@ m_hour.exit130:                                   ; preds = %258, %get_c_time.ex
   %301 = add nsw i32 %300, %299
   %302 = icmp slt i32 %301, 0
   %303 = add nsw i32 %301, 86400
-  %304 = icmp ugt i32 %301, 86399
+  %304 = icmp samesign ugt i32 %301, 86399
   %305 = add nsw i32 %301, -86400
   %spec.select.i.i.i135 = select i1 %304, i32 %305, i32 %301
   %.0.i.i.i136 = select i1 %302, i32 %303, i32 %spec.select.i.i.i135
@@ -23512,7 +23512,7 @@ m_min.exit140:                                    ; preds = %292, %get_c_time.ex
   %335 = add nsw i32 %334, %333
   %336 = icmp slt i32 %335, 0
   %337 = add nsw i32 %335, 86400
-  %338 = icmp ugt i32 %335, 86399
+  %338 = icmp samesign ugt i32 %335, 86399
   %339 = add nsw i32 %335, -86400
   %spec.select.i.i.i145 = select i1 %338, i32 %339, i32 %335
   %.0.i.i.i146 = select i1 %336, i32 %337, i32 %spec.select.i.i.i145
@@ -23782,11 +23782,11 @@ Check_Type.exit.backedge:                         ; preds = %46, %40
   br i1 %54, label %55, label %56
 
 55:                                               ; preds = %52
-  %.not9.i.i = icmp ugt i64 %53, -53375995583650
+  %.not9.i.i = icmp samesign ugt i64 %53, -53375995583650
   br i1 %.not9.i.i, label %safe_mul_p.exit.i, label %60
 
 56:                                               ; preds = %52
-  %.not.i.i = icmp ult i64 %53, 53375995583650
+  %.not.i.i = icmp samesign ult i64 %53, 53375995583650
   br i1 %.not.i.i, label %safe_mul_p.exit.i, label %60
 
 safe_mul_p.exit.i:                                ; preds = %56, %55
@@ -24653,11 +24653,11 @@ rbimpl_intern_const.exit167:                      ; preds = %.lr.ph.i165, %c_val
   br i1 %144, label %145, label %146
 
 145:                                              ; preds = %142
-  %.not9.i.i = icmp ugt i64 %143, -4611686018
+  %.not9.i.i = icmp samesign ugt i64 %143, -4611686018
   br i1 %.not9.i.i, label %safe_mul_p.exit.i, label %150
 
 146:                                              ; preds = %142
-  %.not.i.i = icmp ult i64 %143, 4611686018
+  %.not.i.i = icmp samesign ult i64 %143, 4611686018
   br i1 %.not.i.i, label %safe_mul_p.exit.i, label %150
 
 safe_mul_p.exit.i:                                ; preds = %146, %145
@@ -24722,7 +24722,7 @@ rb_num2int_inline.exit177:                        ; preds = %158, %160
   call fastcc void @decode_jd(i64 noundef %.070, ptr noundef %4, ptr noundef %5)
   %170 = load i32, ptr %5, align 4
   %171 = sub i32 %169, %.072
-  %172 = icmp ugt i32 %171, 86399
+  %172 = icmp samesign ugt i32 %171, 86399
   %173 = zext i1 %172 to i32
   %.inv.i = icmp sgt i32 %171, -1
   %.0.v.i = select i1 %.inv.i, i32 %173, i32 -1

@@ -509,7 +509,7 @@ sub_1270:                                         ; preds = %sub_0269
 
 110:                                              ; preds = %108
   %.b187 = load i1, ptr @replaceinfos, align 4
-  %111 = icmp ugt i32 %.1, 2
+  %111 = icmp samesign ugt i32 %.1, 2
   %or.cond.not = or i1 %111, %.b187
   br i1 %or.cond.not, label %114, label %112
 
@@ -700,7 +700,7 @@ sub_1270:                                         ; preds = %sub_0269
   %190 = getelementptr inbounds i8, ptr %.1167, i64 8
   %191 = load ptr, ptr %190, align 8
   store ptr %191, ptr @distancesfilename, align 8
-  %192 = icmp ugt i32 %.1, 2
+  %192 = icmp samesign ugt i32 %.1, 2
   br i1 %192, label %193, label %317
 
 193:                                              ; preds = %189
@@ -717,7 +717,7 @@ sub_1270:                                         ; preds = %sub_0269
   br i1 %.not209, label %200, label %241
 
 200:                                              ; preds = %198
-  %201 = icmp ult i32 %.1, 3
+  %201 = icmp samesign ult i32 %.1, 3
   br i1 %201, label %202, label %204
 
 202:                                              ; preds = %200
@@ -785,7 +785,7 @@ sub_1270:                                         ; preds = %sub_0269
   br i1 %.not214, label %228, label %237
 
 228:                                              ; preds = %226
-  %229 = icmp ult i32 %.1, 5
+  %229 = icmp samesign ult i32 %.1, 5
   br i1 %229, label %230, label %232
 
 230:                                              ; preds = %228
@@ -817,7 +817,7 @@ sub_1270:                                         ; preds = %sub_0269
   br i1 %.not215, label %243, label %274
 
 243:                                              ; preds = %241
-  %244 = icmp ult i32 %.1, 3
+  %244 = icmp samesign ult i32 %.1, 3
   br i1 %244, label %245, label %247
 
 245:                                              ; preds = %243
@@ -889,7 +889,7 @@ sub_0274:                                         ; preds = %255
   br i1 %.not219, label %276, label %311
 
 276:                                              ; preds = %274
-  %277 = icmp ult i32 %.1, 4
+  %277 = icmp samesign ult i32 %.1, 4
   br i1 %277, label %278, label %280
 
 278:                                              ; preds = %276
@@ -931,7 +931,7 @@ sub_0274:                                         ; preds = %255
   br label %530
 
 300:                                              ; preds = %285
-  %301 = icmp ugt i32 %.1, 5
+  %301 = icmp samesign ugt i32 %.1, 5
   br i1 %301, label %302, label %317
 
 302:                                              ; preds = %300

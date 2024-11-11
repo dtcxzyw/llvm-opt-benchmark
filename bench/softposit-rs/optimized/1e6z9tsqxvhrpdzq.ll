@@ -212,7 +212,7 @@ _ZN9softposit5p32e25P32E217separate_bits_tmp17hdc27d662c293f752E.exit273: ; pred
   br i1 %.not, label %94, label %97
 
 92:                                               ; preds = %_ZN9softposit5p32e25P32E217separate_bits_tmp17hdc27d662c293f752E.exit273
-  %93 = icmp ult i16 %88, -62
+  %93 = icmp samesign ult i16 %88, -62
   br i1 %93, label %140, label %134
 
 94:                                               ; preds = %91
@@ -222,7 +222,7 @@ _ZN9softposit5p32e25P32E217separate_bits_tmp17hdc27d662c293f752E.exit273: ; pred
   br i1 %or.cond8, label %58, label %99
 
 97:                                               ; preds = %91
-  %98 = icmp ugt i16 %88, 62
+  %98 = icmp samesign ugt i16 %88, 62
   br i1 %98, label %114, label %107
 
 99:                                               ; preds = %94
@@ -355,7 +355,7 @@ _ZN9softposit5p32e25P32E217separate_bits_tmp17hdc27d662c293f752E.exit273: ; pred
   br i1 %162, label %.loopexit, label %.preheader288
 
 .preheader288:                                    ; preds = %161
-  %163 = icmp ult i64 %.3185282, 576460752303423488
+  %163 = icmp samesign ult i64 %.3185282, 576460752303423488
   br i1 %163, label %.lr.ph, label %.preheader
 
 164:                                              ; preds = %132
@@ -371,7 +371,7 @@ _ZN9softposit5p32e25P32E217separate_bits_tmp17hdc27d662c293f752E.exit273: ; pred
 .preheader:                                       ; preds = %.lr.ph, %.preheader288
   %.2211.lcssa = phi i8 [ %.1210279, %.preheader288 ], [ %171, %.lr.ph ]
   %.9191.lcssa = phi i64 [ %.3185282, %.preheader288 ], [ %172, %.lr.ph ]
-  %170 = icmp ult i64 %.9191.lcssa, 4611686018427387904
+  %170 = icmp samesign ult i64 %.9191.lcssa, 4611686018427387904
   br i1 %170, label %.lr.ph306, label %.loopexit
 
 .lr.ph:                                           ; preds = %.preheader288, %.lr.ph
@@ -402,7 +402,7 @@ _ZN9softposit5p32e25P32E217separate_bits_tmp17hdc27d662c293f752E.exit273: ; pred
   %182 = and i32 %181, 31
   %183 = lshr i32 2147483647, %182
   %184 = xor i32 %183, 2147483647
-  %185 = icmp ugt i8 %.0209, 29
+  %185 = icmp samesign ugt i8 %.0209, 29
   br i1 %185, label %194, label %192
 
 186:                                              ; preds = %.loopexit

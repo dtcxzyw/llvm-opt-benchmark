@@ -4618,7 +4618,7 @@ if.end11.thread:                                  ; preds = %if.then8
   br label %if.end14
 
 if.end11:                                         ; preds = %if.then8, %if.then8, %if.then8
-  %or.cond = icmp ult i32 %theory, 2
+  %or.cond = icmp samesign ult i32 %theory, 2
   br i1 %or.cond, label %if.end21, label %if.end14
 
 if.end14:                                         ; preds = %if.end11.thread, %if.end11

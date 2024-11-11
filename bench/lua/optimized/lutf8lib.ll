@@ -140,7 +140,7 @@ do.body.preheader:                                ; preds = %while.cond31.prehea
 
 do.body:                                          ; preds = %do.body.preheader, %land.rhs43
   %posi.4 = phi i64 [ %dec40, %land.rhs43 ], [ %posi.349, %do.body.preheader ]
-  %cmp41 = icmp ugt i64 %posi.4, 1
+  %cmp41 = icmp samesign ugt i64 %posi.4, 1
   br i1 %cmp41, label %land.rhs43, label %do.end.thread
 
 do.end.thread:                                    ; preds = %do.body
@@ -347,7 +347,7 @@ if.end23.i.us:                                    ; preds = %lor.lhs.false17.i.u
 if.end24.i.us:                                    ; preds = %if.end23.i.us, %for.body.us
   %s.addr.0.i.us = phi ptr [ %add.ptr.i.us, %if.end23.i.us ], [ %s.044.us, %for.body.us ]
   %res.0.i.us = phi i32 [ %or12.i.us, %if.end23.i.us ], [ %conv.i.us, %for.body.us ]
-  %cmp27.i.us = icmp ugt i32 %res.0.i.us, 1114111
+  %cmp27.i.us = icmp samesign ugt i32 %res.0.i.us, 1114111
   %9 = and i32 %res.0.i.us, 2095104
   %or.cond1.i.us = icmp eq i32 %9, 55296
   %or.cond22.i.us = or i1 %cmp27.i.us, %or.cond1.i.us
@@ -632,7 +632,7 @@ if.end23.i.us:                                    ; preds = %lor.lhs.false17.i.u
 if.end24.i.us:                                    ; preds = %if.end23.i.us, %while.body.us
   %s.addr.0.i.us = phi ptr [ %add.ptr.i.us, %if.end23.i.us ], [ %add.ptr.us, %while.body.us ]
   %res.0.i.us = phi i32 [ %or12.i.us, %if.end23.i.us ], [ %conv.i.us, %while.body.us ]
-  %cmp27.i.us = icmp ugt i32 %res.0.i.us, 1114111
+  %cmp27.i.us = icmp samesign ugt i32 %res.0.i.us, 1114111
   %10 = and i32 %res.0.i.us, 2095104
   %or.cond1.i.us = icmp eq i32 %10, 55296
   %or.cond22.i.us = or i1 %cmp27.i.us, %or.cond1.i.us
@@ -890,7 +890,7 @@ if.end24.i:                                       ; preds = %if.end23.i, %if.els
   br i1 %tobool25.not.i, label %lor.lhs.false, label %if.then26.i
 
 if.then26.i:                                      ; preds = %if.end24.i
-  %cmp27.i = icmp ugt i32 %res.0.i, 1114111
+  %cmp27.i = icmp samesign ugt i32 %res.0.i, 1114111
   %7 = and i32 %res.0.i, 2095104
   %or.cond1.i = icmp eq i32 %7, 55296
   %or.cond22.i = or i1 %cmp27.i, %or.cond1.i

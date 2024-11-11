@@ -417,7 +417,7 @@ define dso_local ptr @drm_internal_framebuffer_create(ptr noundef %0, ptr nounde
   br label %302
 
 52:                                               ; preds = %39
-  %53 = icmp ult i32 %5, 2
+  %53 = icmp samesign ult i32 %5, 2
   br i1 %53, label %65, label %54
 
 54:                                               ; preds = %52
@@ -640,7 +640,7 @@ define dso_local ptr @drm_internal_framebuffer_create(ptr noundef %0, ptr nounde
   br i1 %185, label %.thread20, label %186
 
 186:                                              ; preds = %175
-  %187 = icmp ugt i64 %153, %179
+  %187 = icmp samesign ugt i64 %153, %179
   %188 = select i1 %154, i1 %187, i1 false
   br i1 %188, label %189, label %194
 

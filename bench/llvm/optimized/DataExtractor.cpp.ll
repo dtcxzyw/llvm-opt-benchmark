@@ -1313,7 +1313,7 @@ _ZN4llvm5ErrorD2Ev.exit.i:                        ; preds = %31
 
 46:                                               ; preds = %24
   %47 = icmp ugt i32 %28, 63
-  %.not52.i.i = icmp ult i8 %16, 64
+  %.not52.i.i = icmp samesign ult i8 %16, 64
   %or.cond.i.i = select i1 %47, i1 true, i1 %.not52.i.i
   %48 = zext nneg i32 %28 to i64
   %49 = shl nsw i64 -1, %48

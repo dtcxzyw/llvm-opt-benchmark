@@ -699,7 +699,7 @@ for.end:                                          ; preds = %for.inc
   br i1 %changed.1, label %if.end19, label %if.then.i.i.i23
 
 if.end19:                                         ; preds = %for.end
-  %cmp68.i.i.i.i.i.not = icmp ult i64 %sub.ptr.div.i, 4
+  %cmp68.i.i.i.i.i.not = icmp samesign ult i64 %sub.ptr.div.i, 4
   br i1 %cmp68.i.i.i.i.i.not, label %for.end.i.i.i.i.i, label %for.body.preheader.i.i.i.i.i
 
 for.body.preheader.i.i.i.i.i:                     ; preds = %if.end19
@@ -1725,7 +1725,7 @@ for.body.i.i.i.i.i:                               ; preds = %for.body.i.i.i.i.i,
   %incdec.ptr.i.i.i.i.i = getelementptr inbounds i8, ptr %__first.addr.07.i.i.i.i.i, i64 96
   %incdec.ptr1.i.i.i.i.i = getelementptr inbounds i8, ptr %__result.addr.08.i.i.i.i.i, i64 96
   %dec.i.i.i.i.i = add nsw i64 %__n.09.i.i.i.i.i, -1
-  %cmp.i.i.i.i.i = icmp ugt i64 %__n.09.i.i.i.i.i, 1
+  %cmp.i.i.i.i.i = icmp samesign ugt i64 %__n.09.i.i.i.i.i, 1
   br i1 %cmp.i.i.i.i.i, label %for.body.i.i.i.i.i, label %if.end.loopexit, !llvm.loop !83
 
 if.end.loopexit:                                  ; preds = %for.body.i.i.i.i.i

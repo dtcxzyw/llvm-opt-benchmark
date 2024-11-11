@@ -11871,7 +11871,7 @@ _ZN8FileLine9singletonEv.exit:                    ; preds = %2, %5, %8
   br i1 %23, label %24, label %30
 
 24:                                               ; preds = %_ZN8FileLine9singletonEv.exit
-  %25 = icmp ult i64 %22, 16
+  %25 = icmp samesign ult i64 %22, 16
   br i1 %25, label %26, label %28
 
 26:                                               ; preds = %24
@@ -30457,7 +30457,7 @@ define linkonce_odr dso_local void @_ZNK17FileLineSingleton12numberToNameB5cxx11
   br i1 %16, label %17, label %23
 
 17:                                               ; preds = %3
-  %18 = icmp ult i64 %15, 16
+  %18 = icmp samesign ult i64 %15, 16
   br i1 %18, label %19, label %21
 
 19:                                               ; preds = %17
@@ -31408,7 +31408,7 @@ _ZSt14__copy_move_a1ILb0EPP10VPreStreamS2_ET1_T0_S4_S3_.exit.i: ; preds = %30, %
   br i1 %35, label %36, label %42
 
 36:                                               ; preds = %_ZSt14__copy_move_a1ILb0EPP10VPreStreamS2_ET1_T0_S4_S3_.exit.i
-  %37 = icmp ult i64 %34, 64
+  %37 = icmp samesign ult i64 %34, 64
   br i1 %37, label %38, label %40
 
 38:                                               ; preds = %36
@@ -31496,7 +31496,7 @@ _ZSt14__copy_move_a1ILb0EPP10VPreStreamS2_ET1_T0_S4_S3_.exit.i17: ; preds = %69,
   br i1 %74, label %75, label %81
 
 75:                                               ; preds = %_ZSt14__copy_move_a1ILb0EPP10VPreStreamS2_ET1_T0_S4_S3_.exit.i17
-  %76 = icmp ult i64 %73, 64
+  %76 = icmp samesign ult i64 %73, 64
   br i1 %76, label %77, label %79
 
 77:                                               ; preds = %75
@@ -31585,7 +31585,7 @@ _ZSt14__copy_move_a1ILb0EPP10VPreStreamS2_ET1_T0_S4_S3_.exit.i34: ; preds = %111
   br i1 %116, label %117, label %123
 
 117:                                              ; preds = %_ZSt14__copy_move_a1ILb0EPP10VPreStreamS2_ET1_T0_S4_S3_.exit.i34
-  %118 = icmp ult i64 %115, 64
+  %118 = icmp samesign ult i64 %115, 64
   br i1 %118, label %119, label %121
 
 119:                                              ; preds = %117
@@ -31664,7 +31664,7 @@ _ZSt14__copy_move_a1ILb0EPP10VPreStreamS2_ET1_T0_S4_S3_.exit.i51: ; preds = %153
   br i1 %158, label %159, label %165
 
 159:                                              ; preds = %_ZSt14__copy_move_a1ILb0EPP10VPreStreamS2_ET1_T0_S4_S3_.exit.i51
-  %160 = icmp ult i64 %157, 64
+  %160 = icmp samesign ult i64 %157, 64
   br i1 %160, label %161, label %163
 
 161:                                              ; preds = %159

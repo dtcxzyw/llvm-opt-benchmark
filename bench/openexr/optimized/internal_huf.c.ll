@@ -1186,7 +1186,7 @@ if.then45.i:                                      ; preds = %if.then42.i
   br i1 %tobool46.not.i, label %fasthuf_initialize.exit.thread, label %fasthuf_initialize.exit.thread.sink.split
 
 if.end51.i:                                       ; preds = %if.then42.i
-  %cmp8.i98.i = icmp ult i32 %sub.i.i, 8
+  %cmp8.i98.i = icmp samesign ult i32 %sub.i.i, 8
   br i1 %cmp8.i98.i, label %fasthuf_read_bits.exit111.loopexit.i, label %fasthuf_read_bits.exit111.i
 
 fasthuf_read_bits.exit111.loopexit.i:             ; preds = %if.end51.i
@@ -1419,7 +1419,7 @@ if.else233.i:                                     ; preds = %fasthuf_read_bits.e
   br i1 %cmp234.i, label %if.then236.i, label %if.else241.i
 
 if.then236.i:                                     ; preds = %if.else233.i
-  %cmp8.i126.i = icmp ult i32 %sub.i114.i, 8
+  %cmp8.i126.i = icmp samesign ult i32 %sub.i114.i, 8
   br i1 %cmp8.i126.i, label %fasthuf_read_bits.exit139.loopexit.i, label %fasthuf_read_bits.exit139.i
 
 fasthuf_read_bits.exit139.loopexit.i:             ; preds = %if.then236.i
@@ -1728,7 +1728,7 @@ if.else.i45.for.inc.i_crit_edge:                  ; preds = %if.else.i45
 if.then24.i:                                      ; preds = %if.else.i45
   %add26.i = add nsw i64 %and.i.i44, -57
   %add28.i = add nuw nsw i64 %add26.i, %idxprom.i
-  %cmp31.i = icmp ugt i64 %add28.i, %conv30.i
+  %cmp31.i = icmp samesign ugt i64 %add28.i, %conv30.i
   br i1 %cmp31.i, label %hufUnpackEncTable.exit, label %while.body38.i
 
 while.body38.i:                                   ; preds = %if.then24.i, %while.body38.i
@@ -2001,7 +2001,7 @@ if.then3.i:                                       ; preds = %if.then.i
   br label %if.end17.i
 
 if.else.i:                                        ; preds = %if.then.i
-  %cmp535.i = icmp ugt i64 %numSrcBits.addr.0157, 7
+  %cmp535.i = icmp samesign ugt i64 %numSrcBits.addr.0157, 7
   br i1 %cmp535.i, label %while.body.i.preheader, label %while.end.i
 
 while.body.i.preheader:                           ; preds = %if.else.i
@@ -2181,7 +2181,7 @@ if.then3.i103:                                    ; preds = %if.then.i71
   br label %if.end17.i88
 
 if.else.i74:                                      ; preds = %if.then.i71
-  %cmp535.i76 = icmp ugt i64 %numSrcBits.addr.2, 7
+  %cmp535.i76 = icmp samesign ugt i64 %numSrcBits.addr.2, 7
   br i1 %cmp535.i76, label %while.body.i94.preheader, label %while.end.i77
 
 while.body.i94.preheader:                         ; preds = %if.else.i74

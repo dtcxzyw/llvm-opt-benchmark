@@ -2499,15 +2499,15 @@ define linkonce_odr hidden noundef i32 @_ZN5boost6nowide3utf10utf_traitsIcLi1EE6
   br i1 %8, label %19, label %9
 
 9:                                                ; preds = %5
-  %10 = icmp ult i8 %7, -62
+  %10 = icmp samesign ult i8 %7, -62
   br i1 %10, label %_ZN5boost6nowide3utf10utf_traitsIcLi1EE12trail_lengthEc.exit, label %11, !prof !55
 
 11:                                               ; preds = %9
-  %12 = icmp ult i8 %7, -32
+  %12 = icmp samesign ult i8 %7, -32
   br i1 %12, label %21, label %13
 
 13:                                               ; preds = %11
-  %14 = icmp ult i8 %7, -16
+  %14 = icmp samesign ult i8 %7, -16
   br i1 %14, label %.thread55, label %17
 
 .thread55:                                        ; preds = %13
@@ -2516,7 +2516,7 @@ define linkonce_odr hidden noundef i32 @_ZN5boost6nowide3utf10utf_traitsIcLi1EE6
   br label %37
 
 17:                                               ; preds = %13
-  %18 = icmp ult i8 %7, -11
+  %18 = icmp samesign ult i8 %7, -11
   br i1 %18, label %24, label %_ZN5boost6nowide3utf10utf_traitsIcLi1EE12trail_lengthEc.exit, !prof !58
 
 19:                                               ; preds = %5
@@ -2596,8 +2596,8 @@ _ZN5boost6nowide3utf10utf_traitsIcLi1EE5widthEj.exit: ; preds = %56
   %61 = and i8 %54, 63
   %62 = zext nneg i8 %61 to i32
   %63 = or disjoint i32 %60, %62
-  %64 = icmp ult i32 %.2, 32
-  %65 = icmp ult i32 %.2, 1024
+  %64 = icmp samesign ult i32 %.2, 32
+  %65 = icmp samesign ult i32 %.2, 1024
   %..i35 = select i1 %65, i32 3, i32 4
   %.0.i36 = select i1 %64, i32 2, i32 %..i35
   %66 = add nuw nsw i32 %.0.i.ph.ph51, 1
@@ -3409,7 +3409,7 @@ _ZN5boost6nowide4test8test_monEv.exit38:          ; preds = %.lr.ph59, %65, %67
   call void @_ZN5boost6nowide4test15test_equal_implIiiEEvRKT_RKT0_PKciSA_(ptr noundef nonnull align 4 dereferenceable(4) %4, ptr noundef nonnull align 4 dereferenceable(4) %3, ptr noundef nonnull @.str.19, i32 noundef 174, ptr noundef nonnull @__FUNCTION__._Z20test_putback_and_getv)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %4) #20
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %3) #20
-  %70 = icmp ugt i32 %.024.in58, 1
+  %70 = icmp samesign ugt i32 %.024.in58, 1
   br i1 %70, label %.lr.ph59, label %.lr.ph61, !llvm.loop !70
 
 ._crit_edge:                                      ; preds = %100, %.preheader54.thread
@@ -3532,7 +3532,7 @@ _ZN5boost6nowide4test8test_monEv.exit45:          ; preds = %.lr.ph66, %112, %11
   call void @_ZN5boost6nowide4test15test_equal_implIiiEEvRKT_RKT0_PKciSA_(ptr noundef nonnull align 4 dereferenceable(4) %6, ptr noundef nonnull align 4 dereferenceable(4) %5, ptr noundef nonnull @.str.19, i32 noundef 184, ptr noundef nonnull @__FUNCTION__._Z20test_putback_and_getv)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6) #20
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5) #20
-  %117 = icmp ugt i32 %.0.in64, 1
+  %117 = icmp samesign ugt i32 %.0.in64, 1
   br i1 %117, label %.lr.ph66, label %._crit_edge67, !llvm.loop !72
 
 .loopexit:                                        ; preds = %._crit_edge67, %7

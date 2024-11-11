@@ -512,7 +512,7 @@ define hidden range(i32 1, 1073741825) i32 @rb_yjit_get_page_size() local_unname
   unreachable
 
 4:                                                ; preds = %0
-  %5 = icmp ugt i64 %1, 1073741824
+  %5 = icmp samesign ugt i64 %1, 1073741824
   br i1 %5, label %6, label %7
 
 6:                                                ; preds = %4

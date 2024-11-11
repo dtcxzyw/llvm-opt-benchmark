@@ -2512,7 +2512,7 @@ _ZNSt6vectorIN2cv11xfeatures2d17Elliptic_KeyPointESaIS2_EE9push_backERKS2_.exit:
   %1005 = getelementptr inbounds i8, ptr %.0910.i.i.i.i.i.i.i, i64 72
   %1006 = getelementptr inbounds i8, ptr %.0811.i.i.i.i.i.i.i, i64 72
   %1007 = add nsw i64 %.012.i.i.i.i.i.i.i, -1
-  %1008 = icmp ugt i64 %.012.i.i.i.i.i.i.i, 1
+  %1008 = icmp samesign ugt i64 %.012.i.i.i.i.i.i.i, 1
   br i1 %1008, label %.lr.ph.i.i.i.i.i.i.i, label %_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPN2cv11xfeatures2d17Elliptic_KeyPointESt6vectorIS4_SaIS4_EEEES9_ET0_T_SB_SA_.exit.loopexit.i.i, !llvm.loop !53
 
 _ZSt4moveIN9__gnu_cxx17__normal_iteratorIPN2cv11xfeatures2d17Elliptic_KeyPointESt6vectorIS4_SaIS4_EEEES9_ET0_T_SB_SA_.exit.loopexit.i.i: ; preds = %.lr.ph.i.i.i.i.i.i.i

@@ -227,7 +227,7 @@ define dso_local void @intset_add_member(ptr nocapture noundef %0, i64 noundef %
   %88 = or i64 %87, %.14263.i.i
   %89 = shl i64 %88, %76
   %indvars.iv.next.i.i = add nsw i64 %indvars.iv.i.i, -1
-  %90 = icmp ugt i64 %indvars.iv.i.i, 1
+  %90 = icmp samesign ugt i64 %indvars.iv.i.i, 1
   %indvars.iv.next67.i.i = add nsw i64 %indvars.iv66.i.i, -1
   br i1 %90, label %79, label %._crit_edge.i.i, !llvm.loop !5
 

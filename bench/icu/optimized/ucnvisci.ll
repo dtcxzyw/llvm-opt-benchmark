@@ -2222,7 +2222,7 @@ do.body610.thread:                                ; preds = %if.else602
   br i1 %cmp619407, label %if.then622, label %if.end714
 
 if.then620:                                       ; preds = %do.body610
-  %cmp621 = icmp ult i32 %targetByteUnit.0, 256
+  %cmp621 = icmp samesign ult i32 %targetByteUnit.0, 256
   br i1 %cmp621, label %if.then622, label %if.else660
 
 if.then622:                                       ; preds = %do.body610.thread, %if.then620

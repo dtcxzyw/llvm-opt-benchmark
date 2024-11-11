@@ -722,7 +722,7 @@ _ZN10serde_json3ser9Formatter17begin_array_value17h336a61dfab5fca54E.exit: ; pre
   br label %57
 
 50:                                               ; preds = %_ZN10serde_json3ser9Formatter17begin_array_value17h336a61dfab5fca54E.exit
-  %51 = icmp ult i8 %42, 10
+  %51 = icmp samesign ult i8 %42, 10
   br i1 %51, label %57, label %52
 
 52:                                               ; preds = %50

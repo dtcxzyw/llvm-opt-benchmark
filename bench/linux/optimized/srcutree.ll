@@ -2359,7 +2359,7 @@ srcu_gp_start.exit:                               ; preds = %53, %59
 
 174:                                              ; preds = %165
   %175 = getelementptr inbounds i8, ptr %110, i64 8
-  %176 = icmp ult i32 %142, 8
+  %176 = icmp samesign ult i32 %142, 8
   %177 = and i64 %134, -4
   %178 = or disjoint i64 %177, 1
   %179 = getelementptr inbounds i8, ptr %3, i64 8

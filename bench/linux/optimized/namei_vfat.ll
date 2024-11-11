@@ -510,7 +510,7 @@ define internal i32 @vfat_rename2(ptr nocapture readnone %0, ptr noundef %1, ptr
   br i1 %17, label %18, label %409
 
 18:                                               ; preds = %6
-  %19 = icmp ult i32 %5, 2
+  %19 = icmp samesign ult i32 %5, 2
   br i1 %19, label %244, label %20
 
 20:                                               ; preds = %18
@@ -1367,7 +1367,7 @@ define internal fastcc i32 @vfat_add_entry(ptr noundef %0, ptr nocapture noundef
   br i1 %65, label %.thread86, label %66
 
 66:                                               ; preds = %63
-  %67 = icmp ugt i32 %64, 255
+  %67 = icmp samesign ugt i32 %64, 255
   br i1 %67, label %.thread86, label %68
 
 68:                                               ; preds = %66
@@ -2229,7 +2229,7 @@ define internal fastcc i32 @vfat_add_entry(ptr noundef %0, ptr nocapture noundef
   store i32 %561, ptr %559, align 1
   %562 = add nsw i64 %545, -1
   %563 = getelementptr i8, ptr %546, i64 32
-  %564 = icmp ugt i64 %545, 1
+  %564 = icmp samesign ugt i64 %545, 1
   br i1 %564, label %544, label %.loopexit, !llvm.loop !21
 
 .loopexit:                                        ; preds = %544, %499

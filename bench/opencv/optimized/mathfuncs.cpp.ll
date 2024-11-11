@@ -3493,7 +3493,7 @@ define internal noundef zeroext i1 @_ZN2cvL17checkIntegerRangeILi0EEEbNS_3MatERN
   %29 = load i8, ptr %28, align 1
   %30 = zext i8 %29 to i32
   %31 = icmp sgt i32 %2, %30
-  %32 = icmp ult i32 %3, %30
+  %32 = icmp samesign ult i32 %3, %30
   %or.cond30.us = or i1 %31, %32
   br i1 %or.cond30.us, label %.split.us, label %33
 
@@ -3677,7 +3677,7 @@ define internal noundef zeroext i1 @_ZN2cvL17checkIntegerRangeILi2EEEbNS_3MatERN
   %29 = load i16, ptr %28, align 2
   %30 = zext i16 %29 to i32
   %31 = icmp sgt i32 %2, %30
-  %32 = icmp ult i32 %3, %30
+  %32 = icmp samesign ult i32 %3, %30
   %or.cond30.us = or i1 %31, %32
   br i1 %or.cond30.us, label %.split.us, label %33
 
@@ -7803,7 +7803,7 @@ define internal void @_ZN2cvL6iPow8uEPKhPhii(ptr nocapture noundef readonly %0, 
   br i1 %7, label %.lr.ph47.i, label %_ZN2cvL6iPow_iIhjEEvPKT_PS1_ii.exit
 
 .lr.ph47.i:                                       ; preds = %.preheader.i
-  %8 = icmp ugt i32 %3, 1
+  %8 = icmp samesign ugt i32 %3, 1
   %wide.trip.count55.i = zext nneg i32 %2 to i64
   br i1 %8, label %.lr.ph.us.i, label %.lr.ph47.split.i
 
@@ -7902,7 +7902,7 @@ define internal void @_ZN2cvL6iPow8sEPKaPaii(ptr nocapture noundef readonly %0, 
   br i1 %7, label %.lr.ph47.i, label %_ZN2cvL6iPow_iIaiEEvPKT_PS1_ii.exit
 
 .lr.ph47.i:                                       ; preds = %.preheader.i
-  %8 = icmp ugt i32 %3, 1
+  %8 = icmp samesign ugt i32 %3, 1
   %wide.trip.count55.i = zext nneg i32 %2 to i64
   br i1 %8, label %.lr.ph.us.i, label %.lr.ph47.split.i
 
@@ -8010,7 +8010,7 @@ define internal void @_ZN2cvL7iPow16uEPKtPtii(ptr nocapture noundef readonly %0,
   br i1 %7, label %.lr.ph47.i, label %_ZN2cvL6iPow_iItjEEvPKT_PS1_ii.exit
 
 .lr.ph47.i:                                       ; preds = %.preheader.i
-  %8 = icmp ugt i32 %3, 1
+  %8 = icmp samesign ugt i32 %3, 1
   %wide.trip.count55.i = zext nneg i32 %2 to i64
   br i1 %8, label %.lr.ph.us.i, label %.lr.ph47.split.i
 
@@ -8109,7 +8109,7 @@ define internal void @_ZN2cvL7iPow16sEPKsPsii(ptr nocapture noundef readonly %0,
   br i1 %7, label %.lr.ph47.i, label %_ZN2cvL6iPow_iIsiEEvPKT_PS1_ii.exit
 
 .lr.ph47.i:                                       ; preds = %.preheader.i
-  %8 = icmp ugt i32 %3, 1
+  %8 = icmp samesign ugt i32 %3, 1
   %wide.trip.count55.i = zext nneg i32 %2 to i64
   br i1 %8, label %.lr.ph.us.i, label %.lr.ph47.split.i
 
@@ -8217,7 +8217,7 @@ define internal void @_ZN2cvL7iPow32sEPKiPiii(ptr nocapture noundef readonly %0,
   br i1 %7, label %.lr.ph47.i, label %_ZN2cvL6iPow_iIiiEEvPKT_PS1_ii.exit
 
 .lr.ph47.i:                                       ; preds = %.preheader.i
-  %8 = icmp ugt i32 %3, 1
+  %8 = icmp samesign ugt i32 %3, 1
   %wide.trip.count55.i = zext nneg i32 %2 to i64
   br i1 %8, label %.lr.ph.us.i, label %.lr.ph47.split.i
 

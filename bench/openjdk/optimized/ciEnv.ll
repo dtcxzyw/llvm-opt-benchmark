@@ -2017,7 +2017,7 @@ _ZNK12ConstantPool17resolved_klass_atEi.exit:     ; preds = %143
   br i1 %165, label %_ZN5ciEnv9get_klassEP5Klass.exit, label %166
 
 166:                                              ; preds = %.lr.ph, %_ZNK12ConstantPool17resolved_klass_atEi.exit
-  %167 = icmp ugt i64 %indvars.iv, 2
+  %167 = icmp samesign ugt i64 %indvars.iv, 2
   br i1 %167, label %.lr.ph, label %.loopexit, !llvm.loop !8
 
 _ZN5ciEnv9get_klassEP5Klass.exit:                 ; preds = %_ZNK12ConstantPool17resolved_klass_atEi.exit, %_ZN9Signature8is_arrayEPK6Symbol.exit.thread

@@ -788,7 +788,7 @@ _ZN7meshoptL13writeTriangleEPvmmjjj.exit122:      ; preds = %if.then.i115, %if.e
   br label %for.inc
 
 if.else65:                                        ; preds = %if.end20
-  %cmp67 = icmp ult i8 %1, -2
+  %cmp67 = icmp samesign ult i8 %1, -2
   br i1 %cmp67, label %if.then68, label %if.else112
 
 if.then68:                                        ; preds = %if.else65

@@ -141,7 +141,7 @@ _ZN7nanoguimiERKNS_5ArrayIiLm2EEES3_.exit.critedge:
   %or.cond.not66.not86 = or i1 %49, %48
   %50 = fcmp ult float %25, 0.000000e+00
   %or.cond60.not63.not83 = select i1 %or.cond.not66.not86, i1 true, i1 %50
-  %51 = icmp ult i32 %.sroa.speculated.i, %26
+  %51 = icmp samesign ult i32 %.sroa.speculated.i, %26
   %or.cond61.not = or i1 %51, %or.cond60.not63.not83
   %52 = icmp sle i32 %47, %27
   %spec.select = select i1 %or.cond61.not, i1 true, i1 %52

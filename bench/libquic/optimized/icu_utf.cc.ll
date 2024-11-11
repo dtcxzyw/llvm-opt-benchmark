@@ -165,13 +165,13 @@ if.else78:                                        ; preds = %lor.lhs.false54
   br i1 %or.cond1, label %land.lhs.true83, label %if.end116
 
 land.lhs.true83:                                  ; preds = %if.else78
-  %cmp84 = icmp ult i32 %c.addr.062, 65008
+  %cmp84 = icmp samesign ult i32 %c.addr.062, 65008
   br i1 %cmp84, label %if.end116.sink.split, label %lor.lhs.false85
 
 lor.lhs.false85:                                  ; preds = %land.lhs.true83
   %and86 = and i32 %c.addr.062, 65534
   %cmp87 = icmp eq i32 %and86, 65534
-  %cmp89 = icmp ult i32 %c.addr.062, 1114112
+  %cmp89 = icmp samesign ult i32 %c.addr.062, 1114112
   %or.cond2 = and i1 %cmp89, %cmp87
   br i1 %or.cond2, label %if.end116.sink.split, label %if.end116
 

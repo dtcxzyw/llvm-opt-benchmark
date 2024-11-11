@@ -7556,7 +7556,7 @@ common.ret:                                       ; preds = %"_ZN4core3ptr70drop
   %737 = and i8 %735, 63
   %738 = zext nneg i8 %737 to i32
   %739 = or disjoint i32 %736, %738
-  %740 = icmp ugt i8 %729, -33
+  %740 = icmp samesign ugt i8 %729, -33
   br i1 %740, label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hdc244d3372b02669E.exit15.i.i.i.i.i.i.i", label %_ZN4core3str11validations15next_code_point17h23bc3658d2f85855E.exit.thread.i.i.i.i.i.i
 
 741:                                              ; preds = %728
@@ -7574,7 +7574,7 @@ common.ret:                                       ; preds = %"_ZN4core3ptr70drop
   %749 = or disjoint i32 %746, %748
   %750 = shl nuw nsw i32 %733, 12
   %751 = or disjoint i32 %749, %750
-  %752 = icmp ugt i8 %729, -17
+  %752 = icmp samesign ugt i8 %729, -17
   br i1 %752, label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hdc244d3372b02669E.exit17.i.i.i.i.i.i.i", label %_ZN4core3str11validations15next_code_point17h23bc3658d2f85855E.exit.thread.i.i.i.i.i.i
 
 "_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hdc244d3372b02669E.exit17.i.i.i.i.i.i.i": ; preds = %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hdc244d3372b02669E.exit15.i.i.i.i.i.i.i"

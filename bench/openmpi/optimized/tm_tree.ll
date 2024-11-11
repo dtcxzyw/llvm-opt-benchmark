@@ -1273,7 +1273,7 @@ choose.exit.i:                                    ; preds = %.lr.ph.i155.i, %bui
   br label %395
 
 261:                                              ; preds = %253
-  %262 = icmp ult i32 %2, 6
+  %262 = icmp samesign ult i32 %2, 6
   %263 = load i32, ptr @verbose_level, align 4
   %264 = icmp sgt i32 %263, 4
   br i1 %262, label %265, label %330
@@ -1792,7 +1792,7 @@ list_to_tab.exit.i:                               ; preds = %._crit_edge.i201.i
 
 .lr.ph.i210.i:                                    ; preds = %479
   %483 = add nsw i32 %430, -1
-  %484 = icmp ugt i32 %430, 29999
+  %484 = icmp samesign ugt i32 %430, 29999
   %485 = udiv i32 %430, 10000
   %486 = select i1 %484, i32 %485, i32 2
   %487 = icmp eq i32 %149, 1
@@ -3131,7 +3131,7 @@ tailrecurse.i:                                    ; preds = %1047, %tailrecurse.
   %1054 = getelementptr inbounds i8, ptr %.tr7.i, i64 24
   %1055 = load ptr, ptr %1054, align 8
   %1056 = add nsw i32 %.tr68.i, -1
-  %1057 = icmp ugt i32 %.tr68.i, 1
+  %1057 = icmp samesign ugt i32 %.tr68.i, 1
   br i1 %1057, label %tailrecurse.i, label %set_deb_tab_child.exit
 
 set_deb_tab_child.exit:                           ; preds = %tailrecurse.i, %.thread189

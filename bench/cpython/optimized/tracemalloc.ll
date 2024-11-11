@@ -1978,7 +1978,7 @@ while.body.i17:                                   ; preds = %while.body.i17, %wh
   %reass.add.i = shl nuw nsw i64 %indvars.iv.next.i, 1
   %add6.i = add i64 %mult.015.i, 82520
   %add7.i = add i64 %add6.i, %reass.add.i
-  %cmp.i19 = icmp ugt i64 %indvars.iv.i, 1
+  %cmp.i19 = icmp samesign ugt i64 %indvars.iv.i, 1
   br i1 %cmp.i19, label %while.body.i17, label %traceback_hash.exit, !llvm.loop !10
 
 traceback_hash.exit:                              ; preds = %while.body.i17

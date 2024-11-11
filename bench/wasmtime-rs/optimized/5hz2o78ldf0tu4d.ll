@@ -9070,7 +9070,7 @@ define internal fastcc void @"_ZN17cranelift_codegen8machinst3abi15Callee$LT$M$G
   br i1 %49, label %"_ZN129_$LT$cranelift_codegen..machinst..abi..SigSet$u20$as$u20$core..ops..index..Index$LT$cranelift_codegen..machinst..abi..Sig$GT$$GT$5index17h4ac8d0e767da704eE.exit3", label %50
 
 50:                                               ; preds = %48
-  %51 = icmp ult i16 %33, 128
+  %51 = icmp samesign ult i16 %33, 128
   %52 = and i16 %33, 15
   %53 = or disjoint i16 %52, 112
   %.0.i.i.i.i = select i1 %51, i16 %33, i16 %53
@@ -9399,7 +9399,7 @@ default.unreachable250:                           ; preds = %210, %35
   br i1 %96, label %_ZN17cranelift_codegen8machinst7helpers7ty_bits17hc68604df68927d5dE.exit, label %97
 
 97:                                               ; preds = %89
-  %98 = icmp ult i16 %93, 128
+  %98 = icmp samesign ult i16 %93, 128
   %99 = and i16 %93, 15
   %100 = or disjoint i16 %99, 112
   %.0.i.i.i.i = select i1 %98, i16 %93, i16 %100
@@ -9433,7 +9433,7 @@ _ZN17cranelift_codegen2ir5types4Type10lane_count17h4544b729d3d3bd7bE.exit.i.i: ;
   br i1 %115, label %_ZN17cranelift_codegen8machinst7helpers7ty_bits17hc68604df68927d5dE.exit75, label %116
 
 116:                                              ; preds = %108
-  %117 = icmp ult i16 %112, 128
+  %117 = icmp samesign ult i16 %112, 128
   %118 = and i16 %112, 15
   %119 = or disjoint i16 %118, 112
   %.0.i.i.i.i71 = select i1 %117, i16 %112, i16 %119
@@ -12751,7 +12751,7 @@ common.resume:                                    ; preds = %.body, %82
   br i1 %187, label %_ZN17cranelift_codegen8machinst7helpers7ty_bits17hc68604df68927d5dE.exit.thread, label %188
 
 188:                                              ; preds = %186
-  %189 = icmp ult i16 %174, 128
+  %189 = icmp samesign ult i16 %174, 128
   %190 = and i16 %174, 15
   %191 = or disjoint i16 %190, 112
   %.0.i.i.i.i = select i1 %189, i16 %174, i16 %191
@@ -12938,7 +12938,7 @@ _ZN17cranelift_codegen8machinst3reg7RealReg5class17h4958a58911b61060E.exit: ; pr
   br i1 %187, label %_ZN17cranelift_codegen8machinst7helpers7ty_bits17hc68604df68927d5dE.exit119, label %249
 
 249:                                              ; preds = %247
-  %250 = icmp ult i16 %174, 128
+  %250 = icmp samesign ult i16 %174, 128
   %251 = and i16 %174, 15
   %252 = or disjoint i16 %251, 112
   %.0.i.i.i.i115 = select i1 %250, i16 %174, i16 %252
@@ -13041,7 +13041,7 @@ _ZN8smallvec10infallible17heb7d46c8e758169bE.exit.i: ; preds = %.noexc120
   br i1 %286, label %_ZN17cranelift_codegen8machinst7helpers7ty_bits17hc68604df68927d5dE.exit127.thread, label %287
 
 287:                                              ; preds = %285
-  %288 = icmp ult i16 %182, 128
+  %288 = icmp samesign ult i16 %182, 128
   %289 = and i16 %182, 15
   %290 = or disjoint i16 %289, 112
   %.0.i.i.i.i123 = select i1 %288, i16 %182, i16 %290
@@ -13157,7 +13157,7 @@ _ZN17cranelift_codegen8machinst3reg3Reg5class17hc7c6786d1f35d9dcE.exit: ; preds 
   br i1 %286, label %_ZN17cranelift_codegen8machinst7helpers7ty_bits17hc68604df68927d5dE.exit146, label %325
 
 325:                                              ; preds = %324
-  %326 = icmp ult i16 %182, 128
+  %326 = icmp samesign ult i16 %182, 128
   %327 = and i16 %182, 15
   %328 = or disjoint i16 %327, 112
   %.0.i.i.i.i142 = select i1 %326, i16 %182, i16 %328
@@ -40963,11 +40963,11 @@ switch.lookup4802:                                ; preds = %4325
   br i1 %.not, label %.loopexit, label %4989
 
 4987:                                             ; preds = %4983
-  %4988 = icmp ugt i64 %4984, -2147483648
+  %4988 = icmp samesign ugt i64 %4984, -2147483648
   br i1 %4988, label %4998, label %.invoke4626
 
 4989:                                             ; preds = %4986
-  %4990 = icmp ult i64 %4984, 2147483648
+  %4990 = icmp samesign ult i64 %4984, 2147483648
   br i1 %4990, label %4991, label %.invoke4626
 
 4991:                                             ; preds = %4989
@@ -47499,7 +47499,7 @@ _ZN17cranelift_codegen2ir7builder11InstBuilder6iconst17hfb9bc4096b99b456E.exit.i
   br i1 %291, label %.split2.i, label %292
 
 292:                                              ; preds = %290
-  %293 = icmp ult i16 %211, 128
+  %293 = icmp samesign ult i16 %211, 128
   %294 = and i16 %211, 15
   %295 = or disjoint i16 %294, 112
   %.0.i.i.i12.i = select i1 %293, i16 %211, i16 %295
@@ -47694,7 +47694,7 @@ _ZN17cranelift_codegen2ir7builder11InstBuilder16UnaryGlobalValue17h6f42fa3351506
   br i1 %373, label %.thread.i, label %374
 
 374:                                              ; preds = %369
-  %375 = icmp ult i16 %371, 128
+  %375 = icmp samesign ult i16 %371, 128
   %376 = and i16 %371, 15
   %377 = or disjoint i16 %376, 112
   %.0.i.i.i.i.i = select i1 %375, i16 %371, i16 %377

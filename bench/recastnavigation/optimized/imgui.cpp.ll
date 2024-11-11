@@ -195,7 +195,7 @@ _ZL13addGfxCmdTextiiiPKcj.exit:                   ; preds = %50, %69
   %.0.i.i = phi ptr [ %71, %69 ], [ null, %50 ]
   %73 = getelementptr inbounds i8, ptr %53, i64 16
   store ptr %.0.i.i, ptr %73, align 8
-  %74 = icmp ugt i32 %25, 4997
+  %74 = icmp samesign ugt i32 %25, 4997
   br i1 %74, label %_ZL16addGfxCmdScissoriiii.exit, label %75
 
 75:                                               ; preds = %_ZL13addGfxCmdTextiiiPKcj.exit

@@ -12665,7 +12665,7 @@ for.body:                                         ; preds = %if.then3, %for.body
   %incdec.ptr14 = getelementptr inbounds i8, ptr %dst.09, i64 4
   store i32 %or13, ptr %dst.09, align 4
   %dec = add nsw i32 %n.010, -1
-  %cmp = icmp ugt i32 %n.010, 1
+  %cmp = icmp samesign ugt i32 %n.010, 1
   br i1 %cmp, label %for.body, label %if.end15, !llvm.loop !42
 
 if.end15:                                         ; preds = %for.body, %if.then3, %_ZN11ImFontAtlas18GetTexDataAsAlpha8EPPhPiS2_S2_.exit, %entry
@@ -13401,7 +13401,7 @@ while.body.i.i.i:                                 ; preds = %if.end.i.i.i, %whil
   br i1 %tobool.not.i.i.i, label %if.end61.sink.split.i, label %while.body.i.i.i, !llvm.loop !45
 
 if.else.i.i:                                      ; preds = %if.then.i.i
-  %cmp10.i.i = icmp ugt i8 %16, 63
+  %cmp10.i.i = icmp samesign ugt i8 %16, 63
   br i1 %cmp10.i.i, label %if.then11.i.i, label %if.else26.i.i
 
 if.then11.i.i:                                    ; preds = %if.else.i.i
@@ -13464,7 +13464,7 @@ _ZL8stb__litPKhj.exit.i.i:                        ; preds = %if.end6.i.i.i, %if.
   br label %_ZL20stb_decompress_tokenPKh.exit.i
 
 if.else40.i.i:                                    ; preds = %for.cond.i
-  %cmp42.i.i = icmp ugt i8 %16, 23
+  %cmp42.i.i = icmp samesign ugt i8 %16, 23
   br i1 %cmp42.i.i, label %if.then43.i.i, label %if.else63.i.i
 
 if.then43.i.i:                                    ; preds = %if.else40.i.i
@@ -13508,7 +13508,7 @@ while.body.i84.i.i:                               ; preds = %if.end.i82.i.i, %wh
   br i1 %tobool.not.i91.i.i, label %if.end61.sink.split.i, label %while.body.i84.i.i, !llvm.loop !45
 
 if.else63.i.i:                                    ; preds = %if.else40.i.i
-  %cmp65.i.i = icmp ugt i8 %16, 15
+  %cmp65.i.i = icmp samesign ugt i8 %16, 15
   br i1 %cmp65.i.i, label %if.then66.i.i, label %if.else90.i.i
 
 if.then66.i.i:                                    ; preds = %if.else63.i.i
@@ -13557,7 +13557,7 @@ while.body.i101.i.i:                              ; preds = %if.end.i99.i.i, %wh
   br i1 %tobool.not.i108.i.i, label %if.end61.sink.split.i, label %while.body.i101.i.i, !llvm.loop !45
 
 if.else90.i.i:                                    ; preds = %if.else63.i.i
-  %cmp92.i.i = icmp ugt i8 %16, 7
+  %cmp92.i.i = icmp samesign ugt i8 %16, 7
   br i1 %cmp92.i.i, label %if.then93.i.i, label %if.else114.i.i
 
 if.then93.i.i:                                    ; preds = %if.else90.i.i
@@ -24463,7 +24463,7 @@ if.end.thread:                                    ; preds = %land.lhs.true
 
 if.end:                                           ; preds = %entry
   %conv6 = zext i16 %src to i32
-  %cmp7.not = icmp ugt i32 %0, %conv6
+  %cmp7.not = icmp samesign ugt i32 %0, %conv6
   br i1 %cmp7.not, label %if.end12, label %return
 
 if.end12:                                         ; preds = %if.end
@@ -27654,7 +27654,7 @@ _ZL15stbtt__buf_get8P10stbtt__buf.exit.i52.i:     ; preds = %_ZL16stbtt__buf_pee
 
 if.else.i56.i:                                    ; preds = %_ZL15stbtt__buf_get8P10stbtt__buf.exit.i52.i
   %8 = add nsw i8 %6, 9
-  %or.cond1.i.i = icmp ult i8 %8, 4
+  %or.cond1.i.i = icmp samesign ult i8 %8, 4
   br i1 %or.cond1.i.i, label %if.then5.i.i, label %if.else10.i.i
 
 if.then5.i.i:                                     ; preds = %if.else.i56.i
@@ -27663,7 +27663,7 @@ if.then5.i.i:                                     ; preds = %if.else.i56.i
 
 if.else10.i.i:                                    ; preds = %if.else.i56.i
   %9 = add nsw i8 %6, 5
-  %or.cond2.i.i = icmp ult i8 %9, 4
+  %or.cond2.i.i = icmp samesign ult i8 %9, 4
   br i1 %or.cond2.i.i, label %if.then14.i.i, label %if.else22.i.i
 
 if.then14.i.i:                                    ; preds = %if.else10.i.i
@@ -27785,7 +27785,7 @@ if.then.i14:                                      ; preds = %_ZL15stbtt__buf_get
 
 if.else.i:                                        ; preds = %_ZL15stbtt__buf_get8P10stbtt__buf.exit.i6
   %19 = add nsw i8 %17, 9
-  %or.cond1.i = icmp ult i8 %19, 4
+  %or.cond1.i = icmp samesign ult i8 %19, 4
   br i1 %or.cond1.i, label %if.then5.i, label %if.else10.i
 
 if.then5.i:                                       ; preds = %if.else.i
@@ -27810,7 +27810,7 @@ _ZL15stbtt__buf_get8P10stbtt__buf.exit25.i:       ; preds = %if.end.i21.i, %if.t
 
 if.else10.i:                                      ; preds = %if.else.i
   %22 = add nsw i8 %17, 5
-  %or.cond2.i = icmp ult i8 %22, 4
+  %or.cond2.i = icmp samesign ult i8 %22, 4
   br i1 %or.cond2.i, label %if.then14.i, label %if.else22.i
 
 if.then14.i:                                      ; preds = %if.else10.i
@@ -28512,7 +28512,7 @@ sw.bb222:                                         ; preds = %_ZL15stbtt__buf_get
 if.end225:                                        ; preds = %sw.bb222
   %and = and i32 %sp.0373, 1
   %add233348 = add nuw nsw i32 %and, 3
-  %cmp234349 = icmp ult i32 %add233348, %sp.0373
+  %cmp234349 = icmp samesign ult i32 %add233348, %sp.0373
   br i1 %cmp234349, label %for.body235.lr.ph, label %sw.epilog405
 
 for.body235.lr.ph:                                ; preds = %if.end225
@@ -29035,7 +29035,7 @@ if.then.i246:                                     ; preds = %_ZL15stbtt__buf_get
 
 if.else.i:                                        ; preds = %_ZL15stbtt__buf_get8P10stbtt__buf.exit.i224
   %147 = add nsw i8 %145, 9
-  %or.cond1.i = icmp ult i8 %147, 4
+  %or.cond1.i = icmp samesign ult i8 %147, 4
   br i1 %or.cond1.i, label %if.then5.i, label %if.else10.i
 
 if.then5.i:                                       ; preds = %if.else.i
@@ -29062,7 +29062,7 @@ _ZL15stbtt__buf_get8P10stbtt__buf.exit25.i:       ; preds = %if.end.i21.i, %if.t
 
 if.else10.i:                                      ; preds = %if.else.i
   %150 = add nsw i8 %145, 5
-  %or.cond2.i = icmp ult i8 %150, 4
+  %or.cond2.i = icmp samesign ult i8 %150, 4
   br i1 %or.cond2.i, label %if.then14.i, label %if.else22.i
 
 if.then14.i:                                      ; preds = %if.else10.i

@@ -75,7 +75,7 @@ define dso_local void @BZ2_blockSort(ptr nocapture noundef %0) local_unnamed_add
   br label %.lr.ph.i
 
 .preheader326.i:                                  ; preds = %.lr.ph.i
-  %38 = icmp ugt i64 %indvars.iv.i, 3
+  %38 = icmp samesign ugt i64 %indvars.iv.i, 3
   br i1 %38, label %.lr.ph396.i, label %.preheader325.i
 
 .lr.ph.i:                                         ; preds = %.lr.ph.i, %.lr.ph.preheader.i
@@ -133,7 +133,7 @@ define dso_local void @BZ2_blockSort(ptr nocapture noundef %0) local_unnamed_add
   %81 = add i32 %80, 1
   store i32 %81, ptr %79, align 4
   %indvars.iv.next.i = add nsw i64 %indvars.iv.i, -4
-  %82 = icmp ugt i64 %indvars.iv.i, 6
+  %82 = icmp samesign ugt i64 %indvars.iv.i, 6
   br i1 %82, label %.lr.ph.i, label %.preheader326.i, !llvm.loop !5
 
 .preheader325.i:                                  ; preds = %.lr.ph396.i, %.preheader326.i
@@ -203,7 +203,7 @@ define dso_local void @BZ2_blockSort(ptr nocapture noundef %0) local_unnamed_add
   br label %.lr.ph401.i
 
 .preheader324.i:                                  ; preds = %.lr.ph401.i
-  %113 = icmp ugt i64 %indvars.iv505.i, 3
+  %113 = icmp samesign ugt i64 %indvars.iv505.i, 3
   br i1 %113, label %.lr.ph406.i, label %.preheader323.i
 
 .lr.ph401.i:                                      ; preds = %.lr.ph401.i, %.lr.ph401.preheader.i
@@ -265,7 +265,7 @@ define dso_local void @BZ2_blockSort(ptr nocapture noundef %0) local_unnamed_add
   %160 = trunc nuw nsw i64 %149 to i32
   store i32 %160, ptr %159, align 4
   %indvars.iv.next506.i = add nsw i64 %indvars.iv505.i, -4
-  %161 = icmp ugt i64 %indvars.iv505.i, 6
+  %161 = icmp samesign ugt i64 %indvars.iv505.i, 6
   br i1 %161, label %.lr.ph401.i, label %.preheader324.i, !llvm.loop !10
 
 .preheader323.i:                                  ; preds = %.lr.ph406.i, %.preheader324.i
@@ -434,7 +434,7 @@ split.i:                                          ; preds = %208, %192
   %238 = phi i32 [ %235, %.preheader.i.i ], [ %314, %mainSimpleSort.exit.i.i ]
   %.pr.i = phi i32 [ %.pr.i187, %.preheader.i.i ], [ %314, %mainSimpleSort.exit.i.i ]
   %indvars.iv.i.i = phi i64 [ %236, %.preheader.i.i ], [ %indvars.iv.next.i.i, %mainSimpleSort.exit.i.i ]
-  %239 = icmp ult i64 %indvars.iv.i.i, 98
+  %239 = icmp samesign ult i64 %indvars.iv.i.i, 98
   br i1 %239, label %241, label %240
 
 240:                                              ; preds = %237
@@ -824,7 +824,7 @@ mainSimpleSort.exit.i.i:                          ; preds = %mainSimpleSort.exit
   %indvars.iv.next400.i.i = add nsw i64 %indvars.iv399.i.i, 1
   %indvars.iv.next398.i.i = add nsw i64 %indvars.iv397.i.i, 1
   %417 = add nsw i32 %.0236320.i.i, -1
-  %418 = icmp ugt i32 %.0236320.i.i, 1
+  %418 = icmp samesign ugt i32 %.0236320.i.i, 1
   br i1 %418, label %.lr.ph322.i.i, label %._crit_edge323.i.i, !llvm.loop !22
 
 ._crit_edge323.i.i:                               ; preds = %.lr.ph322.i.i, %407
@@ -853,7 +853,7 @@ mainSimpleSort.exit.i.i:                          ; preds = %mainSimpleSort.exit
   store i32 %426, ptr %427, align 4
   %indvars.iv.next407.i.i = add nsw i64 %indvars.iv406.i.i, 1
   %429 = add nsw i32 %.0233326.i.i, -1
-  %430 = icmp ugt i32 %.0233326.i.i, 1
+  %430 = icmp samesign ugt i32 %.0233326.i.i, 1
   br i1 %430, label %.lr.ph328.i.i, label %._crit_edge329.i.i, !llvm.loop !23
 
 ._crit_edge329.i.i:                               ; preds = %.lr.ph328.i.i, %._crit_edge323.i.i
@@ -1178,7 +1178,7 @@ mainQSort3.exit._crit_edge.i:                     ; preds = %mainQSort3.exit.i
   br label %581
 
 581:                                              ; preds = %577, %.lr.ph434.i
-  %582 = icmp ugt i64 %indvars.iv533.in.i, 1
+  %582 = icmp samesign ugt i64 %indvars.iv533.in.i, 1
   br i1 %582, label %.lr.ph434.i, label %._crit_edge435.i, !llvm.loop !30
 
 ._crit_edge435.i:                                 ; preds = %581, %565
@@ -1594,7 +1594,7 @@ define internal fastcc void @fallbackSort(ptr nocapture noundef %0, ptr nocaptur
 
 147:                                              ; preds = %fallbackSimpleSort.exit.i, %.lr.ph.i
   %indvars.iv.i = phi i64 [ %146, %.lr.ph.i ], [ %indvars.iv.next.i, %fallbackSimpleSort.exit.i ]
-  %148 = icmp ult i64 %indvars.iv.i, 99
+  %148 = icmp samesign ult i64 %indvars.iv.i, 99
   br i1 %148, label %150, label %149
 
 149:                                              ; preds = %147
@@ -1932,7 +1932,7 @@ fallbackSimpleSort.exit.i:                        ; preds = %.critedge2.i.i, %.l
   %indvars.iv.next324.i = add nsw i64 %indvars.iv323.i, 1
   %indvars.iv.next322.i = add nsw i64 %indvars.iv321.i, 1
   %291 = add nsw i32 %.0171249.i, -1
-  %292 = icmp ugt i32 %.0171249.i, 1
+  %292 = icmp samesign ugt i32 %.0171249.i, 1
   br i1 %292, label %.lr.ph251.i, label %._crit_edge252.i, !llvm.loop !49
 
 ._crit_edge252.i:                                 ; preds = %.lr.ph251.i, %280
@@ -1961,7 +1961,7 @@ fallbackSimpleSort.exit.i:                        ; preds = %.critedge2.i.i, %.l
   store i32 %300, ptr %301, align 4
   %indvars.iv.next331.i = add nsw i64 %indvars.iv330.i, 1
   %303 = add nsw i32 %.0166255.i, -1
-  %304 = icmp ugt i32 %.0166255.i, 1
+  %304 = icmp samesign ugt i32 %.0166255.i, 1
   br i1 %304, label %.lr.ph257.i, label %._crit_edge258.i, !llvm.loop !50
 
 ._crit_edge258.i:                                 ; preds = %.lr.ph257.i, %._crit_edge252.i

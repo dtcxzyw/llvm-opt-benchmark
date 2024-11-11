@@ -291,7 +291,7 @@ if.end26:                                         ; preds = %if.else
 land.lhs.true28:                                  ; preds = %if.end26
   %add = shl nuw nsw i32 %and, 2
   %shl = add nuw nsw i32 %add, 4
-  %cmp29 = icmp ult i32 %length, %shl
+  %cmp29 = icmp samesign ult i32 %length, %shl
   br i1 %cmp29, label %if.then34, label %lor.lhs.false30
 
 lor.lhs.false30:                                  ; preds = %land.lhs.true28
@@ -520,7 +520,7 @@ if.then11:                                        ; preds = %if.else9
   br label %if.end39
 
 if.else13:                                        ; preds = %if.else9
-  %cmp14 = icmp ult i16 %1, -8193
+  %cmp14 = icmp samesign ult i16 %1, -8193
   br i1 %cmp14, label %if.then15, label %if.else19
 
 if.then15:                                        ; preds = %if.else13
@@ -842,7 +842,7 @@ if.then11.i.i:                                    ; preds = %if.else9.i.i
   br label %_ZN6icu_7513res_getStringERKNS_14ResourceTracerEPK12ResourceDatajPi.exit.thread
 
 if.else13.i.i:                                    ; preds = %if.else9.i.i
-  %cmp14.i.i = icmp ult i16 %4, -8193
+  %cmp14.i.i = icmp samesign ult i16 %4, -8193
   br i1 %cmp14.i.i, label %if.then15.i.i, label %if.else19.i.i
 
 if.then15.i.i:                                    ; preds = %if.else13.i.i
@@ -1497,7 +1497,7 @@ if.then11.i:                                      ; preds = %if.else9.i
   br label %if.end17
 
 if.else13.i:                                      ; preds = %if.else9.i
-  %cmp14.i = icmp ult i16 %9, -8193
+  %cmp14.i = icmp samesign ult i16 %9, -8193
   br i1 %cmp14.i, label %if.then15.i, label %if.else19.i
 
 if.then15.i:                                      ; preds = %if.else13.i
@@ -1664,7 +1664,7 @@ if.then11.i.i:                                    ; preds = %if.else9.i.i
   br label %if.then20
 
 if.else13.i.i:                                    ; preds = %if.else9.i.i
-  %cmp14.i.i = icmp ult i16 %7, -8193
+  %cmp14.i.i = icmp samesign ult i16 %7, -8193
   br i1 %cmp14.i.i, label %if.then15.i.i, label %if.else19.i.i
 
 if.then15.i.i:                                    ; preds = %if.else13.i.i
@@ -1801,7 +1801,7 @@ if.then11.i.i:                                    ; preds = %if.else9.i.i
   br label %if.then6
 
 if.else13.i.i:                                    ; preds = %if.else9.i.i
-  %cmp14.i.i = icmp ult i16 %5, -8193
+  %cmp14.i.i = icmp samesign ult i16 %5, -8193
   br i1 %cmp14.i.i, label %if.then15.i.i, label %if.else19.i.i
 
 if.then15.i.i:                                    ; preds = %if.else13.i.i
@@ -1954,7 +1954,7 @@ if.then11.i:                                      ; preds = %if.else9.i
   br label %if.then31
 
 if.else13.i:                                      ; preds = %if.else9.i
-  %cmp14.i = icmp ult i16 %25, -8193
+  %cmp14.i = icmp samesign ult i16 %25, -8193
   br i1 %cmp14.i, label %if.then15.i, label %if.else19.i
 
 if.then15.i:                                      ; preds = %if.else13.i
@@ -2503,7 +2503,7 @@ if.then2:                                         ; preds = %sw.bb
   %incdec.ptr = getelementptr inbounds i8, ptr %add.ptr, i64 2
   %1 = load i16, ptr %add.ptr, align 2
   %conv = zext i16 %1 to i32
-  %cmp3 = icmp ult i32 %indexR, %conv
+  %cmp3 = icmp samesign ult i32 %indexR, %conv
   br i1 %cmp3, label %if.then4, label %return
 
 if.then4:                                         ; preds = %if.then2
@@ -2559,7 +2559,7 @@ sw.bb33:                                          ; preds = %if.end
   %incdec.ptr37 = getelementptr inbounds i8, ptr %add.ptr36, i64 2
   %7 = load i16, ptr %add.ptr36, align 2
   %conv38 = zext i16 %7 to i32
-  %cmp39 = icmp ult i32 %indexR, %conv38
+  %cmp39 = icmp samesign ult i32 %indexR, %conv38
   br i1 %cmp39, label %if.then40, label %return
 
 if.then40:                                        ; preds = %sw.bb33
@@ -3089,7 +3089,7 @@ sw.bb7:                                           ; preds = %if.end
   %add.ptr10 = getelementptr inbounds i16, ptr %5, i64 %idx.ext9
   %6 = load i16, ptr %add.ptr10, align 2
   %conv = zext i16 %6 to i32
-  %cmp11 = icmp ult i32 %indexR, %conv
+  %cmp11 = icmp samesign ult i32 %indexR, %conv
   br i1 %cmp11, label %if.then12, label %return
 
 if.then12:                                        ; preds = %sw.bb7
@@ -3308,7 +3308,7 @@ sw.bb7.i:                                         ; preds = %if.end.i
   %add.ptr10.i = getelementptr inbounds i16, ptr %15, i64 %idx.ext9.i
   %16 = load i16, ptr %add.ptr10.i, align 2
   %conv.i = zext i16 %16 to i32
-  %cmp11.i = icmp ult i32 %conv, %conv.i
+  %cmp11.i = icmp samesign ult i32 %conv, %conv.i
   br i1 %cmp11.i, label %if.then12.i, label %if.end51
 
 if.then12.i:                                      ; preds = %sw.bb7.i
@@ -3591,7 +3591,7 @@ if.then144:                                       ; preds = %if.then134
 
 if.end148:                                        ; preds = %if.then134, %if.end132
   store ptr %add.ptr99, ptr %tempTable, align 8
-  %cmp151 = icmp ugt i8 %5, 1
+  %cmp151 = icmp samesign ugt i8 %5, 1
   %cmp153 = icmp slt i32 %call84, 201
   %or.cond = select i1 %cmp151, i1 true, i1 %cmp153
   br i1 %or.cond, label %if.then154, label %if.else159

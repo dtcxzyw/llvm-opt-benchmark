@@ -3137,7 +3137,7 @@ if.then5.i.i:                                     ; preds = %_ZNK3re210SparseSet
   br label %_ZN3re210SparseSetTIvE6insertEi.exit
 
 _ZN3re210SparseSetTIvE6insertEi.exit:             ; preds = %_ZNK3re210SparseSetTIvE8containsEi.exit.i.i, %if.then5.i.i, %if.end
-  %cmp12 = icmp ugt i64 %indvars.iv, 1
+  %cmp12 = icmp samesign ugt i64 %indvars.iv, 1
   br i1 %cmp12, label %for.body, label %if.end18, !llvm.loop !47
 
 if.end18:                                         ; preds = %_ZN3re210SparseSetTIvE6insertEi.exit, %for.body, %if.then11, %if.then, %entry
@@ -3509,7 +3509,7 @@ if.then5.i.i113:                                  ; preds = %_ZNK3re210SparseSet
   br label %_ZN3re210SparseSetTIvE6insertEi.exit129
 
 _ZN3re210SparseSetTIvE6insertEi.exit129:          ; preds = %_ZNK3re210SparseSetTIvE8containsEi.exit.i.i125, %if.then5.i.i113, %if.end91
-  %cmp83 = icmp ugt i64 %indvars.iv331, 1
+  %cmp83 = icmp samesign ugt i64 %indvars.iv331, 1
   br i1 %cmp83, label %for.body84, label %if.end98, !llvm.loop !48
 
 if.end98:                                         ; preds = %_ZN3re210SparseSetTIvE6insertEi.exit129, %for.body84, %if.then78, %if.then74, %if.end72
@@ -3817,7 +3817,7 @@ if.then5.i.i187:                                  ; preds = %_ZNK3re210SparseSet
   br label %_ZN3re210SparseSetTIvE6insertEi.exit203
 
 _ZN3re210SparseSetTIvE6insertEi.exit203:          ; preds = %_ZNK3re210SparseSetTIvE8containsEi.exit.i.i199, %if.then5.i.i187, %if.end177
-  %cmp169 = icmp ugt i64 %indvars.iv334, 1
+  %cmp169 = icmp samesign ugt i64 %indvars.iv334, 1
   br i1 %cmp169, label %for.body170, label %if.end184, !llvm.loop !50
 
 if.end184:                                        ; preds = %_ZN3re210SparseSetTIvE6insertEi.exit203, %for.body170, %if.then164, %if.then161, %if.end159
@@ -3929,7 +3929,7 @@ if.then5.i.i:                                     ; preds = %_ZNK3re210SparseSet
   br label %_ZN3re210SparseSetTIvE6insertEi.exit
 
 _ZN3re210SparseSetTIvE6insertEi.exit:             ; preds = %_ZNK3re210SparseSetTIvE8containsEi.exit.i.i, %if.then5.i.i, %if.end
-  %cmp12 = icmp ugt i64 %indvars.iv, 1
+  %cmp12 = icmp samesign ugt i64 %indvars.iv, 1
   br i1 %cmp12, label %for.body, label %if.end18, !llvm.loop !51
 
 if.end18:                                         ; preds = %_ZN3re210SparseSetTIvE6insertEi.exit, %for.body, %if.then11, %if.then, %entry
@@ -4301,7 +4301,7 @@ if.then5.i.i120:                                  ; preds = %_ZNK3re210SparseSet
   br label %_ZN3re210SparseSetTIvE6insertEi.exit136
 
 _ZN3re210SparseSetTIvE6insertEi.exit136:          ; preds = %_ZNK3re210SparseSetTIvE8containsEi.exit.i.i132, %if.then5.i.i120, %if.end91
-  %cmp83 = icmp ugt i64 %indvars.iv331, 1
+  %cmp83 = icmp samesign ugt i64 %indvars.iv331, 1
   br i1 %cmp83, label %for.body84, label %if.end98, !llvm.loop !52
 
 if.end98:                                         ; preds = %_ZN3re210SparseSetTIvE6insertEi.exit136, %for.body84, %if.then78, %if.then74, %if.end72
@@ -4613,7 +4613,7 @@ if.then5.i.i196:                                  ; preds = %_ZNK3re210SparseSet
   br label %_ZN3re210SparseSetTIvE6insertEi.exit212
 
 _ZN3re210SparseSetTIvE6insertEi.exit212:          ; preds = %_ZNK3re210SparseSetTIvE8containsEi.exit.i.i208, %if.then5.i.i196, %if.end177
-  %cmp169 = icmp ugt i64 %indvars.iv334, 1
+  %cmp169 = icmp samesign ugt i64 %indvars.iv334, 1
   br i1 %cmp169, label %for.body170, label %if.end184, !llvm.loop !54
 
 if.end184:                                        ; preds = %_ZN3re210SparseSetTIvE6insertEi.exit212, %for.body170, %if.then164, %if.then161, %if.end159
@@ -4738,7 +4738,7 @@ if.then5.i.i:                                     ; preds = %_ZNK3re210SparseSet
   br label %_ZN3re210SparseSetTIvE6insertEi.exit
 
 _ZN3re210SparseSetTIvE6insertEi.exit:             ; preds = %_ZNK3re210SparseSetTIvE8containsEi.exit.i.i, %if.then5.i.i, %if.end
-  %cmp12 = icmp ugt i64 %indvars.iv, 1
+  %cmp12 = icmp samesign ugt i64 %indvars.iv, 1
   br i1 %cmp12, label %for.body, label %if.end17, !llvm.loop !55
 
 if.end17:                                         ; preds = %for.body, %_ZN3re210SparseSetTIvE6insertEi.exit, %if.then11, %if.then
@@ -5097,7 +5097,7 @@ if.then5.i.i117:                                  ; preds = %_ZNK3re210SparseSet
   br label %_ZN3re210SparseSetTIvE6insertEi.exit133
 
 _ZN3re210SparseSetTIvE6insertEi.exit133:          ; preds = %_ZNK3re210SparseSetTIvE8containsEi.exit.i.i129, %if.then5.i.i117, %if.end92
-  %cmp84 = icmp ugt i64 %indvars.iv287, 1
+  %cmp84 = icmp samesign ugt i64 %indvars.iv287, 1
   br i1 %cmp84, label %for.body85, label %if.end98, !llvm.loop !57
 
 if.end98:                                         ; preds = %for.body85, %_ZN3re210SparseSetTIvE6insertEi.exit133, %if.then79, %if.then75
@@ -5361,7 +5361,7 @@ if.then5.i.i181:                                  ; preds = %_ZNK3re210SparseSet
   br label %_ZN3re210SparseSetTIvE6insertEi.exit197
 
 _ZN3re210SparseSetTIvE6insertEi.exit197:          ; preds = %_ZNK3re210SparseSetTIvE8containsEi.exit.i.i193, %if.then5.i.i181, %if.end179
-  %cmp171 = icmp ugt i64 %indvars.iv290, 1
+  %cmp171 = icmp samesign ugt i64 %indvars.iv290, 1
   br i1 %cmp171, label %for.body172, label %if.end186, !llvm.loop !58
 
 if.end186:                                        ; preds = %_ZN3re210SparseSetTIvE6insertEi.exit197, %for.body172, %if.then166, %if.then163, %if.end161
@@ -5484,7 +5484,7 @@ if.then5.i.i:                                     ; preds = %_ZNK3re210SparseSet
   br label %_ZN3re210SparseSetTIvE6insertEi.exit
 
 _ZN3re210SparseSetTIvE6insertEi.exit:             ; preds = %_ZNK3re210SparseSetTIvE8containsEi.exit.i.i, %if.then5.i.i, %if.end
-  %cmp12 = icmp ugt i64 %indvars.iv, 1
+  %cmp12 = icmp samesign ugt i64 %indvars.iv, 1
   br i1 %cmp12, label %for.body, label %if.end17, !llvm.loop !59
 
 if.end17:                                         ; preds = %for.body, %_ZN3re210SparseSetTIvE6insertEi.exit, %if.then11, %if.then
@@ -5843,7 +5843,7 @@ if.then5.i.i124:                                  ; preds = %_ZNK3re210SparseSet
   br label %_ZN3re210SparseSetTIvE6insertEi.exit140
 
 _ZN3re210SparseSetTIvE6insertEi.exit140:          ; preds = %_ZNK3re210SparseSetTIvE8containsEi.exit.i.i136, %if.then5.i.i124, %if.end92
-  %cmp84 = icmp ugt i64 %indvars.iv287, 1
+  %cmp84 = icmp samesign ugt i64 %indvars.iv287, 1
   br i1 %cmp84, label %for.body85, label %if.end98, !llvm.loop !61
 
 if.end98:                                         ; preds = %for.body85, %_ZN3re210SparseSetTIvE6insertEi.exit140, %if.then79, %if.then75
@@ -6111,7 +6111,7 @@ if.then5.i.i190:                                  ; preds = %_ZNK3re210SparseSet
   br label %_ZN3re210SparseSetTIvE6insertEi.exit206
 
 _ZN3re210SparseSetTIvE6insertEi.exit206:          ; preds = %_ZNK3re210SparseSetTIvE8containsEi.exit.i.i202, %if.then5.i.i190, %if.end179
-  %cmp171 = icmp ugt i64 %indvars.iv290, 1
+  %cmp171 = icmp samesign ugt i64 %indvars.iv290, 1
   br i1 %cmp171, label %for.body172, label %if.end186, !llvm.loop !62
 
 if.end186:                                        ; preds = %_ZN3re210SparseSetTIvE6insertEi.exit206, %for.body172, %if.then166, %if.then163, %if.end161
@@ -6221,7 +6221,7 @@ if.then5.i.i:                                     ; preds = %_ZNK3re210SparseSet
   br label %_ZN3re210SparseSetTIvE6insertEi.exit
 
 _ZN3re210SparseSetTIvE6insertEi.exit:             ; preds = %_ZNK3re210SparseSetTIvE8containsEi.exit.i.i, %if.then5.i.i, %if.end
-  %cmp12 = icmp ugt i64 %indvars.iv, 1
+  %cmp12 = icmp samesign ugt i64 %indvars.iv, 1
   br i1 %cmp12, label %for.body, label %if.end18, !llvm.loop !63
 
 if.end18:                                         ; preds = %_ZN3re210SparseSetTIvE6insertEi.exit, %for.body, %if.then11, %if.then, %entry
@@ -6633,7 +6633,7 @@ if.then5.i.i119:                                  ; preds = %_ZNK3re210SparseSet
   br label %_ZN3re210SparseSetTIvE6insertEi.exit135
 
 _ZN3re210SparseSetTIvE6insertEi.exit135:          ; preds = %_ZNK3re210SparseSetTIvE8containsEi.exit.i.i131, %if.then5.i.i119, %if.end103
-  %cmp95 = icmp ugt i64 %indvars.iv322, 1
+  %cmp95 = icmp samesign ugt i64 %indvars.iv322, 1
   br i1 %cmp95, label %for.body96, label %if.end110, !llvm.loop !64
 
 if.end110:                                        ; preds = %_ZN3re210SparseSetTIvE6insertEi.exit135, %for.body96, %if.then90, %if.then86, %if.end84
@@ -6941,7 +6941,7 @@ if.then5.i.i195:                                  ; preds = %_ZNK3re210SparseSet
   br label %_ZN3re210SparseSetTIvE6insertEi.exit211
 
 _ZN3re210SparseSetTIvE6insertEi.exit211:          ; preds = %_ZNK3re210SparseSetTIvE8containsEi.exit.i.i207, %if.then5.i.i195, %if.end189
-  %cmp181 = icmp ugt i64 %indvars.iv325, 1
+  %cmp181 = icmp samesign ugt i64 %indvars.iv325, 1
   br i1 %cmp181, label %for.body182, label %if.end196, !llvm.loop !66
 
 if.end196:                                        ; preds = %_ZN3re210SparseSetTIvE6insertEi.exit211, %for.body182, %if.then176, %if.then173, %if.end171
@@ -7053,7 +7053,7 @@ if.then5.i.i:                                     ; preds = %_ZNK3re210SparseSet
   br label %_ZN3re210SparseSetTIvE6insertEi.exit
 
 _ZN3re210SparseSetTIvE6insertEi.exit:             ; preds = %_ZNK3re210SparseSetTIvE8containsEi.exit.i.i, %if.then5.i.i, %if.end
-  %cmp12 = icmp ugt i64 %indvars.iv, 1
+  %cmp12 = icmp samesign ugt i64 %indvars.iv, 1
   br i1 %cmp12, label %for.body, label %if.end18, !llvm.loop !67
 
 if.end18:                                         ; preds = %_ZN3re210SparseSetTIvE6insertEi.exit, %for.body, %if.then11, %if.then, %entry
@@ -7465,7 +7465,7 @@ if.then5.i.i130:                                  ; preds = %_ZNK3re210SparseSet
   br label %_ZN3re210SparseSetTIvE6insertEi.exit146
 
 _ZN3re210SparseSetTIvE6insertEi.exit146:          ; preds = %_ZNK3re210SparseSetTIvE8containsEi.exit.i.i142, %if.then5.i.i130, %if.end103
-  %cmp95 = icmp ugt i64 %indvars.iv324, 1
+  %cmp95 = icmp samesign ugt i64 %indvars.iv324, 1
   br i1 %cmp95, label %for.body96, label %if.end110, !llvm.loop !68
 
 if.end110:                                        ; preds = %_ZN3re210SparseSetTIvE6insertEi.exit146, %for.body96, %if.then90, %if.then86, %if.end84
@@ -7777,7 +7777,7 @@ if.then5.i.i208:                                  ; preds = %_ZNK3re210SparseSet
   br label %_ZN3re210SparseSetTIvE6insertEi.exit224
 
 _ZN3re210SparseSetTIvE6insertEi.exit224:          ; preds = %_ZNK3re210SparseSetTIvE8containsEi.exit.i.i220, %if.then5.i.i208, %if.end189
-  %cmp181 = icmp ugt i64 %indvars.iv327, 1
+  %cmp181 = icmp samesign ugt i64 %indvars.iv327, 1
   br i1 %cmp181, label %for.body182, label %if.end196, !llvm.loop !70
 
 if.end196:                                        ; preds = %_ZN3re210SparseSetTIvE6insertEi.exit224, %for.body182, %if.then176, %if.then173, %if.end171
@@ -7903,7 +7903,7 @@ if.then5.i.i:                                     ; preds = %_ZNK3re210SparseSet
   br label %_ZN3re210SparseSetTIvE6insertEi.exit
 
 _ZN3re210SparseSetTIvE6insertEi.exit:             ; preds = %_ZNK3re210SparseSetTIvE8containsEi.exit.i.i, %if.then5.i.i, %if.end
-  %cmp12 = icmp ugt i64 %indvars.iv, 1
+  %cmp12 = icmp samesign ugt i64 %indvars.iv, 1
   br i1 %cmp12, label %for.body, label %if.end17, !llvm.loop !71
 
 if.end17:                                         ; preds = %for.body, %_ZN3re210SparseSetTIvE6insertEi.exit, %if.then11, %if.then
@@ -8301,7 +8301,7 @@ if.then5.i.i123:                                  ; preds = %_ZNK3re210SparseSet
   br label %_ZN3re210SparseSetTIvE6insertEi.exit139
 
 _ZN3re210SparseSetTIvE6insertEi.exit139:          ; preds = %_ZNK3re210SparseSetTIvE8containsEi.exit.i.i135, %if.then5.i.i123, %if.end104
-  %cmp96 = icmp ugt i64 %indvars.iv295, 1
+  %cmp96 = icmp samesign ugt i64 %indvars.iv295, 1
   br i1 %cmp96, label %for.body97, label %if.end110, !llvm.loop !73
 
 if.end110:                                        ; preds = %for.body97, %_ZN3re210SparseSetTIvE6insertEi.exit139, %if.then91, %if.then87
@@ -8566,7 +8566,7 @@ if.then5.i.i189:                                  ; preds = %_ZNK3re210SparseSet
   br label %_ZN3re210SparseSetTIvE6insertEi.exit205
 
 _ZN3re210SparseSetTIvE6insertEi.exit205:          ; preds = %_ZNK3re210SparseSetTIvE8containsEi.exit.i.i201, %if.then5.i.i189, %if.end191
-  %cmp183 = icmp ugt i64 %indvars.iv298, 1
+  %cmp183 = icmp samesign ugt i64 %indvars.iv298, 1
   br i1 %cmp183, label %for.body184, label %if.end198, !llvm.loop !74
 
 if.end198:                                        ; preds = %_ZN3re210SparseSetTIvE6insertEi.exit205, %for.body184, %if.then178, %if.then175, %if.end173
@@ -8690,7 +8690,7 @@ if.then5.i.i:                                     ; preds = %_ZNK3re210SparseSet
   br label %_ZN3re210SparseSetTIvE6insertEi.exit
 
 _ZN3re210SparseSetTIvE6insertEi.exit:             ; preds = %_ZNK3re210SparseSetTIvE8containsEi.exit.i.i, %if.then5.i.i, %if.end
-  %cmp12 = icmp ugt i64 %indvars.iv, 1
+  %cmp12 = icmp samesign ugt i64 %indvars.iv, 1
   br i1 %cmp12, label %for.body, label %if.end17, !llvm.loop !75
 
 if.end17:                                         ; preds = %for.body, %_ZN3re210SparseSetTIvE6insertEi.exit, %if.then11, %if.then
@@ -9088,7 +9088,7 @@ if.then5.i.i134:                                  ; preds = %_ZNK3re210SparseSet
   br label %_ZN3re210SparseSetTIvE6insertEi.exit150
 
 _ZN3re210SparseSetTIvE6insertEi.exit150:          ; preds = %_ZNK3re210SparseSetTIvE8containsEi.exit.i.i146, %if.then5.i.i134, %if.end104
-  %cmp96 = icmp ugt i64 %indvars.iv297, 1
+  %cmp96 = icmp samesign ugt i64 %indvars.iv297, 1
   br i1 %cmp96, label %for.body97, label %if.end110, !llvm.loop !77
 
 if.end110:                                        ; preds = %for.body97, %_ZN3re210SparseSetTIvE6insertEi.exit150, %if.then91, %if.then87
@@ -9357,7 +9357,7 @@ if.then5.i.i202:                                  ; preds = %_ZNK3re210SparseSet
   br label %_ZN3re210SparseSetTIvE6insertEi.exit218
 
 _ZN3re210SparseSetTIvE6insertEi.exit218:          ; preds = %_ZNK3re210SparseSetTIvE8containsEi.exit.i.i214, %if.then5.i.i202, %if.end191
-  %cmp183 = icmp ugt i64 %indvars.iv300, 1
+  %cmp183 = icmp samesign ugt i64 %indvars.iv300, 1
   br i1 %cmp183, label %for.body184, label %if.end198, !llvm.loop !78
 
 if.end198:                                        ; preds = %_ZN3re210SparseSetTIvE6insertEi.exit218, %for.body184, %if.then178, %if.then175, %if.end173
@@ -12303,7 +12303,7 @@ if.end:                                           ; preds = %if.then
   br label %if.end22
 
 if.else:                                          ; preds = %entry
-  %cmp5 = icmp ugt i64 %len, 8
+  %cmp5 = icmp samesign ugt i64 %len, 8
   br i1 %cmp5, label %if.then6, label %if.else10
 
 if.then6:                                         ; preds = %if.else
@@ -12323,7 +12323,7 @@ if.then6:                                         ; preds = %if.else
   br label %if.end22
 
 if.else10:                                        ; preds = %if.else
-  %cmp11 = icmp ugt i64 %len, 3
+  %cmp11 = icmp samesign ugt i64 %len, 3
   br i1 %cmp11, label %if.then12, label %if.else14
 
 if.then12:                                        ; preds = %if.else10

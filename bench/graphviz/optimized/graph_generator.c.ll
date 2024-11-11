@@ -791,7 +791,7 @@ tailrecurse:                                      ; preds = %5, %tailrecurse
   %11 = add nsw i32 %.tr5661, -1
   tail call fastcc void @constructSierpinski(i32 noundef %.tr58, i32 noundef %8, i32 noundef %9, i32 noundef %11, ptr noundef %4)
   tail call fastcc void @constructSierpinski(i32 noundef %.tr5459, i32 noundef %9, i32 noundef %10, i32 noundef %11, ptr noundef %4)
-  %12 = icmp ugt i32 %.tr5661, 1
+  %12 = icmp samesign ugt i32 %.tr5661, 1
   br i1 %12, label %tailrecurse, label %tailrecurse._crit_edge
 
 tailrecurse._crit_edge:                           ; preds = %tailrecurse, %5
@@ -960,7 +960,7 @@ tailrecurse:                                      ; preds = %6, %tailrecurse
   tail call fastcc void @constructTetrix(i32 noundef %.tr97, i32 noundef %9, i32 noundef %10, i32 noundef %12, i32 noundef %15, ptr noundef %5)
   tail call fastcc void @constructTetrix(i32 noundef %.tr9298, i32 noundef %10, i32 noundef %11, i32 noundef %13, i32 noundef %15, ptr noundef %5)
   tail call fastcc void @constructTetrix(i32 noundef %.tr9399, i32 noundef %9, i32 noundef %11, i32 noundef %14, i32 noundef %15, ptr noundef %5)
-  %16 = icmp ugt i32 %.tr95101, 1
+  %16 = icmp samesign ugt i32 %.tr95101, 1
   br i1 %16, label %tailrecurse, label %tailrecurse._crit_edge
 
 tailrecurse._crit_edge:                           ; preds = %tailrecurse, %6
@@ -1329,7 +1329,7 @@ makeBinaryTree.exit:                              ; preds = %.lr.ph.i, %.lr.ph.i
   br i1 %26, label %.lr.ph57, label %._crit_edge58
 
 .lr.ph57:                                         ; preds = %.preheader
-  %27 = icmp ult i32 %.060, 5
+  %27 = icmp samesign ult i32 %.060, 5
   br i1 %27, label %.lr.ph57.split.us, label %.lr.ph57.split
 
 .lr.ph57.split.us:                                ; preds = %.lr.ph57, %31

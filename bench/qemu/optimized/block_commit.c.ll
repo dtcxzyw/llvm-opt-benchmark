@@ -103,7 +103,7 @@ if.then16:                                        ; preds = %if.end12
   br label %if.end142
 
 if.end19:                                         ; preds = %if.end12
-  %cmp20 = icmp ult i64 %call9, %call13
+  %cmp20 = icmp samesign ult i64 %call9, %call13
   %spec.select = select i1 %cmp20, i64 11, i64 3
   %call24 = tail call ptr @block_job_create(ptr noundef %job_id, ptr noundef nonnull @commit_job_driver, ptr noundef null, ptr noundef %bs, i64 noundef 0, i64 noundef 15, i64 noundef %speed, i32 noundef %creation_flags, ptr noundef null, ptr noundef null, ptr noundef %errp) #6
   %tobool.not = icmp eq ptr %call24, null
@@ -522,7 +522,7 @@ if.then49:                                        ; preds = %if.end45
   br label %ro_cleanup
 
 if.end51:                                         ; preds = %if.end45
-  %cmp52 = icmp ugt i64 %call40, %call46
+  %cmp52 = icmp samesign ugt i64 %call40, %call46
   br i1 %cmp52, label %if.then54, label %if.end60
 
 if.then54:                                        ; preds = %if.end51
@@ -676,7 +676,7 @@ if.then5:                                         ; preds = %if.end
   br label %cleanup
 
 if.end7:                                          ; preds = %if.end
-  %cmp8 = icmp ult i64 %call2, %call
+  %cmp8 = icmp samesign ult i64 %call2, %call
   br i1 %cmp8, label %if.then10, label %if.end15
 
 if.then10:                                        ; preds = %if.end7

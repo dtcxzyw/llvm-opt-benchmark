@@ -4296,7 +4296,7 @@ define internal fastcc void @"_ZSt16__insertion_sortIN9__gnu_cxx17__normal_itera
   %25 = getelementptr inbounds i8, ptr %.069.i.i.i.i.i, i64 -32
   %26 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEOS4_(ptr noundef nonnull align 8 dereferenceable(32) %25, ptr noundef nonnull align 8 dereferenceable(32) %24) #20
   %27 = add nsw i64 %.010.i.i.i.i.i, -1
-  %28 = icmp ugt i64 %.010.i.i.i.i.i, 1
+  %28 = icmp samesign ugt i64 %.010.i.i.i.i.i, 1
   br i1 %28, label %.lr.ph.i.i.i.i.i, label %.loopexit, !llvm.loop !56
 
 .loopexit:                                        ; preds = %.lr.ph.i.i.i.i.i, %14

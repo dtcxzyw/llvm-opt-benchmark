@@ -8529,7 +8529,7 @@ define linkonce_odr hidden void @_ZN7testing8internal16UniversalPrinterIN11openc
   br label %119
 
 21:                                               ; preds = %2
-  %22 = icmp ult i32 %.val, 3
+  %22 = icmp samesign ult i32 %.val, 3
   br i1 %22, label %31, label %23
 
 23:                                               ; preds = %21

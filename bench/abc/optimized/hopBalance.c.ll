@@ -919,7 +919,7 @@ Vec_PtrGrow.exit.i.i.i:                           ; preds = %116, %114
   %156 = load ptr, ptr %12, align 8
   %157 = getelementptr inbounds ptr, ptr %156, i64 %142
   store ptr %141, ptr %157, align 8
-  %158 = icmp ugt i64 %indvars.iv.i19, 2
+  %158 = icmp samesign ugt i64 %indvars.iv.i19, 2
   br i1 %158, label %.lr.ph.i18, label %Hop_NodeBalancePushUniqueOrderByLevel.exit.loopexit, !llvm.loop !16
 
 Hop_NodeBalancePushUniqueOrderByLevel.exit.loopexit: ; preds = %155, %.lr.ph.i18

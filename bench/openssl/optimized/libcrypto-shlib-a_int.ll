@@ -704,7 +704,7 @@ if.then2.i:                                       ; preds = %if.end.i
   br label %asn1_string_get_uint64.exit
 
 if.end3.i:                                        ; preds = %if.end.i
-  %tobool.not.i = icmp ult i32 %0, 256
+  %tobool.not.i = icmp samesign ult i32 %0, 256
   br i1 %tobool.not.i, label %if.end7.i, label %if.then6.i
 
 if.then6.i:                                       ; preds = %if.end3.i

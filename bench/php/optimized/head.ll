@@ -1244,7 +1244,7 @@ define internal fastcc void @php_setcookie_common(ptr noundef %0, ptr nocapture 
   br i1 %32, label %33, label %.thread377
 
 33:                                               ; preds = %31, %.critedge335
-  %34 = icmp ult i32 %12, 3
+  %34 = icmp samesign ult i32 %12, 3
   br i1 %34, label %php_head_parse_cookie_options_array.exit, label %35
 
 35:                                               ; preds = %33
@@ -1291,7 +1291,7 @@ define internal fastcc void @php_setcookie_common(ptr noundef %0, ptr nocapture 
   br i1 %53, label %54, label %.thread377
 
 54:                                               ; preds = %52, %.critedge337
-  %55 = icmp ult i32 %12, 5
+  %55 = icmp samesign ult i32 %12, 5
   br i1 %55, label %.thread367, label %56
 
 56:                                               ; preds = %54

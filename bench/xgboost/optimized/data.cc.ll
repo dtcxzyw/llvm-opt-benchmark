@@ -75511,7 +75511,7 @@ define linkonce_odr noundef float @_ZN4dmlc10ParseFloatIfLb0EEET_PKcPPc(ptr noun
   br label %247
 
 245:                                              ; preds = %236
-  %246 = icmp ugt i32 %231, 7
+  %246 = icmp samesign ugt i32 %231, 7
   br i1 %246, label %247, label %.loopexit12
 
 247:                                              ; preds = %245, %243, %239

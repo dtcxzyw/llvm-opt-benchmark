@@ -1204,7 +1204,7 @@ cmp.exit101:                                      ; preds = %36, %31, %44
   br label %81
 
 cmp.exit:                                         ; preds = %19
-  %.not11 = icmp ugt i64 %0, %8
+  %.not11 = icmp samesign ugt i64 %0, %8
   br i1 %.not11, label %cmp.exit.thread4, label %82
 
 cmp.exit.thread4:                                 ; preds = %17, %12, %cmp.exit
@@ -1237,8 +1237,8 @@ cmp.exit.thread4:                                 ; preds = %17, %12, %cmp.exit
 
 67:                                               ; preds = %65
   %68 = icmp sge i64 %0, %56
-  %69 = icmp ugt i64 %0, %56
-  %or.cond = and i1 %68, %69
+  %69 = icmp samesign ugt i64 %0, %56
+  %or.cond = select i1 %68, i1 %69, i1 false
   br i1 %or.cond, label %cmp.exit104.thread9, label %cmp.exit104.thread
 
 cmp.exit104.thread9:                              ; preds = %67, %65, %60

@@ -2092,7 +2092,7 @@ Ivy_ObjChild1Equiv.exit.i:                        ; preds = %124, %Ivy_ObjChild0
   %167 = load i32, ptr %37, align 4
   %168 = add nsw i32 %167, 1
   store i32 %168, ptr %37, align 4
-  %169 = icmp ult i32 %156, 11
+  %169 = icmp samesign ult i32 %156, 11
   br i1 %169, label %Ivy_FraigNodesAreEquiv.exit.thread.i, label %170
 
 Ivy_FraigNodesAreEquiv.exit.thread.i:             ; preds = %166

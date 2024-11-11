@@ -338,7 +338,7 @@ _ZNSt13unordered_mapIm10float128_tSt4hashImESt8equal_toImESaISt4pairIKmS0_EEEixE
   %.0.i.i2.not.i = icmp eq i64 %127, 0
   %128 = and i64 %.sink.i.i.i, 32
   %129 = select i1 %.0.i.i2.not.i, i64 %128, i64 64
-  %130 = icmp ult i64 %77, %129
+  %130 = icmp samesign ult i64 %77, %129
   %131 = shl nsw i64 -1, %77
   %132 = select i1 %130, i64 %131, i64 0
   %.193 = or i64 %132, %.064
@@ -666,7 +666,7 @@ _ZNSt13unordered_mapIm10float128_tSt4hashImESt8equal_toImESaISt4pairIKmS0_EEEixE
   %.0.i.i2.not.i = icmp eq i64 %127, 0
   %128 = and i64 %.sink.i.i.i, 32
   %129 = select i1 %.0.i.i2.not.i, i64 %128, i64 64
-  %130 = icmp ult i64 %77, %129
+  %130 = icmp samesign ult i64 %77, %129
   %131 = shl nsw i64 -1, %77
   %132 = select i1 %130, i64 %131, i64 0
   %.193 = or i64 %132, %.064
@@ -967,7 +967,7 @@ _ZNSt13unordered_mapIm10float128_tSt4hashImESt8equal_toImESaISt4pairIKmS0_EEEixE
   %.0.i.i2.not.i = icmp eq i64 %127, 0
   %128 = and i64 %.sink.i.i.i, 32
   %129 = select i1 %.0.i.i2.not.i, i64 %128, i64 64
-  %130 = icmp ult i64 %77, %129
+  %130 = icmp samesign ult i64 %77, %129
   %131 = shl nsw i64 -1, %77
   %132 = select i1 %130, i64 %131, i64 0
   %.1118 = or i64 %132, %.065
@@ -1375,7 +1375,7 @@ _ZNSt13unordered_mapIm10float128_tSt4hashImESt8equal_toImESaISt4pairIKmS0_EEEixE
   %.0.i.i2.not.i = icmp eq i64 %127, 0
   %128 = and i64 %.sink.i.i.i, 32
   %129 = select i1 %.0.i.i2.not.i, i64 %128, i64 64
-  %130 = icmp ult i64 %77, %129
+  %130 = icmp samesign ult i64 %77, %129
   %131 = shl nsw i64 -1, %77
   %132 = select i1 %130, i64 %131, i64 0
   %.1118 = or i64 %132, %.065
@@ -1776,7 +1776,7 @@ _ZNSt13unordered_mapIm10float128_tSt4hashImESt8equal_toImESaISt4pairIKmS0_EEEixE
   %.0.i.i2.not.i = icmp eq i64 %127, 0
   %128 = and i64 %.sink.i.i.i, 32
   %129 = select i1 %.0.i.i2.not.i, i64 %128, i64 64
-  %130 = icmp ult i64 %77, %129
+  %130 = icmp samesign ult i64 %77, %129
   %131 = shl nsw i64 -1, %77
   %132 = select i1 %130, i64 %131, i64 0
   %.193 = or i64 %132, %.064
@@ -2074,7 +2074,7 @@ _ZNSt13unordered_mapIm10float128_tSt4hashImESt8equal_toImESaISt4pairIKmS0_EEEixE
   %.0.i.i2.not.i = icmp eq i64 %127, 0
   %128 = and i64 %.sink.i.i.i, 32
   %129 = select i1 %.0.i.i2.not.i, i64 %128, i64 64
-  %130 = icmp ult i64 %77, %129
+  %130 = icmp samesign ult i64 %77, %129
   %131 = shl nsw i64 -1, %77
   %132 = select i1 %130, i64 %131, i64 0
   %.193 = or i64 %132, %.064
@@ -2375,7 +2375,7 @@ _ZNSt13unordered_mapIm10float128_tSt4hashImESt8equal_toImESaISt4pairIKmS0_EEEixE
   %.0.i.i2.not.i = icmp eq i64 %127, 0
   %128 = and i64 %.sink.i.i.i, 32
   %129 = select i1 %.0.i.i2.not.i, i64 %128, i64 64
-  %130 = icmp ult i64 %77, %129
+  %130 = icmp samesign ult i64 %77, %129
   %131 = shl nsw i64 -1, %77
   %132 = select i1 %130, i64 %131, i64 0
   %.1118 = or i64 %132, %.065
@@ -2783,7 +2783,7 @@ _ZNSt13unordered_mapIm10float128_tSt4hashImESt8equal_toImESaISt4pairIKmS0_EEEixE
   %.0.i.i2.not.i = icmp eq i64 %127, 0
   %128 = and i64 %.sink.i.i.i, 32
   %129 = select i1 %.0.i.i2.not.i, i64 %128, i64 64
-  %130 = icmp ult i64 %77, %129
+  %130 = icmp samesign ult i64 %77, %129
   %131 = shl nsw i64 -1, %77
   %132 = select i1 %130, i64 %131, i64 0
   %.1118 = or i64 %132, %.065

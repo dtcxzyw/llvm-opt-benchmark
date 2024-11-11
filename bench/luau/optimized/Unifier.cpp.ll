@@ -15857,7 +15857,7 @@ _ZNK4Luau6TxnLog10getMutableINS_12FunctionTypeEPKNS_4TypeEEEPT_T0_.exit386: ; pr
   %1169 = getelementptr inbounds ptr, ptr %1168, i64 %indvars.iv.next
   %1170 = load ptr, ptr %1169, align 8
   call void @_ZN4Luau6TxnLog7popSeenEPKNS_11TypePackVarES3_(ptr noundef nonnull align 8 dereferenceable(128) %58, ptr noundef %1167, ptr noundef %1170)
-  %1171 = icmp ugt i64 %indvars.iv, 1
+  %1171 = icmp samesign ugt i64 %indvars.iv, 1
   br i1 %1171, label %1164, label %._crit_edge419, !llvm.loop !44
 
 ._crit_edge419:                                   ; preds = %1164, %_ZNK4Luau6TxnLog10getMutableINS_12FunctionTypeEPKNS_4TypeEEEPT_T0_.exit386
@@ -15881,7 +15881,7 @@ _ZNK4Luau6TxnLog10getMutableINS_12FunctionTypeEPKNS_4TypeEEEPT_T0_.exit386: ; pr
   %1182 = getelementptr inbounds ptr, ptr %1181, i64 %indvars.iv.next429
   %1183 = load ptr, ptr %1182, align 8
   call void @_ZN4Luau6TxnLog7popSeenEPKNS_4TypeES3_(ptr noundef nonnull align 8 dereferenceable(128) %58, ptr noundef %1180, ptr noundef %1183)
-  %1184 = icmp ugt i64 %indvars.iv428, 1
+  %1184 = icmp samesign ugt i64 %indvars.iv428, 1
   br i1 %1184, label %1177, label %._crit_edge423, !llvm.loop !45
 
 ._crit_edge423:                                   ; preds = %1177, %._crit_edge419
@@ -44883,7 +44883,7 @@ _ZNSt12_Vector_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE
   %39 = getelementptr inbounds i8, ptr %.0910.i.i.i.i.i, i64 32
   %40 = getelementptr inbounds i8, ptr %.0811.i.i.i.i.i, i64 32
   %41 = add nsw i64 %.012.i.i.i.i.i, -1
-  %42 = icmp ugt i64 %.012.i.i.i.i.i, 1
+  %42 = icmp samesign ugt i64 %.012.i.i.i.i.i, 1
   br i1 %42, label %.lr.ph.i.i.i.i.i, label %_ZSt4copyIN9__gnu_cxx17__normal_iteratorIPKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt6vectorIS7_SaIS7_EEEENS1_IPS7_SC_EEET0_T_SH_SG_.exit.loopexit, !llvm.loop !135
 
 _ZSt4copyIN9__gnu_cxx17__normal_iteratorIPKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt6vectorIS7_SaIS7_EEEENS1_IPS7_SC_EEET0_T_SH_SG_.exit.loopexit: ; preds = %.lr.ph.i.i.i.i.i
@@ -44923,7 +44923,7 @@ _ZSt4copyIN9__gnu_cxx17__normal_iteratorIPKNSt7__cxx1112basic_stringIcSt11char_t
   %51 = getelementptr inbounds i8, ptr %.0910.i.i.i.i.i32, i64 32
   %52 = getelementptr inbounds i8, ptr %.0811.i.i.i.i.i31, i64 32
   %53 = add nsw i64 %.012.i.i.i.i.i30, -1
-  %54 = icmp ugt i64 %.012.i.i.i.i.i30, 1
+  %54 = icmp samesign ugt i64 %.012.i.i.i.i.i30, 1
   br i1 %54, label %.lr.ph.i.i.i.i.i29, label %_ZSt4copyIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES6_ET0_T_S8_S7_.exit.loopexit, !llvm.loop !137
 
 _ZSt4copyIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES6_ET0_T_S8_S7_.exit.loopexit: ; preds = %.lr.ph.i.i.i.i.i29
@@ -48510,7 +48510,7 @@ define linkonce_odr dso_local void @_ZN4Luau8VecDequeISt4pairIPKNS_9UnionTypeEmE
   unreachable
 
 11:                                               ; preds = %1
-  %12 = icmp ugt i64 %7, 576460752303423487
+  %12 = icmp samesign ugt i64 %7, 576460752303423487
   br i1 %12, label %13, label %_ZNSt15__new_allocatorISt4pairIPKN4Luau9UnionTypeEmEE8allocateEmPKv.exit
 
 13:                                               ; preds = %11

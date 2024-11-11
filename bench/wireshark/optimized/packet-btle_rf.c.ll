@@ -243,7 +243,7 @@ default.unreachable88:                            ; preds = %8
   ]
 
 .thread:                                          ; preds = %59
-  %60 = icmp ugt i8 %54, 12
+  %60 = icmp samesign ugt i8 %54, 12
   br i1 %60, label %62, label %.thread.thread
 
 .thread.thread:                                   ; preds = %59, %59, %.thread

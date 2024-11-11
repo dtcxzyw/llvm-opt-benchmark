@@ -108,7 +108,7 @@ if.then28:                                        ; preds = %while.body
   br label %return
 
 if.end29:                                         ; preds = %while.body
-  %cmp30.not = icmp ugt i32 %call26, %n.0175
+  %cmp30.not = icmp samesign ugt i32 %call26, %n.0175
   br i1 %cmp30.not, label %cond.false32, label %cond.end33
 
 cond.false32:                                     ; preds = %if.end29
@@ -166,7 +166,7 @@ if.then67:                                        ; preds = %while.body59
   br i1 %cmp69, label %if.then70, label %if.else
 
 if.then70:                                        ; preds = %if.then67
-  %cmp72 = icmp ult i32 %8, 4
+  %cmp72 = icmp samesign ult i32 %8, 4
   br i1 %cmp72, label %cond.end75, label %cond.false74
 
 cond.false74:                                     ; preds = %if.then70
@@ -175,7 +175,7 @@ cond.false74:                                     ; preds = %if.then70
 
 cond.end75:                                       ; preds = %if.then70
   %sub78 = sub nuw nsw i32 3, %8
-  %cmp79 = icmp ugt i32 %sub78, %inl.addr.0176
+  %cmp79 = icmp samesign ugt i32 %sub78, %inl.addr.0176
   %spec.select = select i1 %cmp79, i32 1, i32 %sub78
   %idxprom83 = zext nneg i32 %8 to i64
   %arrayidx84 = getelementptr inbounds [1024 x i8], ptr %tmp, i64 0, i64 %idxprom83
@@ -212,7 +212,7 @@ cond.end112:                                      ; preds = %cond.end104
   br label %if.end176
 
 if.else:                                          ; preds = %if.then67
-  %cmp115 = icmp ult i32 %inl.addr.0176, 3
+  %cmp115 = icmp samesign ult i32 %inl.addr.0176, 3
   br i1 %cmp115, label %if.then117, label %if.end123
 
 if.then117:                                       ; preds = %if.else
@@ -312,7 +312,7 @@ if.then191:                                       ; preds = %while.body183
   br label %return
 
 if.end198:                                        ; preds = %while.body183
-  %cmp199.not = icmp ugt i32 %call188, %n.3
+  %cmp199.not = icmp samesign ugt i32 %call188, %n.3
   br i1 %cmp199.not, label %cond.false202, label %cond.end203
 
 cond.false202:                                    ; preds = %if.end198

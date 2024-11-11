@@ -10602,7 +10602,7 @@ define dso_local void @_ZN5clang4Sema23ActOnPragmaAttributePopENS_14SourceLocati
   %59 = getelementptr inbounds i8, ptr %.0910.i.i.i.i.i.i, i64 144
   %60 = getelementptr inbounds i8, ptr %.0811.i.i.i.i.i.i, i64 144
   %61 = add nsw i64 %.012.i.i.i.i.i.i, -1
-  %62 = icmp ugt i64 %.012.i.i.i.i.i.i, 1
+  %62 = icmp samesign ugt i64 %.012.i.i.i.i.i.i, 1
   br i1 %62, label %.lr.ph.i.i.i.i.i.i, label %_ZN4llvm15SmallVectorImplIN5clang4Sema20PragmaAttributeGroupEE5eraseEPKS3_.exit, !llvm.loop !255
 
 _ZN4llvm15SmallVectorImplIN5clang4Sema20PragmaAttributeGroupEE5eraseEPKS3_.exit: ; preds = %.lr.ph.i.i.i.i.i.i, %._crit_edge
@@ -16574,7 +16574,7 @@ _ZN4llvm15SmallVectorImplIN5clang4Sema20PragmaAttributeEntryEE12assignRemoteEOS4
   %47 = getelementptr inbounds i8, ptr %.0910.i.i.i.i.i, i64 56
   %48 = getelementptr inbounds i8, ptr %.0811.i.i.i.i.i, i64 56
   %49 = add nsw i64 %.012.i.i.i.i.i, -1
-  %50 = icmp ugt i64 %.012.i.i.i.i.i, 1
+  %50 = icmp samesign ugt i64 %.012.i.i.i.i.i, 1
   br i1 %50, label %.lr.ph.i.i.i.i.i, label %_ZSt4moveIPN5clang4Sema20PragmaAttributeEntryES3_ET0_T_S5_S4_.exit, !llvm.loop !297
 
 _ZSt4moveIPN5clang4Sema20PragmaAttributeEntryES3_ET0_T_S5_S4_.exit: ; preds = %.lr.ph.i.i.i.i.i, %36, %34
@@ -16720,7 +16720,7 @@ _ZN4llvm23SmallVectorTemplateBaseIN5clang4Sema20PragmaAttributeEntryELb0EE4growE
   %105 = getelementptr inbounds i8, ptr %.0910.i.i.i.i.i54, i64 56
   %106 = getelementptr inbounds i8, ptr %.0811.i.i.i.i.i53, i64 56
   %107 = add nsw i64 %.012.i.i.i.i.i52, -1
-  %108 = icmp ugt i64 %.012.i.i.i.i.i52, 1
+  %108 = icmp samesign ugt i64 %.012.i.i.i.i.i52, 1
   br i1 %108, label %.lr.ph.i.i.i.i.i51, label %_ZSt4moveIPN5clang4Sema20PragmaAttributeEntryES3_ET0_T_S5_S4_.exit55, !llvm.loop !297
 
 _ZSt4moveIPN5clang4Sema20PragmaAttributeEntryES3_ET0_T_S5_S4_.exit55: ; preds = %.lr.ph.i.i.i.i.i51, %94, %93, %_ZN4llvm23SmallVectorTemplateBaseIN5clang4Sema20PragmaAttributeEntryELb0EE4growEm.exit

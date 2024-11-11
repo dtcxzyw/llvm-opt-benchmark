@@ -2216,7 +2216,7 @@ if.then8:                                         ; preds = %if.else5
   br label %return
 
 if.end10:                                         ; preds = %if.else5
-  %cmp11 = icmp ult i64 %call, 21
+  %cmp11 = icmp samesign ult i64 %call, 21
   br i1 %cmp11, label %if.then12, label %if.end14
 
 if.then12:                                        ; preds = %if.end10
@@ -8904,7 +8904,7 @@ if.then3:                                         ; preds = %land.lhs.true
   br label %return
 
 if.end:                                           ; preds = %land.lhs.true
-  %cmp17 = icmp ult i64 %k, 14
+  %cmp17 = icmp samesign ult i64 %k, 14
   br i1 %cmp17, label %land.lhs.true19, label %if.end66
 
 land.lhs.true19:                                  ; preds = %if.end
@@ -8914,7 +8914,7 @@ land.lhs.true19:                                  ; preds = %if.end
   br i1 %cmp21.not, label %if.end66, label %for.cond.preheader
 
 for.cond.preheader:                               ; preds = %land.lhs.true19
-  %cmp2475 = icmp ugt i64 %k, 1
+  %cmp2475 = icmp samesign ugt i64 %k, 1
   br i1 %cmp2475, label %for.body, label %for.end
 
 for.body:                                         ; preds = %for.cond.preheader, %for.body
@@ -8948,7 +8948,7 @@ if.then35:                                        ; preds = %land.lhs.true31
   br i1 %cmp36, label %if.then38, label %for.cond56.preheader
 
 for.cond56.preheader:                             ; preds = %if.then35
-  %cmp5771 = icmp ugt i64 %k, 1
+  %cmp5771 = icmp samesign ugt i64 %k, 1
   br i1 %cmp5771, label %for.body59, label %for.end63
 
 if.then38:                                        ; preds = %if.then35

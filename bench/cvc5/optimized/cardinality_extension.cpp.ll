@@ -7224,7 +7224,7 @@ if.then30:                                        ; preds = %if.else28
 
 if.then34:                                        ; preds = %if.then30
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %newClique, i8 0, i64 24, i1 false)
-  %cmp38 = icmp ult i64 %10, %conv
+  %cmp38 = icmp samesign ult i64 %10, %conv
   br i1 %cmp38, label %if.then39, label %if.else112
 
 if.then39:                                        ; preds = %if.then34

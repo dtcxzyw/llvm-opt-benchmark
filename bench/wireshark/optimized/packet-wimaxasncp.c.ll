@@ -706,7 +706,7 @@ match_ver_value_string.exit163:                   ; preds = %119, %._crit_edge.i
   br label %144
 
 144:                                              ; preds = %140, %142
-  %145 = icmp ult i16 %132, 7
+  %145 = icmp samesign ult i16 %132, 7
   br i1 %145, label %198, label %146
 
 146:                                              ; preds = %.thread175, %144, %134

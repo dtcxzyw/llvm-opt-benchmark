@@ -1963,7 +1963,7 @@ _ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit: ; preds = %27,
   %.0.i = phi ptr [ %31, %30 ], [ %.0322.lcssa, %27 ]
   store i8 26, ptr %.0.i, align 1
   %.0329391 = getelementptr inbounds i8, ptr %.0.i, i64 1
-  %32 = icmp ugt i32 %25, 127
+  %32 = icmp samesign ugt i32 %25, 127
   br i1 %32, label %.lr.ph394, label %._crit_edge395
 
 .lr.ph394:                                        ; preds = %_ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit, %.lr.ph394
@@ -2191,7 +2191,7 @@ _ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit370: ; preds = %
   %.0.i369 = phi ptr [ %128, %127 ], [ %.3, %124 ]
   store i8 50, ptr %.0.i369, align 1
   %.0314415 = getelementptr inbounds i8, ptr %.0.i369, i64 1
-  %129 = icmp ugt i32 %122, 127
+  %129 = icmp samesign ugt i32 %122, 127
   br i1 %129, label %.lr.ph418, label %._crit_edge419
 
 .lr.ph418:                                        ; preds = %_ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit370, %.lr.ph418
@@ -10679,7 +10679,7 @@ define linkonce_odr hidden void @_ZN6google8protobuf3MapINSt7__cxx1112basic_stri
 
 23:                                               ; preds = %13
   %24 = lshr i64 %18, 6
-  %.not18.i = icmp ule i64 %15, %24
+  %.not18.i = icmp samesign ule i64 %15, %24
   %25 = icmp ugt i64 %17, 8
   %or.cond.i = and i1 %25, %.not18.i
   br i1 %or.cond.i, label %26, label %_ZN6google8protobuf3MapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN17opencv_tensorflow9AttrValueEE8InnerMap24ResizeIfLoadIsOutOfRangeEm.exit.thread

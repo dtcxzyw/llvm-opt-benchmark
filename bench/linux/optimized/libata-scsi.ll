@@ -6102,7 +6102,7 @@ define internal noundef range(i32 0, 2) i32 @ata_scsi_mode_select_xlat(ptr nocap
   %131 = phi ptr [ %91, %.thread ], [ %100, %112 ], [ %100, %102 ], [ %100, %93 ]
   %132 = phi i32 [ %90, %.thread ], [ %99, %112 ], [ %99, %102 ], [ %99, %93 ]
   %133 = phi i8 [ 0, %.thread ], [ -14, %112 ], [ -1, %102 ], [ %95, %93 ]
-  %134 = icmp ugt i32 %132, %130
+  %134 = icmp samesign ugt i32 %132, %130
   br i1 %134, label %177, label %135
 
 135:                                              ; preds = %129
@@ -6145,7 +6145,7 @@ define internal noundef range(i32 0, 2) i32 @ata_scsi_mode_select_xlat(ptr nocap
   br label %172
 
 157:                                              ; preds = %152, %136
-  %158 = icmp ugt i32 %130, %132
+  %158 = icmp samesign ugt i32 %130, %132
   br i1 %158, label %._crit_edge, label %187
 
 ._crit_edge:                                      ; preds = %157

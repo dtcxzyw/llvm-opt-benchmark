@@ -272,7 +272,7 @@ define void @Cut_TruthCompute(ptr nocapture noundef readonly %0, ptr noundef %1,
   %25 = xor i32 %24, -1
   %26 = getelementptr inbounds i32, ptr %8, i64 %indvars.iv.next.i
   store i32 %25, ptr %26, align 4
-  %27 = icmp ugt i64 %indvars.iv.i, 1
+  %27 = icmp samesign ugt i64 %indvars.iv.i, 1
   br i1 %27, label %.preheader85, label %Extra_TruthNot.exit, !llvm.loop !10
 
 .preheader84:                                     ; preds = %6, %.preheader84
@@ -282,7 +282,7 @@ define void @Cut_TruthCompute(ptr nocapture noundef readonly %0, ptr noundef %1,
   %29 = load i32, ptr %28, align 4
   %30 = getelementptr inbounds i32, ptr %8, i64 %indvars.iv.next.i43
   store i32 %29, ptr %30, align 4
-  %31 = icmp ugt i64 %indvars.iv.i42, 1
+  %31 = icmp samesign ugt i64 %indvars.iv.i42, 1
   br i1 %31, label %.preheader84, label %Extra_TruthNot.exit, !llvm.loop !11
 
 Extra_TruthNot.exit:                              ; preds = %.preheader85, %.preheader84
@@ -359,7 +359,7 @@ Cut_TruthPhase.exit:                              ; preds = %44, %46, %Extra_Tru
   %75 = xor i32 %74, -1
   %76 = getelementptr inbounds i32, ptr %58, i64 %indvars.iv.next.i47
   store i32 %75, ptr %76, align 4
-  %77 = icmp ugt i64 %indvars.iv.i46, 1
+  %77 = icmp samesign ugt i64 %indvars.iv.i46, 1
   br i1 %77, label %.preheader82, label %Extra_TruthNot.exit48, !llvm.loop !10
 
 .preheader81:                                     ; preds = %Cut_TruthPhase.exit, %.preheader81
@@ -369,7 +369,7 @@ Cut_TruthPhase.exit:                              ; preds = %44, %46, %Extra_Tru
   %79 = load i32, ptr %78, align 4
   %80 = getelementptr inbounds i32, ptr %58, i64 %indvars.iv.next.i50
   store i32 %79, ptr %80, align 4
-  %81 = icmp ugt i64 %indvars.iv.i49, 1
+  %81 = icmp samesign ugt i64 %indvars.iv.i49, 1
   br i1 %81, label %.preheader81, label %Extra_TruthNot.exit48, !llvm.loop !11
 
 Extra_TruthNot.exit48:                            ; preds = %.preheader82, %.preheader81
@@ -447,7 +447,7 @@ Cut_TruthPhase.exit63:                            ; preds = %94, %96, %Extra_Tru
   %126 = xor i32 %125, -1
   %127 = getelementptr inbounds i32, ptr %113, i64 %indvars.iv.next.i65
   store i32 %126, ptr %127, align 4
-  %128 = icmp ugt i64 %indvars.iv.i64, 1
+  %128 = icmp samesign ugt i64 %indvars.iv.i64, 1
   br i1 %128, label %.preheader79, label %Extra_TruthNand.exit, !llvm.loop !12
 
 .preheader:                                       ; preds = %Cut_TruthPhase.exit63, %.preheader
@@ -460,7 +460,7 @@ Cut_TruthPhase.exit63:                            ; preds = %94, %96, %Extra_Tru
   %133 = and i32 %132, %130
   %134 = getelementptr inbounds i32, ptr %113, i64 %indvars.iv.next.i67
   store i32 %133, ptr %134, align 4
-  %135 = icmp ugt i64 %indvars.iv.i66, 1
+  %135 = icmp samesign ugt i64 %indvars.iv.i66, 1
   br i1 %135, label %.preheader, label %Extra_TruthNand.exit, !llvm.loop !13
 
 Extra_TruthNand.exit:                             ; preds = %.preheader79, %.preheader

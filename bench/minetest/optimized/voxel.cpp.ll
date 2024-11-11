@@ -1375,7 +1375,7 @@ for.body.lr.ph:                                   ; preds = %_ZNSt7__cxx1112basi
   %m_flags = getelementptr inbounds i8, ptr %this, i64 40
   %wide.trip.count = zext nneg i32 %mul6.i to i64
   %xtraiter = and i64 %wide.trip.count, 3
-  %6 = icmp ult i32 %mul6.i, 4
+  %6 = icmp samesign ult i32 %mul6.i, 4
   br i1 %6, label %for.cond.cleanup.loopexit.unr-lcssa, label %for.body.lr.ph.new
 
 for.body.lr.ph.new:                               ; preds = %for.body.lr.ph

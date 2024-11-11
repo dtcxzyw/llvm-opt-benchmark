@@ -4980,7 +4980,7 @@ hwloc__xml_verbose.exit:                          ; preds = %48, %53
   br label %778
 
 62:                                               ; preds = %44
-  %63 = icmp ult i32 %46, 2
+  %63 = icmp samesign ult i32 %46, 2
   br i1 %63, label %64, label %78
 
 64:                                               ; preds = %62

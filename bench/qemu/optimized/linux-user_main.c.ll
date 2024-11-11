@@ -733,7 +733,7 @@ if.then77:                                        ; preds = %land.lhs.true74
   unreachable
 
 if.then82:                                        ; preds = %land.lhs.true74
-  %cmp83 = icmp ugt i64 %38, 46912496119808
+  %cmp83 = icmp samesign ugt i64 %38, 46912496119808
   br i1 %cmp83, label %if.then93, label %if.then93.thread
 
 if.then93.thread:                                 ; preds = %if.then82
@@ -747,7 +747,7 @@ if.then93.thread:                                 ; preds = %if.then82
 if.then93:                                        ; preds = %if.then82
   store i64 46912496119808, ptr @task_unmapped_base, align 8
   store i64 46912496119808, ptr @mmap_next_start, align 8
-  %cmp94 = icmp ugt i64 %38, 93824992239616
+  %cmp94 = icmp samesign ugt i64 %38, 93824992239616
   br i1 %cmp94, label %if.end105, label %if.then93.if.else97_crit_edge
 
 if.then93.if.else97_crit_edge:                    ; preds = %if.then93

@@ -1118,7 +1118,7 @@ define hidden { i64, i64 } @"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$14reserve_r
   br i1 %27, label %29, label %31
 
 .thread.i:                                        ; preds = %23
-  %28 = icmp ult i64 %.sroa.0.0.sroa.speculated.i, 4
+  %28 = icmp samesign ult i64 %.sroa.0.0.sroa.speculated.i, 4
   %..i.i = select i1 %28, i64 4, i64 8
   br label %39
 
@@ -1133,7 +1133,7 @@ define hidden { i64, i64 } @"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$14reserve_r
   %35 = tail call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %34, i1 true)
   %36 = lshr i64 -1, %35
   %37 = add nuw nsw i64 %36, 1
-  %38 = icmp ugt i64 %36, 576460752303423486
+  %38 = icmp samesign ugt i64 %36, 576460752303423486
   br i1 %38, label %47, label %39
 
 39:                                               ; preds = %31, %.thread.i
@@ -1171,7 +1171,7 @@ _ZN9hashbrown3raw13RawTableInner17new_uninitialized17h54ce1b218729b16eE.exit.thr
   br label %_ZN9hashbrown3raw13RawTableInner20reserve_rehash_inner17h9e7e01f20755df1dE.exit
 
 54:                                               ; preds = %_ZN9hashbrown3raw11TableLayout20calculate_layout_for17h7682ca6e4bd1cee6E.llvm.4810805515561423230.exit.i.i
-  %55 = icmp ult i64 %.sroa.4.0.i.ph8.i, 9
+  %55 = icmp samesign ult i64 %.sroa.4.0.i.ph8.i, 9
   %56 = add nsw i64 %.sroa.4.0.i.ph8.i, -1
   %57 = lshr i64 %.sroa.4.0.i.ph8.i, 3
   %58 = mul nuw nsw i64 %57, 7

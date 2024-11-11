@@ -599,7 +599,7 @@ while.end.i.i:                                    ; preds = %while.cond.i.i
   br i1 %cmp8.i79.i, label %lor.lhs.false.i.i, label %if.then.i80.i
 
 lor.lhs.false.i.i:                                ; preds = %while.end.i.i
-  %tobool.i.i = icmp ult i32 %60, 33554432
+  %tobool.i.i = icmp samesign ult i32 %60, 33554432
   %cmp11.i.i = icmp ugt i32 %61, 4
   %or.cond.i.i = select i1 %tobool.i.i, i1 true, i1 %cmp11.i.i
   br i1 %or.cond.i.i, label %if.then.i80.i, label %if.end.i.i
@@ -3066,7 +3066,7 @@ if.end10:                                         ; preds = %if.then5, %if.then
   %shl13 = and i32 %and12, 64
   %6 = or i32 %cds.0199, %shl13
   %or14 = or i32 %6, %shl
-  %cmp16 = icmp ugt i32 %3, 283
+  %cmp16 = icmp samesign ugt i32 %3, 283
   br i1 %cmp16, label %if.then17, label %if.else
 
 if.then17:                                        ; preds = %if.end10
@@ -4069,7 +4069,7 @@ if.else67:                                        ; preds = %do.body
   br i1 %cmp69, label %if.then71, label %if.else128
 
 if.then71:                                        ; preds = %if.else67
-  %tobool73.not = icmp ult i32 %.fr, 134217728
+  %tobool73.not = icmp samesign ult i32 %.fr, 134217728
   br i1 %tobool73.not, label %if.then74, label %if.end214
 
 if.then74:                                        ; preds = %if.then71
@@ -4082,7 +4082,7 @@ if.then74:                                        ; preds = %if.then71
   br i1 %tobool80.not, label %if.end98, label %land.lhs.true
 
 land.lhs.true:                                    ; preds = %if.then74
-  %tobool82 = icmp ult i32 %.fr, 67108864
+  %tobool82 = icmp samesign ult i32 %.fr, 67108864
   br i1 %tobool82, label %if.then89, label %switch.early.test
 
 switch.early.test:                                ; preds = %land.lhs.true
@@ -5034,7 +5034,7 @@ lor.lhs.false65.us:                               ; preds = %lor.lhs.false59.us
   br i1 %cmp67.us, label %if.then81, label %lor.lhs.false69.us
 
 lor.lhs.false69.us:                               ; preds = %lor.lhs.false65.us
-  %tobool72.not.us = icmp ult i32 %6, 134217728
+  %tobool72.not.us = icmp samesign ult i32 %6, 134217728
   %spec.select55.us = select i1 %tobool72.not.us, i32 %mul.us, i32 1
   %cmp79.us = icmp ugt i32 %7, %spec.select55.us
   br i1 %cmp79.us, label %if.then81, label %if.end83.us
@@ -5166,7 +5166,7 @@ while.end.i:                                      ; preds = %while.cond.i57
   br i1 %cmp8.i, label %lor.lhs.false.i, label %if.then.i59
 
 lor.lhs.false.i:                                  ; preds = %while.end.i
-  %tobool.i = icmp ult i32 %33, 33554432
+  %tobool.i = icmp samesign ult i32 %33, 33554432
   %cmp11.i = icmp ugt i32 %34, 4
   %or.cond.i = select i1 %tobool.i, i1 true, i1 %cmp11.i
   br i1 %or.cond.i, label %if.then.i59, label %cp_decl_constinit.exit

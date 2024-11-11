@@ -69,7 +69,7 @@ define range(i32 0, 2) i32 @Fraig_NodeIsEquivalent(ptr noundef %0, ptr noundef %
   %25 = load i32, ptr %24, align 4
   %26 = add nsw i32 %25, 1
   store i32 %26, ptr %24, align 4
-  %27 = icmp ult i32 %3, 11
+  %27 = icmp samesign ult i32 %3, 11
   br i1 %27, label %279, label %28
 
 28:                                               ; preds = %23

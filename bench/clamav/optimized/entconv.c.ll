@@ -933,7 +933,7 @@ define ptr @u16_normalize_tobuffer(i16 noundef zeroext %0, ptr noundef writeonly
   br label %u16_normalize.exit.thread
 
 16:                                               ; preds = %13
-  %17 = icmp ult i64 %4, 9
+  %17 = icmp samesign ult i64 %4, 9
   br i1 %17, label %u16_normalize.exit.thread10, label %18
 
 18:                                               ; preds = %16
@@ -2071,7 +2071,7 @@ define ptr @cli_utf16_to_utf8(ptr nocapture noundef readonly %0, i64 noundef %1,
   br label %102
 
 67:                                               ; preds = %50
-  %68 = icmp ult i16 %spec.select, -9216
+  %68 = icmp samesign ult i16 %spec.select, -9216
   %69 = add i64 %.192105, 3
   %70 = icmp ult i64 %69, %.088
   %or.cond102 = select i1 %68, i1 %70, i1 false

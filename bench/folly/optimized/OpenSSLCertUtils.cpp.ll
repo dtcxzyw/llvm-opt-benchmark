@@ -212,7 +212,7 @@ if.end.i:                                         ; preds = %if.end11
   store ptr %0, ptr %ref.tmp, align 8, !tbaa !12
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %__dnew.i.i) #20
   store i64 %conv, ptr %__dnew.i.i, align 8, !tbaa !15
-  %cmp.i.i = icmp ugt i32 %call13, 15
+  %cmp.i.i = icmp samesign ugt i32 %call13, 15
   br i1 %cmp.i.i, label %if.end.i.i.thread, label %if.end.i.i
 
 if.end.i.i.thread:                                ; preds = %if.end.i
@@ -1730,7 +1730,7 @@ if.then.i38.i:                                    ; preds = %if.end.i
 if.end.i30.i:                                     ; preds = %if.end.i
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %__dnew.i.i26.i) #20, !noalias !51
   store i64 %conv11.i, ptr %__dnew.i.i26.i, align 8, !tbaa !15, !noalias !51
-  %cmp.i.i31.i = icmp ugt i32 %call8.i, 15
+  %cmp.i.i31.i = icmp samesign ugt i32 %call8.i, 15
   br i1 %cmp.i.i31.i, label %if.end.i.i32.thread.i, label %if.end.i.i32.i
 
 if.end.i.i32.thread.i:                            ; preds = %if.end.i30.i

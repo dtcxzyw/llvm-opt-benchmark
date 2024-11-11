@@ -546,7 +546,7 @@ get_wcp_window_ptr.exit.i69:                      ; preds = %149, %143
   br label %wcp_uncompress.exit.thread
 
 232:                                              ; preds = %224
-  %233 = icmp ult i16 %188, %.0126.in.i
+  %233 = icmp samesign ult i16 %188, %.0126.in.i
   br i1 %233, label %234, label %238
 
 234:                                              ; preds = %232

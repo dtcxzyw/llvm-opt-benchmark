@@ -391,7 +391,7 @@ define internal range(i32 0, 2) i32 @is_valid_mbc_string(ptr noundef readonly %0
   br i1 %5, label %31, label %6
 
 6:                                                ; preds = %.lr.ph
-  %7 = icmp ugt i8 %4, -96
+  %7 = icmp samesign ugt i8 %4, -96
   br i1 %7, label %8, label %15
 
 8:                                                ; preds = %6

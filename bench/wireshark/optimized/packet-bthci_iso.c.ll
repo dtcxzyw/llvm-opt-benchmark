@@ -1156,7 +1156,7 @@ define internal range(i32 4, -2147483640) i32 @dissect_iso_data(ptr noundef %0, 
   %46 = call ptr @proto_tree_add_item(ptr noundef %9, i32 noundef %45, ptr noundef %0, i32 noundef %41, i32 noundef -1, i32 noundef 0) #7
   %47 = load i32, ptr %5, align 4
   %48 = and i32 %47, 65535
-  %49 = icmp ult i32 %42, %48
+  %49 = icmp samesign ult i32 %42, %48
   br i1 %49, label %50, label %51
 
 50:                                               ; preds = %44

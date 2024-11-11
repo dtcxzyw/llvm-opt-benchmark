@@ -147,7 +147,7 @@ opal_obj_new.exit:                                ; preds = %.lr.ph.i.i, %28, %2
   br label %create_topology.exit
 
 52:                                               ; preds = %46
-  %53 = icmp ult i32 %.val.val.i, 34
+  %53 = icmp samesign ult i32 %.val.val.i, 34
   br i1 %53, label %54, label %57
 
 54:                                               ; preds = %52

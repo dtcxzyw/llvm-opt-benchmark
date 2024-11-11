@@ -285,7 +285,7 @@ define void @SUNDlsMat_BandGBTRS(ptr nocapture noundef readonly %0, ptr nocaptur
   %43 = fdiv double %42, %40
   store double %43, ptr %41, align 8
   %44 = fneg double %43
-  %.not.not69.i = icmp ult i64 %39, %.172.i
+  %.not.not69.i = icmp samesign ult i64 %39, %.172.i
   br i1 %.not.not69.i, label %.lr.ph71.i, label %._crit_edge.i
 
 .lr.ph71.i:                                       ; preds = %.lr.ph73.i, %.lr.ph71.i
@@ -377,7 +377,7 @@ define void @SUNDlsMat_bandGBTRS(ptr nocapture noundef readonly %0, i64 noundef 
   %38 = fdiv double %37, %35
   store double %38, ptr %36, align 8
   %39 = fneg double %38
-  %.not.not69 = icmp ult i64 %34, %.172
+  %.not.not69 = icmp samesign ult i64 %34, %.172
   br i1 %.not.not69, label %.lr.ph71, label %._crit_edge
 
 .lr.ph71:                                         ; preds = %.lr.ph73, %.lr.ph71
@@ -477,7 +477,7 @@ define void @BandGBTRS(ptr nocapture noundef readonly %0, ptr nocapture noundef 
   %43 = fdiv double %42, %40
   store double %43, ptr %41, align 8
   %44 = fneg double %43
-  %.not.not69.i = icmp ult i64 %39, %.172.i
+  %.not.not69.i = icmp samesign ult i64 %39, %.172.i
   br i1 %.not.not69.i, label %.lr.ph71.i, label %._crit_edge.i
 
 .lr.ph71.i:                                       ; preds = %.lr.ph73.i, %.lr.ph71.i
@@ -1034,7 +1034,7 @@ define void @bandGBTRS(ptr nocapture noundef readonly %0, i64 noundef %1, i64 no
   %38 = fdiv double %37, %35
   store double %38, ptr %36, align 8
   %39 = fneg double %38
-  %.not.not69.i = icmp ult i64 %34, %.172.i
+  %.not.not69.i = icmp samesign ult i64 %34, %.172.i
   br i1 %.not.not69.i, label %.lr.ph71.i, label %._crit_edge.i
 
 .lr.ph71.i:                                       ; preds = %.lr.ph73.i, %.lr.ph71.i

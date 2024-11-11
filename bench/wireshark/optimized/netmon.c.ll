@@ -306,7 +306,7 @@ define hidden range(i32 -1, 2) i32 @netmon_open(ptr noundef %0, ptr noundef %1, 
   br label %366
 
 135:                                              ; preds = %131
-  %136 = icmp ult i32 %.0291, 17
+  %136 = icmp samesign ult i32 %.0291, 17
   br i1 %136, label %137, label %139
 
 137:                                              ; preds = %135
@@ -414,7 +414,7 @@ define hidden range(i32 -1, 2) i32 @netmon_open(ptr noundef %0, ptr noundef %1, 
   br i1 %186, label %190, label %.preheader356
 
 .preheader356:                                    ; preds = %182
-  %187 = icmp ugt i32 %.0291, 16
+  %187 = icmp samesign ugt i32 %.0291, 16
   br i1 %187, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %.preheader356
@@ -1332,7 +1332,7 @@ netmon_read_atm_pseudoheader.exit.thread:         ; preds = %38
 
 .lr.ph.preheader:                                 ; preds = %61
   %67 = call i64 @llvm.umax.i64(i64 %65, i64 -1000000000)
-  %68 = icmp ult i64 %65, -1000000000
+  %68 = icmp samesign ult i64 %65, -1000000000
   %umin = zext i1 %68 to i64
   %69 = add nsw i64 %65, %umin
   %70 = sub nsw i64 %67, %69
@@ -2047,7 +2047,7 @@ define internal range(i32 0, 2) i32 @netmon_dump(ptr noundef %0, ptr nocapture n
   store i32 %170, ptr %174, align 4
   %175 = zext i32 %170 to i64
   %176 = add nuw nsw i64 %.1, %175
-  %177 = icmp ugt i64 %176, 4294967295
+  %177 = icmp samesign ugt i64 %176, 4294967295
   br i1 %177, label %178, label %179
 
 178:                                              ; preds = %167

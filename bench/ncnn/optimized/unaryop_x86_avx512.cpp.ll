@@ -120,7 +120,7 @@ define hidden noundef i32 @_ZNK4ncnn18UnaryOp_x86_avx51215forward_inplaceERNS_3M
   %24 = and i32 %19, 2147483632
   %wide.trip.count101.i = zext nneg i32 %14 to i64
   %25 = or disjoint i32 %24, 7
-  %26 = icmp ult i32 %25, %19
+  %26 = icmp samesign ult i32 %25, %19
   br label %.lr.ph.us.i
 
 .lr.ph.us.i:                                      ; preds = %._crit_edge.us.i, %.lr.ph.us.preheader.i
@@ -209,7 +209,7 @@ define hidden noundef i32 @_ZNK4ncnn18UnaryOp_x86_avx51215forward_inplaceERNS_3M
   %60 = and i32 %19, 2147483640
   %wide.trip.count95.i = zext nneg i32 %14 to i64
   %61 = or disjoint i32 %60, 3
-  %62 = icmp ult i32 %61, %19
+  %62 = icmp samesign ult i32 %61, %19
   br label %.preheader2.us23.i
 
 .preheader2.us23.i:                               ; preds = %._crit_edge.us46.i, %.preheader2.us23.preheader.i
@@ -383,7 +383,7 @@ define hidden noundef i32 @_ZNK4ncnn18UnaryOp_x86_avx51215forward_inplaceERNS_3M
   %136 = and i32 %131, 2147483632
   %wide.trip.count101.i84 = zext nneg i32 %126 to i64
   %137 = or disjoint i32 %136, 7
-  %138 = icmp ult i32 %137, %131
+  %138 = icmp samesign ult i32 %137, %131
   br label %.lr.ph.us.i85
 
 .lr.ph.us.i85:                                    ; preds = %._crit_edge.us.i93, %.lr.ph.us.preheader.i83
@@ -472,7 +472,7 @@ define hidden noundef i32 @_ZNK4ncnn18UnaryOp_x86_avx51215forward_inplaceERNS_3M
   %172 = and i32 %131, 2147483640
   %wide.trip.count95.i68 = zext nneg i32 %126 to i64
   %173 = or disjoint i32 %172, 3
-  %174 = icmp ult i32 %173, %131
+  %174 = icmp samesign ult i32 %173, %131
   br label %.preheader2.us23.i69
 
 .preheader2.us23.i69:                             ; preds = %._crit_edge.us46.i75, %.preheader2.us23.preheader.i67
@@ -646,7 +646,7 @@ define hidden noundef i32 @_ZNK4ncnn18UnaryOp_x86_avx51215forward_inplaceERNS_3M
   %248 = and i32 %243, 2147483632
   %wide.trip.count101.i145 = zext nneg i32 %238 to i64
   %249 = or disjoint i32 %248, 7
-  %250 = icmp ult i32 %249, %243
+  %250 = icmp samesign ult i32 %249, %243
   br label %.lr.ph.us.i146
 
 .lr.ph.us.i146:                                   ; preds = %._crit_edge.us.i154, %.lr.ph.us.preheader.i144
@@ -735,7 +735,7 @@ define hidden noundef i32 @_ZNK4ncnn18UnaryOp_x86_avx51215forward_inplaceERNS_3M
   %284 = and i32 %243, 2147483640
   %wide.trip.count95.i129 = zext nneg i32 %238 to i64
   %285 = or disjoint i32 %284, 3
-  %286 = icmp ult i32 %285, %243
+  %286 = icmp samesign ult i32 %285, %243
   br label %.preheader2.us23.i130
 
 .preheader2.us23.i130:                            ; preds = %._crit_edge.us46.i136, %.preheader2.us23.preheader.i128
@@ -909,7 +909,7 @@ define hidden noundef i32 @_ZNK4ncnn18UnaryOp_x86_avx51215forward_inplaceERNS_3M
   %360 = and i32 %355, 2147483632
   %wide.trip.count101.i213 = zext nneg i32 %350 to i64
   %361 = or disjoint i32 %360, 7
-  %362 = icmp ult i32 %361, %355
+  %362 = icmp samesign ult i32 %361, %355
   br label %.lr.ph.us.i214
 
 .lr.ph.us.i214:                                   ; preds = %._crit_edge.us.i225, %.lr.ph.us.preheader.i212
@@ -998,7 +998,7 @@ define hidden noundef i32 @_ZNK4ncnn18UnaryOp_x86_avx51215forward_inplaceERNS_3M
   %396 = and i32 %355, 2147483640
   %wide.trip.count95.i193 = zext nneg i32 %350 to i64
   %397 = or disjoint i32 %396, 3
-  %398 = icmp ult i32 %397, %355
+  %398 = icmp samesign ult i32 %397, %355
   br label %.preheader2.us23.i194
 
 .preheader2.us23.i194:                            ; preds = %._crit_edge.us46.i202, %.preheader2.us23.preheader.i192
@@ -1172,7 +1172,7 @@ define hidden noundef i32 @_ZNK4ncnn18UnaryOp_x86_avx51215forward_inplaceERNS_3M
   %472 = and i32 %467, 2147483632
   %wide.trip.count101.i280 = zext nneg i32 %462 to i64
   %473 = or disjoint i32 %472, 7
-  %474 = icmp ult i32 %473, %467
+  %474 = icmp samesign ult i32 %473, %467
   br label %.lr.ph.us.i281
 
 .lr.ph.us.i281:                                   ; preds = %._crit_edge.us.i289, %.lr.ph.us.preheader.i279
@@ -1261,7 +1261,7 @@ define hidden noundef i32 @_ZNK4ncnn18UnaryOp_x86_avx51215forward_inplaceERNS_3M
   %508 = and i32 %467, 2147483640
   %wide.trip.count95.i264 = zext nneg i32 %462 to i64
   %509 = or disjoint i32 %508, 3
-  %510 = icmp ult i32 %509, %467
+  %510 = icmp samesign ult i32 %509, %467
   br label %.preheader2.us23.i265
 
 .preheader2.us23.i265:                            ; preds = %._crit_edge.us46.i271, %.preheader2.us23.preheader.i263
@@ -1435,7 +1435,7 @@ define hidden noundef i32 @_ZNK4ncnn18UnaryOp_x86_avx51215forward_inplaceERNS_3M
   %584 = and i32 %579, 2147483632
   %wide.trip.count101.i341 = zext nneg i32 %574 to i64
   %585 = or disjoint i32 %584, 7
-  %586 = icmp ult i32 %585, %579
+  %586 = icmp samesign ult i32 %585, %579
   br label %.lr.ph.us.i342
 
 .lr.ph.us.i342:                                   ; preds = %._crit_edge.us.i350, %.lr.ph.us.preheader.i340
@@ -1524,7 +1524,7 @@ define hidden noundef i32 @_ZNK4ncnn18UnaryOp_x86_avx51215forward_inplaceERNS_3M
   %620 = and i32 %579, 2147483640
   %wide.trip.count95.i325 = zext nneg i32 %574 to i64
   %621 = or disjoint i32 %620, 3
-  %622 = icmp ult i32 %621, %579
+  %622 = icmp samesign ult i32 %621, %579
   br label %.preheader2.us23.i326
 
 .preheader2.us23.i326:                            ; preds = %._crit_edge.us46.i332, %.preheader2.us23.preheader.i324
@@ -1698,7 +1698,7 @@ define hidden noundef i32 @_ZNK4ncnn18UnaryOp_x86_avx51215forward_inplaceERNS_3M
   %696 = and i32 %691, 2147483632
   %wide.trip.count101.i409 = zext nneg i32 %686 to i64
   %697 = or disjoint i32 %696, 7
-  %698 = icmp ult i32 %697, %691
+  %698 = icmp samesign ult i32 %697, %691
   br label %.lr.ph.us.i410
 
 .lr.ph.us.i410:                                   ; preds = %._crit_edge.us.i421, %.lr.ph.us.preheader.i408
@@ -1792,7 +1792,7 @@ define hidden noundef i32 @_ZNK4ncnn18UnaryOp_x86_avx51215forward_inplaceERNS_3M
   %737 = and i32 %691, 2147483640
   %wide.trip.count95.i389 = zext nneg i32 %686 to i64
   %738 = or disjoint i32 %737, 3
-  %739 = icmp ult i32 %738, %691
+  %739 = icmp samesign ult i32 %738, %691
   br label %.preheader2.us23.i390
 
 .preheader2.us23.i390:                            ; preds = %._crit_edge.us46.i398, %.preheader2.us23.preheader.i388
@@ -3606,7 +3606,7 @@ define hidden noundef i32 @_ZNK4ncnn18UnaryOp_x86_avx51215forward_inplaceERNS_3M
   %2005 = and i32 %1999, 2147483632
   %wide.trip.count101.i619 = zext nneg i32 %1994 to i64
   %2006 = or disjoint i32 %2005, 7
-  %2007 = icmp ult i32 %2006, %1999
+  %2007 = icmp samesign ult i32 %2006, %1999
   br label %.lr.ph.us.i620
 
 .lr.ph.us.i620:                                   ; preds = %._crit_edge.us.i628, %.lr.ph.us.preheader.i618
@@ -3695,7 +3695,7 @@ define hidden noundef i32 @_ZNK4ncnn18UnaryOp_x86_avx51215forward_inplaceERNS_3M
   %2041 = and i32 %1999, 2147483640
   %wide.trip.count95.i603 = zext nneg i32 %1994 to i64
   %2042 = or disjoint i32 %2041, 3
-  %2043 = icmp ult i32 %2042, %1999
+  %2043 = icmp samesign ult i32 %2042, %1999
   br label %.preheader2.us23.i604
 
 .preheader2.us23.i604:                            ; preds = %._crit_edge.us46.i610, %.preheader2.us23.preheader.i602
@@ -4402,7 +4402,7 @@ define hidden noundef i32 @_ZNK4ncnn18UnaryOp_x86_avx51215forward_inplaceERNS_3M
   %2488 = and i32 %2483, 2147483632
   %wide.trip.count101.i743 = zext nneg i32 %2478 to i64
   %2489 = or disjoint i32 %2488, 7
-  %2490 = icmp ult i32 %2489, %2483
+  %2490 = icmp samesign ult i32 %2489, %2483
   br label %.lr.ph.us.i744
 
 .lr.ph.us.i744:                                   ; preds = %._crit_edge.us.i752, %.lr.ph.us.preheader.i742
@@ -4491,7 +4491,7 @@ define hidden noundef i32 @_ZNK4ncnn18UnaryOp_x86_avx51215forward_inplaceERNS_3M
   %2524 = and i32 %2483, 2147483640
   %wide.trip.count95.i727 = zext nneg i32 %2478 to i64
   %2525 = or disjoint i32 %2524, 3
-  %2526 = icmp ult i32 %2525, %2483
+  %2526 = icmp samesign ult i32 %2525, %2483
   br label %.preheader2.us23.i728
 
 .preheader2.us23.i728:                            ; preds = %._crit_edge.us46.i734, %.preheader2.us23.preheader.i726

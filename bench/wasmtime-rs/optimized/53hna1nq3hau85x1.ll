@@ -4897,7 +4897,7 @@ _ZN9regalloc28indexset8IndexSet3set17hbba845ad6eb3a646E.exit: ; preds = %909, %8
   br i1 %991, label %992, label %994
 
 992:                                              ; preds = %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h6cdbbd6935181f98E.exit"
-  %993 = icmp ult i32 %990, 1073741824
+  %993 = icmp samesign ult i32 %990, 1073741824
   br i1 %993, label %996, label %997
 
 994:                                              ; preds = %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h6cdbbd6935181f98E.exit"
@@ -4906,7 +4906,7 @@ _ZN9regalloc28indexset8IndexSet3set17hbba845ad6eb3a646E.exit: ; preds = %909, %8
   br i1 %switch1675.not, label %.invoke5200, label %1003
 
 996:                                              ; preds = %992
-  %switch = icmp ult i32 %990, 100663296
+  %switch = icmp samesign ult i32 %990, 100663296
   br i1 %switch, label %1003, label %.invoke5200
 
 997:                                              ; preds = %992
@@ -8691,7 +8691,7 @@ define internal fastcc void @"_ZN9regalloc23ion10liveranges63_$LT$impl$u20$regal
   br i1 %14, label %15, label %17
 
 15:                                               ; preds = %3
-  %16 = icmp ult i32 %12, 1073741824
+  %16 = icmp samesign ult i32 %12, 1073741824
   br i1 %16, label %19, label %_ZN9regalloc27Operand10constraint17h239d5f8a8b8d6956E.exit
 
 17:                                               ; preds = %3
@@ -9190,7 +9190,7 @@ define internal fastcc i64 @"_ZN9regalloc23ion11requirement63_$LT$impl$u20$regal
   br i1 %119, label %120, label %122
 
 120:                                              ; preds = %115
-  %121 = icmp ult i32 %117, 1073741824
+  %121 = icmp samesign ult i32 %117, 1073741824
   br i1 %121, label %125, label %143
 
 122:                                              ; preds = %115
@@ -16473,7 +16473,7 @@ define hidden void @"_ZN9regalloc23ion5moves63_$LT$impl$u20$regalloc2..ion..data
   br i1 %674, label %675, label %677
 
 675:                                              ; preds = %669
-  %676 = icmp ult i32 %672, 1073741824
+  %676 = icmp samesign ult i32 %672, 1073741824
   br i1 %676, label %679, label %681
 
 677:                                              ; preds = %669
@@ -16482,7 +16482,7 @@ define hidden void @"_ZN9regalloc23ion5moves63_$LT$impl$u20$regalloc2..ion..data
   br i1 %switch1243.not, label %.invoke4802, label %_ZN9regalloc27Operand10constraint17h239d5f8a8b8d6956E.exit.thread
 
 679:                                              ; preds = %675
-  %switch = icmp ult i32 %672, 100663296
+  %switch = icmp samesign ult i32 %672, 100663296
   br i1 %switch, label %_ZN9regalloc27Operand10constraint17h239d5f8a8b8d6956E.exit.thread, label %.invoke4802
 
 680:                                              ; preds = %1928, %select.unfold1178, %select.unfold
@@ -19240,7 +19240,7 @@ _ZN9regalloc23ion15data_structures9CodeRange8overlaps17hdefe76c18b69587bE.exit.t
   br i1 %1839, label %1840, label %1842
 
 1840:                                             ; preds = %1838
-  %1841 = icmp ult i32 %1829, 1073741824
+  %1841 = icmp samesign ult i32 %1829, 1073741824
   br i1 %1841, label %1844, label %1869
 
 1842:                                             ; preds = %1838
@@ -19249,7 +19249,7 @@ _ZN9regalloc23ion15data_structures9CodeRange8overlaps17hdefe76c18b69587bE.exit.t
   br i1 %switch1244.not, label %.invoke4786, label %_ZN9regalloc27Operand10constraint17h239d5f8a8b8d6956E.exit658.thread
 
 1844:                                             ; preds = %1840
-  %switch1240 = icmp ult i32 %1829, 100663296
+  %switch1240 = icmp samesign ult i32 %1829, 100663296
   br i1 %switch1240, label %_ZN9regalloc27Operand10constraint17h239d5f8a8b8d6956E.exit658.thread, label %.invoke4786
 
 .invoke4786:                                      ; preds = %1322, %1842, %1844, %1465
@@ -24660,7 +24660,7 @@ common.resume:                                    ; preds = %2077, %.thread350.i
   br i1 %or.cond.i32, label %1668, label %"_ZN94_$LT$core..slice..iter..IterMut$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hfbf72a7fbe83d71cE.exit.thread.i.outer"
 
 1660:                                             ; preds = %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h7369e363519665eaE.exit.i"
-  %1661 = icmp ult i32 %1654, 1073741824
+  %1661 = icmp samesign ult i32 %1654, 1073741824
   br i1 %1661, label %1665, label %1771
 
 1662:                                             ; preds = %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h7369e363519665eaE.exit.i"
@@ -25388,7 +25388,7 @@ _ZN8smallvec10infallible17heb7d46c8e758169bE.exit.i.i: ; preds = %.noexc193.i
   br i1 %1961, label %1962, label %1964
 
 1962:                                             ; preds = %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h6cdbbd6935181f98E.exit.i60"
-  %1963 = icmp ult i32 %1959, 1073741824
+  %1963 = icmp samesign ult i32 %1959, 1073741824
   br i1 %1963, label %1966, label %1969
 
 1964:                                             ; preds = %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h6cdbbd6935181f98E.exit.i60"
@@ -25397,7 +25397,7 @@ _ZN8smallvec10infallible17heb7d46c8e758169bE.exit.i.i: ; preds = %.noexc193.i
   br i1 %switch381.not.i, label %1968, label %_ZN9regalloc27Operand10constraint17h239d5f8a8b8d6956E.exit.thread.i
 
 1966:                                             ; preds = %1962
-  %switch.i = icmp ult i32 %1959, 100663296
+  %switch.i = icmp samesign ult i32 %1959, 100663296
   br i1 %switch.i, label %_ZN9regalloc27Operand10constraint17h239d5f8a8b8d6956E.exit.thread.i, label %1967
 
 1967:                                             ; preds = %1966
@@ -25990,7 +25990,7 @@ _ZN9regalloc27Operand4vreg17hfc8010cac40dece7E.exit283.i: ; preds = %1983
   br i1 %2213, label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h75815233107ad094E.exit307.thread.i", label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h75815233107ad094E.exit307.i"
 
 2214:                                             ; preds = %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h7369e363519665eaE.exit.i51"
-  %2215 = icmp ult i32 %2210, 1073741824
+  %2215 = icmp samesign ult i32 %2210, 1073741824
   br i1 %2215, label %2218, label %_ZN9regalloc27Operand10constraint17h239d5f8a8b8d6956E.exit281.thread.i
 
 2216:                                             ; preds = %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h7369e363519665eaE.exit.i51"
@@ -31443,7 +31443,7 @@ _ZN8smallvec10infallible17heb7d46c8e758169bE.exit.i526.i: ; preds = %.noexc528.i
   br i1 %839, label %840, label %842
 
 840:                                              ; preds = %834
-  %841 = icmp ult i32 %835, 1073741824
+  %841 = icmp samesign ult i32 %835, 1073741824
   br i1 %841, label %844, label %860
 
 842:                                              ; preds = %834
@@ -35318,7 +35318,7 @@ _ZN9regalloc27Operand10constraint17h239d5f8a8b8d6956E.exit.thread.thread: ; pred
   %.2184337 = phi i8 [ 1, %_ZN9regalloc27Operand10constraint17h239d5f8a8b8d6956E.exit.thread ], [ %.0182307, %124 ]
   %134 = phi ptr [ %132, %_ZN9regalloc27Operand10constraint17h239d5f8a8b8d6956E.exit.thread ], [ %121, %124 ]
   %135 = phi i32 [ %131, %_ZN9regalloc27Operand10constraint17h239d5f8a8b8d6956E.exit.thread ], [ %122, %124 ]
-  %136 = icmp ult i32 %135, 1073741824
+  %136 = icmp samesign ult i32 %135, 1073741824
   br i1 %136, label %139, label %159
 
 137:                                              ; preds = %_ZN9regalloc27Operand10constraint17h239d5f8a8b8d6956E.exit.thread

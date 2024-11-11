@@ -5939,7 +5939,7 @@ if.then31:                                        ; preds = %if.else29
   br label %if.end61
 
 if.else36:                                        ; preds = %if.else29
-  %cmp37 = icmp ult i32 %retval.0.i, 65536
+  %cmp37 = icmp samesign ult i32 %retval.0.i, 65536
   br i1 %cmp37, label %if.then38, label %if.else44
 
 if.then38:                                        ; preds = %if.else36
@@ -5958,7 +5958,7 @@ lpad41:                                           ; preds = %if.then38
   br label %eh.resume
 
 if.else44:                                        ; preds = %if.else36
-  %cmp45 = icmp ult i32 %retval.0.i, 1114112
+  %cmp45 = icmp samesign ult i32 %retval.0.i, 1114112
   br i1 %cmp45, label %if.then46, label %if.end61
 
 if.then46:                                        ; preds = %if.else44

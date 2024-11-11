@@ -2753,7 +2753,7 @@ define internal void @dissect_dvbci_payload_mmi(i32 noundef %0, i32 noundef %1, 
 88:                                               ; preds = %7, %7, %7, %7
   %89 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %2, i32 noundef %3) #15
   %90 = add nsw i32 %0, -10455049
-  %or.cond4 = icmp ult i32 %90, 2
+  %or.cond4 = icmp samesign ult i32 %90, 2
   %91 = icmp eq i8 %89, -1
   br i1 %or.cond4, label %92, label %96
 
@@ -4431,7 +4431,7 @@ define internal fastcc i32 @dissect_cc_data_payload(i32 noundef %0, ptr noundef 
 38:                                               ; preds = %25, %25, %25, %25
   call void @asn1_ctx_init(ptr noundef nonnull %8, i32 noundef 0, i1 noundef zeroext true, ptr noundef %3) #15
   %39 = add nsw i8 %26, -7
-  %or.cond.i = icmp ult i8 %39, 2
+  %or.cond.i = icmp samesign ult i8 %39, 2
   %40 = load i32, ptr @hf_dvbci_brand_cert, align 4
   %41 = load i32, ptr @hf_dvbci_dev_cert, align 4
   %42 = select i1 %or.cond.i, i32 %40, i32 %41

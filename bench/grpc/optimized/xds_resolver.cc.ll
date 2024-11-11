@@ -11278,7 +11278,7 @@ ehcleanup21.i:                                    ; preds = %ehcleanup.i, %lpad1
   br label %ehcleanup65.i
 
 if.else.i:                                        ; preds = %for.body.i66
-  %cmp.not.i.i30.i = icmp ult i64 %agg.tmp.sroa.0.0.copyload.i.i67, 8
+  %cmp.not.i.i30.i = icmp samesign ult i64 %agg.tmp.sroa.0.0.copyload.i.i67, 8
   br i1 %cmp.not.i.i30.i, label %invoke.cont27.i, label %_ZN4absl12lts_2023080210StartsWithESt17basic_string_viewIcSt11char_traitsIcEES4_.exit.i31.i
 
 _ZN4absl12lts_2023080210StartsWithESt17basic_string_viewIcSt11char_traitsIcEES4_.exit.i31.i: ; preds = %if.else.i, %_ZN4absl12lts_2023080210StartsWithESt17basic_string_viewIcSt11char_traitsIcEES4_.exit.i.i

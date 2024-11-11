@@ -1468,7 +1468,7 @@ if.then.i.i:                                      ; preds = %if.end64
   br label %index2adr.exit.i
 
 if.else3.i.i:                                     ; preds = %if.end64
-  %cmp4.i.i30 = icmp ugt i32 %conv.i, -10001
+  %cmp4.i.i30 = icmp samesign ugt i32 %conv.i, -10001
   br i1 %cmp4.i.i30, label %if.then5.i.i, label %if.else9.i.i
 
 if.then5.i.i:                                     ; preds = %if.else3.i.i
@@ -1517,7 +1517,7 @@ sw.default.i.i:                                   ; preds = %if.else9.i.i
   %nupvalues.i.i = getelementptr inbounds i8, ptr %48, i64 11
   %49 = load i8, ptr %nupvalues.i.i, align 1
   %conv.i.i36 = zext i8 %49 to i32
-  %cmp21.not.i.i = icmp ugt i32 %sub20.i.i, %conv.i.i36
+  %cmp21.not.i.i = icmp samesign ugt i32 %sub20.i.i, %conv.i.i36
   %upvalue.i.i = getelementptr inbounds i8, ptr %48, i64 40
   %sub23.i.i37 = sub nsw i64 4294957292, %sub.ptr.div.i
   %idxprom.i.i = and i64 %sub23.i.i37, 4294967295
@@ -1631,7 +1631,7 @@ sw.default.i:                                     ; preds = %if.else9.i
   %nupvalues.i = getelementptr inbounds i8, ptr %12, i64 11
   %13 = load i8, ptr %nupvalues.i, align 1
   %conv.i = zext i8 %13 to i32
-  %cmp21.not.i = icmp ugt i32 %sub20.i, %conv.i
+  %cmp21.not.i = icmp samesign ugt i32 %sub20.i, %conv.i
   %upvalue.i = getelementptr inbounds i8, ptr %12, i64 40
   %sub23.i = sub nuw nsw i32 -10003, %idx
   %idxprom.i = zext nneg i32 %sub23.i to i64
@@ -1802,7 +1802,7 @@ sw.default.i39:                                   ; preds = %if.else9.i26
   %nupvalues.i43 = getelementptr inbounds i8, ptr %39, i64 11
   %40 = load i8, ptr %nupvalues.i43, align 1
   %conv.i44 = zext i8 %40 to i32
-  %cmp21.not.i45 = icmp ugt i32 %sub20.i42, %conv.i44
+  %cmp21.not.i45 = icmp samesign ugt i32 %sub20.i42, %conv.i44
   %upvalue.i46 = getelementptr inbounds i8, ptr %39, i64 40
   %sub23.i47 = sub nuw nsw i32 -10003, %idx
   %idxprom.i48 = zext nneg i32 %sub23.i47 to i64
@@ -4152,7 +4152,7 @@ for.body60:                                       ; preds = %luaZ_openspace.exit
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %add.ptr67, ptr nonnull align 1 %add.ptr72, i64 %32, i1 false)
   %add73 = add i64 %32, %tl.190
   %indvars.iv.next96 = add nsw i64 %indvars.iv95, -1
-  %cmp59 = icmp ugt i64 %indvars.iv95, 1
+  %cmp59 = icmp samesign ugt i64 %indvars.iv95, 1
   br i1 %cmp59, label %for.body60, label %for.end75, !llvm.loop !24
 
 for.end75:                                        ; preds = %for.body60
@@ -6751,7 +6751,7 @@ while.body.i:                                     ; preds = %for.end.i142, %whil
   %incdec.ptr12.i = getelementptr inbounds i8, ptr %res.125.i, i64 16
   %tt13.i = getelementptr inbounds i8, ptr %res.125.i, i64 8
   store i32 0, ptr %tt13.i, align 8
-  %cmp11.i144 = icmp ugt i32 %i.124.i, 1
+  %cmp11.i144 = icmp samesign ugt i32 %i.124.i, 1
   br i1 %cmp11.i144, label %while.body.i, label %luaD_poscall.exit, !llvm.loop !32
 
 luaD_poscall.exit:                                ; preds = %for.body.i145, %while.body.i, %for.end.i142
@@ -8279,7 +8279,7 @@ while.body.i:                                     ; preds = %for.end.i91, %while
   %incdec.ptr12.i = getelementptr inbounds i8, ptr %res.125.i, i64 16
   %tt13.i92 = getelementptr inbounds i8, ptr %res.125.i, i64 8
   store i32 0, ptr %tt13.i92, align 8
-  %cmp11.i = icmp ugt i32 %i.124.i, 1
+  %cmp11.i = icmp samesign ugt i32 %i.124.i, 1
   br i1 %cmp11.i, label %while.body.i, label %luaD_poscall.exit, !llvm.loop !32
 
 luaD_poscall.exit:                                ; preds = %for.body.i93, %while.body.i, %if.else111, %for.end.i91
@@ -10337,7 +10337,7 @@ arrayindex.exit.i.i.i:                            ; preds = %if.then.i.i.i.i
   br i1 %or.cond.i.i.i, label %if.then.i.i.i, label %countint.exit.i.i
 
 if.then.i.i.i:                                    ; preds = %arrayindex.exit.i.i.i
-  %cmp4.i.i.i.i = icmp ugt i32 %41, 255
+  %cmp4.i.i.i.i = icmp samesign ugt i32 %41, 255
   br i1 %cmp4.i.i.i.i, label %while.body.i.i.i.i, label %luaO_log2.exit.i.i.i
 
 while.body.i.i.i.i:                               ; preds = %if.then.i.i.i, %while.body.i.i.i.i
@@ -10396,7 +10396,7 @@ arrayindex.exit.i.i:                              ; preds = %if.then.i.i15.i
   br i1 %or.cond.i.i, label %if.then.i16.i, label %countint.exit.i
 
 if.then.i16.i:                                    ; preds = %arrayindex.exit.i.i
-  %cmp4.i.i.i = icmp ugt i32 %48, 255
+  %cmp4.i.i.i = icmp samesign ugt i32 %48, 255
   br i1 %cmp4.i.i.i, label %while.body.i.i.i, label %luaO_log2.exit.i.i
 
 while.body.i.i.i:                                 ; preds = %if.then.i16.i, %while.body.i.i.i
@@ -10451,7 +10451,7 @@ for.inc.i.i:                                      ; preds = %for.body.i20.i
   %indvars.iv.next.i25.i = add nuw nsw i64 %indvars.iv.i21.i, 1
   %mul.i26.i = shl nsw i32 %twotoi.016.i.i, 1
   %div12.i.i = and i32 %twotoi.016.i.i, 2147483647
-  %cmp.i27.i = icmp ult i32 %div12.i.i, %add5.i
+  %cmp.i27.i = icmp samesign ult i32 %div12.i.i, %add5.i
   br i1 %cmp.i27.i, label %for.body.i20.i, label %rehash.exit, !llvm.loop !54
 
 rehash.exit:                                      ; preds = %for.body.i20.i, %for.inc.i.i, %countint.exit.i
@@ -19019,7 +19019,7 @@ sw.default.i.i:                                   ; preds = %if.else9.i.i
   %nupvalues.i.i = getelementptr inbounds i8, ptr %12, i64 11
   %13 = load i8, ptr %nupvalues.i.i, align 1
   %conv.i.i = zext i8 %13 to i32
-  %cmp21.not.i.i = icmp ugt i32 %sub20.i.i, %conv.i.i
+  %cmp21.not.i.i = icmp samesign ugt i32 %sub20.i.i, %conv.i.i
   %upvalue.i.i = getelementptr inbounds i8, ptr %12, i64 40
   %sub23.i.i = sub nuw nsw i32 -10003, %narg
   %idxprom.i.i = zext nneg i32 %sub23.i.i to i64
@@ -19161,7 +19161,7 @@ sw.default.i:                                     ; preds = %if.else9.i
   %nupvalues.i = getelementptr inbounds i8, ptr %12, i64 11
   %13 = load i8, ptr %nupvalues.i, align 1
   %conv.i = zext i8 %13 to i32
-  %cmp21.not.i = icmp ugt i32 %sub20.i, %conv.i
+  %cmp21.not.i = icmp samesign ugt i32 %sub20.i, %conv.i
   %upvalue.i = getelementptr inbounds i8, ptr %12, i64 40
   %sub23.i = sub nuw nsw i32 -10003, %idx
   %idxprom.i = zext nneg i32 %sub23.i to i64
@@ -19322,7 +19322,7 @@ sw.default.i:                                     ; preds = %if.else9.i
   %nupvalues.i = getelementptr inbounds i8, ptr %12, i64 11
   %13 = load i8, ptr %nupvalues.i, align 1
   %conv.i = zext i8 %13 to i32
-  %cmp21.not.i = icmp ugt i32 %sub20.i, %conv.i
+  %cmp21.not.i = icmp samesign ugt i32 %sub20.i, %conv.i
   %upvalue.i = getelementptr inbounds i8, ptr %12, i64 40
   %sub23.i = sub nuw nsw i32 -10003, %idx
   %idxprom.i = zext nneg i32 %sub23.i to i64
@@ -21368,7 +21368,7 @@ if.else.i14.i:                                    ; preds = %sw.bb.i206
   br i1 %cmp.i.i606.not, label %luaK_reserveregs.exit, label %if.then.i.i607
 
 if.then.i.i607:                                   ; preds = %if.else.i14.i
-  %cmp2.i.i = icmp ugt i32 %add.i.i605, 249
+  %cmp2.i.i = icmp samesign ugt i32 %add.i.i605, 249
   br i1 %cmp2.i.i, label %if.then4.i.i, label %if.end.i.i
 
 if.then4.i.i:                                     ; preds = %if.then.i.i607
@@ -21566,7 +21566,7 @@ freeexp.exit.i.i529:                              ; preds = %if.then.i.i.i.i555,
   br i1 %cmp.i.i.not.i.i534, label %luaK_exp2nextreg.exit.i541, label %if.then.i.i9.i.i535
 
 if.then.i.i9.i.i535:                              ; preds = %freeexp.exit.i.i529
-  %cmp2.i.i.i.i536 = icmp ugt i32 %add.i.i.i.i531, 249
+  %cmp2.i.i.i.i536 = icmp samesign ugt i32 %add.i.i.i.i531, 249
   br i1 %cmp2.i.i.i.i536, label %if.then4.i.i.i.i545, label %if.end.i.i.i.i537
 
 if.then4.i.i.i.i545:                              ; preds = %if.then.i.i9.i.i535
@@ -21609,7 +21609,7 @@ explist1.exit:                                    ; preds = %luaK_exp2nextreg.ex
   br i1 %cmp.i515, label %if.then.i516, label %luaK_checkstack.exit
 
 if.then.i516:                                     ; preds = %explist1.exit
-  %cmp2.i = icmp ugt i32 %add.i, 249
+  %cmp2.i = icmp samesign ugt i32 %add.i, 249
   br i1 %cmp2.i, label %if.then4.i, label %if.end.i517
 
 if.then4.i:                                       ; preds = %if.then.i516
@@ -22166,7 +22166,7 @@ str_checkname.exit.i77:                           ; preds = %if.else.i.i.i104, %
   br i1 %cmp.i.i.i80.not, label %luaK_reserveregs.exit.i, label %if.then.i.i12.i
 
 if.then.i.i12.i:                                  ; preds = %str_checkname.exit.i77
-  %cmp2.i.i.i = icmp ugt i32 %add.i.i.i, 249
+  %cmp2.i.i.i = icmp samesign ugt i32 %add.i.i.i, 249
   br i1 %cmp2.i.i.i, label %if.then4.i.i.i, label %if.end.i.i.i
 
 if.then4.i.i.i:                                   ; preds = %if.then.i.i12.i
@@ -22386,7 +22386,7 @@ freeexp.exit.i446:                                ; preds = %if.then.i.i.i472, %
   br i1 %cmp.i.i.not.i451, label %luaK_exp2nextreg.exit475, label %if.then.i.i9.i452
 
 if.then.i.i9.i452:                                ; preds = %freeexp.exit.i446
-  %cmp2.i.i.i453 = icmp ugt i32 %add.i.i.i448, 249
+  %cmp2.i.i.i453 = icmp samesign ugt i32 %add.i.i.i448, 249
   br i1 %cmp2.i.i.i453, label %if.then4.i.i.i461, label %if.end.i.i.i454
 
 if.then4.i.i.i461:                                ; preds = %if.then.i.i9.i452
@@ -22549,7 +22549,7 @@ freeexp.exit.i:                                   ; preds = %if.then.i.i.i428, %
   br i1 %cmp.i.i.not.i, label %luaK_exp2nextreg.exit, label %if.then.i.i9.i
 
 if.then.i.i9.i:                                   ; preds = %freeexp.exit.i
-  %cmp2.i.i.i412 = icmp ugt i32 %add.i.i.i410, 249
+  %cmp2.i.i.i412 = icmp samesign ugt i32 %add.i.i.i410, 249
   br i1 %cmp2.i.i.i412, label %if.then4.i.i.i420, label %if.end.i.i.i413
 
 if.then4.i.i.i420:                                ; preds = %if.then.i.i9.i
@@ -22634,7 +22634,7 @@ if.then10.i.i:                                    ; preds = %if.then9.i
   br i1 %cmp.i.i.not.i.i, label %luaK_reserveregs.exit.i.i, label %if.then.i.i.i.i
 
 if.then.i.i.i.i:                                  ; preds = %if.then10.i.i
-  %cmp2.i.i.i.i = icmp ugt i32 %add.i.i.i.i, 249
+  %cmp2.i.i.i.i = icmp samesign ugt i32 %add.i.i.i.i, 249
   br i1 %cmp2.i.i.i.i, label %if.then4.i.i.i.i, label %if.end.i.i.i.i
 
 if.then4.i.i.i.i:                                 ; preds = %if.then.i.i.i.i
@@ -22724,7 +22724,7 @@ freeexp.exit.i.i:                                 ; preds = %if.then.i.i.i31.i, 
   br i1 %cmp.i.i.not.i19.i, label %luaK_exp2nextreg.exit.i, label %if.then.i.i9.i.i
 
 if.then.i.i9.i.i:                                 ; preds = %freeexp.exit.i.i
-  %cmp2.i.i.i20.i = icmp ugt i32 %add.i.i.i17.i, 249
+  %cmp2.i.i.i20.i = icmp samesign ugt i32 %add.i.i.i17.i, 249
   br i1 %cmp2.i.i.i20.i, label %if.then4.i.i.i27.i, label %if.end.i.i.i21.i
 
 if.then4.i.i.i27.i:                               ; preds = %if.then.i.i9.i.i
@@ -27113,7 +27113,7 @@ if.then.i.i.i:                                    ; preds = %sw.bb2.i23
   br i1 %cmp.i.i.not.i.i.i, label %discharge2anyreg.exit.i.i, label %if.then.i.i.i.i.i
 
 if.then.i.i.i.i.i:                                ; preds = %if.then.i.i.i
-  %cmp2.i.i.i.i.i = icmp ugt i32 %add.i.i.i.i.i, 249
+  %cmp2.i.i.i.i.i = icmp samesign ugt i32 %add.i.i.i.i.i, 249
   br i1 %cmp2.i.i.i.i.i, label %if.then4.i.i.i.i.i, label %if.end.i.i.i.i.i
 
 if.then4.i.i.i.i.i:                               ; preds = %if.then.i.i.i.i.i
@@ -27804,7 +27804,7 @@ freeexp.exit.i.i63:                               ; preds = %if.then.i.i.i15.i, 
   br i1 %cmp.i.i.not.i.i, label %luaK_infix.exit.thread209, label %if.then.i.i9.i.i
 
 if.then.i.i9.i.i:                                 ; preds = %freeexp.exit.i.i63
-  %cmp2.i.i.i.i = icmp ugt i32 %add.i.i.i11.i, 249
+  %cmp2.i.i.i.i = icmp samesign ugt i32 %add.i.i.i11.i, 249
   br i1 %cmp2.i.i.i.i, label %if.then4.i.i.i.i, label %if.end.i.i.i.i64
 
 if.then4.i.i.i.i:                                 ; preds = %if.then.i.i9.i.i
@@ -28121,7 +28121,7 @@ freeexp.exit.i.i108:                              ; preds = %if.then.i.i.i.i133,
   br i1 %cmp.i.i.not.i.i113, label %luaK_exp2nextreg.exit.i120, label %if.then.i.i9.i.i114
 
 if.then.i.i9.i.i114:                              ; preds = %freeexp.exit.i.i108
-  %cmp2.i.i.i.i115 = icmp ugt i32 %add.i.i.i.i110, 249
+  %cmp2.i.i.i.i115 = icmp samesign ugt i32 %add.i.i.i.i110, 249
   br i1 %cmp2.i.i.i.i115, label %if.then4.i.i.i.i123, label %if.end.i.i.i.i116
 
 if.then4.i.i.i.i123:                              ; preds = %if.then.i.i9.i.i114
@@ -28602,7 +28602,7 @@ freeexp.exit.i:                                   ; preds = %if.then.i.i.i, %lan
   br i1 %cmp.i.i.not.i, label %luaK_exp2nextreg.exit, label %if.then.i.i9.i
 
 if.then.i.i9.i:                                   ; preds = %freeexp.exit.i
-  %cmp2.i.i.i = icmp ugt i32 %add.i.i.i, 249
+  %cmp2.i.i.i = icmp samesign ugt i32 %add.i.i.i, 249
   br i1 %cmp2.i.i.i, label %if.then4.i.i.i, label %if.end.i.i.i
 
 if.then4.i.i.i:                                   ; preds = %if.then.i.i9.i
@@ -29420,7 +29420,7 @@ entry:
   br i1 %cmp.not, label %if.else, label %if.then
 
 if.then:                                          ; preds = %entry
-  %cmp1.not = icmp ult i32 %0, %limit
+  %cmp1.not = icmp samesign ult i32 %0, %limit
   br i1 %cmp1.not, label %if.end6, label %if.then2
 
 if.then2:                                         ; preds = %if.then
@@ -29682,7 +29682,7 @@ if.then10.i:                                      ; preds = %if.else.i
   br i1 %or.cond.i, label %if.end33.i, label %if.then19.i
 
 if.then19.i:                                      ; preds = %if.then10.i
-  %cmp22.i = icmp ugt i32 %reg, %shr13.i
+  %cmp22.i = icmp samesign ugt i32 %reg, %shr13.i
   br i1 %cmp22.i, label %if.then24.i, label %sw.epilog
 
 if.then24.i:                                      ; preds = %if.then19.i
@@ -30130,7 +30130,7 @@ freeexp.exit.i:                                   ; preds = %if.then.i.i.i, %lan
   br i1 %cmp.i.i.not.i, label %luaK_exp2nextreg.exit, label %if.then.i.i9.i
 
 if.then.i.i9.i:                                   ; preds = %freeexp.exit.i
-  %cmp2.i.i.i = icmp ugt i32 %add.i.i.i, 249
+  %cmp2.i.i.i = icmp samesign ugt i32 %add.i.i.i, 249
   br i1 %cmp2.i.i.i, label %if.then4.i.i.i, label %if.end.i.i.i
 
 if.then4.i.i.i:                                   ; preds = %if.then.i.i9.i
@@ -30209,7 +30209,7 @@ freeexp.exit.i.i:                                 ; preds = %if.then.i.i.i.i, %l
   br i1 %cmp.i.i.not.i.i, label %luaK_exp2nextreg.exit.i, label %if.then.i.i9.i.i
 
 if.then.i.i9.i.i:                                 ; preds = %freeexp.exit.i.i
-  %cmp2.i.i.i.i = icmp ugt i32 %add.i.i.i.i, 249
+  %cmp2.i.i.i.i = icmp samesign ugt i32 %add.i.i.i.i, 249
   br i1 %cmp2.i.i.i.i, label %if.then4.i.i.i.i, label %if.end.i.i.i.i
 
 if.then4.i.i.i.i:                                 ; preds = %if.then.i.i9.i.i
@@ -30478,7 +30478,7 @@ if.then10.i.i:                                    ; preds = %if.end.i70
   br i1 %cmp.i.i.not.i.i74, label %luaK_reserveregs.exit.i.i, label %if.then.i.i.i.i75
 
 if.then.i.i.i.i75:                                ; preds = %if.then10.i.i
-  %cmp2.i.i.i.i76 = icmp ugt i32 %add.i.i.i.i71, 249
+  %cmp2.i.i.i.i76 = icmp samesign ugt i32 %add.i.i.i.i71, 249
   br i1 %cmp2.i.i.i.i76, label %if.then4.i.i.i.i105, label %if.end.i.i.i.i77
 
 if.then4.i.i.i.i105:                              ; preds = %if.then.i.i.i.i75
@@ -30578,7 +30578,7 @@ freeexp.exit.i.i112:                              ; preds = %if.then.i.i.i32.i, 
   br i1 %cmp.i.i.not.i19.i, label %luaK_exp2nextreg.exit.i116, label %if.then.i.i9.i.i115
 
 if.then.i.i9.i.i115:                              ; preds = %freeexp.exit.i.i112
-  %cmp2.i.i.i20.i = icmp ugt i32 %add.i.i.i17.i, 249
+  %cmp2.i.i.i20.i = icmp samesign ugt i32 %add.i.i.i17.i, 249
   br i1 %cmp2.i.i.i20.i, label %if.then4.i.i.i28.i, label %if.end.i.i.i21.i
 
 if.then4.i.i.i28.i:                               ; preds = %if.then.i.i9.i.i115
@@ -30939,7 +30939,7 @@ freeexp.exit.i:                                   ; preds = %if.then.i.i.i24, %l
   br i1 %cmp.i.i.i, label %if.then.i.i15.i, label %luaK_reserveregs.exit.i
 
 if.then.i.i15.i:                                  ; preds = %freeexp.exit.i
-  %cmp2.i.i.i = icmp ugt i32 %add.i.i.i, 249
+  %cmp2.i.i.i = icmp samesign ugt i32 %add.i.i.i, 249
   br i1 %cmp2.i.i.i, label %if.then4.i.i.i, label %if.end.i.i.i
 
 if.then4.i.i.i:                                   ; preds = %if.then.i.i15.i
@@ -31148,7 +31148,7 @@ freeexp.exit.i26:                                 ; preds = %sw.bb5, %if.then6.i
   br i1 %cmp.i.i.not.i, label %luaK_exp2nextreg.exit, label %if.then.i.i9.i
 
 if.then.i.i9.i:                                   ; preds = %freeexp.exit.i26
-  %cmp2.i.i.i29 = icmp ugt i32 %add.i.i.i27, 249
+  %cmp2.i.i.i29 = icmp samesign ugt i32 %add.i.i.i27, 249
   br i1 %cmp2.i.i.i29, label %if.then4.i.i.i36, label %if.end.i.i.i30
 
 if.then4.i.i.i36:                                 ; preds = %if.then.i.i9.i
@@ -31635,7 +31635,7 @@ adjustlocalvars.exit:                             ; preds = %for.body.i, %entry,
   br i1 %cmp.i.i, label %if.then.i.i27, label %luaK_reserveregs.exit
 
 if.then.i.i27:                                    ; preds = %adjustlocalvars.exit
-  %cmp2.i.i = icmp ugt i32 %add.i.i, 249
+  %cmp2.i.i = icmp samesign ugt i32 %add.i.i, 249
   br i1 %cmp2.i.i, label %if.then4.i.i, label %if.end.i.i
 
 if.then4.i.i:                                     ; preds = %if.then.i.i27
@@ -32004,7 +32004,7 @@ freeexp.exit.i62:                                 ; preds = %if.then.i.i.i88, %l
   br i1 %cmp.i.i.not.i67, label %luaK_exp2nextreg.exit91, label %if.then.i.i9.i68
 
 if.then.i.i9.i68:                                 ; preds = %freeexp.exit.i62
-  %cmp2.i.i.i69 = icmp ugt i32 %add.i.i.i64, 249
+  %cmp2.i.i.i69 = icmp samesign ugt i32 %add.i.i.i64, 249
   br i1 %cmp2.i.i.i69, label %if.then4.i.i.i77, label %if.end.i.i.i70
 
 if.then4.i.i.i77:                                 ; preds = %if.then.i.i9.i68
@@ -32087,7 +32087,7 @@ if.then10.i:                                      ; preds = %explist1.exit
   br i1 %cmp.i.i.not.i, label %luaK_reserveregs.exit.i, label %if.then.i.i.i
 
 if.then.i.i.i:                                    ; preds = %if.then10.i
-  %cmp2.i.i.i = icmp ugt i32 %add.i.i.i, 249
+  %cmp2.i.i.i = icmp samesign ugt i32 %add.i.i.i, 249
   br i1 %cmp2.i.i.i, label %if.then4.i.i.i, label %if.end.i.i.i
 
 if.then4.i.i.i:                                   ; preds = %if.then.i.i.i
@@ -32207,7 +32207,7 @@ freeexp.exit.i:                                   ; preds = %if.then.i.i.i54, %l
   br i1 %cmp.i.i.not.i41, label %luaK_exp2nextreg.exit, label %if.then.i.i9.i
 
 if.then.i.i9.i:                                   ; preds = %freeexp.exit.i
-  %cmp2.i.i.i42 = icmp ugt i32 %add.i.i.i39, 249
+  %cmp2.i.i.i42 = icmp samesign ugt i32 %add.i.i.i39, 249
   br i1 %cmp2.i.i.i42, label %if.then4.i.i.i49, label %if.end.i.i.i43
 
 if.then4.i.i.i49:                                 ; preds = %if.then.i.i9.i
@@ -32398,7 +32398,7 @@ land.rhs.i:                                       ; preds = %while.cond.i
   %nactvar.i17 = getelementptr inbounds i8, ptr %bl.0.i, i64 12
   %7 = load i8, ptr %nactvar.i17, align 4
   %8 = zext i8 %7 to i64
-  %cmp.i18 = icmp ult i64 %indvars.iv.next.i, %8
+  %cmp.i18 = icmp samesign ult i64 %indvars.iv.next.i, %8
   br i1 %cmp.i18, label %while.cond.i, label %if.then.i, !llvm.loop !119
 
 if.then.i:                                        ; preds = %land.rhs.i
@@ -32638,7 +32638,7 @@ if.then.i:                                        ; preds = %entry.if.then.i_cri
   br i1 %cmp.i.i.not.i, label %discharge2anyreg.exit, label %if.then.i.i.i
 
 if.then.i.i.i:                                    ; preds = %if.then.i
-  %cmp2.i.i.i = icmp ugt i32 %add.i.i.i, 249
+  %cmp2.i.i.i = icmp samesign ugt i32 %add.i.i.i, 249
   br i1 %cmp2.i.i.i, label %if.then4.i.i.i, label %if.end.i.i.i
 
 if.then4.i.i.i:                                   ; preds = %if.then.i.i.i
@@ -32948,7 +32948,7 @@ freeexp.exit.i:                                   ; preds = %if.then.i.i.i, %lan
   br i1 %cmp.i.i.not.i, label %luaK_exp2nextreg.exit, label %if.then.i.i9.i
 
 if.then.i.i9.i:                                   ; preds = %freeexp.exit.i
-  %cmp2.i.i.i = icmp ugt i32 %add.i.i.i, 249
+  %cmp2.i.i.i = icmp samesign ugt i32 %add.i.i.i, 249
   br i1 %cmp2.i.i.i, label %if.then4.i.i.i, label %if.end.i.i.i
 
 if.then4.i.i.i:                                   ; preds = %if.then.i.i9.i
@@ -33176,7 +33176,7 @@ adjustlocalvars.exit44:                           ; preds = %for.body.i33, %cond
   br i1 %cmp.i.i45, label %if.then.i.i46, label %luaK_reserveregs.exit
 
 if.then.i.i46:                                    ; preds = %adjustlocalvars.exit44
-  %cmp2.i.i = icmp ugt i32 %add.i.i, 249
+  %cmp2.i.i = icmp samesign ugt i32 %add.i.i, 249
   br i1 %cmp2.i.i, label %if.then4.i.i, label %if.end.i.i
 
 if.then4.i.i:                                     ; preds = %if.then.i.i46
@@ -33508,7 +33508,7 @@ if.then10.i:                                      ; preds = %if.then
   br i1 %cmp.i.i.not.i, label %luaK_reserveregs.exit.i, label %if.then.i.i.i
 
 if.then.i.i.i:                                    ; preds = %if.then10.i
-  %cmp2.i.i.i = icmp ugt i32 %add.i.i.i, 249
+  %cmp2.i.i.i = icmp samesign ugt i32 %add.i.i.i, 249
   br i1 %cmp2.i.i.i, label %if.then4.i.i.i, label %if.end.i.i.i
 
 if.then4.i.i.i:                                   ; preds = %if.then.i.i.i
@@ -33547,7 +33547,7 @@ if.then7:                                         ; preds = %luaK_setreturns.exi
   br i1 %cmp.i.i, label %if.then.i.i, label %luaK_reserveregs.exit
 
 if.then.i.i:                                      ; preds = %if.then7
-  %cmp2.i.i = icmp ugt i32 %add.i.i, 249
+  %cmp2.i.i = icmp samesign ugt i32 %add.i.i, 249
   br i1 %cmp2.i.i, label %if.then4.i.i, label %if.end.i.i
 
 if.then4.i.i:                                     ; preds = %if.then.i.i
@@ -33609,7 +33609,7 @@ freeexp.exit.i:                                   ; preds = %if.then.i.i.i33, %l
   br i1 %cmp.i.i.not.i20, label %luaK_exp2nextreg.exit, label %if.then.i.i9.i
 
 if.then.i.i9.i:                                   ; preds = %freeexp.exit.i
-  %cmp2.i.i.i21 = icmp ugt i32 %add.i.i.i18, 249
+  %cmp2.i.i.i21 = icmp samesign ugt i32 %add.i.i.i18, 249
   br i1 %cmp2.i.i.i21, label %if.then4.i.i.i28, label %if.end.i.i.i22
 
 if.then4.i.i.i28:                                 ; preds = %if.then.i.i9.i
@@ -33650,7 +33650,7 @@ if.then15:                                        ; preds = %if.end13
   br i1 %cmp.i.i38, label %if.then.i.i40, label %luaK_reserveregs.exit49
 
 if.then.i.i40:                                    ; preds = %if.then15
-  %cmp2.i.i41 = icmp ugt i32 %add.i.i35, 249
+  %cmp2.i.i41 = icmp samesign ugt i32 %add.i.i35, 249
   br i1 %cmp2.i.i41, label %if.then4.i.i46, label %if.end.i.i42
 
 if.then4.i.i46:                                   ; preds = %if.then.i.i40
@@ -33713,7 +33713,7 @@ if.then10.i55:                                    ; preds = %if.else.i
 
 if.then19.i:                                      ; preds = %if.then10.i55
   %sub21.i = add nsw i32 %add.i.i35, -1
-  %cmp22.i = icmp ugt i32 %sub21.i, %shr13.i
+  %cmp22.i = icmp samesign ugt i32 %sub21.i, %shr13.i
   br i1 %cmp22.i, label %if.then24.i, label %if.end17
 
 if.then24.i:                                      ; preds = %if.then19.i
@@ -33988,7 +33988,7 @@ if.then23.i:                                      ; preds = %for.inc.thread.i, %
   br i1 %cmp.i.i.not.i, label %luaK_reserveregs.exit.i, label %if.then.i.i.i
 
 if.then.i.i.i:                                    ; preds = %if.then23.i
-  %cmp2.i.i.i = icmp ugt i32 %add.i.i.i, 249
+  %cmp2.i.i.i = icmp samesign ugt i32 %add.i.i.i, 249
   br i1 %cmp2.i.i.i, label %if.then4.i.i.i, label %if.end.i.i.i
 
 if.then4.i.i.i:                                   ; preds = %if.then.i.i.i
@@ -34124,7 +34124,7 @@ freeexp.exit.i:                                   ; preds = %if.then.i.i.i57, %l
   br i1 %cmp.i.i.not.i45, label %luaK_exp2nextreg.exit, label %if.then.i.i9.i
 
 if.then.i.i9.i:                                   ; preds = %freeexp.exit.i
-  %cmp2.i.i.i46 = icmp ugt i32 %add.i.i.i43, 249
+  %cmp2.i.i.i46 = icmp samesign ugt i32 %add.i.i.i43, 249
   br i1 %cmp2.i.i.i46, label %if.then4.i.i.i53, label %if.end.i.i.i47
 
 if.then4.i.i.i53:                                 ; preds = %if.then.i.i9.i
@@ -34304,7 +34304,7 @@ sw.default.i:                                     ; preds = %if.else9.i
   %nupvalues.i = getelementptr inbounds i8, ptr %12, i64 11
   %13 = load i8, ptr %nupvalues.i, align 1
   %conv.i = zext i8 %13 to i32
-  %cmp21.not.i = icmp ugt i32 %sub20.i, %conv.i
+  %cmp21.not.i = icmp samesign ugt i32 %sub20.i, %conv.i
   %upvalue.i = getelementptr inbounds i8, ptr %12, i64 40
   %sub23.i = sub nuw nsw i32 -10003, %idx
   %idxprom.i = zext nneg i32 %sub23.i to i64
@@ -34463,7 +34463,7 @@ sw.default.i:                                     ; preds = %if.else9.i
   %nupvalues.i = getelementptr inbounds i8, ptr %12, i64 11
   %13 = load i8, ptr %nupvalues.i, align 1
   %conv.i = zext i8 %13 to i32
-  %cmp21.not.i = icmp ugt i32 %sub20.i, %conv.i
+  %cmp21.not.i = icmp samesign ugt i32 %sub20.i, %conv.i
   %upvalue.i = getelementptr inbounds i8, ptr %12, i64 40
   %sub23.i = sub nuw nsw i32 -10003, %idx
   %idxprom.i = zext nneg i32 %sub23.i to i64
@@ -35172,7 +35172,7 @@ sw.default.i.i:                                   ; preds = %if.else9.i.i
   %conv.i.i145 = zext i8 %70 to i32
   %71 = trunc i64 %indvars.iv to i32
   %72 = add i32 %71, -10001
-  %cmp21.not.i.i = icmp ugt i32 %72, %conv.i.i145
+  %cmp21.not.i.i = icmp samesign ugt i32 %72, %conv.i.i145
   %upvalue.i.i = getelementptr inbounds i8, ptr %69, i64 40
   %73 = add nsw i64 %indvars.iv, -10002
   %arrayidx.i.i = getelementptr inbounds [1 x %struct.lua_TValue], ptr %upvalue.i.i, i64 0, i64 %73
@@ -40091,7 +40091,7 @@ sw.default.i.i.i:                                 ; preds = %if.else9.i.i.i
   %nupvalues.i.i.i = getelementptr inbounds i8, ptr %33, i64 11
   %34 = load i8, ptr %nupvalues.i.i.i, align 1
   %conv.i.i.i = zext i8 %34 to i32
-  %cmp21.not.i.i.i = icmp ugt i32 %sub20.i.i.i, %conv.i.i.i
+  %cmp21.not.i.i.i = icmp samesign ugt i32 %sub20.i.i.i, %conv.i.i.i
   %upvalue.i.i.i = getelementptr inbounds i8, ptr %33, i64 40
   %sub23.i.i.i = sub nsw i64 4294957293, %sub.ptr.div.i
   %idxprom.i.i.i = and i64 %sub23.i.i.i, 4294967295
@@ -41905,7 +41905,7 @@ if.then.i.i95:                                    ; preds = %if.then70
   br label %lua_pushvalue.exit
 
 if.else3.i.i:                                     ; preds = %if.then70
-  %cmp4.i.i = icmp ugt i32 %arg.0160, -10001
+  %cmp4.i.i = icmp samesign ugt i32 %arg.0160, -10001
   br i1 %cmp4.i.i, label %if.then5.i.i, label %if.else9.i.i
 
 if.then5.i.i:                                     ; preds = %if.else3.i.i
@@ -41946,7 +41946,7 @@ sw.default.i.i:                                   ; preds = %if.else9.i.i
   %nupvalues.i.i = getelementptr inbounds i8, ptr %69, i64 11
   %70 = load i8, ptr %nupvalues.i.i, align 1
   %conv.i.i = zext i8 %70 to i32
-  %cmp21.not.i.i = icmp ugt i32 %sub20.i.i, %conv.i.i
+  %cmp21.not.i.i = icmp samesign ugt i32 %sub20.i.i, %conv.i.i
   %upvalue.i.i = getelementptr inbounds i8, ptr %69, i64 40
   %sub23.i.i = sub nuw nsw i32 -10004, %arg.0160
   %idxprom.i.i = zext nneg i32 %sub23.i.i to i64
@@ -43377,7 +43377,7 @@ sw.default.i.i:                                   ; preds = %if.else9.i.i
   %conv.i.i53 = zext i8 %51 to i32
   %52 = trunc i64 %indvars.iv to i32
   %53 = add i32 %52, -10001
-  %cmp21.not.i.i = icmp ugt i32 %53, %conv.i.i53
+  %cmp21.not.i.i = icmp samesign ugt i32 %53, %conv.i.i53
   %upvalue.i.i = getelementptr inbounds i8, ptr %50, i64 40
   %54 = add nsw i64 %indvars.iv, -10002
   %arrayidx.i.i = getelementptr inbounds [1 x %struct.lua_TValue], ptr %upvalue.i.i, i64 0, i64 %54
@@ -48319,7 +48319,7 @@ sw.default.i.i:                                   ; preds = %if.else9.i.i
   %nupvalues.i.i = getelementptr inbounds i8, ptr %13, i64 11
   %14 = load i8, ptr %nupvalues.i.i, align 1
   %conv.i.i = zext i8 %14 to i32
-  %cmp21.not.i.i = icmp ugt i32 %sub20.i.i, %conv.i.i
+  %cmp21.not.i.i = icmp samesign ugt i32 %sub20.i.i, %conv.i.i
   %upvalue.i.i = getelementptr inbounds i8, ptr %13, i64 40
   %sub23.i.i = sub nuw nsw i32 -10003, %fnameindex
   %idxprom.i.i = zext nneg i32 %sub23.i.i to i64

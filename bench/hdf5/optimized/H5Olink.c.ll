@@ -710,11 +710,11 @@ define internal noundef i32 @H5O__link_encode(ptr noundef %0, i1 zeroext %1, i64
   br i1 %11, label %16, label %12
 
 12:                                               ; preds = %5
-  %13 = icmp ugt i64 %9, 65535
+  %13 = icmp samesign ugt i64 %9, 65535
   br i1 %13, label %16, label %14
 
 14:                                               ; preds = %12
-  %15 = icmp ugt i64 %9, 255
+  %15 = icmp samesign ugt i64 %9, 255
   %. = zext i1 %15 to i8
   br label %16
 
@@ -1037,11 +1037,11 @@ define internal i64 @H5O__link_size(ptr noundef %0, i1 zeroext %1, ptr nocapture
   br i1 %7, label %12, label %8
 
 8:                                                ; preds = %3
-  %9 = icmp ugt i64 %6, 65535
+  %9 = icmp samesign ugt i64 %6, 65535
   br i1 %9, label %12, label %10
 
 10:                                               ; preds = %8
-  %11 = icmp ugt i64 %6, 255
+  %11 = icmp samesign ugt i64 %6, 255
   %. = select i1 %11, i64 2, i64 1
   br label %12
 

@@ -2118,7 +2118,7 @@ print_time.exit56:                                ; preds = %74, %83, %87
   br label %print_num_sigs.exit
 
 108:                                              ; preds = %._crit_edge
-  %109 = icmp ugt i64 %1, 999
+  %109 = icmp samesign ugt i64 %1, 999
   br i1 %109, label %110, label %114
 
 110:                                              ; preds = %108
@@ -2145,7 +2145,7 @@ print_num_sigs.exit:                              ; preds = %104, %110, %114
   br label %print_num_sigs.exit57
 
 123:                                              ; preds = %print_num_sigs.exit
-  %124 = icmp ugt i64 %0, 999
+  %124 = icmp samesign ugt i64 %0, 999
   br i1 %124, label %125, label %129
 
 125:                                              ; preds = %123
@@ -2397,7 +2397,7 @@ print_time.exit56:                                ; preds = %74, %83, %87
   br label %print_num_sigs.exit
 
 108:                                              ; preds = %._crit_edge
-  %109 = icmp ugt i64 %1, 999
+  %109 = icmp samesign ugt i64 %1, 999
   br i1 %109, label %110, label %114
 
 110:                                              ; preds = %108
@@ -2424,7 +2424,7 @@ print_num_sigs.exit:                              ; preds = %104, %110, %114
   br label %print_num_sigs.exit57
 
 123:                                              ; preds = %print_num_sigs.exit
-  %124 = icmp ugt i64 %0, 999
+  %124 = icmp samesign ugt i64 %0, 999
   br i1 %124, label %125, label %129
 
 125:                                              ; preds = %123

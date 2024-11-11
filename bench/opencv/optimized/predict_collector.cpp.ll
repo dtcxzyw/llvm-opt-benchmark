@@ -404,7 +404,7 @@ _ZSt9transformIN9__gnu_cxx17__normal_iteratorIPKN2cv4face17StandardCollector13Pr
   %45 = getelementptr inbounds i8, ptr %.069.i.i.i.i.i.i.i, i64 -8
   store double %44, ptr %45, align 8
   %46 = add nsw i64 %.010.i.i.i.i.i.i.i, -1
-  %47 = icmp ugt i64 %.010.i.i.i.i.i.i.i, 1
+  %47 = icmp samesign ugt i64 %.010.i.i.i.i.i.i.i, 1
   br i1 %47, label %.lr.ph.i.i.i.i.i.i.i, label %_ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPSt4pairIidESt6vectorIS3_SaIS3_EEEES8_ET0_T_SA_S9_.exit.i.i, !llvm.loop !12
 
 _ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPSt4pairIidESt6vectorIS3_SaIS3_EEEES8_ET0_T_SA_S9_.exit.i.i: ; preds = %.lr.ph.i.i.i.i.i.i.i
@@ -534,7 +534,7 @@ _ZSt25__unguarded_linear_insertIN9__gnu_cxx17__normal_iteratorIPSt4pairIidESt6ve
   %90 = getelementptr inbounds i8, ptr %.069.i.i.i.i.i.i39.i, i64 -8
   store double %89, ptr %90, align 8
   %91 = add nsw i64 %.010.i.i.i.i.i.i38.i, -1
-  %92 = icmp ugt i64 %.010.i.i.i.i.i.i38.i, 1
+  %92 = icmp samesign ugt i64 %.010.i.i.i.i.i.i38.i, 1
   br i1 %92, label %.lr.ph.i.i.i.i.i.i37.i, label %_ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPSt4pairIidESt6vectorIS3_SaIS3_EEEES8_ET0_T_SA_S9_.exit.i35.i, !llvm.loop !12
 
 _ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPSt4pairIidESt6vectorIS3_SaIS3_EEEES8_ET0_T_SA_S9_.exit.i35.i: ; preds = %.lr.ph.i.i.i.i.i.i37.i, %79

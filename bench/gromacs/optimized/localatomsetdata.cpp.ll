@@ -70,7 +70,7 @@ _ZNSt12_Vector_baseIiSaIiEE11_M_allocateEm.exit.i.i: ; preds = %_ZNSt6vectorIiSa
   %22 = getelementptr inbounds i8, ptr %.sroa.05.07.i.i.i.i.i.i.i.i.i.i, i64 8
   %23 = getelementptr inbounds i8, ptr %.09.i.i.i.i.i.i.i.i.i.i, i64 4
   %24 = add nsw i64 %.048.i.i.i.i.i.i.i.i.i.i, -1
-  %25 = icmp ugt i64 %.048.i.i.i.i.i.i.i.i.i.i, 1
+  %25 = icmp samesign ugt i64 %.048.i.i.i.i.i.i.i.i.i.i, 1
   br i1 %25, label %.lr.ph.i.i.i.i.i.i.i.i.i.i, label %_ZNSt6vectorIiSaIiEE17_S_check_init_lenEmRKS0_.exit.i.i14, !llvm.loop !5
 
 26:                                               ; preds = %_ZNSt12_Vector_baseIiSaIiEE11_M_allocateEm.exit.i.i, %9
@@ -106,7 +106,7 @@ _ZNSt6vectorIiSaIiEE17_S_check_init_lenEmRKS0_.exit.i.i14: ; preds = %.lr.ph.i.i
   %37 = getelementptr inbounds i8, ptr %.sroa.05.07.i.i.i.i.i.i.i.i.i.i23, i64 8
   %38 = getelementptr inbounds i8, ptr %.09.i.i.i.i.i.i.i.i.i.i21, i64 4
   %39 = add nsw i64 %.048.i.i.i.i.i.i.i.i.i.i22, -1
-  %40 = icmp ugt i64 %.048.i.i.i.i.i.i.i.i.i.i22, 1
+  %40 = icmp samesign ugt i64 %.048.i.i.i.i.i.i.i.i.i.i22, 1
   br i1 %40, label %.lr.ph.i.i.i.i.i.i.i.i.i.i20, label %.loopexit.loopexit, !llvm.loop !5
 
 41:                                               ; preds = %_ZNSt6vectorIiSaIiEE17_S_check_init_lenEmRKS0_.exit.i.i14

@@ -255,7 +255,7 @@ lpad:                                             ; preds = %invoke.cont3, %cond
   br label %eh.resume
 
 if.end:                                           ; preds = %entry
-  %cmp11 = icmp ugt i32 %weight, 256
+  %cmp11 = icmp samesign ugt i32 %weight, 256
   br i1 %cmp11, label %if.then12, label %return
 
 if.then12:                                        ; preds = %if.end

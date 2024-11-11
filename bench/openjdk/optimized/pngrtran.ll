@@ -988,7 +988,7 @@ define hidden void @png_set_quantize(ptr noalias noundef %0, ptr noundef %1, i32
   %216 = getelementptr inbounds i8, ptr %204, i64 %215
   %217 = load i8, ptr %216, align 1
   %218 = zext i8 %217 to i32
-  %219 = icmp ugt i32 %.3374495.us.us.us.us, %218
+  %219 = icmp samesign ugt i32 %.3374495.us.us.us.us, %218
   br i1 %219, label %.preheader.us.us.us.us, label %230
 
 .preheader.us.us.us.us:                           ; preds = %212
@@ -1120,7 +1120,7 @@ define hidden void @png_set_quantize(ptr noalias noundef %0, ptr noundef %1, i32
   %290 = getelementptr inbounds i8, ptr %278, i64 %289
   %291 = load i8, ptr %290, align 1
   %292 = zext i8 %291 to i32
-  %293 = icmp ugt i32 %.3374495.us.us, %292
+  %293 = icmp samesign ugt i32 %.3374495.us.us, %292
   br i1 %293, label %.preheader.us.us, label %322
 
 .preheader.us.us:                                 ; preds = %286
@@ -1199,7 +1199,7 @@ define hidden void @png_set_quantize(ptr noalias noundef %0, ptr noundef %1, i32
   %339 = getelementptr inbounds i8, ptr %327, i64 %338
   %340 = load i8, ptr %339, align 1
   %341 = zext i8 %340 to i32
-  %342 = icmp ugt i32 %.3374495, %341
+  %342 = icmp samesign ugt i32 %.3374495, %341
   br i1 %342, label %343, label %372
 
 343:                                              ; preds = %335

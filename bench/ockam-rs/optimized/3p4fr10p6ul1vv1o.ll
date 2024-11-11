@@ -3639,7 +3639,7 @@ define internal fastcc i64 @"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$14reserve_r
   br i1 %34, label %37, label %45
 
 35:                                               ; preds = %29
-  %36 = icmp ult i64 %.0.sroa.speculated.i, 4
+  %36 = icmp samesign ult i64 %.0.sroa.speculated.i, 4
   %..i.i.i = select i1 %36, i64 4, i64 8
   br label %.thread.i.i
 
@@ -4281,7 +4281,7 @@ define hidden void @"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$22fallible_with_cap
   br i1 %10, label %13, label %21
 
 11:                                               ; preds = %6
-  %12 = icmp ult i64 %1, 4
+  %12 = icmp samesign ult i64 %1, 4
   %..i.i = select i1 %12, i64 4, i64 8
   br label %.thread.i
 

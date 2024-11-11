@@ -2816,21 +2816,22 @@ _ZN4llvm15SmallPtrSetImplIPNS_8FunctionEE6insertES2_.exit157: ; preds = %.lr.ph.
   br i1 %283, label %_ZN4llvm15SmallPtrSetImplIPNS_8FunctionEE6insertES2_.exit, label %_ZNK4llvm8CallBase17getCalledFunctionEv.exit.thread
 
 284:                                              ; preds = %84
-  %285 = add nsw i8 %27, -22
-  %286 = icmp ult i8 %285, -18
-  %or.cond = or i1 %.not231, %286
+  %285 = icmp samesign ugt i8 %27, 21
+  %.not82 = or i1 %.not231, %285
+  %switch.selectcmp.i.i.i.i.i.i.i.i = icmp samesign ult i8 %27, 4
+  %or.cond = select i1 %.not82, i1 true, i1 %switch.selectcmp.i.i.i.i.i.i.i.i
   br i1 %or.cond, label %_ZNK4llvm8CallBase17getCalledFunctionEv.exit.thread, label %.thread284
 
 .thread282:                                       ; preds = %_ZN4llvm8Operator9getOpcodeEPKNS_5ValueE.exit
   br i1 %.not231, label %_ZNK4llvm8CallBase17getCalledFunctionEv.exit.thread, label %.thread284
 
 .thread284:                                       ; preds = %284, %.thread282
-  %287 = call noundef zeroext i1 @_ZNK4llvm8Constant14isConstantUsedEv(ptr noundef nonnull align 8 dereferenceable(24) %26) #19
-  br i1 %287, label %_ZNK4llvm8CallBase17getCalledFunctionEv.exit.thread, label %_ZN4llvm15SmallPtrSetImplIPNS_8FunctionEE6insertES2_.exit
+  %286 = call noundef zeroext i1 @_ZNK4llvm8Constant14isConstantUsedEv(ptr noundef nonnull align 8 dereferenceable(24) %26) #19
+  br i1 %286, label %_ZNK4llvm8CallBase17getCalledFunctionEv.exit.thread, label %_ZN4llvm15SmallPtrSetImplIPNS_8FunctionEE6insertES2_.exit
 
 _ZN4llvm15SmallPtrSetImplIPNS_8FunctionEE6insertES2_.exit: ; preds = %.lr.ph.i.i, %.lr.ph.i.i112, %.lr.ph.i.i177, %274, %276, %77, %79, %48, %50, %_ZN4llvm8dyn_castINS_13IntrinsicInstENS_4UserEEEDcPT0_.exit.thread, %29, %88, %156, %155, %_ZN4llvm15SmallPtrSetImplIPNS_8FunctionEE6insertES2_.exit157, %_ZNK4llvm8CallBase13isDataOperandEPKNS_3UseE.exit, %.thread284, %279, %91, %58, %81, %120
-  %288 = getelementptr inbounds nuw i8, ptr %.sroa.0196.0243, i64 8
-  %.sroa.0196.0 = load ptr, ptr %288, align 8
+  %287 = getelementptr inbounds nuw i8, ptr %.sroa.0196.0243, i64 8
+  %.sroa.0196.0 = load ptr, ptr %287, align 8
   %.not230 = icmp eq ptr %.sroa.0196.0, null
   br i1 %.not230, label %_ZNK4llvm8CallBase17getCalledFunctionEv.exit.thread, label %24
 

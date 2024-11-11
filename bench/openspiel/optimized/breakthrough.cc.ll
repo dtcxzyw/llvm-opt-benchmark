@@ -1558,7 +1558,7 @@ _ZNK10open_spiel12breakthrough17BreakthroughState8InBoundsEii.exit.thread: ; pre
   br i1 %81, label %82, label %_ZNK10open_spiel12breakthrough17BreakthroughState8InBoundsEii.exit45.thread
 
 82:                                               ; preds = %80
-  %83 = icmp ult i32 %58, %64
+  %83 = icmp samesign ult i32 %58, %64
   %84 = icmp sgt i32 %61, -1
   %or.cond.i44 = and i1 %84, %83
   %85 = icmp slt i32 %61, %67

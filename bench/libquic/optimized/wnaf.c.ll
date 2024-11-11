@@ -77,16 +77,16 @@ for.body:                                         ; preds = %for.cond.preheader,
   br i1 %cmp52, label %cond.end77, label %cond.false55
 
 cond.false55:                                     ; preds = %for.body
-  %cmp56 = icmp ugt i32 %call48, 799
+  %cmp56 = icmp samesign ugt i32 %call48, 799
   br i1 %cmp56, label %cond.end77, label %cond.false59
 
 cond.false59:                                     ; preds = %cond.false55
-  %cmp60 = icmp ugt i32 %call48, 299
+  %cmp60 = icmp samesign ugt i32 %call48, 299
   br i1 %cmp60, label %cond.end77, label %cond.false63
 
 cond.false63:                                     ; preds = %cond.false59
-  %cmp64 = icmp ugt i32 %call48, 69
-  %cmp68 = icmp ugt i32 %call48, 19
+  %cmp64 = icmp samesign ugt i32 %call48, 69
+  %cmp68 = icmp samesign ugt i32 %call48, 19
   %cond70 = select i1 %cmp68, i64 2, i64 1
   %cond72 = select i1 %cmp64, i64 3, i64 %cond70
   br label %cond.end77

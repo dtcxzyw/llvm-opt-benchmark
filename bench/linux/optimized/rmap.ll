@@ -4415,12 +4415,12 @@ define dso_local void @try_to_migrate(ptr noundef %0, i32 noundef %1) local_unna
   br i1 %20, label %21, label %.thread
 
 21:                                               ; preds = %15
-  %22 = icmp ult i32 %1, 128
+  %22 = icmp samesign ult i32 %1, 128
   br i1 %22, label %27, label %25
 
 .thread:                                          ; preds = %15
   store ptr @invalid_migration_vma, ptr %11, align 8
-  %23 = icmp ult i32 %1, 128
+  %23 = icmp samesign ult i32 %1, 128
   br i1 %23, label %26, label %24
 
 24:                                               ; preds = %.thread

@@ -150,7 +150,7 @@ cond.false:                                       ; preds = %entry
   br i1 %cmp2, label %cond.true3, label %cond.false13
 
 cond.true3:                                       ; preds = %cond.false
-  %cmp4 = icmp ult i32 %c, 56320
+  %cmp4 = icmp samesign ult i32 %c, 56320
   %cond = select i1 %cmp4, i32 320, i32 0
   %shr5 = lshr i32 %c, 5
   %add6 = add nuw nsw i32 %cond, %shr5
@@ -208,7 +208,7 @@ cond.false:                                       ; preds = %entry
   br i1 %cmp2, label %cond.true3, label %cond.false13
 
 cond.true3:                                       ; preds = %cond.false
-  %cmp4 = icmp ult i32 %c, 56320
+  %cmp4 = icmp samesign ult i32 %c, 56320
   %cond = select i1 %cmp4, i32 320, i32 0
   %shr5 = lshr i32 %c, 5
   %add6 = add nuw nsw i32 %cond, %shr5
@@ -267,7 +267,7 @@ cond.false:                                       ; preds = %entry
   br i1 %cmp2, label %cond.true3, label %cond.false13
 
 cond.true3:                                       ; preds = %cond.false
-  %cmp4 = icmp ult i32 %c, 56320
+  %cmp4 = icmp samesign ult i32 %c, 56320
   %cond = select i1 %cmp4, i32 320, i32 0
   %shr5 = lshr i32 %c, 5
   %add6 = add nuw nsw i32 %cond, %shr5
@@ -357,7 +357,7 @@ cond.false:                                       ; preds = %entry
   br i1 %cmp2, label %cond.true3, label %cond.false13
 
 cond.true3:                                       ; preds = %cond.false
-  %cmp4 = icmp ult i32 %c, 56320
+  %cmp4 = icmp samesign ult i32 %c, 56320
   %cond = select i1 %cmp4, i32 320, i32 0
   %shr5 = lshr i32 %c, 5
   %add6 = add nuw nsw i32 %cond, %shr5
@@ -416,7 +416,7 @@ cond.false:                                       ; preds = %entry
   br i1 %cmp2, label %cond.true3, label %cond.false13
 
 cond.true3:                                       ; preds = %cond.false
-  %cmp4 = icmp ult i32 %c, 56320
+  %cmp4 = icmp samesign ult i32 %c, 56320
   %cond = select i1 %cmp4, i32 320, i32 0
   %shr5 = lshr i32 %c, 5
   %add6 = add nuw nsw i32 %cond, %shr5
@@ -475,7 +475,7 @@ cond.false:                                       ; preds = %entry
   br i1 %cmp2, label %cond.true3, label %cond.false13
 
 cond.true3:                                       ; preds = %cond.false
-  %cmp4 = icmp ult i32 %c, 56320
+  %cmp4 = icmp samesign ult i32 %c, 56320
   %cond = select i1 %cmp4, i32 320, i32 0
   %shr5 = lshr i32 %c, 5
   %add6 = add nuw nsw i32 %cond, %shr5
@@ -561,7 +561,7 @@ cond.false:                                       ; preds = %entry
   br i1 %cmp2, label %cond.true3, label %cond.false13
 
 cond.true3:                                       ; preds = %cond.false
-  %cmp4 = icmp ult i32 %c, 56320
+  %cmp4 = icmp samesign ult i32 %c, 56320
   %cond = select i1 %cmp4, i32 320, i32 0
   %shr5 = lshr i32 %c, 5
   %add6 = add nuw nsw i32 %cond, %shr5
@@ -620,7 +620,7 @@ cond.false:                                       ; preds = %entry
   br i1 %cmp2, label %cond.true3, label %cond.false13
 
 cond.true3:                                       ; preds = %cond.false
-  %cmp4 = icmp ult i32 %c, 56320
+  %cmp4 = icmp samesign ult i32 %c, 56320
   %cond = select i1 %cmp4, i32 320, i32 0
   %shr5 = lshr i32 %c, 5
   %add6 = add nuw nsw i32 %cond, %shr5
@@ -715,7 +715,7 @@ cond.false.i:                                     ; preds = %entry
   br i1 %cmp2.i, label %cond.true3.i, label %cond.false13.i
 
 cond.true3.i:                                     ; preds = %cond.false.i
-  %cmp4.i = icmp ult i32 %c, 56320
+  %cmp4.i = icmp samesign ult i32 %c, 56320
   %cond.i = select i1 %cmp4.i, i32 320, i32 0
   %shr5.i = lshr i32 %c, 5
   %add6.i = add nuw nsw i32 %cond.i, %shr5.i
@@ -773,7 +773,7 @@ cond.false.i:                                     ; preds = %entry
   br i1 %cmp2.i, label %cond.true3.i, label %cond.false13.i
 
 cond.true3.i:                                     ; preds = %cond.false.i
-  %cmp4.i = icmp ult i32 %c, 56320
+  %cmp4.i = icmp samesign ult i32 %c, 56320
   %cond.i = select i1 %cmp4.i, i32 320, i32 0
   %shr5.i = lshr i32 %c, 5
   %add6.i = add nuw nsw i32 %cond.i, %shr5.i
@@ -832,7 +832,7 @@ cond.false.i:                                     ; preds = %entry
   br i1 %cmp2.i, label %cond.true3.i, label %cond.false13.i
 
 cond.true3.i:                                     ; preds = %cond.false.i
-  %cmp4.i = icmp ult i32 %c, 56320
+  %cmp4.i = icmp samesign ult i32 %c, 56320
   %cond.i = select i1 %cmp4.i, i32 320, i32 0
   %shr5.i = lshr i32 %c, 5
   %add6.i = add nuw nsw i32 %cond.i, %shr5.i
@@ -922,7 +922,7 @@ cond.false.i:                                     ; preds = %entry
   br i1 %cmp2.i, label %cond.true3.i, label %cond.false13.i
 
 cond.true3.i:                                     ; preds = %cond.false.i
-  %cmp4.i = icmp ult i32 %c, 56320
+  %cmp4.i = icmp samesign ult i32 %c, 56320
   %cond.i = select i1 %cmp4.i, i32 320, i32 0
   %shr5.i = lshr i32 %c, 5
   %add6.i = add nuw nsw i32 %cond.i, %shr5.i

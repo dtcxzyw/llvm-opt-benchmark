@@ -1432,10 +1432,10 @@ _ZN14MacroAssembler9evmovdquqE11XMMRegisterS0_i.exit1075: ; preds = %_ZN14MacroA
   %370 = ptrtoint ptr %369 to i64
   %371 = trunc i64 %370 to i32
   %372 = sub i32 %371, ptrtoint (ptr getelementptr inbounds (i8, ptr @all_XMMRegisterImpls, i64 1) to i32)
-  %373 = icmp ult i32 %372, 32
-  br i1 %373, label %364, label %374, !llvm.loop !6
+  %spec.select.i = icmp ult i32 %372, 32
+  br i1 %spec.select.i, label %364, label %373, !llvm.loop !6
 
-374:                                              ; preds = %364
+373:                                              ; preds = %364
   ret void
 }
 

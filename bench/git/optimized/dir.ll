@@ -3371,7 +3371,7 @@ if.end20:                                         ; preds = %if.end8
   br i1 %tobool26.not, label %for.inc, label %return
 
 for.inc:                                          ; preds = %if.end20, %if.then12, %if.then4
-  %cmp = icmp ugt i64 %indvars.iv, 1
+  %cmp = icmp samesign ugt i64 %indvars.iv, 1
   br i1 %cmp, label %for.body, label %return, !llvm.loop !20
 
 return:                                           ; preds = %if.end20, %if.then12, %for.inc, %for.cond.preheader, %entry
@@ -3928,7 +3928,7 @@ if.end20.i:                                       ; preds = %for.body.i126
   br i1 %tobool26.not.i, label %for.inc.i, label %last_matching_pattern_from_lists.exit
 
 for.inc.i:                                        ; preds = %if.end20.i, %if.then12.i
-  %cmp.i133 = icmp ugt i64 %indvars.iv.i127, 1
+  %cmp.i133 = icmp samesign ugt i64 %indvars.iv.i127, 1
   br i1 %cmp.i133, label %for.body.i126, label %last_matching_pattern_from_list.exit, !llvm.loop !20
 
 last_matching_pattern_from_list.exit:             ; preds = %for.inc.i, %for.body3.i

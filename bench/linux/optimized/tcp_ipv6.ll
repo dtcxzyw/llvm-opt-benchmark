@@ -4428,7 +4428,7 @@ define internal i32 @tcp_v6_connect(ptr noundef %0, ptr noundef %1, i32 noundef 
   br i1 %63, label %81, label %64
 
 64:                                               ; preds = %61
-  %65 = icmp ugt i32 %2, 27
+  %65 = icmp samesign ugt i32 %2, 27
   br i1 %65, label %66, label %77
 
 66:                                               ; preds = %64

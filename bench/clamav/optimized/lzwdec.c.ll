@@ -657,7 +657,7 @@ define range(i32 -7, 2) i32 @lzwInflate(ptr noundef %0) local_unnamed_addr #0 {
   %277 = load ptr, ptr %.3314, align 8
   %278 = getelementptr inbounds i8, ptr %277, i64 8
   %279 = load i16, ptr %278, align 8
-  %280 = icmp ugt i16 %279, %275
+  %280 = icmp samesign ugt i16 %279, %275
   br i1 %280, label %276, label %281
 
 281:                                              ; preds = %276

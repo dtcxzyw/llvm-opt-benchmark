@@ -2742,7 +2742,7 @@ _ZN7msgpack2v26detail7contextINS1_12parse_helperINS1_21create_object_visitorEEEE
   br label %.loopexit
 
 101:                                              ; preds = %33
-  %102 = icmp ugt i8 %34, -33
+  %102 = icmp samesign ugt i8 %34, -33
   br i1 %102, label %103, label %168
 
 103:                                              ; preds = %101
@@ -2859,7 +2859,7 @@ _ZN7msgpack2v26detail7contextINS1_12parse_helperINS1_21create_object_visitorEEEE
   br label %.loopexit
 
 168:                                              ; preds = %101
-  %169 = icmp ugt i8 %34, -61
+  %169 = icmp samesign ugt i8 %34, -61
   br i1 %169, label %170, label %179
 
 170:                                              ; preds = %168
@@ -3022,7 +3022,7 @@ _ZN7msgpack2v26detail7contextINS1_12parse_helperINS1_21create_object_visitorEEEE
   br i1 %.not290, label %thread-pre-split, label %.loopexit
 
 255:                                              ; preds = %251
-  %256 = icmp ult i8 %34, -112
+  %256 = icmp samesign ult i8 %34, -112
   br i1 %256, label %257, label %259
 
 257:                                              ; preds = %255
@@ -9830,7 +9830,7 @@ define linkonce_odr dso_local void @_ZN7msgpack2v16packerINSt7__cxx1118basic_str
   br i1 %7, label %8, label %19
 
 8:                                                ; preds = %2
-  %9 = icmp ult i32 %1, 128
+  %9 = icmp samesign ult i32 %1, 128
   br i1 %9, label %10, label %14
 
 10:                                               ; preds = %8
@@ -10049,7 +10049,7 @@ _ZN7msgpack2v126checked_get_container_sizeImEEjT_.exit: ; preds = %3
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %6)
   call void @llvm.lifetime.start.p0(i64 3, ptr nonnull %7)
   call void @llvm.lifetime.start.p0(i64 5, ptr nonnull %8)
-  %23 = icmp ult i64 %15, 16
+  %23 = icmp samesign ult i64 %15, 16
   br i1 %23, label %24, label %30
 
 24:                                               ; preds = %_ZN7msgpack2v126checked_get_container_sizeImEEjT_.exit
@@ -10062,7 +10062,7 @@ _ZN7msgpack2v126checked_get_container_sizeImEEjT_.exit: ; preds = %3
   br label %_ZN7msgpack2v16packerINSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEEEE10pack_arrayEj.exit
 
 30:                                               ; preds = %_ZN7msgpack2v126checked_get_container_sizeImEEjT_.exit
-  %31 = icmp ult i64 %15, 65536
+  %31 = icmp samesign ult i64 %15, 65536
   br i1 %31, label %32, label %39
 
 32:                                               ; preds = %30

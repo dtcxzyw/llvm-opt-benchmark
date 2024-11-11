@@ -743,7 +743,7 @@ _RNvMs_NtCs68wO5nsWeTG_5alloc3vecINtB4_3VechE4pushCs8mTrBI1stz4_15turborepo_vt10
 
 142:                                              ; preds = %_RNvMs_NtCs68wO5nsWeTG_5alloc3vecINtB4_3VechE4pushCs8mTrBI1stz4_15turborepo_vt100.llvm.3209305459455205536.exit50
   %.sroa.07.017.i.sroa.gep1.i = getelementptr inbounds i8, ptr %26, i64 2
-  %143 = icmp ult i8 %.sroa.4.0.copyload, 10
+  %143 = icmp samesign ult i8 %.sroa.4.0.copyload, 10
   br i1 %143, label %150, label %144
 
 144:                                              ; preds = %142
@@ -819,7 +819,7 @@ _RNvMs_NtCs68wO5nsWeTG_5alloc3vecINtB4_3VechE4pushCs8mTrBI1stz4_15turborepo_vt10
 
 176:                                              ; preds = %_RNvMs_NtCs68wO5nsWeTG_5alloc3vecINtB4_3VechE4pushCs8mTrBI1stz4_15turborepo_vt100.llvm.3209305459455205536.exit52
   %.sroa.07.017.i.sroa.gep1.i53 = getelementptr inbounds i8, ptr %25, i64 2
-  %177 = icmp ult i8 %.sroa.6.0.copyload, 10
+  %177 = icmp samesign ult i8 %.sroa.6.0.copyload, 10
   br i1 %177, label %184, label %178
 
 178:                                              ; preds = %176
@@ -895,7 +895,7 @@ _RNvMs_NtCs68wO5nsWeTG_5alloc3vecINtB4_3VechE4pushCs8mTrBI1stz4_15turborepo_vt10
 
 210:                                              ; preds = %_RNvMs_NtCs68wO5nsWeTG_5alloc3vecINtB4_3VechE4pushCs8mTrBI1stz4_15turborepo_vt100.llvm.3209305459455205536.exit63
   %.sroa.07.017.i.sroa.gep1.i64 = getelementptr inbounds i8, ptr %24, i64 2
-  %211 = icmp ult i8 %.sroa.7.0.copyload, 10
+  %211 = icmp samesign ult i8 %.sroa.7.0.copyload, 10
   br i1 %211, label %218, label %212
 
 212:                                              ; preds = %210
@@ -1626,7 +1626,7 @@ _RNvMs_NtCs68wO5nsWeTG_5alloc3vecINtB4_3VechE4pushCs8mTrBI1stz4_15turborepo_vt10
 
 560:                                              ; preds = %_RNvMs_NtCs68wO5nsWeTG_5alloc3vecINtB4_3VechE4pushCs8mTrBI1stz4_15turborepo_vt100.llvm.3209305459455205536.exit158
   %.sroa.07.017.i.sroa.gep1.i159 = getelementptr inbounds i8, ptr %14, i64 2
-  %561 = icmp ult i8 %.sroa.413.0.copyload, 10
+  %561 = icmp samesign ult i8 %.sroa.413.0.copyload, 10
   br i1 %561, label %568, label %562
 
 562:                                              ; preds = %560
@@ -1691,7 +1691,7 @@ _RINvNtCs8mTrBI1stz4_15turborepo_vt1004term11extend_itoahEB4_.exit168: ; preds =
 
 589:                                              ; preds = %580
   %.sroa.07.017.i.sroa.gep1.i169 = getelementptr inbounds i8, ptr %13, i64 2
-  %590 = icmp ult i8 %.sroa.413.0.copyload, 10
+  %590 = icmp samesign ult i8 %.sroa.413.0.copyload, 10
   br i1 %590, label %597, label %591
 
 591:                                              ; preds = %589
@@ -1772,7 +1772,7 @@ _RNvMs_NtCs68wO5nsWeTG_5alloc3vecINtB4_3VechE4pushCs8mTrBI1stz4_15turborepo_vt10
 
 625:                                              ; preds = %_RNvMs_NtCs68wO5nsWeTG_5alloc3vecINtB4_3VechE4pushCs8mTrBI1stz4_15turborepo_vt100.llvm.3209305459455205536.exit179
   %.sroa.07.017.i.sroa.gep1.i180 = getelementptr inbounds i8, ptr %12, i64 2
-  %626 = icmp ult i8 %.sroa.615.0.copyload, 10
+  %626 = icmp samesign ult i8 %.sroa.615.0.copyload, 10
   br i1 %626, label %633, label %627
 
 627:                                              ; preds = %625
@@ -1857,7 +1857,7 @@ _RNvMs_NtCs68wO5nsWeTG_5alloc3vecINtB4_3VechE4pushCs8mTrBI1stz4_15turborepo_vt10
 
 663:                                              ; preds = %653
   %.sroa.07.017.i.sroa.gep1.i201 = getelementptr inbounds i8, ptr %11, i64 2
-  %664 = icmp ult i8 %.sroa.716.0.copyload, 10
+  %664 = icmp samesign ult i8 %.sroa.716.0.copyload, 10
   br i1 %664, label %671, label %665
 
 665:                                              ; preds = %663

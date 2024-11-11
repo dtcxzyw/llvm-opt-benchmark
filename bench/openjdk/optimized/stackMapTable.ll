@@ -435,7 +435,7 @@ _ZN14StackMapStream6get_u2EP10JavaThread.exit:    ; preds = %133, %._crit_edge.i
   br i1 %.not312, label %148, label %_ZN14StackMapStream6get_u2EP10JavaThread.exit.thread
 
 148:                                              ; preds = %_ZN14StackMapStream6get_u2EP10JavaThread.exit
-  %149 = icmp ult i8 %27, -9
+  %149 = icmp samesign ult i8 %27, -9
   br i1 %149, label %150, label %161
 
 150:                                              ; preds = %148
@@ -577,7 +577,7 @@ _ZN14StackMapReader34check_verification_type_array_sizeEiiP10JavaThread.exit294:
   br label %_ZN14StackMapStream6get_u2EP10JavaThread.exit.thread
 
 225:                                              ; preds = %161
-  %226 = icmp ult i8 %27, -4
+  %226 = icmp samesign ult i8 %27, -4
   br i1 %226, label %227, label %281
 
 227:                                              ; preds = %225

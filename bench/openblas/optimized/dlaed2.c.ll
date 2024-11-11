@@ -53,7 +53,7 @@ define void @dlaed2_(ptr nocapture noundef %0, ptr noundef %1, ptr noundef %2, p
 45:                                               ; preds = %41
   store i32 1, ptr %18, align 4, !tbaa !3
   %46 = lshr i32 %39, 1
-  %47 = icmp ugt i32 %39, 1
+  %47 = icmp samesign ugt i32 %39, 1
   %48 = zext i1 %47 to i32
   %49 = load i32, ptr %2, align 4, !tbaa !3
   %50 = icmp slt i32 %49, %48

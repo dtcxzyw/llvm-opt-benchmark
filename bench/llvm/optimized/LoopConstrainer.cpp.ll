@@ -1024,7 +1024,7 @@ _ZN4llvm5APInt10getAllOnesEj.exit.thread.i:       ; preds = %30
   %33 = xor i32 %32, 63
   %34 = zext nneg i32 %33 to i64
   %35 = lshr i64 -1, %34
-  %36 = icmp ult i32 %26, 256
+  %36 = icmp samesign ult i32 %26, 256
   %spec.store.select.i.i.i.i = select i1 %36, i64 0, i64 %35
   %37 = zext nneg i32 %32 to i64
   %38 = shl nuw i64 1, %37
@@ -1072,7 +1072,7 @@ _ZN4llvm5APInt10getAllOnesEj.exit.i._crit_edge:   ; preds = %_ZN4llvm5APInt10get
   %61 = xor i32 %60, 63
   %62 = zext nneg i32 %61 to i64
   %63 = lshr i64 -1, %62
-  %64 = icmp ult i32 %26, 256
+  %64 = icmp samesign ult i32 %26, 256
   %spec.store.select.i.i.i.i50 = select i1 %64, i64 0, i64 %63
   store i64 %spec.store.select.i.i.i.i50, ptr %10, align 8, !alias.scope !7
   br label %_ZN4llvm5APInt17getSignedMaxValueEj.exit
@@ -6583,7 +6583,7 @@ _ZN4llvm9remove_ifIRNS_11SmallVectorISt4pairIjPNS_6MDNodeEELj2EEEZNS_13IRBuilder
   %68 = getelementptr inbounds i8, ptr %.0910.i.i.i.i.i.i, i64 16
   %69 = getelementptr inbounds i8, ptr %.0811.i.i.i.i.i.i, i64 16
   %70 = add nsw i64 %.012.i.i.i.i.i.i, -1
-  %71 = icmp ugt i64 %.012.i.i.i.i.i.i, 1
+  %71 = icmp samesign ugt i64 %.012.i.i.i.i.i.i, 1
   br i1 %71, label %.lr.ph.i.i.i.i.i.i, label %_ZN4llvm15SmallVectorImplISt4pairIjPNS_6MDNodeEEE5eraseEPKS4_S7_.exit, !llvm.loop !102
 
 _ZN4llvm15SmallVectorImplISt4pairIjPNS_6MDNodeEEE5eraseEPKS4_S7_.exit: ; preds = %.lr.ph.i.i.i.i.i.i, %_ZN4llvm9remove_ifIRNS_11SmallVectorISt4pairIjPNS_6MDNodeEELj2EEEZNS_13IRBuilderBase25AddOrRemoveMetadataToCopyEjS4_EUlRKS5_E_EEDaOT_T0_.exit

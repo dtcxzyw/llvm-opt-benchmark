@@ -1213,7 +1213,7 @@ define hidden void @_ZN13LogFileOutput8describeEP12outputStream(ptr noundef nonn
   br i1 %7, label %_Z24byte_size_in_proper_unitImET_S0_.exit, label %8
 
 8:                                                ; preds = %2
-  %9 = icmp ugt i64 %6, 104857599
+  %9 = icmp samesign ugt i64 %6, 104857599
   br i1 %9, label %.thread, label %12
 
 .thread:                                          ; preds = %8
@@ -1225,7 +1225,7 @@ _Z24byte_size_in_proper_unitImET_S0_.exit:        ; preds = %2
   br label %_Z25proper_unit_for_byte_sizem.exit
 
 12:                                               ; preds = %8
-  %13 = icmp ugt i64 %6, 102399
+  %13 = icmp samesign ugt i64 %6, 102399
   %14 = lshr i64 %6, 10
   %spec.select.i = select i1 %13, i64 %14, i64 %6
   %.str.33..str.34.i = select i1 %13, ptr @.str.33, ptr @.str.34

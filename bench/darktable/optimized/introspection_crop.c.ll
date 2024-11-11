@@ -1572,13 +1572,13 @@ define internal fastcc float @_aspect_ratio_get(ptr noundef %0, ptr noundef %1) 
   %22 = getelementptr inbounds i8, ptr %6, i64 20
   %23 = load i32, ptr %22, align 4, !tbaa !116
   %24 = icmp sgt i32 %23, 0
-  %25 = icmp ugt i32 %16, %18
+  %25 = icmp samesign ugt i32 %16, %18
   %26 = select i1 %24, i1 %25, i1 false
   br i1 %26, label %31, label %27
 
 27:                                               ; preds = %21
   %28 = icmp slt i32 %23, 0
-  %29 = icmp ult i32 %16, %18
+  %29 = icmp samesign ult i32 %16, %18
   %30 = select i1 %28, i1 %29, i1 false
   br i1 %30, label %31, label %35
 

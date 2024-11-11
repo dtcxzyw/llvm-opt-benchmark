@@ -304,7 +304,7 @@ land.lhs.true.i:                                  ; preds = %if.else20.i
   br i1 %tobool27.not.i, label %if.then, label %if.end33.i
 
 if.end33.i:                                       ; preds = %land.lhs.true.i, %if.else20.i
-  %cmp8.i = icmp ugt i64 %indvars.iv.i, 1
+  %cmp8.i = icmp samesign ugt i64 %indvars.iv.i, 1
   br i1 %cmp8.i, label %land.rhs.i, label %return, !llvm.loop !8
 
 lookup_prefix.exit:                               ; preds = %if.then.i
@@ -386,7 +386,7 @@ land.lhs.true.i41:                                ; preds = %if.else20.i37
   br i1 %tobool27.not.i43, label %if.end8, label %if.end33.i39
 
 if.end33.i39:                                     ; preds = %land.lhs.true.i41, %if.else20.i37
-  %cmp8.i40 = icmp ugt i64 %indvars.iv.i29, 1
+  %cmp8.i40 = icmp samesign ugt i64 %indvars.iv.i29, 1
   br i1 %cmp8.i40, label %land.rhs.i28, label %if.end8, !llvm.loop !8
 
 if.end8:                                          ; preds = %if.end33.i39, %land.lhs.true.i41, %while.body.i33, %land.rhs.i28, %if.end7.i23, %if.else.i20, %if.then1.i48

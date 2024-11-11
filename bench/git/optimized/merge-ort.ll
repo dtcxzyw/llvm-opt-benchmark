@@ -5534,7 +5534,7 @@ if.then19.i:                                      ; preds = %if.then12.i, %land.
 
 if.end20.i:                                       ; preds = %if.then19.i, %if.then12.i
   %cmp1753.i = phi i1 [ %cmp1752.i, %if.then19.i ], [ %cmp17.i, %if.then12.i ]
-  %tobool22.not.i = icmp ugt i32 %conv134, 3
+  %tobool22.not.i = icmp samesign ugt i32 %conv134, 3
   br i1 %tobool22.not.i, label %if.end28.i, label %if.then23.i
 
 if.then23.i:                                      ; preds = %if.end20.i

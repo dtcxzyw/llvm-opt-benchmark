@@ -9578,7 +9578,7 @@ define hidden void @"_ZN4core4hash5impls50_$LT$impl$u20$core..hash..Hash$u20$for
   %.sroa.027.1.i.i = phi i64 [ %12, %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17hc5eb36739929e45bE.exit.i.i" ], [ %.sroa.027.0.lcssa.i.i, %._crit_edge.i.i ]
   %.sroa.11.1.i.i = phi i64 [ %13, %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17hc5eb36739929e45bE.exit.i.i" ], [ %.sroa.11.0.lcssa.i.i, %._crit_edge.i.i ]
   %.sroa.0.1.i.i = phi ptr [ %14, %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17hc5eb36739929e45bE.exit.i.i" ], [ %.sroa.0.0.lcssa.i.i, %._crit_edge.i.i ]
-  %8 = icmp ugt i64 %.sroa.11.1.i.i, 1
+  %8 = icmp samesign ugt i64 %.sroa.11.1.i.i, 1
   br i1 %8, label %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17h23389a619d9588b1E.exit.i.i", label %15
 
 "_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17hc5eb36739929e45bE.exit.i.i": ; preds = %._crit_edge.i.i
@@ -9702,7 +9702,7 @@ define hidden void @_ZN4core4hash6Hasher9write_str17h9c7ec6ba6126025eE.llvm.7428
   %.sroa.027.1.i = phi i64 [ %12, %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17hc5eb36739929e45bE.exit.i" ], [ %.sroa.027.0.lcssa.i, %._crit_edge.i ]
   %.sroa.11.1.i = phi i64 [ %13, %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17hc5eb36739929e45bE.exit.i" ], [ %.sroa.11.0.lcssa.i, %._crit_edge.i ]
   %.sroa.0.1.i = phi ptr [ %14, %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17hc5eb36739929e45bE.exit.i" ], [ %.sroa.0.0.lcssa.i, %._crit_edge.i ]
-  %8 = icmp ugt i64 %.sroa.11.1.i, 1
+  %8 = icmp samesign ugt i64 %.sroa.11.1.i, 1
   br i1 %8, label %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17h23389a619d9588b1E.exit.i", label %15
 
 "_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17hc5eb36739929e45bE.exit.i": ; preds = %._crit_edge.i
@@ -23241,7 +23241,7 @@ define hidden void @"_ZN59_$LT$rustc_hash..FxHasher$u20$as$u20$core..hash..Hashe
   %.sroa.027.1 = phi i64 [ %12, %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17hc5eb36739929e45bE.exit" ], [ %.sroa.027.0.lcssa, %._crit_edge ]
   %.sroa.11.1 = phi i64 [ %13, %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17hc5eb36739929e45bE.exit" ], [ %.sroa.11.0.lcssa, %._crit_edge ]
   %.sroa.0.1 = phi ptr [ %14, %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17hc5eb36739929e45bE.exit" ], [ %.sroa.0.0.lcssa, %._crit_edge ]
-  %8 = icmp ugt i64 %.sroa.11.1, 1
+  %8 = icmp samesign ugt i64 %.sroa.11.1, 1
   br i1 %8, label %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17h23389a619d9588b1E.exit", label %15
 
 "_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17hc5eb36739929e45bE.exit": ; preds = %._crit_edge
@@ -33404,8 +33404,8 @@ define hidden noundef zeroext i1 @"_ZN62_$LT$std..path..Components$u20$as$u20$co
 .thread:                                          ; preds = %29
   %37 = getelementptr inbounds i8, ptr %1, i64 16
   %38 = load i8, ptr %37, align 8, !range !7842, !noundef !5
-  %switch.i.i3453 = icmp samesign ult i8 %38, 3
-  br i1 %switch.i.i3453, label %25, label %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h0d9d7352c34dcec1E.exit"
+  %or.cond54 = icmp samesign ult i8 %38, 3
+  br i1 %or.cond54, label %25, label %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h0d9d7352c34dcec1E.exit"
 
 ._crit_edge:                                      ; preds = %33
   br i1 %switch.i.i, label %25, label %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h0d9d7352c34dcec1E.exit"
@@ -33576,7 +33576,7 @@ define hidden void @"_ZN66_$LT$alloc..sync..Arc$LT$T$C$A$GT$$u20$as$u20$core..ha
   %.sroa.027.1.i.i.i = phi i64 [ %15, %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17hc5eb36739929e45bE.exit.i.i.i" ], [ %.sroa.027.0.lcssa.i.i.i, %._crit_edge.i.i.i ]
   %.sroa.11.1.i.i.i = phi i64 [ %16, %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17hc5eb36739929e45bE.exit.i.i.i" ], [ %.sroa.11.0.lcssa.i.i.i, %._crit_edge.i.i.i ]
   %.sroa.0.1.i.i.i = phi ptr [ %17, %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17hc5eb36739929e45bE.exit.i.i.i" ], [ %.sroa.0.0.lcssa.i.i.i, %._crit_edge.i.i.i ]
-  %11 = icmp ugt i64 %.sroa.11.1.i.i.i, 1
+  %11 = icmp samesign ugt i64 %.sroa.11.1.i.i.i, 1
   br i1 %11, label %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17h23389a619d9588b1E.exit.i.i.i", label %18
 
 "_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17hc5eb36739929e45bE.exit.i.i.i": ; preds = %._crit_edge.i.i.i
@@ -36051,7 +36051,7 @@ define internal fastcc i64 @"_ZN9hashbrown3raw5inner21RawTable$LT$T$C$A$GT$14res
   br i1 %25, label %35, label %28
 
 26:                                               ; preds = %21
-  %27 = icmp ult i64 %22, 3
+  %27 = icmp samesign ult i64 %22, 3
   %..i.i = select i1 %27, i64 4, i64 8
   br label %37
 
@@ -36072,7 +36072,7 @@ define internal fastcc i64 @"_ZN9hashbrown3raw5inner21RawTable$LT$T$C$A$GT$14res
 37:                                               ; preds = %28, %26
   %.sroa.4.0.i.ph.i = phi i64 [ %34, %28 ], [ %..i.i, %26 ]
   %38 = shl i64 %.sroa.4.0.i.ph.i, 3
-  %39 = icmp ugt i64 %.sroa.4.0.i.ph.i, 2305843009213693951
+  %39 = icmp samesign ugt i64 %.sroa.4.0.i.ph.i, 2305843009213693951
   %40 = icmp ugt i64 %38, -16
   %or.cond.i.i = or i1 %39, %40
   br i1 %or.cond.i.i, label %50, label %41
@@ -36105,7 +36105,7 @@ _ZN9hashbrown3raw5inner11TableLayout20calculate_layout_for17hc48ee78c4b12348aE.l
   br label %_ZN9hashbrown3raw5inner13RawTableInner22fallible_with_capacity17he4783552fa7ee7ffE.exit.thread
 
 _ZN9hashbrown3raw5inner13RawTableInner22fallible_with_capacity17he4783552fa7ee7ffE.exit: ; preds = %_ZN9hashbrown3raw5inner11TableLayout20calculate_layout_for17hc48ee78c4b12348aE.llvm.7428513249094624621.exit.i.i
-  %57 = icmp ult i64 %.sroa.4.0.i.ph.i, 9
+  %57 = icmp samesign ult i64 %.sroa.4.0.i.ph.i, 9
   %58 = add nsw i64 %.sroa.4.0.i.ph.i, -1
   %59 = lshr i64 %.sroa.4.0.i.ph.i, 3
   %60 = mul nuw nsw i64 %59, 7
@@ -51852,7 +51852,7 @@ _ZN9workspace4pane4Pane24pixel_position_of_cursor17hcda892118944238bE.exit: ; pr
   store float %61, ptr %8, align 4, !noalias !10883
   %62 = call noundef i8 @"_ZN64_$LT$gpui..geometry..Pixels$u20$as$u20$core..cmp..PartialOrd$GT$11partial_cmp17h7b99ed966161c563E"(ptr noalias noundef nonnull readonly align 4 dereferenceable(8) %58, ptr noalias noundef nonnull readonly align 4 dereferenceable(4) %8), !range !8452
   %63 = add nsw i8 %62, -3
-  %switch.i5.i = icmp ult i8 %63, -2
+  %switch.i5.i = icmp samesign ult i8 %63, -2
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %8), !noalias !10883
   br i1 %switch.i5.i, label %64, label %"_ZN4gpui8geometry15Bounds$LT$T$GT$8contains17ha0f566d81dc45a72E.exit.thread"
 
@@ -51871,7 +51871,7 @@ _ZN9workspace4pane4Pane24pixel_position_of_cursor17hcda892118944238bE.exit: ; pr
   store float %70, ptr %7, align 4, !noalias !10883
   %71 = call noundef i8 @"_ZN64_$LT$gpui..geometry..Pixels$u20$as$u20$core..cmp..PartialOrd$GT$11partial_cmp17h7b99ed966161c563E"(ptr noalias noundef nonnull readonly align 4 dereferenceable(4) %65, ptr noalias noundef nonnull readonly align 4 dereferenceable(4) %7), !range !8452
   %72 = add nsw i8 %71, -3
-  %switch.i7.i = icmp ult i8 %72, -2
+  %switch.i7.i = icmp samesign ult i8 %72, -2
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7), !noalias !10883
   br i1 %switch.i7.i, label %82, label %"_ZN4gpui8geometry15Bounds$LT$T$GT$8contains17ha0f566d81dc45a72E.exit.thread"
 
@@ -75866,7 +75866,7 @@ define noundef range(i8 0, 9) i8 @_ZN9workspace11resize_edge17h2a27f10d6531fa23E
   store float %38, ptr %16, align 4, !noalias !16509
   %39 = call noundef i8 @"_ZN64_$LT$gpui..geometry..Pixels$u20$as$u20$core..cmp..PartialOrd$GT$11partial_cmp17h7b99ed966161c563E"(ptr noalias noundef nonnull readonly align 4 dereferenceable(8) %26, ptr noalias noundef nonnull readonly align 4 dereferenceable(4) %16), !range !8452
   %40 = add nsw i8 %39, -3
-  %switch.i5.i = icmp ult i8 %40, -2
+  %switch.i5.i = icmp samesign ult i8 %40, -2
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %16), !noalias !16509
   br i1 %switch.i5.i, label %41, label %"_ZN4gpui8geometry15Bounds$LT$T$GT$8contains17ha0f566d81dc45a72E.exit.thread"
 
@@ -75885,7 +75885,7 @@ define noundef range(i8 0, 9) i8 @_ZN9workspace11resize_edge17h2a27f10d6531fa23E
   store float %47, ptr %15, align 4, !noalias !16509
   %48 = call noundef i8 @"_ZN64_$LT$gpui..geometry..Pixels$u20$as$u20$core..cmp..PartialOrd$GT$11partial_cmp17h7b99ed966161c563E"(ptr noalias noundef nonnull readonly align 4 dereferenceable(4) %27, ptr noalias noundef nonnull readonly align 4 dereferenceable(4) %15), !range !8452
   %49 = add nsw i8 %48, -3
-  %switch.i7.i = icmp ult i8 %49, -2
+  %switch.i7.i = icmp samesign ult i8 %49, -2
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %15), !noalias !16509
   br i1 %switch.i7.i, label %154, label %"_ZN4gpui8geometry15Bounds$LT$T$GT$8contains17ha0f566d81dc45a72E.exit.thread"
 
@@ -75919,7 +75919,7 @@ define noundef range(i8 0, 9) i8 @_ZN9workspace11resize_edge17h2a27f10d6531fa23E
   store float %63, ptr %14, align 4, !noalias !16527
   %64 = call noundef i8 @"_ZN64_$LT$gpui..geometry..Pixels$u20$as$u20$core..cmp..PartialOrd$GT$11partial_cmp17h7b99ed966161c563E"(ptr noalias noundef nonnull readonly align 4 dereferenceable(8) %26, ptr noalias noundef nonnull readonly align 4 dereferenceable(4) %14), !range !8452
   %65 = add nsw i8 %64, -3
-  %switch.i5.i42 = icmp ult i8 %65, -2
+  %switch.i5.i42 = icmp samesign ult i8 %65, -2
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %14), !noalias !16527
   br i1 %switch.i5.i42, label %66, label %"_ZN4gpui8geometry15Bounds$LT$T$GT$8contains17ha0f566d81dc45a72E.exit45.thread"
 
@@ -75936,7 +75936,7 @@ define noundef range(i8 0, 9) i8 @_ZN9workspace11resize_edge17h2a27f10d6531fa23E
   store float %70, ptr %13, align 4, !noalias !16527
   %71 = call noundef i8 @"_ZN64_$LT$gpui..geometry..Pixels$u20$as$u20$core..cmp..PartialOrd$GT$11partial_cmp17h7b99ed966161c563E"(ptr noalias noundef nonnull readonly align 4 dereferenceable(4) %27, ptr noalias noundef nonnull readonly align 4 dereferenceable(4) %13), !range !8452
   %72 = add nsw i8 %71, -3
-  %switch.i7.i44 = icmp ult i8 %72, -2
+  %switch.i7.i44 = icmp samesign ult i8 %72, -2
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %13), !noalias !16527
   br i1 %switch.i7.i44, label %.sink.split, label %"_ZN4gpui8geometry15Bounds$LT$T$GT$8contains17ha0f566d81dc45a72E.exit45.thread"
 
@@ -75977,7 +75977,7 @@ define noundef range(i8 0, 9) i8 @_ZN9workspace11resize_edge17h2a27f10d6531fa23E
   store float %88, ptr %12, align 4, !noalias !16545
   %89 = call noundef i8 @"_ZN64_$LT$gpui..geometry..Pixels$u20$as$u20$core..cmp..PartialOrd$GT$11partial_cmp17h7b99ed966161c563E"(ptr noalias noundef nonnull readonly align 4 dereferenceable(8) %26, ptr noalias noundef nonnull readonly align 4 dereferenceable(4) %12), !range !8452
   %90 = add nsw i8 %89, -3
-  %switch.i5.i48 = icmp ult i8 %90, -2
+  %switch.i5.i48 = icmp samesign ult i8 %90, -2
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %12), !noalias !16545
   br i1 %switch.i5.i48, label %91, label %"_ZN4gpui8geometry15Bounds$LT$T$GT$8contains17ha0f566d81dc45a72E.exit51.thread"
 
@@ -75994,7 +75994,7 @@ define noundef range(i8 0, 9) i8 @_ZN9workspace11resize_edge17h2a27f10d6531fa23E
   store float %95, ptr %11, align 4, !noalias !16545
   %96 = call noundef i8 @"_ZN64_$LT$gpui..geometry..Pixels$u20$as$u20$core..cmp..PartialOrd$GT$11partial_cmp17h7b99ed966161c563E"(ptr noalias noundef nonnull readonly align 4 dereferenceable(4) %27, ptr noalias noundef nonnull readonly align 4 dereferenceable(4) %11), !range !8452
   %97 = add nsw i8 %96, -3
-  %switch.i7.i50 = icmp ult i8 %97, -2
+  %switch.i7.i50 = icmp samesign ult i8 %97, -2
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %11), !noalias !16545
   br i1 %switch.i7.i50, label %.sink.split.sink.split, label %"_ZN4gpui8geometry15Bounds$LT$T$GT$8contains17ha0f566d81dc45a72E.exit51.thread"
 
@@ -76026,7 +76026,7 @@ define noundef range(i8 0, 9) i8 @_ZN9workspace11resize_edge17h2a27f10d6531fa23E
   store float %108, ptr %10, align 4, !noalias !16563
   %109 = call noundef i8 @"_ZN64_$LT$gpui..geometry..Pixels$u20$as$u20$core..cmp..PartialOrd$GT$11partial_cmp17h7b99ed966161c563E"(ptr noalias noundef nonnull readonly align 4 dereferenceable(8) %26, ptr noalias noundef nonnull readonly align 4 dereferenceable(4) %10), !range !8452
   %110 = add nsw i8 %109, -3
-  %switch.i5.i54 = icmp ult i8 %110, -2
+  %switch.i5.i54 = icmp samesign ult i8 %110, -2
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %10), !noalias !16563
   br i1 %switch.i5.i54, label %111, label %"_ZN4gpui8geometry15Bounds$LT$T$GT$8contains17ha0f566d81dc45a72E.exit57.thread"
 
@@ -76043,7 +76043,7 @@ define noundef range(i8 0, 9) i8 @_ZN9workspace11resize_edge17h2a27f10d6531fa23E
   store float %115, ptr %9, align 4, !noalias !16563
   %116 = call noundef i8 @"_ZN64_$LT$gpui..geometry..Pixels$u20$as$u20$core..cmp..PartialOrd$GT$11partial_cmp17h7b99ed966161c563E"(ptr noalias noundef nonnull readonly align 4 dereferenceable(4) %27, ptr noalias noundef nonnull readonly align 4 dereferenceable(4) %9), !range !8452
   %117 = add nsw i8 %116, -3
-  %switch.i7.i56 = icmp ult i8 %117, -2
+  %switch.i7.i56 = icmp samesign ult i8 %117, -2
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %9), !noalias !16563
   br i1 %switch.i7.i56, label %.sink.split.sink.split.sink.split, label %"_ZN4gpui8geometry15Bounds$LT$T$GT$8contains17ha0f566d81dc45a72E.exit57.thread"
 
@@ -76078,7 +76078,7 @@ define noundef range(i8 0, 9) i8 @_ZN9workspace11resize_edge17h2a27f10d6531fa23E
   store float %127, ptr %8, align 4, !noalias !16575
   %128 = call noundef i8 @"_ZN64_$LT$gpui..geometry..Pixels$u20$as$u20$core..cmp..PartialOrd$GT$11partial_cmp17h7b99ed966161c563E"(ptr noalias noundef nonnull readonly align 4 dereferenceable(8) %26, ptr noalias noundef nonnull readonly align 4 dereferenceable(4) %8), !range !8452
   %129 = add nsw i8 %128, -3
-  %switch.i5.i60 = icmp ult i8 %129, -2
+  %switch.i5.i60 = icmp samesign ult i8 %129, -2
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %8), !noalias !16575
   br i1 %switch.i5.i60, label %130, label %"_ZN4gpui8geometry15Bounds$LT$T$GT$8contains17ha0f566d81dc45a72E.exit63.thread"
 
@@ -76095,7 +76095,7 @@ define noundef range(i8 0, 9) i8 @_ZN9workspace11resize_edge17h2a27f10d6531fa23E
   store float %134, ptr %7, align 4, !noalias !16575
   %135 = call noundef i8 @"_ZN64_$LT$gpui..geometry..Pixels$u20$as$u20$core..cmp..PartialOrd$GT$11partial_cmp17h7b99ed966161c563E"(ptr noalias noundef nonnull readonly align 4 dereferenceable(4) %27, ptr noalias noundef nonnull readonly align 4 dereferenceable(4) %7), !range !8452
   %136 = add nsw i8 %135, -3
-  %switch.i7.i62 = icmp ult i8 %136, -2
+  %switch.i7.i62 = icmp samesign ult i8 %136, -2
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7), !noalias !16575
   br i1 %switch.i7.i62, label %.sink.split.sink.split.sink.split.sink.split, label %"_ZN4gpui8geometry15Bounds$LT$T$GT$8contains17ha0f566d81dc45a72E.exit63.thread"
 

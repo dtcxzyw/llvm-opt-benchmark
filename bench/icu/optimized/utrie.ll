@@ -11,7 +11,7 @@ entry:
 
 lor.lhs.false:                                    ; preds = %entry
   %tobool = icmp ne i8 %latin1Linear, 0
-  %cmp1 = icmp ult i32 %maxDataLength, 1024
+  %cmp1 = icmp samesign ult i32 %maxDataLength, 1024
   %or.cond = and i1 %cmp1, %tobool
   br i1 %or.cond, label %return, label %if.end
 
@@ -81,7 +81,7 @@ while.body:                                       ; preds = %if.end24, %while.bo
   %indvars.iv.next34 = add nsw i64 %indvars.iv33, -1
   %arrayidx28 = getelementptr inbounds i32, ptr %1, i64 %indvars.iv.next34
   store i32 %initialValue, ptr %arrayidx28, align 4
-  %cmp25 = icmp ugt i64 %indvars.iv33, 1
+  %cmp25 = icmp samesign ugt i64 %indvars.iv33, 1
   br i1 %cmp25, label %while.body, label %while.end, !llvm.loop !6
 
 while.end:                                        ; preds = %while.body
@@ -162,7 +162,7 @@ if.end11:                                         ; preds = %if.end, %if.else.if
 
 lor.lhs.false.i:                                  ; preds = %if.end11
   %tobool.i = icmp ne i8 %5, 0
-  %cmp1.i = icmp ult i32 %aliasDataCapacity.addr.0, 1024
+  %cmp1.i = icmp samesign ult i32 %aliasDataCapacity.addr.0, 1024
   %or.cond.i = and i1 %cmp1.i, %tobool.i
   br i1 %or.cond.i, label %if.then15, label %if.end.i
 
@@ -209,7 +209,7 @@ while.body.i:                                     ; preds = %while.body.i, %if.e
   %indvars.iv.next34.i = add nsw i64 %indvars.iv33.i, -1
   %arrayidx28.i = getelementptr inbounds i32, ptr %7, i64 %indvars.iv.next34.i
   store i32 %3, ptr %arrayidx28.i, align 4
-  %cmp25.i = icmp ugt i64 %indvars.iv33.i, 1
+  %cmp25.i = icmp samesign ugt i64 %indvars.iv33.i, 1
   br i1 %cmp25.i, label %while.body.i, label %do.body, !llvm.loop !6
 
 if.then15:                                        ; preds = %lor.lhs.false.i, %if.end11, %if.else.i
@@ -485,7 +485,7 @@ if.end14:                                         ; preds = %if.end3.i, %if.then
   %retval.0.i = phi i32 [ %4, %if.end3.i ], [ %3, %if.then11 ]
   %add = add nuw nsw i32 %start, 32
   %and15 = and i32 %add, 4194272
-  %cmp16.not = icmp ugt i32 %and15, %limit
+  %cmp16.not = icmp samesign ugt i32 %and15, %limit
   %7 = load ptr, ptr %data, align 8
   %idx.ext21 = zext nneg i32 %retval.0.i to i64
   %add.ptr22 = getelementptr inbounds i32, ptr %7, i64 %idx.ext21
@@ -1124,7 +1124,7 @@ for.body:                                         ; preds = %if.then54, %for.bod
   %incdec.ptr60 = getelementptr inbounds i8, ptr %dest16.069, i64 2
   store i16 %conv59, ptr %dest16.069, align 2
   %dec = add nsw i32 %i.070, -1
-  %cmp56 = icmp ugt i32 %i.070, 1
+  %cmp56 = icmp samesign ugt i32 %i.070, 1
   br i1 %cmp56, label %for.body, label %for.end.loopexit, !llvm.loop !14
 
 for.end.loopexit:                                 ; preds = %for.body
@@ -1152,7 +1152,7 @@ for.body65:                                       ; preds = %for.body65.preheade
   %incdec.ptr68 = getelementptr inbounds i8, ptr %dest16.173, i64 2
   store i16 %conv67, ptr %dest16.173, align 2
   %dec70 = add nsw i32 %i.174, -1
-  %cmp64 = icmp ugt i32 %i.174, 1
+  %cmp64 = icmp samesign ugt i32 %i.174, 1
   br i1 %cmp64, label %for.body65, label %return, !llvm.loop !15
 
 if.else72:                                        ; preds = %if.end48
@@ -1169,7 +1169,7 @@ for.body78:                                       ; preds = %if.else72, %for.bod
   %incdec.ptr82 = getelementptr inbounds i8, ptr %dest16.277, i64 2
   store i16 %conv81, ptr %dest16.277, align 2
   %dec84 = add nsw i32 %i.278, -1
-  %cmp77 = icmp ugt i32 %i.278, 1
+  %cmp77 = icmp samesign ugt i32 %i.278, 1
   br i1 %cmp77, label %for.body78, label %do.body.loopexit, !llvm.loop !16
 
 do.body.loopexit:                                 ; preds = %for.body78

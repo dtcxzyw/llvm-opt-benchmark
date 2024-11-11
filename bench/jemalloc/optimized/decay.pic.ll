@@ -225,7 +225,7 @@ if.else.i:                                        ; preds = %if.end
   %sub.i = sub nuw nsw i64 200, %call1
   %mul.i = shl nuw nsw i64 %sub.i, 3
   call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %backlog.i, ptr nonnull align 8 %arrayidx.i, i64 %mul.i, i1 false)
-  %cmp4.i = icmp ugt i64 %call1, 1
+  %cmp4.i = icmp samesign ugt i64 %call1, 1
   br i1 %cmp4.i, label %if.then5.i, label %decay_backlog_update.exit
 
 if.then5.i:                                       ; preds = %if.else.i

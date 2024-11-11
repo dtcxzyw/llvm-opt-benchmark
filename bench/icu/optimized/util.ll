@@ -521,7 +521,7 @@ if.then3:                                         ; preds = %if.end
 
 if.end5:                                          ; preds = %if.then3, %if.end
   %n.addr.0 = phi i32 [ %sub, %if.then3 ], [ %n, %if.end ]
-  %cmp6.not27 = icmp ult i32 %n.addr.0, %radix
+  %cmp6.not27 = icmp samesign ult i32 %n.addr.0, %radix
   br i1 %cmp6.not27, label %while.cond7.preheader, label %while.body
 
 while.cond7.preheader:                            ; preds = %while.body, %if.end5
@@ -551,7 +551,7 @@ while.body10:                                     ; preds = %while.cond7.prehead
   store i16 48, ptr %srcChar.addr.i23, align 2
   %call.i24 = call noundef nonnull align 8 dereferenceable(64) ptr @_ZN6icu_7513UnicodeString8doAppendEPKDsii(ptr noundef nonnull align 8 dereferenceable(64) %result, ptr noundef nonnull %srcChar.addr.i23, i32 noundef 0, i32 noundef 1)
   call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %srcChar.addr.i23)
-  %cmp9 = icmp ugt i32 %minDigits.addr.133, 2
+  %cmp9 = icmp samesign ugt i32 %minDigits.addr.133, 2
   br i1 %cmp9, label %while.body10, label %while.cond13.preheader, !llvm.loop !6
 
 while.body15:                                     ; preds = %while.cond13.preheader, %while.body15
@@ -592,19 +592,19 @@ entry:
   br i1 %cmp, label %return, label %if.else
 
 if.else:                                          ; preds = %entry
-  %cmp1 = icmp ult i32 %c, 127
+  %cmp1 = icmp samesign ult i32 %c, 127
   br i1 %cmp1, label %return, label %if.else3
 
 if.else3:                                         ; preds = %if.else
-  %cmp4 = icmp ult i32 %c, 160
+  %cmp4 = icmp samesign ult i32 %c, 160
   br i1 %cmp4, label %return, label %if.else6
 
 if.else6:                                         ; preds = %if.else3
-  %cmp7 = icmp ult i32 %c, 55296
+  %cmp7 = icmp samesign ult i32 %c, 55296
   br i1 %cmp7, label %return, label %if.else9
 
 if.else9:                                         ; preds = %if.else6
-  %cmp10 = icmp ult i32 %c, 57344
+  %cmp10 = icmp samesign ult i32 %c, 57344
   %0 = add nsw i32 %c, -64976
   %or.cond = icmp ult i32 %0, 32
   %or.cond9 = select i1 %cmp10, i1 true, i1 %or.cond
@@ -614,7 +614,7 @@ if.else9:                                         ; preds = %if.else6
   br i1 %or.cond10, label %return, label %if.else16
 
 if.else16:                                        ; preds = %if.else9
-  %cmp17 = icmp ugt i32 %c, 1114111
+  %cmp17 = icmp samesign ugt i32 %c, 1114111
   %. = zext i1 %cmp17 to i8
   br label %return
 
@@ -1184,7 +1184,7 @@ if.then.i:                                        ; preds = %while.body31
   br label %_ZN6icu_7513UnicodeString8truncateEi.exit
 
 if.then4.i:                                       ; preds = %while.body31
-  %cmp.i.i133 = icmp ult i32 %sub, 1024
+  %cmp.i.i133 = icmp samesign ult i32 %sub, 1024
   br i1 %cmp.i.i133, label %if.then.i.i134, label %if.else.i.i
 
 if.then.i.i134:                                   ; preds = %if.then4.i
@@ -1274,7 +1274,7 @@ while.body45:                                     ; preds = %if.end, %while.body
   store i16 39, ptr %srcChar.addr.i166, align 2
   %call.i167 = call noundef nonnull align 8 dereferenceable(64) ptr @_ZN6icu_7513UnicodeString8doAppendEPKDsii(ptr noundef nonnull align 8 dereferenceable(64) %call.i165, ptr noundef nonnull %srcChar.addr.i166, i32 noundef 0, i32 noundef 1)
   call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %srcChar.addr.i166)
-  %cmp44 = icmp ugt i32 %trailingCount.1232, 1
+  %cmp44 = icmp samesign ugt i32 %trailingCount.1232, 1
   br i1 %cmp44, label %while.body45, label %if.end49, !llvm.loop !12
 
 if.end49:                                         ; preds = %while.body45, %if.end, %if.then

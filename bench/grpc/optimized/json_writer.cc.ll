@@ -872,7 +872,7 @@ if.end68:                                         ; preds = %if.end63
   br i1 %or.cond4, label %for.end90, label %if.end75
 
 if.end75:                                         ; preds = %if.end68
-  %cmp76 = icmp ugt i32 %shl, 65535
+  %cmp76 = icmp samesign ugt i32 %shl, 65535
   br i1 %cmp76, label %if.then77, label %if.else83
 
 if.then77:                                        ; preds = %if.end75

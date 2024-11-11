@@ -2751,7 +2751,7 @@ invoke.cont:                                      ; preds = %_ZN6Assimp17AssbinC
   store i64 %add6.i, ptr %cursor.i31, align 8
   %mDuration = getelementptr inbounds i8, ptr %anim, i64 1032
   %add.i = add nuw nsw i64 %conv.i, 12
-  %cmp.i43 = icmp ugt i64 %add.i, %3
+  %cmp.i43 = icmp samesign ugt i64 %add.i, %3
   br i1 %cmp.i43, label %if.then.i48, label %invoke.cont2
 
 if.then.i48:                                      ; preds = %invoke.cont
@@ -3083,7 +3083,7 @@ invoke.cont:                                      ; preds = %_ZN6Assimp17AssbinC
   %mType = getelementptr inbounds i8, ptr %l, i64 1028
   %5 = load i32, ptr %mType, align 4
   %add.i = add nuw nsw i64 %conv.i, 8
-  %cmp.i130 = icmp ugt i64 %add.i, %3
+  %cmp.i130 = icmp samesign ugt i64 %add.i, %3
   br i1 %cmp.i130, label %if.then.i135, label %invoke.cont2
 
 if.then.i135:                                     ; preds = %invoke.cont
@@ -3409,7 +3409,7 @@ invoke.cont:                                      ; preds = %_ZN6Assimp17AssbinC
   store i64 %add6.i, ptr %cursor.i63, align 8
   %mPosition = getelementptr inbounds i8, ptr %cam, i64 1028
   %add.i = add nuw nsw i64 %conv.i, 8
-  %cmp.i75 = icmp ugt i64 %add.i, %3
+  %cmp.i75 = icmp samesign ugt i64 %add.i, %3
   br i1 %cmp.i75, label %if.then.i80, label %call.i.i.noexc
 
 if.then.i80:                                      ; preds = %invoke.cont
@@ -3850,7 +3850,7 @@ invoke.cont:                                      ; preds = %_ZN6Assimp17AssbinC
   %mNumWeights = getelementptr inbounds i8, ptr %b, i64 1028
   %5 = load i32, ptr %mNumWeights, align 4
   %add.i = add nuw nsw i64 %conv.i, 8
-  %cmp.i99 = icmp ugt i64 %add.i, %3
+  %cmp.i99 = icmp samesign ugt i64 %add.i, %3
   br i1 %cmp.i99, label %if.then.i104, label %invoke.cont2
 
 if.then.i104:                                     ; preds = %invoke.cont
@@ -4229,7 +4229,7 @@ invoke.cont:                                      ; preds = %_ZN6Assimp17AssbinC
   %mSemantic = getelementptr inbounds i8, ptr %prop, i64 1028
   %5 = load i32, ptr %mSemantic, align 4
   %add.i = add nuw nsw i64 %conv.i, 8
-  %cmp.i76 = icmp ugt i64 %add.i, %3
+  %cmp.i76 = icmp samesign ugt i64 %add.i, %3
   br i1 %cmp.i76, label %if.then.i81, label %invoke.cont2
 
 if.then.i81:                                      ; preds = %invoke.cont
@@ -4448,7 +4448,7 @@ invoke.cont:                                      ; preds = %_ZN6Assimp17AssbinC
   %mNumPositionKeys = getelementptr inbounds i8, ptr %nd, i64 1028
   %5 = load i32, ptr %mNumPositionKeys, align 4
   %add.i = add nuw nsw i64 %conv.i, 8
-  %cmp.i137 = icmp ugt i64 %add.i, %3
+  %cmp.i137 = icmp samesign ugt i64 %add.i, %3
   br i1 %cmp.i137, label %if.then.i142, label %invoke.cont2
 
 if.then.i142:                                     ; preds = %invoke.cont

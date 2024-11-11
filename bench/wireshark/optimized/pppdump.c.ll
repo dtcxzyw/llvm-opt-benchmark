@@ -737,7 +737,7 @@ define internal fastcc range(i32 -1, 8193) i32 @process_data(ptr nocapture nound
 26:                                               ; preds = %23
   store i32 0, ptr %11, align 8
   store i32 0, ptr %12, align 4
-  %27 = icmp ugt i32 %24, 8192
+  %27 = icmp samesign ugt i32 %24, 8192
   br i1 %27, label %28, label %30
 
 28:                                               ; preds = %26

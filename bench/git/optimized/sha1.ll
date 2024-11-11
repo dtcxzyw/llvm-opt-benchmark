@@ -3307,7 +3307,7 @@ if.then4.i:                                       ; preds = %land.lhs.true.i
 if.end14.i:                                       ; preds = %if.then4.i, %entry
   %len.addr.0.i = phi i64 [ %sub13.i, %if.then4.i ], [ %conv4, %entry ]
   %buf.addr.0.i = phi ptr [ %add.ptr11.i, %if.then4.i ], [ @sha1_padding, %entry ]
-  %cmp1527.i = icmp ugt i64 %len.addr.0.i, 63
+  %cmp1527.i = icmp samesign ugt i64 %len.addr.0.i, 63
   br i1 %cmp1527.i, label %while.body.i, label %if.then23.i
 
 while.body.i:                                     ; preds = %if.end14.i, %while.body.i

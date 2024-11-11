@@ -7229,7 +7229,7 @@ define internal noundef i32 @dissect_v8_aggpdu(ptr noundef %0, ptr nocapture rea
   %77 = add i32 %16, 5
   %78 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %.0, ptr noundef %0, i32 noundef %76, i32 noundef 1, i32 noundef 0) #11
   %79 = add nsw i8 %17, -3
-  %or.cond = icmp ult i8 %79, 2
+  %or.cond = icmp samesign ult i8 %79, 2
   br i1 %or.cond, label %80, label %84
 
 80:                                               ; preds = %74

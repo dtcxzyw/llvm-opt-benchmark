@@ -48,7 +48,7 @@ define void @daxpy_(ptr nocapture noundef readonly %0, ptr nocapture noundef rea
   %36 = select i1 %34, i64 %35, i64 0
   %37 = getelementptr inbounds double, ptr %4, i64 %36
   %38 = select i1 %19, i1 true, i1 %20
-  %39 = icmp ult i32 %8, 10001
+  %39 = icmp samesign ult i32 %8, 10001
   %40 = or i1 %39, %38
   %41 = load i32, ptr @blas_cpu_number, align 4
   %42 = icmp eq i32 %41, 1

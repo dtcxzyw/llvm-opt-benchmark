@@ -414,9 +414,9 @@ if.end.i:                                         ; preds = %entry
 
 if.else.i.i.i.i.i:                                ; preds = %if.end.i
   %cmp.i.i.i.i.i = icmp sgt i64 %ts.val.i, 0
-  %cmp5.not.i.i.i.i.i = icmp ugt i64 %ts.val.i, 9223372036854
+  %cmp5.not.i.i.i.i.i = icmp samesign ugt i64 %ts.val.i, 9223372036854
   %cond.i.i.i.i.i = select i1 %cmp5.not.i.i.i.i.i, i32 2, i32 0
-  %cmp16.not.i.i.i.i.i = icmp ult i64 %ts.val.i, -9223372036854
+  %cmp16.not.i.i.i.i.i = icmp samesign ult i64 %ts.val.i, -9223372036854
   %cond17.i.i.i.i.i = zext i1 %cmp16.not.i.i.i.i.i to i32
   %cond10.sink.i.i.i.i.i = select i1 %cmp.i.i.i.i.i, i32 %cond.i.i.i.i.i, i32 %cond17.i.i.i.i.i
   %cmp26.i.i.i.i.i = icmp eq i32 %cond10.sink.i.i.i.i.i, 0
@@ -489,9 +489,9 @@ if.end.i:                                         ; preds = %entry
 
 if.else.i.i.i.i.i:                                ; preds = %if.end.i
   %cmp.i.i.i.i.i = icmp sgt i64 %ts.val.i, 0
-  %cmp5.not.i.i.i.i.i = icmp ugt i64 %ts.val.i, 9223372036854
+  %cmp5.not.i.i.i.i.i = icmp samesign ugt i64 %ts.val.i, 9223372036854
   %cond.i.i.i.i.i = select i1 %cmp5.not.i.i.i.i.i, i32 2, i32 0
-  %cmp16.not.i.i.i.i.i = icmp ult i64 %ts.val.i, -9223372036854
+  %cmp16.not.i.i.i.i.i = icmp samesign ult i64 %ts.val.i, -9223372036854
   %cond17.i.i.i.i.i = zext i1 %cmp16.not.i.i.i.i.i to i32
   %cond10.sink.i.i.i.i.i = select i1 %cmp.i.i.i.i.i, i32 %cond.i.i.i.i.i, i32 %cond17.i.i.i.i.i
   %cmp26.i.i.i.i.i = icmp eq i32 %cond10.sink.i.i.i.i.i, 0

@@ -157062,7 +157062,7 @@ _ZN9zune_jpeg9bitstream9BitStream6refill17h27a4732c3800721cE.exit.i.thread.i.i: 
   %587 = lshr i64 %576, 48
   %588 = trunc nuw nsw i64 %587 to i32
   store i32 %588, ptr %31, align 4, !noalias !45107
-  %589 = icmp ult i32 %580, 17
+  %589 = icmp samesign ult i32 %580, 17
   br i1 %589, label %.lr.ph.preheader.i.i, label %._crit_edge.i.i
 
 .lr.ph.preheader.i.i:                             ; preds = %586
@@ -157771,7 +157771,7 @@ _ZN9zune_jpeg9bitstream9BitStream6refill17h27a4732c3800721cE.exit.thread.i.i: ; 
   %887 = lshr i64 %874, 48
   %888 = trunc nuw nsw i64 %887 to i32
   store i32 %888, ptr %46, align 4, !noalias !45097
-  %889 = icmp ult i32 %883, 17
+  %889 = icmp samesign ult i32 %883, 17
   br i1 %889, label %.lr.ph336.preheader.i.i, label %._crit_edge337.i.i
 
 .lr.ph336.preheader.i.i:                          ; preds = %886
@@ -160041,7 +160041,7 @@ _ZN9zune_jpeg7headers20parse_start_of_frame17h3f40e2fe0524a75dE.exit: ; preds = 
   br i1 %.not.i216, label %483, label %374
 
 374:                                              ; preds = %370
-  %375 = icmp ugt i64 %372, 6
+  %375 = icmp samesign ugt i64 %372, 6
   br i1 %375, label %376, label %480
 
 376:                                              ; preds = %374
@@ -162796,7 +162796,7 @@ _ZN9zune_jpeg7headers20parse_start_of_frame17hc0bb5b3c939f1493E.exit.i: ; preds 
   br i1 %.not.i240.i, label %.loopexit346, label %691
 
 691:                                              ; preds = %687
-  %692 = icmp ugt i64 %689, 6
+  %692 = icmp samesign ugt i64 %689, 6
   br i1 %692, label %693, label %783
 
 693:                                              ; preds = %691
@@ -163866,7 +163866,7 @@ define internal fastcc void @_ZN9zune_jpeg7headers10parse_app217h18ba38813f0ff8d
   br i1 %.not, label %"_ZN9zune_core10bytestream6reader20ZByteReader$LT$T$GT$24get_u16_inner_or_default17h6096cd1e6be4db60E.exit.thread", label %24
 
 24:                                               ; preds = %20
-  %25 = icmp ugt i64 %22, 14
+  %25 = icmp samesign ugt i64 %22, 14
   br i1 %25, label %26, label %29
 
 26:                                               ; preds = %24
@@ -164031,7 +164031,7 @@ define internal fastcc void @_ZN9zune_jpeg7headers10parse_app217h7947427850ae692
   br i1 %.not, label %"_ZN9zune_core10bytestream6reader20ZByteReader$LT$T$GT$24get_u16_inner_or_default17heccdfec5f4122431E.exit.thread", label %21
 
 21:                                               ; preds = %17
-  %22 = icmp ugt i64 %19, 14
+  %22 = icmp samesign ugt i64 %19, 14
   br i1 %22, label %23, label %26
 
 23:                                               ; preds = %21
@@ -166576,7 +166576,7 @@ _ZN9zune_jpeg9bitstream9BitStream6refill17h27a4732c3800721cE.exit.thread.i764.us
   %529 = lshr i64 %521, 48
   %530 = trunc nuw nsw i64 %529 to i32
   store i32 %530, ptr %83, align 4, !noalias !46781
-  %531 = icmp ult i32 %525, 17
+  %531 = icmp samesign ult i32 %525, 17
   br i1 %531, label %.lr.ph.preheader.i777.us, label %._crit_edge.i771
 
 .lr.ph.preheader.i777.us:                         ; preds = %528
@@ -169044,7 +169044,7 @@ _ZN9zune_jpeg9bitstream9BitStream6refill17h27a4732c3800721cE.exit.thread.i.us: ;
   %1537 = lshr i64 %1503, 48
   %1538 = trunc nuw nsw i64 %1537 to i32
   store i32 %1538, ptr %103, align 4, !noalias !47275
-  %1539 = icmp ult i32 %1533, 17
+  %1539 = icmp samesign ult i32 %1533, 17
   br i1 %1539, label %.lr.ph.preheader.i.us, label %._crit_edge.i
 
 .lr.ph.preheader.i.us:                            ; preds = %1536
@@ -169756,7 +169756,7 @@ _ZN9zune_jpeg9bitstream9BitStream6refill17h27a4732c3800721cE.exit.i.thread.us: ;
   %1860 = lshr i64 %1851, 48
   %1861 = trunc nuw nsw i64 %1860 to i32
   store i32 %1861, ptr %141, align 4, !noalias !47408
-  %1862 = icmp ult i32 %1856, 17
+  %1862 = icmp samesign ult i32 %1856, 17
   br i1 %1862, label %.lr.ph2120.us.preheader, label %._crit_edge2121
 
 .lr.ph2120.us.preheader:                          ; preds = %1859
@@ -171120,7 +171120,7 @@ _ZN9zune_jpeg9bitstream9BitStream6refill17h27a4732c3800721cE.exit.i627.thread: ;
   %2297 = lshr i64 %2288, 48
   %2298 = trunc nuw nsw i64 %2297 to i32
   store i32 %2298, ptr %126, align 4, !noalias !47601
-  %2299 = icmp ult i32 %2292, 17
+  %2299 = icmp samesign ult i32 %2292, 17
   br i1 %2299, label %.lr.ph2032.preheader, label %._crit_edge2033
 
 .lr.ph2032.preheader:                             ; preds = %2296

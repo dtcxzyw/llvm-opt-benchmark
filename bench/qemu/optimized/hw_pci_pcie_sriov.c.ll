@@ -223,7 +223,7 @@ if.else6:                                         ; preds = %if.end
   unreachable
 
 if.end7:                                          ; preds = %if.end
-  %cmp8 = icmp ult i32 %region_num, 7
+  %cmp8 = icmp samesign ult i32 %region_num, 7
   br i1 %cmp8, label %if.end12, label %if.else11
 
 if.else11:                                        ; preds = %if.end7
@@ -309,7 +309,7 @@ if.else4:                                         ; preds = %if.end
   unreachable
 
 if.end5:                                          ; preds = %if.end
-  %cmp6 = icmp ult i32 %region_num, 7
+  %cmp6 = icmp samesign ult i32 %region_num, 7
   br i1 %cmp6, label %if.end9, label %if.else8
 
 if.else8:                                         ; preds = %if.end5
@@ -435,7 +435,7 @@ trace_sriov_config_write.exit:                    ; preds = %if.end7, %land.lhs.
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %_now.i.i)
   %conv10 = zext nneg i32 %sub to i64
   %conv11 = sext i32 %len to i64
-  %cmp.i = icmp ugt i32 %sub, 8
+  %cmp.i = icmp samesign ugt i32 %sub, 8
   %add.i.i = add nsw i64 %conv11, -1
   %sub.i.i = add nsw i64 %add.i.i, %conv10
   %cmp1.i = icmp ult i64 %sub.i.i, 8

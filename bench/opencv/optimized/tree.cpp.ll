@@ -7135,7 +7135,7 @@ _ZNSt6vectorIiSaIiEE5clearEv.exit77:              ; preds = %_ZNSt6vectorIiSaIiE
   %77 = getelementptr inbounds i8, ptr %6, i64 16
   store ptr %77, ptr %6, align 8
   %78 = getelementptr inbounds i8, ptr %6, i64 8
-  %.not.i.i78 = icmp ugt i64 %25, 264
+  %.not.i.i78 = icmp samesign ugt i64 %25, 264
   store i64 %25, ptr %78, align 8
   br i1 %.not.i.i78, label %79, label %82
 
@@ -12390,7 +12390,7 @@ _ZN2cvrsIiEEvRKNS_8FileNodeERT_.exit:             ; preds = %218
   unreachable
 
 223:                                              ; preds = %_ZN2cvrsIiEEvRKNS_8FileNodeERT_.exit
-  %224 = icmp ult i32 %219, 3
+  %224 = icmp samesign ult i32 %219, 3
   %225 = zext i1 %224 to i8
   br label %226
 
@@ -12878,7 +12878,7 @@ define linkonce_odr hidden void @_ZN2cv2ml10TreeParams10setCVFoldsEi(ptr noundef
   br label %27
 
 15:                                               ; preds = %2
-  %16 = icmp ugt i32 %1, 1
+  %16 = icmp samesign ugt i32 %1, 1
   br i1 %16, label %17, label %24
 
 17:                                               ; preds = %15

@@ -69,7 +69,7 @@ Abc_InfoIsOne.exit:                               ; preds = %16
   %42 = load i32, ptr %41, align 4
   %43 = or i32 %42, %40
   store i32 %43, ptr %41, align 4
-  %44 = icmp ugt i64 %indvars.iv.i.i, 1
+  %44 = icmp samesign ugt i64 %indvars.iv.i.i, 1
   br i1 %44, label %.lr.ph.i.i, label %Abc_InfoOr.exit.loopexit.i, !llvm.loop !6
 
 Abc_InfoOr.exit.loopexit.i:                       ; preds = %.lr.ph.i.i
@@ -250,7 +250,7 @@ Vec_VecClear.exit365:                             ; preds = %70, %Vec_VecClear.e
   %126 = load i32, ptr %125, align 4
   %127 = or i32 %126, %124
   store i32 %127, ptr %125, align 4
-  %128 = icmp ugt i64 %indvars.iv.i.i377, 1
+  %128 = icmp samesign ugt i64 %indvars.iv.i.i377, 1
   br i1 %128, label %.lr.ph.i.i376, label %Abc_InfoOr.exit.loopexit.i379, !llvm.loop !6
 
 Abc_InfoOr.exit.loopexit.i379:                    ; preds = %.lr.ph.i.i376
@@ -430,7 +430,7 @@ Abc_InfoIsOne.exit385.thread:                     ; preds = %139, %.critedge2, %
   %217 = load i32, ptr %216, align 4
   %218 = or i32 %217, %215
   store i32 %218, ptr %216, align 4
-  %219 = icmp ugt i64 %indvars.iv.i.i397, 1
+  %219 = icmp samesign ugt i64 %indvars.iv.i.i397, 1
   br i1 %219, label %.lr.ph.i.i396, label %Abc_InfoOr.exit.loopexit.i399, !llvm.loop !6
 
 Abc_InfoOr.exit.loopexit.i399:                    ; preds = %.lr.ph.i.i396
@@ -936,7 +936,7 @@ Abc_InfoIsOrOne.exit.thread:                      ; preds = %244, %.critedge6.Ab
   %444 = load i32, ptr %443, align 4
   %445 = or i32 %444, %442
   store i32 %445, ptr %443, align 4
-  %446 = icmp ugt i64 %indvars.iv.i.i443, 1
+  %446 = icmp samesign ugt i64 %indvars.iv.i.i443, 1
   br i1 %446, label %.lr.ph.i.i442, label %Abc_InfoOr.exit.loopexit.i445, !llvm.loop !6
 
 Abc_InfoOr.exit.loopexit.i445:                    ; preds = %.lr.ph.i.i442
@@ -1262,7 +1262,7 @@ Abc_InfoIsOrOne3.exit.thread:                     ; preds = %486, %.critedge10.A
   %586 = load i32, ptr %585, align 4
   %587 = or i32 %586, %584
   store i32 %587, ptr %585, align 4
-  %588 = icmp ugt i64 %indvars.iv.i.i461, 1
+  %588 = icmp samesign ugt i64 %indvars.iv.i.i461, 1
   br i1 %588, label %.lr.ph.i.i460, label %Abc_InfoOr.exit.loopexit.i463, !llvm.loop !6
 
 Abc_InfoOr.exit.loopexit.i463:                    ; preds = %.lr.ph.i.i460
@@ -1637,7 +1637,7 @@ Abc_InfoIsOne.exit:                               ; preds = %15
   %40 = load i32, ptr %39, align 4
   %41 = or i32 %40, %38
   store i32 %41, ptr %39, align 4
-  %42 = icmp ugt i64 %indvars.iv.i.i, 1
+  %42 = icmp samesign ugt i64 %indvars.iv.i.i, 1
   br i1 %42, label %.lr.ph.i.i, label %Abc_InfoOr.exit.loopexit.i, !llvm.loop !6
 
 Abc_InfoOr.exit.loopexit.i:                       ; preds = %.lr.ph.i.i
@@ -1827,7 +1827,7 @@ Res_FilterCriticalFanin.exit:                     ; preds = %95
   %126 = load i32, ptr %125, align 4
   %127 = or i32 %126, %124
   store i32 %127, ptr %125, align 4
-  %128 = icmp ugt i64 %indvars.iv.i.i243, 1
+  %128 = icmp samesign ugt i64 %indvars.iv.i.i243, 1
   br i1 %128, label %.lr.ph.i.i242, label %Abc_InfoOr.exit.loopexit.i245, !llvm.loop !6
 
 Abc_InfoOr.exit.loopexit.i245:                    ; preds = %.lr.ph.i.i242

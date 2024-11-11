@@ -488,7 +488,7 @@ define dso_local i32 @intel_guc_log_create(ptr noundef %0) local_unnamed_addr #0
   br i1 %27, label %thread-pre-split, label %28
 
 28:                                               ; preds = %21
-  %29 = icmp ugt i32 %26, 5
+  %29 = icmp samesign ugt i32 %26, 5
   br i1 %29, label %30, label %thread-pre-split
 
 30:                                               ; preds = %28
@@ -608,7 +608,7 @@ define dso_local i32 @intel_guc_log_set_level(ptr noundef %0, i32 noundef %1) lo
   br i1 %14, label %.thread, label %15
 
 15:                                               ; preds = %11
-  %16 = icmp ugt i32 %1, 1
+  %16 = icmp samesign ugt i32 %1, 1
   %17 = icmp eq i32 %1, 0
   %18 = shl nuw nsw i32 %1, 4
   %19 = add nsw i32 %18, -32

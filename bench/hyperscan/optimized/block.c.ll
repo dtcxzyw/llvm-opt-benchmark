@@ -970,7 +970,7 @@ if.end.i45:                                       ; preds = %if.else
   br i1 %cmp.i.i2512, label %if.then.i2517, label %if.else.i2513
 
 if.then.i2517:                                    ; preds = %if.end.i45
-  %cmp.i2639 = icmp ult i32 %159, 65
+  %cmp.i2639 = icmp samesign ult i32 %159, 65
   br i1 %cmp.i2639, label %if.then.i2659, label %if.end7.i
 
 if.then.i2659:                                    ; preds = %if.then.i2517
@@ -1246,7 +1246,7 @@ for.body.i.lr.ph:                                 ; preds = %if.then34.i, %if.en
   %buf.i2577 = getelementptr inbounds i8, ptr %scratch, i64 288
   %hbuf.i2582 = getelementptr inbounds i8, ptr %scratch, i64 304
   %hlen.i2584 = getelementptr inbounds i8, ptr %scratch, i64 312
-  %cmp.i3374 = icmp ult i32 %159, 65
+  %cmp.i3374 = icmp samesign ult i32 %159, 65
   %arrayidx.i3376 = getelementptr inbounds i8, ptr %si_state.i, i64 16
   %val48.i = getelementptr inbounds i8, ptr %add.ptr.i2506, i64 8
   %itkey78.i = getelementptr inbounds i8, ptr %si_state.i, i64 24
@@ -2239,7 +2239,7 @@ if.end.i3542:                                     ; preds = %if.end5.i3523
   br i1 %cmp.i.i3543, label %if.then2.i3549, label %if.end4.i
 
 if.then2.i3549:                                   ; preds = %if.end.i3542
-  %cmp.i3655 = icmp ult i32 %385, 65
+  %cmp.i3655 = icmp samesign ult i32 %385, 65
   %add.i.i3675 = add nuw nsw i32 %385, 7
   %div.i.i36771484 = lshr i32 %add.i.i3675, 3
   br i1 %cmp.i3655, label %if.then.i3674, label %for.body.i3669.preheader
@@ -2506,7 +2506,7 @@ lor.lhs.false.i:                                  ; preds = %if.end6.i
   br i1 %cmp.i.i3562, label %if.then2.i3569, label %if.end4.i3564
 
 if.then2.i3569:                                   ; preds = %lor.lhs.false.i
-  %cmp.i3589 = icmp ult i32 %429, 65
+  %cmp.i3589 = icmp samesign ult i32 %429, 65
   %add.i.i3605 = add nuw nsw i32 %429, 7
   %div.i.i36071504 = lshr i32 %add.i.i3605, 3
   br i1 %cmp.i3589, label %if.then.i3604, label %if.end.i3590
@@ -2649,7 +2649,7 @@ if.end7.i3897:                                    ; preds = %if.end.i3887
   br i1 %cmp.i.i3913, label %if.then.i3917, label %if.else.i3915
 
 if.then.i3917:                                    ; preds = %if.end7.i3897
-  %cmp.i3944 = icmp ult i32 %447, 65
+  %cmp.i3944 = icmp samesign ult i32 %447, 65
   br i1 %cmp.i3944, label %if.then.i3991, label %if.end.i3945
 
 if.then.i3991:                                    ; preds = %if.then.i3917

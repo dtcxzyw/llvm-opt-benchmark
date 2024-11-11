@@ -1816,7 +1816,7 @@ define internal i32 @dissect_eti_message(ptr noundef %0, ptr noundef %1, ptr nou
   unreachable
 
 53:                                               ; preds = %46
-  %54 = icmp ult i16 %48, 3319
+  %54 = icmp samesign ult i16 %48, 3319
   br i1 %54, label %57, label %55
 
 55:                                               ; preds = %53
@@ -1848,7 +1848,7 @@ define internal i32 @dissect_eti_message(ptr noundef %0, ptr noundef %1, ptr nou
 
 62:                                               ; preds = %58
   %63 = zext nneg i32 %.0471635 to i64
-  %64 = icmp ult i32 %.0471635, 2827
+  %64 = icmp samesign ult i32 %.0471635, 2827
   br i1 %64, label %66, label %65
 
 65:                                               ; preds = %62
@@ -1866,7 +1866,7 @@ define internal i32 @dissect_eti_message(ptr noundef %0, ptr noundef %1, ptr nou
 
 70:                                               ; preds = %66
   %71 = zext nneg i32 %.0473634 to i64
-  %72 = icmp ult i32 %.0473634, 3319
+  %72 = icmp samesign ult i32 %.0473634, 3319
   br i1 %72, label %74, label %73
 
 73:                                               ; preds = %70

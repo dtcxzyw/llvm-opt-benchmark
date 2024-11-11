@@ -77502,8 +77502,8 @@ define hidden void @"_ZN82_$LT$repl..repl_sessions_ui..ReplSessionsPage$u20$as$u
 .thread.i.i:                                      ; preds = %112
   %120 = getelementptr inbounds i8, ptr %25, i64 16
   %121 = load i8, ptr %120, align 8, !range !2293, !alias.scope !18679, !noalias !18676, !noundef !7
-  %switch.i.i3453.i.i = icmp samesign ult i8 %121, 3
-  br i1 %switch.i.i3453.i.i, label %108, label %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h6734b51a880d9149E.exit.i.i"
+  %or.cond54.i.i = icmp samesign ult i8 %121, 3
+  br i1 %or.cond54.i.i, label %108, label %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h6734b51a880d9149E.exit.i.i"
 
 ._crit_edge.i.i:                                  ; preds = %116
   br i1 %switch.i.i.i.i, label %108, label %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h6734b51a880d9149E.exit.i.i"
@@ -79571,7 +79571,7 @@ _ZN3std4path4Path4join17hb43bedab60c1a528E.exit109.i: ; preds = %316
   %.sroa.5.0..sroa_idx.i.i.i = getelementptr inbounds i8, ptr %28, i64 16
   %.sroa.5.0.copyload.i.i.i = load i64, ptr %.sroa.5.0..sroa_idx.i.i.i, align 8, !alias.scope !19376, !noalias !19379
   %362 = getelementptr inbounds { { { { { { i64, ptr, {} }, i64 } } } }, { ptr, ptr }, [152 x i8], i8, [159 x i8] }, ptr %.sroa.4.0.copyload.i.i.i, i64 %.sroa.5.0.copyload.i.i.i
-  %363 = icmp ult i64 %.sroa.5.0.copyload.i.i.i, 31
+  %363 = icmp samesign ult i64 %.sroa.5.0.copyload.i.i.i, 31
   br i1 %363, label %.noexc.i155.i, label %364
 
 364:                                              ; preds = %361

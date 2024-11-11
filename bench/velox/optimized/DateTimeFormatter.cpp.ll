@@ -1026,7 +1026,7 @@ entry:
 cond.true:                                        ; preds = %entry
   %conv = sext i32 %0 to i64
   %sub = sub nsw i64 0, %conv
-  %cmp.i60260 = icmp ult i64 %sub, 10
+  %cmp.i60260 = icmp samesign ult i64 %sub, 10
   br i1 %cmp.i60260, label %if.end.thread292, label %if.end.i61.preheader
 
 if.end.i61.preheader:                             ; preds = %cond.true
@@ -1066,7 +1066,7 @@ if.end12.i67:                                     ; preds = %if.end8.i65
   br i1 %cmp.i60, label %cond.end, label %if.end.i61, !llvm.loop !6
 
 cond.false:                                       ; preds = %entry
-  %cmp.i257 = icmp ult i32 %0, 10
+  %cmp.i257 = icmp samesign ult i32 %0, 10
   br i1 %cmp.i257, label %if.end.thread, label %if.end.i.preheader
 
 if.end.i.preheader:                               ; preds = %cond.false
@@ -1909,7 +1909,7 @@ if.end12.i67:                                     ; preds = %if.end8.i65
   br i1 %cmp.i60, label %cond.end, label %if.end.i61, !llvm.loop !6
 
 cond.false:                                       ; preds = %entry
-  %cmp.i251 = icmp ult i64 %0, 10
+  %cmp.i251 = icmp samesign ult i64 %0, 10
   br i1 %cmp.i251, label %cond.end, label %if.end.i.preheader
 
 if.end.i.preheader:                               ; preds = %cond.false
@@ -4043,7 +4043,7 @@ if.end266:                                        ; preds = %sw.bb261
   %isHourOfHalfDay = getelementptr inbounds i8, ptr %date, i64 65
   store i8 0, ptr %isHourOfHalfDay, align 1
   %rem.urem = add nuw nsw i64 %spec.select247.frozen5, 4294967272
-  %rem.cmp = icmp ult i64 %spec.select247.frozen5, 24
+  %rem.cmp = icmp samesign ult i64 %spec.select247.frozen5, 24
   %rem = select i1 %rem.cmp, i64 %spec.select247.frozen5, i64 %rem.urem
   %conv267 = trunc i64 %rem to i32
   %hour = getelementptr inbounds i8, ptr %date, i64 36
@@ -4083,7 +4083,7 @@ if.end283:                                        ; preds = %sw.bb278
   %isHourOfHalfDay285 = getelementptr inbounds i8, ptr %date, i64 65
   store i8 1, ptr %isHourOfHalfDay285, align 1
   %rem286.urem = add nuw nsw i64 %spec.select247.frozen5, 4294967284
-  %rem286.cmp = icmp ult i64 %spec.select247.frozen5, 12
+  %rem286.cmp = icmp samesign ult i64 %spec.select247.frozen5, 12
   %rem286 = select i1 %rem286.cmp, i64 %spec.select247.frozen5, i64 %rem286.urem
   %conv287 = trunc i64 %rem286 to i32
   %hour288 = getelementptr inbounds i8, ptr %date, i64 36

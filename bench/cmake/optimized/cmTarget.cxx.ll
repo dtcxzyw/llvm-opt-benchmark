@@ -13286,7 +13286,7 @@ _ZNSt12_Vector_baseI2BTINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEESaI
   %72 = getelementptr inbounds i8, ptr %.0910.i.i.i.i.i, i64 48
   %73 = getelementptr inbounds i8, ptr %.0811.i.i.i.i.i, i64 48
   %74 = add nsw i64 %.012.i.i.i.i.i, -1
-  %75 = icmp ugt i64 %.012.i.i.i.i.i, 1
+  %75 = icmp samesign ugt i64 %.012.i.i.i.i.i, 1
   br i1 %75, label %.lr.ph.i.i.i.i.i, label %_ZSt4copyIN9__gnu_cxx17__normal_iteratorIPK2BTINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEESt6vectorIS9_SaIS9_EEEENS1_IPS9_SE_EEET0_T_SJ_SI_.exit.loopexit, !llvm.loop !242
 
 _ZSt4copyIN9__gnu_cxx17__normal_iteratorIPK2BTINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEESt6vectorIS9_SaIS9_EEEENS1_IPS9_SE_EEET0_T_SJ_SI_.exit.loopexit: ; preds = %.lr.ph.i.i.i.i.i
@@ -13403,7 +13403,7 @@ _ZSt8_DestroyI2BTINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEvPT_.exi
   %120 = getelementptr inbounds i8, ptr %.0910.i.i.i.i.i40, i64 48
   %121 = getelementptr inbounds i8, ptr %.0811.i.i.i.i.i39, i64 48
   %122 = add nsw i64 %.012.i.i.i.i.i38, -1
-  %123 = icmp ugt i64 %.012.i.i.i.i.i38, 1
+  %123 = icmp samesign ugt i64 %.012.i.i.i.i.i38, 1
   br i1 %123, label %.lr.ph.i.i.i.i.i37, label %_ZSt4copyIP2BTINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEES8_ET0_T_SA_S9_.exit.loopexit, !llvm.loop !244
 
 _ZSt4copyIP2BTINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEES8_ET0_T_SA_S9_.exit.loopexit: ; preds = %.lr.ph.i.i.i.i.i37
@@ -23448,7 +23448,7 @@ _ZSt13move_backwardIP2BTINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEES8
   %86 = getelementptr inbounds i8, ptr %.0910.i.i.i.i.i, i64 48
   %87 = getelementptr inbounds i8, ptr %.0811.i.i.i.i.i, i64 48
   %88 = add nsw i64 %.012.i.i.i.i.i, -1
-  %89 = icmp ugt i64 %.012.i.i.i.i.i, 1
+  %89 = icmp samesign ugt i64 %.012.i.i.i.i.i, 1
   br i1 %89, label %.lr.ph.i.i.i.i.i53, label %_ZSt4copyIN9__gnu_cxx17__normal_iteratorIPK2BTINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEESt6vectorIS9_SaIS9_EEEENS1_IPS9_SE_EEET0_T_SJ_SI_.exit, !llvm.loop !242
 
 _ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPK2BTINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEESt6vectorIS9_SaIS9_EEEEmEvRT_T0_.exit: ; preds = %17
@@ -23504,7 +23504,7 @@ _ZSt22__uninitialized_move_aIP2BTINSt7__cxx1112basic_stringIcSt11char_traitsIcES
   %108 = getelementptr inbounds i8, ptr %.0910.i.i.i.i.i66, i64 48
   %109 = getelementptr inbounds i8, ptr %.0811.i.i.i.i.i65, i64 48
   %110 = add nsw i64 %.012.i.i.i.i.i64, -1
-  %111 = icmp ugt i64 %.012.i.i.i.i.i64, 1
+  %111 = icmp samesign ugt i64 %.012.i.i.i.i.i64, 1
   br i1 %111, label %.lr.ph.i.i.i.i.i63, label %_ZSt4copyIN9__gnu_cxx17__normal_iteratorIPK2BTINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEESt6vectorIS9_SaIS9_EEEENS1_IPS9_SE_EEET0_T_SJ_SI_.exit, !llvm.loop !242
 
 112:                                              ; preds = %5

@@ -1341,15 +1341,15 @@ if.then31:                                        ; preds = %sw.epilog
   br label %if.end50
 
 if.else34:                                        ; preds = %sw.epilog
-  %cmp35 = icmp ugt i64 %1, 35184372088832
+  %cmp35 = icmp samesign ugt i64 %1, 35184372088832
   br i1 %cmp35, label %if.end50, label %if.else38
 
 if.else38:                                        ; preds = %if.else34
-  %cmp39 = icmp ugt i64 %1, 107374182400
+  %cmp39 = icmp samesign ugt i64 %1, 107374182400
   br i1 %cmp39, label %if.end50, label %if.else42
 
 if.else42:                                        ; preds = %if.else38
-  %cmp43 = icmp ugt i64 %1, 1073741824
+  %cmp43 = icmp samesign ugt i64 %1, 1073741824
   %. = select i1 %cmp43, i32 16777216, i32 8388608
   br label %if.end50
 

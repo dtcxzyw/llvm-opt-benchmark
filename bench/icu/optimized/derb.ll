@@ -705,7 +705,7 @@ if.end57:                                         ; preds = %if.then56, %if.end5
   %25 = load ptr, ptr @stderr, align 8
   %call59 = tail call ptr @u_finit_75(ptr noundef %25, ptr noundef null, ptr noundef null)
   store ptr %call59, ptr @_ZL7ustderr, align 8
-  %cmp60139 = icmp ugt i32 %call1, 1
+  %cmp60139 = icmp samesign ugt i32 %call1, 1
   br i1 %cmp60139, label %for.body.lr.ph, label %return
 
 for.body.lr.ph:                                   ; preds = %if.end57

@@ -1507,7 +1507,7 @@ sw.bb5:                                           ; preds = %entry
   br i1 %cmp, label %return, label %if.end
 
 if.end:                                           ; preds = %sw.bb5
-  %cmp6 = icmp ugt i32 %arg, 16
+  %cmp6 = icmp samesign ugt i32 %arg, 16
   br i1 %cmp6, label %land.lhs.true, label %if.end23
 
 land.lhs.true:                                    ; preds = %if.end
@@ -1754,7 +1754,7 @@ if.end169:                                        ; preds = %if.end153
   br i1 %tobool172.not, label %if.then173, label %if.end179
 
 if.then173:                                       ; preds = %if.end169
-  %cmp174 = icmp ult i32 %sub170, 16
+  %cmp174 = icmp samesign ult i32 %sub170, 16
   br i1 %cmp174, label %return, label %if.end177
 
 if.end177:                                        ; preds = %if.then173

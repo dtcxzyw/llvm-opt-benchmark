@@ -4708,7 +4708,7 @@ define internal fastcc i32 @cmd_ioctl_details(ptr noundef %0, ptr nocapture noun
   %19 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %18, ptr noundef %0, i32 noundef %.1403, i32 noundef 32, i32 noundef 0) #4
   %20 = add nuw i32 %.1403, 32
   %21 = add nsw i32 %.0375402, -32
-  %22 = icmp ugt i32 %.0375402, 32
+  %22 = icmp samesign ugt i32 %.0375402, 32
   br i1 %22, label %.lr.ph404, label %.loopexit, !llvm.loop !20
 
 23:                                               ; preds = %5

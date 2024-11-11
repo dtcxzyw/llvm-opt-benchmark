@@ -1846,7 +1846,7 @@ if.end.i198.i.i:                                  ; preds = %if.then.i.i155.i
 array_ensure_allocated.exit.i.i:                  ; preds = %if.end.i198.i.i, %if.then203.i.i
   %conv211.pre-phi.i.i = phi i32 [ %conv200.i.i, %if.then203.i.i ], [ %.pre285.i.i, %if.end.i198.i.i ]
   store i32 %conv211.pre-phi.i.i, ptr %next.i147.i, align 4
-  %cmp.i205.i.i = icmp ult i32 %.lcssa.i.i, %conv211.pre-phi.i.i
+  %cmp.i205.i.i = icmp samesign ult i32 %.lcssa.i.i, %conv211.pre-phi.i.i
   br i1 %cmp.i205.i.i, label %if.end.i207.i.i, label %if.else.i206.i.i
 
 if.else.i206.i.i:                                 ; preds = %array_ensure_allocated.exit.i.i
@@ -3084,7 +3084,7 @@ if.else:                                          ; preds = %if.then31
   %11 = load i32, ptr %sectors_per_fat, align 8
   %add41 = add i32 %11, %10
   %conv42 = zext i32 %add41 to i64
-  %cmp43 = icmp ult i64 %sector_num.addr.064, %conv42
+  %cmp43 = icmp samesign ult i64 %sector_num.addr.064, %conv42
   %mul46 = shl i32 %i.062, 9
   %idx.ext47 = sext i32 %mul46 to i64
   %add.ptr48 = getelementptr i8, ptr %buf, i64 %idx.ext47
@@ -8189,7 +8189,7 @@ while.body34:                                     ; preds = %while.body34.lr.ph,
   %dec220 = phi i32 [ %35, %while.body34.lr.ph ], [ %dec, %while.body34 ]
   tail call fastcc void @remove_mapping(ptr noundef %s, i32 noundef %add35)
   %dec = add nsw i32 %dec220, -1
-  %cmp32 = icmp ugt i32 %dec220, 1
+  %cmp32 = icmp samesign ugt i32 %dec220, 1
   br i1 %cmp32, label %while.body34, label %if.end37, !llvm.loop !54
 
 if.end37:                                         ; preds = %while.body34, %array_index.exit, %for.end30, %for.end

@@ -186,13 +186,13 @@ lor.lhs.false:                                    ; preds = %sw.bb
 
 if.end:                                           ; preds = %lor.lhs.false
   tail call void @DES_set_odd_parity(ptr noundef %ptr) #5
-  %cmp3 = icmp ugt i32 %call, 15
+  %cmp3 = icmp samesign ugt i32 %call, 15
   br i1 %cmp3, label %if.end5, label %return
 
 if.end5:                                          ; preds = %if.end
   %add.ptr = getelementptr inbounds i8, ptr %ptr, i64 8
   tail call void @DES_set_odd_parity(ptr noundef nonnull %add.ptr) #5
-  %cmp6 = icmp ugt i32 %call, 23
+  %cmp6 = icmp samesign ugt i32 %call, 23
   br i1 %cmp6, label %if.then7, label %return
 
 if.then7:                                         ; preds = %if.end5

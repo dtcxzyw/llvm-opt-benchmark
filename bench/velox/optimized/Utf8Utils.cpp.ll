@@ -11,27 +11,27 @@ entry:
   br i1 %cmp.i, label %return, label %if.end.i
 
 if.end.i:                                         ; preds = %entry
-  %cmp2.i = icmp ult i8 %input.val, -64
+  %cmp2.i = icmp samesign ult i8 %input.val, -64
   br i1 %cmp2.i, label %return, label %if.end4.i
 
 if.end4.i:                                        ; preds = %if.end.i
-  %cmp6.i = icmp ult i8 %input.val, -32
+  %cmp6.i = icmp samesign ult i8 %input.val, -32
   br i1 %cmp6.i, label %if.end3, label %if.end8.i
 
 if.end8.i:                                        ; preds = %if.end4.i
-  %cmp10.i = icmp ult i8 %input.val, -16
+  %cmp10.i = icmp samesign ult i8 %input.val, -16
   br i1 %cmp10.i, label %if.end3, label %if.end12.i
 
 if.end12.i:                                       ; preds = %if.end8.i
-  %cmp14.i = icmp ult i8 %input.val, -8
+  %cmp14.i = icmp samesign ult i8 %input.val, -8
   br i1 %cmp14.i, label %if.end3, label %if.end16.i
 
 if.end16.i:                                       ; preds = %if.end12.i
-  %cmp18.i = icmp ult i8 %input.val, -4
+  %cmp18.i = icmp samesign ult i8 %input.val, -4
   br i1 %cmp18.i, label %if.end3, label %if.end20.i
 
 if.end20.i:                                       ; preds = %if.end16.i
-  %cmp22.i = icmp ult i8 %input.val, -2
+  %cmp22.i = icmp samesign ult i8 %input.val, -2
   br i1 %cmp22.i, label %if.end3, label %return
 
 if.end3:                                          ; preds = %if.end20.i, %if.end16.i, %if.end12.i, %if.end8.i, %if.end4.i
@@ -89,7 +89,7 @@ if.end44:                                         ; preds = %if.then29
   br label %return
 
 if.end47:                                         ; preds = %if.end27
-  %cmp48 = icmp ult i64 %size, 4
+  %cmp48 = icmp samesign ult i64 %size, 4
   br i1 %cmp48, label %return, label %if.end50
 
 if.end50:                                         ; preds = %if.end47
@@ -124,7 +124,7 @@ if.end82:                                         ; preds = %if.end79
   br i1 %cmp86, label %if.end88, label %return
 
 if.end88:                                         ; preds = %if.end82
-  %cmp92 = icmp ult i64 %size, 6
+  %cmp92 = icmp samesign ult i64 %size, 6
   %or.cond30 = or i1 %cmp92, %cmp89
   br i1 %or.cond30, label %return, label %if.end94
 

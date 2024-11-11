@@ -224,7 +224,7 @@ define hidden void @inflate_fast(ptr nocapture noundef %0, i32 noundef %1) local
   %137 = shl nuw nsw i64 %135, %136
   %138 = add i64 %137, %.lcssa351
   %139 = add nuw nsw i32 %.lcssa349, 8
-  %140 = icmp ult i32 %139, %130
+  %140 = icmp samesign ult i32 %139, %130
   br i1 %140, label %141, label %149
 
 141:                                              ; preds = %132

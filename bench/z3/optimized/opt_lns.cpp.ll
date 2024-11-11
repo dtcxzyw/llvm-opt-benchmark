@@ -1211,7 +1211,7 @@ while.body.i:                                     ; preds = %while.body.i, %whil
   %44 = load ptr, ptr %arrayidx2.i, align 8
   store ptr %44, ptr %arrayidx.i, align 8
   store ptr %43, ptr %arrayidx2.i, align 8
-  %cmp.i60 = icmp ugt i64 %indvars.iv.i58, 2
+  %cmp.i60 = icmp samesign ugt i64 %indvars.iv.i58, 2
   br i1 %cmp.i60, label %while.body.i, label %_Z7shuffleIP4exprEvjPT_R10random_gen.exit, !llvm.loop !8
 
 _Z7shuffleIP4exprEvjPT_R10random_gen.exit:        ; preds = %while.body.i, %for.end, %_ZNK15ref_vector_coreI4expr19ref_manager_wrapperIS0_11ast_managerEE4sizeEv.exit
@@ -5086,7 +5086,7 @@ _ZN15ref_vector_coreI4expr19ref_manager_wrapperIS0_11ast_managerEEaSEOS4_.exit: 
   store ptr %16, ptr %m_nodes.i.i13, align 8
   store ptr null, ptr %m_nodes5.i, align 8
   %dec.i.i.i.i.i = add nsw i64 %__n.07.i.i.i.i.i, -1
-  %cmp.i.i.i.i.i = icmp ugt i64 %__n.07.i.i.i.i.i, 1
+  %cmp.i.i.i.i.i = icmp samesign ugt i64 %__n.07.i.i.i.i.i, 1
   br i1 %cmp.i.i.i.i.i, label %if.then.i, label %invoke.cont, !llvm.loop !27
 
 invoke.cont:                                      ; preds = %_ZN15ref_vector_coreI4expr19ref_manager_wrapperIS0_11ast_managerEEaSEOS4_.exit, %if.then2

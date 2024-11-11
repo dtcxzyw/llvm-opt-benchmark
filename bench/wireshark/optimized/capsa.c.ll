@@ -361,7 +361,7 @@ define internal fastcc range(i32 -1, 65504) i32 @capsa_read_packet(i16 %.96.val.
   %.053 = zext i16 %.053.in to i32
   %.054 = zext i16 %.054.in to i32
   %48 = add nuw nsw i32 %.051, %.053
-  %49 = icmp ugt i32 %48, %.054
+  %49 = icmp samesign ugt i32 %48, %.054
   br i1 %49, label %50, label %52
 
 50:                                               ; preds = %47

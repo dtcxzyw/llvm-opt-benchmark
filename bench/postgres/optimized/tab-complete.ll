@@ -13226,7 +13226,7 @@ define internal fastcc ptr @_complete_from_query(ptr noundef %0, ptr noundef rea
   %37 = load i8, ptr %.11924.i, align 1
   %38 = getelementptr i8, ptr %.225.i, i64 1
   store i8 %37, ptr %.225.i, align 1
-  %39 = icmp ugt i32 %.026.i, 1
+  %39 = icmp samesign ugt i32 %.026.i, 1
   br i1 %39, label %.lr.ph.i, label %.loopexit.i, !llvm.loop !26
 
 40:                                               ; preds = %29
@@ -14340,7 +14340,7 @@ define internal fastcc void @parse_identifier(ptr noundef %0, ptr nocapture noun
   store i8 %75, ptr %.273, align 1
   %.2 = getelementptr i8, ptr %.273, i64 1
   %76 = add nsw i32 %73, -1
-  %77 = icmp ugt i32 %73, 1
+  %77 = icmp samesign ugt i32 %73, 1
   br i1 %77, label %.lr.ph, label %.loopexit, !llvm.loop !36
 
 .thread:                                          ; preds = %67

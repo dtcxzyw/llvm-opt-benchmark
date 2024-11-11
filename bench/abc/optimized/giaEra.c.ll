@@ -780,7 +780,7 @@ define void @Gia_ManPerformOneIter(ptr nocapture noundef readonly %0) local_unna
   %44 = xor i32 %43, -1
   %45 = getelementptr inbounds i32, ptr %19, i64 %indvars.iv.next.i
   store i32 %44, ptr %45, align 4
-  %46 = icmp ugt i64 %indvars.iv.i, 1
+  %46 = icmp samesign ugt i64 %indvars.iv.i, 1
   br i1 %46, label %.lr.ph.i, label %Gia_ManSimulateNode.exit, !llvm.loop !17
 
 .lr.ph69.i:                                       ; preds = %.lr.ph69.i, %.lr.ph69.preheader.i
@@ -794,7 +794,7 @@ define void @Gia_ManPerformOneIter(ptr nocapture noundef readonly %0) local_unna
   %52 = and i32 %51, %49
   %53 = getelementptr inbounds i32, ptr %19, i64 %indvars.iv.next79.i
   store i32 %52, ptr %53, align 4
-  %54 = icmp ugt i64 %indvars.iv78.i, 1
+  %54 = icmp samesign ugt i64 %indvars.iv78.i, 1
   br i1 %54, label %.lr.ph69.i, label %Gia_ManSimulateNode.exit, !llvm.loop !18
 
 55:                                               ; preds = %15
@@ -825,7 +825,7 @@ define void @Gia_ManPerformOneIter(ptr nocapture noundef readonly %0) local_unna
   %63 = and i32 %59, %62
   %64 = getelementptr inbounds i32, ptr %19, i64 %indvars.iv.next82.i
   store i32 %63, ptr %64, align 4
-  %65 = icmp ugt i64 %indvars.iv81.i, 1
+  %65 = icmp samesign ugt i64 %indvars.iv81.i, 1
   br i1 %65, label %.lr.ph71.i, label %Gia_ManSimulateNode.exit, !llvm.loop !19
 
 .lr.ph73.i:                                       ; preds = %.lr.ph73.i, %.lr.ph73.preheader.i
@@ -838,7 +838,7 @@ define void @Gia_ManPerformOneIter(ptr nocapture noundef readonly %0) local_unna
   %70 = and i32 %69, %67
   %71 = getelementptr inbounds i32, ptr %19, i64 %indvars.iv.next85.i
   store i32 %70, ptr %71, align 4
-  %72 = icmp ugt i64 %indvars.iv84.i, 1
+  %72 = icmp samesign ugt i64 %indvars.iv84.i, 1
   br i1 %72, label %.lr.ph73.i, label %Gia_ManSimulateNode.exit, !llvm.loop !20
 
 73:                                               ; preds = %8
@@ -886,7 +886,7 @@ define void @Gia_ManPerformOneIter(ptr nocapture noundef readonly %0) local_unna
   %91 = xor i32 %90, -1
   %92 = getelementptr inbounds i32, ptr %78, i64 %indvars.iv.next.i23
   store i32 %91, ptr %92, align 4
-  %93 = icmp ugt i64 %indvars.iv.i22, 1
+  %93 = icmp samesign ugt i64 %indvars.iv.i22, 1
   br i1 %93, label %.lr.ph.i21, label %Gia_ManSimulateNode.exit, !llvm.loop !21
 
 .lr.ph31.i:                                       ; preds = %.lr.ph31.i, %.lr.ph31.preheader.i
@@ -896,7 +896,7 @@ define void @Gia_ManPerformOneIter(ptr nocapture noundef readonly %0) local_unna
   %95 = load i32, ptr %94, align 4
   %96 = getelementptr inbounds i32, ptr %78, i64 %indvars.iv.next35.i
   store i32 %95, ptr %96, align 4
-  %97 = icmp ugt i64 %indvars.iv34.i, 1
+  %97 = icmp samesign ugt i64 %indvars.iv34.i, 1
   br i1 %97, label %.lr.ph31.i, label %Gia_ManSimulateNode.exit, !llvm.loop !22
 
 Gia_ManSimulateNode.exit:                         ; preds = %.lr.ph.i21, %.lr.ph31.i, %.lr.ph.i, %.lr.ph69.i, %.lr.ph71.i, %.lr.ph73.i, %.preheader.i24, %.preheader27.i, %.preheader.i, %.preheader61.i, %.preheader63.i, %.preheader65.i, %73

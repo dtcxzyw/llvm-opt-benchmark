@@ -837,7 +837,7 @@ _ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit149: ; preds = %
   %.0.i148 = phi ptr [ %63, %62 ], [ %.1, %59 ]
   store i8 26, ptr %.0.i148, align 1
   %.0120157 = getelementptr inbounds i8, ptr %.0.i148, i64 1
-  %64 = icmp ugt i32 %57, 127
+  %64 = icmp samesign ugt i32 %57, 127
   br i1 %64, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %_ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit149, %.lr.ph

@@ -1742,7 +1742,7 @@ define hidden noundef zeroext i1 @"_ZN4hkdf17Hkdf$LT$H$C$I$GT$17expand_multi_inf
   call void @llvm.experimental.noalias.scope.decl(metadata !528)
   call void @llvm.experimental.noalias.scope.decl(metadata !531)
   %43 = and i64 %storemerge.in.i30, 63
-  %44 = icmp ult i8 %storemerge.i31, 64
+  %44 = icmp samesign ult i8 %storemerge.i31, 64
   call void @llvm.assume(i1 %44)
   %.not = icmp eq i8 %storemerge.i31, 63
   br i1 %.not, label %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$15copy_from_slice17h1a571acdc65b7e18E.exit43.i18", label %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$15copy_from_slice17h1a571acdc65b7e18E.exit.i24"

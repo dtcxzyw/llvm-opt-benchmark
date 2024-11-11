@@ -1679,7 +1679,7 @@ has_bottom_left.exit:                             ; preds = %has_top_right.exit,
   br i1 %345, label %348, label %346
 
 346:                                              ; preds = %340
-  %347 = icmp ult i32 %344, 180
+  %347 = icmp samesign ult i32 %344, 180
   %..i214 = zext i1 %347 to i32
   br label %348
 
@@ -2663,7 +2663,7 @@ build_intra_predictors_high.exit:                 ; preds = %.loopexit.us.i.i.i,
   br i1 %867, label %870, label %868
 
 868:                                              ; preds = %862
-  %869 = icmp ult i32 %866, 180
+  %869 = icmp samesign ult i32 %866, 180
   %..i221 = zext i1 %869 to i32
   br label %870
 
@@ -4104,7 +4104,7 @@ define internal fastcc range(i32 0, 4) i32 @intra_edge_filter_strength(i32 nound
   br label %46
 
 12:                                               ; preds = %9
-  %13 = icmp ult i32 %6, 13
+  %13 = icmp samesign ult i32 %6, 13
   br i1 %13, label %14, label %16
 
 14:                                               ; preds = %12
@@ -4113,7 +4113,7 @@ define internal fastcc range(i32 0, 4) i32 @intra_edge_filter_strength(i32 nound
   br label %46
 
 16:                                               ; preds = %12
-  %17 = icmp ult i32 %6, 17
+  %17 = icmp samesign ult i32 %6, 17
   br i1 %17, label %18, label %20
 
 18:                                               ; preds = %16
@@ -4122,7 +4122,7 @@ define internal fastcc range(i32 0, 4) i32 @intra_edge_filter_strength(i32 nound
   br label %46
 
 20:                                               ; preds = %16
-  %21 = icmp ult i32 %6, 25
+  %21 = icmp samesign ult i32 %6, 25
   br i1 %21, label %22, label %26
 
 22:                                               ; preds = %20
@@ -4135,7 +4135,7 @@ define internal fastcc range(i32 0, 4) i32 @intra_edge_filter_strength(i32 nound
   br label %46
 
 26:                                               ; preds = %20
-  %27 = icmp ult i32 %6, 33
+  %27 = icmp samesign ult i32 %6, 33
   br i1 %27, label %28, label %31
 
 28:                                               ; preds = %26
@@ -4163,7 +4163,7 @@ define internal fastcc range(i32 0, 4) i32 @intra_edge_filter_strength(i32 nound
   br label %46
 
 36:                                               ; preds = %32
-  %37 = icmp ult i32 %6, 17
+  %37 = icmp samesign ult i32 %6, 17
   br i1 %37, label %38, label %41
 
 38:                                               ; preds = %36
@@ -4174,7 +4174,7 @@ define internal fastcc range(i32 0, 4) i32 @intra_edge_filter_strength(i32 nound
   br label %46
 
 41:                                               ; preds = %36
-  %42 = icmp ult i32 %6, 25
+  %42 = icmp samesign ult i32 %6, 25
   br i1 %42, label %43, label %45
 
 43:                                               ; preds = %41

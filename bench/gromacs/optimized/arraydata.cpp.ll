@@ -684,8 +684,8 @@ define void @_ZN3gmx25AbstractAnalysisArrayData13setXAxisValueEif(ptr noundef no
 
 12:                                               ; preds = %8
   %13 = icmp sgt i32 %1, -1
-  %14 = icmp ult i32 %1, %10
-  %or.cond = and i1 %13, %14
+  %14 = icmp samesign ult i32 %1, %10
+  %or.cond = select i1 %13, i1 %14, i1 false
   br i1 %or.cond, label %._ZNSt6vectorIfSaIfEE6resizeEm.exit_crit_edge, label %15
 
 ._ZNSt6vectorIfSaIfEE6resizeEm.exit_crit_edge:    ; preds = %12

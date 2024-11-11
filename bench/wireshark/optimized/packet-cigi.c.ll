@@ -7597,7 +7597,7 @@ define internal fastcc void @cigi4_add_tree(ptr noundef %0, ptr noundef %1, ptr 
   br i1 %83, label %86, label %84
 
 84:                                               ; preds = %82
-  %85 = icmp ugt i16 %11, 4095
+  %85 = icmp samesign ugt i16 %11, 4095
   %hf_cigi4_registered.hf_cigi_unknown = select i1 %85, ptr @hf_cigi4_registered, ptr @hf_cigi_unknown
   br label %86
 
@@ -9804,7 +9804,7 @@ define internal fastcc void @cigi4_add_tree(ptr noundef %0, ptr noundef %1, ptr 
   %1713 = select i1 %.b56.i680, i32 -2147483648, i32 0
   %1714 = tail call ptr @proto_tree_add_item(ptr noundef %90, i32 noundef %1712, ptr noundef %0, i32 noundef %1708, i32 noundef 1, i32 noundef %1713) #2
   %1715 = add i32 %.0363, 16
-  %.not.i681 = icmp ult i32 %1700, 16
+  %.not.i681 = icmp samesign ult i32 %1700, 16
   br i1 %.not.i681, label %cigi4_add_symbol_text_definition.exit, label %.lr.ph.preheader.i682
 
 .lr.ph.preheader.i682:                            ; preds = %1698
@@ -10130,7 +10130,7 @@ define internal fastcc void @cigi4_add_tree(ptr noundef %0, ptr noundef %1, ptr 
   br label %cigi4_add_symbol_text_definition.exit
 
 1921:                                             ; preds = %1917
-  %1922 = icmp ugt i16 %11, 4095
+  %1922 = icmp samesign ugt i16 %11, 4095
   br i1 %1922, label %1923, label %1925
 
 1923:                                             ; preds = %1921
@@ -12017,7 +12017,7 @@ define internal fastcc noundef i32 @cigi3_3_add_symbol_line_definition(ptr nound
   %27 = select i1 %.b42, i32 -2147483648, i32 0
   %28 = tail call ptr @proto_tree_add_item(ptr noundef %1, i32 noundef %26, ptr noundef %0, i32 noundef %25, i32 noundef 4, i32 noundef %27) #2
   %29 = add i32 %2, 14
-  %.not = icmp ult i32 %9, 8
+  %.not = icmp samesign ult i32 %9, 8
   br i1 %.not, label %.loopexit, label %.lr.ph.preheader
 
 .lr.ph.preheader:                                 ; preds = %7

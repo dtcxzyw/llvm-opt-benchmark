@@ -28766,7 +28766,7 @@ _ZN4pkpy17TokenDeserializer11read_stringEc.exit:  ; preds = %.lr.ph.i, %3
   br i1 %30, label %31, label %.thread
 
 31:                                               ; preds = %.lr.ph
-  %32 = icmp ult i8 %29, 58
+  %32 = icmp samesign ult i8 %29, 58
   br i1 %32, label %55, label %33
 
 33:                                               ; preds = %31
@@ -28861,7 +28861,7 @@ _ZN4pkpy17TokenDeserializer11read_stringEc.exit:  ; preds = %.lr.ph.i, %3
   br i1 %61, label %62, label %.thread83
 
 62:                                               ; preds = %55
-  %63 = icmp ult i8 %60, 58
+  %63 = icmp samesign ult i8 %60, 58
   br i1 %63, label %86, label %64
 
 64:                                               ; preds = %62

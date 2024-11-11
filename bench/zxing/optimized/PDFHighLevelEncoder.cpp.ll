@@ -602,7 +602,7 @@ define void @_ZN5ZXing6Pdf41716HighLevelEncoder15EncodeHighLevelERKNSt7__cxx1112
 284:                                              ; preds = %281, %273
   %285 = phi i64 [ %274, %273 ], [ %indvars.iv, %281 ]
   %286 = trunc i64 %285 to i32
-  %287 = icmp ult i32 %286, 13
+  %287 = icmp samesign ult i32 %286, 13
   %288 = add i64 %269, 1
   %indvars.iv.next = add i64 %indvars.iv, -1
   br i1 %287, label %268, label %289, !llvm.loop !27

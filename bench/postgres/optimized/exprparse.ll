@@ -172,7 +172,7 @@ define dso_local range(i32 0, 2) i32 @expr_yyparse(ptr noundef %0) local_unnamed
   br i1 %49, label %.thread346, label %50
 
 50:                                               ; preds = %48
-  %51 = icmp ult i32 %.4, 282
+  %51 = icmp samesign ult i32 %.4, 282
   br i1 %51, label %52, label %57
 
 52:                                               ; preds = %50

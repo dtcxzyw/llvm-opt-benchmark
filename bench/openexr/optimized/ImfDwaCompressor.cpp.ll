@@ -972,7 +972,7 @@ if.else180:                                       ; preds = %invoke.cont173
   br i1 %cmp181, label %if.else222.invoke, label %if.else187
 
 if.else187:                                       ; preds = %if.else180
-  %cmp188 = icmp ult i32 %lastNonZero.118.i, 9
+  %cmp188 = icmp samesign ult i32 %lastNonZero.118.i, 9
   br i1 %cmp188, label %if.else222.invoke, label %if.else194
 
 if.else194:                                       ; preds = %if.else187
@@ -980,7 +980,7 @@ if.else194:                                       ; preds = %if.else187
   br i1 %cmp195, label %if.else222.invoke, label %if.else201
 
 if.else201:                                       ; preds = %if.else194
-  %cmp202 = icmp ult i32 %lastNonZero.118.i, 20
+  %cmp202 = icmp samesign ult i32 %lastNonZero.118.i, 20
   br i1 %cmp202, label %if.else222.invoke, label %if.else208
 
 if.else208:                                       ; preds = %if.else201
@@ -988,7 +988,7 @@ if.else208:                                       ; preds = %if.else201
   br i1 %cmp209, label %if.else222.invoke, label %if.else215
 
 if.else215:                                       ; preds = %if.else208
-  %cmp216 = icmp ult i32 %lastNonZero.118.i, 35
+  %cmp216 = icmp samesign ult i32 %lastNonZero.118.i, 35
   %_ZN7Imf_3_212_GLOBAL__N_115dctInverse8x8_1E._ZN7Imf_3_212_GLOBAL__N_115dctInverse8x8_0E = select i1 %cmp216, ptr @_ZN7Imf_3_212_GLOBAL__N_115dctInverse8x8_1E, ptr @_ZN7Imf_3_212_GLOBAL__N_115dctInverse8x8_0E
   br label %if.else222.invoke
 
@@ -2746,7 +2746,7 @@ for.end90:                                        ; preds = %for.inc88
   %_packedDc = getelementptr inbounds i8, ptr %this, i64 120
   %52 = load ptr, ptr %_packedDc, align 8
   store ptr %52, ptr %currDcComp.sroa.0.0, align 8
-  %cmp97384 = icmp ugt i64 %sub.ptr.div.i95, 1
+  %cmp97384 = icmp samesign ugt i64 %sub.ptr.div.i95, 1
   br i1 %cmp97384, label %for.body98.lver.check, label %for.cond108.preheader
 
 for.body98.lver.check:                            ; preds = %for.end90
@@ -12159,7 +12159,7 @@ if.then61.i:                                      ; preds = %for.end59.i
   %arrayidx63.i = getelementptr inbounds i8, ptr %180, i64 8
   %arrayidx64.i = getelementptr inbounds i8, ptr %181, i64 8
   %sub.i323 = add nsw i32 %182, -8
-  %cmp68101.not.i = icmp ult i32 %sub.i323, 16
+  %cmp68101.not.i = icmp samesign ult i32 %sub.i323, 16
   br i1 %cmp68101.not.i, label %for.end89.i, label %for.body69.preheader.i
 
 for.body69.preheader.i:                           ; preds = %if.then61.i

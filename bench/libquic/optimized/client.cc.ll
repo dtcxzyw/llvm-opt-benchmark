@@ -1064,7 +1064,7 @@ if.then.i.i.i.i.i.i.i.i.i:                        ; preds = %if.then.i.i.i.i.i
   br label %invoke.cont204
 
 if.else.i.i233:                                   ; preds = %if.then.i
-  %cmp.i.i.i234 = icmp ult i64 %sub.i.i, %sub
+  %cmp.i.i.i234 = icmp samesign ult i64 %sub.i.i, %sub
   br i1 %cmp.i.i.i234, label %if.then.i.i.i235, label %_ZNKSt6vectorIhSaIhEE12_M_check_lenEmPKc.exit.i.i
 
 if.then.i.i.i235:                                 ; preds = %if.else.i.i233

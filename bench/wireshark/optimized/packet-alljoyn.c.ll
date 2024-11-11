@@ -960,7 +960,7 @@ ardp_parse_header.exit.thread:                    ; preds = %32
   %40 = zext i8 %38 to i32
   %41 = zext i16 %39 to i32
   %42 = add nuw nsw i32 %41, %40
-  %43 = icmp ult i32 %25, %42
+  %43 = icmp samesign ult i32 %25, %42
   br i1 %43, label %44, label %47
 
 44:                                               ; preds = %37
@@ -1075,7 +1075,7 @@ ardp_parse_header.exit.thread159:                 ; preds = %44
   %switch.selectcmp3.i.i = icmp ne i8 %114, 108
   %115 = and i1 %switch.selectcmp3.i.i, %switch.selectcmp.i.i
   %116 = add nuw nsw i32 %.sroa.0.0.ph, 2
-  %117 = icmp ult i32 %111, %116
+  %117 = icmp samesign ult i32 %111, %116
   %or.cond.i47 = or i1 %117, %115
   br i1 %or.cond.i47, label %.thread189, label %protocol_is_alljoyn_message.exit
 

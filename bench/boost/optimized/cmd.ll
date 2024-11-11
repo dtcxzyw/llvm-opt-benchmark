@@ -548,7 +548,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit79: ; preds = %_ZN
   br label %322
 
 179:                                              ; preds = %136
-  %180 = icmp ult i64 %135, 4096
+  %180 = icmp samesign ult i64 %135, 4096
   %181 = load i64, ptr %11, align 8, !tbaa !8
   br i1 %180, label %182, label %185
 

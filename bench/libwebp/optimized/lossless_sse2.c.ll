@@ -1576,7 +1576,7 @@ define internal void @ConvertBGRAToRGB_SSE2(ptr noundef %0, i32 noundef %1, ptr 
   %183 = getelementptr inbounds i8, ptr %.04382, i64 128
   %184 = getelementptr inbounds i8, ptr %.083, i64 96
   %185 = add nsw i32 %.04481, -32
-  %186 = icmp ugt i32 %.04481, 63
+  %186 = icmp samesign ugt i32 %.04481, 63
   br i1 %186, label %.lr.ph, label %._crit_edge, !llvm.loop !21
 
 ._crit_edge:                                      ; preds = %.lr.ph, %3
@@ -1626,7 +1626,7 @@ define internal void @ConvertBGRAToRGBA_SSE2(ptr noundef %0, i32 noundef %1, ptr
   %24 = getelementptr inbounds i8, ptr %.05758, i64 32
   store <2 x i64> %22, ptr %23, align 1
   %25 = add nsw i32 %.060, -8
-  %26 = icmp ugt i32 %.060, 15
+  %26 = icmp samesign ugt i32 %.060, 15
   br i1 %26, label %.lr.ph, label %._crit_edge, !llvm.loop !22
 
 ._crit_edge:                                      ; preds = %.lr.ph, %3
@@ -1679,7 +1679,7 @@ define internal void @ConvertBGRAToRGBA4444_SSE2(ptr noundef %0, i32 noundef %1,
   %28 = getelementptr inbounds i8, ptr %.0134135, i64 16
   store <16 x i8> %27, ptr %.0134135, align 1
   %29 = add nsw i32 %.0137, -8
-  %30 = icmp ugt i32 %.0137, 15
+  %30 = icmp samesign ugt i32 %.0137, 15
   br i1 %30, label %.lr.ph, label %._crit_edge, !llvm.loop !23
 
 ._crit_edge:                                      ; preds = %.lr.ph, %3
@@ -1741,7 +1741,7 @@ define internal void @ConvertBGRAToRGB565_SSE2(ptr noundef %0, i32 noundef %1, p
   %37 = getelementptr inbounds i8, ptr %.0181182, i64 16
   store <16 x i8> %36, ptr %.0181182, align 1
   %38 = add nsw i32 %.0184, -8
-  %39 = icmp ugt i32 %.0184, 15
+  %39 = icmp samesign ugt i32 %.0184, 15
   br i1 %39, label %.lr.ph, label %._crit_edge, !llvm.loop !24
 
 ._crit_edge:                                      ; preds = %.lr.ph, %3

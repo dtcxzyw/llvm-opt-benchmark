@@ -22768,7 +22768,7 @@ define internal fastcc void @"_ZSt21__inplace_stable_sortIPSt4pairIN4llvm17Branc
   %25 = getelementptr inbounds i8, ptr %.069.i.i.i.i.i.i, i64 -8
   store ptr %24, ptr %25, align 8
   %26 = add nsw i64 %.010.i.i.i.i.i.i, -1
-  %27 = icmp ugt i64 %.010.i.i.i.i.i.i, 1
+  %27 = icmp samesign ugt i64 %.010.i.i.i.i.i.i, 1
   br i1 %27, label %.lr.ph.i.i.i.i.i.i, label %_ZSt13move_backwardIPSt4pairIN4llvm17BranchProbabilityEPNS1_17MachineBasicBlockEES6_ET0_T_S8_S7_.exit.i, !llvm.loop !155
 
 _ZSt13move_backwardIPSt4pairIN4llvm17BranchProbabilityEPNS1_17MachineBasicBlockEES6_ET0_T_S8_S7_.exit.i: ; preds = %.lr.ph.i.i.i.i.i.i, %14
@@ -23168,7 +23168,7 @@ define internal fastcc void @"_ZSt24__merge_sort_with_bufferIPSt4pairIN4llvm17Br
   %26 = getelementptr inbounds i8, ptr %.069.i.i.i.i.i.i.i, i64 -8
   store ptr %25, ptr %26, align 8
   %27 = add nsw i64 %.010.i.i.i.i.i.i.i, -1
-  %28 = icmp ugt i64 %.010.i.i.i.i.i.i.i, 1
+  %28 = icmp samesign ugt i64 %.010.i.i.i.i.i.i.i, 1
   br i1 %28, label %.lr.ph.i.i.i.i.i.i.i, label %_ZSt13move_backwardIPSt4pairIN4llvm17BranchProbabilityEPNS1_17MachineBasicBlockEES6_ET0_T_S8_S7_.exit.i.i, !llvm.loop !155
 
 _ZSt13move_backwardIPSt4pairIN4llvm17BranchProbabilityEPNS1_17MachineBasicBlockEES6_ET0_T_S8_S7_.exit.i.i: ; preds = %.lr.ph.i.i.i.i.i.i.i, %15
@@ -23263,7 +23263,7 @@ _ZSt13move_backwardIPSt4pairIN4llvm17BranchProbabilityEPNS1_17MachineBasicBlockE
   %57 = getelementptr inbounds i8, ptr %.069.i.i.i.i.i.i34.i, i64 -8
   store ptr %56, ptr %57, align 8
   %58 = add nsw i64 %.010.i.i.i.i.i.i33.i, -1
-  %59 = icmp ugt i64 %.010.i.i.i.i.i.i33.i, 1
+  %59 = icmp samesign ugt i64 %.010.i.i.i.i.i.i33.i, 1
   br i1 %59, label %.lr.ph.i.i.i.i.i.i32.i, label %_ZSt13move_backwardIPSt4pairIN4llvm17BranchProbabilityEPNS1_17MachineBasicBlockEES6_ET0_T_S8_S7_.exit.i30.i, !llvm.loop !155
 
 _ZSt13move_backwardIPSt4pairIN4llvm17BranchProbabilityEPNS1_17MachineBasicBlockEES6_ET0_T_S8_S7_.exit.i30.i: ; preds = %.lr.ph.i.i.i.i.i.i32.i, %46
@@ -23353,7 +23353,7 @@ tailrecurse._crit_edge:                           ; preds = %tailrecurse, %7
   %18 = getelementptr inbounds i8, ptr %.0910.i.i.i.i.i, i64 16
   %19 = getelementptr inbounds i8, ptr %.0811.i.i.i.i.i, i64 16
   %20 = add nsw i64 %.012.i.i.i.i.i, -1
-  %21 = icmp ugt i64 %.012.i.i.i.i.i, 1
+  %21 = icmp samesign ugt i64 %.012.i.i.i.i.i, 1
   br i1 %21, label %.lr.ph.i.i.i.i.i, label %_ZSt4moveIPSt4pairIN4llvm17BranchProbabilityEPNS1_17MachineBasicBlockEES6_ET0_T_S8_S7_.exit, !llvm.loop !166
 
 _ZSt4moveIPSt4pairIN4llvm17BranchProbabilityEPNS1_17MachineBasicBlockEES6_ET0_T_S8_S7_.exit: ; preds = %.lr.ph.i.i.i.i.i
@@ -23419,7 +23419,7 @@ _ZSt4moveIPSt4pairIN4llvm17BranchProbabilityEPNS1_17MachineBasicBlockEES6_ET0_T_
   %42 = getelementptr inbounds i8, ptr %.0910.i.i.i.i.i.i, i64 16
   %43 = getelementptr inbounds i8, ptr %.0811.i.i.i.i.i.i, i64 16
   %44 = add nsw i64 %.012.i.i.i.i.i.i, -1
-  %45 = icmp ugt i64 %.012.i.i.i.i.i.i, 1
+  %45 = icmp samesign ugt i64 %.012.i.i.i.i.i.i, 1
   br i1 %45, label %.lr.ph.i.i.i.i.i.i, label %"_ZSt21__move_merge_adaptiveIPSt4pairIN4llvm17BranchProbabilityEPNS1_17MachineBasicBlockEES6_S6_N9__gnu_cxx5__ops15_Iter_comp_iterIZN12_GLOBAL__N_121MachineBlockPlacement19selectBestSuccessorEPKS3_RKNSA_10BlockChainEPKNS1_14SmallSetVectorISD_Lj16EEEE3$_0EEEvT_SN_T0_SO_T1_T2_.exit", !llvm.loop !166
 
 46:                                               ; preds = %.lr.ph, %tailrecurse
@@ -23451,7 +23451,7 @@ _ZSt4moveIPSt4pairIN4llvm17BranchProbabilityEPNS1_17MachineBasicBlockEES6_ET0_T_
   %56 = getelementptr inbounds i8, ptr %.0910.i.i.i.i.i79, i64 16
   %57 = getelementptr inbounds i8, ptr %.0811.i.i.i.i.i78, i64 16
   %58 = add nsw i64 %.012.i.i.i.i.i77, -1
-  %59 = icmp ugt i64 %.012.i.i.i.i.i77, 1
+  %59 = icmp samesign ugt i64 %.012.i.i.i.i.i77, 1
   br i1 %59, label %.lr.ph.i.i.i.i.i76, label %_ZSt4moveIPSt4pairIN4llvm17BranchProbabilityEPNS1_17MachineBasicBlockEES6_ET0_T_S8_S7_.exit80, !llvm.loop !166
 
 _ZSt4moveIPSt4pairIN4llvm17BranchProbabilityEPNS1_17MachineBasicBlockEES6_ET0_T_S8_S7_.exit80: ; preds = %.lr.ph.i.i.i.i.i76, %48
@@ -23480,7 +23480,7 @@ _ZSt4moveIPSt4pairIN4llvm17BranchProbabilityEPNS1_17MachineBasicBlockEES6_ET0_T_
   %72 = getelementptr inbounds i8, ptr %.069.i.i.i.i.i.i, i64 -8
   store ptr %71, ptr %72, align 8
   %73 = add nsw i64 %.010.i.i.i.i.i.i, -1
-  %74 = icmp ugt i64 %.010.i.i.i.i.i.i, 1
+  %74 = icmp samesign ugt i64 %.010.i.i.i.i.i.i, 1
   br i1 %74, label %.lr.ph.i.i.i.i.i.i82, label %"_ZSt21__move_merge_adaptiveIPSt4pairIN4llvm17BranchProbabilityEPNS1_17MachineBasicBlockEES6_S6_N9__gnu_cxx5__ops15_Iter_comp_iterIZN12_GLOBAL__N_121MachineBlockPlacement19selectBestSuccessorEPKS3_RKNSA_10BlockChainEPKNS1_14SmallSetVectorISD_Lj16EEEE3$_0EEEvT_SN_T0_SO_T1_T2_.exit", !llvm.loop !155
 
 75:                                               ; preds = %_ZSt4moveIPSt4pairIN4llvm17BranchProbabilityEPNS1_17MachineBasicBlockEES6_ET0_T_S8_S7_.exit80
@@ -23538,7 +23538,7 @@ _ZSt4moveIPSt4pairIN4llvm17BranchProbabilityEPNS1_17MachineBasicBlockEES6_ET0_T_
   %99 = getelementptr inbounds i8, ptr %.069.i.i.i.i.i37.i, i64 -8
   store ptr %98, ptr %99, align 8
   %100 = add nsw i64 %.010.i.i.i.i.i36.i, -1
-  %101 = icmp ugt i64 %.010.i.i.i.i.i36.i, 1
+  %101 = icmp samesign ugt i64 %.010.i.i.i.i.i36.i, 1
   br i1 %101, label %.lr.ph.i.i.i.i.i35.i, label %"_ZSt21__move_merge_adaptiveIPSt4pairIN4llvm17BranchProbabilityEPNS1_17MachineBasicBlockEES6_S6_N9__gnu_cxx5__ops15_Iter_comp_iterIZN12_GLOBAL__N_121MachineBlockPlacement19selectBestSuccessorEPKS3_RKNSA_10BlockChainEPKNS1_14SmallSetVectorISD_Lj16EEEE3$_0EEEvT_SN_T0_SO_T1_T2_.exit", !llvm.loop !155
 
 102:                                              ; preds = %79
@@ -23723,7 +23723,7 @@ define internal fastcc void @"_ZSt17__merge_sort_loopIPSt4pairIN4llvm17BranchPro
   %33 = getelementptr inbounds i8, ptr %.0910.i.i.i.i.i.i, i64 16
   %34 = getelementptr inbounds i8, ptr %.0811.i.i.i.i.i.i, i64 16
   %35 = add nsw i64 %.012.i.i.i.i.i.i, -1
-  %36 = icmp ugt i64 %.012.i.i.i.i.i.i, 1
+  %36 = icmp samesign ugt i64 %.012.i.i.i.i.i.i, 1
   br i1 %36, label %.lr.ph.i.i.i.i.i.i, label %_ZSt4moveIPSt4pairIN4llvm17BranchProbabilityEPNS1_17MachineBasicBlockEES6_ET0_T_S8_S7_.exit.i, !llvm.loop !166
 
 _ZSt4moveIPSt4pairIN4llvm17BranchProbabilityEPNS1_17MachineBasicBlockEES6_ET0_T_S8_S7_.exit.i: ; preds = %.lr.ph.i.i.i.i.i.i, %._crit_edge.i
@@ -23748,7 +23748,7 @@ _ZSt4moveIPSt4pairIN4llvm17BranchProbabilityEPNS1_17MachineBasicBlockEES6_ET0_T_
   %46 = getelementptr inbounds i8, ptr %.0910.i.i.i.i.i27.i, i64 16
   %47 = getelementptr inbounds i8, ptr %.0811.i.i.i.i.i26.i, i64 16
   %48 = add nsw i64 %.012.i.i.i.i.i25.i, -1
-  %49 = icmp ugt i64 %.012.i.i.i.i.i25.i, 1
+  %49 = icmp samesign ugt i64 %.012.i.i.i.i.i25.i, 1
   br i1 %49, label %.lr.ph.i.i.i.i.i24.i, label %"_ZSt12__move_mergeIPSt4pairIN4llvm17BranchProbabilityEPNS1_17MachineBasicBlockEES6_N9__gnu_cxx5__ops15_Iter_comp_iterIZN12_GLOBAL__N_121MachineBlockPlacement19selectBestSuccessorEPKS3_RKNSA_10BlockChainEPKNS1_14SmallSetVectorISD_Lj16EEEE3$_0EEET0_T_SO_SO_SO_SN_T1_.exit", !llvm.loop !166
 
 "_ZSt12__move_mergeIPSt4pairIN4llvm17BranchProbabilityEPNS1_17MachineBasicBlockEES6_N9__gnu_cxx5__ops15_Iter_comp_iterIZN12_GLOBAL__N_121MachineBlockPlacement19selectBestSuccessorEPKS3_RKNSA_10BlockChainEPKNS1_14SmallSetVectorISD_Lj16EEEE3$_0EEET0_T_SO_SO_SO_SN_T1_.exit": ; preds = %.lr.ph.i.i.i.i.i24.i, %_ZSt4moveIPSt4pairIN4llvm17BranchProbabilityEPNS1_17MachineBasicBlockEES6_ET0_T_S8_S7_.exit.i
@@ -23826,7 +23826,7 @@ _ZSt4moveIPSt4pairIN4llvm17BranchProbabilityEPNS1_17MachineBasicBlockEES6_ET0_T_
   %76 = getelementptr inbounds i8, ptr %.0910.i.i.i.i.i.i37, i64 16
   %77 = getelementptr inbounds i8, ptr %.0811.i.i.i.i.i.i36, i64 16
   %78 = add nsw i64 %.012.i.i.i.i.i.i35, -1
-  %79 = icmp ugt i64 %.012.i.i.i.i.i.i35, 1
+  %79 = icmp samesign ugt i64 %.012.i.i.i.i.i.i35, 1
   br i1 %79, label %.lr.ph.i.i.i.i.i.i34, label %_ZSt4moveIPSt4pairIN4llvm17BranchProbabilityEPNS1_17MachineBasicBlockEES6_ET0_T_S8_S7_.exit.i27, !llvm.loop !166
 
 _ZSt4moveIPSt4pairIN4llvm17BranchProbabilityEPNS1_17MachineBasicBlockEES6_ET0_T_S8_S7_.exit.i27: ; preds = %.lr.ph.i.i.i.i.i.i34, %._crit_edge.i23
@@ -23850,7 +23850,7 @@ _ZSt4moveIPSt4pairIN4llvm17BranchProbabilityEPNS1_17MachineBasicBlockEES6_ET0_T_
   %88 = getelementptr inbounds i8, ptr %.0910.i.i.i.i.i27.i33, i64 16
   %89 = getelementptr inbounds i8, ptr %.0811.i.i.i.i.i26.i32, i64 16
   %90 = add nsw i64 %.012.i.i.i.i.i25.i31, -1
-  %91 = icmp ugt i64 %.012.i.i.i.i.i25.i31, 1
+  %91 = icmp samesign ugt i64 %.012.i.i.i.i.i25.i31, 1
   br i1 %91, label %.lr.ph.i.i.i.i.i24.i30, label %"_ZSt12__move_mergeIPSt4pairIN4llvm17BranchProbabilityEPNS1_17MachineBasicBlockEES6_N9__gnu_cxx5__ops15_Iter_comp_iterIZN12_GLOBAL__N_121MachineBlockPlacement19selectBestSuccessorEPKS3_RKNSA_10BlockChainEPKNS1_14SmallSetVectorISD_Lj16EEEE3$_0EEET0_T_SO_SO_SO_SN_T1_.exit49", !llvm.loop !166
 
 "_ZSt12__move_mergeIPSt4pairIN4llvm17BranchProbabilityEPNS1_17MachineBasicBlockEES6_N9__gnu_cxx5__ops15_Iter_comp_iterIZN12_GLOBAL__N_121MachineBlockPlacement19selectBestSuccessorEPKS3_RKNSA_10BlockChainEPKNS1_14SmallSetVectorISD_Lj16EEEE3$_0EEET0_T_SO_SO_SO_SN_T1_.exit49": ; preds = %.lr.ph.i.i.i.i.i24.i30, %_ZSt4moveIPSt4pairIN4llvm17BranchProbabilityEPNS1_17MachineBasicBlockEES6_ET0_T_S8_S7_.exit.i27
@@ -23889,7 +23889,7 @@ define linkonce_odr noundef ptr @_ZSt17__rotate_adaptiveIPSt4pairIN4llvm17Branch
   %20 = getelementptr inbounds i8, ptr %.0910.i.i.i.i.i, i64 16
   %21 = getelementptr inbounds i8, ptr %.0811.i.i.i.i.i, i64 16
   %22 = add nsw i64 %.012.i.i.i.i.i, -1
-  %23 = icmp ugt i64 %.012.i.i.i.i.i, 1
+  %23 = icmp samesign ugt i64 %.012.i.i.i.i.i, 1
   br i1 %23, label %.lr.ph.i.i.i.i.i, label %_ZSt4moveIPSt4pairIN4llvm17BranchProbabilityEPNS1_17MachineBasicBlockEES6_ET0_T_S8_S7_.exit, !llvm.loop !166
 
 _ZSt4moveIPSt4pairIN4llvm17BranchProbabilityEPNS1_17MachineBasicBlockEES6_ET0_T_S8_S7_.exit: ; preds = %.lr.ph.i.i.i.i.i, %10
@@ -23913,7 +23913,7 @@ _ZSt4moveIPSt4pairIN4llvm17BranchProbabilityEPNS1_17MachineBasicBlockEES6_ET0_T_
   %33 = getelementptr inbounds i8, ptr %.069.i.i.i.i.i, i64 -8
   store ptr %32, ptr %33, align 8
   %34 = add nsw i64 %.010.i.i.i.i.i, -1
-  %35 = icmp ugt i64 %.010.i.i.i.i.i, 1
+  %35 = icmp samesign ugt i64 %.010.i.i.i.i.i, 1
   br i1 %35, label %.lr.ph.i.i.i.i.i36, label %_ZSt13move_backwardIPSt4pairIN4llvm17BranchProbabilityEPNS1_17MachineBasicBlockEES6_ET0_T_S8_S7_.exit, !llvm.loop !155
 
 _ZSt13move_backwardIPSt4pairIN4llvm17BranchProbabilityEPNS1_17MachineBasicBlockEES6_ET0_T_S8_S7_.exit: ; preds = %.lr.ph.i.i.i.i.i36, %_ZSt4moveIPSt4pairIN4llvm17BranchProbabilityEPNS1_17MachineBasicBlockEES6_ET0_T_S8_S7_.exit
@@ -23937,7 +23937,7 @@ _ZSt13move_backwardIPSt4pairIN4llvm17BranchProbabilityEPNS1_17MachineBasicBlockE
   %45 = getelementptr inbounds i8, ptr %.0910.i.i.i.i.i41, i64 16
   %46 = getelementptr inbounds i8, ptr %.0811.i.i.i.i.i40, i64 16
   %47 = add nsw i64 %.012.i.i.i.i.i39, -1
-  %48 = icmp ugt i64 %.012.i.i.i.i.i39, 1
+  %48 = icmp samesign ugt i64 %.012.i.i.i.i.i39, 1
   br i1 %48, label %.lr.ph.i.i.i.i.i38, label %_ZSt4moveIPSt4pairIN4llvm17BranchProbabilityEPNS1_17MachineBasicBlockEES6_ET0_T_S8_S7_.exit42, !llvm.loop !166
 
 49:                                               ; preds = %7
@@ -23969,7 +23969,7 @@ _ZSt13move_backwardIPSt4pairIN4llvm17BranchProbabilityEPNS1_17MachineBasicBlockE
   %61 = getelementptr inbounds i8, ptr %.0910.i.i.i.i.i47, i64 16
   %62 = getelementptr inbounds i8, ptr %.0811.i.i.i.i.i46, i64 16
   %63 = add nsw i64 %.012.i.i.i.i.i45, -1
-  %64 = icmp ugt i64 %.012.i.i.i.i.i45, 1
+  %64 = icmp samesign ugt i64 %.012.i.i.i.i.i45, 1
   br i1 %64, label %.lr.ph.i.i.i.i.i44, label %_ZSt4moveIPSt4pairIN4llvm17BranchProbabilityEPNS1_17MachineBasicBlockEES6_ET0_T_S8_S7_.exit48, !llvm.loop !166
 
 _ZSt4moveIPSt4pairIN4llvm17BranchProbabilityEPNS1_17MachineBasicBlockEES6_ET0_T_S8_S7_.exit48: ; preds = %.lr.ph.i.i.i.i.i44, %51
@@ -23993,7 +23993,7 @@ _ZSt4moveIPSt4pairIN4llvm17BranchProbabilityEPNS1_17MachineBasicBlockEES6_ET0_T_
   %73 = getelementptr inbounds i8, ptr %.0910.i.i.i.i.i53, i64 16
   %74 = getelementptr inbounds i8, ptr %.0811.i.i.i.i.i52, i64 16
   %75 = add nsw i64 %.012.i.i.i.i.i51, -1
-  %76 = icmp ugt i64 %.012.i.i.i.i.i51, 1
+  %76 = icmp samesign ugt i64 %.012.i.i.i.i.i51, 1
   br i1 %76, label %.lr.ph.i.i.i.i.i50, label %_ZSt4moveIPSt4pairIN4llvm17BranchProbabilityEPNS1_17MachineBasicBlockEES6_ET0_T_S8_S7_.exit54, !llvm.loop !166
 
 _ZSt4moveIPSt4pairIN4llvm17BranchProbabilityEPNS1_17MachineBasicBlockEES6_ET0_T_S8_S7_.exit54: ; preds = %.lr.ph.i.i.i.i.i50, %_ZSt4moveIPSt4pairIN4llvm17BranchProbabilityEPNS1_17MachineBasicBlockEES6_ET0_T_S8_S7_.exit48
@@ -24017,7 +24017,7 @@ _ZSt4moveIPSt4pairIN4llvm17BranchProbabilityEPNS1_17MachineBasicBlockEES6_ET0_T_
   %87 = getelementptr inbounds i8, ptr %.069.i.i.i.i.i58, i64 -8
   store ptr %86, ptr %87, align 8
   %88 = add nsw i64 %.010.i.i.i.i.i57, -1
-  %89 = icmp ugt i64 %.010.i.i.i.i.i57, 1
+  %89 = icmp samesign ugt i64 %.010.i.i.i.i.i57, 1
   br i1 %89, label %.lr.ph.i.i.i.i.i56, label %_ZSt4moveIPSt4pairIN4llvm17BranchProbabilityEPNS1_17MachineBasicBlockEES6_ET0_T_S8_S7_.exit42, !llvm.loop !155
 
 90:                                               ; preds = %49

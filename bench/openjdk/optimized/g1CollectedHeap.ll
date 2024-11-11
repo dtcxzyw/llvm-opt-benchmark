@@ -5869,7 +5869,7 @@ define hidden noundef ptr @_ZNK15G1CollectedHeap11block_startEPKv(ptr nocapture 
   %38 = getelementptr inbounds i8, ptr %.014.i.i.i, i64 %.neg.i.i.i
   %.010.i.i.i = load volatile i8, ptr %38, align 1
   %39 = zext i8 %.010.i.i.i to i32
-  %.not.i.i.i = icmp ugt i32 %32, %39
+  %.not.i.i.i = icmp samesign ugt i32 %32, %39
   br i1 %.not.i.i.i, label %_ZNK18G1BlockOffsetTable30block_start_reaching_into_cardEPKv.exit.i.i, label %.lr.ph.i.i.i, !llvm.loop !24
 
 _ZNK18G1BlockOffsetTable30block_start_reaching_into_cardEPKv.exit.i.i: ; preds = %.lr.ph.i.i.i, %21
@@ -22430,7 +22430,7 @@ define linkonce_odr hidden noundef ptr @_ZN20BlockLocationPrinterI15G1CollectedH
   %40 = getelementptr inbounds i8, ptr %.014.i.i.i.i, i64 %.neg.i.i.i.i
   %.010.i.i.i.i = load volatile i8, ptr %40, align 1
   %41 = zext i8 %.010.i.i.i.i to i32
-  %.not.i.i.i.i = icmp ugt i32 %34, %41
+  %.not.i.i.i.i = icmp samesign ugt i32 %34, %41
   br i1 %.not.i.i.i.i, label %_ZNK18G1BlockOffsetTable30block_start_reaching_into_cardEPKv.exit.i.i.i, label %.lr.ph.i.i.i.i, !llvm.loop !24
 
 _ZNK18G1BlockOffsetTable30block_start_reaching_into_cardEPKv.exit.i.i.i: ; preds = %.lr.ph.i.i.i.i, %23

@@ -203,7 +203,7 @@ _ZN9softposit4p8e04P8E016calculate_regime17had5bfa15c986e984E.exit: ; preds = %7
   br i1 %.not, label %83, label %86
 
 81:                                               ; preds = %_ZN9softposit4p8e04P8E017separate_bits_tmp17h7142056595c711ecE.exit196
-  %82 = icmp ult i8 %67, -14
+  %82 = icmp samesign ult i8 %67, -14
   br i1 %82, label %129, label %123
 
 83:                                               ; preds = %80
@@ -213,7 +213,7 @@ _ZN9softposit4p8e04P8E016calculate_regime17had5bfa15c986e984E.exit: ; preds = %7
   br i1 %or.cond8, label %52, label %88
 
 86:                                               ; preds = %80
-  %87 = icmp ugt i8 %67, 14
+  %87 = icmp samesign ugt i8 %67, 14
   br i1 %87, label %103, label %96
 
 88:                                               ; preds = %83
@@ -347,7 +347,7 @@ _ZN9softposit4p8e04P8E016calculate_regime17had5bfa15c986e984E.exit: ; preds = %7
   br i1 %151, label %.loopexit, label %.preheader
 
 .preheader:                                       ; preds = %150
-  %152 = icmp ult i16 %.2146201, 16384
+  %152 = icmp samesign ult i16 %.2146201, 16384
   br i1 %152, label %.lr.ph, label %.loopexit
 
 153:                                              ; preds = %121

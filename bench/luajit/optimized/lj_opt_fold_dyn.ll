@@ -564,7 +564,7 @@ while.cond:                                       ; preds = %while.cond.preheade
   %gep = getelementptr inbounds %union.IRIns, ptr %invariant.gep, i64 %4
   %ref.0.in = load i16, ptr %gep, align 2
   %ref.0 = zext i16 %ref.0.in to i32
-  %cmp = icmp ult i32 %lim, %ref.0
+  %cmp = icmp samesign ult i32 %lim, %ref.0
   br i1 %cmp, label %while.body, label %while.end, !llvm.loop !5
 
 while.body:                                       ; preds = %while.cond

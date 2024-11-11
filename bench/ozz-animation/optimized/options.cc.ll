@@ -2554,7 +2554,7 @@ define dso_local noundef range(i32 0, 3) i32 @_ZN3ozz7options6Parser5ParseEiPKPK
   store ptr %.sink, ptr %20, align 8
   %21 = getelementptr inbounds i8, ptr %2, i64 8
   %22 = add nsw i32 %1, -1
-  %23 = icmp ugt i32 %1, 1
+  %23 = icmp samesign ugt i32 %1, 1
   br i1 %23, label %sub_0.preheader, label %.critedge
 
 sub_0.preheader:                                  ; preds = %19

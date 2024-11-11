@@ -13741,7 +13741,7 @@ _ZNSt3mapIN32pxrInternal_v0_24__pxrReserved__7SdfPathEiSt4lessIS1_ESaISt4pairIKS
   br label %_ZN32pxrInternal_v0_24__pxrReserved__14HdDisplayStyleC2Eibbbbb.exit
 
 39:                                               ; preds = %_ZNSt3mapIN32pxrInternal_v0_24__pxrReserved__7SdfPathEiSt4lessIS1_ESaISt4pairIKS1_iEEE4findERS5_.exit
-  %40 = icmp ugt i32 %32, 8
+  %40 = icmp samesign ugt i32 %32, 8
   br i1 %40, label %41, label %_ZN32pxrInternal_v0_24__pxrReserved__14HdDisplayStyleC2Eibbbbb.exit
 
 41:                                               ; preds = %39
@@ -13785,7 +13785,7 @@ _ZNSt3mapIN32pxrInternal_v0_24__pxrReserved__7SdfPathEiSt4lessIS1_ESaISt4pairIKS
   br label %_ZN32pxrInternal_v0_24__pxrReserved__14HdDisplayStyleC2Eibbbbb.exit4
 
 54:                                               ; preds = %_ZNSt3mapIN32pxrInternal_v0_24__pxrReserved__7SdfPathEiSt4lessIS1_ESaISt4pairIKS1_iEEE4findERS5_.exit.thread
-  %55 = icmp ugt i32 %47, 8
+  %55 = icmp samesign ugt i32 %47, 8
   br i1 %55, label %56, label %_ZN32pxrInternal_v0_24__pxrReserved__14HdDisplayStyleC2Eibbbbb.exit4
 
 56:                                               ; preds = %54
@@ -46014,7 +46014,7 @@ _ZNSt12_Vector_baseIN32pxrInternal_v0_24__pxrReserved__18HdUnitTestDelegate8_Pri
   %69 = getelementptr inbounds i8, ptr %.0910.i.i.i.i.i, i64 80
   %70 = getelementptr inbounds i8, ptr %.0811.i.i.i.i.i, i64 80
   %71 = add nsw i64 %.012.i.i.i.i.i, -1
-  %72 = icmp ugt i64 %.012.i.i.i.i.i, 1
+  %72 = icmp samesign ugt i64 %.012.i.i.i.i.i, 1
   br i1 %72, label %.lr.ph.i.i.i.i.i, label %_ZSt4copyIPKN32pxrInternal_v0_24__pxrReserved__18HdUnitTestDelegate8_PrimvarEPS2_ET0_T_S7_S6_.exit.loopexit, !llvm.loop !359
 
 _ZSt4copyIPKN32pxrInternal_v0_24__pxrReserved__18HdUnitTestDelegate8_PrimvarEPS2_ET0_T_S7_S6_.exit.loopexit: ; preds = %.lr.ph.i.i.i.i.i
@@ -46110,7 +46110,7 @@ _ZSt7advanceIPKN32pxrInternal_v0_24__pxrReserved__18HdUnitTestDelegate8_PrimvarE
   %108 = getelementptr inbounds i8, ptr %.0910.i.i.i.i.i22, i64 80
   %109 = getelementptr inbounds i8, ptr %.0811.i.i.i.i.i21, i64 80
   %110 = add nsw i64 %.012.i.i.i.i.i20, -1
-  %111 = icmp ugt i64 %.012.i.i.i.i.i20, 1
+  %111 = icmp samesign ugt i64 %.012.i.i.i.i.i20, 1
   br i1 %111, label %.lr.ph.i.i.i.i.i19, label %_ZSt4copyIPKN32pxrInternal_v0_24__pxrReserved__18HdUnitTestDelegate8_PrimvarEPS2_ET0_T_S7_S6_.exit23.loopexit, !llvm.loop !359
 
 _ZSt4copyIPKN32pxrInternal_v0_24__pxrReserved__18HdUnitTestDelegate8_PrimvarEPS2_ET0_T_S7_S6_.exit23.loopexit: ; preds = %.lr.ph.i.i.i.i.i19

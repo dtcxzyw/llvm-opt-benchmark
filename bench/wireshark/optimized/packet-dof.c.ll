@@ -3832,7 +3832,7 @@ define internal i32 @addr_port_key_hash_fn(ptr nocapture noundef readonly %0) #0
   %20 = add i32 %15, %19
   %21 = add i8 %.017, 1
   %22 = zext i8 %21 to i32
-  %23 = icmp ugt i32 %13, %22
+  %23 = icmp samesign ugt i32 %13, %22
   br i1 %23, label %.lr.ph, label %._crit_edge, !llvm.loop !15
 
 ._crit_edge:                                      ; preds = %.lr.ph, %1
@@ -6064,7 +6064,7 @@ addresses_equal.exit.i:                           ; preds = %49, %42, %34, %28
   br i1 %or.cond.not, label %96, label %93
 
 93:                                               ; preds = %88
-  %94 = icmp ugt i8 %84, 1
+  %94 = icmp samesign ugt i8 %84, 1
   br i1 %94, label %95, label %.thread
 
 95:                                               ; preds = %93
@@ -7467,7 +7467,7 @@ DOFObjectID_GetIDClass.exit:                      ; preds = %.lr.ph.i.i
   br label %.thread143
 
 29:                                               ; preds = %DOFObjectID_GetIDClass.exit
-  %.not84 = icmp ult i32 %13, 65536
+  %.not84 = icmp samesign ult i32 %13, 65536
   br i1 %.not84, label %46, label %.thread143
 
 .thread143:                                       ; preds = %29, %.thread132
@@ -8577,7 +8577,7 @@ define internal i32 @determine_packet_length_1(ptr noundef %0, ptr nocapture rea
   %narrow = add nuw nsw i8 %14, 2
   %15 = zext nneg i8 %narrow to i32
   %16 = zext nneg i8 %14 to i32
-  %17 = icmp ult i32 %6, %15
+  %17 = icmp samesign ult i32 %6, %15
   br i1 %17, label %26, label %.preheader
 
 .preheader:                                       ; preds = %11
@@ -9822,7 +9822,7 @@ read_c2.exit.i:                                   ; preds = %605, %598
   %607 = load i32, ptr @hf_2008_1_app_version, align 4
   %608 = zext nneg i16 %.0.ph.i.i to i32
   %609 = call ptr @proto_tree_add_uint(ptr noundef %596, i32 noundef %607, ptr noundef %577, i32 noundef 0, i32 noundef %.sink.i.i, i32 noundef %608) #20
-  %610 = icmp ult i16 %.0.ph.i.i, 128
+  %610 = icmp samesign ult i16 %.0.ph.i.i, 128
   %or.cond.i.i = and i1 %.not.i.i, %610
   br i1 %or.cond.i.i, label %611, label %validate_c2.exit.i
 
@@ -10270,7 +10270,7 @@ read_c2.exit:                                     ; preds = %6, %13
   %15 = load i32, ptr @hf_security_10_count, align 4
   %16 = zext nneg i16 %.0.ph.i to i32
   %17 = tail call ptr @proto_tree_add_uint(ptr noundef %2, i32 noundef %15, ptr noundef %0, i32 noundef 0, i32 noundef %.sink.i, i32 noundef %16) #20
-  %18 = icmp ult i16 %.0.ph.i, 128
+  %18 = icmp samesign ult i16 %.0.ph.i, 128
   %or.cond.i = and i1 %.not.i, %18
   br i1 %or.cond.i, label %19, label %validate_c2.exit
 
@@ -10450,7 +10450,7 @@ read_c2.exit:                                     ; preds = %18, %25
   %27 = load i32, ptr @hf_2008_1_app_version, align 4
   %28 = zext nneg i16 %.0.ph.i to i32
   %29 = tail call ptr @proto_tree_add_uint(ptr noundef %16, i32 noundef %27, ptr noundef %0, i32 noundef 0, i32 noundef %.sink.i, i32 noundef %28) #20
-  %30 = icmp ult i16 %.0.ph.i, 128
+  %30 = icmp samesign ult i16 %.0.ph.i, 128
   %or.cond.i = and i1 %.not.i, %30
   br i1 %or.cond.i, label %31, label %validate_c2.exit
 
@@ -10525,7 +10525,7 @@ read_c2.exit70:                                   ; preds = %56, %64
   %67 = sub i32 %.015.ph.i68, %.180
   %68 = zext nneg i16 %.0.ph.i69 to i32
   %69 = tail call ptr @proto_tree_add_uint(ptr noundef %16, i32 noundef %66, ptr noundef %0, i32 noundef %.180, i32 noundef %67, i32 noundef %68) #20
-  %70 = icmp ult i16 %.0.ph.i69, 128
+  %70 = icmp samesign ult i16 %.0.ph.i69, 128
   %or.cond.i71 = and i1 %.not.i66, %70
   br i1 %or.cond.i71, label %71, label %validate_c2.exit72
 
@@ -10647,7 +10647,7 @@ read_c2.exit:                                     ; preds = %12, %19
   %21 = load i32, ptr @hf_2008_1_app_version, align 4
   %22 = zext nneg i16 %.0.ph.i to i32
   %23 = tail call ptr @proto_tree_add_uint(ptr noundef %10, i32 noundef %21, ptr noundef %0, i32 noundef 0, i32 noundef %.sink.i, i32 noundef %22) #20
-  %24 = icmp ult i16 %.0.ph.i, 128
+  %24 = icmp samesign ult i16 %.0.ph.i, 128
   %or.cond.i = and i1 %.not.i, %24
   br i1 %or.cond.i, label %25, label %validate_c2.exit
 
@@ -11742,7 +11742,7 @@ define internal fastcc range(i32 0, 2) i32 @decrypt(ptr nocapture noundef nonnul
   %109 = add i16 %.041.i, 1
   %110 = add i16 %.03840.i, 1
   %111 = zext i16 %109 to i32
-  %112 = icmp ugt i32 %4, %111
+  %112 = icmp samesign ugt i32 %4, %111
   br i1 %112, label %.lr.ph.i, label %.preheader.i, !llvm.loop !57
 
 .lr.ph44.i:                                       ; preds = %.preheader.i, %117
@@ -11766,7 +11766,7 @@ define internal fastcc range(i32 0, 2) i32 @decrypt(ptr nocapture noundef nonnul
   store i8 %124, ptr %122, align 1
   %125 = add i16 %.143.i, 1
   %126 = zext i16 %125 to i32
-  %127 = icmp ugt i32 %76, %126
+  %127 = icmp samesign ugt i32 %76, %126
   br i1 %127, label %.lr.ph44.i, label %generateMac.exit, !llvm.loop !58
 
 generateMac.exit:                                 ; preds = %117, %.preheader.i
@@ -11840,7 +11840,7 @@ read_c2.exit:                                     ; preds = %27, %34
   %36 = load i32, ptr @hf_2008_1_app_version, align 4
   %37 = zext nneg i16 %.0.ph.i to i32
   %38 = tail call ptr @proto_tree_add_uint(ptr noundef %25, i32 noundef %36, ptr noundef %0, i32 noundef 0, i32 noundef %.sink.i, i32 noundef %37) #20
-  %39 = icmp ult i16 %.0.ph.i, 128
+  %39 = icmp samesign ult i16 %.0.ph.i, 128
   %or.cond.i = and i1 %.not.i, %39
   br i1 %or.cond.i, label %40, label %validate_c2.exit
 
@@ -12245,7 +12245,7 @@ read_c2.exit413:                                  ; preds = %223, %231
   %233 = load i32, ptr @hf_oap_1_itemid, align 4
   %234 = zext nneg i16 %.0.ph.i411 to i32
   %235 = call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_uint_format(ptr noundef %25, i32 noundef %233, ptr noundef %0, i32 noundef %.0367, i32 noundef %.sink.i409, i32 noundef %234, ptr noundef nonnull @.str.754, i32 noundef %234) #20
-  %236 = icmp ult i16 %.0.ph.i411, 128
+  %236 = icmp samesign ult i16 %.0.ph.i411, 128
   %or.cond.i414 = and i1 %.not.i408, %236
   br i1 %or.cond.i414, label %237, label %validate_c2.exit415
 
@@ -12433,7 +12433,7 @@ read_c2.exit422:                                  ; preds = %330, %338
   %340 = load i32, ptr @hf_oap_1_itemid, align 4
   %341 = zext nneg i16 %.0.ph.i420 to i32
   %342 = call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_uint_format(ptr noundef %25, i32 noundef %340, ptr noundef %0, i32 noundef %.0367, i32 noundef %.sink.i418, i32 noundef %341, ptr noundef nonnull @.str.754, i32 noundef %341) #20
-  %343 = icmp ult i16 %.0.ph.i420, 128
+  %343 = icmp samesign ult i16 %.0.ph.i420, 128
   %or.cond.i423 = and i1 %.not.i417, %343
   br i1 %or.cond.i423, label %344, label %validate_c2.exit424
 
@@ -12573,7 +12573,7 @@ read_c2.exit:                                     ; preds = %28, %36
   %38 = load i32, ptr @hf_oap_1_cmdcontrol_heuristic, align 4
   %39 = zext nneg i16 %.0.ph.i to i32
   %40 = tail call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_uint_format(ptr noundef %10, i32 noundef %38, ptr noundef %2, i32 noundef %23, i32 noundef %.sink.i, i32 noundef %39, ptr noundef nonnull @.str.757, i32 noundef %39) #20
-  %41 = icmp ult i16 %.0.ph.i, 128
+  %41 = icmp samesign ult i16 %.0.ph.i, 128
   %or.cond.i = and i1 %.not.i, %41
   br i1 %or.cond.i, label %42, label %validate_c2.exit
 
@@ -12646,7 +12646,7 @@ read_c2.exit64:                                   ; preds = %64, %72
   %74 = load i32, ptr @hf_oap_1_cmdcontrol_cache, align 4
   %75 = zext nneg i16 %.0.ph.i63 to i32
   %76 = tail call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_uint_format(ptr noundef %10, i32 noundef %74, ptr noundef %2, i32 noundef %.1, i32 noundef %.sink.i61, i32 noundef %75, ptr noundef nonnull @.str.758, i32 noundef %75) #20
-  %77 = icmp ult i16 %.0.ph.i63, 128
+  %77 = icmp samesign ult i16 %.0.ph.i63, 128
   %or.cond.i65 = and i1 %.not.i60, %77
   br i1 %or.cond.i65, label %78, label %validate_c2.exit66
 
@@ -13019,7 +13019,7 @@ read_c2.exit:                                     ; preds = %20, %27
   %29 = load i32, ptr @hf_2008_1_app_version, align 4
   %30 = zext nneg i16 %.0.ph.i to i32
   %31 = tail call ptr @proto_tree_add_uint(ptr noundef %18, i32 noundef %29, ptr noundef %0, i32 noundef 0, i32 noundef %.sink.i, i32 noundef %30) #20
-  %32 = icmp ult i16 %.0.ph.i, 128
+  %32 = icmp samesign ult i16 %.0.ph.i, 128
   %or.cond.i = and i1 %.not.i, %32
   br i1 %or.cond.i, label %33, label %validate_c2.exit
 
@@ -13098,7 +13098,7 @@ read_c2.exit190:                                  ; preds = %61, %69
   %72 = sub nuw nsw i32 %.015.ph.i188, %50
   %73 = zext nneg i16 %.0.ph.i189 to i32
   %74 = tail call ptr @proto_tree_add_uint(ptr noundef %18, i32 noundef %71, ptr noundef %0, i32 noundef %50, i32 noundef %72, i32 noundef %73) #20
-  %75 = icmp ult i16 %.0.ph.i189, 128
+  %75 = icmp samesign ult i16 %.0.ph.i189, 128
   %or.cond.i191 = and i1 %.not.i186, %75
   br i1 %or.cond.i191, label %76, label %validate_c2.exit192
 
@@ -13311,7 +13311,7 @@ read_c2.exit197:                                  ; preds = %201, %209
   %212 = sub nsw i32 %.015.ph.i195, %198
   %213 = zext nneg i16 %.0.ph.i196 to i32
   %214 = tail call ptr @proto_tree_add_uint(ptr noundef %18, i32 noundef %211, ptr noundef %0, i32 noundef %198, i32 noundef %212, i32 noundef %213) #20
-  %215 = icmp ult i16 %.0.ph.i196, 128
+  %215 = icmp samesign ult i16 %.0.ph.i196, 128
   %or.cond.i198 = and i1 %.not.i193, %215
   br i1 %or.cond.i198, label %216, label %validate_c2.exit199
 
@@ -13367,7 +13367,7 @@ read_c2.exit:                                     ; preds = %5, %12
   %14 = load i32, ptr @hf_security_9_length, align 4
   %15 = zext nneg i16 %.0.ph.i to i32
   %16 = tail call ptr @proto_tree_add_uint(ptr noundef %2, i32 noundef %14, ptr noundef %0, i32 noundef 0, i32 noundef %.sink.i, i32 noundef %15) #20
-  %17 = icmp ult i16 %.0.ph.i, 128
+  %17 = icmp samesign ult i16 %.0.ph.i, 128
   %or.cond.i = and i1 %.not.i, %17
   br i1 %or.cond.i, label %18, label %validate_c2.exit
 
@@ -13494,7 +13494,7 @@ read_c2.exit:                                     ; preds = %6, %13
   %15 = load i32, ptr @hf_security_3_1_credential_type, align 4
   %16 = zext nneg i16 %.0.ph.i to i32
   %17 = tail call ptr @proto_tree_add_uint(ptr noundef %2, i32 noundef %15, ptr noundef %0, i32 noundef 0, i32 noundef %.sink.i, i32 noundef %16) #20
-  %18 = icmp ult i16 %.0.ph.i, 128
+  %18 = icmp samesign ult i16 %.0.ph.i, 128
   %or.cond.i = and i1 %.not.i, %18
   br i1 %or.cond.i, label %19, label %validate_c2.exit
 
@@ -13560,7 +13560,7 @@ read_c2.exit:                                     ; preds = %6, %13
   %15 = load i32, ptr @hf_security_2_count, align 4
   %16 = zext nneg i16 %.0.ph.i to i32
   %17 = tail call ptr @proto_tree_add_uint(ptr noundef %2, i32 noundef %15, ptr noundef %0, i32 noundef 0, i32 noundef %.sink.i, i32 noundef %16) #20
-  %18 = icmp ult i16 %.0.ph.i, 128
+  %18 = icmp samesign ult i16 %.0.ph.i, 128
   %or.cond.i = and i1 %.not.i, %18
   br i1 %or.cond.i, label %19, label %validate_c2.exit
 
@@ -13605,7 +13605,7 @@ read_c2.exit.i:                                   ; preds = %35, %28
   %38 = and i32 %37, 1
   %39 = load i32, ptr @hf_security_1_permission_type, align 4
   %40 = tail call ptr @proto_tree_add_uint(ptr noundef %25, i32 noundef %39, ptr noundef %26, i32 noundef 0, i32 noundef %.sink.i.i, i32 noundef %37) #20
-  %41 = icmp ult i16 %.0.ph.i.i, 128
+  %41 = icmp samesign ult i16 %.0.ph.i.i, 128
   %or.cond.i.i = and i1 %.not.i.i, %41
   br i1 %or.cond.i.i, label %42, label %validate_c2.exit.i
 
@@ -13644,7 +13644,7 @@ read_c2.exit33.i:                                 ; preds = %55, %47
   %58 = sub nuw nsw i32 %.015.ph.i31.i, %.sink.i.i
   %59 = zext nneg i16 %.0.ph.i32.i to i32
   %60 = tail call ptr @proto_tree_add_uint(ptr noundef %25, i32 noundef %57, ptr noundef %26, i32 noundef %.sink.i.i, i32 noundef %58, i32 noundef %59) #20
-  %61 = icmp ult i16 %.0.ph.i32.i, 128
+  %61 = icmp samesign ult i16 %.0.ph.i32.i, 128
   %or.cond.i34.i = and i1 %.not.i29.i, %61
   br i1 %or.cond.i34.i, label %62, label %validate_c2.exit35.i
 
@@ -13725,7 +13725,7 @@ read_c2.exit:                                     ; preds = %25, %32
   %34 = load i32, ptr @hf_2008_1_app_version, align 4
   %35 = zext nneg i16 %.0.ph.i to i32
   %36 = tail call ptr @proto_tree_add_uint(ptr noundef %23, i32 noundef %34, ptr noundef %0, i32 noundef 0, i32 noundef %.sink.i, i32 noundef %35) #20
-  %37 = icmp ult i16 %.0.ph.i, 128
+  %37 = icmp samesign ult i16 %.0.ph.i, 128
   %or.cond.i = and i1 %.not.i, %37
   br i1 %or.cond.i, label %38, label %validate_c2.exit
 
@@ -14827,7 +14827,7 @@ read_c2.exit:                                     ; preds = %6, %13
   %15 = load i32, ptr @hf_security_11_count, align 4
   %16 = zext nneg i16 %.0.ph.i to i32
   %17 = tail call ptr @proto_tree_add_uint(ptr noundef %2, i32 noundef %15, ptr noundef %0, i32 noundef 0, i32 noundef %.sink.i, i32 noundef %16) #20
-  %18 = icmp ult i16 %.0.ph.i, 128
+  %18 = icmp samesign ult i16 %.0.ph.i, 128
   %or.cond.i = and i1 %.not.i, %18
   br i1 %or.cond.i, label %19, label %validate_c2.exit
 
@@ -14999,7 +14999,7 @@ read_c2.exit:                                     ; preds = %18, %25
   %27 = load i32, ptr @hf_2008_1_app_version, align 4
   %28 = zext nneg i16 %.0.ph.i to i32
   %29 = tail call ptr @proto_tree_add_uint(ptr noundef %16, i32 noundef %27, ptr noundef %0, i32 noundef 0, i32 noundef %.sink.i, i32 noundef %28) #20
-  %30 = icmp ult i16 %.0.ph.i, 128
+  %30 = icmp samesign ult i16 %.0.ph.i, 128
   %or.cond.i = and i1 %.not.i, %30
   br i1 %or.cond.i, label %31, label %validate_c2.exit
 
@@ -15824,7 +15824,7 @@ read_c2.exit:                                     ; preds = %6, %13
   %15 = load i32, ptr @hf_security_3_2_credential_type, align 4
   %16 = zext nneg i16 %.0.ph.i to i32
   %17 = tail call ptr @proto_tree_add_uint(ptr noundef %2, i32 noundef %15, ptr noundef %0, i32 noundef 0, i32 noundef %.sink.i, i32 noundef %16) #20
-  %18 = icmp ult i16 %.0.ph.i, 128
+  %18 = icmp samesign ult i16 %.0.ph.i, 128
   %or.cond.i = and i1 %.not.i, %18
   br i1 %or.cond.i, label %19, label %validate_c2.exit
 
@@ -15862,7 +15862,7 @@ read_c2.exit34:                                   ; preds = %26, %34
   %37 = sub nuw nsw i32 %.015.ph.i32, %23
   %38 = zext nneg i16 %.0.ph.i33 to i32
   %39 = tail call ptr @proto_tree_add_uint(ptr noundef %2, i32 noundef %36, ptr noundef %0, i32 noundef %23, i32 noundef %37, i32 noundef %38) #20
-  %40 = icmp ult i16 %.0.ph.i33, 128
+  %40 = icmp samesign ult i16 %.0.ph.i33, 128
   %or.cond.i35 = and i1 %.not.i30, %40
   br i1 %or.cond.i35, label %41, label %validate_c2.exit36
 

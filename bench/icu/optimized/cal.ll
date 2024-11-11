@@ -380,7 +380,7 @@ for.end.i.i:                                      ; preds = %for.body.i.i
   br i1 %cmp.i136.i.i, label %indent.exit.i.i, label %if.end.i.i.i
 
 if.end.i.i.i:                                     ; preds = %for.end.i.i
-  %cmp1.i.i.i = icmp ult i32 %div.i.i, 64
+  %cmp1.i.i.i = icmp samesign ult i32 %div.i.i, 64
   br i1 %cmp1.i.i.i, label %if.then2.i.i.i, label %for.body.i.i.i
 
 if.then2.i.i.i:                                   ; preds = %if.end.i.i.i
@@ -412,7 +412,7 @@ indent.exit.i.i:                                  ; preds = %for.body.i.i.i, %if
   %sub46.i.i = sub nsw i32 7, %call5.i25
   %add62.i.i = add nsw i32 %add.i.i, 1
   %cmp.i195.i.i = icmp slt i32 %add.i.i, 0
-  %cmp1.i197.i.i = icmp ult i32 %add62.i.i, 64
+  %cmp1.i197.i.i = icmp samesign ult i32 %add62.i.i, 64
   %conv.i204.i.i = zext nneg i32 %add62.i.i to i64
   br label %for.body22.i.i
 
@@ -429,7 +429,7 @@ for.body22.i.i:                                   ; preds = %while.end141.i.i, %
   br i1 %cmp.i138.i.i, label %indent.exit149.i.i, label %if.end.i139.i.i
 
 if.end.i139.i.i:                                  ; preds = %for.body22.i.i
-  %cmp1.i140.i.i = icmp ult i32 %div27.i.i, 64
+  %cmp1.i140.i.i = icmp samesign ult i32 %div27.i.i, 64
   br i1 %cmp1.i140.i.i, label %if.then2.i146.i.i, label %for.body.i141.i.i
 
 if.then2.i146.i.i:                                ; preds = %if.end.i139.i.i
@@ -456,7 +456,7 @@ indent.exit149.i.i:                               ; preds = %for.body.i141.i.i, 
   br i1 %cmp.i151.i.i, label %indent.exit162.i.i, label %if.end.i152.i.i
 
 if.end.i152.i.i:                                  ; preds = %indent.exit149.i.i
-  %cmp1.i153.i.i = icmp ult i32 %add31.i.i, 64
+  %cmp1.i153.i.i = icmp samesign ult i32 %add31.i.i, 64
   br i1 %cmp1.i153.i.i, label %if.then2.i159.i.i, label %for.body.i154.i.i
 
 if.then2.i159.i.i:                                ; preds = %if.end.i152.i.i
@@ -486,7 +486,7 @@ indent.exit162.i.i:                               ; preds = %for.body.i154.i.i, 
   br i1 %cmp.i164.i.i, label %indent.exit175.i.i, label %if.end.i165.i.i
 
 if.end.i165.i.i:                                  ; preds = %indent.exit162.i.i
-  %cmp1.i166.i.i = icmp ult i32 %div37.i.i, 64
+  %cmp1.i166.i.i = icmp samesign ult i32 %div37.i.i, 64
   br i1 %cmp1.i166.i.i, label %if.then2.i172.i.i, label %for.body.i167.i.i
 
 if.then2.i172.i.i:                                ; preds = %if.end.i165.i.i
@@ -651,7 +651,7 @@ for.body71.i.i:                                   ; preds = %indent.exit219.i.i,
   br i1 %cmp.i208.i.i, label %indent.exit219.i.i, label %if.end.i209.i.i
 
 if.end.i209.i.i:                                  ; preds = %for.body71.i.i
-  %cmp1.i210.i.i = icmp ult i32 %add74.i.i, 64
+  %cmp1.i210.i.i = icmp samesign ult i32 %add74.i.i, 64
   br i1 %cmp1.i210.i.i, label %if.then2.i216.i.i, label %for.body.i211.i.i
 
 if.then2.i216.i.i:                                ; preds = %if.end.i209.i.i
@@ -686,7 +686,7 @@ if.end78.i.i:                                     ; preds = %indent.exit219.i.i,
   br i1 %cmp.i221.i.i, label %indent.exit232.i.i, label %if.end.i222.i.i
 
 if.end.i222.i.i:                                  ; preds = %if.end78.i.i
-  %cmp1.i223.i.i = icmp ult i32 %sub85.i.i, 64
+  %cmp1.i223.i.i = icmp samesign ult i32 %sub85.i.i, 64
   br i1 %cmp1.i223.i.i, label %if.then2.i229.i.i, label %for.body.i224.i.i
 
 if.then2.i229.i.i:                                ; preds = %if.end.i222.i.i
@@ -735,7 +735,7 @@ for.body99.i.i:                                   ; preds = %indent.exit245.i.i,
   br i1 %cmp.i234.i.i, label %indent.exit245.i.i, label %if.end.i235.i.i
 
 if.end.i235.i.i:                                  ; preds = %for.body99.i.i
-  %cmp1.i236.i.i = icmp ult i32 %add102.i.i, 64
+  %cmp1.i236.i.i = icmp samesign ult i32 %add102.i.i, 64
   br i1 %cmp1.i236.i.i, label %if.then2.i242.i.i, label %for.body.i237.i.i
 
 if.then2.i242.i.i:                                ; preds = %if.end.i235.i.i
@@ -798,7 +798,7 @@ for.body115.i.i:                                  ; preds = %indent.exit262.i.i,
   br i1 %cmp.i251.i.i, label %indent.exit262.i.i, label %if.end.i252.i.i
 
 if.end.i252.i.i:                                  ; preds = %for.body115.i.i
-  %cmp1.i253.i.i = icmp ult i32 %add118.i.i, 64
+  %cmp1.i253.i.i = icmp samesign ult i32 %add118.i.i, 64
   br i1 %cmp1.i253.i.i, label %if.then2.i259.i.i, label %for.body.i254.i.i
 
 if.then2.i259.i.i:                                ; preds = %if.end.i252.i.i
@@ -833,7 +833,7 @@ if.end122.i.i:                                    ; preds = %indent.exit262.i.i,
   br i1 %cmp.i264.i.i, label %indent.exit275.i.i, label %if.end.i265.i.i
 
 if.end.i265.i.i:                                  ; preds = %if.end122.i.i
-  %cmp1.i266.i.i = icmp ult i32 %sub129.i.i, 64
+  %cmp1.i266.i.i = icmp samesign ult i32 %sub129.i.i, 64
   br i1 %cmp1.i266.i.i, label %if.then2.i272.i.i, label %for.body.i267.i.i
 
 if.then2.i272.i.i:                                ; preds = %if.end.i265.i.i
@@ -1002,7 +1002,7 @@ for.end.i38.i:                                    ; preds = %for.body.i32.i
   br i1 %cmp.i45.i.i, label %indent.exit.i49.i, label %if.end.i.i42.i
 
 if.end.i.i42.i:                                   ; preds = %for.end.i38.i
-  %cmp1.i.i43.i = icmp ult i32 %div.i41.i, 64
+  %cmp1.i.i43.i = icmp samesign ult i32 %div.i41.i, 64
   br i1 %cmp1.i.i43.i, label %if.then2.i.i66.i, label %for.body.i.i44.i
 
 if.then2.i.i66.i:                                 ; preds = %if.end.i.i42.i
@@ -1071,7 +1071,7 @@ for.body30.i.i:                                   ; preds = %indent.exit62.i.i, 
   br i1 %cmp.i51.i.i, label %indent.exit62.i.i, label %if.end.i52.i.i
 
 if.end.i52.i.i:                                   ; preds = %for.body30.i.i
-  %cmp1.i53.i.i = icmp ult i32 %add33.i.i, 64
+  %cmp1.i53.i.i = icmp samesign ult i32 %add33.i.i, 64
   br i1 %cmp1.i53.i.i, label %if.then2.i59.i.i, label %for.body.i54.i.i
 
 if.then2.i59.i.i:                                 ; preds = %if.end.i52.i.i
@@ -1112,7 +1112,7 @@ do.body.i.i:                                      ; preds = %if.end52.i.i, %for.
   br i1 %cmp.i64.i.i, label %indent.exit75.i.i, label %if.end.i65.i.i
 
 if.end.i65.i.i:                                   ; preds = %do.body.i.i
-  %cmp1.i66.i.i = icmp ult i32 %sub44.i.i, 64
+  %cmp1.i66.i.i = icmp samesign ult i32 %sub44.i.i, 64
   br i1 %cmp1.i66.i.i, label %if.then2.i72.i.i, label %for.body.i67.i.i
 
 if.then2.i72.i.i:                                 ; preds = %if.end.i65.i.i

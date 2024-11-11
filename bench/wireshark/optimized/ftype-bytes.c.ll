@@ -451,7 +451,7 @@ define internal noundef zeroext i1 @bytes_from_sinteger64(ptr nocapture noundef 
   br label %bytes_from_uinteger64.exit
 
 10:                                               ; preds = %4
-  %11 = icmp ugt i64 %2, 255
+  %11 = icmp samesign ugt i64 %2, 255
   br i1 %11, label %12, label %byte_array_from_charconst.exit.i.i
 
 12:                                               ; preds = %10

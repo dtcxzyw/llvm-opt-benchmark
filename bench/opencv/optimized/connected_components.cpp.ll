@@ -485,7 +485,7 @@ _ZNSt6vectorIN2cv3VecIhLi3EEESaIS2_EEC2EmRKS3_.exit: ; preds = %_ZNSt6vectorIN2c
   store i8 0, ptr %.sroa.246.0..sroa_idx, align 1
   %.sroa.347.0..sroa_idx = getelementptr inbounds i8, ptr %44, i64 2
   store i8 0, ptr %.sroa.347.0..sroa_idx, align 1
-  %45 = icmp ugt i32 %38, 1
+  %45 = icmp samesign ugt i32 %38, 1
   br i1 %45, label %.lr.ph.preheader, label %._crit_edge
 
 .lr.ph.preheader:                                 ; preds = %_ZNSt6vectorIN2cv3VecIhLi3EEESaIS2_EEC2EmRKS3_.exit

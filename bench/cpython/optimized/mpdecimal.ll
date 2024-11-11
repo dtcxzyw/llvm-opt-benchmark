@@ -14391,7 +14391,7 @@ for.body:                                         ; preds = %for.body.lr.ph, %fo
   call void @mpd_setdigits(ptr noundef nonnull %word)
   call void @mpd_qdiv(ptr noundef nonnull %tmp, ptr noundef %result, ptr noundef nonnull %word, ptr noundef nonnull %workctx, ptr noundef nonnull %status54)
   call void @mpd_qfma(ptr noundef nonnull %sum, ptr noundef nonnull %sum, ptr noundef nonnull %tmp, ptr noundef nonnull @one, ptr noundef nonnull %workctx, ptr noundef nonnull %status54)
-  %cmp52 = icmp ugt i64 %j.0142.in, 2
+  %cmp52 = icmp samesign ugt i64 %j.0142.in, 2
   br i1 %cmp52, label %for.body, label %for.end, !llvm.loop !32
 
 for.end:                                          ; preds = %for.body
@@ -28865,7 +28865,7 @@ entry:
   br i1 %cmp, label %if.then, label %if.else37
 
 if.then:                                          ; preds = %entry
-  %cmp1 = icmp ult i64 %exp, 5
+  %cmp1 = icmp samesign ult i64 %exp, 5
   br i1 %cmp1, label %if.then2, label %if.else
 
 if.then2:                                         ; preds = %if.then

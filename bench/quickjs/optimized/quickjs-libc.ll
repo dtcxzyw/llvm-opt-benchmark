@@ -4586,7 +4586,7 @@ free_timer.exit:                                  ; preds = %53, %63, %68
 
 77:                                               ; preds = %.lr.ph179
   %78 = zext nneg i32 %.0103177 to i64
-  %79 = icmp ult i64 %51, %78
+  %79 = icmp samesign ult i64 %51, %78
   %80 = trunc nuw nsw i64 %51 to i32
   %spec.select = select i1 %79, i32 %80, i32 %.0103177
   %81 = getelementptr inbounds i8, ptr %.1106178, i64 8

@@ -97,7 +97,7 @@ lor.lhs.false:                                    ; preds = %if.end19
 
 land.lhs.true27:                                  ; preds = %lor.lhs.false
   %div28 = udiv i64 %max, %retval.0.i.ph
-  %cmp29 = icmp ult i64 %div28, %call4
+  %cmp29 = icmp samesign ult i64 %div28, %call4
   br i1 %cmp29, label %if.then31, label %if.end33
 
 if.then31:                                        ; preds = %land.lhs.true27, %land.lhs.true22

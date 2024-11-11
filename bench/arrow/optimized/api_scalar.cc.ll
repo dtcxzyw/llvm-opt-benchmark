@@ -55132,7 +55132,7 @@ while.body:                                       ; preds = %while.body.lr.ph, %
   %shl = shl i8 %bit_mask.041, 1
   %dec = add nsw i64 %remaining.142, -1
   %cmp8 = icmp ne i8 %shl, 0
-  %cmp9 = icmp ugt i64 %remaining.142, 1
+  %cmp9 = icmp samesign ugt i64 %remaining.142, 1
   %12 = select i1 %cmp8, i1 %cmp9, i1 false
   br i1 %12, label %while.body, label %while.end, !llvm.loop !541
 
@@ -55259,7 +55259,7 @@ while.body64:                                     ; preds = %while.body64.lr.ph,
   %39 = select i1 %tobool.i33.not, i8 0, i8 %bit_mask.152
   %conv71 = or i8 %39, %current_byte.151
   %conv67 = shl i8 %bit_mask.152, 1
-  %cmp63 = icmp ugt i64 %remaining_bits.053, 1
+  %cmp63 = icmp samesign ugt i64 %remaining_bits.053, 1
   br i1 %cmp63, label %while.body64, label %while.end75, !llvm.loop !544
 
 while.end75:                                      ; preds = %while.body64, %while.cond61.preheader
@@ -119421,7 +119421,7 @@ for.body.i.i.i.i.i37:                             ; preds = %for.body.i.i.i.i.i3
   %incdec.ptr.i.i.i.i.i38 = getelementptr inbounds i8, ptr %__first.addr.07.i.i.i.i.i, i64 24
   %incdec.ptr1.i.i.i.i.i39 = getelementptr inbounds i8, ptr %__result.addr.08.i.i.i.i.i, i64 24
   %dec.i.i.i.i.i40 = add nsw i64 %__n.09.i.i.i.i.i, -1
-  %cmp.i.i.i.i.i41 = icmp ugt i64 %__n.09.i.i.i.i.i, 1
+  %cmp.i.i.i.i.i41 = icmp samesign ugt i64 %__n.09.i.i.i.i.i, 1
   br i1 %cmp.i.i.i.i.i41, label %for.body.i.i.i.i.i37, label %if.end109, !llvm.loop !1615
 
 _ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPKN5arrow5DatumESt6vectorIS3_SaIS3_EEEEmEvRT_T0_.exit: ; preds = %if.then9
@@ -119491,7 +119491,7 @@ for.body.i.i.i.i.i71:                             ; preds = %for.body.i.i.i.i.i7
   %incdec.ptr.i.i.i.i.i75 = getelementptr inbounds i8, ptr %__first.addr.07.i.i.i.i.i74, i64 24
   %incdec.ptr1.i.i.i.i.i76 = getelementptr inbounds i8, ptr %__result.addr.08.i.i.i.i.i73, i64 24
   %dec.i.i.i.i.i77 = add nsw i64 %__n.09.i.i.i.i.i72, -1
-  %cmp.i.i.i.i.i78 = icmp ugt i64 %__n.09.i.i.i.i.i72, 1
+  %cmp.i.i.i.i.i78 = icmp samesign ugt i64 %__n.09.i.i.i.i.i72, 1
   br i1 %cmp.i.i.i.i.i78, label %for.body.i.i.i.i.i71, label %if.end109, !llvm.loop !1615
 
 if.else68:                                        ; preds = %if.then

@@ -1694,7 +1694,7 @@ define hidden void @_ZN24DebugInformationRecorder16dump_object_poolEP13GrowableA
   %20 = load ptr, ptr %19, align 8
   %21 = getelementptr inbounds i8, ptr %20, i64 56
   store i8 0, ptr %21, align 8
-  %22 = icmp ugt i64 %indvars.iv, 1
+  %22 = icmp samesign ugt i64 %indvars.iv, 1
   br i1 %22, label %17, label %.split9, !llvm.loop !15
 
 .split:                                           ; preds = %8, %.split9

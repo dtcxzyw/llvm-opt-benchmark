@@ -45,7 +45,7 @@ define hidden void @jCopySamples(ptr nocapture noundef readonly %0, i32 noundef 
   %16 = load ptr, ptr %.01314, align 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %16, ptr align 1 %14, i64 %7, i1 false)
   %17 = add nsw i32 %.016, -1
-  %18 = icmp ugt i32 %.016, 1
+  %18 = icmp samesign ugt i32 %.016, 1
   br i1 %18, label %.lr.ph, label %._crit_edge, !llvm.loop !6
 
 ._crit_edge:                                      ; preds = %.lr.ph, %6

@@ -5242,7 +5242,7 @@ psa_mac_update.exit88.thread119.i.i:              ; preds = %psa_mac_update.exit
   %241 = phi i64 [ 0, %.thread.i.i.i ], [ %237, %._crit_edge.i.i.i ]
   %.not2531.i.i.i = phi i1 [ false, %.thread.i.i.i ], [ true, %._crit_edge.i.i.i ]
   %.029.i.i.i = phi i32 [ %.028.i.i.i, %.thread.i.i.i ], [ 0, %._crit_edge.i.i.i ]
-  %242 = icmp ugt i64 %240, %241
+  %242 = icmp samesign ugt i64 %240, %241
   br i1 %242, label %243, label %246
 
 243:                                              ; preds = %239
@@ -7710,7 +7710,7 @@ switch.lookup:                                    ; preds = %switch.hole_check
 94:                                               ; preds = %92
   %95 = and i32 %1, 32768
   %.not101 = icmp ne i32 %95, 0
-  %96 = icmp ule i32 %88, %85
+  %96 = icmp samesign ule i32 %88, %85
   %spec.select = select i1 %.not101, i1 %96, i1 false
   br label %psa_mac_key_can_do.exit
 
@@ -8037,7 +8037,7 @@ switch.lookup224:                                 ; preds = %switch.hole_check22
   br i1 %.not151, label %121, label %119
 
 119:                                              ; preds = %118
-  %.not155 = icmp ugt i32 %86, %108
+  %.not155 = icmp samesign ugt i32 %86, %108
   %120 = select i1 %.not155, i32 0, i32 %2
   br label %psa_mac_key_can_do.exit
 
@@ -8045,7 +8045,7 @@ switch.lookup224:                                 ; preds = %switch.hole_check22
   br i1 %.not152, label %124, label %122
 
 122:                                              ; preds = %121
-  %.not154 = icmp ugt i32 %108, %86
+  %.not154 = icmp samesign ugt i32 %108, %86
   %123 = select i1 %.not154, i32 0, i32 %1
   br label %psa_mac_key_can_do.exit
 
@@ -8266,7 +8266,7 @@ select.unfold4:                                   ; preds = %22, %17
   %49 = phi i8 [ %34, %.thread10 ], [ %34, %37 ], [ %31, %40 ], [ %34, %.fold.split67 ], [ %34, %.fold.split68 ], [ %34, %.fold.split69 ], [ %34, %.fold.split70 ], [ %34, %.fold.split71 ], [ %34, %.fold.split72 ], [ %34, %.fold.split73 ], [ %34, %.fold.split74 ], [ %34, %.fold.split75 ], [ %34, %.fold.split76 ], [ %34, %.fold.split77 ]
   %50 = phi i32 [ %35, %.thread10 ], [ %35, %37 ], [ %30, %40 ], [ %35, %.fold.split67 ], [ %35, %.fold.split68 ], [ %35, %.fold.split69 ], [ %35, %.fold.split70 ], [ %35, %.fold.split71 ], [ %35, %.fold.split72 ], [ %35, %.fold.split73 ], [ %35, %.fold.split74 ], [ %35, %.fold.split75 ], [ %35, %.fold.split76 ], [ %35, %.fold.split77 ]
   %51 = phi i32 [ 16, %.thread10 ], [ %39, %37 ], [ %47, %40 ], [ 20, %.fold.split67 ], [ 20, %.fold.split68 ], [ 28, %.fold.split69 ], [ 32, %.fold.split70 ], [ 48, %.fold.split71 ], [ 64, %.fold.split72 ], [ 28, %.fold.split73 ], [ 32, %.fold.split74 ], [ 28, %.fold.split75 ], [ 32, %.fold.split76 ], [ 48, %.fold.split77 ]
-  %52 = icmp ugt i32 %50, %51
+  %52 = icmp samesign ugt i32 %50, %51
   br i1 %52, label %psa_mac_key_can_do.exit, label %53
 
 53:                                               ; preds = %48

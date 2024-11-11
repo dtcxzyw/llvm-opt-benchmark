@@ -22253,7 +22253,7 @@ define noalias noundef ptr @Gia_ManRelInitMffc(ptr noundef %0, ptr nocapture nou
   br label %103
 
 103:                                              ; preds = %67, %102, %88, %71
-  %104 = icmp ugt i64 %indvars.iv128, 2
+  %104 = icmp samesign ugt i64 %indvars.iv128, 2
   br i1 %104, label %65, label %.critedge4.loopexit, !llvm.loop !277
 
 .critedge4.loopexit:                              ; preds = %103, %65

@@ -975,7 +975,7 @@ dissect_xra_tlv.exit:                             ; preds = %206, %4
   %324 = zext i8 %323 to i32
   %325 = or disjoint i32 %321, %324
   %326 = add nuw nsw i32 %325, %310
-  %.not31.i.i.i = icmp ugt i32 %326, %305
+  %.not31.i.i.i = icmp samesign ugt i32 %326, %305
   br i1 %.not31.i.i.i, label %335, label %327
 
 327:                                              ; preds = %317

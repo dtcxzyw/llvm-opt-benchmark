@@ -31466,7 +31466,7 @@ _ZN5boost9unit_test9framework4impl12_GLOBAL__N_111s_frk_stateEv.exit15: ; preds 
   br label %57
 
 57:                                               ; preds = %_ZN5boost9unit_test9framework4impl12_GLOBAL__N_111s_frk_stateEv.exit11, %_ZN5boost9unit_test9framework4impl12_GLOBAL__N_111s_frk_stateEv.exit15
-  %58 = icmp ugt i64 %indvars.iv, 1
+  %58 = icmp samesign ugt i64 %indvars.iv, 1
   br i1 %58, label %.lr.ph, label %.loopexit, !llvm.loop !653
 
 59:                                               ; preds = %1
@@ -36084,7 +36084,7 @@ _ZNSt6vectorImSaImEE9push_backERKm.exit:          ; preds = %_ZNSt6vectorImSaImE
   br label %385
 
 385:                                              ; preds = %380, %.lr.ph.i
-  %386 = icmp ugt i64 %.0.in13.i, 2
+  %386 = icmp samesign ugt i64 %.0.in13.i, 2
   br i1 %386, label %.lr.ph.i, label %_ZN5boost9unit_test9framework4impl14random_shuffleIN9__gnu_cxx17__normal_iteratorIPmSt6vectorImSaImEEEEKNS1_5state23random_generator_helperEEEvT_SE_RT0_.exit, !llvm.loop !747
 
 _ZN5boost9unit_test9framework4impl14random_shuffleIN9__gnu_cxx17__normal_iteratorIPmSt6vectorImSaImEEEEKNS1_5state23random_generator_helperEEEvT_SE_RT0_.exit: ; preds = %385, %._crit_edge920
@@ -43857,7 +43857,7 @@ _ZNK5boost10test_tools16assertion_result7messageEv.exit253: ; preds = %_ZN5boost
   %425 = or disjoint i32 %372, 32
   store i32 %425, ptr %6, align 8
   %426 = load ptr, ptr %424, align 8, !tbaa !173
-  %427 = icmp ult i32 %425, 41
+  %427 = icmp samesign ult i32 %425, 41
   br i1 %427, label %435, label %.thread531
 
 .thread531:                                       ; preds = %420, %.thread528
@@ -46331,7 +46331,7 @@ _ZNK5boost10test_tools16assertion_result7messageEv.exit199: ; preds = %275, %278
   %340 = or disjoint i32 %287, 32
   store i32 %340, ptr %6, align 8
   %341 = load ptr, ptr %339, align 8, !tbaa !173
-  %342 = icmp ult i32 %340, 41
+  %342 = icmp samesign ult i32 %340, 41
   br i1 %342, label %350, label %.thread372
 
 .thread372:                                       ; preds = %335, %.thread369
@@ -57424,7 +57424,7 @@ _ZN5boost9unit_test12_GLOBAL__N_110s_log_implEv.exit13: ; preds = %_ZNK5boost9un
 define dso_local void @_ZN5boost9unit_test15unit_test_log_t16exception_caughtERKNS_19execution_exceptionE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull align 8 dereferenceable(64) %1) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %3 = load i32, ptr %1, align 8, !tbaa !201
   %4 = icmp slt i32 %3, 206
-  %5 = icmp ult i32 %3, 216
+  %5 = icmp samesign ult i32 %3, 216
   %6 = select i1 %5, i32 6, i32 7
   %7 = select i1 %4, i32 5, i32 %6
   %8 = load atomic i8, ptr @_ZGVZN5boost9unit_test12_GLOBAL__N_110s_log_implEvE8the_inst acquire, align 8
@@ -165641,7 +165641,7 @@ _ZSt4fillIPjjEvT_S1_RKT0_.exit:                   ; preds = %_ZSt4fillIPjjEvT_S1
   %.neg.i = select i1 %114, i32 -100000000, i32 0
   %116 = add i32 %.neg.i, %113
   store i32 %116, ptr %108, align 4, !tbaa !263
-  %117 = icmp ugt i64 %indvars.iv.i, 1
+  %117 = icmp samesign ugt i64 %indvars.iv.i, 1
   br i1 %117, label %.lr.ph.i, label %_ZN5boost14multiprecision8backends13cpp_dec_floatILj50EivE10eval_add_nEPjPKjS6_i.exit, !llvm.loop !2771
 
 _ZN5boost14multiprecision8backends13cpp_dec_floatILj50EivE10eval_add_nEPjPKjS6_i.exit: ; preds = %.lr.ph.i
@@ -165742,7 +165742,7 @@ _ZSt4copyIPKjPjET0_T_S4_S3_.exit88:               ; preds = %.critedge, %140
   %.lobit.i = lshr i32 %151, 31
   %.0.i97 = select i1 %152, i32 %153, i32 %151
   store i32 %.0.i97, ptr %146, align 4, !tbaa !263
-  %154 = icmp ugt i64 %indvars.iv.i95, 1
+  %154 = icmp samesign ugt i64 %indvars.iv.i95, 1
   br i1 %154, label %.lr.ph.i94, label %.lr.ph.i.i.i111.preheader, !llvm.loop !2773
 
 .thread:                                          ; preds = %127
@@ -165792,7 +165792,7 @@ _ZSt4fillIPjjEvT_S1_RKT0_.exit103:                ; preds = %132, %.lr.ph.i.i.i1
   %.lobit.i108 = lshr i32 %172, 31
   %.0.i109 = select i1 %173, i32 %174, i32 %172
   store i32 %.0.i109, ptr %167, align 4, !tbaa !263
-  %175 = icmp ugt i64 %indvars.iv.i105, 1
+  %175 = icmp samesign ugt i64 %indvars.iv.i105, 1
   br i1 %175, label %.lr.ph.i104, label %_ZN5boost14multiprecision8backends13cpp_dec_floatILj50EivE15eval_subtract_nEPjPKjS6_i.exit110, !llvm.loop !2773
 
 _ZN5boost14multiprecision8backends13cpp_dec_floatILj50EivE15eval_subtract_nEPjPKjS6_i.exit110: ; preds = %.lr.ph.i104
@@ -171503,25 +171503,25 @@ define linkonce_odr hidden void @_ZNK5boost14multiprecision8backends13cpp_dec_fl
   br label %_ZNK5boost14multiprecision8backends13cpp_dec_floatILj50EivE5orderEv.exit
 
 36:                                               ; preds = %30
-  %37 = icmp ugt i32 %.pr.i, 999999
+  %37 = icmp samesign ugt i32 %.pr.i, 999999
   %.2.i = select i1 %37, i32 6, i32 5
   br label %_ZNK5boost14multiprecision8backends13cpp_dec_floatILj50EivE5orderEv.exit
 
 38:                                               ; preds = %26
-  %39 = icmp ugt i32 %.pr.i, 999
+  %39 = icmp samesign ugt i32 %.pr.i, 999
   br i1 %39, label %40, label %42
 
 40:                                               ; preds = %38
-  %41 = icmp ugt i32 %.pr.i, 9999
+  %41 = icmp samesign ugt i32 %.pr.i, 9999
   %.3.i = select i1 %41, i32 4, i32 3
   br label %_ZNK5boost14multiprecision8backends13cpp_dec_floatILj50EivE5orderEv.exit
 
 42:                                               ; preds = %38
-  %43 = icmp ugt i32 %.pr.i, 99
+  %43 = icmp samesign ugt i32 %.pr.i, 99
   br i1 %43, label %_ZNK5boost14multiprecision8backends13cpp_dec_floatILj50EivE5orderEv.exit, label %44
 
 44:                                               ; preds = %42
-  %45 = icmp ugt i32 %.pr.i, 9
+  %45 = icmp samesign ugt i32 %.pr.i, 9
   %spec.select.i = zext i1 %45 to i32
   br label %_ZNK5boost14multiprecision8backends13cpp_dec_floatILj50EivE5orderEv.exit
 
@@ -174769,7 +174769,7 @@ _ZNSt12_Vector_baseIN5boost8geometry5model4ringINS2_5pointIdLm2ENS1_2cs9cartesia
   %47 = getelementptr inbounds nuw i8, ptr %.0910.i.i.i.i.i, i64 24
   %48 = getelementptr inbounds nuw i8, ptr %.0811.i.i.i.i.i, i64 24
   %49 = add nsw i64 %.012.i.i.i.i.i, -1
-  %50 = icmp ugt i64 %.012.i.i.i.i.i, 1
+  %50 = icmp samesign ugt i64 %.012.i.i.i.i.i, 1
   br i1 %50, label %.lr.ph.i.i.i.i.i, label %_ZSt4copyIN9__gnu_cxx17__normal_iteratorIPKN5boost8geometry5model4ringINS4_5pointIdLm2ENS3_2cs9cartesianEEELb1ELb1ESt6vectorSaEESA_ISB_SaISB_EEEENS1_IPSB_SF_EEET0_T_SK_SJ_.exit.loopexit, !llvm.loop !3773
 
 _ZSt4copyIN9__gnu_cxx17__normal_iteratorIPKN5boost8geometry5model4ringINS4_5pointIdLm2ENS3_2cs9cartesianEEELb1ELb1ESt6vectorSaEESA_ISB_SaISB_EEEENS1_IPSB_SF_EEET0_T_SK_SJ_.exit.loopexit: ; preds = %.lr.ph.i.i.i.i.i
@@ -174825,7 +174825,7 @@ _ZSt8_DestroyIN5boost8geometry5model4ringINS2_5pointIdLm2ENS1_2cs9cartesianEEELb
   %66 = getelementptr inbounds nuw i8, ptr %.0910.i.i.i.i.i35, i64 24
   %67 = getelementptr inbounds nuw i8, ptr %.0811.i.i.i.i.i34, i64 24
   %68 = add nsw i64 %.012.i.i.i.i.i33, -1
-  %69 = icmp ugt i64 %.012.i.i.i.i.i33, 1
+  %69 = icmp samesign ugt i64 %.012.i.i.i.i.i33, 1
   br i1 %69, label %.lr.ph.i.i.i.i.i32, label %_ZSt4copyIPN5boost8geometry5model4ringINS2_5pointIdLm2ENS1_2cs9cartesianEEELb1ELb1ESt6vectorSaEESA_ET0_T_SC_SB_.exit.loopexit, !llvm.loop !3775
 
 _ZSt4copyIPN5boost8geometry5model4ringINS2_5pointIdLm2ENS1_2cs9cartesianEEELb1ELb1ESt6vectorSaEESA_ET0_T_SC_SB_.exit.loopexit: ; preds = %.lr.ph.i.i.i.i.i32
@@ -180808,7 +180808,7 @@ _ZSt14__copy_move_a1ILb0EPN5boost8geometry5model5pointIiLm2ENS1_2cs9cartesianEEE
   br i1 %35, label %36, label %42
 
 36:                                               ; preds = %_ZSt14__copy_move_a1ILb0EPN5boost8geometry5model5pointIiLm2ENS1_2cs9cartesianEEES7_ET1_T0_S9_S8_.exit.i
-  %37 = icmp ult i64 %34, 64
+  %37 = icmp samesign ult i64 %34, 64
   br i1 %37, label %38, label %40
 
 38:                                               ; preds = %36
@@ -180902,7 +180902,7 @@ _ZSt14__copy_move_a1ILb0EPN5boost8geometry5model5pointIiLm2ENS1_2cs9cartesianEEE
   br i1 %80, label %81, label %87
 
 81:                                               ; preds = %_ZSt14__copy_move_a1ILb0EPN5boost8geometry5model5pointIiLm2ENS1_2cs9cartesianEEES7_ET1_T0_S9_S8_.exit.i17
-  %82 = icmp ult i64 %79, 64
+  %82 = icmp samesign ult i64 %79, 64
   br i1 %82, label %83, label %85
 
 83:                                               ; preds = %81
@@ -180975,7 +180975,7 @@ _ZSt14__copy_move_a1ILb0EPN5boost8geometry5model5pointIiLm2ENS1_2cs9cartesianEEE
   br i1 %115, label %116, label %122
 
 116:                                              ; preds = %_ZSt14__copy_move_a1ILb0EPN5boost8geometry5model5pointIiLm2ENS1_2cs9cartesianEEES7_ET1_T0_S9_S8_.exit.i34
-  %117 = icmp ult i64 %114, 64
+  %117 = icmp samesign ult i64 %114, 64
   br i1 %117, label %118, label %120
 
 118:                                              ; preds = %116
@@ -181064,7 +181064,7 @@ _ZSt14__copy_move_a1ILb0EPN5boost8geometry5model5pointIiLm2ENS1_2cs9cartesianEEE
   br i1 %158, label %159, label %165
 
 159:                                              ; preds = %_ZSt14__copy_move_a1ILb0EPN5boost8geometry5model5pointIiLm2ENS1_2cs9cartesianEEES7_ET1_T0_S9_S8_.exit.i51
-  %160 = icmp ult i64 %157, 64
+  %160 = icmp samesign ult i64 %157, 64
   br i1 %160, label %161, label %163
 
 161:                                              ; preds = %159
@@ -193252,7 +193252,7 @@ _ZSt14__copy_move_a1ILb0EPN5boost8geometry5model5pointIfLm2ENS1_2cs9cartesianEEE
   br i1 %35, label %36, label %42
 
 36:                                               ; preds = %_ZSt14__copy_move_a1ILb0EPN5boost8geometry5model5pointIfLm2ENS1_2cs9cartesianEEES7_ET1_T0_S9_S8_.exit.i
-  %37 = icmp ult i64 %34, 64
+  %37 = icmp samesign ult i64 %34, 64
   br i1 %37, label %38, label %40
 
 38:                                               ; preds = %36
@@ -193346,7 +193346,7 @@ _ZSt14__copy_move_a1ILb0EPN5boost8geometry5model5pointIfLm2ENS1_2cs9cartesianEEE
   br i1 %80, label %81, label %87
 
 81:                                               ; preds = %_ZSt14__copy_move_a1ILb0EPN5boost8geometry5model5pointIfLm2ENS1_2cs9cartesianEEES7_ET1_T0_S9_S8_.exit.i17
-  %82 = icmp ult i64 %79, 64
+  %82 = icmp samesign ult i64 %79, 64
   br i1 %82, label %83, label %85
 
 83:                                               ; preds = %81
@@ -193419,7 +193419,7 @@ _ZSt14__copy_move_a1ILb0EPN5boost8geometry5model5pointIfLm2ENS1_2cs9cartesianEEE
   br i1 %115, label %116, label %122
 
 116:                                              ; preds = %_ZSt14__copy_move_a1ILb0EPN5boost8geometry5model5pointIfLm2ENS1_2cs9cartesianEEES7_ET1_T0_S9_S8_.exit.i34
-  %117 = icmp ult i64 %114, 64
+  %117 = icmp samesign ult i64 %114, 64
   br i1 %117, label %118, label %120
 
 118:                                              ; preds = %116
@@ -193508,7 +193508,7 @@ _ZSt14__copy_move_a1ILb0EPN5boost8geometry5model5pointIfLm2ENS1_2cs9cartesianEEE
   br i1 %158, label %159, label %165
 
 159:                                              ; preds = %_ZSt14__copy_move_a1ILb0EPN5boost8geometry5model5pointIfLm2ENS1_2cs9cartesianEEES7_ET1_T0_S9_S8_.exit.i51
-  %160 = icmp ult i64 %157, 64
+  %160 = icmp samesign ult i64 %157, 64
   br i1 %160, label %161, label %163
 
 161:                                              ; preds = %159
@@ -204367,7 +204367,7 @@ _ZSt14__copy_move_a1ILb0EPN5boost8geometry5model5pointIdLm2ENS1_2cs9cartesianEEE
   br i1 %35, label %36, label %42
 
 36:                                               ; preds = %_ZSt14__copy_move_a1ILb0EPN5boost8geometry5model5pointIdLm2ENS1_2cs9cartesianEEES7_ET1_T0_S9_S8_.exit.i
-  %37 = icmp ult i64 %34, 32
+  %37 = icmp samesign ult i64 %34, 32
   br i1 %37, label %38, label %40
 
 38:                                               ; preds = %36
@@ -204461,7 +204461,7 @@ _ZSt14__copy_move_a1ILb0EPN5boost8geometry5model5pointIdLm2ENS1_2cs9cartesianEEE
   br i1 %80, label %81, label %87
 
 81:                                               ; preds = %_ZSt14__copy_move_a1ILb0EPN5boost8geometry5model5pointIdLm2ENS1_2cs9cartesianEEES7_ET1_T0_S9_S8_.exit.i17
-  %82 = icmp ult i64 %79, 32
+  %82 = icmp samesign ult i64 %79, 32
   br i1 %82, label %83, label %85
 
 83:                                               ; preds = %81
@@ -204534,7 +204534,7 @@ _ZSt14__copy_move_a1ILb0EPN5boost8geometry5model5pointIdLm2ENS1_2cs9cartesianEEE
   br i1 %115, label %116, label %122
 
 116:                                              ; preds = %_ZSt14__copy_move_a1ILb0EPN5boost8geometry5model5pointIdLm2ENS1_2cs9cartesianEEES7_ET1_T0_S9_S8_.exit.i34
-  %117 = icmp ult i64 %114, 32
+  %117 = icmp samesign ult i64 %114, 32
   br i1 %117, label %118, label %120
 
 118:                                              ; preds = %116
@@ -204623,7 +204623,7 @@ _ZSt14__copy_move_a1ILb0EPN5boost8geometry5model5pointIdLm2ENS1_2cs9cartesianEEE
   br i1 %158, label %159, label %165
 
 159:                                              ; preds = %_ZSt14__copy_move_a1ILb0EPN5boost8geometry5model5pointIdLm2ENS1_2cs9cartesianEEES7_ET1_T0_S9_S8_.exit.i51
-  %160 = icmp ult i64 %157, 32
+  %160 = icmp samesign ult i64 %157, 32
   br i1 %160, label %161, label %163
 
 161:                                              ; preds = %159

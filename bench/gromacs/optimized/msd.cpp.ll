@@ -1131,7 +1131,7 @@ _ZNSt6vectorIiSaIiEE6resizeEm.exit:               ; preds = %78, %80, %82, %84
   %92 = getelementptr inbounds i8, ptr %.sroa.05.07.i.i.i.i.i, i64 4
   %93 = getelementptr inbounds i8, ptr %.09.i.i.i.i.i, i64 4
   %94 = add nsw i64 %.048.i.i.i.i.i, -1
-  %95 = icmp ugt i64 %.048.i.i.i.i.i, 1
+  %95 = icmp samesign ugt i64 %.048.i.i.i.i.i, 1
   br i1 %95, label %.lr.ph.i.i.i.i.i, label %_ZSt4copyIN3gmx12ArrayRefIterIKiEEN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEET0_T_SC_SB_.exit, !llvm.loop !9
 
 _ZSt4copyIN3gmx12ArrayRefIterIKiEEN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEET0_T_SC_SB_.exit: ; preds = %.lr.ph.i.i.i.i.i, %_ZNSt6vectorIiSaIiEE6resizeEm.exit
@@ -1924,7 +1924,7 @@ _ZNSt6vectorIdSaIdEE9push_backEOd.exit56:         ; preds = %_ZNSt6vectorIdSaIdE
   %143 = getelementptr inbounds i8, ptr %.sroa.06.08.i.i.i.i.i.i, i64 12
   %144 = getelementptr inbounds i8, ptr %.010.i.i.i.i.i.i, i64 12
   %145 = add nsw i64 %.049.i.i.i.i.i.i, -1
-  %146 = icmp ugt i64 %.049.i.i.i.i.i.i, 1
+  %146 = icmp samesign ugt i64 %.049.i.i.i.i.i.i, 1
   br i1 %146, label %.lr.ph.i.i.i.i.i.i, label %"_ZSt9transformIN9__gnu_cxx17__normal_iteratorIPN3gmx11BasicVectorIfEESt6vectorIS4_SaIS4_EEEENS2_12ArrayRefIterIKNS2_15analysismodules12_GLOBAL__N_112MoleculeDataEEES9_ZNSC_20MsdCoordinateManager16buildCoordinatesERKNS2_9SelectionEP5t_pbcE3$_0ET1_T_SO_T0_SN_T2_.exit.i", !llvm.loop !26
 
 147:                                              ; preds = %118

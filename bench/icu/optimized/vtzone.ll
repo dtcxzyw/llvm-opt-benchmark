@@ -6941,7 +6941,7 @@ for.body22.i:                                     ; preds = %if.end18.i, %call.i
 
 call.i21.i.noexc:                                 ; preds = %for.body22.i
   call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %srcChar.addr.i20.i)
-  %cmp21.i = icmp ugt i64 %indvars.iv30.i, 1
+  %cmp21.i = icmp samesign ugt i64 %indvars.iv30.i, 1
   br i1 %cmp21.i, label %for.body22.i, label %invoke.cont, !llvm.loop !30
 
 invoke.cont:                                      ; preds = %call.i21.i.noexc, %if.end18.i
@@ -7076,7 +7076,7 @@ if.then16.i:                                      ; preds = %if.end14.i
   br label %if.end22.i
 
 if.else18.i:                                      ; preds = %if.end14.i
-  %cmp19.i = icmp ugt i32 %wallt.0.i, 86399999
+  %cmp19.i = icmp samesign ugt i32 %wallt.0.i, 86399999
   br i1 %cmp19.i, label %if.then20.i, label %if.end22.i
 
 if.then20.i:                                      ; preds = %if.else18.i
@@ -7157,7 +7157,7 @@ if.then61.i:                                      ; preds = %if.end59.i
   br i1 %cmp63.i, label %if.else75.i, label %if.else65.i
 
 if.else65.i:                                      ; preds = %if.then61.i
-  %cmp66.i = icmp ugt i32 %add62.i, 7
+  %cmp66.i = icmp samesign ugt i32 %add62.i, 7
   %spec.store.select.i = select i1 %cmp66.i, i32 1, i32 %add62.i
   br label %if.else75.i
 
@@ -7243,7 +7243,7 @@ if.then13:                                        ; preds = %if.end10
   br label %if.end20
 
 if.else:                                          ; preds = %if.end10
-  %cmp14 = icmp ugt i32 %call11, 86399999
+  %cmp14 = icmp samesign ugt i32 %call11, 86399999
   br i1 %cmp14, label %if.then15, label %if.end20
 
 if.then15:                                        ; preds = %if.else
@@ -7895,7 +7895,7 @@ for.body22.i:                                     ; preds = %for.body22.i.prehea
   store i16 %conv25.i, ptr %srcChar.addr.i20.i, align 2
   %call.i21.i = call noundef nonnull align 8 dereferenceable(64) ptr @_ZN6icu_7513UnicodeString8doAppendEPKDsii(ptr noundef nonnull align 8 dereferenceable(64) %str, ptr noundef nonnull %srcChar.addr.i20.i, i32 noundef 0, i32 noundef 1)
   call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %srcChar.addr.i20.i)
-  %cmp21.i = icmp ugt i64 %indvars.iv30.i, 1
+  %cmp21.i = icmp samesign ugt i64 %indvars.iv30.i, 1
   br i1 %cmp21.i, label %for.body22.i, label %_ZN6icu_75L17appendAsciiDigitsEihRNS_13UnicodeStringE.exit, !llvm.loop !30
 
 _ZN6icu_75L17appendAsciiDigitsEihRNS_13UnicodeStringE.exit: ; preds = %for.body22.i
@@ -7942,7 +7942,7 @@ for.body22.i30:                                   ; preds = %for.body22.i30.preh
   store i16 %conv25.i34, ptr %srcChar.addr.i20.i13, align 2
   %call.i21.i35 = call noundef nonnull align 8 dereferenceable(64) ptr @_ZN6icu_7513UnicodeString8doAppendEPKDsii(ptr noundef nonnull align 8 dereferenceable(64) %str, ptr noundef nonnull %srcChar.addr.i20.i13, i32 noundef 0, i32 noundef 1)
   call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %srcChar.addr.i20.i13)
-  %cmp21.i36 = icmp ugt i64 %indvars.iv30.i31, 1
+  %cmp21.i36 = icmp samesign ugt i64 %indvars.iv30.i31, 1
   br i1 %cmp21.i36, label %for.body22.i30, label %_ZN6icu_75L17appendAsciiDigitsEihRNS_13UnicodeStringE.exit37, !llvm.loop !30
 
 _ZN6icu_75L17appendAsciiDigitsEihRNS_13UnicodeStringE.exit37: ; preds = %for.body22.i30
@@ -7988,7 +7988,7 @@ for.body22.i55:                                   ; preds = %for.body22.i55.preh
   store i16 %conv25.i59, ptr %srcChar.addr.i20.i38, align 2
   %call.i21.i60 = call noundef nonnull align 8 dereferenceable(64) ptr @_ZN6icu_7513UnicodeString8doAppendEPKDsii(ptr noundef nonnull align 8 dereferenceable(64) %str, ptr noundef nonnull %srcChar.addr.i20.i38, i32 noundef 0, i32 noundef 1)
   call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %srcChar.addr.i20.i38)
-  %cmp21.i61 = icmp ugt i64 %indvars.iv30.i56, 1
+  %cmp21.i61 = icmp samesign ugt i64 %indvars.iv30.i56, 1
   br i1 %cmp21.i61, label %for.body22.i55, label %_ZN6icu_75L17appendAsciiDigitsEihRNS_13UnicodeStringE.exit62, !llvm.loop !30
 
 _ZN6icu_75L17appendAsciiDigitsEihRNS_13UnicodeStringE.exit62: ; preds = %for.body22.i55
@@ -8043,7 +8043,7 @@ for.body22.i80:                                   ; preds = %for.body22.i80.preh
   store i16 %conv25.i84, ptr %srcChar.addr.i20.i63, align 2
   %call.i21.i85 = call noundef nonnull align 8 dereferenceable(64) ptr @_ZN6icu_7513UnicodeString8doAppendEPKDsii(ptr noundef nonnull align 8 dereferenceable(64) %str, ptr noundef nonnull %srcChar.addr.i20.i63, i32 noundef 0, i32 noundef 1)
   call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %srcChar.addr.i20.i63)
-  %cmp21.i86 = icmp ugt i64 %indvars.iv30.i81, 1
+  %cmp21.i86 = icmp samesign ugt i64 %indvars.iv30.i81, 1
   br i1 %cmp21.i86, label %for.body22.i80, label %_ZN6icu_75L17appendAsciiDigitsEihRNS_13UnicodeStringE.exit87, !llvm.loop !30
 
 _ZN6icu_75L17appendAsciiDigitsEihRNS_13UnicodeStringE.exit87: ; preds = %for.body22.i80
@@ -8088,7 +8088,7 @@ for.body22.i105:                                  ; preds = %for.body22.i105.pre
   store i16 %conv25.i109, ptr %srcChar.addr.i20.i88, align 2
   %call.i21.i110 = call noundef nonnull align 8 dereferenceable(64) ptr @_ZN6icu_7513UnicodeString8doAppendEPKDsii(ptr noundef nonnull align 8 dereferenceable(64) %str, ptr noundef nonnull %srcChar.addr.i20.i88, i32 noundef 0, i32 noundef 1)
   call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %srcChar.addr.i20.i88)
-  %cmp21.i111 = icmp ugt i64 %indvars.iv30.i106, 1
+  %cmp21.i111 = icmp samesign ugt i64 %indvars.iv30.i106, 1
   br i1 %cmp21.i111, label %for.body22.i105, label %_ZN6icu_75L17appendAsciiDigitsEihRNS_13UnicodeStringE.exit112, !llvm.loop !30
 
 _ZN6icu_75L17appendAsciiDigitsEihRNS_13UnicodeStringE.exit112: ; preds = %for.body22.i105
@@ -8133,7 +8133,7 @@ for.body22.i130:                                  ; preds = %for.body22.i130.pre
   store i16 %conv25.i134, ptr %srcChar.addr.i20.i113, align 2
   %call.i21.i135 = call noundef nonnull align 8 dereferenceable(64) ptr @_ZN6icu_7513UnicodeString8doAppendEPKDsii(ptr noundef nonnull align 8 dereferenceable(64) %str, ptr noundef nonnull %srcChar.addr.i20.i113, i32 noundef 0, i32 noundef 1)
   call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %srcChar.addr.i20.i113)
-  %cmp21.i136 = icmp ugt i64 %indvars.iv30.i131, 1
+  %cmp21.i136 = icmp samesign ugt i64 %indvars.iv30.i131, 1
   br i1 %cmp21.i136, label %for.body22.i130, label %_ZN6icu_75L17appendAsciiDigitsEihRNS_13UnicodeStringE.exit137, !llvm.loop !30
 
 _ZN6icu_75L17appendAsciiDigitsEihRNS_13UnicodeStringE.exit137: ; preds = %for.body22.i130
@@ -8319,7 +8319,7 @@ for.body22.i:                                     ; preds = %if.end18.i, %call.i
 
 call.i21.i.noexc:                                 ; preds = %for.body22.i
   call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %srcChar.addr.i20.i)
-  %cmp21.i = icmp ugt i64 %indvars.iv30.i, 1
+  %cmp21.i = icmp samesign ugt i64 %indvars.iv30.i, 1
   br i1 %cmp21.i, label %for.body22.i, label %invoke.cont, !llvm.loop !30
 
 invoke.cont:                                      ; preds = %call.i21.i.noexc, %if.end18.i
@@ -8542,7 +8542,7 @@ for.body22.i:                                     ; preds = %if.end18.i, %call.i
 
 call.i21.i.noexc:                                 ; preds = %for.body22.i
   call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %srcChar.addr.i20.i)
-  %cmp21.i = icmp ugt i64 %indvars.iv30.i, 1
+  %cmp21.i = icmp samesign ugt i64 %indvars.iv30.i, 1
   br i1 %cmp21.i, label %for.body22.i, label %invoke.cont9, !llvm.loop !30
 
 invoke.cont9:                                     ; preds = %call.i21.i.noexc, %if.end18.i
@@ -8893,7 +8893,7 @@ for.body22.i:                                     ; preds = %if.end18.i, %call.i
 
 call.i21.i.noexc:                                 ; preds = %for.body22.i
   call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %srcChar.addr.i20.i)
-  %cmp21.i = icmp ugt i64 %indvars.iv30.i, 1
+  %cmp21.i = icmp samesign ugt i64 %indvars.iv30.i, 1
   br i1 %cmp21.i, label %for.body22.i, label %invoke.cont, !llvm.loop !30
 
 invoke.cont:                                      ; preds = %call.i21.i.noexc, %if.end18.i
@@ -8978,7 +8978,7 @@ for.body22.i65:                                   ; preds = %if.end18.i62, %call
 
 call.i21.i.noexc72:                               ; preds = %for.body22.i65
   call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %srcChar.addr.i20.i45)
-  %cmp21.i70 = icmp ugt i64 %indvars.iv30.i66, 1
+  %cmp21.i70 = icmp samesign ugt i64 %indvars.iv30.i66, 1
   br i1 %cmp21.i70, label %for.body22.i65, label %invoke.cont20, !llvm.loop !30
 
 invoke.cont20:                                    ; preds = %call.i21.i.noexc72, %if.end18.i62
@@ -9202,7 +9202,7 @@ for.body22.i:                                     ; preds = %for.body22.i.prehea
   store i16 %conv25.i, ptr %srcChar.addr.i20.i, align 2
   %call.i21.i = call noundef nonnull align 8 dereferenceable(64) ptr @_ZN6icu_7513UnicodeString8doAppendEPKDsii(ptr noundef nonnull align 8 dereferenceable(64) %str, ptr noundef nonnull %srcChar.addr.i20.i, i32 noundef 0, i32 noundef 1)
   call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %srcChar.addr.i20.i)
-  %cmp21.i = icmp ugt i64 %indvars.iv30.i, 1
+  %cmp21.i = icmp samesign ugt i64 %indvars.iv30.i, 1
   br i1 %cmp21.i, label %for.body22.i, label %_ZN6icu_75L17appendAsciiDigitsEihRNS_13UnicodeStringE.exit, !llvm.loop !30
 
 _ZN6icu_75L17appendAsciiDigitsEihRNS_13UnicodeStringE.exit: ; preds = %for.body22.i
@@ -9233,7 +9233,7 @@ for.body22.i26:                                   ; preds = %for.body.i17, %for.
   store i16 %conv25.i30, ptr %srcChar.addr.i20.i14, align 2
   %call.i21.i31 = call noundef nonnull align 8 dereferenceable(64) ptr @_ZN6icu_7513UnicodeString8doAppendEPKDsii(ptr noundef nonnull align 8 dereferenceable(64) %str, ptr noundef nonnull %srcChar.addr.i20.i14, i32 noundef 0, i32 noundef 1)
   call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %srcChar.addr.i20.i14)
-  %cmp21.i32 = icmp ugt i64 %indvars.iv30.i27, 1
+  %cmp21.i32 = icmp samesign ugt i64 %indvars.iv30.i27, 1
   br i1 %cmp21.i32, label %for.body22.i26, label %_ZN6icu_75L17appendAsciiDigitsEihRNS_13UnicodeStringE.exit33, !llvm.loop !30
 
 _ZN6icu_75L17appendAsciiDigitsEihRNS_13UnicodeStringE.exit33: ; preds = %for.body22.i26
@@ -9263,7 +9263,7 @@ for.body22.i46:                                   ; preds = %for.body.i37, %for.
   store i16 %conv25.i50, ptr %srcChar.addr.i20.i34, align 2
   %call.i21.i51 = call noundef nonnull align 8 dereferenceable(64) ptr @_ZN6icu_7513UnicodeString8doAppendEPKDsii(ptr noundef nonnull align 8 dereferenceable(64) %str, ptr noundef nonnull %srcChar.addr.i20.i34, i32 noundef 0, i32 noundef 1)
   call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %srcChar.addr.i20.i34)
-  %cmp21.i52 = icmp ugt i64 %indvars.iv30.i47, 1
+  %cmp21.i52 = icmp samesign ugt i64 %indvars.iv30.i47, 1
   br i1 %cmp21.i52, label %for.body22.i46, label %_ZN6icu_75L17appendAsciiDigitsEihRNS_13UnicodeStringE.exit53, !llvm.loop !30
 
 _ZN6icu_75L17appendAsciiDigitsEihRNS_13UnicodeStringE.exit53: ; preds = %for.body22.i46
@@ -9731,7 +9731,7 @@ lpad84:                                           ; preds = %if.else81
   br label %ehcleanup
 
 if.end96:                                         ; preds = %invoke.cont90
-  %cmp97 = icmp ugt i32 %cond.i174, 2
+  %cmp97 = icmp samesign ugt i32 %cond.i174, 2
   br i1 %cmp97, label %invoke.cont99, label %for.body.preheader
 
 invoke.cont99:                                    ; preds = %if.end96

@@ -1552,7 +1552,7 @@ if.then48:                                        ; preds = %if.else46
   br label %cleanup.sink.split
 
 if.else53:                                        ; preds = %if.else46
-  %cmp54 = icmp ult i32 %prop.0, 4096
+  %cmp54 = icmp samesign ult i32 %prop.0, 4096
   br i1 %cmp54, label %if.then55, label %if.else60
 
 if.then55:                                        ; preds = %if.else53
@@ -1564,7 +1564,7 @@ if.then55:                                        ; preds = %if.else53
   br label %cleanup.sink.split
 
 if.else60:                                        ; preds = %if.else53
-  %cmp61 = icmp ult i32 %prop.0, 4121
+  %cmp61 = icmp samesign ult i32 %prop.0, 4121
   br i1 %cmp61, label %if.then62, label %if.else92
 
 if.then62:                                        ; preds = %if.else60

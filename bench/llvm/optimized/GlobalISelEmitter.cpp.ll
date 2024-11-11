@@ -33369,7 +33369,7 @@ define internal fastcc void @"_ZSt16__insertion_sortIN9__gnu_cxx17__normal_itera
   %23 = getelementptr inbounds i8, ptr %.069.i.i.i.i.i, i64 -448
   %24 = call noundef nonnull align 8 dereferenceable(448) ptr @_ZN4llvm2gi11RuleMatcheraSEOS1_(ptr noundef nonnull align 8 dereferenceable(448) %23, ptr noundef nonnull align 8 dereferenceable(448) %22)
   %25 = add nsw i64 %.010.i.i.i.i.i, -1
-  %26 = icmp ugt i64 %.010.i.i.i.i.i, 1
+  %26 = icmp samesign ugt i64 %.010.i.i.i.i.i, 1
   br i1 %26, label %.lr.ph.i.i.i.i.i, label %_ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPN4llvm2gi11RuleMatcherESt6vectorIS4_SaIS4_EEEES9_ET0_T_SB_SA_.exit, !llvm.loop !1843
 
 _ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPN4llvm2gi11RuleMatcherESt6vectorIS4_SaIS4_EEEES9_ET0_T_SB_SA_.exit: ; preds = %.lr.ph.i.i.i.i.i, %16
@@ -35164,7 +35164,7 @@ _ZN4llvm12DenseMapBaseINS_8DenseMapImiNS_12DenseMapInfoImvEENS_6detail12DenseMap
   %517 = getelementptr inbounds i8, ptr %.0910.i.i.i.i.i.i, i64 448
   %518 = getelementptr inbounds i8, ptr %.0811.i.i.i.i.i.i, i64 448
   %519 = add nsw i64 %.012.i.i.i.i.i.i, -1
-  %520 = icmp ugt i64 %.012.i.i.i.i.i.i, 1
+  %520 = icmp samesign ugt i64 %.012.i.i.i.i.i.i, 1
   br i1 %520, label %.lr.ph.i.i.i.i.i.i, label %_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPN4llvm2gi11RuleMatcherESt6vectorIS4_SaIS4_EEEES5_ET0_T_SB_SA_.exit.i, !llvm.loop !1854
 
 _ZSt4moveIN9__gnu_cxx17__normal_iteratorIPN4llvm2gi11RuleMatcherESt6vectorIS4_SaIS4_EEEES5_ET0_T_SB_SA_.exit.i: ; preds = %.lr.ph.i.i.i.i.i.i, %.critedge.i
@@ -35187,7 +35187,7 @@ _ZSt4moveIN9__gnu_cxx17__normal_iteratorIPN4llvm2gi11RuleMatcherESt6vectorIS4_Sa
   %527 = getelementptr inbounds i8, ptr %.0910.i.i.i.i.i14.i, i64 448
   %528 = getelementptr inbounds i8, ptr %.0811.i.i.i.i.i13.i, i64 448
   %529 = add nsw i64 %.012.i.i.i.i.i12.i, -1
-  %530 = icmp ugt i64 %.012.i.i.i.i.i12.i, 1
+  %530 = icmp samesign ugt i64 %.012.i.i.i.i.i12.i, 1
   br i1 %530, label %.lr.ph.i.i.i.i.i11.i, label %"_ZSt12__move_mergeIN9__gnu_cxx17__normal_iteratorIPN4llvm2gi11RuleMatcherESt6vectorIS4_SaIS4_EEEES5_NS0_5__ops15_Iter_comp_iterIZN12_GLOBAL__N_117GlobalISelEmitter3runERNS2_11raw_ostreamEE3$_2EEET0_T_SJ_SJ_SJ_SI_T1_.exit", !llvm.loop !1854
 
 "_ZSt12__move_mergeIN9__gnu_cxx17__normal_iteratorIPN4llvm2gi11RuleMatcherESt6vectorIS4_SaIS4_EEEES5_NS0_5__ops15_Iter_comp_iterIZN12_GLOBAL__N_117GlobalISelEmitter3runERNS2_11raw_ostreamEE3$_2EEET0_T_SJ_SJ_SJ_SI_T1_.exit": ; preds = %.lr.ph.i.i.i.i.i11.i, %_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPN4llvm2gi11RuleMatcherESt6vectorIS4_SaIS4_EEEES5_ET0_T_SB_SA_.exit.i
@@ -36218,7 +36218,7 @@ _ZN4llvm12DenseMapBaseINS_8DenseMapImiNS_12DenseMapInfoImvEENS_6detail12DenseMap
   %1029 = getelementptr inbounds i8, ptr %.0910.i.i.i.i.i.i34, i64 448
   %1030 = getelementptr inbounds i8, ptr %.0811.i.i.i.i.i.i33, i64 448
   %1031 = add nsw i64 %.012.i.i.i.i.i.i32, -1
-  %1032 = icmp ugt i64 %.012.i.i.i.i.i.i32, 1
+  %1032 = icmp samesign ugt i64 %.012.i.i.i.i.i.i32, 1
   br i1 %1032, label %.lr.ph.i.i.i.i.i.i31, label %_ZSt4moveIPN4llvm2gi11RuleMatcherEN9__gnu_cxx17__normal_iteratorIS3_St6vectorIS2_SaIS2_EEEEET0_T_SB_SA_.exit.i, !llvm.loop !1854
 
 _ZSt4moveIPN4llvm2gi11RuleMatcherEN9__gnu_cxx17__normal_iteratorIS3_St6vectorIS2_SaIS2_EEEEET0_T_SB_SA_.exit.i: ; preds = %.lr.ph.i.i.i.i.i.i31, %._crit_edge.i
@@ -36245,7 +36245,7 @@ _ZSt4moveIPN4llvm2gi11RuleMatcherEN9__gnu_cxx17__normal_iteratorIS3_St6vectorIS2
   %1043 = getelementptr inbounds i8, ptr %.0910.i.i.i.i.i23.i, i64 448
   %1044 = getelementptr inbounds i8, ptr %.0811.i.i.i.i.i22.i, i64 448
   %1045 = add nsw i64 %.012.i.i.i.i.i21.i, -1
-  %1046 = icmp ugt i64 %.012.i.i.i.i.i21.i, 1
+  %1046 = icmp samesign ugt i64 %.012.i.i.i.i.i21.i, 1
   br i1 %1046, label %.lr.ph.i.i.i.i.i20.i, label %_ZSt4moveIPN4llvm2gi11RuleMatcherEN9__gnu_cxx17__normal_iteratorIS3_St6vectorIS2_SaIS2_EEEEET0_T_SB_SA_.exit24.loopexit.i, !llvm.loop !1854
 
 _ZSt4moveIPN4llvm2gi11RuleMatcherEN9__gnu_cxx17__normal_iteratorIS3_St6vectorIS2_SaIS2_EEEEET0_T_SB_SA_.exit24.loopexit.i: ; preds = %.lr.ph.i.i.i.i.i20.i
@@ -36308,7 +36308,7 @@ tailrecurse._crit_edge:                           ; preds = %tailrecurse, %8
   %17 = getelementptr inbounds i8, ptr %.0910.i.i.i.i.i, i64 448
   %18 = getelementptr inbounds i8, ptr %.0811.i.i.i.i.i, i64 448
   %19 = add nsw i64 %.012.i.i.i.i.i, -1
-  %20 = icmp ugt i64 %.012.i.i.i.i.i, 1
+  %20 = icmp samesign ugt i64 %.012.i.i.i.i.i, 1
   br i1 %20, label %.lr.ph.i.i.i.i.i, label %.lr.ph.i, !llvm.loop !1854
 
 .lr.ph.i:                                         ; preds = %.lr.ph.i.i.i.i.i, %29
@@ -36358,7 +36358,7 @@ tailrecurse._crit_edge:                           ; preds = %tailrecurse, %8
   %37 = getelementptr inbounds i8, ptr %.0910.i.i.i.i.i.i, i64 448
   %38 = getelementptr inbounds i8, ptr %.0811.i.i.i.i.i.i, i64 448
   %39 = add nsw i64 %.012.i.i.i.i.i.i, -1
-  %40 = icmp ugt i64 %.012.i.i.i.i.i.i, 1
+  %40 = icmp samesign ugt i64 %.012.i.i.i.i.i.i, 1
   br i1 %40, label %.lr.ph.i.i.i.i.i.i, label %"_ZSt21__move_merge_adaptiveIPN4llvm2gi11RuleMatcherEN9__gnu_cxx17__normal_iteratorIS3_St6vectorIS2_SaIS2_EEEES9_NS4_5__ops15_Iter_comp_iterIZN12_GLOBAL__N_117GlobalISelEmitter3runERNS0_11raw_ostreamEE3$_2EEEvT_SI_T0_SJ_T1_T2_.exit", !llvm.loop !1854
 
 41:                                               ; preds = %.lr.ph, %tailrecurse
@@ -36388,7 +36388,7 @@ tailrecurse._crit_edge:                           ; preds = %tailrecurse, %8
   %48 = getelementptr inbounds i8, ptr %.0910.i.i.i.i.i84, i64 448
   %49 = getelementptr inbounds i8, ptr %.0811.i.i.i.i.i83, i64 448
   %50 = add nsw i64 %.012.i.i.i.i.i82, -1
-  %51 = icmp ugt i64 %.012.i.i.i.i.i82, 1
+  %51 = icmp samesign ugt i64 %.012.i.i.i.i.i82, 1
   br i1 %51, label %.lr.ph.i.i.i.i.i81, label %_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPN4llvm2gi11RuleMatcherESt6vectorIS4_SaIS4_EEEES5_ET0_T_SB_SA_.exit85, !llvm.loop !1854
 
 _ZSt4moveIN9__gnu_cxx17__normal_iteratorIPN4llvm2gi11RuleMatcherESt6vectorIS4_SaIS4_EEEES5_ET0_T_SB_SA_.exit85: ; preds = %.lr.ph.i.i.i.i.i81, %43
@@ -36415,7 +36415,7 @@ _ZSt4moveIN9__gnu_cxx17__normal_iteratorIPN4llvm2gi11RuleMatcherESt6vectorIS4_Sa
   %60 = getelementptr inbounds i8, ptr %.069.i.i.i.i.i.i, i64 -448
   %61 = tail call noundef nonnull align 8 dereferenceable(448) ptr @_ZN4llvm2gi11RuleMatcheraSEOS1_(ptr noundef nonnull align 8 dereferenceable(448) %60, ptr noundef nonnull align 8 dereferenceable(448) %59)
   %62 = add nsw i64 %.010.i.i.i.i.i.i, -1
-  %63 = icmp ugt i64 %.010.i.i.i.i.i.i, 1
+  %63 = icmp samesign ugt i64 %.010.i.i.i.i.i.i, 1
   br i1 %63, label %.lr.ph.i.i.i.i.i.i88, label %"_ZSt21__move_merge_adaptiveIPN4llvm2gi11RuleMatcherEN9__gnu_cxx17__normal_iteratorIS3_St6vectorIS2_SaIS2_EEEES9_NS4_5__ops15_Iter_comp_iterIZN12_GLOBAL__N_117GlobalISelEmitter3runERNS0_11raw_ostreamEE3$_2EEEvT_SI_T0_SJ_T1_T2_.exit", !llvm.loop !1843
 
 64:                                               ; preds = %_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPN4llvm2gi11RuleMatcherESt6vectorIS4_SaIS4_EEEES5_ET0_T_SB_SA_.exit85
@@ -36465,7 +36465,7 @@ _ZSt4moveIN9__gnu_cxx17__normal_iteratorIPN4llvm2gi11RuleMatcherESt6vectorIS4_Sa
   %82 = getelementptr inbounds i8, ptr %.069.i.i.i.i.i22.i, i64 -448
   %83 = tail call noundef nonnull align 8 dereferenceable(448) ptr @_ZN4llvm2gi11RuleMatcheraSEOS1_(ptr noundef nonnull align 8 dereferenceable(448) %82, ptr noundef nonnull align 8 dereferenceable(448) %81)
   %84 = add nsw i64 %.010.i.i.i.i.i21.i, -1
-  %85 = icmp ugt i64 %.010.i.i.i.i.i21.i, 1
+  %85 = icmp samesign ugt i64 %.010.i.i.i.i.i21.i, 1
   br i1 %85, label %.lr.ph.i.i.i.i.i20.i, label %"_ZSt21__move_merge_adaptiveIPN4llvm2gi11RuleMatcherEN9__gnu_cxx17__normal_iteratorIS3_St6vectorIS2_SaIS2_EEEES9_NS4_5__ops15_Iter_comp_iterIZN12_GLOBAL__N_117GlobalISelEmitter3runERNS0_11raw_ostreamEE3$_2EEEvT_SI_T0_SJ_T1_T2_.exit", !llvm.loop !1843
 
 86:                                               ; preds = %68
@@ -36626,7 +36626,7 @@ define internal fastcc void @"_ZSt12__move_mergeIN9__gnu_cxx17__normal_iteratorI
   %26 = getelementptr inbounds i8, ptr %.0910.i.i.i.i.i, i64 448
   %27 = getelementptr inbounds i8, ptr %.0811.i.i.i.i.i, i64 448
   %28 = add nsw i64 %.012.i.i.i.i.i, -1
-  %29 = icmp ugt i64 %.012.i.i.i.i.i, 1
+  %29 = icmp samesign ugt i64 %.012.i.i.i.i.i, 1
   br i1 %29, label %.lr.ph.i.i.i.i.i, label %_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPN4llvm2gi11RuleMatcherESt6vectorIS4_SaIS4_EEEES5_ET0_T_SB_SA_.exit, !llvm.loop !1854
 
 _ZSt4moveIN9__gnu_cxx17__normal_iteratorIPN4llvm2gi11RuleMatcherESt6vectorIS4_SaIS4_EEEES5_ET0_T_SB_SA_.exit: ; preds = %.lr.ph.i.i.i.i.i, %.critedge
@@ -36649,7 +36649,7 @@ _ZSt4moveIN9__gnu_cxx17__normal_iteratorIPN4llvm2gi11RuleMatcherESt6vectorIS4_Sa
   %36 = getelementptr inbounds i8, ptr %.0910.i.i.i.i.i14, i64 448
   %37 = getelementptr inbounds i8, ptr %.0811.i.i.i.i.i13, i64 448
   %38 = add nsw i64 %.012.i.i.i.i.i12, -1
-  %39 = icmp ugt i64 %.012.i.i.i.i.i12, 1
+  %39 = icmp samesign ugt i64 %.012.i.i.i.i.i12, 1
   br i1 %39, label %.lr.ph.i.i.i.i.i11, label %_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPN4llvm2gi11RuleMatcherESt6vectorIS4_SaIS4_EEEES5_ET0_T_SB_SA_.exit15, !llvm.loop !1854
 
 _ZSt4moveIN9__gnu_cxx17__normal_iteratorIPN4llvm2gi11RuleMatcherESt6vectorIS4_SaIS4_EEEES5_ET0_T_SB_SA_.exit15: ; preds = %.lr.ph.i.i.i.i.i11, %_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPN4llvm2gi11RuleMatcherESt6vectorIS4_SaIS4_EEEES5_ET0_T_SB_SA_.exit
@@ -36711,7 +36711,7 @@ define internal fastcc void @"_ZSt12__move_mergeIPN4llvm2gi11RuleMatcherEN9__gnu
   %28 = getelementptr inbounds i8, ptr %.0910.i.i.i.i.i, i64 448
   %29 = getelementptr inbounds i8, ptr %.0811.i.i.i.i.i, i64 448
   %30 = add nsw i64 %.012.i.i.i.i.i, -1
-  %31 = icmp ugt i64 %.012.i.i.i.i.i, 1
+  %31 = icmp samesign ugt i64 %.012.i.i.i.i.i, 1
   br i1 %31, label %.lr.ph.i.i.i.i.i, label %_ZSt4moveIPN4llvm2gi11RuleMatcherEN9__gnu_cxx17__normal_iteratorIS3_St6vectorIS2_SaIS2_EEEEET0_T_SB_SA_.exit, !llvm.loop !1854
 
 _ZSt4moveIPN4llvm2gi11RuleMatcherEN9__gnu_cxx17__normal_iteratorIS3_St6vectorIS2_SaIS2_EEEEET0_T_SB_SA_.exit: ; preds = %.lr.ph.i.i.i.i.i, %._crit_edge
@@ -36738,7 +36738,7 @@ _ZSt4moveIPN4llvm2gi11RuleMatcherEN9__gnu_cxx17__normal_iteratorIS3_St6vectorIS2
   %42 = getelementptr inbounds i8, ptr %.0910.i.i.i.i.i23, i64 448
   %43 = getelementptr inbounds i8, ptr %.0811.i.i.i.i.i22, i64 448
   %44 = add nsw i64 %.012.i.i.i.i.i21, -1
-  %45 = icmp ugt i64 %.012.i.i.i.i.i21, 1
+  %45 = icmp samesign ugt i64 %.012.i.i.i.i.i21, 1
   br i1 %45, label %.lr.ph.i.i.i.i.i20, label %_ZSt4moveIPN4llvm2gi11RuleMatcherEN9__gnu_cxx17__normal_iteratorIS3_St6vectorIS2_SaIS2_EEEEET0_T_SB_SA_.exit24, !llvm.loop !1854
 
 _ZSt4moveIPN4llvm2gi11RuleMatcherEN9__gnu_cxx17__normal_iteratorIS3_St6vectorIS2_SaIS2_EEEEET0_T_SB_SA_.exit24: ; preds = %.lr.ph.i.i.i.i.i20, %_ZSt4moveIPN4llvm2gi11RuleMatcherEN9__gnu_cxx17__normal_iteratorIS3_St6vectorIS2_SaIS2_EEEEET0_T_SB_SA_.exit
@@ -36775,7 +36775,7 @@ define linkonce_odr ptr @_ZSt17__rotate_adaptiveIN9__gnu_cxx17__normal_iteratorI
   %17 = getelementptr inbounds i8, ptr %.0910.i.i.i.i.i, i64 448
   %18 = getelementptr inbounds i8, ptr %.0811.i.i.i.i.i, i64 448
   %19 = add nsw i64 %.012.i.i.i.i.i, -1
-  %20 = icmp ugt i64 %.012.i.i.i.i.i, 1
+  %20 = icmp samesign ugt i64 %.012.i.i.i.i.i, 1
   br i1 %20, label %.lr.ph.i.i.i.i.i, label %_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPN4llvm2gi11RuleMatcherESt6vectorIS4_SaIS4_EEEES5_ET0_T_SB_SA_.exit, !llvm.loop !1854
 
 _ZSt4moveIN9__gnu_cxx17__normal_iteratorIPN4llvm2gi11RuleMatcherESt6vectorIS4_SaIS4_EEEES5_ET0_T_SB_SA_.exit: ; preds = %.lr.ph.i.i.i.i.i, %10
@@ -36797,7 +36797,7 @@ _ZSt4moveIN9__gnu_cxx17__normal_iteratorIPN4llvm2gi11RuleMatcherESt6vectorIS4_Sa
   %26 = getelementptr inbounds i8, ptr %.069.i.i.i.i.i, i64 -448
   %27 = tail call noundef nonnull align 8 dereferenceable(448) ptr @_ZN4llvm2gi11RuleMatcheraSEOS1_(ptr noundef nonnull align 8 dereferenceable(448) %26, ptr noundef nonnull align 8 dereferenceable(448) %25)
   %28 = add nsw i64 %.010.i.i.i.i.i, -1
-  %29 = icmp ugt i64 %.010.i.i.i.i.i, 1
+  %29 = icmp samesign ugt i64 %.010.i.i.i.i.i, 1
   br i1 %29, label %.lr.ph.i.i.i.i.i38, label %_ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPN4llvm2gi11RuleMatcherESt6vectorIS4_SaIS4_EEEES9_ET0_T_SB_SA_.exit, !llvm.loop !1843
 
 _ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPN4llvm2gi11RuleMatcherESt6vectorIS4_SaIS4_EEEES9_ET0_T_SB_SA_.exit: ; preds = %.lr.ph.i.i.i.i.i38, %_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPN4llvm2gi11RuleMatcherESt6vectorIS4_SaIS4_EEEES5_ET0_T_SB_SA_.exit
@@ -36819,7 +36819,7 @@ _ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPN4llvm2gi11RuleMatcherESt6ve
   %36 = getelementptr inbounds i8, ptr %.0910.i.i.i.i.i44, i64 448
   %37 = getelementptr inbounds i8, ptr %.0811.i.i.i.i.i43, i64 448
   %38 = add nsw i64 %.012.i.i.i.i.i42, -1
-  %39 = icmp ugt i64 %.012.i.i.i.i.i42, 1
+  %39 = icmp samesign ugt i64 %.012.i.i.i.i.i42, 1
   br i1 %39, label %.lr.ph.i.i.i.i.i41, label %_ZSt4moveIPN4llvm2gi11RuleMatcherEN9__gnu_cxx17__normal_iteratorIS3_St6vectorIS2_SaIS2_EEEEET0_T_SB_SA_.exit.loopexit, !llvm.loop !1854
 
 _ZSt4moveIPN4llvm2gi11RuleMatcherEN9__gnu_cxx17__normal_iteratorIS3_St6vectorIS2_SaIS2_EEEEET0_T_SB_SA_.exit.loopexit: ; preds = %.lr.ph.i.i.i.i.i41
@@ -36859,7 +36859,7 @@ _ZSt4moveIPN4llvm2gi11RuleMatcherEN9__gnu_cxx17__normal_iteratorIS3_St6vectorIS2
   %51 = getelementptr inbounds i8, ptr %.0910.i.i.i.i.i50, i64 448
   %52 = getelementptr inbounds i8, ptr %.0811.i.i.i.i.i49, i64 448
   %53 = add nsw i64 %.012.i.i.i.i.i48, -1
-  %54 = icmp ugt i64 %.012.i.i.i.i.i48, 1
+  %54 = icmp samesign ugt i64 %.012.i.i.i.i.i48, 1
   br i1 %54, label %.lr.ph.i.i.i.i.i47, label %_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPN4llvm2gi11RuleMatcherESt6vectorIS4_SaIS4_EEEES5_ET0_T_SB_SA_.exit51, !llvm.loop !1854
 
 _ZSt4moveIN9__gnu_cxx17__normal_iteratorIPN4llvm2gi11RuleMatcherESt6vectorIS4_SaIS4_EEEES5_ET0_T_SB_SA_.exit51: ; preds = %.lr.ph.i.i.i.i.i47, %44
@@ -36881,7 +36881,7 @@ _ZSt4moveIN9__gnu_cxx17__normal_iteratorIPN4llvm2gi11RuleMatcherESt6vectorIS4_Sa
   %60 = getelementptr inbounds i8, ptr %.0910.i.i.i.i.i57, i64 448
   %61 = getelementptr inbounds i8, ptr %.0811.i.i.i.i.i56, i64 448
   %62 = add nsw i64 %.012.i.i.i.i.i55, -1
-  %63 = icmp ugt i64 %.012.i.i.i.i.i55, 1
+  %63 = icmp samesign ugt i64 %.012.i.i.i.i.i55, 1
   br i1 %63, label %.lr.ph.i.i.i.i.i54, label %_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPN4llvm2gi11RuleMatcherESt6vectorIS4_SaIS4_EEEES9_ET0_T_SB_SA_.exit, !llvm.loop !1854
 
 _ZSt4moveIN9__gnu_cxx17__normal_iteratorIPN4llvm2gi11RuleMatcherESt6vectorIS4_SaIS4_EEEES9_ET0_T_SB_SA_.exit: ; preds = %.lr.ph.i.i.i.i.i54, %_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPN4llvm2gi11RuleMatcherESt6vectorIS4_SaIS4_EEEES5_ET0_T_SB_SA_.exit51
@@ -36903,7 +36903,7 @@ _ZSt4moveIN9__gnu_cxx17__normal_iteratorIPN4llvm2gi11RuleMatcherESt6vectorIS4_Sa
   %70 = getelementptr inbounds i8, ptr %.069.i.i.i.i.i62, i64 -448
   %71 = tail call noundef nonnull align 8 dereferenceable(448) ptr @_ZN4llvm2gi11RuleMatcheraSEOS1_(ptr noundef nonnull align 8 dereferenceable(448) %70, ptr noundef nonnull align 8 dereferenceable(448) %69)
   %72 = add nsw i64 %.010.i.i.i.i.i61, -1
-  %73 = icmp ugt i64 %.010.i.i.i.i.i61, 1
+  %73 = icmp samesign ugt i64 %.010.i.i.i.i.i61, 1
   br i1 %73, label %.lr.ph.i.i.i.i.i60, label %_ZSt13move_backwardIPN4llvm2gi11RuleMatcherEN9__gnu_cxx17__normal_iteratorIS3_St6vectorIS2_SaIS2_EEEEET0_T_SB_SA_.exit.loopexit, !llvm.loop !1843
 
 _ZSt13move_backwardIPN4llvm2gi11RuleMatcherEN9__gnu_cxx17__normal_iteratorIS3_St6vectorIS2_SaIS2_EEEEET0_T_SB_SA_.exit.loopexit: ; preds = %.lr.ph.i.i.i.i.i60

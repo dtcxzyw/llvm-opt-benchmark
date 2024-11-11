@@ -6434,7 +6434,7 @@ thread-pre-split:                                 ; preds = %7
 43:                                               ; preds = %41
   %44 = add nsw i64 %23, -1
   %45 = xor i64 %39, 9223372036854775807
-  %46 = icmp ugt i64 %44, %45
+  %46 = icmp samesign ugt i64 %44, %45
   br i1 %46, label %flock_to_posix_lock.exit.thread, label %47
 
 47:                                               ; preds = %43
@@ -6689,7 +6689,7 @@ define dso_local i32 @fcntl_setlk(i32 noundef %0, ptr noundef %1, i32 noundef %2
 43:                                               ; preds = %41
   %44 = add nsw i64 %25, -1
   %45 = xor i64 %39, 9223372036854775807
-  %46 = icmp ugt i64 %44, %45
+  %46 = icmp samesign ugt i64 %44, %45
   br i1 %46, label %flock_to_posix_lock.exit.thread, label %47
 
 47:                                               ; preds = %43

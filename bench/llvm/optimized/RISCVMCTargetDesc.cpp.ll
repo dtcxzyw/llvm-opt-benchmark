@@ -1728,7 +1728,7 @@ _ZSt7advanceIPKN4llvm25RISCVVInversePseudosTable10PseudoInfoElEvRT_T0_.exit.i.i:
   br i1 %10, label %.thread.i.i, label %11
 
 11:                                               ; preds = %_ZSt7advanceIPKN4llvm25RISCVVInversePseudosTable10PseudoInfoElEvRT_T0_.exit.i.i
-  %12 = icmp ult i32 %0, %9
+  %12 = icmp samesign ult i32 %0, %9
   br i1 %12, label %.thread27.i.i, label %13
 
 13:                                               ; preds = %11

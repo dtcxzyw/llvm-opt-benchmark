@@ -8847,7 +8847,7 @@ _ZN7QStringD2Ev.exit53:                           ; preds = %142, %_ZN17QArrayDa
           to label %.noexc58 unwind label %343
 
 .noexc58:                                         ; preds = %164
-  %166 = icmp ult i32 %159, 3
+  %166 = icmp samesign ult i32 %159, 3
   br i1 %166, label %167, label %_ZN7IOGraph13setValueUnitsEi.exit
 
 167:                                              ; preds = %.noexc58
@@ -10162,7 +10162,7 @@ define void @_ZN7IOGraph13setValueUnitsEi(ptr noundef nonnull align 8 dereferenc
 6:                                                ; preds = %3
   %7 = getelementptr inbounds i8, ptr %0, i64 104
   tail call void @_ZN7IOGraph9setFilterERK7QString(ptr noundef nonnull align 8 dereferenceable(38000212) %0, ptr noundef nonnull align 8 dereferenceable(24) %7)
-  %8 = icmp ult i32 %1, 3
+  %8 = icmp samesign ult i32 %1, 3
   br i1 %8, label %9, label %10
 
 9:                                                ; preds = %6

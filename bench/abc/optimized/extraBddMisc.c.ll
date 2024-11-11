@@ -3826,7 +3826,7 @@ define ptr @extraZddCombination(ptr noundef %0, ptr nocapture noundef readonly %
 
 49:                                               ; preds = %25, %36
   %.1 = phi ptr [ %33, %36 ], [ %.02329, %25 ]
-  %50 = icmp ugt i64 %indvars.iv, 1
+  %50 = icmp samesign ugt i64 %indvars.iv, 1
   br i1 %50, label %17, label %._crit_edge.loopexit, !llvm.loop !41
 
 ._crit_edge.loopexit:                             ; preds = %49
@@ -3926,7 +3926,7 @@ define ptr @Extra_zddCombination(ptr noundef %0, ptr nocapture noundef readonly 
 
 50:                                               ; preds = %37, %27
   %.1.i.us = phi ptr [ %35, %37 ], [ %.02329.i.us, %27 ]
-  %51 = icmp ugt i64 %indvars.iv.i.us, 1
+  %51 = icmp samesign ugt i64 %indvars.iv.i.us, 1
   br i1 %51, label %19, label %._crit_edge.loopexit.i.us, !llvm.loop !41
 
 ._crit_edge.loopexit.i.us:                        ; preds = %50
@@ -4069,7 +4069,7 @@ define ptr @Extra_zddRandomSet(ptr noundef %0, i32 noundef %1, i32 noundef %2, d
 
 66:                                               ; preds = %53, %43
   %.1.i.us.i = phi ptr [ %51, %53 ], [ %.02329.i.us.i, %43 ]
-  %67 = icmp ugt i64 %indvars.iv.i.us.i, 1
+  %67 = icmp samesign ugt i64 %indvars.iv.i.us.i, 1
   br i1 %67, label %35, label %._crit_edge.loopexit.i.us.i, !llvm.loop !41
 
 ._crit_edge.loopexit.i.us.i:                      ; preds = %66

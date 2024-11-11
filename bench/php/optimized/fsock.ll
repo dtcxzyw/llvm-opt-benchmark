@@ -89,7 +89,7 @@ define internal fastcc void @php_fsockopen_stream(ptr noundef %0, ptr nocapture 
   br i1 %37, label %38, label %.thread335
 
 38:                                               ; preds = %36, %.critedge
-  %39 = icmp ult i32 %13, 3
+  %39 = icmp samesign ult i32 %13, 3
   br i1 %39, label %.thread368, label %40
 
 40:                                               ; preds = %38

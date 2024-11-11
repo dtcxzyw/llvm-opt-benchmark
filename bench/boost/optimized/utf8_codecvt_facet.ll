@@ -200,19 +200,19 @@ define noundef range(i32 0, 2) i32 @_ZNK5boost7archive6detail18utf8_codecvt_face
   br i1 %13, label %_ZN5boost7archive6detail18utf8_codecvt_facet24get_cont_octet_out_countEw.exit, label %14
 
 14:                                               ; preds = %.lr.ph66
-  %15 = icmp ult i32 %12, 2048
+  %15 = icmp samesign ult i32 %12, 2048
   br i1 %15, label %_ZN5boost7archive6detail18utf8_codecvt_facet24get_cont_octet_out_countEw.exit, label %16
 
 16:                                               ; preds = %14
-  %17 = icmp ult i32 %12, 65536
+  %17 = icmp samesign ult i32 %12, 65536
   br i1 %17, label %_ZN5boost7archive6detail18utf8_codecvt_facet24get_cont_octet_out_countEw.exit, label %18
 
 18:                                               ; preds = %16
-  %19 = icmp ult i32 %12, 2097152
+  %19 = icmp samesign ult i32 %12, 2097152
   br i1 %19, label %_ZN5boost7archive6detail18utf8_codecvt_facet24get_cont_octet_out_countEw.exit, label %20
 
 20:                                               ; preds = %18
-  %21 = icmp ult i32 %12, 67108864
+  %21 = icmp samesign ult i32 %12, 67108864
   %..i.i = select i1 %21, i32 4, i32 5
   br label %_ZN5boost7archive6detail18utf8_codecvt_facet24get_cont_octet_out_countEw.exit
 
@@ -299,19 +299,19 @@ define noundef range(i32 0, 6) i32 @_ZN5boost7archive6detail18utf8_codecvt_facet
   br i1 %2, label %_ZN5boost7archive6detail6detail29get_cont_octet_out_count_implILm4EEEiw.exit, label %3
 
 3:                                                ; preds = %1
-  %4 = icmp ult i32 %0, 2048
+  %4 = icmp samesign ult i32 %0, 2048
   br i1 %4, label %_ZN5boost7archive6detail6detail29get_cont_octet_out_count_implILm4EEEiw.exit, label %5
 
 5:                                                ; preds = %3
-  %6 = icmp ult i32 %0, 65536
+  %6 = icmp samesign ult i32 %0, 65536
   br i1 %6, label %_ZN5boost7archive6detail6detail29get_cont_octet_out_count_implILm4EEEiw.exit, label %7
 
 7:                                                ; preds = %5
-  %8 = icmp ult i32 %0, 2097152
+  %8 = icmp samesign ult i32 %0, 2097152
   br i1 %8, label %_ZN5boost7archive6detail6detail29get_cont_octet_out_count_implILm4EEEiw.exit, label %9
 
 9:                                                ; preds = %7
-  %10 = icmp ult i32 %0, 67108864
+  %10 = icmp samesign ult i32 %0, 67108864
   %..i = select i1 %10, i32 4, i32 5
   br label %_ZN5boost7archive6detail6detail29get_cont_octet_out_count_implILm4EEEiw.exit
 

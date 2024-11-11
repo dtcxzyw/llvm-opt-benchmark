@@ -75333,7 +75333,7 @@ define internal fastcc void @"_ZNO8pybind116detail15argument_loaderIJEE4callINS_
   %12 = getelementptr inbounds i8, ptr %.0910.i.i.i.i.i.i.i.i.i.i.i.i.i.i, i64 4
   %13 = getelementptr inbounds i8, ptr %.0811.i.i.i.i.i.i.i.i.i.i.i.i.i.i, i64 8
   %14 = add nsw i64 %.012.i.i.i.i.i.i.i.i.i.i.i.i.i.i, -1
-  %15 = icmp ugt i64 %.012.i.i.i.i.i.i.i.i.i.i.i.i.i.i, 1
+  %15 = icmp samesign ugt i64 %.012.i.i.i.i.i.i.i.i.i.i.i.i.i.i, 1
   br i1 %15, label %.lr.ph.i.i.i.i.i.i.i.i.i.i.i.i.i.i, label %_ZNSt12_Vector_baseIlSaIlEE11_M_allocateEm.exit.i.i.i.i6.i.i, !llvm.loop !3109
 
 common.resume.i.i:                                ; preds = %41, %.body.i.i
@@ -75366,7 +75366,7 @@ _ZNSt12_Vector_baseIlSaIlEE11_M_allocateEm.exit.i.i.i.i6.i.i: ; preds = %.lr.ph.
   %23 = getelementptr inbounds i8, ptr %.0910.i.i.i.i.i.i.i.i.i.i.i.i13.i.i, i64 4
   %24 = getelementptr inbounds i8, ptr %.0811.i.i.i.i.i.i.i.i.i.i.i.i12.i.i, i64 8
   %25 = add nsw i64 %.012.i.i.i.i.i.i.i.i.i.i.i.i11.i.i, -1
-  %26 = icmp ugt i64 %.012.i.i.i.i.i.i.i.i.i.i.i.i11.i.i, 1
+  %26 = icmp samesign ugt i64 %.012.i.i.i.i.i.i.i.i.i.i.i.i11.i.i, 1
   br i1 %26, label %.lr.ph.i.i.i.i.i.i.i.i.i.i.i.i10.i.i, label %29, !llvm.loop !3109
 
 27:                                               ; preds = %_ZNSt12_Vector_baseIlSaIlEE11_M_allocateEm.exit.i.i.i.i6.i.i
@@ -75783,7 +75783,7 @@ define internal fastcc void @"_ZNO8pybind116detail15argument_loaderIJEE4callINS_
   %12 = getelementptr inbounds i8, ptr %.0910.i.i.i.i.i.i.i.i.i.i.i.i.i.i, i64 4
   %13 = getelementptr inbounds i8, ptr %.0811.i.i.i.i.i.i.i.i.i.i.i.i.i.i, i64 8
   %14 = add nsw i64 %.012.i.i.i.i.i.i.i.i.i.i.i.i.i.i, -1
-  %15 = icmp ugt i64 %.012.i.i.i.i.i.i.i.i.i.i.i.i.i.i, 1
+  %15 = icmp samesign ugt i64 %.012.i.i.i.i.i.i.i.i.i.i.i.i.i.i, 1
   br i1 %15, label %.lr.ph.i.i.i.i.i.i.i.i.i.i.i.i.i.i, label %_ZNSt12_Vector_baseIlSaIlEE11_M_allocateEm.exit.i.i.i.i6.i.i, !llvm.loop !3109
 
 common.resume.i.i:                                ; preds = %41, %.body.i.i
@@ -75816,7 +75816,7 @@ _ZNSt12_Vector_baseIlSaIlEE11_M_allocateEm.exit.i.i.i.i6.i.i: ; preds = %.lr.ph.
   %23 = getelementptr inbounds i8, ptr %.0910.i.i.i.i.i.i.i.i.i.i.i.i13.i.i, i64 4
   %24 = getelementptr inbounds i8, ptr %.0811.i.i.i.i.i.i.i.i.i.i.i.i12.i.i, i64 8
   %25 = add nsw i64 %.012.i.i.i.i.i.i.i.i.i.i.i.i11.i.i, -1
-  %26 = icmp ugt i64 %.012.i.i.i.i.i.i.i.i.i.i.i.i11.i.i, 1
+  %26 = icmp samesign ugt i64 %.012.i.i.i.i.i.i.i.i.i.i.i.i11.i.i, 1
   br i1 %26, label %.lr.ph.i.i.i.i.i.i.i.i.i.i.i.i10.i.i, label %29, !llvm.loop !3109
 
 27:                                               ; preds = %_ZNSt12_Vector_baseIlSaIlEE11_M_allocateEm.exit.i.i.i.i6.i.i
@@ -89844,7 +89844,7 @@ define internal fastcc void @"_ZNO8pybind116detail15argument_loaderIJdEE4callINS
   %12 = getelementptr inbounds i8, ptr %.0910.i.i.i.i.i.i.i.i.i.i.i.i.i.i, i64 4
   %13 = getelementptr inbounds i8, ptr %.0811.i.i.i.i.i.i.i.i.i.i.i.i.i.i, i64 8
   %14 = add nsw i64 %.012.i.i.i.i.i.i.i.i.i.i.i.i.i.i, -1
-  %15 = icmp ugt i64 %.012.i.i.i.i.i.i.i.i.i.i.i.i.i.i, 1
+  %15 = icmp samesign ugt i64 %.012.i.i.i.i.i.i.i.i.i.i.i.i.i.i, 1
   br i1 %15, label %.lr.ph.i.i.i.i.i.i.i.i.i.i.i.i.i.i, label %_ZN8pybind116detail13any_containerIlEC2IivEERKSt16initializer_listIT_E.exit.i.i, !llvm.loop !3109
 
 common.resume.i.i:                                ; preds = %64, %61, %58, %57, %54
@@ -90497,7 +90497,7 @@ define internal fastcc void @"_ZNO8pybind116detail15argument_loaderIJdEE4callINS
   %12 = getelementptr inbounds i8, ptr %.0910.i.i.i.i.i.i.i.i.i.i.i.i.i.i, i64 4
   %13 = getelementptr inbounds i8, ptr %.0811.i.i.i.i.i.i.i.i.i.i.i.i.i.i, i64 8
   %14 = add nsw i64 %.012.i.i.i.i.i.i.i.i.i.i.i.i.i.i, -1
-  %15 = icmp ugt i64 %.012.i.i.i.i.i.i.i.i.i.i.i.i.i.i, 1
+  %15 = icmp samesign ugt i64 %.012.i.i.i.i.i.i.i.i.i.i.i.i.i.i, 1
   br i1 %15, label %.lr.ph.i.i.i.i.i.i.i.i.i.i.i.i.i.i, label %_ZN8pybind116detail13any_containerIlEC2IivEERKSt16initializer_listIT_E.exit.i.i, !llvm.loop !3109
 
 common.resume.i.i:                                ; preds = %64, %61, %58, %57, %54
@@ -92634,7 +92634,7 @@ define internal fastcc void @"_ZNO8pybind116detail15argument_loaderIJdEE4callINS
   %11 = getelementptr inbounds i8, ptr %.0910.i.i.i.i.i.i.i.i.i.i.i.i.i.i, i64 4
   %12 = getelementptr inbounds i8, ptr %.0811.i.i.i.i.i.i.i.i.i.i.i.i.i.i, i64 8
   %13 = add nsw i64 %.012.i.i.i.i.i.i.i.i.i.i.i.i.i.i, -1
-  %14 = icmp ugt i64 %.012.i.i.i.i.i.i.i.i.i.i.i.i.i.i, 1
+  %14 = icmp samesign ugt i64 %.012.i.i.i.i.i.i.i.i.i.i.i.i.i.i, 1
   br i1 %14, label %.lr.ph.i.i.i.i.i.i.i.i.i.i.i.i.i.i, label %_ZN8pybind116detail13any_containerIlEC2IivEERKSt16initializer_listIT_E.exit.i.i, !llvm.loop !3109
 
 common.resume.i.i:                                ; preds = %90, %87, %.body.i.i, %50, %47
@@ -94214,7 +94214,7 @@ define internal ptr @"_ZZN8pybind1112cpp_function10initializeIZ26test_submodule_
   %19 = getelementptr inbounds i8, ptr %.0910.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i, i64 4
   %20 = getelementptr inbounds i8, ptr %.0811.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i, i64 8
   %21 = add nsw i64 %.012.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i, -1
-  %22 = icmp ugt i64 %.012.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i, 1
+  %22 = icmp samesign ugt i64 %.012.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i, 1
   br i1 %22, label %.lr.ph.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i, label %_ZN8pybind116detail13any_containerIlEC2IivEERKSt16initializer_listIT_E.exit.i.i.i.i, !llvm.loop !3109
 
 common.resume.sink.split.i:                       ; preds = %55, %27
@@ -94303,7 +94303,7 @@ _ZN8pybind114noneD2Ev.exit.i:                     ; preds = %34, %31, %"_ZNO8pyb
   %47 = getelementptr inbounds i8, ptr %.0910.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i21.i, i64 4
   %48 = getelementptr inbounds i8, ptr %.0811.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i20.i, i64 8
   %49 = add nsw i64 %.012.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i19.i, -1
-  %50 = icmp ugt i64 %.012.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i19.i, 1
+  %50 = icmp samesign ugt i64 %.012.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i19.i, 1
   br i1 %50, label %.lr.ph.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i18.i, label %_ZN8pybind116detail13any_containerIlEC2IivEERKSt16initializer_listIT_E.exit.i.i.i22.i, !llvm.loop !3109
 
 _ZN8pybind116detail13any_containerIlEC2IivEERKSt16initializer_listIT_E.exit.i.i.i22.i: ; preds = %.lr.ph.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i18.i
@@ -94580,7 +94580,7 @@ define internal ptr @"_ZZN8pybind1112cpp_function10initializeIZ26test_submodule_
   %20 = getelementptr inbounds i8, ptr %.0910.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i, i64 4
   %21 = getelementptr inbounds i8, ptr %.0811.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i, i64 8
   %22 = add nsw i64 %.012.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i, -1
-  %23 = icmp ugt i64 %.012.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i, 1
+  %23 = icmp samesign ugt i64 %.012.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i, 1
   br i1 %23, label %.lr.ph.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i, label %_ZN8pybind116detail13any_containerIlEC2IivEERKSt16initializer_listIT_E.exit.i.i.i.i, !llvm.loop !3109
 
 common.resume.sink.split.i:                       ; preds = %57, %28
@@ -94671,7 +94671,7 @@ _ZN8pybind114noneD2Ev.exit.i:                     ; preds = %35, %32, %"_ZNO8pyb
   %49 = getelementptr inbounds i8, ptr %.0910.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i21.i, i64 4
   %50 = getelementptr inbounds i8, ptr %.0811.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i20.i, i64 8
   %51 = add nsw i64 %.012.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i19.i, -1
-  %52 = icmp ugt i64 %.012.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i19.i, 1
+  %52 = icmp samesign ugt i64 %.012.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i19.i, 1
   br i1 %52, label %.lr.ph.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i18.i, label %_ZN8pybind116detail13any_containerIlEC2IivEERKSt16initializer_listIT_E.exit.i.i.i22.i, !llvm.loop !3109
 
 _ZN8pybind116detail13any_containerIlEC2IivEERKSt16initializer_listIT_E.exit.i.i.i22.i: ; preds = %.lr.ph.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i18.i
@@ -94780,7 +94780,7 @@ define internal ptr @"_ZZN8pybind1112cpp_function10initializeIZ26test_submodule_
   %21 = getelementptr inbounds i8, ptr %.0910.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i, i64 4
   %22 = getelementptr inbounds i8, ptr %.0811.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i, i64 8
   %23 = add nsw i64 %.012.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i, -1
-  %24 = icmp ugt i64 %.012.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i, 1
+  %24 = icmp samesign ugt i64 %.012.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i, 1
   br i1 %24, label %.lr.ph.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i, label %_ZN8pybind116detail13any_containerIlEC2IivEERKSt16initializer_listIT_E.exit.i.i.i.i, !llvm.loop !3109
 
 common.resume.sink.split.i:                       ; preds = %59, %29
@@ -94873,7 +94873,7 @@ _ZN8pybind114noneD2Ev.exit.i:                     ; preds = %36, %33, %"_ZNO8pyb
   %51 = getelementptr inbounds i8, ptr %.0910.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i21.i, i64 4
   %52 = getelementptr inbounds i8, ptr %.0811.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i20.i, i64 8
   %53 = add nsw i64 %.012.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i19.i, -1
-  %54 = icmp ugt i64 %.012.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i19.i, 1
+  %54 = icmp samesign ugt i64 %.012.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i19.i, 1
   br i1 %54, label %.lr.ph.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i18.i, label %_ZN8pybind116detail13any_containerIlEC2IivEERKSt16initializer_listIT_E.exit.i.i.i22.i, !llvm.loop !3109
 
 _ZN8pybind116detail13any_containerIlEC2IivEERKSt16initializer_listIT_E.exit.i.i.i22.i: ; preds = %.lr.ph.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i18.i
@@ -97198,7 +97198,7 @@ _ZNSt12_Vector_baseIlSaIlEE11_M_allocateEm.exit.i.i.i.i.i.i: ; preds = %_ZNSt6ve
   %21 = getelementptr inbounds i8, ptr %.0910.i.i.i.i.i.i.i.i.i.i.i.i.i.i, i64 4
   %22 = getelementptr inbounds i8, ptr %.0811.i.i.i.i.i.i.i.i.i.i.i.i.i.i, i64 8
   %23 = add nsw i64 %.012.i.i.i.i.i.i.i.i.i.i.i.i.i.i, -1
-  %24 = icmp ugt i64 %.012.i.i.i.i.i.i.i.i.i.i.i.i.i.i, 1
+  %24 = icmp samesign ugt i64 %.012.i.i.i.i.i.i.i.i.i.i.i.i.i.i, 1
   br i1 %24, label %.lr.ph.i.i.i.i.i.i.i.i.i.i.i.i.i.i, label %_ZN8pybind116detail13any_containerIlEC2ISt6vectorIiSaIiEEvEERKT_.exit.i.i, !llvm.loop !3109
 
 _ZN8pybind116detail13any_containerIlEC2ISt6vectorIiSaIiEEvEERKT_.exit.i.i: ; preds = %.lr.ph.i.i.i.i.i.i.i.i.i.i.i.i.i.i, %_ZNSt12_Vector_baseIlSaIlEE11_M_allocateEm.exit.thread.i.i.i.i.i.i

@@ -304,7 +304,7 @@ fmap_readn.exit156.thread:                        ; preds = %33, %31, %fmap_read
   br label %106
 
 106:                                              ; preds = %105, %104
-  %107 = icmp ult i32 %21, 769
+  %107 = icmp samesign ult i32 %21, 769
   %108 = urem i32 %21, 3
   %.not141 = icmp eq i32 %108, 0
   %or.cond150 = and i1 %107, %.not141

@@ -2447,7 +2447,7 @@ _ZNSt12_Vector_baseIN4llvm10TensorSpecESaIS1_EE13_M_deallocateEPS1_m.exit: ; pre
   %55 = getelementptr inbounds i8, ptr %.0910.i.i.i.i.i, i64 80
   %56 = getelementptr inbounds i8, ptr %.0811.i.i.i.i.i, i64 80
   %57 = add nsw i64 %.012.i.i.i.i.i, -1
-  %58 = icmp ugt i64 %.012.i.i.i.i.i, 1
+  %58 = icmp samesign ugt i64 %.012.i.i.i.i.i, 1
   br i1 %58, label %.lr.ph.i.i.i.i.i, label %_ZSt4copyIPKN4llvm10TensorSpecEPS1_ET0_T_S6_S5_.exit.loopexit, !llvm.loop !89
 
 _ZSt4copyIPKN4llvm10TensorSpecEPS1_ET0_T_S6_S5_.exit.loopexit: ; preds = %.lr.ph.i.i.i.i.i
@@ -2513,7 +2513,7 @@ _ZSt7advanceIPKN4llvm10TensorSpecEmEvRT_T0_.exit: ; preds = %38
   %80 = getelementptr inbounds i8, ptr %.0910.i.i.i.i.i22, i64 80
   %81 = getelementptr inbounds i8, ptr %.0811.i.i.i.i.i21, i64 80
   %82 = add nsw i64 %.012.i.i.i.i.i20, -1
-  %83 = icmp ugt i64 %.012.i.i.i.i.i20, 1
+  %83 = icmp samesign ugt i64 %.012.i.i.i.i.i20, 1
   br i1 %83, label %.lr.ph.i.i.i.i.i19, label %_ZSt4copyIPKN4llvm10TensorSpecEPS1_ET0_T_S6_S5_.exit23.loopexit, !llvm.loop !89
 
 _ZSt4copyIPKN4llvm10TensorSpecEPS1_ET0_T_S6_S5_.exit23.loopexit: ; preds = %.lr.ph.i.i.i.i.i19

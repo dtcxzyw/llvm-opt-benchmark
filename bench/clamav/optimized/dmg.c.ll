@@ -342,7 +342,7 @@ fmap_need_off_once_len.exit.thread:               ; preds = %71, %fmap_need_off_
   br i1 %108, label %.critedge, label %109
 
 109:                                              ; preds = %106
-  %110 = icmp ugt i32 %107, 50
+  %110 = icmp samesign ugt i32 %107, 50
   br i1 %110, label %111, label %116
 
 111:                                              ; preds = %109

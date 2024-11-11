@@ -1024,7 +1024,7 @@ if.end:                                           ; preds = %if.then, %acpi_gpe_
   %val.0 = phi i32 [ %conv, %if.then ], [ 0, %acpi_gpe_ioport_get_ptr.exit ]
   %4 = lshr i8 %0, 1
   %div = zext nneg i8 %4 to i32
-  %cmp2 = icmp ult i32 %addr, %div
+  %cmp2 = icmp samesign ult i32 %addr, %div
   br i1 %cmp2, label %if.then4, label %if.else
 
 if.then4:                                         ; preds = %if.end

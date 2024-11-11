@@ -1288,7 +1288,7 @@ define internal zeroext i8 @sd_init_command(ptr noundef %0) #3 align 16 {
   br label %.thread8
 
 270:                                              ; preds = %.thread
-  %271 = icmp ugt i32 %169, 255
+  %271 = icmp samesign ugt i32 %169, 255
   %272 = icmp ugt i64 %111, 2097151
   %273 = select i1 %271, i1 true, i1 %272
   br i1 %273, label %278, label %274
@@ -2206,7 +2206,7 @@ define internal fastcc void @sd_revalidate_disk(ptr noundef %0) unnamed_addr #3 
 233:                                              ; preds = %229
   %234 = and i64 %226, 140737488355328
   %235 = icmp eq i64 %234, 0
-  %236 = icmp ugt i8 %231, 3
+  %236 = icmp samesign ugt i8 %231, 3
   %237 = and i1 %235, %236
   br i1 %237, label %238, label %.critedge
 
@@ -3161,7 +3161,7 @@ define internal fastcc void @sd_revalidate_disk(ptr noundef %0) unnamed_addr #3 
   br i1 %820, label %.thread83, label %821
 
 821:                                              ; preds = %816
-  %822 = icmp ugt i32 %819, 512
+  %822 = icmp samesign ugt i32 %819, 512
   br i1 %822, label %823, label %833
 
 823:                                              ; preds = %821
@@ -3193,7 +3193,7 @@ define internal fastcc void @sd_revalidate_disk(ptr noundef %0) unnamed_addr #3 
 
 841:                                              ; preds = %836, %833
   %842 = phi i32 [ %834, %833 ], [ %840, %836 ]
-  %843 = icmp ugt i32 %842, %818
+  %843 = icmp samesign ugt i32 %842, %818
   br i1 %843, label %844, label %854
 
 844:                                              ; preds = %841
@@ -3221,7 +3221,7 @@ define internal fastcc void @sd_revalidate_disk(ptr noundef %0) unnamed_addr #3 
   %862 = zext i16 %861 to i32
   %863 = add nuw nsw i32 %862, %859
   %864 = getelementptr i8, ptr %26, i64 1
-  %865 = icmp ult i32 %863, %842
+  %865 = icmp samesign ult i32 %863, %842
   br i1 %865, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %857, %919

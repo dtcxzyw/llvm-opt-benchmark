@@ -921,7 +921,7 @@ _ZNK10Node_ArrayixEj.exit:                        ; preds = %_ZNK10Node_ArrayixE
   %indvars.iv = phi i64 [ %12, %_ZNK10Node_ArrayixEj.exit.lr.ph ], [ %indvars.iv.next, %_ZN16Unique_Node_List4pushEP4Node.exit ]
   %13 = load i32, ptr %7, align 8
   %14 = zext i32 %13 to i64
-  %15 = icmp ult i64 %indvars.iv, %14
+  %15 = icmp samesign ult i64 %indvars.iv, %14
   tail call void @llvm.assume(i1 %15)
   %16 = load ptr, ptr %8, align 8
   %17 = getelementptr inbounds ptr, ptr %16, i64 %indvars.iv

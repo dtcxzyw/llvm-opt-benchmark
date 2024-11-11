@@ -546,7 +546,7 @@ define void @H5HF_iblock_print(ptr nocapture noundef readonly %0, i1 noundef zer
   br label %H5VM_log2_gen.exit
 
 128:                                              ; preds = %114
-  %.not27.i = icmp ult i64 %112, 1099511627776
+  %.not27.i = icmp samesign ult i64 %112, 1099511627776
   br i1 %.not27.i, label %135, label %129
 
 129:                                              ; preds = %128
@@ -566,11 +566,11 @@ define void @H5HF_iblock_print(ptr nocapture noundef readonly %0, i1 noundef zer
 
 140:                                              ; preds = %109
   %141 = lshr i64 %112, 16
-  %.not23.i = icmp ult i64 %112, 65536
+  %.not23.i = icmp samesign ult i64 %112, 65536
   br i1 %.not23.i, label %154, label %142
 
 142:                                              ; preds = %140
-  %.not25.i = icmp ult i64 %112, 16777216
+  %.not25.i = icmp samesign ult i64 %112, 16777216
   br i1 %.not25.i, label %149, label %143
 
 143:                                              ; preds = %142
@@ -589,7 +589,7 @@ define void @H5HF_iblock_print(ptr nocapture noundef readonly %0, i1 noundef zer
   br label %H5VM_log2_gen.exit
 
 154:                                              ; preds = %140
-  %.not24.i = icmp ult i64 %112, 256
+  %.not24.i = icmp samesign ult i64 %112, 256
   br i1 %.not24.i, label %161, label %155
 
 155:                                              ; preds = %154

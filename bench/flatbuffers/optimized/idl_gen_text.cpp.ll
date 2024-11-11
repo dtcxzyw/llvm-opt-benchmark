@@ -6338,7 +6338,7 @@ if.then31:                                        ; preds = %if.else29
   br label %if.end61
 
 if.else36:                                        ; preds = %if.else29
-  %cmp37 = icmp ult i32 %retval.0.i, 65536
+  %cmp37 = icmp samesign ult i32 %retval.0.i, 65536
   br i1 %cmp37, label %if.then38, label %if.else44
 
 if.then38:                                        ; preds = %if.else36
@@ -6357,7 +6357,7 @@ lpad41:                                           ; preds = %if.then38
   br label %eh.resume
 
 if.else44:                                        ; preds = %if.else36
-  %cmp45 = icmp ult i32 %retval.0.i, 1114112
+  %cmp45 = icmp samesign ult i32 %retval.0.i, 1114112
   br i1 %cmp45, label %if.then46, label %if.end61
 
 if.then46:                                        ; preds = %if.else44
@@ -9143,7 +9143,7 @@ if.then:                                          ; preds = %entry
   br i1 %cmp.i.i.i.i, label %cond.true.i.i.i.i, label %cond.false7.i.i.i.i
 
 cond.true.i.i.i.i:                                ; preds = %if.then
-  %cmp2.i.i.i.i = icmp ult i8 %2, 2
+  %cmp2.i.i.i.i = icmp samesign ult i8 %2, 2
   br i1 %cmp2.i.i.i.i, label %cond.true3.i.i.i.i, label %cond.false.i.i.i.i
 
 cond.true3.i.i.i.i:                               ; preds = %cond.true.i.i.i.i
@@ -9182,7 +9182,7 @@ _ZNK11flexbuffers9Reference8IndirectEv.exit:      ; preds = %cond.true3.i.i.i.i,
   br i1 %cmp.i.i.i.i.i, label %cond.true.i.i.i.i.i, label %cond.false7.i.i.i.i.i
 
 cond.true.i.i.i.i.i:                              ; preds = %_ZNK11flexbuffers9Reference8IndirectEv.exit
-  %cmp2.i.i.i.i.i = icmp ult i8 %7, 2
+  %cmp2.i.i.i.i.i = icmp samesign ult i8 %7, 2
   br i1 %cmp2.i.i.i.i.i, label %cond.true3.i.i.i.i.i, label %cond.false.i.i.i.i.i
 
 cond.true3.i.i.i.i.i:                             ; preds = %cond.true.i.i.i.i.i
@@ -9228,7 +9228,7 @@ if.then.i:                                        ; preds = %entry
   br i1 %cmp.i.i.i.i.i66, label %cond.true.i.i.i.i.i75, label %cond.false7.i.i.i.i.i67
 
 cond.true.i.i.i.i.i75:                            ; preds = %if.then.i
-  %cmp2.i.i.i.i.i76 = icmp ult i8 %13, 2
+  %cmp2.i.i.i.i.i76 = icmp samesign ult i8 %13, 2
   br i1 %cmp2.i.i.i.i.i76, label %cond.true3.i.i.i.i.i79, label %cond.false.i.i.i.i.i77
 
 cond.true3.i.i.i.i.i79:                           ; preds = %cond.true.i.i.i.i.i75
@@ -9369,7 +9369,7 @@ cond.true.i:                                      ; preds = %entry
   br i1 %cmp.i.i.i176, label %cond.true.i.i.i, label %cond.false7.i.i.i
 
 cond.true.i.i.i:                                  ; preds = %cond.true.i
-  %cmp2.i.i.i = icmp ult i8 %24, 2
+  %cmp2.i.i.i = icmp samesign ult i8 %24, 2
   br i1 %cmp2.i.i.i, label %cond.true3.i.i.i, label %cond.false.i.i.i
 
 cond.true3.i.i.i:                                 ; preds = %cond.true.i.i.i
@@ -9418,7 +9418,7 @@ if.then.i179:                                     ; preds = %if.then55
   br i1 %cmp.i.i.i.i.i181, label %cond.true.i.i.i.i.i191, label %cond.false7.i.i.i.i.i182
 
 cond.true.i.i.i.i.i191:                           ; preds = %if.then.i179
-  %cmp2.i.i.i.i.i192 = icmp ult i8 %31, 2
+  %cmp2.i.i.i.i.i192 = icmp samesign ult i8 %31, 2
   br i1 %cmp2.i.i.i.i.i192, label %cond.true3.i.i.i.i.i195, label %cond.false.i.i.i.i.i193
 
 cond.true3.i.i.i.i.i195:                          ; preds = %cond.true.i.i.i.i.i191
@@ -9454,7 +9454,7 @@ _ZNK11flexbuffers9Reference8IndirectEv.exit.i:    ; preds = %cond.false13.i.i.i.
   br i1 %cmp.i.i.i.i.i.i.i, label %cond.true.i.i.i.i.i.i.i, label %cond.false7.i.i.i.i.i.i.i
 
 cond.true.i.i.i.i.i.i.i:                          ; preds = %_ZNK11flexbuffers9Reference8IndirectEv.exit.i
-  %cmp2.i.i.i.i.i.i.i = icmp ult i8 %36, 2
+  %cmp2.i.i.i.i.i.i.i = icmp samesign ult i8 %36, 2
   br i1 %cmp2.i.i.i.i.i.i.i, label %cond.true3.i.i.i230, label %cond.false.i.i.i227
 
 cond.false7.i.i.i.i.i.i.i:                        ; preds = %_ZNK11flexbuffers9Reference8IndirectEv.exit.i
@@ -9525,7 +9525,7 @@ _ZN11flexbuffers10ReadUInt64EPKhh.exit.i:         ; preds = %cond.false13.i.i.i2
   br i1 %cmp.i.i.i.i.i.i209, label %cond.true.i.i.i.i.i.i216, label %cond.false7.i.i.i.i.i.i210
 
 cond.true.i.i.i.i.i.i216:                         ; preds = %_ZN11flexbuffers10ReadUInt64EPKhh.exit.i
-  %cmp2.i.i.i.i.i.i217 = icmp ult i8 %conv8.i, 2
+  %cmp2.i.i.i.i.i.i217 = icmp samesign ult i8 %conv8.i, 2
   br i1 %cmp2.i.i.i.i.i.i217, label %cond.true3.i.i.i.i.i.i220, label %cond.false.i.i.i.i.i.i218
 
 cond.true3.i.i.i.i.i.i220:                        ; preds = %cond.true.i.i.i.i.i.i216
@@ -9558,7 +9558,7 @@ _ZNK11flexbuffers3Map4KeysEv.exit:                ; preds = %cond.true3.i.i.i.i.
   br i1 %cmp.i.i.i.i200335, label %cond.true.i.i.i.i.i.i, label %cond.false7.i.i.i.i.i.i
 
 cond.true.i.i.i.i.i.i:                            ; preds = %_ZNK11flexbuffers3Map4KeysEv.exit
-  %cmp2.i.i.i.i.i.i = icmp ult i8 %m.sroa.4.0331, 2
+  %cmp2.i.i.i.i.i.i = icmp samesign ult i8 %m.sroa.4.0331, 2
   br i1 %cmp2.i.i.i.i.i.i, label %cond.true3.i.i.i.i.i.i, label %cond.false.i.i.i.i.i.i
 
 cond.true3.i.i.i.i.i.i:                           ; preds = %cond.true.i.i.i.i.i.i
@@ -9598,7 +9598,7 @@ for.body.lr.ph:                                   ; preds = %_ZNK11flexbuffers3M
   %54 = getelementptr inbounds i8, ptr %ref.tmp88, i64 8
   %add92 = add nsw i32 %cur_indent, 1
   %cmp9.i.i.i.i.i113 = icmp ult i8 %conv8.i, 8
-  %cmp2.i.i.i.i.i122 = icmp ult i8 %conv8.i, 2
+  %cmp2.i.i.i.i.i122 = icmp samesign ult i8 %conv8.i, 2
   %55 = or disjoint i64 %idx.ext.i.i.i.i206, 17179869440
   %sub = add i64 %cond18.i.i.i.i.i.i213, -1
   br label %for.body
@@ -9772,7 +9772,7 @@ if.then.i237:                                     ; preds = %if.else114
   br i1 %cmp.i.i.i.i.i239, label %cond.true.i.i.i.i.i266, label %cond.false7.i.i.i.i.i240
 
 cond.true.i.i.i.i.i266:                           ; preds = %if.then.i237
-  %cmp2.i.i.i.i.i267 = icmp ult i8 %75, 2
+  %cmp2.i.i.i.i.i267 = icmp samesign ult i8 %75, 2
   br i1 %cmp2.i.i.i.i.i267, label %cond.true3.i.i.i.i.i270, label %cond.false.i.i.i.i.i268
 
 cond.true3.i.i.i.i.i270:                          ; preds = %cond.true.i.i.i.i.i266
@@ -9814,7 +9814,7 @@ _ZNK11flexbuffers9Reference8IndirectEv.exit.i243: ; preds = %cond.false13.i.i.i.
   br i1 %cmp.i.i.i.i.i.i252, label %cond.true.i.i.i.i.i.i258, label %cond.false7.i.i.i.i.i.i253
 
 cond.true.i.i.i.i.i.i258:                         ; preds = %_ZNK11flexbuffers9Reference8IndirectEv.exit.i243
-  %cmp2.i.i.i.i.i.i259 = icmp ult i8 %80, 2
+  %cmp2.i.i.i.i.i.i259 = icmp samesign ult i8 %80, 2
   br i1 %cmp2.i.i.i.i.i.i259, label %cond.true3.i.i.i.i.i.i262, label %cond.false.i.i.i.i.i.i260
 
 cond.true3.i.i.i.i.i.i262:                        ; preds = %cond.true.i.i.i.i.i.i258
@@ -9877,7 +9877,7 @@ if.then.i273:                                     ; preds = %if.then123, %if.the
   br i1 %cmp.i.i.i.i.i275, label %cond.true.i.i.i.i.i305, label %cond.false7.i.i.i.i.i276
 
 cond.true.i.i.i.i.i305:                           ; preds = %if.then.i273
-  %cmp2.i.i.i.i.i306 = icmp ult i8 %86, 2
+  %cmp2.i.i.i.i.i306 = icmp samesign ult i8 %86, 2
   br i1 %cmp2.i.i.i.i.i306, label %cond.true3.i.i.i.i.i309, label %cond.false.i.i.i.i.i307
 
 cond.true3.i.i.i.i.i309:                          ; preds = %cond.true.i.i.i.i.i305
@@ -9920,7 +9920,7 @@ _ZNK11flexbuffers9Reference8IndirectEv.exit.i279: ; preds = %cond.false13.i.i.i.
   br i1 %cmp.i.i.i.i.i.i288, label %cond.true.i.i.i.i.i.i297, label %cond.false7.i.i.i.i.i.i289
 
 cond.true.i.i.i.i.i.i297:                         ; preds = %_ZNK11flexbuffers9Reference8IndirectEv.exit.i279
-  %cmp2.i.i.i.i.i.i298 = icmp ult i8 %91, 2
+  %cmp2.i.i.i.i.i.i298 = icmp samesign ult i8 %91, 2
   br i1 %cmp2.i.i.i.i.i.i298, label %cond.true3.i.i.i.i.i.i301, label %cond.false.i.i.i.i.i.i299
 
 cond.true3.i.i.i.i.i.i301:                        ; preds = %cond.true.i.i.i.i.i.i297
@@ -10028,7 +10028,7 @@ if.then:                                          ; preds = %entry
   br i1 %cmp.i.i, label %cond.true.i.i, label %cond.false7.i.i
 
 cond.true.i.i:                                    ; preds = %if.then
-  %cmp2.i.i = icmp ult i8 %2, 2
+  %cmp2.i.i = icmp samesign ult i8 %2, 2
   br i1 %cmp2.i.i, label %cond.true3.i.i, label %cond.false.i.i
 
 cond.true3.i.i:                                   ; preds = %cond.true.i.i
@@ -10062,7 +10062,7 @@ sw.bb:                                            ; preds = %entry
   br i1 %cmp.i.i.i.i, label %cond.true.i.i.i.i, label %cond.false7.i.i.i.i
 
 cond.true.i.i.i.i:                                ; preds = %sw.bb
-  %cmp2.i.i.i.i = icmp ult i8 %8, 2
+  %cmp2.i.i.i.i = icmp samesign ult i8 %8, 2
   br i1 %cmp2.i.i.i.i, label %cond.true3.i.i.i.i, label %cond.false.i.i.i.i
 
 cond.true3.i.i.i.i:                               ; preds = %cond.true.i.i.i.i
@@ -10098,7 +10098,7 @@ _ZNK11flexbuffers9Reference8IndirectEv.exit:      ; preds = %cond.true3.i.i.i.i,
   br i1 %cmp.i.i1, label %cond.true.i.i8, label %cond.false7.i.i2
 
 cond.true.i.i8:                                   ; preds = %_ZNK11flexbuffers9Reference8IndirectEv.exit
-  %cmp2.i.i9 = icmp ult i8 %13, 2
+  %cmp2.i.i9 = icmp samesign ult i8 %13, 2
   br i1 %cmp2.i.i9, label %cond.true3.i.i12, label %cond.false.i.i10
 
 cond.true3.i.i12:                                 ; preds = %cond.true.i.i8
@@ -10132,7 +10132,7 @@ sw.bb5:                                           ; preds = %entry
   br i1 %cmp.i.i15, label %cond.true.i.i22, label %cond.false7.i.i16
 
 cond.true.i.i22:                                  ; preds = %sw.bb5
-  %cmp2.i.i23 = icmp ult i8 %19, 2
+  %cmp2.i.i23 = icmp samesign ult i8 %19, 2
   br i1 %cmp2.i.i23, label %cond.true3.i.i26, label %cond.false.i.i24
 
 cond.true3.i.i26:                                 ; preds = %cond.true.i.i22
@@ -10166,7 +10166,7 @@ sw.bb9:                                           ; preds = %entry
   br i1 %cmp.i.i.i.i29, label %cond.true.i.i.i.i38, label %cond.false7.i.i.i.i30
 
 cond.true.i.i.i.i38:                              ; preds = %sw.bb9
-  %cmp2.i.i.i.i39 = icmp ult i8 %25, 2
+  %cmp2.i.i.i.i39 = icmp samesign ult i8 %25, 2
   br i1 %cmp2.i.i.i.i39, label %cond.true3.i.i.i.i42, label %cond.false.i.i.i.i40
 
 cond.true3.i.i.i.i42:                             ; preds = %cond.true.i.i.i.i38
@@ -10202,7 +10202,7 @@ _ZNK11flexbuffers9Reference8IndirectEv.exit44:    ; preds = %cond.true3.i.i.i.i4
   br i1 %cmp.i.i45, label %cond.true.i.i52, label %cond.false7.i.i46
 
 cond.true.i.i52:                                  ; preds = %_ZNK11flexbuffers9Reference8IndirectEv.exit44
-  %cmp2.i.i53 = icmp ult i8 %30, 2
+  %cmp2.i.i53 = icmp samesign ult i8 %30, 2
   br i1 %cmp2.i.i53, label %cond.true3.i.i56, label %cond.false.i.i54
 
 cond.true3.i.i56:                                 ; preds = %cond.true.i.i52
@@ -10236,7 +10236,7 @@ sw.bb13:                                          ; preds = %entry
   br i1 %cmp.i.i59, label %cond.true.i.i66, label %cond.false7.i.i60
 
 cond.true.i.i66:                                  ; preds = %sw.bb13
-  %cmp2.i.i67 = icmp ult i8 %36, 2
+  %cmp2.i.i67 = icmp samesign ult i8 %36, 2
   br i1 %cmp2.i.i67, label %cond.true3.i.i70, label %cond.false.i.i68
 
 cond.true3.i.i70:                                 ; preds = %cond.true.i.i66
@@ -10275,7 +10275,7 @@ sw.bb17:                                          ; preds = %entry
   br i1 %cmp.i.i.i.i73, label %cond.true.i.i.i.i82, label %cond.false7.i.i.i.i74
 
 cond.true.i.i.i.i82:                              ; preds = %sw.bb17
-  %cmp2.i.i.i.i83 = icmp ult i8 %42, 2
+  %cmp2.i.i.i.i83 = icmp samesign ult i8 %42, 2
   br i1 %cmp2.i.i.i.i83, label %cond.true3.i.i.i.i86, label %cond.false.i.i.i.i84
 
 cond.true3.i.i.i.i86:                             ; preds = %cond.true.i.i.i.i82
@@ -10311,7 +10311,7 @@ _ZNK11flexbuffers9Reference8IndirectEv.exit88:    ; preds = %cond.true3.i.i.i.i8
   br i1 %cmp.i.i89, label %cond.true.i.i96, label %cond.false7.i.i90
 
 cond.true.i.i96:                                  ; preds = %_ZNK11flexbuffers9Reference8IndirectEv.exit88
-  %cmp2.i.i97 = icmp ult i8 %47, 2
+  %cmp2.i.i97 = icmp samesign ult i8 %47, 2
   br i1 %cmp2.i.i97, label %cond.true3.i.i100, label %cond.false.i.i98
 
 cond.true3.i.i100:                                ; preds = %cond.true.i.i96
@@ -10350,7 +10350,7 @@ if.then.i:                                        ; preds = %entry
   br i1 %cmp.i.i.i.i.i, label %cond.true.i.i.i.i.i, label %cond.false7.i.i.i.i.i
 
 cond.true.i.i.i.i.i:                              ; preds = %if.then.i
-  %cmp2.i.i.i.i.i = icmp ult i8 %53, 2
+  %cmp2.i.i.i.i.i = icmp samesign ult i8 %53, 2
   br i1 %cmp2.i.i.i.i.i, label %cond.true3.i.i.i.i.i, label %cond.false.i.i.i.i.i
 
 cond.true3.i.i.i.i.i:                             ; preds = %cond.true.i.i.i.i.i
@@ -10414,7 +10414,7 @@ if.then.i107:                                     ; preds = %entry
   br i1 %cmp.i.i.i.i.i109, label %cond.true.i.i.i.i.i136, label %cond.false7.i.i.i.i.i110
 
 cond.true.i.i.i.i.i136:                           ; preds = %if.then.i107
-  %cmp2.i.i.i.i.i137 = icmp ult i8 %64, 2
+  %cmp2.i.i.i.i.i137 = icmp samesign ult i8 %64, 2
   br i1 %cmp2.i.i.i.i.i137, label %cond.true3.i.i.i.i.i140, label %cond.false.i.i.i.i.i138
 
 cond.true3.i.i.i.i.i140:                          ; preds = %cond.true.i.i.i.i.i136
@@ -10453,7 +10453,7 @@ _ZNK11flexbuffers9Reference8IndirectEv.exit.i113: ; preds = %cond.false13.i.i.i.
   br i1 %cmp.i.i.i.i.i.i122, label %cond.true.i.i.i.i.i.i128, label %cond.false7.i.i.i.i.i.i123
 
 cond.true.i.i.i.i.i.i128:                         ; preds = %_ZNK11flexbuffers9Reference8IndirectEv.exit.i113
-  %cmp2.i.i.i.i.i.i129 = icmp ult i8 %69, 2
+  %cmp2.i.i.i.i.i.i129 = icmp samesign ult i8 %69, 2
   br i1 %cmp2.i.i.i.i.i.i129, label %cond.true3.i.i.i.i.i.i132, label %cond.false.i.i.i.i.i.i130
 
 cond.true3.i.i.i.i.i.i132:                        ; preds = %cond.true.i.i.i.i.i.i128
@@ -10487,7 +10487,7 @@ sw.bb29:                                          ; preds = %entry
   br i1 %cmp.i.i142, label %cond.true.i.i149, label %cond.false7.i.i143
 
 cond.true.i.i149:                                 ; preds = %sw.bb29
-  %cmp2.i.i150 = icmp ult i8 %75, 2
+  %cmp2.i.i150 = icmp samesign ult i8 %75, 2
   br i1 %cmp2.i.i150, label %cond.true3.i.i153, label %cond.false.i.i151
 
 cond.true3.i.i153:                                ; preds = %cond.true.i.i149
@@ -10544,7 +10544,7 @@ if.then:                                          ; preds = %entry
   br i1 %cmp.i.i, label %cond.true.i.i, label %cond.false7.i.i
 
 cond.true.i.i:                                    ; preds = %if.then
-  %cmp2.i.i = icmp ult i8 %2, 2
+  %cmp2.i.i = icmp samesign ult i8 %2, 2
   br i1 %cmp2.i.i, label %cond.true3.i.i, label %cond.false.i.i
 
 cond.true3.i.i:                                   ; preds = %cond.true.i.i
@@ -10578,7 +10578,7 @@ sw.bb:                                            ; preds = %entry
   br i1 %cmp.i.i.i.i, label %cond.true.i.i.i.i, label %cond.false7.i.i.i.i
 
 cond.true.i.i.i.i:                                ; preds = %sw.bb
-  %cmp2.i.i.i.i = icmp ult i8 %8, 2
+  %cmp2.i.i.i.i = icmp samesign ult i8 %8, 2
   br i1 %cmp2.i.i.i.i, label %cond.true3.i.i.i.i, label %cond.false.i.i.i.i
 
 cond.true3.i.i.i.i:                               ; preds = %cond.true.i.i.i.i
@@ -10614,7 +10614,7 @@ _ZNK11flexbuffers9Reference8IndirectEv.exit:      ; preds = %cond.true3.i.i.i.i,
   br i1 %cmp.i.i1, label %cond.true.i.i8, label %cond.false7.i.i2
 
 cond.true.i.i8:                                   ; preds = %_ZNK11flexbuffers9Reference8IndirectEv.exit
-  %cmp2.i.i9 = icmp ult i8 %13, 2
+  %cmp2.i.i9 = icmp samesign ult i8 %13, 2
   br i1 %cmp2.i.i9, label %cond.true3.i.i12, label %cond.false.i.i10
 
 cond.true3.i.i12:                                 ; preds = %cond.true.i.i8
@@ -10648,7 +10648,7 @@ sw.bb5:                                           ; preds = %entry
   br i1 %cmp.i.i15, label %cond.true.i.i22, label %cond.false7.i.i16
 
 cond.true.i.i22:                                  ; preds = %sw.bb5
-  %cmp2.i.i23 = icmp ult i8 %19, 2
+  %cmp2.i.i23 = icmp samesign ult i8 %19, 2
   br i1 %cmp2.i.i23, label %cond.true3.i.i26, label %cond.false.i.i24
 
 cond.true3.i.i26:                                 ; preds = %cond.true.i.i22
@@ -10682,7 +10682,7 @@ sw.bb9:                                           ; preds = %entry
   br i1 %cmp.i.i.i.i29, label %cond.true.i.i.i.i38, label %cond.false7.i.i.i.i30
 
 cond.true.i.i.i.i38:                              ; preds = %sw.bb9
-  %cmp2.i.i.i.i39 = icmp ult i8 %25, 2
+  %cmp2.i.i.i.i39 = icmp samesign ult i8 %25, 2
   br i1 %cmp2.i.i.i.i39, label %cond.true3.i.i.i.i42, label %cond.false.i.i.i.i40
 
 cond.true3.i.i.i.i42:                             ; preds = %cond.true.i.i.i.i38
@@ -10718,7 +10718,7 @@ _ZNK11flexbuffers9Reference8IndirectEv.exit44:    ; preds = %cond.true3.i.i.i.i4
   br i1 %cmp.i.i45, label %cond.true.i.i52, label %cond.false7.i.i46
 
 cond.true.i.i52:                                  ; preds = %_ZNK11flexbuffers9Reference8IndirectEv.exit44
-  %cmp2.i.i53 = icmp ult i8 %30, 2
+  %cmp2.i.i53 = icmp samesign ult i8 %30, 2
   br i1 %cmp2.i.i53, label %cond.true3.i.i56, label %cond.false.i.i54
 
 cond.true3.i.i56:                                 ; preds = %cond.true.i.i52
@@ -10752,7 +10752,7 @@ sw.bb13:                                          ; preds = %entry
   br i1 %cmp.i.i59, label %cond.true.i.i66, label %cond.false7.i.i60
 
 cond.true.i.i66:                                  ; preds = %sw.bb13
-  %cmp2.i.i67 = icmp ult i8 %36, 2
+  %cmp2.i.i67 = icmp samesign ult i8 %36, 2
   br i1 %cmp2.i.i67, label %cond.true3.i.i70, label %cond.false.i.i68
 
 cond.true3.i.i70:                                 ; preds = %cond.true.i.i66
@@ -10791,7 +10791,7 @@ sw.bb17:                                          ; preds = %entry
   br i1 %cmp.i.i.i.i73, label %cond.true.i.i.i.i82, label %cond.false7.i.i.i.i74
 
 cond.true.i.i.i.i82:                              ; preds = %sw.bb17
-  %cmp2.i.i.i.i83 = icmp ult i8 %42, 2
+  %cmp2.i.i.i.i83 = icmp samesign ult i8 %42, 2
   br i1 %cmp2.i.i.i.i83, label %cond.true3.i.i.i.i86, label %cond.false.i.i.i.i84
 
 cond.true3.i.i.i.i86:                             ; preds = %cond.true.i.i.i.i82
@@ -10827,7 +10827,7 @@ _ZNK11flexbuffers9Reference8IndirectEv.exit88:    ; preds = %cond.true3.i.i.i.i8
   br i1 %cmp.i.i89, label %cond.true.i.i96, label %cond.false7.i.i90
 
 cond.true.i.i96:                                  ; preds = %_ZNK11flexbuffers9Reference8IndirectEv.exit88
-  %cmp2.i.i97 = icmp ult i8 %47, 2
+  %cmp2.i.i97 = icmp samesign ult i8 %47, 2
   br i1 %cmp2.i.i97, label %cond.true3.i.i100, label %cond.false.i.i98
 
 cond.true3.i.i100:                                ; preds = %cond.true.i.i96
@@ -10866,7 +10866,7 @@ if.then.i:                                        ; preds = %entry
   br i1 %cmp.i.i.i.i.i, label %cond.true.i.i.i.i.i, label %cond.false7.i.i.i.i.i
 
 cond.true.i.i.i.i.i:                              ; preds = %if.then.i
-  %cmp2.i.i.i.i.i = icmp ult i8 %53, 2
+  %cmp2.i.i.i.i.i = icmp samesign ult i8 %53, 2
   br i1 %cmp2.i.i.i.i.i, label %cond.true3.i.i.i.i.i, label %cond.false.i.i.i.i.i
 
 cond.true3.i.i.i.i.i:                             ; preds = %cond.true.i.i.i.i.i
@@ -10930,7 +10930,7 @@ if.then.i107:                                     ; preds = %entry
   br i1 %cmp.i.i.i.i.i109, label %cond.true.i.i.i.i.i136, label %cond.false7.i.i.i.i.i110
 
 cond.true.i.i.i.i.i136:                           ; preds = %if.then.i107
-  %cmp2.i.i.i.i.i137 = icmp ult i8 %64, 2
+  %cmp2.i.i.i.i.i137 = icmp samesign ult i8 %64, 2
   br i1 %cmp2.i.i.i.i.i137, label %cond.true3.i.i.i.i.i140, label %cond.false.i.i.i.i.i138
 
 cond.true3.i.i.i.i.i140:                          ; preds = %cond.true.i.i.i.i.i136
@@ -10969,7 +10969,7 @@ _ZNK11flexbuffers9Reference8IndirectEv.exit.i113: ; preds = %cond.false13.i.i.i.
   br i1 %cmp.i.i.i.i.i.i122, label %cond.true.i.i.i.i.i.i128, label %cond.false7.i.i.i.i.i.i123
 
 cond.true.i.i.i.i.i.i128:                         ; preds = %_ZNK11flexbuffers9Reference8IndirectEv.exit.i113
-  %cmp2.i.i.i.i.i.i129 = icmp ult i8 %69, 2
+  %cmp2.i.i.i.i.i.i129 = icmp samesign ult i8 %69, 2
   br i1 %cmp2.i.i.i.i.i.i129, label %cond.true3.i.i.i.i.i.i132, label %cond.false.i.i.i.i.i.i130
 
 cond.true3.i.i.i.i.i.i132:                        ; preds = %cond.true.i.i.i.i.i.i128
@@ -11003,7 +11003,7 @@ sw.bb29:                                          ; preds = %entry
   br i1 %cmp.i.i142, label %cond.true.i.i149, label %cond.false7.i.i143
 
 cond.true.i.i149:                                 ; preds = %sw.bb29
-  %cmp2.i.i150 = icmp ult i8 %75, 2
+  %cmp2.i.i150 = icmp samesign ult i8 %75, 2
   br i1 %cmp2.i.i150, label %cond.true3.i.i153, label %cond.false.i.i151
 
 cond.true3.i.i153:                                ; preds = %cond.true.i.i149
@@ -11060,7 +11060,7 @@ if.then:                                          ; preds = %entry
   br i1 %cmp.i.i, label %cond.true.i.i, label %cond.false7.i.i
 
 cond.true.i.i:                                    ; preds = %if.then
-  %cmp2.i.i = icmp ult i8 %2, 2
+  %cmp2.i.i = icmp samesign ult i8 %2, 2
   br i1 %cmp2.i.i, label %cond.true3.i.i, label %cond.false.i.i
 
 cond.true3.i.i:                                   ; preds = %cond.true.i.i
@@ -11094,7 +11094,7 @@ sw.bb:                                            ; preds = %entry
   br i1 %cmp.i.i.i.i, label %cond.true.i.i.i.i, label %cond.false7.i.i.i.i
 
 cond.true.i.i.i.i:                                ; preds = %sw.bb
-  %cmp2.i.i.i.i = icmp ult i8 %8, 2
+  %cmp2.i.i.i.i = icmp samesign ult i8 %8, 2
   br i1 %cmp2.i.i.i.i, label %cond.true3.i.i.i.i, label %cond.false.i.i.i.i
 
 cond.true3.i.i.i.i:                               ; preds = %cond.true.i.i.i.i
@@ -11130,7 +11130,7 @@ _ZNK11flexbuffers9Reference8IndirectEv.exit:      ; preds = %cond.true3.i.i.i.i,
   br i1 %cmp.i.i1, label %cond.true.i.i8, label %cond.false7.i.i2
 
 cond.true.i.i8:                                   ; preds = %_ZNK11flexbuffers9Reference8IndirectEv.exit
-  %cmp2.i.i9 = icmp ult i8 %13, 2
+  %cmp2.i.i9 = icmp samesign ult i8 %13, 2
   br i1 %cmp2.i.i9, label %cond.true3.i.i12, label %cond.false.i.i10
 
 cond.true3.i.i12:                                 ; preds = %cond.true.i.i8
@@ -11164,7 +11164,7 @@ sw.bb5:                                           ; preds = %entry
   br i1 %cmp.i.i15, label %cond.true.i.i22, label %cond.false7.i.i16
 
 cond.true.i.i22:                                  ; preds = %sw.bb5
-  %cmp2.i.i23 = icmp ult i8 %19, 2
+  %cmp2.i.i23 = icmp samesign ult i8 %19, 2
   br i1 %cmp2.i.i23, label %cond.true3.i.i26, label %cond.false.i.i24
 
 cond.true3.i.i26:                                 ; preds = %cond.true.i.i22
@@ -11203,7 +11203,7 @@ sw.bb9:                                           ; preds = %entry
   br i1 %cmp.i.i28, label %cond.true.i.i35, label %cond.false7.i.i29
 
 cond.true.i.i35:                                  ; preds = %sw.bb9
-  %cmp2.i.i36 = icmp ult i8 %25, 2
+  %cmp2.i.i36 = icmp samesign ult i8 %25, 2
   br i1 %cmp2.i.i36, label %cond.true3.i.i39, label %cond.false.i.i37
 
 cond.true3.i.i39:                                 ; preds = %cond.true.i.i35
@@ -11242,7 +11242,7 @@ sw.bb14:                                          ; preds = %entry
   br i1 %cmp.i.i.i.i42, label %cond.true.i.i.i.i51, label %cond.false7.i.i.i.i43
 
 cond.true.i.i.i.i51:                              ; preds = %sw.bb14
-  %cmp2.i.i.i.i52 = icmp ult i8 %31, 2
+  %cmp2.i.i.i.i52 = icmp samesign ult i8 %31, 2
   br i1 %cmp2.i.i.i.i52, label %cond.true3.i.i.i.i55, label %cond.false.i.i.i.i53
 
 cond.true3.i.i.i.i55:                             ; preds = %cond.true.i.i.i.i51
@@ -11278,7 +11278,7 @@ _ZNK11flexbuffers9Reference8IndirectEv.exit57:    ; preds = %cond.true3.i.i.i.i5
   br i1 %cmp.i.i58, label %cond.true.i.i65, label %cond.false7.i.i59
 
 cond.true.i.i65:                                  ; preds = %_ZNK11flexbuffers9Reference8IndirectEv.exit57
-  %cmp2.i.i66 = icmp ult i8 %36, 2
+  %cmp2.i.i66 = icmp samesign ult i8 %36, 2
   br i1 %cmp2.i.i66, label %cond.true3.i.i69, label %cond.false.i.i67
 
 cond.true3.i.i69:                                 ; preds = %cond.true.i.i65
@@ -11317,7 +11317,7 @@ sw.bb19:                                          ; preds = %entry
   br i1 %cmp.i.i.i.i73, label %cond.true.i.i.i.i82, label %cond.false7.i.i.i.i74
 
 cond.true.i.i.i.i82:                              ; preds = %sw.bb19
-  %cmp2.i.i.i.i83 = icmp ult i8 %42, 2
+  %cmp2.i.i.i.i83 = icmp samesign ult i8 %42, 2
   br i1 %cmp2.i.i.i.i83, label %cond.true3.i.i.i.i86, label %cond.false.i.i.i.i84
 
 cond.true3.i.i.i.i86:                             ; preds = %cond.true.i.i.i.i82
@@ -11353,7 +11353,7 @@ _ZNK11flexbuffers9Reference8IndirectEv.exit88:    ; preds = %cond.true3.i.i.i.i8
   br i1 %cmp.i.i89, label %cond.true.i.i96, label %cond.false7.i.i90
 
 cond.true.i.i96:                                  ; preds = %_ZNK11flexbuffers9Reference8IndirectEv.exit88
-  %cmp2.i.i97 = icmp ult i8 %47, 2
+  %cmp2.i.i97 = icmp samesign ult i8 %47, 2
   br i1 %cmp2.i.i97, label %cond.true3.i.i100, label %cond.false.i.i98
 
 cond.true3.i.i100:                                ; preds = %cond.true.i.i96
@@ -11392,7 +11392,7 @@ if.then.i:                                        ; preds = %entry
   br i1 %cmp.i.i.i.i.i, label %cond.true.i.i.i.i.i, label %cond.false7.i.i.i.i.i
 
 cond.true.i.i.i.i.i:                              ; preds = %if.then.i
-  %cmp2.i.i.i.i.i = icmp ult i8 %53, 2
+  %cmp2.i.i.i.i.i = icmp samesign ult i8 %53, 2
   br i1 %cmp2.i.i.i.i.i, label %cond.true3.i.i.i.i.i, label %cond.false.i.i.i.i.i
 
 cond.true3.i.i.i.i.i:                             ; preds = %cond.true.i.i.i.i.i
@@ -11455,7 +11455,7 @@ if.then.i107:                                     ; preds = %entry
   br i1 %cmp.i.i.i.i.i109, label %cond.true.i.i.i.i.i136, label %cond.false7.i.i.i.i.i110
 
 cond.true.i.i.i.i.i136:                           ; preds = %if.then.i107
-  %cmp2.i.i.i.i.i137 = icmp ult i8 %63, 2
+  %cmp2.i.i.i.i.i137 = icmp samesign ult i8 %63, 2
   br i1 %cmp2.i.i.i.i.i137, label %cond.true3.i.i.i.i.i140, label %cond.false.i.i.i.i.i138
 
 cond.true3.i.i.i.i.i140:                          ; preds = %cond.true.i.i.i.i.i136
@@ -11494,7 +11494,7 @@ _ZNK11flexbuffers9Reference8IndirectEv.exit.i113: ; preds = %cond.false13.i.i.i.
   br i1 %cmp.i.i.i.i.i.i122, label %cond.true.i.i.i.i.i.i128, label %cond.false7.i.i.i.i.i.i123
 
 cond.true.i.i.i.i.i.i128:                         ; preds = %_ZNK11flexbuffers9Reference8IndirectEv.exit.i113
-  %cmp2.i.i.i.i.i.i129 = icmp ult i8 %68, 2
+  %cmp2.i.i.i.i.i.i129 = icmp samesign ult i8 %68, 2
   br i1 %cmp2.i.i.i.i.i.i129, label %cond.true3.i.i.i.i.i.i132, label %cond.false.i.i.i.i.i.i130
 
 cond.true3.i.i.i.i.i.i132:                        ; preds = %cond.true.i.i.i.i.i.i128
@@ -11533,7 +11533,7 @@ sw.bb32:                                          ; preds = %entry
   br i1 %cmp.i.i142, label %cond.true.i.i149, label %cond.false7.i.i143
 
 cond.true.i.i149:                                 ; preds = %sw.bb32
-  %cmp2.i.i150 = icmp ult i8 %74, 2
+  %cmp2.i.i150 = icmp samesign ult i8 %74, 2
   br i1 %cmp2.i.i150, label %cond.true3.i.i153, label %cond.false.i.i151
 
 cond.true3.i.i153:                                ; preds = %cond.true.i.i149
@@ -12025,7 +12025,7 @@ if.then:                                          ; preds = %entry
   br i1 %cmp.i.i.i.i, label %cond.true.i.i.i.i, label %cond.false7.i.i.i.i
 
 cond.true.i.i.i.i:                                ; preds = %if.then
-  %cmp2.i.i.i.i = icmp ult i8 %4, 2
+  %cmp2.i.i.i.i = icmp samesign ult i8 %4, 2
   br i1 %cmp2.i.i.i.i, label %cond.true3.i.i.i.i, label %cond.false.i.i.i.i
 
 cond.true3.i.i.i.i:                               ; preds = %cond.true.i.i.i.i
@@ -12092,7 +12092,7 @@ if.then:                                          ; preds = %entry, %entry
   br i1 %cmp.i.i.i.i, label %cond.true.i.i.i.i, label %cond.false7.i.i.i.i
 
 cond.true.i.i.i.i:                                ; preds = %if.then
-  %cmp2.i.i.i.i = icmp ult i8 %2, 2
+  %cmp2.i.i.i.i = icmp samesign ult i8 %2, 2
   br i1 %cmp2.i.i.i.i, label %cond.true3.i.i.i.i, label %cond.false.i.i.i.i
 
 cond.true3.i.i.i.i:                               ; preds = %cond.true.i.i.i.i
@@ -12134,7 +12134,7 @@ _ZNK11flexbuffers9Reference8IndirectEv.exit:      ; preds = %cond.true3.i.i.i.i,
   br i1 %cmp.i.i.i.i.i, label %cond.true.i.i.i.i.i, label %cond.false7.i.i.i.i.i
 
 cond.true.i.i.i.i.i:                              ; preds = %_ZNK11flexbuffers9Reference8IndirectEv.exit
-  %cmp2.i.i.i.i.i = icmp ult i8 %7, 2
+  %cmp2.i.i.i.i.i = icmp samesign ult i8 %7, 2
   br i1 %cmp2.i.i.i.i.i, label %cond.true3.i.i.i.i.i, label %cond.false.i.i.i.i.i
 
 cond.true3.i.i.i.i.i:                             ; preds = %cond.true.i.i.i.i.i

@@ -157,7 +157,7 @@ _ZNSt12_Vector_baseIhSaIhEE13_M_deallocateEPhm.exit34.i.i: ; preds = %50, %_ZNSt
   br label %.noexc8
 
 52:                                               ; preds = %23
-  %53 = icmp ult i64 %25, %13
+  %53 = icmp samesign ult i64 %25, %13
   %54 = getelementptr inbounds i8, ptr %.sroa.0.4, i64 %25
   %spec.select = select i1 %53, ptr %54, ptr %21
   br label %.noexc8
@@ -469,7 +469,7 @@ _ZNSt12_Vector_baseIhSaIhEE13_M_deallocateEPhm.exit34.i.i: ; preds = %50, %_ZNSt
   br label %.noexc8
 
 52:                                               ; preds = %23
-  %53 = icmp ult i64 %25, %13
+  %53 = icmp samesign ult i64 %25, %13
   %54 = getelementptr inbounds i8, ptr %.sroa.0.4, i64 %25
   %spec.select = select i1 %53, ptr %54, ptr %21
   br label %.noexc8

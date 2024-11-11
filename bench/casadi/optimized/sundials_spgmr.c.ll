@@ -612,7 +612,7 @@ define range(i32 -5, 6) i32 @SpgmrSolve(ptr noundef readonly %0, ptr noundef %1,
   %169 = load double, ptr %168, align 8
   %170 = fmul double %.0275350, %169
   %indvars.iv.next407 = add nsw i64 %indvars.iv406, -1
-  %171 = icmp ugt i64 %indvars.iv406, 1
+  %171 = icmp samesign ugt i64 %indvars.iv406, 1
   br i1 %171, label %.lr.ph352, label %._crit_edge353, !llvm.loop !16
 
 ._crit_edge353:                                   ; preds = %.lr.ph352, %.preheader316

@@ -354,7 +354,7 @@ if.then26.i:                                      ; preds = %if.else.i
   br label %err_symbol.i
 
 if.else28.i:                                      ; preds = %if.else.i
-  %cmp29.i = icmp ugt i32 %11, 1
+  %cmp29.i = icmp samesign ugt i32 %11, 1
   br i1 %cmp29.i, label %if.then31.i, label %while.end.i
 
 if.then31.i:                                      ; preds = %if.else28.i

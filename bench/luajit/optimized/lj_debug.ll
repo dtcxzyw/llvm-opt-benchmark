@@ -179,7 +179,7 @@ if.then10:                                        ; preds = %if.end7
   br label %return
 
 if.else:                                          ; preds = %if.end7
-  %cmp13 = icmp ult i32 %5, 65536
+  %cmp13 = icmp samesign ult i32 %5, 65536
   %idxprom16 = zext i32 %dec to i64
   br i1 %cmp13, label %if.then15, label %if.else20
 
@@ -1098,7 +1098,7 @@ if.then10.i.i:                                    ; preds = %if.end7.i.i
   br label %debug_frameline.exit
 
 if.else.i.i:                                      ; preds = %if.end7.i.i
-  %cmp13.i.i = icmp ult i32 %10, 65536
+  %cmp13.i.i = icmp samesign ult i32 %10, 65536
   %idxprom16.i.i = zext i32 %dec.i.i to i64
   br i1 %cmp13.i.i, label %if.then15.i.i, label %if.else20.i.i
 
@@ -1190,7 +1190,7 @@ if.then10.i:                                      ; preds = %if.end7.i
   br label %lj_debug_line.exit
 
 if.else.i:                                        ; preds = %if.end7.i
-  %cmp13.i = icmp ult i32 %8, 65536
+  %cmp13.i = icmp samesign ult i32 %8, 65536
   %idxprom16.i = zext i32 %dec.i to i64
   br i1 %cmp13.i, label %if.then15.i, label %if.else20.i
 
@@ -1837,7 +1837,7 @@ if.then10.i.i:                                    ; preds = %if.end7.i.i
   br label %cond.end
 
 if.else.i.i:                                      ; preds = %if.end7.i.i
-  %cmp13.i.i = icmp ult i32 %25, 65536
+  %cmp13.i.i = icmp samesign ult i32 %25, 65536
   %idxprom16.i.i = zext i32 %dec.i.i to i64
   br i1 %cmp13.i.i, label %if.then15.i.i, label %if.else20.i.i
 
@@ -2994,7 +2994,7 @@ if.then10.i.i:                                    ; preds = %if.end7.i.i
   br label %cond.end48
 
 if.else.i.i:                                      ; preds = %if.end7.i.i
-  %cmp13.i.i = icmp ult i32 %119, 65536
+  %cmp13.i.i = icmp samesign ult i32 %119, 65536
   %idxprom16.i.i = zext i32 %dec.i.i to i64
   br i1 %cmp13.i.i, label %if.then15.i.i, label %if.else20.i.i
 

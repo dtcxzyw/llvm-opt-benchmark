@@ -1948,7 +1948,7 @@ _ZNSt6vectorIPK8VariableSaIS2_EEaSEOS4_.exit:     ; preds = %15
   br label %_ZNSt6vectorIPK8VariableSaIS2_EED2Ev.exit
 
 _ZNSt6vectorIPK8VariableSaIS2_EED2Ev.exit:        ; preds = %15, %_ZNSt6vectorIPK8VariableSaIS2_EEaSEOS4_.exit, %19
-  %20 = icmp ugt i32 %.in, 1
+  %20 = icmp samesign ugt i32 %.in, 1
   br i1 %20, label %12, label %._crit_edge, !llvm.loop !14
 
 21:                                               ; preds = %12

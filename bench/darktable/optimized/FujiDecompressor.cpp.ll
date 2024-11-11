@@ -948,7 +948,7 @@ define hidden noundef zeroext i1 @_ZNK8rawspeed16FujiDecompressor10FujiHeadercvb
   %32 = getelementptr inbounds i8, ptr %0, i64 12
   %33 = load i16, ptr %32, align 4, !tbaa !145
   %34 = icmp ne i16 %33, 768
-  %35 = icmp ult i16 %28, 768
+  %35 = icmp samesign ult i16 %28, 768
   %36 = or i1 %35, %34
   %37 = urem i16 %28, 768
   %38 = udiv i16 %28, 768
@@ -2573,7 +2573,7 @@ define hidden void @_ZNK8rawspeed16FujiDecompressor10decompressEv(ptr noundef no
   %699 = load i16, ptr %698, align 2, !tbaa !83
   %700 = zext i16 %699 to i32
   %701 = add nuw nsw i32 %669, 2
-  %702 = icmp ugt i32 %674, %701
+  %702 = icmp samesign ugt i32 %674, %701
   call void @llvm.assume(i1 %702)
   %703 = zext nneg i32 %701 to i64
   %704 = getelementptr inbounds i16, ptr %692, i64 %703
@@ -2584,7 +2584,7 @@ define hidden void @_ZNK8rawspeed16FujiDecompressor10decompressEv(ptr noundef no
   call void @llvm.assume(i1 %708)
   %709 = mul nsw i32 %678, %707
   %710 = add nuw nsw i32 %709, %674
-  %711 = icmp ule i32 %710, %672
+  %711 = icmp samesign ule i32 %710, %672
   call void @llvm.assume(i1 %711)
   %712 = zext nneg i32 %709 to i64
   %713 = getelementptr inbounds i16, ptr %671, i64 %712
@@ -2680,7 +2680,7 @@ define hidden void @_ZNK8rawspeed16FujiDecompressor10decompressEv(ptr noundef no
   %772 = load i16, ptr %771, align 2, !tbaa !83
   %773 = zext i16 %772 to i32
   %774 = add nuw nsw i32 %742, 2
-  %775 = icmp ugt i32 %747, %774
+  %775 = icmp samesign ugt i32 %747, %774
   call void @llvm.assume(i1 %775)
   %776 = zext nneg i32 %774 to i64
   %777 = getelementptr inbounds i16, ptr %765, i64 %776
@@ -2691,7 +2691,7 @@ define hidden void @_ZNK8rawspeed16FujiDecompressor10decompressEv(ptr noundef no
   call void @llvm.assume(i1 %781)
   %782 = mul nsw i32 %751, %780
   %783 = add nuw nsw i32 %782, %747
-  %784 = icmp ule i32 %783, %745
+  %784 = icmp samesign ule i32 %783, %745
   call void @llvm.assume(i1 %784)
   %785 = zext nneg i32 %782 to i64
   %786 = getelementptr inbounds i16, ptr %744, i64 %785
@@ -2848,7 +2848,7 @@ define hidden void @_ZNK8rawspeed16FujiDecompressor10decompressEv(ptr noundef no
   %905 = load i8, ptr %206, align 8, !tbaa !195, !range !222, !noundef !105
   %906 = icmp ne i8 %905, 0
   call void @llvm.assume(i1 %906)
-  %907 = icmp ult i32 %875, 32
+  %907 = icmp samesign ult i32 %875, 32
   br i1 %907, label %908, label %935
 
 908:                                              ; preds = %902
@@ -3279,7 +3279,7 @@ define hidden void @_ZNK8rawspeed16FujiDecompressor10decompressEv(ptr noundef no
   call void @llvm.assume(i1 %1215)
   %1216 = icmp sgt i32 %1172, -1
   call void @llvm.assume(i1 %1216)
-  %1217 = icmp ult i32 %1184, 32
+  %1217 = icmp samesign ult i32 %1184, 32
   br i1 %1217, label %1218, label %1245
 
 1218:                                             ; preds = %1211
@@ -3960,7 +3960,7 @@ define hidden void @_ZNK8rawspeed16FujiDecompressor10decompressEv(ptr noundef no
   %1654 = load i16, ptr %1653, align 2, !tbaa !83
   %1655 = zext i16 %1654 to i32
   %1656 = add nuw nsw i32 %1631, 2
-  %1657 = icmp ugt i32 %1622, %1656
+  %1657 = icmp samesign ugt i32 %1622, %1656
   call void @llvm.assume(i1 %1657)
   %1658 = zext nneg i32 %1656 to i64
   %1659 = getelementptr inbounds i16, ptr %1647, i64 %1658
@@ -4125,7 +4125,7 @@ define hidden void @_ZNK8rawspeed16FujiDecompressor10decompressEv(ptr noundef no
   %1785 = load i8, ptr %206, align 8, !tbaa !195, !range !222, !noundef !105
   %1786 = icmp ne i8 %1785, 0
   call void @llvm.assume(i1 %1786)
-  %1787 = icmp ult i32 %1755, 32
+  %1787 = icmp samesign ult i32 %1755, 32
   br i1 %1787, label %1788, label %1815
 
 1788:                                             ; preds = %1782
@@ -4542,7 +4542,7 @@ define hidden void @_ZNK8rawspeed16FujiDecompressor10decompressEv(ptr noundef no
   call void @llvm.assume(i1 %2083)
   %2084 = icmp sgt i32 %2040, -1
   call void @llvm.assume(i1 %2084)
-  %2085 = icmp ult i32 %2052, 32
+  %2085 = icmp samesign ult i32 %2052, 32
   br i1 %2085, label %2086, label %2114
 
 2086:                                             ; preds = %2079

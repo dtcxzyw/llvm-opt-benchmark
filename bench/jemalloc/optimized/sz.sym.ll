@@ -226,7 +226,7 @@ for.body.i19:                                     ; preds = %for.body.i4, %for.i
   %add.i27 = add nuw i64 %shl.i24, 7
   %sub.i = add i64 %add.i27, %shl7.i
   %shr.i = lshr i64 %sub.i, 3
-  %cmp1011.not.i = icmp ugt i64 %dst_ind.014.i, %shr.i
+  %cmp1011.not.i = icmp samesign ugt i64 %dst_ind.014.i, %shr.i
   br i1 %cmp1011.not.i, label %for.inc19.i, label %for.body16.lr.ph.i
 
 for.body16.lr.ph.i:                               ; preds = %for.body.i19

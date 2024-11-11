@@ -1419,7 +1419,7 @@ bsdf_is_edge.exit.thread49:                       ; preds = %16, %84, %67, %52, 
 
 198:                                              ; preds = %175
   %199 = sub nsw i32 65536, %184
-  %200 = icmp ult i32 %124, %199
+  %200 = icmp samesign ult i32 %124, %199
   br i1 %200, label %201, label %210
 
 201:                                              ; preds = %198

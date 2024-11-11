@@ -65,7 +65,7 @@ define hidden range(i32 -1, 1) i32 @validatePathChars(ptr nocapture noundef read
   br i1 %or.cond, label %match.exit, label %27
 
 27:                                               ; preds = %19
-  %28 = icmp ult i8 %21, 64
+  %28 = icmp samesign ult i8 %21, 64
   %29 = zext nneg i8 %21 to i64
   br i1 %28, label %30, label %33
 
@@ -84,7 +84,7 @@ define hidden range(i32 -1, 1) i32 @validatePathChars(ptr nocapture noundef read
   br i1 %.not13.i, label %match.exit, label %38
 
 38:                                               ; preds = %30, %33
-  %39 = icmp ult i8 %23, 64
+  %39 = icmp samesign ult i8 %23, 64
   br i1 %39, label %40, label %44
 
 40:                                               ; preds = %38
@@ -103,7 +103,7 @@ define hidden range(i32 -1, 1) i32 @validatePathChars(ptr nocapture noundef read
   br i1 %.not13.i30, label %match.exit, label %match.exit33.thread
 
 49:                                               ; preds = %15
-  %50 = icmp ult i8 %12, 64
+  %50 = icmp samesign ult i8 %12, 64
   br i1 %50, label %51, label %55
 
 51:                                               ; preds = %49

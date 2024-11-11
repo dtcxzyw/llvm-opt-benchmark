@@ -326,7 +326,7 @@ define internal fastcc void @set_tls_desc(ptr noundef %0, i32 noundef %1, ptr no
 95:                                               ; preds = %._crit_edge, %26
   %96 = getelementptr i8, ptr %13, i64 16
   %97 = getelementptr i8, ptr %14, i64 8
-  %98 = icmp ugt i32 %12, 1
+  %98 = icmp samesign ugt i32 %12, 1
   br i1 %98, label %11, label %.loopexit1, !llvm.loop !22
 
 .loopexit1:                                       ; preds = %95, %4

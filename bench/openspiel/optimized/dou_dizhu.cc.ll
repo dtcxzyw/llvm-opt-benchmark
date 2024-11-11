@@ -1216,7 +1216,7 @@ _ZN4absl7debian28AlphaNumC2El.exit:               ; preds = %_ZN4absl7debian28Al
   br label %81
 
 30:                                               ; preds = %19
-  %31 = icmp ult i64 %3, 105
+  %31 = icmp samesign ult i64 %3, 105
   br i1 %31, label %_ZN4absl7debian28AlphaNumC2EPKc.exit14, label %_ZN4absl7debian219str_format_internal18FormatSpecTemplateIJLNS0_23FormatConversionCharSetE131067EEEC2EUa9enable_ifIXclL_ZNS1_15ValidFormatImplIJLS3_131067EEEEbNS0_11string_viewEEfL0p_EEEPKc.exit
 
 _ZN4absl7debian28AlphaNumC2EPKc.exit14:           ; preds = %30

@@ -623,7 +623,7 @@ define void @_ZN6marisa6Keyset9push_backEPKcmf(ptr nocapture noundef nonnull ali
   br label %29
 
 29:                                               ; preds = %28, %21
-  %30 = icmp ugt i64 %2, 1024
+  %30 = icmp samesign ugt i64 %2, 1024
   br i1 %30, label %_ZN6marisa6Keyset7reserveEm.exit.thread, label %38
 
 _ZN6marisa6Keyset7reserveEm.exit.thread:          ; preds = %29

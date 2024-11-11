@@ -596,7 +596,7 @@ _ZNK2cv11_InputArray6getMatEi.exit:               ; preds = %9, %12
   br label %77
 
 33:                                               ; preds = %16
-  %34 = icmp ult i32 %13, 2
+  %34 = icmp samesign ult i32 %13, 2
   br i1 %34, label %.loopexit, label %35
 
 35:                                               ; preds = %33
@@ -1091,7 +1091,7 @@ _ZNK2cv11_InputArray6getMatEi.exit:               ; preds = %22, %25
 
 44:                                               ; preds = %29
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(20) %0, i8 0, i64 20, i1 false)
-  %45 = icmp ult i32 %26, 5
+  %45 = icmp samesign ult i32 %26, 5
   br i1 %45, label %46, label %54
 
 46:                                               ; preds = %44
@@ -1986,7 +1986,7 @@ _ZNK2cv11_InputArray6getMatEi.exit:               ; preds = %47, %50
 
 71:                                               ; preds = %54
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(20) %0, i8 0, i64 20, i1 false)
-  %72 = icmp ult i32 %51, 5
+  %72 = icmp samesign ult i32 %51, 5
   br i1 %72, label %73, label %81
 
 73:                                               ; preds = %71
@@ -2027,7 +2027,7 @@ _ZNK2cv11_InputArray6getMatEi.exit:               ; preds = %47, %50
   %84 = getelementptr inbounds i8, ptr %13, i64 16
   store ptr %84, ptr %13, align 8
   %85 = getelementptr inbounds i8, ptr %13, i64 8
-  %.not.i.i = icmp ugt i32 %51, 10
+  %.not.i.i = icmp samesign ugt i32 %51, 10
   store i64 %83, ptr %85, align 8
   br i1 %.not.i.i, label %86, label %_ZN2cv10AutoBufferIdLm136EEC2Em.exit
 
@@ -2911,7 +2911,7 @@ _ZNK2cv11_InputArray6getMatEi.exit:               ; preds = %25, %28
 
 47:                                               ; preds = %32
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(20) %0, i8 0, i64 20, i1 false)
-  %48 = icmp ult i32 %29, 5
+  %48 = icmp samesign ult i32 %29, 5
   br i1 %48, label %49, label %57
 
 49:                                               ; preds = %47
@@ -4257,7 +4257,7 @@ common.resume:                                    ; preds = %59, %31, %70, %56
   %.1142.i = phi double [ %.2143.i, %184 ], [ %109, %108 ]
   %.1135.i = phi double [ %186, %184 ], [ %.0134193.i, %108 ]
   %.1.i = phi i32 [ %.2.i, %184 ], [ %.0126195.i, %108 ]
-  %189 = icmp ugt i32 %.0127194.i, 1
+  %189 = icmp samesign ugt i32 %.0127194.i, 1
   br i1 %189, label %99, label %._crit_edge.i, !llvm.loop !46
 
 ._crit_edge.i:                                    ; preds = %187

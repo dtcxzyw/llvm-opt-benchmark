@@ -199,9 +199,9 @@ ReadHeader.exit:                                  ; preds = %CreateRawImageDemux
   br label %118
 
 84:                                               ; preds = %29
-  %85 = icmp ult i64 %14, %31
+  %85 = icmp samesign ult i64 %14, %31
   %86 = icmp eq i32 %1, 0
-  %or.cond = and i1 %86, %85
+  %or.cond = select i1 %86, i1 %85, i1 false
   br i1 %or.cond, label %118, label %.thread
 
 .thread:                                          ; preds = %29, %84
@@ -261,7 +261,7 @@ ReadHeader.exit:                                  ; preds = %CreateRawImageDemux
 
 106:                                              ; preds = %105, %._crit_edge
   %107 = icmp ne i32 %103, 1
-  %or.cond3 = or i1 %87, %107
+  %or.cond3 = select i1 %107, i1 true, i1 %87
   %.not5052 = icmp ne i32 %103, 2
   %.not50.not = and i1 %.not5052, %or.cond3
   br i1 %.not50.not, label %108, label %.critedge

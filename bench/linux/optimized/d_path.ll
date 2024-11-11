@@ -508,7 +508,7 @@ define internal fastcc void @prepend(ptr nocapture noundef %0, ptr noundef %1, i
   br i1 %6, label %30, label %7
 
 7:                                                ; preds = %3
-  %8 = icmp ult i32 %5, %2
+  %8 = icmp samesign ult i32 %5, %2
   br i1 %8, label %9, label %21
 
 9:                                                ; preds = %7
@@ -598,7 +598,7 @@ define dso_local noundef ptr @simple_dname(ptr nocapture noundef readonly %0, pt
   br i1 %6, label %.thread9, label %7
 
 7:                                                ; preds = %3
-  %8 = icmp ult i32 %2, 11
+  %8 = icmp samesign ult i32 %2, 11
   br i1 %8, label %9, label %19
 
 9:                                                ; preds = %7

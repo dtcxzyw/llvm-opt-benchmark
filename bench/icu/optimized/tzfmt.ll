@@ -8148,7 +8148,7 @@ do.end:                                           ; preds = %do.body, %if.then16
   br i1 %tobool31.not, label %if.end38, label %if.then32
 
 if.then32:                                        ; preds = %do.end
-  %cmp33 = icmp ult i32 %ch.0, 65536
+  %cmp33 = icmp samesign ult i32 %ch.0, 65536
   %cond = select i1 %cmp33, i32 1, i32 2
   %sub34 = sub nsw i32 %len.1, %cond
   %idx.ext = zext nneg i32 %cond to i64
@@ -8240,7 +8240,7 @@ if.end.i:                                         ; preds = %_ZNK6icu_7514TimeZo
   %call14.i.i = tail call noundef i32 @_ZNK6icu_7513UnicodeString11moveIndex32Eii(ptr noundef nonnull align 8 dereferenceable(64) %text, i32 noundef %idx.029.i, i32 noundef 1)
   %mul.i = mul nuw nsw i32 %decVal.031.i, 10
   %add.i = add nuw nsw i32 %digit.2.ph.i21.i, %mul.i
-  %cmp6.i = icmp ugt i32 %add.i, 23
+  %cmp6.i = icmp samesign ugt i32 %add.i, 23
   br i1 %cmp6.i, label %while.end.i, label %if.end8.i
 
 if.end8.i:                                        ; preds = %if.end.i
@@ -8300,7 +8300,7 @@ if.end.i68:                                       ; preds = %_ZNK6icu_7514TimeZo
   %call14.i.i70 = tail call noundef i32 @_ZNK6icu_7513UnicodeString11moveIndex32Eii(ptr noundef nonnull align 8 dereferenceable(64) %text, i32 noundef %idx.029.i56, i32 noundef 1)
   %mul.i71 = mul nuw nsw i32 %decVal.031.i54, 10
   %add.i72 = add nuw nsw i32 %digit.2.ph.i21.i69, %mul.i71
-  %cmp6.i73 = icmp ugt i32 %add.i72, 59
+  %cmp6.i73 = icmp samesign ugt i32 %add.i72, 59
   br i1 %cmp6.i73, label %if.then69, label %if.end8.i74
 
 if.end8.i74:                                      ; preds = %if.end.i68
@@ -8360,7 +8360,7 @@ if.end.i114:                                      ; preds = %_ZNK6icu_7514TimeZo
   %call14.i.i116 = tail call noundef i32 @_ZNK6icu_7513UnicodeString11moveIndex32Eii(ptr noundef nonnull align 8 dereferenceable(64) %text, i32 noundef %idx.029.i102, i32 noundef 1)
   %mul.i117 = mul nuw nsw i32 %decVal.031.i100, 10
   %add.i118 = add nuw nsw i32 %digit.2.ph.i21.i115, %mul.i117
-  %cmp6.i119 = icmp ugt i32 %add.i118, 59
+  %cmp6.i119 = icmp samesign ugt i32 %add.i118, 59
   br i1 %cmp6.i119, label %if.then69, label %if.end8.i120
 
 if.end8.i120:                                     ; preds = %if.end.i114
@@ -8479,7 +8479,7 @@ if.end:                                           ; preds = %if.then7.i, %_ZNK6i
   %call14.i = tail call noundef i32 @_ZNK6icu_7513UnicodeString11moveIndex32Eii(ptr noundef nonnull align 8 dereferenceable(64) %text, i32 noundef %idx.029, i32 noundef 1)
   %mul = mul nuw nsw i32 %decVal.031, 10
   %add = add nuw nsw i32 %digit.2.ph.i21, %mul
-  %cmp6 = icmp ugt i32 %add, %conv5
+  %cmp6 = icmp samesign ugt i32 %add, %conv5
   br i1 %cmp6, label %while.end, label %if.end8
 
 if.end8:                                          ; preds = %if.end
@@ -8791,7 +8791,7 @@ if.end.i:                                         ; preds = %_ZNK6icu_7514TimeZo
   %call14.i.i = tail call noundef i32 @_ZNK6icu_7513UnicodeString11moveIndex32Eii(ptr noundef nonnull align 8 dereferenceable(64) %text, i32 noundef %idx.029.i, i32 noundef 1)
   %mul.i = mul nuw nsw i32 %decVal.031.i, 10
   %add.i = add nuw nsw i32 %digit.2.ph.i21.i, %mul.i
-  %cmp6.i = icmp ugt i32 %add.i, 23
+  %cmp6.i = icmp samesign ugt i32 %add.i, 23
   br i1 %cmp6.i, label %while.end.i, label %if.end8.i
 
 if.end8.i:                                        ; preds = %if.end.i
@@ -8883,7 +8883,7 @@ if.end.i58:                                       ; preds = %_ZNK6icu_7514TimeZo
   %call14.i.i60 = tail call noundef i32 @_ZNK6icu_7513UnicodeString11moveIndex32Eii(ptr noundef nonnull align 8 dereferenceable(64) %text, i32 noundef %idx.029.i46, i32 noundef 1)
   %mul.i61 = mul nuw nsw i32 %decVal.031.i44, 10
   %add.i62 = add nuw nsw i32 %digit.2.ph.i21.i59, %mul.i61
-  %cmp6.i63 = icmp ugt i32 %add.i62, 59
+  %cmp6.i63 = icmp samesign ugt i32 %add.i62, 59
   br i1 %cmp6.i63, label %do.end, label %if.end8.i64
 
 if.end8.i64:                                      ; preds = %if.end.i58
@@ -8973,7 +8973,7 @@ if.end.i119:                                      ; preds = %_ZNK6icu_7514TimeZo
   %call14.i.i121 = tail call noundef i32 @_ZNK6icu_7513UnicodeString11moveIndex32Eii(ptr noundef nonnull align 8 dereferenceable(64) %text, i32 noundef %idx.029.i107, i32 noundef 1)
   %mul.i122 = mul nuw nsw i32 %decVal.031.i105, 10
   %add.i123 = add nuw nsw i32 %digit.2.ph.i21.i120, %mul.i122
-  %cmp6.i124 = icmp ugt i32 %add.i123, 59
+  %cmp6.i124 = icmp samesign ugt i32 %add.i123, 59
   br i1 %cmp6.i124, label %do.end, label %if.end8.i125
 
 if.end8.i125:                                     ; preds = %if.end.i119

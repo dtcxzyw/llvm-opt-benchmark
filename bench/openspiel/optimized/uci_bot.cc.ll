@@ -1238,7 +1238,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit: ; pr
   unreachable
 
 _ZN4absl7debian211string_viewC2EPKc.exit:         ; preds = %13
-  %.not.i = icmp ult i64 %15, 2
+  %.not.i = icmp samesign ult i64 %15, 2
   br i1 %.not.i, label %_ZN4absl7debian210StartsWithENS0_11string_viewES1_.exit.thread27, label %_ZN4absl7debian210StartsWithENS0_11string_viewES1_.exit
 
 _ZN4absl7debian210StartsWithENS0_11string_viewES1_.exit: ; preds = %_ZN4absl7debian211string_viewC2EPKc.exit
@@ -1257,7 +1257,7 @@ _ZN4absl7debian210StartsWithENS0_11string_viewES1_.exit.thread27: ; preds = %_ZN
   unreachable
 
 _ZN4absl7debian211string_viewC2EPKc.exit11:       ; preds = %_ZN4absl7debian210StartsWithENS0_11string_viewES1_.exit.thread27
-  %.not.i12 = icmp ult i64 %20, 6
+  %.not.i12 = icmp samesign ult i64 %20, 6
   br i1 %.not.i12, label %_ZN4absl7debian210StartsWithENS0_11string_viewES1_.exit14.thread28, label %_ZN4absl7debian210StartsWithENS0_11string_viewES1_.exit14
 
 _ZN4absl7debian210StartsWithENS0_11string_viewES1_.exit14: ; preds = %_ZN4absl7debian211string_viewC2EPKc.exit11
@@ -2848,7 +2848,7 @@ define void @_ZN10open_spiel3uci6UCIBot12ReadBestMoveEN4absl7debian28optionalIPN
   unreachable
 
 _ZN4absl7debian211string_viewC2EPKc.exit:         ; preds = %17
-  %.not.i = icmp ult i64 %19, 4
+  %.not.i = icmp samesign ult i64 %19, 4
   br i1 %.not.i, label %_ZN4absl7debian210StartsWithENS0_11string_viewES1_.exit.thread20, label %_ZN4absl7debian210StartsWithENS0_11string_viewES1_.exit
 
 _ZN4absl7debian210StartsWithENS0_11string_viewES1_.exit: ; preds = %_ZN4absl7debian211string_viewC2EPKc.exit

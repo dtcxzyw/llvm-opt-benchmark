@@ -3055,7 +3055,7 @@ _ZN6Assimp9strtoul10EPKcPS1_.exit661:             ; preds = %if.end.i648, %if.en
 if.then429:                                       ; preds = %_ZN6Assimp9strtoul10EPKcPS1_.exit661
   %add431 = add i32 %value.0.lcssa.i658, 1
   %conv432 = zext i32 %add431 to i64
-  %cmp.i672 = icmp ult i64 %sub.ptr.div.i666, %conv432
+  %cmp.i672 = icmp samesign ult i64 %sub.ptr.div.i666, %conv432
   br i1 %cmp.i672, label %if.then.i687, label %if.else.i673
 
 if.then.i687:                                     ; preds = %if.then429
@@ -3064,7 +3064,7 @@ if.then.i687:                                     ; preds = %if.then429
           to label %if.end434 unwind label %lpad.loopexit.split-lp.loopexit.split-lp.loopexit
 
 if.else.i673:                                     ; preds = %if.then429
-  %cmp4.i674 = icmp ugt i64 %sub.ptr.div.i666, %conv432
+  %cmp4.i674 = icmp samesign ugt i64 %sub.ptr.div.i666, %conv432
   br i1 %cmp4.i674, label %if.then5.i675, label %if.end434
 
 if.then5.i675:                                    ; preds = %if.else.i673

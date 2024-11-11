@@ -3038,7 +3038,7 @@ _ZNK7oopDesc5klassEv.exit19.i:                    ; preds = %117, %107
   %131 = ptrtoint ptr %128 to i64
   %132 = sub i64 %130, %131
   %133 = lshr i64 %132, 3
-  %.not.i76 = icmp ugt i64 %.0.i1.i, %133
+  %.not.i76 = icmp samesign ugt i64 %.0.i1.i, %133
   br i1 %.not.i76, label %_ZN19PSYoungPromotionLAB8allocateEm.exit78.thread, label %_ZN19PSYoungPromotionLAB8allocateEm.exit78
 
 _ZN19PSYoungPromotionLAB8allocateEm.exit78:       ; preds = %126

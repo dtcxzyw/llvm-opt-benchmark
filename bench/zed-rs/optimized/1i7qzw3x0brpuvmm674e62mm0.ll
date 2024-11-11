@@ -6381,7 +6381,7 @@ define internal void @"_ZN4gpui6window13WindowContext14on_mouse_event28_$u7b$$u7
   store float %24, ptr %9, align 4, !noalias !1425
   %25 = call noundef i8 @"_ZN64_$LT$gpui..geometry..Pixels$u20$as$u20$core..cmp..PartialOrd$GT$11partial_cmp17h7b99ed966161c563E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %1, ptr noalias noundef nonnull readonly align 4 dereferenceable(4) %9), !range !1424
   %26 = add nsw i8 %25, -3
-  %switch.i5.i.i = icmp ult i8 %26, -2
+  %switch.i5.i.i = icmp samesign ult i8 %26, -2
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %9), !noalias !1425
   br i1 %switch.i5.i.i, label %27, label %"_ZN90_$LT$project_panel..scrollbar..ProjectPanelScrollbar$u20$as$u20$gpui..element..Element$GT$5paint28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17h550bc91b40cc87a1E.exit"
 
@@ -6401,7 +6401,7 @@ define internal void @"_ZN4gpui6window13WindowContext14on_mouse_event28_$u7b$$u7
   store float %34, ptr %8, align 4, !noalias !1425
   %35 = call noundef i8 @"_ZN64_$LT$gpui..geometry..Pixels$u20$as$u20$core..cmp..PartialOrd$GT$11partial_cmp17h7b99ed966161c563E"(ptr noalias noundef nonnull readonly align 4 dereferenceable(4) %28, ptr noalias noundef nonnull readonly align 4 dereferenceable(4) %8), !range !1424
   %36 = add nsw i8 %35, -3
-  %switch.i7.i.i = icmp ult i8 %36, -2
+  %switch.i7.i.i = icmp samesign ult i8 %36, -2
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %8), !noalias !1425
   br i1 %switch.i7.i.i, label %37, label %"_ZN90_$LT$project_panel..scrollbar..ProjectPanelScrollbar$u20$as$u20$gpui..element..Element$GT$5paint28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17h550bc91b40cc87a1E.exit"
 
@@ -6421,7 +6421,7 @@ define internal void @"_ZN4gpui6window13WindowContext14on_mouse_event28_$u7b$$u7
   store float %44, ptr %7, align 4, !noalias !1443
   %45 = call noundef i8 @"_ZN64_$LT$gpui..geometry..Pixels$u20$as$u20$core..cmp..PartialOrd$GT$11partial_cmp17h7b99ed966161c563E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %1, ptr noalias noundef nonnull readonly align 4 dereferenceable(4) %7), !range !1424
   %46 = add nsw i8 %45, -3
-  %switch.i5.i12.i = icmp ult i8 %46, -2
+  %switch.i5.i12.i = icmp samesign ult i8 %46, -2
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7), !noalias !1443
   br i1 %switch.i5.i12.i, label %47, label %"_ZN4gpui8geometry15Bounds$LT$T$GT$8contains17h55af2a9501b12d97E.exit15.thread.i"
 
@@ -6440,7 +6440,7 @@ define internal void @"_ZN4gpui6window13WindowContext14on_mouse_event28_$u7b$$u7
   store float %53, ptr %6, align 4, !noalias !1443
   %54 = call noundef i8 @"_ZN64_$LT$gpui..geometry..Pixels$u20$as$u20$core..cmp..PartialOrd$GT$11partial_cmp17h7b99ed966161c563E"(ptr noalias noundef nonnull readonly align 4 dereferenceable(4) %28, ptr noalias noundef nonnull readonly align 4 dereferenceable(4) %6), !range !1424
   %55 = add nsw i8 %54, -3
-  %switch.i7.i14.i = icmp ult i8 %55, -2
+  %switch.i7.i14.i = icmp samesign ult i8 %55, -2
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6), !noalias !1443
   br i1 %switch.i7.i14.i, label %61, label %"_ZN4gpui8geometry15Bounds$LT$T$GT$8contains17h55af2a9501b12d97E.exit15.thread.i"
 
@@ -6812,7 +6812,7 @@ define internal void @"_ZN4gpui6window13WindowContext14on_mouse_event28_$u7b$$u7
   store float %24, ptr %7, align 4, !noalias !1512
   %25 = call noundef i8 @"_ZN64_$LT$gpui..geometry..Pixels$u20$as$u20$core..cmp..PartialOrd$GT$11partial_cmp17h7b99ed966161c563E"(ptr noalias noundef nonnull readonly align 4 dereferenceable(8) %18, ptr noalias noundef nonnull readonly align 4 dereferenceable(4) %7), !range !1424, !noalias !1511
   %26 = add nsw i8 %25, -3
-  %switch.i5.i.i = icmp ult i8 %26, -2
+  %switch.i5.i.i = icmp samesign ult i8 %26, -2
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7), !noalias !1512
   br i1 %switch.i5.i.i, label %27, label %"_ZN90_$LT$project_panel..scrollbar..ProjectPanelScrollbar$u20$as$u20$gpui..element..Element$GT$5paint28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17hcfe23ff23b270a15E.exit"
 
@@ -6832,7 +6832,7 @@ define internal void @"_ZN4gpui6window13WindowContext14on_mouse_event28_$u7b$$u7
   store float %34, ptr %6, align 4, !noalias !1512
   %35 = call noundef i8 @"_ZN64_$LT$gpui..geometry..Pixels$u20$as$u20$core..cmp..PartialOrd$GT$11partial_cmp17h7b99ed966161c563E"(ptr noalias noundef nonnull readonly align 4 dereferenceable(4) %28, ptr noalias noundef nonnull readonly align 4 dereferenceable(4) %6), !range !1424, !noalias !1511
   %36 = add nsw i8 %35, -3
-  %switch.i7.i.i = icmp ult i8 %36, -2
+  %switch.i7.i.i = icmp samesign ult i8 %36, -2
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6), !noalias !1512
   br i1 %switch.i7.i.i, label %37, label %"_ZN90_$LT$project_panel..scrollbar..ProjectPanelScrollbar$u20$as$u20$gpui..element..Element$GT$5paint28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17hcfe23ff23b270a15E.exit"
 
@@ -10357,8 +10357,8 @@ _ZN3std4path7PathBuf4push17h5c5d2c8f4ca9634dE.exit.i: ; preds = %134
 .thread.i.i.i:                                    ; preds = %165
   %173 = getelementptr inbounds i8, ptr %10, i64 16
   %174 = load i8, ptr %173, align 8, !range !2019, !alias.scope !2014, !noalias !2018, !noundef !19
-  %switch.i.i3453.i.i.i = icmp samesign ult i8 %174, 3
-  br i1 %switch.i.i3453.i.i.i, label %161, label %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17hbfa582da56741b3fE.exit.i.i.i"
+  %or.cond54.i.i.i = icmp samesign ult i8 %174, 3
+  br i1 %or.cond54.i.i.i, label %161, label %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17hbfa582da56741b3fE.exit.i.i.i"
 
 ._crit_edge.i.i.i:                                ; preds = %169
   br i1 %switch.i.i.i.i.i, label %161, label %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17hbfa582da56741b3fE.exit.i.i.i"
@@ -34594,7 +34594,7 @@ define hidden void @"_ZN13project_panel12ProjectPanel12render_entry28_$u7b$$u7b$
   store float %32, ptr %24, align 4, !noalias !6001
   %33 = call noundef i8 @"_ZN64_$LT$gpui..geometry..Pixels$u20$as$u20$core..cmp..PartialOrd$GT$11partial_cmp17h7b99ed966161c563E"(ptr noalias noundef nonnull readonly align 4 dereferenceable(8) %26, ptr noalias noundef nonnull readonly align 4 dereferenceable(4) %24), !range !1424
   %34 = add nsw i8 %33, -3
-  %switch.i5.i = icmp ult i8 %34, -2
+  %switch.i5.i = icmp samesign ult i8 %34, -2
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %24), !noalias !6001
   br i1 %switch.i5.i, label %35, label %"_ZN4gpui8geometry15Bounds$LT$T$GT$8contains17h55af2a9501b12d97E.exit.thread"
 
@@ -34614,7 +34614,7 @@ define hidden void @"_ZN13project_panel12ProjectPanel12render_entry28_$u7b$$u7b$
   store float %42, ptr %23, align 4, !noalias !6001
   %43 = call noundef i8 @"_ZN64_$LT$gpui..geometry..Pixels$u20$as$u20$core..cmp..PartialOrd$GT$11partial_cmp17h7b99ed966161c563E"(ptr noalias noundef nonnull readonly align 4 dereferenceable(4) %36, ptr noalias noundef nonnull readonly align 4 dereferenceable(4) %23), !range !1424
   %44 = add nsw i8 %43, -3
-  %switch.i7.i = icmp ult i8 %44, -2
+  %switch.i7.i = icmp samesign ult i8 %44, -2
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %23), !noalias !6001
   br i1 %switch.i7.i, label %45, label %"_ZN4gpui8geometry15Bounds$LT$T$GT$8contains17h55af2a9501b12d97E.exit.thread"
 

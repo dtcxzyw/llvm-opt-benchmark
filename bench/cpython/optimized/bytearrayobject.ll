@@ -5736,7 +5736,7 @@ if.end10.i:                                       ; preds = %if.end.i
   br i1 %cmp11.i, label %if.then12.i, label %if.end23.i
 
 if.then12.i:                                      ; preds = %if.end10.i
-  %cmp13.i = icmp ugt i64 %cond.i, 115292150460684697
+  %cmp13.i = icmp samesign ugt i64 %cond.i, 115292150460684697
   br i1 %cmp13.i, label %if.then20.i, label %cond.end17.i
 
 cond.end17.i:                                     ; preds = %if.then12.i
@@ -7574,7 +7574,7 @@ if.end33.i.i.i:                                   ; preds = %if.else.i212.i.i, %
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %add.ptr30.sink.i.i.i, ptr noundef nonnull readonly align 1 dereferenceable(1) %new.val, i64 range(i64 1, 0) %new.val12, i1 false)
   %start.1.i204.i.i = getelementptr i8, ptr %start.0.pn.i203.i.i, i64 %old.val11
   %result_s.1.i205.i.i = getelementptr i8, ptr %add.ptr30.sink.i.i.i, i64 %new.val12
-  %cmp14.i206.i.i = icmp ugt i64 %dec64.in.i.i.i, 1
+  %cmp14.i206.i.i = icmp samesign ugt i64 %dec64.in.i.i.i, 1
   br i1 %cmp14.i206.i.i, label %while.body.i200.i.i, label %if.end33.while.end_crit_edge.i.i.i, !llvm.loop !31
 
 if.end33.while.end_crit_edge.i.i.i:               ; preds = %if.end33.i.i.i
@@ -10724,10 +10724,10 @@ if.then19:                                        ; preds = %if.end17
   br i1 %cmp20, label %if.then27, label %lor.lhs.false21
 
 lor.lhs.false21:                                  ; preds = %if.then19
-  %cmp22 = icmp ult i64 %m, 100
-  %cmp24 = icmp ult i64 %n, 30000
+  %cmp22 = icmp samesign ult i64 %m, 100
+  %cmp24 = icmp samesign ult i64 %n, 30000
   %or.cond1 = and i1 %cmp24, %cmp22
-  %cmp26 = icmp ult i64 %m, 6
+  %cmp26 = icmp samesign ult i64 %m, 6
   %or.cond2 = or i1 %cmp26, %or.cond1
   br i1 %or.cond2, label %if.then27, label %if.else29
 
@@ -10937,7 +10937,7 @@ for.body.i79:                                     ; preds = %for.body.i79, %if.e
   %cmp14.i = icmp eq i8 %24, %15
   %sub16.i = add nsw i64 %i.041.i, -1
   %spec.select.i = select i1 %cmp14.i, i64 %sub16.i, i64 %skip.043.i
-  %cmp.i80 = icmp ugt i64 %i.041.i, 1
+  %cmp.i80 = icmp samesign ugt i64 %i.041.i, 1
   br i1 %cmp.i80, label %for.body.i79, label %for.cond17.preheader.i, !llvm.loop !62
 
 return:                                           ; preds = %if.end48.us.i, %if.then44.us.i, %for.inc76.us.i, %if.else60.us.i, %for.inc40.us.i, %while.cond.i, %if.end15.i, %for.inc.i, %if.then.i70, %for.cond17.preheader.i, %for.end82.i, %if.else14, %if.then11.i56, %if.then3.i64, %if.then.i60, %if.then11.i, %if.then3.i, %if.then.i, %while.cond.preheader.i, %if.then4, %entry, %lor.lhs.false, %if.else38, %if.else36, %if.then34

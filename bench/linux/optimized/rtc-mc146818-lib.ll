@@ -344,7 +344,7 @@ define dso_local noundef range(i32 -22, 1) i32 @mc146818_set_time(ptr nocapture 
   br label %26
 
 24:                                               ; preds = %15
-  %25 = icmp ugt i32 %3, 169
+  %25 = icmp samesign ugt i32 %3, 169
   br i1 %25, label %64, label %26
 
 26:                                               ; preds = %.thread, %24

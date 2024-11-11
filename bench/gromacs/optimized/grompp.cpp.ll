@@ -4401,7 +4401,7 @@ _ZNSt10filesystem7__cxx114pathD2Ev.exit203.i:     ; preds = %1027, %1024
   %1059 = getelementptr inbounds i8, ptr %.0910.i.i.i.i.i.i, i64 12
   %1060 = getelementptr inbounds i8, ptr %.0811.i.i.i.i.i.i, i64 12
   %1061 = add nsw i64 %.012.i.i.i.i.i.i, -1
-  %1062 = icmp ugt i64 %.012.i.i.i.i.i.i, 1
+  %1062 = icmp samesign ugt i64 %.012.i.i.i.i.i.i, 1
   br i1 %1062, label %.lr.ph.i.i.i.i.i204.i, label %_ZSt4copyIPA3_fPN3gmx11BasicVectorIfEEET0_T_S7_S6_.exit.i, !llvm.loop !15
 
 _ZSt4copyIPA3_fPN3gmx11BasicVectorIfEEET0_T_S7_S6_.exit.i: ; preds = %.lr.ph.i.i.i.i.i204.i, %1047
@@ -4460,7 +4460,7 @@ _ZL14gmx_sfree_implIA3_fEvPKcS2_iPT_.exit.i:      ; preds = %_ZSt4copyIPA3_fPN3g
   %1079 = getelementptr inbounds i8, ptr %.0910.i.i.i.i.i212.i, i64 12
   %1080 = getelementptr inbounds i8, ptr %.0811.i.i.i.i.i211.i, i64 12
   %1081 = add nsw i64 %.012.i.i.i.i.i210.i, -1
-  %1082 = icmp ugt i64 %.012.i.i.i.i.i210.i, 1
+  %1082 = icmp samesign ugt i64 %.012.i.i.i.i.i210.i, 1
   br i1 %1082, label %.lr.ph.i.i.i.i.i209.i, label %_ZSt4copyIPA3_fPN3gmx11BasicVectorIfEEET0_T_S7_S6_.exit215.loopexit.i, !llvm.loop !15
 
 _ZSt4copyIPA3_fPN3gmx11BasicVectorIfEEET0_T_S7_S6_.exit215.loopexit.i: ; preds = %.lr.ph.i.i.i.i.i209.i
@@ -6231,7 +6231,7 @@ _ZNSt6vectorIdSaIdEEC2EmRKdRKS0_.exit177.i:       ; preds = %.noexc176.i, %_ZNSt
   %1758 = lshr i32 %1734, 1
   %1759 = sub nsw i32 %1734, %1758
   %1760 = add nsw i32 %1737, -1
-  %1761 = icmp ugt i32 %1734, 1
+  %1761 = icmp samesign ugt i32 %1734, 1
   %wide.trip.count.i.i452 = zext nneg i32 %1760 to i64
   %1762 = sext i32 %1760 to i64
   %1763 = add i32 %1737, -2
@@ -13784,7 +13784,7 @@ _ZNSt12_Vector_baseI17InteractionOfTypeSaIS0_EE13_M_deallocateEPS0_m.exit: ; pre
   %44 = getelementptr inbounds i8, ptr %.0910.i.i.i.i.i, i64 104
   %45 = getelementptr inbounds i8, ptr %.0811.i.i.i.i.i, i64 104
   %46 = add nsw i64 %.012.i.i.i.i.i, -1
-  %47 = icmp ugt i64 %.012.i.i.i.i.i, 1
+  %47 = icmp samesign ugt i64 %.012.i.i.i.i.i, 1
   br i1 %47, label %.lr.ph.i.i.i.i.i, label %_ZSt4copyIN9__gnu_cxx17__normal_iteratorIPK17InteractionOfTypeSt6vectorIS2_SaIS2_EEEENS1_IPS2_S7_EEET0_T_SC_SB_.exit.loopexit, !llvm.loop !89
 
 _ZSt4copyIN9__gnu_cxx17__normal_iteratorIPK17InteractionOfTypeSt6vectorIS2_SaIS2_EEEENS1_IPS2_S7_EEET0_T_SC_SB_.exit.loopexit: ; preds = %.lr.ph.i.i.i.i.i
@@ -13843,7 +13843,7 @@ _ZSt8_DestroyI17InteractionOfTypeEvPT_.exit.i.i.i28: ; preds = %53, %.lr.ph.i.i.
   %64 = getelementptr inbounds i8, ptr %.0910.i.i.i.i.i35, i64 104
   %65 = getelementptr inbounds i8, ptr %.0811.i.i.i.i.i34, i64 104
   %66 = add nsw i64 %.012.i.i.i.i.i33, -1
-  %67 = icmp ugt i64 %.012.i.i.i.i.i33, 1
+  %67 = icmp samesign ugt i64 %.012.i.i.i.i.i33, 1
   br i1 %67, label %.lr.ph.i.i.i.i.i32, label %_ZSt4copyIP17InteractionOfTypeS1_ET0_T_S3_S2_.exit.loopexit, !llvm.loop !91
 
 _ZSt4copyIP17InteractionOfTypeS1_ET0_T_S3_S2_.exit.loopexit: ; preds = %.lr.ph.i.i.i.i.i32
@@ -17133,7 +17133,7 @@ define internal fastcc void @_ZL10copy_statePKcP10t_trxframebP7t_statePd(ptr nou
   %38 = getelementptr inbounds i8, ptr %.0910.i.i.i.i.i, i64 12
   %39 = getelementptr inbounds i8, ptr %.0811.i.i.i.i.i, i64 12
   %40 = add nsw i64 %.012.i.i.i.i.i, -1
-  %41 = icmp ugt i64 %.012.i.i.i.i.i, 1
+  %41 = icmp samesign ugt i64 %.012.i.i.i.i.i, 1
   br i1 %41, label %.lr.ph.i.i.i.i.i, label %_ZSt4copyIPA3_fPN3gmx11BasicVectorIfEEET0_T_S7_S6_.exit, !llvm.loop !15
 
 _ZSt4copyIPA3_fPN3gmx11BasicVectorIfEEET0_T_S7_S6_.exit: ; preds = %.lr.ph.i.i.i.i.i, %25
@@ -17217,7 +17217,7 @@ _ZSt4copyIPA3_fPN3gmx11BasicVectorIfEEET0_T_S7_S6_.exit: ; preds = %.lr.ph.i.i.i
   %71 = getelementptr inbounds i8, ptr %.0910.i.i.i.i.i31, i64 12
   %72 = getelementptr inbounds i8, ptr %.0811.i.i.i.i.i30, i64 12
   %73 = add nsw i64 %.012.i.i.i.i.i29, -1
-  %74 = icmp ugt i64 %.012.i.i.i.i.i29, 1
+  %74 = icmp samesign ugt i64 %.012.i.i.i.i.i29, 1
   br i1 %74, label %.lr.ph.i.i.i.i.i28, label %_ZSt4copyIPA3_fPN3gmx11BasicVectorIfEEET0_T_S7_S6_.exit34, !llvm.loop !15
 
 _ZSt4copyIPA3_fPN3gmx11BasicVectorIfEEET0_T_S7_S6_.exit34: ; preds = %.lr.ph.i.i.i.i.i28, %58, %_ZSt4copyIPA3_fPN3gmx11BasicVectorIfEEET0_T_S7_S6_.exit

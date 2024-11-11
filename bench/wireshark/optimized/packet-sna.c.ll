@@ -1304,7 +1304,7 @@ define internal i32 @dissect_sna(ptr noundef %0, ptr noundef %1, ptr noundef %2,
   %125 = and i32 %106, 4
   %.not177.i = icmp ne i32 %125, 0
   %.pre.i = shl nuw nsw i32 %81, 2
-  %126 = icmp ugt i32 %.pre.i, %.0167.i
+  %126 = icmp samesign ugt i32 %.pre.i, %.0167.i
   %or.cond201.i = select i1 %.not177.i, i1 %126, i1 false
   br i1 %or.cond201.i, label %127, label %dissect_optional.exit.i
 

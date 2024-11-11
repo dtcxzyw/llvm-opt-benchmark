@@ -3789,7 +3789,7 @@ land.lhs.true69:                                  ; preds = %if.then64
 
 if.then73:                                        ; preds = %land.lhs.true69
   %cond1 = icmp eq i8 %32, 2
-  %cmp108 = icmp ugt i64 %33, %34
+  %cmp108 = icmp samesign ugt i64 %33, %34
   br i1 %cond1, label %sw.bb103, label %sw.default78
 
 sw.default78:                                     ; preds = %if.then73

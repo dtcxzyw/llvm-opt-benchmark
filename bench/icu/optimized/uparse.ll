@@ -597,7 +597,7 @@ if.then50:                                        ; preds = %if.end48
   br label %if.end51
 
 if.end51:                                         ; preds = %if.then50, %if.end48
-  %cmp52 = icmp ult i32 %conv25, 65536
+  %cmp52 = icmp samesign ult i32 %conv25, 65536
   %cond = select i1 %cmp52, i32 1, i32 2
   %add = add nsw i32 %cond, %destLength.0
   %cmp53.not = icmp sgt i32 %add, %destCapacity

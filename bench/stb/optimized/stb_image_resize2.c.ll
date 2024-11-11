@@ -77,7 +77,7 @@ entry:
   br i1 %cmp, label %if.then, label %if.else19
 
 if.then:                                          ; preds = %entry
-  %cmp1 = icmp ult i64 %bytes, 16
+  %cmp1 = icmp samesign ult i64 %bytes, 16
   br i1 %cmp1, label %if.then2, label %if.else
 
 if.then2:                                         ; preds = %if.then

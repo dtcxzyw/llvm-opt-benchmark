@@ -1323,8 +1323,8 @@ define internal fastcc void @"_ZN10serde_json2de21Deserializer$LT$R$GT$13parse_d
 
 68:                                               ; preds = %28
   %.not = icmp ne i64 %.056, 1844674407370955161
-  %69 = icmp ugt i8 %23, 5
-  %or.cond25 = or i1 %.not, %69
+  %69 = icmp samesign ugt i8 %23, 5
+  %or.cond25 = select i1 %.not, i1 true, i1 %69
   br i1 %or.cond25, label %74, label %.critedge24
 
 .critedge24:                                      ; preds = %68, %28
@@ -1583,8 +1583,8 @@ define internal fastcc void @"_ZN10serde_json2de21Deserializer$LT$R$GT$13parse_i
 
 90:                                               ; preds = %87
   %.not = icmp ne i64 %.062, 1844674407370955161
-  %91 = icmp ugt i8 %62, 5
-  %or.cond25 = or i1 %.not, %91
+  %91 = icmp samesign ugt i8 %62, 5
+  %or.cond25 = select i1 %.not, i1 true, i1 %91
   br i1 %or.cond25, label %.critedge, label %.critedge23
 
 .critedge23:                                      ; preds = %90, %87
@@ -2061,8 +2061,8 @@ define internal fastcc void @"_ZN10serde_json2de21Deserializer$LT$R$GT$14parse_e
 
 77:                                               ; preds = %41
   %.not = icmp ne i32 %.01047, 214748364
-  %78 = icmp ugt i8 %40, 7
-  %or.cond26 = or i1 %.not, %78
+  %78 = icmp samesign ugt i8 %40, 7
+  %or.cond26 = select i1 %.not, i1 true, i1 %78
   br i1 %or.cond26, label %81, label %.critedge25
 
 .critedge25:                                      ; preds = %77, %41

@@ -6885,7 +6885,7 @@ wrapped_tvb_get_guint8.exit1863:                  ; preds = %wrapped_tvb_get_gui
 
 1886:                                             ; preds = %1877
   %1887 = add nsw i32 %.01026190719191946, -75
-  %or.cond69 = icmp ult i32 %1887, 112
+  %or.cond69 = icmp samesign ult i32 %1887, 112
   br i1 %or.cond69, label %1888, label %1895
 
 1888:                                             ; preds = %1886
@@ -6899,7 +6899,7 @@ wrapped_tvb_get_guint8.exit1863:                  ; preds = %wrapped_tvb_get_gui
 
 1895:                                             ; preds = %1886
   %1896 = add nsw i32 %.01026190719191946, -187
-  %or.cond72 = icmp ult i32 %1896, 64
+  %or.cond72 = icmp samesign ult i32 %1896, 64
   br i1 %or.cond72, label %1897, label %.thread1989
 
 1897:                                             ; preds = %1895
@@ -6939,7 +6939,7 @@ wrapped_tvb_get_guint8.exit1863:                  ; preds = %wrapped_tvb_get_gui
 
 1919:                                             ; preds = %1910
   %1920 = add nsw i32 %.01034190619201945, -75
-  %or.cond78 = icmp ult i32 %1920, 112
+  %or.cond78 = icmp samesign ult i32 %1920, 112
   br i1 %or.cond78, label %1921, label %1928
 
 1921:                                             ; preds = %1919
@@ -6953,7 +6953,7 @@ wrapped_tvb_get_guint8.exit1863:                  ; preds = %wrapped_tvb_get_gui
 
 1928:                                             ; preds = %1919
   %1929 = add nsw i32 %.01034190619201945, -187
-  %or.cond81 = icmp ult i32 %1929, 64
+  %or.cond81 = icmp samesign ult i32 %1929, 64
   br i1 %or.cond81, label %1930, label %.thread1997
 
 1930:                                             ; preds = %1928
@@ -6996,7 +6996,7 @@ wrapped_tvb_get_guint8.exit1863:                  ; preds = %wrapped_tvb_get_gui
 
 1953:                                             ; preds = %1944
   %1954 = add nsw i32 %.0102519251940, -75
-  %or.cond87 = icmp ult i32 %1954, 112
+  %or.cond87 = icmp samesign ult i32 %1954, 112
   br i1 %or.cond87, label %1955, label %1962
 
 1955:                                             ; preds = %1953
@@ -7010,7 +7010,7 @@ wrapped_tvb_get_guint8.exit1863:                  ; preds = %wrapped_tvb_get_gui
 
 1962:                                             ; preds = %1953
   %1963 = add nsw i32 %.0102519251940, -187
-  %or.cond90 = icmp ult i32 %1963, 64
+  %or.cond90 = icmp samesign ult i32 %1963, 64
   br i1 %or.cond90, label %1964, label %.thread2005
 
 1964:                                             ; preds = %1962
@@ -7050,7 +7050,7 @@ wrapped_tvb_get_guint8.exit1863:                  ; preds = %wrapped_tvb_get_gui
 
 1986:                                             ; preds = %1977
   %1987 = add nsw i32 %.0103519241941, -75
-  %or.cond96 = icmp ult i32 %1987, 112
+  %or.cond96 = icmp samesign ult i32 %1987, 112
   br i1 %or.cond96, label %1988, label %1995
 
 1988:                                             ; preds = %1986
@@ -7064,7 +7064,7 @@ wrapped_tvb_get_guint8.exit1863:                  ; preds = %wrapped_tvb_get_gui
 
 1995:                                             ; preds = %1986
   %1996 = add nsw i32 %.0103519241941, -187
-  %or.cond99 = icmp ult i32 %1996, 64
+  %or.cond99 = icmp samesign ult i32 %1996, 64
   br i1 %or.cond99, label %1997, label %.thread2013
 
 1997:                                             ; preds = %1995
@@ -7107,7 +7107,7 @@ wrapped_tvb_get_guint8.exit1863:                  ; preds = %wrapped_tvb_get_gui
 
 2020:                                             ; preds = %2011
   %2021 = add nsw i32 %.010361947, -62
-  %or.cond105 = icmp ult i32 %2021, 100
+  %or.cond105 = icmp samesign ult i32 %2021, 100
   br i1 %or.cond105, label %2022, label %2030
 
 2022:                                             ; preds = %2020
@@ -7122,7 +7122,7 @@ wrapped_tvb_get_guint8.exit1863:                  ; preds = %wrapped_tvb_get_gui
 
 2030:                                             ; preds = %2020
   %2031 = add nsw i32 %.010361947, -162
-  %or.cond108 = icmp ult i32 %2031, 85
+  %or.cond108 = icmp samesign ult i32 %2031, 85
   br i1 %or.cond108, label %2032, label %.thread2021
 
 2032:                                             ; preds = %2030
@@ -7162,7 +7162,7 @@ wrapped_tvb_get_guint8.exit1863:                  ; preds = %wrapped_tvb_get_gui
 
 2054:                                             ; preds = %2045
   %2055 = add nsw i32 %.010321948, -62
-  %or.cond114 = icmp ult i32 %2055, 100
+  %or.cond114 = icmp samesign ult i32 %2055, 100
   br i1 %or.cond114, label %2056, label %2064
 
 2056:                                             ; preds = %2054
@@ -7220,7 +7220,7 @@ wrapped_tvb_get_guint8.exit1863:                  ; preds = %wrapped_tvb_get_gui
 
 2089:                                             ; preds = %2080
   %2090 = add nsw i32 %.01027, -62
-  %or.cond123 = icmp ult i32 %2090, 100
+  %or.cond123 = icmp samesign ult i32 %2090, 100
   br i1 %or.cond123, label %2091, label %2099
 
 2091:                                             ; preds = %2089
@@ -7235,7 +7235,7 @@ wrapped_tvb_get_guint8.exit1863:                  ; preds = %wrapped_tvb_get_gui
 
 2099:                                             ; preds = %2089
   %2100 = add nsw i32 %.01027, -162
-  %or.cond126 = icmp ult i32 %2100, 85
+  %or.cond126 = icmp samesign ult i32 %2100, 85
   br i1 %or.cond126, label %2101, label %.thread2037
 
 2101:                                             ; preds = %2099
@@ -7275,7 +7275,7 @@ wrapped_tvb_get_guint8.exit1863:                  ; preds = %wrapped_tvb_get_gui
 
 2123:                                             ; preds = %2114
   %2124 = add nsw i32 %.01033, -62
-  %or.cond132 = icmp ult i32 %2124, 100
+  %or.cond132 = icmp samesign ult i32 %2124, 100
   br i1 %or.cond132, label %2125, label %2133
 
 2125:                                             ; preds = %2123

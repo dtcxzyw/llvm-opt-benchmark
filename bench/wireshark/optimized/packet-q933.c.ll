@@ -1495,7 +1495,7 @@ dissect_q933_segmented_message_ie.exit.us.us:     ; preds = %72
   br label %dissect_q933_segmented_message_ie.exit
 
 399:                                              ; preds = %361
-  %400 = icmp ult i32 %.0107.i, 4
+  %400 = icmp samesign ult i32 %.0107.i, 4
   br i1 %400, label %dissect_q933_segmented_message_ie.exit, label %401
 
 401:                                              ; preds = %399

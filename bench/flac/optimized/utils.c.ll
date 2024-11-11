@@ -243,7 +243,7 @@ while.body:                                       ; preds = %while.cond.preheade
   %dec = add nsw i32 %clear_len.04, -1
   %6 = load ptr, ptr @stderr, align 8
   %fputc2 = call i32 @fputc(i32 32, ptr %6)
-  %cmp6 = icmp ugt i32 %clear_len.04, 1
+  %cmp6 = icmp samesign ugt i32 %clear_len.04, 1
   br i1 %cmp6, label %while.body, label %while.end, !llvm.loop !7
 
 while.end:                                        ; preds = %while.body, %while.cond.preheader

@@ -423,7 +423,7 @@ FindMatchLengthWithLimit.exit138.i:               ; preds = %while.end.i109.i, %
   br i1 %cmp104.i.i, label %if.then112.i.i, label %if.else.i.i
 
 if.then112.i.i:                                   ; preds = %FindMatchLengthWithLimit.exit138.i
-  %cmp.i149.i = icmp ult i64 %sub.ptr.sub102.i.i, 6
+  %cmp.i149.i = icmp samesign ult i64 %sub.ptr.sub102.i.i, 6
   br i1 %cmp.i149.i, label %if.then.i163.i, label %if.else.i150.i
 
 if.then.i163.i:                                   ; preds = %if.then112.i.i
@@ -453,7 +453,7 @@ if.then.i163.i:                                   ; preds = %if.then112.i.i
   br label %if.end123.i.i
 
 if.else.i150.i:                                   ; preds = %if.then112.i.i
-  %cmp4.i151.i = icmp ult i64 %sub.ptr.sub102.i.i, 130
+  %cmp4.i151.i = icmp samesign ult i64 %sub.ptr.sub102.i.i, 130
   br i1 %cmp4.i151.i, label %if.then6.i.i, label %if.else21.i.i
 
 if.then6.i.i:                                     ; preds = %if.else.i150.i
@@ -505,7 +505,7 @@ if.then6.i.i:                                     ; preds = %if.else.i150.i
   br label %if.end123.i.i
 
 if.else21.i.i:                                    ; preds = %if.else.i150.i
-  %cmp22.i.i = icmp ult i64 %sub.ptr.sub102.i.i, 2114
+  %cmp22.i.i = icmp samesign ult i64 %sub.ptr.sub102.i.i, 2114
   br i1 %cmp22.i.i, label %if.then24.i.i, label %if.else42.i.i
 
 if.then24.i.i:                                    ; preds = %if.else21.i.i
@@ -1584,7 +1584,7 @@ if.then271.i.i:                                   ; preds = %if.end268.i.i
   br i1 %cmp276.i.i, label %if.then284.i.i, label %if.else285.i.i
 
 if.then284.i.i:                                   ; preds = %if.then271.i.i
-  %cmp.i240.i = icmp ult i64 %sub.ptr.sub275.i.i, 6
+  %cmp.i240.i = icmp samesign ult i64 %sub.ptr.sub275.i.i, 6
   br i1 %cmp.i240.i, label %if.then.i334.i, label %if.else.i241.i
 
 if.then.i334.i:                                   ; preds = %if.then284.i.i
@@ -1614,7 +1614,7 @@ if.then.i334.i:                                   ; preds = %if.then284.i.i
   br label %EmitInsertLen.exit349.i
 
 if.else.i241.i:                                   ; preds = %if.then284.i.i
-  %cmp4.i242.i = icmp ult i64 %sub.ptr.sub275.i.i, 130
+  %cmp4.i242.i = icmp samesign ult i64 %sub.ptr.sub275.i.i, 130
   br i1 %cmp4.i242.i, label %if.then6.i299.i, label %if.else21.i243.i
 
 if.then6.i299.i:                                  ; preds = %if.else.i241.i
@@ -1666,7 +1666,7 @@ if.then6.i299.i:                                  ; preds = %if.else.i241.i
   br label %EmitInsertLen.exit349.i
 
 if.else21.i243.i:                                 ; preds = %if.else.i241.i
-  %cmp22.i244.i = icmp ult i64 %sub.ptr.sub275.i.i, 2114
+  %cmp22.i244.i = icmp samesign ult i64 %sub.ptr.sub275.i.i, 2114
   br i1 %cmp22.i244.i, label %if.then24.i269.i, label %if.else42.i245.i
 
 if.then24.i269.i:                                 ; preds = %if.else21.i243.i
@@ -2431,7 +2431,7 @@ FindMatchLengthWithLimit.exit138.i592:            ; preds = %while.end.i109.i587
   br i1 %cmp104.i.i599, label %if.then112.i.i1135, label %if.else.i.i600
 
 if.then112.i.i1135:                               ; preds = %FindMatchLengthWithLimit.exit138.i592
-  %cmp.i149.i1136 = icmp ult i64 %sub.ptr.sub102.i.i597, 6
+  %cmp.i149.i1136 = icmp samesign ult i64 %sub.ptr.sub102.i.i597, 6
   br i1 %cmp.i149.i1136, label %if.then.i163.i1221, label %if.else.i150.i1137
 
 if.then.i163.i1221:                               ; preds = %if.then112.i.i1135
@@ -2461,7 +2461,7 @@ if.then.i163.i1221:                               ; preds = %if.then112.i.i1135
   br label %if.end123.i.i630
 
 if.else.i150.i1137:                               ; preds = %if.then112.i.i1135
-  %cmp4.i151.i1138 = icmp ult i64 %sub.ptr.sub102.i.i597, 130
+  %cmp4.i151.i1138 = icmp samesign ult i64 %sub.ptr.sub102.i.i597, 130
   br i1 %cmp4.i151.i1138, label %if.then6.i.i1189, label %if.else21.i.i1139
 
 if.then6.i.i1189:                                 ; preds = %if.else.i150.i1137
@@ -2513,7 +2513,7 @@ if.then6.i.i1189:                                 ; preds = %if.else.i150.i1137
   br label %if.end123.i.i630
 
 if.else21.i.i1139:                                ; preds = %if.else.i150.i1137
-  %cmp22.i.i1140 = icmp ult i64 %sub.ptr.sub102.i.i597, 2114
+  %cmp22.i.i1140 = icmp samesign ult i64 %sub.ptr.sub102.i.i597, 2114
   br i1 %cmp22.i.i1140, label %if.then24.i.i1160, label %if.else42.i.i1141
 
 if.then24.i.i1160:                                ; preds = %if.else21.i.i1139
@@ -3592,7 +3592,7 @@ if.then271.i.i200:                                ; preds = %if.end268.i.i157
   br i1 %cmp276.i.i204, label %if.then284.i.i310, label %if.else285.i.i205
 
 if.then284.i.i310:                                ; preds = %if.then271.i.i200
-  %cmp.i240.i311 = icmp ult i64 %sub.ptr.sub275.i.i203, 6
+  %cmp.i240.i311 = icmp samesign ult i64 %sub.ptr.sub275.i.i203, 6
   br i1 %cmp.i240.i311, label %if.then.i334.i417, label %if.else.i241.i312
 
 if.then.i334.i417:                                ; preds = %if.then284.i.i310
@@ -3622,7 +3622,7 @@ if.then.i334.i417:                                ; preds = %if.then284.i.i310
   br label %EmitInsertLen.exit349.i335
 
 if.else.i241.i312:                                ; preds = %if.then284.i.i310
-  %cmp4.i242.i313 = icmp ult i64 %sub.ptr.sub275.i.i203, 130
+  %cmp4.i242.i313 = icmp samesign ult i64 %sub.ptr.sub275.i.i203, 130
   br i1 %cmp4.i242.i313, label %if.then6.i299.i385, label %if.else21.i243.i314
 
 if.then6.i299.i385:                               ; preds = %if.else.i241.i312
@@ -3674,7 +3674,7 @@ if.then6.i299.i385:                               ; preds = %if.else.i241.i312
   br label %EmitInsertLen.exit349.i335
 
 if.else21.i243.i314:                              ; preds = %if.else.i241.i312
-  %cmp22.i244.i315 = icmp ult i64 %sub.ptr.sub275.i.i203, 2114
+  %cmp22.i244.i315 = icmp samesign ult i64 %sub.ptr.sub275.i.i203, 2114
   br i1 %cmp22.i244.i315, label %if.then24.i269.i356, label %if.else42.i245.i316
 
 if.then24.i269.i356:                              ; preds = %if.else21.i243.i314
@@ -4439,7 +4439,7 @@ FindMatchLengthWithLimit.exit138.i1868:           ; preds = %while.end.i109.i186
   br i1 %cmp104.i.i1875, label %if.then112.i.i2411, label %if.else.i.i1876
 
 if.then112.i.i2411:                               ; preds = %FindMatchLengthWithLimit.exit138.i1868
-  %cmp.i149.i2412 = icmp ult i64 %sub.ptr.sub102.i.i1873, 6
+  %cmp.i149.i2412 = icmp samesign ult i64 %sub.ptr.sub102.i.i1873, 6
   br i1 %cmp.i149.i2412, label %if.then.i163.i2497, label %if.else.i150.i2413
 
 if.then.i163.i2497:                               ; preds = %if.then112.i.i2411
@@ -4469,7 +4469,7 @@ if.then.i163.i2497:                               ; preds = %if.then112.i.i2411
   br label %if.end123.i.i1906
 
 if.else.i150.i2413:                               ; preds = %if.then112.i.i2411
-  %cmp4.i151.i2414 = icmp ult i64 %sub.ptr.sub102.i.i1873, 130
+  %cmp4.i151.i2414 = icmp samesign ult i64 %sub.ptr.sub102.i.i1873, 130
   br i1 %cmp4.i151.i2414, label %if.then6.i.i2465, label %if.else21.i.i2415
 
 if.then6.i.i2465:                                 ; preds = %if.else.i150.i2413
@@ -4521,7 +4521,7 @@ if.then6.i.i2465:                                 ; preds = %if.else.i150.i2413
   br label %if.end123.i.i1906
 
 if.else21.i.i2415:                                ; preds = %if.else.i150.i2413
-  %cmp22.i.i2416 = icmp ult i64 %sub.ptr.sub102.i.i1873, 2114
+  %cmp22.i.i2416 = icmp samesign ult i64 %sub.ptr.sub102.i.i1873, 2114
   br i1 %cmp22.i.i2416, label %if.then24.i.i2436, label %if.else42.i.i2417
 
 if.then24.i.i2436:                                ; preds = %if.else21.i.i2415
@@ -5600,7 +5600,7 @@ if.then271.i.i1476:                               ; preds = %if.end268.i.i1433
   br i1 %cmp276.i.i1480, label %if.then284.i.i1586, label %if.else285.i.i1481
 
 if.then284.i.i1586:                               ; preds = %if.then271.i.i1476
-  %cmp.i240.i1587 = icmp ult i64 %sub.ptr.sub275.i.i1479, 6
+  %cmp.i240.i1587 = icmp samesign ult i64 %sub.ptr.sub275.i.i1479, 6
   br i1 %cmp.i240.i1587, label %if.then.i334.i1693, label %if.else.i241.i1588
 
 if.then.i334.i1693:                               ; preds = %if.then284.i.i1586
@@ -5630,7 +5630,7 @@ if.then.i334.i1693:                               ; preds = %if.then284.i.i1586
   br label %EmitInsertLen.exit349.i1611
 
 if.else.i241.i1588:                               ; preds = %if.then284.i.i1586
-  %cmp4.i242.i1589 = icmp ult i64 %sub.ptr.sub275.i.i1479, 130
+  %cmp4.i242.i1589 = icmp samesign ult i64 %sub.ptr.sub275.i.i1479, 130
   br i1 %cmp4.i242.i1589, label %if.then6.i299.i1661, label %if.else21.i243.i1590
 
 if.then6.i299.i1661:                              ; preds = %if.else.i241.i1588
@@ -5682,7 +5682,7 @@ if.then6.i299.i1661:                              ; preds = %if.else.i241.i1588
   br label %EmitInsertLen.exit349.i1611
 
 if.else21.i243.i1590:                             ; preds = %if.else.i241.i1588
-  %cmp22.i244.i1591 = icmp ult i64 %sub.ptr.sub275.i.i1479, 2114
+  %cmp22.i244.i1591 = icmp samesign ult i64 %sub.ptr.sub275.i.i1479, 2114
   br i1 %cmp22.i244.i1591, label %if.then24.i269.i1632, label %if.else42.i245.i1592
 
 if.then24.i269.i1632:                             ; preds = %if.else21.i243.i1590
@@ -6447,7 +6447,7 @@ FindMatchLengthWithLimit.exit138.i3144:           ; preds = %while.end.i109.i313
   br i1 %cmp104.i.i3151, label %if.then112.i.i3687, label %if.else.i.i3152
 
 if.then112.i.i3687:                               ; preds = %FindMatchLengthWithLimit.exit138.i3144
-  %cmp.i149.i3688 = icmp ult i64 %sub.ptr.sub102.i.i3149, 6
+  %cmp.i149.i3688 = icmp samesign ult i64 %sub.ptr.sub102.i.i3149, 6
   br i1 %cmp.i149.i3688, label %if.then.i163.i3773, label %if.else.i150.i3689
 
 if.then.i163.i3773:                               ; preds = %if.then112.i.i3687
@@ -6477,7 +6477,7 @@ if.then.i163.i3773:                               ; preds = %if.then112.i.i3687
   br label %if.end123.i.i3182
 
 if.else.i150.i3689:                               ; preds = %if.then112.i.i3687
-  %cmp4.i151.i3690 = icmp ult i64 %sub.ptr.sub102.i.i3149, 130
+  %cmp4.i151.i3690 = icmp samesign ult i64 %sub.ptr.sub102.i.i3149, 130
   br i1 %cmp4.i151.i3690, label %if.then6.i.i3741, label %if.else21.i.i3691
 
 if.then6.i.i3741:                                 ; preds = %if.else.i150.i3689
@@ -6529,7 +6529,7 @@ if.then6.i.i3741:                                 ; preds = %if.else.i150.i3689
   br label %if.end123.i.i3182
 
 if.else21.i.i3691:                                ; preds = %if.else.i150.i3689
-  %cmp22.i.i3692 = icmp ult i64 %sub.ptr.sub102.i.i3149, 2114
+  %cmp22.i.i3692 = icmp samesign ult i64 %sub.ptr.sub102.i.i3149, 2114
   br i1 %cmp22.i.i3692, label %if.then24.i.i3712, label %if.else42.i.i3693
 
 if.then24.i.i3712:                                ; preds = %if.else21.i.i3691
@@ -7608,7 +7608,7 @@ if.then271.i.i2752:                               ; preds = %if.end268.i.i2709
   br i1 %cmp276.i.i2756, label %if.then284.i.i2862, label %if.else285.i.i2757
 
 if.then284.i.i2862:                               ; preds = %if.then271.i.i2752
-  %cmp.i240.i2863 = icmp ult i64 %sub.ptr.sub275.i.i2755, 6
+  %cmp.i240.i2863 = icmp samesign ult i64 %sub.ptr.sub275.i.i2755, 6
   br i1 %cmp.i240.i2863, label %if.then.i334.i2969, label %if.else.i241.i2864
 
 if.then.i334.i2969:                               ; preds = %if.then284.i.i2862
@@ -7638,7 +7638,7 @@ if.then.i334.i2969:                               ; preds = %if.then284.i.i2862
   br label %EmitInsertLen.exit349.i2887
 
 if.else.i241.i2864:                               ; preds = %if.then284.i.i2862
-  %cmp4.i242.i2865 = icmp ult i64 %sub.ptr.sub275.i.i2755, 130
+  %cmp4.i242.i2865 = icmp samesign ult i64 %sub.ptr.sub275.i.i2755, 130
   br i1 %cmp4.i242.i2865, label %if.then6.i299.i2937, label %if.else21.i243.i2866
 
 if.then6.i299.i2937:                              ; preds = %if.else.i241.i2864
@@ -7690,7 +7690,7 @@ if.then6.i299.i2937:                              ; preds = %if.else.i241.i2864
   br label %EmitInsertLen.exit349.i2887
 
 if.else21.i243.i2866:                             ; preds = %if.else.i241.i2864
-  %cmp22.i244.i2867 = icmp ult i64 %sub.ptr.sub275.i.i2755, 2114
+  %cmp22.i244.i2867 = icmp samesign ult i64 %sub.ptr.sub275.i.i2755, 2114
   br i1 %cmp22.i244.i2867, label %if.then24.i269.i2908, label %if.else42.i245.i2868
 
 if.then24.i269.i2908:                             ; preds = %if.else21.i243.i2866

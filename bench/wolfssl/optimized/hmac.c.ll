@@ -1153,7 +1153,7 @@ lor.lhs.false:                                    ; preds = %switch.lookup
   %cmp2 = icmp ne i32 %rem, 0
   %conv = zext i1 %cmp2 to i32
   %add = add nuw nsw i32 %div, %conv
-  %cmp3 = icmp ugt i32 %add, 255
+  %cmp3 = icmp samesign ugt i32 %add, 255
   br i1 %cmp3, label %return, label %if.end11
 
 if.end11:                                         ; preds = %lor.lhs.false

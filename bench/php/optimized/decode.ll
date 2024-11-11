@@ -225,11 +225,11 @@ define hidden range(i32 0, 16) i32 @lxb_encoding_decode_utf_8(ptr noundef %0, pt
   br i1 %exitcond.not, label %._crit_edge, label %88
 
 101:                                              ; preds = %92
-  %102 = icmp ult i8 %94, -32
+  %102 = icmp samesign ult i8 %94, -32
   br i1 %102, label %103, label %122
 
 103:                                              ; preds = %101
-  %104 = icmp ult i8 %94, -62
+  %104 = icmp samesign ult i8 %94, -62
   br i1 %104, label %105, label %120
 
 105:                                              ; preds = %103
@@ -264,7 +264,7 @@ define hidden range(i32 0, 16) i32 @lxb_encoding_decode_utf_8(ptr noundef %0, pt
   br label %.loopexit301
 
 122:                                              ; preds = %101
-  %123 = icmp ult i8 %94, -16
+  %123 = icmp samesign ult i8 %94, -16
   br i1 %123, label %124, label %176
 
 124:                                              ; preds = %122
@@ -387,7 +387,7 @@ define hidden range(i32 0, 16) i32 @lxb_encoding_decode_utf_8(ptr noundef %0, pt
   br label %.loopexit301
 
 176:                                              ; preds = %122
-  %177 = icmp ult i8 %94, -11
+  %177 = icmp samesign ult i8 %94, -11
   br i1 %177, label %178, label %230
 
 178:                                              ; preds = %176
@@ -1390,7 +1390,7 @@ define hidden range(i32 0, 16) i32 @lxb_encoding_decode_euc_jp(ptr noundef %0, p
   br i1 %.0150, label %163, label %196
 
 163:                                              ; preds = %158
-  %164 = icmp ugt i32 %161, 7210
+  %164 = icmp samesign ugt i32 %161, 7210
   br i1 %164, label %165, label %193
 
 165:                                              ; preds = %163
@@ -6771,11 +6771,11 @@ define hidden i32 @lxb_encoding_decode_utf_8_single(ptr nocapture noundef %0, pt
   br i1 %32, label %136, label %33
 
 33:                                               ; preds = %27
-  %34 = icmp ult i8 %30, -32
+  %34 = icmp samesign ult i8 %30, -32
   br i1 %34, label %35, label %40
 
 35:                                               ; preds = %33
-  %36 = icmp ult i8 %30, -62
+  %36 = icmp samesign ult i8 %30, -62
   br i1 %36, label %136, label %37
 
 37:                                               ; preds = %35
@@ -6785,7 +6785,7 @@ define hidden i32 @lxb_encoding_decode_utf_8_single(ptr nocapture noundef %0, pt
   br label %108
 
 40:                                               ; preds = %33
-  %41 = icmp ult i8 %30, -16
+  %41 = icmp samesign ult i8 %30, -16
   br i1 %41, label %42, label %74
 
 42:                                               ; preds = %40
@@ -6856,7 +6856,7 @@ define hidden i32 @lxb_encoding_decode_utf_8_single(ptr nocapture noundef %0, pt
   br label %108
 
 74:                                               ; preds = %40
-  %75 = icmp ult i8 %30, -11
+  %75 = icmp samesign ult i8 %30, -11
   br i1 %75, label %76, label %136
 
 76:                                               ; preds = %74
@@ -7260,7 +7260,7 @@ define hidden i32 @lxb_encoding_decode_euc_jp_single(ptr nocapture noundef %0, p
   br i1 %.052, label %58, label %63
 
 58:                                               ; preds = %53
-  %59 = icmp ugt i32 %56, 7210
+  %59 = icmp samesign ugt i32 %56, 7210
   br i1 %59, label %.thread, label %60
 
 60:                                               ; preds = %58

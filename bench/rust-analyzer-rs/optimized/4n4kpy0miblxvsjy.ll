@@ -6032,7 +6032,7 @@ define hidden noundef zeroext i1 @"_ZN12sharded_slab4page19Shared$LT$T$C$C$GT$5c
   br i1 %.not26.i.i, label %.lr.ph32.i.i, label %"_ZN12sharded_slab4page19Shared$LT$T$C$C$GT$5clear28_$u7b$$u7b$closure$u7d$$u7d$17hfe8652d6488e78f3E.llvm.17769526770162137697.exit"
 
 .lr.ph32.i.i:                                     ; preds = %14
-  %.cmp.i.i = icmp ult i64 %2, 8190
+  %.cmp.i.i = icmp samesign ult i64 %2, 8190
   %.v.i.i = select i1 %.cmp.i.i, i64 1, i64 -8190
   %19 = add nsw i64 %.v.i.i, %2
   %20 = shl nuw i64 %19, 51
@@ -6134,7 +6134,7 @@ define hidden noundef zeroext i1 @"_ZN12sharded_slab4page19Shared$LT$T$C$C$GT$5c
   br i1 %.not27.i, label %.lr.ph33.i, label %"_ZN12sharded_slab4page4slot17Slot$LT$T$C$C$GT$12release_with17ha3a95371eebb9ccdE.exit"
 
 .lr.ph33.i:                                       ; preds = %11
-  %.cmp.i = icmp ult i64 %15, 8190
+  %.cmp.i = icmp samesign ult i64 %15, 8190
   %.v.i = select i1 %.cmp.i, i64 1, i64 -8190
   %22 = add nsw i64 %.v.i, %15
   %23 = shl nuw i64 %22, 51
@@ -6247,7 +6247,7 @@ define hidden noundef zeroext i1 @"_ZN12sharded_slab4page19Shared$LT$T$C$C$GT$5c
   br i1 %.not26.i, label %.lr.ph32.i, label %"_ZN12sharded_slab4page4slot17Slot$LT$T$C$C$GT$12release_with17h755c548cce92e933E.exit"
 
 .lr.ph32.i:                                       ; preds = %11
-  %.cmp.i = icmp ult i64 %15, 8190
+  %.cmp.i = icmp samesign ult i64 %15, 8190
   %.v.i = select i1 %.cmp.i, i64 1, i64 -8190
   %22 = add nsw i64 %.v.i, %15
   %23 = shl nuw i64 %22, 51

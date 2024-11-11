@@ -471,7 +471,7 @@ if.end:                                           ; preds = %if.then, %entry
   %cmp.i = icmp slt i32 %arena_id, 1
   %sub.i = add nsw i32 %arena_id, -1
   %cond.i = select i1 %cmp.i, i32 112, i32 %sub.i
-  %cmp1 = icmp ugt i32 %cond.i, 111
+  %cmp1 = icmp samesign ugt i32 %cond.i, 111
   br i1 %cmp1, label %return, label %if.end3
 
 if.end3:                                          ; preds = %if.end

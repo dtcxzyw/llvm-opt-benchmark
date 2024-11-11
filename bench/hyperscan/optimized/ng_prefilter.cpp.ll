@@ -2229,7 +2229,7 @@ while.body.i.i.i:                                 ; preds = %_ZN3ue212_GLOBAL__N
   br i1 %cmp.i.i.i.i.i30, label %land.lhs.true.i.i.i.i.i38, label %cond.false.i.i.i.i.i
 
 land.lhs.true.i.i.i.i.i38:                        ; preds = %while.body.i.i.i
-  %cmp2.i.i.i.i.i = icmp ult i64 %add.i.i.i.i.i, 3
+  %cmp2.i.i.i.i.i = icmp samesign ult i64 %add.i.i.i.i.i, 3
   br i1 %cmp2.i.i.i.i.i, label %if.then.i.i.i.i.i39, label %cond.true.i.i.i.i.i
 
 if.then.i.i.i.i.i39:                              ; preds = %land.lhs.true.i.i.i.i.i38
@@ -4424,7 +4424,7 @@ _ZNK5boost9container19vector_alloc_holderINS0_22small_vector_allocatorIjSaIvEvEE
 
 if.end.i4.i.i.i:                                  ; preds = %_ZNK5boost9container19vector_alloc_holderINS0_22small_vector_allocatorIjSaIvEvEEmNS_11move_detail17integral_constantIjLj1EEEE13next_capacityINS0_16growth_factor_60EEEmm.exit.i.i.i, %_ZNK5boost9container19vector_alloc_holderINS0_22small_vector_allocatorIjSaIvEvEEmNS_11move_detail17integral_constantIjLj1EEEE13next_capacityINS0_16growth_factor_60EEEmm.exit.i.thread.i.i
   %523 = phi i64 [ %519, %_ZNK5boost9container19vector_alloc_holderINS0_22small_vector_allocatorIjSaIvEvEEmNS_11move_detail17integral_constantIjLj1EEEE13next_capacityINS0_16growth_factor_60EEEmm.exit.i.thread.i.i ], [ %522, %_ZNK5boost9container19vector_alloc_holderINS0_22small_vector_allocatorIjSaIvEvEEmNS_11move_detail17integral_constantIjLj1EEEE13next_capacityINS0_16growth_factor_60EEEmm.exit.i.i.i ]
-  %cmp.i.i.i.i.i.i.i.i.i204 = icmp ugt i64 %523, 2305843009213693951
+  %cmp.i.i.i.i.i.i.i.i.i204 = icmp samesign ugt i64 %523, 2305843009213693951
   br i1 %cmp.i.i.i.i.i.i.i.i.i204, label %if.end.i.i.i.i.i.i.i.i.i, label %_ZN5boost9container19vector_alloc_holderINS0_22small_vector_allocatorIjSaIvEvEEmNS_11move_detail17integral_constantIjLj1EEEE8allocateEm.exit.i.i.i
 
 if.end.i.i.i.i.i.i.i.i.i:                         ; preds = %if.end.i4.i.i.i
@@ -6211,7 +6211,7 @@ while.body:                                       ; preds = %while.body.lr.ph, %
   br i1 %cmp.i.i, label %land.lhs.true.i.i, label %cond.false.i.i
 
 land.lhs.true.i.i:                                ; preds = %while.body
-  %cmp2.i.i = icmp ult i64 %add.i.i, 3
+  %cmp2.i.i = icmp samesign ult i64 %add.i.i, 3
   br i1 %cmp2.i.i, label %if.then.i.i, label %cond.true.i.i
 
 if.then.i.i:                                      ; preds = %land.lhs.true.i.i
@@ -6245,7 +6245,7 @@ _ZStplRKSt15_Deque_iteratorIN3ue212_GLOBAL__N_110RegionInfoERS2_PS2_El.exit: ; p
   br i1 %cmp.i.i28, label %land.lhs.true.i.i40, label %cond.false.i.i29
 
 land.lhs.true.i.i40:                              ; preds = %_ZStplRKSt15_Deque_iteratorIN3ue212_GLOBAL__N_110RegionInfoERS2_PS2_El.exit
-  %cmp2.i.i41 = icmp ult i64 %add.i.i27, 3
+  %cmp2.i.i41 = icmp samesign ult i64 %add.i.i27, 3
   br i1 %cmp2.i.i41, label %if.then.i.i44, label %cond.true.i.i42
 
 if.then.i.i44:                                    ; preds = %land.lhs.true.i.i40
@@ -6280,7 +6280,7 @@ _ZStplRKSt15_Deque_iteratorIN3ue212_GLOBAL__N_110RegionInfoERS2_PS2_El.exit46: ;
   br i1 %cmp.i.i58, label %land.lhs.true.i.i70, label %cond.false.i.i59
 
 land.lhs.true.i.i70:                              ; preds = %_ZStplRKSt15_Deque_iteratorIN3ue212_GLOBAL__N_110RegionInfoERS2_PS2_El.exit46
-  %cmp2.i.i71 = icmp ult i64 %add.i.i57, 3
+  %cmp2.i.i71 = icmp samesign ult i64 %add.i.i57, 3
   br i1 %cmp2.i.i71, label %if.then.i.i74, label %cond.true.i.i72
 
 if.then.i.i74:                                    ; preds = %land.lhs.true.i.i70
@@ -6313,7 +6313,7 @@ _ZStplRKSt15_Deque_iteratorIN3ue212_GLOBAL__N_110RegionInfoERS2_PS2_El.exit76: ;
   br i1 %cmp.i.i88, label %land.lhs.true.i.i100, label %cond.false.i.i89
 
 land.lhs.true.i.i100:                             ; preds = %_ZStplRKSt15_Deque_iteratorIN3ue212_GLOBAL__N_110RegionInfoERS2_PS2_El.exit76
-  %cmp2.i.i101 = icmp ult i64 %add.i.i87, 3
+  %cmp2.i.i101 = icmp samesign ult i64 %add.i.i87, 3
   br i1 %cmp2.i.i101, label %if.then.i.i104, label %cond.true.i.i102
 
 if.then.i.i104:                                   ; preds = %land.lhs.true.i.i100
@@ -6434,7 +6434,7 @@ if.then11:                                        ; preds = %land.lhs.true
   br i1 %cmp.i.i118, label %land.lhs.true.i.i130, label %cond.false.i.i119
 
 land.lhs.true.i.i130:                             ; preds = %if.then11
-  %cmp2.i.i131 = icmp ult i64 %add.i.i117, 3
+  %cmp2.i.i131 = icmp samesign ult i64 %add.i.i117, 3
   br i1 %cmp2.i.i131, label %if.then.i.i134, label %cond.true.i.i132
 
 if.then.i.i134:                                   ; preds = %land.lhs.true.i.i130
@@ -6467,7 +6467,7 @@ _ZStplRKSt15_Deque_iteratorIN3ue212_GLOBAL__N_110RegionInfoERS2_PS2_El.exit136: 
   br i1 %cmp.i.i148, label %land.lhs.true.i.i160, label %cond.false.i.i149
 
 land.lhs.true.i.i160:                             ; preds = %_ZStplRKSt15_Deque_iteratorIN3ue212_GLOBAL__N_110RegionInfoERS2_PS2_El.exit136
-  %cmp2.i.i161 = icmp ult i64 %add.i.i147, 3
+  %cmp2.i.i161 = icmp samesign ult i64 %add.i.i147, 3
   br i1 %cmp2.i.i161, label %if.then.i.i164, label %cond.true.i.i162
 
 if.then.i.i164:                                   ; preds = %land.lhs.true.i.i160
@@ -6692,7 +6692,7 @@ land.rhs:                                         ; preds = %land.rhs.lr.ph, %_Z
   br i1 %cmp.i.i, label %land.lhs.true.i.i, label %cond.false.i.i
 
 land.lhs.true.i.i:                                ; preds = %land.rhs
-  %cmp2.i.i = icmp ult i64 %add.i.i, 3
+  %cmp2.i.i = icmp samesign ult i64 %add.i.i, 3
   br i1 %cmp2.i.i, label %_ZStplRKSt15_Deque_iteratorIN3ue212_GLOBAL__N_110RegionInfoERS2_PS2_El.exit.thread, label %cond.true.i.i
 
 cond.true.i.i:                                    ; preds = %land.lhs.true.i.i
@@ -6724,7 +6724,7 @@ while.body:                                       ; preds = %_ZStplRKSt15_Deque_
   br i1 %cmp.i.i, label %land.lhs.true.i.i30, label %cond.false.i.i19
 
 land.lhs.true.i.i30:                              ; preds = %while.body
-  %cmp2.i.i31 = icmp ult i64 %add.i.i, 3
+  %cmp2.i.i31 = icmp samesign ult i64 %add.i.i, 3
   br i1 %cmp2.i.i31, label %if.then.i.i34, label %cond.true.i.i32
 
 if.then.i.i34:                                    ; preds = %_ZStplRKSt15_Deque_iteratorIN3ue212_GLOBAL__N_110RegionInfoERS2_PS2_El.exit.thread, %land.lhs.true.i.i30
@@ -6757,7 +6757,7 @@ _ZStplRKSt15_Deque_iteratorIN3ue212_GLOBAL__N_110RegionInfoERS2_PS2_El.exit36: ;
   br i1 %cmp.i.i48, label %land.lhs.true.i.i60, label %cond.false.i.i49
 
 land.lhs.true.i.i60:                              ; preds = %_ZStplRKSt15_Deque_iteratorIN3ue212_GLOBAL__N_110RegionInfoERS2_PS2_El.exit36
-  %cmp2.i.i61 = icmp ult i64 %add.i.i47, 3
+  %cmp2.i.i61 = icmp samesign ult i64 %add.i.i47, 3
   br i1 %cmp2.i.i61, label %if.then.i.i64, label %cond.true.i.i62
 
 if.then.i.i64:                                    ; preds = %land.lhs.true.i.i60
@@ -6865,7 +6865,7 @@ while.end:                                        ; preds = %_ZStplRKSt15_Deque_
   br i1 %cmp.i.i78, label %land.lhs.true.i.i90, label %cond.false.i.i79
 
 land.lhs.true.i.i90:                              ; preds = %while.end
-  %cmp2.i.i91 = icmp ult i64 %add.i.i77, 3
+  %cmp2.i.i91 = icmp samesign ult i64 %add.i.i77, 3
   br i1 %cmp2.i.i91, label %if.then.i.i94, label %cond.true.i.i92
 
 if.then.i.i94:                                    ; preds = %land.lhs.true.i.i90

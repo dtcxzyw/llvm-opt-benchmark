@@ -9632,7 +9632,7 @@ _ZN8FileLine9singletonEv.exit:                    ; preds = %1, %4, %7
   br i1 %21, label %22, label %28
 
 22:                                               ; preds = %_ZN8FileLine9singletonEv.exit
-  %23 = icmp ult i64 %20, 512
+  %23 = icmp samesign ult i64 %20, 512
   br i1 %23, label %24, label %26
 
 24:                                               ; preds = %22

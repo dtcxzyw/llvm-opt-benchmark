@@ -540,7 +540,7 @@ do.body66:                                        ; preds = %if.end60
   br label %while.cond.backedge
 
 do.body89:                                        ; preds = %if.end60
-  %cmp90 = icmp ult i64 %outleft.addr.043, 8
+  %cmp90 = icmp samesign ult i64 %outleft.addr.043, 8
   br i1 %cmp90, label %return, label %do.body95
 
 do.body95:                                        ; preds = %do.body89
@@ -1168,7 +1168,7 @@ land.lhs.true116:                                 ; preds = %lor.lhs.false, %lan
 
 if.then120:                                       ; preds = %land.lhs.true116
   %conv117 = zext nneg i16 %18 to i32
-  %cmp122 = icmp ult i16 %18, 18944
+  %cmp122 = icmp samesign ult i16 %18, 18944
   %cond.v = select i1 %cmp122, i16 401, i16 374
   %cond = add nuw nsw i16 %cond.v, %shr93
   %21 = and i16 %cond, 1
@@ -1248,7 +1248,7 @@ do.end15:                                         ; preds = %do.body10
   %arrayidx16 = getelementptr i8, ptr %0, i64 1
   %3 = load i8, ptr %arrayidx16, align 1
   %.fr = freeze i8 %3
-  %cmp18 = icmp ult i8 %1, -40
+  %cmp18 = icmp samesign ult i8 %1, -40
   br i1 %cmp18, label %if.then20, label %if.else143
 
 if.then20:                                        ; preds = %do.end15
@@ -1380,7 +1380,7 @@ lor.lhs.false167:                                 ; preds = %lor.lhs.false155
   br i1 %or.cond6, label %return, label %if.else180
 
 if.else180:                                       ; preds = %lor.lhs.false167
-  %cmp182 = icmp ult i8 %1, -32
+  %cmp182 = icmp samesign ult i8 %1, -32
   %sub186 = shl nsw i8 %1, 1
   %cond193.v = select i1 %cmp182, i8 78, i8 105
   %cond205.v = select i1 %cmp160, i8 -49, i8 -67

@@ -1173,14 +1173,14 @@ define internal fastcc range(i32 -1, 1) i32 @add_abs(ptr nocapture noundef reado
 
 55:                                               ; preds = %49, %46
   %.2 = phi i32 [ %54, %49 ], [ %.179, %46 ]
-  %56 = icmp ugt i32 %.2, 9
+  %56 = icmp samesign ugt i32 %.2, 9
   %57 = trunc i32 %.2 to i8
   %58 = add i8 %57, -10
   %.sink = select i1 %56, i8 %58, i8 %57
   %.3 = zext i1 %56 to i32
   %59 = getelementptr i8, ptr %28, i64 %indvars.iv.next
   store i8 %.sink, ptr %59, align 1
-  %60 = icmp ugt i64 %indvars.iv, 1
+  %60 = icmp samesign ugt i64 %indvars.iv, 1
   br i1 %60, label %35, label %.preheader.preheader, !llvm.loop !14
 
 .preheader.preheader:                             ; preds = %55
@@ -1502,7 +1502,7 @@ define internal fastcc range(i32 -1, 1) i32 @sub_abs(ptr nocapture noundef reado
   %.2.lobit = ashr i32 %.2, 31
   %56 = getelementptr i8, ptr %24, i64 %indvars.iv.next
   store i8 %.sink, ptr %56, align 1
-  %57 = icmp ugt i64 %indvars.iv, 1
+  %57 = icmp samesign ugt i64 %indvars.iv, 1
   br i1 %57, label %32, label %.preheader.preheader, !llvm.loop !22
 
 .preheader.preheader:                             ; preds = %52
@@ -2332,7 +2332,7 @@ select_div_scale.exit:                            ; preds = %30, %.loopexit52.i,
   store i8 %210, ptr %205, align 1
   %211 = udiv i32 %208, 10
   %212 = icmp samesign ugt i32 %208, 9
-  %213 = icmp ugt i64 %indvars.iv230, 1
+  %213 = icmp samesign ugt i64 %indvars.iv230, 1
   %214 = and i1 %213, %212
   br i1 %214, label %.lr.ph205, label %.loopexit174thread-pre-split, !llvm.loop !35
 

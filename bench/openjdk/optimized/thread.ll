@@ -927,7 +927,7 @@ _ZN6Thread22cooked_allocated_bytesEv.exit:        ; preds = %29, %34, %38
   br i1 %45, label %_Z24byte_size_in_proper_unitImET_S0_.exit, label %46
 
 46:                                               ; preds = %_ZN6Thread22cooked_allocated_bytesEv.exit
-  %47 = icmp ugt i64 %.0.i, 104857599
+  %47 = icmp samesign ugt i64 %.0.i, 104857599
   br i1 %47, label %.thread, label %50
 
 .thread:                                          ; preds = %46
@@ -939,7 +939,7 @@ _Z24byte_size_in_proper_unitImET_S0_.exit:        ; preds = %_ZN6Thread22cooked_
   br label %_Z25proper_unit_for_byte_sizem.exit
 
 50:                                               ; preds = %46
-  %51 = icmp ugt i64 %.0.i, 102399
+  %51 = icmp samesign ugt i64 %.0.i, 102399
   %52 = lshr i64 %.0.i, 10
   %spec.select.i13 = select i1 %51, i64 %52, i64 %.0.i
   %.str.27..str.28.i = select i1 %51, ptr @.str.27, ptr @.str.28
@@ -1051,7 +1051,7 @@ define hidden void @_ZNK6Thread14print_on_errorEP12outputStreamPci(ptr noundef n
   br i1 %30, label %_Z24byte_size_in_proper_unitImET_S0_.exit, label %31
 
 31:                                               ; preds = %18
-  %32 = icmp ugt i64 %25, 104857599
+  %32 = icmp samesign ugt i64 %25, 104857599
   br i1 %32, label %.thread, label %35
 
 .thread:                                          ; preds = %31
@@ -1063,7 +1063,7 @@ _Z24byte_size_in_proper_unitImET_S0_.exit:        ; preds = %18
   br label %_Z25proper_unit_for_byte_sizem.exit
 
 35:                                               ; preds = %31
-  %36 = icmp ugt i64 %25, 102399
+  %36 = icmp samesign ugt i64 %25, 102399
   %37 = lshr i64 %25, 10
   %spec.select.i = select i1 %36, i64 %37, i64 %25
   %.str.27..str.28.i = select i1 %36, ptr @.str.27, ptr @.str.28

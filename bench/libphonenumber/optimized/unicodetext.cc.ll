@@ -2537,7 +2537,7 @@ define dso_local noundef range(i32 0, 2097152) i32 @_ZNK4i18n12phonenumbers11Uni
 6:                                                ; preds = %1
   %7 = getelementptr inbounds i8, ptr %2, i64 1
   %8 = load i8, ptr %7, align 1
-  %9 = icmp ult i8 %3, -32
+  %9 = icmp samesign ult i8 %3, -32
   br i1 %9, label %10, label %16
 
 10:                                               ; preds = %6
@@ -2551,7 +2551,7 @@ define dso_local noundef range(i32 0, 2097152) i32 @_ZNK4i18n12phonenumbers11Uni
 16:                                               ; preds = %6
   %17 = getelementptr inbounds i8, ptr %2, i64 2
   %18 = load i8, ptr %17, align 1
-  %19 = icmp ult i8 %3, -16
+  %19 = icmp samesign ult i8 %3, -16
   br i1 %19, label %20, label %30
 
 20:                                               ; preds = %16

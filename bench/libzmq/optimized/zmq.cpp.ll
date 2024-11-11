@@ -2099,7 +2099,7 @@ if.end19:                                         ; preds = %if.then16
 if.end25:                                         ; preds = %for.end
   call void @_ZN3zmq7clock_tC1Ev(ptr noundef nonnull align 8 dereferenceable(16) %clock)
   %conv26 = zext nneg i32 %nitems_ to i64
-  %cmp.i = icmp ugt i32 %nitems_, 16
+  %cmp.i = icmp samesign ugt i32 %nitems_, 16
   br i1 %cmp.i, label %if.then.i85, label %if.else.i84
 
 if.then.i85:                                      ; preds = %if.end25

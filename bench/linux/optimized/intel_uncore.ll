@@ -2255,7 +2255,7 @@ define dso_local range(i32 -19, 1) i32 @intel_uncore_init_mmio(ptr noundef %0) l
   br label %.thread39.sink.split
 
 296:                                              ; preds = %101
-  %297 = icmp ugt i8 %103, 8
+  %297 = icmp samesign ugt i8 %103, 8
   br i1 %297, label %298, label %393
 
 298:                                              ; preds = %296
@@ -2868,7 +2868,7 @@ fw_domains_put.exit:                              ; preds = %536
   br i1 %657, label %673, label %658
 
 658:                                              ; preds = %656
-  %659 = icmp ugt i8 %640, 8
+  %659 = icmp samesign ugt i8 %640, 8
   br i1 %659, label %673, label %660
 
 660:                                              ; preds = %658
@@ -2889,7 +2889,7 @@ fw_domains_put.exit:                              ; preds = %536
   br i1 %670, label %671, label %680
 
 671:                                              ; preds = %668
-  %672 = icmp ugt i8 %640, 5
+  %672 = icmp samesign ugt i8 %640, 5
   br i1 %672, label %680, label %695
 
 673:                                              ; preds = %666, %660, %658, %656, %654, %652, %650, %648, %639

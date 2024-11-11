@@ -2086,7 +2086,7 @@ define void @_ZN10open_spiel16coop_box_pushing19CoopBoxPushingState11MoveForward
 16:                                               ; preds = %2
   store i32 %1, ptr %7, align 4
   store i32 1, ptr %8, align 4
-  %17 = icmp ult i32 %1, 2
+  %17 = icmp samesign ult i32 %1, 2
   br i1 %17, label %22, label %18
 
 18:                                               ; preds = %16

@@ -45,7 +45,7 @@ define void @slabrd_(ptr nocapture noundef readonly %0, ptr nocapture noundef re
   br i1 %38, label %.loopexit, label %39
 
 39:                                               ; preds = %36
-  %.not = icmp ult i32 %34, %37
+  %.not = icmp samesign ult i32 %34, %37
   %40 = load i32, ptr %2, align 4
   %invariant.gep401 = getelementptr i8, ptr %23, i64 4
   store i32 1, ptr %20, align 4

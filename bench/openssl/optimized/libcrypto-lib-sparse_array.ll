@@ -448,7 +448,7 @@ for.body:                                         ; preds = %for.body.preheader,
   %arrayidx = getelementptr inbounds ptr, ptr %p.016, i64 %and
   %p.0 = load ptr, ptr %arrayidx, align 8
   %cmp4 = icmp ne ptr %p.0, null
-  %cmp5 = icmp ugt i64 %indvars.iv, 2
+  %cmp5 = icmp samesign ugt i64 %indvars.iv, 2
   %6 = and i1 %cmp4, %cmp5
   br i1 %6, label %for.body, label %for.end, !llvm.loop !6
 
@@ -554,7 +554,7 @@ land.lhs.true:                                    ; preds = %for.body24
 
 if.end35:                                         ; preds = %land.lhs.true, %for.body24
   %p.0 = phi ptr [ %call.i33, %land.lhs.true ], [ %6, %for.body24 ]
-  %cmp23 = icmp ugt i64 %indvars.iv, 2
+  %cmp23 = icmp samesign ugt i64 %indvars.iv, 2
   br i1 %cmp23, label %for.body24, label %for.end39, !llvm.loop !9
 
 for.end39:                                        ; preds = %if.end35, %if.end19

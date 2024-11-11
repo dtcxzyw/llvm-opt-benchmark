@@ -296,7 +296,7 @@ define internal i32 @dissect_xdmcp(ptr noundef %0, ptr noundef %1, ptr noundef %
   %70 = call ptr @proto_tree_add_string(ptr noundef %59, i32 noundef %63, ptr noundef %0, i32 noundef %.021.i, i32 noundef %69, ptr noundef %68) #3
   %71 = add i32 %69, %.021.i
   %72 = add nsw i32 %.01920.i, -1
-  %73 = icmp ugt i32 %.01920.i, 1
+  %73 = icmp samesign ugt i32 %.01920.i, 1
   br i1 %73, label %.lr.ph.i, label %xdmcp_add_authentication_names.exit, !llvm.loop !4
 
 xdmcp_add_authentication_names.exit:              ; preds = %.lr.ph.i, %55
@@ -665,7 +665,7 @@ define internal fastcc noundef i32 @xdmcp_add_authorization_names(ptr noundef %0
   %19 = call ptr @proto_tree_add_string(ptr noundef %8, i32 noundef %12, ptr noundef %1, i32 noundef %.021, i32 noundef %18, ptr noundef %17) #3
   %20 = add i32 %18, %.021
   %21 = add nsw i32 %.01920, -1
-  %22 = icmp ugt i32 %.01920, 1
+  %22 = icmp samesign ugt i32 %.01920, 1
   br i1 %22, label %.lr.ph, label %._crit_edge, !llvm.loop !7
 
 ._crit_edge:                                      ; preds = %.lr.ph, %3

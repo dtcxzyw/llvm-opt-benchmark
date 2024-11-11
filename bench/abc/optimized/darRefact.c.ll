@@ -1214,7 +1214,7 @@ select.unfold.i157:                               ; preds = %select.unfold.i157,
   %174 = load i32, ptr %173, align 4
   %175 = xor i32 %174, -1
   store i32 %175, ptr %173, align 4
-  %176 = icmp ugt i64 %indvars.iv.i158, 1
+  %176 = icmp samesign ugt i64 %indvars.iv.i158, 1
   br i1 %176, label %select.unfold.i157, label %Kit_TruthNot.exit.loopexit, !llvm.loop !17
 
 Kit_TruthNot.exit.loopexit:                       ; preds = %select.unfold.i157

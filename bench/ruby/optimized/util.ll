@@ -209,7 +209,7 @@ define dso_local i64 @ruby_strtoul(ptr noundef nonnull %0, ptr noundef writeonly
 
 7:                                                ; preds = %3
   %8 = icmp eq i32 %2, 1
-  %9 = icmp ugt i32 %2, 36
+  %9 = icmp samesign ugt i32 %2, 36
   %or.cond = or i1 %8, %9
   br i1 %or.cond, label %11, label %.preheader
 
@@ -818,7 +818,7 @@ define dso_local double @ruby_strtod(ptr noundef nonnull %0, ptr noundef writeon
   br label %120
 
 114:                                              ; preds = %.lr.ph1077
-  %115 = icmp ult i32 %.16191073, 17
+  %115 = icmp samesign ult i32 %.16191073, 17
   br i1 %115, label %116, label %120
 
 116:                                              ; preds = %114
@@ -1110,7 +1110,7 @@ define dso_local double @ruby_strtod(ptr noundef nonnull %0, ptr noundef writeon
   %227 = load double, ptr %226, align 8
   %228 = uitofp i32 %.2559867 to double
   %229 = tail call double @llvm.fmuladd.f64(double %227, double %221, double %228)
-  %230 = icmp ult i32 %.2620862, 16
+  %230 = icmp samesign ult i32 %.2620862, 16
   br i1 %230, label %.thread868, label %264
 
 .thread868:                                       ; preds = %218, %223
@@ -1128,7 +1128,7 @@ define dso_local double @ruby_strtod(ptr noundef nonnull %0, ptr noundef writeon
   br i1 %235, label %236, label %256
 
 236:                                              ; preds = %234
-  %237 = icmp ult i32 %219, 23
+  %237 = icmp samesign ult i32 %219, 23
   br i1 %237, label %238, label %243
 
 238:                                              ; preds = %236
@@ -1157,7 +1157,7 @@ define dso_local double @ruby_strtod(ptr noundef nonnull %0, ptr noundef writeon
   br label %Bfree.exit834
 
 256:                                              ; preds = %234
-  %257 = icmp ugt i32 %219, -23
+  %257 = icmp samesign ugt i32 %219, -23
   br i1 %257, label %258, label %264
 
 258:                                              ; preds = %256
@@ -1209,7 +1209,7 @@ define dso_local double @ruby_strtod(ptr noundef nonnull %0, ptr noundef writeon
   br i1 %.not730, label %Bfree.exit834, label %.thread905
 
 282:                                              ; preds = %277
-  %283 = icmp ugt i32 %266, 31
+  %283 = icmp samesign ugt i32 %266, 31
   br i1 %283, label %.lr.ph1123.preheader, label %._crit_edge1124
 
 .lr.ph1123.preheader:                             ; preds = %282

@@ -45,7 +45,7 @@ select.unfold:                                    ; preds = %select.unfold.prehe
   %20 = load i32, ptr %19, align 4
   %21 = xor i32 %20, -1
   store i32 %21, ptr %19, align 4
-  %22 = icmp ugt i64 %indvars.iv, 1
+  %22 = icmp samesign ugt i64 %indvars.iv, 1
   br i1 %22, label %select.unfold, label %.loopexit, !llvm.loop !4
 
 .loopexit:                                        ; preds = %select.unfold, %13, %7
@@ -82,7 +82,7 @@ select.unfold.i:                                  ; preds = %select.unfold.i, %s
   %40 = load i32, ptr %39, align 4
   %41 = xor i32 %40, -1
   store i32 %41, ptr %39, align 4
-  %42 = icmp ugt i64 %indvars.iv.i, 1
+  %42 = icmp samesign ugt i64 %indvars.iv.i, 1
   br i1 %42, label %select.unfold.i, label %Extra_TruthNot.exit, !llvm.loop !6
 
 Extra_TruthNot.exit:                              ; preds = %select.unfold.i
@@ -98,7 +98,7 @@ select.unfold.i67:                                ; preds = %Extra_TruthNot.exit
   %47 = load i32, ptr %46, align 4
   %48 = or i32 %47, %45
   store i32 %48, ptr %44, align 4
-  %49 = icmp ugt i64 %indvars.iv.i68, 1
+  %49 = icmp samesign ugt i64 %indvars.iv.i68, 1
   br i1 %49, label %select.unfold.i67, label %select.unfold.i77.preheader, !llvm.loop !7
 
 select.unfold.i72:                                ; preds = %Extra_TruthNot.exit, %select.unfold.i72
@@ -111,7 +111,7 @@ select.unfold.i72:                                ; preds = %Extra_TruthNot.exit
   %54 = xor i32 %53, -1
   %55 = and i32 %51, %54
   store i32 %55, ptr %50, align 4
-  %56 = icmp ugt i64 %indvars.iv.i73, 1
+  %56 = icmp samesign ugt i64 %indvars.iv.i73, 1
   br i1 %56, label %select.unfold.i72, label %select.unfold.i77.preheader, !llvm.loop !8
 
 select.unfold.i77.preheader:                      ; preds = %select.unfold.i72, %select.unfold.i67
@@ -124,7 +124,7 @@ select.unfold.i77:                                ; preds = %select.unfold.i77.p
   %58 = load i32, ptr %57, align 4
   %59 = xor i32 %58, -1
   store i32 %59, ptr %57, align 4
-  %60 = icmp ugt i64 %indvars.iv.i78, 1
+  %60 = icmp samesign ugt i64 %indvars.iv.i78, 1
   br i1 %60, label %select.unfold.i77, label %Extra_TruthNot.exit80, !llvm.loop !6
 
 Extra_TruthNot.exit80:                            ; preds = %select.unfold.i77, %.loopexit, %24, %33
@@ -255,7 +255,7 @@ Abc_Clock.exit:                                   ; preds = %2, %9
   br label %73
 
 17:                                               ; preds = %Abc_Clock.exit
-  %18 = icmp ugt i32 %13, 15
+  %18 = icmp samesign ugt i32 %13, 15
   br i1 %18, label %19, label %22
 
 19:                                               ; preds = %17

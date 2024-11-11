@@ -873,7 +873,7 @@ _ZNSt6vectorIN5faiss12_GLOBAL__N_117StorageMinMaxFP16ESaIS2_EEC2EmRKS3_.exit.i: 
   %144 = getelementptr inbounds %"struct.faiss::(anonymous namespace)::StorageMinMaxFP16", ptr %.sroa.0.0.i, i64 %138
   %145 = load i32, ptr %144, align 2
   store i32 %145, ptr %140, align 2
-  %146 = icmp ugt i64 %.066145.i, 1
+  %146 = icmp samesign ugt i64 %.066145.i, 1
   br i1 %146, label %.lr.ph146.i, label %._crit_edge147.i, !llvm.loop !12
 
 ._crit_edge147.i:                                 ; preds = %.lr.ph146.i, %.preheader131.i
@@ -1834,7 +1834,7 @@ _ZNSt6vectorIN5faiss12_GLOBAL__N_117StorageMinMaxFP32ESaIS2_EEC2EmRKS3_.exit.i: 
   %50 = getelementptr inbounds %"struct.faiss::(anonymous namespace)::StorageMinMaxFP32", ptr %.sroa.0.0.i, i64 %44
   %51 = load i64, ptr %50, align 4
   store i64 %51, ptr %46, align 4
-  %52 = icmp ugt i64 %.066144.i.us, 1
+  %52 = icmp samesign ugt i64 %.066144.i.us, 1
   br i1 %52, label %.lr.ph145.i.us, label %._crit_edge146.i.us, !llvm.loop !25
 
 ._crit_edge146.i.us:                              ; preds = %.lr.ph145.i.us, %.preheader130.i.us
@@ -1966,7 +1966,7 @@ _ZNSt6vectorIN5faiss12_GLOBAL__N_117StorageMinMaxFP32ESaIS2_EEC2EmRKS3_.exit.i: 
   %99 = getelementptr inbounds %"struct.faiss::(anonymous namespace)::StorageMinMaxFP32", ptr %.sroa.0.0.i, i64 %93
   %100 = load i64, ptr %99, align 4
   store i64 %100, ptr %95, align 4
-  %101 = icmp ugt i64 %.066144.i, 1
+  %101 = icmp samesign ugt i64 %.066144.i, 1
   br i1 %101, label %.lr.ph145.i, label %._crit_edge146.i, !llvm.loop !25
 
 ._crit_edge146.i:                                 ; preds = %.lr.ph145.i, %.preheader130.i

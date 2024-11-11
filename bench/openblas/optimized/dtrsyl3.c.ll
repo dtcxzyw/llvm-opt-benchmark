@@ -762,7 +762,7 @@ define void @dtrsyl3_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nounde
   %497 = add nsw i32 %496, %491
   %498 = sext i32 %497 to i64
   %499 = getelementptr inbounds double, ptr %75, i64 %498
-  %500 = icmp ugt i64 %488, 1
+  %500 = icmp samesign ugt i64 %488, 1
   %501 = add nsw i64 %488, %485
   %502 = mul nsw i64 %501, %480
   %503 = sext i32 %491 to i64
@@ -3267,7 +3267,7 @@ define void @dtrsyl3_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nounde
   %2108 = getelementptr double, ptr %88, i64 %2094
   %2109 = trunc i64 %2094 to i32
   %2110 = add i32 %2109, -1
-  %2111 = icmp ult i64 %2094, 2
+  %2111 = icmp samesign ult i64 %2094, 2
   %2112 = getelementptr double, ptr %88, i64 %2106
   %2113 = getelementptr double, ptr %83, i64 %2107
   br label %2114

@@ -2934,7 +2934,7 @@ define hidden void @_ZN11ConstMethod9verify_onEP12outputStream(ptr noundef nonnu
   %49 = icmp slt i32 %48, 0
   %50 = load i16, ptr %33, align 2
   %51 = zext i16 %50 to i32
-  %.not50 = icmp ugt i32 %48, %51
+  %.not50 = icmp samesign ugt i32 %48, %51
   %or.cond91 = select i1 %49, i1 true, i1 %.not50
   br i1 %or.cond91, label %52, label %45, !llvm.loop !6
 

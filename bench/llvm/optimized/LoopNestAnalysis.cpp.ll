@@ -5307,7 +5307,7 @@ _ZSt12__equal_aux1IPSt8optionalISt4pairIPN4llvm4LoopES0_IN9__gnu_cxx17__normal_i
   br i1 %63, label %64, label %70
 
 64:                                               ; preds = %_ZSt12__equal_aux1IPSt8optionalISt4pairIPN4llvm4LoopES0_IN9__gnu_cxx17__normal_iteratorIPKS4_St6vectorIS4_SaIS4_EEEEEEESG_EbT_SH_T0_.exit.i
-  %65 = icmp ult i64 %62, 16
+  %65 = icmp samesign ult i64 %62, 16
   br i1 %65, label %66, label %68
 
 66:                                               ; preds = %64
@@ -5350,7 +5350,7 @@ _ZSt12__equal_aux1IPSt8optionalISt4pairIPN4llvm4LoopES0_IN9__gnu_cxx17__normal_i
   br i1 %87, label %88, label %94
 
 88:                                               ; preds = %_ZSt12__equal_aux1IPSt8optionalISt4pairIPN4llvm4LoopES0_IN9__gnu_cxx17__normal_iteratorIPKS4_St6vectorIS4_SaIS4_EEEEEEESF_RKSF_PSH_ENS5_11__enable_ifIXsr23__is_random_access_iterIT_EE7__valueEbE6__typeESL_SL_St15_Deque_iteratorIT0_T1_T2_E.exit
-  %89 = icmp ult i64 %86, 16
+  %89 = icmp samesign ult i64 %86, 16
   br i1 %89, label %90, label %92
 
 90:                                               ; preds = %88
@@ -5475,7 +5475,7 @@ _ZSt12__equal_aux1IPSt8optionalISt4pairIPN4llvm4LoopES0_IN9__gnu_cxx17__normal_i
   br i1 %154, label %155, label %161
 
 155:                                              ; preds = %_ZSt12__equal_aux1IPSt8optionalISt4pairIPN4llvm4LoopES0_IN9__gnu_cxx17__normal_iteratorIPKS4_St6vectorIS4_SaIS4_EEEEEEESG_EbT_SH_T0_.exit.i35
-  %156 = icmp ult i64 %153, 16
+  %156 = icmp samesign ult i64 %153, 16
   br i1 %156, label %157, label %159
 
 157:                                              ; preds = %155
@@ -5648,7 +5648,7 @@ _ZSt12__equal_aux1IPSt8optionalISt4pairIPN4llvm4LoopES0_IN9__gnu_cxx17__normal_i
   br i1 %250, label %251, label %257
 
 251:                                              ; preds = %_ZSt12__equal_aux1IPSt8optionalISt4pairIPN4llvm4LoopES0_IN9__gnu_cxx17__normal_iteratorIPKS4_St6vectorIS4_SaIS4_EEEEEEESG_EbT_SH_T0_.exit.i59
-  %252 = icmp ult i64 %249, 16
+  %252 = icmp samesign ult i64 %249, 16
   br i1 %252, label %253, label %255
 
 253:                                              ; preds = %251
@@ -5776,7 +5776,7 @@ _ZSt12__equal_aux1IPSt8optionalISt4pairIPN4llvm4LoopES0_IN9__gnu_cxx17__normal_i
   br i1 %322, label %323, label %329
 
 323:                                              ; preds = %_ZSt12__equal_aux1IPSt8optionalISt4pairIPN4llvm4LoopES0_IN9__gnu_cxx17__normal_iteratorIPKS4_St6vectorIS4_SaIS4_EEEEEEESG_EbT_SH_T0_.exit.i81
-  %324 = icmp ult i64 %321, 16
+  %324 = icmp samesign ult i64 %321, 16
   br i1 %324, label %325, label %327
 
 325:                                              ; preds = %323

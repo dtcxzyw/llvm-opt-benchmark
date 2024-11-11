@@ -604,7 +604,7 @@ define void @Java_sun_java2d_xr_XRBackendNative_XRenderRectanglesNative(ptr noun
   br i1 %16, label %24, label %17
 
 17:                                               ; preds = %10
-  %18 = icmp ugt i32 %9, 536870911
+  %18 = icmp samesign ugt i32 %9, 536870911
   br i1 %18, label %58, label %19
 
 19:                                               ; preds = %17
@@ -1355,7 +1355,7 @@ define void @Java_sun_java2d_xr_XRBackendNative_XRFreeGlyphsNative(ptr noundef %
   br i1 %7, label %31, label %8
 
 8:                                                ; preds = %5
-  %9 = icmp ult i32 %4, 65
+  %9 = icmp samesign ult i32 %4, 65
   br i1 %9, label %15, label %10
 
 10:                                               ; preds = %8
@@ -1448,7 +1448,7 @@ define void @Java_sun_java2d_xr_XRBackendNative_XRenderCompositeTextNative(ptr n
   br i1 %23, label %95, label %24
 
 24:                                               ; preds = %17
-  %25 = icmp ult i32 %10, 25
+  %25 = icmp samesign ult i32 %10, 25
   br i1 %25, label %29, label %26
 
 26:                                               ; preds = %24
@@ -1458,7 +1458,7 @@ define void @Java_sun_java2d_xr_XRBackendNative_XRenderCompositeTextNative(ptr n
 
 29:                                               ; preds = %24, %26
   %.085 = phi ptr [ %27, %26 ], [ %13, %24 ]
-  %30 = icmp ult i32 %11, 257
+  %30 = icmp samesign ult i32 %11, 257
   br i1 %30, label %37, label %31
 
 31:                                               ; preds = %29
@@ -1627,7 +1627,7 @@ define void @Java_sun_java2d_xr_XRBackendNative_GCRectanglesNative(ptr noundef %
   br i1 %8, label %16, label %9
 
 9:                                                ; preds = %6
-  %10 = icmp ugt i32 %5, 536870911
+  %10 = icmp samesign ugt i32 %5, 536870911
   br i1 %10, label %51, label %11
 
 11:                                               ; preds = %9

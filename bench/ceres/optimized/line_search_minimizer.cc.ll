@@ -1098,7 +1098,7 @@ _ZN5Eigen15PlainObjectBaseINS_6MatrixIdLin1ELi1ELi0ELin1ELi1EEEE6resizeEll.exit.
   br i1 %500, label %501, label %.noexc265
 
 501:                                              ; preds = %_ZN5Eigen15PlainObjectBaseINS_6MatrixIdLin1ELi1ELi0ELin1ELi1EEEE6resizeEll.exit.i.i.i.i.i.i.i.i
-  %502 = icmp ugt i64 %498, 2305843009213693951
+  %502 = icmp samesign ugt i64 %498, 2305843009213693951
   br i1 %502, label %.invoke, label %504
 
 .invoke:                                          ; preds = %501, %783, %781, %595, %593, %504
@@ -1319,7 +1319,7 @@ _ZN5Eigen15PlainObjectBaseINS_6MatrixIdLin1ELi1ELi0ELin1ELi1EEEE6resizeEll.exit.
   br i1 %592, label %593, label %.noexc279
 
 593:                                              ; preds = %_ZN5Eigen15PlainObjectBaseINS_6MatrixIdLin1ELi1ELi0ELin1ELi1EEEE6resizeEll.exit.i.i.i.i.i.i.i.i271
-  %594 = icmp ugt i64 %590, 2305843009213693951
+  %594 = icmp samesign ugt i64 %590, 2305843009213693951
   br i1 %594, label %.invoke, label %595
 
 595:                                              ; preds = %593
@@ -1465,7 +1465,7 @@ _ZN5Eigen6MatrixIdLin1ELi1ELi0ELin1ELi1EEC2INS_3MapIS1_Li0ENS_6StrideILi0ELi0EEE
   %655 = getelementptr inbounds i8, ptr %642, i64 16
   %656 = load <2 x double>, ptr %655, align 16
   %657 = fmul <2 x double> %654, %656
-  %658 = icmp ugt i64 %638, 7
+  %658 = icmp samesign ugt i64 %638, 7
   br i1 %658, label %.lr.ph.i.i.i.i.i296, label %._crit_edge.i.i.i.i.i
 
 .lr.ph.i.i.i.i.i296:                              ; preds = %652, %.lr.ph.i.i.i.i.i296
@@ -1730,7 +1730,7 @@ _ZN5Eigen15PlainObjectBaseINS_6MatrixIdLin1ELi1ELi0ELin1ELi1EEEE6resizeEll.exit.
   br i1 %780, label %781, label %.noexc307
 
 781:                                              ; preds = %_ZN5Eigen15PlainObjectBaseINS_6MatrixIdLin1ELi1ELi0ELin1ELi1EEEE6resizeEll.exit.i.i.i.i.i.i.i.i299
-  %782 = icmp ugt i64 %778, 2305843009213693951
+  %782 = icmp samesign ugt i64 %778, 2305843009213693951
   br i1 %782, label %.invoke, label %783
 
 783:                                              ; preds = %781
@@ -2541,7 +2541,7 @@ define internal fastcc noundef zeroext i1 @_ZN5ceres8internal12_GLOBAL__N_121Eva
   br i1 %8, label %9, label %.thread
 
 9:                                                ; preds = %4
-  %10 = icmp ugt i64 %7, 2305843009213693951
+  %10 = icmp samesign ugt i64 %7, 2305843009213693951
   br i1 %10, label %.noexc28, label %12
 
 .noexc28:                                         ; preds = %9
@@ -2612,7 +2612,7 @@ _ZN5Eigen15PlainObjectBaseINS_6MatrixIdLin1ELi1ELi0ELin1ELi1EEEEC2INS_12CwiseUna
   br i1 %39, label %40, label %49
 
 40:                                               ; preds = %_ZN5Eigen15PlainObjectBaseINS_6MatrixIdLin1ELi1ELi0ELin1ELi1EEEEC2INS_12CwiseUnaryOpINS_8internal18scalar_opposite_opIdEEKS2_EEEERKNS_9DenseBaseIT_EE.exit
-  %41 = icmp ugt i64 %38, 2305843009213693951
+  %41 = icmp samesign ugt i64 %38, 2305843009213693951
   br i1 %41, label %.invoke, label %42
 
 42:                                               ; preds = %40
@@ -2690,7 +2690,7 @@ _ZN5Eigen15PlainObjectBaseINS_6MatrixIdLin1ELi1ELi0ELin1ELi1EEEEC2INS_12CwiseUna
   %78 = load <2 x double>, ptr %77, align 16
   %79 = fsub <2 x double> %76, %78
   %80 = fmul <2 x double> %79, %79
-  %81 = icmp ugt i64 %38, 7
+  %81 = icmp samesign ugt i64 %38, 7
   br i1 %81, label %.lr.ph.i.i.i.i, label %._crit_edge.i.i.i.i
 
 .lr.ph.i.i.i.i:                                   ; preds = %74, %.lr.ph.i.i.i.i
@@ -2788,7 +2788,7 @@ _ZN5Eigen15PlainObjectBaseINS_6MatrixIdLin1ELi1ELi0ELin1ELi1EEEEC2INS_12CwiseUna
   %140 = load <2 x double>, ptr %139, align 16
   %141 = fsub <2 x double> %138, %140
   %142 = tail call noundef <2 x double> @llvm.fabs.v2f64(<2 x double> %141)
-  %143 = icmp ugt i64 %38, 7
+  %143 = icmp samesign ugt i64 %38, 7
   br i1 %143, label %.lr.ph.i.i.i.i.i.i, label %._crit_edge.i.i.i.i.i.i
 
 .lr.ph.i.i.i.i.i.i:                               ; preds = %136, %.lr.ph.i.i.i.i.i.i
@@ -3106,7 +3106,7 @@ define linkonce_odr hidden void @_ZN5Eigen12DenseStorageIdLin1ELin1ELi1ELi0EE6re
   br i1 %9, label %10, label %.sink.split
 
 10:                                               ; preds = %7
-  %11 = icmp ugt i64 %1, 2305843009213693951
+  %11 = icmp samesign ugt i64 %1, 2305843009213693951
   br i1 %11, label %12, label %14
 
 12:                                               ; preds = %10

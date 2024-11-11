@@ -5314,7 +5314,7 @@ _ZNK5clang6format11FormatToken10opensScopeEv.exit.thread: ; preds = %.thread.i28
   br i1 %.not.i285, label %550, label %_ZNK5clang6format14TokenAnnotator22mustBreakForReturnTypeERKNS0_13AnnotatedLineE.exit.thread352
 
 550:                                              ; preds = %548
-  %switch.i287 = icmp ult i8 %547, 5
+  %switch.i287 = icmp samesign ult i8 %547, 5
   %551 = load ptr, ptr %.old, align 8
   %.not.i.i.i284 = icmp eq ptr %551, null
   %or.cond361 = select i1 %switch.i287, i1 true, i1 %.not.i.i.i284

@@ -9799,7 +9799,7 @@ exr_get_level_sizes.exit:                         ; preds = %151, %163
   %199 = getelementptr inbounds nuw i8, ptr %17, i64 8
   %200 = getelementptr inbounds nuw i8, ptr %17, i64 12
   %201 = getelementptr inbounds nuw i8, ptr %17, i64 16
-  %202 = icmp ugt i32 %4, 255
+  %202 = icmp samesign ugt i32 %4, 255
   %203 = trunc i32 %4 to i8
   %204 = getelementptr inbounds nuw i8, ptr %17, i64 20
   %205 = getelementptr inbounds nuw i8, ptr %17, i64 21
@@ -14432,7 +14432,7 @@ define internal fastcc i32 @add_to_list(ptr noundef nonnull %0, ptr nocapture no
   %58 = getelementptr inbounds ptr, ptr %.069, i64 %indvars.iv14
   store ptr %52, ptr %58, align 8
   store ptr %2, ptr %51, align 8
-  %59 = icmp ugt i64 %indvars.iv14, 1
+  %59 = icmp samesign ugt i64 %indvars.iv14, 1
   br i1 %59, label %.lr.ph9, label %._crit_edge10, !llvm.loop !69
 
 ._crit_edge10:                                    ; preds = %57, %.lr.ph9, %45
@@ -17271,8 +17271,8 @@ define internal fastcc i32 @validate_tile_data(ptr noundef %0, ptr nocapture nou
 
 44:                                               ; preds = %37
   %45 = icmp sgt i32 %9, 0
-  %46 = icmp ult i32 %9, %.pre
-  %or.cond81 = and i1 %45, %46
+  %46 = icmp samesign ult i32 %9, %.pre
+  %or.cond81 = select i1 %45, i1 %46, i1 false
   br i1 %or.cond81, label %47, label %51
 
 47:                                               ; preds = %44
@@ -23552,11 +23552,11 @@ half_to_float_int.exit:                           ; preds = %196, %198, %200, %2
 
 240:                                              ; preds = %235
   %241 = shl nuw nsw i32 %234, 13
-  %242 = icmp ugt i16 %233, 1023
+  %242 = icmp samesign ugt i16 %233, 1023
   br i1 %242, label %243, label %249
 
 243:                                              ; preds = %240
-  %244 = icmp ult i16 %233, 31744
+  %244 = icmp samesign ult i16 %233, 31744
   br i1 %244, label %245, label %247
 
 245:                                              ; preds = %243
@@ -25602,15 +25602,15 @@ define internal fastcc range(i32 0, 2) i32 @exr_compress_buffer(ptr noundef read
   br i1 %16, label %.thread35, label %17
 
 17:                                               ; preds = %.thread
-  %or.cond.i = icmp ugt i32 %1, 12
+  %or.cond.i = icmp samesign ugt i32 %1, 12
   br i1 %or.cond.i, label %libdeflate_alloc_compressor.exit.thread, label %18
 
 18:                                               ; preds = %17
-  %19 = icmp ugt i32 %1, 9
+  %19 = icmp samesign ugt i32 %1, 9
   br i1 %19, label %.thread35, label %20
 
 20:                                               ; preds = %18
-  %21 = icmp ugt i32 %1, 1
+  %21 = icmp samesign ugt i32 %1, 1
   br i1 %21, label %.thread35, label %22
 
 22:                                               ; preds = %20
@@ -26145,7 +26145,7 @@ define internal void @deflate_compress_fastest(ptr noalias noundef %0, ptr nound
 
 32:                                               ; preds = %28
   %33 = trunc nuw nsw i64 %30 to i32
-  %34 = icmp ult i64 %30, 5
+  %34 = icmp samesign ult i64 %30, 5
   br i1 %34, label %.preheader728, label %44
 
 .preheader728:                                    ; preds = %32, %.preheader728
@@ -26860,7 +26860,7 @@ define internal void @deflate_compress_greedy(ptr noalias noundef %0, ptr nounde
   br i1 %57, label %58, label %calculate_min_match_len.exit
 
 58:                                               ; preds = %52
-  %59 = icmp ult i32 %38, 5
+  %59 = icmp samesign ult i32 %38, 5
   br i1 %59, label %60, label %64
 
 60:                                               ; preds = %58
@@ -26870,7 +26870,7 @@ define internal void @deflate_compress_greedy(ptr noalias noundef %0, ptr nounde
   br label %calculate_min_match_len.exit
 
 64:                                               ; preds = %58
-  %65 = icmp ult i32 %38, 10
+  %65 = icmp samesign ult i32 %38, 10
   br i1 %65, label %66, label %70
 
 66:                                               ; preds = %64
@@ -27731,7 +27731,7 @@ define internal void @deflate_compress_lazy(ptr noalias noundef %0, ptr noundef 
   br i1 %59, label %60, label %calculate_min_match_len.exit
 
 60:                                               ; preds = %54
-  %61 = icmp ult i32 %40, 5
+  %61 = icmp samesign ult i32 %40, 5
   br i1 %61, label %62, label %66
 
 62:                                               ; preds = %60
@@ -27741,7 +27741,7 @@ define internal void @deflate_compress_lazy(ptr noalias noundef %0, ptr noundef 
   br label %calculate_min_match_len.exit
 
 66:                                               ; preds = %60
-  %67 = icmp ult i32 %40, 10
+  %67 = icmp samesign ult i32 %40, 10
   br i1 %67, label %68, label %72
 
 68:                                               ; preds = %66
@@ -27823,7 +27823,7 @@ calculate_min_match_len.exit:                     ; preds = %52, %54, %62, %68, 
   br i1 %94, label %95, label %recalculate_min_match_len.exit
 
 95:                                               ; preds = %89
-  %96 = icmp ult i32 %.pre, 5
+  %96 = icmp samesign ult i32 %.pre, 5
   br i1 %96, label %97, label %101
 
 97:                                               ; preds = %95
@@ -27833,7 +27833,7 @@ calculate_min_match_len.exit:                     ; preds = %52, %54, %62, %68, 
   br label %recalculate_min_match_len.exit
 
 101:                                              ; preds = %95
-  %102 = icmp ult i32 %.pre, 10
+  %102 = icmp samesign ult i32 %.pre, 10
   br i1 %102, label %103, label %107
 
 103:                                              ; preds = %101
@@ -29317,7 +29317,7 @@ define internal void @deflate_compress_lazy2(ptr noalias noundef %0, ptr noundef
   br i1 %59, label %60, label %calculate_min_match_len.exit
 
 60:                                               ; preds = %54
-  %61 = icmp ult i32 %40, 5
+  %61 = icmp samesign ult i32 %40, 5
   br i1 %61, label %62, label %66
 
 62:                                               ; preds = %60
@@ -29327,7 +29327,7 @@ define internal void @deflate_compress_lazy2(ptr noalias noundef %0, ptr noundef
   br label %calculate_min_match_len.exit
 
 66:                                               ; preds = %60
-  %67 = icmp ult i32 %40, 10
+  %67 = icmp samesign ult i32 %40, 10
   br i1 %67, label %68, label %72
 
 68:                                               ; preds = %66
@@ -29409,7 +29409,7 @@ calculate_min_match_len.exit:                     ; preds = %52, %54, %62, %68, 
   br i1 %94, label %95, label %recalculate_min_match_len.exit
 
 95:                                               ; preds = %89
-  %96 = icmp ult i32 %.pre, 5
+  %96 = icmp samesign ult i32 %.pre, 5
   br i1 %96, label %97, label %101
 
 97:                                               ; preds = %95
@@ -29419,7 +29419,7 @@ calculate_min_match_len.exit:                     ; preds = %52, %54, %62, %68, 
   br label %recalculate_min_match_len.exit
 
 101:                                              ; preds = %95
-  %102 = icmp ult i32 %.pre, 10
+  %102 = icmp samesign ult i32 %.pre, 10
   br i1 %102, label %103, label %107
 
 103:                                              ; preds = %101
@@ -31393,7 +31393,7 @@ define internal void @deflate_compress_near_optimal(ptr noalias noundef %0, ptr 
   br i1 %61, label %62, label %calculate_min_match_len.exit
 
 62:                                               ; preds = %56
-  %63 = icmp ult i32 %42, 5
+  %63 = icmp samesign ult i32 %42, 5
   br i1 %63, label %64, label %68
 
 64:                                               ; preds = %62
@@ -31403,7 +31403,7 @@ define internal void @deflate_compress_near_optimal(ptr noalias noundef %0, ptr 
   br label %calculate_min_match_len.exit
 
 68:                                               ; preds = %62
-  %69 = icmp ult i32 %42, 10
+  %69 = icmp samesign ult i32 %42, 10
   br i1 %69, label %70, label %74
 
 70:                                               ; preds = %68
@@ -34210,7 +34210,7 @@ deflate_compute_true_cost.exit._crit_edge:        ; preds = %deflate_compute_tru
   br i1 %107, label %108, label %choose_min_match_len.exit.i.i
 
 108:                                              ; preds = %102
-  %109 = icmp ult i32 %100, 5
+  %109 = icmp samesign ult i32 %100, 5
   br i1 %109, label %110, label %114
 
 110:                                              ; preds = %108
@@ -34220,7 +34220,7 @@ deflate_compute_true_cost.exit._crit_edge:        ; preds = %deflate_compute_tru
   br label %choose_min_match_len.exit.i.i
 
 114:                                              ; preds = %108
-  %115 = icmp ult i32 %100, 10
+  %115 = icmp samesign ult i32 %100, 10
   br i1 %115, label %116, label %120
 
 116:                                              ; preds = %114
@@ -44451,7 +44451,7 @@ half_to_float.exit20.i.us:                        ; preds = %449, %447, %436, %4
 
 455:                                              ; preds = %half_to_float.exit20.i.us
   %456 = getelementptr inbounds i8, ptr %.01422.i.us, i64 2
-  %457 = icmp ugt i32 %.023.in.i.us, 1
+  %457 = icmp samesign ugt i32 %.023.in.i.us, 1
   br i1 %457, label %.lr.ph.i.us, label %quantize.exit.us, !llvm.loop !319
 
 quantize.exit.us:                                 ; preds = %half_to_float.exit20.i.us, %455, %half_to_float.exit.i.us
@@ -51809,7 +51809,7 @@ fasthuf_read_bits.exit.i:                         ; preds = %.lr.ph.i.i, %49
   br i1 %.not154.i, label %fasthuf_initialize.exit.thread, label %fasthuf_initialize.exit.thread.sink.split
 
 85:                                               ; preds = %83
-  %86 = icmp ult i32 %58, 8
+  %86 = icmp samesign ult i32 %58, 8
   br i1 %86, label %fasthuf_read_bits.exit159.loopexit.i, label %fasthuf_read_bits.exit159.i
 
 fasthuf_read_bits.exit159.loopexit.i:             ; preds = %85
@@ -52042,7 +52042,7 @@ fasthuf_read_bits.exit162.i:                      ; preds = %.lr.ph.i161.i, %153
   br i1 %180, label %181, label %195
 
 181:                                              ; preds = %179
-  %182 = icmp ult i32 %162, 8
+  %182 = icmp samesign ult i32 %162, 8
   br i1 %182, label %fasthuf_read_bits.exit165.loopexit.i, label %fasthuf_read_bits.exit165.i
 
 fasthuf_read_bits.exit165.loopexit.i:             ; preds = %181
@@ -52351,7 +52351,7 @@ getBits.exit48.i:                                 ; preds = %.lr.ph.i46.i, %298
 322:                                              ; preds = %320
   %323 = add nsw i64 %294, -57
   %324 = add nuw nsw i64 %323, %295
-  %325 = icmp ugt i64 %324, %278
+  %325 = icmp samesign ugt i64 %324, %278
   br i1 %325, label %hufUnpackEncTable.exit, label %.lr.ph.i72
 
 .lr.ph.i72:                                       ; preds = %322, %.lr.ph.i72
@@ -52623,7 +52623,7 @@ define internal fastcc range(i32 0, 24) i32 @fasthuf_decode(ptr noundef %0, ptr 
   br label %.sink.split.i
 
 82:                                               ; preds = %74
-  %83 = icmp ugt i64 %.0187214, 7
+  %83 = icmp samesign ugt i64 %.0187214, 7
   br i1 %83, label %.lr.ph.i.preheader, label %._crit_edge.i
 
 .lr.ph.i.preheader:                               ; preds = %82
@@ -52803,7 +52803,7 @@ FastHufDecoder_refill.exit:                       ; preds = %.FastHufDecoder_ref
   br label %.sink.split.i103
 
 155:                                              ; preds = %147
-  %156 = icmp ugt i64 %.2189, 7
+  %156 = icmp samesign ugt i64 %.2189, 7
   br i1 %156, label %.lr.ph.i106.preheader, label %._crit_edge.i99
 
 .lr.ph.i106.preheader:                            ; preds = %155
@@ -55338,7 +55338,7 @@ half_to_float.exit:                               ; preds = %180, %182, %184, %1
   br i1 %204, label %dctInverse8x8DcOnly.exit.sink.split, label %205
 
 205:                                              ; preds = %203
-  %206 = icmp ult i32 %.138.i, 9
+  %206 = icmp samesign ult i32 %.138.i, 9
   br i1 %206, label %dctInverse8x8DcOnly.exit.sink.split, label %207
 
 207:                                              ; preds = %205
@@ -55346,7 +55346,7 @@ half_to_float.exit:                               ; preds = %180, %182, %184, %1
   br i1 %208, label %dctInverse8x8DcOnly.exit.sink.split, label %209
 
 209:                                              ; preds = %207
-  %210 = icmp ult i32 %.138.i, 20
+  %210 = icmp samesign ult i32 %.138.i, 20
   br i1 %210, label %dctInverse8x8DcOnly.exit.sink.split, label %211
 
 211:                                              ; preds = %209
@@ -55354,7 +55354,7 @@ half_to_float.exit:                               ; preds = %180, %182, %184, %1
   br i1 %212, label %dctInverse8x8DcOnly.exit.sink.split, label %213
 
 213:                                              ; preds = %211
-  %214 = icmp ult i32 %.138.i, 35
+  %214 = icmp samesign ult i32 %.138.i, 35
   %dctInverse8x8_1.dctInverse8x8_0 = select i1 %214, ptr @dctInverse8x8_1, ptr @dctInverse8x8_0
   br label %dctInverse8x8DcOnly.exit.sink.split
 
@@ -56122,7 +56122,7 @@ half_to_float.exit348:                            ; preds = %691, %693, %695, %6
   %.sroa.0.0.i347 = phi i32 [ %692, %691 ], [ %694, %693 ], [ %703, %696 ], [ %686, %695 ]
   %704 = getelementptr inbounds float, ptr %678, i64 %indvars.iv.next533
   store i32 %.sroa.0.0.i347, ptr %704, align 4
-  %705 = icmp ugt i64 %indvars.iv532, 1
+  %705 = icmp samesign ugt i64 %indvars.iv532, 1
   br i1 %705, label %.lr.ph452, label %._crit_edge453.loopexit, !llvm.loop !468
 
 ._crit_edge453.loopexit:                          ; preds = %half_to_float.exit348
@@ -56271,7 +56271,7 @@ define internal fastcc void @interleaveByte2(ptr noundef %0, ptr noundef %1, ptr
   %59 = getelementptr inbounds i8, ptr %1, i64 8
   %60 = getelementptr inbounds i8, ptr %2, i64 8
   %61 = add nsw i32 %3, -8
-  %.not = icmp ult i32 %61, 16
+  %.not = icmp samesign ult i32 %61, 16
   br i1 %.not, label %._crit_edge167, label %.lr.ph166.preheader
 
 .lr.ph166.preheader:                              ; preds = %57
@@ -56760,7 +56760,7 @@ float_to_half_int.exit.us.us:                     ; preds = %172, %169, %167, %1
 
 189:                                              ; preds = %186
   %190 = shl nuw nsw i32 %185, 13
-  %191 = icmp ugt i16 %.0160.val.us.us, 1023
+  %191 = icmp samesign ugt i16 %.0160.val.us.us, 1023
   br i1 %191, label %200, label %192
 
 192:                                              ; preds = %189
@@ -56777,7 +56777,7 @@ float_to_half_int.exit.us.us:                     ; preds = %172, %169, %167, %1
   br label %half_to_float.exit.i.us.us
 
 200:                                              ; preds = %189
-  %201 = icmp ult i16 %.0160.val.us.us, 31744
+  %201 = icmp samesign ult i16 %.0160.val.us.us, 31744
   br i1 %201, label %204, label %202
 
 202:                                              ; preds = %200
@@ -57337,7 +57337,7 @@ float_to_half_int.exit.us.us:                     ; preds = %166, %163, %161, %1
 
 183:                                              ; preds = %180
   %184 = shl nuw nsw i32 %179, 13
-  %185 = icmp ugt i16 %.0169.val.us.us, 1023
+  %185 = icmp samesign ugt i16 %.0169.val.us.us, 1023
   br i1 %185, label %194, label %186
 
 186:                                              ; preds = %183
@@ -57354,7 +57354,7 @@ float_to_half_int.exit.us.us:                     ; preds = %166, %163, %161, %1
   br label %half_to_float.exit.i.us.us
 
 194:                                              ; preds = %183
-  %195 = icmp ult i16 %.0169.val.us.us, 31744
+  %195 = icmp samesign ult i16 %.0169.val.us.us, 31744
   br i1 %195, label %198, label %196
 
 196:                                              ; preds = %194
@@ -58671,11 +58671,11 @@ half_to_float.exit:                               ; preds = %82, %84, %86, %87
 
 105:                                              ; preds = %100
   %106 = shl nuw nsw i32 %99, 13
-  %107 = icmp ugt i16 %.0146.val, 1023
+  %107 = icmp samesign ugt i16 %.0146.val, 1023
   br i1 %107, label %108, label %114
 
 108:                                              ; preds = %105
-  %109 = icmp ult i16 %.0146.val, 31744
+  %109 = icmp samesign ult i16 %.0146.val, 31744
   br i1 %109, label %110, label %112
 
 110:                                              ; preds = %108
@@ -59869,7 +59869,7 @@ define internal fastcc void @half_to_float_buffer(ptr nocapture noundef writeonl
   %7 = getelementptr inbounds i8, ptr %.03984, i64 32
   %8 = getelementptr inbounds i8, ptr %.03885, i64 16
   %9 = add nsw i32 %.086, -8
-  %10 = icmp ugt i32 %.086, 15
+  %10 = icmp samesign ugt i32 %.086, 15
   br i1 %10, label %.lr.ph, label %._crit_edge, !llvm.loop !551
 
 ._crit_edge:                                      ; preds = %.lr.ph, %3

@@ -3816,7 +3816,7 @@ thread-pre-split250:                              ; preds = %149, %146
   br label %347
 
 204:                                              ; preds = %197
-  %205 = icmp ult i32 %198, 16
+  %205 = icmp samesign ult i32 %198, 16
   br i1 %205, label %206, label %214
 
 206:                                              ; preds = %204
@@ -3831,7 +3831,7 @@ thread-pre-split250:                              ; preds = %149, %146
   br label %.loopexit
 
 214:                                              ; preds = %204
-  %215 = icmp ult i32 %198, 18
+  %215 = icmp samesign ult i32 %198, 18
   br i1 %215, label %216, label %254
 
 216:                                              ; preds = %214
@@ -4194,7 +4194,7 @@ define internal fastcc range(i32 -30, 1) i32 @expand(ptr noundef %0, ptr nocaptu
   br i1 %48, label %read_filter.exit.thread, label %49
 
 49:                                               ; preds = %.lr.ph525
-  %50 = icmp ult i32 %47, 256
+  %50 = icmp samesign ult i32 %47, 256
   br i1 %50, label %51, label %61
 
 51:                                               ; preds = %49
@@ -5233,7 +5233,7 @@ create_filter.exit.i.i:                           ; preds = %418, %417
   br label %648
 
 485:                                              ; preds = %61
-  %486 = icmp ult i32 %47, 263
+  %486 = icmp samesign ult i32 %47, 263
   br i1 %486, label %487, label %524
 
 487:                                              ; preds = %485
@@ -5251,7 +5251,7 @@ create_filter.exit.i.i:                           ; preds = %418, %417
   %496 = load i8, ptr %495, align 1
   %497 = zext i8 %496 to i32
   %498 = add nuw nsw i32 %497, 2
-  %.not224 = icmp ult i32 %492, 8
+  %.not224 = icmp samesign ult i32 %492, 8
   br i1 %.not224, label %518, label %499
 
 499:                                              ; preds = %493
@@ -5287,7 +5287,7 @@ create_filter.exit.i.i:                           ; preds = %418, %417
 
 518:                                              ; preds = %506, %493
   %.0188 = phi i32 [ %517, %506 ], [ %498, %493 ]
-  %519 = icmp ugt i32 %47, 259
+  %519 = icmp samesign ugt i32 %47, 259
   br i1 %519, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %518, %.lr.ph
@@ -5297,7 +5297,7 @@ create_filter.exit.i.i:                           ; preds = %418, %417
   %521 = load i32, ptr %520, align 4
   %522 = getelementptr inbounds [4 x i32], ptr %41, i64 0, i64 %indvars.iv
   store i32 %521, ptr %522, align 4
-  %523 = icmp ugt i64 %indvars.iv, 1
+  %523 = icmp samesign ugt i64 %indvars.iv, 1
   br i1 %523, label %.lr.ph, label %._crit_edge, !llvm.loop !45
 
 ._crit_edge:                                      ; preds = %.lr.ph, %518
@@ -5305,7 +5305,7 @@ create_filter.exit.i.i:                           ; preds = %418, %417
   br label %648
 
 524:                                              ; preds = %485
-  %525 = icmp ult i32 %47, 271
+  %525 = icmp samesign ult i32 %47, 271
   br i1 %525, label %526, label %550
 
 526:                                              ; preds = %524
@@ -5351,7 +5351,7 @@ create_filter.exit.i.i:                           ; preds = %418, %417
   br label %.lr.ph66.preheader.i
 
 550:                                              ; preds = %524
-  %551 = icmp ugt i32 %47, 299
+  %551 = icmp samesign ugt i32 %47, 299
   br i1 %551, label %678, label %552
 
 552:                                              ; preds = %550
@@ -5361,7 +5361,7 @@ create_filter.exit.i.i:                           ; preds = %418, %417
   %556 = load i8, ptr %555, align 1
   %557 = zext i8 %556 to i32
   %558 = add nuw nsw i32 %557, 3
-  %.not208 = icmp ult i32 %553, 8
+  %.not208 = icmp samesign ult i32 %553, 8
   br i1 %.not208, label %578, label %559
 
 559:                                              ; preds = %552
@@ -5409,11 +5409,11 @@ create_filter.exit.i.i:                           ; preds = %418, %417
   %585 = getelementptr inbounds [60 x i8], ptr @expand.offsetbits, i64 0, i64 %581
   %586 = load i8, ptr %585, align 1
   %587 = zext i8 %586 to i32
-  %.not212 = icmp ult i32 %579, 4
+  %.not212 = icmp samesign ult i32 %579, 4
   br i1 %.not212, label %643, label %588
 
 588:                                              ; preds = %580
-  %589 = icmp ugt i32 %579, 9
+  %589 = icmp samesign ugt i32 %579, 9
   br i1 %589, label %590, label %627
 
 590:                                              ; preds = %588
@@ -6660,7 +6660,7 @@ define internal fastcc range(i32 -30, 1) i32 @create_code(ptr noundef %0, ptr no
 74:                                               ; preds = %60, %40
   %75 = phi i32 [ %.pre.i36, %60 ], [ %45, %40 ]
   %76 = phi ptr [ %.pre52.i, %60 ], [ %32, %40 ]
-  %77 = icmp ugt i32 %.04351.in.i, 1
+  %77 = icmp samesign ugt i32 %.04351.in.i, 1
   br i1 %77, label %31, label %._crit_edge.loopexit.i, !llvm.loop !55
 
 ._crit_edge.loopexit.i:                           ; preds = %74
@@ -7021,7 +7021,7 @@ membr_bits.exit:                                  ; preds = %16, %.membr_fill.ex
   ]
 
 membr_bits.exit.thread:                           ; preds = %membr_bits.exit
-  %33 = icmp ult i32 %28, 4
+  %33 = icmp samesign ult i32 %28, 4
   br i1 %33, label %membr_bits.exit.thread.thread, label %.membr_fill.exit_crit_edge.i10
 
 .membr_fill.exit_crit_edge.i10:                   ; preds = %membr_bits.exit.thread
@@ -7082,7 +7082,7 @@ membr_fill.exit.i13:                              ; preds = %45, %.membr_fill.ex
   br label %membr_bits.exit19
 
 63:                                               ; preds = %membr_bits.exit
-  %64 = icmp ult i32 %27, 10
+  %64 = icmp samesign ult i32 %27, 10
   br i1 %64, label %66, label %.membr_fill.exit_crit_edge.i20
 
 .membr_fill.exit_crit_edge.i20:                   ; preds = %63
@@ -7206,7 +7206,7 @@ membr_bits.exit39:                                ; preds = %98, %membr_fill.exi
   br label %membr_bits.exit19
 
 129:                                              ; preds = %membr_bits.exit
-  %130 = icmp ult i32 %27, 18
+  %130 = icmp samesign ult i32 %27, 18
   br i1 %130, label %131, label %membr_fill.exit.i43
 
 131:                                              ; preds = %129
@@ -7264,7 +7264,7 @@ default.unreachable:                              ; preds = %membr_bits.exit
   unreachable
 
 160:                                              ; preds = %membr_bits.exit
-  %161 = icmp ult i32 %27, 34
+  %161 = icmp samesign ult i32 %27, 34
   br i1 %161, label %162, label %membr_fill.exit.i53
 
 162:                                              ; preds = %160

@@ -11844,7 +11844,7 @@ define hidden void @_ZN10tokenizers6models7unigram5model7Unigram14populate_nodes
   %63 = and i8 %61, 63
   %64 = zext nneg i8 %63 to i32
   %65 = or disjoint i32 %62, %64
-  %66 = icmp ugt i8 %55, -33
+  %66 = icmp samesign ugt i8 %55, -33
   br i1 %66, label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h5cf4632b25500c9eE.exit13.i.i", label %"_ZN81_$LT$core..str..iter..Chars$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hf8c5eef63cfad1b8E.exit.thread"
 
 "_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h5cf4632b25500c9eE.exit13.i.i": ; preds = %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h5cf4632b25500c9eE.exit11.i.i"
@@ -11858,7 +11858,7 @@ define hidden void @_ZN10tokenizers6models7unigram5model7Unigram14populate_nodes
   %73 = or disjoint i32 %70, %72
   %74 = shl nuw nsw i32 %59, 12
   %75 = or disjoint i32 %73, %74
-  %76 = icmp ugt i8 %55, -17
+  %76 = icmp samesign ugt i8 %55, -17
   br i1 %76, label %"_ZN81_$LT$core..str..iter..Chars$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hf8c5eef63cfad1b8E.exit", label %"_ZN81_$LT$core..str..iter..Chars$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hf8c5eef63cfad1b8E.exit.thread"
 
 "_ZN81_$LT$core..str..iter..Chars$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hf8c5eef63cfad1b8E.exit": ; preds = %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h5cf4632b25500c9eE.exit13.i.i"
@@ -13973,7 +13973,7 @@ _ZN4core3ptr19swap_nonoverlapping17h130b14c0fe3413a8E.exit.i.i190.i: ; preds = %
   %609 = and i8 %607, 63
   %610 = zext nneg i8 %609 to i32
   %611 = or disjoint i32 %608, %610
-  %612 = icmp ugt i8 %600, -33
+  %612 = icmp samesign ugt i8 %600, -33
   br i1 %612, label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h5cf4632b25500c9eE.exit13.i.i.i", label %"_ZN81_$LT$core..str..iter..Chars$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hf8c5eef63cfad1b8E.exit.thread.i"
 
 "_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h5cf4632b25500c9eE.exit13.i.i.i": ; preds = %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h5cf4632b25500c9eE.exit11.i.i.i"
@@ -13987,7 +13987,7 @@ _ZN4core3ptr19swap_nonoverlapping17h130b14c0fe3413a8E.exit.i.i190.i: ; preds = %
   %619 = or disjoint i32 %616, %618
   %620 = shl nuw nsw i32 %605, 12
   %621 = or disjoint i32 %619, %620
-  %622 = icmp ugt i8 %600, -17
+  %622 = icmp samesign ugt i8 %600, -17
   br i1 %622, label %"_ZN81_$LT$core..str..iter..Chars$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hf8c5eef63cfad1b8E.exit.i", label %"_ZN81_$LT$core..str..iter..Chars$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hf8c5eef63cfad1b8E.exit.thread.i"
 
 "_ZN81_$LT$core..str..iter..Chars$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hf8c5eef63cfad1b8E.exit.i": ; preds = %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h5cf4632b25500c9eE.exit13.i.i.i"
@@ -18164,16 +18164,16 @@ _ZN5alloc3fmt6format17hbad01b9ef6c5aaf7E.exit:    ; preds = %90
   %157 = zext nneg i8 %156 to i32
   %158 = or disjoint i32 %155, %157
   %159 = icmp eq i32 %158, 1114112
-  %160 = icmp ult i32 %.0.i.i, 2
+  %160 = icmp samesign ult i32 %.0.i.i, 2
   %or.cond.i = or i1 %160, %159
   br i1 %or.cond.i, label %"_ZN4core6option15Option$LT$T$GT$6map_or17h727ea82af525e7b1E.exit", label %161
 
 161:                                              ; preds = %"_ZN96_$LT$core..str..iter..Chars$u20$as$u20$core..iter..traits..double_ended..DoubleEndedIterator$GT$9next_back17h25eccb8f3b92f263E.exit"
-  %162 = icmp ult i32 %.0.i.i, 32
+  %162 = icmp samesign ult i32 %.0.i.i, 32
   br i1 %162, label %"_ZN4core6option15Option$LT$T$GT$6map_or17h727ea82af525e7b1E.exit", label %163
 
 163:                                              ; preds = %161
-  %164 = icmp ult i32 %.0.i.i, 1024
+  %164 = icmp samesign ult i32 %.0.i.i, 1024
   %..i.i.neg = select i1 %164, i64 -3, i64 -4
   br label %"_ZN4core6option15Option$LT$T$GT$6map_or17h727ea82af525e7b1E.exit"
 

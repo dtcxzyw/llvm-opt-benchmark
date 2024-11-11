@@ -43233,7 +43233,7 @@ terminate.lpad.i131:                              ; preds = %if.then13.i.i130
   unreachable
 
 _ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit132: ; preds = %if.end, %if.then.i.i124, %if.then13.i.i130
-  %cmp = icmp ugt i32 %i.0161.in, 1
+  %cmp = icmp samesign ugt i32 %i.0161.in, 1
   %cmp19 = icmp sgt i32 %sub46, -1
   %25 = select i1 %cmp, i1 %cmp19, i1 false
   br i1 %25, label %for.body, label %for.end, !llvm.loop !1315
@@ -45681,7 +45681,7 @@ terminate.lpad.i146:                              ; preds = %if.then13.i.i145
   unreachable
 
 _ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit147: ; preds = %invoke.cont20, %if.then.i.i139, %if.then13.i.i145
-  %cmp16 = icmp ugt i32 %i.0291.in, 1
+  %cmp16 = icmp samesign ugt i32 %i.0291.in, 1
   br i1 %cmp16, label %for.body, label %if.end, !llvm.loop !1391
 
 lpad.loopexit284:                                 ; preds = %if.then13.i.i92

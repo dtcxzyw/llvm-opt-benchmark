@@ -757,7 +757,7 @@ define hidden noundef range(i32 0, -7) i32 @_ZN14ForeignGlobals23java_calling_co
   %31 = icmp slt i32 %30, 3
   %32 = icmp sgt i32 %20, 79
   %33 = select i1 %31, i32 336, i32 592
-  %34 = icmp ult i32 %20, %33
+  %34 = icmp samesign ult i32 %20, %33
   %35 = select i1 %32, i1 %34, i1 false
   br i1 %35, label %36, label %44
 

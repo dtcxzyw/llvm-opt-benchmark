@@ -3427,9 +3427,9 @@ cond.end:                                         ; preds = %entry
   br i1 %cmp2, label %return, label %if.end
 
 if.end:                                           ; preds = %cond.end
-  %cmp4 = icmp ult i64 %length, 10
+  %cmp4 = icmp samesign ult i64 %length, 10
   %conv6 = select i1 %cmp4, i64 4, i64 5
-  %cmp7 = icmp ult i64 %length, 32
+  %cmp7 = icmp samesign ult i64 %length, 32
   %conv9 = sext i8 %prefix to i32
   %cmp10 = icmp eq i8 %prefix, 42
   %or.cond = and i1 %cmp7, %cmp10
@@ -3500,11 +3500,11 @@ cond.end.i:                                       ; preds = %entry
   br i1 %cmp2.i, label %setDeferredAggregateLen.exit, label %if.end.i
 
 if.end.i:                                         ; preds = %cond.end.i
-  %cmp7.i = icmp ult i64 %length, 32
+  %cmp7.i = icmp samesign ult i64 %length, 32
   br i1 %cmp7.i, label %if.then13.i, label %if.end14.i
 
 if.then13.i:                                      ; preds = %if.end.i
-  %cmp4.i = icmp ult i64 %length, 10
+  %cmp4.i = icmp samesign ult i64 %length, 10
   %conv6.i = select i1 %cmp4.i, i64 4, i64 5
   %arrayidx.i = getelementptr inbounds [32 x ptr], ptr getelementptr inbounds (i8, ptr @shared, i64 80856), i64 0, i64 %length
   %0 = load ptr, ptr %arrayidx.i, align 8
@@ -3701,7 +3701,7 @@ for.body:                                         ; preds = %for.body.preheader,
   %div = sdiv i32 %val.028, 10
   %5 = add i32 %val.028, -10
   %tobool23 = icmp ult i32 %5, -19
-  %cmp24 = icmp ugt i64 %indvars.iv, 1
+  %cmp24 = icmp samesign ugt i64 %indvars.iv, 1
   %6 = and i1 %tobool23, %cmp24
   br i1 %6, label %for.body, label %for.end, !llvm.loop !5
 
@@ -9540,7 +9540,7 @@ if.else548:                                       ; preds = %if.else506
 
 if.then558:                                       ; preds = %if.else548
   store i64 0, ptr %redir, align 8
-  %cmp562493 = icmp ugt i32 %0, 3
+  %cmp562493 = icmp samesign ugt i32 %0, 3
   br i1 %cmp562493, label %for.body564, label %for.end658
 
 for.body564:                                      ; preds = %if.then558, %for.inc656
@@ -11113,7 +11113,7 @@ if.then170:                                       ; preds = %lor.lhs.false165, %
   br label %return
 
 if.else171:                                       ; preds = %lor.lhs.false165
-  %cmp172 = icmp ugt i64 %37, 16384
+  %cmp172 = icmp samesign ugt i64 %37, 16384
   br i1 %cmp172, label %land.lhs.true174, label %if.end179.thread
 
 if.end179.thread:                                 ; preds = %if.else171
@@ -11149,7 +11149,7 @@ if.end179:                                        ; preds = %land.lhs.true174, %
   %sub.ptr.sub183 = sub i64 %sub.ptr.lhs.cast125, %sub.ptr.rhs.cast182
   %add184 = add nsw i64 %sub.ptr.sub183, 2
   store i64 %add184, ptr %qb_pos107, align 8
-  %cmp190 = icmp ugt i64 %37, 32767
+  %cmp190 = icmp samesign ugt i64 %37, 32767
   %or.cond2 = select i1 %tobool166.not, i1 %cmp190, i1 false
   br i1 %or.cond2, label %if.then192, label %if.end219
 

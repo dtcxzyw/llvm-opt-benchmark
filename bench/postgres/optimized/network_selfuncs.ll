@@ -296,7 +296,7 @@ define internal fastcc double @inet_hist_value_sel(ptr nocapture noundef readonl
 inet_inclusion_cmp.exit:                          ; preds = %24, %33, %49, %53, %56
   %.0.i = phi i32 [ %59, %56 ], [ %32, %24 ], [ 0, %49 ], [ 0, %33 ], [ %spec.select.i.i, %53 ]
   %invariant.gep = getelementptr inbounds i8, ptr %11, i64 1
-  %60 = icmp ult i32 %9, %1
+  %60 = icmp samesign ult i32 %9, %1
   br i1 %60, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %inet_inclusion_cmp.exit

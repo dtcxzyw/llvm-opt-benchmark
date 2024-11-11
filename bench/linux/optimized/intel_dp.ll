@@ -1397,7 +1397,7 @@ define dso_local void @intel_dp_adjust_compliance_config(ptr nocapture noundef r
 
 46:                                               ; preds = %43, %39, %39, %39
   %47 = phi i32 [ 1, %43 ], [ %42, %39 ], [ %42, %39 ], [ %42, %39 ]
-  %48 = icmp ult i32 %47, %40
+  %48 = icmp samesign ult i32 %47, %40
   br i1 %48, label %74, label %49
 
 49:                                               ; preds = %46
@@ -6322,7 +6322,7 @@ define internal fastcc noundef zeroext i1 @intel_dp_needs_link_retrain(ptr nound
 
 31:                                               ; preds = %28, %24, %24, %24
   %32 = phi i32 [ 1, %28 ], [ %27, %24 ], [ %27, %24 ], [ %27, %24 ]
-  %33 = icmp ult i32 %32, %25
+  %33 = icmp samesign ult i32 %32, %25
   br i1 %33, label %57, label %34
 
 34:                                               ; preds = %31
@@ -8616,7 +8616,7 @@ define dso_local noundef zeroext i1 @intel_dp_init_connector(ptr noundef %0, ptr
   br label %700
 
 655:                                              ; preds = %645
-  %656 = icmp ugt i16 %647, 10
+  %656 = icmp samesign ugt i16 %647, 10
   br i1 %656, label %657, label %679
 
 657:                                              ; preds = %655
@@ -8837,7 +8837,7 @@ define dso_local noundef zeroext i1 @intel_dp_init_connector(ptr noundef %0, ptr
   %796 = load i32, ptr %795, align 4
   %797 = and i32 %796, 12582912
   %798 = icmp ne i32 %797, 0
-  %799 = icmp ugt i16 %790, 8
+  %799 = icmp samesign ugt i16 %790, 8
   %800 = or i1 %799, %798
   br i1 %800, label %801, label %803
 
@@ -11219,7 +11219,7 @@ define internal fastcc void @intel_dp_check_device_service_irq(ptr noundef %0) u
 
 93:                                               ; preds = %90, %86, %86, %86
   %94 = phi i32 [ 1, %90 ], [ %89, %86 ], [ %89, %86 ], [ %89, %86 ]
-  %95 = icmp ult i32 %94, %87
+  %95 = icmp samesign ult i32 %94, %87
   br i1 %95, label %100, label %96
 
 96:                                               ; preds = %93

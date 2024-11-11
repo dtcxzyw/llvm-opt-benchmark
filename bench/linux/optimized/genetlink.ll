@@ -1692,7 +1692,7 @@ define internal fastcc noundef zeroext i1 @genl_op_iter_next(ptr nocapture nound
   %46 = load i8, ptr %45, align 2
   %47 = zext i8 %46 to i32
   %48 = add nuw nsw i32 %47, %7
-  %49 = icmp ult i32 %4, %48
+  %49 = icmp samesign ult i32 %4, %48
   br i1 %49, label %50, label %72
 
 50:                                               ; preds = %44
@@ -1724,7 +1724,7 @@ define internal fastcc noundef zeroext i1 @genl_op_iter_next(ptr nocapture nound
   %74 = load i8, ptr %73, align 1
   %75 = zext i8 %74 to i32
   %76 = add nuw nsw i32 %48, %75
-  %77 = icmp ult i32 %4, %76
+  %77 = icmp samesign ult i32 %4, %76
   br i1 %77, label %78, label %202
 
 78:                                               ; preds = %72

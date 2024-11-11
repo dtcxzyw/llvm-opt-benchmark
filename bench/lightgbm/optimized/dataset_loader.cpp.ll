@@ -1460,7 +1460,7 @@ _ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE5clearE
   %324 = getelementptr inbounds i8, ptr %.0910.i.i.i.i.i.i.i, i64 32
   %325 = getelementptr inbounds i8, ptr %.0811.i.i.i.i.i.i.i, i64 32
   %326 = add nsw i64 %.012.i.i.i.i.i.i.i, -1
-  %327 = icmp ugt i64 %.012.i.i.i.i.i.i.i, 1
+  %327 = icmp samesign ugt i64 %.012.i.i.i.i.i.i.i, 1
   br i1 %327, label %.lr.ph.i.i.i.i.i.i.i, label %_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt6vectorIS7_SaIS7_EEEESC_ET0_T_SE_SD_.exit.loopexit.i.i, !llvm.loop !13
 
 _ZSt4moveIN9__gnu_cxx17__normal_iteratorIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt6vectorIS7_SaIS7_EEEESC_ET0_T_SE_SD_.exit.loopexit.i.i: ; preds = %.lr.ph.i.i.i.i.i.i.i
@@ -15929,7 +15929,7 @@ _ZSt6fill_nIPimiET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i110: ; preds = %.noexc114
   %spec.store.select = call i32 @llvm.smax.i32(i32 %180, i32 1)
   store i32 0, ptr %163, align 4
   %181 = add nsw i32 %155, -1
-  %182 = icmp ugt i32 %155, 1
+  %182 = icmp samesign ugt i32 %155, 1
   br i1 %182, label %.lr.ph264.preheader, label %._crit_edge
 
 .lr.ph264.preheader:                              ; preds = %176

@@ -78,7 +78,7 @@ define dso_local void @intel_gt_init_clock_frequency(ptr nocapture noundef %0) l
   br label %94
 
 41:                                               ; preds = %1
-  %42 = icmp ugt i8 %7, 8
+  %42 = icmp samesign ugt i8 %7, 8
   br i1 %42, label %43, label %79
 
 43:                                               ; preds = %41
@@ -128,7 +128,7 @@ define dso_local void @intel_gt_init_clock_frequency(ptr nocapture noundef %0) l
   br label %94
 
 79:                                               ; preds = %41
-  %80 = icmp ugt i8 %7, 5
+  %80 = icmp samesign ugt i8 %7, 5
   br i1 %80, label %94, label %81
 
 81:                                               ; preds = %79

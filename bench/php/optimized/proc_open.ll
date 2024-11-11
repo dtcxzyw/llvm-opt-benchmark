@@ -669,7 +669,7 @@ define hidden void @zif_proc_open(ptr noundef %0, ptr nocapture noundef writeonl
 
 50:                                               ; preds = %46, %.thread539
   %.ph = phi ptr [ %.2423542, %.thread539 ], [ %.2423, %46 ]
-  %51 = icmp ult i32 %18, 5
+  %51 = icmp samesign ult i32 %18, 5
   br i1 %51, label %61, label %52
 
 52:                                               ; preds = %50

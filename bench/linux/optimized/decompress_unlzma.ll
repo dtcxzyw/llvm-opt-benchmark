@@ -526,7 +526,7 @@ define internal fastcc noundef range(i32 -1, 1) i32 @process_bit0(ptr nocapture 
   br i1 %67, label %74, label %68
 
 68:                                               ; preds = %.loopexit
-  %69 = icmp ult i32 %66, 10
+  %69 = icmp samesign ult i32 %66, 10
   br i1 %69, label %70, label %72
 
 70:                                               ; preds = %68
@@ -918,7 +918,7 @@ rc_bit_tree_decode.exit._crit_edge:               ; preds = %rc_bit_tree_decode.
   %263 = or disjoint i32 %262, 2
   %264 = getelementptr inbounds i8, ptr %2, i64 4
   store i32 %263, ptr %264, align 4
-  %265 = icmp ult i32 %258, 14
+  %265 = icmp samesign ult i32 %258, 14
   br i1 %265, label %266, label %276
 
 266:                                              ; preds = %260

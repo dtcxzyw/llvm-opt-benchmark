@@ -7849,7 +7849,7 @@ define range(i32 -1, 1) i32 @hwloc_topology_restrict(ptr noundef %0, ptr noundef
   br label %138
 
 23:                                               ; preds = %17
-  %.not105 = icmp ult i64 %2, 16
+  %.not105 = icmp samesign ult i64 %2, 16
   br i1 %.not105, label %.critedge, label %24
 
 24:                                               ; preds = %23
@@ -7894,7 +7894,7 @@ define range(i32 -1, 1) i32 @hwloc_topology_restrict(ptr noundef %0, ptr noundef
 
 42:                                               ; preds = %41
   %43 = tail call i32 @hwloc_bitmap_not(ptr noundef nonnull %37, ptr noundef %1) #33
-  %.not116 = icmp ult i64 %2, 16
+  %.not116 = icmp samesign ult i64 %2, 16
   br i1 %.not116, label %.critedge128, label %44
 
 44:                                               ; preds = %42

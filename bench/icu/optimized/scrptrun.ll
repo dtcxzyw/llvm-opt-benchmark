@@ -19,7 +19,7 @@ entry:
   br i1 %cmp, label %return, label %if.end
 
 if.end:                                           ; preds = %entry
-  %cmp1 = icmp ugt i32 %value, 65535
+  %cmp1 = icmp samesign ugt i32 %value, 65535
   %shr = lshr i32 %value, 16
   %spec.select = select i1 %cmp1, i32 %shr, i32 %value
   %spec.select17 = select i1 %cmp1, i8 16, i8 0

@@ -2069,7 +2069,7 @@ define internal fastcc void @dissect_srps(ptr noundef %0, ptr noundef %1, ptr no
   %27 = load i32, ptr @hf_knxip_structure_length, align 4
   %28 = tail call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_uint_format_value(ptr noundef %26, i32 noundef %27, ptr noundef %0, i32 noundef %13, i32 noundef 1, i32 noundef range(i32 1, 256) %15, ptr noundef nonnull @.str.317, i32 noundef range(i32 1, 256) %15) #9
   %29 = add i32 %13, 1
-  %30 = icmp ult i32 %12, %15
+  %30 = icmp samesign ult i32 %12, %15
   br i1 %30, label %31, label %33
 
 31:                                               ; preds = %21
@@ -2250,7 +2250,7 @@ define internal fastcc void @dissect_dibs(ptr noundef %0, ptr noundef %1, ptr no
   %60 = load i32, ptr @hf_knxip_structure_length, align 4
   %61 = call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_uint_format_value(ptr noundef %59, i32 noundef %60, ptr noundef %0, i32 noundef %47, i32 noundef 1, i32 noundef range(i32 1, 256) %53, ptr noundef nonnull @.str.317, i32 noundef range(i32 1, 256) %53) #9
   %62 = add i32 %47, 1
-  %63 = icmp uge i32 %48, %53
+  %63 = icmp samesign uge i32 %48, %53
   br i1 %63, label %67, label %64
 
 64:                                               ; preds = %52
@@ -4512,7 +4512,7 @@ define internal fastcc zeroext range(i8 0, 2) i8 @dissect_secure_wrapper(i8 noun
 
 32:                                               ; preds = %30, %26
   %33 = add i32 %9, 2
-  %34 = icmp ult i32 %10, 8
+  %34 = icmp samesign ult i32 %10, 8
   br i1 %34, label %35, label %40
 
 35:                                               ; preds = %32
@@ -4525,7 +4525,7 @@ define internal fastcc zeroext range(i8 0, 2) i8 @dissect_secure_wrapper(i8 noun
 40:                                               ; preds = %32
   %41 = tail call fastcc ptr @knxip_tree_add_data(ptr noundef %5, ptr noundef %1, i32 noundef %33, i32 noundef 6, ptr noundef %12, ptr noundef %4, ptr noundef nonnull @.str.431, ptr noundef nonnull @.str.407, ptr noundef nonnull @.str.432)
   %42 = add i32 %9, 8
-  %43 = icmp ult i32 %10, 14
+  %43 = icmp samesign ult i32 %10, 14
   br i1 %43, label %44, label %49
 
 44:                                               ; preds = %40
@@ -4538,7 +4538,7 @@ define internal fastcc zeroext range(i8 0, 2) i8 @dissect_secure_wrapper(i8 noun
 49:                                               ; preds = %40
   %50 = tail call fastcc ptr @knxip_tree_add_data(ptr noundef %5, ptr noundef %1, i32 noundef %42, i32 noundef 6, ptr noundef %12, ptr noundef %4, ptr noundef nonnull @.str.434, ptr noundef nonnull @.str.435, ptr noundef nonnull @.str.436)
   %51 = add i32 %9, 14
-  %52 = icmp ult i32 %10, 16
+  %52 = icmp samesign ult i32 %10, 16
   br i1 %52, label %53, label %58
 
 53:                                               ; preds = %49
@@ -4557,7 +4557,7 @@ define internal fastcc zeroext range(i8 0, 2) i8 @dissect_secure_wrapper(i8 noun
   tail call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %4, ptr noundef nonnull @.str.439, i32 noundef %62) #9
   %63 = add i32 %9, 16
   %64 = add nsw i32 %10, -16
-  %65 = icmp ult i32 %10, 32
+  %65 = icmp samesign ult i32 %10, 32
   br i1 %65, label %66, label %70
 
 66:                                               ; preds = %58
@@ -4715,7 +4715,7 @@ define internal fastcc zeroext range(i8 0, 2) i8 @dissect_timer_notify(i8 nounde
 27:                                               ; preds = %20
   %28 = tail call fastcc ptr @knxip_tree_add_data(ptr noundef %4, ptr noundef %1, i32 noundef %10, i32 noundef 6, ptr noundef %13, ptr noundef %3, ptr noundef nonnull @.str.456, ptr noundef nonnull @.str.407, ptr noundef nonnull @.str.457)
   %29 = add i32 %10, 6
-  %30 = icmp ult i32 %11, 12
+  %30 = icmp samesign ult i32 %11, 12
   br i1 %30, label %31, label %36
 
 31:                                               ; preds = %27
@@ -4728,7 +4728,7 @@ define internal fastcc zeroext range(i8 0, 2) i8 @dissect_timer_notify(i8 nounde
 36:                                               ; preds = %27
   %37 = tail call fastcc ptr @knxip_tree_add_data(ptr noundef %4, ptr noundef %1, i32 noundef %29, i32 noundef 6, ptr noundef %13, ptr noundef %3, ptr noundef nonnull @.str.434, ptr noundef nonnull @.str.435, ptr noundef nonnull @.str.436)
   %38 = add i32 %10, 12
-  %39 = icmp ult i32 %11, 14
+  %39 = icmp samesign ult i32 %11, 14
   br i1 %39, label %40, label %45
 
 40:                                               ; preds = %36
@@ -4747,7 +4747,7 @@ define internal fastcc zeroext range(i8 0, 2) i8 @dissect_timer_notify(i8 nounde
   tail call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %3, ptr noundef nonnull @.str.439, i32 noundef %49) #9
   %50 = add i32 %10, 14
   %51 = add nsw i32 %11, -14
-  %52 = icmp ult i32 %11, 30
+  %52 = icmp samesign ult i32 %11, 30
   br i1 %52, label %53, label %57
 
 53:                                               ; preds = %45
@@ -4773,7 +4773,7 @@ define internal fastcc zeroext range(i8 0, 2) i8 @dissect_timer_notify(i8 nounde
   tail call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %63, ptr noundef nonnull @.str.327, i32 noundef %65) #9
   %66 = add i32 %.029.us.us.i, 1
   %67 = add nsw i32 %.02428.us.us.i, -1
-  %68 = icmp ugt i32 %.02428.us.us.i, 1
+  %68 = icmp samesign ugt i32 %.02428.us.us.i, 1
   br i1 %68, label %.lr.ph.split.us.split.us.i, label %knxip_tree_add_data.exit, !llvm.loop !21
 
 knxip_tree_add_data.exit:                         ; preds = %.lr.ph.split.us.split.us.i
@@ -4950,7 +4950,7 @@ define internal fastcc zeroext i8 @dissect_session_request(ptr noundef %0, ptr n
   tail call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %16, ptr noundef nonnull @.str.327, i32 noundef %18) #9
   %19 = add i32 %.029.us.us.i, 1
   %20 = add nsw i32 %.02428.us.us.i, -1
-  %21 = icmp ugt i32 %.02428.us.us.i, 1
+  %21 = icmp samesign ugt i32 %.02428.us.us.i, 1
   br i1 %21, label %.lr.ph.split.us.split.us.i, label %knxip_tree_add_data.exit, !llvm.loop !21
 
 knxip_tree_add_data.exit:                         ; preds = %.lr.ph.split.us.split.us.i
@@ -5013,7 +5013,7 @@ define internal fastcc zeroext range(i8 0, 2) i8 @dissect_session_response(ptr n
   tail call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %24, ptr noundef nonnull @.str.327, i32 noundef %26) #9
   %27 = add i32 %.029.us.us.i, 1
   %28 = add nsw i32 %.02428.us.us.i, -1
-  %29 = icmp ugt i32 %.02428.us.us.i, 1
+  %29 = icmp samesign ugt i32 %.02428.us.us.i, 1
   br i1 %29, label %.lr.ph.split.us.split.us.i, label %knxip_tree_add_data.exit, !llvm.loop !21
 
 knxip_tree_add_data.exit:                         ; preds = %.lr.ph.split.us.split.us.i
@@ -5053,7 +5053,7 @@ knxip_tree_add_data.exit.thread:                  ; preds = %16, %knxip_tree_add
   tail call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %43, ptr noundef nonnull @.str.327, i32 noundef %45) #9
   %46 = add i32 %.029.us.us.i59, 1
   %47 = add nsw i32 %.02428.us.us.i60, -1
-  %48 = icmp ugt i32 %.02428.us.us.i60, 1
+  %48 = icmp samesign ugt i32 %.02428.us.us.i60, 1
   br i1 %48, label %.lr.ph.split.us.split.us.i58, label %knxip_tree_add_data.exit61, !llvm.loop !21
 
 knxip_tree_add_data.exit61:                       ; preds = %.lr.ph.split.us.split.us.i58
@@ -5110,7 +5110,7 @@ knxip_tree_add_reserved.exit:                     ; preds = %13, %17
   %26 = load i32, ptr @hf_knxip_user, align 4
   %27 = tail call ptr @proto_tree_add_item(ptr noundef %3, i32 noundef %26, ptr noundef %0, i32 noundef %19, i32 noundef 1, i32 noundef 0) #9
   %28 = add i32 %6, 2
-  %29 = icmp ult i32 %9, 18
+  %29 = icmp samesign ult i32 %9, 18
   br i1 %29, label %30, label %36
 
 30:                                               ; preds = %23
@@ -5134,7 +5134,7 @@ knxip_tree_add_reserved.exit:                     ; preds = %13, %17
   tail call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %38, ptr noundef nonnull @.str.327, i32 noundef %40) #9
   %41 = add i32 %.029.us.us.i, 1
   %42 = add nsw i32 %.02428.us.us.i, -1
-  %43 = icmp ugt i32 %.02428.us.us.i, 1
+  %43 = icmp samesign ugt i32 %.02428.us.us.i, 1
   br i1 %43, label %.lr.ph.split.us.split.us.i, label %knxip_tree_add_data.exit, !llvm.loop !21
 
 knxip_tree_add_data.exit:                         ; preds = %.lr.ph.split.us.split.us.i
@@ -5241,7 +5241,7 @@ define internal fastcc ptr @knxip_tree_add_data(ptr noundef %0, ptr noundef %1, 
   tail call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %11, ptr noundef nonnull @.str.327, i32 noundef %18) #9
   %19 = add i32 %.029.us.us, 1
   %20 = add nsw i32 %.02428.us.us, -1
-  %21 = icmp ugt i32 %.02428.us.us, 1
+  %21 = icmp samesign ugt i32 %.02428.us.us, 1
   br i1 %21, label %.lr.ph.split.us.split.us, label %._crit_edge, !llvm.loop !21
 
 .lr.ph.split.us.split:                            ; preds = %.lr.ph.split.us, %.lr.ph.split.us.split
@@ -5253,7 +5253,7 @@ define internal fastcc ptr @knxip_tree_add_data(ptr noundef %0, ptr noundef %1, 
   tail call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %11, ptr noundef nonnull @.str.327, i32 noundef %23) #9
   %24 = add i32 %.029.us, 1
   %25 = add nsw i32 %.02428.us, -1
-  %26 = icmp ugt i32 %.02428.us, 1
+  %26 = icmp samesign ugt i32 %.02428.us, 1
   br i1 %26, label %.lr.ph.split.us.split, label %._crit_edge, !llvm.loop !21
 
 .lr.ph.split:                                     ; preds = %.lr.ph
@@ -5268,7 +5268,7 @@ define internal fastcc ptr @knxip_tree_add_data(ptr noundef %0, ptr noundef %1, 
   tail call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %11, ptr noundef nonnull @.str.327, i32 noundef %28) #9
   %29 = add i32 %.029.us30, 1
   %30 = add nsw i32 %.02428.us31, -1
-  %31 = icmp ugt i32 %.02428.us31, 1
+  %31 = icmp samesign ugt i32 %.02428.us31, 1
   br i1 %31, label %.lr.ph.split.split.us, label %._crit_edge, !llvm.loop !21
 
 .lr.ph.split.split:                               ; preds = %.lr.ph.split, %.lr.ph.split.split
@@ -5281,7 +5281,7 @@ define internal fastcc ptr @knxip_tree_add_data(ptr noundef %0, ptr noundef %1, 
   tail call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %11, ptr noundef nonnull @.str.327, i32 noundef %33) #9
   %34 = add i32 %.029, 1
   %35 = add nsw i32 %.02428, -1
-  %36 = icmp ugt i32 %.02428, 1
+  %36 = icmp samesign ugt i32 %.02428, 1
   br i1 %36, label %.lr.ph.split.split, label %._crit_edge, !llvm.loop !21
 
 ._crit_edge:                                      ; preds = %.lr.ph.split.split, %.lr.ph.split.split.us, %.lr.ph.split.us.split, %.lr.ph.split.us.split.us, %15

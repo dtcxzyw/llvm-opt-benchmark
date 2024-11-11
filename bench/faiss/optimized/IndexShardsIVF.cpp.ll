@@ -1141,7 +1141,7 @@ _ZNSt6vectorIfSaIfEE17_S_check_init_lenEmRKS0_.exit.i: ; preds = %89
   tail call void @llvm.memset.p0.i64(ptr align 4 %101, i8 0, i64 %104, i1 false)
   %105 = getelementptr inbounds i8, ptr %15, i64 8
   store ptr %99, ptr %105, align 8
-  %106 = icmp ugt i64 %94, 1152921504606846975
+  %106 = icmp samesign ugt i64 %94, 1152921504606846975
   br i1 %106, label %107, label %_ZNSt6vectorIlSaIlEE17_S_check_init_lenEmRKS0_.exit.i.thread
 
 107:                                              ; preds = %103
@@ -1244,7 +1244,7 @@ _ZNSt6vectorIfSaIfEE17_S_check_init_lenEmRKS0_.exit.i60: ; preds = %124
   tail call void @llvm.memset.p0.i64(ptr align 4 %144, i8 0, i64 %147, i1 false)
   %148 = getelementptr inbounds i8, ptr %17, i64 8
   store ptr %142, ptr %148, align 8
-  %149 = icmp ugt i64 %136, 1152921504606846975
+  %149 = icmp samesign ugt i64 %136, 1152921504606846975
   br i1 %149, label %150, label %_ZNSt6vectorIlSaIlEE17_S_check_init_lenEmRKS0_.exit.i68.thread
 
 150:                                              ; preds = %146

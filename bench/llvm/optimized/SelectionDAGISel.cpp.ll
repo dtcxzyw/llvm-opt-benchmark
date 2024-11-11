@@ -14072,7 +14072,7 @@ _ZNSt6vectorIjSaIjEE6resizeEm.exit:               ; preds = %188, %169
   %307 = getelementptr inbounds nuw i8, ptr %.sroa.01553.0, i64 64
   %308 = load i16, ptr %307, align 8
   %309 = zext i16 %308 to i32
-  %.not1239 = icmp ult i32 %306, %309
+  %.not1239 = icmp samesign ult i32 %306, %309
   br i1 %.not1239, label %310, label %.critedge7
 
 310:                                              ; preds = %305
@@ -14150,7 +14150,7 @@ _ZNSt6vectorIjSaIjEE6resizeEm.exit:               ; preds = %188, %169
   %352 = getelementptr inbounds nuw i8, ptr %.sroa.01553.0, i64 64
   %353 = load i16, ptr %352, align 8
   %354 = zext i16 %353 to i32
-  %.not1235 = icmp ult i32 %351, %354
+  %.not1235 = icmp samesign ult i32 %351, %354
   br i1 %.not1235, label %355, label %.critedge7
 
 355:                                              ; preds = %350
@@ -14238,7 +14238,7 @@ _ZNSt6vectorIjSaIjEE6resizeEm.exit:               ; preds = %188, %169
   %405 = getelementptr inbounds nuw i8, ptr %.sroa.01553.0, i64 64
   %406 = load i16, ptr %405, align 8
   %407 = zext i16 %406 to i32
-  %.not1233 = icmp ult i32 %404, %407
+  %.not1233 = icmp samesign ult i32 %404, %407
   br i1 %.not1233, label %408, label %.critedge7
 
 408:                                              ; preds = %403
@@ -15115,7 +15115,7 @@ _ZN4llvm8dyn_castINS_14ConstantSDNodeENS_7SDValueEEEDcRT0_.exit: ; preds = %_ZL2
   %927 = getelementptr inbounds nuw i8, ptr %.sroa.01553.0, i64 64
   %928 = load i16, ptr %927, align 8
   %929 = zext i16 %928 to i32
-  %.not1211 = icmp ult i32 %926, %929
+  %.not1211 = icmp samesign ult i32 %926, %929
   br i1 %.not1211, label %930, label %.critedge7
 
 930:                                              ; preds = %925
@@ -16038,7 +16038,7 @@ _ZN4llvm5SDLocC2EPKNS_6SDNodeE.exit1397:          ; preds = %1350, %1357
   br i1 %or.cond13, label %1431, label %1433
 
 1431:                                             ; preds = %1417
-  %1432 = icmp ugt i8 %252, -105
+  %1432 = icmp samesign ugt i8 %252, -105
   %.1266 = zext i1 %1432 to i32
   %.pre2020 = add nuw nsw i8 %252, 94
   br label %.thread1750
@@ -16079,10 +16079,10 @@ _ZN4llvm5SDLocC2EPKNS_6SDNodeE.exit1397:          ; preds = %1350, %1357
   br label %1454
 
 1449:                                             ; preds = %1437
-  %1450 = icmp ugt i8 %252, -89
+  %1450 = icmp samesign ugt i8 %252, -89
   %.1267 = select i1 %1450, i32 4, i32 0
   %1451 = add nsw i8 %252, 100
-  %or.cond27 = icmp ult i8 %1434, 3
+  %or.cond27 = icmp samesign ult i8 %1434, 3
   br i1 %or.cond27, label %1452, label %1454
 
 1452:                                             ; preds = %1449
@@ -17102,7 +17102,7 @@ define internal fastcc noundef i32 @_ZL22IsPredicateKnownToFailPKhjN4llvm7SDValu
   %26 = getelementptr inbounds nuw i8, ptr %2, i64 64
   %27 = load i16, ptr %26, align 8
   %28 = zext i16 %27 to i32
-  %.not453 = icmp ult i32 %25, %28
+  %.not453 = icmp samesign ult i32 %25, %28
   br i1 %.not453, label %29, label %_ZN4llvm8dyn_castINS_14ConstantSDNodeENS_7SDValueEEEDcRT0_.exit.thread
 
 29:                                               ; preds = %24
@@ -17658,7 +17658,7 @@ _ZN4llvm8dyn_castINS_14ConstantSDNodeENS_7SDValueEEEDcRT0_.exit: ; preds = %_ZL2
   %362 = getelementptr inbounds nuw i8, ptr %2, i64 64
   %363 = load i16, ptr %362, align 8
   %364 = zext i16 %363 to i32
-  %.not437 = icmp ult i32 %361, %364
+  %.not437 = icmp samesign ult i32 %361, %364
   br i1 %.not437, label %365, label %_ZN4llvm8dyn_castINS_14ConstantSDNodeENS_7SDValueEEEDcRT0_.exit.thread
 
 365:                                              ; preds = %360
@@ -18761,11 +18761,11 @@ define internal fastcc noundef zeroext i1 @"_ZN4llvm6any_ofIRNS_11SmallVectorIPN
   br i1 %.not.i.i.i.i.i.i.i, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm16SelectionDAGISel16SelectCodeCommonEPNS2_6SDNodeEPKhjE3$_1EclIPS5_EEbT_.exit.thread.i.i.i.i.i", label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm16SelectionDAGISel16SelectCodeCommonEPNS2_6SDNodeEPKhjE3$_1EclIPS5_EEbT_.exit.i.i.i.i.i"
 
 24:                                               ; preds = %10
-  %25 = icmp ugt i32 %12, 490
+  %25 = icmp samesign ugt i32 %12, 490
   br i1 %25, label %26, label %_ZNK4llvm16SelectionDAGISel19mayRaiseFPExceptionEPNS_6SDNodeE.exit.i.i.i.i.i.i.i
 
 26:                                               ; preds = %24
-  %27 = icmp ugt i32 %12, 890
+  %27 = icmp samesign ugt i32 %12, 890
   br i1 %27, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm16SelectionDAGISel16SelectCodeCommonEPNS2_6SDNodeEPKhjE3$_1EclIPS5_EEbT_.exit.i.i.i.i.i", label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm16SelectionDAGISel16SelectCodeCommonEPNS2_6SDNodeEPKhjE3$_1EclIPS5_EEbT_.exit.thread.i.i.i.i.i"
 
 _ZNK4llvm16SelectionDAGISel19mayRaiseFPExceptionEPNS_6SDNodeE.exit.i.i.i.i.i.i.i: ; preds = %24
@@ -18801,11 +18801,11 @@ _ZNK4llvm16SelectionDAGISel19mayRaiseFPExceptionEPNS_6SDNodeE.exit.i.i.i.i.i.i.i
   br i1 %.not.i.i43.i.i.i.i.i, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm16SelectionDAGISel16SelectCodeCommonEPNS2_6SDNodeEPKhjE3$_1EclIPS5_EEbT_.exit44.thread.i.i.i.i.i", label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm16SelectionDAGISel16SelectCodeCommonEPNS2_6SDNodeEPKhjE3$_1EclIPS5_EEbT_.exit44.i.i.i.i.i"
 
 45:                                               ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm16SelectionDAGISel16SelectCodeCommonEPNS2_6SDNodeEPKhjE3$_1EclIPS5_EEbT_.exit.thread.i.i.i.i.i"
-  %46 = icmp ugt i32 %33, 490
+  %46 = icmp samesign ugt i32 %33, 490
   br i1 %46, label %47, label %_ZNK4llvm16SelectionDAGISel19mayRaiseFPExceptionEPNS_6SDNodeE.exit.i.i40.i.i.i.i.i
 
 47:                                               ; preds = %45
-  %48 = icmp ugt i32 %33, 890
+  %48 = icmp samesign ugt i32 %33, 890
   br i1 %48, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm16SelectionDAGISel16SelectCodeCommonEPNS2_6SDNodeEPKhjE3$_1EclIPS5_EEbT_.exit44.i.i.i.i.i", label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm16SelectionDAGISel16SelectCodeCommonEPNS2_6SDNodeEPKhjE3$_1EclIPS5_EEbT_.exit44.thread.i.i.i.i.i"
 
 _ZNK4llvm16SelectionDAGISel19mayRaiseFPExceptionEPNS_6SDNodeE.exit.i.i40.i.i.i.i.i: ; preds = %45
@@ -18841,11 +18841,11 @@ _ZNK4llvm16SelectionDAGISel19mayRaiseFPExceptionEPNS_6SDNodeE.exit.i.i40.i.i.i.i
   br i1 %.not.i.i48.i.i.i.i.i, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm16SelectionDAGISel16SelectCodeCommonEPNS2_6SDNodeEPKhjE3$_1EclIPS5_EEbT_.exit49.thread.i.i.i.i.i", label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm16SelectionDAGISel16SelectCodeCommonEPNS2_6SDNodeEPKhjE3$_1EclIPS5_EEbT_.exit49.i.i.i.i.i"
 
 66:                                               ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm16SelectionDAGISel16SelectCodeCommonEPNS2_6SDNodeEPKhjE3$_1EclIPS5_EEbT_.exit44.thread.i.i.i.i.i"
-  %67 = icmp ugt i32 %54, 490
+  %67 = icmp samesign ugt i32 %54, 490
   br i1 %67, label %68, label %_ZNK4llvm16SelectionDAGISel19mayRaiseFPExceptionEPNS_6SDNodeE.exit.i.i45.i.i.i.i.i
 
 68:                                               ; preds = %66
-  %69 = icmp ugt i32 %54, 890
+  %69 = icmp samesign ugt i32 %54, 890
   br i1 %69, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm16SelectionDAGISel16SelectCodeCommonEPNS2_6SDNodeEPKhjE3$_1EclIPS5_EEbT_.exit49.i.i.i.i.i", label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm16SelectionDAGISel16SelectCodeCommonEPNS2_6SDNodeEPKhjE3$_1EclIPS5_EEbT_.exit49.thread.i.i.i.i.i"
 
 _ZNK4llvm16SelectionDAGISel19mayRaiseFPExceptionEPNS_6SDNodeE.exit.i.i45.i.i.i.i.i: ; preds = %66
@@ -18881,11 +18881,11 @@ _ZNK4llvm16SelectionDAGISel19mayRaiseFPExceptionEPNS_6SDNodeE.exit.i.i45.i.i.i.i
   br i1 %.not.i.i53.i.i.i.i.i, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm16SelectionDAGISel16SelectCodeCommonEPNS2_6SDNodeEPKhjE3$_1EclIPS5_EEbT_.exit54.thread.i.i.i.i.i", label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm16SelectionDAGISel16SelectCodeCommonEPNS2_6SDNodeEPKhjE3$_1EclIPS5_EEbT_.exit54.i.i.i.i.i"
 
 87:                                               ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm16SelectionDAGISel16SelectCodeCommonEPNS2_6SDNodeEPKhjE3$_1EclIPS5_EEbT_.exit49.thread.i.i.i.i.i"
-  %88 = icmp ugt i32 %75, 490
+  %88 = icmp samesign ugt i32 %75, 490
   br i1 %88, label %89, label %_ZNK4llvm16SelectionDAGISel19mayRaiseFPExceptionEPNS_6SDNodeE.exit.i.i50.i.i.i.i.i
 
 89:                                               ; preds = %87
-  %90 = icmp ugt i32 %75, 890
+  %90 = icmp samesign ugt i32 %75, 890
   br i1 %90, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm16SelectionDAGISel16SelectCodeCommonEPNS2_6SDNodeEPKhjE3$_1EclIPS5_EEbT_.exit54.i.i.i.i.i", label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm16SelectionDAGISel16SelectCodeCommonEPNS2_6SDNodeEPKhjE3$_1EclIPS5_EEbT_.exit54.thread.i.i.i.i.i"
 
 _ZNK4llvm16SelectionDAGISel19mayRaiseFPExceptionEPNS_6SDNodeE.exit.i.i50.i.i.i.i.i: ; preds = %87
@@ -18942,11 +18942,11 @@ _ZNK4llvm16SelectionDAGISel19mayRaiseFPExceptionEPNS_6SDNodeE.exit.i.i50.i.i.i.i
   br i1 %.not.i.i58.i.i.i.i.i, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm16SelectionDAGISel16SelectCodeCommonEPNS2_6SDNodeEPKhjE3$_1EclIPS5_EEbT_.exit59.thread.i.i.i.i.i", label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm16SelectionDAGISel16SelectCodeCommonEPNS2_6SDNodeEPKhjE3$_1EclIPS5_EEbT_.exit59.i.i.i.i.i"
 
 113:                                              ; preds = %98
-  %114 = icmp ugt i32 %100, 490
+  %114 = icmp samesign ugt i32 %100, 490
   br i1 %114, label %115, label %_ZNK4llvm16SelectionDAGISel19mayRaiseFPExceptionEPNS_6SDNodeE.exit.i.i55.i.i.i.i.i
 
 115:                                              ; preds = %113
-  %116 = icmp ugt i32 %100, 890
+  %116 = icmp samesign ugt i32 %100, 890
   br i1 %116, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm16SelectionDAGISel16SelectCodeCommonEPNS2_6SDNodeEPKhjE3$_1EclIPS5_EEbT_.exit59.i.i.i.i.i", label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm16SelectionDAGISel16SelectCodeCommonEPNS2_6SDNodeEPKhjE3$_1EclIPS5_EEbT_.exit59.thread.i.i.i.i.i"
 
 _ZNK4llvm16SelectionDAGISel19mayRaiseFPExceptionEPNS_6SDNodeE.exit.i.i55.i.i.i.i.i: ; preds = %113
@@ -18987,11 +18987,11 @@ _ZNK4llvm16SelectionDAGISel19mayRaiseFPExceptionEPNS_6SDNodeE.exit.i.i55.i.i.i.i
   br i1 %.not.i.i63.i.i.i.i.i, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm16SelectionDAGISel16SelectCodeCommonEPNS2_6SDNodeEPKhjE3$_1EclIPS5_EEbT_.exit64.thread.i.i.i.i.i", label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm16SelectionDAGISel16SelectCodeCommonEPNS2_6SDNodeEPKhjE3$_1EclIPS5_EEbT_.exit64.i.i.i.i.i"
 
 136:                                              ; preds = %121
-  %137 = icmp ugt i32 %123, 490
+  %137 = icmp samesign ugt i32 %123, 490
   br i1 %137, label %138, label %_ZNK4llvm16SelectionDAGISel19mayRaiseFPExceptionEPNS_6SDNodeE.exit.i.i60.i.i.i.i.i
 
 138:                                              ; preds = %136
-  %139 = icmp ugt i32 %123, 890
+  %139 = icmp samesign ugt i32 %123, 890
   br i1 %139, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm16SelectionDAGISel16SelectCodeCommonEPNS2_6SDNodeEPKhjE3$_1EclIPS5_EEbT_.exit64.i.i.i.i.i", label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm16SelectionDAGISel16SelectCodeCommonEPNS2_6SDNodeEPKhjE3$_1EclIPS5_EEbT_.exit64.thread.i.i.i.i.i"
 
 _ZNK4llvm16SelectionDAGISel19mayRaiseFPExceptionEPNS_6SDNodeE.exit.i.i60.i.i.i.i.i: ; preds = %136
@@ -19032,11 +19032,11 @@ _ZNK4llvm16SelectionDAGISel19mayRaiseFPExceptionEPNS_6SDNodeE.exit.i.i60.i.i.i.i
   br i1 %.not.i.i68.i.i.i.i.i, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm16SelectionDAGISel16SelectCodeCommonEPNS2_6SDNodeEPKhjE3$_1EclIPS5_EEbT_.exit69.thread.i.i.i.i.i", label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm16SelectionDAGISel16SelectCodeCommonEPNS2_6SDNodeEPKhjE3$_1EclIPS5_EEbT_.exit69.i.i.i.i.i"
 
 159:                                              ; preds = %144
-  %160 = icmp ugt i32 %146, 490
+  %160 = icmp samesign ugt i32 %146, 490
   br i1 %160, label %161, label %_ZNK4llvm16SelectionDAGISel19mayRaiseFPExceptionEPNS_6SDNodeE.exit.i.i65.i.i.i.i.i
 
 161:                                              ; preds = %159
-  %162 = icmp ugt i32 %146, 890
+  %162 = icmp samesign ugt i32 %146, 890
   br i1 %162, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm16SelectionDAGISel16SelectCodeCommonEPNS2_6SDNodeEPKhjE3$_1EclIPS5_EEbT_.exit69.i.i.i.i.i", label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm16SelectionDAGISel16SelectCodeCommonEPNS2_6SDNodeEPKhjE3$_1EclIPS5_EEbT_.exit69.thread.i.i.i.i.i"
 
 _ZNK4llvm16SelectionDAGISel19mayRaiseFPExceptionEPNS_6SDNodeE.exit.i.i65.i.i.i.i.i: ; preds = %159
@@ -19095,11 +19095,11 @@ define dso_local noundef zeroext i1 @_ZNK4llvm16SelectionDAGISel19mayRaiseFPExce
   br label %24
 
 18:                                               ; preds = %2
-  %19 = icmp ugt i32 %4, 490
+  %19 = icmp samesign ugt i32 %4, 490
   br i1 %19, label %20, label %22
 
 20:                                               ; preds = %18
-  %21 = icmp ugt i32 %4, 890
+  %21 = icmp samesign ugt i32 %4, 890
   br label %24
 
 22:                                               ; preds = %18
@@ -19931,7 +19931,7 @@ define linkonce_odr hidden void @_ZN4llvm18RegisterPassParserINS_17RegisterSched
   %20 = getelementptr inbounds i8, ptr %.0910.i.i.i.i.i.i.i, i64 56
   %21 = getelementptr inbounds i8, ptr %.0811.i.i.i.i.i.i.i, i64 56
   %22 = add nsw i64 %.012.i.i.i.i.i.i.i, -1
-  %23 = icmp ugt i64 %.012.i.i.i.i.i.i.i, 1
+  %23 = icmp samesign ugt i64 %.012.i.i.i.i.i.i.i, 1
   br i1 %23, label %.lr.ph.i.i.i.i.i.i.i, label %_ZN4llvm2cl6parserIPFPNS_18ScheduleDAGSDNodesEPNS_16SelectionDAGISelENS_15CodeGenOptLevelEEE19removeLiteralOptionENS_9StringRefE.exit, !llvm.loop !263
 
 _ZN4llvm2cl6parserIPFPNS_18ScheduleDAGSDNodesEPNS_16SelectionDAGISelENS_15CodeGenOptLevelEEE19removeLiteralOptionENS_9StringRefE.exit: ; preds = %.lr.ph.i.i.i.i.i.i.i, %3
@@ -26870,7 +26870,7 @@ _ZN4llvm15SmallVectorImplISt5tupleIJPKNS_10BasicBlockENS_12SuccIteratorIKNS_11In
   %36 = getelementptr inbounds i8, ptr %.0910.i.i.i.i.i, i64 40
   %37 = getelementptr inbounds i8, ptr %.0811.i.i.i.i.i, i64 40
   %38 = add nsw i64 %.012.i.i.i.i.i, -1
-  %39 = icmp ugt i64 %.012.i.i.i.i.i, 1
+  %39 = icmp samesign ugt i64 %.012.i.i.i.i.i, 1
   br i1 %39, label %.lr.ph.i.i.i.i.i, label %_ZSt4moveIPSt5tupleIJPKN4llvm10BasicBlockENS1_12SuccIteratorIKNS1_11InstructionES3_EES8_EESA_ET0_T_SC_SB_.exit, !llvm.loop !331
 
 _ZSt4moveIPSt5tupleIJPKN4llvm10BasicBlockENS1_12SuccIteratorIKNS1_11InstructionES3_EES8_EESA_ET0_T_SC_SB_.exit: ; preds = %.lr.ph.i.i.i.i.i, %26, %25
@@ -26959,7 +26959,7 @@ _ZN4llvm23SmallVectorTemplateBaseISt5tupleIJPKNS_10BasicBlockENS_12SuccIteratorI
   %76 = getelementptr inbounds i8, ptr %.0910.i.i.i.i.i39, i64 40
   %77 = getelementptr inbounds i8, ptr %.0811.i.i.i.i.i38, i64 40
   %78 = add nsw i64 %.012.i.i.i.i.i37, -1
-  %79 = icmp ugt i64 %.012.i.i.i.i.i37, 1
+  %79 = icmp samesign ugt i64 %.012.i.i.i.i.i37, 1
   br i1 %79, label %.lr.ph.i.i.i.i.i36, label %_ZSt4moveIPSt5tupleIJPKN4llvm10BasicBlockENS1_12SuccIteratorIKNS1_11InstructionES3_EES8_EESA_ET0_T_SC_SB_.exit40, !llvm.loop !331
 
 _ZSt4moveIPSt5tupleIJPKN4llvm10BasicBlockENS1_12SuccIteratorIKNS1_11InstructionES3_EES8_EESA_ET0_T_SC_SB_.exit40: ; preds = %.lr.ph.i.i.i.i.i36, %67, %66, %_ZN4llvm23SmallVectorTemplateBaseISt5tupleIJPKNS_10BasicBlockENS_12SuccIteratorIKNS_11InstructionES3_EES8_EELb0EE4growEm.exit
@@ -27041,7 +27041,7 @@ define linkonce_odr noundef nonnull align 8 dereferenceable(16) ptr @_ZN4llvm15S
   %17 = getelementptr inbounds i8, ptr %.0910.i.i.i.i.i, i64 40
   %18 = getelementptr inbounds i8, ptr %.0811.i.i.i.i.i, i64 40
   %19 = add nsw i64 %.012.i.i.i.i.i, -1
-  %20 = icmp ugt i64 %.012.i.i.i.i.i, 1
+  %20 = icmp samesign ugt i64 %.012.i.i.i.i.i, 1
   br i1 %20, label %.lr.ph.i.i.i.i.i, label %_ZSt4copyIPKSt5tupleIJPKN4llvm10BasicBlockENS1_12SuccIteratorIKNS1_11InstructionES3_EES8_EEPS9_ET0_T_SE_SD_.exit, !llvm.loop !332
 
 _ZSt4copyIPKSt5tupleIJPKN4llvm10BasicBlockENS1_12SuccIteratorIKNS1_11InstructionES3_EES8_EEPS9_ET0_T_SE_SD_.exit: ; preds = %.lr.ph.i.i.i.i.i, %8
@@ -27127,7 +27127,7 @@ _ZN4llvm23SmallVectorTemplateBaseISt5tupleIJPKNS_10BasicBlockENS_12SuccIteratorI
   %55 = getelementptr inbounds i8, ptr %.0910.i.i.i.i.i35, i64 40
   %56 = getelementptr inbounds i8, ptr %.0811.i.i.i.i.i34, i64 40
   %57 = add nsw i64 %.012.i.i.i.i.i33, -1
-  %58 = icmp ugt i64 %.012.i.i.i.i.i33, 1
+  %58 = icmp samesign ugt i64 %.012.i.i.i.i.i33, 1
   br i1 %58, label %.lr.ph.i.i.i.i.i32, label %_ZSt4copyIPKSt5tupleIJPKN4llvm10BasicBlockENS1_12SuccIteratorIKNS1_11InstructionES3_EES8_EEPS9_ET0_T_SE_SD_.exit36, !llvm.loop !332
 
 _ZSt4copyIPKSt5tupleIJPKN4llvm10BasicBlockENS1_12SuccIteratorIKNS1_11InstructionES3_EES8_EEPS9_ET0_T_SE_SD_.exit36: ; preds = %.lr.ph.i.i.i.i.i32, %46, %45, %_ZN4llvm23SmallVectorTemplateBaseISt5tupleIJPKNS_10BasicBlockENS_12SuccIteratorIKNS_11InstructionES3_EES8_EELb0EE4growEm.exit

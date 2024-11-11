@@ -947,7 +947,7 @@ gv_isspace.exit818.thread:                        ; preds = %.preheader900, %374
   %404 = getelementptr inbounds i8, ptr %.0563, i64 1
   store i8 %403, ptr %.0563, align 1
   %405 = add nsw i32 %.4652, -1
-  %406 = icmp ult i32 %.4652, 2
+  %406 = icmp samesign ult i32 %.4652, 2
   br i1 %406, label %.critedge, label %407
 
 407:                                              ; preds = %402
@@ -1241,7 +1241,7 @@ gv_isspace.exit820.thread:                        ; preds = %gv_isspace.exit820,
 
 518:                                              ; preds = %514
   store i64 0, ptr %5, align 16
-  %519 = icmp ult i32 %516, 37
+  %519 = icmp samesign ult i32 %516, 37
   %520 = select i1 %519, ptr getelementptr inbounds (i8, ptr @_Sftable, i64 416), ptr getelementptr inbounds (i8, ptr @_Sftable, i64 672)
   %521 = add nsw i32 %.13661, -2
   %.not = icmp eq i32 %.13661, 2
@@ -1268,7 +1268,7 @@ gv_isspace.exit820.thread:                        ; preds = %gv_isspace.exit820,
   br i1 %or.cond45, label %.critedge27.sink.split, label %534
 
 534:                                              ; preds = %532
-  %535 = icmp ult i32 %.2671, 37
+  %535 = icmp samesign ult i32 %.2671, 37
   %spec.select881 = select i1 %535, ptr getelementptr inbounds (i8, ptr @_Sftable, i64 416), ptr getelementptr inbounds (i8, ptr @_Sftable, i64 672)
   br label %536
 
@@ -1306,25 +1306,25 @@ gv_isspace.exit820.thread:                        ; preds = %gv_isspace.exit820,
   br i1 %551, label %.lr.ph1387, label %.critedge47
 
 552:                                              ; preds = %542
-  %553 = icmp ult i32 %.7676, 8
+  %553 = icmp samesign ult i32 %.7676, 8
   br i1 %553, label %554, label %557
 
 554:                                              ; preds = %552
-  %555 = icmp ult i32 %.7676, 4
+  %555 = icmp samesign ult i32 %.7676, 4
   %556 = select i1 %555, i64 1, i64 2
   br label %565
 
 557:                                              ; preds = %552
-  %558 = icmp ult i32 %.7676, 32
+  %558 = icmp samesign ult i32 %.7676, 32
   br i1 %558, label %559, label %562
 
 559:                                              ; preds = %557
-  %560 = icmp ult i32 %.7676, 16
+  %560 = icmp samesign ult i32 %.7676, 16
   %561 = select i1 %560, i64 3, i64 4
   br label %565
 
 562:                                              ; preds = %557
-  %563 = icmp ult i32 %.7676, 64
+  %563 = icmp samesign ult i32 %.7676, 64
   %564 = select i1 %563, i64 5, i64 6
   br label %565
 

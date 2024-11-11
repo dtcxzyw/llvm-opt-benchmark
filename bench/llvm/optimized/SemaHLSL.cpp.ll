@@ -694,7 +694,7 @@ _ZNK5clang4Decl7hasAttrINS_18HLSLPackOffsetAttrEEEbv.exit.thread: ; preds = %39,
   %113 = getelementptr inbounds i8, ptr %.069.i.i.i.i.i.i.i.i.i, i64 -8
   store ptr %112, ptr %113, align 8
   %114 = add nsw i64 %.010.i.i.i.i.i.i.i.i.i, -1
-  %115 = icmp ugt i64 %.010.i.i.i.i.i.i.i.i.i, 1
+  %115 = icmp samesign ugt i64 %.010.i.i.i.i.i.i.i.i.i, 1
   br i1 %115, label %.lr.ph.i.i.i.i.i.i.i.i.i, label %_ZSt13move_backwardIPSt4pairIPN5clang7VarDeclEPNS1_18HLSLPackOffsetAttrEES7_ET0_T_S9_S8_.exit.i.i.i.i, !llvm.loop !7
 
 _ZSt13move_backwardIPSt4pairIPN5clang7VarDeclEPNS1_18HLSLPackOffsetAttrEES7_ET0_T_S9_S8_.exit.i.i.i.i: ; preds = %.lr.ph.i.i.i.i.i.i.i.i.i
@@ -862,7 +862,7 @@ _ZSt13move_backwardIPSt4pairIPN5clang7VarDeclEPNS1_18HLSLPackOffsetAttrEES7_ET0_
   %181 = getelementptr inbounds i8, ptr %.069.i.i.i.i.i.i59.i.i.i, i64 -8
   store ptr %180, ptr %181, align 8
   %182 = add nsw i64 %.010.i.i.i.i.i.i58.i.i.i, -1
-  %183 = icmp ugt i64 %.010.i.i.i.i.i.i58.i.i.i, 1
+  %183 = icmp samesign ugt i64 %.010.i.i.i.i.i.i58.i.i.i, 1
   br i1 %183, label %.lr.ph.i.i.i.i.i.i57.i.i.i, label %_ZSt13move_backwardIPSt4pairIPN5clang7VarDeclEPNS1_18HLSLPackOffsetAttrEES7_ET0_T_S9_S8_.exit.i55.i.i.i, !llvm.loop !7
 
 _ZSt13move_backwardIPSt4pairIPN5clang7VarDeclEPNS1_18HLSLPackOffsetAttrEES7_ET0_T_S9_S8_.exit.i55.i.i.i: ; preds = %.lr.ph.i.i.i.i.i.i57.i.i.i, %170

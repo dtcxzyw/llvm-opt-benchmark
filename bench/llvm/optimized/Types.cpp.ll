@@ -14,11 +14,11 @@ define dso_local noundef nonnull ptr @_ZN4llvm22getMinimalTypeForRangeEmj(i64 no
   br i1 %3, label %8, label %4
 
 4:                                                ; preds = %2
-  %5 = icmp ugt i64 %0, 65535
+  %5 = icmp samesign ugt i64 %0, 65535
   br i1 %5, label %8, label %6
 
 6:                                                ; preds = %4
-  %7 = icmp ugt i64 %0, 255
+  %7 = icmp samesign ugt i64 %0, 255
   %.str.2..str.3 = select i1 %7, ptr @.str.2, ptr @.str.3
   br label %8
 

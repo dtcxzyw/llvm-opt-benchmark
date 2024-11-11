@@ -7874,7 +7874,7 @@ define internal fastcc void @"_ZN10serde_json2de21Deserializer$LT$R$GT$13parse_d
 
 71:                                               ; preds = %29
   %72 = icmp ne i64 %.sroa.0.050, 1844674407370955161
-  %73 = icmp ugt i8 %24, 5
+  %73 = icmp samesign ugt i8 %24, 5
   %or.cond1 = or i1 %72, %73
   br i1 %or.cond1, label %79, label %74
 
@@ -8062,7 +8062,7 @@ define internal fastcc void @"_ZN10serde_json2de21Deserializer$LT$R$GT$13parse_d
 
 71:                                               ; preds = %29
   %72 = icmp ne i64 %.sroa.0.050, 1844674407370955161
-  %73 = icmp ugt i8 %24, 5
+  %73 = icmp samesign ugt i8 %24, 5
   %or.cond1 = or i1 %72, %73
   br i1 %or.cond1, label %79, label %74
 
@@ -8408,7 +8408,7 @@ define internal fastcc void @"_ZN10serde_json2de21Deserializer$LT$R$GT$13parse_d
 
 129:                                              ; preds = %40
   %130 = icmp ne i64 %.sroa.0.0141, 1844674407370955161
-  %131 = icmp ugt i8 %33, 5
+  %131 = icmp samesign ugt i8 %33, 5
   %or.cond1 = or i1 %130, %131
   br i1 %or.cond1, label %138, label %132
 
@@ -8716,7 +8716,7 @@ define internal fastcc void @"_ZN10serde_json2de21Deserializer$LT$R$GT$13parse_i
 
 126:                                              ; preds = %123
   %127 = icmp ne i64 %.sroa.05.0, 1844674407370955161
-  %128 = icmp ugt i8 %117, 5
+  %128 = icmp samesign ugt i8 %117, 5
   %or.cond3 = or i1 %127, %128
   br i1 %or.cond3, label %132, label %129
 
@@ -8994,7 +8994,7 @@ define internal fastcc void @"_ZN10serde_json2de21Deserializer$LT$R$GT$13parse_i
 
 91:                                               ; preds = %88
   %92 = icmp ne i64 %.sroa.05.059, 1844674407370955161
-  %93 = icmp ugt i8 %63, 5
+  %93 = icmp samesign ugt i8 %63, 5
   %or.cond3 = or i1 %92, %93
   br i1 %or.cond3, label %98, label %94
 
@@ -9275,7 +9275,7 @@ define internal fastcc void @"_ZN10serde_json2de21Deserializer$LT$R$GT$13parse_i
 
 91:                                               ; preds = %88
   %92 = icmp ne i64 %.sroa.05.059, 1844674407370955161
-  %93 = icmp ugt i8 %63, 5
+  %93 = icmp samesign ugt i8 %63, 5
   %or.cond3 = or i1 %92, %93
   br i1 %or.cond3, label %98, label %94
 
@@ -10399,7 +10399,7 @@ define internal fastcc void @"_ZN10serde_json2de21Deserializer$LT$R$GT$14parse_e
 
 150:                                              ; preds = %115
   %151 = icmp ne i32 %.sroa.05.0, 214748364
-  %152 = icmp ugt i8 %109, 7
+  %152 = icmp samesign ugt i8 %109, 7
   %or.cond2 = or i1 %151, %152
   br i1 %or.cond2, label %156, label %153
 
@@ -10603,7 +10603,7 @@ define internal fastcc void @"_ZN10serde_json2de21Deserializer$LT$R$GT$14parse_e
 
 78:                                               ; preds = %42
   %79 = icmp ne i32 %.sroa.05.041, 214748364
-  %80 = icmp ugt i8 %41, 7
+  %80 = icmp samesign ugt i8 %41, 7
   %or.cond2 = or i1 %79, %80
   br i1 %or.cond2, label %84, label %81
 
@@ -10806,7 +10806,7 @@ define internal fastcc void @"_ZN10serde_json2de21Deserializer$LT$R$GT$14parse_e
 
 78:                                               ; preds = %42
   %79 = icmp ne i32 %.sroa.05.041, 214748364
-  %80 = icmp ugt i8 %41, 7
+  %80 = icmp samesign ugt i8 %41, 7
   %or.cond2 = or i1 %79, %80
   br i1 %or.cond2, label %84, label %81
 
@@ -94551,8 +94551,8 @@ define internal fastcc noundef range(i32 0, 2097152) i32 @_ZN9byte_unit9byte_uni
   br i1 %6, label %.lr.ph, label %"_ZN94_$LT$core..slice..iter..IterMut$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hb7cc02704585bd23E.exit.thread.thread"
 
 .lr.ph:                                           ; preds = %3
-  %7 = icmp ult i8 %0, -32
-  %8 = icmp ult i8 %0, -16
+  %7 = icmp samesign ult i8 %0, -32
+  %8 = icmp samesign ult i8 %0, -16
   %. = select i1 %8, i64 3, i64 4
   %.sroa.06.0.ph = select i1 %7, i64 2, i64 %.
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %5)
@@ -94582,7 +94582,7 @@ define internal fastcc noundef range(i32 0, 2097152) i32 @_ZN9byte_unit9byte_uni
   %21 = and i8 %19, 63
   %22 = zext nneg i8 %21 to i32
   %23 = or disjoint i32 %20, %22
-  %24 = icmp ugt i8 %0, -33
+  %24 = icmp samesign ugt i8 %0, -33
   br i1 %24, label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h2a7c50e0a8a2426bE.llvm.815708219594649150.exit14.i.i.i", label %"_ZN81_$LT$core..str..iter..Chars$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h917887c7fa076885E.exit.i"
 
 "_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h2a7c50e0a8a2426bE.llvm.815708219594649150.exit14.i.i.i": ; preds = %"_ZN94_$LT$core..slice..iter..IterMut$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hb7cc02704585bd23E.exit.thread"
@@ -94594,7 +94594,7 @@ define internal fastcc noundef range(i32 0, 2097152) i32 @_ZN9byte_unit9byte_uni
   %30 = or disjoint i32 %27, %29
   %31 = shl nuw nsw i32 %17, 12
   %32 = or disjoint i32 %30, %31
-  %33 = icmp ugt i8 %0, -17
+  %33 = icmp samesign ugt i8 %0, -17
   br i1 %33, label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h2a7c50e0a8a2426bE.llvm.815708219594649150.exit16.i.i.i", label %"_ZN81_$LT$core..str..iter..Chars$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h917887c7fa076885E.exit.i"
 
 "_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h2a7c50e0a8a2426bE.llvm.815708219594649150.exit16.i.i.i": ; preds = %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h2a7c50e0a8a2426bE.llvm.815708219594649150.exit14.i.i.i"
@@ -94628,7 +94628,7 @@ define internal fastcc noundef range(i32 0, 2097152) i32 @_ZN9byte_unit9byte_uni
   %51 = zext i8 %48 to i32
   %52 = icmp ne ptr %50, %44
   call void @llvm.assume(i1 %52)
-  %53 = icmp ugt i8 %48, -33
+  %53 = icmp samesign ugt i8 %48, -33
   br i1 %53, label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h2a7c50e0a8a2426bE.llvm.815708219594649150.exit14.i.i11.i", label %"_ZN4core4char7convert61_$LT$impl$u20$core..str..traits..FromStr$u20$for$u20$char$GT$8from_str17h3b7513ef3edb2afaE.exit.thread"
 
 "_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h2a7c50e0a8a2426bE.llvm.815708219594649150.exit14.i.i11.i": ; preds = %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h2a7c50e0a8a2426bE.llvm.815708219594649150.exit12.i.i10.i"
@@ -94636,7 +94636,7 @@ define internal fastcc noundef range(i32 0, 2097152) i32 @_ZN9byte_unit9byte_uni
   %55 = getelementptr inbounds i8, ptr %.sroa.0.016.i, i64 2
   %56 = icmp ne ptr %55, %44
   call void @llvm.assume(i1 %56)
-  %57 = icmp ugt i8 %48, -17
+  %57 = icmp samesign ugt i8 %48, -17
   br i1 %57, label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h2a7c50e0a8a2426bE.llvm.815708219594649150.exit16.i.i12.i", label %"_ZN4core4char7convert61_$LT$impl$u20$core..str..traits..FromStr$u20$for$u20$char$GT$8from_str17h3b7513ef3edb2afaE.exit.thread"
 
 "_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h2a7c50e0a8a2426bE.llvm.815708219594649150.exit16.i.i12.i": ; preds = %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h2a7c50e0a8a2426bE.llvm.815708219594649150.exit14.i.i11.i"

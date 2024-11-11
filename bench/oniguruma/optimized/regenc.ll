@@ -431,7 +431,7 @@ define ptr @onigenc_step(ptr nocapture noundef readonly %0, ptr noundef %1, ptr 
   %8 = tail call i32 %7(ptr noundef %.09) #16
   %9 = sext i32 %8 to i64
   %10 = getelementptr inbounds i8, ptr %.09, i64 %9
-  %11 = icmp ugt i32 %.078, 1
+  %11 = icmp samesign ugt i32 %.078, 1
   br i1 %11, label %.lr.ph, label %._crit_edge, !llvm.loop !10
 
 ._crit_edge:                                      ; preds = %.lr.ph, %4
@@ -1179,7 +1179,7 @@ define i32 @onigenc_mb4_code_to_mbc(ptr nocapture noundef readonly %0, i32 nound
   br label %8
 
 7:                                                ; preds = %3
-  %.not24 = icmp ult i32 %1, 65536
+  %.not24 = icmp samesign ult i32 %1, 65536
   br i1 %.not24, label %12, label %8
 
 8:                                                ; preds = %.thread, %7
@@ -1283,7 +1283,7 @@ onigenc_with_ascii_strncmp.exit:                  ; preds = %.lr.ph.i16
   %31 = tail call i32 %30(ptr noundef %.01523.i) #16
   %32 = sext i32 %31 to i64
   %33 = getelementptr inbounds i8, ptr %.01523.i, i64 %32
-  %34 = icmp ugt i32 %.in.i, 1
+  %34 = icmp samesign ugt i32 %.in.i, 1
   br i1 %34, label %.lr.ph.i16, label %onigenc_with_ascii_strncmp.exit.thread, !llvm.loop !22
 
 onigenc_with_ascii_strncmp.exit.thread:           ; preds = %18, %onigenc_with_ascii_strncmp.exit, %28
@@ -1339,7 +1339,7 @@ define range(i32 -2147483647, -2147483648) i32 @onigenc_with_ascii_strncmp(ptr n
   %22 = tail call i32 %21(ptr noundef %.01523) #16
   %23 = sext i32 %22 to i64
   %24 = getelementptr inbounds i8, ptr %.01523, i64 %23
-  %25 = icmp ugt i32 %.in, 1
+  %25 = icmp samesign ugt i32 %.in, 1
   br i1 %25, label %8, label %.loopexit, !llvm.loop !22
 
 .loopexit:                                        ; preds = %13, %19, %5, %10

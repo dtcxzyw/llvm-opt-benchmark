@@ -2988,7 +2988,7 @@ if.then:                                          ; preds = %FLAC__metadata_obje
 for.inc:                                          ; preds = %for.body, %FLAC__metadata_object_vorbiscomment_entry_matches.exit, %if.then
   %matching.1 = phi i32 [ %inc, %if.then ], [ %matching.016, %FLAC__metadata_object_vorbiscomment_entry_matches.exit ], [ %matching.016, %for.body ]
   %ok.1 = phi i1 [ %14, %if.then ], [ true, %FLAC__metadata_object_vorbiscomment_entry_matches.exit ], [ true, %for.body ]
-  %cmp = icmp ugt i64 %indvars.iv, 1
+  %cmp = icmp samesign ugt i64 %indvars.iv, 1
   %15 = and i1 %ok.1, %cmp
   br i1 %15, label %for.body, label %for.end.loopexit, !llvm.loop !27
 

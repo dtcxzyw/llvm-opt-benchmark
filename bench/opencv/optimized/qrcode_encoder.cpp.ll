@@ -583,7 +583,7 @@ _ZN2cvL11getCapacityEiNS_13QRCodeEncoder15CorrectionLevelENS0_10EncodeModeE.exit
 
 .split.us:                                        ; preds = %_ZN2cvL11getCapacityEiNS_13QRCodeEncoder15CorrectionLevelENS0_10EncodeModeE.exit21.us57, %_ZN2cvL11getCapacityEiNS_13QRCodeEncoder15CorrectionLevelENS0_10EncodeModeE.exit21.us47, %_ZN2cvL11getCapacityEiNS_13QRCodeEncoder15CorrectionLevelENS0_10EncodeModeE.exit21.us37, %_ZN2cvL11getCapacityEiNS_13QRCodeEncoder15CorrectionLevelENS0_10EncodeModeE.exit21.us
   %.us-phi = phi i32 [ %storemerge32.us, %_ZN2cvL11getCapacityEiNS_13QRCodeEncoder15CorrectionLevelENS0_10EncodeModeE.exit21.us ], [ %storemerge32.us35, %_ZN2cvL11getCapacityEiNS_13QRCodeEncoder15CorrectionLevelENS0_10EncodeModeE.exit21.us37 ], [ %storemerge32.us45, %_ZN2cvL11getCapacityEiNS_13QRCodeEncoder15CorrectionLevelENS0_10EncodeModeE.exit21.us47 ], [ %storemerge32.us55, %_ZN2cvL11getCapacityEiNS_13QRCodeEncoder15CorrectionLevelENS0_10EncodeModeE.exit21.us57 ]
-  %61 = icmp ult i32 %.us-phi, 40
+  %61 = icmp samesign ult i32 %.us-phi, 40
   br i1 %61, label %.thread, label %63
 
 .thread:                                          ; preds = %55, %50, %45, %40, %.split.us
@@ -3438,7 +3438,7 @@ define hidden void @_ZN2cv17QRCodeEncoderImpl12padBitStreamEv(ptr noundef nonnul
   br i1 %25, label %.loopexit, label %26
 
 26:                                               ; preds = %1
-  %27 = icmp ult i32 %24, 5
+  %27 = icmp samesign ult i32 %24, 5
   br i1 %27, label %28, label %_ZN2cvL8decToBinEiiRSt6vectorIhSaIhEE.exit.i
 
 28:                                               ; preds = %26

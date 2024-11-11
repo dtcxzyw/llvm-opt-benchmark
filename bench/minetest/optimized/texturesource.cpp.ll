@@ -23122,7 +23122,7 @@ _ZNK3irr17IReferenceCounted4dropEv.exit:          ; preds = %delete.notnull.i, %
 for.cond.cleanup21:                               ; preds = %for.inc
   %add43 = add nuw nsw i32 %conv14115, %step.0
   %conv14 = and i32 %add43, 65535
-  %cmp16 = icmp ult i32 %conv14, %dim.sroa.0.0.copyload
+  %cmp16 = icmp samesign ult i32 %conv14, %dim.sroa.0.0.copyload
   br i1 %cmp16, label %for.cond17.preheader, label %for.cond.cleanup, !llvm.loop !341
 
 for.body22:                                       ; preds = %for.inc, %for.cond17.preheader
@@ -25662,7 +25662,7 @@ delete.notnull.i.i70:                             ; preds = %for.cond.cleanup
 for.cond.cleanup9:                                ; preds = %for.cond32.for.cond.cleanup34_crit_edge
   %inc49 = add i16 %v.011, 1
   %conv5 = zext i16 %inc49 to i32
-  %cmp = icmp ugt i32 %24, %conv5
+  %cmp = icmp samesign ugt i32 %24, %conv5
   br i1 %cmp, label %for.body10.lr.ph, label %for.cond.cleanup, !llvm.loop !378
 
 for.body10:                                       ; preds = %for.body10.lr.ph, %for.cond32.for.cond.cleanup34_crit_edge

@@ -13,7 +13,7 @@ entry:
 for.body.lr.ph:                                   ; preds = %entry
   %div203204 = lshr i32 %num_hashes, 3
   %0 = load i32, ptr %log_blocks_, align 4
-  %cmp1.i = icmp ult i32 %0, 14
+  %cmp1.i = icmp samesign ult i32 %0, 14
   %cmp4.i = icmp slt i32 %0, 30
   %1 = select i1 %cmp4.i, i32 40, i32 72
   %2 = select i1 %cmp1.i, i32 24, i32 %1
@@ -149,7 +149,7 @@ entry:
 
 for.body.lr.ph:                                   ; preds = %entry
   %shl = shl nuw nsw i32 1, %0
-  %cmp1.i = icmp ult i32 %0, 14
+  %cmp1.i = icmp samesign ult i32 %0, 14
   %cmp4.i = icmp slt i32 %0, 30
   %1 = select i1 %cmp4.i, i64 40, i64 72
   %2 = select i1 %cmp1.i, i64 24, i64 %1

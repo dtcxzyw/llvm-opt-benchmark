@@ -467,7 +467,7 @@ _ZNK2cv3Mat8elemSizeEv.exit:                      ; preds = %103, %113
   %186 = sext i32 %185 to i64
   %187 = mul i64 %180, %186
   store i64 %187, ptr %35, align 8
-  %188 = icmp ugt i64 %indvars.iv174, 1
+  %188 = icmp samesign ugt i64 %indvars.iv174, 1
   br i1 %188, label %.lr.ph155, label %.loopexit128, !llvm.loop !10
 
 ._crit_edge.thread:                               ; preds = %51, %._crit_edge
@@ -772,7 +772,7 @@ define noundef nonnull align 8 dereferenceable(64) ptr @_ZN2cv15NAryMatIteratorp
   %93 = load i64, ptr %92, align 8
   %94 = mul i64 %93, %91
   %95 = getelementptr inbounds i8, ptr %.03857, i64 %94
-  %96 = icmp ugt i64 %indvars.iv, 1
+  %96 = icmp samesign ugt i64 %indvars.iv, 1
   %97 = icmp sgt i32 %89, 0
   %98 = select i1 %96, i1 %97, i1 false
   br i1 %98, label %86, label %._crit_edge, !llvm.loop !14

@@ -9943,7 +9943,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE8capacityEv.exit.i.i.i.i.t
 
 land.lhs.true.i.i:                                ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE8capacityEv.exit.i.i.i.i.thread
   %mul.i.i = shl nuw nsw i64 %4, 1
-  %cmp3.i.i63 = icmp ugt i64 %4, 5
+  %cmp3.i.i63 = icmp samesign ugt i64 %4, 5
   %add.i.i = or disjoint i64 %mul.i.i, 1
   %spec.select = select i1 %cmp3.i.i63, i64 %add.i.i, i64 11
   %spec.select133 = select i1 %cmp3.i.i63, i64 %mul.i.i, i64 10
@@ -10047,7 +10047,7 @@ if.end19.i93:                                     ; preds = %call5.i.i.i.i.noexc
   br i1 %cmp.i.i.i.i.i.i17, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i95, label %if.then.i28.i94
 
 _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i95: ; preds = %if.end19.i93
-  %cmp3.i.i31.i96 = icmp ult i64 %8, 16
+  %cmp3.i.i31.i96 = icmp samesign ult i64 %8, 16
   call void @llvm.assume(i1 %cmp3.i.i31.i96)
   br label %.noexc32
 
@@ -21058,7 +21058,7 @@ _ZNSt10filesystem7__cxx114pathD2Ev.exit:          ; preds = %_ZNKSt7__cxx1112bas
 
 if.end8.i:                                        ; preds = %_ZNSt10filesystem7__cxx114pathD2Ev.exit
   %add.ptr = getelementptr inbounds i8, ptr %buf, i64 32
-  %cmp19.i.i.i = icmp ult i32 %file_number, 10
+  %cmp19.i.i.i = icmp samesign ult i32 %file_number, 10
   br i1 %cmp19.i.i.i, label %if.else.i.i.i114, label %if.end.i.i.i
 
 if.end.i.i.i:                                     ; preds = %if.end8.i, %if.end14.i.i.i
@@ -32487,7 +32487,7 @@ if.else.i:                                        ; preds = %if.then.i
 if.else20.i:                                      ; preds = %if.else.i
   %sub.i.i26.i = sub nuw nsw i64 9223372036854775807, %retval.sroa.0.0.copyload.i.i.i
   %sub.i.i29.i = sub nsw i64 0, %call.i
-  %cmp.i30.i = icmp ult i64 %sub.i.i26.i, %sub.i.i29.i
+  %cmp.i30.i = icmp samesign ult i64 %sub.i.i26.i, %sub.i.i29.i
   %sub.i.i33.i = sub nsw i64 %retval.sroa.0.0.copyload.i.i.i, %call.i
   br i1 %cmp.i30.i, label %if.end5.i, label %if.end.i
 
@@ -32504,7 +32504,7 @@ _ZN4asio6detail18chrono_time_traitsINSt6chrono3_V212steady_clockENS_11wait_trait
 
 if.end.i:                                         ; preds = %if.else43.i, %if.else20.i, %_ZN4asio6detail18chrono_time_traitsINSt6chrono3_V212steady_clockENS_11wait_traitsIS4_EEE8subtractERKNS2_10time_pointIS4_NS2_8durationIlSt5ratioILl1ELl1000000000EEEEEESF_.exit
   %retval.sroa.0.0.i9 = phi i64 [ %retval.sroa.0.0.i.old, %_ZN4asio6detail18chrono_time_traitsINSt6chrono3_V212steady_clockENS_11wait_traitsIS4_EEE8subtractERKNS2_10time_pointIS4_NS2_8durationIlSt5ratioILl1ELl1000000000EEEEEESF_.exit ], [ %sub.i.i33.i, %if.else20.i ], [ %retval.sroa.0.0.i, %if.else43.i ]
-  %cmp3.i = icmp ult i64 %retval.sroa.0.0.i9, 1000000
+  %cmp3.i = icmp samesign ult i64 %retval.sroa.0.0.i9, 1000000
   br i1 %cmp3.i, label %return, label %if.end5.i
 
 if.end5.i:                                        ; preds = %if.else20.i, %if.else.i, %if.end.i
@@ -32545,7 +32545,7 @@ if.else.i:                                        ; preds = %if.then.i
 if.else20.i:                                      ; preds = %if.else.i
   %sub.i.i26.i = sub nuw nsw i64 9223372036854775807, %retval.sroa.0.0.copyload.i.i.i
   %sub.i.i29.i = sub nsw i64 0, %call.i
-  %cmp.i30.i = icmp ult i64 %sub.i.i26.i, %sub.i.i29.i
+  %cmp.i30.i = icmp samesign ult i64 %sub.i.i26.i, %sub.i.i29.i
   %sub.i.i33.i = sub nsw i64 %retval.sroa.0.0.copyload.i.i.i, %call.i
   br i1 %cmp.i30.i, label %if.end5.i, label %if.end.i
 
@@ -32562,7 +32562,7 @@ _ZN4asio6detail18chrono_time_traitsINSt6chrono3_V212steady_clockENS_11wait_trait
 
 if.end.i:                                         ; preds = %if.else43.i, %if.else20.i, %_ZN4asio6detail18chrono_time_traitsINSt6chrono3_V212steady_clockENS_11wait_traitsIS4_EEE8subtractERKNS2_10time_pointIS4_NS2_8durationIlSt5ratioILl1ELl1000000000EEEEEESF_.exit
   %retval.sroa.0.0.i9 = phi i64 [ %retval.sroa.0.0.i.old, %_ZN4asio6detail18chrono_time_traitsINSt6chrono3_V212steady_clockENS_11wait_traitsIS4_EEE8subtractERKNS2_10time_pointIS4_NS2_8durationIlSt5ratioILl1ELl1000000000EEEEEESF_.exit ], [ %sub.i.i33.i, %if.else20.i ], [ %retval.sroa.0.0.i, %if.else43.i ]
-  %cmp3.i = icmp ult i64 %retval.sroa.0.0.i9, 1000
+  %cmp3.i = icmp samesign ult i64 %retval.sroa.0.0.i9, 1000
   br i1 %cmp3.i, label %return, label %if.end5.i
 
 if.end5.i:                                        ; preds = %if.else20.i, %if.else.i, %if.end.i
@@ -61550,7 +61550,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE8capacityEv.exit.i.i.i.i53
 
 land.lhs.true.i.i:                                ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE8capacityEv.exit.i.i.i.i53.thread
   %mul.i.i = shl nuw nsw i64 %25, 1
-  %cmp3.i.i166 = icmp ugt i64 %25, 4
+  %cmp3.i.i166 = icmp samesign ugt i64 %25, 4
   %add.i.i = or disjoint i64 %mul.i.i, 1
   %spec.select = select i1 %cmp3.i.i166, i64 %add.i.i, i64 9
   %spec.select238 = select i1 %cmp3.i.i166, i64 %mul.i.i, i64 8
@@ -66924,7 +66924,7 @@ if.end19.i:                                       ; preds = %call5.i.i.i.i.noexc
   br i1 %cmp.i.i.i.i, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i, label %if.then.i28.i
 
 _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i: ; preds = %if.end19.i
-  %cmp3.i.i31.i = icmp ult i64 %19, 16
+  %cmp3.i.i31.i = icmp samesign ult i64 %19, 16
   call void @llvm.assume(i1 %cmp3.i.i31.i)
   br label %.noexc
 
@@ -99928,7 +99928,7 @@ land.lhs.true101:                                 ; preds = %lor.lhs.false97
   br i1 %cmp104, label %return, label %if.end110
 
 lor.lhs.false105:                                 ; preds = %lor.lhs.false97
-  %cmp108 = icmp ugt i8 %1, -12
+  %cmp108 = icmp samesign ugt i8 %1, -12
   br i1 %cmp108, label %return, label %if.end110
 
 if.end110:                                        ; preds = %land.lhs.true101, %lor.lhs.false105

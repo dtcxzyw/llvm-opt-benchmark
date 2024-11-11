@@ -3278,7 +3278,7 @@ Vec_IntPush.exit.i.i72:                           ; preds = %403, %Vec_IntGrow.e
   %.val41.i.i = load ptr, ptr %312, align 8
   %427 = getelementptr inbounds i32, ptr %.val41.i.i, i64 %418
   store i32 %417, ptr %427, align 4
-  %428 = icmp ugt i64 %indvars.iv.i.i75, 2
+  %428 = icmp samesign ugt i64 %indvars.iv.i.i75, 2
   br i1 %428, label %415, label %Gia_ManBalanceGate.exit, !llvm.loop !34
 
 429:                                              ; preds = %.critedge
@@ -3968,7 +3968,7 @@ Vec_IntPush.exit.i119.i:                          ; preds = %723, %Vec_IntGrow.e
 746:                                              ; preds = %732
   store i32 %741, ptr %734, align 4
   store i32 %735, ptr %gep.i.i, align 4
-  %747 = icmp ugt i32 %.0.in25.i.i, 2
+  %747 = icmp samesign ugt i32 %.0.in25.i.i, 2
   br i1 %747, label %732, label %Vec_IntPushOrderCost2.exit.i, !llvm.loop !45
 
 Vec_IntPushOrderCost2.exit.i:                     ; preds = %746, %732

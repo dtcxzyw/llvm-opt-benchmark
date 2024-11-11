@@ -90,7 +90,7 @@ define dso_local void @io_poll_task_func(ptr noundef %0, ptr noundef %1) #0 alig
   br label %29
 
 29:                                               ; preds = %28, %26
-  %30 = icmp ult i32 %18, 1073741824
+  %30 = icmp samesign ult i32 %18, 1073741824
   br i1 %30, label %32, label %31
 
 31:                                               ; preds = %29
@@ -1517,7 +1517,7 @@ define dso_local noundef range(i32 -22, 1) i32 @io_poll_remove_prep(ptr nocaptur
   %22 = lshr i8 %21, 1
   %23 = and i8 %22, 1
   store i8 %23, ptr %20, align 4
-  %24 = icmp ugt i32 %12, 3
+  %24 = icmp samesign ugt i32 %12, 3
   %25 = getelementptr inbounds i8, ptr %0, i64 29
   %26 = zext i1 %24 to i8
   store i8 %26, ptr %25, align 1

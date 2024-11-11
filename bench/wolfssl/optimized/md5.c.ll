@@ -700,7 +700,7 @@ if.end4:                                          ; preds = %if.end
   %idxprom = zext nneg i32 %0 to i64
   %arrayidx = getelementptr inbounds i8, ptr %buffer, i64 %idxprom
   store i8 -128, ptr %arrayidx, align 1
-  %cmp7 = icmp ugt i32 %0, 55
+  %cmp7 = icmp samesign ugt i32 %0, 55
   br i1 %cmp7, label %if.then8, label %if.end17
 
 if.then8:                                         ; preds = %if.end4
@@ -813,7 +813,7 @@ if.end4.i:                                        ; preds = %if.end.i5
   %idxprom.i = zext nneg i32 %0 to i64
   %arrayidx.i = getelementptr inbounds i8, ptr %buffer.i, i64 %idxprom.i
   store i8 -128, ptr %arrayidx.i, align 1
-  %cmp7.i = icmp ugt i32 %0, 55
+  %cmp7.i = icmp samesign ugt i32 %0, 55
   br i1 %cmp7.i, label %if.then8.i, label %if.end17.i
 
 if.then8.i:                                       ; preds = %if.end4.i

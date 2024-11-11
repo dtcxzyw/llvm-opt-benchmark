@@ -434,7 +434,7 @@ define dso_local range(i32 -1, 1) i32 @main(i32 noundef %0, ptr nocapture nounde
 57:                                               ; preds = %50, %56, %37
   %.0412 = phi i32 [ 2, %37 ], [ 3, %56 ], [ 3, %50 ]
   %.0411 = phi i32 [ -1, %37 ], [ %45, %56 ], [ %45, %50 ]
-  %58 = icmp ugt i32 %0, %.0412
+  %58 = icmp samesign ugt i32 %0, %.0412
   br i1 %58, label %.preheader592, label %.loopexit
 
 .preheader592:                                    ; preds = %57
@@ -1653,7 +1653,7 @@ define dso_local range(i32 -1, 1) i32 @main(i32 noundef %0, ptr nocapture nounde
   br i1 %575, label %576, label %581
 
 576:                                              ; preds = %574
-  %.not510627 = icmp ult i32 %561, %.0411
+  %.not510627 = icmp samesign ult i32 %561, %.0411
   br i1 %.not510627, label %._crit_edge631, label %.lr.ph630
 
 .lr.ph630:                                        ; preds = %576, %.lr.ph630
@@ -1676,7 +1676,7 @@ define dso_local range(i32 -1, 1) i32 @main(i32 noundef %0, ptr nocapture nounde
   br i1 %.not501, label %588, label %583
 
 583:                                              ; preds = %581
-  %.not502609 = icmp ult i32 %561, %.0411
+  %.not502609 = icmp samesign ult i32 %561, %.0411
   br i1 %.not502609, label %._crit_edge, label %.lr.ph611
 
 .lr.ph611:                                        ; preds = %583, %.lr.ph611

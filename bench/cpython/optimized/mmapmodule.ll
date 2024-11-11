@@ -1584,7 +1584,7 @@ if.then9:                                         ; preds = %if.end7
 
 if.end10:                                         ; preds = %if.end7
   %sub = sub nuw nsw i64 9223372036854775807, %3
-  %cmp11 = icmp ult i64 %sub, %6
+  %cmp11 = icmp samesign ult i64 %sub, %6
   br i1 %cmp11, label %if.then12, label %if.end13
 
 if.then12:                                        ; preds = %if.end10

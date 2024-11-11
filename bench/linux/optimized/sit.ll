@@ -1353,7 +1353,7 @@ define internal noundef i32 @sit_tunnel_xmit(ptr noundef %0, ptr noundef %1) #4 
   br label %.thread37
 
 237:                                              ; preds = %230
-  %238 = icmp ult i32 %233, 1280
+  %238 = icmp samesign ult i32 %233, 1280
   %239 = select i1 %238, i16 0, i16 %57
   %240 = call i32 @llvm.umax.i32(i32 %233, i32 1280)
   %241 = load i32, ptr %59, align 4

@@ -577,7 +577,7 @@ _kkt_fill_diag_zeros.exit.i:                      ; preds = %.lr.ph.split.i.i, %
   %336 = load i64, ptr %335, align 8
   store i64 %336, ptr %334, align 8
   %indvars.iv.next.i.i = add nsw i64 %indvars.iv.i.i, -1
-  %337 = icmp ugt i64 %indvars.iv.i.i, 1
+  %337 = icmp samesign ugt i64 %indvars.iv.i.i, 1
   br i1 %337, label %332, label %_kkt_assemble_csc.exit, !llvm.loop !16
 
 _kkt_assemble_csc.exit:                           ; preds = %332, %_kkt_fill_diag_zeros.exit.i
@@ -1173,7 +1173,7 @@ _kkt_fill_diag_zeros.exit.i68:                    ; preds = %.lr.ph.split.i.i71,
   %669 = load i64, ptr %668, align 8
   store i64 %669, ptr %667, align 8
   %indvars.iv.next.i.i70 = add nsw i64 %indvars.iv.i.i69, -1
-  %670 = icmp ugt i64 %indvars.iv.i.i69, 1
+  %670 = icmp samesign ugt i64 %indvars.iv.i.i69, 1
   br i1 %670, label %665, label %_kkt_assemble_csr.exit, !llvm.loop !16
 
 _kkt_assemble_csr.exit:                           ; preds = %665, %_kkt_fill_diag_zeros.exit.i68

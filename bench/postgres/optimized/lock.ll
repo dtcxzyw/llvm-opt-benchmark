@@ -568,12 +568,12 @@ define dso_local range(i32 0, 4) i32 @LockAcquireExtended(ptr noundef %0, i32 no
 
 36:                                               ; preds = %32
   %37 = icmp eq i8 %34, 0
-  %38 = icmp ugt i32 %1, 3
+  %38 = icmp samesign ugt i32 %1, 3
   %or.cond4 = and i1 %38, %37
   br i1 %or.cond4, label %40, label %50
 
 39:                                               ; preds = %32
-  %.old3 = icmp ugt i32 %1, 3
+  %.old3 = icmp samesign ugt i32 %1, 3
   br i1 %.old3, label %40, label %50
 
 40:                                               ; preds = %36, %39
@@ -718,7 +718,7 @@ GrantLockLocal.exit:                              ; preds = %100, %._crit_edge.i
   br label %445
 
 113:                                              ; preds = %86
-  %114 = icmp ugt i32 %1, 7
+  %114 = icmp samesign ugt i32 %1, 7
   br i1 %114, label %115, label %124
 
 115:                                              ; preds = %113
@@ -756,7 +756,7 @@ GrantLockLocal.exit:                              ; preds = %100, %._crit_edge.i
   %134 = icmp eq i32 %132, %133
   %135 = icmp ne i32 %133, 0
   %or.cond16 = and i1 %134, %135
-  %136 = icmp ult i32 %1, 4
+  %136 = icmp samesign ult i32 %1, 4
   %or.cond19 = and i1 %136, %or.cond16
   %137 = load i32, ptr @FastPathLocalUseCount, align 4
   %138 = icmp slt i32 %137, 16
@@ -810,7 +810,7 @@ GrantLockLocal.exit:                              ; preds = %100, %._crit_edge.i
 164:                                              ; preds = %161
   %165 = load i32, ptr %0, align 4
   %166 = icmp ne i32 %165, 0
-  %167 = icmp ugt i32 %1, 4
+  %167 = icmp samesign ugt i32 %1, 4
   %or.cond25 = and i1 %167, %166
   br i1 %or.cond25, label %168, label %.thread
 
@@ -3739,7 +3739,7 @@ define dso_local ptr @GetLockConflicts(ptr noundef %0, i32 noundef %1, ptr nound
 64:                                               ; preds = %60
   %65 = load i32, ptr %0, align 4
   %66 = icmp ne i32 %65, 0
-  %67 = icmp ugt i32 %1, 4
+  %67 = icmp samesign ugt i32 %1, 4
   %or.cond4 = and i1 %67, %66
   br i1 %or.cond4, label %68, label %.loopexit114
 

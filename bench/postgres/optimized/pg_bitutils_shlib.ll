@@ -83,7 +83,7 @@ define i64 @pg_popcount(ptr noundef %0, i32 noundef %1) local_unnamed_addr #0 {
   %13 = sext i32 %12 to i64
   %14 = add i64 %.120, %13
   %15 = add nsw i32 %.11319, -8
-  %16 = icmp ugt i32 %.11319, 15
+  %16 = icmp samesign ugt i32 %.11319, 15
   br i1 %16, label %.lr.ph, label %.loopexit, !llvm.loop !6
 
 .loopexit:                                        ; preds = %.lr.ph, %2

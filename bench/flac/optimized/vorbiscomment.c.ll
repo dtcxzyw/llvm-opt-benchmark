@@ -122,7 +122,7 @@ if.then.i4:                                       ; preds = %land.lhs.true
   br i1 %cmp.i, label %free_field.exit23, label %if.end.i6
 
 if.end.i6:                                        ; preds = %if.then.i4
-  %cmp3.i7 = icmp ugt i64 %call.i, 1048575
+  %cmp3.i7 = icmp samesign ugt i64 %call.i, 1048575
   br i1 %cmp3.i7, label %free_field.exit23, label %if.end5.i8
 
 if.end5.i8:                                       ; preds = %if.end.i6

@@ -1085,7 +1085,7 @@ if.else15.i.i:                                    ; preds = %if.else.i.i
 if.end18.i.i:                                     ; preds = %if.else15.i.i, %if.else.i.i, %if.else.i.i, %if.end3.i
   %base_prefix_len.0.i.i = phi i32 [ 1, %if.else15.i.i ], [ 2, %if.else.i.i ], [ 2, %if.else.i.i ], [ 0, %if.end3.i ]
   %base.0.i.i = phi i32 [ 32, %if.else15.i.i ], [ 8, %if.else.i.i ], [ 8, %if.else.i.i ], [ 16, %if.end3.i ]
-  %cmp202.i.i = icmp ult i32 %base_prefix_len.0.i.i, %12
+  %cmp202.i.i = icmp samesign ult i32 %base_prefix_len.0.i.i, %12
   br i1 %cmp202.i.i, label %land.rhs.preheader.i.i, label %while.end.i.i
 
 land.rhs.preheader.i.i:                           ; preds = %if.end18.i.i
@@ -1433,7 +1433,7 @@ if.else15.i.i:                                    ; preds = %if.else.i.i
 if.end18.i.i:                                     ; preds = %if.else15.i.i, %if.else.i.i, %if.else.i.i, %if.end3.i
   %base_prefix_len.0.i.i = phi i32 [ 1, %if.else15.i.i ], [ 2, %if.else.i.i ], [ 2, %if.else.i.i ], [ 0, %if.end3.i ]
   %base.0.i.i = phi i32 [ 32, %if.else15.i.i ], [ 8, %if.else.i.i ], [ 8, %if.else.i.i ], [ 16, %if.end3.i ]
-  %cmp202.i.i = icmp ult i32 %base_prefix_len.0.i.i, %13
+  %cmp202.i.i = icmp samesign ult i32 %base_prefix_len.0.i.i, %13
   br i1 %cmp202.i.i, label %land.rhs.preheader.i.i, label %while.end.i.i
 
 land.rhs.preheader.i.i:                           ; preds = %if.end18.i.i

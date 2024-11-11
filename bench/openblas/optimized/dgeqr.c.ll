@@ -225,7 +225,7 @@ thread-pre-split:                                 ; preds = %17, %.thread
   %133 = uitofp nneg i32 %98 to double
   %134 = getelementptr inbounds i8, ptr %4, i64 16
   store double %133, ptr %134, align 8, !tbaa !7
-  %135 = icmp ult i32 %.pr10.pre20, 2
+  %135 = icmp samesign ult i32 %.pr10.pre20, 2
   %136 = uitofp nneg i32 %.pr10.pre20 to double
   %137 = select i1 %135, double 1.000000e+00, double %136
   %138 = uitofp nneg i32 %118 to double
@@ -243,7 +243,7 @@ thread-pre-split:                                 ; preds = %17, %.thread
   br label %161
 
 145:                                              ; preds = %125
-  %146 = icmp ugt i32 %47, %.pr10.pre20
+  %146 = icmp samesign ugt i32 %47, %.pr10.pre20
   br i1 %146, label %147, label %151
 
 147:                                              ; preds = %145

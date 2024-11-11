@@ -1673,7 +1673,7 @@ Gia_Sim2InfoZero.exit.i:                          ; preds = %.lr.ph.preheader.i.
   %100 = call i32 @Gia_ManRandom(i32 noundef 0) #15
   %101 = getelementptr inbounds i32, ptr %99, i64 %indvars.iv.next.i.i
   store i32 %100, ptr %101, align 4
-  %102 = icmp ugt i64 %indvars.iv.i.i, 1
+  %102 = icmp samesign ugt i64 %indvars.iv.i.i, 1
   br i1 %102, label %.lr.ph.i.i, label %Gia_Sim2InfoRandom.exit.i.loopexit, !llvm.loop !23
 
 Gia_Sim2InfoRandom.exit.i.loopexit:               ; preds = %.lr.ph.i.i
@@ -1759,7 +1759,7 @@ Gia_Sim2InfoRandom.exit.i:                        ; preds = %Gia_Sim2InfoRandom.
   %140 = xor i32 %139, -1
   %141 = getelementptr inbounds i32, ptr %118, i64 %indvars.iv.next.i66.i
   store i32 %140, ptr %141, align 4
-  %142 = icmp ugt i64 %indvars.iv.i65.i, 1
+  %142 = icmp samesign ugt i64 %indvars.iv.i65.i, 1
   br i1 %142, label %.lr.ph.i64.i, label %Gia_Sim2SimulateNode.exit.i, !llvm.loop !25
 
 .lr.ph9.i.i:                                      ; preds = %.preheader3.i.i, %.lr.ph9.i.i
@@ -1773,7 +1773,7 @@ Gia_Sim2InfoRandom.exit.i:                        ; preds = %Gia_Sim2InfoRandom.
   %148 = and i32 %147, %145
   %149 = getelementptr inbounds i32, ptr %118, i64 %indvars.iv.next19.i.i
   store i32 %148, ptr %149, align 4
-  %150 = icmp ugt i64 %indvars.iv18.i.i, 1
+  %150 = icmp samesign ugt i64 %indvars.iv18.i.i, 1
   br i1 %150, label %.lr.ph9.i.i, label %Gia_Sim2SimulateNode.exit.i, !llvm.loop !26
 
 151:                                              ; preds = %114
@@ -1796,7 +1796,7 @@ Gia_Sim2InfoRandom.exit.i:                        ; preds = %Gia_Sim2InfoRandom.
   %157 = and i32 %153, %156
   %158 = getelementptr inbounds i32, ptr %118, i64 %indvars.iv.next22.i.i
   store i32 %157, ptr %158, align 4
-  %159 = icmp ugt i64 %indvars.iv21.i.i, 1
+  %159 = icmp samesign ugt i64 %indvars.iv21.i.i, 1
   br i1 %159, label %.lr.ph11.i.i, label %Gia_Sim2SimulateNode.exit.i, !llvm.loop !27
 
 .lr.ph13.i.i:                                     ; preds = %.preheader.i.i, %.lr.ph13.i.i
@@ -1809,7 +1809,7 @@ Gia_Sim2InfoRandom.exit.i:                        ; preds = %Gia_Sim2InfoRandom.
   %164 = and i32 %163, %161
   %165 = getelementptr inbounds i32, ptr %118, i64 %indvars.iv.next25.i.i
   store i32 %164, ptr %165, align 4
-  %166 = icmp ugt i64 %indvars.iv24.i.i, 1
+  %166 = icmp samesign ugt i64 %indvars.iv24.i.i, 1
   br i1 %166, label %.lr.ph13.i.i, label %Gia_Sim2SimulateNode.exit.i, !llvm.loop !28
 
 Gia_Sim2SimulateNode.exit.i:                      ; preds = %.lr.ph.i64.i, %.lr.ph9.i.i, %.lr.ph11.i.i, %.lr.ph13.i.i, %.preheader.i.i, %.preheader1.i.i, %.preheader3.i.i, %.preheader5.i.i, %110
@@ -1871,7 +1871,7 @@ Gia_Sim2SimulateNode.exit.i:                      ; preds = %.lr.ph.i64.i, %.lr.
   %193 = xor i32 %192, -1
   %194 = getelementptr inbounds i32, ptr %183, i64 %indvars.iv.next.i72.i
   store i32 %193, ptr %194, align 4
-  %195 = icmp ugt i64 %indvars.iv.i71.i, 1
+  %195 = icmp samesign ugt i64 %indvars.iv.i71.i, 1
   br i1 %195, label %.lr.ph.i70.i, label %Gia_Sim2SimulateCo.exit.i, !llvm.loop !30
 
 .lr.ph5.i.i:                                      ; preds = %.preheader.i73.i, %.lr.ph5.i.i
@@ -1881,7 +1881,7 @@ Gia_Sim2SimulateNode.exit.i:                      ; preds = %.lr.ph.i64.i, %.lr.
   %197 = load i32, ptr %196, align 4
   %198 = getelementptr inbounds i32, ptr %183, i64 %indvars.iv.next9.i.i
   store i32 %197, ptr %198, align 4
-  %199 = icmp ugt i64 %indvars.iv8.i.i, 1
+  %199 = icmp samesign ugt i64 %indvars.iv8.i.i, 1
   br i1 %199, label %.lr.ph5.i.i, label %Gia_Sim2SimulateCo.exit.i, !llvm.loop !31
 
 Gia_Sim2SimulateCo.exit.i:                        ; preds = %.lr.ph.i70.i, %.lr.ph5.i.i, %.preheader.i73.i, %.preheader1.i68.i
@@ -2137,7 +2137,7 @@ Abc_Clock.exit88:                                 ; preds = %265, %268
   %308 = load i32, ptr %307, align 4
   %309 = getelementptr inbounds i32, ptr %302, i64 %indvars.iv.next.i.i97
   store i32 %308, ptr %309, align 4
-  %310 = icmp ugt i64 %indvars.iv.i.i96, 1
+  %310 = icmp samesign ugt i64 %indvars.iv.i.i96, 1
   br i1 %310, label %.lr.ph.i.i95, label %Gia_Sim2InfoCopy.exit.i.loopexit, !llvm.loop !36
 
 Gia_Sim2InfoCopy.exit.i.loopexit:                 ; preds = %.lr.ph.i.i95

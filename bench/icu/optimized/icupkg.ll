@@ -124,7 +124,7 @@ if.end18:                                         ; preds = %if.end16, %if.end10
   %autoPrefix.1 = phi i32 [ %inc17, %if.end16 ], [ %autoPrefix.0, %if.end10 ]
   %11 = add i32 %call1, -4
   %or.cond = icmp ult i32 %11, -2
-  %cmp22 = icmp ugt i32 %autoPrefix.1, 1
+  %cmp22 = icmp samesign ugt i32 %autoPrefix.1, 1
   %or.cond1 = select i1 %or.cond, i1 true, i1 %cmp22
   br i1 %or.cond1, label %if.then23, label %if.end24
 
@@ -179,12 +179,12 @@ if.then44:                                        ; preds = %_ZL13isPackageNameP
 
 if.end47:                                         ; preds = %if.then35, %if.then44
   %inFilename.0 = phi ptr [ %17, %if.then44 ], [ null, %if.then35 ]
-  %cmp48 = icmp ugt i32 %call1, 2
+  %cmp48 = icmp samesign ugt i32 %call1, 2
   br i1 %cmp48, label %if.end64, label %if.end64.thread
 
 if.end47.thread:                                  ; preds = %_ZL13isPackageNamePKc.exit, %if.else40
   tail call void @_ZN6icu_757Package7addFileEPKcS2_(ptr noundef nonnull align 8 dereferenceable(201237) %call4, ptr noundef %sourcePath.0, ptr noundef %17)
-  %cmp48120 = icmp ugt i32 %call1, 2
+  %cmp48120 = icmp samesign ugt i32 %call1, 2
   br i1 %cmp48120, label %if.end64, label %if.end64.thread188
 
 if.end64:                                         ; preds = %if.end47, %if.end47.thread

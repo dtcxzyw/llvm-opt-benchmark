@@ -739,7 +739,7 @@ define internal i32 @e1000_get_eeprom(ptr noundef %0, ptr nocapture noundef %1, 
 42:                                               ; preds = %.preheader
   %43 = add i16 %46, 1
   %44 = zext i16 %43 to i32
-  %45 = icmp ugt i32 %25, %44
+  %45 = icmp samesign ugt i32 %25, %44
   br i1 %45, label %.preheader, label %.loopexit, !llvm.loop !10
 
 .preheader:                                       ; preds = %37, %42
@@ -929,7 +929,7 @@ define internal noundef range(i32 -95, 1) i32 @e1000_set_coalesce(ptr nocapture 
   br label %35
 
 19:                                               ; preds = %16
-  %20 = icmp ult i32 %11, 4
+  %20 = icmp samesign ult i32 %11, 4
   br i1 %20, label %21, label %25
 
 21:                                               ; preds = %19

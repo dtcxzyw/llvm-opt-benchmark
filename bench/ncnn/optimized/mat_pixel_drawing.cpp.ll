@@ -3579,7 +3579,7 @@ define hidden void @_ZN4ncnn20resize_bilinear_fontEPKhPhi(ptr nocapture noundef 
   %81 = shl nuw i32 %2, 1
   %82 = zext i32 %81 to i64
   call void @llvm.memset.p0.i64(ptr align 2 %79, i8 0, i64 %82, i1 false)
-  %83 = icmp ugt i32 %2, 15
+  %83 = icmp samesign ugt i32 %2, 15
   %84 = zext nneg i32 %2 to i64
   %85 = shl nuw nsw i64 %84, 1
   %86 = and i32 %2, 2147483632
@@ -3643,7 +3643,7 @@ define hidden void @_ZN4ncnn20resize_bilinear_fontEPKhPhi(ptr nocapture noundef 
   br label %134
 
 115:                                              ; preds = %105
-  %116 = icmp ugt i32 %107, 18
+  %116 = icmp samesign ugt i32 %107, 18
   br i1 %116, label %117, label %120
 
 117:                                              ; preds = %115
@@ -3729,7 +3729,7 @@ define hidden void @_ZN4ncnn20resize_bilinear_fontEPKhPhi(ptr nocapture noundef 
   br label %186
 
 167:                                              ; preds = %157
-  %168 = icmp ugt i32 %159, 18
+  %168 = icmp samesign ugt i32 %159, 18
   br i1 %168, label %169, label %172
 
 169:                                              ; preds = %167
@@ -3799,7 +3799,7 @@ define hidden void @_ZN4ncnn20resize_bilinear_fontEPKhPhi(ptr nocapture noundef 
   br label %242
 
 212:                                              ; preds = %200
-  %213 = icmp ugt i32 %202, 18
+  %213 = icmp samesign ugt i32 %202, 18
   br i1 %213, label %214, label %219
 
 214:                                              ; preds = %212

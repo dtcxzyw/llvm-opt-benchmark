@@ -182,7 +182,7 @@ define hidden void @rb_rjit_setup_options(ptr noundef %0, ptr nocapture noundef 
   br label %128
 
 43:                                               ; preds = %11
-  %44 = icmp ugt i64 %3, 5
+  %44 = icmp samesign ugt i64 %3, 5
   br i1 %44, label %.thread75, label %48
 
 .thread75:                                        ; preds = %26, %30, %32, %43

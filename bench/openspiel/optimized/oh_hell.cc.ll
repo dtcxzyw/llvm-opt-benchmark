@@ -2212,7 +2212,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit63: ; 
 
 147:                                              ; preds = %140
   %148 = mul nuw nsw i32 %141, %134
-  %.not.not = icmp ult i32 %94, %148
+  %.not.not = icmp samesign ult i32 %94, %148
   br i1 %.not.not, label %154, label %149
 
 149:                                              ; preds = %147
@@ -5938,7 +5938,7 @@ _ZN4absl7debian219str_format_internal18FormatSpecTemplateIJLNS0_23FormatConversi
   br label %_ZNSt6vectorIN4absl7debian28optionalIiEESaIS3_EED2Ev.exit
 
 63:                                               ; preds = %.lr.ph, %54
-  %64 = icmp ugt i64 %indvars.iv, 1
+  %64 = icmp samesign ugt i64 %indvars.iv, 1
   br i1 %64, label %.lr.ph, label %._crit_edge, !llvm.loop !76
 
 ._crit_edge:                                      ; preds = %63, %37

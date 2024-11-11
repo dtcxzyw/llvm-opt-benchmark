@@ -1060,7 +1060,7 @@ define internal fastcc void @_process_command(i32 noundef %0, ptr noundef %1) un
   br i1 %181, label %182, label %222
 
 182:                                              ; preds = %178
-  %183 = icmp ugt i32 %0, 4
+  %183 = icmp samesign ugt i32 %0, 4
   br i1 %183, label %.thread153, label %193
 
 .thread153:                                       ; preds = %182
@@ -1084,7 +1084,7 @@ define internal fastcc void @_process_command(i32 noundef %0, ptr noundef %1) un
   %195 = getelementptr inbounds i8, ptr %1, i64 8
   %196 = load ptr, ptr %195, align 8
   %197 = tail call i64 @parse_time(ptr noundef %196, i32 noundef 1) #15
-  %198 = icmp ugt i32 %0, 2
+  %198 = icmp samesign ugt i32 %0, 2
   br i1 %198, label %199, label %.thread148
 
 199:                                              ; preds = %194

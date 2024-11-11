@@ -9261,7 +9261,7 @@ define internal void @_ZL20DOCTEST_ANON_FUNC_25v() #2 personality ptr @__gxx_per
   unreachable
 
 108:                                              ; preds = %100
-  %109 = icmp ugt i64 %104, 288230376151711743
+  %109 = icmp samesign ugt i64 %104, 288230376151711743
   br i1 %109, label %110, label %_ZNSt15__new_allocatorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE8allocateEmPKv.exit.i
 
 110:                                              ; preds = %108
@@ -10346,7 +10346,7 @@ define internal void @_ZL20DOCTEST_ANON_FUNC_27v() #2 personality ptr @__gxx_per
   unreachable
 
 112:                                              ; preds = %104
-  %113 = icmp ugt i64 %108, 288230376151711743
+  %113 = icmp samesign ugt i64 %108, 288230376151711743
   br i1 %113, label %114, label %_ZNSt15__new_allocatorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE8allocateEmPKv.exit.i
 
 114:                                              ; preds = %112
@@ -12429,7 +12429,7 @@ define internal void @_ZL20DOCTEST_ANON_FUNC_31v() #2 personality ptr @__gxx_per
   unreachable
 
 112:                                              ; preds = %104
-  %113 = icmp ugt i64 %108, 288230376151711743
+  %113 = icmp samesign ugt i64 %108, 288230376151711743
   br i1 %113, label %114, label %_ZNSt15__new_allocatorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE8allocateEmPKv.exit.i
 
 114:                                              ; preds = %112
@@ -13514,7 +13514,7 @@ define internal void @_ZL20DOCTEST_ANON_FUNC_33v() #2 personality ptr @__gxx_per
   unreachable
 
 92:                                               ; preds = %84
-  %93 = icmp ugt i64 %88, 288230376151711743
+  %93 = icmp samesign ugt i64 %88, 288230376151711743
   br i1 %93, label %94, label %_ZNSt15__new_allocatorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE8allocateEmPKv.exit.i
 
 94:                                               ; preds = %92
@@ -14379,7 +14379,7 @@ define internal void @_ZL20DOCTEST_ANON_FUNC_35v() #2 personality ptr @__gxx_per
   unreachable
 
 105:                                              ; preds = %97
-  %106 = icmp ugt i64 %101, 288230376151711743
+  %106 = icmp samesign ugt i64 %101, 288230376151711743
   br i1 %106, label %107, label %_ZNSt15__new_allocatorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE8allocateEmPKv.exit.i
 
 107:                                              ; preds = %105
@@ -15346,7 +15346,7 @@ _ZN4Luau8VecDequeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS6_EE10
   unreachable
 
 116:                                              ; preds = %108
-  %117 = icmp ugt i64 %112, 288230376151711743
+  %117 = icmp samesign ugt i64 %112, 288230376151711743
   br i1 %117, label %118, label %_ZNSt15__new_allocatorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE8allocateEmPKv.exit.i
 
 118:                                              ; preds = %116
@@ -16374,7 +16374,7 @@ _ZN4Luau8VecDequeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS6_EE9p
   unreachable
 
 117:                                              ; preds = %109
-  %118 = icmp ugt i64 %113, 288230376151711743
+  %118 = icmp samesign ugt i64 %113, 288230376151711743
   br i1 %118, label %119, label %_ZNSt15__new_allocatorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE8allocateEmPKv.exit.i
 
 119:                                              ; preds = %117
@@ -17568,7 +17568,7 @@ define internal void @_ZL20DOCTEST_ANON_FUNC_41v() #2 personality ptr @__gxx_per
   unreachable
 
 298:                                              ; preds = %290
-  %299 = icmp ugt i64 %294, 288230376151711743
+  %299 = icmp samesign ugt i64 %294, 288230376151711743
   br i1 %299, label %300, label %_ZNSt15__new_allocatorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE8allocateEmPKv.exit.i
 
 300:                                              ; preds = %298
@@ -21003,7 +21003,7 @@ define internal void @_ZL20DOCTEST_ANON_FUNC_43v() #2 personality ptr @__gxx_per
   br i1 %327, label %.invoke541, label %328
 
 328:                                              ; preds = %322
-  %329 = icmp ugt i64 %326, 288230376151711743
+  %329 = icmp samesign ugt i64 %326, 288230376151711743
   br i1 %329, label %.invoke, label %_ZNSt15__new_allocatorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE8allocateEmPKv.exit.i
 
 _ZNSt15__new_allocatorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE8allocateEmPKv.exit.i: ; preds = %328
@@ -21149,7 +21149,7 @@ _ZSt18uninitialized_moveIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES6
   unreachable
 
 388:                                              ; preds = %381
-  %389 = icmp ugt i64 %385, 288230376151711743
+  %389 = icmp samesign ugt i64 %385, 288230376151711743
   br i1 %389, label %.invoke, label %_ZNSt15__new_allocatorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE8allocateEmPKv.exit.i414
 
 .invoke:                                          ; preds = %328, %388
@@ -25050,7 +25050,7 @@ define internal void @_ZL20DOCTEST_ANON_FUNC_45v() #2 personality ptr @__gxx_per
   unreachable
 
 135:                                              ; preds = %128
-  %136 = icmp ugt i64 %132, 288230376151711743
+  %136 = icmp samesign ugt i64 %132, 288230376151711743
   br i1 %136, label %.invoke184, label %_ZNSt15__new_allocatorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE8allocateEmPKv.exit.i
 
 .invoke184:                                       ; preds = %135, %194
@@ -25194,7 +25194,7 @@ _ZSt18uninitialized_moveIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES6
   br i1 %193, label %.invoke, label %194
 
 194:                                              ; preds = %188
-  %195 = icmp ugt i64 %192, 288230376151711743
+  %195 = icmp samesign ugt i64 %192, 288230376151711743
   br i1 %195, label %.invoke184, label %_ZNSt15__new_allocatorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE8allocateEmPKv.exit.i120
 
 _ZNSt15__new_allocatorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE8allocateEmPKv.exit.i120: ; preds = %194
@@ -27088,7 +27088,7 @@ define linkonce_odr dso_local void @_ZN4Luau8VecDequeIiSaIiEE4growEv(ptr noundef
   unreachable
 
 11:                                               ; preds = %1
-  %12 = icmp ugt i64 %7, 2305843009213693951
+  %12 = icmp samesign ugt i64 %7, 2305843009213693951
   br i1 %12, label %13, label %_ZNSt15__new_allocatorIiE8allocateEmPKv.exit
 
 13:                                               ; preds = %11
@@ -27547,7 +27547,7 @@ define linkonce_odr dso_local void @_ZN4Luau8VecDequeINSt7__cxx1112basic_stringI
   unreachable
 
 11:                                               ; preds = %1
-  %12 = icmp ugt i64 %7, 288230376151711743
+  %12 = icmp samesign ugt i64 %7, 288230376151711743
   br i1 %12, label %13, label %_ZNSt15__new_allocatorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE8allocateEmPKv.exit
 
 13:                                               ; preds = %11
@@ -27807,7 +27807,7 @@ define linkonce_odr dso_local void @_ZN4Luau8VecDequeINSt7__cxx1112basic_stringI
   %17 = load i64, ptr %13, align 8
   %.sroa.speculated = tail call i64 @llvm.umin.i64(i64 %16, i64 %17)
   %18 = sub i64 %17, %.sroa.speculated
-  %19 = icmp ugt i64 %1, 288230376151711743
+  %19 = icmp samesign ugt i64 %1, 288230376151711743
   br i1 %19, label %20, label %_ZNSt15__new_allocatorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE8allocateEmPKv.exit
 
 20:                                               ; preds = %12
@@ -28694,7 +28694,7 @@ define linkonce_odr dso_local void @_ZN4Luau8VecDequeISt10shared_ptrI10TestStruc
   %17 = load i64, ptr %13, align 8
   %.sroa.speculated = tail call i64 @llvm.umin.i64(i64 %16, i64 %17)
   %18 = sub i64 %17, %.sroa.speculated
-  %19 = icmp ugt i64 %1, 576460752303423487
+  %19 = icmp samesign ugt i64 %1, 576460752303423487
   br i1 %19, label %20, label %_ZNSt15__new_allocatorISt10shared_ptrI10TestStructEE8allocateEmPKv.exit
 
 20:                                               ; preds = %12
@@ -29463,7 +29463,7 @@ define linkonce_odr dso_local void @_ZN4Luau8VecDequeISt10shared_ptrI10TestStruc
   unreachable
 
 11:                                               ; preds = %1
-  %12 = icmp ugt i64 %7, 576460752303423487
+  %12 = icmp samesign ugt i64 %7, 576460752303423487
   br i1 %12, label %13, label %_ZNSt15__new_allocatorISt10shared_ptrI10TestStructEE8allocateEmPKv.exit
 
 13:                                               ; preds = %11

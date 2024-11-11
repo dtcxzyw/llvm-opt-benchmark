@@ -2946,7 +2946,7 @@ define hidden void @_ZN4core5slice4sort10merge_sort17h111e2dca10c5a557E(ptr noal
   br label %46
 
 24:                                               ; preds = %3
-  %25 = icmp ugt i64 %1, 1
+  %25 = icmp samesign ugt i64 %1, 1
   br i1 %25, label %396, label %45
 
 26:                                               ; preds = %.body, %27
@@ -3889,7 +3889,7 @@ define hidden void @_ZN4core5slice4sort10merge_sort17h4bdc8ffb3b38f2ebE(ptr noal
   br label %46
 
 24:                                               ; preds = %3
-  %25 = icmp ugt i64 %1, 1
+  %25 = icmp samesign ugt i64 %1, 1
   br i1 %25, label %396, label %45
 
 26:                                               ; preds = %.body, %27
@@ -4834,7 +4834,7 @@ define hidden void @_ZN4core5slice4sort10merge_sort17h663587dce7207450E(ptr noal
   br label %47
 
 25:                                               ; preds = %3
-  %26 = icmp ugt i64 %1, 1
+  %26 = icmp samesign ugt i64 %1, 1
   br i1 %26, label %233, label %46
 
 27:                                               ; preds = %.body, %28
@@ -5473,7 +5473,7 @@ define hidden void @_ZN4core5slice4sort10merge_sort17h677cccbda77328f9E(ptr noal
   br label %47
 
 26:                                               ; preds = %3
-  %27 = icmp ugt i64 %1, 1
+  %27 = icmp samesign ugt i64 %1, 1
   br i1 %27, label %.preheader.i69, label %_ZN4core5slice4sort25insertion_sort_shift_left17he905dd6ba59d3a81E.exit
 
 28:                                               ; preds = %.body, %29
@@ -6208,7 +6208,7 @@ define hidden void @_ZN4core5slice4sort10merge_sort17h89221c6188a8f8e9E(ptr noal
   br label %47
 
 26:                                               ; preds = %3
-  %27 = icmp ugt i64 %1, 1
+  %27 = icmp samesign ugt i64 %1, 1
   br i1 %27, label %.preheader.i69, label %_ZN4core5slice4sort25insertion_sort_shift_left17hbf1fe522b93abe32E.exit
 
 28:                                               ; preds = %.body, %29
@@ -6941,7 +6941,7 @@ define hidden void @_ZN4core5slice4sort10merge_sort17hc9bb1083974e63edE(ptr noal
   br label %45
 
 24:                                               ; preds = %3
-  %25 = icmp ugt i64 %1, 1
+  %25 = icmp samesign ugt i64 %1, 1
   br i1 %25, label %.preheader.i67, label %_ZN4core5slice4sort25insertion_sort_shift_left17h0f26c6e838a99c7bE.exit
 
 26:                                               ; preds = %71, %27
@@ -7696,7 +7696,7 @@ define hidden void @_ZN4core5slice4sort10merge_sort17hd375b79f3b6aee20E(ptr noal
   br label %45
 
 24:                                               ; preds = %3
-  %25 = icmp ugt i64 %1, 1
+  %25 = icmp samesign ugt i64 %1, 1
   br i1 %25, label %"_ZN115_$LT$core..ops..range..RangeInclusive$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$9index_mut17h0c4ce30f6190dafdE.exit.i", label %_ZN4core5slice4sort25insertion_sort_shift_left17h47b94f55769408abE.exit
 
 26:                                               ; preds = %75, %27
@@ -8402,7 +8402,7 @@ define hidden void @_ZN4core5slice4sort10merge_sort17he1507787a687563fE(ptr noal
   br label %47
 
 26:                                               ; preds = %3
-  %27 = icmp ugt i64 %1, 1
+  %27 = icmp samesign ugt i64 %1, 1
   br i1 %27, label %.preheader.i69, label %_ZN4core5slice4sort25insertion_sort_shift_left17hadde34edf7d9d92dE.exit
 
 28:                                               ; preds = %.body, %29
@@ -9162,7 +9162,7 @@ define hidden void @_ZN4core5slice4sort10merge_sort17heb2c968258649565E(ptr noal
   br label %72
 
 50:                                               ; preds = %3
-  %51 = icmp ugt i64 %1, 1
+  %51 = icmp samesign ugt i64 %1, 1
   br i1 %51, label %349, label %71
 
 52:                                               ; preds = %.body, %53
@@ -13276,7 +13276,7 @@ define hidden void @_ZN4core5slice4sort7recurse17h4b90eee665928677E.llvm.1559462
   br i1 %165, label %"_ZN4core5slice4sort12choose_pivot28_$u7b$$u7b$closure$u7d$$u7d$17h3e1029b2e871872eE.exit111", label %"_ZN4core5slice4sort12choose_pivot28_$u7b$$u7b$closure$u7d$$u7d$17h3e1029b2e871872eE.exit111.thread"
 
 "_ZN4core5slice4sort12choose_pivot28_$u7b$$u7b$closure$u7d$$u7d$17h3e1029b2e871872eE.exit111": ; preds = %"_ZN4core5slice4sort12choose_pivot28_$u7b$$u7b$closure$u7d$$u7d$17h3e1029b2e871872eE.exit"
-  %166 = icmp ult i64 %.11, 11
+  %166 = icmp samesign ult i64 %.11, 11
   br i1 %166, label %"_ZN4core5slice4sort12choose_pivot28_$u7b$$u7b$closure$u7d$$u7d$17h3e1029b2e871872eE.exit111.thread", label %237
 
 "_ZN4core5slice4sort12choose_pivot28_$u7b$$u7b$closure$u7d$$u7d$17h829380fb743b3d29E.exit.i91": ; preds = %140
@@ -15587,7 +15587,7 @@ define hidden void @_ZN4core5slice4sort7recurse17h72dfb45b0fbd4f72E.llvm.1559462
   br i1 %177, label %"_ZN4core5slice4sort12choose_pivot28_$u7b$$u7b$closure$u7d$$u7d$17h8c30d11ce1fdd234E.exit111", label %"_ZN4core5slice4sort12choose_pivot28_$u7b$$u7b$closure$u7d$$u7d$17h8c30d11ce1fdd234E.exit111.thread"
 
 "_ZN4core5slice4sort12choose_pivot28_$u7b$$u7b$closure$u7d$$u7d$17h8c30d11ce1fdd234E.exit111": ; preds = %"_ZN4core5slice4sort12choose_pivot28_$u7b$$u7b$closure$u7d$$u7d$17h8c30d11ce1fdd234E.exit"
-  %178 = icmp ult i64 %.11, 11
+  %178 = icmp samesign ult i64 %.11, 11
   br i1 %178, label %"_ZN4core5slice4sort12choose_pivot28_$u7b$$u7b$closure$u7d$$u7d$17h8c30d11ce1fdd234E.exit111.thread", label %249
 
 "_ZN4core5slice4sort12choose_pivot28_$u7b$$u7b$closure$u7d$$u7d$17hcd33614715362dadE.exit.i91": ; preds = %152
@@ -19130,7 +19130,7 @@ define hidden noundef nonnull align 1 ptr @"_ZN5alloc11collections5btree3map5ent
 .lr.ph.i.i22.i.i:                                 ; preds = %263, %.lr.ph.i.i22.i.i
   %.sroa.0.06.i.i23.i.i = phi i64 [ %266, %.lr.ph.i.i22.i.i ], [ %246, %263 ]
   %266 = add nuw nsw i64 %.sroa.0.06.i.i23.i.i, 1
-  %267 = icmp ult i64 %.sroa.0.06.i.i23.i.i, 12
+  %267 = icmp samesign ult i64 %.sroa.0.06.i.i23.i.i, 12
   tail call void @llvm.assume(i1 %267)
   %268 = getelementptr inbounds ptr, ptr %255, i64 %.sroa.0.06.i.i23.i.i
   %269 = load ptr, ptr %268, align 8, !noalias !3925, !nonnull !4, !noundef !4
@@ -30757,7 +30757,7 @@ _ZN5rowan6cursor8NodeData3key17hac391177412f5ff8E.exit.i.i.i.i: ; preds = %146, 
   br label %429
 
 408:                                              ; preds = %389
-  %409 = icmp ugt i64 %391, 1
+  %409 = icmp samesign ugt i64 %391, 1
   br i1 %409, label %700, label %701
 
 410:                                              ; preds = %.body.i.i.i, %411

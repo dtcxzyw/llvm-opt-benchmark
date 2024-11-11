@@ -356,7 +356,7 @@ define range(i32 0, 27) i32 @wwunpack(ptr noundef %0, i32 noundef %1, ptr nounde
   %.9953 = phi i32 [ %139, %137 ], [ %161, %156 ], [ %.795115241535, %162 ], [ %139, %149 ], [ %147, %146 ]
   %.1933 = phi i32 [ %135, %137 ], [ %160, %156 ], [ %150, %162 ], [ %135, %149 ], [ %135, %146 ]
   %.11 = phi i32 [ %.9, %137 ], [ %.915271534, %156 ], [ 1, %162 ], [ 1, %149 ], [ %.9, %146 ]
-  %164 = icmp ugt i32 %.1933, 1
+  %164 = icmp samesign ugt i32 %.1933, 1
   %spec.select.v = select i1 %164, i32 6, i32 5
   %spec.select = add nuw nsw i32 %spec.select.v, %.1933
   %spec.select1357 = select i1 %164, i32 -159, i32 -31
@@ -549,7 +549,7 @@ define range(i32 0, 27) i32 @wwunpack(ptr noundef %0, i32 noundef %1, ptr nounde
   %.13957 = phi i32 [ %229, %227 ], [ %255, %247 ], [ %.795115251547, %256 ], [ %229, %239 ], [ %237, %236 ]
   %.3935 = phi i32 [ %225, %227 ], [ %253, %247 ], [ %241, %256 ], [ %225, %239 ], [ %225, %236 ]
   %.16 = phi i32 [ %.9, %227 ], [ %.915281544, %247 ], [ 1, %256 ], [ 1, %239 ], [ %.9, %236 ]
-  %258 = icmp ult i32 %.3935, 6
+  %258 = icmp samesign ult i32 %.3935, 6
   br i1 %258, label %259, label %318
 
 259:                                              ; preds = %257
@@ -625,7 +625,7 @@ default.unreachable:                              ; preds = %259
   %280 = sub nuw nsw i32 32, %.0926
   %281 = lshr i32 %.14958, %280
   %282 = zext i8 %.61038 to i32
-  %.not1268 = icmp ugt i32 %.0926, %282
+  %.not1268 = icmp samesign ugt i32 %.0926, %282
   br i1 %.not1268, label %297, label %283
 
 283:                                              ; preds = %279

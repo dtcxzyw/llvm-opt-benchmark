@@ -2321,7 +2321,7 @@ define internal i32 @T1_Load_Glyph(ptr noundef %0, ptr noundef %1, i32 noundef %
   store i64 %229, ptr %221, align 8
   %230 = add nsw i32 %.0147198, -1
   %231 = getelementptr inbounds i8, ptr %.0146199, i64 16
-  %232 = icmp ugt i32 %.0147198, 1
+  %232 = icmp samesign ugt i32 %.0147198, 1
   br i1 %232, label %212, label %.loopexit, !llvm.loop !12
 
 .loopexit:                                        ; preds = %212, %202, %194
@@ -4109,7 +4109,7 @@ define internal range(i32 -1, 7) i32 @T1_Set_MM_Design(ptr nocapture noundef rea
   br i1 %89, label %._crit_edge.i, label %90
 
 90:                                               ; preds = %81
-  %91 = icmp ugt i64 %spec.select43.i, 65535
+  %91 = icmp samesign ugt i64 %spec.select43.i, 65535
   br i1 %91, label %99, label %92
 
 92:                                               ; preds = %90
@@ -4218,7 +4218,7 @@ define internal range(i32 -1, 7) i32 @T1_Set_MM_Blend(ptr nocapture noundef read
   br i1 %24, label %._crit_edge.i, label %25
 
 25:                                               ; preds = %16
-  %26 = icmp ugt i64 %spec.select43.i, 65535
+  %26 = icmp samesign ugt i64 %spec.select43.i, 65535
   br i1 %26, label %34, label %27
 
 27:                                               ; preds = %25
@@ -7009,7 +7009,7 @@ sub_1137:                                         ; preds = %sub_0136
 
 144:                                              ; preds = %141
   %145 = zext nneg i32 %142 to i64
-  %146 = icmp ult i64 %102, %145
+  %146 = icmp samesign ult i64 %102, %145
   br i1 %146, label %.loopexit, label %147
 
 147:                                              ; preds = %144
@@ -7351,7 +7351,7 @@ read_binary_data.exit:                            ; preds = %107
 
 153:                                              ; preds = %149
   %154 = zext nneg i32 %150 to i64
-  %.not201 = icmp ugt i64 %109, %154
+  %.not201 = icmp samesign ugt i64 %109, %154
   br i1 %.not201, label %155, label %.loopexit
 
 155:                                              ; preds = %153

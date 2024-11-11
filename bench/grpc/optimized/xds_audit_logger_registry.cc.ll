@@ -3583,7 +3583,7 @@ for.body.i.i51:                                   ; preds = %for.body.i.i51.preh
   %incdec.ptr.i.i53 = getelementptr inbounds i8, ptr %__first.addr.0.i.i4762, i64 56
   %incdec.ptr1.i.i54 = getelementptr inbounds i8, ptr %__result.addr.0.i.i4863, i64 56
   %dec.i.i55 = add nsw i64 %__n.0.i.i4964, -1
-  %cmp.i.i50 = icmp ugt i64 %__n.0.i.i4964, 1
+  %cmp.i.i50 = icmp samesign ugt i64 %__n.0.i.i4964, 1
   br i1 %cmp.i.i50, label %for.body.i.i51, label %_ZSt14__copy_move_a2ILb0EPN9grpc_core12experimental4JsonES3_ET1_T0_S5_S4_.exit.loopexit, !llvm.loop !27
 
 _ZSt14__copy_move_a2ILb0EPN9grpc_core12experimental4JsonES3_ET1_T0_S5_S4_.exit.loopexit: ; preds = %for.body.i.i51

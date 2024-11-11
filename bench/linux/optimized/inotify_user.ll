@@ -708,7 +708,7 @@ define internal noundef i32 @inotify_user_setup() #3 section ".init.text" align 
   %.lhs.trunc = trunc nuw i64 %8 to i32
   %11 = udiv i32 %.lhs.trunc, 1280
   %.zext = zext nneg i32 %11 to i64
-  %12 = icmp ult i64 %8, 10487040
+  %12 = icmp samesign ult i64 %8, 10487040
   %13 = select i1 %12, i64 8192, i64 %.zext
   br label %14
 

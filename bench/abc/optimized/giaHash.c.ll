@@ -1414,7 +1414,7 @@ define i32 @Gia_ManHashMuxReal(ptr noundef %0, i32 noundef %1, i32 noundef %2, i
 
 44:                                               ; preds = %36
   %.unshifted = xor i32 %3, %2
-  %45 = icmp ult i32 %.unshifted, 2
+  %45 = icmp samesign ult i32 %.unshifted, 2
   br i1 %45, label %46, label %48
 
 46:                                               ; preds = %44
@@ -1422,7 +1422,7 @@ define i32 @Gia_ManHashMuxReal(ptr noundef %0, i32 noundef %1, i32 noundef %2, i
   br label %75
 
 48:                                               ; preds = %44
-  %49 = icmp ugt i32 %3, %2
+  %49 = icmp samesign ugt i32 %3, %2
   %50 = zext i1 %49 to i32
   %.087 = xor i32 %1, %50
   %.085 = tail call i32 @llvm.umax.i32(i32 %3, i32 %2)

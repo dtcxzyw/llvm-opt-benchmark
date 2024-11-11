@@ -452,7 +452,7 @@ define dso_local noundef range(i32 -1, 1) i32 @seq_buf_putmem_hex(ptr nocapture 
   %34 = add nuw nsw i64 %19, 2
   %35 = getelementptr [17 x i8], ptr %4, i64 0, i64 %28
   store i8 %33, ptr %35, align 1
-  %36 = icmp ugt i64 %20, 1
+  %36 = icmp samesign ugt i64 %20, 1
   br i1 %36, label %18, label %37, !llvm.loop !28
 
 37:                                               ; preds = %18

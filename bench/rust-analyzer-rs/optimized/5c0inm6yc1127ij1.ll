@@ -102,7 +102,7 @@ define hidden void @_ZN4core4hash6Hasher9write_str17h8221ef89efa6ccd2E.llvm.7254
   %.1.i = phi i64 [ %16, %"_ZN4core6result19Result$LT$T$C$E$GT$3map17h51d293b9c345cf36E.exit.i" ], [ %.0.lcssa.i, %._crit_edge.i ]
   %.sroa.11.1.i = phi i64 [ %17, %"_ZN4core6result19Result$LT$T$C$E$GT$3map17h51d293b9c345cf36E.exit.i" ], [ %.sroa.11.0.lcssa.i, %._crit_edge.i ]
   %.sroa.0.1.i = phi ptr [ %18, %"_ZN4core6result19Result$LT$T$C$E$GT$3map17h51d293b9c345cf36E.exit.i" ], [ %.sroa.0.0.lcssa.i, %._crit_edge.i ]
-  %20 = icmp ugt i64 %.sroa.11.1.i, 1
+  %20 = icmp samesign ugt i64 %.sroa.11.1.i, 1
   br i1 %20, label %"_ZN4core6result19Result$LT$T$C$E$GT$3map17h0ab54d56cc8bfd15E.exit.i", label %27
 
 "_ZN4core6result19Result$LT$T$C$E$GT$3map17h0ab54d56cc8bfd15E.exit.i": ; preds = %19
@@ -199,7 +199,7 @@ define hidden void @"_ZN59_$LT$rustc_hash..FxHasher$u20$as$u20$core..hash..Hashe
   %.1 = phi i64 [ %16, %"_ZN4core6result19Result$LT$T$C$E$GT$3map17h51d293b9c345cf36E.exit" ], [ %.0.lcssa, %._crit_edge ]
   %.sroa.11.1 = phi i64 [ %17, %"_ZN4core6result19Result$LT$T$C$E$GT$3map17h51d293b9c345cf36E.exit" ], [ %.sroa.11.0.lcssa, %._crit_edge ]
   %.sroa.0.1 = phi ptr [ %18, %"_ZN4core6result19Result$LT$T$C$E$GT$3map17h51d293b9c345cf36E.exit" ], [ %.sroa.0.0.lcssa, %._crit_edge ]
-  %20 = icmp ugt i64 %.sroa.11.1, 1
+  %20 = icmp samesign ugt i64 %.sroa.11.1, 1
   br i1 %20, label %"_ZN4core6result19Result$LT$T$C$E$GT$3map17h0ab54d56cc8bfd15E.exit", label %27
 
 "_ZN4core6result19Result$LT$T$C$E$GT$3map17h0ab54d56cc8bfd15E.exit": ; preds = %19
@@ -393,7 +393,7 @@ _ZN8smol_str4Repr6as_str17h6612cd4653de1669E.llvm.7254166611521100033.exit: ; pr
   %.1.i.i = phi i64 [ %40, %"_ZN4core6result19Result$LT$T$C$E$GT$3map17h51d293b9c345cf36E.exit.i.i" ], [ %.0.lcssa.i.i, %._crit_edge.i.i ]
   %.sroa.11.1.i.i = phi i64 [ %41, %"_ZN4core6result19Result$LT$T$C$E$GT$3map17h51d293b9c345cf36E.exit.i.i" ], [ %.sroa.11.0.lcssa.i.i, %._crit_edge.i.i ]
   %.sroa.0.1.i.i = phi ptr [ %42, %"_ZN4core6result19Result$LT$T$C$E$GT$3map17h51d293b9c345cf36E.exit.i.i" ], [ %.sroa.0.0.lcssa.i.i, %._crit_edge.i.i ]
-  %44 = icmp ugt i64 %.sroa.11.1.i.i, 1
+  %44 = icmp samesign ugt i64 %.sroa.11.1.i.i, 1
   br i1 %44, label %"_ZN4core6result19Result$LT$T$C$E$GT$3map17h0ab54d56cc8bfd15E.exit.i.i", label %51
 
 "_ZN4core6result19Result$LT$T$C$E$GT$3map17h0ab54d56cc8bfd15E.exit.i.i": ; preds = %43
@@ -497,7 +497,7 @@ _ZN8smol_str4Repr6as_str17h6612cd4653de1669E.llvm.7254166611521100033.exit6: ; p
   %.1.i.i11 = phi i64 [ %85, %"_ZN4core6result19Result$LT$T$C$E$GT$3map17h51d293b9c345cf36E.exit.i.i21" ], [ %.0.lcssa.i.i8, %._crit_edge.i.i7 ]
   %.sroa.11.1.i.i12 = phi i64 [ %86, %"_ZN4core6result19Result$LT$T$C$E$GT$3map17h51d293b9c345cf36E.exit.i.i21" ], [ %.sroa.11.0.lcssa.i.i9, %._crit_edge.i.i7 ]
   %.sroa.0.1.i.i13 = phi ptr [ %87, %"_ZN4core6result19Result$LT$T$C$E$GT$3map17h51d293b9c345cf36E.exit.i.i21" ], [ %.sroa.0.0.lcssa.i.i10, %._crit_edge.i.i7 ]
-  %89 = icmp ugt i64 %.sroa.11.1.i.i12, 1
+  %89 = icmp samesign ugt i64 %.sroa.11.1.i.i12, 1
   br i1 %89, label %"_ZN4core6result19Result$LT$T$C$E$GT$3map17h0ab54d56cc8bfd15E.exit.i.i19", label %96
 
 "_ZN4core6result19Result$LT$T$C$E$GT$3map17h0ab54d56cc8bfd15E.exit.i.i19": ; preds = %88
@@ -601,7 +601,7 @@ _ZN8smol_str4Repr6as_str17h6612cd4653de1669E.llvm.7254166611521100033.exit34: ; 
   %.1.i.i39 = phi i64 [ %132, %"_ZN4core6result19Result$LT$T$C$E$GT$3map17h51d293b9c345cf36E.exit.i.i49" ], [ %.0.lcssa.i.i36, %._crit_edge.i.i35 ]
   %.sroa.11.1.i.i40 = phi i64 [ %133, %"_ZN4core6result19Result$LT$T$C$E$GT$3map17h51d293b9c345cf36E.exit.i.i49" ], [ %.sroa.11.0.lcssa.i.i37, %._crit_edge.i.i35 ]
   %.sroa.0.1.i.i41 = phi ptr [ %134, %"_ZN4core6result19Result$LT$T$C$E$GT$3map17h51d293b9c345cf36E.exit.i.i49" ], [ %.sroa.0.0.lcssa.i.i38, %._crit_edge.i.i35 ]
-  %136 = icmp ugt i64 %.sroa.11.1.i.i40, 1
+  %136 = icmp samesign ugt i64 %.sroa.11.1.i.i40, 1
   br i1 %136, label %"_ZN4core6result19Result$LT$T$C$E$GT$3map17h0ab54d56cc8bfd15E.exit.i.i47", label %143
 
 "_ZN4core6result19Result$LT$T$C$E$GT$3map17h0ab54d56cc8bfd15E.exit.i.i47": ; preds = %135

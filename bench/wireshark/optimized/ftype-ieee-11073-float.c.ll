@@ -1132,7 +1132,7 @@ switch.lookup:                                    ; preds = %4
 42:                                               ; preds = %31
   %43 = sub nsw i32 0, %24
   %44 = and i32 %23, 255
-  %45 = icmp ugt i32 %44, %43
+  %45 = icmp samesign ugt i32 %44, %43
   %46 = zext nneg i32 %.070 to i64
   br i1 %45, label %47, label %63
 

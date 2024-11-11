@@ -183,7 +183,7 @@ _ZNSt6vectorIdSaIdEEC2EmRKS0_.exit.i:             ; preds = %.noexc15.i
   tail call void @llvm.memset.p0.i64(ptr align 8 %23, i8 0, i64 %24, i1 false)
   %25 = load double, ptr %3, align 8
   store double %25, ptr %20, align 8
-  %26 = icmp ugt i64 %18, 1
+  %26 = icmp samesign ugt i64 %18, 1
   br i1 %26, label %.lr.ph.i, label %._crit_edge.i
 
 .lr.ph.i:                                         ; preds = %_ZNSt6vectorIdSaIdEEC2EmRKS0_.exit.i, %.lr.ph.i

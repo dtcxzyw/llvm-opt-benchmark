@@ -3042,8 +3042,8 @@ define internal fastcc void @"_ZN10serde_json2de21Deserializer$LT$R$GT$13parse_d
 
 70:                                               ; preds = %30
   %.not = icmp ne i64 %.057, 1844674407370955161
-  %71 = icmp ugt i8 %25, 5
-  %or.cond26 = or i1 %.not, %71
+  %71 = icmp samesign ugt i8 %25, 5
+  %or.cond26 = select i1 %.not, i1 true, i1 %71
   br i1 %or.cond26, label %76, label %.critedge25
 
 .critedge25:                                      ; preds = %70, %30
@@ -3303,8 +3303,8 @@ define internal fastcc void @"_ZN10serde_json2de21Deserializer$LT$R$GT$13parse_i
 
 91:                                               ; preds = %88
   %.not = icmp ne i64 %.062, 1844674407370955161
-  %92 = icmp ugt i8 %63, 5
-  %or.cond25 = or i1 %.not, %92
+  %92 = icmp samesign ugt i8 %63, 5
+  %or.cond25 = select i1 %.not, i1 true, i1 %92
   br i1 %or.cond25, label %.critedge, label %.critedge23
 
 .critedge23:                                      ; preds = %91, %88
@@ -3788,8 +3788,8 @@ define internal fastcc void @"_ZN10serde_json2de21Deserializer$LT$R$GT$14parse_e
 
 78:                                               ; preds = %42
   %.not = icmp ne i32 %.01047, 214748364
-  %79 = icmp ugt i8 %41, 7
-  %or.cond26 = or i1 %.not, %79
+  %79 = icmp samesign ugt i8 %41, 7
+  %or.cond26 = select i1 %.not, i1 true, i1 %79
   br i1 %or.cond26, label %82, label %.critedge25
 
 .critedge25:                                      ; preds = %78, %42
@@ -16388,7 +16388,7 @@ define hidden i64 @"_ZN65_$LT$thin_vec..ThinVec$LT$T$GT$$u20$as$u20$core..clone.
   unreachable
 
 .split8.i.i.i.i:                                  ; preds = %17
-  %19 = icmp ugt i64 %13, 288230376151711743
+  %19 = icmp samesign ugt i64 %13, 288230376151711743
   br i1 %19, label %20, label %_ZN8thin_vec6layout17h290e634068202d38E.llvm.13158159170862922693.exit.i.i
 
 20:                                               ; preds = %.split8.i.i.i.i
@@ -18032,7 +18032,7 @@ define hidden i64 @"_ZN65_$LT$thin_vec..ThinVec$LT$T$GT$$u20$as$u20$core..clone.
   unreachable
 
 .split8.i.i.i.i:                                  ; preds = %12
-  %14 = icmp ugt i64 %8, 288230376151711743
+  %14 = icmp samesign ugt i64 %8, 288230376151711743
   br i1 %14, label %15, label %_ZN8thin_vec6layout17h7a9e1acda4c050b7E.llvm.13158159170862922693.exit.i.i
 
 15:                                               ; preds = %.split8.i.i.i.i
@@ -21362,7 +21362,7 @@ define hidden void @"_ZN68_$LT$thin_vec..ThinVec$LT$T$GT$$u20$as$u20$core..ops..
   unreachable
 
 .split8.i.i:                                      ; preds = %"_ZN4core3ptr75drop_in_place$LT$$u5b$rustc_ast..ptr..P$LT$rustc_ast..ast..Pat$GT$$u5d$$GT$17hb341bfa50040f2c9E.exit"
-  %21 = icmp ugt i64 %19, 1152921504606846975
+  %21 = icmp samesign ugt i64 %19, 1152921504606846975
   br i1 %21, label %22, label %23
 
 22:                                               ; preds = %.split8.i.i
@@ -21546,7 +21546,7 @@ define hidden void @"_ZN68_$LT$thin_vec..ThinVec$LT$T$GT$$u20$as$u20$core..ops..
   unreachable
 
 .split8.i.i:                                      ; preds = %"_ZN4core3ptr113drop_in_place$LT$$u5b$rustc_ast..ptr..P$LT$rustc_ast..ast..Item$LT$rustc_ast..ast..AssocItemKind$GT$$GT$$u5d$$GT$17hdc319c3380f22a0cE.exit"
-  %29 = icmp ugt i64 %27, 1152921504606846975
+  %29 = icmp samesign ugt i64 %27, 1152921504606846975
   br i1 %29, label %30, label %31
 
 30:                                               ; preds = %.split8.i.i
@@ -21975,7 +21975,7 @@ define hidden void @"_ZN68_$LT$thin_vec..ThinVec$LT$T$GT$$u20$as$u20$core..ops..
   unreachable
 
 .split8.i.i:                                      ; preds = %"_ZN4core3ptr74drop_in_place$LT$$u5b$rustc_ast..ptr..P$LT$rustc_ast..ast..Ty$GT$$u5d$$GT$17h79763649edb5cd96E.exit"
-  %21 = icmp ugt i64 %19, 1152921504606846975
+  %21 = icmp samesign ugt i64 %19, 1152921504606846975
   br i1 %21, label %22, label %23
 
 22:                                               ; preds = %.split8.i.i
@@ -22068,7 +22068,7 @@ define hidden void @"_ZN68_$LT$thin_vec..ThinVec$LT$T$GT$$u20$as$u20$core..ops..
   unreachable
 
 .split8.i.i:                                      ; preds = %"_ZN4core3ptr56drop_in_place$LT$$u5b$rustc_ast..ast..Attribute$u5d$$GT$17h20bd1a14bc6e9631E.exit"
-  %28 = icmp ugt i64 %26, 288230376151711743
+  %28 = icmp samesign ugt i64 %26, 288230376151711743
   br i1 %28, label %29, label %_ZN8thin_vec6layout17h7a9e1acda4c050b7E.llvm.13158159170862922693.exit
 
 29:                                               ; preds = %.split8.i.i
@@ -22162,7 +22162,7 @@ define hidden void @"_ZN68_$LT$thin_vec..ThinVec$LT$T$GT$$u20$as$u20$core..ops..
   unreachable
 
 .split8.i.i:                                      ; preds = %"_ZN4core3ptr76drop_in_place$LT$$u5b$rustc_ast..ptr..P$LT$rustc_ast..ast..Expr$GT$$u5d$$GT$17he6aa55eeec9d08d4E.exit"
-  %29 = icmp ugt i64 %27, 1152921504606846975
+  %29 = icmp samesign ugt i64 %27, 1152921504606846975
   br i1 %29, label %30, label %31
 
 30:                                               ; preds = %.split8.i.i
@@ -22379,7 +22379,7 @@ define hidden void @"_ZN68_$LT$thin_vec..ThinVec$LT$T$GT$$u20$as$u20$core..ops..
   unreachable
 
 .split8.i.i:                                      ; preds = %1
-  %8 = icmp ugt i64 %6, 1152921504606846975
+  %8 = icmp samesign ugt i64 %6, 1152921504606846975
   br i1 %8, label %9, label %10
 
 9:                                                ; preds = %.split8.i.i
@@ -22538,7 +22538,7 @@ define hidden void @"_ZN68_$LT$thin_vec..ThinVec$LT$T$GT$$u20$as$u20$core..ops..
   unreachable
 
 .split8.i.i:                                      ; preds = %"_ZN4core3ptr51drop_in_place$LT$$u5b$rustc_ast..ast..Stmt$u5d$$GT$17h856a990421f620bfE.exit"
-  %21 = icmp ugt i64 %19, 288230376151711743
+  %21 = icmp samesign ugt i64 %19, 288230376151711743
   br i1 %21, label %22, label %_ZN8thin_vec6layout17h290e634068202d38E.llvm.13158159170862922693.exit
 
 22:                                               ; preds = %.split8.i.i
@@ -22633,7 +22633,7 @@ define hidden void @"_ZN68_$LT$thin_vec..ThinVec$LT$T$GT$$u20$as$u20$core..ops..
   unreachable
 
 .split8.i.i:                                      ; preds = %"_ZN4core3ptr115drop_in_place$LT$$u5b$rustc_ast..ptr..P$LT$rustc_ast..ast..Item$LT$rustc_ast..ast..ForeignItemKind$GT$$GT$$u5d$$GT$17h4f294eb7744dba87E.exit"
-  %29 = icmp ugt i64 %27, 1152921504606846975
+  %29 = icmp samesign ugt i64 %27, 1152921504606846975
   br i1 %29, label %30, label %31
 
 30:                                               ; preds = %.split8.i.i
@@ -24198,7 +24198,7 @@ define hidden noundef range(i64 16, -9223372036854775808) i64 @_ZN8thin_vec10all
   unreachable
 
 .split8:                                          ; preds = %1
-  %4 = icmp ugt i64 %0, 1152921504606846975
+  %4 = icmp samesign ugt i64 %0, 1152921504606846975
   br i1 %4, label %5, label %6
 
 5:                                                ; preds = %.split8
@@ -24293,7 +24293,7 @@ define hidden noundef range(i64 16, -9223372036854775808) i64 @_ZN8thin_vec10all
   unreachable
 
 .split8:                                          ; preds = %1
-  %4 = icmp ugt i64 %0, 1152921504606846975
+  %4 = icmp samesign ugt i64 %0, 1152921504606846975
   br i1 %4, label %5, label %6
 
 5:                                                ; preds = %.split8
@@ -24353,7 +24353,7 @@ define hidden noundef range(i64 16, -9223372036854775808) i64 @_ZN8thin_vec10all
   unreachable
 
 .split8:                                          ; preds = %1
-  %4 = icmp ugt i64 %0, 1152921504606846975
+  %4 = icmp samesign ugt i64 %0, 1152921504606846975
   br i1 %4, label %5, label %6
 
 5:                                                ; preds = %.split8
@@ -24413,7 +24413,7 @@ define hidden noundef range(i64 16, -9223372036854775808) i64 @_ZN8thin_vec10all
   unreachable
 
 .split8:                                          ; preds = %1
-  %4 = icmp ugt i64 %0, 288230376151711743
+  %4 = icmp samesign ugt i64 %0, 288230376151711743
   br i1 %4, label %5, label %6
 
 5:                                                ; preds = %.split8
@@ -24604,7 +24604,7 @@ define hidden noundef range(i64 16, -9223372036854775808) i64 @_ZN8thin_vec10all
   unreachable
 
 .split8:                                          ; preds = %1
-  %4 = icmp ugt i64 %0, 288230376151711743
+  %4 = icmp samesign ugt i64 %0, 288230376151711743
   br i1 %4, label %5, label %6
 
 5:                                                ; preds = %.split8
@@ -24629,7 +24629,7 @@ define hidden noundef range(i64 16, -9223372036854775808) i64 @_ZN8thin_vec10all
   unreachable
 
 .split8:                                          ; preds = %1
-  %4 = icmp ugt i64 %0, 1152921504606846975
+  %4 = icmp samesign ugt i64 %0, 1152921504606846975
   br i1 %4, label %5, label %6
 
 5:                                                ; preds = %.split8
@@ -24663,7 +24663,7 @@ define hidden noundef range(i64 16, -9223372036854775808) i64 @_ZN8thin_vec10all
   unreachable
 
 .split8:                                          ; preds = %1
-  %4 = icmp ugt i64 %0, 1152921504606846975
+  %4 = icmp samesign ugt i64 %0, 1152921504606846975
   br i1 %4, label %5, label %6
 
 5:                                                ; preds = %.split8
@@ -24758,7 +24758,7 @@ define hidden noundef range(i64 16, -9223372036854775808) i64 @_ZN8thin_vec10all
   unreachable
 
 .split8:                                          ; preds = %1
-  %4 = icmp ugt i64 %0, 1152921504606846975
+  %4 = icmp samesign ugt i64 %0, 1152921504606846975
   br i1 %4, label %5, label %6
 
 5:                                                ; preds = %.split8
@@ -24797,7 +24797,7 @@ define hidden void @"_ZN8thin_vec16ThinVec$LT$T$GT$10reallocate17h4040454c069713
   unreachable
 
 .split8.i.i.i:                                    ; preds = %5
-  %7 = icmp ugt i64 %1, 288230376151711743
+  %7 = icmp samesign ugt i64 %1, 288230376151711743
   br i1 %7, label %8, label %_ZN8thin_vec6layout17h7a9e1acda4c050b7E.llvm.13158159170862922693.exit.i
 
 8:                                                ; preds = %.split8.i.i.i
@@ -24834,7 +24834,7 @@ _ZN8thin_vec20header_with_capacity17hdb55cfca790e16b4E.llvm.13158159170862922693
   unreachable
 
 .split8.i.i:                                      ; preds = %16
-  %20 = icmp ugt i64 %18, 288230376151711743
+  %20 = icmp samesign ugt i64 %18, 288230376151711743
   br i1 %20, label %21, label %_ZN8thin_vec6layout17h7a9e1acda4c050b7E.llvm.13158159170862922693.exit
 
 21:                                               ; preds = %.split8.i.i
@@ -24853,7 +24853,7 @@ _ZN8thin_vec6layout17h7a9e1acda4c050b7E.llvm.13158159170862922693.exit: ; preds 
   unreachable
 
 .split8.i:                                        ; preds = %_ZN8thin_vec6layout17h7a9e1acda4c050b7E.llvm.13158159170862922693.exit
-  %25 = icmp ugt i64 %1, 288230376151711743
+  %25 = icmp samesign ugt i64 %1, 288230376151711743
   br i1 %25, label %26, label %_ZN8thin_vec10alloc_size17hcd1488b7a4538474E.llvm.13158159170862922693.exit
 
 26:                                               ; preds = %.split8.i
@@ -24902,7 +24902,7 @@ define hidden void @"_ZN8thin_vec16ThinVec$LT$T$GT$10reallocate17hbfd2e814921e78
   unreachable
 
 .split8.i.i.i:                                    ; preds = %5
-  %7 = icmp ugt i64 %1, 288230376151711743
+  %7 = icmp samesign ugt i64 %1, 288230376151711743
   br i1 %7, label %8, label %_ZN8thin_vec6layout17h290e634068202d38E.llvm.13158159170862922693.exit.i
 
 8:                                                ; preds = %.split8.i.i.i
@@ -24939,7 +24939,7 @@ _ZN8thin_vec20header_with_capacity17hfd93e9adb1753e35E.llvm.13158159170862922693
   unreachable
 
 .split8.i.i:                                      ; preds = %16
-  %20 = icmp ugt i64 %18, 288230376151711743
+  %20 = icmp samesign ugt i64 %18, 288230376151711743
   br i1 %20, label %21, label %_ZN8thin_vec6layout17h290e634068202d38E.llvm.13158159170862922693.exit
 
 21:                                               ; preds = %.split8.i.i
@@ -24958,7 +24958,7 @@ _ZN8thin_vec6layout17h290e634068202d38E.llvm.13158159170862922693.exit: ; preds 
   unreachable
 
 .split8.i:                                        ; preds = %_ZN8thin_vec6layout17h290e634068202d38E.llvm.13158159170862922693.exit
-  %25 = icmp ugt i64 %1, 288230376151711743
+  %25 = icmp samesign ugt i64 %1, 288230376151711743
   br i1 %25, label %26, label %_ZN8thin_vec10alloc_size17h5a4d7b70f18a3498E.llvm.13158159170862922693.exit
 
 26:                                               ; preds = %.split8.i
@@ -25051,7 +25051,7 @@ define hidden noundef i64 @"_ZN8thin_vec16ThinVec$LT$T$GT$13with_capacity17h28fc
   unreachable
 
 .split8.i.i.i:                                    ; preds = %4
-  %6 = icmp ugt i64 %0, 288230376151711743
+  %6 = icmp samesign ugt i64 %0, 288230376151711743
   br i1 %6, label %7, label %_ZN8thin_vec6layout17h7a9e1acda4c050b7E.llvm.13158159170862922693.exit.i
 
 7:                                                ; preds = %.split8.i.i.i
@@ -25350,7 +25350,7 @@ define hidden noundef i64 @"_ZN8thin_vec16ThinVec$LT$T$GT$13with_capacity17h7bae
   unreachable
 
 .split8.i.i.i:                                    ; preds = %4
-  %6 = icmp ugt i64 %0, 288230376151711743
+  %6 = icmp samesign ugt i64 %0, 288230376151711743
   br i1 %6, label %7, label %_ZN8thin_vec6layout17h290e634068202d38E.llvm.13158159170862922693.exit.i
 
 7:                                                ; preds = %.split8.i.i.i
@@ -26066,7 +26066,7 @@ define hidden noalias noundef nonnull ptr @_ZN8thin_vec20header_with_capacity17h
   unreachable
 
 .split8.i.i:                                      ; preds = %1
-  %4 = icmp ugt i64 %0, 1152921504606846975
+  %4 = icmp samesign ugt i64 %0, 1152921504606846975
   br i1 %4, label %5, label %6
 
 5:                                                ; preds = %.split8.i.i
@@ -26152,7 +26152,7 @@ define hidden noalias noundef nonnull ptr @_ZN8thin_vec20header_with_capacity17h
   unreachable
 
 .split8.i.i:                                      ; preds = %1
-  %4 = icmp ugt i64 %0, 1152921504606846975
+  %4 = icmp samesign ugt i64 %0, 1152921504606846975
   br i1 %4, label %5, label %6
 
 5:                                                ; preds = %.split8.i.i
@@ -26508,7 +26508,7 @@ define hidden noalias noundef nonnull ptr @_ZN8thin_vec20header_with_capacity17h
   unreachable
 
 .split8.i.i:                                      ; preds = %1
-  %4 = icmp ugt i64 %0, 1152921504606846975
+  %4 = icmp samesign ugt i64 %0, 1152921504606846975
   br i1 %4, label %5, label %6
 
 5:                                                ; preds = %.split8.i.i
@@ -26603,7 +26603,7 @@ define hidden noalias noundef nonnull ptr @_ZN8thin_vec20header_with_capacity17h
   unreachable
 
 .split8.i.i:                                      ; preds = %1
-  %4 = icmp ugt i64 %0, 1152921504606846975
+  %4 = icmp samesign ugt i64 %0, 1152921504606846975
   br i1 %4, label %5, label %6
 
 5:                                                ; preds = %.split8.i.i
@@ -26650,7 +26650,7 @@ define hidden noalias noundef nonnull ptr @_ZN8thin_vec20header_with_capacity17h
   unreachable
 
 .split8.i.i:                                      ; preds = %1
-  %4 = icmp ugt i64 %0, 1152921504606846975
+  %4 = icmp samesign ugt i64 %0, 1152921504606846975
   br i1 %4, label %5, label %6
 
 5:                                                ; preds = %.split8.i.i
@@ -26784,7 +26784,7 @@ define hidden noalias noundef nonnull ptr @_ZN8thin_vec20header_with_capacity17h
   unreachable
 
 .split8.i.i:                                      ; preds = %1
-  %4 = icmp ugt i64 %0, 1152921504606846975
+  %4 = icmp samesign ugt i64 %0, 1152921504606846975
   br i1 %4, label %5, label %6
 
 5:                                                ; preds = %.split8.i.i
@@ -26831,7 +26831,7 @@ define hidden noalias noundef nonnull ptr @_ZN8thin_vec20header_with_capacity17h
   unreachable
 
 .split8.i.i:                                      ; preds = %1
-  %4 = icmp ugt i64 %0, 288230376151711743
+  %4 = icmp samesign ugt i64 %0, 288230376151711743
   br i1 %4, label %5, label %_ZN8thin_vec6layout17h7a9e1acda4c050b7E.llvm.13158159170862922693.exit
 
 5:                                                ; preds = %.split8.i.i
@@ -26869,7 +26869,7 @@ define hidden noalias noundef nonnull ptr @_ZN8thin_vec20header_with_capacity17h
   unreachable
 
 .split8.i.i:                                      ; preds = %1
-  %4 = icmp ugt i64 %0, 288230376151711743
+  %4 = icmp samesign ugt i64 %0, 288230376151711743
   br i1 %4, label %5, label %_ZN8thin_vec6layout17h290e634068202d38E.llvm.13158159170862922693.exit
 
 5:                                                ; preds = %.split8.i.i
@@ -26907,7 +26907,7 @@ define hidden { i64, i64 } @_ZN8thin_vec6layout17h1417d98a0a2fb8aaE.llvm.1315815
   unreachable
 
 .split8.i:                                        ; preds = %1
-  %4 = icmp ugt i64 %0, 1152921504606846975
+  %4 = icmp samesign ugt i64 %0, 1152921504606846975
   br i1 %4, label %5, label %6
 
 5:                                                ; preds = %.split8.i
@@ -26942,7 +26942,7 @@ define hidden { i64, i64 } @_ZN8thin_vec6layout17h17f59456d105f27eE.llvm.1315815
   unreachable
 
 .split8.i:                                        ; preds = %1
-  %4 = icmp ugt i64 %0, 1152921504606846975
+  %4 = icmp samesign ugt i64 %0, 1152921504606846975
   br i1 %4, label %5, label %6
 
 5:                                                ; preds = %.split8.i
@@ -26977,7 +26977,7 @@ define hidden { i64, i64 } @_ZN8thin_vec6layout17h290e634068202d38E.llvm.1315815
   unreachable
 
 .split8.i:                                        ; preds = %1
-  %4 = icmp ugt i64 %0, 288230376151711743
+  %4 = icmp samesign ugt i64 %0, 288230376151711743
   br i1 %4, label %5, label %_ZN8thin_vec10alloc_size17h5a4d7b70f18a3498E.llvm.13158159170862922693.exit
 
 5:                                                ; preds = %.split8.i
@@ -27102,7 +27102,7 @@ define hidden { i64, i64 } @_ZN8thin_vec6layout17h6983dcfdd0b8cfacE.llvm.1315815
   unreachable
 
 .split8.i:                                        ; preds = %1
-  %4 = icmp ugt i64 %0, 1152921504606846975
+  %4 = icmp samesign ugt i64 %0, 1152921504606846975
   br i1 %4, label %5, label %6
 
 5:                                                ; preds = %.split8.i
@@ -27173,7 +27173,7 @@ define hidden { i64, i64 } @_ZN8thin_vec6layout17h7a9e1acda4c050b7E.llvm.1315815
   unreachable
 
 .split8.i:                                        ; preds = %1
-  %4 = icmp ugt i64 %0, 288230376151711743
+  %4 = icmp samesign ugt i64 %0, 288230376151711743
   br i1 %4, label %5, label %_ZN8thin_vec10alloc_size17hcd1488b7a4538474E.llvm.13158159170862922693.exit
 
 5:                                                ; preds = %.split8.i
@@ -27226,7 +27226,7 @@ define hidden { i64, i64 } @_ZN8thin_vec6layout17h9d3198bf791ecb28E.llvm.1315815
   unreachable
 
 .split8.i:                                        ; preds = %1
-  %4 = icmp ugt i64 %0, 1152921504606846975
+  %4 = icmp samesign ugt i64 %0, 1152921504606846975
   br i1 %4, label %5, label %6
 
 5:                                                ; preds = %.split8.i
@@ -27423,7 +27423,7 @@ define hidden { i64, i64 } @_ZN8thin_vec6layout17he8df63fb254fb9f6E.llvm.1315815
   unreachable
 
 .split8.i:                                        ; preds = %1
-  %4 = icmp ugt i64 %0, 1152921504606846975
+  %4 = icmp samesign ugt i64 %0, 1152921504606846975
   br i1 %4, label %5, label %6
 
 5:                                                ; preds = %.split8.i
@@ -27458,7 +27458,7 @@ define hidden { i64, i64 } @_ZN8thin_vec6layout17hef1315b7a7effb2dE.llvm.1315815
   unreachable
 
 .split8.i:                                        ; preds = %1
-  %4 = icmp ugt i64 %0, 1152921504606846975
+  %4 = icmp samesign ugt i64 %0, 1152921504606846975
   br i1 %4, label %5, label %6
 
 5:                                                ; preds = %.split8.i

@@ -1020,7 +1020,7 @@ define dso_local noundef ptr @_ZN4llvm9BitsRecTy3getERNS_12RecordKeeperEj(ptr no
 14:                                               ; preds = %2
   %15 = add i32 %1, 1
   %16 = zext i32 %15 to i64
-  %17 = icmp ult i64 %13, %16
+  %17 = icmp samesign ult i64 %13, %16
   br i1 %17, label %18, label %20
 
 18:                                               ; preds = %14
@@ -1030,7 +1030,7 @@ define dso_local noundef ptr @_ZN4llvm9BitsRecTy3getERNS_12RecordKeeperEj(ptr no
   br label %_ZNSt6vectorIPN4llvm9BitsRecTyESaIS2_EE6resizeEm.exit
 
 20:                                               ; preds = %14
-  %21 = icmp ugt i64 %13, %16
+  %21 = icmp samesign ugt i64 %13, %16
   br i1 %21, label %22, label %_ZNSt6vectorIPN4llvm9BitsRecTyESaIS2_EE6resizeEm.exit
 
 22:                                               ; preds = %20
@@ -2793,7 +2793,7 @@ define linkonce_odr hidden void @_ZN4llvm8BitsInitC2ERNS_12RecordKeeperEj(ptr no
 15:                                               ; preds = %3
   %16 = add i32 %2, 1
   %17 = zext i32 %16 to i64
-  %18 = icmp ult i64 %14, %17
+  %18 = icmp samesign ult i64 %14, %17
   br i1 %18, label %19, label %21
 
 19:                                               ; preds = %15
@@ -2803,7 +2803,7 @@ define linkonce_odr hidden void @_ZN4llvm8BitsInitC2ERNS_12RecordKeeperEj(ptr no
   br label %_ZNSt6vectorIPN4llvm9BitsRecTyESaIS2_EE6resizeEm.exit.i
 
 21:                                               ; preds = %15
-  %22 = icmp ugt i64 %14, %17
+  %22 = icmp samesign ugt i64 %14, %17
   br i1 %22, label %23, label %_ZNSt6vectorIPN4llvm9BitsRecTyESaIS2_EE6resizeEm.exit.i
 
 23:                                               ; preds = %21
@@ -7853,7 +7853,7 @@ _ZN4llvm23SmallVectorTemplateBaseIPNS_4InitELb1EE9push_backES2_.exit326: ; preds
   %279 = getelementptr inbounds nuw i8, ptr %spec.select.i.i327, i64 32
   %280 = load i32, ptr %279, align 8
   %281 = zext i32 %280 to i64
-  %.not302 = icmp ult i64 %276, %281
+  %.not302 = icmp samesign ult i64 %276, %281
   br i1 %.not302, label %282, label %.critedge
 
 282:                                              ; preds = %278
@@ -7920,7 +7920,7 @@ _ZN4llvm23SmallVectorTemplateBaseIPNS_4InitELb1EE9push_backES2_.exit326: ; preds
 318:                                              ; preds = %314
   %319 = load i32, ptr %307, align 8
   %320 = zext i32 %319 to i64
-  %.not301 = icmp ult i64 %316, %320
+  %.not301 = icmp samesign ult i64 %316, %320
   br i1 %.not301, label %321, label %.thread
 
 321:                                              ; preds = %318
@@ -8503,7 +8503,7 @@ _ZN4llvm23SmallVectorTemplateBaseIPNS_4InitELb1EE9push_backES2_.exit359: ; preds
   %651 = getelementptr inbounds nuw i8, ptr %spec.select.i.i367, i64 48
   %652 = load i32, ptr %651, align 8
   %653 = zext i32 %652 to i64
-  %.not291 = icmp ult i64 %648, %653
+  %.not291 = icmp samesign ult i64 %648, %653
   br i1 %.not291, label %669, label %654
 
 654:                                              ; preds = %650, %646
@@ -9525,7 +9525,7 @@ _ZN4llvmplERKNS_5TwineES2_.exit28:                ; preds = %21
   %33 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %34 = load i32, ptr %33, align 8
   %35 = zext i32 %34 to i64
-  %.not13 = icmp ult i64 %23, %35
+  %.not13 = icmp samesign ult i64 %23, %35
   br i1 %.not13, label %_ZNK4llvm7DagInit8getArgNoENS_9StringRefE.exit.thread, label %_ZN4llvmplERKNS_5TwineES2_.exit88
 
 _ZN4llvmplERKNS_5TwineES2_.exit88:                ; preds = %32
@@ -25204,7 +25204,7 @@ define linkonce_odr hidden noundef ptr @_ZN4llvm15SmallVectorImplINS_9RecordValE
   %15 = getelementptr inbounds i8, ptr %.0910.i.i.i.i.i, i64 104
   %16 = getelementptr inbounds i8, ptr %.0811.i.i.i.i.i, i64 104
   %17 = add nsw i64 %.012.i.i.i.i.i, -1
-  %18 = icmp ugt i64 %.012.i.i.i.i.i, 1
+  %18 = icmp samesign ugt i64 %.012.i.i.i.i.i, 1
   br i1 %18, label %.lr.ph.i.i.i.i.i, label %_ZSt4moveIPN4llvm9RecordValES2_ET0_T_S4_S3_.exit, !llvm.loop !532
 
 _ZSt4moveIPN4llvm9RecordValES2_ET0_T_S4_S3_.exit: ; preds = %.lr.ph.i.i.i.i.i, %2

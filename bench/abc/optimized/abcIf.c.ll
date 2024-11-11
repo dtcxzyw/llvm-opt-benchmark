@@ -2013,7 +2013,7 @@ If_CutTruthW.exit:                                ; preds = %.lr.ph.i.i, %.lr.ph
   %97 = zext i8 %96 to i32
   %98 = trunc nuw i64 %indvars.iv158 to i32
   %99 = add nsw i32 %97, -1
-  %100 = icmp ugt i32 %99, %98
+  %100 = icmp samesign ugt i32 %99, %98
   br i1 %100, label %101, label %103
 
 101:                                              ; preds = %95
@@ -2564,7 +2564,7 @@ If_CutTruthW.exit:                                ; preds = %.lr.ph.i.i, %.lr.ph
 131:                                              ; preds = %124
   %132 = tail call ptr @Abc_NodeFromIf_rec(ptr noundef %0, ptr noundef nonnull %1, ptr noundef nonnull %130, ptr noundef %3)
   tail call void @Abc_ObjAddFanin(ptr noundef %80, ptr noundef %132) #18
-  %133 = icmp ugt i64 %indvars.iv282, 1
+  %133 = icmp samesign ugt i64 %indvars.iv282, 1
   br i1 %133, label %124, label %.critedge2, !llvm.loop !27
 
 134:                                              ; preds = %113

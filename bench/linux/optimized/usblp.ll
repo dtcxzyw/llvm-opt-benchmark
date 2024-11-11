@@ -386,7 +386,7 @@ define internal i32 @usblp_probe(ptr noundef %0, ptr nocapture readnone %1) #2 a
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #11
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #11
   %155 = add nsw i32 %154, -4
-  %156 = icmp ult i32 %155, -3
+  %156 = icmp samesign ult i32 %155, -3
   br i1 %156, label %213, label %157
 
 157:                                              ; preds = %.thread, %153

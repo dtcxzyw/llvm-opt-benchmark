@@ -2402,7 +2402,7 @@ define internal void @guc_bump_inflight_request_prio(ptr nocapture noundef %0, i
   br i1 %13, label %102, label %14
 
 14:                                               ; preds = %12
-  %15 = icmp ult i32 %1, 1026
+  %15 = icmp samesign ult i32 %1, 1026
   %16 = zext i1 %15 to i8
   br label %17
 
@@ -3127,7 +3127,7 @@ define dso_local i32 @intel_guc_submission_enable(ptr noundef %0) local_unnamed_
   br i1 %55, label %59, label %56
 
 56:                                               ; preds = %54
-  %57 = icmp ult i32 %52, 1026
+  %57 = icmp samesign ult i32 %52, 1026
   %58 = zext i1 %57 to i8
   br label %59
 
@@ -6914,7 +6914,7 @@ define internal fastcc noundef range(i32 -16, 1) i32 @guc_wq_item_append(ptr noc
   %44 = xor i32 %26, -1
   %45 = add i32 %42, %44
   %46 = and i32 %45, 2047
-  %47 = icmp ult i32 %46, %27
+  %47 = icmp samesign ult i32 %46, %27
   br i1 %47, label %.thread6, label %48
 
 48:                                               ; preds = %29, %39
@@ -7727,7 +7727,7 @@ define internal void @add_to_context(ptr noundef %0) #0 align 16 {
   br i1 %14, label %18, label %15
 
 15:                                               ; preds = %13
-  %16 = icmp ult i32 %11, 1026
+  %16 = icmp samesign ult i32 %11, 1026
   %17 = zext i1 %16 to i8
   br label %18
 
@@ -11542,7 +11542,7 @@ define internal fastcc void @guc_context_init(ptr noundef %0) unnamed_addr #0 al
   br i1 %10, label %14, label %11
 
 11:                                               ; preds = %9
-  %12 = icmp ult i32 %7, 1026
+  %12 = icmp samesign ult i32 %7, 1026
   %13 = zext i1 %12 to i8
   br label %14
 

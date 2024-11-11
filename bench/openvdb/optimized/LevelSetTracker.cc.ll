@@ -10428,7 +10428,7 @@ for.body.i.i:                                     ; preds = %_ZNK7openvdb5v11_04
   br i1 %cmp.i.i.i.i.i.i, label %land.lhs.true.i.i.i.i.i.i, label %cond.false.i.i.i.i.i.i
 
 land.lhs.true.i.i.i.i.i.i:                        ; preds = %for.body.i.i
-  %cmp2.i.i.i.i.i.i = icmp ult i64 %add.i.i.i.i.i.i, 64
+  %cmp2.i.i.i.i.i.i = icmp samesign ult i64 %add.i.i.i.i.i.i, 64
   br i1 %cmp2.i.i.i.i.i.i, label %if.then.i.i.i.i.i.i, label %cond.true.i.i.i.i.i.i
 
 if.then.i.i.i.i.i.i:                              ; preds = %land.lhs.true.i.i.i.i.i.i
@@ -10686,7 +10686,7 @@ for.body.i.i39:                                   ; preds = %invoke.cont28, %_ZN
   br i1 %cmp.i.i.i.i.i.i49, label %land.lhs.true.i.i.i.i.i.i74, label %cond.false.i.i.i.i.i.i50
 
 land.lhs.true.i.i.i.i.i.i74:                      ; preds = %for.body.i.i39
-  %cmp2.i.i.i.i.i.i75 = icmp ult i64 %add.i.i.i.i.i.i48, 64
+  %cmp2.i.i.i.i.i.i75 = icmp samesign ult i64 %add.i.i.i.i.i.i48, 64
   br i1 %cmp2.i.i.i.i.i.i75, label %if.then.i.i.i.i.i.i78, label %cond.true.i.i.i.i.i.i76
 
 if.then.i.i.i.i.i.i78:                            ; preds = %land.lhs.true.i.i.i.i.i.i74
@@ -11563,7 +11563,7 @@ for.body:                                         ; preds = %for.body.lr.ph, %fo
   br i1 %cmp.i.i.i.i, label %land.lhs.true.i.i.i.i, label %cond.false.i.i.i.i
 
 land.lhs.true.i.i.i.i:                            ; preds = %for.body
-  %cmp2.i.i.i.i = icmp ult i64 %add.i.i.i.i, 64
+  %cmp2.i.i.i.i = icmp samesign ult i64 %add.i.i.i.i, 64
   br i1 %cmp2.i.i.i.i, label %if.then.i.i.i.i, label %cond.true.i.i.i.i
 
 if.then.i.i.i.i:                                  ; preds = %land.lhs.true.i.i.i.i
@@ -15155,7 +15155,7 @@ while.body.i.i.i.i.i.i:                           ; preds = %if.then.i.i.i.i.i, 
   %delay.addr.02.i.i.i.i.i.i = phi i32 [ %dec.i.i.i.i.i.i, %while.body.i.i.i.i.i.i ], [ %backoff.sroa.0.03.i.i.i.i, %if.then.i.i.i.i.i ]
   %dec.i.i.i.i.i.i = add nsw i32 %delay.addr.02.i.i.i.i.i.i, -1
   call void @llvm.x86.sse2.pause()
-  %cmp.i.i.i.i.i.i = icmp ugt i32 %delay.addr.02.i.i.i.i.i.i, 1
+  %cmp.i.i.i.i.i.i = icmp samesign ugt i32 %delay.addr.02.i.i.i.i.i.i, 1
   br i1 %cmp.i.i.i.i.i.i, label %while.body.i.i.i.i.i.i, label %_ZN3tbb6detail2d0L13machine_pauseEi.exit.i.i.i.i.i, !llvm.loop !110
 
 _ZN3tbb6detail2d0L13machine_pauseEi.exit.i.i.i.i.i: ; preds = %while.body.i.i.i.i.i.i, %if.then.i.i.i.i.i
@@ -15252,7 +15252,7 @@ while.body.i.i.i.i.i.i49:                         ; preds = %if.then.i.i.i.i.i45
   %delay.addr.02.i.i.i.i.i.i50 = phi i32 [ %dec.i.i.i.i.i.i51, %while.body.i.i.i.i.i.i49 ], [ %backoff.sroa.0.03.i.i.i.i38, %if.then.i.i.i.i.i45 ]
   %dec.i.i.i.i.i.i51 = add nsw i32 %delay.addr.02.i.i.i.i.i.i50, -1
   call void @llvm.x86.sse2.pause()
-  %cmp.i.i.i.i.i.i52 = icmp ugt i32 %delay.addr.02.i.i.i.i.i.i50, 1
+  %cmp.i.i.i.i.i.i52 = icmp samesign ugt i32 %delay.addr.02.i.i.i.i.i.i50, 1
   br i1 %cmp.i.i.i.i.i.i52, label %while.body.i.i.i.i.i.i49, label %_ZN3tbb6detail2d0L13machine_pauseEi.exit.i.i.i.i.i47, !llvm.loop !110
 
 _ZN3tbb6detail2d0L13machine_pauseEi.exit.i.i.i.i.i47: ; preds = %while.body.i.i.i.i.i.i49, %if.then.i.i.i.i.i45
@@ -15985,7 +15985,7 @@ while.body.i.i.i.i.i.i110:                        ; preds = %if.then.i.i.i.i.i10
   %delay.addr.02.i.i.i.i.i.i111 = phi i32 [ %dec.i.i.i.i.i.i112, %while.body.i.i.i.i.i.i110 ], [ %backoff.sroa.0.03.i.i.i.i99, %if.then.i.i.i.i.i106 ]
   %dec.i.i.i.i.i.i112 = add nsw i32 %delay.addr.02.i.i.i.i.i.i111, -1
   call void @llvm.x86.sse2.pause()
-  %cmp.i.i.i.i.i.i113 = icmp ugt i32 %delay.addr.02.i.i.i.i.i.i111, 1
+  %cmp.i.i.i.i.i.i113 = icmp samesign ugt i32 %delay.addr.02.i.i.i.i.i.i111, 1
   br i1 %cmp.i.i.i.i.i.i113, label %while.body.i.i.i.i.i.i110, label %_ZN3tbb6detail2d0L13machine_pauseEi.exit.i.i.i.i.i108, !llvm.loop !110
 
 _ZN3tbb6detail2d0L13machine_pauseEi.exit.i.i.i.i.i108: ; preds = %while.body.i.i.i.i.i.i110, %if.then.i.i.i.i.i106
@@ -17378,7 +17378,7 @@ while.body.i.i:                                   ; preds = %if.end56, %while.bo
   %delay.addr.02.i.i = phi i32 [ %dec.i.i, %while.body.i.i ], [ %backoff.sroa.0.0, %if.end56 ]
   %dec.i.i = add nsw i32 %delay.addr.02.i.i, -1
   call void @llvm.x86.sse2.pause()
-  %cmp.i.i95 = icmp ugt i32 %delay.addr.02.i.i, 1
+  %cmp.i.i95 = icmp samesign ugt i32 %delay.addr.02.i.i, 1
   br i1 %cmp.i.i95, label %while.body.i.i, label %_ZN3tbb6detail2d0L13machine_pauseEi.exit.i, !llvm.loop !110
 
 _ZN3tbb6detail2d0L13machine_pauseEi.exit.i:       ; preds = %while.body.i.i
@@ -17654,7 +17654,7 @@ while.body.i.i.i.i:                               ; preds = %while.body.i.i.i.i,
   %delay.addr.02.i.i.i.i = phi i32 [ %dec.i.i.i.i, %while.body.i.i.i.i ], [ %backoff.sroa.0.13640.i.i, %while.body.i.i.preheader.i.i ]
   %dec.i.i.i.i = add nsw i32 %delay.addr.02.i.i.i.i, -1
   tail call void @llvm.x86.sse2.pause()
-  %cmp.i.i.i.i = icmp ugt i32 %delay.addr.02.i.i.i.i, 1
+  %cmp.i.i.i.i = icmp samesign ugt i32 %delay.addr.02.i.i.i.i, 1
   br i1 %cmp.i.i.i.i, label %while.body.i.i.i.i, label %_ZN3tbb6detail2d0L13machine_pauseEi.exit.i.i.i, !llvm.loop !110
 
 _ZN3tbb6detail2d0L13machine_pauseEi.exit.i.i.i:   ; preds = %while.body.i.i.i.i, %if.then.i.i.i
@@ -17693,7 +17693,7 @@ while.body.i.i.i14.i:                             ; preds = %if.then.i.i10.i, %w
   %delay.addr.02.i.i.i15.i = phi i32 [ %dec.i.i.i16.i, %while.body.i.i.i14.i ], [ %b.sroa.0.0.i.i.ph, %if.then.i.i10.i ]
   %dec.i.i.i16.i = add nsw i32 %delay.addr.02.i.i.i15.i, -1
   tail call void @llvm.x86.sse2.pause()
-  %cmp.i.i.i17.i = icmp ugt i32 %delay.addr.02.i.i.i15.i, 1
+  %cmp.i.i.i17.i = icmp samesign ugt i32 %delay.addr.02.i.i.i15.i, 1
   br i1 %cmp.i.i.i17.i, label %while.body.i.i.i14.i, label %_ZN3tbb6detail2d0L13machine_pauseEi.exit.i.i12.i, !llvm.loop !110
 
 _ZN3tbb6detail2d0L13machine_pauseEi.exit.i.i12.i: ; preds = %while.body.i.i.i14.i, %if.then.i.i10.i
@@ -17789,7 +17789,7 @@ while.body.i.i.i14.i.i:                           ; preds = %if.then.i.i10.i.i, 
   %delay.addr.02.i.i.i15.i.i = phi i32 [ %dec.i.i.i16.i.i, %while.body.i.i.i14.i.i ], [ %b.sroa.0.0.i.i.i.ph, %if.then.i.i10.i.i ]
   %dec.i.i.i16.i.i = add nsw i32 %delay.addr.02.i.i.i15.i.i, -1
   tail call void @llvm.x86.sse2.pause()
-  %cmp.i.i.i17.i.i = icmp ugt i32 %delay.addr.02.i.i.i15.i.i, 1
+  %cmp.i.i.i17.i.i = icmp samesign ugt i32 %delay.addr.02.i.i.i15.i.i, 1
   br i1 %cmp.i.i.i17.i.i, label %while.body.i.i.i14.i.i, label %_ZN3tbb6detail2d0L13machine_pauseEi.exit.i.i12.i.i, !llvm.loop !110
 
 _ZN3tbb6detail2d0L13machine_pauseEi.exit.i.i12.i.i: ; preds = %while.body.i.i.i14.i.i, %if.then.i.i10.i.i
@@ -17959,7 +17959,7 @@ while.body.i.i:                                   ; preds = %if.then.i, %while.b
   %delay.addr.02.i.i = phi i32 [ %dec.i.i, %while.body.i.i ], [ %backoff.sroa.0.043, %if.then.i ]
   %dec.i.i = add nsw i32 %delay.addr.02.i.i, -1
   tail call void @llvm.x86.sse2.pause()
-  %cmp.i.i = icmp ugt i32 %delay.addr.02.i.i, 1
+  %cmp.i.i = icmp samesign ugt i32 %delay.addr.02.i.i, 1
   br i1 %cmp.i.i, label %while.body.i.i, label %_ZN3tbb6detail2d0L13machine_pauseEi.exit.i, !llvm.loop !110
 
 _ZN3tbb6detail2d0L13machine_pauseEi.exit.i:       ; preds = %while.body.i.i, %if.then.i
@@ -18025,7 +18025,7 @@ while.body.i.i.i:                                 ; preds = %while.body.i.i.i, %
   %delay.addr.02.i.i.i = phi i32 [ %dec.i.i.i, %while.body.i.i.i ], [ %backoff.sroa.0.13640.i, %while.body.i.i.preheader.i ]
   %dec.i.i.i = add nsw i32 %delay.addr.02.i.i.i, -1
   tail call void @llvm.x86.sse2.pause()
-  %cmp.i.i.i = icmp ugt i32 %delay.addr.02.i.i.i, 1
+  %cmp.i.i.i = icmp samesign ugt i32 %delay.addr.02.i.i.i, 1
   br i1 %cmp.i.i.i, label %while.body.i.i.i, label %_ZN3tbb6detail2d0L13machine_pauseEi.exit.i.i, !llvm.loop !110
 
 _ZN3tbb6detail2d0L13machine_pauseEi.exit.i.i:     ; preds = %while.body.i.i.i, %if.then.i.i
@@ -18215,7 +18215,7 @@ while.body.i.i.i:                                 ; preds = %if.then.i.i78, %whi
   %delay.addr.02.i.i.i = phi i32 [ %dec.i.i.i, %while.body.i.i.i ], [ %backoff.sroa.0.043.i, %if.then.i.i78 ]
   %dec.i.i.i = add nsw i32 %delay.addr.02.i.i.i, -1
   call void @llvm.x86.sse2.pause()
-  %cmp.i.i.i79 = icmp ugt i32 %delay.addr.02.i.i.i, 1
+  %cmp.i.i.i79 = icmp samesign ugt i32 %delay.addr.02.i.i.i, 1
   br i1 %cmp.i.i.i79, label %while.body.i.i.i, label %_ZN3tbb6detail2d0L13machine_pauseEi.exit.i.i, !llvm.loop !110
 
 _ZN3tbb6detail2d0L13machine_pauseEi.exit.i.i:     ; preds = %while.body.i.i.i, %if.then.i.i78
@@ -18281,7 +18281,7 @@ while.body.i.i.i.i:                               ; preds = %while.body.i.i.i.i,
   %delay.addr.02.i.i.i.i = phi i32 [ %dec.i.i.i.i, %while.body.i.i.i.i ], [ %backoff.sroa.0.13640.i.i, %while.body.i.i.preheader.i.i ]
   %dec.i.i.i.i = add nsw i32 %delay.addr.02.i.i.i.i, -1
   call void @llvm.x86.sse2.pause()
-  %cmp.i.i.i.i75 = icmp ugt i32 %delay.addr.02.i.i.i.i, 1
+  %cmp.i.i.i.i75 = icmp samesign ugt i32 %delay.addr.02.i.i.i.i, 1
   br i1 %cmp.i.i.i.i75, label %while.body.i.i.i.i, label %_ZN3tbb6detail2d0L13machine_pauseEi.exit.i.i.i, !llvm.loop !110
 
 _ZN3tbb6detail2d0L13machine_pauseEi.exit.i.i.i:   ; preds = %while.body.i.i.i.i, %if.then.i.i.i74
@@ -18436,7 +18436,7 @@ while.body.i.i.i.i.i:                             ; preds = %while.body.i.i.i.i.
   %delay.addr.02.i.i.i.i.i = phi i32 [ %dec.i.i.i.i.i, %while.body.i.i.i.i.i ], [ %backoff.sroa.0.13640.i.i.i, %while.body.i.i.preheader.i.i.i ]
   %dec.i.i.i.i.i = add nsw i32 %delay.addr.02.i.i.i.i.i, -1
   call void @llvm.x86.sse2.pause()
-  %cmp.i.i.i.i.i = icmp ugt i32 %delay.addr.02.i.i.i.i.i, 1
+  %cmp.i.i.i.i.i = icmp samesign ugt i32 %delay.addr.02.i.i.i.i.i, 1
   br i1 %cmp.i.i.i.i.i, label %while.body.i.i.i.i.i, label %_ZN3tbb6detail2d0L13machine_pauseEi.exit.i.i.i.i, !llvm.loop !110
 
 _ZN3tbb6detail2d0L13machine_pauseEi.exit.i.i.i.i: ; preds = %while.body.i.i.i.i.i, %if.then.i.i.i.i
@@ -18492,7 +18492,7 @@ while.body.i.i.i.i.i:                             ; preds = %if.then.i.i.i.i, %w
   %delay.addr.02.i.i.i.i.i = phi i32 [ %dec.i.i.i.i.i, %while.body.i.i.i.i.i ], [ %backoff.sroa.0.03.i.i.i, %if.then.i.i.i.i ]
   %dec.i.i.i.i.i = add nsw i32 %delay.addr.02.i.i.i.i.i, -1
   tail call void @llvm.x86.sse2.pause()
-  %cmp.i.i.i.i.i = icmp ugt i32 %delay.addr.02.i.i.i.i.i, 1
+  %cmp.i.i.i.i.i = icmp samesign ugt i32 %delay.addr.02.i.i.i.i.i, 1
   br i1 %cmp.i.i.i.i.i, label %while.body.i.i.i.i.i, label %_ZN3tbb6detail2d0L13machine_pauseEi.exit.i.i.i.i, !llvm.loop !110
 
 _ZN3tbb6detail2d0L13machine_pauseEi.exit.i.i.i.i: ; preds = %while.body.i.i.i.i.i, %if.then.i.i.i.i
@@ -20159,7 +20159,7 @@ while.body.i.i.i.i.i.i:                           ; preds = %if.then.i.i.i.i.i, 
   %delay.addr.02.i.i.i.i.i.i = phi i32 [ %dec.i.i.i.i.i.i, %while.body.i.i.i.i.i.i ], [ %backoff.sroa.0.03.i.i.i.i, %if.then.i.i.i.i.i ]
   %dec.i.i.i.i.i.i = add nsw i32 %delay.addr.02.i.i.i.i.i.i, -1
   tail call void @llvm.x86.sse2.pause()
-  %cmp.i.i.i.i.i.i = icmp ugt i32 %delay.addr.02.i.i.i.i.i.i, 1
+  %cmp.i.i.i.i.i.i = icmp samesign ugt i32 %delay.addr.02.i.i.i.i.i.i, 1
   br i1 %cmp.i.i.i.i.i.i, label %while.body.i.i.i.i.i.i, label %_ZN3tbb6detail2d0L13machine_pauseEi.exit.i.i.i.i.i, !llvm.loop !110
 
 _ZN3tbb6detail2d0L13machine_pauseEi.exit.i.i.i.i.i: ; preds = %while.body.i.i.i.i.i.i, %if.then.i.i.i.i.i
@@ -22154,7 +22154,7 @@ while.body.i.i.i.i.i.i:                           ; preds = %if.then.i.i.i.i.i, 
   %delay.addr.02.i.i.i.i.i.i = phi i32 [ %dec.i.i.i.i.i.i, %while.body.i.i.i.i.i.i ], [ %backoff.sroa.0.03.i.i.i.i, %if.then.i.i.i.i.i ]
   %dec.i.i.i.i.i.i = add nsw i32 %delay.addr.02.i.i.i.i.i.i, -1
   call void @llvm.x86.sse2.pause()
-  %cmp.i.i.i.i.i.i = icmp ugt i32 %delay.addr.02.i.i.i.i.i.i, 1
+  %cmp.i.i.i.i.i.i = icmp samesign ugt i32 %delay.addr.02.i.i.i.i.i.i, 1
   br i1 %cmp.i.i.i.i.i.i, label %while.body.i.i.i.i.i.i, label %_ZN3tbb6detail2d0L13machine_pauseEi.exit.i.i.i.i.i, !llvm.loop !110
 
 _ZN3tbb6detail2d0L13machine_pauseEi.exit.i.i.i.i.i: ; preds = %while.body.i.i.i.i.i.i, %if.then.i.i.i.i.i
@@ -22251,7 +22251,7 @@ while.body.i.i.i.i.i.i49:                         ; preds = %if.then.i.i.i.i.i45
   %delay.addr.02.i.i.i.i.i.i50 = phi i32 [ %dec.i.i.i.i.i.i51, %while.body.i.i.i.i.i.i49 ], [ %backoff.sroa.0.03.i.i.i.i38, %if.then.i.i.i.i.i45 ]
   %dec.i.i.i.i.i.i51 = add nsw i32 %delay.addr.02.i.i.i.i.i.i50, -1
   call void @llvm.x86.sse2.pause()
-  %cmp.i.i.i.i.i.i52 = icmp ugt i32 %delay.addr.02.i.i.i.i.i.i50, 1
+  %cmp.i.i.i.i.i.i52 = icmp samesign ugt i32 %delay.addr.02.i.i.i.i.i.i50, 1
   br i1 %cmp.i.i.i.i.i.i52, label %while.body.i.i.i.i.i.i49, label %_ZN3tbb6detail2d0L13machine_pauseEi.exit.i.i.i.i.i47, !llvm.loop !110
 
 _ZN3tbb6detail2d0L13machine_pauseEi.exit.i.i.i.i.i47: ; preds = %while.body.i.i.i.i.i.i49, %if.then.i.i.i.i.i45
@@ -22984,7 +22984,7 @@ while.body.i.i.i.i.i.i110:                        ; preds = %if.then.i.i.i.i.i10
   %delay.addr.02.i.i.i.i.i.i111 = phi i32 [ %dec.i.i.i.i.i.i112, %while.body.i.i.i.i.i.i110 ], [ %backoff.sroa.0.03.i.i.i.i99, %if.then.i.i.i.i.i106 ]
   %dec.i.i.i.i.i.i112 = add nsw i32 %delay.addr.02.i.i.i.i.i.i111, -1
   call void @llvm.x86.sse2.pause()
-  %cmp.i.i.i.i.i.i113 = icmp ugt i32 %delay.addr.02.i.i.i.i.i.i111, 1
+  %cmp.i.i.i.i.i.i113 = icmp samesign ugt i32 %delay.addr.02.i.i.i.i.i.i111, 1
   br i1 %cmp.i.i.i.i.i.i113, label %while.body.i.i.i.i.i.i110, label %_ZN3tbb6detail2d0L13machine_pauseEi.exit.i.i.i.i.i108, !llvm.loop !110
 
 _ZN3tbb6detail2d0L13machine_pauseEi.exit.i.i.i.i.i108: ; preds = %while.body.i.i.i.i.i.i110, %if.then.i.i.i.i.i106
@@ -24791,7 +24791,7 @@ while.body.i.i.i.i.i.i:                           ; preds = %if.then.i.i.i.i.i, 
   %delay.addr.02.i.i.i.i.i.i = phi i32 [ %dec.i.i.i.i.i.i, %while.body.i.i.i.i.i.i ], [ %backoff.sroa.0.03.i.i.i.i, %if.then.i.i.i.i.i ]
   %dec.i.i.i.i.i.i = add nsw i32 %delay.addr.02.i.i.i.i.i.i, -1
   call void @llvm.x86.sse2.pause()
-  %cmp.i.i.i.i.i.i = icmp ugt i32 %delay.addr.02.i.i.i.i.i.i, 1
+  %cmp.i.i.i.i.i.i = icmp samesign ugt i32 %delay.addr.02.i.i.i.i.i.i, 1
   br i1 %cmp.i.i.i.i.i.i, label %while.body.i.i.i.i.i.i, label %_ZN3tbb6detail2d0L13machine_pauseEi.exit.i.i.i.i.i, !llvm.loop !110
 
 _ZN3tbb6detail2d0L13machine_pauseEi.exit.i.i.i.i.i: ; preds = %while.body.i.i.i.i.i.i, %if.then.i.i.i.i.i
@@ -24890,7 +24890,7 @@ while.body.i.i.i.i.i.i49:                         ; preds = %if.then.i.i.i.i.i45
   %delay.addr.02.i.i.i.i.i.i50 = phi i32 [ %dec.i.i.i.i.i.i51, %while.body.i.i.i.i.i.i49 ], [ %backoff.sroa.0.03.i.i.i.i38, %if.then.i.i.i.i.i45 ]
   %dec.i.i.i.i.i.i51 = add nsw i32 %delay.addr.02.i.i.i.i.i.i50, -1
   call void @llvm.x86.sse2.pause()
-  %cmp.i.i.i.i.i.i52 = icmp ugt i32 %delay.addr.02.i.i.i.i.i.i50, 1
+  %cmp.i.i.i.i.i.i52 = icmp samesign ugt i32 %delay.addr.02.i.i.i.i.i.i50, 1
   br i1 %cmp.i.i.i.i.i.i52, label %while.body.i.i.i.i.i.i49, label %_ZN3tbb6detail2d0L13machine_pauseEi.exit.i.i.i.i.i47, !llvm.loop !110
 
 _ZN3tbb6detail2d0L13machine_pauseEi.exit.i.i.i.i.i47: ; preds = %while.body.i.i.i.i.i.i49, %if.then.i.i.i.i.i45
@@ -25627,7 +25627,7 @@ while.body.i.i.i.i.i.i110:                        ; preds = %if.then.i.i.i.i.i10
   %delay.addr.02.i.i.i.i.i.i111 = phi i32 [ %dec.i.i.i.i.i.i112, %while.body.i.i.i.i.i.i110 ], [ %backoff.sroa.0.03.i.i.i.i99, %if.then.i.i.i.i.i106 ]
   %dec.i.i.i.i.i.i112 = add nsw i32 %delay.addr.02.i.i.i.i.i.i111, -1
   call void @llvm.x86.sse2.pause()
-  %cmp.i.i.i.i.i.i113 = icmp ugt i32 %delay.addr.02.i.i.i.i.i.i111, 1
+  %cmp.i.i.i.i.i.i113 = icmp samesign ugt i32 %delay.addr.02.i.i.i.i.i.i111, 1
   br i1 %cmp.i.i.i.i.i.i113, label %while.body.i.i.i.i.i.i110, label %_ZN3tbb6detail2d0L13machine_pauseEi.exit.i.i.i.i.i108, !llvm.loop !110
 
 _ZN3tbb6detail2d0L13machine_pauseEi.exit.i.i.i.i.i108: ; preds = %while.body.i.i.i.i.i.i110, %if.then.i.i.i.i.i106
@@ -26802,7 +26802,7 @@ while.body.i.i.i.i.i.i:                           ; preds = %if.then.i.i.i.i.i, 
   %delay.addr.02.i.i.i.i.i.i = phi i32 [ %dec.i.i.i.i.i.i, %while.body.i.i.i.i.i.i ], [ %backoff.sroa.0.03.i.i.i.i, %if.then.i.i.i.i.i ]
   %dec.i.i.i.i.i.i = add nsw i32 %delay.addr.02.i.i.i.i.i.i, -1
   call void @llvm.x86.sse2.pause()
-  %cmp.i.i.i.i.i.i = icmp ugt i32 %delay.addr.02.i.i.i.i.i.i, 1
+  %cmp.i.i.i.i.i.i = icmp samesign ugt i32 %delay.addr.02.i.i.i.i.i.i, 1
   br i1 %cmp.i.i.i.i.i.i, label %while.body.i.i.i.i.i.i, label %_ZN3tbb6detail2d0L13machine_pauseEi.exit.i.i.i.i.i, !llvm.loop !110
 
 _ZN3tbb6detail2d0L13machine_pauseEi.exit.i.i.i.i.i: ; preds = %while.body.i.i.i.i.i.i, %if.then.i.i.i.i.i
@@ -26899,7 +26899,7 @@ while.body.i.i.i.i.i.i49:                         ; preds = %if.then.i.i.i.i.i45
   %delay.addr.02.i.i.i.i.i.i50 = phi i32 [ %dec.i.i.i.i.i.i51, %while.body.i.i.i.i.i.i49 ], [ %backoff.sroa.0.03.i.i.i.i38, %if.then.i.i.i.i.i45 ]
   %dec.i.i.i.i.i.i51 = add nsw i32 %delay.addr.02.i.i.i.i.i.i50, -1
   call void @llvm.x86.sse2.pause()
-  %cmp.i.i.i.i.i.i52 = icmp ugt i32 %delay.addr.02.i.i.i.i.i.i50, 1
+  %cmp.i.i.i.i.i.i52 = icmp samesign ugt i32 %delay.addr.02.i.i.i.i.i.i50, 1
   br i1 %cmp.i.i.i.i.i.i52, label %while.body.i.i.i.i.i.i49, label %_ZN3tbb6detail2d0L13machine_pauseEi.exit.i.i.i.i.i47, !llvm.loop !110
 
 _ZN3tbb6detail2d0L13machine_pauseEi.exit.i.i.i.i.i47: ; preds = %while.body.i.i.i.i.i.i49, %if.then.i.i.i.i.i45
@@ -27632,7 +27632,7 @@ while.body.i.i.i.i.i.i110:                        ; preds = %if.then.i.i.i.i.i10
   %delay.addr.02.i.i.i.i.i.i111 = phi i32 [ %dec.i.i.i.i.i.i112, %while.body.i.i.i.i.i.i110 ], [ %backoff.sroa.0.03.i.i.i.i99, %if.then.i.i.i.i.i106 ]
   %dec.i.i.i.i.i.i112 = add nsw i32 %delay.addr.02.i.i.i.i.i.i111, -1
   call void @llvm.x86.sse2.pause()
-  %cmp.i.i.i.i.i.i113 = icmp ugt i32 %delay.addr.02.i.i.i.i.i.i111, 1
+  %cmp.i.i.i.i.i.i113 = icmp samesign ugt i32 %delay.addr.02.i.i.i.i.i.i111, 1
   br i1 %cmp.i.i.i.i.i.i113, label %while.body.i.i.i.i.i.i110, label %_ZN3tbb6detail2d0L13machine_pauseEi.exit.i.i.i.i.i108, !llvm.loop !110
 
 _ZN3tbb6detail2d0L13machine_pauseEi.exit.i.i.i.i.i108: ; preds = %while.body.i.i.i.i.i.i110, %if.then.i.i.i.i.i106
@@ -29439,7 +29439,7 @@ while.body.i.i.i.i.i.i:                           ; preds = %if.then.i.i.i.i.i, 
   %delay.addr.02.i.i.i.i.i.i = phi i32 [ %dec.i.i.i.i.i.i, %while.body.i.i.i.i.i.i ], [ %backoff.sroa.0.03.i.i.i.i, %if.then.i.i.i.i.i ]
   %dec.i.i.i.i.i.i = add nsw i32 %delay.addr.02.i.i.i.i.i.i, -1
   call void @llvm.x86.sse2.pause()
-  %cmp.i.i.i.i.i.i = icmp ugt i32 %delay.addr.02.i.i.i.i.i.i, 1
+  %cmp.i.i.i.i.i.i = icmp samesign ugt i32 %delay.addr.02.i.i.i.i.i.i, 1
   br i1 %cmp.i.i.i.i.i.i, label %while.body.i.i.i.i.i.i, label %_ZN3tbb6detail2d0L13machine_pauseEi.exit.i.i.i.i.i, !llvm.loop !110
 
 _ZN3tbb6detail2d0L13machine_pauseEi.exit.i.i.i.i.i: ; preds = %while.body.i.i.i.i.i.i, %if.then.i.i.i.i.i
@@ -29538,7 +29538,7 @@ while.body.i.i.i.i.i.i49:                         ; preds = %if.then.i.i.i.i.i45
   %delay.addr.02.i.i.i.i.i.i50 = phi i32 [ %dec.i.i.i.i.i.i51, %while.body.i.i.i.i.i.i49 ], [ %backoff.sroa.0.03.i.i.i.i38, %if.then.i.i.i.i.i45 ]
   %dec.i.i.i.i.i.i51 = add nsw i32 %delay.addr.02.i.i.i.i.i.i50, -1
   call void @llvm.x86.sse2.pause()
-  %cmp.i.i.i.i.i.i52 = icmp ugt i32 %delay.addr.02.i.i.i.i.i.i50, 1
+  %cmp.i.i.i.i.i.i52 = icmp samesign ugt i32 %delay.addr.02.i.i.i.i.i.i50, 1
   br i1 %cmp.i.i.i.i.i.i52, label %while.body.i.i.i.i.i.i49, label %_ZN3tbb6detail2d0L13machine_pauseEi.exit.i.i.i.i.i47, !llvm.loop !110
 
 _ZN3tbb6detail2d0L13machine_pauseEi.exit.i.i.i.i.i47: ; preds = %while.body.i.i.i.i.i.i49, %if.then.i.i.i.i.i45
@@ -30275,7 +30275,7 @@ while.body.i.i.i.i.i.i110:                        ; preds = %if.then.i.i.i.i.i10
   %delay.addr.02.i.i.i.i.i.i111 = phi i32 [ %dec.i.i.i.i.i.i112, %while.body.i.i.i.i.i.i110 ], [ %backoff.sroa.0.03.i.i.i.i99, %if.then.i.i.i.i.i106 ]
   %dec.i.i.i.i.i.i112 = add nsw i32 %delay.addr.02.i.i.i.i.i.i111, -1
   call void @llvm.x86.sse2.pause()
-  %cmp.i.i.i.i.i.i113 = icmp ugt i32 %delay.addr.02.i.i.i.i.i.i111, 1
+  %cmp.i.i.i.i.i.i113 = icmp samesign ugt i32 %delay.addr.02.i.i.i.i.i.i111, 1
   br i1 %cmp.i.i.i.i.i.i113, label %while.body.i.i.i.i.i.i110, label %_ZN3tbb6detail2d0L13machine_pauseEi.exit.i.i.i.i.i108, !llvm.loop !110
 
 _ZN3tbb6detail2d0L13machine_pauseEi.exit.i.i.i.i.i108: ; preds = %while.body.i.i.i.i.i.i110, %if.then.i.i.i.i.i106
@@ -31121,7 +31121,7 @@ while.body.i.i.i.i.i.i:                           ; preds = %if.then.i.i.i.i.i, 
   %delay.addr.02.i.i.i.i.i.i = phi i32 [ %dec.i.i.i.i.i.i, %while.body.i.i.i.i.i.i ], [ %backoff.sroa.0.03.i.i.i.i, %if.then.i.i.i.i.i ]
   %dec.i.i.i.i.i.i = add nsw i32 %delay.addr.02.i.i.i.i.i.i, -1
   call void @llvm.x86.sse2.pause()
-  %cmp.i.i.i.i.i.i = icmp ugt i32 %delay.addr.02.i.i.i.i.i.i, 1
+  %cmp.i.i.i.i.i.i = icmp samesign ugt i32 %delay.addr.02.i.i.i.i.i.i, 1
   br i1 %cmp.i.i.i.i.i.i, label %while.body.i.i.i.i.i.i, label %_ZN3tbb6detail2d0L13machine_pauseEi.exit.i.i.i.i.i, !llvm.loop !110
 
 _ZN3tbb6detail2d0L13machine_pauseEi.exit.i.i.i.i.i: ; preds = %while.body.i.i.i.i.i.i, %if.then.i.i.i.i.i
@@ -31220,7 +31220,7 @@ while.body.i.i.i.i.i.i49:                         ; preds = %if.then.i.i.i.i.i45
   %delay.addr.02.i.i.i.i.i.i50 = phi i32 [ %dec.i.i.i.i.i.i51, %while.body.i.i.i.i.i.i49 ], [ %backoff.sroa.0.03.i.i.i.i38, %if.then.i.i.i.i.i45 ]
   %dec.i.i.i.i.i.i51 = add nsw i32 %delay.addr.02.i.i.i.i.i.i50, -1
   call void @llvm.x86.sse2.pause()
-  %cmp.i.i.i.i.i.i52 = icmp ugt i32 %delay.addr.02.i.i.i.i.i.i50, 1
+  %cmp.i.i.i.i.i.i52 = icmp samesign ugt i32 %delay.addr.02.i.i.i.i.i.i50, 1
   br i1 %cmp.i.i.i.i.i.i52, label %while.body.i.i.i.i.i.i49, label %_ZN3tbb6detail2d0L13machine_pauseEi.exit.i.i.i.i.i47, !llvm.loop !110
 
 _ZN3tbb6detail2d0L13machine_pauseEi.exit.i.i.i.i.i47: ; preds = %while.body.i.i.i.i.i.i49, %if.then.i.i.i.i.i45
@@ -31957,7 +31957,7 @@ while.body.i.i.i.i.i.i110:                        ; preds = %if.then.i.i.i.i.i10
   %delay.addr.02.i.i.i.i.i.i111 = phi i32 [ %dec.i.i.i.i.i.i112, %while.body.i.i.i.i.i.i110 ], [ %backoff.sroa.0.03.i.i.i.i99, %if.then.i.i.i.i.i106 ]
   %dec.i.i.i.i.i.i112 = add nsw i32 %delay.addr.02.i.i.i.i.i.i111, -1
   call void @llvm.x86.sse2.pause()
-  %cmp.i.i.i.i.i.i113 = icmp ugt i32 %delay.addr.02.i.i.i.i.i.i111, 1
+  %cmp.i.i.i.i.i.i113 = icmp samesign ugt i32 %delay.addr.02.i.i.i.i.i.i111, 1
   br i1 %cmp.i.i.i.i.i.i113, label %while.body.i.i.i.i.i.i110, label %_ZN3tbb6detail2d0L13machine_pauseEi.exit.i.i.i.i.i108, !llvm.loop !110
 
 _ZN3tbb6detail2d0L13machine_pauseEi.exit.i.i.i.i.i108: ; preds = %while.body.i.i.i.i.i.i110, %if.then.i.i.i.i.i106
@@ -32999,7 +32999,7 @@ while.body.i.i.i.i.i.i:                           ; preds = %if.then.i.i.i.i.i, 
   %delay.addr.02.i.i.i.i.i.i = phi i32 [ %dec.i.i.i.i.i.i, %while.body.i.i.i.i.i.i ], [ %backoff.sroa.0.03.i.i.i.i, %if.then.i.i.i.i.i ]
   %dec.i.i.i.i.i.i = add nsw i32 %delay.addr.02.i.i.i.i.i.i, -1
   call void @llvm.x86.sse2.pause()
-  %cmp.i.i.i.i.i.i = icmp ugt i32 %delay.addr.02.i.i.i.i.i.i, 1
+  %cmp.i.i.i.i.i.i = icmp samesign ugt i32 %delay.addr.02.i.i.i.i.i.i, 1
   br i1 %cmp.i.i.i.i.i.i, label %while.body.i.i.i.i.i.i, label %_ZN3tbb6detail2d0L13machine_pauseEi.exit.i.i.i.i.i, !llvm.loop !110
 
 _ZN3tbb6detail2d0L13machine_pauseEi.exit.i.i.i.i.i: ; preds = %while.body.i.i.i.i.i.i, %if.then.i.i.i.i.i
@@ -33096,7 +33096,7 @@ while.body.i.i.i.i.i.i49:                         ; preds = %if.then.i.i.i.i.i45
   %delay.addr.02.i.i.i.i.i.i50 = phi i32 [ %dec.i.i.i.i.i.i51, %while.body.i.i.i.i.i.i49 ], [ %backoff.sroa.0.03.i.i.i.i38, %if.then.i.i.i.i.i45 ]
   %dec.i.i.i.i.i.i51 = add nsw i32 %delay.addr.02.i.i.i.i.i.i50, -1
   call void @llvm.x86.sse2.pause()
-  %cmp.i.i.i.i.i.i52 = icmp ugt i32 %delay.addr.02.i.i.i.i.i.i50, 1
+  %cmp.i.i.i.i.i.i52 = icmp samesign ugt i32 %delay.addr.02.i.i.i.i.i.i50, 1
   br i1 %cmp.i.i.i.i.i.i52, label %while.body.i.i.i.i.i.i49, label %_ZN3tbb6detail2d0L13machine_pauseEi.exit.i.i.i.i.i47, !llvm.loop !110
 
 _ZN3tbb6detail2d0L13machine_pauseEi.exit.i.i.i.i.i47: ; preds = %while.body.i.i.i.i.i.i49, %if.then.i.i.i.i.i45
@@ -33486,7 +33486,7 @@ while.body.i.i.i.i.i.i110:                        ; preds = %if.then.i.i.i.i.i10
   %delay.addr.02.i.i.i.i.i.i111 = phi i32 [ %dec.i.i.i.i.i.i112, %while.body.i.i.i.i.i.i110 ], [ %backoff.sroa.0.03.i.i.i.i99, %if.then.i.i.i.i.i106 ]
   %dec.i.i.i.i.i.i112 = add nsw i32 %delay.addr.02.i.i.i.i.i.i111, -1
   call void @llvm.x86.sse2.pause()
-  %cmp.i.i.i.i.i.i113 = icmp ugt i32 %delay.addr.02.i.i.i.i.i.i111, 1
+  %cmp.i.i.i.i.i.i113 = icmp samesign ugt i32 %delay.addr.02.i.i.i.i.i.i111, 1
   br i1 %cmp.i.i.i.i.i.i113, label %while.body.i.i.i.i.i.i110, label %_ZN3tbb6detail2d0L13machine_pauseEi.exit.i.i.i.i.i108, !llvm.loop !110
 
 _ZN3tbb6detail2d0L13machine_pauseEi.exit.i.i.i.i.i108: ; preds = %while.body.i.i.i.i.i.i110, %if.then.i.i.i.i.i106
@@ -35589,7 +35589,7 @@ while.body.i.i.i.i.i.i:                           ; preds = %if.then.i.i.i.i.i, 
   %delay.addr.02.i.i.i.i.i.i = phi i32 [ %dec.i.i.i.i.i.i, %while.body.i.i.i.i.i.i ], [ %backoff.sroa.0.03.i.i.i.i, %if.then.i.i.i.i.i ]
   %dec.i.i.i.i.i.i = add nsw i32 %delay.addr.02.i.i.i.i.i.i, -1
   call void @llvm.x86.sse2.pause()
-  %cmp.i.i.i.i.i.i = icmp ugt i32 %delay.addr.02.i.i.i.i.i.i, 1
+  %cmp.i.i.i.i.i.i = icmp samesign ugt i32 %delay.addr.02.i.i.i.i.i.i, 1
   br i1 %cmp.i.i.i.i.i.i, label %while.body.i.i.i.i.i.i, label %_ZN3tbb6detail2d0L13machine_pauseEi.exit.i.i.i.i.i, !llvm.loop !110
 
 _ZN3tbb6detail2d0L13machine_pauseEi.exit.i.i.i.i.i: ; preds = %while.body.i.i.i.i.i.i, %if.then.i.i.i.i.i
@@ -35686,7 +35686,7 @@ while.body.i.i.i.i.i.i49:                         ; preds = %if.then.i.i.i.i.i45
   %delay.addr.02.i.i.i.i.i.i50 = phi i32 [ %dec.i.i.i.i.i.i51, %while.body.i.i.i.i.i.i49 ], [ %backoff.sroa.0.03.i.i.i.i38, %if.then.i.i.i.i.i45 ]
   %dec.i.i.i.i.i.i51 = add nsw i32 %delay.addr.02.i.i.i.i.i.i50, -1
   call void @llvm.x86.sse2.pause()
-  %cmp.i.i.i.i.i.i52 = icmp ugt i32 %delay.addr.02.i.i.i.i.i.i50, 1
+  %cmp.i.i.i.i.i.i52 = icmp samesign ugt i32 %delay.addr.02.i.i.i.i.i.i50, 1
   br i1 %cmp.i.i.i.i.i.i52, label %while.body.i.i.i.i.i.i49, label %_ZN3tbb6detail2d0L13machine_pauseEi.exit.i.i.i.i.i47, !llvm.loop !110
 
 _ZN3tbb6detail2d0L13machine_pauseEi.exit.i.i.i.i.i47: ; preds = %while.body.i.i.i.i.i.i49, %if.then.i.i.i.i.i45
@@ -36076,7 +36076,7 @@ while.body.i.i.i.i.i.i110:                        ; preds = %if.then.i.i.i.i.i10
   %delay.addr.02.i.i.i.i.i.i111 = phi i32 [ %dec.i.i.i.i.i.i112, %while.body.i.i.i.i.i.i110 ], [ %backoff.sroa.0.03.i.i.i.i99, %if.then.i.i.i.i.i106 ]
   %dec.i.i.i.i.i.i112 = add nsw i32 %delay.addr.02.i.i.i.i.i.i111, -1
   call void @llvm.x86.sse2.pause()
-  %cmp.i.i.i.i.i.i113 = icmp ugt i32 %delay.addr.02.i.i.i.i.i.i111, 1
+  %cmp.i.i.i.i.i.i113 = icmp samesign ugt i32 %delay.addr.02.i.i.i.i.i.i111, 1
   br i1 %cmp.i.i.i.i.i.i113, label %while.body.i.i.i.i.i.i110, label %_ZN3tbb6detail2d0L13machine_pauseEi.exit.i.i.i.i.i108, !llvm.loop !110
 
 _ZN3tbb6detail2d0L13machine_pauseEi.exit.i.i.i.i.i108: ; preds = %while.body.i.i.i.i.i.i110, %if.then.i.i.i.i.i106
@@ -37501,7 +37501,7 @@ while.body.i.i.i.i.i.i:                           ; preds = %if.then.i.i.i.i.i, 
   %delay.addr.02.i.i.i.i.i.i = phi i32 [ %dec.i.i.i.i.i.i, %while.body.i.i.i.i.i.i ], [ %backoff.sroa.0.03.i.i.i.i, %if.then.i.i.i.i.i ]
   %dec.i.i.i.i.i.i = add nsw i32 %delay.addr.02.i.i.i.i.i.i, -1
   call void @llvm.x86.sse2.pause()
-  %cmp.i.i.i.i.i.i = icmp ugt i32 %delay.addr.02.i.i.i.i.i.i, 1
+  %cmp.i.i.i.i.i.i = icmp samesign ugt i32 %delay.addr.02.i.i.i.i.i.i, 1
   br i1 %cmp.i.i.i.i.i.i, label %while.body.i.i.i.i.i.i, label %_ZN3tbb6detail2d0L13machine_pauseEi.exit.i.i.i.i.i, !llvm.loop !110
 
 _ZN3tbb6detail2d0L13machine_pauseEi.exit.i.i.i.i.i: ; preds = %while.body.i.i.i.i.i.i, %if.then.i.i.i.i.i
@@ -37600,7 +37600,7 @@ while.body.i.i.i.i.i.i49:                         ; preds = %if.then.i.i.i.i.i45
   %delay.addr.02.i.i.i.i.i.i50 = phi i32 [ %dec.i.i.i.i.i.i51, %while.body.i.i.i.i.i.i49 ], [ %backoff.sroa.0.03.i.i.i.i38, %if.then.i.i.i.i.i45 ]
   %dec.i.i.i.i.i.i51 = add nsw i32 %delay.addr.02.i.i.i.i.i.i50, -1
   call void @llvm.x86.sse2.pause()
-  %cmp.i.i.i.i.i.i52 = icmp ugt i32 %delay.addr.02.i.i.i.i.i.i50, 1
+  %cmp.i.i.i.i.i.i52 = icmp samesign ugt i32 %delay.addr.02.i.i.i.i.i.i50, 1
   br i1 %cmp.i.i.i.i.i.i52, label %while.body.i.i.i.i.i.i49, label %_ZN3tbb6detail2d0L13machine_pauseEi.exit.i.i.i.i.i47, !llvm.loop !110
 
 _ZN3tbb6detail2d0L13machine_pauseEi.exit.i.i.i.i.i47: ; preds = %while.body.i.i.i.i.i.i49, %if.then.i.i.i.i.i45
@@ -37994,7 +37994,7 @@ while.body.i.i.i.i.i.i110:                        ; preds = %if.then.i.i.i.i.i10
   %delay.addr.02.i.i.i.i.i.i111 = phi i32 [ %dec.i.i.i.i.i.i112, %while.body.i.i.i.i.i.i110 ], [ %backoff.sroa.0.03.i.i.i.i99, %if.then.i.i.i.i.i106 ]
   %dec.i.i.i.i.i.i112 = add nsw i32 %delay.addr.02.i.i.i.i.i.i111, -1
   call void @llvm.x86.sse2.pause()
-  %cmp.i.i.i.i.i.i113 = icmp ugt i32 %delay.addr.02.i.i.i.i.i.i111, 1
+  %cmp.i.i.i.i.i.i113 = icmp samesign ugt i32 %delay.addr.02.i.i.i.i.i.i111, 1
   br i1 %cmp.i.i.i.i.i.i113, label %while.body.i.i.i.i.i.i110, label %_ZN3tbb6detail2d0L13machine_pauseEi.exit.i.i.i.i.i108, !llvm.loop !110
 
 _ZN3tbb6detail2d0L13machine_pauseEi.exit.i.i.i.i.i108: ; preds = %while.body.i.i.i.i.i.i110, %if.then.i.i.i.i.i106
@@ -38787,7 +38787,7 @@ while.body.i.i.i.i.i.i:                           ; preds = %if.then.i.i.i.i.i, 
   %delay.addr.02.i.i.i.i.i.i = phi i32 [ %dec.i.i.i.i.i.i, %while.body.i.i.i.i.i.i ], [ %backoff.sroa.0.03.i.i.i.i, %if.then.i.i.i.i.i ]
   %dec.i.i.i.i.i.i = add nsw i32 %delay.addr.02.i.i.i.i.i.i, -1
   call void @llvm.x86.sse2.pause()
-  %cmp.i.i.i.i.i.i = icmp ugt i32 %delay.addr.02.i.i.i.i.i.i, 1
+  %cmp.i.i.i.i.i.i = icmp samesign ugt i32 %delay.addr.02.i.i.i.i.i.i, 1
   br i1 %cmp.i.i.i.i.i.i, label %while.body.i.i.i.i.i.i, label %_ZN3tbb6detail2d0L13machine_pauseEi.exit.i.i.i.i.i, !llvm.loop !110
 
 _ZN3tbb6detail2d0L13machine_pauseEi.exit.i.i.i.i.i: ; preds = %while.body.i.i.i.i.i.i, %if.then.i.i.i.i.i
@@ -38884,7 +38884,7 @@ while.body.i.i.i.i.i.i49:                         ; preds = %if.then.i.i.i.i.i45
   %delay.addr.02.i.i.i.i.i.i50 = phi i32 [ %dec.i.i.i.i.i.i51, %while.body.i.i.i.i.i.i49 ], [ %backoff.sroa.0.03.i.i.i.i38, %if.then.i.i.i.i.i45 ]
   %dec.i.i.i.i.i.i51 = add nsw i32 %delay.addr.02.i.i.i.i.i.i50, -1
   call void @llvm.x86.sse2.pause()
-  %cmp.i.i.i.i.i.i52 = icmp ugt i32 %delay.addr.02.i.i.i.i.i.i50, 1
+  %cmp.i.i.i.i.i.i52 = icmp samesign ugt i32 %delay.addr.02.i.i.i.i.i.i50, 1
   br i1 %cmp.i.i.i.i.i.i52, label %while.body.i.i.i.i.i.i49, label %_ZN3tbb6detail2d0L13machine_pauseEi.exit.i.i.i.i.i47, !llvm.loop !110
 
 _ZN3tbb6detail2d0L13machine_pauseEi.exit.i.i.i.i.i47: ; preds = %while.body.i.i.i.i.i.i49, %if.then.i.i.i.i.i45
@@ -39274,7 +39274,7 @@ while.body.i.i.i.i.i.i110:                        ; preds = %if.then.i.i.i.i.i10
   %delay.addr.02.i.i.i.i.i.i111 = phi i32 [ %dec.i.i.i.i.i.i112, %while.body.i.i.i.i.i.i110 ], [ %backoff.sroa.0.03.i.i.i.i99, %if.then.i.i.i.i.i106 ]
   %dec.i.i.i.i.i.i112 = add nsw i32 %delay.addr.02.i.i.i.i.i.i111, -1
   call void @llvm.x86.sse2.pause()
-  %cmp.i.i.i.i.i.i113 = icmp ugt i32 %delay.addr.02.i.i.i.i.i.i111, 1
+  %cmp.i.i.i.i.i.i113 = icmp samesign ugt i32 %delay.addr.02.i.i.i.i.i.i111, 1
   br i1 %cmp.i.i.i.i.i.i113, label %while.body.i.i.i.i.i.i110, label %_ZN3tbb6detail2d0L13machine_pauseEi.exit.i.i.i.i.i108, !llvm.loop !110
 
 _ZN3tbb6detail2d0L13machine_pauseEi.exit.i.i.i.i.i108: ; preds = %while.body.i.i.i.i.i.i110, %if.then.i.i.i.i.i106
@@ -40699,7 +40699,7 @@ while.body.i.i.i.i.i.i:                           ; preds = %if.then.i.i.i.i.i, 
   %delay.addr.02.i.i.i.i.i.i = phi i32 [ %dec.i.i.i.i.i.i, %while.body.i.i.i.i.i.i ], [ %backoff.sroa.0.03.i.i.i.i, %if.then.i.i.i.i.i ]
   %dec.i.i.i.i.i.i = add nsw i32 %delay.addr.02.i.i.i.i.i.i, -1
   call void @llvm.x86.sse2.pause()
-  %cmp.i.i.i.i.i.i = icmp ugt i32 %delay.addr.02.i.i.i.i.i.i, 1
+  %cmp.i.i.i.i.i.i = icmp samesign ugt i32 %delay.addr.02.i.i.i.i.i.i, 1
   br i1 %cmp.i.i.i.i.i.i, label %while.body.i.i.i.i.i.i, label %_ZN3tbb6detail2d0L13machine_pauseEi.exit.i.i.i.i.i, !llvm.loop !110
 
 _ZN3tbb6detail2d0L13machine_pauseEi.exit.i.i.i.i.i: ; preds = %while.body.i.i.i.i.i.i, %if.then.i.i.i.i.i
@@ -40798,7 +40798,7 @@ while.body.i.i.i.i.i.i49:                         ; preds = %if.then.i.i.i.i.i45
   %delay.addr.02.i.i.i.i.i.i50 = phi i32 [ %dec.i.i.i.i.i.i51, %while.body.i.i.i.i.i.i49 ], [ %backoff.sroa.0.03.i.i.i.i38, %if.then.i.i.i.i.i45 ]
   %dec.i.i.i.i.i.i51 = add nsw i32 %delay.addr.02.i.i.i.i.i.i50, -1
   call void @llvm.x86.sse2.pause()
-  %cmp.i.i.i.i.i.i52 = icmp ugt i32 %delay.addr.02.i.i.i.i.i.i50, 1
+  %cmp.i.i.i.i.i.i52 = icmp samesign ugt i32 %delay.addr.02.i.i.i.i.i.i50, 1
   br i1 %cmp.i.i.i.i.i.i52, label %while.body.i.i.i.i.i.i49, label %_ZN3tbb6detail2d0L13machine_pauseEi.exit.i.i.i.i.i47, !llvm.loop !110
 
 _ZN3tbb6detail2d0L13machine_pauseEi.exit.i.i.i.i.i47: ; preds = %while.body.i.i.i.i.i.i49, %if.then.i.i.i.i.i45
@@ -41192,7 +41192,7 @@ while.body.i.i.i.i.i.i110:                        ; preds = %if.then.i.i.i.i.i10
   %delay.addr.02.i.i.i.i.i.i111 = phi i32 [ %dec.i.i.i.i.i.i112, %while.body.i.i.i.i.i.i110 ], [ %backoff.sroa.0.03.i.i.i.i99, %if.then.i.i.i.i.i106 ]
   %dec.i.i.i.i.i.i112 = add nsw i32 %delay.addr.02.i.i.i.i.i.i111, -1
   call void @llvm.x86.sse2.pause()
-  %cmp.i.i.i.i.i.i113 = icmp ugt i32 %delay.addr.02.i.i.i.i.i.i111, 1
+  %cmp.i.i.i.i.i.i113 = icmp samesign ugt i32 %delay.addr.02.i.i.i.i.i.i111, 1
   br i1 %cmp.i.i.i.i.i.i113, label %while.body.i.i.i.i.i.i110, label %_ZN3tbb6detail2d0L13machine_pauseEi.exit.i.i.i.i.i108, !llvm.loop !110
 
 _ZN3tbb6detail2d0L13machine_pauseEi.exit.i.i.i.i.i108: ; preds = %while.body.i.i.i.i.i.i110, %if.then.i.i.i.i.i106
@@ -41656,7 +41656,7 @@ while.body.i.i.i.i.i.i:                           ; preds = %if.then.i.i.i.i.i, 
   %delay.addr.02.i.i.i.i.i.i = phi i32 [ %dec.i.i.i.i.i.i, %while.body.i.i.i.i.i.i ], [ %backoff.sroa.0.03.i.i.i.i, %if.then.i.i.i.i.i ]
   %dec.i.i.i.i.i.i = add nsw i32 %delay.addr.02.i.i.i.i.i.i, -1
   call void @llvm.x86.sse2.pause()
-  %cmp.i.i.i.i.i.i = icmp ugt i32 %delay.addr.02.i.i.i.i.i.i, 1
+  %cmp.i.i.i.i.i.i = icmp samesign ugt i32 %delay.addr.02.i.i.i.i.i.i, 1
   br i1 %cmp.i.i.i.i.i.i, label %while.body.i.i.i.i.i.i, label %_ZN3tbb6detail2d0L13machine_pauseEi.exit.i.i.i.i.i, !llvm.loop !110
 
 _ZN3tbb6detail2d0L13machine_pauseEi.exit.i.i.i.i.i: ; preds = %while.body.i.i.i.i.i.i, %if.then.i.i.i.i.i
@@ -41755,7 +41755,7 @@ while.body.i.i.i.i.i.i49:                         ; preds = %if.then.i.i.i.i.i45
   %delay.addr.02.i.i.i.i.i.i50 = phi i32 [ %dec.i.i.i.i.i.i51, %while.body.i.i.i.i.i.i49 ], [ %backoff.sroa.0.03.i.i.i.i38, %if.then.i.i.i.i.i45 ]
   %dec.i.i.i.i.i.i51 = add nsw i32 %delay.addr.02.i.i.i.i.i.i50, -1
   call void @llvm.x86.sse2.pause()
-  %cmp.i.i.i.i.i.i52 = icmp ugt i32 %delay.addr.02.i.i.i.i.i.i50, 1
+  %cmp.i.i.i.i.i.i52 = icmp samesign ugt i32 %delay.addr.02.i.i.i.i.i.i50, 1
   br i1 %cmp.i.i.i.i.i.i52, label %while.body.i.i.i.i.i.i49, label %_ZN3tbb6detail2d0L13machine_pauseEi.exit.i.i.i.i.i47, !llvm.loop !110
 
 _ZN3tbb6detail2d0L13machine_pauseEi.exit.i.i.i.i.i47: ; preds = %while.body.i.i.i.i.i.i49, %if.then.i.i.i.i.i45
@@ -42149,7 +42149,7 @@ while.body.i.i.i.i.i.i110:                        ; preds = %if.then.i.i.i.i.i10
   %delay.addr.02.i.i.i.i.i.i111 = phi i32 [ %dec.i.i.i.i.i.i112, %while.body.i.i.i.i.i.i110 ], [ %backoff.sroa.0.03.i.i.i.i99, %if.then.i.i.i.i.i106 ]
   %dec.i.i.i.i.i.i112 = add nsw i32 %delay.addr.02.i.i.i.i.i.i111, -1
   call void @llvm.x86.sse2.pause()
-  %cmp.i.i.i.i.i.i113 = icmp ugt i32 %delay.addr.02.i.i.i.i.i.i111, 1
+  %cmp.i.i.i.i.i.i113 = icmp samesign ugt i32 %delay.addr.02.i.i.i.i.i.i111, 1
   br i1 %cmp.i.i.i.i.i.i113, label %while.body.i.i.i.i.i.i110, label %_ZN3tbb6detail2d0L13machine_pauseEi.exit.i.i.i.i.i108, !llvm.loop !110
 
 _ZN3tbb6detail2d0L13machine_pauseEi.exit.i.i.i.i.i108: ; preds = %while.body.i.i.i.i.i.i110, %if.then.i.i.i.i.i106
@@ -42848,7 +42848,7 @@ while.body.i.i.i.i.i.i:                           ; preds = %if.then.i.i.i.i.i, 
   %delay.addr.02.i.i.i.i.i.i = phi i32 [ %dec.i.i.i.i.i.i, %while.body.i.i.i.i.i.i ], [ %backoff.sroa.0.03.i.i.i.i, %if.then.i.i.i.i.i ]
   %dec.i.i.i.i.i.i = add nsw i32 %delay.addr.02.i.i.i.i.i.i, -1
   call void @llvm.x86.sse2.pause()
-  %cmp.i.i.i.i.i.i = icmp ugt i32 %delay.addr.02.i.i.i.i.i.i, 1
+  %cmp.i.i.i.i.i.i = icmp samesign ugt i32 %delay.addr.02.i.i.i.i.i.i, 1
   br i1 %cmp.i.i.i.i.i.i, label %while.body.i.i.i.i.i.i, label %_ZN3tbb6detail2d0L13machine_pauseEi.exit.i.i.i.i.i, !llvm.loop !110
 
 _ZN3tbb6detail2d0L13machine_pauseEi.exit.i.i.i.i.i: ; preds = %while.body.i.i.i.i.i.i, %if.then.i.i.i.i.i
@@ -42945,7 +42945,7 @@ while.body.i.i.i.i.i.i49:                         ; preds = %if.then.i.i.i.i.i45
   %delay.addr.02.i.i.i.i.i.i50 = phi i32 [ %dec.i.i.i.i.i.i51, %while.body.i.i.i.i.i.i49 ], [ %backoff.sroa.0.03.i.i.i.i38, %if.then.i.i.i.i.i45 ]
   %dec.i.i.i.i.i.i51 = add nsw i32 %delay.addr.02.i.i.i.i.i.i50, -1
   call void @llvm.x86.sse2.pause()
-  %cmp.i.i.i.i.i.i52 = icmp ugt i32 %delay.addr.02.i.i.i.i.i.i50, 1
+  %cmp.i.i.i.i.i.i52 = icmp samesign ugt i32 %delay.addr.02.i.i.i.i.i.i50, 1
   br i1 %cmp.i.i.i.i.i.i52, label %while.body.i.i.i.i.i.i49, label %_ZN3tbb6detail2d0L13machine_pauseEi.exit.i.i.i.i.i47, !llvm.loop !110
 
 _ZN3tbb6detail2d0L13machine_pauseEi.exit.i.i.i.i.i47: ; preds = %while.body.i.i.i.i.i.i49, %if.then.i.i.i.i.i45
@@ -43233,7 +43233,7 @@ while.body.i.i.i.i.i.i110:                        ; preds = %if.then.i.i.i.i.i10
   %delay.addr.02.i.i.i.i.i.i111 = phi i32 [ %dec.i.i.i.i.i.i112, %while.body.i.i.i.i.i.i110 ], [ %backoff.sroa.0.03.i.i.i.i99, %if.then.i.i.i.i.i106 ]
   %dec.i.i.i.i.i.i112 = add nsw i32 %delay.addr.02.i.i.i.i.i.i111, -1
   call void @llvm.x86.sse2.pause()
-  %cmp.i.i.i.i.i.i113 = icmp ugt i32 %delay.addr.02.i.i.i.i.i.i111, 1
+  %cmp.i.i.i.i.i.i113 = icmp samesign ugt i32 %delay.addr.02.i.i.i.i.i.i111, 1
   br i1 %cmp.i.i.i.i.i.i113, label %while.body.i.i.i.i.i.i110, label %_ZN3tbb6detail2d0L13machine_pauseEi.exit.i.i.i.i.i108, !llvm.loop !110
 
 _ZN3tbb6detail2d0L13machine_pauseEi.exit.i.i.i.i.i108: ; preds = %while.body.i.i.i.i.i.i110, %if.then.i.i.i.i.i106
@@ -45485,7 +45485,7 @@ while.body.i.i.i.i.i.i:                           ; preds = %if.then.i.i.i.i.i, 
   %delay.addr.02.i.i.i.i.i.i = phi i32 [ %dec.i.i.i.i.i.i, %while.body.i.i.i.i.i.i ], [ %backoff.sroa.0.03.i.i.i.i, %if.then.i.i.i.i.i ]
   %dec.i.i.i.i.i.i = add nsw i32 %delay.addr.02.i.i.i.i.i.i, -1
   call void @llvm.x86.sse2.pause()
-  %cmp.i.i.i.i.i.i = icmp ugt i32 %delay.addr.02.i.i.i.i.i.i, 1
+  %cmp.i.i.i.i.i.i = icmp samesign ugt i32 %delay.addr.02.i.i.i.i.i.i, 1
   br i1 %cmp.i.i.i.i.i.i, label %while.body.i.i.i.i.i.i, label %_ZN3tbb6detail2d0L13machine_pauseEi.exit.i.i.i.i.i, !llvm.loop !110
 
 _ZN3tbb6detail2d0L13machine_pauseEi.exit.i.i.i.i.i: ; preds = %while.body.i.i.i.i.i.i, %if.then.i.i.i.i.i
@@ -45582,7 +45582,7 @@ while.body.i.i.i.i.i.i49:                         ; preds = %if.then.i.i.i.i.i45
   %delay.addr.02.i.i.i.i.i.i50 = phi i32 [ %dec.i.i.i.i.i.i51, %while.body.i.i.i.i.i.i49 ], [ %backoff.sroa.0.03.i.i.i.i38, %if.then.i.i.i.i.i45 ]
   %dec.i.i.i.i.i.i51 = add nsw i32 %delay.addr.02.i.i.i.i.i.i50, -1
   call void @llvm.x86.sse2.pause()
-  %cmp.i.i.i.i.i.i52 = icmp ugt i32 %delay.addr.02.i.i.i.i.i.i50, 1
+  %cmp.i.i.i.i.i.i52 = icmp samesign ugt i32 %delay.addr.02.i.i.i.i.i.i50, 1
   br i1 %cmp.i.i.i.i.i.i52, label %while.body.i.i.i.i.i.i49, label %_ZN3tbb6detail2d0L13machine_pauseEi.exit.i.i.i.i.i47, !llvm.loop !110
 
 _ZN3tbb6detail2d0L13machine_pauseEi.exit.i.i.i.i.i47: ; preds = %while.body.i.i.i.i.i.i49, %if.then.i.i.i.i.i45
@@ -45870,7 +45870,7 @@ while.body.i.i.i.i.i.i110:                        ; preds = %if.then.i.i.i.i.i10
   %delay.addr.02.i.i.i.i.i.i111 = phi i32 [ %dec.i.i.i.i.i.i112, %while.body.i.i.i.i.i.i110 ], [ %backoff.sroa.0.03.i.i.i.i99, %if.then.i.i.i.i.i106 ]
   %dec.i.i.i.i.i.i112 = add nsw i32 %delay.addr.02.i.i.i.i.i.i111, -1
   call void @llvm.x86.sse2.pause()
-  %cmp.i.i.i.i.i.i113 = icmp ugt i32 %delay.addr.02.i.i.i.i.i.i111, 1
+  %cmp.i.i.i.i.i.i113 = icmp samesign ugt i32 %delay.addr.02.i.i.i.i.i.i111, 1
   br i1 %cmp.i.i.i.i.i.i113, label %while.body.i.i.i.i.i.i110, label %_ZN3tbb6detail2d0L13machine_pauseEi.exit.i.i.i.i.i108, !llvm.loop !110
 
 _ZN3tbb6detail2d0L13machine_pauseEi.exit.i.i.i.i.i108: ; preds = %while.body.i.i.i.i.i.i110, %if.then.i.i.i.i.i106
@@ -47193,7 +47193,7 @@ while.body.i.i.i.i.i.i:                           ; preds = %if.then.i.i.i.i.i, 
   %delay.addr.02.i.i.i.i.i.i = phi i32 [ %dec.i.i.i.i.i.i, %while.body.i.i.i.i.i.i ], [ %backoff.sroa.0.03.i.i.i.i, %if.then.i.i.i.i.i ]
   %dec.i.i.i.i.i.i = add nsw i32 %delay.addr.02.i.i.i.i.i.i, -1
   call void @llvm.x86.sse2.pause()
-  %cmp.i.i.i.i.i.i = icmp ugt i32 %delay.addr.02.i.i.i.i.i.i, 1
+  %cmp.i.i.i.i.i.i = icmp samesign ugt i32 %delay.addr.02.i.i.i.i.i.i, 1
   br i1 %cmp.i.i.i.i.i.i, label %while.body.i.i.i.i.i.i, label %_ZN3tbb6detail2d0L13machine_pauseEi.exit.i.i.i.i.i, !llvm.loop !110
 
 _ZN3tbb6detail2d0L13machine_pauseEi.exit.i.i.i.i.i: ; preds = %while.body.i.i.i.i.i.i, %if.then.i.i.i.i.i
@@ -47292,7 +47292,7 @@ while.body.i.i.i.i.i.i49:                         ; preds = %if.then.i.i.i.i.i45
   %delay.addr.02.i.i.i.i.i.i50 = phi i32 [ %dec.i.i.i.i.i.i51, %while.body.i.i.i.i.i.i49 ], [ %backoff.sroa.0.03.i.i.i.i38, %if.then.i.i.i.i.i45 ]
   %dec.i.i.i.i.i.i51 = add nsw i32 %delay.addr.02.i.i.i.i.i.i50, -1
   call void @llvm.x86.sse2.pause()
-  %cmp.i.i.i.i.i.i52 = icmp ugt i32 %delay.addr.02.i.i.i.i.i.i50, 1
+  %cmp.i.i.i.i.i.i52 = icmp samesign ugt i32 %delay.addr.02.i.i.i.i.i.i50, 1
   br i1 %cmp.i.i.i.i.i.i52, label %while.body.i.i.i.i.i.i49, label %_ZN3tbb6detail2d0L13machine_pauseEi.exit.i.i.i.i.i47, !llvm.loop !110
 
 _ZN3tbb6detail2d0L13machine_pauseEi.exit.i.i.i.i.i47: ; preds = %while.body.i.i.i.i.i.i49, %if.then.i.i.i.i.i45
@@ -47584,7 +47584,7 @@ while.body.i.i.i.i.i.i110:                        ; preds = %if.then.i.i.i.i.i10
   %delay.addr.02.i.i.i.i.i.i111 = phi i32 [ %dec.i.i.i.i.i.i112, %while.body.i.i.i.i.i.i110 ], [ %backoff.sroa.0.03.i.i.i.i99, %if.then.i.i.i.i.i106 ]
   %dec.i.i.i.i.i.i112 = add nsw i32 %delay.addr.02.i.i.i.i.i.i111, -1
   call void @llvm.x86.sse2.pause()
-  %cmp.i.i.i.i.i.i113 = icmp ugt i32 %delay.addr.02.i.i.i.i.i.i111, 1
+  %cmp.i.i.i.i.i.i113 = icmp samesign ugt i32 %delay.addr.02.i.i.i.i.i.i111, 1
   br i1 %cmp.i.i.i.i.i.i113, label %while.body.i.i.i.i.i.i110, label %_ZN3tbb6detail2d0L13machine_pauseEi.exit.i.i.i.i.i108, !llvm.loop !110
 
 _ZN3tbb6detail2d0L13machine_pauseEi.exit.i.i.i.i.i108: ; preds = %while.body.i.i.i.i.i.i110, %if.then.i.i.i.i.i106
@@ -48275,7 +48275,7 @@ while.body.i.i.i.i.i.i:                           ; preds = %if.then.i.i.i.i.i, 
   %delay.addr.02.i.i.i.i.i.i = phi i32 [ %dec.i.i.i.i.i.i, %while.body.i.i.i.i.i.i ], [ %backoff.sroa.0.03.i.i.i.i, %if.then.i.i.i.i.i ]
   %dec.i.i.i.i.i.i = add nsw i32 %delay.addr.02.i.i.i.i.i.i, -1
   call void @llvm.x86.sse2.pause()
-  %cmp.i.i.i.i.i.i = icmp ugt i32 %delay.addr.02.i.i.i.i.i.i, 1
+  %cmp.i.i.i.i.i.i = icmp samesign ugt i32 %delay.addr.02.i.i.i.i.i.i, 1
   br i1 %cmp.i.i.i.i.i.i, label %while.body.i.i.i.i.i.i, label %_ZN3tbb6detail2d0L13machine_pauseEi.exit.i.i.i.i.i, !llvm.loop !110
 
 _ZN3tbb6detail2d0L13machine_pauseEi.exit.i.i.i.i.i: ; preds = %while.body.i.i.i.i.i.i, %if.then.i.i.i.i.i
@@ -48372,7 +48372,7 @@ while.body.i.i.i.i.i.i49:                         ; preds = %if.then.i.i.i.i.i45
   %delay.addr.02.i.i.i.i.i.i50 = phi i32 [ %dec.i.i.i.i.i.i51, %while.body.i.i.i.i.i.i49 ], [ %backoff.sroa.0.03.i.i.i.i38, %if.then.i.i.i.i.i45 ]
   %dec.i.i.i.i.i.i51 = add nsw i32 %delay.addr.02.i.i.i.i.i.i50, -1
   call void @llvm.x86.sse2.pause()
-  %cmp.i.i.i.i.i.i52 = icmp ugt i32 %delay.addr.02.i.i.i.i.i.i50, 1
+  %cmp.i.i.i.i.i.i52 = icmp samesign ugt i32 %delay.addr.02.i.i.i.i.i.i50, 1
   br i1 %cmp.i.i.i.i.i.i52, label %while.body.i.i.i.i.i.i49, label %_ZN3tbb6detail2d0L13machine_pauseEi.exit.i.i.i.i.i47, !llvm.loop !110
 
 _ZN3tbb6detail2d0L13machine_pauseEi.exit.i.i.i.i.i47: ; preds = %while.body.i.i.i.i.i.i49, %if.then.i.i.i.i.i45
@@ -48660,7 +48660,7 @@ while.body.i.i.i.i.i.i110:                        ; preds = %if.then.i.i.i.i.i10
   %delay.addr.02.i.i.i.i.i.i111 = phi i32 [ %dec.i.i.i.i.i.i112, %while.body.i.i.i.i.i.i110 ], [ %backoff.sroa.0.03.i.i.i.i99, %if.then.i.i.i.i.i106 ]
   %dec.i.i.i.i.i.i112 = add nsw i32 %delay.addr.02.i.i.i.i.i.i111, -1
   call void @llvm.x86.sse2.pause()
-  %cmp.i.i.i.i.i.i113 = icmp ugt i32 %delay.addr.02.i.i.i.i.i.i111, 1
+  %cmp.i.i.i.i.i.i113 = icmp samesign ugt i32 %delay.addr.02.i.i.i.i.i.i111, 1
   br i1 %cmp.i.i.i.i.i.i113, label %while.body.i.i.i.i.i.i110, label %_ZN3tbb6detail2d0L13machine_pauseEi.exit.i.i.i.i.i108, !llvm.loop !110
 
 _ZN3tbb6detail2d0L13machine_pauseEi.exit.i.i.i.i.i108: ; preds = %while.body.i.i.i.i.i.i110, %if.then.i.i.i.i.i106
@@ -49983,7 +49983,7 @@ while.body.i.i.i.i.i.i:                           ; preds = %if.then.i.i.i.i.i, 
   %delay.addr.02.i.i.i.i.i.i = phi i32 [ %dec.i.i.i.i.i.i, %while.body.i.i.i.i.i.i ], [ %backoff.sroa.0.03.i.i.i.i, %if.then.i.i.i.i.i ]
   %dec.i.i.i.i.i.i = add nsw i32 %delay.addr.02.i.i.i.i.i.i, -1
   call void @llvm.x86.sse2.pause()
-  %cmp.i.i.i.i.i.i = icmp ugt i32 %delay.addr.02.i.i.i.i.i.i, 1
+  %cmp.i.i.i.i.i.i = icmp samesign ugt i32 %delay.addr.02.i.i.i.i.i.i, 1
   br i1 %cmp.i.i.i.i.i.i, label %while.body.i.i.i.i.i.i, label %_ZN3tbb6detail2d0L13machine_pauseEi.exit.i.i.i.i.i, !llvm.loop !110
 
 _ZN3tbb6detail2d0L13machine_pauseEi.exit.i.i.i.i.i: ; preds = %while.body.i.i.i.i.i.i, %if.then.i.i.i.i.i
@@ -50082,7 +50082,7 @@ while.body.i.i.i.i.i.i49:                         ; preds = %if.then.i.i.i.i.i45
   %delay.addr.02.i.i.i.i.i.i50 = phi i32 [ %dec.i.i.i.i.i.i51, %while.body.i.i.i.i.i.i49 ], [ %backoff.sroa.0.03.i.i.i.i38, %if.then.i.i.i.i.i45 ]
   %dec.i.i.i.i.i.i51 = add nsw i32 %delay.addr.02.i.i.i.i.i.i50, -1
   call void @llvm.x86.sse2.pause()
-  %cmp.i.i.i.i.i.i52 = icmp ugt i32 %delay.addr.02.i.i.i.i.i.i50, 1
+  %cmp.i.i.i.i.i.i52 = icmp samesign ugt i32 %delay.addr.02.i.i.i.i.i.i50, 1
   br i1 %cmp.i.i.i.i.i.i52, label %while.body.i.i.i.i.i.i49, label %_ZN3tbb6detail2d0L13machine_pauseEi.exit.i.i.i.i.i47, !llvm.loop !110
 
 _ZN3tbb6detail2d0L13machine_pauseEi.exit.i.i.i.i.i47: ; preds = %while.body.i.i.i.i.i.i49, %if.then.i.i.i.i.i45
@@ -50374,7 +50374,7 @@ while.body.i.i.i.i.i.i110:                        ; preds = %if.then.i.i.i.i.i10
   %delay.addr.02.i.i.i.i.i.i111 = phi i32 [ %dec.i.i.i.i.i.i112, %while.body.i.i.i.i.i.i110 ], [ %backoff.sroa.0.03.i.i.i.i99, %if.then.i.i.i.i.i106 ]
   %dec.i.i.i.i.i.i112 = add nsw i32 %delay.addr.02.i.i.i.i.i.i111, -1
   call void @llvm.x86.sse2.pause()
-  %cmp.i.i.i.i.i.i113 = icmp ugt i32 %delay.addr.02.i.i.i.i.i.i111, 1
+  %cmp.i.i.i.i.i.i113 = icmp samesign ugt i32 %delay.addr.02.i.i.i.i.i.i111, 1
   br i1 %cmp.i.i.i.i.i.i113, label %while.body.i.i.i.i.i.i110, label %_ZN3tbb6detail2d0L13machine_pauseEi.exit.i.i.i.i.i108, !llvm.loop !110
 
 _ZN3tbb6detail2d0L13machine_pauseEi.exit.i.i.i.i.i108: ; preds = %while.body.i.i.i.i.i.i110, %if.then.i.i.i.i.i106
@@ -50736,7 +50736,7 @@ while.body.i.i.i.i.i.i:                           ; preds = %if.then.i.i.i.i.i, 
   %delay.addr.02.i.i.i.i.i.i = phi i32 [ %dec.i.i.i.i.i.i, %while.body.i.i.i.i.i.i ], [ %backoff.sroa.0.03.i.i.i.i, %if.then.i.i.i.i.i ]
   %dec.i.i.i.i.i.i = add nsw i32 %delay.addr.02.i.i.i.i.i.i, -1
   call void @llvm.x86.sse2.pause()
-  %cmp.i.i.i.i.i.i = icmp ugt i32 %delay.addr.02.i.i.i.i.i.i, 1
+  %cmp.i.i.i.i.i.i = icmp samesign ugt i32 %delay.addr.02.i.i.i.i.i.i, 1
   br i1 %cmp.i.i.i.i.i.i, label %while.body.i.i.i.i.i.i, label %_ZN3tbb6detail2d0L13machine_pauseEi.exit.i.i.i.i.i, !llvm.loop !110
 
 _ZN3tbb6detail2d0L13machine_pauseEi.exit.i.i.i.i.i: ; preds = %while.body.i.i.i.i.i.i, %if.then.i.i.i.i.i
@@ -50835,7 +50835,7 @@ while.body.i.i.i.i.i.i49:                         ; preds = %if.then.i.i.i.i.i45
   %delay.addr.02.i.i.i.i.i.i50 = phi i32 [ %dec.i.i.i.i.i.i51, %while.body.i.i.i.i.i.i49 ], [ %backoff.sroa.0.03.i.i.i.i38, %if.then.i.i.i.i.i45 ]
   %dec.i.i.i.i.i.i51 = add nsw i32 %delay.addr.02.i.i.i.i.i.i50, -1
   call void @llvm.x86.sse2.pause()
-  %cmp.i.i.i.i.i.i52 = icmp ugt i32 %delay.addr.02.i.i.i.i.i.i50, 1
+  %cmp.i.i.i.i.i.i52 = icmp samesign ugt i32 %delay.addr.02.i.i.i.i.i.i50, 1
   br i1 %cmp.i.i.i.i.i.i52, label %while.body.i.i.i.i.i.i49, label %_ZN3tbb6detail2d0L13machine_pauseEi.exit.i.i.i.i.i47, !llvm.loop !110
 
 _ZN3tbb6detail2d0L13machine_pauseEi.exit.i.i.i.i.i47: ; preds = %while.body.i.i.i.i.i.i49, %if.then.i.i.i.i.i45
@@ -51127,7 +51127,7 @@ while.body.i.i.i.i.i.i110:                        ; preds = %if.then.i.i.i.i.i10
   %delay.addr.02.i.i.i.i.i.i111 = phi i32 [ %dec.i.i.i.i.i.i112, %while.body.i.i.i.i.i.i110 ], [ %backoff.sroa.0.03.i.i.i.i99, %if.then.i.i.i.i.i106 ]
   %dec.i.i.i.i.i.i112 = add nsw i32 %delay.addr.02.i.i.i.i.i.i111, -1
   call void @llvm.x86.sse2.pause()
-  %cmp.i.i.i.i.i.i113 = icmp ugt i32 %delay.addr.02.i.i.i.i.i.i111, 1
+  %cmp.i.i.i.i.i.i113 = icmp samesign ugt i32 %delay.addr.02.i.i.i.i.i.i111, 1
   br i1 %cmp.i.i.i.i.i.i113, label %while.body.i.i.i.i.i.i110, label %_ZN3tbb6detail2d0L13machine_pauseEi.exit.i.i.i.i.i108, !llvm.loop !110
 
 _ZN3tbb6detail2d0L13machine_pauseEi.exit.i.i.i.i.i108: ; preds = %while.body.i.i.i.i.i.i110, %if.then.i.i.i.i.i106
@@ -51724,7 +51724,7 @@ while.body.i.i.i.i.i.i:                           ; preds = %if.then.i.i.i.i.i, 
   %delay.addr.02.i.i.i.i.i.i = phi i32 [ %dec.i.i.i.i.i.i, %while.body.i.i.i.i.i.i ], [ %backoff.sroa.0.03.i.i.i.i, %if.then.i.i.i.i.i ]
   %dec.i.i.i.i.i.i = add nsw i32 %delay.addr.02.i.i.i.i.i.i, -1
   call void @llvm.x86.sse2.pause()
-  %cmp.i.i.i.i.i.i = icmp ugt i32 %delay.addr.02.i.i.i.i.i.i, 1
+  %cmp.i.i.i.i.i.i = icmp samesign ugt i32 %delay.addr.02.i.i.i.i.i.i, 1
   br i1 %cmp.i.i.i.i.i.i, label %while.body.i.i.i.i.i.i, label %_ZN3tbb6detail2d0L13machine_pauseEi.exit.i.i.i.i.i, !llvm.loop !110
 
 _ZN3tbb6detail2d0L13machine_pauseEi.exit.i.i.i.i.i: ; preds = %while.body.i.i.i.i.i.i, %if.then.i.i.i.i.i
@@ -51821,7 +51821,7 @@ while.body.i.i.i.i.i.i49:                         ; preds = %if.then.i.i.i.i.i45
   %delay.addr.02.i.i.i.i.i.i50 = phi i32 [ %dec.i.i.i.i.i.i51, %while.body.i.i.i.i.i.i49 ], [ %backoff.sroa.0.03.i.i.i.i38, %if.then.i.i.i.i.i45 ]
   %dec.i.i.i.i.i.i51 = add nsw i32 %delay.addr.02.i.i.i.i.i.i50, -1
   call void @llvm.x86.sse2.pause()
-  %cmp.i.i.i.i.i.i52 = icmp ugt i32 %delay.addr.02.i.i.i.i.i.i50, 1
+  %cmp.i.i.i.i.i.i52 = icmp samesign ugt i32 %delay.addr.02.i.i.i.i.i.i50, 1
   br i1 %cmp.i.i.i.i.i.i52, label %while.body.i.i.i.i.i.i49, label %_ZN3tbb6detail2d0L13machine_pauseEi.exit.i.i.i.i.i47, !llvm.loop !110
 
 _ZN3tbb6detail2d0L13machine_pauseEi.exit.i.i.i.i.i47: ; preds = %while.body.i.i.i.i.i.i49, %if.then.i.i.i.i.i45
@@ -52321,7 +52321,7 @@ while.body.i.i.i.i.i.i110:                        ; preds = %if.then.i.i.i.i.i10
   %delay.addr.02.i.i.i.i.i.i111 = phi i32 [ %dec.i.i.i.i.i.i112, %while.body.i.i.i.i.i.i110 ], [ %backoff.sroa.0.03.i.i.i.i99, %if.then.i.i.i.i.i106 ]
   %dec.i.i.i.i.i.i112 = add nsw i32 %delay.addr.02.i.i.i.i.i.i111, -1
   call void @llvm.x86.sse2.pause()
-  %cmp.i.i.i.i.i.i113 = icmp ugt i32 %delay.addr.02.i.i.i.i.i.i111, 1
+  %cmp.i.i.i.i.i.i113 = icmp samesign ugt i32 %delay.addr.02.i.i.i.i.i.i111, 1
   br i1 %cmp.i.i.i.i.i.i113, label %while.body.i.i.i.i.i.i110, label %_ZN3tbb6detail2d0L13machine_pauseEi.exit.i.i.i.i.i108, !llvm.loop !110
 
 _ZN3tbb6detail2d0L13machine_pauseEi.exit.i.i.i.i.i108: ; preds = %while.body.i.i.i.i.i.i110, %if.then.i.i.i.i.i106
@@ -54362,7 +54362,7 @@ while.body.i.i.i.i.i.i:                           ; preds = %if.then.i.i.i.i.i, 
   %delay.addr.02.i.i.i.i.i.i = phi i32 [ %dec.i.i.i.i.i.i, %while.body.i.i.i.i.i.i ], [ %backoff.sroa.0.03.i.i.i.i, %if.then.i.i.i.i.i ]
   %dec.i.i.i.i.i.i = add nsw i32 %delay.addr.02.i.i.i.i.i.i, -1
   call void @llvm.x86.sse2.pause()
-  %cmp.i.i.i.i.i.i = icmp ugt i32 %delay.addr.02.i.i.i.i.i.i, 1
+  %cmp.i.i.i.i.i.i = icmp samesign ugt i32 %delay.addr.02.i.i.i.i.i.i, 1
   br i1 %cmp.i.i.i.i.i.i, label %while.body.i.i.i.i.i.i, label %_ZN3tbb6detail2d0L13machine_pauseEi.exit.i.i.i.i.i, !llvm.loop !110
 
 _ZN3tbb6detail2d0L13machine_pauseEi.exit.i.i.i.i.i: ; preds = %while.body.i.i.i.i.i.i, %if.then.i.i.i.i.i
@@ -54459,7 +54459,7 @@ while.body.i.i.i.i.i.i49:                         ; preds = %if.then.i.i.i.i.i45
   %delay.addr.02.i.i.i.i.i.i50 = phi i32 [ %dec.i.i.i.i.i.i51, %while.body.i.i.i.i.i.i49 ], [ %backoff.sroa.0.03.i.i.i.i38, %if.then.i.i.i.i.i45 ]
   %dec.i.i.i.i.i.i51 = add nsw i32 %delay.addr.02.i.i.i.i.i.i50, -1
   call void @llvm.x86.sse2.pause()
-  %cmp.i.i.i.i.i.i52 = icmp ugt i32 %delay.addr.02.i.i.i.i.i.i50, 1
+  %cmp.i.i.i.i.i.i52 = icmp samesign ugt i32 %delay.addr.02.i.i.i.i.i.i50, 1
   br i1 %cmp.i.i.i.i.i.i52, label %while.body.i.i.i.i.i.i49, label %_ZN3tbb6detail2d0L13machine_pauseEi.exit.i.i.i.i.i47, !llvm.loop !110
 
 _ZN3tbb6detail2d0L13machine_pauseEi.exit.i.i.i.i.i47: ; preds = %while.body.i.i.i.i.i.i49, %if.then.i.i.i.i.i45
@@ -54959,7 +54959,7 @@ while.body.i.i.i.i.i.i110:                        ; preds = %if.then.i.i.i.i.i10
   %delay.addr.02.i.i.i.i.i.i111 = phi i32 [ %dec.i.i.i.i.i.i112, %while.body.i.i.i.i.i.i110 ], [ %backoff.sroa.0.03.i.i.i.i99, %if.then.i.i.i.i.i106 ]
   %dec.i.i.i.i.i.i112 = add nsw i32 %delay.addr.02.i.i.i.i.i.i111, -1
   call void @llvm.x86.sse2.pause()
-  %cmp.i.i.i.i.i.i113 = icmp ugt i32 %delay.addr.02.i.i.i.i.i.i111, 1
+  %cmp.i.i.i.i.i.i113 = icmp samesign ugt i32 %delay.addr.02.i.i.i.i.i.i111, 1
   br i1 %cmp.i.i.i.i.i.i113, label %while.body.i.i.i.i.i.i110, label %_ZN3tbb6detail2d0L13machine_pauseEi.exit.i.i.i.i.i108, !llvm.loop !110
 
 _ZN3tbb6detail2d0L13machine_pauseEi.exit.i.i.i.i.i108: ; preds = %while.body.i.i.i.i.i.i110, %if.then.i.i.i.i.i106
@@ -56494,7 +56494,7 @@ while.body.i.i.i.i.i.i:                           ; preds = %if.then.i.i.i.i.i, 
   %delay.addr.02.i.i.i.i.i.i = phi i32 [ %dec.i.i.i.i.i.i, %while.body.i.i.i.i.i.i ], [ %backoff.sroa.0.03.i.i.i.i, %if.then.i.i.i.i.i ]
   %dec.i.i.i.i.i.i = add nsw i32 %delay.addr.02.i.i.i.i.i.i, -1
   call void @llvm.x86.sse2.pause()
-  %cmp.i.i.i.i.i.i = icmp ugt i32 %delay.addr.02.i.i.i.i.i.i, 1
+  %cmp.i.i.i.i.i.i = icmp samesign ugt i32 %delay.addr.02.i.i.i.i.i.i, 1
   br i1 %cmp.i.i.i.i.i.i, label %while.body.i.i.i.i.i.i, label %_ZN3tbb6detail2d0L13machine_pauseEi.exit.i.i.i.i.i, !llvm.loop !110
 
 _ZN3tbb6detail2d0L13machine_pauseEi.exit.i.i.i.i.i: ; preds = %while.body.i.i.i.i.i.i, %if.then.i.i.i.i.i
@@ -56593,7 +56593,7 @@ while.body.i.i.i.i.i.i49:                         ; preds = %if.then.i.i.i.i.i45
   %delay.addr.02.i.i.i.i.i.i50 = phi i32 [ %dec.i.i.i.i.i.i51, %while.body.i.i.i.i.i.i49 ], [ %backoff.sroa.0.03.i.i.i.i38, %if.then.i.i.i.i.i45 ]
   %dec.i.i.i.i.i.i51 = add nsw i32 %delay.addr.02.i.i.i.i.i.i50, -1
   call void @llvm.x86.sse2.pause()
-  %cmp.i.i.i.i.i.i52 = icmp ugt i32 %delay.addr.02.i.i.i.i.i.i50, 1
+  %cmp.i.i.i.i.i.i52 = icmp samesign ugt i32 %delay.addr.02.i.i.i.i.i.i50, 1
   br i1 %cmp.i.i.i.i.i.i52, label %while.body.i.i.i.i.i.i49, label %_ZN3tbb6detail2d0L13machine_pauseEi.exit.i.i.i.i.i47, !llvm.loop !110
 
 _ZN3tbb6detail2d0L13machine_pauseEi.exit.i.i.i.i.i47: ; preds = %while.body.i.i.i.i.i.i49, %if.then.i.i.i.i.i45
@@ -57097,7 +57097,7 @@ while.body.i.i.i.i.i.i110:                        ; preds = %if.then.i.i.i.i.i10
   %delay.addr.02.i.i.i.i.i.i111 = phi i32 [ %dec.i.i.i.i.i.i112, %while.body.i.i.i.i.i.i110 ], [ %backoff.sroa.0.03.i.i.i.i99, %if.then.i.i.i.i.i106 ]
   %dec.i.i.i.i.i.i112 = add nsw i32 %delay.addr.02.i.i.i.i.i.i111, -1
   call void @llvm.x86.sse2.pause()
-  %cmp.i.i.i.i.i.i113 = icmp ugt i32 %delay.addr.02.i.i.i.i.i.i111, 1
+  %cmp.i.i.i.i.i.i113 = icmp samesign ugt i32 %delay.addr.02.i.i.i.i.i.i111, 1
   br i1 %cmp.i.i.i.i.i.i113, label %while.body.i.i.i.i.i.i110, label %_ZN3tbb6detail2d0L13machine_pauseEi.exit.i.i.i.i.i108, !llvm.loop !110
 
 _ZN3tbb6detail2d0L13machine_pauseEi.exit.i.i.i.i.i108: ; preds = %while.body.i.i.i.i.i.i110, %if.then.i.i.i.i.i106
@@ -58000,7 +58000,7 @@ while.body.i.i.i.i.i.i:                           ; preds = %if.then.i.i.i.i.i, 
   %delay.addr.02.i.i.i.i.i.i = phi i32 [ %dec.i.i.i.i.i.i, %while.body.i.i.i.i.i.i ], [ %backoff.sroa.0.03.i.i.i.i, %if.then.i.i.i.i.i ]
   %dec.i.i.i.i.i.i = add nsw i32 %delay.addr.02.i.i.i.i.i.i, -1
   call void @llvm.x86.sse2.pause()
-  %cmp.i.i.i.i.i.i = icmp ugt i32 %delay.addr.02.i.i.i.i.i.i, 1
+  %cmp.i.i.i.i.i.i = icmp samesign ugt i32 %delay.addr.02.i.i.i.i.i.i, 1
   br i1 %cmp.i.i.i.i.i.i, label %while.body.i.i.i.i.i.i, label %_ZN3tbb6detail2d0L13machine_pauseEi.exit.i.i.i.i.i, !llvm.loop !110
 
 _ZN3tbb6detail2d0L13machine_pauseEi.exit.i.i.i.i.i: ; preds = %while.body.i.i.i.i.i.i, %if.then.i.i.i.i.i
@@ -58097,7 +58097,7 @@ while.body.i.i.i.i.i.i49:                         ; preds = %if.then.i.i.i.i.i45
   %delay.addr.02.i.i.i.i.i.i50 = phi i32 [ %dec.i.i.i.i.i.i51, %while.body.i.i.i.i.i.i49 ], [ %backoff.sroa.0.03.i.i.i.i38, %if.then.i.i.i.i.i45 ]
   %dec.i.i.i.i.i.i51 = add nsw i32 %delay.addr.02.i.i.i.i.i.i50, -1
   call void @llvm.x86.sse2.pause()
-  %cmp.i.i.i.i.i.i52 = icmp ugt i32 %delay.addr.02.i.i.i.i.i.i50, 1
+  %cmp.i.i.i.i.i.i52 = icmp samesign ugt i32 %delay.addr.02.i.i.i.i.i.i50, 1
   br i1 %cmp.i.i.i.i.i.i52, label %while.body.i.i.i.i.i.i49, label %_ZN3tbb6detail2d0L13machine_pauseEi.exit.i.i.i.i.i47, !llvm.loop !110
 
 _ZN3tbb6detail2d0L13machine_pauseEi.exit.i.i.i.i.i47: ; preds = %while.body.i.i.i.i.i.i49, %if.then.i.i.i.i.i45
@@ -58597,7 +58597,7 @@ while.body.i.i.i.i.i.i110:                        ; preds = %if.then.i.i.i.i.i10
   %delay.addr.02.i.i.i.i.i.i111 = phi i32 [ %dec.i.i.i.i.i.i112, %while.body.i.i.i.i.i.i110 ], [ %backoff.sroa.0.03.i.i.i.i99, %if.then.i.i.i.i.i106 ]
   %dec.i.i.i.i.i.i112 = add nsw i32 %delay.addr.02.i.i.i.i.i.i111, -1
   call void @llvm.x86.sse2.pause()
-  %cmp.i.i.i.i.i.i113 = icmp ugt i32 %delay.addr.02.i.i.i.i.i.i111, 1
+  %cmp.i.i.i.i.i.i113 = icmp samesign ugt i32 %delay.addr.02.i.i.i.i.i.i111, 1
   br i1 %cmp.i.i.i.i.i.i113, label %while.body.i.i.i.i.i.i110, label %_ZN3tbb6detail2d0L13machine_pauseEi.exit.i.i.i.i.i108, !llvm.loop !110
 
 _ZN3tbb6detail2d0L13machine_pauseEi.exit.i.i.i.i.i108: ; preds = %while.body.i.i.i.i.i.i110, %if.then.i.i.i.i.i106
@@ -60132,7 +60132,7 @@ while.body.i.i.i.i.i.i:                           ; preds = %if.then.i.i.i.i.i, 
   %delay.addr.02.i.i.i.i.i.i = phi i32 [ %dec.i.i.i.i.i.i, %while.body.i.i.i.i.i.i ], [ %backoff.sroa.0.03.i.i.i.i, %if.then.i.i.i.i.i ]
   %dec.i.i.i.i.i.i = add nsw i32 %delay.addr.02.i.i.i.i.i.i, -1
   call void @llvm.x86.sse2.pause()
-  %cmp.i.i.i.i.i.i = icmp ugt i32 %delay.addr.02.i.i.i.i.i.i, 1
+  %cmp.i.i.i.i.i.i = icmp samesign ugt i32 %delay.addr.02.i.i.i.i.i.i, 1
   br i1 %cmp.i.i.i.i.i.i, label %while.body.i.i.i.i.i.i, label %_ZN3tbb6detail2d0L13machine_pauseEi.exit.i.i.i.i.i, !llvm.loop !110
 
 _ZN3tbb6detail2d0L13machine_pauseEi.exit.i.i.i.i.i: ; preds = %while.body.i.i.i.i.i.i, %if.then.i.i.i.i.i
@@ -60231,7 +60231,7 @@ while.body.i.i.i.i.i.i49:                         ; preds = %if.then.i.i.i.i.i45
   %delay.addr.02.i.i.i.i.i.i50 = phi i32 [ %dec.i.i.i.i.i.i51, %while.body.i.i.i.i.i.i49 ], [ %backoff.sroa.0.03.i.i.i.i38, %if.then.i.i.i.i.i45 ]
   %dec.i.i.i.i.i.i51 = add nsw i32 %delay.addr.02.i.i.i.i.i.i50, -1
   call void @llvm.x86.sse2.pause()
-  %cmp.i.i.i.i.i.i52 = icmp ugt i32 %delay.addr.02.i.i.i.i.i.i50, 1
+  %cmp.i.i.i.i.i.i52 = icmp samesign ugt i32 %delay.addr.02.i.i.i.i.i.i50, 1
   br i1 %cmp.i.i.i.i.i.i52, label %while.body.i.i.i.i.i.i49, label %_ZN3tbb6detail2d0L13machine_pauseEi.exit.i.i.i.i.i47, !llvm.loop !110
 
 _ZN3tbb6detail2d0L13machine_pauseEi.exit.i.i.i.i.i47: ; preds = %while.body.i.i.i.i.i.i49, %if.then.i.i.i.i.i45
@@ -60735,7 +60735,7 @@ while.body.i.i.i.i.i.i110:                        ; preds = %if.then.i.i.i.i.i10
   %delay.addr.02.i.i.i.i.i.i111 = phi i32 [ %dec.i.i.i.i.i.i112, %while.body.i.i.i.i.i.i110 ], [ %backoff.sroa.0.03.i.i.i.i99, %if.then.i.i.i.i.i106 ]
   %dec.i.i.i.i.i.i112 = add nsw i32 %delay.addr.02.i.i.i.i.i.i111, -1
   call void @llvm.x86.sse2.pause()
-  %cmp.i.i.i.i.i.i113 = icmp ugt i32 %delay.addr.02.i.i.i.i.i.i111, 1
+  %cmp.i.i.i.i.i.i113 = icmp samesign ugt i32 %delay.addr.02.i.i.i.i.i.i111, 1
   br i1 %cmp.i.i.i.i.i.i113, label %while.body.i.i.i.i.i.i110, label %_ZN3tbb6detail2d0L13machine_pauseEi.exit.i.i.i.i.i108, !llvm.loop !110
 
 _ZN3tbb6detail2d0L13machine_pauseEi.exit.i.i.i.i.i108: ; preds = %while.body.i.i.i.i.i.i110, %if.then.i.i.i.i.i106
@@ -61309,7 +61309,7 @@ while.body.i.i.i.i.i.i:                           ; preds = %if.then.i.i.i.i.i, 
   %delay.addr.02.i.i.i.i.i.i = phi i32 [ %dec.i.i.i.i.i.i, %while.body.i.i.i.i.i.i ], [ %backoff.sroa.0.03.i.i.i.i, %if.then.i.i.i.i.i ]
   %dec.i.i.i.i.i.i = add nsw i32 %delay.addr.02.i.i.i.i.i.i, -1
   call void @llvm.x86.sse2.pause()
-  %cmp.i.i.i.i.i.i = icmp ugt i32 %delay.addr.02.i.i.i.i.i.i, 1
+  %cmp.i.i.i.i.i.i = icmp samesign ugt i32 %delay.addr.02.i.i.i.i.i.i, 1
   br i1 %cmp.i.i.i.i.i.i, label %while.body.i.i.i.i.i.i, label %_ZN3tbb6detail2d0L13machine_pauseEi.exit.i.i.i.i.i, !llvm.loop !110
 
 _ZN3tbb6detail2d0L13machine_pauseEi.exit.i.i.i.i.i: ; preds = %while.body.i.i.i.i.i.i, %if.then.i.i.i.i.i
@@ -61408,7 +61408,7 @@ while.body.i.i.i.i.i.i49:                         ; preds = %if.then.i.i.i.i.i45
   %delay.addr.02.i.i.i.i.i.i50 = phi i32 [ %dec.i.i.i.i.i.i51, %while.body.i.i.i.i.i.i49 ], [ %backoff.sroa.0.03.i.i.i.i38, %if.then.i.i.i.i.i45 ]
   %dec.i.i.i.i.i.i51 = add nsw i32 %delay.addr.02.i.i.i.i.i.i50, -1
   call void @llvm.x86.sse2.pause()
-  %cmp.i.i.i.i.i.i52 = icmp ugt i32 %delay.addr.02.i.i.i.i.i.i50, 1
+  %cmp.i.i.i.i.i.i52 = icmp samesign ugt i32 %delay.addr.02.i.i.i.i.i.i50, 1
   br i1 %cmp.i.i.i.i.i.i52, label %while.body.i.i.i.i.i.i49, label %_ZN3tbb6detail2d0L13machine_pauseEi.exit.i.i.i.i.i47, !llvm.loop !110
 
 _ZN3tbb6detail2d0L13machine_pauseEi.exit.i.i.i.i.i47: ; preds = %while.body.i.i.i.i.i.i49, %if.then.i.i.i.i.i45
@@ -61912,7 +61912,7 @@ while.body.i.i.i.i.i.i110:                        ; preds = %if.then.i.i.i.i.i10
   %delay.addr.02.i.i.i.i.i.i111 = phi i32 [ %dec.i.i.i.i.i.i112, %while.body.i.i.i.i.i.i110 ], [ %backoff.sroa.0.03.i.i.i.i99, %if.then.i.i.i.i.i106 ]
   %dec.i.i.i.i.i.i112 = add nsw i32 %delay.addr.02.i.i.i.i.i.i111, -1
   call void @llvm.x86.sse2.pause()
-  %cmp.i.i.i.i.i.i113 = icmp ugt i32 %delay.addr.02.i.i.i.i.i.i111, 1
+  %cmp.i.i.i.i.i.i113 = icmp samesign ugt i32 %delay.addr.02.i.i.i.i.i.i111, 1
   br i1 %cmp.i.i.i.i.i.i113, label %while.body.i.i.i.i.i.i110, label %_ZN3tbb6detail2d0L13machine_pauseEi.exit.i.i.i.i.i108, !llvm.loop !110
 
 _ZN3tbb6detail2d0L13machine_pauseEi.exit.i.i.i.i.i108: ; preds = %while.body.i.i.i.i.i.i110, %if.then.i.i.i.i.i106
@@ -62721,7 +62721,7 @@ while.body.i.i.i.i.i.i:                           ; preds = %if.then.i.i.i.i.i, 
   %delay.addr.02.i.i.i.i.i.i = phi i32 [ %dec.i.i.i.i.i.i, %while.body.i.i.i.i.i.i ], [ %backoff.sroa.0.03.i.i.i.i, %if.then.i.i.i.i.i ]
   %dec.i.i.i.i.i.i = add nsw i32 %delay.addr.02.i.i.i.i.i.i, -1
   call void @llvm.x86.sse2.pause()
-  %cmp.i.i.i.i.i.i = icmp ugt i32 %delay.addr.02.i.i.i.i.i.i, 1
+  %cmp.i.i.i.i.i.i = icmp samesign ugt i32 %delay.addr.02.i.i.i.i.i.i, 1
   br i1 %cmp.i.i.i.i.i.i, label %while.body.i.i.i.i.i.i, label %_ZN3tbb6detail2d0L13machine_pauseEi.exit.i.i.i.i.i, !llvm.loop !110
 
 _ZN3tbb6detail2d0L13machine_pauseEi.exit.i.i.i.i.i: ; preds = %while.body.i.i.i.i.i.i, %if.then.i.i.i.i.i
@@ -62818,7 +62818,7 @@ while.body.i.i.i.i.i.i49:                         ; preds = %if.then.i.i.i.i.i45
   %delay.addr.02.i.i.i.i.i.i50 = phi i32 [ %dec.i.i.i.i.i.i51, %while.body.i.i.i.i.i.i49 ], [ %backoff.sroa.0.03.i.i.i.i38, %if.then.i.i.i.i.i45 ]
   %dec.i.i.i.i.i.i51 = add nsw i32 %delay.addr.02.i.i.i.i.i.i50, -1
   call void @llvm.x86.sse2.pause()
-  %cmp.i.i.i.i.i.i52 = icmp ugt i32 %delay.addr.02.i.i.i.i.i.i50, 1
+  %cmp.i.i.i.i.i.i52 = icmp samesign ugt i32 %delay.addr.02.i.i.i.i.i.i50, 1
   br i1 %cmp.i.i.i.i.i.i52, label %while.body.i.i.i.i.i.i49, label %_ZN3tbb6detail2d0L13machine_pauseEi.exit.i.i.i.i.i47, !llvm.loop !110
 
 _ZN3tbb6detail2d0L13machine_pauseEi.exit.i.i.i.i.i47: ; preds = %while.body.i.i.i.i.i.i49, %if.then.i.i.i.i.i45
@@ -63178,7 +63178,7 @@ while.body.i.i.i.i.i.i110:                        ; preds = %if.then.i.i.i.i.i10
   %delay.addr.02.i.i.i.i.i.i111 = phi i32 [ %dec.i.i.i.i.i.i112, %while.body.i.i.i.i.i.i110 ], [ %backoff.sroa.0.03.i.i.i.i99, %if.then.i.i.i.i.i106 ]
   %dec.i.i.i.i.i.i112 = add nsw i32 %delay.addr.02.i.i.i.i.i.i111, -1
   call void @llvm.x86.sse2.pause()
-  %cmp.i.i.i.i.i.i113 = icmp ugt i32 %delay.addr.02.i.i.i.i.i.i111, 1
+  %cmp.i.i.i.i.i.i113 = icmp samesign ugt i32 %delay.addr.02.i.i.i.i.i.i111, 1
   br i1 %cmp.i.i.i.i.i.i113, label %while.body.i.i.i.i.i.i110, label %_ZN3tbb6detail2d0L13machine_pauseEi.exit.i.i.i.i.i108, !llvm.loop !110
 
 _ZN3tbb6detail2d0L13machine_pauseEi.exit.i.i.i.i.i108: ; preds = %while.body.i.i.i.i.i.i110, %if.then.i.i.i.i.i106
@@ -65358,7 +65358,7 @@ while.body.i.i.i.i.i.i:                           ; preds = %if.then.i.i.i.i.i, 
   %delay.addr.02.i.i.i.i.i.i = phi i32 [ %dec.i.i.i.i.i.i, %while.body.i.i.i.i.i.i ], [ %backoff.sroa.0.03.i.i.i.i, %if.then.i.i.i.i.i ]
   %dec.i.i.i.i.i.i = add nsw i32 %delay.addr.02.i.i.i.i.i.i, -1
   call void @llvm.x86.sse2.pause()
-  %cmp.i.i.i.i.i.i = icmp ugt i32 %delay.addr.02.i.i.i.i.i.i, 1
+  %cmp.i.i.i.i.i.i = icmp samesign ugt i32 %delay.addr.02.i.i.i.i.i.i, 1
   br i1 %cmp.i.i.i.i.i.i, label %while.body.i.i.i.i.i.i, label %_ZN3tbb6detail2d0L13machine_pauseEi.exit.i.i.i.i.i, !llvm.loop !110
 
 _ZN3tbb6detail2d0L13machine_pauseEi.exit.i.i.i.i.i: ; preds = %while.body.i.i.i.i.i.i, %if.then.i.i.i.i.i
@@ -65455,7 +65455,7 @@ while.body.i.i.i.i.i.i49:                         ; preds = %if.then.i.i.i.i.i45
   %delay.addr.02.i.i.i.i.i.i50 = phi i32 [ %dec.i.i.i.i.i.i51, %while.body.i.i.i.i.i.i49 ], [ %backoff.sroa.0.03.i.i.i.i38, %if.then.i.i.i.i.i45 ]
   %dec.i.i.i.i.i.i51 = add nsw i32 %delay.addr.02.i.i.i.i.i.i50, -1
   call void @llvm.x86.sse2.pause()
-  %cmp.i.i.i.i.i.i52 = icmp ugt i32 %delay.addr.02.i.i.i.i.i.i50, 1
+  %cmp.i.i.i.i.i.i52 = icmp samesign ugt i32 %delay.addr.02.i.i.i.i.i.i50, 1
   br i1 %cmp.i.i.i.i.i.i52, label %while.body.i.i.i.i.i.i49, label %_ZN3tbb6detail2d0L13machine_pauseEi.exit.i.i.i.i.i47, !llvm.loop !110
 
 _ZN3tbb6detail2d0L13machine_pauseEi.exit.i.i.i.i.i47: ; preds = %while.body.i.i.i.i.i.i49, %if.then.i.i.i.i.i45
@@ -65815,7 +65815,7 @@ while.body.i.i.i.i.i.i110:                        ; preds = %if.then.i.i.i.i.i10
   %delay.addr.02.i.i.i.i.i.i111 = phi i32 [ %dec.i.i.i.i.i.i112, %while.body.i.i.i.i.i.i110 ], [ %backoff.sroa.0.03.i.i.i.i99, %if.then.i.i.i.i.i106 ]
   %dec.i.i.i.i.i.i112 = add nsw i32 %delay.addr.02.i.i.i.i.i.i111, -1
   call void @llvm.x86.sse2.pause()
-  %cmp.i.i.i.i.i.i113 = icmp ugt i32 %delay.addr.02.i.i.i.i.i.i111, 1
+  %cmp.i.i.i.i.i.i113 = icmp samesign ugt i32 %delay.addr.02.i.i.i.i.i.i111, 1
   br i1 %cmp.i.i.i.i.i.i113, label %while.body.i.i.i.i.i.i110, label %_ZN3tbb6detail2d0L13machine_pauseEi.exit.i.i.i.i.i108, !llvm.loop !110
 
 _ZN3tbb6detail2d0L13machine_pauseEi.exit.i.i.i.i.i108: ; preds = %while.body.i.i.i.i.i.i110, %if.then.i.i.i.i.i106
@@ -67210,7 +67210,7 @@ while.body.i.i.i.i.i.i:                           ; preds = %if.then.i.i.i.i.i, 
   %delay.addr.02.i.i.i.i.i.i = phi i32 [ %dec.i.i.i.i.i.i, %while.body.i.i.i.i.i.i ], [ %backoff.sroa.0.03.i.i.i.i, %if.then.i.i.i.i.i ]
   %dec.i.i.i.i.i.i = add nsw i32 %delay.addr.02.i.i.i.i.i.i, -1
   call void @llvm.x86.sse2.pause()
-  %cmp.i.i.i.i.i.i = icmp ugt i32 %delay.addr.02.i.i.i.i.i.i, 1
+  %cmp.i.i.i.i.i.i = icmp samesign ugt i32 %delay.addr.02.i.i.i.i.i.i, 1
   br i1 %cmp.i.i.i.i.i.i, label %while.body.i.i.i.i.i.i, label %_ZN3tbb6detail2d0L13machine_pauseEi.exit.i.i.i.i.i, !llvm.loop !110
 
 _ZN3tbb6detail2d0L13machine_pauseEi.exit.i.i.i.i.i: ; preds = %while.body.i.i.i.i.i.i, %if.then.i.i.i.i.i
@@ -67309,7 +67309,7 @@ while.body.i.i.i.i.i.i49:                         ; preds = %if.then.i.i.i.i.i45
   %delay.addr.02.i.i.i.i.i.i50 = phi i32 [ %dec.i.i.i.i.i.i51, %while.body.i.i.i.i.i.i49 ], [ %backoff.sroa.0.03.i.i.i.i38, %if.then.i.i.i.i.i45 ]
   %dec.i.i.i.i.i.i51 = add nsw i32 %delay.addr.02.i.i.i.i.i.i50, -1
   call void @llvm.x86.sse2.pause()
-  %cmp.i.i.i.i.i.i52 = icmp ugt i32 %delay.addr.02.i.i.i.i.i.i50, 1
+  %cmp.i.i.i.i.i.i52 = icmp samesign ugt i32 %delay.addr.02.i.i.i.i.i.i50, 1
   br i1 %cmp.i.i.i.i.i.i52, label %while.body.i.i.i.i.i.i49, label %_ZN3tbb6detail2d0L13machine_pauseEi.exit.i.i.i.i.i47, !llvm.loop !110
 
 _ZN3tbb6detail2d0L13machine_pauseEi.exit.i.i.i.i.i47: ; preds = %while.body.i.i.i.i.i.i49, %if.then.i.i.i.i.i45
@@ -67673,7 +67673,7 @@ while.body.i.i.i.i.i.i110:                        ; preds = %if.then.i.i.i.i.i10
   %delay.addr.02.i.i.i.i.i.i111 = phi i32 [ %dec.i.i.i.i.i.i112, %while.body.i.i.i.i.i.i110 ], [ %backoff.sroa.0.03.i.i.i.i99, %if.then.i.i.i.i.i106 ]
   %dec.i.i.i.i.i.i112 = add nsw i32 %delay.addr.02.i.i.i.i.i.i111, -1
   call void @llvm.x86.sse2.pause()
-  %cmp.i.i.i.i.i.i113 = icmp ugt i32 %delay.addr.02.i.i.i.i.i.i111, 1
+  %cmp.i.i.i.i.i.i113 = icmp samesign ugt i32 %delay.addr.02.i.i.i.i.i.i111, 1
   br i1 %cmp.i.i.i.i.i.i113, label %while.body.i.i.i.i.i.i110, label %_ZN3tbb6detail2d0L13machine_pauseEi.exit.i.i.i.i.i108, !llvm.loop !110
 
 _ZN3tbb6detail2d0L13machine_pauseEi.exit.i.i.i.i.i108: ; preds = %while.body.i.i.i.i.i.i110, %if.then.i.i.i.i.i106
@@ -68436,7 +68436,7 @@ while.body.i.i.i.i.i.i:                           ; preds = %if.then.i.i.i.i.i, 
   %delay.addr.02.i.i.i.i.i.i = phi i32 [ %dec.i.i.i.i.i.i, %while.body.i.i.i.i.i.i ], [ %backoff.sroa.0.03.i.i.i.i, %if.then.i.i.i.i.i ]
   %dec.i.i.i.i.i.i = add nsw i32 %delay.addr.02.i.i.i.i.i.i, -1
   call void @llvm.x86.sse2.pause()
-  %cmp.i.i.i.i.i.i = icmp ugt i32 %delay.addr.02.i.i.i.i.i.i, 1
+  %cmp.i.i.i.i.i.i = icmp samesign ugt i32 %delay.addr.02.i.i.i.i.i.i, 1
   br i1 %cmp.i.i.i.i.i.i, label %while.body.i.i.i.i.i.i, label %_ZN3tbb6detail2d0L13machine_pauseEi.exit.i.i.i.i.i, !llvm.loop !110
 
 _ZN3tbb6detail2d0L13machine_pauseEi.exit.i.i.i.i.i: ; preds = %while.body.i.i.i.i.i.i, %if.then.i.i.i.i.i
@@ -68533,7 +68533,7 @@ while.body.i.i.i.i.i.i49:                         ; preds = %if.then.i.i.i.i.i45
   %delay.addr.02.i.i.i.i.i.i50 = phi i32 [ %dec.i.i.i.i.i.i51, %while.body.i.i.i.i.i.i49 ], [ %backoff.sroa.0.03.i.i.i.i38, %if.then.i.i.i.i.i45 ]
   %dec.i.i.i.i.i.i51 = add nsw i32 %delay.addr.02.i.i.i.i.i.i50, -1
   call void @llvm.x86.sse2.pause()
-  %cmp.i.i.i.i.i.i52 = icmp ugt i32 %delay.addr.02.i.i.i.i.i.i50, 1
+  %cmp.i.i.i.i.i.i52 = icmp samesign ugt i32 %delay.addr.02.i.i.i.i.i.i50, 1
   br i1 %cmp.i.i.i.i.i.i52, label %while.body.i.i.i.i.i.i49, label %_ZN3tbb6detail2d0L13machine_pauseEi.exit.i.i.i.i.i47, !llvm.loop !110
 
 _ZN3tbb6detail2d0L13machine_pauseEi.exit.i.i.i.i.i47: ; preds = %while.body.i.i.i.i.i.i49, %if.then.i.i.i.i.i45
@@ -68893,7 +68893,7 @@ while.body.i.i.i.i.i.i110:                        ; preds = %if.then.i.i.i.i.i10
   %delay.addr.02.i.i.i.i.i.i111 = phi i32 [ %dec.i.i.i.i.i.i112, %while.body.i.i.i.i.i.i110 ], [ %backoff.sroa.0.03.i.i.i.i99, %if.then.i.i.i.i.i106 ]
   %dec.i.i.i.i.i.i112 = add nsw i32 %delay.addr.02.i.i.i.i.i.i111, -1
   call void @llvm.x86.sse2.pause()
-  %cmp.i.i.i.i.i.i113 = icmp ugt i32 %delay.addr.02.i.i.i.i.i.i111, 1
+  %cmp.i.i.i.i.i.i113 = icmp samesign ugt i32 %delay.addr.02.i.i.i.i.i.i111, 1
   br i1 %cmp.i.i.i.i.i.i113, label %while.body.i.i.i.i.i.i110, label %_ZN3tbb6detail2d0L13machine_pauseEi.exit.i.i.i.i.i108, !llvm.loop !110
 
 _ZN3tbb6detail2d0L13machine_pauseEi.exit.i.i.i.i.i108: ; preds = %while.body.i.i.i.i.i.i110, %if.then.i.i.i.i.i106
@@ -70288,7 +70288,7 @@ while.body.i.i.i.i.i.i:                           ; preds = %if.then.i.i.i.i.i, 
   %delay.addr.02.i.i.i.i.i.i = phi i32 [ %dec.i.i.i.i.i.i, %while.body.i.i.i.i.i.i ], [ %backoff.sroa.0.03.i.i.i.i, %if.then.i.i.i.i.i ]
   %dec.i.i.i.i.i.i = add nsw i32 %delay.addr.02.i.i.i.i.i.i, -1
   call void @llvm.x86.sse2.pause()
-  %cmp.i.i.i.i.i.i = icmp ugt i32 %delay.addr.02.i.i.i.i.i.i, 1
+  %cmp.i.i.i.i.i.i = icmp samesign ugt i32 %delay.addr.02.i.i.i.i.i.i, 1
   br i1 %cmp.i.i.i.i.i.i, label %while.body.i.i.i.i.i.i, label %_ZN3tbb6detail2d0L13machine_pauseEi.exit.i.i.i.i.i, !llvm.loop !110
 
 _ZN3tbb6detail2d0L13machine_pauseEi.exit.i.i.i.i.i: ; preds = %while.body.i.i.i.i.i.i, %if.then.i.i.i.i.i
@@ -70387,7 +70387,7 @@ while.body.i.i.i.i.i.i49:                         ; preds = %if.then.i.i.i.i.i45
   %delay.addr.02.i.i.i.i.i.i50 = phi i32 [ %dec.i.i.i.i.i.i51, %while.body.i.i.i.i.i.i49 ], [ %backoff.sroa.0.03.i.i.i.i38, %if.then.i.i.i.i.i45 ]
   %dec.i.i.i.i.i.i51 = add nsw i32 %delay.addr.02.i.i.i.i.i.i50, -1
   call void @llvm.x86.sse2.pause()
-  %cmp.i.i.i.i.i.i52 = icmp ugt i32 %delay.addr.02.i.i.i.i.i.i50, 1
+  %cmp.i.i.i.i.i.i52 = icmp samesign ugt i32 %delay.addr.02.i.i.i.i.i.i50, 1
   br i1 %cmp.i.i.i.i.i.i52, label %while.body.i.i.i.i.i.i49, label %_ZN3tbb6detail2d0L13machine_pauseEi.exit.i.i.i.i.i47, !llvm.loop !110
 
 _ZN3tbb6detail2d0L13machine_pauseEi.exit.i.i.i.i.i47: ; preds = %while.body.i.i.i.i.i.i49, %if.then.i.i.i.i.i45
@@ -70751,7 +70751,7 @@ while.body.i.i.i.i.i.i110:                        ; preds = %if.then.i.i.i.i.i10
   %delay.addr.02.i.i.i.i.i.i111 = phi i32 [ %dec.i.i.i.i.i.i112, %while.body.i.i.i.i.i.i110 ], [ %backoff.sroa.0.03.i.i.i.i99, %if.then.i.i.i.i.i106 ]
   %dec.i.i.i.i.i.i112 = add nsw i32 %delay.addr.02.i.i.i.i.i.i111, -1
   call void @llvm.x86.sse2.pause()
-  %cmp.i.i.i.i.i.i113 = icmp ugt i32 %delay.addr.02.i.i.i.i.i.i111, 1
+  %cmp.i.i.i.i.i.i113 = icmp samesign ugt i32 %delay.addr.02.i.i.i.i.i.i111, 1
   br i1 %cmp.i.i.i.i.i.i113, label %while.body.i.i.i.i.i.i110, label %_ZN3tbb6detail2d0L13machine_pauseEi.exit.i.i.i.i.i108, !llvm.loop !110
 
 _ZN3tbb6detail2d0L13machine_pauseEi.exit.i.i.i.i.i108: ; preds = %while.body.i.i.i.i.i.i110, %if.then.i.i.i.i.i106
@@ -71185,7 +71185,7 @@ while.body.i.i.i.i.i.i:                           ; preds = %if.then.i.i.i.i.i, 
   %delay.addr.02.i.i.i.i.i.i = phi i32 [ %dec.i.i.i.i.i.i, %while.body.i.i.i.i.i.i ], [ %backoff.sroa.0.03.i.i.i.i, %if.then.i.i.i.i.i ]
   %dec.i.i.i.i.i.i = add nsw i32 %delay.addr.02.i.i.i.i.i.i, -1
   call void @llvm.x86.sse2.pause()
-  %cmp.i.i.i.i.i.i = icmp ugt i32 %delay.addr.02.i.i.i.i.i.i, 1
+  %cmp.i.i.i.i.i.i = icmp samesign ugt i32 %delay.addr.02.i.i.i.i.i.i, 1
   br i1 %cmp.i.i.i.i.i.i, label %while.body.i.i.i.i.i.i, label %_ZN3tbb6detail2d0L13machine_pauseEi.exit.i.i.i.i.i, !llvm.loop !110
 
 _ZN3tbb6detail2d0L13machine_pauseEi.exit.i.i.i.i.i: ; preds = %while.body.i.i.i.i.i.i, %if.then.i.i.i.i.i
@@ -71284,7 +71284,7 @@ while.body.i.i.i.i.i.i49:                         ; preds = %if.then.i.i.i.i.i45
   %delay.addr.02.i.i.i.i.i.i50 = phi i32 [ %dec.i.i.i.i.i.i51, %while.body.i.i.i.i.i.i49 ], [ %backoff.sroa.0.03.i.i.i.i38, %if.then.i.i.i.i.i45 ]
   %dec.i.i.i.i.i.i51 = add nsw i32 %delay.addr.02.i.i.i.i.i.i50, -1
   call void @llvm.x86.sse2.pause()
-  %cmp.i.i.i.i.i.i52 = icmp ugt i32 %delay.addr.02.i.i.i.i.i.i50, 1
+  %cmp.i.i.i.i.i.i52 = icmp samesign ugt i32 %delay.addr.02.i.i.i.i.i.i50, 1
   br i1 %cmp.i.i.i.i.i.i52, label %while.body.i.i.i.i.i.i49, label %_ZN3tbb6detail2d0L13machine_pauseEi.exit.i.i.i.i.i47, !llvm.loop !110
 
 _ZN3tbb6detail2d0L13machine_pauseEi.exit.i.i.i.i.i47: ; preds = %while.body.i.i.i.i.i.i49, %if.then.i.i.i.i.i45
@@ -71648,7 +71648,7 @@ while.body.i.i.i.i.i.i110:                        ; preds = %if.then.i.i.i.i.i10
   %delay.addr.02.i.i.i.i.i.i111 = phi i32 [ %dec.i.i.i.i.i.i112, %while.body.i.i.i.i.i.i110 ], [ %backoff.sroa.0.03.i.i.i.i99, %if.then.i.i.i.i.i106 ]
   %dec.i.i.i.i.i.i112 = add nsw i32 %delay.addr.02.i.i.i.i.i.i111, -1
   call void @llvm.x86.sse2.pause()
-  %cmp.i.i.i.i.i.i113 = icmp ugt i32 %delay.addr.02.i.i.i.i.i.i111, 1
+  %cmp.i.i.i.i.i.i113 = icmp samesign ugt i32 %delay.addr.02.i.i.i.i.i.i111, 1
   br i1 %cmp.i.i.i.i.i.i113, label %while.body.i.i.i.i.i.i110, label %_ZN3tbb6detail2d0L13machine_pauseEi.exit.i.i.i.i.i108, !llvm.loop !110
 
 _ZN3tbb6detail2d0L13machine_pauseEi.exit.i.i.i.i.i108: ; preds = %while.body.i.i.i.i.i.i110, %if.then.i.i.i.i.i106
@@ -76619,7 +76619,7 @@ invoke.cont48:                                    ; preds = %invoke.cont44
           to label %cleanup387 unwind label %lpad.loopexit.split-lp
 
 if.end52:                                         ; preds = %invoke.cont11
-  %cmp56 = icmp ugt i32 %verboseLevel, 3
+  %cmp56 = icmp samesign ugt i32 %verboseLevel, 3
   br i1 %cmp56, label %if.then57, label %if.end68
 
 if.then57:                                        ; preds = %if.end52
@@ -87730,7 +87730,7 @@ for.body.i.i:                                     ; preds = %_ZNK7openvdb5v11_04
   br i1 %cmp.i.i.i.i.i.i, label %land.lhs.true.i.i.i.i.i.i, label %cond.false.i.i.i.i.i.i
 
 land.lhs.true.i.i.i.i.i.i:                        ; preds = %for.body.i.i
-  %cmp2.i.i.i.i.i.i = icmp ult i64 %add.i.i.i.i.i.i, 64
+  %cmp2.i.i.i.i.i.i = icmp samesign ult i64 %add.i.i.i.i.i.i, 64
   br i1 %cmp2.i.i.i.i.i.i, label %if.then.i.i.i.i.i.i, label %cond.true.i.i.i.i.i.i
 
 if.then.i.i.i.i.i.i:                              ; preds = %land.lhs.true.i.i.i.i.i.i
@@ -87988,7 +87988,7 @@ for.body.i.i39:                                   ; preds = %invoke.cont24, %_ZN
   br i1 %cmp.i.i.i.i.i.i49, label %land.lhs.true.i.i.i.i.i.i74, label %cond.false.i.i.i.i.i.i50
 
 land.lhs.true.i.i.i.i.i.i74:                      ; preds = %for.body.i.i39
-  %cmp2.i.i.i.i.i.i75 = icmp ult i64 %add.i.i.i.i.i.i48, 64
+  %cmp2.i.i.i.i.i.i75 = icmp samesign ult i64 %add.i.i.i.i.i.i48, 64
   br i1 %cmp2.i.i.i.i.i.i75, label %if.then.i.i.i.i.i.i78, label %cond.true.i.i.i.i.i.i76
 
 if.then.i.i.i.i.i.i78:                            ; preds = %land.lhs.true.i.i.i.i.i.i74
@@ -88763,7 +88763,7 @@ for.body:                                         ; preds = %for.body.lr.ph, %fo
   br i1 %cmp.i.i.i.i, label %land.lhs.true.i.i.i.i, label %cond.false.i.i.i.i
 
 land.lhs.true.i.i.i.i:                            ; preds = %for.body
-  %cmp2.i.i.i.i = icmp ult i64 %add.i.i.i.i, 64
+  %cmp2.i.i.i.i = icmp samesign ult i64 %add.i.i.i.i, 64
   br i1 %cmp2.i.i.i.i, label %if.then.i.i.i.i, label %cond.true.i.i.i.i
 
 if.then.i.i.i.i:                                  ; preds = %land.lhs.true.i.i.i.i
@@ -138949,7 +138949,7 @@ while.body.i.i.i:                                 ; preds = %if.then.i.i78, %whi
   %delay.addr.02.i.i.i = phi i32 [ %dec.i.i.i, %while.body.i.i.i ], [ %backoff.sroa.0.043.i, %if.then.i.i78 ]
   %dec.i.i.i = add nsw i32 %delay.addr.02.i.i.i, -1
   call void @llvm.x86.sse2.pause()
-  %cmp.i.i.i79 = icmp ugt i32 %delay.addr.02.i.i.i, 1
+  %cmp.i.i.i79 = icmp samesign ugt i32 %delay.addr.02.i.i.i, 1
   br i1 %cmp.i.i.i79, label %while.body.i.i.i, label %_ZN3tbb6detail2d0L13machine_pauseEi.exit.i.i, !llvm.loop !110
 
 _ZN3tbb6detail2d0L13machine_pauseEi.exit.i.i:     ; preds = %while.body.i.i.i, %if.then.i.i78
@@ -139015,7 +139015,7 @@ while.body.i.i.i.i:                               ; preds = %while.body.i.i.i.i,
   %delay.addr.02.i.i.i.i = phi i32 [ %dec.i.i.i.i, %while.body.i.i.i.i ], [ %backoff.sroa.0.13640.i.i, %while.body.i.i.preheader.i.i ]
   %dec.i.i.i.i = add nsw i32 %delay.addr.02.i.i.i.i, -1
   call void @llvm.x86.sse2.pause()
-  %cmp.i.i.i.i75 = icmp ugt i32 %delay.addr.02.i.i.i.i, 1
+  %cmp.i.i.i.i75 = icmp samesign ugt i32 %delay.addr.02.i.i.i.i, 1
   br i1 %cmp.i.i.i.i75, label %while.body.i.i.i.i, label %_ZN3tbb6detail2d0L13machine_pauseEi.exit.i.i.i, !llvm.loop !110
 
 _ZN3tbb6detail2d0L13machine_pauseEi.exit.i.i.i:   ; preds = %while.body.i.i.i.i, %if.then.i.i.i74
@@ -139170,7 +139170,7 @@ while.body.i.i.i.i.i:                             ; preds = %while.body.i.i.i.i.
   %delay.addr.02.i.i.i.i.i = phi i32 [ %dec.i.i.i.i.i, %while.body.i.i.i.i.i ], [ %backoff.sroa.0.13640.i.i.i, %while.body.i.i.preheader.i.i.i ]
   %dec.i.i.i.i.i = add nsw i32 %delay.addr.02.i.i.i.i.i, -1
   call void @llvm.x86.sse2.pause()
-  %cmp.i.i.i.i.i = icmp ugt i32 %delay.addr.02.i.i.i.i.i, 1
+  %cmp.i.i.i.i.i = icmp samesign ugt i32 %delay.addr.02.i.i.i.i.i, 1
   br i1 %cmp.i.i.i.i.i, label %while.body.i.i.i.i.i, label %_ZN3tbb6detail2d0L13machine_pauseEi.exit.i.i.i.i, !llvm.loop !110
 
 _ZN3tbb6detail2d0L13machine_pauseEi.exit.i.i.i.i: ; preds = %while.body.i.i.i.i.i, %if.then.i.i.i.i
@@ -139290,7 +139290,7 @@ while.body.i.i.i.i:                               ; preds = %while.body.i.i.i.i,
   %delay.addr.02.i.i.i.i = phi i32 [ %dec.i.i.i.i, %while.body.i.i.i.i ], [ %backoff.sroa.0.13640.i.i, %while.body.i.i.preheader.i.i ]
   %dec.i.i.i.i = add nsw i32 %delay.addr.02.i.i.i.i, -1
   tail call void @llvm.x86.sse2.pause()
-  %cmp.i.i.i.i = icmp ugt i32 %delay.addr.02.i.i.i.i, 1
+  %cmp.i.i.i.i = icmp samesign ugt i32 %delay.addr.02.i.i.i.i, 1
   br i1 %cmp.i.i.i.i, label %while.body.i.i.i.i, label %_ZN3tbb6detail2d0L13machine_pauseEi.exit.i.i.i, !llvm.loop !110
 
 _ZN3tbb6detail2d0L13machine_pauseEi.exit.i.i.i:   ; preds = %while.body.i.i.i.i, %if.then.i.i.i
@@ -139329,7 +139329,7 @@ while.body.i.i.i14.i:                             ; preds = %if.then.i.i10.i, %w
   %delay.addr.02.i.i.i15.i = phi i32 [ %dec.i.i.i16.i, %while.body.i.i.i14.i ], [ %b.sroa.0.0.i.i.ph, %if.then.i.i10.i ]
   %dec.i.i.i16.i = add nsw i32 %delay.addr.02.i.i.i15.i, -1
   tail call void @llvm.x86.sse2.pause()
-  %cmp.i.i.i17.i = icmp ugt i32 %delay.addr.02.i.i.i15.i, 1
+  %cmp.i.i.i17.i = icmp samesign ugt i32 %delay.addr.02.i.i.i15.i, 1
   br i1 %cmp.i.i.i17.i, label %while.body.i.i.i14.i, label %_ZN3tbb6detail2d0L13machine_pauseEi.exit.i.i12.i, !llvm.loop !110
 
 _ZN3tbb6detail2d0L13machine_pauseEi.exit.i.i12.i: ; preds = %while.body.i.i.i14.i, %if.then.i.i10.i
@@ -139425,7 +139425,7 @@ while.body.i.i.i14.i.i:                           ; preds = %if.then.i.i10.i.i, 
   %delay.addr.02.i.i.i15.i.i = phi i32 [ %dec.i.i.i16.i.i, %while.body.i.i.i14.i.i ], [ %b.sroa.0.0.i.i.i.ph, %if.then.i.i10.i.i ]
   %dec.i.i.i16.i.i = add nsw i32 %delay.addr.02.i.i.i15.i.i, -1
   tail call void @llvm.x86.sse2.pause()
-  %cmp.i.i.i17.i.i = icmp ugt i32 %delay.addr.02.i.i.i15.i.i, 1
+  %cmp.i.i.i17.i.i = icmp samesign ugt i32 %delay.addr.02.i.i.i15.i.i, 1
   br i1 %cmp.i.i.i17.i.i, label %while.body.i.i.i14.i.i, label %_ZN3tbb6detail2d0L13machine_pauseEi.exit.i.i12.i.i, !llvm.loop !110
 
 _ZN3tbb6detail2d0L13machine_pauseEi.exit.i.i12.i.i: ; preds = %while.body.i.i.i14.i.i, %if.then.i.i10.i.i
@@ -143710,7 +143710,7 @@ for.body.i.i:                                     ; preds = %_ZNK7openvdb5v11_04
   br i1 %cmp.i.i.i.i.i.i, label %land.lhs.true.i.i.i.i.i.i, label %cond.false.i.i.i.i.i.i
 
 land.lhs.true.i.i.i.i.i.i:                        ; preds = %for.body.i.i
-  %cmp2.i.i.i.i.i.i = icmp ult i64 %add.i.i.i.i.i.i, 64
+  %cmp2.i.i.i.i.i.i = icmp samesign ult i64 %add.i.i.i.i.i.i, 64
   br i1 %cmp2.i.i.i.i.i.i, label %if.then.i.i.i.i.i.i, label %cond.true.i.i.i.i.i.i
 
 if.then.i.i.i.i.i.i:                              ; preds = %land.lhs.true.i.i.i.i.i.i
@@ -143968,7 +143968,7 @@ for.body.i.i39:                                   ; preds = %invoke.cont24, %_ZN
   br i1 %cmp.i.i.i.i.i.i49, label %land.lhs.true.i.i.i.i.i.i74, label %cond.false.i.i.i.i.i.i50
 
 land.lhs.true.i.i.i.i.i.i74:                      ; preds = %for.body.i.i39
-  %cmp2.i.i.i.i.i.i75 = icmp ult i64 %add.i.i.i.i.i.i48, 64
+  %cmp2.i.i.i.i.i.i75 = icmp samesign ult i64 %add.i.i.i.i.i.i48, 64
   br i1 %cmp2.i.i.i.i.i.i75, label %if.then.i.i.i.i.i.i78, label %cond.true.i.i.i.i.i.i76
 
 if.then.i.i.i.i.i.i78:                            ; preds = %land.lhs.true.i.i.i.i.i.i74
@@ -144810,7 +144810,7 @@ for.body:                                         ; preds = %for.body.lr.ph, %fo
   br i1 %cmp.i.i.i.i, label %land.lhs.true.i.i.i.i, label %cond.false.i.i.i.i
 
 land.lhs.true.i.i.i.i:                            ; preds = %for.body
-  %cmp2.i.i.i.i = icmp ult i64 %add.i.i.i.i, 64
+  %cmp2.i.i.i.i = icmp samesign ult i64 %add.i.i.i.i, 64
   br i1 %cmp2.i.i.i.i, label %if.then.i.i.i.i, label %cond.true.i.i.i.i
 
 if.then.i.i.i.i:                                  ; preds = %land.lhs.true.i.i.i.i
@@ -148399,7 +148399,7 @@ while.body.i.i.i.i.i.i:                           ; preds = %if.then.i.i.i.i.i, 
   %delay.addr.02.i.i.i.i.i.i = phi i32 [ %dec.i.i.i.i.i.i, %while.body.i.i.i.i.i.i ], [ %backoff.sroa.0.03.i.i.i.i, %if.then.i.i.i.i.i ]
   %dec.i.i.i.i.i.i = add nsw i32 %delay.addr.02.i.i.i.i.i.i, -1
   call void @llvm.x86.sse2.pause()
-  %cmp.i.i.i.i.i.i = icmp ugt i32 %delay.addr.02.i.i.i.i.i.i, 1
+  %cmp.i.i.i.i.i.i = icmp samesign ugt i32 %delay.addr.02.i.i.i.i.i.i, 1
   br i1 %cmp.i.i.i.i.i.i, label %while.body.i.i.i.i.i.i, label %_ZN3tbb6detail2d0L13machine_pauseEi.exit.i.i.i.i.i, !llvm.loop !110
 
 _ZN3tbb6detail2d0L13machine_pauseEi.exit.i.i.i.i.i: ; preds = %while.body.i.i.i.i.i.i, %if.then.i.i.i.i.i
@@ -148496,7 +148496,7 @@ while.body.i.i.i.i.i.i49:                         ; preds = %if.then.i.i.i.i.i45
   %delay.addr.02.i.i.i.i.i.i50 = phi i32 [ %dec.i.i.i.i.i.i51, %while.body.i.i.i.i.i.i49 ], [ %backoff.sroa.0.03.i.i.i.i38, %if.then.i.i.i.i.i45 ]
   %dec.i.i.i.i.i.i51 = add nsw i32 %delay.addr.02.i.i.i.i.i.i50, -1
   call void @llvm.x86.sse2.pause()
-  %cmp.i.i.i.i.i.i52 = icmp ugt i32 %delay.addr.02.i.i.i.i.i.i50, 1
+  %cmp.i.i.i.i.i.i52 = icmp samesign ugt i32 %delay.addr.02.i.i.i.i.i.i50, 1
   br i1 %cmp.i.i.i.i.i.i52, label %while.body.i.i.i.i.i.i49, label %_ZN3tbb6detail2d0L13machine_pauseEi.exit.i.i.i.i.i47, !llvm.loop !110
 
 _ZN3tbb6detail2d0L13machine_pauseEi.exit.i.i.i.i.i47: ; preds = %while.body.i.i.i.i.i.i49, %if.then.i.i.i.i.i45
@@ -149229,7 +149229,7 @@ while.body.i.i.i.i.i.i110:                        ; preds = %if.then.i.i.i.i.i10
   %delay.addr.02.i.i.i.i.i.i111 = phi i32 [ %dec.i.i.i.i.i.i112, %while.body.i.i.i.i.i.i110 ], [ %backoff.sroa.0.03.i.i.i.i99, %if.then.i.i.i.i.i106 ]
   %dec.i.i.i.i.i.i112 = add nsw i32 %delay.addr.02.i.i.i.i.i.i111, -1
   call void @llvm.x86.sse2.pause()
-  %cmp.i.i.i.i.i.i113 = icmp ugt i32 %delay.addr.02.i.i.i.i.i.i111, 1
+  %cmp.i.i.i.i.i.i113 = icmp samesign ugt i32 %delay.addr.02.i.i.i.i.i.i111, 1
   br i1 %cmp.i.i.i.i.i.i113, label %while.body.i.i.i.i.i.i110, label %_ZN3tbb6detail2d0L13machine_pauseEi.exit.i.i.i.i.i108, !llvm.loop !110
 
 _ZN3tbb6detail2d0L13machine_pauseEi.exit.i.i.i.i.i108: ; preds = %while.body.i.i.i.i.i.i110, %if.then.i.i.i.i.i106
@@ -150622,7 +150622,7 @@ while.body.i.i:                                   ; preds = %if.end55, %while.bo
   %delay.addr.02.i.i = phi i32 [ %dec.i.i, %while.body.i.i ], [ %backoff.sroa.0.0, %if.end55 ]
   %dec.i.i = add nsw i32 %delay.addr.02.i.i, -1
   call void @llvm.x86.sse2.pause()
-  %cmp.i.i95 = icmp ugt i32 %delay.addr.02.i.i, 1
+  %cmp.i.i95 = icmp samesign ugt i32 %delay.addr.02.i.i, 1
   br i1 %cmp.i.i95, label %while.body.i.i, label %_ZN3tbb6detail2d0L13machine_pauseEi.exit.i, !llvm.loop !110
 
 _ZN3tbb6detail2d0L13machine_pauseEi.exit.i:       ; preds = %while.body.i.i
@@ -150898,7 +150898,7 @@ while.body.i.i.i.i:                               ; preds = %while.body.i.i.i.i,
   %delay.addr.02.i.i.i.i = phi i32 [ %dec.i.i.i.i, %while.body.i.i.i.i ], [ %backoff.sroa.0.13640.i.i, %while.body.i.i.preheader.i.i ]
   %dec.i.i.i.i = add nsw i32 %delay.addr.02.i.i.i.i, -1
   tail call void @llvm.x86.sse2.pause()
-  %cmp.i.i.i.i = icmp ugt i32 %delay.addr.02.i.i.i.i, 1
+  %cmp.i.i.i.i = icmp samesign ugt i32 %delay.addr.02.i.i.i.i, 1
   br i1 %cmp.i.i.i.i, label %while.body.i.i.i.i, label %_ZN3tbb6detail2d0L13machine_pauseEi.exit.i.i.i, !llvm.loop !110
 
 _ZN3tbb6detail2d0L13machine_pauseEi.exit.i.i.i:   ; preds = %while.body.i.i.i.i, %if.then.i.i.i
@@ -150937,7 +150937,7 @@ while.body.i.i.i14.i:                             ; preds = %if.then.i.i10.i, %w
   %delay.addr.02.i.i.i15.i = phi i32 [ %dec.i.i.i16.i, %while.body.i.i.i14.i ], [ %b.sroa.0.0.i.i.ph, %if.then.i.i10.i ]
   %dec.i.i.i16.i = add nsw i32 %delay.addr.02.i.i.i15.i, -1
   tail call void @llvm.x86.sse2.pause()
-  %cmp.i.i.i17.i = icmp ugt i32 %delay.addr.02.i.i.i15.i, 1
+  %cmp.i.i.i17.i = icmp samesign ugt i32 %delay.addr.02.i.i.i15.i, 1
   br i1 %cmp.i.i.i17.i, label %while.body.i.i.i14.i, label %_ZN3tbb6detail2d0L13machine_pauseEi.exit.i.i12.i, !llvm.loop !110
 
 _ZN3tbb6detail2d0L13machine_pauseEi.exit.i.i12.i: ; preds = %while.body.i.i.i14.i, %if.then.i.i10.i
@@ -151033,7 +151033,7 @@ while.body.i.i.i14.i.i:                           ; preds = %if.then.i.i10.i.i, 
   %delay.addr.02.i.i.i15.i.i = phi i32 [ %dec.i.i.i16.i.i, %while.body.i.i.i14.i.i ], [ %b.sroa.0.0.i.i.i.ph, %if.then.i.i10.i.i ]
   %dec.i.i.i16.i.i = add nsw i32 %delay.addr.02.i.i.i15.i.i, -1
   tail call void @llvm.x86.sse2.pause()
-  %cmp.i.i.i17.i.i = icmp ugt i32 %delay.addr.02.i.i.i15.i.i, 1
+  %cmp.i.i.i17.i.i = icmp samesign ugt i32 %delay.addr.02.i.i.i15.i.i, 1
   br i1 %cmp.i.i.i17.i.i, label %while.body.i.i.i14.i.i, label %_ZN3tbb6detail2d0L13machine_pauseEi.exit.i.i12.i.i, !llvm.loop !110
 
 _ZN3tbb6detail2d0L13machine_pauseEi.exit.i.i12.i.i: ; preds = %while.body.i.i.i14.i.i, %if.then.i.i10.i.i
@@ -151323,7 +151323,7 @@ while.body.i.i.i:                                 ; preds = %if.then.i.i78, %whi
   %delay.addr.02.i.i.i = phi i32 [ %dec.i.i.i, %while.body.i.i.i ], [ %backoff.sroa.0.043.i, %if.then.i.i78 ]
   %dec.i.i.i = add nsw i32 %delay.addr.02.i.i.i, -1
   call void @llvm.x86.sse2.pause()
-  %cmp.i.i.i79 = icmp ugt i32 %delay.addr.02.i.i.i, 1
+  %cmp.i.i.i79 = icmp samesign ugt i32 %delay.addr.02.i.i.i, 1
   br i1 %cmp.i.i.i79, label %while.body.i.i.i, label %_ZN3tbb6detail2d0L13machine_pauseEi.exit.i.i, !llvm.loop !110
 
 _ZN3tbb6detail2d0L13machine_pauseEi.exit.i.i:     ; preds = %while.body.i.i.i, %if.then.i.i78
@@ -151389,7 +151389,7 @@ while.body.i.i.i.i:                               ; preds = %while.body.i.i.i.i,
   %delay.addr.02.i.i.i.i = phi i32 [ %dec.i.i.i.i, %while.body.i.i.i.i ], [ %backoff.sroa.0.13640.i.i, %while.body.i.i.preheader.i.i ]
   %dec.i.i.i.i = add nsw i32 %delay.addr.02.i.i.i.i, -1
   call void @llvm.x86.sse2.pause()
-  %cmp.i.i.i.i75 = icmp ugt i32 %delay.addr.02.i.i.i.i, 1
+  %cmp.i.i.i.i75 = icmp samesign ugt i32 %delay.addr.02.i.i.i.i, 1
   br i1 %cmp.i.i.i.i75, label %while.body.i.i.i.i, label %_ZN3tbb6detail2d0L13machine_pauseEi.exit.i.i.i, !llvm.loop !110
 
 _ZN3tbb6detail2d0L13machine_pauseEi.exit.i.i.i:   ; preds = %while.body.i.i.i.i, %if.then.i.i.i74
@@ -151544,7 +151544,7 @@ while.body.i.i.i.i.i:                             ; preds = %while.body.i.i.i.i.
   %delay.addr.02.i.i.i.i.i = phi i32 [ %dec.i.i.i.i.i, %while.body.i.i.i.i.i ], [ %backoff.sroa.0.13640.i.i.i, %while.body.i.i.preheader.i.i.i ]
   %dec.i.i.i.i.i = add nsw i32 %delay.addr.02.i.i.i.i.i, -1
   call void @llvm.x86.sse2.pause()
-  %cmp.i.i.i.i.i = icmp ugt i32 %delay.addr.02.i.i.i.i.i, 1
+  %cmp.i.i.i.i.i = icmp samesign ugt i32 %delay.addr.02.i.i.i.i.i, 1
   br i1 %cmp.i.i.i.i.i, label %while.body.i.i.i.i.i, label %_ZN3tbb6detail2d0L13machine_pauseEi.exit.i.i.i.i, !llvm.loop !110
 
 _ZN3tbb6detail2d0L13machine_pauseEi.exit.i.i.i.i: ; preds = %while.body.i.i.i.i.i, %if.then.i.i.i.i
@@ -151600,7 +151600,7 @@ while.body.i.i.i.i.i:                             ; preds = %if.then.i.i.i.i, %w
   %delay.addr.02.i.i.i.i.i = phi i32 [ %dec.i.i.i.i.i, %while.body.i.i.i.i.i ], [ %backoff.sroa.0.03.i.i.i, %if.then.i.i.i.i ]
   %dec.i.i.i.i.i = add nsw i32 %delay.addr.02.i.i.i.i.i, -1
   tail call void @llvm.x86.sse2.pause()
-  %cmp.i.i.i.i.i = icmp ugt i32 %delay.addr.02.i.i.i.i.i, 1
+  %cmp.i.i.i.i.i = icmp samesign ugt i32 %delay.addr.02.i.i.i.i.i, 1
   br i1 %cmp.i.i.i.i.i, label %while.body.i.i.i.i.i, label %_ZN3tbb6detail2d0L13machine_pauseEi.exit.i.i.i.i, !llvm.loop !110
 
 _ZN3tbb6detail2d0L13machine_pauseEi.exit.i.i.i.i: ; preds = %while.body.i.i.i.i.i, %if.then.i.i.i.i
@@ -152890,7 +152890,7 @@ while.body.i.i.i.i.i.i:                           ; preds = %if.then.i.i.i.i.i, 
   %delay.addr.02.i.i.i.i.i.i = phi i32 [ %dec.i.i.i.i.i.i, %while.body.i.i.i.i.i.i ], [ %backoff.sroa.0.03.i.i.i.i, %if.then.i.i.i.i.i ]
   %dec.i.i.i.i.i.i = add nsw i32 %delay.addr.02.i.i.i.i.i.i, -1
   tail call void @llvm.x86.sse2.pause()
-  %cmp.i.i.i.i.i.i = icmp ugt i32 %delay.addr.02.i.i.i.i.i.i, 1
+  %cmp.i.i.i.i.i.i = icmp samesign ugt i32 %delay.addr.02.i.i.i.i.i.i, 1
   br i1 %cmp.i.i.i.i.i.i, label %while.body.i.i.i.i.i.i, label %_ZN3tbb6detail2d0L13machine_pauseEi.exit.i.i.i.i.i, !llvm.loop !110
 
 _ZN3tbb6detail2d0L13machine_pauseEi.exit.i.i.i.i.i: ; preds = %while.body.i.i.i.i.i.i, %if.then.i.i.i.i.i
@@ -154658,7 +154658,7 @@ while.body.i.i.i.i.i.i:                           ; preds = %if.then.i.i.i.i.i, 
   %delay.addr.02.i.i.i.i.i.i = phi i32 [ %dec.i.i.i.i.i.i, %while.body.i.i.i.i.i.i ], [ %backoff.sroa.0.03.i.i.i.i, %if.then.i.i.i.i.i ]
   %dec.i.i.i.i.i.i = add nsw i32 %delay.addr.02.i.i.i.i.i.i, -1
   call void @llvm.x86.sse2.pause()
-  %cmp.i.i.i.i.i.i = icmp ugt i32 %delay.addr.02.i.i.i.i.i.i, 1
+  %cmp.i.i.i.i.i.i = icmp samesign ugt i32 %delay.addr.02.i.i.i.i.i.i, 1
   br i1 %cmp.i.i.i.i.i.i, label %while.body.i.i.i.i.i.i, label %_ZN3tbb6detail2d0L13machine_pauseEi.exit.i.i.i.i.i, !llvm.loop !110
 
 _ZN3tbb6detail2d0L13machine_pauseEi.exit.i.i.i.i.i: ; preds = %while.body.i.i.i.i.i.i, %if.then.i.i.i.i.i
@@ -154755,7 +154755,7 @@ while.body.i.i.i.i.i.i49:                         ; preds = %if.then.i.i.i.i.i45
   %delay.addr.02.i.i.i.i.i.i50 = phi i32 [ %dec.i.i.i.i.i.i51, %while.body.i.i.i.i.i.i49 ], [ %backoff.sroa.0.03.i.i.i.i38, %if.then.i.i.i.i.i45 ]
   %dec.i.i.i.i.i.i51 = add nsw i32 %delay.addr.02.i.i.i.i.i.i50, -1
   call void @llvm.x86.sse2.pause()
-  %cmp.i.i.i.i.i.i52 = icmp ugt i32 %delay.addr.02.i.i.i.i.i.i50, 1
+  %cmp.i.i.i.i.i.i52 = icmp samesign ugt i32 %delay.addr.02.i.i.i.i.i.i50, 1
   br i1 %cmp.i.i.i.i.i.i52, label %while.body.i.i.i.i.i.i49, label %_ZN3tbb6detail2d0L13machine_pauseEi.exit.i.i.i.i.i47, !llvm.loop !110
 
 _ZN3tbb6detail2d0L13machine_pauseEi.exit.i.i.i.i.i47: ; preds = %while.body.i.i.i.i.i.i49, %if.then.i.i.i.i.i45
@@ -155488,7 +155488,7 @@ while.body.i.i.i.i.i.i110:                        ; preds = %if.then.i.i.i.i.i10
   %delay.addr.02.i.i.i.i.i.i111 = phi i32 [ %dec.i.i.i.i.i.i112, %while.body.i.i.i.i.i.i110 ], [ %backoff.sroa.0.03.i.i.i.i99, %if.then.i.i.i.i.i106 ]
   %dec.i.i.i.i.i.i112 = add nsw i32 %delay.addr.02.i.i.i.i.i.i111, -1
   call void @llvm.x86.sse2.pause()
-  %cmp.i.i.i.i.i.i113 = icmp ugt i32 %delay.addr.02.i.i.i.i.i.i111, 1
+  %cmp.i.i.i.i.i.i113 = icmp samesign ugt i32 %delay.addr.02.i.i.i.i.i.i111, 1
   br i1 %cmp.i.i.i.i.i.i113, label %while.body.i.i.i.i.i.i110, label %_ZN3tbb6detail2d0L13machine_pauseEi.exit.i.i.i.i.i108, !llvm.loop !110
 
 _ZN3tbb6detail2d0L13machine_pauseEi.exit.i.i.i.i.i108: ; preds = %while.body.i.i.i.i.i.i110, %if.then.i.i.i.i.i106
@@ -157295,7 +157295,7 @@ while.body.i.i.i.i.i.i:                           ; preds = %if.then.i.i.i.i.i, 
   %delay.addr.02.i.i.i.i.i.i = phi i32 [ %dec.i.i.i.i.i.i, %while.body.i.i.i.i.i.i ], [ %backoff.sroa.0.03.i.i.i.i, %if.then.i.i.i.i.i ]
   %dec.i.i.i.i.i.i = add nsw i32 %delay.addr.02.i.i.i.i.i.i, -1
   call void @llvm.x86.sse2.pause()
-  %cmp.i.i.i.i.i.i = icmp ugt i32 %delay.addr.02.i.i.i.i.i.i, 1
+  %cmp.i.i.i.i.i.i = icmp samesign ugt i32 %delay.addr.02.i.i.i.i.i.i, 1
   br i1 %cmp.i.i.i.i.i.i, label %while.body.i.i.i.i.i.i, label %_ZN3tbb6detail2d0L13machine_pauseEi.exit.i.i.i.i.i, !llvm.loop !110
 
 _ZN3tbb6detail2d0L13machine_pauseEi.exit.i.i.i.i.i: ; preds = %while.body.i.i.i.i.i.i, %if.then.i.i.i.i.i
@@ -157394,7 +157394,7 @@ while.body.i.i.i.i.i.i49:                         ; preds = %if.then.i.i.i.i.i45
   %delay.addr.02.i.i.i.i.i.i50 = phi i32 [ %dec.i.i.i.i.i.i51, %while.body.i.i.i.i.i.i49 ], [ %backoff.sroa.0.03.i.i.i.i38, %if.then.i.i.i.i.i45 ]
   %dec.i.i.i.i.i.i51 = add nsw i32 %delay.addr.02.i.i.i.i.i.i50, -1
   call void @llvm.x86.sse2.pause()
-  %cmp.i.i.i.i.i.i52 = icmp ugt i32 %delay.addr.02.i.i.i.i.i.i50, 1
+  %cmp.i.i.i.i.i.i52 = icmp samesign ugt i32 %delay.addr.02.i.i.i.i.i.i50, 1
   br i1 %cmp.i.i.i.i.i.i52, label %while.body.i.i.i.i.i.i49, label %_ZN3tbb6detail2d0L13machine_pauseEi.exit.i.i.i.i.i47, !llvm.loop !110
 
 _ZN3tbb6detail2d0L13machine_pauseEi.exit.i.i.i.i.i47: ; preds = %while.body.i.i.i.i.i.i49, %if.then.i.i.i.i.i45
@@ -158131,7 +158131,7 @@ while.body.i.i.i.i.i.i110:                        ; preds = %if.then.i.i.i.i.i10
   %delay.addr.02.i.i.i.i.i.i111 = phi i32 [ %dec.i.i.i.i.i.i112, %while.body.i.i.i.i.i.i110 ], [ %backoff.sroa.0.03.i.i.i.i99, %if.then.i.i.i.i.i106 ]
   %dec.i.i.i.i.i.i112 = add nsw i32 %delay.addr.02.i.i.i.i.i.i111, -1
   call void @llvm.x86.sse2.pause()
-  %cmp.i.i.i.i.i.i113 = icmp ugt i32 %delay.addr.02.i.i.i.i.i.i111, 1
+  %cmp.i.i.i.i.i.i113 = icmp samesign ugt i32 %delay.addr.02.i.i.i.i.i.i111, 1
   br i1 %cmp.i.i.i.i.i.i113, label %while.body.i.i.i.i.i.i110, label %_ZN3tbb6detail2d0L13machine_pauseEi.exit.i.i.i.i.i108, !llvm.loop !110
 
 _ZN3tbb6detail2d0L13machine_pauseEi.exit.i.i.i.i.i108: ; preds = %while.body.i.i.i.i.i.i110, %if.then.i.i.i.i.i106
@@ -159306,7 +159306,7 @@ while.body.i.i.i.i.i.i:                           ; preds = %if.then.i.i.i.i.i, 
   %delay.addr.02.i.i.i.i.i.i = phi i32 [ %dec.i.i.i.i.i.i, %while.body.i.i.i.i.i.i ], [ %backoff.sroa.0.03.i.i.i.i, %if.then.i.i.i.i.i ]
   %dec.i.i.i.i.i.i = add nsw i32 %delay.addr.02.i.i.i.i.i.i, -1
   call void @llvm.x86.sse2.pause()
-  %cmp.i.i.i.i.i.i = icmp ugt i32 %delay.addr.02.i.i.i.i.i.i, 1
+  %cmp.i.i.i.i.i.i = icmp samesign ugt i32 %delay.addr.02.i.i.i.i.i.i, 1
   br i1 %cmp.i.i.i.i.i.i, label %while.body.i.i.i.i.i.i, label %_ZN3tbb6detail2d0L13machine_pauseEi.exit.i.i.i.i.i, !llvm.loop !110
 
 _ZN3tbb6detail2d0L13machine_pauseEi.exit.i.i.i.i.i: ; preds = %while.body.i.i.i.i.i.i, %if.then.i.i.i.i.i
@@ -159403,7 +159403,7 @@ while.body.i.i.i.i.i.i49:                         ; preds = %if.then.i.i.i.i.i45
   %delay.addr.02.i.i.i.i.i.i50 = phi i32 [ %dec.i.i.i.i.i.i51, %while.body.i.i.i.i.i.i49 ], [ %backoff.sroa.0.03.i.i.i.i38, %if.then.i.i.i.i.i45 ]
   %dec.i.i.i.i.i.i51 = add nsw i32 %delay.addr.02.i.i.i.i.i.i50, -1
   call void @llvm.x86.sse2.pause()
-  %cmp.i.i.i.i.i.i52 = icmp ugt i32 %delay.addr.02.i.i.i.i.i.i50, 1
+  %cmp.i.i.i.i.i.i52 = icmp samesign ugt i32 %delay.addr.02.i.i.i.i.i.i50, 1
   br i1 %cmp.i.i.i.i.i.i52, label %while.body.i.i.i.i.i.i49, label %_ZN3tbb6detail2d0L13machine_pauseEi.exit.i.i.i.i.i47, !llvm.loop !110
 
 _ZN3tbb6detail2d0L13machine_pauseEi.exit.i.i.i.i.i47: ; preds = %while.body.i.i.i.i.i.i49, %if.then.i.i.i.i.i45
@@ -160136,7 +160136,7 @@ while.body.i.i.i.i.i.i110:                        ; preds = %if.then.i.i.i.i.i10
   %delay.addr.02.i.i.i.i.i.i111 = phi i32 [ %dec.i.i.i.i.i.i112, %while.body.i.i.i.i.i.i110 ], [ %backoff.sroa.0.03.i.i.i.i99, %if.then.i.i.i.i.i106 ]
   %dec.i.i.i.i.i.i112 = add nsw i32 %delay.addr.02.i.i.i.i.i.i111, -1
   call void @llvm.x86.sse2.pause()
-  %cmp.i.i.i.i.i.i113 = icmp ugt i32 %delay.addr.02.i.i.i.i.i.i111, 1
+  %cmp.i.i.i.i.i.i113 = icmp samesign ugt i32 %delay.addr.02.i.i.i.i.i.i111, 1
   br i1 %cmp.i.i.i.i.i.i113, label %while.body.i.i.i.i.i.i110, label %_ZN3tbb6detail2d0L13machine_pauseEi.exit.i.i.i.i.i108, !llvm.loop !110
 
 _ZN3tbb6detail2d0L13machine_pauseEi.exit.i.i.i.i.i108: ; preds = %while.body.i.i.i.i.i.i110, %if.then.i.i.i.i.i106
@@ -161943,7 +161943,7 @@ while.body.i.i.i.i.i.i:                           ; preds = %if.then.i.i.i.i.i, 
   %delay.addr.02.i.i.i.i.i.i = phi i32 [ %dec.i.i.i.i.i.i, %while.body.i.i.i.i.i.i ], [ %backoff.sroa.0.03.i.i.i.i, %if.then.i.i.i.i.i ]
   %dec.i.i.i.i.i.i = add nsw i32 %delay.addr.02.i.i.i.i.i.i, -1
   call void @llvm.x86.sse2.pause()
-  %cmp.i.i.i.i.i.i = icmp ugt i32 %delay.addr.02.i.i.i.i.i.i, 1
+  %cmp.i.i.i.i.i.i = icmp samesign ugt i32 %delay.addr.02.i.i.i.i.i.i, 1
   br i1 %cmp.i.i.i.i.i.i, label %while.body.i.i.i.i.i.i, label %_ZN3tbb6detail2d0L13machine_pauseEi.exit.i.i.i.i.i, !llvm.loop !110
 
 _ZN3tbb6detail2d0L13machine_pauseEi.exit.i.i.i.i.i: ; preds = %while.body.i.i.i.i.i.i, %if.then.i.i.i.i.i
@@ -162042,7 +162042,7 @@ while.body.i.i.i.i.i.i49:                         ; preds = %if.then.i.i.i.i.i45
   %delay.addr.02.i.i.i.i.i.i50 = phi i32 [ %dec.i.i.i.i.i.i51, %while.body.i.i.i.i.i.i49 ], [ %backoff.sroa.0.03.i.i.i.i38, %if.then.i.i.i.i.i45 ]
   %dec.i.i.i.i.i.i51 = add nsw i32 %delay.addr.02.i.i.i.i.i.i50, -1
   call void @llvm.x86.sse2.pause()
-  %cmp.i.i.i.i.i.i52 = icmp ugt i32 %delay.addr.02.i.i.i.i.i.i50, 1
+  %cmp.i.i.i.i.i.i52 = icmp samesign ugt i32 %delay.addr.02.i.i.i.i.i.i50, 1
   br i1 %cmp.i.i.i.i.i.i52, label %while.body.i.i.i.i.i.i49, label %_ZN3tbb6detail2d0L13machine_pauseEi.exit.i.i.i.i.i47, !llvm.loop !110
 
 _ZN3tbb6detail2d0L13machine_pauseEi.exit.i.i.i.i.i47: ; preds = %while.body.i.i.i.i.i.i49, %if.then.i.i.i.i.i45
@@ -162779,7 +162779,7 @@ while.body.i.i.i.i.i.i110:                        ; preds = %if.then.i.i.i.i.i10
   %delay.addr.02.i.i.i.i.i.i111 = phi i32 [ %dec.i.i.i.i.i.i112, %while.body.i.i.i.i.i.i110 ], [ %backoff.sroa.0.03.i.i.i.i99, %if.then.i.i.i.i.i106 ]
   %dec.i.i.i.i.i.i112 = add nsw i32 %delay.addr.02.i.i.i.i.i.i111, -1
   call void @llvm.x86.sse2.pause()
-  %cmp.i.i.i.i.i.i113 = icmp ugt i32 %delay.addr.02.i.i.i.i.i.i111, 1
+  %cmp.i.i.i.i.i.i113 = icmp samesign ugt i32 %delay.addr.02.i.i.i.i.i.i111, 1
   br i1 %cmp.i.i.i.i.i.i113, label %while.body.i.i.i.i.i.i110, label %_ZN3tbb6detail2d0L13machine_pauseEi.exit.i.i.i.i.i108, !llvm.loop !110
 
 _ZN3tbb6detail2d0L13machine_pauseEi.exit.i.i.i.i.i108: ; preds = %while.body.i.i.i.i.i.i110, %if.then.i.i.i.i.i106
@@ -163625,7 +163625,7 @@ while.body.i.i.i.i.i.i:                           ; preds = %if.then.i.i.i.i.i, 
   %delay.addr.02.i.i.i.i.i.i = phi i32 [ %dec.i.i.i.i.i.i, %while.body.i.i.i.i.i.i ], [ %backoff.sroa.0.03.i.i.i.i, %if.then.i.i.i.i.i ]
   %dec.i.i.i.i.i.i = add nsw i32 %delay.addr.02.i.i.i.i.i.i, -1
   call void @llvm.x86.sse2.pause()
-  %cmp.i.i.i.i.i.i = icmp ugt i32 %delay.addr.02.i.i.i.i.i.i, 1
+  %cmp.i.i.i.i.i.i = icmp samesign ugt i32 %delay.addr.02.i.i.i.i.i.i, 1
   br i1 %cmp.i.i.i.i.i.i, label %while.body.i.i.i.i.i.i, label %_ZN3tbb6detail2d0L13machine_pauseEi.exit.i.i.i.i.i, !llvm.loop !110
 
 _ZN3tbb6detail2d0L13machine_pauseEi.exit.i.i.i.i.i: ; preds = %while.body.i.i.i.i.i.i, %if.then.i.i.i.i.i
@@ -163724,7 +163724,7 @@ while.body.i.i.i.i.i.i49:                         ; preds = %if.then.i.i.i.i.i45
   %delay.addr.02.i.i.i.i.i.i50 = phi i32 [ %dec.i.i.i.i.i.i51, %while.body.i.i.i.i.i.i49 ], [ %backoff.sroa.0.03.i.i.i.i38, %if.then.i.i.i.i.i45 ]
   %dec.i.i.i.i.i.i51 = add nsw i32 %delay.addr.02.i.i.i.i.i.i50, -1
   call void @llvm.x86.sse2.pause()
-  %cmp.i.i.i.i.i.i52 = icmp ugt i32 %delay.addr.02.i.i.i.i.i.i50, 1
+  %cmp.i.i.i.i.i.i52 = icmp samesign ugt i32 %delay.addr.02.i.i.i.i.i.i50, 1
   br i1 %cmp.i.i.i.i.i.i52, label %while.body.i.i.i.i.i.i49, label %_ZN3tbb6detail2d0L13machine_pauseEi.exit.i.i.i.i.i47, !llvm.loop !110
 
 _ZN3tbb6detail2d0L13machine_pauseEi.exit.i.i.i.i.i47: ; preds = %while.body.i.i.i.i.i.i49, %if.then.i.i.i.i.i45
@@ -164461,7 +164461,7 @@ while.body.i.i.i.i.i.i110:                        ; preds = %if.then.i.i.i.i.i10
   %delay.addr.02.i.i.i.i.i.i111 = phi i32 [ %dec.i.i.i.i.i.i112, %while.body.i.i.i.i.i.i110 ], [ %backoff.sroa.0.03.i.i.i.i99, %if.then.i.i.i.i.i106 ]
   %dec.i.i.i.i.i.i112 = add nsw i32 %delay.addr.02.i.i.i.i.i.i111, -1
   call void @llvm.x86.sse2.pause()
-  %cmp.i.i.i.i.i.i113 = icmp ugt i32 %delay.addr.02.i.i.i.i.i.i111, 1
+  %cmp.i.i.i.i.i.i113 = icmp samesign ugt i32 %delay.addr.02.i.i.i.i.i.i111, 1
   br i1 %cmp.i.i.i.i.i.i113, label %while.body.i.i.i.i.i.i110, label %_ZN3tbb6detail2d0L13machine_pauseEi.exit.i.i.i.i.i108, !llvm.loop !110
 
 _ZN3tbb6detail2d0L13machine_pauseEi.exit.i.i.i.i.i108: ; preds = %while.body.i.i.i.i.i.i110, %if.then.i.i.i.i.i106
@@ -165503,7 +165503,7 @@ while.body.i.i.i.i.i.i:                           ; preds = %if.then.i.i.i.i.i, 
   %delay.addr.02.i.i.i.i.i.i = phi i32 [ %dec.i.i.i.i.i.i, %while.body.i.i.i.i.i.i ], [ %backoff.sroa.0.03.i.i.i.i, %if.then.i.i.i.i.i ]
   %dec.i.i.i.i.i.i = add nsw i32 %delay.addr.02.i.i.i.i.i.i, -1
   call void @llvm.x86.sse2.pause()
-  %cmp.i.i.i.i.i.i = icmp ugt i32 %delay.addr.02.i.i.i.i.i.i, 1
+  %cmp.i.i.i.i.i.i = icmp samesign ugt i32 %delay.addr.02.i.i.i.i.i.i, 1
   br i1 %cmp.i.i.i.i.i.i, label %while.body.i.i.i.i.i.i, label %_ZN3tbb6detail2d0L13machine_pauseEi.exit.i.i.i.i.i, !llvm.loop !110
 
 _ZN3tbb6detail2d0L13machine_pauseEi.exit.i.i.i.i.i: ; preds = %while.body.i.i.i.i.i.i, %if.then.i.i.i.i.i
@@ -165600,7 +165600,7 @@ while.body.i.i.i.i.i.i49:                         ; preds = %if.then.i.i.i.i.i45
   %delay.addr.02.i.i.i.i.i.i50 = phi i32 [ %dec.i.i.i.i.i.i51, %while.body.i.i.i.i.i.i49 ], [ %backoff.sroa.0.03.i.i.i.i38, %if.then.i.i.i.i.i45 ]
   %dec.i.i.i.i.i.i51 = add nsw i32 %delay.addr.02.i.i.i.i.i.i50, -1
   call void @llvm.x86.sse2.pause()
-  %cmp.i.i.i.i.i.i52 = icmp ugt i32 %delay.addr.02.i.i.i.i.i.i50, 1
+  %cmp.i.i.i.i.i.i52 = icmp samesign ugt i32 %delay.addr.02.i.i.i.i.i.i50, 1
   br i1 %cmp.i.i.i.i.i.i52, label %while.body.i.i.i.i.i.i49, label %_ZN3tbb6detail2d0L13machine_pauseEi.exit.i.i.i.i.i47, !llvm.loop !110
 
 _ZN3tbb6detail2d0L13machine_pauseEi.exit.i.i.i.i.i47: ; preds = %while.body.i.i.i.i.i.i49, %if.then.i.i.i.i.i45
@@ -165990,7 +165990,7 @@ while.body.i.i.i.i.i.i110:                        ; preds = %if.then.i.i.i.i.i10
   %delay.addr.02.i.i.i.i.i.i111 = phi i32 [ %dec.i.i.i.i.i.i112, %while.body.i.i.i.i.i.i110 ], [ %backoff.sroa.0.03.i.i.i.i99, %if.then.i.i.i.i.i106 ]
   %dec.i.i.i.i.i.i112 = add nsw i32 %delay.addr.02.i.i.i.i.i.i111, -1
   call void @llvm.x86.sse2.pause()
-  %cmp.i.i.i.i.i.i113 = icmp ugt i32 %delay.addr.02.i.i.i.i.i.i111, 1
+  %cmp.i.i.i.i.i.i113 = icmp samesign ugt i32 %delay.addr.02.i.i.i.i.i.i111, 1
   br i1 %cmp.i.i.i.i.i.i113, label %while.body.i.i.i.i.i.i110, label %_ZN3tbb6detail2d0L13machine_pauseEi.exit.i.i.i.i.i108, !llvm.loop !110
 
 _ZN3tbb6detail2d0L13machine_pauseEi.exit.i.i.i.i.i108: ; preds = %while.body.i.i.i.i.i.i110, %if.then.i.i.i.i.i106
@@ -168093,7 +168093,7 @@ while.body.i.i.i.i.i.i:                           ; preds = %if.then.i.i.i.i.i, 
   %delay.addr.02.i.i.i.i.i.i = phi i32 [ %dec.i.i.i.i.i.i, %while.body.i.i.i.i.i.i ], [ %backoff.sroa.0.03.i.i.i.i, %if.then.i.i.i.i.i ]
   %dec.i.i.i.i.i.i = add nsw i32 %delay.addr.02.i.i.i.i.i.i, -1
   call void @llvm.x86.sse2.pause()
-  %cmp.i.i.i.i.i.i = icmp ugt i32 %delay.addr.02.i.i.i.i.i.i, 1
+  %cmp.i.i.i.i.i.i = icmp samesign ugt i32 %delay.addr.02.i.i.i.i.i.i, 1
   br i1 %cmp.i.i.i.i.i.i, label %while.body.i.i.i.i.i.i, label %_ZN3tbb6detail2d0L13machine_pauseEi.exit.i.i.i.i.i, !llvm.loop !110
 
 _ZN3tbb6detail2d0L13machine_pauseEi.exit.i.i.i.i.i: ; preds = %while.body.i.i.i.i.i.i, %if.then.i.i.i.i.i
@@ -168190,7 +168190,7 @@ while.body.i.i.i.i.i.i49:                         ; preds = %if.then.i.i.i.i.i45
   %delay.addr.02.i.i.i.i.i.i50 = phi i32 [ %dec.i.i.i.i.i.i51, %while.body.i.i.i.i.i.i49 ], [ %backoff.sroa.0.03.i.i.i.i38, %if.then.i.i.i.i.i45 ]
   %dec.i.i.i.i.i.i51 = add nsw i32 %delay.addr.02.i.i.i.i.i.i50, -1
   call void @llvm.x86.sse2.pause()
-  %cmp.i.i.i.i.i.i52 = icmp ugt i32 %delay.addr.02.i.i.i.i.i.i50, 1
+  %cmp.i.i.i.i.i.i52 = icmp samesign ugt i32 %delay.addr.02.i.i.i.i.i.i50, 1
   br i1 %cmp.i.i.i.i.i.i52, label %while.body.i.i.i.i.i.i49, label %_ZN3tbb6detail2d0L13machine_pauseEi.exit.i.i.i.i.i47, !llvm.loop !110
 
 _ZN3tbb6detail2d0L13machine_pauseEi.exit.i.i.i.i.i47: ; preds = %while.body.i.i.i.i.i.i49, %if.then.i.i.i.i.i45
@@ -168580,7 +168580,7 @@ while.body.i.i.i.i.i.i110:                        ; preds = %if.then.i.i.i.i.i10
   %delay.addr.02.i.i.i.i.i.i111 = phi i32 [ %dec.i.i.i.i.i.i112, %while.body.i.i.i.i.i.i110 ], [ %backoff.sroa.0.03.i.i.i.i99, %if.then.i.i.i.i.i106 ]
   %dec.i.i.i.i.i.i112 = add nsw i32 %delay.addr.02.i.i.i.i.i.i111, -1
   call void @llvm.x86.sse2.pause()
-  %cmp.i.i.i.i.i.i113 = icmp ugt i32 %delay.addr.02.i.i.i.i.i.i111, 1
+  %cmp.i.i.i.i.i.i113 = icmp samesign ugt i32 %delay.addr.02.i.i.i.i.i.i111, 1
   br i1 %cmp.i.i.i.i.i.i113, label %while.body.i.i.i.i.i.i110, label %_ZN3tbb6detail2d0L13machine_pauseEi.exit.i.i.i.i.i108, !llvm.loop !110
 
 _ZN3tbb6detail2d0L13machine_pauseEi.exit.i.i.i.i.i108: ; preds = %while.body.i.i.i.i.i.i110, %if.then.i.i.i.i.i106
@@ -170005,7 +170005,7 @@ while.body.i.i.i.i.i.i:                           ; preds = %if.then.i.i.i.i.i, 
   %delay.addr.02.i.i.i.i.i.i = phi i32 [ %dec.i.i.i.i.i.i, %while.body.i.i.i.i.i.i ], [ %backoff.sroa.0.03.i.i.i.i, %if.then.i.i.i.i.i ]
   %dec.i.i.i.i.i.i = add nsw i32 %delay.addr.02.i.i.i.i.i.i, -1
   call void @llvm.x86.sse2.pause()
-  %cmp.i.i.i.i.i.i = icmp ugt i32 %delay.addr.02.i.i.i.i.i.i, 1
+  %cmp.i.i.i.i.i.i = icmp samesign ugt i32 %delay.addr.02.i.i.i.i.i.i, 1
   br i1 %cmp.i.i.i.i.i.i, label %while.body.i.i.i.i.i.i, label %_ZN3tbb6detail2d0L13machine_pauseEi.exit.i.i.i.i.i, !llvm.loop !110
 
 _ZN3tbb6detail2d0L13machine_pauseEi.exit.i.i.i.i.i: ; preds = %while.body.i.i.i.i.i.i, %if.then.i.i.i.i.i
@@ -170104,7 +170104,7 @@ while.body.i.i.i.i.i.i49:                         ; preds = %if.then.i.i.i.i.i45
   %delay.addr.02.i.i.i.i.i.i50 = phi i32 [ %dec.i.i.i.i.i.i51, %while.body.i.i.i.i.i.i49 ], [ %backoff.sroa.0.03.i.i.i.i38, %if.then.i.i.i.i.i45 ]
   %dec.i.i.i.i.i.i51 = add nsw i32 %delay.addr.02.i.i.i.i.i.i50, -1
   call void @llvm.x86.sse2.pause()
-  %cmp.i.i.i.i.i.i52 = icmp ugt i32 %delay.addr.02.i.i.i.i.i.i50, 1
+  %cmp.i.i.i.i.i.i52 = icmp samesign ugt i32 %delay.addr.02.i.i.i.i.i.i50, 1
   br i1 %cmp.i.i.i.i.i.i52, label %while.body.i.i.i.i.i.i49, label %_ZN3tbb6detail2d0L13machine_pauseEi.exit.i.i.i.i.i47, !llvm.loop !110
 
 _ZN3tbb6detail2d0L13machine_pauseEi.exit.i.i.i.i.i47: ; preds = %while.body.i.i.i.i.i.i49, %if.then.i.i.i.i.i45
@@ -170498,7 +170498,7 @@ while.body.i.i.i.i.i.i110:                        ; preds = %if.then.i.i.i.i.i10
   %delay.addr.02.i.i.i.i.i.i111 = phi i32 [ %dec.i.i.i.i.i.i112, %while.body.i.i.i.i.i.i110 ], [ %backoff.sroa.0.03.i.i.i.i99, %if.then.i.i.i.i.i106 ]
   %dec.i.i.i.i.i.i112 = add nsw i32 %delay.addr.02.i.i.i.i.i.i111, -1
   call void @llvm.x86.sse2.pause()
-  %cmp.i.i.i.i.i.i113 = icmp ugt i32 %delay.addr.02.i.i.i.i.i.i111, 1
+  %cmp.i.i.i.i.i.i113 = icmp samesign ugt i32 %delay.addr.02.i.i.i.i.i.i111, 1
   br i1 %cmp.i.i.i.i.i.i113, label %while.body.i.i.i.i.i.i110, label %_ZN3tbb6detail2d0L13machine_pauseEi.exit.i.i.i.i.i108, !llvm.loop !110
 
 _ZN3tbb6detail2d0L13machine_pauseEi.exit.i.i.i.i.i108: ; preds = %while.body.i.i.i.i.i.i110, %if.then.i.i.i.i.i106
@@ -171291,7 +171291,7 @@ while.body.i.i.i.i.i.i:                           ; preds = %if.then.i.i.i.i.i, 
   %delay.addr.02.i.i.i.i.i.i = phi i32 [ %dec.i.i.i.i.i.i, %while.body.i.i.i.i.i.i ], [ %backoff.sroa.0.03.i.i.i.i, %if.then.i.i.i.i.i ]
   %dec.i.i.i.i.i.i = add nsw i32 %delay.addr.02.i.i.i.i.i.i, -1
   call void @llvm.x86.sse2.pause()
-  %cmp.i.i.i.i.i.i = icmp ugt i32 %delay.addr.02.i.i.i.i.i.i, 1
+  %cmp.i.i.i.i.i.i = icmp samesign ugt i32 %delay.addr.02.i.i.i.i.i.i, 1
   br i1 %cmp.i.i.i.i.i.i, label %while.body.i.i.i.i.i.i, label %_ZN3tbb6detail2d0L13machine_pauseEi.exit.i.i.i.i.i, !llvm.loop !110
 
 _ZN3tbb6detail2d0L13machine_pauseEi.exit.i.i.i.i.i: ; preds = %while.body.i.i.i.i.i.i, %if.then.i.i.i.i.i
@@ -171388,7 +171388,7 @@ while.body.i.i.i.i.i.i49:                         ; preds = %if.then.i.i.i.i.i45
   %delay.addr.02.i.i.i.i.i.i50 = phi i32 [ %dec.i.i.i.i.i.i51, %while.body.i.i.i.i.i.i49 ], [ %backoff.sroa.0.03.i.i.i.i38, %if.then.i.i.i.i.i45 ]
   %dec.i.i.i.i.i.i51 = add nsw i32 %delay.addr.02.i.i.i.i.i.i50, -1
   call void @llvm.x86.sse2.pause()
-  %cmp.i.i.i.i.i.i52 = icmp ugt i32 %delay.addr.02.i.i.i.i.i.i50, 1
+  %cmp.i.i.i.i.i.i52 = icmp samesign ugt i32 %delay.addr.02.i.i.i.i.i.i50, 1
   br i1 %cmp.i.i.i.i.i.i52, label %while.body.i.i.i.i.i.i49, label %_ZN3tbb6detail2d0L13machine_pauseEi.exit.i.i.i.i.i47, !llvm.loop !110
 
 _ZN3tbb6detail2d0L13machine_pauseEi.exit.i.i.i.i.i47: ; preds = %while.body.i.i.i.i.i.i49, %if.then.i.i.i.i.i45
@@ -171778,7 +171778,7 @@ while.body.i.i.i.i.i.i110:                        ; preds = %if.then.i.i.i.i.i10
   %delay.addr.02.i.i.i.i.i.i111 = phi i32 [ %dec.i.i.i.i.i.i112, %while.body.i.i.i.i.i.i110 ], [ %backoff.sroa.0.03.i.i.i.i99, %if.then.i.i.i.i.i106 ]
   %dec.i.i.i.i.i.i112 = add nsw i32 %delay.addr.02.i.i.i.i.i.i111, -1
   call void @llvm.x86.sse2.pause()
-  %cmp.i.i.i.i.i.i113 = icmp ugt i32 %delay.addr.02.i.i.i.i.i.i111, 1
+  %cmp.i.i.i.i.i.i113 = icmp samesign ugt i32 %delay.addr.02.i.i.i.i.i.i111, 1
   br i1 %cmp.i.i.i.i.i.i113, label %while.body.i.i.i.i.i.i110, label %_ZN3tbb6detail2d0L13machine_pauseEi.exit.i.i.i.i.i108, !llvm.loop !110
 
 _ZN3tbb6detail2d0L13machine_pauseEi.exit.i.i.i.i.i108: ; preds = %while.body.i.i.i.i.i.i110, %if.then.i.i.i.i.i106
@@ -173203,7 +173203,7 @@ while.body.i.i.i.i.i.i:                           ; preds = %if.then.i.i.i.i.i, 
   %delay.addr.02.i.i.i.i.i.i = phi i32 [ %dec.i.i.i.i.i.i, %while.body.i.i.i.i.i.i ], [ %backoff.sroa.0.03.i.i.i.i, %if.then.i.i.i.i.i ]
   %dec.i.i.i.i.i.i = add nsw i32 %delay.addr.02.i.i.i.i.i.i, -1
   call void @llvm.x86.sse2.pause()
-  %cmp.i.i.i.i.i.i = icmp ugt i32 %delay.addr.02.i.i.i.i.i.i, 1
+  %cmp.i.i.i.i.i.i = icmp samesign ugt i32 %delay.addr.02.i.i.i.i.i.i, 1
   br i1 %cmp.i.i.i.i.i.i, label %while.body.i.i.i.i.i.i, label %_ZN3tbb6detail2d0L13machine_pauseEi.exit.i.i.i.i.i, !llvm.loop !110
 
 _ZN3tbb6detail2d0L13machine_pauseEi.exit.i.i.i.i.i: ; preds = %while.body.i.i.i.i.i.i, %if.then.i.i.i.i.i
@@ -173302,7 +173302,7 @@ while.body.i.i.i.i.i.i49:                         ; preds = %if.then.i.i.i.i.i45
   %delay.addr.02.i.i.i.i.i.i50 = phi i32 [ %dec.i.i.i.i.i.i51, %while.body.i.i.i.i.i.i49 ], [ %backoff.sroa.0.03.i.i.i.i38, %if.then.i.i.i.i.i45 ]
   %dec.i.i.i.i.i.i51 = add nsw i32 %delay.addr.02.i.i.i.i.i.i50, -1
   call void @llvm.x86.sse2.pause()
-  %cmp.i.i.i.i.i.i52 = icmp ugt i32 %delay.addr.02.i.i.i.i.i.i50, 1
+  %cmp.i.i.i.i.i.i52 = icmp samesign ugt i32 %delay.addr.02.i.i.i.i.i.i50, 1
   br i1 %cmp.i.i.i.i.i.i52, label %while.body.i.i.i.i.i.i49, label %_ZN3tbb6detail2d0L13machine_pauseEi.exit.i.i.i.i.i47, !llvm.loop !110
 
 _ZN3tbb6detail2d0L13machine_pauseEi.exit.i.i.i.i.i47: ; preds = %while.body.i.i.i.i.i.i49, %if.then.i.i.i.i.i45
@@ -173696,7 +173696,7 @@ while.body.i.i.i.i.i.i110:                        ; preds = %if.then.i.i.i.i.i10
   %delay.addr.02.i.i.i.i.i.i111 = phi i32 [ %dec.i.i.i.i.i.i112, %while.body.i.i.i.i.i.i110 ], [ %backoff.sroa.0.03.i.i.i.i99, %if.then.i.i.i.i.i106 ]
   %dec.i.i.i.i.i.i112 = add nsw i32 %delay.addr.02.i.i.i.i.i.i111, -1
   call void @llvm.x86.sse2.pause()
-  %cmp.i.i.i.i.i.i113 = icmp ugt i32 %delay.addr.02.i.i.i.i.i.i111, 1
+  %cmp.i.i.i.i.i.i113 = icmp samesign ugt i32 %delay.addr.02.i.i.i.i.i.i111, 1
   br i1 %cmp.i.i.i.i.i.i113, label %while.body.i.i.i.i.i.i110, label %_ZN3tbb6detail2d0L13machine_pauseEi.exit.i.i.i.i.i108, !llvm.loop !110
 
 _ZN3tbb6detail2d0L13machine_pauseEi.exit.i.i.i.i.i108: ; preds = %while.body.i.i.i.i.i.i110, %if.then.i.i.i.i.i106
@@ -174160,7 +174160,7 @@ while.body.i.i.i.i.i.i:                           ; preds = %if.then.i.i.i.i.i, 
   %delay.addr.02.i.i.i.i.i.i = phi i32 [ %dec.i.i.i.i.i.i, %while.body.i.i.i.i.i.i ], [ %backoff.sroa.0.03.i.i.i.i, %if.then.i.i.i.i.i ]
   %dec.i.i.i.i.i.i = add nsw i32 %delay.addr.02.i.i.i.i.i.i, -1
   call void @llvm.x86.sse2.pause()
-  %cmp.i.i.i.i.i.i = icmp ugt i32 %delay.addr.02.i.i.i.i.i.i, 1
+  %cmp.i.i.i.i.i.i = icmp samesign ugt i32 %delay.addr.02.i.i.i.i.i.i, 1
   br i1 %cmp.i.i.i.i.i.i, label %while.body.i.i.i.i.i.i, label %_ZN3tbb6detail2d0L13machine_pauseEi.exit.i.i.i.i.i, !llvm.loop !110
 
 _ZN3tbb6detail2d0L13machine_pauseEi.exit.i.i.i.i.i: ; preds = %while.body.i.i.i.i.i.i, %if.then.i.i.i.i.i
@@ -174259,7 +174259,7 @@ while.body.i.i.i.i.i.i49:                         ; preds = %if.then.i.i.i.i.i45
   %delay.addr.02.i.i.i.i.i.i50 = phi i32 [ %dec.i.i.i.i.i.i51, %while.body.i.i.i.i.i.i49 ], [ %backoff.sroa.0.03.i.i.i.i38, %if.then.i.i.i.i.i45 ]
   %dec.i.i.i.i.i.i51 = add nsw i32 %delay.addr.02.i.i.i.i.i.i50, -1
   call void @llvm.x86.sse2.pause()
-  %cmp.i.i.i.i.i.i52 = icmp ugt i32 %delay.addr.02.i.i.i.i.i.i50, 1
+  %cmp.i.i.i.i.i.i52 = icmp samesign ugt i32 %delay.addr.02.i.i.i.i.i.i50, 1
   br i1 %cmp.i.i.i.i.i.i52, label %while.body.i.i.i.i.i.i49, label %_ZN3tbb6detail2d0L13machine_pauseEi.exit.i.i.i.i.i47, !llvm.loop !110
 
 _ZN3tbb6detail2d0L13machine_pauseEi.exit.i.i.i.i.i47: ; preds = %while.body.i.i.i.i.i.i49, %if.then.i.i.i.i.i45
@@ -174653,7 +174653,7 @@ while.body.i.i.i.i.i.i110:                        ; preds = %if.then.i.i.i.i.i10
   %delay.addr.02.i.i.i.i.i.i111 = phi i32 [ %dec.i.i.i.i.i.i112, %while.body.i.i.i.i.i.i110 ], [ %backoff.sroa.0.03.i.i.i.i99, %if.then.i.i.i.i.i106 ]
   %dec.i.i.i.i.i.i112 = add nsw i32 %delay.addr.02.i.i.i.i.i.i111, -1
   call void @llvm.x86.sse2.pause()
-  %cmp.i.i.i.i.i.i113 = icmp ugt i32 %delay.addr.02.i.i.i.i.i.i111, 1
+  %cmp.i.i.i.i.i.i113 = icmp samesign ugt i32 %delay.addr.02.i.i.i.i.i.i111, 1
   br i1 %cmp.i.i.i.i.i.i113, label %while.body.i.i.i.i.i.i110, label %_ZN3tbb6detail2d0L13machine_pauseEi.exit.i.i.i.i.i108, !llvm.loop !110
 
 _ZN3tbb6detail2d0L13machine_pauseEi.exit.i.i.i.i.i108: ; preds = %while.body.i.i.i.i.i.i110, %if.then.i.i.i.i.i106
@@ -175352,7 +175352,7 @@ while.body.i.i.i.i.i.i:                           ; preds = %if.then.i.i.i.i.i, 
   %delay.addr.02.i.i.i.i.i.i = phi i32 [ %dec.i.i.i.i.i.i, %while.body.i.i.i.i.i.i ], [ %backoff.sroa.0.03.i.i.i.i, %if.then.i.i.i.i.i ]
   %dec.i.i.i.i.i.i = add nsw i32 %delay.addr.02.i.i.i.i.i.i, -1
   call void @llvm.x86.sse2.pause()
-  %cmp.i.i.i.i.i.i = icmp ugt i32 %delay.addr.02.i.i.i.i.i.i, 1
+  %cmp.i.i.i.i.i.i = icmp samesign ugt i32 %delay.addr.02.i.i.i.i.i.i, 1
   br i1 %cmp.i.i.i.i.i.i, label %while.body.i.i.i.i.i.i, label %_ZN3tbb6detail2d0L13machine_pauseEi.exit.i.i.i.i.i, !llvm.loop !110
 
 _ZN3tbb6detail2d0L13machine_pauseEi.exit.i.i.i.i.i: ; preds = %while.body.i.i.i.i.i.i, %if.then.i.i.i.i.i
@@ -175449,7 +175449,7 @@ while.body.i.i.i.i.i.i49:                         ; preds = %if.then.i.i.i.i.i45
   %delay.addr.02.i.i.i.i.i.i50 = phi i32 [ %dec.i.i.i.i.i.i51, %while.body.i.i.i.i.i.i49 ], [ %backoff.sroa.0.03.i.i.i.i38, %if.then.i.i.i.i.i45 ]
   %dec.i.i.i.i.i.i51 = add nsw i32 %delay.addr.02.i.i.i.i.i.i50, -1
   call void @llvm.x86.sse2.pause()
-  %cmp.i.i.i.i.i.i52 = icmp ugt i32 %delay.addr.02.i.i.i.i.i.i50, 1
+  %cmp.i.i.i.i.i.i52 = icmp samesign ugt i32 %delay.addr.02.i.i.i.i.i.i50, 1
   br i1 %cmp.i.i.i.i.i.i52, label %while.body.i.i.i.i.i.i49, label %_ZN3tbb6detail2d0L13machine_pauseEi.exit.i.i.i.i.i47, !llvm.loop !110
 
 _ZN3tbb6detail2d0L13machine_pauseEi.exit.i.i.i.i.i47: ; preds = %while.body.i.i.i.i.i.i49, %if.then.i.i.i.i.i45
@@ -175858,7 +175858,7 @@ while.body.i.i.i.i.i.i110:                        ; preds = %if.then.i.i.i.i.i10
   %delay.addr.02.i.i.i.i.i.i111 = phi i32 [ %dec.i.i.i.i.i.i112, %while.body.i.i.i.i.i.i110 ], [ %backoff.sroa.0.03.i.i.i.i99, %if.then.i.i.i.i.i106 ]
   %dec.i.i.i.i.i.i112 = add nsw i32 %delay.addr.02.i.i.i.i.i.i111, -1
   call void @llvm.x86.sse2.pause()
-  %cmp.i.i.i.i.i.i113 = icmp ugt i32 %delay.addr.02.i.i.i.i.i.i111, 1
+  %cmp.i.i.i.i.i.i113 = icmp samesign ugt i32 %delay.addr.02.i.i.i.i.i.i111, 1
   br i1 %cmp.i.i.i.i.i.i113, label %while.body.i.i.i.i.i.i110, label %_ZN3tbb6detail2d0L13machine_pauseEi.exit.i.i.i.i.i108, !llvm.loop !110
 
 _ZN3tbb6detail2d0L13machine_pauseEi.exit.i.i.i.i.i108: ; preds = %while.body.i.i.i.i.i.i110, %if.then.i.i.i.i.i106
@@ -178072,7 +178072,7 @@ while.body.i.i.i.i.i.i:                           ; preds = %if.then.i.i.i.i.i, 
   %delay.addr.02.i.i.i.i.i.i = phi i32 [ %dec.i.i.i.i.i.i, %while.body.i.i.i.i.i.i ], [ %backoff.sroa.0.03.i.i.i.i, %if.then.i.i.i.i.i ]
   %dec.i.i.i.i.i.i = add nsw i32 %delay.addr.02.i.i.i.i.i.i, -1
   call void @llvm.x86.sse2.pause()
-  %cmp.i.i.i.i.i.i = icmp ugt i32 %delay.addr.02.i.i.i.i.i.i, 1
+  %cmp.i.i.i.i.i.i = icmp samesign ugt i32 %delay.addr.02.i.i.i.i.i.i, 1
   br i1 %cmp.i.i.i.i.i.i, label %while.body.i.i.i.i.i.i, label %_ZN3tbb6detail2d0L13machine_pauseEi.exit.i.i.i.i.i, !llvm.loop !110
 
 _ZN3tbb6detail2d0L13machine_pauseEi.exit.i.i.i.i.i: ; preds = %while.body.i.i.i.i.i.i, %if.then.i.i.i.i.i
@@ -178169,7 +178169,7 @@ while.body.i.i.i.i.i.i49:                         ; preds = %if.then.i.i.i.i.i45
   %delay.addr.02.i.i.i.i.i.i50 = phi i32 [ %dec.i.i.i.i.i.i51, %while.body.i.i.i.i.i.i49 ], [ %backoff.sroa.0.03.i.i.i.i38, %if.then.i.i.i.i.i45 ]
   %dec.i.i.i.i.i.i51 = add nsw i32 %delay.addr.02.i.i.i.i.i.i50, -1
   call void @llvm.x86.sse2.pause()
-  %cmp.i.i.i.i.i.i52 = icmp ugt i32 %delay.addr.02.i.i.i.i.i.i50, 1
+  %cmp.i.i.i.i.i.i52 = icmp samesign ugt i32 %delay.addr.02.i.i.i.i.i.i50, 1
   br i1 %cmp.i.i.i.i.i.i52, label %while.body.i.i.i.i.i.i49, label %_ZN3tbb6detail2d0L13machine_pauseEi.exit.i.i.i.i.i47, !llvm.loop !110
 
 _ZN3tbb6detail2d0L13machine_pauseEi.exit.i.i.i.i.i47: ; preds = %while.body.i.i.i.i.i.i49, %if.then.i.i.i.i.i45
@@ -178578,7 +178578,7 @@ while.body.i.i.i.i.i.i110:                        ; preds = %if.then.i.i.i.i.i10
   %delay.addr.02.i.i.i.i.i.i111 = phi i32 [ %dec.i.i.i.i.i.i112, %while.body.i.i.i.i.i.i110 ], [ %backoff.sroa.0.03.i.i.i.i99, %if.then.i.i.i.i.i106 ]
   %dec.i.i.i.i.i.i112 = add nsw i32 %delay.addr.02.i.i.i.i.i.i111, -1
   call void @llvm.x86.sse2.pause()
-  %cmp.i.i.i.i.i.i113 = icmp ugt i32 %delay.addr.02.i.i.i.i.i.i111, 1
+  %cmp.i.i.i.i.i.i113 = icmp samesign ugt i32 %delay.addr.02.i.i.i.i.i.i111, 1
   br i1 %cmp.i.i.i.i.i.i113, label %while.body.i.i.i.i.i.i110, label %_ZN3tbb6detail2d0L13machine_pauseEi.exit.i.i.i.i.i108, !llvm.loop !110
 
 _ZN3tbb6detail2d0L13machine_pauseEi.exit.i.i.i.i.i108: ; preds = %while.body.i.i.i.i.i.i110, %if.then.i.i.i.i.i106
@@ -180022,7 +180022,7 @@ while.body.i.i.i.i.i.i:                           ; preds = %if.then.i.i.i.i.i, 
   %delay.addr.02.i.i.i.i.i.i = phi i32 [ %dec.i.i.i.i.i.i, %while.body.i.i.i.i.i.i ], [ %backoff.sroa.0.03.i.i.i.i, %if.then.i.i.i.i.i ]
   %dec.i.i.i.i.i.i = add nsw i32 %delay.addr.02.i.i.i.i.i.i, -1
   call void @llvm.x86.sse2.pause()
-  %cmp.i.i.i.i.i.i = icmp ugt i32 %delay.addr.02.i.i.i.i.i.i, 1
+  %cmp.i.i.i.i.i.i = icmp samesign ugt i32 %delay.addr.02.i.i.i.i.i.i, 1
   br i1 %cmp.i.i.i.i.i.i, label %while.body.i.i.i.i.i.i, label %_ZN3tbb6detail2d0L13machine_pauseEi.exit.i.i.i.i.i, !llvm.loop !110
 
 _ZN3tbb6detail2d0L13machine_pauseEi.exit.i.i.i.i.i: ; preds = %while.body.i.i.i.i.i.i, %if.then.i.i.i.i.i
@@ -180121,7 +180121,7 @@ while.body.i.i.i.i.i.i49:                         ; preds = %if.then.i.i.i.i.i45
   %delay.addr.02.i.i.i.i.i.i50 = phi i32 [ %dec.i.i.i.i.i.i51, %while.body.i.i.i.i.i.i49 ], [ %backoff.sroa.0.03.i.i.i.i38, %if.then.i.i.i.i.i45 ]
   %dec.i.i.i.i.i.i51 = add nsw i32 %delay.addr.02.i.i.i.i.i.i50, -1
   call void @llvm.x86.sse2.pause()
-  %cmp.i.i.i.i.i.i52 = icmp ugt i32 %delay.addr.02.i.i.i.i.i.i50, 1
+  %cmp.i.i.i.i.i.i52 = icmp samesign ugt i32 %delay.addr.02.i.i.i.i.i.i50, 1
   br i1 %cmp.i.i.i.i.i.i52, label %while.body.i.i.i.i.i.i49, label %_ZN3tbb6detail2d0L13machine_pauseEi.exit.i.i.i.i.i47, !llvm.loop !110
 
 _ZN3tbb6detail2d0L13machine_pauseEi.exit.i.i.i.i.i47: ; preds = %while.body.i.i.i.i.i.i49, %if.then.i.i.i.i.i45
@@ -180534,7 +180534,7 @@ while.body.i.i.i.i.i.i110:                        ; preds = %if.then.i.i.i.i.i10
   %delay.addr.02.i.i.i.i.i.i111 = phi i32 [ %dec.i.i.i.i.i.i112, %while.body.i.i.i.i.i.i110 ], [ %backoff.sroa.0.03.i.i.i.i99, %if.then.i.i.i.i.i106 ]
   %dec.i.i.i.i.i.i112 = add nsw i32 %delay.addr.02.i.i.i.i.i.i111, -1
   call void @llvm.x86.sse2.pause()
-  %cmp.i.i.i.i.i.i113 = icmp ugt i32 %delay.addr.02.i.i.i.i.i.i111, 1
+  %cmp.i.i.i.i.i.i113 = icmp samesign ugt i32 %delay.addr.02.i.i.i.i.i.i111, 1
   br i1 %cmp.i.i.i.i.i.i113, label %while.body.i.i.i.i.i.i110, label %_ZN3tbb6detail2d0L13machine_pauseEi.exit.i.i.i.i.i108, !llvm.loop !110
 
 _ZN3tbb6detail2d0L13machine_pauseEi.exit.i.i.i.i.i108: ; preds = %while.body.i.i.i.i.i.i110, %if.then.i.i.i.i.i106
@@ -181346,7 +181346,7 @@ while.body.i.i.i.i.i.i:                           ; preds = %if.then.i.i.i.i.i, 
   %delay.addr.02.i.i.i.i.i.i = phi i32 [ %dec.i.i.i.i.i.i, %while.body.i.i.i.i.i.i ], [ %backoff.sroa.0.03.i.i.i.i, %if.then.i.i.i.i.i ]
   %dec.i.i.i.i.i.i = add nsw i32 %delay.addr.02.i.i.i.i.i.i, -1
   call void @llvm.x86.sse2.pause()
-  %cmp.i.i.i.i.i.i = icmp ugt i32 %delay.addr.02.i.i.i.i.i.i, 1
+  %cmp.i.i.i.i.i.i = icmp samesign ugt i32 %delay.addr.02.i.i.i.i.i.i, 1
   br i1 %cmp.i.i.i.i.i.i, label %while.body.i.i.i.i.i.i, label %_ZN3tbb6detail2d0L13machine_pauseEi.exit.i.i.i.i.i, !llvm.loop !110
 
 _ZN3tbb6detail2d0L13machine_pauseEi.exit.i.i.i.i.i: ; preds = %while.body.i.i.i.i.i.i, %if.then.i.i.i.i.i
@@ -181443,7 +181443,7 @@ while.body.i.i.i.i.i.i49:                         ; preds = %if.then.i.i.i.i.i45
   %delay.addr.02.i.i.i.i.i.i50 = phi i32 [ %dec.i.i.i.i.i.i51, %while.body.i.i.i.i.i.i49 ], [ %backoff.sroa.0.03.i.i.i.i38, %if.then.i.i.i.i.i45 ]
   %dec.i.i.i.i.i.i51 = add nsw i32 %delay.addr.02.i.i.i.i.i.i50, -1
   call void @llvm.x86.sse2.pause()
-  %cmp.i.i.i.i.i.i52 = icmp ugt i32 %delay.addr.02.i.i.i.i.i.i50, 1
+  %cmp.i.i.i.i.i.i52 = icmp samesign ugt i32 %delay.addr.02.i.i.i.i.i.i50, 1
   br i1 %cmp.i.i.i.i.i.i52, label %while.body.i.i.i.i.i.i49, label %_ZN3tbb6detail2d0L13machine_pauseEi.exit.i.i.i.i.i47, !llvm.loop !110
 
 _ZN3tbb6detail2d0L13machine_pauseEi.exit.i.i.i.i.i47: ; preds = %while.body.i.i.i.i.i.i49, %if.then.i.i.i.i.i45
@@ -181852,7 +181852,7 @@ while.body.i.i.i.i.i.i110:                        ; preds = %if.then.i.i.i.i.i10
   %delay.addr.02.i.i.i.i.i.i111 = phi i32 [ %dec.i.i.i.i.i.i112, %while.body.i.i.i.i.i.i110 ], [ %backoff.sroa.0.03.i.i.i.i99, %if.then.i.i.i.i.i106 ]
   %dec.i.i.i.i.i.i112 = add nsw i32 %delay.addr.02.i.i.i.i.i.i111, -1
   call void @llvm.x86.sse2.pause()
-  %cmp.i.i.i.i.i.i113 = icmp ugt i32 %delay.addr.02.i.i.i.i.i.i111, 1
+  %cmp.i.i.i.i.i.i113 = icmp samesign ugt i32 %delay.addr.02.i.i.i.i.i.i111, 1
   br i1 %cmp.i.i.i.i.i.i113, label %while.body.i.i.i.i.i.i110, label %_ZN3tbb6detail2d0L13machine_pauseEi.exit.i.i.i.i.i108, !llvm.loop !110
 
 _ZN3tbb6detail2d0L13machine_pauseEi.exit.i.i.i.i.i108: ; preds = %while.body.i.i.i.i.i.i110, %if.then.i.i.i.i.i106
@@ -183296,7 +183296,7 @@ while.body.i.i.i.i.i.i:                           ; preds = %if.then.i.i.i.i.i, 
   %delay.addr.02.i.i.i.i.i.i = phi i32 [ %dec.i.i.i.i.i.i, %while.body.i.i.i.i.i.i ], [ %backoff.sroa.0.03.i.i.i.i, %if.then.i.i.i.i.i ]
   %dec.i.i.i.i.i.i = add nsw i32 %delay.addr.02.i.i.i.i.i.i, -1
   call void @llvm.x86.sse2.pause()
-  %cmp.i.i.i.i.i.i = icmp ugt i32 %delay.addr.02.i.i.i.i.i.i, 1
+  %cmp.i.i.i.i.i.i = icmp samesign ugt i32 %delay.addr.02.i.i.i.i.i.i, 1
   br i1 %cmp.i.i.i.i.i.i, label %while.body.i.i.i.i.i.i, label %_ZN3tbb6detail2d0L13machine_pauseEi.exit.i.i.i.i.i, !llvm.loop !110
 
 _ZN3tbb6detail2d0L13machine_pauseEi.exit.i.i.i.i.i: ; preds = %while.body.i.i.i.i.i.i, %if.then.i.i.i.i.i
@@ -183395,7 +183395,7 @@ while.body.i.i.i.i.i.i49:                         ; preds = %if.then.i.i.i.i.i45
   %delay.addr.02.i.i.i.i.i.i50 = phi i32 [ %dec.i.i.i.i.i.i51, %while.body.i.i.i.i.i.i49 ], [ %backoff.sroa.0.03.i.i.i.i38, %if.then.i.i.i.i.i45 ]
   %dec.i.i.i.i.i.i51 = add nsw i32 %delay.addr.02.i.i.i.i.i.i50, -1
   call void @llvm.x86.sse2.pause()
-  %cmp.i.i.i.i.i.i52 = icmp ugt i32 %delay.addr.02.i.i.i.i.i.i50, 1
+  %cmp.i.i.i.i.i.i52 = icmp samesign ugt i32 %delay.addr.02.i.i.i.i.i.i50, 1
   br i1 %cmp.i.i.i.i.i.i52, label %while.body.i.i.i.i.i.i49, label %_ZN3tbb6detail2d0L13machine_pauseEi.exit.i.i.i.i.i47, !llvm.loop !110
 
 _ZN3tbb6detail2d0L13machine_pauseEi.exit.i.i.i.i.i47: ; preds = %while.body.i.i.i.i.i.i49, %if.then.i.i.i.i.i45
@@ -183808,7 +183808,7 @@ while.body.i.i.i.i.i.i110:                        ; preds = %if.then.i.i.i.i.i10
   %delay.addr.02.i.i.i.i.i.i111 = phi i32 [ %dec.i.i.i.i.i.i112, %while.body.i.i.i.i.i.i110 ], [ %backoff.sroa.0.03.i.i.i.i99, %if.then.i.i.i.i.i106 ]
   %dec.i.i.i.i.i.i112 = add nsw i32 %delay.addr.02.i.i.i.i.i.i111, -1
   call void @llvm.x86.sse2.pause()
-  %cmp.i.i.i.i.i.i113 = icmp ugt i32 %delay.addr.02.i.i.i.i.i.i111, 1
+  %cmp.i.i.i.i.i.i113 = icmp samesign ugt i32 %delay.addr.02.i.i.i.i.i.i111, 1
   br i1 %cmp.i.i.i.i.i.i113, label %while.body.i.i.i.i.i.i110, label %_ZN3tbb6detail2d0L13machine_pauseEi.exit.i.i.i.i.i108, !llvm.loop !110
 
 _ZN3tbb6detail2d0L13machine_pauseEi.exit.i.i.i.i.i108: ; preds = %while.body.i.i.i.i.i.i110, %if.then.i.i.i.i.i106
@@ -184291,7 +184291,7 @@ while.body.i.i.i.i.i.i:                           ; preds = %if.then.i.i.i.i.i, 
   %delay.addr.02.i.i.i.i.i.i = phi i32 [ %dec.i.i.i.i.i.i, %while.body.i.i.i.i.i.i ], [ %backoff.sroa.0.03.i.i.i.i, %if.then.i.i.i.i.i ]
   %dec.i.i.i.i.i.i = add nsw i32 %delay.addr.02.i.i.i.i.i.i, -1
   call void @llvm.x86.sse2.pause()
-  %cmp.i.i.i.i.i.i = icmp ugt i32 %delay.addr.02.i.i.i.i.i.i, 1
+  %cmp.i.i.i.i.i.i = icmp samesign ugt i32 %delay.addr.02.i.i.i.i.i.i, 1
   br i1 %cmp.i.i.i.i.i.i, label %while.body.i.i.i.i.i.i, label %_ZN3tbb6detail2d0L13machine_pauseEi.exit.i.i.i.i.i, !llvm.loop !110
 
 _ZN3tbb6detail2d0L13machine_pauseEi.exit.i.i.i.i.i: ; preds = %while.body.i.i.i.i.i.i, %if.then.i.i.i.i.i
@@ -184390,7 +184390,7 @@ while.body.i.i.i.i.i.i49:                         ; preds = %if.then.i.i.i.i.i45
   %delay.addr.02.i.i.i.i.i.i50 = phi i32 [ %dec.i.i.i.i.i.i51, %while.body.i.i.i.i.i.i49 ], [ %backoff.sroa.0.03.i.i.i.i38, %if.then.i.i.i.i.i45 ]
   %dec.i.i.i.i.i.i51 = add nsw i32 %delay.addr.02.i.i.i.i.i.i50, -1
   call void @llvm.x86.sse2.pause()
-  %cmp.i.i.i.i.i.i52 = icmp ugt i32 %delay.addr.02.i.i.i.i.i.i50, 1
+  %cmp.i.i.i.i.i.i52 = icmp samesign ugt i32 %delay.addr.02.i.i.i.i.i.i50, 1
   br i1 %cmp.i.i.i.i.i.i52, label %while.body.i.i.i.i.i.i49, label %_ZN3tbb6detail2d0L13machine_pauseEi.exit.i.i.i.i.i47, !llvm.loop !110
 
 _ZN3tbb6detail2d0L13machine_pauseEi.exit.i.i.i.i.i47: ; preds = %while.body.i.i.i.i.i.i49, %if.then.i.i.i.i.i45
@@ -184803,7 +184803,7 @@ while.body.i.i.i.i.i.i110:                        ; preds = %if.then.i.i.i.i.i10
   %delay.addr.02.i.i.i.i.i.i111 = phi i32 [ %dec.i.i.i.i.i.i112, %while.body.i.i.i.i.i.i110 ], [ %backoff.sroa.0.03.i.i.i.i99, %if.then.i.i.i.i.i106 ]
   %dec.i.i.i.i.i.i112 = add nsw i32 %delay.addr.02.i.i.i.i.i.i111, -1
   call void @llvm.x86.sse2.pause()
-  %cmp.i.i.i.i.i.i113 = icmp ugt i32 %delay.addr.02.i.i.i.i.i.i111, 1
+  %cmp.i.i.i.i.i.i113 = icmp samesign ugt i32 %delay.addr.02.i.i.i.i.i.i111, 1
   br i1 %cmp.i.i.i.i.i.i113, label %while.body.i.i.i.i.i.i110, label %_ZN3tbb6detail2d0L13machine_pauseEi.exit.i.i.i.i.i108, !llvm.loop !110
 
 _ZN3tbb6detail2d0L13machine_pauseEi.exit.i.i.i.i.i108: ; preds = %while.body.i.i.i.i.i.i110, %if.then.i.i.i.i.i106
@@ -185521,7 +185521,7 @@ while.body.i.i.i.i.i.i:                           ; preds = %if.then.i.i.i.i.i, 
   %delay.addr.02.i.i.i.i.i.i = phi i32 [ %dec.i.i.i.i.i.i, %while.body.i.i.i.i.i.i ], [ %backoff.sroa.0.03.i.i.i.i, %if.then.i.i.i.i.i ]
   %dec.i.i.i.i.i.i = add nsw i32 %delay.addr.02.i.i.i.i.i.i, -1
   call void @llvm.x86.sse2.pause()
-  %cmp.i.i.i.i.i.i = icmp ugt i32 %delay.addr.02.i.i.i.i.i.i, 1
+  %cmp.i.i.i.i.i.i = icmp samesign ugt i32 %delay.addr.02.i.i.i.i.i.i, 1
   br i1 %cmp.i.i.i.i.i.i, label %while.body.i.i.i.i.i.i, label %_ZN3tbb6detail2d0L13machine_pauseEi.exit.i.i.i.i.i, !llvm.loop !110
 
 _ZN3tbb6detail2d0L13machine_pauseEi.exit.i.i.i.i.i: ; preds = %while.body.i.i.i.i.i.i, %if.then.i.i.i.i.i
@@ -185618,7 +185618,7 @@ while.body.i.i.i.i.i.i49:                         ; preds = %if.then.i.i.i.i.i45
   %delay.addr.02.i.i.i.i.i.i50 = phi i32 [ %dec.i.i.i.i.i.i51, %while.body.i.i.i.i.i.i49 ], [ %backoff.sroa.0.03.i.i.i.i38, %if.then.i.i.i.i.i45 ]
   %dec.i.i.i.i.i.i51 = add nsw i32 %delay.addr.02.i.i.i.i.i.i50, -1
   call void @llvm.x86.sse2.pause()
-  %cmp.i.i.i.i.i.i52 = icmp ugt i32 %delay.addr.02.i.i.i.i.i.i50, 1
+  %cmp.i.i.i.i.i.i52 = icmp samesign ugt i32 %delay.addr.02.i.i.i.i.i.i50, 1
   br i1 %cmp.i.i.i.i.i.i52, label %while.body.i.i.i.i.i.i49, label %_ZN3tbb6detail2d0L13machine_pauseEi.exit.i.i.i.i.i47, !llvm.loop !110
 
 _ZN3tbb6detail2d0L13machine_pauseEi.exit.i.i.i.i.i47: ; preds = %while.body.i.i.i.i.i.i49, %if.then.i.i.i.i.i45
@@ -185906,7 +185906,7 @@ while.body.i.i.i.i.i.i110:                        ; preds = %if.then.i.i.i.i.i10
   %delay.addr.02.i.i.i.i.i.i111 = phi i32 [ %dec.i.i.i.i.i.i112, %while.body.i.i.i.i.i.i110 ], [ %backoff.sroa.0.03.i.i.i.i99, %if.then.i.i.i.i.i106 ]
   %dec.i.i.i.i.i.i112 = add nsw i32 %delay.addr.02.i.i.i.i.i.i111, -1
   call void @llvm.x86.sse2.pause()
-  %cmp.i.i.i.i.i.i113 = icmp ugt i32 %delay.addr.02.i.i.i.i.i.i111, 1
+  %cmp.i.i.i.i.i.i113 = icmp samesign ugt i32 %delay.addr.02.i.i.i.i.i.i111, 1
   br i1 %cmp.i.i.i.i.i.i113, label %while.body.i.i.i.i.i.i110, label %_ZN3tbb6detail2d0L13machine_pauseEi.exit.i.i.i.i.i108, !llvm.loop !110
 
 _ZN3tbb6detail2d0L13machine_pauseEi.exit.i.i.i.i.i108: ; preds = %while.body.i.i.i.i.i.i110, %if.then.i.i.i.i.i106
@@ -187790,7 +187790,7 @@ while.body.i.i.i.i.i.i:                           ; preds = %if.then.i.i.i.i.i, 
   %delay.addr.02.i.i.i.i.i.i = phi i32 [ %dec.i.i.i.i.i.i, %while.body.i.i.i.i.i.i ], [ %backoff.sroa.0.03.i.i.i.i, %if.then.i.i.i.i.i ]
   %dec.i.i.i.i.i.i = add nsw i32 %delay.addr.02.i.i.i.i.i.i, -1
   call void @llvm.x86.sse2.pause()
-  %cmp.i.i.i.i.i.i = icmp ugt i32 %delay.addr.02.i.i.i.i.i.i, 1
+  %cmp.i.i.i.i.i.i = icmp samesign ugt i32 %delay.addr.02.i.i.i.i.i.i, 1
   br i1 %cmp.i.i.i.i.i.i, label %while.body.i.i.i.i.i.i, label %_ZN3tbb6detail2d0L13machine_pauseEi.exit.i.i.i.i.i, !llvm.loop !110
 
 _ZN3tbb6detail2d0L13machine_pauseEi.exit.i.i.i.i.i: ; preds = %while.body.i.i.i.i.i.i, %if.then.i.i.i.i.i
@@ -187887,7 +187887,7 @@ while.body.i.i.i.i.i.i49:                         ; preds = %if.then.i.i.i.i.i45
   %delay.addr.02.i.i.i.i.i.i50 = phi i32 [ %dec.i.i.i.i.i.i51, %while.body.i.i.i.i.i.i49 ], [ %backoff.sroa.0.03.i.i.i.i38, %if.then.i.i.i.i.i45 ]
   %dec.i.i.i.i.i.i51 = add nsw i32 %delay.addr.02.i.i.i.i.i.i50, -1
   call void @llvm.x86.sse2.pause()
-  %cmp.i.i.i.i.i.i52 = icmp ugt i32 %delay.addr.02.i.i.i.i.i.i50, 1
+  %cmp.i.i.i.i.i.i52 = icmp samesign ugt i32 %delay.addr.02.i.i.i.i.i.i50, 1
   br i1 %cmp.i.i.i.i.i.i52, label %while.body.i.i.i.i.i.i49, label %_ZN3tbb6detail2d0L13machine_pauseEi.exit.i.i.i.i.i47, !llvm.loop !110
 
 _ZN3tbb6detail2d0L13machine_pauseEi.exit.i.i.i.i.i47: ; preds = %while.body.i.i.i.i.i.i49, %if.then.i.i.i.i.i45
@@ -188175,7 +188175,7 @@ while.body.i.i.i.i.i.i110:                        ; preds = %if.then.i.i.i.i.i10
   %delay.addr.02.i.i.i.i.i.i111 = phi i32 [ %dec.i.i.i.i.i.i112, %while.body.i.i.i.i.i.i110 ], [ %backoff.sroa.0.03.i.i.i.i99, %if.then.i.i.i.i.i106 ]
   %dec.i.i.i.i.i.i112 = add nsw i32 %delay.addr.02.i.i.i.i.i.i111, -1
   call void @llvm.x86.sse2.pause()
-  %cmp.i.i.i.i.i.i113 = icmp ugt i32 %delay.addr.02.i.i.i.i.i.i111, 1
+  %cmp.i.i.i.i.i.i113 = icmp samesign ugt i32 %delay.addr.02.i.i.i.i.i.i111, 1
   br i1 %cmp.i.i.i.i.i.i113, label %while.body.i.i.i.i.i.i110, label %_ZN3tbb6detail2d0L13machine_pauseEi.exit.i.i.i.i.i108, !llvm.loop !110
 
 _ZN3tbb6detail2d0L13machine_pauseEi.exit.i.i.i.i.i108: ; preds = %while.body.i.i.i.i.i.i110, %if.then.i.i.i.i.i106
@@ -189498,7 +189498,7 @@ while.body.i.i.i.i.i.i:                           ; preds = %if.then.i.i.i.i.i, 
   %delay.addr.02.i.i.i.i.i.i = phi i32 [ %dec.i.i.i.i.i.i, %while.body.i.i.i.i.i.i ], [ %backoff.sroa.0.03.i.i.i.i, %if.then.i.i.i.i.i ]
   %dec.i.i.i.i.i.i = add nsw i32 %delay.addr.02.i.i.i.i.i.i, -1
   call void @llvm.x86.sse2.pause()
-  %cmp.i.i.i.i.i.i = icmp ugt i32 %delay.addr.02.i.i.i.i.i.i, 1
+  %cmp.i.i.i.i.i.i = icmp samesign ugt i32 %delay.addr.02.i.i.i.i.i.i, 1
   br i1 %cmp.i.i.i.i.i.i, label %while.body.i.i.i.i.i.i, label %_ZN3tbb6detail2d0L13machine_pauseEi.exit.i.i.i.i.i, !llvm.loop !110
 
 _ZN3tbb6detail2d0L13machine_pauseEi.exit.i.i.i.i.i: ; preds = %while.body.i.i.i.i.i.i, %if.then.i.i.i.i.i
@@ -189597,7 +189597,7 @@ while.body.i.i.i.i.i.i49:                         ; preds = %if.then.i.i.i.i.i45
   %delay.addr.02.i.i.i.i.i.i50 = phi i32 [ %dec.i.i.i.i.i.i51, %while.body.i.i.i.i.i.i49 ], [ %backoff.sroa.0.03.i.i.i.i38, %if.then.i.i.i.i.i45 ]
   %dec.i.i.i.i.i.i51 = add nsw i32 %delay.addr.02.i.i.i.i.i.i50, -1
   call void @llvm.x86.sse2.pause()
-  %cmp.i.i.i.i.i.i52 = icmp ugt i32 %delay.addr.02.i.i.i.i.i.i50, 1
+  %cmp.i.i.i.i.i.i52 = icmp samesign ugt i32 %delay.addr.02.i.i.i.i.i.i50, 1
   br i1 %cmp.i.i.i.i.i.i52, label %while.body.i.i.i.i.i.i49, label %_ZN3tbb6detail2d0L13machine_pauseEi.exit.i.i.i.i.i47, !llvm.loop !110
 
 _ZN3tbb6detail2d0L13machine_pauseEi.exit.i.i.i.i.i47: ; preds = %while.body.i.i.i.i.i.i49, %if.then.i.i.i.i.i45
@@ -189889,7 +189889,7 @@ while.body.i.i.i.i.i.i110:                        ; preds = %if.then.i.i.i.i.i10
   %delay.addr.02.i.i.i.i.i.i111 = phi i32 [ %dec.i.i.i.i.i.i112, %while.body.i.i.i.i.i.i110 ], [ %backoff.sroa.0.03.i.i.i.i99, %if.then.i.i.i.i.i106 ]
   %dec.i.i.i.i.i.i112 = add nsw i32 %delay.addr.02.i.i.i.i.i.i111, -1
   call void @llvm.x86.sse2.pause()
-  %cmp.i.i.i.i.i.i113 = icmp ugt i32 %delay.addr.02.i.i.i.i.i.i111, 1
+  %cmp.i.i.i.i.i.i113 = icmp samesign ugt i32 %delay.addr.02.i.i.i.i.i.i111, 1
   br i1 %cmp.i.i.i.i.i.i113, label %while.body.i.i.i.i.i.i110, label %_ZN3tbb6detail2d0L13machine_pauseEi.exit.i.i.i.i.i108, !llvm.loop !110
 
 _ZN3tbb6detail2d0L13machine_pauseEi.exit.i.i.i.i.i108: ; preds = %while.body.i.i.i.i.i.i110, %if.then.i.i.i.i.i106
@@ -190580,7 +190580,7 @@ while.body.i.i.i.i.i.i:                           ; preds = %if.then.i.i.i.i.i, 
   %delay.addr.02.i.i.i.i.i.i = phi i32 [ %dec.i.i.i.i.i.i, %while.body.i.i.i.i.i.i ], [ %backoff.sroa.0.03.i.i.i.i, %if.then.i.i.i.i.i ]
   %dec.i.i.i.i.i.i = add nsw i32 %delay.addr.02.i.i.i.i.i.i, -1
   call void @llvm.x86.sse2.pause()
-  %cmp.i.i.i.i.i.i = icmp ugt i32 %delay.addr.02.i.i.i.i.i.i, 1
+  %cmp.i.i.i.i.i.i = icmp samesign ugt i32 %delay.addr.02.i.i.i.i.i.i, 1
   br i1 %cmp.i.i.i.i.i.i, label %while.body.i.i.i.i.i.i, label %_ZN3tbb6detail2d0L13machine_pauseEi.exit.i.i.i.i.i, !llvm.loop !110
 
 _ZN3tbb6detail2d0L13machine_pauseEi.exit.i.i.i.i.i: ; preds = %while.body.i.i.i.i.i.i, %if.then.i.i.i.i.i
@@ -190677,7 +190677,7 @@ while.body.i.i.i.i.i.i49:                         ; preds = %if.then.i.i.i.i.i45
   %delay.addr.02.i.i.i.i.i.i50 = phi i32 [ %dec.i.i.i.i.i.i51, %while.body.i.i.i.i.i.i49 ], [ %backoff.sroa.0.03.i.i.i.i38, %if.then.i.i.i.i.i45 ]
   %dec.i.i.i.i.i.i51 = add nsw i32 %delay.addr.02.i.i.i.i.i.i50, -1
   call void @llvm.x86.sse2.pause()
-  %cmp.i.i.i.i.i.i52 = icmp ugt i32 %delay.addr.02.i.i.i.i.i.i50, 1
+  %cmp.i.i.i.i.i.i52 = icmp samesign ugt i32 %delay.addr.02.i.i.i.i.i.i50, 1
   br i1 %cmp.i.i.i.i.i.i52, label %while.body.i.i.i.i.i.i49, label %_ZN3tbb6detail2d0L13machine_pauseEi.exit.i.i.i.i.i47, !llvm.loop !110
 
 _ZN3tbb6detail2d0L13machine_pauseEi.exit.i.i.i.i.i47: ; preds = %while.body.i.i.i.i.i.i49, %if.then.i.i.i.i.i45
@@ -190965,7 +190965,7 @@ while.body.i.i.i.i.i.i110:                        ; preds = %if.then.i.i.i.i.i10
   %delay.addr.02.i.i.i.i.i.i111 = phi i32 [ %dec.i.i.i.i.i.i112, %while.body.i.i.i.i.i.i110 ], [ %backoff.sroa.0.03.i.i.i.i99, %if.then.i.i.i.i.i106 ]
   %dec.i.i.i.i.i.i112 = add nsw i32 %delay.addr.02.i.i.i.i.i.i111, -1
   call void @llvm.x86.sse2.pause()
-  %cmp.i.i.i.i.i.i113 = icmp ugt i32 %delay.addr.02.i.i.i.i.i.i111, 1
+  %cmp.i.i.i.i.i.i113 = icmp samesign ugt i32 %delay.addr.02.i.i.i.i.i.i111, 1
   br i1 %cmp.i.i.i.i.i.i113, label %while.body.i.i.i.i.i.i110, label %_ZN3tbb6detail2d0L13machine_pauseEi.exit.i.i.i.i.i108, !llvm.loop !110
 
 _ZN3tbb6detail2d0L13machine_pauseEi.exit.i.i.i.i.i108: ; preds = %while.body.i.i.i.i.i.i110, %if.then.i.i.i.i.i106
@@ -192288,7 +192288,7 @@ while.body.i.i.i.i.i.i:                           ; preds = %if.then.i.i.i.i.i, 
   %delay.addr.02.i.i.i.i.i.i = phi i32 [ %dec.i.i.i.i.i.i, %while.body.i.i.i.i.i.i ], [ %backoff.sroa.0.03.i.i.i.i, %if.then.i.i.i.i.i ]
   %dec.i.i.i.i.i.i = add nsw i32 %delay.addr.02.i.i.i.i.i.i, -1
   call void @llvm.x86.sse2.pause()
-  %cmp.i.i.i.i.i.i = icmp ugt i32 %delay.addr.02.i.i.i.i.i.i, 1
+  %cmp.i.i.i.i.i.i = icmp samesign ugt i32 %delay.addr.02.i.i.i.i.i.i, 1
   br i1 %cmp.i.i.i.i.i.i, label %while.body.i.i.i.i.i.i, label %_ZN3tbb6detail2d0L13machine_pauseEi.exit.i.i.i.i.i, !llvm.loop !110
 
 _ZN3tbb6detail2d0L13machine_pauseEi.exit.i.i.i.i.i: ; preds = %while.body.i.i.i.i.i.i, %if.then.i.i.i.i.i
@@ -192387,7 +192387,7 @@ while.body.i.i.i.i.i.i49:                         ; preds = %if.then.i.i.i.i.i45
   %delay.addr.02.i.i.i.i.i.i50 = phi i32 [ %dec.i.i.i.i.i.i51, %while.body.i.i.i.i.i.i49 ], [ %backoff.sroa.0.03.i.i.i.i38, %if.then.i.i.i.i.i45 ]
   %dec.i.i.i.i.i.i51 = add nsw i32 %delay.addr.02.i.i.i.i.i.i50, -1
   call void @llvm.x86.sse2.pause()
-  %cmp.i.i.i.i.i.i52 = icmp ugt i32 %delay.addr.02.i.i.i.i.i.i50, 1
+  %cmp.i.i.i.i.i.i52 = icmp samesign ugt i32 %delay.addr.02.i.i.i.i.i.i50, 1
   br i1 %cmp.i.i.i.i.i.i52, label %while.body.i.i.i.i.i.i49, label %_ZN3tbb6detail2d0L13machine_pauseEi.exit.i.i.i.i.i47, !llvm.loop !110
 
 _ZN3tbb6detail2d0L13machine_pauseEi.exit.i.i.i.i.i47: ; preds = %while.body.i.i.i.i.i.i49, %if.then.i.i.i.i.i45
@@ -192679,7 +192679,7 @@ while.body.i.i.i.i.i.i110:                        ; preds = %if.then.i.i.i.i.i10
   %delay.addr.02.i.i.i.i.i.i111 = phi i32 [ %dec.i.i.i.i.i.i112, %while.body.i.i.i.i.i.i110 ], [ %backoff.sroa.0.03.i.i.i.i99, %if.then.i.i.i.i.i106 ]
   %dec.i.i.i.i.i.i112 = add nsw i32 %delay.addr.02.i.i.i.i.i.i111, -1
   call void @llvm.x86.sse2.pause()
-  %cmp.i.i.i.i.i.i113 = icmp ugt i32 %delay.addr.02.i.i.i.i.i.i111, 1
+  %cmp.i.i.i.i.i.i113 = icmp samesign ugt i32 %delay.addr.02.i.i.i.i.i.i111, 1
   br i1 %cmp.i.i.i.i.i.i113, label %while.body.i.i.i.i.i.i110, label %_ZN3tbb6detail2d0L13machine_pauseEi.exit.i.i.i.i.i108, !llvm.loop !110
 
 _ZN3tbb6detail2d0L13machine_pauseEi.exit.i.i.i.i.i108: ; preds = %while.body.i.i.i.i.i.i110, %if.then.i.i.i.i.i106
@@ -193041,7 +193041,7 @@ while.body.i.i.i.i.i.i:                           ; preds = %if.then.i.i.i.i.i, 
   %delay.addr.02.i.i.i.i.i.i = phi i32 [ %dec.i.i.i.i.i.i, %while.body.i.i.i.i.i.i ], [ %backoff.sroa.0.03.i.i.i.i, %if.then.i.i.i.i.i ]
   %dec.i.i.i.i.i.i = add nsw i32 %delay.addr.02.i.i.i.i.i.i, -1
   call void @llvm.x86.sse2.pause()
-  %cmp.i.i.i.i.i.i = icmp ugt i32 %delay.addr.02.i.i.i.i.i.i, 1
+  %cmp.i.i.i.i.i.i = icmp samesign ugt i32 %delay.addr.02.i.i.i.i.i.i, 1
   br i1 %cmp.i.i.i.i.i.i, label %while.body.i.i.i.i.i.i, label %_ZN3tbb6detail2d0L13machine_pauseEi.exit.i.i.i.i.i, !llvm.loop !110
 
 _ZN3tbb6detail2d0L13machine_pauseEi.exit.i.i.i.i.i: ; preds = %while.body.i.i.i.i.i.i, %if.then.i.i.i.i.i
@@ -193140,7 +193140,7 @@ while.body.i.i.i.i.i.i49:                         ; preds = %if.then.i.i.i.i.i45
   %delay.addr.02.i.i.i.i.i.i50 = phi i32 [ %dec.i.i.i.i.i.i51, %while.body.i.i.i.i.i.i49 ], [ %backoff.sroa.0.03.i.i.i.i38, %if.then.i.i.i.i.i45 ]
   %dec.i.i.i.i.i.i51 = add nsw i32 %delay.addr.02.i.i.i.i.i.i50, -1
   call void @llvm.x86.sse2.pause()
-  %cmp.i.i.i.i.i.i52 = icmp ugt i32 %delay.addr.02.i.i.i.i.i.i50, 1
+  %cmp.i.i.i.i.i.i52 = icmp samesign ugt i32 %delay.addr.02.i.i.i.i.i.i50, 1
   br i1 %cmp.i.i.i.i.i.i52, label %while.body.i.i.i.i.i.i49, label %_ZN3tbb6detail2d0L13machine_pauseEi.exit.i.i.i.i.i47, !llvm.loop !110
 
 _ZN3tbb6detail2d0L13machine_pauseEi.exit.i.i.i.i.i47: ; preds = %while.body.i.i.i.i.i.i49, %if.then.i.i.i.i.i45
@@ -193432,7 +193432,7 @@ while.body.i.i.i.i.i.i110:                        ; preds = %if.then.i.i.i.i.i10
   %delay.addr.02.i.i.i.i.i.i111 = phi i32 [ %dec.i.i.i.i.i.i112, %while.body.i.i.i.i.i.i110 ], [ %backoff.sroa.0.03.i.i.i.i99, %if.then.i.i.i.i.i106 ]
   %dec.i.i.i.i.i.i112 = add nsw i32 %delay.addr.02.i.i.i.i.i.i111, -1
   call void @llvm.x86.sse2.pause()
-  %cmp.i.i.i.i.i.i113 = icmp ugt i32 %delay.addr.02.i.i.i.i.i.i111, 1
+  %cmp.i.i.i.i.i.i113 = icmp samesign ugt i32 %delay.addr.02.i.i.i.i.i.i111, 1
   br i1 %cmp.i.i.i.i.i.i113, label %while.body.i.i.i.i.i.i110, label %_ZN3tbb6detail2d0L13machine_pauseEi.exit.i.i.i.i.i108, !llvm.loop !110
 
 _ZN3tbb6detail2d0L13machine_pauseEi.exit.i.i.i.i.i108: ; preds = %while.body.i.i.i.i.i.i110, %if.then.i.i.i.i.i106
@@ -194041,7 +194041,7 @@ while.body.i.i.i.i.i.i:                           ; preds = %if.then.i.i.i.i.i, 
   %delay.addr.02.i.i.i.i.i.i = phi i32 [ %dec.i.i.i.i.i.i, %while.body.i.i.i.i.i.i ], [ %backoff.sroa.0.03.i.i.i.i, %if.then.i.i.i.i.i ]
   %dec.i.i.i.i.i.i = add nsw i32 %delay.addr.02.i.i.i.i.i.i, -1
   call void @llvm.x86.sse2.pause()
-  %cmp.i.i.i.i.i.i = icmp ugt i32 %delay.addr.02.i.i.i.i.i.i, 1
+  %cmp.i.i.i.i.i.i = icmp samesign ugt i32 %delay.addr.02.i.i.i.i.i.i, 1
   br i1 %cmp.i.i.i.i.i.i, label %while.body.i.i.i.i.i.i, label %_ZN3tbb6detail2d0L13machine_pauseEi.exit.i.i.i.i.i, !llvm.loop !110
 
 _ZN3tbb6detail2d0L13machine_pauseEi.exit.i.i.i.i.i: ; preds = %while.body.i.i.i.i.i.i, %if.then.i.i.i.i.i
@@ -194138,7 +194138,7 @@ while.body.i.i.i.i.i.i49:                         ; preds = %if.then.i.i.i.i.i45
   %delay.addr.02.i.i.i.i.i.i50 = phi i32 [ %dec.i.i.i.i.i.i51, %while.body.i.i.i.i.i.i49 ], [ %backoff.sroa.0.03.i.i.i.i38, %if.then.i.i.i.i.i45 ]
   %dec.i.i.i.i.i.i51 = add nsw i32 %delay.addr.02.i.i.i.i.i.i50, -1
   call void @llvm.x86.sse2.pause()
-  %cmp.i.i.i.i.i.i52 = icmp ugt i32 %delay.addr.02.i.i.i.i.i.i50, 1
+  %cmp.i.i.i.i.i.i52 = icmp samesign ugt i32 %delay.addr.02.i.i.i.i.i.i50, 1
   br i1 %cmp.i.i.i.i.i.i52, label %while.body.i.i.i.i.i.i49, label %_ZN3tbb6detail2d0L13machine_pauseEi.exit.i.i.i.i.i47, !llvm.loop !110
 
 _ZN3tbb6detail2d0L13machine_pauseEi.exit.i.i.i.i.i47: ; preds = %while.body.i.i.i.i.i.i49, %if.then.i.i.i.i.i45
@@ -194501,7 +194501,7 @@ while.body.i.i.i.i.i.i110:                        ; preds = %if.then.i.i.i.i.i10
   %delay.addr.02.i.i.i.i.i.i111 = phi i32 [ %dec.i.i.i.i.i.i112, %while.body.i.i.i.i.i.i110 ], [ %backoff.sroa.0.03.i.i.i.i99, %if.then.i.i.i.i.i106 ]
   %dec.i.i.i.i.i.i112 = add nsw i32 %delay.addr.02.i.i.i.i.i.i111, -1
   call void @llvm.x86.sse2.pause()
-  %cmp.i.i.i.i.i.i113 = icmp ugt i32 %delay.addr.02.i.i.i.i.i.i111, 1
+  %cmp.i.i.i.i.i.i113 = icmp samesign ugt i32 %delay.addr.02.i.i.i.i.i.i111, 1
   br i1 %cmp.i.i.i.i.i.i113, label %while.body.i.i.i.i.i.i110, label %_ZN3tbb6detail2d0L13machine_pauseEi.exit.i.i.i.i.i108, !llvm.loop !110
 
 _ZN3tbb6detail2d0L13machine_pauseEi.exit.i.i.i.i.i108: ; preds = %while.body.i.i.i.i.i.i110, %if.then.i.i.i.i.i106
@@ -196608,7 +196608,7 @@ while.body.i.i.i.i.i.i:                           ; preds = %if.then.i.i.i.i.i, 
   %delay.addr.02.i.i.i.i.i.i = phi i32 [ %dec.i.i.i.i.i.i, %while.body.i.i.i.i.i.i ], [ %backoff.sroa.0.03.i.i.i.i, %if.then.i.i.i.i.i ]
   %dec.i.i.i.i.i.i = add nsw i32 %delay.addr.02.i.i.i.i.i.i, -1
   call void @llvm.x86.sse2.pause()
-  %cmp.i.i.i.i.i.i = icmp ugt i32 %delay.addr.02.i.i.i.i.i.i, 1
+  %cmp.i.i.i.i.i.i = icmp samesign ugt i32 %delay.addr.02.i.i.i.i.i.i, 1
   br i1 %cmp.i.i.i.i.i.i, label %while.body.i.i.i.i.i.i, label %_ZN3tbb6detail2d0L13machine_pauseEi.exit.i.i.i.i.i, !llvm.loop !110
 
 _ZN3tbb6detail2d0L13machine_pauseEi.exit.i.i.i.i.i: ; preds = %while.body.i.i.i.i.i.i, %if.then.i.i.i.i.i
@@ -196705,7 +196705,7 @@ while.body.i.i.i.i.i.i49:                         ; preds = %if.then.i.i.i.i.i45
   %delay.addr.02.i.i.i.i.i.i50 = phi i32 [ %dec.i.i.i.i.i.i51, %while.body.i.i.i.i.i.i49 ], [ %backoff.sroa.0.03.i.i.i.i38, %if.then.i.i.i.i.i45 ]
   %dec.i.i.i.i.i.i51 = add nsw i32 %delay.addr.02.i.i.i.i.i.i50, -1
   call void @llvm.x86.sse2.pause()
-  %cmp.i.i.i.i.i.i52 = icmp ugt i32 %delay.addr.02.i.i.i.i.i.i50, 1
+  %cmp.i.i.i.i.i.i52 = icmp samesign ugt i32 %delay.addr.02.i.i.i.i.i.i50, 1
   br i1 %cmp.i.i.i.i.i.i52, label %while.body.i.i.i.i.i.i49, label %_ZN3tbb6detail2d0L13machine_pauseEi.exit.i.i.i.i.i47, !llvm.loop !110
 
 _ZN3tbb6detail2d0L13machine_pauseEi.exit.i.i.i.i.i47: ; preds = %while.body.i.i.i.i.i.i49, %if.then.i.i.i.i.i45
@@ -197068,7 +197068,7 @@ while.body.i.i.i.i.i.i110:                        ; preds = %if.then.i.i.i.i.i10
   %delay.addr.02.i.i.i.i.i.i111 = phi i32 [ %dec.i.i.i.i.i.i112, %while.body.i.i.i.i.i.i110 ], [ %backoff.sroa.0.03.i.i.i.i99, %if.then.i.i.i.i.i106 ]
   %dec.i.i.i.i.i.i112 = add nsw i32 %delay.addr.02.i.i.i.i.i.i111, -1
   call void @llvm.x86.sse2.pause()
-  %cmp.i.i.i.i.i.i113 = icmp ugt i32 %delay.addr.02.i.i.i.i.i.i111, 1
+  %cmp.i.i.i.i.i.i113 = icmp samesign ugt i32 %delay.addr.02.i.i.i.i.i.i111, 1
   br i1 %cmp.i.i.i.i.i.i113, label %while.body.i.i.i.i.i.i110, label %_ZN3tbb6detail2d0L13machine_pauseEi.exit.i.i.i.i.i108, !llvm.loop !110
 
 _ZN3tbb6detail2d0L13machine_pauseEi.exit.i.i.i.i.i108: ; preds = %while.body.i.i.i.i.i.i110, %if.then.i.i.i.i.i106
@@ -198478,7 +198478,7 @@ while.body.i.i.i.i.i.i:                           ; preds = %if.then.i.i.i.i.i, 
   %delay.addr.02.i.i.i.i.i.i = phi i32 [ %dec.i.i.i.i.i.i, %while.body.i.i.i.i.i.i ], [ %backoff.sroa.0.03.i.i.i.i, %if.then.i.i.i.i.i ]
   %dec.i.i.i.i.i.i = add nsw i32 %delay.addr.02.i.i.i.i.i.i, -1
   call void @llvm.x86.sse2.pause()
-  %cmp.i.i.i.i.i.i = icmp ugt i32 %delay.addr.02.i.i.i.i.i.i, 1
+  %cmp.i.i.i.i.i.i = icmp samesign ugt i32 %delay.addr.02.i.i.i.i.i.i, 1
   br i1 %cmp.i.i.i.i.i.i, label %while.body.i.i.i.i.i.i, label %_ZN3tbb6detail2d0L13machine_pauseEi.exit.i.i.i.i.i, !llvm.loop !110
 
 _ZN3tbb6detail2d0L13machine_pauseEi.exit.i.i.i.i.i: ; preds = %while.body.i.i.i.i.i.i, %if.then.i.i.i.i.i
@@ -198577,7 +198577,7 @@ while.body.i.i.i.i.i.i49:                         ; preds = %if.then.i.i.i.i.i45
   %delay.addr.02.i.i.i.i.i.i50 = phi i32 [ %dec.i.i.i.i.i.i51, %while.body.i.i.i.i.i.i49 ], [ %backoff.sroa.0.03.i.i.i.i38, %if.then.i.i.i.i.i45 ]
   %dec.i.i.i.i.i.i51 = add nsw i32 %delay.addr.02.i.i.i.i.i.i50, -1
   call void @llvm.x86.sse2.pause()
-  %cmp.i.i.i.i.i.i52 = icmp ugt i32 %delay.addr.02.i.i.i.i.i.i50, 1
+  %cmp.i.i.i.i.i.i52 = icmp samesign ugt i32 %delay.addr.02.i.i.i.i.i.i50, 1
   br i1 %cmp.i.i.i.i.i.i52, label %while.body.i.i.i.i.i.i49, label %_ZN3tbb6detail2d0L13machine_pauseEi.exit.i.i.i.i.i47, !llvm.loop !110
 
 _ZN3tbb6detail2d0L13machine_pauseEi.exit.i.i.i.i.i47: ; preds = %while.body.i.i.i.i.i.i49, %if.then.i.i.i.i.i45
@@ -198944,7 +198944,7 @@ while.body.i.i.i.i.i.i110:                        ; preds = %if.then.i.i.i.i.i10
   %delay.addr.02.i.i.i.i.i.i111 = phi i32 [ %dec.i.i.i.i.i.i112, %while.body.i.i.i.i.i.i110 ], [ %backoff.sroa.0.03.i.i.i.i99, %if.then.i.i.i.i.i106 ]
   %dec.i.i.i.i.i.i112 = add nsw i32 %delay.addr.02.i.i.i.i.i.i111, -1
   call void @llvm.x86.sse2.pause()
-  %cmp.i.i.i.i.i.i113 = icmp ugt i32 %delay.addr.02.i.i.i.i.i.i111, 1
+  %cmp.i.i.i.i.i.i113 = icmp samesign ugt i32 %delay.addr.02.i.i.i.i.i.i111, 1
   br i1 %cmp.i.i.i.i.i.i113, label %while.body.i.i.i.i.i.i110, label %_ZN3tbb6detail2d0L13machine_pauseEi.exit.i.i.i.i.i108, !llvm.loop !110
 
 _ZN3tbb6detail2d0L13machine_pauseEi.exit.i.i.i.i.i108: ; preds = %while.body.i.i.i.i.i.i110, %if.then.i.i.i.i.i106
@@ -199722,7 +199722,7 @@ while.body.i.i.i.i.i.i:                           ; preds = %if.then.i.i.i.i.i, 
   %delay.addr.02.i.i.i.i.i.i = phi i32 [ %dec.i.i.i.i.i.i, %while.body.i.i.i.i.i.i ], [ %backoff.sroa.0.03.i.i.i.i, %if.then.i.i.i.i.i ]
   %dec.i.i.i.i.i.i = add nsw i32 %delay.addr.02.i.i.i.i.i.i, -1
   call void @llvm.x86.sse2.pause()
-  %cmp.i.i.i.i.i.i = icmp ugt i32 %delay.addr.02.i.i.i.i.i.i, 1
+  %cmp.i.i.i.i.i.i = icmp samesign ugt i32 %delay.addr.02.i.i.i.i.i.i, 1
   br i1 %cmp.i.i.i.i.i.i, label %while.body.i.i.i.i.i.i, label %_ZN3tbb6detail2d0L13machine_pauseEi.exit.i.i.i.i.i, !llvm.loop !110
 
 _ZN3tbb6detail2d0L13machine_pauseEi.exit.i.i.i.i.i: ; preds = %while.body.i.i.i.i.i.i, %if.then.i.i.i.i.i
@@ -199819,7 +199819,7 @@ while.body.i.i.i.i.i.i49:                         ; preds = %if.then.i.i.i.i.i45
   %delay.addr.02.i.i.i.i.i.i50 = phi i32 [ %dec.i.i.i.i.i.i51, %while.body.i.i.i.i.i.i49 ], [ %backoff.sroa.0.03.i.i.i.i38, %if.then.i.i.i.i.i45 ]
   %dec.i.i.i.i.i.i51 = add nsw i32 %delay.addr.02.i.i.i.i.i.i50, -1
   call void @llvm.x86.sse2.pause()
-  %cmp.i.i.i.i.i.i52 = icmp ugt i32 %delay.addr.02.i.i.i.i.i.i50, 1
+  %cmp.i.i.i.i.i.i52 = icmp samesign ugt i32 %delay.addr.02.i.i.i.i.i.i50, 1
   br i1 %cmp.i.i.i.i.i.i52, label %while.body.i.i.i.i.i.i49, label %_ZN3tbb6detail2d0L13machine_pauseEi.exit.i.i.i.i.i47, !llvm.loop !110
 
 _ZN3tbb6detail2d0L13machine_pauseEi.exit.i.i.i.i.i47: ; preds = %while.body.i.i.i.i.i.i49, %if.then.i.i.i.i.i45
@@ -200182,7 +200182,7 @@ while.body.i.i.i.i.i.i110:                        ; preds = %if.then.i.i.i.i.i10
   %delay.addr.02.i.i.i.i.i.i111 = phi i32 [ %dec.i.i.i.i.i.i112, %while.body.i.i.i.i.i.i110 ], [ %backoff.sroa.0.03.i.i.i.i99, %if.then.i.i.i.i.i106 ]
   %dec.i.i.i.i.i.i112 = add nsw i32 %delay.addr.02.i.i.i.i.i.i111, -1
   call void @llvm.x86.sse2.pause()
-  %cmp.i.i.i.i.i.i113 = icmp ugt i32 %delay.addr.02.i.i.i.i.i.i111, 1
+  %cmp.i.i.i.i.i.i113 = icmp samesign ugt i32 %delay.addr.02.i.i.i.i.i.i111, 1
   br i1 %cmp.i.i.i.i.i.i113, label %while.body.i.i.i.i.i.i110, label %_ZN3tbb6detail2d0L13machine_pauseEi.exit.i.i.i.i.i108, !llvm.loop !110
 
 _ZN3tbb6detail2d0L13machine_pauseEi.exit.i.i.i.i.i108: ; preds = %while.body.i.i.i.i.i.i110, %if.then.i.i.i.i.i106
@@ -201592,7 +201592,7 @@ while.body.i.i.i.i.i.i:                           ; preds = %if.then.i.i.i.i.i, 
   %delay.addr.02.i.i.i.i.i.i = phi i32 [ %dec.i.i.i.i.i.i, %while.body.i.i.i.i.i.i ], [ %backoff.sroa.0.03.i.i.i.i, %if.then.i.i.i.i.i ]
   %dec.i.i.i.i.i.i = add nsw i32 %delay.addr.02.i.i.i.i.i.i, -1
   call void @llvm.x86.sse2.pause()
-  %cmp.i.i.i.i.i.i = icmp ugt i32 %delay.addr.02.i.i.i.i.i.i, 1
+  %cmp.i.i.i.i.i.i = icmp samesign ugt i32 %delay.addr.02.i.i.i.i.i.i, 1
   br i1 %cmp.i.i.i.i.i.i, label %while.body.i.i.i.i.i.i, label %_ZN3tbb6detail2d0L13machine_pauseEi.exit.i.i.i.i.i, !llvm.loop !110
 
 _ZN3tbb6detail2d0L13machine_pauseEi.exit.i.i.i.i.i: ; preds = %while.body.i.i.i.i.i.i, %if.then.i.i.i.i.i
@@ -201691,7 +201691,7 @@ while.body.i.i.i.i.i.i49:                         ; preds = %if.then.i.i.i.i.i45
   %delay.addr.02.i.i.i.i.i.i50 = phi i32 [ %dec.i.i.i.i.i.i51, %while.body.i.i.i.i.i.i49 ], [ %backoff.sroa.0.03.i.i.i.i38, %if.then.i.i.i.i.i45 ]
   %dec.i.i.i.i.i.i51 = add nsw i32 %delay.addr.02.i.i.i.i.i.i50, -1
   call void @llvm.x86.sse2.pause()
-  %cmp.i.i.i.i.i.i52 = icmp ugt i32 %delay.addr.02.i.i.i.i.i.i50, 1
+  %cmp.i.i.i.i.i.i52 = icmp samesign ugt i32 %delay.addr.02.i.i.i.i.i.i50, 1
   br i1 %cmp.i.i.i.i.i.i52, label %while.body.i.i.i.i.i.i49, label %_ZN3tbb6detail2d0L13machine_pauseEi.exit.i.i.i.i.i47, !llvm.loop !110
 
 _ZN3tbb6detail2d0L13machine_pauseEi.exit.i.i.i.i.i47: ; preds = %while.body.i.i.i.i.i.i49, %if.then.i.i.i.i.i45
@@ -202058,7 +202058,7 @@ while.body.i.i.i.i.i.i110:                        ; preds = %if.then.i.i.i.i.i10
   %delay.addr.02.i.i.i.i.i.i111 = phi i32 [ %dec.i.i.i.i.i.i112, %while.body.i.i.i.i.i.i110 ], [ %backoff.sroa.0.03.i.i.i.i99, %if.then.i.i.i.i.i106 ]
   %dec.i.i.i.i.i.i112 = add nsw i32 %delay.addr.02.i.i.i.i.i.i111, -1
   call void @llvm.x86.sse2.pause()
-  %cmp.i.i.i.i.i.i113 = icmp ugt i32 %delay.addr.02.i.i.i.i.i.i111, 1
+  %cmp.i.i.i.i.i.i113 = icmp samesign ugt i32 %delay.addr.02.i.i.i.i.i.i111, 1
   br i1 %cmp.i.i.i.i.i.i113, label %while.body.i.i.i.i.i.i110, label %_ZN3tbb6detail2d0L13machine_pauseEi.exit.i.i.i.i.i108, !llvm.loop !110
 
 _ZN3tbb6detail2d0L13machine_pauseEi.exit.i.i.i.i.i108: ; preds = %while.body.i.i.i.i.i.i110, %if.then.i.i.i.i.i106
@@ -202507,7 +202507,7 @@ while.body.i.i.i.i.i.i:                           ; preds = %if.then.i.i.i.i.i, 
   %delay.addr.02.i.i.i.i.i.i = phi i32 [ %dec.i.i.i.i.i.i, %while.body.i.i.i.i.i.i ], [ %backoff.sroa.0.03.i.i.i.i, %if.then.i.i.i.i.i ]
   %dec.i.i.i.i.i.i = add nsw i32 %delay.addr.02.i.i.i.i.i.i, -1
   call void @llvm.x86.sse2.pause()
-  %cmp.i.i.i.i.i.i = icmp ugt i32 %delay.addr.02.i.i.i.i.i.i, 1
+  %cmp.i.i.i.i.i.i = icmp samesign ugt i32 %delay.addr.02.i.i.i.i.i.i, 1
   br i1 %cmp.i.i.i.i.i.i, label %while.body.i.i.i.i.i.i, label %_ZN3tbb6detail2d0L13machine_pauseEi.exit.i.i.i.i.i, !llvm.loop !110
 
 _ZN3tbb6detail2d0L13machine_pauseEi.exit.i.i.i.i.i: ; preds = %while.body.i.i.i.i.i.i, %if.then.i.i.i.i.i
@@ -202606,7 +202606,7 @@ while.body.i.i.i.i.i.i49:                         ; preds = %if.then.i.i.i.i.i45
   %delay.addr.02.i.i.i.i.i.i50 = phi i32 [ %dec.i.i.i.i.i.i51, %while.body.i.i.i.i.i.i49 ], [ %backoff.sroa.0.03.i.i.i.i38, %if.then.i.i.i.i.i45 ]
   %dec.i.i.i.i.i.i51 = add nsw i32 %delay.addr.02.i.i.i.i.i.i50, -1
   call void @llvm.x86.sse2.pause()
-  %cmp.i.i.i.i.i.i52 = icmp ugt i32 %delay.addr.02.i.i.i.i.i.i50, 1
+  %cmp.i.i.i.i.i.i52 = icmp samesign ugt i32 %delay.addr.02.i.i.i.i.i.i50, 1
   br i1 %cmp.i.i.i.i.i.i52, label %while.body.i.i.i.i.i.i49, label %_ZN3tbb6detail2d0L13machine_pauseEi.exit.i.i.i.i.i47, !llvm.loop !110
 
 _ZN3tbb6detail2d0L13machine_pauseEi.exit.i.i.i.i.i47: ; preds = %while.body.i.i.i.i.i.i49, %if.then.i.i.i.i.i45
@@ -202973,7 +202973,7 @@ while.body.i.i.i.i.i.i110:                        ; preds = %if.then.i.i.i.i.i10
   %delay.addr.02.i.i.i.i.i.i111 = phi i32 [ %dec.i.i.i.i.i.i112, %while.body.i.i.i.i.i.i110 ], [ %backoff.sroa.0.03.i.i.i.i99, %if.then.i.i.i.i.i106 ]
   %dec.i.i.i.i.i.i112 = add nsw i32 %delay.addr.02.i.i.i.i.i.i111, -1
   call void @llvm.x86.sse2.pause()
-  %cmp.i.i.i.i.i.i113 = icmp ugt i32 %delay.addr.02.i.i.i.i.i.i111, 1
+  %cmp.i.i.i.i.i.i113 = icmp samesign ugt i32 %delay.addr.02.i.i.i.i.i.i111, 1
   br i1 %cmp.i.i.i.i.i.i113, label %while.body.i.i.i.i.i.i110, label %_ZN3tbb6detail2d0L13machine_pauseEi.exit.i.i.i.i.i108, !llvm.loop !110
 
 _ZN3tbb6detail2d0L13machine_pauseEi.exit.i.i.i.i.i108: ; preds = %while.body.i.i.i.i.i.i110, %if.then.i.i.i.i.i106

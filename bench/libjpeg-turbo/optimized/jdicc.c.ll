@@ -165,7 +165,7 @@ marker_is_icc.exit:                               ; preds = %76
   %96 = load i8, ptr %95, align 1
   %97 = icmp eq i8 %96, 0
   %98 = zext i8 %96 to i32
-  %99 = icmp ult i32 %.186, %98
+  %99 = icmp samesign ult i32 %.186, %98
   %or.cond98 = select i1 %97, i1 true, i1 %99
   br i1 %or.cond98, label %100, label %106
 

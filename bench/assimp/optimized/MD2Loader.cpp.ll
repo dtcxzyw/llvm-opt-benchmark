@@ -473,7 +473,7 @@ lpad143:                                          ; preds = %if.then141
   br label %eh.resume
 
 if.end146:                                        ; preds = %lor.lhs.false128
-  %cmp149 = icmp ugt i32 %13, 32
+  %cmp149 = icmp samesign ugt i32 %13, 32
   br i1 %cmp149, label %if.then150, label %if.end152
 
 if.then150:                                       ; preds = %if.end146

@@ -3206,7 +3206,7 @@ Vec_PtrPush.exit61:                               ; preds = %.Vec_PtrGrow.exit11
   br i1 %126, label %Vec_PtrPush.exit68.sink.split, label %Vec_PtrPush.exit68
 
 Vec_PtrPush.exit68.sink.split:                    ; preds = %124
-  %127 = icmp ult i32 %.val46108, 18
+  %127 = icmp samesign ult i32 %.val46108, 18
   %128 = shl nuw nsw i32 %88, 1
   %129 = zext nneg i32 %128 to i64
   %130 = shl nuw nsw i64 %129, 3
@@ -6784,8 +6784,8 @@ define range(i32 0, 2) i32 @Abc_NtkFunctionalIsoInt(ptr noundef %0, i32 noundef 
   %.not = icmp slt i32 %1, %.val18.val
   %9 = icmp sgt i32 %2, -1
   %or.cond.not21 = and i1 %9, %.not
-  %.not17 = icmp ult i32 %2, %.val18.val
-  %or.cond19 = and i1 %.not17, %or.cond.not21
+  %.not17 = icmp samesign ult i32 %2, %.val18.val
+  %or.cond19 = select i1 %or.cond.not21, i1 %.not17, i1 false
   br i1 %or.cond19, label %10, label %17
 
 10:                                               ; preds = %6
@@ -6825,8 +6825,8 @@ define range(i32 0, 2) i32 @Abc_NtkFunctionalIso(ptr noundef %0, i32 noundef %1,
   %.not.i = icmp slt i32 %1, %.val18.val.i
   %10 = icmp sgt i32 %2, -1
   %or.cond.not21.i = and i1 %10, %.not.i
-  %.not17.i = icmp ult i32 %2, %.val18.val.i
-  %or.cond19.i = and i1 %.not17.i, %or.cond.not21.i
+  %.not17.i = icmp samesign ult i32 %2, %.val18.val.i
+  %or.cond19.i = select i1 %or.cond.not21.i, i1 %.not17.i, i1 false
   br i1 %or.cond19.i, label %11, label %Abc_NtkFunctionalIsoInt.exit
 
 11:                                               ; preds = %7
@@ -6854,8 +6854,8 @@ define range(i32 0, 2) i32 @Abc_NtkFunctionalIso(ptr noundef %0, i32 noundef %1,
   %.not.i14 = icmp slt i32 %1, %.val18.val.i13
   %24 = icmp sgt i32 %2, -1
   %or.cond.not21.i15 = and i1 %24, %.not.i14
-  %.not17.i16 = icmp ult i32 %2, %.val18.val.i13
-  %or.cond19.i17 = and i1 %.not17.i16, %or.cond.not21.i15
+  %.not17.i16 = icmp samesign ult i32 %2, %.val18.val.i13
+  %or.cond19.i17 = select i1 %or.cond.not21.i15, i1 %.not17.i16, i1 false
   br i1 %or.cond19.i17, label %25, label %Abc_NtkFunctionalIsoInt.exit19
 
 25:                                               ; preds = %21

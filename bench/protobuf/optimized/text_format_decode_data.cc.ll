@@ -752,7 +752,7 @@ call.i.i.noexc.invoke.cont4_crit_edge:            ; preds = %call.i.i.noexc
 
 if.then.i.i:                                      ; preds = %call.i.i.noexc
   %5 = load ptr, ptr %data.i.i, align 8
-  %cmp.i.i.i = icmp ugt i32 %3, 16
+  %cmp.i.i.i = icmp samesign ugt i32 %3, 16
   %idx.ext.i.i.i = zext nneg i32 %3 to i64
   %add.ptr.i.i.i = getelementptr inbounds i8, ptr %5, i64 %idx.ext.i.i.i
   %add.ptr2.i.i.i = getelementptr inbounds i8, ptr %add.ptr.i.i.i, i64 -16

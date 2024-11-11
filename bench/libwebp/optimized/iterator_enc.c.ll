@@ -1059,7 +1059,7 @@ define hidden void @VP8IteratorExport(ptr nocapture noundef readonly %0) local_u
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %.078.i, ptr align 1 %.069.i, i64 %47, i1 false)
   %51 = getelementptr inbounds i8, ptr %.078.i, i64 %48
   %52 = getelementptr inbounds i8, ptr %.069.i, i64 32
-  %53 = icmp ugt i32 %.010.i, 1
+  %53 = icmp samesign ugt i32 %.010.i, 1
   br i1 %53, label %49, label %ExportBlock.exit, !llvm.loop !8
 
 ExportBlock.exit:                                 ; preds = %49, %7
@@ -1084,7 +1084,7 @@ ExportBlock.exit:                                 ; preds = %49, %7
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %.078.i46, ptr nonnull align 1 %.069.i45, i64 %60, i1 false)
   %64 = getelementptr inbounds i8, ptr %.078.i46, i64 %61
   %65 = getelementptr inbounds i8, ptr %.069.i45, i64 32
-  %66 = icmp ugt i32 %.010.i44, 1
+  %66 = icmp samesign ugt i32 %.010.i44, 1
   br i1 %66, label %62, label %.lr.ph.i48, !llvm.loop !8
 
 .lr.ph.i48:                                       ; preds = %62
@@ -1100,7 +1100,7 @@ ExportBlock.exit:                                 ; preds = %49, %7
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %.078.i51, ptr nonnull align 1 %.069.i50, i64 %60, i1 false)
   %71 = getelementptr inbounds i8, ptr %.078.i51, i64 %68
   %72 = getelementptr inbounds i8, ptr %.069.i50, i64 32
-  %73 = icmp ugt i32 %.010.i49, 1
+  %73 = icmp samesign ugt i32 %.010.i49, 1
   br i1 %73, label %69, label %ExportBlock.exit52, !llvm.loop !8
 
 ExportBlock.exit52:                               ; preds = %69, %ExportBlock.exit, %1

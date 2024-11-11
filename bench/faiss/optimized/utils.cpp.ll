@@ -2970,7 +2970,7 @@ define noundef i64 @_ZN5faiss10hash_bytesEPKhl(ptr nocapture noundef readonly %0
   %10 = load i8, ptr %.0911, align 1
   %11 = zext i8 %10 to i64
   %12 = xor i64 %8, %11
-  %13 = icmp ugt i64 %.013, 1
+  %13 = icmp samesign ugt i64 %.013, 1
   br i1 %13, label %.lr.ph, label %._crit_edge, !llvm.loop !59
 
 ._crit_edge:                                      ; preds = %.lr.ph, %2

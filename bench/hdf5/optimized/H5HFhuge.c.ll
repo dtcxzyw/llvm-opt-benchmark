@@ -133,7 +133,7 @@ define noundef i32 @H5HF__huge_init(ptr nocapture noundef %0) local_unnamed_addr
 37:                                               ; preds = %20, %36
   %38 = phi i32 [ %30, %36 ], [ %6, %20 ]
   %39 = add nsw i32 %38, -1
-  %40 = icmp ult i32 %39, 8
+  %40 = icmp samesign ult i32 %39, 8
   br i1 %40, label %41, label %48
 
 41:                                               ; preds = %37

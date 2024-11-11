@@ -4336,7 +4336,7 @@ define internal fastcc void @_ZL17parse_annotationsPK12ConstantPoolPKhiP19Annota
   %11 = add nsw i32 %2, -4
   %invariant.gep = getelementptr i8, ptr %1, i64 -2
   %12 = icmp eq i16 %.0.i.i.i, 0
-  %.not85 = icmp ult i32 %2, 6
+  %.not85 = icmp samesign ult i32 %2, 6
   %or.cond86 = or i1 %12, %.not85
   br i1 %or.cond86, label %.critedge, label %.lr.ph88
 
@@ -14801,7 +14801,7 @@ define hidden void @_ZN15ClassFileParser20verify_class_versionEttP6SymbolP10Java
   br label %39
 
 25:                                               ; preds = %19
-  %26 = icmp ult i16 %1, 56
+  %26 = icmp samesign ult i16 %1, 56
   %27 = icmp eq i16 %2, 0
   %or.cond = or i1 %26, %27
   br i1 %or.cond, label %39, label %28
@@ -19214,7 +19214,7 @@ declare void @_ZN5Chunk9next_chopEPS_(ptr noundef) local_unnamed_addr #2
 ; Function Attrs: mustprogress nofree nosync nounwind willreturn memory(argmem: read) uwtable
 define internal fastcc noundef range(i32 4, -2147483648) i32 @_ZL21skip_annotation_valuePKhii(ptr noundef %0, i32 noundef range(i32 4, -2147483648) %1, i32 noundef range(i32 3, 2147483647) %2) unnamed_addr #17 {
   %4 = add nsw i32 %1, -1
-  %.not = icmp ult i32 %2, %4
+  %.not = icmp samesign ult i32 %2, %4
   br i1 %.not, label %5, label %_ZL15skip_annotationPKhii.exit
 
 5:                                                ; preds = %3
@@ -19240,21 +19240,21 @@ define internal fastcc noundef range(i32 4, -2147483648) i32 @_ZL21skip_annotati
 
 10:                                               ; preds = %5, %5, %5, %5, %5, %5, %5, %5, %5, %5
   %11 = add nsw i32 %1, -2
-  %.not41 = icmp ult i32 %6, %11
+  %.not41 = icmp samesign ult i32 %6, %11
   %12 = add nuw nsw i32 %2, 3
   %spec.select = select i1 %.not41, i32 %12, i32 %1
   br label %_ZL15skip_annotationPKhii.exit
 
 13:                                               ; preds = %5
   %14 = add nsw i32 %1, -4
-  %.not40 = icmp ult i32 %6, %14
+  %.not40 = icmp samesign ult i32 %6, %14
   %15 = add nuw nsw i32 %2, 5
   %spec.select42 = select i1 %.not40, i32 %15, i32 %1
   br label %_ZL15skip_annotationPKhii.exit
 
 16:                                               ; preds = %5
   %17 = add nsw i32 %1, -2
-  %.not39 = icmp ult i32 %6, %17
+  %.not39 = icmp samesign ult i32 %6, %17
   br i1 %.not39, label %18, label %_ZL15skip_annotationPKhii.exit
 
 18:                                               ; preds = %16
@@ -19278,14 +19278,14 @@ define internal fastcc noundef range(i32 4, -2147483648) i32 @_ZL21skip_annotati
   %.147 = phi i32 [ %29, %.lr.ph49 ], [ %19, %.lr.ph49.preheader ]
   %28 = add nsw i32 %.048, -1
   %29 = tail call fastcc noundef i32 @_ZL21skip_annotation_valuePKhii(ptr noundef %0, i32 noundef %1, i32 noundef %.147)
-  %30 = icmp ugt i32 %.048, 1
+  %30 = icmp samesign ugt i32 %.048, 1
   %31 = icmp samesign ult i32 %29, %1
   %32 = select i1 %30, i1 %31, i1 false
   br i1 %32, label %.lr.ph49, label %_ZL15skip_annotationPKhii.exit, !llvm.loop !84
 
 33:                                               ; preds = %5
   %34 = add nsw i32 %1, -4
-  %.not.i = icmp ult i32 %6, %34
+  %.not.i = icmp samesign ult i32 %6, %34
   br i1 %.not.i, label %35, label %_ZL15skip_annotationPKhii.exit
 
 35:                                               ; preds = %33

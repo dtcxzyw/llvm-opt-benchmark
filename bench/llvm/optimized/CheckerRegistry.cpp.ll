@@ -13386,7 +13386,7 @@ _ZN4llvm15SmallVectorImplIPKN5clang4ento11CheckerInfoEE12assignRemoteEOS6_.exit.
 
 _ZN5clang4ento11CheckerInfoaSEOS1_.exit:          ; preds = %74, %_ZN4llvm15SmallVectorImplIPKN5clang4ento11CheckerInfoEE12assignRemoteEOS6_.exit.i6.i
   %87 = add nsw i64 %.010.i.i.i.i.i, -1
-  %88 = icmp ugt i64 %.010.i.i.i.i.i, 1
+  %88 = icmp samesign ugt i64 %.010.i.i.i.i.i, 1
   br i1 %88, label %24, label %_ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPN5clang4ento11CheckerInfoESt6vectorIS4_SaIS4_EEEES9_ET0_T_SB_SA_.exit, !llvm.loop !112
 
 _ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPN5clang4ento11CheckerInfoESt6vectorIS4_SaIS4_EEEES9_ET0_T_SB_SA_.exit: ; preds = %_ZN5clang4ento11CheckerInfoaSEOS1_.exit, %18

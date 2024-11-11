@@ -349,7 +349,7 @@ land.rhs:                                         ; preds = %entry
   %e_phnum = getelementptr inbounds i8, ptr %0, i64 56
   %1 = load i16, ptr %e_phnum, align 8
   %conv = zext i16 %1 to i32
-  %cmp2.not = icmp ult i32 %index, %conv
+  %cmp2.not = icmp samesign ult i32 %index, %conv
   br i1 %cmp2.not, label %do.end7, label %do.body4
 
 do.body4:                                         ; preds = %entry, %land.rhs
@@ -448,7 +448,7 @@ do.end7:                                          ; preds = %entry
   %vd_ndx9 = getelementptr inbounds i8, ptr %1, i64 4
   %2 = load i16, ptr %vd_ndx9, align 4
   %conv810 = zext i16 %2 to i32
-  %cmp911 = icmp ugt i32 %index, %conv810
+  %cmp911 = icmp samesign ugt i32 %index, %conv810
   br i1 %cmp911, label %land.rhs10.preheader, label %while.end
 
 land.rhs10.preheader:                             ; preds = %do.end7
@@ -471,7 +471,7 @@ while.body:                                       ; preds = %land.rhs10.preheade
   %vd_ndx = getelementptr inbounds i8, ptr %add.ptr, i64 4
   %6 = load i16, ptr %vd_ndx, align 4
   %conv8 = zext i16 %6 to i32
-  %cmp9 = icmp ugt i32 %index, %conv8
+  %cmp9 = icmp samesign ugt i32 %index, %conv8
   br i1 %cmp9, label %land.rhs10, label %while.end, !llvm.loop !8
 
 while.end:                                        ; preds = %while.body, %land.rhs10, %land.rhs10.preheader, %do.end7

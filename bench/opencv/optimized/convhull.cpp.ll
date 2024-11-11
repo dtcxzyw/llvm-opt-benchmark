@@ -263,7 +263,7 @@ _ZNK2cv11_InputArray6getMatEi.exit:               ; preds = %35, %37
   %69 = getelementptr inbounds i8, ptr %11, i64 16
   store ptr %69, ptr %11, align 8
   %70 = getelementptr inbounds i8, ptr %11, i64 8
-  %.not.i.i = icmp ugt i32 %38, 136
+  %.not.i.i = icmp samesign ugt i32 %38, 136
   store i64 %68, ptr %70, align 8
   br i1 %.not.i.i, label %75, label %_ZN2cv10AutoBufferIPNS_6Point_IiEELm136EEC2Em.exit.thread
 
@@ -288,7 +288,7 @@ _ZN2cv10AutoBufferIPNS_6Point_IiEELm136EEC2Em.exit: ; preds = %75
   %80 = getelementptr inbounds i8, ptr %12, i64 16
   store ptr %80, ptr %12, align 8
   %81 = getelementptr inbounds i8, ptr %12, i64 8
-  %.not.i.i281 = icmp ugt i32 %38, 262
+  %.not.i.i281 = icmp samesign ugt i32 %38, 262
   store i64 %79, ptr %81, align 8
   br i1 %.not.i.i281, label %82, label %_ZN2cv10AutoBufferIiLm264EEC2Em.exit.thread
 
@@ -312,7 +312,7 @@ _ZN2cv10AutoBufferIiLm264EEC2Em.exit:             ; preds = %82
   %87 = getelementptr inbounds i8, ptr %13, i64 16
   store ptr %87, ptr %13, align 8
   %88 = getelementptr inbounds i8, ptr %13, i64 8
-  %.not.i.i283 = icmp ugt i32 %38, 264
+  %.not.i.i283 = icmp samesign ugt i32 %38, 264
   store i64 %68, ptr %88, align 8
   br i1 %.not.i.i283, label %89, label %_ZN2cv10AutoBufferIiLm264EEC2Em.exit285
 
@@ -590,7 +590,7 @@ _ZSt4sortIPPN2cv6Point_IfEENS0_14CHullCmpPointsIfEEEvT_S7_T0_.exit: ; preds = %_
   %indvars.iv.next418 = add nuw nsw i64 %indvars.iv417, 1
   %221 = getelementptr inbounds i32, ptr %98, i64 %indvars.iv417
   store i32 %220, ptr %221, align 4
-  %222 = icmp ugt i64 %indvars.iv415, 2
+  %222 = icmp samesign ugt i64 %indvars.iv415, 2
   br i1 %222, label %211, label %._crit_edge369, !llvm.loop !12
 
 ._crit_edge369:                                   ; preds = %211
@@ -768,7 +768,7 @@ _ZSt4sortIPPN2cv6Point_IfEENS0_14CHullCmpPointsIfEEEvT_S7_T0_.exit: ; preds = %_
   %indvars.iv.next434 = add nuw nsw i64 %indvars.iv433, 1
   %317 = getelementptr inbounds i32, ptr %98, i64 %indvars.iv433
   store i32 %316, ptr %317, align 4
-  %318 = icmp ugt i64 %indvars.iv431, 2
+  %318 = icmp samesign ugt i64 %indvars.iv431, 2
   br i1 %318, label %307, label %._crit_edge378.loopexit, !llvm.loop !14
 
 ._crit_edge378.loopexit:                          ; preds = %307
@@ -1566,7 +1566,7 @@ _ZNK2cv11_InputArray6getMatEi.exit:               ; preds = %21, %24
   br label %238
 
 40:                                               ; preds = %26
-  %41 = icmp ult i32 %25, 4
+  %41 = icmp samesign ult i32 %25, 4
   br i1 %41, label %42, label %43
 
 42:                                               ; preds = %40
@@ -1637,7 +1637,7 @@ _ZNK2cv11_InputArray6getMatEi.exit130:            ; preds = %46, %49
   %65 = load ptr, ptr %64, align 8
   %66 = getelementptr inbounds i8, ptr %8, i64 16
   %67 = load ptr, ptr %66, align 8
-  %68 = icmp ult i32 %50, 3
+  %68 = icmp samesign ult i32 %50, 3
   br i1 %68, label %69, label %70
 
 69:                                               ; preds = %63

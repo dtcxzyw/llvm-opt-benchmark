@@ -6221,8 +6221,8 @@ _ZN4absl9BitGenRef6ImplFnINS_15random_internal17NonsecureURBGBaseINS2_13randen_e
   %conv.i.i.i.i.i.i.i.i = and i64 %6, 4294967295
   %mul.i.i.i.i.i.i.i.i = mul nuw nsw i64 %conv.i.i.i.i.i.i.i.i, 6
   %7 = and i64 %mul.i.i.i.i.i.i.i.i, 4294967292
-  %cmp1023.i.i.i.i.i.i.i = icmp eq i64 %7, 0
-  br i1 %cmp1023.i.i.i.i.i.i.i, label %while.body.i.i.i.i.i.i.i.preheader, label %if.end13.i.i.i.i.i.i.i
+  %or.cond = icmp eq i64 %7, 0
+  br i1 %or.cond, label %while.body.i.i.i.i.i.i.i.preheader, label %if.end13.i.i.i.i.i.i.i
 
 while.body.i.i.i.i.i.i.i.preheader:               ; preds = %_ZN4absl9BitGenRef6ImplFnINS_15random_internal17NonsecureURBGBaseINS2_13randen_engineImEENS2_17RandenPoolSeedSeqEEEEEmm.exit
   %has_crypto_.i.i.i.i.i.i21 = getelementptr inbounds i8, ptr %gen, i64 280
@@ -6562,8 +6562,8 @@ if.then.i.i.i.i:                                  ; preds = %for.body.i.i.i.i.i
   %conv.i.i.i.i.i.i.i.i = and i64 %or.i.i.i.i.i.i.i.i, 4294967295
   %mul.i.i.i.i.i.i.i.i = mul nuw nsw i64 %conv.i.i.i.i.i.i.i.i, 6
   %7 = and i64 %mul.i.i.i.i.i.i.i.i, 4294967292
-  %cmp1023.i.i.i.i.i.i.i = icmp eq i64 %7, 0
-  br i1 %cmp1023.i.i.i.i.i.i.i, label %while.body.i.i.i.i.i.i.i, label %if.end13.i.i.i.i.i.i.i
+  %or.cond = icmp eq i64 %7, 0
+  br i1 %or.cond, label %while.body.i.i.i.i.i.i.i, label %if.end13.i.i.i.i.i.i.i
 
 while.body.i.i.i.i.i.i.i:                         ; preds = %if.then.i.i.i.i, %while.body.i.i.i.i.i.i.i
   %agg.tmp.sroa.2.0.copyload.i.i.i.i.i1933 = phi i64 [ %.narrow.i.i.i.i.i.i.i28, %while.body.i.i.i.i.i.i.i ], [ %.narrow.i.i.i.i.i.i.i16, %if.then.i.i.i.i ]
@@ -6769,8 +6769,8 @@ if.then.i.i.i.i:                                  ; preds = %for.body.i.i.i
   %conv.i.i.i.i.i.i.i.i = and i64 %call2.i.i.i, 4294967295
   %mul.i.i.i.i.i.i.i.i = mul nuw nsw i64 %conv.i.i.i.i.i.i.i.i, 6
   %1 = and i64 %mul.i.i.i.i.i.i.i.i, 4294967292
-  %cmp1023.i.i.i.i.i.i.i = icmp eq i64 %1, 0
-  br i1 %cmp1023.i.i.i.i.i.i.i, label %while.body.i.i.i.i.i.i.i, label %if.end13.i.i.i.i.i.i.i
+  %or.cond = icmp eq i64 %1, 0
+  br i1 %or.cond, label %while.body.i.i.i.i.i.i.i, label %if.end13.i.i.i.i.i.i.i
 
 while.body.i.i.i.i.i.i.i:                         ; preds = %if.then.i.i.i.i, %while.body.i.i.i.i.i.i.i
   %call.i.i.i11 = call noundef i64 @_ZNSt23mersenne_twister_engineImLm32ELm624ELm397ELm31ELm2567483615ELm11ELm4294967295ELm7ELm2636928640ELm15ELm4022730752ELm18ELm1812433253EEclEv(ptr noundef nonnull align 8 dereferenceable(5000) %gen)
@@ -7062,8 +7062,8 @@ if.then.i.i.i.i:                                  ; preds = %for.body.i.i.i
   %conv.i.i.i.i.i.i.i.i = and i64 %call.i.i.i, 4294967295
   %mul.i.i.i.i.i.i.i.i = mul nuw nsw i64 %conv.i.i.i.i.i.i.i.i, 6
   %1 = and i64 %mul.i.i.i.i.i.i.i.i, 4294967292
-  %cmp1023.i.i.i.i.i.i.i = icmp eq i64 %1, 0
-  br i1 %cmp1023.i.i.i.i.i.i.i, label %while.body.i.i.i.i.i.i.i, label %if.end13.i.i.i.i.i.i.i
+  %or.cond = icmp eq i64 %1, 0
+  br i1 %or.cond, label %while.body.i.i.i.i.i.i.i, label %if.end13.i.i.i.i.i.i.i
 
 while.body.i.i.i.i.i.i.i:                         ; preds = %if.then.i.i.i.i, %while.body.i.i.i.i.i.i.i
   %call.i.i.i10 = call noundef i64 @_ZNSt23mersenne_twister_engineImLm64ELm312ELm156ELm31ELm13043109905998158313ELm29ELm6148914691236517205ELm17ELm8202884508482404352ELm37ELm18444473444759240704ELm43ELm6364136223846793005EEclEv(ptr noundef nonnull align 8 dereferenceable(2504) %gen)
@@ -7363,8 +7363,8 @@ _ZN4absl9BitGenRef6ImplFnISt26linear_congruential_engineImLm48271ELm0ELm21474836
   %conv.i.i.i.i.i.i.i.i = or disjoint i64 %and15.i.i.i, %shl14.i.i.i.masked
   %mul.i.i.i.i.i.i.i.i = mul nuw nsw i64 %conv.i.i.i.i.i.i.i.i, 6
   %0 = and i64 %mul.i.i.i.i.i.i.i.i, 4294967292
-  %cmp1023.i.i.i.i.i.i.i = icmp eq i64 %0, 0
-  br i1 %cmp1023.i.i.i.i.i.i.i, label %do.body.preheader.i.i.i11, label %if.end13.i.i.i.i.i.i.i
+  %or.cond = icmp eq i64 %0, 0
+  br i1 %or.cond, label %do.body.preheader.i.i.i11, label %if.end13.i.i.i.i.i.i.i
 
 do.body.preheader.i.i.i11:                        ; preds = %_ZN4absl9BitGenRef6ImplFnISt26linear_congruential_engineImLm48271ELm0ELm2147483647EEEEmm.exit, %do.body.preheader.i.i.i11.backedge
   %cmp.i.i.i13 = phi i1 [ %cmp.i.i.i13.be, %do.body.preheader.i.i.i11.backedge ], [ true, %_ZN4absl9BitGenRef6ImplFnISt26linear_congruential_engineImLm48271ELm0ELm2147483647EEEEmm.exit ]
@@ -8080,8 +8080,8 @@ _ZN4absl9BitGenRef6ImplFnINS_15random_internal17NonsecureURBGBaseINS2_13randen_e
   %6 = load i64, ptr %arrayidx.i.i.i.i.i, align 8
   %7 = trunc i64 %6 to i32
   %conv.i13.i.i.i.i.i.i.i = mul i32 %7, 6
-  %cmp1023.i.i.i.i.i.i.i = icmp ult i32 %conv.i13.i.i.i.i.i.i.i, 4
-  br i1 %cmp1023.i.i.i.i.i.i.i, label %while.body.i.i.i.i.i.i.i.preheader, label %if.end13.i.i.i.i.i.i.i
+  %or.cond = icmp ult i32 %conv.i13.i.i.i.i.i.i.i, 4
+  br i1 %or.cond, label %while.body.i.i.i.i.i.i.i.preheader, label %if.end13.i.i.i.i.i.i.i
 
 while.body.i.i.i.i.i.i.i.preheader:               ; preds = %_ZN4absl9BitGenRef6ImplFnINS_15random_internal17NonsecureURBGBaseINS2_13randen_engineImEENS2_17RandenPoolSeedSeqEEEEEmm.exit
   %has_crypto_.i.i.i.i.i.i13 = getelementptr inbounds i8, ptr %gen, i64 280
@@ -8277,8 +8277,8 @@ if.then.i.i.i.i:                                  ; preds = %for.body.i.i.i
   %call2.i.i.i = call noundef i64 @_ZNSt23mersenne_twister_engineImLm32ELm624ELm397ELm31ELm2567483615ELm11ELm4294967295ELm7ELm2636928640ELm15ELm4022730752ELm18ELm1812433253EEclEv(ptr noundef nonnull align 8 dereferenceable(5000) %gen)
   %1 = trunc i64 %call2.i.i.i to i32
   %conv.i13.i.i.i.i.i.i.i = mul i32 %1, 6
-  %cmp1023.i.i.i.i.i.i.i = icmp ult i32 %conv.i13.i.i.i.i.i.i.i, 4
-  br i1 %cmp1023.i.i.i.i.i.i.i, label %while.body.i.i.i.i.i.i.i, label %if.end13.i.i.i.i.i.i.i
+  %or.cond = icmp ult i32 %conv.i13.i.i.i.i.i.i.i, 4
+  br i1 %or.cond, label %while.body.i.i.i.i.i.i.i, label %if.end13.i.i.i.i.i.i.i
 
 while.body.i.i.i.i.i.i.i:                         ; preds = %if.then.i.i.i.i, %while.body.i.i.i.i.i.i.i
   %call.i.i.i3 = call noundef i64 @_ZNSt23mersenne_twister_engineImLm32ELm624ELm397ELm31ELm2567483615ELm11ELm4294967295ELm7ELm2636928640ELm15ELm4022730752ELm18ELm1812433253EEclEv(ptr noundef nonnull align 8 dereferenceable(5000) %gen)
@@ -8364,8 +8364,8 @@ if.then.i.i.i.i:                                  ; preds = %for.body.i.i.i
   %call.i.i.i = call noundef i64 @_ZNSt23mersenne_twister_engineImLm64ELm312ELm156ELm31ELm13043109905998158313ELm29ELm6148914691236517205ELm17ELm8202884508482404352ELm37ELm18444473444759240704ELm43ELm6364136223846793005EEclEv(ptr noundef nonnull align 8 dereferenceable(2504) %gen)
   %1 = trunc i64 %call.i.i.i to i32
   %conv.i13.i.i.i.i.i.i.i = mul i32 %1, 6
-  %cmp1023.i.i.i.i.i.i.i = icmp ult i32 %conv.i13.i.i.i.i.i.i.i, 4
-  br i1 %cmp1023.i.i.i.i.i.i.i, label %while.body.i.i.i.i.i.i.i, label %if.end13.i.i.i.i.i.i.i
+  %or.cond = icmp ult i32 %conv.i13.i.i.i.i.i.i.i, 4
+  br i1 %or.cond, label %while.body.i.i.i.i.i.i.i, label %if.end13.i.i.i.i.i.i.i
 
 while.body.i.i.i.i.i.i.i:                         ; preds = %if.then.i.i.i.i, %while.body.i.i.i.i.i.i.i
   %call.i.i.i2 = call noundef i64 @_ZNSt23mersenne_twister_engineImLm64ELm312ELm156ELm31ELm13043109905998158313ELm29ELm6148914691236517205ELm17ELm8202884508482404352ELm37ELm18444473444759240704ELm43ELm6364136223846793005EEclEv(ptr noundef nonnull align 8 dereferenceable(2504) %gen)

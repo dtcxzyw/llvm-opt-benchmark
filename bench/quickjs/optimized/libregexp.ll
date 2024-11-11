@@ -76,7 +76,7 @@ define dso_local range(i32 0, 2) i32 @lre_is_space(i32 noundef %0) local_unnamed
   %12 = getelementptr [21 x i16], ptr @char_range_s, i64 0, i64 %11
   %13 = load i16, ptr %12, align 4
   %14 = zext i16 %13 to i32
-  %15 = icmp ult i32 %0, %14
+  %15 = icmp samesign ult i32 %0, %14
   br i1 %15, label %16, label %2
 
 16:                                               ; preds = %2, %10, %3
@@ -316,7 +316,7 @@ from_hex.exit88.thread:                           ; preds = %73, %.preheader, %7
   %101 = shl nuw nsw i32 %87, 3
   %102 = or disjoint i32 %98, %101
   %103 = getelementptr i8, ptr %3, i64 2
-  %104 = icmp ugt i32 %102, 31
+  %104 = icmp samesign ugt i32 %102, 31
   br i1 %104, label %.thread, label %105
 
 105:                                              ; preds = %100
@@ -2990,7 +2990,7 @@ parse_digits.exit418.thread:                      ; preds = %.lr.ph.split.us.i, 
   br i1 %250, label %251, label %275
 
 251:                                              ; preds = %248
-  %252 = icmp ult i8 %249, 52
+  %252 = icmp samesign ult i8 %249, 52
   br i1 %252, label %253, label %257
 
 253:                                              ; preds = %251
@@ -3119,7 +3119,7 @@ parse_digits.exit418.thread:                      ; preds = %.lr.ph.split.us.i, 
 
 323:                                              ; preds = %320
   store ptr %321, ptr %11, align 8
-  %324 = icmp ugt i32 %314, 1073741823
+  %324 = icmp samesign ugt i32 %314, 1073741823
   br i1 %324, label %325, label %328
 
 325:                                              ; preds = %323
@@ -3137,7 +3137,7 @@ parse_digits.exit418.thread:                      ; preds = %.lr.ph.split.us.i, 
   br i1 %330, label %re_parse_char_class.exit, label %331
 
 331:                                              ; preds = %328
-  %332 = icmp ugt i32 %329, 1073741823
+  %332 = icmp samesign ugt i32 %329, 1073741823
   br i1 %332, label %333, label %335
 
 333:                                              ; preds = %331
@@ -3149,7 +3149,7 @@ parse_digits.exit418.thread:                      ; preds = %.lr.ph.split.us.i, 
 335:                                              ; preds = %331
   %336 = load ptr, ptr %11, align 8
   store ptr %336, ptr %8, align 8
-  %337 = icmp ult i32 %329, %314
+  %337 = icmp samesign ult i32 %329, %314
   br i1 %337, label %.loopexit.sink.split.i, label %338
 
 338:                                              ; preds = %335
@@ -3163,7 +3163,7 @@ parse_digits.exit418.thread:                      ; preds = %.lr.ph.split.us.i, 
   br i1 %.not44.i, label %348, label %.loopexit.sink.split.i
 
 341:                                              ; preds = %320, %316
-  %342 = icmp ugt i32 %314, 1073741823
+  %342 = icmp samesign ugt i32 %314, 1073741823
   br i1 %342, label %.thread.i, label %.thread55.i
 
 .thread.i:                                        ; preds = %341, %325
@@ -4990,7 +4990,7 @@ define internal fastcc range(i32 -1, 1) i32 @re_emit_range(ptr noundef nonnull %
   br label %.loopexit
 
 14:                                               ; preds = %2
-  %15 = icmp ult i32 %10, 2
+  %15 = icmp samesign ult i32 %10, 2
   br i1 %15, label %16, label %19
 
 16:                                               ; preds = %14

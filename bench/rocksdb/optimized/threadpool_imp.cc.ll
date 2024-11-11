@@ -3499,7 +3499,7 @@ if.end17:                                         ; preds = %if.end16, %if.end
   br i1 %cmp.i.i114, label %land.lhs.true.i.i, label %cond.false.i.i
 
 land.lhs.true.i.i:                                ; preds = %if.end17
-  %cmp2.i.i = icmp ult i64 %add.i.i113, 7
+  %cmp2.i.i = icmp samesign ult i64 %add.i.i113, 7
   br i1 %cmp2.i.i, label %if.then.i.i, label %cond.true.i.i
 
 if.then.i.i:                                      ; preds = %land.lhs.true.i.i
@@ -3904,7 +3904,7 @@ terminate.lpad.i.i.i17.i:                         ; preds = %if.then.i.i.i15.i
 _ZN7rocksdb14ThreadPoolImpl4Impl6BGItemaSEOS2_.exit: ; preds = %_ZNSt8functionIFvvEEC2EOS1_.exit.i10.i, %if.then.i.i.i15.i
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ref.tmp.i4.i)
   %dec.i.i.i = add nsw i64 %__n.07.i.i.i, -1
-  %cmp.i.i.i = icmp ugt i64 %__n.07.i.i.i, 1
+  %cmp.i.i.i = icmp samesign ugt i64 %__n.07.i.i.i, 1
   br i1 %cmp.i.i.i, label %for.body.i.i.i, label %_ZSt23__copy_move_backward_a1ILb1EPN7rocksdb14ThreadPoolImpl4Impl6BGItemES4_ET1_T0_S6_S5_.exit.loopexit, !llvm.loop !75
 
 _ZSt23__copy_move_backward_a1ILb1EPN7rocksdb14ThreadPoolImpl4Impl6BGItemES4_ET1_T0_S6_S5_.exit.loopexit: ; preds = %_ZN7rocksdb14ThreadPoolImpl4Impl6BGItemaSEOS2_.exit
@@ -3925,7 +3925,7 @@ _ZSt23__copy_move_backward_a1ILb1EPN7rocksdb14ThreadPoolImpl4Impl6BGItemES4_ET1_
   br i1 %cmp.i.i, label %land.lhs.true.i.i, label %cond.false.i.i
 
 land.lhs.true.i.i:                                ; preds = %_ZSt23__copy_move_backward_a1ILb1EPN7rocksdb14ThreadPoolImpl4Impl6BGItemES4_ET1_T0_S6_S5_.exit
-  %cmp2.i.i = icmp ult i64 %add.i.i, 7
+  %cmp2.i.i = icmp samesign ult i64 %add.i.i, 7
   br i1 %cmp2.i.i, label %if.then.i.i, label %cond.true.i.i
 
 if.then.i.i:                                      ; preds = %land.lhs.true.i.i
@@ -4234,7 +4234,7 @@ _ZN7rocksdb14ThreadPoolImpl4Impl6BGItemaSEOS2_.exit: ; preds = %_ZNSt8functionIF
   %incdec.ptr.i.i.i = getelementptr inbounds i8, ptr %__first.addr.07.i.i.i, i64 72
   %incdec.ptr1.i.i.i = getelementptr inbounds i8, ptr %__result.addr.08.i.i.i, i64 72
   %dec.i.i.i = add nsw i64 %__n.09.i.i.i, -1
-  %cmp.i.i.i = icmp ugt i64 %__n.09.i.i.i, 1
+  %cmp.i.i.i = icmp samesign ugt i64 %__n.09.i.i.i, 1
   br i1 %cmp.i.i.i, label %for.body.i.i.i, label %_ZSt14__copy_move_a1ILb1EPN7rocksdb14ThreadPoolImpl4Impl6BGItemES4_ET1_T0_S6_S5_.exit.loopexit, !llvm.loop !78
 
 _ZSt14__copy_move_a1ILb1EPN7rocksdb14ThreadPoolImpl4Impl6BGItemES4_ET1_T0_S6_S5_.exit.loopexit: ; preds = %_ZN7rocksdb14ThreadPoolImpl4Impl6BGItemaSEOS2_.exit
@@ -4254,7 +4254,7 @@ _ZSt14__copy_move_a1ILb1EPN7rocksdb14ThreadPoolImpl4Impl6BGItemES4_ET1_T0_S6_S5_
   br i1 %cmp.i7, label %land.lhs.true.i, label %cond.false.i
 
 land.lhs.true.i:                                  ; preds = %_ZSt14__copy_move_a1ILb1EPN7rocksdb14ThreadPoolImpl4Impl6BGItemES4_ET1_T0_S6_S5_.exit
-  %cmp2.i = icmp ult i64 %add.i, 7
+  %cmp2.i = icmp samesign ult i64 %add.i, 7
   br i1 %cmp2.i, label %if.then.i, label %cond.true.i
 
 if.then.i:                                        ; preds = %land.lhs.true.i

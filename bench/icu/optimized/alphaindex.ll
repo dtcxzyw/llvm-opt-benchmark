@@ -1444,7 +1444,7 @@ if.then4.i:                                       ; preds = %_ZNK6icu_7513Unicod
 
 call2.i.i.noexc:                                  ; preds = %.noexc
   call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %srcChar.addr.i.i)
-  %cmp8.i = icmp ugt i16 %35, 10249
+  %cmp8.i = icmp samesign ugt i16 %35, 10249
   br i1 %cmp8.i, label %if.then9.i, label %if.end21.i
 
 if.then9.i:                                       ; preds = %call2.i.i.noexc

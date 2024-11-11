@@ -95450,7 +95450,7 @@ define hidden noundef nonnull ptr @_ZN6hir_ty5infer5unify14InferenceTable7new_va
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8)
   %.sink3.i = select i1 %20, ptr %21, ptr %11
-  %.not = icmp ugt i64 %.sink4.i, %10
+  %.not = icmp samesign ugt i64 %.sink4.i, %10
   %27 = getelementptr inbounds i8, ptr %.sink3.i, i64 %10
   br i1 %.not, label %29, label %28
 

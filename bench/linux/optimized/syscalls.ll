@@ -354,7 +354,7 @@ define internal fastcc range(i64 -2147483648, 2147483648) i64 @__se_sys_futex(i6
   br i1 %27, label %28, label %53
 
 28:                                               ; preds = %21
-  %29 = icmp ugt i64 %22, 9223372035
+  %29 = icmp samesign ugt i64 %22, 9223372035
   %30 = mul i64 %22, 1000000000
   %31 = add i64 %25, %30
   %32 = select i1 %29, i64 9223372036854775807, i64 %31, !prof !12
@@ -573,7 +573,7 @@ define internal fastcc range(i64 -2147483648, 2147483648) i64 @__se_sys_futex_wa
   br i1 %36, label %37, label %56
 
 37:                                               ; preds = %30
-  %38 = icmp ugt i64 %31, 9223372035
+  %38 = icmp samesign ugt i64 %31, 9223372035
   %39 = mul i64 %31, 1000000000
   %40 = add i64 %34, %39
   %41 = select i1 %38, i64 9223372036854775807, i64 %40, !prof !12
@@ -875,7 +875,7 @@ define dso_local range(i64 -2147483648, 2147483648) i64 @__x64_sys_futex_wait(pt
   br i1 %51, label %52, label %69
 
 52:                                               ; preds = %45
-  %53 = icmp ugt i64 %46, 9223372035
+  %53 = icmp samesign ugt i64 %46, 9223372035
   %54 = mul i64 %46, 1000000000
   %55 = add i64 %49, %54
   %56 = select i1 %53, i64 9223372036854775807, i64 %55, !prof !12
@@ -1000,7 +1000,7 @@ define dso_local range(i64 -2147483648, 2147483648) i64 @__ia32_sys_futex_wait(p
   br i1 %50, label %51, label %68
 
 51:                                               ; preds = %44
-  %52 = icmp ugt i64 %45, 9223372035
+  %52 = icmp samesign ugt i64 %45, 9223372035
   %53 = mul i64 %45, 1000000000
   %54 = add i64 %48, %53
   %55 = select i1 %52, i64 9223372036854775807, i64 %54, !prof !12
@@ -1342,7 +1342,7 @@ define internal fastcc range(i64 -2147483648, 2147483648) i64 @__se_sys_futex_ti
   br i1 %27, label %28, label %53
 
 28:                                               ; preds = %21
-  %29 = icmp ugt i64 %22, 9223372035
+  %29 = icmp samesign ugt i64 %22, 9223372035
   %30 = mul i64 %22, 1000000000
   %31 = add i64 %25, %30
   %32 = select i1 %29, i64 9223372036854775807, i64 %31, !prof !12

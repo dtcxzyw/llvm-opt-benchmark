@@ -1129,7 +1129,7 @@ _ZNSt10shared_ptrIKN10open_spiel4GameEED2Ev.exit: ; preds = %34, %52, %65, %_ZNS
 94:                                               ; preds = %87
   store i32 %2, ptr %14, align 4
   store i32 99, ptr %15, align 4
-  %95 = icmp ult i32 %2, 100
+  %95 = icmp samesign ult i32 %2, 100
   br i1 %95, label %101, label %96
 
 96:                                               ; preds = %94
@@ -1153,7 +1153,7 @@ _ZNSt10shared_ptrIKN10open_spiel4GameEED2Ev.exit: ; preds = %34, %52, %65, %_ZNS
 101:                                              ; preds = %94
   store i32 %3, ptr %18, align 4
   store i32 26, ptr %19, align 4
-  %102 = icmp ult i32 %3, 27
+  %102 = icmp samesign ult i32 %3, 27
   br i1 %102, label %.lr.ph.preheader.i.i.i.i.i.i.i.i.i, label %103
 
 103:                                              ; preds = %101
@@ -1220,7 +1220,7 @@ _ZNSt6vectorIN10open_spiel8checkers15TurnHistoryInfoESaIS2_EEaSESt16initializer_
   br i1 %127, label %.lr.ph, label %.loopexit
 
 .lr.ph:                                           ; preds = %.preheader
-  %128 = icmp ult i32 %.018.in44, 4
+  %128 = icmp samesign ult i32 %.018.in44, 4
   br i1 %128, label %.lr.ph.split.us, label %.lr.ph.split
 
 .lr.ph.split.us:                                  ; preds = %.lr.ph, %140
@@ -1843,7 +1843,7 @@ define void @_ZN10open_spiel8checkers13CheckersState14SetCustomBoardENSt7__cxx11
 41:                                               ; preds = %30
   store i32 %34, ptr %13, align 4
   store i32 1, ptr %14, align 4
-  %42 = icmp ult i8 %32, 50
+  %42 = icmp samesign ult i8 %32, 50
   br i1 %42, label %.preheader17, label %48
 
 .preheader17:                                     ; preds = %41
@@ -2380,7 +2380,7 @@ _ZNK10open_spiel8checkers13CheckersState8InBoundsEii.exit.thread: ; preds = %2, 
   br i1 %53, label %54, label %_ZNK10open_spiel8checkers13CheckersState8InBoundsEii.exit68.thread
 
 54:                                               ; preds = %45
-  %55 = icmp ult i32 %49, %31
+  %55 = icmp samesign ult i32 %49, %31
   %56 = icmp sgt i32 %52, -1
   %or.cond.i67 = and i1 %56, %55
   %57 = icmp slt i32 %52, %35
@@ -2622,7 +2622,7 @@ _ZN10open_spiel8checkers13CheckersState26CrownStateIfLastRowReachedEiNS0_9CellSt
   br i1 %156, label %157, label %_ZNK10open_spiel8checkers13CheckersState8InBoundsEii.exit71.thread
 
 157:                                              ; preds = %146
-  %158 = icmp ult i32 %151, %31
+  %158 = icmp samesign ult i32 %151, %31
   %159 = icmp sgt i32 %155, -1
   %or.cond.i70 = and i1 %159, %158
   %160 = icmp slt i32 %155, %35
@@ -3785,11 +3785,11 @@ _ZNSt6vectorIlSaIlEE17_M_realloc_insertIJlEEEvN9__gnu_cxx17__normal_iteratorIPlS
   br i1 %167, label %168, label %_ZNSt6vectorIlSaIlEE9push_backEOl.exit
 
 168:                                              ; preds = %164
-  %169 = icmp ult i32 %165, %88
+  %169 = icmp samesign ult i32 %165, %88
   %170 = icmp sgt i32 %166, -1
   %or.cond.i83 = and i1 %170, %169
-  %171 = icmp ult i32 %166, %64
-  %or.cond195 = and i1 %171, %or.cond.i83
+  %171 = icmp samesign ult i32 %166, %64
+  %or.cond195 = select i1 %or.cond.i83, i1 %171, i1 false
   br i1 %or.cond195, label %172, label %_ZNSt6vectorIlSaIlEE9push_backEOl.exit
 
 172:                                              ; preds = %168

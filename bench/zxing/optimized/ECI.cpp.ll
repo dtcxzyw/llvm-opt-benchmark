@@ -309,7 +309,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEmcRKS3_.exit: ; pre
   %34 = or disjoint i8 %33, 48
   store i8 %34, ptr %30, align 1
   %35 = udiv i32 %.02037, 10
-  %36 = icmp ugt i64 %indvars.iv, 1
+  %36 = icmp samesign ugt i64 %indvars.iv, 1
   %37 = icmp ugt i32 %.02037, 9
   %38 = select i1 %36, i1 %37, i1 false
   br i1 %38, label %.lr.ph, label %._crit_edge, !llvm.loop !7

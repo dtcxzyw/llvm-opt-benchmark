@@ -69,12 +69,12 @@ for.body1407.lr.ph:                               ; preds = %for.cond1405.prehea
   br label %for.body1407
 
 if.then:                                          ; preds = %entry
-  %cmp1 = icmp ugt i32 %order, 8
+  %cmp1 = icmp samesign ugt i32 %order, 8
   %cmp411292 = icmp sgt i32 %data_len, 7
   br i1 %cmp1, label %if.then2, label %if.else644
 
 if.then2:                                         ; preds = %if.then
-  %cmp3 = icmp ugt i32 %order, 10
+  %cmp3 = icmp samesign ugt i32 %order, 10
   br i1 %cmp3, label %if.then4, label %if.else338
 
 if.then4:                                         ; preds = %if.then2
@@ -578,11 +578,11 @@ for.body538:                                      ; preds = %for.body538.lr.ph, 
   br i1 %cmp537, label %for.body538, label %if.end1312.loopexit1323, !llvm.loop !8
 
 if.else644:                                       ; preds = %if.then
-  %cmp645 = icmp ugt i32 %order, 4
+  %cmp645 = icmp samesign ugt i32 %order, 4
   br i1 %cmp645, label %if.then646, label %if.else1091
 
 if.then646:                                       ; preds = %if.else644
-  %cmp647 = icmp ugt i32 %order, 6
+  %cmp647 = icmp samesign ugt i32 %order, 6
   br i1 %cmp647, label %if.then648, label %if.else897
 
 if.then648:                                       ; preds = %if.then646
@@ -926,7 +926,7 @@ for.body1025:                                     ; preds = %for.body1025.lr.ph,
   br i1 %cmp1024, label %for.body1025, label %if.end1312.loopexit1327, !llvm.loop !12
 
 if.else1091:                                      ; preds = %if.else644
-  %cmp1092 = icmp ugt i32 %order, 2
+  %cmp1092 = icmp samesign ugt i32 %order, 2
   br i1 %cmp1092, label %if.then1093, label %if.else1230
 
 if.then1093:                                      ; preds = %if.else1091
@@ -1672,14 +1672,14 @@ for.body1330.lr.ph:                               ; preds = %for.cond1328.prehea
   br label %for.body1330
 
 if.then:                                          ; preds = %entry
-  %cmp1 = icmp ugt i32 %order, 8
+  %cmp1 = icmp samesign ugt i32 %order, 8
   %0 = load i32, ptr %qlp_coeff, align 4
   %vecinit.i2979 = insertelement <8 x i32> poison, i32 %0, i64 0
   %vecinit7.i = shufflevector <8 x i32> %vecinit.i2979, <8 x i32> poison, <8 x i32> zeroinitializer
   br i1 %cmp1, label %if.then2, label %if.else603
 
 if.then2:                                         ; preds = %if.then
-  %cmp3 = icmp ugt i32 %order, 10
+  %cmp3 = icmp samesign ugt i32 %order, 10
   %arrayidx8 = getelementptr inbounds i8, ptr %qlp_coeff, i64 4
   %1 = load i32, ptr %arrayidx8, align 4
   %vecinit.i2992 = insertelement <8 x i32> poison, i32 %1, i64 0
@@ -1987,11 +1987,11 @@ for.body497:                                      ; preds = %for.body497.prehead
   br i1 %cmp496, label %for.body497, label %if.end1235.loopexit1323, !llvm.loop !22
 
 if.else603:                                       ; preds = %if.then
-  %cmp604 = icmp ugt i32 %order, 4
+  %cmp604 = icmp samesign ugt i32 %order, 4
   br i1 %cmp604, label %if.then605, label %if.else1024
 
 if.then605:                                       ; preds = %if.else603
-  %cmp606 = icmp ugt i32 %order, 6
+  %cmp606 = icmp samesign ugt i32 %order, 6
   %arrayidx620 = getelementptr inbounds i8, ptr %qlp_coeff, i64 4
   %67 = load i32, ptr %arrayidx620, align 4
   %vecinit.i3706 = insertelement <8 x i32> poison, i32 %67, i64 0
@@ -2219,7 +2219,7 @@ for.body958:                                      ; preds = %for.body958.prehead
   br i1 %cmp957, label %for.body958, label %if.end1235.loopexit1327, !llvm.loop !26
 
 if.else1024:                                      ; preds = %if.else603
-  %cmp1025 = icmp ugt i32 %order, 2
+  %cmp1025 = icmp samesign ugt i32 %order, 2
   br i1 %cmp1025, label %if.then1026, label %if.else1156
 
 if.then1026:                                      ; preds = %if.else1024
@@ -2931,12 +2931,12 @@ for.body1536.lr.ph:                               ; preds = %for.cond1533.prehea
   br label %for.body1536
 
 if.then:                                          ; preds = %entry
-  %cmp2 = icmp ugt i32 %order, 8
+  %cmp2 = icmp samesign ugt i32 %order, 8
   %cmp431003 = icmp sgt i32 %data_len, 3
   br i1 %cmp2, label %if.then3, label %if.else696
 
 if.then3:                                         ; preds = %if.then
-  %cmp4 = icmp ugt i32 %order, 10
+  %cmp4 = icmp samesign ugt i32 %order, 10
   br i1 %cmp4, label %if.then5, label %if.else367
 
 if.then5:                                         ; preds = %if.then3
@@ -3444,11 +3444,11 @@ for.body579:                                      ; preds = %for.body579.lr.ph, 
   br i1 %cmp578, label %for.body579, label %if.end1416.loopexit1034, !llvm.loop !36
 
 if.else696:                                       ; preds = %if.then
-  %cmp697 = icmp ugt i32 %order, 4
+  %cmp697 = icmp samesign ugt i32 %order, 4
   br i1 %cmp697, label %if.then698, label %if.else1177
 
 if.then698:                                       ; preds = %if.else696
-  %cmp699 = icmp ugt i32 %order, 6
+  %cmp699 = icmp samesign ugt i32 %order, 6
   br i1 %cmp699, label %if.then700, label %if.else968
 
 if.then700:                                       ; preds = %if.then698
@@ -3796,7 +3796,7 @@ for.body1104:                                     ; preds = %for.body1104.lr.ph,
   br i1 %cmp1103, label %for.body1104, label %if.end1416.loopexit1038, !llvm.loop !40
 
 if.else1177:                                      ; preds = %if.else696
-  %cmp1178 = icmp ugt i32 %order, 2
+  %cmp1178 = icmp samesign ugt i32 %order, 2
   br i1 %cmp1178, label %if.then1179, label %if.else1327
 
 if.then1179:                                      ; preds = %if.else1177

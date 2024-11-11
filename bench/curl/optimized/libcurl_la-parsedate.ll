@@ -115,7 +115,7 @@ lor.lhs.false23:                                  ; preds = %while.cond15
   br i1 %cmp25, label %land.lhs.true27, label %while.end
 
 land.lhs.true27:                                  ; preds = %lor.lhs.false23
-  %cmp29 = icmp ult i8 %14, 91
+  %cmp29 = icmp samesign ult i8 %14, 91
   %cmp32 = icmp samesign ult i64 %len.0, 12
   %or.cond18 = select i1 %cmp29, i1 %cmp32, i1 false
   br i1 %or.cond18, label %while.body35, label %while.end
@@ -282,7 +282,7 @@ oneortwodigit.exit17.i:                           ; preds = %if.then.i
   %conv10.i14.i = zext nneg i8 %25 to i32
   %sub11.i15.i = add nsw i32 %mul.i13.i, -48
   %add.i16.i = add nsw i32 %sub11.i15.i, %conv10.i14.i
-  %cmp14.i = icmp ult i32 %add.i16.i, 60
+  %cmp14.i = icmp samesign ult i32 %add.i16.i, 60
   br i1 %cmp14.i, label %if.then16thread-pre-split.i, label %if.else86
 
 if.then16thread-pre-split.i:                      ; preds = %oneortwodigit.exit17.i
@@ -319,7 +319,7 @@ oneortwodigit.exit30.i:                           ; preds = %if.then30.i
   %conv10.i27.i = zext nneg i8 %30 to i32
   %sub11.i28.i = add nsw i32 %mul.i26.i, -48
   %add.i29.i = add nsw i32 %sub11.i28.i, %conv10.i27.i
-  %cmp33.i = icmp ult i32 %add.i29.i, 61
+  %cmp33.i = icmp samesign ult i32 %add.i29.i, 61
   br i1 %cmp33.i, label %if.then85, label %if.else86
 
 if.then85:                                        ; preds = %oneortwodigit.exit30.i, %if.then30.i, %land.lhs.true20.i, %if.then16.i

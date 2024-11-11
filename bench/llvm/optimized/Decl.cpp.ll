@@ -15434,7 +15434,7 @@ _ZNK5clang15DeclarationName24getCXXOverloadedOperatorEv.exit58: ; preds = %60
   %135 = lshr i64 %134, 38
   %136 = trunc nuw nsw i64 %135 to i32
   %137 = and i32 %136, 65535
-  %138 = icmp ult i32 %133, %137
+  %138 = icmp samesign ult i32 %133, %137
   br i1 %138, label %139, label %.critedge37
 
 139:                                              ; preds = %132

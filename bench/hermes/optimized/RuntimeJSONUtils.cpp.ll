@@ -952,7 +952,7 @@ if.else.i.i:                                      ; preds = %if.end75.i.i
   br i1 %cmp.i.i39.i.i, label %if.then95.i.i, label %lor.lhs.false.i.i
 
 lor.lhs.false.i.i:                                ; preds = %if.else.i.i
-  %cmp.i.i40.i.i = icmp ugt i64 %66, -844424930131969
+  %cmp.i.i40.i.i = icmp samesign ugt i64 %66, -844424930131969
   br i1 %cmp.i.i40.i.i, label %_ZN6hermes2vm5vmisaINS0_8JSNumberEEEbNS0_11HermesValueE.exit.i.i, label %if.end125.i.i
 
 _ZN6hermes2vm5vmisaINS0_8JSNumberEEEbNS0_11HermesValueE.exit.i.i: ; preds = %lor.lhs.false.i.i
@@ -1253,7 +1253,7 @@ _ZN4llvh11SmallStringILj32EED2Ev.exit.i.i:        ; preds = %if.then.i.i.i.i.i, 
   br i1 %cmp.i19.not.i.i, label %_ZN6hermes2vm12_GLOBAL__N_115JSONStringifyer4initENS0_6HandleINS0_11HermesValueEEES5_.exit.thread20, label %if.end
 
 if.else82.i.i:                                    ; preds = %if.end50.i.i
-  %cmp.i.i.i.i23.i = icmp ugt i64 %104, -844424930131969
+  %cmp.i.i.i.i23.i = icmp samesign ugt i64 %104, -844424930131969
   br i1 %cmp.i.i.i.i23.i, label %if.else82.i.i._ZN6hermes2vm5vmisaINS0_15StringPrimitiveEEEbNS0_11HermesValueE.exit.i.i.i_crit_edge, label %_ZN6hermes2vm6HandleINS0_15StringPrimitiveEE10dyn_vmcastERKNS0_10HandleBaseE.exit.i.i
 
 if.else82.i.i._ZN6hermes2vm5vmisaINS0_15StringPrimitiveEEEbNS0_11HermesValueE.exit.i.i.i_crit_edge: ; preds = %if.else82.i.i
@@ -3130,7 +3130,7 @@ if.else316:                                       ; preds = %if.then299
   br label %cleanup
 
 if.end322:                                        ; preds = %if.end295
-  %cmp.i.i112 = icmp ugt i64 %75, -844424930131969
+  %cmp.i.i112 = icmp samesign ugt i64 %75, -844424930131969
   br i1 %cmp.i.i112, label %_ZN6hermes2vm5vmisaINS0_15BigIntPrimitiveEEEbNS0_11HermesValueE.exit118, label %cleanup
 
 _ZN6hermes2vm5vmisaINS0_15BigIntPrimitiveEEEbNS0_11HermesValueE.exit118: ; preds = %if.end322
@@ -4504,7 +4504,7 @@ _ZN4llvh23SmallVectorTemplateBaseIDsLb1EE9push_backERKDs.exit: ; preds = %entry,
 
 for.body.lr.ph:                                   ; preds = %_ZN4llvh23SmallVectorTemplateBaseIDsLb1EE9push_backERKDs.exit
   %tobool.i.i = icmp slt i32 %view.sroa.4.8.extract.trunc, 0
-  %tobool.not.i5.i = icmp ult i32 %view.sroa.4.8.extract.trunc, 1073741824
+  %tobool.not.i5.i = icmp samesign ult i32 %view.sroa.4.8.extract.trunc, 1073741824
   %bf.clear8.i16.i = and i64 %view.coerce1, 1073741823
   %5 = and i32 %view.sroa.4.8.extract.trunc, 1073741824
   %tobool.not.i.i = icmp eq i32 %5, 0
@@ -5132,7 +5132,7 @@ _ZNK6hermes2vm10StringView13castToCharPtrEv.exit.i: ; preds = %if.then.i.i.i, %i
   br label %_ZNK6hermes2vm10StringViewixEj.exit
 
 if.end.i:                                         ; preds = %entry
-  %tobool.not.i5.i = icmp ult i32 %view.sroa.5.8.extract.trunc, 1073741824
+  %tobool.not.i5.i = icmp samesign ult i32 %view.sroa.5.8.extract.trunc, 1073741824
   br i1 %tobool.not.i5.i, label %_ZNK6hermes2vm10StringView15castToChar16PtrEv.exit.i, label %if.end.i6.i
 
 if.end.i6.i:                                      ; preds = %if.end.i
@@ -5247,7 +5247,7 @@ _ZNK6hermes2vm10StringView13castToCharPtrEv.exit.i51: ; preds = %if.then.i.i.i68
   br label %_ZNK6hermes2vm10StringViewixEj.exit71
 
 if.end.i9:                                        ; preds = %if.then
-  %tobool.not.i5.i10 = icmp ult i32 %view.sroa.5.8.extract.trunc, 1073741824
+  %tobool.not.i5.i10 = icmp samesign ult i32 %view.sroa.5.8.extract.trunc, 1073741824
   br i1 %tobool.not.i5.i10, label %_ZNK6hermes2vm10StringView15castToChar16PtrEv.exit.i20, label %if.end.i6.i11
 
 if.end.i6.i11:                                    ; preds = %if.end.i9

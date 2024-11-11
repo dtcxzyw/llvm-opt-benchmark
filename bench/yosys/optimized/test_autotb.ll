@@ -4618,7 +4618,7 @@ _ZNSt6vectorIPcSaIS0_EE2atEm.exit.i687:           ; preds = %1509
 
 1576:                                             ; preds = %1552
   %1577 = add nsw i32 %1548, -1
-  %1578 = icmp ugt i32 %1577, 1
+  %1578 = icmp samesign ugt i32 %1577, 1
   br i1 %1578, label %.lr.ph6382, label %._crit_edge6383.thread
 
 .lr.ph6382:                                       ; preds = %1576, %1580
@@ -4865,7 +4865,7 @@ _ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE9push_b
 
 1659:                                             ; preds = %1653
   %1660 = add nsw i32 %1649, -1
-  %1661 = icmp ugt i32 %1660, 1
+  %1661 = icmp samesign ugt i32 %1660, 1
   br i1 %1661, label %.lr.ph6399, label %._crit_edge6400.thread
 
 .lr.ph6399:                                       ; preds = %1659, %1663
@@ -5112,7 +5112,7 @@ _ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE9push_b
 
 1742:                                             ; preds = %1736
   %1743 = add nsw i32 %1732, -1
-  %1744 = icmp ugt i32 %1743, 1
+  %1744 = icmp samesign ugt i32 %1743, 1
   br i1 %1744, label %.lr.ph6416, label %._crit_edge6417.thread
 
 .lr.ph6416:                                       ; preds = %1742, %1746

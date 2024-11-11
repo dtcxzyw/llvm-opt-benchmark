@@ -3662,7 +3662,7 @@ _ZSt14__copy_move_a1ILb0EPPN4llvm10BasicBlockES3_ET1_T0_S5_S4_.exit.i.i.i: ; pre
   br i1 %1511, label %1512, label %1518
 
 1512:                                             ; preds = %_ZSt14__copy_move_a1ILb0EPPN4llvm10BasicBlockES3_ET1_T0_S5_S4_.exit.i.i.i
-  %1513 = icmp ult i64 %1510, 64
+  %1513 = icmp samesign ult i64 %1510, 64
   br i1 %1513, label %1514, label %1516
 
 1514:                                             ; preds = %1512
@@ -3744,7 +3744,7 @@ _ZSt14__copy_move_a1ILb0EPPN4llvm10BasicBlockES3_ET1_T0_S5_S4_.exit.i17.i.i: ; p
   br i1 %1548, label %1549, label %1555
 
 1549:                                             ; preds = %_ZSt14__copy_move_a1ILb0EPPN4llvm10BasicBlockES3_ET1_T0_S5_S4_.exit.i17.i.i
-  %1550 = icmp ult i64 %1547, 64
+  %1550 = icmp samesign ult i64 %1547, 64
   br i1 %1550, label %1551, label %1553
 
 1551:                                             ; preds = %1549
@@ -3825,7 +3825,7 @@ _ZSt14__copy_move_a1ILb0EPPN4llvm10BasicBlockES3_ET1_T0_S5_S4_.exit.i34.i.i: ; p
   br i1 %1586, label %1587, label %1593
 
 1587:                                             ; preds = %_ZSt14__copy_move_a1ILb0EPPN4llvm10BasicBlockES3_ET1_T0_S5_S4_.exit.i34.i.i
-  %1588 = icmp ult i64 %1585, 64
+  %1588 = icmp samesign ult i64 %1585, 64
   br i1 %1588, label %1589, label %1591
 
 1589:                                             ; preds = %1587
@@ -3896,7 +3896,7 @@ _ZSt14__copy_move_a1ILb0EPPN4llvm10BasicBlockES3_ET1_T0_S5_S4_.exit.i51.i.i: ; p
   br i1 %1620, label %1621, label %1627
 
 1621:                                             ; preds = %_ZSt14__copy_move_a1ILb0EPPN4llvm10BasicBlockES3_ET1_T0_S5_S4_.exit.i51.i.i
-  %1622 = icmp ult i64 %1619, 64
+  %1622 = icmp samesign ult i64 %1619, 64
   br i1 %1622, label %1623, label %1625
 
 1623:                                             ; preds = %1621
@@ -3966,7 +3966,7 @@ _ZN12_GLOBAL__N_113ThreadingPathC2ERKS0_.exit.i:  ; preds = %1643, %1641
   br i1 %1659, label %1660, label %1666
 
 1660:                                             ; preds = %_ZN12_GLOBAL__N_113ThreadingPathC2ERKS0_.exit.i
-  %1661 = icmp ult i64 %1658, 64
+  %1661 = icmp samesign ult i64 %1658, 64
   br i1 %1661, label %1662, label %1664
 
 1662:                                             ; preds = %1660
@@ -4721,7 +4721,7 @@ _ZSt14__copy_move_a1ILb0EPPN4llvm10BasicBlockES3_ET1_T0_S5_S4_.exit.i.i: ; preds
   br i1 %2048, label %2049, label %2055
 
 2049:                                             ; preds = %_ZSt14__copy_move_a1ILb0EPPN4llvm10BasicBlockES3_ET1_T0_S5_S4_.exit.i.i
-  %2050 = icmp ult i64 %2047, 64
+  %2050 = icmp samesign ult i64 %2047, 64
   br i1 %2050, label %2051, label %2053
 
 2051:                                             ; preds = %2049
@@ -4803,7 +4803,7 @@ _ZSt14__copy_move_a1ILb0EPPN4llvm10BasicBlockES3_ET1_T0_S5_S4_.exit.i17.i: ; pre
   br i1 %2085, label %2086, label %2092
 
 2086:                                             ; preds = %_ZSt14__copy_move_a1ILb0EPPN4llvm10BasicBlockES3_ET1_T0_S5_S4_.exit.i17.i
-  %2087 = icmp ult i64 %2084, 64
+  %2087 = icmp samesign ult i64 %2084, 64
   br i1 %2087, label %2088, label %2090
 
 2088:                                             ; preds = %2086
@@ -4884,7 +4884,7 @@ _ZSt14__copy_move_a1ILb0EPPN4llvm10BasicBlockES3_ET1_T0_S5_S4_.exit.i34.i: ; pre
   br i1 %2123, label %2124, label %2130
 
 2124:                                             ; preds = %_ZSt14__copy_move_a1ILb0EPPN4llvm10BasicBlockES3_ET1_T0_S5_S4_.exit.i34.i
-  %2125 = icmp ult i64 %2122, 64
+  %2125 = icmp samesign ult i64 %2122, 64
   br i1 %2125, label %2126, label %2128
 
 2126:                                             ; preds = %2124
@@ -4955,7 +4955,7 @@ _ZSt14__copy_move_a1ILb0EPPN4llvm10BasicBlockES3_ET1_T0_S5_S4_.exit.i51.i: ; pre
   br i1 %2157, label %2158, label %2164
 
 2158:                                             ; preds = %_ZSt14__copy_move_a1ILb0EPPN4llvm10BasicBlockES3_ET1_T0_S5_S4_.exit.i51.i
-  %2159 = icmp ult i64 %2156, 64
+  %2159 = icmp samesign ult i64 %2156, 64
   br i1 %2159, label %2160, label %2162
 
 2160:                                             ; preds = %2158
@@ -5194,7 +5194,7 @@ _ZSt14__copy_move_a1ILb0EPPN4llvm10BasicBlockES3_ET1_T0_S5_S4_.exit.i.i235: ; pr
   br i1 %2276, label %2277, label %2283
 
 2277:                                             ; preds = %_ZSt14__copy_move_a1ILb0EPPN4llvm10BasicBlockES3_ET1_T0_S5_S4_.exit.i.i235
-  %2278 = icmp ult i64 %2275, 64
+  %2278 = icmp samesign ult i64 %2275, 64
   br i1 %2278, label %2279, label %2281
 
 2279:                                             ; preds = %2277
@@ -5276,7 +5276,7 @@ _ZSt14__copy_move_a1ILb0EPPN4llvm10BasicBlockES3_ET1_T0_S5_S4_.exit.i17.i195: ; 
   br i1 %2313, label %2314, label %2320
 
 2314:                                             ; preds = %_ZSt14__copy_move_a1ILb0EPPN4llvm10BasicBlockES3_ET1_T0_S5_S4_.exit.i17.i195
-  %2315 = icmp ult i64 %2312, 64
+  %2315 = icmp samesign ult i64 %2312, 64
   br i1 %2315, label %2316, label %2318
 
 2316:                                             ; preds = %2314
@@ -5357,7 +5357,7 @@ _ZSt14__copy_move_a1ILb0EPPN4llvm10BasicBlockES3_ET1_T0_S5_S4_.exit.i34.i219: ; 
   br i1 %2351, label %2352, label %2358
 
 2352:                                             ; preds = %_ZSt14__copy_move_a1ILb0EPPN4llvm10BasicBlockES3_ET1_T0_S5_S4_.exit.i34.i219
-  %2353 = icmp ult i64 %2350, 64
+  %2353 = icmp samesign ult i64 %2350, 64
   br i1 %2353, label %2354, label %2356
 
 2354:                                             ; preds = %2352
@@ -5428,7 +5428,7 @@ _ZSt14__copy_move_a1ILb0EPPN4llvm10BasicBlockES3_ET1_T0_S5_S4_.exit.i51.i251: ; 
   br i1 %2385, label %2386, label %2392
 
 2386:                                             ; preds = %_ZSt14__copy_move_a1ILb0EPPN4llvm10BasicBlockES3_ET1_T0_S5_S4_.exit.i51.i251
-  %2387 = icmp ult i64 %2384, 64
+  %2387 = icmp samesign ult i64 %2384, 64
   br i1 %2387, label %2388, label %2390
 
 2388:                                             ; preds = %2386
@@ -7311,7 +7311,7 @@ define linkonce_odr noundef nonnull align 8 dereferenceable(16) ptr @_ZN4llvm15S
   %17 = getelementptr inbounds i8, ptr %.0910.i.i.i.i.i, i64 80
   %18 = getelementptr inbounds i8, ptr %.0811.i.i.i.i.i, i64 80
   %19 = add nsw i64 %.012.i.i.i.i.i, -1
-  %20 = icmp ugt i64 %.012.i.i.i.i.i, 1
+  %20 = icmp samesign ugt i64 %.012.i.i.i.i.i, 1
   br i1 %20, label %.lr.ph.i.i.i.i.i, label %_ZSt4copyIPKN4llvm30DiagnosticInfoOptimizationBase8ArgumentEPS2_ET0_T_S7_S6_.exit.loopexit, !llvm.loop !201
 
 _ZSt4copyIPKN4llvm30DiagnosticInfoOptimizationBase8ArgumentEPS2_ET0_T_S7_S6_.exit.loopexit: ; preds = %.lr.ph.i.i.i.i.i
@@ -7392,7 +7392,7 @@ _ZN4llvm15SmallVectorImplINS_30DiagnosticInfoOptimizationBase8ArgumentEE5clearEv
   %47 = getelementptr inbounds i8, ptr %.0910.i.i.i.i.i35, i64 80
   %48 = getelementptr inbounds i8, ptr %.0811.i.i.i.i.i34, i64 80
   %49 = add nsw i64 %.012.i.i.i.i.i33, -1
-  %50 = icmp ugt i64 %.012.i.i.i.i.i33, 1
+  %50 = icmp samesign ugt i64 %.012.i.i.i.i.i33, 1
   br i1 %50, label %.lr.ph.i.i.i.i.i32, label %_ZSt4copyIPKN4llvm30DiagnosticInfoOptimizationBase8ArgumentEPS2_ET0_T_S7_S6_.exit36, !llvm.loop !201
 
 _ZSt4copyIPKN4llvm30DiagnosticInfoOptimizationBase8ArgumentEPS2_ET0_T_S7_S6_.exit36: ; preds = %.lr.ph.i.i.i.i.i32, %37, %36, %_ZN4llvm15SmallVectorImplINS_30DiagnosticInfoOptimizationBase8ArgumentEE5clearEv.exit
@@ -8652,7 +8652,7 @@ _ZSt14__copy_move_a1ILb0EPPN4llvm10BasicBlockES3_ET1_T0_S5_S4_.exit.i.i: ; preds
   br i1 %478, label %479, label %485
 
 479:                                              ; preds = %_ZSt14__copy_move_a1ILb0EPPN4llvm10BasicBlockES3_ET1_T0_S5_S4_.exit.i.i
-  %480 = icmp ult i64 %477, 64
+  %480 = icmp samesign ult i64 %477, 64
   br i1 %480, label %481, label %483
 
 481:                                              ; preds = %479
@@ -8734,7 +8734,7 @@ _ZSt14__copy_move_a1ILb0EPPN4llvm10BasicBlockES3_ET1_T0_S5_S4_.exit.i17.i: ; pre
   br i1 %515, label %516, label %522
 
 516:                                              ; preds = %_ZSt14__copy_move_a1ILb0EPPN4llvm10BasicBlockES3_ET1_T0_S5_S4_.exit.i17.i
-  %517 = icmp ult i64 %514, 64
+  %517 = icmp samesign ult i64 %514, 64
   br i1 %517, label %518, label %520
 
 518:                                              ; preds = %516
@@ -8815,7 +8815,7 @@ _ZSt14__copy_move_a1ILb0EPPN4llvm10BasicBlockES3_ET1_T0_S5_S4_.exit.i34.i: ; pre
   br i1 %553, label %554, label %560
 
 554:                                              ; preds = %_ZSt14__copy_move_a1ILb0EPPN4llvm10BasicBlockES3_ET1_T0_S5_S4_.exit.i34.i
-  %555 = icmp ult i64 %552, 64
+  %555 = icmp samesign ult i64 %552, 64
   br i1 %555, label %556, label %558
 
 556:                                              ; preds = %554
@@ -8886,7 +8886,7 @@ _ZSt14__copy_move_a1ILb0EPPN4llvm10BasicBlockES3_ET1_T0_S5_S4_.exit.i51.i: ; pre
   br i1 %587, label %588, label %594
 
 588:                                              ; preds = %_ZSt14__copy_move_a1ILb0EPPN4llvm10BasicBlockES3_ET1_T0_S5_S4_.exit.i51.i
-  %589 = icmp ult i64 %586, 64
+  %589 = icmp samesign ult i64 %586, 64
   br i1 %589, label %590, label %592
 
 590:                                              ; preds = %588
@@ -8956,7 +8956,7 @@ _ZN12_GLOBAL__N_113ThreadingPathC2ERKS0_.exit:    ; preds = %608, %610
   br i1 %626, label %627, label %633
 
 627:                                              ; preds = %_ZN12_GLOBAL__N_113ThreadingPathC2ERKS0_.exit
-  %628 = icmp ult i64 %625, 64
+  %628 = icmp samesign ult i64 %625, 64
   br i1 %628, label %629, label %631
 
 629:                                              ; preds = %627
@@ -11271,7 +11271,7 @@ _ZSt14__copy_move_a1ILb0EPPN4llvm10BasicBlockES3_ET1_T0_S5_S4_.exit.i: ; preds =
   br i1 %35, label %36, label %42
 
 36:                                               ; preds = %_ZSt14__copy_move_a1ILb0EPPN4llvm10BasicBlockES3_ET1_T0_S5_S4_.exit.i
-  %37 = icmp ult i64 %34, 64
+  %37 = icmp samesign ult i64 %34, 64
   br i1 %37, label %38, label %40
 
 38:                                               ; preds = %36
@@ -11359,7 +11359,7 @@ _ZSt14__copy_move_a1ILb0EPPN4llvm10BasicBlockES3_ET1_T0_S5_S4_.exit.i17: ; preds
   br i1 %74, label %75, label %81
 
 75:                                               ; preds = %_ZSt14__copy_move_a1ILb0EPPN4llvm10BasicBlockES3_ET1_T0_S5_S4_.exit.i17
-  %76 = icmp ult i64 %73, 64
+  %76 = icmp samesign ult i64 %73, 64
   br i1 %76, label %77, label %79
 
 77:                                               ; preds = %75
@@ -11448,7 +11448,7 @@ _ZSt14__copy_move_a1ILb0EPPN4llvm10BasicBlockES3_ET1_T0_S5_S4_.exit.i34: ; preds
   br i1 %116, label %117, label %123
 
 117:                                              ; preds = %_ZSt14__copy_move_a1ILb0EPPN4llvm10BasicBlockES3_ET1_T0_S5_S4_.exit.i34
-  %118 = icmp ult i64 %115, 64
+  %118 = icmp samesign ult i64 %115, 64
   br i1 %118, label %119, label %121
 
 119:                                              ; preds = %117
@@ -11527,7 +11527,7 @@ _ZSt14__copy_move_a1ILb0EPPN4llvm10BasicBlockES3_ET1_T0_S5_S4_.exit.i51: ; preds
   br i1 %158, label %159, label %165
 
 159:                                              ; preds = %_ZSt14__copy_move_a1ILb0EPPN4llvm10BasicBlockES3_ET1_T0_S5_S4_.exit.i51
-  %160 = icmp ult i64 %157, 64
+  %160 = icmp samesign ult i64 %157, 64
   br i1 %160, label %161, label %163
 
 161:                                              ; preds = %159
@@ -11662,7 +11662,7 @@ define linkonce_odr void @_ZNSt5dequeIPN4llvm10BasicBlockESaIS2_EE19_M_range_ins
   br i1 %68, label %69, label %75
 
 69:                                               ; preds = %59
-  %70 = icmp ult i64 %67, 64
+  %70 = icmp samesign ult i64 %67, 64
   br i1 %70, label %71, label %73
 
 71:                                               ; preds = %69
@@ -11777,7 +11777,7 @@ _ZNSt5dequeIPN4llvm10BasicBlockESaIS2_EE28_M_reserve_elements_at_frontEm.exit: ;
   br i1 %128, label %129, label %135
 
 129:                                              ; preds = %117
-  %130 = icmp ult i64 %127, 64
+  %130 = icmp samesign ult i64 %127, 64
   br i1 %130, label %131, label %133
 
 131:                                              ; preds = %129
@@ -12024,7 +12024,7 @@ define linkonce_odr void @_ZNSt5dequeIPN4llvm10BasicBlockESaIS2_EE13_M_insert_au
   br i1 %118, label %119, label %125
 
 119:                                              ; preds = %111
-  %120 = icmp ult i64 %117, 64
+  %120 = icmp samesign ult i64 %117, 64
   br i1 %120, label %121, label %123
 
 121:                                              ; preds = %119
@@ -12063,7 +12063,7 @@ _ZNSt5dequeIPN4llvm10BasicBlockESaIS2_EE28_M_reserve_elements_at_frontEm.exit: ;
   br i1 %140, label %141, label %147
 
 141:                                              ; preds = %_ZNSt5dequeIPN4llvm10BasicBlockESaIS2_EE28_M_reserve_elements_at_frontEm.exit
-  %142 = icmp ult i64 %139, 64
+  %142 = icmp samesign ult i64 %139, 64
   br i1 %142, label %143, label %145
 
 143:                                              ; preds = %141
@@ -12115,7 +12115,7 @@ _ZStplRKSt15_Deque_iteratorIPN4llvm10BasicBlockERS2_PS2_El.exit: ; preds = %143,
   br i1 %167, label %168, label %174
 
 168:                                              ; preds = %157
-  %169 = icmp ult i64 %166, 64
+  %169 = icmp samesign ult i64 %166, 64
   br i1 %169, label %170, label %172
 
 170:                                              ; preds = %168
@@ -12240,7 +12240,7 @@ _ZStplRKSt15_Deque_iteratorIPN4llvm10BasicBlockERS2_PS2_El.exit22: ; preds = %17
   br i1 %229, label %230, label %236
 
 230:                                              ; preds = %_ZStplRKSt15_Deque_iteratorIPN4llvm10BasicBlockERS2_PS2_El.exit22
-  %231 = icmp ult i64 %228, 64
+  %231 = icmp samesign ult i64 %228, 64
   br i1 %231, label %232, label %234
 
 232:                                              ; preds = %230
@@ -12320,7 +12320,7 @@ _ZStmiRKSt15_Deque_iteratorIPN4llvm10BasicBlockERS2_PS2_El.exit: ; preds = %232,
   br i1 %269, label %270, label %276
 
 270:                                              ; preds = %255
-  %271 = icmp ult i64 %268, 64
+  %271 = icmp samesign ult i64 %268, 64
   br i1 %271, label %272, label %274
 
 272:                                              ; preds = %270
@@ -12499,7 +12499,7 @@ _ZSt7advanceISt15_Deque_iteratorIPN4llvm10BasicBlockERKS3_PS4_ElEvRT_T0_.exit: ;
   br i1 %347, label %348, label %354
 
 348:                                              ; preds = %341
-  %349 = icmp ult i64 %346, 64
+  %349 = icmp samesign ult i64 %346, 64
   br i1 %349, label %350, label %352
 
 350:                                              ; preds = %348
@@ -12539,7 +12539,7 @@ _ZNSt5dequeIPN4llvm10BasicBlockESaIS2_EE27_M_reserve_elements_at_backEm.exit: ; 
   br i1 %370, label %371, label %377
 
 371:                                              ; preds = %_ZNSt5dequeIPN4llvm10BasicBlockESaIS2_EE27_M_reserve_elements_at_backEm.exit
-  %372 = icmp ult i64 %369, 64
+  %372 = icmp samesign ult i64 %369, 64
   br i1 %372, label %373, label %375
 
 373:                                              ; preds = %371
@@ -12592,7 +12592,7 @@ _ZStmiRKSt15_Deque_iteratorIPN4llvm10BasicBlockERS2_PS2_El.exit28: ; preds = %37
   br i1 %399, label %400, label %406
 
 400:                                              ; preds = %388
-  %401 = icmp ult i64 %398, 64
+  %401 = icmp samesign ult i64 %398, 64
   br i1 %401, label %402, label %404
 
 402:                                              ; preds = %400
@@ -12757,7 +12757,7 @@ _ZStmiRKSt15_Deque_iteratorIPN4llvm10BasicBlockERS2_PS2_El.exit30: ; preds = %40
   br i1 %478, label %479, label %485
 
 479:                                              ; preds = %465
-  %480 = icmp ult i64 %477, 64
+  %480 = icmp samesign ult i64 %477, 64
   br i1 %480, label %481, label %483
 
 481:                                              ; preds = %479
@@ -13118,7 +13118,7 @@ _ZSt14__copy_move_a1ILb1EPPN4llvm10BasicBlockES3_ET1_T0_S5_S4_.exit.i: ; preds =
   br i1 %35, label %36, label %42
 
 36:                                               ; preds = %_ZSt14__copy_move_a1ILb1EPPN4llvm10BasicBlockES3_ET1_T0_S5_S4_.exit.i
-  %37 = icmp ult i64 %34, 64
+  %37 = icmp samesign ult i64 %34, 64
   br i1 %37, label %38, label %40
 
 38:                                               ; preds = %36
@@ -13206,7 +13206,7 @@ _ZSt14__copy_move_a1ILb1EPPN4llvm10BasicBlockES3_ET1_T0_S5_S4_.exit.i17: ; preds
   br i1 %74, label %75, label %81
 
 75:                                               ; preds = %_ZSt14__copy_move_a1ILb1EPPN4llvm10BasicBlockES3_ET1_T0_S5_S4_.exit.i17
-  %76 = icmp ult i64 %73, 64
+  %76 = icmp samesign ult i64 %73, 64
   br i1 %76, label %77, label %79
 
 77:                                               ; preds = %75
@@ -13295,7 +13295,7 @@ _ZSt14__copy_move_a1ILb1EPPN4llvm10BasicBlockES3_ET1_T0_S5_S4_.exit.i34: ; preds
   br i1 %116, label %117, label %123
 
 117:                                              ; preds = %_ZSt14__copy_move_a1ILb1EPPN4llvm10BasicBlockES3_ET1_T0_S5_S4_.exit.i34
-  %118 = icmp ult i64 %115, 64
+  %118 = icmp samesign ult i64 %115, 64
   br i1 %118, label %119, label %121
 
 119:                                              ; preds = %117
@@ -13374,7 +13374,7 @@ _ZSt14__copy_move_a1ILb1EPPN4llvm10BasicBlockES3_ET1_T0_S5_S4_.exit.i51: ; preds
   br i1 %158, label %159, label %165
 
 159:                                              ; preds = %_ZSt14__copy_move_a1ILb1EPPN4llvm10BasicBlockES3_ET1_T0_S5_S4_.exit.i51
-  %160 = icmp ult i64 %157, 64
+  %160 = icmp samesign ult i64 %157, 64
   br i1 %160, label %161, label %163
 
 161:                                              ; preds = %159
@@ -13493,7 +13493,7 @@ define linkonce_odr void @_ZSt24__copy_move_backward_ditILb1EPN4llvm10BasicBlock
   br i1 %40, label %41, label %47
 
 41:                                               ; preds = %35
-  %42 = icmp ult i64 %39, 64
+  %42 = icmp samesign ult i64 %39, 64
   br i1 %42, label %43, label %45
 
 43:                                               ; preds = %41
@@ -13595,7 +13595,7 @@ _ZSt23__copy_move_backward_a1ILb1EPPN4llvm10BasicBlockES2_EN9__gnu_cxx11__enable
   br i1 %85, label %86, label %92
 
 86:                                               ; preds = %80
-  %87 = icmp ult i64 %84, 64
+  %87 = icmp samesign ult i64 %84, 64
   br i1 %87, label %88, label %90
 
 88:                                               ; preds = %86
@@ -13697,7 +13697,7 @@ _ZSt23__copy_move_backward_a1ILb1EPPN4llvm10BasicBlockES2_EN9__gnu_cxx11__enable
   br i1 %132, label %133, label %139
 
 133:                                              ; preds = %127
-  %134 = icmp ult i64 %131, 64
+  %134 = icmp samesign ult i64 %131, 64
   br i1 %134, label %135, label %137
 
 135:                                              ; preds = %133
@@ -13791,7 +13791,7 @@ _ZNSt15_Deque_iteratorIPN4llvm10BasicBlockERS2_PS2_EmIEl.exit.i45: ; preds = %14
   br i1 %181, label %182, label %188
 
 182:                                              ; preds = %176
-  %183 = icmp ult i64 %180, 64
+  %183 = icmp samesign ult i64 %180, 64
   br i1 %183, label %184, label %186
 
 184:                                              ; preds = %182
@@ -15795,7 +15795,7 @@ _ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN12_GLOBAL__N_112TransformDFA12updateDefMa
   %910 = getelementptr inbounds i8, ptr %.069.i.i.i.i.i.i202, i64 -8
   store ptr %909, ptr %910, align 8
   %911 = add nsw i64 %.010.i.i.i.i.i.i201, -1
-  %912 = icmp ugt i64 %.010.i.i.i.i.i.i201, 1
+  %912 = icmp samesign ugt i64 %.010.i.i.i.i.i.i201, 1
   br i1 %912, label %.lr.ph.i.i.i.i.i.i200, label %_ZSt13move_backwardIPSt4pairIPN4llvm11InstructionES3_ES5_ET0_T_S7_S6_.exit.i198, !llvm.loop !637
 
 _ZSt13move_backwardIPSt4pairIPN4llvm11InstructionES3_ES5_ET0_T_S7_S6_.exit.i198: ; preds = %.lr.ph.i.i.i.i.i.i200
@@ -15943,7 +15943,7 @@ _ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN12_GLOBAL__N_112TransformDFA12updateDefMa
   %958 = getelementptr inbounds i8, ptr %.069.i.i.i.i.i.i, i64 -8
   store ptr %957, ptr %958, align 8
   %959 = add nsw i64 %.010.i.i.i.i.i.i, -1
-  %960 = icmp ugt i64 %.010.i.i.i.i.i.i, 1
+  %960 = icmp samesign ugt i64 %.010.i.i.i.i.i.i, 1
   br i1 %960, label %.lr.ph.i.i.i.i.i.i175, label %_ZSt13move_backwardIPSt4pairIPN4llvm11InstructionES3_ES5_ET0_T_S7_S6_.exit.i, !llvm.loop !637
 
 _ZSt13move_backwardIPSt4pairIPN4llvm11InstructionES3_ES5_ET0_T_S7_S6_.exit.i: ; preds = %.lr.ph.i.i.i.i.i.i175, %947

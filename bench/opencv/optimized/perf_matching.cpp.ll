@@ -1042,7 +1042,7 @@ _ZNSt6vectorIiSaIiEED2Ev.exit41.i:                ; preds = %_ZNKSt6vectorIiSaIi
   %119 = shl i32 %117, %118
   %120 = trunc i32 %119 to i8
   %121 = add i8 %.02163.i, %120
-  %122 = icmp ugt i64 %indvars.iv69.i, 1
+  %122 = icmp samesign ugt i64 %indvars.iv69.i, 1
   br i1 %122, label %.lr.ph66.i, label %.loopexit, !llvm.loop !11
 
 123:                                              ; preds = %_ZNSt6vectorIiSaIiEED2Ev.exit41.i, %103, %.loopexit.split-lp.i, %.loopexit.i

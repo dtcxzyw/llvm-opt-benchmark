@@ -613,7 +613,7 @@ define dso_local void @scsi_print_command(ptr noundef %0) #0 align 16 {
   br i1 %102, label %.preheader, label %.loopexit, !llvm.loop !33
 
 103:                                              ; preds = %53
-  %104 = icmp ugt i64 %51, 79
+  %104 = icmp samesign ugt i64 %51, 79
   br i1 %104, label %105, label %106, !prof !29
 
 105:                                              ; preds = %103

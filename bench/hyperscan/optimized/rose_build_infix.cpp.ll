@@ -2152,7 +2152,7 @@ for.body.i.i:                                     ; preds = %for.cond.i.i
   br i1 %tobool17.not.i.i, label %for.cond.i.i.1, label %if.then18.i.i, !llvm.loop !114
 
 for.cond.i.i.1:                                   ; preds = %for.body.i.i
-  %cmp14.i.i.1 = icmp ult i64 %c.0194, 128
+  %cmp14.i.i.1 = icmp samesign ult i64 %c.0194, 128
   br i1 %cmp14.i.i.1, label %for.body.i.i.1, label %for.cond.cleanup58
 
 for.body.i.i.1:                                   ; preds = %for.cond.i.i.1
@@ -2163,7 +2163,7 @@ for.body.i.i.1:                                   ; preds = %for.cond.i.i.1
   br i1 %tobool17.not.i.i.1, label %for.cond.i.i.2, label %if.then18.i.i, !llvm.loop !114
 
 for.cond.i.i.2:                                   ; preds = %for.body.i.i.1
-  %cmp14.i.i.2 = icmp ult i64 %c.0194, 64
+  %cmp14.i.i.2 = icmp samesign ult i64 %c.0194, 64
   br i1 %cmp14.i.i.2, label %for.body.i.i.2, label %for.cond.cleanup58
 
 for.body.i.i.2:                                   ; preds = %for.cond.i.i.2
@@ -4495,7 +4495,7 @@ for.inc.preheader.i.i.i.i.i:                      ; preds = %cond.end, %entry
 
 call5.i.i.i.i4.i.i30.i.i.noexc:                   ; preds = %for.inc.preheader.i.i.i.i.i
   store i64 0, ptr %call5.i.i.i.i4.i.i30.i.i37, align 8
-  %cmp.i.i.i.i.i.i.i.i.i = icmp ult i64 %0, 2
+  %cmp.i.i.i.i.i.i.i.i.i = icmp samesign ult i64 %0, 2
   br i1 %cmp.i.i.i.i.i.i.i.i.i, label %invoke.cont17.i.i, label %if.end.i.i.i.i.i.i.i.i.i
 
 if.end.i.i.i.i.i.i.i.i.i:                         ; preds = %call5.i.i.i.i4.i.i30.i.i.noexc

@@ -546,7 +546,7 @@ if.then15.i:                                      ; preds = %if.end13.i
 
 _ZL17ClipSegmentToLineP10ClipVertexS0_RK9btVector3f.exit: ; preds = %if.end13.i, %if.then15.i
   %numOut.2.i = phi i32 [ %inc45.i, %if.then15.i ], [ %numOut.1.i, %if.end13.i ]
-  %cmp78 = icmp ult i32 %numOut.2.i, 2
+  %cmp78 = icmp samesign ult i32 %numOut.2.i, 2
   br i1 %cmp78, label %for.end, label %if.end80
 
 if.end80:                                         ; preds = %_ZL17ClipSegmentToLineP10ClipVertexS0_RK9btVector3f.exit
@@ -620,7 +620,7 @@ if.then15.i157:                                   ; preds = %if.end13.i152
 
 _ZL17ClipSegmentToLineP10ClipVertexS0_RK9btVector3f.exit180: ; preds = %if.end13.i152, %if.then15.i157
   %numOut.2.i156 = phi i32 [ %inc45.i179, %if.then15.i157 ], [ %numOut.1.i153, %if.end13.i152 ]
-  %cmp84 = icmp ult i32 %numOut.2.i156, 2
+  %cmp84 = icmp samesign ult i32 %numOut.2.i156, 2
   br i1 %cmp84, label %for.end, label %if.end86
 
 if.end86:                                         ; preds = %_ZL17ClipSegmentToLineP10ClipVertexS0_RK9btVector3f.exit180

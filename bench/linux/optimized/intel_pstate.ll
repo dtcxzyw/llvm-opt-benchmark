@@ -3634,7 +3634,7 @@ define internal void @intel_pstate_update_util_hwp(ptr noundef %0, i64 noundef %
   %43 = add nuw nsw i64 %41, %42
   %44 = lshr i64 %43, 1
   %45 = trunc nuw nsw i64 %44 to i32
-  %46 = icmp ult i32 %39, %45
+  %46 = icmp samesign ult i32 %39, %45
   br i1 %46, label %57, label %47
 
 47:                                               ; preds = %38

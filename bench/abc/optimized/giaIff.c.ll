@@ -2505,7 +2505,7 @@ define void @Gia_ManIffTest(ptr noundef %0, ptr noundef %1, i32 noundef %2) loca
   br label %53
 
 12:                                               ; preds = %3
-  %13 = icmp ult i32 %5, 7
+  %13 = icmp samesign ult i32 %5, 7
   br i1 %13, label %14, label %19
 
 14:                                               ; preds = %12

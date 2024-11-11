@@ -754,7 +754,7 @@ do.body14:                                        ; preds = %if.else
 
 if.else22:                                        ; preds = %if.else
   %cmp24 = icmp ne i8 %1, -128
-  %cmp28 = icmp ult i8 %1, -96
+  %cmp28 = icmp samesign ult i8 %1, -96
   %or.cond1 = and i1 %cmp24, %cmp28
   %3 = add nsw i8 %1, 32
   %or.cond2 = icmp ult i8 %3, 11
@@ -780,7 +780,7 @@ lor.lhs.false48:                                  ; preds = %do.end43
   ]
 
 if.end61:                                         ; preds = %lor.lhs.false48
-  %cmp63 = icmp ult i8 %1, -32
+  %cmp63 = icmp samesign ult i8 %1, -32
   %cond.v = select i1 %cmp63, i8 127, i8 63
   %cond = add nsw i8 %cond.v, %1
   %cmp5448 = icmp slt i8 %4, 0
@@ -1138,7 +1138,7 @@ do.body28:                                        ; preds = %if.then15
   br i1 %cmp31, label %return, label %while.cond.backedge
 
 if.else41:                                        ; preds = %if.else
-  %cmp43 = icmp ugt i8 %1, -4
+  %cmp43 = icmp samesign ugt i8 %1, -4
   br i1 %cmp43, label %do.body46, label %do.body62
 
 do.body46:                                        ; preds = %if.else41
@@ -1188,7 +1188,7 @@ do.body102:                                       ; preds = %land.lhs.true86
   br i1 %cmp104, label %return, label %while.cond.backedge
 
 if.else109:                                       ; preds = %land.lhs.true86, %land.lhs.true79, %land.lhs.true72, %do.end67
-  %cmp115 = icmp ult i8 %1, -96
+  %cmp115 = icmp samesign ult i8 %1, -96
   %9 = add nsw i8 %1, 32
   %or.cond2 = icmp ult i8 %9, 11
   %or.cond79 = select i1 %cmp115, i1 true, i1 %or.cond2
@@ -1207,7 +1207,7 @@ lor.lhs.false128:                                 ; preds = %if.then124
   ]
 
 if.end141:                                        ; preds = %lor.lhs.false128
-  %cmp143 = icmp ult i8 %1, -32
+  %cmp143 = icmp samesign ult i8 %1, -32
   %cond.v = select i1 %cmp143, i8 127, i8 63
   %cond = add nsw i8 %cond.v, %1
   %cmp13478 = icmp slt i8 %4, 0
@@ -1950,7 +1950,7 @@ if.end304:                                        ; preds = %PyUnicode_READ.exit
   br i1 %tobool311.not, label %if.else329, label %if.then312
 
 if.then312:                                       ; preds = %if.end304
-  %cmp313 = icmp ugt i16 %code.1, -4609
+  %cmp313 = icmp samesign ugt i16 %code.1, -4609
   br i1 %cmp313, label %if.then315, label %if.else317
 
 if.then315:                                       ; preds = %if.else97, %if.then312
@@ -1962,7 +1962,7 @@ if.then315:                                       ; preds = %if.else97, %if.then
   br label %if.end331
 
 if.else317:                                       ; preds = %if.then312
-  %cmp318 = icmp ugt i16 %code.1, -21505
+  %cmp318 = icmp samesign ugt i16 %code.1, -21505
   %cmp321 = icmp eq i32 %shr306, 168
   %or.cond15 = or i1 %cmp318, %cmp321
   br i1 %or.cond15, label %if.then323, label %if.else325
@@ -2114,7 +2114,7 @@ lor.lhs.false97:                                  ; preds = %do.end92
   ]
 
 if.end110:                                        ; preds = %lor.lhs.false97
-  %cmp112 = icmp ult i8 %1, -32
+  %cmp112 = icmp samesign ult i8 %1, -32
   %cond.v = select i1 %cmp112, i8 127, i8 63
   %cond = add nsw i8 %cond.v, %1
   %cmp103174 = icmp slt i8 %5, 0
@@ -2381,7 +2381,7 @@ PyUnicode_WRITE.exit189:                          ; preds = %if.then.i184, %if.t
 
 if.else456:                                       ; preds = %if.end110
   %cmp458 = icmp ugt i8 %add135, 102
-  %cmp466 = icmp ugt i8 %add135, 98
+  %cmp466 = icmp samesign ugt i8 %add135, 98
   %cmp470 = icmp eq i8 %add135, 95
   %or.cond15 = or i1 %cmp466, %cmp470
   %. = select i1 %or.cond15, i8 -55, i8 -61
@@ -2963,7 +2963,7 @@ do.body28:                                        ; preds = %do.end19
   br i1 %cmp31, label %return, label %while.cond.backedge
 
 do.body47:                                        ; preds = %if.end9
-  %cmp48 = icmp ult i64 %inleft.addr.0179, 3
+  %cmp48 = icmp samesign ult i64 %inleft.addr.0179, 3
   br i1 %cmp48, label %return, label %do.end52
 
 do.end52:                                         ; preds = %do.body47

@@ -580,7 +580,7 @@ define hidden void @_ZN8Rewriter17restore_bytecodesEP6Thread(ptr noundef nonnull
   %10 = getelementptr ptr, ptr %9, i64 %indvars.iv
   %11 = load ptr, ptr %10, align 8
   call void @_ZN8Rewriter11scan_methodEP6ThreadP6MethodbPb(ptr noundef nonnull align 8 dereferenceable(240) %0, ptr noundef %1, ptr noundef %11, i1 noundef zeroext true, ptr noundef nonnull %3)
-  %12 = icmp ugt i64 %indvars.iv, 1
+  %12 = icmp samesign ugt i64 %indvars.iv, 1
   br i1 %12, label %.lr.ph, label %._crit_edge, !llvm.loop !10
 
 ._crit_edge:                                      ; preds = %.lr.ph, %2
@@ -2680,7 +2680,7 @@ _ZN13GrowableArrayI18ResolvedFieldEntryEC2Ev.exit: ; preds = %.lr.ph.i.i.i
   %98 = getelementptr ptr, ptr %97, i64 %indvars.iv.i
   %99 = load ptr, ptr %98, align 8
   call void @_ZN8Rewriter11scan_methodEP6ThreadP6MethodbPb(ptr noundef nonnull align 8 dereferenceable(240) %0, ptr noundef nonnull %4, ptr noundef %99, i1 noundef zeroext true, ptr noundef nonnull %7)
-  %100 = icmp ugt i64 %indvars.iv.i, 1
+  %100 = icmp samesign ugt i64 %indvars.iv.i, 1
   br i1 %100, label %.lr.ph.i, label %_ZN8Rewriter17restore_bytecodesEP6Thread.exit, !llvm.loop !10
 
 _ZN8Rewriter17restore_bytecodesEP6Thread.exit:    ; preds = %.lr.ph.i, %92
@@ -2770,7 +2770,7 @@ _ZN26GrowableArrayWithAllocatorIP8Metadata13GrowableArrayIS1_EE4pushERKS1_.exit.
   %143 = getelementptr ptr, ptr %142, i64 %indvars.iv.i35
   %144 = load ptr, ptr %143, align 8
   call void @_ZN8Rewriter11scan_methodEP6ThreadP6MethodbPb(ptr noundef nonnull align 8 dereferenceable(240) %0, ptr noundef nonnull %4, ptr noundef %144, i1 noundef zeroext true, ptr noundef nonnull %6)
-  %145 = icmp ugt i64 %indvars.iv.i35, 1
+  %145 = icmp samesign ugt i64 %indvars.iv.i35, 1
   br i1 %145, label %.lr.ph.i34, label %.thread, !llvm.loop !10
 
 .thread:                                          ; preds = %.lr.ph.i34, %137
@@ -2786,7 +2786,7 @@ _ZN26GrowableArrayWithAllocatorIP8Metadata13GrowableArrayIS1_EE4pushERKS1_.exit.
 
 149:                                              ; preds = %_ZN26GrowableArrayWithAllocatorIP8Metadata13GrowableArrayIS1_EE4pushERKS1_.exit.i, %146
   call void @_ZN12methodHandleD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %8) #10
-  %150 = icmp ugt i64 %indvars.iv, 1
+  %150 = icmp samesign ugt i64 %indvars.iv, 1
   br i1 %150, label %108, label %.loopexit, !llvm.loop !22
 
 .loopexit:                                        ; preds = %149, %101, %.thread, %_ZN13GrowableArrayI18ResolvedFieldEntryEC2Ev.exit, %_ZN8Rewriter17restore_bytecodesEP6Thread.exit

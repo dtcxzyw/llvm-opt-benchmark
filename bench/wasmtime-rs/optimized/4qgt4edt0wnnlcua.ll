@@ -4704,7 +4704,7 @@ define hidden void @_ZN16wasmtime_runtime8instance9allocator7pooling11memory_poo
   %29 = urem i32 %1, %28
   %30 = udiv i32 %1, %28
   %.zext.i = zext i32 %29 to i64
-  %31 = icmp ugt i64 %22, %.zext.i
+  %31 = icmp samesign ugt i64 %22, %.zext.i
   br i1 %31, label %32, label %36, !prof !551
 
 32:                                               ; preds = %27

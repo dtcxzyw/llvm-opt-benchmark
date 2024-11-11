@@ -1185,7 +1185,7 @@ define i32 @Ptngc_unpack_array(ptr noundef %0, ptr noundef %1, ptr noundef %2, i
   %20 = zext i8 %19 to i32
   %21 = and i32 %.249.lcssa.i, %20
   %22 = lshr i32 %.249.lcssa.i, 1
-  %.not.i = icmp ult i32 %.249.lcssa.i, 2
+  %.not.i = icmp samesign ult i32 %.249.lcssa.i, 2
   %spec.select59.i = select i1 %.not.i, i32 128, i32 %22
   %spec.select60.idx.i = zext i1 %.not.i to i64
   %spec.select60.i = getelementptr inbounds i8, ptr %.246.lcssa.i, i64 %spec.select60.idx.i

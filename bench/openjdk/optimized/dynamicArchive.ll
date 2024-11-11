@@ -661,7 +661,7 @@ _ZNK14ArchiveBuilder16any_to_offset_u4IP6SymbolEEjT_.exit: ; preds = %24
   unreachable
 
 _ZNK14ArchiveBuilder16any_to_offset_u4IP6SymbolEEjT_.exit10: ; preds = %_ZNK14ArchiveBuilder16any_to_offset_u4IP6SymbolEEjT_.exit
-  %35 = icmp ult i64 %26, %31
+  %35 = icmp samesign ult i64 %26, %31
   %. = select i1 %35, i32 -1, i32 1
   br label %36
 

@@ -65948,8 +65948,8 @@ if.end.i.i.i.i.i.i.i:                             ; preds = %if.else.i.i.i.i.i.i
   %conv.i.i.i.i.i.i.i.i = and i64 %116, 4294967295
   %mul.i.i.i.i.i.i.i.i = mul nuw nsw i64 %conv.i.i.i.i.i.i.i.i, 999999
   %conv.i13.i.i.i.i.i.i.i = trunc i64 %mul.i.i.i.i.i.i.i.i to i32
-  %cmp1023.i.i.i.i.i.i.i = icmp ult i32 %conv.i13.i.i.i.i.i.i.i, 971590
-  br i1 %cmp1023.i.i.i.i.i.i.i, label %while.body.i.i.i.i.i.i.i.preheader, label %_ZN4absl24uniform_int_distributionIiEclINS_9BitGenRefEEEiRT_.exit.i.i.i.i
+  %or.cond = icmp ult i32 %conv.i13.i.i.i.i.i.i.i, 971590
+  br i1 %or.cond, label %while.body.i.i.i.i.i.i.i.preheader, label %_ZN4absl24uniform_int_distributionIiEclINS_9BitGenRefEEEiRT_.exit.i.i.i.i
 
 while.body.i.i.i.i.i.i.i.preheader:               ; preds = %if.end.i.i.i.i.i.i.i
   %has_crypto_.i.i.i.i.i.i.i617 = getelementptr inbounds i8, ptr %unmocked_generator, i64 312
@@ -66477,8 +66477,8 @@ if.end.i.i.i.i.i.i.i232:                          ; preds = %if.else.i.i.i.i.i.i
   %conv.i.i.i.i.i.i.i.i233 = and i64 %184, 4294967295
   %mul.i.i.i.i.i.i.i.i235 = mul nuw nsw i64 %conv.i.i.i.i.i.i.i.i233, 999999
   %conv.i13.i.i.i.i.i.i.i236 = trunc i64 %mul.i.i.i.i.i.i.i.i235 to i32
-  %cmp1023.i.i.i.i.i.i.i248 = icmp ult i32 %conv.i13.i.i.i.i.i.i.i236, 971590
-  br i1 %cmp1023.i.i.i.i.i.i.i248, label %while.body.i.i.i.i.i.i.i249.preheader, label %_ZN4absl24uniform_int_distributionIiEclINS_9BitGenRefEEEiRT_.exit.i.i.i.i241
+  %or.cond998 = icmp ult i32 %conv.i13.i.i.i.i.i.i.i236, 971590
+  br i1 %or.cond998, label %while.body.i.i.i.i.i.i.i249.preheader, label %_ZN4absl24uniform_int_distributionIiEclINS_9BitGenRefEEEiRT_.exit.i.i.i.i241
 
 while.body.i.i.i.i.i.i.i249.preheader:            ; preds = %if.end.i.i.i.i.i.i.i232
   %has_crypto_.i.i.i.i.i.i.i703 = getelementptr inbounds i8, ptr %mocked_with_3, i64 312
@@ -66746,8 +66746,8 @@ if.end.i.i.i.i.i.i.i310:                          ; preds = %if.else.i.i.i.i.i.i
   %conv.i.i.i.i.i.i.i.i311 = and i64 %221, 4294967295
   %mul.i.i.i.i.i.i.i.i313 = mul nuw nsw i64 %conv.i.i.i.i.i.i.i.i311, 999999
   %conv.i13.i.i.i.i.i.i.i314 = trunc i64 %mul.i.i.i.i.i.i.i.i313 to i32
-  %cmp1023.i.i.i.i.i.i.i326 = icmp ult i32 %conv.i13.i.i.i.i.i.i.i314, 971590
-  br i1 %cmp1023.i.i.i.i.i.i.i326, label %while.body.i.i.i.i.i.i.i327.preheader, label %_ZN4absl24uniform_int_distributionIiEclINS_9BitGenRefEEEiRT_.exit.i.i.i.i319
+  %or.cond999 = icmp ult i32 %conv.i13.i.i.i.i.i.i.i314, 971590
+  br i1 %or.cond999, label %while.body.i.i.i.i.i.i.i327.preheader, label %_ZN4absl24uniform_int_distributionIiEclINS_9BitGenRefEEEiRT_.exit.i.i.i.i319
 
 while.body.i.i.i.i.i.i.i327.preheader:            ; preds = %if.end.i.i.i.i.i.i.i310
   %has_crypto_.i.i.i.i.i.i.i789 = getelementptr inbounds i8, ptr %mocked_with_11, i64 312
@@ -67014,8 +67014,8 @@ if.end.i.i.i.i.i.i.i392:                          ; preds = %if.else.i.i.i.i.i.i
   %conv.i.i.i.i.i.i.i.i393 = and i64 %258, 4294967295
   %mul.i.i.i.i.i.i.i.i395 = mul nuw nsw i64 %conv.i.i.i.i.i.i.i.i393, 999999
   %conv.i13.i.i.i.i.i.i.i396 = trunc i64 %mul.i.i.i.i.i.i.i.i395 to i32
-  %cmp1023.i.i.i.i.i.i.i408 = icmp ult i32 %conv.i13.i.i.i.i.i.i.i396, 971590
-  br i1 %cmp1023.i.i.i.i.i.i.i408, label %while.body.i.i.i.i.i.i.i409.preheader, label %_ZN4absl24uniform_int_distributionIiEclINS_9BitGenRefEEEiRT_.exit.i.i.i.i401
+  %or.cond1000 = icmp ult i32 %conv.i13.i.i.i.i.i.i.i396, 971590
+  br i1 %or.cond1000, label %while.body.i.i.i.i.i.i.i409.preheader, label %_ZN4absl24uniform_int_distributionIiEclINS_9BitGenRefEEEiRT_.exit.i.i.i.i401
 
 while.body.i.i.i.i.i.i.i409.preheader:            ; preds = %if.end.i.i.i.i.i.i.i392
   %has_crypto_.i.i.i.i.i.i.i875 = getelementptr inbounds i8, ptr %mocked_with_3, i64 312
@@ -67282,8 +67282,8 @@ if.end.i.i.i.i.i.i.i474:                          ; preds = %if.else.i.i.i.i.i.i
   %conv.i.i.i.i.i.i.i.i475 = and i64 %295, 4294967295
   %mul.i.i.i.i.i.i.i.i477 = mul nuw nsw i64 %conv.i.i.i.i.i.i.i.i475, 999999
   %conv.i13.i.i.i.i.i.i.i478 = trunc i64 %mul.i.i.i.i.i.i.i.i477 to i32
-  %cmp1023.i.i.i.i.i.i.i490 = icmp ult i32 %conv.i13.i.i.i.i.i.i.i478, 971590
-  br i1 %cmp1023.i.i.i.i.i.i.i490, label %while.body.i.i.i.i.i.i.i491.preheader, label %_ZN4absl24uniform_int_distributionIiEclINS_9BitGenRefEEEiRT_.exit.i.i.i.i483
+  %or.cond1001 = icmp ult i32 %conv.i13.i.i.i.i.i.i.i478, 971590
+  br i1 %or.cond1001, label %while.body.i.i.i.i.i.i.i491.preheader, label %_ZN4absl24uniform_int_distributionIiEclINS_9BitGenRefEEEiRT_.exit.i.i.i.i483
 
 while.body.i.i.i.i.i.i.i491.preheader:            ; preds = %if.end.i.i.i.i.i.i.i474
   %has_crypto_.i.i.i.i.i.i.i961 = getelementptr inbounds i8, ptr %mocked_with_11, i64 312

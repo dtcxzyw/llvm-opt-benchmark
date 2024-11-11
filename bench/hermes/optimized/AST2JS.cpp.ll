@@ -2043,7 +2043,7 @@ if.then52.i.i:                                    ; preds = %if.end48.i.i
   br label %for.cond.backedge.i.i
 
 if.end56.i.i:                                     ; preds = %if.end48.i.i
-  %cmp57.i.i = icmp ult i32 %retval.0.i.i.i, 256
+  %cmp57.i.i = icmp samesign ult i32 %retval.0.i.i.i, 256
   br i1 %cmp57.i.i, label %if.then58.i.i, label %if.end63.i.i
 
 if.then58.i.i:                                    ; preds = %if.end56.i.i
@@ -2082,7 +2082,7 @@ _ZN4llvh11raw_ostreamlsEPKc.exit155.i.i:          ; preds = %if.then4.i.i150.i.i
   br label %for.cond.backedge.i.i
 
 if.end63.i.i:                                     ; preds = %if.end56.i.i
-  %cmp64.i.i = icmp ult i32 %retval.0.i.i.i, 65536
+  %cmp64.i.i = icmp samesign ult i32 %retval.0.i.i.i, 65536
   br i1 %cmp64.i.i, label %if.then65.i.i, label %_ZN6hermes11encodeUTF16IPtEEvRT_j.exit.i.i
 
 if.then65.i.i:                                    ; preds = %if.end63.i.i, %if.end128.i.i.i.i, %if.end112.i.i.i.i, %if.end99.i.i.i.i, %if.end85.i.i.i.i, %if.then71.i.i.i.i, %if.else68.i.i.i.i, %if.end44.i.i.i.i, %if.end31.i.i.i.i, %if.then19.i.i.i.i, %if.end.i.i.i.i, %if.then.i.i.i.i

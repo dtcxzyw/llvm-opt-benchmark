@@ -425,7 +425,7 @@ define internal fastcc void @php_exec_ex(ptr noundef %0, ptr nocapture noundef w
   %28 = phi i64 [ 80, %18 ], [ 96, %25 ]
   %.1 = phi i32 [ 2, %18 ], [ 3, %25 ]
   %29 = getelementptr inbounds i8, ptr %0, i64 %28
-  %30 = icmp ugt i32 %.1, %7
+  %30 = icmp samesign ugt i32 %.1, %7
   %31 = getelementptr inbounds i8, ptr %29, i64 16
   %spec.select189 = select i1 %30, ptr null, ptr %31
   br label %33
@@ -633,7 +633,7 @@ define ptr @php_escape_shell_cmd(ptr noundef %0) local_unnamed_addr #0 {
   br i1 %19, label %51, label %20
 
 20:                                               ; preds = %.lr.ph
-  %21 = icmp ugt i32 %18, 1
+  %21 = icmp samesign ugt i32 %18, 1
   br i1 %21, label %22, label %29
 
 22:                                               ; preds = %20
@@ -884,7 +884,7 @@ define ptr @php_escape_shell_arg(ptr noundef %0) local_unnamed_addr #0 {
   br i1 %20, label %42, label %21
 
 21:                                               ; preds = %.lr.ph
-  %22 = icmp ugt i32 %19, 1
+  %22 = icmp samesign ugt i32 %19, 1
   br i1 %22, label %23, label %30
 
 23:                                               ; preds = %21

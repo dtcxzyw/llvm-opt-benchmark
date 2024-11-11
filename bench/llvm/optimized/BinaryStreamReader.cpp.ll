@@ -384,7 +384,7 @@ switch.early.test.i:                              ; preds = %38
 
 49:                                               ; preds = %42
   %50 = icmp ugt i32 %46, 63
-  %.not52.i = icmp ult i8 %34, 64
+  %.not52.i = icmp samesign ult i8 %34, 64
   %or.cond.i = select i1 %50, i1 true, i1 %.not52.i
   %51 = zext nneg i32 %46 to i64
   %52 = shl nsw i64 -1, %51

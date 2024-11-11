@@ -993,7 +993,7 @@ _ZN6frozen4bits10LowerBoundIN4LIEF3ELF10Relocation4TYPEENS_4impl10CompareKeyISt4
   br label %_ZNK6frozen3mapIN4LIEF3ELF10Relocation4TYPEEPKcLm43ESt4lessIS4_EE11lower_boundIS4_EEPKSt4pairIS4_S6_ERKT_.exit.i.i
 
 3:                                                ; preds = %1
-  %.not.i6.i.i.i.i.i.i = icmp ugt i32 %0, 134217743
+  %.not.i6.i.i.i.i.i.i = icmp samesign ugt i32 %0, 134217743
   %.add13.i.i = select i1 %.not.i6.i.i.i.i.i.i, i64 264, i64 8
   %.add13.i.i.sroa.sel.sroa.sel.v = select i1 %.not.i6.i.i.i.i.i.i, i64 376, i64 120
   %.add13.i.i.sroa.sel.sroa.sel = getelementptr inbounds i8, ptr @__const._ZN4LIEF3ELF9to_stringILj134217728EEEPKcNS0_10Relocation4TYPEE.enums2str, i64 %.add13.i.i.sroa.sel.sroa.sel.v
@@ -1084,7 +1084,7 @@ define hidden noundef ptr @_ZN4LIEF3ELF9to_stringILj402653184EEEPKcNS0_10Relocat
   br i1 %.not.i.i.i.i.i.i.i.i.i.i, label %_ZNK6frozen3mapIN4LIEF3ELF10Relocation4TYPEEPKcLm138ESt4lessIS4_EE4findIS4_EEPKSt4pairIS4_S6_ERKT_.exit.thread, label %_ZNK6frozen3mapIN4LIEF3ELF10Relocation4TYPEEPKcLm138ESt4lessIS4_EE4findIS4_EEPKSt4pairIS4_S6_ERKT_.exit
 
 5:                                                ; preds = %2
-  %.not.i6.i.i.i.i.i.i.i = icmp ugt i32 %0, 402653344
+  %.not.i6.i.i.i.i.i.i.i = icmp samesign ugt i32 %0, 402653344
   %.add15.i.i = select i1 %.not.i6.i.i.i.i.i.i.i, i64 2120, i64 2056
   %.add15.i.i.sroa.sel.sroa.sel.v = select i1 %.not.i6.i.i.i.i.i.i.i, i64 2136, i64 2072
   %.add15.i.i.sroa.sel.sroa.sel = getelementptr inbounds i8, ptr @__const._ZN4LIEF3ELF9to_stringILj402653184EEEPKcNS0_10Relocation4TYPEE.enums2str, i64 %.add15.i.i.sroa.sel.sroa.sel.v
@@ -1095,7 +1095,7 @@ define hidden noundef ptr @_ZN4LIEF3ELF9to_stringILj402653184EEEPKcNS0_10Relocat
   br label %_ZNK6frozen3mapIN4LIEF3ELF10Relocation4TYPEEPKcLm138ESt4lessIS4_EE11lower_boundIS4_EEPKSt4pairIS4_S6_ERKT_.exit._crit_edge.sink.split.i.i
 
 7:                                                ; preds = %1
-  %.not.i6.i.i.i.i.i.i = icmp ugt i32 %0, 402653247
+  %.not.i6.i.i.i.i.i.i = icmp samesign ugt i32 %0, 402653247
   %.add18.i.i = select i1 %.not.i6.i.i.i.i.i.i, i64 1032, i64 8
   %.add18.i.i.sroa.sel.sroa.sel.v = select i1 %.not.i6.i.i.i.i.i.i, i64 1528, i64 504
   %.add18.i.i.sroa.sel.sroa.sel = getelementptr inbounds i8, ptr @__const._ZN4LIEF3ELF9to_stringILj402653184EEEPKcNS0_10Relocation4TYPEE.enums2str, i64 %.add18.i.i.sroa.sel.sroa.sel.v
@@ -1218,12 +1218,12 @@ _ZNK6frozen3mapIN4LIEF3ELF10Relocation4TYPEEPKcLm40ESt4lessIS4_EE11lower_boundIS
   br label %_ZNK6frozen3mapIN4LIEF3ELF10Relocation4TYPEEPKcLm40ESt4lessIS4_EE4findIS4_EEPKSt4pairIS4_S6_ERKT_.exit
 
 8:                                                ; preds = %3
-  %.not.i6.i.i.i.i.i.i.i = icmp ugt i32 %0, 671088675
+  %.not.i6.i.i.i.i.i.i.i = icmp samesign ugt i32 %0, 671088675
   %9 = select i1 %.not.i6.i.i.i.i.i.i.i, i64 552, i64 520
   br label %_ZNK6frozen3mapIN4LIEF3ELF10Relocation4TYPEEPKcLm40ESt4lessIS4_EE11lower_boundIS4_EEPKSt4pairIS4_S6_ERKT_.exit.i.i
 
 _ZNK6frozen3mapIN4LIEF3ELF10Relocation4TYPEEPKcLm40ESt4lessIS4_EE11lower_boundIS4_EEPKSt4pairIS4_S6_ERKT_.exit.thread30.i.i: ; preds = %1
-  %.not.i6.i.i.i.i.i.i = icmp ugt i32 %0, 671088657
+  %.not.i6.i.i.i.i.i.i = icmp samesign ugt i32 %0, 671088657
   %.add16.i.i = select i1 %.not.i6.i.i.i.i.i.i, i64 264, i64 8
   %.add16.i.i.sroa.sel.sroa.sel.v.sroa.sel.v.sroa.sel.v = select i1 %.not.i6.i.i.i.i.i.i, i64 376, i64 120
   %.add16.i.i.sroa.sel.sroa.sel.v.sroa.sel.v.sroa.sel = getelementptr inbounds i8, ptr %2, i64 %.add16.i.i.sroa.sel.sroa.sel.v.sroa.sel.v.sroa.sel.v
@@ -1304,7 +1304,7 @@ define hidden noundef ptr @_ZN4LIEF3ELF9to_stringILj805306368EEEPKcNS0_10Relocat
   br i1 %.not.i.i.i.i.i.i.i.i, label %_ZNK6frozen3mapIN4LIEF3ELF10Relocation4TYPEEPKcLm89ESt4lessIS4_EE11lower_boundIS4_EEPKSt4pairIS4_S6_ERKT_.exit.i.i, label %4
 
 4:                                                ; preds = %3
-  %.not.i.i.i.i.i.i.i.i.i = icmp ugt i32 %0, 805306463
+  %.not.i.i.i.i.i.i.i.i.i = icmp samesign ugt i32 %0, 805306463
   %.add.i.i = select i1 %.not.i.i.i.i.i.i.i.i.i, i64 1352, i64 1288
   %.add.i.i.sroa.sel.sroa.sel.v = select i1 %.not.i.i.i.i.i.i.i.i.i, i64 1368, i64 1304
   %.add.i.i.sroa.sel.sroa.sel = getelementptr inbounds i8, ptr @__const._ZN4LIEF3ELF9to_stringILj805306368EEEPKcNS0_10Relocation4TYPEE.enums2str, i64 %.add.i.i.sroa.sel.sroa.sel.v
@@ -1315,7 +1315,7 @@ define hidden noundef ptr @_ZN4LIEF3ELF9to_stringILj805306368EEEPKcNS0_10Relocat
   br label %_ZNK6frozen3mapIN4LIEF3ELF10Relocation4TYPEEPKcLm89ESt4lessIS4_EE11lower_boundIS4_EEPKSt4pairIS4_S6_ERKT_.exit.i.i
 
 6:                                                ; preds = %2
-  %.not.i6.i.i.i.i.i.i.i = icmp ugt i32 %0, 805306451
+  %.not.i6.i.i.i.i.i.i.i = icmp samesign ugt i32 %0, 805306451
   %.add13.i.i = select i1 %.not.i6.i.i.i.i.i.i.i, i64 1160, i64 1032
   %.add13.i.i.sroa.sel.sroa.sel.v = select i1 %.not.i6.i.i.i.i.i.i.i, i64 1208, i64 1080
   %.add13.i.i.sroa.sel.sroa.sel = getelementptr inbounds i8, ptr @__const._ZN4LIEF3ELF9to_stringILj805306368EEEPKcNS0_10Relocation4TYPEE.enums2str, i64 %.add13.i.i.sroa.sel.sroa.sel.v
@@ -1332,7 +1332,7 @@ define hidden noundef ptr @_ZN4LIEF3ELF9to_stringILj805306368EEEPKcNS0_10Relocat
   br label %_ZNK6frozen3mapIN4LIEF3ELF10Relocation4TYPEEPKcLm89ESt4lessIS4_EE11lower_boundIS4_EEPKSt4pairIS4_S6_ERKT_.exit.i.i
 
 10:                                               ; preds = %1
-  %.not.i6.i.i.i.i.i.i = icmp ugt i32 %0, 805306406
+  %.not.i6.i.i.i.i.i.i = icmp samesign ugt i32 %0, 805306406
   %.add16.i.i = select i1 %.not.i6.i.i.i.i.i.i, i64 520, i64 8
   %.add16.i.i.sroa.sel.sroa.sel.v = select i1 %.not.i6.i.i.i.i.i.i, i64 760, i64 248
   %.add16.i.i.sroa.sel.sroa.sel = getelementptr inbounds i8, ptr @__const._ZN4LIEF3ELF9to_stringILj805306368EEEPKcNS0_10Relocation4TYPEE.enums2str, i64 %.add16.i.i.sroa.sel.sroa.sel.v
@@ -1434,7 +1434,7 @@ define hidden noundef ptr @_ZN4LIEF3ELF9to_stringILj1073741824EEEPKcNS0_10Reloca
   br i1 %.not.i.i.i.i.i.i.i.i, label %_ZNK6frozen3mapIN4LIEF3ELF10Relocation4TYPEEPKcLm57ESt4lessIS4_EE11lower_boundIS4_EEPKSt4pairIS4_S6_ERKT_.exit.i.i, label %4
 
 4:                                                ; preds = %3
-  %.not.i.i.i.i.i.i.i.i.i = icmp ugt i32 %0, 1073741919
+  %.not.i.i.i.i.i.i.i.i.i = icmp samesign ugt i32 %0, 1073741919
   %.add.i.i = select i1 %.not.i.i.i.i.i.i.i.i.i, i64 840, i64 776
   %.add.i.i.sroa.sel.sroa.sel.v = select i1 %.not.i.i.i.i.i.i.i.i.i, i64 856, i64 792
   %.add.i.i.sroa.sel.sroa.sel = getelementptr inbounds i8, ptr @__const._ZN4LIEF3ELF9to_stringILj1073741824EEEPKcNS0_10Relocation4TYPEE.enums2str, i64 %.add.i.i.sroa.sel.sroa.sel.v
@@ -1445,7 +1445,7 @@ define hidden noundef ptr @_ZN4LIEF3ELF9to_stringILj1073741824EEEPKcNS0_10Reloca
   br label %_ZNK6frozen3mapIN4LIEF3ELF10Relocation4TYPEEPKcLm57ESt4lessIS4_EE11lower_boundIS4_EEPKSt4pairIS4_S6_ERKT_.exit.i.i
 
 6:                                                ; preds = %2
-  %.not.i6.i.i.i.i.i.i.i = icmp ugt i32 %0, 1073741907
+  %.not.i6.i.i.i.i.i.i.i = icmp samesign ugt i32 %0, 1073741907
   %.add13.i.i = select i1 %.not.i6.i.i.i.i.i.i.i, i64 648, i64 520
   %.add13.i.i.sroa.sel.sroa.sel.v = select i1 %.not.i6.i.i.i.i.i.i.i, i64 696, i64 568
   %.add13.i.i.sroa.sel.sroa.sel = getelementptr inbounds i8, ptr @__const._ZN4LIEF3ELF9to_stringILj1073741824EEEPKcNS0_10Relocation4TYPEE.enums2str, i64 %.add13.i.i.sroa.sel.sroa.sel.v
@@ -1462,7 +1462,7 @@ define hidden noundef ptr @_ZN4LIEF3ELF9to_stringILj1073741824EEEPKcNS0_10Reloca
   br label %_ZNK6frozen3mapIN4LIEF3ELF10Relocation4TYPEEPKcLm57ESt4lessIS4_EE11lower_boundIS4_EEPKSt4pairIS4_S6_ERKT_.exit.i.i
 
 10:                                               ; preds = %1
-  %.not.i6.i.i.i.i.i.i = icmp ugt i32 %0, 1073741839
+  %.not.i6.i.i.i.i.i.i = icmp samesign ugt i32 %0, 1073741839
   %.add16.i.i = select i1 %.not.i6.i.i.i.i.i.i, i64 264, i64 8
   %.add16.i.i.sroa.sel.sroa.sel.v = select i1 %.not.i6.i.i.i.i.i.i, i64 376, i64 120
   %.add16.i.i.sroa.sel.sroa.sel = getelementptr inbounds i8, ptr @__const._ZN4LIEF3ELF9to_stringILj1073741824EEEPKcNS0_10Relocation4TYPEE.enums2str, i64 %.add16.i.i.sroa.sel.sroa.sel.v
@@ -1635,7 +1635,7 @@ _ZN6frozen4bits10LowerBoundIN4LIEF3ELF10Relocation4TYPEENS_4impl10CompareKeyISt4
   br label %_ZNK6frozen3mapIN4LIEF3ELF10Relocation4TYPEEPKcLm43ESt4lessIS4_EE11lower_boundIS4_EEPKSt4pairIS4_S6_ERKT_.exit.i.i.i
 
 22:                                               ; preds = %20
-  %.not.i6.i.i.i.i.i.i.i = icmp ugt i32 %0, 134217743
+  %.not.i6.i.i.i.i.i.i.i = icmp samesign ugt i32 %0, 134217743
   %.add13.i.i.i = select i1 %.not.i6.i.i.i.i.i.i.i, i64 264, i64 8
   %.add13.i.i.sroa.sel.sroa.sel.v.i = select i1 %.not.i6.i.i.i.i.i.i.i, i64 376, i64 120
   %.add13.i.i.sroa.sel.sroa.sel.i = getelementptr inbounds i8, ptr @__const._ZN4LIEF3ELF9to_stringILj134217728EEEPKcNS0_10Relocation4TYPEE.enums2str, i64 %.add13.i.i.sroa.sel.sroa.sel.v.i
@@ -1717,7 +1717,7 @@ _ZN4LIEF3ELF9to_stringILj268435456EEEPKcNS0_10Relocation4TYPEE.exit: ; preds = %
   br i1 %.not.i.i.i.i.i.i.i.i.i.i.i38, label %_ZN4LIEF3ELF9to_stringILj134217728EEEPKcNS0_10Relocation4TYPEE.exit, label %_ZNK6frozen3mapIN4LIEF3ELF10Relocation4TYPEEPKcLm138ESt4lessIS4_EE4findIS4_EEPKSt4pairIS4_S6_ERKT_.exit.i
 
 43:                                               ; preds = %40
-  %.not.i6.i.i.i.i.i.i.i.i = icmp ugt i32 %0, 402653344
+  %.not.i6.i.i.i.i.i.i.i.i = icmp samesign ugt i32 %0, 402653344
   %.add15.i.i.i35 = select i1 %.not.i6.i.i.i.i.i.i.i.i, i64 2120, i64 2056
   %.add15.i.i.sroa.sel.sroa.sel.v.i = select i1 %.not.i6.i.i.i.i.i.i.i.i, i64 2136, i64 2072
   %.add15.i.i.sroa.sel.sroa.sel.i = getelementptr inbounds i8, ptr @__const._ZN4LIEF3ELF9to_stringILj402653184EEEPKcNS0_10Relocation4TYPEE.enums2str, i64 %.add15.i.i.sroa.sel.sroa.sel.v.i
@@ -1728,7 +1728,7 @@ _ZN4LIEF3ELF9to_stringILj268435456EEEPKcNS0_10Relocation4TYPEE.exit: ; preds = %
   br label %_ZNK6frozen3mapIN4LIEF3ELF10Relocation4TYPEEPKcLm138ESt4lessIS4_EE11lower_boundIS4_EEPKSt4pairIS4_S6_ERKT_.exit._crit_edge.sink.split.i.i.i
 
 45:                                               ; preds = %39
-  %.not.i6.i.i.i.i.i.i.i27 = icmp ugt i32 %0, 402653247
+  %.not.i6.i.i.i.i.i.i.i27 = icmp samesign ugt i32 %0, 402653247
   %.add18.i.i.i = select i1 %.not.i6.i.i.i.i.i.i.i27, i64 1032, i64 8
   %.add18.i.i.sroa.sel.sroa.sel.v.i = select i1 %.not.i6.i.i.i.i.i.i.i27, i64 1528, i64 504
   %.add18.i.i.sroa.sel.sroa.sel.i = getelementptr inbounds i8, ptr @__const._ZN4LIEF3ELF9to_stringILj402653184EEEPKcNS0_10Relocation4TYPEE.enums2str, i64 %.add18.i.i.sroa.sel.sroa.sel.v.i
@@ -1844,12 +1844,12 @@ _ZNK6frozen3mapIN4LIEF3ELF10Relocation4TYPEEPKcLm40ESt4lessIS4_EE11lower_boundIS
   br label %_ZNK6frozen3mapIN4LIEF3ELF10Relocation4TYPEEPKcLm40ESt4lessIS4_EE4findIS4_EEPKSt4pairIS4_S6_ERKT_.exit.i
 
 77:                                               ; preds = %72
-  %.not.i6.i.i.i.i.i.i.i.i58 = icmp ugt i32 %0, 671088675
+  %.not.i6.i.i.i.i.i.i.i.i58 = icmp samesign ugt i32 %0, 671088675
   %78 = select i1 %.not.i6.i.i.i.i.i.i.i.i58, i64 552, i64 520
   br label %_ZNK6frozen3mapIN4LIEF3ELF10Relocation4TYPEEPKcLm40ESt4lessIS4_EE11lower_boundIS4_EEPKSt4pairIS4_S6_ERKT_.exit.i.i.i
 
 _ZNK6frozen3mapIN4LIEF3ELF10Relocation4TYPEEPKcLm40ESt4lessIS4_EE11lower_boundIS4_EEPKSt4pairIS4_S6_ERKT_.exit.thread30.i.i.i: ; preds = %71
-  %.not.i6.i.i.i.i.i.i.i42 = icmp ugt i32 %0, 671088657
+  %.not.i6.i.i.i.i.i.i.i42 = icmp samesign ugt i32 %0, 671088657
   %.add16.i.i.i43 = select i1 %.not.i6.i.i.i.i.i.i.i42, i64 264, i64 8
   %.add16.i.i.sroa.sel.sroa.sel.v.sroa.sel.v.i.sroa.sel.v.sroa.sel.v.sroa.sel.v = select i1 %.not.i6.i.i.i.i.i.i.i42, i64 376, i64 120
   %.add16.i.i.sroa.sel.sroa.sel.v.sroa.sel.v.i.sroa.sel.v.sroa.sel.v.sroa.sel = getelementptr inbounds i8, ptr %12, i64 %.add16.i.i.sroa.sel.sroa.sel.v.sroa.sel.v.i.sroa.sel.v.sroa.sel.v.sroa.sel.v
@@ -1929,7 +1929,7 @@ _ZN4LIEF3ELF9to_stringILj671088640EEEPKcNS0_10Relocation4TYPEE.exit: ; preds = %
   br i1 %.not.i.i.i.i.i.i.i.i.i96, label %_ZNK6frozen3mapIN4LIEF3ELF10Relocation4TYPEEPKcLm89ESt4lessIS4_EE11lower_boundIS4_EEPKSt4pairIS4_S6_ERKT_.exit.i.i.i, label %97
 
 97:                                               ; preds = %96
-  %.not.i.i.i.i.i.i.i.i.i.i97 = icmp ugt i32 %0, 805306463
+  %.not.i.i.i.i.i.i.i.i.i.i97 = icmp samesign ugt i32 %0, 805306463
   %.add.i.i.i98 = select i1 %.not.i.i.i.i.i.i.i.i.i.i97, i64 1352, i64 1288
   %.add.i.i.sroa.sel.sroa.sel.v.i = select i1 %.not.i.i.i.i.i.i.i.i.i.i97, i64 1368, i64 1304
   %.add.i.i.sroa.sel.sroa.sel.i = getelementptr inbounds i8, ptr @__const._ZN4LIEF3ELF9to_stringILj805306368EEEPKcNS0_10Relocation4TYPEE.enums2str, i64 %.add.i.i.sroa.sel.sroa.sel.v.i
@@ -1940,7 +1940,7 @@ _ZN4LIEF3ELF9to_stringILj671088640EEEPKcNS0_10Relocation4TYPEE.exit: ; preds = %
   br label %_ZNK6frozen3mapIN4LIEF3ELF10Relocation4TYPEEPKcLm89ESt4lessIS4_EE11lower_boundIS4_EEPKSt4pairIS4_S6_ERKT_.exit.i.i.i
 
 99:                                               ; preds = %95
-  %.not.i6.i.i.i.i.i.i.i.i87 = icmp ugt i32 %0, 805306451
+  %.not.i6.i.i.i.i.i.i.i.i87 = icmp samesign ugt i32 %0, 805306451
   %.add13.i.i.i88 = select i1 %.not.i6.i.i.i.i.i.i.i.i87, i64 1160, i64 1032
   %.add13.i.i.sroa.sel.sroa.sel.v.i89 = select i1 %.not.i6.i.i.i.i.i.i.i.i87, i64 1208, i64 1080
   %.add13.i.i.sroa.sel.sroa.sel.i90 = getelementptr inbounds i8, ptr @__const._ZN4LIEF3ELF9to_stringILj805306368EEEPKcNS0_10Relocation4TYPEE.enums2str, i64 %.add13.i.i.sroa.sel.sroa.sel.v.i89
@@ -1957,7 +1957,7 @@ _ZN4LIEF3ELF9to_stringILj671088640EEEPKcNS0_10Relocation4TYPEE.exit: ; preds = %
   br label %_ZNK6frozen3mapIN4LIEF3ELF10Relocation4TYPEEPKcLm89ESt4lessIS4_EE11lower_boundIS4_EEPKSt4pairIS4_S6_ERKT_.exit.i.i.i
 
 103:                                              ; preds = %94
-  %.not.i6.i.i.i.i.i.i.i65 = icmp ugt i32 %0, 805306406
+  %.not.i6.i.i.i.i.i.i.i65 = icmp samesign ugt i32 %0, 805306406
   %.add16.i.i.i66 = select i1 %.not.i6.i.i.i.i.i.i.i65, i64 520, i64 8
   %.add16.i.i.sroa.sel.sroa.sel.v.i = select i1 %.not.i6.i.i.i.i.i.i.i65, i64 760, i64 248
   %.add16.i.i.sroa.sel.sroa.sel.i = getelementptr inbounds i8, ptr @__const._ZN4LIEF3ELF9to_stringILj805306368EEEPKcNS0_10Relocation4TYPEE.enums2str, i64 %.add16.i.i.sroa.sel.sroa.sel.v.i
@@ -2052,7 +2052,7 @@ _ZN4LIEF3ELF9to_stringILj939524096EEEPKcNS0_10Relocation4TYPEE.exit: ; preds = %
   br i1 %.not.i.i.i.i.i.i.i.i.i139, label %_ZNK6frozen3mapIN4LIEF3ELF10Relocation4TYPEEPKcLm57ESt4lessIS4_EE11lower_boundIS4_EEPKSt4pairIS4_S6_ERKT_.exit.i.i.i, label %130
 
 130:                                              ; preds = %129
-  %.not.i.i.i.i.i.i.i.i.i.i140 = icmp ugt i32 %0, 1073741919
+  %.not.i.i.i.i.i.i.i.i.i.i140 = icmp samesign ugt i32 %0, 1073741919
   %.add.i.i.i141 = select i1 %.not.i.i.i.i.i.i.i.i.i.i140, i64 840, i64 776
   %.add.i.i.sroa.sel.sroa.sel.v.i142 = select i1 %.not.i.i.i.i.i.i.i.i.i.i140, i64 856, i64 792
   %.add.i.i.sroa.sel.sroa.sel.i143 = getelementptr inbounds i8, ptr @__const._ZN4LIEF3ELF9to_stringILj1073741824EEEPKcNS0_10Relocation4TYPEE.enums2str, i64 %.add.i.i.sroa.sel.sroa.sel.v.i142
@@ -2063,7 +2063,7 @@ _ZN4LIEF3ELF9to_stringILj939524096EEEPKcNS0_10Relocation4TYPEE.exit: ; preds = %
   br label %_ZNK6frozen3mapIN4LIEF3ELF10Relocation4TYPEEPKcLm57ESt4lessIS4_EE11lower_boundIS4_EEPKSt4pairIS4_S6_ERKT_.exit.i.i.i
 
 132:                                              ; preds = %128
-  %.not.i6.i.i.i.i.i.i.i.i128 = icmp ugt i32 %0, 1073741907
+  %.not.i6.i.i.i.i.i.i.i.i128 = icmp samesign ugt i32 %0, 1073741907
   %.add13.i.i.i129 = select i1 %.not.i6.i.i.i.i.i.i.i.i128, i64 648, i64 520
   %.add13.i.i.sroa.sel.sroa.sel.v.i130 = select i1 %.not.i6.i.i.i.i.i.i.i.i128, i64 696, i64 568
   %.add13.i.i.sroa.sel.sroa.sel.i131 = getelementptr inbounds i8, ptr @__const._ZN4LIEF3ELF9to_stringILj1073741824EEEPKcNS0_10Relocation4TYPEE.enums2str, i64 %.add13.i.i.sroa.sel.sroa.sel.v.i130
@@ -2080,7 +2080,7 @@ _ZN4LIEF3ELF9to_stringILj939524096EEEPKcNS0_10Relocation4TYPEE.exit: ; preds = %
   br label %_ZNK6frozen3mapIN4LIEF3ELF10Relocation4TYPEEPKcLm57ESt4lessIS4_EE11lower_boundIS4_EEPKSt4pairIS4_S6_ERKT_.exit.i.i.i
 
 136:                                              ; preds = %127
-  %.not.i6.i.i.i.i.i.i.i104 = icmp ugt i32 %0, 1073741839
+  %.not.i6.i.i.i.i.i.i.i104 = icmp samesign ugt i32 %0, 1073741839
   %.add16.i.i.i105 = select i1 %.not.i6.i.i.i.i.i.i.i104, i64 264, i64 8
   %.add16.i.i.sroa.sel.sroa.sel.v.i106 = select i1 %.not.i6.i.i.i.i.i.i.i104, i64 376, i64 120
   %.add16.i.i.sroa.sel.sroa.sel.i107 = getelementptr inbounds i8, ptr @__const._ZN4LIEF3ELF9to_stringILj1073741824EEEPKcNS0_10Relocation4TYPEE.enums2str, i64 %.add16.i.i.sroa.sel.sroa.sel.v.i106

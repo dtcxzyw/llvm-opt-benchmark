@@ -1506,7 +1506,7 @@ define internal fastcc i32 @sg_io(ptr nocapture noundef readonly %0, ptr nocaptu
   br i1 %35, label %.thread5, label %36
 
 36:                                               ; preds = %32
-  %37 = icmp ult i8 %34, 6
+  %37 = icmp samesign ult i8 %34, 6
   br i1 %37, label %.thread5, label %38
 
 38:                                               ; preds = %36

@@ -937,7 +937,7 @@ entry:
   br i1 %cmp, label %return, label %if.end
 
 if.end:                                           ; preds = %entry
-  %cmp1 = icmp ugt i64 %c, 65535
+  %cmp1 = icmp samesign ugt i64 %c, 65535
   br i1 %cmp1, label %if.then2, label %if.end7
 
 if.then2:                                         ; preds = %if.end
@@ -948,7 +948,7 @@ if.then2:                                         ; preds = %if.end
   br label %return
 
 if.end7:                                          ; preds = %if.end
-  %cmp8 = icmp ugt i64 %c, 255
+  %cmp8 = icmp samesign ugt i64 %c, 255
   br i1 %cmp8, label %if.then9, label %if.end17
 
 if.then9:                                         ; preds = %if.end7
@@ -961,7 +961,7 @@ if.then9:                                         ; preds = %if.end7
 if.end17:                                         ; preds = %if.end7
   %conv = trunc nuw i64 %c to i8
   store i8 %conv, ptr %chtmp, align 1
-  %cmp19 = icmp ugt i64 %c, 127
+  %cmp19 = icmp samesign ugt i64 %c, 127
   br i1 %cmp19, label %if.then21, label %if.else
 
 if.then21:                                        ; preds = %if.end17

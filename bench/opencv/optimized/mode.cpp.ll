@@ -238,7 +238,7 @@ define hidden noundef i32 @_ZNK5zxing6qrcode4Mode21getCharacterCountBitsEPNS0_7V
   br i1 %4, label %11, label %5
 
 5:                                                ; preds = %2
-  %6 = icmp ult i32 %3, 27
+  %6 = icmp samesign ult i32 %3, 27
   br i1 %6, label %7, label %9
 
 7:                                                ; preds = %5

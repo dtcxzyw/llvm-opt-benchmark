@@ -7532,7 +7532,7 @@ if.end16.us.peel:                                 ; preds = %if.end.us.peel
   br i1 %cmp20.us.peel, label %land.lhs.true21.us.peel, label %return
 
 land.lhs.true21.us.peel:                          ; preds = %if.end16.us.peel
-  %cmp24.us.peel = icmp ult i8 %.pre72, 91
+  %cmp24.us.peel = icmp samesign ult i8 %.pre72, 91
   %cmp30.us.peel = icmp eq i8 %.pre72, 95
   %or.cond62.us.peel = or i1 %cmp24.us.peel, %cmp30.us.peel
   br i1 %or.cond62.us.peel, label %for.inc.us.peel, label %return
@@ -7557,7 +7557,7 @@ if.end16.us:                                      ; preds = %land.lhs.true.us
   br i1 %cmp20.us, label %land.lhs.true21.us, label %return
 
 land.lhs.true21.us:                               ; preds = %if.end16.us
-  %cmp24.us = icmp ult i8 %3, 91
+  %cmp24.us = icmp samesign ult i8 %3, 91
   %cmp30.us = icmp eq i8 %3, 95
   %or.cond62.us = or i1 %cmp24.us, %cmp30.us
   br i1 %or.cond62.us, label %for.inc.us, label %return
@@ -8132,7 +8132,7 @@ if.end16.us.peel.i:                               ; preds = %if.end.us.peel.i
   br i1 %cmp20.us.peel.i, label %land.lhs.true21.us.peel.i, label %if.end
 
 land.lhs.true21.us.peel.i:                        ; preds = %if.end16.us.peel.i
-  %cmp24.us.peel.i = icmp ult i8 %.pre72.i, 91
+  %cmp24.us.peel.i = icmp samesign ult i8 %.pre72.i, 91
   %cmp30.us.peel.i = icmp eq i8 %.pre72.i, 95
   %or.cond62.us.peel.i = or i1 %cmp24.us.peel.i, %cmp30.us.peel.i
   br i1 %or.cond62.us.peel.i, label %for.inc.us.peel.i, label %if.end
@@ -8157,7 +8157,7 @@ if.end16.us.i:                                    ; preds = %land.lhs.true.us.i
   br i1 %cmp20.us.i, label %land.lhs.true21.us.i, label %if.end
 
 land.lhs.true21.us.i:                             ; preds = %if.end16.us.i
-  %cmp24.us.i = icmp ult i8 %3, 91
+  %cmp24.us.i = icmp samesign ult i8 %3, 91
   %cmp30.us.i = icmp eq i8 %3, 95
   %or.cond62.us.i = or i1 %cmp24.us.i, %cmp30.us.i
   br i1 %or.cond62.us.i, label %for.inc.us.i, label %if.end
@@ -24779,7 +24779,7 @@ if.end16.us.peel.i.i:                             ; preds = %for.body.lr.ph.i.i
   br i1 %cmp20.us.peel.i.i, label %land.lhs.true21.us.peel.i.i, label %if.end.i
 
 land.lhs.true21.us.peel.i.i:                      ; preds = %if.end16.us.peel.i.i
-  %cmp24.us.peel.i.i = icmp ult i8 %.pre72.i.i, 91
+  %cmp24.us.peel.i.i = icmp samesign ult i8 %.pre72.i.i, 91
   %cmp30.us.peel.i.i = icmp eq i8 %.pre72.i.i, 95
   %or.cond62.us.peel.i.i = or i1 %cmp24.us.peel.i.i, %cmp30.us.peel.i.i
   br i1 %or.cond62.us.peel.i.i, label %for.inc.us.peel.i.i, label %if.end.i
@@ -24804,7 +24804,7 @@ if.end16.us.i.i:                                  ; preds = %land.lhs.true.us.i.
   br i1 %cmp20.us.i.i, label %land.lhs.true21.us.i.i, label %if.end.i
 
 land.lhs.true21.us.i.i:                           ; preds = %if.end16.us.i.i
-  %cmp24.us.i.i = icmp ult i8 %42, 91
+  %cmp24.us.i.i = icmp samesign ult i8 %42, 91
   %cmp30.us.i.i = icmp eq i8 %42, 95
   %or.cond62.us.i.i = or i1 %cmp24.us.i.i, %cmp30.us.i.i
   br i1 %or.cond62.us.i.i, label %for.inc.us.i.i, label %if.end.i

@@ -2805,7 +2805,7 @@ define hidden { i64, ptr } @_ZN5prost8encoding18decode_varint_slow17h2dce64713d5
 
 26:                                               ; preds = %"_ZN59_$LT$$RF$mut$u20$T$u20$as$u20$bytes..buf..buf_impl..Buf$GT$6get_u817h94fd70ab6fd5eee5E.exit"
   %27 = icmp eq i64 %.sroa.04.0, 9
-  %28 = icmp ugt i8 %13, 1
+  %28 = icmp samesign ugt i8 %13, 1
   %or.cond = and i1 %27, %28
   br i1 %or.cond, label %31, label %29
 

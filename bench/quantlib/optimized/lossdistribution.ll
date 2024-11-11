@@ -2484,7 +2484,7 @@ call5.i.i.i.i2.i.i.noexc141:                      ; preds = %_ZNSt6vectorIdSaIdE
   %30 = load double, ptr %maximum_, align 8, !tbaa !64
   %conv = uitofp nneg i64 %29 to double
   %div = fdiv double %30, %conv
-  %cmp62482 = icmp ugt i64 %29, 1
+  %cmp62482 = icmp samesign ugt i64 %29, 1
   br i1 %cmp62482, label %for.body.lr.ph, label %for.cond66.preheader
 
 for.body.lr.ph:                                   ; preds = %call5.i.i.i.i2.i.i.noexc141
@@ -2772,7 +2772,7 @@ ehcleanup139:                                     ; preds = %ehcleanup138, %lpad
   br label %if.then.i.i.i305
 
 do.body142:                                       ; preds = %invoke.cont88
-  %cmp143.not = icmp ult i32 %call89, %indvars
+  %cmp143.not = icmp samesign ult i32 %call89, %indvars
   br i1 %cmp143.not, label %if.then144, label %do.end194
 
 if.then144:                                       ; preds = %do.body142

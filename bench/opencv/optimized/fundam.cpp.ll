@@ -524,7 +524,7 @@ _ZNK2cv11_InputArray6getMatEi.exit162:            ; preds = %86, %89
 
 123:                                              ; preds = %120, %101
   %.172 = phi i32 [ %100, %101 ], [ %104, %120 ]
-  %124 = icmp ult i32 %.172, 4
+  %124 = icmp samesign ult i32 %.172, 4
   br i1 %124, label %125, label %133
 
 125:                                              ; preds = %123
@@ -4034,7 +4034,7 @@ _ZNK2cv11_InputArray6getMatEi.exit117:            ; preds = %53, %56
   br label %337
 
 110:                                              ; preds = %100
-  %111 = icmp ult i32 %.1, 7
+  %111 = icmp samesign ult i32 %.1, 7
   br i1 %111, label %112, label %113
 
 112:                                              ; preds = %110
@@ -4216,7 +4216,7 @@ _ZNK2cv11_InputArray6getMatEi.exit122:            ; preds = %138, %141
   %spec.store.select = select i1 %or.cond8, double 0x3FEFAE147AE147AE, double %5
   %183 = and i32 %3, -4
   %184 = icmp eq i32 %183, 8
-  %185 = icmp ugt i32 %.1, 14
+  %185 = icmp samesign ugt i32 %.1, 14
   %or.cond10 = and i1 %184, %185
   br i1 %or.cond10, label %186, label %242
 

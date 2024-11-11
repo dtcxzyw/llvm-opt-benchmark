@@ -1152,8 +1152,8 @@ define noundef i32 @_Z20QtricksLeadHandTrumpiR3posiiiiiiiiiiRi(i32 noundef %0, p
   br i1 %or.cond25, label %90, label %.sink.split
 
 90:                                               ; preds = %87
-  %91 = icmp ult i32 %9, 3
-  %92 = icmp ult i32 %8, 3
+  %91 = icmp samesign ult i32 %9, 3
+  %92 = icmp samesign ult i32 %8, 3
   %or.cond27 = or i1 %92, %91
   br i1 %or.cond27, label %93, label %.sink.split
 
@@ -1318,8 +1318,8 @@ define noundef i32 @_Z17QtricksLeadHandNTiR3posiiiiRiS1_biiiiiiS1_(i32 noundef %
   br i1 %or.cond13, label %93, label %.sink.split
 
 93:                                               ; preds = %90
-  %94 = icmp ult i32 %11, 3
-  %95 = icmp ult i32 %10, 3
+  %94 = icmp samesign ult i32 %11, 3
+  %95 = icmp samesign ult i32 %10, 3
   %or.cond15 = or i1 %95, %94
   br i1 %or.cond15, label %96, label %.sink.split
 
@@ -1496,8 +1496,8 @@ define noundef i32 @_Z27QuickTricksPartnerHandTrumpiR3posiiiiiiiiiiiiRiRK10Threa
   br i1 %or.cond25, label %115, label %.sink.split
 
 115:                                              ; preds = %112
-  %116 = icmp ult i32 %8, 3
-  %117 = icmp ult i32 %9, 3
+  %116 = icmp samesign ult i32 %8, 3
+  %117 = icmp samesign ult i32 %9, 3
   %or.cond27 = or i1 %116, %117
   br i1 %or.cond27, label %118, label %.sink.split
 
@@ -1702,8 +1702,8 @@ define noundef i32 @_Z24QuickTricksPartnerHandNTiR3posiiiiiiiiiiRiRK10ThreadData
   br i1 %or.cond13, label %79, label %.sink.split
 
 79:                                               ; preds = %76
-  %80 = icmp ult i32 %6, 3
-  %81 = icmp ult i32 %7, 3
+  %80 = icmp samesign ult i32 %6, 3
+  %81 = icmp samesign ult i32 %7, 3
   %or.cond15 = or i1 %80, %81
   br i1 %or.cond15, label %82, label %.sink.split
 

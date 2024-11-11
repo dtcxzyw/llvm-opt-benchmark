@@ -514,7 +514,7 @@ _ZN8facebook5velox4simd6detail11setNextWordIN5xsimd5batchIaNS4_4fma3INS4_4avx2EE
   %6 = ptrtoint ptr %to.addr.084.i to i64
   %add.i.i.i = add i64 %6, 32
   %7 = inttoptr i64 %add.i.i.i to ptr
-  %cmp.not.i = icmp ult i32 %bytes.addr.085.i, 64
+  %cmp.not.i = icmp samesign ult i32 %bytes.addr.085.i, 64
   br i1 %cmp.not.i, label %while.end.i, label %if.then.i.i, !llvm.loop !5
 
 while.end.i:                                      ; preds = %_ZN8facebook5velox4simd6detail11setNextWordIN5xsimd5batchIaNS4_4fma3INS4_4avx2EEEEES8_EEbRPvT_RiRKT0_.exit.i, %if.then6
@@ -559,7 +559,7 @@ if.end.i22.i:                                     ; preds = %if.then.i19.i
 if.end20.i:                                       ; preds = %if.end.i22.i, %while.end16.i
   %to.addr.4.ph.i = phi ptr [ %to.addr.1.lcssa.i, %while.end16.i ], [ %11, %if.end.i22.i ]
   %bytes.addr.4.ph.i = phi i32 [ %bytes.addr.1.lcssa.i, %while.end16.i ], [ %sub.i20.i, %if.end.i22.i ]
-  %cmp.i24.i = icmp ugt i32 %bytes.addr.4.ph.i, 1
+  %cmp.i24.i = icmp samesign ugt i32 %bytes.addr.4.ph.i, 1
   br i1 %cmp.i24.i, label %if.then.i26.i, label %if.end24.i
 
 if.then.i26.i:                                    ; preds = %if.end20.i
@@ -624,7 +624,7 @@ _ZN8facebook5velox4simd6detail11setNextWordIN5xsimd5batchIaNS4_4fma3INS4_4avx2EE
   %20 = ptrtoint ptr %to.addr.084.i9 to i64
   %add.i.i.i13 = add i64 %20, 32
   %21 = inttoptr i64 %add.i.i.i13 to ptr
-  %cmp.not.i14 = icmp ult i32 %bytes.addr.085.i8, 64
+  %cmp.not.i14 = icmp samesign ult i32 %bytes.addr.085.i8, 64
   br i1 %cmp.not.i14, label %while.end.i15, label %if.then.i.i7, !llvm.loop !5
 
 while.end.i15:                                    ; preds = %_ZN8facebook5velox4simd6detail11setNextWordIN5xsimd5batchIaNS4_4fma3INS4_4avx2EEEEES8_EEbRPvT_RiRKT0_.exit.i12, %invoke.cont30
@@ -669,7 +669,7 @@ if.end.i22.i38:                                   ; preds = %if.then.i19.i35
 if.end20.i23:                                     ; preds = %if.end.i22.i38, %while.end16.i19
   %to.addr.4.ph.i24 = phi ptr [ %to.addr.1.lcssa.i20, %while.end16.i19 ], [ %25, %if.end.i22.i38 ]
   %bytes.addr.4.ph.i25 = phi i32 [ %bytes.addr.1.lcssa.i21, %while.end16.i19 ], [ %sub.i20.i36, %if.end.i22.i38 ]
-  %cmp.i24.i26 = icmp ugt i32 %bytes.addr.4.ph.i25, 1
+  %cmp.i24.i26 = icmp samesign ugt i32 %bytes.addr.4.ph.i25, 1
   br i1 %cmp.i24.i26, label %if.then.i26.i31, label %if.end24.i27
 
 if.then.i26.i31:                                  ; preds = %if.end20.i23

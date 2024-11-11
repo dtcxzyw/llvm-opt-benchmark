@@ -23863,7 +23863,7 @@ cond.end113.i.i.i:                                ; preds = %cond.true106.i.i.i,
   br i1 %or.cond.i.i.i.i, label %_ZNK4pbrt17VarianceEstimatorIfE16RelativeVarianceEv.exit.i.i.i, label %cond.false.i.i.i.i
 
 cond.false.i.i.i.i:                               ; preds = %cond.end113.i.i.i
-  %cmp.i.i.i.i.i = icmp ugt i64 %78, 1
+  %cmp.i.i.i.i.i = icmp samesign ugt i64 %78, 1
   %80 = load float, ptr %S.i.i.i.i, align 4
   %sub.i.i.i.i.i = add nsw i64 %78, -1
   %conv.i.i.i.i.i = uitofp nneg i64 %sub.i.i.i.i.i to float
@@ -23884,7 +23884,7 @@ _ZNK4pbrt17VarianceEstimatorIfE16RelativeVarianceEv.exit.i.i.i: ; preds = %cond.
   br i1 %or.cond.i119.i.i.i, label %_ZNK4pbrt17VarianceEstimatorIfE16RelativeVarianceEv.exit129.i.i.i, label %cond.false.i120.i.i.i
 
 cond.false.i120.i.i.i:                            ; preds = %_ZNK4pbrt17VarianceEstimatorIfE16RelativeVarianceEv.exit.i.i.i
-  %cmp.i.i121.i.i.i = icmp ugt i64 %81, 1
+  %cmp.i.i121.i.i.i = icmp samesign ugt i64 %81, 1
   %83 = load float, ptr %S.i98.i.i.i, align 4
   %sub.i.i123.i.i.i = add nsw i64 %81, -1
   %conv.i.i124.i.i.i = uitofp nneg i64 %sub.i.i123.i.i.i to float
@@ -23904,7 +23904,7 @@ _ZNK4pbrt17VarianceEstimatorIfE16RelativeVarianceEv.exit129.i.i.i: ; preds = %co
   br i1 %or.cond.i133.i.i.i, label %"_ZSt10__invoke_rIvRZN4pbrt11GBufferFilm8GetImageEPNS0_13ImageMetadataEfE3$_0JNS0_6Point2IiEEEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EES9_E4typeEOSA_DpOSB_.exit", label %cond.false.i134.i.i.i
 
 cond.false.i134.i.i.i:                            ; preds = %_ZNK4pbrt17VarianceEstimatorIfE16RelativeVarianceEv.exit129.i.i.i
-  %cmp.i.i135.i.i.i = icmp ugt i64 %84, 1
+  %cmp.i.i135.i.i.i = icmp samesign ugt i64 %84, 1
   %86 = load float, ptr %S.i105.i.i.i, align 4
   %sub.i.i137.i.i.i = add nsw i64 %84, -1
   %conv.i.i138.i.i.i = uitofp nneg i64 %sub.i.i137.i.i.i to float

@@ -1305,7 +1305,7 @@ if.then97:                                        ; preds = %if.else94
   br i1 %tobool102.not, label %out, label %if.else139
 
 if.end106:                                        ; preds = %if.else94
-  %cmp107 = icmp ugt i32 %spec.select, 8
+  %cmp107 = icmp samesign ugt i32 %spec.select, 8
   br i1 %cmp107, label %if.then109, label %if.else139
 
 if.then109:                                       ; preds = %if.end106
@@ -1325,7 +1325,7 @@ lor.lhs.false115:                                 ; preds = %if.then109
   br i1 %tobool118.not, label %out, label %if.end120
 
 if.end120:                                        ; preds = %lor.lhs.false115
-  %cmp121 = icmp ult i32 %spec.select, 12
+  %cmp121 = icmp samesign ult i32 %spec.select, 12
   %13 = load ptr, ptr %md_ctx, align 8
   br i1 %cmp121, label %if.then123, label %if.end131
 
@@ -5638,7 +5638,7 @@ err:                                              ; preds = %if.else, %if.then12
   %ret.0 = phi i32 [ 1, %if.end136 ], [ 0, %if.then124 ], [ 0, %if.else ], [ 0, %lor.lhs.false114 ], [ 0, %if.end108 ], [ 0, %lor.lhs.false103 ], [ 0, %if.end96 ], [ 0, %lor.lhs.false88 ], [ 0, %lor.lhs.false81 ], [ 0, %lor.lhs.false74 ], [ 0, %lor.lhs.false67 ], [ 0, %lor.lhs.false60 ], [ 0, %lor.lhs.false ], [ 0, %sw.epilog ]
   %ctx.0 = phi ptr [ %call57, %if.end136 ], [ %call57, %if.then124 ], [ %call57, %if.else ], [ %call57, %lor.lhs.false114 ], [ %call57, %if.end108 ], [ %call57, %lor.lhs.false103 ], [ %call57, %if.end96 ], [ %call57, %lor.lhs.false88 ], [ %call57, %lor.lhs.false81 ], [ %call57, %lor.lhs.false74 ], [ %call57, %lor.lhs.false67 ], [ %call57, %lor.lhs.false60 ], [ %call57, %lor.lhs.false ], [ null, %sw.epilog ]
   call void @EVP_CIPHER_CTX_free(ptr noundef %ctx.0) #8
-  %cmp137 = icmp ugt i32 %idx, 5
+  %cmp137 = icmp samesign ugt i32 %idx, 5
   br i1 %cmp137, label %if.then139, label %return
 
 if.then139:                                       ; preds = %err
@@ -7055,7 +7055,7 @@ sw.epilog:                                        ; preds = %sw.bb10, %sw.bb8, %
   br i1 %tobool.not, label %err, label %if.end14
 
 if.end14:                                         ; preds = %sw.epilog
-  %cmp15 = icmp ult i32 %idx, 6
+  %cmp15 = icmp samesign ult i32 %idx, 6
   %7 = load ptr, ptr %pkey, align 8
   br i1 %cmp15, label %if.then16, label %if.else
 

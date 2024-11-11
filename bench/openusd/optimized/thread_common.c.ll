@@ -178,7 +178,7 @@ define hidden void @av1_loop_filter_frame_mt(ptr noundef %0, ptr noundef %1, ptr
 13:                                               ; preds = %9
   %14 = lshr i32 %11, 1
   %15 = and i32 %14, 1073741816
-  %16 = icmp ugt i32 %11, 71
+  %16 = icmp samesign ugt i32 %11, 71
   %17 = lshr i32 %11, 3
   %spec.select = select i1 %16, i32 %17, i32 8
   br label %18
@@ -388,11 +388,11 @@ define hidden void @av1_loop_filter_frame_mt(ptr noundef %0, ptr noundef %1, ptr
   br i1 %89, label %loop_filter_alloc.exit.i, label %90
 
 90:                                               ; preds = %88
-  %91 = icmp ult i32 %35, 1281
+  %91 = icmp samesign ult i32 %35, 1281
   br i1 %91, label %loop_filter_alloc.exit.i, label %92
 
 92:                                               ; preds = %90
-  %93 = icmp ult i32 %35, 4097
+  %93 = icmp samesign ult i32 %35, 4097
   %..i.i.i = select i1 %93, i32 4, i32 8
   br label %loop_filter_alloc.exit.i
 

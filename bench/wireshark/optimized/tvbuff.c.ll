@@ -9260,7 +9260,7 @@ tvb_captured_length_remaining.exit.thread:        ; preds = %19, %16, %tvb_captu
 
 28:                                               ; preds = %tvb_captured_length_remaining.exit
   %29 = trunc nuw i64 %3 to i32
-  %.not26 = icmp ult i32 %26, %29
+  %.not26 = icmp samesign ult i32 %26, %29
   %30 = add nsw i32 %29, -1
   %spec.select = select i1 %.not26, i32 %26, i32 %30
   %31 = zext nneg i32 %spec.select to i64

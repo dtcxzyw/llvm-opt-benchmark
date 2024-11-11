@@ -394,7 +394,7 @@ define range(i64 -2147483648, 2147483648) i64 @shift_jis_2004_to_euc_jis_2004(pt
   %45 = load i8, ptr %44, align 1
   %46 = zext i8 %45 to i32
   %47 = icmp ne i8 %20, -128
-  %48 = icmp ult i8 %20, -96
+  %48 = icmp samesign ult i8 %20, -96
   %or.cond5.i = and i1 %47, %48
   br i1 %or.cond5.i, label %49, label %63
 

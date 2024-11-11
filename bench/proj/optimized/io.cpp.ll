@@ -159570,7 +159570,7 @@ _ZN8nlohmann6detail5lexerINS_10basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stri
   br label %_ZN8nlohmann6detail5lexerINS_10basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS_14adl_serializerES4_IhSaIhEEEENS0_22iterator_input_adapterIN9__gnu_cxx17__normal_iteratorIPKcSA_EEEEE18next_byte_in_rangeESt16initializer_listIiE.exit.thread.sink.split
 
 76:                                               ; preds = %72
-  %77 = icmp ult i32 %.1.i, 2048
+  %77 = icmp samesign ult i32 %.1.i, 2048
   br i1 %77, label %78, label %85
 
 78:                                               ; preds = %76
@@ -159584,7 +159584,7 @@ _ZN8nlohmann6detail5lexerINS_10basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stri
   br label %_ZN8nlohmann6detail5lexerINS_10basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS_14adl_serializerES4_IhSaIhEEEENS0_22iterator_input_adapterIN9__gnu_cxx17__normal_iteratorIPKcSA_EEEEE18next_byte_in_rangeESt16initializer_listIiE.exit.thread.sink.split
 
 85:                                               ; preds = %76
-  %86 = icmp ult i32 %.1.i, 65536
+  %86 = icmp samesign ult i32 %.1.i, 65536
   br i1 %86, label %87, label %98
 
 87:                                               ; preds = %85
@@ -180728,7 +180728,7 @@ define internal fastcc void @"_ZSt16__insertion_sortIN9__gnu_cxx17__normal_itera
   %35 = and i8 %33, 1
   store i8 %35, ptr %34, align 8
   %36 = add nsw i64 %.010.i.i.i.i.i, -1
-  %37 = icmp ugt i64 %.010.i.i.i.i.i, 1
+  %37 = icmp samesign ugt i64 %.010.i.i.i.i.i, 1
   br i1 %37, label %.lr.ph.i.i.i.i.i, label %.loopexit, !llvm.loop !1143
 
 .loopexit:                                        ; preds = %.lr.ph.i.i.i.i.i, %16

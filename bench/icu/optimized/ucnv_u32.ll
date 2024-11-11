@@ -115,7 +115,7 @@ while.end:                                        ; preds = %if.then21, %morebyt
   br i1 %or.cond49, label %if.else56, label %if.then32
 
 if.then32:                                        ; preds = %while.end
-  %cmp33 = icmp ult i32 %ch.1.lcssa, 65536
+  %cmp33 = icmp samesign ult i32 %ch.1.lcssa, 65536
   br i1 %cmp33, label %if.then34, label %if.else37
 
 if.then34:                                        ; preds = %if.then32
@@ -280,7 +280,7 @@ while.end:                                        ; preds = %if.then21, %morebyt
   br i1 %or.cond58, label %if.else59, label %if.then32
 
 if.then32:                                        ; preds = %while.end
-  %cmp33 = icmp ult i32 %ch.1.lcssa, 65536
+  %cmp33 = icmp samesign ult i32 %ch.1.lcssa, 65536
   br i1 %cmp33, label %if.then34, label %if.else38
 
 if.then34:                                        ; preds = %if.then32
@@ -940,7 +940,7 @@ while.end:                                        ; preds = %if.then21, %morebyt
   br i1 %or.cond50, label %if.else56, label %if.then32
 
 if.then32:                                        ; preds = %while.end
-  %cmp33 = icmp ult i32 %ch.1.lcssa, 65536
+  %cmp33 = icmp samesign ult i32 %ch.1.lcssa, 65536
   br i1 %cmp33, label %if.then34, label %if.else37
 
 if.then34:                                        ; preds = %if.then32
@@ -1107,7 +1107,7 @@ while.end:                                        ; preds = %if.then21, %morebyt
   br i1 %or.cond59, label %if.else59, label %if.then32
 
 if.then32:                                        ; preds = %while.end
-  %cmp33 = icmp ult i32 %ch.1.lcssa, 65536
+  %cmp33 = icmp samesign ult i32 %ch.1.lcssa, 65536
   br i1 %cmp33, label %if.then34, label %if.else38
 
 if.then34:                                        ; preds = %if.then32

@@ -1268,7 +1268,7 @@ read_bits_16.exit.i:                              ; preds = %359
   br i1 %382, label %.preheader.i, label %395
 
 .preheader.i:                                     ; preds = %360
-  %383 = icmp ult i32 %.4154.i, 430
+  %383 = icmp samesign ult i32 %.4154.i, 430
   br i1 %383, label %.lr.ph152.preheader.i, label %parse_tables.exit
 
 .lr.ph152.preheader.i:                            ; preds = %.preheader.i
@@ -1580,7 +1580,7 @@ decode_code_length.exit.thread.i.i:               ; preds = %decode_code_length.
   %554 = or disjoint i32 %553, 2
   %555 = shl i32 %554, %552
   %.094.i.i = add i32 %555, 1
-  %556 = icmp ugt i32 %552, 3
+  %556 = icmp samesign ugt i32 %552, 3
   br i1 %556, label %557, label %610
 
 557:                                              ; preds = %550
@@ -1714,11 +1714,11 @@ read_consume_bits.exit.i.i:                       ; preds = %610
 
 643:                                              ; preds = %641
   %644 = add nuw nsw i32 %.015.i174.i.i, 1
-  %645 = icmp ugt i32 %.1.i84.i, 8192
+  %645 = icmp samesign ugt i32 %.1.i84.i, 8192
   br i1 %645, label %646, label %648
 
 646:                                              ; preds = %643
-  %647 = icmp ugt i32 %.1.i84.i, 262144
+  %647 = icmp samesign ugt i32 %.1.i84.i, 262144
   %spec.select.v.i.i = select i1 %647, i32 3, i32 2
   %spec.select.i.i = add nsw i32 %spec.select.v.i.i, %.015.i174.i.i
   br label %648
@@ -1928,7 +1928,7 @@ add_new_filter.exit.i:                            ; preds = %is_valid_filter_blo
   store i64 %759, ptr %718, align 8
   %763 = load i64, ptr %762, align 8
   store i64 %763, ptr %720, align 8
-  %764 = icmp ult i16 %706, 8192
+  %764 = icmp samesign ult i16 %706, 8192
   br i1 %764, label %765, label %parse_filter.exit.i.i
 
 765:                                              ; preds = %754
@@ -2464,7 +2464,7 @@ read_filter_data.exit.i.i.i:                      ; preds = %1041, %1036
   br label %.sink.split.i.i.i
 
 1050:                                             ; preds = %read_filter_data.exit.i.i.i
-  %.not40.i.i.i = icmp ugt i32 %1044, 16777215
+  %.not40.i.i.i = icmp samesign ugt i32 %1044, 16777215
   br i1 %.not40.i.i.i, label %1065, label %1051
 
 1051:                                             ; preds = %1050
@@ -3309,7 +3309,7 @@ read_u32.exit:                                    ; preds = %skip_unprocessed_by
 
 54:                                               ; preds = %.loopexit
   %55 = icmp eq i64 %46, 0
-  %56 = icmp ult i64 %51, 3
+  %56 = icmp samesign ult i64 %51, 3
   %or.cond3 = or i1 %55, %56
   br i1 %or.cond3, label %57, label %58
 

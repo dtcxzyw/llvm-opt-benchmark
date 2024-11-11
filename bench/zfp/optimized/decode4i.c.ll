@@ -906,7 +906,7 @@ stream_read_bit.exit41.i:                         ; preds = %81, %._crit_edge.i3
   br i1 %.not.i37, label %.critedge.i, label %.preheader.i38
 
 .preheader.i38:                                   ; preds = %stream_read_bit.exit41.i
-  %86 = icmp ult i32 %.196.i, 255
+  %86 = icmp samesign ult i32 %.196.i, 255
   br i1 %86, label %.lr.ph84.i, label %.critedge2.thread.i
 
 .lr.ph84.i:                                       ; preds = %.preheader.i38, %93

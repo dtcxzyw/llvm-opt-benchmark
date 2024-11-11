@@ -201,7 +201,7 @@ _ZNK6hermes2vm15DictPropertyMap7isMatchEPKNS0_6detail11DPMHashPairENS0_8SymbolID
   br i1 %cmp.i4.i, label %return, label %if.end17
 
 if.else:                                          ; preds = %for.cond
-  %cmp.i9 = icmp ult i32 %bf.load.i, 256
+  %cmp.i9 = icmp samesign ult i32 %bf.load.i, 256
   %tobool.not = icmp eq ptr %deleted.0, null
   %.sroa.speculated = select i1 %tobool.not, ptr %add.ptr, ptr %deleted.0
   br i1 %cmp.i9, label %return, label %if.end17
@@ -301,7 +301,7 @@ _ZNK6hermes2vm15DictPropertyMap7isMatchEPKNS0_6detail11DPMHashPairENS0_8SymbolID
   br i1 %cmp.i4.i.i, label %_ZN6hermes2vm15DictPropertyMap14lookupEntryForEPS1_NS0_8SymbolIDE.exit, label %if.end17.i
 
 if.else.i:                                        ; preds = %for.cond.i
-  %cmp.i9.i = icmp ult i32 %bf.load.i.i, 256
+  %cmp.i9.i = icmp samesign ult i32 %bf.load.i.i, 256
   %tobool.not.i = icmp eq ptr %deleted.0.i, null
   %.sroa.speculated.i = select i1 %tobool.not.i, ptr %add.ptr.i, ptr %deleted.0.i
   br i1 %cmp.i9.i, label %_ZN6hermes2vm15DictPropertyMap14lookupEntryForEPS1_NS0_8SymbolIDE.exit, label %if.end17.i
@@ -426,7 +426,7 @@ _ZNK6hermes2vm15DictPropertyMap7isMatchEPKNS0_6detail11DPMHashPairENS0_8SymbolID
   br i1 %cmp.i4.i.i, label %if.then, label %if.end17.i
 
 if.else.i:                                        ; preds = %for.cond.i
-  %cmp.i9.i = icmp ult i32 %bf.load.i.i, 256
+  %cmp.i9.i = icmp samesign ult i32 %bf.load.i.i, 256
   %tobool.not.i = icmp eq ptr %deleted.0.i, null
   %.sroa.speculated.i = select i1 %tobool.not.i, ptr %add.ptr.i, ptr %deleted.0.i
   br i1 %cmp.i9.i, label %if.end, label %if.end17.i
@@ -520,7 +520,7 @@ _ZNK6hermes2vm15DictPropertyMap7isMatchEPKNS0_6detail11DPMHashPairENS0_8SymbolID
   br i1 %cmp.i4.i.i75, label %if.end39, label %if.end17.i59
 
 if.else.i54:                                      ; preds = %for.cond.i45
-  %cmp.i9.i55 = icmp ult i32 %bf.load.i.i52, 256
+  %cmp.i9.i55 = icmp samesign ult i32 %bf.load.i.i52, 256
   %tobool.not.i64 = icmp eq ptr %deleted.0.i46, null
   %.sroa.speculated.i65 = select i1 %tobool.not.i64, ptr %add.ptr.i51, ptr %deleted.0.i46
   br i1 %cmp.i9.i55, label %if.end39, label %if.end17.i59
@@ -838,7 +838,7 @@ if.then4.i.i86:                                   ; preds = %_ZN4llvh11raw_ostre
   br label %for.inc
 
 if.else:                                          ; preds = %for.body
-  %cmp.i93 = icmp ult i32 %bf.load.i, 256
+  %cmp.i93 = icmp samesign ult i32 %bf.load.i, 256
   %21 = load ptr, ptr %OutBufEnd.i5.i, align 8
   %22 = load ptr, ptr %OutBufCur.i6.i, align 8
   %sub.ptr.lhs.cast.i7.i97 = ptrtoint ptr %21 to i64

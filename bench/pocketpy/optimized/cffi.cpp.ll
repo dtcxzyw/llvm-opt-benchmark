@@ -7928,7 +7928,7 @@ _ZN4pkpy6StructC2Eib.exit.i:                      ; preds = %28
   br i1 %44, label %45, label %.thread1.i
 
 45:                                               ; preds = %40
-  %46 = icmp ult i8 %43, 58
+  %46 = icmp samesign ult i8 %43, 58
   br i1 %46, label %47, label %49
 
 47:                                               ; preds = %45
@@ -7946,11 +7946,11 @@ _ZN4pkpy6StructC2Eib.exit.i:                      ; preds = %28
   br label %104
 
 49:                                               ; preds = %45
-  %50 = icmp ugt i8 %43, 64
+  %50 = icmp samesign ugt i8 %43, 64
   br i1 %50, label %51, label %.thread1.i
 
 51:                                               ; preds = %49
-  %52 = icmp ult i8 %43, 71
+  %52 = icmp samesign ult i8 %43, 71
   br i1 %52, label %53, label %55
 
 53:                                               ; preds = %51
@@ -8001,7 +8001,7 @@ _ZN4pkpy2VM10ValueErrorERKNS_3StrE.exit72.i:      ; preds = %.noexc70.i
   br i1 %69, label %70, label %.thread4.i
 
 70:                                               ; preds = %63
-  %71 = icmp ult i8 %68, 58
+  %71 = icmp samesign ult i8 %68, 58
   br i1 %71, label %72, label %75
 
 72:                                               ; preds = %70
@@ -8010,11 +8010,11 @@ _ZN4pkpy2VM10ValueErrorERKNS_3StrE.exit72.i:      ; preds = %.noexc70.i
   br label %91
 
 75:                                               ; preds = %70
-  %76 = icmp ugt i8 %68, 64
+  %76 = icmp samesign ugt i8 %68, 64
   br i1 %76, label %77, label %.thread4.i
 
 77:                                               ; preds = %75
-  %78 = icmp ult i8 %68, 71
+  %78 = icmp samesign ult i8 %68, 71
   br i1 %78, label %79, label %82
 
 79:                                               ; preds = %77

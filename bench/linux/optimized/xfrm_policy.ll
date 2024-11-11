@@ -5877,7 +5877,7 @@ select.unfold:                                    ; preds = %.thread59, %56, %.t
   %160 = phi ptr [ null, %148 ], [ %188, %340 ]
   %161 = phi ptr [ null, %148 ], [ %174, %340 ]
   %162 = phi ptr [ %4, %148 ], [ %319, %340 ]
-  %163 = icmp ugt i32 %156, 10
+  %163 = icmp samesign ugt i32 %156, 10
   br i1 %163, label %.thread69, label %164, !prof !6
 
 164:                                              ; preds = %154

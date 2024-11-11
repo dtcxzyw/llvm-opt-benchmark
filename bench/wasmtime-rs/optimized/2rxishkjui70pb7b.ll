@@ -207,7 +207,7 @@ define void @_ZN4core5slice4sort10merge_sort17h51051a8ed1a40f2aE(ptr align 8 %0,
   br label %37
 
 28:                                               ; preds = %3
-  %29 = icmp ugt i64 %13, 1
+  %29 = icmp samesign ugt i64 %13, 1
   br i1 %29, label %.preheader.i50, label %36
 
 30:                                               ; preds = %.body, %31
@@ -709,7 +709,7 @@ define void @_ZN4core5slice4sort10merge_sort17hb580c1ca536573f3E(ptr align 8 %0,
   br label %37
 
 28:                                               ; preds = %3
-  %29 = icmp ugt i64 %13, 1
+  %29 = icmp samesign ugt i64 %13, 1
   br i1 %29, label %.preheader.i50, label %36
 
 30:                                               ; preds = %.body, %31

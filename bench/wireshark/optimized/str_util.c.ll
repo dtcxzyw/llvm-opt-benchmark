@@ -1493,7 +1493,7 @@ define internal fastcc ptr @format_text_internal(ptr noundef %0, ptr noundef rea
   %159 = getelementptr i8, ptr %.6287, i64 %158
   store i8 %156, ptr %159, align 1
   %160 = lshr i32 %.3360, 6
-  %161 = icmp ugt i64 %indvars.iv, 2
+  %161 = icmp samesign ugt i64 %indvars.iv, 2
   br i1 %161, label %.lr.ph, label %._crit_edge, !llvm.loop !25
 
 ._crit_edge:                                      ; preds = %.lr.ph, %151
@@ -2032,15 +2032,15 @@ define noundef zeroext i1 @hex_dump_buffer(ptr nocapture noundef readonly %0, pt
   br i1 %.not, label %9, label %12
 
 9:                                                ; preds = %6
-  %.not57 = icmp ult i32 %8, 16777216
+  %.not57 = icmp samesign ult i32 %8, 16777216
   br i1 %.not57, label %10, label %.lr.ph
 
 10:                                               ; preds = %9
-  %.not58 = icmp ult i32 %8, 1048576
+  %.not58 = icmp samesign ult i32 %8, 1048576
   br i1 %.not58, label %11, label %.lr.ph
 
 11:                                               ; preds = %10
-  %.not59 = icmp ult i32 %8, 65536
+  %.not59 = icmp samesign ult i32 %8, 65536
   %. = select i1 %.not59, i32 4, i32 5
   br label %.lr.ph
 

@@ -42,7 +42,7 @@ if.end5:                                          ; preds = %if.end
   br i1 %cmp.i112, label %HUF_rescaleStats.exit, label %if.end.i
 
 if.end.i:                                         ; preds = %if.end5
-  %cmp1.i = icmp ult i32 %1, %cond
+  %cmp1.i = icmp samesign ult i32 %1, %cond
   br i1 %cmp1.i, label %if.then2.i, label %for.body.lr.ph
 
 if.then2.i:                                       ; preds = %if.end.i
@@ -449,7 +449,7 @@ if.end18:                                         ; preds = %if.end10
   br i1 %cmp19, label %return, label %if.end22
 
 if.end22:                                         ; preds = %if.end18
-  %cmp23 = icmp ult i32 %0, 12
+  %cmp23 = icmp samesign ult i32 %0, 12
   %cmp25 = icmp eq i32 %conv, 12
   %or.cond = select i1 %cmp23, i1 %cmp25, i1 false
   %1 = add nuw nsw i32 %0, 1

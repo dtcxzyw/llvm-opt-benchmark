@@ -7619,7 +7619,7 @@ _ZNSt12_Vector_baseIN2cv4text12_GLOBAL__N_19ComponentESaIS3_EE13_M_deallocateEPS
   %327 = getelementptr inbounds i8, ptr %.0910.i.i.i.i.i.i, i64 72
   %328 = getelementptr inbounds i8, ptr %.0811.i.i.i.i.i.i, i64 72
   %329 = add nsw i64 %.012.i.i.i.i.i.i, -1
-  %330 = icmp ugt i64 %.012.i.i.i.i.i.i, 1
+  %330 = icmp samesign ugt i64 %.012.i.i.i.i.i.i, 1
   br i1 %330, label %.lr.ph.i.i.i.i.i40.i, label %_ZSt4copyIN9__gnu_cxx17__normal_iteratorIPKN2cv4text12_GLOBAL__N_19ComponentESt6vectorIS5_SaIS5_EEEENS1_IPS5_SA_EEET0_T_SF_SE_.exit.loopexit.i, !llvm.loop !131
 
 _ZSt4copyIN9__gnu_cxx17__normal_iteratorIPKN2cv4text12_GLOBAL__N_19ComponentESt6vectorIS5_SaIS5_EEEENS1_IPS5_SA_EEET0_T_SF_SE_.exit.loopexit.i: ; preds = %.noexc145
@@ -7677,7 +7677,7 @@ _ZSt8_DestroyIN2cv4text12_GLOBAL__N_19ComponentEEvPT_.exit.i.i.i43.i: ; preds = 
   %342 = getelementptr inbounds i8, ptr %.0910.i.i.i.i.i50.i, i64 72
   %343 = getelementptr inbounds i8, ptr %.0811.i.i.i.i.i49.i, i64 72
   %344 = add nsw i64 %.012.i.i.i.i.i48.i, -1
-  %345 = icmp ugt i64 %.012.i.i.i.i.i48.i, 1
+  %345 = icmp samesign ugt i64 %.012.i.i.i.i.i48.i, 1
   br i1 %345, label %.lr.ph.i.i.i.i.i47.i, label %_ZSt4copyIPN2cv4text12_GLOBAL__N_19ComponentES4_ET0_T_S6_S5_.exit.loopexit.i, !llvm.loop !133
 
 _ZSt4copyIPN2cv4text12_GLOBAL__N_19ComponentES4_ET0_T_S6_S5_.exit.loopexit.i: ; preds = %.noexc146
@@ -10678,7 +10678,7 @@ _ZNSt12_Vector_baseIN2cv4text12_GLOBAL__N_116ChainedComponentESaIS3_EE13_M_deall
   %85 = getelementptr inbounds i8, ptr %.0910.i.i.i.i.i, i64 48
   %86 = getelementptr inbounds i8, ptr %.0811.i.i.i.i.i, i64 48
   %87 = add nsw i64 %.012.i.i.i.i.i, -1
-  %88 = icmp ugt i64 %.012.i.i.i.i.i, 1
+  %88 = icmp samesign ugt i64 %.012.i.i.i.i.i, 1
   br i1 %88, label %.lr.ph.i.i.i.i.i40, label %_ZSt4copyIN9__gnu_cxx17__normal_iteratorIPKN2cv4text12_GLOBAL__N_116ChainedComponentESt6vectorIS5_SaIS5_EEEENS1_IPS5_SA_EEET0_T_SF_SE_.exit.loopexit, !llvm.loop !172
 
 _ZSt4copyIN9__gnu_cxx17__normal_iteratorIPKN2cv4text12_GLOBAL__N_116ChainedComponentESt6vectorIS5_SaIS5_EEEENS1_IPS5_SA_EEET0_T_SF_SE_.exit.loopexit: ; preds = %.lr.ph.i.i.i.i.i40
@@ -10737,7 +10737,7 @@ _ZSt8_DestroyIN2cv4text12_GLOBAL__N_116ChainedComponentEEvPT_.exit.i.i.i43: ; pr
   %103 = getelementptr inbounds i8, ptr %.0910.i.i.i.i.i50, i64 48
   %104 = getelementptr inbounds i8, ptr %.0811.i.i.i.i.i49, i64 48
   %105 = add nsw i64 %.012.i.i.i.i.i48, -1
-  %106 = icmp ugt i64 %.012.i.i.i.i.i48, 1
+  %106 = icmp samesign ugt i64 %.012.i.i.i.i.i48, 1
   br i1 %106, label %.lr.ph.i.i.i.i.i47, label %_ZSt4copyIPN2cv4text12_GLOBAL__N_116ChainedComponentES4_ET0_T_S6_S5_.exit.loopexit, !llvm.loop !174
 
 _ZSt4copyIPN2cv4text12_GLOBAL__N_116ChainedComponentES4_ET0_T_S6_S5_.exit.loopexit: ; preds = %.lr.ph.i.i.i.i.i47

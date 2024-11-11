@@ -12592,7 +12592,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZNK5clang10TargetInfo16hasBuilti
   br i1 %or.cond, label %_ZN4llvm13isPowerOf2_64Em.exit, label %7
 
 7:                                                ; preds = %3
-  %.not6 = icmp ugt i64 %1, 8
+  %.not6 = icmp samesign ugt i64 %1, 8
   br i1 %.not6, label %8, label %_ZN4llvm13isPowerOf2_64Em.exit
 
 8:                                                ; preds = %7
@@ -26907,7 +26907,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZNK5clang7targets17SystemZTarget
   %17 = load ptr, ptr %.fca.0.extract.i17, align 8
   %18 = getelementptr inbounds nuw i8, ptr %17, i64 8
   store i8 1, ptr %18, align 1
-  %19 = icmp ugt i32 %7, 11
+  %19 = icmp samesign ugt i32 %7, 11
   br i1 %19, label %20, label %.thread33
 
 20:                                               ; preds = %14
@@ -26927,7 +26927,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZNK5clang7targets17SystemZTarget
   %28 = load ptr, ptr %.fca.0.extract.i19, align 8
   %29 = getelementptr inbounds nuw i8, ptr %28, i64 8
   store i8 1, ptr %29, align 1
-  %30 = icmp ugt i32 %7, 13
+  %30 = icmp samesign ugt i32 %7, 13
   br i1 %30, label %31, label %.thread33
 
 31:                                               ; preds = %25
@@ -35899,7 +35899,7 @@ define linkonce_odr void @_ZSt16__insertion_sortIN9__gnu_cxx17__normal_iteratorI
   %17 = getelementptr inbounds i8, ptr %.069.i.i.i.i.i, i64 -32
   %18 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEOS4_(ptr noundef nonnull align 8 dereferenceable(32) %17, ptr noundef nonnull align 8 dereferenceable(32) %16) #18
   %19 = add nsw i64 %.010.i.i.i.i.i, -1
-  %20 = icmp ugt i64 %.010.i.i.i.i.i, 1
+  %20 = icmp samesign ugt i64 %.010.i.i.i.i.i, 1
   br i1 %20, label %.lr.ph.i.i.i.i.i, label %_ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt6vectorIS7_SaIS7_EEEESC_ET0_T_SE_SD_.exit, !llvm.loop !329
 
 _ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt6vectorIS7_SaIS7_EEEESC_ET0_T_SE_SD_.exit: ; preds = %.lr.ph.i.i.i.i.i, %10

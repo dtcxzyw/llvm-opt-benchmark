@@ -131,7 +131,7 @@ if.end34:                                         ; preds = %if.else, %if.then23
 lor.lhs.false36:                                  ; preds = %if.end34
   %cmp37 = icmp ult i16 %storemerge.in, 20
   %narrow = add nuw nsw i32 %storemerge, 4
-  %cmp41 = icmp ult i32 %8, %narrow
+  %cmp41 = icmp samesign ult i32 %8, %narrow
   %or.cond28 = select i1 %cmp37, i1 true, i1 %cmp41
   %or.cond29 = icmp ult i32 %length, %8
   %or.cond30 = or i1 %or.cond29, %or.cond28
@@ -1063,7 +1063,7 @@ if.then:                                          ; preds = %lor.lhs.false, %ent
   unreachable
 
 if.end:                                           ; preds = %lor.lhs.false
-  %cmp5 = icmp ugt i32 %conv, 67
+  %cmp5 = icmp samesign ugt i32 %conv, 67
   br i1 %cmp5, label %if.then6, label %if.end9
 
 if.then6:                                         ; preds = %if.end

@@ -127,7 +127,7 @@ if.then11:                                        ; preds = %lor.lhs.false, %lan
   %11 = ptrtoint ptr %add.ptr.i to i64
   %maxstack.i = getelementptr inbounds i8, ptr %L, i64 48
   store i64 %11, ptr %maxstack.i, align 8
-  %cmp31.i = icmp ult i32 %0, %add1.i
+  %cmp31.i = icmp samesign ult i32 %0, %add1.i
   %12 = zext nneg i32 %0 to i64
   br i1 %cmp31.i, label %while.body.preheader.i, label %while.end.i
 
@@ -226,7 +226,7 @@ if.then13:                                        ; preds = %if.end9
 
 if.else:                                          ; preds = %if.end9
   %mul = shl nuw nsw i32 %0, 1
-  %cmp16 = icmp ult i32 %add, %mul
+  %cmp16 = icmp samesign ult i32 %add, %mul
   br i1 %cmp16, label %if.then18, label %if.end26
 
 if.then18:                                        ; preds = %if.else

@@ -162,7 +162,7 @@ padr_match.exit:                                  ; preds = %lor.lhs.false26
   br i1 %tobool35.not.i.not, label %if.then38, label %lor.lhs.false30
 
 lor.lhs.false30:                                  ; preds = %padr_match.exit.thread, %padr_match.exit
-  %tobool.not.i176 = icmp ult i16 %0, 16384
+  %tobool.not.i176 = icmp samesign ult i16 %0, 16384
   br i1 %tobool.not.i176, label %padr_bcast.exit, label %lor.lhs.false34
 
 padr_bcast.exit:                                  ; preds = %lor.lhs.false30

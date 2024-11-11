@@ -2303,7 +2303,7 @@ megaco_tvb_skip_wsp.exit1161:                     ; preds = %.lr.ph.i1157, %778,
   ]
 
 794:                                              ; preds = %787
-  %795 = icmp ugt i32 %781, 30
+  %795 = icmp samesign ugt i32 %781, 30
   br i1 %795, label %796, label %800
 
 796:                                              ; preds = %794
@@ -2410,7 +2410,7 @@ megaco_tvb_skip_wsp.exit1161:                     ; preds = %.lr.ph.i1157, %778,
   %853 = add i32 %.18951352, 1
   %854 = call i32 @tvb_find_guint8(ptr noundef %0, i32 noundef %853, i32 noundef %.013.i, i8 noundef zeroext 125) #9
   %855 = add nsw i32 %.68711353, -1
-  %856 = icmp ugt i32 %.68711353, 1
+  %856 = icmp samesign ugt i32 %.68711353, 1
   br i1 %856, label %.lr.ph1355, label %._crit_edge1356, !llvm.loop !13
 
 ._crit_edge1356:                                  ; preds = %.lr.ph1355, %850

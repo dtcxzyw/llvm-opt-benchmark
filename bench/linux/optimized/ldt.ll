@@ -237,7 +237,7 @@ define dso_local noundef range(i32 -12, 1) i32 @ldt_dup_context(ptr noundef %0, 
   br i1 %17, label %.thread, label %18
 
 18:                                               ; preds = %14
-  %19 = icmp ugt i32 %12, 512
+  %19 = icmp samesign ugt i32 %12, 512
   br i1 %19, label %20, label %24
 
 20:                                               ; preds = %18
@@ -1015,7 +1015,7 @@ define internal fastcc noundef range(i32 -22, 1) i32 @write_ldt(ptr noundef %0, 
   br i1 %111, label %.thread, label %112
 
 112:                                              ; preds = %108
-  %113 = icmp ugt i32 %106, 512
+  %113 = icmp samesign ugt i32 %106, 512
   br i1 %113, label %114, label %118
 
 114:                                              ; preds = %112

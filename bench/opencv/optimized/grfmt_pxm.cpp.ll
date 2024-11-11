@@ -623,7 +623,7 @@ switch.lookup:                                    ; preds = %54
   %switch.load92 = load i32, ptr %switch.gep91, align 4
   %74 = getelementptr inbounds i8, ptr %0, i64 1360
   store i32 %switch.load, ptr %74, align 8
-  %75 = icmp ugt i32 %53, 51
+  %75 = icmp samesign ugt i32 %53, 51
   %76 = getelementptr inbounds i8, ptr %0, i64 1368
   %77 = zext i1 %75 to i8
   store i8 %77, ptr %76, align 8

@@ -27,11 +27,11 @@ define hidden void @av1_default_coef_probs(ptr nocapture noundef readonly %0) lo
   br i1 %4, label %get_q_ctx.exit, label %5
 
 5:                                                ; preds = %1
-  %6 = icmp ult i32 %3, 61
+  %6 = icmp samesign ult i32 %3, 61
   br i1 %6, label %get_q_ctx.exit, label %7
 
 7:                                                ; preds = %5
-  %8 = icmp ult i32 %3, 121
+  %8 = icmp samesign ult i32 %3, 121
   %..i = select i1 %8, i64 2, i64 3
   br label %get_q_ctx.exit
 

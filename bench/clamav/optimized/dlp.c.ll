@@ -217,7 +217,7 @@ get_iin.exit:                                     ; preds = %52, %.lr.ph.split.u
   %89 = getelementptr inbounds i8, ptr %.us-phi.i, i64 8
   %90 = load i8, ptr %89, align 8
   %91 = zext i8 %90 to i64
-  %92 = icmp ult i64 %.265.lcssa, %91
+  %92 = icmp samesign ult i64 %.265.lcssa, %91
   br i1 %92, label %.thread, label %.thread91
 
 93:                                               ; preds = %.critedge
@@ -294,7 +294,7 @@ define i32 @dlp_get_cc_count(ptr noundef %0, i64 noundef %1, i32 noundef %2) loc
   %9 = tail call ptr @__ctype_b_loc() #9
   %10 = ptrtoint ptr %0 to i64
   %.neg.i = add i64 %1, %10
-  %11 = icmp ugt i64 %1, 15
+  %11 = icmp samesign ugt i64 %1, 15
   %12 = add nsw i64 %1, -1
   %13 = select i1 %11, i64 15, i64 %12
   br label %.lr.ph.split.i

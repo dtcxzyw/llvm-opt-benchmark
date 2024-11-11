@@ -761,7 +761,7 @@ define internal fastcc void @"_ZN10serde_json2de21Deserializer$LT$R$GT$13parse_d
 
 71:                                               ; preds = %29
   %72 = icmp ne i64 %.sroa.0.050, 1844674407370955161
-  %73 = icmp ugt i8 %24, 5
+  %73 = icmp samesign ugt i8 %24, 5
   %or.cond1 = or i1 %72, %73
   br i1 %or.cond1, label %79, label %74
 
@@ -1022,7 +1022,7 @@ define hidden void @"_ZN10serde_json2de21Deserializer$LT$R$GT$13parse_integer17h
 
 91:                                               ; preds = %88
   %92 = icmp ne i64 %.sroa.05.059, 1844674407370955161
-  %93 = icmp ugt i8 %63, 5
+  %93 = icmp samesign ugt i8 %63, 5
   %or.cond3 = or i1 %92, %93
   br i1 %or.cond3, label %98, label %94
 
@@ -1502,7 +1502,7 @@ define internal fastcc void @"_ZN10serde_json2de21Deserializer$LT$R$GT$14parse_e
 
 78:                                               ; preds = %42
   %79 = icmp ne i32 %.sroa.05.041, 214748364
-  %80 = icmp ugt i8 %41, 7
+  %80 = icmp samesign ugt i8 %41, 7
   %or.cond2 = or i1 %79, %80
   br i1 %or.cond2, label %84, label %81
 

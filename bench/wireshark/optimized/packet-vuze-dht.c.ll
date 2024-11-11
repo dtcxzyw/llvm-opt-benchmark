@@ -346,7 +346,7 @@ define internal i32 @dissect_vuze_dht(ptr noundef %0, ptr nocapture noundef read
   br label %31
 
 29:                                               ; preds = %13
-  %30 = icmp ugt i8 %25, 8
+  %30 = icmp samesign ugt i8 %25, 8
   br i1 %30, label %31, label %.thread63.i
 
 31:                                               ; preds = %.thread, %29
@@ -407,7 +407,7 @@ define internal i32 @dissect_vuze_dht(ptr noundef %0, ptr nocapture noundef read
   br label %73
 
 71:                                               ; preds = %55
-  %72 = icmp ugt i8 %67, 8
+  %72 = icmp samesign ugt i8 %67, 8
   br i1 %72, label %73, label %77
 
 73:                                               ; preds = %.thread102, %71
@@ -597,7 +597,7 @@ dissect_vuze_dht_keys.exit.i:                     ; preds = %112, %101
   br label %.thread37.i
 
 183:                                              ; preds = %170
-  %184 = icmp ugt i8 %.090.in, 9
+  %184 = icmp samesign ugt i8 %.090.in, 9
   br i1 %184, label %.thread37.i, label %.thread40.i
 
 .thread37.i:                                      ; preds = %183, %179, %175

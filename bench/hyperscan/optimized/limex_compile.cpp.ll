@@ -15210,7 +15210,7 @@ for.body.i.i.i.i.i.i:                             ; preds = %for.body.i.i.i.i.i.
   %second3.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__result.addr.06.i.i.i.i.i.i, i64 -4
   store i32 %6, ptr %second3.i.i.i.i.i.i.i, align 4
   %dec.i.i.i.i.i.i = add nsw i64 %__n.07.i.i.i.i.i.i, -1
-  %cmp.i.i.i.i.i.i = icmp ugt i64 %__n.07.i.i.i.i.i.i, 1
+  %cmp.i.i.i.i.i.i = icmp samesign ugt i64 %__n.07.i.i.i.i.i.i, 1
   br i1 %cmp.i.i.i.i.i.i, label %for.body.i.i.i.i.i.i, label %_ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPSt4pairIi13NFAEngineTypeESt6vectorIS4_SaIS4_EEEES9_ET0_T_SB_SA_.exit.i, !llvm.loop !239
 
 _ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPSt4pairIi13NFAEngineTypeESt6vectorIS4_SaIS4_EEEES9_ET0_T_SB_SA_.exit.i: ; preds = %for.body.i.i.i.i.i.i
@@ -15375,7 +15375,7 @@ for.body.i.i.i.i.i.i72:                           ; preds = %for.body.i.i.i.i.i.
   %second3.i.i.i.i.i.i.i79 = getelementptr inbounds i8, ptr %__result.addr.06.i.i.i.i.i.i74, i64 -4
   store i32 %21, ptr %second3.i.i.i.i.i.i.i79, align 4
   %dec.i.i.i.i.i.i80 = add nsw i64 %__n.07.i.i.i.i.i.i73, -1
-  %cmp.i.i.i.i.i.i81 = icmp ugt i64 %__n.07.i.i.i.i.i.i73, 1
+  %cmp.i.i.i.i.i.i81 = icmp samesign ugt i64 %__n.07.i.i.i.i.i.i73, 1
   br i1 %cmp.i.i.i.i.i.i81, label %for.body.i.i.i.i.i.i72, label %_ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPSt4pairIi13NFAEngineTypeESt6vectorIS4_SaIS4_EEEES9_ET0_T_SB_SA_.exit.i69, !llvm.loop !239
 
 _ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPSt4pairIi13NFAEngineTypeESt6vectorIS4_SaIS4_EEEES9_ET0_T_SB_SA_.exit.i69: ; preds = %for.body.i.i.i.i.i.i72, %if.then9.i61
@@ -16040,7 +16040,7 @@ if.end.i41.i:                                     ; preds = %if.end7.i.i.i
   %mul.i.i = shl nuw nsw i64 %conv.i.i, 3
   %11 = add nuw nsw i64 %mul.i.i, 83
   %12 = and i64 %11, 34359738360
-  %cmp.not.i.i.i.i = icmp ult i32 %add.i.i.i, 536870902
+  %cmp.not.i.i.i.i = icmp samesign ult i32 %add.i.i.i, 536870902
   br i1 %cmp.not.i.i.i.i, label %_ZN3ue212_GLOBAL__N_17FactoryIL13NFAEngineType0EE15repeatAllocSizeERKNS_17BoundedRepeatDataEPjS7_.exit.i, label %if.then.i.i.i.i
 
 if.then.i.i.i.i:                                  ; preds = %if.end.i41.i
@@ -27977,7 +27977,7 @@ _ZNK5boost9container19vector_alloc_holderINS0_22small_vector_allocatorIN3ue212gr
   br i1 %cmp3.i.i.i, label %if.then.i.i877.invoke.i, label %if.end.i4.i.i
 
 if.end.i4.i.i:                                    ; preds = %_ZNK5boost9container19vector_alloc_holderINS0_22small_vector_allocatorIN3ue212graph_detail17vertex_descriptorINS3_9ue2_graphINS3_8NGHolderENS3_19NFAGraphVertexPropsENS3_17NFAGraphEdgePropsEEEEESaIvEvEEmNS_11move_detail17integral_constantIjLj1EEEE13next_capacityINS0_16growth_factor_60EEEmm.exit.i.i
-  %cmp.i.i.i.i.i.i.i868.i = icmp ugt i64 %170, 576460752303423487
+  %cmp.i.i.i.i.i.i.i868.i = icmp samesign ugt i64 %170, 576460752303423487
   br i1 %cmp.i.i.i.i.i.i.i868.i, label %if.end.i.i.i.i.i.i.i875.i, label %_ZN5boost9container19vector_alloc_holderINS0_22small_vector_allocatorIN3ue212graph_detail17vertex_descriptorINS3_9ue2_graphINS3_8NGHolderENS3_19NFAGraphVertexPropsENS3_17NFAGraphEdgePropsEEEEESaIvEvEEmNS_11move_detail17integral_constantIjLj1EEEE8allocateEm.exit.i.i
 
 if.end.i.i.i.i.i.i.i875.i:                        ; preds = %if.end.i4.i.i
@@ -28247,7 +28247,7 @@ _ZNK5boost9container19vector_alloc_holderINS0_22small_vector_allocatorIN3ue212gr
   br i1 %cmp3.i.i919.i, label %if.then.i.i958.invoke.i, label %if.end.i4.i920.i
 
 if.end.i4.i920.i:                                 ; preds = %_ZNK5boost9container19vector_alloc_holderINS0_22small_vector_allocatorIN3ue212graph_detail17vertex_descriptorINS3_9ue2_graphINS3_8NGHolderENS3_19NFAGraphVertexPropsENS3_17NFAGraphEdgePropsEEEEESaIvEvEEmNS_11move_detail17integral_constantIjLj1EEEE13next_capacityINS0_16growth_factor_60EEEmm.exit.i916.i
-  %cmp.i.i.i.i.i.i.i921.i = icmp ugt i64 %190, 576460752303423487
+  %cmp.i.i.i.i.i.i.i921.i = icmp samesign ugt i64 %190, 576460752303423487
   br i1 %cmp.i.i.i.i.i.i.i921.i, label %if.end.i.i.i.i.i.i.i953.i, label %_ZN5boost9container19vector_alloc_holderINS0_22small_vector_allocatorIN3ue212graph_detail17vertex_descriptorINS3_9ue2_graphINS3_8NGHolderENS3_19NFAGraphVertexPropsENS3_17NFAGraphEdgePropsEEEEESaIvEvEEmNS_11move_detail17integral_constantIjLj1EEEE8allocateEm.exit.i922.i
 
 if.end.i.i.i.i.i.i.i953.i:                        ; preds = %if.end.i4.i920.i
@@ -29462,7 +29462,7 @@ if.then.i5.i.cont:                                ; preds = %if.then.i5.i.invoke
   unreachable
 
 if.end.i4.i:                                      ; preds = %_ZNK5boost9container19vector_alloc_holderINS0_22small_vector_allocatorISt4pairIhhESaIvEvEEmNS_11move_detail17integral_constantIjLj1EEEE13next_capacityINS0_16growth_factor_60EEEmm.exit.i
-  %cmp.i.i.i.i.i.i.i693 = icmp ugt i64 %307, 4611686018427387903
+  %cmp.i.i.i.i.i.i.i693 = icmp samesign ugt i64 %307, 4611686018427387903
   br i1 %cmp.i.i.i.i.i.i.i693, label %if.end.i.i.i.i.i.i.i704, label %_ZN5boost9container19vector_alloc_holderINS0_22small_vector_allocatorISt4pairIhhESaIvEvEEmNS_11move_detail17integral_constantIjLj1EEEE8allocateEm.exit.i
 
 if.end.i.i.i.i.i.i.i704:                          ; preds = %if.end.i4.i
@@ -40968,7 +40968,7 @@ if.then.i5:                                       ; preds = %_ZNK5boost9containe
   unreachable
 
 if.end.i4:                                        ; preds = %_ZNK5boost9container19vector_alloc_holderINS0_22small_vector_allocatorISt4pairIhhESaIvEvEEmNS_11move_detail17integral_constantIjLj1EEEE13next_capacityINS0_16growth_factor_60EEEmm.exit
-  %cmp.i.i.i.i.i.i = icmp ugt i64 %5, 4611686018427387903
+  %cmp.i.i.i.i.i.i = icmp samesign ugt i64 %5, 4611686018427387903
   br i1 %cmp.i.i.i.i.i.i, label %if.end.i.i.i.i.i.i, label %_ZN5boost9container19vector_alloc_holderINS0_22small_vector_allocatorISt4pairIhhESaIvEvEEmNS_11move_detail17integral_constantIjLj1EEEE8allocateEm.exit
 
 if.end.i.i.i.i.i.i:                               ; preds = %if.end.i4
@@ -43264,7 +43264,7 @@ if.end.i41.i:                                     ; preds = %if.end7.i.i.i
   %mul.i.i = shl nuw nsw i64 %conv.i.i, 3
   %11 = add nuw nsw i64 %mul.i.i, 87
   %12 = and i64 %11, 34359738360
-  %cmp.not.i.i.i.i = icmp ult i32 %add.i.i.i, 536870902
+  %cmp.not.i.i.i.i = icmp samesign ult i32 %add.i.i.i, 536870902
   br i1 %cmp.not.i.i.i.i, label %_ZN3ue212_GLOBAL__N_17FactoryIL13NFAEngineType1EE15repeatAllocSizeERKNS_17BoundedRepeatDataEPjS7_.exit.i, label %if.then.i.i.i.i
 
 if.then.i.i.i.i:                                  ; preds = %if.end.i41.i
@@ -49509,7 +49509,7 @@ if.end.i41.i:                                     ; preds = %if.end7.i.i.i
   %mul.i.i = shl nuw nsw i64 %conv.i.i, 3
   %11 = add nuw nsw i64 %mul.i.i, 95
   %12 = and i64 %11, 34359738352
-  %cmp.not.i.i.i.i = icmp ult i32 %add.i.i.i, 536870901
+  %cmp.not.i.i.i.i = icmp samesign ult i32 %add.i.i.i, 536870901
   br i1 %cmp.not.i.i.i.i, label %_ZN3ue212_GLOBAL__N_17FactoryIL13NFAEngineType2EE15repeatAllocSizeERKNS_17BoundedRepeatDataEPjS7_.exit.i, label %if.then.i.i.i.i
 
 if.then.i.i.i.i:                                  ; preds = %if.end.i41.i
@@ -56117,7 +56117,7 @@ if.end.i41.i:                                     ; preds = %if.end7.i.i.i
   %mul.i.i = shl nuw nsw i64 %conv.i.i, 3
   %11 = add nuw nsw i64 %mul.i.i, 111
   %12 = and i64 %11, 34359738336
-  %cmp.not.i.i.i.i = icmp ult i32 %add.i.i.i, 536870899
+  %cmp.not.i.i.i.i = icmp samesign ult i32 %add.i.i.i, 536870899
   br i1 %cmp.not.i.i.i.i, label %_ZN3ue212_GLOBAL__N_17FactoryIL13NFAEngineType3EE15repeatAllocSizeERKNS_17BoundedRepeatDataEPjS7_.exit.i, label %if.then.i.i.i.i
 
 if.then.i.i.i.i:                                  ; preds = %if.end.i41.i
@@ -62722,7 +62722,7 @@ if.end.i41.i:                                     ; preds = %if.end7.i.i.i
   %mul.i.i = shl nuw nsw i64 %conv.i.i, 3
   %11 = add nuw nsw i64 %mul.i.i, 95
   %12 = and i64 %11, 34359738352
-  %cmp.not.i.i.i.i = icmp ult i32 %add.i.i.i, 536870901
+  %cmp.not.i.i.i.i = icmp samesign ult i32 %add.i.i.i, 536870901
   br i1 %cmp.not.i.i.i.i, label %_ZN3ue212_GLOBAL__N_17FactoryIL13NFAEngineType4EE15repeatAllocSizeERKNS_17BoundedRepeatDataEPjS7_.exit.i, label %if.then.i.i.i.i
 
 if.then.i.i.i.i:                                  ; preds = %if.end.i41.i
@@ -69329,7 +69329,7 @@ if.end.i41.i:                                     ; preds = %if.end7.i.i.i
   %mul.i.i = shl nuw nsw i64 %conv.i.i, 3
   %11 = add nuw nsw i64 %mul.i.i, 143
   %12 = and i64 %11, 34359738304
-  %cmp.not.i.i.i.i = icmp ult i32 %add.i.i.i, 536870895
+  %cmp.not.i.i.i.i = icmp samesign ult i32 %add.i.i.i, 536870895
   br i1 %cmp.not.i.i.i.i, label %_ZN3ue212_GLOBAL__N_17FactoryIL13NFAEngineType5EE15repeatAllocSizeERKNS_17BoundedRepeatDataEPjS7_.exit.i, label %if.then.i.i.i.i
 
 if.then.i.i.i.i:                                  ; preds = %if.end.i41.i

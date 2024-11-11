@@ -1791,7 +1791,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZNK2cv3dnn13GemmLayerImpl15getMe
   unreachable
 
 26:                                               ; preds = %5
-  %27 = icmp ult i32 %23, 4
+  %27 = icmp samesign ult i32 %23, 4
   br i1 %27, label %29, label %28
 
 28:                                               ; preds = %26

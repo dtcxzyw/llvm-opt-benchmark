@@ -2132,7 +2132,7 @@ define hidden range(i32 0, 2) i32 @content_convert_pcre_for_regex(ptr nocapture 
 
 .preheader:                                       ; preds = %10
   %.02836 = add nsw i32 %8, -1
-  %12 = icmp ugt i32 %.02836, 2
+  %12 = icmp samesign ugt i32 %.02836, 2
   br i1 %12, label %.lr.ph, label %.thread
 
 .lr.ph:                                           ; preds = %.preheader

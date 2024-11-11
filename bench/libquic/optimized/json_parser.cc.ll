@@ -2515,7 +2515,7 @@ if.end22:                                         ; preds = %invoke.cont19, %whi
   br i1 %cmp23, label %if.then26.loopexit, label %lor.lhs.false
 
 lor.lhs.false:                                    ; preds = %if.end22
-  %cmp.i6 = icmp ult i32 %12, 55296
+  %cmp.i6 = icmp samesign ult i32 %12, 55296
   %13 = add nsw i32 %12, -57344
   %or.cond.i = icmp ult i32 %13, 7632
   %or.cond7.i = or i1 %cmp.i6, %or.cond.i
@@ -2572,7 +2572,7 @@ if.then30:                                        ; preds = %if.end28
   br label %cleanup119
 
 if.then34:                                        ; preds = %if.end28
-  %cmp35 = icmp ult i32 %12, 128
+  %cmp35 = icmp samesign ult i32 %12, 128
   br i1 %cmp35, label %if.then36, label %if.else72.invoke
 
 if.then36:                                        ; preds = %if.then34
@@ -2747,7 +2747,7 @@ if.end65:                                         ; preds = %lor.rhs
   %49 = load ptr, ptr %pos_, align 8
   %incdec.ptr.i75 = getelementptr inbounds i8, ptr %49, i64 1
   store ptr %incdec.ptr.i75, ptr %pos_, align 8
-  %cmp67 = icmp ult i32 %39, 128
+  %cmp67 = icmp samesign ult i32 %39, 128
   br i1 %cmp67, label %if.then14.i78, label %if.else72.invoke
 
 if.then14.i78:                                    ; preds = %if.end65
@@ -2948,7 +2948,7 @@ if.else16.i:                                      ; preds = %if.then
 
 if.else5:                                         ; preds = %entry
   store i32 0, ptr %utf8_units, align 4
-  %cmp6 = icmp ult i32 %0, 2048
+  %cmp6 = icmp samesign ult i32 %0, 2048
   br i1 %cmp6, label %if.then7, label %if.else12
 
 if.then7:                                         ; preds = %if.else5
@@ -2959,7 +2959,7 @@ if.then7:                                         ; preds = %if.else5
   br label %if.end48
 
 if.else12:                                        ; preds = %if.else5
-  %cmp13 = icmp ult i32 %0, 65536
+  %cmp13 = icmp samesign ult i32 %0, 65536
   br i1 %cmp13, label %if.then14, label %if.else21
 
 if.then14:                                        ; preds = %if.else12
@@ -3183,7 +3183,7 @@ lor.rhs.i:                                        ; preds = %if.end30
   br i1 %or.cond64, label %if.else42, label %return
 
 if.end33:                                         ; preds = %if.end30
-  %cmp34 = icmp ult i32 %sub, 128
+  %cmp34 = icmp samesign ult i32 %sub, 128
   br i1 %cmp34, label %if.then35, label %if.else
 
 if.then35:                                        ; preds = %if.end33
@@ -3192,7 +3192,7 @@ if.then35:                                        ; preds = %if.end33
   br label %if.end127
 
 if.else:                                          ; preds = %if.end33
-  %cmp37 = icmp ult i32 %sub, 2048
+  %cmp37 = icmp samesign ult i32 %sub, 2048
   br i1 %cmp37, label %if.then38, label %if.then44
 
 if.then38:                                        ; preds = %if.else
@@ -3203,7 +3203,7 @@ if.then38:                                        ; preds = %if.else
   br label %if.end69
 
 if.else42:                                        ; preds = %lor.rhs.i
-  %cmp43 = icmp ult i32 %sub, 65536
+  %cmp43 = icmp samesign ult i32 %sub, 65536
   br i1 %cmp43, label %if.then44, label %if.else50
 
 if.then44:                                        ; preds = %if.else, %if.else42
@@ -3260,7 +3260,7 @@ lor.rhs.i48:                                      ; preds = %if.else76
   br i1 %or.cond65, label %if.else93, label %return
 
 if.end79:                                         ; preds = %if.else76
-  %cmp80 = icmp ult i32 %4, 128
+  %cmp80 = icmp samesign ult i32 %4, 128
   br i1 %cmp80, label %if.then81, label %if.else85
 
 if.then81:                                        ; preds = %if.end79
@@ -3269,7 +3269,7 @@ if.then81:                                        ; preds = %if.end79
   br label %if.end127
 
 if.else85:                                        ; preds = %if.end79
-  %cmp86 = icmp ult i32 %4, 2048
+  %cmp86 = icmp samesign ult i32 %4, 2048
   br i1 %cmp86, label %if.then87, label %if.then95
 
 if.then87:                                        ; preds = %if.else85
@@ -3280,7 +3280,7 @@ if.then87:                                        ; preds = %if.else85
   br label %if.end120
 
 if.else93:                                        ; preds = %lor.rhs.i48
-  %cmp94 = icmp ult i32 %4, 65536
+  %cmp94 = icmp samesign ult i32 %4, 65536
   br i1 %cmp94, label %if.then95, label %if.else101
 
 if.then95:                                        ; preds = %if.else85, %if.else93

@@ -193,7 +193,7 @@ define hidden range(i32 -1, 1) i32 @phar_parse_zipfile(ptr noundef %0, ptr nound
   br i1 %45, label %.loopexit1722, label %46
 
 46:                                               ; preds = %42
-  %47 = icmp ult i64 %44, 1024
+  %47 = icmp samesign ult i64 %44, 1024
   br i1 %47, label %48, label %62
 
 48:                                               ; preds = %46

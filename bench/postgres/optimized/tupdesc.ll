@@ -197,7 +197,7 @@ define dso_local noundef ptr @CreateTupleDescCopyConstr(ptr nocapture noundef re
   %42 = load ptr, ptr %16, align 8
   %43 = getelementptr %struct.AttrDefault, ptr %42, i64 %indvars.iv.next, i32 1
   store ptr %41, ptr %43, align 8
-  %44 = icmp ugt i64 %indvars.iv, 1
+  %44 = icmp samesign ugt i64 %indvars.iv, 1
   br i1 %44, label %.lr.ph, label %.loopexit80, !llvm.loop !8
 
 .loopexit80:                                      ; preds = %.lr.ph, %28, %15
@@ -315,7 +315,7 @@ define dso_local noundef ptr @CreateTupleDescCopyConstr(ptr nocapture noundef re
   %116 = getelementptr %struct.ConstrCheck, ptr %115, i64 %indvars.iv.next94, i32 3
   %117 = and i8 %114, 1
   store i8 %117, ptr %116, align 1
-  %118 = icmp ugt i64 %indvars.iv93, 1
+  %118 = icmp samesign ugt i64 %indvars.iv93, 1
   br i1 %118, label %.lr.ph86, label %.loopexit, !llvm.loop !10
 
 .loopexit:                                        ; preds = %.lr.ph86, %82, %.loopexit79
@@ -414,7 +414,7 @@ define dso_local void @FreeTupleDesc(ptr noundef %0) local_unnamed_addr #0 {
   %11 = getelementptr %struct.AttrDefault, ptr %8, i64 %indvars.iv.next, i32 1
   %12 = load ptr, ptr %11, align 8
   tail call void @pfree(ptr noundef %12) #11
-  %13 = icmp ugt i64 %indvars.iv, 1
+  %13 = icmp samesign ugt i64 %indvars.iv, 1
   br i1 %13, label %10, label %14, !llvm.loop !12
 
 14:                                               ; preds = %10
@@ -493,7 +493,7 @@ define dso_local void @FreeTupleDesc(ptr noundef %0) local_unnamed_addr #0 {
   %49 = getelementptr inbounds i8, ptr %47, i64 8
   %50 = load ptr, ptr %49, align 8
   tail call void @pfree(ptr noundef %50) #11
-  %51 = icmp ugt i64 %indvars.iv47, 1
+  %51 = icmp samesign ugt i64 %indvars.iv47, 1
   br i1 %51, label %46, label %52, !llvm.loop !14
 
 52:                                               ; preds = %46

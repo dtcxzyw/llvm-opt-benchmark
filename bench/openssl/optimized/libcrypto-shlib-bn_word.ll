@@ -46,7 +46,7 @@ for.body:                                         ; preds = %for.body.lr.ph, %fo
   %and14 = and i64 %3, 4294967295
   %or15 = or disjoint i64 %shl10, %and14
   %rem16 = urem i64 %or15, %w
-  %cmp8 = icmp ugt i64 %indvars.iv, 1
+  %cmp8 = icmp samesign ugt i64 %indvars.iv, 1
   br i1 %cmp8, label %for.body, label %return, !llvm.loop !4
 
 return:                                           ; preds = %for.body, %if.end7, %if.then2, %entry, %if.end5
@@ -99,7 +99,7 @@ for.body:                                         ; preds = %for.body.preheader,
   %5 = load ptr, ptr %a, align 8
   %arrayidx17 = getelementptr inbounds i64, ptr %5, i64 %indvars.iv.next
   store i64 %call11, ptr %arrayidx17, align 8
-  %cmp9 = icmp ugt i64 %indvars.iv, 1
+  %cmp9 = icmp samesign ugt i64 %indvars.iv, 1
   br i1 %cmp9, label %for.body, label %for.end, !llvm.loop !6
 
 for.end:                                          ; preds = %for.body

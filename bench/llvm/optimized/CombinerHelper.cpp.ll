@@ -25850,7 +25850,7 @@ _ZNK4llvm3LLT19getScalarSizeInBitsEv.exit:        ; preds = %59, %63, %67
 
 81:                                               ; preds = %78
   %82 = and i64 %.0.in.i, 4294967295
-  %.not23 = icmp uge i64 %79, %82
+  %.not23 = icmp samesign uge i64 %79, %82
   %83 = icmp eq i64 %76, %79
   %or.cond = and i1 %19, %83
   %or.cond24 = or i1 %.not23, %or.cond
@@ -26104,7 +26104,7 @@ _ZNK4llvm3LLT19getScalarSizeInBitsEv.exit:        ; preds = %118, %122, %114
 
 126:                                              ; preds = %_ZNK4llvm3LLT19getScalarSizeInBitsEv.exit
   %127 = and i64 %.0.in.i, 4294967295
-  %.not27 = icmp ult i64 %112, %127
+  %.not27 = icmp samesign ult i64 %112, %127
   br i1 %.not27, label %128, label %_ZN4llvm14MIPatternMatch8mi_matchINS_8RegisterENS0_15BinaryOpc_matchINS0_18OneNonDBGUse_matchINS0_14BinaryOp_matchINS0_7bind_tyIS2_EENS0_13ConstantMatchIlEELj61ELb1EEEEES9_Lb0EEEEEbT_RKNS_19MachineRegisterInfoEOT0_.exit.thread
 
 128:                                              ; preds = %126
@@ -44549,7 +44549,7 @@ define linkonce_odr noundef nonnull align 8 dereferenceable(16) ptr @_ZN4llvm15S
   %23 = getelementptr inbounds i8, ptr %.0910.i.i.i.i.i, i64 152
   %24 = getelementptr inbounds i8, ptr %.0811.i.i.i.i.i, i64 152
   %25 = add nsw i64 %.012.i.i.i.i.i, -1
-  %26 = icmp ugt i64 %.012.i.i.i.i.i, 1
+  %26 = icmp samesign ugt i64 %.012.i.i.i.i.i, 1
   br i1 %26, label %.lr.ph.i.i.i.i.i, label %_ZSt4moveIPN4llvm21InstructionBuildStepsES2_ET0_T_S4_S3_.exit, !llvm.loop !243
 
 _ZSt4moveIPN4llvm21InstructionBuildStepsES2_ET0_T_S4_S3_.exit: ; preds = %.lr.ph.i.i.i.i.i, %15, %13
@@ -44766,7 +44766,7 @@ _ZN4llvm23SmallVectorTemplateBaseINS_21InstructionBuildStepsELb0EE4growEm.exit: 
   %99 = getelementptr inbounds i8, ptr %.0910.i.i.i.i.i55, i64 152
   %100 = getelementptr inbounds i8, ptr %.0811.i.i.i.i.i54, i64 152
   %101 = add nsw i64 %.012.i.i.i.i.i53, -1
-  %102 = icmp ugt i64 %.012.i.i.i.i.i53, 1
+  %102 = icmp samesign ugt i64 %.012.i.i.i.i.i53, 1
   br i1 %102, label %.lr.ph.i.i.i.i.i52, label %_ZSt4moveIPN4llvm21InstructionBuildStepsES2_ET0_T_S4_S3_.exit56, !llvm.loop !243
 
 _ZSt4moveIPN4llvm21InstructionBuildStepsES2_ET0_T_S4_S3_.exit56: ; preds = %.lr.ph.i.i.i.i.i52, %91, %90, %_ZN4llvm23SmallVectorTemplateBaseINS_21InstructionBuildStepsELb0EE4growEm.exit
@@ -52683,7 +52683,7 @@ _ZNK4llvm5APInt11countr_zeroEv.exit.thread.i.i.i: ; preds = %_ZN4llvm5APIntC2ERK
   br i1 %.not21.i.i.i, label %62, label %58
 
 53:                                               ; preds = %_ZNK4llvm5APInt11countr_zeroEv.exit.i.i.i
-  %.not27.i.i.i = icmp ugt i32 %49, %51
+  %.not27.i.i.i = icmp samesign ugt i32 %49, %51
   br i1 %.not27.i.i.i, label %55, label %54
 
 54:                                               ; preds = %53
@@ -53460,7 +53460,7 @@ _ZN4llvm5APInt15clearUnusedBitsEv.exit.i.i.i.i:   ; preds = %_ZNK4llvm5APInt11co
   %54 = zext nneg i32 %53 to i64
   %55 = shl i64 %48, %54
   %56 = ashr exact i64 %55, %54
-  %.not27.i.i.i = icmp ugt i32 %49, %51
+  %.not27.i.i.i = icmp samesign ugt i32 %49, %51
   %narrow.i.i.i.i = select i1 %.not27.i.i.i, i32 %..i.i.i.i, i32 63
   %.pn.i.i.i.i = zext nneg i32 %narrow.i.i.i.i to i64
   %storemerge.i.i.i.i = ashr i64 %56, %.pn.i.i.i.i

@@ -493,7 +493,7 @@ define dso_local ptr @acpi_dma_request_slave_chan_by_index(ptr nocapture noundef
   %46 = getelementptr inbounds i8, ptr %31, i64 42
   %47 = load i16, ptr %46, align 2
   %48 = zext i16 %47 to i32
-  %49 = icmp ugt i32 %42, %48
+  %49 = icmp samesign ugt i32 %42, %48
   br i1 %49, label %.thread, label %50
 
 50:                                               ; preds = %45

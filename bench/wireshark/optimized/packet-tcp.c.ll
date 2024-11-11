@@ -12989,7 +12989,7 @@ define internal i32 @dissect_tcpopt_sack(ptr noundef %0, ptr noundef %1, ptr nou
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %154 ]
   %.0176 = phi i32 [ %82, %.lr.ph ], [ %114, %154 ]
   %.0130175 = phi i32 [ 2, %.lr.ph ], [ %155, %154 ]
-  %92 = icmp ult i32 %.0176, 4
+  %92 = icmp samesign ult i32 %.0176, 4
   br i1 %92, label %93, label %96
 
 93:                                               ; preds = %91
@@ -13089,7 +13089,7 @@ define internal i32 @dissect_tcpopt_sack(ptr noundef %0, ptr noundef %1, ptr nou
 154:                                              ; preds = %149, %146, %145
   tail call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %77, ptr noundef nonnull @.str.996, i32 noundef %98, i32 noundef %113) #20
   %155 = add nuw i32 %.0130175, 8
-  %156 = icmp ugt i32 %.0176, 8
+  %156 = icmp samesign ugt i32 %.0176, 8
   br i1 %156, label %91, label %.loopexit.loopexit, !llvm.loop !28
 
 .loopexit.loopexit:                               ; preds = %154
@@ -13542,7 +13542,7 @@ cmp_address.exit.thread.thread:                   ; preds = %cmp_address.exit.th
   tail call void @col_append_str_uint(ptr noundef %.val115, i32 noundef 25, ptr noundef nonnull @.str.1015, i32 noundef %115, ptr noundef nonnull @.str.799) #20
   %116 = add nuw nsw i32 %113, %109
   %117 = and i32 %116, 255
-  %118 = icmp ugt i32 %5, %117
+  %118 = icmp samesign ugt i32 %5, %117
   br i1 %118, label %99, label %.loopexit, !llvm.loop !30
 
 .loopexit:                                        ; preds = %99, %96, %95, %84, %89
@@ -14570,7 +14570,7 @@ proto_item_set_generated.exit447:                 ; preds = %proto_item_set_gene
 
 179:                                              ; preds = %175, %173, %170
   %.1419 = phi ptr [ %123, %173 ], [ %123, %170 ], [ %178, %175 ]
-  %180 = icmp ugt i32 %6, 21
+  %180 = icmp samesign ugt i32 %6, 21
   br i1 %180, label %181, label %.loopexit
 
 181:                                              ; preds = %179

@@ -576,13 +576,13 @@ define hidden void @_ZN21G1BarrierSetAssembler21g1_write_barrier_postEP14MacroAs
   %100 = ptrtoint ptr %99 to i64
   %101 = trunc i64 %100 to i32
   %102 = sub i32 %101, ptrtoint (ptr getelementptr inbounds (i8, ptr @all_RegisterImpls, i64 1) to i32)
-  %103 = icmp ult i32 %102, 32
-  %104 = zext nneg i32 %102 to i64
-  %105 = shl nuw nsw i64 1, %104
-  %106 = select i1 %103, i64 %105, i64 0
-  call void @_ZN14MacroAssembler8push_setE14AbstractRegSetI8RegisterEi(ptr noundef nonnull align 8 dereferenceable(40) %1, i64 %106, i32 noundef -1) #4
+  %spec.select.i.i.i = icmp ult i32 %102, 32
+  %103 = zext nneg i32 %102 to i64
+  %104 = shl nuw nsw i64 1, %103
+  %105 = select i1 %spec.select.i.i.i, i64 %104, i64 0
+  call void @_ZN14MacroAssembler8push_setE14AbstractRegSetI8RegisterEi(ptr noundef nonnull align 8 dereferenceable(40) %1, i64 %105, i32 noundef -1) #4
   call void @_ZN14MacroAssembler12call_VM_leafEPh8RegisterS1_(ptr noundef nonnull align 8 dereferenceable(40) %1, ptr noundef nonnull @_ZN19G1BarrierSetRuntime26write_ref_field_post_entryEPVhP10JavaThread, i32 %5, i32 %4) #4
-  call void @_ZN14MacroAssembler7pop_setE14AbstractRegSetI8RegisterEi(ptr noundef nonnull align 8 dereferenceable(40) %1, i64 %106, i32 noundef -1) #4
+  call void @_ZN14MacroAssembler7pop_setE14AbstractRegSetI8RegisterEi(ptr noundef nonnull align 8 dereferenceable(40) %1, i64 %105, i32 noundef -1) #4
   call void @_ZN17AbstractAssembler4bindER5Label(ptr noundef nonnull align 8 dereferenceable(24) %1, ptr noundef nonnull align 8 dereferenceable(33) %11) #4
   ret void
 }

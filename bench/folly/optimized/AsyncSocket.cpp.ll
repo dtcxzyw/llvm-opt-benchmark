@@ -21766,7 +21766,7 @@ _ZNK5folly12small_vectorISt10shared_ptrINS_21ObserverContainerBaseINS_28AsyncSoc
   %5 = tail call i64 @llvm.umin.i64(i64 %div5.i, i64 4611686018427387902)
   %.sroa.speculated.i = add nuw nsw i64 %5, 1
   %.sroa.speculated92 = tail call i64 @llvm.umax.i64(i64 %.sroa.speculated.i, i64 %newSize)
-  %6 = icmp ugt i64 %.sroa.speculated92, 1152921504606846975
+  %6 = icmp samesign ugt i64 %.sroa.speculated92, 1152921504606846975
   br i1 %6, label %if.then7, label %if.end8, !prof !143
 
 if.then7:                                         ; preds = %_ZNK5folly12small_vectorISt10shared_ptrINS_21ObserverContainerBaseINS_28AsyncSocketObserverInterfaceENS_11AsyncSocketENS_34ObserverContainerBasePolicyDefaultINS3_6EventsELm32EEEE8ObserverEELm2EvE14computeNewSizeEv.exit
@@ -22059,7 +22059,7 @@ _ZNK5folly12small_vectorISt10shared_ptrINS_21ObserverContainerBaseINS_28AsyncSoc
   %5 = tail call i64 @llvm.umin.i64(i64 %div5.i, i64 4611686018427387902)
   %.sroa.speculated.i = add nuw nsw i64 %5, 1
   %.sroa.speculated92 = tail call i64 @llvm.umax.i64(i64 %.sroa.speculated.i, i64 %newSize)
-  %6 = icmp ugt i64 %.sroa.speculated92, 1152921504606846975
+  %6 = icmp samesign ugt i64 %.sroa.speculated92, 1152921504606846975
   br i1 %6, label %if.then7, label %if.end8, !prof !143
 
 if.then7:                                         ; preds = %_ZNK5folly12small_vectorISt10shared_ptrINS_21ObserverContainerBaseINS_28AsyncSocketObserverInterfaceENS_11AsyncSocketENS_34ObserverContainerBasePolicyDefaultINS3_6EventsELm32EEEE8ObserverEELm2EvE14computeNewSizeEv.exit
@@ -38277,7 +38277,7 @@ _ZNK5folly12small_vectorIPNS_11AsyncSocket23LegacyLifecycleObserverELm2EvE14comp
   %7 = tail call i64 @llvm.umin.i64(i64 %div5.i, i64 4611686018427387902)
   %.sroa.speculated.i = add nuw nsw i64 %7, 1
   %.sroa.speculated103 = tail call i64 @llvm.umax.i64(i64 %.sroa.speculated.i, i64 %newSize)
-  %8 = icmp ugt i64 %.sroa.speculated103, 2305843009213693951
+  %8 = icmp samesign ugt i64 %.sroa.speculated103, 2305843009213693951
   br i1 %8, label %if.then7, label %if.end8, !prof !143
 
 if.then7:                                         ; preds = %_ZNK5folly12small_vectorIPNS_11AsyncSocket23LegacyLifecycleObserverELm2EvE14computeNewSizeEv.exit
@@ -38286,7 +38286,7 @@ if.then7:                                         ; preds = %_ZNK5folly12small_v
 
 if.end8:                                          ; preds = %_ZNK5folly12small_vectorIPNS_11AsyncSocket23LegacyLifecycleObserverELm2EvE14computeNewSizeEv.exit
   %9 = shl nuw i64 %.sroa.speculated103, 3
-  %cmp9 = icmp ult i64 %.sroa.speculated103, 100
+  %cmp9 = icmp samesign ult i64 %.sroa.speculated103, 100
   %cond = select i1 %cmp9, i64 0, i64 8
   %10 = tail call { i64, i1 } @llvm.uadd.with.overflow.i64(i64 %9, i64 %cond)
   %11 = extractvalue { i64, i1 } %10, 1
@@ -45790,7 +45790,7 @@ if.then.i.i:                                      ; preds = %sw.bb.i
   unreachable
 
 _ZN3fmt2v96detail13specs_checkerINS1_21dynamic_specs_handlerINS0_26basic_format_parse_contextIcNS1_13error_handlerEEEEEE24require_numeric_argumentEv.exit.i: ; preds = %sw.bb.i
-  %11 = icmp ult i32 %9, 8
+  %11 = icmp samesign ult i32 %9, 8
   br i1 %11, label %switch.hole_check, label %sw.epilog.i.sink.split
 
 if.then.i51:                                      ; preds = %switch.hole_check
@@ -45808,7 +45808,7 @@ if.then.i.i53:                                    ; preds = %sw.bb20.i
   unreachable
 
 _ZN3fmt2v96detail13specs_checkerINS1_21dynamic_specs_handlerINS0_26basic_format_parse_contextIcNS1_13error_handlerEEEEEE24require_numeric_argumentEv.exit.i54: ; preds = %sw.bb20.i
-  %15 = icmp ult i32 %13, 8
+  %15 = icmp samesign ult i32 %13, 8
   br i1 %15, label %switch.hole_check99, label %sw.epilog.i.sink.split
 
 if.then.i60:                                      ; preds = %switch.hole_check99
@@ -45826,7 +45826,7 @@ if.then.i.i63:                                    ; preds = %sw.bb22.i
   unreachable
 
 _ZN3fmt2v96detail13specs_checkerINS1_21dynamic_specs_handlerINS0_26basic_format_parse_contextIcNS1_13error_handlerEEEEEE24require_numeric_argumentEv.exit.i64: ; preds = %sw.bb22.i
-  %19 = icmp ult i32 %17, 8
+  %19 = icmp samesign ult i32 %17, 8
   br i1 %19, label %switch.hole_check106, label %sw.epilog.i.sink.split
 
 if.then.i70:                                      ; preds = %switch.hole_check106
@@ -47317,7 +47317,7 @@ if.then3.i:                                       ; preds = %if.then.i
   br label %cond.end
 
 if.end4.i:                                        ; preds = %cond.true
-  %cmp5.i = icmp ugt i32 %6, 14
+  %cmp5.i = icmp samesign ugt i32 %6, 14
   br i1 %cmp5.i, label %cond.end, label %if.end7.i
 
 if.end7.i:                                        ; preds = %if.end4.i

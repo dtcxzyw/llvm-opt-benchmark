@@ -322,7 +322,7 @@ define ptr @cli_ole2_get_property_name2(ptr nocapture noundef readonly %0, i32 n
   br i1 %18, label %22, label %.preheader
 
 .preheader:                                       ; preds = %13
-  %19 = icmp ugt i32 %1, 2
+  %19 = icmp samesign ugt i32 %1, 2
   br i1 %19, label %.lr.ph.preheader, label %._crit_edge
 
 .lr.ph.preheader:                                 ; preds = %.preheader
@@ -1247,7 +1247,7 @@ ole2_list_pop.exit:                               ; preds = %41
 
 59:                                               ; preds = %56
   %60 = lshr i32 %50, 2
-  %.not423 = icmp ult i32 %50, 4
+  %.not423 = icmp samesign ult i32 %50, 4
   br i1 %.not423, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %59, %.lr.ph
@@ -2158,7 +2158,7 @@ ole2_read_block.exit.thread.thread.i:             ; preds = %164
   %208 = tail call i64 @llvm.umin.i64(i64 %.064107.i, i64 %207)
   call void @llvm.lifetime.start.p0(i64 512, ptr nonnull %6)
   %209 = load i32, ptr %175, align 4
-  %.not.i.i = icmp ult i32 %.065106.i, 128
+  %.not.i.i = icmp samesign ult i32 %.065106.i, 128
   br i1 %.not.i.i, label %._crit_edge.i.i, label %.lr.ph.preheader.i.i
 
 .lr.ph.preheader.i.i:                             ; preds = %193
@@ -2170,7 +2170,7 @@ ole2_read_block.exit.thread.thread.i:             ; preds = %164
   %.01014.i.i = phi i32 [ %212, %.lr.ph.i.i ], [ %210, %.lr.ph.preheader.i.i ]
   %211 = tail call fastcc i32 @ole2_get_next_block_number(ptr noundef readonly %0, i32 noundef %.015.i.i)
   %212 = add nsw i32 %.01014.i.i, -1
-  %213 = icmp ugt i32 %.01014.i.i, 1
+  %213 = icmp samesign ugt i32 %.01014.i.i, 1
   br i1 %213, label %.lr.ph.i.i, label %._crit_edge.i.i
 
 ._crit_edge.i.i:                                  ; preds = %.lr.ph.i.i, %193
@@ -2539,7 +2539,7 @@ define internal range(i32 0, 23) i32 @handler_writefile(ptr nocapture noundef re
 104:                                              ; preds = %86
   call void @llvm.lifetime.start.p0(i64 512, ptr nonnull %6)
   %105 = load i32, ptr %67, align 4
-  %.not.i = icmp ult i32 %.088171, 128
+  %.not.i = icmp samesign ult i32 %.088171, 128
   br i1 %.not.i, label %._crit_edge.i, label %.lr.ph.preheader.i
 
 .lr.ph.preheader.i:                               ; preds = %104
@@ -2551,7 +2551,7 @@ define internal range(i32 0, 23) i32 @handler_writefile(ptr nocapture noundef re
   %.01014.i = phi i32 [ %108, %.lr.ph.i ], [ %106, %.lr.ph.preheader.i ]
   %107 = call fastcc i32 @ole2_get_next_block_number(ptr noundef readonly %0, i32 noundef %.015.i)
   %108 = add nsw i32 %.01014.i, -1
-  %109 = icmp ugt i32 %.01014.i, 1
+  %109 = icmp samesign ugt i32 %.01014.i, 1
   br i1 %109, label %.lr.ph.i, label %._crit_edge.i
 
 ._crit_edge.i:                                    ; preds = %.lr.ph.i, %104
@@ -2935,7 +2935,7 @@ define internal range(i32 0, 23) i32 @handler_otf_encrypted(ptr nocapture nounde
 
 104:                                              ; preds = %101
   %105 = load i32, ptr %63, align 4
-  %.not.i = icmp ult i32 %.0188361, 128
+  %.not.i = icmp samesign ult i32 %.0188361, 128
   br i1 %.not.i, label %._crit_edge.i, label %.lr.ph.preheader.i
 
 .lr.ph.preheader.i:                               ; preds = %104
@@ -2947,7 +2947,7 @@ define internal range(i32 0, 23) i32 @handler_otf_encrypted(ptr nocapture nounde
   %.01014.i = phi i32 [ %108, %.lr.ph.i ], [ %106, %.lr.ph.preheader.i ]
   %107 = tail call fastcc i32 @ole2_get_next_block_number(ptr noundef readonly %0, i32 noundef %.015.i)
   %108 = add nsw i32 %.01014.i, -1
-  %109 = icmp ugt i32 %.01014.i, 1
+  %109 = icmp samesign ugt i32 %.01014.i, 1
   br i1 %109, label %.lr.ph.i, label %._crit_edge.i
 
 ._crit_edge.i:                                    ; preds = %.lr.ph.i, %104
@@ -3489,7 +3489,7 @@ define internal range(i32 0, 23) i32 @handler_otf(ptr nocapture noundef readonly
 83:                                               ; preds = %66
   call void @llvm.lifetime.start.p0(i64 512, ptr nonnull %6)
   %84 = load i32, ptr %47, align 4
-  %.not.i = icmp ult i32 %.0117242, 128
+  %.not.i = icmp samesign ult i32 %.0117242, 128
   br i1 %.not.i, label %._crit_edge.i, label %.lr.ph.preheader.i
 
 .lr.ph.preheader.i:                               ; preds = %83
@@ -3501,7 +3501,7 @@ define internal range(i32 0, 23) i32 @handler_otf(ptr nocapture noundef readonly
   %.01014.i = phi i32 [ %87, %.lr.ph.i ], [ %85, %.lr.ph.preheader.i ]
   %86 = tail call fastcc i32 @ole2_get_next_block_number(ptr noundef readonly %0, i32 noundef %.015.i)
   %87 = add nsw i32 %.01014.i, -1
-  %88 = icmp ugt i32 %.01014.i, 1
+  %88 = icmp samesign ugt i32 %.01014.i, 1
   br i1 %88, label %.lr.ph.i, label %._crit_edge.i
 
 ._crit_edge.i:                                    ; preds = %.lr.ph.i, %83
@@ -4082,7 +4082,7 @@ define internal fastcc i32 @ole2_get_next_block_number(ptr nocapture noundef rea
   br i1 %6, label %161, label %7
 
 7:                                                ; preds = %2
-  %8 = icmp ugt i32 %1, 13951
+  %8 = icmp samesign ugt i32 %1, 13951
   br i1 %8, label %9, label %115
 
 9:                                                ; preds = %7
@@ -4459,7 +4459,7 @@ define internal fastcc void @print_ole2_property(ptr nocapture noundef readonly 
   br label %62
 
 8:                                                ; preds = %1
-  %9 = icmp ult i16 %4, 2
+  %9 = icmp samesign ult i16 %4, 2
   br i1 %9, label %get_property_name.exit, label %10
 
 10:                                               ; preds = %8
@@ -4636,7 +4636,7 @@ define internal fastcc noundef zeroext i1 @ole2_get_sbat_data_block(ptr nocaptur
   %.01418 = phi i32 [ %19, %.lr.ph ], [ %17, %10 ]
   %18 = tail call fastcc i32 @ole2_get_next_block_number(ptr noundef %0, i32 noundef %.019)
   %19 = add nsw i32 %.01418, -1
-  %20 = icmp ugt i32 %.01418, 1
+  %20 = icmp samesign ugt i32 %.01418, 1
   br i1 %20, label %.lr.ph, label %._crit_edge
 
 ._crit_edge:                                      ; preds = %.lr.ph

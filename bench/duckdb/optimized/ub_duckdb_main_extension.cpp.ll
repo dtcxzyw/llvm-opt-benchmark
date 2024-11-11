@@ -40885,7 +40885,7 @@ if.then:                                          ; preds = %entry
   br label %cleanup31
 
 if.end:                                           ; preds = %entry
-  %cmp9.not = icmp ult i32 %call5, 2047
+  %cmp9.not = icmp samesign ult i32 %call5, 2047
   br i1 %cmp9.not, label %if.else, label %if.then10
 
 if.then10:                                        ; preds = %if.end
@@ -40927,7 +40927,7 @@ if.then.i.i.i.i.i.i.i.i.i:                        ; preds = %if.then.i.i.i.i.i
   br label %invoke.cont17
 
 if.else.i.i:                                      ; preds = %if.then.i
-  %cmp.i.i.i = icmp ult i64 %sub.i.i, %sub.ptr.sub.i84
+  %cmp.i.i.i = icmp samesign ult i64 %sub.i.i, %sub.ptr.sub.i84
   br i1 %cmp.i.i.i, label %if.then.i.i.i, label %_ZNKSt6vectorIcSaIcEE12_M_check_lenEmPKc.exit.i.i
 
 if.then.i.i.i:                                    ; preds = %if.else.i.i
@@ -43190,7 +43190,7 @@ invoke.cont:                                      ; preds = %entry
   br i1 %cmp.i.not79, label %if.end, label %for.body
 
 for.cond.cleanup:                                 ; preds = %while.end
-  %cmp10 = icmp ugt i32 %valb.1.lcssa, -6
+  %cmp10 = icmp samesign ugt i32 %valb.1.lcssa, -6
   br i1 %cmp10, label %if.then, label %if.end
 
 lpad:                                             ; preds = %entry

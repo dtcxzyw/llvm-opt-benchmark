@@ -52248,8 +52248,8 @@ define internal fastcc noundef zeroext i1 @"_ZN62_$LT$std..path..Components$u20$
 .thread:                                          ; preds = %29
   %37 = getelementptr inbounds i8, ptr %1, i64 16
   %38 = load i8, ptr %37, align 8, !range !2262, !noundef !4
-  %switch.i.i3453 = icmp samesign ult i8 %38, 3
-  br i1 %switch.i.i3453, label %25, label %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h5e085e8f25ea6386E.exit"
+  %or.cond54 = icmp samesign ult i8 %38, 3
+  br i1 %or.cond54, label %25, label %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h5e085e8f25ea6386E.exit"
 
 ._crit_edge:                                      ; preds = %33
   br i1 %switch.i.i, label %25, label %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h5e085e8f25ea6386E.exit"
@@ -72202,7 +72202,7 @@ _ZN4core3cmp10PartialOrd2ge17h406c3d1893ffae74E.exit62.thread.i: ; preds = %_ZN4
           to label %.thread947.i unwind label %405, !noalias !19068
 
 _ZN4core3cmp10PartialOrd2ge17h406c3d1893ffae74E.exit67.i: ; preds = %_ZN4core3cmp10PartialOrd2ge17h406c3d1893ffae74E.exit62.i
-  %395 = icmp ugt i64 %391, 3
+  %395 = icmp samesign ugt i64 %391, 3
   br i1 %395, label %_ZN4core3cmp10PartialOrd2ge17h406c3d1893ffae74E.exit67.thread.i, label %396
 
 396:                                              ; preds = %_ZN4core3cmp10PartialOrd2ge17h406c3d1893ffae74E.exit67.i

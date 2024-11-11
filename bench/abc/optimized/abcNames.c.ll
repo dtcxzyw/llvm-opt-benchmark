@@ -629,7 +629,7 @@ Vec_PtrAlloc.exit:                                ; preds = %1, %6
   br i1 %12, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %Vec_PtrAlloc.exit
-  %13 = icmp ult i32 %0, 26
+  %13 = icmp samesign ult i32 %0, 26
   %14 = getelementptr inbounds i8, ptr %2, i64 1
   %15 = getelementptr inbounds i8, ptr %2, i64 2
   br i1 %13, label %.lr.ph.split.us, label %.lr.ph.split

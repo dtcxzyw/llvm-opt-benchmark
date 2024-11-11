@@ -2393,7 +2393,7 @@ if.then10.i:                                      ; preds = %if.else.i20
 land.lhs.true.i:                                  ; preds = %if.then10.i
   %add.i.i45 = add nuw i64 %call2.i, 1
   %and.i.i46 = and i64 %add.i.i45, -2
-  %cmp.i41.i = icmp ugt i64 %call2.i, 1152921504606846974
+  %cmp.i41.i = icmp samesign ugt i64 %call2.i, 1152921504606846974
   br i1 %cmp.i41.i, label %error.sink.split.i, label %cond.end.i.i47
 
 cond.end.i.i47:                                   ; preds = %land.lhs.true.i
@@ -4490,8 +4490,8 @@ lor.lhs.false4:                                   ; preds = %lor.lhs.false, %lan
 if.end:                                           ; preds = %lor.lhs.false4, %land.lhs.true, %lor.lhs.false
   %3 = getelementptr i8, ptr %args, i64 16
   %args.val = load i64, ptr %3, align 8
-  %cmp11 = icmp ult i64 %args.val, 2
-  br i1 %cmp11, label %if.end17, label %lor.lhs.false12
+  %or.cond13 = icmp ult i64 %args.val, 2
+  br i1 %or.cond13, label %if.end17, label %lor.lhs.false12
 
 lor.lhs.false12:                                  ; preds = %if.end
   %call14 = tail call i32 @_PyArg_CheckPositional(ptr noundef nonnull @.str.3, i64 noundef %args.val, i64 noundef 0, i64 noundef 1) #10
@@ -5919,7 +5919,7 @@ sortslice_copy_incr.exit184.i:                    ; preds = %if.then.i179.i, %if
 
 do.cond.i:                                        ; preds = %sortslice_copy_incr.exit184.i
   %cmp90.i = icmp sgt i64 %retval.0.i91265.i, 6
-  %cmp92.i = icmp ugt i64 %retval.0.i134273.i, 6
+  %cmp92.i = icmp samesign ugt i64 %retval.0.i134273.i, 6
   %51 = or i1 %cmp90.i, %cmp92.i
   br i1 %51, label %do.body.i, label %do.end.i, !llvm.loop !39
 

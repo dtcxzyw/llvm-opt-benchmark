@@ -304,11 +304,11 @@ _ZN32pxrInternal_v0_24__pxrReserved__7pxr_tsl9robin_mapIimSt4hashIiESt8equal_toI
   br i1 %.not7.i.i.i.i, label %76, label %77
 
 75:                                               ; preds = %73
-  %.not8.i.i.i.i = icmp ult i32 %70, -32768
+  %.not8.i.i.i.i = icmp samesign ult i32 %70, -32768
   br i1 %.not8.i.i.i.i, label %85, label %81
 
 76:                                               ; preds = %74
-  %.not9.i.i.i.i = icmp ugt i32 %70, 32767
+  %.not9.i.i.i.i = icmp samesign ugt i32 %70, 32767
   br i1 %.not9.i.i.i.i, label %85, label %81
 
 77:                                               ; preds = %74
@@ -381,11 +381,11 @@ _ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_EncodeNHelperILi4EPKiEEvRT
   br i1 %.not7.i.i43.i.i, label %101, label %102
 
 100:                                              ; preds = %98
-  %.not8.i.i46.i.i = icmp ult i32 %96, -32768
+  %.not8.i.i46.i.i = icmp samesign ult i32 %96, -32768
   br i1 %.not8.i.i46.i.i, label %108, label %105
 
 101:                                              ; preds = %99
-  %.not9.i.i45.i.i = icmp ugt i32 %96, 32767
+  %.not9.i.i45.i.i = icmp samesign ugt i32 %96, 32767
   br i1 %.not9.i.i45.i.i, label %108, label %105
 
 102:                                              ; preds = %99
@@ -426,11 +426,11 @@ _ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_EncodeNHelperILi4EPKiEEvRT
   br i1 %.not7.i.i50.i.i, label %117, label %118
 
 116:                                              ; preds = %114
-  %.not8.i.i57.i.i = icmp ult i32 %111, -32768
+  %.not8.i.i57.i.i = icmp samesign ult i32 %111, -32768
   br i1 %.not8.i.i57.i.i, label %126, label %122
 
 117:                                              ; preds = %115
-  %.not9.i.i56.i.i = icmp ugt i32 %111, 32767
+  %.not9.i.i56.i.i = icmp samesign ugt i32 %111, 32767
   br i1 %.not9.i.i56.i.i, label %126, label %122
 
 118:                                              ; preds = %115
@@ -489,11 +489,11 @@ _ZZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_EncodeNHelperILi2EPKiEEvR
   br i1 %.not7.i.i61.i.i, label %139, label %140
 
 138:                                              ; preds = %136
-  %.not8.i.i68.i.i = icmp ult i32 %133, -32768
+  %.not8.i.i68.i.i = icmp samesign ult i32 %133, -32768
   br i1 %.not8.i.i68.i.i, label %148, label %144
 
 139:                                              ; preds = %137
-  %.not9.i.i67.i.i = icmp ugt i32 %133, 32767
+  %.not9.i.i67.i.i = icmp samesign ugt i32 %133, 32767
   br i1 %.not9.i.i67.i.i, label %148, label %144
 
 140:                                              ; preds = %137
@@ -760,11 +760,11 @@ _ZN32pxrInternal_v0_24__pxrReserved__7pxr_tsl9robin_mapIimSt4hashIiESt8equal_toI
   br i1 %.not7.i.i.i.i, label %76, label %77
 
 75:                                               ; preds = %73
-  %.not8.i.i.i.i = icmp ult i32 %70, -32768
+  %.not8.i.i.i.i = icmp samesign ult i32 %70, -32768
   br i1 %.not8.i.i.i.i, label %85, label %81
 
 76:                                               ; preds = %74
-  %.not9.i.i.i.i = icmp ugt i32 %70, 32767
+  %.not9.i.i.i.i = icmp samesign ugt i32 %70, 32767
   br i1 %.not9.i.i.i.i, label %85, label %81
 
 77:                                               ; preds = %74
@@ -837,11 +837,11 @@ _ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_EncodeNHelperILi4EPKjEEvRT
   br i1 %.not7.i.i43.i.i, label %101, label %102
 
 100:                                              ; preds = %98
-  %.not8.i.i46.i.i = icmp ult i32 %96, -32768
+  %.not8.i.i46.i.i = icmp samesign ult i32 %96, -32768
   br i1 %.not8.i.i46.i.i, label %108, label %105
 
 101:                                              ; preds = %99
-  %.not9.i.i45.i.i = icmp ugt i32 %96, 32767
+  %.not9.i.i45.i.i = icmp samesign ugt i32 %96, 32767
   br i1 %.not9.i.i45.i.i, label %108, label %105
 
 102:                                              ; preds = %99
@@ -882,11 +882,11 @@ _ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_EncodeNHelperILi4EPKjEEvRT
   br i1 %.not7.i.i50.i.i, label %117, label %118
 
 116:                                              ; preds = %114
-  %.not8.i.i57.i.i = icmp ult i32 %111, -32768
+  %.not8.i.i57.i.i = icmp samesign ult i32 %111, -32768
   br i1 %.not8.i.i57.i.i, label %126, label %122
 
 117:                                              ; preds = %115
-  %.not9.i.i56.i.i = icmp ugt i32 %111, 32767
+  %.not9.i.i56.i.i = icmp samesign ugt i32 %111, 32767
   br i1 %.not9.i.i56.i.i, label %126, label %122
 
 118:                                              ; preds = %115
@@ -945,11 +945,11 @@ _ZZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_EncodeNHelperILi2EPKjEEvR
   br i1 %.not7.i.i61.i.i, label %139, label %140
 
 138:                                              ; preds = %136
-  %.not8.i.i68.i.i = icmp ult i32 %133, -32768
+  %.not8.i.i68.i.i = icmp samesign ult i32 %133, -32768
   br i1 %.not8.i.i68.i.i, label %148, label %144
 
 139:                                              ; preds = %137
-  %.not9.i.i67.i.i = icmp ugt i32 %133, 32767
+  %.not9.i.i67.i.i = icmp samesign ugt i32 %133, 32767
   br i1 %.not9.i.i67.i.i, label %148, label %144
 
 140:                                              ; preds = %137
@@ -1815,11 +1815,11 @@ _ZN32pxrInternal_v0_24__pxrReserved__7pxr_tsl9robin_mapIlmSt4hashIlESt8equal_toI
   br i1 %.not7.i.i.i.i, label %76, label %77
 
 75:                                               ; preds = %73
-  %.not8.i.i.i.i = icmp ult i64 %70, -2147483648
+  %.not8.i.i.i.i = icmp samesign ult i64 %70, -2147483648
   br i1 %.not8.i.i.i.i, label %85, label %81
 
 76:                                               ; preds = %74
-  %.not9.i.i.i.i = icmp ugt i64 %70, 2147483647
+  %.not9.i.i.i.i = icmp samesign ugt i64 %70, 2147483647
   br i1 %.not9.i.i.i.i, label %85, label %81
 
 77:                                               ; preds = %74
@@ -1892,11 +1892,11 @@ _ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_EncodeNHelperILi4EPKlEEvRT
   br i1 %.not7.i.i43.i.i, label %101, label %102
 
 100:                                              ; preds = %98
-  %.not8.i.i46.i.i = icmp ult i64 %96, -2147483648
+  %.not8.i.i46.i.i = icmp samesign ult i64 %96, -2147483648
   br i1 %.not8.i.i46.i.i, label %108, label %105
 
 101:                                              ; preds = %99
-  %.not9.i.i45.i.i = icmp ugt i64 %96, 2147483647
+  %.not9.i.i45.i.i = icmp samesign ugt i64 %96, 2147483647
   br i1 %.not9.i.i45.i.i, label %108, label %105
 
 102:                                              ; preds = %99
@@ -1937,11 +1937,11 @@ _ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_EncodeNHelperILi4EPKlEEvRT
   br i1 %.not7.i.i50.i.i, label %117, label %118
 
 116:                                              ; preds = %114
-  %.not8.i.i57.i.i = icmp ult i64 %111, -2147483648
+  %.not8.i.i57.i.i = icmp samesign ult i64 %111, -2147483648
   br i1 %.not8.i.i57.i.i, label %126, label %122
 
 117:                                              ; preds = %115
-  %.not9.i.i56.i.i = icmp ugt i64 %111, 2147483647
+  %.not9.i.i56.i.i = icmp samesign ugt i64 %111, 2147483647
   br i1 %.not9.i.i56.i.i, label %126, label %122
 
 118:                                              ; preds = %115
@@ -2000,11 +2000,11 @@ _ZZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_EncodeNHelperILi2EPKlEEvR
   br i1 %.not7.i.i61.i.i, label %139, label %140
 
 138:                                              ; preds = %136
-  %.not8.i.i68.i.i = icmp ult i64 %133, -2147483648
+  %.not8.i.i68.i.i = icmp samesign ult i64 %133, -2147483648
   br i1 %.not8.i.i68.i.i, label %148, label %144
 
 139:                                              ; preds = %137
-  %.not9.i.i67.i.i = icmp ugt i64 %133, 2147483647
+  %.not9.i.i67.i.i = icmp samesign ugt i64 %133, 2147483647
   br i1 %.not9.i.i67.i.i, label %148, label %144
 
 140:                                              ; preds = %137
@@ -2271,11 +2271,11 @@ _ZN32pxrInternal_v0_24__pxrReserved__7pxr_tsl9robin_mapIlmSt4hashIlESt8equal_toI
   br i1 %.not7.i.i.i.i, label %76, label %77
 
 75:                                               ; preds = %73
-  %.not8.i.i.i.i = icmp ult i64 %70, -2147483648
+  %.not8.i.i.i.i = icmp samesign ult i64 %70, -2147483648
   br i1 %.not8.i.i.i.i, label %85, label %81
 
 76:                                               ; preds = %74
-  %.not9.i.i.i.i = icmp ugt i64 %70, 2147483647
+  %.not9.i.i.i.i = icmp samesign ugt i64 %70, 2147483647
   br i1 %.not9.i.i.i.i, label %85, label %81
 
 77:                                               ; preds = %74
@@ -2348,11 +2348,11 @@ _ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_EncodeNHelperILi4EPKmEEvRT
   br i1 %.not7.i.i43.i.i, label %101, label %102
 
 100:                                              ; preds = %98
-  %.not8.i.i46.i.i = icmp ult i64 %96, -2147483648
+  %.not8.i.i46.i.i = icmp samesign ult i64 %96, -2147483648
   br i1 %.not8.i.i46.i.i, label %108, label %105
 
 101:                                              ; preds = %99
-  %.not9.i.i45.i.i = icmp ugt i64 %96, 2147483647
+  %.not9.i.i45.i.i = icmp samesign ugt i64 %96, 2147483647
   br i1 %.not9.i.i45.i.i, label %108, label %105
 
 102:                                              ; preds = %99
@@ -2393,11 +2393,11 @@ _ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_EncodeNHelperILi4EPKmEEvRT
   br i1 %.not7.i.i50.i.i, label %117, label %118
 
 116:                                              ; preds = %114
-  %.not8.i.i57.i.i = icmp ult i64 %111, -2147483648
+  %.not8.i.i57.i.i = icmp samesign ult i64 %111, -2147483648
   br i1 %.not8.i.i57.i.i, label %126, label %122
 
 117:                                              ; preds = %115
-  %.not9.i.i56.i.i = icmp ugt i64 %111, 2147483647
+  %.not9.i.i56.i.i = icmp samesign ugt i64 %111, 2147483647
   br i1 %.not9.i.i56.i.i, label %126, label %122
 
 118:                                              ; preds = %115
@@ -2456,11 +2456,11 @@ _ZZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_EncodeNHelperILi2EPKmEEvR
   br i1 %.not7.i.i61.i.i, label %139, label %140
 
 138:                                              ; preds = %136
-  %.not8.i.i68.i.i = icmp ult i64 %133, -2147483648
+  %.not8.i.i68.i.i = icmp samesign ult i64 %133, -2147483648
   br i1 %.not8.i.i68.i.i, label %148, label %144
 
 139:                                              ; preds = %137
-  %.not9.i.i67.i.i = icmp ugt i64 %133, 2147483647
+  %.not9.i.i67.i.i = icmp samesign ugt i64 %133, 2147483647
   br i1 %.not9.i.i67.i.i, label %148, label %144
 
 140:                                              ; preds = %137

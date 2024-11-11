@@ -4107,7 +4107,7 @@ Vec_StrPush.exit1057:                             ; preds = %.Vec_StrGrow.exit10
   %590 = lshr i32 %583, %.0773
   %591 = and i32 %590, 1
   tail call fastcc void @Vec_StrPrintNum(ptr noundef nonnull %4, i32 noundef %591)
-  %592 = icmp ugt i32 %.0773.in1245, 1
+  %592 = icmp samesign ugt i32 %.0773.in1245, 1
   br i1 %592, label %589, label %.loopexit, !llvm.loop !28
 
 .loopexit:                                        ; preds = %589, %.preheader1202, %584
@@ -4329,7 +4329,7 @@ Cba_FonRangeSize.exit1072:                        ; preds = %662, %Cba_NtkRangeS
   %693 = lshr i32 %.101236, %.1774
   %694 = and i32 %693, 1
   tail call fastcc void @Vec_StrPrintNum(ptr noundef nonnull %4, i32 noundef %694)
-  %695 = icmp ugt i32 %.1774.in1232, 1
+  %695 = icmp samesign ugt i32 %.1774.in1232, 1
   br i1 %695, label %.lr.ph1234, label %._crit_edge1235, !llvm.loop !31
 
 ._crit_edge1235:                                  ; preds = %.lr.ph1234, %691

@@ -82,154 +82,157 @@ invoke.cont:                                      ; preds = %entry
   %actual_value.sroa.0.0.extract.trunc.i = trunc i64 %call to i32
   %1 = and i64 %call, 4294967296
   %tobool.i.i.not4.i = icmp eq i64 %1, 0
-  %2 = add i32 %actual_value.sroa.0.0.extract.trunc.i, -33554433
-  %3 = icmp ult i32 %2, -33554432
-  %or.cond3.i = or i1 %tobool.i.i.not4.i, %3
+  %cmp.i = icmp slt i32 %actual_value.sroa.0.0.extract.trunc.i, 1
+  %or.cond.i = or i1 %tobool.i.i.not4.i, %cmp.i
+  %cmp5.i = icmp samesign ugt i32 %actual_value.sroa.0.0.extract.trunc.i, 33554432
+  %or.cond3.i = select i1 %or.cond.i, i1 true, i1 %cmp5.i
   %retval.0.i = select i1 %or.cond3.i, i32 8192, i32 %actual_value.sroa.0.0.extract.trunc.i
   store i32 %retval.0.i, ptr %agg.result, align 8
   %vtable9 = load ptr, ptr %config, align 8
   %vfn10 = getelementptr inbounds i8, ptr %vtable9, i64 16
-  %4 = load ptr, ptr %vfn10, align 8
-  %call12 = invoke i64 %4(ptr noundef nonnull align 8 dereferenceable(8) %config, i64 41, ptr nonnull @.str.1)
+  %2 = load ptr, ptr %vfn10, align 8
+  %call12 = invoke i64 %2(ptr noundef nonnull align 8 dereferenceable(8) %config, i64 41, ptr nonnull @.str.1)
           to label %invoke.cont11 unwind label %lpad
 
 invoke.cont11:                                    ; preds = %invoke.cont
   %actual_value.sroa.0.0.extract.trunc.i19 = trunc i64 %call12 to i32
-  %5 = and i64 %call12, 4294967296
-  %tobool.i.i.not4.i20 = icmp eq i64 %5, 0
-  %6 = add i32 %actual_value.sroa.0.0.extract.trunc.i19, -33554433
-  %7 = icmp ult i32 %6, -33554432
-  %or.cond3.i24 = or i1 %tobool.i.i.not4.i20, %7
+  %3 = and i64 %call12, 4294967296
+  %tobool.i.i.not4.i20 = icmp eq i64 %3, 0
+  %cmp.i21 = icmp slt i32 %actual_value.sroa.0.0.extract.trunc.i19, 1
+  %or.cond.i22 = or i1 %tobool.i.i.not4.i20, %cmp.i21
+  %cmp5.i23 = icmp samesign ugt i32 %actual_value.sroa.0.0.extract.trunc.i19, 33554432
+  %or.cond3.i24 = select i1 %or.cond.i22, i1 true, i1 %cmp5.i23
   %retval.0.i25 = select i1 %or.cond3.i24, i32 256, i32 %actual_value.sroa.0.0.extract.trunc.i19
   store i32 %retval.0.i25, ptr %tcp_min_read_chunk_size.i, align 4
   %vtable21 = load ptr, ptr %config, align 8
   %vfn22 = getelementptr inbounds i8, ptr %vtable21, i64 16
-  %8 = load ptr, ptr %vfn22, align 8
-  %call24 = invoke i64 %8(ptr noundef nonnull align 8 dereferenceable(8) %config, i64 41, ptr nonnull @.str.2)
+  %4 = load ptr, ptr %vfn22, align 8
+  %call24 = invoke i64 %4(ptr noundef nonnull align 8 dereferenceable(8) %config, i64 41, ptr nonnull @.str.2)
           to label %invoke.cont23 unwind label %lpad
 
 invoke.cont23:                                    ; preds = %invoke.cont11
   %actual_value.sroa.0.0.extract.trunc.i28 = trunc i64 %call24 to i32
-  %9 = and i64 %call24, 4294967296
-  %tobool.i.i.not4.i29 = icmp eq i64 %9, 0
-  %10 = add i32 %actual_value.sroa.0.0.extract.trunc.i28, -33554433
-  %11 = icmp ult i32 %10, -33554432
-  %or.cond3.i33 = or i1 %tobool.i.i.not4.i29, %11
+  %5 = and i64 %call24, 4294967296
+  %tobool.i.i.not4.i29 = icmp eq i64 %5, 0
+  %cmp.i30 = icmp slt i32 %actual_value.sroa.0.0.extract.trunc.i28, 1
+  %or.cond.i31 = or i1 %tobool.i.i.not4.i29, %cmp.i30
+  %cmp5.i32 = icmp samesign ugt i32 %actual_value.sroa.0.0.extract.trunc.i28, 33554432
+  %or.cond3.i33 = select i1 %or.cond.i31, i1 true, i1 %cmp5.i32
   %retval.0.i34 = select i1 %or.cond3.i33, i32 4194304, i32 %actual_value.sroa.0.0.extract.trunc.i28
   store i32 %retval.0.i34, ptr %tcp_max_read_chunk_size.i, align 8
   %vtable33 = load ptr, ptr %config, align 8
   %vfn34 = getelementptr inbounds i8, ptr %vtable33, i64 16
-  %12 = load ptr, ptr %vfn34, align 8
-  %call36 = invoke i64 %12(ptr noundef nonnull align 8 dereferenceable(8) %config, i64 54, ptr nonnull @.str.3)
+  %6 = load ptr, ptr %vfn34, align 8
+  %call36 = invoke i64 %6(ptr noundef nonnull align 8 dereferenceable(8) %config, i64 54, ptr nonnull @.str.3)
           to label %invoke.cont35 unwind label %lpad
 
 invoke.cont35:                                    ; preds = %invoke.cont23
   %actual_value.sroa.0.0.extract.trunc.i37 = trunc i64 %call36 to i32
-  %13 = and i64 %call36, 6442450944
-  %or.cond.i40.not = icmp eq i64 %13, 4294967296
-  %retval.0.i43 = select i1 %or.cond.i40.not, i32 %actual_value.sroa.0.0.extract.trunc.i37, i32 16384
+  %7 = and i64 %call36, 6442450944
+  %or.cond3.i42.not = icmp eq i64 %7, 4294967296
+  %retval.0.i43 = select i1 %or.cond3.i42.not, i32 %actual_value.sroa.0.0.extract.trunc.i37, i32 16384
   store i32 %retval.0.i43, ptr %tcp_tx_zerocopy_send_bytes_threshold.i, align 4
   %vtable45 = load ptr, ptr %config, align 8
   %vfn46 = getelementptr inbounds i8, ptr %vtable45, i64 16
-  %14 = load ptr, ptr %vfn46, align 8
-  %call48 = invoke i64 %14(ptr noundef nonnull align 8 dereferenceable(8) %config, i64 56, ptr nonnull @.str.4)
+  %8 = load ptr, ptr %vfn46, align 8
+  %call48 = invoke i64 %8(ptr noundef nonnull align 8 dereferenceable(8) %config, i64 56, ptr nonnull @.str.4)
           to label %invoke.cont47 unwind label %lpad
 
 invoke.cont47:                                    ; preds = %invoke.cont35
   %actual_value.sroa.0.0.extract.trunc.i46 = trunc i64 %call48 to i32
-  %15 = and i64 %call48, 6442450944
-  %or.cond.i49.not = icmp eq i64 %15, 4294967296
-  %retval.0.i52 = select i1 %or.cond.i49.not, i32 %actual_value.sroa.0.0.extract.trunc.i46, i32 4
+  %9 = and i64 %call48, 6442450944
+  %or.cond3.i51.not = icmp eq i64 %9, 4294967296
+  %retval.0.i52 = select i1 %or.cond3.i51.not, i32 %actual_value.sroa.0.0.extract.trunc.i46, i32 4
   store i32 %retval.0.i52, ptr %tcp_tx_zerocopy_max_simultaneous_sends.i, align 8
   %vtable57 = load ptr, ptr %config, align 8
   %vfn58 = getelementptr inbounds i8, ptr %vtable57, i64 16
-  %16 = load ptr, ptr %vfn58, align 8
-  %call60 = invoke i64 %16(ptr noundef nonnull align 8 dereferenceable(8) %config, i64 28, ptr nonnull @.str.5)
+  %10 = load ptr, ptr %vfn58, align 8
+  %call60 = invoke i64 %10(ptr noundef nonnull align 8 dereferenceable(8) %config, i64 28, ptr nonnull @.str.5)
           to label %invoke.cont59 unwind label %lpad
 
 invoke.cont59:                                    ; preds = %invoke.cont47
   %actual_value.sroa.0.0.extract.trunc.i55 = trunc i64 %call60 to i32
-  %17 = and i64 %call60, 6442450944
-  %or.cond.i58.not = icmp eq i64 %17, 4294967296
-  %retval.0.i61 = select i1 %or.cond.i58.not, i32 %actual_value.sroa.0.0.extract.trunc.i55, i32 -1
+  %11 = and i64 %call60, 6442450944
+  %or.cond3.i60.not = icmp eq i64 %11, 4294967296
+  %retval.0.i61 = select i1 %or.cond3.i60.not, i32 %actual_value.sroa.0.0.extract.trunc.i55, i32 -1
   store i32 %retval.0.i61, ptr %tcp_receive_buffer_size.i, align 4
   %vtable69 = load ptr, ptr %config, align 8
   %vfn70 = getelementptr inbounds i8, ptr %vtable69, i64 16
-  %18 = load ptr, ptr %vfn70, align 8
-  %call72 = invoke i64 %18(ptr noundef nonnull align 8 dereferenceable(8) %config, i64 41, ptr nonnull @.str.6)
+  %12 = load ptr, ptr %vfn70, align 8
+  %call72 = invoke i64 %12(ptr noundef nonnull align 8 dereferenceable(8) %config, i64 41, ptr nonnull @.str.6)
           to label %invoke.cont71 unwind label %lpad
 
 invoke.cont71:                                    ; preds = %invoke.cont59
-  %19 = and i64 %call72, 8589934591
-  %cmp = icmp eq i64 %19, 4294967297
+  %13 = and i64 %call72, 8589934591
+  %cmp = icmp eq i64 %13, 4294967297
   %frombool = zext i1 %cmp to i8
   store i8 %frombool, ptr %tcp_tx_zero_copy_enabled.i, align 8
   %vtable81 = load ptr, ptr %config, align 8
   %vfn82 = getelementptr inbounds i8, ptr %vtable81, i64 16
-  %20 = load ptr, ptr %vfn82, align 8
-  %call84 = invoke i64 %20(ptr noundef nonnull align 8 dereferenceable(8) %config, i64 22, ptr nonnull @.str.7)
+  %14 = load ptr, ptr %vfn82, align 8
+  %call84 = invoke i64 %14(ptr noundef nonnull align 8 dereferenceable(8) %config, i64 22, ptr nonnull @.str.7)
           to label %invoke.cont83 unwind label %lpad
 
 invoke.cont83:                                    ; preds = %invoke.cont71
   %actual_value.sroa.0.0.extract.trunc.i73 = trunc i64 %call84 to i32
-  %21 = and i64 %call84, 4294967296
-  %tobool.i.i.not4.i74 = icmp eq i64 %21, 0
+  %15 = and i64 %call84, 4294967296
+  %tobool.i.i.not4.i74 = icmp eq i64 %15, 0
   %cmp.i75 = icmp slt i32 %actual_value.sroa.0.0.extract.trunc.i73, 1
   %or.cond.i76 = or i1 %tobool.i.i.not4.i74, %cmp.i75
   %retval.0.i79 = select i1 %or.cond.i76, i32 0, i32 %actual_value.sroa.0.0.extract.trunc.i73
   store i32 %retval.0.i79, ptr %keep_alive_time_ms.i, align 4
   %vtable93 = load ptr, ptr %config, align 8
   %vfn94 = getelementptr inbounds i8, ptr %vtable93, i64 16
-  %22 = load ptr, ptr %vfn94, align 8
-  %call96 = invoke i64 %22(ptr noundef nonnull align 8 dereferenceable(8) %config, i64 25, ptr nonnull @.str.8)
+  %16 = load ptr, ptr %vfn94, align 8
+  %call96 = invoke i64 %16(ptr noundef nonnull align 8 dereferenceable(8) %config, i64 25, ptr nonnull @.str.8)
           to label %invoke.cont95 unwind label %lpad
 
 invoke.cont95:                                    ; preds = %invoke.cont83
   %actual_value.sroa.0.0.extract.trunc.i82 = trunc i64 %call96 to i32
-  %23 = and i64 %call96, 4294967296
-  %tobool.i.i.not4.i83 = icmp eq i64 %23, 0
+  %17 = and i64 %call96, 4294967296
+  %tobool.i.i.not4.i83 = icmp eq i64 %17, 0
   %cmp.i84 = icmp slt i32 %actual_value.sroa.0.0.extract.trunc.i82, 1
   %or.cond.i85 = or i1 %tobool.i.i.not4.i83, %cmp.i84
   %retval.0.i88 = select i1 %or.cond.i85, i32 0, i32 %actual_value.sroa.0.0.extract.trunc.i82
   store i32 %retval.0.i88, ptr %keep_alive_timeout_ms.i, align 8
   %vtable105 = load ptr, ptr %config, align 8
   %vfn106 = getelementptr inbounds i8, ptr %vtable105, i64 16
-  %24 = load ptr, ptr %vfn106, align 8
-  %call108 = invoke i64 %24(ptr noundef nonnull align 8 dereferenceable(8) %config, i64 26, ptr nonnull @.str.9)
+  %18 = load ptr, ptr %vfn106, align 8
+  %call108 = invoke i64 %18(ptr noundef nonnull align 8 dereferenceable(8) %config, i64 26, ptr nonnull @.str.9)
           to label %invoke.cont107 unwind label %lpad
 
 invoke.cont107:                                   ; preds = %invoke.cont95
   %actual_value.sroa.0.0.extract.trunc.i91 = trunc i64 %call108 to i32
-  %25 = and i64 %call108, 4294967296
-  %tobool.i.i.not4.i92 = icmp ne i64 %25, 0
+  %19 = and i64 %call108, 4294967296
+  %tobool.i.i.not4.i92 = icmp ne i64 %19, 0
   %cmp.i93 = icmp sgt i32 %actual_value.sroa.0.0.extract.trunc.i91, 0
   %or.cond.i94.not = and i1 %tobool.i.i.not4.i92, %cmp.i93
   %frombool116 = zext i1 %or.cond.i94.not to i8
   store i8 %frombool116, ptr %expand_wildcard_addrs.i, align 8
   %vtable119 = load ptr, ptr %config, align 8
   %vfn120 = getelementptr inbounds i8, ptr %vtable119, i64 16
-  %26 = load ptr, ptr %vfn120, align 8
-  %call122 = invoke i64 %26(ptr noundef nonnull align 8 dereferenceable(8) %config, i64 17, ptr nonnull @.str.10)
+  %20 = load ptr, ptr %vfn120, align 8
+  %call122 = invoke i64 %20(ptr noundef nonnull align 8 dereferenceable(8) %config, i64 17, ptr nonnull @.str.10)
           to label %invoke.cont121 unwind label %lpad
 
 invoke.cont121:                                   ; preds = %invoke.cont107
   %actual_value.sroa.0.0.extract.trunc.i100 = trunc i64 %call122 to i32
-  %27 = and i64 %call122, 4294967296
-  %tobool.i.i.not4.i101 = icmp ne i64 %27, 0
+  %21 = and i64 %call122, 4294967296
+  %tobool.i.i.not4.i101 = icmp ne i64 %21, 0
   %cmp.i102 = icmp sgt i32 %actual_value.sroa.0.0.extract.trunc.i100, 0
   %or.cond.i103.not = and i1 %tobool.i.i.not4.i101, %cmp.i102
   %frombool130 = zext i1 %or.cond.i103.not to i8
   store i8 %frombool130, ptr %allow_reuse_port.i, align 1
   %vtable133 = load ptr, ptr %config, align 8
   %vfn134 = getelementptr inbounds i8, ptr %vtable133, i64 16
-  %28 = load ptr, ptr %vfn134, align 8
-  %call136 = invoke i64 %28(ptr noundef nonnull align 8 dereferenceable(8) %config, i64 9, ptr nonnull @.str.11)
+  %22 = load ptr, ptr %vfn134, align 8
+  %call136 = invoke i64 %22(ptr noundef nonnull align 8 dereferenceable(8) %config, i64 9, ptr nonnull @.str.11)
           to label %invoke.cont135 unwind label %lpad
 
 invoke.cont135:                                   ; preds = %invoke.cont121
   %actual_value.sroa.0.0.extract.trunc.i109 = trunc i64 %call136 to i32
-  %29 = and i64 %call136, 8589934528
-  %or.cond3.i114.not = icmp eq i64 %29, 4294967296
+  %23 = and i64 %call136, 8589934528
+  %or.cond3.i114.not = icmp eq i64 %23, 4294967296
   %retval.0.i115 = select i1 %or.cond3.i114.not, i32 %actual_value.sroa.0.0.extract.trunc.i109, i32 -1
   store i32 %retval.0.i115, ptr %dscp.i, align 4
   %cmp145 = icmp sgt i32 %retval.0.i25, %retval.0.i34
@@ -240,21 +243,21 @@ if.then:                                          ; preds = %invoke.cont135
   br label %if.end
 
 lpad:                                             ; preds = %if.then170, %if.end163, %if.end, %invoke.cont121, %invoke.cont107, %invoke.cont95, %invoke.cont83, %invoke.cont71, %invoke.cont59, %invoke.cont47, %invoke.cont35, %invoke.cont23, %invoke.cont11, %invoke.cont, %entry
-  %30 = landingpad { ptr, i32 }
+  %24 = landingpad { ptr, i32 }
           cleanup
   tail call void @_ZN9grpc_core15PosixTcpOptionsD2Ev(ptr noundef nonnull align 8 dereferenceable(64) %agg.result) #11
-  resume { ptr, i32 } %30
+  resume { ptr, i32 } %24
 
 if.end:                                           ; preds = %if.then, %invoke.cont135
-  %31 = phi i32 [ %retval.0.i34, %if.then ], [ %retval.0.i25, %invoke.cont135 ]
-  %cmp.i116 = icmp slt i32 %retval.0.i, %31
+  %25 = phi i32 [ %retval.0.i34, %if.then ], [ %retval.0.i25, %invoke.cont135 ]
+  %cmp.i116 = icmp slt i32 %retval.0.i, %25
   %max.val.i = tail call i32 @llvm.smin.i32(i32 %retval.0.i34, i32 %retval.0.i)
-  %retval.0.i117 = select i1 %cmp.i116, i32 %31, i32 %max.val.i
+  %retval.0.i117 = select i1 %cmp.i116, i32 %25, i32 %max.val.i
   store i32 %retval.0.i117, ptr %agg.result, align 8
   %vtable155 = load ptr, ptr %config, align 8
   %vfn156 = getelementptr inbounds i8, ptr %vtable155, i64 32
-  %32 = load ptr, ptr %vfn156, align 8
-  %call158 = invoke noundef ptr %32(ptr noundef nonnull align 8 dereferenceable(8) %config, i64 19, ptr nonnull @.str.12)
+  %26 = load ptr, ptr %vfn156, align 8
+  %call158 = invoke noundef ptr %26(ptr noundef nonnull align 8 dereferenceable(8) %config, i64 19, ptr nonnull @.str.12)
           to label %invoke.cont157 unwind label %lpad
 
 invoke.cont157:                                   ; preds = %if.end
@@ -263,15 +266,15 @@ invoke.cont157:                                   ; preds = %if.end
 
 invoke.cont161:                                   ; preds = %invoke.cont157
   %refs_.i.i = getelementptr inbounds i8, ptr %call158, i64 8
-  %33 = atomicrmw add ptr %refs_.i.i, i64 1 monotonic, align 8, !noalias !4
+  %27 = atomicrmw add ptr %refs_.i.i, i64 1 monotonic, align 8, !noalias !4
   store ptr %call158, ptr %resource_quota.i, align 8
   br label %if.end163
 
 if.end163:                                        ; preds = %invoke.cont161, %invoke.cont157
   %vtable165 = load ptr, ptr %config, align 8
   %vfn166 = getelementptr inbounds i8, ptr %vtable165, i64 32
-  %34 = load ptr, ptr %vfn166, align 8
-  %call168 = invoke noundef ptr %34(ptr noundef nonnull align 8 dereferenceable(8) %config, i64 19, ptr nonnull @.str.13)
+  %28 = load ptr, ptr %vfn166, align 8
+  %call168 = invoke noundef ptr %28(ptr noundef nonnull align 8 dereferenceable(8) %config, i64 19, ptr nonnull @.str.13)
           to label %invoke.cont167 unwind label %lpad
 
 invoke.cont167:                                   ; preds = %if.end163

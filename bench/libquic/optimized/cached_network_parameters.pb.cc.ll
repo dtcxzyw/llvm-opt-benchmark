@@ -1361,7 +1361,7 @@ if.then7:                                         ; preds = %if.end
   br i1 %cmp.i.i13, label %_ZN6google8protobuf8internal14WireFormatLite9Int32SizeEi.exit, label %if.else.i.i14
 
 if.else.i.i14:                                    ; preds = %if.then7
-  %cmp.i.i.i = icmp ult i32 %5, 128
+  %cmp.i.i.i = icmp samesign ult i32 %5, 128
   br i1 %cmp.i.i.i, label %_ZN6google8protobuf8internal14WireFormatLite9Int32SizeEi.exit, label %if.else.i.i.i
 
 if.else.i.i.i:                                    ; preds = %if.else.i.i14
@@ -1390,7 +1390,7 @@ if.then14:                                        ; preds = %if.end12
   br i1 %cmp.i.i19, label %_ZN6google8protobuf8internal14WireFormatLite9Int32SizeEi.exit25, label %if.else.i.i20
 
 if.else.i.i20:                                    ; preds = %if.then14
-  %cmp.i.i.i21 = icmp ult i32 %8, 128
+  %cmp.i.i.i21 = icmp samesign ult i32 %8, 128
   br i1 %cmp.i.i.i21, label %_ZN6google8protobuf8internal14WireFormatLite9Int32SizeEi.exit25, label %if.else.i.i.i22
 
 if.else.i.i.i22:                                  ; preds = %if.else.i.i20
@@ -1435,7 +1435,7 @@ if.then28:                                        ; preds = %if.end26
   br i1 %cmp.i.i33, label %_ZN6google8protobuf8internal14WireFormatLite9Int32SizeEi.exit39, label %if.else.i.i34
 
 if.else.i.i34:                                    ; preds = %if.then28
-  %cmp.i.i.i35 = icmp ult i32 %13, 128
+  %cmp.i.i.i35 = icmp samesign ult i32 %13, 128
   br i1 %cmp.i.i.i35, label %_ZN6google8protobuf8internal14WireFormatLite9Int32SizeEi.exit39, label %if.else.i.i.i36
 
 if.else.i.i.i36:                                  ; preds = %if.else.i.i34
@@ -1464,7 +1464,7 @@ if.then35:                                        ; preds = %if.end33
   br i1 %cmp.i.i43, label %_ZN6google8protobuf8internal14WireFormatLite9Int32SizeEi.exit49, label %if.else.i.i44
 
 if.else.i.i44:                                    ; preds = %if.then35
-  %cmp.i.i.i45 = icmp ult i32 %16, 128
+  %cmp.i.i.i45 = icmp samesign ult i32 %16, 128
   br i1 %cmp.i.i.i45, label %_ZN6google8protobuf8internal14WireFormatLite9Int32SizeEi.exit49, label %if.else.i.i.i46
 
 if.else.i.i.i46:                                  ; preds = %if.else.i.i44

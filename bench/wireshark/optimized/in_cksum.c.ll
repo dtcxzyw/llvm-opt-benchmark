@@ -167,7 +167,7 @@ define range(i32 0, 65536) i32 @in_cksum_ret_partial(ptr nocapture noundef reado
   %107 = add i32 %103, %106
   %108 = getelementptr i8, ptr %.2152179, i64 32
   %109 = add nsw i32 %44, -32
-  %110 = icmp ugt i32 %44, 31
+  %110 = icmp samesign ugt i32 %44, 31
   br i1 %110, label %.lr.ph, label %.preheader, !llvm.loop !4
 
 .lr.ph186:                                        ; preds = %.preheader, %.lr.ph186
@@ -191,7 +191,7 @@ define range(i32 0, 65536) i32 @in_cksum_ret_partial(ptr nocapture noundef reado
   %125 = zext i16 %124 to i32
   %126 = add i32 %122, %125
   %127 = getelementptr i8, ptr %.3153183, i64 8
-  %128 = icmp ugt i32 %.5185, 15
+  %128 = icmp samesign ugt i32 %.5185, 15
   br i1 %128, label %.lr.ph186, label %._crit_edge, !llvm.loop !6
 
 ._crit_edge:                                      ; preds = %.lr.ph186, %.preheader
@@ -226,7 +226,7 @@ define range(i32 0, 65536) i32 @in_cksum_ret_partial(ptr nocapture noundef reado
   %141 = zext i16 %140 to i32
   %142 = add i32 %.10191, %141
   %143 = add nsw i32 %138, -2
-  %144 = icmp ugt i32 %138, 1
+  %144 = icmp samesign ugt i32 %138, 1
   br i1 %144, label %.lr.ph193, label %._crit_edge194.loopexit, !llvm.loop !7
 
 ._crit_edge194.loopexit:                          ; preds = %.lr.ph193

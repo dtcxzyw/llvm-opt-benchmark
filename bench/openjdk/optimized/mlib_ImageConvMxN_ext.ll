@@ -63,7 +63,7 @@ define hidden range(i32 0, 2) i32 @mlib_convMxNext_s32(ptr nocapture noundef rea
   %.0114151 = phi double [ %41, %.lr.ph ], [ 1.000000e+00, %39 ]
   %41 = fmul double %.0114151, 0x3E10000000000000
   %42 = add nsw i32 %.0111152, -30
-  %43 = icmp ugt i32 %.0111152, 60
+  %43 = icmp samesign ugt i32 %.0111152, 60
   br i1 %43, label %.lr.ph, label %._crit_edge, !llvm.loop !6
 
 ._crit_edge:                                      ; preds = %.lr.ph, %39

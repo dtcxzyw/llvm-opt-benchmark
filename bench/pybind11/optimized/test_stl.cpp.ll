@@ -44282,7 +44282,7 @@ _ZNKSt5dequeIiSaIiEE14_M_range_checkEm.exit.i.i.i: ; preds = %1
   br i1 %38, label %39, label %43
 
 39:                                               ; preds = %_ZNKSt5dequeIiSaIiEE14_M_range_checkEm.exit.i.i.i
-  %40 = icmp ult i64 %37, 128
+  %40 = icmp samesign ult i64 %37, 128
   br i1 %40, label %_ZNKSt5dequeIiSaIiEE2atEm.exit.i.i, label %41
 
 41:                                               ; preds = %39
@@ -44323,7 +44323,7 @@ _ZNKSt5dequeIiSaIiEE14_M_range_checkEm.exit.i4.i.i: ; preds = %54
   br i1 %58, label %59, label %65
 
 59:                                               ; preds = %_ZNKSt5dequeIiSaIiEE14_M_range_checkEm.exit.i4.i.i
-  %60 = icmp ult i64 %57, 128
+  %60 = icmp samesign ult i64 %57, 128
   br i1 %60, label %61, label %63
 
 61:                                               ; preds = %59
@@ -97667,7 +97667,7 @@ _ZNSt12_Vector_baseIZ18test_submodule_stlRN8pybind117module_EE14Issue1561InnerSa
   %59 = getelementptr inbounds i8, ptr %.0910.i.i.i.i.i.i.i.i, i64 32
   %60 = getelementptr inbounds i8, ptr %.0811.i.i.i.i.i.i.i.i, i64 32
   %61 = add nsw i64 %.012.i.i.i.i.i.i.i.i, -1
-  %62 = icmp ugt i64 %.012.i.i.i.i.i.i.i.i, 1
+  %62 = icmp samesign ugt i64 %.012.i.i.i.i.i.i.i.i, 1
   br i1 %62, label %.lr.ph.i.i.i.i.i40.i.i.i, label %_ZSt4copyIN9__gnu_cxx17__normal_iteratorIPKZ18test_submodule_stlRN8pybind117module_EE14Issue1561InnerSt6vectorIS5_SaIS5_EEEENS1_IPS5_SA_EEET0_T_SF_SE_.exit.loopexit.i.i.i, !llvm.loop !2705
 
 _ZSt4copyIN9__gnu_cxx17__normal_iteratorIPKZ18test_submodule_stlRN8pybind117module_EE14Issue1561InnerSt6vectorIS5_SaIS5_EEEENS1_IPS5_SA_EEET0_T_SF_SE_.exit.loopexit.i.i.i: ; preds = %.lr.ph.i.i.i.i.i40.i.i.i
@@ -97707,7 +97707,7 @@ _ZSt4copyIN9__gnu_cxx17__normal_iteratorIPKZ18test_submodule_stlRN8pybind117modu
   %70 = getelementptr inbounds i8, ptr %.0910.i.i.i.i.i48.i.i.i, i64 32
   %71 = getelementptr inbounds i8, ptr %.0811.i.i.i.i.i47.i.i.i, i64 32
   %72 = add nsw i64 %.012.i.i.i.i.i46.i.i.i, -1
-  %73 = icmp ugt i64 %.012.i.i.i.i.i46.i.i.i, 1
+  %73 = icmp samesign ugt i64 %.012.i.i.i.i.i46.i.i.i, 1
   br i1 %73, label %.lr.ph.i.i.i.i.i45.i.i.i, label %_ZSt4copyIPZ18test_submodule_stlRN8pybind117module_EE14Issue1561InnerS4_ET0_T_S6_S5_.exit.loopexit.i.i.i, !llvm.loop !2707
 
 _ZSt4copyIPZ18test_submodule_stlRN8pybind117module_EE14Issue1561InnerS4_ET0_T_S6_S5_.exit.loopexit.i.i.i: ; preds = %.lr.ph.i.i.i.i.i45.i.i.i

@@ -16103,7 +16103,7 @@ for.body.i.i.i.i.i26:                             ; preds = %for.body.i.i.i.i.i2
   %incdec.ptr1.i.i.i.i.i = getelementptr inbounds i8, ptr %__result.addr.06.i.i.i.i.i, i64 -456
   %call.i.i.i.i.i = tail call noundef nonnull align 8 dereferenceable(452) ptr @_ZN6Assimp11NFFImporter8MeshInfoaSEOS1_(ptr noundef nonnull align 8 dereferenceable(452) %incdec.ptr1.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(452) %incdec.ptr.i.i.i.i.i27)
   %dec.i.i.i.i.i = add nsw i64 %__n.07.i.i.i.i.i, -1
-  %cmp.i.i.i.i.i = icmp ugt i64 %__n.07.i.i.i.i.i, 1
+  %cmp.i.i.i.i.i = icmp samesign ugt i64 %__n.07.i.i.i.i.i, 1
   br i1 %cmp.i.i.i.i.i, label %for.body.i.i.i.i.i26, label %_ZSt13move_backwardIPN6Assimp11NFFImporter8MeshInfoES3_ET0_T_S5_S4_.exit, !llvm.loop !110
 
 _ZSt13move_backwardIPN6Assimp11NFFImporter8MeshInfoES3_ET0_T_S5_S4_.exit: ; preds = %for.body.i.i.i.i.i26, %_ZSt22__uninitialized_move_aIPN6Assimp11NFFImporter8MeshInfoES3_SaIS2_EET0_T_S6_S5_RT1_.exit
@@ -16122,7 +16122,7 @@ for.body.i.i.i.i.i36:                             ; preds = %for.body.i.i.i.i.i3
   %incdec.ptr.i.i.i.i.i38 = getelementptr inbounds i8, ptr %__first.addr.07.i.i.i.i.i, i64 456
   %incdec.ptr1.i.i.i.i.i39 = getelementptr inbounds i8, ptr %__result.addr.08.i.i.i.i.i, i64 456
   %dec.i.i.i.i.i40 = add nsw i64 %__n.09.i.i.i.i.i, -1
-  %cmp.i.i.i.i.i41 = icmp ugt i64 %__n.09.i.i.i.i.i, 1
+  %cmp.i.i.i.i.i41 = icmp samesign ugt i64 %__n.09.i.i.i.i.i, 1
   br i1 %cmp.i.i.i.i.i41, label %for.body.i.i.i.i.i36, label %if.end109, !llvm.loop !111
 
 _ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPN6Assimp11NFFImporter8MeshInfoESt6vectorIS4_SaIS4_EEEEmEvRT_T0_.exit: ; preds = %if.then9
@@ -16259,7 +16259,7 @@ for.body.i.i.i.i.i76:                             ; preds = %for.body.i.i.i.i.i7
   %incdec.ptr.i.i.i.i.i81 = getelementptr inbounds i8, ptr %__first.addr.07.i.i.i.i.i79, i64 456
   %incdec.ptr1.i.i.i.i.i82 = getelementptr inbounds i8, ptr %__result.addr.08.i.i.i.i.i78, i64 456
   %dec.i.i.i.i.i83 = add nsw i64 %__n.09.i.i.i.i.i77, -1
-  %cmp.i.i.i.i.i84 = icmp ugt i64 %__n.09.i.i.i.i.i77, 1
+  %cmp.i.i.i.i.i84 = icmp samesign ugt i64 %__n.09.i.i.i.i.i77, 1
   br i1 %cmp.i.i.i.i.i84, label %for.body.i.i.i.i.i76, label %if.end109, !llvm.loop !111
 
 if.else68:                                        ; preds = %if.then

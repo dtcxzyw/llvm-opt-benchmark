@@ -520,7 +520,7 @@ define hidden void @_ZN11hb_buffer_t5enterEv(ptr nocapture noundef nonnull align
   %.sroa.speculated5 = tail call i32 @llvm.umax.i32(i32 %10, i32 16384)
   %11 = getelementptr inbounds i8, ptr %0, i64 184
   store i32 %.sroa.speculated5, ptr %11, align 8
-  %12 = icmp ugt i32 %7, 4194303
+  %12 = icmp samesign ugt i32 %7, 4194303
   br i1 %12, label %.thread, label %13
 
 13:                                               ; preds = %9
@@ -6308,7 +6308,7 @@ define linkonce_odr hidden noundef ptr @_ZN9hb_utf8_t4nextEPKhS1_Pjj(ptr noundef
   %46 = shl nuw nsw i32 %35, 6
   %47 = or disjoint i32 %46, %45
   %48 = or disjoint i32 %41, %47
-  %49 = icmp ult i32 %48, 2048
+  %49 = icmp samesign ult i32 %48, 2048
   br i1 %49, label %89, label %50
 
 50:                                               ; preds = %43

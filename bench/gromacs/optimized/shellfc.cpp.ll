@@ -3473,7 +3473,7 @@ _ZNSt6vectorIfSaIfEED2Ev.exit:                    ; preds = %.body, %309
   %462 = getelementptr inbounds i8, ptr %.sroa.05.07.i.i.i.i.i, i64 12
   %463 = getelementptr inbounds i8, ptr %.sroa.0.08.i.i.i.i.i, i64 12
   %464 = add nsw i64 %.09.i.i.i.i.i, -1
-  %465 = icmp ugt i64 %.09.i.i.i.i.i, 1
+  %465 = icmp samesign ugt i64 %.09.i.i.i.i.i, 1
   br i1 %465, label %.lr.ph.i.i.i.i.i, label %.loopexit645, !llvm.loop !51
 
 .loopexit645:                                     ; preds = %.lr.ph.i.i.i.i.i
@@ -3499,7 +3499,7 @@ _ZNSt6vectorIfSaIfEED2Ev.exit:                    ; preds = %.body, %309
   %470 = getelementptr inbounds i8, ptr %.sroa.05.07.i.i.i.i.i424, i64 12
   %471 = getelementptr inbounds i8, ptr %.sroa.0.08.i.i.i.i.i423, i64 12
   %472 = add nsw i64 %.09.i.i.i.i.i422, -1
-  %473 = icmp ugt i64 %.09.i.i.i.i.i422, 1
+  %473 = icmp samesign ugt i64 %.09.i.i.i.i.i422, 1
   br i1 %473, label %.lr.ph.i.i.i.i.i421, label %_ZSt4copyIN3gmx12ArrayRefIterINS0_11BasicVectorIfEEEES4_ET0_T_S6_S5_.exit425, !llvm.loop !51
 
 _ZSt4copyIN3gmx12ArrayRefIterINS0_11BasicVectorIfEEEES4_ET0_T_S6_S5_.exit425: ; preds = %.lr.ph.i.i.i.i.i421, %453, %.loopexit645, %451
@@ -4413,7 +4413,7 @@ _ZL18decrease_step_sizeN3gmx8ArrayRefI7t_shellEE.exit: ; preds = %.lr.ph.i465, %
   %982 = getelementptr inbounds i8, ptr %.sroa.05.07.i.i.i.i.i473, i64 12
   %983 = getelementptr inbounds i8, ptr %.09.i.i.i.i.i472, i64 12
   %984 = add nsw i64 %.048.i.i.i.i.i, -1
-  %985 = icmp ugt i64 %.048.i.i.i.i.i, 1
+  %985 = icmp samesign ugt i64 %.048.i.i.i.i.i, 1
   br i1 %985, label %.lr.ph.i.i.i.i.i471, label %.loopexit, !llvm.loop !65
 
 .loopexit:                                        ; preds = %.lr.ph.i.i.i.i.i471, %.thread630
@@ -4440,7 +4440,7 @@ _ZL18decrease_step_sizeN3gmx8ArrayRefI7t_shellEE.exit: ; preds = %.lr.ph.i465, %
   %994 = getelementptr inbounds i8, ptr %.sroa.05.07.i.i.i.i.i482, i64 12
   %995 = getelementptr inbounds i8, ptr %.sroa.0.08.i.i.i.i.i481, i64 12
   %996 = add nsw i64 %.09.i.i.i.i.i480, -1
-  %997 = icmp ugt i64 %.09.i.i.i.i.i480, 1
+  %997 = icmp samesign ugt i64 %.09.i.i.i.i.i480, 1
   br i1 %997, label %.lr.ph.i.i.i.i.i479, label %_ZSt4copyIN3gmx12ArrayRefIterINS0_11BasicVectorIfEEEES4_ET0_T_S6_S5_.exit483, !llvm.loop !51
 
 _ZSt4copyIN3gmx12ArrayRefIterINS0_11BasicVectorIfEEEES4_ET0_T_S6_S5_.exit483: ; preds = %.lr.ph.i.i.i.i.i479, %.loopexit

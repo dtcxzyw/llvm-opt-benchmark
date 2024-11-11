@@ -1150,7 +1150,7 @@ _ZNK2cv11_InputArray6getMatEi.exit:               ; preds = %20, %23
   %49 = load i32, ptr %4, align 8
   %50 = lshr i32 %49, 3
   %51 = and i32 %50, 511
-  %.not30 = icmp ugt i32 %.01629, %51
+  %.not30 = icmp samesign ugt i32 %.01629, %51
   br i1 %.not30, label %52, label %60
 
 52:                                               ; preds = %.thread, %46
@@ -1322,7 +1322,7 @@ _ZNK2cv11_InputArray6getMatEi.exit:               ; preds = %13, %16
 53:                                               ; preds = %46
   %54 = lshr i32 %48, 3
   %55 = and i32 %54, 511
-  %.not26 = icmp ugt i32 %.016, %55
+  %.not26 = icmp samesign ugt i32 %.016, %55
   br i1 %.not26, label %56, label %64
 
 56:                                               ; preds = %53, %46, %42
@@ -1783,7 +1783,7 @@ define void @cvReduce(ptr noundef %0, ptr noundef %1, i32 noundef %2, i32 nounde
   br label %89
 
 33:                                               ; preds = %15
-  %34 = icmp ugt i32 %2, 1
+  %34 = icmp samesign ugt i32 %2, 1
   br i1 %34, label %35, label %.thread
 
 35:                                               ; preds = %33

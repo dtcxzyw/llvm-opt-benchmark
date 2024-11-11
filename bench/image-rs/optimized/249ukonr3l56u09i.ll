@@ -35308,7 +35308,7 @@ define hidden void @_ZN5image6codecs4webp8extended15read_anim_frame17h54f4ccb9bd
 
 182:                                              ; preds = %173
   %183 = and i8 %165, 1
-  %184 = icmp ult i8 %165, 2
+  %184 = icmp samesign ult i8 %165, 2
   %185 = getelementptr inbounds i8, ptr %16, i64 8
   %.sroa.765.8..sroa_idx = getelementptr inbounds i8, ptr %.sroa.765, i64 7
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(40) %.sroa.765.8..sroa_idx, ptr noundef nonnull align 8 dereferenceable(40) %185, i64 40, i1 false)
@@ -35719,7 +35719,7 @@ define internal fastcc void @_ZN5image6codecs4webp8extended15read_anim_frame17hf
 
 164:                                              ; preds = %155
   %165 = and i8 %147, 1
-  %166 = icmp ult i8 %147, 2
+  %166 = icmp samesign ult i8 %147, 2
   %167 = getelementptr inbounds i8, ptr %16, i64 8
   %.sroa.765.8..sroa_idx = getelementptr inbounds i8, ptr %.sroa.765, i64 7
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(40) %.sroa.765.8..sroa_idx, ptr noundef nonnull align 8 dereferenceable(40) %167, i64 40, i1 false)

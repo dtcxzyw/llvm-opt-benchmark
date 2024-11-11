@@ -1858,7 +1858,7 @@ phys_section_add.exit.i:                          ; preds = %if.then3.i.i, %if.e
   store i32 %inc.i.i, ptr %sections_nb.i.i, align 8
   %shr.i.i = lshr i128 %5, 12
   %retval.sroa.0.0.extract.trunc.i.i = trunc i128 %shr.i.i to i64
-  %cmp.i5.i = icmp ult i128 %5, 75557863725914323419136
+  %cmp.i5.i = icmp samesign ult i128 %5, 75557863725914323419136
   br i1 %cmp.i5.i, label %int128_get64.exit.i, label %if.else.i6.i
 
 if.else.i6.i:                                     ; preds = %phys_section_add.exit.i
@@ -1914,7 +1914,7 @@ register_multipage.exit:                          ; preds = %if.end.i, %if.then.
 
 if.end56:                                         ; preds = %register_multipage.exit
   store i128 %18, ptr %remain, align 16
-  %cmp.i69 = icmp ult i128 %5, 18446744073709551616
+  %cmp.i69 = icmp samesign ult i128 %5, 18446744073709551616
   br i1 %cmp.i69, label %int128_get64.exit76, label %if.else.i70
 
 if.else.i70:                                      ; preds = %if.end56
@@ -2184,7 +2184,7 @@ phys_section_add.exit47:                          ; preds = %if.end.if.end9_crit
   store i32 %inc.i38, ptr %sections_nb.i26, align 8
   %conv13.i39 = trunc i32 %28 to i16
   %cmp1.i = icmp ugt i32 %conv24, 4095
-  %cmp6.not5.i = icmp ult i32 %conv24, %conv
+  %cmp6.not5.i = icmp samesign ult i32 %conv24, %conv
   %or.cond51 = select i1 %cmp1.i, i1 true, i1 %cmp6.not5.i
   br i1 %or.cond51, label %subpage_register.exit, label %for.body.lr.ph.i
 

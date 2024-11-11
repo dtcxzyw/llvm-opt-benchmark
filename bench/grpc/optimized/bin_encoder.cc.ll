@@ -546,7 +546,7 @@ sw.bb61:                                          ; preds = %for.end
   %or.i93 = or i32 %shl9.i91, %conv11.i92
   %or12.i94 = or i32 %or.i93, %shl.i89
   %add19.i96 = add nuw nsw i32 %add5.i88, %out.sroa.17.0.lcssa
-  %cmp5.i.i97 = icmp ugt i32 %add19.i96, 8
+  %cmp5.i.i97 = icmp samesign ugt i32 %add19.i96, 8
   br i1 %cmp5.i.i97, label %while.body.i.i100, label %_ZL8enc_add2P8huff_outhhPj.exit106
 
 while.body.i.i100:                                ; preds = %sw.bb61, %while.body.i.i100
@@ -598,7 +598,7 @@ sw.bb72:                                          ; preds = %for.end
   %or.i125 = or i32 %shl9.i123, %conv11.i124
   %or12.i126 = or i32 %or.i125, %shl.i121
   %add19.i128 = add nuw nsw i32 %add5.i120, %out.sroa.17.0.lcssa
-  %cmp5.i.i129 = icmp ugt i32 %add19.i128, 8
+  %cmp5.i.i129 = icmp samesign ugt i32 %add19.i128, 8
   br i1 %cmp5.i.i129, label %while.body.i.i132, label %_ZL8enc_add2P8huff_outhhPj.exit138
 
 while.body.i.i132:                                ; preds = %sw.bb72, %while.body.i.i132

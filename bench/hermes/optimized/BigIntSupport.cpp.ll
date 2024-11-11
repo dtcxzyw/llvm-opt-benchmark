@@ -1734,7 +1734,7 @@ _ZN6hermes6bigint12_GLOBAL__N_127BigIntLiteralParsingToolBoxINS1_18NumericValueP
 if.then7.i:                                       ; preds = %_ZN6hermes6bigint12_GLOBAL__N_127BigIntLiteralParsingToolBoxINS1_18NumericValueParserEE11nextIsAnyOfIJLc110EEEENS_8OptValueIcEEv.exit.i.i.i
   store i8 10, ptr %radix, align 1
   %call8.i = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEPKc(ptr noundef nonnull align 8 dereferenceable(32) %bigintDigits, ptr noundef nonnull @.str) #17
-  %cmp.i.not.i.i = icmp ugt i64 %src.coerce1, 2
+  %cmp.i.not.i.i = icmp samesign ugt i64 %src.coerce1, 2
   br i1 %cmp.i.not.i.i, label %_ZNK6hermes6bigint12_GLOBAL__N_127BigIntLiteralParsingToolBoxINS1_18NumericValueParserEE4peekEl.exit.i.i, label %if.else.i
 
 _ZNK6hermes6bigint12_GLOBAL__N_127BigIntLiteralParsingToolBoxINS1_18NumericValueParserEE4peekEl.exit.i.i: ; preds = %if.then7.i
@@ -3258,7 +3258,7 @@ if.end:                                           ; preds = %entry
   %Capacity2.i.i.i.i.i.i = getelementptr inbounds i8, ptr %tmp, i64 12
   store i32 4, ptr %Capacity2.i.i.i.i.i.i, align 4
   store i32 0, ptr %Size.i.i.i.i.i.i, align 8
-  %cmp.i.i.i = icmp ugt i32 %sub1.i.i, 39
+  %cmp.i.i.i = icmp samesign ugt i32 %sub1.i.i, 39
   br i1 %cmp.i.i.i, label %if.end.i.i.thread.i, label %if.end.i.i.i
 
 if.end.i.i.thread.i:                              ; preds = %if.end
@@ -3269,7 +3269,7 @@ if.end.i.i.thread.i:                              ; preds = %if.end
 
 if.end.i.i.i:                                     ; preds = %if.end
   store i32 %div1.i, ptr %Size.i.i.i.i.i.i, align 8
-  %cmp.not3.i.i.i.i.i.i.i.i = icmp ult i32 %sub1.i.i, 8
+  %cmp.not3.i.i.i.i.i.i.i.i = icmp samesign ult i32 %sub1.i.i, 8
   br i1 %cmp.not3.i.i.i.i.i.i.i.i, label %_ZN6hermes6bigint10TmpStorageC2Ej.exit, label %for.body.i.i.i.i.i.i.i.preheader.i
 
 for.body.i.i.i.i.i.i.i.preheader.i:               ; preds = %if.end.i.i.i, %if.end.i.i.thread.i

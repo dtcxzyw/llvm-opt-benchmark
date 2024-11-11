@@ -735,7 +735,7 @@ _ZNSt12_Vector_baseIlSaIlEE11_M_allocateEm.exit.i.i: ; preds = %_ZNSt6vectorIlSa
   %97 = getelementptr inbounds i8, ptr %.0910.i.i.i.i.i.i.i.i.i.i, i64 4
   %98 = getelementptr inbounds i8, ptr %.0811.i.i.i.i.i.i.i.i.i.i, i64 8
   %99 = add nsw i64 %.012.i.i.i.i.i.i.i.i.i.i, -1
-  %100 = icmp ugt i64 %.012.i.i.i.i.i.i.i.i.i.i, 1
+  %100 = icmp samesign ugt i64 %.012.i.i.i.i.i.i.i.i.i.i, 1
   br i1 %100, label %.lr.ph.i.i.i.i.i.i.i.i.i.i, label %.loopexit, !llvm.loop !10
 
 .loopexit:                                        ; preds = %.lr.ph.i.i.i.i.i.i.i.i.i.i, %_ZNSt12_Vector_baseIlSaIlEE11_M_allocateEm.exit.thread.i.i
@@ -3538,7 +3538,7 @@ _Z29gmx_ana_index_difference_sizeP15gmx_ana_index_tS0_.exit: ; preds = %31, %3
   %64 = load ptr, ptr %38, align 8
   %65 = getelementptr inbounds i32, ptr %64, i64 %indvars.iv.next
   store i32 %.sink, ptr %65, align 4
-  %66 = icmp ugt i64 %indvars.iv, 1
+  %66 = icmp samesign ugt i64 %indvars.iv, 1
   br i1 %66, label %40, label %._crit_edge, !llvm.loop !48
 
 ._crit_edge:                                      ; preds = %63, %_Z29gmx_ana_index_difference_sizeP15gmx_ana_index_tS0_.exit
@@ -3713,7 +3713,7 @@ _Z29gmx_ana_index_difference_sizeP15gmx_ana_index_tS0_.exit.i: ; preds = %41, %1
   %72 = load ptr, ptr %46, align 8
   %73 = getelementptr inbounds i32, ptr %72, i64 %indvars.iv.next.i8
   store i32 %.sink.i, ptr %73, align 4
-  %74 = icmp ugt i64 %indvars.iv.i7, 1
+  %74 = icmp samesign ugt i64 %indvars.iv.i7, 1
   br i1 %74, label %48, label %_Z19gmx_ana_index_unionP15gmx_ana_index_tS0_S0_.exit, !llvm.loop !48
 
 .lr.ph.i9:                                        ; preds = %_Z26gmx_ana_index_check_sortedP15gmx_ana_index_t.exit
@@ -3895,7 +3895,7 @@ _Z29gmx_ana_index_difference_sizeP15gmx_ana_index_tS0_.exit.i16: ; preds = %117,
   %144 = load ptr, ptr %123, align 8
   %145 = getelementptr inbounds i32, ptr %144, i64 %indvars.iv.next.i22
   store i32 %.sink.i26, ptr %145, align 4
-  %146 = icmp ugt i64 %indvars.iv.i19, 1
+  %146 = icmp samesign ugt i64 %indvars.iv.i19, 1
   br i1 %146, label %125, label %_Z19gmx_ana_index_unionP15gmx_ana_index_tS0_S0_.exit52, !llvm.loop !48
 
 _Z19gmx_ana_index_unionP15gmx_ana_index_tS0_S0_.exit52: ; preds = %143, %_Z29gmx_ana_index_difference_sizeP15gmx_ana_index_tS0_.exit.i16
@@ -3971,7 +3971,7 @@ define void @_Z19gmx_ana_index_mergeP15gmx_ana_index_tS0_S0_(ptr nocapture nound
   %35 = load ptr, ptr %12, align 8
   %36 = getelementptr inbounds i32, ptr %35, i64 %indvars.iv.next
   store i32 %.sink, ptr %36, align 4
-  %37 = icmp ugt i64 %indvars.iv, 1
+  %37 = icmp samesign ugt i64 %indvars.iv, 1
   br i1 %37, label %14, label %._crit_edge, !llvm.loop !49
 
 ._crit_edge:                                      ; preds = %34, %3

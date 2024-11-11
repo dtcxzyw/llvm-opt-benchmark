@@ -4576,7 +4576,7 @@ define hidden void @_ZN16JVMCINMethodData22add_failed_speculationEP7nmethodl(ptr
   %15 = load i32, ptr %14, align 4
   %gepdiff.i = sub i32 %13, %15
   %16 = zext i32 %gepdiff.i to i64
-  %17 = icmp ugt i64 %11, %16
+  %17 = icmp samesign ugt i64 %11, %16
   br i1 %17, label %18, label %22
 
 18:                                               ; preds = %7
@@ -8038,7 +8038,7 @@ _ZNK12ConstantPool17resolved_klass_atEi.exit:     ; preds = %130
   br i1 %152, label %common.ret107, label %153
 
 153:                                              ; preds = %.lr.ph, %_ZNK12ConstantPool17resolved_klass_atEi.exit
-  %154 = icmp ugt i64 %indvars.iv, 2
+  %154 = icmp samesign ugt i64 %indvars.iv, 2
   br i1 %154, label %.lr.ph, label %common.ret107, !llvm.loop !44
 }
 

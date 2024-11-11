@@ -594,7 +594,7 @@ define void @Abc_InfoRandomBytes(ptr nocapture noundef writeonly %0, i32 noundef
   %16 = select i1 %.not22, i32 0, i32 255
   %17 = or disjoint i32 %14, %16
   store i32 %17, ptr %8, align 4
-  %18 = icmp ugt i64 %indvars.iv, 1
+  %18 = icmp samesign ugt i64 %indvars.iv, 1
   br i1 %18, label %.lr.ph, label %._crit_edge, !llvm.loop !8
 
 ._crit_edge:                                      ; preds = %.lr.ph, %2
@@ -670,7 +670,7 @@ define void @Res_SimSetRandomBytes(ptr nocapture noundef readonly %0) local_unna
   %38 = select i1 %.not22.i, i32 0, i32 255
   %39 = or disjoint i32 %36, %38
   store i32 %39, ptr %30, align 4
-  %40 = icmp ugt i64 %indvars.iv.i, 1
+  %40 = icmp samesign ugt i64 %indvars.iv.i, 1
   br i1 %40, label %.lr.ph.i, label %Abc_InfoRandomBytes.exit, !llvm.loop !8
 
 41:                                               ; preds = %9
@@ -692,7 +692,7 @@ define void @Res_SimSetRandomBytes(ptr nocapture noundef readonly %0) local_unna
   %49 = xor i32 %47, %48
   %50 = getelementptr inbounds i32, ptr %19, i64 %indvars.iv.next.i17
   store i32 %49, ptr %50, align 4
-  %51 = icmp ugt i64 %indvars.iv.i16, 1
+  %51 = icmp samesign ugt i64 %indvars.iv.i16, 1
   br i1 %51, label %.lr.ph.i15, label %Abc_InfoRandomBytes.exit, !llvm.loop !9
 
 Abc_InfoRandomBytes.exit:                         ; preds = %.lr.ph.i15, %.lr.ph.i, %41, %25
@@ -783,7 +783,7 @@ define void @Res_SimSetDerivedBytes(ptr nocapture noundef readonly %0, i32 nound
   %41 = select i1 %.not22.i.us, i32 0, i32 255
   %42 = or disjoint i32 %39, %41
   store i32 %42, ptr %33, align 4
-  %43 = icmp ugt i64 %indvars.iv.i.us, 1
+  %43 = icmp samesign ugt i64 %indvars.iv.i.us, 1
   br i1 %43, label %.lr.ph.i.us, label %Abc_InfoRandomBytes.exit.loopexit.us, !llvm.loop !8
 
 Abc_InfoRandomBytes.exit.loopexit.us:             ; preds = %.lr.ph.i.us

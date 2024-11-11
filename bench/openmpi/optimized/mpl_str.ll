@@ -135,7 +135,7 @@ define range(i32 0, 2) i32 @MPL_strnapp(ptr nocapture noundef %0, ptr nocapture 
 
 8:                                                ; preds = %.lr.ph
   %9 = getelementptr inbounds i8, ptr %.01727, i64 1
-  %10 = icmp ugt i32 %.028, 1
+  %10 = icmp samesign ugt i32 %.028, 1
   br i1 %10, label %.lr.ph, label %.critedge.thread, !llvm.loop !7
 
 .critedge:                                        ; preds = %.lr.ph

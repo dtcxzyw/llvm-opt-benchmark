@@ -5273,7 +5273,7 @@ define hidden void @_ZNK8rawspeed10NefDecoder17parseWhiteBalanceEv(ptr noundef n
 
 578:                                              ; preds = %573
   %579 = add nuw nsw i32 %570, 4
-  %580 = icmp ule i32 %579, %465
+  %580 = icmp samesign ule i32 %579, %465
   tail call void @llvm.assume(i1 %580)
   %581 = getelementptr inbounds i8, ptr %463, i64 %574
   %582 = load i32, ptr %581, align 1
@@ -5294,7 +5294,7 @@ define hidden void @_ZNK8rawspeed10NefDecoder17parseWhiteBalanceEv(ptr noundef n
 
 592:                                              ; preds = %578
   %593 = add nuw nsw i32 %570, 8
-  %594 = icmp ule i32 %593, %465
+  %594 = icmp samesign ule i32 %593, %465
   tail call void @llvm.assume(i1 %594)
   %595 = getelementptr inbounds i8, ptr %463, i64 %588
   %596 = load i32, ptr %595, align 1
@@ -5312,7 +5312,7 @@ define hidden void @_ZNK8rawspeed10NefDecoder17parseWhiteBalanceEv(ptr noundef n
 
 603:                                              ; preds = %592
   %604 = add nuw nsw i32 %570, 12
-  %605 = icmp ule i32 %604, %465
+  %605 = icmp samesign ule i32 %604, %465
   tail call void @llvm.assume(i1 %605)
   %606 = getelementptr inbounds i8, ptr %463, i64 %599
   %607 = load i32, ptr %606, align 1
@@ -5330,7 +5330,7 @@ define hidden void @_ZNK8rawspeed10NefDecoder17parseWhiteBalanceEv(ptr noundef n
 
 614:                                              ; preds = %603
   %615 = add nuw nsw i32 %570, 16
-  %616 = icmp ule i32 %615, %465
+  %616 = icmp samesign ule i32 %615, %465
   tail call void @llvm.assume(i1 %616)
   %617 = getelementptr inbounds i8, ptr %463, i64 %610
   %618 = load i32, ptr %617, align 1

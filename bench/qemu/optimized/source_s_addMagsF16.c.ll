@@ -73,7 +73,7 @@ if.end51:                                         ; preds = %if.then48
   br label %uiZ190
 
 if.end59:                                         ; preds = %if.then44
-  %cmp61 = icmp ult i8 %sub, -12
+  %cmp61 = icmp samesign ult i8 %sub, -12
   br i1 %cmp61, label %if.then63, label %if.end79
 
 if.then63:                                        ; preds = %if.end59
@@ -101,7 +101,7 @@ if.then91:                                        ; preds = %if.else87
   br i1 %tobool92.not, label %uiZ190, label %propagateNaN
 
 if.end95:                                         ; preds = %if.else87
-  %cmp97 = icmp ugt i8 %sub, 12
+  %cmp97 = icmp samesign ugt i8 %sub, 12
   br i1 %cmp97, label %if.then99, label %if.end105
 
 if.then99:                                        ; preds = %if.end95
@@ -127,7 +127,7 @@ if.end117:                                        ; preds = %if.end105, %if.end7
   %sh_prom = zext nneg i8 %shiftDist.0 to i64
   %shl120 = shl nuw nsw i64 %sigY.0, %sh_prom
   %add121 = add nuw nsw i64 %shl118, %shl120
-  %cmp122 = icmp ult i64 %add121, 1073741824
+  %cmp122 = icmp samesign ult i64 %add121, 1073741824
   %dec = sext i1 %cmp122 to i8
   %expZ.3 = add nsw i8 %expZ.2, %dec
   %shl125 = zext i1 %cmp122 to i64

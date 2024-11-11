@@ -636,51 +636,51 @@ if.end8:                                          ; preds = %if.else, %entry, %i
   br i1 %cmp.i, label %_ZN7rocksdb18FastLocalBloomImpl15ChooseNumProbesEi.exit, label %if.else.i
 
 if.else.i:                                        ; preds = %if.end8
-  %cmp1.i = icmp ult i32 %conv, 3581
+  %cmp1.i = icmp samesign ult i32 %conv, 3581
   br i1 %cmp1.i, label %_ZN7rocksdb18FastLocalBloomImpl15ChooseNumProbesEi.exit, label %if.else3.i
 
 if.else3.i:                                       ; preds = %if.else.i
-  %cmp4.i = icmp ult i32 %conv, 5101
+  %cmp4.i = icmp samesign ult i32 %conv, 5101
   br i1 %cmp4.i, label %_ZN7rocksdb18FastLocalBloomImpl15ChooseNumProbesEi.exit, label %if.else6.i
 
 if.else6.i:                                       ; preds = %if.else3.i
-  %cmp7.i = icmp ult i32 %conv, 6641
+  %cmp7.i = icmp samesign ult i32 %conv, 6641
   br i1 %cmp7.i, label %_ZN7rocksdb18FastLocalBloomImpl15ChooseNumProbesEi.exit, label %if.else9.i
 
 if.else9.i:                                       ; preds = %if.else6.i
-  %cmp10.i = icmp ult i32 %conv, 8301
+  %cmp10.i = icmp samesign ult i32 %conv, 8301
   br i1 %cmp10.i, label %_ZN7rocksdb18FastLocalBloomImpl15ChooseNumProbesEi.exit, label %if.else12.i
 
 if.else12.i:                                      ; preds = %if.else9.i
-  %cmp13.i = icmp ult i32 %conv, 10071
+  %cmp13.i = icmp samesign ult i32 %conv, 10071
   br i1 %cmp13.i, label %_ZN7rocksdb18FastLocalBloomImpl15ChooseNumProbesEi.exit, label %if.else15.i
 
 if.else15.i:                                      ; preds = %if.else12.i
-  %cmp16.i = icmp ult i32 %conv, 11721
+  %cmp16.i = icmp samesign ult i32 %conv, 11721
   br i1 %cmp16.i, label %_ZN7rocksdb18FastLocalBloomImpl15ChooseNumProbesEi.exit, label %if.else18.i
 
 if.else18.i:                                      ; preds = %if.else15.i
-  %cmp19.i = icmp ult i32 %conv, 14002
+  %cmp19.i = icmp samesign ult i32 %conv, 14002
   br i1 %cmp19.i, label %_ZN7rocksdb18FastLocalBloomImpl15ChooseNumProbesEi.exit, label %if.else21.i
 
 if.else21.i:                                      ; preds = %if.else18.i
-  %cmp22.i = icmp ult i32 %conv, 16051
+  %cmp22.i = icmp samesign ult i32 %conv, 16051
   br i1 %cmp22.i, label %_ZN7rocksdb18FastLocalBloomImpl15ChooseNumProbesEi.exit, label %if.else24.i
 
 if.else24.i:                                      ; preds = %if.else21.i
-  %cmp25.i = icmp ult i32 %conv, 18301
+  %cmp25.i = icmp samesign ult i32 %conv, 18301
   br i1 %cmp25.i, label %_ZN7rocksdb18FastLocalBloomImpl15ChooseNumProbesEi.exit, label %if.else27.i
 
 if.else27.i:                                      ; preds = %if.else24.i
-  %cmp28.i = icmp ult i32 %conv, 22002
+  %cmp28.i = icmp samesign ult i32 %conv, 22002
   br i1 %cmp28.i, label %_ZN7rocksdb18FastLocalBloomImpl15ChooseNumProbesEi.exit, label %if.else30.i
 
 if.else30.i:                                      ; preds = %if.else27.i
-  %cmp31.i = icmp ult i32 %conv, 25502
+  %cmp31.i = icmp samesign ult i32 %conv, 25502
   br i1 %cmp31.i, label %_ZN7rocksdb18FastLocalBloomImpl15ChooseNumProbesEi.exit, label %if.else33.i
 
 if.else33.i:                                      ; preds = %if.else30.i
-  %cmp34.i = icmp ugt i32 %conv, 50000
+  %cmp34.i = icmp samesign ugt i32 %conv, 50000
   br i1 %cmp34.i, label %_ZN7rocksdb18FastLocalBloomImpl15ChooseNumProbesEi.exit, label %if.else36.i
 
 if.else36.i:                                      ; preds = %if.else33.i
@@ -983,7 +983,7 @@ land.lhs.true2.i:                                 ; preds = %land.lhs.true.i
 
 if.then.i:                                        ; preds = %land.lhs.true2.i
   store atomic i8 1, ptr %warned_.i seq_cst, align 8
-  %cmp6.i = icmp ugt i32 %3, 19
+  %cmp6.i = icmp samesign ugt i32 %3, 19
   %.str.5..str.6.i = select i1 %cmp6.i, ptr @.str.5, ptr @.str.6
   %6 = load ptr, ptr %info_log.i, align 8
   tail call void (i8, ptr, ptr, ...) @_ZN7rocksdb3LogENS_12InfoLogLevelEPNS_6LoggerEPKcz(i8 noundef zeroext 2, ptr noundef %6, ptr noundef nonnull @.str.7, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.8, i64 93), i32 noundef %3, ptr noundef nonnull %.str.5..str.6.i)
@@ -1042,7 +1042,7 @@ land.lhs.true2:                                   ; preds = %land.lhs.true
 
 if.then:                                          ; preds = %land.lhs.true2
   store atomic i8 1, ptr %warned_ seq_cst, align 8
-  %cmp6 = icmp ugt i32 %0, 19
+  %cmp6 = icmp samesign ugt i32 %0, 19
   %.str.5..str.6 = select i1 %cmp6, ptr @.str.5, ptr @.str.6
   %3 = load ptr, ptr %info_log, align 8
   tail call void (i8, ptr, ptr, ...) @_ZN7rocksdb3LogENS_12InfoLogLevelEPNS_6LoggerEPKcz(i8 noundef zeroext 2, ptr noundef %3, ptr noundef nonnull @.str.7, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.8, i64 93), i32 noundef %0, ptr noundef nonnull %.str.5..str.6)
@@ -2654,7 +2654,7 @@ land.lhs.true2.i:                                 ; preds = %land.lhs.true.i
 
 if.then.i:                                        ; preds = %land.lhs.true2.i
   store atomic i8 1, ptr %warned_.i seq_cst, align 8
-  %cmp6.i = icmp ugt i32 %1, 19
+  %cmp6.i = icmp samesign ugt i32 %1, 19
   %.str.5..str.6.i = select i1 %cmp6.i, ptr @.str.5, ptr @.str.6
   %4 = load ptr, ptr %info_log.i, align 8
   tail call void (i8, ptr, ptr, ...) @_ZN7rocksdb3LogENS_12InfoLogLevelEPNS_6LoggerEPKcz(i8 noundef zeroext 2, ptr noundef %4, ptr noundef nonnull @.str.7, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.8, i64 93), i32 noundef %1, ptr noundef nonnull %.str.5..str.6.i)
@@ -2969,7 +2969,7 @@ if.end:                                           ; preds = %entry
   %mul.i.i.i.i = mul i32 %div.i.i.i.i, %or19
   %sub5.i.i.i.i = sub i32 %mul.i.i.i.i, %8
   store i32 %sub5.i.i.i.i, ptr %upper_start_block_.i.i, align 8
-  %cmp8.i.i.i.i = icmp ugt i32 %div.i.i.i.i, 32
+  %cmp8.i.i.i.i = icmp samesign ugt i32 %div.i.i.i.i, 32
   br i1 %cmp8.i.i.i.i, label %if.then9.i.i.i.i, label %_ZN7rocksdb12_GLOBAL__N_127Standard128RibbonBitsReaderC2EPKcmjj.exit
 
 if.then9.i.i.i.i:                                 ; preds = %if.end
@@ -5793,51 +5793,51 @@ if.end:                                           ; preds = %_ZN7rocksdb6StatusD
   br i1 %cmp.i1.i, label %_ZN7rocksdb12_GLOBAL__N_125FastLocalBloomBitsBuilder12GetNumProbesEmm.exit, label %if.else.i.i
 
 if.else.i.i:                                      ; preds = %if.end
-  %cmp1.i.i = icmp ult i32 %actual_millibits_per_key.0.i, 3581
+  %cmp1.i.i = icmp samesign ult i32 %actual_millibits_per_key.0.i, 3581
   br i1 %cmp1.i.i, label %_ZN7rocksdb12_GLOBAL__N_125FastLocalBloomBitsBuilder12GetNumProbesEmm.exit, label %if.else3.i.i
 
 if.else3.i.i:                                     ; preds = %if.else.i.i
-  %cmp4.i.i = icmp ult i32 %actual_millibits_per_key.0.i, 5101
+  %cmp4.i.i = icmp samesign ult i32 %actual_millibits_per_key.0.i, 5101
   br i1 %cmp4.i.i, label %_ZN7rocksdb12_GLOBAL__N_125FastLocalBloomBitsBuilder12GetNumProbesEmm.exit, label %if.else6.i.i
 
 if.else6.i.i:                                     ; preds = %if.else3.i.i
-  %cmp7.i.i = icmp ult i32 %actual_millibits_per_key.0.i, 6641
+  %cmp7.i.i = icmp samesign ult i32 %actual_millibits_per_key.0.i, 6641
   br i1 %cmp7.i.i, label %_ZN7rocksdb12_GLOBAL__N_125FastLocalBloomBitsBuilder12GetNumProbesEmm.exit, label %if.else9.i.i
 
 if.else9.i.i:                                     ; preds = %if.else6.i.i
-  %cmp10.i.i = icmp ult i32 %actual_millibits_per_key.0.i, 8301
+  %cmp10.i.i = icmp samesign ult i32 %actual_millibits_per_key.0.i, 8301
   br i1 %cmp10.i.i, label %_ZN7rocksdb12_GLOBAL__N_125FastLocalBloomBitsBuilder12GetNumProbesEmm.exit, label %if.else12.i.i
 
 if.else12.i.i:                                    ; preds = %if.else9.i.i
-  %cmp13.i.i = icmp ult i32 %actual_millibits_per_key.0.i, 10071
+  %cmp13.i.i = icmp samesign ult i32 %actual_millibits_per_key.0.i, 10071
   br i1 %cmp13.i.i, label %_ZN7rocksdb12_GLOBAL__N_125FastLocalBloomBitsBuilder12GetNumProbesEmm.exit, label %if.else15.i.i
 
 if.else15.i.i:                                    ; preds = %if.else12.i.i
-  %cmp16.i.i = icmp ult i32 %actual_millibits_per_key.0.i, 11721
+  %cmp16.i.i = icmp samesign ult i32 %actual_millibits_per_key.0.i, 11721
   br i1 %cmp16.i.i, label %_ZN7rocksdb12_GLOBAL__N_125FastLocalBloomBitsBuilder12GetNumProbesEmm.exit, label %if.else18.i.i
 
 if.else18.i.i:                                    ; preds = %if.else15.i.i
-  %cmp19.i.i = icmp ult i32 %actual_millibits_per_key.0.i, 14002
+  %cmp19.i.i = icmp samesign ult i32 %actual_millibits_per_key.0.i, 14002
   br i1 %cmp19.i.i, label %_ZN7rocksdb12_GLOBAL__N_125FastLocalBloomBitsBuilder12GetNumProbesEmm.exit, label %if.else21.i.i
 
 if.else21.i.i:                                    ; preds = %if.else18.i.i
-  %cmp22.i.i = icmp ult i32 %actual_millibits_per_key.0.i, 16051
+  %cmp22.i.i = icmp samesign ult i32 %actual_millibits_per_key.0.i, 16051
   br i1 %cmp22.i.i, label %_ZN7rocksdb12_GLOBAL__N_125FastLocalBloomBitsBuilder12GetNumProbesEmm.exit, label %if.else24.i.i
 
 if.else24.i.i:                                    ; preds = %if.else21.i.i
-  %cmp25.i.i = icmp ult i32 %actual_millibits_per_key.0.i, 18301
+  %cmp25.i.i = icmp samesign ult i32 %actual_millibits_per_key.0.i, 18301
   br i1 %cmp25.i.i, label %_ZN7rocksdb12_GLOBAL__N_125FastLocalBloomBitsBuilder12GetNumProbesEmm.exit, label %if.else27.i.i
 
 if.else27.i.i:                                    ; preds = %if.else24.i.i
-  %cmp28.i.i = icmp ult i32 %actual_millibits_per_key.0.i, 22002
+  %cmp28.i.i = icmp samesign ult i32 %actual_millibits_per_key.0.i, 22002
   br i1 %cmp28.i.i, label %_ZN7rocksdb12_GLOBAL__N_125FastLocalBloomBitsBuilder12GetNumProbesEmm.exit, label %if.else30.i.i
 
 if.else30.i.i:                                    ; preds = %if.else27.i.i
-  %cmp31.i.i = icmp ult i32 %actual_millibits_per_key.0.i, 25502
+  %cmp31.i.i = icmp samesign ult i32 %actual_millibits_per_key.0.i, 25502
   br i1 %cmp31.i.i, label %_ZN7rocksdb12_GLOBAL__N_125FastLocalBloomBitsBuilder12GetNumProbesEmm.exit, label %if.else33.i.i
 
 if.else33.i.i:                                    ; preds = %if.else30.i.i
-  %cmp34.i.i = icmp ugt i32 %actual_millibits_per_key.0.i, 50000
+  %cmp34.i.i = icmp samesign ugt i32 %actual_millibits_per_key.0.i, 50000
   br i1 %cmp34.i.i, label %_ZN7rocksdb12_GLOBAL__N_125FastLocalBloomBitsBuilder12GetNumProbesEmm.exit, label %if.else36.i.i
 
 if.else36.i.i:                                    ; preds = %if.else33.i.i
@@ -6691,51 +6691,51 @@ entry:
   br i1 %cmp.i1.i, label %_ZN7rocksdb12_GLOBAL__N_125FastLocalBloomBitsBuilder12GetNumProbesEmm.exit, label %if.else.i.i
 
 if.else.i.i:                                      ; preds = %entry
-  %cmp1.i.i = icmp ult i32 %actual_millibits_per_key.0.i, 3581
+  %cmp1.i.i = icmp samesign ult i32 %actual_millibits_per_key.0.i, 3581
   br i1 %cmp1.i.i, label %_ZN7rocksdb12_GLOBAL__N_125FastLocalBloomBitsBuilder12GetNumProbesEmm.exit, label %if.else3.i.i
 
 if.else3.i.i:                                     ; preds = %if.else.i.i
-  %cmp4.i.i = icmp ult i32 %actual_millibits_per_key.0.i, 5101
+  %cmp4.i.i = icmp samesign ult i32 %actual_millibits_per_key.0.i, 5101
   br i1 %cmp4.i.i, label %_ZN7rocksdb12_GLOBAL__N_125FastLocalBloomBitsBuilder12GetNumProbesEmm.exit, label %if.else6.i.i
 
 if.else6.i.i:                                     ; preds = %if.else3.i.i
-  %cmp7.i.i = icmp ult i32 %actual_millibits_per_key.0.i, 6641
+  %cmp7.i.i = icmp samesign ult i32 %actual_millibits_per_key.0.i, 6641
   br i1 %cmp7.i.i, label %_ZN7rocksdb12_GLOBAL__N_125FastLocalBloomBitsBuilder12GetNumProbesEmm.exit, label %if.else9.i.i
 
 if.else9.i.i:                                     ; preds = %if.else6.i.i
-  %cmp10.i.i = icmp ult i32 %actual_millibits_per_key.0.i, 8301
+  %cmp10.i.i = icmp samesign ult i32 %actual_millibits_per_key.0.i, 8301
   br i1 %cmp10.i.i, label %_ZN7rocksdb12_GLOBAL__N_125FastLocalBloomBitsBuilder12GetNumProbesEmm.exit, label %if.else12.i.i
 
 if.else12.i.i:                                    ; preds = %if.else9.i.i
-  %cmp13.i.i = icmp ult i32 %actual_millibits_per_key.0.i, 10071
+  %cmp13.i.i = icmp samesign ult i32 %actual_millibits_per_key.0.i, 10071
   br i1 %cmp13.i.i, label %_ZN7rocksdb12_GLOBAL__N_125FastLocalBloomBitsBuilder12GetNumProbesEmm.exit, label %if.else15.i.i
 
 if.else15.i.i:                                    ; preds = %if.else12.i.i
-  %cmp16.i.i = icmp ult i32 %actual_millibits_per_key.0.i, 11721
+  %cmp16.i.i = icmp samesign ult i32 %actual_millibits_per_key.0.i, 11721
   br i1 %cmp16.i.i, label %_ZN7rocksdb12_GLOBAL__N_125FastLocalBloomBitsBuilder12GetNumProbesEmm.exit, label %if.else18.i.i
 
 if.else18.i.i:                                    ; preds = %if.else15.i.i
-  %cmp19.i.i = icmp ult i32 %actual_millibits_per_key.0.i, 14002
+  %cmp19.i.i = icmp samesign ult i32 %actual_millibits_per_key.0.i, 14002
   br i1 %cmp19.i.i, label %_ZN7rocksdb12_GLOBAL__N_125FastLocalBloomBitsBuilder12GetNumProbesEmm.exit, label %if.else21.i.i
 
 if.else21.i.i:                                    ; preds = %if.else18.i.i
-  %cmp22.i.i = icmp ult i32 %actual_millibits_per_key.0.i, 16051
+  %cmp22.i.i = icmp samesign ult i32 %actual_millibits_per_key.0.i, 16051
   br i1 %cmp22.i.i, label %_ZN7rocksdb12_GLOBAL__N_125FastLocalBloomBitsBuilder12GetNumProbesEmm.exit, label %if.else24.i.i
 
 if.else24.i.i:                                    ; preds = %if.else21.i.i
-  %cmp25.i.i = icmp ult i32 %actual_millibits_per_key.0.i, 18301
+  %cmp25.i.i = icmp samesign ult i32 %actual_millibits_per_key.0.i, 18301
   br i1 %cmp25.i.i, label %_ZN7rocksdb12_GLOBAL__N_125FastLocalBloomBitsBuilder12GetNumProbesEmm.exit, label %if.else27.i.i
 
 if.else27.i.i:                                    ; preds = %if.else24.i.i
-  %cmp28.i.i = icmp ult i32 %actual_millibits_per_key.0.i, 22002
+  %cmp28.i.i = icmp samesign ult i32 %actual_millibits_per_key.0.i, 22002
   br i1 %cmp28.i.i, label %_ZN7rocksdb12_GLOBAL__N_125FastLocalBloomBitsBuilder12GetNumProbesEmm.exit, label %if.else30.i.i
 
 if.else30.i.i:                                    ; preds = %if.else27.i.i
-  %cmp31.i.i = icmp ult i32 %actual_millibits_per_key.0.i, 25502
+  %cmp31.i.i = icmp samesign ult i32 %actual_millibits_per_key.0.i, 25502
   br i1 %cmp31.i.i, label %_ZN7rocksdb12_GLOBAL__N_125FastLocalBloomBitsBuilder12GetNumProbesEmm.exit, label %if.else33.i.i
 
 if.else33.i.i:                                    ; preds = %if.else30.i.i
-  %cmp34.i.i = icmp ugt i32 %actual_millibits_per_key.0.i, 50000
+  %cmp34.i.i = icmp samesign ugt i32 %actual_millibits_per_key.0.i, 50000
   br i1 %cmp34.i.i, label %_ZN7rocksdb12_GLOBAL__N_125FastLocalBloomBitsBuilder12GetNumProbesEmm.exit, label %if.else36.i.i
 
 if.else36.i.i:                                    ; preds = %if.else33.i.i

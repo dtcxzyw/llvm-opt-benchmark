@@ -4993,7 +4993,7 @@ dissect_dfs_referral_entry_v2.exit:               ; preds = %105, %107, %114, %1
 168:                                              ; preds = %164
   %169 = load i16, ptr %4, align 2
   %170 = zext i16 %169 to i32
-  %171 = icmp ugt i32 %167, %170
+  %171 = icmp samesign ugt i32 %167, %170
   br i1 %171, label %.loopexit, label %172
 
 172:                                              ; preds = %168
@@ -5615,7 +5615,7 @@ get_unicode_or_ascii_string.exit:                 ; preds = %52, %59
 
 80:                                               ; preds = %77
   %81 = zext i16 %.pre to i32
-  %82 = icmp ugt i32 %79, %81
+  %82 = icmp samesign ugt i32 %79, %81
   br i1 %82, label %._crit_edge, label %83
 
 83:                                               ; preds = %80
@@ -25423,7 +25423,7 @@ dissect_4_3_4_3.exit:                             ; preds = %323, %333, %342, %3
 528:                                              ; preds = %525
   %529 = load i16, ptr %4, align 2
   %530 = zext i16 %529 to i32
-  %531 = icmp ugt i32 %527, %530
+  %531 = icmp samesign ugt i32 %527, %530
   br i1 %531, label %532, label %533
 
 532:                                              ; preds = %528
@@ -25634,7 +25634,7 @@ dissect_4_3_4_4.exit:                             ; preds = %438, %454, %462, %4
 645:                                              ; preds = %642
   %646 = load i16, ptr %4, align 2
   %647 = zext i16 %646 to i32
-  %648 = icmp ugt i32 %644, %647
+  %648 = icmp samesign ugt i32 %644, %647
   br i1 %648, label %649, label %650
 
 649:                                              ; preds = %645
@@ -25795,7 +25795,7 @@ get_unicode_or_ascii_string.exit.i:               ; preds = %717, %710
 736:                                              ; preds = %733
   %737 = load i16, ptr %4, align 2
   %738 = zext i16 %737 to i32
-  %739 = icmp ugt i32 %735, %738
+  %739 = icmp samesign ugt i32 %735, %738
   br i1 %739, label %dissect_4_3_4_7.exit, label %740
 
 740:                                              ; preds = %736
@@ -26052,7 +26052,7 @@ dissect_4_3_4_7.exit:                             ; preds = %662, %669, %679, %6
 881:                                              ; preds = %878
   %882 = load i16, ptr %4, align 2
   %883 = zext i16 %882 to i32
-  %884 = icmp ugt i32 %880, %883
+  %884 = icmp samesign ugt i32 %880, %883
   br i1 %884, label %885, label %886
 
 885:                                              ; preds = %881
@@ -26278,7 +26278,7 @@ dissect_4_3_4_6.exit:                             ; preds = %753, %769, %777, %7
 1006:                                             ; preds = %1003
   %1007 = load i16, ptr %4, align 2
   %1008 = zext i16 %1007 to i32
-  %1009 = icmp ugt i32 %1005, %1008
+  %1009 = icmp samesign ugt i32 %1005, %1008
   br i1 %1009, label %1010, label %1011
 
 1010:                                             ; preds = %1006
@@ -26568,7 +26568,7 @@ dissect_4_3_4_6full.exit:                         ; preds = %900, %916, %924, %9
 1169:                                             ; preds = %1166
   %1170 = load i16, ptr %4, align 2
   %1171 = zext i16 %1170 to i32
-  %1172 = icmp ugt i32 %1168, %1171
+  %1172 = icmp samesign ugt i32 %1168, %1171
   br i1 %1172, label %1173, label %1174
 
 1173:                                             ; preds = %1169
@@ -26767,7 +26767,7 @@ get_unicode_or_ascii_string.exit.i123:            ; preds = %1264, %1258
 1276:                                             ; preds = %1268
   %1277 = sub nsw i32 4, %1275
   %1278 = zext i16 %1274 to i32
-  %1279 = icmp ugt i32 %1277, %1278
+  %1279 = icmp samesign ugt i32 %1277, %1278
   br i1 %1279, label %.sink.split.i, label %1280
 
 1280:                                             ; preds = %1276

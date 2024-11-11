@@ -261,7 +261,7 @@ define dso_local i64 @ucs2_as_utf8(ptr nocapture noundef writeonly %0, ptr nocap
   br label %16
 
 47:                                               ; preds = %.preheader
-  %48 = icmp ugt i16 %27, 127
+  %48 = icmp samesign ugt i16 %27, 127
   br i1 %48, label %49, label %62
 
 49:                                               ; preds = %47

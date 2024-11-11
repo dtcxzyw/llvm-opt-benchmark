@@ -1285,7 +1285,7 @@ select.unfold.backedge:                           ; preds = %76, %74
   br label %select.unfold, !llvm.loop !14
 
 77:                                               ; preds = %72
-  %78 = icmp ugt i64 %68, 2147483647
+  %78 = icmp samesign ugt i64 %68, 2147483647
   br i1 %78, label %79, label %80, !prof !7
 
 79:                                               ; preds = %77
@@ -1680,7 +1680,7 @@ define internal fastcc range(i64 -9223372036854775808, 2147483648) i64 @keyctl_i
   br i1 %49, label %.thread16, label %50
 
 50:                                               ; preds = %48
-  %51 = icmp ugt i32 %2, -9
+  %51 = icmp samesign ugt i32 %2, -9
   br i1 %51, label %52, label %.thread16
 
 52:                                               ; preds = %50
@@ -1843,7 +1843,7 @@ define dso_local range(i64 -9223372036854775808, 2147483648) i64 @keyctl_reject_
   br i1 %36, label %.thread7, label %37
 
 37:                                               ; preds = %35
-  %38 = icmp ugt i32 %3, -9
+  %38 = icmp samesign ugt i32 %3, -9
   br i1 %38, label %39, label %.thread7
 
 39:                                               ; preds = %37

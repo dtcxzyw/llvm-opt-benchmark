@@ -24,7 +24,7 @@ define noundef zeroext i1 @_Z11convolutioniPfiPKf(i32 noundef %0, ptr noundef %1
 
 12:                                               ; preds = %9
   %13 = add nsw i32 %2, -1
-  %.not = icmp ugt i32 %2, %0
+  %.not = icmp samesign ugt i32 %2, %0
   br i1 %.not, label %.preheader52.preheader, label %.preheader54.us.preheader
 
 .preheader54.us.preheader:                        ; preds = %12

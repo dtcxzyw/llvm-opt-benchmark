@@ -1620,7 +1620,7 @@ if.then145.i:                                     ; preds = %if.then139.i
   br i1 %cmp1.i.i, label %if.end20.i.i, label %if.else.i.i
 
 if.else.i.i:                                      ; preds = %if.then145.i
-  %cmp4.i.i = icmp ugt i64 %39, 1
+  %cmp4.i.i = icmp samesign ugt i64 %39, 1
   br i1 %cmp4.i.i, label %if.end150.i, label %if.else6.i.i
 
 if.else6.i.i:                                     ; preds = %if.else.i.i
@@ -1666,7 +1666,7 @@ if.else156.i:                                     ; preds = %if.then139.i, %if.e
   br i1 %cmp1.i84.i, label %if.end20.i92.i, label %if.else.i85.i
 
 if.else.i85.i:                                    ; preds = %if.else156.i
-  %cmp4.i86.i = icmp ugt i64 %41, 1
+  %cmp4.i86.i = icmp samesign ugt i64 %41, 1
   br i1 %cmp4.i86.i, label %if.end161.i, label %if.else6.i87.i
 
 if.else6.i87.i:                                   ; preds = %if.else.i85.i
@@ -1796,7 +1796,7 @@ if.end4:                                          ; preds = %if.end
 
 if.end.i18:                                       ; preds = %if.end4
   %div19.i = lshr i64 %2, 1
-  %cmp1.i = icmp ult i64 %add.i, %div19.i
+  %cmp1.i = icmp samesign ult i64 %add.i, %div19.i
   br i1 %cmp1.i, label %if.then2.i, label %if.else.i
 
 if.then2.i:                                       ; preds = %if.end.i18
@@ -1822,7 +1822,7 @@ if.else6.i:                                       ; preds = %if.else.i
 if.then10.i:                                      ; preds = %if.else6.i
   %shr.i = lshr i64 %add.i, 3
   %add11.i = add nuw i64 %shr.i, %add.i
-  %cmp12.i = icmp ult i64 %add.i, 9
+  %cmp12.i = icmp samesign ult i64 %add.i, 9
   %conv14.i = select i1 %cmp12.i, i64 3, i64 6
   %add15.i = add nuw i64 %add11.i, %conv14.i
   br label %if.end20.i
@@ -1936,7 +1936,7 @@ entry:
   br i1 %cmp1.i.i, label %if.end20.i.i, label %if.else.i.i
 
 if.else.i.i:                                      ; preds = %entry
-  %cmp4.i.i = icmp ugt i64 %0, 1
+  %cmp4.i.i = icmp samesign ugt i64 %0, 1
   br i1 %cmp4.i.i, label %if.end.i, label %if.else6.i.i
 
 if.else6.i.i:                                     ; preds = %if.else.i.i
@@ -2402,7 +2402,7 @@ if.end.i.i:                                       ; preds = %if.then10.i
   %9 = load i64, ptr %buf_size.i.i, align 8
   %add.i.i = add nuw nsw i64 %2, 1
   %div19.i.i = lshr i64 %9, 1
-  %cmp1.i.i = icmp ult i64 %add.i.i, %div19.i.i
+  %cmp1.i.i = icmp samesign ult i64 %add.i.i, %div19.i.i
   br i1 %cmp1.i.i, label %if.then2.i.i, label %if.else.i.i
 
 if.then2.i.i:                                     ; preds = %if.end.i.i
@@ -2423,7 +2423,7 @@ if.else6.i.i:                                     ; preds = %if.else.i.i
 if.then10.i.i:                                    ; preds = %if.else6.i.i
   %shr.i.i = lshr i64 %add.i.i, 3
   %add11.i.i = add nuw i64 %shr.i.i, %add.i.i
-  %cmp12.i.i = icmp ult i64 %2, 8
+  %cmp12.i.i = icmp samesign ult i64 %2, 8
   %conv14.i.i = select i1 %cmp12.i.i, i64 3, i64 6
   %add15.i.i = add nuw i64 %add11.i.i, %conv14.i.i
   br label %if.end20.i.i
@@ -2915,7 +2915,7 @@ if.end21.i:                                       ; preds = %Py_DECREF.exit.i
 
 if.end.i46.i:                                     ; preds = %if.end21.i
   %div19.i.i = lshr i64 %14, 1
-  %cmp1.i.i = icmp ult i64 %add.i.i, %div19.i.i
+  %cmp1.i.i = icmp samesign ult i64 %add.i.i, %div19.i.i
   br i1 %cmp1.i.i, label %if.then2.i.i, label %if.else.i.i
 
 if.then2.i.i:                                     ; preds = %if.end.i46.i
@@ -2941,7 +2941,7 @@ if.else6.i.i:                                     ; preds = %if.else.i.i
 if.then10.i.i:                                    ; preds = %if.else6.i.i
   %shr.i.i = lshr i64 %add.i.i, 3
   %add11.i.i = add nuw i64 %shr.i.i, %add.i.i
-  %cmp12.i.i = icmp ult i64 %add.i.i, 9
+  %cmp12.i.i = icmp samesign ult i64 %add.i.i, 9
   %conv14.i.i = select i1 %cmp12.i.i, i64 3, i64 6
   %add15.i.i = add nuw i64 %add11.i.i, %conv14.i.i
   br label %if.end20.i.i
@@ -3286,7 +3286,7 @@ if.then32:                                        ; preds = %if.end28
 
 if.end.i50:                                       ; preds = %if.then32
   %div19.i = lshr i64 %12, 1
-  %cmp1.i = icmp ult i64 %add.i, %div19.i
+  %cmp1.i = icmp samesign ult i64 %add.i, %div19.i
   br i1 %cmp1.i, label %if.then2.i, label %if.else.i
 
 if.then2.i:                                       ; preds = %if.end.i50
@@ -3307,7 +3307,7 @@ if.else6.i:                                       ; preds = %if.else.i
 if.then10.i:                                      ; preds = %if.else6.i
   %shr.i = lshr i64 %add.i, 3
   %add11.i = add nuw i64 %shr.i, %add.i
-  %cmp12.i = icmp ult i64 %add.i, 9
+  %cmp12.i = icmp samesign ult i64 %add.i, 9
   %conv14.i = select i1 %cmp12.i, i64 3, i64 6
   %add15.i = add nuw i64 %add11.i, %conv14.i
   br label %if.end20.i

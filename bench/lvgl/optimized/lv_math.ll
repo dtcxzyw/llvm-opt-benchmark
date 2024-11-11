@@ -33,7 +33,7 @@ define range(i32 -65535, 65536) i32 @lv_trigo_sin(i16 noundef signext %0) local_
   %8 = urem i16 %7, 360
   %.neg = sub i16 %8, %7
   %9 = add i16 %.neg, %6
-  %10 = icmp ult i16 %9, 90
+  %10 = icmp samesign ult i16 %9, 90
   br i1 %10, label %11, label %16
 
 11:                                               ; preds = %.preheader.preheader
@@ -44,7 +44,7 @@ define range(i32 -65535, 65536) i32 @lv_trigo_sin(i16 noundef signext %0) local_
   br label %40
 
 16:                                               ; preds = %.preheader.preheader
-  %17 = icmp ult i16 %9, 180
+  %17 = icmp samesign ult i16 %9, 180
   br i1 %17, label %18, label %24
 
 18:                                               ; preds = %16
@@ -56,7 +56,7 @@ define range(i32 -65535, 65536) i32 @lv_trigo_sin(i16 noundef signext %0) local_
   br label %40
 
 24:                                               ; preds = %16
-  %25 = icmp ult i16 %9, 270
+  %25 = icmp samesign ult i16 %9, 270
   br i1 %25, label %26, label %33
 
 26:                                               ; preds = %24
@@ -165,7 +165,7 @@ define range(i32 -2097152, 2097152) i32 @lv_cubic_bezier(i32 noundef %0, i32 nou
   br i1 %54, label %.loopexit, label %55
 
 55:                                               ; preds = %53
-  %56 = icmp ugt i32 %0, 1024
+  %56 = icmp samesign ugt i32 %0, 1024
   br i1 %56, label %.loopexit, label %.preheader
 
 .preheader:                                       ; preds = %55, %70
@@ -267,17 +267,17 @@ define range(i32 -1, -2147483648) i32 @lv_sqrt32(i32 noundef %0) local_unnamed_a
   br i1 %10, label %109, label %89
 
 11:                                               ; preds = %5
-  %12 = icmp ugt i32 %0, 67108863
+  %12 = icmp samesign ugt i32 %0, 67108863
   %. = select i1 %12, i32 20, i32 18
   %.46 = select i1 %12, i32 6, i32 5
   br label %89
 
 13:                                               ; preds = %3
-  %14 = icmp ugt i32 %0, 1048575
+  %14 = icmp samesign ugt i32 %0, 1048575
   br i1 %14, label %15, label %31
 
 15:                                               ; preds = %13
-  %16 = icmp ugt i32 %0, 4194303
+  %16 = icmp samesign ugt i32 %0, 4194303
   br i1 %16, label %17, label %24
 
 17:                                               ; preds = %15
@@ -299,7 +299,7 @@ define range(i32 -1, -2147483648) i32 @lv_sqrt32(i32 noundef %0) local_unnamed_a
   br label %100
 
 31:                                               ; preds = %13
-  %32 = icmp ugt i32 %0, 262143
+  %32 = icmp samesign ugt i32 %0, 262143
   br i1 %32, label %33, label %40
 
 33:                                               ; preds = %31
@@ -321,15 +321,15 @@ define range(i32 -1, -2147483648) i32 @lv_sqrt32(i32 noundef %0) local_unnamed_a
   br label %100
 
 47:                                               ; preds = %1
-  %48 = icmp ugt i32 %0, 255
+  %48 = icmp samesign ugt i32 %0, 255
   br i1 %48, label %49, label %83
 
 49:                                               ; preds = %47
-  %50 = icmp ugt i32 %0, 4095
+  %50 = icmp samesign ugt i32 %0, 4095
   br i1 %50, label %51, label %67
 
 51:                                               ; preds = %49
-  %52 = icmp ugt i32 %0, 16383
+  %52 = icmp samesign ugt i32 %0, 16383
   br i1 %52, label %53, label %60
 
 53:                                               ; preds = %51
@@ -352,7 +352,7 @@ define range(i32 -1, -2147483648) i32 @lv_sqrt32(i32 noundef %0) local_unnamed_a
   br label %105
 
 67:                                               ; preds = %49
-  %68 = icmp ugt i32 %0, 1023
+  %68 = icmp samesign ugt i32 %0, 1023
   br i1 %68, label %69, label %76
 
 69:                                               ; preds = %67
@@ -609,7 +609,7 @@ define range(i32 -65535, 65536) i32 @lv_trigo_cos(i16 noundef signext %0) local_
   %9 = urem i16 %8, 360
   %.neg.i = sub i16 %9, %8
   %10 = add i16 %.neg.i, %7
-  %11 = icmp ult i16 %10, 90
+  %11 = icmp samesign ult i16 %10, 90
   br i1 %11, label %12, label %17
 
 12:                                               ; preds = %1
@@ -620,7 +620,7 @@ define range(i32 -65535, 65536) i32 @lv_trigo_cos(i16 noundef signext %0) local_
   br label %41
 
 17:                                               ; preds = %1
-  %18 = icmp ult i16 %10, 180
+  %18 = icmp samesign ult i16 %10, 180
   br i1 %18, label %19, label %25
 
 19:                                               ; preds = %17
@@ -632,7 +632,7 @@ define range(i32 -65535, 65536) i32 @lv_trigo_cos(i16 noundef signext %0) local_
   br label %41
 
 25:                                               ; preds = %17
-  %26 = icmp ult i16 %10, 270
+  %26 = icmp samesign ult i16 %10, 270
   br i1 %26, label %27, label %34
 
 27:                                               ; preds = %25

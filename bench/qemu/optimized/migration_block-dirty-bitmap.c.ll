@@ -1909,7 +1909,7 @@ if.end20.i:                                       ; preds = %if.end16.i
 lor.lhs.false.i81:                                ; preds = %if.end20.i
   %sub.i = add nuw nsw i64 %call22.i, 31
   %div23.i = and i64 %sub.i, -32
-  %cmp25.i = icmp ugt i64 %call7.i, %div23.i
+  %cmp25.i = icmp samesign ugt i64 %call7.i, %div23.i
   br i1 %cmp25.i, label %if.then27.i, label %cleanup.i
 
 if.then27.i:                                      ; preds = %lor.lhs.false.i81, %if.end20.i

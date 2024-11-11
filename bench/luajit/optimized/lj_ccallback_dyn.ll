@@ -347,7 +347,7 @@ if.then96.i:                                      ; preds = %while.body86.i
   br label %if.end98.i
 
 if.end98.i:                                       ; preds = %if.then96.i, %while.body86.i
-  %cmp84.i = icmp ugt i32 %dec77.in.i, 1
+  %cmp84.i = icmp samesign ugt i32 %dec77.in.i, 1
   br i1 %cmp84.i, label %while.body86.i, label %callback_conv_args.exit, !llvm.loop !6
 
 callback_conv_args.exit:                          ; preds = %if.end98.i, %while.end.thread.i, %while.end.i

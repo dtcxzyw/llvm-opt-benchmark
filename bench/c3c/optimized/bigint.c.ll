@@ -69,7 +69,7 @@ i128_neg.exit:                                    ; preds = %13, %12, %4
   br i1 %31, label %i128_shl64.exit.i.i.preheader, label %32
 
 32:                                               ; preds = %29
-  %33 = icmp ugt i32 %27, 127
+  %33 = icmp samesign ugt i32 %27, 127
   br i1 %33, label %i128_shl64.exit.i.i.preheader, label %34
 
 34:                                               ; preds = %32
@@ -77,7 +77,7 @@ i128_neg.exit:                                    ; preds = %13, %12, %4
   br i1 %35, label %i128_shl64.exit.i.i.preheader, label %36
 
 36:                                               ; preds = %34
-  %37 = icmp ugt i32 %27, 64
+  %37 = icmp samesign ugt i32 %27, 64
   br i1 %37, label %38, label %41
 
 38:                                               ; preds = %36
@@ -154,7 +154,7 @@ i128_urem.exit:                                   ; preds = %i128_ucomp.exit.i.i
   br i1 %70, label %i128_shl64.exit.i.i30.preheader, label %71
 
 71:                                               ; preds = %68
-  %72 = icmp ugt i32 %66, 127
+  %72 = icmp samesign ugt i32 %66, 127
   br i1 %72, label %i128_shl64.exit.i.i30.preheader, label %73
 
 73:                                               ; preds = %71
@@ -162,7 +162,7 @@ i128_urem.exit:                                   ; preds = %i128_ucomp.exit.i.i
   br i1 %74, label %i128_shl64.exit.i.i30.preheader, label %75
 
 75:                                               ; preds = %73
-  %76 = icmp ugt i32 %66, 64
+  %76 = icmp samesign ugt i32 %66, 64
   br i1 %76, label %77, label %80
 
 77:                                               ; preds = %75
@@ -312,7 +312,7 @@ define dso_local { i64, i64 } @i128_urem(i64 %0, i64 %1, i64 %2, i64 %3) local_u
   br i1 %15, label %i128_shl64.exit.i.preheader, label %16
 
 16:                                               ; preds = %13
-  %17 = icmp ugt i32 %11, 127
+  %17 = icmp samesign ugt i32 %11, 127
   br i1 %17, label %i128_shl64.exit.i.preheader, label %18
 
 18:                                               ; preds = %16
@@ -320,7 +320,7 @@ define dso_local { i64, i64 } @i128_urem(i64 %0, i64 %1, i64 %2, i64 %3) local_u
   br i1 %19, label %i128_shl64.exit.i.preheader, label %20
 
 20:                                               ; preds = %18
-  %21 = icmp ugt i32 %11, 64
+  %21 = icmp samesign ugt i32 %11, 64
   br i1 %21, label %22, label %25
 
 22:                                               ; preds = %20
@@ -407,7 +407,7 @@ define dso_local { i64, i64 } @i128_udiv(i64 %0, i64 %1, i64 %2, i64 %3) local_u
   br i1 %15, label %i128_shl64.exit.i.preheader, label %16
 
 16:                                               ; preds = %13
-  %17 = icmp ugt i32 %11, 127
+  %17 = icmp samesign ugt i32 %11, 127
   br i1 %17, label %i128_shl64.exit.i.preheader, label %18
 
 18:                                               ; preds = %16
@@ -415,7 +415,7 @@ define dso_local { i64, i64 } @i128_udiv(i64 %0, i64 %1, i64 %2, i64 %3) local_u
   br i1 %19, label %i128_shl64.exit.i.preheader, label %20
 
 20:                                               ; preds = %18
-  %21 = icmp ugt i32 %11, 64
+  %21 = icmp samesign ugt i32 %11, 64
   br i1 %21, label %22, label %25
 
 22:                                               ; preds = %20
@@ -715,7 +715,7 @@ define dso_local { i64, i64 } @i128_shl64(i64 %0, i64 %1, i64 noundef %2) local_
   br i1 %8, label %20, label %9
 
 9:                                                ; preds = %7
-  %10 = icmp ugt i64 %2, 64
+  %10 = icmp samesign ugt i64 %2, 64
   br i1 %10, label %11, label %14
 
 11:                                               ; preds = %9
@@ -791,7 +791,7 @@ define dso_local { i64, i64 } @i128_extend(i64 %0, i64 %1, i32 noundef %2) local
   br i1 %11, label %i128_shl64.exit.thread52, label %12
 
 12:                                               ; preds = %10
-  %13 = icmp ugt i64 %8, 64
+  %13 = icmp samesign ugt i64 %8, 64
   br i1 %13, label %14, label %17
 
 14:                                               ; preds = %12
@@ -823,7 +823,7 @@ i128_shl64.exit.thread52:                         ; preds = %10
 
 27:                                               ; preds = %i128_shl64.exit
   %.not.i = icmp sgt i64 %.sroa.011.0.i, -1
-  %28 = icmp ugt i64 %8, 64
+  %28 = icmp samesign ugt i64 %8, 64
   br i1 %.not.i, label %29, label %39
 
 29:                                               ; preds = %27
@@ -859,7 +859,7 @@ i128_shl64.exit.thread52:                         ; preds = %10
   br label %i128_ashr64.exit
 
 49:                                               ; preds = %i128_shl64.exit
-  %50 = icmp ugt i64 %8, 64
+  %50 = icmp samesign ugt i64 %8, 64
   br i1 %50, label %51, label %54
 
 51:                                               ; preds = %49
@@ -903,7 +903,7 @@ define dso_local { i64, i64 } @i128_ashr64(i64 %0, i64 %1, i64 noundef %2) local
   br i1 %9, label %i128_lshr64.exit, label %10
 
 10:                                               ; preds = %8
-  %11 = icmp ugt i64 %2, 64
+  %11 = icmp samesign ugt i64 %2, 64
   br i1 %11, label %12, label %15
 
 12:                                               ; preds = %10
@@ -927,7 +927,7 @@ define dso_local { i64, i64 } @i128_ashr64(i64 %0, i64 %1, i64 noundef %2) local
   br i1 %23, label %i128_lshr64.exit, label %24
 
 24:                                               ; preds = %22
-  %25 = icmp ugt i64 %2, 64
+  %25 = icmp samesign ugt i64 %2, 64
   br i1 %25, label %26, label %29
 
 26:                                               ; preds = %24
@@ -965,7 +965,7 @@ define dso_local { i64, i64 } @i128_lshr64(i64 %0, i64 %1, i64 noundef %2) local
   br i1 %8, label %20, label %9
 
 9:                                                ; preds = %7
-  %10 = icmp ugt i64 %2, 64
+  %10 = icmp samesign ugt i64 %2, 64
   br i1 %10, label %11, label %14
 
 11:                                               ; preds = %9
@@ -1167,7 +1167,7 @@ define dso_local { i64, i64 } @i128_shl(i64 %0, i64 %1, i64 %2, i64 %3) local_un
   br i1 %10, label %i128_shl64.exit, label %11
 
 11:                                               ; preds = %9
-  %12 = icmp ugt i64 %3, 64
+  %12 = icmp samesign ugt i64 %3, 64
   br i1 %12, label %13, label %16
 
 13:                                               ; preds = %11
@@ -1225,7 +1225,7 @@ define dso_local { i64, i64 } @i128_lshr(i64 %0, i64 %1, i64 %2, i64 %3) local_u
   br i1 %10, label %i128_lshr64.exit, label %11
 
 11:                                               ; preds = %9
-  %12 = icmp ugt i64 %3, 64
+  %12 = icmp samesign ugt i64 %3, 64
   br i1 %12, label %13, label %16
 
 13:                                               ; preds = %11
@@ -1275,7 +1275,7 @@ define dso_local { i64, i64 } @i128_ashr(i64 %0, i64 %1, i64 %2, i64 %3) local_u
   br i1 %12, label %i128_ashr64.exit, label %13
 
 13:                                               ; preds = %11
-  %14 = icmp ugt i64 %3, 64
+  %14 = icmp samesign ugt i64 %3, 64
   br i1 %14, label %15, label %18
 
 15:                                               ; preds = %13
@@ -1299,7 +1299,7 @@ define dso_local { i64, i64 } @i128_ashr(i64 %0, i64 %1, i64 %2, i64 %3) local_u
   br i1 %26, label %i128_ashr64.exit, label %27
 
 27:                                               ; preds = %25
-  %28 = icmp ugt i64 %3, 64
+  %28 = icmp samesign ugt i64 %3, 64
   br i1 %28, label %29, label %32
 
 29:                                               ; preds = %27
@@ -1812,7 +1812,7 @@ define dso_local void @i128_udivrem(i64 %0, i64 %1, i64 %2, i64 %3, ptr nocaptur
   br i1 %18, label %i128_shl64.exit.preheader, label %19
 
 19:                                               ; preds = %16
-  %20 = icmp ugt i32 %13, 127
+  %20 = icmp samesign ugt i32 %13, 127
   br i1 %20, label %i128_shl64.exit.preheader, label %21
 
 21:                                               ; preds = %19
@@ -1820,7 +1820,7 @@ define dso_local void @i128_udivrem(i64 %0, i64 %1, i64 %2, i64 %3, ptr nocaptur
   br i1 %22, label %i128_shl64.exit.preheader, label %23
 
 23:                                               ; preds = %21
-  %24 = icmp ugt i32 %13, 64
+  %24 = icmp samesign ugt i32 %13, 64
   br i1 %24, label %25, label %28
 
 25:                                               ; preds = %23
@@ -1955,7 +1955,7 @@ i128_neg.exit25:                                  ; preds = %18, %17, %i128_neg.
   br i1 %33, label %i128_shl64.exit.i.i.preheader, label %34
 
 34:                                               ; preds = %31
-  %35 = icmp ugt i32 %29, 127
+  %35 = icmp samesign ugt i32 %29, 127
   br i1 %35, label %i128_shl64.exit.i.i.preheader, label %36
 
 36:                                               ; preds = %34
@@ -1963,7 +1963,7 @@ i128_neg.exit25:                                  ; preds = %18, %17, %i128_neg.
   br i1 %37, label %i128_shl64.exit.i.i.preheader, label %38
 
 38:                                               ; preds = %36
-  %39 = icmp ugt i32 %29, 64
+  %39 = icmp samesign ugt i32 %29, 64
   br i1 %39, label %40, label %43
 
 40:                                               ; preds = %38
@@ -2123,7 +2123,7 @@ i128_neg.exit25:                                  ; preds = %18, %17, %i128_neg.
   br i1 %33, label %i128_shl64.exit.i.i.preheader, label %34
 
 34:                                               ; preds = %31
-  %35 = icmp ugt i32 %29, 127
+  %35 = icmp samesign ugt i32 %29, 127
   br i1 %35, label %i128_shl64.exit.i.i.preheader, label %36
 
 36:                                               ; preds = %34
@@ -2131,7 +2131,7 @@ i128_neg.exit25:                                  ; preds = %18, %17, %i128_neg.
   br i1 %37, label %i128_shl64.exit.i.i.preheader, label %38
 
 38:                                               ; preds = %36
-  %39 = icmp ugt i32 %29, 64
+  %39 = icmp samesign ugt i32 %29, 64
   br i1 %39, label %40, label %43
 
 40:                                               ; preds = %38
@@ -2477,7 +2477,7 @@ define dso_local zeroext i1 @int_icomp(ptr nocapture noundef readonly byval(%str
   br i1 %31, label %int_signed_compare.exit, label %32
 
 32:                                               ; preds = %28
-  %33 = icmp ult i64 %30, %1
+  %33 = icmp samesign ult i64 %30, %1
   %..i = sext i1 %33 to i32
   br label %int_signed_compare.exit
 
@@ -2659,7 +2659,7 @@ define dso_local zeroext i1 @int_fits(ptr nocapture noundef readonly byval(%stru
   br i1 %or.cond, label %select.unfold62, label %22
 
 22:                                               ; preds = %18
-  %23 = icmp ult i64 %17, %.sroa.038.0.ph
+  %23 = icmp samesign ult i64 %17, %.sroa.038.0.ph
   %or.cond.not = icmp ult i64 %20, %.sroa.6.0.ph
   %or.cond80 = select i1 %23, i1 true, i1 %or.cond.not
   br i1 %or.cond80, label %i128_scomp.exit, label %i128_scomp.exit47.thread
@@ -2668,11 +2668,11 @@ select.unfold62:                                  ; preds = %18
   br i1 %.not.i, label %24, label %i128_scomp.exit47.thread
 
 24:                                               ; preds = %select.unfold62
-  %25 = icmp ugt i64 %17, %.sroa.031.0.ph
+  %25 = icmp samesign ugt i64 %17, %.sroa.031.0.ph
   br i1 %25, label %i128_scomp.exit, label %26
 
 26:                                               ; preds = %24
-  %27 = icmp uge i64 %17, %.sroa.031.0.ph
+  %27 = icmp samesign uge i64 %17, %.sroa.031.0.ph
   %28 = icmp ugt i64 %20, %.sroa.14.0.ph
   %or.cond72 = select i1 %27, i1 %28, i1 false
   br i1 %or.cond72, label %i128_scomp.exit, label %i128_scomp.exit47.thread
@@ -2687,7 +2687,7 @@ i128_scomp.exit47.thread:                         ; preds = %22, %select.unfold6
 31:                                               ; preds = %29
   %32 = getelementptr inbounds i8, ptr %0, i64 8
   %33 = load i64, ptr %32, align 8
-  %34 = icmp ult i64 %17, %.sroa.031.0.ph
+  %34 = icmp samesign ult i64 %17, %.sroa.031.0.ph
   %35 = icmp ule i64 %33, %.sroa.14.0.ph
   %spec.select = select i1 %34, i1 true, i1 %35
   br label %i128_scomp.exit
@@ -2989,7 +2989,7 @@ define dso_local void @int_conv(ptr dead_on_unwind noalias nocapture writable wr
   br i1 %26, label %i128_lshr64.exit, label %27
 
 27:                                               ; preds = %25
-  %28 = icmp ugt i32 %19, 64
+  %28 = icmp samesign ugt i32 %19, 64
   br i1 %28, label %29, label %33
 
 29:                                               ; preds = %27
@@ -3032,7 +3032,7 @@ i128_lshr64.exit:                                 ; preds = %18, %25, %29, %33
   br i1 %52, label %i128_lshr64.exit45, label %53
 
 53:                                               ; preds = %51
-  %54 = icmp ugt i32 %45, 64
+  %54 = icmp samesign ugt i32 %45, 64
   br i1 %54, label %55, label %59
 
 55:                                               ; preds = %53
@@ -3066,7 +3066,7 @@ i128_lshr64.exit45.thread:                        ; preds = %44
   br i1 %70, label %.thread126, label %71
 
 71:                                               ; preds = %69
-  %72 = icmp ugt i32 %45, 64
+  %72 = icmp samesign ugt i32 %45, 64
   br i1 %72, label %73, label %.thread151
 
 73:                                               ; preds = %71
@@ -3176,7 +3176,7 @@ define dso_local void @int_div(ptr dead_on_unwind noalias nocapture writable wri
   br i1 %27, label %i128_shl64.exit.i.i.preheader, label %28
 
 28:                                               ; preds = %25
-  %29 = icmp ugt i32 %23, 127
+  %29 = icmp samesign ugt i32 %23, 127
   br i1 %29, label %i128_shl64.exit.i.i.preheader, label %30
 
 30:                                               ; preds = %28
@@ -3184,7 +3184,7 @@ define dso_local void @int_div(ptr dead_on_unwind noalias nocapture writable wri
   br i1 %31, label %i128_shl64.exit.i.i.preheader, label %32
 
 32:                                               ; preds = %30
-  %33 = icmp ugt i32 %23, 64
+  %33 = icmp samesign ugt i32 %23, 64
   br i1 %33, label %34, label %37
 
 34:                                               ; preds = %32
@@ -3305,7 +3305,7 @@ define dso_local void @int_rem(ptr dead_on_unwind noalias nocapture writable wri
   br i1 %27, label %i128_shl64.exit.i.i.preheader, label %28
 
 28:                                               ; preds = %25
-  %29 = icmp ugt i32 %23, 127
+  %29 = icmp samesign ugt i32 %23, 127
   br i1 %29, label %i128_shl64.exit.i.i.preheader, label %30
 
 30:                                               ; preds = %28
@@ -3313,7 +3313,7 @@ define dso_local void @int_rem(ptr dead_on_unwind noalias nocapture writable wri
   br i1 %31, label %i128_shl64.exit.i.i.preheader, label %32
 
 32:                                               ; preds = %30
-  %33 = icmp ugt i32 %23, 64
+  %33 = icmp samesign ugt i32 %23, 64
   br i1 %33, label %34, label %37
 
 34:                                               ; preds = %32
@@ -3514,7 +3514,7 @@ define dso_local void @int_shr64(ptr dead_on_unwind noalias nocapture writable w
   br i1 %16, label %i128_lshr64.exit, label %17
 
 17:                                               ; preds = %15
-  %18 = icmp ugt i64 %2, 64
+  %18 = icmp samesign ugt i64 %2, 64
   br i1 %18, label %19, label %22
 
 19:                                               ; preds = %17
@@ -3552,7 +3552,7 @@ i128_lshr64.exit:                                 ; preds = %12, %13, %15, %19, 
   br i1 %34, label %i128_ashr64.exit, label %35
 
 35:                                               ; preds = %33
-  %36 = icmp ugt i64 %2, 64
+  %36 = icmp samesign ugt i64 %2, 64
   br i1 %36, label %37, label %40
 
 37:                                               ; preds = %35
@@ -3576,7 +3576,7 @@ i128_lshr64.exit:                                 ; preds = %12, %13, %15, %19, 
   br i1 %48, label %i128_ashr64.exit, label %49
 
 49:                                               ; preds = %47
-  %50 = icmp ugt i64 %2, 64
+  %50 = icmp samesign ugt i64 %2, 64
   br i1 %50, label %51, label %54
 
 51:                                               ; preds = %49
@@ -3634,7 +3634,7 @@ define dso_local void @int_shl64(ptr dead_on_unwind noalias nocapture writable w
   br i1 %16, label %i128_shl64.exit, label %17
 
 17:                                               ; preds = %15
-  %18 = icmp ugt i64 %2, 64
+  %18 = icmp samesign ugt i64 %2, 64
   br i1 %18, label %19, label %22
 
 19:                                               ; preds = %17
@@ -3668,7 +3668,7 @@ i128_shl64.exit:                                  ; preds = %12, %13, %15, %19, 
   br i1 %33, label %i128_shl64.exit10, label %34
 
 34:                                               ; preds = %32
-  %35 = icmp ugt i64 %2, 64
+  %35 = icmp samesign ugt i64 %2, 64
   br i1 %35, label %36, label %39
 
 36:                                               ; preds = %34

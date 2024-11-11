@@ -1820,7 +1820,7 @@ _ZNSt6atomicIN3tbb6detail2d013do_once_stateEE23compare_exchange_strongERS3_S3_St
   %.01.i.i.us.i.i.i.i.i = phi i32 [ %29, %.lr.ph.i.i.us.i.i.i.i.i ], [ %.sroa.0.09.us.i.i.i.i.i, %27 ]
   %29 = add nsw i32 %.01.i.i.us.i.i.i.i.i, -1
   call void @llvm.x86.sse2.pause()
-  %30 = icmp ugt i32 %.01.i.i.us.i.i.i.i.i, 1
+  %30 = icmp samesign ugt i32 %.01.i.i.us.i.i.i.i.i, 1
   br i1 %30, label %.lr.ph.i.i.us.i.i.i.i.i, label %_ZN3tbb6detail2d0L13machine_pauseEi.exit.i.us.i.i.i.i.i, !llvm.loop !8
 
 _ZN3tbb6detail2d0L13machine_pauseEi.exit.i.us.i.i.i.i.i: ; preds = %.lr.ph.i.i.us.i.i.i.i.i, %27

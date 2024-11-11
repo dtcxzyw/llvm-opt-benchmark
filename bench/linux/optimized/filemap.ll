@@ -7252,7 +7252,7 @@ filemap_add_folio.exit:                           ; preds = %76, %85
 
 222:                                              ; preds = %216, %208
   %223 = phi i32 [ %221, %216 ], [ 12, %208 ]
-  %224 = icmp ugt i32 %223, %212
+  %224 = icmp samesign ugt i32 %223, %212
   br i1 %224, label %225, label %.thread23
 
 225:                                              ; preds = %222
@@ -9211,7 +9211,7 @@ define internal fastcc ptr @do_sync_mmap_readahead(ptr nocapture noundef readonl
 56:                                               ; preds = %52
   %57 = add nuw nsw i32 %54, 1
   store volatile i32 %57, ptr %53, align 4
-  %58 = icmp ugt i32 %54, 99
+  %58 = icmp samesign ugt i32 %54, 99
   br i1 %58, label %93, label %59
 
 59:                                               ; preds = %56

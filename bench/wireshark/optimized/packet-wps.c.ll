@@ -824,12 +824,12 @@ define hidden void @dissect_wps_tlvs(ptr noundef %0, ptr noundef %1, i32 noundef
   %8 = icmp ne ptr %4, null
   %.not = icmp eq ptr %4, null
   %9 = getelementptr inbounds i8, ptr %4, i64 8
-  %10 = icmp ult i32 %3, 4
+  %10 = icmp samesign ult i32 %3, 4
   br i1 %10, label %._crit_edge, label %.lr.ph769
 
 11:                                               ; preds = %dissect_wps_vendor_ext.exit
   %12 = add i32 %21, %.0696763767
-  %13 = icmp ult i32 %722, 4
+  %13 = icmp samesign ult i32 %722, 4
   br i1 %13, label %._crit_edge, label %.lr.ph769, !llvm.loop !4
 
 ._crit_edge:                                      ; preds = %11, %.lr.ph

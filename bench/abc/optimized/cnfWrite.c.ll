@@ -1754,7 +1754,7 @@ Cnf_IsopCountLiterals.exit290:                    ; preds = %._crit_edge.us.i287
   %177 = getelementptr inbounds i8, ptr %.val234, i64 24
   %178 = shl nuw nsw i64 %176, 2
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 16 %3, ptr nonnull align 4 %177, i64 %178, i1 false)
-  %179 = icmp ult i8 %174, 5
+  %179 = icmp samesign ult i8 %174, 5
   br i1 %179, label %._crit_edge330.thread, label %193
 
 ._crit_edge330.thread:                            ; preds = %154, %._crit_edge330

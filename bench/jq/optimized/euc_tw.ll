@@ -37,11 +37,11 @@ define internal range(i32 -400, 5) i32 @euctw_code_to_mbclen(i32 noundef %0) #3 
   br i1 %3, label %17, label %16
 
 4:                                                ; preds = %1
-  %.not7 = icmp ult i32 %0, 65536
+  %.not7 = icmp samesign ult i32 %0, 65536
   br i1 %.not7, label %5, label %17
 
 5:                                                ; preds = %4
-  %.not8 = icmp ult i32 %0, 256
+  %.not8 = icmp samesign ult i32 %0, 256
   br i1 %.not8, label %11, label %6
 
 6:                                                ; preds = %5
@@ -148,7 +148,7 @@ define internal range(i32 0, 2) i32 @is_valid_mbc_string(ptr noundef readonly %0
   br i1 %5, label %31, label %6
 
 6:                                                ; preds = %.lr.ph
-  %7 = icmp ult i8 %4, -95
+  %7 = icmp samesign ult i8 %4, -95
   br i1 %7, label %8, label %25
 
 8:                                                ; preds = %6

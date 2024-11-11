@@ -3164,7 +3164,7 @@ define internal noundef range(i32 -3, 1) i32 @e1000_rar_set_pch_lpt(ptr noundef 
   ]
 
 50:                                               ; preds = %43
-  %51 = icmp ult i32 %49, %2
+  %51 = icmp samesign ult i32 %49, %2
   br i1 %51, label %87, label %52
 
 52:                                               ; preds = %50, %43

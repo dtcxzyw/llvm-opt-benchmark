@@ -907,7 +907,7 @@ _ZL10_Py_DECREFP7_object.exit279:                 ; preds = %246, %245, %_ZL19_P
   %.1198 = phi i64 [ %351, %347 ], [ %354, %352 ]
   %356 = getelementptr inbounds [33 x i64], ptr %15, i64 0, i64 %indvars.iv.next322
   store i64 %.0197310.sink, ptr %356, align 8
-  %357 = icmp ugt i64 %indvars.iv321, 1
+  %357 = icmp samesign ugt i64 %indvars.iv321, 1
   br i1 %357, label %.lr.ph313, label %._crit_edge314, !llvm.loop !8
 
 ._crit_edge314:                                   ; preds = %355

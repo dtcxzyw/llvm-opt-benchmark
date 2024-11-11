@@ -116,7 +116,7 @@ define internal i32 @ps_unicode_value(ptr noundef readonly %0) #1 {
   br i1 %46, label %33, label %.thread73, !llvm.loop !6
 
 47:                                               ; preds = %33
-  %48 = icmp ult i32 %.05697, 3
+  %48 = icmp samesign ult i32 %.05697, 3
   br i1 %48, label %.thread73, label %.thread72.preheader
 
 .thread72.preheader:                              ; preds = %1, %.thread73, %47

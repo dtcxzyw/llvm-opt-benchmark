@@ -3473,7 +3473,7 @@ makeMaps_d.exit:                                  ; preds = %2167
   store i8 %.016622224, ptr %2459, align 1
   %2460 = add i8 %.016622224, 1
   %2461 = zext i8 %2460 to i32
-  %2462 = icmp ugt i32 %.121488, %2461
+  %2462 = icmp samesign ugt i32 %.121488, %2461
   br i1 %2462, label %.lr.ph2226, label %.preheader1930, !llvm.loop !11
 
 2463:                                             ; preds = %.lr.ph2233, %._crit_edge2231
@@ -5031,7 +5031,7 @@ makeMaps_d.exit:                                  ; preds = %2167
   %3427 = zext i32 %3426 to i64
   %3428 = getelementptr inbounds [4096 x i8], ptr %3425, i64 0, i64 %3427
   %3429 = load i8, ptr %3428, align 1
-  %3430 = icmp ugt i32 %3420, 3
+  %3430 = icmp samesign ugt i32 %3420, 3
   br i1 %3430, label %.lr.ph2271.preheader, label %.lr.ph2275.preheader
 
 .lr.ph2271.preheader:                             ; preds = %3422

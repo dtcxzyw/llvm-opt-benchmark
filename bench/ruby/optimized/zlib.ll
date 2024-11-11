@@ -3639,7 +3639,7 @@ RSTRING_PTR.exit:                                 ; preds = %36, %42
   call void asm sideeffect "", "*m,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(ptr) %5) #17, !srcloc !67
   %50 = load ptr, ptr %5, align 8
   %51 = load volatile i64, ptr %50, align 8
-  %52 = icmp ugt i32 %.in, 1
+  %52 = icmp samesign ugt i32 %.in, 1
   br i1 %52, label %13, label %get_gzfile.exit._crit_edge, !llvm.loop !68
 
 get_gzfile.exit._crit_edge:                       ; preds = %RSTRING_PTR.exit

@@ -504,7 +504,7 @@ define internal ptr @gre_gro_receive(ptr noundef %0, ptr noundef %1) #2 align 16
   br i1 %38, label %39, label %.thread
 
 39:                                               ; preds = %35
-  %40 = icmp ult i16 %36, 128
+  %40 = icmp samesign ult i16 %36, 128
   br i1 %40, label %45, label %41
 
 41:                                               ; preds = %39

@@ -776,7 +776,7 @@ Vec_IntPush.exit105:                              ; preds = %.Vec_IntGrow.exit10
 
 110:                                              ; preds = %103, %106
   %.1 = phi i32 [ %108, %106 ], [ %.0116, %103 ]
-  %111 = icmp ugt i64 %indvars.iv133, 1
+  %111 = icmp samesign ugt i64 %indvars.iv133, 1
   br i1 %111, label %.lr.ph118, label %.critedge4.loopexit, !llvm.loop !10
 
 .critedge4.loopexit:                              ; preds = %110, %.lr.ph118
@@ -3735,7 +3735,7 @@ Abc_TtCopy.exit48:                                ; preds = %.lr.ph.i37, %.lr.ph
   br i1 %75, label %82, label %76
 
 76:                                               ; preds = %.lr.ph.i50
-  %77 = icmp ugt i64 %indvars.iv.next.i52, %72
+  %77 = icmp samesign ugt i64 %indvars.iv.next.i52, %72
   br i1 %77, label %78, label %80
 
 78:                                               ; preds = %76
@@ -3749,7 +3749,7 @@ Abc_TtCopy.exit48:                                ; preds = %.lr.ph.i37, %.lr.ph
 
 82:                                               ; preds = %80, %.lr.ph.i50
   %.1.i = phi i32 [ %.017.i, %.lr.ph.i50 ], [ %81, %80 ]
-  %83 = icmp ugt i64 %indvars.iv.i51, 1
+  %83 = icmp samesign ugt i64 %indvars.iv.i51, 1
   %84 = icmp sgt i32 %.1.i, -1
   %85 = select i1 %83, i1 %84, i1 false
   br i1 %85, label %.lr.ph.i50, label %Abc_TtExpand.exit, !llvm.loop !40
@@ -3780,7 +3780,7 @@ Abc_TtExpand.exit:                                ; preds = %82, %Abc_TtCopy.exi
   br i1 %97, label %104, label %98
 
 98:                                               ; preds = %.lr.ph.i54
-  %99 = icmp ugt i64 %indvars.iv.next.i57, %94
+  %99 = icmp samesign ugt i64 %indvars.iv.next.i57, %94
   br i1 %99, label %100, label %102
 
 100:                                              ; preds = %98
@@ -3794,7 +3794,7 @@ Abc_TtExpand.exit:                                ; preds = %82, %Abc_TtCopy.exi
 
 104:                                              ; preds = %102, %.lr.ph.i54
   %.1.i58 = phi i32 [ %.017.i56, %.lr.ph.i54 ], [ %103, %102 ]
-  %105 = icmp ugt i64 %indvars.iv.i55, 1
+  %105 = icmp samesign ugt i64 %indvars.iv.i55, 1
   %106 = icmp sgt i32 %.1.i58, -1
   %107 = select i1 %105, i1 %106, i1 false
   br i1 %107, label %.lr.ph.i54, label %Abc_TtExpand.exit59, !llvm.loop !40

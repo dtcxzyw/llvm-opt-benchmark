@@ -1736,7 +1736,7 @@ ht_interface_config_to_string.exit.thread.i:      ; preds = %ht_interface_config
 364:                                              ; preds = %361
   %365 = load i32, ptr @hf_tecmp_payload_status_bus_vendor_technica_link_quality, align 4
   %366 = call ptr @proto_tree_add_item(ptr noundef %327, i32 noundef %365, ptr noundef %317, i32 noundef 1, i32 noundef 1, i32 noundef 0) #4
-  %367 = icmp ugt i32 %329, 3
+  %367 = icmp samesign ugt i32 %329, 3
   br i1 %367, label %368, label %dissect_tecmp_status_bus_vendor_data.exit.i
 
 368:                                              ; preds = %364

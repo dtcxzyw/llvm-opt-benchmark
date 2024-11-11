@@ -3626,11 +3626,11 @@ _ZN6parser6parser6Parser3nth17hd61dceb9a6b1841bE.exit6.i: ; preds = %159
   br i1 %165, label %173, label %187
 
 166:                                              ; preds = %_ZN6parser6parser6Parser3nth17hd61dceb9a6b1841bE.exit.i
-  %167 = icmp ult i32 %133, 14999999
+  %167 = icmp samesign ult i32 %133, 14999999
   br i1 %167, label %_ZN6parser6parser6Parser3nth17hd61dceb9a6b1841bE.exit8.i, label %170
 
 .thread114:                                       ; preds = %151
-  %168 = icmp ult i32 %133, 14999999
+  %168 = icmp samesign ult i32 %133, 14999999
   br i1 %168, label %_ZN6parser6parser6Parser3nth17hd61dceb9a6b1841bE.exit8.i.thread, label %170
 
 _ZN6parser6parser6Parser3nth17hd61dceb9a6b1841bE.exit8.i.thread: ; preds = %.thread114
@@ -3710,11 +3710,11 @@ _ZN6parser6parser6Parser4bump17h842b32f4aa8b1cf2E.exit.i.invoke: ; preds = %.noe
   br label %_ZN6parser6parser6Parser4bump17h842b32f4aa8b1cf2E.exit.i.invoke
 
 187:                                              ; preds = %_ZN6parser6parser6Parser3nth17hd61dceb9a6b1841bE.exit6.i
-  %188 = icmp ult i32 %133, 14999999
+  %188 = icmp samesign ult i32 %133, 14999999
   br i1 %188, label %_ZN6parser6parser6Parser3nth17hd61dceb9a6b1841bE.exit10.i, label %191
 
 .thread116:                                       ; preds = %159
-  %189 = icmp ult i32 %133, 14999999
+  %189 = icmp samesign ult i32 %133, 14999999
   br i1 %189, label %_ZN6parser6parser6Parser3nth17hd61dceb9a6b1841bE.exit10.i.thread, label %191
 
 _ZN6parser6parser6Parser3nth17hd61dceb9a6b1841bE.exit10.i.thread: ; preds = %.thread116

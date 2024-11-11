@@ -3723,7 +3723,7 @@ define hidden noundef nonnull align 8 dereferenceable(16) ptr @"_ZN5alloc11colle
 .lr.ph.i.i20.i.i:                                 ; preds = %339, %.lr.ph.i.i20.i.i
   %.sroa.0.06.i.i21.i.i = phi i64 [ %342, %.lr.ph.i.i20.i.i ], [ %316, %339 ]
   %342 = add nuw nsw i64 %.sroa.0.06.i.i21.i.i, 1
-  %343 = icmp ult i64 %.sroa.0.06.i.i21.i.i, 12
+  %343 = icmp samesign ult i64 %.sroa.0.06.i.i21.i.i, 12
   tail call void @llvm.assume(i1 %343)
   %344 = getelementptr inbounds ptr, ptr %331, i64 %.sroa.0.06.i.i21.i.i
   %345 = load ptr, ptr %344, align 8, !noalias !956, !nonnull !79, !noundef !79

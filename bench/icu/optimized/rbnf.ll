@@ -4454,7 +4454,7 @@ lpad23:                                           ; preds = %invoke.cont20
 
 do.body:                                          ; preds = %do.body.preheader, %land.rhs
   %indvars.iv = phi i64 [ %idxprom, %do.body.preheader ], [ %indvars.iv.next, %land.rhs ]
-  %cmp25 = icmp ugt i64 %indvars.iv, 1
+  %cmp25 = icmp samesign ugt i64 %indvars.iv, 1
   br i1 %cmp25, label %land.rhs, label %while.end
 
 land.rhs:                                         ; preds = %do.body

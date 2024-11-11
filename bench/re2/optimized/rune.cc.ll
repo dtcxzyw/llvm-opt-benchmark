@@ -20,11 +20,11 @@ if.end:                                           ; preds = %entry
   br i1 %tobool.not, label %if.end3, label %bad
 
 if.end3:                                          ; preds = %if.end
-  %cmp4 = icmp ult i8 %0, -32
+  %cmp4 = icmp samesign ult i8 %0, -32
   br i1 %cmp4, label %if.then5, label %if.end13
 
 if.then5:                                         ; preds = %if.end3
-  %cmp6 = icmp ult i8 %0, -64
+  %cmp6 = icmp samesign ult i8 %0, -64
   br i1 %cmp6, label %bad, label %if.end8
 
 if.end8:                                          ; preds = %if.then5
@@ -43,7 +43,7 @@ if.end13:                                         ; preds = %if.end3
   br i1 %tobool18.not, label %if.end20, label %bad
 
 if.end20:                                         ; preds = %if.end13
-  %cmp21 = icmp ult i8 %0, -16
+  %cmp21 = icmp samesign ult i8 %0, -16
   br i1 %cmp21, label %if.then22, label %if.end31
 
 if.then22:                                        ; preds = %if.end20
@@ -63,7 +63,7 @@ if.end31:                                         ; preds = %if.end20
   %7 = load i8, ptr %add.ptr32, align 1
   %8 = xor i8 %7, -128
   %tobool36 = icmp ult i8 %8, 64
-  %cmp39 = icmp ult i8 %0, -8
+  %cmp39 = icmp samesign ult i8 %0, -8
   %or.cond = and i1 %cmp39, %tobool36
   br i1 %or.cond, label %if.then40, label %bad
 
@@ -209,15 +209,15 @@ if.end:                                           ; preds = %if.then
   br i1 %cmp3.not, label %if.end16, label %if.then4
 
 if.then4:                                         ; preds = %if.end
-  %cmp5 = icmp ult i8 %0, -32
+  %cmp5 = icmp samesign ult i8 %0, -32
   br i1 %cmp5, label %return, label %if.end7
 
 if.end7:                                          ; preds = %if.then4
-  %cmp8 = icmp ugt i32 %n, 2
+  %cmp8 = icmp samesign ugt i32 %n, 2
   br i1 %cmp8, label %if.then9, label %if.end16
 
 if.then9:                                         ; preds = %if.end7
-  %cmp10 = icmp ult i8 %0, -16
+  %cmp10 = icmp samesign ult i8 %0, -16
   %cmp11 = icmp ne i32 %n, 3
   %or.cond = or i1 %cmp11, %cmp10
   br i1 %or.cond, label %return, label %if.end16
@@ -259,11 +259,11 @@ if.end.i:                                         ; preds = %for.cond
   br i1 %tobool.not.i, label %if.end3.i, label %bad.i
 
 if.end3.i:                                        ; preds = %if.end.i
-  %cmp4.i = icmp ult i8 %0, -32
+  %cmp4.i = icmp samesign ult i8 %0, -32
   br i1 %cmp4.i, label %if.then5.i, label %if.end13.i
 
 if.then5.i:                                       ; preds = %if.end3.i
-  %cmp6.i = icmp ult i8 %0, -64
+  %cmp6.i = icmp samesign ult i8 %0, -64
   br i1 %cmp6.i, label %bad.i, label %if.end8.i
 
 if.end8.i:                                        ; preds = %if.then5.i
@@ -280,7 +280,7 @@ if.end13.i:                                       ; preds = %if.end3.i
   br i1 %tobool18.not.i, label %if.end20.i, label %bad.i
 
 if.end20.i:                                       ; preds = %if.end13.i
-  %cmp21.i = icmp ult i8 %0, -16
+  %cmp21.i = icmp samesign ult i8 %0, -16
   br i1 %cmp21.i, label %if.then22.i, label %if.end31.i
 
 if.then22.i:                                      ; preds = %if.end20.i
@@ -295,7 +295,7 @@ if.end31.i:                                       ; preds = %if.end20.i
   %add.ptr32.i = getelementptr inbounds i8, ptr %s.addr.0, i64 3
   %6 = load i8, ptr %add.ptr32.i, align 1
   %tobool36.i = icmp slt i8 %6, -64
-  %cmp39.i = icmp ult i8 %0, -8
+  %cmp39.i = icmp samesign ult i8 %0, -8
   %or.cond.i = and i1 %cmp39.i, %tobool36.i
   br i1 %or.cond.i, label %if.then40.i, label %bad.i
 
@@ -356,11 +356,11 @@ if.end.i:                                         ; preds = %for.cond
   br i1 %tobool.not.i, label %if.end3.i, label %bad.i
 
 if.end3.i:                                        ; preds = %if.end.i
-  %cmp4.i = icmp ult i8 %0, -32
+  %cmp4.i = icmp samesign ult i8 %0, -32
   br i1 %cmp4.i, label %if.then5.i, label %if.end13.i
 
 if.then5.i:                                       ; preds = %if.end3.i
-  %cmp6.i = icmp ult i8 %0, -64
+  %cmp6.i = icmp samesign ult i8 %0, -64
   br i1 %cmp6.i, label %bad.i, label %if.end8.i
 
 if.end8.i:                                        ; preds = %if.then5.i
@@ -379,7 +379,7 @@ if.end13.i:                                       ; preds = %if.end3.i
   br i1 %tobool18.not.i, label %if.end20.i, label %bad.i
 
 if.end20.i:                                       ; preds = %if.end13.i
-  %cmp21.i = icmp ult i8 %0, -16
+  %cmp21.i = icmp samesign ult i8 %0, -16
   br i1 %cmp21.i, label %if.then22.i, label %if.end31.i
 
 if.then22.i:                                      ; preds = %if.end20.i
@@ -399,7 +399,7 @@ if.end31.i:                                       ; preds = %if.end20.i
   %7 = load i8, ptr %add.ptr32.i, align 1
   %8 = xor i8 %7, -128
   %tobool36.i = icmp ult i8 %8, 64
-  %cmp39.i = icmp ult i8 %0, -8
+  %cmp39.i = icmp samesign ult i8 %0, -8
   %or.cond.i = and i1 %cmp39.i, %tobool36.i
   br i1 %or.cond.i, label %if.then40.i, label %bad.i
 

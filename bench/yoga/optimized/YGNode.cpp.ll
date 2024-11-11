@@ -907,7 +907,7 @@ lpad20:                                           ; preds = %for.end
 
 for.body40.lr.ph:                                 ; preds = %if.then.i.i.i.i.i.i.i.i.i.i
   %shr.i.i.i = lshr i64 %add.ptr.idx, 5
-  %cmp50.i.i.i.not = icmp ult i64 %add.ptr.idx, 32
+  %cmp50.i.i.i.not = icmp samesign ult i64 %add.ptr.idx, 32
   %8 = and i64 %add.ptr.idx, 9223372036854775776
   %scevgep.i.i.i = getelementptr i8, ptr %call5.i.i.i.i1.i, i64 %8
   %gepdiff = and i64 %add.ptr.idx, 24

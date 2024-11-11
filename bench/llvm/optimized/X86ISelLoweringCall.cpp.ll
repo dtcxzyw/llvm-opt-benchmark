@@ -2159,7 +2159,7 @@ _ZNK4llvm5MemOp9isAlignedENS_5AlignE.exit.thread: ; preds = %_ZNK4llvm5MemOp12is
   br label %96
 
 42:                                               ; preds = %_ZNK4llvm5MemOp9isAlignedENS_5AlignE.exit.thread
-  %43 = icmp ugt i64 %.pre34, 31
+  %43 = icmp samesign ugt i64 %.pre34, 31
   %.phi.trans.insert30 = getelementptr inbounds nuw i8, ptr %9, i64 304
   %.pre31 = load i32, ptr %.phi.trans.insert30, align 8
   br i1 %43, label %.thread, label %._crit_edge
@@ -8784,7 +8784,7 @@ define linkonce_odr hidden void @_ZN4llvm7CCState26AnalyzeArgumentsSecondPassINS
   call void @_ZN4llvm23SmallVectorTemplateBaseINS_11CCValAssignELb1EE9push_backERKS1_(ptr noundef nonnull align 8 dereferenceable(16) %24, ptr noundef nonnull align 8 dereferenceable(26) %.056.i.i.i.i.i.i.i)
   %46 = getelementptr inbounds i8, ptr %.056.i.i.i.i.i.i.i, i64 32
   %47 = add nsw i64 %.07.i.i.i.i.i.i.i, -1
-  %48 = icmp ugt i64 %.07.i.i.i.i.i.i.i, 1
+  %48 = icmp samesign ugt i64 %.07.i.i.i.i.i.i.i, 1
   br i1 %48, label %.lr.ph.i.i.i.i.i.i.i, label %_ZSt4copyIPN4llvm11CCValAssignESt20back_insert_iteratorINS0_15SmallVectorImplIS1_EEEET0_T_S8_S7_.exit.i.i, !llvm.loop !37
 
 _ZSt4copyIPN4llvm11CCValAssignESt20back_insert_iteratorINS0_15SmallVectorImplIS1_EEEET0_T_S8_S7_.exit.i.i: ; preds = %.lr.ph.i.i.i.i.i.i.i, %._crit_edge.i.i
@@ -8801,7 +8801,7 @@ _ZSt4copyIPN4llvm11CCValAssignESt20back_insert_iteratorINS0_15SmallVectorImplIS1
   call void @_ZN4llvm23SmallVectorTemplateBaseINS_11CCValAssignELb1EE9push_backERKS1_(ptr noundef nonnull align 8 dereferenceable(16) %24, ptr noundef nonnull align 8 dereferenceable(26) %.056.i.i.i.i.i20.i.i)
   %54 = getelementptr inbounds i8, ptr %.056.i.i.i.i.i20.i.i, i64 32
   %55 = add nsw i64 %.07.i.i.i.i.i19.i.i, -1
-  %56 = icmp ugt i64 %.07.i.i.i.i.i19.i.i, 1
+  %56 = icmp samesign ugt i64 %.07.i.i.i.i.i19.i.i, 1
   br i1 %56, label %.lr.ph.i.i.i.i.i18.i.i, label %_ZSt5mergeIPN4llvm11CCValAssignES2_St20back_insert_iteratorINS0_15SmallVectorImplIS1_EEEZNS0_7CCState26AnalyzeArgumentsSecondPassINS0_3ISD8InputArgEEEvRKNS4_IT_EEPFbjNS0_3MVTESF_NS1_7LocInfoENS9_10ArgFlagsTyERS7_EEUlRKS1_SM_E_ET1_SB_SB_T0_SP_SO_T2_.exit, !llvm.loop !37
 
 _ZSt5mergeIPN4llvm11CCValAssignES2_St20back_insert_iteratorINS0_15SmallVectorImplIS1_EEEZNS0_7CCState26AnalyzeArgumentsSecondPassINS0_3ISD8InputArgEEEvRKNS4_IT_EEPFbjNS0_3MVTESF_NS1_7LocInfoENS9_10ArgFlagsTyERS7_EEUlRKS1_SM_E_ET1_SB_SB_T0_SP_SO_T2_.exit: ; preds = %.lr.ph.i.i.i.i.i18.i.i, %_ZSt4copyIPN4llvm11CCValAssignESt20back_insert_iteratorINS0_15SmallVectorImplIS1_EEEET0_T_S8_S7_.exit.i.i
@@ -12740,7 +12740,7 @@ define linkonce_odr hidden void @_ZN4llvm7CCState26AnalyzeArgumentsSecondPassINS
   call void @_ZN4llvm23SmallVectorTemplateBaseINS_11CCValAssignELb1EE9push_backERKS1_(ptr noundef nonnull align 8 dereferenceable(16) %24, ptr noundef nonnull align 8 dereferenceable(26) %.056.i.i.i.i.i.i.i)
   %46 = getelementptr inbounds i8, ptr %.056.i.i.i.i.i.i.i, i64 32
   %47 = add nsw i64 %.07.i.i.i.i.i.i.i, -1
-  %48 = icmp ugt i64 %.07.i.i.i.i.i.i.i, 1
+  %48 = icmp samesign ugt i64 %.07.i.i.i.i.i.i.i, 1
   br i1 %48, label %.lr.ph.i.i.i.i.i.i.i, label %_ZSt4copyIPN4llvm11CCValAssignESt20back_insert_iteratorINS0_15SmallVectorImplIS1_EEEET0_T_S8_S7_.exit.i.i, !llvm.loop !37
 
 _ZSt4copyIPN4llvm11CCValAssignESt20back_insert_iteratorINS0_15SmallVectorImplIS1_EEEET0_T_S8_S7_.exit.i.i: ; preds = %.lr.ph.i.i.i.i.i.i.i, %._crit_edge.i.i
@@ -12757,7 +12757,7 @@ _ZSt4copyIPN4llvm11CCValAssignESt20back_insert_iteratorINS0_15SmallVectorImplIS1
   call void @_ZN4llvm23SmallVectorTemplateBaseINS_11CCValAssignELb1EE9push_backERKS1_(ptr noundef nonnull align 8 dereferenceable(16) %24, ptr noundef nonnull align 8 dereferenceable(26) %.056.i.i.i.i.i20.i.i)
   %54 = getelementptr inbounds i8, ptr %.056.i.i.i.i.i20.i.i, i64 32
   %55 = add nsw i64 %.07.i.i.i.i.i19.i.i, -1
-  %56 = icmp ugt i64 %.07.i.i.i.i.i19.i.i, 1
+  %56 = icmp samesign ugt i64 %.07.i.i.i.i.i19.i.i, 1
   br i1 %56, label %.lr.ph.i.i.i.i.i18.i.i, label %_ZSt5mergeIPN4llvm11CCValAssignES2_St20back_insert_iteratorINS0_15SmallVectorImplIS1_EEEZNS0_7CCState26AnalyzeArgumentsSecondPassINS0_3ISD9OutputArgEEEvRKNS4_IT_EEPFbjNS0_3MVTESF_NS1_7LocInfoENS9_10ArgFlagsTyERS7_EEUlRKS1_SM_E_ET1_SB_SB_T0_SP_SO_T2_.exit, !llvm.loop !37
 
 _ZSt5mergeIPN4llvm11CCValAssignES2_St20back_insert_iteratorINS0_15SmallVectorImplIS1_EEEZNS0_7CCState26AnalyzeArgumentsSecondPassINS0_3ISD9OutputArgEEEvRKNS4_IT_EEPFbjNS0_3MVTESF_NS1_7LocInfoENS9_10ArgFlagsTyERS7_EEUlRKS1_SM_E_ET1_SB_SB_T0_SP_SO_T2_.exit: ; preds = %.lr.ph.i.i.i.i.i18.i.i, %_ZSt4copyIPN4llvm11CCValAssignESt20back_insert_iteratorINS0_15SmallVectorImplIS1_EEEET0_T_S8_S7_.exit.i.i

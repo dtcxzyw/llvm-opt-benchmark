@@ -1006,7 +1006,7 @@ _ZL7hex_isoPN12_GLOBAL__N_13hexE.exit.i.i:        ; preds = %50, %45
 76:                                               ; preds = %74
   %77 = add nsw i32 %26, -4
   %.urem.i.i = add nsw i32 %26, -9
-  %.cmp.i.i = icmp ult i32 %77, 5
+  %.cmp.i.i = icmp samesign ult i32 %77, 5
   %78 = select i1 %.cmp.i.i, i32 %77, i32 %.urem.i.i
   br label %_ZL16isea_dddi_ap3oddPN12_GLOBAL__N_18isea_dggEiPNS_7isea_ptES3_.exit.i
 

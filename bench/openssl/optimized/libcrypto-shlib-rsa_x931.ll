@@ -31,7 +31,7 @@ if.then3:                                         ; preds = %if.end
 if.else:                                          ; preds = %if.end
   %incdec.ptr4 = getelementptr inbounds i8, ptr %to, i64 1
   store i8 107, ptr %to, align 1
-  %cmp5 = icmp ugt i32 %sub, 3
+  %cmp5 = icmp samesign ugt i32 %sub, 3
   br i1 %cmp5, label %if.then6, label %if.end9
 
 if.then6:                                         ; preds = %if.else

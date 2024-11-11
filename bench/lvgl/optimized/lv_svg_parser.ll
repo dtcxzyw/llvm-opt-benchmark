@@ -2680,7 +2680,7 @@ _skip_space.exit.i188:                            ; preds = %758, %752
   br i1 %768, label %.critedge68.sink.split.i, label %.thread.i193
 
 769:                                              ; preds = %761
-  %770 = icmp ugt i32 %764, 5
+  %770 = icmp samesign ugt i32 %764, 5
   br i1 %770, label %.thread.i193, label %.critedge.i190
 
 .thread.i193:                                     ; preds = %769, %766
@@ -5313,7 +5313,7 @@ _parse_anim_value_list.exit111.i:                 ; preds = %1728, %._crit_edge.
 
 1731:                                             ; preds = %1694
   %1732 = add nsw i8 %spec.select.i, -55
-  %or.cond5.i = icmp ult i8 %1732, 2
+  %or.cond5.i = icmp samesign ult i8 %1732, 2
   br i1 %or.cond5.i, label %1733, label %1768
 
 1733:                                             ; preds = %1731

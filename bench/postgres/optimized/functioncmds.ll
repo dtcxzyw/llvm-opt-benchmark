@@ -2943,7 +2943,7 @@ define dso_local { i64, i32 } @CreateCast(ptr nocapture noundef readonly %0) loc
   unreachable
 
 95:                                               ; preds = %87
-  %96 = icmp ugt i16 %81, 1
+  %96 = icmp samesign ugt i16 %81, 1
   br i1 %96, label %97, label %.thread106
 
 97:                                               ; preds = %95
@@ -3022,7 +3022,7 @@ define dso_local { i64, i32 } @CreateCast(ptr nocapture noundef readonly %0) loc
 
 .thread107:                                       ; preds = %126
   call void @ReleaseSysCache(ptr noundef nonnull %69) #8
-  %134 = icmp ult i16 %81, 2
+  %134 = icmp samesign ult i16 %81, 2
   br label %188
 
 135:                                              ; preds = %63

@@ -545,7 +545,7 @@ define range(i32 -1, 1) i32 @H5O_apply_ohdr(ptr noundef %0, ptr noundef %1, i64 
   br label %101
 
 89:                                               ; preds = %84
-  %90 = icmp ugt i64 %14, 65535
+  %90 = icmp samesign ugt i64 %14, 65535
   br i1 %90, label %91, label %94
 
 91:                                               ; preds = %89
@@ -555,7 +555,7 @@ define range(i32 -1, 1) i32 @H5O_apply_ohdr(ptr noundef %0, ptr noundef %1, i64 
   br label %101
 
 94:                                               ; preds = %89
-  %95 = icmp ugt i64 %14, 255
+  %95 = icmp samesign ugt i64 %14, 255
   br i1 %95, label %96, label %101
 
 96:                                               ; preds = %94

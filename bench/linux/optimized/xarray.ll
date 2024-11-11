@@ -1912,7 +1912,7 @@ define dso_local void @xas_split_alloc(ptr nocapture noundef %0, ptr noundef %1,
 
 14:                                               ; preds = %4
   %15 = add nuw nsw i32 %10, 6
-  %16 = icmp ugt i32 %15, %2
+  %16 = icmp samesign ugt i32 %15, %2
   br i1 %16, label %.loopexit5, label %17
 
 17:                                               ; preds = %14

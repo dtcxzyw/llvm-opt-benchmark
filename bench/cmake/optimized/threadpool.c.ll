@@ -186,7 +186,7 @@ define internal void @init_once() #0 {
 
 .thread12.i:                                      ; preds = %9
   store ptr @default_threads, ptr @threads, align 8
-  %11 = icmp ugt i32 %7, 4
+  %11 = icmp samesign ugt i32 %7, 4
   br i1 %11, label %12, label %18
 
 12:                                               ; preds = %.thread12.i, %.thread13.i

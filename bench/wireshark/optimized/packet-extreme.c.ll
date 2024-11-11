@@ -863,7 +863,7 @@ dissect_vlan_tlv.exit:                            ; preds = %140, %155, %162, %1
   %336 = add nsw i32 %.0114115.i, -2
   %337 = add i16 %.0113116.i, -1
   %338 = icmp ne i16 %337, 0
-  %339 = icmp ugt i32 %.0114115.i, 3
+  %339 = icmp samesign ugt i32 %.0114115.i, 3
   %340 = select i1 %338, i1 %339, i1 false
   br i1 %340, label %.lr.ph.i, label %dissect_esl_tlv.exit, !llvm.loop !4
 

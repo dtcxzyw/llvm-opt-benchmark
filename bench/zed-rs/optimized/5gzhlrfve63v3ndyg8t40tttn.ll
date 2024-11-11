@@ -891,7 +891,7 @@ define internal fastcc noundef range(i32 0, 2097152) i32 @"_ZN116_$LT$core..iter
   %24 = load i8, ptr %17, align 1, !noalias !133, !noundef !22
   %25 = and i8 %24, 63
   %26 = zext nneg i8 %25 to i32
-  %27 = icmp ugt i8 %18, -33
+  %27 = icmp samesign ugt i8 %18, -33
   br i1 %27, label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hddaaca7a7ac86ca4E.exit14.i.i.i.i", label %_ZN4core4iter8adapters7flatten17and_then_or_clear17h1e2ad6cab00ecd4dE.exit11.loopexit.split.loop.exit19
 
 28:                                               ; preds = %16
@@ -908,7 +908,7 @@ define internal fastcc noundef range(i32 0, 2097152) i32 @"_ZN116_$LT$core..iter
   %34 = and i8 %32, 63
   %35 = zext nneg i8 %34 to i32
   %36 = or disjoint i32 %33, %35
-  %37 = icmp ugt i8 %18, -17
+  %37 = icmp samesign ugt i8 %18, -17
   br i1 %37, label %_ZN4core3ops8function6FnOnce9call_once17hb6a651dd8b98aad5E.exit.i, label %_ZN4core4iter8adapters7flatten17and_then_or_clear17h1e2ad6cab00ecd4dE.exit11.loopexit.split.loop.exit
 
 _ZN4core3ops8function6FnOnce9call_once17hb6a651dd8b98aad5E.exit.i: ; preds = %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hddaaca7a7ac86ca4E.exit14.i.i.i.i"
@@ -1041,7 +1041,7 @@ _ZN4core4iter8adapters7flatten17and_then_or_clear17h1e2ad6cab00ecd4dE.exit11: ; 
   %92 = and i8 %90, 63
   %93 = zext nneg i8 %92 to i32
   %94 = or disjoint i32 %91, %93
-  %95 = icmp ugt i8 %84, -33
+  %95 = icmp samesign ugt i8 %84, -33
   br i1 %95, label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hddaaca7a7ac86ca4E.exit14.i.i.i.i8", label %_ZN4core4iter8adapters7flatten17and_then_or_clear17h1e2ad6cab00ecd4dE.exit11
 
 96:                                               ; preds = %82
@@ -1060,7 +1060,7 @@ _ZN4core4iter8adapters7flatten17and_then_or_clear17h1e2ad6cab00ecd4dE.exit11: ; 
   %104 = or disjoint i32 %101, %103
   %105 = shl nuw nsw i32 %87, 12
   %106 = or disjoint i32 %104, %105
-  %107 = icmp ugt i8 %84, -17
+  %107 = icmp samesign ugt i8 %84, -17
   br i1 %107, label %_ZN4core3ops8function6FnOnce9call_once17hb6a651dd8b98aad5E.exit.i9, label %_ZN4core4iter8adapters7flatten17and_then_or_clear17h1e2ad6cab00ecd4dE.exit11
 
 _ZN4core3ops8function6FnOnce9call_once17hb6a651dd8b98aad5E.exit.i9: ; preds = %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hddaaca7a7ac86ca4E.exit14.i.i.i.i8"

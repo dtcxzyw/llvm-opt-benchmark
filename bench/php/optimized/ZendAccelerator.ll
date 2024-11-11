@@ -6620,7 +6620,7 @@ define internal ptr @accel_init_interned_string_for_php(ptr nocapture noundef re
   %.1181 = phi i64 [ %69, %50 ], [ %.0180.lcssa, %._crit_edge ]
   %.1178 = phi i64 [ %70, %50 ], [ %.0177.lcssa, %._crit_edge ]
   %.1 = phi ptr [ %71, %50 ], [ %.0176.lcssa, %._crit_edge ]
-  %73 = icmp ugt i64 %.1178, 1
+  %73 = icmp samesign ugt i64 %.1178, 1
   br i1 %73, label %74, label %95
 
 74:                                               ; preds = %72

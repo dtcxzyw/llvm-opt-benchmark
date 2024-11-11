@@ -5482,7 +5482,7 @@ define internal fastcc zeroext i16 @e100_eeprom_read(ptr nocapture noundef reado
   %33 = tail call i32 @ioread8(ptr noundef %32) #19
   %34 = and i32 %33, 8
   %35 = icmp eq i32 %34, 0
-  %36 = icmp ugt i32 %16, 16
+  %36 = icmp samesign ugt i32 %16, 16
   %37 = and i1 %36, %35
   br i1 %37, label %38, label %42
 

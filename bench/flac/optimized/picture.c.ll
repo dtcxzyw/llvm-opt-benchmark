@@ -408,7 +408,7 @@ if.end3:                                          ; preds = %if.end
   %0 = load i32, ptr @FLAC__STREAM_METADATA_LENGTH_LEN, align 4
   %shl = shl nuw i32 1, %0
   %conv = zext i32 %shl to i64
-  %cmp4.not = icmp ult i64 %call, %conv
+  %cmp4.not = icmp samesign ult i64 %call, %conv
   br i1 %cmp4.not, label %if.end7, label %return
 
 if.end7:                                          ; preds = %if.end3
@@ -698,7 +698,7 @@ land.lhs.true:                                    ; preds = %entry
   br i1 %cmp3, label %return.sink.split, label %land.lhs.true8
 
 if.else:                                          ; preds = %entry
-  %cmp7 = icmp ugt i32 %0, 5
+  %cmp7 = icmp samesign ugt i32 %0, 5
   br i1 %cmp7, label %if.else.land.lhs.true8_crit_edge, label %if.else19
 
 if.else.land.lhs.true8_crit_edge:                 ; preds = %if.else
@@ -718,7 +718,7 @@ lor.lhs.false:                                    ; preds = %land.lhs.true8
   br i1 %cmp16, label %return.sink.split, label %land.lhs.true23
 
 if.else19:                                        ; preds = %if.else
-  %cmp22 = icmp ugt i32 %0, 1
+  %cmp22 = icmp samesign ugt i32 %0, 1
   br i1 %cmp22, label %if.else19.land.lhs.true23_crit_edge, label %return
 
 if.else19.land.lhs.true23_crit_edge:              ; preds = %if.else19

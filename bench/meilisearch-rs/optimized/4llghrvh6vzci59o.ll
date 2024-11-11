@@ -17511,7 +17511,7 @@ define hidden { i64, ptr } @_ZN4time10formatting22format_number_pad_zero17hc47d2
   br label %27
 
 19:                                               ; preds = %10
-  %20 = icmp ult i8 %1, 10
+  %20 = icmp samesign ult i8 %1, 10
   br i1 %20, label %27, label %21
 
 21:                                               ; preds = %19
@@ -17611,7 +17611,7 @@ define hidden { i64, ptr } @_ZN4time10formatting22format_number_pad_zero17hc607d
   br label %.thread
 
 13:                                               ; preds = %"_ZN44_$LT$u8$u20$as$u20$time..ext..DigitCount$GT$10num_digits17hbc48cb51421a698fE.exit"
-  %14 = icmp ult i8 %1, 10
+  %14 = icmp samesign ult i8 %1, 10
   br i1 %14, label %.thread, label %15
 
 15:                                               ; preds = %13
@@ -17717,7 +17717,7 @@ define hidden { i64, ptr } @_ZN4time10formatting22format_number_pad_zero17heacb5
   br label %50
 
 ._crit_edge.i:                                    ; preds = %._crit_edge
-  %32 = icmp ugt i16 %1, 99
+  %32 = icmp samesign ugt i16 %1, 99
   br i1 %32, label %33, label %41
 
 33:                                               ; preds = %._crit_edge.i
@@ -43727,7 +43727,7 @@ _ZN10serde_json3ser9Formatter12begin_string17h5e338d973de9fa1eE.llvm.19292657444
   br label %96
 
 ._crit_edge.i.i.i.i.i.i.i.i.i.i.i:                ; preds = %_ZN10serde_json3ser9Formatter12begin_string17h5e338d973de9fa1eE.llvm.1929265744411185926.exit.i.i.i.i.i.i.i.i.i
-  %79 = icmp ugt i16 %.val9.i.i, 99
+  %79 = icmp samesign ugt i16 %.val9.i.i, 99
   br i1 %79, label %80, label %87
 
 80:                                               ; preds = %._crit_edge.i.i.i.i.i.i.i.i.i.i.i
@@ -60387,7 +60387,7 @@ _ZN10serde_json3ser9Formatter18begin_object_value17h9e8a2e8c5b189ecaE.exit: ; pr
 
 41:                                               ; preds = %31
   %.sroa.07.017.i.sroa.gep1.i.i.i.i.i.i = getelementptr inbounds i8, ptr %3, i64 2
-  %42 = icmp ult i8 %.val.i.i.i, 10
+  %42 = icmp samesign ult i8 %.val.i.i.i, 10
   br i1 %42, label %49, label %43
 
 43:                                               ; preds = %41

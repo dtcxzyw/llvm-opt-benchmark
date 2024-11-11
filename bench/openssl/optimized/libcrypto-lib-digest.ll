@@ -1264,7 +1264,7 @@ if.else:                                          ; preds = %if.then33
   br label %return
 
 legacy:                                           ; preds = %if.end4
-  %cmp40 = icmp ult i32 %call, 65
+  %cmp40 = icmp samesign ult i32 %call, 65
   br i1 %cmp40, label %cond.end, label %cond.false
 
 cond.false:                                       ; preds = %legacy

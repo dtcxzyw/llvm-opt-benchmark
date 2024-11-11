@@ -9425,7 +9425,7 @@ define linkonce_odr hidden noundef double @_ZNK2cv2ml7SVMImpl19getDecisionFuncti
   %30 = zext nneg i32 %1 to i64
   %31 = getelementptr %"struct.cv::ml::SVMImpl::DecisionFunc", ptr %14, i64 %30
   %32 = add nsw i32 %19, -1
-  %33 = icmp ult i32 %1, %32
+  %33 = icmp samesign ult i32 %1, %32
   br i1 %33, label %34, label %37
 
 34:                                               ; preds = %29

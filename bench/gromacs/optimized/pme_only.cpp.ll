@@ -192,7 +192,7 @@ _ZNSt6vectorIP9tmpi_req_SaIS1_EE17_S_check_init_lenEmRKS2_.exit.i: ; preds = %27
   %48 = getelementptr inbounds i8, ptr %0, i64 280
   store ptr %44, ptr %48, align 8
   %49 = getelementptr inbounds i8, ptr %0, i64 296
-  %50 = icmp ugt i64 %37, 288230376151711743
+  %50 = icmp samesign ugt i64 %37, 288230376151711743
   br i1 %50, label %51, label %52
 
 51:                                               ; preds = %43

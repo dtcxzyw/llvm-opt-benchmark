@@ -202,7 +202,7 @@ define noundef nonnull ptr @Ndr_ObjWriteConstant(ptr nocapture noundef readonly 
   %indvars.iv.next = add nsw i64 %indvars.iv, 1
   %16 = getelementptr inbounds [10000 x i8], ptr @Ndr_ObjWriteConstant.Buffer, i64 0, i64 %indvars.iv
   store i8 %15, ptr %16, align 1
-  %17 = icmp ugt i32 %.07.in8, 1
+  %17 = icmp samesign ugt i32 %.07.in8, 1
   br i1 %17, label %.lr.ph, label %._crit_edge, !llvm.loop !4
 
 ._crit_edge:                                      ; preds = %.lr.ph, %2
@@ -464,7 +464,7 @@ Wlc_ObjFanins.exit:                               ; preds = %.critedge4
   %indvars.iv.next.i = add nsw i64 %indvars.iv.i, 1
   %113 = getelementptr inbounds [10000 x i8], ptr @Ndr_ObjWriteConstant.Buffer, i64 0, i64 %indvars.iv.i
   store i8 %112, ptr %113, align 1
-  %114 = icmp ugt i32 %.07.in8.i, 1
+  %114 = icmp samesign ugt i32 %.07.in8.i, 1
   br i1 %114, label %.lr.ph.i, label %Ndr_ObjWriteConstant.exit, !llvm.loop !4
 
 Ndr_ObjWriteConstant.exit:                        ; preds = %.lr.ph.i

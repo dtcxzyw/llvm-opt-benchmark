@@ -423,7 +423,7 @@ define range(i32 -22, 1) i32 @arkInterpSetDegree_Hermite(ptr noundef %0, ptr noc
   br i1 %11, label %12, label %16
 
 12:                                               ; preds = %10
-  %13 = icmp ugt i32 %2, 5
+  %13 = icmp samesign ugt i32 %2, 5
   br i1 %13, label %14, label %15
 
 14:                                               ; preds = %12
@@ -1721,7 +1721,7 @@ define range(i32 -22, 1) i32 @arkInterpSetDegree_Lagrange(ptr noundef %0, ptr no
   br i1 %12, label %13, label %18
 
 13:                                               ; preds = %11
-  %14 = icmp ugt i32 %2, 5
+  %14 = icmp samesign ugt i32 %2, 5
   br i1 %14, label %15, label %16
 
 15:                                               ; preds = %13
@@ -2073,7 +2073,7 @@ define range(i32 -21, 1) i32 @arkInterpUpdate_Lagrange(ptr noundef readonly %0, 
   %50 = load ptr, ptr %49, align 8
   %51 = getelementptr inbounds ptr, ptr %13, i64 %indvars.iv61
   store ptr %50, ptr %51, align 8
-  %52 = icmp ugt i64 %indvars.iv61, 1
+  %52 = icmp samesign ugt i64 %indvars.iv61, 1
   br i1 %52, label %.lr.ph58, label %._crit_edge59
 
 ._crit_edge59:                                    ; preds = %.lr.ph58, %39

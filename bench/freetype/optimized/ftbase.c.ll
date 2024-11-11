@@ -14334,11 +14334,11 @@ define hidden range(i32 0, 13) i32 @ps_property_set(ptr nocapture noundef writeo
   %44 = icmp sgt i32 %30, %32
   %45 = icmp sgt i32 %27, 500
   %or.cond15 = select i1 %44, i1 true, i1 %45
-  %46 = icmp ugt i32 %29, 500
+  %46 = icmp samesign ugt i32 %29, 500
   %or.cond17 = select i1 %or.cond15, i1 true, i1 %46
-  %47 = icmp ugt i32 %31, 500
+  %47 = icmp samesign ugt i32 %31, 500
   %or.cond19 = select i1 %or.cond17, i1 true, i1 %47
-  %48 = icmp ugt i32 %25, 500
+  %48 = icmp samesign ugt i32 %25, 500
   %or.cond21 = select i1 %or.cond19, i1 true, i1 %48
   br i1 %or.cond21, label %.loopexit, label %49
 
@@ -15279,7 +15279,7 @@ FT_Stream_ReadUShort.exit113.thread:              ; preds = %100, %108
   br i1 %138, label %._crit_edge, label %139
 
 139:                                              ; preds = %137
-  %140 = icmp ugt i64 %136, 134217727
+  %140 = icmp samesign ugt i64 %136, 134217727
   br i1 %140, label %ft_mem_free.exit, label %141
 
 141:                                              ; preds = %139
@@ -15384,7 +15384,7 @@ ft_mem_qrealloc.exit:                             ; preds = %141
   br i1 %181, label %._crit_edge178, label %182
 
 182:                                              ; preds = %180
-  %183 = icmp ugt i64 %179, 268435455
+  %183 = icmp samesign ugt i64 %179, 268435455
   br i1 %183, label %ft_mem_qrealloc.exit130.thread, label %184
 
 184:                                              ; preds = %182
@@ -16919,7 +16919,7 @@ define range(i64 -36028797018963968, 36028797018963968) i64 @FT_Cos(i64 noundef 
   %.04954.i.i = phi i64 [ %5, %.lr.ph.i.i ], [ %0, %1 ]
   %4 = sub nsw i64 0, %.04455.i.i
   %5 = add nsw i64 %.04954.i.i, 5898240
-  %6 = icmp ult i64 %.04954.i.i, -8847360
+  %6 = icmp samesign ult i64 %.04954.i.i, -8847360
   br i1 %6, label %.lr.ph.i.i, label %.preheader.i.i.preheader, !llvm.loop !73
 
 .lr.ph62.i.i:                                     ; preds = %.preheader53.i.i, %.lr.ph62.i.i
@@ -16928,7 +16928,7 @@ define range(i64 -36028797018963968, 36028797018963968) i64 @FT_Cos(i64 noundef 
   %.15059.i.i = phi i64 [ %8, %.lr.ph62.i.i ], [ %0, %.preheader53.i.i ]
   %7 = sub nsw i64 0, %.14361.i.i
   %8 = add nsw i64 %.15059.i.i, -5898240
-  %9 = icmp ugt i64 %.15059.i.i, 8847360
+  %9 = icmp samesign ugt i64 %.15059.i.i, 8847360
   br i1 %9, label %.lr.ph62.i.i, label %.preheader.i.i.preheader, !llvm.loop !74
 
 .preheader.i.i.preheader:                         ; preds = %.lr.ph62.i.i, %.lr.ph.i.i, %.preheader53.i.i
@@ -17000,7 +17000,7 @@ define void @FT_Vector_Unit(ptr noundef writeonly %0, i64 noundef %1) local_unna
   %.04954.i = phi i64 [ %8, %.lr.ph.i ], [ %1, %3 ]
   %7 = sub nsw i64 0, %.04455.i
   %8 = add nsw i64 %.04954.i, 5898240
-  %9 = icmp ult i64 %.04954.i, -8847360
+  %9 = icmp samesign ult i64 %.04954.i, -8847360
   br i1 %9, label %.lr.ph.i, label %.preheader.i.preheader, !llvm.loop !73
 
 .lr.ph62.i:                                       ; preds = %.preheader53.i, %.lr.ph62.i
@@ -17009,7 +17009,7 @@ define void @FT_Vector_Unit(ptr noundef writeonly %0, i64 noundef %1) local_unna
   %.15059.i = phi i64 [ %11, %.lr.ph62.i ], [ %1, %.preheader53.i ]
   %10 = sub nsw i64 0, %.14361.i
   %11 = add nsw i64 %.15059.i, -5898240
-  %12 = icmp ugt i64 %.15059.i, 8847360
+  %12 = icmp samesign ugt i64 %.15059.i, 8847360
   br i1 %12, label %.lr.ph62.i, label %.preheader.i.preheader, !llvm.loop !74
 
 .preheader.i.preheader:                           ; preds = %.lr.ph62.i, %.lr.ph.i, %.preheader53.i
@@ -17083,7 +17083,7 @@ define range(i64 -36028797018963968, 36028797018963968) i64 @FT_Sin(i64 noundef 
   %.04954.i.i = phi i64 [ %5, %.lr.ph.i.i ], [ %0, %1 ]
   %4 = sub nsw i64 0, %.04455.i.i
   %5 = add nsw i64 %.04954.i.i, 5898240
-  %6 = icmp ult i64 %.04954.i.i, -8847360
+  %6 = icmp samesign ult i64 %.04954.i.i, -8847360
   br i1 %6, label %.lr.ph.i.i, label %.preheader.i.i.preheader, !llvm.loop !73
 
 .lr.ph62.i.i:                                     ; preds = %.preheader53.i.i, %.lr.ph62.i.i
@@ -17092,7 +17092,7 @@ define range(i64 -36028797018963968, 36028797018963968) i64 @FT_Sin(i64 noundef 
   %.15059.i.i = phi i64 [ %8, %.lr.ph62.i.i ], [ %0, %.preheader53.i.i ]
   %7 = sub nsw i64 0, %.14361.i.i
   %8 = add nsw i64 %.15059.i.i, -5898240
-  %9 = icmp ugt i64 %.15059.i.i, 8847360
+  %9 = icmp samesign ugt i64 %.15059.i.i, 8847360
   br i1 %9, label %.lr.ph62.i.i, label %.preheader.i.i.preheader, !llvm.loop !74
 
 .preheader.i.i.preheader:                         ; preds = %.lr.ph62.i.i, %.lr.ph.i.i, %.preheader53.i.i
@@ -17159,7 +17159,7 @@ define i64 @FT_Tan(i64 noundef %0) local_unnamed_addr #3 {
   %.04954.i = phi i64 [ %5, %.lr.ph.i ], [ %0, %1 ]
   %4 = sub nsw i64 0, %.04455.i
   %5 = add nsw i64 %.04954.i, 5898240
-  %6 = icmp ult i64 %.04954.i, -8847360
+  %6 = icmp samesign ult i64 %.04954.i, -8847360
   br i1 %6, label %.lr.ph.i, label %.preheader.i.preheader, !llvm.loop !73
 
 .lr.ph62.i:                                       ; preds = %.preheader53.i, %.lr.ph62.i
@@ -17168,7 +17168,7 @@ define i64 @FT_Tan(i64 noundef %0) local_unnamed_addr #3 {
   %.15059.i = phi i64 [ %8, %.lr.ph62.i ], [ %0, %.preheader53.i ]
   %7 = sub nsw i64 0, %.14361.i
   %8 = add nsw i64 %.15059.i, -5898240
-  %9 = icmp ugt i64 %.15059.i, 8847360
+  %9 = icmp samesign ugt i64 %.15059.i, 8847360
   br i1 %9, label %.lr.ph62.i, label %.preheader.i.preheader, !llvm.loop !74
 
 .preheader.i.preheader:                           ; preds = %.lr.ph62.i, %.lr.ph.i, %.preheader53.i
@@ -17412,7 +17412,7 @@ ft_trig_prenorm.exit:                             ; preds = %16, %21
   %.04954.i = phi i64 [ %29, %.lr.ph.i ], [ %1, %ft_trig_prenorm.exit ]
   %28 = sub nsw i64 0, %.04455.i
   %29 = add nsw i64 %.04954.i, 5898240
-  %30 = icmp ult i64 %.04954.i, -8847360
+  %30 = icmp samesign ult i64 %.04954.i, -8847360
   br i1 %30, label %.lr.ph.i, label %.preheader.i.preheader, !llvm.loop !73
 
 .lr.ph62.i:                                       ; preds = %.preheader53.i, %.lr.ph62.i
@@ -17421,7 +17421,7 @@ ft_trig_prenorm.exit:                             ; preds = %16, %21
   %.15059.i = phi i64 [ %32, %.lr.ph62.i ], [ %1, %.preheader53.i ]
   %31 = sub nsw i64 0, %.14361.i
   %32 = add nsw i64 %.15059.i, -5898240
-  %33 = icmp ugt i64 %.15059.i, 8847360
+  %33 = icmp samesign ugt i64 %.15059.i, 8847360
   br i1 %33, label %.lr.ph62.i, label %.preheader.i.preheader, !llvm.loop !74
 
 .preheader.i.preheader:                           ; preds = %.lr.ph62.i, %.lr.ph.i, %.preheader53.i
@@ -19123,7 +19123,7 @@ ft_mem_qalloc.exit:                               ; preds = %72
   br i1 %102, label %145, label %103
 
 103:                                              ; preds = %99
-  %104 = icmp ugt i32 %92, 2
+  %104 = icmp samesign ugt i32 %92, 2
   %105 = add nsw i64 %93, -2
   %.0111.i = select i1 %104, i64 %105, i64 0
   %106 = icmp eq i32 %.0120.i117, %101
@@ -19373,7 +19373,7 @@ ft_mem_qalloc.exit65:                             ; preds = %205, %203
   br label %Mac_Read_sfnt_Resource.exit.thread
 
 216:                                              ; preds = %211
-  %217 = icmp ugt i32 %192, 4
+  %217 = icmp samesign ugt i32 %192, 4
   br i1 %217, label %218, label %220
 
 218:                                              ; preds = %216

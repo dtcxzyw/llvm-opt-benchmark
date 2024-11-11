@@ -381,7 +381,7 @@ _ZN3url21AppendUTF8EscapedCharEPKcPiiPNS_12CanonOutputTIcEE.exit.i: ; preds = %i
   br label %for.inc.i
 
 if.else.i:                                        ; preds = %for.body.i
-  %cmp3.i = icmp ult i8 %0, 33
+  %cmp3.i = icmp samesign ult i8 %0, 33
   %cmp5.i = icmp eq i8 %0, 127
   %or.cond.i = or i1 %cmp3.i, %cmp5.i
   br i1 %or.cond.i, label %if.then6.i, label %if.else7.i
@@ -498,7 +498,7 @@ _ZN3url21AppendUTF8EscapedCharEPKtPiiPNS_12CanonOutputTIcEE.exit.i: ; preds = %i
   br label %for.inc.i
 
 if.else.i:                                        ; preds = %for.body.i
-  %cmp3.i = icmp ult i16 %0, 33
+  %cmp3.i = icmp samesign ult i16 %0, 33
   %cmp5.i = icmp eq i16 %0, 127
   %or.cond.i = or i1 %cmp3.i, %cmp5.i
   %conv7.i = trunc nuw i16 %0 to i8

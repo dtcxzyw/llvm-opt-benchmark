@@ -1893,7 +1893,7 @@ invoke.cont44.i:                                  ; preds = %if.end39.i
           to label %invoke.cont45.i unwind label %lpad.i
 
 invoke.cont45.i:                                  ; preds = %invoke.cont44.i
-  %cmp.i7.i.i = icmp ugt i32 %length.07376.i, 127
+  %cmp.i7.i.i = icmp samesign ugt i32 %length.07376.i, 127
   br i1 %cmp.i7.i.i, label %while.body.i.i.i, label %invoke.cont47.i
 
 while.body.i.i.i:                                 ; preds = %invoke.cont45.i, %while.body.i.i.i
@@ -15710,7 +15710,7 @@ for.body.i.i.i.i.i:                               ; preds = %.noexc, %for.body.p
 
 .noexc:                                           ; preds = %for.body.i.i.i.i.i
   %dec.i.i.i.i.i = add nsw i64 %__n.07.i.i.i.i.i, -1
-  %cmp.i.i.i.i.i = icmp ugt i64 %__n.07.i.i.i.i.i, 1
+  %cmp.i.i.i.i.i = icmp samesign ugt i64 %__n.07.i.i.i.i.i, 1
   br i1 %cmp.i.i.i.i.i, label %for.body.i.i.i.i.i, label %invoke.cont, !llvm.loop !104
 
 invoke.cont:                                      ; preds = %.noexc, %if.then9

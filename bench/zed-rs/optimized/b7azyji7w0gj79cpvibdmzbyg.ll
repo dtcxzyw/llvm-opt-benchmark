@@ -18234,8 +18234,8 @@ _ZN8terminal8pty_info14PtyProcessInfo4load17hc5b4736f28166e90E.exit: ; preds = %
 .thread.i.i:                                      ; preds = %147
   %155 = getelementptr inbounds i8, ptr %5, i64 16
   %156 = load i8, ptr %155, align 8, !range !6583, !alias.scope !6581, !noalias !6578, !noundef !9
-  %switch.i.i3453.i.i = icmp samesign ult i8 %156, 3
-  br i1 %switch.i.i3453.i.i, label %143, label %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17he4528c640e743ed3E.exit.i.i"
+  %or.cond54.i.i = icmp samesign ult i8 %156, 3
+  br i1 %or.cond54.i.i, label %143, label %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17he4528c640e743ed3E.exit.i.i"
 
 ._crit_edge.i.i:                                  ; preds = %151
   br i1 %switch.i.i.i.i, label %143, label %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17he4528c640e743ed3E.exit.i.i"

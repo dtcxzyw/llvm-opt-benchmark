@@ -4816,7 +4816,7 @@ phar_strnstr.exit:                                ; preds = %172
   %240 = zext nneg i32 %.0.copyload128.i to i64
   %241 = call noalias ptr @_emalloc(i64 noundef %240) #25
   %242 = getelementptr inbounds i8, ptr %241, i64 %240
-  %243 = icmp ult i32 %.0.copyload128.i, 18
+  %243 = icmp samesign ult i32 %.0.copyload128.i, 18
   br i1 %243, label %.thread1153.i, label %244
 
 244:                                              ; preds = %239

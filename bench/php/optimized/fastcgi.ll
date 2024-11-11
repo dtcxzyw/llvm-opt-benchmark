@@ -1803,7 +1803,7 @@ safe_read.exit157.i:                              ; preds = %196, %194
   %.lcssa260.i = phi i8 [ %177, %169 ], [ %206, %._crit_edge.loopexit.i ]
   %.0130.i = zext i8 %.0130.in.lcssa.i to i32
   %211 = add nuw nsw i32 %.0127.lcssa.i, %.0130.i
-  %212 = icmp ugt i32 %211, 65535
+  %212 = icmp samesign ugt i32 %211, 65535
   br i1 %212, label %.loopexit, label %213
 
 213:                                              ; preds = %._crit_edge.i
@@ -1989,7 +1989,7 @@ safe_read.exit173.i:                              ; preds = %280, %278
   %.1131.in288.i = phi i8 [ %344, %337 ], [ %294, %.lr.ph291.preheader.i ]
   %.1131.i = zext i8 %.1131.in288.i to i32
   %295 = add nuw nsw i32 %.1289.i, %.1131.i
-  %296 = icmp ugt i32 %295, 65535
+  %296 = icmp samesign ugt i32 %295, 65535
   br i1 %296, label %.loopexit, label %297
 
 297:                                              ; preds = %.lr.ph291.i
@@ -2859,7 +2859,7 @@ fcgi_make_header.exit.i123:                       ; preds = %119, %96
 
 close_packet.exit125:                             ; preds = %95, %fcgi_make_header.exit.i123
   %125 = phi ptr [ %48, %95 ], [ %124, %fcgi_make_header.exit.i123 ]
-  %126 = icmp ugt i32 %3, 65535
+  %126 = icmp samesign ugt i32 %3, 65535
   %127 = trunc i32 %1 to i8
   br i1 %126, label %.lr.ph, label %._crit_edge
 
@@ -3814,7 +3814,7 @@ define internal fastcc range(i32 0, 2) i32 @fcgi_get_params(ptr nocapture nounde
   br i1 %59, label %._crit_edge, label %60
 
 60:                                               ; preds = %54
-  %61 = icmp ult i32 %.047, 3
+  %61 = icmp samesign ult i32 %.047, 3
   br i1 %61, label %81, label %62
 
 62:                                               ; preds = %60

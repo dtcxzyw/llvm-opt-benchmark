@@ -3426,7 +3426,7 @@ thread-pre-split.thread.i.i:                      ; preds = %1405
   br i1 %or.cond.i400.i, label %1465, label %1469
 
 1465:                                             ; preds = %._crit_edge.i399.i
-  %1466 = icmp ugt i64 %.1353.i.i, 2000
+  %1466 = icmp samesign ugt i64 %.1353.i.i, 2000
   br i1 %1466, label %1467, label %1468
 
 1467:                                             ; preds = %1465
@@ -3683,7 +3683,7 @@ thread-pre-split.i.i.i:                           ; preds = %.critedge2.i.i.i
   br i1 %1572, label %1574, label %limitrange.exit.i.i
 
 1574:                                             ; preds = %.lr.ph44.i.i.i
-  %1575 = icmp ugt i32 %1573, 1
+  %1575 = icmp samesign ugt i32 %1573, 1
   br i1 %1575, label %.lr.ph44.i.i.i, label %limitrange.exit.i.i, !llvm.loop !37
 
 limitrange.exit.i.i:                              ; preds = %1574, %.lr.ph44.i.i.i, %.critedge4.i.i.i, %.critedge2.i.i.i
@@ -3797,7 +3797,7 @@ limitrange.exit.i.i:                              ; preds = %1574, %.lr.ph44.i.i
   br i1 %1622, label %1624, label %limitrange.exit485.i.i
 
 1624:                                             ; preds = %.lr.ph44.i473.i.i
-  %1625 = icmp ugt i32 %1623, 1
+  %1625 = icmp samesign ugt i32 %1623, 1
   br i1 %1625, label %.lr.ph44.i473.i.i, label %limitrange.exit485.i.i, !llvm.loop !37
 
 limitrange.exit485.i.i:                           ; preds = %1624, %.lr.ph44.i473.i.i, %.critedge4.i470.i.i
@@ -6792,7 +6792,7 @@ define internal fastcc range(i64 -7733088616448, 7733088616448) i64 @gethms(ptr 
   br i1 %.b32, label %54, label %oadd.exit
 
 54:                                               ; preds = %44
-  %55 = icmp ugt i32 %37, 24
+  %55 = icmp samesign ugt i32 %37, 24
   br i1 %55, label %61, label %56
 
 56:                                               ; preds = %54
@@ -8172,7 +8172,7 @@ define internal fastcc noundef zeroext i1 @componentcheck(ptr noundef %0, ptr no
   br label %35
 
 35:                                               ; preds = %34, %31
-  %36 = icmp ugt i64 %6, 14
+  %36 = icmp samesign ugt i64 %6, 14
   br i1 %36, label %37, label %.thread
 
 37:                                               ; preds = %35
@@ -9299,7 +9299,7 @@ stringoffset.exit:                                ; preds = %95, %100, %105
   br i1 %brmerge, label %114, label %110
 
 110:                                              ; preds = %stringoffset.exit
-  %111 = icmp ugt i64 %.369, 86399
+  %111 = icmp samesign ugt i64 %.369, 86399
   br i1 %111, label %112, label %114
 
 112:                                              ; preds = %110

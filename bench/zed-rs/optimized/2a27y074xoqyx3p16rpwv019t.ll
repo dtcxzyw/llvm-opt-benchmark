@@ -4182,7 +4182,7 @@ define hidden void @_ZN12futures_util6future8join_all8join_all17h2c2234894ad7d8e
   %.sroa.5.0..sroa_idx.i = getelementptr inbounds i8, ptr %1, i64 16
   %.sroa.5.0.copyload.i = load i64, ptr %.sroa.5.0..sroa_idx.i, align 8, !alias.scope !80, !noalias !83
   %10 = getelementptr inbounds { { { { { ptr, ptr } }, {} }, {} } }, ptr %.sroa.4.0.copyload.i, i64 %.sroa.5.0.copyload.i
-  %11 = icmp ult i64 %.sroa.5.0.copyload.i, 31
+  %11 = icmp samesign ult i64 %.sroa.5.0.copyload.i, 31
   br i1 %11, label %.noexc, label %12
 
 12:                                               ; preds = %2
@@ -4731,7 +4731,7 @@ define hidden { ptr, i64 } @_ZN13block_padding5Pkcs75unpad17h72d15734647ffd57E.l
 
 18:                                               ; preds = %13
   %19 = zext i8 %15 to i64
-  %20 = icmp ult i64 %1, %19
+  %20 = icmp samesign ult i64 %1, %19
   br i1 %20, label %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17h375c123cc5f3f813E.llvm.2317975020751253692.exit4", label %21
 
 21:                                               ; preds = %18
@@ -4739,7 +4739,7 @@ define hidden { ptr, i64 } @_ZN13block_padding5Pkcs75unpad17h72d15734647ffd57E.l
   br i1 %2, label %23, label %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17h375c123cc5f3f813E.llvm.2317975020751253692.exit4"
 
 23:                                               ; preds = %21
-  %24 = icmp ult i64 %7, %22
+  %24 = icmp samesign ult i64 %7, %22
   br i1 %24, label %25, label %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17h375c123cc5f3f813E.llvm.2317975020751253692.exit"
 
 25:                                               ; preds = %23
@@ -27747,7 +27747,7 @@ define hidden void @"_ZN5x11rb6cursor15Cookie$LT$C$GT$5reply17hfbde71e6ffb8afa2E
   call void @llvm.experimental.noalias.scope.decl(metadata !6966)
   %25 = icmp ugt i32 %.sroa.320.0, 7
   %or.cond.i = or i1 %.sroa.019.0, %25
-  %26 = icmp ugt i32 %.sroa.320.0, 4
+  %26 = icmp samesign ugt i32 %.sroa.320.0, 4
   %..i = zext i1 %26 to i8
   %.sroa.028.0.i = select i1 %or.cond.i, i8 2, i8 %..i
   %27 = invoke { ptr, i64 } @_ZN14x11rb_protocol16resource_manager8Database10get_string17hf87703e30a25b3dbE(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %24, ptr noalias noundef nonnull readonly align 1 @anon.4c99158258ee3b3a3d86145b1761aaa8.181, i64 noundef 13, ptr noalias noundef nonnull readonly align 1 inttoptr (i64 1 to ptr), i64 noundef 0)
@@ -30348,12 +30348,12 @@ define hidden { ptr, i64 } @"_ZN66_$LT$block_padding..Pkcs7$u20$as$u20$block_pad
 
 17:                                               ; preds = %12
   %18 = zext i8 %14 to i64
-  %19 = icmp ult i64 %1, %18
+  %19 = icmp samesign ult i64 %1, %18
   br i1 %19, label %_ZN13block_padding5Pkcs75unpad17h72d15734647ffd57E.llvm.2317975020751253692.exit, label %20
 
 20:                                               ; preds = %17
   %21 = sub nuw nsw i64 %1, %18
-  %22 = icmp ult i64 %6, %21
+  %22 = icmp samesign ult i64 %6, %21
   br i1 %22, label %23, label %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17h375c123cc5f3f813E.llvm.2317975020751253692.exit.i"
 
 23:                                               ; preds = %20

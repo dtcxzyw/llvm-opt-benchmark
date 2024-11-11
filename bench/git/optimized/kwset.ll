@@ -747,7 +747,7 @@ for.body:                                         ; preds = %for.body.preheader,
   store i8 %18, ptr %arrayidx, align 1
   %20 = load ptr, ptr %links, align 8
   %trie48 = getelementptr inbounds i8, ptr %20, i64 16
-  %cmp44 = icmp ugt i64 %indvars.iv141, 1
+  %cmp44 = icmp samesign ugt i64 %indvars.iv141, 1
   br i1 %cmp44, label %for.body, label %for.cond49.preheader, !llvm.loop !9
 
 for.body53:                                       ; preds = %for.body53.lr.ph, %for.body53

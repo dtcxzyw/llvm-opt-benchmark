@@ -791,7 +791,7 @@ if.then19:                                        ; preds = %if.end14
   br label %return
 
 if.end20:                                         ; preds = %if.end14
-  %cmp.i.i.i = icmp ult i64 %9, 2
+  %cmp.i.i.i = icmp samesign ult i64 %9, 2
   br i1 %cmp.i.i.i, label %if.then26, label %lor.lhs.false23
 
 lor.lhs.false23:                                  ; preds = %if.end20
@@ -854,7 +854,7 @@ lor.lhs.false47:                                  ; preds = %land.lhs.true30, %l
   %or.i.i = or disjoint i32 %shl.i.i, %conv2.i.i
   %sub.i.i212 = add nsw i64 %9, -3
   %length48 = getelementptr inbounds i8, ptr %arrayidx, i64 8
-  %cmp.i.i.i215 = icmp ult i64 %sub.i.i212, 2
+  %cmp.i.i.i215 = icmp samesign ult i64 %sub.i.i212, 2
   br i1 %cmp.i.i.i215, label %if.then51, label %if.end56
 
 if.then51:                                        ; preds = %lor.lhs.false47

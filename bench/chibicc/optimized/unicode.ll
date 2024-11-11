@@ -101,15 +101,15 @@ if.then:                                          ; preds = %entry
   br label %return
 
 if.end:                                           ; preds = %entry
-  %cmp4 = icmp ugt i8 %0, -17
+  %cmp4 = icmp samesign ugt i8 %0, -17
   br i1 %cmp4, label %if.end24, label %if.else
 
 if.else:                                          ; preds = %if.end
-  %cmp9 = icmp ugt i8 %0, -33
+  %cmp9 = icmp samesign ugt i8 %0, -33
   br i1 %cmp9, label %if.end24, label %if.else14
 
 if.else14:                                        ; preds = %if.else
-  %cmp16 = icmp ugt i8 %0, -65
+  %cmp16 = icmp samesign ugt i8 %0, -65
   br i1 %cmp16, label %if.end24, label %if.else21
 
 if.else21:                                        ; preds = %if.else14
@@ -258,15 +258,15 @@ if.then.i:                                        ; preds = %while.body
   br label %decode_utf8.exit
 
 if.end.i:                                         ; preds = %while.body
-  %cmp4.i = icmp ugt i8 %0, -17
+  %cmp4.i = icmp samesign ugt i8 %0, -17
   br i1 %cmp4.i, label %if.end24.i, label %if.else.i
 
 if.else.i:                                        ; preds = %if.end.i
-  %cmp9.i = icmp ugt i8 %0, -33
+  %cmp9.i = icmp samesign ugt i8 %0, -33
   br i1 %cmp9.i, label %if.end24.i, label %if.else14.i
 
 if.else14.i:                                      ; preds = %if.else.i
-  %cmp16.i = icmp ugt i8 %0, -65
+  %cmp16.i = icmp samesign ugt i8 %0, -65
   br i1 %cmp16.i, label %if.end24.i, label %if.else21.i
 
 if.else21.i:                                      ; preds = %if.else14.i

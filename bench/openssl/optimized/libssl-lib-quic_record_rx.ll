@@ -1141,7 +1141,7 @@ if.end8.i:                                        ; preds = %if.end118.i.i.i.i
   %tag_len.i = getelementptr inbounds i8, ptr %call.i, i64 100
   %52 = load i32, ptr %tag_len.i, align 4
   %conv9.i = zext i32 %52 to i64
-  %cmp10.not.i = icmp ugt i64 %48, %conv9.i
+  %cmp10.not.i = icmp samesign ugt i64 %48, %conv9.i
   br i1 %cmp10.not.i, label %if.end13.i, label %qrx_decrypt_pkt_body.exit.thread
 
 if.end13.i:                                       ; preds = %if.end8.i

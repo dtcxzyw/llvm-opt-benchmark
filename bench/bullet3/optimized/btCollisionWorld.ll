@@ -4819,7 +4819,7 @@ for.body:                                         ; preds = %for.body.lr.ph, %fo
   %vfn21 = getelementptr inbounds i8, ptr %vtable20, i64 56
   %46 = load ptr, ptr %vfn21, align 8
   call void %46(ptr noundef nonnull align 8 dereferenceable(121) %this, ptr noundef nonnull align 4 dereferenceable(64) %ref.tmp, ptr noundef %9, ptr noundef nonnull align 4 dereferenceable(16) %color)
-  %cmp17 = icmp ugt i64 %indvars.iv454, 1
+  %cmp17 = icmp samesign ugt i64 %indvars.iv454, 1
   br i1 %cmp17, label %for.body, label %if.end262, !llvm.loop !83
 
 sw.bb:                                            ; preds = %if.end
@@ -5005,7 +5005,7 @@ for.body47:                                       ; preds = %for.body47.lr.ph, %
   %vfn55 = getelementptr inbounds i8, ptr %vtable54, i64 48
   %99 = load ptr, ptr %vfn55, align 8
   call void %99(ptr noundef nonnull align 8 dereferenceable(8) %call51, float noundef %62, ptr noundef nonnull align 4 dereferenceable(64) %ref.tmp53, ptr noundef nonnull align 4 dereferenceable(16) %color)
-  %cmp46 = icmp ugt i64 %indvars.iv, 1
+  %cmp46 = icmp samesign ugt i64 %indvars.iv, 1
   br i1 %cmp46, label %for.body47, label %if.end262, !llvm.loop !87
 
 sw.bb59:                                          ; preds = %if.end

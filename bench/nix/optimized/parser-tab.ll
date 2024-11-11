@@ -1924,7 +1924,7 @@ _ZL10yyglrShiftP10yyGLRStacklilP7YYSTYPEPN3nix14ParserLocationE.exit: ; preds = 
   br label %_ZL10yygetTokenPiP10yyGLRStackPvPN3nix11ParserStateE.exit.thread
 
 68:                                               ; preds = %64
-  %69 = icmp ult i32 %65, 293
+  %69 = icmp samesign ult i32 %65, 293
   br i1 %69, label %_ZL10yygetTokenPiP10yyGLRStackPvPN3nix11ParserStateE.exit, label %_ZL10yygetTokenPiP10yyGLRStackPvPN3nix11ParserStateE.exit.thread
 
 _ZL10yygetTokenPiP10yyGLRStackPvPN3nix11ParserStateE.exit.thread: ; preds = %67, %68
@@ -2398,7 +2398,7 @@ _ZL14yyresolveStackP10yyGLRStackPvPN3nix11ParserStateE.exit153.thread: ; preds =
   br label %_ZL10yygetTokenPiP10yyGLRStackPvPN3nix11ParserStateE.exit.i
 
 269:                                              ; preds = %265
-  %270 = icmp ult i32 %266, 293
+  %270 = icmp samesign ult i32 %266, 293
   br i1 %270, label %271, label %_ZL10yygetTokenPiP10yyGLRStackPvPN3nix11ParserStateE.exit.i
 
 271:                                              ; preds = %269
@@ -3193,7 +3193,7 @@ _ZL13yyLRgotoStatei15yysymbol_kind_t.exit:        ; preds = %74, %78
   %108 = getelementptr inbounds i8, ptr %.0702, i64 8
   %109 = load ptr, ptr %108, align 8
   %110 = add nsw i32 %.0693, -1
-  %111 = icmp ugt i32 %.0693, 1
+  %111 = icmp samesign ugt i32 %.0693, 1
   br i1 %111, label %.lr.ph, label %._crit_edge, !llvm.loop !26
 
 ._crit_edge:                                      ; preds = %.lr.ph, %102
@@ -3508,7 +3508,7 @@ _ZL18yymarkStackDeletedP10yyGLRStackl.exit:       ; preds = %25
   br label %_ZL10yygetTokenPiP10yyGLRStackPvPN3nix11ParserStateE.exit.thread
 
 42:                                               ; preds = %38
-  %43 = icmp ult i32 %39, 293
+  %43 = icmp samesign ult i32 %39, 293
   br i1 %43, label %_ZL10yygetTokenPiP10yyGLRStackPvPN3nix11ParserStateE.exit, label %_ZL10yygetTokenPiP10yyGLRStackPvPN3nix11ParserStateE.exit.thread
 
 _ZL10yygetTokenPiP10yyGLRStackPvPN3nix11ParserStateE.exit.thread: ; preds = %41, %42
@@ -9372,7 +9372,7 @@ _ZSt22__uninitialized_move_aIPN5boost2io6detail11format_itemIcSt11char_traitsIcE
   %55 = getelementptr inbounds i8, ptr %.069.i.i.i.i.i, i64 -136
   %56 = call noundef nonnull align 8 dereferenceable(132) ptr @_ZN5boost2io6detail11format_itemIcSt11char_traitsIcESaIcEEaSEOS6_(ptr noundef nonnull align 8 dereferenceable(132) %55, ptr noundef nonnull align 8 dereferenceable(132) %54) #38
   %57 = add nsw i64 %.010.i.i.i.i.i, -1
-  %58 = icmp ugt i64 %.010.i.i.i.i.i, 1
+  %58 = icmp samesign ugt i64 %.010.i.i.i.i.i, 1
   br i1 %58, label %.lr.ph.i.i.i.i.i68, label %_ZSt13move_backwardIPN5boost2io6detail11format_itemIcSt11char_traitsIcESaIcEEES8_ET0_T_SA_S9_.exit, !llvm.loop !51
 
 _ZSt13move_backwardIPN5boost2io6detail11format_itemIcSt11char_traitsIcESaIcEEES8_ET0_T_SA_S9_.exit: ; preds = %.lr.ph.i.i.i.i.i68, %_ZSt22__uninitialized_move_aIPN5boost2io6detail11format_itemIcSt11char_traitsIcESaIcEEES8_SaIS7_EET0_T_SB_SA_RT1_.exit
@@ -23661,7 +23661,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7_S_copyEPcPKcm.exit27.i: ;
   br i1 %34, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i49, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i48
 
 _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i49: ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7_S_copyEPcPKcm.exit27.i
-  %49 = icmp ult i64 %31, 16
+  %49 = icmp samesign ult i64 %31, 16
   call void @llvm.assume(i1 %49)
   br label %.noexc
 
@@ -23757,7 +23757,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7_S_copyEPcPKcm.exit27.i59:
   br i1 %63, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i61, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i60
 
 _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i61: ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7_S_copyEPcPKcm.exit27.i59
-  %78 = icmp ult i64 %60, 16
+  %78 = icmp samesign ult i64 %60, 16
   call void @llvm.assume(i1 %78)
   br label %.noexc30
 
@@ -23839,7 +23839,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7_S_copyEPcPKcm.exit27.i73:
   br i1 %91, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i75, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i74
 
 _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i75: ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7_S_copyEPcPKcm.exit27.i73
-  %106 = icmp ult i64 %88, 16
+  %106 = icmp samesign ult i64 %88, 16
   call void @llvm.assume(i1 %106)
   br label %.noexc34
 
@@ -23915,7 +23915,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7_S_copyEPcPKcm.exit27.i87:
   br i1 %115, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i89, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i88
 
 _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i89: ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7_S_copyEPcPKcm.exit27.i87
-  %130 = icmp ult i64 %112, 16
+  %130 = icmp samesign ult i64 %112, 16
   call void @llvm.assume(i1 %130)
   br label %.noexc38
 
@@ -24410,7 +24410,7 @@ define linkonce_odr ptr @_ZNSt6vectorISt4pairIN3nix6PosIdxEPNS1_4ExprEESaIS5_EE1
   %32 = getelementptr inbounds i8, ptr %.069.i.i.i.i.i.i, i64 -8
   store ptr %31, ptr %32, align 8
   %33 = add nsw i64 %.010.i.i.i.i.i.i, -1
-  %34 = icmp ugt i64 %.010.i.i.i.i.i.i, 1
+  %34 = icmp samesign ugt i64 %.010.i.i.i.i.i.i, 1
   br i1 %34, label %.lr.ph.i.i.i.i.i.i, label %_ZNSt6vectorISt4pairIN3nix6PosIdxEPNS1_4ExprEESaIS5_EE13_M_insert_auxIS5_EEvN9__gnu_cxx17__normal_iteratorIPS5_S7_EEOT_.exit, !llvm.loop !183
 
 _ZNSt6vectorISt4pairIN3nix6PosIdxEPNS1_4ExprEESaIS5_EE13_M_insert_auxIS5_EEvN9__gnu_cxx17__normal_iteratorIPS5_S7_EEOT_.exit: ; preds = %.lr.ph.i.i.i.i.i.i, %17
@@ -25945,7 +25945,7 @@ define internal fastcc void @_ZL18yyresolveLocationsP10yyGLRStateiP10yyGLRStackP
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %27, ptr noundef nonnull align 8 dereferenceable(32) %26, i64 32, i1 false)
   %28 = getelementptr inbounds i8, ptr %.0, i64 8
   %indvars.iv.next = add nsw i64 %indvars.iv, -1
-  %29 = icmp ugt i64 %indvars.iv, 1
+  %29 = icmp samesign ugt i64 %indvars.iv, 1
   br i1 %29, label %25, label %.loopexit, !llvm.loop !199
 
 30:                                               ; preds = %11

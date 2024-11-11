@@ -6560,7 +6560,7 @@ RSTRING_PTR.exit62:                               ; preds = %146, %152
   br i1 %or.cond3, label %161, label %167
 
 161:                                              ; preds = %157
-  %162 = icmp ugt i64 %.2, 4611686018427387903
+  %162 = icmp samesign ugt i64 %.2, 4611686018427387903
   br i1 %162, label %163, label %165
 
 163:                                              ; preds = %161

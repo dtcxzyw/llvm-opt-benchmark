@@ -4916,7 +4916,7 @@ dissect_query_records.exit:                       ; preds = %dissect_dns_query.e
   %371 = add nsw i32 %.01718.i, -1
   %372 = call fastcc i32 @dissect_dns_answer(ptr noundef %0, i32 noundef %.019.i, i32 noundef range(i32 0, 3) %25, ptr noundef %369, ptr noundef %1, i32 noundef range(i32 0, 2) %4)
   %373 = add i32 %372, %.019.i
-  %374 = icmp ugt i32 %.01718.i, 1
+  %374 = icmp samesign ugt i32 %.01718.i, 1
   br i1 %374, label %370, label %dissect_answer_records.exit, !llvm.loop !13
 
 dissect_answer_records.exit:                      ; preds = %370
@@ -4946,7 +4946,7 @@ dissect_answer_records.exit:                      ; preds = %370
   %383 = add nsw i32 %.01718.i459, -1
   %384 = call fastcc i32 @dissect_dns_answer(ptr noundef %0, i32 noundef %.019.i458, i32 noundef range(i32 0, 3) %25, ptr noundef %381, ptr noundef %1, i32 noundef range(i32 0, 2) %4)
   %385 = add i32 %384, %.019.i458
-  %386 = icmp ugt i32 %.01718.i459, 1
+  %386 = icmp samesign ugt i32 %.01718.i459, 1
   br i1 %386, label %382, label %dissect_answer_records.exit460, !llvm.loop !13
 
 dissect_answer_records.exit460:                   ; preds = %382
@@ -4975,7 +4975,7 @@ dissect_answer_records.exit460:                   ; preds = %382
   %394 = add nsw i32 %.01718.i462, -1
   %395 = call fastcc i32 @dissect_dns_answer(ptr noundef %0, i32 noundef %.019.i461, i32 noundef range(i32 0, 3) %25, ptr noundef %392, ptr noundef %1, i32 noundef range(i32 0, 2) %4)
   %396 = add i32 %395, %.019.i461
-  %397 = icmp ugt i32 %.01718.i462, 1
+  %397 = icmp samesign ugt i32 %.01718.i462, 1
   br i1 %397, label %393, label %dissect_answer_records.exit463, !llvm.loop !13
 
 dissect_answer_records.exit463:                   ; preds = %393
@@ -8577,7 +8577,7 @@ define internal fastcc range(i32 0, 2) i32 @compute_key_id(ptr noundef %0, ptr n
   %36 = add i32 %35, %33
   %37 = add nsw i32 %.03740, -2
   %38 = add i32 %.03542, 2
-  %39 = icmp ugt i32 %.03740, 3
+  %39 = icmp samesign ugt i32 %.03740, 3
   br i1 %39, label %.lr.ph, label %._crit_edge, !llvm.loop !34
 
 ._crit_edge:                                      ; preds = %.lr.ph

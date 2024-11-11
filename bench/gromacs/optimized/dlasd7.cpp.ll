@@ -87,7 +87,7 @@ define void @dlasd7_(ptr nocapture noundef readonly %0, ptr noundef %1, ptr noun
   %85 = getelementptr i32, ptr %17, i64 %indvars.iv
   store i32 %84, ptr %85, align 4
   %indvars.iv.next = add nsw i64 %indvars.iv, -1
-  %86 = icmp ugt i64 %indvars.iv, 1
+  %86 = icmp samesign ugt i64 %indvars.iv, 1
   br i1 %86, label %.lr.ph, label %._crit_edge, !llvm.loop !4
 
 ._crit_edge:                                      ; preds = %.lr.ph, %60

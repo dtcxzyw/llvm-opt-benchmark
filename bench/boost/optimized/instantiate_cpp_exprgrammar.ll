@@ -19535,7 +19535,7 @@ _ZN5boost4wave8grammars8closures7as_longERKNS2_13closure_valueE.exit: ; preds = 
 
 20:                                               ; preds = %19
   %21 = udiv i64 9223372036854775807, %17
-  %22 = icmp ugt i64 %14, %21
+  %22 = icmp samesign ugt i64 %14, %21
   br i1 %22, label %34, label %.critedge
 
 23:                                               ; preds = %19

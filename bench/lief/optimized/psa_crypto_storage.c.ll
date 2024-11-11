@@ -522,7 +522,7 @@ psa_crypto_storage_load.exit:                     ; preds = %18
   %40 = or disjoint i64 %35, %39
   store i64 %40, ptr %2, align 8
   %41 = add nsw i64 %13, -36
-  %42 = icmp ugt i64 %40, %41
+  %42 = icmp samesign ugt i64 %40, %41
   %43 = icmp samesign ugt i64 %40, 8191
   %or.cond.i = select i1 %42, i1 true, i1 %43
   br i1 %or.cond.i, label %psa_parse_key_data_from_storage.exit.thread, label %44

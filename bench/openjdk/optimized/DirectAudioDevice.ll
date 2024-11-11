@@ -31,7 +31,7 @@ define hidden void @handleSignEndianConversion(ptr nocapture noundef readonly %0
   %8 = add nsw i32 %.05674, -1
   %9 = getelementptr inbounds i8, ptr %.076, i64 1
   %10 = getelementptr inbounds i8, ptr %.05275, i64 1
-  %11 = icmp ugt i32 %.05674, 1
+  %11 = icmp samesign ugt i32 %.05674, 1
   br i1 %11, label %.lr.ph77, label %.loopexit, !llvm.loop !6
 
 12:                                               ; preds = %4
@@ -55,7 +55,7 @@ define hidden void @handleSignEndianConversion(ptr nocapture noundef readonly %0
   %19 = add nsw i32 %.15770, -1
   %20 = getelementptr inbounds i8, ptr %.172, i64 2
   %21 = getelementptr inbounds i8, ptr %.15371, i64 2
-  %22 = icmp ugt i32 %.15770, 1
+  %22 = icmp samesign ugt i32 %.15770, 1
   br i1 %22, label %.lr.ph73, label %.loopexit, !llvm.loop !8
 
 23:                                               ; preds = %4
@@ -83,7 +83,7 @@ define hidden void @handleSignEndianConversion(ptr nocapture noundef readonly %0
   %33 = getelementptr inbounds i8, ptr %.268, i64 3
   %34 = getelementptr inbounds i8, ptr %.25467, i64 3
   %35 = add nsw i32 %.25866, -1
-  %36 = icmp ugt i32 %.25866, 1
+  %36 = icmp samesign ugt i32 %.25866, 1
   br i1 %36, label %.lr.ph69, label %.loopexit, !llvm.loop !9
 
 37:                                               ; preds = %4
@@ -115,7 +115,7 @@ define hidden void @handleSignEndianConversion(ptr nocapture noundef readonly %0
   %50 = getelementptr inbounds i8, ptr %.35564, i64 4
   %51 = getelementptr inbounds i8, ptr %.365, i64 4
   %52 = add nsw i32 %.35963, -1
-  %53 = icmp ugt i32 %.35963, 1
+  %53 = icmp samesign ugt i32 %.35963, 1
   br i1 %53, label %.lr.ph, label %.loopexit, !llvm.loop !10
 
 .loopexit:                                        ; preds = %.lr.ph, %.lr.ph69, %.lr.ph73, %.lr.ph77, %37, %23, %12, %.preheader, %4
@@ -254,7 +254,7 @@ MAP_ClipAndConvertToUByte.exit:                   ; preds = %.lr.ph1261, %54, %5
   %74 = getelementptr inbounds i8, ptr %.17571255, i64 1
   %75 = getelementptr inbounds i8, ptr %.17331256, i64 1
   %76 = add nsw i32 %.17811254, -1
-  %77 = icmp ugt i32 %.17811254, 1
+  %77 = icmp samesign ugt i32 %.17811254, 1
   br i1 %77, label %.lr.ph1257, label %.loopexit, !llvm.loop !12
 
 78:                                               ; preds = %23
@@ -317,7 +317,7 @@ MAP_ClipAndConvertToByte.exit:                    ; preds = %.lr.ph1253, %89, %9
   %107 = getelementptr inbounds i8, ptr %.37591247, i64 1
   %108 = getelementptr inbounds i8, ptr %.37351248, i64 1
   %109 = add nsw i32 %.37831246, -1
-  %110 = icmp ugt i32 %.37831246, 1
+  %110 = icmp samesign ugt i32 %.37831246, 1
   br i1 %110, label %.lr.ph1249, label %.loopexit, !llvm.loop !14
 
 111:                                              ; preds = %23
@@ -380,7 +380,7 @@ MAP_ClipAndConvertToUByte.exit828:                ; preds = %.lr.ph1245, %121, %
   %140 = getelementptr inbounds i8, ptr %.57611239, i64 1
   %141 = getelementptr inbounds i8, ptr %.57371240, i64 1
   %142 = add nsw i32 %.57851238, -1
-  %143 = icmp ugt i32 %.57851238, 1
+  %143 = icmp samesign ugt i32 %.57851238, 1
   br i1 %143, label %.lr.ph1241, label %.loopexit, !llvm.loop !16
 
 144:                                              ; preds = %23
@@ -441,7 +441,7 @@ MAP_ClipAndConvertToByte.exit830:                 ; preds = %.lr.ph1237, %154, %
   %171 = getelementptr inbounds i8, ptr %.77631231, i64 1
   %172 = getelementptr inbounds i8, ptr %.77391232, i64 1
   %173 = add nsw i32 %.77871230, -1
-  %174 = icmp ugt i32 %.77871230, 1
+  %174 = icmp samesign ugt i32 %.77871230, 1
   br i1 %174, label %.lr.ph1233, label %.loopexit, !llvm.loop !18
 
 175:                                              ; preds = %23
@@ -649,7 +649,7 @@ MAP_ClipAndConvertToUByte.exit838:                ; preds = %.lr.ph1221, %265, %
   %297 = getelementptr inbounds i8, ptr %.117671215, i64 2
   %298 = getelementptr inbounds i8, ptr %.117431216, i64 2
   %299 = add nsw i32 %.117911214, -1
-  %300 = icmp ugt i32 %.117911214, 1
+  %300 = icmp samesign ugt i32 %.117911214, 1
   br i1 %300, label %.lr.ph1217, label %.loopexit, !llvm.loop !22
 
 301:                                              ; preds = %23
@@ -849,7 +849,7 @@ MAP_ClipAndConvertToByte.exit846:                 ; preds = %.lr.ph1205, %386, %
   %415 = getelementptr inbounds i8, ptr %.157711199, i64 2
   %416 = getelementptr inbounds i8, ptr %.157471200, i64 2
   %417 = add nsw i32 %.157951198, -1
-  %418 = icmp ugt i32 %.157951198, 1
+  %418 = icmp samesign ugt i32 %.157951198, 1
   br i1 %418, label %.lr.ph1201, label %.loopexit, !llvm.loop !26
 
 419:                                              ; preds = %23
@@ -1049,7 +1049,7 @@ MAP_ClipAndConvertToUByte.exit854:                ; preds = %.lr.ph1189, %503, %
   %533 = getelementptr inbounds i8, ptr %.197751183, i64 2
   %534 = getelementptr inbounds i8, ptr %.197511184, i64 2
   %535 = add nsw i32 %.197991182, -1
-  %536 = icmp ugt i32 %.197991182, 1
+  %536 = icmp samesign ugt i32 %.197991182, 1
   br i1 %536, label %.lr.ph1185, label %.loopexit, !llvm.loop !30
 
 537:                                              ; preds = %23
@@ -1241,7 +1241,7 @@ MAP_ClipAndConvertToByte.exit862:                 ; preds = %.lr.ph1173, %616, %
   %643 = getelementptr inbounds i8, ptr %.237791167, i64 2
   %644 = getelementptr inbounds i8, ptr %.237551168, i64 2
   %645 = add nsw i32 %.238031166, -1
-  %646 = icmp ugt i32 %.238031166, 1
+  %646 = icmp samesign ugt i32 %.238031166, 1
   br i1 %646, label %.lr.ph1169, label %.loopexit, !llvm.loop !34
 
 647:                                              ; preds = %23
@@ -1267,7 +1267,7 @@ MAP_ClipAndConvertToByte.exit862:                 ; preds = %.lr.ph1173, %616, %
   %654 = getelementptr inbounds i8, ptr %.07081163, i64 2
   %655 = getelementptr inbounds i8, ptr %.07071164, i64 2
   %656 = add nsw i32 %.241162, -1
-  %657 = icmp ugt i32 %.241162, 1
+  %657 = icmp samesign ugt i32 %.241162, 1
   br i1 %657, label %.lr.ph1165, label %.loopexit, !llvm.loop !35
 
 .lr.ph1161:                                       ; preds = %.preheader1025, %.lr.ph1161
@@ -1283,7 +1283,7 @@ MAP_ClipAndConvertToByte.exit862:                 ; preds = %.lr.ph1173, %616, %
   %663 = getelementptr inbounds i8, ptr %.17091159, i64 2
   %664 = getelementptr inbounds i8, ptr %.11160, i64 2
   %665 = add nsw i32 %.251158, -1
-  %666 = icmp ugt i32 %.251158, 1
+  %666 = icmp samesign ugt i32 %.251158, 1
   br i1 %666, label %.lr.ph1161, label %.loopexit, !llvm.loop !36
 
 667:                                              ; preds = %23
@@ -1340,7 +1340,7 @@ MAP_ClipAndConvertToShort_Swapped.exit:           ; preds = %.lr.ph1157, %675, %
   %686 = getelementptr inbounds i8, ptr %.37111151, i64 2
   %687 = getelementptr inbounds i8, ptr %.31152, i64 2
   %688 = add nsw i32 %.271150, -1
-  %689 = icmp ugt i32 %.271150, 1
+  %689 = icmp samesign ugt i32 %.271150, 1
   br i1 %689, label %.lr.ph1153, label %.loopexit, !llvm.loop !38
 
 690:                                              ; preds = %23
@@ -1367,7 +1367,7 @@ MAP_ClipAndConvertToShort_Swapped.exit:           ; preds = %.lr.ph1157, %675, %
   %697 = getelementptr inbounds i8, ptr %.47121147, i64 2
   %698 = getelementptr inbounds i8, ptr %.41148, i64 2
   %699 = add nsw i32 %.281146, -1
-  %700 = icmp ugt i32 %.281146, 1
+  %700 = icmp samesign ugt i32 %.281146, 1
   br i1 %700, label %.lr.ph1149, label %.loopexit, !llvm.loop !39
 
 .lr.ph1145:                                       ; preds = %.preheader1033, %.lr.ph1145
@@ -1384,7 +1384,7 @@ MAP_ClipAndConvertToShort_Swapped.exit:           ; preds = %.lr.ph1157, %675, %
   %706 = getelementptr inbounds i8, ptr %.57131143, i64 2
   %707 = getelementptr inbounds i8, ptr %.51144, i64 2
   %708 = add nsw i32 %.291142, -1
-  %709 = icmp ugt i32 %.291142, 1
+  %709 = icmp samesign ugt i32 %.291142, 1
   br i1 %709, label %.lr.ph1145, label %.loopexit, !llvm.loop !40
 
 710:                                              ; preds = %23
@@ -1443,7 +1443,7 @@ MAP_ClipAndConvertToShort_Swapped.exit876:        ; preds = %.lr.ph1141, %718, %
   %729 = getelementptr inbounds i8, ptr %.77151135, i64 2
   %730 = getelementptr inbounds i8, ptr %.71136, i64 2
   %731 = add nsw i32 %.311134, -1
-  %732 = icmp ugt i32 %.311134, 1
+  %732 = icmp samesign ugt i32 %.311134, 1
   br i1 %732, label %.lr.ph1137, label %.loopexit, !llvm.loop !42
 
 733:                                              ; preds = %23
@@ -1480,7 +1480,7 @@ MAP_ClipAndConvertToShort_Swapped.exit876:        ; preds = %.lr.ph1141, %718, %
   %748 = getelementptr inbounds i8, ptr %.87161131, i64 4
   %749 = getelementptr inbounds i8, ptr %.81132, i64 4
   %750 = add nsw i32 %.321130, -1
-  %751 = icmp ugt i32 %.321130, 1
+  %751 = icmp samesign ugt i32 %.321130, 1
   br i1 %751, label %.lr.ph1133, label %.loopexit, !llvm.loop !43
 
 .lr.ph1129:                                       ; preds = %.preheader1041, %.lr.ph1129
@@ -1503,7 +1503,7 @@ MAP_ClipAndConvertToShort_Swapped.exit876:        ; preds = %.lr.ph1141, %718, %
   %763 = getelementptr inbounds i8, ptr %.97171127, i64 4
   %764 = getelementptr inbounds i8, ptr %.91128, i64 4
   %765 = add nsw i32 %.331126, -1
-  %766 = icmp ugt i32 %.331126, 1
+  %766 = icmp samesign ugt i32 %.331126, 1
   br i1 %766, label %.lr.ph1129, label %.loopexit, !llvm.loop !44
 
 767:                                              ; preds = %733
@@ -1535,7 +1535,7 @@ MAP_ClipAndConvertToShort_Swapped.exit876:        ; preds = %.lr.ph1141, %718, %
   %779 = getelementptr inbounds i8, ptr %.107181123, i64 4
   %780 = getelementptr inbounds i8, ptr %.101124, i64 4
   %781 = add nsw i32 %.341122, -1
-  %782 = icmp ugt i32 %.341122, 1
+  %782 = icmp samesign ugt i32 %.341122, 1
   br i1 %782, label %.lr.ph1125, label %.loopexit, !llvm.loop !45
 
 .lr.ph1121:                                       ; preds = %.preheader1045, %.lr.ph1121
@@ -1559,7 +1559,7 @@ MAP_ClipAndConvertToShort_Swapped.exit876:        ; preds = %.lr.ph1141, %718, %
   %795 = getelementptr inbounds i8, ptr %.117191119, i64 4
   %796 = getelementptr inbounds i8, ptr %.111120, i64 4
   %797 = add nsw i32 %.351118, -1
-  %798 = icmp ugt i32 %.351118, 1
+  %798 = icmp samesign ugt i32 %.351118, 1
   br i1 %798, label %.lr.ph1121, label %.loopexit, !llvm.loop !46
 
 799:                                              ; preds = %23
@@ -1735,7 +1735,7 @@ MAP_ClipAndConvertToShort_Swapped.exit908:        ; preds = %.lr.ph1109, %856, %
   %873 = getelementptr inbounds i8, ptr %.157231103, i64 4
   %874 = getelementptr inbounds i8, ptr %.151104, i64 4
   %875 = add nsw i32 %.391102, -1
-  %876 = icmp ugt i32 %.391102, 1
+  %876 = icmp samesign ugt i32 %.391102, 1
   br i1 %876, label %.lr.ph1105, label %.loopexit, !llvm.loop !50
 
 877:                                              ; preds = %23
@@ -1774,7 +1774,7 @@ MAP_ClipAndConvertToShort_Swapped.exit908:        ; preds = %.lr.ph1109, %856, %
   %892 = getelementptr inbounds i8, ptr %.167241099, i64 4
   %893 = getelementptr inbounds i8, ptr %.161100, i64 4
   %894 = add nsw i32 %.401098, -1
-  %895 = icmp ugt i32 %.401098, 1
+  %895 = icmp samesign ugt i32 %.401098, 1
   br i1 %895, label %.lr.ph1101, label %.loopexit, !llvm.loop !51
 
 .lr.ph1097:                                       ; preds = %.preheader1057, %.lr.ph1097
@@ -1799,7 +1799,7 @@ MAP_ClipAndConvertToShort_Swapped.exit908:        ; preds = %.lr.ph1109, %856, %
   %907 = getelementptr inbounds i8, ptr %.177251095, i64 4
   %908 = getelementptr inbounds i8, ptr %.171096, i64 4
   %909 = add nsw i32 %.411094, -1
-  %910 = icmp ugt i32 %.411094, 1
+  %910 = icmp samesign ugt i32 %.411094, 1
   br i1 %910, label %.lr.ph1097, label %.loopexit, !llvm.loop !52
 
 911:                                              ; preds = %877
@@ -1833,7 +1833,7 @@ MAP_ClipAndConvertToShort_Swapped.exit908:        ; preds = %.lr.ph1109, %856, %
   %923 = getelementptr inbounds i8, ptr %.187261091, i64 4
   %924 = getelementptr inbounds i8, ptr %.181092, i64 4
   %925 = add nsw i32 %.421090, -1
-  %926 = icmp ugt i32 %.421090, 1
+  %926 = icmp samesign ugt i32 %.421090, 1
   br i1 %926, label %.lr.ph1093, label %.loopexit, !llvm.loop !53
 
 .lr.ph1089:                                       ; preds = %.preheader1061, %.lr.ph1089
@@ -1859,7 +1859,7 @@ MAP_ClipAndConvertToShort_Swapped.exit908:        ; preds = %.lr.ph1109, %856, %
   %939 = getelementptr inbounds i8, ptr %.197271087, i64 4
   %940 = getelementptr inbounds i8, ptr %.191088, i64 4
   %941 = add nsw i32 %.431086, -1
-  %942 = icmp ugt i32 %.431086, 1
+  %942 = icmp samesign ugt i32 %.431086, 1
   br i1 %942, label %.lr.ph1089, label %.loopexit, !llvm.loop !54
 
 943:                                              ; preds = %23
@@ -2043,7 +2043,7 @@ MAP_ClipAndConvertToShort_Swapped.exit968:        ; preds = %.lr.ph1077, %1000, 
   %1017 = getelementptr inbounds i8, ptr %.237311072, i64 4
   %1018 = getelementptr inbounds i8, ptr %.231073, i64 4
   %1019 = add nsw i32 %.471071, -1
-  %1020 = icmp ugt i32 %.471071, 1
+  %1020 = icmp samesign ugt i32 %.471071, 1
   br i1 %1020, label %.lr.ph, label %.loopexit, !llvm.loop !58
 
 .loopexit:                                        ; preds = %.lr.ph, %MAP_ClipAndConvertToShort_Swapped.exit968, %MAP_ClipAndConvertToShort_Swapped.exit954, %MAP_ClipAndConvertToShort_Swapped.exit948, %.lr.ph1089, %.lr.ph1093, %.lr.ph1097, %.lr.ph1101, %.lr.ph1105, %MAP_ClipAndConvertToShort_Swapped.exit908, %MAP_ClipAndConvertToShort_Swapped.exit900, %MAP_ClipAndConvertToShort_Swapped.exit896, %.lr.ph1121, %.lr.ph1125, %.lr.ph1129, %.lr.ph1133, %.lr.ph1137, %MAP_ClipAndConvertToShort_Swapped.exit876, %.lr.ph1145, %.lr.ph1149, %.lr.ph1153, %MAP_ClipAndConvertToShort_Swapped.exit, %.lr.ph1161, %.lr.ph1165, %.lr.ph1169, %MAP_ClipAndConvertToByte.exit862, %MAP_ClipAndConvertToByte.exit860, %MAP_ClipAndConvertToByte.exit858, %.lr.ph1185, %MAP_ClipAndConvertToUByte.exit854, %MAP_ClipAndConvertToUByte.exit852, %MAP_ClipAndConvertToUByte.exit850, %.lr.ph1201, %MAP_ClipAndConvertToByte.exit846, %MAP_ClipAndConvertToByte.exit844, %MAP_ClipAndConvertToByte.exit842, %.lr.ph1217, %MAP_ClipAndConvertToUByte.exit838, %MAP_ClipAndConvertToUByte.exit836, %MAP_ClipAndConvertToUByte.exit834, %.lr.ph1233, %MAP_ClipAndConvertToByte.exit830, %.lr.ph1241, %MAP_ClipAndConvertToUByte.exit828, %.lr.ph1249, %MAP_ClipAndConvertToByte.exit, %.lr.ph1257, %MAP_ClipAndConvertToUByte.exit, %.preheader1069, %.preheader1067, %.preheader1065, %.preheader1063, %.preheader1061, %.preheader1059, %.preheader1057, %.preheader1055, %.preheader1053, %.preheader1051, %.preheader1049, %.preheader1047, %.preheader1045, %.preheader1043, %.preheader1041, %.preheader1039, %.preheader1037, %.preheader1035, %.preheader1033, %.preheader1031, %.preheader1029, %.preheader1027, %.preheader1025, %.preheader1023, %.preheader1021, %.preheader1019, %.preheader1017, %.preheader1015, %.preheader1013, %.preheader1011, %.preheader1009, %.preheader1007, %.preheader1005, %.preheader1003, %.preheader1001, %.preheader999, %.preheader997, %.preheader995, %.preheader993, %.preheader991, %.preheader989, %.preheader987, %.preheader985, %.preheader983, %.preheader981, %.preheader979, %.preheader977, %.preheader, %23, %19
@@ -2389,7 +2389,7 @@ define i32 @Java_com_sun_media_sound_DirectAudioDevice_nWrite(ptr noundef %0, pt
   %76 = add nsw i32 %.05674.i, -1
   %77 = getelementptr inbounds i8, ptr %.076.i, i64 1
   %78 = getelementptr inbounds i8, ptr %.05275.i, i64 1
-  %79 = icmp ugt i32 %.05674.i, 1
+  %79 = icmp samesign ugt i32 %.05674.i, 1
   br i1 %79, label %.lr.ph77.i, label %handleSignEndianConversion.exit, !llvm.loop !6
 
 80:                                               ; preds = %72
@@ -2413,7 +2413,7 @@ define i32 @Java_com_sun_media_sound_DirectAudioDevice_nWrite(ptr noundef %0, pt
   %87 = add nsw i32 %.15770.i, -1
   %88 = getelementptr inbounds i8, ptr %.172.i, i64 2
   %89 = getelementptr inbounds i8, ptr %.15371.i, i64 2
-  %90 = icmp ugt i32 %.15770.i, 1
+  %90 = icmp samesign ugt i32 %.15770.i, 1
   br i1 %90, label %.lr.ph73.i, label %handleSignEndianConversion.exit, !llvm.loop !8
 
 91:                                               ; preds = %72
@@ -2441,7 +2441,7 @@ define i32 @Java_com_sun_media_sound_DirectAudioDevice_nWrite(ptr noundef %0, pt
   %101 = getelementptr inbounds i8, ptr %.268.i, i64 3
   %102 = getelementptr inbounds i8, ptr %.25467.i, i64 3
   %103 = add nsw i32 %.25866.i, -1
-  %104 = icmp ugt i32 %.25866.i, 1
+  %104 = icmp samesign ugt i32 %.25866.i, 1
   br i1 %104, label %.lr.ph69.i, label %handleSignEndianConversion.exit, !llvm.loop !9
 
 105:                                              ; preds = %72
@@ -2473,7 +2473,7 @@ define i32 @Java_com_sun_media_sound_DirectAudioDevice_nWrite(ptr noundef %0, pt
   %118 = getelementptr inbounds i8, ptr %.35564.i, i64 4
   %119 = getelementptr inbounds i8, ptr %.365.i, i64 4
   %120 = add nsw i32 %.35963.i, -1
-  %121 = icmp ugt i32 %.35963.i, 1
+  %121 = icmp samesign ugt i32 %.35963.i, 1
   br i1 %121, label %.lr.ph.i, label %handleSignEndianConversion.exit, !llvm.loop !10
 
 122:                                              ; preds = %71, %71
@@ -2551,7 +2551,7 @@ define i32 @Java_com_sun_media_sound_DirectAudioDevice_nRead(ptr noundef %0, ptr
   store i8 %27, ptr %.076.i, align 1
   %28 = add nsw i32 %.05674.i, -1
   %29 = getelementptr i8, ptr %.076.i, i64 1
-  %30 = icmp ugt i32 %.05674.i, 1
+  %30 = icmp samesign ugt i32 %.05674.i, 1
   br i1 %30, label %.lr.ph77.i, label %handleSignEndianConversion.exit, !llvm.loop !6
 
 31:                                               ; preds = %24
@@ -2572,7 +2572,7 @@ define i32 @Java_com_sun_media_sound_DirectAudioDevice_nRead(ptr noundef %0, ptr
   store i8 %34, ptr %35, align 1
   %37 = add nsw i32 %.15770.i, -1
   %38 = getelementptr i8, ptr %.172.i, i64 2
-  %39 = icmp ugt i32 %.15770.i, 1
+  %39 = icmp samesign ugt i32 %.15770.i, 1
   br i1 %39, label %.lr.ph73.i, label %handleSignEndianConversion.exit, !llvm.loop !8
 
 40:                                               ; preds = %24
@@ -2593,7 +2593,7 @@ define i32 @Java_com_sun_media_sound_DirectAudioDevice_nRead(ptr noundef %0, ptr
   store i8 %43, ptr %44, align 1
   %46 = getelementptr i8, ptr %.268.i, i64 3
   %47 = add nsw i32 %.25866.i, -1
-  %48 = icmp ugt i32 %.25866.i, 1
+  %48 = icmp samesign ugt i32 %.25866.i, 1
   br i1 %48, label %.lr.ph69.i, label %handleSignEndianConversion.exit, !llvm.loop !9
 
 49:                                               ; preds = %24
@@ -2620,7 +2620,7 @@ define i32 @Java_com_sun_media_sound_DirectAudioDevice_nRead(ptr noundef %0, ptr
   store i8 %52, ptr %55, align 1
   %59 = getelementptr i8, ptr %.365.i, i64 4
   %60 = add nsw i32 %.35963.i, -1
-  %61 = icmp ugt i32 %.35963.i, 1
+  %61 = icmp samesign ugt i32 %.35963.i, 1
   br i1 %61, label %.lr.ph.i, label %handleSignEndianConversion.exit, !llvm.loop !10
 
 handleSignEndianConversion.exit:                  ; preds = %.lr.ph.i, %.lr.ph69.i, %.lr.ph73.i, %.lr.ph77.i, %49, %40, %31, %.preheader.i, %24, %18

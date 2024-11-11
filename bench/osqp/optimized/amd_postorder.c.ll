@@ -41,7 +41,7 @@ define void @amd_l_postorder(i64 noundef %0, ptr nocapture noundef readonly %1, 
   br label %23
 
 23:                                               ; preds = %.lr.ph102, %19, %16
-  %24 = icmp ugt i64 %.183101.in, 1
+  %24 = icmp samesign ugt i64 %.183101.in, 1
   br i1 %24, label %.lr.ph102, label %.lr.ph109, !llvm.loop !6
 
 .lr.ph109:                                        ; preds = %23, %45

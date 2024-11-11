@@ -2311,7 +2311,7 @@ define internal void @_ZNK5faiss24ProductAdditiveQuantizer22compute_unpacked_cod
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 8
   %62 = add nsw i32 %.02732.i, -8
   %.024.i = add nuw nsw i64 %.02435.i, 1
-  %63 = icmp ugt i32 %.02732.i, 16
+  %63 = icmp samesign ugt i32 %.02732.i, 16
   br i1 %63, label %.lr.ph.i, label %._crit_edge.loopexit.i, !llvm.loop !18
 
 ._crit_edge.loopexit.i:                           ; preds = %.lr.ph.i
@@ -2645,7 +2645,7 @@ define internal void @_ZNK5faiss24ProductAdditiveQuantizer6decodeEPKhPfm.omp_out
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 8
   %74 = add nsw i32 %.02732.i, -8
   %.024.i = add nuw nsw i64 %.02435.i, 1
-  %75 = icmp ugt i32 %.02732.i, 16
+  %75 = icmp samesign ugt i32 %.02732.i, 16
   br i1 %75, label %.lr.ph.i, label %._crit_edge.loopexit.i, !llvm.loop !18
 
 ._crit_edge.loopexit.i:                           ; preds = %.lr.ph.i

@@ -4421,7 +4421,7 @@ _ZN4Luau7CodeGen10IrFunction7asIntOpENS0_4IrOpE.exit1033.thread: ; preds = %._ZN
   br i1 %1299, label %1300, label %.thread1168
 
 1300:                                             ; preds = %1296
-  %1301 = icmp ult i32 %1282, %1298
+  %1301 = icmp samesign ult i32 %1282, %1298
   br i1 %1301, label %1302, label %1309
 
 1302:                                             ; preds = %1300

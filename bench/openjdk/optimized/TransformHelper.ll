@@ -730,7 +730,7 @@ define void @Java_sun_java2d_loops_TransformHelper_Transform(ptr noundef %0, ptr
   br label %111
 
 105:                                              ; preds = %90
-  %106 = icmp ugt i64 %88, 1024
+  %106 = icmp samesign ugt i64 %88, 1024
   br i1 %106, label %107, label %.thread234
 
 107:                                              ; preds = %105

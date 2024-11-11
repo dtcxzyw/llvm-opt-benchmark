@@ -5621,7 +5621,7 @@ invoke.cont4:                                     ; preds = %if.then, %_ZNSt11ch
   store i8 27, ptr %this, align 1
   %arrayidx10 = getelementptr inbounds i8, ptr %this, i64 1
   store i8 91, ptr %arrayidx10, align 1
-  %cmp = icmp ugt i32 %2, 99
+  %cmp = icmp samesign ugt i32 %2, 99
   br i1 %cmp, label %if.then11, label %if.end15
 
 if.then11:                                        ; preds = %1
@@ -7121,7 +7121,7 @@ if.end37.i:                                       ; preds = %for.cond.i
   unreachable
 
 sw.bb43.i:                                        ; preds = %for.cond.i
-  %cmp.not.i58 = icmp ult i32 %enter_state.i.sroa.0.0, 4
+  %cmp.not.i58 = icmp samesign ult i32 %enter_state.i.sroa.0.0, 4
   br i1 %cmp.not.i58, label %if.end48.i, label %if.then.i59
 
 if.then.i59:                                      ; preds = %sw.bb43.i
@@ -7133,7 +7133,7 @@ if.end48.i:                                       ; preds = %sw.bb43.i
   unreachable
 
 sw.bb63.i:                                        ; preds = %for.cond.i, %for.cond.i, %for.cond.i, %for.cond.i, %for.cond.i, %for.cond.i, %for.cond.i, %for.cond.i, %for.cond.i, %for.cond.i
-  %cmp.not.i63 = icmp ult i32 %enter_state.i.sroa.0.0, 5
+  %cmp.not.i63 = icmp samesign ult i32 %enter_state.i.sroa.0.0, 5
   br i1 %cmp.not.i63, label %_ZZN3fmt3v106detail18parse_format_specsIcEEPKT_S5_S5_RNS1_20dynamic_format_specsIS3_EERNS0_26basic_format_parse_contextIS3_EENS1_4typeEENUt_clENS1_5stateEb.exit66, label %if.then.i64
 
 if.then.i64:                                      ; preds = %sw.bb63.i
@@ -7145,7 +7145,7 @@ _ZZN3fmt3v106detail18parse_format_specsIcEEPKT_S5_S5_RNS1_20dynamic_format_specs
   br label %sw.epilog151.i
 
 if.end68.i:                                       ; preds = %for.cond.i
-  %cmp.not.i67 = icmp ult i32 %enter_state.i.sroa.0.0, 6
+  %cmp.not.i67 = icmp samesign ult i32 %enter_state.i.sroa.0.0, 6
   br i1 %cmp.not.i67, label %_ZZN3fmt3v106detail18parse_format_specsIcEEPKT_S5_S5_RNS1_20dynamic_format_specsIS3_EERNS0_26basic_format_parse_contextIS3_EENS1_4typeEENUt_clENS1_5stateEb.exit70, label %if.then.i68
 
 if.then.i68:                                      ; preds = %if.end68.i
@@ -8359,7 +8359,7 @@ if.then3.i:                                       ; preds = %if.then.i
   br label %cond.end
 
 if.end4.i:                                        ; preds = %cond.true
-  %cmp5.i = icmp ugt i32 %7, 14
+  %cmp5.i = icmp samesign ugt i32 %7, 14
   br i1 %cmp5.i, label %cond.end, label %if.end7.i
 
 if.end7.i:                                        ; preds = %if.end4.i

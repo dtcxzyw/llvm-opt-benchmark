@@ -17152,7 +17152,7 @@ wnm_bss_trans_mgmt_query.exit.i:                  ; preds = %594, %589, %574
   br i1 %.not.i.i, label %651, label %623
 
 623:                                              ; preds = %605
-  %624 = icmp ult i32 %601, 17
+  %624 = icmp samesign ult i32 %601, 17
   br i1 %624, label %625, label %627
 
 625:                                              ; preds = %623
@@ -17205,7 +17205,7 @@ wnm_bss_trans_mgmt_query.exit.i:                  ; preds = %594, %589, %574
 653:                                              ; preds = %651
   %654 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %1, i32 noundef %.0103.i.i) #22
   %655 = zext i8 %654 to i32
-  %656 = icmp ult i32 %.0104.i.i, %655
+  %656 = icmp samesign ult i32 %.0104.i.i, %655
   br i1 %656, label %657, label %660
 
 657:                                              ; preds = %653
@@ -17954,7 +17954,7 @@ add_ff_action_self_protected.exit:                ; preds = %985, %993, %995, %1
   %1120 = tail call ptr @proto_tree_add_item(ptr noundef %0, i32 noundef %1119, ptr noundef %1, i32 noundef %1117, i32 noundef 1, i32 noundef 0) #22
   %1121 = add i32 %.1233.i, 4
   %1122 = add nsw i32 %.0234.i, -4
-  %1123 = icmp ugt i32 %.0234.i, 4
+  %1123 = icmp samesign ugt i32 %.0234.i, 4
   br i1 %1123, label %.lr.ph.i141, label %add_ff_action_dmg.exit, !llvm.loop !14
 
 1124:                                             ; preds = %1003
@@ -25675,7 +25675,7 @@ sta_is_s1g.exit.thread:                           ; preds = %4, %sta_is_s1g.exit
   %27 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef 1) #22
   %28 = zext i8 %27 to i32
   tail call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %26, ptr noundef nonnull @.str.9488, i32 noundef %28) #22
-  %29 = icmp ult i32 %7, 3
+  %29 = icmp samesign ult i32 %7, 3
   br i1 %29, label %dissect_partial_virtual_bitmap.exit, label %30
 
 30:                                               ; preds = %17
@@ -26659,7 +26659,7 @@ define internal i32 @ieee80211_tag_measure_req(ptr noundef %0, ptr noundef %1, p
   %36 = tail call ptr @proto_tree_add_item(ptr noundef %21, i32 noundef %35, ptr noundef %0, i32 noundef 5, i32 noundef 2, i32 noundef -2147483648) #22
   %37 = load i32, ptr @hf_ieee80211_tag_measure_request_duration, align 4
   %38 = tail call ptr @proto_tree_add_item(ptr noundef %21, i32 noundef %37, ptr noundef %0, i32 noundef 7, i32 noundef 2, i32 noundef -2147483648) #22
-  %39 = icmp ugt i32 %6, 9
+  %39 = icmp samesign ugt i32 %6, 9
   br i1 %39, label %.lr.ph302, label %.loopexit
 
 .lr.ph302:                                        ; preds = %30, %54
@@ -26697,7 +26697,7 @@ define internal i32 @ieee80211_tag_measure_req(ptr noundef %0, ptr noundef %1, p
   %62 = tail call ptr @proto_tree_add_item(ptr noundef %21, i32 noundef %61, ptr noundef %0, i32 noundef 5, i32 noundef 2, i32 noundef -2147483648) #22
   %63 = load i32, ptr @hf_ieee80211_tag_measure_request_duration, align 4
   %64 = tail call ptr @proto_tree_add_item(ptr noundef %21, i32 noundef %63, ptr noundef %0, i32 noundef 7, i32 noundef 2, i32 noundef -2147483648) #22
-  %65 = icmp ugt i32 %6, 9
+  %65 = icmp samesign ugt i32 %6, 9
   br i1 %65, label %.lr.ph299, label %.loopexit
 
 .lr.ph299:                                        ; preds = %56, %80
@@ -26739,7 +26739,7 @@ define internal i32 @ieee80211_tag_measure_req(ptr noundef %0, ptr noundef %1, p
   %92 = tail call ptr @proto_tree_add_item(ptr noundef %21, i32 noundef %91, ptr noundef %0, i32 noundef 9, i32 noundef 1, i32 noundef 0) #22
   %93 = load i32, ptr @hf_ieee80211_tag_measure_request_bssid, align 4
   %94 = tail call ptr @proto_tree_add_item(ptr noundef %21, i32 noundef %93, ptr noundef %0, i32 noundef 10, i32 noundef 6, i32 noundef 0) #22
-  %95 = icmp ugt i32 %6, 16
+  %95 = icmp samesign ugt i32 %6, 16
   br i1 %95, label %.lr.ph, label %.loopexit
 
 .lr.ph:                                           ; preds = %82
@@ -27125,7 +27125,7 @@ define internal i32 @ieee80211_tag_measure_rep(ptr noundef %0, ptr noundef %1, p
   %139 = tail call ptr @proto_tree_add_item(ptr noundef %23, i32 noundef %138, ptr noundef %0, i32 noundef 24, i32 noundef 1, i32 noundef 0) #22
   %140 = load i32, ptr @hf_ieee80211_tag_measure_report_parent_tsf, align 4
   %141 = tail call ptr @proto_tree_add_item(ptr noundef %23, i32 noundef %140, ptr noundef %0, i32 noundef 25, i32 noundef 4, i32 noundef -2147483648) #22
-  %142 = icmp ugt i32 %6, 29
+  %142 = icmp samesign ugt i32 %6, 29
   br i1 %142, label %.lr.ph473, label %.loopexit
 
 .lr.ph473:                                        ; preds = %120
@@ -27296,7 +27296,7 @@ ieee_80211_add_tagged_parameters.exit:            ; preds = %.lr.ph.split.us.i, 
   %242 = trunc i32 %241 to i8
   %243 = add i8 %240, %242
   %244 = zext i8 %243 to i32
-  %245 = icmp ult i32 %6, %244
+  %245 = icmp samesign ult i32 %6, %244
   br i1 %245, label %246, label %249
 
 246:                                              ; preds = %.lr.ph470
@@ -27358,13 +27358,13 @@ ieee_80211_add_tagged_parameters.exit:            ; preds = %.lr.ph.split.us.i, 
 
 282:                                              ; preds = %277, %275
   %.7 = phi i32 [ %244, %277 ], [ %.6, %275 ]
-  %283 = icmp ult i32 %.7, %6
+  %283 = icmp samesign ult i32 %.7, %6
   br i1 %283, label %.lr.ph470, label %.loopexit, !llvm.loop !80
 
 284:                                              ; preds = %27, %27, %27
   %285 = load i32, ptr @hf_ieee80211_tag_measure_report_civic_location_type, align 4
   %286 = tail call ptr @proto_tree_add_item(ptr noundef %23, i32 noundef %285, ptr noundef %0, i32 noundef 3, i32 noundef 1, i32 noundef 0) #22
-  %287 = icmp ugt i32 %6, 4
+  %287 = icmp samesign ugt i32 %6, 4
   br i1 %287, label %.lr.ph, label %.loopexit
 
 .lr.ph:                                           ; preds = %284, %328
@@ -28101,7 +28101,7 @@ define internal range(i32 1, 14) i32 @dissect_extended_capabilities_ie(ptr nound
   %21 = load i32, ptr @ett_tag_ex_cap2, align 4
   %22 = tail call ptr @proto_tree_add_bitmask_with_flags(ptr noundef %2, ptr noundef %0, i32 noundef 1, i32 noundef %20, i32 noundef %21, ptr noundef nonnull @dissect_extended_capabilities_ie.ieee80211_tag_extended_capabilities_byte2, i32 noundef -2147483648, i32 noundef 1) #22
   tail call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %22, ptr noundef nonnull @.str.9565) #22
-  %23 = icmp ult i32 %5, 3
+  %23 = icmp samesign ult i32 %5, 3
   br i1 %23, label %73, label %24
 
 24:                                               ; preds = %19
@@ -28117,7 +28117,7 @@ define internal range(i32 1, 14) i32 @dissect_extended_capabilities_ie(ptr nound
   %31 = load i32, ptr @ett_tag_ex_cap4, align 4
   %32 = tail call ptr @proto_tree_add_bitmask_with_flags(ptr noundef %2, ptr noundef %0, i32 noundef 3, i32 noundef %30, i32 noundef %31, ptr noundef nonnull @dissect_extended_capabilities_ie.ieee80211_tag_extended_capabilities_byte4, i32 noundef -2147483648, i32 noundef 1) #22
   tail call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %32, ptr noundef nonnull @.str.9567) #22
-  %33 = icmp ult i32 %5, 5
+  %33 = icmp samesign ult i32 %5, 5
   br i1 %33, label %73, label %34
 
 34:                                               ; preds = %29
@@ -28133,7 +28133,7 @@ define internal range(i32 1, 14) i32 @dissect_extended_capabilities_ie(ptr nound
   %41 = load i32, ptr @ett_tag_ex_cap6, align 4
   %42 = tail call ptr @proto_tree_add_bitmask_with_flags(ptr noundef %2, ptr noundef %0, i32 noundef 5, i32 noundef %40, i32 noundef %41, ptr noundef nonnull @dissect_extended_capabilities_ie.ieee80211_tag_extended_capabilities_byte6, i32 noundef -2147483648, i32 noundef 1) #22
   tail call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %42, ptr noundef nonnull @.str.9569) #22
-  %43 = icmp ult i32 %5, 7
+  %43 = icmp samesign ult i32 %5, 7
   br i1 %43, label %73, label %44
 
 44:                                               ; preds = %39
@@ -28159,7 +28159,7 @@ define internal range(i32 1, 14) i32 @dissect_extended_capabilities_ie(ptr nound
   %51 = load i32, ptr %ett_tag_ex_cap89.sink, align 4
   %52 = tail call ptr @proto_tree_add_bitmask_with_flags(ptr noundef %2, ptr noundef %0, i32 noundef 7, i32 noundef %50, i32 noundef %51, ptr noundef nonnull %dissect_extended_capabilities_ie.ieee80211_tag_extended_capabilities_bytes89.sink, i32 noundef -2147483648, i32 noundef 1) #22
   tail call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %52, ptr noundef nonnull %.str.9572.sink) #22
-  %.not = icmp ult i32 %.0, %5
+  %.not = icmp samesign ult i32 %.0, %5
   br i1 %.not, label %53, label %73
 
 53:                                               ; preds = %49
@@ -28168,7 +28168,7 @@ define internal range(i32 1, 14) i32 @dissect_extended_capabilities_ie(ptr nound
   %56 = tail call ptr @proto_tree_add_bitmask_with_flags(ptr noundef %2, ptr noundef %0, i32 noundef %.0, i32 noundef %54, i32 noundef %55, ptr noundef nonnull @dissect_extended_capabilities_ie.ieee80211_tag_extended_capabilities_byte10, i32 noundef -2147483648, i32 noundef 1) #22
   tail call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %56, ptr noundef nonnull @.str.9573) #22
   %57 = add nuw nsw i32 %.0, 1
-  %.not118 = icmp ult i32 %57, %5
+  %.not118 = icmp samesign ult i32 %57, %5
   br i1 %.not118, label %58, label %73
 
 58:                                               ; preds = %53
@@ -28177,7 +28177,7 @@ define internal range(i32 1, 14) i32 @dissect_extended_capabilities_ie(ptr nound
   %61 = tail call ptr @proto_tree_add_bitmask_with_flags(ptr noundef %2, ptr noundef %0, i32 noundef %57, i32 noundef %59, i32 noundef %60, ptr noundef nonnull @dissect_extended_capabilities_ie.ieee80211_tag_extended_capabilities_byte11, i32 noundef -2147483648, i32 noundef 1) #22
   tail call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %61, ptr noundef nonnull @.str.9574) #22
   %62 = or disjoint i32 %.0, 2
-  %.not119 = icmp ult i32 %62, %5
+  %.not119 = icmp samesign ult i32 %62, %5
   br i1 %.not119, label %63, label %73
 
 63:                                               ; preds = %58
@@ -28186,7 +28186,7 @@ define internal range(i32 1, 14) i32 @dissect_extended_capabilities_ie(ptr nound
   %66 = tail call ptr @proto_tree_add_bitmask_with_flags(ptr noundef %2, ptr noundef %0, i32 noundef %62, i32 noundef %64, i32 noundef %65, ptr noundef nonnull @dissect_extended_capabilities_ie.ieee80211_tag_extended_capabilities_byte12, i32 noundef -2147483648, i32 noundef 1) #22
   tail call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %66, ptr noundef nonnull @.str.9575) #22
   %67 = add nuw nsw i32 %.0, 3
-  %.not120 = icmp ult i32 %67, %5
+  %.not120 = icmp samesign ult i32 %67, %5
   br i1 %.not120, label %68, label %73
 
 68:                                               ; preds = %63
@@ -31401,7 +31401,7 @@ save_proto_data.exit353:                          ; preds = %save_proto_data.exi
   %56 = load i32, ptr @hf_ieee80211_tag_ft_snonce, align 4
   %57 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %56, ptr noundef %0, i32 noundef %47, i32 noundef 32, i32 noundef 0) #22
   %58 = add nuw nsw i32 %21, 68
-  %.not377 = icmp ugt i32 %58, %6
+  %.not377 = icmp samesign ugt i32 %58, %6
   br i1 %.not377, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %save_proto_data.exit353
@@ -34030,7 +34030,7 @@ define internal i32 @dissect_roaming_consortium(ptr noundef %0, ptr noundef %1, 
 add_manuf.exit:                                   ; preds = %21, %27
   %28 = zext nneg i8 %22 to i32
   %29 = add nuw nsw i32 %15, %28
-  %30 = icmp ugt i32 %29, %5
+  %30 = icmp samesign ugt i32 %29, %5
   br i1 %30, label %31, label %35
 
 31:                                               ; preds = %add_manuf.exit
@@ -34056,7 +34056,7 @@ add_manuf.exit:                                   ; preds = %21, %27
 
 add_manuf.exit61:                                 ; preds = %41, %36, %35
   %.056 = phi i32 [ %15, %35 ], [ %29, %36 ], [ %29, %41 ]
-  %42 = icmp ugt i32 %5, %.056
+  %42 = icmp samesign ugt i32 %5, %.056
   br i1 %42, label %43, label %47
 
 43:                                               ; preds = %add_manuf.exit61
@@ -34375,7 +34375,7 @@ define internal i32 @ieee80211_tag_supported_operating_classes(ptr noundef %0, p
   br i1 %7, label %._crit_edge55.sink.split, label %8
 
 8:                                                ; preds = %4
-  %9 = icmp ugt i32 %6, 255
+  %9 = icmp samesign ugt i32 %6, 255
   br i1 %9, label %._crit_edge55.sink.split, label %.lr.ph.preheader
 
 .lr.ph.preheader:                                 ; preds = %8
@@ -34401,7 +34401,7 @@ define internal i32 @ieee80211_tag_supported_operating_classes(ptr noundef %0, p
   store i8 %14, ptr %18, align 1
   %19 = add nuw i8 %.04046, 1
   %20 = zext i8 %19 to i32
-  %21 = icmp ult i8 %19, %12
+  %21 = icmp samesign ult i8 %19, %12
   br i1 %21, label %.lr.ph, label %._crit_edge, !llvm.loop !125
 
 ._crit_edge:                                      ; preds = %15, %.lr.ph, %.lr.ph
@@ -35088,7 +35088,7 @@ define internal i32 @ieee80211_tag_dmg_tspec(ptr noundef %0, ptr noundef %1, ptr
   %42 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %41, ptr noundef %0, i32 noundef %40, i32 noundef 2, i32 noundef 0) #22
   %43 = add nuw nsw i32 %.06063, 14
   %44 = add nsw i32 %.064, -1
-  %45 = icmp ugt i32 %.064, 1
+  %45 = icmp samesign ugt i32 %.064, 1
   br i1 %45, label %.lr.ph, label %._crit_edge, !llvm.loop !131
 
 ._crit_edge:                                      ; preds = %.lr.ph, %11, %7
@@ -35139,7 +35139,7 @@ define internal i32 @ieee80211_tag_channel_measurement_fb(ptr noundef %0, ptr no
   %29 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %28, ptr noundef %0, i32 noundef %25, i32 noundef 1, i32 noundef 0) #22
   %30 = add nuw nsw i32 %.03638, 5
   %31 = add nsw i32 %.039, -1
-  %32 = icmp ugt i32 %.039, 1
+  %32 = icmp samesign ugt i32 %.039, 1
   br i1 %32, label %.lr.ph, label %._crit_edge, !llvm.loop !132
 
 ._crit_edge:                                      ; preds = %.lr.ph, %11, %7
@@ -35517,7 +35517,7 @@ define internal i32 @ieee80211_tag_switching_stream(ptr noundef %0, ptr noundef 
   tail call void @proto_tree_add_bitmask_list(ptr noundef %2, ptr noundef %0, i32 noundef %.03235, i32 noundef 1, ptr noundef nonnull @ieee80211_tag_switching_stream.ieee80211_tag_switching_stream_flags, i32 noundef 0) #22
   %22 = add nsw i32 %.036, -1
   %23 = add nuw nsw i32 %.03235, 2
-  %24 = icmp ugt i32 %.036, 1
+  %24 = icmp samesign ugt i32 %.036, 1
   br i1 %24, label %.lr.ph, label %._crit_edge, !llvm.loop !136
 
 ._crit_edge:                                      ; preds = %.lr.ph, %11, %7
@@ -36041,7 +36041,7 @@ define internal i32 @ieee80211_tag_rsnx(ptr noundef %0, ptr noundef %1, ptr noun
   %21 = load i32, ptr @ett_tag_rsnx_octet2, align 4
   %22 = tail call ptr @proto_tree_add_bitmask_with_flags(ptr noundef %2, ptr noundef %0, i32 noundef 1, i32 noundef %20, i32 noundef %21, ptr noundef nonnull @ieee80211_tag_rsnx.octet2, i32 noundef -2147483648, i32 noundef 1) #22
   tail call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %22, ptr noundef nonnull @.str.9855, i32 noundef 2) #22
-  %23 = icmp ugt i32 %5, 2
+  %23 = icmp samesign ugt i32 %5, 2
   br i1 %23, label %.lr.ph, label %.loopexit
 
 .lr.ph:                                           ; preds = %19, %.lr.ph
@@ -42790,7 +42790,7 @@ try_decrypt.exit:                                 ; preds = %929, %931, %936, %9
   br i1 %or.cond165, label %proto_item_set_generated.exit1303, label %1026
 
 1026:                                             ; preds = %1022
-  %1027 = icmp ult i32 %1023, %1024
+  %1027 = icmp samesign ult i32 %1023, %1024
   br i1 %1027, label %1028, label %1030
 
 1028:                                             ; preds = %1026
@@ -48658,7 +48658,7 @@ define internal fastcc void @dissect_he_capabilities(ptr noundef %0, ptr noundef
 
 136:                                              ; preds = %125, %121
   %.1 = phi i32 [ %135, %125 ], [ %.0, %121 ]
-  %137 = icmp ult i32 %.1, %4
+  %137 = icmp samesign ult i32 %.1, %4
   br i1 %137, label %138, label %.loopexit
 
 138:                                              ; preds = %136
@@ -49792,7 +49792,7 @@ dissect_extended_request.exit.i:                  ; preds = %.lr.ph.i.i, %333
 382:                                              ; preds = %371, %369
   %.10.i = phi i32 [ %381, %371 ], [ %.9.i, %369 ]
   %383 = add nsw i32 %.10.i, -2
-  %384 = icmp ult i32 %383, %353
+  %384 = icmp samesign ult i32 %383, %353
   br i1 %384, label %385, label %.loopexit.i
 
 385:                                              ; preds = %382
@@ -50156,7 +50156,7 @@ define internal fastcc void @dissect_estimated_service_params(ptr noundef %0, pt
   %6 = tail call ptr @proto_tree_add_bitmask_with_flags(ptr noundef %1, ptr noundef %0, i32 noundef %.061, i32 noundef %4, i32 noundef %5, ptr noundef nonnull @esp_headers, i32 noundef -2147483648, i32 noundef 1) #22
   %7 = add nuw nsw i32 %.061, 3
   %8 = add nsw i32 %.02, -3
-  %9 = icmp ugt i32 %.02, 3
+  %9 = icmp samesign ugt i32 %.02, 3
   br i1 %9, label %.lr.ph, label %._crit_edge, !llvm.loop !230
 
 ._crit_edge:                                      ; preds = %.lr.ph, %3
@@ -50443,7 +50443,7 @@ define internal fastcc void @dissect_short_ssid(ptr noundef %0, ptr noundef %1, 
   %5 = tail call ptr @proto_tree_add_item(ptr noundef %1, i32 noundef %4, ptr noundef %0, i32 noundef %.051, i32 noundef 4, i32 noundef -2147483648) #22
   %6 = add nuw i32 %.051, 4
   %7 = add nsw i32 %.02, -4
-  %8 = icmp ugt i32 %.02, 4
+  %8 = icmp samesign ugt i32 %.02, 4
   br i1 %8, label %.lr.ph, label %._crit_edge, !llvm.loop !233
 
 ._crit_edge:                                      ; preds = %.lr.ph, %3

@@ -204,7 +204,7 @@ invoke.cont4.i:                                   ; preds = %call5.i.i.i.i2.i.i.
   %incdec.ptr.i.i.i.i.i.i = getelementptr i8, ptr %call5.i.i.i.i2.i.i31.i, i64 8
   %5 = add nsw i64 %mul.i.i.i.i.i.i.i, -8
   call void @llvm.memset.p0.i64(ptr align 8 %incdec.ptr.i.i.i.i.i.i, i8 0, i64 %5, i1 false)
-  %cmp.i.i33.i = icmp ugt i64 %4, 384307168202282325
+  %cmp.i.i33.i = icmp samesign ugt i64 %4, 384307168202282325
   br i1 %cmp.i.i33.i, label %if.then.i.i38.i, label %for.body.preheader.i.i.i.i.i.i
 
 if.then.i.i38.i:                                  ; preds = %invoke.cont4.i
@@ -2146,7 +2146,7 @@ for.body.i.i.i.i.i36:                             ; preds = %for.body.i.i.i.i.i3
   %incdec.ptr.i.i.i.i.i37 = getelementptr inbounds i8, ptr %__first.addr.07.i.i.i.i.i, i64 24
   %incdec.ptr1.i.i.i.i.i38 = getelementptr inbounds i8, ptr %__result.addr.08.i.i.i.i.i, i64 24
   %dec.i.i.i.i.i39 = add nsw i64 %__n.09.i.i.i.i.i, -1
-  %cmp.i.i.i.i.i40 = icmp ugt i64 %__n.09.i.i.i.i.i, 1
+  %cmp.i.i.i.i.i40 = icmp samesign ugt i64 %__n.09.i.i.i.i.i, 1
   br i1 %cmp.i.i.i.i.i40, label %for.body.i.i.i.i.i36, label %if.end109, !llvm.loop !62
 
 _ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPKSt6vectorIN3ue212graph_detail17vertex_descriptorINS3_9ue2_graphINS3_8NGHolderENS3_19NFAGraphVertexPropsENS3_17NFAGraphEdgePropsEEEEESaISB_EES2_ISD_SaISD_EEEEmEvRT_T0_.exit: ; preds = %if.then9
@@ -2201,7 +2201,7 @@ for.body.i.i.i.i.i65:                             ; preds = %for.body.i.i.i.i.i6
   %incdec.ptr.i.i.i.i.i70 = getelementptr inbounds i8, ptr %__first.addr.07.i.i.i.i.i68, i64 24
   %incdec.ptr1.i.i.i.i.i71 = getelementptr inbounds i8, ptr %__result.addr.08.i.i.i.i.i67, i64 24
   %dec.i.i.i.i.i72 = add nsw i64 %__n.09.i.i.i.i.i66, -1
-  %cmp.i.i.i.i.i73 = icmp ugt i64 %__n.09.i.i.i.i.i66, 1
+  %cmp.i.i.i.i.i73 = icmp samesign ugt i64 %__n.09.i.i.i.i.i66, 1
   br i1 %cmp.i.i.i.i.i73, label %for.body.i.i.i.i.i65, label %if.end109, !llvm.loop !62
 
 if.else68:                                        ; preds = %if.then

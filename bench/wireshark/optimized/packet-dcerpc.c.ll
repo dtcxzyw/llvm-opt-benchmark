@@ -3151,7 +3151,7 @@ define hidden noundef i32 @PIDL_dissect_cvstring(ptr noundef %0, i32 noundef %1,
   %50 = load ptr, ptr %10, align 8
   call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %.032, ptr noundef nonnull @.str.11, ptr noundef %50) #16
   %51 = add nsw i32 %.042, -1
-  %52 = icmp ugt i32 %.042, 1
+  %52 = icmp samesign ugt i32 %.042, 1
   br i1 %52, label %.lr.ph, label %.loopexit, !llvm.loop !12
 
 .loopexit:                                        ; preds = %.lr.ph, %45, %36, %41, %43, %9
@@ -11053,7 +11053,7 @@ define internal fastcc range(i32 0, 2) i32 @is_dcerpc(ptr noundef %0, i32 nounde
 
 22:                                               ; preds = %14
   %23 = add i32 %1, 8
-  %.not.i = icmp ult i8 %17, 16
+  %.not.i = icmp samesign ult i8 %17, 16
   br i1 %.not.i, label %26, label %24
 
 24:                                               ; preds = %22

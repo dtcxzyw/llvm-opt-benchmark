@@ -17138,7 +17138,7 @@ define dso_local ptr @getAggregates(ptr noundef %0, ptr nocapture noundef writeo
   br i1 %7, label %8, label %13
 
 8:                                                ; preds = %2
-  %9 = icmp ugt i32 %6, 109999
+  %9 = icmp samesign ugt i32 %6, 109999
   %10 = select i1 %9, ptr @.str.228, ptr @.str.229
   tail call void (ptr, ptr, ...) @appendPQExpBuffer(ptr noundef %4, ptr noundef nonnull @.str.230, ptr noundef nonnull %10) #14
   %11 = getelementptr inbounds i8, ptr %3, i64 48
@@ -17405,7 +17405,7 @@ define dso_local ptr @getFuncs(ptr noundef %0, ptr nocapture noundef writeonly %
   br i1 %7, label %8, label %15
 
 8:                                                ; preds = %2
-  %9 = icmp ugt i32 %6, 109999
+  %9 = icmp samesign ugt i32 %6, 109999
   %10 = select i1 %9, ptr @.str.239, ptr @.str.240
   %.b123 = load i1, ptr @g_last_builtin_oid, align 4
   %11 = select i1 %.b123, i32 16383, i32 0

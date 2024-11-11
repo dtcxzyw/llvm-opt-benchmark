@@ -655,7 +655,7 @@ put_dec_trunc8.exit:                              ; preds = %.thread, %73, %85, 
   %108 = getelementptr [100 x i16], ptr @decpair, i64 0, i64 %107
   %109 = load i16, ptr %108, align 2
   store i16 %109, ptr %105, align 2
-  %110 = icmp ult i32 %106, 10
+  %110 = icmp samesign ult i32 %106, 10
   %111 = select i1 %110, i64 1, i64 2
   %112 = getelementptr i8, ptr %105, i64 %111
   ret ptr %112
@@ -11370,7 +11370,7 @@ widen_string.exit.thread:                         ; preds = %4
   %118 = xor i64 %117, 4294967295
   %119 = and i64 %118, %103
   %120 = tail call fastcc ptr @number(ptr noundef %110, ptr noundef %1, i64 noundef %119, i64 %116)
-  %121 = icmp ugt i32 %89, 63
+  %121 = icmp samesign ugt i32 %89, 63
   br i1 %121, label %88, label %widen_string.exit, !llvm.loop !82
 
 widen_string.exit:                                ; preds = %74, %109, %.thread, %67, %widen_string.exit.thread
@@ -12195,7 +12195,7 @@ define internal fastcc noundef ptr @ip6_compressed_string(ptr noundef writeonly 
   br label %128
 
 110:                                              ; preds = %69
-  %111 = icmp ult i16 %74, 16
+  %111 = icmp samesign ult i16 %74, 16
   br i1 %111, label %123, label %112
 
 112:                                              ; preds = %110
@@ -12278,7 +12278,7 @@ put_dec_trunc8.exit.i:                            ; preds = %150, %143
   %163 = getelementptr [100 x i16], ptr @decpair, i64 0, i64 %162
   %164 = load i16, ptr %163, align 2
   store i16 %164, ptr %160, align 2
-  %165 = icmp ult i32 %161, 10
+  %165 = icmp samesign ult i32 %161, 10
   %.sroa.sel.v.sroa.sel.v.i.sroa.sel.v.sroa.sel.v.sroa.sel.v = select i1 %165, i64 1, i64 2
   %.sroa.sel.v.sroa.sel.v.i.sroa.sel.v.sroa.sel.v.sroa.sel = getelementptr i8, ptr %160, i64 %.sroa.sel.v.sroa.sel.v.i.sroa.sel.v.sroa.sel.v.sroa.sel.v
   %166 = ptrtoint ptr %.sroa.sel.v.sroa.sel.v.i.sroa.sel.v.sroa.sel.v.sroa.sel to i64
@@ -12382,7 +12382,7 @@ put_dec_trunc8.exit.us:                           ; preds = %21, %.split.us
   %34 = getelementptr [100 x i16], ptr @decpair, i64 0, i64 %33
   %35 = load i16, ptr %34, align 2
   store i16 %35, ptr %31, align 2
-  %36 = icmp ult i32 %32, 10
+  %36 = icmp samesign ult i32 %32, 10
   %.sroa.sel.v.us.sroa.sel.v.sroa.sel.v = select i1 %36, i64 1, i64 2
   %.sroa.sel.v.us.sroa.sel.v.sroa.sel = getelementptr i8, ptr %31, i64 %.sroa.sel.v.us.sroa.sel.v.sroa.sel.v
   %37 = ptrtoint ptr %.sroa.sel.v.us.sroa.sel.v.sroa.sel to i64
@@ -12448,7 +12448,7 @@ put_dec_trunc8.exit:                              ; preds = %.split, %62
   %75 = getelementptr [100 x i16], ptr @decpair, i64 0, i64 %74
   %76 = load i16, ptr %75, align 2
   store i16 %76, ptr %72, align 2
-  %77 = icmp ult i32 %73, 10
+  %77 = icmp samesign ult i32 %73, 10
   %.sroa.sel.v.sroa.sel.v.sroa.sel.v = select i1 %77, i64 1, i64 2
   %.sroa.sel.v.sroa.sel.v.sroa.sel = getelementptr i8, ptr %72, i64 %.sroa.sel.v.sroa.sel.v.sroa.sel.v
   %78 = ptrtoint ptr %.sroa.sel.v.sroa.sel.v.sroa.sel to i64

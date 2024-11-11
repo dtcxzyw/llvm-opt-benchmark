@@ -12851,7 +12851,7 @@ define internal fastcc noundef zeroext i1 @ieee80211_sta_wmm_params(ptr nocaptur
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(56) %6, i8 0, i64 56, i1 false)
   %57 = getelementptr inbounds i8, ptr %7, i64 1530
   store i8 0, ptr %57, align 2
-  %58 = icmp ugt i64 %56, 3
+  %58 = icmp samesign ugt i64 %56, 3
   br i1 %58, label %59, label %.loopexit.preheader
 
 .loopexit.preheader:                              ; preds = %172, %54
@@ -14126,7 +14126,7 @@ define internal fastcc void @ieee80211_ml_reconfiguration(ptr noundef %0, ptr no
   store ptr %29, ptr %8, align 8
   %30 = getelementptr inbounds i8, ptr %1, i64 592
   store i64 %26, ptr %30, align 8
-  %31 = icmp ult i64 %26, 2
+  %31 = icmp samesign ult i64 %26, 2
   br i1 %31, label %.loopexit, label %32
 
 32:                                               ; preds = %28
@@ -14173,14 +14173,14 @@ define internal fastcc void @ieee80211_ml_reconfiguration(ptr noundef %0, ptr no
   %60 = and i16 %33, 16
   %61 = icmp eq i16 %60, 0
   %62 = select i1 %61, i64 2, i64 8
-  %.not = icmp ugt i64 %62, %26
+  %.not = icmp samesign ugt i64 %62, %26
   br i1 %.not, label %.loopexit, label %70
 
 63:                                               ; preds = %32, %56, %35
   %64 = phi i8 [ %59, %56 ], [ 7, %32 ], [ %55, %35 ]
   %65 = zext nneg i8 %64 to i64
   %66 = add nuw nsw i64 %65, 2
-  %.not12 = icmp ugt i64 %66, %26
+  %.not12 = icmp samesign ugt i64 %66, %26
   br i1 %.not12, label %.loopexit, label %67
 
 67:                                               ; preds = %63

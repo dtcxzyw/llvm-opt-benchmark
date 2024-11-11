@@ -2603,7 +2603,7 @@ define internal fastcc void @_pack_node_state_msg(ptr nocapture noundef readonly
   br label %86
 
 55:                                               ; preds = %3
-  %56 = icmp ugt i16 %1, 9983
+  %56 = icmp samesign ugt i16 %1, 9983
   br i1 %56, label %57, label %86
 
 57:                                               ; preds = %55
@@ -2876,7 +2876,7 @@ define internal fastcc void @_pack_register_ctld_msg(ptr nocapture noundef reado
   br label %.sink.split
 
 9:                                                ; preds = %3
-  %10 = icmp ugt i16 %1, 9983
+  %10 = icmp samesign ugt i16 %1, 9983
   br i1 %10, label %11, label %17
 
 11:                                               ; preds = %9
@@ -3369,7 +3369,7 @@ define internal fastcc range(i32 -1, 1) i32 @_unpack_node_state_msg(ptr nocaptur
   br i1 %.not57, label %66, label %65
 
 44:                                               ; preds = %3
-  %45 = icmp ugt i16 %1, 9983
+  %45 = icmp samesign ugt i16 %1, 9983
   br i1 %45, label %46, label %66
 
 46:                                               ; preds = %44
@@ -3679,7 +3679,7 @@ define internal fastcc range(i32 -1, 1) i32 @_unpack_register_ctld_msg(ptr nocap
   br i1 %.not25, label %28, label %27
 
 15:                                               ; preds = %3
-  %16 = icmp ugt i16 %1, 9983
+  %16 = icmp samesign ugt i16 %1, 9983
   br i1 %16, label %17, label %28
 
 17:                                               ; preds = %15

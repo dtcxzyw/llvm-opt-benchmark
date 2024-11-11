@@ -182,7 +182,7 @@ while.body.i:                                     ; preds = %land.rhs.i
   br i1 %cmp14.not.i, label %if.end48.thread, label %land.rhs.i, !llvm.loop !6
 
 while.end.i:                                      ; preds = %land.rhs.i
-  %cmp21.i = icmp ugt i32 %i.022.i, 8
+  %cmp21.i = icmp samesign ugt i32 %i.022.i, 8
   br i1 %cmp21.i, label %err, label %while.cond25.preheader.i
 
 while.cond25.preheader.i:                         ; preds = %while.end.i
@@ -199,7 +199,7 @@ while.body28.i:                                   ; preds = %while.cond25.prehea
   %conv30.i = zext i8 %10 to i64
   %or.i = or disjoint i64 %shl.i, %conv30.i
   %dec31.i = add nsw i32 %i.129.i, -1
-  %cmp26.i = icmp ugt i32 %i.129.i, 1
+  %cmp26.i = icmp samesign ugt i32 %i.129.i, 1
   br i1 %cmp26.i, label %while.body28.i, label %while.end32.i, !llvm.loop !7
 
 while.end32.i:                                    ; preds = %while.body28.i

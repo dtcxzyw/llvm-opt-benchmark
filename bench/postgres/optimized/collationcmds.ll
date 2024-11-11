@@ -1107,7 +1107,7 @@ define dso_local range(i64 -2147483648, 2147483648) i64 @pg_import_system_collat
   br label %.backedge
 
 56:                                               ; preds = %49
-  %57 = icmp ult i32 %50, 35
+  %57 = icmp samesign ult i32 %50, 35
   br i1 %57, label %62, label %58
 
 58:                                               ; preds = %56

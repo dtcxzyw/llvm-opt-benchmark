@@ -1958,7 +1958,7 @@ ProcessError.exit1483:                            ; preds = %1078
   br i1 %1113, label %1114, label %1142
 
 1114:                                             ; preds = %1101
-  %1115 = icmp ult i16 %1111, 33
+  %1115 = icmp samesign ult i16 %1111, 33
   br i1 %1115, label %1116, label %1121
 
 1116:                                             ; preds = %1114
@@ -1969,7 +1969,7 @@ ProcessError.exit1483:                            ; preds = %1078
   br label %1136
 
 1121:                                             ; preds = %1114
-  %1122 = icmp ult i16 %1111, 65
+  %1122 = icmp samesign ult i16 %1111, 65
   %1123 = getelementptr inbounds i8, ptr %.01291, i64 56
   %1124 = load ptr, ptr %1123, align 8
   %1125 = load i32, ptr %1124, align 4

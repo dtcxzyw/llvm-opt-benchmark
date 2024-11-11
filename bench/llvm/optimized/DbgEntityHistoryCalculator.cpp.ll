@@ -5180,7 +5180,7 @@ _ZNK4llvm12MachineInstr6isCallENS0_9QueryTypeE.exit._crit_edge: ; preds = %_ZNK4
   %1429 = getelementptr inbounds i8, ptr %.0910.i.i.i.i.i.i, i64 16
   %1430 = getelementptr inbounds i8, ptr %.0811.i.i.i.i.i.i215, i64 16
   %1431 = add nsw i64 %.012.i.i.i.i.i.i214, -1
-  %1432 = icmp ugt i64 %.012.i.i.i.i.i.i214, 1
+  %1432 = icmp samesign ugt i64 %.012.i.i.i.i.i.i214, 1
   br i1 %1432, label %.lr.ph.i.i.i.i.i.i213, label %_ZSt4copyIPKSt4pairIPKN4llvm6DINodeEPKNS1_10DILocationEEPS8_ET0_T_SD_SC_.exit.i, !llvm.loop !91
 
 _ZSt4copyIPKSt4pairIPKN4llvm6DINodeEPKNS1_10DILocationEEPS8_ET0_T_SD_SC_.exit.i: ; preds = %.lr.ph.i.i.i.i.i.i213, %1421
@@ -5224,7 +5224,7 @@ _ZSt4copyIPKSt4pairIPKN4llvm6DINodeEPKNS1_10DILocationEEPS8_ET0_T_SD_SC_.exit.i:
   %1448 = getelementptr inbounds i8, ptr %.0910.i.i.i.i.i34.i, i64 16
   %1449 = getelementptr inbounds i8, ptr %.0811.i.i.i.i.i33.i, i64 16
   %1450 = add nsw i64 %.012.i.i.i.i.i32.i, -1
-  %1451 = icmp ugt i64 %.012.i.i.i.i.i32.i, 1
+  %1451 = icmp samesign ugt i64 %.012.i.i.i.i.i32.i, 1
   br i1 %1451, label %.lr.ph.i.i.i.i.i31.i, label %_ZSt4copyIPKSt4pairIPKN4llvm6DINodeEPKNS1_10DILocationEEPS8_ET0_T_SD_SC_.exit35.i, !llvm.loop !91
 
 _ZSt4copyIPKSt4pairIPKN4llvm6DINodeEPKNS1_10DILocationEEPS8_ET0_T_SD_SC_.exit35.i: ; preds = %.lr.ph.i.i.i.i.i31.i, %1440, %1439, %1437
@@ -7865,7 +7865,7 @@ _ZNSt3mapIjN4llvm11SmallVectorISt4pairIPKNS0_6DINodeEPKNS0_10DILocationEELj1EEES
   %36 = getelementptr inbounds i8, ptr %.0910.i.i.i.i.i.i, i64 16
   %37 = getelementptr inbounds i8, ptr %.0811.i.i.i.i.i.i, i64 16
   %38 = add nsw i64 %.012.i.i.i.i.i.i, -1
-  %39 = icmp ugt i64 %.012.i.i.i.i.i.i, 1
+  %39 = icmp samesign ugt i64 %.012.i.i.i.i.i.i, 1
   br i1 %39, label %.lr.ph.i.i.i.i.i.i, label %_ZN4llvm15SmallVectorImplISt4pairIPKNS_6DINodeEPKNS_10DILocationEEE5eraseEPKS8_.exit, !llvm.loop !123
 
 _ZN4llvm15SmallVectorImplISt4pairIPKNS_6DINodeEPKNS_10DILocationEEE5eraseEPKS8_.exit: ; preds = %.lr.ph.i.i.i.i.i.i, %_ZNSt3mapIjN4llvm11SmallVectorISt4pairIPKNS0_6DINodeEPKNS0_10DILocationEELj1EEESt4lessIjESaIS2_IKjSA_EEE4findERSD_.exit

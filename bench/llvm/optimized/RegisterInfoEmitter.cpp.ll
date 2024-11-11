@@ -41022,7 +41022,7 @@ _ZSt13move_backwardIPjS0_ET0_T_S2_S1_.exit:       ; preds = %_ZSt22__uninitializ
   %35 = getelementptr inbounds i8, ptr %.0910.i.i.i.i.i, i64 8
   %36 = getelementptr inbounds i8, ptr %.0811.i.i.i.i.i, i64 4
   %37 = add nsw i64 %.012.i.i.i.i.i, -1
-  %38 = icmp ugt i64 %.012.i.i.i.i.i, 1
+  %38 = icmp samesign ugt i64 %.012.i.i.i.i.i, 1
   br i1 %38, label %.lr.ph.i.i.i.i.i, label %_ZSt4copyIN9__gnu_cxx17__normal_iteratorIPlSt6vectorIlSaIlEEEENS1_IPjS3_IjSaIjEEEEET0_T_SC_SB_.exit, !llvm.loop !1046
 
 _ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPlSt6vectorIlSaIlEEEEmEvRT_T0_.exit: ; preds = %18
@@ -41043,7 +41043,7 @@ _ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPlSt6vectorIlSaIlEEEEmEvRT_T0_.exit:
   %46 = getelementptr inbounds i8, ptr %.0910.i.i.i.i.i.i.i.i, i64 8
   %47 = getelementptr inbounds i8, ptr %.0811.i.i.i.i.i.i.i.i, i64 4
   %48 = add nsw i64 %.012.i.i.i.i.i.i.i.i, -1
-  %49 = icmp ugt i64 %.012.i.i.i.i.i.i.i.i, 1
+  %49 = icmp samesign ugt i64 %.012.i.i.i.i.i.i.i.i, 1
   br i1 %49, label %.lr.ph.i.i.i.i.i.i.i.i, label %_ZSt22__uninitialized_copy_aIN9__gnu_cxx17__normal_iteratorIPlSt6vectorIlSaIlEEEEPjjET0_T_S9_S8_RSaIT1_E.exit.loopexit, !llvm.loop !1046
 
 _ZSt22__uninitialized_copy_aIN9__gnu_cxx17__normal_iteratorIPlSt6vectorIlSaIlEEEEPjjET0_T_S9_S8_RSaIT1_E.exit.loopexit: ; preds = %.lr.ph.i.i.i.i.i.i.i.i
@@ -41081,7 +41081,7 @@ _ZSt22__uninitialized_move_aIPjS0_SaIjEET0_T_S3_S2_RT1_.exit44: ; preds = %_ZSt2
   %60 = getelementptr inbounds i8, ptr %.0910.i.i.i.i.i49, i64 8
   %61 = getelementptr inbounds i8, ptr %.0811.i.i.i.i.i48, i64 4
   %62 = add nsw i64 %.012.i.i.i.i.i47, -1
-  %63 = icmp ugt i64 %.012.i.i.i.i.i47, 1
+  %63 = icmp samesign ugt i64 %.012.i.i.i.i.i47, 1
   br i1 %63, label %.lr.ph.i.i.i.i.i46, label %_ZSt4copyIN9__gnu_cxx17__normal_iteratorIPlSt6vectorIlSaIlEEEENS1_IPjS3_IjSaIjEEEEET0_T_SC_SB_.exit, !llvm.loop !1046
 
 64:                                               ; preds = %5
@@ -41136,7 +41136,7 @@ _ZSt34__uninitialized_move_if_noexcept_aIPjS0_SaIjEET0_T_S3_S2_RT1_.exit: ; pred
   %86 = getelementptr inbounds i8, ptr %.0910.i.i.i.i.i.i.i.i56, i64 8
   %87 = getelementptr inbounds i8, ptr %.0811.i.i.i.i.i.i.i.i55, i64 4
   %88 = add nsw i64 %.012.i.i.i.i.i.i.i.i54, -1
-  %89 = icmp ugt i64 %.012.i.i.i.i.i.i.i.i54, 1
+  %89 = icmp samesign ugt i64 %.012.i.i.i.i.i.i.i.i54, 1
   br i1 %89, label %.lr.ph.i.i.i.i.i.i.i.i53, label %_ZSt22__uninitialized_copy_aIN9__gnu_cxx17__normal_iteratorIPlSt6vectorIlSaIlEEEEPjjET0_T_S9_S8_RSaIT1_E.exit57, !llvm.loop !1046
 
 _ZSt22__uninitialized_copy_aIN9__gnu_cxx17__normal_iteratorIPlSt6vectorIlSaIlEEEEPjjET0_T_S9_S8_RSaIT1_E.exit57: ; preds = %.lr.ph.i.i.i.i.i.i.i.i53

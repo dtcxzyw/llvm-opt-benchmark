@@ -4072,7 +4072,7 @@ default.unreachable:                              ; preds = %1222, %984
   %1214 = load i8, ptr %1213, align 1
   %1215 = zext i8 %1214 to i32
   %1216 = add nsw i32 %.0119154.i, -2
-  %1217 = icmp ult i32 %1216, %1215
+  %1217 = icmp samesign ult i32 %1216, %1215
   br i1 %1217, label %1218, label %1222
 
 1218:                                             ; preds = %1194
@@ -5912,7 +5912,7 @@ define internal fastcc i32 @dissect_icmpv6_rpl_opt(ptr noundef %0, i32 noundef %
   %97 = call ptr @proto_tree_add_bitmask(ptr noundef %55, ptr noundef %0, i32 noundef %.4527, i32 noundef %95, i32 noundef %96, ptr noundef nonnull @dissect_icmpv6_rpl_opt.metric_ne_flags, i32 noundef 0) #6
   %98 = add i32 %.4527, 2
   %99 = add nsw i32 %.1461526, -2
-  %100 = icmp ugt i32 %.1461526, 2
+  %100 = icmp samesign ugt i32 %.1461526, 2
   br i1 %100, label %.lr.ph528, label %.loopexit, !llvm.loop !25
 
 101:                                              ; preds = %.lr.ph536
@@ -5929,7 +5929,7 @@ define internal fastcc i32 @dissect_icmpv6_rpl_opt(ptr noundef %0, i32 noundef %
   %107 = call ptr @proto_tree_add_item(ptr noundef %55, i32 noundef %106, ptr noundef %0, i32 noundef %.5523, i32 noundef 4, i32 noundef 0) #6
   %108 = add i32 %.5523, 4
   %109 = add nsw i32 %.2462522, -4
-  %110 = icmp ugt i32 %.2462522, 4
+  %110 = icmp samesign ugt i32 %.2462522, 4
   br i1 %110, label %.lr.ph524, label %.loopexit, !llvm.loop !26
 
 .lr.ph520:                                        ; preds = %.preheader482, %.lr.ph520
@@ -5939,7 +5939,7 @@ define internal fastcc i32 @dissect_icmpv6_rpl_opt(ptr noundef %0, i32 noundef %
   %112 = call ptr @proto_tree_add_item(ptr noundef %55, i32 noundef %111, ptr noundef %0, i32 noundef %.6519, i32 noundef 4, i32 noundef 0) #6
   %113 = add i32 %.6519, 4
   %114 = add nsw i32 %.3463518, -4
-  %115 = icmp ugt i32 %.3463518, 4
+  %115 = icmp samesign ugt i32 %.3463518, 4
   br i1 %115, label %.lr.ph520, label %.loopexit, !llvm.loop !27
 
 116:                                              ; preds = %.lr.ph536
@@ -5957,7 +5957,7 @@ define internal fastcc i32 @dissect_icmpv6_rpl_opt(ptr noundef %0, i32 noundef %
   %122 = load i32, ptr @ett_icmpv6_rpl_metric_lql_object, align 4
   %123 = call ptr @proto_tree_add_bitmask(ptr noundef %55, ptr noundef %0, i32 noundef %.7514, i32 noundef %121, i32 noundef %122, ptr noundef nonnull @dissect_icmpv6_rpl_opt.metric_lql_flags, i32 noundef 0) #6
   %124 = add i32 %.7514, 1
-  %125 = icmp ugt i32 %.4464.in513, 2
+  %125 = icmp samesign ugt i32 %.4464.in513, 2
   br i1 %125, label %.lr.ph516, label %.loopexit, !llvm.loop !28
 
 .lr.ph511:                                        ; preds = %.preheader485, %.lr.ph511
@@ -5967,7 +5967,7 @@ define internal fastcc i32 @dissect_icmpv6_rpl_opt(ptr noundef %0, i32 noundef %
   %127 = call ptr @proto_tree_add_item(ptr noundef %55, i32 noundef %126, ptr noundef %0, i32 noundef %.8510, i32 noundef 2, i32 noundef 0) #6
   %128 = add i32 %.8510, 2
   %129 = add nsw i32 %.5465509, -2
-  %130 = icmp ugt i32 %.5465509, 2
+  %130 = icmp samesign ugt i32 %.5465509, 2
   br i1 %130, label %.lr.ph511, label %.loopexit, !llvm.loop !29
 
 131:                                              ; preds = %.lr.ph536

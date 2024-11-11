@@ -4160,7 +4160,7 @@ _ZN7Archive12UnkEncVerMsgEPKwS1_.exit235:         ; preds = %213
   br label %.thread255
 
 237:                                              ; preds = %194
-  %238 = icmp ugt i64 %88, 4
+  %238 = icmp samesign ugt i64 %88, 4
   br i1 %238, label %239, label %.thread255
 
 239:                                              ; preds = %237

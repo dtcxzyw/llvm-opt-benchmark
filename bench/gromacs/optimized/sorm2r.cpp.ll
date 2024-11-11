@@ -77,8 +77,8 @@ switch.early.test:                                ; preds = %36
   %.072 = phi i64 [ 0, %40 ], [ 1, %41 ]
   %.0 = phi i32 [ 1, %40 ], [ 0, %41 ]
   %.078.neg84 = sub nsw i32 0, %.077
-  %43 = icmp uge i32 %.077, %.076
-  %44 = icmp ule i32 %.077, %.076
+  %43 = icmp samesign uge i32 %.077, %.076
+  %44 = icmp samesign ule i32 %.077, %.076
   %45 = select i1 %39, i1 %43, i1 %44
   br i1 %45, label %.lr.ph, label %.loopexit
 

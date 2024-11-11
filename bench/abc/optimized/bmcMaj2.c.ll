@@ -979,7 +979,7 @@ Abc_TtFill.exit.i.i:                              ; preds = %.lr.ph.preheader.i.
   br i1 %444, label %.lr.ph.i34.preheader.i, label %.preheader.i31.i
 
 .lr.ph.i34.preheader.i:                           ; preds = %Abc_TtFill.exit.i.i
-  %445 = icmp ult i32 %437, 7
+  %445 = icmp samesign ult i32 %437, 7
   %446 = add nsw i32 %437, -6
   %447 = shl nuw i32 1, %446
   %448 = select i1 %445, i32 1, i32 %447
@@ -2515,7 +2515,7 @@ Vec_WrdStart.exit.i.i:                            ; preds = %210, %Exa_ManMarkup
   br i1 %220, label %.lr.ph.i25.preheader.i, label %Exa_ManAlloc.exit
 
 .lr.ph.i25.preheader.i:                           ; preds = %Vec_WrdStart.exit.i.i
-  %221 = icmp ult i32 %219, 7
+  %221 = icmp samesign ult i32 %219, 7
   %222 = add nsw i32 %219, -6
   %223 = shl nuw i32 1, %222
   %224 = select i1 %221, i32 1, i32 %223
@@ -4437,7 +4437,7 @@ Vec_WrdStart.exit.i.i:                            ; preds = %227, %Exa3_ManMarku
   br i1 %237, label %.lr.ph.i30.preheader.i, label %Exa3_ManAlloc.exit
 
 .lr.ph.i30.preheader.i:                           ; preds = %Vec_WrdStart.exit.i.i
-  %238 = icmp ult i32 %236, 7
+  %238 = icmp samesign ult i32 %236, 7
   %239 = add nsw i32 %236, -6
   %240 = shl nuw i32 1, %239
   %241 = select i1 %238, i32 1, i32 %240
@@ -5602,7 +5602,7 @@ Exa3_ManEval.exit:                                ; preds = %.lr.ph.i87.i
   %765 = icmp eq i32 %764, 1
   %766 = zext i1 %765 to i32
   %767 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.36, i32 noundef %766)
-  %768 = icmp ugt i64 %indvars.iv66.in.i, 1
+  %768 = icmp samesign ugt i64 %indvars.iv66.in.i, 1
   br i1 %768, label %.lr.ph.split.us.i, label %._crit_edge.i65, !llvm.loop !111
 
 .lr.ph.split.i74:                                 ; preds = %.lr.ph.split.i74, %.lr.ph.split.preheader.i
@@ -5622,7 +5622,7 @@ Exa3_ManEval.exit:                                ; preds = %.lr.ph.i87.i
   %.sink80.i = xor i1 %775, %777
   %.sink.i = zext i1 %.sink80.i to i32
   %778 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.36, i32 noundef %.sink.i)
-  %779 = icmp ugt i64 %indvars.iv.in.i, 1
+  %779 = icmp samesign ugt i64 %indvars.iv.in.i, 1
   br i1 %779, label %.lr.ph.split.i74, label %._crit_edge.i65, !llvm.loop !111
 
 ._crit_edge.i65:                                  ; preds = %.lr.ph.split.us.i, %.lr.ph.split.i74, %746

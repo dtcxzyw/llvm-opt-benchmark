@@ -2851,7 +2851,7 @@ if.end305:                                        ; preds = %if.end106, %if.then
 
 land.lhs.true310:                                 ; preds = %if.end305
   %cmp311 = icmp sgt i32 %spec.select, 1
-  %cmp314 = icmp ult i64 %text.coerce1, 17
+  %cmp314 = icmp samesign ult i64 %text.coerce1, 17
   %or.cond218 = select i1 %cmp311, i1 true, i1 %cmp314
   br i1 %or.cond218, label %if.end388, label %if.end316
 
@@ -3639,7 +3639,7 @@ invoke.cont2:                                     ; preds = %for.cond.preheader,
   br i1 %cmp4, label %invoke.cont9, label %invoke.cont5
 
 invoke.cont5:                                     ; preds = %invoke.cont2
-  %cmp8 = icmp ugt i8 %0, 122
+  %cmp8 = icmp samesign ugt i8 %0, 122
   br i1 %cmp8, label %if.end, label %invoke.cont47
 
 invoke.cont9:                                     ; preds = %invoke.cont2
@@ -3647,7 +3647,7 @@ invoke.cont9:                                     ; preds = %invoke.cont2
   br i1 %cmp12, label %invoke.cont19, label %invoke.cont14
 
 invoke.cont14:                                    ; preds = %invoke.cont9
-  %cmp17 = icmp ult i8 %0, 91
+  %cmp17 = icmp samesign ult i8 %0, 91
   %cmp32.not = icmp eq i8 %0, 95
   %or.cond = or i1 %cmp17, %cmp32.not
   br i1 %or.cond, label %invoke.cont47, label %if.end
@@ -3657,7 +3657,7 @@ invoke.cont19:                                    ; preds = %invoke.cont9
   br i1 %cmp22, label %invoke.cont34, label %invoke.cont24
 
 invoke.cont24:                                    ; preds = %invoke.cont19
-  %cmp27 = icmp ugt i8 %0, 57
+  %cmp27 = icmp samesign ugt i8 %0, 57
   br i1 %cmp27, label %if.end, label %invoke.cont47
 
 invoke.cont34:                                    ; preds = %invoke.cont19

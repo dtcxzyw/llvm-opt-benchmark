@@ -155,7 +155,7 @@ thread-pre-split:                                 ; preds = %17, %.thread
   %93 = phi i32 [ 1, %92 ], [ %46, %.thread6 ]
   %94 = phi i32 [ %39, %92 ], [ %52, %.thread6 ]
   %95 = phi i32 [ 1, %92 ], [ 0, %.thread6 ]
-  %96 = icmp ult i32 %80, %72
+  %96 = icmp samesign ult i32 %80, %72
   br i1 %96, label %97, label %98
 
 97:                                               ; preds = %.thread7

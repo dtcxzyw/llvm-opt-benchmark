@@ -431,7 +431,7 @@ define void @_ZN32pxrInternal_v0_24__pxrReserved__24TfReportActiveErrorMarksEv()
   %.01.i.i.i.i.i = phi i32 [ %33, %.lr.ph.i.i.i.i.i ], [ %.sroa.0.02.i.i.i, %31 ]
   %33 = add nsw i32 %.01.i.i.i.i.i, -1
   call void @llvm.x86.sse2.pause()
-  %34 = icmp ugt i32 %.01.i.i.i.i.i, 1
+  %34 = icmp samesign ugt i32 %.01.i.i.i.i.i, 1
   br i1 %34, label %.lr.ph.i.i.i.i.i, label %_ZN3tbb6detail2d0L13machine_pauseEi.exit.i.i.i.i, !llvm.loop !6
 
 _ZN3tbb6detail2d0L13machine_pauseEi.exit.i.i.i.i: ; preds = %.lr.ph.i.i.i.i.i, %31

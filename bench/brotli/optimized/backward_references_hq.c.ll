@@ -2172,7 +2172,7 @@ for.body33.lr.ph:                                 ; preds = %GetInsertLengthCode
   %distance_cache = getelementptr inbounds i8, ptr %arrayidx.i276, i64 8
   %and2.i349 = shl nuw nsw i16 %retval.i.0, 3
   %shl.i350 = and i16 %and2.i349, 56
-  %cmp.i372 = icmp ult i16 %retval.i.0, 8
+  %cmp.i372 = icmp samesign ult i16 %retval.i.0, 8
   %23 = lshr i16 %retval.i.0, 3
   %narrow = mul nuw nsw i16 %23, 3
   %or.i351362 = or disjoint i16 %shl.i350, 7
@@ -2458,7 +2458,7 @@ GetCopyLengthCode.exit321:                        ; preds = %if.then13.i299, %if
   br i1 %or.cond1, label %if.then.i376, label %if.else.i354
 
 if.then.i376:                                     ; preds = %GetCopyLengthCode.exit321
-  %cmp11.i378 = icmp ult i16 %retval.i290.0, 8
+  %cmp11.i378 = icmp samesign ult i16 %retval.i290.0, 8
   %or15.i381 = or disjoint i16 %or.i351, 64
   %cond.i383 = select i1 %cmp11.i378, i16 %or.i351, i16 %or15.i381
   br label %CombineLengthCodes.exit387

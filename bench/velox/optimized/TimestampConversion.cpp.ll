@@ -108,7 +108,7 @@ land.rhs.i:                                       ; preds = %lor.lhs.false3
 
 _ZN8facebook5velox4util10isLeapYearEi.exit.thread5: ; preds = %land.rhs.i, %lor.lhs.false3
   %2 = phi i32 [ 365, %lor.lhs.false3 ], [ %spec.select7, %land.rhs.i ]
-  %cmp4 = icmp ule i32 %dayOfYear, %2
+  %cmp4 = icmp samesign ule i32 %dayOfYear, %2
   br label %return
 
 return:                                           ; preds = %_ZN8facebook5velox4util10isLeapYearEi.exit.thread5, %entry
@@ -527,11 +527,11 @@ _ZN8facebook5velox4util16isValidDayOfYearEii.exit: ; preds = %lor.lhs.false3.i
   %cmp4.i.i = icmp eq i32 %rem3.i.i, 0
   %or.cond6.i = or i1 %cmp2.not.i.i, %cmp4.i.i
   %spec.select7.i = select i1 %or.cond6.i, i32 366, i32 365
-  %cmp4.i.not = icmp ugt i32 %dayOfYear, %spec.select7.i
+  %cmp4.i.not = icmp samesign ugt i32 %dayOfYear, %spec.select7.i
   br i1 %cmp4.i.not, label %if.then, label %land.rhs.i.i.i
 
 _ZN8facebook5velox4util16isValidDayOfYearEii.exit.thread: ; preds = %lor.lhs.false3.i
-  %cmp4.i.not10 = icmp ugt i32 %dayOfYear, 365
+  %cmp4.i.not10 = icmp samesign ugt i32 %dayOfYear, 365
   br i1 %cmp4.i.not10, label %if.then, label %_ZN8facebook5velox4util11isValidDateEiii.exit.i
 
 if.then:                                          ; preds = %_ZN8facebook5velox4util16isValidDayOfYearEii.exit.thread, %entry, %_ZN8facebook5velox4util16isValidDayOfYearEii.exit

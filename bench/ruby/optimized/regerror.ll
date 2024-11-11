@@ -697,7 +697,7 @@ define dso_local void @onig_vsnprintf_with_pattern(ptr noundef %0, i32 noundef %
   %43 = load i8, ptr %.174103, align 1
   %44 = getelementptr i8, ptr %.172104, i64 1
   store i8 %43, ptr %.172104, align 1
-  %45 = icmp ugt i32 %.078102, 1
+  %45 = icmp samesign ugt i32 %.078102, 1
   br i1 %45, label %.lr.ph105, label %.loopexit89, !llvm.loop !10
 
 .loopexit:                                        ; preds = %.lr.ph, %.lr.ph99
@@ -775,7 +775,7 @@ select.unfold:                                    ; preds = %65, %67
   %73 = load i8, ptr %.477110, align 1
   store i8 %73, ptr %.5111, align 1
   %.5 = getelementptr i8, ptr %.5111, i64 1
-  %74 = icmp ugt i32 %.280109, 1
+  %74 = icmp samesign ugt i32 %.280109, 1
   br i1 %74, label %.lr.ph112, label %.loopexit89, !llvm.loop !13
 
 75:                                               ; preds = %58

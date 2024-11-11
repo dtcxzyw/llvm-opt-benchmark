@@ -204,7 +204,7 @@ define hidden range(i32 -1, 1) i32 @output_console(ptr noundef %0, ptr noundef %
   br label %59
 
 59:                                               ; preds = %58, %55
-  %60 = icmp ugt i32 %7, 1
+  %60 = icmp samesign ugt i32 %7, 1
   br i1 %60, label %61, label %.critedge
 
 61:                                               ; preds = %59
@@ -1444,7 +1444,7 @@ hwloc_get_nbobjs_by_type.exit54.thread:           ; preds = %hwloc_get_nbobjs_by
   br label %75
 
 47:                                               ; preds = %36
-  %48 = icmp ugt i32 %39, 1023
+  %48 = icmp samesign ugt i32 %39, 1023
   br i1 %48, label %49, label %57
 
 49:                                               ; preds = %47

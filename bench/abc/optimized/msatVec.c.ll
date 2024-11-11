@@ -468,7 +468,7 @@ define void @Msat_IntVecPushUniqueOrder(ptr nocapture noundef %0, i32 noundef %1
   %17 = load ptr, ptr %0, align 8
   %18 = getelementptr inbounds i32, ptr %17, i64 %13
   store i32 %12, ptr %18, align 4
-  %19 = icmp ugt i64 %indvars.iv, 2
+  %19 = icmp samesign ugt i64 %indvars.iv, 2
   br i1 %19, label %9, label %._crit_edge, !llvm.loop !7
 
 ._crit_edge:                                      ; preds = %16, %9, %3

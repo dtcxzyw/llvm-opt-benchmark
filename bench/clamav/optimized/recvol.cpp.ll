@@ -984,7 +984,7 @@ _Z5uiMsgIJRPwRA2048_wEEv14UIMESSAGE_CODEDpOT_.exit: ; preds = %_Z9uiMsgBaseIRPwJ
 
 239:                                              ; preds = %238
   %240 = add nsw i32 %223, -257
-  %or.cond12 = icmp ult i32 %240, -256
+  %or.cond12 = icmp samesign ult i32 %240, -256
   br i1 %or.cond12, label %.outer494, label %243, !llvm.loop !15
 
 241:                                              ; preds = %237
@@ -2567,7 +2567,7 @@ define void @_ZN11RecVolumes59ProcessRSEP11CommandDatajPKhjb(ptr nocapture nound
   %46 = getelementptr inbounds i8, ptr %28, i64 32
   store i64 %.04449, ptr %46, align 8
   %47 = add nuw nsw i64 %.04449, %21
-  %48 = icmp ugt i64 %47, %13
+  %48 = icmp samesign ugt i64 %47, %13
   %49 = icmp eq i64 %.04350, %23
   %or.cond = select i1 %48, i1 true, i1 %49
   %.0 = select i1 %or.cond, i64 %13, i64 %47
@@ -4144,7 +4144,7 @@ _ZN7RawReadD2Ev.exit:                             ; preds = %20, %22
   %64 = add nuw nsw i64 %.02643, 1
   %65 = load i32, ptr %44, align 8
   %66 = zext i32 %65 to i64
-  %67 = icmp ult i64 %64, %66
+  %67 = icmp samesign ult i64 %64, %66
   br i1 %67, label %.lr.ph, label %.preheader, !llvm.loop !49
 
 .lr.ph45:                                         ; preds = %.preheader, %73

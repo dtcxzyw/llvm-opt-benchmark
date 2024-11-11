@@ -3304,19 +3304,19 @@ define dso_local noundef zeroext range(i8 0, 25) i8 @drm_dp_dsc_sink_max_slice_c
   br i1 %29, label %30, label %.thread
 
 30:                                               ; preds = %27
-  %31 = icmp ult i8 %4, 64
+  %31 = icmp samesign ult i8 %4, 64
   br i1 %31, label %32, label %.thread
 
 32:                                               ; preds = %30
-  %33 = icmp ult i8 %4, 32
+  %33 = icmp samesign ult i8 %4, 32
   br i1 %33, label %34, label %.thread
 
 34:                                               ; preds = %32
-  %35 = icmp ult i8 %4, 16
+  %35 = icmp samesign ult i8 %4, 16
   br i1 %35, label %36, label %.thread
 
 36:                                               ; preds = %34
-  %37 = icmp ult i8 %4, 8
+  %37 = icmp samesign ult i8 %4, 8
   br i1 %37, label %38, label %.thread
 
 38:                                               ; preds = %36
@@ -4317,19 +4317,19 @@ define dso_local range(i32 0, 25) i32 @drm_dp_pcon_dsc_max_slices(ptr nocapture 
   br i1 %17, label %18, label %31
 
 18:                                               ; preds = %15
-  %19 = icmp ult i8 %3, 64
+  %19 = icmp samesign ult i8 %3, 64
   br i1 %19, label %20, label %31
 
 20:                                               ; preds = %18
-  %21 = icmp ult i8 %3, 32
+  %21 = icmp samesign ult i8 %3, 32
   br i1 %21, label %22, label %31
 
 22:                                               ; preds = %20
-  %23 = icmp ult i8 %3, 16
+  %23 = icmp samesign ult i8 %3, 16
   br i1 %23, label %24, label %31
 
 24:                                               ; preds = %22
-  %25 = icmp ult i8 %3, 8
+  %25 = icmp samesign ult i8 %3, 8
   br i1 %25, label %26, label %31
 
 26:                                               ; preds = %24

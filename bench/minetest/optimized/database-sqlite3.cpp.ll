@@ -843,11 +843,11 @@ _ZSt4endlIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_.exit: ; preds = %if.e
   br label %if.end73.sink.split
 
 if.else16:                                        ; preds = %land.lhs.true
-  %cmp18 = icmp ugt i64 %sub, 249
+  %cmp18 = icmp samesign ugt i64 %sub, 249
   br i1 %cmp18, label %land.lhs.true19, label %if.else55
 
 land.lhs.true19:                                  ; preds = %if.else16
-  %cmp21 = icmp ult i64 %sub8, 250
+  %cmp21 = icmp samesign ult i64 %sub8, 250
   br i1 %cmp21, label %if.then22, label %if.else29
 
 if.then22:                                        ; preds = %land.lhs.true19
@@ -929,11 +929,11 @@ _ZSt4endlIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_.exit232: ; preds = %i
   br label %if.end73.sink.split
 
 if.else29:                                        ; preds = %land.lhs.true19
-  %cmp31 = icmp ugt i64 %sub, 999
+  %cmp31 = icmp samesign ugt i64 %sub, 999
   br i1 %cmp31, label %land.lhs.true32, label %if.else55
 
 land.lhs.true32:                                  ; preds = %if.else29
-  %cmp34 = icmp ult i64 %sub8, 1000
+  %cmp34 = icmp samesign ult i64 %sub8, 1000
   br i1 %cmp34, label %if.then35, label %if.else42
 
 if.then35:                                        ; preds = %land.lhs.true32
@@ -1015,8 +1015,8 @@ _ZSt4endlIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_.exit252: ; preds = %i
   br label %if.end73.sink.split
 
 if.else42:                                        ; preds = %land.lhs.true32
-  %cmp44 = icmp ugt i64 %sub, 2999
-  %cmp47 = icmp ult i64 %sub8, 3000
+  %cmp44 = icmp samesign ugt i64 %sub, 2999
+  %cmp47 = icmp samesign ult i64 %sub8, 3000
   %or.cond = and i1 %cmp47, %cmp44
   br i1 %or.cond, label %if.then48, label %if.else55
 

@@ -2966,7 +2966,7 @@ while.body68:                                     ; preds = %while.cond66.prehea
   %zeroCount.279 = phi i32 [ %dec, %while.body68 ], [ %zeroCount.0, %while.cond66.preheader ]
   %mul69 = mul nuw nsw i64 %d.180, 10
   %dec = add nsw i32 %zeroCount.279, -1
-  %cmp67 = icmp ugt i32 %zeroCount.279, 1
+  %cmp67 = icmp samesign ugt i32 %zeroCount.279, 1
   br i1 %cmp67, label %while.body68, label %while.end70, !llvm.loop !16
 
 while.end70:                                      ; preds = %while.body68, %while.cond66.preheader

@@ -224,7 +224,7 @@ define dso_local void @pps_event(ptr noundef %0, ptr nocapture noundef readonly 
   br i1 %49, label %50, label %64
 
 50:                                               ; preds = %46
-  %51 = icmp ult i32 %47, -1000000000
+  %51 = icmp samesign ult i32 %47, -1000000000
   %52 = sext i1 %51 to i32
   %53 = zext i1 %51 to i32
   %54 = tail call i32 @llvm.usub.sat.i32(i32 -1000000000, i32 %47)
@@ -305,7 +305,7 @@ define dso_local void @pps_event(ptr noundef %0, ptr nocapture noundef readonly 
   br i1 %105, label %106, label %120
 
 106:                                              ; preds = %102
-  %107 = icmp ult i32 %103, -1000000000
+  %107 = icmp samesign ult i32 %103, -1000000000
   %108 = sext i1 %107 to i32
   %109 = zext i1 %107 to i32
   %110 = tail call i32 @llvm.usub.sat.i32(i32 -1000000000, i32 %103)

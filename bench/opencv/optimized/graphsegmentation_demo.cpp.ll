@@ -226,7 +226,7 @@ define hidden noundef range(i32 -3, 1) i32 @main(i32 noundef %0, ptr nocapture n
 
 40:                                               ; preds = %2
   call void @_ZN2cv8ximgproc12segmentation23createGraphSegmentationEdfi(ptr dead_on_unwind nonnull writable sret(%"struct.cv::Ptr") align 8 %7, double noundef 5.000000e-01, float noundef 3.000000e+02, i32 noundef 100)
-  %41 = icmp ugt i32 %0, 3
+  %41 = icmp samesign ugt i32 %0, 3
   br i1 %41, label %42, label %.thread57
 
 42:                                               ; preds = %40
@@ -262,7 +262,7 @@ define hidden noundef range(i32 -3, 1) i32 @main(i32 noundef %0, ptr nocapture n
           to label %62 unwind label %50
 
 62:                                               ; preds = %53
-  %63 = icmp ugt i32 %0, 5
+  %63 = icmp samesign ugt i32 %0, 5
   br i1 %63, label %64, label %.thread57
 
 64:                                               ; preds = %62

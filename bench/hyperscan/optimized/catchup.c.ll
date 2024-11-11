@@ -752,7 +752,7 @@ if.end.i60:                                       ; preds = %entry
   br i1 %cmp.i82, label %if.then2.i66, label %if.else.i63
 
 if.then2.i66:                                     ; preds = %if.end.i60
-  %cmp.i292 = icmp ult i32 %2, 65
+  %cmp.i292 = icmp samesign ult i32 %2, 65
   br i1 %cmp.i292, label %if.then.i298, label %if.end5.i293
 
 if.then.i298:                                     ; preds = %if.then2.i66
@@ -1081,7 +1081,7 @@ do.end5.lr.ph:                                    ; preds = %mmbit_iterate_bound
   %35 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %sub.i888, i1 true)
   %idxprom.i889 = zext nneg i32 %35 to i64
   %arrayidx.i890 = getelementptr inbounds [32 x i8], ptr @mmbit_keyshift_lut, i64 0, i64 %idxprom.i889
-  %cmp.i321 = icmp ult i32 %2, 65
+  %cmp.i321 = icmp samesign ult i32 %2, 65
   %36 = and i32 %2, 448
   %div31.i339405 = lshr exact i32 %36, 3
   %idx.ext32.i340 = zext nneg i32 %div31.i339405 to i64
@@ -2898,7 +2898,7 @@ if.end.i.i:                                       ; preds = %entry
 
 if.then2.i.i:                                     ; preds = %if.end.i.i
   %conv.i58 = zext nneg i32 %3 to i64
-  %cmp.i59 = icmp ult i32 %3, 65
+  %cmp.i59 = icmp samesign ult i32 %3, 65
   br i1 %cmp.i59, label %if.then.i70, label %if.end5.i60
 
 if.then.i70:                                      ; preds = %if.then2.i.i
@@ -3277,7 +3277,7 @@ if.end.i301.lr.ph:                                ; preds = %while.cond.i.prehea
   %idxprom.i.i694 = zext nneg i32 %43 to i64
   %arrayidx.i.i695 = getelementptr inbounds [32 x i8], ptr @mmbit_maxlevel_direct_lut, i64 0, i64 %idxprom.i.i694
   %conv.i625 = zext nneg i32 %3 to i64
-  %cmp.i626 = icmp ult i32 %3, 65
+  %cmp.i626 = icmp samesign ult i32 %3, 65
   %div.i627864 = lshr i32 %3, 6
   %rem.i = and i64 %conv.i625, 63
   %tobool70.i.not = icmp eq i64 %rem.i, 0
@@ -3541,7 +3541,7 @@ while.body.i699:                                  ; preds = %while.body.i699.bac
   %key_rem.i.1 = phi i32 [ %narrow, %if.else.i306 ], [ %key_rem.i.1.be, %while.body.i699.backedge ]
   %key.i690.1 = phi i32 [ %shr.i723, %if.else.i306 ], [ %key.i690.1.be, %while.body.i699.backedge ]
   %level.i689.1 = phi i32 [ %conv.i.i696, %if.else.i306 ], [ %level.i689.1.be, %while.body.i699.backedge ]
-  %cmp3.i = icmp ult i32 %key_rem.i.1, 64
+  %cmp3.i = icmp samesign ult i32 %key_rem.i.1, 64
   br i1 %cmp3.i, label %if.then5.i705, label %if.end19.i
 
 if.then5.i705:                                    ; preds = %while.body.i699
@@ -6824,7 +6824,7 @@ if.end.i.i:                                       ; preds = %entry
 
 if.then2.i.i:                                     ; preds = %if.end.i.i
   %conv.i20 = zext nneg i32 %3 to i64
-  %cmp.i21 = icmp ult i32 %3, 65
+  %cmp.i21 = icmp samesign ult i32 %3, 65
   br i1 %cmp.i21, label %if.then.i32, label %if.end5.i22
 
 if.then.i32:                                      ; preds = %if.then2.i.i
@@ -7203,7 +7203,7 @@ if.end.i263.lr.ph:                                ; preds = %while.cond.i.prehea
   %idxprom.i.i656 = zext nneg i32 %43 to i64
   %arrayidx.i.i657 = getelementptr inbounds [32 x i8], ptr @mmbit_maxlevel_direct_lut, i64 0, i64 %idxprom.i.i656
   %conv.i587 = zext nneg i32 %3 to i64
-  %cmp.i588 = icmp ult i32 %3, 65
+  %cmp.i588 = icmp samesign ult i32 %3, 65
   %div.i589827 = lshr i32 %3, 6
   %rem.i = and i64 %conv.i587, 63
   %tobool70.i.not = icmp eq i64 %rem.i, 0
@@ -7467,7 +7467,7 @@ while.body.i661:                                  ; preds = %while.body.i661.bac
   %key_rem.i.1 = phi i32 [ %narrow, %if.else.i268 ], [ %key_rem.i.1.be, %while.body.i661.backedge ]
   %key.i652.1 = phi i32 [ %shr.i685, %if.else.i268 ], [ %key.i652.1.be, %while.body.i661.backedge ]
   %level.i651.1 = phi i32 [ %conv.i.i658, %if.else.i268 ], [ %level.i651.1.be, %while.body.i661.backedge ]
-  %cmp3.i = icmp ult i32 %key_rem.i.1, 64
+  %cmp3.i = icmp samesign ult i32 %key_rem.i.1, 64
   br i1 %cmp3.i, label %if.then5.i667, label %if.end19.i
 
 if.then5.i667:                                    ; preds = %while.body.i661

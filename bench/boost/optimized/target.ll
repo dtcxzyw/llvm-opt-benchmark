@@ -10545,7 +10545,7 @@ define linkonce_odr hidden noundef i64 @_ZNK5boost4asio6detail11timer_queueINS1_
 15:                                               ; preds = %13
   %16 = sub nuw nsw i64 9223372036854775807, %.sroa.0.0.copyload.i.i.i.i
   %17 = sub nsw i64 0, %9
-  %18 = icmp ult i64 %16, %17
+  %18 = icmp samesign ult i64 %16, %17
   %19 = sub nsw i64 %.sroa.0.0.copyload.i.i.i.i, %9
   br i1 %18, label %_ZN5boost4asio6detail18chrono_time_traitsINSt6chrono3_V212steady_clockENS0_11wait_traitsIS5_EEE8subtractERKNS3_10time_pointIS5_NS3_8durationIlSt5ratioILl1ELl1000000000EEEEEESG_.exit.thread7.thread, label %_ZN5boost4asio6detail18chrono_time_traitsINSt6chrono3_V212steady_clockENS0_11wait_traitsIS5_EEE8subtractERKNS3_10time_pointIS5_NS3_8durationIlSt5ratioILl1ELl1000000000EEEEEESG_.exit.thread7
 
@@ -10604,7 +10604,7 @@ define linkonce_odr hidden noundef i64 @_ZNK5boost4asio6detail11timer_queueINS1_
 15:                                               ; preds = %13
   %16 = sub nuw nsw i64 9223372036854775807, %.sroa.0.0.copyload.i.i.i.i
   %17 = sub nsw i64 0, %9
-  %18 = icmp ult i64 %16, %17
+  %18 = icmp samesign ult i64 %16, %17
   %19 = sub nsw i64 %.sroa.0.0.copyload.i.i.i.i, %9
   br i1 %18, label %_ZN5boost4asio6detail18chrono_time_traitsINSt6chrono3_V212steady_clockENS0_11wait_traitsIS5_EEE8subtractERKNS3_10time_pointIS5_NS3_8durationIlSt5ratioILl1ELl1000000000EEEEEESG_.exit.thread7.thread, label %_ZN5boost4asio6detail18chrono_time_traitsINSt6chrono3_V212steady_clockENS0_11wait_traitsIS5_EEE8subtractERKNS3_10time_pointIS5_NS3_8durationIlSt5ratioILl1ELl1000000000EEEEEESG_.exit.thread7
 

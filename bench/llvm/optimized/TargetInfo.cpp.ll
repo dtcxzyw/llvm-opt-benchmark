@@ -2047,7 +2047,7 @@ _ZNK4llvm9StringRef5splitEc.exit:                 ; preds = %58, %59
   br label %_ZNK4llvm9StringRef11starts_withES0_.exit.thread
 
 _ZNK4llvm9StringRef11starts_withES0_.exit32.thread109: ; preds = %42
-  %.not.i39 = icmp ult i64 %.sroa.speculated.i.i.i.i, 5
+  %.not.i39 = icmp samesign ult i64 %.sroa.speculated.i.i.i.i, 5
   br i1 %.not.i39, label %_ZNK4llvm9StringRef11starts_withES0_.exit50.thread111, label %_ZNK4llvm9StringRef11starts_withES0_.exit41
 
 _ZNK4llvm9StringRef11starts_withES0_.exit41:      ; preds = %_ZNK4llvm9StringRef11starts_withES0_.exit32, %_ZNK4llvm9StringRef11starts_withES0_.exit.thread108, %_ZNK4llvm9StringRef11starts_withES0_.exit32.thread109
@@ -2177,7 +2177,7 @@ _ZNK4llvm9StringRef5splitES0_.exit54:             ; preds = %108, %109
   br label %_ZNK4llvm9StringRef11starts_withES0_.exit.thread
 
 _ZNK4llvm9StringRef11starts_withES0_.exit50.thread111: ; preds = %_ZNK4llvm9StringRef11starts_withES0_.exit32.thread109
-  %.not.i61 = icmp ult i64 %.sroa.speculated.i.i.i.i, 3
+  %.not.i61 = icmp samesign ult i64 %.sroa.speculated.i.i.i.i, 3
   br i1 %.not.i61, label %_ZNK4llvm9StringRef11starts_withES0_.exit63.thread112, label %_ZNK4llvm9StringRef11starts_withES0_.exit63
 
 _ZNK4llvm9StringRef11starts_withES0_.exit63:      ; preds = %_ZNK4llvm9StringRef11starts_withES0_.exit50, %_ZNK4llvm9StringRef11starts_withES0_.exit50.thread111
@@ -3387,7 +3387,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZNK5clang10TargetInfo16hasBuilti
   br i1 %or.cond, label %_ZN4llvm13isPowerOf2_64Em.exit, label %7
 
 7:                                                ; preds = %3
-  %.not6 = icmp ugt i64 %1, 8
+  %.not6 = icmp samesign ugt i64 %1, 8
   br i1 %.not6, label %8, label %_ZN4llvm13isPowerOf2_64Em.exit
 
 8:                                                ; preds = %7

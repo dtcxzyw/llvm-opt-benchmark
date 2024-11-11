@@ -1883,7 +1883,7 @@ _Z15wallcycle_startP13gmx_wallcycle16WallCycleCounter.exit170._crit_edge: ; pred
   %901 = getelementptr inbounds i8, ptr %.sroa.05.07.i.i.i.i.i.i, i64 12
   %902 = getelementptr inbounds i8, ptr %.sroa.0.08.i.i.i.i.i.i, i64 12
   %903 = add nsw i64 %.09.i.i.i.i.i.i, -1
-  %904 = icmp ugt i64 %.09.i.i.i.i.i.i, 1
+  %904 = icmp samesign ugt i64 %.09.i.i.i.i.i.i, 1
   br i1 %904, label %.lr.ph.i.i.i.i.i.i, label %_ZSt4copyIN3gmx12ArrayRefIterINS0_11BasicVectorIfEEEES4_ET0_T_S6_S5_.exit.i, !llvm.loop !8
 
 _ZSt4copyIN3gmx12ArrayRefIterINS0_11BasicVectorIfEEEES4_ET0_T_S6_S5_.exit.i: ; preds = %.lr.ph.i.i.i.i.i.i, %.thread212

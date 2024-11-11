@@ -2251,7 +2251,7 @@ define void @_ZN15ockam_multiaddr9MultiAddr14try_from_bytes17h02860ebc10458002E(
   unreachable
 
 64:                                               ; preds = %51
-  %65 = icmp ult i64 %54, %53
+  %65 = icmp samesign ult i64 %54, %53
   br i1 %65, label %66, label %"_ZN7tinyvec8arrayvec17ArrayVec$LT$A$GT$7set_len17h676620c15527aed5E.exit.i.i"
 
 66:                                               ; preds = %64
@@ -3127,7 +3127,7 @@ define void @_ZN15ockam_multiaddr9MultiAddr16push_front_value17h977fa3f501913626
   unreachable
 
 102:                                              ; preds = %89
-  %103 = icmp ult i64 %92, %91
+  %103 = icmp samesign ult i64 %92, %91
   br i1 %103, label %104, label %"_ZN7tinyvec8arrayvec17ArrayVec$LT$A$GT$7set_len17h676620c15527aed5E.exit.i.i"
 
 104:                                              ; preds = %102

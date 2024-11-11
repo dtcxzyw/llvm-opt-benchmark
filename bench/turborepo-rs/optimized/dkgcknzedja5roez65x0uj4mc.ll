@@ -842,7 +842,7 @@ _RNvXs2U_NtNtCs1LoaDTb72WA_4core5slice4iterINtB6_4IterhENtNtNtNtBa_4iter6traits8
   %35 = and i8 %33, 63
   %36 = zext nneg i8 %35 to i32
   %37 = or disjoint i32 %34, %36
-  %38 = icmp ugt i8 %27, -33
+  %38 = icmp samesign ugt i8 %27, -33
   br i1 %38, label %_RNvXs2U_NtNtCs1LoaDTb72WA_4core5slice4iterINtB6_4IterhENtNtNtNtBa_4iter6traits8iterator8Iterator4nextCsff1zCjKRl2o_13turborepo_env.exit14.i.i.i, label %62
 
 39:                                               ; preds = %25
@@ -860,7 +860,7 @@ _RNvXs2U_NtNtCs1LoaDTb72WA_4core5slice4iterINtB6_4IterhENtNtNtNtBa_4iter6traits8
   %47 = or disjoint i32 %44, %46
   %48 = shl nuw nsw i32 %30, 12
   %49 = or disjoint i32 %47, %48
-  %50 = icmp ugt i8 %27, -17
+  %50 = icmp samesign ugt i8 %27, -17
   br i1 %50, label %"_ZN81_$LT$core..str..iter..Chars$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hfe36c38de9a872aaE.exit.i", label %62
 
 "_ZN81_$LT$core..str..iter..Chars$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hfe36c38de9a872aaE.exit.i": ; preds = %_RNvXs2U_NtNtCs1LoaDTb72WA_4core5slice4iterINtB6_4IterhENtNtNtNtBa_4iter6traits8iterator8Iterator4nextCsff1zCjKRl2o_13turborepo_env.exit14.i.i.i

@@ -1667,7 +1667,7 @@ define noundef range(i32 0, 3) i32 @_Z24frontend_verilog_yyparsev() local_unname
   br label %_ZL10yydestructPKc15yysymbol_kind_tP24FRONTEND_VERILOG_YYSTYPEP24FRONTEND_VERILOG_YYLTYPE.exit
 
 308:                                              ; preds = %305
-  %309 = icmp ult i32 %.5, 403
+  %309 = icmp samesign ult i32 %.5, 403
   br i1 %309, label %310, label %315
 
 310:                                              ; preds = %308

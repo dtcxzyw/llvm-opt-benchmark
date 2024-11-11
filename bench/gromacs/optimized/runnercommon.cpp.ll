@@ -1959,7 +1959,7 @@ define void @_ZN3gmx30TrajectoryAnalysisRunnerCommon4Impl19initFrameIndexGroupEv
   %58 = getelementptr inbounds i8, ptr %.sroa.05.07.i.i.i.i.i, i64 4
   %59 = getelementptr inbounds i8, ptr %.09.i.i.i.i.i, i64 4
   %60 = add nsw i64 %.048.i.i.i.i.i, -1
-  %61 = icmp ugt i64 %.048.i.i.i.i.i, 1
+  %61 = icmp samesign ugt i64 %.048.i.i.i.i.i, 1
   br i1 %61, label %.lr.ph.i.i.i.i.i, label %_ZSt4copyIN3gmx12ArrayRefIterIKiEEPiET0_T_S6_S5_.exit, !llvm.loop !7
 
 _ZSt4copyIN3gmx12ArrayRefIterIKiEEPiET0_T_S6_S5_.exit: ; preds = %.lr.ph.i.i.i.i.i, %33, %1

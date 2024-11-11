@@ -2233,7 +2233,7 @@ define dso_local noundef i64 @rb_file_s_expand_path(i32 noundef %0, ptr nocaptur
 
 rb_check_arity.exit:                              ; preds = %2
   %5 = load i64, ptr %1, align 8
-  %6 = icmp ugt i32 %0, 1
+  %6 = icmp samesign ugt i32 %0, 1
   br i1 %6, label %7, label %10
 
 7:                                                ; preds = %rb_check_arity.exit
@@ -2354,7 +2354,7 @@ define dso_local noundef i64 @rb_file_s_absolute_path(i32 noundef %0, ptr nocapt
 
 rb_check_arity.exit:                              ; preds = %2
   %5 = load i64, ptr %1, align 8
-  %6 = icmp ugt i32 %0, 1
+  %6 = icmp samesign ugt i32 %0, 1
   br i1 %6, label %7, label %10
 
 7:                                                ; preds = %rb_check_arity.exit
@@ -5907,7 +5907,7 @@ define internal noundef i64 @rb_file_s_mkfifo(i32 noundef %0, ptr nocapture noun
   unreachable
 
 rb_check_arity.exit:                              ; preds = %3
-  %11 = icmp ugt i32 %0, 1
+  %11 = icmp samesign ugt i32 %0, 1
   br i1 %11, label %12, label %17
 
 12:                                               ; preds = %rb_check_arity.exit
@@ -6004,7 +6004,7 @@ define internal noundef i64 @s_expand_path(i32 noundef %0, ptr nocapture noundef
 
 rb_check_arity.exit.i:                            ; preds = %3
   %6 = load i64, ptr %1, align 8
-  %7 = icmp ugt i32 %0, 1
+  %7 = icmp samesign ugt i32 %0, 1
   br i1 %7, label %8, label %rb_file_s_expand_path.exit
 
 8:                                                ; preds = %rb_check_arity.exit.i
@@ -6030,7 +6030,7 @@ define internal noundef i64 @s_absolute_path(i32 noundef %0, ptr nocapture nound
 
 rb_check_arity.exit.i:                            ; preds = %3
   %6 = load i64, ptr %1, align 8
-  %7 = icmp ugt i32 %0, 1
+  %7 = icmp samesign ugt i32 %0, 1
   br i1 %7, label %8, label %rb_file_s_absolute_path.exit
 
 8:                                                ; preds = %rb_check_arity.exit.i
@@ -11709,8 +11709,8 @@ define internal fastcc void @test_check(i32 noundef range(i32 1, 3) %0, i32 noun
   %5 = alloca ptr, align 8
   %6 = add nuw nsw i32 %0, 1
   %7 = icmp sle i32 %1, %0
-  %8 = icmp ugt i32 %1, %6
-  %or.cond = or i1 %7, %8
+  %8 = icmp samesign ugt i32 %1, %6
+  %or.cond = select i1 %7, i1 true, i1 %8
   br i1 %or.cond, label %9, label %rb_check_arity.exit.preheader.preheader
 
 rb_check_arity.exit.preheader.preheader:          ; preds = %3

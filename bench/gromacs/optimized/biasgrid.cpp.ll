@@ -735,7 +735,7 @@ define noundef i32 @_ZN3gmx26multiDimArrayIndexToLinearEPKiiS1_(ptr nocapture no
   %10 = getelementptr inbounds i32, ptr %2, i64 %indvars.iv.next
   %11 = load i32, ptr %10, align 4
   %12 = mul nsw i32 %11, %.01112
-  %13 = icmp ugt i64 %indvars.iv, 1
+  %13 = icmp samesign ugt i64 %indvars.iv, 1
   br i1 %13, label %.lr.ph, label %._crit_edge, !llvm.loop !12
 
 ._crit_edge:                                      ; preds = %.lr.ph, %3
@@ -794,7 +794,7 @@ define noundef i32 @_ZN3gmx25multiDimGridIndexToLinearERKNS_8BiasGridEPKi(ptr no
   %23 = getelementptr inbounds i32, ptr %3, i64 %indvars.iv.next.i.i
   %24 = load i32, ptr %23, align 4
   %25 = mul nsw i32 %24, %.01112.i.i
-  %26 = icmp ugt i64 %indvars.iv.i.i, 1
+  %26 = icmp samesign ugt i64 %indvars.iv.i.i, 1
   br i1 %26, label %.lr.ph.i.i, label %_ZN3gmx12_GLOBAL__N_125multiDimGridIndexToLinearENS_8ArrayRefIKNS_8GridAxisEEEPKi.exit, !llvm.loop !12
 
 _ZN3gmx12_GLOBAL__N_125multiDimGridIndexToLinearENS_8ArrayRefIKNS_8GridAxisEEEPKi.exit: ; preds = %.lr.ph.i.i, %2, %._crit_edge.i
@@ -920,7 +920,7 @@ _ZN3gmx12_GLOBAL__N_118gridToSubgridIndexERKNS_8BiasGridEPKiS5_iPi.exit: ; preds
   %65 = phi ptr [ %67, %.lr.ph.i18 ], [ %59, %.lr.ph.preheader.i ]
   %indvars.iv.next.i2028 = phi i64 [ %indvars.iv.next.i20, %.lr.ph.i18 ], [ %indvars.iv.next.i2026, %.lr.ph.preheader.i ]
   %indvars.iv.i1927 = phi i64 [ %indvars.iv.next.i2028, %.lr.ph.i18 ], [ %58, %.lr.ph.preheader.i ]
-  %66 = icmp ugt i64 %indvars.iv.i1927, 1
+  %66 = icmp samesign ugt i64 %indvars.iv.i1927, 1
   br i1 %66, label %.lr.ph.i18, label %_ZN3gmx12_GLOBAL__N_119stepInMultiDimArrayEiPKiPi.exit.thread
 
 .lr.ph.i18:                                       ; preds = %.lr.ph
@@ -1067,7 +1067,7 @@ define internal fastcc noundef zeroext i1 @_ZN3gmx12_GLOBAL__N_118subgridToGridI
   %56 = getelementptr inbounds i32, ptr %4, i64 %indvars.iv.next.i.i.i
   %57 = load i32, ptr %56, align 4
   %58 = mul nsw i32 %57, %.01112.i.i.i
-  %59 = icmp ugt i64 %indvars.iv.i.i.i, 1
+  %59 = icmp samesign ugt i64 %indvars.iv.i.i.i, 1
   br i1 %59, label %.lr.ph.i.i.i, label %_ZN3gmx25multiDimGridIndexToLinearERKNS_8BiasGridEPKi.exit, !llvm.loop !12
 
 _ZN3gmx25multiDimGridIndexToLinearERKNS_8BiasGridEPKi.exit: ; preds = %.lr.ph.i.i.i, %._crit_edge, %._crit_edge.i.i
@@ -1453,7 +1453,7 @@ define noundef i32 @_ZNK3gmx8BiasGrid12nearestIndexEPKd(ptr nocapture noundef no
   %30 = getelementptr inbounds i32, ptr %3, i64 %indvars.iv.next.i.i.i
   %31 = load i32, ptr %30, align 4
   %32 = mul nsw i32 %31, %.01112.i.i.i
-  %33 = icmp ugt i64 %indvars.iv.i.i.i, 1
+  %33 = icmp samesign ugt i64 %indvars.iv.i.i.i, 1
   br i1 %33, label %.lr.ph.i.i.i, label %_ZN3gmxL21getNearestIndexInGridEPKdNS_8ArrayRefIKNS_8GridAxisEEE.exit, !llvm.loop !12
 
 _ZN3gmxL21getNearestIndexInGridEPKdNS_8ArrayRefIKNS_8GridAxisEEE.exit: ; preds = %.lr.ph.i.i.i, %._crit_edge.thread.i, %._crit_edge.i.i
@@ -1611,7 +1611,7 @@ _ZN3gmx12_GLOBAL__N_129centerPeriodicValueAroundZeroEdd.exit: ; preds = %51, %53
   %78 = phi ptr [ %80, %.lr.ph.i ], [ %71, %.lr.ph.preheader.i ]
   %indvars.iv.next.i42 = phi i64 [ %indvars.iv.next.i, %.lr.ph.i ], [ %indvars.iv.next.i40, %.lr.ph.preheader.i ]
   %indvars.iv.i41 = phi i64 [ %indvars.iv.next.i42, %.lr.ph.i ], [ %70, %.lr.ph.preheader.i ]
-  %79 = icmp ugt i64 %indvars.iv.i41, 1
+  %79 = icmp samesign ugt i64 %indvars.iv.i41, 1
   br i1 %79, label %.lr.ph.i, label %_ZN3gmx12_GLOBAL__N_119stepInMultiDimArrayEiPKiPi.exit
 
 .lr.ph.i:                                         ; preds = %.lr.ph43
@@ -2463,7 +2463,7 @@ _ZN3gmx12_GLOBAL__N_117indexWithinPeriodEii.exit.i.i: ; preds = %221, %219, %209
   %281 = getelementptr inbounds i32, ptr %6, i64 %indvars.iv.next.i.i.i.i105
   %282 = load i32, ptr %281, align 4
   %283 = mul nsw i32 %282, %.01112.i.i.i.i104
-  %284 = icmp ugt i64 %indvars.iv.i.i.i.i102, 1
+  %284 = icmp samesign ugt i64 %indvars.iv.i.i.i.i102, 1
   br i1 %284, label %.lr.ph.i.i.i.i101, label %_ZN3gmx12_GLOBAL__N_118subgridToGridIndexERKNS_8BiasGridEPKiS5_Pi.exit106, !llvm.loop !12
 
 _ZN3gmx12_GLOBAL__N_118subgridToGridIndexERKNS_8BiasGridEPKiS5_Pi.exit106.thread: ; preds = %.thread.i83, %247, %256, %264
@@ -2502,7 +2502,7 @@ _ZN3gmx12_GLOBAL__N_118subgridToGridIndexERKNS_8BiasGridEPKiS5_Pi.exit106: ; pre
   %293 = phi ptr [ %295, %.lr.ph.i18.i ], [ %286, %.lr.ph.preheader.i.i ]
   %indvars.iv.next.i2028.i = phi i64 [ %indvars.iv.next.i20.i, %.lr.ph.i18.i ], [ %indvars.iv.next.i2026.i, %.lr.ph.preheader.i.i ]
   %indvars.iv.i1927.i = phi i64 [ %indvars.iv.next.i2028.i, %.lr.ph.i18.i ], [ %285, %.lr.ph.preheader.i.i ]
-  %294 = icmp ugt i64 %indvars.iv.i1927.i, 1
+  %294 = icmp samesign ugt i64 %indvars.iv.i1927.i, 1
   br i1 %294, label %.lr.ph.i18.i, label %.noexc63.thread
 
 .lr.ph.i18.i:                                     ; preds = %.lr.ph.i65
@@ -2621,7 +2621,7 @@ _ZN3gmx12_GLOBAL__N_118subgridToGridIndexERKNS_8BiasGridEPKiS5_Pi.exit106: ; pre
   %344 = getelementptr inbounds i32, ptr %8, i64 %indvars.iv.next.i.i.i.i
   %345 = load i32, ptr %344, align 4
   %346 = mul nsw i32 %345, %.01112.i.i.i.i
-  %347 = icmp ugt i64 %indvars.iv.i.i.i.i, 1
+  %347 = icmp samesign ugt i64 %indvars.iv.i.i.i.i, 1
   br i1 %347, label %.lr.ph.i.i.i.i, label %_ZN3gmx12_GLOBAL__N_118subgridToGridIndexERKNS_8BiasGridEPKiS5_Pi.exit.thread, !llvm.loop !12
 
 _ZN3gmx12_GLOBAL__N_118subgridToGridIndexERKNS_8BiasGridEPKiS5_Pi.exit.thread: ; preds = %.lr.ph.i.i.i.i, %._crit_edge.i
@@ -4015,7 +4015,7 @@ _ZN3gmxL22pointDistanceAlongAxisERKNS_8GridAxisEdd.exit.i138: ; preds = %259, %2
   %295 = getelementptr inbounds i32, ptr %7, i64 %indvars.iv.next.i.i.i
   %296 = load i32, ptr %295, align 4
   %297 = mul nsw i32 %296, %.01112.i.i.i
-  %298 = icmp ugt i64 %indvars.iv.i.i.i, 1
+  %298 = icmp samesign ugt i64 %indvars.iv.i.i.i, 1
   br i1 %298, label %.lr.ph.i.i.i, label %.loopexit, !llvm.loop !12
 
 .loopexit:                                        ; preds = %.lr.ph.i.i.i, %._crit_edge.i.i, %.thread227

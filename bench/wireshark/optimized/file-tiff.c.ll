@@ -1204,7 +1204,7 @@ switch.lookup:                                    ; preds = %424
   br label %dissect_tiff_tag_unknown.exit.i.i
 
 436:                                              ; preds = %switch.lookup
-  %437 = icmp ult i32 %431, 5
+  %437 = icmp samesign ult i32 %431, 5
   br i1 %437, label %438, label %439
 
 438:                                              ; preds = %436
@@ -1379,7 +1379,7 @@ tiff_data_len.exit.thread:                        ; preds = %switch.lookup
   br label %.loopexit
 
 22:                                               ; preds = %switch.lookup
-  %23 = icmp ult i32 %19, 5
+  %23 = icmp samesign ult i32 %19, 5
   br i1 %23, label %24, label %25
 
 24:                                               ; preds = %22

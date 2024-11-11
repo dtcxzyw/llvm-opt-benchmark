@@ -1531,7 +1531,7 @@ define hidden noundef ptr @_Z13make_log_namePKcS0_(ptr noundef %0, ptr noundef r
   br label %13
 
 13:                                               ; preds = %.sink.split.i, %.lr.ph.i
-  %14 = icmp ugt i64 %indvars.iv.i, 1
+  %14 = icmp samesign ugt i64 %indvars.iv.i, 1
   br i1 %14, label %.lr.ph.i, label %_ZL19get_datetime_stringPcm.exit, !llvm.loop !11
 
 _ZL19get_datetime_stringPcm.exit:                 ; preds = %13, %2

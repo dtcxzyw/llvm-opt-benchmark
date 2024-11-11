@@ -3488,7 +3488,7 @@ define internal fastcc i32 @parameter_value_q(ptr noundef %0, ptr noundef %1, pt
   br i1 %or.cond3, label %11, label %19
 
 11:                                               ; preds = %5
-  %12 = icmp ult i32 %7, 101
+  %12 = icmp samesign ult i32 %7, 101
   %13 = call ptr @wmem_packet_scope() #4
   %. = select i1 %12, i32 -1, i32 -100
   %.str.854..str.855 = select i1 %12, ptr @.str.854, ptr @.str.855
@@ -3587,7 +3587,7 @@ define internal fastcc void @add_headers(ptr noundef %0, ptr noundef %1, i32 nou
   br label %proto_item_set_hidden.exit
 
 44:                                               ; preds = %35
-  %45 = icmp ugt i8 %17, 31
+  %45 = icmp samesign ugt i8 %17, 31
   br i1 %45, label %46, label %132
 
 46:                                               ; preds = %44
@@ -4120,7 +4120,7 @@ define internal i32 @wkh_age(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr
   store i32 1, ptr %7, align 4
   %42 = add i32 %2, 2
   %43 = add i32 %42, %41
-  %44 = icmp ult i8 %9, 5
+  %44 = icmp samesign ult i8 %9, 5
   br i1 %44, label %45, label %65
 
 45:                                               ; preds = %39
@@ -5091,7 +5091,7 @@ define internal i32 @wkh_if_range(ptr noundef %0, ptr noundef %1, i32 noundef %2
   store i32 1, ptr %7, align 4
   %39 = add i32 %2, 2
   %40 = add i32 %39, %38
-  %41 = icmp ult i8 %10, 5
+  %41 = icmp samesign ult i8 %10, 5
   br i1 %41, label %42, label %60
 
 42:                                               ; preds = %36
@@ -6135,7 +6135,7 @@ define internal i32 @wkh_bearer_indication(ptr noundef %0, ptr noundef %1, i32 n
   store i32 1, ptr %7, align 4
   %46 = add i32 %2, 2
   %47 = add i32 %46, %45
-  %48 = icmp ult i8 %10, 5
+  %48 = icmp samesign ult i8 %10, 5
   br i1 %48, label %49, label %60
 
 49:                                               ; preds = %43
@@ -7602,7 +7602,7 @@ define internal fastcc i32 @wkh_integer_lookup_or_text_value_func(ptr noundef %0
   store i32 1, ptr %11, align 4
   %46 = add i32 %2, 2
   %47 = add i32 %46, %45
-  %48 = icmp ult i8 %13, 5
+  %48 = icmp samesign ult i8 %13, 5
   br i1 %48, label %49, label %57
 
 49:                                               ; preds = %43
@@ -7687,7 +7687,7 @@ define internal fastcc i32 @wkh_integer_value_header_func(ptr noundef %0, ptr no
   store i32 1, ptr %9, align 4
   %43 = add i32 %2, 2
   %44 = add i32 %43, %42
-  %45 = icmp ult i8 %11, 5
+  %45 = icmp samesign ult i8 %11, 5
   br i1 %45, label %46, label %63
 
 46:                                               ; preds = %40
@@ -7790,7 +7790,7 @@ define internal fastcc i32 @wkh_date_value_header_func(ptr noundef %0, ptr nound
   store i32 1, ptr %9, align 4
   %38 = add i32 %2, 2
   %39 = add i32 %38, %37
-  %40 = icmp ult i8 %11, 5
+  %40 = icmp samesign ult i8 %11, 5
   br i1 %40, label %41, label %59
 
 41:                                               ; preds = %35
@@ -8079,7 +8079,7 @@ define internal fastcc i32 @wkh_tod_value_header_func(ptr noundef %0, ptr nounde
   store i32 1, ptr %9, align 4
   %43 = add i32 %2, 2
   %44 = add i32 %43, %42
-  %45 = icmp ult i8 %12, 5
+  %45 = icmp samesign ult i8 %12, 5
   br i1 %45, label %46, label %67
 
 46:                                               ; preds = %40

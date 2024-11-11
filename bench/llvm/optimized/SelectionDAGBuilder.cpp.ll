@@ -34859,7 +34859,7 @@ define linkonce_odr hidden ptr @_ZNSt6vectorIN4llvm8SwitchCG9CaseBlockESaIS2_EE5
   %18 = getelementptr inbounds i8, ptr %.0910.i.i.i.i.i.i, i64 96
   %19 = getelementptr inbounds i8, ptr %.0811.i.i.i.i.i.i, i64 96
   %20 = add nsw i64 %.012.i.i.i.i.i.i, -1
-  %21 = icmp ugt i64 %.012.i.i.i.i.i.i, 1
+  %21 = icmp samesign ugt i64 %.012.i.i.i.i.i.i, 1
   br i1 %21, label %.lr.ph.i.i.i.i.i.i, label %_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPN4llvm8SwitchCG9CaseBlockESt6vectorIS4_SaIS4_EEEES9_ET0_T_SB_SA_.exit.loopexit.i, !llvm.loop !611
 
 _ZSt4moveIN9__gnu_cxx17__normal_iteratorIPN4llvm8SwitchCG9CaseBlockESt6vectorIS4_SaIS4_EEEES9_ET0_T_SB_SA_.exit.loopexit.i: ; preds = %.lr.ph.i.i.i.i.i.i
@@ -45915,7 +45915,7 @@ _ZN4llvm21PossiblyExactOperator7classofEPKNS_11InstructionE.exit.i.i.i.i.i.i.i.i
   %44 = zext nneg i8 %43 to i16
   %45 = and i16 %.sroa.047.061, -5
   %46 = or disjoint i16 %45, %44
-  %47 = icmp ult i8 %8, 29
+  %47 = icmp samesign ult i8 %8, 29
   br i1 %47, label %_ZN4llvm8dyn_castINS_14FPMathOperatorEKNS_4UserEEEDcPT0_.exit.thread, label %.thread
 
 .thread:                                          ; preds = %_ZN4llvm8dyn_castINS_25OverflowingBinaryOperatorEKNS_4UserEEEDcPT0_.exit.thread.thread64, %39
@@ -85815,7 +85815,7 @@ _ZN4llvm15SmallVectorImplIPKNS_5ValueEE7reserveEm.exit: ; preds = %3, %12
   %19 = getelementptr inbounds i8, ptr %.sroa.05.08.i.i.i.i.i.i.i.i, i64 32
   %20 = getelementptr inbounds i8, ptr %.049.i.i.i.i.i.i.i.i, i64 8
   %21 = add nsw i64 %.010.i.i.i.i.i.i.i.i, -1
-  %22 = icmp ugt i64 %.010.i.i.i.i.i.i.i.i, 1
+  %22 = icmp samesign ugt i64 %.010.i.i.i.i.i.i.i.i, 1
   br i1 %22, label %.lr.ph.i.i.i.i.i.i.i.i, label %_ZN4llvm23SmallVectorTemplateBaseIPKNS_5ValueELb1EE18uninitialized_copyINS_4User23const_value_op_iteratorEPS3_EEvT_S9_T0_.exit, !llvm.loop !1350
 
 _ZN4llvm23SmallVectorTemplateBaseIPKNS_5ValueELb1EE18uninitialized_copyINS_4User23const_value_op_iteratorEPS3_EEvT_S9_T0_.exit: ; preds = %.lr.ph.i.i.i.i.i.i.i.i, %_ZN4llvm15SmallVectorImplIPKNS_5ValueEE7reserveEm.exit
@@ -93014,7 +93014,7 @@ _ZN4llvm12DenseMapBaseINS_13SmallDenseMapIPKNS_11InstructionEjLj8ENS_12DenseMapI
   %56 = getelementptr inbounds i8, ptr %.0910.i.i.i.i.i.i, i64 16
   %57 = getelementptr inbounds i8, ptr %.0811.i.i.i.i.i.i, i64 16
   %58 = add nsw i64 %.012.i.i.i.i.i.i, -1
-  %59 = icmp ugt i64 %.012.i.i.i.i.i.i, 1
+  %59 = icmp samesign ugt i64 %.012.i.i.i.i.i.i, 1
   br i1 %59, label %.lr.ph.i.i.i.i.i.i, label %_ZN4llvm15SmallVectorImplISt4pairIPKNS_11InstructionEbEE5eraseEPKS5_.exit, !llvm.loop !1390
 
 _ZN4llvm15SmallVectorImplISt4pairIPKNS_11InstructionEbEE5eraseEPKS5_.exit: ; preds = %.lr.ph.i.i.i.i.i.i, %_ZN4llvm12DenseMapBaseINS_13SmallDenseMapIPKNS_11InstructionEjLj8ENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_jEEEES4_jS6_S9_E5eraseERKS4_.exit

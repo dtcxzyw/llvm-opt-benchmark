@@ -59,7 +59,7 @@ lor.lhs.false:                                    ; preds = %entry
 
 lor.lhs.false4:                                   ; preds = %lor.lhs.false
   %fCapacity.i = getelementptr inbounds i8, ptr %this, i64 24
-  %cmp5 = icmp ugt i32 %count, 32
+  %cmp5 = icmp samesign ugt i32 %count, 32
   br i1 %cmp5, label %land.lhs.true6, label %if.end
 
 land.lhs.true6:                                   ; preds = %lor.lhs.false4

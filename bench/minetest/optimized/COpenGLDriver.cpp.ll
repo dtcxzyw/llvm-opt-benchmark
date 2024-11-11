@@ -1652,7 +1652,7 @@ if.then.i.i.i205:                                 ; preds = %if.then5.i.i
   br label %_ZN3irr4core5arrayINS_5video13COpenGLDriver14SUserClipPlaneEE10reallocateEjb.exit
 
 if.else.i:                                        ; preds = %if.end37
-  %cmp3.i.i = icmp ult i64 %sub.ptr.div.i.i, %conv.i202
+  %cmp3.i.i = icmp samesign ult i64 %sub.ptr.div.i.i, %conv.i202
   br i1 %cmp3.i.i, label %_ZNSt12_Vector_baseIN3irr5video13COpenGLDriver14SUserClipPlaneESaIS3_EE11_M_allocateEm.exit.i.i, label %_ZN3irr4core5arrayINS_5video13COpenGLDriver14SUserClipPlaneEE10reallocateEjb.exit
 
 _ZNSt12_Vector_baseIN3irr5video13COpenGLDriver14SUserClipPlaneESaIS3_EE11_M_allocateEm.exit.i.i: ; preds = %if.else.i
@@ -11184,7 +11184,7 @@ if.end:                                           ; preds = %if.end.peel86, %_ZN
   %21 = load ptr, ptr %CacheHandler18, align 8, !tbaa !6
   %TextureCache.i19 = getelementptr inbounds i8, ptr %21, i64 16
   %22 = trunc i64 %indvars.iv to i32
-  %cmp.i = icmp ult i32 %22, 4
+  %cmp.i = icmp samesign ult i32 %22, 4
   %TextureCount.i = getelementptr inbounds i8, ptr %21, i64 64
   %23 = load i32, ptr %TextureCount.i, align 8
   %cmp2.i = icmp ugt i32 %23, %22

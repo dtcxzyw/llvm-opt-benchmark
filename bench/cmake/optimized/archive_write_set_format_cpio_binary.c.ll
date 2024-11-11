@@ -507,7 +507,7 @@ synthesize_ino_value.exit.thread:                 ; preds = %63, %synthesize_ino
   br label %.critedge87
 
 83:                                               ; preds = %synthesize_ino_value.exit
-  %84 = icmp ugt i32 %.0.i91, 32767
+  %84 = icmp samesign ugt i32 %.0.i91, 32767
   br i1 %84, label %85, label %.thread
 
 85:                                               ; preds = %83

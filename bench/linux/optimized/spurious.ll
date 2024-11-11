@@ -165,7 +165,7 @@ define dso_local void @note_interrupt(ptr noundef %0, i32 noundef %1) local_unna
   br label %100
 
 19:                                               ; preds = %12
-  %20 = icmp ult i32 %1, 2
+  %20 = icmp samesign ult i32 %1, 2
   br i1 %20, label %36, label %21
 
 21:                                               ; preds = %19

@@ -1051,7 +1051,7 @@ define internal fastcc noundef zeroext i1 @_ZN5ZXing4OneDL14CheckChecksumsERKNSt
   %16 = add nsw i32 %.01213.i, 1
   %.not.i = icmp slt i32 %.01213.i, 20
   %spec.store.select.i = select i1 %.not.i, i32 %16, i32 1
-  %17 = icmp ugt i64 %indvars.iv.i, 1
+  %17 = icmp samesign ugt i64 %indvars.iv.i, 1
   br i1 %17, label %.lr.ph.i, label %._crit_edge.loopexit.i, !llvm.loop !24
 
 ._crit_edge.loopexit.i:                           ; preds = %.lr.ph.i
@@ -1097,7 +1097,7 @@ _ZN5ZXing4OneDL16CheckOneChecksumERKNSt7__cxx1112basic_stringIcSt11char_traitsIc
   %39 = add nsw i32 %.01213.i9, 1
   %.not.i13 = icmp slt i32 %.01213.i9, 15
   %spec.store.select.i14 = select i1 %.not.i13, i32 %39, i32 1
-  %40 = icmp ugt i64 %indvars.iv.i7, 1
+  %40 = icmp samesign ugt i64 %indvars.iv.i7, 1
   br i1 %40, label %.lr.ph.i6, label %._crit_edge.loopexit.i15, !llvm.loop !24
 
 ._crit_edge.loopexit.i15:                         ; preds = %.lr.ph.i6

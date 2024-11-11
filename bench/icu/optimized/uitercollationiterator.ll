@@ -781,7 +781,7 @@ if.then:                                          ; preds = %for.cond
   br i1 %cmp3, label %return, label %if.end
 
 if.end:                                           ; preds = %if.then
-  %cmp.i = icmp ugt i32 %call, 191
+  %cmp.i = icmp samesign ugt i32 %call, 191
   br i1 %cmp.i, label %land.lhs.true.i, label %for.end
 
 land.lhs.true.i:                                  ; preds = %if.end
@@ -1025,11 +1025,11 @@ if.end7:                                          ; preds = %invoke.cont
   %minDecompNoCP.i = getelementptr inbounds i8, ptr %4, i64 8
   %5 = load i16, ptr %minDecompNoCP.i, align 8
   %conv.i12 = zext i16 %5 to i32
-  %cmp.i13 = icmp ult i32 %call5, %conv.i12
+  %cmp.i13 = icmp samesign ult i32 %call5, %conv.i12
   br i1 %cmp.i13, label %land.lhs.true, label %if.else.i
 
 if.else.i:                                        ; preds = %if.end7
-  %cmp2.i = icmp ult i32 %call5, 65536
+  %cmp2.i = icmp samesign ult i32 %call5, 65536
   br i1 %cmp2.i, label %if.then3.i, label %if.end6.i
 
 if.then3.i:                                       ; preds = %if.else.i
@@ -1108,11 +1108,11 @@ if.end39:                                         ; preds = %invoke.cont35
   %minDecompNoCP.i18 = getelementptr inbounds i8, ptr %17, i64 8
   %18 = load i16, ptr %minDecompNoCP.i18, align 8
   %conv.i19 = zext i16 %18 to i32
-  %cmp.i20 = icmp ult i32 %call36, %conv.i19
+  %cmp.i20 = icmp samesign ult i32 %call36, %conv.i19
   br i1 %cmp.i20, label %if.then45, label %if.else.i21
 
 if.else.i21:                                      ; preds = %if.end39
-  %cmp2.i22 = icmp ult i32 %call36, 65536
+  %cmp2.i22 = icmp samesign ult i32 %call36, 65536
   br i1 %cmp2.i22, label %if.then3.i25, label %if.end6.i23
 
 if.then3.i25:                                     ; preds = %if.else.i21
@@ -1382,7 +1382,7 @@ if.then:                                          ; preds = %for.cond
   br i1 %cmp3, label %return, label %if.end
 
 if.end:                                           ; preds = %if.then
-  %cmp.i = icmp ugt i32 %call, 191
+  %cmp.i = icmp samesign ugt i32 %call, 191
   br i1 %cmp.i, label %land.lhs.true.i, label %if.end23
 
 land.lhs.true.i:                                  ; preds = %if.end
@@ -1595,7 +1595,7 @@ if.then4:                                         ; preds = %if.then
   br label %return
 
 if.end:                                           ; preds = %if.then
-  %cmp.i = icmp ugt i32 %call, 767
+  %cmp.i = icmp samesign ugt i32 %call, 767
   br i1 %cmp.i, label %land.lhs.true.i, label %return
 
 land.lhs.true.i:                                  ; preds = %if.end
@@ -1845,11 +1845,11 @@ if.end7:                                          ; preds = %invoke.cont
   %minDecompNoCP.i = getelementptr inbounds i8, ptr %4, i64 8
   %5 = load i16, ptr %minDecompNoCP.i, align 8
   %conv.i15 = zext i16 %5 to i32
-  %cmp.i16 = icmp ult i32 %call5, %conv.i15
+  %cmp.i16 = icmp samesign ult i32 %call5, %conv.i15
   br i1 %cmp.i16, label %land.lhs.true, label %if.else.i
 
 if.else.i:                                        ; preds = %if.end7
-  %cmp2.i = icmp ult i32 %call5, 65536
+  %cmp2.i = icmp samesign ult i32 %call5, 65536
   br i1 %cmp2.i, label %if.then3.i, label %if.end6.i
 
 if.then3.i:                                       ; preds = %if.else.i
@@ -1934,11 +1934,11 @@ if.end42:                                         ; preds = %invoke.cont38
   %minDecompNoCP.i21 = getelementptr inbounds i8, ptr %14, i64 8
   %15 = load i16, ptr %minDecompNoCP.i21, align 8
   %conv.i22 = zext i16 %15 to i32
-  %cmp.i23 = icmp ult i32 %call39, %conv.i22
+  %cmp.i23 = icmp samesign ult i32 %call39, %conv.i22
   br i1 %cmp.i23, label %if.then48, label %if.else.i24
 
 if.else.i24:                                      ; preds = %if.end42
-  %cmp2.i25 = icmp ult i32 %call39, 65536
+  %cmp2.i25 = icmp samesign ult i32 %call39, 65536
   br i1 %cmp2.i25, label %if.then3.i28, label %if.end6.i26
 
 if.then3.i28:                                     ; preds = %if.else.i24

@@ -728,7 +728,7 @@ RSTRING_PTR.exit424:                              ; preds = %172, %179
   %.3355786 = phi i64 [ %199, %.lr.ph788 ], [ %205, %203 ]
   %204 = call i64 @rb_str_cat(i64 noundef %.0312, ptr noundef nonnull %202, i64 noundef 10) #14
   %205 = add nsw i64 %.3355786, -10
-  %206 = icmp ugt i64 %.3355786, 19
+  %206 = icmp samesign ugt i64 %.3355786, 19
   br i1 %206, label %203, label %._crit_edge789, !llvm.loop !19
 
 ._crit_edge789:                                   ; preds = %203, %197
@@ -1402,7 +1402,7 @@ RARRAY_AREF.exit473:                              ; preds = %rb_array_len.exit47
   %.16781 = phi i64 [ %488, %.lr.ph783 ], [ %.5357, %485 ]
   %487 = call i64 @rb_str_cat(i64 noundef %.0312, ptr noundef nonnull @pack_pack.nul10, i64 noundef 10) #14
   %488 = add nsw i64 %.16781, -10
-  %489 = icmp ugt i64 %.16781, 19
+  %489 = icmp samesign ugt i64 %.16781, 19
   br i1 %489, label %.lr.ph783, label %._crit_edge784, !llvm.loop !31
 
 ._crit_edge784:                                   ; preds = %.lr.ph783, %485
@@ -1569,7 +1569,7 @@ RSTRING_PTR.exit491:                              ; preds = %RARRAY_AREF.exit487
   br i1 %562, label %569, label %563
 
 563:                                              ; preds = %561
-  %564 = icmp ugt i64 %.0352.fr, 63
+  %564 = icmp samesign ugt i64 %.0352.fr, 63
   %565 = icmp eq i8 %76, 117
   %or.cond8 = and i1 %565, %564
   br i1 %or.cond8, label %569, label %566
@@ -1655,7 +1655,7 @@ RSTRING_PTR.exit.i:                               ; preds = %593, %RARRAY_AREF.e
   br i1 %599, label %603, label %600
 
 600:                                              ; preds = %.lr.ph.i
-  %601 = icmp ugt i8 %.fr.i, 31
+  %601 = icmp samesign ugt i8 %.fr.i, 31
   %.off.i = add nsw i8 %.fr.i, -9
   %switch.i = icmp ult i8 %.off.i, 2
   %or.cond.i = or i1 %601, %switch.i
@@ -2220,7 +2220,7 @@ define internal fastcc void @encodes(i64 noundef %0, ptr nocapture noundef reado
   store i8 %52, ptr %54, align 1
   %55 = getelementptr i8, ptr %.162, i64 3
   %56 = add nsw i64 %.15761, -3
-  %57 = icmp ugt i64 %56, 2
+  %57 = icmp samesign ugt i64 %56, 2
   %58 = sub i64 4092, %.260
   %59 = icmp sgt i64 %58, 3
   %60 = and i1 %57, %59
@@ -3200,7 +3200,7 @@ RSTRING_PTR.exit977:                              ; preds = %._crit_edge1683, %2
 
 315:                                              ; preds = %310, %313
   %316 = getelementptr i8, ptr %.101401, i64 %.0800
-  %317 = icmp ugt i64 %.in1487, 1
+  %317 = icmp samesign ugt i64 %.in1487, 1
   br i1 %317, label %307, label %._crit_edge1404, !llvm.loop !81
 
 ._crit_edge1404:                                  ; preds = %315, %295
@@ -3265,7 +3265,7 @@ rb_array_len.exit:                                ; preds = %322, %325
   br label %346
 
 346:                                              ; preds = %341, %344
-  %347 = icmp ugt i64 %.in1486, 1
+  %347 = icmp samesign ugt i64 %.in1486, 1
   br i1 %347, label %.lr.ph1398, label %._crit_edge1399, !llvm.loop !82
 
 ._crit_edge1399:                                  ; preds = %346, %329
@@ -3330,7 +3330,7 @@ rb_array_len.exit980:                             ; preds = %352, %355
   br label %376
 
 376:                                              ; preds = %371, %374
-  %377 = icmp ugt i64 %.in1485, 1
+  %377 = icmp samesign ugt i64 %.in1485, 1
   br i1 %377, label %.lr.ph1393, label %._crit_edge1394, !llvm.loop !83
 
 ._crit_edge1394:                                  ; preds = %376, %359
@@ -3394,7 +3394,7 @@ rb_array_len.exit983:                             ; preds = %382, %385
   br label %405
 
 405:                                              ; preds = %400, %403
-  %406 = icmp ugt i64 %.in1484, 1
+  %406 = icmp samesign ugt i64 %.in1484, 1
   br i1 %406, label %.lr.ph1388, label %._crit_edge1389, !llvm.loop !84
 
 ._crit_edge1389:                                  ; preds = %405, %389
@@ -3458,7 +3458,7 @@ rb_array_len.exit986:                             ; preds = %411, %414
   br label %434
 
 434:                                              ; preds = %429, %432
-  %435 = icmp ugt i64 %.in1483, 1
+  %435 = icmp samesign ugt i64 %.in1483, 1
   br i1 %435, label %.lr.ph1383, label %._crit_edge1384, !llvm.loop !85
 
 ._crit_edge1384:                                  ; preds = %434, %418
@@ -3525,7 +3525,7 @@ rb_array_len.exit989:                             ; preds = %440, %443
   br label %465
 
 465:                                              ; preds = %460, %463
-  %466 = icmp ugt i64 %.in1482, 1
+  %466 = icmp samesign ugt i64 %.in1482, 1
   br i1 %466, label %.lr.ph1378, label %._crit_edge1379, !llvm.loop !86
 
 ._crit_edge1379:                                  ; preds = %465, %447
@@ -3591,7 +3591,7 @@ rb_array_len.exit992:                             ; preds = %471, %474
   br label %495
 
 495:                                              ; preds = %490, %493
-  %496 = icmp ugt i64 %.in1481, 1
+  %496 = icmp samesign ugt i64 %.in1481, 1
   br i1 %496, label %.lr.ph1373, label %._crit_edge1374, !llvm.loop !87
 
 ._crit_edge1374:                                  ; preds = %495, %478

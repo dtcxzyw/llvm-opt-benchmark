@@ -2758,7 +2758,7 @@ Gia_ObjFaninNum.exit128:                          ; preds = %Gia_ObjIsMux.exit.t
 122:                                              ; preds = %Gia_ObjFaninNum.exit128, %65, %118
   %.169 = phi i32 [ %.068146, %118 ], [ %spec.select, %65 ], [ %.068146, %Gia_ObjFaninNum.exit128 ]
   %.1 = phi i32 [ %.067147, %118 ], [ %.067147, %65 ], [ %spec.select85, %Gia_ObjFaninNum.exit128 ]
-  %123 = icmp ugt i64 %indvars.iv, 2
+  %123 = icmp samesign ugt i64 %indvars.iv, 2
   br i1 %123, label %39, label %._crit_edge, !llvm.loop !23
 
 124:                                              ; preds = %56, %120

@@ -4151,7 +4151,7 @@ define dso_local i32 @cdc_parse_cdc_header(ptr nocapture noundef writeonly %0, p
   br label %92
 
 29:                                               ; preds = %16
-  %30 = icmp ult i32 %23, %26
+  %30 = icmp samesign ult i32 %23, %26
   %31 = icmp ult i8 %25, 3
   %32 = or i1 %31, %30
   br i1 %32, label %33, label %34

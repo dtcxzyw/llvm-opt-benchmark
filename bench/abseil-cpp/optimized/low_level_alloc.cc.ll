@@ -1275,7 +1275,7 @@ land.rhs19.i:                                     ; preds = %while.body.i, %land
 while.body.i:                                     ; preds = %land.rhs19.i
   %46 = trunc nuw nsw i64 %indvars.iv.next22.i to i32
   store i32 %46, ptr %levels, align 8
-  %cmp18.i = icmp ugt i64 %indvars.iv21.i, 1
+  %cmp18.i = icmp samesign ugt i64 %indvars.iv21.i, 1
   br i1 %cmp18.i, label %land.rhs19.i, label %invoke.cont43, !llvm.loop !16
 
 invoke.cont43:                                    ; preds = %while.body.i, %land.rhs19.i, %for.end.i
@@ -1517,7 +1517,7 @@ while.body.i:                                     ; preds = %land.rhs19.preheade
   %indvars.iv21.i113 = phi i64 [ %indvars.iv.next22.i114, %land.rhs19.i ], [ %16, %land.rhs19.preheader.i ]
   %19 = trunc nuw nsw i64 %indvars.iv.next22.i114 to i32
   store i32 %19, ptr %levels.i.i, align 8
-  %cmp18.i = icmp ugt i64 %indvars.iv21.i113, 1
+  %cmp18.i = icmp samesign ugt i64 %indvars.iv21.i113, 1
   br i1 %cmp18.i, label %land.rhs19.i, label %_ZN4absl13base_internalL18LLA_SkiplistSearchEPNS0_12_GLOBAL__N_19AllocListES3_PS3_.exit.i24, !llvm.loop !16
 
 _ZN4absl13base_internalL18LLA_SkiplistDeleteEPNS0_12_GLOBAL__N_19AllocListES3_PS3_.exit: ; preds = %land.rhs19.i, %land.rhs19.preheader.i
@@ -1622,7 +1622,7 @@ land.rhs19.i46:                                   ; preds = %while.body.i51, %la
 while.body.i51:                                   ; preds = %land.rhs19.i46
   %35 = trunc nuw nsw i64 %indvars.iv.next22.i48 to i32
   store i32 %35, ptr %levels.i.i, align 8
-  %cmp18.i52 = icmp ugt i64 %indvars.iv21.i47, 1
+  %cmp18.i52 = icmp samesign ugt i64 %indvars.iv21.i47, 1
   br i1 %cmp18.i52, label %land.rhs19.i46, label %_ZN4absl13base_internalL18LLA_SkiplistDeleteEPNS0_12_GLOBAL__N_19AllocListES3_PS3_.exit73, !llvm.loop !16
 
 _ZN4absl13base_internalL18LLA_SkiplistDeleteEPNS0_12_GLOBAL__N_19AllocListES3_PS3_.exit73: ; preds = %land.rhs19.i46, %while.body.i51, %for.end.i41

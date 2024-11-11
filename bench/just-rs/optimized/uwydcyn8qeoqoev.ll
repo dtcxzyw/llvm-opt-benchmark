@@ -6778,7 +6778,7 @@ define internal fastcc void @_ZN4just13compile_error10capitalize17h49501378fff1b
   %20 = and i8 %18, 63
   %21 = zext nneg i8 %20 to i32
   %22 = or disjoint i32 %19, %21
-  %23 = icmp ugt i8 %12, -33
+  %23 = icmp samesign ugt i8 %12, -33
   br i1 %23, label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h8b7bbdcfba47b7a7E.exit15.i", label %.thread20
 
 24:                                               ; preds = %10
@@ -6796,7 +6796,7 @@ define internal fastcc void @_ZN4just13compile_error10capitalize17h49501378fff1b
   %32 = or disjoint i32 %29, %31
   %33 = shl nuw nsw i32 %15, 12
   %34 = or disjoint i32 %32, %33
-  %35 = icmp ugt i8 %12, -17
+  %35 = icmp samesign ugt i8 %12, -17
   br i1 %35, label %36, label %.thread20
 
 36:                                               ; preds = %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h8b7bbdcfba47b7a7E.exit15.i"
@@ -24407,7 +24407,7 @@ _ZN4just5token5Token6lexeme17he5b315321a8bd9e1E.exit94: ; preds = %"_ZN4core3str
   %113 = and i8 %111, 63
   %114 = zext nneg i8 %113 to i32
   %115 = or disjoint i32 %112, %114
-  %116 = icmp ugt i8 %105, -33
+  %116 = icmp samesign ugt i8 %105, -33
   br i1 %116, label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h8b7bbdcfba47b7a7E.exit15.i", label %.thread162
 
 117:                                              ; preds = %.lr.ph
@@ -24425,7 +24425,7 @@ _ZN4just5token5Token6lexeme17he5b315321a8bd9e1E.exit94: ; preds = %"_ZN4core3str
   %125 = or disjoint i32 %122, %124
   %126 = shl nuw nsw i32 %108, 12
   %127 = or disjoint i32 %125, %126
-  %128 = icmp ugt i8 %105, -17
+  %128 = icmp samesign ugt i8 %105, -17
   br i1 %128, label %130, label %.thread162
 
 .loopexit:                                        ; preds = %156, %169, %174, %179, %184, %189

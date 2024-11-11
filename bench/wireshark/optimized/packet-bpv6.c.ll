@@ -1341,7 +1341,7 @@ evaluate_sdnv.exit220.i:                          ; preds = %450, %449, %439
 
 462:                                              ; preds = %459
   %.not.i = icmp ne i32 %452, 0
-  %463 = icmp ugt i32 %289, %.0.i197.ph.i
+  %463 = icmp samesign ugt i32 %289, %.0.i197.ph.i
   %or.cond189.i = and i1 %463, %.not.i
   br i1 %or.cond189.i, label %464, label %466
 
@@ -1355,7 +1355,7 @@ evaluate_sdnv.exit220.i:                          ; preds = %450, %449, %439
 
 468:                                              ; preds = %466
   %469 = icmp ne i32 %452, 0
-  %470 = icmp ugt i32 %304, %.0.i197.ph.i
+  %470 = icmp samesign ugt i32 %304, %.0.i197.ph.i
   %or.cond190.i = and i1 %470, %469
   br i1 %or.cond190.i, label %471, label %473
 
@@ -1369,7 +1369,7 @@ evaluate_sdnv.exit220.i:                          ; preds = %450, %449, %439
 
 475:                                              ; preds = %473
   %476 = icmp ne i32 %452, 0
-  %477 = icmp ugt i32 %318, %.0.i197.ph.i
+  %477 = icmp samesign ugt i32 %318, %.0.i197.ph.i
   %or.cond191.i = and i1 %477, %476
   br i1 %or.cond191.i, label %478, label %480
 
@@ -1383,7 +1383,7 @@ evaluate_sdnv.exit220.i:                          ; preds = %450, %449, %439
 
 482:                                              ; preds = %480
   %483 = icmp ne i32 %452, 0
-  %484 = icmp ugt i32 %333, %.0.i197.ph.i
+  %484 = icmp samesign ugt i32 %333, %.0.i197.ph.i
   %or.cond192.i = and i1 %484, %483
   br i1 %or.cond192.i, label %485, label %487
 
@@ -1397,7 +1397,7 @@ evaluate_sdnv.exit220.i:                          ; preds = %450, %449, %439
 
 489:                                              ; preds = %487
   %490 = icmp ne i32 %452, 0
-  %491 = icmp ugt i32 %347, %.0.i197.ph.i
+  %491 = icmp samesign ugt i32 %347, %.0.i197.ph.i
   %or.cond193.i = and i1 %491, %490
   br i1 %or.cond193.i, label %492, label %494
 
@@ -1411,7 +1411,7 @@ evaluate_sdnv.exit220.i:                          ; preds = %450, %449, %439
 
 496:                                              ; preds = %494
   %497 = icmp ne i32 %452, 0
-  %498 = icmp ugt i32 %362, %.0.i197.ph.i
+  %498 = icmp samesign ugt i32 %362, %.0.i197.ph.i
   %or.cond194.i = and i1 %498, %497
   br i1 %or.cond194.i, label %499, label %501
 
@@ -1425,7 +1425,7 @@ evaluate_sdnv.exit220.i:                          ; preds = %450, %449, %439
 
 503:                                              ; preds = %501
   %504 = icmp ne i32 %452, 0
-  %505 = icmp ugt i32 %376, %.0.i197.ph.i
+  %505 = icmp samesign ugt i32 %376, %.0.i197.ph.i
   %or.cond195.i = and i1 %505, %504
   br i1 %or.cond195.i, label %506, label %508
 
@@ -1439,7 +1439,7 @@ evaluate_sdnv.exit220.i:                          ; preds = %450, %449, %439
 
 510:                                              ; preds = %508
   %511 = icmp ne i32 %452, 0
-  %512 = icmp ugt i32 %391, %.0.i197.ph.i
+  %512 = icmp samesign ugt i32 %391, %.0.i197.ph.i
   %or.cond196.i = and i1 %512, %511
   br i1 %or.cond196.i, label %513, label %515
 

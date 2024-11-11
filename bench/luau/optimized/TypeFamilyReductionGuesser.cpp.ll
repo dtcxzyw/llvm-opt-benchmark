@@ -7766,7 +7766,7 @@ define linkonce_odr dso_local void @_ZN4Luau8VecDequeIPKNS_4TypeESaIS3_EE4growEv
   unreachable
 
 11:                                               ; preds = %1
-  %12 = icmp ugt i64 %7, 1152921504606846975
+  %12 = icmp samesign ugt i64 %7, 1152921504606846975
   br i1 %12, label %13, label %_ZNSt15__new_allocatorIPKN4Luau4TypeEE8allocateEmPKv.exit
 
 13:                                               ; preds = %11
@@ -7848,7 +7848,7 @@ define linkonce_odr dso_local void @_ZN4Luau8VecDequeIPKNS_11TypePackVarESaIS3_E
   unreachable
 
 11:                                               ; preds = %1
-  %12 = icmp ugt i64 %7, 1152921504606846975
+  %12 = icmp samesign ugt i64 %7, 1152921504606846975
   br i1 %12, label %13, label %_ZNSt15__new_allocatorIPKN4Luau11TypePackVarEE8allocateEmPKv.exit
 
 13:                                               ; preds = %11

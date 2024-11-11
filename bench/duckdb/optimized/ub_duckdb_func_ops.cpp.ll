@@ -72053,7 +72053,7 @@ ehcleanup26:                                      ; preds = %_ZNSt7__cxx1112basi
   br i1 %cleanup.isactive23.0, label %ehcleanup105.sink.split, label %ehcleanup105
 
 if.end33:                                         ; preds = %if.end
-  %cmp36 = icmp ugt i8 %shift, 7
+  %cmp36 = icmp samesign ugt i8 %shift, 7
   br i1 %cmp36, label %if.then37, label %if.end62
 
 if.then37:                                        ; preds = %if.end33
@@ -74421,7 +74421,7 @@ ehcleanup26:                                      ; preds = %_ZNSt7__cxx1112basi
   br i1 %cleanup.isactive23.0, label %ehcleanup105.sink.split, label %ehcleanup105
 
 if.end33:                                         ; preds = %if.end
-  %cmp36 = icmp ugt i16 %shift, 15
+  %cmp36 = icmp samesign ugt i16 %shift, 15
   br i1 %cmp36, label %if.then37, label %if.end62
 
 if.then37:                                        ; preds = %if.end33
@@ -76092,7 +76092,7 @@ ehcleanup20:                                      ; preds = %_ZNSt7__cxx1112basi
   br i1 %cleanup.isactive17.0, label %ehcleanup81.sink.split, label %ehcleanup81
 
 if.end27:                                         ; preds = %if.end
-  %cmp28 = icmp ugt i32 %shift, 31
+  %cmp28 = icmp samesign ugt i32 %shift, 31
   br i1 %cmp28, label %if.then29, label %if.end51
 
 if.then29:                                        ; preds = %if.end27
@@ -76169,7 +76169,7 @@ if.end51:                                         ; preds = %if.end27
 
 if.end54:                                         ; preds = %if.end51
   %shl = lshr exact i32 -2147483648, %shift
-  %cmp56.not = icmp ugt i32 %shl, %input
+  %cmp56.not = icmp samesign ugt i32 %shl, %input
   br i1 %cmp56.not, label %if.end78, label %if.then57
 
 if.then57:                                        ; preds = %if.end54
@@ -77710,7 +77710,7 @@ ehcleanup25:                                      ; preds = %ehcleanup24
   br i1 %cleanup.isactive22.0, label %ehcleanup92.sink.split, label %ehcleanup92
 
 if.end32:                                         ; preds = %if.end
-  %cmp33 = icmp ugt i64 %shift, 63
+  %cmp33 = icmp samesign ugt i64 %shift, 63
   br i1 %cmp33, label %if.then34, label %if.end58
 
 if.then34:                                        ; preds = %if.end32
@@ -77813,7 +77813,7 @@ if.end58:                                         ; preds = %if.end32
 
 if.end61:                                         ; preds = %if.end58
   %shl = lshr exact i64 -9223372036854775808, %shift
-  %cmp63.not = icmp ugt i64 %shl, %input
+  %cmp63.not = icmp samesign ugt i64 %shl, %input
   br i1 %cmp63.not, label %if.end89, label %if.then64
 
 if.then64:                                        ; preds = %if.end61
@@ -79527,7 +79527,7 @@ while.end.i.i.thread:                             ; preds = %invoke.cont.i
   br label %if.else.i.i
 
 while.end.i.i:                                    ; preds = %invoke.cont.i
-  %cmp9.i.i = icmp ugt i8 %value, 9
+  %cmp9.i.i = icmp samesign ugt i8 %value, 9
   br i1 %cmp9.i.i, label %if.then.i.i, label %if.else.i.i
 
 if.then.i.i:                                      ; preds = %while.end.i.i

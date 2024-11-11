@@ -408,7 +408,7 @@ Vec_IntPush.exit232:                              ; preds = %.Vec_IntGrow.exit10
 199:                                              ; preds = %.lr.ph266, %142, %191, %Vec_IntPush.exit232
   %.3157 = phi i32 [ 1, %191 ], [ 1, %Vec_IntPush.exit232 ], [ %.2156263, %142 ], [ %.2156263, %.lr.ph266 ]
   %.1153 = phi i32 [ 1, %191 ], [ 1, %Vec_IntPush.exit232 ], [ %.0152264, %142 ], [ %.0152264, %.lr.ph266 ]
-  %200 = icmp ugt i64 %indvars.iv287, 1
+  %200 = icmp samesign ugt i64 %indvars.iv287, 1
   br i1 %200, label %.lr.ph266, label %._crit_edge, !llvm.loop !7
 
 ._crit_edge:                                      ; preds = %199
@@ -551,7 +551,7 @@ Vec_IntPush.exit239:                              ; preds = %.Vec_IntGrow.exit10
 
 270:                                              ; preds = %.lr.ph272, %214, %261, %Vec_IntPush.exit239
   %.5159 = phi i32 [ 1, %261 ], [ 1, %Vec_IntPush.exit239 ], [ %.4158269, %214 ], [ %.4158269, %.lr.ph272 ]
-  %271 = icmp ugt i64 %indvars.iv290, 1
+  %271 = icmp samesign ugt i64 %indvars.iv290, 1
   br i1 %271, label %.lr.ph272, label %.critedge2, !llvm.loop !9
 
 .critedge2:                                       ; preds = %270, %._crit_edge.thread

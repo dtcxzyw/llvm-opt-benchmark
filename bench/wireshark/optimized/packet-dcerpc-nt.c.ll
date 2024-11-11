@@ -578,7 +578,7 @@ define internal void @cb_byte_array_postprocess(ptr nocapture noundef readonly %
   %.not56 = icmp eq ptr %41, null
   %.0. = select i1 %.not56, ptr %.058, ptr %41
   %42 = add nsw i32 %.04157, -1
-  %43 = icmp ugt i32 %.04157, 1
+  %43 = icmp samesign ugt i32 %.04157, 1
   br i1 %43, label %.lr.ph, label %.loopexit, !llvm.loop !4
 
 .loopexit:                                        ; preds = %.lr.ph, %34, %32, %8, %30, %26
@@ -1820,7 +1820,7 @@ define internal fastcc void @cb_str_postprocess_options(ptr nocapture noundef re
   %.not50 = icmp eq ptr %26, null
   %.0. = select i1 %.not50, ptr %.052, ptr %26
   %27 = add nsw i32 %.03851, -1
-  %28 = icmp ugt i32 %.03851, 1
+  %28 = icmp samesign ugt i32 %.03851, 1
   br i1 %28, label %.lr.ph, label %.loopexit, !llvm.loop !8
 
 .loopexit:                                        ; preds = %.lr.ph, %19, %17, %15, %11
@@ -2045,7 +2045,7 @@ define hidden i32 @dissect_ndr_nt_SID_with_options(ptr noundef %0, i32 noundef %
   %.not60 = icmp eq ptr %39, null
   %.0. = select i1 %.not60, ptr %.062, ptr %39
   %40 = add nsw i32 %.04561, -1
-  %41 = icmp ugt i32 %.04561, 1
+  %41 = icmp samesign ugt i32 %.04561, 1
   br i1 %41, label %.lr.ph, label %.loopexit, !llvm.loop !9
 
 .loopexit:                                        ; preds = %.lr.ph, %32, %25, %28, %30, %14, %8

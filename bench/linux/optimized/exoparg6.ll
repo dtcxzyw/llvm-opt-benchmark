@@ -71,7 +71,7 @@ define dso_local i32 @acpi_ex_opcode_6A_0T_1R(ptr noundef %0) local_unnamed_addr
   %38 = getelementptr inbounds i8, ptr %37, i64 44
   %39 = load i32, ptr %38, align 4
   %40 = zext i32 %39 to i64
-  %41 = icmp ult i64 %23, %40
+  %41 = icmp samesign ult i64 %23, %40
   br i1 %41, label %42, label %.thread4
 
 42:                                               ; preds = %36
@@ -120,7 +120,7 @@ define dso_local i32 @acpi_ex_opcode_6A_0T_1R(ptr noundef %0) local_unnamed_addr
   %74 = getelementptr inbounds i8, ptr %73, i64 44
   %75 = load i32, ptr %74, align 4
   %76 = zext i32 %75 to i64
-  %77 = icmp ult i64 %72, %76
+  %77 = icmp samesign ult i64 %72, %76
   br i1 %77, label %45, label %.thread4, !llvm.loop !5
 
 78:                                               ; preds = %1

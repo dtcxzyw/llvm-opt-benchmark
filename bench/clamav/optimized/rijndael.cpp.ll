@@ -1487,7 +1487,7 @@ define void @_ZN8Rijndael12blockDecryptEPKhmPh(ptr nocapture noundef nonnull ali
   %187 = xor i32 %185, %186
   %188 = load i32, ptr %182, align 4
   %189 = xor i32 %187, %188
-  %190 = icmp ugt i64 %indvars.iv, 3
+  %190 = icmp samesign ugt i64 %indvars.iv, 3
   br i1 %190, label %.lr.ph, label %._crit_edge, !llvm.loop !24
 
 ._crit_edge:                                      ; preds = %.lr.ph, %18

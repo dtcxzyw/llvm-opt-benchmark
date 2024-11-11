@@ -222,7 +222,7 @@ _ZN4absl7debian211string_viewC2ISaIcEEERKNSt7__cxx1112basic_stringIcSt11char_tra
   br i1 %11, label %_ZN4absl7debian210StartsWithENS0_11string_viewES1_.exit, label %12
 
 12:                                               ; preds = %_ZN4absl7debian211string_viewC2ISaIcEEERKNSt7__cxx1112basic_stringIcSt11char_traitsIcET_EE.exit2
-  %.not.i = icmp ult i64 %4, %8
+  %.not.i = icmp samesign ult i64 %4, %8
   br i1 %.not.i, label %_ZN4absl7debian210StartsWithENS0_11string_viewES1_.exit, label %13
 
 13:                                               ; preds = %12
@@ -582,7 +582,7 @@ _ZN4absl7debian211string_viewC2ISaIcEEERKNSt7__cxx1112basic_stringIcSt11char_tra
   br i1 %11, label %_ZN4absl7debian28EndsWithENS0_11string_viewES1_.exit, label %12
 
 12:                                               ; preds = %_ZN4absl7debian211string_viewC2ISaIcEEERKNSt7__cxx1112basic_stringIcSt11char_traitsIcET_EE.exit2
-  %.not.i = icmp ult i64 %4, %8
+  %.not.i = icmp samesign ult i64 %4, %8
   br i1 %.not.i, label %_ZN4absl7debian28EndsWithENS0_11string_viewES1_.exit, label %13
 
 13:                                               ; preds = %12

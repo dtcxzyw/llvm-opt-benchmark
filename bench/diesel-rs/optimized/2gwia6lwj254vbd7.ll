@@ -4448,10 +4448,10 @@ define noundef range(i16 0, 10000) i16 @"_ZN103_$LT$diesel..pg..types..floats..q
 
 2:                                                ; preds = %1, %2
   %3 = tail call noundef i16 @"_ZN56_$LT$i16$u20$as$u20$quickcheck..arbitrary..Arbitrary$GT$9arbitrary17h12ea5a198e5e874bE"(ptr noalias noundef nonnull align 8 dereferenceable(40) %0)
-  %4 = icmp ult i16 %3, 10000
-  br i1 %4, label %5, label %2
+  %.016.i = icmp ult i16 %3, 10000
+  br i1 %.016.i, label %4, label %2
 
-5:                                                ; preds = %2
+4:                                                ; preds = %2
   ret i16 %3
 }
 

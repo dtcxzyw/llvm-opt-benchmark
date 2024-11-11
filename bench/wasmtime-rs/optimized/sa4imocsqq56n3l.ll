@@ -20874,7 +20874,7 @@ define noundef range(i32 0, 32769) i32 @_ZN17cranelift_codegen2ir5types4Type4bit
   br i1 %2, label %13, label %3
 
 3:                                                ; preds = %1
-  %4 = icmp ult i16 %0, 128
+  %4 = icmp samesign ult i16 %0, 128
   %5 = and i16 %0, 15
   %6 = or disjoint i16 %5, 112
   %.0.i.i = select i1 %4, i16 %0, i16 %6
@@ -20929,7 +20929,7 @@ define noundef i32 @_ZN17cranelift_codegen2ir5types4Type8min_bits17h946566c8eb4d
   br i1 %2, label %11, label %3
 
 3:                                                ; preds = %1
-  %4 = icmp ult i16 %0, 128
+  %4 = icmp samesign ult i16 %0, 128
   %5 = and i16 %0, 15
   %6 = or disjoint i16 %5, 112
   %.0.i.i.i = select i1 %4, i16 %0, i16 %6
@@ -20982,7 +20982,7 @@ define noundef range(i32 0, 4097) i32 @_ZN17cranelift_codegen2ir5types4Type5byte
   br i1 %2, label %_ZN17cranelift_codegen2ir5types4Type4bits17h6ac7b92b6381a3ecE.exit, label %3
 
 3:                                                ; preds = %1
-  %4 = icmp ult i16 %0, 128
+  %4 = icmp samesign ult i16 %0, 128
   %5 = and i16 %0, 15
   %6 = or disjoint i16 %5, 112
   %.0.i.i.i = select i1 %4, i16 %0, i16 %6
@@ -21016,7 +21016,7 @@ define { i16, i16 } @_ZN17cranelift_codegen2ir5types4Type2by17hd5fb9e46d78fdb7fE
   br i1 %3, label %_ZN17cranelift_codegen2ir5types4Type9lane_bits17h4ac41a99a03d1c96E.exit.thread, label %4
 
 4:                                                ; preds = %2
-  %5 = icmp ult i16 %0, 128
+  %5 = icmp samesign ult i16 %0, 128
   %6 = and i16 %0, 15
   %7 = or disjoint i16 %6, 112
   %.0.i.i = select i1 %5, i16 %0, i16 %7
@@ -26619,7 +26619,7 @@ define void @"_ZN105_$LT$cranelift_codegen..opts..IsleContext$u20$as$u20$craneli
   br i1 %9, label %_ZN17cranelift_codegen2ir5types4Type4bits17h6ac7b92b6381a3ecE.exit.thread, label %10
 
 10:                                               ; preds = %7
-  %11 = icmp ult i16 %8, 128
+  %11 = icmp samesign ult i16 %8, 128
   %12 = and i16 %8, 15
   %13 = or disjoint i16 %12, 112
   %.0.i.i.i = select i1 %11, i16 %8, i16 %13
@@ -28570,7 +28570,7 @@ define { i16, i16 } @"_ZN105_$LT$cranelift_codegen..opts..IsleContext$u20$as$u20
   br i1 %3, label %4, label %_ZN17cranelift_codegen2ir5types4Type4bits17h6ac7b92b6381a3ecE.exit.thread
 
 4:                                                ; preds = %2
-  %5 = icmp ult i16 %1, 128
+  %5 = icmp samesign ult i16 %1, 128
   %6 = and i16 %1, 15
   %7 = or disjoint i16 %6, 112
   %.0.i.i.i = select i1 %5, i16 %1, i16 %7

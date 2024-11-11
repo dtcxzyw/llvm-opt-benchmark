@@ -3598,7 +3598,7 @@ _ZN4llvmmlERKNS_15InstructionCostES2_.exit760:    ; preds = %735, %739, %742
 
 755:                                              ; preds = %749
   call void @_ZNK4llvm16BasicTTIImplBaseINS_14AArch64TTIImplEE23getTypeLegalizationCostEPNS_4TypeE(ptr dead_on_unwind nonnull writable sret(%"struct.std::pair.205") align 8 %34, ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull %37)
-  %spec.select.i762 = icmp ult i32 %.sroa.0800.0.extract.trunc, 3
+  %spec.select.i762 = icmp samesign ult i32 %.sroa.0800.0.extract.trunc, 3
   br i1 %spec.select.i762, label %756, label %767
 
 756:                                              ; preds = %755
@@ -4013,7 +4013,7 @@ _ZNK4llvm16BasicTTIImplBaseINS_14AArch64TTIImplEE23getTypeLegalizationCostEPNS_4
   br i1 %spec.select.i205, label %64, label %_ZNK4llvm18TargetLoweringBase24isOperationLegalOrCustomEjNS_3EVTEb.exit.thread
 
 64:                                               ; preds = %62
-  %spec.select.i206 = icmp ult i32 %.sroa.0517.0.extract.trunc, 3
+  %spec.select.i206 = icmp samesign ult i32 %.sroa.0517.0.extract.trunc, 3
   %.sroa.22.0.extract.shift.mask = and i64 %5, -4294967296
   %65 = icmp eq i64 %.sroa.22.0.extract.shift.mask, 4294967296
   %or.cond654 = and i1 %spec.select.i206, %65
@@ -4056,7 +4056,7 @@ _ZN4llvm15InstructionCostpLERKS0_.exit:           ; preds = %64
 
 .thread:                                          ; preds = %64, %75
   %77 = add nsw i32 %.sroa.0517.0.extract.trunc, -1
-  %spec.select.i219 = icmp ult i32 %77, 2
+  %spec.select.i219 = icmp samesign ult i32 %77, 2
   br i1 %spec.select.i219, label %78, label %_ZNK4llvm18TargetLoweringBase24isOperationLegalOrCustomEjNS_3EVTEb.exit.thread
 
 78:                                               ; preds = %.thread
@@ -4251,7 +4251,7 @@ _ZNK4llvm18TargetLoweringBase24isOperationLegalOrCustomEjNS_3EVTEb.exit281.threa
   %164 = and i32 %.sroa.0579.0.extract.trunc, -2
   %spec.select.i297 = icmp eq i32 %164, 2
   %165 = add nsw i32 %.sroa.0579.0.extract.trunc, -1
-  %spec.select.i298 = icmp ult i32 %165, 2
+  %spec.select.i298 = icmp samesign ult i32 %165, 2
   %or.cond660 = select i1 %spec.select.i297, i1 %spec.select.i298, i1 false
   br i1 %or.cond660, label %168, label %166
 
@@ -10974,7 +10974,7 @@ switch.lookup:                                    ; preds = %56
   %59 = zext nneg i32 %switch.tableidx to i64
   %switch.gep = getelementptr inbounds [9 x i32], ptr @switch.table._ZL21instCombineSVECntEltsRN4llvm12InstCombinerERNS_13IntrinsicInstEj, i64 0, i64 %59
   %switch.load = load i32, ptr %switch.gep, align 4
-  %.not19 = icmp ult i32 %2, %switch.load
+  %.not19 = icmp samesign ult i32 %2, %switch.load
   br i1 %.not19, label %_ZN4llvm12InstCombiner19replaceInstUsesWithERNS_11InstructionEPNS_5ValueE.exit, label %60
 
 60:                                               ; preds = %switch.lookup
@@ -18606,7 +18606,7 @@ _ZNK4llvm16BasicTTIImplBaseINS_14AArch64TTIImplEE23getTypeLegalizationCostEPNS_4
   br i1 %spec.select.i14, label %24, label %78
 
 24:                                               ; preds = %_ZNK4llvm16BasicTTIImplBaseINS_14AArch64TTIImplEE23getTypeLegalizationCostEPNS_4TypeE.exit
-  %spec.select.i15 = icmp ult i16 %23, 120
+  %spec.select.i15 = icmp samesign ult i16 %23, 120
   br i1 %spec.select.i15, label %_ZNK4llvm3MVT20getVectorNumElementsEv.exit, label %31
 
 _ZNK4llvm3MVT20getVectorNumElementsEv.exit:       ; preds = %24
@@ -29298,7 +29298,7 @@ _ZN4llvm9remove_ifIRNS_11SmallVectorISt4pairIjPNS_6MDNodeEELj2EEEZNS_13IRBuilder
   %68 = getelementptr inbounds i8, ptr %.0910.i.i.i.i.i.i, i64 16
   %69 = getelementptr inbounds i8, ptr %.0811.i.i.i.i.i.i, i64 16
   %70 = add nsw i64 %.012.i.i.i.i.i.i, -1
-  %71 = icmp ugt i64 %.012.i.i.i.i.i.i, 1
+  %71 = icmp samesign ugt i64 %.012.i.i.i.i.i.i, 1
   br i1 %71, label %.lr.ph.i.i.i.i.i.i, label %_ZN4llvm15SmallVectorImplISt4pairIjPNS_6MDNodeEEE5eraseEPKS4_S7_.exit, !llvm.loop !219
 
 _ZN4llvm15SmallVectorImplISt4pairIjPNS_6MDNodeEEE5eraseEPKS4_S7_.exit: ; preds = %.lr.ph.i.i.i.i.i.i, %_ZN4llvm9remove_ifIRNS_11SmallVectorISt4pairIjPNS_6MDNodeEELj2EEEZNS_13IRBuilderBase25AddOrRemoveMetadataToCopyEjS4_EUlRKS5_E_EEDaOT_T0_.exit
@@ -32164,7 +32164,7 @@ _ZN4llvm15SmallVectorImplIPKNS_5ValueEE7reserveEm.exit: ; preds = %3, %12
   %19 = getelementptr inbounds i8, ptr %.sroa.05.08.i.i.i.i.i.i.i.i, i64 32
   %20 = getelementptr inbounds i8, ptr %.049.i.i.i.i.i.i.i.i, i64 8
   %21 = add nsw i64 %.010.i.i.i.i.i.i.i.i, -1
-  %22 = icmp ugt i64 %.010.i.i.i.i.i.i.i.i, 1
+  %22 = icmp samesign ugt i64 %.010.i.i.i.i.i.i.i.i, 1
   br i1 %22, label %.lr.ph.i.i.i.i.i.i.i.i, label %_ZN4llvm23SmallVectorTemplateBaseIPKNS_5ValueELb1EE18uninitialized_copyINS_4User23const_value_op_iteratorEPS3_EEvT_S9_T0_.exit, !llvm.loop !223
 
 _ZN4llvm23SmallVectorTemplateBaseIPKNS_5ValueELb1EE18uninitialized_copyINS_4User23const_value_op_iteratorEPS3_EEvT_S9_T0_.exit: ; preds = %.lr.ph.i.i.i.i.i.i.i.i, %_ZN4llvm15SmallVectorImplIPKNS_5ValueEE7reserveEm.exit
@@ -37075,7 +37075,7 @@ define linkonce_odr noundef nonnull align 8 dereferenceable(16) ptr @_ZN4llvm15S
   %17 = getelementptr inbounds i8, ptr %.0910.i.i.i.i.i, i64 80
   %18 = getelementptr inbounds i8, ptr %.0811.i.i.i.i.i, i64 80
   %19 = add nsw i64 %.012.i.i.i.i.i, -1
-  %20 = icmp ugt i64 %.012.i.i.i.i.i, 1
+  %20 = icmp samesign ugt i64 %.012.i.i.i.i.i, 1
   br i1 %20, label %.lr.ph.i.i.i.i.i, label %_ZSt4copyIPKN4llvm30DiagnosticInfoOptimizationBase8ArgumentEPS2_ET0_T_S7_S6_.exit.loopexit, !llvm.loop !247
 
 _ZSt4copyIPKN4llvm30DiagnosticInfoOptimizationBase8ArgumentEPS2_ET0_T_S7_S6_.exit.loopexit: ; preds = %.lr.ph.i.i.i.i.i
@@ -37156,7 +37156,7 @@ _ZN4llvm15SmallVectorImplINS_30DiagnosticInfoOptimizationBase8ArgumentEE5clearEv
   %47 = getelementptr inbounds i8, ptr %.0910.i.i.i.i.i35, i64 80
   %48 = getelementptr inbounds i8, ptr %.0811.i.i.i.i.i34, i64 80
   %49 = add nsw i64 %.012.i.i.i.i.i33, -1
-  %50 = icmp ugt i64 %.012.i.i.i.i.i33, 1
+  %50 = icmp samesign ugt i64 %.012.i.i.i.i.i33, 1
   br i1 %50, label %.lr.ph.i.i.i.i.i32, label %_ZSt4copyIPKN4llvm30DiagnosticInfoOptimizationBase8ArgumentEPS2_ET0_T_S7_S6_.exit36, !llvm.loop !247
 
 _ZSt4copyIPKN4llvm30DiagnosticInfoOptimizationBase8ArgumentEPS2_ET0_T_S7_S6_.exit36: ; preds = %.lr.ph.i.i.i.i.i32, %37, %36, %_ZN4llvm15SmallVectorImplINS_30DiagnosticInfoOptimizationBase8ArgumentEE5clearEv.exit

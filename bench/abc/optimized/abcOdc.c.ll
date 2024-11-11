@@ -248,7 +248,7 @@ Vec_PtrAllocSimInfo.exit83:                       ; preds = %.lr.ph.i79, %Vec_Pt
   %107 = xor i32 %105, %106
   %108 = getelementptr inbounds i32, ptr %100, i64 %indvars.iv.next.i87.us
   store i32 %107, ptr %108, align 4
-  %109 = icmp ugt i64 %indvars.iv.i86.us, 1
+  %109 = icmp samesign ugt i64 %indvars.iv.i86.us, 1
   br i1 %109, label %.lr.ph.i85.us, label %Abc_InfoRandom.exit.loopexit.us, !llvm.loop !9
 
 Abc_InfoRandom.exit.loopexit.us:                  ; preds = %.lr.ph.i85.us
@@ -2099,7 +2099,7 @@ define void @Abc_NtkDontCareSimulateSetElem(ptr nocapture noundef readonly %0) l
   %22 = load i32, ptr %21, align 4
   %23 = getelementptr inbounds i32, ptr %13, i64 %indvars.iv.next.i
   store i32 %22, ptr %23, align 4
-  %24 = icmp ugt i64 %indvars.iv.i, 1
+  %24 = icmp samesign ugt i64 %indvars.iv.i, 1
   br i1 %24, label %.lr.ph.i, label %Abc_InfoCopy.exit.loopexit, !llvm.loop !28
 
 Abc_InfoCopy.exit.loopexit:                       ; preds = %.lr.ph.i
@@ -2396,7 +2396,7 @@ define i32 @Abc_NtkDontCareSimulate(ptr noundef %0, ptr nocapture noundef %1) lo
   %21 = load i32, ptr %20, align 4
   %22 = getelementptr inbounds i32, ptr %1, i64 %indvars.iv.next.i
   store i32 %21, ptr %22, align 4
-  %23 = icmp ugt i64 %indvars.iv.i, 1
+  %23 = icmp samesign ugt i64 %indvars.iv.i, 1
   br i1 %23, label %.lr.ph.i, label %Abc_InfoCopy.exit.loopexit, !llvm.loop !28
 
 Abc_InfoCopy.exit.loopexit:                       ; preds = %.lr.ph.i
@@ -2425,7 +2425,7 @@ Abc_InfoCopy.exit:                                ; preds = %Abc_InfoCopy.exit.l
   %31 = load i32, ptr %30, align 4
   %32 = xor i32 %31, -1
   store i32 %32, ptr %30, align 4
-  %33 = icmp ugt i64 %indvars.iv.i14, 1
+  %33 = icmp samesign ugt i64 %indvars.iv.i14, 1
   br i1 %33, label %.lr.ph.i13, label %Abc_InfoNot.exit, !llvm.loop !38
 
 Abc_InfoNot.exit:                                 ; preds = %.lr.ph.i13, %26, %Abc_InfoCopy.exit
@@ -2467,7 +2467,7 @@ select.unfold.i:                                  ; preds = %select.unfold.i, %s
   %59 = lshr i32 %57, 16
   %60 = add nuw nsw i32 %59, %.08.i
   %61 = add nuw nsw i32 %60, %58
-  %62 = icmp ugt i64 %indvars.iv.i16, 1
+  %62 = icmp samesign ugt i64 %indvars.iv.i16, 1
   br i1 %62, label %select.unfold.i, label %Extra_TruthCountOnes.exit, !llvm.loop !39
 
 Extra_TruthCountOnes.exit:                        ; preds = %select.unfold.i, %Abc_InfoNot.exit
@@ -3177,7 +3177,7 @@ Abc_Clock.exit108:                                ; preds = %315, %318
   %340 = load i32, ptr %339, align 4
   %341 = getelementptr inbounds i32, ptr %331, i64 %indvars.iv.next.i.i114
   store i32 %340, ptr %341, align 4
-  %342 = icmp ugt i64 %indvars.iv.i.i113, 1
+  %342 = icmp samesign ugt i64 %indvars.iv.i.i113, 1
   br i1 %342, label %.lr.ph.i.i112, label %Abc_InfoCopy.exit.loopexit.i, !llvm.loop !28
 
 Abc_InfoCopy.exit.loopexit.i:                     ; preds = %.lr.ph.i.i112

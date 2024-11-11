@@ -449,7 +449,7 @@ define hidden noundef i32 @ir_gcm(ptr nocapture noundef readonly %0) local_unnam
 
 224:                                              ; preds = %.lr.ph461, %217, %222
   %225 = getelementptr inbounds i8, ptr %.3458, i64 4
-  %226 = icmp ugt i32 %.0381459.in, 2
+  %226 = icmp samesign ugt i32 %.0381459.in, 2
   br i1 %226, label %.lr.ph461, label %.loopexit427
 
 .loopexit425:                                     ; preds = %247, %228
@@ -2313,7 +2313,7 @@ define hidden noundef i32 @ir_schedule(ptr noundef %0) local_unnamed_addr #0 {
   %578 = load i32, ptr %577, align 4
   store i32 %578, ptr %.0700, align 4
   %579 = add nsw i32 %.2688906, -1
-  %580 = icmp ugt i32 %.2688906, 1
+  %580 = icmp samesign ugt i32 %.2688906, 1
   br i1 %580, label %.lr.ph908, label %.loopexit797
 
 .loopexit797.sink.split:                          ; preds = %557, %543, %540, %508

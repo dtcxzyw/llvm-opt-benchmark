@@ -78,7 +78,7 @@ if.then39:                                        ; preds = %softfloat_shiftRigh
   br label %if.end59
 
 if.else:                                          ; preds = %if.then17
-  %cmp41 = icmp ugt i64 %exp, 29
+  %cmp41 = icmp samesign ugt i64 %exp, 29
   br i1 %cmp41, label %if.then48, label %lor.lhs.false43
 
 lor.lhs.false43:                                  ; preds = %if.else

@@ -1496,11 +1496,11 @@ define internal fastcc i32 @dissect_per_restricted_character_string_sorted(ptr n
   br i1 %25, label %44, label %27
 
 27:                                               ; preds = %26
-  %28 = icmp ult i32 %11, 5
+  %28 = icmp samesign ult i32 %11, 5
   br i1 %28, label %44, label %29
 
 29:                                               ; preds = %27
-  %30 = icmp ult i32 %11, 17
+  %30 = icmp samesign ult i32 %11, 17
   %. = select i1 %30, i32 4, i32 8
   br label %44
 
@@ -1508,27 +1508,27 @@ define internal fastcc i32 @dissect_per_restricted_character_string_sorted(ptr n
   br i1 %25, label %44, label %32
 
 32:                                               ; preds = %31
-  %33 = icmp ult i32 %11, 5
+  %33 = icmp samesign ult i32 %11, 5
   br i1 %33, label %44, label %34
 
 34:                                               ; preds = %32
-  %35 = icmp ult i32 %11, 9
+  %35 = icmp samesign ult i32 %11, 9
   br i1 %35, label %44, label %36
 
 36:                                               ; preds = %34
-  %37 = icmp ult i32 %11, 17
+  %37 = icmp samesign ult i32 %11, 17
   br i1 %37, label %44, label %38
 
 38:                                               ; preds = %36
-  %39 = icmp ult i32 %11, 33
+  %39 = icmp samesign ult i32 %11, 33
   br i1 %39, label %44, label %40
 
 40:                                               ; preds = %38
-  %41 = icmp ult i32 %11, 65
+  %41 = icmp samesign ult i32 %11, 65
   br i1 %41, label %44, label %42
 
 42:                                               ; preds = %40
-  %43 = icmp ult i32 %11, 129
+  %43 = icmp samesign ult i32 %11, 129
   %.128 = select i1 %43, i32 7, i32 8
   br label %44
 
@@ -5800,7 +5800,7 @@ define internal fastcc noundef ptr @dissect_per_bit_string_display(ptr noundef %
   br i1 %22, label %23, label %.loopexit
 
 23:                                               ; preds = %21
-  %24 = icmp ult i32 %6, 9
+  %24 = icmp samesign ult i32 %6, 9
   br i1 %24, label %25, label %28
 
 25:                                               ; preds = %23
@@ -5809,7 +5809,7 @@ define internal fastcc noundef ptr @dissect_per_bit_string_display(ptr noundef %
   br label %92
 
 28:                                               ; preds = %23
-  %29 = icmp ult i32 %6, 17
+  %29 = icmp samesign ult i32 %6, 17
   br i1 %29, label %30, label %33
 
 30:                                               ; preds = %28
@@ -5818,7 +5818,7 @@ define internal fastcc noundef ptr @dissect_per_bit_string_display(ptr noundef %
   br label %92
 
 33:                                               ; preds = %28
-  %34 = icmp ult i32 %6, 25
+  %34 = icmp samesign ult i32 %6, 25
   br i1 %34, label %35, label %45
 
 35:                                               ; preds = %33
@@ -5834,7 +5834,7 @@ define internal fastcc noundef ptr @dissect_per_bit_string_display(ptr noundef %
   br label %92
 
 45:                                               ; preds = %33
-  %46 = icmp ult i32 %6, 33
+  %46 = icmp samesign ult i32 %6, 33
   br i1 %46, label %47, label %50
 
 47:                                               ; preds = %45
@@ -5843,7 +5843,7 @@ define internal fastcc noundef ptr @dissect_per_bit_string_display(ptr noundef %
   br label %92
 
 50:                                               ; preds = %45
-  %51 = icmp ult i32 %6, 41
+  %51 = icmp samesign ult i32 %6, 41
   br i1 %51, label %52, label %62
 
 52:                                               ; preds = %50
@@ -5859,7 +5859,7 @@ define internal fastcc noundef ptr @dissect_per_bit_string_display(ptr noundef %
   br label %92
 
 62:                                               ; preds = %50
-  %63 = icmp ult i32 %6, 49
+  %63 = icmp samesign ult i32 %6, 49
   br i1 %63, label %64, label %74
 
 64:                                               ; preds = %62
@@ -5875,7 +5875,7 @@ define internal fastcc noundef ptr @dissect_per_bit_string_display(ptr noundef %
   br label %92
 
 74:                                               ; preds = %62
-  %75 = icmp ult i32 %6, 57
+  %75 = icmp samesign ult i32 %6, 57
   br i1 %75, label %76, label %90
 
 76:                                               ; preds = %74

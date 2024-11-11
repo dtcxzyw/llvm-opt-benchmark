@@ -739,7 +739,7 @@ if.then:                                          ; preds = %entry
   br label %if.end5
 
 if.else:                                          ; preds = %entry
-  %cmp3 = icmp ult i32 %call, 2
+  %cmp3 = icmp samesign ult i32 %call, 2
   %spec.select = zext i1 %cmp3 to i8
   br label %if.end5
 
@@ -1399,7 +1399,7 @@ if.then336:                                       ; preds = %if.else334
   br label %if.end361
 
 if.else338:                                       ; preds = %if.else334
-  %cmp339 = icmp ult i16 %120, -8193
+  %cmp339 = icmp samesign ult i16 %120, -8193
   %cmp341 = icmp sgt i32 %remaining.0, 1
   %or.cond17 = select i1 %cmp339, i1 %cmp341, i1 false
   br i1 %or.cond17, label %if.then342, label %if.else346

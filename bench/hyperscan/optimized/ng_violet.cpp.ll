@@ -31153,7 +31153,7 @@ for.body.i.i:                                     ; preds = %cleanup36.i.i, %for
   br i1 %cmp.i267.i, label %cleanup36.i.i, label %if.end.i.i
 
 if.end.i.i:                                       ; preds = %for.body.i.i
-  %cmp8.i.i = icmp ugt i64 %49, 2
+  %cmp8.i.i = icmp samesign ugt i64 %49, 2
   br i1 %cmp8.i.i, label %cleanup36.sink.split.i.i, label %if.end11.i.i
 
 if.end11.i.i:                                     ; preds = %if.end.i.i
@@ -40264,7 +40264,7 @@ land.lhs.true42:                                  ; preds = %if.end35
   br i1 %cmp43, label %land.lhs.true48, label %lor.lhs.false44
 
 lor.lhs.false44:                                  ; preds = %land.lhs.true42
-  %cmp45 = icmp ugt i32 %rv.0.lcssa.i126, 2
+  %cmp45 = icmp samesign ugt i32 %rv.0.lcssa.i126, 2
   %or.cond80 = and i1 %cmp45, %__n.0.lcssa.i.i.i
   %cmp49 = icmp ugt i32 %rv.0.lcssa.i119, 1
   %or.cond81 = and i1 %cmp49, %or.cond80

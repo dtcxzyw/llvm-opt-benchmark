@@ -4609,7 +4609,7 @@ select.unfold33:                                  ; preds = %190, %187
   br label %436
 
 436:                                              ; preds = %432, %.preheader43
-  %437 = icmp ugt i64 %358, 1
+  %437 = icmp samesign ugt i64 %358, 1
   br i1 %437, label %.preheader43, label %.loopexit44, !llvm.loop !79
 
 .loopexit44:                                      ; preds = %436, %.loopexit45

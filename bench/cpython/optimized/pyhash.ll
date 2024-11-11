@@ -186,7 +186,7 @@ while.body:                                       ; preds = %entry, %while.body
   %xor24 = xor i64 %or23, %add16
   %or27 = tail call i64 @llvm.fshl.i64(i64 %add15, i64 %add15, i64 32)
   %xor28 = xor i64 %add16, %mi.0.copyload
-  %cmp = icmp ugt i64 %src_sz.addr.0195, 15
+  %cmp = icmp samesign ugt i64 %src_sz.addr.0195, 15
   br i1 %cmp, label %while.body, label %while.end, !llvm.loop !7
 
 while.end:                                        ; preds = %while.body, %entry

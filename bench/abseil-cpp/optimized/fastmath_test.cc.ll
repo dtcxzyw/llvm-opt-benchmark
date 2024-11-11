@@ -1111,7 +1111,7 @@ _ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEP
 
 _ZN7testing15AssertionResultD2Ev.exit213:         ; preds = %if.end169, %_ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEPS5_.exit.i.i212
   store ptr null, ptr %message_.i.i194, align 8
-  %cmp147 = icmp ugt i64 %indvars.iv, 2
+  %cmp147 = icmp samesign ugt i64 %indvars.iv, 2
   br i1 %cmp147, label %for.body148, label %for.inc171.loopexit, !llvm.loop !15
 
 for.inc171.loopexit:                              ; preds = %_ZN7testing15AssertionResultD2Ev.exit213
@@ -2178,7 +2178,7 @@ _ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEP
 
 _ZN7testing15AssertionResultD2Ev.exit215:         ; preds = %if.end162, %_ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEPS5_.exit.i.i214
   store ptr null, ptr %message_.i.i196, align 8
-  %cmp140 = icmp ugt i64 %indvars.iv, 2
+  %cmp140 = icmp samesign ugt i64 %indvars.iv, 2
   br i1 %cmp140, label %for.body141, label %for.inc164.loopexit, !llvm.loop !39
 
 for.inc164.loopexit:                              ; preds = %_ZN7testing15AssertionResultD2Ev.exit215

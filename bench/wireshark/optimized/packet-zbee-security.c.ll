@@ -1365,7 +1365,7 @@ define hidden range(i32 0, 2) i32 @zbee_sec_ccm_decrypt(ptr noundef %0, ptr noca
 
 .preheader:                                       ; preds = %99, %.loopexit
   %.4.lcssa = phi i32 [ %.0, %.loopexit ], [ %107, %99 ]
-  %90 = icmp ult i32 %.4.lcssa, 16
+  %90 = icmp samesign ult i32 %.4.lcssa, 16
   br i1 %90, label %.lr.ph85.preheader, label %._crit_edge
 
 .lr.ph85.preheader:                               ; preds = %.preheader

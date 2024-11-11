@@ -704,7 +704,7 @@ setup_defaults.exit:                              ; preds = %156, %161, %204, %2
 
 319:                                              ; preds = %setup_defaults.exit
   %320 = add nsw i32 %.0101.i3740, -3
-  %or.cond5 = icmp ult i32 %320, 2
+  %or.cond5 = icmp samesign ult i32 %320, 2
   br i1 %or.cond5, label %.sink.split, label %323
 
 .sink.split:                                      ; preds = %319, %setup_defaults.exit, %setup_defaults.exit, %setup_defaults.exit
@@ -1074,7 +1074,7 @@ define internal fastcc range(i32 0, 2) i32 @vwr_process_rec_data(ptr noundef %0,
   %.not412.i = icmp slt i8 %65, 0
   %68 = select i1 %.not412.i, i8 %67, i8 %65
   %69 = zext i16 %33 to i32
-  %70 = icmp ult i32 %21, %69
+  %70 = icmp samesign ult i32 %21, %69
   br i1 %70, label %71, label %73
 
 71:                                               ; preds = %20

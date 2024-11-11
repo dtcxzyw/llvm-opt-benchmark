@@ -328,7 +328,7 @@ positive_int.exit563:                             ; preds = %120, %123, %125
   unreachable
 
 180:                                              ; preds = %175
-  %181 = icmp ult i32 %.04811007, 3
+  %181 = icmp samesign ult i32 %.04811007, 3
   br i1 %181, label %.preheader913, label %.lr.ph.preheader.i
 
 .preheader913:                                    ; preds = %180
@@ -1296,8 +1296,8 @@ positive_int.exit634:                             ; preds = %560, %563, %565
   br i1 %.not1014, label %600, label %609
 
 600:                                              ; preds = %599
-  %601 = icmp ult i32 %.0451, 3
-  %602 = icmp ult i32 %.0451, 6
+  %601 = icmp samesign ult i32 %.0451, 3
+  %602 = icmp samesign ult i32 %.0451, 6
   %spec.select552 = select i1 %602, i32 3, i32 0
   %.0448 = select i1 %601, i32 6, i32 %spec.select552
   %603 = add nsw i32 %.04691009, 6
@@ -2254,7 +2254,7 @@ insert_value_in_array.exit691:                    ; preds = %.allocate_enough_me
   br i1 %1083, label %1095, label %1084
 
 1084:                                             ; preds = %1082
-  %1085 = icmp ult i32 %3, 6
+  %1085 = icmp samesign ult i32 %3, 6
   br i1 %1085, label %1086, label %1096
 
 1086:                                             ; preds = %1084
@@ -2435,7 +2435,7 @@ heuristic_bwlzh.exit:                             ; preds = %.lr.ph.i697, %1086
   br i1 %1197, label %1209, label %1198
 
 1198:                                             ; preds = %1196
-  %1199 = icmp ult i32 %3, 6
+  %1199 = icmp samesign ult i32 %3, 6
   br i1 %1199, label %1200, label %1210
 
 1200:                                             ; preds = %1198
@@ -2616,7 +2616,7 @@ heuristic_bwlzh.exit712:                          ; preds = %.lr.ph.i706, %1200
   br i1 %1311, label %1323, label %1312
 
 1312:                                             ; preds = %1310
-  %1313 = icmp ult i32 %3, 6
+  %1313 = icmp samesign ult i32 %3, 6
   br i1 %1313, label %1314, label %1324
 
 1314:                                             ; preds = %1312
@@ -2797,7 +2797,7 @@ heuristic_bwlzh.exit723:                          ; preds = %.lr.ph.i717, %1314
   br i1 %1425, label %1437, label %1426
 
 1426:                                             ; preds = %1424
-  %1427 = icmp ult i32 %3, 6
+  %1427 = icmp samesign ult i32 %3, 6
   br i1 %1427, label %1428, label %1438
 
 1428:                                             ; preds = %1426

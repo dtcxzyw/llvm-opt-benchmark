@@ -418,11 +418,11 @@ while.cond:                                       ; preds = %_ZN4llvh15SmallVect
   %NextBufferSize.1 = phi i64 [ %NextBufferSize.0, %if.end7 ], [ %conv12, %_ZN4llvh15SmallVectorImplIcE6resizeEm.exit ]
   %4 = load i32, ptr %Size.i.i.i.i.i, align 8
   %conv.i.i = zext i32 %4 to i64
-  %cmp.i10 = icmp ult i64 %NextBufferSize.1, %conv.i.i
+  %cmp.i10 = icmp samesign ult i64 %NextBufferSize.1, %conv.i.i
   br i1 %cmp.i10, label %if.end15.sink.split.i, label %if.else.i
 
 if.else.i:                                        ; preds = %while.cond
-  %cmp5.i = icmp ugt i64 %NextBufferSize.1, %conv.i.i
+  %cmp5.i = icmp samesign ugt i64 %NextBufferSize.1, %conv.i.i
   br i1 %cmp5.i, label %if.then6.i, label %if.else.i._ZN4llvh15SmallVectorImplIcE6resizeEm.exit_crit_edge
 
 if.else.i._ZN4llvh15SmallVectorImplIcE6resizeEm.exit_crit_edge: ; preds = %if.else.i
@@ -432,7 +432,7 @@ if.else.i._ZN4llvh15SmallVectorImplIcE6resizeEm.exit_crit_edge: ; preds = %if.el
 if.then6.i:                                       ; preds = %if.else.i
   %5 = load i32, ptr %Capacity2.i.i.i.i.i, align 4
   %conv.i15.i = zext i32 %5 to i64
-  %cmp8.i = icmp ugt i64 %NextBufferSize.1, %conv.i15.i
+  %cmp8.i = icmp samesign ugt i64 %NextBufferSize.1, %conv.i15.i
   br i1 %cmp8.i, label %if.then9.i, label %if.end.i
 
 if.then9.i:                                       ; preds = %if.then6.i
@@ -472,7 +472,7 @@ _ZN4llvh15SmallVectorImplIcE6resizeEm.exit:       ; preds = %if.else.i._ZN4llvh1
   %spec.select.i18 = add nuw nsw i32 %call.i13, %add.i17
   %retval.0.i19 = select i1 %cmp.i14, i32 %mul.i15, i32 %spec.select.i18
   %conv12 = zext i32 %retval.0.i19 to i64
-  %cmp13.not = icmp ult i64 %NextBufferSize.1, %conv12
+  %cmp13.not = icmp samesign ult i64 %NextBufferSize.1, %conv12
   br i1 %cmp13.not, label %while.cond, label %if.then14, !llvm.loop !9
 
 if.then14:                                        ; preds = %_ZN4llvh15SmallVectorImplIcE6resizeEm.exit
@@ -3453,7 +3453,7 @@ if.then.i4:                                       ; preds = %_ZL5getFDN4llvh9Str
   br label %_ZN4llvh14raw_fd_ostreamC2Eibb.exit
 
 if.end.i:                                         ; preds = %_ZL5getFDN4llvh9StringRefERSt10error_codeNS_3sys2fs19CreationDispositionENS4_10FileAccessENS4_9OpenFlagsE.exit
-  %cmp8.i = icmp ult i32 %retval.0.i, 3
+  %cmp8.i = icmp samesign ult i32 %retval.0.i, 3
   br i1 %cmp8.i, label %if.then9.i, label %if.end11.i
 
 if.then9.i:                                       ; preds = %if.end.i
@@ -3530,7 +3530,7 @@ if.then:                                          ; preds = %entry
   br label %if.end19
 
 if.end:                                           ; preds = %entry
-  %cmp8 = icmp ult i32 %fd, 3
+  %cmp8 = icmp samesign ult i32 %fd, 3
   br i1 %cmp8, label %if.then9, label %if.end11
 
 if.then9:                                         ; preds = %if.end

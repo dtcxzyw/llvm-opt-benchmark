@@ -2970,7 +2970,7 @@ _ZN4llvm6APSIntaSERKS0_.exit35.i:                 ; preds = %1135, %1131
   store i8 0, ptr %21, align 1
   store i8 0, ptr %22, align 1
   %.off.i = add nsw i32 %95, -114
-  %switch.i = icmp ult i32 %.off.i, 5
+  %switch.i = icmp samesign ult i32 %.off.i, 5
   br i1 %switch.i, label %1136, label %1151
 
 1136:                                             ; preds = %_ZN4llvm6APSIntaSERKS0_.exit35.i

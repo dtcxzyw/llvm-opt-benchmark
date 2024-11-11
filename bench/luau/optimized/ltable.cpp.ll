@@ -682,7 +682,7 @@ define hidden noundef ptr @_Z8luaH_newP9lua_Stateii(ptr noundef %0, i32 noundef 
   br i1 %24, label %25, label %36
 
 25:                                               ; preds = %3
-  %26 = icmp ugt i32 %1, 67108864
+  %26 = icmp samesign ugt i32 %1, 67108864
   br i1 %26, label %27, label %28
 
 27:                                               ; preds = %25
@@ -2291,7 +2291,7 @@ _ZL8countintdPi.exit:                             ; preds = %65, %72
   %indvars.iv.next.i35 = add nuw nsw i64 %indvars.iv.i33, 1
   %91 = shl nsw i32 %.02230.i, 1
   %92 = and i32 %.02230.i, 2147483647
-  %93 = icmp ult i32 %92, %.041
+  %93 = icmp samesign ult i32 %92, %.041
   br i1 %93, label %.lr.ph.i32, label %_ZL12computesizesPiS_.exit, !llvm.loop !25
 
 _ZL12computesizesPiS_.exit:                       ; preds = %.lr.ph.i32, %90, %80

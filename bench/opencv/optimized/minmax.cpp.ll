@@ -489,7 +489,7 @@ _ZNK2cv11_InputArray6getMatEi.exit107:            ; preds = %62, %65
   %167 = getelementptr inbounds i32, ptr %3, i64 %indvars.iv.next.i120
   store i32 %166, ptr %167, align 4
   %168 = udiv i64 %.022.i119, %164
-  %169 = icmp ugt i64 %indvars.iv.i118, 1
+  %169 = icmp samesign ugt i64 %indvars.iv.i118, 1
   br i1 %169, label %161, label %_ZN2cvL7ofs2idxERKNS_3MatEmPi.exit123, !llvm.loop !12
 
 _ZN2cvL7ofs2idxERKNS_3MatEmPi.exit123:            ; preds = %161, %156, %.lr.ph24.preheader.i122, %.preheader.i121, %150
@@ -534,7 +534,7 @@ _ZN2cvL7ofs2idxERKNS_3MatEmPi.exit123:            ; preds = %161, %156, %.lr.ph2
   %187 = getelementptr inbounds i32, ptr %4, i64 %indvars.iv.next.i128
   store i32 %186, ptr %187, align 4
   %188 = udiv i64 %.022.i127, %184
-  %189 = icmp ugt i64 %indvars.iv.i126, 1
+  %189 = icmp samesign ugt i64 %indvars.iv.i126, 1
   br i1 %189, label %181, label %_ZN2cvL7ofs2idxERKNS_3MatEmPi.exit131, !llvm.loop !12
 
 _ZN2cvL7ofs2idxERKNS_3MatEmPi.exit131:            ; preds = %181, %176, %.lr.ph24.preheader.i130, %.preheader.i129, %_ZN2cvL7ofs2idxERKNS_3MatEmPi.exit123

@@ -174,7 +174,7 @@ for.body50:                                       ; preds = %for.body50.preheade
   br i1 %cmp54, label %for.inc64, label %if.else
 
 if.else:                                          ; preds = %for.body50
-  %cmp.i107 = icmp ugt i16 %6, 122
+  %cmp.i107 = icmp samesign ugt i16 %6, 122
   br i1 %cmp.i107, label %.thread, label %_ZL9isLDHCharDs.exit
 
 .thread:                                          ; preds = %if.else
@@ -189,7 +189,7 @@ _ZL9isLDHCharDs.exit:                             ; preds = %if.else
   %9 = add nsw i16 %6, -91
   %or.cond1.i = icmp ult i16 %9, -26
   %or.cond11.i.not123 = select i1 %or.cond10.i.not124, i1 %or.cond1.i, i1 false
-  %cmp15.i = icmp ult i16 %6, 97
+  %cmp15.i = icmp samesign ult i16 %6, 97
   %or.cond12.i.not = and i1 %cmp15.i, %or.cond11.i.not123
   %cond.fr = freeze i1 %or.cond12.i.not
   %10 = trunc nuw nsw i64 %indvars.iv138 to i32

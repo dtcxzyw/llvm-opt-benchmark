@@ -4029,7 +4029,7 @@ define void @Gia_ManCountCareBits(ptr nocapture noundef readonly %0, ptr nocaptu
   br label %151
 
 151:                                              ; preds = %107, %131, %140, %133, %142
-  %152 = icmp ugt i64 %indvars.iv163, 2
+  %152 = icmp samesign ugt i64 %indvars.iv163, 2
   br i1 %152, label %.lr.ph142, label %.critedge8.loopexit, !llvm.loop !50
 
 .critedge8.loopexit:                              ; preds = %151, %.lr.ph142

@@ -2843,7 +2843,7 @@ define void @_ZNK10open_spiel10backgammon15BackgammonState23SpielMoveToCheckerMo
 26:                                               ; preds = %4
   store i64 %3, ptr %9, align 8
   store i32 1352, ptr %10, align 4
-  %27 = icmp ult i64 %3, 1352
+  %27 = icmp samesign ult i64 %3, 1352
   br i1 %27, label %32, label %28
 
 28:                                               ; preds = %26
@@ -2862,7 +2862,7 @@ define void @_ZNK10open_spiel10backgammon15BackgammonState23SpielMoveToCheckerMo
   br label %.body
 
 32:                                               ; preds = %26
-  %33 = icmp ult i64 %3, 676
+  %33 = icmp samesign ult i64 %3, 676
   %34 = add nuw nsw i64 %3, 64860
   %spec.select = select i1 %33, i64 %3, i64 %34
   %.lhs.trunc = trunc i64 %spec.select to i16
@@ -2953,7 +2953,7 @@ define void @_ZNK10open_spiel10backgammon15BackgammonState23SpielMoveToCheckerMo
 64:                                               ; preds = %51
   store i64 %56, ptr %17, align 8
   store i32 25, ptr %18, align 4
-  %65 = icmp ult i64 %56, 26
+  %65 = icmp samesign ult i64 %56, 26
   br i1 %65, label %71, label %66
 
 66:                                               ; preds = %64
@@ -4729,7 +4729,7 @@ define noundef i32 @_ZNK10open_spiel10backgammon15BackgammonState5boardEii(ptr n
 24:                                               ; preds = %18
   store i32 %2, ptr %8, align 4
   store i32 24, ptr %9, align 4
-  %25 = icmp ult i32 %2, 24
+  %25 = icmp samesign ult i32 %2, 24
   br i1 %25, label %30, label %26
 
 26:                                               ; preds = %24
@@ -5127,11 +5127,11 @@ define noundef range(i32 1, 7) i32 @_ZNK10open_spiel10backgammon15BackgammonStat
   br i1 %37, label %38, label %_ZN4absl7debian28AlphaNumC2EPKc.exit
 
 38:                                               ; preds = %34
-  %39 = icmp ult i32 %36, 7
+  %39 = icmp samesign ult i32 %36, 7
   br i1 %39, label %56, label %40
 
 40:                                               ; preds = %38
-  %41 = icmp ult i32 %36, 13
+  %41 = icmp samesign ult i32 %36, 13
   br i1 %41, label %42, label %_ZN4absl7debian28AlphaNumC2EPKc.exit
 
 42:                                               ; preds = %40
@@ -7296,7 +7296,7 @@ define noundef range(i64 0, 1352) i64 @_ZNK10open_spiel10backgammon15BackgammonS
 59:                                               ; preds = %.thread39
   store i64 %spec.select35, ptr %11, align 8
   store i32 1352, ptr %12, align 4
-  %60 = icmp ult i64 %spec.select35, 1352
+  %60 = icmp samesign ult i64 %spec.select35, 1352
   br i1 %60, label %65, label %61
 
 61:                                               ; preds = %59
@@ -7933,7 +7933,7 @@ define noundef zeroext i1 @_ZNK10open_spiel10backgammon15BackgammonState9AllInHo
 23:                                               ; preds = %17
   store i32 %1, ptr %7, align 4
   store i32 1, ptr %8, align 4
-  %24 = icmp ult i32 %1, 2
+  %24 = icmp samesign ult i32 %1, 2
   br i1 %24, label %29, label %25
 
 25:                                               ; preds = %23
@@ -10623,7 +10623,7 @@ _ZNSt6vectorIN10open_spiel10backgammon11CheckerMoveESaIS2_EED2Ev.exit: ; preds =
 93:                                               ; preds = %_ZNSt6vectorIN10open_spiel10backgammon11CheckerMoveESaIS2_EED2Ev.exit
   store i32 %67, ptr %18, align 4
   store i32 2, ptr %19, align 4
-  %94 = icmp ult i32 %67, 3
+  %94 = icmp samesign ult i32 %67, 3
   br i1 %94, label %100, label %95
 
 95:                                               ; preds = %93
@@ -13114,7 +13114,7 @@ _ZNSt12_Vector_baseISt6vectorIiSaIiEESaIS2_EE13_M_deallocateEPS2_m.exit: ; preds
   %47 = getelementptr inbounds i8, ptr %.0910.i.i.i.i.i, i64 24
   %48 = getelementptr inbounds i8, ptr %.0811.i.i.i.i.i, i64 24
   %49 = add nsw i64 %.012.i.i.i.i.i, -1
-  %50 = icmp ugt i64 %.012.i.i.i.i.i, 1
+  %50 = icmp samesign ugt i64 %.012.i.i.i.i.i, 1
   br i1 %50, label %.lr.ph.i.i.i.i.i, label %_ZSt4copyIN9__gnu_cxx17__normal_iteratorIPKSt6vectorIiSaIiEES2_IS4_SaIS4_EEEENS1_IPS4_S8_EEET0_T_SD_SC_.exit.loopexit, !llvm.loop !64
 
 _ZSt4copyIN9__gnu_cxx17__normal_iteratorIPKSt6vectorIiSaIiEES2_IS4_SaIS4_EEEENS1_IPS4_S8_EEET0_T_SD_SC_.exit.loopexit: ; preds = %.lr.ph.i.i.i.i.i
@@ -13170,7 +13170,7 @@ _ZSt8_DestroyISt6vectorIiSaIiEEEvPT_.exit.i.i.i28: ; preds = %55, %.lr.ph.i.i.i2
   %66 = getelementptr inbounds i8, ptr %.0910.i.i.i.i.i35, i64 24
   %67 = getelementptr inbounds i8, ptr %.0811.i.i.i.i.i34, i64 24
   %68 = add nsw i64 %.012.i.i.i.i.i33, -1
-  %69 = icmp ugt i64 %.012.i.i.i.i.i33, 1
+  %69 = icmp samesign ugt i64 %.012.i.i.i.i.i33, 1
   br i1 %69, label %.lr.ph.i.i.i.i.i32, label %_ZSt4copyIPSt6vectorIiSaIiEES3_ET0_T_S5_S4_.exit.loopexit, !llvm.loop !66
 
 _ZSt4copyIPSt6vectorIiSaIiEES3_ET0_T_S5_S4_.exit.loopexit: ; preds = %.lr.ph.i.i.i.i.i32

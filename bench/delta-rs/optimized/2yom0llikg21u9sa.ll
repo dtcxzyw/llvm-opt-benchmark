@@ -12728,8 +12728,8 @@ define internal fastcc void @"_ZN10serde_json2de21Deserializer$LT$R$GT$13parse_d
 
 71:                                               ; preds = %29
   %.not = icmp ne i64 %.055, 1844674407370955161
-  %72 = icmp ugt i8 %24, 5
-  %or.cond25 = or i1 %.not, %72
+  %72 = icmp samesign ugt i8 %24, 5
+  %or.cond25 = select i1 %.not, i1 true, i1 %72
   br i1 %or.cond25, label %77, label %.critedge24
 
 .critedge24:                                      ; preds = %71, %29
@@ -12989,8 +12989,8 @@ define internal fastcc void @"_ZN10serde_json2de21Deserializer$LT$R$GT$13parse_i
 
 91:                                               ; preds = %88
   %.not = icmp ne i64 %.062, 1844674407370955161
-  %92 = icmp ugt i8 %63, 5
-  %or.cond25 = or i1 %.not, %92
+  %92 = icmp samesign ugt i8 %63, 5
+  %or.cond25 = select i1 %.not, i1 true, i1 %92
   br i1 %or.cond25, label %.critedge, label %.critedge23
 
 .critedge23:                                      ; preds = %91, %88
@@ -13469,8 +13469,8 @@ define internal fastcc void @"_ZN10serde_json2de21Deserializer$LT$R$GT$14parse_e
 
 78:                                               ; preds = %42
   %.not = icmp ne i32 %.01047, 214748364
-  %79 = icmp ugt i8 %41, 7
-  %or.cond26 = or i1 %.not, %79
+  %79 = icmp samesign ugt i8 %41, 7
+  %or.cond26 = select i1 %.not, i1 true, i1 %79
   br i1 %or.cond26, label %82, label %.critedge25
 
 .critedge25:                                      ; preds = %78, %42
@@ -24180,7 +24180,7 @@ define hidden void @_ZN9aws_types8app_name7AppName3new17h3cab36351327f2efE(ptr n
   %43 = and i8 %41, 63
   %44 = zext nneg i8 %43 to i32
   %45 = or disjoint i32 %42, %44
-  %46 = icmp ugt i8 %35, -33
+  %46 = icmp samesign ugt i8 %35, -33
   br i1 %46, label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hd686911ac1133c9aE.llvm.1249085243679331042.exit15.i.i.i", label %"_ZN81_$LT$core..str..iter..Chars$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17ha3bb299ebebfcc3aE.exit.thread.i"
 
 47:                                               ; preds = %33
@@ -24198,7 +24198,7 @@ define hidden void @_ZN9aws_types8app_name7AppName3new17h3cab36351327f2efE(ptr n
   %55 = or disjoint i32 %52, %54
   %56 = shl nuw nsw i32 %38, 12
   %57 = or disjoint i32 %55, %56
-  %58 = icmp ugt i8 %35, -17
+  %58 = icmp samesign ugt i8 %35, -17
   br i1 %58, label %"_ZN81_$LT$core..str..iter..Chars$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17ha3bb299ebebfcc3aE.exit.i", label %"_ZN81_$LT$core..str..iter..Chars$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17ha3bb299ebebfcc3aE.exit.thread.i"
 
 "_ZN81_$LT$core..str..iter..Chars$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17ha3bb299ebebfcc3aE.exit.i": ; preds = %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hd686911ac1133c9aE.llvm.1249085243679331042.exit15.i.i.i"

@@ -380,7 +380,7 @@ _ZN4llvm6uniqueIRNS_11SmallVectorIjLj0EEEEEDaOT_.exit: ; preds = %.preheader.i.i
   br label %_ZN4llvm5dwarf24getDebugNamesBucketCountEj.exit
 
 57:                                               ; preds = %_ZN4llvm6uniqueIRNS_11SmallVectorIjLj0EEEEEDaOT_.exit
-  %58 = icmp ugt i32 %52, 16
+  %58 = icmp samesign ugt i32 %52, 16
   br i1 %58, label %59, label %61
 
 59:                                               ; preds = %57

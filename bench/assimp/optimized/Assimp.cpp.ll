@@ -8349,7 +8349,7 @@ while.body.i73.i:                                 ; preds = %for.end.i.i, %if.en
   br i1 %or.cond.i.i, label %_ZL27stbi__compute_huffman_codesP10stbi__zbuf.exit.thread.sink.split.i, label %if.end17.i.i
 
 if.end17.i.i:                                     ; preds = %while.body.i73.i
-  %cmp18.i.i = icmp ult i32 %call12.i.i, 16
+  %cmp18.i.i = icmp samesign ult i32 %call12.i.i, 16
   br i1 %cmp18.i.i, label %if.then19.i.i, label %if.else.i.i
 
 if.then19.i.i:                                    ; preds = %if.end17.i.i
@@ -8680,7 +8680,7 @@ if.else.i102.i:                                   ; preds = %for.cond.i.i
   br i1 %cmp12.i.i, label %_ZL25stbi__parse_huffman_blockP10stbi__zbuf.exit.i, label %if.end15.i.i
 
 if.end15.i.i:                                     ; preds = %if.else.i102.i
-  %cmp16.i.i = icmp ugt i32 %call.i.i, 285
+  %cmp16.i.i = icmp samesign ugt i32 %call.i.i, 285
   br i1 %cmp16.i.i, label %if.then17.i.i, label %if.end19.i.i
 
 if.then17.i.i:                                    ; preds = %if.end15.i.i
@@ -8768,7 +8768,7 @@ if.end33.i112.i:                                  ; preds = %if.end27.i.i
   %idxprom34.i.i = zext nneg i32 %call28.i.i to i64
   %arrayidx35.i.i = getelementptr inbounds [32 x i32], ptr @_ZL16stbi__zdist_base, i64 0, i64 %idxprom34.i.i
   %133 = load i32, ptr %arrayidx35.i.i, align 4
-  %tobool38.not.i.i = icmp ult i32 %call28.i.i, 4
+  %tobool38.not.i.i = icmp samesign ult i32 %call28.i.i, 4
   br i1 %tobool38.not.i.i, label %if.end44.i.i, label %if.then39.i.i
 
 if.then39.i.i:                                    ; preds = %if.end33.i112.i
@@ -13026,7 +13026,7 @@ if.end88:                                         ; preds = %lor.lhs.false
 if.then90:                                        ; preds = %if.end88
   %and91 = and i32 %conv45531535, 2
   %cond = or disjoint i32 %and91, 1
-  %tobool94.not = icmp ugt i8 %retval.0.i235530537, 3
+  %tobool94.not = icmp samesign ugt i8 %retval.0.i235530537, 3
   %cond95 = zext i1 %tobool94.not to i32
   %add = add nuw nsw i32 %cond, %cond95
   store i32 %add, ptr %img_n189, align 8
@@ -15437,7 +15437,7 @@ for.body574:                                      ; preds = %for.cond572.prehead
   store i8 %conv585, ptr %incdec.ptr580, align 1
   %sub588 = add nsw i32 %k.14670, -2
   %incdec.ptr589 = getelementptr inbounds i8, ptr %in.0672, i64 1
-  %cmp573 = icmp ugt i32 %k.14670, 3
+  %cmp573 = icmp samesign ugt i32 %k.14670, 3
   br i1 %cmp573, label %for.body574, label %for.end590, !llvm.loop !127
 
 for.end590:                                       ; preds = %for.body574, %for.cond572.preheader
@@ -15482,7 +15482,7 @@ for.body606:                                      ; preds = %for.cond604.prehead
   store i8 %conv631, ptr %incdec.ptr626, align 1
   %sub634 = add nsw i32 %k.15663, -4
   %incdec.ptr635 = getelementptr inbounds i8, ptr %in.1665, i64 1
-  %cmp605 = icmp ugt i32 %k.15663, 7
+  %cmp605 = icmp samesign ugt i32 %k.15663, 7
   br i1 %cmp605, label %for.body606, label %for.end636, !llvm.loop !128
 
 for.end636:                                       ; preds = %for.body606, %for.cond604.preheader
@@ -15571,7 +15571,7 @@ for.body672:                                      ; preds = %for.cond670.prehead
   store i8 %conv725, ptr %incdec.ptr720, align 1
   %sub728 = add nsw i32 %k.16656, -8
   %incdec.ptr729 = getelementptr inbounds i8, ptr %in.2658, i64 1
-  %cmp671 = icmp ugt i32 %k.16656, 15
+  %cmp671 = icmp samesign ugt i32 %k.16656, 15
   br i1 %cmp671, label %for.body672, label %for.end730, !llvm.loop !129
 
 for.end730:                                       ; preds = %for.body672, %for.cond670.preheader
@@ -15596,7 +15596,7 @@ if.end749:                                        ; preds = %if.end739
   %.not = icmp eq i8 %125, 0
   %conv747 = select i1 %.not, i8 0, i8 %cond567
   store i8 %conv747, ptr %incdec.ptr738, align 1
-  %cmp750 = icmp ugt i32 %k.16.lcssa, 2
+  %cmp750 = icmp samesign ugt i32 %k.16.lcssa, 2
   br i1 %cmp750, label %if.end759, label %if.end802
 
 if.end759:                                        ; preds = %if.end749
@@ -15616,7 +15616,7 @@ if.end769:                                        ; preds = %if.end759
   %.not486 = icmp eq i8 %129, 0
   %conv767 = select i1 %.not486, i8 0, i8 %cond567
   store i8 %conv767, ptr %incdec.ptr758, align 1
-  %cmp770 = icmp ugt i32 %k.16.lcssa, 4
+  %cmp770 = icmp samesign ugt i32 %k.16.lcssa, 4
   br i1 %cmp770, label %if.end779, label %if.end802
 
 if.end779:                                        ; preds = %if.end769

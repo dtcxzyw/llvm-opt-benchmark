@@ -38,7 +38,7 @@ for.body.i.i:                                     ; preds = %if.then, %UTF8Posit
   br i1 %cmp.i.i.i, label %UTF8Position.exit.i.i, label %if.else.i.i.i
 
 if.else.i.i.i:                                    ; preds = %for.body.i.i
-  %cmp1.i.i.i = icmp ugt i8 %0, -65
+  %cmp1.i.i.i = icmp samesign ugt i8 %0, -65
   br i1 %cmp1.i.i.i, label %UTF8Position.exit.i.i, label %if.else3.i.i.i
 
 if.else3.i.i.i:                                   ; preds = %if.else.i.i.i
@@ -101,7 +101,7 @@ for.body.i:                                       ; preds = %UTF8Position.exit.i
   br i1 %cmp.i.i, label %UTF8Position.exit.i, label %if.else.i.i
 
 if.else.i.i:                                      ; preds = %for.body.i
-  %cmp1.i.i = icmp ugt i8 %5, -65
+  %cmp1.i.i = icmp samesign ugt i8 %5, -65
   br i1 %cmp1.i.i, label %UTF8Position.exit.i, label %if.else3.i.i
 
 if.else3.i.i:                                     ; preds = %if.else.i.i
@@ -147,7 +147,7 @@ cond.end36.i:                                     ; preds = %cond.false29.i, %co
   br i1 %cmp.i93.i, label %UTF8Position.exit102.i, label %if.else.i94.i
 
 if.else.i94.i:                                    ; preds = %cond.end36.i
-  %cmp1.i95.i = icmp ugt i8 %8, -65
+  %cmp1.i95.i = icmp samesign ugt i8 %8, -65
   %add8.i.cond37.i = select i1 %cmp1.i95.i, i64 %4, i64 %cond37.i
   br label %UTF8Position.exit102.i
 
@@ -190,7 +190,7 @@ if.then53.i:                                      ; preds = %if.end.i56
   br i1 %cmp.i103.i, label %UTF8Position.exit112.i, label %if.else.i104.i
 
 if.else.i104.i:                                   ; preds = %if.then53.i
-  %cmp1.i105.i = icmp ugt i8 %15, -65
+  %cmp1.i105.i = icmp samesign ugt i8 %15, -65
   br i1 %cmp1.i105.i, label %UTF8Position.exit112.i, label %if.else3.i106.i
 
 if.else3.i106.i:                                  ; preds = %if.else.i104.i
@@ -243,7 +243,7 @@ cond.end105.i:                                    ; preds = %cond.false99.i, %co
   br i1 %cmp.i113.i, label %UTF8Position.exit122.i, label %if.else.i114.i
 
 if.else.i114.i:                                   ; preds = %cond.end105.i
-  %cmp1.i115.i = icmp ugt i8 %20, -65
+  %cmp1.i115.i = icmp samesign ugt i8 %20, -65
   %add8.i.cond106.i = select i1 %cmp1.i115.i, i64 %4, i64 %cond106.i
   br label %UTF8Position.exit122.i
 

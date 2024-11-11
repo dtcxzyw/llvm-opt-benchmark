@@ -621,7 +621,7 @@ define internal fastcc noundef range(i32 0, 2097152) i32 @"_ZN114_$LT$core..iter
   %19 = load i8, ptr %12, align 1, !noalias !134, !noundef !4
   %20 = and i8 %19, 63
   %21 = zext nneg i8 %20 to i32
-  %22 = icmp ugt i8 %13, -33
+  %22 = icmp samesign ugt i8 %13, -33
   br i1 %22, label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hdb3b08a01975ca4dE.llvm.17897451826487304826.exit14.i.i.i.i.i", label %_ZN4core4iter8adapters7flatten17and_then_or_clear17hbb7dc96d43063913E.exit11.loopexit.split.loop.exit21.i
 
 23:                                               ; preds = %11
@@ -638,7 +638,7 @@ define internal fastcc noundef range(i32 0, 2097152) i32 @"_ZN114_$LT$core..iter
   %29 = and i8 %27, 63
   %30 = zext nneg i8 %29 to i32
   %31 = or disjoint i32 %28, %30
-  %32 = icmp ugt i8 %13, -17
+  %32 = icmp samesign ugt i8 %13, -17
   br i1 %32, label %_ZN4core3ops8function6FnOnce9call_once17h406ef2588f933788E.exit.i.i, label %_ZN4core4iter8adapters7flatten17and_then_or_clear17hbb7dc96d43063913E.exit11.loopexit.split.loop.exit.i
 
 _ZN4core3ops8function6FnOnce9call_once17h406ef2588f933788E.exit.i.i: ; preds = %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hdb3b08a01975ca4dE.llvm.17897451826487304826.exit14.i.i.i.i.i"
@@ -736,7 +736,7 @@ _ZN4core4iter8adapters7flatten17and_then_or_clear17hbb7dc96d43063913E.exit11.loo
   %78 = and i8 %76, 63
   %79 = zext nneg i8 %78 to i32
   %80 = or disjoint i32 %77, %79
-  %81 = icmp ugt i8 %70, -33
+  %81 = icmp samesign ugt i8 %70, -33
   br i1 %81, label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hdb3b08a01975ca4dE.llvm.17897451826487304826.exit14.i.i.i.i8.i", label %"_ZN116_$LT$core..iter..adapters..flatten..FlattenCompat$LT$I$C$U$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h7f9999e98dec4cadE.exit"
 
 82:                                               ; preds = %68
@@ -755,7 +755,7 @@ _ZN4core4iter8adapters7flatten17and_then_or_clear17hbb7dc96d43063913E.exit11.loo
   %90 = or disjoint i32 %87, %89
   %91 = shl nuw nsw i32 %73, 12
   %92 = or disjoint i32 %90, %91
-  %93 = icmp ugt i8 %70, -17
+  %93 = icmp samesign ugt i8 %70, -17
   br i1 %93, label %_ZN4core3ops8function6FnOnce9call_once17h406ef2588f933788E.exit.i9.i, label %"_ZN116_$LT$core..iter..adapters..flatten..FlattenCompat$LT$I$C$U$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h7f9999e98dec4cadE.exit"
 
 _ZN4core3ops8function6FnOnce9call_once17h406ef2588f933788E.exit.i9.i: ; preds = %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hdb3b08a01975ca4dE.llvm.17897451826487304826.exit14.i.i.i.i8.i"

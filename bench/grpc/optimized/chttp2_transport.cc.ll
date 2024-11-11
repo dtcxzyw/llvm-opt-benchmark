@@ -24750,7 +24750,7 @@ if.then228:                                       ; preds = %do.end210
   unreachable
 
 do.end230:                                        ; preds = %do.end210
-  %cmp.i = icmp ult i64 %call, 127
+  %cmp.i = icmp samesign ult i64 %call, 127
   br i1 %cmp.i, label %_ZN9grpc_core12VarintWriterILh1EEC2Em.exit, label %cond.end.i
 
 cond.end.i:                                       ; preds = %do.end230

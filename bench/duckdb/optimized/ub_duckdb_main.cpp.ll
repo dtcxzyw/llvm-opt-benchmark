@@ -47209,7 +47209,7 @@ while.cond6:                                      ; preds = %while.cond6.prehead
   br i1 %cmp9, label %land.lhs.true, label %lor.lhs.false13
 
 land.lhs.true:                                    ; preds = %while.cond6
-  %cmp12 = icmp ult i8 %.fr, 58
+  %cmp12 = icmp samesign ult i8 %.fr, 58
   br i1 %cmp12, label %while.body28, label %switch.early.test
 
 switch.early.test:                                ; preds = %land.lhs.true
@@ -75582,7 +75582,7 @@ while.body.i.i:                                   ; preds = %while.body.i.i, %wh
 
 while.end.i.i:                                    ; preds = %while.body.i.i, %.noexc
   %__val.addr.0.lcssa.i.i = phi i64 [ %add, %.noexc ], [ %div.i10.i, %while.body.i.i ]
-  %cmp7.i.i = icmp ugt i64 %__val.addr.0.lcssa.i.i, 9
+  %cmp7.i.i = icmp samesign ugt i64 %__val.addr.0.lcssa.i.i, 9
   br i1 %cmp7.i.i, label %if.then.i.i, label %if.else.i.i
 
 if.then.i.i:                                      ; preds = %while.end.i.i

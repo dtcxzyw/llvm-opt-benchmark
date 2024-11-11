@@ -8276,7 +8276,7 @@ _ZNK4llvm6SDNode9hasOneUseEv.exit1902:            ; preds = %1764
   br i1 %1807, label %1808, label %.critedge15
 
 1808:                                             ; preds = %.critedge13
-  %.not1725 = icmp ult i64 %1721, 128
+  %.not1725 = icmp samesign ult i64 %1721, 128
   %1809 = icmp eq i16 %.sroa.0.0.copyload.i.i.i1885, 5
   %or.cond3064 = select i1 %.not1725, i1 true, i1 %1809
   br i1 %or.cond3064, label %.critedge17, label %1810
@@ -8294,7 +8294,7 @@ _ZNK4llvm6SDNode9hasOneUseEv.exit1902:            ; preds = %1764
   br i1 %or.cond3065, label %1816, label %.critedge19
 
 1816:                                             ; preds = %.critedge15
-  %.not1726 = icmp ult i64 %1721, 32768
+  %.not1726 = icmp samesign ult i64 %1721, 32768
   %1817 = icmp eq i16 %.sroa.0.0.copyload.i.i.i1885, 6
   %or.cond3066 = select i1 %.not1726, i1 true, i1 %1817
   br i1 %or.cond3066, label %.critedge17, label %1818
@@ -22026,7 +22026,7 @@ define internal fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_115X86DAGToDAGISel12t
   br i1 %24, label %28, label %25
 
 25:                                               ; preds = %21
-  %spec.select.i.i = icmp ult i16 %8, 120
+  %spec.select.i.i = icmp samesign ult i16 %8, 120
   br i1 %spec.select.i.i, label %_ZNK4llvm3MVT14is512BitVectorEv.exit, label %.critedge
 
 _ZNK4llvm3MVT14is512BitVectorEv.exit:             ; preds = %25
@@ -23800,7 +23800,7 @@ _ZNK4llvm5APInt18getSignificantBitsEv.exit:       ; preds = %103, %105, %112, %1
   br i1 %124, label %221, label %125
 
 125:                                              ; preds = %_ZNK4llvm5APInt18getSignificantBitsEv.exit
-  %126 = icmp ugt i32 %123, 8
+  %126 = icmp samesign ugt i32 %123, 8
   %.pre91 = load i32, ptr %25, align 8
   br i1 %126, label %127, label %163
 
@@ -24091,7 +24091,7 @@ define internal fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_115X86DAGToDAGISel17t
   br i1 %22, label %28, label %23
 
 23:                                               ; preds = %19
-  %spec.select.i.i = icmp ult i16 %12, 120
+  %spec.select.i.i = icmp samesign ult i16 %12, 120
   br i1 %spec.select.i.i, label %_ZNK4llvm3MVT14is512BitVectorEv.exit, label %_ZN4llvm5SDLocD2Ev.exit
 
 _ZNK4llvm3MVT14is512BitVectorEv.exit:             ; preds = %23
@@ -34436,7 +34436,7 @@ _ZNK12_GLOBAL__N_118X86ISelAddressMode23hasSymbolicDisplacementEv.exit.thread: ;
   %.not29 = icmp ne i32 %85, 0
   %86 = zext i1 %.not29 to i32
   %spec.select31 = add nuw nsw i32 %.4, %86
-  %87 = icmp ult i32 %spec.select31, 3
+  %87 = icmp samesign ult i32 %spec.select31, 3
   br i1 %87, label %89, label %88
 
 88:                                               ; preds = %"_ZZN12_GLOBAL__N_115X86DAGToDAGISel13selectLEAAddrEN4llvm7SDValueERS2_S3_S3_S3_S3_ENK3$_0clES2_.exit36.thread"

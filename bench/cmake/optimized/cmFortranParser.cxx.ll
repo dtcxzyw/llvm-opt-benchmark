@@ -144,7 +144,7 @@ define dso_local noundef range(i32 0, 3) i32 @_Z17cmFortran_yyparsePv(ptr nounde
   br i1 %24, label %_ZL10yydestructPKc15yysymbol_kind_tP17cmFortran_yystypePv.exit, label %25
 
 25:                                               ; preds = %23
-  %26 = icmp ult i32 %.4, 296
+  %26 = icmp samesign ult i32 %.4, 296
   br i1 %26, label %27, label %32
 
 27:                                               ; preds = %25

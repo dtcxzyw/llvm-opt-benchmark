@@ -10012,7 +10012,7 @@ lor.lhs.false.i81.lor.lhs.false.i.thread_crit_edge: ; preds = %lor.lhs.false.i81
 
 lor.lhs.false.i:                                  ; preds = %lor.lhs.false.i81
   %add.ptr.i87 = getelementptr inbounds i8, ptr %17, i64 8
-  %cmp2.i = icmp ult i32 %12, 3
+  %cmp2.i = icmp samesign ult i32 %12, 3
   br i1 %cmp2.i, label %lor.lhs.false.i.if.then.i_crit_edge, label %if.end.i
 
 lor.lhs.false.i.if.then.i_crit_edge:              ; preds = %lor.lhs.false.i

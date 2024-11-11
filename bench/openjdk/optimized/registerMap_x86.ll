@@ -21,7 +21,7 @@ define hidden noundef ptr @_ZNK11RegisterMap11pd_locationEP9VMRegImpl(ptr nocapt
   %7 = sub i32 %6, ptrtoint (ptr getelementptr inbounds (i8, ptr @all_VMRegs, i64 1) to i32)
   %8 = icmp sgt i32 %7, 79
   %9 = select i1 %4, i32 336, i32 592
-  %10 = icmp ult i32 %7, %9
+  %10 = icmp samesign ult i32 %7, %9
   %11 = select i1 %8, i1 %10, i1 false
   br i1 %11, label %12, label %63
 
@@ -44,7 +44,7 @@ define hidden noundef ptr @_ZNK11RegisterMap11pd_locationEP9VMRegImpl(ptr nocapt
   %26 = load i32, ptr @_ZN9VMRegImpl15stack_slot_sizeE, align 4
   %27 = mul nsw i32 %26, %25
   %28 = sext i32 %27 to i64
-  %29 = icmp ugt i32 %7, 335
+  %29 = icmp samesign ugt i32 %7, 335
   br i1 %29, label %30, label %32
 
 30:                                               ; preds = %12

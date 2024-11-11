@@ -45,7 +45,7 @@ define i32 @crc32c_calculate(ptr nocapture noundef readonly %0, i32 noundef %1, 
   %11 = getelementptr [256 x i32], ptr @crc32c_table, i64 0, i64 %10
   %12 = load i32, ptr %11, align 4
   %13 = xor i32 %12, %7
-  %14 = icmp ugt i32 %.01314, 1
+  %14 = icmp samesign ugt i32 %.01314, 1
   br i1 %14, label %.lr.ph, label %._crit_edge, !llvm.loop !4
 
 ._crit_edge:                                      ; preds = %.lr.ph, %3
@@ -73,7 +73,7 @@ define i32 @crc32c_calculate_no_swap(ptr nocapture noundef readonly %0, i32 noun
   %10 = getelementptr [256 x i32], ptr @crc32c_table, i64 0, i64 %9
   %11 = load i32, ptr %10, align 4
   %12 = xor i32 %11, %6
-  %13 = icmp ugt i32 %.067, 1
+  %13 = icmp samesign ugt i32 %.067, 1
   br i1 %13, label %.lr.ph, label %._crit_edge, !llvm.loop !6
 
 ._crit_edge:                                      ; preds = %.lr.ph, %3

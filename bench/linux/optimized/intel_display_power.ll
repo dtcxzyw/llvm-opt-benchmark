@@ -1555,7 +1555,7 @@ define dso_local i32 @intel_power_domains_init(ptr noundef %0) local_unnamed_add
   br i1 %24, label %25, label %34
 
 25:                                               ; preds = %22
-  %26 = icmp ugt i16 %13, 11
+  %26 = icmp samesign ugt i16 %13, 11
   br i1 %26, label %34, label %27
 
 27:                                               ; preds = %25
@@ -1565,7 +1565,7 @@ define dso_local i32 @intel_power_domains_init(ptr noundef %0) local_unnamed_add
   br i1 %30, label %31, label %34
 
 31:                                               ; preds = %27
-  %32 = icmp ugt i16 %13, 8
+  %32 = icmp samesign ugt i16 %13, 8
   %33 = select i1 %32, i32 2, i32 0
   br label %34
 
@@ -4818,7 +4818,7 @@ define dso_local i32 @intel_display_power_ddi_io_domain(ptr nocapture noundef re
   br i1 %7, label %12, label %8
 
 8:                                                ; preds = %6
-  %9 = icmp ugt i16 %4, 10
+  %9 = icmp samesign ugt i16 %4, 10
   %10 = select i1 %9, ptr @d11_port_domains, ptr @i9xx_port_domains
   %11 = select i1 %9, i64 2, i64 1
   br label %12
@@ -4902,7 +4902,7 @@ define dso_local i32 @intel_display_power_ddi_lanes_domain(ptr nocapture noundef
   br i1 %7, label %12, label %8
 
 8:                                                ; preds = %6
-  %9 = icmp ugt i16 %4, 10
+  %9 = icmp samesign ugt i16 %4, 10
   %10 = select i1 %9, ptr @d11_port_domains, ptr @i9xx_port_domains
   %11 = select i1 %9, i64 2, i64 1
   br label %12
@@ -4986,7 +4986,7 @@ define dso_local i32 @intel_display_power_aux_io_domain(ptr nocapture noundef re
   br i1 %7, label %12, label %8
 
 8:                                                ; preds = %6
-  %9 = icmp ugt i16 %4, 10
+  %9 = icmp samesign ugt i16 %4, 10
   %10 = select i1 %9, ptr @d11_port_domains, ptr @i9xx_port_domains
   %11 = select i1 %9, i64 2, i64 1
   br label %12
@@ -5071,7 +5071,7 @@ define dso_local i32 @intel_display_power_legacy_aux_domain(ptr nocapture nounde
   br i1 %7, label %12, label %8
 
 8:                                                ; preds = %6
-  %9 = icmp ugt i16 %4, 10
+  %9 = icmp samesign ugt i16 %4, 10
   %10 = select i1 %9, ptr @d11_port_domains, ptr @i9xx_port_domains
   %11 = select i1 %9, i64 2, i64 1
   br label %12
@@ -5156,7 +5156,7 @@ define dso_local i32 @intel_display_power_tbt_aux_domain(ptr nocapture noundef r
   br i1 %7, label %12, label %8
 
 8:                                                ; preds = %6
-  %9 = icmp ugt i16 %4, 10
+  %9 = icmp samesign ugt i16 %4, 10
   %10 = select i1 %9, ptr @d11_port_domains, ptr @i9xx_port_domains
   %11 = select i1 %9, i64 2, i64 1
   br label %12

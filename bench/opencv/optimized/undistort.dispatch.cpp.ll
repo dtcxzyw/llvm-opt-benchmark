@@ -1127,7 +1127,7 @@ _ZN2cv3MataSERKNS_7MatExprE.exit:                 ; preds = %304
 329:                                              ; preds = %314
   %330 = getelementptr inbounds i8, ptr %317, i64 32
   %331 = load double, ptr %330, align 8
-  %332 = icmp ugt i32 %327, 8
+  %332 = icmp samesign ugt i32 %327, 8
   br i1 %332, label %333, label %.thread
 
 333:                                              ; preds = %329
@@ -1137,7 +1137,7 @@ _ZN2cv3MataSERKNS_7MatExprE.exit:                 ; preds = %304
   %337 = load double, ptr %336, align 8
   %338 = getelementptr inbounds i8, ptr %317, i64 56
   %339 = load double, ptr %338, align 8
-  %340 = icmp ugt i32 %327, 12
+  %340 = icmp samesign ugt i32 %327, 12
   br i1 %340, label %341, label %.thread
 
 341:                                              ; preds = %333
@@ -1149,7 +1149,7 @@ _ZN2cv3MataSERKNS_7MatExprE.exit:                 ; preds = %304
   %347 = load double, ptr %346, align 8
   %348 = getelementptr inbounds i8, ptr %317, i64 88
   %349 = load double, ptr %348, align 8
-  %350 = icmp ugt i32 %327, 14
+  %350 = icmp samesign ugt i32 %327, 14
   br i1 %350, label %351, label %.thread
 
 351:                                              ; preds = %341

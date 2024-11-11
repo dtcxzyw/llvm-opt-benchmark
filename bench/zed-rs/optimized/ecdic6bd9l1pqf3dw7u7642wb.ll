@@ -11169,8 +11169,8 @@ define void @_ZN8language6buffer6Buffer12file_updated17h19165689e699cc37E(ptr no
 .thread.i:                                        ; preds = %84
   %92 = getelementptr inbounds i8, ptr %10, i64 16
   %93 = load i8, ptr %92, align 8, !range !1818, !alias.scope !1816, !noalias !1813, !noundef !4
-  %switch.i.i3454.i = icmp samesign ult i8 %93, 3
-  br i1 %switch.i.i3454.i, label %80, label %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17ha03deb5e520ae2caE.exit.i"
+  %or.cond55.i = icmp samesign ult i8 %93, 3
+  br i1 %or.cond55.i, label %80, label %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17ha03deb5e520ae2caE.exit.i"
 
 ._crit_edge.i:                                    ; preds = %88
   br i1 %switch.i.i.i, label %80, label %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17ha03deb5e520ae2caE.exit.i"
@@ -23901,7 +23901,7 @@ _ZN8language10syntax_map16SyntaxMapMatches4peek17h0734df19083b72c2E.exit130.thre
 
 .noexc174:                                        ; preds = %.preheader
   %419 = add nsw i8 %418, -3
-  %switch.i.i.i.i.i = icmp ult i8 %419, -2
+  %switch.i.i.i.i.i = icmp samesign ult i8 %419, -2
   br i1 %switch.i.i.i.i.i, label %"_ZN8language6buffer14BufferSnapshot19suggest_autoindents28_$u7b$$u7b$closure$u7d$$u7d$17h5e5d8c8cfa399e9fE.exit.i.i", label %"_ZN4core4iter8adapters6filter11filter_fold28_$u7b$$u7b$closure$u7d$$u7d$17h02c106d29d592d8cE.exit.i"
 
 "_ZN8language6buffer14BufferSnapshot19suggest_autoindents28_$u7b$$u7b$closure$u7d$$u7d$17h5e5d8c8cfa399e9fE.exit.i.i": ; preds = %.noexc174

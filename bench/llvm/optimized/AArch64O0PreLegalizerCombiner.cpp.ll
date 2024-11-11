@@ -6326,7 +6326,7 @@ _ZNK4llvm17MachineMemOperand13getSizeInBitsEv.exit1522.thread: ; preds = %1814, 
 
 _ZN4llvm7details23FixedOrScalableQuantityINS_8TypeSizeEmE9isKnownLEERKS3_S5_.exit: ; preds = %_ZNK4llvm17MachineMemOperand13getSizeInBitsEv.exit1522.thread1083, %_ZNK4llvm17MachineMemOperand13getSizeInBitsEv.exit1522, %_ZNK4llvm17MachineMemOperand13getSizeInBitsEv.exit1522.thread
   %1844 = phi i64 [ %1842, %_ZNK4llvm17MachineMemOperand13getSizeInBitsEv.exit1522.thread ], [ %.sroa.012.0.i.i1517, %_ZNK4llvm17MachineMemOperand13getSizeInBitsEv.exit1522 ], [ %.sroa.012.0.i.i15171086, %_ZNK4llvm17MachineMemOperand13getSizeInBitsEv.exit1522.thread1083 ]
-  %.not422 = icmp ugt i64 %1844, %.sroa.012.0.i
+  %.not422 = icmp samesign ugt i64 %1844, %.sroa.012.0.i
   br i1 %.not422, label %.critedge4, label %1845
 
 1845:                                             ; preds = %_ZN4llvm7details23FixedOrScalableQuantityINS_8TypeSizeEmE9isKnownLEERKS3_S5_.exit

@@ -241,7 +241,7 @@ define internal fastcc i32 @dissect_banana_element(ptr noundef %0, ptr noundef %
   br i1 %.not, label %14, label %10
 
 10:                                               ; preds = %.lr.ph
-  %11 = icmp ult i8 %7, -120
+  %11 = icmp samesign ult i8 %7, -120
   br i1 %11, label %._crit_edge, label %12
 
 12:                                               ; preds = %10

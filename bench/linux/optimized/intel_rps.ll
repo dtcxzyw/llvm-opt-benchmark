@@ -945,7 +945,7 @@ define dso_local i32 @intel_rps_get_boost_frequency(ptr nocapture noundef readon
   br label %63
 
 59:                                               ; preds = %46
-  %60 = icmp ugt i8 %23, 5
+  %60 = icmp samesign ugt i8 %23, 5
   %61 = mul nuw nsw i32 %19, 50
   %62 = select i1 %60, i32 %61, i32 %19
   br label %63
@@ -1016,7 +1016,7 @@ define dso_local i32 @intel_gpu_freq(ptr nocapture noundef readonly %0, i32 noun
   br label %49
 
 45:                                               ; preds = %32
-  %46 = icmp ugt i8 %6, 5
+  %46 = icmp samesign ugt i8 %6, 5
   %47 = mul i32 %1, 50
   %48 = select i1 %46, i32 %47, i32 %1
   br label %49
@@ -1102,7 +1102,7 @@ define dso_local i32 @intel_rps_set_boost_frequency(ptr noundef %0, i32 noundef 
   br label %63
 
 56:                                               ; preds = %44
-  %57 = icmp ugt i8 %21, 5
+  %57 = icmp samesign ugt i8 %21, 5
   br i1 %57, label %58, label %63
 
 58:                                               ; preds = %56
@@ -1834,7 +1834,7 @@ gen9_rps_enable.exit.thread:                      ; preds = %214
   br i1 %239, label %259, label %291
 
 240:                                              ; preds = %236
-  %241 = icmp ugt i8 %195, 5
+  %241 = icmp samesign ugt i8 %195, 5
   br i1 %241, label %gen9_rps_enable.exit, label %242
 
 242:                                              ; preds = %240
@@ -2583,7 +2583,7 @@ define dso_local i32 @intel_freq_opcode(ptr nocapture noundef readonly %0, i32 n
   br label %48
 
 41:                                               ; preds = %29
-  %42 = icmp ugt i8 %6, 5
+  %42 = icmp samesign ugt i8 %6, 5
   br i1 %42, label %43, label %48
 
 43:                                               ; preds = %41
@@ -3362,7 +3362,7 @@ define dso_local void @intel_rps_init(ptr noundef %0) local_unnamed_addr #0 alig
   br label %97
 
 93:                                               ; preds = %81
-  %94 = icmp ugt i8 %59, 5
+  %94 = icmp samesign ugt i8 %59, 5
   %95 = mul nuw nsw i32 %56, 50
   %96 = select i1 %94, i32 %95, i32 %56
   br label %97
@@ -3439,7 +3439,7 @@ define dso_local void @intel_rps_init(ptr noundef %0) local_unnamed_addr #0 alig
   br label %150
 
 146:                                              ; preds = %134
-  %147 = icmp ugt i8 %112, 5
+  %147 = icmp samesign ugt i8 %112, 5
   %148 = mul nuw nsw i32 %109, 50
   %149 = select i1 %147, i32 %148, i32 %109
   br label %150
@@ -3515,7 +3515,7 @@ define dso_local void @intel_rps_init(ptr noundef %0) local_unnamed_addr #0 alig
   br label %202
 
 198:                                              ; preds = %186
-  %199 = icmp ugt i8 %164, 5
+  %199 = icmp samesign ugt i8 %164, 5
   %200 = mul nuw nsw i32 %161, 50
   %201 = select i1 %199, i32 %200, i32 %161
   br label %202
@@ -3592,7 +3592,7 @@ define dso_local void @intel_rps_init(ptr noundef %0) local_unnamed_addr #0 alig
   br label %255
 
 251:                                              ; preds = %239
-  %252 = icmp ugt i8 %217, 5
+  %252 = icmp samesign ugt i8 %217, 5
   %253 = mul nuw nsw i32 %214, 50
   %254 = select i1 %252, i32 %253, i32 %214
   br label %255
@@ -3738,7 +3738,7 @@ define dso_local void @intel_rps_init(ptr noundef %0) local_unnamed_addr #0 alig
   br label %351
 
 347:                                              ; preds = %335
-  %348 = icmp ugt i8 %313, 5
+  %348 = icmp samesign ugt i8 %313, 5
   %349 = mul nuw nsw i32 %301, 50
   %350 = select i1 %348, i32 %349, i32 %301
   br label %351
@@ -3816,7 +3816,7 @@ define dso_local void @intel_rps_init(ptr noundef %0) local_unnamed_addr #0 alig
   br label %405
 
 401:                                              ; preds = %389
-  %402 = icmp ugt i8 %367, 5
+  %402 = icmp samesign ugt i8 %367, 5
   %403 = mul nuw nsw i32 %364, 50
   %404 = select i1 %402, i32 %403, i32 %364
   br label %405
@@ -3893,7 +3893,7 @@ define dso_local void @intel_rps_init(ptr noundef %0) local_unnamed_addr #0 alig
   br label %458
 
 454:                                              ; preds = %442
-  %455 = icmp ugt i8 %420, 5
+  %455 = icmp samesign ugt i8 %420, 5
   %456 = mul nuw nsw i32 %417, 50
   %457 = select i1 %455, i32 %456, i32 %417
   br label %458
@@ -3966,7 +3966,7 @@ define dso_local void @intel_rps_init(ptr noundef %0) local_unnamed_addr #0 alig
   br label %509
 
 505:                                              ; preds = %493
-  %506 = icmp ugt i8 %473, 5
+  %506 = icmp samesign ugt i8 %473, 5
   %507 = mul nuw nsw i32 %463, 50
   %508 = select i1 %506, i32 %507, i32 %463
   br label %509
@@ -4440,7 +4440,7 @@ define dso_local range(i32 -14024, 1431655766) i32 @intel_rps_read_actual_freque
   br label %55
 
 51:                                               ; preds = %39
-  %52 = icmp ugt i8 %14, 5
+  %52 = icmp samesign ugt i8 %14, 5
   %53 = mul nsw i32 %11, 50
   %54 = select i1 %52, i32 %53, i32 %11
   br label %55
@@ -4522,7 +4522,7 @@ define dso_local range(i32 -14024, 1431655766) i32 @intel_rps_read_actual_freque
   br label %49
 
 45:                                               ; preds = %32
-  %46 = icmp ugt i8 %6, 5
+  %46 = icmp samesign ugt i8 %6, 5
   %47 = mul nsw i32 %2, 50
   %48 = select i1 %46, i32 %47, i32 %2
   br label %49
@@ -4561,7 +4561,7 @@ define internal fastcc range(i32 -31, 512) i32 @__read_cagf(ptr nocapture nounde
   br i1 %22, label %23, label %26
 
 23:                                               ; preds = %18
-  %24 = icmp ugt i8 %8, 5
+  %24 = icmp samesign ugt i8 %8, 5
   %25 = select i1 %24, i32 40988, i32 70136
   br label %28
 
@@ -4640,7 +4640,7 @@ define internal fastcc range(i32 -31, 512) i32 @__read_cagf(ptr nocapture nounde
   br label %96
 
 70:                                               ; preds = %61
-  %71 = icmp ugt i8 %46, 8
+  %71 = icmp samesign ugt i8 %46, 8
   br i1 %71, label %72, label %74
 
 72:                                               ; preds = %70
@@ -4658,7 +4658,7 @@ define internal fastcc range(i32 -31, 512) i32 @__read_cagf(ptr nocapture nounde
   br label %96
 
 80:                                               ; preds = %74
-  %81 = icmp ugt i8 %46, 5
+  %81 = icmp samesign ugt i8 %46, 5
   br i1 %81, label %82, label %85
 
 82:                                               ; preds = %80
@@ -4860,7 +4860,7 @@ define dso_local range(i32 -11993, 25551) i32 @intel_rps_get_requested_frequency
   br label %62
 
 58:                                               ; preds = %45
-  %59 = icmp ugt i8 %22, 5
+  %59 = icmp samesign ugt i8 %22, 5
   %60 = mul nuw nsw i32 %18, 50
   %61 = select i1 %59, i32 %60, i32 %18
   br label %62
@@ -4954,7 +4954,7 @@ define dso_local i32 @intel_rps_get_max_frequency(ptr nocapture noundef readonly
   br label %63
 
 59:                                               ; preds = %46
-  %60 = icmp ugt i8 %23, 5
+  %60 = icmp samesign ugt i8 %23, 5
   %61 = mul nuw nsw i32 %19, 50
   %62 = select i1 %60, i32 %61, i32 %19
   br label %63
@@ -5092,7 +5092,7 @@ define dso_local i32 @intel_rps_get_rp0_frequency(ptr nocapture noundef readonly
   br label %63
 
 59:                                               ; preds = %46
-  %60 = icmp ugt i8 %23, 5
+  %60 = icmp samesign ugt i8 %23, 5
   %61 = mul nuw nsw i32 %19, 50
   %62 = select i1 %60, i32 %61, i32 %19
   br label %63
@@ -5186,7 +5186,7 @@ define dso_local i32 @intel_rps_get_rp1_frequency(ptr nocapture noundef readonly
   br label %63
 
 59:                                               ; preds = %46
-  %60 = icmp ugt i8 %23, 5
+  %60 = icmp samesign ugt i8 %23, 5
   %61 = mul nuw nsw i32 %19, 50
   %62 = select i1 %60, i32 %61, i32 %19
   br label %63
@@ -5280,7 +5280,7 @@ define dso_local i32 @intel_rps_get_rpn_frequency(ptr nocapture noundef readonly
   br label %63
 
 59:                                               ; preds = %46
-  %60 = icmp ugt i8 %23, 5
+  %60 = icmp samesign ugt i8 %23, 5
   %61 = mul nuw nsw i32 %19, 50
   %62 = select i1 %60, i32 %61, i32 %19
   br label %63
@@ -5412,7 +5412,7 @@ define dso_local void @gen6_rps_frequency_dump(ptr noundef %0, ptr noundef %1) l
   br label %90
 
 86:                                               ; preds = %73
-  %87 = icmp ugt i8 %50, 5
+  %87 = icmp samesign ugt i8 %50, 5
   %88 = mul nuw nsw i32 %47, 50
   %89 = select i1 %87, i32 %88, i32 %47
   br label %90
@@ -5478,7 +5478,7 @@ define dso_local void @gen6_rps_frequency_dump(ptr noundef %0, ptr noundef %1) l
   br label %137
 
 133:                                              ; preds = %120
-  %134 = icmp ugt i8 %97, 5
+  %134 = icmp samesign ugt i8 %97, 5
   %135 = mul nuw nsw i32 %94, 50
   %136 = select i1 %134, i32 %135, i32 %94
   br label %137
@@ -5544,7 +5544,7 @@ define dso_local void @gen6_rps_frequency_dump(ptr noundef %0, ptr noundef %1) l
   br label %184
 
 180:                                              ; preds = %167
-  %181 = icmp ugt i8 %144, 5
+  %181 = icmp samesign ugt i8 %144, 5
   %182 = mul nuw nsw i32 %141, 50
   %183 = select i1 %181, i32 %182, i32 %141
   br label %184
@@ -5609,7 +5609,7 @@ define dso_local void @gen6_rps_frequency_dump(ptr noundef %0, ptr noundef %1) l
   br label %230
 
 226:                                              ; preds = %213
-  %227 = icmp ugt i8 %190, 5
+  %227 = icmp samesign ugt i8 %190, 5
   %228 = mul nuw nsw i32 %187, 50
   %229 = select i1 %227, i32 %228, i32 %187
   br label %230
@@ -5694,7 +5694,7 @@ define dso_local void @gen6_rps_frequency_dump(ptr noundef %0, ptr noundef %1) l
   br label %288
 
 284:                                              ; preds = %271
-  %285 = icmp ugt i8 %248, 5
+  %285 = icmp samesign ugt i8 %248, 5
   %286 = mul nuw nsw i32 %245, 50
   %287 = select i1 %285, i32 %286, i32 %245
   br label %288
@@ -5782,7 +5782,7 @@ define dso_local void @gen6_rps_frequency_dump(ptr noundef %0, ptr noundef %1) l
   br label %348
 
 344:                                              ; preds = %331
-  %345 = icmp ugt i8 %308, 5
+  %345 = icmp samesign ugt i8 %308, 5
   %346 = mul nuw nsw i32 %305, 50
   %347 = select i1 %345, i32 %346, i32 %305
   br label %348
@@ -5868,7 +5868,7 @@ define dso_local void @gen6_rps_frequency_dump(ptr noundef %0, ptr noundef %1) l
   br label %407
 
 403:                                              ; preds = %390
-  %404 = icmp ugt i8 %367, 5
+  %404 = icmp samesign ugt i8 %367, 5
   %405 = mul nuw nsw i32 %364, 50
   %406 = select i1 %404, i32 %405, i32 %364
   br label %407
@@ -5954,7 +5954,7 @@ define dso_local void @gen6_rps_frequency_dump(ptr noundef %0, ptr noundef %1) l
   br label %466
 
 462:                                              ; preds = %449
-  %463 = icmp ugt i8 %426, 5
+  %463 = icmp samesign ugt i8 %426, 5
   %464 = mul nuw nsw i32 %423, 50
   %465 = select i1 %463, i32 %464, i32 %423
   br label %466
@@ -6017,7 +6017,7 @@ define dso_local void @gen6_rps_frequency_dump(ptr noundef %0, ptr noundef %1) l
   br label %510
 
 506:                                              ; preds = %493
-  %507 = icmp ugt i8 %470, 5
+  %507 = icmp samesign ugt i8 %470, 5
   %508 = mul nuw nsw i32 %141, 50
   %509 = select i1 %507, i32 %508, i32 %141
   br label %510
@@ -6144,7 +6144,7 @@ define dso_local void @gen6_rps_frequency_dump(ptr noundef %0, ptr noundef %1) l
   br label %595
 
 591:                                              ; preds = %578
-  %592 = icmp ugt i8 %555, 5
+  %592 = icmp samesign ugt i8 %555, 5
   %593 = mul nuw nsw i32 %552, 50
   %594 = select i1 %592, i32 %593, i32 %552
   br label %595
@@ -6200,7 +6200,7 @@ define dso_local void @gen6_rps_frequency_dump(ptr noundef %0, ptr noundef %1) l
   br label %659
 
 640:                                              ; preds = %595
-  %641 = icmp ugt i8 %633, 7
+  %641 = icmp samesign ugt i8 %633, 7
   %642 = load ptr, ptr %517, align 8
   br i1 %641, label %643, label %651
 
@@ -6375,7 +6375,7 @@ define dso_local void @gen6_rps_frequency_dump(ptr noundef %0, ptr noundef %1) l
   br label %765
 
 761:                                              ; preds = %748
-  %762 = icmp ugt i8 %725, 5
+  %762 = icmp samesign ugt i8 %725, 5
   %763 = mul nuw nsw i32 %722, 50
   %764 = select i1 %762, i32 %763, i32 %722
   br label %765
@@ -6441,7 +6441,7 @@ define dso_local void @gen6_rps_frequency_dump(ptr noundef %0, ptr noundef %1) l
   br label %812
 
 808:                                              ; preds = %795
-  %809 = icmp ugt i8 %772, 5
+  %809 = icmp samesign ugt i8 %772, 5
   %810 = mul nuw nsw i32 %769, 50
   %811 = select i1 %809, i32 %810, i32 %769
   br label %812
@@ -6506,7 +6506,7 @@ define dso_local void @gen6_rps_frequency_dump(ptr noundef %0, ptr noundef %1) l
   br label %858
 
 854:                                              ; preds = %841
-  %855 = icmp ugt i8 %818, 5
+  %855 = icmp samesign ugt i8 %818, 5
   %856 = mul nuw nsw i32 %815, 50
   %857 = select i1 %855, i32 %856, i32 %815
   br label %858
@@ -6572,7 +6572,7 @@ define dso_local void @gen6_rps_frequency_dump(ptr noundef %0, ptr noundef %1) l
   br label %905
 
 901:                                              ; preds = %888
-  %902 = icmp ugt i8 %865, 5
+  %902 = icmp samesign ugt i8 %865, 5
   %903 = mul nuw nsw i32 %862, 50
   %904 = select i1 %902, i32 %903, i32 %862
   br label %905
@@ -6638,7 +6638,7 @@ define dso_local void @gen6_rps_frequency_dump(ptr noundef %0, ptr noundef %1) l
   br label %952
 
 948:                                              ; preds = %935
-  %949 = icmp ugt i8 %912, 5
+  %949 = icmp samesign ugt i8 %912, 5
   %950 = mul nuw nsw i32 %909, 50
   %951 = select i1 %949, i32 %950, i32 %909
   br label %952
@@ -6705,7 +6705,7 @@ define dso_local void @gen6_rps_frequency_dump(ptr noundef %0, ptr noundef %1) l
   br label %999
 
 995:                                              ; preds = %982
-  %996 = icmp ugt i8 %959, 5
+  %996 = icmp samesign ugt i8 %959, 5
   %997 = mul nuw nsw i32 %956, 50
   %998 = select i1 %996, i32 %997, i32 %956
   br label %999
@@ -6771,7 +6771,7 @@ define dso_local void @gen6_rps_frequency_dump(ptr noundef %0, ptr noundef %1) l
   br label %1046
 
 1042:                                             ; preds = %1029
-  %1043 = icmp ugt i8 %1006, 5
+  %1043 = icmp samesign ugt i8 %1006, 5
   %1044 = mul nuw nsw i32 %1003, 50
   %1045 = select i1 %1043, i32 %1044, i32 %1003
   br label %1046
@@ -6837,7 +6837,7 @@ define dso_local void @gen6_rps_frequency_dump(ptr noundef %0, ptr noundef %1) l
   br label %1093
 
 1089:                                             ; preds = %1076
-  %1090 = icmp ugt i8 %1053, 5
+  %1090 = icmp samesign ugt i8 %1053, 5
   %1091 = mul nuw nsw i32 %1050, 50
   %1092 = select i1 %1090, i32 %1091, i32 %1050
   br label %1093
@@ -6902,7 +6902,7 @@ define dso_local void @gen6_rps_frequency_dump(ptr noundef %0, ptr noundef %1) l
   br label %1139
 
 1135:                                             ; preds = %1122
-  %1136 = icmp ugt i8 %1099, 5
+  %1136 = icmp samesign ugt i8 %1099, 5
   %1137 = mul nuw nsw i32 %1096, 50
   %1138 = select i1 %1136, i32 %1137, i32 %1096
   br label %1139
@@ -6968,7 +6968,7 @@ define dso_local void @gen6_rps_frequency_dump(ptr noundef %0, ptr noundef %1) l
   br label %1186
 
 1182:                                             ; preds = %1169
-  %1183 = icmp ugt i8 %1146, 5
+  %1183 = icmp samesign ugt i8 %1146, 5
   %1184 = mul nuw nsw i32 %1143, 50
   %1185 = select i1 %1183, i32 %1184, i32 %1143
   br label %1186
@@ -7061,7 +7061,7 @@ define dso_local i32 @intel_rps_set_max_frequency(ptr noundef %0, i32 noundef %1
   br label %64
 
 57:                                               ; preds = %45
-  %58 = icmp ugt i8 %22, 5
+  %58 = icmp samesign ugt i8 %22, 5
   br i1 %58, label %59, label %64
 
 59:                                               ; preds = %57
@@ -7090,14 +7090,14 @@ define dso_local i32 @intel_rps_set_max_frequency(ptr noundef %0, i32 noundef %1
   %76 = getelementptr inbounds i8, ptr %0, i64 138
   %77 = load i8, ptr %76, align 2
   %78 = zext i8 %77 to i32
-  %79 = icmp ult i32 %65, %78
+  %79 = icmp samesign ult i32 %65, %78
   br i1 %79, label %142, label %80
 
 80:                                               ; preds = %75
   %81 = getelementptr inbounds i8, ptr %0, i64 146
   %82 = load i8, ptr %81, align 2
   %83 = zext i8 %82 to i32
-  %84 = icmp ugt i32 %65, %83
+  %84 = icmp samesign ugt i32 %65, %83
   br i1 %84, label %85, label %129
 
 85:                                               ; preds = %80
@@ -7158,7 +7158,7 @@ define dso_local i32 @intel_rps_set_max_frequency(ptr noundef %0, i32 noundef %1
   br label %127
 
 123:                                              ; preds = %110
-  %124 = icmp ugt i8 %22, 5
+  %124 = icmp samesign ugt i8 %22, 5
   %125 = mul nuw nsw i32 %65, 50
   %126 = select i1 %124, i32 %125, i32 %65
   br label %127
@@ -7285,7 +7285,7 @@ define dso_local i32 @intel_rps_get_min_frequency(ptr nocapture noundef readonly
   br label %63
 
 59:                                               ; preds = %46
-  %60 = icmp ugt i8 %23, 5
+  %60 = icmp samesign ugt i8 %23, 5
   %61 = mul nuw nsw i32 %19, 50
   %62 = select i1 %60, i32 %61, i32 %19
   br label %63
@@ -7416,7 +7416,7 @@ define dso_local i32 @intel_rps_set_min_frequency(ptr noundef %0, i32 noundef %1
   br label %63
 
 56:                                               ; preds = %44
-  %57 = icmp ugt i8 %21, 5
+  %57 = icmp samesign ugt i8 %21, 5
   br i1 %57, label %58, label %63
 
 58:                                               ; preds = %56
@@ -7445,7 +7445,7 @@ define dso_local i32 @intel_rps_set_min_frequency(ptr noundef %0, i32 noundef %1
   %75 = getelementptr inbounds i8, ptr %0, i64 139
   %76 = load i8, ptr %75, align 1
   %77 = zext i8 %76 to i32
-  %78 = icmp ugt i32 %64, %77
+  %78 = icmp samesign ugt i32 %64, %77
   br i1 %78, label %90, label %79
 
 79:                                               ; preds = %74
@@ -7938,7 +7938,7 @@ define dso_local i64 @i915_read_mch_val() #0 align 16 {
   br label %124
 
 116:                                              ; preds = %92
-  %117 = icmp ugt i32 %109, 49
+  %117 = icmp samesign ugt i32 %109, 49
   br i1 %117, label %118, label %121
 
 118:                                              ; preds = %116

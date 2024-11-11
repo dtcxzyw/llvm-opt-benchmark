@@ -1218,7 +1218,7 @@ define internal fastcc noundef zeroext i1 @search_nested_keyrings(ptr noundef %0
   %281 = load ptr, ptr %280, align 8
   %282 = getelementptr inbounds i8, ptr %281, i64 96
   store i64 %.pre, ptr %282, align 8
-  %283 = icmp ugt i64 %278, 1
+  %283 = icmp samesign ugt i64 %278, 1
   br i1 %283, label %277, label %.loopexit, !llvm.loop !23
 
 .loopexit:                                        ; preds = %.thread9, %277, %264, %.loopexit13, %203, %._crit_edge
@@ -2840,7 +2840,7 @@ select.unfold:                                    ; preds = %select.unfold.prehe
   %36 = zext i8 %35 to i64
   %37 = or disjoint i64 %33, %36
   %38 = add nsw i32 %32, -1
-  %39 = icmp ugt i32 %32, 1
+  %39 = icmp samesign ugt i32 %32, 1
   br i1 %39, label %select.unfold, label %.loopexit, !llvm.loop !34
 
 .loopexit:                                        ; preds = %select.unfold, %17, %13, %9, %7, %5
@@ -2912,7 +2912,7 @@ select.unfold:                                    ; preds = %select.unfold.prehe
   %40 = zext i8 %39 to i64
   %41 = or disjoint i64 %37, %40
   %42 = add nsw i32 %36, -1
-  %43 = icmp ugt i32 %36, 1
+  %43 = icmp samesign ugt i32 %36, 1
   br i1 %43, label %select.unfold, label %.loopexit, !llvm.loop !34
 
 .loopexit:                                        ; preds = %select.unfold, %21, %17, %13, %11, %8

@@ -671,7 +671,7 @@ H5VM_power2up.exit:                               ; preds = %97
   br label %H5VM_log2_gen.exit
 
 123:                                              ; preds = %109
-  %.not27.i = icmp ult i64 %.0.i, 1099511627776
+  %.not27.i = icmp samesign ult i64 %.0.i, 1099511627776
   br i1 %.not27.i, label %130, label %124
 
 124:                                              ; preds = %123
@@ -691,11 +691,11 @@ H5VM_power2up.exit:                               ; preds = %97
 
 135:                                              ; preds = %106
   %136 = lshr i64 %.0.i, 16
-  %.not23.i = icmp ult i64 %.0.i, 65536
+  %.not23.i = icmp samesign ult i64 %.0.i, 65536
   br i1 %.not23.i, label %149, label %137
 
 137:                                              ; preds = %135
-  %.not25.i = icmp ult i64 %.0.i, 16777216
+  %.not25.i = icmp samesign ult i64 %.0.i, 16777216
   br i1 %.not25.i, label %144, label %138
 
 138:                                              ; preds = %137
@@ -714,7 +714,7 @@ H5VM_power2up.exit:                               ; preds = %97
   br label %H5VM_log2_gen.exit
 
 149:                                              ; preds = %135
-  %.not24.i = icmp ult i64 %.0.i, 256
+  %.not24.i = icmp samesign ult i64 %.0.i, 256
   br i1 %.not24.i, label %156, label %150
 
 150:                                              ; preds = %149
@@ -5132,7 +5132,7 @@ define range(i32 -1, 1) i32 @H5D__chunk_file_alloc(ptr noundef %0, ptr noundef r
   br label %H5VM_log2_gen.exit
 
 30:                                               ; preds = %11
-  %.not24.i = icmp ult i32 %15, 256
+  %.not24.i = icmp samesign ult i32 %15, 256
   br i1 %.not24.i, label %37, label %31
 
 31:                                               ; preds = %30
@@ -5182,7 +5182,7 @@ H5VM_log2_gen.exit:                               ; preds = %19, %25, %31, %37
   br label %H5VM_log2_gen.exit49
 
 58:                                               ; preds = %44
-  %.not27.i = icmp ult i64 %42, 1099511627776
+  %.not27.i = icmp samesign ult i64 %42, 1099511627776
   br i1 %.not27.i, label %65, label %59
 
 59:                                               ; preds = %58
@@ -5202,11 +5202,11 @@ H5VM_log2_gen.exit:                               ; preds = %19, %25, %31, %37
 
 70:                                               ; preds = %H5VM_log2_gen.exit
   %71 = lshr i64 %42, 16
-  %.not23.i46 = icmp ult i64 %42, 65536
+  %.not23.i46 = icmp samesign ult i64 %42, 65536
   br i1 %.not23.i46, label %84, label %72
 
 72:                                               ; preds = %70
-  %.not25.i47 = icmp ult i64 %42, 16777216
+  %.not25.i47 = icmp samesign ult i64 %42, 16777216
   br i1 %.not25.i47, label %79, label %73
 
 73:                                               ; preds = %72
@@ -5225,7 +5225,7 @@ H5VM_log2_gen.exit:                               ; preds = %19, %25, %31, %37
   br label %H5VM_log2_gen.exit49
 
 84:                                               ; preds = %70
-  %.not24.i48 = icmp ult i64 %42, 256
+  %.not24.i48 = icmp samesign ult i64 %42, 256
   br i1 %.not24.i48, label %91, label %85
 
 85:                                               ; preds = %84
@@ -5986,7 +5986,7 @@ define range(i32 -1, 1) i32 @H5D__chunk_set_sizes(ptr nocapture noundef readonly
   br label %H5VM_log2_gen.exit
 
 40:                                               ; preds = %23
-  %.not24.i = icmp ult i32 %25, 256
+  %.not24.i = icmp samesign ult i32 %25, 256
   br i1 %.not24.i, label %47, label %41
 
 41:                                               ; preds = %40

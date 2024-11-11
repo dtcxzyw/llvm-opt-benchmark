@@ -2529,7 +2529,7 @@ if.end17:                                         ; preds = %if.else.i128, %if.t
   br i1 %cmp.i.i152, label %land.lhs.true.i.i, label %cond.false.i.i
 
 land.lhs.true.i.i:                                ; preds = %if.end17
-  %cmp2.i.i = icmp ult i64 %add.i.i151, 10
+  %cmp2.i.i = icmp samesign ult i64 %add.i.i151, 10
   br i1 %cmp2.i.i, label %if.then.i.i, label %cond.true.i.i
 
 if.then.i.i:                                      ; preds = %land.lhs.true.i.i
@@ -2691,7 +2691,7 @@ _ZSt23__copy_move_backward_a1ILb1EPN13ProfilerGraph5PieceES2_ET1_T0_S4_S3_.exit:
   br i1 %cmp.i.i, label %land.lhs.true.i.i, label %cond.false.i.i
 
 land.lhs.true.i.i:                                ; preds = %_ZSt23__copy_move_backward_a1ILb1EPN13ProfilerGraph5PieceES2_ET1_T0_S4_S3_.exit
-  %cmp2.i.i = icmp ult i64 %add.i.i, 10
+  %cmp2.i.i = icmp samesign ult i64 %add.i.i, 10
   br i1 %cmp2.i.i, label %if.then.i.i, label %cond.true.i.i
 
 if.then.i.i:                                      ; preds = %land.lhs.true.i.i
@@ -2853,7 +2853,7 @@ _ZSt14__copy_move_a1ILb1EPN13ProfilerGraph5PieceES2_ET1_T0_S4_S3_.exit: ; preds 
   br i1 %cmp.i15, label %land.lhs.true.i, label %cond.false.i
 
 land.lhs.true.i:                                  ; preds = %_ZSt14__copy_move_a1ILb1EPN13ProfilerGraph5PieceES2_ET1_T0_S4_S3_.exit
-  %cmp2.i = icmp ult i64 %add.i, 10
+  %cmp2.i = icmp samesign ult i64 %add.i, 10
   br i1 %cmp2.i, label %if.then.i, label %cond.true.i
 
 if.then.i:                                        ; preds = %land.lhs.true.i

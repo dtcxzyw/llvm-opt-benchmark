@@ -706,7 +706,7 @@ define dso_local range(i32 -12, 1) i32 @setup_scratch_page(ptr noundef %0) local
   %50 = getelementptr inbounds i8, ptr %32, i64 764
   %51 = load i32, ptr %50, align 4
   %52 = zext i32 %51 to i64
-  %53 = icmp ugt i64 %29, %52
+  %53 = icmp samesign ugt i64 %29, %52
   br i1 %53, label %75, label %54
 
 54:                                               ; preds = %49

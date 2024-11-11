@@ -1125,7 +1125,7 @@ for.cond:                                         ; preds = %if.end, %if.end68
   br i1 %cmp9, label %if.end11, label %for.end155
 
 if.end11:                                         ; preds = %for.cond
-  %cmp12 = icmp ult i32 %conv8, 16384
+  %cmp12 = icmp samesign ult i32 %conv8, 16384
   br i1 %cmp12, label %if.then13, label %if.end16
 
 if.then13:                                        ; preds = %if.end11
@@ -2171,7 +2171,7 @@ if.then:                                          ; preds = %entry
   br label %return
 
 if.end:                                           ; preds = %entry
-  %cmp3 = icmp ugt i8 %version, 10
+  %cmp3 = icmp samesign ugt i8 %version, 10
   br i1 %cmp3, label %if.then4, label %if.end6
 
 if.then4:                                         ; preds = %if.end
@@ -2258,7 +2258,7 @@ if.then:                                          ; preds = %entry
   br label %return
 
 if.end:                                           ; preds = %entry
-  %cmp2 = icmp ugt i8 %version, 10
+  %cmp2 = icmp samesign ugt i8 %version, 10
   br i1 %cmp2, label %if.then3, label %if.end4
 
 if.then3:                                         ; preds = %if.end

@@ -4065,7 +4065,7 @@ if.then10:                                        ; preds = %if.then
   br label %cleanup
 
 if.end:                                           ; preds = %if.then
-  %cmp12 = icmp ugt i16 %level, 7
+  %cmp12 = icmp samesign ugt i16 %level, 7
   br i1 %cmp12, label %if.then13, label %if.else
 
 if.then13:                                        ; preds = %if.end
@@ -4106,7 +4106,7 @@ if.else31:                                        ; preds = %if.then26
   %leveled_max = getelementptr inbounds i8, ptr %cond-lvalue.i.i, i64 3038
   %12 = load i8, ptr %leveled_max, align 2, !tbaa !77
   %13 = zext i8 %12 to i16
-  %cmp34 = icmp ugt i16 %level, %13
+  %cmp34 = icmp samesign ugt i16 %level, %13
   br i1 %cmp34, label %if.then35, label %if.end44
 
 if.then35:                                        ; preds = %if.else31
@@ -4245,7 +4245,7 @@ if.then10.i:                                      ; preds = %if.then.i
   br label %_ZN7MapNode8setLevelEPK14NodeDefManagers.exit
 
 if.end.i24:                                       ; preds = %if.then.i
-  %cmp12.i = icmp ugt i16 %add4, 7
+  %cmp12.i = icmp samesign ugt i16 %add4, 7
   br i1 %cmp12.i, label %if.then13.i, label %if.else.i
 
 if.then13.i:                                      ; preds = %if.end.i24
@@ -4286,7 +4286,7 @@ if.else31.i:                                      ; preds = %if.then26.i
   %leveled_max.i23 = getelementptr inbounds i8, ptr %cond-lvalue.i.i.i19, i64 3038
   %23 = load i8, ptr %leveled_max.i23, align 2, !tbaa !77
   %24 = zext i8 %23 to i16
-  %cmp34.i = icmp ugt i16 %add4, %24
+  %cmp34.i = icmp samesign ugt i16 %add4, %24
   br i1 %cmp34.i, label %if.then35.i, label %if.end44.i
 
 if.then35.i:                                      ; preds = %if.else31.i
@@ -4368,11 +4368,11 @@ if.end:                                           ; preds = %entry
   br i1 %cmp, label %return, label %if.end9
 
 if.end9:                                          ; preds = %if.end
-  %cmp11 = icmp ult i8 %version, 10
+  %cmp11 = icmp samesign ult i8 %version, 10
   br i1 %cmp11, label %return, label %if.end13
 
 if.end13:                                         ; preds = %if.end9
-  %cmp15 = icmp ult i8 %version, 24
+  %cmp15 = icmp samesign ult i8 %version, 24
   %. = select i1 %cmp15, i32 3, i32 4
   br label %return
 
@@ -4567,7 +4567,7 @@ cleanup.action:                                   ; preds = %if.then
   br label %eh.resume
 
 if.end:                                           ; preds = %entry
-  %cmp = icmp ult i8 %version, 24
+  %cmp = icmp samesign ult i8 %version, 24
   br i1 %cmp, label %if.then9, label %if.end26
 
 if.then9:                                         ; preds = %if.end
@@ -4776,11 +4776,11 @@ cleanup.action:                                   ; preds = %if.then
   br label %eh.resume
 
 if.end:                                           ; preds = %entry
-  %cmp = icmp ult i8 %version, 22
+  %cmp = icmp samesign ult i8 %version, 22
   br i1 %cmp, label %if.then9, label %if.end10
 
 if.then9:                                         ; preds = %if.end
-  %cmp.i = icmp ult i8 %version, 2
+  %cmp.i = icmp samesign ult i8 %version, 2
   br i1 %cmp.i, label %if.then.i, label %if.else.i
 
 if.then.i:                                        ; preds = %if.then9
@@ -4790,7 +4790,7 @@ if.then.i:                                        ; preds = %if.then9
   br label %if.then37.i
 
 if.else.i:                                        ; preds = %if.then9
-  %cmp4.i = icmp ult i8 %version, 10
+  %cmp4.i = icmp samesign ult i8 %version, 10
   %7 = load i8, ptr %source, align 1, !tbaa !58
   %conv7.i = zext i8 %7 to i16
   store i16 %conv7.i, ptr %this, align 4, !tbaa !52
@@ -4820,7 +4820,7 @@ if.then20.i:                                      ; preds = %if.else10.i
 
 if.end34.i:                                       ; preds = %if.then20.i, %if.else10.i
   %.pr.i = phi i16 [ %12, %if.then20.i ], [ %conv7.i, %if.else10.i ]
-  %cmp36.i = icmp ult i8 %version, 20
+  %cmp36.i = icmp samesign ult i8 %version, 20
   br i1 %cmp36.i, label %if.then37.i, label %_ZN7MapNode17deSerialize_pre22EPKhh.exit
 
 if.then37.i:                                      ; preds = %if.end34.i, %if.else.i, %if.then.i
@@ -4845,7 +4845,7 @@ _ZN7MapNode17deSerialize_pre22EPKhh.exit:         ; preds = %if.end51.sink.split
   br label %if.end43
 
 if.end10:                                         ; preds = %if.end
-  %cmp12 = icmp ugt i8 %version, 23
+  %cmp12 = icmp samesign ugt i8 %version, 23
   %param1 = getelementptr inbounds i8, ptr %this, i64 2
   %param2 = getelementptr inbounds i8, ptr %this, i64 3
   br i1 %cmp12, label %if.then13, label %if.else
@@ -5035,7 +5035,7 @@ cond.false10:                                     ; preds = %cond.end
   unreachable
 
 cond.end11:                                       ; preds = %cond.end
-  %cmp12 = icmp ult i32 %version, 24
+  %cmp12 = icmp samesign ult i32 %version, 24
   br i1 %cmp12, label %if.then13, label %if.end30
 
 if.then13:                                        ; preds = %cond.end11
@@ -5109,7 +5109,7 @@ invoke.cont43.preheader:                          ; preds = %_ZN6BufferIhEC2Ej.e
 
 vector.scevcheck:                                 ; preds = %invoke.cont43.preheader
   %11 = add nsw i64 %wide.trip.count, -1
-  %12 = icmp ugt i64 %11, 2147483647
+  %12 = icmp samesign ugt i64 %11, 2147483647
   %13 = trunc nuw i64 %11 to i32
   %14 = xor i32 %mul34, -1
   %15 = icmp ult i32 %14, %13
@@ -5346,7 +5346,7 @@ cleanup.action:                                   ; preds = %if.then
   br label %eh.resume
 
 if.end:                                           ; preds = %entry
-  %cmp = icmp ult i32 %version, 22
+  %cmp = icmp samesign ult i32 %version, 22
   br i1 %cmp, label %if.then13, label %lor.lhs.false
 
 lor.lhs.false:                                    ; preds = %if.end

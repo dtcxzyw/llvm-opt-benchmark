@@ -5387,8 +5387,8 @@ _ZNK9hb_face_t14get_num_glyphsEv.exit:            ; preds = %52, %75
   %.sroa.speculated = call i32 @llvm.umin.i32(i32 %.0.i, i32 %77)
   %78 = load i32, ptr %5, align 8
   %79 = icmp sgt i32 %78, -1
-  %.not.i30 = icmp ugt i32 %.sroa.speculated, %78
-  %or.cond40 = and i1 %79, %.not.i30
+  %.not.i30 = icmp samesign ugt i32 %.sroa.speculated, %78
+  %or.cond40 = select i1 %79, i1 %.not.i30, i1 false
   br i1 %or.cond40, label %.preheader.i, label %_ZN11hb_vector_tIjLb0EE5allocEjb.exit
 
 .preheader.i:                                     ; preds = %_ZNK9hb_face_t14get_num_glyphsEv.exit, %.preheader.i

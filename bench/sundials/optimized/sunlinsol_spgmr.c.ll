@@ -738,7 +738,7 @@ define i32 @SUNLinSolSolve_SPGMR(ptr nocapture noundef readonly %0, ptr nocaptur
   %191 = load double, ptr %190, align 8
   %192 = fmul double %.0322418, %191
   %indvars.iv.next480 = add nsw i64 %indvars.iv479, -1
-  %193 = icmp ugt i64 %indvars.iv479, 1
+  %193 = icmp samesign ugt i64 %indvars.iv479, 1
   br i1 %193, label %.lr.ph419, label %._crit_edge420
 
 ._crit_edge420:                                   ; preds = %.lr.ph419, %.preheader384

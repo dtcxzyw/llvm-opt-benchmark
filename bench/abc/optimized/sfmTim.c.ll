@@ -673,7 +673,7 @@ Vec_IntFill.exit:                                 ; preds = %72, %Vec_IntGrow.ex
   %105 = getelementptr inbounds ptr, ptr %.val46, i64 %indvars.iv.next85
   %106 = load ptr, ptr %105, align 8
   tail call void @Sfm_TimNodeRequired(ptr noundef %0, ptr noundef %106)
-  %107 = icmp ugt i64 %indvars.iv84, 1
+  %107 = icmp samesign ugt i64 %indvars.iv84, 1
   br i1 %107, label %104, label %.critedge6, !llvm.loop !14
 
 .critedge6:                                       ; preds = %104, %.critedge4

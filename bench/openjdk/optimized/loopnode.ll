@@ -21373,7 +21373,7 @@ _ZN16Unique_Node_List6memberEP4Node.exit.thread.i: ; preds = %_ZN16Unique_Node_L
   br label %62
 
 62:                                               ; preds = %_ZN16Unique_Node_List6memberEP4Node.exit.thread.i, %_ZN16Unique_Node_List6memberEP4Node.exit.i
-  %63 = icmp ugt i64 %indvars.iv.i, 1
+  %63 = icmp samesign ugt i64 %indvars.iv.i, 1
   br i1 %63, label %37, label %_ZN14PhaseIdealLoop47eliminate_useless_template_assertion_predicatesER16Unique_Node_List.exit, !llvm.loop !78
 
 _ZN14PhaseIdealLoop47eliminate_useless_template_assertion_predicatesER16Unique_Node_List.exit: ; preds = %62, %29
@@ -21811,7 +21811,7 @@ _ZN16Unique_Node_List6memberEP4Node.exit.thread:  ; preds = %12, %_ZN16Unique_No
   br label %37
 
 37:                                               ; preds = %_ZN16Unique_Node_List6memberEP4Node.exit, %_ZN16Unique_Node_List6memberEP4Node.exit.thread
-  %38 = icmp ugt i64 %indvars.iv, 1
+  %38 = icmp samesign ugt i64 %indvars.iv, 1
   br i1 %38, label %12, label %._crit_edge, !llvm.loop !78
 
 ._crit_edge:                                      ; preds = %37, %2

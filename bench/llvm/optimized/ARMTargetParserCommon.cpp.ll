@@ -744,7 +744,7 @@ _ZNK4llvm9StringRef11starts_withES0_.exit:        ; preds = %2
   br i1 %4, label %_ZNK4llvm9StringRef11starts_withES0_.exit.thread, label %_ZNK4llvm9StringRef11starts_withES0_.exit32
 
 _ZNK4llvm9StringRef11starts_withES0_.exit.thread93: ; preds = %2
-  %.not.i30 = icmp ult i64 %1, 6
+  %.not.i30 = icmp samesign ult i64 %1, 6
   br i1 %.not.i30, label %_ZNK4llvm9StringRef11starts_withES0_.exit32.thread94, label %_ZNK4llvm9StringRef11starts_withES0_.exit32
 
 _ZNK4llvm9StringRef11starts_withES0_.exit32:      ; preds = %_ZNK4llvm9StringRef11starts_withES0_.exit, %_ZNK4llvm9StringRef11starts_withES0_.exit.thread93
@@ -776,7 +776,7 @@ _ZNK4llvm9StringRef11starts_withES0_.exit38:      ; preds = %_ZNK4llvm9StringRef
   br i1 %8, label %_ZNK4llvm9StringRef11starts_withES0_.exit.thread, label %_ZNK4llvm9StringRef11starts_withES0_.exit41
 
 _ZNK4llvm9StringRef11starts_withES0_.exit38.thread96: ; preds = %_ZNK4llvm9StringRef11starts_withES0_.exit32.thread94
-  %.not.i39 = icmp ult i64 %1, 3
+  %.not.i39 = icmp samesign ult i64 %1, 3
   br i1 %.not.i39, label %_ZNK4llvm9StringRef11starts_withES0_.exit47.thread99, label %_ZNK4llvm9StringRef11starts_withES0_.exit41
 
 _ZNK4llvm9StringRef11starts_withES0_.exit41:      ; preds = %_ZNK4llvm9StringRef11starts_withES0_.exit35.thread, %_ZNK4llvm9StringRef11starts_withES0_.exit38, %_ZNK4llvm9StringRef11starts_withES0_.exit35.thread95, %_ZNK4llvm9StringRef11starts_withES0_.exit38.thread96
@@ -935,7 +935,7 @@ _ZNK4llvm9StringRef11starts_withES0_.exit.i:      ; preds = %2
   br i1 %3, label %_ZN4llvm12StringSwitchINS_3ARM7ISAKindES2_E10StartsWithENS_13StringLiteralES2_.exit20, label %_ZNK4llvm9StringRef11starts_withES0_.exit.i5
 
 _ZN4llvm12StringSwitchINS_3ARM7ISAKindES2_E10StartsWithENS_13StringLiteralES2_.exit: ; preds = %2
-  %.not.i.i3 = icmp ult i64 %1, 5
+  %.not.i.i3 = icmp samesign ult i64 %1, 5
   br i1 %.not.i.i3, label %_ZN4llvm12StringSwitchINS_3ARM7ISAKindES2_E10StartsWithENS_13StringLiteralES2_.exit14, label %_ZNK4llvm9StringRef11starts_withES0_.exit.i5
 
 _ZNK4llvm9StringRef11starts_withES0_.exit.i5:     ; preds = %_ZNK4llvm9StringRef11starts_withES0_.exit.i, %_ZN4llvm12StringSwitchINS_3ARM7ISAKindES2_E10StartsWithENS_13StringLiteralES2_.exit
@@ -949,7 +949,7 @@ _ZNK4llvm9StringRef11starts_withES0_.exit.i11:    ; preds = %_ZNK4llvm9StringRef
   br i1 %5, label %_ZN4llvm12StringSwitchINS_3ARM7ISAKindES2_E10StartsWithENS_13StringLiteralES2_.exit20, label %_ZNK4llvm9StringRef11starts_withES0_.exit.i17
 
 _ZN4llvm12StringSwitchINS_3ARM7ISAKindES2_E10StartsWithENS_13StringLiteralES2_.exit14: ; preds = %_ZN4llvm12StringSwitchINS_3ARM7ISAKindES2_E10StartsWithENS_13StringLiteralES2_.exit
-  %.not.i.i15 = icmp ult i64 %1, 3
+  %.not.i.i15 = icmp samesign ult i64 %1, 3
   br i1 %.not.i.i15, label %_ZN4llvm12StringSwitchINS_3ARM7ISAKindES2_E10StartsWithENS_13StringLiteralES2_.exit20, label %_ZNK4llvm9StringRef11starts_withES0_.exit.i17
 
 _ZNK4llvm9StringRef11starts_withES0_.exit.i17:    ; preds = %_ZNK4llvm9StringRef11starts_withES0_.exit.i11, %_ZN4llvm12StringSwitchINS_3ARM7ISAKindES2_E10StartsWithENS_13StringLiteralES2_.exit14
@@ -992,7 +992,7 @@ _ZNK4llvm9StringRef11starts_withES0_.exit6:       ; preds = %_ZNK4llvm9StringRef
   br i1 %5, label %_ZNK4llvm9StringRef11starts_withES0_.exit.thread, label %_ZNK4llvm9StringRef11starts_withES0_.exit9
 
 _ZNK4llvm9StringRef11starts_withES0_.exit6.thread52: ; preds = %2
-  %.not.i7 = icmp ult i64 %1, 3
+  %.not.i7 = icmp samesign ult i64 %1, 3
   br i1 %.not.i7, label %_ZNK4llvm9StringRef11starts_withES0_.exit.thread, label %_ZNK4llvm9StringRef11starts_withES0_.exit9.thread85
 
 _ZNK4llvm9StringRef11starts_withES0_.exit9:       ; preds = %_ZNK4llvm9StringRef11starts_withES0_.exit6, %_ZNK4llvm9StringRef11starts_withES0_.exit3.thread51, %_ZNK4llvm9StringRef11starts_withES0_.exit.thread50

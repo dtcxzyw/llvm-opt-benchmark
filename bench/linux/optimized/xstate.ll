@@ -243,7 +243,7 @@ define dso_local i32 @xfeature_size(i32 noundef %0) local_unnamed_addr #2 align 
   br label %6
 
 3:                                                ; preds = %1
-  %4 = icmp ugt i32 %0, 18
+  %4 = icmp samesign ugt i32 %0, 18
   br i1 %4, label %5, label %6, !prof !20
 
 5:                                                ; preds = %3

@@ -1109,7 +1109,7 @@ if.then.i75:                                      ; preds = %call1.i.noexc
   unreachable
 
 if.end.i:                                         ; preds = %call1.i.noexc
-  %cmp.i.i.i73 = icmp ult i32 %28, 13
+  %cmp.i.i.i73 = icmp samesign ult i32 %28, 13
   br i1 %cmp.i.i.i73, label %if.then2.i, label %if.else.i
 
 if.then2.i:                                       ; preds = %if.end.i
@@ -14002,8 +14002,8 @@ while.end171:                                     ; preds = %while.cond162
 
 if.end173:                                        ; preds = %if.else34.i167, %land.lhs.true37.i170
   %call177 = tail call noundef i64 @_ZNK5boost16cpp_regex_traitsIcE3toiERPKcS3_i(ptr noundef nonnull align 8 dereferenceable(16) %29, ptr noundef nonnull align 8 dereferenceable(8) %m_position, ptr noundef %28, i32 noundef 10)
-  %cmp180 = icmp ult i64 %call177, 9223372036854775807
-  %spec.select = select i1 %cmp180, i64 %call177, i64 -1
+  %or.cond321 = icmp ult i64 %call177, 9223372036854775807
+  %spec.select = select i1 %or.cond321, i64 %call177, i64 -1
   %.pre360 = load ptr, ptr %m_end, align 8
   %m_position336.promoted.pre = load ptr, ptr %m_position, align 8
   br label %if.end182
@@ -15658,7 +15658,7 @@ if.end132:                                        ; preds = %lor.lhs.false100
   %97 = load i32, ptr %m_mark_count, align 8
   %conv135 = zext i32 %97 to i64
   %sub = xor i64 %conv135, 9223372036854775807
-  %cmp136 = icmp ult i64 %sub, %call98
+  %cmp136 = icmp samesign ult i64 %sub, %call98
   br i1 %cmp136, label %if.then137, label %if.end151
 
 if.then137:                                       ; preds = %if.end132
@@ -20534,8 +20534,10 @@ if.end116:                                        ; preds = %if.then84
   %33 = load ptr, ptr %m_position, align 8
   %34 = load ptr, ptr %m_end, align 8
   %cmp123 = icmp eq ptr %33, %34
-  %cmp128 = icmp ugt i64 %call120, 127
-  %or.cond126 = or i1 %cmp128, %cmp123
+  %cmp124 = icmp slt i64 %call120, 0
+  %or.cond = or i1 %cmp124, %cmp123
+  %cmp128 = icmp samesign ugt i64 %call120, 127
+  %or.cond126 = select i1 %or.cond, i1 true, i1 %cmp128
   %.pre138 = load ptr, ptr %m_traits, align 8
   br i1 %or.cond126, label %while.cond138.preheader, label %lor.lhs.false129
 
@@ -20612,8 +20614,8 @@ if.else:                                          ; preds = %if.end78
   %.sroa.speculated119 = tail call i64 @llvm.smin.i64(i64 %sub.ptr.sub171, i64 2)
   %add.ptr = getelementptr inbounds i8, ptr %incdec.ptr48, i64 %.sroa.speculated119
   %call177 = tail call noundef i64 @_ZNK5boost16cpp_regex_traitsIcE3toiERPKcS3_i(ptr noundef nonnull align 8 dereferenceable(16) %7, ptr noundef nonnull align 8 dereferenceable(8) %m_position, ptr noundef nonnull %add.ptr, i32 noundef 16)
-  %cmp.i.i = icmp ult i64 %call177, 256
-  br i1 %cmp.i.i, label %if.end209, label %while.cond184.preheader
+  %or.cond127 = icmp ult i64 %call177, 256
+  br i1 %or.cond127, label %if.end209, label %while.cond184.preheader
 
 while.cond184.preheader:                          ; preds = %if.else
   %44 = load ptr, ptr %m_traits, align 8
@@ -20773,8 +20775,8 @@ if.end249:                                        ; preds = %sw.bb210
   %61 = load ptr, ptr %m_position, align 8
   %add.ptr253 = getelementptr inbounds i8, ptr %61, i64 %.sroa.speculated
   %call254 = call noundef i64 @_ZNK5boost16cpp_regex_traitsIcE3toiERPKcS3_i(ptr noundef nonnull align 8 dereferenceable(16) %60, ptr noundef nonnull align 8 dereferenceable(8) %m_position, ptr noundef %add.ptr253, i32 noundef 8)
-  %cmp259 = icmp ugt i64 %call254, 127
-  br i1 %cmp259, label %while.cond263.preheader, label %if.end286
+  %or.cond128.not = icmp ult i64 %call254, 128
+  br i1 %or.cond128.not, label %if.end286, label %while.cond263.preheader
 
 while.cond263.preheader:                          ; preds = %if.end249
   %62 = load ptr, ptr %m_traits, align 8
@@ -21054,7 +21056,7 @@ if.else:                                          ; preds = %lor.lhs.false
   br i1 %cmp8, label %land.lhs.true9, label %if.else17
 
 land.lhs.true9:                                   ; preds = %if.else
-  %cmp.i = icmp ult i64 %call, 63
+  %cmp.i = icmp samesign ult i64 %call, 63
   br i1 %cmp.i, label %if.then.i, label %if.else.i
 
 if.then.i:                                        ; preds = %land.lhs.true9
@@ -31556,7 +31558,7 @@ for.body.i.i.i.i.i:                               ; preds = %for.body.i.i.i.i.i,
   %frombool.i.i.i.i.i.i = and i8 %7, 1
   store i8 %frombool.i.i.i.i.i.i, ptr %matched4.i.i.i.i.i.i, align 8
   %dec.i.i.i.i.i = add nsw i64 %__n.07.i.i.i.i.i, -1
-  %cmp.i.i.i.i.i = icmp ugt i64 %__n.07.i.i.i.i.i, 1
+  %cmp.i.i.i.i.i = icmp samesign ugt i64 %__n.07.i.i.i.i.i, 1
   br i1 %cmp.i.i.i.i.i, label %for.body.i.i.i.i.i, label %invoke.cont20, !llvm.loop !274
 
 invoke.cont20:                                    ; preds = %for.body.i.i.i.i.i, %invoke.cont
@@ -31838,7 +31840,7 @@ for.body.i.i.i.i.i:                               ; preds = %for.body.i.i.i.i.i,
   %incdec.ptr.i.i.i.i.i25 = getelementptr inbounds i8, ptr %__first.addr.07.i.i.i.i.i, i64 24
   %incdec.ptr1.i.i.i.i.i = getelementptr inbounds i8, ptr %__result.addr.08.i.i.i.i.i, i64 24
   %dec.i.i.i.i.i = add nsw i64 %__n.09.i.i.i.i.i, -1
-  %cmp.i.i.i.i.i = icmp ugt i64 %__n.09.i.i.i.i.i, 1
+  %cmp.i.i.i.i.i = icmp samesign ugt i64 %__n.09.i.i.i.i.i, 1
   br i1 %cmp.i.i.i.i.i, label %for.body.i.i.i.i.i, label %if.end69, !llvm.loop !278
 
 if.else49:                                        ; preds = %if.else
@@ -31867,7 +31869,7 @@ for.body.i.i.i.i.i39:                             ; preds = %for.body.i.i.i.i.i3
   %incdec.ptr.i.i.i.i.i48 = getelementptr inbounds i8, ptr %__first.addr.07.i.i.i.i.i42, i64 24
   %incdec.ptr1.i.i.i.i.i49 = getelementptr inbounds i8, ptr %__result.addr.08.i.i.i.i.i41, i64 24
   %dec.i.i.i.i.i50 = add nsw i64 %__n.09.i.i.i.i.i40, -1
-  %cmp.i.i.i.i.i51 = icmp ugt i64 %__n.09.i.i.i.i.i40, 1
+  %cmp.i.i.i.i.i51 = icmp samesign ugt i64 %__n.09.i.i.i.i.i40, 1
   br i1 %cmp.i.i.i.i.i51, label %for.body.i.i.i.i.i39, label %_ZSt4copyIPN5boost9sub_matchIPKcEES5_ET0_T_S7_S6_.exit.loopexit, !llvm.loop !279
 
 _ZSt4copyIPN5boost9sub_matchIPKcEES5_ET0_T_S7_S6_.exit.loopexit: ; preds = %for.body.i.i.i.i.i39
@@ -37065,7 +37067,7 @@ if.else:                                          ; preds = %entry
   br i1 %cmp3, label %if.then4, label %if.else24
 
 if.then4:                                         ; preds = %if.else
-  %cmp5 = icmp ugt i32 %1, 1073741823
+  %cmp5 = icmp samesign ugt i32 %1, 1073741823
   br i1 %cmp5, label %if.then6, label %if.else16
 
 if.then6:                                         ; preds = %if.then4

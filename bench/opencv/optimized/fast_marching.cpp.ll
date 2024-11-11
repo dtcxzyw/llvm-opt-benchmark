@@ -70,7 +70,7 @@ define noundef float @_ZNK2cv9videostab18FastMarchingMethod5solveEiiii(ptr nocap
   br i1 %40, label %41, label %72
 
 41:                                               ; preds = %30
-  %42 = icmp ult i32 %4, %10
+  %42 = icmp samesign ult i32 %4, %10
   %43 = icmp sgt i32 %3, -1
   %or.cond3 = and i1 %43, %42
   %44 = icmp slt i32 %3, %15

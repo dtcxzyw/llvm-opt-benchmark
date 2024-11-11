@@ -968,7 +968,7 @@ call.i.i.i.i.i.noexc:                             ; preds = %for.body.i.i.i.i.i
   %incdec.ptr.i.i.i.i.i95 = getelementptr inbounds nuw i8, ptr %__first.addr.07.i.i.i.i.i, i64 48
   %incdec.ptr1.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %__result.addr.08.i.i.i.i.i, i64 48
   %dec.i.i.i.i.i = add nsw i64 %__n.09.i.i.i.i.i, -1
-  %cmp.i.i.i.i.i = icmp ugt i64 %__n.09.i.i.i.i.i, 1
+  %cmp.i.i.i.i.i = icmp samesign ugt i64 %__n.09.i.i.i.i.i, 1
   br i1 %cmp.i.i.i.i.i, label %for.body.i.i.i.i.i, label %invoke.cont60, !llvm.loop !63
 
 invoke.cont60:                                    ; preds = %call.i.i.i.i.i.noexc, %invoke.cont50
@@ -1034,7 +1034,7 @@ call.i.i.i.i.i.noexc128:                          ; preds = %for.body.i.i.i.i.i1
   %incdec.ptr.i.i.i.i.i124 = getelementptr inbounds nuw i8, ptr %__first.addr.07.i.i.i.i.i123, i64 48
   %incdec.ptr1.i.i.i.i.i125 = getelementptr inbounds nuw i8, ptr %__result.addr.08.i.i.i.i.i122, i64 48
   %dec.i.i.i.i.i126 = add nsw i64 %__n.09.i.i.i.i.i121, -1
-  %cmp.i.i.i.i.i127 = icmp ugt i64 %__n.09.i.i.i.i.i121, 1
+  %cmp.i.i.i.i.i127 = icmp samesign ugt i64 %__n.09.i.i.i.i.i121, 1
   br i1 %cmp.i.i.i.i.i127, label %for.body.i.i.i.i.i120, label %for.cond.preheader, !llvm.loop !63
 
 for.cond.preheader:                               ; preds = %call.i.i.i.i.i.noexc128, %invoke.cont73
@@ -1978,7 +1978,7 @@ call.i.i.i.i.i.noexc:                             ; preds = %for.body.i.i.i.i.i
   %incdec.ptr.i.i.i.i.i102 = getelementptr inbounds nuw i8, ptr %__first.addr.07.i.i.i.i.i, i64 48
   %incdec.ptr1.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %__result.addr.08.i.i.i.i.i, i64 48
   %dec.i.i.i.i.i = add nsw i64 %__n.09.i.i.i.i.i, -1
-  %cmp.i.i.i.i.i = icmp ugt i64 %__n.09.i.i.i.i.i, 1
+  %cmp.i.i.i.i.i = icmp samesign ugt i64 %__n.09.i.i.i.i.i, 1
   br i1 %cmp.i.i.i.i.i, label %for.body.i.i.i.i.i, label %invoke.cont61, !llvm.loop !63
 
 invoke.cont61:                                    ; preds = %call.i.i.i.i.i.noexc, %invoke.cont51
@@ -2044,7 +2044,7 @@ call.i.i.i.i.i.noexc135:                          ; preds = %for.body.i.i.i.i.i1
   %incdec.ptr.i.i.i.i.i131 = getelementptr inbounds nuw i8, ptr %__first.addr.07.i.i.i.i.i130, i64 48
   %incdec.ptr1.i.i.i.i.i132 = getelementptr inbounds nuw i8, ptr %__result.addr.08.i.i.i.i.i129, i64 48
   %dec.i.i.i.i.i133 = add nsw i64 %__n.09.i.i.i.i.i128, -1
-  %cmp.i.i.i.i.i134 = icmp ugt i64 %__n.09.i.i.i.i.i128, 1
+  %cmp.i.i.i.i.i134 = icmp samesign ugt i64 %__n.09.i.i.i.i.i128, 1
   br i1 %cmp.i.i.i.i.i134, label %for.body.i.i.i.i.i127, label %for.cond.preheader, !llvm.loop !63
 
 for.cond.preheader:                               ; preds = %call.i.i.i.i.i.noexc135, %invoke.cont74
@@ -4464,7 +4464,7 @@ if.then.i.i102:                                   ; preds = %invoke.cont45
   unreachable
 
 _ZNSt6vectorIN8QuantLib6PeriodESaIS1_EE17_S_check_init_lenEmRKS2_.exit.i: ; preds = %invoke.cont45
-  %cmp.not.i.i.i.i = icmp ult i64 %call14, 2
+  %cmp.not.i.i.i.i = icmp samesign ult i64 %call14, 2
   br i1 %cmp.not.i.i.i.i, label %invoke.cont50.thread, label %for.body.preheader.i.i.i.i.i
 
 invoke.cont50.thread:                             ; preds = %_ZNSt6vectorIN8QuantLib6PeriodESaIS1_EE17_S_check_init_lenEmRKS2_.exit.i

@@ -8037,7 +8037,7 @@ _ZNK7oopDesc5klassEv.exit:                        ; preds = %54, %64
 72:                                               ; preds = %48
   call void @_ZN12methodHandleD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %5) #19
   call void @_ZN12methodHandleD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %4) #19
-  %73 = icmp ult i64 %indvars.iv, 2
+  %73 = icmp samesign ult i64 %indvars.iv, 2
   br i1 %73, label %.loopexit, label %22, !llvm.loop !50
 
 .loopexit:                                        ; preds = %72, %13, %71
@@ -10378,7 +10378,7 @@ define hidden void @_ZN18VM_RedefineClasses34rewrite_cp_refs_in_stack_map_tableE
   br label %.loopexit
 
 24:                                               ; preds = %21
-  %25 = icmp ult i8 %18, -9
+  %25 = icmp samesign ult i8 %18, -9
   br i1 %25, label %.loopexit, label %26
 
 26:                                               ; preds = %24
@@ -10392,7 +10392,7 @@ define hidden void @_ZN18VM_RedefineClasses34rewrite_cp_refs_in_stack_map_tableE
   br label %.loopexit
 
 30:                                               ; preds = %26
-  %31 = icmp ult i8 %18, -5
+  %31 = icmp samesign ult i8 %18, -5
   %32 = getelementptr inbounds i8, ptr %17, i64 3
   br i1 %31, label %33, label %34
 
@@ -15226,7 +15226,7 @@ define linkonce_odr hidden noundef ptr @_ZN34TransferNativeFunctionRegistration3
   %37 = icmp eq i32 %36, 0
   %spec.select.idx.i = select i1 %37, i64 %35, i64 0
   %spec.select.i = getelementptr inbounds i8, ptr %.014.i, i64 %spec.select.idx.i
-  %38 = icmp ugt i64 %indvars.iv.i, 1
+  %38 = icmp samesign ugt i64 %indvars.iv.i, 1
   br i1 %38, label %32, label %_ZN34TransferNativeFunctionRegistration28method_name_without_prefixesEP6Method.exit, !llvm.loop !88
 
 _ZN34TransferNativeFunctionRegistration28method_name_without_prefixesEP6Method.exit: ; preds = %32, %2

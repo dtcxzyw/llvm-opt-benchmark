@@ -12862,7 +12862,7 @@ _ZNSt6vectorIN32pxrInternal_v0_24__pxrReserved__7TfTokenESaIS1_EE7reserveEm.exit
   store ptr %21, ptr %18, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %5, i8 0, i64 24, i1 false)
   %22 = lshr exact i64 %14, 3
-  %23 = icmp ugt i64 %14, 4611686018427387896
+  %23 = icmp samesign ugt i64 %14, 4611686018427387896
   br i1 %23, label %24, label %25
 
 24:                                               ; preds = %_ZNSt6vectorIN32pxrInternal_v0_24__pxrReserved__7TfTokenESaIS1_EE7reserveEm.exit

@@ -8720,7 +8720,7 @@ if.then.i35:                                      ; preds = %for.body.i
   br i1 %call2.i37, label %_ZNK22protobuf_test_messages6proto232TestAllTypesProto2_NestedMessage13IsInitializedEv.exit38, label %return
 
 _ZNK22protobuf_test_messages6proto232TestAllTypesProto2_NestedMessage13IsInitializedEv.exit38: ; preds = %for.body.i, %if.then.i35
-  %cmp.i = icmp ult i64 %indvars.iv, 2
+  %cmp.i = icmp samesign ult i64 %indvars.iv, 2
   br i1 %cmp.i, label %if.end4, label %for.body.i, !llvm.loop !30
 
 if.end4:                                          ; preds = %_ZNK22protobuf_test_messages6proto232TestAllTypesProto2_NestedMessage13IsInitializedEv.exit38, %if.end
@@ -38372,7 +38372,7 @@ _ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit4785: ; preds = 
   %arrayidx6.i.i4863 = getelementptr inbounds i8, ptr %retval.0.i4784, i64 1
   store i8 4, ptr %arrayidx6.i.i4863, align 1
   %add.ptr7.i.i4864 = getelementptr inbounds i8, ptr %retval.0.i4784, i64 2
-  %cmp.i49647612 = icmp ugt i32 %882, 127
+  %cmp.i49647612 = icmp samesign ugt i32 %882, 127
   br i1 %cmp.i49647612, label %while.body.i4967, label %_ZN6google8protobuf2io19EpsCopyOutputStream15UnsafeWriteSizeEjPh.exit4972
 
 while.body.i4967:                                 ; preds = %_ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit4785, %while.body.i4967
@@ -38487,7 +38487,7 @@ _ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit4795: ; preds = 
   %arrayidx6.i.i.i = getelementptr inbounds i8, ptr %retval.0.i4794, i64 1
   store i8 4, ptr %arrayidx6.i.i.i, align 1
   %add.ptr7.i.i.i = getelementptr inbounds i8, ptr %retval.0.i4794, i64 2
-  %cmp.i16.i7617 = icmp ugt i32 %889, 127
+  %cmp.i16.i7617 = icmp samesign ugt i32 %889, 127
   br i1 %cmp.i16.i7617, label %while.body.i.i, label %_ZN6google8protobuf2io19EpsCopyOutputStream15UnsafeWriteSizeEjPh.exit.i
 
 while.body.i.i:                                   ; preds = %_ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit4795, %while.body.i.i
@@ -38600,7 +38600,7 @@ _ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit4805: ; preds = 
   %arrayidx6.i.i.i5116 = getelementptr inbounds i8, ptr %retval.0.i4804, i64 1
   store i8 4, ptr %arrayidx6.i.i.i5116, align 1
   %add.ptr7.i.i.i5117 = getelementptr inbounds i8, ptr %retval.0.i4804, i64 2
-  %cmp.i16.i50717622 = icmp ugt i32 %895, 127
+  %cmp.i16.i50717622 = icmp samesign ugt i32 %895, 127
   br i1 %cmp.i16.i50717622, label %while.body.i.i5109, label %_ZN6google8protobuf2io19EpsCopyOutputStream15UnsafeWriteSizeEjPh.exit.i5072
 
 while.body.i.i5109:                               ; preds = %_ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit4805, %while.body.i.i5109
@@ -38713,7 +38713,7 @@ _ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit4815: ; preds = 
   %arrayidx6.i.i.i5216 = getelementptr inbounds i8, ptr %retval.0.i4814, i64 1
   store i8 4, ptr %arrayidx6.i.i.i5216, align 1
   %add.ptr7.i.i.i5217 = getelementptr inbounds i8, ptr %retval.0.i4814, i64 2
-  %cmp.i16.i51707627 = icmp ugt i32 %901, 127
+  %cmp.i16.i51707627 = icmp samesign ugt i32 %901, 127
   br i1 %cmp.i16.i51707627, label %while.body.i.i5209, label %_ZN6google8protobuf2io19EpsCopyOutputStream15UnsafeWriteSizeEjPh.exit.i5171
 
 while.body.i.i5209:                               ; preds = %_ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit4815, %while.body.i.i5209
@@ -38826,7 +38826,7 @@ _ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit4825: ; preds = 
   %arrayidx6.i.i.i5316 = getelementptr inbounds i8, ptr %retval.0.i4824, i64 1
   store i8 4, ptr %arrayidx6.i.i.i5316, align 1
   %add.ptr7.i.i.i5317 = getelementptr inbounds i8, ptr %retval.0.i4824, i64 2
-  %cmp.i16.i52707632 = icmp ugt i32 %907, 127
+  %cmp.i16.i52707632 = icmp samesign ugt i32 %907, 127
   br i1 %cmp.i16.i52707632, label %while.body.i.i5309, label %_ZN6google8protobuf2io19EpsCopyOutputStream15UnsafeWriteSizeEjPh.exit.i5271
 
 while.body.i.i5309:                               ; preds = %_ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit4825, %while.body.i.i5309
@@ -38942,7 +38942,7 @@ _ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit4838: ; preds = 
   %arrayidx6.i.i.i5416 = getelementptr inbounds i8, ptr %retval.0.i4837, i64 1
   store i8 5, ptr %arrayidx6.i.i.i5416, align 1
   %add.ptr7.i.i.i5417 = getelementptr inbounds i8, ptr %retval.0.i4837, i64 2
-  %cmp.i16.i53707637 = icmp ugt i32 %913, 127
+  %cmp.i16.i53707637 = icmp samesign ugt i32 %913, 127
   br i1 %cmp.i16.i53707637, label %while.body.i.i5409, label %_ZN6google8protobuf2io19EpsCopyOutputStream15UnsafeWriteSizeEjPh.exit.i5371
 
 while.body.i.i5409:                               ; preds = %_ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit4838, %while.body.i.i5409
@@ -39491,7 +39491,7 @@ _ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit4974: ; preds = 
   %arrayidx6.i.i4828 = getelementptr inbounds i8, ptr %retval.0.i4973, i64 1
   store i8 5, ptr %arrayidx6.i.i4828, align 1
   %add.ptr7.i.i4829 = getelementptr inbounds i8, ptr %retval.0.i4973, i64 2
-  %cmp.i49527677 = icmp ugt i32 %940, 127
+  %cmp.i49527677 = icmp samesign ugt i32 %940, 127
   br i1 %cmp.i49527677, label %while.body.i4955, label %_ZN6google8protobuf2io19EpsCopyOutputStream15UnsafeWriteSizeEjPh.exit4960
 
 while.body.i4955:                                 ; preds = %_ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit4974, %while.body.i4955
@@ -74695,7 +74695,7 @@ if.then6.i:                                       ; preds = %if.then.i
 
 if.else.i:                                        ; preds = %if.end
   %div29.i = lshr i64 %mul.i, 6
-  %cmp9.not.i = icmp ule i64 %add, %div29.i
+  %cmp9.not.i = icmp samesign ule i64 %add, %div29.i
   %cmp11.i = icmp ugt i64 %4, 8
   %or.cond.i = and i1 %cmp11.i, %cmp9.not.i
   br i1 %or.cond.i, label %if.then12.i, label %if.end9
@@ -78203,7 +78203,7 @@ if.then6.i:                                       ; preds = %if.then.i
 
 if.else.i:                                        ; preds = %if.end
   %div29.i = lshr i64 %mul.i, 6
-  %cmp9.not.i = icmp ule i64 %add, %div29.i
+  %cmp9.not.i = icmp samesign ule i64 %add, %div29.i
   %cmp11.i = icmp ugt i64 %4, 8
   %or.cond.i = and i1 %cmp11.i, %cmp9.not.i
   br i1 %or.cond.i, label %if.then12.i, label %if.end9
@@ -81539,7 +81539,7 @@ if.then6.i:                                       ; preds = %if.then.i
 
 if.else.i:                                        ; preds = %if.end
   %div29.i = lshr i64 %mul.i, 6
-  %cmp9.not.i = icmp ule i64 %add, %div29.i
+  %cmp9.not.i = icmp samesign ule i64 %add, %div29.i
   %cmp11.i = icmp ugt i64 %4, 8
   %or.cond.i = and i1 %cmp11.i, %cmp9.not.i
   br i1 %or.cond.i, label %if.then12.i, label %if.end9
@@ -84977,7 +84977,7 @@ if.then6.i:                                       ; preds = %if.then.i
 
 if.else.i:                                        ; preds = %if.end
   %div29.i = lshr i64 %mul.i, 6
-  %cmp9.not.i = icmp ule i64 %add, %div29.i
+  %cmp9.not.i = icmp samesign ule i64 %add, %div29.i
   %cmp11.i = icmp ugt i64 %4, 8
   %or.cond.i = and i1 %cmp11.i, %cmp9.not.i
   br i1 %or.cond.i, label %if.then12.i, label %if.end9
@@ -88231,7 +88231,7 @@ if.then6.i:                                       ; preds = %if.then.i
 
 if.else.i:                                        ; preds = %if.end
   %div29.i = lshr i64 %mul.i, 6
-  %cmp9.not.i = icmp ule i64 %add, %div29.i
+  %cmp9.not.i = icmp samesign ule i64 %add, %div29.i
   %cmp11.i = icmp ugt i64 %4, 8
   %or.cond.i = and i1 %cmp11.i, %cmp9.not.i
   br i1 %or.cond.i, label %if.then12.i, label %if.end9
@@ -92567,7 +92567,7 @@ if.then6.i:                                       ; preds = %if.then.i
 
 if.else.i:                                        ; preds = %if.end
   %div29.i = lshr i64 %mul.i, 6
-  %cmp9.not.i = icmp ule i64 %add, %div29.i
+  %cmp9.not.i = icmp samesign ule i64 %add, %div29.i
   %cmp11.i = icmp ugt i64 %3, 8
   %or.cond.i = and i1 %cmp11.i, %cmp9.not.i
   br i1 %or.cond.i, label %if.then12.i, label %if.end9
@@ -96202,7 +96202,7 @@ if.then6.i:                                       ; preds = %if.then.i
 
 if.else.i:                                        ; preds = %if.end
   %div29.i = lshr i64 %mul.i, 6
-  %cmp9.not.i = icmp ule i64 %add, %div29.i
+  %cmp9.not.i = icmp samesign ule i64 %add, %div29.i
   %cmp11.i = icmp ugt i64 %2, 8
   %or.cond.i = and i1 %cmp11.i, %cmp9.not.i
   br i1 %or.cond.i, label %if.then12.i, label %if.end9
@@ -99561,7 +99561,7 @@ if.then6.i:                                       ; preds = %if.then.i
 
 if.else.i:                                        ; preds = %if.end
   %div29.i = lshr i64 %mul.i, 6
-  %cmp9.not.i = icmp ule i64 %add, %div29.i
+  %cmp9.not.i = icmp samesign ule i64 %add, %div29.i
   %cmp11.i = icmp ugt i64 %2, 8
   %or.cond.i = and i1 %cmp11.i, %cmp9.not.i
   br i1 %or.cond.i, label %if.then12.i, label %if.end9
@@ -103045,7 +103045,7 @@ if.then6.i:                                       ; preds = %if.then.i
 
 if.else.i:                                        ; preds = %if.end
   %div29.i = lshr i64 %mul.i, 6
-  %cmp9.not.i = icmp ule i64 %add, %div29.i
+  %cmp9.not.i = icmp samesign ule i64 %add, %div29.i
   %cmp11.i = icmp ugt i64 %2, 8
   %or.cond.i = and i1 %cmp11.i, %cmp9.not.i
   br i1 %or.cond.i, label %if.then12.i, label %if.end9
@@ -106402,7 +106402,7 @@ if.then6.i:                                       ; preds = %if.then.i
 
 if.else.i:                                        ; preds = %if.end
   %div29.i = lshr i64 %mul.i, 6
-  %cmp9.not.i = icmp ule i64 %add, %div29.i
+  %cmp9.not.i = icmp samesign ule i64 %add, %div29.i
   %cmp11.i = icmp ugt i64 %2, 8
   %or.cond.i = and i1 %cmp11.i, %cmp9.not.i
   br i1 %or.cond.i, label %if.then12.i, label %if.end9
@@ -109886,7 +109886,7 @@ if.then6.i:                                       ; preds = %if.then.i
 
 if.else.i:                                        ; preds = %if.end
   %div29.i = lshr i64 %mul.i, 6
-  %cmp9.not.i = icmp ule i64 %add, %div29.i
+  %cmp9.not.i = icmp samesign ule i64 %add, %div29.i
   %cmp11.i = icmp ugt i64 %2, 8
   %or.cond.i = and i1 %cmp11.i, %cmp9.not.i
   br i1 %or.cond.i, label %if.then12.i, label %if.end9
@@ -113477,7 +113477,7 @@ if.then6.i:                                       ; preds = %if.then.i
 
 if.else.i:                                        ; preds = %if.end
   %div29.i = lshr i64 %mul.i, 6
-  %cmp9.not.i = icmp ule i64 %add, %div29.i
+  %cmp9.not.i = icmp samesign ule i64 %add, %div29.i
   %cmp11.i = icmp ugt i64 %2, 8
   %or.cond.i = and i1 %cmp11.i, %cmp9.not.i
   br i1 %or.cond.i, label %if.then12.i, label %if.end9

@@ -738,7 +738,7 @@ Vec_IntFetch.exit.i:                              ; preds = %344, %339
   %353 = or i32 %352, %350
   %354 = getelementptr inbounds i32, ptr %.0.i.i, i64 %indvars.iv.next.i.i
   store i32 %353, ptr %354, align 4
-  %355 = icmp ugt i64 %indvars.iv.i.i, 1
+  %355 = icmp samesign ugt i64 %indvars.iv.i.i, 1
   br i1 %355, label %.lr.ph.i.i, label %Extra_TruthOrWords.exit.i, !llvm.loop !13
 
 Extra_TruthOrWords.exit.i:                        ; preds = %.lr.ph.i.i, %Vec_IntFetch.exit.i

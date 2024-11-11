@@ -9855,7 +9855,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit: ; pr
   br label %53
 
 16:                                               ; preds = %2
-  %17 = icmp ult i32 %1, 17
+  %17 = icmp samesign ult i32 %1, 17
   br i1 %17, label %18, label %24
 
 18:                                               ; preds = %16
@@ -9892,7 +9892,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit17: ; 
   br label %53
 
 24:                                               ; preds = %16
-  %25 = icmp ult i32 %1, 33
+  %25 = icmp samesign ult i32 %1, 33
   br i1 %25, label %26, label %32
 
 26:                                               ; preds = %24
@@ -9929,7 +9929,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit22: ; 
   br label %53
 
 32:                                               ; preds = %24
-  %33 = icmp ult i32 %1, 65
+  %33 = icmp samesign ult i32 %1, 65
   br i1 %33, label %34, label %40
 
 34:                                               ; preds = %32

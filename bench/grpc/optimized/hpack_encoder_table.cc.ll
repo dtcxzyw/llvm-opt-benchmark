@@ -29,7 +29,7 @@ entry:
 while.cond4.preheader:                            ; preds = %entry
   %conv639 = zext i32 %table_size_.promoted to i64
   %add740 = add nuw nsw i64 %element_size, %conv639
-  %cmp1041 = icmp ugt i64 %add740, %conv
+  %cmp1041 = icmp samesign ugt i64 %add740, %conv
   br i1 %cmp1041, label %while.body11.lr.ph, label %while.cond4.preheader.do.body_crit_edge
 
 while.cond4.preheader.do.body_crit_edge:          ; preds = %while.cond4.preheader

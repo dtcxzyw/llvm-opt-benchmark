@@ -4101,7 +4101,7 @@ Vec_IntPush.exit:                                 ; preds = %.Vec_IntGrow.exit10
 227:                                              ; preds = %223
   %228 = getelementptr i8, ptr %225, i64 4
   %229 = load i32, ptr %228, align 4
-  %230 = icmp ugt i32 %221, 2
+  %230 = icmp samesign ugt i32 %221, 2
   br i1 %230, label %231, label %.thread1649
 
 231:                                              ; preds = %227
@@ -4345,7 +4345,7 @@ Cba_FonCopy.exit1070:                             ; preds = %358
 
 365:                                              ; preds = %358, %Cba_FonCopy.exit1070
   %366 = phi ptr [ %364, %Cba_FonCopy.exit1070 ], [ null, %358 ]
-  %367 = icmp ult i32 %342, 3
+  %367 = icmp samesign ult i32 %342, 3
   %368 = icmp slt i32 %234, 1
   %or.cond1745 = select i1 %367, i1 true, i1 %368
   br i1 %or.cond1745, label %374, label %Cba_FonCopy.exit1072
@@ -6952,7 +6952,7 @@ Vec_IntAppend.exit:                               ; preds = %Vec_IntPush.exit.i,
 
 Cba_FonRange.exit.i1490.us:                       ; preds = %1530
   %1532 = add nuw nsw i32 %1529, 1
-  %.not.i1610.not.us = icmp ult i32 %1529, %.val.i.i.i1489.us
+  %.not.i1610.not.us = icmp samesign ult i32 %1529, %.val.i.i.i1489.us
   br i1 %.not.i1610.not.us, label %Vec_IntFillExtra.exit1623.us, label %1533
 
 1533:                                             ; preds = %Cba_FonRange.exit.i1490.us
@@ -7520,7 +7520,7 @@ Gia_ManAppendCo.exit1541.us:                      ; preds = %1760, %Vec_IntPush.
 
 Cba_FonRange.exit.i1357:                          ; preds = %1779
   %1781 = add nuw nsw i32 %1778, 1
-  %.not.i1559.not = icmp ult i32 %1778, %.val.i.i.i1356
+  %.not.i1559.not = icmp samesign ult i32 %1778, %.val.i.i.i1356
   br i1 %.not.i1559.not, label %Vec_IntFillExtra.exit, label %1782
 
 1782:                                             ; preds = %Cba_FonRange.exit.i1357
@@ -8193,7 +8193,7 @@ Cba_FonRangeSize.exit1411:                        ; preds = %Cba_FonRange.exit.i
 
 Cba_FonRange.exit.i1416:                          ; preds = %2085
   %2087 = add nuw nsw i32 %2075, 1
-  %.not.i1582.not = icmp ult i32 %2075, %.val.i.i.i1415
+  %.not.i1582.not = icmp samesign ult i32 %2075, %.val.i.i.i1415
   br i1 %.not.i1582.not, label %Vec_IntFillExtra.exit1595, label %2088
 
 2088:                                             ; preds = %Cba_FonRange.exit.i1416

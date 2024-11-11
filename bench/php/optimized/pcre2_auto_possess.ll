@@ -47,16 +47,16 @@ define hidden range(i32 -1, 1) i32 @_pcre2_auto_possessify_8(ptr noundef %0, ptr
   br i1 %or.cond, label %16, label %40
 
 16:                                               ; preds = %13
-  %17 = icmp ugt i8 %14, 84
+  %17 = icmp samesign ugt i8 %14, 84
   br i1 %17, label %get_repeat_base.exit, label %18
 
 18:                                               ; preds = %16
-  %19 = icmp ugt i8 %14, 71
+  %19 = icmp samesign ugt i8 %14, 71
   br i1 %19, label %get_repeat_base.exit, label %20
 
 20:                                               ; preds = %18
-  %.inv.i = icmp ult i8 %14, 46
-  %.inv6.i = icmp ult i8 %14, 59
+  %.inv.i = icmp samesign ult i8 %14, 46
+  %.inv6.i = icmp samesign ult i8 %14, 59
   %.neg = select i1 %.inv.i, i8 0, i8 -13
   %.neg125 = select i1 %.inv6.i, i8 %.neg, i8 -26
   br label %get_repeat_base.exit
@@ -292,17 +292,17 @@ define internal fastcc ptr @get_chr_property_list(ptr noundef %0, i32 noundef ra
   br i1 %or.cond, label %11, label %33
 
 11:                                               ; preds = %5
-  %12 = icmp ugt i8 %6, 84
+  %12 = icmp samesign ugt i8 %6, 84
   br i1 %12, label %get_repeat_base.exit, label %13
 
 13:                                               ; preds = %11
-  %14 = icmp ugt i8 %6, 71
+  %14 = icmp samesign ugt i8 %6, 71
   br i1 %14, label %get_repeat_base.exit, label %15
 
 15:                                               ; preds = %13
-  %.inv.i = icmp ult i8 %6, 46
+  %.inv.i = icmp samesign ult i8 %6, 46
   %16 = select i1 %.inv.i, i8 33, i8 46
-  %.inv6.i = icmp ult i8 %6, 59
+  %.inv6.i = icmp samesign ult i8 %6, 59
   %17 = select i1 %.inv6.i, i8 %16, i8 59
   br label %get_repeat_base.exit
 
@@ -653,11 +653,11 @@ get_repeat_base.exit:                             ; preds = %11, %13, %15
   %.1 = phi i32 [ %150, %143 ], [ %166, %157 ], [ %186, %171 ], [ %212, %203 ], [ %229, %214 ], [ %137, %.thread203.thread ]
   %232 = getelementptr inbounds i8, ptr %4, i64 8
   store i32 %.1, ptr %232, align 4
-  %233 = icmp ult i32 %.1, 128
+  %233 = icmp samesign ult i32 %.1, 128
   br i1 %233, label %238, label %234
 
 234:                                              ; preds = %231
-  %235 = icmp ugt i32 %.1, 255
+  %235 = icmp samesign ugt i32 %.1, 255
   %236 = or i32 %2, %1
   %237 = icmp ne i32 %236, 0
   %or.cond25 = or i1 %237, %235

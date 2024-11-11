@@ -11777,7 +11777,7 @@ define internal fastcc void @"_ZSt21__inplace_stable_sortIPSt5tupleIJPN4llvm12Ma
   %38 = load i32, ptr %27, align 4
   store i32 %38, ptr %28, align 4
   %39 = add nsw i64 %.010.i.i.i.i.i.i, -1
-  %40 = icmp ugt i64 %.010.i.i.i.i.i.i, 1
+  %40 = icmp samesign ugt i64 %.010.i.i.i.i.i.i, 1
   br i1 %40, label %.lr.ph.i.i.i.i.i.i, label %_ZSt13move_backwardIPSt5tupleIJPN4llvm12MachineInstrEiiiEES5_ET0_T_S7_S6_.exit.i, !llvm.loop !84
 
 _ZSt13move_backwardIPSt5tupleIJPN4llvm12MachineInstrEiiiEES5_ET0_T_S7_S6_.exit.i: ; preds = %.lr.ph.i.i.i.i.i.i, %20
@@ -12267,7 +12267,7 @@ define internal fastcc void @"_ZSt24__merge_sort_with_bufferIPSt5tupleIJPN4llvm1
   %40 = load i32, ptr %29, align 4
   store i32 %40, ptr %30, align 4
   %41 = add nsw i64 %.010.i.i.i.i.i.i.i, -1
-  %42 = icmp ugt i64 %.010.i.i.i.i.i.i.i, 1
+  %42 = icmp samesign ugt i64 %.010.i.i.i.i.i.i.i, 1
   br i1 %42, label %.lr.ph.i.i.i.i.i.i.i, label %_ZSt13move_backwardIPSt5tupleIJPN4llvm12MachineInstrEiiiEES5_ET0_T_S7_S6_.exit.i.i, !llvm.loop !84
 
 _ZSt13move_backwardIPSt5tupleIJPN4llvm12MachineInstrEiiiEES5_ET0_T_S7_S6_.exit.i.i: ; preds = %.lr.ph.i.i.i.i.i.i.i, %22
@@ -12392,7 +12392,7 @@ _ZSt13move_backwardIPSt5tupleIJPN4llvm12MachineInstrEiiiEES5_ET0_T_S7_S6_.exit.i
   %94 = load i32, ptr %83, align 4
   store i32 %94, ptr %84, align 4
   %95 = add nsw i64 %.010.i.i.i.i.i.i33.i, -1
-  %96 = icmp ugt i64 %.010.i.i.i.i.i.i33.i, 1
+  %96 = icmp samesign ugt i64 %.010.i.i.i.i.i.i33.i, 1
   br i1 %96, label %.lr.ph.i.i.i.i.i.i32.i, label %_ZSt13move_backwardIPSt5tupleIJPN4llvm12MachineInstrEiiiEES5_ET0_T_S7_S6_.exit.i30.i, !llvm.loop !84
 
 _ZSt13move_backwardIPSt5tupleIJPN4llvm12MachineInstrEiiiEES5_ET0_T_S7_S6_.exit.i30.i: ; preds = %.lr.ph.i.i.i.i.i.i32.i, %76
@@ -12508,7 +12508,7 @@ tailrecurse._crit_edge:                           ; preds = %tailrecurse, %7
   %24 = getelementptr inbounds i8, ptr %.0910.i.i.i.i.i, i64 24
   %25 = getelementptr inbounds i8, ptr %.0811.i.i.i.i.i, i64 24
   %26 = add nsw i64 %.012.i.i.i.i.i, -1
-  %27 = icmp ugt i64 %.012.i.i.i.i.i, 1
+  %27 = icmp samesign ugt i64 %.012.i.i.i.i.i, 1
   br i1 %27, label %.lr.ph.i.i.i.i.i, label %_ZSt4moveIPSt5tupleIJPN4llvm12MachineInstrEiiiEES5_ET0_T_S7_S6_.exit, !llvm.loop !95
 
 _ZSt4moveIPSt5tupleIJPN4llvm12MachineInstrEiiiEES5_ET0_T_S7_S6_.exit: ; preds = %.lr.ph.i.i.i.i.i
@@ -12599,7 +12599,7 @@ _ZSt4moveIPSt5tupleIJPN4llvm12MachineInstrEiiiEES5_ET0_T_S7_S6_.exit: ; preds = 
   %64 = getelementptr inbounds i8, ptr %.0910.i.i.i.i.i.i, i64 24
   %65 = getelementptr inbounds i8, ptr %.0811.i.i.i.i.i.i, i64 24
   %66 = add nsw i64 %.012.i.i.i.i.i.i, -1
-  %67 = icmp ugt i64 %.012.i.i.i.i.i.i, 1
+  %67 = icmp samesign ugt i64 %.012.i.i.i.i.i.i, 1
   br i1 %67, label %.lr.ph.i.i.i.i.i.i, label %"_ZSt21__move_merge_adaptiveIPSt5tupleIJPN4llvm12MachineInstrEiiiEES5_S5_N9__gnu_cxx5__ops15_Iter_comp_iterIZNS1_15WindowScheduler6expandEvE3$_0EEEvT_SC_T0_SD_T1_T2_.exit", !llvm.loop !95
 
 68:                                               ; preds = %.lr.ph, %tailrecurse
@@ -12642,7 +12642,7 @@ _ZSt4moveIPSt5tupleIJPN4llvm12MachineInstrEiiiEES5_ET0_T_S7_S6_.exit: ; preds = 
   %84 = getelementptr inbounds i8, ptr %.0910.i.i.i.i.i78, i64 24
   %85 = getelementptr inbounds i8, ptr %.0811.i.i.i.i.i77, i64 24
   %86 = add nsw i64 %.012.i.i.i.i.i76, -1
-  %87 = icmp ugt i64 %.012.i.i.i.i.i76, 1
+  %87 = icmp samesign ugt i64 %.012.i.i.i.i.i76, 1
   br i1 %87, label %.lr.ph.i.i.i.i.i75, label %_ZSt4moveIPSt5tupleIJPN4llvm12MachineInstrEiiiEES5_ET0_T_S7_S6_.exit79, !llvm.loop !95
 
 _ZSt4moveIPSt5tupleIJPN4llvm12MachineInstrEiiiEES5_ET0_T_S7_S6_.exit79: ; preds = %.lr.ph.i.i.i.i.i75, %70
@@ -12682,7 +12682,7 @@ _ZSt4moveIPSt5tupleIJPN4llvm12MachineInstrEiiiEES5_ET0_T_S7_S6_.exit79: ; preds 
   %106 = load i32, ptr %95, align 4
   store i32 %106, ptr %96, align 4
   %107 = add nsw i64 %.010.i.i.i.i.i.i, -1
-  %108 = icmp ugt i64 %.010.i.i.i.i.i.i, 1
+  %108 = icmp samesign ugt i64 %.010.i.i.i.i.i.i, 1
   br i1 %108, label %.lr.ph.i.i.i.i.i.i82, label %"_ZSt21__move_merge_adaptiveIPSt5tupleIJPN4llvm12MachineInstrEiiiEES5_S5_N9__gnu_cxx5__ops15_Iter_comp_iterIZNS1_15WindowScheduler6expandEvE3$_0EEEvT_SC_T0_SD_T1_T2_.exit", !llvm.loop !84
 
 109:                                              ; preds = %_ZSt4moveIPSt5tupleIJPN4llvm12MachineInstrEiiiEES5_ET0_T_S7_S6_.exit79
@@ -12760,7 +12760,7 @@ _ZSt4moveIPSt5tupleIJPN4llvm12MachineInstrEiiiEES5_ET0_T_S7_S6_.exit79: ; preds 
   %146 = load i32, ptr %135, align 4
   store i32 %146, ptr %136, align 4
   %147 = add nsw i64 %.010.i.i.i.i.i35.i, -1
-  %148 = icmp ugt i64 %.010.i.i.i.i.i35.i, 1
+  %148 = icmp samesign ugt i64 %.010.i.i.i.i.i35.i, 1
   br i1 %148, label %.lr.ph.i.i.i.i.i34.i, label %"_ZSt21__move_merge_adaptiveIPSt5tupleIJPN4llvm12MachineInstrEiiiEES5_S5_N9__gnu_cxx5__ops15_Iter_comp_iterIZNS1_15WindowScheduler6expandEvE3$_0EEEvT_SC_T0_SD_T1_T2_.exit", !llvm.loop !84
 
 149:                                              ; preds = %113
@@ -12983,7 +12983,7 @@ define internal fastcc void @"_ZSt17__merge_sort_loopIPSt5tupleIJPN4llvm12Machin
   %49 = getelementptr inbounds i8, ptr %.0910.i.i.i.i.i.i, i64 24
   %50 = getelementptr inbounds i8, ptr %.0811.i.i.i.i.i.i, i64 24
   %51 = add nsw i64 %.012.i.i.i.i.i.i, -1
-  %52 = icmp ugt i64 %.012.i.i.i.i.i.i, 1
+  %52 = icmp samesign ugt i64 %.012.i.i.i.i.i.i, 1
   br i1 %52, label %.lr.ph.i.i.i.i.i.i, label %_ZSt4moveIPSt5tupleIJPN4llvm12MachineInstrEiiiEES5_ET0_T_S7_S6_.exit.i, !llvm.loop !95
 
 _ZSt4moveIPSt5tupleIJPN4llvm12MachineInstrEiiiEES5_ET0_T_S7_S6_.exit.i: ; preds = %.lr.ph.i.i.i.i.i.i, %._crit_edge.i
@@ -13019,7 +13019,7 @@ _ZSt4moveIPSt5tupleIJPN4llvm12MachineInstrEiiiEES5_ET0_T_S7_S6_.exit.i: ; preds 
   %68 = getelementptr inbounds i8, ptr %.0910.i.i.i.i.i26.i, i64 24
   %69 = getelementptr inbounds i8, ptr %.0811.i.i.i.i.i25.i, i64 24
   %70 = add nsw i64 %.012.i.i.i.i.i24.i, -1
-  %71 = icmp ugt i64 %.012.i.i.i.i.i24.i, 1
+  %71 = icmp samesign ugt i64 %.012.i.i.i.i.i24.i, 1
   br i1 %71, label %.lr.ph.i.i.i.i.i23.i, label %"_ZSt12__move_mergeIPSt5tupleIJPN4llvm12MachineInstrEiiiEES5_N9__gnu_cxx5__ops15_Iter_comp_iterIZNS1_15WindowScheduler6expandEvE3$_0EEET0_T_SD_SD_SD_SC_T1_.exit", !llvm.loop !95
 
 "_ZSt12__move_mergeIPSt5tupleIJPN4llvm12MachineInstrEiiiEES5_N9__gnu_cxx5__ops15_Iter_comp_iterIZNS1_15WindowScheduler6expandEvE3$_0EEET0_T_SD_SD_SD_SC_T1_.exit": ; preds = %.lr.ph.i.i.i.i.i23.i, %_ZSt4moveIPSt5tupleIJPN4llvm12MachineInstrEiiiEES5_ET0_T_S7_S6_.exit.i
@@ -13122,7 +13122,7 @@ _ZSt4moveIPSt5tupleIJPN4llvm12MachineInstrEiiiEES5_ET0_T_S7_S6_.exit.i: ; preds 
   %114 = getelementptr inbounds i8, ptr %.0910.i.i.i.i.i.i39, i64 24
   %115 = getelementptr inbounds i8, ptr %.0811.i.i.i.i.i.i38, i64 24
   %116 = add nsw i64 %.012.i.i.i.i.i.i37, -1
-  %117 = icmp ugt i64 %.012.i.i.i.i.i.i37, 1
+  %117 = icmp samesign ugt i64 %.012.i.i.i.i.i.i37, 1
   br i1 %117, label %.lr.ph.i.i.i.i.i.i36, label %_ZSt4moveIPSt5tupleIJPN4llvm12MachineInstrEiiiEES5_ET0_T_S7_S6_.exit.i27, !llvm.loop !95
 
 _ZSt4moveIPSt5tupleIJPN4llvm12MachineInstrEiiiEES5_ET0_T_S7_S6_.exit.i27: ; preds = %.lr.ph.i.i.i.i.i.i36, %._crit_edge.i23
@@ -13157,7 +13157,7 @@ _ZSt4moveIPSt5tupleIJPN4llvm12MachineInstrEiiiEES5_ET0_T_S7_S6_.exit.i27: ; pred
   %132 = getelementptr inbounds i8, ptr %.0910.i.i.i.i.i26.i34, i64 24
   %133 = getelementptr inbounds i8, ptr %.0811.i.i.i.i.i25.i33, i64 24
   %134 = add nsw i64 %.012.i.i.i.i.i24.i32, -1
-  %135 = icmp ugt i64 %.012.i.i.i.i.i24.i32, 1
+  %135 = icmp samesign ugt i64 %.012.i.i.i.i.i24.i32, 1
   br i1 %135, label %.lr.ph.i.i.i.i.i23.i31, label %"_ZSt12__move_mergeIPSt5tupleIJPN4llvm12MachineInstrEiiiEES5_N9__gnu_cxx5__ops15_Iter_comp_iterIZNS1_15WindowScheduler6expandEvE3$_0EEET0_T_SD_SD_SD_SC_T1_.exit50", !llvm.loop !95
 
 "_ZSt12__move_mergeIPSt5tupleIJPN4llvm12MachineInstrEiiiEES5_N9__gnu_cxx5__ops15_Iter_comp_iterIZNS1_15WindowScheduler6expandEvE3$_0EEET0_T_SD_SD_SD_SC_T1_.exit50": ; preds = %.lr.ph.i.i.i.i.i23.i31, %_ZSt4moveIPSt5tupleIJPN4llvm12MachineInstrEiiiEES5_ET0_T_S7_S6_.exit.i27
@@ -13207,7 +13207,7 @@ define linkonce_odr noundef ptr @_ZSt17__rotate_adaptiveIPSt5tupleIJPN4llvm12Mac
   %26 = getelementptr inbounds i8, ptr %.0910.i.i.i.i.i, i64 24
   %27 = getelementptr inbounds i8, ptr %.0811.i.i.i.i.i, i64 24
   %28 = add nsw i64 %.012.i.i.i.i.i, -1
-  %29 = icmp ugt i64 %.012.i.i.i.i.i, 1
+  %29 = icmp samesign ugt i64 %.012.i.i.i.i.i, 1
   br i1 %29, label %.lr.ph.i.i.i.i.i, label %_ZSt4moveIPSt5tupleIJPN4llvm12MachineInstrEiiiEES5_ET0_T_S7_S6_.exit, !llvm.loop !95
 
 _ZSt4moveIPSt5tupleIJPN4llvm12MachineInstrEiiiEES5_ET0_T_S7_S6_.exit: ; preds = %.lr.ph.i.i.i.i.i, %10
@@ -13242,7 +13242,7 @@ _ZSt4moveIPSt5tupleIJPN4llvm12MachineInstrEiiiEES5_ET0_T_S7_S6_.exit: ; preds = 
   %45 = load i32, ptr %34, align 4
   store i32 %45, ptr %35, align 4
   %46 = add nsw i64 %.010.i.i.i.i.i, -1
-  %47 = icmp ugt i64 %.010.i.i.i.i.i, 1
+  %47 = icmp samesign ugt i64 %.010.i.i.i.i.i, 1
   br i1 %47, label %.lr.ph.i.i.i.i.i37, label %_ZSt13move_backwardIPSt5tupleIJPN4llvm12MachineInstrEiiiEES5_ET0_T_S7_S6_.exit, !llvm.loop !84
 
 _ZSt13move_backwardIPSt5tupleIJPN4llvm12MachineInstrEiiiEES5_ET0_T_S7_S6_.exit: ; preds = %.lr.ph.i.i.i.i.i37, %_ZSt4moveIPSt5tupleIJPN4llvm12MachineInstrEiiiEES5_ET0_T_S7_S6_.exit
@@ -13277,7 +13277,7 @@ _ZSt13move_backwardIPSt5tupleIJPN4llvm12MachineInstrEiiiEES5_ET0_T_S7_S6_.exit: 
   %63 = getelementptr inbounds i8, ptr %.0910.i.i.i.i.i43, i64 24
   %64 = getelementptr inbounds i8, ptr %.0811.i.i.i.i.i42, i64 24
   %65 = add nsw i64 %.012.i.i.i.i.i41, -1
-  %66 = icmp ugt i64 %.012.i.i.i.i.i41, 1
+  %66 = icmp samesign ugt i64 %.012.i.i.i.i.i41, 1
   br i1 %66, label %.lr.ph.i.i.i.i.i40, label %_ZSt4moveIPSt5tupleIJPN4llvm12MachineInstrEiiiEES5_ET0_T_S7_S6_.exit44, !llvm.loop !95
 
 67:                                               ; preds = %7
@@ -13320,7 +13320,7 @@ _ZSt13move_backwardIPSt5tupleIJPN4llvm12MachineInstrEiiiEES5_ET0_T_S7_S6_.exit: 
   %85 = getelementptr inbounds i8, ptr %.0910.i.i.i.i.i50, i64 24
   %86 = getelementptr inbounds i8, ptr %.0811.i.i.i.i.i49, i64 24
   %87 = add nsw i64 %.012.i.i.i.i.i48, -1
-  %88 = icmp ugt i64 %.012.i.i.i.i.i48, 1
+  %88 = icmp samesign ugt i64 %.012.i.i.i.i.i48, 1
   br i1 %88, label %.lr.ph.i.i.i.i.i47, label %_ZSt4moveIPSt5tupleIJPN4llvm12MachineInstrEiiiEES5_ET0_T_S7_S6_.exit51, !llvm.loop !95
 
 _ZSt4moveIPSt5tupleIJPN4llvm12MachineInstrEiiiEES5_ET0_T_S7_S6_.exit51: ; preds = %.lr.ph.i.i.i.i.i47, %69
@@ -13355,7 +13355,7 @@ _ZSt4moveIPSt5tupleIJPN4llvm12MachineInstrEiiiEES5_ET0_T_S7_S6_.exit51: ; preds 
   %103 = getelementptr inbounds i8, ptr %.0910.i.i.i.i.i57, i64 24
   %104 = getelementptr inbounds i8, ptr %.0811.i.i.i.i.i56, i64 24
   %105 = add nsw i64 %.012.i.i.i.i.i55, -1
-  %106 = icmp ugt i64 %.012.i.i.i.i.i55, 1
+  %106 = icmp samesign ugt i64 %.012.i.i.i.i.i55, 1
   br i1 %106, label %.lr.ph.i.i.i.i.i54, label %_ZSt4moveIPSt5tupleIJPN4llvm12MachineInstrEiiiEES5_ET0_T_S7_S6_.exit58, !llvm.loop !95
 
 _ZSt4moveIPSt5tupleIJPN4llvm12MachineInstrEiiiEES5_ET0_T_S7_S6_.exit58: ; preds = %.lr.ph.i.i.i.i.i54, %_ZSt4moveIPSt5tupleIJPN4llvm12MachineInstrEiiiEES5_ET0_T_S7_S6_.exit51
@@ -13390,7 +13390,7 @@ _ZSt4moveIPSt5tupleIJPN4llvm12MachineInstrEiiiEES5_ET0_T_S7_S6_.exit58: ; preds 
   %123 = load i32, ptr %112, align 4
   store i32 %123, ptr %113, align 4
   %124 = add nsw i64 %.010.i.i.i.i.i62, -1
-  %125 = icmp ugt i64 %.010.i.i.i.i.i62, 1
+  %125 = icmp samesign ugt i64 %.010.i.i.i.i.i62, 1
   br i1 %125, label %.lr.ph.i.i.i.i.i61, label %_ZSt4moveIPSt5tupleIJPN4llvm12MachineInstrEiiiEES5_ET0_T_S7_S6_.exit44, !llvm.loop !84
 
 126:                                              ; preds = %67

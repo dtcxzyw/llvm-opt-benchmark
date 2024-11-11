@@ -470,7 +470,7 @@ sw.bb14.i:                                        ; preds = %if.then67
 
 if.end72:                                         ; preds = %sw.bb14.i, %sw.bb13.i, %sw.bb12.i, %sw.bb11.i, %sw.bb10.i, %sw.bb9.i, %sw.bb8.i, %sw.bb7.i, %sw.bb6.i, %sw.bb5.i, %sw.bb4.i, %sw.bb3.i, %if.then67, %if.then67, %if.then67
   %retval.0.i.ph = phi i32 [ 16, %if.then67 ], [ 16, %if.then67 ], [ 16, %if.then67 ], [ 20, %sw.bb3.i ], [ 20, %sw.bb4.i ], [ 28, %sw.bb5.i ], [ 32, %sw.bb6.i ], [ 48, %sw.bb7.i ], [ 64, %sw.bb8.i ], [ 28, %sw.bb9.i ], [ 32, %sw.bb10.i ], [ 28, %sw.bb11.i ], [ 32, %sw.bb12.i ], [ 48, %sw.bb13.i ], [ 64, %sw.bb14.i ]
-  %cmp74 = icmp ugt i32 %retval.0.i.ph, %call8
+  %cmp74 = icmp samesign ugt i32 %retval.0.i.ph, %call8
   br i1 %cmp74, label %if.then76, label %if.end77
 
 if.then76:                                        ; preds = %if.end72

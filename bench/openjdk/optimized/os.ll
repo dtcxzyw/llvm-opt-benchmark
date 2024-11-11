@@ -4128,7 +4128,7 @@ define hidden noundef zeroext i1 @_ZN2os23is_server_class_machineEv() local_unna
 15:                                               ; preds = %12
   %16 = tail call noundef i32 @_ZN2os22active_processor_countEv() #28
   %17 = udiv i32 %16, %13
-  %18 = icmp ugt i32 %17, 1
+  %18 = icmp samesign ugt i32 %17, 1
   br label %19
 
 19:                                               ; preds = %15, %6, %9, %12, %3, %0
@@ -5314,7 +5314,7 @@ define hidden void @_ZN2os11naked_sleepEl(i64 noundef %0) local_unnamed_addr #3 
   %.03 = phi i64 [ %3, %.lr.ph ], [ %0, %1 ]
   tail call void @_ZN2os17naked_short_sleepEl(i64 noundef 999) #28
   %3 = add nsw i64 %.03, -999
-  %4 = icmp ugt i64 %.03, 1998
+  %4 = icmp samesign ugt i64 %.03, 1998
   br i1 %4, label %.lr.ph, label %._crit_edge, !llvm.loop !36
 
 ._crit_edge:                                      ; preds = %.lr.ph, %1

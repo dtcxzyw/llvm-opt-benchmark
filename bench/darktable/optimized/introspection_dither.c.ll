@@ -687,7 +687,7 @@ define void @process(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noun
 
 390:                                              ; preds = %387
   %391 = zext nneg i32 %388 to i64
-  %392 = icmp ult i32 %388, 8
+  %392 = icmp samesign ult i32 %388, 8
   br i1 %392, label %418, label %393
 
 393:                                              ; preds = %390
@@ -842,7 +842,7 @@ define void @process(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noun
   %499 = insertelement <2 x float> poison, float %488, i64 0
   %500 = shufflevector <2 x float> %499, <2 x float> poison, <2 x i32> zeroinitializer
   %501 = fmul reassoc nsz arcp contract afn <2 x float> %500, <float 0x3FE2E147A0000000, float 0x3FBC28F5C0000000>
-  %502 = icmp ult i32 %494, 9
+  %502 = icmp samesign ult i32 %494, 9
   br i1 %502, label %.loopexit30, label %503
 
 503:                                              ; preds = %496
@@ -1029,7 +1029,7 @@ define void @process(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noun
   %658 = add nsw i32 %329, -1
   %659 = shl i32 %329, 2
   %660 = zext nneg i32 %329 to i64
-  %661 = icmp ult i32 %329, 8
+  %661 = icmp samesign ult i32 %329, 8
   br i1 %661, label %687, label %662
 
 662:                                              ; preds = %657

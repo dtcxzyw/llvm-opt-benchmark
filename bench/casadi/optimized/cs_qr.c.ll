@@ -207,7 +207,7 @@ define ptr @cs_qr(ptr noundef readonly %0, ptr noundef readonly %1) local_unname
   %indvars.iv.next269 = add nsw i64 %indvars.iv268, -1
   %114 = getelementptr inbounds i32, ptr %41, i64 %indvars.iv.next269
   store i32 %113, ptr %114, align 4
-  %115 = icmp ugt i64 %indvars.iv270, 1
+  %115 = icmp samesign ugt i64 %indvars.iv270, 1
   br i1 %115, label %.lr.ph235, label %._crit_edge236.loopexit, !llvm.loop !6
 
 ._crit_edge236.loopexit:                          ; preds = %.lr.ph235

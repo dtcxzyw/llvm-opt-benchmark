@@ -100,12 +100,12 @@ define void @dbbcsd_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
   br i1 %88, label %.sink.split, label %89
 
 89:                                               ; preds = %86
-  %90 = icmp ugt i32 %87, %84
+  %90 = icmp samesign ugt i32 %87, %84
   %91 = sub nsw i32 %81, %84
   %92 = icmp sgt i32 %87, %91
   %93 = select i1 %90, i1 true, i1 %92
   %94 = sub nuw nsw i32 %81, %87
-  %95 = icmp ugt i32 %87, %94
+  %95 = icmp samesign ugt i32 %87, %94
   %96 = select i1 %93, i1 true, i1 %95
   br i1 %96, label %.sink.split, label %97
 
@@ -304,7 +304,7 @@ define void @dbbcsd_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
   br i1 %209, label %210, label %212
 
 210:                                              ; preds = %204
-  %211 = icmp ult i64 %205, 4
+  %211 = icmp samesign ult i64 %205, 4
   br i1 %211, label %.loopexit60, label %204, !llvm.loop !14
 
 212:                                              ; preds = %204

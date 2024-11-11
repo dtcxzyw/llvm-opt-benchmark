@@ -1788,7 +1788,7 @@ define hidden void @_ZN5ceres8internal20TrustRegionMinimizer12DoLineSearchERKN5E
   %66 = getelementptr inbounds i8, ptr %53, i64 16
   %67 = load <2 x double>, ptr %66, align 16
   %68 = fmul <2 x double> %65, %67
-  %69 = icmp ugt i64 %49, 7
+  %69 = icmp samesign ugt i64 %49, 7
   br i1 %69, label %.lr.ph.i.i.i.i.i, label %._crit_edge.i.i.i.i.i
 
 .lr.ph.i.i.i.i.i:                                 ; preds = %63, %.lr.ph.i.i.i.i.i
@@ -2510,7 +2510,7 @@ define hidden noundef zeroext i1 @_ZN5ceres8internal20TrustRegionMinimizer25Para
   %20 = load <2 x double>, ptr %19, align 16
   %21 = fmul <2 x double> %20, %20
   %invariant.gep.i.i.i.i.i = getelementptr inbounds i8, ptr %9, i64 48
-  %22 = icmp ugt i64 %6, 7
+  %22 = icmp samesign ugt i64 %6, 7
   br i1 %22, label %.lr.ph.i.i.i.i.i, label %._crit_edge.i.i.i.i.i
 
 .lr.ph.i.i.i.i.i:                                 ; preds = %18, %.lr.ph.i.i.i.i.i
@@ -2605,7 +2605,7 @@ _ZNK5Eigen10MatrixBaseINS_6MatrixIdLin1ELi1ELi0ELin1ELi1EEEE4normEv.exit: ; pred
   %74 = load <2 x double>, ptr %73, align 16
   %75 = fsub <2 x double> %72, %74
   %76 = fmul <2 x double> %75, %75
-  %77 = icmp ugt i64 %54, 7
+  %77 = icmp samesign ugt i64 %54, 7
   br i1 %77, label %.lr.ph.i.i.i.i.i25, label %._crit_edge.i.i.i.i.i22
 
 .lr.ph.i.i.i.i.i25:                               ; preds = %70, %.lr.ph.i.i.i.i.i25
@@ -3619,7 +3619,7 @@ _ZNK5Eigen10MatrixBaseINS_13CwiseBinaryOpINS_8internal20scalar_difference_opIddE
   %143 = load <2 x double>, ptr %142, align 16
   %144 = fsub <2 x double> %141, %143
   %145 = call noundef <2 x double> @llvm.fabs.v2f64(<2 x double> %144)
-  %146 = icmp ugt i64 %123, 7
+  %146 = icmp samesign ugt i64 %123, 7
   br i1 %146, label %.lr.ph.i.i.i.i.i.i, label %._crit_edge.i.i.i.i.i.i
 
 .lr.ph.i.i.i.i.i.i:                               ; preds = %139, %.lr.ph.i.i.i.i.i.i
@@ -3718,7 +3718,7 @@ _ZNK5Eigen10MatrixBaseINS_13CwiseBinaryOpINS_8internal20scalar_difference_opIddE
   %205 = load <2 x double>, ptr %204, align 16
   %206 = fsub <2 x double> %203, %205
   %207 = fmul <2 x double> %206, %206
-  %208 = icmp ugt i64 %123, 7
+  %208 = icmp samesign ugt i64 %123, 7
   br i1 %208, label %.lr.ph.i.i.i.i.i, label %._crit_edge.i.i.i.i.i
 
 .lr.ph.i.i.i.i.i:                                 ; preds = %201, %.lr.ph.i.i.i.i.i
@@ -5756,7 +5756,7 @@ define linkonce_odr hidden void @_ZN5Eigen12DenseStorageIdLin1ELin1ELi1ELi0EE6re
   br i1 %9, label %10, label %.sink.split
 
 10:                                               ; preds = %7
-  %11 = icmp ugt i64 %1, 2305843009213693951
+  %11 = icmp samesign ugt i64 %1, 2305843009213693951
   br i1 %11, label %12, label %14
 
 12:                                               ; preds = %10
@@ -6238,7 +6238,7 @@ define linkonce_odr hidden void @_ZZN5ceres8internal3DotIN5Eigen6MatrixIdLin1ELi
   %46 = fadd <2 x double> %42, %45
   %47 = fmul <2 x double> %39, %46
   %invariant.op.i.i.i.i.i = add nsw i64 %7, 6
-  %48 = icmp ugt i64 %12, 7
+  %48 = icmp samesign ugt i64 %12, 7
   br i1 %48, label %.lr.ph.preheader.i.i.i.i.i, label %._crit_edge.i.i.i.i.i
 
 .lr.ph.preheader.i.i.i.i.i:                       ; preds = %37

@@ -2953,7 +2953,7 @@ _ZlsRSoPK7AstNode.exit98:                         ; preds = %93, %95
 130:                                              ; preds = %121
   %131 = load i32, ptr %16, align 8
   %132 = zext i32 %131 to i64
-  %.not79 = icmp ugt i64 %128, %132
+  %.not79 = icmp samesign ugt i64 %128, %132
   br i1 %.not79, label %133, label %137
 
 133:                                              ; preds = %130

@@ -13336,7 +13336,7 @@ _ZN17cranelift_codegen2ir5types4Type4bits17h6ac7b92b6381a3ecE.exit.i.i7086: ; pr
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %1588)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %1588, ptr noundef nonnull align 8 dereferenceable(40) %1589, i64 40, i1 false)
   %3797 = icmp ugt i16 %3656, 255
-  %3798 = icmp ult i16 %3656, 128
+  %3798 = icmp samesign ult i16 %3656, 128
   %3799 = and i16 %3656, 15
   %3800 = or disjoint i16 %3799, 112
   %.0.i.i.i.i.i7117 = select i1 %3798, i16 %3656, i16 %3800
@@ -14751,7 +14751,7 @@ _ZN17cranelift_codegen2ir5types4Type4bits17h6ac7b92b6381a3ecE.exit.i.i7278: ; pr
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %1561)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %1561, ptr noundef nonnull align 8 dereferenceable(40) %1562, i64 40, i1 false)
   %4171 = icmp ugt i16 %4031, 255
-  %4172 = icmp ult i16 %4031, 128
+  %4172 = icmp samesign ult i16 %4031, 128
   %4173 = and i16 %4031, 15
   %4174 = or disjoint i16 %4173, 112
   %.0.i.i.i.i.i7308 = select i1 %4172, i16 %4031, i16 %4174
@@ -15214,7 +15214,7 @@ _ZN17cranelift_codegen2ir5types4Type4bits17h6ac7b92b6381a3ecE.exit.i.i7309: ; pr
   br i1 %4319, label %_ZN17cranelift_codegen2ir5types4Type4bits17h6ac7b92b6381a3ecE.exit.thread.i, label %4320
 
 4320:                                             ; preds = %4318
-  %4321 = icmp ult i16 %.sroa.014455.0.copyload, 128
+  %4321 = icmp samesign ult i16 %.sroa.014455.0.copyload, 128
   %4322 = and i16 %.sroa.014455.0.copyload, 15
   %4323 = or disjoint i16 %4322, 112
   %.0.i.i.i.i7348 = select i1 %4321, i16 %.sroa.014455.0.copyload, i16 %4323
@@ -16880,7 +16880,7 @@ _ZN17cranelift_codegen2ir5types4Type4bits17h6ac7b92b6381a3ecE.exit.i7534: ; pred
   br i1 %4746, label %_ZN17cranelift_codegen2ir5types4Type4bits17h6ac7b92b6381a3ecE.exit.thread.i7617, label %4747
 
 4747:                                             ; preds = %4745
-  %4748 = icmp ult i16 %.sroa.014533.0.copyload, 128
+  %4748 = icmp samesign ult i16 %.sroa.014533.0.copyload, 128
   %4749 = and i16 %.sroa.014533.0.copyload, 15
   %4750 = or disjoint i16 %4749, 112
   %.0.i.i.i.i7614 = select i1 %4748, i16 %.sroa.014533.0.copyload, i16 %4750
@@ -17555,7 +17555,7 @@ _ZN17cranelift_codegen4opts16InstDataEtorIter3new17h681d65f73c30106cE.llvm.57816
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %1507)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %1507, ptr noundef nonnull align 8 dereferenceable(40) %1508, i64 40, i1 false)
   %4896 = icmp ult i16 %.sroa.013804.0.copyload.fr, 256
-  %4897 = icmp ult i16 %.sroa.013804.0.copyload.fr, 128
+  %4897 = icmp samesign ult i16 %.sroa.013804.0.copyload.fr, 128
   %4898 = and i16 %.sroa.013804.0.copyload.fr, 15
   %4899 = or disjoint i16 %4898, 112
   %.0.i.i.i.i7731 = select i1 %4897, i16 %.sroa.013804.0.copyload.fr, i16 %4899
@@ -17988,7 +17988,7 @@ _ZN17cranelift_codegen4opts16InstDataEtorIter3new17h681d65f73c30106cE.llvm.57816
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %1501)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %1501, ptr noundef nonnull align 8 dereferenceable(40) %1502, i64 40, i1 false)
   %5010 = icmp ult i16 %.sroa.013804.0.copyload.fr, 256
-  %5011 = icmp ult i16 %.sroa.013804.0.copyload.fr, 128
+  %5011 = icmp samesign ult i16 %.sroa.013804.0.copyload.fr, 128
   %5012 = and i16 %.sroa.013804.0.copyload.fr, 15
   %5013 = or disjoint i16 %5012, 112
   %.0.i.i.i.i7787 = select i1 %5011, i16 %.sroa.013804.0.copyload.fr, i16 %5013
@@ -20290,7 +20290,7 @@ _ZN17cranelift_codegen2ir5types4Type4bits17h6ac7b92b6381a3ecE.exit.i8033: ; pred
   br i1 %5672, label %_ZN17cranelift_codegen2ir5types4Type4bits17h6ac7b92b6381a3ecE.exit.thread.i8109, label %5673
 
 5673:                                             ; preds = %5671
-  %5674 = icmp ult i16 %.sroa.014641.0.copyload, 128
+  %5674 = icmp samesign ult i16 %.sroa.014641.0.copyload, 128
   %5675 = and i16 %.sroa.014641.0.copyload, 15
   %5676 = or disjoint i16 %5675, 112
   %.0.i.i.i.i8106 = select i1 %5674, i16 %.sroa.014641.0.copyload, i16 %5676
@@ -26774,7 +26774,7 @@ _ZN17cranelift_codegen2ir5types4Type4bits17h6ac7b92b6381a3ecE.exit.i8838: ; pred
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %1264)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %1264, ptr noundef nonnull align 8 dereferenceable(40) %1265, i64 40, i1 false)
   %7060 = icmp ugt i16 %6966, 255
-  %7061 = icmp ult i16 %6966, 128
+  %7061 = icmp samesign ult i16 %6966, 128
   %7062 = and i16 %6966, 15
   %7063 = or disjoint i16 %7062, 112
   %.0.i.i.i.i.i8887 = select i1 %7061, i16 %6966, i16 %7063
@@ -28234,7 +28234,7 @@ _ZN17cranelift_codegen4opts16InstDataEtorIter3new17h681d65f73c30106cE.llvm.57816
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %1234)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %1234, ptr noundef nonnull align 8 dereferenceable(40) %1235, i64 40, i1 false)
   %7450 = icmp ugt i16 %7387, 255
-  %7451 = icmp ult i16 %7387, 128
+  %7451 = icmp samesign ult i16 %7387, 128
   %7452 = and i16 %7387, 15
   %7453 = or disjoint i16 %7452, 112
   %.0.i.i.i.i.i9101 = select i1 %7451, i16 %7387, i16 %7453
@@ -28827,7 +28827,7 @@ _ZN17cranelift_codegen2ir5types4Type4bits17h6ac7b92b6381a3ecE.exit.i.i9102: ; pr
   br i1 %7632, label %_ZN17cranelift_codegen2ir5types4Type4bits17h6ac7b92b6381a3ecE.exit.thread.i9186, label %7633
 
 7633:                                             ; preds = %7631
-  %7634 = icmp ult i16 %.sroa.015074.0.copyload, 128
+  %7634 = icmp samesign ult i16 %.sroa.015074.0.copyload, 128
   %7635 = and i16 %.sroa.015074.0.copyload, 15
   %7636 = or disjoint i16 %7635, 112
   %.0.i.i.i.i9183 = select i1 %7634, i16 %.sroa.015074.0.copyload, i16 %7636
@@ -36037,7 +36037,7 @@ default.unreachable:                              ; preds = %9643
   br i1 %9645, label %9646, label %.thread18940
 
 9646:                                             ; preds = %9644
-  %9647 = icmp ult i16 %.sroa.013804.0.copyload.fr, 128
+  %9647 = icmp samesign ult i16 %.sroa.013804.0.copyload.fr, 128
   %9648 = and i16 %.sroa.013804.0.copyload.fr, 15
   %9649 = or disjoint i16 %9648, 112
   %.0.i.i.i.i10286 = select i1 %9647, i16 %.sroa.013804.0.copyload.fr, i16 %9649
@@ -36070,7 +36070,7 @@ _ZN17cranelift_codegen2ir5types4Type4bits17h6ac7b92b6381a3ecE.exit.i10287: ; pre
   br i1 %9658, label %9659, label %.thread18940
 
 9659:                                             ; preds = %9657
-  %9660 = icmp ult i16 %.sroa.013804.0.copyload.fr, 128
+  %9660 = icmp samesign ult i16 %.sroa.013804.0.copyload.fr, 128
   %9661 = and i16 %.sroa.013804.0.copyload.fr, 15
   %9662 = or disjoint i16 %9661, 112
   %.0.i.i.i.i10293 = select i1 %9660, i16 %.sroa.013804.0.copyload.fr, i16 %9662
@@ -36252,7 +36252,7 @@ _ZN17cranelift_codegen4opts16InstDataEtorIter3new17h681d65f73c30106cE.llvm.57816
   br i1 %9699, label %_ZN17cranelift_codegen2ir5types4Type4bits17h6ac7b92b6381a3ecE.exit.thread.i10323, label %9700
 
 9700:                                             ; preds = %9698
-  %9701 = icmp ult i16 %.sroa.015281.0.copyload, 128
+  %9701 = icmp samesign ult i16 %.sroa.015281.0.copyload, 128
   %9702 = and i16 %.sroa.015281.0.copyload, 15
   %9703 = or disjoint i16 %9702, 112
   %.0.i.i.i.i10320 = select i1 %9701, i16 %.sroa.015281.0.copyload, i16 %9703
@@ -37516,7 +37516,7 @@ _ZN17cranelift_codegen4opts16InstDataEtorIter3new17h681d65f73c30106cE.llvm.57816
   br i1 %9986, label %_ZN17cranelift_codegen2ir5types4Type4bits17h6ac7b92b6381a3ecE.exit.thread.i10512, label %9987
 
 9987:                                             ; preds = %9985
-  %9988 = icmp ult i16 %.sroa.015391.0.copyload, 128
+  %9988 = icmp samesign ult i16 %.sroa.015391.0.copyload, 128
   %9989 = and i16 %.sroa.015391.0.copyload, 15
   %9990 = or disjoint i16 %9989, 112
   %.0.i.i.i.i10509 = select i1 %9988, i16 %.sroa.015391.0.copyload, i16 %9990
@@ -38128,7 +38128,7 @@ _ZN17cranelift_codegen4opts16InstDataEtorIter3new17h681d65f73c30106cE.llvm.57816
   br i1 %10140, label %_ZN17cranelift_codegen2ir5types4Type4bits17h6ac7b92b6381a3ecE.exit.thread.i10602, label %10141
 
 10141:                                            ; preds = %10139
-  %10142 = icmp ult i16 %.sroa.015423.0.copyload, 128
+  %10142 = icmp samesign ult i16 %.sroa.015423.0.copyload, 128
   %10143 = and i16 %.sroa.015423.0.copyload, 15
   %10144 = or disjoint i16 %10143, 112
   %.0.i.i.i.i10599 = select i1 %10142, i16 %.sroa.015423.0.copyload, i16 %10144
@@ -39392,7 +39392,7 @@ _ZN17cranelift_codegen4opts16InstDataEtorIter3new17h681d65f73c30106cE.llvm.57816
   br i1 %10427, label %_ZN17cranelift_codegen2ir5types4Type4bits17h6ac7b92b6381a3ecE.exit.thread.i10792, label %10428
 
 10428:                                            ; preds = %10426
-  %10429 = icmp ult i16 %.sroa.015533.0.copyload, 128
+  %10429 = icmp samesign ult i16 %.sroa.015533.0.copyload, 128
   %10430 = and i16 %.sroa.015533.0.copyload, 15
   %10431 = or disjoint i16 %10430, 112
   %.0.i.i.i.i10789 = select i1 %10429, i16 %.sroa.015533.0.copyload, i16 %10431
@@ -40080,7 +40080,7 @@ _ZN17cranelift_codegen4opts16InstDataEtorIter3new17h681d65f73c30106cE.llvm.57816
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %977)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %977, ptr noundef nonnull align 8 dereferenceable(40) %978, i64 40, i1 false)
   %10610 = icmp ult i16 %.sroa.013804.0.copyload.fr, 256
-  %10611 = icmp ult i16 %.sroa.013804.0.copyload.fr, 128
+  %10611 = icmp samesign ult i16 %.sroa.013804.0.copyload.fr, 128
   %10612 = and i16 %.sroa.013804.0.copyload.fr, 15
   %10613 = or disjoint i16 %10612, 112
   %.0.i.i.i.i10885 = select i1 %10611, i16 %.sroa.013804.0.copyload.fr, i16 %10613
@@ -40161,7 +40161,7 @@ _ZN17cranelift_codegen2ir5types4Type4bits17h6ac7b92b6381a3ecE.exit.i10886: ; pre
   br i1 %10631, label %10643, label %10632
 
 10632:                                            ; preds = %10630
-  %10633 = icmp ult i16 %.sroa.02413.0.copyload, 128
+  %10633 = icmp samesign ult i16 %.sroa.02413.0.copyload, 128
   %10634 = and i16 %.sroa.02413.0.copyload, 15
   %10635 = or disjoint i16 %10634, 112
   %.0.i.i.i.i10892 = select i1 %10633, i16 %.sroa.02413.0.copyload, i16 %10635
@@ -40205,7 +40205,7 @@ _ZN17cranelift_codegen2ir5types4Type4bits17h6ac7b92b6381a3ecE.exit.i10893: ; pre
   br i1 %10631, label %10672, label %10650
 
 10650:                                            ; preds = %10649
-  %10651 = icmp ult i16 %.sroa.02413.0.copyload, 128
+  %10651 = icmp samesign ult i16 %.sroa.02413.0.copyload, 128
   %10652 = and i16 %.sroa.02413.0.copyload, 15
   %10653 = or disjoint i16 %10652, 112
   %.0.i.i.i.i10898 = select i1 %10651, i16 %.sroa.02413.0.copyload, i16 %10653
@@ -40554,7 +40554,7 @@ _ZN17cranelift_codegen4opts16InstDataEtorIter3new17h681d65f73c30106cE.llvm.57816
   br i1 %10757, label %_ZN17cranelift_codegen2ir5types4Type4bits17h6ac7b92b6381a3ecE.exit.thread.i10949, label %10758
 
 10758:                                            ; preds = %10756
-  %10759 = icmp ult i16 %.sroa.015657.0.copyload, 128
+  %10759 = icmp samesign ult i16 %.sroa.015657.0.copyload, 128
   %10760 = and i16 %.sroa.015657.0.copyload, 15
   %10761 = or disjoint i16 %10760, 112
   %.0.i.i.i.i10946 = select i1 %10759, i16 %.sroa.015657.0.copyload, i16 %10761
@@ -41230,7 +41230,7 @@ _ZN17cranelift_codegen4opts16InstDataEtorIter3new17h681d65f73c30106cE.llvm.57816
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %998)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %998, ptr noundef nonnull align 8 dereferenceable(40) %999, i64 40, i1 false)
   %10914 = icmp ult i16 %.sroa.013804.0.copyload.fr, 256
-  %10915 = icmp ult i16 %.sroa.013804.0.copyload.fr, 128
+  %10915 = icmp samesign ult i16 %.sroa.013804.0.copyload.fr, 128
   %10916 = and i16 %.sroa.013804.0.copyload.fr, 15
   %10917 = or disjoint i16 %10916, 112
   %.0.i.i.i.i11061 = select i1 %10915, i16 %.sroa.013804.0.copyload.fr, i16 %10917
@@ -41311,7 +41311,7 @@ _ZN17cranelift_codegen2ir5types4Type4bits17h6ac7b92b6381a3ecE.exit.i11062: ; pre
   br i1 %10935, label %10947, label %10936
 
 10936:                                            ; preds = %10934
-  %10937 = icmp ult i16 %.sroa.02357.0.copyload, 128
+  %10937 = icmp samesign ult i16 %.sroa.02357.0.copyload, 128
   %10938 = and i16 %.sroa.02357.0.copyload, 15
   %10939 = or disjoint i16 %10938, 112
   %.0.i.i.i.i11068 = select i1 %10937, i16 %.sroa.02357.0.copyload, i16 %10939
@@ -41355,7 +41355,7 @@ _ZN17cranelift_codegen2ir5types4Type4bits17h6ac7b92b6381a3ecE.exit.i11069: ; pre
   br i1 %10935, label %10976, label %10954
 
 10954:                                            ; preds = %10953
-  %10955 = icmp ult i16 %.sroa.02357.0.copyload, 128
+  %10955 = icmp samesign ult i16 %.sroa.02357.0.copyload, 128
   %10956 = and i16 %.sroa.02357.0.copyload, 15
   %10957 = or disjoint i16 %10956, 112
   %.0.i.i.i.i11075 = select i1 %10955, i16 %.sroa.02357.0.copyload, i16 %10957
@@ -41704,7 +41704,7 @@ _ZN17cranelift_codegen4opts16InstDataEtorIter3new17h681d65f73c30106cE.llvm.57816
   br i1 %11061, label %_ZN17cranelift_codegen2ir5types4Type4bits17h6ac7b92b6381a3ecE.exit.thread.i11127, label %11062
 
 11062:                                            ; preds = %11060
-  %11063 = icmp ult i16 %.sroa.015602.0.copyload, 128
+  %11063 = icmp samesign ult i16 %.sroa.015602.0.copyload, 128
   %11064 = and i16 %.sroa.015602.0.copyload, 15
   %11065 = or disjoint i16 %11064, 112
   %.0.i.i.i.i11124 = select i1 %11063, i16 %.sroa.015602.0.copyload, i16 %11065
@@ -42421,7 +42421,7 @@ _ZN17cranelift_codegen4opts16InstDataEtorIter3new17h681d65f73c30106cE.llvm.57816
   br i1 %11225, label %_ZN17cranelift_codegen2ir5types4Type4bits17h6ac7b92b6381a3ecE.exit.thread.i11240, label %11226
 
 11226:                                            ; preds = %11224
-  %11227 = icmp ult i16 %.sroa.015546.0.copyload, 128
+  %11227 = icmp samesign ult i16 %.sroa.015546.0.copyload, 128
   %11228 = and i16 %.sroa.015546.0.copyload, 15
   %11229 = or disjoint i16 %11228, 112
   %.0.i.i.i.i11237 = select i1 %11227, i16 %.sroa.015546.0.copyload, i16 %11229
@@ -43300,7 +43300,7 @@ _ZN17cranelift_codegen4opts16InstDataEtorIter3new17h681d65f73c30106cE.llvm.57816
   br i1 %11442, label %_ZN17cranelift_codegen2ir5types4Type4bits17h6ac7b92b6381a3ecE.exit.thread.i11381, label %11443
 
 11443:                                            ; preds = %11441
-  %11444 = icmp ult i16 %.sroa.015710.0.copyload, 128
+  %11444 = icmp samesign ult i16 %.sroa.015710.0.copyload, 128
   %11445 = and i16 %.sroa.015710.0.copyload, 15
   %11446 = or disjoint i16 %11445, 112
   %.0.i.i.i.i11378 = select i1 %11444, i16 %.sroa.015710.0.copyload, i16 %11446
@@ -44139,7 +44139,7 @@ _ZN17cranelift_codegen4opts16InstDataEtorIter3new17h681d65f73c30106cE.llvm.57816
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %932, ptr noundef nonnull align 8 dereferenceable(40) %933, i64 40, i1 false)
   %.sroa.0.0.insert.ext.i.i11539 = zext i32 %.sroa.55514349.0.copyload to i64
   %11652 = icmp ult i16 %.sroa.013804.0.copyload.fr, 256
-  %11653 = icmp ult i16 %.sroa.013804.0.copyload.fr, 128
+  %11653 = icmp samesign ult i16 %.sroa.013804.0.copyload.fr, 128
   %11654 = and i16 %.sroa.013804.0.copyload.fr, 15
   %11655 = or disjoint i16 %11654, 112
   %.0.i.i.i.i11525 = select i1 %11653, i16 %.sroa.013804.0.copyload.fr, i16 %11655
@@ -44344,7 +44344,7 @@ _ZN17cranelift_codegen2ir5types4Type4bits17h6ac7b92b6381a3ecE.exit.i11526: ; pre
   br i1 %11715, label %11728, label %11716
 
 11716:                                            ; preds = %11714
-  %11717 = icmp ult i16 %.sroa.02562.0.copyload, 128
+  %11717 = icmp samesign ult i16 %.sroa.02562.0.copyload, 128
   %11718 = and i16 %.sroa.02562.0.copyload, 15
   %11719 = or disjoint i16 %11718, 112
   %.0.i.i.i.i.i11547 = select i1 %11717, i16 %.sroa.02562.0.copyload, i16 %11719
@@ -44505,7 +44505,7 @@ _ZN17cranelift_codegen4opts16InstDataEtorIter3new17h681d65f73c30106cE.llvm.57816
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %935, ptr noundef nonnull align 8 dereferenceable(40) %936, i64 40, i1 false)
   %.sroa.0.0.insert.ext.i.i11604 = zext i32 %.sroa.55514349.0.copyload to i64
   %11766 = icmp ult i16 %.sroa.013804.0.copyload.fr, 256
-  %11767 = icmp ult i16 %.sroa.013804.0.copyload.fr, 128
+  %11767 = icmp samesign ult i16 %.sroa.013804.0.copyload.fr, 128
   %11768 = and i16 %.sroa.013804.0.copyload.fr, 15
   %11769 = or disjoint i16 %11768, 112
   %.0.i.i.i.i11590 = select i1 %11767, i16 %.sroa.013804.0.copyload.fr, i16 %11769
@@ -44710,7 +44710,7 @@ _ZN17cranelift_codegen2ir5types4Type4bits17h6ac7b92b6381a3ecE.exit.i11591: ; pre
   br i1 %11829, label %11842, label %11830
 
 11830:                                            ; preds = %11828
-  %11831 = icmp ult i16 %.sroa.02531.0.copyload, 128
+  %11831 = icmp samesign ult i16 %.sroa.02531.0.copyload, 128
   %11832 = and i16 %.sroa.02531.0.copyload, 15
   %11833 = or disjoint i16 %11832, 112
   %.0.i.i.i.i.i11612 = select i1 %11831, i16 %.sroa.02531.0.copyload, i16 %11833
@@ -44907,7 +44907,7 @@ _ZN17cranelift_codegen2ir5types4Type4bits17h6ac7b92b6381a3ecE.exit.i.i11613: ; p
   br i1 %11888, label %11909, label %11889
 
 11889:                                            ; preds = %11887
-  %11890 = icmp ult i16 %.sroa.02509.0.copyload, 128
+  %11890 = icmp samesign ult i16 %.sroa.02509.0.copyload, 128
   %11891 = and i16 %.sroa.02509.0.copyload, 15
   %11892 = or disjoint i16 %11891, 112
   %.0.i.i.i.i.i11650 = select i1 %11890, i16 %.sroa.02509.0.copyload, i16 %11892
@@ -45152,7 +45152,7 @@ _ZN17cranelift_codegen2ir5types4Type4bits17h6ac7b92b6381a3ecE.exit.i.i11651: ; p
   br i1 %11969, label %11990, label %11970
 
 11970:                                            ; preds = %11968
-  %11971 = icmp ult i16 %.sroa.02591.0.copyload, 128
+  %11971 = icmp samesign ult i16 %.sroa.02591.0.copyload, 128
   %11972 = and i16 %.sroa.02591.0.copyload, 15
   %11973 = or disjoint i16 %11972, 112
   %.0.i.i.i.i.i11685 = select i1 %11971, i16 %.sroa.02591.0.copyload, i16 %11973
@@ -45507,7 +45507,7 @@ _ZN17cranelift_codegen4opts16InstDataEtorIter3new17h681d65f73c30106cE.llvm.57816
   br i1 %12072, label %_ZN17cranelift_codegen2ir5types4Type4bits17h6ac7b92b6381a3ecE.exit.thread.i11736, label %12073
 
 12073:                                            ; preds = %12071
-  %12074 = icmp ult i16 %.sroa.015769.0.copyload, 128
+  %12074 = icmp samesign ult i16 %.sroa.015769.0.copyload, 128
   %12075 = and i16 %.sroa.015769.0.copyload, 15
   %12076 = or disjoint i16 %12075, 112
   %.0.i.i.i.i11733 = select i1 %12074, i16 %.sroa.015769.0.copyload, i16 %12076
@@ -45680,7 +45680,7 @@ _ZN17cranelift_codegen4opts16InstDataEtorIter3new17h681d65f73c30106cE.llvm.57816
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %920)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %920, ptr noundef nonnull align 8 dereferenceable(40) %921, i64 40, i1 false)
   %12125 = icmp ugt i16 %.sroa.02607.0.copyload, 255
-  %12126 = icmp ult i16 %.sroa.02607.0.copyload, 128
+  %12126 = icmp samesign ult i16 %.sroa.02607.0.copyload, 128
   %12127 = and i16 %.sroa.02607.0.copyload, 15
   %12128 = or disjoint i16 %12127, 112
   %.0.i.i.i.i.i11770 = select i1 %12126, i16 %.sroa.02607.0.copyload, i16 %12128
@@ -45689,14 +45689,14 @@ _ZN17cranelift_codegen4opts16InstDataEtorIter3new17h681d65f73c30106cE.llvm.57816
   %12130 = lshr i16 %12129, 4
   %12131 = zext nneg i16 %12130 to i32
   %.neg.i = shl nsw i32 -16, %12131
-  %12132 = icmp ugt i16 %12129, 31
+  %12132 = icmp samesign ugt i16 %12129, 31
   %12133 = and i32 %.neg.i, 48
   %12134 = zext nneg i32 %12133 to i64
   %12135 = shl i64 %.sroa.102615.0.copyload, %12134
   %12136 = ashr exact i64 %12135, %12134
   %.061331.i = select i1 %12132, i64 %.sroa.102615.0.copyload, i64 %12136
   %.neg38.i = shl nsw i32 -8, %12131
-  %12137 = icmp ugt i16 %12129, 47
+  %12137 = icmp samesign ugt i16 %12129, 47
   %12138 = and i32 %.neg38.i, 56
   %12139 = zext nneg i32 %12138 to i64
   %12140 = shl i64 %.sroa.102615.0.copyload, %12139
@@ -46332,7 +46332,7 @@ _ZN17cranelift_codegen4opts16InstDataEtorIter3new17h681d65f73c30106cE.llvm.57816
   br i1 %12299, label %_ZN17cranelift_codegen2ir5types4Type4bits17h6ac7b92b6381a3ecE.exit.thread.i11836, label %12300
 
 12300:                                            ; preds = %12298
-  %12301 = icmp ult i16 %.sroa.015959.0.copyload, 128
+  %12301 = icmp samesign ult i16 %.sroa.015959.0.copyload, 128
   %12302 = and i16 %.sroa.015959.0.copyload, 15
   %12303 = or disjoint i16 %12302, 112
   %.0.i.i.i.i11833 = select i1 %12301, i16 %.sroa.015959.0.copyload, i16 %12303
@@ -46611,7 +46611,7 @@ _ZN17cranelift_codegen2ir5types4Type4bits17h6ac7b92b6381a3ecE.exit.thread.i11836
   br i1 %12377, label %_ZN17cranelift_codegen2ir5types4Type4bits17h6ac7b92b6381a3ecE.exit.thread.i11867, label %12378
 
 12378:                                            ; preds = %12376
-  %12379 = icmp ult i16 %.sroa.016027.0.copyload, 128
+  %12379 = icmp samesign ult i16 %.sroa.016027.0.copyload, 128
   %12380 = and i16 %.sroa.016027.0.copyload, 15
   %12381 = or disjoint i16 %12380, 112
   %.0.i.i.i.i11864 = select i1 %12379, i16 %.sroa.016027.0.copyload, i16 %12381
@@ -46850,7 +46850,7 @@ _ZN17cranelift_codegen2ir5types4Type4bits17h6ac7b92b6381a3ecE.exit.thread.i11867
   br i1 %12441, label %_ZN17cranelift_codegen2ir5types4Type4bits17h6ac7b92b6381a3ecE.exit.thread.i11904, label %12442
 
 12442:                                            ; preds = %12440
-  %12443 = icmp ult i16 %.sroa.016015.0.copyload, 128
+  %12443 = icmp samesign ult i16 %.sroa.016015.0.copyload, 128
   %12444 = and i16 %.sroa.016015.0.copyload, 15
   %12445 = or disjoint i16 %12444, 112
   %.0.i.i.i.i11901 = select i1 %12443, i16 %.sroa.016015.0.copyload, i16 %12445
@@ -47084,7 +47084,7 @@ _ZN17cranelift_codegen2ir5types4Type4bits17h6ac7b92b6381a3ecE.exit.thread.i11904
   br i1 %12504, label %_ZN17cranelift_codegen2ir5types4Type4bits17h6ac7b92b6381a3ecE.exit.thread.i11939, label %12505
 
 12505:                                            ; preds = %12503
-  %12506 = icmp ult i16 %.sroa.016003.0.copyload, 128
+  %12506 = icmp samesign ult i16 %.sroa.016003.0.copyload, 128
   %12507 = and i16 %.sroa.016003.0.copyload, 15
   %12508 = or disjoint i16 %12507, 112
   %.0.i.i.i.i11936 = select i1 %12506, i16 %.sroa.016003.0.copyload, i16 %12508
@@ -47318,7 +47318,7 @@ _ZN17cranelift_codegen2ir5types4Type4bits17h6ac7b92b6381a3ecE.exit.thread.i11939
   br i1 %12567, label %_ZN17cranelift_codegen2ir5types4Type4bits17h6ac7b92b6381a3ecE.exit.thread.i11974, label %12568
 
 12568:                                            ; preds = %12566
-  %12569 = icmp ult i16 %.sroa.016039.0.copyload, 128
+  %12569 = icmp samesign ult i16 %.sroa.016039.0.copyload, 128
   %12570 = and i16 %.sroa.016039.0.copyload, 15
   %12571 = or disjoint i16 %12570, 112
   %.0.i.i.i.i11971 = select i1 %12569, i16 %.sroa.016039.0.copyload, i16 %12571
@@ -47552,7 +47552,7 @@ _ZN17cranelift_codegen2ir5types4Type4bits17h6ac7b92b6381a3ecE.exit.thread.i11974
   br i1 %12630, label %_ZN17cranelift_codegen2ir5types4Type4bits17h6ac7b92b6381a3ecE.exit.thread.i12009, label %12631
 
 12631:                                            ; preds = %12629
-  %12632 = icmp ult i16 %.sroa.016075.0.copyload, 128
+  %12632 = icmp samesign ult i16 %.sroa.016075.0.copyload, 128
   %12633 = and i16 %.sroa.016075.0.copyload, 15
   %12634 = or disjoint i16 %12633, 112
   %.0.i.i.i.i12006 = select i1 %12632, i16 %.sroa.016075.0.copyload, i16 %12634
@@ -47786,7 +47786,7 @@ _ZN17cranelift_codegen2ir5types4Type4bits17h6ac7b92b6381a3ecE.exit.thread.i12009
   br i1 %12693, label %_ZN17cranelift_codegen2ir5types4Type4bits17h6ac7b92b6381a3ecE.exit.thread.i12044, label %12694
 
 12694:                                            ; preds = %12692
-  %12695 = icmp ult i16 %.sroa.016063.0.copyload, 128
+  %12695 = icmp samesign ult i16 %.sroa.016063.0.copyload, 128
   %12696 = and i16 %.sroa.016063.0.copyload, 15
   %12697 = or disjoint i16 %12696, 112
   %.0.i.i.i.i12041 = select i1 %12695, i16 %.sroa.016063.0.copyload, i16 %12697
@@ -48020,7 +48020,7 @@ _ZN17cranelift_codegen2ir5types4Type4bits17h6ac7b92b6381a3ecE.exit.thread.i12044
   br i1 %12756, label %_ZN17cranelift_codegen2ir5types4Type4bits17h6ac7b92b6381a3ecE.exit.thread.i12079, label %12757
 
 12757:                                            ; preds = %12755
-  %12758 = icmp ult i16 %.sroa.016051.0.copyload, 128
+  %12758 = icmp samesign ult i16 %.sroa.016051.0.copyload, 128
   %12759 = and i16 %.sroa.016051.0.copyload, 15
   %12760 = or disjoint i16 %12759, 112
   %.0.i.i.i.i12076 = select i1 %12758, i16 %.sroa.016051.0.copyload, i16 %12760
@@ -48254,7 +48254,7 @@ _ZN17cranelift_codegen2ir5types4Type4bits17h6ac7b92b6381a3ecE.exit.thread.i12079
   br i1 %12819, label %_ZN17cranelift_codegen2ir5types4Type4bits17h6ac7b92b6381a3ecE.exit.thread.i12114, label %12820
 
 12820:                                            ; preds = %12818
-  %12821 = icmp ult i16 %.sroa.016087.0.copyload, 128
+  %12821 = icmp samesign ult i16 %.sroa.016087.0.copyload, 128
   %12822 = and i16 %.sroa.016087.0.copyload, 15
   %12823 = or disjoint i16 %12822, 112
   %.0.i.i.i.i12111 = select i1 %12821, i16 %.sroa.016087.0.copyload, i16 %12823
@@ -48479,7 +48479,7 @@ _ZN17cranelift_codegen2ir5types4Type4bits17h6ac7b92b6381a3ecE.exit.thread.i12114
   br i1 %12864, label %_ZN17cranelift_codegen2ir5types4Type4bits17h6ac7b92b6381a3ecE.exit.thread.i12153, label %12865
 
 12865:                                            ; preds = %12863
-  %12866 = icmp ult i16 %.sroa.016143.0.copyload, 128
+  %12866 = icmp samesign ult i16 %.sroa.016143.0.copyload, 128
   %12867 = and i16 %.sroa.016143.0.copyload, 15
   %12868 = or disjoint i16 %12867, 112
   %.0.i.i.i.i12150 = select i1 %12866, i16 %.sroa.016143.0.copyload, i16 %12868
@@ -49181,7 +49181,7 @@ _ZN17cranelift_codegen4opts14generated_code25constructor_sextend_maybe17hd501ba7
   br i1 %13055, label %_ZN17cranelift_codegen2ir5types4Type4bits17h6ac7b92b6381a3ecE.exit.thread.i12259, label %13056
 
 13056:                                            ; preds = %13054
-  %13057 = icmp ult i16 %.sroa.016099.0.copyload, 128
+  %13057 = icmp samesign ult i16 %.sroa.016099.0.copyload, 128
   %13058 = and i16 %.sroa.016099.0.copyload, 15
   %13059 = or disjoint i16 %13058, 112
   %.0.i.i.i.i12256 = select i1 %13057, i16 %.sroa.016099.0.copyload, i16 %13059
@@ -49617,7 +49617,7 @@ _ZN17cranelift_codegen4opts14generated_code25constructor_sextend_maybe17hd501ba7
   br i1 %13171, label %_ZN17cranelift_codegen2ir5types4Type4bits17h6ac7b92b6381a3ecE.exit.thread.i12338, label %13172
 
 13172:                                            ; preds = %13170
-  %13173 = icmp ult i16 %.sroa.016121.0.copyload, 128
+  %13173 = icmp samesign ult i16 %.sroa.016121.0.copyload, 128
   %13174 = and i16 %.sroa.016121.0.copyload, 15
   %13175 = or disjoint i16 %13174, 112
   %.0.i.i.i.i12335 = select i1 %13173, i16 %.sroa.016121.0.copyload, i16 %13175
@@ -50198,7 +50198,7 @@ _ZN17cranelift_codegen4opts14generated_code25constructor_sextend_maybe17hd501ba7
   br i1 %13334, label %_ZN17cranelift_codegen2ir5types4Type4bits17h6ac7b92b6381a3ecE.exit.thread.i12450, label %13335
 
 13335:                                            ; preds = %13333
-  %13336 = icmp ult i16 %.sroa.016210.0.copyload, 128
+  %13336 = icmp samesign ult i16 %.sroa.016210.0.copyload, 128
   %13337 = and i16 %.sroa.016210.0.copyload, 15
   %13338 = or disjoint i16 %13337, 112
   %.0.i.i.i.i12447 = select i1 %13336, i16 %.sroa.016210.0.copyload, i16 %13338
@@ -50900,7 +50900,7 @@ _ZN17cranelift_codegen4opts14generated_code25constructor_sextend_maybe17hd501ba7
   br i1 %13525, label %_ZN17cranelift_codegen2ir5types4Type4bits17h6ac7b92b6381a3ecE.exit.thread.i12567, label %13526
 
 13526:                                            ; preds = %13524
-  %13527 = icmp ult i16 %.sroa.016166.0.copyload, 128
+  %13527 = icmp samesign ult i16 %.sroa.016166.0.copyload, 128
   %13528 = and i16 %.sroa.016166.0.copyload, 15
   %13529 = or disjoint i16 %13528, 112
   %.0.i.i.i.i12564 = select i1 %13527, i16 %.sroa.016166.0.copyload, i16 %13529
@@ -51336,7 +51336,7 @@ _ZN17cranelift_codegen4opts14generated_code25constructor_sextend_maybe17hd501ba7
   br i1 %13641, label %_ZN17cranelift_codegen2ir5types4Type4bits17h6ac7b92b6381a3ecE.exit.thread.i12646, label %13642
 
 13642:                                            ; preds = %13640
-  %13643 = icmp ult i16 %.sroa.016188.0.copyload, 128
+  %13643 = icmp samesign ult i16 %.sroa.016188.0.copyload, 128
   %13644 = and i16 %.sroa.016188.0.copyload, 15
   %13645 = or disjoint i16 %13644, 112
   %.0.i.i.i.i12643 = select i1 %13643, i16 %.sroa.016188.0.copyload, i16 %13645
@@ -52316,7 +52316,7 @@ _ZN17cranelift_codegen4opts14generated_code25constructor_uextend_maybe17hb2d402a
   br i1 %13900, label %_ZN17cranelift_codegen2ir5types4Type4bits17h6ac7b92b6381a3ecE.exit.thread.i12820, label %13901
 
 13901:                                            ; preds = %13899
-  %13902 = icmp ult i16 %.sroa.016236.0.copyload, 128
+  %13902 = icmp samesign ult i16 %.sroa.016236.0.copyload, 128
   %13903 = and i16 %.sroa.016236.0.copyload, 15
   %13904 = or disjoint i16 %13903, 112
   %.0.i.i.i.i12817 = select i1 %13902, i16 %.sroa.016236.0.copyload, i16 %13904
@@ -52443,7 +52443,7 @@ _ZN17cranelift_codegen4opts16InstDataEtorIter3new17h681d65f73c30106cE.llvm.57816
   br i1 %13935, label %_ZN17cranelift_codegen2ir5types4Type4bits17h6ac7b92b6381a3ecE.exit.thread.i12848, label %13936
 
 13936:                                            ; preds = %13934
-  %13937 = icmp ult i16 %.sroa.016247.0.copyload, 128
+  %13937 = icmp samesign ult i16 %.sroa.016247.0.copyload, 128
   %13938 = and i16 %.sroa.016247.0.copyload, 15
   %13939 = or disjoint i16 %13938, 112
   %.0.i.i.i.i12845 = select i1 %13937, i16 %.sroa.016247.0.copyload, i16 %13939
@@ -55045,7 +55045,7 @@ _ZN17cranelift_codegen4opts16InstDataEtorIter3new17h681d65f73c30106cE.llvm.57816
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %749)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %749, ptr noundef nonnull align 8 dereferenceable(40) %750, i64 40, i1 false)
   %14721 = icmp ult i16 %.sroa.013804.0.copyload.fr, 256
-  %14722 = icmp ult i16 %.sroa.013804.0.copyload.fr, 128
+  %14722 = icmp samesign ult i16 %.sroa.013804.0.copyload.fr, 128
   %14723 = and i16 %.sroa.013804.0.copyload.fr, 15
   %14724 = or disjoint i16 %14723, 112
   %.0.i.i.i.i13327 = select i1 %14722, i16 %.sroa.013804.0.copyload.fr, i16 %14724
@@ -55201,7 +55201,7 @@ _ZN17cranelift_codegen4opts16InstDataEtorIter3new17h681d65f73c30106cE.llvm.57816
   br i1 %14761, label %_ZN17cranelift_codegen2ir5types4Type4bits17h6ac7b92b6381a3ecE.exit.thread.i13260, label %14762
 
 14762:                                            ; preds = %14760
-  %14763 = icmp ult i16 %.sroa.016356.0.copyload, 128
+  %14763 = icmp samesign ult i16 %.sroa.016356.0.copyload, 128
   %14764 = and i16 %.sroa.016356.0.copyload, 15
   %14765 = or disjoint i16 %14764, 112
   %.0.i.i.i.i13257 = select i1 %14763, i16 %.sroa.016356.0.copyload, i16 %14765
@@ -55344,7 +55344,7 @@ _ZN17cranelift_codegen2ir5types4Type4bits17h6ac7b92b6381a3ecE.exit.thread.i13260
   br i1 %14802, label %_ZN17cranelift_codegen2ir5types4Type4bits17h6ac7b92b6381a3ecE.exit.thread.i13286, label %14803
 
 14803:                                            ; preds = %14801
-  %14804 = icmp ult i16 %.sroa.016367.0.copyload, 128
+  %14804 = icmp samesign ult i16 %.sroa.016367.0.copyload, 128
   %14805 = and i16 %.sroa.016367.0.copyload, 15
   %14806 = or disjoint i16 %14805, 112
   %.0.i.i.i.i13283 = select i1 %14804, i16 %.sroa.016367.0.copyload, i16 %14806
@@ -56852,7 +56852,7 @@ _ZN17cranelift_codegen4opts16InstDataEtorIter3new17h681d65f73c30106cE.llvm.57816
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %723)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %723, ptr noundef nonnull align 8 dereferenceable(40) %724, i64 40, i1 false)
   %15256 = icmp ugt i16 %.sroa.013804.0.copyload.fr, 255
-  %15257 = icmp ult i16 %.sroa.013804.0.copyload.fr, 128
+  %15257 = icmp samesign ult i16 %.sroa.013804.0.copyload.fr, 128
   %15258 = and i16 %.sroa.013804.0.copyload.fr, 15
   %15259 = or disjoint i16 %15258, 112
   %.0.i.i.i.i.i13542 = select i1 %15257, i16 %.sroa.013804.0.copyload.fr, i16 %15259
@@ -57493,7 +57493,7 @@ _ZN17cranelift_codegen4opts16InstDataEtorIter3new17h681d65f73c30106cE.llvm.57816
   br i1 %15489, label %15354, label %.thread19693
 
 15490:                                            ; preds = %15273
-  %15491 = icmp ult i16 %.sroa.016383.0.copyload, 128
+  %15491 = icmp samesign ult i16 %.sroa.016383.0.copyload, 128
   %15492 = and i16 %.sroa.016383.0.copyload, 15
   %15493 = or disjoint i16 %15492, 112
   %.0.i.i.i.i13538 = select i1 %15491, i16 %.sroa.016383.0.copyload, i16 %15493
@@ -58223,7 +58223,7 @@ _ZN17cranelift_codegen4opts16InstDataEtorIter3new17h681d65f73c30106cE.llvm.57816
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %708)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %708, ptr noundef nonnull align 8 dereferenceable(40) %709, i64 40, i1 false)
   %15681 = icmp ult i16 %.sroa.013804.0.copyload.fr, 256
-  %15682 = icmp ult i16 %.sroa.013804.0.copyload.fr, 128
+  %15682 = icmp samesign ult i16 %.sroa.013804.0.copyload.fr, 128
   %15683 = and i16 %.sroa.013804.0.copyload.fr, 15
   %15684 = or disjoint i16 %15683, 112
   %.0.i.i.i.i13641 = select i1 %15682, i16 %.sroa.013804.0.copyload.fr, i16 %15684
@@ -58643,7 +58643,7 @@ _ZN17cranelift_codegen4opts16InstDataEtorIter3new17h681d65f73c30106cE.llvm.57816
   br i1 %15813, label %_ZN17cranelift_codegen2ir5types4Type4bits17h6ac7b92b6381a3ecE.exit.thread.i13682, label %15814
 
 15814:                                            ; preds = %15812
-  %15815 = icmp ult i16 %.sroa.016410.0.copyload, 128
+  %15815 = icmp samesign ult i16 %.sroa.016410.0.copyload, 128
   %15816 = and i16 %.sroa.016410.0.copyload, 15
   %15817 = or disjoint i16 %15816, 112
   %.0.i.i.i.i13679 = select i1 %15815, i16 %.sroa.016410.0.copyload, i16 %15817
@@ -59052,7 +59052,7 @@ _ZN17cranelift_codegen4opts16InstDataEtorIter3new17h681d65f73c30106cE.llvm.57816
   br i1 %15934, label %_ZN17cranelift_codegen2ir5types4Type4bits17h6ac7b92b6381a3ecE.exit.thread.i13736, label %15935
 
 15935:                                            ; preds = %15933
-  %15936 = icmp ult i16 %.sroa.016422.0.copyload, 128
+  %15936 = icmp samesign ult i16 %.sroa.016422.0.copyload, 128
   %15937 = and i16 %.sroa.016422.0.copyload, 15
   %15938 = or disjoint i16 %15937, 112
   %.0.i.i.i.i13733 = select i1 %15936, i16 %.sroa.016422.0.copyload, i16 %15938
@@ -59189,7 +59189,7 @@ _ZN17cranelift_codegen2ir5types4Type4bits17h6ac7b92b6381a3ecE.exit.thread.i13736
   br i1 %15974, label %_ZN17cranelift_codegen2ir5types4Type4bits17h6ac7b92b6381a3ecE.exit.thread.i13761, label %15975
 
 15975:                                            ; preds = %15973
-  %15976 = icmp ult i16 %.sroa.016433.0.copyload, 128
+  %15976 = icmp samesign ult i16 %.sroa.016433.0.copyload, 128
   %15977 = and i16 %.sroa.016433.0.copyload, 15
   %15978 = or disjoint i16 %15977, 112
   %.0.i.i.i.i13758 = select i1 %15976, i16 %.sroa.016433.0.copyload, i16 %15978
@@ -59627,7 +59627,7 @@ common.ret12:                                     ; preds = %9, %common.ret
   br i1 %15, label %"_ZN105_$LT$cranelift_codegen..opts..IsleContext$u20$as$u20$cranelift_codegen..opts..generated_code..Context$GT$15i64_sextend_u6417h94b63948bd47495dE.exit", label %16
 
 16:                                               ; preds = %14
-  %17 = icmp ult i16 %1, 128
+  %17 = icmp samesign ult i16 %1, 128
   %18 = and i16 %1, 15
   %19 = or disjoint i16 %18, 112
   %.0.i.i.i.i.i = select i1 %17, i16 %1, i16 %19
@@ -59745,7 +59745,7 @@ _ZN17cranelift_codegen4opts14generated_code20constructor_iconst_u17h615e622f7bfb
   br i1 %17, label %"_ZN105_$LT$cranelift_codegen..opts..IsleContext$u20$as$u20$cranelift_codegen..opts..generated_code..Context$GT$7ty_umax17hfa6fbeafca8c704fE.exit", label %18
 
 18:                                               ; preds = %16
-  %19 = icmp ult i16 %1, 128
+  %19 = icmp samesign ult i16 %1, 128
   %20 = and i16 %1, 15
   %21 = or disjoint i16 %20, 112
   %.0.i.i.i.i.i = select i1 %19, i16 %1, i16 %21
@@ -61168,7 +61168,7 @@ define internal fastcc noundef i64 @"_ZN105_$LT$cranelift_codegen..opts..IsleCon
   br i1 %4, label %"_ZN105_$LT$cranelift_codegen..opts..IsleContext$u20$as$u20$cranelift_codegen..opts..generated_code..Context$GT$7ty_mask17h6badcc9b517ec3aaE.exit", label %5
 
 5:                                                ; preds = %3
-  %6 = icmp ult i16 %0, 128
+  %6 = icmp samesign ult i16 %0, 128
   %7 = and i16 %0, 15
   %8 = or disjoint i16 %7, 112
   %.0.i.i.i = select i1 %6, i16 %0, i16 %8
@@ -61286,7 +61286,7 @@ _ZN17cranelift_codegen2ir5types4Type4bits17h6ac7b92b6381a3ecE.exit.thread: ; pre
   br label %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17h89efe71f6f141bf4E.exit"
 
 4:                                                ; preds = %1
-  %5 = icmp ult i16 %0, 128
+  %5 = icmp samesign ult i16 %0, 128
   %6 = and i16 %0, 15
   %7 = or disjoint i16 %6, 112
   %.0.i.i.i = select i1 %5, i16 %0, i16 %7
@@ -61327,7 +61327,7 @@ define internal fastcc noundef range(i64 0, 32769) i64 @"_ZN105_$LT$cranelift_co
   br i1 %2, label %_ZN17cranelift_codegen2ir5types4Type4bits17h6ac7b92b6381a3ecE.exit, label %3
 
 3:                                                ; preds = %1
-  %4 = icmp ult i16 %0, 128
+  %4 = icmp samesign ult i16 %0, 128
   %5 = and i16 %0, 15
   %6 = or disjoint i16 %5, 112
   %.0.i.i.i = select i1 %4, i16 %0, i16 %6
@@ -61361,7 +61361,7 @@ define internal fastcc noundef range(i64 1, -9223372036854775807) i64 @"_ZN105_$
   br i1 %2, label %_ZN17cranelift_codegen2ir5types4Type4bits17h6ac7b92b6381a3ecE.exit.thread, label %3
 
 3:                                                ; preds = %1
-  %4 = icmp ult i16 %0, 128
+  %4 = icmp samesign ult i16 %0, 128
   %5 = and i16 %0, 15
   %6 = or disjoint i16 %5, 112
   %.0.i.i.i = select i1 %4, i16 %0, i16 %6
@@ -61403,7 +61403,7 @@ define internal fastcc noundef range(i64 0, -9223372036854775808) i64 @"_ZN105_$
   br i1 %2, label %_ZN17cranelift_codegen2ir5types4Type4bits17h6ac7b92b6381a3ecE.exit.thread, label %3
 
 3:                                                ; preds = %1
-  %4 = icmp ult i16 %0, 128
+  %4 = icmp samesign ult i16 %0, 128
   %5 = and i16 %0, 15
   %6 = or disjoint i16 %5, 112
   %.0.i.i.i = select i1 %4, i16 %0, i16 %6
@@ -61445,7 +61445,7 @@ define internal fastcc { i16, i16 } @"_ZN105_$LT$cranelift_codegen..opts..IsleCo
   br i1 %2, label %3, label %_ZN17cranelift_codegen2ir5types4Type4bits17h6ac7b92b6381a3ecE.exit.thread
 
 3:                                                ; preds = %1
-  %4 = icmp ult i16 %0, 128
+  %4 = icmp samesign ult i16 %0, 128
   %5 = and i16 %0, 15
   %6 = or disjoint i16 %5, 112
   %.0.i.i.i = select i1 %4, i16 %0, i16 %6
@@ -61520,7 +61520,7 @@ define internal fastcc noundef i64 @"_ZN105_$LT$cranelift_codegen..opts..IsleCon
   br i1 %3, label %"_ZN105_$LT$cranelift_codegen..opts..IsleContext$u20$as$u20$cranelift_codegen..opts..generated_code..Context$GT$7ty_mask17h6badcc9b517ec3aaE.exit", label %4
 
 4:                                                ; preds = %2
-  %5 = icmp ult i16 %0, 128
+  %5 = icmp samesign ult i16 %0, 128
   %6 = and i16 %0, 15
   %7 = or disjoint i16 %6, 112
   %.0.i.i.i.i = select i1 %5, i16 %0, i16 %7

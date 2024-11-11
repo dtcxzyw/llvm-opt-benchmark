@@ -531,7 +531,7 @@ define internal i32 @dissect_idrp(ptr noundef %0, ptr noundef %1, ptr noundef %2
   %88 = tail call ptr @proto_tree_add_item(ptr noundef %14, i32 noundef %86, ptr noundef %0, i32 noundef %85, i32 noundef %87, i32 noundef 0) #3
   %89 = add i32 %85, %87
   %90 = add nsw i32 %.1125.i, -1
-  %91 = icmp ugt i32 %.1125.i, 1
+  %91 = icmp samesign ugt i32 %.1125.i, 1
   br i1 %91, label %.lr.ph127.i, label %dissect_BISPDU_OPEN.exit, !llvm.loop !7
 
 dissect_BISPDU_OPEN.exit:                         ; preds = %.lr.ph127.i, %._crit_edge122.i
@@ -564,7 +564,7 @@ dissect_BISPDU_OPEN.exit:                         ; preds = %.lr.ph127.i, %._cri
   %106 = tail call ptr @proto_tree_add_item(ptr noundef %14, i32 noundef %105, ptr noundef %0, i32 noundef %.0271280.i, i32 noundef 4, i32 noundef 0) #3
   %107 = add nuw nsw i32 %.0271280.i, 4
   %108 = add nsw i32 %.0281.i, -1
-  %109 = icmp ugt i32 %.0281.i, 1
+  %109 = icmp samesign ugt i32 %.0281.i, 1
   br i1 %109, label %.lr.ph.i60, label %._crit_edge.i61, !llvm.loop !8
 
 ._crit_edge.i61:                                  ; preds = %.lr.ph.i60, %100
@@ -712,7 +712,7 @@ dissect_BISPDU_OPEN.exit:                         ; preds = %.lr.ph127.i, %._cri
   %191 = tail call ptr @proto_tree_add_item(ptr noundef %14, i32 noundef %190, ptr noundef %0, i32 noundef %189, i32 noundef %188, i32 noundef 0) #3
   %192 = add i32 %188, %189
   %193 = add nsw i32 %.1293.i, -1
-  %194 = icmp ugt i32 %.1293.i, 1
+  %194 = icmp samesign ugt i32 %.1293.i, 1
   br i1 %194, label %.lr.ph295.i, label %.loopexit275.i, !llvm.loop !12
 
 195:                                              ; preds = %.lr.ph310.i
@@ -737,7 +737,7 @@ dissect_BISPDU_OPEN.exit:                         ; preds = %.lr.ph127.i, %._cri
   %205 = tail call ptr @proto_tree_add_item(ptr noundef %14, i32 noundef %203, ptr noundef %0, i32 noundef %202, i32 noundef %204, i32 noundef 0) #3
   %206 = add i32 %202, %204
   %207 = add nsw i32 %.2288.i, -1
-  %208 = icmp ugt i32 %.2288.i, 1
+  %208 = icmp samesign ugt i32 %.2288.i, 1
   br i1 %208, label %.lr.ph290.i, label %.loopexit276.i, !llvm.loop !13
 
 209:                                              ; preds = %.lr.ph310.i
@@ -762,7 +762,7 @@ dissect_BISPDU_OPEN.exit:                         ; preds = %.lr.ph127.i, %._cri
   %219 = tail call ptr @proto_tree_add_item(ptr noundef %14, i32 noundef %217, ptr noundef %0, i32 noundef %216, i32 noundef %218, i32 noundef 0) #3
   %220 = add i32 %216, %218
   %221 = add nsw i32 %.3283.i, -1
-  %222 = icmp ugt i32 %.3283.i, 1
+  %222 = icmp samesign ugt i32 %.3283.i, 1
   br i1 %222, label %.lr.ph285.i, label %.loopexit276.i, !llvm.loop !14
 
 223:                                              ; preds = %.lr.ph310.i

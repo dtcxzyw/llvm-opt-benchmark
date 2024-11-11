@@ -1605,7 +1605,7 @@ define internal fastcc void @per_scan_setup(ptr noundef %0) unnamed_addr #0 {
   %101 = sext i32 %99 to i64
   %102 = getelementptr inbounds [10 x i32], ptr %63, i64 0, i64 %101
   store i32 %97, ptr %102, align 4
-  %103 = icmp ugt i32 %.07683, 1
+  %103 = icmp samesign ugt i32 %.07683, 1
   br i1 %103, label %.lr.ph, label %._crit_edge, !llvm.loop !18
 
 ._crit_edge:                                      ; preds = %.lr.ph, %95

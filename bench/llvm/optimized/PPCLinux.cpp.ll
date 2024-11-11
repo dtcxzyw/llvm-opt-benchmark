@@ -484,7 +484,7 @@ _ZNK4llvm9StringRef11starts_withES0_.exit.i:      ; preds = %34
   br i1 %40, label %_ZNK4llvm9StringRef11starts_withES0_.exit.thread.i, label %_ZNK4llvm9StringRef11starts_withES0_.exit4.i
 
 _ZNK4llvm9StringRef11starts_withES0_.exit.thread16.i: ; preds = %34
-  %.not.i2.i = icmp ult i64 %39, 5
+  %.not.i2.i = icmp samesign ult i64 %39, 5
   br i1 %.not.i2.i, label %_ZNK4llvm9StringRef11starts_withES0_.exit.thread.i, label %_ZNK4llvm9StringRef11starts_withES0_.exit4.i
 
 _ZNK4llvm9StringRef11starts_withES0_.exit4.i:     ; preds = %_ZNK4llvm9StringRef11starts_withES0_.exit.thread16.i, %_ZNK4llvm9StringRef11starts_withES0_.exit.i

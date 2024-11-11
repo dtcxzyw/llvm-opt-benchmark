@@ -296,7 +296,7 @@ if.else160:                                       ; preds = %if.else140
 if.end177:                                        ; preds = %sw.epilog130, %if.then139, %if.else160, %if.then143
   %v0.1 = phi i32 [ %10, %if.then139 ], [ %or148, %if.then143 ], [ %or164, %if.else160 ], [ %v1.0104, %sw.epilog130 ]
   %v1.1 = phi i32 [ %11, %if.then139 ], [ %or156, %if.then143 ], [ %or171, %if.else160 ], [ %10, %sw.epilog130 ]
-  %cmp46 = icmp ugt i64 %dec107.in, 1
+  %cmp46 = icmp samesign ugt i64 %dec107.in, 1
   br i1 %cmp46, label %while.body, label %while.end, !llvm.loop !4
 
 while.end:                                        ; preds = %if.end177, %if.end17

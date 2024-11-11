@@ -8143,7 +8143,7 @@ _ZN4moka3cht3map6bucket4hash17h17bcbab635d73157E.exit: ; preds = %.noexc56
 156:                                              ; preds = %150, %143
   %.117.i.i = phi i64 [ %154, %150 ], [ %.016.i.i, %143 ]
   %.1.i.i = phi i64 [ %155, %150 ], [ %.0.i.i, %143 ]
-  %157 = icmp ult i64 %.1.i.i, %.0.sroa.speculated.i.i
+  %157 = icmp samesign ult i64 %.1.i.i, %.0.sroa.speculated.i.i
   br i1 %157, label %158, label %_ZN4core4hash3sip9u8to64_le17ha75b6e91f974688fE.exit.i
 
 158:                                              ; preds = %156
@@ -8171,7 +8171,7 @@ _ZN4core4hash3sip9u8to64_le17ha75b6e91f974688fE.exit.i: ; preds = %158, %156
   %173 = sub nuw nsw i64 8, %.0.i91
   %174 = and i64 %173, 7
   %175 = and i64 %173, 8
-  %176 = icmp ult i64 %.0.i91, %175
+  %176 = icmp samesign ult i64 %.0.i91, %175
   br i1 %176, label %._crit_edge.i, label %216
 
 177:                                              ; preds = %_ZN4core4hash3sip9u8to64_le17ha75b6e91f974688fE.exit.i
@@ -8263,7 +8263,7 @@ _ZN4core4hash3sip9u8to64_le17ha75b6e91f974688fE.exit.i: ; preds = %158, %156
 232:                                              ; preds = %224, %218
   %.117.i15.i = phi i64 [ %230, %224 ], [ %.016.i13.i, %218 ]
   %.1.i16.i = phi i64 [ %231, %224 ], [ %.0.i14.i, %218 ]
-  %233 = icmp ult i64 %.1.i16.i, %174
+  %233 = icmp samesign ult i64 %.1.i16.i, %174
   br i1 %233, label %234, label %_ZN4core4hash3sip9u8to64_le17ha75b6e91f974688fE.exit20.i
 
 234:                                              ; preds = %232

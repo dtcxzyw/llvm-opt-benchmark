@@ -645,7 +645,7 @@ _ZNKSt7__cxx1112basic_stringIDsSt11char_traitsIDsESaIDsEE8capacityEv.exit.i.i.i:
 
 _ZNSt7__cxx1112basic_stringIDsSt11char_traitsIDsESaIDsEE9_M_createERmm.exit.i.i.i: ; preds = %21
   %24 = shl nuw nsw i64 %19, 1
-  %25 = icmp ult i64 %10, %24
+  %25 = icmp samesign ult i64 %10, %24
   %spec.store.select.i.i.i.i = tail call i64 @llvm.umin.i64(i64 %24, i64 2305843009213693951)
   %.0.i.i.i = select i1 %25, i64 %spec.store.select.i.i.i.i, i64 %10
   %26 = shl nuw nsw i64 %.0.i.i.i, 1
@@ -736,7 +736,7 @@ _ZNKSt7__cxx1112basic_stringIDsSt11char_traitsIDsESaIDsEE8capacityEv.exit.i.i.i1
 
 _ZNSt7__cxx1112basic_stringIDsSt11char_traitsIDsESaIDsEE9_M_createERmm.exit.i.i.i17: ; preds = %58
   %61 = shl nuw nsw i64 %56, 1
-  %62 = icmp ult i64 %47, %61
+  %62 = icmp samesign ult i64 %47, %61
   %spec.store.select.i.i.i.i18 = tail call i64 @llvm.umin.i64(i64 %61, i64 2305843009213693951)
   %.0.i.i.i19 = select i1 %62, i64 %spec.store.select.i.i.i.i18, i64 %47
   %63 = shl nuw nsw i64 %.0.i.i.i19, 1
@@ -827,7 +827,7 @@ _ZNKSt7__cxx1112basic_stringIDsSt11char_traitsIDsESaIDsEE8capacityEv.exit.i.i.i2
 
 _ZNSt7__cxx1112basic_stringIDsSt11char_traitsIDsESaIDsEE9_M_createERmm.exit.i.i.i31: ; preds = %95
   %98 = shl nuw nsw i64 %93, 1
-  %99 = icmp ult i64 %84, %98
+  %99 = icmp samesign ult i64 %84, %98
   %spec.store.select.i.i.i.i32 = tail call i64 @llvm.umin.i64(i64 %98, i64 2305843009213693951)
   %.0.i.i.i33 = select i1 %99, i64 %spec.store.select.i.i.i.i32, i64 %84
   %100 = shl nuw nsw i64 %.0.i.i.i33, 1
@@ -927,7 +927,7 @@ _ZNKSt7__cxx1112basic_stringIDsSt11char_traitsIDsESaIDsEE8capacityEv.exit.i.i.i3
 
 _ZNSt7__cxx1112basic_stringIDsSt11char_traitsIDsESaIDsEE9_M_createERmm.exit.i.i.i45: ; preds = %136
   %139 = shl nuw nsw i64 %134, 1
-  %140 = icmp ult i64 %125, %139
+  %140 = icmp samesign ult i64 %125, %139
   %spec.store.select.i.i.i.i46 = tail call i64 @llvm.umin.i64(i64 %139, i64 2305843009213693951)
   %.0.i.i.i47 = select i1 %140, i64 %spec.store.select.i.i.i.i46, i64 %125
   %141 = shl nuw nsw i64 %.0.i.i.i47, 1
@@ -1081,7 +1081,7 @@ _ZNSt12_Vector_baseIN4LIEF2PE18ResourceDialogItemESaIS2_EE13_M_deallocateEPS2_m.
   %39 = getelementptr inbounds i8, ptr %.0910.i.i.i.i.i, i64 112
   %40 = getelementptr inbounds i8, ptr %.0811.i.i.i.i.i, i64 112
   %41 = add nsw i64 %.012.i.i.i.i.i, -1
-  %42 = icmp ugt i64 %.012.i.i.i.i.i, 1
+  %42 = icmp samesign ugt i64 %.012.i.i.i.i.i, 1
   br i1 %42, label %.lr.ph.i.i.i.i.i, label %_ZSt4copyIN9__gnu_cxx17__normal_iteratorIPKN4LIEF2PE18ResourceDialogItemESt6vectorIS4_SaIS4_EEEENS1_IPS4_S9_EEET0_T_SE_SD_.exit.loopexit, !llvm.loop !7
 
 _ZSt4copyIN9__gnu_cxx17__normal_iteratorIPKN4LIEF2PE18ResourceDialogItemESt6vectorIS4_SaIS4_EEEENS1_IPS4_S9_EEET0_T_SE_SD_.exit.loopexit: ; preds = %.lr.ph.i.i.i.i.i
@@ -1127,7 +1127,7 @@ _ZSt4copyIN9__gnu_cxx17__normal_iteratorIPKN4LIEF2PE18ResourceDialogItemESt6vect
   %54 = getelementptr inbounds i8, ptr %.0910.i.i.i.i.i33, i64 112
   %55 = getelementptr inbounds i8, ptr %.0811.i.i.i.i.i32, i64 112
   %56 = add nsw i64 %.012.i.i.i.i.i31, -1
-  %57 = icmp ugt i64 %.012.i.i.i.i.i31, 1
+  %57 = icmp samesign ugt i64 %.012.i.i.i.i.i31, 1
   br i1 %57, label %.lr.ph.i.i.i.i.i30, label %_ZSt4copyIPN4LIEF2PE18ResourceDialogItemES3_ET0_T_S5_S4_.exit.loopexit, !llvm.loop !9
 
 _ZSt4copyIPN4LIEF2PE18ResourceDialogItemES3_ET0_T_S5_S4_.exit.loopexit: ; preds = %.lr.ph.i.i.i.i.i30

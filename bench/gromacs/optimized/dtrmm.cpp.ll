@@ -711,7 +711,7 @@ define void @dtrmm_(ptr nocapture noundef readonly %0, ptr nocapture noundef rea
   br i1 %.not448.not570, label %.lr.ph573.split.preheader, label %.loopexit
 
 .preheader479.thread:                             ; preds = %233
-  %.not448.not570865 = icmp ugt i64 %indvars.iv791, 1
+  %.not448.not570865 = icmp samesign ugt i64 %indvars.iv791, 1
   br i1 %.not448.not570865, label %.backedge, label %.loopexit
 
 .lr.ph573.split.preheader:                        ; preds = %.preheader479

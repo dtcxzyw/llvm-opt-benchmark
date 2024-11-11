@@ -316,7 +316,7 @@ _ZNSt6vectorIiSaIiEE17_S_check_init_lenEmRKS0_.exit.i.i.i.i.i.i.i.i: ; preds = %
   store i32 0, ptr %48, align 4
   %51 = getelementptr i8, ptr %48, i64 4
   %.off39.i.i.i.i.i.i.i = add nsw i32 %43, -3
-  %52 = icmp ult i32 %.off39.i.i.i.i.i.i.i, 3
+  %52 = icmp samesign ult i32 %.off39.i.i.i.i.i.i.i, 3
   br i1 %52, label %.lr.ph.preheader.i.i.i.i.i.i.i, label %_ZSt6fill_nIPimiET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i.i.i.i.i.i.i.i
 
 _ZSt6fill_nIPimiET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i.i.i.i.i.i.i.i: ; preds = %.noexc3
@@ -595,7 +595,7 @@ _ZNSt6vectorIiSaIiEE17_S_check_init_lenEmRKS0_.exit.i.i19.i.i.i.i.i.i: ; preds =
   store i32 0, ptr %147, align 4
   %150 = getelementptr i8, ptr %147, i64 4
   %.off39.i23.i.i.i.i.i.i = add nsw i32 %142, -3
-  %151 = icmp ult i32 %.off39.i23.i.i.i.i.i.i, 3
+  %151 = icmp samesign ult i32 %.off39.i23.i.i.i.i.i.i, 3
   br i1 %151, label %.lr.ph.preheader.i25.i.i.i.i.i.i, label %_ZSt6fill_nIPimiET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i.i24.i.i.i.i.i.i
 
 _ZSt6fill_nIPimiET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i.i24.i.i.i.i.i.i: ; preds = %.noexc5
@@ -868,7 +868,7 @@ _ZNSt6vectorIiSaIiEE17_S_check_init_lenEmRKS0_.exit.i.i78.i.i.i.i.i.i: ; preds =
   store i32 0, ptr %247, align 4
   %250 = getelementptr i8, ptr %247, i64 4
   %.off35.i.i.i.i.i.i.i = add nsw i32 %242, -3
-  %251 = icmp ult i32 %.off35.i.i.i.i.i.i.i, 3
+  %251 = icmp samesign ult i32 %.off35.i.i.i.i.i.i.i, 3
   br i1 %251, label %.lr.ph.preheader.i83.i.i.i.i.i.i, label %_ZSt6fill_nIPimiET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i.i82.i.i.i.i.i.i
 
 _ZSt6fill_nIPimiET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i.i82.i.i.i.i.i.i: ; preds = %.noexc7
@@ -1063,7 +1063,7 @@ _ZNSt6vectorIiSaIiEE17_S_check_init_lenEmRKS0_.exit.i.i119.i.i.i.i.i.i: ; preds 
   store i32 0, ptr %312, align 4
   %315 = getelementptr i8, ptr %312, i64 4
   %.off35.i123.i.i.i.i.i.i = add nsw i32 %307, -3
-  %316 = icmp ult i32 %.off35.i123.i.i.i.i.i.i, 3
+  %316 = icmp samesign ult i32 %.off35.i123.i.i.i.i.i.i, 3
   br i1 %316, label %.lr.ph.preheader.i125.i.i.i.i.i.i, label %_ZSt6fill_nIPimiET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i.i124.i.i.i.i.i.i
 
 _ZSt6fill_nIPimiET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i.i124.i.i.i.i.i.i: ; preds = %.noexc9
@@ -1258,7 +1258,7 @@ _ZNSt6vectorIiSaIiEE17_S_check_init_lenEmRKS0_.exit.i.i176.i.i.i.i.i.i: ; preds 
   store i32 0, ptr %377, align 4
   %380 = getelementptr i8, ptr %377, i64 4
   %.off39.i180.i.i.i.i.i.i = add nsw i32 %372, -3
-  %381 = icmp ult i32 %.off39.i180.i.i.i.i.i.i, 3
+  %381 = icmp samesign ult i32 %.off39.i180.i.i.i.i.i.i, 3
   br i1 %381, label %.lr.ph.preheader.i182.i.i.i.i.i.i, label %_ZSt6fill_nIPimiET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i.i181.i.i.i.i.i.i
 
 _ZSt6fill_nIPimiET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i.i181.i.i.i.i.i.i: ; preds = %.noexc11
@@ -1531,7 +1531,7 @@ _ZNSt6vectorIiSaIiEE17_S_check_init_lenEmRKS0_.exit.i.i240.i.i.i.i.i.i: ; preds 
   store i32 0, ptr %476, align 4
   %479 = getelementptr i8, ptr %476, i64 4
   %.off39.i244.i.i.i.i.i.i = add nsw i32 %471, -3
-  %480 = icmp ult i32 %.off39.i244.i.i.i.i.i.i, 3
+  %480 = icmp samesign ult i32 %.off39.i244.i.i.i.i.i.i, 3
   br i1 %480, label %.lr.ph.preheader.i246.i.i.i.i.i.i, label %_ZSt6fill_nIPimiET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i.i245.i.i.i.i.i.i
 
 _ZSt6fill_nIPimiET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i.i245.i.i.i.i.i.i: ; preds = %.noexc13
@@ -3490,7 +3490,7 @@ _ZNSt6vectorIiSaIiEE17_S_check_init_lenEmRKS0_.exit.i.i705.i.i.i.i.i.i: ; preds 
   store i32 0, ptr %1176, align 4
   %1179 = getelementptr i8, ptr %1176, i64 4
   %.off35.i709.i.i.i.i.i.i = add nsw i32 %1171, -5
-  %1180 = icmp ult i32 %.off35.i709.i.i.i.i.i.i, 5
+  %1180 = icmp samesign ult i32 %.off35.i709.i.i.i.i.i.i, 5
   br i1 %1180, label %.lr.ph.preheader.i711.i.i.i.i.i.i, label %_ZSt6fill_nIPimiET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i.i710.i.i.i.i.i.i
 
 _ZSt6fill_nIPimiET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i.i710.i.i.i.i.i.i: ; preds = %.noexc29
@@ -3685,7 +3685,7 @@ _ZNSt6vectorIiSaIiEE17_S_check_init_lenEmRKS0_.exit.i.i762.i.i.i.i.i.i: ; preds 
   store i32 0, ptr %1241, align 4
   %1244 = getelementptr i8, ptr %1241, i64 4
   %.off35.i766.i.i.i.i.i.i = add nsw i32 %1236, -5
-  %1245 = icmp ult i32 %.off35.i766.i.i.i.i.i.i, 5
+  %1245 = icmp samesign ult i32 %.off35.i766.i.i.i.i.i.i, 5
   br i1 %1245, label %.lr.ph.preheader.i768.i.i.i.i.i.i, label %_ZSt6fill_nIPimiET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i.i767.i.i.i.i.i.i
 
 _ZSt6fill_nIPimiET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i.i767.i.i.i.i.i.i: ; preds = %.noexc31
@@ -3845,7 +3845,7 @@ _ZNSt6vectorIiSaIiEE17_S_check_init_lenEmRKS0_.exit.i.i799.i.i.i.i.i.i: ; preds 
   store i32 0, ptr %1296, align 4
   %1299 = getelementptr i8, ptr %1296, i64 4
   %.off35.i803.i.i.i.i.i.i = add nsw i32 %1291, -5
-  %1300 = icmp ult i32 %.off35.i803.i.i.i.i.i.i, 5
+  %1300 = icmp samesign ult i32 %.off35.i803.i.i.i.i.i.i, 5
   br i1 %1300, label %.lr.ph.preheader.i805.i.i.i.i.i.i, label %_ZSt6fill_nIPimiET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i.i804.i.i.i.i.i.i
 
 _ZSt6fill_nIPimiET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i.i804.i.i.i.i.i.i: ; preds = %.noexc33

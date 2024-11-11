@@ -302,7 +302,7 @@ define internal i32 @dissect_sndcp_xid(ptr noundef %0, ptr nocapture readnone %1
 59:                                               ; preds = %33, %46, %18
   %.1 = phi i32 [ %32, %18 ], [ %45, %33 ], [ %58, %46 ]
   %60 = and i32 %.1, 65535
-  %61 = icmp ult i32 %60, %12
+  %61 = icmp samesign ult i32 %60, %12
   br i1 %61, label %.lr.ph, label %._crit_edge, !llvm.loop !4
 
 ._crit_edge:                                      ; preds = %59, %.lr.ph, %4

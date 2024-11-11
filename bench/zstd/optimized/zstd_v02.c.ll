@@ -598,7 +598,7 @@ sw.bb7.i:                                         ; preds = %if.end.i
 if.then14.i:                                      ; preds = %sw.bb7.i
   %cmp15.i = icmp samesign ugt i32 %shr.i, 131072
   %sub19.i = add nsw i64 %srcSize, -3
-  %cmp20.i = icmp ult i64 %sub19.i, %conv11.i
+  %cmp20.i = icmp samesign ult i64 %sub19.i, %conv11.i
   %or.cond.i = or i1 %cmp15.i, %cmp20.i
   br i1 %or.cond.i, label %return, label %if.end23.i
 
@@ -1075,7 +1075,7 @@ if.end18.i:                                       ; preds = %BIT_initDStream.exi
   %sh_prom2.i.i.i.i = zext nneg i32 %and1.i.i.i.i to i64
   %shr3.i.i.i.i = lshr i64 %shr.i.i.i.i, %sh_prom2.i.i.i.i
   %add.i.i.i.i = add nuw nsw i32 %seqState.sroa.18.1262.i, %conv.i48.i
-  %cmp.i.i49.i = icmp ugt i32 %add.i.i.i.i, 64
+  %cmp.i.i49.i = icmp samesign ugt i32 %add.i.i.i.i, 64
   br i1 %cmp.i.i49.i, label %FSE_initDState.exit.i, label %if.end.i.i.i
 
 if.end.i.i.i:                                     ; preds = %if.end18.i
@@ -5250,7 +5250,7 @@ if.end:                                           ; preds = %entry
   br i1 %cmp, label %if.then2, label %if.else37
 
 if.then2:                                         ; preds = %if.end
-  %cmp3 = icmp ugt i8 %0, -15
+  %cmp3 = icmp samesign ugt i8 %0, -15
   br i1 %cmp3, label %if.then5, label %if.else
 
 if.then5:                                         ; preds = %if.then2
@@ -5310,7 +5310,7 @@ if.end42:                                         ; preds = %if.else37
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %tableLog.i)
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %maxSymbolValue.i)
   store i32 255, ptr %maxSymbolValue.i, align 4
-  %cmp.i = icmp ult i8 %0, 2
+  %cmp.i = icmp samesign ult i8 %0, 2
   br i1 %cmp.i, label %FSE_decompress.exit.thread, label %if.end.i
 
 if.end.i:                                         ; preds = %if.end42
@@ -5461,7 +5461,7 @@ if.end.i22.i.i:                                   ; preds = %BIT_initDStream.exi
   %sh_prom2.i.i.i.i.i = zext nneg i32 %and1.i.i.i.i.i to i64
   %shr3.i.i.i.i.i = lshr i64 %shr.i.i.i.i.i, %sh_prom2.i.i.i.i.i
   %add.i.i.i.i.i = add nuw nsw i32 %bitD.i13.sroa.25.3895.i.i, %conv.i66.i.i
-  %cmp.i.i67.i.i = icmp ugt i32 %add.i.i.i.i.i, 64
+  %cmp.i.i67.i.i = icmp samesign ugt i32 %add.i.i.i.i.i, 64
   br i1 %cmp.i.i67.i.i, label %FSE_initDState.exit.i.i, label %if.end.i.i.i.i
 
 if.end.i.i.i.i:                                   ; preds = %if.end.i22.i.i
@@ -5990,7 +5990,7 @@ if.end.i.i.i:                                     ; preds = %BIT_initDStream.exi
   %sh_prom2.i.i.i410.i.i = zext nneg i32 %and1.i.i.i409.i.i to i64
   %shr3.i.i.i411.i.i = lshr i64 %shr.i.i.i408.i.i, %sh_prom2.i.i.i410.i.i
   %add.i.i.i412.i.i = add nuw nsw i32 %bitD.i.sroa.25.3936.i.i, %conv.i402.i.i
-  %cmp.i.i413.i.i = icmp ugt i32 %add.i.i.i412.i.i, 64
+  %cmp.i.i413.i.i = icmp samesign ugt i32 %add.i.i.i412.i.i, 64
   br i1 %cmp.i.i413.i.i, label %FSE_initDState.exit448.i.i, label %if.end.i.i414.i.i
 
 if.end.i.i414.i.i:                                ; preds = %if.end.i.i.i

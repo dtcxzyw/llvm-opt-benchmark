@@ -788,7 +788,7 @@ _ZN4llvm19dyn_cast_if_presentINS_8FunctionEKNS_11GlobalValueEEEDaPT0_.exit.i.i: 
   br i1 %235, label %_ZL18isSignExtendingOpWRKN4llvm12MachineInstrEj.exit.backedge.i.i, label %236
 
 236:                                              ; preds = %234
-  %237 = icmp ult i32 %232, 8192
+  %237 = icmp samesign ult i32 %232, 8192
   br i1 %237, label %238, label %.critedge.i.i
 
 238:                                              ; preds = %236

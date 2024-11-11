@@ -388,7 +388,7 @@ for.body:                                         ; preds = %for.cond.preheader,
   %strchr = getelementptr inbounds i8, ptr %nameGroup.addr.010, i64 %strlen
   %dec = add nsw i32 %nameIndex.addr.09, -1
   %nameGroup.addr.0 = getelementptr inbounds i8, ptr %strchr, i64 1
-  %cmp2 = icmp ugt i32 %nameIndex.addr.09, 1
+  %cmp2 = icmp samesign ugt i32 %nameIndex.addr.09, 1
   br i1 %cmp2, label %for.body, label %for.end, !llvm.loop !11
 
 for.end:                                          ; preds = %for.body, %for.cond.preheader
@@ -533,7 +533,7 @@ for.body.i4:                                      ; preds = %for.cond.preheader.
   %strchr.i = getelementptr inbounds i8, ptr %nameGroup.addr.010.i, i64 %strlen.i
   %dec.i5 = add nsw i32 %nameIndex.addr.09.i, -1
   %nameGroup.addr.0.i = getelementptr inbounds i8, ptr %strchr.i, i64 1
-  %cmp2.i = icmp ugt i32 %nameIndex.addr.09.i, 1
+  %cmp2.i = icmp samesign ugt i32 %nameIndex.addr.09.i, 1
   br i1 %cmp2.i, label %for.body.i4, label %for.end.i, !llvm.loop !11
 
 for.end.i:                                        ; preds = %for.body.i4, %for.cond.preheader.i
@@ -698,7 +698,7 @@ for.body.i16:                                     ; preds = %for.cond.preheader.
   %strchr.i = getelementptr inbounds i8, ptr %nameGroup.addr.010.i, i64 %strlen.i
   %dec.i17 = add nsw i32 %nameIndex.addr.09.i, -1
   %nameGroup.addr.0.i = getelementptr inbounds i8, ptr %strchr.i, i64 1
-  %cmp2.i18 = icmp ugt i32 %nameIndex.addr.09.i, 1
+  %cmp2.i18 = icmp samesign ugt i32 %nameIndex.addr.09.i, 1
   br i1 %cmp2.i18, label %for.body.i16, label %for.end.i, !llvm.loop !11
 
 for.end.i:                                        ; preds = %for.body.i16, %for.cond.preheader.i15
@@ -954,7 +954,7 @@ for.body.i4.i:                                    ; preds = %for.cond.preheader.
   %strchr.i.i = getelementptr inbounds i8, ptr %nameGroup.addr.010.i.i, i64 %strlen.i.i
   %dec.i5.i = add nsw i32 %nameIndex.addr.09.i.i, -1
   %nameGroup.addr.0.i.i = getelementptr inbounds i8, ptr %strchr.i.i, i64 1
-  %cmp2.i.i = icmp ugt i32 %nameIndex.addr.09.i.i, 1
+  %cmp2.i.i = icmp samesign ugt i32 %nameIndex.addr.09.i.i, 1
   br i1 %cmp2.i.i, label %for.body.i4.i, label %for.end.i.i, !llvm.loop !11
 
 for.end.i.i:                                      ; preds = %for.body.i4.i, %for.cond.preheader.i.i

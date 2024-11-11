@@ -275,7 +275,7 @@ _Z17is_reference_type9BasicTypeb.exit:            ; preds = %71
   %113 = icmp slt i32 %112, 3
   %114 = icmp sgt i32 %48, 79
   %115 = select i1 %113, i32 336, i32 592
-  %116 = icmp ult i32 %48, %115
+  %116 = icmp samesign ult i32 %48, %115
   %117 = select i1 %114, i1 %116, i1 false
   br i1 %117, label %118, label %136
 

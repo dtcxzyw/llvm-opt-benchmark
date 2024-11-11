@@ -77,7 +77,7 @@ softfloat_shiftRightJam32.exit:                   ; preds = %29, %38
   br label %56
 
 47:                                               ; preds = %14
-  %48 = icmp ugt i64 %1, 253
+  %48 = icmp samesign ugt i64 %1, 253
   br i1 %48, label %53, label %49
 
 49:                                               ; preds = %47

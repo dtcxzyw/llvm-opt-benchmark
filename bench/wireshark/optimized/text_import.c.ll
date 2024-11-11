@@ -276,7 +276,7 @@ switch.lookup:                                    ; preds = %3
   store i8 %69, ptr %.5, align 1
   %70 = getelementptr i8, ptr %.5, i64 1
   %indvars.iv.next.i = add nsw i64 %indvars.iv.i, -1
-  %71 = icmp ugt i64 %indvars.iv.i, 1
+  %71 = icmp samesign ugt i64 %indvars.iv.i, 1
   br i1 %71, label %.lr.ph.i, label %.loopexit.i, !llvm.loop !6
 
 .loopexit.i:                                      ; preds = %.lr.ph.i, %58, %56
@@ -311,7 +311,7 @@ switch.lookup:                                    ; preds = %3
   %80 = trunc i64 %79 to i8
   store i8 %80, ptr %.2, align 1
   %81 = getelementptr i8, ptr %.2, i64 1
-  %82 = icmp ugt i64 %indvars.iv23.i, 15
+  %82 = icmp samesign ugt i64 %indvars.iv23.i, 15
   br i1 %82, label %.lr.ph20.i, label %parse_plain_data.exit, !llvm.loop !7
 
 parse_plain_data.exit:                            ; preds = %.lr.ph20.i, %.critedge.i
@@ -1200,7 +1200,7 @@ define internal fastcc range(i32 0, 2) i32 @_parse_time(ptr noundef %0, ptr noun
   br i1 %42, label %43, label %.thread2
 
 43:                                               ; preds = %41
-  %44 = icmp ugt i32 %37, 9
+  %44 = icmp samesign ugt i32 %37, 9
   br i1 %44, label %.lr.ph12.preheader, label %48
 
 .lr.ph12.preheader:                               ; preds = %43

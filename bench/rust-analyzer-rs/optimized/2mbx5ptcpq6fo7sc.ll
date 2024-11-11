@@ -29600,7 +29600,7 @@ _ZN15ra_ap_rustc_abi9Primitive4size17h599845172a93e519E.exit.i.i.i.i.i: ; preds 
 
 _ZN15ra_ap_rustc_abi4Size4bits17hd304254189ad847eE.llvm.10169251571672223956.exit.i.i.i.i.i: ; preds = %_ZN15ra_ap_rustc_abi9Primitive4size17h599845172a93e519E.exit.i.i.i.i.i
   %.neg6.i.i.i.i.i = mul nsw i64 %140, -8
-  %142 = icmp ult i64 %140, 17
+  %142 = icmp samesign ult i64 %140, 17
   br i1 %142, label %143, label %_ZN15ra_ap_rustc_abi9Primitive4size17h599845172a93e519E.exit.i.i.i.i.i.i.i.i.invoke
 
 143:                                              ; preds = %switch.lookup, %_ZN15ra_ap_rustc_abi4Size4bits17hd304254189ad847eE.llvm.10169251571672223956.exit.i.i.i.i.i, %138, %137, %136, %133
@@ -29685,7 +29685,7 @@ switch.lookup1220:                                ; preds = %.split.us.i.i.i.i
   br i1 %169, label %.loopexit574, label %.split.us.i.i.i.i
 
 .split.i.i.i.i:                                   ; preds = %150
-  %170 = icmp ult i64 %.fr51.i.i.i.i, 17
+  %170 = icmp samesign ult i64 %.fr51.i.i.i.i, 17
   br i1 %170, label %.split.split.us.preheader.i.i.i.i, label %.split.split.i.i.i.i
 
 .split.split.us.preheader.i.i.i.i:                ; preds = %.split.i.i.i.i
@@ -29995,7 +29995,7 @@ _ZN15ra_ap_rustc_abi9Primitive4size17h599845172a93e519E.exit.i.i.i.i.i.i.i.i.con
   %252 = load i64, ptr %251, align 8
   %253 = icmp ugt i64 %252, 2305843009213693951
   %.neg6.i = mul nsw i64 %252, -8
-  %254 = icmp ult i64 %252, 17
+  %254 = icmp samesign ult i64 %252, 17
   br label %557
 
 ._crit_edge:                                      ; preds = %684, %233
@@ -32067,7 +32067,7 @@ _ZN15ra_ap_rustc_abi9Primitive4size17h599845172a93e519E.exit.i.i: ; preds = %85
 
 _ZN15ra_ap_rustc_abi4Size4bits17hd304254189ad847eE.llvm.10169251571672223956.exit.i.i: ; preds = %_ZN15ra_ap_rustc_abi9Primitive4size17h599845172a93e519E.exit.i.i
   %.neg6.i.i = mul nsw i64 %93, -8
-  %96 = icmp ult i64 %93, 17
+  %96 = icmp samesign ult i64 %93, 17
   br i1 %96, label %_ZN15ra_ap_rustc_abi5Niche9available17ha45c18d9d701302cE.exit.i, label %97
 
 97:                                               ; preds = %_ZN15ra_ap_rustc_abi4Size4bits17hd304254189ad847eE.llvm.10169251571672223956.exit.i.i
@@ -32147,7 +32147,7 @@ _ZN15ra_ap_rustc_abi9Primitive4size17h599845172a93e519E.exit.i.i36: ; preds = %1
 
 _ZN15ra_ap_rustc_abi4Size4bits17hd304254189ad847eE.llvm.10169251571672223956.exit.i.i37: ; preds = %_ZN15ra_ap_rustc_abi9Primitive4size17h599845172a93e519E.exit.i.i36
   %.neg6.i.i38 = mul nsw i64 %113, -8
-  %116 = icmp ult i64 %113, 17
+  %116 = icmp samesign ult i64 %113, 17
   br i1 %116, label %_ZN15ra_ap_rustc_abi5Niche9available17ha45c18d9d701302cE.exit.i39, label %117
 
 117:                                              ; preds = %_ZN15ra_ap_rustc_abi4Size4bits17hd304254189ad847eE.llvm.10169251571672223956.exit.i.i37
@@ -32234,7 +32234,7 @@ _ZN15ra_ap_rustc_abi9Primitive4size17h599845172a93e519E.exit.i.i.i.i.i.i.i: ; pr
 
 _ZN15ra_ap_rustc_abi4Size4bits17hd304254189ad847eE.llvm.10169251571672223956.exit.i.i.i.i.i.i.i: ; preds = %_ZN15ra_ap_rustc_abi9Primitive4size17h599845172a93e519E.exit.i.i.i.i.i.i.i
   %.neg6.i.i.i.i.i.i.i = mul nsw i64 %132, -8
-  %135 = icmp ult i64 %132, 17
+  %135 = icmp samesign ult i64 %132, 17
   br i1 %135, label %_ZN4core4iter6traits8iterator8Iterator4fold17h42064159ac407ddbE.exit.i.i.i.i, label %136
 
 136:                                              ; preds = %_ZN15ra_ap_rustc_abi4Size4bits17hd304254189ad847eE.llvm.10169251571672223956.exit.i.i.i.i.i.i.i
@@ -32288,7 +32288,7 @@ _ZN4core4iter6traits8iterator8Iterator4fold17h42064159ac407ddbE.exit.i.i.i.i: ; 
   br label %._crit_edge.sink.split.i.i.i.i.i
 
 .lr.ph.split.i.i.i.i.i:                           ; preds = %.lr.ph.i10.i.i.i.i
-  %150 = icmp ult i64 %.fr27.i.i.i.i.i, 17
+  %150 = icmp samesign ult i64 %.fr27.i.i.i.i.i, 17
   br i1 %150, label %.lr.ph.split.split.us.split.us.i.i.i.i.i, label %.lr.ph.split.split.split.us.i.i.i.i.i
 
 .lr.ph.split.split.us.split.us.i.i.i.i.i:         ; preds = %.lr.ph.split.i.i.i.i.i
@@ -33748,7 +33748,7 @@ _ZN15ra_ap_rustc_abi9Primitive4size17h599845172a93e519E.exit.i.i.i: ; preds = %2
 
 _ZN15ra_ap_rustc_abi4Size4bits17hd304254189ad847eE.llvm.10169251571672223956.exit.i.i.i: ; preds = %_ZN15ra_ap_rustc_abi9Primitive4size17h599845172a93e519E.exit.i.i.i
   %.neg6.i.i.i = mul nsw i64 %269, -8
-  %271 = icmp ult i64 %269, 17
+  %271 = icmp samesign ult i64 %269, 17
   br i1 %271, label %_ZN15ra_ap_rustc_abi5Niche9available17ha45c18d9d701302cE.exit.i.i, label %.invoke.i
 
 _ZN15ra_ap_rustc_abi5Niche9available17ha45c18d9d701302cE.exit.i.i: ; preds = %switch.lookup588, %_ZN15ra_ap_rustc_abi4Size4bits17hd304254189ad847eE.llvm.10169251571672223956.exit.i.i.i, %267, %266, %265, %261
@@ -33858,7 +33858,7 @@ _ZN15ra_ap_rustc_abi9Primitive4size17h599845172a93e519E.exit.i.i: ; preds = %292
 
 _ZN15ra_ap_rustc_abi4Size4bits17hd304254189ad847eE.llvm.10169251571672223956.exit.i.i: ; preds = %_ZN15ra_ap_rustc_abi9Primitive4size17h599845172a93e519E.exit.i.i
   %.neg6.i.i = mul nsw i64 %300, -8
-  %302 = icmp ult i64 %300, 17
+  %302 = icmp samesign ult i64 %300, 17
   br i1 %302, label %303, label %.invoke.i
 
 303:                                              ; preds = %switch.lookup591, %_ZN15ra_ap_rustc_abi4Size4bits17hd304254189ad847eE.llvm.10169251571672223956.exit.i.i, %298, %297, %296, %292
@@ -33913,7 +33913,7 @@ _ZN15ra_ap_rustc_abi9Primitive4size17h599845172a93e519E.exit.i91.i: ; preds = %3
 
 _ZN15ra_ap_rustc_abi4Size4bits17hd304254189ad847eE.llvm.10169251571672223956.exit.i92.i: ; preds = %_ZN15ra_ap_rustc_abi9Primitive4size17h599845172a93e519E.exit.i91.i
   %.neg6.i93.i = mul nsw i64 %316, -8
-  %319 = icmp ult i64 %316, 17
+  %319 = icmp samesign ult i64 %316, 17
   br i1 %319, label %320, label %.invoke.i
 
 .invoke.i:                                        ; preds = %_ZN15ra_ap_rustc_abi4Size4bits17hd304254189ad847eE.llvm.10169251571672223956.exit.i92.i, %_ZN15ra_ap_rustc_abi4Size4bits17hd304254189ad847eE.llvm.10169251571672223956.exit.i.i, %_ZN15ra_ap_rustc_abi4Size4bits17hd304254189ad847eE.llvm.10169251571672223956.exit.i.i.i
@@ -34617,7 +34617,7 @@ _ZN15ra_ap_rustc_abi9Primitive4size17h599845172a93e519E.exit.i.i.i.i.i.i.i.i.i: 
 
 _ZN15ra_ap_rustc_abi4Size4bits17hd304254189ad847eE.llvm.10169251571672223956.exit.i.i.i.i.i.i.i.i.i: ; preds = %_ZN15ra_ap_rustc_abi9Primitive4size17h599845172a93e519E.exit.i.i.i.i.i.i.i.i.i
   %.neg6.i.i.i.i.i.i.i.i.i = mul nsw i64 %556, -8
-  %558 = icmp ult i64 %556, 17
+  %558 = icmp samesign ult i64 %556, 17
   br i1 %558, label %"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h4aff1ae3429c5836E.exit.i.i.i.i", label %_ZN15ra_ap_rustc_abi9Primitive4size17h599845172a93e519E.exit.i.i.i.i.i.i.i.i.i.i.i.i.invoke.i.i
 
 "_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h4aff1ae3429c5836E.exit.i.i.i.i": ; preds = %switch.lookup609, %_ZN15ra_ap_rustc_abi4Size4bits17hd304254189ad847eE.llvm.10169251571672223956.exit.i.i.i.i.i.i.i.i.i, %554, %553, %552, %548
@@ -34729,7 +34729,7 @@ switch.lookup612:                                 ; preds = %575
   br i1 %587, label %_ZN4core4iter6traits8iterator8Iterator6reduce17hcdfa5766f2cfa088E.exit.i.i.i, label %.split.us.i.i.i.i
 
 .split.i.i.i.i:                                   ; preds = %566
-  %588 = icmp ult i64 %.val.i.fr.i.i.i.i, 17
+  %588 = icmp samesign ult i64 %.val.i.fr.i.i.i.i, 17
   br i1 %588, label %.split.split.us.preheader.i.i.i.i, label %.split.split.i.i.i.i
 
 .split.split.us.preheader.i.i.i.i:                ; preds = %.split.i.i.i.i
@@ -36508,7 +36508,7 @@ switch.lookup645:                                 ; preds = %switch.lookup642
   unreachable
 
 1087:                                             ; preds = %1084
-  %1088 = icmp ult i64 %1082, 17
+  %1088 = icmp samesign ult i64 %1082, 17
   br i1 %1088, label %1090, label %1089
 
 1089:                                             ; preds = %1087
@@ -37019,7 +37019,7 @@ switch.lookup658:                                 ; preds = %"_ZN4core6option15O
 
 _ZN15ra_ap_rustc_abi4Size4bits17hd304254189ad847eE.llvm.10169251571672223956.exit.i.i.i623.i: ; preds = %"_ZN4core6option15Option$LT$T$GT$6map_or17h3cd7272c55d5a385E.exit.i"
   %.neg6.i.i.i624.i = mul nsw i64 %.val482.i, -8
-  %1214 = icmp ult i64 %.val482.i, 17
+  %1214 = icmp samesign ult i64 %.val482.i, 17
   br i1 %1214, label %"_ZN15ra_ap_rustc_abi6layout14layout_of_enum28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17h0d5f41f259e8eeecE.exit.i625.i", label %1215
 
 1215:                                             ; preds = %_ZN15ra_ap_rustc_abi4Size4bits17hd304254189ad847eE.llvm.10169251571672223956.exit.i.i.i623.i
@@ -37439,7 +37439,7 @@ define internal fastcc void @_ZN15ra_ap_rustc_abi6layout19format_field_niches17h
   %41 = getelementptr inbounds i8, ptr %17, i64 24
   %42 = icmp ugt i64 %.24.val, 2305843009213693951
   %.neg6.i = mul nsw i64 %.24.val, -8
-  %43 = icmp ult i64 %.24.val, 17
+  %43 = icmp samesign ult i64 %.24.val, 17
   %44 = getelementptr inbounds i8, ptr %11, i64 8
   %45 = getelementptr inbounds i8, ptr %11, i64 16
   %46 = getelementptr inbounds i8, ptr %11, i64 24

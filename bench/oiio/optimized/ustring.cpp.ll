@@ -1544,11 +1544,11 @@ entry:
   br i1 %cmp, label %if.then, label %if.else4
 
 if.then:                                          ; preds = %entry
-  %cmp1 = icmp ult i64 %len, 17
+  %cmp1 = icmp samesign ult i64 %len, 17
   br i1 %cmp1, label %if.then2, label %if.else
 
 if.then2:                                         ; preds = %if.then
-  %cmp.i = icmp ugt i64 %len, 7
+  %cmp.i = icmp samesign ugt i64 %len, 7
   br i1 %cmp.i, label %if.then.i, label %if.end.i
 
 if.then.i:                                        ; preds = %if.then2
@@ -1577,7 +1577,7 @@ if.then.i:                                        ; preds = %if.then2
   br label %return
 
 if.end.i:                                         ; preds = %if.then2
-  %cmp12.i = icmp ugt i64 %len, 3
+  %cmp12.i = icmp samesign ugt i64 %len, 3
   br i1 %cmp12.i, label %if.then13.i, label %if.end25.i
 
 if.then13.i:                                      ; preds = %if.end.i
@@ -1856,11 +1856,11 @@ entry:
   br i1 %cmp, label %if.then, label %if.else4
 
 if.then:                                          ; preds = %entry
-  %cmp1 = icmp ult i64 %len, 17
+  %cmp1 = icmp samesign ult i64 %len, 17
   br i1 %cmp1, label %if.then2, label %if.else
 
 if.then2:                                         ; preds = %if.then
-  %cmp.i = icmp ugt i64 %len, 7
+  %cmp.i = icmp samesign ugt i64 %len, 7
   br i1 %cmp.i, label %if.then.i, label %if.end.i
 
 if.then.i:                                        ; preds = %if.then2
@@ -1889,7 +1889,7 @@ if.then.i:                                        ; preds = %if.then2
   br label %return
 
 if.end.i:                                         ; preds = %if.then2
-  %cmp12.i = icmp ugt i64 %len, 3
+  %cmp12.i = icmp samesign ugt i64 %len, 3
   br i1 %cmp12.i, label %if.then13.i, label %if.end25.i
 
 if.then13.i:                                      ; preds = %if.end.i

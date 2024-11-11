@@ -10260,15 +10260,15 @@ define linkonce_odr void @_ZNSt8seed_seq8generateIPjEEvT_S2_(ptr noundef nonnull
   br i1 %20, label %30, label %21
 
 21:                                               ; preds = %.lr.ph.i.i.i.preheader
-  %22 = icmp ugt i64 %12, 67
+  %22 = icmp samesign ugt i64 %12, 67
   br i1 %22, label %30, label %23
 
 23:                                               ; preds = %21
-  %24 = icmp ugt i64 %12, 38
+  %24 = icmp samesign ugt i64 %12, 38
   br i1 %24, label %30, label %25
 
 25:                                               ; preds = %23
-  %26 = icmp ugt i64 %12, 6
+  %26 = icmp samesign ugt i64 %12, 6
   %27 = add nsw i64 %12, -1
   %28 = lshr i64 %27, 1
   %29 = select i1 %26, i64 3, i64 %28

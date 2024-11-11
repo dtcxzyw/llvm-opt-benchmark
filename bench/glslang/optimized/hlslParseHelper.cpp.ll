@@ -63518,7 +63518,7 @@ define noundef zeroext i1 @_ZN7glslang16HlslParseContext20setTextureReturnTypeER
   br i1 %152, label %.lr.ph51, label %._crit_edge, !llvm.loop !322
 
 ._crit_edge:                                      ; preds = %149
-  %153 = icmp ugt i64 %86, 14
+  %153 = icmp samesign ugt i64 %86, 14
   br i1 %153, label %154, label %._crit_edge.thread
 
 154:                                              ; preds = %._crit_edge
@@ -76359,7 +76359,7 @@ _ZSt13move_backwardIPP11TIntermNodeS2_ET0_T_S4_S3_.exit: ; preds = %_ZSt22__unin
   %36 = getelementptr inbounds i8, ptr %.0910.i.i.i.i.i, i64 8
   %37 = getelementptr inbounds i8, ptr %.0811.i.i.i.i.i, i64 8
   %38 = add nsw i64 %.012.i.i.i.i.i, -1
-  %39 = icmp ugt i64 %.012.i.i.i.i.i, 1
+  %39 = icmp samesign ugt i64 %.012.i.i.i.i.i, 1
   br i1 %39, label %.lr.ph.i.i.i.i.i, label %_ZSt4copyIN9__gnu_cxx17__normal_iteratorIPKPN7glslang12TIntermTypedESt6vectorIS4_NS2_14pool_allocatorIS4_EEEEENS1_IPP11TIntermNodeS7_ISD_NS8_ISD_EEEEEET0_T_SJ_SI_.exit, !llvm.loop !503
 
 _ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPKPN7glslang12TIntermTypedESt6vectorIS4_NS2_14pool_allocatorIS4_EEEEEmEvRT_T0_.exit: ; preds = %17
@@ -76420,7 +76420,7 @@ _ZSt22__uninitialized_move_aIPP11TIntermNodeS2_N7glslang14pool_allocatorIS1_EEET
   %55 = getelementptr inbounds i8, ptr %.0910.i.i.i.i.i54, i64 8
   %56 = getelementptr inbounds i8, ptr %.0811.i.i.i.i.i53, i64 8
   %57 = add nsw i64 %.012.i.i.i.i.i52, -1
-  %58 = icmp ugt i64 %.012.i.i.i.i.i52, 1
+  %58 = icmp samesign ugt i64 %.012.i.i.i.i.i52, 1
   br i1 %58, label %.lr.ph.i.i.i.i.i51, label %_ZSt4copyIN9__gnu_cxx17__normal_iteratorIPKPN7glslang12TIntermTypedESt6vectorIS4_NS2_14pool_allocatorIS4_EEEEENS1_IPP11TIntermNodeS7_ISD_NS8_ISD_EEEEEET0_T_SJ_SI_.exit, !llvm.loop !503
 
 59:                                               ; preds = %5

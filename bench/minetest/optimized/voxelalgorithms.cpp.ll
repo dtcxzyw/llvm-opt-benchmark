@@ -5403,7 +5403,7 @@ _ZNK7MapNode8getLightE9LightBank20ContentLightingFlags.exit: ; preds = %for.body
 
 cond.end:                                         ; preds = %_ZNK7MapNode8getLightE9LightBank20ContentLightingFlags.exit, %for.body45
   %cond = phi i8 [ %cond.i, %_ZNK7MapNode8getLightE9LightBank20ContentLightingFlags.exit ], [ %bf.clear.i, %for.body45 ]
-  %cmp64 = icmp ugt i8 %cond, 1
+  %cmp64 = icmp samesign ugt i8 %cond, 1
   br i1 %cmp64, label %if.then65, label %if.end69
 
 if.then65:                                        ; preds = %cond.end
@@ -6661,7 +6661,7 @@ cond.end:                                         ; preds = %_ZNK7MapNode8getLig
   %cond = phi i8 [ %cond.i, %_ZNK7MapNode8getLightE9LightBank20ContentLightingFlags.exit ], [ 15, %invoke.cont188 ]
   %cond.i472 = call i8 @llvm.umax.i8(i8 %bf.clear.i471, i8 %109)
   %cond217 = select i1 %bf.cast208.not, i8 %bf.clear.i471, i8 %cond.i472
-  %cmp220 = icmp ugt i8 %cond, %cond217
+  %cmp220 = icmp samesign ugt i8 %cond, %cond217
   br i1 %cmp220, label %if.then221, label %if.end227
 
 if.then221:                                       ; preds = %cond.end
@@ -7719,7 +7719,7 @@ _ZNK7MapNode8getLightE9LightBank20ContentLightingFlags.exit: ; preds = %invoke.c
 
 cond.end:                                         ; preds = %_ZNK7MapNode8getLightE9LightBank20ContentLightingFlags.exit, %invoke.cont101
   %cond = phi i8 [ %cond.i, %_ZNK7MapNode8getLightE9LightBank20ContentLightingFlags.exit ], [ %bf.clear.i, %invoke.cont101 ]
-  %cmp117 = icmp ult i8 %cond, 15
+  %cmp117 = icmp samesign ult i8 %cond, 15
   br i1 %cmp117, label %if.then118, label %if.end124
 
 if.then118:                                       ; preds = %cond.end

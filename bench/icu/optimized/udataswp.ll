@@ -621,7 +621,7 @@ while.body:                                       ; preds = %while.body.preheade
   %incdec.ptr15 = getelementptr inbounds i8, ptr %q.015, i64 2
   store i16 %or, ptr %q.015, align 2
   %dec = add nsw i32 %count.016, -1
-  %cmp12 = icmp ugt i32 %count.016, 1
+  %cmp12 = icmp samesign ugt i32 %count.016, 1
   br i1 %cmp12, label %while.body, label %return, !llvm.loop !7
 
 return:                                           ; preds = %while.body, %if.end11, %entry, %lor.lhs.false, %if.then10
@@ -677,7 +677,7 @@ while.body:                                       ; preds = %while.body.preheade
   %incdec.ptr19 = getelementptr inbounds i8, ptr %q.017, i64 4
   store i32 %or18, ptr %q.017, align 4
   %dec = add nsw i32 %count.018, -1
-  %cmp12 = icmp ugt i32 %count.018, 1
+  %cmp12 = icmp samesign ugt i32 %count.018, 1
   br i1 %cmp12, label %while.body, label %return, !llvm.loop !8
 
 return:                                           ; preds = %while.body, %if.end11, %entry, %lor.lhs.false, %if.then10
@@ -733,7 +733,7 @@ while.body:                                       ; preds = %while.body.preheade
   %incdec.ptr31 = getelementptr inbounds i8, ptr %q.022, i64 8
   store i64 %or30, ptr %q.022, align 8
   %dec = add nsw i32 %count.023, -1
-  %cmp12 = icmp ugt i32 %count.023, 1
+  %cmp12 = icmp samesign ugt i32 %count.023, 1
   br i1 %cmp12, label %while.body, label %return, !llvm.loop !9
 
 return:                                           ; preds = %while.body, %if.end11, %entry, %lor.lhs.false, %if.then10

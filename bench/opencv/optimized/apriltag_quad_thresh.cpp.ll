@@ -1575,7 +1575,7 @@ define hidden noundef range(i32 0, 2) i32 @_ZN2cv5aruco8fit_quadERKNS0_18Detecto
   %88 = getelementptr inbounds i8, ptr %7, i64 16
   store ptr %88, ptr %7, align 8
   %89 = getelementptr inbounds i8, ptr %7, i64 8
-  %.not.i.i = icmp ugt i32 %.1264, 64
+  %.not.i.i = icmp samesign ugt i32 %.1264, 64
   store i64 %87, ptr %89, align 8
   %90 = mul nuw nsw i64 %87, 48
   br i1 %.not.i.i, label %91, label %.lr.ph347
@@ -2252,7 +2252,7 @@ define internal fastcc void @_ZN2cv5arucoL6ptsortEPNS0_2ptEi(ptr noundef %0, i32
   %126 = getelementptr inbounds i8, ptr %3, i64 16
   store ptr %126, ptr %3, align 8
   %127 = getelementptr inbounds i8, ptr %3, i64 8
-  %.not.i.i116 = icmp ugt i32 %1, 1024
+  %.not.i.i116 = icmp samesign ugt i32 %1, 1024
   store i64 %125, ptr %127, align 8
   %128 = mul nuw nsw i64 %125, 12
   br i1 %.not.i.i116, label %129, label %_ZN2cv10AutoBufferINS_5aruco2ptELm1024EEC2Em.exit
@@ -2278,7 +2278,7 @@ _ZN2cv10AutoBufferINS_5aruco2ptELm1024EEC2Em.exit: ; preds = %124, %129
 
 .preheader117:                                    ; preds = %136
   %invariant.op = add nsw i32 %132, -8
-  %137 = icmp ugt i32 %1, 17
+  %137 = icmp samesign ugt i32 %1, 17
   %138 = icmp sgt i32 %133, 8
   %139 = select i1 %137, i1 %138, i1 false
   br i1 %139, label %.lr.ph, label %.preheader

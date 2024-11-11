@@ -930,9 +930,9 @@ if.else365:                                       ; preds = %while.end357
 
 if.end367:                                        ; preds = %if.else365, %if.then362
   %dp.promoted869 = phi i32 [ %74, %if.else365 ], [ %sub364, %if.then362 ]
-  %cmp368 = icmp ugt i32 %dp.promoted869, 999
-  %cmp372 = icmp ugt i32 %dp.promoted869, 99
-  %cmp376 = icmp ugt i32 %dp.promoted869, 9
+  %cmp368 = icmp samesign ugt i32 %dp.promoted869, 999
+  %cmp372 = icmp samesign ugt i32 %dp.promoted869, 99
+  %cmp376 = icmp samesign ugt i32 %dp.promoted869, 9
   %cond378 = select i1 %cmp376, i32 4, i32 3
   %cond380 = select i1 %cmp372, i32 5, i32 %cond378
   %cond382 = select i1 %cmp368, i32 6, i32 %cond380
@@ -1201,7 +1201,7 @@ if.else573:                                       ; preds = %for.end562
 
 if.end575:                                        ; preds = %if.else573, %if.then570
   %104 = phi i32 [ %sub567, %if.else573 ], [ %sub572, %if.then570 ]
-  %cmp576 = icmp ugt i32 %104, 99
+  %cmp576 = icmp samesign ugt i32 %104, 99
   %cond578 = select i1 %cmp576, i32 5, i32 4
   %conv579 = trunc nuw nsw i32 %cond578 to i8
   store i8 %conv579, ptr %tail, align 1
@@ -2714,7 +2714,7 @@ while.body1528:                                   ; preds = %while.body1509, %wh
   %add.ptr1529 = getelementptr inbounds i8, ptr %bf.29956, i64 4
   %add.ptr1530 = getelementptr inbounds i8, ptr %s.36955, i64 4
   %sub1531 = add nsw i32 %i1510.1954, -4
-  %cmp1526 = icmp ugt i32 %i1510.1954, 7
+  %cmp1526 = icmp samesign ugt i32 %i1510.1954, 7
   br i1 %cmp1526, label %while.body1528, label %while.cond1533.preheader, !llvm.loop !26
 
 while.body1535:                                   ; preds = %while.cond1533.preheader, %while.body1535
@@ -3419,7 +3419,7 @@ if.then17:                                        ; preds = %if.end14
   br label %return
 
 if.end18:                                         ; preds = %if.end14
-  %cmp20 = icmp ugt i32 %6, 511
+  %cmp20 = icmp samesign ugt i32 %6, 511
   br i1 %cmp20, label %cond.true, label %cond.false
 
 cond.true:                                        ; preds = %if.end18

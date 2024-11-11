@@ -109,7 +109,7 @@ x86CPUInfo.exit:                                  ; preds = %51
   %57 = extractvalue { i32, i32 } %56, 0
   %58 = and i32 %57, 6
   %59 = icmp eq i32 %58, 6
-  %60 = icmp ugt i32 %3, 6
+  %60 = icmp samesign ugt i32 %3, 6
   %or.cond4 = and i1 %60, %59
   br i1 %or.cond4, label %61, label %CheckSlowModel.exit
 

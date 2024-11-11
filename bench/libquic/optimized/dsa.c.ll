@@ -1439,7 +1439,7 @@ der_len_len.exit:                                 ; preds = %while.body.i, %entr
 
 if.end9:                                          ; preds = %der_len_len.exit
   %mul = shl nuw i64 %add4, 1
-  %cmp.i9 = icmp ult i64 %add4, 64
+  %cmp.i9 = icmp samesign ult i64 %add4, 64
   br i1 %cmp.i9, label %der_len_len.exit17, label %while.body.i10
 
 while.body.i10:                                   ; preds = %if.end9, %while.body.i10

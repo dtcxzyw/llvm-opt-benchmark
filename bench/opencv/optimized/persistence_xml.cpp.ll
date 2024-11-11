@@ -709,7 +709,7 @@ define linkonce_odr hidden void @_ZN2cv10XMLEmitter5writeEPKcS2_b(ptr noundef no
   br label %74
 
 48:                                               ; preds = %41
-  %49 = icmp ult i8 %43, 32
+  %49 = icmp samesign ult i8 %43, 32
   %50 = icmp eq i8 %43, 60
   %51 = icmp eq i8 %43, 62
   %52 = and i8 %43, 126

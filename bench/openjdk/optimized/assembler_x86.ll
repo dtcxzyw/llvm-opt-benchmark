@@ -1185,8 +1185,8 @@ define hidden noundef zeroext i1 @_ZN9Assembler10needs_rex2E8RegisterS0_S0_(ptr 
   %15 = trunc i64 %14 to i32
   %16 = sub i32 %15, ptrtoint (ptr getelementptr inbounds (i8, ptr @all_RegisterImpls, i64 1) to i32)
   %17 = and i32 %16, -16
-  %or.cond6 = icmp eq i32 %17, 16
-  br i1 %or.cond6, label %25, label %18
+  %or.cond8 = icmp eq i32 %17, 16
+  br i1 %or.cond8, label %25, label %18
 
 18:                                               ; preds = %11
   %19 = sext i32 %3 to i64
@@ -1221,8 +1221,8 @@ define hidden noundef zeroext i1 @_ZN9Assembler11needs_eevexE8RegisterS0_S0_(ptr
   %15 = trunc i64 %14 to i32
   %16 = sub i32 %15, ptrtoint (ptr getelementptr inbounds (i8, ptr @all_RegisterImpls, i64 1) to i32)
   %17 = and i32 %16, -16
-  %or.cond6.i = icmp eq i32 %17, 16
-  br i1 %or.cond6.i, label %_ZN9Assembler10needs_rex2E8RegisterS0_S0_.exit, label %18
+  %or.cond8.i = icmp eq i32 %17, 16
+  br i1 %or.cond8.i, label %_ZN9Assembler10needs_rex2E8RegisterS0_S0_.exit, label %18
 
 18:                                               ; preds = %11
   %19 = sext i32 %3 to i64
@@ -2563,7 +2563,7 @@ define hidden void @_ZN9Assembler6prefixE7Addressb(ptr nocapture noundef nonnull
   %19 = sub i32 %18, ptrtoint (ptr getelementptr inbounds (i8, ptr @all_RegisterImpls, i64 1) to i32)
   %20 = and i32 %19, -16
   %spec.select.i2 = icmp eq i32 %20, 16
-  br i1 %spec.select.i2, label %21, label %57
+  br i1 %spec.select.i2, label %21, label %55
 
 21:                                               ; preds = %12, %3
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %4, ptr noundef nonnull align 8 dereferenceable(64) %1, i64 21, i1 false)
@@ -2581,100 +2581,100 @@ define hidden void @_ZN9Assembler6prefixE7Addressb(ptr nocapture noundef nonnull
   %30 = ptrtoint ptr %29 to i64
   %31 = trunc i64 %30 to i32
   %32 = sub i32 %31, ptrtoint (ptr getelementptr inbounds (i8, ptr @all_RegisterImpls, i64 1) to i32)
-  %33 = icmp ult i32 %32, 32
-  br i1 %33, label %34, label %_ZN9Assembler11prefix_rex2E7Addressb.exit
+  %spec.select.i.i6.i = icmp ult i32 %32, 32
+  br i1 %spec.select.i.i6.i, label %33, label %_ZN9Assembler11prefix_rex2E7Addressb.exit
 
-34:                                               ; preds = %21
-  %35 = shl nuw nsw i32 %32, 1
-  %spec.select.i.i.i = and i32 %35, 32
-  %36 = lshr i32 %32, 2
-  %37 = and i32 %36, 2
-  %.1.i.i6.i = or disjoint i32 %spec.select.i.i.i, %37
+33:                                               ; preds = %21
+  %34 = shl nuw nsw i32 %32, 1
+  %spec.select.i1.i.i = and i32 %34, 32
+  %35 = lshr i32 %32, 2
+  %36 = and i32 %35, 2
+  %.1.i.i7.i = or disjoint i32 %spec.select.i1.i.i, %36
   br label %_ZN9Assembler11prefix_rex2E7Addressb.exit
 
-_ZN9Assembler11prefix_rex2E7Addressb.exit:        ; preds = %21, %34
-  %38 = phi i32 [ %.1.i.i6.i, %34 ], [ 0, %21 ]
-  %39 = select i1 %2, i32 128, i32 0
-  %40 = sext i32 %.sroa.0.0.copyload.i.i to i64
-  %41 = getelementptr inbounds %"class.Register::RegisterImpl", ptr getelementptr inbounds (i8, ptr @all_RegisterImpls, i64 1), i64 %40
-  %42 = ptrtoint ptr %41 to i64
-  %43 = trunc i64 %42 to i32
-  %44 = sub i32 %43, ptrtoint (ptr getelementptr inbounds (i8, ptr @all_RegisterImpls, i64 1) to i32)
-  %45 = icmp ult i32 %44, 32
-  %46 = lshr i32 %44, 3
-  %47 = and i32 %46, 1
-  %48 = and i32 %44, 16
-  %.1.i.i.i = or disjoint i32 %47, %48
-  %49 = select i1 %45, i32 %.1.i.i.i, i32 0
-  %50 = or disjoint i32 %49, %39
-  %51 = or i32 %50, %38
-  %52 = getelementptr inbounds i8, ptr %0, i64 8
+_ZN9Assembler11prefix_rex2E7Addressb.exit:        ; preds = %21, %33
+  %37 = phi i32 [ %.1.i.i7.i, %33 ], [ 0, %21 ]
+  %38 = select i1 %2, i32 128, i32 0
+  %39 = sext i32 %.sroa.0.0.copyload.i.i to i64
+  %40 = getelementptr inbounds %"class.Register::RegisterImpl", ptr getelementptr inbounds (i8, ptr @all_RegisterImpls, i64 1), i64 %39
+  %41 = ptrtoint ptr %40 to i64
+  %42 = trunc i64 %41 to i32
+  %43 = sub i32 %42, ptrtoint (ptr getelementptr inbounds (i8, ptr @all_RegisterImpls, i64 1) to i32)
+  %spec.select.i.i.i = icmp ult i32 %43, 32
+  %44 = lshr i32 %43, 3
+  %45 = and i32 %44, 1
+  %46 = and i32 %43, 16
+  %.1.i.i.i = or disjoint i32 %45, %46
+  %47 = select i1 %spec.select.i.i.i, i32 %.1.i.i.i, i32 0
+  %48 = or disjoint i32 %47, %38
+  %49 = or i32 %48, %37
+  %50 = getelementptr inbounds i8, ptr %0, i64 8
+  %51 = load ptr, ptr %50, align 8
+  %52 = getelementptr inbounds i8, ptr %51, i64 16
   %53 = load ptr, ptr %52, align 8
-  %54 = getelementptr inbounds i8, ptr %53, i64 16
-  %55 = load ptr, ptr %54, align 8
-  %56 = getelementptr inbounds i8, ptr %55, i64 1
-  store i8 -43, ptr %55, align 1
-  store ptr %56, ptr %54, align 8
-  %.0.i.i2.i.i = trunc nuw i32 %51 to i8
+  %54 = getelementptr inbounds i8, ptr %53, i64 1
+  store i8 -43, ptr %53, align 1
+  store ptr %54, ptr %52, align 8
+  %.0.i.i2.i.i = trunc nuw i32 %49 to i8
   br label %.sink.split
 
-57:                                               ; preds = %12
-  %58 = and i32 %10, -24
+55:                                               ; preds = %12
+  %56 = and i32 %10, -24
+  %57 = icmp eq i32 %56, 8
+  %58 = and i32 %19, -24
   %59 = icmp eq i32 %58, 8
-  %60 = and i32 %19, -24
-  %61 = icmp eq i32 %60, 8
-  br i1 %59, label %62, label %70
+  br i1 %57, label %60, label %68
 
-62:                                               ; preds = %57
-  %63 = getelementptr inbounds i8, ptr %0, i64 8
+60:                                               ; preds = %55
+  %61 = getelementptr inbounds i8, ptr %0, i64 8
+  %62 = load ptr, ptr %61, align 8
+  %63 = getelementptr inbounds i8, ptr %62, i64 16
   %64 = load ptr, ptr %63, align 8
-  %65 = getelementptr inbounds i8, ptr %64, i64 16
-  %66 = load ptr, ptr %65, align 8
-  %67 = getelementptr inbounds i8, ptr %66, i64 1
-  br i1 %61, label %68, label %69
+  %65 = getelementptr inbounds i8, ptr %64, i64 1
+  br i1 %59, label %66, label %67
 
-68:                                               ; preds = %62
-  store i8 67, ptr %66, align 1
-  store ptr %67, ptr %65, align 8
-  br label %77
+66:                                               ; preds = %60
+  store i8 67, ptr %64, align 1
+  store ptr %65, ptr %63, align 8
+  br label %75
 
-69:                                               ; preds = %62
-  store i8 65, ptr %66, align 1
-  store ptr %67, ptr %65, align 8
-  br label %77
+67:                                               ; preds = %60
+  store i8 65, ptr %64, align 1
+  store ptr %65, ptr %63, align 8
+  br label %75
 
-70:                                               ; preds = %57
-  br i1 %61, label %71, label %77
+68:                                               ; preds = %55
+  br i1 %59, label %69, label %75
 
-71:                                               ; preds = %70
-  %72 = getelementptr inbounds i8, ptr %0, i64 8
+69:                                               ; preds = %68
+  %70 = getelementptr inbounds i8, ptr %0, i64 8
+  %71 = load ptr, ptr %70, align 8
+  %72 = getelementptr inbounds i8, ptr %71, i64 16
   %73 = load ptr, ptr %72, align 8
-  %74 = getelementptr inbounds i8, ptr %73, i64 16
-  %75 = load ptr, ptr %74, align 8
-  %76 = getelementptr inbounds i8, ptr %75, i64 1
-  store i8 66, ptr %75, align 1
-  store ptr %76, ptr %74, align 8
-  br label %77
+  %74 = getelementptr inbounds i8, ptr %73, i64 1
+  store i8 66, ptr %73, align 1
+  store ptr %74, ptr %72, align 8
+  br label %75
 
-77:                                               ; preds = %70, %71, %68, %69
-  br i1 %2, label %78, label %83
+75:                                               ; preds = %68, %69, %66, %67
+  br i1 %2, label %76, label %81
 
-78:                                               ; preds = %77
-  %79 = getelementptr inbounds i8, ptr %0, i64 8
+76:                                               ; preds = %75
+  %77 = getelementptr inbounds i8, ptr %0, i64 8
   br label %.sink.split
 
-.sink.split:                                      ; preds = %_ZN9Assembler11prefix_rex2E7Addressb.exit, %78
-  %.sink7.in = phi ptr [ %79, %78 ], [ %52, %_ZN9Assembler11prefix_rex2E7Addressb.exit ]
-  %.sink4 = phi i8 [ 15, %78 ], [ %.0.i.i2.i.i, %_ZN9Assembler11prefix_rex2E7Addressb.exit ]
+.sink.split:                                      ; preds = %_ZN9Assembler11prefix_rex2E7Addressb.exit, %76
+  %.sink7.in = phi ptr [ %77, %76 ], [ %50, %_ZN9Assembler11prefix_rex2E7Addressb.exit ]
+  %.sink4 = phi i8 [ 15, %76 ], [ %.0.i.i2.i.i, %_ZN9Assembler11prefix_rex2E7Addressb.exit ]
   %.sink7 = load ptr, ptr %.sink7.in, align 8
-  %80 = getelementptr inbounds i8, ptr %.sink7, i64 16
-  %81 = load ptr, ptr %80, align 8
-  %82 = getelementptr inbounds i8, ptr %81, i64 1
-  store i8 %.sink4, ptr %81, align 1
-  store ptr %82, ptr %80, align 8
-  br label %83
+  %78 = getelementptr inbounds i8, ptr %.sink7, i64 16
+  %79 = load ptr, ptr %78, align 8
+  %80 = getelementptr inbounds i8, ptr %79, i64 1
+  store i8 %.sink4, ptr %79, align 1
+  store ptr %80, ptr %78, align 8
+  br label %81
 
-83:                                               ; preds = %.sink.split, %77
+81:                                               ; preds = %.sink.split, %75
   ret void
 }
 
@@ -2769,7 +2769,7 @@ define hidden void @_ZN9Assembler6prefixE7Address8Registerbb(ptr nocapture nound
   %28 = sub i32 %27, ptrtoint (ptr getelementptr inbounds (i8, ptr @all_RegisterImpls, i64 1) to i32)
   %29 = and i32 %28, -16
   %spec.select.i4 = icmp eq i32 %29, 16
-  br i1 %spec.select.i4, label %30, label %70
+  br i1 %spec.select.i4, label %30, label %68
 
 30:                                               ; preds = %21, %13, %5
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %6, ptr noundef nonnull align 8 dereferenceable(64) %1, i64 21, i1 false)
@@ -2787,159 +2787,159 @@ define hidden void @_ZN9Assembler6prefixE7Address8Registerbb(ptr nocapture nound
   %39 = ptrtoint ptr %38 to i64
   %40 = trunc i64 %39 to i32
   %41 = sub i32 %40, ptrtoint (ptr getelementptr inbounds (i8, ptr @all_RegisterImpls, i64 1) to i32)
-  %42 = icmp ult i32 %41, 32
-  br i1 %42, label %43, label %_ZN9Assembler11prefix_rex2E7Address8Registerbb.exit
+  %spec.select.i.i7.i = icmp ult i32 %41, 32
+  br i1 %spec.select.i.i7.i, label %42, label %_ZN9Assembler11prefix_rex2E7Address8Registerbb.exit
 
-43:                                               ; preds = %30
-  %44 = shl nuw nsw i32 %41, 1
-  %spec.select.i.i.i = and i32 %44, 32
-  %45 = lshr i32 %41, 2
-  %46 = and i32 %45, 2
-  %.1.i.i7.i = or disjoint i32 %spec.select.i.i.i, %46
+42:                                               ; preds = %30
+  %43 = shl nuw nsw i32 %41, 1
+  %spec.select.i1.i.i = and i32 %43, 32
+  %44 = lshr i32 %41, 2
+  %45 = and i32 %44, 2
+  %.1.i.i8.i = or disjoint i32 %spec.select.i1.i.i, %45
   br label %_ZN9Assembler11prefix_rex2E7Address8Registerbb.exit
 
-_ZN9Assembler11prefix_rex2E7Address8Registerbb.exit: ; preds = %30, %43
-  %47 = phi i32 [ %.1.i.i7.i, %43 ], [ 0, %30 ]
-  %48 = select i1 %4, i32 128, i32 0
-  %49 = sext i32 %.sroa.0.0.copyload.i.i to i64
-  %50 = getelementptr inbounds %"class.Register::RegisterImpl", ptr getelementptr inbounds (i8, ptr @all_RegisterImpls, i64 1), i64 %49
-  %51 = ptrtoint ptr %50 to i64
-  %52 = trunc i64 %51 to i32
-  %53 = sub i32 %52, ptrtoint (ptr getelementptr inbounds (i8, ptr @all_RegisterImpls, i64 1) to i32)
-  %54 = icmp ult i32 %53, 32
-  %55 = lshr i32 %53, 3
-  %56 = and i32 %55, 1
-  %57 = and i32 %53, 16
-  %.1.i.i.i = or disjoint i32 %56, %57
-  %58 = select i1 %54, i32 %.1.i.i.i, i32 0
-  %59 = shl i32 %11, 2
-  %spec.select.i.i = and i32 %59, 64
-  %60 = lshr i32 %11, 1
-  %61 = and i32 %60, 4
-  %62 = or disjoint i32 %61, %48
-  %.1.i.i = or disjoint i32 %62, %spec.select.i.i
-  %63 = or disjoint i32 %.1.i.i, %58
-  %64 = or i32 %63, %47
-  %65 = getelementptr inbounds i8, ptr %0, i64 8
+_ZN9Assembler11prefix_rex2E7Address8Registerbb.exit: ; preds = %30, %42
+  %46 = phi i32 [ %.1.i.i8.i, %42 ], [ 0, %30 ]
+  %47 = select i1 %4, i32 128, i32 0
+  %48 = sext i32 %.sroa.0.0.copyload.i.i to i64
+  %49 = getelementptr inbounds %"class.Register::RegisterImpl", ptr getelementptr inbounds (i8, ptr @all_RegisterImpls, i64 1), i64 %48
+  %50 = ptrtoint ptr %49 to i64
+  %51 = trunc i64 %50 to i32
+  %52 = sub i32 %51, ptrtoint (ptr getelementptr inbounds (i8, ptr @all_RegisterImpls, i64 1) to i32)
+  %spec.select.i.i.i = icmp ult i32 %52, 32
+  %53 = lshr i32 %52, 3
+  %54 = and i32 %53, 1
+  %55 = and i32 %52, 16
+  %.1.i.i.i = or disjoint i32 %54, %55
+  %56 = select i1 %spec.select.i.i.i, i32 %.1.i.i.i, i32 0
+  %57 = shl i32 %11, 2
+  %spec.select.i.i = and i32 %57, 64
+  %58 = lshr i32 %11, 1
+  %59 = and i32 %58, 4
+  %60 = or disjoint i32 %59, %47
+  %.1.i.i = or disjoint i32 %60, %spec.select.i.i
+  %61 = or disjoint i32 %.1.i.i, %56
+  %62 = or i32 %61, %46
+  %63 = getelementptr inbounds i8, ptr %0, i64 8
+  %64 = load ptr, ptr %63, align 8
+  %65 = getelementptr inbounds i8, ptr %64, i64 16
   %66 = load ptr, ptr %65, align 8
-  %67 = getelementptr inbounds i8, ptr %66, i64 16
-  %68 = load ptr, ptr %67, align 8
-  %69 = getelementptr inbounds i8, ptr %68, i64 1
-  store i8 -43, ptr %68, align 1
-  store ptr %69, ptr %67, align 8
-  %.0.i.i2.i.i = trunc nuw i32 %64 to i8
+  %67 = getelementptr inbounds i8, ptr %66, i64 1
+  store i8 -43, ptr %66, align 1
+  store ptr %67, ptr %65, align 8
+  %.0.i.i2.i.i = trunc nuw i32 %62 to i8
   br label %.sink.split
 
-70:                                               ; preds = %21
-  %71 = icmp slt i32 %11, 8
-  %72 = and i32 %19, -24
+68:                                               ; preds = %21
+  %69 = icmp slt i32 %11, 8
+  %70 = and i32 %19, -24
+  %71 = icmp eq i32 %70, 8
+  %72 = and i32 %28, -24
   %73 = icmp eq i32 %72, 8
-  %74 = and i32 %28, -24
-  %75 = icmp eq i32 %74, 8
-  br i1 %71, label %76, label %100
+  br i1 %69, label %74, label %98
 
-76:                                               ; preds = %70
-  br i1 %73, label %77, label %85
+74:                                               ; preds = %68
+  br i1 %71, label %75, label %83
 
-77:                                               ; preds = %76
-  %78 = getelementptr inbounds i8, ptr %0, i64 8
+75:                                               ; preds = %74
+  %76 = getelementptr inbounds i8, ptr %0, i64 8
+  %77 = load ptr, ptr %76, align 8
+  %78 = getelementptr inbounds i8, ptr %77, i64 16
   %79 = load ptr, ptr %78, align 8
-  %80 = getelementptr inbounds i8, ptr %79, i64 16
-  %81 = load ptr, ptr %80, align 8
-  %82 = getelementptr inbounds i8, ptr %81, i64 1
-  br i1 %75, label %83, label %84
+  %80 = getelementptr inbounds i8, ptr %79, i64 1
+  br i1 %73, label %81, label %82
 
-83:                                               ; preds = %77
-  store i8 67, ptr %81, align 1
-  store ptr %82, ptr %80, align 8
-  br label %112
+81:                                               ; preds = %75
+  store i8 67, ptr %79, align 1
+  store ptr %80, ptr %78, align 8
+  br label %110
 
-84:                                               ; preds = %77
-  store i8 65, ptr %81, align 1
-  store ptr %82, ptr %80, align 8
-  br label %112
+82:                                               ; preds = %75
+  store i8 65, ptr %79, align 1
+  store ptr %80, ptr %78, align 8
+  br label %110
 
-85:                                               ; preds = %76
-  br i1 %75, label %86, label %92
+83:                                               ; preds = %74
+  br i1 %73, label %84, label %90
 
-86:                                               ; preds = %85
-  %87 = getelementptr inbounds i8, ptr %0, i64 8
+84:                                               ; preds = %83
+  %85 = getelementptr inbounds i8, ptr %0, i64 8
+  %86 = load ptr, ptr %85, align 8
+  %87 = getelementptr inbounds i8, ptr %86, i64 16
   %88 = load ptr, ptr %87, align 8
-  %89 = getelementptr inbounds i8, ptr %88, i64 16
-  %90 = load ptr, ptr %89, align 8
-  %91 = getelementptr inbounds i8, ptr %90, i64 1
-  store i8 66, ptr %90, align 1
-  store ptr %91, ptr %89, align 8
-  br label %112
+  %89 = getelementptr inbounds i8, ptr %88, i64 1
+  store i8 66, ptr %88, align 1
+  store ptr %89, ptr %87, align 8
+  br label %110
 
-92:                                               ; preds = %85
-  %93 = icmp sgt i32 %11, 3
-  %or.cond = and i1 %3, %93
-  br i1 %or.cond, label %94, label %112
+90:                                               ; preds = %83
+  %91 = icmp sgt i32 %11, 3
+  %or.cond = and i1 %3, %91
+  br i1 %or.cond, label %92, label %110
 
-94:                                               ; preds = %92
-  %95 = getelementptr inbounds i8, ptr %0, i64 8
+92:                                               ; preds = %90
+  %93 = getelementptr inbounds i8, ptr %0, i64 8
+  %94 = load ptr, ptr %93, align 8
+  %95 = getelementptr inbounds i8, ptr %94, i64 16
   %96 = load ptr, ptr %95, align 8
-  %97 = getelementptr inbounds i8, ptr %96, i64 16
-  %98 = load ptr, ptr %97, align 8
-  %99 = getelementptr inbounds i8, ptr %98, i64 1
-  store i8 64, ptr %98, align 1
-  store ptr %99, ptr %97, align 8
-  br label %112
+  %97 = getelementptr inbounds i8, ptr %96, i64 1
+  store i8 64, ptr %96, align 1
+  store ptr %97, ptr %95, align 8
+  br label %110
 
-100:                                              ; preds = %70
-  %101 = getelementptr inbounds i8, ptr %0, i64 8
+98:                                               ; preds = %68
+  %99 = getelementptr inbounds i8, ptr %0, i64 8
+  %100 = load ptr, ptr %99, align 8
+  %101 = getelementptr inbounds i8, ptr %100, i64 16
   %102 = load ptr, ptr %101, align 8
-  %103 = getelementptr inbounds i8, ptr %102, i64 16
-  %104 = load ptr, ptr %103, align 8
-  %105 = getelementptr inbounds i8, ptr %104, i64 1
-  br i1 %73, label %106, label %109
+  %103 = getelementptr inbounds i8, ptr %102, i64 1
+  br i1 %71, label %104, label %107
 
-106:                                              ; preds = %100
-  br i1 %75, label %107, label %108
+104:                                              ; preds = %98
+  br i1 %73, label %105, label %106
 
-107:                                              ; preds = %106
-  store i8 71, ptr %104, align 1
-  store ptr %105, ptr %103, align 8
-  br label %112
+105:                                              ; preds = %104
+  store i8 71, ptr %102, align 1
+  store ptr %103, ptr %101, align 8
+  br label %110
 
-108:                                              ; preds = %106
-  store i8 69, ptr %104, align 1
-  store ptr %105, ptr %103, align 8
-  br label %112
+106:                                              ; preds = %104
+  store i8 69, ptr %102, align 1
+  store ptr %103, ptr %101, align 8
+  br label %110
 
-109:                                              ; preds = %100
-  br i1 %75, label %110, label %111
+107:                                              ; preds = %98
+  br i1 %73, label %108, label %109
 
-110:                                              ; preds = %109
-  store i8 70, ptr %104, align 1
-  store ptr %105, ptr %103, align 8
-  br label %112
+108:                                              ; preds = %107
+  store i8 70, ptr %102, align 1
+  store ptr %103, ptr %101, align 8
+  br label %110
 
-111:                                              ; preds = %109
-  store i8 68, ptr %104, align 1
-  store ptr %105, ptr %103, align 8
-  br label %112
+109:                                              ; preds = %107
+  store i8 68, ptr %102, align 1
+  store ptr %103, ptr %101, align 8
+  br label %110
 
-112:                                              ; preds = %108, %107, %111, %110, %84, %83, %92, %94, %86
-  br i1 %4, label %113, label %118
+110:                                              ; preds = %106, %105, %109, %108, %82, %81, %90, %92, %84
+  br i1 %4, label %111, label %116
 
-113:                                              ; preds = %112
-  %114 = getelementptr inbounds i8, ptr %0, i64 8
+111:                                              ; preds = %110
+  %112 = getelementptr inbounds i8, ptr %0, i64 8
   br label %.sink.split
 
-.sink.split:                                      ; preds = %_ZN9Assembler11prefix_rex2E7Address8Registerbb.exit, %113
-  %.sink12.in = phi ptr [ %114, %113 ], [ %65, %_ZN9Assembler11prefix_rex2E7Address8Registerbb.exit ]
-  %.sink9 = phi i8 [ 15, %113 ], [ %.0.i.i2.i.i, %_ZN9Assembler11prefix_rex2E7Address8Registerbb.exit ]
+.sink.split:                                      ; preds = %_ZN9Assembler11prefix_rex2E7Address8Registerbb.exit, %111
+  %.sink12.in = phi ptr [ %112, %111 ], [ %63, %_ZN9Assembler11prefix_rex2E7Address8Registerbb.exit ]
+  %.sink9 = phi i8 [ 15, %111 ], [ %.0.i.i2.i.i, %_ZN9Assembler11prefix_rex2E7Address8Registerbb.exit ]
   %.sink12 = load ptr, ptr %.sink12.in, align 8
-  %115 = getelementptr inbounds i8, ptr %.sink12, i64 16
-  %116 = load ptr, ptr %115, align 8
-  %117 = getelementptr inbounds i8, ptr %116, i64 1
-  store i8 %.sink9, ptr %116, align 1
-  store ptr %117, ptr %115, align 8
-  br label %118
+  %113 = getelementptr inbounds i8, ptr %.sink12, i64 16
+  %114 = load ptr, ptr %113, align 8
+  %115 = getelementptr inbounds i8, ptr %114, i64 1
+  store i8 %.sink9, ptr %114, align 1
+  store ptr %115, ptr %113, align 8
+  br label %116
 
-118:                                              ; preds = %.sink.split, %112
+116:                                              ; preds = %.sink.split, %110
   ret void
 }
 
@@ -4203,42 +4203,42 @@ define hidden void @_ZN9Assembler5addsdE11XMMRegisterS0_(ptr noundef nonnull ali
   %32 = trunc i64 %31 to i32
   %33 = sub i32 %32, ptrtoint (ptr getelementptr inbounds (i8, ptr @all_XMMRegisterImpls, i64 1) to i32)
   %34 = icmp sgt i32 %9, 0
-  br i1 %34, label %35, label %38
+  br i1 %34, label %35, label %37
 
 35:                                               ; preds = %3
-  %36 = icmp ult i32 %28, 32
-  %spec.select.i = select i1 %36, i32 %28, i32 0
-  %37 = call noundef i32 @_ZN9Assembler21vex_prefix_and_encodeEiiiNS_13VexSimdPrefixENS_9VexOpcodeEP15InstructionAttrb(ptr noundef nonnull align 8 dereferenceable(40) %0, i32 noundef %28, i32 noundef %spec.select.i, i32 noundef %33, i32 noundef 3, i32 noundef 1, ptr noundef nonnull %4, i1 noundef zeroext false)
+  %spec.select.i.i = icmp ult i32 %28, 32
+  %spec.select.i = select i1 %spec.select.i.i, i32 %28, i32 0
+  %36 = call noundef i32 @_ZN9Assembler21vex_prefix_and_encodeEiiiNS_13VexSimdPrefixENS_9VexOpcodeEP15InstructionAttrb(ptr noundef nonnull align 8 dereferenceable(40) %0, i32 noundef %28, i32 noundef %spec.select.i, i32 noundef %33, i32 noundef 3, i32 noundef 1, ptr noundef nonnull %4, i1 noundef zeroext false)
   br label %_ZN9Assembler22simd_prefix_and_encodeE11XMMRegisterS0_S0_NS_13VexSimdPrefixENS_9VexOpcodeEP15InstructionAttrb.exit
 
-38:                                               ; preds = %3
-  %39 = icmp ne i64 %6, 0
-  %40 = tail call noundef i32 @_ZN9Assembler21rex_prefix_and_encodeEiiNS_13VexSimdPrefixENS_9VexOpcodeEb(ptr noundef nonnull align 8 dereferenceable(40) %0, i32 noundef %28, i32 noundef %33, i32 noundef 3, i32 noundef 1, i1 noundef zeroext %39)
+37:                                               ; preds = %3
+  %38 = icmp ne i64 %6, 0
+  %39 = tail call noundef i32 @_ZN9Assembler21rex_prefix_and_encodeEiiNS_13VexSimdPrefixENS_9VexOpcodeEb(ptr noundef nonnull align 8 dereferenceable(40) %0, i32 noundef %28, i32 noundef %33, i32 noundef 3, i32 noundef 1, i1 noundef zeroext %38)
   br label %_ZN9Assembler22simd_prefix_and_encodeE11XMMRegisterS0_S0_NS_13VexSimdPrefixENS_9VexOpcodeEP15InstructionAttrb.exit
 
-_ZN9Assembler22simd_prefix_and_encodeE11XMMRegisterS0_S0_NS_13VexSimdPrefixENS_9VexOpcodeEP15InstructionAttrb.exit: ; preds = %35, %38
-  %.0.i = phi i32 [ %37, %35 ], [ %40, %38 ]
-  %41 = getelementptr inbounds i8, ptr %0, i64 8
-  %42 = load ptr, ptr %41, align 8
-  %43 = trunc i32 %.0.i to i8
-  %.0.i2.i = or i8 %43, -64
-  %44 = getelementptr inbounds i8, ptr %42, i64 16
-  %45 = load ptr, ptr %44, align 8
-  %46 = getelementptr inbounds i8, ptr %45, i64 1
-  store i8 88, ptr %45, align 1
-  %47 = getelementptr inbounds i8, ptr %45, i64 2
-  store i8 %.0.i2.i, ptr %46, align 1
-  store ptr %47, ptr %44, align 8
-  %48 = load ptr, ptr %23, align 8
-  %.not.i = icmp eq ptr %48, null
-  br i1 %.not.i, label %_ZN15InstructionAttrD2Ev.exit, label %49
+_ZN9Assembler22simd_prefix_and_encodeE11XMMRegisterS0_S0_NS_13VexSimdPrefixENS_9VexOpcodeEP15InstructionAttrb.exit: ; preds = %35, %37
+  %.0.i = phi i32 [ %36, %35 ], [ %39, %37 ]
+  %40 = getelementptr inbounds i8, ptr %0, i64 8
+  %41 = load ptr, ptr %40, align 8
+  %42 = trunc i32 %.0.i to i8
+  %.0.i2.i = or i8 %42, -64
+  %43 = getelementptr inbounds i8, ptr %41, i64 16
+  %44 = load ptr, ptr %43, align 8
+  %45 = getelementptr inbounds i8, ptr %44, i64 1
+  store i8 88, ptr %44, align 1
+  %46 = getelementptr inbounds i8, ptr %44, i64 2
+  store i8 %.0.i2.i, ptr %45, align 1
+  store ptr %46, ptr %43, align 8
+  %47 = load ptr, ptr %23, align 8
+  %.not.i = icmp eq ptr %47, null
+  br i1 %.not.i, label %_ZN15InstructionAttrD2Ev.exit, label %48
 
-49:                                               ; preds = %_ZN9Assembler22simd_prefix_and_encodeE11XMMRegisterS0_S0_NS_13VexSimdPrefixENS_9VexOpcodeEP15InstructionAttrb.exit
-  %50 = getelementptr inbounds i8, ptr %48, i64 32
-  store ptr null, ptr %50, align 8
+48:                                               ; preds = %_ZN9Assembler22simd_prefix_and_encodeE11XMMRegisterS0_S0_NS_13VexSimdPrefixENS_9VexOpcodeEP15InstructionAttrb.exit
+  %49 = getelementptr inbounds i8, ptr %47, i64 32
+  store ptr null, ptr %49, align 8
   br label %_ZN15InstructionAttrD2Ev.exit
 
-_ZN15InstructionAttrD2Ev.exit:                    ; preds = %_ZN9Assembler22simd_prefix_and_encodeE11XMMRegisterS0_S0_NS_13VexSimdPrefixENS_9VexOpcodeEP15InstructionAttrb.exit, %49
+_ZN15InstructionAttrD2Ev.exit:                    ; preds = %_ZN9Assembler22simd_prefix_and_encodeE11XMMRegisterS0_S0_NS_13VexSimdPrefixENS_9VexOpcodeEP15InstructionAttrb.exit, %48
   ret void
 }
 
@@ -4256,7 +4256,7 @@ define hidden noundef i32 @_ZN9Assembler22simd_prefix_and_encodeE11XMMRegisterS0
   %18 = sub i32 %17, ptrtoint (ptr getelementptr inbounds (i8, ptr @all_XMMRegisterImpls, i64 1) to i32)
   %19 = load i32, ptr @UseAVX, align 4
   %20 = icmp sgt i32 %19, 0
-  br i1 %20, label %21, label %29
+  br i1 %20, label %21, label %28
 
 21:                                               ; preds = %8
   %22 = sext i32 %2 to i64
@@ -4264,19 +4264,19 @@ define hidden noundef i32 @_ZN9Assembler22simd_prefix_and_encodeE11XMMRegisterS0
   %24 = ptrtoint ptr %23 to i64
   %25 = trunc i64 %24 to i32
   %26 = sub i32 %25, ptrtoint (ptr getelementptr inbounds (i8, ptr @all_XMMRegisterImpls, i64 1) to i32)
-  %27 = icmp ult i32 %26, 32
-  %spec.select = select i1 %27, i32 %26, i32 0
-  %28 = tail call noundef i32 @_ZN9Assembler21vex_prefix_and_encodeEiiiNS_13VexSimdPrefixENS_9VexOpcodeEP15InstructionAttrb(ptr noundef nonnull align 8 dereferenceable(40) %0, i32 noundef %13, i32 noundef %spec.select, i32 noundef %18, i32 noundef %4, i32 noundef %5, ptr noundef %6, i1 noundef zeroext %7)
-  br label %33
+  %spec.select.i = icmp ult i32 %26, 32
+  %spec.select = select i1 %spec.select.i, i32 %26, i32 0
+  %27 = tail call noundef i32 @_ZN9Assembler21vex_prefix_and_encodeEiiiNS_13VexSimdPrefixENS_9VexOpcodeEP15InstructionAttrb(ptr noundef nonnull align 8 dereferenceable(40) %0, i32 noundef %13, i32 noundef %spec.select, i32 noundef %18, i32 noundef %4, i32 noundef %5, ptr noundef %6, i1 noundef zeroext %7)
+  br label %32
 
-29:                                               ; preds = %8
-  %30 = load i8, ptr %6, align 8
-  %31 = trunc i8 %30 to i1
-  %32 = tail call noundef i32 @_ZN9Assembler21rex_prefix_and_encodeEiiNS_13VexSimdPrefixENS_9VexOpcodeEb(ptr noundef nonnull align 8 dereferenceable(40) %0, i32 noundef %13, i32 noundef %18, i32 noundef %4, i32 noundef %5, i1 noundef zeroext %31)
-  br label %33
+28:                                               ; preds = %8
+  %29 = load i8, ptr %6, align 8
+  %30 = trunc i8 %29 to i1
+  %31 = tail call noundef i32 @_ZN9Assembler21rex_prefix_and_encodeEiiNS_13VexSimdPrefixENS_9VexOpcodeEb(ptr noundef nonnull align 8 dereferenceable(40) %0, i32 noundef %13, i32 noundef %18, i32 noundef %4, i32 noundef %5, i1 noundef zeroext %30)
+  br label %32
 
-33:                                               ; preds = %29, %21
-  %.0 = phi i32 [ %28, %21 ], [ %32, %29 ]
+32:                                               ; preds = %28, %21
+  %.0 = phi i32 [ %27, %21 ], [ %31, %28 ]
   ret i32 %.0
 }
 
@@ -4428,7 +4428,7 @@ define hidden void @_ZN9Assembler11simd_prefixE11XMMRegisterS0_7AddressNS_13VexS
   %11 = alloca %class.Address, align 8
   %12 = load i32, ptr @UseAVX, align 4
   %13 = icmp sgt i32 %12, 0
-  br i1 %13, label %14, label %31
+  br i1 %13, label %14, label %30
 
 14:                                               ; preds = %7
   %15 = sext i32 %1 to i64
@@ -4441,105 +4441,105 @@ define hidden void @_ZN9Assembler11simd_prefixE11XMMRegisterS0_7AddressNS_13VexS
   %22 = ptrtoint ptr %21 to i64
   %23 = trunc i64 %22 to i32
   %24 = sub i32 %23, ptrtoint (ptr getelementptr inbounds (i8, ptr @all_XMMRegisterImpls, i64 1) to i32)
-  %25 = icmp ult i32 %24, 32
-  %spec.select = select i1 %25, i32 %24, i32 0
+  %spec.select.i = icmp ult i32 %24, 32
+  %spec.select = select i1 %spec.select.i, i32 %24, i32 0
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %10, ptr noundef nonnull align 8 dereferenceable(64) %3, i64 21, i1 false)
-  %26 = getelementptr inbounds i8, ptr %10, i64 24
-  %27 = getelementptr inbounds i8, ptr %3, i64 24
-  %28 = load ptr, ptr %27, align 8
-  %29 = getelementptr inbounds i8, ptr %28, i64 16
-  %30 = load ptr, ptr %29, align 8
-  call void %30(ptr noundef nonnull align 8 dereferenceable(40) %27, ptr noundef nonnull align 8 dereferenceable(40) %26) #18
+  %25 = getelementptr inbounds i8, ptr %10, i64 24
+  %26 = getelementptr inbounds i8, ptr %3, i64 24
+  %27 = load ptr, ptr %26, align 8
+  %28 = getelementptr inbounds i8, ptr %27, i64 16
+  %29 = load ptr, ptr %28, align 8
+  call void %29(ptr noundef nonnull align 8 dereferenceable(40) %26, ptr noundef nonnull align 8 dereferenceable(40) %25) #18
   call void @_ZN9Assembler10vex_prefixE7AddressiiNS_13VexSimdPrefixENS_9VexOpcodeEP15InstructionAttr(ptr noundef nonnull align 8 dereferenceable(40) %0, ptr noundef nonnull %10, i32 noundef %spec.select, i32 noundef %19, i32 noundef %4, i32 noundef %5, ptr noundef %6)
-  br label %78
+  br label %77
 
-31:                                               ; preds = %7
+30:                                               ; preds = %7
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %11, ptr noundef nonnull align 8 dereferenceable(64) %3, i64 21, i1 false)
-  %32 = getelementptr inbounds i8, ptr %11, i64 24
-  %33 = getelementptr inbounds i8, ptr %3, i64 24
-  %34 = load ptr, ptr %33, align 8
-  %35 = getelementptr inbounds i8, ptr %34, i64 16
-  %36 = load ptr, ptr %35, align 8
-  call void %36(ptr noundef nonnull align 8 dereferenceable(40) %33, ptr noundef nonnull align 8 dereferenceable(40) %32) #18
-  %37 = load i8, ptr %6, align 8
-  %38 = trunc i8 %37 to i1
+  %31 = getelementptr inbounds i8, ptr %11, i64 24
+  %32 = getelementptr inbounds i8, ptr %3, i64 24
+  %33 = load ptr, ptr %32, align 8
+  %34 = getelementptr inbounds i8, ptr %33, i64 16
+  %35 = load ptr, ptr %34, align 8
+  call void %35(ptr noundef nonnull align 8 dereferenceable(40) %32, ptr noundef nonnull align 8 dereferenceable(40) %31) #18
+  %36 = load i8, ptr %6, align 8
+  %37 = trunc i8 %36 to i1
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %8)
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %9)
-  %39 = icmp sgt i32 %4, 0
-  br i1 %39, label %40, label %49
+  %38 = icmp sgt i32 %4, 0
+  br i1 %38, label %39, label %48
 
-40:                                               ; preds = %31
-  %41 = zext nneg i32 %4 to i64
-  %42 = getelementptr inbounds [4 x i32], ptr @_ZL8simd_pre, i64 0, i64 %41
-  %43 = load i32, ptr %42, align 4
-  %44 = getelementptr inbounds i8, ptr %0, i64 8
-  %45 = load ptr, ptr %44, align 8
-  %.0.i.i.i = trunc i32 %43 to i8
-  %46 = getelementptr inbounds i8, ptr %45, i64 16
-  %47 = load ptr, ptr %46, align 8
-  %48 = getelementptr inbounds i8, ptr %47, i64 1
-  store i8 %.0.i.i.i, ptr %47, align 1
-  store ptr %48, ptr %46, align 8
-  br label %49
+39:                                               ; preds = %30
+  %40 = zext nneg i32 %4 to i64
+  %41 = getelementptr inbounds [4 x i32], ptr @_ZL8simd_pre, i64 0, i64 %40
+  %42 = load i32, ptr %41, align 4
+  %43 = getelementptr inbounds i8, ptr %0, i64 8
+  %44 = load ptr, ptr %43, align 8
+  %.0.i.i.i = trunc i32 %42 to i8
+  %45 = getelementptr inbounds i8, ptr %44, i64 16
+  %46 = load ptr, ptr %45, align 8
+  %47 = getelementptr inbounds i8, ptr %46, i64 1
+  store i8 %.0.i.i.i, ptr %46, align 1
+  store ptr %47, ptr %45, align 8
+  br label %48
 
-49:                                               ; preds = %40, %31
-  br i1 %38, label %50, label %55
+48:                                               ; preds = %39, %30
+  br i1 %37, label %49, label %54
 
-50:                                               ; preds = %49
+49:                                               ; preds = %48
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %8, ptr noundef nonnull align 8 dereferenceable(64) %11, i64 21, i1 false)
-  %51 = getelementptr inbounds i8, ptr %8, i64 24
-  %52 = load ptr, ptr %32, align 8
-  %53 = getelementptr inbounds i8, ptr %52, i64 16
-  %54 = load ptr, ptr %53, align 8
-  call void %54(ptr noundef nonnull align 8 dereferenceable(40) %32, ptr noundef nonnull align 8 dereferenceable(40) %51) #18
+  %50 = getelementptr inbounds i8, ptr %8, i64 24
+  %51 = load ptr, ptr %31, align 8
+  %52 = getelementptr inbounds i8, ptr %51, i64 16
+  %53 = load ptr, ptr %52, align 8
+  call void %53(ptr noundef nonnull align 8 dereferenceable(40) %31, ptr noundef nonnull align 8 dereferenceable(40) %50) #18
   call void @_ZN9Assembler7prefixqE7Address11XMMRegister(ptr noundef nonnull readonly align 8 dereferenceable(40) %0, ptr noundef nonnull %8, i32 %1)
-  br label %60
+  br label %59
 
-55:                                               ; preds = %49
+54:                                               ; preds = %48
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %9, ptr noundef nonnull align 8 dereferenceable(64) %11, i64 21, i1 false)
-  %56 = getelementptr inbounds i8, ptr %9, i64 24
-  %57 = load ptr, ptr %32, align 8
-  %58 = getelementptr inbounds i8, ptr %57, i64 16
-  %59 = load ptr, ptr %58, align 8
-  call void %59(ptr noundef nonnull align 8 dereferenceable(40) %32, ptr noundef nonnull align 8 dereferenceable(40) %56) #18
+  %55 = getelementptr inbounds i8, ptr %9, i64 24
+  %56 = load ptr, ptr %31, align 8
+  %57 = getelementptr inbounds i8, ptr %56, i64 16
+  %58 = load ptr, ptr %57, align 8
+  call void %58(ptr noundef nonnull align 8 dereferenceable(40) %31, ptr noundef nonnull align 8 dereferenceable(40) %55) #18
   call void @_ZN9Assembler6prefixE7Address11XMMRegister(ptr noundef nonnull readonly align 8 dereferenceable(40) %0, ptr noundef nonnull %9, i32 %1)
-  br label %60
+  br label %59
 
-60:                                               ; preds = %55, %50
-  %61 = icmp sgt i32 %5, 0
-  br i1 %61, label %62, label %_ZN9Assembler10rex_prefixE7Address11XMMRegisterNS_13VexSimdPrefixENS_9VexOpcodeEb.exit
+59:                                               ; preds = %54, %49
+  %60 = icmp sgt i32 %5, 0
+  br i1 %60, label %61, label %_ZN9Assembler10rex_prefixE7Address11XMMRegisterNS_13VexSimdPrefixENS_9VexOpcodeEb.exit
 
-62:                                               ; preds = %60
-  %63 = getelementptr inbounds i8, ptr %0, i64 8
-  %64 = load ptr, ptr %63, align 8
-  %65 = getelementptr inbounds i8, ptr %64, i64 16
-  %66 = load ptr, ptr %65, align 8
-  %67 = getelementptr inbounds i8, ptr %66, i64 1
-  store i8 15, ptr %66, align 1
-  store ptr %67, ptr %65, align 8
-  %68 = and i32 %5, 2147483646
-  %69 = icmp eq i32 %68, 2
-  br i1 %69, label %70, label %_ZN9Assembler10rex_prefixE7Address11XMMRegisterNS_13VexSimdPrefixENS_9VexOpcodeEb.exit
+61:                                               ; preds = %59
+  %62 = getelementptr inbounds i8, ptr %0, i64 8
+  %63 = load ptr, ptr %62, align 8
+  %64 = getelementptr inbounds i8, ptr %63, i64 16
+  %65 = load ptr, ptr %64, align 8
+  %66 = getelementptr inbounds i8, ptr %65, i64 1
+  store i8 15, ptr %65, align 1
+  store ptr %66, ptr %64, align 8
+  %67 = and i32 %5, 2147483646
+  %68 = icmp eq i32 %67, 2
+  br i1 %68, label %69, label %_ZN9Assembler10rex_prefixE7Address11XMMRegisterNS_13VexSimdPrefixENS_9VexOpcodeEb.exit
 
-70:                                               ; preds = %62
-  %71 = zext nneg i32 %5 to i64
-  %72 = getelementptr inbounds [4 x i32], ptr @_ZL8simd_opc, i64 0, i64 %71
-  %73 = load i32, ptr %72, align 4
-  %74 = load ptr, ptr %63, align 8
-  %.0.i.i12.i = trunc i32 %73 to i8
-  %75 = getelementptr inbounds i8, ptr %74, i64 16
-  %76 = load ptr, ptr %75, align 8
-  %77 = getelementptr inbounds i8, ptr %76, i64 1
-  store i8 %.0.i.i12.i, ptr %76, align 1
-  store ptr %77, ptr %75, align 8
+69:                                               ; preds = %61
+  %70 = zext nneg i32 %5 to i64
+  %71 = getelementptr inbounds [4 x i32], ptr @_ZL8simd_opc, i64 0, i64 %70
+  %72 = load i32, ptr %71, align 4
+  %73 = load ptr, ptr %62, align 8
+  %.0.i.i12.i = trunc i32 %72 to i8
+  %74 = getelementptr inbounds i8, ptr %73, i64 16
+  %75 = load ptr, ptr %74, align 8
+  %76 = getelementptr inbounds i8, ptr %75, i64 1
+  store i8 %.0.i.i12.i, ptr %75, align 1
+  store ptr %76, ptr %74, align 8
   br label %_ZN9Assembler10rex_prefixE7Address11XMMRegisterNS_13VexSimdPrefixENS_9VexOpcodeEb.exit
 
-_ZN9Assembler10rex_prefixE7Address11XMMRegisterNS_13VexSimdPrefixENS_9VexOpcodeEb.exit: ; preds = %60, %62, %70
+_ZN9Assembler10rex_prefixE7Address11XMMRegisterNS_13VexSimdPrefixENS_9VexOpcodeEb.exit: ; preds = %59, %61, %69
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %8)
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %9)
-  br label %78
+  br label %77
 
-78:                                               ; preds = %_ZN9Assembler10rex_prefixE7Address11XMMRegisterNS_13VexSimdPrefixENS_9VexOpcodeEb.exit, %14
+77:                                               ; preds = %_ZN9Assembler10rex_prefixE7Address11XMMRegisterNS_13VexSimdPrefixENS_9VexOpcodeEb.exit, %14
   ret void
 }
 
@@ -4587,41 +4587,41 @@ define hidden void @_ZN9Assembler5addssE11XMMRegisterS0_(ptr noundef nonnull ali
   %29 = trunc i64 %28 to i32
   %30 = sub i32 %29, ptrtoint (ptr getelementptr inbounds (i8, ptr @all_XMMRegisterImpls, i64 1) to i32)
   %31 = icmp sgt i32 %6, 0
-  br i1 %31, label %32, label %35
+  br i1 %31, label %32, label %34
 
 32:                                               ; preds = %3
-  %33 = icmp ult i32 %25, 32
-  %spec.select.i = select i1 %33, i32 %25, i32 0
-  %34 = call noundef i32 @_ZN9Assembler21vex_prefix_and_encodeEiiiNS_13VexSimdPrefixENS_9VexOpcodeEP15InstructionAttrb(ptr noundef nonnull align 8 dereferenceable(40) %0, i32 noundef %25, i32 noundef %spec.select.i, i32 noundef %30, i32 noundef 2, i32 noundef 1, ptr noundef nonnull %4, i1 noundef zeroext false)
+  %spec.select.i.i = icmp ult i32 %25, 32
+  %spec.select.i = select i1 %spec.select.i.i, i32 %25, i32 0
+  %33 = call noundef i32 @_ZN9Assembler21vex_prefix_and_encodeEiiiNS_13VexSimdPrefixENS_9VexOpcodeEP15InstructionAttrb(ptr noundef nonnull align 8 dereferenceable(40) %0, i32 noundef %25, i32 noundef %spec.select.i, i32 noundef %30, i32 noundef 2, i32 noundef 1, ptr noundef nonnull %4, i1 noundef zeroext false)
   br label %_ZN9Assembler22simd_prefix_and_encodeE11XMMRegisterS0_S0_NS_13VexSimdPrefixENS_9VexOpcodeEP15InstructionAttrb.exit
 
-35:                                               ; preds = %3
-  %36 = tail call noundef i32 @_ZN9Assembler21rex_prefix_and_encodeEiiNS_13VexSimdPrefixENS_9VexOpcodeEb(ptr noundef nonnull align 8 dereferenceable(40) %0, i32 noundef %25, i32 noundef %30, i32 noundef 2, i32 noundef 1, i1 noundef zeroext false)
+34:                                               ; preds = %3
+  %35 = tail call noundef i32 @_ZN9Assembler21rex_prefix_and_encodeEiiNS_13VexSimdPrefixENS_9VexOpcodeEb(ptr noundef nonnull align 8 dereferenceable(40) %0, i32 noundef %25, i32 noundef %30, i32 noundef 2, i32 noundef 1, i1 noundef zeroext false)
   br label %_ZN9Assembler22simd_prefix_and_encodeE11XMMRegisterS0_S0_NS_13VexSimdPrefixENS_9VexOpcodeEP15InstructionAttrb.exit
 
-_ZN9Assembler22simd_prefix_and_encodeE11XMMRegisterS0_S0_NS_13VexSimdPrefixENS_9VexOpcodeEP15InstructionAttrb.exit: ; preds = %32, %35
-  %.0.i = phi i32 [ %34, %32 ], [ %36, %35 ]
-  %37 = getelementptr inbounds i8, ptr %0, i64 8
-  %38 = load ptr, ptr %37, align 8
-  %39 = trunc i32 %.0.i to i8
-  %.0.i2.i = or i8 %39, -64
-  %40 = getelementptr inbounds i8, ptr %38, i64 16
-  %41 = load ptr, ptr %40, align 8
-  %42 = getelementptr inbounds i8, ptr %41, i64 1
-  store i8 88, ptr %41, align 1
-  %43 = getelementptr inbounds i8, ptr %41, i64 2
-  store i8 %.0.i2.i, ptr %42, align 1
-  store ptr %43, ptr %40, align 8
-  %44 = load ptr, ptr %20, align 8
-  %.not.i = icmp eq ptr %44, null
-  br i1 %.not.i, label %_ZN15InstructionAttrD2Ev.exit, label %45
+_ZN9Assembler22simd_prefix_and_encodeE11XMMRegisterS0_S0_NS_13VexSimdPrefixENS_9VexOpcodeEP15InstructionAttrb.exit: ; preds = %32, %34
+  %.0.i = phi i32 [ %33, %32 ], [ %35, %34 ]
+  %36 = getelementptr inbounds i8, ptr %0, i64 8
+  %37 = load ptr, ptr %36, align 8
+  %38 = trunc i32 %.0.i to i8
+  %.0.i2.i = or i8 %38, -64
+  %39 = getelementptr inbounds i8, ptr %37, i64 16
+  %40 = load ptr, ptr %39, align 8
+  %41 = getelementptr inbounds i8, ptr %40, i64 1
+  store i8 88, ptr %40, align 1
+  %42 = getelementptr inbounds i8, ptr %40, i64 2
+  store i8 %.0.i2.i, ptr %41, align 1
+  store ptr %42, ptr %39, align 8
+  %43 = load ptr, ptr %20, align 8
+  %.not.i = icmp eq ptr %43, null
+  br i1 %.not.i, label %_ZN15InstructionAttrD2Ev.exit, label %44
 
-45:                                               ; preds = %_ZN9Assembler22simd_prefix_and_encodeE11XMMRegisterS0_S0_NS_13VexSimdPrefixENS_9VexOpcodeEP15InstructionAttrb.exit
-  %46 = getelementptr inbounds i8, ptr %44, i64 32
-  store ptr null, ptr %46, align 8
+44:                                               ; preds = %_ZN9Assembler22simd_prefix_and_encodeE11XMMRegisterS0_S0_NS_13VexSimdPrefixENS_9VexOpcodeEP15InstructionAttrb.exit
+  %45 = getelementptr inbounds i8, ptr %43, i64 32
+  store ptr null, ptr %45, align 8
   br label %_ZN15InstructionAttrD2Ev.exit
 
-_ZN15InstructionAttrD2Ev.exit:                    ; preds = %_ZN9Assembler22simd_prefix_and_encodeE11XMMRegisterS0_S0_NS_13VexSimdPrefixENS_9VexOpcodeEP15InstructionAttrb.exit, %45
+_ZN15InstructionAttrD2Ev.exit:                    ; preds = %_ZN9Assembler22simd_prefix_and_encodeE11XMMRegisterS0_S0_NS_13VexSimdPrefixENS_9VexOpcodeEP15InstructionAttrb.exit, %44
   ret void
 }
 
@@ -4894,41 +4894,41 @@ define hidden void @_ZN9Assembler6aesdecE11XMMRegisterS0_(ptr noundef nonnull al
   %27 = trunc i64 %26 to i32
   %28 = sub i32 %27, ptrtoint (ptr getelementptr inbounds (i8, ptr @all_XMMRegisterImpls, i64 1) to i32)
   %29 = icmp sgt i32 %6, 0
-  br i1 %29, label %30, label %33
+  br i1 %29, label %30, label %32
 
 30:                                               ; preds = %3
-  %31 = icmp ult i32 %23, 32
-  %spec.select.i = select i1 %31, i32 %23, i32 0
-  %32 = call noundef i32 @_ZN9Assembler21vex_prefix_and_encodeEiiiNS_13VexSimdPrefixENS_9VexOpcodeEP15InstructionAttrb(ptr noundef nonnull align 8 dereferenceable(40) %0, i32 noundef %23, i32 noundef %spec.select.i, i32 noundef %28, i32 noundef 1, i32 noundef 2, ptr noundef nonnull %4, i1 noundef zeroext false)
+  %spec.select.i.i = icmp ult i32 %23, 32
+  %spec.select.i = select i1 %spec.select.i.i, i32 %23, i32 0
+  %31 = call noundef i32 @_ZN9Assembler21vex_prefix_and_encodeEiiiNS_13VexSimdPrefixENS_9VexOpcodeEP15InstructionAttrb(ptr noundef nonnull align 8 dereferenceable(40) %0, i32 noundef %23, i32 noundef %spec.select.i, i32 noundef %28, i32 noundef 1, i32 noundef 2, ptr noundef nonnull %4, i1 noundef zeroext false)
   br label %_ZN9Assembler22simd_prefix_and_encodeE11XMMRegisterS0_S0_NS_13VexSimdPrefixENS_9VexOpcodeEP15InstructionAttrb.exit
 
-33:                                               ; preds = %3
-  %34 = tail call noundef i32 @_ZN9Assembler21rex_prefix_and_encodeEiiNS_13VexSimdPrefixENS_9VexOpcodeEb(ptr noundef nonnull align 8 dereferenceable(40) %0, i32 noundef %23, i32 noundef %28, i32 noundef 1, i32 noundef 2, i1 noundef zeroext false)
+32:                                               ; preds = %3
+  %33 = tail call noundef i32 @_ZN9Assembler21rex_prefix_and_encodeEiiNS_13VexSimdPrefixENS_9VexOpcodeEb(ptr noundef nonnull align 8 dereferenceable(40) %0, i32 noundef %23, i32 noundef %28, i32 noundef 1, i32 noundef 2, i1 noundef zeroext false)
   br label %_ZN9Assembler22simd_prefix_and_encodeE11XMMRegisterS0_S0_NS_13VexSimdPrefixENS_9VexOpcodeEP15InstructionAttrb.exit
 
-_ZN9Assembler22simd_prefix_and_encodeE11XMMRegisterS0_S0_NS_13VexSimdPrefixENS_9VexOpcodeEP15InstructionAttrb.exit: ; preds = %30, %33
-  %.0.i = phi i32 [ %32, %30 ], [ %34, %33 ]
-  %35 = getelementptr inbounds i8, ptr %0, i64 8
-  %36 = load ptr, ptr %35, align 8
-  %37 = trunc i32 %.0.i to i8
-  %.0.i2.i = or i8 %37, -64
-  %38 = getelementptr inbounds i8, ptr %36, i64 16
-  %39 = load ptr, ptr %38, align 8
-  %40 = getelementptr inbounds i8, ptr %39, i64 1
-  store i8 -34, ptr %39, align 1
-  %41 = getelementptr inbounds i8, ptr %39, i64 2
-  store i8 %.0.i2.i, ptr %40, align 1
-  store ptr %41, ptr %38, align 8
-  %42 = load ptr, ptr %18, align 8
-  %.not.i = icmp eq ptr %42, null
-  br i1 %.not.i, label %_ZN15InstructionAttrD2Ev.exit, label %43
+_ZN9Assembler22simd_prefix_and_encodeE11XMMRegisterS0_S0_NS_13VexSimdPrefixENS_9VexOpcodeEP15InstructionAttrb.exit: ; preds = %30, %32
+  %.0.i = phi i32 [ %31, %30 ], [ %33, %32 ]
+  %34 = getelementptr inbounds i8, ptr %0, i64 8
+  %35 = load ptr, ptr %34, align 8
+  %36 = trunc i32 %.0.i to i8
+  %.0.i2.i = or i8 %36, -64
+  %37 = getelementptr inbounds i8, ptr %35, i64 16
+  %38 = load ptr, ptr %37, align 8
+  %39 = getelementptr inbounds i8, ptr %38, i64 1
+  store i8 -34, ptr %38, align 1
+  %40 = getelementptr inbounds i8, ptr %38, i64 2
+  store i8 %.0.i2.i, ptr %39, align 1
+  store ptr %40, ptr %37, align 8
+  %41 = load ptr, ptr %18, align 8
+  %.not.i = icmp eq ptr %41, null
+  br i1 %.not.i, label %_ZN15InstructionAttrD2Ev.exit, label %42
 
-43:                                               ; preds = %_ZN9Assembler22simd_prefix_and_encodeE11XMMRegisterS0_S0_NS_13VexSimdPrefixENS_9VexOpcodeEP15InstructionAttrb.exit
-  %44 = getelementptr inbounds i8, ptr %42, i64 32
-  store ptr null, ptr %44, align 8
+42:                                               ; preds = %_ZN9Assembler22simd_prefix_and_encodeE11XMMRegisterS0_S0_NS_13VexSimdPrefixENS_9VexOpcodeEP15InstructionAttrb.exit
+  %43 = getelementptr inbounds i8, ptr %41, i64 32
+  store ptr null, ptr %43, align 8
   br label %_ZN15InstructionAttrD2Ev.exit
 
-_ZN15InstructionAttrD2Ev.exit:                    ; preds = %_ZN9Assembler22simd_prefix_and_encodeE11XMMRegisterS0_S0_NS_13VexSimdPrefixENS_9VexOpcodeEP15InstructionAttrb.exit, %43
+_ZN15InstructionAttrD2Ev.exit:                    ; preds = %_ZN9Assembler22simd_prefix_and_encodeE11XMMRegisterS0_S0_NS_13VexSimdPrefixENS_9VexOpcodeEP15InstructionAttrb.exit, %42
   ret void
 }
 
@@ -5386,41 +5386,41 @@ define hidden void @_ZN9Assembler10aesdeclastE11XMMRegisterS0_(ptr noundef nonnu
   %27 = trunc i64 %26 to i32
   %28 = sub i32 %27, ptrtoint (ptr getelementptr inbounds (i8, ptr @all_XMMRegisterImpls, i64 1) to i32)
   %29 = icmp sgt i32 %6, 0
-  br i1 %29, label %30, label %33
+  br i1 %29, label %30, label %32
 
 30:                                               ; preds = %3
-  %31 = icmp ult i32 %23, 32
-  %spec.select.i = select i1 %31, i32 %23, i32 0
-  %32 = call noundef i32 @_ZN9Assembler21vex_prefix_and_encodeEiiiNS_13VexSimdPrefixENS_9VexOpcodeEP15InstructionAttrb(ptr noundef nonnull align 8 dereferenceable(40) %0, i32 noundef %23, i32 noundef %spec.select.i, i32 noundef %28, i32 noundef 1, i32 noundef 2, ptr noundef nonnull %4, i1 noundef zeroext false)
+  %spec.select.i.i = icmp ult i32 %23, 32
+  %spec.select.i = select i1 %spec.select.i.i, i32 %23, i32 0
+  %31 = call noundef i32 @_ZN9Assembler21vex_prefix_and_encodeEiiiNS_13VexSimdPrefixENS_9VexOpcodeEP15InstructionAttrb(ptr noundef nonnull align 8 dereferenceable(40) %0, i32 noundef %23, i32 noundef %spec.select.i, i32 noundef %28, i32 noundef 1, i32 noundef 2, ptr noundef nonnull %4, i1 noundef zeroext false)
   br label %_ZN9Assembler22simd_prefix_and_encodeE11XMMRegisterS0_S0_NS_13VexSimdPrefixENS_9VexOpcodeEP15InstructionAttrb.exit
 
-33:                                               ; preds = %3
-  %34 = tail call noundef i32 @_ZN9Assembler21rex_prefix_and_encodeEiiNS_13VexSimdPrefixENS_9VexOpcodeEb(ptr noundef nonnull align 8 dereferenceable(40) %0, i32 noundef %23, i32 noundef %28, i32 noundef 1, i32 noundef 2, i1 noundef zeroext false)
+32:                                               ; preds = %3
+  %33 = tail call noundef i32 @_ZN9Assembler21rex_prefix_and_encodeEiiNS_13VexSimdPrefixENS_9VexOpcodeEb(ptr noundef nonnull align 8 dereferenceable(40) %0, i32 noundef %23, i32 noundef %28, i32 noundef 1, i32 noundef 2, i1 noundef zeroext false)
   br label %_ZN9Assembler22simd_prefix_and_encodeE11XMMRegisterS0_S0_NS_13VexSimdPrefixENS_9VexOpcodeEP15InstructionAttrb.exit
 
-_ZN9Assembler22simd_prefix_and_encodeE11XMMRegisterS0_S0_NS_13VexSimdPrefixENS_9VexOpcodeEP15InstructionAttrb.exit: ; preds = %30, %33
-  %.0.i = phi i32 [ %32, %30 ], [ %34, %33 ]
-  %35 = getelementptr inbounds i8, ptr %0, i64 8
-  %36 = load ptr, ptr %35, align 8
-  %37 = trunc i32 %.0.i to i8
-  %.0.i2.i = or i8 %37, -64
-  %38 = getelementptr inbounds i8, ptr %36, i64 16
-  %39 = load ptr, ptr %38, align 8
-  %40 = getelementptr inbounds i8, ptr %39, i64 1
-  store i8 -33, ptr %39, align 1
-  %41 = getelementptr inbounds i8, ptr %39, i64 2
-  store i8 %.0.i2.i, ptr %40, align 1
-  store ptr %41, ptr %38, align 8
-  %42 = load ptr, ptr %18, align 8
-  %.not.i = icmp eq ptr %42, null
-  br i1 %.not.i, label %_ZN15InstructionAttrD2Ev.exit, label %43
+_ZN9Assembler22simd_prefix_and_encodeE11XMMRegisterS0_S0_NS_13VexSimdPrefixENS_9VexOpcodeEP15InstructionAttrb.exit: ; preds = %30, %32
+  %.0.i = phi i32 [ %31, %30 ], [ %33, %32 ]
+  %34 = getelementptr inbounds i8, ptr %0, i64 8
+  %35 = load ptr, ptr %34, align 8
+  %36 = trunc i32 %.0.i to i8
+  %.0.i2.i = or i8 %36, -64
+  %37 = getelementptr inbounds i8, ptr %35, i64 16
+  %38 = load ptr, ptr %37, align 8
+  %39 = getelementptr inbounds i8, ptr %38, i64 1
+  store i8 -33, ptr %38, align 1
+  %40 = getelementptr inbounds i8, ptr %38, i64 2
+  store i8 %.0.i2.i, ptr %39, align 1
+  store ptr %40, ptr %37, align 8
+  %41 = load ptr, ptr %18, align 8
+  %.not.i = icmp eq ptr %41, null
+  br i1 %.not.i, label %_ZN15InstructionAttrD2Ev.exit, label %42
 
-43:                                               ; preds = %_ZN9Assembler22simd_prefix_and_encodeE11XMMRegisterS0_S0_NS_13VexSimdPrefixENS_9VexOpcodeEP15InstructionAttrb.exit
-  %44 = getelementptr inbounds i8, ptr %42, i64 32
-  store ptr null, ptr %44, align 8
+42:                                               ; preds = %_ZN9Assembler22simd_prefix_and_encodeE11XMMRegisterS0_S0_NS_13VexSimdPrefixENS_9VexOpcodeEP15InstructionAttrb.exit
+  %43 = getelementptr inbounds i8, ptr %41, i64 32
+  store ptr null, ptr %43, align 8
   br label %_ZN15InstructionAttrD2Ev.exit
 
-_ZN15InstructionAttrD2Ev.exit:                    ; preds = %_ZN9Assembler22simd_prefix_and_encodeE11XMMRegisterS0_S0_NS_13VexSimdPrefixENS_9VexOpcodeEP15InstructionAttrb.exit, %43
+_ZN15InstructionAttrD2Ev.exit:                    ; preds = %_ZN9Assembler22simd_prefix_and_encodeE11XMMRegisterS0_S0_NS_13VexSimdPrefixENS_9VexOpcodeEP15InstructionAttrb.exit, %42
   ret void
 }
 
@@ -5646,41 +5646,41 @@ define hidden void @_ZN9Assembler6aesencE11XMMRegisterS0_(ptr noundef nonnull al
   %27 = trunc i64 %26 to i32
   %28 = sub i32 %27, ptrtoint (ptr getelementptr inbounds (i8, ptr @all_XMMRegisterImpls, i64 1) to i32)
   %29 = icmp sgt i32 %6, 0
-  br i1 %29, label %30, label %33
+  br i1 %29, label %30, label %32
 
 30:                                               ; preds = %3
-  %31 = icmp ult i32 %23, 32
-  %spec.select.i = select i1 %31, i32 %23, i32 0
-  %32 = call noundef i32 @_ZN9Assembler21vex_prefix_and_encodeEiiiNS_13VexSimdPrefixENS_9VexOpcodeEP15InstructionAttrb(ptr noundef nonnull align 8 dereferenceable(40) %0, i32 noundef %23, i32 noundef %spec.select.i, i32 noundef %28, i32 noundef 1, i32 noundef 2, ptr noundef nonnull %4, i1 noundef zeroext false)
+  %spec.select.i.i = icmp ult i32 %23, 32
+  %spec.select.i = select i1 %spec.select.i.i, i32 %23, i32 0
+  %31 = call noundef i32 @_ZN9Assembler21vex_prefix_and_encodeEiiiNS_13VexSimdPrefixENS_9VexOpcodeEP15InstructionAttrb(ptr noundef nonnull align 8 dereferenceable(40) %0, i32 noundef %23, i32 noundef %spec.select.i, i32 noundef %28, i32 noundef 1, i32 noundef 2, ptr noundef nonnull %4, i1 noundef zeroext false)
   br label %_ZN9Assembler22simd_prefix_and_encodeE11XMMRegisterS0_S0_NS_13VexSimdPrefixENS_9VexOpcodeEP15InstructionAttrb.exit
 
-33:                                               ; preds = %3
-  %34 = tail call noundef i32 @_ZN9Assembler21rex_prefix_and_encodeEiiNS_13VexSimdPrefixENS_9VexOpcodeEb(ptr noundef nonnull align 8 dereferenceable(40) %0, i32 noundef %23, i32 noundef %28, i32 noundef 1, i32 noundef 2, i1 noundef zeroext false)
+32:                                               ; preds = %3
+  %33 = tail call noundef i32 @_ZN9Assembler21rex_prefix_and_encodeEiiNS_13VexSimdPrefixENS_9VexOpcodeEb(ptr noundef nonnull align 8 dereferenceable(40) %0, i32 noundef %23, i32 noundef %28, i32 noundef 1, i32 noundef 2, i1 noundef zeroext false)
   br label %_ZN9Assembler22simd_prefix_and_encodeE11XMMRegisterS0_S0_NS_13VexSimdPrefixENS_9VexOpcodeEP15InstructionAttrb.exit
 
-_ZN9Assembler22simd_prefix_and_encodeE11XMMRegisterS0_S0_NS_13VexSimdPrefixENS_9VexOpcodeEP15InstructionAttrb.exit: ; preds = %30, %33
-  %.0.i = phi i32 [ %32, %30 ], [ %34, %33 ]
-  %35 = getelementptr inbounds i8, ptr %0, i64 8
-  %36 = load ptr, ptr %35, align 8
-  %37 = trunc i32 %.0.i to i8
-  %.0.i2.i = or i8 %37, -64
-  %38 = getelementptr inbounds i8, ptr %36, i64 16
-  %39 = load ptr, ptr %38, align 8
-  %40 = getelementptr inbounds i8, ptr %39, i64 1
-  store i8 -36, ptr %39, align 1
-  %41 = getelementptr inbounds i8, ptr %39, i64 2
-  store i8 %.0.i2.i, ptr %40, align 1
-  store ptr %41, ptr %38, align 8
-  %42 = load ptr, ptr %18, align 8
-  %.not.i = icmp eq ptr %42, null
-  br i1 %.not.i, label %_ZN15InstructionAttrD2Ev.exit, label %43
+_ZN9Assembler22simd_prefix_and_encodeE11XMMRegisterS0_S0_NS_13VexSimdPrefixENS_9VexOpcodeEP15InstructionAttrb.exit: ; preds = %30, %32
+  %.0.i = phi i32 [ %31, %30 ], [ %33, %32 ]
+  %34 = getelementptr inbounds i8, ptr %0, i64 8
+  %35 = load ptr, ptr %34, align 8
+  %36 = trunc i32 %.0.i to i8
+  %.0.i2.i = or i8 %36, -64
+  %37 = getelementptr inbounds i8, ptr %35, i64 16
+  %38 = load ptr, ptr %37, align 8
+  %39 = getelementptr inbounds i8, ptr %38, i64 1
+  store i8 -36, ptr %38, align 1
+  %40 = getelementptr inbounds i8, ptr %38, i64 2
+  store i8 %.0.i2.i, ptr %39, align 1
+  store ptr %40, ptr %37, align 8
+  %41 = load ptr, ptr %18, align 8
+  %.not.i = icmp eq ptr %41, null
+  br i1 %.not.i, label %_ZN15InstructionAttrD2Ev.exit, label %42
 
-43:                                               ; preds = %_ZN9Assembler22simd_prefix_and_encodeE11XMMRegisterS0_S0_NS_13VexSimdPrefixENS_9VexOpcodeEP15InstructionAttrb.exit
-  %44 = getelementptr inbounds i8, ptr %42, i64 32
-  store ptr null, ptr %44, align 8
+42:                                               ; preds = %_ZN9Assembler22simd_prefix_and_encodeE11XMMRegisterS0_S0_NS_13VexSimdPrefixENS_9VexOpcodeEP15InstructionAttrb.exit
+  %43 = getelementptr inbounds i8, ptr %41, i64 32
+  store ptr null, ptr %43, align 8
   br label %_ZN15InstructionAttrD2Ev.exit
 
-_ZN15InstructionAttrD2Ev.exit:                    ; preds = %_ZN9Assembler22simd_prefix_and_encodeE11XMMRegisterS0_S0_NS_13VexSimdPrefixENS_9VexOpcodeEP15InstructionAttrb.exit, %43
+_ZN15InstructionAttrD2Ev.exit:                    ; preds = %_ZN9Assembler22simd_prefix_and_encodeE11XMMRegisterS0_S0_NS_13VexSimdPrefixENS_9VexOpcodeEP15InstructionAttrb.exit, %42
   ret void
 }
 
@@ -5906,41 +5906,41 @@ define hidden void @_ZN9Assembler10aesenclastE11XMMRegisterS0_(ptr noundef nonnu
   %27 = trunc i64 %26 to i32
   %28 = sub i32 %27, ptrtoint (ptr getelementptr inbounds (i8, ptr @all_XMMRegisterImpls, i64 1) to i32)
   %29 = icmp sgt i32 %6, 0
-  br i1 %29, label %30, label %33
+  br i1 %29, label %30, label %32
 
 30:                                               ; preds = %3
-  %31 = icmp ult i32 %23, 32
-  %spec.select.i = select i1 %31, i32 %23, i32 0
-  %32 = call noundef i32 @_ZN9Assembler21vex_prefix_and_encodeEiiiNS_13VexSimdPrefixENS_9VexOpcodeEP15InstructionAttrb(ptr noundef nonnull align 8 dereferenceable(40) %0, i32 noundef %23, i32 noundef %spec.select.i, i32 noundef %28, i32 noundef 1, i32 noundef 2, ptr noundef nonnull %4, i1 noundef zeroext false)
+  %spec.select.i.i = icmp ult i32 %23, 32
+  %spec.select.i = select i1 %spec.select.i.i, i32 %23, i32 0
+  %31 = call noundef i32 @_ZN9Assembler21vex_prefix_and_encodeEiiiNS_13VexSimdPrefixENS_9VexOpcodeEP15InstructionAttrb(ptr noundef nonnull align 8 dereferenceable(40) %0, i32 noundef %23, i32 noundef %spec.select.i, i32 noundef %28, i32 noundef 1, i32 noundef 2, ptr noundef nonnull %4, i1 noundef zeroext false)
   br label %_ZN9Assembler22simd_prefix_and_encodeE11XMMRegisterS0_S0_NS_13VexSimdPrefixENS_9VexOpcodeEP15InstructionAttrb.exit
 
-33:                                               ; preds = %3
-  %34 = tail call noundef i32 @_ZN9Assembler21rex_prefix_and_encodeEiiNS_13VexSimdPrefixENS_9VexOpcodeEb(ptr noundef nonnull align 8 dereferenceable(40) %0, i32 noundef %23, i32 noundef %28, i32 noundef 1, i32 noundef 2, i1 noundef zeroext false)
+32:                                               ; preds = %3
+  %33 = tail call noundef i32 @_ZN9Assembler21rex_prefix_and_encodeEiiNS_13VexSimdPrefixENS_9VexOpcodeEb(ptr noundef nonnull align 8 dereferenceable(40) %0, i32 noundef %23, i32 noundef %28, i32 noundef 1, i32 noundef 2, i1 noundef zeroext false)
   br label %_ZN9Assembler22simd_prefix_and_encodeE11XMMRegisterS0_S0_NS_13VexSimdPrefixENS_9VexOpcodeEP15InstructionAttrb.exit
 
-_ZN9Assembler22simd_prefix_and_encodeE11XMMRegisterS0_S0_NS_13VexSimdPrefixENS_9VexOpcodeEP15InstructionAttrb.exit: ; preds = %30, %33
-  %.0.i = phi i32 [ %32, %30 ], [ %34, %33 ]
-  %35 = getelementptr inbounds i8, ptr %0, i64 8
-  %36 = load ptr, ptr %35, align 8
-  %37 = trunc i32 %.0.i to i8
-  %.0.i2.i = or i8 %37, -64
-  %38 = getelementptr inbounds i8, ptr %36, i64 16
-  %39 = load ptr, ptr %38, align 8
-  %40 = getelementptr inbounds i8, ptr %39, i64 1
-  store i8 -35, ptr %39, align 1
-  %41 = getelementptr inbounds i8, ptr %39, i64 2
-  store i8 %.0.i2.i, ptr %40, align 1
-  store ptr %41, ptr %38, align 8
-  %42 = load ptr, ptr %18, align 8
-  %.not.i = icmp eq ptr %42, null
-  br i1 %.not.i, label %_ZN15InstructionAttrD2Ev.exit, label %43
+_ZN9Assembler22simd_prefix_and_encodeE11XMMRegisterS0_S0_NS_13VexSimdPrefixENS_9VexOpcodeEP15InstructionAttrb.exit: ; preds = %30, %32
+  %.0.i = phi i32 [ %31, %30 ], [ %33, %32 ]
+  %34 = getelementptr inbounds i8, ptr %0, i64 8
+  %35 = load ptr, ptr %34, align 8
+  %36 = trunc i32 %.0.i to i8
+  %.0.i2.i = or i8 %36, -64
+  %37 = getelementptr inbounds i8, ptr %35, i64 16
+  %38 = load ptr, ptr %37, align 8
+  %39 = getelementptr inbounds i8, ptr %38, i64 1
+  store i8 -35, ptr %38, align 1
+  %40 = getelementptr inbounds i8, ptr %38, i64 2
+  store i8 %.0.i2.i, ptr %39, align 1
+  store ptr %40, ptr %37, align 8
+  %41 = load ptr, ptr %18, align 8
+  %.not.i = icmp eq ptr %41, null
+  br i1 %.not.i, label %_ZN15InstructionAttrD2Ev.exit, label %42
 
-43:                                               ; preds = %_ZN9Assembler22simd_prefix_and_encodeE11XMMRegisterS0_S0_NS_13VexSimdPrefixENS_9VexOpcodeEP15InstructionAttrb.exit
-  %44 = getelementptr inbounds i8, ptr %42, i64 32
-  store ptr null, ptr %44, align 8
+42:                                               ; preds = %_ZN9Assembler22simd_prefix_and_encodeE11XMMRegisterS0_S0_NS_13VexSimdPrefixENS_9VexOpcodeEP15InstructionAttrb.exit
+  %43 = getelementptr inbounds i8, ptr %41, i64 32
+  store ptr null, ptr %43, align 8
   br label %_ZN15InstructionAttrD2Ev.exit
 
-_ZN15InstructionAttrD2Ev.exit:                    ; preds = %_ZN9Assembler22simd_prefix_and_encodeE11XMMRegisterS0_S0_NS_13VexSimdPrefixENS_9VexOpcodeEP15InstructionAttrb.exit, %43
+_ZN15InstructionAttrD2Ev.exit:                    ; preds = %_ZN9Assembler22simd_prefix_and_encodeE11XMMRegisterS0_S0_NS_13VexSimdPrefixENS_9VexOpcodeEP15InstructionAttrb.exit, %42
   ret void
 }
 
@@ -9789,8 +9789,8 @@ define hidden void @_ZN9Assembler5crc32E8RegisterS0_a(ptr noundef nonnull align 
   %15 = trunc i64 %14 to i32
   %16 = sub i32 %15, ptrtoint (ptr getelementptr inbounds (i8, ptr @all_RegisterImpls, i64 1) to i32)
   %17 = and i32 %16, -16
-  %or.cond6.i.i = icmp eq i32 %17, 16
-  br i1 %or.cond6.i.i, label %._crit_edge, label %_ZN9Assembler11needs_eevexE8RegisterS0_S0_.exit
+  %or.cond8.i.i = icmp eq i32 %17, 16
+  br i1 %or.cond8.i.i, label %._crit_edge, label %_ZN9Assembler11needs_eevexE8RegisterS0_S0_.exit
 
 ._crit_edge:                                      ; preds = %4, %12
   %18 = icmp eq i8 %3, 8
@@ -10060,8 +10060,8 @@ define hidden void @_ZN9Assembler5crc32E8Register7Addressa(ptr noundef nonnull a
   %26 = trunc i64 %25 to i32
   %27 = sub i32 %26, ptrtoint (ptr getelementptr inbounds (i8, ptr @all_RegisterImpls, i64 1) to i32)
   %28 = and i32 %27, -16
-  %or.cond6.i.i = icmp eq i32 %28, 16
-  br i1 %or.cond6.i.i, label %_ZN9Assembler11needs_eevexE8RegisterS0_S0_.exit.thread, label %_ZN9Assembler11needs_eevexE8RegisterS0_S0_.exit
+  %or.cond8.i.i = icmp eq i32 %28, 16
+  br i1 %or.cond8.i.i, label %_ZN9Assembler11needs_eevexE8RegisterS0_S0_.exit.thread, label %_ZN9Assembler11needs_eevexE8RegisterS0_S0_.exit
 
 _ZN9Assembler11needs_eevexE8RegisterS0_S0_.exit:  ; preds = %22
   %29 = sext i32 %.sroa.0.0.copyload.i12 to i64
@@ -10272,7 +10272,7 @@ define hidden void @_ZN9Assembler6prefixE8Register7AddressNS_6PrefixE(ptr nocapt
   %26 = trunc i64 %25 to i32
   %27 = sub i32 %26, ptrtoint (ptr getelementptr inbounds (i8, ptr @all_RegisterImpls, i64 1) to i32)
   %28 = icmp sgt i32 %27, 15
-  br i1 %28, label %29, label %63
+  br i1 %28, label %29, label %62
 
 29:                                               ; preds = %22, %13, %4
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %5, ptr noundef nonnull align 8 dereferenceable(64) %2, i64 21, i1 false)
@@ -10288,90 +10288,90 @@ define hidden void @_ZN9Assembler6prefixE8Register7AddressNS_6PrefixE(ptr nocapt
   %37 = ptrtoint ptr %36 to i64
   %38 = trunc i64 %37 to i32
   %39 = sub i32 %38, ptrtoint (ptr getelementptr inbounds (i8, ptr @all_RegisterImpls, i64 1) to i32)
-  %40 = icmp ult i32 %39, 32
-  %41 = and i32 %39, 16
-  %42 = lshr i32 %39, 3
-  %43 = and i32 %42, 1
-  %.1.i.i.i = or disjoint i32 %43, %41
-  %44 = select i1 %40, i32 %.1.i.i.i, i32 0
-  %45 = sext i32 %1 to i64
-  %46 = getelementptr inbounds %"class.Register::RegisterImpl", ptr getelementptr inbounds (i8, ptr @all_RegisterImpls, i64 1), i64 %45
-  %47 = ptrtoint ptr %46 to i64
-  %48 = trunc i64 %47 to i32
-  %49 = sub i32 %48, ptrtoint (ptr getelementptr inbounds (i8, ptr @all_RegisterImpls, i64 1) to i32)
-  %50 = shl i32 %49, 2
-  %spec.select.i.i = and i32 %50, 64
-  %51 = lshr i32 %49, 1
-  %52 = and i32 %51, 4
-  %.1.i.i = or disjoint i32 %spec.select.i.i, %52
-  %53 = or disjoint i32 %.1.i.i, %44
-  %54 = getelementptr inbounds i8, ptr %0, i64 8
-  %55 = load ptr, ptr %54, align 8
-  %56 = getelementptr inbounds i8, ptr %55, i64 16
-  %57 = load ptr, ptr %56, align 8
-  %58 = getelementptr inbounds i8, ptr %57, i64 1
-  store i8 -43, ptr %57, align 1
-  store ptr %58, ptr %56, align 8
-  %59 = load ptr, ptr %54, align 8
-  %.0.i.i2.i.i = trunc nuw nsw i32 %53 to i8
-  %60 = getelementptr inbounds i8, ptr %59, i64 16
-  %61 = load ptr, ptr %60, align 8
-  %62 = getelementptr inbounds i8, ptr %61, i64 1
-  store i8 %.0.i.i2.i.i, ptr %61, align 1
-  store ptr %62, ptr %60, align 8
+  %spec.select.i.i.i = icmp ult i32 %39, 32
+  %40 = and i32 %39, 16
+  %41 = lshr i32 %39, 3
+  %42 = and i32 %41, 1
+  %.1.i.i.i = or disjoint i32 %42, %40
+  %43 = select i1 %spec.select.i.i.i, i32 %.1.i.i.i, i32 0
+  %44 = sext i32 %1 to i64
+  %45 = getelementptr inbounds %"class.Register::RegisterImpl", ptr getelementptr inbounds (i8, ptr @all_RegisterImpls, i64 1), i64 %44
+  %46 = ptrtoint ptr %45 to i64
+  %47 = trunc i64 %46 to i32
+  %48 = sub i32 %47, ptrtoint (ptr getelementptr inbounds (i8, ptr @all_RegisterImpls, i64 1) to i32)
+  %49 = shl i32 %48, 2
+  %spec.select.i.i = and i32 %49, 64
+  %50 = lshr i32 %48, 1
+  %51 = and i32 %50, 4
+  %.1.i.i = or disjoint i32 %spec.select.i.i, %51
+  %52 = or disjoint i32 %.1.i.i, %43
+  %53 = getelementptr inbounds i8, ptr %0, i64 8
+  %54 = load ptr, ptr %53, align 8
+  %55 = getelementptr inbounds i8, ptr %54, i64 16
+  %56 = load ptr, ptr %55, align 8
+  %57 = getelementptr inbounds i8, ptr %56, i64 1
+  store i8 -43, ptr %56, align 1
+  store ptr %57, ptr %55, align 8
+  %58 = load ptr, ptr %53, align 8
+  %.0.i.i2.i.i = trunc nuw nsw i32 %52 to i8
+  %59 = getelementptr inbounds i8, ptr %58, i64 16
+  %60 = load ptr, ptr %59, align 8
+  %61 = getelementptr inbounds i8, ptr %60, i64 1
+  store i8 %.0.i.i2.i.i, ptr %60, align 1
+  store ptr %61, ptr %59, align 8
   %.pre = load i32, ptr %2, align 4
   %.pre8 = sext i32 %.pre to i64
-  br label %63
+  br label %62
 
-63:                                               ; preds = %29, %22
+62:                                               ; preds = %29, %22
   %.pre-phi = phi i64 [ %.pre8, %29 ], [ %7, %22 ]
-  %64 = getelementptr inbounds %"class.Register::RegisterImpl", ptr getelementptr inbounds (i8, ptr @all_RegisterImpls, i64 1), i64 %.pre-phi
-  %65 = ptrtoint ptr %64 to i64
-  %66 = trunc i64 %65 to i32
-  %67 = sub i32 %66, ptrtoint (ptr getelementptr inbounds (i8, ptr @all_RegisterImpls, i64 1) to i32)
-  %68 = and i32 %67, -24
-  %69 = icmp eq i32 %68, 8
-  br i1 %69, label %70, label %81
+  %63 = getelementptr inbounds %"class.Register::RegisterImpl", ptr getelementptr inbounds (i8, ptr @all_RegisterImpls, i64 1), i64 %.pre-phi
+  %64 = ptrtoint ptr %63 to i64
+  %65 = trunc i64 %64 to i32
+  %66 = sub i32 %65, ptrtoint (ptr getelementptr inbounds (i8, ptr @all_RegisterImpls, i64 1) to i32)
+  %67 = and i32 %66, -24
+  %68 = icmp eq i32 %67, 8
+  br i1 %68, label %69, label %80
 
-70:                                               ; preds = %63
-  %71 = getelementptr inbounds i8, ptr %2, i64 4
-  %72 = load i32, ptr %71, align 4
-  %73 = sext i32 %72 to i64
-  %74 = getelementptr inbounds %"class.Register::RegisterImpl", ptr getelementptr inbounds (i8, ptr @all_RegisterImpls, i64 1), i64 %73
-  %75 = ptrtoint ptr %74 to i64
-  %76 = trunc i64 %75 to i32
-  %77 = sub i32 %76, ptrtoint (ptr getelementptr inbounds (i8, ptr @all_RegisterImpls, i64 1) to i32)
-  %78 = and i32 %77, -24
-  %79 = icmp eq i32 %78, 8
-  %80 = or i32 %3, 65
-  %spec.select = select i1 %79, i32 %3, i32 %80
-  br label %81
+69:                                               ; preds = %62
+  %70 = getelementptr inbounds i8, ptr %2, i64 4
+  %71 = load i32, ptr %70, align 4
+  %72 = sext i32 %71 to i64
+  %73 = getelementptr inbounds %"class.Register::RegisterImpl", ptr getelementptr inbounds (i8, ptr @all_RegisterImpls, i64 1), i64 %72
+  %74 = ptrtoint ptr %73 to i64
+  %75 = trunc i64 %74 to i32
+  %76 = sub i32 %75, ptrtoint (ptr getelementptr inbounds (i8, ptr @all_RegisterImpls, i64 1) to i32)
+  %77 = and i32 %76, -24
+  %78 = icmp eq i32 %77, 8
+  %79 = or i32 %3, 65
+  %spec.select = select i1 %78, i32 %3, i32 %79
+  br label %80
 
-81:                                               ; preds = %63, %70
-  %.0 = phi i32 [ %spec.select, %70 ], [ %3, %63 ]
-  %82 = sext i32 %1 to i64
-  %83 = getelementptr inbounds %"class.Register::RegisterImpl", ptr getelementptr inbounds (i8, ptr @all_RegisterImpls, i64 1), i64 %82
-  %84 = ptrtoint ptr %83 to i64
-  %85 = trunc i64 %84 to i32
-  %86 = sub i32 %85, ptrtoint (ptr getelementptr inbounds (i8, ptr @all_RegisterImpls, i64 1) to i32)
-  %87 = icmp sgt i32 %86, 7
-  %88 = or i32 %.0, 68
-  %spec.select4 = select i1 %87, i32 %88, i32 %.0
+80:                                               ; preds = %62, %69
+  %.0 = phi i32 [ %spec.select, %69 ], [ %3, %62 ]
+  %81 = sext i32 %1 to i64
+  %82 = getelementptr inbounds %"class.Register::RegisterImpl", ptr getelementptr inbounds (i8, ptr @all_RegisterImpls, i64 1), i64 %81
+  %83 = ptrtoint ptr %82 to i64
+  %84 = trunc i64 %83 to i32
+  %85 = sub i32 %84, ptrtoint (ptr getelementptr inbounds (i8, ptr @all_RegisterImpls, i64 1) to i32)
+  %86 = icmp sgt i32 %85, 7
+  %87 = or i32 %.0, 68
+  %spec.select4 = select i1 %86, i32 %87, i32 %.0
   %.not = icmp eq i32 %spec.select4, 0
-  br i1 %.not, label %95, label %89
+  br i1 %.not, label %94, label %88
 
-89:                                               ; preds = %81
-  %90 = getelementptr inbounds i8, ptr %0, i64 8
-  %91 = load ptr, ptr %90, align 8
+88:                                               ; preds = %80
+  %89 = getelementptr inbounds i8, ptr %0, i64 8
+  %90 = load ptr, ptr %89, align 8
   %.0.i.i.i = trunc i32 %spec.select4 to i8
-  %92 = getelementptr inbounds i8, ptr %91, i64 16
-  %93 = load ptr, ptr %92, align 8
-  %94 = getelementptr inbounds i8, ptr %93, i64 1
-  store i8 %.0.i.i.i, ptr %93, align 1
-  store ptr %94, ptr %92, align 8
-  br label %95
+  %91 = getelementptr inbounds i8, ptr %90, i64 16
+  %92 = load ptr, ptr %91, align 8
+  %93 = getelementptr inbounds i8, ptr %92, i64 1
+  store i8 %.0.i.i.i, ptr %92, align 1
+  store ptr %93, ptr %91, align 8
+  br label %94
 
-95:                                               ; preds = %89, %81
+94:                                               ; preds = %88, %80
   ret void
 }
 
@@ -11260,42 +11260,42 @@ define hidden void @_ZN9Assembler8cvtsd2ssE11XMMRegisterS0_(ptr noundef nonnull 
   %32 = trunc i64 %31 to i32
   %33 = sub i32 %32, ptrtoint (ptr getelementptr inbounds (i8, ptr @all_XMMRegisterImpls, i64 1) to i32)
   %34 = icmp sgt i32 %9, 0
-  br i1 %34, label %35, label %38
+  br i1 %34, label %35, label %37
 
 35:                                               ; preds = %3
-  %36 = icmp ult i32 %33, 32
-  %spec.select.i = select i1 %36, i32 %33, i32 0
-  %37 = call noundef i32 @_ZN9Assembler21vex_prefix_and_encodeEiiiNS_13VexSimdPrefixENS_9VexOpcodeEP15InstructionAttrb(ptr noundef nonnull align 8 dereferenceable(40) %0, i32 noundef %28, i32 noundef %spec.select.i, i32 noundef %33, i32 noundef 3, i32 noundef 1, ptr noundef nonnull %4, i1 noundef zeroext false)
+  %spec.select.i.i = icmp ult i32 %33, 32
+  %spec.select.i = select i1 %spec.select.i.i, i32 %33, i32 0
+  %36 = call noundef i32 @_ZN9Assembler21vex_prefix_and_encodeEiiiNS_13VexSimdPrefixENS_9VexOpcodeEP15InstructionAttrb(ptr noundef nonnull align 8 dereferenceable(40) %0, i32 noundef %28, i32 noundef %spec.select.i, i32 noundef %33, i32 noundef 3, i32 noundef 1, ptr noundef nonnull %4, i1 noundef zeroext false)
   br label %_ZN9Assembler22simd_prefix_and_encodeE11XMMRegisterS0_S0_NS_13VexSimdPrefixENS_9VexOpcodeEP15InstructionAttrb.exit
 
-38:                                               ; preds = %3
-  %39 = icmp ne i64 %6, 0
-  %40 = tail call noundef i32 @_ZN9Assembler21rex_prefix_and_encodeEiiNS_13VexSimdPrefixENS_9VexOpcodeEb(ptr noundef nonnull align 8 dereferenceable(40) %0, i32 noundef %28, i32 noundef %33, i32 noundef 3, i32 noundef 1, i1 noundef zeroext %39)
+37:                                               ; preds = %3
+  %38 = icmp ne i64 %6, 0
+  %39 = tail call noundef i32 @_ZN9Assembler21rex_prefix_and_encodeEiiNS_13VexSimdPrefixENS_9VexOpcodeEb(ptr noundef nonnull align 8 dereferenceable(40) %0, i32 noundef %28, i32 noundef %33, i32 noundef 3, i32 noundef 1, i1 noundef zeroext %38)
   br label %_ZN9Assembler22simd_prefix_and_encodeE11XMMRegisterS0_S0_NS_13VexSimdPrefixENS_9VexOpcodeEP15InstructionAttrb.exit
 
-_ZN9Assembler22simd_prefix_and_encodeE11XMMRegisterS0_S0_NS_13VexSimdPrefixENS_9VexOpcodeEP15InstructionAttrb.exit: ; preds = %35, %38
-  %.0.i = phi i32 [ %37, %35 ], [ %40, %38 ]
-  %41 = getelementptr inbounds i8, ptr %0, i64 8
-  %42 = load ptr, ptr %41, align 8
-  %43 = trunc i32 %.0.i to i8
-  %.0.i2.i = or i8 %43, -64
-  %44 = getelementptr inbounds i8, ptr %42, i64 16
-  %45 = load ptr, ptr %44, align 8
-  %46 = getelementptr inbounds i8, ptr %45, i64 1
-  store i8 90, ptr %45, align 1
-  %47 = getelementptr inbounds i8, ptr %45, i64 2
-  store i8 %.0.i2.i, ptr %46, align 1
-  store ptr %47, ptr %44, align 8
-  %48 = load ptr, ptr %23, align 8
-  %.not.i = icmp eq ptr %48, null
-  br i1 %.not.i, label %_ZN15InstructionAttrD2Ev.exit, label %49
+_ZN9Assembler22simd_prefix_and_encodeE11XMMRegisterS0_S0_NS_13VexSimdPrefixENS_9VexOpcodeEP15InstructionAttrb.exit: ; preds = %35, %37
+  %.0.i = phi i32 [ %36, %35 ], [ %39, %37 ]
+  %40 = getelementptr inbounds i8, ptr %0, i64 8
+  %41 = load ptr, ptr %40, align 8
+  %42 = trunc i32 %.0.i to i8
+  %.0.i2.i = or i8 %42, -64
+  %43 = getelementptr inbounds i8, ptr %41, i64 16
+  %44 = load ptr, ptr %43, align 8
+  %45 = getelementptr inbounds i8, ptr %44, i64 1
+  store i8 90, ptr %44, align 1
+  %46 = getelementptr inbounds i8, ptr %44, i64 2
+  store i8 %.0.i2.i, ptr %45, align 1
+  store ptr %46, ptr %43, align 8
+  %47 = load ptr, ptr %23, align 8
+  %.not.i = icmp eq ptr %47, null
+  br i1 %.not.i, label %_ZN15InstructionAttrD2Ev.exit, label %48
 
-49:                                               ; preds = %_ZN9Assembler22simd_prefix_and_encodeE11XMMRegisterS0_S0_NS_13VexSimdPrefixENS_9VexOpcodeEP15InstructionAttrb.exit
-  %50 = getelementptr inbounds i8, ptr %48, i64 32
-  store ptr null, ptr %50, align 8
+48:                                               ; preds = %_ZN9Assembler22simd_prefix_and_encodeE11XMMRegisterS0_S0_NS_13VexSimdPrefixENS_9VexOpcodeEP15InstructionAttrb.exit
+  %49 = getelementptr inbounds i8, ptr %47, i64 32
+  store ptr null, ptr %49, align 8
   br label %_ZN15InstructionAttrD2Ev.exit
 
-_ZN15InstructionAttrD2Ev.exit:                    ; preds = %_ZN9Assembler22simd_prefix_and_encodeE11XMMRegisterS0_S0_NS_13VexSimdPrefixENS_9VexOpcodeEP15InstructionAttrb.exit, %49
+_ZN15InstructionAttrD2Ev.exit:                    ; preds = %_ZN9Assembler22simd_prefix_and_encodeE11XMMRegisterS0_S0_NS_13VexSimdPrefixENS_9VexOpcodeEP15InstructionAttrb.exit, %48
   ret void
 }
 
@@ -11472,41 +11472,41 @@ define hidden void @_ZN9Assembler9cvtsi2sdlE11XMMRegister8Register(ptr noundef n
   %34 = trunc i64 %33 to i32
   %35 = sub i32 %34, ptrtoint (ptr getelementptr inbounds (i8, ptr @all_XMMRegisterImpls, i64 1) to i32)
   %36 = icmp sgt i32 %6, 0
-  br i1 %36, label %37, label %40
+  br i1 %36, label %37, label %39
 
 37:                                               ; preds = %3
-  %38 = icmp ult i32 %30, 32
-  %spec.select.i5 = select i1 %38, i32 %30, i32 0
-  %39 = call noundef i32 @_ZN9Assembler21vex_prefix_and_encodeEiiiNS_13VexSimdPrefixENS_9VexOpcodeEP15InstructionAttrb(ptr noundef nonnull align 8 dereferenceable(40) %0, i32 noundef %30, i32 noundef %spec.select.i5, i32 noundef %35, i32 noundef 3, i32 noundef 1, ptr noundef nonnull %4, i1 noundef zeroext true)
+  %spec.select.i.i = icmp ult i32 %30, 32
+  %spec.select.i5 = select i1 %spec.select.i.i, i32 %30, i32 0
+  %38 = call noundef i32 @_ZN9Assembler21vex_prefix_and_encodeEiiiNS_13VexSimdPrefixENS_9VexOpcodeEP15InstructionAttrb(ptr noundef nonnull align 8 dereferenceable(40) %0, i32 noundef %30, i32 noundef %spec.select.i5, i32 noundef %35, i32 noundef 3, i32 noundef 1, ptr noundef nonnull %4, i1 noundef zeroext true)
   br label %_ZN9Assembler22simd_prefix_and_encodeE11XMMRegisterS0_S0_NS_13VexSimdPrefixENS_9VexOpcodeEP15InstructionAttrb.exit
 
-40:                                               ; preds = %3
-  %41 = tail call noundef i32 @_ZN9Assembler21rex_prefix_and_encodeEiiNS_13VexSimdPrefixENS_9VexOpcodeEb(ptr noundef nonnull align 8 dereferenceable(40) %0, i32 noundef %30, i32 noundef %35, i32 noundef 3, i32 noundef 1, i1 noundef zeroext false)
+39:                                               ; preds = %3
+  %40 = tail call noundef i32 @_ZN9Assembler21rex_prefix_and_encodeEiiNS_13VexSimdPrefixENS_9VexOpcodeEb(ptr noundef nonnull align 8 dereferenceable(40) %0, i32 noundef %30, i32 noundef %35, i32 noundef 3, i32 noundef 1, i1 noundef zeroext false)
   br label %_ZN9Assembler22simd_prefix_and_encodeE11XMMRegisterS0_S0_NS_13VexSimdPrefixENS_9VexOpcodeEP15InstructionAttrb.exit
 
-_ZN9Assembler22simd_prefix_and_encodeE11XMMRegisterS0_S0_NS_13VexSimdPrefixENS_9VexOpcodeEP15InstructionAttrb.exit: ; preds = %37, %40
-  %.0.i = phi i32 [ %39, %37 ], [ %41, %40 ]
-  %42 = getelementptr inbounds i8, ptr %0, i64 8
-  %43 = load ptr, ptr %42, align 8
-  %44 = trunc i32 %.0.i to i8
-  %.0.i2.i = or i8 %44, -64
-  %45 = getelementptr inbounds i8, ptr %43, i64 16
-  %46 = load ptr, ptr %45, align 8
-  %47 = getelementptr inbounds i8, ptr %46, i64 1
-  store i8 42, ptr %46, align 1
-  %48 = getelementptr inbounds i8, ptr %46, i64 2
-  store i8 %.0.i2.i, ptr %47, align 1
-  store ptr %48, ptr %45, align 8
-  %49 = load ptr, ptr %20, align 8
-  %.not.i = icmp eq ptr %49, null
-  br i1 %.not.i, label %_ZN15InstructionAttrD2Ev.exit, label %50
+_ZN9Assembler22simd_prefix_and_encodeE11XMMRegisterS0_S0_NS_13VexSimdPrefixENS_9VexOpcodeEP15InstructionAttrb.exit: ; preds = %37, %39
+  %.0.i = phi i32 [ %38, %37 ], [ %40, %39 ]
+  %41 = getelementptr inbounds i8, ptr %0, i64 8
+  %42 = load ptr, ptr %41, align 8
+  %43 = trunc i32 %.0.i to i8
+  %.0.i2.i = or i8 %43, -64
+  %44 = getelementptr inbounds i8, ptr %42, i64 16
+  %45 = load ptr, ptr %44, align 8
+  %46 = getelementptr inbounds i8, ptr %45, i64 1
+  store i8 42, ptr %45, align 1
+  %47 = getelementptr inbounds i8, ptr %45, i64 2
+  store i8 %.0.i2.i, ptr %46, align 1
+  store ptr %47, ptr %44, align 8
+  %48 = load ptr, ptr %20, align 8
+  %.not.i = icmp eq ptr %48, null
+  br i1 %.not.i, label %_ZN15InstructionAttrD2Ev.exit, label %49
 
-50:                                               ; preds = %_ZN9Assembler22simd_prefix_and_encodeE11XMMRegisterS0_S0_NS_13VexSimdPrefixENS_9VexOpcodeEP15InstructionAttrb.exit
-  %51 = getelementptr inbounds i8, ptr %49, i64 32
-  store ptr null, ptr %51, align 8
+49:                                               ; preds = %_ZN9Assembler22simd_prefix_and_encodeE11XMMRegisterS0_S0_NS_13VexSimdPrefixENS_9VexOpcodeEP15InstructionAttrb.exit
+  %50 = getelementptr inbounds i8, ptr %48, i64 32
+  store ptr null, ptr %50, align 8
   br label %_ZN15InstructionAttrD2Ev.exit
 
-_ZN15InstructionAttrD2Ev.exit:                    ; preds = %_ZN9Assembler22simd_prefix_and_encodeE11XMMRegisterS0_S0_NS_13VexSimdPrefixENS_9VexOpcodeEP15InstructionAttrb.exit, %50
+_ZN15InstructionAttrD2Ev.exit:                    ; preds = %_ZN9Assembler22simd_prefix_and_encodeE11XMMRegisterS0_S0_NS_13VexSimdPrefixENS_9VexOpcodeEP15InstructionAttrb.exit, %49
   ret void
 }
 
@@ -11681,41 +11681,41 @@ define hidden void @_ZN9Assembler9cvtsi2sslE11XMMRegister8Register(ptr noundef n
   %34 = trunc i64 %33 to i32
   %35 = sub i32 %34, ptrtoint (ptr getelementptr inbounds (i8, ptr @all_XMMRegisterImpls, i64 1) to i32)
   %36 = icmp sgt i32 %6, 0
-  br i1 %36, label %37, label %40
+  br i1 %36, label %37, label %39
 
 37:                                               ; preds = %3
-  %38 = icmp ult i32 %30, 32
-  %spec.select.i5 = select i1 %38, i32 %30, i32 0
-  %39 = call noundef i32 @_ZN9Assembler21vex_prefix_and_encodeEiiiNS_13VexSimdPrefixENS_9VexOpcodeEP15InstructionAttrb(ptr noundef nonnull align 8 dereferenceable(40) %0, i32 noundef %30, i32 noundef %spec.select.i5, i32 noundef %35, i32 noundef 2, i32 noundef 1, ptr noundef nonnull %4, i1 noundef zeroext true)
+  %spec.select.i.i = icmp ult i32 %30, 32
+  %spec.select.i5 = select i1 %spec.select.i.i, i32 %30, i32 0
+  %38 = call noundef i32 @_ZN9Assembler21vex_prefix_and_encodeEiiiNS_13VexSimdPrefixENS_9VexOpcodeEP15InstructionAttrb(ptr noundef nonnull align 8 dereferenceable(40) %0, i32 noundef %30, i32 noundef %spec.select.i5, i32 noundef %35, i32 noundef 2, i32 noundef 1, ptr noundef nonnull %4, i1 noundef zeroext true)
   br label %_ZN9Assembler22simd_prefix_and_encodeE11XMMRegisterS0_S0_NS_13VexSimdPrefixENS_9VexOpcodeEP15InstructionAttrb.exit
 
-40:                                               ; preds = %3
-  %41 = tail call noundef i32 @_ZN9Assembler21rex_prefix_and_encodeEiiNS_13VexSimdPrefixENS_9VexOpcodeEb(ptr noundef nonnull align 8 dereferenceable(40) %0, i32 noundef %30, i32 noundef %35, i32 noundef 2, i32 noundef 1, i1 noundef zeroext false)
+39:                                               ; preds = %3
+  %40 = tail call noundef i32 @_ZN9Assembler21rex_prefix_and_encodeEiiNS_13VexSimdPrefixENS_9VexOpcodeEb(ptr noundef nonnull align 8 dereferenceable(40) %0, i32 noundef %30, i32 noundef %35, i32 noundef 2, i32 noundef 1, i1 noundef zeroext false)
   br label %_ZN9Assembler22simd_prefix_and_encodeE11XMMRegisterS0_S0_NS_13VexSimdPrefixENS_9VexOpcodeEP15InstructionAttrb.exit
 
-_ZN9Assembler22simd_prefix_and_encodeE11XMMRegisterS0_S0_NS_13VexSimdPrefixENS_9VexOpcodeEP15InstructionAttrb.exit: ; preds = %37, %40
-  %.0.i = phi i32 [ %39, %37 ], [ %41, %40 ]
-  %42 = getelementptr inbounds i8, ptr %0, i64 8
-  %43 = load ptr, ptr %42, align 8
-  %44 = trunc i32 %.0.i to i8
-  %.0.i2.i = or i8 %44, -64
-  %45 = getelementptr inbounds i8, ptr %43, i64 16
-  %46 = load ptr, ptr %45, align 8
-  %47 = getelementptr inbounds i8, ptr %46, i64 1
-  store i8 42, ptr %46, align 1
-  %48 = getelementptr inbounds i8, ptr %46, i64 2
-  store i8 %.0.i2.i, ptr %47, align 1
-  store ptr %48, ptr %45, align 8
-  %49 = load ptr, ptr %20, align 8
-  %.not.i = icmp eq ptr %49, null
-  br i1 %.not.i, label %_ZN15InstructionAttrD2Ev.exit, label %50
+_ZN9Assembler22simd_prefix_and_encodeE11XMMRegisterS0_S0_NS_13VexSimdPrefixENS_9VexOpcodeEP15InstructionAttrb.exit: ; preds = %37, %39
+  %.0.i = phi i32 [ %38, %37 ], [ %40, %39 ]
+  %41 = getelementptr inbounds i8, ptr %0, i64 8
+  %42 = load ptr, ptr %41, align 8
+  %43 = trunc i32 %.0.i to i8
+  %.0.i2.i = or i8 %43, -64
+  %44 = getelementptr inbounds i8, ptr %42, i64 16
+  %45 = load ptr, ptr %44, align 8
+  %46 = getelementptr inbounds i8, ptr %45, i64 1
+  store i8 42, ptr %45, align 1
+  %47 = getelementptr inbounds i8, ptr %45, i64 2
+  store i8 %.0.i2.i, ptr %46, align 1
+  store ptr %47, ptr %44, align 8
+  %48 = load ptr, ptr %20, align 8
+  %.not.i = icmp eq ptr %48, null
+  br i1 %.not.i, label %_ZN15InstructionAttrD2Ev.exit, label %49
 
-50:                                               ; preds = %_ZN9Assembler22simd_prefix_and_encodeE11XMMRegisterS0_S0_NS_13VexSimdPrefixENS_9VexOpcodeEP15InstructionAttrb.exit
-  %51 = getelementptr inbounds i8, ptr %49, i64 32
-  store ptr null, ptr %51, align 8
+49:                                               ; preds = %_ZN9Assembler22simd_prefix_and_encodeE11XMMRegisterS0_S0_NS_13VexSimdPrefixENS_9VexOpcodeEP15InstructionAttrb.exit
+  %50 = getelementptr inbounds i8, ptr %48, i64 32
+  store ptr null, ptr %50, align 8
   br label %_ZN15InstructionAttrD2Ev.exit
 
-_ZN15InstructionAttrD2Ev.exit:                    ; preds = %_ZN9Assembler22simd_prefix_and_encodeE11XMMRegisterS0_S0_NS_13VexSimdPrefixENS_9VexOpcodeEP15InstructionAttrb.exit, %50
+_ZN15InstructionAttrD2Ev.exit:                    ; preds = %_ZN9Assembler22simd_prefix_and_encodeE11XMMRegisterS0_S0_NS_13VexSimdPrefixENS_9VexOpcodeEP15InstructionAttrb.exit, %49
   ret void
 }
 
@@ -11890,41 +11890,41 @@ define hidden void @_ZN9Assembler9cvtsi2ssqE11XMMRegister8Register(ptr noundef n
   %34 = trunc i64 %33 to i32
   %35 = sub i32 %34, ptrtoint (ptr getelementptr inbounds (i8, ptr @all_XMMRegisterImpls, i64 1) to i32)
   %36 = icmp sgt i32 %6, 0
-  br i1 %36, label %37, label %40
+  br i1 %36, label %37, label %39
 
 37:                                               ; preds = %3
-  %38 = icmp ult i32 %30, 32
-  %spec.select.i5 = select i1 %38, i32 %30, i32 0
-  %39 = call noundef i32 @_ZN9Assembler21vex_prefix_and_encodeEiiiNS_13VexSimdPrefixENS_9VexOpcodeEP15InstructionAttrb(ptr noundef nonnull align 8 dereferenceable(40) %0, i32 noundef %30, i32 noundef %spec.select.i5, i32 noundef %35, i32 noundef 2, i32 noundef 1, ptr noundef nonnull %4, i1 noundef zeroext true)
+  %spec.select.i.i = icmp ult i32 %30, 32
+  %spec.select.i5 = select i1 %spec.select.i.i, i32 %30, i32 0
+  %38 = call noundef i32 @_ZN9Assembler21vex_prefix_and_encodeEiiiNS_13VexSimdPrefixENS_9VexOpcodeEP15InstructionAttrb(ptr noundef nonnull align 8 dereferenceable(40) %0, i32 noundef %30, i32 noundef %spec.select.i5, i32 noundef %35, i32 noundef 2, i32 noundef 1, ptr noundef nonnull %4, i1 noundef zeroext true)
   br label %_ZN9Assembler22simd_prefix_and_encodeE11XMMRegisterS0_S0_NS_13VexSimdPrefixENS_9VexOpcodeEP15InstructionAttrb.exit
 
-40:                                               ; preds = %3
-  %41 = tail call noundef i32 @_ZN9Assembler21rex_prefix_and_encodeEiiNS_13VexSimdPrefixENS_9VexOpcodeEb(ptr noundef nonnull align 8 dereferenceable(40) %0, i32 noundef %30, i32 noundef %35, i32 noundef 2, i32 noundef 1, i1 noundef zeroext true)
+39:                                               ; preds = %3
+  %40 = tail call noundef i32 @_ZN9Assembler21rex_prefix_and_encodeEiiNS_13VexSimdPrefixENS_9VexOpcodeEb(ptr noundef nonnull align 8 dereferenceable(40) %0, i32 noundef %30, i32 noundef %35, i32 noundef 2, i32 noundef 1, i1 noundef zeroext true)
   br label %_ZN9Assembler22simd_prefix_and_encodeE11XMMRegisterS0_S0_NS_13VexSimdPrefixENS_9VexOpcodeEP15InstructionAttrb.exit
 
-_ZN9Assembler22simd_prefix_and_encodeE11XMMRegisterS0_S0_NS_13VexSimdPrefixENS_9VexOpcodeEP15InstructionAttrb.exit: ; preds = %37, %40
-  %.0.i = phi i32 [ %39, %37 ], [ %41, %40 ]
-  %42 = getelementptr inbounds i8, ptr %0, i64 8
-  %43 = load ptr, ptr %42, align 8
-  %44 = trunc i32 %.0.i to i8
-  %.0.i2.i = or i8 %44, -64
-  %45 = getelementptr inbounds i8, ptr %43, i64 16
-  %46 = load ptr, ptr %45, align 8
-  %47 = getelementptr inbounds i8, ptr %46, i64 1
-  store i8 42, ptr %46, align 1
-  %48 = getelementptr inbounds i8, ptr %46, i64 2
-  store i8 %.0.i2.i, ptr %47, align 1
-  store ptr %48, ptr %45, align 8
-  %49 = load ptr, ptr %20, align 8
-  %.not.i = icmp eq ptr %49, null
-  br i1 %.not.i, label %_ZN15InstructionAttrD2Ev.exit, label %50
+_ZN9Assembler22simd_prefix_and_encodeE11XMMRegisterS0_S0_NS_13VexSimdPrefixENS_9VexOpcodeEP15InstructionAttrb.exit: ; preds = %37, %39
+  %.0.i = phi i32 [ %38, %37 ], [ %40, %39 ]
+  %41 = getelementptr inbounds i8, ptr %0, i64 8
+  %42 = load ptr, ptr %41, align 8
+  %43 = trunc i32 %.0.i to i8
+  %.0.i2.i = or i8 %43, -64
+  %44 = getelementptr inbounds i8, ptr %42, i64 16
+  %45 = load ptr, ptr %44, align 8
+  %46 = getelementptr inbounds i8, ptr %45, i64 1
+  store i8 42, ptr %45, align 1
+  %47 = getelementptr inbounds i8, ptr %45, i64 2
+  store i8 %.0.i2.i, ptr %46, align 1
+  store ptr %47, ptr %44, align 8
+  %48 = load ptr, ptr %20, align 8
+  %.not.i = icmp eq ptr %48, null
+  br i1 %.not.i, label %_ZN15InstructionAttrD2Ev.exit, label %49
 
-50:                                               ; preds = %_ZN9Assembler22simd_prefix_and_encodeE11XMMRegisterS0_S0_NS_13VexSimdPrefixENS_9VexOpcodeEP15InstructionAttrb.exit
-  %51 = getelementptr inbounds i8, ptr %49, i64 32
-  store ptr null, ptr %51, align 8
+49:                                               ; preds = %_ZN9Assembler22simd_prefix_and_encodeE11XMMRegisterS0_S0_NS_13VexSimdPrefixENS_9VexOpcodeEP15InstructionAttrb.exit
+  %50 = getelementptr inbounds i8, ptr %48, i64 32
+  store ptr null, ptr %50, align 8
   br label %_ZN15InstructionAttrD2Ev.exit
 
-_ZN15InstructionAttrD2Ev.exit:                    ; preds = %_ZN9Assembler22simd_prefix_and_encodeE11XMMRegisterS0_S0_NS_13VexSimdPrefixENS_9VexOpcodeEP15InstructionAttrb.exit, %50
+_ZN15InstructionAttrD2Ev.exit:                    ; preds = %_ZN9Assembler22simd_prefix_and_encodeE11XMMRegisterS0_S0_NS_13VexSimdPrefixENS_9VexOpcodeEP15InstructionAttrb.exit, %49
   ret void
 }
 
@@ -11972,41 +11972,41 @@ define hidden void @_ZN9Assembler8cvtss2sdE11XMMRegisterS0_(ptr noundef nonnull 
   %29 = trunc i64 %28 to i32
   %30 = sub i32 %29, ptrtoint (ptr getelementptr inbounds (i8, ptr @all_XMMRegisterImpls, i64 1) to i32)
   %31 = icmp sgt i32 %6, 0
-  br i1 %31, label %32, label %35
+  br i1 %31, label %32, label %34
 
 32:                                               ; preds = %3
-  %33 = icmp ult i32 %30, 32
-  %spec.select.i = select i1 %33, i32 %30, i32 0
-  %34 = call noundef i32 @_ZN9Assembler21vex_prefix_and_encodeEiiiNS_13VexSimdPrefixENS_9VexOpcodeEP15InstructionAttrb(ptr noundef nonnull align 8 dereferenceable(40) %0, i32 noundef %25, i32 noundef %spec.select.i, i32 noundef %30, i32 noundef 2, i32 noundef 1, ptr noundef nonnull %4, i1 noundef zeroext false)
+  %spec.select.i.i = icmp ult i32 %30, 32
+  %spec.select.i = select i1 %spec.select.i.i, i32 %30, i32 0
+  %33 = call noundef i32 @_ZN9Assembler21vex_prefix_and_encodeEiiiNS_13VexSimdPrefixENS_9VexOpcodeEP15InstructionAttrb(ptr noundef nonnull align 8 dereferenceable(40) %0, i32 noundef %25, i32 noundef %spec.select.i, i32 noundef %30, i32 noundef 2, i32 noundef 1, ptr noundef nonnull %4, i1 noundef zeroext false)
   br label %_ZN9Assembler22simd_prefix_and_encodeE11XMMRegisterS0_S0_NS_13VexSimdPrefixENS_9VexOpcodeEP15InstructionAttrb.exit
 
-35:                                               ; preds = %3
-  %36 = tail call noundef i32 @_ZN9Assembler21rex_prefix_and_encodeEiiNS_13VexSimdPrefixENS_9VexOpcodeEb(ptr noundef nonnull align 8 dereferenceable(40) %0, i32 noundef %25, i32 noundef %30, i32 noundef 2, i32 noundef 1, i1 noundef zeroext false)
+34:                                               ; preds = %3
+  %35 = tail call noundef i32 @_ZN9Assembler21rex_prefix_and_encodeEiiNS_13VexSimdPrefixENS_9VexOpcodeEb(ptr noundef nonnull align 8 dereferenceable(40) %0, i32 noundef %25, i32 noundef %30, i32 noundef 2, i32 noundef 1, i1 noundef zeroext false)
   br label %_ZN9Assembler22simd_prefix_and_encodeE11XMMRegisterS0_S0_NS_13VexSimdPrefixENS_9VexOpcodeEP15InstructionAttrb.exit
 
-_ZN9Assembler22simd_prefix_and_encodeE11XMMRegisterS0_S0_NS_13VexSimdPrefixENS_9VexOpcodeEP15InstructionAttrb.exit: ; preds = %32, %35
-  %.0.i = phi i32 [ %34, %32 ], [ %36, %35 ]
-  %37 = getelementptr inbounds i8, ptr %0, i64 8
-  %38 = load ptr, ptr %37, align 8
-  %39 = trunc i32 %.0.i to i8
-  %.0.i2.i = or i8 %39, -64
-  %40 = getelementptr inbounds i8, ptr %38, i64 16
-  %41 = load ptr, ptr %40, align 8
-  %42 = getelementptr inbounds i8, ptr %41, i64 1
-  store i8 90, ptr %41, align 1
-  %43 = getelementptr inbounds i8, ptr %41, i64 2
-  store i8 %.0.i2.i, ptr %42, align 1
-  store ptr %43, ptr %40, align 8
-  %44 = load ptr, ptr %20, align 8
-  %.not.i = icmp eq ptr %44, null
-  br i1 %.not.i, label %_ZN15InstructionAttrD2Ev.exit, label %45
+_ZN9Assembler22simd_prefix_and_encodeE11XMMRegisterS0_S0_NS_13VexSimdPrefixENS_9VexOpcodeEP15InstructionAttrb.exit: ; preds = %32, %34
+  %.0.i = phi i32 [ %33, %32 ], [ %35, %34 ]
+  %36 = getelementptr inbounds i8, ptr %0, i64 8
+  %37 = load ptr, ptr %36, align 8
+  %38 = trunc i32 %.0.i to i8
+  %.0.i2.i = or i8 %38, -64
+  %39 = getelementptr inbounds i8, ptr %37, i64 16
+  %40 = load ptr, ptr %39, align 8
+  %41 = getelementptr inbounds i8, ptr %40, i64 1
+  store i8 90, ptr %40, align 1
+  %42 = getelementptr inbounds i8, ptr %40, i64 2
+  store i8 %.0.i2.i, ptr %41, align 1
+  store ptr %42, ptr %39, align 8
+  %43 = load ptr, ptr %20, align 8
+  %.not.i = icmp eq ptr %43, null
+  br i1 %.not.i, label %_ZN15InstructionAttrD2Ev.exit, label %44
 
-45:                                               ; preds = %_ZN9Assembler22simd_prefix_and_encodeE11XMMRegisterS0_S0_NS_13VexSimdPrefixENS_9VexOpcodeEP15InstructionAttrb.exit
-  %46 = getelementptr inbounds i8, ptr %44, i64 32
-  store ptr null, ptr %46, align 8
+44:                                               ; preds = %_ZN9Assembler22simd_prefix_and_encodeE11XMMRegisterS0_S0_NS_13VexSimdPrefixENS_9VexOpcodeEP15InstructionAttrb.exit
+  %45 = getelementptr inbounds i8, ptr %43, i64 32
+  store ptr null, ptr %45, align 8
   br label %_ZN15InstructionAttrD2Ev.exit
 
-_ZN15InstructionAttrD2Ev.exit:                    ; preds = %_ZN9Assembler22simd_prefix_and_encodeE11XMMRegisterS0_S0_NS_13VexSimdPrefixENS_9VexOpcodeEP15InstructionAttrb.exit, %45
+_ZN15InstructionAttrD2Ev.exit:                    ; preds = %_ZN9Assembler22simd_prefix_and_encodeE11XMMRegisterS0_S0_NS_13VexSimdPrefixENS_9VexOpcodeEP15InstructionAttrb.exit, %44
   ret void
 }
 
@@ -14387,42 +14387,42 @@ define hidden void @_ZN9Assembler5divsdE11XMMRegisterS0_(ptr noundef nonnull ali
   %32 = trunc i64 %31 to i32
   %33 = sub i32 %32, ptrtoint (ptr getelementptr inbounds (i8, ptr @all_XMMRegisterImpls, i64 1) to i32)
   %34 = icmp sgt i32 %9, 0
-  br i1 %34, label %35, label %38
+  br i1 %34, label %35, label %37
 
 35:                                               ; preds = %3
-  %36 = icmp ult i32 %28, 32
-  %spec.select.i = select i1 %36, i32 %28, i32 0
-  %37 = call noundef i32 @_ZN9Assembler21vex_prefix_and_encodeEiiiNS_13VexSimdPrefixENS_9VexOpcodeEP15InstructionAttrb(ptr noundef nonnull align 8 dereferenceable(40) %0, i32 noundef %28, i32 noundef %spec.select.i, i32 noundef %33, i32 noundef 3, i32 noundef 1, ptr noundef nonnull %4, i1 noundef zeroext false)
+  %spec.select.i.i = icmp ult i32 %28, 32
+  %spec.select.i = select i1 %spec.select.i.i, i32 %28, i32 0
+  %36 = call noundef i32 @_ZN9Assembler21vex_prefix_and_encodeEiiiNS_13VexSimdPrefixENS_9VexOpcodeEP15InstructionAttrb(ptr noundef nonnull align 8 dereferenceable(40) %0, i32 noundef %28, i32 noundef %spec.select.i, i32 noundef %33, i32 noundef 3, i32 noundef 1, ptr noundef nonnull %4, i1 noundef zeroext false)
   br label %_ZN9Assembler22simd_prefix_and_encodeE11XMMRegisterS0_S0_NS_13VexSimdPrefixENS_9VexOpcodeEP15InstructionAttrb.exit
 
-38:                                               ; preds = %3
-  %39 = icmp ne i64 %6, 0
-  %40 = tail call noundef i32 @_ZN9Assembler21rex_prefix_and_encodeEiiNS_13VexSimdPrefixENS_9VexOpcodeEb(ptr noundef nonnull align 8 dereferenceable(40) %0, i32 noundef %28, i32 noundef %33, i32 noundef 3, i32 noundef 1, i1 noundef zeroext %39)
+37:                                               ; preds = %3
+  %38 = icmp ne i64 %6, 0
+  %39 = tail call noundef i32 @_ZN9Assembler21rex_prefix_and_encodeEiiNS_13VexSimdPrefixENS_9VexOpcodeEb(ptr noundef nonnull align 8 dereferenceable(40) %0, i32 noundef %28, i32 noundef %33, i32 noundef 3, i32 noundef 1, i1 noundef zeroext %38)
   br label %_ZN9Assembler22simd_prefix_and_encodeE11XMMRegisterS0_S0_NS_13VexSimdPrefixENS_9VexOpcodeEP15InstructionAttrb.exit
 
-_ZN9Assembler22simd_prefix_and_encodeE11XMMRegisterS0_S0_NS_13VexSimdPrefixENS_9VexOpcodeEP15InstructionAttrb.exit: ; preds = %35, %38
-  %.0.i = phi i32 [ %37, %35 ], [ %40, %38 ]
-  %41 = getelementptr inbounds i8, ptr %0, i64 8
-  %42 = load ptr, ptr %41, align 8
-  %43 = trunc i32 %.0.i to i8
-  %.0.i2.i = or i8 %43, -64
-  %44 = getelementptr inbounds i8, ptr %42, i64 16
-  %45 = load ptr, ptr %44, align 8
-  %46 = getelementptr inbounds i8, ptr %45, i64 1
-  store i8 94, ptr %45, align 1
-  %47 = getelementptr inbounds i8, ptr %45, i64 2
-  store i8 %.0.i2.i, ptr %46, align 1
-  store ptr %47, ptr %44, align 8
-  %48 = load ptr, ptr %23, align 8
-  %.not.i = icmp eq ptr %48, null
-  br i1 %.not.i, label %_ZN15InstructionAttrD2Ev.exit, label %49
+_ZN9Assembler22simd_prefix_and_encodeE11XMMRegisterS0_S0_NS_13VexSimdPrefixENS_9VexOpcodeEP15InstructionAttrb.exit: ; preds = %35, %37
+  %.0.i = phi i32 [ %36, %35 ], [ %39, %37 ]
+  %40 = getelementptr inbounds i8, ptr %0, i64 8
+  %41 = load ptr, ptr %40, align 8
+  %42 = trunc i32 %.0.i to i8
+  %.0.i2.i = or i8 %42, -64
+  %43 = getelementptr inbounds i8, ptr %41, i64 16
+  %44 = load ptr, ptr %43, align 8
+  %45 = getelementptr inbounds i8, ptr %44, i64 1
+  store i8 94, ptr %44, align 1
+  %46 = getelementptr inbounds i8, ptr %44, i64 2
+  store i8 %.0.i2.i, ptr %45, align 1
+  store ptr %46, ptr %43, align 8
+  %47 = load ptr, ptr %23, align 8
+  %.not.i = icmp eq ptr %47, null
+  br i1 %.not.i, label %_ZN15InstructionAttrD2Ev.exit, label %48
 
-49:                                               ; preds = %_ZN9Assembler22simd_prefix_and_encodeE11XMMRegisterS0_S0_NS_13VexSimdPrefixENS_9VexOpcodeEP15InstructionAttrb.exit
-  %50 = getelementptr inbounds i8, ptr %48, i64 32
-  store ptr null, ptr %50, align 8
+48:                                               ; preds = %_ZN9Assembler22simd_prefix_and_encodeE11XMMRegisterS0_S0_NS_13VexSimdPrefixENS_9VexOpcodeEP15InstructionAttrb.exit
+  %49 = getelementptr inbounds i8, ptr %47, i64 32
+  store ptr null, ptr %49, align 8
   br label %_ZN15InstructionAttrD2Ev.exit
 
-_ZN15InstructionAttrD2Ev.exit:                    ; preds = %_ZN9Assembler22simd_prefix_and_encodeE11XMMRegisterS0_S0_NS_13VexSimdPrefixENS_9VexOpcodeEP15InstructionAttrb.exit, %49
+_ZN15InstructionAttrD2Ev.exit:                    ; preds = %_ZN9Assembler22simd_prefix_and_encodeE11XMMRegisterS0_S0_NS_13VexSimdPrefixENS_9VexOpcodeEP15InstructionAttrb.exit, %48
   ret void
 }
 
@@ -14590,41 +14590,41 @@ define hidden void @_ZN9Assembler5divssE11XMMRegisterS0_(ptr noundef nonnull ali
   %29 = trunc i64 %28 to i32
   %30 = sub i32 %29, ptrtoint (ptr getelementptr inbounds (i8, ptr @all_XMMRegisterImpls, i64 1) to i32)
   %31 = icmp sgt i32 %6, 0
-  br i1 %31, label %32, label %35
+  br i1 %31, label %32, label %34
 
 32:                                               ; preds = %3
-  %33 = icmp ult i32 %25, 32
-  %spec.select.i = select i1 %33, i32 %25, i32 0
-  %34 = call noundef i32 @_ZN9Assembler21vex_prefix_and_encodeEiiiNS_13VexSimdPrefixENS_9VexOpcodeEP15InstructionAttrb(ptr noundef nonnull align 8 dereferenceable(40) %0, i32 noundef %25, i32 noundef %spec.select.i, i32 noundef %30, i32 noundef 2, i32 noundef 1, ptr noundef nonnull %4, i1 noundef zeroext false)
+  %spec.select.i.i = icmp ult i32 %25, 32
+  %spec.select.i = select i1 %spec.select.i.i, i32 %25, i32 0
+  %33 = call noundef i32 @_ZN9Assembler21vex_prefix_and_encodeEiiiNS_13VexSimdPrefixENS_9VexOpcodeEP15InstructionAttrb(ptr noundef nonnull align 8 dereferenceable(40) %0, i32 noundef %25, i32 noundef %spec.select.i, i32 noundef %30, i32 noundef 2, i32 noundef 1, ptr noundef nonnull %4, i1 noundef zeroext false)
   br label %_ZN9Assembler22simd_prefix_and_encodeE11XMMRegisterS0_S0_NS_13VexSimdPrefixENS_9VexOpcodeEP15InstructionAttrb.exit
 
-35:                                               ; preds = %3
-  %36 = tail call noundef i32 @_ZN9Assembler21rex_prefix_and_encodeEiiNS_13VexSimdPrefixENS_9VexOpcodeEb(ptr noundef nonnull align 8 dereferenceable(40) %0, i32 noundef %25, i32 noundef %30, i32 noundef 2, i32 noundef 1, i1 noundef zeroext false)
+34:                                               ; preds = %3
+  %35 = tail call noundef i32 @_ZN9Assembler21rex_prefix_and_encodeEiiNS_13VexSimdPrefixENS_9VexOpcodeEb(ptr noundef nonnull align 8 dereferenceable(40) %0, i32 noundef %25, i32 noundef %30, i32 noundef 2, i32 noundef 1, i1 noundef zeroext false)
   br label %_ZN9Assembler22simd_prefix_and_encodeE11XMMRegisterS0_S0_NS_13VexSimdPrefixENS_9VexOpcodeEP15InstructionAttrb.exit
 
-_ZN9Assembler22simd_prefix_and_encodeE11XMMRegisterS0_S0_NS_13VexSimdPrefixENS_9VexOpcodeEP15InstructionAttrb.exit: ; preds = %32, %35
-  %.0.i = phi i32 [ %34, %32 ], [ %36, %35 ]
-  %37 = getelementptr inbounds i8, ptr %0, i64 8
-  %38 = load ptr, ptr %37, align 8
-  %39 = trunc i32 %.0.i to i8
-  %.0.i2.i = or i8 %39, -64
-  %40 = getelementptr inbounds i8, ptr %38, i64 16
-  %41 = load ptr, ptr %40, align 8
-  %42 = getelementptr inbounds i8, ptr %41, i64 1
-  store i8 94, ptr %41, align 1
-  %43 = getelementptr inbounds i8, ptr %41, i64 2
-  store i8 %.0.i2.i, ptr %42, align 1
-  store ptr %43, ptr %40, align 8
-  %44 = load ptr, ptr %20, align 8
-  %.not.i = icmp eq ptr %44, null
-  br i1 %.not.i, label %_ZN15InstructionAttrD2Ev.exit, label %45
+_ZN9Assembler22simd_prefix_and_encodeE11XMMRegisterS0_S0_NS_13VexSimdPrefixENS_9VexOpcodeEP15InstructionAttrb.exit: ; preds = %32, %34
+  %.0.i = phi i32 [ %33, %32 ], [ %35, %34 ]
+  %36 = getelementptr inbounds i8, ptr %0, i64 8
+  %37 = load ptr, ptr %36, align 8
+  %38 = trunc i32 %.0.i to i8
+  %.0.i2.i = or i8 %38, -64
+  %39 = getelementptr inbounds i8, ptr %37, i64 16
+  %40 = load ptr, ptr %39, align 8
+  %41 = getelementptr inbounds i8, ptr %40, i64 1
+  store i8 94, ptr %40, align 1
+  %42 = getelementptr inbounds i8, ptr %40, i64 2
+  store i8 %.0.i2.i, ptr %41, align 1
+  store ptr %42, ptr %39, align 8
+  %43 = load ptr, ptr %20, align 8
+  %.not.i = icmp eq ptr %43, null
+  br i1 %.not.i, label %_ZN15InstructionAttrD2Ev.exit, label %44
 
-45:                                               ; preds = %_ZN9Assembler22simd_prefix_and_encodeE11XMMRegisterS0_S0_NS_13VexSimdPrefixENS_9VexOpcodeEP15InstructionAttrb.exit
-  %46 = getelementptr inbounds i8, ptr %44, i64 32
-  store ptr null, ptr %46, align 8
+44:                                               ; preds = %_ZN9Assembler22simd_prefix_and_encodeE11XMMRegisterS0_S0_NS_13VexSimdPrefixENS_9VexOpcodeEP15InstructionAttrb.exit
+  %45 = getelementptr inbounds i8, ptr %43, i64 32
+  store ptr null, ptr %45, align 8
   br label %_ZN15InstructionAttrD2Ev.exit
 
-_ZN15InstructionAttrD2Ev.exit:                    ; preds = %_ZN9Assembler22simd_prefix_and_encodeE11XMMRegisterS0_S0_NS_13VexSimdPrefixENS_9VexOpcodeEP15InstructionAttrb.exit, %45
+_ZN15InstructionAttrD2Ev.exit:                    ; preds = %_ZN9Assembler22simd_prefix_and_encodeE11XMMRegisterS0_S0_NS_13VexSimdPrefixENS_9VexOpcodeEP15InstructionAttrb.exit, %44
   ret void
 }
 
@@ -16694,41 +16694,41 @@ define hidden void @_ZN9Assembler7movlhpsE11XMMRegisterS0_(ptr noundef nonnull a
   %29 = trunc i64 %28 to i32
   %30 = sub i32 %29, ptrtoint (ptr getelementptr inbounds (i8, ptr @all_XMMRegisterImpls, i64 1) to i32)
   %31 = icmp sgt i32 %6, 0
-  br i1 %31, label %32, label %35
+  br i1 %31, label %32, label %34
 
 32:                                               ; preds = %3
-  %33 = icmp ult i32 %30, 32
-  %spec.select.i = select i1 %33, i32 %30, i32 0
-  %34 = call noundef i32 @_ZN9Assembler21vex_prefix_and_encodeEiiiNS_13VexSimdPrefixENS_9VexOpcodeEP15InstructionAttrb(ptr noundef nonnull align 8 dereferenceable(40) %0, i32 noundef %25, i32 noundef %spec.select.i, i32 noundef %30, i32 noundef 0, i32 noundef 1, ptr noundef nonnull %4, i1 noundef zeroext false)
+  %spec.select.i.i = icmp ult i32 %30, 32
+  %spec.select.i = select i1 %spec.select.i.i, i32 %30, i32 0
+  %33 = call noundef i32 @_ZN9Assembler21vex_prefix_and_encodeEiiiNS_13VexSimdPrefixENS_9VexOpcodeEP15InstructionAttrb(ptr noundef nonnull align 8 dereferenceable(40) %0, i32 noundef %25, i32 noundef %spec.select.i, i32 noundef %30, i32 noundef 0, i32 noundef 1, ptr noundef nonnull %4, i1 noundef zeroext false)
   br label %_ZN9Assembler22simd_prefix_and_encodeE11XMMRegisterS0_S0_NS_13VexSimdPrefixENS_9VexOpcodeEP15InstructionAttrb.exit
 
-35:                                               ; preds = %3
-  %36 = tail call noundef i32 @_ZN9Assembler21rex_prefix_and_encodeEiiNS_13VexSimdPrefixENS_9VexOpcodeEb(ptr noundef nonnull align 8 dereferenceable(40) %0, i32 noundef %25, i32 noundef %30, i32 noundef 0, i32 noundef 1, i1 noundef zeroext false)
+34:                                               ; preds = %3
+  %35 = tail call noundef i32 @_ZN9Assembler21rex_prefix_and_encodeEiiNS_13VexSimdPrefixENS_9VexOpcodeEb(ptr noundef nonnull align 8 dereferenceable(40) %0, i32 noundef %25, i32 noundef %30, i32 noundef 0, i32 noundef 1, i1 noundef zeroext false)
   br label %_ZN9Assembler22simd_prefix_and_encodeE11XMMRegisterS0_S0_NS_13VexSimdPrefixENS_9VexOpcodeEP15InstructionAttrb.exit
 
-_ZN9Assembler22simd_prefix_and_encodeE11XMMRegisterS0_S0_NS_13VexSimdPrefixENS_9VexOpcodeEP15InstructionAttrb.exit: ; preds = %32, %35
-  %.0.i = phi i32 [ %34, %32 ], [ %36, %35 ]
-  %37 = getelementptr inbounds i8, ptr %0, i64 8
-  %38 = load ptr, ptr %37, align 8
-  %39 = trunc i32 %.0.i to i8
-  %.0.i2.i = or i8 %39, -64
-  %40 = getelementptr inbounds i8, ptr %38, i64 16
-  %41 = load ptr, ptr %40, align 8
-  %42 = getelementptr inbounds i8, ptr %41, i64 1
-  store i8 22, ptr %41, align 1
-  %43 = getelementptr inbounds i8, ptr %41, i64 2
-  store i8 %.0.i2.i, ptr %42, align 1
-  store ptr %43, ptr %40, align 8
-  %44 = load ptr, ptr %20, align 8
-  %.not.i = icmp eq ptr %44, null
-  br i1 %.not.i, label %_ZN15InstructionAttrD2Ev.exit, label %45
+_ZN9Assembler22simd_prefix_and_encodeE11XMMRegisterS0_S0_NS_13VexSimdPrefixENS_9VexOpcodeEP15InstructionAttrb.exit: ; preds = %32, %34
+  %.0.i = phi i32 [ %33, %32 ], [ %35, %34 ]
+  %36 = getelementptr inbounds i8, ptr %0, i64 8
+  %37 = load ptr, ptr %36, align 8
+  %38 = trunc i32 %.0.i to i8
+  %.0.i2.i = or i8 %38, -64
+  %39 = getelementptr inbounds i8, ptr %37, i64 16
+  %40 = load ptr, ptr %39, align 8
+  %41 = getelementptr inbounds i8, ptr %40, i64 1
+  store i8 22, ptr %40, align 1
+  %42 = getelementptr inbounds i8, ptr %40, i64 2
+  store i8 %.0.i2.i, ptr %41, align 1
+  store ptr %42, ptr %39, align 8
+  %43 = load ptr, ptr %20, align 8
+  %.not.i = icmp eq ptr %43, null
+  br i1 %.not.i, label %_ZN15InstructionAttrD2Ev.exit, label %44
 
-45:                                               ; preds = %_ZN9Assembler22simd_prefix_and_encodeE11XMMRegisterS0_S0_NS_13VexSimdPrefixENS_9VexOpcodeEP15InstructionAttrb.exit
-  %46 = getelementptr inbounds i8, ptr %44, i64 32
-  store ptr null, ptr %46, align 8
+44:                                               ; preds = %_ZN9Assembler22simd_prefix_and_encodeE11XMMRegisterS0_S0_NS_13VexSimdPrefixENS_9VexOpcodeEP15InstructionAttrb.exit
+  %45 = getelementptr inbounds i8, ptr %43, i64 32
+  store ptr null, ptr %45, align 8
   br label %_ZN15InstructionAttrD2Ev.exit
 
-_ZN15InstructionAttrD2Ev.exit:                    ; preds = %_ZN9Assembler22simd_prefix_and_encodeE11XMMRegisterS0_S0_NS_13VexSimdPrefixENS_9VexOpcodeEP15InstructionAttrb.exit, %45
+_ZN15InstructionAttrD2Ev.exit:                    ; preds = %_ZN9Assembler22simd_prefix_and_encodeE11XMMRegisterS0_S0_NS_13VexSimdPrefixENS_9VexOpcodeEP15InstructionAttrb.exit, %44
   ret void
 }
 
@@ -25832,42 +25832,42 @@ define hidden void @_ZN9Assembler5movsdE11XMMRegisterS0_(ptr noundef nonnull ali
   %32 = trunc i64 %31 to i32
   %33 = sub i32 %32, ptrtoint (ptr getelementptr inbounds (i8, ptr @all_XMMRegisterImpls, i64 1) to i32)
   %34 = icmp sgt i32 %9, 0
-  br i1 %34, label %35, label %38
+  br i1 %34, label %35, label %37
 
 35:                                               ; preds = %3
-  %36 = icmp ult i32 %28, 32
-  %spec.select.i = select i1 %36, i32 %28, i32 0
-  %37 = call noundef i32 @_ZN9Assembler21vex_prefix_and_encodeEiiiNS_13VexSimdPrefixENS_9VexOpcodeEP15InstructionAttrb(ptr noundef nonnull align 8 dereferenceable(40) %0, i32 noundef %28, i32 noundef %spec.select.i, i32 noundef %33, i32 noundef 3, i32 noundef 1, ptr noundef nonnull %4, i1 noundef zeroext false)
+  %spec.select.i.i = icmp ult i32 %28, 32
+  %spec.select.i = select i1 %spec.select.i.i, i32 %28, i32 0
+  %36 = call noundef i32 @_ZN9Assembler21vex_prefix_and_encodeEiiiNS_13VexSimdPrefixENS_9VexOpcodeEP15InstructionAttrb(ptr noundef nonnull align 8 dereferenceable(40) %0, i32 noundef %28, i32 noundef %spec.select.i, i32 noundef %33, i32 noundef 3, i32 noundef 1, ptr noundef nonnull %4, i1 noundef zeroext false)
   br label %_ZN9Assembler22simd_prefix_and_encodeE11XMMRegisterS0_S0_NS_13VexSimdPrefixENS_9VexOpcodeEP15InstructionAttrb.exit
 
-38:                                               ; preds = %3
-  %39 = icmp ne i64 %6, 0
-  %40 = tail call noundef i32 @_ZN9Assembler21rex_prefix_and_encodeEiiNS_13VexSimdPrefixENS_9VexOpcodeEb(ptr noundef nonnull align 8 dereferenceable(40) %0, i32 noundef %28, i32 noundef %33, i32 noundef 3, i32 noundef 1, i1 noundef zeroext %39)
+37:                                               ; preds = %3
+  %38 = icmp ne i64 %6, 0
+  %39 = tail call noundef i32 @_ZN9Assembler21rex_prefix_and_encodeEiiNS_13VexSimdPrefixENS_9VexOpcodeEb(ptr noundef nonnull align 8 dereferenceable(40) %0, i32 noundef %28, i32 noundef %33, i32 noundef 3, i32 noundef 1, i1 noundef zeroext %38)
   br label %_ZN9Assembler22simd_prefix_and_encodeE11XMMRegisterS0_S0_NS_13VexSimdPrefixENS_9VexOpcodeEP15InstructionAttrb.exit
 
-_ZN9Assembler22simd_prefix_and_encodeE11XMMRegisterS0_S0_NS_13VexSimdPrefixENS_9VexOpcodeEP15InstructionAttrb.exit: ; preds = %35, %38
-  %.0.i = phi i32 [ %37, %35 ], [ %40, %38 ]
-  %41 = getelementptr inbounds i8, ptr %0, i64 8
-  %42 = load ptr, ptr %41, align 8
-  %43 = trunc i32 %.0.i to i8
-  %.0.i2.i = or i8 %43, -64
-  %44 = getelementptr inbounds i8, ptr %42, i64 16
-  %45 = load ptr, ptr %44, align 8
-  %46 = getelementptr inbounds i8, ptr %45, i64 1
-  store i8 16, ptr %45, align 1
-  %47 = getelementptr inbounds i8, ptr %45, i64 2
-  store i8 %.0.i2.i, ptr %46, align 1
-  store ptr %47, ptr %44, align 8
-  %48 = load ptr, ptr %23, align 8
-  %.not.i = icmp eq ptr %48, null
-  br i1 %.not.i, label %_ZN15InstructionAttrD2Ev.exit, label %49
+_ZN9Assembler22simd_prefix_and_encodeE11XMMRegisterS0_S0_NS_13VexSimdPrefixENS_9VexOpcodeEP15InstructionAttrb.exit: ; preds = %35, %37
+  %.0.i = phi i32 [ %36, %35 ], [ %39, %37 ]
+  %40 = getelementptr inbounds i8, ptr %0, i64 8
+  %41 = load ptr, ptr %40, align 8
+  %42 = trunc i32 %.0.i to i8
+  %.0.i2.i = or i8 %42, -64
+  %43 = getelementptr inbounds i8, ptr %41, i64 16
+  %44 = load ptr, ptr %43, align 8
+  %45 = getelementptr inbounds i8, ptr %44, i64 1
+  store i8 16, ptr %44, align 1
+  %46 = getelementptr inbounds i8, ptr %44, i64 2
+  store i8 %.0.i2.i, ptr %45, align 1
+  store ptr %46, ptr %43, align 8
+  %47 = load ptr, ptr %23, align 8
+  %.not.i = icmp eq ptr %47, null
+  br i1 %.not.i, label %_ZN15InstructionAttrD2Ev.exit, label %48
 
-49:                                               ; preds = %_ZN9Assembler22simd_prefix_and_encodeE11XMMRegisterS0_S0_NS_13VexSimdPrefixENS_9VexOpcodeEP15InstructionAttrb.exit
-  %50 = getelementptr inbounds i8, ptr %48, i64 32
-  store ptr null, ptr %50, align 8
+48:                                               ; preds = %_ZN9Assembler22simd_prefix_and_encodeE11XMMRegisterS0_S0_NS_13VexSimdPrefixENS_9VexOpcodeEP15InstructionAttrb.exit
+  %49 = getelementptr inbounds i8, ptr %47, i64 32
+  store ptr null, ptr %49, align 8
   br label %_ZN15InstructionAttrD2Ev.exit
 
-_ZN15InstructionAttrD2Ev.exit:                    ; preds = %_ZN9Assembler22simd_prefix_and_encodeE11XMMRegisterS0_S0_NS_13VexSimdPrefixENS_9VexOpcodeEP15InstructionAttrb.exit, %49
+_ZN15InstructionAttrD2Ev.exit:                    ; preds = %_ZN9Assembler22simd_prefix_and_encodeE11XMMRegisterS0_S0_NS_13VexSimdPrefixENS_9VexOpcodeEP15InstructionAttrb.exit, %48
   ret void
 }
 
@@ -26240,41 +26240,41 @@ define hidden void @_ZN9Assembler5movssE11XMMRegisterS0_(ptr noundef nonnull ali
   %29 = trunc i64 %28 to i32
   %30 = sub i32 %29, ptrtoint (ptr getelementptr inbounds (i8, ptr @all_XMMRegisterImpls, i64 1) to i32)
   %31 = icmp sgt i32 %6, 0
-  br i1 %31, label %32, label %35
+  br i1 %31, label %32, label %34
 
 32:                                               ; preds = %3
-  %33 = icmp ult i32 %25, 32
-  %spec.select.i = select i1 %33, i32 %25, i32 0
-  %34 = call noundef i32 @_ZN9Assembler21vex_prefix_and_encodeEiiiNS_13VexSimdPrefixENS_9VexOpcodeEP15InstructionAttrb(ptr noundef nonnull align 8 dereferenceable(40) %0, i32 noundef %25, i32 noundef %spec.select.i, i32 noundef %30, i32 noundef 2, i32 noundef 1, ptr noundef nonnull %4, i1 noundef zeroext false)
+  %spec.select.i.i = icmp ult i32 %25, 32
+  %spec.select.i = select i1 %spec.select.i.i, i32 %25, i32 0
+  %33 = call noundef i32 @_ZN9Assembler21vex_prefix_and_encodeEiiiNS_13VexSimdPrefixENS_9VexOpcodeEP15InstructionAttrb(ptr noundef nonnull align 8 dereferenceable(40) %0, i32 noundef %25, i32 noundef %spec.select.i, i32 noundef %30, i32 noundef 2, i32 noundef 1, ptr noundef nonnull %4, i1 noundef zeroext false)
   br label %_ZN9Assembler22simd_prefix_and_encodeE11XMMRegisterS0_S0_NS_13VexSimdPrefixENS_9VexOpcodeEP15InstructionAttrb.exit
 
-35:                                               ; preds = %3
-  %36 = tail call noundef i32 @_ZN9Assembler21rex_prefix_and_encodeEiiNS_13VexSimdPrefixENS_9VexOpcodeEb(ptr noundef nonnull align 8 dereferenceable(40) %0, i32 noundef %25, i32 noundef %30, i32 noundef 2, i32 noundef 1, i1 noundef zeroext false)
+34:                                               ; preds = %3
+  %35 = tail call noundef i32 @_ZN9Assembler21rex_prefix_and_encodeEiiNS_13VexSimdPrefixENS_9VexOpcodeEb(ptr noundef nonnull align 8 dereferenceable(40) %0, i32 noundef %25, i32 noundef %30, i32 noundef 2, i32 noundef 1, i1 noundef zeroext false)
   br label %_ZN9Assembler22simd_prefix_and_encodeE11XMMRegisterS0_S0_NS_13VexSimdPrefixENS_9VexOpcodeEP15InstructionAttrb.exit
 
-_ZN9Assembler22simd_prefix_and_encodeE11XMMRegisterS0_S0_NS_13VexSimdPrefixENS_9VexOpcodeEP15InstructionAttrb.exit: ; preds = %32, %35
-  %.0.i = phi i32 [ %34, %32 ], [ %36, %35 ]
-  %37 = getelementptr inbounds i8, ptr %0, i64 8
-  %38 = load ptr, ptr %37, align 8
-  %39 = trunc i32 %.0.i to i8
-  %.0.i2.i = or i8 %39, -64
-  %40 = getelementptr inbounds i8, ptr %38, i64 16
-  %41 = load ptr, ptr %40, align 8
-  %42 = getelementptr inbounds i8, ptr %41, i64 1
-  store i8 16, ptr %41, align 1
-  %43 = getelementptr inbounds i8, ptr %41, i64 2
-  store i8 %.0.i2.i, ptr %42, align 1
-  store ptr %43, ptr %40, align 8
-  %44 = load ptr, ptr %20, align 8
-  %.not.i = icmp eq ptr %44, null
-  br i1 %.not.i, label %_ZN15InstructionAttrD2Ev.exit, label %45
+_ZN9Assembler22simd_prefix_and_encodeE11XMMRegisterS0_S0_NS_13VexSimdPrefixENS_9VexOpcodeEP15InstructionAttrb.exit: ; preds = %32, %34
+  %.0.i = phi i32 [ %33, %32 ], [ %35, %34 ]
+  %36 = getelementptr inbounds i8, ptr %0, i64 8
+  %37 = load ptr, ptr %36, align 8
+  %38 = trunc i32 %.0.i to i8
+  %.0.i2.i = or i8 %38, -64
+  %39 = getelementptr inbounds i8, ptr %37, i64 16
+  %40 = load ptr, ptr %39, align 8
+  %41 = getelementptr inbounds i8, ptr %40, i64 1
+  store i8 16, ptr %40, align 1
+  %42 = getelementptr inbounds i8, ptr %40, i64 2
+  store i8 %.0.i2.i, ptr %41, align 1
+  store ptr %42, ptr %39, align 8
+  %43 = load ptr, ptr %20, align 8
+  %.not.i = icmp eq ptr %43, null
+  br i1 %.not.i, label %_ZN15InstructionAttrD2Ev.exit, label %44
 
-45:                                               ; preds = %_ZN9Assembler22simd_prefix_and_encodeE11XMMRegisterS0_S0_NS_13VexSimdPrefixENS_9VexOpcodeEP15InstructionAttrb.exit
-  %46 = getelementptr inbounds i8, ptr %44, i64 32
-  store ptr null, ptr %46, align 8
+44:                                               ; preds = %_ZN9Assembler22simd_prefix_and_encodeE11XMMRegisterS0_S0_NS_13VexSimdPrefixENS_9VexOpcodeEP15InstructionAttrb.exit
+  %45 = getelementptr inbounds i8, ptr %43, i64 32
+  store ptr null, ptr %45, align 8
   br label %_ZN15InstructionAttrD2Ev.exit
 
-_ZN15InstructionAttrD2Ev.exit:                    ; preds = %_ZN9Assembler22simd_prefix_and_encodeE11XMMRegisterS0_S0_NS_13VexSimdPrefixENS_9VexOpcodeEP15InstructionAttrb.exit, %45
+_ZN15InstructionAttrD2Ev.exit:                    ; preds = %_ZN9Assembler22simd_prefix_and_encodeE11XMMRegisterS0_S0_NS_13VexSimdPrefixENS_9VexOpcodeEP15InstructionAttrb.exit, %44
   ret void
 }
 
@@ -28069,42 +28069,42 @@ define hidden void @_ZN9Assembler5mulsdE11XMMRegisterS0_(ptr noundef nonnull ali
   %32 = trunc i64 %31 to i32
   %33 = sub i32 %32, ptrtoint (ptr getelementptr inbounds (i8, ptr @all_XMMRegisterImpls, i64 1) to i32)
   %34 = icmp sgt i32 %9, 0
-  br i1 %34, label %35, label %38
+  br i1 %34, label %35, label %37
 
 35:                                               ; preds = %3
-  %36 = icmp ult i32 %28, 32
-  %spec.select.i = select i1 %36, i32 %28, i32 0
-  %37 = call noundef i32 @_ZN9Assembler21vex_prefix_and_encodeEiiiNS_13VexSimdPrefixENS_9VexOpcodeEP15InstructionAttrb(ptr noundef nonnull align 8 dereferenceable(40) %0, i32 noundef %28, i32 noundef %spec.select.i, i32 noundef %33, i32 noundef 3, i32 noundef 1, ptr noundef nonnull %4, i1 noundef zeroext false)
+  %spec.select.i.i = icmp ult i32 %28, 32
+  %spec.select.i = select i1 %spec.select.i.i, i32 %28, i32 0
+  %36 = call noundef i32 @_ZN9Assembler21vex_prefix_and_encodeEiiiNS_13VexSimdPrefixENS_9VexOpcodeEP15InstructionAttrb(ptr noundef nonnull align 8 dereferenceable(40) %0, i32 noundef %28, i32 noundef %spec.select.i, i32 noundef %33, i32 noundef 3, i32 noundef 1, ptr noundef nonnull %4, i1 noundef zeroext false)
   br label %_ZN9Assembler22simd_prefix_and_encodeE11XMMRegisterS0_S0_NS_13VexSimdPrefixENS_9VexOpcodeEP15InstructionAttrb.exit
 
-38:                                               ; preds = %3
-  %39 = icmp ne i64 %6, 0
-  %40 = tail call noundef i32 @_ZN9Assembler21rex_prefix_and_encodeEiiNS_13VexSimdPrefixENS_9VexOpcodeEb(ptr noundef nonnull align 8 dereferenceable(40) %0, i32 noundef %28, i32 noundef %33, i32 noundef 3, i32 noundef 1, i1 noundef zeroext %39)
+37:                                               ; preds = %3
+  %38 = icmp ne i64 %6, 0
+  %39 = tail call noundef i32 @_ZN9Assembler21rex_prefix_and_encodeEiiNS_13VexSimdPrefixENS_9VexOpcodeEb(ptr noundef nonnull align 8 dereferenceable(40) %0, i32 noundef %28, i32 noundef %33, i32 noundef 3, i32 noundef 1, i1 noundef zeroext %38)
   br label %_ZN9Assembler22simd_prefix_and_encodeE11XMMRegisterS0_S0_NS_13VexSimdPrefixENS_9VexOpcodeEP15InstructionAttrb.exit
 
-_ZN9Assembler22simd_prefix_and_encodeE11XMMRegisterS0_S0_NS_13VexSimdPrefixENS_9VexOpcodeEP15InstructionAttrb.exit: ; preds = %35, %38
-  %.0.i = phi i32 [ %37, %35 ], [ %40, %38 ]
-  %41 = getelementptr inbounds i8, ptr %0, i64 8
-  %42 = load ptr, ptr %41, align 8
-  %43 = trunc i32 %.0.i to i8
-  %.0.i2.i = or i8 %43, -64
-  %44 = getelementptr inbounds i8, ptr %42, i64 16
-  %45 = load ptr, ptr %44, align 8
-  %46 = getelementptr inbounds i8, ptr %45, i64 1
-  store i8 89, ptr %45, align 1
-  %47 = getelementptr inbounds i8, ptr %45, i64 2
-  store i8 %.0.i2.i, ptr %46, align 1
-  store ptr %47, ptr %44, align 8
-  %48 = load ptr, ptr %23, align 8
-  %.not.i = icmp eq ptr %48, null
-  br i1 %.not.i, label %_ZN15InstructionAttrD2Ev.exit, label %49
+_ZN9Assembler22simd_prefix_and_encodeE11XMMRegisterS0_S0_NS_13VexSimdPrefixENS_9VexOpcodeEP15InstructionAttrb.exit: ; preds = %35, %37
+  %.0.i = phi i32 [ %36, %35 ], [ %39, %37 ]
+  %40 = getelementptr inbounds i8, ptr %0, i64 8
+  %41 = load ptr, ptr %40, align 8
+  %42 = trunc i32 %.0.i to i8
+  %.0.i2.i = or i8 %42, -64
+  %43 = getelementptr inbounds i8, ptr %41, i64 16
+  %44 = load ptr, ptr %43, align 8
+  %45 = getelementptr inbounds i8, ptr %44, i64 1
+  store i8 89, ptr %44, align 1
+  %46 = getelementptr inbounds i8, ptr %44, i64 2
+  store i8 %.0.i2.i, ptr %45, align 1
+  store ptr %46, ptr %43, align 8
+  %47 = load ptr, ptr %23, align 8
+  %.not.i = icmp eq ptr %47, null
+  br i1 %.not.i, label %_ZN15InstructionAttrD2Ev.exit, label %48
 
-49:                                               ; preds = %_ZN9Assembler22simd_prefix_and_encodeE11XMMRegisterS0_S0_NS_13VexSimdPrefixENS_9VexOpcodeEP15InstructionAttrb.exit
-  %50 = getelementptr inbounds i8, ptr %48, i64 32
-  store ptr null, ptr %50, align 8
+48:                                               ; preds = %_ZN9Assembler22simd_prefix_and_encodeE11XMMRegisterS0_S0_NS_13VexSimdPrefixENS_9VexOpcodeEP15InstructionAttrb.exit
+  %49 = getelementptr inbounds i8, ptr %47, i64 32
+  store ptr null, ptr %49, align 8
   br label %_ZN15InstructionAttrD2Ev.exit
 
-_ZN15InstructionAttrD2Ev.exit:                    ; preds = %_ZN9Assembler22simd_prefix_and_encodeE11XMMRegisterS0_S0_NS_13VexSimdPrefixENS_9VexOpcodeEP15InstructionAttrb.exit, %49
+_ZN15InstructionAttrD2Ev.exit:                    ; preds = %_ZN9Assembler22simd_prefix_and_encodeE11XMMRegisterS0_S0_NS_13VexSimdPrefixENS_9VexOpcodeEP15InstructionAttrb.exit, %48
   ret void
 }
 
@@ -28272,41 +28272,41 @@ define hidden void @_ZN9Assembler5mulssE11XMMRegisterS0_(ptr noundef nonnull ali
   %29 = trunc i64 %28 to i32
   %30 = sub i32 %29, ptrtoint (ptr getelementptr inbounds (i8, ptr @all_XMMRegisterImpls, i64 1) to i32)
   %31 = icmp sgt i32 %6, 0
-  br i1 %31, label %32, label %35
+  br i1 %31, label %32, label %34
 
 32:                                               ; preds = %3
-  %33 = icmp ult i32 %25, 32
-  %spec.select.i = select i1 %33, i32 %25, i32 0
-  %34 = call noundef i32 @_ZN9Assembler21vex_prefix_and_encodeEiiiNS_13VexSimdPrefixENS_9VexOpcodeEP15InstructionAttrb(ptr noundef nonnull align 8 dereferenceable(40) %0, i32 noundef %25, i32 noundef %spec.select.i, i32 noundef %30, i32 noundef 2, i32 noundef 1, ptr noundef nonnull %4, i1 noundef zeroext false)
+  %spec.select.i.i = icmp ult i32 %25, 32
+  %spec.select.i = select i1 %spec.select.i.i, i32 %25, i32 0
+  %33 = call noundef i32 @_ZN9Assembler21vex_prefix_and_encodeEiiiNS_13VexSimdPrefixENS_9VexOpcodeEP15InstructionAttrb(ptr noundef nonnull align 8 dereferenceable(40) %0, i32 noundef %25, i32 noundef %spec.select.i, i32 noundef %30, i32 noundef 2, i32 noundef 1, ptr noundef nonnull %4, i1 noundef zeroext false)
   br label %_ZN9Assembler22simd_prefix_and_encodeE11XMMRegisterS0_S0_NS_13VexSimdPrefixENS_9VexOpcodeEP15InstructionAttrb.exit
 
-35:                                               ; preds = %3
-  %36 = tail call noundef i32 @_ZN9Assembler21rex_prefix_and_encodeEiiNS_13VexSimdPrefixENS_9VexOpcodeEb(ptr noundef nonnull align 8 dereferenceable(40) %0, i32 noundef %25, i32 noundef %30, i32 noundef 2, i32 noundef 1, i1 noundef zeroext false)
+34:                                               ; preds = %3
+  %35 = tail call noundef i32 @_ZN9Assembler21rex_prefix_and_encodeEiiNS_13VexSimdPrefixENS_9VexOpcodeEb(ptr noundef nonnull align 8 dereferenceable(40) %0, i32 noundef %25, i32 noundef %30, i32 noundef 2, i32 noundef 1, i1 noundef zeroext false)
   br label %_ZN9Assembler22simd_prefix_and_encodeE11XMMRegisterS0_S0_NS_13VexSimdPrefixENS_9VexOpcodeEP15InstructionAttrb.exit
 
-_ZN9Assembler22simd_prefix_and_encodeE11XMMRegisterS0_S0_NS_13VexSimdPrefixENS_9VexOpcodeEP15InstructionAttrb.exit: ; preds = %32, %35
-  %.0.i = phi i32 [ %34, %32 ], [ %36, %35 ]
-  %37 = getelementptr inbounds i8, ptr %0, i64 8
-  %38 = load ptr, ptr %37, align 8
-  %39 = trunc i32 %.0.i to i8
-  %.0.i2.i = or i8 %39, -64
-  %40 = getelementptr inbounds i8, ptr %38, i64 16
-  %41 = load ptr, ptr %40, align 8
-  %42 = getelementptr inbounds i8, ptr %41, i64 1
-  store i8 89, ptr %41, align 1
-  %43 = getelementptr inbounds i8, ptr %41, i64 2
-  store i8 %.0.i2.i, ptr %42, align 1
-  store ptr %43, ptr %40, align 8
-  %44 = load ptr, ptr %20, align 8
-  %.not.i = icmp eq ptr %44, null
-  br i1 %.not.i, label %_ZN15InstructionAttrD2Ev.exit, label %45
+_ZN9Assembler22simd_prefix_and_encodeE11XMMRegisterS0_S0_NS_13VexSimdPrefixENS_9VexOpcodeEP15InstructionAttrb.exit: ; preds = %32, %34
+  %.0.i = phi i32 [ %33, %32 ], [ %35, %34 ]
+  %36 = getelementptr inbounds i8, ptr %0, i64 8
+  %37 = load ptr, ptr %36, align 8
+  %38 = trunc i32 %.0.i to i8
+  %.0.i2.i = or i8 %38, -64
+  %39 = getelementptr inbounds i8, ptr %37, i64 16
+  %40 = load ptr, ptr %39, align 8
+  %41 = getelementptr inbounds i8, ptr %40, i64 1
+  store i8 89, ptr %40, align 1
+  %42 = getelementptr inbounds i8, ptr %40, i64 2
+  store i8 %.0.i2.i, ptr %41, align 1
+  store ptr %42, ptr %39, align 8
+  %43 = load ptr, ptr %20, align 8
+  %.not.i = icmp eq ptr %43, null
+  br i1 %.not.i, label %_ZN15InstructionAttrD2Ev.exit, label %44
 
-45:                                               ; preds = %_ZN9Assembler22simd_prefix_and_encodeE11XMMRegisterS0_S0_NS_13VexSimdPrefixENS_9VexOpcodeEP15InstructionAttrb.exit
-  %46 = getelementptr inbounds i8, ptr %44, i64 32
-  store ptr null, ptr %46, align 8
+44:                                               ; preds = %_ZN9Assembler22simd_prefix_and_encodeE11XMMRegisterS0_S0_NS_13VexSimdPrefixENS_9VexOpcodeEP15InstructionAttrb.exit
+  %45 = getelementptr inbounds i8, ptr %43, i64 32
+  store ptr null, ptr %45, align 8
   br label %_ZN15InstructionAttrD2Ev.exit
 
-_ZN15InstructionAttrD2Ev.exit:                    ; preds = %_ZN9Assembler22simd_prefix_and_encodeE11XMMRegisterS0_S0_NS_13VexSimdPrefixENS_9VexOpcodeEP15InstructionAttrb.exit, %45
+_ZN15InstructionAttrD2Ev.exit:                    ; preds = %_ZN9Assembler22simd_prefix_and_encodeE11XMMRegisterS0_S0_NS_13VexSimdPrefixENS_9VexOpcodeEP15InstructionAttrb.exit, %44
   ret void
 }
 
@@ -29405,7 +29405,7 @@ define hidden void @_ZN9Assembler3nopEj(ptr noundef nonnull readonly align 8 der
 
 519:                                              ; preds = %.thread30, %517
   %.832 = phi i32 [ %.9, %.thread30 ], [ %1, %517 ]
-  %520 = icmp ugt i32 %.832, 6
+  %520 = icmp samesign ugt i32 %.832, 6
   br i1 %520, label %521, label %528
 
 521:                                              ; preds = %519
@@ -30164,41 +30164,41 @@ define hidden void @_ZN9Assembler8packsswbE11XMMRegisterS0_(ptr noundef nonnull 
   %33 = trunc i64 %32 to i32
   %34 = sub i32 %33, ptrtoint (ptr getelementptr inbounds (i8, ptr @all_XMMRegisterImpls, i64 1) to i32)
   %35 = icmp sgt i32 %9, 0
-  br i1 %35, label %36, label %39
+  br i1 %35, label %36, label %38
 
 36:                                               ; preds = %3
-  %37 = icmp ult i32 %29, 32
-  %spec.select.i = select i1 %37, i32 %29, i32 0
-  %38 = call noundef i32 @_ZN9Assembler21vex_prefix_and_encodeEiiiNS_13VexSimdPrefixENS_9VexOpcodeEP15InstructionAttrb(ptr noundef nonnull align 8 dereferenceable(40) %0, i32 noundef %29, i32 noundef %spec.select.i, i32 noundef %34, i32 noundef 1, i32 noundef 1, ptr noundef nonnull %4, i1 noundef zeroext false)
+  %spec.select.i.i = icmp ult i32 %29, 32
+  %spec.select.i = select i1 %spec.select.i.i, i32 %29, i32 0
+  %37 = call noundef i32 @_ZN9Assembler21vex_prefix_and_encodeEiiiNS_13VexSimdPrefixENS_9VexOpcodeEP15InstructionAttrb(ptr noundef nonnull align 8 dereferenceable(40) %0, i32 noundef %29, i32 noundef %spec.select.i, i32 noundef %34, i32 noundef 1, i32 noundef 1, ptr noundef nonnull %4, i1 noundef zeroext false)
   br label %_ZN9Assembler22simd_prefix_and_encodeE11XMMRegisterS0_S0_NS_13VexSimdPrefixENS_9VexOpcodeEP15InstructionAttrb.exit
 
-39:                                               ; preds = %3
-  %40 = tail call noundef i32 @_ZN9Assembler21rex_prefix_and_encodeEiiNS_13VexSimdPrefixENS_9VexOpcodeEb(ptr noundef nonnull align 8 dereferenceable(40) %0, i32 noundef %29, i32 noundef %34, i32 noundef 1, i32 noundef 1, i1 noundef zeroext false)
+38:                                               ; preds = %3
+  %39 = tail call noundef i32 @_ZN9Assembler21rex_prefix_and_encodeEiiNS_13VexSimdPrefixENS_9VexOpcodeEb(ptr noundef nonnull align 8 dereferenceable(40) %0, i32 noundef %29, i32 noundef %34, i32 noundef 1, i32 noundef 1, i1 noundef zeroext false)
   br label %_ZN9Assembler22simd_prefix_and_encodeE11XMMRegisterS0_S0_NS_13VexSimdPrefixENS_9VexOpcodeEP15InstructionAttrb.exit
 
-_ZN9Assembler22simd_prefix_and_encodeE11XMMRegisterS0_S0_NS_13VexSimdPrefixENS_9VexOpcodeEP15InstructionAttrb.exit: ; preds = %36, %39
-  %.0.i = phi i32 [ %38, %36 ], [ %40, %39 ]
-  %41 = getelementptr inbounds i8, ptr %0, i64 8
-  %42 = load ptr, ptr %41, align 8
-  %43 = trunc i32 %.0.i to i8
-  %.0.i2.i = or i8 %43, -64
-  %44 = getelementptr inbounds i8, ptr %42, i64 16
-  %45 = load ptr, ptr %44, align 8
-  %46 = getelementptr inbounds i8, ptr %45, i64 1
-  store i8 99, ptr %45, align 1
-  %47 = getelementptr inbounds i8, ptr %45, i64 2
-  store i8 %.0.i2.i, ptr %46, align 1
-  store ptr %47, ptr %44, align 8
-  %48 = load ptr, ptr %24, align 8
-  %.not.i = icmp eq ptr %48, null
-  br i1 %.not.i, label %_ZN15InstructionAttrD2Ev.exit, label %49
+_ZN9Assembler22simd_prefix_and_encodeE11XMMRegisterS0_S0_NS_13VexSimdPrefixENS_9VexOpcodeEP15InstructionAttrb.exit: ; preds = %36, %38
+  %.0.i = phi i32 [ %37, %36 ], [ %39, %38 ]
+  %40 = getelementptr inbounds i8, ptr %0, i64 8
+  %41 = load ptr, ptr %40, align 8
+  %42 = trunc i32 %.0.i to i8
+  %.0.i2.i = or i8 %42, -64
+  %43 = getelementptr inbounds i8, ptr %41, i64 16
+  %44 = load ptr, ptr %43, align 8
+  %45 = getelementptr inbounds i8, ptr %44, i64 1
+  store i8 99, ptr %44, align 1
+  %46 = getelementptr inbounds i8, ptr %44, i64 2
+  store i8 %.0.i2.i, ptr %45, align 1
+  store ptr %46, ptr %43, align 8
+  %47 = load ptr, ptr %24, align 8
+  %.not.i = icmp eq ptr %47, null
+  br i1 %.not.i, label %_ZN15InstructionAttrD2Ev.exit, label %48
 
-49:                                               ; preds = %_ZN9Assembler22simd_prefix_and_encodeE11XMMRegisterS0_S0_NS_13VexSimdPrefixENS_9VexOpcodeEP15InstructionAttrb.exit
-  %50 = getelementptr inbounds i8, ptr %48, i64 32
-  store ptr null, ptr %50, align 8
+48:                                               ; preds = %_ZN9Assembler22simd_prefix_and_encodeE11XMMRegisterS0_S0_NS_13VexSimdPrefixENS_9VexOpcodeEP15InstructionAttrb.exit
+  %49 = getelementptr inbounds i8, ptr %47, i64 32
+  store ptr null, ptr %49, align 8
   br label %_ZN15InstructionAttrD2Ev.exit
 
-_ZN15InstructionAttrD2Ev.exit:                    ; preds = %_ZN9Assembler22simd_prefix_and_encodeE11XMMRegisterS0_S0_NS_13VexSimdPrefixENS_9VexOpcodeEP15InstructionAttrb.exit, %49
+_ZN15InstructionAttrD2Ev.exit:                    ; preds = %_ZN9Assembler22simd_prefix_and_encodeE11XMMRegisterS0_S0_NS_13VexSimdPrefixENS_9VexOpcodeEP15InstructionAttrb.exit, %48
   ret void
 }
 
@@ -30327,41 +30327,41 @@ define hidden void @_ZN9Assembler8packssdwE11XMMRegisterS0_(ptr noundef nonnull 
   %33 = trunc i64 %32 to i32
   %34 = sub i32 %33, ptrtoint (ptr getelementptr inbounds (i8, ptr @all_XMMRegisterImpls, i64 1) to i32)
   %35 = icmp sgt i32 %9, 0
-  br i1 %35, label %36, label %39
+  br i1 %35, label %36, label %38
 
 36:                                               ; preds = %3
-  %37 = icmp ult i32 %29, 32
-  %spec.select.i = select i1 %37, i32 %29, i32 0
-  %38 = call noundef i32 @_ZN9Assembler21vex_prefix_and_encodeEiiiNS_13VexSimdPrefixENS_9VexOpcodeEP15InstructionAttrb(ptr noundef nonnull align 8 dereferenceable(40) %0, i32 noundef %29, i32 noundef %spec.select.i, i32 noundef %34, i32 noundef 1, i32 noundef 1, ptr noundef nonnull %4, i1 noundef zeroext false)
+  %spec.select.i.i = icmp ult i32 %29, 32
+  %spec.select.i = select i1 %spec.select.i.i, i32 %29, i32 0
+  %37 = call noundef i32 @_ZN9Assembler21vex_prefix_and_encodeEiiiNS_13VexSimdPrefixENS_9VexOpcodeEP15InstructionAttrb(ptr noundef nonnull align 8 dereferenceable(40) %0, i32 noundef %29, i32 noundef %spec.select.i, i32 noundef %34, i32 noundef 1, i32 noundef 1, ptr noundef nonnull %4, i1 noundef zeroext false)
   br label %_ZN9Assembler22simd_prefix_and_encodeE11XMMRegisterS0_S0_NS_13VexSimdPrefixENS_9VexOpcodeEP15InstructionAttrb.exit
 
-39:                                               ; preds = %3
-  %40 = tail call noundef i32 @_ZN9Assembler21rex_prefix_and_encodeEiiNS_13VexSimdPrefixENS_9VexOpcodeEb(ptr noundef nonnull align 8 dereferenceable(40) %0, i32 noundef %29, i32 noundef %34, i32 noundef 1, i32 noundef 1, i1 noundef zeroext false)
+38:                                               ; preds = %3
+  %39 = tail call noundef i32 @_ZN9Assembler21rex_prefix_and_encodeEiiNS_13VexSimdPrefixENS_9VexOpcodeEb(ptr noundef nonnull align 8 dereferenceable(40) %0, i32 noundef %29, i32 noundef %34, i32 noundef 1, i32 noundef 1, i1 noundef zeroext false)
   br label %_ZN9Assembler22simd_prefix_and_encodeE11XMMRegisterS0_S0_NS_13VexSimdPrefixENS_9VexOpcodeEP15InstructionAttrb.exit
 
-_ZN9Assembler22simd_prefix_and_encodeE11XMMRegisterS0_S0_NS_13VexSimdPrefixENS_9VexOpcodeEP15InstructionAttrb.exit: ; preds = %36, %39
-  %.0.i = phi i32 [ %38, %36 ], [ %40, %39 ]
-  %41 = getelementptr inbounds i8, ptr %0, i64 8
-  %42 = load ptr, ptr %41, align 8
-  %43 = trunc i32 %.0.i to i8
-  %.0.i2.i = or i8 %43, -64
-  %44 = getelementptr inbounds i8, ptr %42, i64 16
-  %45 = load ptr, ptr %44, align 8
-  %46 = getelementptr inbounds i8, ptr %45, i64 1
-  store i8 107, ptr %45, align 1
-  %47 = getelementptr inbounds i8, ptr %45, i64 2
-  store i8 %.0.i2.i, ptr %46, align 1
-  store ptr %47, ptr %44, align 8
-  %48 = load ptr, ptr %24, align 8
-  %.not.i = icmp eq ptr %48, null
-  br i1 %.not.i, label %_ZN15InstructionAttrD2Ev.exit, label %49
+_ZN9Assembler22simd_prefix_and_encodeE11XMMRegisterS0_S0_NS_13VexSimdPrefixENS_9VexOpcodeEP15InstructionAttrb.exit: ; preds = %36, %38
+  %.0.i = phi i32 [ %37, %36 ], [ %39, %38 ]
+  %40 = getelementptr inbounds i8, ptr %0, i64 8
+  %41 = load ptr, ptr %40, align 8
+  %42 = trunc i32 %.0.i to i8
+  %.0.i2.i = or i8 %42, -64
+  %43 = getelementptr inbounds i8, ptr %41, i64 16
+  %44 = load ptr, ptr %43, align 8
+  %45 = getelementptr inbounds i8, ptr %44, i64 1
+  store i8 107, ptr %44, align 1
+  %46 = getelementptr inbounds i8, ptr %44, i64 2
+  store i8 %.0.i2.i, ptr %45, align 1
+  store ptr %46, ptr %43, align 8
+  %47 = load ptr, ptr %24, align 8
+  %.not.i = icmp eq ptr %47, null
+  br i1 %.not.i, label %_ZN15InstructionAttrD2Ev.exit, label %48
 
-49:                                               ; preds = %_ZN9Assembler22simd_prefix_and_encodeE11XMMRegisterS0_S0_NS_13VexSimdPrefixENS_9VexOpcodeEP15InstructionAttrb.exit
-  %50 = getelementptr inbounds i8, ptr %48, i64 32
-  store ptr null, ptr %50, align 8
+48:                                               ; preds = %_ZN9Assembler22simd_prefix_and_encodeE11XMMRegisterS0_S0_NS_13VexSimdPrefixENS_9VexOpcodeEP15InstructionAttrb.exit
+  %49 = getelementptr inbounds i8, ptr %47, i64 32
+  store ptr null, ptr %49, align 8
   br label %_ZN15InstructionAttrD2Ev.exit
 
-_ZN15InstructionAttrD2Ev.exit:                    ; preds = %_ZN9Assembler22simd_prefix_and_encodeE11XMMRegisterS0_S0_NS_13VexSimdPrefixENS_9VexOpcodeEP15InstructionAttrb.exit, %49
+_ZN15InstructionAttrD2Ev.exit:                    ; preds = %_ZN9Assembler22simd_prefix_and_encodeE11XMMRegisterS0_S0_NS_13VexSimdPrefixENS_9VexOpcodeEP15InstructionAttrb.exit, %48
   ret void
 }
 
@@ -30613,41 +30613,41 @@ define hidden void @_ZN9Assembler8packuswbE11XMMRegisterS0_(ptr noundef nonnull 
   %33 = trunc i64 %32 to i32
   %34 = sub i32 %33, ptrtoint (ptr getelementptr inbounds (i8, ptr @all_XMMRegisterImpls, i64 1) to i32)
   %35 = icmp sgt i32 %9, 0
-  br i1 %35, label %36, label %39
+  br i1 %35, label %36, label %38
 
 36:                                               ; preds = %3
-  %37 = icmp ult i32 %29, 32
-  %spec.select.i = select i1 %37, i32 %29, i32 0
-  %38 = call noundef i32 @_ZN9Assembler21vex_prefix_and_encodeEiiiNS_13VexSimdPrefixENS_9VexOpcodeEP15InstructionAttrb(ptr noundef nonnull align 8 dereferenceable(40) %0, i32 noundef %29, i32 noundef %spec.select.i, i32 noundef %34, i32 noundef 1, i32 noundef 1, ptr noundef nonnull %4, i1 noundef zeroext false)
+  %spec.select.i.i = icmp ult i32 %29, 32
+  %spec.select.i = select i1 %spec.select.i.i, i32 %29, i32 0
+  %37 = call noundef i32 @_ZN9Assembler21vex_prefix_and_encodeEiiiNS_13VexSimdPrefixENS_9VexOpcodeEP15InstructionAttrb(ptr noundef nonnull align 8 dereferenceable(40) %0, i32 noundef %29, i32 noundef %spec.select.i, i32 noundef %34, i32 noundef 1, i32 noundef 1, ptr noundef nonnull %4, i1 noundef zeroext false)
   br label %_ZN9Assembler22simd_prefix_and_encodeE11XMMRegisterS0_S0_NS_13VexSimdPrefixENS_9VexOpcodeEP15InstructionAttrb.exit
 
-39:                                               ; preds = %3
-  %40 = tail call noundef i32 @_ZN9Assembler21rex_prefix_and_encodeEiiNS_13VexSimdPrefixENS_9VexOpcodeEb(ptr noundef nonnull align 8 dereferenceable(40) %0, i32 noundef %29, i32 noundef %34, i32 noundef 1, i32 noundef 1, i1 noundef zeroext false)
+38:                                               ; preds = %3
+  %39 = tail call noundef i32 @_ZN9Assembler21rex_prefix_and_encodeEiiNS_13VexSimdPrefixENS_9VexOpcodeEb(ptr noundef nonnull align 8 dereferenceable(40) %0, i32 noundef %29, i32 noundef %34, i32 noundef 1, i32 noundef 1, i1 noundef zeroext false)
   br label %_ZN9Assembler22simd_prefix_and_encodeE11XMMRegisterS0_S0_NS_13VexSimdPrefixENS_9VexOpcodeEP15InstructionAttrb.exit
 
-_ZN9Assembler22simd_prefix_and_encodeE11XMMRegisterS0_S0_NS_13VexSimdPrefixENS_9VexOpcodeEP15InstructionAttrb.exit: ; preds = %36, %39
-  %.0.i = phi i32 [ %38, %36 ], [ %40, %39 ]
-  %41 = getelementptr inbounds i8, ptr %0, i64 8
-  %42 = load ptr, ptr %41, align 8
-  %43 = trunc i32 %.0.i to i8
-  %.0.i2.i = or i8 %43, -64
-  %44 = getelementptr inbounds i8, ptr %42, i64 16
-  %45 = load ptr, ptr %44, align 8
-  %46 = getelementptr inbounds i8, ptr %45, i64 1
-  store i8 103, ptr %45, align 1
-  %47 = getelementptr inbounds i8, ptr %45, i64 2
-  store i8 %.0.i2.i, ptr %46, align 1
-  store ptr %47, ptr %44, align 8
-  %48 = load ptr, ptr %24, align 8
-  %.not.i = icmp eq ptr %48, null
-  br i1 %.not.i, label %_ZN15InstructionAttrD2Ev.exit, label %49
+_ZN9Assembler22simd_prefix_and_encodeE11XMMRegisterS0_S0_NS_13VexSimdPrefixENS_9VexOpcodeEP15InstructionAttrb.exit: ; preds = %36, %38
+  %.0.i = phi i32 [ %37, %36 ], [ %39, %38 ]
+  %40 = getelementptr inbounds i8, ptr %0, i64 8
+  %41 = load ptr, ptr %40, align 8
+  %42 = trunc i32 %.0.i to i8
+  %.0.i2.i = or i8 %42, -64
+  %43 = getelementptr inbounds i8, ptr %41, i64 16
+  %44 = load ptr, ptr %43, align 8
+  %45 = getelementptr inbounds i8, ptr %44, i64 1
+  store i8 103, ptr %44, align 1
+  %46 = getelementptr inbounds i8, ptr %44, i64 2
+  store i8 %.0.i2.i, ptr %45, align 1
+  store ptr %46, ptr %43, align 8
+  %47 = load ptr, ptr %24, align 8
+  %.not.i = icmp eq ptr %47, null
+  br i1 %.not.i, label %_ZN15InstructionAttrD2Ev.exit, label %48
 
-49:                                               ; preds = %_ZN9Assembler22simd_prefix_and_encodeE11XMMRegisterS0_S0_NS_13VexSimdPrefixENS_9VexOpcodeEP15InstructionAttrb.exit
-  %50 = getelementptr inbounds i8, ptr %48, i64 32
-  store ptr null, ptr %50, align 8
+48:                                               ; preds = %_ZN9Assembler22simd_prefix_and_encodeE11XMMRegisterS0_S0_NS_13VexSimdPrefixENS_9VexOpcodeEP15InstructionAttrb.exit
+  %49 = getelementptr inbounds i8, ptr %47, i64 32
+  store ptr null, ptr %49, align 8
   br label %_ZN15InstructionAttrD2Ev.exit
 
-_ZN15InstructionAttrD2Ev.exit:                    ; preds = %_ZN9Assembler22simd_prefix_and_encodeE11XMMRegisterS0_S0_NS_13VexSimdPrefixENS_9VexOpcodeEP15InstructionAttrb.exit, %49
+_ZN15InstructionAttrD2Ev.exit:                    ; preds = %_ZN9Assembler22simd_prefix_and_encodeE11XMMRegisterS0_S0_NS_13VexSimdPrefixENS_9VexOpcodeEP15InstructionAttrb.exit, %48
   ret void
 }
 
@@ -30776,41 +30776,41 @@ define hidden void @_ZN9Assembler8packusdwE11XMMRegisterS0_(ptr noundef nonnull 
   %33 = trunc i64 %32 to i32
   %34 = sub i32 %33, ptrtoint (ptr getelementptr inbounds (i8, ptr @all_XMMRegisterImpls, i64 1) to i32)
   %35 = icmp sgt i32 %9, 0
-  br i1 %35, label %36, label %39
+  br i1 %35, label %36, label %38
 
 36:                                               ; preds = %3
-  %37 = icmp ult i32 %29, 32
-  %spec.select.i = select i1 %37, i32 %29, i32 0
-  %38 = call noundef i32 @_ZN9Assembler21vex_prefix_and_encodeEiiiNS_13VexSimdPrefixENS_9VexOpcodeEP15InstructionAttrb(ptr noundef nonnull align 8 dereferenceable(40) %0, i32 noundef %29, i32 noundef %spec.select.i, i32 noundef %34, i32 noundef 1, i32 noundef 2, ptr noundef nonnull %4, i1 noundef zeroext false)
+  %spec.select.i.i = icmp ult i32 %29, 32
+  %spec.select.i = select i1 %spec.select.i.i, i32 %29, i32 0
+  %37 = call noundef i32 @_ZN9Assembler21vex_prefix_and_encodeEiiiNS_13VexSimdPrefixENS_9VexOpcodeEP15InstructionAttrb(ptr noundef nonnull align 8 dereferenceable(40) %0, i32 noundef %29, i32 noundef %spec.select.i, i32 noundef %34, i32 noundef 1, i32 noundef 2, ptr noundef nonnull %4, i1 noundef zeroext false)
   br label %_ZN9Assembler22simd_prefix_and_encodeE11XMMRegisterS0_S0_NS_13VexSimdPrefixENS_9VexOpcodeEP15InstructionAttrb.exit
 
-39:                                               ; preds = %3
-  %40 = tail call noundef i32 @_ZN9Assembler21rex_prefix_and_encodeEiiNS_13VexSimdPrefixENS_9VexOpcodeEb(ptr noundef nonnull align 8 dereferenceable(40) %0, i32 noundef %29, i32 noundef %34, i32 noundef 1, i32 noundef 2, i1 noundef zeroext false)
+38:                                               ; preds = %3
+  %39 = tail call noundef i32 @_ZN9Assembler21rex_prefix_and_encodeEiiNS_13VexSimdPrefixENS_9VexOpcodeEb(ptr noundef nonnull align 8 dereferenceable(40) %0, i32 noundef %29, i32 noundef %34, i32 noundef 1, i32 noundef 2, i1 noundef zeroext false)
   br label %_ZN9Assembler22simd_prefix_and_encodeE11XMMRegisterS0_S0_NS_13VexSimdPrefixENS_9VexOpcodeEP15InstructionAttrb.exit
 
-_ZN9Assembler22simd_prefix_and_encodeE11XMMRegisterS0_S0_NS_13VexSimdPrefixENS_9VexOpcodeEP15InstructionAttrb.exit: ; preds = %36, %39
-  %.0.i = phi i32 [ %38, %36 ], [ %40, %39 ]
-  %41 = getelementptr inbounds i8, ptr %0, i64 8
-  %42 = load ptr, ptr %41, align 8
-  %43 = trunc i32 %.0.i to i8
-  %.0.i2.i = or i8 %43, -64
-  %44 = getelementptr inbounds i8, ptr %42, i64 16
-  %45 = load ptr, ptr %44, align 8
-  %46 = getelementptr inbounds i8, ptr %45, i64 1
-  store i8 43, ptr %45, align 1
-  %47 = getelementptr inbounds i8, ptr %45, i64 2
-  store i8 %.0.i2.i, ptr %46, align 1
-  store ptr %47, ptr %44, align 8
-  %48 = load ptr, ptr %24, align 8
-  %.not.i = icmp eq ptr %48, null
-  br i1 %.not.i, label %_ZN15InstructionAttrD2Ev.exit, label %49
+_ZN9Assembler22simd_prefix_and_encodeE11XMMRegisterS0_S0_NS_13VexSimdPrefixENS_9VexOpcodeEP15InstructionAttrb.exit: ; preds = %36, %38
+  %.0.i = phi i32 [ %37, %36 ], [ %39, %38 ]
+  %40 = getelementptr inbounds i8, ptr %0, i64 8
+  %41 = load ptr, ptr %40, align 8
+  %42 = trunc i32 %.0.i to i8
+  %.0.i2.i = or i8 %42, -64
+  %43 = getelementptr inbounds i8, ptr %41, i64 16
+  %44 = load ptr, ptr %43, align 8
+  %45 = getelementptr inbounds i8, ptr %44, i64 1
+  store i8 43, ptr %44, align 1
+  %46 = getelementptr inbounds i8, ptr %44, i64 2
+  store i8 %.0.i2.i, ptr %45, align 1
+  store ptr %46, ptr %43, align 8
+  %47 = load ptr, ptr %24, align 8
+  %.not.i = icmp eq ptr %47, null
+  br i1 %.not.i, label %_ZN15InstructionAttrD2Ev.exit, label %48
 
-49:                                               ; preds = %_ZN9Assembler22simd_prefix_and_encodeE11XMMRegisterS0_S0_NS_13VexSimdPrefixENS_9VexOpcodeEP15InstructionAttrb.exit
-  %50 = getelementptr inbounds i8, ptr %48, i64 32
-  store ptr null, ptr %50, align 8
+48:                                               ; preds = %_ZN9Assembler22simd_prefix_and_encodeE11XMMRegisterS0_S0_NS_13VexSimdPrefixENS_9VexOpcodeEP15InstructionAttrb.exit
+  %49 = getelementptr inbounds i8, ptr %47, i64 32
+  store ptr null, ptr %49, align 8
   br label %_ZN15InstructionAttrD2Ev.exit
 
-_ZN15InstructionAttrD2Ev.exit:                    ; preds = %_ZN9Assembler22simd_prefix_and_encodeE11XMMRegisterS0_S0_NS_13VexSimdPrefixENS_9VexOpcodeEP15InstructionAttrb.exit, %49
+_ZN15InstructionAttrD2Ev.exit:                    ; preds = %_ZN9Assembler22simd_prefix_and_encodeE11XMMRegisterS0_S0_NS_13VexSimdPrefixENS_9VexOpcodeEP15InstructionAttrb.exit, %48
   ret void
 }
 
@@ -32481,41 +32481,41 @@ define hidden void @_ZN9Assembler7pcmpeqbE11XMMRegisterS0_(ptr noundef nonnull a
   %27 = trunc i64 %26 to i32
   %28 = sub i32 %27, ptrtoint (ptr getelementptr inbounds (i8, ptr @all_XMMRegisterImpls, i64 1) to i32)
   %29 = icmp sgt i32 %6, 0
-  br i1 %29, label %30, label %33
+  br i1 %29, label %30, label %32
 
 30:                                               ; preds = %3
-  %31 = icmp ult i32 %23, 32
-  %spec.select.i = select i1 %31, i32 %23, i32 0
-  %32 = call noundef i32 @_ZN9Assembler21vex_prefix_and_encodeEiiiNS_13VexSimdPrefixENS_9VexOpcodeEP15InstructionAttrb(ptr noundef nonnull align 8 dereferenceable(40) %0, i32 noundef %23, i32 noundef %spec.select.i, i32 noundef %28, i32 noundef 1, i32 noundef 1, ptr noundef nonnull %4, i1 noundef zeroext false)
+  %spec.select.i.i = icmp ult i32 %23, 32
+  %spec.select.i = select i1 %spec.select.i.i, i32 %23, i32 0
+  %31 = call noundef i32 @_ZN9Assembler21vex_prefix_and_encodeEiiiNS_13VexSimdPrefixENS_9VexOpcodeEP15InstructionAttrb(ptr noundef nonnull align 8 dereferenceable(40) %0, i32 noundef %23, i32 noundef %spec.select.i, i32 noundef %28, i32 noundef 1, i32 noundef 1, ptr noundef nonnull %4, i1 noundef zeroext false)
   br label %_ZN9Assembler22simd_prefix_and_encodeE11XMMRegisterS0_S0_NS_13VexSimdPrefixENS_9VexOpcodeEP15InstructionAttrb.exit
 
-33:                                               ; preds = %3
-  %34 = tail call noundef i32 @_ZN9Assembler21rex_prefix_and_encodeEiiNS_13VexSimdPrefixENS_9VexOpcodeEb(ptr noundef nonnull align 8 dereferenceable(40) %0, i32 noundef %23, i32 noundef %28, i32 noundef 1, i32 noundef 1, i1 noundef zeroext false)
+32:                                               ; preds = %3
+  %33 = tail call noundef i32 @_ZN9Assembler21rex_prefix_and_encodeEiiNS_13VexSimdPrefixENS_9VexOpcodeEb(ptr noundef nonnull align 8 dereferenceable(40) %0, i32 noundef %23, i32 noundef %28, i32 noundef 1, i32 noundef 1, i1 noundef zeroext false)
   br label %_ZN9Assembler22simd_prefix_and_encodeE11XMMRegisterS0_S0_NS_13VexSimdPrefixENS_9VexOpcodeEP15InstructionAttrb.exit
 
-_ZN9Assembler22simd_prefix_and_encodeE11XMMRegisterS0_S0_NS_13VexSimdPrefixENS_9VexOpcodeEP15InstructionAttrb.exit: ; preds = %30, %33
-  %.0.i = phi i32 [ %32, %30 ], [ %34, %33 ]
-  %35 = getelementptr inbounds i8, ptr %0, i64 8
-  %36 = load ptr, ptr %35, align 8
-  %37 = trunc i32 %.0.i to i8
-  %.0.i2.i = or i8 %37, -64
-  %38 = getelementptr inbounds i8, ptr %36, i64 16
-  %39 = load ptr, ptr %38, align 8
-  %40 = getelementptr inbounds i8, ptr %39, i64 1
-  store i8 116, ptr %39, align 1
-  %41 = getelementptr inbounds i8, ptr %39, i64 2
-  store i8 %.0.i2.i, ptr %40, align 1
-  store ptr %41, ptr %38, align 8
-  %42 = load ptr, ptr %18, align 8
-  %.not.i = icmp eq ptr %42, null
-  br i1 %.not.i, label %_ZN15InstructionAttrD2Ev.exit, label %43
+_ZN9Assembler22simd_prefix_and_encodeE11XMMRegisterS0_S0_NS_13VexSimdPrefixENS_9VexOpcodeEP15InstructionAttrb.exit: ; preds = %30, %32
+  %.0.i = phi i32 [ %31, %30 ], [ %33, %32 ]
+  %34 = getelementptr inbounds i8, ptr %0, i64 8
+  %35 = load ptr, ptr %34, align 8
+  %36 = trunc i32 %.0.i to i8
+  %.0.i2.i = or i8 %36, -64
+  %37 = getelementptr inbounds i8, ptr %35, i64 16
+  %38 = load ptr, ptr %37, align 8
+  %39 = getelementptr inbounds i8, ptr %38, i64 1
+  store i8 116, ptr %38, align 1
+  %40 = getelementptr inbounds i8, ptr %38, i64 2
+  store i8 %.0.i2.i, ptr %39, align 1
+  store ptr %40, ptr %37, align 8
+  %41 = load ptr, ptr %18, align 8
+  %.not.i = icmp eq ptr %41, null
+  br i1 %.not.i, label %_ZN15InstructionAttrD2Ev.exit, label %42
 
-43:                                               ; preds = %_ZN9Assembler22simd_prefix_and_encodeE11XMMRegisterS0_S0_NS_13VexSimdPrefixENS_9VexOpcodeEP15InstructionAttrb.exit
-  %44 = getelementptr inbounds i8, ptr %42, i64 32
-  store ptr null, ptr %44, align 8
+42:                                               ; preds = %_ZN9Assembler22simd_prefix_and_encodeE11XMMRegisterS0_S0_NS_13VexSimdPrefixENS_9VexOpcodeEP15InstructionAttrb.exit
+  %43 = getelementptr inbounds i8, ptr %41, i64 32
+  store ptr null, ptr %43, align 8
   br label %_ZN15InstructionAttrD2Ev.exit
 
-_ZN15InstructionAttrD2Ev.exit:                    ; preds = %_ZN9Assembler22simd_prefix_and_encodeE11XMMRegisterS0_S0_NS_13VexSimdPrefixENS_9VexOpcodeEP15InstructionAttrb.exit, %43
+_ZN15InstructionAttrD2Ev.exit:                    ; preds = %_ZN9Assembler22simd_prefix_and_encodeE11XMMRegisterS0_S0_NS_13VexSimdPrefixENS_9VexOpcodeEP15InstructionAttrb.exit, %42
   ret void
 }
 
@@ -33668,41 +33668,41 @@ define hidden void @_ZN9Assembler7pcmpeqwE11XMMRegisterS0_(ptr noundef nonnull a
   %27 = trunc i64 %26 to i32
   %28 = sub i32 %27, ptrtoint (ptr getelementptr inbounds (i8, ptr @all_XMMRegisterImpls, i64 1) to i32)
   %29 = icmp sgt i32 %6, 0
-  br i1 %29, label %30, label %33
+  br i1 %29, label %30, label %32
 
 30:                                               ; preds = %3
-  %31 = icmp ult i32 %23, 32
-  %spec.select.i = select i1 %31, i32 %23, i32 0
-  %32 = call noundef i32 @_ZN9Assembler21vex_prefix_and_encodeEiiiNS_13VexSimdPrefixENS_9VexOpcodeEP15InstructionAttrb(ptr noundef nonnull align 8 dereferenceable(40) %0, i32 noundef %23, i32 noundef %spec.select.i, i32 noundef %28, i32 noundef 1, i32 noundef 1, ptr noundef nonnull %4, i1 noundef zeroext false)
+  %spec.select.i.i = icmp ult i32 %23, 32
+  %spec.select.i = select i1 %spec.select.i.i, i32 %23, i32 0
+  %31 = call noundef i32 @_ZN9Assembler21vex_prefix_and_encodeEiiiNS_13VexSimdPrefixENS_9VexOpcodeEP15InstructionAttrb(ptr noundef nonnull align 8 dereferenceable(40) %0, i32 noundef %23, i32 noundef %spec.select.i, i32 noundef %28, i32 noundef 1, i32 noundef 1, ptr noundef nonnull %4, i1 noundef zeroext false)
   br label %_ZN9Assembler22simd_prefix_and_encodeE11XMMRegisterS0_S0_NS_13VexSimdPrefixENS_9VexOpcodeEP15InstructionAttrb.exit
 
-33:                                               ; preds = %3
-  %34 = tail call noundef i32 @_ZN9Assembler21rex_prefix_and_encodeEiiNS_13VexSimdPrefixENS_9VexOpcodeEb(ptr noundef nonnull align 8 dereferenceable(40) %0, i32 noundef %23, i32 noundef %28, i32 noundef 1, i32 noundef 1, i1 noundef zeroext false)
+32:                                               ; preds = %3
+  %33 = tail call noundef i32 @_ZN9Assembler21rex_prefix_and_encodeEiiNS_13VexSimdPrefixENS_9VexOpcodeEb(ptr noundef nonnull align 8 dereferenceable(40) %0, i32 noundef %23, i32 noundef %28, i32 noundef 1, i32 noundef 1, i1 noundef zeroext false)
   br label %_ZN9Assembler22simd_prefix_and_encodeE11XMMRegisterS0_S0_NS_13VexSimdPrefixENS_9VexOpcodeEP15InstructionAttrb.exit
 
-_ZN9Assembler22simd_prefix_and_encodeE11XMMRegisterS0_S0_NS_13VexSimdPrefixENS_9VexOpcodeEP15InstructionAttrb.exit: ; preds = %30, %33
-  %.0.i = phi i32 [ %32, %30 ], [ %34, %33 ]
-  %35 = getelementptr inbounds i8, ptr %0, i64 8
-  %36 = load ptr, ptr %35, align 8
-  %37 = trunc i32 %.0.i to i8
-  %.0.i2.i = or i8 %37, -64
-  %38 = getelementptr inbounds i8, ptr %36, i64 16
-  %39 = load ptr, ptr %38, align 8
-  %40 = getelementptr inbounds i8, ptr %39, i64 1
-  store i8 117, ptr %39, align 1
-  %41 = getelementptr inbounds i8, ptr %39, i64 2
-  store i8 %.0.i2.i, ptr %40, align 1
-  store ptr %41, ptr %38, align 8
-  %42 = load ptr, ptr %18, align 8
-  %.not.i = icmp eq ptr %42, null
-  br i1 %.not.i, label %_ZN15InstructionAttrD2Ev.exit, label %43
+_ZN9Assembler22simd_prefix_and_encodeE11XMMRegisterS0_S0_NS_13VexSimdPrefixENS_9VexOpcodeEP15InstructionAttrb.exit: ; preds = %30, %32
+  %.0.i = phi i32 [ %31, %30 ], [ %33, %32 ]
+  %34 = getelementptr inbounds i8, ptr %0, i64 8
+  %35 = load ptr, ptr %34, align 8
+  %36 = trunc i32 %.0.i to i8
+  %.0.i2.i = or i8 %36, -64
+  %37 = getelementptr inbounds i8, ptr %35, i64 16
+  %38 = load ptr, ptr %37, align 8
+  %39 = getelementptr inbounds i8, ptr %38, i64 1
+  store i8 117, ptr %38, align 1
+  %40 = getelementptr inbounds i8, ptr %38, i64 2
+  store i8 %.0.i2.i, ptr %39, align 1
+  store ptr %40, ptr %37, align 8
+  %41 = load ptr, ptr %18, align 8
+  %.not.i = icmp eq ptr %41, null
+  br i1 %.not.i, label %_ZN15InstructionAttrD2Ev.exit, label %42
 
-43:                                               ; preds = %_ZN9Assembler22simd_prefix_and_encodeE11XMMRegisterS0_S0_NS_13VexSimdPrefixENS_9VexOpcodeEP15InstructionAttrb.exit
-  %44 = getelementptr inbounds i8, ptr %42, i64 32
-  store ptr null, ptr %44, align 8
+42:                                               ; preds = %_ZN9Assembler22simd_prefix_and_encodeE11XMMRegisterS0_S0_NS_13VexSimdPrefixENS_9VexOpcodeEP15InstructionAttrb.exit
+  %43 = getelementptr inbounds i8, ptr %41, i64 32
+  store ptr null, ptr %43, align 8
   br label %_ZN15InstructionAttrD2Ev.exit
 
-_ZN15InstructionAttrD2Ev.exit:                    ; preds = %_ZN9Assembler22simd_prefix_and_encodeE11XMMRegisterS0_S0_NS_13VexSimdPrefixENS_9VexOpcodeEP15InstructionAttrb.exit, %43
+_ZN15InstructionAttrD2Ev.exit:                    ; preds = %_ZN9Assembler22simd_prefix_and_encodeE11XMMRegisterS0_S0_NS_13VexSimdPrefixENS_9VexOpcodeEP15InstructionAttrb.exit, %42
   ret void
 }
 
@@ -34125,41 +34125,41 @@ define hidden void @_ZN9Assembler7pcmpeqdE11XMMRegisterS0_(ptr noundef nonnull a
   %27 = trunc i64 %26 to i32
   %28 = sub i32 %27, ptrtoint (ptr getelementptr inbounds (i8, ptr @all_XMMRegisterImpls, i64 1) to i32)
   %29 = icmp sgt i32 %6, 0
-  br i1 %29, label %30, label %33
+  br i1 %29, label %30, label %32
 
 30:                                               ; preds = %3
-  %31 = icmp ult i32 %23, 32
-  %spec.select.i = select i1 %31, i32 %23, i32 0
-  %32 = call noundef i32 @_ZN9Assembler21vex_prefix_and_encodeEiiiNS_13VexSimdPrefixENS_9VexOpcodeEP15InstructionAttrb(ptr noundef nonnull align 8 dereferenceable(40) %0, i32 noundef %23, i32 noundef %spec.select.i, i32 noundef %28, i32 noundef 1, i32 noundef 1, ptr noundef nonnull %4, i1 noundef zeroext false)
+  %spec.select.i.i = icmp ult i32 %23, 32
+  %spec.select.i = select i1 %spec.select.i.i, i32 %23, i32 0
+  %31 = call noundef i32 @_ZN9Assembler21vex_prefix_and_encodeEiiiNS_13VexSimdPrefixENS_9VexOpcodeEP15InstructionAttrb(ptr noundef nonnull align 8 dereferenceable(40) %0, i32 noundef %23, i32 noundef %spec.select.i, i32 noundef %28, i32 noundef 1, i32 noundef 1, ptr noundef nonnull %4, i1 noundef zeroext false)
   br label %_ZN9Assembler22simd_prefix_and_encodeE11XMMRegisterS0_S0_NS_13VexSimdPrefixENS_9VexOpcodeEP15InstructionAttrb.exit
 
-33:                                               ; preds = %3
-  %34 = tail call noundef i32 @_ZN9Assembler21rex_prefix_and_encodeEiiNS_13VexSimdPrefixENS_9VexOpcodeEb(ptr noundef nonnull align 8 dereferenceable(40) %0, i32 noundef %23, i32 noundef %28, i32 noundef 1, i32 noundef 1, i1 noundef zeroext false)
+32:                                               ; preds = %3
+  %33 = tail call noundef i32 @_ZN9Assembler21rex_prefix_and_encodeEiiNS_13VexSimdPrefixENS_9VexOpcodeEb(ptr noundef nonnull align 8 dereferenceable(40) %0, i32 noundef %23, i32 noundef %28, i32 noundef 1, i32 noundef 1, i1 noundef zeroext false)
   br label %_ZN9Assembler22simd_prefix_and_encodeE11XMMRegisterS0_S0_NS_13VexSimdPrefixENS_9VexOpcodeEP15InstructionAttrb.exit
 
-_ZN9Assembler22simd_prefix_and_encodeE11XMMRegisterS0_S0_NS_13VexSimdPrefixENS_9VexOpcodeEP15InstructionAttrb.exit: ; preds = %30, %33
-  %.0.i = phi i32 [ %32, %30 ], [ %34, %33 ]
-  %35 = getelementptr inbounds i8, ptr %0, i64 8
-  %36 = load ptr, ptr %35, align 8
-  %37 = trunc i32 %.0.i to i8
-  %.0.i2.i = or i8 %37, -64
-  %38 = getelementptr inbounds i8, ptr %36, i64 16
-  %39 = load ptr, ptr %38, align 8
-  %40 = getelementptr inbounds i8, ptr %39, i64 1
-  store i8 118, ptr %39, align 1
-  %41 = getelementptr inbounds i8, ptr %39, i64 2
-  store i8 %.0.i2.i, ptr %40, align 1
-  store ptr %41, ptr %38, align 8
-  %42 = load ptr, ptr %18, align 8
-  %.not.i = icmp eq ptr %42, null
-  br i1 %.not.i, label %_ZN15InstructionAttrD2Ev.exit, label %43
+_ZN9Assembler22simd_prefix_and_encodeE11XMMRegisterS0_S0_NS_13VexSimdPrefixENS_9VexOpcodeEP15InstructionAttrb.exit: ; preds = %30, %32
+  %.0.i = phi i32 [ %31, %30 ], [ %33, %32 ]
+  %34 = getelementptr inbounds i8, ptr %0, i64 8
+  %35 = load ptr, ptr %34, align 8
+  %36 = trunc i32 %.0.i to i8
+  %.0.i2.i = or i8 %36, -64
+  %37 = getelementptr inbounds i8, ptr %35, i64 16
+  %38 = load ptr, ptr %37, align 8
+  %39 = getelementptr inbounds i8, ptr %38, i64 1
+  store i8 118, ptr %38, align 1
+  %40 = getelementptr inbounds i8, ptr %38, i64 2
+  store i8 %.0.i2.i, ptr %39, align 1
+  store ptr %40, ptr %37, align 8
+  %41 = load ptr, ptr %18, align 8
+  %.not.i = icmp eq ptr %41, null
+  br i1 %.not.i, label %_ZN15InstructionAttrD2Ev.exit, label %42
 
-43:                                               ; preds = %_ZN9Assembler22simd_prefix_and_encodeE11XMMRegisterS0_S0_NS_13VexSimdPrefixENS_9VexOpcodeEP15InstructionAttrb.exit
-  %44 = getelementptr inbounds i8, ptr %42, i64 32
-  store ptr null, ptr %44, align 8
+42:                                               ; preds = %_ZN9Assembler22simd_prefix_and_encodeE11XMMRegisterS0_S0_NS_13VexSimdPrefixENS_9VexOpcodeEP15InstructionAttrb.exit
+  %43 = getelementptr inbounds i8, ptr %41, i64 32
+  store ptr null, ptr %43, align 8
   br label %_ZN15InstructionAttrD2Ev.exit
 
-_ZN15InstructionAttrD2Ev.exit:                    ; preds = %_ZN9Assembler22simd_prefix_and_encodeE11XMMRegisterS0_S0_NS_13VexSimdPrefixENS_9VexOpcodeEP15InstructionAttrb.exit, %43
+_ZN15InstructionAttrD2Ev.exit:                    ; preds = %_ZN9Assembler22simd_prefix_and_encodeE11XMMRegisterS0_S0_NS_13VexSimdPrefixENS_9VexOpcodeEP15InstructionAttrb.exit, %42
   ret void
 }
 
@@ -34482,41 +34482,41 @@ define hidden void @_ZN9Assembler7pcmpeqqE11XMMRegisterS0_(ptr noundef nonnull a
   %27 = trunc i64 %26 to i32
   %28 = sub i32 %27, ptrtoint (ptr getelementptr inbounds (i8, ptr @all_XMMRegisterImpls, i64 1) to i32)
   %29 = icmp sgt i32 %6, 0
-  br i1 %29, label %30, label %33
+  br i1 %29, label %30, label %32
 
 30:                                               ; preds = %3
-  %31 = icmp ult i32 %23, 32
-  %spec.select.i = select i1 %31, i32 %23, i32 0
-  %32 = call noundef i32 @_ZN9Assembler21vex_prefix_and_encodeEiiiNS_13VexSimdPrefixENS_9VexOpcodeEP15InstructionAttrb(ptr noundef nonnull align 8 dereferenceable(40) %0, i32 noundef %23, i32 noundef %spec.select.i, i32 noundef %28, i32 noundef 1, i32 noundef 2, ptr noundef nonnull %4, i1 noundef zeroext false)
+  %spec.select.i.i = icmp ult i32 %23, 32
+  %spec.select.i = select i1 %spec.select.i.i, i32 %23, i32 0
+  %31 = call noundef i32 @_ZN9Assembler21vex_prefix_and_encodeEiiiNS_13VexSimdPrefixENS_9VexOpcodeEP15InstructionAttrb(ptr noundef nonnull align 8 dereferenceable(40) %0, i32 noundef %23, i32 noundef %spec.select.i, i32 noundef %28, i32 noundef 1, i32 noundef 2, ptr noundef nonnull %4, i1 noundef zeroext false)
   br label %_ZN9Assembler22simd_prefix_and_encodeE11XMMRegisterS0_S0_NS_13VexSimdPrefixENS_9VexOpcodeEP15InstructionAttrb.exit
 
-33:                                               ; preds = %3
-  %34 = tail call noundef i32 @_ZN9Assembler21rex_prefix_and_encodeEiiNS_13VexSimdPrefixENS_9VexOpcodeEb(ptr noundef nonnull align 8 dereferenceable(40) %0, i32 noundef %23, i32 noundef %28, i32 noundef 1, i32 noundef 2, i1 noundef zeroext false)
+32:                                               ; preds = %3
+  %33 = tail call noundef i32 @_ZN9Assembler21rex_prefix_and_encodeEiiNS_13VexSimdPrefixENS_9VexOpcodeEb(ptr noundef nonnull align 8 dereferenceable(40) %0, i32 noundef %23, i32 noundef %28, i32 noundef 1, i32 noundef 2, i1 noundef zeroext false)
   br label %_ZN9Assembler22simd_prefix_and_encodeE11XMMRegisterS0_S0_NS_13VexSimdPrefixENS_9VexOpcodeEP15InstructionAttrb.exit
 
-_ZN9Assembler22simd_prefix_and_encodeE11XMMRegisterS0_S0_NS_13VexSimdPrefixENS_9VexOpcodeEP15InstructionAttrb.exit: ; preds = %30, %33
-  %.0.i = phi i32 [ %32, %30 ], [ %34, %33 ]
-  %35 = getelementptr inbounds i8, ptr %0, i64 8
-  %36 = load ptr, ptr %35, align 8
-  %37 = trunc i32 %.0.i to i8
-  %.0.i2.i = or i8 %37, -64
-  %38 = getelementptr inbounds i8, ptr %36, i64 16
-  %39 = load ptr, ptr %38, align 8
-  %40 = getelementptr inbounds i8, ptr %39, i64 1
-  store i8 41, ptr %39, align 1
-  %41 = getelementptr inbounds i8, ptr %39, i64 2
-  store i8 %.0.i2.i, ptr %40, align 1
-  store ptr %41, ptr %38, align 8
-  %42 = load ptr, ptr %18, align 8
-  %.not.i = icmp eq ptr %42, null
-  br i1 %.not.i, label %_ZN15InstructionAttrD2Ev.exit, label %43
+_ZN9Assembler22simd_prefix_and_encodeE11XMMRegisterS0_S0_NS_13VexSimdPrefixENS_9VexOpcodeEP15InstructionAttrb.exit: ; preds = %30, %32
+  %.0.i = phi i32 [ %31, %30 ], [ %33, %32 ]
+  %34 = getelementptr inbounds i8, ptr %0, i64 8
+  %35 = load ptr, ptr %34, align 8
+  %36 = trunc i32 %.0.i to i8
+  %.0.i2.i = or i8 %36, -64
+  %37 = getelementptr inbounds i8, ptr %35, i64 16
+  %38 = load ptr, ptr %37, align 8
+  %39 = getelementptr inbounds i8, ptr %38, i64 1
+  store i8 41, ptr %38, align 1
+  %40 = getelementptr inbounds i8, ptr %38, i64 2
+  store i8 %.0.i2.i, ptr %39, align 1
+  store ptr %40, ptr %37, align 8
+  %41 = load ptr, ptr %18, align 8
+  %.not.i = icmp eq ptr %41, null
+  br i1 %.not.i, label %_ZN15InstructionAttrD2Ev.exit, label %42
 
-43:                                               ; preds = %_ZN9Assembler22simd_prefix_and_encodeE11XMMRegisterS0_S0_NS_13VexSimdPrefixENS_9VexOpcodeEP15InstructionAttrb.exit
-  %44 = getelementptr inbounds i8, ptr %42, i64 32
-  store ptr null, ptr %44, align 8
+42:                                               ; preds = %_ZN9Assembler22simd_prefix_and_encodeE11XMMRegisterS0_S0_NS_13VexSimdPrefixENS_9VexOpcodeEP15InstructionAttrb.exit
+  %43 = getelementptr inbounds i8, ptr %41, i64 32
+  store ptr null, ptr %43, align 8
   br label %_ZN15InstructionAttrD2Ev.exit
 
-_ZN15InstructionAttrD2Ev.exit:                    ; preds = %_ZN9Assembler22simd_prefix_and_encodeE11XMMRegisterS0_S0_NS_13VexSimdPrefixENS_9VexOpcodeEP15InstructionAttrb.exit, %43
+_ZN15InstructionAttrD2Ev.exit:                    ; preds = %_ZN9Assembler22simd_prefix_and_encodeE11XMMRegisterS0_S0_NS_13VexSimdPrefixENS_9VexOpcodeEP15InstructionAttrb.exit, %42
   ret void
 }
 
@@ -34977,41 +34977,41 @@ define hidden void @_ZN9Assembler7pcmpgtqE11XMMRegisterS0_(ptr noundef nonnull a
   %27 = trunc i64 %26 to i32
   %28 = sub i32 %27, ptrtoint (ptr getelementptr inbounds (i8, ptr @all_XMMRegisterImpls, i64 1) to i32)
   %29 = icmp sgt i32 %6, 0
-  br i1 %29, label %30, label %33
+  br i1 %29, label %30, label %32
 
 30:                                               ; preds = %3
-  %31 = icmp ult i32 %23, 32
-  %spec.select.i = select i1 %31, i32 %23, i32 0
-  %32 = call noundef i32 @_ZN9Assembler21vex_prefix_and_encodeEiiiNS_13VexSimdPrefixENS_9VexOpcodeEP15InstructionAttrb(ptr noundef nonnull align 8 dereferenceable(40) %0, i32 noundef %23, i32 noundef %spec.select.i, i32 noundef %28, i32 noundef 1, i32 noundef 2, ptr noundef nonnull %4, i1 noundef zeroext false)
+  %spec.select.i.i = icmp ult i32 %23, 32
+  %spec.select.i = select i1 %spec.select.i.i, i32 %23, i32 0
+  %31 = call noundef i32 @_ZN9Assembler21vex_prefix_and_encodeEiiiNS_13VexSimdPrefixENS_9VexOpcodeEP15InstructionAttrb(ptr noundef nonnull align 8 dereferenceable(40) %0, i32 noundef %23, i32 noundef %spec.select.i, i32 noundef %28, i32 noundef 1, i32 noundef 2, ptr noundef nonnull %4, i1 noundef zeroext false)
   br label %_ZN9Assembler22simd_prefix_and_encodeE11XMMRegisterS0_S0_NS_13VexSimdPrefixENS_9VexOpcodeEP15InstructionAttrb.exit
 
-33:                                               ; preds = %3
-  %34 = tail call noundef i32 @_ZN9Assembler21rex_prefix_and_encodeEiiNS_13VexSimdPrefixENS_9VexOpcodeEb(ptr noundef nonnull align 8 dereferenceable(40) %0, i32 noundef %23, i32 noundef %28, i32 noundef 1, i32 noundef 2, i1 noundef zeroext false)
+32:                                               ; preds = %3
+  %33 = tail call noundef i32 @_ZN9Assembler21rex_prefix_and_encodeEiiNS_13VexSimdPrefixENS_9VexOpcodeEb(ptr noundef nonnull align 8 dereferenceable(40) %0, i32 noundef %23, i32 noundef %28, i32 noundef 1, i32 noundef 2, i1 noundef zeroext false)
   br label %_ZN9Assembler22simd_prefix_and_encodeE11XMMRegisterS0_S0_NS_13VexSimdPrefixENS_9VexOpcodeEP15InstructionAttrb.exit
 
-_ZN9Assembler22simd_prefix_and_encodeE11XMMRegisterS0_S0_NS_13VexSimdPrefixENS_9VexOpcodeEP15InstructionAttrb.exit: ; preds = %30, %33
-  %.0.i = phi i32 [ %32, %30 ], [ %34, %33 ]
-  %35 = getelementptr inbounds i8, ptr %0, i64 8
-  %36 = load ptr, ptr %35, align 8
-  %37 = trunc i32 %.0.i to i8
-  %.0.i2.i = or i8 %37, -64
-  %38 = getelementptr inbounds i8, ptr %36, i64 16
-  %39 = load ptr, ptr %38, align 8
-  %40 = getelementptr inbounds i8, ptr %39, i64 1
-  store i8 55, ptr %39, align 1
-  %41 = getelementptr inbounds i8, ptr %39, i64 2
-  store i8 %.0.i2.i, ptr %40, align 1
-  store ptr %41, ptr %38, align 8
-  %42 = load ptr, ptr %18, align 8
-  %.not.i = icmp eq ptr %42, null
-  br i1 %.not.i, label %_ZN15InstructionAttrD2Ev.exit, label %43
+_ZN9Assembler22simd_prefix_and_encodeE11XMMRegisterS0_S0_NS_13VexSimdPrefixENS_9VexOpcodeEP15InstructionAttrb.exit: ; preds = %30, %32
+  %.0.i = phi i32 [ %31, %30 ], [ %33, %32 ]
+  %34 = getelementptr inbounds i8, ptr %0, i64 8
+  %35 = load ptr, ptr %34, align 8
+  %36 = trunc i32 %.0.i to i8
+  %.0.i2.i = or i8 %36, -64
+  %37 = getelementptr inbounds i8, ptr %35, i64 16
+  %38 = load ptr, ptr %37, align 8
+  %39 = getelementptr inbounds i8, ptr %38, i64 1
+  store i8 55, ptr %38, align 1
+  %40 = getelementptr inbounds i8, ptr %38, i64 2
+  store i8 %.0.i2.i, ptr %39, align 1
+  store ptr %40, ptr %37, align 8
+  %41 = load ptr, ptr %18, align 8
+  %.not.i = icmp eq ptr %41, null
+  br i1 %.not.i, label %_ZN15InstructionAttrD2Ev.exit, label %42
 
-43:                                               ; preds = %_ZN9Assembler22simd_prefix_and_encodeE11XMMRegisterS0_S0_NS_13VexSimdPrefixENS_9VexOpcodeEP15InstructionAttrb.exit
-  %44 = getelementptr inbounds i8, ptr %42, i64 32
-  store ptr null, ptr %44, align 8
+42:                                               ; preds = %_ZN9Assembler22simd_prefix_and_encodeE11XMMRegisterS0_S0_NS_13VexSimdPrefixENS_9VexOpcodeEP15InstructionAttrb.exit
+  %43 = getelementptr inbounds i8, ptr %41, i64 32
+  store ptr null, ptr %43, align 8
   br label %_ZN15InstructionAttrD2Ev.exit
 
-_ZN15InstructionAttrD2Ev.exit:                    ; preds = %_ZN9Assembler22simd_prefix_and_encodeE11XMMRegisterS0_S0_NS_13VexSimdPrefixENS_9VexOpcodeEP15InstructionAttrb.exit, %43
+_ZN15InstructionAttrD2Ev.exit:                    ; preds = %_ZN9Assembler22simd_prefix_and_encodeE11XMMRegisterS0_S0_NS_13VexSimdPrefixENS_9VexOpcodeEP15InstructionAttrb.exit, %42
   ret void
 }
 
@@ -36250,44 +36250,44 @@ define hidden void @_ZN9Assembler6pinsrdE11XMMRegister8Registeri(ptr noundef non
   %39 = trunc i64 %38 to i32
   %40 = sub i32 %39, ptrtoint (ptr getelementptr inbounds (i8, ptr @all_XMMRegisterImpls, i64 1) to i32)
   %41 = icmp sgt i32 %10, 0
-  br i1 %41, label %42, label %45
+  br i1 %41, label %42, label %44
 
 42:                                               ; preds = %4
-  %43 = icmp ult i32 %35, 32
-  %spec.select.i6 = select i1 %43, i32 %35, i32 0
-  %44 = call noundef i32 @_ZN9Assembler21vex_prefix_and_encodeEiiiNS_13VexSimdPrefixENS_9VexOpcodeEP15InstructionAttrb(ptr noundef nonnull align 8 dereferenceable(40) %0, i32 noundef %35, i32 noundef %spec.select.i6, i32 noundef %40, i32 noundef 1, i32 noundef 3, ptr noundef nonnull %5, i1 noundef zeroext true)
+  %spec.select.i.i = icmp ult i32 %35, 32
+  %spec.select.i6 = select i1 %spec.select.i.i, i32 %35, i32 0
+  %43 = call noundef i32 @_ZN9Assembler21vex_prefix_and_encodeEiiiNS_13VexSimdPrefixENS_9VexOpcodeEP15InstructionAttrb(ptr noundef nonnull align 8 dereferenceable(40) %0, i32 noundef %35, i32 noundef %spec.select.i6, i32 noundef %40, i32 noundef 1, i32 noundef 3, ptr noundef nonnull %5, i1 noundef zeroext true)
   br label %_ZN9Assembler22simd_prefix_and_encodeE11XMMRegisterS0_S0_NS_13VexSimdPrefixENS_9VexOpcodeEP15InstructionAttrb.exit
 
-45:                                               ; preds = %4
-  %46 = tail call noundef i32 @_ZN9Assembler21rex_prefix_and_encodeEiiNS_13VexSimdPrefixENS_9VexOpcodeEb(ptr noundef nonnull align 8 dereferenceable(40) %0, i32 noundef %35, i32 noundef %40, i32 noundef 1, i32 noundef 3, i1 noundef zeroext false)
+44:                                               ; preds = %4
+  %45 = tail call noundef i32 @_ZN9Assembler21rex_prefix_and_encodeEiiNS_13VexSimdPrefixENS_9VexOpcodeEb(ptr noundef nonnull align 8 dereferenceable(40) %0, i32 noundef %35, i32 noundef %40, i32 noundef 1, i32 noundef 3, i1 noundef zeroext false)
   br label %_ZN9Assembler22simd_prefix_and_encodeE11XMMRegisterS0_S0_NS_13VexSimdPrefixENS_9VexOpcodeEP15InstructionAttrb.exit
 
-_ZN9Assembler22simd_prefix_and_encodeE11XMMRegisterS0_S0_NS_13VexSimdPrefixENS_9VexOpcodeEP15InstructionAttrb.exit: ; preds = %42, %45
-  %.0.i = phi i32 [ %44, %42 ], [ %46, %45 ]
-  %47 = getelementptr inbounds i8, ptr %0, i64 8
-  %48 = load ptr, ptr %47, align 8
-  %49 = trunc i32 %.0.i to i8
-  %.0.i3.i = or i8 %49, -64
+_ZN9Assembler22simd_prefix_and_encodeE11XMMRegisterS0_S0_NS_13VexSimdPrefixENS_9VexOpcodeEP15InstructionAttrb.exit: ; preds = %42, %44
+  %.0.i = phi i32 [ %43, %42 ], [ %45, %44 ]
+  %46 = getelementptr inbounds i8, ptr %0, i64 8
+  %47 = load ptr, ptr %46, align 8
+  %48 = trunc i32 %.0.i to i8
+  %.0.i3.i = or i8 %48, -64
   %.0.i4.i = trunc i32 %3 to i8
-  %50 = getelementptr inbounds i8, ptr %48, i64 16
-  %51 = load ptr, ptr %50, align 8
-  %52 = getelementptr inbounds i8, ptr %51, i64 1
-  store i8 34, ptr %51, align 1
-  %53 = getelementptr inbounds i8, ptr %51, i64 2
-  store i8 %.0.i3.i, ptr %52, align 1
-  %54 = getelementptr inbounds i8, ptr %51, i64 3
-  store i8 %.0.i4.i, ptr %53, align 1
-  store ptr %54, ptr %50, align 8
-  %55 = load ptr, ptr %25, align 8
-  %.not.i = icmp eq ptr %55, null
-  br i1 %.not.i, label %_ZN15InstructionAttrD2Ev.exit, label %56
+  %49 = getelementptr inbounds i8, ptr %47, i64 16
+  %50 = load ptr, ptr %49, align 8
+  %51 = getelementptr inbounds i8, ptr %50, i64 1
+  store i8 34, ptr %50, align 1
+  %52 = getelementptr inbounds i8, ptr %50, i64 2
+  store i8 %.0.i3.i, ptr %51, align 1
+  %53 = getelementptr inbounds i8, ptr %50, i64 3
+  store i8 %.0.i4.i, ptr %52, align 1
+  store ptr %53, ptr %49, align 8
+  %54 = load ptr, ptr %25, align 8
+  %.not.i = icmp eq ptr %54, null
+  br i1 %.not.i, label %_ZN15InstructionAttrD2Ev.exit, label %55
 
-56:                                               ; preds = %_ZN9Assembler22simd_prefix_and_encodeE11XMMRegisterS0_S0_NS_13VexSimdPrefixENS_9VexOpcodeEP15InstructionAttrb.exit
-  %57 = getelementptr inbounds i8, ptr %55, i64 32
-  store ptr null, ptr %57, align 8
+55:                                               ; preds = %_ZN9Assembler22simd_prefix_and_encodeE11XMMRegisterS0_S0_NS_13VexSimdPrefixENS_9VexOpcodeEP15InstructionAttrb.exit
+  %56 = getelementptr inbounds i8, ptr %54, i64 32
+  store ptr null, ptr %56, align 8
   br label %_ZN15InstructionAttrD2Ev.exit
 
-_ZN15InstructionAttrD2Ev.exit:                    ; preds = %_ZN9Assembler22simd_prefix_and_encodeE11XMMRegisterS0_S0_NS_13VexSimdPrefixENS_9VexOpcodeEP15InstructionAttrb.exit, %56
+_ZN15InstructionAttrD2Ev.exit:                    ; preds = %_ZN9Assembler22simd_prefix_and_encodeE11XMMRegisterS0_S0_NS_13VexSimdPrefixENS_9VexOpcodeEP15InstructionAttrb.exit, %55
   ret void
 }
 
@@ -36557,44 +36557,44 @@ define hidden void @_ZN9Assembler6pinsrqE11XMMRegister8Registeri(ptr noundef non
   %39 = trunc i64 %38 to i32
   %40 = sub i32 %39, ptrtoint (ptr getelementptr inbounds (i8, ptr @all_XMMRegisterImpls, i64 1) to i32)
   %41 = icmp sgt i32 %10, 0
-  br i1 %41, label %42, label %45
+  br i1 %41, label %42, label %44
 
 42:                                               ; preds = %4
-  %43 = icmp ult i32 %35, 32
-  %spec.select.i6 = select i1 %43, i32 %35, i32 0
-  %44 = call noundef i32 @_ZN9Assembler21vex_prefix_and_encodeEiiiNS_13VexSimdPrefixENS_9VexOpcodeEP15InstructionAttrb(ptr noundef nonnull align 8 dereferenceable(40) %0, i32 noundef %35, i32 noundef %spec.select.i6, i32 noundef %40, i32 noundef 1, i32 noundef 3, ptr noundef nonnull %5, i1 noundef zeroext true)
+  %spec.select.i.i = icmp ult i32 %35, 32
+  %spec.select.i6 = select i1 %spec.select.i.i, i32 %35, i32 0
+  %43 = call noundef i32 @_ZN9Assembler21vex_prefix_and_encodeEiiiNS_13VexSimdPrefixENS_9VexOpcodeEP15InstructionAttrb(ptr noundef nonnull align 8 dereferenceable(40) %0, i32 noundef %35, i32 noundef %spec.select.i6, i32 noundef %40, i32 noundef 1, i32 noundef 3, ptr noundef nonnull %5, i1 noundef zeroext true)
   br label %_ZN9Assembler22simd_prefix_and_encodeE11XMMRegisterS0_S0_NS_13VexSimdPrefixENS_9VexOpcodeEP15InstructionAttrb.exit
 
-45:                                               ; preds = %4
-  %46 = tail call noundef i32 @_ZN9Assembler21rex_prefix_and_encodeEiiNS_13VexSimdPrefixENS_9VexOpcodeEb(ptr noundef nonnull align 8 dereferenceable(40) %0, i32 noundef %35, i32 noundef %40, i32 noundef 1, i32 noundef 3, i1 noundef zeroext true)
+44:                                               ; preds = %4
+  %45 = tail call noundef i32 @_ZN9Assembler21rex_prefix_and_encodeEiiNS_13VexSimdPrefixENS_9VexOpcodeEb(ptr noundef nonnull align 8 dereferenceable(40) %0, i32 noundef %35, i32 noundef %40, i32 noundef 1, i32 noundef 3, i1 noundef zeroext true)
   br label %_ZN9Assembler22simd_prefix_and_encodeE11XMMRegisterS0_S0_NS_13VexSimdPrefixENS_9VexOpcodeEP15InstructionAttrb.exit
 
-_ZN9Assembler22simd_prefix_and_encodeE11XMMRegisterS0_S0_NS_13VexSimdPrefixENS_9VexOpcodeEP15InstructionAttrb.exit: ; preds = %42, %45
-  %.0.i = phi i32 [ %44, %42 ], [ %46, %45 ]
-  %47 = getelementptr inbounds i8, ptr %0, i64 8
-  %48 = load ptr, ptr %47, align 8
-  %49 = trunc i32 %.0.i to i8
-  %.0.i3.i = or i8 %49, -64
+_ZN9Assembler22simd_prefix_and_encodeE11XMMRegisterS0_S0_NS_13VexSimdPrefixENS_9VexOpcodeEP15InstructionAttrb.exit: ; preds = %42, %44
+  %.0.i = phi i32 [ %43, %42 ], [ %45, %44 ]
+  %46 = getelementptr inbounds i8, ptr %0, i64 8
+  %47 = load ptr, ptr %46, align 8
+  %48 = trunc i32 %.0.i to i8
+  %.0.i3.i = or i8 %48, -64
   %.0.i4.i = trunc i32 %3 to i8
-  %50 = getelementptr inbounds i8, ptr %48, i64 16
-  %51 = load ptr, ptr %50, align 8
-  %52 = getelementptr inbounds i8, ptr %51, i64 1
-  store i8 34, ptr %51, align 1
-  %53 = getelementptr inbounds i8, ptr %51, i64 2
-  store i8 %.0.i3.i, ptr %52, align 1
-  %54 = getelementptr inbounds i8, ptr %51, i64 3
-  store i8 %.0.i4.i, ptr %53, align 1
-  store ptr %54, ptr %50, align 8
-  %55 = load ptr, ptr %25, align 8
-  %.not.i = icmp eq ptr %55, null
-  br i1 %.not.i, label %_ZN15InstructionAttrD2Ev.exit, label %56
+  %49 = getelementptr inbounds i8, ptr %47, i64 16
+  %50 = load ptr, ptr %49, align 8
+  %51 = getelementptr inbounds i8, ptr %50, i64 1
+  store i8 34, ptr %50, align 1
+  %52 = getelementptr inbounds i8, ptr %50, i64 2
+  store i8 %.0.i3.i, ptr %51, align 1
+  %53 = getelementptr inbounds i8, ptr %50, i64 3
+  store i8 %.0.i4.i, ptr %52, align 1
+  store ptr %53, ptr %49, align 8
+  %54 = load ptr, ptr %25, align 8
+  %.not.i = icmp eq ptr %54, null
+  br i1 %.not.i, label %_ZN15InstructionAttrD2Ev.exit, label %55
 
-56:                                               ; preds = %_ZN9Assembler22simd_prefix_and_encodeE11XMMRegisterS0_S0_NS_13VexSimdPrefixENS_9VexOpcodeEP15InstructionAttrb.exit
-  %57 = getelementptr inbounds i8, ptr %55, i64 32
-  store ptr null, ptr %57, align 8
+55:                                               ; preds = %_ZN9Assembler22simd_prefix_and_encodeE11XMMRegisterS0_S0_NS_13VexSimdPrefixENS_9VexOpcodeEP15InstructionAttrb.exit
+  %56 = getelementptr inbounds i8, ptr %54, i64 32
+  store ptr null, ptr %56, align 8
   br label %_ZN15InstructionAttrD2Ev.exit
 
-_ZN15InstructionAttrD2Ev.exit:                    ; preds = %_ZN9Assembler22simd_prefix_and_encodeE11XMMRegisterS0_S0_NS_13VexSimdPrefixENS_9VexOpcodeEP15InstructionAttrb.exit, %56
+_ZN15InstructionAttrD2Ev.exit:                    ; preds = %_ZN9Assembler22simd_prefix_and_encodeE11XMMRegisterS0_S0_NS_13VexSimdPrefixENS_9VexOpcodeEP15InstructionAttrb.exit, %55
   ret void
 }
 
@@ -36864,44 +36864,44 @@ define hidden void @_ZN9Assembler6pinsrwE11XMMRegister8Registeri(ptr noundef non
   %39 = trunc i64 %38 to i32
   %40 = sub i32 %39, ptrtoint (ptr getelementptr inbounds (i8, ptr @all_XMMRegisterImpls, i64 1) to i32)
   %41 = icmp sgt i32 %10, 0
-  br i1 %41, label %42, label %45
+  br i1 %41, label %42, label %44
 
 42:                                               ; preds = %4
-  %43 = icmp ult i32 %35, 32
-  %spec.select.i6 = select i1 %43, i32 %35, i32 0
-  %44 = call noundef i32 @_ZN9Assembler21vex_prefix_and_encodeEiiiNS_13VexSimdPrefixENS_9VexOpcodeEP15InstructionAttrb(ptr noundef nonnull align 8 dereferenceable(40) %0, i32 noundef %35, i32 noundef %spec.select.i6, i32 noundef %40, i32 noundef 1, i32 noundef 1, ptr noundef nonnull %5, i1 noundef zeroext true)
+  %spec.select.i.i = icmp ult i32 %35, 32
+  %spec.select.i6 = select i1 %spec.select.i.i, i32 %35, i32 0
+  %43 = call noundef i32 @_ZN9Assembler21vex_prefix_and_encodeEiiiNS_13VexSimdPrefixENS_9VexOpcodeEP15InstructionAttrb(ptr noundef nonnull align 8 dereferenceable(40) %0, i32 noundef %35, i32 noundef %spec.select.i6, i32 noundef %40, i32 noundef 1, i32 noundef 1, ptr noundef nonnull %5, i1 noundef zeroext true)
   br label %_ZN9Assembler22simd_prefix_and_encodeE11XMMRegisterS0_S0_NS_13VexSimdPrefixENS_9VexOpcodeEP15InstructionAttrb.exit
 
-45:                                               ; preds = %4
-  %46 = tail call noundef i32 @_ZN9Assembler21rex_prefix_and_encodeEiiNS_13VexSimdPrefixENS_9VexOpcodeEb(ptr noundef nonnull align 8 dereferenceable(40) %0, i32 noundef %35, i32 noundef %40, i32 noundef 1, i32 noundef 1, i1 noundef zeroext false)
+44:                                               ; preds = %4
+  %45 = tail call noundef i32 @_ZN9Assembler21rex_prefix_and_encodeEiiNS_13VexSimdPrefixENS_9VexOpcodeEb(ptr noundef nonnull align 8 dereferenceable(40) %0, i32 noundef %35, i32 noundef %40, i32 noundef 1, i32 noundef 1, i1 noundef zeroext false)
   br label %_ZN9Assembler22simd_prefix_and_encodeE11XMMRegisterS0_S0_NS_13VexSimdPrefixENS_9VexOpcodeEP15InstructionAttrb.exit
 
-_ZN9Assembler22simd_prefix_and_encodeE11XMMRegisterS0_S0_NS_13VexSimdPrefixENS_9VexOpcodeEP15InstructionAttrb.exit: ; preds = %42, %45
-  %.0.i = phi i32 [ %44, %42 ], [ %46, %45 ]
-  %47 = getelementptr inbounds i8, ptr %0, i64 8
-  %48 = load ptr, ptr %47, align 8
-  %49 = trunc i32 %.0.i to i8
-  %.0.i3.i = or i8 %49, -64
+_ZN9Assembler22simd_prefix_and_encodeE11XMMRegisterS0_S0_NS_13VexSimdPrefixENS_9VexOpcodeEP15InstructionAttrb.exit: ; preds = %42, %44
+  %.0.i = phi i32 [ %43, %42 ], [ %45, %44 ]
+  %46 = getelementptr inbounds i8, ptr %0, i64 8
+  %47 = load ptr, ptr %46, align 8
+  %48 = trunc i32 %.0.i to i8
+  %.0.i3.i = or i8 %48, -64
   %.0.i4.i = trunc i32 %3 to i8
-  %50 = getelementptr inbounds i8, ptr %48, i64 16
-  %51 = load ptr, ptr %50, align 8
-  %52 = getelementptr inbounds i8, ptr %51, i64 1
-  store i8 -60, ptr %51, align 1
-  %53 = getelementptr inbounds i8, ptr %51, i64 2
-  store i8 %.0.i3.i, ptr %52, align 1
-  %54 = getelementptr inbounds i8, ptr %51, i64 3
-  store i8 %.0.i4.i, ptr %53, align 1
-  store ptr %54, ptr %50, align 8
-  %55 = load ptr, ptr %25, align 8
-  %.not.i = icmp eq ptr %55, null
-  br i1 %.not.i, label %_ZN15InstructionAttrD2Ev.exit, label %56
+  %49 = getelementptr inbounds i8, ptr %47, i64 16
+  %50 = load ptr, ptr %49, align 8
+  %51 = getelementptr inbounds i8, ptr %50, i64 1
+  store i8 -60, ptr %50, align 1
+  %52 = getelementptr inbounds i8, ptr %50, i64 2
+  store i8 %.0.i3.i, ptr %51, align 1
+  %53 = getelementptr inbounds i8, ptr %50, i64 3
+  store i8 %.0.i4.i, ptr %52, align 1
+  store ptr %53, ptr %49, align 8
+  %54 = load ptr, ptr %25, align 8
+  %.not.i = icmp eq ptr %54, null
+  br i1 %.not.i, label %_ZN15InstructionAttrD2Ev.exit, label %55
 
-56:                                               ; preds = %_ZN9Assembler22simd_prefix_and_encodeE11XMMRegisterS0_S0_NS_13VexSimdPrefixENS_9VexOpcodeEP15InstructionAttrb.exit
-  %57 = getelementptr inbounds i8, ptr %55, i64 32
-  store ptr null, ptr %57, align 8
+55:                                               ; preds = %_ZN9Assembler22simd_prefix_and_encodeE11XMMRegisterS0_S0_NS_13VexSimdPrefixENS_9VexOpcodeEP15InstructionAttrb.exit
+  %56 = getelementptr inbounds i8, ptr %54, i64 32
+  store ptr null, ptr %56, align 8
   br label %_ZN15InstructionAttrD2Ev.exit
 
-_ZN15InstructionAttrD2Ev.exit:                    ; preds = %_ZN9Assembler22simd_prefix_and_encodeE11XMMRegisterS0_S0_NS_13VexSimdPrefixENS_9VexOpcodeEP15InstructionAttrb.exit, %56
+_ZN15InstructionAttrD2Ev.exit:                    ; preds = %_ZN9Assembler22simd_prefix_and_encodeE11XMMRegisterS0_S0_NS_13VexSimdPrefixENS_9VexOpcodeEP15InstructionAttrb.exit, %55
   ret void
 }
 
@@ -37302,44 +37302,44 @@ define hidden void @_ZN9Assembler6pinsrbE11XMMRegister8Registeri(ptr noundef non
   %39 = trunc i64 %38 to i32
   %40 = sub i32 %39, ptrtoint (ptr getelementptr inbounds (i8, ptr @all_XMMRegisterImpls, i64 1) to i32)
   %41 = icmp sgt i32 %10, 0
-  br i1 %41, label %42, label %45
+  br i1 %41, label %42, label %44
 
 42:                                               ; preds = %4
-  %43 = icmp ult i32 %35, 32
-  %spec.select.i6 = select i1 %43, i32 %35, i32 0
-  %44 = call noundef i32 @_ZN9Assembler21vex_prefix_and_encodeEiiiNS_13VexSimdPrefixENS_9VexOpcodeEP15InstructionAttrb(ptr noundef nonnull align 8 dereferenceable(40) %0, i32 noundef %35, i32 noundef %spec.select.i6, i32 noundef %40, i32 noundef 1, i32 noundef 3, ptr noundef nonnull %5, i1 noundef zeroext true)
+  %spec.select.i.i = icmp ult i32 %35, 32
+  %spec.select.i6 = select i1 %spec.select.i.i, i32 %35, i32 0
+  %43 = call noundef i32 @_ZN9Assembler21vex_prefix_and_encodeEiiiNS_13VexSimdPrefixENS_9VexOpcodeEP15InstructionAttrb(ptr noundef nonnull align 8 dereferenceable(40) %0, i32 noundef %35, i32 noundef %spec.select.i6, i32 noundef %40, i32 noundef 1, i32 noundef 3, ptr noundef nonnull %5, i1 noundef zeroext true)
   br label %_ZN9Assembler22simd_prefix_and_encodeE11XMMRegisterS0_S0_NS_13VexSimdPrefixENS_9VexOpcodeEP15InstructionAttrb.exit
 
-45:                                               ; preds = %4
-  %46 = tail call noundef i32 @_ZN9Assembler21rex_prefix_and_encodeEiiNS_13VexSimdPrefixENS_9VexOpcodeEb(ptr noundef nonnull align 8 dereferenceable(40) %0, i32 noundef %35, i32 noundef %40, i32 noundef 1, i32 noundef 3, i1 noundef zeroext false)
+44:                                               ; preds = %4
+  %45 = tail call noundef i32 @_ZN9Assembler21rex_prefix_and_encodeEiiNS_13VexSimdPrefixENS_9VexOpcodeEb(ptr noundef nonnull align 8 dereferenceable(40) %0, i32 noundef %35, i32 noundef %40, i32 noundef 1, i32 noundef 3, i1 noundef zeroext false)
   br label %_ZN9Assembler22simd_prefix_and_encodeE11XMMRegisterS0_S0_NS_13VexSimdPrefixENS_9VexOpcodeEP15InstructionAttrb.exit
 
-_ZN9Assembler22simd_prefix_and_encodeE11XMMRegisterS0_S0_NS_13VexSimdPrefixENS_9VexOpcodeEP15InstructionAttrb.exit: ; preds = %42, %45
-  %.0.i = phi i32 [ %44, %42 ], [ %46, %45 ]
-  %47 = getelementptr inbounds i8, ptr %0, i64 8
-  %48 = load ptr, ptr %47, align 8
-  %49 = trunc i32 %.0.i to i8
-  %.0.i3.i = or i8 %49, -64
+_ZN9Assembler22simd_prefix_and_encodeE11XMMRegisterS0_S0_NS_13VexSimdPrefixENS_9VexOpcodeEP15InstructionAttrb.exit: ; preds = %42, %44
+  %.0.i = phi i32 [ %43, %42 ], [ %45, %44 ]
+  %46 = getelementptr inbounds i8, ptr %0, i64 8
+  %47 = load ptr, ptr %46, align 8
+  %48 = trunc i32 %.0.i to i8
+  %.0.i3.i = or i8 %48, -64
   %.0.i4.i = trunc i32 %3 to i8
-  %50 = getelementptr inbounds i8, ptr %48, i64 16
-  %51 = load ptr, ptr %50, align 8
-  %52 = getelementptr inbounds i8, ptr %51, i64 1
-  store i8 32, ptr %51, align 1
-  %53 = getelementptr inbounds i8, ptr %51, i64 2
-  store i8 %.0.i3.i, ptr %52, align 1
-  %54 = getelementptr inbounds i8, ptr %51, i64 3
-  store i8 %.0.i4.i, ptr %53, align 1
-  store ptr %54, ptr %50, align 8
-  %55 = load ptr, ptr %25, align 8
-  %.not.i = icmp eq ptr %55, null
-  br i1 %.not.i, label %_ZN15InstructionAttrD2Ev.exit, label %56
+  %49 = getelementptr inbounds i8, ptr %47, i64 16
+  %50 = load ptr, ptr %49, align 8
+  %51 = getelementptr inbounds i8, ptr %50, i64 1
+  store i8 32, ptr %50, align 1
+  %52 = getelementptr inbounds i8, ptr %50, i64 2
+  store i8 %.0.i3.i, ptr %51, align 1
+  %53 = getelementptr inbounds i8, ptr %50, i64 3
+  store i8 %.0.i4.i, ptr %52, align 1
+  store ptr %53, ptr %49, align 8
+  %54 = load ptr, ptr %25, align 8
+  %.not.i = icmp eq ptr %54, null
+  br i1 %.not.i, label %_ZN15InstructionAttrD2Ev.exit, label %55
 
-56:                                               ; preds = %_ZN9Assembler22simd_prefix_and_encodeE11XMMRegisterS0_S0_NS_13VexSimdPrefixENS_9VexOpcodeEP15InstructionAttrb.exit
-  %57 = getelementptr inbounds i8, ptr %55, i64 32
-  store ptr null, ptr %57, align 8
+55:                                               ; preds = %_ZN9Assembler22simd_prefix_and_encodeE11XMMRegisterS0_S0_NS_13VexSimdPrefixENS_9VexOpcodeEP15InstructionAttrb.exit
+  %56 = getelementptr inbounds i8, ptr %54, i64 32
+  store ptr null, ptr %56, align 8
   br label %_ZN15InstructionAttrD2Ev.exit
 
-_ZN15InstructionAttrD2Ev.exit:                    ; preds = %_ZN9Assembler22simd_prefix_and_encodeE11XMMRegisterS0_S0_NS_13VexSimdPrefixENS_9VexOpcodeEP15InstructionAttrb.exit, %56
+_ZN15InstructionAttrD2Ev.exit:                    ; preds = %_ZN9Assembler22simd_prefix_and_encodeE11XMMRegisterS0_S0_NS_13VexSimdPrefixENS_9VexOpcodeEP15InstructionAttrb.exit, %55
   ret void
 }
 
@@ -37467,44 +37467,44 @@ define hidden void @_ZN9Assembler8insertpsE11XMMRegisterS0_i(ptr noundef nonnull
   %30 = trunc i64 %29 to i32
   %31 = sub i32 %30, ptrtoint (ptr getelementptr inbounds (i8, ptr @all_XMMRegisterImpls, i64 1) to i32)
   %32 = icmp sgt i32 %7, 0
-  br i1 %32, label %33, label %36
+  br i1 %32, label %33, label %35
 
 33:                                               ; preds = %4
-  %34 = icmp ult i32 %26, 32
-  %spec.select.i = select i1 %34, i32 %26, i32 0
-  %35 = call noundef i32 @_ZN9Assembler21vex_prefix_and_encodeEiiiNS_13VexSimdPrefixENS_9VexOpcodeEP15InstructionAttrb(ptr noundef nonnull align 8 dereferenceable(40) %0, i32 noundef %26, i32 noundef %spec.select.i, i32 noundef %31, i32 noundef 1, i32 noundef 3, ptr noundef nonnull %5, i1 noundef zeroext false)
+  %spec.select.i.i = icmp ult i32 %26, 32
+  %spec.select.i = select i1 %spec.select.i.i, i32 %26, i32 0
+  %34 = call noundef i32 @_ZN9Assembler21vex_prefix_and_encodeEiiiNS_13VexSimdPrefixENS_9VexOpcodeEP15InstructionAttrb(ptr noundef nonnull align 8 dereferenceable(40) %0, i32 noundef %26, i32 noundef %spec.select.i, i32 noundef %31, i32 noundef 1, i32 noundef 3, ptr noundef nonnull %5, i1 noundef zeroext false)
   br label %_ZN9Assembler22simd_prefix_and_encodeE11XMMRegisterS0_S0_NS_13VexSimdPrefixENS_9VexOpcodeEP15InstructionAttrb.exit
 
-36:                                               ; preds = %4
-  %37 = tail call noundef i32 @_ZN9Assembler21rex_prefix_and_encodeEiiNS_13VexSimdPrefixENS_9VexOpcodeEb(ptr noundef nonnull align 8 dereferenceable(40) %0, i32 noundef %26, i32 noundef %31, i32 noundef 1, i32 noundef 3, i1 noundef zeroext false)
+35:                                               ; preds = %4
+  %36 = tail call noundef i32 @_ZN9Assembler21rex_prefix_and_encodeEiiNS_13VexSimdPrefixENS_9VexOpcodeEb(ptr noundef nonnull align 8 dereferenceable(40) %0, i32 noundef %26, i32 noundef %31, i32 noundef 1, i32 noundef 3, i1 noundef zeroext false)
   br label %_ZN9Assembler22simd_prefix_and_encodeE11XMMRegisterS0_S0_NS_13VexSimdPrefixENS_9VexOpcodeEP15InstructionAttrb.exit
 
-_ZN9Assembler22simd_prefix_and_encodeE11XMMRegisterS0_S0_NS_13VexSimdPrefixENS_9VexOpcodeEP15InstructionAttrb.exit: ; preds = %33, %36
-  %.0.i = phi i32 [ %35, %33 ], [ %37, %36 ]
-  %38 = getelementptr inbounds i8, ptr %0, i64 8
-  %39 = load ptr, ptr %38, align 8
-  %40 = trunc i32 %.0.i to i8
-  %.0.i3.i = or i8 %40, -64
+_ZN9Assembler22simd_prefix_and_encodeE11XMMRegisterS0_S0_NS_13VexSimdPrefixENS_9VexOpcodeEP15InstructionAttrb.exit: ; preds = %33, %35
+  %.0.i = phi i32 [ %34, %33 ], [ %36, %35 ]
+  %37 = getelementptr inbounds i8, ptr %0, i64 8
+  %38 = load ptr, ptr %37, align 8
+  %39 = trunc i32 %.0.i to i8
+  %.0.i3.i = or i8 %39, -64
   %.0.i4.i = trunc i32 %3 to i8
-  %41 = getelementptr inbounds i8, ptr %39, i64 16
-  %42 = load ptr, ptr %41, align 8
-  %43 = getelementptr inbounds i8, ptr %42, i64 1
-  store i8 33, ptr %42, align 1
-  %44 = getelementptr inbounds i8, ptr %42, i64 2
-  store i8 %.0.i3.i, ptr %43, align 1
-  %45 = getelementptr inbounds i8, ptr %42, i64 3
-  store i8 %.0.i4.i, ptr %44, align 1
-  store ptr %45, ptr %41, align 8
-  %46 = load ptr, ptr %21, align 8
-  %.not.i = icmp eq ptr %46, null
-  br i1 %.not.i, label %_ZN15InstructionAttrD2Ev.exit, label %47
+  %40 = getelementptr inbounds i8, ptr %38, i64 16
+  %41 = load ptr, ptr %40, align 8
+  %42 = getelementptr inbounds i8, ptr %41, i64 1
+  store i8 33, ptr %41, align 1
+  %43 = getelementptr inbounds i8, ptr %41, i64 2
+  store i8 %.0.i3.i, ptr %42, align 1
+  %44 = getelementptr inbounds i8, ptr %41, i64 3
+  store i8 %.0.i4.i, ptr %43, align 1
+  store ptr %44, ptr %40, align 8
+  %45 = load ptr, ptr %21, align 8
+  %.not.i = icmp eq ptr %45, null
+  br i1 %.not.i, label %_ZN15InstructionAttrD2Ev.exit, label %46
 
-47:                                               ; preds = %_ZN9Assembler22simd_prefix_and_encodeE11XMMRegisterS0_S0_NS_13VexSimdPrefixENS_9VexOpcodeEP15InstructionAttrb.exit
-  %48 = getelementptr inbounds i8, ptr %46, i64 32
-  store ptr null, ptr %48, align 8
+46:                                               ; preds = %_ZN9Assembler22simd_prefix_and_encodeE11XMMRegisterS0_S0_NS_13VexSimdPrefixENS_9VexOpcodeEP15InstructionAttrb.exit
+  %47 = getelementptr inbounds i8, ptr %45, i64 32
+  store ptr null, ptr %47, align 8
   br label %_ZN15InstructionAttrD2Ev.exit
 
-_ZN15InstructionAttrD2Ev.exit:                    ; preds = %_ZN9Assembler22simd_prefix_and_encodeE11XMMRegisterS0_S0_NS_13VexSimdPrefixENS_9VexOpcodeEP15InstructionAttrb.exit, %47
+_ZN15InstructionAttrD2Ev.exit:                    ; preds = %_ZN9Assembler22simd_prefix_and_encodeE11XMMRegisterS0_S0_NS_13VexSimdPrefixENS_9VexOpcodeEP15InstructionAttrb.exit, %46
   ret void
 }
 
@@ -40099,41 +40099,41 @@ define hidden void @_ZN9Assembler7pmaddwdE11XMMRegisterS0_(ptr noundef nonnull a
   %33 = trunc i64 %32 to i32
   %34 = sub i32 %33, ptrtoint (ptr getelementptr inbounds (i8, ptr @all_XMMRegisterImpls, i64 1) to i32)
   %35 = icmp sgt i32 %9, 0
-  br i1 %35, label %36, label %39
+  br i1 %35, label %36, label %38
 
 36:                                               ; preds = %3
-  %37 = icmp ult i32 %29, 32
-  %spec.select.i = select i1 %37, i32 %29, i32 0
-  %38 = call noundef i32 @_ZN9Assembler21vex_prefix_and_encodeEiiiNS_13VexSimdPrefixENS_9VexOpcodeEP15InstructionAttrb(ptr noundef nonnull align 8 dereferenceable(40) %0, i32 noundef %29, i32 noundef %spec.select.i, i32 noundef %34, i32 noundef 1, i32 noundef 1, ptr noundef nonnull %4, i1 noundef zeroext false)
+  %spec.select.i.i = icmp ult i32 %29, 32
+  %spec.select.i = select i1 %spec.select.i.i, i32 %29, i32 0
+  %37 = call noundef i32 @_ZN9Assembler21vex_prefix_and_encodeEiiiNS_13VexSimdPrefixENS_9VexOpcodeEP15InstructionAttrb(ptr noundef nonnull align 8 dereferenceable(40) %0, i32 noundef %29, i32 noundef %spec.select.i, i32 noundef %34, i32 noundef 1, i32 noundef 1, ptr noundef nonnull %4, i1 noundef zeroext false)
   br label %_ZN9Assembler22simd_prefix_and_encodeE11XMMRegisterS0_S0_NS_13VexSimdPrefixENS_9VexOpcodeEP15InstructionAttrb.exit
 
-39:                                               ; preds = %3
-  %40 = tail call noundef i32 @_ZN9Assembler21rex_prefix_and_encodeEiiNS_13VexSimdPrefixENS_9VexOpcodeEb(ptr noundef nonnull align 8 dereferenceable(40) %0, i32 noundef %29, i32 noundef %34, i32 noundef 1, i32 noundef 1, i1 noundef zeroext false)
+38:                                               ; preds = %3
+  %39 = tail call noundef i32 @_ZN9Assembler21rex_prefix_and_encodeEiiNS_13VexSimdPrefixENS_9VexOpcodeEb(ptr noundef nonnull align 8 dereferenceable(40) %0, i32 noundef %29, i32 noundef %34, i32 noundef 1, i32 noundef 1, i1 noundef zeroext false)
   br label %_ZN9Assembler22simd_prefix_and_encodeE11XMMRegisterS0_S0_NS_13VexSimdPrefixENS_9VexOpcodeEP15InstructionAttrb.exit
 
-_ZN9Assembler22simd_prefix_and_encodeE11XMMRegisterS0_S0_NS_13VexSimdPrefixENS_9VexOpcodeEP15InstructionAttrb.exit: ; preds = %36, %39
-  %.0.i = phi i32 [ %38, %36 ], [ %40, %39 ]
-  %41 = getelementptr inbounds i8, ptr %0, i64 8
-  %42 = load ptr, ptr %41, align 8
-  %43 = trunc i32 %.0.i to i8
-  %.0.i2.i = or i8 %43, -64
-  %44 = getelementptr inbounds i8, ptr %42, i64 16
-  %45 = load ptr, ptr %44, align 8
-  %46 = getelementptr inbounds i8, ptr %45, i64 1
-  store i8 -11, ptr %45, align 1
-  %47 = getelementptr inbounds i8, ptr %45, i64 2
-  store i8 %.0.i2.i, ptr %46, align 1
-  store ptr %47, ptr %44, align 8
-  %48 = load ptr, ptr %24, align 8
-  %.not.i = icmp eq ptr %48, null
-  br i1 %.not.i, label %_ZN15InstructionAttrD2Ev.exit, label %49
+_ZN9Assembler22simd_prefix_and_encodeE11XMMRegisterS0_S0_NS_13VexSimdPrefixENS_9VexOpcodeEP15InstructionAttrb.exit: ; preds = %36, %38
+  %.0.i = phi i32 [ %37, %36 ], [ %39, %38 ]
+  %40 = getelementptr inbounds i8, ptr %0, i64 8
+  %41 = load ptr, ptr %40, align 8
+  %42 = trunc i32 %.0.i to i8
+  %.0.i2.i = or i8 %42, -64
+  %43 = getelementptr inbounds i8, ptr %41, i64 16
+  %44 = load ptr, ptr %43, align 8
+  %45 = getelementptr inbounds i8, ptr %44, i64 1
+  store i8 -11, ptr %44, align 1
+  %46 = getelementptr inbounds i8, ptr %44, i64 2
+  store i8 %.0.i2.i, ptr %45, align 1
+  store ptr %46, ptr %43, align 8
+  %47 = load ptr, ptr %24, align 8
+  %.not.i = icmp eq ptr %47, null
+  br i1 %.not.i, label %_ZN15InstructionAttrD2Ev.exit, label %48
 
-49:                                               ; preds = %_ZN9Assembler22simd_prefix_and_encodeE11XMMRegisterS0_S0_NS_13VexSimdPrefixENS_9VexOpcodeEP15InstructionAttrb.exit
-  %50 = getelementptr inbounds i8, ptr %48, i64 32
-  store ptr null, ptr %50, align 8
+48:                                               ; preds = %_ZN9Assembler22simd_prefix_and_encodeE11XMMRegisterS0_S0_NS_13VexSimdPrefixENS_9VexOpcodeEP15InstructionAttrb.exit
+  %49 = getelementptr inbounds i8, ptr %47, i64 32
+  store ptr null, ptr %49, align 8
   br label %_ZN15InstructionAttrD2Ev.exit
 
-_ZN15InstructionAttrD2Ev.exit:                    ; preds = %_ZN9Assembler22simd_prefix_and_encodeE11XMMRegisterS0_S0_NS_13VexSimdPrefixENS_9VexOpcodeEP15InstructionAttrb.exit, %49
+_ZN15InstructionAttrD2Ev.exit:                    ; preds = %_ZN9Assembler22simd_prefix_and_encodeE11XMMRegisterS0_S0_NS_13VexSimdPrefixENS_9VexOpcodeEP15InstructionAttrb.exit, %48
   ret void
 }
 
@@ -40185,7 +40185,7 @@ define hidden void @_ZN9Assembler8vpmaddwdE11XMMRegisterS0_S0_i(ptr noundef nonn
   %35 = trunc i64 %34 to i32
   %36 = sub i32 %35, ptrtoint (ptr getelementptr inbounds (i8, ptr @all_XMMRegisterImpls, i64 1) to i32)
   %37 = icmp sgt i32 %11, 0
-  br i1 %37, label %38, label %46
+  br i1 %37, label %38, label %45
 
 38:                                               ; preds = %5
   %39 = sext i32 %2 to i64
@@ -40193,38 +40193,38 @@ define hidden void @_ZN9Assembler8vpmaddwdE11XMMRegisterS0_S0_i(ptr noundef nonn
   %41 = ptrtoint ptr %40 to i64
   %42 = trunc i64 %41 to i32
   %43 = sub i32 %42, ptrtoint (ptr getelementptr inbounds (i8, ptr @all_XMMRegisterImpls, i64 1) to i32)
-  %44 = icmp ult i32 %43, 32
-  %spec.select.i = select i1 %44, i32 %43, i32 0
-  %45 = call noundef i32 @_ZN9Assembler21vex_prefix_and_encodeEiiiNS_13VexSimdPrefixENS_9VexOpcodeEP15InstructionAttrb(ptr noundef nonnull align 8 dereferenceable(40) %0, i32 noundef %31, i32 noundef %spec.select.i, i32 noundef %36, i32 noundef 1, i32 noundef 1, ptr noundef nonnull %6, i1 noundef zeroext false)
+  %spec.select.i.i = icmp ult i32 %43, 32
+  %spec.select.i = select i1 %spec.select.i.i, i32 %43, i32 0
+  %44 = call noundef i32 @_ZN9Assembler21vex_prefix_and_encodeEiiiNS_13VexSimdPrefixENS_9VexOpcodeEP15InstructionAttrb(ptr noundef nonnull align 8 dereferenceable(40) %0, i32 noundef %31, i32 noundef %spec.select.i, i32 noundef %36, i32 noundef 1, i32 noundef 1, ptr noundef nonnull %6, i1 noundef zeroext false)
   br label %_ZN9Assembler22simd_prefix_and_encodeE11XMMRegisterS0_S0_NS_13VexSimdPrefixENS_9VexOpcodeEP15InstructionAttrb.exit
 
-46:                                               ; preds = %5
-  %47 = tail call noundef i32 @_ZN9Assembler21rex_prefix_and_encodeEiiNS_13VexSimdPrefixENS_9VexOpcodeEb(ptr noundef nonnull align 8 dereferenceable(40) %0, i32 noundef %31, i32 noundef %36, i32 noundef 1, i32 noundef 1, i1 noundef zeroext false)
+45:                                               ; preds = %5
+  %46 = tail call noundef i32 @_ZN9Assembler21rex_prefix_and_encodeEiiNS_13VexSimdPrefixENS_9VexOpcodeEb(ptr noundef nonnull align 8 dereferenceable(40) %0, i32 noundef %31, i32 noundef %36, i32 noundef 1, i32 noundef 1, i1 noundef zeroext false)
   br label %_ZN9Assembler22simd_prefix_and_encodeE11XMMRegisterS0_S0_NS_13VexSimdPrefixENS_9VexOpcodeEP15InstructionAttrb.exit
 
-_ZN9Assembler22simd_prefix_and_encodeE11XMMRegisterS0_S0_NS_13VexSimdPrefixENS_9VexOpcodeEP15InstructionAttrb.exit: ; preds = %38, %46
-  %.0.i = phi i32 [ %45, %38 ], [ %47, %46 ]
-  %48 = getelementptr inbounds i8, ptr %0, i64 8
-  %49 = load ptr, ptr %48, align 8
-  %50 = trunc i32 %.0.i to i8
-  %.0.i2.i = or i8 %50, -64
-  %51 = getelementptr inbounds i8, ptr %49, i64 16
-  %52 = load ptr, ptr %51, align 8
-  %53 = getelementptr inbounds i8, ptr %52, i64 1
-  store i8 -11, ptr %52, align 1
-  %54 = getelementptr inbounds i8, ptr %52, i64 2
-  store i8 %.0.i2.i, ptr %53, align 1
-  store ptr %54, ptr %51, align 8
-  %55 = load ptr, ptr %26, align 8
-  %.not.i = icmp eq ptr %55, null
-  br i1 %.not.i, label %_ZN15InstructionAttrD2Ev.exit, label %56
+_ZN9Assembler22simd_prefix_and_encodeE11XMMRegisterS0_S0_NS_13VexSimdPrefixENS_9VexOpcodeEP15InstructionAttrb.exit: ; preds = %38, %45
+  %.0.i = phi i32 [ %44, %38 ], [ %46, %45 ]
+  %47 = getelementptr inbounds i8, ptr %0, i64 8
+  %48 = load ptr, ptr %47, align 8
+  %49 = trunc i32 %.0.i to i8
+  %.0.i2.i = or i8 %49, -64
+  %50 = getelementptr inbounds i8, ptr %48, i64 16
+  %51 = load ptr, ptr %50, align 8
+  %52 = getelementptr inbounds i8, ptr %51, i64 1
+  store i8 -11, ptr %51, align 1
+  %53 = getelementptr inbounds i8, ptr %51, i64 2
+  store i8 %.0.i2.i, ptr %52, align 1
+  store ptr %53, ptr %50, align 8
+  %54 = load ptr, ptr %26, align 8
+  %.not.i = icmp eq ptr %54, null
+  br i1 %.not.i, label %_ZN15InstructionAttrD2Ev.exit, label %55
 
-56:                                               ; preds = %_ZN9Assembler22simd_prefix_and_encodeE11XMMRegisterS0_S0_NS_13VexSimdPrefixENS_9VexOpcodeEP15InstructionAttrb.exit
-  %57 = getelementptr inbounds i8, ptr %55, i64 32
-  store ptr null, ptr %57, align 8
+55:                                               ; preds = %_ZN9Assembler22simd_prefix_and_encodeE11XMMRegisterS0_S0_NS_13VexSimdPrefixENS_9VexOpcodeEP15InstructionAttrb.exit
+  %56 = getelementptr inbounds i8, ptr %54, i64 32
+  store ptr null, ptr %56, align 8
   br label %_ZN15InstructionAttrD2Ev.exit
 
-_ZN15InstructionAttrD2Ev.exit:                    ; preds = %_ZN9Assembler22simd_prefix_and_encodeE11XMMRegisterS0_S0_NS_13VexSimdPrefixENS_9VexOpcodeEP15InstructionAttrb.exit, %56
+_ZN15InstructionAttrD2Ev.exit:                    ; preds = %_ZN9Assembler22simd_prefix_and_encodeE11XMMRegisterS0_S0_NS_13VexSimdPrefixENS_9VexOpcodeEP15InstructionAttrb.exit, %55
   ret void
 }
 
@@ -40276,7 +40276,7 @@ define hidden void @_ZN9Assembler10vpmaddubswE11XMMRegisterS0_S0_i(ptr noundef n
   %35 = trunc i64 %34 to i32
   %36 = sub i32 %35, ptrtoint (ptr getelementptr inbounds (i8, ptr @all_XMMRegisterImpls, i64 1) to i32)
   %37 = icmp sgt i32 %11, 0
-  br i1 %37, label %38, label %46
+  br i1 %37, label %38, label %45
 
 38:                                               ; preds = %5
   %39 = sext i32 %2 to i64
@@ -40284,38 +40284,38 @@ define hidden void @_ZN9Assembler10vpmaddubswE11XMMRegisterS0_S0_i(ptr noundef n
   %41 = ptrtoint ptr %40 to i64
   %42 = trunc i64 %41 to i32
   %43 = sub i32 %42, ptrtoint (ptr getelementptr inbounds (i8, ptr @all_XMMRegisterImpls, i64 1) to i32)
-  %44 = icmp ult i32 %43, 32
-  %spec.select.i = select i1 %44, i32 %43, i32 0
-  %45 = call noundef i32 @_ZN9Assembler21vex_prefix_and_encodeEiiiNS_13VexSimdPrefixENS_9VexOpcodeEP15InstructionAttrb(ptr noundef nonnull align 8 dereferenceable(40) %0, i32 noundef %31, i32 noundef %spec.select.i, i32 noundef %36, i32 noundef 1, i32 noundef 2, ptr noundef nonnull %6, i1 noundef zeroext false)
+  %spec.select.i.i = icmp ult i32 %43, 32
+  %spec.select.i = select i1 %spec.select.i.i, i32 %43, i32 0
+  %44 = call noundef i32 @_ZN9Assembler21vex_prefix_and_encodeEiiiNS_13VexSimdPrefixENS_9VexOpcodeEP15InstructionAttrb(ptr noundef nonnull align 8 dereferenceable(40) %0, i32 noundef %31, i32 noundef %spec.select.i, i32 noundef %36, i32 noundef 1, i32 noundef 2, ptr noundef nonnull %6, i1 noundef zeroext false)
   br label %_ZN9Assembler22simd_prefix_and_encodeE11XMMRegisterS0_S0_NS_13VexSimdPrefixENS_9VexOpcodeEP15InstructionAttrb.exit
 
-46:                                               ; preds = %5
-  %47 = tail call noundef i32 @_ZN9Assembler21rex_prefix_and_encodeEiiNS_13VexSimdPrefixENS_9VexOpcodeEb(ptr noundef nonnull align 8 dereferenceable(40) %0, i32 noundef %31, i32 noundef %36, i32 noundef 1, i32 noundef 2, i1 noundef zeroext false)
+45:                                               ; preds = %5
+  %46 = tail call noundef i32 @_ZN9Assembler21rex_prefix_and_encodeEiiNS_13VexSimdPrefixENS_9VexOpcodeEb(ptr noundef nonnull align 8 dereferenceable(40) %0, i32 noundef %31, i32 noundef %36, i32 noundef 1, i32 noundef 2, i1 noundef zeroext false)
   br label %_ZN9Assembler22simd_prefix_and_encodeE11XMMRegisterS0_S0_NS_13VexSimdPrefixENS_9VexOpcodeEP15InstructionAttrb.exit
 
-_ZN9Assembler22simd_prefix_and_encodeE11XMMRegisterS0_S0_NS_13VexSimdPrefixENS_9VexOpcodeEP15InstructionAttrb.exit: ; preds = %38, %46
-  %.0.i = phi i32 [ %45, %38 ], [ %47, %46 ]
-  %48 = getelementptr inbounds i8, ptr %0, i64 8
-  %49 = load ptr, ptr %48, align 8
-  %50 = trunc i32 %.0.i to i8
-  %.0.i2.i = or i8 %50, -64
-  %51 = getelementptr inbounds i8, ptr %49, i64 16
-  %52 = load ptr, ptr %51, align 8
-  %53 = getelementptr inbounds i8, ptr %52, i64 1
-  store i8 4, ptr %52, align 1
-  %54 = getelementptr inbounds i8, ptr %52, i64 2
-  store i8 %.0.i2.i, ptr %53, align 1
-  store ptr %54, ptr %51, align 8
-  %55 = load ptr, ptr %26, align 8
-  %.not.i = icmp eq ptr %55, null
-  br i1 %.not.i, label %_ZN15InstructionAttrD2Ev.exit, label %56
+_ZN9Assembler22simd_prefix_and_encodeE11XMMRegisterS0_S0_NS_13VexSimdPrefixENS_9VexOpcodeEP15InstructionAttrb.exit: ; preds = %38, %45
+  %.0.i = phi i32 [ %44, %38 ], [ %46, %45 ]
+  %47 = getelementptr inbounds i8, ptr %0, i64 8
+  %48 = load ptr, ptr %47, align 8
+  %49 = trunc i32 %.0.i to i8
+  %.0.i2.i = or i8 %49, -64
+  %50 = getelementptr inbounds i8, ptr %48, i64 16
+  %51 = load ptr, ptr %50, align 8
+  %52 = getelementptr inbounds i8, ptr %51, i64 1
+  store i8 4, ptr %51, align 1
+  %53 = getelementptr inbounds i8, ptr %51, i64 2
+  store i8 %.0.i2.i, ptr %52, align 1
+  store ptr %53, ptr %50, align 8
+  %54 = load ptr, ptr %26, align 8
+  %.not.i = icmp eq ptr %54, null
+  br i1 %.not.i, label %_ZN15InstructionAttrD2Ev.exit, label %55
 
-56:                                               ; preds = %_ZN9Assembler22simd_prefix_and_encodeE11XMMRegisterS0_S0_NS_13VexSimdPrefixENS_9VexOpcodeEP15InstructionAttrb.exit
-  %57 = getelementptr inbounds i8, ptr %55, i64 32
-  store ptr null, ptr %57, align 8
+55:                                               ; preds = %_ZN9Assembler22simd_prefix_and_encodeE11XMMRegisterS0_S0_NS_13VexSimdPrefixENS_9VexOpcodeEP15InstructionAttrb.exit
+  %56 = getelementptr inbounds i8, ptr %54, i64 32
+  store ptr null, ptr %56, align 8
   br label %_ZN15InstructionAttrD2Ev.exit
 
-_ZN15InstructionAttrD2Ev.exit:                    ; preds = %_ZN9Assembler22simd_prefix_and_encodeE11XMMRegisterS0_S0_NS_13VexSimdPrefixENS_9VexOpcodeEP15InstructionAttrb.exit, %56
+_ZN15InstructionAttrD2Ev.exit:                    ; preds = %_ZN9Assembler22simd_prefix_and_encodeE11XMMRegisterS0_S0_NS_13VexSimdPrefixENS_9VexOpcodeEP15InstructionAttrb.exit, %55
   ret void
 }
 
@@ -42143,41 +42143,41 @@ define hidden void @_ZN9Assembler6pshufbE11XMMRegisterS0_(ptr noundef nonnull al
   %33 = trunc i64 %32 to i32
   %34 = sub i32 %33, ptrtoint (ptr getelementptr inbounds (i8, ptr @all_XMMRegisterImpls, i64 1) to i32)
   %35 = icmp sgt i32 %9, 0
-  br i1 %35, label %36, label %39
+  br i1 %35, label %36, label %38
 
 36:                                               ; preds = %3
-  %37 = icmp ult i32 %29, 32
-  %spec.select.i = select i1 %37, i32 %29, i32 0
-  %38 = call noundef i32 @_ZN9Assembler21vex_prefix_and_encodeEiiiNS_13VexSimdPrefixENS_9VexOpcodeEP15InstructionAttrb(ptr noundef nonnull align 8 dereferenceable(40) %0, i32 noundef %29, i32 noundef %spec.select.i, i32 noundef %34, i32 noundef 1, i32 noundef 2, ptr noundef nonnull %4, i1 noundef zeroext false)
+  %spec.select.i.i = icmp ult i32 %29, 32
+  %spec.select.i = select i1 %spec.select.i.i, i32 %29, i32 0
+  %37 = call noundef i32 @_ZN9Assembler21vex_prefix_and_encodeEiiiNS_13VexSimdPrefixENS_9VexOpcodeEP15InstructionAttrb(ptr noundef nonnull align 8 dereferenceable(40) %0, i32 noundef %29, i32 noundef %spec.select.i, i32 noundef %34, i32 noundef 1, i32 noundef 2, ptr noundef nonnull %4, i1 noundef zeroext false)
   br label %_ZN9Assembler22simd_prefix_and_encodeE11XMMRegisterS0_S0_NS_13VexSimdPrefixENS_9VexOpcodeEP15InstructionAttrb.exit
 
-39:                                               ; preds = %3
-  %40 = tail call noundef i32 @_ZN9Assembler21rex_prefix_and_encodeEiiNS_13VexSimdPrefixENS_9VexOpcodeEb(ptr noundef nonnull align 8 dereferenceable(40) %0, i32 noundef %29, i32 noundef %34, i32 noundef 1, i32 noundef 2, i1 noundef zeroext false)
+38:                                               ; preds = %3
+  %39 = tail call noundef i32 @_ZN9Assembler21rex_prefix_and_encodeEiiNS_13VexSimdPrefixENS_9VexOpcodeEb(ptr noundef nonnull align 8 dereferenceable(40) %0, i32 noundef %29, i32 noundef %34, i32 noundef 1, i32 noundef 2, i1 noundef zeroext false)
   br label %_ZN9Assembler22simd_prefix_and_encodeE11XMMRegisterS0_S0_NS_13VexSimdPrefixENS_9VexOpcodeEP15InstructionAttrb.exit
 
-_ZN9Assembler22simd_prefix_and_encodeE11XMMRegisterS0_S0_NS_13VexSimdPrefixENS_9VexOpcodeEP15InstructionAttrb.exit: ; preds = %36, %39
-  %.0.i = phi i32 [ %38, %36 ], [ %40, %39 ]
-  %41 = getelementptr inbounds i8, ptr %0, i64 8
-  %42 = load ptr, ptr %41, align 8
-  %43 = trunc i32 %.0.i to i8
-  %.0.i2.i = or i8 %43, -64
-  %44 = getelementptr inbounds i8, ptr %42, i64 16
-  %45 = load ptr, ptr %44, align 8
-  %46 = getelementptr inbounds i8, ptr %45, i64 1
-  store i8 0, ptr %45, align 1
-  %47 = getelementptr inbounds i8, ptr %45, i64 2
-  store i8 %.0.i2.i, ptr %46, align 1
-  store ptr %47, ptr %44, align 8
-  %48 = load ptr, ptr %24, align 8
-  %.not.i = icmp eq ptr %48, null
-  br i1 %.not.i, label %_ZN15InstructionAttrD2Ev.exit, label %49
+_ZN9Assembler22simd_prefix_and_encodeE11XMMRegisterS0_S0_NS_13VexSimdPrefixENS_9VexOpcodeEP15InstructionAttrb.exit: ; preds = %36, %38
+  %.0.i = phi i32 [ %37, %36 ], [ %39, %38 ]
+  %40 = getelementptr inbounds i8, ptr %0, i64 8
+  %41 = load ptr, ptr %40, align 8
+  %42 = trunc i32 %.0.i to i8
+  %.0.i2.i = or i8 %42, -64
+  %43 = getelementptr inbounds i8, ptr %41, i64 16
+  %44 = load ptr, ptr %43, align 8
+  %45 = getelementptr inbounds i8, ptr %44, i64 1
+  store i8 0, ptr %44, align 1
+  %46 = getelementptr inbounds i8, ptr %44, i64 2
+  store i8 %.0.i2.i, ptr %45, align 1
+  store ptr %46, ptr %43, align 8
+  %47 = load ptr, ptr %24, align 8
+  %.not.i = icmp eq ptr %47, null
+  br i1 %.not.i, label %_ZN15InstructionAttrD2Ev.exit, label %48
 
-49:                                               ; preds = %_ZN9Assembler22simd_prefix_and_encodeE11XMMRegisterS0_S0_NS_13VexSimdPrefixENS_9VexOpcodeEP15InstructionAttrb.exit
-  %50 = getelementptr inbounds i8, ptr %48, i64 32
-  store ptr null, ptr %50, align 8
+48:                                               ; preds = %_ZN9Assembler22simd_prefix_and_encodeE11XMMRegisterS0_S0_NS_13VexSimdPrefixENS_9VexOpcodeEP15InstructionAttrb.exit
+  %49 = getelementptr inbounds i8, ptr %47, i64 32
+  store ptr null, ptr %49, align 8
   br label %_ZN15InstructionAttrD2Ev.exit
 
-_ZN15InstructionAttrD2Ev.exit:                    ; preds = %_ZN9Assembler22simd_prefix_and_encodeE11XMMRegisterS0_S0_NS_13VexSimdPrefixENS_9VexOpcodeEP15InstructionAttrb.exit, %49
+_ZN15InstructionAttrD2Ev.exit:                    ; preds = %_ZN9Assembler22simd_prefix_and_encodeE11XMMRegisterS0_S0_NS_13VexSimdPrefixENS_9VexOpcodeEP15InstructionAttrb.exit, %48
   ret void
 }
 
@@ -42238,7 +42238,7 @@ define hidden void @_ZN9Assembler8evpshufbE11XMMRegister9KRegisterS0_S0_bi(ptr n
   %41 = trunc i64 %40 to i32
   %42 = sub i32 %41, ptrtoint (ptr getelementptr inbounds (i8, ptr @all_XMMRegisterImpls, i64 1) to i32)
   %43 = icmp sgt i32 %10, 0
-  br i1 %43, label %44, label %52
+  br i1 %43, label %44, label %51
 
 44:                                               ; preds = %32
   %45 = sext i32 %3 to i64
@@ -42246,38 +42246,38 @@ define hidden void @_ZN9Assembler8evpshufbE11XMMRegister9KRegisterS0_S0_bi(ptr n
   %47 = ptrtoint ptr %46 to i64
   %48 = trunc i64 %47 to i32
   %49 = sub i32 %48, ptrtoint (ptr getelementptr inbounds (i8, ptr @all_XMMRegisterImpls, i64 1) to i32)
-  %50 = icmp ult i32 %49, 32
-  %spec.select.i = select i1 %50, i32 %49, i32 0
-  %51 = call noundef i32 @_ZN9Assembler21vex_prefix_and_encodeEiiiNS_13VexSimdPrefixENS_9VexOpcodeEP15InstructionAttrb(ptr noundef nonnull align 8 dereferenceable(40) %0, i32 noundef %37, i32 noundef %spec.select.i, i32 noundef %42, i32 noundef 1, i32 noundef 2, ptr noundef nonnull %8, i1 noundef zeroext false)
+  %spec.select.i.i = icmp ult i32 %49, 32
+  %spec.select.i = select i1 %spec.select.i.i, i32 %49, i32 0
+  %50 = call noundef i32 @_ZN9Assembler21vex_prefix_and_encodeEiiiNS_13VexSimdPrefixENS_9VexOpcodeEP15InstructionAttrb(ptr noundef nonnull align 8 dereferenceable(40) %0, i32 noundef %37, i32 noundef %spec.select.i, i32 noundef %42, i32 noundef 1, i32 noundef 2, ptr noundef nonnull %8, i1 noundef zeroext false)
   br label %_ZN9Assembler22simd_prefix_and_encodeE11XMMRegisterS0_S0_NS_13VexSimdPrefixENS_9VexOpcodeEP15InstructionAttrb.exit
 
-52:                                               ; preds = %32
-  %53 = tail call noundef i32 @_ZN9Assembler21rex_prefix_and_encodeEiiNS_13VexSimdPrefixENS_9VexOpcodeEb(ptr noundef nonnull align 8 dereferenceable(40) %0, i32 noundef %37, i32 noundef %42, i32 noundef 1, i32 noundef 2, i1 noundef zeroext false)
+51:                                               ; preds = %32
+  %52 = tail call noundef i32 @_ZN9Assembler21rex_prefix_and_encodeEiiNS_13VexSimdPrefixENS_9VexOpcodeEb(ptr noundef nonnull align 8 dereferenceable(40) %0, i32 noundef %37, i32 noundef %42, i32 noundef 1, i32 noundef 2, i1 noundef zeroext false)
   br label %_ZN9Assembler22simd_prefix_and_encodeE11XMMRegisterS0_S0_NS_13VexSimdPrefixENS_9VexOpcodeEP15InstructionAttrb.exit
 
-_ZN9Assembler22simd_prefix_and_encodeE11XMMRegisterS0_S0_NS_13VexSimdPrefixENS_9VexOpcodeEP15InstructionAttrb.exit: ; preds = %44, %52
-  %.0.i = phi i32 [ %51, %44 ], [ %53, %52 ]
-  %54 = getelementptr inbounds i8, ptr %0, i64 8
-  %55 = load ptr, ptr %54, align 8
-  %56 = trunc i32 %.0.i to i8
-  %.0.i2.i = or i8 %56, -64
-  %57 = getelementptr inbounds i8, ptr %55, i64 16
-  %58 = load ptr, ptr %57, align 8
-  %59 = getelementptr inbounds i8, ptr %58, i64 1
-  store i8 0, ptr %58, align 1
-  %60 = getelementptr inbounds i8, ptr %58, i64 2
-  store i8 %.0.i2.i, ptr %59, align 1
-  store ptr %60, ptr %57, align 8
-  %61 = load ptr, ptr %24, align 8
-  %.not.i = icmp eq ptr %61, null
-  br i1 %.not.i, label %_ZN15InstructionAttrD2Ev.exit, label %62
+_ZN9Assembler22simd_prefix_and_encodeE11XMMRegisterS0_S0_NS_13VexSimdPrefixENS_9VexOpcodeEP15InstructionAttrb.exit: ; preds = %44, %51
+  %.0.i = phi i32 [ %50, %44 ], [ %52, %51 ]
+  %53 = getelementptr inbounds i8, ptr %0, i64 8
+  %54 = load ptr, ptr %53, align 8
+  %55 = trunc i32 %.0.i to i8
+  %.0.i2.i = or i8 %55, -64
+  %56 = getelementptr inbounds i8, ptr %54, i64 16
+  %57 = load ptr, ptr %56, align 8
+  %58 = getelementptr inbounds i8, ptr %57, i64 1
+  store i8 0, ptr %57, align 1
+  %59 = getelementptr inbounds i8, ptr %57, i64 2
+  store i8 %.0.i2.i, ptr %58, align 1
+  store ptr %59, ptr %56, align 8
+  %60 = load ptr, ptr %24, align 8
+  %.not.i = icmp eq ptr %60, null
+  br i1 %.not.i, label %_ZN15InstructionAttrD2Ev.exit, label %61
 
-62:                                               ; preds = %_ZN9Assembler22simd_prefix_and_encodeE11XMMRegisterS0_S0_NS_13VexSimdPrefixENS_9VexOpcodeEP15InstructionAttrb.exit
-  %63 = getelementptr inbounds i8, ptr %61, i64 32
-  store ptr null, ptr %63, align 8
+61:                                               ; preds = %_ZN9Assembler22simd_prefix_and_encodeE11XMMRegisterS0_S0_NS_13VexSimdPrefixENS_9VexOpcodeEP15InstructionAttrb.exit
+  %62 = getelementptr inbounds i8, ptr %60, i64 32
+  store ptr null, ptr %62, align 8
   br label %_ZN15InstructionAttrD2Ev.exit
 
-_ZN15InstructionAttrD2Ev.exit:                    ; preds = %_ZN9Assembler22simd_prefix_and_encodeE11XMMRegisterS0_S0_NS_13VexSimdPrefixENS_9VexOpcodeEP15InstructionAttrb.exit, %62
+_ZN15InstructionAttrD2Ev.exit:                    ; preds = %_ZN9Assembler22simd_prefix_and_encodeE11XMMRegisterS0_S0_NS_13VexSimdPrefixENS_9VexOpcodeEP15InstructionAttrb.exit, %61
   ret void
 }
 
@@ -42329,7 +42329,7 @@ define hidden void @_ZN9Assembler7vpshufbE11XMMRegisterS0_S0_i(ptr noundef nonnu
   %35 = trunc i64 %34 to i32
   %36 = sub i32 %35, ptrtoint (ptr getelementptr inbounds (i8, ptr @all_XMMRegisterImpls, i64 1) to i32)
   %37 = icmp sgt i32 %11, 0
-  br i1 %37, label %38, label %46
+  br i1 %37, label %38, label %45
 
 38:                                               ; preds = %5
   %39 = sext i32 %2 to i64
@@ -42337,38 +42337,38 @@ define hidden void @_ZN9Assembler7vpshufbE11XMMRegisterS0_S0_i(ptr noundef nonnu
   %41 = ptrtoint ptr %40 to i64
   %42 = trunc i64 %41 to i32
   %43 = sub i32 %42, ptrtoint (ptr getelementptr inbounds (i8, ptr @all_XMMRegisterImpls, i64 1) to i32)
-  %44 = icmp ult i32 %43, 32
-  %spec.select.i = select i1 %44, i32 %43, i32 0
-  %45 = call noundef i32 @_ZN9Assembler21vex_prefix_and_encodeEiiiNS_13VexSimdPrefixENS_9VexOpcodeEP15InstructionAttrb(ptr noundef nonnull align 8 dereferenceable(40) %0, i32 noundef %31, i32 noundef %spec.select.i, i32 noundef %36, i32 noundef 1, i32 noundef 2, ptr noundef nonnull %6, i1 noundef zeroext false)
+  %spec.select.i.i = icmp ult i32 %43, 32
+  %spec.select.i = select i1 %spec.select.i.i, i32 %43, i32 0
+  %44 = call noundef i32 @_ZN9Assembler21vex_prefix_and_encodeEiiiNS_13VexSimdPrefixENS_9VexOpcodeEP15InstructionAttrb(ptr noundef nonnull align 8 dereferenceable(40) %0, i32 noundef %31, i32 noundef %spec.select.i, i32 noundef %36, i32 noundef 1, i32 noundef 2, ptr noundef nonnull %6, i1 noundef zeroext false)
   br label %_ZN9Assembler22simd_prefix_and_encodeE11XMMRegisterS0_S0_NS_13VexSimdPrefixENS_9VexOpcodeEP15InstructionAttrb.exit
 
-46:                                               ; preds = %5
-  %47 = tail call noundef i32 @_ZN9Assembler21rex_prefix_and_encodeEiiNS_13VexSimdPrefixENS_9VexOpcodeEb(ptr noundef nonnull align 8 dereferenceable(40) %0, i32 noundef %31, i32 noundef %36, i32 noundef 1, i32 noundef 2, i1 noundef zeroext false)
+45:                                               ; preds = %5
+  %46 = tail call noundef i32 @_ZN9Assembler21rex_prefix_and_encodeEiiNS_13VexSimdPrefixENS_9VexOpcodeEb(ptr noundef nonnull align 8 dereferenceable(40) %0, i32 noundef %31, i32 noundef %36, i32 noundef 1, i32 noundef 2, i1 noundef zeroext false)
   br label %_ZN9Assembler22simd_prefix_and_encodeE11XMMRegisterS0_S0_NS_13VexSimdPrefixENS_9VexOpcodeEP15InstructionAttrb.exit
 
-_ZN9Assembler22simd_prefix_and_encodeE11XMMRegisterS0_S0_NS_13VexSimdPrefixENS_9VexOpcodeEP15InstructionAttrb.exit: ; preds = %38, %46
-  %.0.i = phi i32 [ %45, %38 ], [ %47, %46 ]
-  %48 = getelementptr inbounds i8, ptr %0, i64 8
-  %49 = load ptr, ptr %48, align 8
-  %50 = trunc i32 %.0.i to i8
-  %.0.i2.i = or i8 %50, -64
-  %51 = getelementptr inbounds i8, ptr %49, i64 16
-  %52 = load ptr, ptr %51, align 8
-  %53 = getelementptr inbounds i8, ptr %52, i64 1
-  store i8 0, ptr %52, align 1
-  %54 = getelementptr inbounds i8, ptr %52, i64 2
-  store i8 %.0.i2.i, ptr %53, align 1
-  store ptr %54, ptr %51, align 8
-  %55 = load ptr, ptr %26, align 8
-  %.not.i = icmp eq ptr %55, null
-  br i1 %.not.i, label %_ZN15InstructionAttrD2Ev.exit, label %56
+_ZN9Assembler22simd_prefix_and_encodeE11XMMRegisterS0_S0_NS_13VexSimdPrefixENS_9VexOpcodeEP15InstructionAttrb.exit: ; preds = %38, %45
+  %.0.i = phi i32 [ %44, %38 ], [ %46, %45 ]
+  %47 = getelementptr inbounds i8, ptr %0, i64 8
+  %48 = load ptr, ptr %47, align 8
+  %49 = trunc i32 %.0.i to i8
+  %.0.i2.i = or i8 %49, -64
+  %50 = getelementptr inbounds i8, ptr %48, i64 16
+  %51 = load ptr, ptr %50, align 8
+  %52 = getelementptr inbounds i8, ptr %51, i64 1
+  store i8 0, ptr %51, align 1
+  %53 = getelementptr inbounds i8, ptr %51, i64 2
+  store i8 %.0.i2.i, ptr %52, align 1
+  store ptr %53, ptr %50, align 8
+  %54 = load ptr, ptr %26, align 8
+  %.not.i = icmp eq ptr %54, null
+  br i1 %.not.i, label %_ZN15InstructionAttrD2Ev.exit, label %55
 
-56:                                               ; preds = %_ZN9Assembler22simd_prefix_and_encodeE11XMMRegisterS0_S0_NS_13VexSimdPrefixENS_9VexOpcodeEP15InstructionAttrb.exit
-  %57 = getelementptr inbounds i8, ptr %55, i64 32
-  store ptr null, ptr %57, align 8
+55:                                               ; preds = %_ZN9Assembler22simd_prefix_and_encodeE11XMMRegisterS0_S0_NS_13VexSimdPrefixENS_9VexOpcodeEP15InstructionAttrb.exit
+  %56 = getelementptr inbounds i8, ptr %54, i64 32
+  store ptr null, ptr %56, align 8
   br label %_ZN15InstructionAttrD2Ev.exit
 
-_ZN15InstructionAttrD2Ev.exit:                    ; preds = %_ZN9Assembler22simd_prefix_and_encodeE11XMMRegisterS0_S0_NS_13VexSimdPrefixENS_9VexOpcodeEP15InstructionAttrb.exit, %56
+_ZN15InstructionAttrD2Ev.exit:                    ; preds = %_ZN9Assembler22simd_prefix_and_encodeE11XMMRegisterS0_S0_NS_13VexSimdPrefixENS_9VexOpcodeEP15InstructionAttrb.exit, %55
   ret void
 }
 
@@ -43516,44 +43516,44 @@ define hidden void @_ZN9Assembler6shufpdE11XMMRegisterS0_i(ptr noundef nonnull a
   %30 = trunc i64 %29 to i32
   %31 = sub i32 %30, ptrtoint (ptr getelementptr inbounds (i8, ptr @all_XMMRegisterImpls, i64 1) to i32)
   %32 = icmp sgt i32 %7, 0
-  br i1 %32, label %33, label %36
+  br i1 %32, label %33, label %35
 
 33:                                               ; preds = %4
-  %34 = icmp ult i32 %26, 32
-  %spec.select.i = select i1 %34, i32 %26, i32 0
-  %35 = call noundef i32 @_ZN9Assembler21vex_prefix_and_encodeEiiiNS_13VexSimdPrefixENS_9VexOpcodeEP15InstructionAttrb(ptr noundef nonnull align 8 dereferenceable(40) %0, i32 noundef %26, i32 noundef %spec.select.i, i32 noundef %31, i32 noundef 1, i32 noundef 1, ptr noundef nonnull %5, i1 noundef zeroext false)
+  %spec.select.i.i = icmp ult i32 %26, 32
+  %spec.select.i = select i1 %spec.select.i.i, i32 %26, i32 0
+  %34 = call noundef i32 @_ZN9Assembler21vex_prefix_and_encodeEiiiNS_13VexSimdPrefixENS_9VexOpcodeEP15InstructionAttrb(ptr noundef nonnull align 8 dereferenceable(40) %0, i32 noundef %26, i32 noundef %spec.select.i, i32 noundef %31, i32 noundef 1, i32 noundef 1, ptr noundef nonnull %5, i1 noundef zeroext false)
   br label %_ZN9Assembler22simd_prefix_and_encodeE11XMMRegisterS0_S0_NS_13VexSimdPrefixENS_9VexOpcodeEP15InstructionAttrb.exit
 
-36:                                               ; preds = %4
-  %37 = tail call noundef i32 @_ZN9Assembler21rex_prefix_and_encodeEiiNS_13VexSimdPrefixENS_9VexOpcodeEb(ptr noundef nonnull align 8 dereferenceable(40) %0, i32 noundef %26, i32 noundef %31, i32 noundef 1, i32 noundef 1, i1 noundef zeroext false)
+35:                                               ; preds = %4
+  %36 = tail call noundef i32 @_ZN9Assembler21rex_prefix_and_encodeEiiNS_13VexSimdPrefixENS_9VexOpcodeEb(ptr noundef nonnull align 8 dereferenceable(40) %0, i32 noundef %26, i32 noundef %31, i32 noundef 1, i32 noundef 1, i1 noundef zeroext false)
   br label %_ZN9Assembler22simd_prefix_and_encodeE11XMMRegisterS0_S0_NS_13VexSimdPrefixENS_9VexOpcodeEP15InstructionAttrb.exit
 
-_ZN9Assembler22simd_prefix_and_encodeE11XMMRegisterS0_S0_NS_13VexSimdPrefixENS_9VexOpcodeEP15InstructionAttrb.exit: ; preds = %33, %36
-  %.0.i = phi i32 [ %35, %33 ], [ %37, %36 ]
-  %38 = getelementptr inbounds i8, ptr %0, i64 8
-  %39 = load ptr, ptr %38, align 8
-  %40 = trunc i32 %.0.i to i8
-  %.0.i3.i = or i8 %40, -64
+_ZN9Assembler22simd_prefix_and_encodeE11XMMRegisterS0_S0_NS_13VexSimdPrefixENS_9VexOpcodeEP15InstructionAttrb.exit: ; preds = %33, %35
+  %.0.i = phi i32 [ %34, %33 ], [ %36, %35 ]
+  %37 = getelementptr inbounds i8, ptr %0, i64 8
+  %38 = load ptr, ptr %37, align 8
+  %39 = trunc i32 %.0.i to i8
+  %.0.i3.i = or i8 %39, -64
   %.0.i4.i = trunc i32 %3 to i8
-  %41 = getelementptr inbounds i8, ptr %39, i64 16
-  %42 = load ptr, ptr %41, align 8
-  %43 = getelementptr inbounds i8, ptr %42, i64 1
-  store i8 -58, ptr %42, align 1
-  %44 = getelementptr inbounds i8, ptr %42, i64 2
-  store i8 %.0.i3.i, ptr %43, align 1
-  %45 = getelementptr inbounds i8, ptr %42, i64 3
-  store i8 %.0.i4.i, ptr %44, align 1
-  store ptr %45, ptr %41, align 8
-  %46 = load ptr, ptr %21, align 8
-  %.not.i = icmp eq ptr %46, null
-  br i1 %.not.i, label %_ZN15InstructionAttrD2Ev.exit, label %47
+  %40 = getelementptr inbounds i8, ptr %38, i64 16
+  %41 = load ptr, ptr %40, align 8
+  %42 = getelementptr inbounds i8, ptr %41, i64 1
+  store i8 -58, ptr %41, align 1
+  %43 = getelementptr inbounds i8, ptr %41, i64 2
+  store i8 %.0.i3.i, ptr %42, align 1
+  %44 = getelementptr inbounds i8, ptr %41, i64 3
+  store i8 %.0.i4.i, ptr %43, align 1
+  store ptr %44, ptr %40, align 8
+  %45 = load ptr, ptr %21, align 8
+  %.not.i = icmp eq ptr %45, null
+  br i1 %.not.i, label %_ZN15InstructionAttrD2Ev.exit, label %46
 
-47:                                               ; preds = %_ZN9Assembler22simd_prefix_and_encodeE11XMMRegisterS0_S0_NS_13VexSimdPrefixENS_9VexOpcodeEP15InstructionAttrb.exit
-  %48 = getelementptr inbounds i8, ptr %46, i64 32
-  store ptr null, ptr %48, align 8
+46:                                               ; preds = %_ZN9Assembler22simd_prefix_and_encodeE11XMMRegisterS0_S0_NS_13VexSimdPrefixENS_9VexOpcodeEP15InstructionAttrb.exit
+  %47 = getelementptr inbounds i8, ptr %45, i64 32
+  store ptr null, ptr %47, align 8
   br label %_ZN15InstructionAttrD2Ev.exit
 
-_ZN15InstructionAttrD2Ev.exit:                    ; preds = %_ZN9Assembler22simd_prefix_and_encodeE11XMMRegisterS0_S0_NS_13VexSimdPrefixENS_9VexOpcodeEP15InstructionAttrb.exit, %47
+_ZN15InstructionAttrD2Ev.exit:                    ; preds = %_ZN9Assembler22simd_prefix_and_encodeE11XMMRegisterS0_S0_NS_13VexSimdPrefixENS_9VexOpcodeEP15InstructionAttrb.exit, %46
   ret void
 }
 
@@ -43681,44 +43681,44 @@ define hidden void @_ZN9Assembler6shufpsE11XMMRegisterS0_i(ptr noundef nonnull a
   %30 = trunc i64 %29 to i32
   %31 = sub i32 %30, ptrtoint (ptr getelementptr inbounds (i8, ptr @all_XMMRegisterImpls, i64 1) to i32)
   %32 = icmp sgt i32 %7, 0
-  br i1 %32, label %33, label %36
+  br i1 %32, label %33, label %35
 
 33:                                               ; preds = %4
-  %34 = icmp ult i32 %26, 32
-  %spec.select.i = select i1 %34, i32 %26, i32 0
-  %35 = call noundef i32 @_ZN9Assembler21vex_prefix_and_encodeEiiiNS_13VexSimdPrefixENS_9VexOpcodeEP15InstructionAttrb(ptr noundef nonnull align 8 dereferenceable(40) %0, i32 noundef %26, i32 noundef %spec.select.i, i32 noundef %31, i32 noundef 0, i32 noundef 1, ptr noundef nonnull %5, i1 noundef zeroext false)
+  %spec.select.i.i = icmp ult i32 %26, 32
+  %spec.select.i = select i1 %spec.select.i.i, i32 %26, i32 0
+  %34 = call noundef i32 @_ZN9Assembler21vex_prefix_and_encodeEiiiNS_13VexSimdPrefixENS_9VexOpcodeEP15InstructionAttrb(ptr noundef nonnull align 8 dereferenceable(40) %0, i32 noundef %26, i32 noundef %spec.select.i, i32 noundef %31, i32 noundef 0, i32 noundef 1, ptr noundef nonnull %5, i1 noundef zeroext false)
   br label %_ZN9Assembler22simd_prefix_and_encodeE11XMMRegisterS0_S0_NS_13VexSimdPrefixENS_9VexOpcodeEP15InstructionAttrb.exit
 
-36:                                               ; preds = %4
-  %37 = tail call noundef i32 @_ZN9Assembler21rex_prefix_and_encodeEiiNS_13VexSimdPrefixENS_9VexOpcodeEb(ptr noundef nonnull align 8 dereferenceable(40) %0, i32 noundef %26, i32 noundef %31, i32 noundef 0, i32 noundef 1, i1 noundef zeroext false)
+35:                                               ; preds = %4
+  %36 = tail call noundef i32 @_ZN9Assembler21rex_prefix_and_encodeEiiNS_13VexSimdPrefixENS_9VexOpcodeEb(ptr noundef nonnull align 8 dereferenceable(40) %0, i32 noundef %26, i32 noundef %31, i32 noundef 0, i32 noundef 1, i1 noundef zeroext false)
   br label %_ZN9Assembler22simd_prefix_and_encodeE11XMMRegisterS0_S0_NS_13VexSimdPrefixENS_9VexOpcodeEP15InstructionAttrb.exit
 
-_ZN9Assembler22simd_prefix_and_encodeE11XMMRegisterS0_S0_NS_13VexSimdPrefixENS_9VexOpcodeEP15InstructionAttrb.exit: ; preds = %33, %36
-  %.0.i = phi i32 [ %35, %33 ], [ %37, %36 ]
-  %38 = getelementptr inbounds i8, ptr %0, i64 8
-  %39 = load ptr, ptr %38, align 8
-  %40 = trunc i32 %.0.i to i8
-  %.0.i3.i = or i8 %40, -64
+_ZN9Assembler22simd_prefix_and_encodeE11XMMRegisterS0_S0_NS_13VexSimdPrefixENS_9VexOpcodeEP15InstructionAttrb.exit: ; preds = %33, %35
+  %.0.i = phi i32 [ %34, %33 ], [ %36, %35 ]
+  %37 = getelementptr inbounds i8, ptr %0, i64 8
+  %38 = load ptr, ptr %37, align 8
+  %39 = trunc i32 %.0.i to i8
+  %.0.i3.i = or i8 %39, -64
   %.0.i4.i = trunc i32 %3 to i8
-  %41 = getelementptr inbounds i8, ptr %39, i64 16
-  %42 = load ptr, ptr %41, align 8
-  %43 = getelementptr inbounds i8, ptr %42, i64 1
-  store i8 -58, ptr %42, align 1
-  %44 = getelementptr inbounds i8, ptr %42, i64 2
-  store i8 %.0.i3.i, ptr %43, align 1
-  %45 = getelementptr inbounds i8, ptr %42, i64 3
-  store i8 %.0.i4.i, ptr %44, align 1
-  store ptr %45, ptr %41, align 8
-  %46 = load ptr, ptr %21, align 8
-  %.not.i = icmp eq ptr %46, null
-  br i1 %.not.i, label %_ZN15InstructionAttrD2Ev.exit, label %47
+  %40 = getelementptr inbounds i8, ptr %38, i64 16
+  %41 = load ptr, ptr %40, align 8
+  %42 = getelementptr inbounds i8, ptr %41, i64 1
+  store i8 -58, ptr %41, align 1
+  %43 = getelementptr inbounds i8, ptr %41, i64 2
+  store i8 %.0.i3.i, ptr %42, align 1
+  %44 = getelementptr inbounds i8, ptr %41, i64 3
+  store i8 %.0.i4.i, ptr %43, align 1
+  store ptr %44, ptr %40, align 8
+  %45 = load ptr, ptr %21, align 8
+  %.not.i = icmp eq ptr %45, null
+  br i1 %.not.i, label %_ZN15InstructionAttrD2Ev.exit, label %46
 
-47:                                               ; preds = %_ZN9Assembler22simd_prefix_and_encodeE11XMMRegisterS0_S0_NS_13VexSimdPrefixENS_9VexOpcodeEP15InstructionAttrb.exit
-  %48 = getelementptr inbounds i8, ptr %46, i64 32
-  store ptr null, ptr %48, align 8
+46:                                               ; preds = %_ZN9Assembler22simd_prefix_and_encodeE11XMMRegisterS0_S0_NS_13VexSimdPrefixENS_9VexOpcodeEP15InstructionAttrb.exit
+  %47 = getelementptr inbounds i8, ptr %45, i64 32
+  store ptr null, ptr %47, align 8
   br label %_ZN15InstructionAttrD2Ev.exit
 
-_ZN15InstructionAttrD2Ev.exit:                    ; preds = %_ZN9Assembler22simd_prefix_and_encodeE11XMMRegisterS0_S0_NS_13VexSimdPrefixENS_9VexOpcodeEP15InstructionAttrb.exit, %47
+_ZN15InstructionAttrD2Ev.exit:                    ; preds = %_ZN9Assembler22simd_prefix_and_encodeE11XMMRegisterS0_S0_NS_13VexSimdPrefixENS_9VexOpcodeEP15InstructionAttrb.exit, %46
   ret void
 }
 
@@ -43841,97 +43841,97 @@ define hidden void @_ZN9Assembler6psrldqE11XMMRegisteri(ptr noundef nonnull alig
   %28 = trunc i64 %27 to i32
   %29 = sub i32 %28, ptrtoint (ptr getelementptr inbounds (i8, ptr @all_XMMRegisterImpls, i64 1) to i32)
   %30 = icmp sgt i32 %9, 0
-  br i1 %30, label %31, label %34
+  br i1 %30, label %31, label %33
 
 31:                                               ; preds = %3
-  %32 = icmp ult i32 %29, 32
-  %spec.select.i = select i1 %32, i32 %29, i32 0
-  %33 = call noundef i32 @_ZN9Assembler21vex_prefix_and_encodeEiiiNS_13VexSimdPrefixENS_9VexOpcodeEP15InstructionAttrb(ptr noundef nonnull align 8 dereferenceable(40) %0, i32 noundef 3, i32 noundef %spec.select.i, i32 noundef %29, i32 noundef 1, i32 noundef 1, ptr noundef nonnull %4, i1 noundef zeroext false)
+  %spec.select.i.i = icmp ult i32 %29, 32
+  %spec.select.i = select i1 %spec.select.i.i, i32 %29, i32 0
+  %32 = call noundef i32 @_ZN9Assembler21vex_prefix_and_encodeEiiiNS_13VexSimdPrefixENS_9VexOpcodeEP15InstructionAttrb(ptr noundef nonnull align 8 dereferenceable(40) %0, i32 noundef 3, i32 noundef %spec.select.i, i32 noundef %29, i32 noundef 1, i32 noundef 1, ptr noundef nonnull %4, i1 noundef zeroext false)
   br label %_ZN9Assembler22simd_prefix_and_encodeE11XMMRegisterS0_S0_NS_13VexSimdPrefixENS_9VexOpcodeEP15InstructionAttrb.exit
 
-34:                                               ; preds = %3
-  %35 = getelementptr inbounds i8, ptr %0, i64 8
-  %36 = load ptr, ptr %35, align 8
-  %37 = getelementptr inbounds i8, ptr %36, i64 16
-  %38 = load ptr, ptr %37, align 8
-  %39 = getelementptr inbounds i8, ptr %38, i64 1
-  store i8 102, ptr %38, align 1
-  store ptr %39, ptr %37, align 8
-  %40 = icmp sgt i32 %29, 15
-  br i1 %40, label %41, label %55
+33:                                               ; preds = %3
+  %34 = getelementptr inbounds i8, ptr %0, i64 8
+  %35 = load ptr, ptr %34, align 8
+  %36 = getelementptr inbounds i8, ptr %35, i64 16
+  %37 = load ptr, ptr %36, align 8
+  %38 = getelementptr inbounds i8, ptr %37, i64 1
+  store i8 102, ptr %37, align 1
+  store ptr %38, ptr %36, align 8
+  %39 = icmp sgt i32 %29, 15
+  br i1 %39, label %40, label %54
 
-41:                                               ; preds = %34
-  %42 = and i32 %29, 16
-  %43 = lshr i32 %29, 3
-  %44 = and i32 %43, 1
-  %45 = or disjoint i32 %44, %42
-  %46 = and i32 %29, 7
-  %47 = load ptr, ptr %35, align 8
-  %48 = getelementptr inbounds i8, ptr %47, i64 16
-  %49 = load ptr, ptr %48, align 8
-  %50 = getelementptr inbounds i8, ptr %49, i64 1
-  store i8 -43, ptr %49, align 1
-  store ptr %50, ptr %48, align 8
-  %51 = load ptr, ptr %35, align 8
-  %.0.i.i2.i.i.i.i18.i = trunc nuw nsw i32 %45 to i8
-  %52 = getelementptr inbounds i8, ptr %51, i64 16
-  %53 = load ptr, ptr %52, align 8
-  %54 = getelementptr inbounds i8, ptr %53, i64 1
-  store i8 %.0.i.i2.i.i.i.i18.i, ptr %53, align 1
-  store ptr %54, ptr %52, align 8
+40:                                               ; preds = %33
+  %41 = and i32 %29, 16
+  %42 = lshr i32 %29, 3
+  %43 = and i32 %42, 1
+  %44 = or disjoint i32 %43, %41
+  %45 = and i32 %29, 7
+  %46 = load ptr, ptr %34, align 8
+  %47 = getelementptr inbounds i8, ptr %46, i64 16
+  %48 = load ptr, ptr %47, align 8
+  %49 = getelementptr inbounds i8, ptr %48, i64 1
+  store i8 -43, ptr %48, align 1
+  store ptr %49, ptr %47, align 8
+  %50 = load ptr, ptr %34, align 8
+  %.0.i.i2.i.i.i.i18.i = trunc nuw nsw i32 %44 to i8
+  %51 = getelementptr inbounds i8, ptr %50, i64 16
+  %52 = load ptr, ptr %51, align 8
+  %53 = getelementptr inbounds i8, ptr %52, i64 1
+  store i8 %.0.i.i2.i.i.i.i18.i, ptr %52, align 1
+  store ptr %53, ptr %51, align 8
   br label %_ZN9Assembler21rex_prefix_and_encodeEiiNS_13VexSimdPrefixENS_9VexOpcodeEb.exit
 
-55:                                               ; preds = %34
-  %56 = icmp sgt i32 %29, 7
-  br i1 %56, label %57, label %_ZN9Assembler21rex_prefix_and_encodeEiiNS_13VexSimdPrefixENS_9VexOpcodeEb.exit
+54:                                               ; preds = %33
+  %55 = icmp sgt i32 %29, 7
+  br i1 %55, label %56, label %_ZN9Assembler21rex_prefix_and_encodeEiiNS_13VexSimdPrefixENS_9VexOpcodeEb.exit
 
-57:                                               ; preds = %55
-  %58 = load ptr, ptr %35, align 8
-  %59 = getelementptr inbounds i8, ptr %58, i64 16
-  %60 = load ptr, ptr %59, align 8
-  %61 = getelementptr inbounds i8, ptr %60, i64 1
-  store i8 65, ptr %60, align 1
-  store ptr %61, ptr %59, align 8
-  %62 = add nsw i32 %29, -8
+56:                                               ; preds = %54
+  %57 = load ptr, ptr %34, align 8
+  %58 = getelementptr inbounds i8, ptr %57, i64 16
+  %59 = load ptr, ptr %58, align 8
+  %60 = getelementptr inbounds i8, ptr %59, i64 1
+  store i8 65, ptr %59, align 1
+  store ptr %60, ptr %58, align 8
+  %61 = add nsw i32 %29, -8
   br label %_ZN9Assembler21rex_prefix_and_encodeEiiNS_13VexSimdPrefixENS_9VexOpcodeEb.exit
 
-_ZN9Assembler21rex_prefix_and_encodeEiiNS_13VexSimdPrefixENS_9VexOpcodeEb.exit: ; preds = %55, %57, %41
-  %.in = phi i32 [ %46, %41 ], [ %62, %57 ], [ %29, %55 ]
-  %63 = or i32 %.in, 24
-  %64 = load ptr, ptr %35, align 8
-  %65 = getelementptr inbounds i8, ptr %64, i64 16
-  %66 = load ptr, ptr %65, align 8
-  %67 = getelementptr inbounds i8, ptr %66, i64 1
-  store i8 15, ptr %66, align 1
-  store ptr %67, ptr %65, align 8
+_ZN9Assembler21rex_prefix_and_encodeEiiNS_13VexSimdPrefixENS_9VexOpcodeEb.exit: ; preds = %54, %56, %40
+  %.in = phi i32 [ %45, %40 ], [ %61, %56 ], [ %29, %54 ]
+  %62 = or i32 %.in, 24
+  %63 = load ptr, ptr %34, align 8
+  %64 = getelementptr inbounds i8, ptr %63, i64 16
+  %65 = load ptr, ptr %64, align 8
+  %66 = getelementptr inbounds i8, ptr %65, i64 1
+  store i8 15, ptr %65, align 1
+  store ptr %66, ptr %64, align 8
   br label %_ZN9Assembler22simd_prefix_and_encodeE11XMMRegisterS0_S0_NS_13VexSimdPrefixENS_9VexOpcodeEP15InstructionAttrb.exit
 
 _ZN9Assembler22simd_prefix_and_encodeE11XMMRegisterS0_S0_NS_13VexSimdPrefixENS_9VexOpcodeEP15InstructionAttrb.exit: ; preds = %31, %_ZN9Assembler21rex_prefix_and_encodeEiiNS_13VexSimdPrefixENS_9VexOpcodeEb.exit
-  %.0.i = phi i32 [ %33, %31 ], [ %63, %_ZN9Assembler21rex_prefix_and_encodeEiiNS_13VexSimdPrefixENS_9VexOpcodeEb.exit ]
-  %68 = getelementptr inbounds i8, ptr %0, i64 8
-  %69 = load ptr, ptr %68, align 8
-  %70 = trunc i32 %.0.i to i8
-  %.0.i3.i = or i8 %70, -64
+  %.0.i = phi i32 [ %32, %31 ], [ %62, %_ZN9Assembler21rex_prefix_and_encodeEiiNS_13VexSimdPrefixENS_9VexOpcodeEb.exit ]
+  %67 = getelementptr inbounds i8, ptr %0, i64 8
+  %68 = load ptr, ptr %67, align 8
+  %69 = trunc i32 %.0.i to i8
+  %.0.i3.i = or i8 %69, -64
   %.0.i4.i = trunc i32 %2 to i8
-  %71 = getelementptr inbounds i8, ptr %69, i64 16
-  %72 = load ptr, ptr %71, align 8
-  %73 = getelementptr inbounds i8, ptr %72, i64 1
-  store i8 115, ptr %72, align 1
-  %74 = getelementptr inbounds i8, ptr %72, i64 2
-  store i8 %.0.i3.i, ptr %73, align 1
-  %75 = getelementptr inbounds i8, ptr %72, i64 3
-  store i8 %.0.i4.i, ptr %74, align 1
-  store ptr %75, ptr %71, align 8
-  %76 = load ptr, ptr %24, align 8
-  %.not.i = icmp eq ptr %76, null
-  br i1 %.not.i, label %_ZN15InstructionAttrD2Ev.exit, label %77
+  %70 = getelementptr inbounds i8, ptr %68, i64 16
+  %71 = load ptr, ptr %70, align 8
+  %72 = getelementptr inbounds i8, ptr %71, i64 1
+  store i8 115, ptr %71, align 1
+  %73 = getelementptr inbounds i8, ptr %71, i64 2
+  store i8 %.0.i3.i, ptr %72, align 1
+  %74 = getelementptr inbounds i8, ptr %71, i64 3
+  store i8 %.0.i4.i, ptr %73, align 1
+  store ptr %74, ptr %70, align 8
+  %75 = load ptr, ptr %24, align 8
+  %.not.i = icmp eq ptr %75, null
+  br i1 %.not.i, label %_ZN15InstructionAttrD2Ev.exit, label %76
 
-77:                                               ; preds = %_ZN9Assembler22simd_prefix_and_encodeE11XMMRegisterS0_S0_NS_13VexSimdPrefixENS_9VexOpcodeEP15InstructionAttrb.exit
-  %78 = getelementptr inbounds i8, ptr %76, i64 32
-  store ptr null, ptr %78, align 8
+76:                                               ; preds = %_ZN9Assembler22simd_prefix_and_encodeE11XMMRegisterS0_S0_NS_13VexSimdPrefixENS_9VexOpcodeEP15InstructionAttrb.exit
+  %77 = getelementptr inbounds i8, ptr %75, i64 32
+  store ptr null, ptr %77, align 8
   br label %_ZN15InstructionAttrD2Ev.exit
 
-_ZN15InstructionAttrD2Ev.exit:                    ; preds = %_ZN9Assembler22simd_prefix_and_encodeE11XMMRegisterS0_S0_NS_13VexSimdPrefixENS_9VexOpcodeEP15InstructionAttrb.exit, %77
+_ZN15InstructionAttrD2Ev.exit:                    ; preds = %_ZN9Assembler22simd_prefix_and_encodeE11XMMRegisterS0_S0_NS_13VexSimdPrefixENS_9VexOpcodeEP15InstructionAttrb.exit, %76
   ret void
 }
 
@@ -44053,96 +44053,96 @@ define hidden void @_ZN9Assembler6pslldqE11XMMRegisteri(ptr noundef nonnull alig
   %28 = trunc i64 %27 to i32
   %29 = sub i32 %28, ptrtoint (ptr getelementptr inbounds (i8, ptr @all_XMMRegisterImpls, i64 1) to i32)
   %30 = icmp sgt i32 %9, 0
-  br i1 %30, label %31, label %34
+  br i1 %30, label %31, label %33
 
 31:                                               ; preds = %3
-  %32 = icmp ult i32 %29, 32
-  %spec.select.i = select i1 %32, i32 %29, i32 0
-  %33 = call noundef i32 @_ZN9Assembler21vex_prefix_and_encodeEiiiNS_13VexSimdPrefixENS_9VexOpcodeEP15InstructionAttrb(ptr noundef nonnull align 8 dereferenceable(40) %0, i32 noundef 7, i32 noundef %spec.select.i, i32 noundef %29, i32 noundef 1, i32 noundef 1, ptr noundef nonnull %4, i1 noundef zeroext false)
+  %spec.select.i.i = icmp ult i32 %29, 32
+  %spec.select.i = select i1 %spec.select.i.i, i32 %29, i32 0
+  %32 = call noundef i32 @_ZN9Assembler21vex_prefix_and_encodeEiiiNS_13VexSimdPrefixENS_9VexOpcodeEP15InstructionAttrb(ptr noundef nonnull align 8 dereferenceable(40) %0, i32 noundef 7, i32 noundef %spec.select.i, i32 noundef %29, i32 noundef 1, i32 noundef 1, ptr noundef nonnull %4, i1 noundef zeroext false)
   br label %_ZN9Assembler22simd_prefix_and_encodeE11XMMRegisterS0_S0_NS_13VexSimdPrefixENS_9VexOpcodeEP15InstructionAttrb.exit
 
-34:                                               ; preds = %3
-  %35 = getelementptr inbounds i8, ptr %0, i64 8
-  %36 = load ptr, ptr %35, align 8
-  %37 = getelementptr inbounds i8, ptr %36, i64 16
-  %38 = load ptr, ptr %37, align 8
-  %39 = getelementptr inbounds i8, ptr %38, i64 1
-  store i8 102, ptr %38, align 1
-  store ptr %39, ptr %37, align 8
-  %40 = icmp sgt i32 %29, 15
-  br i1 %40, label %41, label %54
+33:                                               ; preds = %3
+  %34 = getelementptr inbounds i8, ptr %0, i64 8
+  %35 = load ptr, ptr %34, align 8
+  %36 = getelementptr inbounds i8, ptr %35, i64 16
+  %37 = load ptr, ptr %36, align 8
+  %38 = getelementptr inbounds i8, ptr %37, i64 1
+  store i8 102, ptr %37, align 1
+  store ptr %38, ptr %36, align 8
+  %39 = icmp sgt i32 %29, 15
+  br i1 %39, label %40, label %53
 
-41:                                               ; preds = %34
-  %42 = and i32 %29, 16
-  %43 = lshr i32 %29, 3
-  %44 = and i32 %43, 1
-  %45 = or disjoint i32 %44, %42
-  %46 = load ptr, ptr %35, align 8
-  %47 = getelementptr inbounds i8, ptr %46, i64 16
-  %48 = load ptr, ptr %47, align 8
-  %49 = getelementptr inbounds i8, ptr %48, i64 1
-  store i8 -43, ptr %48, align 1
-  store ptr %49, ptr %47, align 8
-  %50 = load ptr, ptr %35, align 8
-  %.0.i.i2.i.i.i.i18.i = trunc nuw nsw i32 %45 to i8
-  %51 = getelementptr inbounds i8, ptr %50, i64 16
-  %52 = load ptr, ptr %51, align 8
-  %53 = getelementptr inbounds i8, ptr %52, i64 1
-  store i8 %.0.i.i2.i.i.i.i18.i, ptr %52, align 1
-  store ptr %53, ptr %51, align 8
+40:                                               ; preds = %33
+  %41 = and i32 %29, 16
+  %42 = lshr i32 %29, 3
+  %43 = and i32 %42, 1
+  %44 = or disjoint i32 %43, %41
+  %45 = load ptr, ptr %34, align 8
+  %46 = getelementptr inbounds i8, ptr %45, i64 16
+  %47 = load ptr, ptr %46, align 8
+  %48 = getelementptr inbounds i8, ptr %47, i64 1
+  store i8 -43, ptr %47, align 1
+  store ptr %48, ptr %46, align 8
+  %49 = load ptr, ptr %34, align 8
+  %.0.i.i2.i.i.i.i18.i = trunc nuw nsw i32 %44 to i8
+  %50 = getelementptr inbounds i8, ptr %49, i64 16
+  %51 = load ptr, ptr %50, align 8
+  %52 = getelementptr inbounds i8, ptr %51, i64 1
+  store i8 %.0.i.i2.i.i.i.i18.i, ptr %51, align 1
+  store ptr %52, ptr %50, align 8
   br label %_ZN9Assembler21rex_prefix_and_encodeEiiNS_13VexSimdPrefixENS_9VexOpcodeEb.exit
 
-54:                                               ; preds = %34
-  %55 = icmp sgt i32 %29, 7
-  br i1 %55, label %56, label %_ZN9Assembler21rex_prefix_and_encodeEiiNS_13VexSimdPrefixENS_9VexOpcodeEb.exit
+53:                                               ; preds = %33
+  %54 = icmp sgt i32 %29, 7
+  br i1 %54, label %55, label %_ZN9Assembler21rex_prefix_and_encodeEiiNS_13VexSimdPrefixENS_9VexOpcodeEb.exit
 
-56:                                               ; preds = %54
-  %57 = load ptr, ptr %35, align 8
-  %58 = getelementptr inbounds i8, ptr %57, i64 16
-  %59 = load ptr, ptr %58, align 8
-  %60 = getelementptr inbounds i8, ptr %59, i64 1
-  store i8 65, ptr %59, align 1
-  store ptr %60, ptr %58, align 8
-  %61 = add nsw i32 %29, -8
+55:                                               ; preds = %53
+  %56 = load ptr, ptr %34, align 8
+  %57 = getelementptr inbounds i8, ptr %56, i64 16
+  %58 = load ptr, ptr %57, align 8
+  %59 = getelementptr inbounds i8, ptr %58, i64 1
+  store i8 65, ptr %58, align 1
+  store ptr %59, ptr %57, align 8
+  %60 = add nsw i32 %29, -8
   br label %_ZN9Assembler21rex_prefix_and_encodeEiiNS_13VexSimdPrefixENS_9VexOpcodeEb.exit
 
-_ZN9Assembler21rex_prefix_and_encodeEiiNS_13VexSimdPrefixENS_9VexOpcodeEb.exit: ; preds = %54, %56, %41
-  %.in = phi i32 [ %29, %41 ], [ %61, %56 ], [ %29, %54 ]
-  %62 = or i32 %.in, 56
-  %63 = load ptr, ptr %35, align 8
-  %64 = getelementptr inbounds i8, ptr %63, i64 16
-  %65 = load ptr, ptr %64, align 8
-  %66 = getelementptr inbounds i8, ptr %65, i64 1
-  store i8 15, ptr %65, align 1
-  store ptr %66, ptr %64, align 8
+_ZN9Assembler21rex_prefix_and_encodeEiiNS_13VexSimdPrefixENS_9VexOpcodeEb.exit: ; preds = %53, %55, %40
+  %.in = phi i32 [ %29, %40 ], [ %60, %55 ], [ %29, %53 ]
+  %61 = or i32 %.in, 56
+  %62 = load ptr, ptr %34, align 8
+  %63 = getelementptr inbounds i8, ptr %62, i64 16
+  %64 = load ptr, ptr %63, align 8
+  %65 = getelementptr inbounds i8, ptr %64, i64 1
+  store i8 15, ptr %64, align 1
+  store ptr %65, ptr %63, align 8
   br label %_ZN9Assembler22simd_prefix_and_encodeE11XMMRegisterS0_S0_NS_13VexSimdPrefixENS_9VexOpcodeEP15InstructionAttrb.exit
 
 _ZN9Assembler22simd_prefix_and_encodeE11XMMRegisterS0_S0_NS_13VexSimdPrefixENS_9VexOpcodeEP15InstructionAttrb.exit: ; preds = %31, %_ZN9Assembler21rex_prefix_and_encodeEiiNS_13VexSimdPrefixENS_9VexOpcodeEb.exit
-  %.0.i = phi i32 [ %33, %31 ], [ %62, %_ZN9Assembler21rex_prefix_and_encodeEiiNS_13VexSimdPrefixENS_9VexOpcodeEb.exit ]
-  %67 = getelementptr inbounds i8, ptr %0, i64 8
-  %68 = load ptr, ptr %67, align 8
-  %69 = trunc i32 %.0.i to i8
-  %.0.i3.i = or i8 %69, -64
+  %.0.i = phi i32 [ %32, %31 ], [ %61, %_ZN9Assembler21rex_prefix_and_encodeEiiNS_13VexSimdPrefixENS_9VexOpcodeEb.exit ]
+  %66 = getelementptr inbounds i8, ptr %0, i64 8
+  %67 = load ptr, ptr %66, align 8
+  %68 = trunc i32 %.0.i to i8
+  %.0.i3.i = or i8 %68, -64
   %.0.i4.i = trunc i32 %2 to i8
-  %70 = getelementptr inbounds i8, ptr %68, i64 16
-  %71 = load ptr, ptr %70, align 8
-  %72 = getelementptr inbounds i8, ptr %71, i64 1
-  store i8 115, ptr %71, align 1
-  %73 = getelementptr inbounds i8, ptr %71, i64 2
-  store i8 %.0.i3.i, ptr %72, align 1
-  %74 = getelementptr inbounds i8, ptr %71, i64 3
-  store i8 %.0.i4.i, ptr %73, align 1
-  store ptr %74, ptr %70, align 8
-  %75 = load ptr, ptr %24, align 8
-  %.not.i = icmp eq ptr %75, null
-  br i1 %.not.i, label %_ZN15InstructionAttrD2Ev.exit, label %76
+  %69 = getelementptr inbounds i8, ptr %67, i64 16
+  %70 = load ptr, ptr %69, align 8
+  %71 = getelementptr inbounds i8, ptr %70, i64 1
+  store i8 115, ptr %70, align 1
+  %72 = getelementptr inbounds i8, ptr %70, i64 2
+  store i8 %.0.i3.i, ptr %71, align 1
+  %73 = getelementptr inbounds i8, ptr %70, i64 3
+  store i8 %.0.i4.i, ptr %72, align 1
+  store ptr %73, ptr %69, align 8
+  %74 = load ptr, ptr %24, align 8
+  %.not.i = icmp eq ptr %74, null
+  br i1 %.not.i, label %_ZN15InstructionAttrD2Ev.exit, label %75
 
-76:                                               ; preds = %_ZN9Assembler22simd_prefix_and_encodeE11XMMRegisterS0_S0_NS_13VexSimdPrefixENS_9VexOpcodeEP15InstructionAttrb.exit
-  %77 = getelementptr inbounds i8, ptr %75, i64 32
-  store ptr null, ptr %77, align 8
+75:                                               ; preds = %_ZN9Assembler22simd_prefix_and_encodeE11XMMRegisterS0_S0_NS_13VexSimdPrefixENS_9VexOpcodeEP15InstructionAttrb.exit
+  %76 = getelementptr inbounds i8, ptr %74, i64 32
+  store ptr null, ptr %76, align 8
   br label %_ZN15InstructionAttrD2Ev.exit
 
-_ZN15InstructionAttrD2Ev.exit:                    ; preds = %_ZN9Assembler22simd_prefix_and_encodeE11XMMRegisterS0_S0_NS_13VexSimdPrefixENS_9VexOpcodeEP15InstructionAttrb.exit, %76
+_ZN15InstructionAttrD2Ev.exit:                    ; preds = %_ZN9Assembler22simd_prefix_and_encodeE11XMMRegisterS0_S0_NS_13VexSimdPrefixENS_9VexOpcodeEP15InstructionAttrb.exit, %75
   ret void
 }
 
@@ -45102,41 +45102,41 @@ define hidden void @_ZN9Assembler9punpcklbwE11XMMRegisterS0_(ptr noundef nonnull
   %33 = trunc i64 %32 to i32
   %34 = sub i32 %33, ptrtoint (ptr getelementptr inbounds (i8, ptr @all_XMMRegisterImpls, i64 1) to i32)
   %35 = icmp sgt i32 %9, 0
-  br i1 %35, label %36, label %39
+  br i1 %35, label %36, label %38
 
 36:                                               ; preds = %3
-  %37 = icmp ult i32 %29, 32
-  %spec.select.i = select i1 %37, i32 %29, i32 0
-  %38 = call noundef i32 @_ZN9Assembler21vex_prefix_and_encodeEiiiNS_13VexSimdPrefixENS_9VexOpcodeEP15InstructionAttrb(ptr noundef nonnull align 8 dereferenceable(40) %0, i32 noundef %29, i32 noundef %spec.select.i, i32 noundef %34, i32 noundef 1, i32 noundef 1, ptr noundef nonnull %4, i1 noundef zeroext false)
+  %spec.select.i.i = icmp ult i32 %29, 32
+  %spec.select.i = select i1 %spec.select.i.i, i32 %29, i32 0
+  %37 = call noundef i32 @_ZN9Assembler21vex_prefix_and_encodeEiiiNS_13VexSimdPrefixENS_9VexOpcodeEP15InstructionAttrb(ptr noundef nonnull align 8 dereferenceable(40) %0, i32 noundef %29, i32 noundef %spec.select.i, i32 noundef %34, i32 noundef 1, i32 noundef 1, ptr noundef nonnull %4, i1 noundef zeroext false)
   br label %_ZN9Assembler22simd_prefix_and_encodeE11XMMRegisterS0_S0_NS_13VexSimdPrefixENS_9VexOpcodeEP15InstructionAttrb.exit
 
-39:                                               ; preds = %3
-  %40 = tail call noundef i32 @_ZN9Assembler21rex_prefix_and_encodeEiiNS_13VexSimdPrefixENS_9VexOpcodeEb(ptr noundef nonnull align 8 dereferenceable(40) %0, i32 noundef %29, i32 noundef %34, i32 noundef 1, i32 noundef 1, i1 noundef zeroext false)
+38:                                               ; preds = %3
+  %39 = tail call noundef i32 @_ZN9Assembler21rex_prefix_and_encodeEiiNS_13VexSimdPrefixENS_9VexOpcodeEb(ptr noundef nonnull align 8 dereferenceable(40) %0, i32 noundef %29, i32 noundef %34, i32 noundef 1, i32 noundef 1, i1 noundef zeroext false)
   br label %_ZN9Assembler22simd_prefix_and_encodeE11XMMRegisterS0_S0_NS_13VexSimdPrefixENS_9VexOpcodeEP15InstructionAttrb.exit
 
-_ZN9Assembler22simd_prefix_and_encodeE11XMMRegisterS0_S0_NS_13VexSimdPrefixENS_9VexOpcodeEP15InstructionAttrb.exit: ; preds = %36, %39
-  %.0.i = phi i32 [ %38, %36 ], [ %40, %39 ]
-  %41 = getelementptr inbounds i8, ptr %0, i64 8
-  %42 = load ptr, ptr %41, align 8
-  %43 = trunc i32 %.0.i to i8
-  %.0.i2.i = or i8 %43, -64
-  %44 = getelementptr inbounds i8, ptr %42, i64 16
-  %45 = load ptr, ptr %44, align 8
-  %46 = getelementptr inbounds i8, ptr %45, i64 1
-  store i8 96, ptr %45, align 1
-  %47 = getelementptr inbounds i8, ptr %45, i64 2
-  store i8 %.0.i2.i, ptr %46, align 1
-  store ptr %47, ptr %44, align 8
-  %48 = load ptr, ptr %24, align 8
-  %.not.i = icmp eq ptr %48, null
-  br i1 %.not.i, label %_ZN15InstructionAttrD2Ev.exit, label %49
+_ZN9Assembler22simd_prefix_and_encodeE11XMMRegisterS0_S0_NS_13VexSimdPrefixENS_9VexOpcodeEP15InstructionAttrb.exit: ; preds = %36, %38
+  %.0.i = phi i32 [ %37, %36 ], [ %39, %38 ]
+  %40 = getelementptr inbounds i8, ptr %0, i64 8
+  %41 = load ptr, ptr %40, align 8
+  %42 = trunc i32 %.0.i to i8
+  %.0.i2.i = or i8 %42, -64
+  %43 = getelementptr inbounds i8, ptr %41, i64 16
+  %44 = load ptr, ptr %43, align 8
+  %45 = getelementptr inbounds i8, ptr %44, i64 1
+  store i8 96, ptr %44, align 1
+  %46 = getelementptr inbounds i8, ptr %44, i64 2
+  store i8 %.0.i2.i, ptr %45, align 1
+  store ptr %46, ptr %43, align 8
+  %47 = load ptr, ptr %24, align 8
+  %.not.i = icmp eq ptr %47, null
+  br i1 %.not.i, label %_ZN15InstructionAttrD2Ev.exit, label %48
 
-49:                                               ; preds = %_ZN9Assembler22simd_prefix_and_encodeE11XMMRegisterS0_S0_NS_13VexSimdPrefixENS_9VexOpcodeEP15InstructionAttrb.exit
-  %50 = getelementptr inbounds i8, ptr %48, i64 32
-  store ptr null, ptr %50, align 8
+48:                                               ; preds = %_ZN9Assembler22simd_prefix_and_encodeE11XMMRegisterS0_S0_NS_13VexSimdPrefixENS_9VexOpcodeEP15InstructionAttrb.exit
+  %49 = getelementptr inbounds i8, ptr %47, i64 32
+  store ptr null, ptr %49, align 8
   br label %_ZN15InstructionAttrD2Ev.exit
 
-_ZN15InstructionAttrD2Ev.exit:                    ; preds = %_ZN9Assembler22simd_prefix_and_encodeE11XMMRegisterS0_S0_NS_13VexSimdPrefixENS_9VexOpcodeEP15InstructionAttrb.exit, %49
+_ZN15InstructionAttrD2Ev.exit:                    ; preds = %_ZN9Assembler22simd_prefix_and_encodeE11XMMRegisterS0_S0_NS_13VexSimdPrefixENS_9VexOpcodeEP15InstructionAttrb.exit, %48
   ret void
 }
 
@@ -45303,41 +45303,41 @@ define hidden void @_ZN9Assembler9punpckldqE11XMMRegisterS0_(ptr noundef nonnull
   %29 = trunc i64 %28 to i32
   %30 = sub i32 %29, ptrtoint (ptr getelementptr inbounds (i8, ptr @all_XMMRegisterImpls, i64 1) to i32)
   %31 = icmp sgt i32 %6, 0
-  br i1 %31, label %32, label %35
+  br i1 %31, label %32, label %34
 
 32:                                               ; preds = %3
-  %33 = icmp ult i32 %25, 32
-  %spec.select.i = select i1 %33, i32 %25, i32 0
-  %34 = call noundef i32 @_ZN9Assembler21vex_prefix_and_encodeEiiiNS_13VexSimdPrefixENS_9VexOpcodeEP15InstructionAttrb(ptr noundef nonnull align 8 dereferenceable(40) %0, i32 noundef %25, i32 noundef %spec.select.i, i32 noundef %30, i32 noundef 1, i32 noundef 1, ptr noundef nonnull %4, i1 noundef zeroext false)
+  %spec.select.i.i = icmp ult i32 %25, 32
+  %spec.select.i = select i1 %spec.select.i.i, i32 %25, i32 0
+  %33 = call noundef i32 @_ZN9Assembler21vex_prefix_and_encodeEiiiNS_13VexSimdPrefixENS_9VexOpcodeEP15InstructionAttrb(ptr noundef nonnull align 8 dereferenceable(40) %0, i32 noundef %25, i32 noundef %spec.select.i, i32 noundef %30, i32 noundef 1, i32 noundef 1, ptr noundef nonnull %4, i1 noundef zeroext false)
   br label %_ZN9Assembler22simd_prefix_and_encodeE11XMMRegisterS0_S0_NS_13VexSimdPrefixENS_9VexOpcodeEP15InstructionAttrb.exit
 
-35:                                               ; preds = %3
-  %36 = tail call noundef i32 @_ZN9Assembler21rex_prefix_and_encodeEiiNS_13VexSimdPrefixENS_9VexOpcodeEb(ptr noundef nonnull align 8 dereferenceable(40) %0, i32 noundef %25, i32 noundef %30, i32 noundef 1, i32 noundef 1, i1 noundef zeroext false)
+34:                                               ; preds = %3
+  %35 = tail call noundef i32 @_ZN9Assembler21rex_prefix_and_encodeEiiNS_13VexSimdPrefixENS_9VexOpcodeEb(ptr noundef nonnull align 8 dereferenceable(40) %0, i32 noundef %25, i32 noundef %30, i32 noundef 1, i32 noundef 1, i1 noundef zeroext false)
   br label %_ZN9Assembler22simd_prefix_and_encodeE11XMMRegisterS0_S0_NS_13VexSimdPrefixENS_9VexOpcodeEP15InstructionAttrb.exit
 
-_ZN9Assembler22simd_prefix_and_encodeE11XMMRegisterS0_S0_NS_13VexSimdPrefixENS_9VexOpcodeEP15InstructionAttrb.exit: ; preds = %32, %35
-  %.0.i = phi i32 [ %34, %32 ], [ %36, %35 ]
-  %37 = getelementptr inbounds i8, ptr %0, i64 8
-  %38 = load ptr, ptr %37, align 8
-  %39 = trunc i32 %.0.i to i8
-  %.0.i2.i = or i8 %39, -64
-  %40 = getelementptr inbounds i8, ptr %38, i64 16
-  %41 = load ptr, ptr %40, align 8
-  %42 = getelementptr inbounds i8, ptr %41, i64 1
-  store i8 98, ptr %41, align 1
-  %43 = getelementptr inbounds i8, ptr %41, i64 2
-  store i8 %.0.i2.i, ptr %42, align 1
-  store ptr %43, ptr %40, align 8
-  %44 = load ptr, ptr %20, align 8
-  %.not.i = icmp eq ptr %44, null
-  br i1 %.not.i, label %_ZN15InstructionAttrD2Ev.exit, label %45
+_ZN9Assembler22simd_prefix_and_encodeE11XMMRegisterS0_S0_NS_13VexSimdPrefixENS_9VexOpcodeEP15InstructionAttrb.exit: ; preds = %32, %34
+  %.0.i = phi i32 [ %33, %32 ], [ %35, %34 ]
+  %36 = getelementptr inbounds i8, ptr %0, i64 8
+  %37 = load ptr, ptr %36, align 8
+  %38 = trunc i32 %.0.i to i8
+  %.0.i2.i = or i8 %38, -64
+  %39 = getelementptr inbounds i8, ptr %37, i64 16
+  %40 = load ptr, ptr %39, align 8
+  %41 = getelementptr inbounds i8, ptr %40, i64 1
+  store i8 98, ptr %40, align 1
+  %42 = getelementptr inbounds i8, ptr %40, i64 2
+  store i8 %.0.i2.i, ptr %41, align 1
+  store ptr %42, ptr %39, align 8
+  %43 = load ptr, ptr %20, align 8
+  %.not.i = icmp eq ptr %43, null
+  br i1 %.not.i, label %_ZN15InstructionAttrD2Ev.exit, label %44
 
-45:                                               ; preds = %_ZN9Assembler22simd_prefix_and_encodeE11XMMRegisterS0_S0_NS_13VexSimdPrefixENS_9VexOpcodeEP15InstructionAttrb.exit
-  %46 = getelementptr inbounds i8, ptr %44, i64 32
-  store ptr null, ptr %46, align 8
+44:                                               ; preds = %_ZN9Assembler22simd_prefix_and_encodeE11XMMRegisterS0_S0_NS_13VexSimdPrefixENS_9VexOpcodeEP15InstructionAttrb.exit
+  %45 = getelementptr inbounds i8, ptr %43, i64 32
+  store ptr null, ptr %45, align 8
   br label %_ZN15InstructionAttrD2Ev.exit
 
-_ZN15InstructionAttrD2Ev.exit:                    ; preds = %_ZN9Assembler22simd_prefix_and_encodeE11XMMRegisterS0_S0_NS_13VexSimdPrefixENS_9VexOpcodeEP15InstructionAttrb.exit, %45
+_ZN15InstructionAttrD2Ev.exit:                    ; preds = %_ZN9Assembler22simd_prefix_and_encodeE11XMMRegisterS0_S0_NS_13VexSimdPrefixENS_9VexOpcodeEP15InstructionAttrb.exit, %44
   ret void
 }
 
@@ -45389,42 +45389,42 @@ define hidden void @_ZN9Assembler10punpcklqdqE11XMMRegisterS0_(ptr noundef nonnu
   %32 = trunc i64 %31 to i32
   %33 = sub i32 %32, ptrtoint (ptr getelementptr inbounds (i8, ptr @all_XMMRegisterImpls, i64 1) to i32)
   %34 = icmp sgt i32 %9, 0
-  br i1 %34, label %35, label %38
+  br i1 %34, label %35, label %37
 
 35:                                               ; preds = %3
-  %36 = icmp ult i32 %28, 32
-  %spec.select.i = select i1 %36, i32 %28, i32 0
-  %37 = call noundef i32 @_ZN9Assembler21vex_prefix_and_encodeEiiiNS_13VexSimdPrefixENS_9VexOpcodeEP15InstructionAttrb(ptr noundef nonnull align 8 dereferenceable(40) %0, i32 noundef %28, i32 noundef %spec.select.i, i32 noundef %33, i32 noundef 1, i32 noundef 1, ptr noundef nonnull %4, i1 noundef zeroext false)
+  %spec.select.i.i = icmp ult i32 %28, 32
+  %spec.select.i = select i1 %spec.select.i.i, i32 %28, i32 0
+  %36 = call noundef i32 @_ZN9Assembler21vex_prefix_and_encodeEiiiNS_13VexSimdPrefixENS_9VexOpcodeEP15InstructionAttrb(ptr noundef nonnull align 8 dereferenceable(40) %0, i32 noundef %28, i32 noundef %spec.select.i, i32 noundef %33, i32 noundef 1, i32 noundef 1, ptr noundef nonnull %4, i1 noundef zeroext false)
   br label %_ZN9Assembler22simd_prefix_and_encodeE11XMMRegisterS0_S0_NS_13VexSimdPrefixENS_9VexOpcodeEP15InstructionAttrb.exit
 
-38:                                               ; preds = %3
-  %39 = icmp ne i64 %6, 0
-  %40 = tail call noundef i32 @_ZN9Assembler21rex_prefix_and_encodeEiiNS_13VexSimdPrefixENS_9VexOpcodeEb(ptr noundef nonnull align 8 dereferenceable(40) %0, i32 noundef %28, i32 noundef %33, i32 noundef 1, i32 noundef 1, i1 noundef zeroext %39)
+37:                                               ; preds = %3
+  %38 = icmp ne i64 %6, 0
+  %39 = tail call noundef i32 @_ZN9Assembler21rex_prefix_and_encodeEiiNS_13VexSimdPrefixENS_9VexOpcodeEb(ptr noundef nonnull align 8 dereferenceable(40) %0, i32 noundef %28, i32 noundef %33, i32 noundef 1, i32 noundef 1, i1 noundef zeroext %38)
   br label %_ZN9Assembler22simd_prefix_and_encodeE11XMMRegisterS0_S0_NS_13VexSimdPrefixENS_9VexOpcodeEP15InstructionAttrb.exit
 
-_ZN9Assembler22simd_prefix_and_encodeE11XMMRegisterS0_S0_NS_13VexSimdPrefixENS_9VexOpcodeEP15InstructionAttrb.exit: ; preds = %35, %38
-  %.0.i = phi i32 [ %37, %35 ], [ %40, %38 ]
-  %41 = getelementptr inbounds i8, ptr %0, i64 8
-  %42 = load ptr, ptr %41, align 8
-  %43 = trunc i32 %.0.i to i8
-  %.0.i2.i = or i8 %43, -64
-  %44 = getelementptr inbounds i8, ptr %42, i64 16
-  %45 = load ptr, ptr %44, align 8
-  %46 = getelementptr inbounds i8, ptr %45, i64 1
-  store i8 108, ptr %45, align 1
-  %47 = getelementptr inbounds i8, ptr %45, i64 2
-  store i8 %.0.i2.i, ptr %46, align 1
-  store ptr %47, ptr %44, align 8
-  %48 = load ptr, ptr %23, align 8
-  %.not.i = icmp eq ptr %48, null
-  br i1 %.not.i, label %_ZN15InstructionAttrD2Ev.exit, label %49
+_ZN9Assembler22simd_prefix_and_encodeE11XMMRegisterS0_S0_NS_13VexSimdPrefixENS_9VexOpcodeEP15InstructionAttrb.exit: ; preds = %35, %37
+  %.0.i = phi i32 [ %36, %35 ], [ %39, %37 ]
+  %40 = getelementptr inbounds i8, ptr %0, i64 8
+  %41 = load ptr, ptr %40, align 8
+  %42 = trunc i32 %.0.i to i8
+  %.0.i2.i = or i8 %42, -64
+  %43 = getelementptr inbounds i8, ptr %41, i64 16
+  %44 = load ptr, ptr %43, align 8
+  %45 = getelementptr inbounds i8, ptr %44, i64 1
+  store i8 108, ptr %44, align 1
+  %46 = getelementptr inbounds i8, ptr %44, i64 2
+  store i8 %.0.i2.i, ptr %45, align 1
+  store ptr %46, ptr %43, align 8
+  %47 = load ptr, ptr %23, align 8
+  %.not.i = icmp eq ptr %47, null
+  br i1 %.not.i, label %_ZN15InstructionAttrD2Ev.exit, label %48
 
-49:                                               ; preds = %_ZN9Assembler22simd_prefix_and_encodeE11XMMRegisterS0_S0_NS_13VexSimdPrefixENS_9VexOpcodeEP15InstructionAttrb.exit
-  %50 = getelementptr inbounds i8, ptr %48, i64 32
-  store ptr null, ptr %50, align 8
+48:                                               ; preds = %_ZN9Assembler22simd_prefix_and_encodeE11XMMRegisterS0_S0_NS_13VexSimdPrefixENS_9VexOpcodeEP15InstructionAttrb.exit
+  %49 = getelementptr inbounds i8, ptr %47, i64 32
+  store ptr null, ptr %49, align 8
   br label %_ZN15InstructionAttrD2Ev.exit
 
-_ZN15InstructionAttrD2Ev.exit:                    ; preds = %_ZN9Assembler22simd_prefix_and_encodeE11XMMRegisterS0_S0_NS_13VexSimdPrefixENS_9VexOpcodeEP15InstructionAttrb.exit, %49
+_ZN15InstructionAttrD2Ev.exit:                    ; preds = %_ZN9Assembler22simd_prefix_and_encodeE11XMMRegisterS0_S0_NS_13VexSimdPrefixENS_9VexOpcodeEP15InstructionAttrb.exit, %48
   ret void
 }
 
@@ -46533,41 +46533,41 @@ define hidden void @_ZN9Assembler5rcpssE11XMMRegisterS0_(ptr noundef nonnull ali
   %27 = trunc i64 %26 to i32
   %28 = sub i32 %27, ptrtoint (ptr getelementptr inbounds (i8, ptr @all_XMMRegisterImpls, i64 1) to i32)
   %29 = icmp sgt i32 %6, 0
-  br i1 %29, label %30, label %33
+  br i1 %29, label %30, label %32
 
 30:                                               ; preds = %3
-  %31 = icmp ult i32 %23, 32
-  %spec.select.i = select i1 %31, i32 %23, i32 0
-  %32 = call noundef i32 @_ZN9Assembler21vex_prefix_and_encodeEiiiNS_13VexSimdPrefixENS_9VexOpcodeEP15InstructionAttrb(ptr noundef nonnull align 8 dereferenceable(40) %0, i32 noundef %23, i32 noundef %spec.select.i, i32 noundef %28, i32 noundef 2, i32 noundef 1, ptr noundef nonnull %4, i1 noundef zeroext false)
+  %spec.select.i.i = icmp ult i32 %23, 32
+  %spec.select.i = select i1 %spec.select.i.i, i32 %23, i32 0
+  %31 = call noundef i32 @_ZN9Assembler21vex_prefix_and_encodeEiiiNS_13VexSimdPrefixENS_9VexOpcodeEP15InstructionAttrb(ptr noundef nonnull align 8 dereferenceable(40) %0, i32 noundef %23, i32 noundef %spec.select.i, i32 noundef %28, i32 noundef 2, i32 noundef 1, ptr noundef nonnull %4, i1 noundef zeroext false)
   br label %_ZN9Assembler22simd_prefix_and_encodeE11XMMRegisterS0_S0_NS_13VexSimdPrefixENS_9VexOpcodeEP15InstructionAttrb.exit
 
-33:                                               ; preds = %3
-  %34 = tail call noundef i32 @_ZN9Assembler21rex_prefix_and_encodeEiiNS_13VexSimdPrefixENS_9VexOpcodeEb(ptr noundef nonnull align 8 dereferenceable(40) %0, i32 noundef %23, i32 noundef %28, i32 noundef 2, i32 noundef 1, i1 noundef zeroext false)
+32:                                               ; preds = %3
+  %33 = tail call noundef i32 @_ZN9Assembler21rex_prefix_and_encodeEiiNS_13VexSimdPrefixENS_9VexOpcodeEb(ptr noundef nonnull align 8 dereferenceable(40) %0, i32 noundef %23, i32 noundef %28, i32 noundef 2, i32 noundef 1, i1 noundef zeroext false)
   br label %_ZN9Assembler22simd_prefix_and_encodeE11XMMRegisterS0_S0_NS_13VexSimdPrefixENS_9VexOpcodeEP15InstructionAttrb.exit
 
-_ZN9Assembler22simd_prefix_and_encodeE11XMMRegisterS0_S0_NS_13VexSimdPrefixENS_9VexOpcodeEP15InstructionAttrb.exit: ; preds = %30, %33
-  %.0.i = phi i32 [ %32, %30 ], [ %34, %33 ]
-  %35 = getelementptr inbounds i8, ptr %0, i64 8
-  %36 = load ptr, ptr %35, align 8
-  %37 = trunc i32 %.0.i to i8
-  %.0.i2.i = or i8 %37, -64
-  %38 = getelementptr inbounds i8, ptr %36, i64 16
-  %39 = load ptr, ptr %38, align 8
-  %40 = getelementptr inbounds i8, ptr %39, i64 1
-  store i8 83, ptr %39, align 1
-  %41 = getelementptr inbounds i8, ptr %39, i64 2
-  store i8 %.0.i2.i, ptr %40, align 1
-  store ptr %41, ptr %38, align 8
-  %42 = load ptr, ptr %18, align 8
-  %.not.i = icmp eq ptr %42, null
-  br i1 %.not.i, label %_ZN15InstructionAttrD2Ev.exit, label %43
+_ZN9Assembler22simd_prefix_and_encodeE11XMMRegisterS0_S0_NS_13VexSimdPrefixENS_9VexOpcodeEP15InstructionAttrb.exit: ; preds = %30, %32
+  %.0.i = phi i32 [ %31, %30 ], [ %33, %32 ]
+  %34 = getelementptr inbounds i8, ptr %0, i64 8
+  %35 = load ptr, ptr %34, align 8
+  %36 = trunc i32 %.0.i to i8
+  %.0.i2.i = or i8 %36, -64
+  %37 = getelementptr inbounds i8, ptr %35, i64 16
+  %38 = load ptr, ptr %37, align 8
+  %39 = getelementptr inbounds i8, ptr %38, i64 1
+  store i8 83, ptr %38, align 1
+  %40 = getelementptr inbounds i8, ptr %38, i64 2
+  store i8 %.0.i2.i, ptr %39, align 1
+  store ptr %40, ptr %37, align 8
+  %41 = load ptr, ptr %18, align 8
+  %.not.i = icmp eq ptr %41, null
+  br i1 %.not.i, label %_ZN15InstructionAttrD2Ev.exit, label %42
 
-43:                                               ; preds = %_ZN9Assembler22simd_prefix_and_encodeE11XMMRegisterS0_S0_NS_13VexSimdPrefixENS_9VexOpcodeEP15InstructionAttrb.exit
-  %44 = getelementptr inbounds i8, ptr %42, i64 32
-  store ptr null, ptr %44, align 8
+42:                                               ; preds = %_ZN9Assembler22simd_prefix_and_encodeE11XMMRegisterS0_S0_NS_13VexSimdPrefixENS_9VexOpcodeEP15InstructionAttrb.exit
+  %43 = getelementptr inbounds i8, ptr %41, i64 32
+  store ptr null, ptr %43, align 8
   br label %_ZN15InstructionAttrD2Ev.exit
 
-_ZN15InstructionAttrD2Ev.exit:                    ; preds = %_ZN9Assembler22simd_prefix_and_encodeE11XMMRegisterS0_S0_NS_13VexSimdPrefixENS_9VexOpcodeEP15InstructionAttrb.exit, %43
+_ZN15InstructionAttrD2Ev.exit:                    ; preds = %_ZN9Assembler22simd_prefix_and_encodeE11XMMRegisterS0_S0_NS_13VexSimdPrefixENS_9VexOpcodeEP15InstructionAttrb.exit, %42
   ret void
 }
 
@@ -48419,44 +48419,44 @@ define hidden void @_ZN9Assembler7palignrE11XMMRegisterS0_i(ptr noundef nonnull 
   %34 = trunc i64 %33 to i32
   %35 = sub i32 %34, ptrtoint (ptr getelementptr inbounds (i8, ptr @all_XMMRegisterImpls, i64 1) to i32)
   %36 = icmp sgt i32 %10, 0
-  br i1 %36, label %37, label %40
+  br i1 %36, label %37, label %39
 
 37:                                               ; preds = %4
-  %38 = icmp ult i32 %30, 32
-  %spec.select.i = select i1 %38, i32 %30, i32 0
-  %39 = call noundef i32 @_ZN9Assembler21vex_prefix_and_encodeEiiiNS_13VexSimdPrefixENS_9VexOpcodeEP15InstructionAttrb(ptr noundef nonnull align 8 dereferenceable(40) %0, i32 noundef %30, i32 noundef %spec.select.i, i32 noundef %35, i32 noundef 1, i32 noundef 3, ptr noundef nonnull %5, i1 noundef zeroext false)
+  %spec.select.i.i = icmp ult i32 %30, 32
+  %spec.select.i = select i1 %spec.select.i.i, i32 %30, i32 0
+  %38 = call noundef i32 @_ZN9Assembler21vex_prefix_and_encodeEiiiNS_13VexSimdPrefixENS_9VexOpcodeEP15InstructionAttrb(ptr noundef nonnull align 8 dereferenceable(40) %0, i32 noundef %30, i32 noundef %spec.select.i, i32 noundef %35, i32 noundef 1, i32 noundef 3, ptr noundef nonnull %5, i1 noundef zeroext false)
   br label %_ZN9Assembler22simd_prefix_and_encodeE11XMMRegisterS0_S0_NS_13VexSimdPrefixENS_9VexOpcodeEP15InstructionAttrb.exit
 
-40:                                               ; preds = %4
-  %41 = tail call noundef i32 @_ZN9Assembler21rex_prefix_and_encodeEiiNS_13VexSimdPrefixENS_9VexOpcodeEb(ptr noundef nonnull align 8 dereferenceable(40) %0, i32 noundef %30, i32 noundef %35, i32 noundef 1, i32 noundef 3, i1 noundef zeroext false)
+39:                                               ; preds = %4
+  %40 = tail call noundef i32 @_ZN9Assembler21rex_prefix_and_encodeEiiNS_13VexSimdPrefixENS_9VexOpcodeEb(ptr noundef nonnull align 8 dereferenceable(40) %0, i32 noundef %30, i32 noundef %35, i32 noundef 1, i32 noundef 3, i1 noundef zeroext false)
   br label %_ZN9Assembler22simd_prefix_and_encodeE11XMMRegisterS0_S0_NS_13VexSimdPrefixENS_9VexOpcodeEP15InstructionAttrb.exit
 
-_ZN9Assembler22simd_prefix_and_encodeE11XMMRegisterS0_S0_NS_13VexSimdPrefixENS_9VexOpcodeEP15InstructionAttrb.exit: ; preds = %37, %40
-  %.0.i = phi i32 [ %39, %37 ], [ %41, %40 ]
-  %42 = getelementptr inbounds i8, ptr %0, i64 8
-  %43 = load ptr, ptr %42, align 8
-  %44 = trunc i32 %.0.i to i8
-  %.0.i3.i = or i8 %44, -64
+_ZN9Assembler22simd_prefix_and_encodeE11XMMRegisterS0_S0_NS_13VexSimdPrefixENS_9VexOpcodeEP15InstructionAttrb.exit: ; preds = %37, %39
+  %.0.i = phi i32 [ %38, %37 ], [ %40, %39 ]
+  %41 = getelementptr inbounds i8, ptr %0, i64 8
+  %42 = load ptr, ptr %41, align 8
+  %43 = trunc i32 %.0.i to i8
+  %.0.i3.i = or i8 %43, -64
   %.0.i4.i = trunc i32 %3 to i8
-  %45 = getelementptr inbounds i8, ptr %43, i64 16
-  %46 = load ptr, ptr %45, align 8
-  %47 = getelementptr inbounds i8, ptr %46, i64 1
-  store i8 15, ptr %46, align 1
-  %48 = getelementptr inbounds i8, ptr %46, i64 2
-  store i8 %.0.i3.i, ptr %47, align 1
-  %49 = getelementptr inbounds i8, ptr %46, i64 3
-  store i8 %.0.i4.i, ptr %48, align 1
-  store ptr %49, ptr %45, align 8
-  %50 = load ptr, ptr %25, align 8
-  %.not.i = icmp eq ptr %50, null
-  br i1 %.not.i, label %_ZN15InstructionAttrD2Ev.exit, label %51
+  %44 = getelementptr inbounds i8, ptr %42, i64 16
+  %45 = load ptr, ptr %44, align 8
+  %46 = getelementptr inbounds i8, ptr %45, i64 1
+  store i8 15, ptr %45, align 1
+  %47 = getelementptr inbounds i8, ptr %45, i64 2
+  store i8 %.0.i3.i, ptr %46, align 1
+  %48 = getelementptr inbounds i8, ptr %45, i64 3
+  store i8 %.0.i4.i, ptr %47, align 1
+  store ptr %48, ptr %44, align 8
+  %49 = load ptr, ptr %25, align 8
+  %.not.i = icmp eq ptr %49, null
+  br i1 %.not.i, label %_ZN15InstructionAttrD2Ev.exit, label %50
 
-51:                                               ; preds = %_ZN9Assembler22simd_prefix_and_encodeE11XMMRegisterS0_S0_NS_13VexSimdPrefixENS_9VexOpcodeEP15InstructionAttrb.exit
-  %52 = getelementptr inbounds i8, ptr %50, i64 32
-  store ptr null, ptr %52, align 8
+50:                                               ; preds = %_ZN9Assembler22simd_prefix_and_encodeE11XMMRegisterS0_S0_NS_13VexSimdPrefixENS_9VexOpcodeEP15InstructionAttrb.exit
+  %51 = getelementptr inbounds i8, ptr %49, i64 32
+  store ptr null, ptr %51, align 8
   br label %_ZN15InstructionAttrD2Ev.exit
 
-_ZN15InstructionAttrD2Ev.exit:                    ; preds = %_ZN9Assembler22simd_prefix_and_encodeE11XMMRegisterS0_S0_NS_13VexSimdPrefixENS_9VexOpcodeEP15InstructionAttrb.exit, %51
+_ZN15InstructionAttrD2Ev.exit:                    ; preds = %_ZN9Assembler22simd_prefix_and_encodeE11XMMRegisterS0_S0_NS_13VexSimdPrefixENS_9VexOpcodeEP15InstructionAttrb.exit, %50
   ret void
 }
 
@@ -48508,7 +48508,7 @@ define hidden void @_ZN9Assembler8vpalignrE11XMMRegisterS0_S0_ii(ptr noundef non
   %36 = trunc i64 %35 to i32
   %37 = sub i32 %36, ptrtoint (ptr getelementptr inbounds (i8, ptr @all_XMMRegisterImpls, i64 1) to i32)
   %38 = icmp sgt i32 %12, 0
-  br i1 %38, label %39, label %47
+  br i1 %38, label %39, label %46
 
 39:                                               ; preds = %6
   %40 = sext i32 %2 to i64
@@ -48516,41 +48516,41 @@ define hidden void @_ZN9Assembler8vpalignrE11XMMRegisterS0_S0_ii(ptr noundef non
   %42 = ptrtoint ptr %41 to i64
   %43 = trunc i64 %42 to i32
   %44 = sub i32 %43, ptrtoint (ptr getelementptr inbounds (i8, ptr @all_XMMRegisterImpls, i64 1) to i32)
-  %45 = icmp ult i32 %44, 32
-  %spec.select.i = select i1 %45, i32 %44, i32 0
-  %46 = call noundef i32 @_ZN9Assembler21vex_prefix_and_encodeEiiiNS_13VexSimdPrefixENS_9VexOpcodeEP15InstructionAttrb(ptr noundef nonnull align 8 dereferenceable(40) %0, i32 noundef %32, i32 noundef %spec.select.i, i32 noundef %37, i32 noundef 1, i32 noundef 3, ptr noundef nonnull %7, i1 noundef zeroext false)
+  %spec.select.i.i = icmp ult i32 %44, 32
+  %spec.select.i = select i1 %spec.select.i.i, i32 %44, i32 0
+  %45 = call noundef i32 @_ZN9Assembler21vex_prefix_and_encodeEiiiNS_13VexSimdPrefixENS_9VexOpcodeEP15InstructionAttrb(ptr noundef nonnull align 8 dereferenceable(40) %0, i32 noundef %32, i32 noundef %spec.select.i, i32 noundef %37, i32 noundef 1, i32 noundef 3, ptr noundef nonnull %7, i1 noundef zeroext false)
   br label %_ZN9Assembler22simd_prefix_and_encodeE11XMMRegisterS0_S0_NS_13VexSimdPrefixENS_9VexOpcodeEP15InstructionAttrb.exit
 
-47:                                               ; preds = %6
-  %48 = tail call noundef i32 @_ZN9Assembler21rex_prefix_and_encodeEiiNS_13VexSimdPrefixENS_9VexOpcodeEb(ptr noundef nonnull align 8 dereferenceable(40) %0, i32 noundef %32, i32 noundef %37, i32 noundef 1, i32 noundef 3, i1 noundef zeroext false)
+46:                                               ; preds = %6
+  %47 = tail call noundef i32 @_ZN9Assembler21rex_prefix_and_encodeEiiNS_13VexSimdPrefixENS_9VexOpcodeEb(ptr noundef nonnull align 8 dereferenceable(40) %0, i32 noundef %32, i32 noundef %37, i32 noundef 1, i32 noundef 3, i1 noundef zeroext false)
   br label %_ZN9Assembler22simd_prefix_and_encodeE11XMMRegisterS0_S0_NS_13VexSimdPrefixENS_9VexOpcodeEP15InstructionAttrb.exit
 
-_ZN9Assembler22simd_prefix_and_encodeE11XMMRegisterS0_S0_NS_13VexSimdPrefixENS_9VexOpcodeEP15InstructionAttrb.exit: ; preds = %39, %47
-  %.0.i = phi i32 [ %46, %39 ], [ %48, %47 ]
-  %49 = getelementptr inbounds i8, ptr %0, i64 8
-  %50 = load ptr, ptr %49, align 8
-  %51 = trunc i32 %.0.i to i8
-  %.0.i3.i = or i8 %51, -64
+_ZN9Assembler22simd_prefix_and_encodeE11XMMRegisterS0_S0_NS_13VexSimdPrefixENS_9VexOpcodeEP15InstructionAttrb.exit: ; preds = %39, %46
+  %.0.i = phi i32 [ %45, %39 ], [ %47, %46 ]
+  %48 = getelementptr inbounds i8, ptr %0, i64 8
+  %49 = load ptr, ptr %48, align 8
+  %50 = trunc i32 %.0.i to i8
+  %.0.i3.i = or i8 %50, -64
   %.0.i4.i = trunc i32 %4 to i8
-  %52 = getelementptr inbounds i8, ptr %50, i64 16
-  %53 = load ptr, ptr %52, align 8
-  %54 = getelementptr inbounds i8, ptr %53, i64 1
-  store i8 15, ptr %53, align 1
-  %55 = getelementptr inbounds i8, ptr %53, i64 2
-  store i8 %.0.i3.i, ptr %54, align 1
-  %56 = getelementptr inbounds i8, ptr %53, i64 3
-  store i8 %.0.i4.i, ptr %55, align 1
-  store ptr %56, ptr %52, align 8
-  %57 = load ptr, ptr %27, align 8
-  %.not.i = icmp eq ptr %57, null
-  br i1 %.not.i, label %_ZN15InstructionAttrD2Ev.exit, label %58
+  %51 = getelementptr inbounds i8, ptr %49, i64 16
+  %52 = load ptr, ptr %51, align 8
+  %53 = getelementptr inbounds i8, ptr %52, i64 1
+  store i8 15, ptr %52, align 1
+  %54 = getelementptr inbounds i8, ptr %52, i64 2
+  store i8 %.0.i3.i, ptr %53, align 1
+  %55 = getelementptr inbounds i8, ptr %52, i64 3
+  store i8 %.0.i4.i, ptr %54, align 1
+  store ptr %55, ptr %51, align 8
+  %56 = load ptr, ptr %27, align 8
+  %.not.i = icmp eq ptr %56, null
+  br i1 %.not.i, label %_ZN15InstructionAttrD2Ev.exit, label %57
 
-58:                                               ; preds = %_ZN9Assembler22simd_prefix_and_encodeE11XMMRegisterS0_S0_NS_13VexSimdPrefixENS_9VexOpcodeEP15InstructionAttrb.exit
-  %59 = getelementptr inbounds i8, ptr %57, i64 32
-  store ptr null, ptr %59, align 8
+57:                                               ; preds = %_ZN9Assembler22simd_prefix_and_encodeE11XMMRegisterS0_S0_NS_13VexSimdPrefixENS_9VexOpcodeEP15InstructionAttrb.exit
+  %58 = getelementptr inbounds i8, ptr %56, i64 32
+  store ptr null, ptr %58, align 8
   br label %_ZN15InstructionAttrD2Ev.exit
 
-_ZN15InstructionAttrD2Ev.exit:                    ; preds = %_ZN9Assembler22simd_prefix_and_encodeE11XMMRegisterS0_S0_NS_13VexSimdPrefixENS_9VexOpcodeEP15InstructionAttrb.exit, %58
+_ZN15InstructionAttrD2Ev.exit:                    ; preds = %_ZN9Assembler22simd_prefix_and_encodeE11XMMRegisterS0_S0_NS_13VexSimdPrefixENS_9VexOpcodeEP15InstructionAttrb.exit, %57
   ret void
 }
 
@@ -48671,44 +48671,44 @@ define hidden void @_ZN9Assembler7pblendwE11XMMRegisterS0_i(ptr noundef nonnull 
   %28 = trunc i64 %27 to i32
   %29 = sub i32 %28, ptrtoint (ptr getelementptr inbounds (i8, ptr @all_XMMRegisterImpls, i64 1) to i32)
   %30 = icmp sgt i32 %7, 0
-  br i1 %30, label %31, label %34
+  br i1 %30, label %31, label %33
 
 31:                                               ; preds = %4
-  %32 = icmp ult i32 %24, 32
-  %spec.select.i = select i1 %32, i32 %24, i32 0
-  %33 = call noundef i32 @_ZN9Assembler21vex_prefix_and_encodeEiiiNS_13VexSimdPrefixENS_9VexOpcodeEP15InstructionAttrb(ptr noundef nonnull align 8 dereferenceable(40) %0, i32 noundef %24, i32 noundef %spec.select.i, i32 noundef %29, i32 noundef 1, i32 noundef 3, ptr noundef nonnull %5, i1 noundef zeroext false)
+  %spec.select.i.i = icmp ult i32 %24, 32
+  %spec.select.i = select i1 %spec.select.i.i, i32 %24, i32 0
+  %32 = call noundef i32 @_ZN9Assembler21vex_prefix_and_encodeEiiiNS_13VexSimdPrefixENS_9VexOpcodeEP15InstructionAttrb(ptr noundef nonnull align 8 dereferenceable(40) %0, i32 noundef %24, i32 noundef %spec.select.i, i32 noundef %29, i32 noundef 1, i32 noundef 3, ptr noundef nonnull %5, i1 noundef zeroext false)
   br label %_ZN9Assembler22simd_prefix_and_encodeE11XMMRegisterS0_S0_NS_13VexSimdPrefixENS_9VexOpcodeEP15InstructionAttrb.exit
 
-34:                                               ; preds = %4
-  %35 = tail call noundef i32 @_ZN9Assembler21rex_prefix_and_encodeEiiNS_13VexSimdPrefixENS_9VexOpcodeEb(ptr noundef nonnull align 8 dereferenceable(40) %0, i32 noundef %24, i32 noundef %29, i32 noundef 1, i32 noundef 3, i1 noundef zeroext false)
+33:                                               ; preds = %4
+  %34 = tail call noundef i32 @_ZN9Assembler21rex_prefix_and_encodeEiiNS_13VexSimdPrefixENS_9VexOpcodeEb(ptr noundef nonnull align 8 dereferenceable(40) %0, i32 noundef %24, i32 noundef %29, i32 noundef 1, i32 noundef 3, i1 noundef zeroext false)
   br label %_ZN9Assembler22simd_prefix_and_encodeE11XMMRegisterS0_S0_NS_13VexSimdPrefixENS_9VexOpcodeEP15InstructionAttrb.exit
 
-_ZN9Assembler22simd_prefix_and_encodeE11XMMRegisterS0_S0_NS_13VexSimdPrefixENS_9VexOpcodeEP15InstructionAttrb.exit: ; preds = %31, %34
-  %.0.i = phi i32 [ %33, %31 ], [ %35, %34 ]
-  %36 = getelementptr inbounds i8, ptr %0, i64 8
-  %37 = load ptr, ptr %36, align 8
-  %38 = trunc i32 %.0.i to i8
-  %.0.i3.i = or i8 %38, -64
+_ZN9Assembler22simd_prefix_and_encodeE11XMMRegisterS0_S0_NS_13VexSimdPrefixENS_9VexOpcodeEP15InstructionAttrb.exit: ; preds = %31, %33
+  %.0.i = phi i32 [ %32, %31 ], [ %34, %33 ]
+  %35 = getelementptr inbounds i8, ptr %0, i64 8
+  %36 = load ptr, ptr %35, align 8
+  %37 = trunc i32 %.0.i to i8
+  %.0.i3.i = or i8 %37, -64
   %.0.i4.i = trunc i32 %3 to i8
-  %39 = getelementptr inbounds i8, ptr %37, i64 16
-  %40 = load ptr, ptr %39, align 8
-  %41 = getelementptr inbounds i8, ptr %40, i64 1
-  store i8 14, ptr %40, align 1
-  %42 = getelementptr inbounds i8, ptr %40, i64 2
-  store i8 %.0.i3.i, ptr %41, align 1
-  %43 = getelementptr inbounds i8, ptr %40, i64 3
-  store i8 %.0.i4.i, ptr %42, align 1
-  store ptr %43, ptr %39, align 8
-  %44 = load ptr, ptr %19, align 8
-  %.not.i = icmp eq ptr %44, null
-  br i1 %.not.i, label %_ZN15InstructionAttrD2Ev.exit, label %45
+  %38 = getelementptr inbounds i8, ptr %36, i64 16
+  %39 = load ptr, ptr %38, align 8
+  %40 = getelementptr inbounds i8, ptr %39, i64 1
+  store i8 14, ptr %39, align 1
+  %41 = getelementptr inbounds i8, ptr %39, i64 2
+  store i8 %.0.i3.i, ptr %40, align 1
+  %42 = getelementptr inbounds i8, ptr %39, i64 3
+  store i8 %.0.i4.i, ptr %41, align 1
+  store ptr %42, ptr %38, align 8
+  %43 = load ptr, ptr %19, align 8
+  %.not.i = icmp eq ptr %43, null
+  br i1 %.not.i, label %_ZN15InstructionAttrD2Ev.exit, label %44
 
-45:                                               ; preds = %_ZN9Assembler22simd_prefix_and_encodeE11XMMRegisterS0_S0_NS_13VexSimdPrefixENS_9VexOpcodeEP15InstructionAttrb.exit
-  %46 = getelementptr inbounds i8, ptr %44, i64 32
-  store ptr null, ptr %46, align 8
+44:                                               ; preds = %_ZN9Assembler22simd_prefix_and_encodeE11XMMRegisterS0_S0_NS_13VexSimdPrefixENS_9VexOpcodeEP15InstructionAttrb.exit
+  %45 = getelementptr inbounds i8, ptr %43, i64 32
+  store ptr null, ptr %45, align 8
   br label %_ZN15InstructionAttrD2Ev.exit
 
-_ZN15InstructionAttrD2Ev.exit:                    ; preds = %_ZN9Assembler22simd_prefix_and_encodeE11XMMRegisterS0_S0_NS_13VexSimdPrefixENS_9VexOpcodeEP15InstructionAttrb.exit, %45
+_ZN15InstructionAttrD2Ev.exit:                    ; preds = %_ZN9Assembler22simd_prefix_and_encodeE11XMMRegisterS0_S0_NS_13VexSimdPrefixENS_9VexOpcodeEP15InstructionAttrb.exit, %44
   ret void
 }
 
@@ -51153,44 +51153,44 @@ define hidden void @_ZN9Assembler7roundsdE11XMMRegisterS0_i(ptr noundef nonnull 
   %28 = trunc i64 %27 to i32
   %29 = sub i32 %28, ptrtoint (ptr getelementptr inbounds (i8, ptr @all_XMMRegisterImpls, i64 1) to i32)
   %30 = icmp sgt i32 %7, 0
-  br i1 %30, label %31, label %34
+  br i1 %30, label %31, label %33
 
 31:                                               ; preds = %4
-  %32 = icmp ult i32 %29, 32
-  %spec.select.i = select i1 %32, i32 %29, i32 0
-  %33 = call noundef i32 @_ZN9Assembler21vex_prefix_and_encodeEiiiNS_13VexSimdPrefixENS_9VexOpcodeEP15InstructionAttrb(ptr noundef nonnull align 8 dereferenceable(40) %0, i32 noundef %24, i32 noundef %spec.select.i, i32 noundef %29, i32 noundef 1, i32 noundef 3, ptr noundef nonnull %5, i1 noundef zeroext false)
+  %spec.select.i.i = icmp ult i32 %29, 32
+  %spec.select.i = select i1 %spec.select.i.i, i32 %29, i32 0
+  %32 = call noundef i32 @_ZN9Assembler21vex_prefix_and_encodeEiiiNS_13VexSimdPrefixENS_9VexOpcodeEP15InstructionAttrb(ptr noundef nonnull align 8 dereferenceable(40) %0, i32 noundef %24, i32 noundef %spec.select.i, i32 noundef %29, i32 noundef 1, i32 noundef 3, ptr noundef nonnull %5, i1 noundef zeroext false)
   br label %_ZN9Assembler22simd_prefix_and_encodeE11XMMRegisterS0_S0_NS_13VexSimdPrefixENS_9VexOpcodeEP15InstructionAttrb.exit
 
-34:                                               ; preds = %4
-  %35 = tail call noundef i32 @_ZN9Assembler21rex_prefix_and_encodeEiiNS_13VexSimdPrefixENS_9VexOpcodeEb(ptr noundef nonnull align 8 dereferenceable(40) %0, i32 noundef %24, i32 noundef %29, i32 noundef 1, i32 noundef 3, i1 noundef zeroext false)
+33:                                               ; preds = %4
+  %34 = tail call noundef i32 @_ZN9Assembler21rex_prefix_and_encodeEiiNS_13VexSimdPrefixENS_9VexOpcodeEb(ptr noundef nonnull align 8 dereferenceable(40) %0, i32 noundef %24, i32 noundef %29, i32 noundef 1, i32 noundef 3, i1 noundef zeroext false)
   br label %_ZN9Assembler22simd_prefix_and_encodeE11XMMRegisterS0_S0_NS_13VexSimdPrefixENS_9VexOpcodeEP15InstructionAttrb.exit
 
-_ZN9Assembler22simd_prefix_and_encodeE11XMMRegisterS0_S0_NS_13VexSimdPrefixENS_9VexOpcodeEP15InstructionAttrb.exit: ; preds = %31, %34
-  %.0.i = phi i32 [ %33, %31 ], [ %35, %34 ]
-  %36 = getelementptr inbounds i8, ptr %0, i64 8
-  %37 = load ptr, ptr %36, align 8
-  %38 = trunc i32 %.0.i to i8
-  %.0.i3.i = or i8 %38, -64
+_ZN9Assembler22simd_prefix_and_encodeE11XMMRegisterS0_S0_NS_13VexSimdPrefixENS_9VexOpcodeEP15InstructionAttrb.exit: ; preds = %31, %33
+  %.0.i = phi i32 [ %32, %31 ], [ %34, %33 ]
+  %35 = getelementptr inbounds i8, ptr %0, i64 8
+  %36 = load ptr, ptr %35, align 8
+  %37 = trunc i32 %.0.i to i8
+  %.0.i3.i = or i8 %37, -64
   %.0.i4.i = trunc i32 %3 to i8
-  %39 = getelementptr inbounds i8, ptr %37, i64 16
-  %40 = load ptr, ptr %39, align 8
-  %41 = getelementptr inbounds i8, ptr %40, i64 1
-  store i8 11, ptr %40, align 1
-  %42 = getelementptr inbounds i8, ptr %40, i64 2
-  store i8 %.0.i3.i, ptr %41, align 1
-  %43 = getelementptr inbounds i8, ptr %40, i64 3
-  store i8 %.0.i4.i, ptr %42, align 1
-  store ptr %43, ptr %39, align 8
-  %44 = load ptr, ptr %19, align 8
-  %.not.i = icmp eq ptr %44, null
-  br i1 %.not.i, label %_ZN15InstructionAttrD2Ev.exit, label %45
+  %38 = getelementptr inbounds i8, ptr %36, i64 16
+  %39 = load ptr, ptr %38, align 8
+  %40 = getelementptr inbounds i8, ptr %39, i64 1
+  store i8 11, ptr %39, align 1
+  %41 = getelementptr inbounds i8, ptr %39, i64 2
+  store i8 %.0.i3.i, ptr %40, align 1
+  %42 = getelementptr inbounds i8, ptr %39, i64 3
+  store i8 %.0.i4.i, ptr %41, align 1
+  store ptr %42, ptr %38, align 8
+  %43 = load ptr, ptr %19, align 8
+  %.not.i = icmp eq ptr %43, null
+  br i1 %.not.i, label %_ZN15InstructionAttrD2Ev.exit, label %44
 
-45:                                               ; preds = %_ZN9Assembler22simd_prefix_and_encodeE11XMMRegisterS0_S0_NS_13VexSimdPrefixENS_9VexOpcodeEP15InstructionAttrb.exit
-  %46 = getelementptr inbounds i8, ptr %44, i64 32
-  store ptr null, ptr %46, align 8
+44:                                               ; preds = %_ZN9Assembler22simd_prefix_and_encodeE11XMMRegisterS0_S0_NS_13VexSimdPrefixENS_9VexOpcodeEP15InstructionAttrb.exit
+  %45 = getelementptr inbounds i8, ptr %43, i64 32
+  store ptr null, ptr %45, align 8
   br label %_ZN15InstructionAttrD2Ev.exit
 
-_ZN15InstructionAttrD2Ev.exit:                    ; preds = %_ZN9Assembler22simd_prefix_and_encodeE11XMMRegisterS0_S0_NS_13VexSimdPrefixENS_9VexOpcodeEP15InstructionAttrb.exit, %45
+_ZN15InstructionAttrD2Ev.exit:                    ; preds = %_ZN9Assembler22simd_prefix_and_encodeE11XMMRegisterS0_S0_NS_13VexSimdPrefixENS_9VexOpcodeEP15InstructionAttrb.exit, %44
   ret void
 }
 
@@ -51356,42 +51356,42 @@ define hidden void @_ZN9Assembler6sqrtsdE11XMMRegisterS0_(ptr noundef nonnull al
   %32 = trunc i64 %31 to i32
   %33 = sub i32 %32, ptrtoint (ptr getelementptr inbounds (i8, ptr @all_XMMRegisterImpls, i64 1) to i32)
   %34 = icmp sgt i32 %9, 0
-  br i1 %34, label %35, label %38
+  br i1 %34, label %35, label %37
 
 35:                                               ; preds = %3
-  %36 = icmp ult i32 %28, 32
-  %spec.select.i = select i1 %36, i32 %28, i32 0
-  %37 = call noundef i32 @_ZN9Assembler21vex_prefix_and_encodeEiiiNS_13VexSimdPrefixENS_9VexOpcodeEP15InstructionAttrb(ptr noundef nonnull align 8 dereferenceable(40) %0, i32 noundef %28, i32 noundef %spec.select.i, i32 noundef %33, i32 noundef 3, i32 noundef 1, ptr noundef nonnull %4, i1 noundef zeroext false)
+  %spec.select.i.i = icmp ult i32 %28, 32
+  %spec.select.i = select i1 %spec.select.i.i, i32 %28, i32 0
+  %36 = call noundef i32 @_ZN9Assembler21vex_prefix_and_encodeEiiiNS_13VexSimdPrefixENS_9VexOpcodeEP15InstructionAttrb(ptr noundef nonnull align 8 dereferenceable(40) %0, i32 noundef %28, i32 noundef %spec.select.i, i32 noundef %33, i32 noundef 3, i32 noundef 1, ptr noundef nonnull %4, i1 noundef zeroext false)
   br label %_ZN9Assembler22simd_prefix_and_encodeE11XMMRegisterS0_S0_NS_13VexSimdPrefixENS_9VexOpcodeEP15InstructionAttrb.exit
 
-38:                                               ; preds = %3
-  %39 = icmp ne i64 %6, 0
-  %40 = tail call noundef i32 @_ZN9Assembler21rex_prefix_and_encodeEiiNS_13VexSimdPrefixENS_9VexOpcodeEb(ptr noundef nonnull align 8 dereferenceable(40) %0, i32 noundef %28, i32 noundef %33, i32 noundef 3, i32 noundef 1, i1 noundef zeroext %39)
+37:                                               ; preds = %3
+  %38 = icmp ne i64 %6, 0
+  %39 = tail call noundef i32 @_ZN9Assembler21rex_prefix_and_encodeEiiNS_13VexSimdPrefixENS_9VexOpcodeEb(ptr noundef nonnull align 8 dereferenceable(40) %0, i32 noundef %28, i32 noundef %33, i32 noundef 3, i32 noundef 1, i1 noundef zeroext %38)
   br label %_ZN9Assembler22simd_prefix_and_encodeE11XMMRegisterS0_S0_NS_13VexSimdPrefixENS_9VexOpcodeEP15InstructionAttrb.exit
 
-_ZN9Assembler22simd_prefix_and_encodeE11XMMRegisterS0_S0_NS_13VexSimdPrefixENS_9VexOpcodeEP15InstructionAttrb.exit: ; preds = %35, %38
-  %.0.i = phi i32 [ %37, %35 ], [ %40, %38 ]
-  %41 = getelementptr inbounds i8, ptr %0, i64 8
-  %42 = load ptr, ptr %41, align 8
-  %43 = trunc i32 %.0.i to i8
-  %.0.i2.i = or i8 %43, -64
-  %44 = getelementptr inbounds i8, ptr %42, i64 16
-  %45 = load ptr, ptr %44, align 8
-  %46 = getelementptr inbounds i8, ptr %45, i64 1
-  store i8 81, ptr %45, align 1
-  %47 = getelementptr inbounds i8, ptr %45, i64 2
-  store i8 %.0.i2.i, ptr %46, align 1
-  store ptr %47, ptr %44, align 8
-  %48 = load ptr, ptr %23, align 8
-  %.not.i = icmp eq ptr %48, null
-  br i1 %.not.i, label %_ZN15InstructionAttrD2Ev.exit, label %49
+_ZN9Assembler22simd_prefix_and_encodeE11XMMRegisterS0_S0_NS_13VexSimdPrefixENS_9VexOpcodeEP15InstructionAttrb.exit: ; preds = %35, %37
+  %.0.i = phi i32 [ %36, %35 ], [ %39, %37 ]
+  %40 = getelementptr inbounds i8, ptr %0, i64 8
+  %41 = load ptr, ptr %40, align 8
+  %42 = trunc i32 %.0.i to i8
+  %.0.i2.i = or i8 %42, -64
+  %43 = getelementptr inbounds i8, ptr %41, i64 16
+  %44 = load ptr, ptr %43, align 8
+  %45 = getelementptr inbounds i8, ptr %44, i64 1
+  store i8 81, ptr %44, align 1
+  %46 = getelementptr inbounds i8, ptr %44, i64 2
+  store i8 %.0.i2.i, ptr %45, align 1
+  store ptr %46, ptr %43, align 8
+  %47 = load ptr, ptr %23, align 8
+  %.not.i = icmp eq ptr %47, null
+  br i1 %.not.i, label %_ZN15InstructionAttrD2Ev.exit, label %48
 
-49:                                               ; preds = %_ZN9Assembler22simd_prefix_and_encodeE11XMMRegisterS0_S0_NS_13VexSimdPrefixENS_9VexOpcodeEP15InstructionAttrb.exit
-  %50 = getelementptr inbounds i8, ptr %48, i64 32
-  store ptr null, ptr %50, align 8
+48:                                               ; preds = %_ZN9Assembler22simd_prefix_and_encodeE11XMMRegisterS0_S0_NS_13VexSimdPrefixENS_9VexOpcodeEP15InstructionAttrb.exit
+  %49 = getelementptr inbounds i8, ptr %47, i64 32
+  store ptr null, ptr %49, align 8
   br label %_ZN15InstructionAttrD2Ev.exit
 
-_ZN15InstructionAttrD2Ev.exit:                    ; preds = %_ZN9Assembler22simd_prefix_and_encodeE11XMMRegisterS0_S0_NS_13VexSimdPrefixENS_9VexOpcodeEP15InstructionAttrb.exit, %49
+_ZN15InstructionAttrD2Ev.exit:                    ; preds = %_ZN9Assembler22simd_prefix_and_encodeE11XMMRegisterS0_S0_NS_13VexSimdPrefixENS_9VexOpcodeEP15InstructionAttrb.exit, %48
   ret void
 }
 
@@ -51561,41 +51561,41 @@ define hidden void @_ZN9Assembler6sqrtssE11XMMRegisterS0_(ptr noundef nonnull al
   %29 = trunc i64 %28 to i32
   %30 = sub i32 %29, ptrtoint (ptr getelementptr inbounds (i8, ptr @all_XMMRegisterImpls, i64 1) to i32)
   %31 = icmp sgt i32 %6, 0
-  br i1 %31, label %32, label %35
+  br i1 %31, label %32, label %34
 
 32:                                               ; preds = %3
-  %33 = icmp ult i32 %25, 32
-  %spec.select.i = select i1 %33, i32 %25, i32 0
-  %34 = call noundef i32 @_ZN9Assembler21vex_prefix_and_encodeEiiiNS_13VexSimdPrefixENS_9VexOpcodeEP15InstructionAttrb(ptr noundef nonnull align 8 dereferenceable(40) %0, i32 noundef %25, i32 noundef %spec.select.i, i32 noundef %30, i32 noundef 2, i32 noundef 1, ptr noundef nonnull %4, i1 noundef zeroext false)
+  %spec.select.i.i = icmp ult i32 %25, 32
+  %spec.select.i = select i1 %spec.select.i.i, i32 %25, i32 0
+  %33 = call noundef i32 @_ZN9Assembler21vex_prefix_and_encodeEiiiNS_13VexSimdPrefixENS_9VexOpcodeEP15InstructionAttrb(ptr noundef nonnull align 8 dereferenceable(40) %0, i32 noundef %25, i32 noundef %spec.select.i, i32 noundef %30, i32 noundef 2, i32 noundef 1, ptr noundef nonnull %4, i1 noundef zeroext false)
   br label %_ZN9Assembler22simd_prefix_and_encodeE11XMMRegisterS0_S0_NS_13VexSimdPrefixENS_9VexOpcodeEP15InstructionAttrb.exit
 
-35:                                               ; preds = %3
-  %36 = tail call noundef i32 @_ZN9Assembler21rex_prefix_and_encodeEiiNS_13VexSimdPrefixENS_9VexOpcodeEb(ptr noundef nonnull align 8 dereferenceable(40) %0, i32 noundef %25, i32 noundef %30, i32 noundef 2, i32 noundef 1, i1 noundef zeroext false)
+34:                                               ; preds = %3
+  %35 = tail call noundef i32 @_ZN9Assembler21rex_prefix_and_encodeEiiNS_13VexSimdPrefixENS_9VexOpcodeEb(ptr noundef nonnull align 8 dereferenceable(40) %0, i32 noundef %25, i32 noundef %30, i32 noundef 2, i32 noundef 1, i1 noundef zeroext false)
   br label %_ZN9Assembler22simd_prefix_and_encodeE11XMMRegisterS0_S0_NS_13VexSimdPrefixENS_9VexOpcodeEP15InstructionAttrb.exit
 
-_ZN9Assembler22simd_prefix_and_encodeE11XMMRegisterS0_S0_NS_13VexSimdPrefixENS_9VexOpcodeEP15InstructionAttrb.exit: ; preds = %32, %35
-  %.0.i = phi i32 [ %34, %32 ], [ %36, %35 ]
-  %37 = getelementptr inbounds i8, ptr %0, i64 8
-  %38 = load ptr, ptr %37, align 8
-  %39 = trunc i32 %.0.i to i8
-  %.0.i2.i = or i8 %39, -64
-  %40 = getelementptr inbounds i8, ptr %38, i64 16
-  %41 = load ptr, ptr %40, align 8
-  %42 = getelementptr inbounds i8, ptr %41, i64 1
-  store i8 81, ptr %41, align 1
-  %43 = getelementptr inbounds i8, ptr %41, i64 2
-  store i8 %.0.i2.i, ptr %42, align 1
-  store ptr %43, ptr %40, align 8
-  %44 = load ptr, ptr %20, align 8
-  %.not.i = icmp eq ptr %44, null
-  br i1 %.not.i, label %_ZN15InstructionAttrD2Ev.exit, label %45
+_ZN9Assembler22simd_prefix_and_encodeE11XMMRegisterS0_S0_NS_13VexSimdPrefixENS_9VexOpcodeEP15InstructionAttrb.exit: ; preds = %32, %34
+  %.0.i = phi i32 [ %33, %32 ], [ %35, %34 ]
+  %36 = getelementptr inbounds i8, ptr %0, i64 8
+  %37 = load ptr, ptr %36, align 8
+  %38 = trunc i32 %.0.i to i8
+  %.0.i2.i = or i8 %38, -64
+  %39 = getelementptr inbounds i8, ptr %37, i64 16
+  %40 = load ptr, ptr %39, align 8
+  %41 = getelementptr inbounds i8, ptr %40, i64 1
+  store i8 81, ptr %40, align 1
+  %42 = getelementptr inbounds i8, ptr %40, i64 2
+  store i8 %.0.i2.i, ptr %41, align 1
+  store ptr %42, ptr %39, align 8
+  %43 = load ptr, ptr %20, align 8
+  %.not.i = icmp eq ptr %43, null
+  br i1 %.not.i, label %_ZN15InstructionAttrD2Ev.exit, label %44
 
-45:                                               ; preds = %_ZN9Assembler22simd_prefix_and_encodeE11XMMRegisterS0_S0_NS_13VexSimdPrefixENS_9VexOpcodeEP15InstructionAttrb.exit
-  %46 = getelementptr inbounds i8, ptr %44, i64 32
-  store ptr null, ptr %46, align 8
+44:                                               ; preds = %_ZN9Assembler22simd_prefix_and_encodeE11XMMRegisterS0_S0_NS_13VexSimdPrefixENS_9VexOpcodeEP15InstructionAttrb.exit
+  %45 = getelementptr inbounds i8, ptr %43, i64 32
+  store ptr null, ptr %45, align 8
   br label %_ZN15InstructionAttrD2Ev.exit
 
-_ZN15InstructionAttrD2Ev.exit:                    ; preds = %_ZN9Assembler22simd_prefix_and_encodeE11XMMRegisterS0_S0_NS_13VexSimdPrefixENS_9VexOpcodeEP15InstructionAttrb.exit, %45
+_ZN15InstructionAttrD2Ev.exit:                    ; preds = %_ZN9Assembler22simd_prefix_and_encodeE11XMMRegisterS0_S0_NS_13VexSimdPrefixENS_9VexOpcodeEP15InstructionAttrb.exit, %44
   ret void
 }
 
@@ -52351,42 +52351,42 @@ define hidden void @_ZN9Assembler5subsdE11XMMRegisterS0_(ptr noundef nonnull ali
   %32 = trunc i64 %31 to i32
   %33 = sub i32 %32, ptrtoint (ptr getelementptr inbounds (i8, ptr @all_XMMRegisterImpls, i64 1) to i32)
   %34 = icmp sgt i32 %9, 0
-  br i1 %34, label %35, label %38
+  br i1 %34, label %35, label %37
 
 35:                                               ; preds = %3
-  %36 = icmp ult i32 %28, 32
-  %spec.select.i = select i1 %36, i32 %28, i32 0
-  %37 = call noundef i32 @_ZN9Assembler21vex_prefix_and_encodeEiiiNS_13VexSimdPrefixENS_9VexOpcodeEP15InstructionAttrb(ptr noundef nonnull align 8 dereferenceable(40) %0, i32 noundef %28, i32 noundef %spec.select.i, i32 noundef %33, i32 noundef 3, i32 noundef 1, ptr noundef nonnull %4, i1 noundef zeroext false)
+  %spec.select.i.i = icmp ult i32 %28, 32
+  %spec.select.i = select i1 %spec.select.i.i, i32 %28, i32 0
+  %36 = call noundef i32 @_ZN9Assembler21vex_prefix_and_encodeEiiiNS_13VexSimdPrefixENS_9VexOpcodeEP15InstructionAttrb(ptr noundef nonnull align 8 dereferenceable(40) %0, i32 noundef %28, i32 noundef %spec.select.i, i32 noundef %33, i32 noundef 3, i32 noundef 1, ptr noundef nonnull %4, i1 noundef zeroext false)
   br label %_ZN9Assembler22simd_prefix_and_encodeE11XMMRegisterS0_S0_NS_13VexSimdPrefixENS_9VexOpcodeEP15InstructionAttrb.exit
 
-38:                                               ; preds = %3
-  %39 = icmp ne i64 %6, 0
-  %40 = tail call noundef i32 @_ZN9Assembler21rex_prefix_and_encodeEiiNS_13VexSimdPrefixENS_9VexOpcodeEb(ptr noundef nonnull align 8 dereferenceable(40) %0, i32 noundef %28, i32 noundef %33, i32 noundef 3, i32 noundef 1, i1 noundef zeroext %39)
+37:                                               ; preds = %3
+  %38 = icmp ne i64 %6, 0
+  %39 = tail call noundef i32 @_ZN9Assembler21rex_prefix_and_encodeEiiNS_13VexSimdPrefixENS_9VexOpcodeEb(ptr noundef nonnull align 8 dereferenceable(40) %0, i32 noundef %28, i32 noundef %33, i32 noundef 3, i32 noundef 1, i1 noundef zeroext %38)
   br label %_ZN9Assembler22simd_prefix_and_encodeE11XMMRegisterS0_S0_NS_13VexSimdPrefixENS_9VexOpcodeEP15InstructionAttrb.exit
 
-_ZN9Assembler22simd_prefix_and_encodeE11XMMRegisterS0_S0_NS_13VexSimdPrefixENS_9VexOpcodeEP15InstructionAttrb.exit: ; preds = %35, %38
-  %.0.i = phi i32 [ %37, %35 ], [ %40, %38 ]
-  %41 = getelementptr inbounds i8, ptr %0, i64 8
-  %42 = load ptr, ptr %41, align 8
-  %43 = trunc i32 %.0.i to i8
-  %.0.i2.i = or i8 %43, -64
-  %44 = getelementptr inbounds i8, ptr %42, i64 16
-  %45 = load ptr, ptr %44, align 8
-  %46 = getelementptr inbounds i8, ptr %45, i64 1
-  store i8 92, ptr %45, align 1
-  %47 = getelementptr inbounds i8, ptr %45, i64 2
-  store i8 %.0.i2.i, ptr %46, align 1
-  store ptr %47, ptr %44, align 8
-  %48 = load ptr, ptr %23, align 8
-  %.not.i = icmp eq ptr %48, null
-  br i1 %.not.i, label %_ZN15InstructionAttrD2Ev.exit, label %49
+_ZN9Assembler22simd_prefix_and_encodeE11XMMRegisterS0_S0_NS_13VexSimdPrefixENS_9VexOpcodeEP15InstructionAttrb.exit: ; preds = %35, %37
+  %.0.i = phi i32 [ %36, %35 ], [ %39, %37 ]
+  %40 = getelementptr inbounds i8, ptr %0, i64 8
+  %41 = load ptr, ptr %40, align 8
+  %42 = trunc i32 %.0.i to i8
+  %.0.i2.i = or i8 %42, -64
+  %43 = getelementptr inbounds i8, ptr %41, i64 16
+  %44 = load ptr, ptr %43, align 8
+  %45 = getelementptr inbounds i8, ptr %44, i64 1
+  store i8 92, ptr %44, align 1
+  %46 = getelementptr inbounds i8, ptr %44, i64 2
+  store i8 %.0.i2.i, ptr %45, align 1
+  store ptr %46, ptr %43, align 8
+  %47 = load ptr, ptr %23, align 8
+  %.not.i = icmp eq ptr %47, null
+  br i1 %.not.i, label %_ZN15InstructionAttrD2Ev.exit, label %48
 
-49:                                               ; preds = %_ZN9Assembler22simd_prefix_and_encodeE11XMMRegisterS0_S0_NS_13VexSimdPrefixENS_9VexOpcodeEP15InstructionAttrb.exit
-  %50 = getelementptr inbounds i8, ptr %48, i64 32
-  store ptr null, ptr %50, align 8
+48:                                               ; preds = %_ZN9Assembler22simd_prefix_and_encodeE11XMMRegisterS0_S0_NS_13VexSimdPrefixENS_9VexOpcodeEP15InstructionAttrb.exit
+  %49 = getelementptr inbounds i8, ptr %47, i64 32
+  store ptr null, ptr %49, align 8
   br label %_ZN15InstructionAttrD2Ev.exit
 
-_ZN15InstructionAttrD2Ev.exit:                    ; preds = %_ZN9Assembler22simd_prefix_and_encodeE11XMMRegisterS0_S0_NS_13VexSimdPrefixENS_9VexOpcodeEP15InstructionAttrb.exit, %49
+_ZN15InstructionAttrD2Ev.exit:                    ; preds = %_ZN9Assembler22simd_prefix_and_encodeE11XMMRegisterS0_S0_NS_13VexSimdPrefixENS_9VexOpcodeEP15InstructionAttrb.exit, %48
   ret void
 }
 
@@ -52556,41 +52556,41 @@ define hidden void @_ZN9Assembler5subssE11XMMRegisterS0_(ptr noundef nonnull ali
   %29 = trunc i64 %28 to i32
   %30 = sub i32 %29, ptrtoint (ptr getelementptr inbounds (i8, ptr @all_XMMRegisterImpls, i64 1) to i32)
   %31 = icmp sgt i32 %6, 0
-  br i1 %31, label %32, label %35
+  br i1 %31, label %32, label %34
 
 32:                                               ; preds = %3
-  %33 = icmp ult i32 %25, 32
-  %spec.select.i = select i1 %33, i32 %25, i32 0
-  %34 = call noundef i32 @_ZN9Assembler21vex_prefix_and_encodeEiiiNS_13VexSimdPrefixENS_9VexOpcodeEP15InstructionAttrb(ptr noundef nonnull align 8 dereferenceable(40) %0, i32 noundef %25, i32 noundef %spec.select.i, i32 noundef %30, i32 noundef 2, i32 noundef 1, ptr noundef nonnull %4, i1 noundef zeroext false)
+  %spec.select.i.i = icmp ult i32 %25, 32
+  %spec.select.i = select i1 %spec.select.i.i, i32 %25, i32 0
+  %33 = call noundef i32 @_ZN9Assembler21vex_prefix_and_encodeEiiiNS_13VexSimdPrefixENS_9VexOpcodeEP15InstructionAttrb(ptr noundef nonnull align 8 dereferenceable(40) %0, i32 noundef %25, i32 noundef %spec.select.i, i32 noundef %30, i32 noundef 2, i32 noundef 1, ptr noundef nonnull %4, i1 noundef zeroext false)
   br label %_ZN9Assembler22simd_prefix_and_encodeE11XMMRegisterS0_S0_NS_13VexSimdPrefixENS_9VexOpcodeEP15InstructionAttrb.exit
 
-35:                                               ; preds = %3
-  %36 = tail call noundef i32 @_ZN9Assembler21rex_prefix_and_encodeEiiNS_13VexSimdPrefixENS_9VexOpcodeEb(ptr noundef nonnull align 8 dereferenceable(40) %0, i32 noundef %25, i32 noundef %30, i32 noundef 2, i32 noundef 1, i1 noundef zeroext false)
+34:                                               ; preds = %3
+  %35 = tail call noundef i32 @_ZN9Assembler21rex_prefix_and_encodeEiiNS_13VexSimdPrefixENS_9VexOpcodeEb(ptr noundef nonnull align 8 dereferenceable(40) %0, i32 noundef %25, i32 noundef %30, i32 noundef 2, i32 noundef 1, i1 noundef zeroext false)
   br label %_ZN9Assembler22simd_prefix_and_encodeE11XMMRegisterS0_S0_NS_13VexSimdPrefixENS_9VexOpcodeEP15InstructionAttrb.exit
 
-_ZN9Assembler22simd_prefix_and_encodeE11XMMRegisterS0_S0_NS_13VexSimdPrefixENS_9VexOpcodeEP15InstructionAttrb.exit: ; preds = %32, %35
-  %.0.i = phi i32 [ %34, %32 ], [ %36, %35 ]
-  %37 = getelementptr inbounds i8, ptr %0, i64 8
-  %38 = load ptr, ptr %37, align 8
-  %39 = trunc i32 %.0.i to i8
-  %.0.i2.i = or i8 %39, -64
-  %40 = getelementptr inbounds i8, ptr %38, i64 16
-  %41 = load ptr, ptr %40, align 8
-  %42 = getelementptr inbounds i8, ptr %41, i64 1
-  store i8 92, ptr %41, align 1
-  %43 = getelementptr inbounds i8, ptr %41, i64 2
-  store i8 %.0.i2.i, ptr %42, align 1
-  store ptr %43, ptr %40, align 8
-  %44 = load ptr, ptr %20, align 8
-  %.not.i = icmp eq ptr %44, null
-  br i1 %.not.i, label %_ZN15InstructionAttrD2Ev.exit, label %45
+_ZN9Assembler22simd_prefix_and_encodeE11XMMRegisterS0_S0_NS_13VexSimdPrefixENS_9VexOpcodeEP15InstructionAttrb.exit: ; preds = %32, %34
+  %.0.i = phi i32 [ %33, %32 ], [ %35, %34 ]
+  %36 = getelementptr inbounds i8, ptr %0, i64 8
+  %37 = load ptr, ptr %36, align 8
+  %38 = trunc i32 %.0.i to i8
+  %.0.i2.i = or i8 %38, -64
+  %39 = getelementptr inbounds i8, ptr %37, i64 16
+  %40 = load ptr, ptr %39, align 8
+  %41 = getelementptr inbounds i8, ptr %40, i64 1
+  store i8 92, ptr %40, align 1
+  %42 = getelementptr inbounds i8, ptr %40, i64 2
+  store i8 %.0.i2.i, ptr %41, align 1
+  store ptr %42, ptr %39, align 8
+  %43 = load ptr, ptr %20, align 8
+  %.not.i = icmp eq ptr %43, null
+  br i1 %.not.i, label %_ZN15InstructionAttrD2Ev.exit, label %44
 
-45:                                               ; preds = %_ZN9Assembler22simd_prefix_and_encodeE11XMMRegisterS0_S0_NS_13VexSimdPrefixENS_9VexOpcodeEP15InstructionAttrb.exit
-  %46 = getelementptr inbounds i8, ptr %44, i64 32
-  store ptr null, ptr %46, align 8
+44:                                               ; preds = %_ZN9Assembler22simd_prefix_and_encodeE11XMMRegisterS0_S0_NS_13VexSimdPrefixENS_9VexOpcodeEP15InstructionAttrb.exit
+  %45 = getelementptr inbounds i8, ptr %43, i64 32
+  store ptr null, ptr %45, align 8
   br label %_ZN15InstructionAttrD2Ev.exit
 
-_ZN15InstructionAttrD2Ev.exit:                    ; preds = %_ZN9Assembler22simd_prefix_and_encodeE11XMMRegisterS0_S0_NS_13VexSimdPrefixENS_9VexOpcodeEP15InstructionAttrb.exit, %45
+_ZN15InstructionAttrD2Ev.exit:                    ; preds = %_ZN9Assembler22simd_prefix_and_encodeE11XMMRegisterS0_S0_NS_13VexSimdPrefixENS_9VexOpcodeEP15InstructionAttrb.exit, %44
   ret void
 }
 
@@ -53624,7 +53624,7 @@ define hidden void @_ZN9Assembler7prefixqE7Address8Registerb(ptr nocapture nound
   %27 = trunc i64 %26 to i32
   %28 = sub i32 %27, ptrtoint (ptr getelementptr inbounds (i8, ptr @all_RegisterImpls, i64 1) to i32)
   %29 = icmp sgt i32 %28, 15
-  br i1 %29, label %30, label %75
+  br i1 %29, label %30, label %73
 
 30:                                               ; preds = %23, %14, %4
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %5, ptr noundef nonnull align 8 dereferenceable(64) %1, i64 21, i1 false)
@@ -53642,85 +53642,85 @@ define hidden void @_ZN9Assembler7prefixqE7Address8Registerb(ptr nocapture nound
   %39 = ptrtoint ptr %38 to i64
   %40 = trunc i64 %39 to i32
   %41 = sub i32 %40, ptrtoint (ptr getelementptr inbounds (i8, ptr @all_RegisterImpls, i64 1) to i32)
-  %42 = icmp ult i32 %41, 32
-  br i1 %42, label %43, label %_ZN9Assembler16get_prefixq_rex2E7Address8Registerb.exit
+  %spec.select.i.i8.i = icmp ult i32 %41, 32
+  br i1 %spec.select.i.i8.i, label %42, label %_ZN9Assembler16get_prefixq_rex2E7Address8Registerb.exit
 
-43:                                               ; preds = %30
-  %44 = shl nuw nsw i32 %41, 1
-  %spec.select.i.i.i = and i32 %44, 32
-  %45 = lshr i32 %41, 2
-  %46 = and i32 %45, 2
-  %.1.i.i8.i = or disjoint i32 %spec.select.i.i.i, %46
+42:                                               ; preds = %30
+  %43 = shl nuw nsw i32 %41, 1
+  %spec.select.i1.i.i = and i32 %43, 32
+  %44 = lshr i32 %41, 2
+  %45 = and i32 %44, 2
+  %.1.i.i9.i = or disjoint i32 %spec.select.i1.i.i, %45
   br label %_ZN9Assembler16get_prefixq_rex2E7Address8Registerb.exit
 
-_ZN9Assembler16get_prefixq_rex2E7Address8Registerb.exit: ; preds = %30, %43
-  %47 = phi i32 [ %.1.i.i8.i, %43 ], [ 0, %30 ]
-  %48 = sext i32 %.sroa.0.0.copyload.i.i to i64
-  %49 = getelementptr inbounds %"class.Register::RegisterImpl", ptr getelementptr inbounds (i8, ptr @all_RegisterImpls, i64 1), i64 %48
-  %50 = ptrtoint ptr %49 to i64
-  %51 = trunc i64 %50 to i32
-  %52 = sub i32 %51, ptrtoint (ptr getelementptr inbounds (i8, ptr @all_RegisterImpls, i64 1) to i32)
-  %53 = icmp ult i32 %52, 32
-  %54 = lshr i32 %52, 3
-  %55 = and i32 %54, 1
-  %56 = and i32 %52, 16
-  %.1.i.i.i = or disjoint i32 %55, %56
-  %57 = select i1 %53, i32 %.1.i.i.i, i32 0
-  %58 = sext i32 %2 to i64
-  %59 = getelementptr inbounds %"class.Register::RegisterImpl", ptr getelementptr inbounds (i8, ptr @all_RegisterImpls, i64 1), i64 %58
-  %60 = ptrtoint ptr %59 to i64
-  %61 = trunc i64 %60 to i32
-  %62 = sub i32 %61, ptrtoint (ptr getelementptr inbounds (i8, ptr @all_RegisterImpls, i64 1) to i32)
-  %63 = shl i32 %62, 2
-  %spec.select.i.i = and i32 %63, 64
-  %64 = lshr i32 %62, 1
-  %65 = and i32 %64, 4
-  %66 = select i1 %3, i32 136, i32 8
-  %67 = or disjoint i32 %65, %66
-  %.1.i.i = or disjoint i32 %67, %spec.select.i.i
-  %68 = or disjoint i32 %.1.i.i, %57
-  %69 = or i32 %68, %47
-  %70 = getelementptr inbounds i8, ptr %0, i64 8
+_ZN9Assembler16get_prefixq_rex2E7Address8Registerb.exit: ; preds = %30, %42
+  %46 = phi i32 [ %.1.i.i9.i, %42 ], [ 0, %30 ]
+  %47 = sext i32 %.sroa.0.0.copyload.i.i to i64
+  %48 = getelementptr inbounds %"class.Register::RegisterImpl", ptr getelementptr inbounds (i8, ptr @all_RegisterImpls, i64 1), i64 %47
+  %49 = ptrtoint ptr %48 to i64
+  %50 = trunc i64 %49 to i32
+  %51 = sub i32 %50, ptrtoint (ptr getelementptr inbounds (i8, ptr @all_RegisterImpls, i64 1) to i32)
+  %spec.select.i.i.i = icmp ult i32 %51, 32
+  %52 = lshr i32 %51, 3
+  %53 = and i32 %52, 1
+  %54 = and i32 %51, 16
+  %.1.i.i.i = or disjoint i32 %53, %54
+  %55 = select i1 %spec.select.i.i.i, i32 %.1.i.i.i, i32 0
+  %56 = sext i32 %2 to i64
+  %57 = getelementptr inbounds %"class.Register::RegisterImpl", ptr getelementptr inbounds (i8, ptr @all_RegisterImpls, i64 1), i64 %56
+  %58 = ptrtoint ptr %57 to i64
+  %59 = trunc i64 %58 to i32
+  %60 = sub i32 %59, ptrtoint (ptr getelementptr inbounds (i8, ptr @all_RegisterImpls, i64 1) to i32)
+  %61 = shl i32 %60, 2
+  %spec.select.i.i = and i32 %61, 64
+  %62 = lshr i32 %60, 1
+  %63 = and i32 %62, 4
+  %64 = select i1 %3, i32 136, i32 8
+  %65 = or disjoint i32 %63, %64
+  %.1.i.i = or disjoint i32 %65, %spec.select.i.i
+  %66 = or disjoint i32 %.1.i.i, %55
+  %67 = or i32 %66, %46
+  %68 = getelementptr inbounds i8, ptr %0, i64 8
+  %69 = load ptr, ptr %68, align 8
+  %70 = getelementptr inbounds i8, ptr %69, i64 16
   %71 = load ptr, ptr %70, align 8
-  %72 = getelementptr inbounds i8, ptr %71, i64 16
-  %73 = load ptr, ptr %72, align 8
-  %74 = getelementptr inbounds i8, ptr %73, i64 1
-  store i8 -43, ptr %73, align 1
-  store ptr %74, ptr %72, align 8
-  %.0.i.i2.i = trunc i32 %69 to i8
+  %72 = getelementptr inbounds i8, ptr %71, i64 1
+  store i8 -43, ptr %71, align 1
+  store ptr %72, ptr %70, align 8
+  %.0.i.i2.i = trunc i32 %67 to i8
   br label %.sink.split
 
-75:                                               ; preds = %23
+73:                                               ; preds = %23
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %6, ptr noundef nonnull align 8 dereferenceable(64) %1, i64 21, i1 false)
-  %76 = getelementptr inbounds i8, ptr %6, i64 24
-  %77 = getelementptr inbounds i8, ptr %1, i64 24
+  %74 = getelementptr inbounds i8, ptr %6, i64 24
+  %75 = getelementptr inbounds i8, ptr %1, i64 24
+  %76 = load ptr, ptr %75, align 8
+  %77 = getelementptr inbounds i8, ptr %76, i64 16
   %78 = load ptr, ptr %77, align 8
-  %79 = getelementptr inbounds i8, ptr %78, i64 16
-  %80 = load ptr, ptr %79, align 8
-  call void %80(ptr noundef nonnull align 8 dereferenceable(40) %77, ptr noundef nonnull align 8 dereferenceable(40) %76) #18
-  %81 = call noundef i32 @_ZN9Assembler11get_prefixqE7Address8Registerb(ptr nonnull align 8 poison, ptr noundef nonnull %6, i32 %2, i1 noundef zeroext false)
-  %82 = getelementptr inbounds i8, ptr %0, i64 8
+  call void %78(ptr noundef nonnull align 8 dereferenceable(40) %75, ptr noundef nonnull align 8 dereferenceable(40) %74) #18
+  %79 = call noundef i32 @_ZN9Assembler11get_prefixqE7Address8Registerb(ptr nonnull align 8 poison, ptr noundef nonnull %6, i32 %2, i1 noundef zeroext false)
+  %80 = getelementptr inbounds i8, ptr %0, i64 8
+  %81 = load ptr, ptr %80, align 8
+  %.0.i.i = trunc i32 %79 to i8
+  %82 = getelementptr inbounds i8, ptr %81, i64 16
   %83 = load ptr, ptr %82, align 8
-  %.0.i.i = trunc i32 %81 to i8
-  %84 = getelementptr inbounds i8, ptr %83, i64 16
-  %85 = load ptr, ptr %84, align 8
-  %86 = getelementptr inbounds i8, ptr %85, i64 1
-  store i8 %.0.i.i, ptr %85, align 1
-  store ptr %86, ptr %84, align 8
-  br i1 %3, label %.sink.split, label %90
+  %84 = getelementptr inbounds i8, ptr %83, i64 1
+  store i8 %.0.i.i, ptr %83, align 1
+  store ptr %84, ptr %82, align 8
+  br i1 %3, label %.sink.split, label %88
 
-.sink.split:                                      ; preds = %75, %_ZN9Assembler16get_prefixq_rex2E7Address8Registerb.exit
-  %.sink10.in = phi ptr [ %70, %_ZN9Assembler16get_prefixq_rex2E7Address8Registerb.exit ], [ %82, %75 ]
-  %.sink7 = phi i8 [ %.0.i.i2.i, %_ZN9Assembler16get_prefixq_rex2E7Address8Registerb.exit ], [ 15, %75 ]
+.sink.split:                                      ; preds = %73, %_ZN9Assembler16get_prefixq_rex2E7Address8Registerb.exit
+  %.sink10.in = phi ptr [ %68, %_ZN9Assembler16get_prefixq_rex2E7Address8Registerb.exit ], [ %80, %73 ]
+  %.sink7 = phi i8 [ %.0.i.i2.i, %_ZN9Assembler16get_prefixq_rex2E7Address8Registerb.exit ], [ 15, %73 ]
   %.sink10 = load ptr, ptr %.sink10.in, align 8
-  %87 = getelementptr inbounds i8, ptr %.sink10, i64 16
-  %88 = load ptr, ptr %87, align 8
-  %89 = getelementptr inbounds i8, ptr %88, i64 1
-  store i8 %.sink7, ptr %88, align 1
-  store ptr %89, ptr %87, align 8
-  br label %90
+  %85 = getelementptr inbounds i8, ptr %.sink10, i64 16
+  %86 = load ptr, ptr %85, align 8
+  %87 = getelementptr inbounds i8, ptr %86, i64 1
+  store i8 %.sink7, ptr %86, align 1
+  store ptr %87, ptr %85, align 8
+  br label %88
 
-90:                                               ; preds = %.sink.split, %75
+88:                                               ; preds = %.sink.split, %73
   ret void
 }
 
@@ -57376,42 +57376,42 @@ define hidden void @_ZN9Assembler5addpdE11XMMRegisterS0_(ptr noundef nonnull ali
   %32 = trunc i64 %31 to i32
   %33 = sub i32 %32, ptrtoint (ptr getelementptr inbounds (i8, ptr @all_XMMRegisterImpls, i64 1) to i32)
   %34 = icmp sgt i32 %9, 0
-  br i1 %34, label %35, label %38
+  br i1 %34, label %35, label %37
 
 35:                                               ; preds = %3
-  %36 = icmp ult i32 %28, 32
-  %spec.select.i = select i1 %36, i32 %28, i32 0
-  %37 = call noundef i32 @_ZN9Assembler21vex_prefix_and_encodeEiiiNS_13VexSimdPrefixENS_9VexOpcodeEP15InstructionAttrb(ptr noundef nonnull align 8 dereferenceable(40) %0, i32 noundef %28, i32 noundef %spec.select.i, i32 noundef %33, i32 noundef 1, i32 noundef 1, ptr noundef nonnull %4, i1 noundef zeroext false)
+  %spec.select.i.i = icmp ult i32 %28, 32
+  %spec.select.i = select i1 %spec.select.i.i, i32 %28, i32 0
+  %36 = call noundef i32 @_ZN9Assembler21vex_prefix_and_encodeEiiiNS_13VexSimdPrefixENS_9VexOpcodeEP15InstructionAttrb(ptr noundef nonnull align 8 dereferenceable(40) %0, i32 noundef %28, i32 noundef %spec.select.i, i32 noundef %33, i32 noundef 1, i32 noundef 1, ptr noundef nonnull %4, i1 noundef zeroext false)
   br label %_ZN9Assembler22simd_prefix_and_encodeE11XMMRegisterS0_S0_NS_13VexSimdPrefixENS_9VexOpcodeEP15InstructionAttrb.exit
 
-38:                                               ; preds = %3
-  %39 = icmp ne i64 %6, 0
-  %40 = tail call noundef i32 @_ZN9Assembler21rex_prefix_and_encodeEiiNS_13VexSimdPrefixENS_9VexOpcodeEb(ptr noundef nonnull align 8 dereferenceable(40) %0, i32 noundef %28, i32 noundef %33, i32 noundef 1, i32 noundef 1, i1 noundef zeroext %39)
+37:                                               ; preds = %3
+  %38 = icmp ne i64 %6, 0
+  %39 = tail call noundef i32 @_ZN9Assembler21rex_prefix_and_encodeEiiNS_13VexSimdPrefixENS_9VexOpcodeEb(ptr noundef nonnull align 8 dereferenceable(40) %0, i32 noundef %28, i32 noundef %33, i32 noundef 1, i32 noundef 1, i1 noundef zeroext %38)
   br label %_ZN9Assembler22simd_prefix_and_encodeE11XMMRegisterS0_S0_NS_13VexSimdPrefixENS_9VexOpcodeEP15InstructionAttrb.exit
 
-_ZN9Assembler22simd_prefix_and_encodeE11XMMRegisterS0_S0_NS_13VexSimdPrefixENS_9VexOpcodeEP15InstructionAttrb.exit: ; preds = %35, %38
-  %.0.i = phi i32 [ %37, %35 ], [ %40, %38 ]
-  %41 = getelementptr inbounds i8, ptr %0, i64 8
-  %42 = load ptr, ptr %41, align 8
-  %43 = trunc i32 %.0.i to i8
-  %.0.i2.i = or i8 %43, -64
-  %44 = getelementptr inbounds i8, ptr %42, i64 16
-  %45 = load ptr, ptr %44, align 8
-  %46 = getelementptr inbounds i8, ptr %45, i64 1
-  store i8 88, ptr %45, align 1
-  %47 = getelementptr inbounds i8, ptr %45, i64 2
-  store i8 %.0.i2.i, ptr %46, align 1
-  store ptr %47, ptr %44, align 8
-  %48 = load ptr, ptr %23, align 8
-  %.not.i = icmp eq ptr %48, null
-  br i1 %.not.i, label %_ZN15InstructionAttrD2Ev.exit, label %49
+_ZN9Assembler22simd_prefix_and_encodeE11XMMRegisterS0_S0_NS_13VexSimdPrefixENS_9VexOpcodeEP15InstructionAttrb.exit: ; preds = %35, %37
+  %.0.i = phi i32 [ %36, %35 ], [ %39, %37 ]
+  %40 = getelementptr inbounds i8, ptr %0, i64 8
+  %41 = load ptr, ptr %40, align 8
+  %42 = trunc i32 %.0.i to i8
+  %.0.i2.i = or i8 %42, -64
+  %43 = getelementptr inbounds i8, ptr %41, i64 16
+  %44 = load ptr, ptr %43, align 8
+  %45 = getelementptr inbounds i8, ptr %44, i64 1
+  store i8 88, ptr %44, align 1
+  %46 = getelementptr inbounds i8, ptr %44, i64 2
+  store i8 %.0.i2.i, ptr %45, align 1
+  store ptr %46, ptr %43, align 8
+  %47 = load ptr, ptr %23, align 8
+  %.not.i = icmp eq ptr %47, null
+  br i1 %.not.i, label %_ZN15InstructionAttrD2Ev.exit, label %48
 
-49:                                               ; preds = %_ZN9Assembler22simd_prefix_and_encodeE11XMMRegisterS0_S0_NS_13VexSimdPrefixENS_9VexOpcodeEP15InstructionAttrb.exit
-  %50 = getelementptr inbounds i8, ptr %48, i64 32
-  store ptr null, ptr %50, align 8
+48:                                               ; preds = %_ZN9Assembler22simd_prefix_and_encodeE11XMMRegisterS0_S0_NS_13VexSimdPrefixENS_9VexOpcodeEP15InstructionAttrb.exit
+  %49 = getelementptr inbounds i8, ptr %47, i64 32
+  store ptr null, ptr %49, align 8
   br label %_ZN15InstructionAttrD2Ev.exit
 
-_ZN15InstructionAttrD2Ev.exit:                    ; preds = %_ZN9Assembler22simd_prefix_and_encodeE11XMMRegisterS0_S0_NS_13VexSimdPrefixENS_9VexOpcodeEP15InstructionAttrb.exit, %49
+_ZN15InstructionAttrD2Ev.exit:                    ; preds = %_ZN9Assembler22simd_prefix_and_encodeE11XMMRegisterS0_S0_NS_13VexSimdPrefixENS_9VexOpcodeEP15InstructionAttrb.exit, %48
   ret void
 }
 
@@ -57580,41 +57580,41 @@ define hidden void @_ZN9Assembler5addpsE11XMMRegisterS0_(ptr noundef nonnull ali
   %29 = trunc i64 %28 to i32
   %30 = sub i32 %29, ptrtoint (ptr getelementptr inbounds (i8, ptr @all_XMMRegisterImpls, i64 1) to i32)
   %31 = icmp sgt i32 %6, 0
-  br i1 %31, label %32, label %35
+  br i1 %31, label %32, label %34
 
 32:                                               ; preds = %3
-  %33 = icmp ult i32 %25, 32
-  %spec.select.i = select i1 %33, i32 %25, i32 0
-  %34 = call noundef i32 @_ZN9Assembler21vex_prefix_and_encodeEiiiNS_13VexSimdPrefixENS_9VexOpcodeEP15InstructionAttrb(ptr noundef nonnull align 8 dereferenceable(40) %0, i32 noundef %25, i32 noundef %spec.select.i, i32 noundef %30, i32 noundef 0, i32 noundef 1, ptr noundef nonnull %4, i1 noundef zeroext false)
+  %spec.select.i.i = icmp ult i32 %25, 32
+  %spec.select.i = select i1 %spec.select.i.i, i32 %25, i32 0
+  %33 = call noundef i32 @_ZN9Assembler21vex_prefix_and_encodeEiiiNS_13VexSimdPrefixENS_9VexOpcodeEP15InstructionAttrb(ptr noundef nonnull align 8 dereferenceable(40) %0, i32 noundef %25, i32 noundef %spec.select.i, i32 noundef %30, i32 noundef 0, i32 noundef 1, ptr noundef nonnull %4, i1 noundef zeroext false)
   br label %_ZN9Assembler22simd_prefix_and_encodeE11XMMRegisterS0_S0_NS_13VexSimdPrefixENS_9VexOpcodeEP15InstructionAttrb.exit
 
-35:                                               ; preds = %3
-  %36 = tail call noundef i32 @_ZN9Assembler21rex_prefix_and_encodeEiiNS_13VexSimdPrefixENS_9VexOpcodeEb(ptr noundef nonnull align 8 dereferenceable(40) %0, i32 noundef %25, i32 noundef %30, i32 noundef 0, i32 noundef 1, i1 noundef zeroext false)
+34:                                               ; preds = %3
+  %35 = tail call noundef i32 @_ZN9Assembler21rex_prefix_and_encodeEiiNS_13VexSimdPrefixENS_9VexOpcodeEb(ptr noundef nonnull align 8 dereferenceable(40) %0, i32 noundef %25, i32 noundef %30, i32 noundef 0, i32 noundef 1, i1 noundef zeroext false)
   br label %_ZN9Assembler22simd_prefix_and_encodeE11XMMRegisterS0_S0_NS_13VexSimdPrefixENS_9VexOpcodeEP15InstructionAttrb.exit
 
-_ZN9Assembler22simd_prefix_and_encodeE11XMMRegisterS0_S0_NS_13VexSimdPrefixENS_9VexOpcodeEP15InstructionAttrb.exit: ; preds = %32, %35
-  %.0.i = phi i32 [ %34, %32 ], [ %36, %35 ]
-  %37 = getelementptr inbounds i8, ptr %0, i64 8
-  %38 = load ptr, ptr %37, align 8
-  %39 = trunc i32 %.0.i to i8
-  %.0.i2.i = or i8 %39, -64
-  %40 = getelementptr inbounds i8, ptr %38, i64 16
-  %41 = load ptr, ptr %40, align 8
-  %42 = getelementptr inbounds i8, ptr %41, i64 1
-  store i8 88, ptr %41, align 1
-  %43 = getelementptr inbounds i8, ptr %41, i64 2
-  store i8 %.0.i2.i, ptr %42, align 1
-  store ptr %43, ptr %40, align 8
-  %44 = load ptr, ptr %20, align 8
-  %.not.i = icmp eq ptr %44, null
-  br i1 %.not.i, label %_ZN15InstructionAttrD2Ev.exit, label %45
+_ZN9Assembler22simd_prefix_and_encodeE11XMMRegisterS0_S0_NS_13VexSimdPrefixENS_9VexOpcodeEP15InstructionAttrb.exit: ; preds = %32, %34
+  %.0.i = phi i32 [ %33, %32 ], [ %35, %34 ]
+  %36 = getelementptr inbounds i8, ptr %0, i64 8
+  %37 = load ptr, ptr %36, align 8
+  %38 = trunc i32 %.0.i to i8
+  %.0.i2.i = or i8 %38, -64
+  %39 = getelementptr inbounds i8, ptr %37, i64 16
+  %40 = load ptr, ptr %39, align 8
+  %41 = getelementptr inbounds i8, ptr %40, i64 1
+  store i8 88, ptr %40, align 1
+  %42 = getelementptr inbounds i8, ptr %40, i64 2
+  store i8 %.0.i2.i, ptr %41, align 1
+  store ptr %42, ptr %39, align 8
+  %43 = load ptr, ptr %20, align 8
+  %.not.i = icmp eq ptr %43, null
+  br i1 %.not.i, label %_ZN15InstructionAttrD2Ev.exit, label %44
 
-45:                                               ; preds = %_ZN9Assembler22simd_prefix_and_encodeE11XMMRegisterS0_S0_NS_13VexSimdPrefixENS_9VexOpcodeEP15InstructionAttrb.exit
-  %46 = getelementptr inbounds i8, ptr %44, i64 32
-  store ptr null, ptr %46, align 8
+44:                                               ; preds = %_ZN9Assembler22simd_prefix_and_encodeE11XMMRegisterS0_S0_NS_13VexSimdPrefixENS_9VexOpcodeEP15InstructionAttrb.exit
+  %45 = getelementptr inbounds i8, ptr %43, i64 32
+  store ptr null, ptr %45, align 8
   br label %_ZN15InstructionAttrD2Ev.exit
 
-_ZN15InstructionAttrD2Ev.exit:                    ; preds = %_ZN9Assembler22simd_prefix_and_encodeE11XMMRegisterS0_S0_NS_13VexSimdPrefixENS_9VexOpcodeEP15InstructionAttrb.exit, %45
+_ZN15InstructionAttrD2Ev.exit:                    ; preds = %_ZN9Assembler22simd_prefix_and_encodeE11XMMRegisterS0_S0_NS_13VexSimdPrefixENS_9VexOpcodeEP15InstructionAttrb.exit, %44
   ret void
 }
 
@@ -58066,42 +58066,42 @@ define hidden void @_ZN9Assembler5subpdE11XMMRegisterS0_(ptr noundef nonnull ali
   %32 = trunc i64 %31 to i32
   %33 = sub i32 %32, ptrtoint (ptr getelementptr inbounds (i8, ptr @all_XMMRegisterImpls, i64 1) to i32)
   %34 = icmp sgt i32 %9, 0
-  br i1 %34, label %35, label %38
+  br i1 %34, label %35, label %37
 
 35:                                               ; preds = %3
-  %36 = icmp ult i32 %28, 32
-  %spec.select.i = select i1 %36, i32 %28, i32 0
-  %37 = call noundef i32 @_ZN9Assembler21vex_prefix_and_encodeEiiiNS_13VexSimdPrefixENS_9VexOpcodeEP15InstructionAttrb(ptr noundef nonnull align 8 dereferenceable(40) %0, i32 noundef %28, i32 noundef %spec.select.i, i32 noundef %33, i32 noundef 1, i32 noundef 1, ptr noundef nonnull %4, i1 noundef zeroext false)
+  %spec.select.i.i = icmp ult i32 %28, 32
+  %spec.select.i = select i1 %spec.select.i.i, i32 %28, i32 0
+  %36 = call noundef i32 @_ZN9Assembler21vex_prefix_and_encodeEiiiNS_13VexSimdPrefixENS_9VexOpcodeEP15InstructionAttrb(ptr noundef nonnull align 8 dereferenceable(40) %0, i32 noundef %28, i32 noundef %spec.select.i, i32 noundef %33, i32 noundef 1, i32 noundef 1, ptr noundef nonnull %4, i1 noundef zeroext false)
   br label %_ZN9Assembler22simd_prefix_and_encodeE11XMMRegisterS0_S0_NS_13VexSimdPrefixENS_9VexOpcodeEP15InstructionAttrb.exit
 
-38:                                               ; preds = %3
-  %39 = icmp ne i64 %6, 0
-  %40 = tail call noundef i32 @_ZN9Assembler21rex_prefix_and_encodeEiiNS_13VexSimdPrefixENS_9VexOpcodeEb(ptr noundef nonnull align 8 dereferenceable(40) %0, i32 noundef %28, i32 noundef %33, i32 noundef 1, i32 noundef 1, i1 noundef zeroext %39)
+37:                                               ; preds = %3
+  %38 = icmp ne i64 %6, 0
+  %39 = tail call noundef i32 @_ZN9Assembler21rex_prefix_and_encodeEiiNS_13VexSimdPrefixENS_9VexOpcodeEb(ptr noundef nonnull align 8 dereferenceable(40) %0, i32 noundef %28, i32 noundef %33, i32 noundef 1, i32 noundef 1, i1 noundef zeroext %38)
   br label %_ZN9Assembler22simd_prefix_and_encodeE11XMMRegisterS0_S0_NS_13VexSimdPrefixENS_9VexOpcodeEP15InstructionAttrb.exit
 
-_ZN9Assembler22simd_prefix_and_encodeE11XMMRegisterS0_S0_NS_13VexSimdPrefixENS_9VexOpcodeEP15InstructionAttrb.exit: ; preds = %35, %38
-  %.0.i = phi i32 [ %37, %35 ], [ %40, %38 ]
-  %41 = getelementptr inbounds i8, ptr %0, i64 8
-  %42 = load ptr, ptr %41, align 8
-  %43 = trunc i32 %.0.i to i8
-  %.0.i2.i = or i8 %43, -64
-  %44 = getelementptr inbounds i8, ptr %42, i64 16
-  %45 = load ptr, ptr %44, align 8
-  %46 = getelementptr inbounds i8, ptr %45, i64 1
-  store i8 92, ptr %45, align 1
-  %47 = getelementptr inbounds i8, ptr %45, i64 2
-  store i8 %.0.i2.i, ptr %46, align 1
-  store ptr %47, ptr %44, align 8
-  %48 = load ptr, ptr %23, align 8
-  %.not.i = icmp eq ptr %48, null
-  br i1 %.not.i, label %_ZN15InstructionAttrD2Ev.exit, label %49
+_ZN9Assembler22simd_prefix_and_encodeE11XMMRegisterS0_S0_NS_13VexSimdPrefixENS_9VexOpcodeEP15InstructionAttrb.exit: ; preds = %35, %37
+  %.0.i = phi i32 [ %36, %35 ], [ %39, %37 ]
+  %40 = getelementptr inbounds i8, ptr %0, i64 8
+  %41 = load ptr, ptr %40, align 8
+  %42 = trunc i32 %.0.i to i8
+  %.0.i2.i = or i8 %42, -64
+  %43 = getelementptr inbounds i8, ptr %41, i64 16
+  %44 = load ptr, ptr %43, align 8
+  %45 = getelementptr inbounds i8, ptr %44, i64 1
+  store i8 92, ptr %44, align 1
+  %46 = getelementptr inbounds i8, ptr %44, i64 2
+  store i8 %.0.i2.i, ptr %45, align 1
+  store ptr %46, ptr %43, align 8
+  %47 = load ptr, ptr %23, align 8
+  %.not.i = icmp eq ptr %47, null
+  br i1 %.not.i, label %_ZN15InstructionAttrD2Ev.exit, label %48
 
-49:                                               ; preds = %_ZN9Assembler22simd_prefix_and_encodeE11XMMRegisterS0_S0_NS_13VexSimdPrefixENS_9VexOpcodeEP15InstructionAttrb.exit
-  %50 = getelementptr inbounds i8, ptr %48, i64 32
-  store ptr null, ptr %50, align 8
+48:                                               ; preds = %_ZN9Assembler22simd_prefix_and_encodeE11XMMRegisterS0_S0_NS_13VexSimdPrefixENS_9VexOpcodeEP15InstructionAttrb.exit
+  %49 = getelementptr inbounds i8, ptr %47, i64 32
+  store ptr null, ptr %49, align 8
   br label %_ZN15InstructionAttrD2Ev.exit
 
-_ZN15InstructionAttrD2Ev.exit:                    ; preds = %_ZN9Assembler22simd_prefix_and_encodeE11XMMRegisterS0_S0_NS_13VexSimdPrefixENS_9VexOpcodeEP15InstructionAttrb.exit, %49
+_ZN15InstructionAttrD2Ev.exit:                    ; preds = %_ZN9Assembler22simd_prefix_and_encodeE11XMMRegisterS0_S0_NS_13VexSimdPrefixENS_9VexOpcodeEP15InstructionAttrb.exit, %48
   ret void
 }
 
@@ -58149,41 +58149,41 @@ define hidden void @_ZN9Assembler5subpsE11XMMRegisterS0_(ptr noundef nonnull ali
   %29 = trunc i64 %28 to i32
   %30 = sub i32 %29, ptrtoint (ptr getelementptr inbounds (i8, ptr @all_XMMRegisterImpls, i64 1) to i32)
   %31 = icmp sgt i32 %6, 0
-  br i1 %31, label %32, label %35
+  br i1 %31, label %32, label %34
 
 32:                                               ; preds = %3
-  %33 = icmp ult i32 %25, 32
-  %spec.select.i = select i1 %33, i32 %25, i32 0
-  %34 = call noundef i32 @_ZN9Assembler21vex_prefix_and_encodeEiiiNS_13VexSimdPrefixENS_9VexOpcodeEP15InstructionAttrb(ptr noundef nonnull align 8 dereferenceable(40) %0, i32 noundef %25, i32 noundef %spec.select.i, i32 noundef %30, i32 noundef 0, i32 noundef 1, ptr noundef nonnull %4, i1 noundef zeroext false)
+  %spec.select.i.i = icmp ult i32 %25, 32
+  %spec.select.i = select i1 %spec.select.i.i, i32 %25, i32 0
+  %33 = call noundef i32 @_ZN9Assembler21vex_prefix_and_encodeEiiiNS_13VexSimdPrefixENS_9VexOpcodeEP15InstructionAttrb(ptr noundef nonnull align 8 dereferenceable(40) %0, i32 noundef %25, i32 noundef %spec.select.i, i32 noundef %30, i32 noundef 0, i32 noundef 1, ptr noundef nonnull %4, i1 noundef zeroext false)
   br label %_ZN9Assembler22simd_prefix_and_encodeE11XMMRegisterS0_S0_NS_13VexSimdPrefixENS_9VexOpcodeEP15InstructionAttrb.exit
 
-35:                                               ; preds = %3
-  %36 = tail call noundef i32 @_ZN9Assembler21rex_prefix_and_encodeEiiNS_13VexSimdPrefixENS_9VexOpcodeEb(ptr noundef nonnull align 8 dereferenceable(40) %0, i32 noundef %25, i32 noundef %30, i32 noundef 0, i32 noundef 1, i1 noundef zeroext false)
+34:                                               ; preds = %3
+  %35 = tail call noundef i32 @_ZN9Assembler21rex_prefix_and_encodeEiiNS_13VexSimdPrefixENS_9VexOpcodeEb(ptr noundef nonnull align 8 dereferenceable(40) %0, i32 noundef %25, i32 noundef %30, i32 noundef 0, i32 noundef 1, i1 noundef zeroext false)
   br label %_ZN9Assembler22simd_prefix_and_encodeE11XMMRegisterS0_S0_NS_13VexSimdPrefixENS_9VexOpcodeEP15InstructionAttrb.exit
 
-_ZN9Assembler22simd_prefix_and_encodeE11XMMRegisterS0_S0_NS_13VexSimdPrefixENS_9VexOpcodeEP15InstructionAttrb.exit: ; preds = %32, %35
-  %.0.i = phi i32 [ %34, %32 ], [ %36, %35 ]
-  %37 = getelementptr inbounds i8, ptr %0, i64 8
-  %38 = load ptr, ptr %37, align 8
-  %39 = trunc i32 %.0.i to i8
-  %.0.i2.i = or i8 %39, -64
-  %40 = getelementptr inbounds i8, ptr %38, i64 16
-  %41 = load ptr, ptr %40, align 8
-  %42 = getelementptr inbounds i8, ptr %41, i64 1
-  store i8 92, ptr %41, align 1
-  %43 = getelementptr inbounds i8, ptr %41, i64 2
-  store i8 %.0.i2.i, ptr %42, align 1
-  store ptr %43, ptr %40, align 8
-  %44 = load ptr, ptr %20, align 8
-  %.not.i = icmp eq ptr %44, null
-  br i1 %.not.i, label %_ZN15InstructionAttrD2Ev.exit, label %45
+_ZN9Assembler22simd_prefix_and_encodeE11XMMRegisterS0_S0_NS_13VexSimdPrefixENS_9VexOpcodeEP15InstructionAttrb.exit: ; preds = %32, %34
+  %.0.i = phi i32 [ %33, %32 ], [ %35, %34 ]
+  %36 = getelementptr inbounds i8, ptr %0, i64 8
+  %37 = load ptr, ptr %36, align 8
+  %38 = trunc i32 %.0.i to i8
+  %.0.i2.i = or i8 %38, -64
+  %39 = getelementptr inbounds i8, ptr %37, i64 16
+  %40 = load ptr, ptr %39, align 8
+  %41 = getelementptr inbounds i8, ptr %40, i64 1
+  store i8 92, ptr %40, align 1
+  %42 = getelementptr inbounds i8, ptr %40, i64 2
+  store i8 %.0.i2.i, ptr %41, align 1
+  store ptr %42, ptr %39, align 8
+  %43 = load ptr, ptr %20, align 8
+  %.not.i = icmp eq ptr %43, null
+  br i1 %.not.i, label %_ZN15InstructionAttrD2Ev.exit, label %44
 
-45:                                               ; preds = %_ZN9Assembler22simd_prefix_and_encodeE11XMMRegisterS0_S0_NS_13VexSimdPrefixENS_9VexOpcodeEP15InstructionAttrb.exit
-  %46 = getelementptr inbounds i8, ptr %44, i64 32
-  store ptr null, ptr %46, align 8
+44:                                               ; preds = %_ZN9Assembler22simd_prefix_and_encodeE11XMMRegisterS0_S0_NS_13VexSimdPrefixENS_9VexOpcodeEP15InstructionAttrb.exit
+  %45 = getelementptr inbounds i8, ptr %43, i64 32
+  store ptr null, ptr %45, align 8
   br label %_ZN15InstructionAttrD2Ev.exit
 
-_ZN15InstructionAttrD2Ev.exit:                    ; preds = %_ZN9Assembler22simd_prefix_and_encodeE11XMMRegisterS0_S0_NS_13VexSimdPrefixENS_9VexOpcodeEP15InstructionAttrb.exit, %45
+_ZN15InstructionAttrD2Ev.exit:                    ; preds = %_ZN9Assembler22simd_prefix_and_encodeE11XMMRegisterS0_S0_NS_13VexSimdPrefixENS_9VexOpcodeEP15InstructionAttrb.exit, %44
   ret void
 }
 
@@ -58635,42 +58635,42 @@ define hidden void @_ZN9Assembler5mulpdE11XMMRegisterS0_(ptr noundef nonnull ali
   %32 = trunc i64 %31 to i32
   %33 = sub i32 %32, ptrtoint (ptr getelementptr inbounds (i8, ptr @all_XMMRegisterImpls, i64 1) to i32)
   %34 = icmp sgt i32 %9, 0
-  br i1 %34, label %35, label %38
+  br i1 %34, label %35, label %37
 
 35:                                               ; preds = %3
-  %36 = icmp ult i32 %28, 32
-  %spec.select.i = select i1 %36, i32 %28, i32 0
-  %37 = call noundef i32 @_ZN9Assembler21vex_prefix_and_encodeEiiiNS_13VexSimdPrefixENS_9VexOpcodeEP15InstructionAttrb(ptr noundef nonnull align 8 dereferenceable(40) %0, i32 noundef %28, i32 noundef %spec.select.i, i32 noundef %33, i32 noundef 1, i32 noundef 1, ptr noundef nonnull %4, i1 noundef zeroext false)
+  %spec.select.i.i = icmp ult i32 %28, 32
+  %spec.select.i = select i1 %spec.select.i.i, i32 %28, i32 0
+  %36 = call noundef i32 @_ZN9Assembler21vex_prefix_and_encodeEiiiNS_13VexSimdPrefixENS_9VexOpcodeEP15InstructionAttrb(ptr noundef nonnull align 8 dereferenceable(40) %0, i32 noundef %28, i32 noundef %spec.select.i, i32 noundef %33, i32 noundef 1, i32 noundef 1, ptr noundef nonnull %4, i1 noundef zeroext false)
   br label %_ZN9Assembler22simd_prefix_and_encodeE11XMMRegisterS0_S0_NS_13VexSimdPrefixENS_9VexOpcodeEP15InstructionAttrb.exit
 
-38:                                               ; preds = %3
-  %39 = icmp ne i64 %6, 0
-  %40 = tail call noundef i32 @_ZN9Assembler21rex_prefix_and_encodeEiiNS_13VexSimdPrefixENS_9VexOpcodeEb(ptr noundef nonnull align 8 dereferenceable(40) %0, i32 noundef %28, i32 noundef %33, i32 noundef 1, i32 noundef 1, i1 noundef zeroext %39)
+37:                                               ; preds = %3
+  %38 = icmp ne i64 %6, 0
+  %39 = tail call noundef i32 @_ZN9Assembler21rex_prefix_and_encodeEiiNS_13VexSimdPrefixENS_9VexOpcodeEb(ptr noundef nonnull align 8 dereferenceable(40) %0, i32 noundef %28, i32 noundef %33, i32 noundef 1, i32 noundef 1, i1 noundef zeroext %38)
   br label %_ZN9Assembler22simd_prefix_and_encodeE11XMMRegisterS0_S0_NS_13VexSimdPrefixENS_9VexOpcodeEP15InstructionAttrb.exit
 
-_ZN9Assembler22simd_prefix_and_encodeE11XMMRegisterS0_S0_NS_13VexSimdPrefixENS_9VexOpcodeEP15InstructionAttrb.exit: ; preds = %35, %38
-  %.0.i = phi i32 [ %37, %35 ], [ %40, %38 ]
-  %41 = getelementptr inbounds i8, ptr %0, i64 8
-  %42 = load ptr, ptr %41, align 8
-  %43 = trunc i32 %.0.i to i8
-  %.0.i2.i = or i8 %43, -64
-  %44 = getelementptr inbounds i8, ptr %42, i64 16
-  %45 = load ptr, ptr %44, align 8
-  %46 = getelementptr inbounds i8, ptr %45, i64 1
-  store i8 89, ptr %45, align 1
-  %47 = getelementptr inbounds i8, ptr %45, i64 2
-  store i8 %.0.i2.i, ptr %46, align 1
-  store ptr %47, ptr %44, align 8
-  %48 = load ptr, ptr %23, align 8
-  %.not.i = icmp eq ptr %48, null
-  br i1 %.not.i, label %_ZN15InstructionAttrD2Ev.exit, label %49
+_ZN9Assembler22simd_prefix_and_encodeE11XMMRegisterS0_S0_NS_13VexSimdPrefixENS_9VexOpcodeEP15InstructionAttrb.exit: ; preds = %35, %37
+  %.0.i = phi i32 [ %36, %35 ], [ %39, %37 ]
+  %40 = getelementptr inbounds i8, ptr %0, i64 8
+  %41 = load ptr, ptr %40, align 8
+  %42 = trunc i32 %.0.i to i8
+  %.0.i2.i = or i8 %42, -64
+  %43 = getelementptr inbounds i8, ptr %41, i64 16
+  %44 = load ptr, ptr %43, align 8
+  %45 = getelementptr inbounds i8, ptr %44, i64 1
+  store i8 89, ptr %44, align 1
+  %46 = getelementptr inbounds i8, ptr %44, i64 2
+  store i8 %.0.i2.i, ptr %45, align 1
+  store ptr %46, ptr %43, align 8
+  %47 = load ptr, ptr %23, align 8
+  %.not.i = icmp eq ptr %47, null
+  br i1 %.not.i, label %_ZN15InstructionAttrD2Ev.exit, label %48
 
-49:                                               ; preds = %_ZN9Assembler22simd_prefix_and_encodeE11XMMRegisterS0_S0_NS_13VexSimdPrefixENS_9VexOpcodeEP15InstructionAttrb.exit
-  %50 = getelementptr inbounds i8, ptr %48, i64 32
-  store ptr null, ptr %50, align 8
+48:                                               ; preds = %_ZN9Assembler22simd_prefix_and_encodeE11XMMRegisterS0_S0_NS_13VexSimdPrefixENS_9VexOpcodeEP15InstructionAttrb.exit
+  %49 = getelementptr inbounds i8, ptr %47, i64 32
+  store ptr null, ptr %49, align 8
   br label %_ZN15InstructionAttrD2Ev.exit
 
-_ZN15InstructionAttrD2Ev.exit:                    ; preds = %_ZN9Assembler22simd_prefix_and_encodeE11XMMRegisterS0_S0_NS_13VexSimdPrefixENS_9VexOpcodeEP15InstructionAttrb.exit, %49
+_ZN15InstructionAttrD2Ev.exit:                    ; preds = %_ZN9Assembler22simd_prefix_and_encodeE11XMMRegisterS0_S0_NS_13VexSimdPrefixENS_9VexOpcodeEP15InstructionAttrb.exit, %48
   ret void
 }
 
@@ -58839,41 +58839,41 @@ define hidden void @_ZN9Assembler5mulpsE11XMMRegisterS0_(ptr noundef nonnull ali
   %29 = trunc i64 %28 to i32
   %30 = sub i32 %29, ptrtoint (ptr getelementptr inbounds (i8, ptr @all_XMMRegisterImpls, i64 1) to i32)
   %31 = icmp sgt i32 %6, 0
-  br i1 %31, label %32, label %35
+  br i1 %31, label %32, label %34
 
 32:                                               ; preds = %3
-  %33 = icmp ult i32 %25, 32
-  %spec.select.i = select i1 %33, i32 %25, i32 0
-  %34 = call noundef i32 @_ZN9Assembler21vex_prefix_and_encodeEiiiNS_13VexSimdPrefixENS_9VexOpcodeEP15InstructionAttrb(ptr noundef nonnull align 8 dereferenceable(40) %0, i32 noundef %25, i32 noundef %spec.select.i, i32 noundef %30, i32 noundef 0, i32 noundef 1, ptr noundef nonnull %4, i1 noundef zeroext false)
+  %spec.select.i.i = icmp ult i32 %25, 32
+  %spec.select.i = select i1 %spec.select.i.i, i32 %25, i32 0
+  %33 = call noundef i32 @_ZN9Assembler21vex_prefix_and_encodeEiiiNS_13VexSimdPrefixENS_9VexOpcodeEP15InstructionAttrb(ptr noundef nonnull align 8 dereferenceable(40) %0, i32 noundef %25, i32 noundef %spec.select.i, i32 noundef %30, i32 noundef 0, i32 noundef 1, ptr noundef nonnull %4, i1 noundef zeroext false)
   br label %_ZN9Assembler22simd_prefix_and_encodeE11XMMRegisterS0_S0_NS_13VexSimdPrefixENS_9VexOpcodeEP15InstructionAttrb.exit
 
-35:                                               ; preds = %3
-  %36 = tail call noundef i32 @_ZN9Assembler21rex_prefix_and_encodeEiiNS_13VexSimdPrefixENS_9VexOpcodeEb(ptr noundef nonnull align 8 dereferenceable(40) %0, i32 noundef %25, i32 noundef %30, i32 noundef 0, i32 noundef 1, i1 noundef zeroext false)
+34:                                               ; preds = %3
+  %35 = tail call noundef i32 @_ZN9Assembler21rex_prefix_and_encodeEiiNS_13VexSimdPrefixENS_9VexOpcodeEb(ptr noundef nonnull align 8 dereferenceable(40) %0, i32 noundef %25, i32 noundef %30, i32 noundef 0, i32 noundef 1, i1 noundef zeroext false)
   br label %_ZN9Assembler22simd_prefix_and_encodeE11XMMRegisterS0_S0_NS_13VexSimdPrefixENS_9VexOpcodeEP15InstructionAttrb.exit
 
-_ZN9Assembler22simd_prefix_and_encodeE11XMMRegisterS0_S0_NS_13VexSimdPrefixENS_9VexOpcodeEP15InstructionAttrb.exit: ; preds = %32, %35
-  %.0.i = phi i32 [ %34, %32 ], [ %36, %35 ]
-  %37 = getelementptr inbounds i8, ptr %0, i64 8
-  %38 = load ptr, ptr %37, align 8
-  %39 = trunc i32 %.0.i to i8
-  %.0.i2.i = or i8 %39, -64
-  %40 = getelementptr inbounds i8, ptr %38, i64 16
-  %41 = load ptr, ptr %40, align 8
-  %42 = getelementptr inbounds i8, ptr %41, i64 1
-  store i8 89, ptr %41, align 1
-  %43 = getelementptr inbounds i8, ptr %41, i64 2
-  store i8 %.0.i2.i, ptr %42, align 1
-  store ptr %43, ptr %40, align 8
-  %44 = load ptr, ptr %20, align 8
-  %.not.i = icmp eq ptr %44, null
-  br i1 %.not.i, label %_ZN15InstructionAttrD2Ev.exit, label %45
+_ZN9Assembler22simd_prefix_and_encodeE11XMMRegisterS0_S0_NS_13VexSimdPrefixENS_9VexOpcodeEP15InstructionAttrb.exit: ; preds = %32, %34
+  %.0.i = phi i32 [ %33, %32 ], [ %35, %34 ]
+  %36 = getelementptr inbounds i8, ptr %0, i64 8
+  %37 = load ptr, ptr %36, align 8
+  %38 = trunc i32 %.0.i to i8
+  %.0.i2.i = or i8 %38, -64
+  %39 = getelementptr inbounds i8, ptr %37, i64 16
+  %40 = load ptr, ptr %39, align 8
+  %41 = getelementptr inbounds i8, ptr %40, i64 1
+  store i8 89, ptr %40, align 1
+  %42 = getelementptr inbounds i8, ptr %40, i64 2
+  store i8 %.0.i2.i, ptr %41, align 1
+  store ptr %42, ptr %39, align 8
+  %43 = load ptr, ptr %20, align 8
+  %.not.i = icmp eq ptr %43, null
+  br i1 %.not.i, label %_ZN15InstructionAttrD2Ev.exit, label %44
 
-45:                                               ; preds = %_ZN9Assembler22simd_prefix_and_encodeE11XMMRegisterS0_S0_NS_13VexSimdPrefixENS_9VexOpcodeEP15InstructionAttrb.exit
-  %46 = getelementptr inbounds i8, ptr %44, i64 32
-  store ptr null, ptr %46, align 8
+44:                                               ; preds = %_ZN9Assembler22simd_prefix_and_encodeE11XMMRegisterS0_S0_NS_13VexSimdPrefixENS_9VexOpcodeEP15InstructionAttrb.exit
+  %45 = getelementptr inbounds i8, ptr %43, i64 32
+  store ptr null, ptr %45, align 8
   br label %_ZN15InstructionAttrD2Ev.exit
 
-_ZN15InstructionAttrD2Ev.exit:                    ; preds = %_ZN9Assembler22simd_prefix_and_encodeE11XMMRegisterS0_S0_NS_13VexSimdPrefixENS_9VexOpcodeEP15InstructionAttrb.exit, %45
+_ZN15InstructionAttrD2Ev.exit:                    ; preds = %_ZN9Assembler22simd_prefix_and_encodeE11XMMRegisterS0_S0_NS_13VexSimdPrefixENS_9VexOpcodeEP15InstructionAttrb.exit, %44
   ret void
 }
 
@@ -59719,42 +59719,42 @@ define hidden void @_ZN9Assembler5divpdE11XMMRegisterS0_(ptr noundef nonnull ali
   %32 = trunc i64 %31 to i32
   %33 = sub i32 %32, ptrtoint (ptr getelementptr inbounds (i8, ptr @all_XMMRegisterImpls, i64 1) to i32)
   %34 = icmp sgt i32 %9, 0
-  br i1 %34, label %35, label %38
+  br i1 %34, label %35, label %37
 
 35:                                               ; preds = %3
-  %36 = icmp ult i32 %28, 32
-  %spec.select.i = select i1 %36, i32 %28, i32 0
-  %37 = call noundef i32 @_ZN9Assembler21vex_prefix_and_encodeEiiiNS_13VexSimdPrefixENS_9VexOpcodeEP15InstructionAttrb(ptr noundef nonnull align 8 dereferenceable(40) %0, i32 noundef %28, i32 noundef %spec.select.i, i32 noundef %33, i32 noundef 1, i32 noundef 1, ptr noundef nonnull %4, i1 noundef zeroext false)
+  %spec.select.i.i = icmp ult i32 %28, 32
+  %spec.select.i = select i1 %spec.select.i.i, i32 %28, i32 0
+  %36 = call noundef i32 @_ZN9Assembler21vex_prefix_and_encodeEiiiNS_13VexSimdPrefixENS_9VexOpcodeEP15InstructionAttrb(ptr noundef nonnull align 8 dereferenceable(40) %0, i32 noundef %28, i32 noundef %spec.select.i, i32 noundef %33, i32 noundef 1, i32 noundef 1, ptr noundef nonnull %4, i1 noundef zeroext false)
   br label %_ZN9Assembler22simd_prefix_and_encodeE11XMMRegisterS0_S0_NS_13VexSimdPrefixENS_9VexOpcodeEP15InstructionAttrb.exit
 
-38:                                               ; preds = %3
-  %39 = icmp ne i64 %6, 0
-  %40 = tail call noundef i32 @_ZN9Assembler21rex_prefix_and_encodeEiiNS_13VexSimdPrefixENS_9VexOpcodeEb(ptr noundef nonnull align 8 dereferenceable(40) %0, i32 noundef %28, i32 noundef %33, i32 noundef 1, i32 noundef 1, i1 noundef zeroext %39)
+37:                                               ; preds = %3
+  %38 = icmp ne i64 %6, 0
+  %39 = tail call noundef i32 @_ZN9Assembler21rex_prefix_and_encodeEiiNS_13VexSimdPrefixENS_9VexOpcodeEb(ptr noundef nonnull align 8 dereferenceable(40) %0, i32 noundef %28, i32 noundef %33, i32 noundef 1, i32 noundef 1, i1 noundef zeroext %38)
   br label %_ZN9Assembler22simd_prefix_and_encodeE11XMMRegisterS0_S0_NS_13VexSimdPrefixENS_9VexOpcodeEP15InstructionAttrb.exit
 
-_ZN9Assembler22simd_prefix_and_encodeE11XMMRegisterS0_S0_NS_13VexSimdPrefixENS_9VexOpcodeEP15InstructionAttrb.exit: ; preds = %35, %38
-  %.0.i = phi i32 [ %37, %35 ], [ %40, %38 ]
-  %41 = getelementptr inbounds i8, ptr %0, i64 8
-  %42 = load ptr, ptr %41, align 8
-  %43 = trunc i32 %.0.i to i8
-  %.0.i2.i = or i8 %43, -64
-  %44 = getelementptr inbounds i8, ptr %42, i64 16
-  %45 = load ptr, ptr %44, align 8
-  %46 = getelementptr inbounds i8, ptr %45, i64 1
-  store i8 94, ptr %45, align 1
-  %47 = getelementptr inbounds i8, ptr %45, i64 2
-  store i8 %.0.i2.i, ptr %46, align 1
-  store ptr %47, ptr %44, align 8
-  %48 = load ptr, ptr %23, align 8
-  %.not.i = icmp eq ptr %48, null
-  br i1 %.not.i, label %_ZN15InstructionAttrD2Ev.exit, label %49
+_ZN9Assembler22simd_prefix_and_encodeE11XMMRegisterS0_S0_NS_13VexSimdPrefixENS_9VexOpcodeEP15InstructionAttrb.exit: ; preds = %35, %37
+  %.0.i = phi i32 [ %36, %35 ], [ %39, %37 ]
+  %40 = getelementptr inbounds i8, ptr %0, i64 8
+  %41 = load ptr, ptr %40, align 8
+  %42 = trunc i32 %.0.i to i8
+  %.0.i2.i = or i8 %42, -64
+  %43 = getelementptr inbounds i8, ptr %41, i64 16
+  %44 = load ptr, ptr %43, align 8
+  %45 = getelementptr inbounds i8, ptr %44, i64 1
+  store i8 94, ptr %44, align 1
+  %46 = getelementptr inbounds i8, ptr %44, i64 2
+  store i8 %.0.i2.i, ptr %45, align 1
+  store ptr %46, ptr %43, align 8
+  %47 = load ptr, ptr %23, align 8
+  %.not.i = icmp eq ptr %47, null
+  br i1 %.not.i, label %_ZN15InstructionAttrD2Ev.exit, label %48
 
-49:                                               ; preds = %_ZN9Assembler22simd_prefix_and_encodeE11XMMRegisterS0_S0_NS_13VexSimdPrefixENS_9VexOpcodeEP15InstructionAttrb.exit
-  %50 = getelementptr inbounds i8, ptr %48, i64 32
-  store ptr null, ptr %50, align 8
+48:                                               ; preds = %_ZN9Assembler22simd_prefix_and_encodeE11XMMRegisterS0_S0_NS_13VexSimdPrefixENS_9VexOpcodeEP15InstructionAttrb.exit
+  %49 = getelementptr inbounds i8, ptr %47, i64 32
+  store ptr null, ptr %49, align 8
   br label %_ZN15InstructionAttrD2Ev.exit
 
-_ZN15InstructionAttrD2Ev.exit:                    ; preds = %_ZN9Assembler22simd_prefix_and_encodeE11XMMRegisterS0_S0_NS_13VexSimdPrefixENS_9VexOpcodeEP15InstructionAttrb.exit, %49
+_ZN15InstructionAttrD2Ev.exit:                    ; preds = %_ZN9Assembler22simd_prefix_and_encodeE11XMMRegisterS0_S0_NS_13VexSimdPrefixENS_9VexOpcodeEP15InstructionAttrb.exit, %48
   ret void
 }
 
@@ -59802,41 +59802,41 @@ define hidden void @_ZN9Assembler5divpsE11XMMRegisterS0_(ptr noundef nonnull ali
   %29 = trunc i64 %28 to i32
   %30 = sub i32 %29, ptrtoint (ptr getelementptr inbounds (i8, ptr @all_XMMRegisterImpls, i64 1) to i32)
   %31 = icmp sgt i32 %6, 0
-  br i1 %31, label %32, label %35
+  br i1 %31, label %32, label %34
 
 32:                                               ; preds = %3
-  %33 = icmp ult i32 %25, 32
-  %spec.select.i = select i1 %33, i32 %25, i32 0
-  %34 = call noundef i32 @_ZN9Assembler21vex_prefix_and_encodeEiiiNS_13VexSimdPrefixENS_9VexOpcodeEP15InstructionAttrb(ptr noundef nonnull align 8 dereferenceable(40) %0, i32 noundef %25, i32 noundef %spec.select.i, i32 noundef %30, i32 noundef 0, i32 noundef 1, ptr noundef nonnull %4, i1 noundef zeroext false)
+  %spec.select.i.i = icmp ult i32 %25, 32
+  %spec.select.i = select i1 %spec.select.i.i, i32 %25, i32 0
+  %33 = call noundef i32 @_ZN9Assembler21vex_prefix_and_encodeEiiiNS_13VexSimdPrefixENS_9VexOpcodeEP15InstructionAttrb(ptr noundef nonnull align 8 dereferenceable(40) %0, i32 noundef %25, i32 noundef %spec.select.i, i32 noundef %30, i32 noundef 0, i32 noundef 1, ptr noundef nonnull %4, i1 noundef zeroext false)
   br label %_ZN9Assembler22simd_prefix_and_encodeE11XMMRegisterS0_S0_NS_13VexSimdPrefixENS_9VexOpcodeEP15InstructionAttrb.exit
 
-35:                                               ; preds = %3
-  %36 = tail call noundef i32 @_ZN9Assembler21rex_prefix_and_encodeEiiNS_13VexSimdPrefixENS_9VexOpcodeEb(ptr noundef nonnull align 8 dereferenceable(40) %0, i32 noundef %25, i32 noundef %30, i32 noundef 0, i32 noundef 1, i1 noundef zeroext false)
+34:                                               ; preds = %3
+  %35 = tail call noundef i32 @_ZN9Assembler21rex_prefix_and_encodeEiiNS_13VexSimdPrefixENS_9VexOpcodeEb(ptr noundef nonnull align 8 dereferenceable(40) %0, i32 noundef %25, i32 noundef %30, i32 noundef 0, i32 noundef 1, i1 noundef zeroext false)
   br label %_ZN9Assembler22simd_prefix_and_encodeE11XMMRegisterS0_S0_NS_13VexSimdPrefixENS_9VexOpcodeEP15InstructionAttrb.exit
 
-_ZN9Assembler22simd_prefix_and_encodeE11XMMRegisterS0_S0_NS_13VexSimdPrefixENS_9VexOpcodeEP15InstructionAttrb.exit: ; preds = %32, %35
-  %.0.i = phi i32 [ %34, %32 ], [ %36, %35 ]
-  %37 = getelementptr inbounds i8, ptr %0, i64 8
-  %38 = load ptr, ptr %37, align 8
-  %39 = trunc i32 %.0.i to i8
-  %.0.i2.i = or i8 %39, -64
-  %40 = getelementptr inbounds i8, ptr %38, i64 16
-  %41 = load ptr, ptr %40, align 8
-  %42 = getelementptr inbounds i8, ptr %41, i64 1
-  store i8 94, ptr %41, align 1
-  %43 = getelementptr inbounds i8, ptr %41, i64 2
-  store i8 %.0.i2.i, ptr %42, align 1
-  store ptr %43, ptr %40, align 8
-  %44 = load ptr, ptr %20, align 8
-  %.not.i = icmp eq ptr %44, null
-  br i1 %.not.i, label %_ZN15InstructionAttrD2Ev.exit, label %45
+_ZN9Assembler22simd_prefix_and_encodeE11XMMRegisterS0_S0_NS_13VexSimdPrefixENS_9VexOpcodeEP15InstructionAttrb.exit: ; preds = %32, %34
+  %.0.i = phi i32 [ %33, %32 ], [ %35, %34 ]
+  %36 = getelementptr inbounds i8, ptr %0, i64 8
+  %37 = load ptr, ptr %36, align 8
+  %38 = trunc i32 %.0.i to i8
+  %.0.i2.i = or i8 %38, -64
+  %39 = getelementptr inbounds i8, ptr %37, i64 16
+  %40 = load ptr, ptr %39, align 8
+  %41 = getelementptr inbounds i8, ptr %40, i64 1
+  store i8 94, ptr %40, align 1
+  %42 = getelementptr inbounds i8, ptr %40, i64 2
+  store i8 %.0.i2.i, ptr %41, align 1
+  store ptr %42, ptr %39, align 8
+  %43 = load ptr, ptr %20, align 8
+  %.not.i = icmp eq ptr %43, null
+  br i1 %.not.i, label %_ZN15InstructionAttrD2Ev.exit, label %44
 
-45:                                               ; preds = %_ZN9Assembler22simd_prefix_and_encodeE11XMMRegisterS0_S0_NS_13VexSimdPrefixENS_9VexOpcodeEP15InstructionAttrb.exit
-  %46 = getelementptr inbounds i8, ptr %44, i64 32
-  store ptr null, ptr %46, align 8
+44:                                               ; preds = %_ZN9Assembler22simd_prefix_and_encodeE11XMMRegisterS0_S0_NS_13VexSimdPrefixENS_9VexOpcodeEP15InstructionAttrb.exit
+  %45 = getelementptr inbounds i8, ptr %43, i64 32
+  store ptr null, ptr %45, align 8
   br label %_ZN15InstructionAttrD2Ev.exit
 
-_ZN15InstructionAttrD2Ev.exit:                    ; preds = %_ZN9Assembler22simd_prefix_and_encodeE11XMMRegisterS0_S0_NS_13VexSimdPrefixENS_9VexOpcodeEP15InstructionAttrb.exit, %45
+_ZN15InstructionAttrD2Ev.exit:                    ; preds = %_ZN9Assembler22simd_prefix_and_encodeE11XMMRegisterS0_S0_NS_13VexSimdPrefixENS_9VexOpcodeEP15InstructionAttrb.exit, %44
   ret void
 }
 
@@ -61201,41 +61201,41 @@ define hidden void @_ZN9Assembler5andpdE11XMMRegisterS0_(ptr noundef nonnull ali
   %35 = trunc i64 %34 to i32
   %36 = sub i32 %35, ptrtoint (ptr getelementptr inbounds (i8, ptr @all_XMMRegisterImpls, i64 1) to i32)
   %37 = icmp sgt i32 %11, 0
-  br i1 %37, label %38, label %41
+  br i1 %37, label %38, label %40
 
 38:                                               ; preds = %3
-  %39 = icmp ult i32 %31, 32
-  %spec.select.i = select i1 %39, i32 %31, i32 0
-  %40 = call noundef i32 @_ZN9Assembler21vex_prefix_and_encodeEiiiNS_13VexSimdPrefixENS_9VexOpcodeEP15InstructionAttrb(ptr noundef nonnull align 8 dereferenceable(40) %0, i32 noundef %31, i32 noundef %spec.select.i, i32 noundef %36, i32 noundef 1, i32 noundef 1, ptr noundef nonnull %4, i1 noundef zeroext false)
+  %spec.select.i.i = icmp ult i32 %31, 32
+  %spec.select.i = select i1 %spec.select.i.i, i32 %31, i32 0
+  %39 = call noundef i32 @_ZN9Assembler21vex_prefix_and_encodeEiiiNS_13VexSimdPrefixENS_9VexOpcodeEP15InstructionAttrb(ptr noundef nonnull align 8 dereferenceable(40) %0, i32 noundef %31, i32 noundef %spec.select.i, i32 noundef %36, i32 noundef 1, i32 noundef 1, ptr noundef nonnull %4, i1 noundef zeroext false)
   br label %_ZN9Assembler22simd_prefix_and_encodeE11XMMRegisterS0_S0_NS_13VexSimdPrefixENS_9VexOpcodeEP15InstructionAttrb.exit
 
-41:                                               ; preds = %3
-  %42 = tail call noundef i32 @_ZN9Assembler21rex_prefix_and_encodeEiiNS_13VexSimdPrefixENS_9VexOpcodeEb(ptr noundef nonnull align 8 dereferenceable(40) %0, i32 noundef %31, i32 noundef %36, i32 noundef 1, i32 noundef 1, i1 noundef zeroext %8)
+40:                                               ; preds = %3
+  %41 = tail call noundef i32 @_ZN9Assembler21rex_prefix_and_encodeEiiNS_13VexSimdPrefixENS_9VexOpcodeEb(ptr noundef nonnull align 8 dereferenceable(40) %0, i32 noundef %31, i32 noundef %36, i32 noundef 1, i32 noundef 1, i1 noundef zeroext %8)
   br label %_ZN9Assembler22simd_prefix_and_encodeE11XMMRegisterS0_S0_NS_13VexSimdPrefixENS_9VexOpcodeEP15InstructionAttrb.exit
 
-_ZN9Assembler22simd_prefix_and_encodeE11XMMRegisterS0_S0_NS_13VexSimdPrefixENS_9VexOpcodeEP15InstructionAttrb.exit: ; preds = %38, %41
-  %.0.i = phi i32 [ %40, %38 ], [ %42, %41 ]
-  %43 = getelementptr inbounds i8, ptr %0, i64 8
-  %44 = load ptr, ptr %43, align 8
-  %45 = trunc i32 %.0.i to i8
-  %.0.i2.i = or i8 %45, -64
-  %46 = getelementptr inbounds i8, ptr %44, i64 16
-  %47 = load ptr, ptr %46, align 8
-  %48 = getelementptr inbounds i8, ptr %47, i64 1
-  store i8 84, ptr %47, align 1
-  %49 = getelementptr inbounds i8, ptr %47, i64 2
-  store i8 %.0.i2.i, ptr %48, align 1
-  store ptr %49, ptr %46, align 8
-  %50 = load ptr, ptr %26, align 8
-  %.not.i = icmp eq ptr %50, null
-  br i1 %.not.i, label %_ZN15InstructionAttrD2Ev.exit, label %51
+_ZN9Assembler22simd_prefix_and_encodeE11XMMRegisterS0_S0_NS_13VexSimdPrefixENS_9VexOpcodeEP15InstructionAttrb.exit: ; preds = %38, %40
+  %.0.i = phi i32 [ %39, %38 ], [ %41, %40 ]
+  %42 = getelementptr inbounds i8, ptr %0, i64 8
+  %43 = load ptr, ptr %42, align 8
+  %44 = trunc i32 %.0.i to i8
+  %.0.i2.i = or i8 %44, -64
+  %45 = getelementptr inbounds i8, ptr %43, i64 16
+  %46 = load ptr, ptr %45, align 8
+  %47 = getelementptr inbounds i8, ptr %46, i64 1
+  store i8 84, ptr %46, align 1
+  %48 = getelementptr inbounds i8, ptr %46, i64 2
+  store i8 %.0.i2.i, ptr %47, align 1
+  store ptr %48, ptr %45, align 8
+  %49 = load ptr, ptr %26, align 8
+  %.not.i = icmp eq ptr %49, null
+  br i1 %.not.i, label %_ZN15InstructionAttrD2Ev.exit, label %50
 
-51:                                               ; preds = %_ZN9Assembler22simd_prefix_and_encodeE11XMMRegisterS0_S0_NS_13VexSimdPrefixENS_9VexOpcodeEP15InstructionAttrb.exit
-  %52 = getelementptr inbounds i8, ptr %50, i64 32
-  store ptr null, ptr %52, align 8
+50:                                               ; preds = %_ZN9Assembler22simd_prefix_and_encodeE11XMMRegisterS0_S0_NS_13VexSimdPrefixENS_9VexOpcodeEP15InstructionAttrb.exit
+  %51 = getelementptr inbounds i8, ptr %49, i64 32
+  store ptr null, ptr %51, align 8
   br label %_ZN15InstructionAttrD2Ev.exit
 
-_ZN15InstructionAttrD2Ev.exit:                    ; preds = %_ZN9Assembler22simd_prefix_and_encodeE11XMMRegisterS0_S0_NS_13VexSimdPrefixENS_9VexOpcodeEP15InstructionAttrb.exit, %51
+_ZN15InstructionAttrD2Ev.exit:                    ; preds = %_ZN9Assembler22simd_prefix_and_encodeE11XMMRegisterS0_S0_NS_13VexSimdPrefixENS_9VexOpcodeEP15InstructionAttrb.exit, %50
   ret void
 }
 
@@ -61287,41 +61287,41 @@ define hidden void @_ZN9Assembler5andpsE11XMMRegisterS0_(ptr noundef nonnull ali
   %33 = trunc i64 %32 to i32
   %34 = sub i32 %33, ptrtoint (ptr getelementptr inbounds (i8, ptr @all_XMMRegisterImpls, i64 1) to i32)
   %35 = icmp sgt i32 %9, 0
-  br i1 %35, label %36, label %39
+  br i1 %35, label %36, label %38
 
 36:                                               ; preds = %3
-  %37 = icmp ult i32 %29, 32
-  %spec.select.i = select i1 %37, i32 %29, i32 0
-  %38 = call noundef i32 @_ZN9Assembler21vex_prefix_and_encodeEiiiNS_13VexSimdPrefixENS_9VexOpcodeEP15InstructionAttrb(ptr noundef nonnull align 8 dereferenceable(40) %0, i32 noundef %29, i32 noundef %spec.select.i, i32 noundef %34, i32 noundef 0, i32 noundef 1, ptr noundef nonnull %4, i1 noundef zeroext false)
+  %spec.select.i.i = icmp ult i32 %29, 32
+  %spec.select.i = select i1 %spec.select.i.i, i32 %29, i32 0
+  %37 = call noundef i32 @_ZN9Assembler21vex_prefix_and_encodeEiiiNS_13VexSimdPrefixENS_9VexOpcodeEP15InstructionAttrb(ptr noundef nonnull align 8 dereferenceable(40) %0, i32 noundef %29, i32 noundef %spec.select.i, i32 noundef %34, i32 noundef 0, i32 noundef 1, ptr noundef nonnull %4, i1 noundef zeroext false)
   br label %_ZN9Assembler22simd_prefix_and_encodeE11XMMRegisterS0_S0_NS_13VexSimdPrefixENS_9VexOpcodeEP15InstructionAttrb.exit
 
-39:                                               ; preds = %3
-  %40 = tail call noundef i32 @_ZN9Assembler21rex_prefix_and_encodeEiiNS_13VexSimdPrefixENS_9VexOpcodeEb(ptr noundef nonnull align 8 dereferenceable(40) %0, i32 noundef %29, i32 noundef %34, i32 noundef 0, i32 noundef 1, i1 noundef zeroext false)
+38:                                               ; preds = %3
+  %39 = tail call noundef i32 @_ZN9Assembler21rex_prefix_and_encodeEiiNS_13VexSimdPrefixENS_9VexOpcodeEb(ptr noundef nonnull align 8 dereferenceable(40) %0, i32 noundef %29, i32 noundef %34, i32 noundef 0, i32 noundef 1, i1 noundef zeroext false)
   br label %_ZN9Assembler22simd_prefix_and_encodeE11XMMRegisterS0_S0_NS_13VexSimdPrefixENS_9VexOpcodeEP15InstructionAttrb.exit
 
-_ZN9Assembler22simd_prefix_and_encodeE11XMMRegisterS0_S0_NS_13VexSimdPrefixENS_9VexOpcodeEP15InstructionAttrb.exit: ; preds = %36, %39
-  %.0.i = phi i32 [ %38, %36 ], [ %40, %39 ]
-  %41 = getelementptr inbounds i8, ptr %0, i64 8
-  %42 = load ptr, ptr %41, align 8
-  %43 = trunc i32 %.0.i to i8
-  %.0.i2.i = or i8 %43, -64
-  %44 = getelementptr inbounds i8, ptr %42, i64 16
-  %45 = load ptr, ptr %44, align 8
-  %46 = getelementptr inbounds i8, ptr %45, i64 1
-  store i8 84, ptr %45, align 1
-  %47 = getelementptr inbounds i8, ptr %45, i64 2
-  store i8 %.0.i2.i, ptr %46, align 1
-  store ptr %47, ptr %44, align 8
-  %48 = load ptr, ptr %24, align 8
-  %.not.i = icmp eq ptr %48, null
-  br i1 %.not.i, label %_ZN15InstructionAttrD2Ev.exit, label %49
+_ZN9Assembler22simd_prefix_and_encodeE11XMMRegisterS0_S0_NS_13VexSimdPrefixENS_9VexOpcodeEP15InstructionAttrb.exit: ; preds = %36, %38
+  %.0.i = phi i32 [ %37, %36 ], [ %39, %38 ]
+  %40 = getelementptr inbounds i8, ptr %0, i64 8
+  %41 = load ptr, ptr %40, align 8
+  %42 = trunc i32 %.0.i to i8
+  %.0.i2.i = or i8 %42, -64
+  %43 = getelementptr inbounds i8, ptr %41, i64 16
+  %44 = load ptr, ptr %43, align 8
+  %45 = getelementptr inbounds i8, ptr %44, i64 1
+  store i8 84, ptr %44, align 1
+  %46 = getelementptr inbounds i8, ptr %44, i64 2
+  store i8 %.0.i2.i, ptr %45, align 1
+  store ptr %46, ptr %43, align 8
+  %47 = load ptr, ptr %24, align 8
+  %.not.i = icmp eq ptr %47, null
+  br i1 %.not.i, label %_ZN15InstructionAttrD2Ev.exit, label %48
 
-49:                                               ; preds = %_ZN9Assembler22simd_prefix_and_encodeE11XMMRegisterS0_S0_NS_13VexSimdPrefixENS_9VexOpcodeEP15InstructionAttrb.exit
-  %50 = getelementptr inbounds i8, ptr %48, i64 32
-  store ptr null, ptr %50, align 8
+48:                                               ; preds = %_ZN9Assembler22simd_prefix_and_encodeE11XMMRegisterS0_S0_NS_13VexSimdPrefixENS_9VexOpcodeEP15InstructionAttrb.exit
+  %49 = getelementptr inbounds i8, ptr %47, i64 32
+  store ptr null, ptr %49, align 8
   br label %_ZN15InstructionAttrD2Ev.exit
 
-_ZN15InstructionAttrD2Ev.exit:                    ; preds = %_ZN9Assembler22simd_prefix_and_encodeE11XMMRegisterS0_S0_NS_13VexSimdPrefixENS_9VexOpcodeEP15InstructionAttrb.exit, %49
+_ZN15InstructionAttrD2Ev.exit:                    ; preds = %_ZN9Assembler22simd_prefix_and_encodeE11XMMRegisterS0_S0_NS_13VexSimdPrefixENS_9VexOpcodeEP15InstructionAttrb.exit, %48
   ret void
 }
 
@@ -62035,46 +62035,46 @@ define hidden void @_ZN9Assembler8unpckhpdE11XMMRegisterS0_(ptr noundef nonnull 
   %32 = trunc i64 %31 to i32
   %33 = sub i32 %32, ptrtoint (ptr getelementptr inbounds (i8, ptr @all_XMMRegisterImpls, i64 1) to i32)
   %34 = icmp sgt i32 %9, 0
-  br i1 %34, label %35, label %38
+  br i1 %34, label %35, label %37
 
 35:                                               ; preds = %3
-  %36 = icmp ult i32 %28, 32
-  %spec.select.i = select i1 %36, i32 %28, i32 0
-  %37 = call noundef i32 @_ZN9Assembler21vex_prefix_and_encodeEiiiNS_13VexSimdPrefixENS_9VexOpcodeEP15InstructionAttrb(ptr noundef nonnull align 8 dereferenceable(40) %0, i32 noundef %28, i32 noundef %spec.select.i, i32 noundef %33, i32 noundef 1, i32 noundef 1, ptr noundef nonnull %4, i1 noundef zeroext false)
+  %spec.select.i.i = icmp ult i32 %28, 32
+  %spec.select.i = select i1 %spec.select.i.i, i32 %28, i32 0
+  %36 = call noundef i32 @_ZN9Assembler21vex_prefix_and_encodeEiiiNS_13VexSimdPrefixENS_9VexOpcodeEP15InstructionAttrb(ptr noundef nonnull align 8 dereferenceable(40) %0, i32 noundef %28, i32 noundef %spec.select.i, i32 noundef %33, i32 noundef 1, i32 noundef 1, ptr noundef nonnull %4, i1 noundef zeroext false)
   br label %_ZN9Assembler22simd_prefix_and_encodeE11XMMRegisterS0_S0_NS_13VexSimdPrefixENS_9VexOpcodeEP15InstructionAttrb.exit
 
-38:                                               ; preds = %3
-  %39 = icmp ne i64 %6, 0
-  %40 = tail call noundef i32 @_ZN9Assembler21rex_prefix_and_encodeEiiNS_13VexSimdPrefixENS_9VexOpcodeEb(ptr noundef nonnull align 8 dereferenceable(40) %0, i32 noundef %28, i32 noundef %33, i32 noundef 1, i32 noundef 1, i1 noundef zeroext %39)
+37:                                               ; preds = %3
+  %38 = icmp ne i64 %6, 0
+  %39 = tail call noundef i32 @_ZN9Assembler21rex_prefix_and_encodeEiiNS_13VexSimdPrefixENS_9VexOpcodeEb(ptr noundef nonnull align 8 dereferenceable(40) %0, i32 noundef %28, i32 noundef %33, i32 noundef 1, i32 noundef 1, i1 noundef zeroext %38)
   br label %_ZN9Assembler22simd_prefix_and_encodeE11XMMRegisterS0_S0_NS_13VexSimdPrefixENS_9VexOpcodeEP15InstructionAttrb.exit
 
-_ZN9Assembler22simd_prefix_and_encodeE11XMMRegisterS0_S0_NS_13VexSimdPrefixENS_9VexOpcodeEP15InstructionAttrb.exit: ; preds = %35, %38
-  %.0.i = phi i32 [ %37, %35 ], [ %40, %38 ]
-  %41 = getelementptr inbounds i8, ptr %0, i64 8
-  %42 = load ptr, ptr %41, align 8
-  %43 = getelementptr inbounds i8, ptr %42, i64 16
-  %44 = load ptr, ptr %43, align 8
-  %45 = getelementptr inbounds i8, ptr %44, i64 1
-  store i8 21, ptr %44, align 1
-  store ptr %45, ptr %43, align 8
-  %46 = load ptr, ptr %41, align 8
-  %47 = trunc i32 %.0.i to i8
-  %.0.i.i = or i8 %47, -64
-  %48 = getelementptr inbounds i8, ptr %46, i64 16
-  %49 = load ptr, ptr %48, align 8
-  %50 = getelementptr inbounds i8, ptr %49, i64 1
-  store i8 %.0.i.i, ptr %49, align 1
-  store ptr %50, ptr %48, align 8
-  %51 = load ptr, ptr %23, align 8
-  %.not.i = icmp eq ptr %51, null
-  br i1 %.not.i, label %_ZN15InstructionAttrD2Ev.exit, label %52
+_ZN9Assembler22simd_prefix_and_encodeE11XMMRegisterS0_S0_NS_13VexSimdPrefixENS_9VexOpcodeEP15InstructionAttrb.exit: ; preds = %35, %37
+  %.0.i = phi i32 [ %36, %35 ], [ %39, %37 ]
+  %40 = getelementptr inbounds i8, ptr %0, i64 8
+  %41 = load ptr, ptr %40, align 8
+  %42 = getelementptr inbounds i8, ptr %41, i64 16
+  %43 = load ptr, ptr %42, align 8
+  %44 = getelementptr inbounds i8, ptr %43, i64 1
+  store i8 21, ptr %43, align 1
+  store ptr %44, ptr %42, align 8
+  %45 = load ptr, ptr %40, align 8
+  %46 = trunc i32 %.0.i to i8
+  %.0.i.i = or i8 %46, -64
+  %47 = getelementptr inbounds i8, ptr %45, i64 16
+  %48 = load ptr, ptr %47, align 8
+  %49 = getelementptr inbounds i8, ptr %48, i64 1
+  store i8 %.0.i.i, ptr %48, align 1
+  store ptr %49, ptr %47, align 8
+  %50 = load ptr, ptr %23, align 8
+  %.not.i = icmp eq ptr %50, null
+  br i1 %.not.i, label %_ZN15InstructionAttrD2Ev.exit, label %51
 
-52:                                               ; preds = %_ZN9Assembler22simd_prefix_and_encodeE11XMMRegisterS0_S0_NS_13VexSimdPrefixENS_9VexOpcodeEP15InstructionAttrb.exit
-  %53 = getelementptr inbounds i8, ptr %51, i64 32
-  store ptr null, ptr %53, align 8
+51:                                               ; preds = %_ZN9Assembler22simd_prefix_and_encodeE11XMMRegisterS0_S0_NS_13VexSimdPrefixENS_9VexOpcodeEP15InstructionAttrb.exit
+  %52 = getelementptr inbounds i8, ptr %50, i64 32
+  store ptr null, ptr %52, align 8
   br label %_ZN15InstructionAttrD2Ev.exit
 
-_ZN15InstructionAttrD2Ev.exit:                    ; preds = %_ZN9Assembler22simd_prefix_and_encodeE11XMMRegisterS0_S0_NS_13VexSimdPrefixENS_9VexOpcodeEP15InstructionAttrb.exit, %52
+_ZN15InstructionAttrD2Ev.exit:                    ; preds = %_ZN9Assembler22simd_prefix_and_encodeE11XMMRegisterS0_S0_NS_13VexSimdPrefixENS_9VexOpcodeEP15InstructionAttrb.exit, %51
   ret void
 }
 
@@ -62126,42 +62126,42 @@ define hidden void @_ZN9Assembler8unpcklpdE11XMMRegisterS0_(ptr noundef nonnull 
   %32 = trunc i64 %31 to i32
   %33 = sub i32 %32, ptrtoint (ptr getelementptr inbounds (i8, ptr @all_XMMRegisterImpls, i64 1) to i32)
   %34 = icmp sgt i32 %9, 0
-  br i1 %34, label %35, label %38
+  br i1 %34, label %35, label %37
 
 35:                                               ; preds = %3
-  %36 = icmp ult i32 %28, 32
-  %spec.select.i = select i1 %36, i32 %28, i32 0
-  %37 = call noundef i32 @_ZN9Assembler21vex_prefix_and_encodeEiiiNS_13VexSimdPrefixENS_9VexOpcodeEP15InstructionAttrb(ptr noundef nonnull align 8 dereferenceable(40) %0, i32 noundef %28, i32 noundef %spec.select.i, i32 noundef %33, i32 noundef 1, i32 noundef 1, ptr noundef nonnull %4, i1 noundef zeroext false)
+  %spec.select.i.i = icmp ult i32 %28, 32
+  %spec.select.i = select i1 %spec.select.i.i, i32 %28, i32 0
+  %36 = call noundef i32 @_ZN9Assembler21vex_prefix_and_encodeEiiiNS_13VexSimdPrefixENS_9VexOpcodeEP15InstructionAttrb(ptr noundef nonnull align 8 dereferenceable(40) %0, i32 noundef %28, i32 noundef %spec.select.i, i32 noundef %33, i32 noundef 1, i32 noundef 1, ptr noundef nonnull %4, i1 noundef zeroext false)
   br label %_ZN9Assembler22simd_prefix_and_encodeE11XMMRegisterS0_S0_NS_13VexSimdPrefixENS_9VexOpcodeEP15InstructionAttrb.exit
 
-38:                                               ; preds = %3
-  %39 = icmp ne i64 %6, 0
-  %40 = tail call noundef i32 @_ZN9Assembler21rex_prefix_and_encodeEiiNS_13VexSimdPrefixENS_9VexOpcodeEb(ptr noundef nonnull align 8 dereferenceable(40) %0, i32 noundef %28, i32 noundef %33, i32 noundef 1, i32 noundef 1, i1 noundef zeroext %39)
+37:                                               ; preds = %3
+  %38 = icmp ne i64 %6, 0
+  %39 = tail call noundef i32 @_ZN9Assembler21rex_prefix_and_encodeEiiNS_13VexSimdPrefixENS_9VexOpcodeEb(ptr noundef nonnull align 8 dereferenceable(40) %0, i32 noundef %28, i32 noundef %33, i32 noundef 1, i32 noundef 1, i1 noundef zeroext %38)
   br label %_ZN9Assembler22simd_prefix_and_encodeE11XMMRegisterS0_S0_NS_13VexSimdPrefixENS_9VexOpcodeEP15InstructionAttrb.exit
 
-_ZN9Assembler22simd_prefix_and_encodeE11XMMRegisterS0_S0_NS_13VexSimdPrefixENS_9VexOpcodeEP15InstructionAttrb.exit: ; preds = %35, %38
-  %.0.i = phi i32 [ %37, %35 ], [ %40, %38 ]
-  %41 = getelementptr inbounds i8, ptr %0, i64 8
-  %42 = load ptr, ptr %41, align 8
-  %43 = trunc i32 %.0.i to i8
-  %.0.i2.i = or i8 %43, -64
-  %44 = getelementptr inbounds i8, ptr %42, i64 16
-  %45 = load ptr, ptr %44, align 8
-  %46 = getelementptr inbounds i8, ptr %45, i64 1
-  store i8 20, ptr %45, align 1
-  %47 = getelementptr inbounds i8, ptr %45, i64 2
-  store i8 %.0.i2.i, ptr %46, align 1
-  store ptr %47, ptr %44, align 8
-  %48 = load ptr, ptr %23, align 8
-  %.not.i = icmp eq ptr %48, null
-  br i1 %.not.i, label %_ZN15InstructionAttrD2Ev.exit, label %49
+_ZN9Assembler22simd_prefix_and_encodeE11XMMRegisterS0_S0_NS_13VexSimdPrefixENS_9VexOpcodeEP15InstructionAttrb.exit: ; preds = %35, %37
+  %.0.i = phi i32 [ %36, %35 ], [ %39, %37 ]
+  %40 = getelementptr inbounds i8, ptr %0, i64 8
+  %41 = load ptr, ptr %40, align 8
+  %42 = trunc i32 %.0.i to i8
+  %.0.i2.i = or i8 %42, -64
+  %43 = getelementptr inbounds i8, ptr %41, i64 16
+  %44 = load ptr, ptr %43, align 8
+  %45 = getelementptr inbounds i8, ptr %44, i64 1
+  store i8 20, ptr %44, align 1
+  %46 = getelementptr inbounds i8, ptr %44, i64 2
+  store i8 %.0.i2.i, ptr %45, align 1
+  store ptr %46, ptr %43, align 8
+  %47 = load ptr, ptr %23, align 8
+  %.not.i = icmp eq ptr %47, null
+  br i1 %.not.i, label %_ZN15InstructionAttrD2Ev.exit, label %48
 
-49:                                               ; preds = %_ZN9Assembler22simd_prefix_and_encodeE11XMMRegisterS0_S0_NS_13VexSimdPrefixENS_9VexOpcodeEP15InstructionAttrb.exit
-  %50 = getelementptr inbounds i8, ptr %48, i64 32
-  store ptr null, ptr %50, align 8
+48:                                               ; preds = %_ZN9Assembler22simd_prefix_and_encodeE11XMMRegisterS0_S0_NS_13VexSimdPrefixENS_9VexOpcodeEP15InstructionAttrb.exit
+  %49 = getelementptr inbounds i8, ptr %47, i64 32
+  store ptr null, ptr %49, align 8
   br label %_ZN15InstructionAttrD2Ev.exit
 
-_ZN15InstructionAttrD2Ev.exit:                    ; preds = %_ZN9Assembler22simd_prefix_and_encodeE11XMMRegisterS0_S0_NS_13VexSimdPrefixENS_9VexOpcodeEP15InstructionAttrb.exit, %49
+_ZN15InstructionAttrD2Ev.exit:                    ; preds = %_ZN9Assembler22simd_prefix_and_encodeE11XMMRegisterS0_S0_NS_13VexSimdPrefixENS_9VexOpcodeEP15InstructionAttrb.exit, %48
   ret void
 }
 
@@ -62215,41 +62215,41 @@ define hidden void @_ZN9Assembler5xorpdE11XMMRegisterS0_(ptr noundef nonnull ali
   %35 = trunc i64 %34 to i32
   %36 = sub i32 %35, ptrtoint (ptr getelementptr inbounds (i8, ptr @all_XMMRegisterImpls, i64 1) to i32)
   %37 = icmp sgt i32 %11, 0
-  br i1 %37, label %38, label %41
+  br i1 %37, label %38, label %40
 
 38:                                               ; preds = %3
-  %39 = icmp ult i32 %31, 32
-  %spec.select.i = select i1 %39, i32 %31, i32 0
-  %40 = call noundef i32 @_ZN9Assembler21vex_prefix_and_encodeEiiiNS_13VexSimdPrefixENS_9VexOpcodeEP15InstructionAttrb(ptr noundef nonnull align 8 dereferenceable(40) %0, i32 noundef %31, i32 noundef %spec.select.i, i32 noundef %36, i32 noundef 1, i32 noundef 1, ptr noundef nonnull %4, i1 noundef zeroext false)
+  %spec.select.i.i = icmp ult i32 %31, 32
+  %spec.select.i = select i1 %spec.select.i.i, i32 %31, i32 0
+  %39 = call noundef i32 @_ZN9Assembler21vex_prefix_and_encodeEiiiNS_13VexSimdPrefixENS_9VexOpcodeEP15InstructionAttrb(ptr noundef nonnull align 8 dereferenceable(40) %0, i32 noundef %31, i32 noundef %spec.select.i, i32 noundef %36, i32 noundef 1, i32 noundef 1, ptr noundef nonnull %4, i1 noundef zeroext false)
   br label %_ZN9Assembler22simd_prefix_and_encodeE11XMMRegisterS0_S0_NS_13VexSimdPrefixENS_9VexOpcodeEP15InstructionAttrb.exit
 
-41:                                               ; preds = %3
-  %42 = tail call noundef i32 @_ZN9Assembler21rex_prefix_and_encodeEiiNS_13VexSimdPrefixENS_9VexOpcodeEb(ptr noundef nonnull align 8 dereferenceable(40) %0, i32 noundef %31, i32 noundef %36, i32 noundef 1, i32 noundef 1, i1 noundef zeroext %8)
+40:                                               ; preds = %3
+  %41 = tail call noundef i32 @_ZN9Assembler21rex_prefix_and_encodeEiiNS_13VexSimdPrefixENS_9VexOpcodeEb(ptr noundef nonnull align 8 dereferenceable(40) %0, i32 noundef %31, i32 noundef %36, i32 noundef 1, i32 noundef 1, i1 noundef zeroext %8)
   br label %_ZN9Assembler22simd_prefix_and_encodeE11XMMRegisterS0_S0_NS_13VexSimdPrefixENS_9VexOpcodeEP15InstructionAttrb.exit
 
-_ZN9Assembler22simd_prefix_and_encodeE11XMMRegisterS0_S0_NS_13VexSimdPrefixENS_9VexOpcodeEP15InstructionAttrb.exit: ; preds = %38, %41
-  %.0.i = phi i32 [ %40, %38 ], [ %42, %41 ]
-  %43 = getelementptr inbounds i8, ptr %0, i64 8
-  %44 = load ptr, ptr %43, align 8
-  %45 = trunc i32 %.0.i to i8
-  %.0.i2.i = or i8 %45, -64
-  %46 = getelementptr inbounds i8, ptr %44, i64 16
-  %47 = load ptr, ptr %46, align 8
-  %48 = getelementptr inbounds i8, ptr %47, i64 1
-  store i8 87, ptr %47, align 1
-  %49 = getelementptr inbounds i8, ptr %47, i64 2
-  store i8 %.0.i2.i, ptr %48, align 1
-  store ptr %49, ptr %46, align 8
-  %50 = load ptr, ptr %26, align 8
-  %.not.i = icmp eq ptr %50, null
-  br i1 %.not.i, label %_ZN15InstructionAttrD2Ev.exit, label %51
+_ZN9Assembler22simd_prefix_and_encodeE11XMMRegisterS0_S0_NS_13VexSimdPrefixENS_9VexOpcodeEP15InstructionAttrb.exit: ; preds = %38, %40
+  %.0.i = phi i32 [ %39, %38 ], [ %41, %40 ]
+  %42 = getelementptr inbounds i8, ptr %0, i64 8
+  %43 = load ptr, ptr %42, align 8
+  %44 = trunc i32 %.0.i to i8
+  %.0.i2.i = or i8 %44, -64
+  %45 = getelementptr inbounds i8, ptr %43, i64 16
+  %46 = load ptr, ptr %45, align 8
+  %47 = getelementptr inbounds i8, ptr %46, i64 1
+  store i8 87, ptr %46, align 1
+  %48 = getelementptr inbounds i8, ptr %46, i64 2
+  store i8 %.0.i2.i, ptr %47, align 1
+  store ptr %48, ptr %45, align 8
+  %49 = load ptr, ptr %26, align 8
+  %.not.i = icmp eq ptr %49, null
+  br i1 %.not.i, label %_ZN15InstructionAttrD2Ev.exit, label %50
 
-51:                                               ; preds = %_ZN9Assembler22simd_prefix_and_encodeE11XMMRegisterS0_S0_NS_13VexSimdPrefixENS_9VexOpcodeEP15InstructionAttrb.exit
-  %52 = getelementptr inbounds i8, ptr %50, i64 32
-  store ptr null, ptr %52, align 8
+50:                                               ; preds = %_ZN9Assembler22simd_prefix_and_encodeE11XMMRegisterS0_S0_NS_13VexSimdPrefixENS_9VexOpcodeEP15InstructionAttrb.exit
+  %51 = getelementptr inbounds i8, ptr %49, i64 32
+  store ptr null, ptr %51, align 8
   br label %_ZN15InstructionAttrD2Ev.exit
 
-_ZN15InstructionAttrD2Ev.exit:                    ; preds = %_ZN9Assembler22simd_prefix_and_encodeE11XMMRegisterS0_S0_NS_13VexSimdPrefixENS_9VexOpcodeEP15InstructionAttrb.exit, %51
+_ZN15InstructionAttrD2Ev.exit:                    ; preds = %_ZN9Assembler22simd_prefix_and_encodeE11XMMRegisterS0_S0_NS_13VexSimdPrefixENS_9VexOpcodeEP15InstructionAttrb.exit, %50
   ret void
 }
 
@@ -62301,41 +62301,41 @@ define hidden void @_ZN9Assembler5xorpsE11XMMRegisterS0_(ptr noundef nonnull ali
   %33 = trunc i64 %32 to i32
   %34 = sub i32 %33, ptrtoint (ptr getelementptr inbounds (i8, ptr @all_XMMRegisterImpls, i64 1) to i32)
   %35 = icmp sgt i32 %9, 0
-  br i1 %35, label %36, label %39
+  br i1 %35, label %36, label %38
 
 36:                                               ; preds = %3
-  %37 = icmp ult i32 %29, 32
-  %spec.select.i = select i1 %37, i32 %29, i32 0
-  %38 = call noundef i32 @_ZN9Assembler21vex_prefix_and_encodeEiiiNS_13VexSimdPrefixENS_9VexOpcodeEP15InstructionAttrb(ptr noundef nonnull align 8 dereferenceable(40) %0, i32 noundef %29, i32 noundef %spec.select.i, i32 noundef %34, i32 noundef 0, i32 noundef 1, ptr noundef nonnull %4, i1 noundef zeroext false)
+  %spec.select.i.i = icmp ult i32 %29, 32
+  %spec.select.i = select i1 %spec.select.i.i, i32 %29, i32 0
+  %37 = call noundef i32 @_ZN9Assembler21vex_prefix_and_encodeEiiiNS_13VexSimdPrefixENS_9VexOpcodeEP15InstructionAttrb(ptr noundef nonnull align 8 dereferenceable(40) %0, i32 noundef %29, i32 noundef %spec.select.i, i32 noundef %34, i32 noundef 0, i32 noundef 1, ptr noundef nonnull %4, i1 noundef zeroext false)
   br label %_ZN9Assembler22simd_prefix_and_encodeE11XMMRegisterS0_S0_NS_13VexSimdPrefixENS_9VexOpcodeEP15InstructionAttrb.exit
 
-39:                                               ; preds = %3
-  %40 = tail call noundef i32 @_ZN9Assembler21rex_prefix_and_encodeEiiNS_13VexSimdPrefixENS_9VexOpcodeEb(ptr noundef nonnull align 8 dereferenceable(40) %0, i32 noundef %29, i32 noundef %34, i32 noundef 0, i32 noundef 1, i1 noundef zeroext false)
+38:                                               ; preds = %3
+  %39 = tail call noundef i32 @_ZN9Assembler21rex_prefix_and_encodeEiiNS_13VexSimdPrefixENS_9VexOpcodeEb(ptr noundef nonnull align 8 dereferenceable(40) %0, i32 noundef %29, i32 noundef %34, i32 noundef 0, i32 noundef 1, i1 noundef zeroext false)
   br label %_ZN9Assembler22simd_prefix_and_encodeE11XMMRegisterS0_S0_NS_13VexSimdPrefixENS_9VexOpcodeEP15InstructionAttrb.exit
 
-_ZN9Assembler22simd_prefix_and_encodeE11XMMRegisterS0_S0_NS_13VexSimdPrefixENS_9VexOpcodeEP15InstructionAttrb.exit: ; preds = %36, %39
-  %.0.i = phi i32 [ %38, %36 ], [ %40, %39 ]
-  %41 = getelementptr inbounds i8, ptr %0, i64 8
-  %42 = load ptr, ptr %41, align 8
-  %43 = trunc i32 %.0.i to i8
-  %.0.i2.i = or i8 %43, -64
-  %44 = getelementptr inbounds i8, ptr %42, i64 16
-  %45 = load ptr, ptr %44, align 8
-  %46 = getelementptr inbounds i8, ptr %45, i64 1
-  store i8 87, ptr %45, align 1
-  %47 = getelementptr inbounds i8, ptr %45, i64 2
-  store i8 %.0.i2.i, ptr %46, align 1
-  store ptr %47, ptr %44, align 8
-  %48 = load ptr, ptr %24, align 8
-  %.not.i = icmp eq ptr %48, null
-  br i1 %.not.i, label %_ZN15InstructionAttrD2Ev.exit, label %49
+_ZN9Assembler22simd_prefix_and_encodeE11XMMRegisterS0_S0_NS_13VexSimdPrefixENS_9VexOpcodeEP15InstructionAttrb.exit: ; preds = %36, %38
+  %.0.i = phi i32 [ %37, %36 ], [ %39, %38 ]
+  %40 = getelementptr inbounds i8, ptr %0, i64 8
+  %41 = load ptr, ptr %40, align 8
+  %42 = trunc i32 %.0.i to i8
+  %.0.i2.i = or i8 %42, -64
+  %43 = getelementptr inbounds i8, ptr %41, i64 16
+  %44 = load ptr, ptr %43, align 8
+  %45 = getelementptr inbounds i8, ptr %44, i64 1
+  store i8 87, ptr %44, align 1
+  %46 = getelementptr inbounds i8, ptr %44, i64 2
+  store i8 %.0.i2.i, ptr %45, align 1
+  store ptr %46, ptr %43, align 8
+  %47 = load ptr, ptr %24, align 8
+  %.not.i = icmp eq ptr %47, null
+  br i1 %.not.i, label %_ZN15InstructionAttrD2Ev.exit, label %48
 
-49:                                               ; preds = %_ZN9Assembler22simd_prefix_and_encodeE11XMMRegisterS0_S0_NS_13VexSimdPrefixENS_9VexOpcodeEP15InstructionAttrb.exit
-  %50 = getelementptr inbounds i8, ptr %48, i64 32
-  store ptr null, ptr %50, align 8
+48:                                               ; preds = %_ZN9Assembler22simd_prefix_and_encodeE11XMMRegisterS0_S0_NS_13VexSimdPrefixENS_9VexOpcodeEP15InstructionAttrb.exit
+  %49 = getelementptr inbounds i8, ptr %47, i64 32
+  store ptr null, ptr %49, align 8
   br label %_ZN15InstructionAttrD2Ev.exit
 
-_ZN15InstructionAttrD2Ev.exit:                    ; preds = %_ZN9Assembler22simd_prefix_and_encodeE11XMMRegisterS0_S0_NS_13VexSimdPrefixENS_9VexOpcodeEP15InstructionAttrb.exit, %49
+_ZN15InstructionAttrD2Ev.exit:                    ; preds = %_ZN9Assembler22simd_prefix_and_encodeE11XMMRegisterS0_S0_NS_13VexSimdPrefixENS_9VexOpcodeEP15InstructionAttrb.exit, %48
   ret void
 }
 
@@ -63189,41 +63189,41 @@ define hidden void @_ZN9Assembler5paddbE11XMMRegisterS0_(ptr noundef nonnull ali
   %33 = trunc i64 %32 to i32
   %34 = sub i32 %33, ptrtoint (ptr getelementptr inbounds (i8, ptr @all_XMMRegisterImpls, i64 1) to i32)
   %35 = icmp sgt i32 %9, 0
-  br i1 %35, label %36, label %39
+  br i1 %35, label %36, label %38
 
 36:                                               ; preds = %3
-  %37 = icmp ult i32 %29, 32
-  %spec.select.i = select i1 %37, i32 %29, i32 0
-  %38 = call noundef i32 @_ZN9Assembler21vex_prefix_and_encodeEiiiNS_13VexSimdPrefixENS_9VexOpcodeEP15InstructionAttrb(ptr noundef nonnull align 8 dereferenceable(40) %0, i32 noundef %29, i32 noundef %spec.select.i, i32 noundef %34, i32 noundef 1, i32 noundef 1, ptr noundef nonnull %4, i1 noundef zeroext false)
+  %spec.select.i.i = icmp ult i32 %29, 32
+  %spec.select.i = select i1 %spec.select.i.i, i32 %29, i32 0
+  %37 = call noundef i32 @_ZN9Assembler21vex_prefix_and_encodeEiiiNS_13VexSimdPrefixENS_9VexOpcodeEP15InstructionAttrb(ptr noundef nonnull align 8 dereferenceable(40) %0, i32 noundef %29, i32 noundef %spec.select.i, i32 noundef %34, i32 noundef 1, i32 noundef 1, ptr noundef nonnull %4, i1 noundef zeroext false)
   br label %_ZN9Assembler22simd_prefix_and_encodeE11XMMRegisterS0_S0_NS_13VexSimdPrefixENS_9VexOpcodeEP15InstructionAttrb.exit
 
-39:                                               ; preds = %3
-  %40 = tail call noundef i32 @_ZN9Assembler21rex_prefix_and_encodeEiiNS_13VexSimdPrefixENS_9VexOpcodeEb(ptr noundef nonnull align 8 dereferenceable(40) %0, i32 noundef %29, i32 noundef %34, i32 noundef 1, i32 noundef 1, i1 noundef zeroext false)
+38:                                               ; preds = %3
+  %39 = tail call noundef i32 @_ZN9Assembler21rex_prefix_and_encodeEiiNS_13VexSimdPrefixENS_9VexOpcodeEb(ptr noundef nonnull align 8 dereferenceable(40) %0, i32 noundef %29, i32 noundef %34, i32 noundef 1, i32 noundef 1, i1 noundef zeroext false)
   br label %_ZN9Assembler22simd_prefix_and_encodeE11XMMRegisterS0_S0_NS_13VexSimdPrefixENS_9VexOpcodeEP15InstructionAttrb.exit
 
-_ZN9Assembler22simd_prefix_and_encodeE11XMMRegisterS0_S0_NS_13VexSimdPrefixENS_9VexOpcodeEP15InstructionAttrb.exit: ; preds = %36, %39
-  %.0.i = phi i32 [ %38, %36 ], [ %40, %39 ]
-  %41 = getelementptr inbounds i8, ptr %0, i64 8
-  %42 = load ptr, ptr %41, align 8
-  %43 = trunc i32 %.0.i to i8
-  %.0.i2.i = or i8 %43, -64
-  %44 = getelementptr inbounds i8, ptr %42, i64 16
-  %45 = load ptr, ptr %44, align 8
-  %46 = getelementptr inbounds i8, ptr %45, i64 1
-  store i8 -4, ptr %45, align 1
-  %47 = getelementptr inbounds i8, ptr %45, i64 2
-  store i8 %.0.i2.i, ptr %46, align 1
-  store ptr %47, ptr %44, align 8
-  %48 = load ptr, ptr %24, align 8
-  %.not.i = icmp eq ptr %48, null
-  br i1 %.not.i, label %_ZN15InstructionAttrD2Ev.exit, label %49
+_ZN9Assembler22simd_prefix_and_encodeE11XMMRegisterS0_S0_NS_13VexSimdPrefixENS_9VexOpcodeEP15InstructionAttrb.exit: ; preds = %36, %38
+  %.0.i = phi i32 [ %37, %36 ], [ %39, %38 ]
+  %40 = getelementptr inbounds i8, ptr %0, i64 8
+  %41 = load ptr, ptr %40, align 8
+  %42 = trunc i32 %.0.i to i8
+  %.0.i2.i = or i8 %42, -64
+  %43 = getelementptr inbounds i8, ptr %41, i64 16
+  %44 = load ptr, ptr %43, align 8
+  %45 = getelementptr inbounds i8, ptr %44, i64 1
+  store i8 -4, ptr %44, align 1
+  %46 = getelementptr inbounds i8, ptr %44, i64 2
+  store i8 %.0.i2.i, ptr %45, align 1
+  store ptr %46, ptr %43, align 8
+  %47 = load ptr, ptr %24, align 8
+  %.not.i = icmp eq ptr %47, null
+  br i1 %.not.i, label %_ZN15InstructionAttrD2Ev.exit, label %48
 
-49:                                               ; preds = %_ZN9Assembler22simd_prefix_and_encodeE11XMMRegisterS0_S0_NS_13VexSimdPrefixENS_9VexOpcodeEP15InstructionAttrb.exit
-  %50 = getelementptr inbounds i8, ptr %48, i64 32
-  store ptr null, ptr %50, align 8
+48:                                               ; preds = %_ZN9Assembler22simd_prefix_and_encodeE11XMMRegisterS0_S0_NS_13VexSimdPrefixENS_9VexOpcodeEP15InstructionAttrb.exit
+  %49 = getelementptr inbounds i8, ptr %47, i64 32
+  store ptr null, ptr %49, align 8
   br label %_ZN15InstructionAttrD2Ev.exit
 
-_ZN15InstructionAttrD2Ev.exit:                    ; preds = %_ZN9Assembler22simd_prefix_and_encodeE11XMMRegisterS0_S0_NS_13VexSimdPrefixENS_9VexOpcodeEP15InstructionAttrb.exit, %49
+_ZN15InstructionAttrD2Ev.exit:                    ; preds = %_ZN9Assembler22simd_prefix_and_encodeE11XMMRegisterS0_S0_NS_13VexSimdPrefixENS_9VexOpcodeEP15InstructionAttrb.exit, %48
   ret void
 }
 
@@ -63275,41 +63275,41 @@ define hidden void @_ZN9Assembler5paddwE11XMMRegisterS0_(ptr noundef nonnull ali
   %33 = trunc i64 %32 to i32
   %34 = sub i32 %33, ptrtoint (ptr getelementptr inbounds (i8, ptr @all_XMMRegisterImpls, i64 1) to i32)
   %35 = icmp sgt i32 %9, 0
-  br i1 %35, label %36, label %39
+  br i1 %35, label %36, label %38
 
 36:                                               ; preds = %3
-  %37 = icmp ult i32 %29, 32
-  %spec.select.i = select i1 %37, i32 %29, i32 0
-  %38 = call noundef i32 @_ZN9Assembler21vex_prefix_and_encodeEiiiNS_13VexSimdPrefixENS_9VexOpcodeEP15InstructionAttrb(ptr noundef nonnull align 8 dereferenceable(40) %0, i32 noundef %29, i32 noundef %spec.select.i, i32 noundef %34, i32 noundef 1, i32 noundef 1, ptr noundef nonnull %4, i1 noundef zeroext false)
+  %spec.select.i.i = icmp ult i32 %29, 32
+  %spec.select.i = select i1 %spec.select.i.i, i32 %29, i32 0
+  %37 = call noundef i32 @_ZN9Assembler21vex_prefix_and_encodeEiiiNS_13VexSimdPrefixENS_9VexOpcodeEP15InstructionAttrb(ptr noundef nonnull align 8 dereferenceable(40) %0, i32 noundef %29, i32 noundef %spec.select.i, i32 noundef %34, i32 noundef 1, i32 noundef 1, ptr noundef nonnull %4, i1 noundef zeroext false)
   br label %_ZN9Assembler22simd_prefix_and_encodeE11XMMRegisterS0_S0_NS_13VexSimdPrefixENS_9VexOpcodeEP15InstructionAttrb.exit
 
-39:                                               ; preds = %3
-  %40 = tail call noundef i32 @_ZN9Assembler21rex_prefix_and_encodeEiiNS_13VexSimdPrefixENS_9VexOpcodeEb(ptr noundef nonnull align 8 dereferenceable(40) %0, i32 noundef %29, i32 noundef %34, i32 noundef 1, i32 noundef 1, i1 noundef zeroext false)
+38:                                               ; preds = %3
+  %39 = tail call noundef i32 @_ZN9Assembler21rex_prefix_and_encodeEiiNS_13VexSimdPrefixENS_9VexOpcodeEb(ptr noundef nonnull align 8 dereferenceable(40) %0, i32 noundef %29, i32 noundef %34, i32 noundef 1, i32 noundef 1, i1 noundef zeroext false)
   br label %_ZN9Assembler22simd_prefix_and_encodeE11XMMRegisterS0_S0_NS_13VexSimdPrefixENS_9VexOpcodeEP15InstructionAttrb.exit
 
-_ZN9Assembler22simd_prefix_and_encodeE11XMMRegisterS0_S0_NS_13VexSimdPrefixENS_9VexOpcodeEP15InstructionAttrb.exit: ; preds = %36, %39
-  %.0.i = phi i32 [ %38, %36 ], [ %40, %39 ]
-  %41 = getelementptr inbounds i8, ptr %0, i64 8
-  %42 = load ptr, ptr %41, align 8
-  %43 = trunc i32 %.0.i to i8
-  %.0.i2.i = or i8 %43, -64
-  %44 = getelementptr inbounds i8, ptr %42, i64 16
-  %45 = load ptr, ptr %44, align 8
-  %46 = getelementptr inbounds i8, ptr %45, i64 1
-  store i8 -3, ptr %45, align 1
-  %47 = getelementptr inbounds i8, ptr %45, i64 2
-  store i8 %.0.i2.i, ptr %46, align 1
-  store ptr %47, ptr %44, align 8
-  %48 = load ptr, ptr %24, align 8
-  %.not.i = icmp eq ptr %48, null
-  br i1 %.not.i, label %_ZN15InstructionAttrD2Ev.exit, label %49
+_ZN9Assembler22simd_prefix_and_encodeE11XMMRegisterS0_S0_NS_13VexSimdPrefixENS_9VexOpcodeEP15InstructionAttrb.exit: ; preds = %36, %38
+  %.0.i = phi i32 [ %37, %36 ], [ %39, %38 ]
+  %40 = getelementptr inbounds i8, ptr %0, i64 8
+  %41 = load ptr, ptr %40, align 8
+  %42 = trunc i32 %.0.i to i8
+  %.0.i2.i = or i8 %42, -64
+  %43 = getelementptr inbounds i8, ptr %41, i64 16
+  %44 = load ptr, ptr %43, align 8
+  %45 = getelementptr inbounds i8, ptr %44, i64 1
+  store i8 -3, ptr %44, align 1
+  %46 = getelementptr inbounds i8, ptr %44, i64 2
+  store i8 %.0.i2.i, ptr %45, align 1
+  store ptr %46, ptr %43, align 8
+  %47 = load ptr, ptr %24, align 8
+  %.not.i = icmp eq ptr %47, null
+  br i1 %.not.i, label %_ZN15InstructionAttrD2Ev.exit, label %48
 
-49:                                               ; preds = %_ZN9Assembler22simd_prefix_and_encodeE11XMMRegisterS0_S0_NS_13VexSimdPrefixENS_9VexOpcodeEP15InstructionAttrb.exit
-  %50 = getelementptr inbounds i8, ptr %48, i64 32
-  store ptr null, ptr %50, align 8
+48:                                               ; preds = %_ZN9Assembler22simd_prefix_and_encodeE11XMMRegisterS0_S0_NS_13VexSimdPrefixENS_9VexOpcodeEP15InstructionAttrb.exit
+  %49 = getelementptr inbounds i8, ptr %47, i64 32
+  store ptr null, ptr %49, align 8
   br label %_ZN15InstructionAttrD2Ev.exit
 
-_ZN15InstructionAttrD2Ev.exit:                    ; preds = %_ZN9Assembler22simd_prefix_and_encodeE11XMMRegisterS0_S0_NS_13VexSimdPrefixENS_9VexOpcodeEP15InstructionAttrb.exit, %49
+_ZN15InstructionAttrD2Ev.exit:                    ; preds = %_ZN9Assembler22simd_prefix_and_encodeE11XMMRegisterS0_S0_NS_13VexSimdPrefixENS_9VexOpcodeEP15InstructionAttrb.exit, %48
   ret void
 }
 
@@ -63357,41 +63357,41 @@ define hidden void @_ZN9Assembler5padddE11XMMRegisterS0_(ptr noundef nonnull ali
   %29 = trunc i64 %28 to i32
   %30 = sub i32 %29, ptrtoint (ptr getelementptr inbounds (i8, ptr @all_XMMRegisterImpls, i64 1) to i32)
   %31 = icmp sgt i32 %6, 0
-  br i1 %31, label %32, label %35
+  br i1 %31, label %32, label %34
 
 32:                                               ; preds = %3
-  %33 = icmp ult i32 %25, 32
-  %spec.select.i = select i1 %33, i32 %25, i32 0
-  %34 = call noundef i32 @_ZN9Assembler21vex_prefix_and_encodeEiiiNS_13VexSimdPrefixENS_9VexOpcodeEP15InstructionAttrb(ptr noundef nonnull align 8 dereferenceable(40) %0, i32 noundef %25, i32 noundef %spec.select.i, i32 noundef %30, i32 noundef 1, i32 noundef 1, ptr noundef nonnull %4, i1 noundef zeroext false)
+  %spec.select.i.i = icmp ult i32 %25, 32
+  %spec.select.i = select i1 %spec.select.i.i, i32 %25, i32 0
+  %33 = call noundef i32 @_ZN9Assembler21vex_prefix_and_encodeEiiiNS_13VexSimdPrefixENS_9VexOpcodeEP15InstructionAttrb(ptr noundef nonnull align 8 dereferenceable(40) %0, i32 noundef %25, i32 noundef %spec.select.i, i32 noundef %30, i32 noundef 1, i32 noundef 1, ptr noundef nonnull %4, i1 noundef zeroext false)
   br label %_ZN9Assembler22simd_prefix_and_encodeE11XMMRegisterS0_S0_NS_13VexSimdPrefixENS_9VexOpcodeEP15InstructionAttrb.exit
 
-35:                                               ; preds = %3
-  %36 = tail call noundef i32 @_ZN9Assembler21rex_prefix_and_encodeEiiNS_13VexSimdPrefixENS_9VexOpcodeEb(ptr noundef nonnull align 8 dereferenceable(40) %0, i32 noundef %25, i32 noundef %30, i32 noundef 1, i32 noundef 1, i1 noundef zeroext false)
+34:                                               ; preds = %3
+  %35 = tail call noundef i32 @_ZN9Assembler21rex_prefix_and_encodeEiiNS_13VexSimdPrefixENS_9VexOpcodeEb(ptr noundef nonnull align 8 dereferenceable(40) %0, i32 noundef %25, i32 noundef %30, i32 noundef 1, i32 noundef 1, i1 noundef zeroext false)
   br label %_ZN9Assembler22simd_prefix_and_encodeE11XMMRegisterS0_S0_NS_13VexSimdPrefixENS_9VexOpcodeEP15InstructionAttrb.exit
 
-_ZN9Assembler22simd_prefix_and_encodeE11XMMRegisterS0_S0_NS_13VexSimdPrefixENS_9VexOpcodeEP15InstructionAttrb.exit: ; preds = %32, %35
-  %.0.i = phi i32 [ %34, %32 ], [ %36, %35 ]
-  %37 = getelementptr inbounds i8, ptr %0, i64 8
-  %38 = load ptr, ptr %37, align 8
-  %39 = trunc i32 %.0.i to i8
-  %.0.i2.i = or i8 %39, -64
-  %40 = getelementptr inbounds i8, ptr %38, i64 16
-  %41 = load ptr, ptr %40, align 8
-  %42 = getelementptr inbounds i8, ptr %41, i64 1
-  store i8 -2, ptr %41, align 1
-  %43 = getelementptr inbounds i8, ptr %41, i64 2
-  store i8 %.0.i2.i, ptr %42, align 1
-  store ptr %43, ptr %40, align 8
-  %44 = load ptr, ptr %20, align 8
-  %.not.i = icmp eq ptr %44, null
-  br i1 %.not.i, label %_ZN15InstructionAttrD2Ev.exit, label %45
+_ZN9Assembler22simd_prefix_and_encodeE11XMMRegisterS0_S0_NS_13VexSimdPrefixENS_9VexOpcodeEP15InstructionAttrb.exit: ; preds = %32, %34
+  %.0.i = phi i32 [ %33, %32 ], [ %35, %34 ]
+  %36 = getelementptr inbounds i8, ptr %0, i64 8
+  %37 = load ptr, ptr %36, align 8
+  %38 = trunc i32 %.0.i to i8
+  %.0.i2.i = or i8 %38, -64
+  %39 = getelementptr inbounds i8, ptr %37, i64 16
+  %40 = load ptr, ptr %39, align 8
+  %41 = getelementptr inbounds i8, ptr %40, i64 1
+  store i8 -2, ptr %40, align 1
+  %42 = getelementptr inbounds i8, ptr %40, i64 2
+  store i8 %.0.i2.i, ptr %41, align 1
+  store ptr %42, ptr %39, align 8
+  %43 = load ptr, ptr %20, align 8
+  %.not.i = icmp eq ptr %43, null
+  br i1 %.not.i, label %_ZN15InstructionAttrD2Ev.exit, label %44
 
-45:                                               ; preds = %_ZN9Assembler22simd_prefix_and_encodeE11XMMRegisterS0_S0_NS_13VexSimdPrefixENS_9VexOpcodeEP15InstructionAttrb.exit
-  %46 = getelementptr inbounds i8, ptr %44, i64 32
-  store ptr null, ptr %46, align 8
+44:                                               ; preds = %_ZN9Assembler22simd_prefix_and_encodeE11XMMRegisterS0_S0_NS_13VexSimdPrefixENS_9VexOpcodeEP15InstructionAttrb.exit
+  %45 = getelementptr inbounds i8, ptr %43, i64 32
+  store ptr null, ptr %45, align 8
   br label %_ZN15InstructionAttrD2Ev.exit
 
-_ZN15InstructionAttrD2Ev.exit:                    ; preds = %_ZN9Assembler22simd_prefix_and_encodeE11XMMRegisterS0_S0_NS_13VexSimdPrefixENS_9VexOpcodeEP15InstructionAttrb.exit, %45
+_ZN15InstructionAttrD2Ev.exit:                    ; preds = %_ZN9Assembler22simd_prefix_and_encodeE11XMMRegisterS0_S0_NS_13VexSimdPrefixENS_9VexOpcodeEP15InstructionAttrb.exit, %44
   ret void
 }
 
@@ -63553,42 +63553,42 @@ define hidden void @_ZN9Assembler5paddqE11XMMRegisterS0_(ptr noundef nonnull ali
   %32 = trunc i64 %31 to i32
   %33 = sub i32 %32, ptrtoint (ptr getelementptr inbounds (i8, ptr @all_XMMRegisterImpls, i64 1) to i32)
   %34 = icmp sgt i32 %9, 0
-  br i1 %34, label %35, label %38
+  br i1 %34, label %35, label %37
 
 35:                                               ; preds = %3
-  %36 = icmp ult i32 %28, 32
-  %spec.select.i = select i1 %36, i32 %28, i32 0
-  %37 = call noundef i32 @_ZN9Assembler21vex_prefix_and_encodeEiiiNS_13VexSimdPrefixENS_9VexOpcodeEP15InstructionAttrb(ptr noundef nonnull align 8 dereferenceable(40) %0, i32 noundef %28, i32 noundef %spec.select.i, i32 noundef %33, i32 noundef 1, i32 noundef 1, ptr noundef nonnull %4, i1 noundef zeroext false)
+  %spec.select.i.i = icmp ult i32 %28, 32
+  %spec.select.i = select i1 %spec.select.i.i, i32 %28, i32 0
+  %36 = call noundef i32 @_ZN9Assembler21vex_prefix_and_encodeEiiiNS_13VexSimdPrefixENS_9VexOpcodeEP15InstructionAttrb(ptr noundef nonnull align 8 dereferenceable(40) %0, i32 noundef %28, i32 noundef %spec.select.i, i32 noundef %33, i32 noundef 1, i32 noundef 1, ptr noundef nonnull %4, i1 noundef zeroext false)
   br label %_ZN9Assembler22simd_prefix_and_encodeE11XMMRegisterS0_S0_NS_13VexSimdPrefixENS_9VexOpcodeEP15InstructionAttrb.exit
 
-38:                                               ; preds = %3
-  %39 = icmp ne i64 %6, 0
-  %40 = tail call noundef i32 @_ZN9Assembler21rex_prefix_and_encodeEiiNS_13VexSimdPrefixENS_9VexOpcodeEb(ptr noundef nonnull align 8 dereferenceable(40) %0, i32 noundef %28, i32 noundef %33, i32 noundef 1, i32 noundef 1, i1 noundef zeroext %39)
+37:                                               ; preds = %3
+  %38 = icmp ne i64 %6, 0
+  %39 = tail call noundef i32 @_ZN9Assembler21rex_prefix_and_encodeEiiNS_13VexSimdPrefixENS_9VexOpcodeEb(ptr noundef nonnull align 8 dereferenceable(40) %0, i32 noundef %28, i32 noundef %33, i32 noundef 1, i32 noundef 1, i1 noundef zeroext %38)
   br label %_ZN9Assembler22simd_prefix_and_encodeE11XMMRegisterS0_S0_NS_13VexSimdPrefixENS_9VexOpcodeEP15InstructionAttrb.exit
 
-_ZN9Assembler22simd_prefix_and_encodeE11XMMRegisterS0_S0_NS_13VexSimdPrefixENS_9VexOpcodeEP15InstructionAttrb.exit: ; preds = %35, %38
-  %.0.i = phi i32 [ %37, %35 ], [ %40, %38 ]
-  %41 = getelementptr inbounds i8, ptr %0, i64 8
-  %42 = load ptr, ptr %41, align 8
-  %43 = trunc i32 %.0.i to i8
-  %.0.i2.i = or i8 %43, -64
-  %44 = getelementptr inbounds i8, ptr %42, i64 16
-  %45 = load ptr, ptr %44, align 8
-  %46 = getelementptr inbounds i8, ptr %45, i64 1
-  store i8 -44, ptr %45, align 1
-  %47 = getelementptr inbounds i8, ptr %45, i64 2
-  store i8 %.0.i2.i, ptr %46, align 1
-  store ptr %47, ptr %44, align 8
-  %48 = load ptr, ptr %23, align 8
-  %.not.i = icmp eq ptr %48, null
-  br i1 %.not.i, label %_ZN15InstructionAttrD2Ev.exit, label %49
+_ZN9Assembler22simd_prefix_and_encodeE11XMMRegisterS0_S0_NS_13VexSimdPrefixENS_9VexOpcodeEP15InstructionAttrb.exit: ; preds = %35, %37
+  %.0.i = phi i32 [ %36, %35 ], [ %39, %37 ]
+  %40 = getelementptr inbounds i8, ptr %0, i64 8
+  %41 = load ptr, ptr %40, align 8
+  %42 = trunc i32 %.0.i to i8
+  %.0.i2.i = or i8 %42, -64
+  %43 = getelementptr inbounds i8, ptr %41, i64 16
+  %44 = load ptr, ptr %43, align 8
+  %45 = getelementptr inbounds i8, ptr %44, i64 1
+  store i8 -44, ptr %44, align 1
+  %46 = getelementptr inbounds i8, ptr %44, i64 2
+  store i8 %.0.i2.i, ptr %45, align 1
+  store ptr %46, ptr %43, align 8
+  %47 = load ptr, ptr %23, align 8
+  %.not.i = icmp eq ptr %47, null
+  br i1 %.not.i, label %_ZN15InstructionAttrD2Ev.exit, label %48
 
-49:                                               ; preds = %_ZN9Assembler22simd_prefix_and_encodeE11XMMRegisterS0_S0_NS_13VexSimdPrefixENS_9VexOpcodeEP15InstructionAttrb.exit
-  %50 = getelementptr inbounds i8, ptr %48, i64 32
-  store ptr null, ptr %50, align 8
+48:                                               ; preds = %_ZN9Assembler22simd_prefix_and_encodeE11XMMRegisterS0_S0_NS_13VexSimdPrefixENS_9VexOpcodeEP15InstructionAttrb.exit
+  %49 = getelementptr inbounds i8, ptr %47, i64 32
+  store ptr null, ptr %49, align 8
   br label %_ZN15InstructionAttrD2Ev.exit
 
-_ZN15InstructionAttrD2Ev.exit:                    ; preds = %_ZN9Assembler22simd_prefix_and_encodeE11XMMRegisterS0_S0_NS_13VexSimdPrefixENS_9VexOpcodeEP15InstructionAttrb.exit, %49
+_ZN15InstructionAttrD2Ev.exit:                    ; preds = %_ZN9Assembler22simd_prefix_and_encodeE11XMMRegisterS0_S0_NS_13VexSimdPrefixENS_9VexOpcodeEP15InstructionAttrb.exit, %48
   ret void
 }
 
@@ -63634,41 +63634,41 @@ define hidden void @_ZN9Assembler6phaddwE11XMMRegisterS0_(ptr noundef nonnull al
   %27 = trunc i64 %26 to i32
   %28 = sub i32 %27, ptrtoint (ptr getelementptr inbounds (i8, ptr @all_XMMRegisterImpls, i64 1) to i32)
   %29 = icmp sgt i32 %6, 0
-  br i1 %29, label %30, label %33
+  br i1 %29, label %30, label %32
 
 30:                                               ; preds = %3
-  %31 = icmp ult i32 %23, 32
-  %spec.select.i = select i1 %31, i32 %23, i32 0
-  %32 = call noundef i32 @_ZN9Assembler21vex_prefix_and_encodeEiiiNS_13VexSimdPrefixENS_9VexOpcodeEP15InstructionAttrb(ptr noundef nonnull align 8 dereferenceable(40) %0, i32 noundef %23, i32 noundef %spec.select.i, i32 noundef %28, i32 noundef 1, i32 noundef 2, ptr noundef nonnull %4, i1 noundef zeroext false)
+  %spec.select.i.i = icmp ult i32 %23, 32
+  %spec.select.i = select i1 %spec.select.i.i, i32 %23, i32 0
+  %31 = call noundef i32 @_ZN9Assembler21vex_prefix_and_encodeEiiiNS_13VexSimdPrefixENS_9VexOpcodeEP15InstructionAttrb(ptr noundef nonnull align 8 dereferenceable(40) %0, i32 noundef %23, i32 noundef %spec.select.i, i32 noundef %28, i32 noundef 1, i32 noundef 2, ptr noundef nonnull %4, i1 noundef zeroext false)
   br label %_ZN9Assembler22simd_prefix_and_encodeE11XMMRegisterS0_S0_NS_13VexSimdPrefixENS_9VexOpcodeEP15InstructionAttrb.exit
 
-33:                                               ; preds = %3
-  %34 = tail call noundef i32 @_ZN9Assembler21rex_prefix_and_encodeEiiNS_13VexSimdPrefixENS_9VexOpcodeEb(ptr noundef nonnull align 8 dereferenceable(40) %0, i32 noundef %23, i32 noundef %28, i32 noundef 1, i32 noundef 2, i1 noundef zeroext false)
+32:                                               ; preds = %3
+  %33 = tail call noundef i32 @_ZN9Assembler21rex_prefix_and_encodeEiiNS_13VexSimdPrefixENS_9VexOpcodeEb(ptr noundef nonnull align 8 dereferenceable(40) %0, i32 noundef %23, i32 noundef %28, i32 noundef 1, i32 noundef 2, i1 noundef zeroext false)
   br label %_ZN9Assembler22simd_prefix_and_encodeE11XMMRegisterS0_S0_NS_13VexSimdPrefixENS_9VexOpcodeEP15InstructionAttrb.exit
 
-_ZN9Assembler22simd_prefix_and_encodeE11XMMRegisterS0_S0_NS_13VexSimdPrefixENS_9VexOpcodeEP15InstructionAttrb.exit: ; preds = %30, %33
-  %.0.i = phi i32 [ %32, %30 ], [ %34, %33 ]
-  %35 = getelementptr inbounds i8, ptr %0, i64 8
-  %36 = load ptr, ptr %35, align 8
-  %37 = trunc i32 %.0.i to i8
-  %.0.i2.i = or i8 %37, -64
-  %38 = getelementptr inbounds i8, ptr %36, i64 16
-  %39 = load ptr, ptr %38, align 8
-  %40 = getelementptr inbounds i8, ptr %39, i64 1
-  store i8 1, ptr %39, align 1
-  %41 = getelementptr inbounds i8, ptr %39, i64 2
-  store i8 %.0.i2.i, ptr %40, align 1
-  store ptr %41, ptr %38, align 8
-  %42 = load ptr, ptr %18, align 8
-  %.not.i = icmp eq ptr %42, null
-  br i1 %.not.i, label %_ZN15InstructionAttrD2Ev.exit, label %43
+_ZN9Assembler22simd_prefix_and_encodeE11XMMRegisterS0_S0_NS_13VexSimdPrefixENS_9VexOpcodeEP15InstructionAttrb.exit: ; preds = %30, %32
+  %.0.i = phi i32 [ %31, %30 ], [ %33, %32 ]
+  %34 = getelementptr inbounds i8, ptr %0, i64 8
+  %35 = load ptr, ptr %34, align 8
+  %36 = trunc i32 %.0.i to i8
+  %.0.i2.i = or i8 %36, -64
+  %37 = getelementptr inbounds i8, ptr %35, i64 16
+  %38 = load ptr, ptr %37, align 8
+  %39 = getelementptr inbounds i8, ptr %38, i64 1
+  store i8 1, ptr %38, align 1
+  %40 = getelementptr inbounds i8, ptr %38, i64 2
+  store i8 %.0.i2.i, ptr %39, align 1
+  store ptr %40, ptr %37, align 8
+  %41 = load ptr, ptr %18, align 8
+  %.not.i = icmp eq ptr %41, null
+  br i1 %.not.i, label %_ZN15InstructionAttrD2Ev.exit, label %42
 
-43:                                               ; preds = %_ZN9Assembler22simd_prefix_and_encodeE11XMMRegisterS0_S0_NS_13VexSimdPrefixENS_9VexOpcodeEP15InstructionAttrb.exit
-  %44 = getelementptr inbounds i8, ptr %42, i64 32
-  store ptr null, ptr %44, align 8
+42:                                               ; preds = %_ZN9Assembler22simd_prefix_and_encodeE11XMMRegisterS0_S0_NS_13VexSimdPrefixENS_9VexOpcodeEP15InstructionAttrb.exit
+  %43 = getelementptr inbounds i8, ptr %41, i64 32
+  store ptr null, ptr %43, align 8
   br label %_ZN15InstructionAttrD2Ev.exit
 
-_ZN15InstructionAttrD2Ev.exit:                    ; preds = %_ZN9Assembler22simd_prefix_and_encodeE11XMMRegisterS0_S0_NS_13VexSimdPrefixENS_9VexOpcodeEP15InstructionAttrb.exit, %43
+_ZN15InstructionAttrD2Ev.exit:                    ; preds = %_ZN9Assembler22simd_prefix_and_encodeE11XMMRegisterS0_S0_NS_13VexSimdPrefixENS_9VexOpcodeEP15InstructionAttrb.exit, %42
   ret void
 }
 
@@ -63714,41 +63714,41 @@ define hidden void @_ZN9Assembler6phadddE11XMMRegisterS0_(ptr noundef nonnull al
   %27 = trunc i64 %26 to i32
   %28 = sub i32 %27, ptrtoint (ptr getelementptr inbounds (i8, ptr @all_XMMRegisterImpls, i64 1) to i32)
   %29 = icmp sgt i32 %6, 0
-  br i1 %29, label %30, label %33
+  br i1 %29, label %30, label %32
 
 30:                                               ; preds = %3
-  %31 = icmp ult i32 %23, 32
-  %spec.select.i = select i1 %31, i32 %23, i32 0
-  %32 = call noundef i32 @_ZN9Assembler21vex_prefix_and_encodeEiiiNS_13VexSimdPrefixENS_9VexOpcodeEP15InstructionAttrb(ptr noundef nonnull align 8 dereferenceable(40) %0, i32 noundef %23, i32 noundef %spec.select.i, i32 noundef %28, i32 noundef 1, i32 noundef 2, ptr noundef nonnull %4, i1 noundef zeroext false)
+  %spec.select.i.i = icmp ult i32 %23, 32
+  %spec.select.i = select i1 %spec.select.i.i, i32 %23, i32 0
+  %31 = call noundef i32 @_ZN9Assembler21vex_prefix_and_encodeEiiiNS_13VexSimdPrefixENS_9VexOpcodeEP15InstructionAttrb(ptr noundef nonnull align 8 dereferenceable(40) %0, i32 noundef %23, i32 noundef %spec.select.i, i32 noundef %28, i32 noundef 1, i32 noundef 2, ptr noundef nonnull %4, i1 noundef zeroext false)
   br label %_ZN9Assembler22simd_prefix_and_encodeE11XMMRegisterS0_S0_NS_13VexSimdPrefixENS_9VexOpcodeEP15InstructionAttrb.exit
 
-33:                                               ; preds = %3
-  %34 = tail call noundef i32 @_ZN9Assembler21rex_prefix_and_encodeEiiNS_13VexSimdPrefixENS_9VexOpcodeEb(ptr noundef nonnull align 8 dereferenceable(40) %0, i32 noundef %23, i32 noundef %28, i32 noundef 1, i32 noundef 2, i1 noundef zeroext false)
+32:                                               ; preds = %3
+  %33 = tail call noundef i32 @_ZN9Assembler21rex_prefix_and_encodeEiiNS_13VexSimdPrefixENS_9VexOpcodeEb(ptr noundef nonnull align 8 dereferenceable(40) %0, i32 noundef %23, i32 noundef %28, i32 noundef 1, i32 noundef 2, i1 noundef zeroext false)
   br label %_ZN9Assembler22simd_prefix_and_encodeE11XMMRegisterS0_S0_NS_13VexSimdPrefixENS_9VexOpcodeEP15InstructionAttrb.exit
 
-_ZN9Assembler22simd_prefix_and_encodeE11XMMRegisterS0_S0_NS_13VexSimdPrefixENS_9VexOpcodeEP15InstructionAttrb.exit: ; preds = %30, %33
-  %.0.i = phi i32 [ %32, %30 ], [ %34, %33 ]
-  %35 = getelementptr inbounds i8, ptr %0, i64 8
-  %36 = load ptr, ptr %35, align 8
-  %37 = trunc i32 %.0.i to i8
-  %.0.i2.i = or i8 %37, -64
-  %38 = getelementptr inbounds i8, ptr %36, i64 16
-  %39 = load ptr, ptr %38, align 8
-  %40 = getelementptr inbounds i8, ptr %39, i64 1
-  store i8 2, ptr %39, align 1
-  %41 = getelementptr inbounds i8, ptr %39, i64 2
-  store i8 %.0.i2.i, ptr %40, align 1
-  store ptr %41, ptr %38, align 8
-  %42 = load ptr, ptr %18, align 8
-  %.not.i = icmp eq ptr %42, null
-  br i1 %.not.i, label %_ZN15InstructionAttrD2Ev.exit, label %43
+_ZN9Assembler22simd_prefix_and_encodeE11XMMRegisterS0_S0_NS_13VexSimdPrefixENS_9VexOpcodeEP15InstructionAttrb.exit: ; preds = %30, %32
+  %.0.i = phi i32 [ %31, %30 ], [ %33, %32 ]
+  %34 = getelementptr inbounds i8, ptr %0, i64 8
+  %35 = load ptr, ptr %34, align 8
+  %36 = trunc i32 %.0.i to i8
+  %.0.i2.i = or i8 %36, -64
+  %37 = getelementptr inbounds i8, ptr %35, i64 16
+  %38 = load ptr, ptr %37, align 8
+  %39 = getelementptr inbounds i8, ptr %38, i64 1
+  store i8 2, ptr %38, align 1
+  %40 = getelementptr inbounds i8, ptr %38, i64 2
+  store i8 %.0.i2.i, ptr %39, align 1
+  store ptr %40, ptr %37, align 8
+  %41 = load ptr, ptr %18, align 8
+  %.not.i = icmp eq ptr %41, null
+  br i1 %.not.i, label %_ZN15InstructionAttrD2Ev.exit, label %42
 
-43:                                               ; preds = %_ZN9Assembler22simd_prefix_and_encodeE11XMMRegisterS0_S0_NS_13VexSimdPrefixENS_9VexOpcodeEP15InstructionAttrb.exit
-  %44 = getelementptr inbounds i8, ptr %42, i64 32
-  store ptr null, ptr %44, align 8
+42:                                               ; preds = %_ZN9Assembler22simd_prefix_and_encodeE11XMMRegisterS0_S0_NS_13VexSimdPrefixENS_9VexOpcodeEP15InstructionAttrb.exit
+  %43 = getelementptr inbounds i8, ptr %41, i64 32
+  store ptr null, ptr %43, align 8
   br label %_ZN15InstructionAttrD2Ev.exit
 
-_ZN15InstructionAttrD2Ev.exit:                    ; preds = %_ZN9Assembler22simd_prefix_and_encodeE11XMMRegisterS0_S0_NS_13VexSimdPrefixENS_9VexOpcodeEP15InstructionAttrb.exit, %43
+_ZN15InstructionAttrD2Ev.exit:                    ; preds = %_ZN9Assembler22simd_prefix_and_encodeE11XMMRegisterS0_S0_NS_13VexSimdPrefixENS_9VexOpcodeEP15InstructionAttrb.exit, %42
   ret void
 }
 
@@ -64610,41 +64610,41 @@ define hidden void @_ZN9Assembler5psubbE11XMMRegisterS0_(ptr noundef nonnull ali
   %33 = trunc i64 %32 to i32
   %34 = sub i32 %33, ptrtoint (ptr getelementptr inbounds (i8, ptr @all_XMMRegisterImpls, i64 1) to i32)
   %35 = icmp sgt i32 %9, 0
-  br i1 %35, label %36, label %39
+  br i1 %35, label %36, label %38
 
 36:                                               ; preds = %3
-  %37 = icmp ult i32 %29, 32
-  %spec.select.i = select i1 %37, i32 %29, i32 0
-  %38 = call noundef i32 @_ZN9Assembler21vex_prefix_and_encodeEiiiNS_13VexSimdPrefixENS_9VexOpcodeEP15InstructionAttrb(ptr noundef nonnull align 8 dereferenceable(40) %0, i32 noundef %29, i32 noundef %spec.select.i, i32 noundef %34, i32 noundef 1, i32 noundef 1, ptr noundef nonnull %4, i1 noundef zeroext false)
+  %spec.select.i.i = icmp ult i32 %29, 32
+  %spec.select.i = select i1 %spec.select.i.i, i32 %29, i32 0
+  %37 = call noundef i32 @_ZN9Assembler21vex_prefix_and_encodeEiiiNS_13VexSimdPrefixENS_9VexOpcodeEP15InstructionAttrb(ptr noundef nonnull align 8 dereferenceable(40) %0, i32 noundef %29, i32 noundef %spec.select.i, i32 noundef %34, i32 noundef 1, i32 noundef 1, ptr noundef nonnull %4, i1 noundef zeroext false)
   br label %_ZN9Assembler22simd_prefix_and_encodeE11XMMRegisterS0_S0_NS_13VexSimdPrefixENS_9VexOpcodeEP15InstructionAttrb.exit
 
-39:                                               ; preds = %3
-  %40 = tail call noundef i32 @_ZN9Assembler21rex_prefix_and_encodeEiiNS_13VexSimdPrefixENS_9VexOpcodeEb(ptr noundef nonnull align 8 dereferenceable(40) %0, i32 noundef %29, i32 noundef %34, i32 noundef 1, i32 noundef 1, i1 noundef zeroext false)
+38:                                               ; preds = %3
+  %39 = tail call noundef i32 @_ZN9Assembler21rex_prefix_and_encodeEiiNS_13VexSimdPrefixENS_9VexOpcodeEb(ptr noundef nonnull align 8 dereferenceable(40) %0, i32 noundef %29, i32 noundef %34, i32 noundef 1, i32 noundef 1, i1 noundef zeroext false)
   br label %_ZN9Assembler22simd_prefix_and_encodeE11XMMRegisterS0_S0_NS_13VexSimdPrefixENS_9VexOpcodeEP15InstructionAttrb.exit
 
-_ZN9Assembler22simd_prefix_and_encodeE11XMMRegisterS0_S0_NS_13VexSimdPrefixENS_9VexOpcodeEP15InstructionAttrb.exit: ; preds = %36, %39
-  %.0.i = phi i32 [ %38, %36 ], [ %40, %39 ]
-  %41 = getelementptr inbounds i8, ptr %0, i64 8
-  %42 = load ptr, ptr %41, align 8
-  %43 = trunc i32 %.0.i to i8
-  %.0.i2.i = or i8 %43, -64
-  %44 = getelementptr inbounds i8, ptr %42, i64 16
-  %45 = load ptr, ptr %44, align 8
-  %46 = getelementptr inbounds i8, ptr %45, i64 1
-  store i8 -8, ptr %45, align 1
-  %47 = getelementptr inbounds i8, ptr %45, i64 2
-  store i8 %.0.i2.i, ptr %46, align 1
-  store ptr %47, ptr %44, align 8
-  %48 = load ptr, ptr %24, align 8
-  %.not.i = icmp eq ptr %48, null
-  br i1 %.not.i, label %_ZN15InstructionAttrD2Ev.exit, label %49
+_ZN9Assembler22simd_prefix_and_encodeE11XMMRegisterS0_S0_NS_13VexSimdPrefixENS_9VexOpcodeEP15InstructionAttrb.exit: ; preds = %36, %38
+  %.0.i = phi i32 [ %37, %36 ], [ %39, %38 ]
+  %40 = getelementptr inbounds i8, ptr %0, i64 8
+  %41 = load ptr, ptr %40, align 8
+  %42 = trunc i32 %.0.i to i8
+  %.0.i2.i = or i8 %42, -64
+  %43 = getelementptr inbounds i8, ptr %41, i64 16
+  %44 = load ptr, ptr %43, align 8
+  %45 = getelementptr inbounds i8, ptr %44, i64 1
+  store i8 -8, ptr %44, align 1
+  %46 = getelementptr inbounds i8, ptr %44, i64 2
+  store i8 %.0.i2.i, ptr %45, align 1
+  store ptr %46, ptr %43, align 8
+  %47 = load ptr, ptr %24, align 8
+  %.not.i = icmp eq ptr %47, null
+  br i1 %.not.i, label %_ZN15InstructionAttrD2Ev.exit, label %48
 
-49:                                               ; preds = %_ZN9Assembler22simd_prefix_and_encodeE11XMMRegisterS0_S0_NS_13VexSimdPrefixENS_9VexOpcodeEP15InstructionAttrb.exit
-  %50 = getelementptr inbounds i8, ptr %48, i64 32
-  store ptr null, ptr %50, align 8
+48:                                               ; preds = %_ZN9Assembler22simd_prefix_and_encodeE11XMMRegisterS0_S0_NS_13VexSimdPrefixENS_9VexOpcodeEP15InstructionAttrb.exit
+  %49 = getelementptr inbounds i8, ptr %47, i64 32
+  store ptr null, ptr %49, align 8
   br label %_ZN15InstructionAttrD2Ev.exit
 
-_ZN15InstructionAttrD2Ev.exit:                    ; preds = %_ZN9Assembler22simd_prefix_and_encodeE11XMMRegisterS0_S0_NS_13VexSimdPrefixENS_9VexOpcodeEP15InstructionAttrb.exit, %49
+_ZN15InstructionAttrD2Ev.exit:                    ; preds = %_ZN9Assembler22simd_prefix_and_encodeE11XMMRegisterS0_S0_NS_13VexSimdPrefixENS_9VexOpcodeEP15InstructionAttrb.exit, %48
   ret void
 }
 
@@ -64696,41 +64696,41 @@ define hidden void @_ZN9Assembler5psubwE11XMMRegisterS0_(ptr noundef nonnull ali
   %33 = trunc i64 %32 to i32
   %34 = sub i32 %33, ptrtoint (ptr getelementptr inbounds (i8, ptr @all_XMMRegisterImpls, i64 1) to i32)
   %35 = icmp sgt i32 %9, 0
-  br i1 %35, label %36, label %39
+  br i1 %35, label %36, label %38
 
 36:                                               ; preds = %3
-  %37 = icmp ult i32 %29, 32
-  %spec.select.i = select i1 %37, i32 %29, i32 0
-  %38 = call noundef i32 @_ZN9Assembler21vex_prefix_and_encodeEiiiNS_13VexSimdPrefixENS_9VexOpcodeEP15InstructionAttrb(ptr noundef nonnull align 8 dereferenceable(40) %0, i32 noundef %29, i32 noundef %spec.select.i, i32 noundef %34, i32 noundef 1, i32 noundef 1, ptr noundef nonnull %4, i1 noundef zeroext false)
+  %spec.select.i.i = icmp ult i32 %29, 32
+  %spec.select.i = select i1 %spec.select.i.i, i32 %29, i32 0
+  %37 = call noundef i32 @_ZN9Assembler21vex_prefix_and_encodeEiiiNS_13VexSimdPrefixENS_9VexOpcodeEP15InstructionAttrb(ptr noundef nonnull align 8 dereferenceable(40) %0, i32 noundef %29, i32 noundef %spec.select.i, i32 noundef %34, i32 noundef 1, i32 noundef 1, ptr noundef nonnull %4, i1 noundef zeroext false)
   br label %_ZN9Assembler22simd_prefix_and_encodeE11XMMRegisterS0_S0_NS_13VexSimdPrefixENS_9VexOpcodeEP15InstructionAttrb.exit
 
-39:                                               ; preds = %3
-  %40 = tail call noundef i32 @_ZN9Assembler21rex_prefix_and_encodeEiiNS_13VexSimdPrefixENS_9VexOpcodeEb(ptr noundef nonnull align 8 dereferenceable(40) %0, i32 noundef %29, i32 noundef %34, i32 noundef 1, i32 noundef 1, i1 noundef zeroext false)
+38:                                               ; preds = %3
+  %39 = tail call noundef i32 @_ZN9Assembler21rex_prefix_and_encodeEiiNS_13VexSimdPrefixENS_9VexOpcodeEb(ptr noundef nonnull align 8 dereferenceable(40) %0, i32 noundef %29, i32 noundef %34, i32 noundef 1, i32 noundef 1, i1 noundef zeroext false)
   br label %_ZN9Assembler22simd_prefix_and_encodeE11XMMRegisterS0_S0_NS_13VexSimdPrefixENS_9VexOpcodeEP15InstructionAttrb.exit
 
-_ZN9Assembler22simd_prefix_and_encodeE11XMMRegisterS0_S0_NS_13VexSimdPrefixENS_9VexOpcodeEP15InstructionAttrb.exit: ; preds = %36, %39
-  %.0.i = phi i32 [ %38, %36 ], [ %40, %39 ]
-  %41 = getelementptr inbounds i8, ptr %0, i64 8
-  %42 = load ptr, ptr %41, align 8
-  %43 = trunc i32 %.0.i to i8
-  %.0.i2.i = or i8 %43, -64
-  %44 = getelementptr inbounds i8, ptr %42, i64 16
-  %45 = load ptr, ptr %44, align 8
-  %46 = getelementptr inbounds i8, ptr %45, i64 1
-  store i8 -7, ptr %45, align 1
-  %47 = getelementptr inbounds i8, ptr %45, i64 2
-  store i8 %.0.i2.i, ptr %46, align 1
-  store ptr %47, ptr %44, align 8
-  %48 = load ptr, ptr %24, align 8
-  %.not.i = icmp eq ptr %48, null
-  br i1 %.not.i, label %_ZN15InstructionAttrD2Ev.exit, label %49
+_ZN9Assembler22simd_prefix_and_encodeE11XMMRegisterS0_S0_NS_13VexSimdPrefixENS_9VexOpcodeEP15InstructionAttrb.exit: ; preds = %36, %38
+  %.0.i = phi i32 [ %37, %36 ], [ %39, %38 ]
+  %40 = getelementptr inbounds i8, ptr %0, i64 8
+  %41 = load ptr, ptr %40, align 8
+  %42 = trunc i32 %.0.i to i8
+  %.0.i2.i = or i8 %42, -64
+  %43 = getelementptr inbounds i8, ptr %41, i64 16
+  %44 = load ptr, ptr %43, align 8
+  %45 = getelementptr inbounds i8, ptr %44, i64 1
+  store i8 -7, ptr %44, align 1
+  %46 = getelementptr inbounds i8, ptr %44, i64 2
+  store i8 %.0.i2.i, ptr %45, align 1
+  store ptr %46, ptr %43, align 8
+  %47 = load ptr, ptr %24, align 8
+  %.not.i = icmp eq ptr %47, null
+  br i1 %.not.i, label %_ZN15InstructionAttrD2Ev.exit, label %48
 
-49:                                               ; preds = %_ZN9Assembler22simd_prefix_and_encodeE11XMMRegisterS0_S0_NS_13VexSimdPrefixENS_9VexOpcodeEP15InstructionAttrb.exit
-  %50 = getelementptr inbounds i8, ptr %48, i64 32
-  store ptr null, ptr %50, align 8
+48:                                               ; preds = %_ZN9Assembler22simd_prefix_and_encodeE11XMMRegisterS0_S0_NS_13VexSimdPrefixENS_9VexOpcodeEP15InstructionAttrb.exit
+  %49 = getelementptr inbounds i8, ptr %47, i64 32
+  store ptr null, ptr %49, align 8
   br label %_ZN15InstructionAttrD2Ev.exit
 
-_ZN15InstructionAttrD2Ev.exit:                    ; preds = %_ZN9Assembler22simd_prefix_and_encodeE11XMMRegisterS0_S0_NS_13VexSimdPrefixENS_9VexOpcodeEP15InstructionAttrb.exit, %49
+_ZN15InstructionAttrD2Ev.exit:                    ; preds = %_ZN9Assembler22simd_prefix_and_encodeE11XMMRegisterS0_S0_NS_13VexSimdPrefixENS_9VexOpcodeEP15InstructionAttrb.exit, %48
   ret void
 }
 
@@ -64778,41 +64778,41 @@ define hidden void @_ZN9Assembler5psubdE11XMMRegisterS0_(ptr noundef nonnull ali
   %29 = trunc i64 %28 to i32
   %30 = sub i32 %29, ptrtoint (ptr getelementptr inbounds (i8, ptr @all_XMMRegisterImpls, i64 1) to i32)
   %31 = icmp sgt i32 %6, 0
-  br i1 %31, label %32, label %35
+  br i1 %31, label %32, label %34
 
 32:                                               ; preds = %3
-  %33 = icmp ult i32 %25, 32
-  %spec.select.i = select i1 %33, i32 %25, i32 0
-  %34 = call noundef i32 @_ZN9Assembler21vex_prefix_and_encodeEiiiNS_13VexSimdPrefixENS_9VexOpcodeEP15InstructionAttrb(ptr noundef nonnull align 8 dereferenceable(40) %0, i32 noundef %25, i32 noundef %spec.select.i, i32 noundef %30, i32 noundef 1, i32 noundef 1, ptr noundef nonnull %4, i1 noundef zeroext false)
+  %spec.select.i.i = icmp ult i32 %25, 32
+  %spec.select.i = select i1 %spec.select.i.i, i32 %25, i32 0
+  %33 = call noundef i32 @_ZN9Assembler21vex_prefix_and_encodeEiiiNS_13VexSimdPrefixENS_9VexOpcodeEP15InstructionAttrb(ptr noundef nonnull align 8 dereferenceable(40) %0, i32 noundef %25, i32 noundef %spec.select.i, i32 noundef %30, i32 noundef 1, i32 noundef 1, ptr noundef nonnull %4, i1 noundef zeroext false)
   br label %_ZN9Assembler22simd_prefix_and_encodeE11XMMRegisterS0_S0_NS_13VexSimdPrefixENS_9VexOpcodeEP15InstructionAttrb.exit
 
-35:                                               ; preds = %3
-  %36 = tail call noundef i32 @_ZN9Assembler21rex_prefix_and_encodeEiiNS_13VexSimdPrefixENS_9VexOpcodeEb(ptr noundef nonnull align 8 dereferenceable(40) %0, i32 noundef %25, i32 noundef %30, i32 noundef 1, i32 noundef 1, i1 noundef zeroext false)
+34:                                               ; preds = %3
+  %35 = tail call noundef i32 @_ZN9Assembler21rex_prefix_and_encodeEiiNS_13VexSimdPrefixENS_9VexOpcodeEb(ptr noundef nonnull align 8 dereferenceable(40) %0, i32 noundef %25, i32 noundef %30, i32 noundef 1, i32 noundef 1, i1 noundef zeroext false)
   br label %_ZN9Assembler22simd_prefix_and_encodeE11XMMRegisterS0_S0_NS_13VexSimdPrefixENS_9VexOpcodeEP15InstructionAttrb.exit
 
-_ZN9Assembler22simd_prefix_and_encodeE11XMMRegisterS0_S0_NS_13VexSimdPrefixENS_9VexOpcodeEP15InstructionAttrb.exit: ; preds = %32, %35
-  %.0.i = phi i32 [ %34, %32 ], [ %36, %35 ]
-  %37 = getelementptr inbounds i8, ptr %0, i64 8
-  %38 = load ptr, ptr %37, align 8
-  %39 = trunc i32 %.0.i to i8
-  %.0.i2.i = or i8 %39, -64
-  %40 = getelementptr inbounds i8, ptr %38, i64 16
-  %41 = load ptr, ptr %40, align 8
-  %42 = getelementptr inbounds i8, ptr %41, i64 1
-  store i8 -6, ptr %41, align 1
-  %43 = getelementptr inbounds i8, ptr %41, i64 2
-  store i8 %.0.i2.i, ptr %42, align 1
-  store ptr %43, ptr %40, align 8
-  %44 = load ptr, ptr %20, align 8
-  %.not.i = icmp eq ptr %44, null
-  br i1 %.not.i, label %_ZN15InstructionAttrD2Ev.exit, label %45
+_ZN9Assembler22simd_prefix_and_encodeE11XMMRegisterS0_S0_NS_13VexSimdPrefixENS_9VexOpcodeEP15InstructionAttrb.exit: ; preds = %32, %34
+  %.0.i = phi i32 [ %33, %32 ], [ %35, %34 ]
+  %36 = getelementptr inbounds i8, ptr %0, i64 8
+  %37 = load ptr, ptr %36, align 8
+  %38 = trunc i32 %.0.i to i8
+  %.0.i2.i = or i8 %38, -64
+  %39 = getelementptr inbounds i8, ptr %37, i64 16
+  %40 = load ptr, ptr %39, align 8
+  %41 = getelementptr inbounds i8, ptr %40, i64 1
+  store i8 -6, ptr %40, align 1
+  %42 = getelementptr inbounds i8, ptr %40, i64 2
+  store i8 %.0.i2.i, ptr %41, align 1
+  store ptr %42, ptr %39, align 8
+  %43 = load ptr, ptr %20, align 8
+  %.not.i = icmp eq ptr %43, null
+  br i1 %.not.i, label %_ZN15InstructionAttrD2Ev.exit, label %44
 
-45:                                               ; preds = %_ZN9Assembler22simd_prefix_and_encodeE11XMMRegisterS0_S0_NS_13VexSimdPrefixENS_9VexOpcodeEP15InstructionAttrb.exit
-  %46 = getelementptr inbounds i8, ptr %44, i64 32
-  store ptr null, ptr %46, align 8
+44:                                               ; preds = %_ZN9Assembler22simd_prefix_and_encodeE11XMMRegisterS0_S0_NS_13VexSimdPrefixENS_9VexOpcodeEP15InstructionAttrb.exit
+  %45 = getelementptr inbounds i8, ptr %43, i64 32
+  store ptr null, ptr %45, align 8
   br label %_ZN15InstructionAttrD2Ev.exit
 
-_ZN15InstructionAttrD2Ev.exit:                    ; preds = %_ZN9Assembler22simd_prefix_and_encodeE11XMMRegisterS0_S0_NS_13VexSimdPrefixENS_9VexOpcodeEP15InstructionAttrb.exit, %45
+_ZN15InstructionAttrD2Ev.exit:                    ; preds = %_ZN9Assembler22simd_prefix_and_encodeE11XMMRegisterS0_S0_NS_13VexSimdPrefixENS_9VexOpcodeEP15InstructionAttrb.exit, %44
   ret void
 }
 
@@ -64864,46 +64864,46 @@ define hidden void @_ZN9Assembler5psubqE11XMMRegisterS0_(ptr noundef nonnull ali
   %32 = trunc i64 %31 to i32
   %33 = sub i32 %32, ptrtoint (ptr getelementptr inbounds (i8, ptr @all_XMMRegisterImpls, i64 1) to i32)
   %34 = icmp sgt i32 %9, 0
-  br i1 %34, label %35, label %38
+  br i1 %34, label %35, label %37
 
 35:                                               ; preds = %3
-  %36 = icmp ult i32 %28, 32
-  %spec.select.i = select i1 %36, i32 %28, i32 0
-  %37 = call noundef i32 @_ZN9Assembler21vex_prefix_and_encodeEiiiNS_13VexSimdPrefixENS_9VexOpcodeEP15InstructionAttrb(ptr noundef nonnull align 8 dereferenceable(40) %0, i32 noundef %28, i32 noundef %spec.select.i, i32 noundef %33, i32 noundef 1, i32 noundef 1, ptr noundef nonnull %4, i1 noundef zeroext false)
+  %spec.select.i.i = icmp ult i32 %28, 32
+  %spec.select.i = select i1 %spec.select.i.i, i32 %28, i32 0
+  %36 = call noundef i32 @_ZN9Assembler21vex_prefix_and_encodeEiiiNS_13VexSimdPrefixENS_9VexOpcodeEP15InstructionAttrb(ptr noundef nonnull align 8 dereferenceable(40) %0, i32 noundef %28, i32 noundef %spec.select.i, i32 noundef %33, i32 noundef 1, i32 noundef 1, ptr noundef nonnull %4, i1 noundef zeroext false)
   br label %_ZN9Assembler22simd_prefix_and_encodeE11XMMRegisterS0_S0_NS_13VexSimdPrefixENS_9VexOpcodeEP15InstructionAttrb.exit
 
-38:                                               ; preds = %3
-  %39 = icmp ne i64 %6, 0
-  %40 = tail call noundef i32 @_ZN9Assembler21rex_prefix_and_encodeEiiNS_13VexSimdPrefixENS_9VexOpcodeEb(ptr noundef nonnull align 8 dereferenceable(40) %0, i32 noundef %28, i32 noundef %33, i32 noundef 1, i32 noundef 1, i1 noundef zeroext %39)
+37:                                               ; preds = %3
+  %38 = icmp ne i64 %6, 0
+  %39 = tail call noundef i32 @_ZN9Assembler21rex_prefix_and_encodeEiiNS_13VexSimdPrefixENS_9VexOpcodeEb(ptr noundef nonnull align 8 dereferenceable(40) %0, i32 noundef %28, i32 noundef %33, i32 noundef 1, i32 noundef 1, i1 noundef zeroext %38)
   br label %_ZN9Assembler22simd_prefix_and_encodeE11XMMRegisterS0_S0_NS_13VexSimdPrefixENS_9VexOpcodeEP15InstructionAttrb.exit
 
-_ZN9Assembler22simd_prefix_and_encodeE11XMMRegisterS0_S0_NS_13VexSimdPrefixENS_9VexOpcodeEP15InstructionAttrb.exit: ; preds = %35, %38
-  %.0.i = phi i32 [ %37, %35 ], [ %40, %38 ]
-  %41 = getelementptr inbounds i8, ptr %0, i64 8
-  %42 = load ptr, ptr %41, align 8
-  %43 = getelementptr inbounds i8, ptr %42, i64 16
-  %44 = load ptr, ptr %43, align 8
-  %45 = getelementptr inbounds i8, ptr %44, i64 1
-  store i8 -5, ptr %44, align 1
-  store ptr %45, ptr %43, align 8
-  %46 = load ptr, ptr %41, align 8
-  %47 = trunc i32 %.0.i to i8
-  %.0.i.i = or i8 %47, -64
-  %48 = getelementptr inbounds i8, ptr %46, i64 16
-  %49 = load ptr, ptr %48, align 8
-  %50 = getelementptr inbounds i8, ptr %49, i64 1
-  store i8 %.0.i.i, ptr %49, align 1
-  store ptr %50, ptr %48, align 8
-  %51 = load ptr, ptr %23, align 8
-  %.not.i = icmp eq ptr %51, null
-  br i1 %.not.i, label %_ZN15InstructionAttrD2Ev.exit, label %52
+_ZN9Assembler22simd_prefix_and_encodeE11XMMRegisterS0_S0_NS_13VexSimdPrefixENS_9VexOpcodeEP15InstructionAttrb.exit: ; preds = %35, %37
+  %.0.i = phi i32 [ %36, %35 ], [ %39, %37 ]
+  %40 = getelementptr inbounds i8, ptr %0, i64 8
+  %41 = load ptr, ptr %40, align 8
+  %42 = getelementptr inbounds i8, ptr %41, i64 16
+  %43 = load ptr, ptr %42, align 8
+  %44 = getelementptr inbounds i8, ptr %43, i64 1
+  store i8 -5, ptr %43, align 1
+  store ptr %44, ptr %42, align 8
+  %45 = load ptr, ptr %40, align 8
+  %46 = trunc i32 %.0.i to i8
+  %.0.i.i = or i8 %46, -64
+  %47 = getelementptr inbounds i8, ptr %45, i64 16
+  %48 = load ptr, ptr %47, align 8
+  %49 = getelementptr inbounds i8, ptr %48, i64 1
+  store i8 %.0.i.i, ptr %48, align 1
+  store ptr %49, ptr %47, align 8
+  %50 = load ptr, ptr %23, align 8
+  %.not.i = icmp eq ptr %50, null
+  br i1 %.not.i, label %_ZN15InstructionAttrD2Ev.exit, label %51
 
-52:                                               ; preds = %_ZN9Assembler22simd_prefix_and_encodeE11XMMRegisterS0_S0_NS_13VexSimdPrefixENS_9VexOpcodeEP15InstructionAttrb.exit
-  %53 = getelementptr inbounds i8, ptr %51, i64 32
-  store ptr null, ptr %53, align 8
+51:                                               ; preds = %_ZN9Assembler22simd_prefix_and_encodeE11XMMRegisterS0_S0_NS_13VexSimdPrefixENS_9VexOpcodeEP15InstructionAttrb.exit
+  %52 = getelementptr inbounds i8, ptr %50, i64 32
+  store ptr null, ptr %52, align 8
   br label %_ZN15InstructionAttrD2Ev.exit
 
-_ZN15InstructionAttrD2Ev.exit:                    ; preds = %_ZN9Assembler22simd_prefix_and_encodeE11XMMRegisterS0_S0_NS_13VexSimdPrefixENS_9VexOpcodeEP15InstructionAttrb.exit, %52
+_ZN15InstructionAttrD2Ev.exit:                    ; preds = %_ZN9Assembler22simd_prefix_and_encodeE11XMMRegisterS0_S0_NS_13VexSimdPrefixENS_9VexOpcodeEP15InstructionAttrb.exit, %51
   ret void
 }
 
@@ -65842,41 +65842,41 @@ define hidden void @_ZN9Assembler6pmullwE11XMMRegisterS0_(ptr noundef nonnull al
   %33 = trunc i64 %32 to i32
   %34 = sub i32 %33, ptrtoint (ptr getelementptr inbounds (i8, ptr @all_XMMRegisterImpls, i64 1) to i32)
   %35 = icmp sgt i32 %9, 0
-  br i1 %35, label %36, label %39
+  br i1 %35, label %36, label %38
 
 36:                                               ; preds = %3
-  %37 = icmp ult i32 %29, 32
-  %spec.select.i = select i1 %37, i32 %29, i32 0
-  %38 = call noundef i32 @_ZN9Assembler21vex_prefix_and_encodeEiiiNS_13VexSimdPrefixENS_9VexOpcodeEP15InstructionAttrb(ptr noundef nonnull align 8 dereferenceable(40) %0, i32 noundef %29, i32 noundef %spec.select.i, i32 noundef %34, i32 noundef 1, i32 noundef 1, ptr noundef nonnull %4, i1 noundef zeroext false)
+  %spec.select.i.i = icmp ult i32 %29, 32
+  %spec.select.i = select i1 %spec.select.i.i, i32 %29, i32 0
+  %37 = call noundef i32 @_ZN9Assembler21vex_prefix_and_encodeEiiiNS_13VexSimdPrefixENS_9VexOpcodeEP15InstructionAttrb(ptr noundef nonnull align 8 dereferenceable(40) %0, i32 noundef %29, i32 noundef %spec.select.i, i32 noundef %34, i32 noundef 1, i32 noundef 1, ptr noundef nonnull %4, i1 noundef zeroext false)
   br label %_ZN9Assembler22simd_prefix_and_encodeE11XMMRegisterS0_S0_NS_13VexSimdPrefixENS_9VexOpcodeEP15InstructionAttrb.exit
 
-39:                                               ; preds = %3
-  %40 = tail call noundef i32 @_ZN9Assembler21rex_prefix_and_encodeEiiNS_13VexSimdPrefixENS_9VexOpcodeEb(ptr noundef nonnull align 8 dereferenceable(40) %0, i32 noundef %29, i32 noundef %34, i32 noundef 1, i32 noundef 1, i1 noundef zeroext false)
+38:                                               ; preds = %3
+  %39 = tail call noundef i32 @_ZN9Assembler21rex_prefix_and_encodeEiiNS_13VexSimdPrefixENS_9VexOpcodeEb(ptr noundef nonnull align 8 dereferenceable(40) %0, i32 noundef %29, i32 noundef %34, i32 noundef 1, i32 noundef 1, i1 noundef zeroext false)
   br label %_ZN9Assembler22simd_prefix_and_encodeE11XMMRegisterS0_S0_NS_13VexSimdPrefixENS_9VexOpcodeEP15InstructionAttrb.exit
 
-_ZN9Assembler22simd_prefix_and_encodeE11XMMRegisterS0_S0_NS_13VexSimdPrefixENS_9VexOpcodeEP15InstructionAttrb.exit: ; preds = %36, %39
-  %.0.i = phi i32 [ %38, %36 ], [ %40, %39 ]
-  %41 = getelementptr inbounds i8, ptr %0, i64 8
-  %42 = load ptr, ptr %41, align 8
-  %43 = trunc i32 %.0.i to i8
-  %.0.i2.i = or i8 %43, -64
-  %44 = getelementptr inbounds i8, ptr %42, i64 16
-  %45 = load ptr, ptr %44, align 8
-  %46 = getelementptr inbounds i8, ptr %45, i64 1
-  store i8 -43, ptr %45, align 1
-  %47 = getelementptr inbounds i8, ptr %45, i64 2
-  store i8 %.0.i2.i, ptr %46, align 1
-  store ptr %47, ptr %44, align 8
-  %48 = load ptr, ptr %24, align 8
-  %.not.i = icmp eq ptr %48, null
-  br i1 %.not.i, label %_ZN15InstructionAttrD2Ev.exit, label %49
+_ZN9Assembler22simd_prefix_and_encodeE11XMMRegisterS0_S0_NS_13VexSimdPrefixENS_9VexOpcodeEP15InstructionAttrb.exit: ; preds = %36, %38
+  %.0.i = phi i32 [ %37, %36 ], [ %39, %38 ]
+  %40 = getelementptr inbounds i8, ptr %0, i64 8
+  %41 = load ptr, ptr %40, align 8
+  %42 = trunc i32 %.0.i to i8
+  %.0.i2.i = or i8 %42, -64
+  %43 = getelementptr inbounds i8, ptr %41, i64 16
+  %44 = load ptr, ptr %43, align 8
+  %45 = getelementptr inbounds i8, ptr %44, i64 1
+  store i8 -43, ptr %44, align 1
+  %46 = getelementptr inbounds i8, ptr %44, i64 2
+  store i8 %.0.i2.i, ptr %45, align 1
+  store ptr %46, ptr %43, align 8
+  %47 = load ptr, ptr %24, align 8
+  %.not.i = icmp eq ptr %47, null
+  br i1 %.not.i, label %_ZN15InstructionAttrD2Ev.exit, label %48
 
-49:                                               ; preds = %_ZN9Assembler22simd_prefix_and_encodeE11XMMRegisterS0_S0_NS_13VexSimdPrefixENS_9VexOpcodeEP15InstructionAttrb.exit
-  %50 = getelementptr inbounds i8, ptr %48, i64 32
-  store ptr null, ptr %50, align 8
+48:                                               ; preds = %_ZN9Assembler22simd_prefix_and_encodeE11XMMRegisterS0_S0_NS_13VexSimdPrefixENS_9VexOpcodeEP15InstructionAttrb.exit
+  %49 = getelementptr inbounds i8, ptr %47, i64 32
+  store ptr null, ptr %49, align 8
   br label %_ZN15InstructionAttrD2Ev.exit
 
-_ZN15InstructionAttrD2Ev.exit:                    ; preds = %_ZN9Assembler22simd_prefix_and_encodeE11XMMRegisterS0_S0_NS_13VexSimdPrefixENS_9VexOpcodeEP15InstructionAttrb.exit, %49
+_ZN15InstructionAttrD2Ev.exit:                    ; preds = %_ZN9Assembler22simd_prefix_and_encodeE11XMMRegisterS0_S0_NS_13VexSimdPrefixENS_9VexOpcodeEP15InstructionAttrb.exit, %48
   ret void
 }
 
@@ -65924,41 +65924,41 @@ define hidden void @_ZN9Assembler6pmulldE11XMMRegisterS0_(ptr noundef nonnull al
   %29 = trunc i64 %28 to i32
   %30 = sub i32 %29, ptrtoint (ptr getelementptr inbounds (i8, ptr @all_XMMRegisterImpls, i64 1) to i32)
   %31 = icmp sgt i32 %6, 0
-  br i1 %31, label %32, label %35
+  br i1 %31, label %32, label %34
 
 32:                                               ; preds = %3
-  %33 = icmp ult i32 %25, 32
-  %spec.select.i = select i1 %33, i32 %25, i32 0
-  %34 = call noundef i32 @_ZN9Assembler21vex_prefix_and_encodeEiiiNS_13VexSimdPrefixENS_9VexOpcodeEP15InstructionAttrb(ptr noundef nonnull align 8 dereferenceable(40) %0, i32 noundef %25, i32 noundef %spec.select.i, i32 noundef %30, i32 noundef 1, i32 noundef 2, ptr noundef nonnull %4, i1 noundef zeroext false)
+  %spec.select.i.i = icmp ult i32 %25, 32
+  %spec.select.i = select i1 %spec.select.i.i, i32 %25, i32 0
+  %33 = call noundef i32 @_ZN9Assembler21vex_prefix_and_encodeEiiiNS_13VexSimdPrefixENS_9VexOpcodeEP15InstructionAttrb(ptr noundef nonnull align 8 dereferenceable(40) %0, i32 noundef %25, i32 noundef %spec.select.i, i32 noundef %30, i32 noundef 1, i32 noundef 2, ptr noundef nonnull %4, i1 noundef zeroext false)
   br label %_ZN9Assembler22simd_prefix_and_encodeE11XMMRegisterS0_S0_NS_13VexSimdPrefixENS_9VexOpcodeEP15InstructionAttrb.exit
 
-35:                                               ; preds = %3
-  %36 = tail call noundef i32 @_ZN9Assembler21rex_prefix_and_encodeEiiNS_13VexSimdPrefixENS_9VexOpcodeEb(ptr noundef nonnull align 8 dereferenceable(40) %0, i32 noundef %25, i32 noundef %30, i32 noundef 1, i32 noundef 2, i1 noundef zeroext false)
+34:                                               ; preds = %3
+  %35 = tail call noundef i32 @_ZN9Assembler21rex_prefix_and_encodeEiiNS_13VexSimdPrefixENS_9VexOpcodeEb(ptr noundef nonnull align 8 dereferenceable(40) %0, i32 noundef %25, i32 noundef %30, i32 noundef 1, i32 noundef 2, i1 noundef zeroext false)
   br label %_ZN9Assembler22simd_prefix_and_encodeE11XMMRegisterS0_S0_NS_13VexSimdPrefixENS_9VexOpcodeEP15InstructionAttrb.exit
 
-_ZN9Assembler22simd_prefix_and_encodeE11XMMRegisterS0_S0_NS_13VexSimdPrefixENS_9VexOpcodeEP15InstructionAttrb.exit: ; preds = %32, %35
-  %.0.i = phi i32 [ %34, %32 ], [ %36, %35 ]
-  %37 = getelementptr inbounds i8, ptr %0, i64 8
-  %38 = load ptr, ptr %37, align 8
-  %39 = trunc i32 %.0.i to i8
-  %.0.i2.i = or i8 %39, -64
-  %40 = getelementptr inbounds i8, ptr %38, i64 16
-  %41 = load ptr, ptr %40, align 8
-  %42 = getelementptr inbounds i8, ptr %41, i64 1
-  store i8 64, ptr %41, align 1
-  %43 = getelementptr inbounds i8, ptr %41, i64 2
-  store i8 %.0.i2.i, ptr %42, align 1
-  store ptr %43, ptr %40, align 8
-  %44 = load ptr, ptr %20, align 8
-  %.not.i = icmp eq ptr %44, null
-  br i1 %.not.i, label %_ZN15InstructionAttrD2Ev.exit, label %45
+_ZN9Assembler22simd_prefix_and_encodeE11XMMRegisterS0_S0_NS_13VexSimdPrefixENS_9VexOpcodeEP15InstructionAttrb.exit: ; preds = %32, %34
+  %.0.i = phi i32 [ %33, %32 ], [ %35, %34 ]
+  %36 = getelementptr inbounds i8, ptr %0, i64 8
+  %37 = load ptr, ptr %36, align 8
+  %38 = trunc i32 %.0.i to i8
+  %.0.i2.i = or i8 %38, -64
+  %39 = getelementptr inbounds i8, ptr %37, i64 16
+  %40 = load ptr, ptr %39, align 8
+  %41 = getelementptr inbounds i8, ptr %40, i64 1
+  store i8 64, ptr %40, align 1
+  %42 = getelementptr inbounds i8, ptr %40, i64 2
+  store i8 %.0.i2.i, ptr %41, align 1
+  store ptr %42, ptr %39, align 8
+  %43 = load ptr, ptr %20, align 8
+  %.not.i = icmp eq ptr %43, null
+  br i1 %.not.i, label %_ZN15InstructionAttrD2Ev.exit, label %44
 
-45:                                               ; preds = %_ZN9Assembler22simd_prefix_and_encodeE11XMMRegisterS0_S0_NS_13VexSimdPrefixENS_9VexOpcodeEP15InstructionAttrb.exit
-  %46 = getelementptr inbounds i8, ptr %44, i64 32
-  store ptr null, ptr %46, align 8
+44:                                               ; preds = %_ZN9Assembler22simd_prefix_and_encodeE11XMMRegisterS0_S0_NS_13VexSimdPrefixENS_9VexOpcodeEP15InstructionAttrb.exit
+  %45 = getelementptr inbounds i8, ptr %43, i64 32
+  store ptr null, ptr %45, align 8
   br label %_ZN15InstructionAttrD2Ev.exit
 
-_ZN15InstructionAttrD2Ev.exit:                    ; preds = %_ZN9Assembler22simd_prefix_and_encodeE11XMMRegisterS0_S0_NS_13VexSimdPrefixENS_9VexOpcodeEP15InstructionAttrb.exit, %45
+_ZN15InstructionAttrD2Ev.exit:                    ; preds = %_ZN9Assembler22simd_prefix_and_encodeE11XMMRegisterS0_S0_NS_13VexSimdPrefixENS_9VexOpcodeEP15InstructionAttrb.exit, %44
   ret void
 }
 
@@ -66006,41 +66006,41 @@ define hidden void @_ZN9Assembler7pmuludqE11XMMRegisterS0_(ptr noundef nonnull a
   %29 = trunc i64 %28 to i32
   %30 = sub i32 %29, ptrtoint (ptr getelementptr inbounds (i8, ptr @all_XMMRegisterImpls, i64 1) to i32)
   %31 = icmp sgt i32 %6, 0
-  br i1 %31, label %32, label %35
+  br i1 %31, label %32, label %34
 
 32:                                               ; preds = %3
-  %33 = icmp ult i32 %25, 32
-  %spec.select.i = select i1 %33, i32 %25, i32 0
-  %34 = call noundef i32 @_ZN9Assembler21vex_prefix_and_encodeEiiiNS_13VexSimdPrefixENS_9VexOpcodeEP15InstructionAttrb(ptr noundef nonnull align 8 dereferenceable(40) %0, i32 noundef %25, i32 noundef %spec.select.i, i32 noundef %30, i32 noundef 1, i32 noundef 1, ptr noundef nonnull %4, i1 noundef zeroext false)
+  %spec.select.i.i = icmp ult i32 %25, 32
+  %spec.select.i = select i1 %spec.select.i.i, i32 %25, i32 0
+  %33 = call noundef i32 @_ZN9Assembler21vex_prefix_and_encodeEiiiNS_13VexSimdPrefixENS_9VexOpcodeEP15InstructionAttrb(ptr noundef nonnull align 8 dereferenceable(40) %0, i32 noundef %25, i32 noundef %spec.select.i, i32 noundef %30, i32 noundef 1, i32 noundef 1, ptr noundef nonnull %4, i1 noundef zeroext false)
   br label %_ZN9Assembler22simd_prefix_and_encodeE11XMMRegisterS0_S0_NS_13VexSimdPrefixENS_9VexOpcodeEP15InstructionAttrb.exit
 
-35:                                               ; preds = %3
-  %36 = tail call noundef i32 @_ZN9Assembler21rex_prefix_and_encodeEiiNS_13VexSimdPrefixENS_9VexOpcodeEb(ptr noundef nonnull align 8 dereferenceable(40) %0, i32 noundef %25, i32 noundef %30, i32 noundef 1, i32 noundef 1, i1 noundef zeroext false)
+34:                                               ; preds = %3
+  %35 = tail call noundef i32 @_ZN9Assembler21rex_prefix_and_encodeEiiNS_13VexSimdPrefixENS_9VexOpcodeEb(ptr noundef nonnull align 8 dereferenceable(40) %0, i32 noundef %25, i32 noundef %30, i32 noundef 1, i32 noundef 1, i1 noundef zeroext false)
   br label %_ZN9Assembler22simd_prefix_and_encodeE11XMMRegisterS0_S0_NS_13VexSimdPrefixENS_9VexOpcodeEP15InstructionAttrb.exit
 
-_ZN9Assembler22simd_prefix_and_encodeE11XMMRegisterS0_S0_NS_13VexSimdPrefixENS_9VexOpcodeEP15InstructionAttrb.exit: ; preds = %32, %35
-  %.0.i = phi i32 [ %34, %32 ], [ %36, %35 ]
-  %37 = getelementptr inbounds i8, ptr %0, i64 8
-  %38 = load ptr, ptr %37, align 8
-  %39 = trunc i32 %.0.i to i8
-  %.0.i2.i = or i8 %39, -64
-  %40 = getelementptr inbounds i8, ptr %38, i64 16
-  %41 = load ptr, ptr %40, align 8
-  %42 = getelementptr inbounds i8, ptr %41, i64 1
-  store i8 -12, ptr %41, align 1
-  %43 = getelementptr inbounds i8, ptr %41, i64 2
-  store i8 %.0.i2.i, ptr %42, align 1
-  store ptr %43, ptr %40, align 8
-  %44 = load ptr, ptr %20, align 8
-  %.not.i = icmp eq ptr %44, null
-  br i1 %.not.i, label %_ZN15InstructionAttrD2Ev.exit, label %45
+_ZN9Assembler22simd_prefix_and_encodeE11XMMRegisterS0_S0_NS_13VexSimdPrefixENS_9VexOpcodeEP15InstructionAttrb.exit: ; preds = %32, %34
+  %.0.i = phi i32 [ %33, %32 ], [ %35, %34 ]
+  %36 = getelementptr inbounds i8, ptr %0, i64 8
+  %37 = load ptr, ptr %36, align 8
+  %38 = trunc i32 %.0.i to i8
+  %.0.i2.i = or i8 %38, -64
+  %39 = getelementptr inbounds i8, ptr %37, i64 16
+  %40 = load ptr, ptr %39, align 8
+  %41 = getelementptr inbounds i8, ptr %40, i64 1
+  store i8 -12, ptr %40, align 1
+  %42 = getelementptr inbounds i8, ptr %40, i64 2
+  store i8 %.0.i2.i, ptr %41, align 1
+  store ptr %42, ptr %39, align 8
+  %43 = load ptr, ptr %20, align 8
+  %.not.i = icmp eq ptr %43, null
+  br i1 %.not.i, label %_ZN15InstructionAttrD2Ev.exit, label %44
 
-45:                                               ; preds = %_ZN9Assembler22simd_prefix_and_encodeE11XMMRegisterS0_S0_NS_13VexSimdPrefixENS_9VexOpcodeEP15InstructionAttrb.exit
-  %46 = getelementptr inbounds i8, ptr %44, i64 32
-  store ptr null, ptr %46, align 8
+44:                                               ; preds = %_ZN9Assembler22simd_prefix_and_encodeE11XMMRegisterS0_S0_NS_13VexSimdPrefixENS_9VexOpcodeEP15InstructionAttrb.exit
+  %45 = getelementptr inbounds i8, ptr %43, i64 32
+  store ptr null, ptr %45, align 8
   br label %_ZN15InstructionAttrD2Ev.exit
 
-_ZN15InstructionAttrD2Ev.exit:                    ; preds = %_ZN9Assembler22simd_prefix_and_encodeE11XMMRegisterS0_S0_NS_13VexSimdPrefixENS_9VexOpcodeEP15InstructionAttrb.exit, %45
+_ZN15InstructionAttrD2Ev.exit:                    ; preds = %_ZN9Assembler22simd_prefix_and_encodeE11XMMRegisterS0_S0_NS_13VexSimdPrefixENS_9VexOpcodeEP15InstructionAttrb.exit, %44
   ret void
 }
 
@@ -66853,41 +66853,41 @@ define hidden void @_ZN9Assembler6pminsbE11XMMRegisterS0_(ptr noundef nonnull al
   %33 = trunc i64 %32 to i32
   %34 = sub i32 %33, ptrtoint (ptr getelementptr inbounds (i8, ptr @all_XMMRegisterImpls, i64 1) to i32)
   %35 = icmp sgt i32 %9, 0
-  br i1 %35, label %36, label %39
+  br i1 %35, label %36, label %38
 
 36:                                               ; preds = %3
-  %37 = icmp ult i32 %29, 32
-  %spec.select.i = select i1 %37, i32 %29, i32 0
-  %38 = call noundef i32 @_ZN9Assembler21vex_prefix_and_encodeEiiiNS_13VexSimdPrefixENS_9VexOpcodeEP15InstructionAttrb(ptr noundef nonnull align 8 dereferenceable(40) %0, i32 noundef %29, i32 noundef %spec.select.i, i32 noundef %34, i32 noundef 1, i32 noundef 2, ptr noundef nonnull %4, i1 noundef zeroext false)
+  %spec.select.i.i = icmp ult i32 %29, 32
+  %spec.select.i = select i1 %spec.select.i.i, i32 %29, i32 0
+  %37 = call noundef i32 @_ZN9Assembler21vex_prefix_and_encodeEiiiNS_13VexSimdPrefixENS_9VexOpcodeEP15InstructionAttrb(ptr noundef nonnull align 8 dereferenceable(40) %0, i32 noundef %29, i32 noundef %spec.select.i, i32 noundef %34, i32 noundef 1, i32 noundef 2, ptr noundef nonnull %4, i1 noundef zeroext false)
   br label %_ZN9Assembler22simd_prefix_and_encodeE11XMMRegisterS0_S0_NS_13VexSimdPrefixENS_9VexOpcodeEP15InstructionAttrb.exit
 
-39:                                               ; preds = %3
-  %40 = tail call noundef i32 @_ZN9Assembler21rex_prefix_and_encodeEiiNS_13VexSimdPrefixENS_9VexOpcodeEb(ptr noundef nonnull align 8 dereferenceable(40) %0, i32 noundef %29, i32 noundef %34, i32 noundef 1, i32 noundef 2, i1 noundef zeroext false)
+38:                                               ; preds = %3
+  %39 = tail call noundef i32 @_ZN9Assembler21rex_prefix_and_encodeEiiNS_13VexSimdPrefixENS_9VexOpcodeEb(ptr noundef nonnull align 8 dereferenceable(40) %0, i32 noundef %29, i32 noundef %34, i32 noundef 1, i32 noundef 2, i1 noundef zeroext false)
   br label %_ZN9Assembler22simd_prefix_and_encodeE11XMMRegisterS0_S0_NS_13VexSimdPrefixENS_9VexOpcodeEP15InstructionAttrb.exit
 
-_ZN9Assembler22simd_prefix_and_encodeE11XMMRegisterS0_S0_NS_13VexSimdPrefixENS_9VexOpcodeEP15InstructionAttrb.exit: ; preds = %36, %39
-  %.0.i = phi i32 [ %38, %36 ], [ %40, %39 ]
-  %41 = getelementptr inbounds i8, ptr %0, i64 8
-  %42 = load ptr, ptr %41, align 8
-  %43 = trunc i32 %.0.i to i8
-  %.0.i2.i = or i8 %43, -64
-  %44 = getelementptr inbounds i8, ptr %42, i64 16
-  %45 = load ptr, ptr %44, align 8
-  %46 = getelementptr inbounds i8, ptr %45, i64 1
-  store i8 56, ptr %45, align 1
-  %47 = getelementptr inbounds i8, ptr %45, i64 2
-  store i8 %.0.i2.i, ptr %46, align 1
-  store ptr %47, ptr %44, align 8
-  %48 = load ptr, ptr %24, align 8
-  %.not.i = icmp eq ptr %48, null
-  br i1 %.not.i, label %_ZN15InstructionAttrD2Ev.exit, label %49
+_ZN9Assembler22simd_prefix_and_encodeE11XMMRegisterS0_S0_NS_13VexSimdPrefixENS_9VexOpcodeEP15InstructionAttrb.exit: ; preds = %36, %38
+  %.0.i = phi i32 [ %37, %36 ], [ %39, %38 ]
+  %40 = getelementptr inbounds i8, ptr %0, i64 8
+  %41 = load ptr, ptr %40, align 8
+  %42 = trunc i32 %.0.i to i8
+  %.0.i2.i = or i8 %42, -64
+  %43 = getelementptr inbounds i8, ptr %41, i64 16
+  %44 = load ptr, ptr %43, align 8
+  %45 = getelementptr inbounds i8, ptr %44, i64 1
+  store i8 56, ptr %44, align 1
+  %46 = getelementptr inbounds i8, ptr %44, i64 2
+  store i8 %.0.i2.i, ptr %45, align 1
+  store ptr %46, ptr %43, align 8
+  %47 = load ptr, ptr %24, align 8
+  %.not.i = icmp eq ptr %47, null
+  br i1 %.not.i, label %_ZN15InstructionAttrD2Ev.exit, label %48
 
-49:                                               ; preds = %_ZN9Assembler22simd_prefix_and_encodeE11XMMRegisterS0_S0_NS_13VexSimdPrefixENS_9VexOpcodeEP15InstructionAttrb.exit
-  %50 = getelementptr inbounds i8, ptr %48, i64 32
-  store ptr null, ptr %50, align 8
+48:                                               ; preds = %_ZN9Assembler22simd_prefix_and_encodeE11XMMRegisterS0_S0_NS_13VexSimdPrefixENS_9VexOpcodeEP15InstructionAttrb.exit
+  %49 = getelementptr inbounds i8, ptr %47, i64 32
+  store ptr null, ptr %49, align 8
   br label %_ZN15InstructionAttrD2Ev.exit
 
-_ZN15InstructionAttrD2Ev.exit:                    ; preds = %_ZN9Assembler22simd_prefix_and_encodeE11XMMRegisterS0_S0_NS_13VexSimdPrefixENS_9VexOpcodeEP15InstructionAttrb.exit, %49
+_ZN15InstructionAttrD2Ev.exit:                    ; preds = %_ZN9Assembler22simd_prefix_and_encodeE11XMMRegisterS0_S0_NS_13VexSimdPrefixENS_9VexOpcodeEP15InstructionAttrb.exit, %48
   ret void
 }
 
@@ -67093,41 +67093,41 @@ define hidden void @_ZN9Assembler6pminswE11XMMRegisterS0_(ptr noundef nonnull al
   %33 = trunc i64 %32 to i32
   %34 = sub i32 %33, ptrtoint (ptr getelementptr inbounds (i8, ptr @all_XMMRegisterImpls, i64 1) to i32)
   %35 = icmp sgt i32 %9, 0
-  br i1 %35, label %36, label %39
+  br i1 %35, label %36, label %38
 
 36:                                               ; preds = %3
-  %37 = icmp ult i32 %29, 32
-  %spec.select.i = select i1 %37, i32 %29, i32 0
-  %38 = call noundef i32 @_ZN9Assembler21vex_prefix_and_encodeEiiiNS_13VexSimdPrefixENS_9VexOpcodeEP15InstructionAttrb(ptr noundef nonnull align 8 dereferenceable(40) %0, i32 noundef %29, i32 noundef %spec.select.i, i32 noundef %34, i32 noundef 1, i32 noundef 1, ptr noundef nonnull %4, i1 noundef zeroext false)
+  %spec.select.i.i = icmp ult i32 %29, 32
+  %spec.select.i = select i1 %spec.select.i.i, i32 %29, i32 0
+  %37 = call noundef i32 @_ZN9Assembler21vex_prefix_and_encodeEiiiNS_13VexSimdPrefixENS_9VexOpcodeEP15InstructionAttrb(ptr noundef nonnull align 8 dereferenceable(40) %0, i32 noundef %29, i32 noundef %spec.select.i, i32 noundef %34, i32 noundef 1, i32 noundef 1, ptr noundef nonnull %4, i1 noundef zeroext false)
   br label %_ZN9Assembler22simd_prefix_and_encodeE11XMMRegisterS0_S0_NS_13VexSimdPrefixENS_9VexOpcodeEP15InstructionAttrb.exit
 
-39:                                               ; preds = %3
-  %40 = tail call noundef i32 @_ZN9Assembler21rex_prefix_and_encodeEiiNS_13VexSimdPrefixENS_9VexOpcodeEb(ptr noundef nonnull align 8 dereferenceable(40) %0, i32 noundef %29, i32 noundef %34, i32 noundef 1, i32 noundef 1, i1 noundef zeroext false)
+38:                                               ; preds = %3
+  %39 = tail call noundef i32 @_ZN9Assembler21rex_prefix_and_encodeEiiNS_13VexSimdPrefixENS_9VexOpcodeEb(ptr noundef nonnull align 8 dereferenceable(40) %0, i32 noundef %29, i32 noundef %34, i32 noundef 1, i32 noundef 1, i1 noundef zeroext false)
   br label %_ZN9Assembler22simd_prefix_and_encodeE11XMMRegisterS0_S0_NS_13VexSimdPrefixENS_9VexOpcodeEP15InstructionAttrb.exit
 
-_ZN9Assembler22simd_prefix_and_encodeE11XMMRegisterS0_S0_NS_13VexSimdPrefixENS_9VexOpcodeEP15InstructionAttrb.exit: ; preds = %36, %39
-  %.0.i = phi i32 [ %38, %36 ], [ %40, %39 ]
-  %41 = getelementptr inbounds i8, ptr %0, i64 8
-  %42 = load ptr, ptr %41, align 8
-  %43 = trunc i32 %.0.i to i8
-  %.0.i2.i = or i8 %43, -64
-  %44 = getelementptr inbounds i8, ptr %42, i64 16
-  %45 = load ptr, ptr %44, align 8
-  %46 = getelementptr inbounds i8, ptr %45, i64 1
-  store i8 -22, ptr %45, align 1
-  %47 = getelementptr inbounds i8, ptr %45, i64 2
-  store i8 %.0.i2.i, ptr %46, align 1
-  store ptr %47, ptr %44, align 8
-  %48 = load ptr, ptr %24, align 8
-  %.not.i = icmp eq ptr %48, null
-  br i1 %.not.i, label %_ZN15InstructionAttrD2Ev.exit, label %49
+_ZN9Assembler22simd_prefix_and_encodeE11XMMRegisterS0_S0_NS_13VexSimdPrefixENS_9VexOpcodeEP15InstructionAttrb.exit: ; preds = %36, %38
+  %.0.i = phi i32 [ %37, %36 ], [ %39, %38 ]
+  %40 = getelementptr inbounds i8, ptr %0, i64 8
+  %41 = load ptr, ptr %40, align 8
+  %42 = trunc i32 %.0.i to i8
+  %.0.i2.i = or i8 %42, -64
+  %43 = getelementptr inbounds i8, ptr %41, i64 16
+  %44 = load ptr, ptr %43, align 8
+  %45 = getelementptr inbounds i8, ptr %44, i64 1
+  store i8 -22, ptr %44, align 1
+  %46 = getelementptr inbounds i8, ptr %44, i64 2
+  store i8 %.0.i2.i, ptr %45, align 1
+  store ptr %46, ptr %43, align 8
+  %47 = load ptr, ptr %24, align 8
+  %.not.i = icmp eq ptr %47, null
+  br i1 %.not.i, label %_ZN15InstructionAttrD2Ev.exit, label %48
 
-49:                                               ; preds = %_ZN9Assembler22simd_prefix_and_encodeE11XMMRegisterS0_S0_NS_13VexSimdPrefixENS_9VexOpcodeEP15InstructionAttrb.exit
-  %50 = getelementptr inbounds i8, ptr %48, i64 32
-  store ptr null, ptr %50, align 8
+48:                                               ; preds = %_ZN9Assembler22simd_prefix_and_encodeE11XMMRegisterS0_S0_NS_13VexSimdPrefixENS_9VexOpcodeEP15InstructionAttrb.exit
+  %49 = getelementptr inbounds i8, ptr %47, i64 32
+  store ptr null, ptr %49, align 8
   br label %_ZN15InstructionAttrD2Ev.exit
 
-_ZN15InstructionAttrD2Ev.exit:                    ; preds = %_ZN9Assembler22simd_prefix_and_encodeE11XMMRegisterS0_S0_NS_13VexSimdPrefixENS_9VexOpcodeEP15InstructionAttrb.exit, %49
+_ZN15InstructionAttrD2Ev.exit:                    ; preds = %_ZN9Assembler22simd_prefix_and_encodeE11XMMRegisterS0_S0_NS_13VexSimdPrefixENS_9VexOpcodeEP15InstructionAttrb.exit, %48
   ret void
 }
 
@@ -67252,41 +67252,41 @@ define hidden void @_ZN9Assembler6pminsdE11XMMRegisterS0_(ptr noundef nonnull al
   %29 = trunc i64 %28 to i32
   %30 = sub i32 %29, ptrtoint (ptr getelementptr inbounds (i8, ptr @all_XMMRegisterImpls, i64 1) to i32)
   %31 = icmp sgt i32 %6, 0
-  br i1 %31, label %32, label %35
+  br i1 %31, label %32, label %34
 
 32:                                               ; preds = %3
-  %33 = icmp ult i32 %25, 32
-  %spec.select.i = select i1 %33, i32 %25, i32 0
-  %34 = call noundef i32 @_ZN9Assembler21vex_prefix_and_encodeEiiiNS_13VexSimdPrefixENS_9VexOpcodeEP15InstructionAttrb(ptr noundef nonnull align 8 dereferenceable(40) %0, i32 noundef %25, i32 noundef %spec.select.i, i32 noundef %30, i32 noundef 1, i32 noundef 2, ptr noundef nonnull %4, i1 noundef zeroext false)
+  %spec.select.i.i = icmp ult i32 %25, 32
+  %spec.select.i = select i1 %spec.select.i.i, i32 %25, i32 0
+  %33 = call noundef i32 @_ZN9Assembler21vex_prefix_and_encodeEiiiNS_13VexSimdPrefixENS_9VexOpcodeEP15InstructionAttrb(ptr noundef nonnull align 8 dereferenceable(40) %0, i32 noundef %25, i32 noundef %spec.select.i, i32 noundef %30, i32 noundef 1, i32 noundef 2, ptr noundef nonnull %4, i1 noundef zeroext false)
   br label %_ZN9Assembler22simd_prefix_and_encodeE11XMMRegisterS0_S0_NS_13VexSimdPrefixENS_9VexOpcodeEP15InstructionAttrb.exit
 
-35:                                               ; preds = %3
-  %36 = tail call noundef i32 @_ZN9Assembler21rex_prefix_and_encodeEiiNS_13VexSimdPrefixENS_9VexOpcodeEb(ptr noundef nonnull align 8 dereferenceable(40) %0, i32 noundef %25, i32 noundef %30, i32 noundef 1, i32 noundef 2, i1 noundef zeroext false)
+34:                                               ; preds = %3
+  %35 = tail call noundef i32 @_ZN9Assembler21rex_prefix_and_encodeEiiNS_13VexSimdPrefixENS_9VexOpcodeEb(ptr noundef nonnull align 8 dereferenceable(40) %0, i32 noundef %25, i32 noundef %30, i32 noundef 1, i32 noundef 2, i1 noundef zeroext false)
   br label %_ZN9Assembler22simd_prefix_and_encodeE11XMMRegisterS0_S0_NS_13VexSimdPrefixENS_9VexOpcodeEP15InstructionAttrb.exit
 
-_ZN9Assembler22simd_prefix_and_encodeE11XMMRegisterS0_S0_NS_13VexSimdPrefixENS_9VexOpcodeEP15InstructionAttrb.exit: ; preds = %32, %35
-  %.0.i = phi i32 [ %34, %32 ], [ %36, %35 ]
-  %37 = getelementptr inbounds i8, ptr %0, i64 8
-  %38 = load ptr, ptr %37, align 8
-  %39 = trunc i32 %.0.i to i8
-  %.0.i2.i = or i8 %39, -64
-  %40 = getelementptr inbounds i8, ptr %38, i64 16
-  %41 = load ptr, ptr %40, align 8
-  %42 = getelementptr inbounds i8, ptr %41, i64 1
-  store i8 57, ptr %41, align 1
-  %43 = getelementptr inbounds i8, ptr %41, i64 2
-  store i8 %.0.i2.i, ptr %42, align 1
-  store ptr %43, ptr %40, align 8
-  %44 = load ptr, ptr %20, align 8
-  %.not.i = icmp eq ptr %44, null
-  br i1 %.not.i, label %_ZN15InstructionAttrD2Ev.exit, label %45
+_ZN9Assembler22simd_prefix_and_encodeE11XMMRegisterS0_S0_NS_13VexSimdPrefixENS_9VexOpcodeEP15InstructionAttrb.exit: ; preds = %32, %34
+  %.0.i = phi i32 [ %33, %32 ], [ %35, %34 ]
+  %36 = getelementptr inbounds i8, ptr %0, i64 8
+  %37 = load ptr, ptr %36, align 8
+  %38 = trunc i32 %.0.i to i8
+  %.0.i2.i = or i8 %38, -64
+  %39 = getelementptr inbounds i8, ptr %37, i64 16
+  %40 = load ptr, ptr %39, align 8
+  %41 = getelementptr inbounds i8, ptr %40, i64 1
+  store i8 57, ptr %40, align 1
+  %42 = getelementptr inbounds i8, ptr %40, i64 2
+  store i8 %.0.i2.i, ptr %41, align 1
+  store ptr %42, ptr %39, align 8
+  %43 = load ptr, ptr %20, align 8
+  %.not.i = icmp eq ptr %43, null
+  br i1 %.not.i, label %_ZN15InstructionAttrD2Ev.exit, label %44
 
-45:                                               ; preds = %_ZN9Assembler22simd_prefix_and_encodeE11XMMRegisterS0_S0_NS_13VexSimdPrefixENS_9VexOpcodeEP15InstructionAttrb.exit
-  %46 = getelementptr inbounds i8, ptr %44, i64 32
-  store ptr null, ptr %46, align 8
+44:                                               ; preds = %_ZN9Assembler22simd_prefix_and_encodeE11XMMRegisterS0_S0_NS_13VexSimdPrefixENS_9VexOpcodeEP15InstructionAttrb.exit
+  %45 = getelementptr inbounds i8, ptr %43, i64 32
+  store ptr null, ptr %45, align 8
   br label %_ZN15InstructionAttrD2Ev.exit
 
-_ZN15InstructionAttrD2Ev.exit:                    ; preds = %_ZN9Assembler22simd_prefix_and_encodeE11XMMRegisterS0_S0_NS_13VexSimdPrefixENS_9VexOpcodeEP15InstructionAttrb.exit, %45
+_ZN15InstructionAttrD2Ev.exit:                    ; preds = %_ZN9Assembler22simd_prefix_and_encodeE11XMMRegisterS0_S0_NS_13VexSimdPrefixENS_9VexOpcodeEP15InstructionAttrb.exit, %44
   ret void
 }
 
@@ -67480,41 +67480,41 @@ define hidden void @_ZN9Assembler5minpsE11XMMRegisterS0_(ptr noundef nonnull ali
   %29 = trunc i64 %28 to i32
   %30 = sub i32 %29, ptrtoint (ptr getelementptr inbounds (i8, ptr @all_XMMRegisterImpls, i64 1) to i32)
   %31 = icmp sgt i32 %6, 0
-  br i1 %31, label %32, label %35
+  br i1 %31, label %32, label %34
 
 32:                                               ; preds = %3
-  %33 = icmp ult i32 %25, 32
-  %spec.select.i = select i1 %33, i32 %25, i32 0
-  %34 = call noundef i32 @_ZN9Assembler21vex_prefix_and_encodeEiiiNS_13VexSimdPrefixENS_9VexOpcodeEP15InstructionAttrb(ptr noundef nonnull align 8 dereferenceable(40) %0, i32 noundef %25, i32 noundef %spec.select.i, i32 noundef %30, i32 noundef 0, i32 noundef 1, ptr noundef nonnull %4, i1 noundef zeroext false)
+  %spec.select.i.i = icmp ult i32 %25, 32
+  %spec.select.i = select i1 %spec.select.i.i, i32 %25, i32 0
+  %33 = call noundef i32 @_ZN9Assembler21vex_prefix_and_encodeEiiiNS_13VexSimdPrefixENS_9VexOpcodeEP15InstructionAttrb(ptr noundef nonnull align 8 dereferenceable(40) %0, i32 noundef %25, i32 noundef %spec.select.i, i32 noundef %30, i32 noundef 0, i32 noundef 1, ptr noundef nonnull %4, i1 noundef zeroext false)
   br label %_ZN9Assembler22simd_prefix_and_encodeE11XMMRegisterS0_S0_NS_13VexSimdPrefixENS_9VexOpcodeEP15InstructionAttrb.exit
 
-35:                                               ; preds = %3
-  %36 = tail call noundef i32 @_ZN9Assembler21rex_prefix_and_encodeEiiNS_13VexSimdPrefixENS_9VexOpcodeEb(ptr noundef nonnull align 8 dereferenceable(40) %0, i32 noundef %25, i32 noundef %30, i32 noundef 0, i32 noundef 1, i1 noundef zeroext false)
+34:                                               ; preds = %3
+  %35 = tail call noundef i32 @_ZN9Assembler21rex_prefix_and_encodeEiiNS_13VexSimdPrefixENS_9VexOpcodeEb(ptr noundef nonnull align 8 dereferenceable(40) %0, i32 noundef %25, i32 noundef %30, i32 noundef 0, i32 noundef 1, i1 noundef zeroext false)
   br label %_ZN9Assembler22simd_prefix_and_encodeE11XMMRegisterS0_S0_NS_13VexSimdPrefixENS_9VexOpcodeEP15InstructionAttrb.exit
 
-_ZN9Assembler22simd_prefix_and_encodeE11XMMRegisterS0_S0_NS_13VexSimdPrefixENS_9VexOpcodeEP15InstructionAttrb.exit: ; preds = %32, %35
-  %.0.i = phi i32 [ %34, %32 ], [ %36, %35 ]
-  %37 = getelementptr inbounds i8, ptr %0, i64 8
-  %38 = load ptr, ptr %37, align 8
-  %39 = trunc i32 %.0.i to i8
-  %.0.i2.i = or i8 %39, -64
-  %40 = getelementptr inbounds i8, ptr %38, i64 16
-  %41 = load ptr, ptr %40, align 8
-  %42 = getelementptr inbounds i8, ptr %41, i64 1
-  store i8 93, ptr %41, align 1
-  %43 = getelementptr inbounds i8, ptr %41, i64 2
-  store i8 %.0.i2.i, ptr %42, align 1
-  store ptr %43, ptr %40, align 8
-  %44 = load ptr, ptr %20, align 8
-  %.not.i = icmp eq ptr %44, null
-  br i1 %.not.i, label %_ZN15InstructionAttrD2Ev.exit, label %45
+_ZN9Assembler22simd_prefix_and_encodeE11XMMRegisterS0_S0_NS_13VexSimdPrefixENS_9VexOpcodeEP15InstructionAttrb.exit: ; preds = %32, %34
+  %.0.i = phi i32 [ %33, %32 ], [ %35, %34 ]
+  %36 = getelementptr inbounds i8, ptr %0, i64 8
+  %37 = load ptr, ptr %36, align 8
+  %38 = trunc i32 %.0.i to i8
+  %.0.i2.i = or i8 %38, -64
+  %39 = getelementptr inbounds i8, ptr %37, i64 16
+  %40 = load ptr, ptr %39, align 8
+  %41 = getelementptr inbounds i8, ptr %40, i64 1
+  store i8 93, ptr %40, align 1
+  %42 = getelementptr inbounds i8, ptr %40, i64 2
+  store i8 %.0.i2.i, ptr %41, align 1
+  store ptr %42, ptr %39, align 8
+  %43 = load ptr, ptr %20, align 8
+  %.not.i = icmp eq ptr %43, null
+  br i1 %.not.i, label %_ZN15InstructionAttrD2Ev.exit, label %44
 
-45:                                               ; preds = %_ZN9Assembler22simd_prefix_and_encodeE11XMMRegisterS0_S0_NS_13VexSimdPrefixENS_9VexOpcodeEP15InstructionAttrb.exit
-  %46 = getelementptr inbounds i8, ptr %44, i64 32
-  store ptr null, ptr %46, align 8
+44:                                               ; preds = %_ZN9Assembler22simd_prefix_and_encodeE11XMMRegisterS0_S0_NS_13VexSimdPrefixENS_9VexOpcodeEP15InstructionAttrb.exit
+  %45 = getelementptr inbounds i8, ptr %43, i64 32
+  store ptr null, ptr %45, align 8
   br label %_ZN15InstructionAttrD2Ev.exit
 
-_ZN15InstructionAttrD2Ev.exit:                    ; preds = %_ZN9Assembler22simd_prefix_and_encodeE11XMMRegisterS0_S0_NS_13VexSimdPrefixENS_9VexOpcodeEP15InstructionAttrb.exit, %45
+_ZN15InstructionAttrD2Ev.exit:                    ; preds = %_ZN9Assembler22simd_prefix_and_encodeE11XMMRegisterS0_S0_NS_13VexSimdPrefixENS_9VexOpcodeEP15InstructionAttrb.exit, %44
   ret void
 }
 
@@ -67635,41 +67635,41 @@ define hidden void @_ZN9Assembler5minpdE11XMMRegisterS0_(ptr noundef nonnull ali
   %29 = trunc i64 %28 to i32
   %30 = sub i32 %29, ptrtoint (ptr getelementptr inbounds (i8, ptr @all_XMMRegisterImpls, i64 1) to i32)
   %31 = icmp sgt i32 %6, 0
-  br i1 %31, label %32, label %35
+  br i1 %31, label %32, label %34
 
 32:                                               ; preds = %3
-  %33 = icmp ult i32 %25, 32
-  %spec.select.i = select i1 %33, i32 %25, i32 0
-  %34 = call noundef i32 @_ZN9Assembler21vex_prefix_and_encodeEiiiNS_13VexSimdPrefixENS_9VexOpcodeEP15InstructionAttrb(ptr noundef nonnull align 8 dereferenceable(40) %0, i32 noundef %25, i32 noundef %spec.select.i, i32 noundef %30, i32 noundef 1, i32 noundef 1, ptr noundef nonnull %4, i1 noundef zeroext false)
+  %spec.select.i.i = icmp ult i32 %25, 32
+  %spec.select.i = select i1 %spec.select.i.i, i32 %25, i32 0
+  %33 = call noundef i32 @_ZN9Assembler21vex_prefix_and_encodeEiiiNS_13VexSimdPrefixENS_9VexOpcodeEP15InstructionAttrb(ptr noundef nonnull align 8 dereferenceable(40) %0, i32 noundef %25, i32 noundef %spec.select.i, i32 noundef %30, i32 noundef 1, i32 noundef 1, ptr noundef nonnull %4, i1 noundef zeroext false)
   br label %_ZN9Assembler22simd_prefix_and_encodeE11XMMRegisterS0_S0_NS_13VexSimdPrefixENS_9VexOpcodeEP15InstructionAttrb.exit
 
-35:                                               ; preds = %3
-  %36 = tail call noundef i32 @_ZN9Assembler21rex_prefix_and_encodeEiiNS_13VexSimdPrefixENS_9VexOpcodeEb(ptr noundef nonnull align 8 dereferenceable(40) %0, i32 noundef %25, i32 noundef %30, i32 noundef 1, i32 noundef 1, i1 noundef zeroext false)
+34:                                               ; preds = %3
+  %35 = tail call noundef i32 @_ZN9Assembler21rex_prefix_and_encodeEiiNS_13VexSimdPrefixENS_9VexOpcodeEb(ptr noundef nonnull align 8 dereferenceable(40) %0, i32 noundef %25, i32 noundef %30, i32 noundef 1, i32 noundef 1, i1 noundef zeroext false)
   br label %_ZN9Assembler22simd_prefix_and_encodeE11XMMRegisterS0_S0_NS_13VexSimdPrefixENS_9VexOpcodeEP15InstructionAttrb.exit
 
-_ZN9Assembler22simd_prefix_and_encodeE11XMMRegisterS0_S0_NS_13VexSimdPrefixENS_9VexOpcodeEP15InstructionAttrb.exit: ; preds = %32, %35
-  %.0.i = phi i32 [ %34, %32 ], [ %36, %35 ]
-  %37 = getelementptr inbounds i8, ptr %0, i64 8
-  %38 = load ptr, ptr %37, align 8
-  %39 = trunc i32 %.0.i to i8
-  %.0.i2.i = or i8 %39, -64
-  %40 = getelementptr inbounds i8, ptr %38, i64 16
-  %41 = load ptr, ptr %40, align 8
-  %42 = getelementptr inbounds i8, ptr %41, i64 1
-  store i8 93, ptr %41, align 1
-  %43 = getelementptr inbounds i8, ptr %41, i64 2
-  store i8 %.0.i2.i, ptr %42, align 1
-  store ptr %43, ptr %40, align 8
-  %44 = load ptr, ptr %20, align 8
-  %.not.i = icmp eq ptr %44, null
-  br i1 %.not.i, label %_ZN15InstructionAttrD2Ev.exit, label %45
+_ZN9Assembler22simd_prefix_and_encodeE11XMMRegisterS0_S0_NS_13VexSimdPrefixENS_9VexOpcodeEP15InstructionAttrb.exit: ; preds = %32, %34
+  %.0.i = phi i32 [ %33, %32 ], [ %35, %34 ]
+  %36 = getelementptr inbounds i8, ptr %0, i64 8
+  %37 = load ptr, ptr %36, align 8
+  %38 = trunc i32 %.0.i to i8
+  %.0.i2.i = or i8 %38, -64
+  %39 = getelementptr inbounds i8, ptr %37, i64 16
+  %40 = load ptr, ptr %39, align 8
+  %41 = getelementptr inbounds i8, ptr %40, i64 1
+  store i8 93, ptr %40, align 1
+  %42 = getelementptr inbounds i8, ptr %40, i64 2
+  store i8 %.0.i2.i, ptr %41, align 1
+  store ptr %42, ptr %39, align 8
+  %43 = load ptr, ptr %20, align 8
+  %.not.i = icmp eq ptr %43, null
+  br i1 %.not.i, label %_ZN15InstructionAttrD2Ev.exit, label %44
 
-45:                                               ; preds = %_ZN9Assembler22simd_prefix_and_encodeE11XMMRegisterS0_S0_NS_13VexSimdPrefixENS_9VexOpcodeEP15InstructionAttrb.exit
-  %46 = getelementptr inbounds i8, ptr %44, i64 32
-  store ptr null, ptr %46, align 8
+44:                                               ; preds = %_ZN9Assembler22simd_prefix_and_encodeE11XMMRegisterS0_S0_NS_13VexSimdPrefixENS_9VexOpcodeEP15InstructionAttrb.exit
+  %45 = getelementptr inbounds i8, ptr %43, i64 32
+  store ptr null, ptr %45, align 8
   br label %_ZN15InstructionAttrD2Ev.exit
 
-_ZN15InstructionAttrD2Ev.exit:                    ; preds = %_ZN9Assembler22simd_prefix_and_encodeE11XMMRegisterS0_S0_NS_13VexSimdPrefixENS_9VexOpcodeEP15InstructionAttrb.exit, %45
+_ZN15InstructionAttrD2Ev.exit:                    ; preds = %_ZN9Assembler22simd_prefix_and_encodeE11XMMRegisterS0_S0_NS_13VexSimdPrefixENS_9VexOpcodeEP15InstructionAttrb.exit, %44
   ret void
 }
 
@@ -67794,41 +67794,41 @@ define hidden void @_ZN9Assembler6pmaxsbE11XMMRegisterS0_(ptr noundef nonnull al
   %33 = trunc i64 %32 to i32
   %34 = sub i32 %33, ptrtoint (ptr getelementptr inbounds (i8, ptr @all_XMMRegisterImpls, i64 1) to i32)
   %35 = icmp sgt i32 %9, 0
-  br i1 %35, label %36, label %39
+  br i1 %35, label %36, label %38
 
 36:                                               ; preds = %3
-  %37 = icmp ult i32 %29, 32
-  %spec.select.i = select i1 %37, i32 %29, i32 0
-  %38 = call noundef i32 @_ZN9Assembler21vex_prefix_and_encodeEiiiNS_13VexSimdPrefixENS_9VexOpcodeEP15InstructionAttrb(ptr noundef nonnull align 8 dereferenceable(40) %0, i32 noundef %29, i32 noundef %spec.select.i, i32 noundef %34, i32 noundef 1, i32 noundef 2, ptr noundef nonnull %4, i1 noundef zeroext false)
+  %spec.select.i.i = icmp ult i32 %29, 32
+  %spec.select.i = select i1 %spec.select.i.i, i32 %29, i32 0
+  %37 = call noundef i32 @_ZN9Assembler21vex_prefix_and_encodeEiiiNS_13VexSimdPrefixENS_9VexOpcodeEP15InstructionAttrb(ptr noundef nonnull align 8 dereferenceable(40) %0, i32 noundef %29, i32 noundef %spec.select.i, i32 noundef %34, i32 noundef 1, i32 noundef 2, ptr noundef nonnull %4, i1 noundef zeroext false)
   br label %_ZN9Assembler22simd_prefix_and_encodeE11XMMRegisterS0_S0_NS_13VexSimdPrefixENS_9VexOpcodeEP15InstructionAttrb.exit
 
-39:                                               ; preds = %3
-  %40 = tail call noundef i32 @_ZN9Assembler21rex_prefix_and_encodeEiiNS_13VexSimdPrefixENS_9VexOpcodeEb(ptr noundef nonnull align 8 dereferenceable(40) %0, i32 noundef %29, i32 noundef %34, i32 noundef 1, i32 noundef 2, i1 noundef zeroext false)
+38:                                               ; preds = %3
+  %39 = tail call noundef i32 @_ZN9Assembler21rex_prefix_and_encodeEiiNS_13VexSimdPrefixENS_9VexOpcodeEb(ptr noundef nonnull align 8 dereferenceable(40) %0, i32 noundef %29, i32 noundef %34, i32 noundef 1, i32 noundef 2, i1 noundef zeroext false)
   br label %_ZN9Assembler22simd_prefix_and_encodeE11XMMRegisterS0_S0_NS_13VexSimdPrefixENS_9VexOpcodeEP15InstructionAttrb.exit
 
-_ZN9Assembler22simd_prefix_and_encodeE11XMMRegisterS0_S0_NS_13VexSimdPrefixENS_9VexOpcodeEP15InstructionAttrb.exit: ; preds = %36, %39
-  %.0.i = phi i32 [ %38, %36 ], [ %40, %39 ]
-  %41 = getelementptr inbounds i8, ptr %0, i64 8
-  %42 = load ptr, ptr %41, align 8
-  %43 = trunc i32 %.0.i to i8
-  %.0.i2.i = or i8 %43, -64
-  %44 = getelementptr inbounds i8, ptr %42, i64 16
-  %45 = load ptr, ptr %44, align 8
-  %46 = getelementptr inbounds i8, ptr %45, i64 1
-  store i8 60, ptr %45, align 1
-  %47 = getelementptr inbounds i8, ptr %45, i64 2
-  store i8 %.0.i2.i, ptr %46, align 1
-  store ptr %47, ptr %44, align 8
-  %48 = load ptr, ptr %24, align 8
-  %.not.i = icmp eq ptr %48, null
-  br i1 %.not.i, label %_ZN15InstructionAttrD2Ev.exit, label %49
+_ZN9Assembler22simd_prefix_and_encodeE11XMMRegisterS0_S0_NS_13VexSimdPrefixENS_9VexOpcodeEP15InstructionAttrb.exit: ; preds = %36, %38
+  %.0.i = phi i32 [ %37, %36 ], [ %39, %38 ]
+  %40 = getelementptr inbounds i8, ptr %0, i64 8
+  %41 = load ptr, ptr %40, align 8
+  %42 = trunc i32 %.0.i to i8
+  %.0.i2.i = or i8 %42, -64
+  %43 = getelementptr inbounds i8, ptr %41, i64 16
+  %44 = load ptr, ptr %43, align 8
+  %45 = getelementptr inbounds i8, ptr %44, i64 1
+  store i8 60, ptr %44, align 1
+  %46 = getelementptr inbounds i8, ptr %44, i64 2
+  store i8 %.0.i2.i, ptr %45, align 1
+  store ptr %46, ptr %43, align 8
+  %47 = load ptr, ptr %24, align 8
+  %.not.i = icmp eq ptr %47, null
+  br i1 %.not.i, label %_ZN15InstructionAttrD2Ev.exit, label %48
 
-49:                                               ; preds = %_ZN9Assembler22simd_prefix_and_encodeE11XMMRegisterS0_S0_NS_13VexSimdPrefixENS_9VexOpcodeEP15InstructionAttrb.exit
-  %50 = getelementptr inbounds i8, ptr %48, i64 32
-  store ptr null, ptr %50, align 8
+48:                                               ; preds = %_ZN9Assembler22simd_prefix_and_encodeE11XMMRegisterS0_S0_NS_13VexSimdPrefixENS_9VexOpcodeEP15InstructionAttrb.exit
+  %49 = getelementptr inbounds i8, ptr %47, i64 32
+  store ptr null, ptr %49, align 8
   br label %_ZN15InstructionAttrD2Ev.exit
 
-_ZN15InstructionAttrD2Ev.exit:                    ; preds = %_ZN9Assembler22simd_prefix_and_encodeE11XMMRegisterS0_S0_NS_13VexSimdPrefixENS_9VexOpcodeEP15InstructionAttrb.exit, %49
+_ZN15InstructionAttrD2Ev.exit:                    ; preds = %_ZN9Assembler22simd_prefix_and_encodeE11XMMRegisterS0_S0_NS_13VexSimdPrefixENS_9VexOpcodeEP15InstructionAttrb.exit, %48
   ret void
 }
 
@@ -67957,41 +67957,41 @@ define hidden void @_ZN9Assembler6pmaxswE11XMMRegisterS0_(ptr noundef nonnull al
   %33 = trunc i64 %32 to i32
   %34 = sub i32 %33, ptrtoint (ptr getelementptr inbounds (i8, ptr @all_XMMRegisterImpls, i64 1) to i32)
   %35 = icmp sgt i32 %9, 0
-  br i1 %35, label %36, label %39
+  br i1 %35, label %36, label %38
 
 36:                                               ; preds = %3
-  %37 = icmp ult i32 %29, 32
-  %spec.select.i = select i1 %37, i32 %29, i32 0
-  %38 = call noundef i32 @_ZN9Assembler21vex_prefix_and_encodeEiiiNS_13VexSimdPrefixENS_9VexOpcodeEP15InstructionAttrb(ptr noundef nonnull align 8 dereferenceable(40) %0, i32 noundef %29, i32 noundef %spec.select.i, i32 noundef %34, i32 noundef 1, i32 noundef 1, ptr noundef nonnull %4, i1 noundef zeroext false)
+  %spec.select.i.i = icmp ult i32 %29, 32
+  %spec.select.i = select i1 %spec.select.i.i, i32 %29, i32 0
+  %37 = call noundef i32 @_ZN9Assembler21vex_prefix_and_encodeEiiiNS_13VexSimdPrefixENS_9VexOpcodeEP15InstructionAttrb(ptr noundef nonnull align 8 dereferenceable(40) %0, i32 noundef %29, i32 noundef %spec.select.i, i32 noundef %34, i32 noundef 1, i32 noundef 1, ptr noundef nonnull %4, i1 noundef zeroext false)
   br label %_ZN9Assembler22simd_prefix_and_encodeE11XMMRegisterS0_S0_NS_13VexSimdPrefixENS_9VexOpcodeEP15InstructionAttrb.exit
 
-39:                                               ; preds = %3
-  %40 = tail call noundef i32 @_ZN9Assembler21rex_prefix_and_encodeEiiNS_13VexSimdPrefixENS_9VexOpcodeEb(ptr noundef nonnull align 8 dereferenceable(40) %0, i32 noundef %29, i32 noundef %34, i32 noundef 1, i32 noundef 1, i1 noundef zeroext false)
+38:                                               ; preds = %3
+  %39 = tail call noundef i32 @_ZN9Assembler21rex_prefix_and_encodeEiiNS_13VexSimdPrefixENS_9VexOpcodeEb(ptr noundef nonnull align 8 dereferenceable(40) %0, i32 noundef %29, i32 noundef %34, i32 noundef 1, i32 noundef 1, i1 noundef zeroext false)
   br label %_ZN9Assembler22simd_prefix_and_encodeE11XMMRegisterS0_S0_NS_13VexSimdPrefixENS_9VexOpcodeEP15InstructionAttrb.exit
 
-_ZN9Assembler22simd_prefix_and_encodeE11XMMRegisterS0_S0_NS_13VexSimdPrefixENS_9VexOpcodeEP15InstructionAttrb.exit: ; preds = %36, %39
-  %.0.i = phi i32 [ %38, %36 ], [ %40, %39 ]
-  %41 = getelementptr inbounds i8, ptr %0, i64 8
-  %42 = load ptr, ptr %41, align 8
-  %43 = trunc i32 %.0.i to i8
-  %.0.i2.i = or i8 %43, -64
-  %44 = getelementptr inbounds i8, ptr %42, i64 16
-  %45 = load ptr, ptr %44, align 8
-  %46 = getelementptr inbounds i8, ptr %45, i64 1
-  store i8 -18, ptr %45, align 1
-  %47 = getelementptr inbounds i8, ptr %45, i64 2
-  store i8 %.0.i2.i, ptr %46, align 1
-  store ptr %47, ptr %44, align 8
-  %48 = load ptr, ptr %24, align 8
-  %.not.i = icmp eq ptr %48, null
-  br i1 %.not.i, label %_ZN15InstructionAttrD2Ev.exit, label %49
+_ZN9Assembler22simd_prefix_and_encodeE11XMMRegisterS0_S0_NS_13VexSimdPrefixENS_9VexOpcodeEP15InstructionAttrb.exit: ; preds = %36, %38
+  %.0.i = phi i32 [ %37, %36 ], [ %39, %38 ]
+  %40 = getelementptr inbounds i8, ptr %0, i64 8
+  %41 = load ptr, ptr %40, align 8
+  %42 = trunc i32 %.0.i to i8
+  %.0.i2.i = or i8 %42, -64
+  %43 = getelementptr inbounds i8, ptr %41, i64 16
+  %44 = load ptr, ptr %43, align 8
+  %45 = getelementptr inbounds i8, ptr %44, i64 1
+  store i8 -18, ptr %44, align 1
+  %46 = getelementptr inbounds i8, ptr %44, i64 2
+  store i8 %.0.i2.i, ptr %45, align 1
+  store ptr %46, ptr %43, align 8
+  %47 = load ptr, ptr %24, align 8
+  %.not.i = icmp eq ptr %47, null
+  br i1 %.not.i, label %_ZN15InstructionAttrD2Ev.exit, label %48
 
-49:                                               ; preds = %_ZN9Assembler22simd_prefix_and_encodeE11XMMRegisterS0_S0_NS_13VexSimdPrefixENS_9VexOpcodeEP15InstructionAttrb.exit
-  %50 = getelementptr inbounds i8, ptr %48, i64 32
-  store ptr null, ptr %50, align 8
+48:                                               ; preds = %_ZN9Assembler22simd_prefix_and_encodeE11XMMRegisterS0_S0_NS_13VexSimdPrefixENS_9VexOpcodeEP15InstructionAttrb.exit
+  %49 = getelementptr inbounds i8, ptr %47, i64 32
+  store ptr null, ptr %49, align 8
   br label %_ZN15InstructionAttrD2Ev.exit
 
-_ZN15InstructionAttrD2Ev.exit:                    ; preds = %_ZN9Assembler22simd_prefix_and_encodeE11XMMRegisterS0_S0_NS_13VexSimdPrefixENS_9VexOpcodeEP15InstructionAttrb.exit, %49
+_ZN15InstructionAttrD2Ev.exit:                    ; preds = %_ZN9Assembler22simd_prefix_and_encodeE11XMMRegisterS0_S0_NS_13VexSimdPrefixENS_9VexOpcodeEP15InstructionAttrb.exit, %48
   ret void
 }
 
@@ -68116,41 +68116,41 @@ define hidden void @_ZN9Assembler6pmaxsdE11XMMRegisterS0_(ptr noundef nonnull al
   %29 = trunc i64 %28 to i32
   %30 = sub i32 %29, ptrtoint (ptr getelementptr inbounds (i8, ptr @all_XMMRegisterImpls, i64 1) to i32)
   %31 = icmp sgt i32 %6, 0
-  br i1 %31, label %32, label %35
+  br i1 %31, label %32, label %34
 
 32:                                               ; preds = %3
-  %33 = icmp ult i32 %25, 32
-  %spec.select.i = select i1 %33, i32 %25, i32 0
-  %34 = call noundef i32 @_ZN9Assembler21vex_prefix_and_encodeEiiiNS_13VexSimdPrefixENS_9VexOpcodeEP15InstructionAttrb(ptr noundef nonnull align 8 dereferenceable(40) %0, i32 noundef %25, i32 noundef %spec.select.i, i32 noundef %30, i32 noundef 1, i32 noundef 2, ptr noundef nonnull %4, i1 noundef zeroext false)
+  %spec.select.i.i = icmp ult i32 %25, 32
+  %spec.select.i = select i1 %spec.select.i.i, i32 %25, i32 0
+  %33 = call noundef i32 @_ZN9Assembler21vex_prefix_and_encodeEiiiNS_13VexSimdPrefixENS_9VexOpcodeEP15InstructionAttrb(ptr noundef nonnull align 8 dereferenceable(40) %0, i32 noundef %25, i32 noundef %spec.select.i, i32 noundef %30, i32 noundef 1, i32 noundef 2, ptr noundef nonnull %4, i1 noundef zeroext false)
   br label %_ZN9Assembler22simd_prefix_and_encodeE11XMMRegisterS0_S0_NS_13VexSimdPrefixENS_9VexOpcodeEP15InstructionAttrb.exit
 
-35:                                               ; preds = %3
-  %36 = tail call noundef i32 @_ZN9Assembler21rex_prefix_and_encodeEiiNS_13VexSimdPrefixENS_9VexOpcodeEb(ptr noundef nonnull align 8 dereferenceable(40) %0, i32 noundef %25, i32 noundef %30, i32 noundef 1, i32 noundef 2, i1 noundef zeroext false)
+34:                                               ; preds = %3
+  %35 = tail call noundef i32 @_ZN9Assembler21rex_prefix_and_encodeEiiNS_13VexSimdPrefixENS_9VexOpcodeEb(ptr noundef nonnull align 8 dereferenceable(40) %0, i32 noundef %25, i32 noundef %30, i32 noundef 1, i32 noundef 2, i1 noundef zeroext false)
   br label %_ZN9Assembler22simd_prefix_and_encodeE11XMMRegisterS0_S0_NS_13VexSimdPrefixENS_9VexOpcodeEP15InstructionAttrb.exit
 
-_ZN9Assembler22simd_prefix_and_encodeE11XMMRegisterS0_S0_NS_13VexSimdPrefixENS_9VexOpcodeEP15InstructionAttrb.exit: ; preds = %32, %35
-  %.0.i = phi i32 [ %34, %32 ], [ %36, %35 ]
-  %37 = getelementptr inbounds i8, ptr %0, i64 8
-  %38 = load ptr, ptr %37, align 8
-  %39 = trunc i32 %.0.i to i8
-  %.0.i2.i = or i8 %39, -64
-  %40 = getelementptr inbounds i8, ptr %38, i64 16
-  %41 = load ptr, ptr %40, align 8
-  %42 = getelementptr inbounds i8, ptr %41, i64 1
-  store i8 61, ptr %41, align 1
-  %43 = getelementptr inbounds i8, ptr %41, i64 2
-  store i8 %.0.i2.i, ptr %42, align 1
-  store ptr %43, ptr %40, align 8
-  %44 = load ptr, ptr %20, align 8
-  %.not.i = icmp eq ptr %44, null
-  br i1 %.not.i, label %_ZN15InstructionAttrD2Ev.exit, label %45
+_ZN9Assembler22simd_prefix_and_encodeE11XMMRegisterS0_S0_NS_13VexSimdPrefixENS_9VexOpcodeEP15InstructionAttrb.exit: ; preds = %32, %34
+  %.0.i = phi i32 [ %33, %32 ], [ %35, %34 ]
+  %36 = getelementptr inbounds i8, ptr %0, i64 8
+  %37 = load ptr, ptr %36, align 8
+  %38 = trunc i32 %.0.i to i8
+  %.0.i2.i = or i8 %38, -64
+  %39 = getelementptr inbounds i8, ptr %37, i64 16
+  %40 = load ptr, ptr %39, align 8
+  %41 = getelementptr inbounds i8, ptr %40, i64 1
+  store i8 61, ptr %40, align 1
+  %42 = getelementptr inbounds i8, ptr %40, i64 2
+  store i8 %.0.i2.i, ptr %41, align 1
+  store ptr %42, ptr %39, align 8
+  %43 = load ptr, ptr %20, align 8
+  %.not.i = icmp eq ptr %43, null
+  br i1 %.not.i, label %_ZN15InstructionAttrD2Ev.exit, label %44
 
-45:                                               ; preds = %_ZN9Assembler22simd_prefix_and_encodeE11XMMRegisterS0_S0_NS_13VexSimdPrefixENS_9VexOpcodeEP15InstructionAttrb.exit
-  %46 = getelementptr inbounds i8, ptr %44, i64 32
-  store ptr null, ptr %46, align 8
+44:                                               ; preds = %_ZN9Assembler22simd_prefix_and_encodeE11XMMRegisterS0_S0_NS_13VexSimdPrefixENS_9VexOpcodeEP15InstructionAttrb.exit
+  %45 = getelementptr inbounds i8, ptr %43, i64 32
+  store ptr null, ptr %45, align 8
   br label %_ZN15InstructionAttrD2Ev.exit
 
-_ZN15InstructionAttrD2Ev.exit:                    ; preds = %_ZN9Assembler22simd_prefix_and_encodeE11XMMRegisterS0_S0_NS_13VexSimdPrefixENS_9VexOpcodeEP15InstructionAttrb.exit, %45
+_ZN15InstructionAttrD2Ev.exit:                    ; preds = %_ZN9Assembler22simd_prefix_and_encodeE11XMMRegisterS0_S0_NS_13VexSimdPrefixENS_9VexOpcodeEP15InstructionAttrb.exit, %44
   ret void
 }
 
@@ -68344,41 +68344,41 @@ define hidden void @_ZN9Assembler5maxpsE11XMMRegisterS0_(ptr noundef nonnull ali
   %29 = trunc i64 %28 to i32
   %30 = sub i32 %29, ptrtoint (ptr getelementptr inbounds (i8, ptr @all_XMMRegisterImpls, i64 1) to i32)
   %31 = icmp sgt i32 %6, 0
-  br i1 %31, label %32, label %35
+  br i1 %31, label %32, label %34
 
 32:                                               ; preds = %3
-  %33 = icmp ult i32 %25, 32
-  %spec.select.i = select i1 %33, i32 %25, i32 0
-  %34 = call noundef i32 @_ZN9Assembler21vex_prefix_and_encodeEiiiNS_13VexSimdPrefixENS_9VexOpcodeEP15InstructionAttrb(ptr noundef nonnull align 8 dereferenceable(40) %0, i32 noundef %25, i32 noundef %spec.select.i, i32 noundef %30, i32 noundef 0, i32 noundef 1, ptr noundef nonnull %4, i1 noundef zeroext false)
+  %spec.select.i.i = icmp ult i32 %25, 32
+  %spec.select.i = select i1 %spec.select.i.i, i32 %25, i32 0
+  %33 = call noundef i32 @_ZN9Assembler21vex_prefix_and_encodeEiiiNS_13VexSimdPrefixENS_9VexOpcodeEP15InstructionAttrb(ptr noundef nonnull align 8 dereferenceable(40) %0, i32 noundef %25, i32 noundef %spec.select.i, i32 noundef %30, i32 noundef 0, i32 noundef 1, ptr noundef nonnull %4, i1 noundef zeroext false)
   br label %_ZN9Assembler22simd_prefix_and_encodeE11XMMRegisterS0_S0_NS_13VexSimdPrefixENS_9VexOpcodeEP15InstructionAttrb.exit
 
-35:                                               ; preds = %3
-  %36 = tail call noundef i32 @_ZN9Assembler21rex_prefix_and_encodeEiiNS_13VexSimdPrefixENS_9VexOpcodeEb(ptr noundef nonnull align 8 dereferenceable(40) %0, i32 noundef %25, i32 noundef %30, i32 noundef 0, i32 noundef 1, i1 noundef zeroext false)
+34:                                               ; preds = %3
+  %35 = tail call noundef i32 @_ZN9Assembler21rex_prefix_and_encodeEiiNS_13VexSimdPrefixENS_9VexOpcodeEb(ptr noundef nonnull align 8 dereferenceable(40) %0, i32 noundef %25, i32 noundef %30, i32 noundef 0, i32 noundef 1, i1 noundef zeroext false)
   br label %_ZN9Assembler22simd_prefix_and_encodeE11XMMRegisterS0_S0_NS_13VexSimdPrefixENS_9VexOpcodeEP15InstructionAttrb.exit
 
-_ZN9Assembler22simd_prefix_and_encodeE11XMMRegisterS0_S0_NS_13VexSimdPrefixENS_9VexOpcodeEP15InstructionAttrb.exit: ; preds = %32, %35
-  %.0.i = phi i32 [ %34, %32 ], [ %36, %35 ]
-  %37 = getelementptr inbounds i8, ptr %0, i64 8
-  %38 = load ptr, ptr %37, align 8
-  %39 = trunc i32 %.0.i to i8
-  %.0.i2.i = or i8 %39, -64
-  %40 = getelementptr inbounds i8, ptr %38, i64 16
-  %41 = load ptr, ptr %40, align 8
-  %42 = getelementptr inbounds i8, ptr %41, i64 1
-  store i8 95, ptr %41, align 1
-  %43 = getelementptr inbounds i8, ptr %41, i64 2
-  store i8 %.0.i2.i, ptr %42, align 1
-  store ptr %43, ptr %40, align 8
-  %44 = load ptr, ptr %20, align 8
-  %.not.i = icmp eq ptr %44, null
-  br i1 %.not.i, label %_ZN15InstructionAttrD2Ev.exit, label %45
+_ZN9Assembler22simd_prefix_and_encodeE11XMMRegisterS0_S0_NS_13VexSimdPrefixENS_9VexOpcodeEP15InstructionAttrb.exit: ; preds = %32, %34
+  %.0.i = phi i32 [ %33, %32 ], [ %35, %34 ]
+  %36 = getelementptr inbounds i8, ptr %0, i64 8
+  %37 = load ptr, ptr %36, align 8
+  %38 = trunc i32 %.0.i to i8
+  %.0.i2.i = or i8 %38, -64
+  %39 = getelementptr inbounds i8, ptr %37, i64 16
+  %40 = load ptr, ptr %39, align 8
+  %41 = getelementptr inbounds i8, ptr %40, i64 1
+  store i8 95, ptr %40, align 1
+  %42 = getelementptr inbounds i8, ptr %40, i64 2
+  store i8 %.0.i2.i, ptr %41, align 1
+  store ptr %42, ptr %39, align 8
+  %43 = load ptr, ptr %20, align 8
+  %.not.i = icmp eq ptr %43, null
+  br i1 %.not.i, label %_ZN15InstructionAttrD2Ev.exit, label %44
 
-45:                                               ; preds = %_ZN9Assembler22simd_prefix_and_encodeE11XMMRegisterS0_S0_NS_13VexSimdPrefixENS_9VexOpcodeEP15InstructionAttrb.exit
-  %46 = getelementptr inbounds i8, ptr %44, i64 32
-  store ptr null, ptr %46, align 8
+44:                                               ; preds = %_ZN9Assembler22simd_prefix_and_encodeE11XMMRegisterS0_S0_NS_13VexSimdPrefixENS_9VexOpcodeEP15InstructionAttrb.exit
+  %45 = getelementptr inbounds i8, ptr %43, i64 32
+  store ptr null, ptr %45, align 8
   br label %_ZN15InstructionAttrD2Ev.exit
 
-_ZN15InstructionAttrD2Ev.exit:                    ; preds = %_ZN9Assembler22simd_prefix_and_encodeE11XMMRegisterS0_S0_NS_13VexSimdPrefixENS_9VexOpcodeEP15InstructionAttrb.exit, %45
+_ZN15InstructionAttrD2Ev.exit:                    ; preds = %_ZN9Assembler22simd_prefix_and_encodeE11XMMRegisterS0_S0_NS_13VexSimdPrefixENS_9VexOpcodeEP15InstructionAttrb.exit, %44
   ret void
 }
 
@@ -68651,97 +68651,97 @@ define hidden void @_ZN9Assembler5psllwE11XMMRegisteri(ptr noundef nonnull align
   %28 = trunc i64 %27 to i32
   %29 = sub i32 %28, ptrtoint (ptr getelementptr inbounds (i8, ptr @all_XMMRegisterImpls, i64 1) to i32)
   %30 = icmp sgt i32 %9, 0
-  br i1 %30, label %31, label %34
+  br i1 %30, label %31, label %33
 
 31:                                               ; preds = %3
-  %32 = icmp ult i32 %29, 32
-  %spec.select.i = select i1 %32, i32 %29, i32 0
-  %33 = call noundef i32 @_ZN9Assembler21vex_prefix_and_encodeEiiiNS_13VexSimdPrefixENS_9VexOpcodeEP15InstructionAttrb(ptr noundef nonnull align 8 dereferenceable(40) %0, i32 noundef 6, i32 noundef %spec.select.i, i32 noundef %29, i32 noundef 1, i32 noundef 1, ptr noundef nonnull %4, i1 noundef zeroext false)
+  %spec.select.i.i = icmp ult i32 %29, 32
+  %spec.select.i = select i1 %spec.select.i.i, i32 %29, i32 0
+  %32 = call noundef i32 @_ZN9Assembler21vex_prefix_and_encodeEiiiNS_13VexSimdPrefixENS_9VexOpcodeEP15InstructionAttrb(ptr noundef nonnull align 8 dereferenceable(40) %0, i32 noundef 6, i32 noundef %spec.select.i, i32 noundef %29, i32 noundef 1, i32 noundef 1, ptr noundef nonnull %4, i1 noundef zeroext false)
   br label %_ZN9Assembler22simd_prefix_and_encodeE11XMMRegisterS0_S0_NS_13VexSimdPrefixENS_9VexOpcodeEP15InstructionAttrb.exit
 
-34:                                               ; preds = %3
-  %35 = getelementptr inbounds i8, ptr %0, i64 8
-  %36 = load ptr, ptr %35, align 8
-  %37 = getelementptr inbounds i8, ptr %36, i64 16
-  %38 = load ptr, ptr %37, align 8
-  %39 = getelementptr inbounds i8, ptr %38, i64 1
-  store i8 102, ptr %38, align 1
-  store ptr %39, ptr %37, align 8
-  %40 = icmp sgt i32 %29, 15
-  br i1 %40, label %41, label %55
+33:                                               ; preds = %3
+  %34 = getelementptr inbounds i8, ptr %0, i64 8
+  %35 = load ptr, ptr %34, align 8
+  %36 = getelementptr inbounds i8, ptr %35, i64 16
+  %37 = load ptr, ptr %36, align 8
+  %38 = getelementptr inbounds i8, ptr %37, i64 1
+  store i8 102, ptr %37, align 1
+  store ptr %38, ptr %36, align 8
+  %39 = icmp sgt i32 %29, 15
+  br i1 %39, label %40, label %54
 
-41:                                               ; preds = %34
-  %42 = and i32 %29, 16
-  %43 = lshr i32 %29, 3
-  %44 = and i32 %43, 1
-  %45 = or disjoint i32 %44, %42
-  %46 = and i32 %29, 7
-  %47 = load ptr, ptr %35, align 8
-  %48 = getelementptr inbounds i8, ptr %47, i64 16
-  %49 = load ptr, ptr %48, align 8
-  %50 = getelementptr inbounds i8, ptr %49, i64 1
-  store i8 -43, ptr %49, align 1
-  store ptr %50, ptr %48, align 8
-  %51 = load ptr, ptr %35, align 8
-  %.0.i.i2.i.i.i.i18.i = trunc nuw nsw i32 %45 to i8
-  %52 = getelementptr inbounds i8, ptr %51, i64 16
-  %53 = load ptr, ptr %52, align 8
-  %54 = getelementptr inbounds i8, ptr %53, i64 1
-  store i8 %.0.i.i2.i.i.i.i18.i, ptr %53, align 1
-  store ptr %54, ptr %52, align 8
+40:                                               ; preds = %33
+  %41 = and i32 %29, 16
+  %42 = lshr i32 %29, 3
+  %43 = and i32 %42, 1
+  %44 = or disjoint i32 %43, %41
+  %45 = and i32 %29, 7
+  %46 = load ptr, ptr %34, align 8
+  %47 = getelementptr inbounds i8, ptr %46, i64 16
+  %48 = load ptr, ptr %47, align 8
+  %49 = getelementptr inbounds i8, ptr %48, i64 1
+  store i8 -43, ptr %48, align 1
+  store ptr %49, ptr %47, align 8
+  %50 = load ptr, ptr %34, align 8
+  %.0.i.i2.i.i.i.i18.i = trunc nuw nsw i32 %44 to i8
+  %51 = getelementptr inbounds i8, ptr %50, i64 16
+  %52 = load ptr, ptr %51, align 8
+  %53 = getelementptr inbounds i8, ptr %52, i64 1
+  store i8 %.0.i.i2.i.i.i.i18.i, ptr %52, align 1
+  store ptr %53, ptr %51, align 8
   br label %_ZN9Assembler21rex_prefix_and_encodeEiiNS_13VexSimdPrefixENS_9VexOpcodeEb.exit
 
-55:                                               ; preds = %34
-  %56 = icmp sgt i32 %29, 7
-  br i1 %56, label %57, label %_ZN9Assembler21rex_prefix_and_encodeEiiNS_13VexSimdPrefixENS_9VexOpcodeEb.exit
+54:                                               ; preds = %33
+  %55 = icmp sgt i32 %29, 7
+  br i1 %55, label %56, label %_ZN9Assembler21rex_prefix_and_encodeEiiNS_13VexSimdPrefixENS_9VexOpcodeEb.exit
 
-57:                                               ; preds = %55
-  %58 = load ptr, ptr %35, align 8
-  %59 = getelementptr inbounds i8, ptr %58, i64 16
-  %60 = load ptr, ptr %59, align 8
-  %61 = getelementptr inbounds i8, ptr %60, i64 1
-  store i8 65, ptr %60, align 1
-  store ptr %61, ptr %59, align 8
-  %62 = add nsw i32 %29, -8
+56:                                               ; preds = %54
+  %57 = load ptr, ptr %34, align 8
+  %58 = getelementptr inbounds i8, ptr %57, i64 16
+  %59 = load ptr, ptr %58, align 8
+  %60 = getelementptr inbounds i8, ptr %59, i64 1
+  store i8 65, ptr %59, align 1
+  store ptr %60, ptr %58, align 8
+  %61 = add nsw i32 %29, -8
   br label %_ZN9Assembler21rex_prefix_and_encodeEiiNS_13VexSimdPrefixENS_9VexOpcodeEb.exit
 
-_ZN9Assembler21rex_prefix_and_encodeEiiNS_13VexSimdPrefixENS_9VexOpcodeEb.exit: ; preds = %55, %57, %41
-  %.in = phi i32 [ %46, %41 ], [ %62, %57 ], [ %29, %55 ]
-  %63 = or i32 %.in, 48
-  %64 = load ptr, ptr %35, align 8
-  %65 = getelementptr inbounds i8, ptr %64, i64 16
-  %66 = load ptr, ptr %65, align 8
-  %67 = getelementptr inbounds i8, ptr %66, i64 1
-  store i8 15, ptr %66, align 1
-  store ptr %67, ptr %65, align 8
+_ZN9Assembler21rex_prefix_and_encodeEiiNS_13VexSimdPrefixENS_9VexOpcodeEb.exit: ; preds = %54, %56, %40
+  %.in = phi i32 [ %45, %40 ], [ %61, %56 ], [ %29, %54 ]
+  %62 = or i32 %.in, 48
+  %63 = load ptr, ptr %34, align 8
+  %64 = getelementptr inbounds i8, ptr %63, i64 16
+  %65 = load ptr, ptr %64, align 8
+  %66 = getelementptr inbounds i8, ptr %65, i64 1
+  store i8 15, ptr %65, align 1
+  store ptr %66, ptr %64, align 8
   br label %_ZN9Assembler22simd_prefix_and_encodeE11XMMRegisterS0_S0_NS_13VexSimdPrefixENS_9VexOpcodeEP15InstructionAttrb.exit
 
 _ZN9Assembler22simd_prefix_and_encodeE11XMMRegisterS0_S0_NS_13VexSimdPrefixENS_9VexOpcodeEP15InstructionAttrb.exit: ; preds = %31, %_ZN9Assembler21rex_prefix_and_encodeEiiNS_13VexSimdPrefixENS_9VexOpcodeEb.exit
-  %.0.i = phi i32 [ %33, %31 ], [ %63, %_ZN9Assembler21rex_prefix_and_encodeEiiNS_13VexSimdPrefixENS_9VexOpcodeEb.exit ]
-  %68 = getelementptr inbounds i8, ptr %0, i64 8
-  %69 = load ptr, ptr %68, align 8
-  %70 = trunc i32 %.0.i to i8
-  %.0.i3.i = or i8 %70, -64
+  %.0.i = phi i32 [ %32, %31 ], [ %62, %_ZN9Assembler21rex_prefix_and_encodeEiiNS_13VexSimdPrefixENS_9VexOpcodeEb.exit ]
+  %67 = getelementptr inbounds i8, ptr %0, i64 8
+  %68 = load ptr, ptr %67, align 8
+  %69 = trunc i32 %.0.i to i8
+  %.0.i3.i = or i8 %69, -64
   %.0.i4.i = trunc i32 %2 to i8
-  %71 = getelementptr inbounds i8, ptr %69, i64 16
-  %72 = load ptr, ptr %71, align 8
-  %73 = getelementptr inbounds i8, ptr %72, i64 1
-  store i8 113, ptr %72, align 1
-  %74 = getelementptr inbounds i8, ptr %72, i64 2
-  store i8 %.0.i3.i, ptr %73, align 1
-  %75 = getelementptr inbounds i8, ptr %72, i64 3
-  store i8 %.0.i4.i, ptr %74, align 1
-  store ptr %75, ptr %71, align 8
-  %76 = load ptr, ptr %24, align 8
-  %.not.i = icmp eq ptr %76, null
-  br i1 %.not.i, label %_ZN15InstructionAttrD2Ev.exit, label %77
+  %70 = getelementptr inbounds i8, ptr %68, i64 16
+  %71 = load ptr, ptr %70, align 8
+  %72 = getelementptr inbounds i8, ptr %71, i64 1
+  store i8 113, ptr %71, align 1
+  %73 = getelementptr inbounds i8, ptr %71, i64 2
+  store i8 %.0.i3.i, ptr %72, align 1
+  %74 = getelementptr inbounds i8, ptr %71, i64 3
+  store i8 %.0.i4.i, ptr %73, align 1
+  store ptr %74, ptr %70, align 8
+  %75 = load ptr, ptr %24, align 8
+  %.not.i = icmp eq ptr %75, null
+  br i1 %.not.i, label %_ZN15InstructionAttrD2Ev.exit, label %76
 
-77:                                               ; preds = %_ZN9Assembler22simd_prefix_and_encodeE11XMMRegisterS0_S0_NS_13VexSimdPrefixENS_9VexOpcodeEP15InstructionAttrb.exit
-  %78 = getelementptr inbounds i8, ptr %76, i64 32
-  store ptr null, ptr %78, align 8
+76:                                               ; preds = %_ZN9Assembler22simd_prefix_and_encodeE11XMMRegisterS0_S0_NS_13VexSimdPrefixENS_9VexOpcodeEP15InstructionAttrb.exit
+  %77 = getelementptr inbounds i8, ptr %75, i64 32
+  store ptr null, ptr %77, align 8
   br label %_ZN15InstructionAttrD2Ev.exit
 
-_ZN15InstructionAttrD2Ev.exit:                    ; preds = %_ZN9Assembler22simd_prefix_and_encodeE11XMMRegisterS0_S0_NS_13VexSimdPrefixENS_9VexOpcodeEP15InstructionAttrb.exit, %77
+_ZN15InstructionAttrD2Ev.exit:                    ; preds = %_ZN9Assembler22simd_prefix_and_encodeE11XMMRegisterS0_S0_NS_13VexSimdPrefixENS_9VexOpcodeEP15InstructionAttrb.exit, %76
   ret void
 }
 
@@ -68784,97 +68784,97 @@ define hidden void @_ZN9Assembler5pslldE11XMMRegisteri(ptr noundef nonnull align
   %24 = trunc i64 %23 to i32
   %25 = sub i32 %24, ptrtoint (ptr getelementptr inbounds (i8, ptr @all_XMMRegisterImpls, i64 1) to i32)
   %26 = icmp sgt i32 %6, 0
-  br i1 %26, label %27, label %30
+  br i1 %26, label %27, label %29
 
 27:                                               ; preds = %3
-  %28 = icmp ult i32 %25, 32
-  %spec.select.i = select i1 %28, i32 %25, i32 0
-  %29 = call noundef i32 @_ZN9Assembler21vex_prefix_and_encodeEiiiNS_13VexSimdPrefixENS_9VexOpcodeEP15InstructionAttrb(ptr noundef nonnull align 8 dereferenceable(40) %0, i32 noundef 6, i32 noundef %spec.select.i, i32 noundef %25, i32 noundef 1, i32 noundef 1, ptr noundef nonnull %4, i1 noundef zeroext false)
+  %spec.select.i.i = icmp ult i32 %25, 32
+  %spec.select.i = select i1 %spec.select.i.i, i32 %25, i32 0
+  %28 = call noundef i32 @_ZN9Assembler21vex_prefix_and_encodeEiiiNS_13VexSimdPrefixENS_9VexOpcodeEP15InstructionAttrb(ptr noundef nonnull align 8 dereferenceable(40) %0, i32 noundef 6, i32 noundef %spec.select.i, i32 noundef %25, i32 noundef 1, i32 noundef 1, ptr noundef nonnull %4, i1 noundef zeroext false)
   br label %_ZN9Assembler22simd_prefix_and_encodeE11XMMRegisterS0_S0_NS_13VexSimdPrefixENS_9VexOpcodeEP15InstructionAttrb.exit
 
-30:                                               ; preds = %3
-  %31 = getelementptr inbounds i8, ptr %0, i64 8
-  %32 = load ptr, ptr %31, align 8
-  %33 = getelementptr inbounds i8, ptr %32, i64 16
-  %34 = load ptr, ptr %33, align 8
-  %35 = getelementptr inbounds i8, ptr %34, i64 1
-  store i8 102, ptr %34, align 1
-  store ptr %35, ptr %33, align 8
-  %36 = icmp sgt i32 %25, 15
-  br i1 %36, label %37, label %51
+29:                                               ; preds = %3
+  %30 = getelementptr inbounds i8, ptr %0, i64 8
+  %31 = load ptr, ptr %30, align 8
+  %32 = getelementptr inbounds i8, ptr %31, i64 16
+  %33 = load ptr, ptr %32, align 8
+  %34 = getelementptr inbounds i8, ptr %33, i64 1
+  store i8 102, ptr %33, align 1
+  store ptr %34, ptr %32, align 8
+  %35 = icmp sgt i32 %25, 15
+  br i1 %35, label %36, label %50
 
-37:                                               ; preds = %30
-  %38 = and i32 %25, 16
-  %39 = lshr i32 %25, 3
-  %40 = and i32 %39, 1
-  %41 = or disjoint i32 %40, %38
-  %42 = and i32 %25, 7
-  %43 = load ptr, ptr %31, align 8
-  %44 = getelementptr inbounds i8, ptr %43, i64 16
-  %45 = load ptr, ptr %44, align 8
-  %46 = getelementptr inbounds i8, ptr %45, i64 1
-  store i8 -43, ptr %45, align 1
-  store ptr %46, ptr %44, align 8
-  %47 = load ptr, ptr %31, align 8
-  %.0.i.i2.i.i.i.i18.i = trunc nuw nsw i32 %41 to i8
-  %48 = getelementptr inbounds i8, ptr %47, i64 16
-  %49 = load ptr, ptr %48, align 8
-  %50 = getelementptr inbounds i8, ptr %49, i64 1
-  store i8 %.0.i.i2.i.i.i.i18.i, ptr %49, align 1
-  store ptr %50, ptr %48, align 8
+36:                                               ; preds = %29
+  %37 = and i32 %25, 16
+  %38 = lshr i32 %25, 3
+  %39 = and i32 %38, 1
+  %40 = or disjoint i32 %39, %37
+  %41 = and i32 %25, 7
+  %42 = load ptr, ptr %30, align 8
+  %43 = getelementptr inbounds i8, ptr %42, i64 16
+  %44 = load ptr, ptr %43, align 8
+  %45 = getelementptr inbounds i8, ptr %44, i64 1
+  store i8 -43, ptr %44, align 1
+  store ptr %45, ptr %43, align 8
+  %46 = load ptr, ptr %30, align 8
+  %.0.i.i2.i.i.i.i18.i = trunc nuw nsw i32 %40 to i8
+  %47 = getelementptr inbounds i8, ptr %46, i64 16
+  %48 = load ptr, ptr %47, align 8
+  %49 = getelementptr inbounds i8, ptr %48, i64 1
+  store i8 %.0.i.i2.i.i.i.i18.i, ptr %48, align 1
+  store ptr %49, ptr %47, align 8
   br label %_ZN9Assembler21rex_prefix_and_encodeEiiNS_13VexSimdPrefixENS_9VexOpcodeEb.exit
 
-51:                                               ; preds = %30
-  %52 = icmp sgt i32 %25, 7
-  br i1 %52, label %53, label %_ZN9Assembler21rex_prefix_and_encodeEiiNS_13VexSimdPrefixENS_9VexOpcodeEb.exit
+50:                                               ; preds = %29
+  %51 = icmp sgt i32 %25, 7
+  br i1 %51, label %52, label %_ZN9Assembler21rex_prefix_and_encodeEiiNS_13VexSimdPrefixENS_9VexOpcodeEb.exit
 
-53:                                               ; preds = %51
-  %54 = load ptr, ptr %31, align 8
-  %55 = getelementptr inbounds i8, ptr %54, i64 16
-  %56 = load ptr, ptr %55, align 8
-  %57 = getelementptr inbounds i8, ptr %56, i64 1
-  store i8 65, ptr %56, align 1
-  store ptr %57, ptr %55, align 8
-  %58 = add nsw i32 %25, -8
+52:                                               ; preds = %50
+  %53 = load ptr, ptr %30, align 8
+  %54 = getelementptr inbounds i8, ptr %53, i64 16
+  %55 = load ptr, ptr %54, align 8
+  %56 = getelementptr inbounds i8, ptr %55, i64 1
+  store i8 65, ptr %55, align 1
+  store ptr %56, ptr %54, align 8
+  %57 = add nsw i32 %25, -8
   br label %_ZN9Assembler21rex_prefix_and_encodeEiiNS_13VexSimdPrefixENS_9VexOpcodeEb.exit
 
-_ZN9Assembler21rex_prefix_and_encodeEiiNS_13VexSimdPrefixENS_9VexOpcodeEb.exit: ; preds = %51, %53, %37
-  %.in = phi i32 [ %42, %37 ], [ %58, %53 ], [ %25, %51 ]
-  %59 = or i32 %.in, 48
-  %60 = load ptr, ptr %31, align 8
-  %61 = getelementptr inbounds i8, ptr %60, i64 16
-  %62 = load ptr, ptr %61, align 8
-  %63 = getelementptr inbounds i8, ptr %62, i64 1
-  store i8 15, ptr %62, align 1
-  store ptr %63, ptr %61, align 8
+_ZN9Assembler21rex_prefix_and_encodeEiiNS_13VexSimdPrefixENS_9VexOpcodeEb.exit: ; preds = %50, %52, %36
+  %.in = phi i32 [ %41, %36 ], [ %57, %52 ], [ %25, %50 ]
+  %58 = or i32 %.in, 48
+  %59 = load ptr, ptr %30, align 8
+  %60 = getelementptr inbounds i8, ptr %59, i64 16
+  %61 = load ptr, ptr %60, align 8
+  %62 = getelementptr inbounds i8, ptr %61, i64 1
+  store i8 15, ptr %61, align 1
+  store ptr %62, ptr %60, align 8
   br label %_ZN9Assembler22simd_prefix_and_encodeE11XMMRegisterS0_S0_NS_13VexSimdPrefixENS_9VexOpcodeEP15InstructionAttrb.exit
 
 _ZN9Assembler22simd_prefix_and_encodeE11XMMRegisterS0_S0_NS_13VexSimdPrefixENS_9VexOpcodeEP15InstructionAttrb.exit: ; preds = %27, %_ZN9Assembler21rex_prefix_and_encodeEiiNS_13VexSimdPrefixENS_9VexOpcodeEb.exit
-  %.0.i = phi i32 [ %29, %27 ], [ %59, %_ZN9Assembler21rex_prefix_and_encodeEiiNS_13VexSimdPrefixENS_9VexOpcodeEb.exit ]
-  %64 = getelementptr inbounds i8, ptr %0, i64 8
-  %65 = load ptr, ptr %64, align 8
-  %66 = trunc i32 %.0.i to i8
-  %.0.i3.i = or i8 %66, -64
+  %.0.i = phi i32 [ %28, %27 ], [ %58, %_ZN9Assembler21rex_prefix_and_encodeEiiNS_13VexSimdPrefixENS_9VexOpcodeEb.exit ]
+  %63 = getelementptr inbounds i8, ptr %0, i64 8
+  %64 = load ptr, ptr %63, align 8
+  %65 = trunc i32 %.0.i to i8
+  %.0.i3.i = or i8 %65, -64
   %.0.i4.i = trunc i32 %2 to i8
-  %67 = getelementptr inbounds i8, ptr %65, i64 16
-  %68 = load ptr, ptr %67, align 8
-  %69 = getelementptr inbounds i8, ptr %68, i64 1
-  store i8 114, ptr %68, align 1
-  %70 = getelementptr inbounds i8, ptr %68, i64 2
-  store i8 %.0.i3.i, ptr %69, align 1
-  %71 = getelementptr inbounds i8, ptr %68, i64 3
-  store i8 %.0.i4.i, ptr %70, align 1
-  store ptr %71, ptr %67, align 8
-  %72 = load ptr, ptr %20, align 8
-  %.not.i = icmp eq ptr %72, null
-  br i1 %.not.i, label %_ZN15InstructionAttrD2Ev.exit, label %73
+  %66 = getelementptr inbounds i8, ptr %64, i64 16
+  %67 = load ptr, ptr %66, align 8
+  %68 = getelementptr inbounds i8, ptr %67, i64 1
+  store i8 114, ptr %67, align 1
+  %69 = getelementptr inbounds i8, ptr %67, i64 2
+  store i8 %.0.i3.i, ptr %68, align 1
+  %70 = getelementptr inbounds i8, ptr %67, i64 3
+  store i8 %.0.i4.i, ptr %69, align 1
+  store ptr %70, ptr %66, align 8
+  %71 = load ptr, ptr %20, align 8
+  %.not.i = icmp eq ptr %71, null
+  br i1 %.not.i, label %_ZN15InstructionAttrD2Ev.exit, label %72
 
-73:                                               ; preds = %_ZN9Assembler22simd_prefix_and_encodeE11XMMRegisterS0_S0_NS_13VexSimdPrefixENS_9VexOpcodeEP15InstructionAttrb.exit
-  %74 = getelementptr inbounds i8, ptr %72, i64 32
-  store ptr null, ptr %74, align 8
+72:                                               ; preds = %_ZN9Assembler22simd_prefix_and_encodeE11XMMRegisterS0_S0_NS_13VexSimdPrefixENS_9VexOpcodeEP15InstructionAttrb.exit
+  %73 = getelementptr inbounds i8, ptr %71, i64 32
+  store ptr null, ptr %73, align 8
   br label %_ZN15InstructionAttrD2Ev.exit
 
-_ZN15InstructionAttrD2Ev.exit:                    ; preds = %_ZN9Assembler22simd_prefix_and_encodeE11XMMRegisterS0_S0_NS_13VexSimdPrefixENS_9VexOpcodeEP15InstructionAttrb.exit, %73
+_ZN15InstructionAttrD2Ev.exit:                    ; preds = %_ZN9Assembler22simd_prefix_and_encodeE11XMMRegisterS0_S0_NS_13VexSimdPrefixENS_9VexOpcodeEP15InstructionAttrb.exit, %72
   ret void
 }
 
@@ -68917,103 +68917,103 @@ define hidden void @_ZN9Assembler5psllqE11XMMRegisteri(ptr noundef nonnull align
   %24 = trunc i64 %23 to i32
   %25 = sub i32 %24, ptrtoint (ptr getelementptr inbounds (i8, ptr @all_XMMRegisterImpls, i64 1) to i32)
   %26 = icmp sgt i32 %6, 0
-  br i1 %26, label %27, label %30
+  br i1 %26, label %27, label %29
 
 27:                                               ; preds = %3
-  %28 = icmp ult i32 %25, 32
-  %spec.select.i = select i1 %28, i32 %25, i32 0
-  %29 = call noundef i32 @_ZN9Assembler21vex_prefix_and_encodeEiiiNS_13VexSimdPrefixENS_9VexOpcodeEP15InstructionAttrb(ptr noundef nonnull align 8 dereferenceable(40) %0, i32 noundef 6, i32 noundef %spec.select.i, i32 noundef %25, i32 noundef 1, i32 noundef 1, ptr noundef nonnull %4, i1 noundef zeroext false)
+  %spec.select.i.i = icmp ult i32 %25, 32
+  %spec.select.i = select i1 %spec.select.i.i, i32 %25, i32 0
+  %28 = call noundef i32 @_ZN9Assembler21vex_prefix_and_encodeEiiiNS_13VexSimdPrefixENS_9VexOpcodeEP15InstructionAttrb(ptr noundef nonnull align 8 dereferenceable(40) %0, i32 noundef 6, i32 noundef %spec.select.i, i32 noundef %25, i32 noundef 1, i32 noundef 1, ptr noundef nonnull %4, i1 noundef zeroext false)
   br label %_ZN9Assembler22simd_prefix_and_encodeE11XMMRegisterS0_S0_NS_13VexSimdPrefixENS_9VexOpcodeEP15InstructionAttrb.exit
 
-30:                                               ; preds = %3
-  %31 = getelementptr inbounds i8, ptr %0, i64 8
-  %32 = load ptr, ptr %31, align 8
-  %33 = getelementptr inbounds i8, ptr %32, i64 16
-  %34 = load ptr, ptr %33, align 8
-  %35 = getelementptr inbounds i8, ptr %34, i64 1
-  store i8 102, ptr %34, align 1
-  store ptr %35, ptr %33, align 8
-  %36 = icmp sgt i32 %25, 15
-  br i1 %36, label %37, label %52
+29:                                               ; preds = %3
+  %30 = getelementptr inbounds i8, ptr %0, i64 8
+  %31 = load ptr, ptr %30, align 8
+  %32 = getelementptr inbounds i8, ptr %31, i64 16
+  %33 = load ptr, ptr %32, align 8
+  %34 = getelementptr inbounds i8, ptr %33, i64 1
+  store i8 102, ptr %33, align 1
+  store ptr %34, ptr %32, align 8
+  %35 = icmp sgt i32 %25, 15
+  br i1 %35, label %36, label %51
 
-37:                                               ; preds = %30
-  %38 = and i32 %25, 16
-  %39 = lshr i32 %25, 3
-  %40 = and i32 %39, 1
-  %41 = or disjoint i32 %40, %38
-  %42 = and i32 %25, 7
-  %43 = load ptr, ptr %31, align 8
-  %44 = getelementptr inbounds i8, ptr %43, i64 16
-  %45 = load ptr, ptr %44, align 8
-  %46 = getelementptr inbounds i8, ptr %45, i64 1
-  store i8 -43, ptr %45, align 1
-  store ptr %46, ptr %44, align 8
-  %47 = load ptr, ptr %31, align 8
-  %48 = trunc nuw nsw i32 %41 to i8
-  %.0.i.i2.i.i.i.i.i = or disjoint i8 %48, 8
-  %49 = getelementptr inbounds i8, ptr %47, i64 16
-  %50 = load ptr, ptr %49, align 8
-  %51 = getelementptr inbounds i8, ptr %50, i64 1
-  store i8 %.0.i.i2.i.i.i.i.i, ptr %50, align 1
-  store ptr %51, ptr %49, align 8
+36:                                               ; preds = %29
+  %37 = and i32 %25, 16
+  %38 = lshr i32 %25, 3
+  %39 = and i32 %38, 1
+  %40 = or disjoint i32 %39, %37
+  %41 = and i32 %25, 7
+  %42 = load ptr, ptr %30, align 8
+  %43 = getelementptr inbounds i8, ptr %42, i64 16
+  %44 = load ptr, ptr %43, align 8
+  %45 = getelementptr inbounds i8, ptr %44, i64 1
+  store i8 -43, ptr %44, align 1
+  store ptr %45, ptr %43, align 8
+  %46 = load ptr, ptr %30, align 8
+  %47 = trunc nuw nsw i32 %40 to i8
+  %.0.i.i2.i.i.i.i.i = or disjoint i8 %47, 8
+  %48 = getelementptr inbounds i8, ptr %46, i64 16
+  %49 = load ptr, ptr %48, align 8
+  %50 = getelementptr inbounds i8, ptr %49, i64 1
+  store i8 %.0.i.i2.i.i.i.i.i, ptr %49, align 1
+  store ptr %50, ptr %48, align 8
   br label %_ZN9Assembler21rex_prefix_and_encodeEiiNS_13VexSimdPrefixENS_9VexOpcodeEb.exit
 
-52:                                               ; preds = %30
-  %53 = icmp slt i32 %25, 8
-  %54 = load ptr, ptr %31, align 8
-  %55 = getelementptr inbounds i8, ptr %54, i64 16
-  %56 = load ptr, ptr %55, align 8
-  %57 = getelementptr inbounds i8, ptr %56, i64 1
-  br i1 %53, label %58, label %59
+51:                                               ; preds = %29
+  %52 = icmp slt i32 %25, 8
+  %53 = load ptr, ptr %30, align 8
+  %54 = getelementptr inbounds i8, ptr %53, i64 16
+  %55 = load ptr, ptr %54, align 8
+  %56 = getelementptr inbounds i8, ptr %55, i64 1
+  br i1 %52, label %57, label %58
 
-58:                                               ; preds = %52
-  store i8 72, ptr %56, align 1
-  store ptr %57, ptr %55, align 8
+57:                                               ; preds = %51
+  store i8 72, ptr %55, align 1
+  store ptr %56, ptr %54, align 8
   br label %_ZN9Assembler21rex_prefix_and_encodeEiiNS_13VexSimdPrefixENS_9VexOpcodeEb.exit
 
-59:                                               ; preds = %52
-  store i8 73, ptr %56, align 1
-  store ptr %57, ptr %55, align 8
-  %60 = add nsw i32 %25, -8
+58:                                               ; preds = %51
+  store i8 73, ptr %55, align 1
+  store ptr %56, ptr %54, align 8
+  %59 = add nsw i32 %25, -8
   br label %_ZN9Assembler21rex_prefix_and_encodeEiiNS_13VexSimdPrefixENS_9VexOpcodeEb.exit
 
-_ZN9Assembler21rex_prefix_and_encodeEiiNS_13VexSimdPrefixENS_9VexOpcodeEb.exit: ; preds = %58, %59, %37
-  %.in = phi i32 [ %42, %37 ], [ %25, %58 ], [ %60, %59 ]
-  %61 = or i32 %.in, 48
-  %62 = load ptr, ptr %31, align 8
-  %63 = getelementptr inbounds i8, ptr %62, i64 16
-  %64 = load ptr, ptr %63, align 8
-  %65 = getelementptr inbounds i8, ptr %64, i64 1
-  store i8 15, ptr %64, align 1
-  store ptr %65, ptr %63, align 8
+_ZN9Assembler21rex_prefix_and_encodeEiiNS_13VexSimdPrefixENS_9VexOpcodeEb.exit: ; preds = %57, %58, %36
+  %.in = phi i32 [ %41, %36 ], [ %25, %57 ], [ %59, %58 ]
+  %60 = or i32 %.in, 48
+  %61 = load ptr, ptr %30, align 8
+  %62 = getelementptr inbounds i8, ptr %61, i64 16
+  %63 = load ptr, ptr %62, align 8
+  %64 = getelementptr inbounds i8, ptr %63, i64 1
+  store i8 15, ptr %63, align 1
+  store ptr %64, ptr %62, align 8
   br label %_ZN9Assembler22simd_prefix_and_encodeE11XMMRegisterS0_S0_NS_13VexSimdPrefixENS_9VexOpcodeEP15InstructionAttrb.exit
 
 _ZN9Assembler22simd_prefix_and_encodeE11XMMRegisterS0_S0_NS_13VexSimdPrefixENS_9VexOpcodeEP15InstructionAttrb.exit: ; preds = %27, %_ZN9Assembler21rex_prefix_and_encodeEiiNS_13VexSimdPrefixENS_9VexOpcodeEb.exit
-  %.0.i = phi i32 [ %29, %27 ], [ %61, %_ZN9Assembler21rex_prefix_and_encodeEiiNS_13VexSimdPrefixENS_9VexOpcodeEb.exit ]
-  %66 = getelementptr inbounds i8, ptr %0, i64 8
-  %67 = load ptr, ptr %66, align 8
-  %68 = trunc i32 %.0.i to i8
-  %.0.i3.i = or i8 %68, -64
+  %.0.i = phi i32 [ %28, %27 ], [ %60, %_ZN9Assembler21rex_prefix_and_encodeEiiNS_13VexSimdPrefixENS_9VexOpcodeEb.exit ]
+  %65 = getelementptr inbounds i8, ptr %0, i64 8
+  %66 = load ptr, ptr %65, align 8
+  %67 = trunc i32 %.0.i to i8
+  %.0.i3.i = or i8 %67, -64
   %.0.i4.i = trunc i32 %2 to i8
-  %69 = getelementptr inbounds i8, ptr %67, i64 16
-  %70 = load ptr, ptr %69, align 8
-  %71 = getelementptr inbounds i8, ptr %70, i64 1
-  store i8 115, ptr %70, align 1
-  %72 = getelementptr inbounds i8, ptr %70, i64 2
-  store i8 %.0.i3.i, ptr %71, align 1
-  %73 = getelementptr inbounds i8, ptr %70, i64 3
-  store i8 %.0.i4.i, ptr %72, align 1
-  store ptr %73, ptr %69, align 8
-  %74 = load ptr, ptr %20, align 8
-  %.not.i = icmp eq ptr %74, null
-  br i1 %.not.i, label %_ZN15InstructionAttrD2Ev.exit, label %75
+  %68 = getelementptr inbounds i8, ptr %66, i64 16
+  %69 = load ptr, ptr %68, align 8
+  %70 = getelementptr inbounds i8, ptr %69, i64 1
+  store i8 115, ptr %69, align 1
+  %71 = getelementptr inbounds i8, ptr %69, i64 2
+  store i8 %.0.i3.i, ptr %70, align 1
+  %72 = getelementptr inbounds i8, ptr %69, i64 3
+  store i8 %.0.i4.i, ptr %71, align 1
+  store ptr %72, ptr %68, align 8
+  %73 = load ptr, ptr %20, align 8
+  %.not.i = icmp eq ptr %73, null
+  br i1 %.not.i, label %_ZN15InstructionAttrD2Ev.exit, label %74
 
-75:                                               ; preds = %_ZN9Assembler22simd_prefix_and_encodeE11XMMRegisterS0_S0_NS_13VexSimdPrefixENS_9VexOpcodeEP15InstructionAttrb.exit
-  %76 = getelementptr inbounds i8, ptr %74, i64 32
-  store ptr null, ptr %76, align 8
+74:                                               ; preds = %_ZN9Assembler22simd_prefix_and_encodeE11XMMRegisterS0_S0_NS_13VexSimdPrefixENS_9VexOpcodeEP15InstructionAttrb.exit
+  %75 = getelementptr inbounds i8, ptr %73, i64 32
+  store ptr null, ptr %75, align 8
   br label %_ZN15InstructionAttrD2Ev.exit
 
-_ZN15InstructionAttrD2Ev.exit:                    ; preds = %_ZN9Assembler22simd_prefix_and_encodeE11XMMRegisterS0_S0_NS_13VexSimdPrefixENS_9VexOpcodeEP15InstructionAttrb.exit, %75
+_ZN15InstructionAttrD2Ev.exit:                    ; preds = %_ZN9Assembler22simd_prefix_and_encodeE11XMMRegisterS0_S0_NS_13VexSimdPrefixENS_9VexOpcodeEP15InstructionAttrb.exit, %74
   ret void
 }
 
@@ -69065,41 +69065,41 @@ define hidden void @_ZN9Assembler5psllwE11XMMRegisterS0_(ptr noundef nonnull ali
   %33 = trunc i64 %32 to i32
   %34 = sub i32 %33, ptrtoint (ptr getelementptr inbounds (i8, ptr @all_XMMRegisterImpls, i64 1) to i32)
   %35 = icmp sgt i32 %9, 0
-  br i1 %35, label %36, label %39
+  br i1 %35, label %36, label %38
 
 36:                                               ; preds = %3
-  %37 = icmp ult i32 %29, 32
-  %spec.select.i = select i1 %37, i32 %29, i32 0
-  %38 = call noundef i32 @_ZN9Assembler21vex_prefix_and_encodeEiiiNS_13VexSimdPrefixENS_9VexOpcodeEP15InstructionAttrb(ptr noundef nonnull align 8 dereferenceable(40) %0, i32 noundef %29, i32 noundef %spec.select.i, i32 noundef %34, i32 noundef 1, i32 noundef 1, ptr noundef nonnull %4, i1 noundef zeroext false)
+  %spec.select.i.i = icmp ult i32 %29, 32
+  %spec.select.i = select i1 %spec.select.i.i, i32 %29, i32 0
+  %37 = call noundef i32 @_ZN9Assembler21vex_prefix_and_encodeEiiiNS_13VexSimdPrefixENS_9VexOpcodeEP15InstructionAttrb(ptr noundef nonnull align 8 dereferenceable(40) %0, i32 noundef %29, i32 noundef %spec.select.i, i32 noundef %34, i32 noundef 1, i32 noundef 1, ptr noundef nonnull %4, i1 noundef zeroext false)
   br label %_ZN9Assembler22simd_prefix_and_encodeE11XMMRegisterS0_S0_NS_13VexSimdPrefixENS_9VexOpcodeEP15InstructionAttrb.exit
 
-39:                                               ; preds = %3
-  %40 = tail call noundef i32 @_ZN9Assembler21rex_prefix_and_encodeEiiNS_13VexSimdPrefixENS_9VexOpcodeEb(ptr noundef nonnull align 8 dereferenceable(40) %0, i32 noundef %29, i32 noundef %34, i32 noundef 1, i32 noundef 1, i1 noundef zeroext false)
+38:                                               ; preds = %3
+  %39 = tail call noundef i32 @_ZN9Assembler21rex_prefix_and_encodeEiiNS_13VexSimdPrefixENS_9VexOpcodeEb(ptr noundef nonnull align 8 dereferenceable(40) %0, i32 noundef %29, i32 noundef %34, i32 noundef 1, i32 noundef 1, i1 noundef zeroext false)
   br label %_ZN9Assembler22simd_prefix_and_encodeE11XMMRegisterS0_S0_NS_13VexSimdPrefixENS_9VexOpcodeEP15InstructionAttrb.exit
 
-_ZN9Assembler22simd_prefix_and_encodeE11XMMRegisterS0_S0_NS_13VexSimdPrefixENS_9VexOpcodeEP15InstructionAttrb.exit: ; preds = %36, %39
-  %.0.i = phi i32 [ %38, %36 ], [ %40, %39 ]
-  %41 = getelementptr inbounds i8, ptr %0, i64 8
-  %42 = load ptr, ptr %41, align 8
-  %43 = trunc i32 %.0.i to i8
-  %.0.i2.i = or i8 %43, -64
-  %44 = getelementptr inbounds i8, ptr %42, i64 16
-  %45 = load ptr, ptr %44, align 8
-  %46 = getelementptr inbounds i8, ptr %45, i64 1
-  store i8 -15, ptr %45, align 1
-  %47 = getelementptr inbounds i8, ptr %45, i64 2
-  store i8 %.0.i2.i, ptr %46, align 1
-  store ptr %47, ptr %44, align 8
-  %48 = load ptr, ptr %24, align 8
-  %.not.i = icmp eq ptr %48, null
-  br i1 %.not.i, label %_ZN15InstructionAttrD2Ev.exit, label %49
+_ZN9Assembler22simd_prefix_and_encodeE11XMMRegisterS0_S0_NS_13VexSimdPrefixENS_9VexOpcodeEP15InstructionAttrb.exit: ; preds = %36, %38
+  %.0.i = phi i32 [ %37, %36 ], [ %39, %38 ]
+  %40 = getelementptr inbounds i8, ptr %0, i64 8
+  %41 = load ptr, ptr %40, align 8
+  %42 = trunc i32 %.0.i to i8
+  %.0.i2.i = or i8 %42, -64
+  %43 = getelementptr inbounds i8, ptr %41, i64 16
+  %44 = load ptr, ptr %43, align 8
+  %45 = getelementptr inbounds i8, ptr %44, i64 1
+  store i8 -15, ptr %44, align 1
+  %46 = getelementptr inbounds i8, ptr %44, i64 2
+  store i8 %.0.i2.i, ptr %45, align 1
+  store ptr %46, ptr %43, align 8
+  %47 = load ptr, ptr %24, align 8
+  %.not.i = icmp eq ptr %47, null
+  br i1 %.not.i, label %_ZN15InstructionAttrD2Ev.exit, label %48
 
-49:                                               ; preds = %_ZN9Assembler22simd_prefix_and_encodeE11XMMRegisterS0_S0_NS_13VexSimdPrefixENS_9VexOpcodeEP15InstructionAttrb.exit
-  %50 = getelementptr inbounds i8, ptr %48, i64 32
-  store ptr null, ptr %50, align 8
+48:                                               ; preds = %_ZN9Assembler22simd_prefix_and_encodeE11XMMRegisterS0_S0_NS_13VexSimdPrefixENS_9VexOpcodeEP15InstructionAttrb.exit
+  %49 = getelementptr inbounds i8, ptr %47, i64 32
+  store ptr null, ptr %49, align 8
   br label %_ZN15InstructionAttrD2Ev.exit
 
-_ZN15InstructionAttrD2Ev.exit:                    ; preds = %_ZN9Assembler22simd_prefix_and_encodeE11XMMRegisterS0_S0_NS_13VexSimdPrefixENS_9VexOpcodeEP15InstructionAttrb.exit, %49
+_ZN15InstructionAttrD2Ev.exit:                    ; preds = %_ZN9Assembler22simd_prefix_and_encodeE11XMMRegisterS0_S0_NS_13VexSimdPrefixENS_9VexOpcodeEP15InstructionAttrb.exit, %48
   ret void
 }
 
@@ -69147,41 +69147,41 @@ define hidden void @_ZN9Assembler5pslldE11XMMRegisterS0_(ptr noundef nonnull ali
   %29 = trunc i64 %28 to i32
   %30 = sub i32 %29, ptrtoint (ptr getelementptr inbounds (i8, ptr @all_XMMRegisterImpls, i64 1) to i32)
   %31 = icmp sgt i32 %6, 0
-  br i1 %31, label %32, label %35
+  br i1 %31, label %32, label %34
 
 32:                                               ; preds = %3
-  %33 = icmp ult i32 %25, 32
-  %spec.select.i = select i1 %33, i32 %25, i32 0
-  %34 = call noundef i32 @_ZN9Assembler21vex_prefix_and_encodeEiiiNS_13VexSimdPrefixENS_9VexOpcodeEP15InstructionAttrb(ptr noundef nonnull align 8 dereferenceable(40) %0, i32 noundef %25, i32 noundef %spec.select.i, i32 noundef %30, i32 noundef 1, i32 noundef 1, ptr noundef nonnull %4, i1 noundef zeroext false)
+  %spec.select.i.i = icmp ult i32 %25, 32
+  %spec.select.i = select i1 %spec.select.i.i, i32 %25, i32 0
+  %33 = call noundef i32 @_ZN9Assembler21vex_prefix_and_encodeEiiiNS_13VexSimdPrefixENS_9VexOpcodeEP15InstructionAttrb(ptr noundef nonnull align 8 dereferenceable(40) %0, i32 noundef %25, i32 noundef %spec.select.i, i32 noundef %30, i32 noundef 1, i32 noundef 1, ptr noundef nonnull %4, i1 noundef zeroext false)
   br label %_ZN9Assembler22simd_prefix_and_encodeE11XMMRegisterS0_S0_NS_13VexSimdPrefixENS_9VexOpcodeEP15InstructionAttrb.exit
 
-35:                                               ; preds = %3
-  %36 = tail call noundef i32 @_ZN9Assembler21rex_prefix_and_encodeEiiNS_13VexSimdPrefixENS_9VexOpcodeEb(ptr noundef nonnull align 8 dereferenceable(40) %0, i32 noundef %25, i32 noundef %30, i32 noundef 1, i32 noundef 1, i1 noundef zeroext false)
+34:                                               ; preds = %3
+  %35 = tail call noundef i32 @_ZN9Assembler21rex_prefix_and_encodeEiiNS_13VexSimdPrefixENS_9VexOpcodeEb(ptr noundef nonnull align 8 dereferenceable(40) %0, i32 noundef %25, i32 noundef %30, i32 noundef 1, i32 noundef 1, i1 noundef zeroext false)
   br label %_ZN9Assembler22simd_prefix_and_encodeE11XMMRegisterS0_S0_NS_13VexSimdPrefixENS_9VexOpcodeEP15InstructionAttrb.exit
 
-_ZN9Assembler22simd_prefix_and_encodeE11XMMRegisterS0_S0_NS_13VexSimdPrefixENS_9VexOpcodeEP15InstructionAttrb.exit: ; preds = %32, %35
-  %.0.i = phi i32 [ %34, %32 ], [ %36, %35 ]
-  %37 = getelementptr inbounds i8, ptr %0, i64 8
-  %38 = load ptr, ptr %37, align 8
-  %39 = trunc i32 %.0.i to i8
-  %.0.i2.i = or i8 %39, -64
-  %40 = getelementptr inbounds i8, ptr %38, i64 16
-  %41 = load ptr, ptr %40, align 8
-  %42 = getelementptr inbounds i8, ptr %41, i64 1
-  store i8 -14, ptr %41, align 1
-  %43 = getelementptr inbounds i8, ptr %41, i64 2
-  store i8 %.0.i2.i, ptr %42, align 1
-  store ptr %43, ptr %40, align 8
-  %44 = load ptr, ptr %20, align 8
-  %.not.i = icmp eq ptr %44, null
-  br i1 %.not.i, label %_ZN15InstructionAttrD2Ev.exit, label %45
+_ZN9Assembler22simd_prefix_and_encodeE11XMMRegisterS0_S0_NS_13VexSimdPrefixENS_9VexOpcodeEP15InstructionAttrb.exit: ; preds = %32, %34
+  %.0.i = phi i32 [ %33, %32 ], [ %35, %34 ]
+  %36 = getelementptr inbounds i8, ptr %0, i64 8
+  %37 = load ptr, ptr %36, align 8
+  %38 = trunc i32 %.0.i to i8
+  %.0.i2.i = or i8 %38, -64
+  %39 = getelementptr inbounds i8, ptr %37, i64 16
+  %40 = load ptr, ptr %39, align 8
+  %41 = getelementptr inbounds i8, ptr %40, i64 1
+  store i8 -14, ptr %40, align 1
+  %42 = getelementptr inbounds i8, ptr %40, i64 2
+  store i8 %.0.i2.i, ptr %41, align 1
+  store ptr %42, ptr %39, align 8
+  %43 = load ptr, ptr %20, align 8
+  %.not.i = icmp eq ptr %43, null
+  br i1 %.not.i, label %_ZN15InstructionAttrD2Ev.exit, label %44
 
-45:                                               ; preds = %_ZN9Assembler22simd_prefix_and_encodeE11XMMRegisterS0_S0_NS_13VexSimdPrefixENS_9VexOpcodeEP15InstructionAttrb.exit
-  %46 = getelementptr inbounds i8, ptr %44, i64 32
-  store ptr null, ptr %46, align 8
+44:                                               ; preds = %_ZN9Assembler22simd_prefix_and_encodeE11XMMRegisterS0_S0_NS_13VexSimdPrefixENS_9VexOpcodeEP15InstructionAttrb.exit
+  %45 = getelementptr inbounds i8, ptr %43, i64 32
+  store ptr null, ptr %45, align 8
   br label %_ZN15InstructionAttrD2Ev.exit
 
-_ZN15InstructionAttrD2Ev.exit:                    ; preds = %_ZN9Assembler22simd_prefix_and_encodeE11XMMRegisterS0_S0_NS_13VexSimdPrefixENS_9VexOpcodeEP15InstructionAttrb.exit, %45
+_ZN15InstructionAttrD2Ev.exit:                    ; preds = %_ZN9Assembler22simd_prefix_and_encodeE11XMMRegisterS0_S0_NS_13VexSimdPrefixENS_9VexOpcodeEP15InstructionAttrb.exit, %44
   ret void
 }
 
@@ -69233,42 +69233,42 @@ define hidden void @_ZN9Assembler5psllqE11XMMRegisterS0_(ptr noundef nonnull ali
   %32 = trunc i64 %31 to i32
   %33 = sub i32 %32, ptrtoint (ptr getelementptr inbounds (i8, ptr @all_XMMRegisterImpls, i64 1) to i32)
   %34 = icmp sgt i32 %9, 0
-  br i1 %34, label %35, label %38
+  br i1 %34, label %35, label %37
 
 35:                                               ; preds = %3
-  %36 = icmp ult i32 %28, 32
-  %spec.select.i = select i1 %36, i32 %28, i32 0
-  %37 = call noundef i32 @_ZN9Assembler21vex_prefix_and_encodeEiiiNS_13VexSimdPrefixENS_9VexOpcodeEP15InstructionAttrb(ptr noundef nonnull align 8 dereferenceable(40) %0, i32 noundef %28, i32 noundef %spec.select.i, i32 noundef %33, i32 noundef 1, i32 noundef 1, ptr noundef nonnull %4, i1 noundef zeroext false)
+  %spec.select.i.i = icmp ult i32 %28, 32
+  %spec.select.i = select i1 %spec.select.i.i, i32 %28, i32 0
+  %36 = call noundef i32 @_ZN9Assembler21vex_prefix_and_encodeEiiiNS_13VexSimdPrefixENS_9VexOpcodeEP15InstructionAttrb(ptr noundef nonnull align 8 dereferenceable(40) %0, i32 noundef %28, i32 noundef %spec.select.i, i32 noundef %33, i32 noundef 1, i32 noundef 1, ptr noundef nonnull %4, i1 noundef zeroext false)
   br label %_ZN9Assembler22simd_prefix_and_encodeE11XMMRegisterS0_S0_NS_13VexSimdPrefixENS_9VexOpcodeEP15InstructionAttrb.exit
 
-38:                                               ; preds = %3
-  %39 = icmp ne i64 %6, 0
-  %40 = tail call noundef i32 @_ZN9Assembler21rex_prefix_and_encodeEiiNS_13VexSimdPrefixENS_9VexOpcodeEb(ptr noundef nonnull align 8 dereferenceable(40) %0, i32 noundef %28, i32 noundef %33, i32 noundef 1, i32 noundef 1, i1 noundef zeroext %39)
+37:                                               ; preds = %3
+  %38 = icmp ne i64 %6, 0
+  %39 = tail call noundef i32 @_ZN9Assembler21rex_prefix_and_encodeEiiNS_13VexSimdPrefixENS_9VexOpcodeEb(ptr noundef nonnull align 8 dereferenceable(40) %0, i32 noundef %28, i32 noundef %33, i32 noundef 1, i32 noundef 1, i1 noundef zeroext %38)
   br label %_ZN9Assembler22simd_prefix_and_encodeE11XMMRegisterS0_S0_NS_13VexSimdPrefixENS_9VexOpcodeEP15InstructionAttrb.exit
 
-_ZN9Assembler22simd_prefix_and_encodeE11XMMRegisterS0_S0_NS_13VexSimdPrefixENS_9VexOpcodeEP15InstructionAttrb.exit: ; preds = %35, %38
-  %.0.i = phi i32 [ %37, %35 ], [ %40, %38 ]
-  %41 = getelementptr inbounds i8, ptr %0, i64 8
-  %42 = load ptr, ptr %41, align 8
-  %43 = trunc i32 %.0.i to i8
-  %.0.i2.i = or i8 %43, -64
-  %44 = getelementptr inbounds i8, ptr %42, i64 16
-  %45 = load ptr, ptr %44, align 8
-  %46 = getelementptr inbounds i8, ptr %45, i64 1
-  store i8 -13, ptr %45, align 1
-  %47 = getelementptr inbounds i8, ptr %45, i64 2
-  store i8 %.0.i2.i, ptr %46, align 1
-  store ptr %47, ptr %44, align 8
-  %48 = load ptr, ptr %23, align 8
-  %.not.i = icmp eq ptr %48, null
-  br i1 %.not.i, label %_ZN15InstructionAttrD2Ev.exit, label %49
+_ZN9Assembler22simd_prefix_and_encodeE11XMMRegisterS0_S0_NS_13VexSimdPrefixENS_9VexOpcodeEP15InstructionAttrb.exit: ; preds = %35, %37
+  %.0.i = phi i32 [ %36, %35 ], [ %39, %37 ]
+  %40 = getelementptr inbounds i8, ptr %0, i64 8
+  %41 = load ptr, ptr %40, align 8
+  %42 = trunc i32 %.0.i to i8
+  %.0.i2.i = or i8 %42, -64
+  %43 = getelementptr inbounds i8, ptr %41, i64 16
+  %44 = load ptr, ptr %43, align 8
+  %45 = getelementptr inbounds i8, ptr %44, i64 1
+  store i8 -13, ptr %44, align 1
+  %46 = getelementptr inbounds i8, ptr %44, i64 2
+  store i8 %.0.i2.i, ptr %45, align 1
+  store ptr %46, ptr %43, align 8
+  %47 = load ptr, ptr %23, align 8
+  %.not.i = icmp eq ptr %47, null
+  br i1 %.not.i, label %_ZN15InstructionAttrD2Ev.exit, label %48
 
-49:                                               ; preds = %_ZN9Assembler22simd_prefix_and_encodeE11XMMRegisterS0_S0_NS_13VexSimdPrefixENS_9VexOpcodeEP15InstructionAttrb.exit
-  %50 = getelementptr inbounds i8, ptr %48, i64 32
-  store ptr null, ptr %50, align 8
+48:                                               ; preds = %_ZN9Assembler22simd_prefix_and_encodeE11XMMRegisterS0_S0_NS_13VexSimdPrefixENS_9VexOpcodeEP15InstructionAttrb.exit
+  %49 = getelementptr inbounds i8, ptr %47, i64 32
+  store ptr null, ptr %49, align 8
   br label %_ZN15InstructionAttrD2Ev.exit
 
-_ZN15InstructionAttrD2Ev.exit:                    ; preds = %_ZN9Assembler22simd_prefix_and_encodeE11XMMRegisterS0_S0_NS_13VexSimdPrefixENS_9VexOpcodeEP15InstructionAttrb.exit, %49
+_ZN15InstructionAttrD2Ev.exit:                    ; preds = %_ZN9Assembler22simd_prefix_and_encodeE11XMMRegisterS0_S0_NS_13VexSimdPrefixENS_9VexOpcodeEP15InstructionAttrb.exit, %48
   ret void
 }
 
@@ -69763,97 +69763,97 @@ define hidden void @_ZN9Assembler5psrlwE11XMMRegisteri(ptr noundef nonnull align
   %28 = trunc i64 %27 to i32
   %29 = sub i32 %28, ptrtoint (ptr getelementptr inbounds (i8, ptr @all_XMMRegisterImpls, i64 1) to i32)
   %30 = icmp sgt i32 %9, 0
-  br i1 %30, label %31, label %34
+  br i1 %30, label %31, label %33
 
 31:                                               ; preds = %3
-  %32 = icmp ult i32 %29, 32
-  %spec.select.i = select i1 %32, i32 %29, i32 0
-  %33 = call noundef i32 @_ZN9Assembler21vex_prefix_and_encodeEiiiNS_13VexSimdPrefixENS_9VexOpcodeEP15InstructionAttrb(ptr noundef nonnull align 8 dereferenceable(40) %0, i32 noundef 2, i32 noundef %spec.select.i, i32 noundef %29, i32 noundef 1, i32 noundef 1, ptr noundef nonnull %4, i1 noundef zeroext false)
+  %spec.select.i.i = icmp ult i32 %29, 32
+  %spec.select.i = select i1 %spec.select.i.i, i32 %29, i32 0
+  %32 = call noundef i32 @_ZN9Assembler21vex_prefix_and_encodeEiiiNS_13VexSimdPrefixENS_9VexOpcodeEP15InstructionAttrb(ptr noundef nonnull align 8 dereferenceable(40) %0, i32 noundef 2, i32 noundef %spec.select.i, i32 noundef %29, i32 noundef 1, i32 noundef 1, ptr noundef nonnull %4, i1 noundef zeroext false)
   br label %_ZN9Assembler22simd_prefix_and_encodeE11XMMRegisterS0_S0_NS_13VexSimdPrefixENS_9VexOpcodeEP15InstructionAttrb.exit
 
-34:                                               ; preds = %3
-  %35 = getelementptr inbounds i8, ptr %0, i64 8
-  %36 = load ptr, ptr %35, align 8
-  %37 = getelementptr inbounds i8, ptr %36, i64 16
-  %38 = load ptr, ptr %37, align 8
-  %39 = getelementptr inbounds i8, ptr %38, i64 1
-  store i8 102, ptr %38, align 1
-  store ptr %39, ptr %37, align 8
-  %40 = icmp sgt i32 %29, 15
-  br i1 %40, label %41, label %55
+33:                                               ; preds = %3
+  %34 = getelementptr inbounds i8, ptr %0, i64 8
+  %35 = load ptr, ptr %34, align 8
+  %36 = getelementptr inbounds i8, ptr %35, i64 16
+  %37 = load ptr, ptr %36, align 8
+  %38 = getelementptr inbounds i8, ptr %37, i64 1
+  store i8 102, ptr %37, align 1
+  store ptr %38, ptr %36, align 8
+  %39 = icmp sgt i32 %29, 15
+  br i1 %39, label %40, label %54
 
-41:                                               ; preds = %34
-  %42 = and i32 %29, 16
-  %43 = lshr i32 %29, 3
-  %44 = and i32 %43, 1
-  %45 = or disjoint i32 %44, %42
-  %46 = and i32 %29, 7
-  %47 = load ptr, ptr %35, align 8
-  %48 = getelementptr inbounds i8, ptr %47, i64 16
-  %49 = load ptr, ptr %48, align 8
-  %50 = getelementptr inbounds i8, ptr %49, i64 1
-  store i8 -43, ptr %49, align 1
-  store ptr %50, ptr %48, align 8
-  %51 = load ptr, ptr %35, align 8
-  %.0.i.i2.i.i.i.i18.i = trunc nuw nsw i32 %45 to i8
-  %52 = getelementptr inbounds i8, ptr %51, i64 16
-  %53 = load ptr, ptr %52, align 8
-  %54 = getelementptr inbounds i8, ptr %53, i64 1
-  store i8 %.0.i.i2.i.i.i.i18.i, ptr %53, align 1
-  store ptr %54, ptr %52, align 8
+40:                                               ; preds = %33
+  %41 = and i32 %29, 16
+  %42 = lshr i32 %29, 3
+  %43 = and i32 %42, 1
+  %44 = or disjoint i32 %43, %41
+  %45 = and i32 %29, 7
+  %46 = load ptr, ptr %34, align 8
+  %47 = getelementptr inbounds i8, ptr %46, i64 16
+  %48 = load ptr, ptr %47, align 8
+  %49 = getelementptr inbounds i8, ptr %48, i64 1
+  store i8 -43, ptr %48, align 1
+  store ptr %49, ptr %47, align 8
+  %50 = load ptr, ptr %34, align 8
+  %.0.i.i2.i.i.i.i18.i = trunc nuw nsw i32 %44 to i8
+  %51 = getelementptr inbounds i8, ptr %50, i64 16
+  %52 = load ptr, ptr %51, align 8
+  %53 = getelementptr inbounds i8, ptr %52, i64 1
+  store i8 %.0.i.i2.i.i.i.i18.i, ptr %52, align 1
+  store ptr %53, ptr %51, align 8
   br label %_ZN9Assembler21rex_prefix_and_encodeEiiNS_13VexSimdPrefixENS_9VexOpcodeEb.exit
 
-55:                                               ; preds = %34
-  %56 = icmp sgt i32 %29, 7
-  br i1 %56, label %57, label %_ZN9Assembler21rex_prefix_and_encodeEiiNS_13VexSimdPrefixENS_9VexOpcodeEb.exit
+54:                                               ; preds = %33
+  %55 = icmp sgt i32 %29, 7
+  br i1 %55, label %56, label %_ZN9Assembler21rex_prefix_and_encodeEiiNS_13VexSimdPrefixENS_9VexOpcodeEb.exit
 
-57:                                               ; preds = %55
-  %58 = load ptr, ptr %35, align 8
-  %59 = getelementptr inbounds i8, ptr %58, i64 16
-  %60 = load ptr, ptr %59, align 8
-  %61 = getelementptr inbounds i8, ptr %60, i64 1
-  store i8 65, ptr %60, align 1
-  store ptr %61, ptr %59, align 8
-  %62 = add nsw i32 %29, -8
+56:                                               ; preds = %54
+  %57 = load ptr, ptr %34, align 8
+  %58 = getelementptr inbounds i8, ptr %57, i64 16
+  %59 = load ptr, ptr %58, align 8
+  %60 = getelementptr inbounds i8, ptr %59, i64 1
+  store i8 65, ptr %59, align 1
+  store ptr %60, ptr %58, align 8
+  %61 = add nsw i32 %29, -8
   br label %_ZN9Assembler21rex_prefix_and_encodeEiiNS_13VexSimdPrefixENS_9VexOpcodeEb.exit
 
-_ZN9Assembler21rex_prefix_and_encodeEiiNS_13VexSimdPrefixENS_9VexOpcodeEb.exit: ; preds = %55, %57, %41
-  %.in = phi i32 [ %46, %41 ], [ %62, %57 ], [ %29, %55 ]
-  %63 = or i32 %.in, 16
-  %64 = load ptr, ptr %35, align 8
-  %65 = getelementptr inbounds i8, ptr %64, i64 16
-  %66 = load ptr, ptr %65, align 8
-  %67 = getelementptr inbounds i8, ptr %66, i64 1
-  store i8 15, ptr %66, align 1
-  store ptr %67, ptr %65, align 8
+_ZN9Assembler21rex_prefix_and_encodeEiiNS_13VexSimdPrefixENS_9VexOpcodeEb.exit: ; preds = %54, %56, %40
+  %.in = phi i32 [ %45, %40 ], [ %61, %56 ], [ %29, %54 ]
+  %62 = or i32 %.in, 16
+  %63 = load ptr, ptr %34, align 8
+  %64 = getelementptr inbounds i8, ptr %63, i64 16
+  %65 = load ptr, ptr %64, align 8
+  %66 = getelementptr inbounds i8, ptr %65, i64 1
+  store i8 15, ptr %65, align 1
+  store ptr %66, ptr %64, align 8
   br label %_ZN9Assembler22simd_prefix_and_encodeE11XMMRegisterS0_S0_NS_13VexSimdPrefixENS_9VexOpcodeEP15InstructionAttrb.exit
 
 _ZN9Assembler22simd_prefix_and_encodeE11XMMRegisterS0_S0_NS_13VexSimdPrefixENS_9VexOpcodeEP15InstructionAttrb.exit: ; preds = %31, %_ZN9Assembler21rex_prefix_and_encodeEiiNS_13VexSimdPrefixENS_9VexOpcodeEb.exit
-  %.0.i = phi i32 [ %33, %31 ], [ %63, %_ZN9Assembler21rex_prefix_and_encodeEiiNS_13VexSimdPrefixENS_9VexOpcodeEb.exit ]
-  %68 = getelementptr inbounds i8, ptr %0, i64 8
-  %69 = load ptr, ptr %68, align 8
-  %70 = trunc i32 %.0.i to i8
-  %.0.i3.i = or i8 %70, -64
+  %.0.i = phi i32 [ %32, %31 ], [ %62, %_ZN9Assembler21rex_prefix_and_encodeEiiNS_13VexSimdPrefixENS_9VexOpcodeEb.exit ]
+  %67 = getelementptr inbounds i8, ptr %0, i64 8
+  %68 = load ptr, ptr %67, align 8
+  %69 = trunc i32 %.0.i to i8
+  %.0.i3.i = or i8 %69, -64
   %.0.i4.i = trunc i32 %2 to i8
-  %71 = getelementptr inbounds i8, ptr %69, i64 16
-  %72 = load ptr, ptr %71, align 8
-  %73 = getelementptr inbounds i8, ptr %72, i64 1
-  store i8 113, ptr %72, align 1
-  %74 = getelementptr inbounds i8, ptr %72, i64 2
-  store i8 %.0.i3.i, ptr %73, align 1
-  %75 = getelementptr inbounds i8, ptr %72, i64 3
-  store i8 %.0.i4.i, ptr %74, align 1
-  store ptr %75, ptr %71, align 8
-  %76 = load ptr, ptr %24, align 8
-  %.not.i = icmp eq ptr %76, null
-  br i1 %.not.i, label %_ZN15InstructionAttrD2Ev.exit, label %77
+  %70 = getelementptr inbounds i8, ptr %68, i64 16
+  %71 = load ptr, ptr %70, align 8
+  %72 = getelementptr inbounds i8, ptr %71, i64 1
+  store i8 113, ptr %71, align 1
+  %73 = getelementptr inbounds i8, ptr %71, i64 2
+  store i8 %.0.i3.i, ptr %72, align 1
+  %74 = getelementptr inbounds i8, ptr %71, i64 3
+  store i8 %.0.i4.i, ptr %73, align 1
+  store ptr %74, ptr %70, align 8
+  %75 = load ptr, ptr %24, align 8
+  %.not.i = icmp eq ptr %75, null
+  br i1 %.not.i, label %_ZN15InstructionAttrD2Ev.exit, label %76
 
-77:                                               ; preds = %_ZN9Assembler22simd_prefix_and_encodeE11XMMRegisterS0_S0_NS_13VexSimdPrefixENS_9VexOpcodeEP15InstructionAttrb.exit
-  %78 = getelementptr inbounds i8, ptr %76, i64 32
-  store ptr null, ptr %78, align 8
+76:                                               ; preds = %_ZN9Assembler22simd_prefix_and_encodeE11XMMRegisterS0_S0_NS_13VexSimdPrefixENS_9VexOpcodeEP15InstructionAttrb.exit
+  %77 = getelementptr inbounds i8, ptr %75, i64 32
+  store ptr null, ptr %77, align 8
   br label %_ZN15InstructionAttrD2Ev.exit
 
-_ZN15InstructionAttrD2Ev.exit:                    ; preds = %_ZN9Assembler22simd_prefix_and_encodeE11XMMRegisterS0_S0_NS_13VexSimdPrefixENS_9VexOpcodeEP15InstructionAttrb.exit, %77
+_ZN15InstructionAttrD2Ev.exit:                    ; preds = %_ZN9Assembler22simd_prefix_and_encodeE11XMMRegisterS0_S0_NS_13VexSimdPrefixENS_9VexOpcodeEP15InstructionAttrb.exit, %76
   ret void
 }
 
@@ -69896,97 +69896,97 @@ define hidden void @_ZN9Assembler5psrldE11XMMRegisteri(ptr noundef nonnull align
   %24 = trunc i64 %23 to i32
   %25 = sub i32 %24, ptrtoint (ptr getelementptr inbounds (i8, ptr @all_XMMRegisterImpls, i64 1) to i32)
   %26 = icmp sgt i32 %6, 0
-  br i1 %26, label %27, label %30
+  br i1 %26, label %27, label %29
 
 27:                                               ; preds = %3
-  %28 = icmp ult i32 %25, 32
-  %spec.select.i = select i1 %28, i32 %25, i32 0
-  %29 = call noundef i32 @_ZN9Assembler21vex_prefix_and_encodeEiiiNS_13VexSimdPrefixENS_9VexOpcodeEP15InstructionAttrb(ptr noundef nonnull align 8 dereferenceable(40) %0, i32 noundef 2, i32 noundef %spec.select.i, i32 noundef %25, i32 noundef 1, i32 noundef 1, ptr noundef nonnull %4, i1 noundef zeroext false)
+  %spec.select.i.i = icmp ult i32 %25, 32
+  %spec.select.i = select i1 %spec.select.i.i, i32 %25, i32 0
+  %28 = call noundef i32 @_ZN9Assembler21vex_prefix_and_encodeEiiiNS_13VexSimdPrefixENS_9VexOpcodeEP15InstructionAttrb(ptr noundef nonnull align 8 dereferenceable(40) %0, i32 noundef 2, i32 noundef %spec.select.i, i32 noundef %25, i32 noundef 1, i32 noundef 1, ptr noundef nonnull %4, i1 noundef zeroext false)
   br label %_ZN9Assembler22simd_prefix_and_encodeE11XMMRegisterS0_S0_NS_13VexSimdPrefixENS_9VexOpcodeEP15InstructionAttrb.exit
 
-30:                                               ; preds = %3
-  %31 = getelementptr inbounds i8, ptr %0, i64 8
-  %32 = load ptr, ptr %31, align 8
-  %33 = getelementptr inbounds i8, ptr %32, i64 16
-  %34 = load ptr, ptr %33, align 8
-  %35 = getelementptr inbounds i8, ptr %34, i64 1
-  store i8 102, ptr %34, align 1
-  store ptr %35, ptr %33, align 8
-  %36 = icmp sgt i32 %25, 15
-  br i1 %36, label %37, label %51
+29:                                               ; preds = %3
+  %30 = getelementptr inbounds i8, ptr %0, i64 8
+  %31 = load ptr, ptr %30, align 8
+  %32 = getelementptr inbounds i8, ptr %31, i64 16
+  %33 = load ptr, ptr %32, align 8
+  %34 = getelementptr inbounds i8, ptr %33, i64 1
+  store i8 102, ptr %33, align 1
+  store ptr %34, ptr %32, align 8
+  %35 = icmp sgt i32 %25, 15
+  br i1 %35, label %36, label %50
 
-37:                                               ; preds = %30
-  %38 = and i32 %25, 16
-  %39 = lshr i32 %25, 3
-  %40 = and i32 %39, 1
-  %41 = or disjoint i32 %40, %38
-  %42 = and i32 %25, 7
-  %43 = load ptr, ptr %31, align 8
-  %44 = getelementptr inbounds i8, ptr %43, i64 16
-  %45 = load ptr, ptr %44, align 8
-  %46 = getelementptr inbounds i8, ptr %45, i64 1
-  store i8 -43, ptr %45, align 1
-  store ptr %46, ptr %44, align 8
-  %47 = load ptr, ptr %31, align 8
-  %.0.i.i2.i.i.i.i18.i = trunc nuw nsw i32 %41 to i8
-  %48 = getelementptr inbounds i8, ptr %47, i64 16
-  %49 = load ptr, ptr %48, align 8
-  %50 = getelementptr inbounds i8, ptr %49, i64 1
-  store i8 %.0.i.i2.i.i.i.i18.i, ptr %49, align 1
-  store ptr %50, ptr %48, align 8
+36:                                               ; preds = %29
+  %37 = and i32 %25, 16
+  %38 = lshr i32 %25, 3
+  %39 = and i32 %38, 1
+  %40 = or disjoint i32 %39, %37
+  %41 = and i32 %25, 7
+  %42 = load ptr, ptr %30, align 8
+  %43 = getelementptr inbounds i8, ptr %42, i64 16
+  %44 = load ptr, ptr %43, align 8
+  %45 = getelementptr inbounds i8, ptr %44, i64 1
+  store i8 -43, ptr %44, align 1
+  store ptr %45, ptr %43, align 8
+  %46 = load ptr, ptr %30, align 8
+  %.0.i.i2.i.i.i.i18.i = trunc nuw nsw i32 %40 to i8
+  %47 = getelementptr inbounds i8, ptr %46, i64 16
+  %48 = load ptr, ptr %47, align 8
+  %49 = getelementptr inbounds i8, ptr %48, i64 1
+  store i8 %.0.i.i2.i.i.i.i18.i, ptr %48, align 1
+  store ptr %49, ptr %47, align 8
   br label %_ZN9Assembler21rex_prefix_and_encodeEiiNS_13VexSimdPrefixENS_9VexOpcodeEb.exit
 
-51:                                               ; preds = %30
-  %52 = icmp sgt i32 %25, 7
-  br i1 %52, label %53, label %_ZN9Assembler21rex_prefix_and_encodeEiiNS_13VexSimdPrefixENS_9VexOpcodeEb.exit
+50:                                               ; preds = %29
+  %51 = icmp sgt i32 %25, 7
+  br i1 %51, label %52, label %_ZN9Assembler21rex_prefix_and_encodeEiiNS_13VexSimdPrefixENS_9VexOpcodeEb.exit
 
-53:                                               ; preds = %51
-  %54 = load ptr, ptr %31, align 8
-  %55 = getelementptr inbounds i8, ptr %54, i64 16
-  %56 = load ptr, ptr %55, align 8
-  %57 = getelementptr inbounds i8, ptr %56, i64 1
-  store i8 65, ptr %56, align 1
-  store ptr %57, ptr %55, align 8
-  %58 = add nsw i32 %25, -8
+52:                                               ; preds = %50
+  %53 = load ptr, ptr %30, align 8
+  %54 = getelementptr inbounds i8, ptr %53, i64 16
+  %55 = load ptr, ptr %54, align 8
+  %56 = getelementptr inbounds i8, ptr %55, i64 1
+  store i8 65, ptr %55, align 1
+  store ptr %56, ptr %54, align 8
+  %57 = add nsw i32 %25, -8
   br label %_ZN9Assembler21rex_prefix_and_encodeEiiNS_13VexSimdPrefixENS_9VexOpcodeEb.exit
 
-_ZN9Assembler21rex_prefix_and_encodeEiiNS_13VexSimdPrefixENS_9VexOpcodeEb.exit: ; preds = %51, %53, %37
-  %.in = phi i32 [ %42, %37 ], [ %58, %53 ], [ %25, %51 ]
-  %59 = or i32 %.in, 16
-  %60 = load ptr, ptr %31, align 8
-  %61 = getelementptr inbounds i8, ptr %60, i64 16
-  %62 = load ptr, ptr %61, align 8
-  %63 = getelementptr inbounds i8, ptr %62, i64 1
-  store i8 15, ptr %62, align 1
-  store ptr %63, ptr %61, align 8
+_ZN9Assembler21rex_prefix_and_encodeEiiNS_13VexSimdPrefixENS_9VexOpcodeEb.exit: ; preds = %50, %52, %36
+  %.in = phi i32 [ %41, %36 ], [ %57, %52 ], [ %25, %50 ]
+  %58 = or i32 %.in, 16
+  %59 = load ptr, ptr %30, align 8
+  %60 = getelementptr inbounds i8, ptr %59, i64 16
+  %61 = load ptr, ptr %60, align 8
+  %62 = getelementptr inbounds i8, ptr %61, i64 1
+  store i8 15, ptr %61, align 1
+  store ptr %62, ptr %60, align 8
   br label %_ZN9Assembler22simd_prefix_and_encodeE11XMMRegisterS0_S0_NS_13VexSimdPrefixENS_9VexOpcodeEP15InstructionAttrb.exit
 
 _ZN9Assembler22simd_prefix_and_encodeE11XMMRegisterS0_S0_NS_13VexSimdPrefixENS_9VexOpcodeEP15InstructionAttrb.exit: ; preds = %27, %_ZN9Assembler21rex_prefix_and_encodeEiiNS_13VexSimdPrefixENS_9VexOpcodeEb.exit
-  %.0.i = phi i32 [ %29, %27 ], [ %59, %_ZN9Assembler21rex_prefix_and_encodeEiiNS_13VexSimdPrefixENS_9VexOpcodeEb.exit ]
-  %64 = getelementptr inbounds i8, ptr %0, i64 8
-  %65 = load ptr, ptr %64, align 8
-  %66 = trunc i32 %.0.i to i8
-  %.0.i3.i = or i8 %66, -64
+  %.0.i = phi i32 [ %28, %27 ], [ %58, %_ZN9Assembler21rex_prefix_and_encodeEiiNS_13VexSimdPrefixENS_9VexOpcodeEb.exit ]
+  %63 = getelementptr inbounds i8, ptr %0, i64 8
+  %64 = load ptr, ptr %63, align 8
+  %65 = trunc i32 %.0.i to i8
+  %.0.i3.i = or i8 %65, -64
   %.0.i4.i = trunc i32 %2 to i8
-  %67 = getelementptr inbounds i8, ptr %65, i64 16
-  %68 = load ptr, ptr %67, align 8
-  %69 = getelementptr inbounds i8, ptr %68, i64 1
-  store i8 114, ptr %68, align 1
-  %70 = getelementptr inbounds i8, ptr %68, i64 2
-  store i8 %.0.i3.i, ptr %69, align 1
-  %71 = getelementptr inbounds i8, ptr %68, i64 3
-  store i8 %.0.i4.i, ptr %70, align 1
-  store ptr %71, ptr %67, align 8
-  %72 = load ptr, ptr %20, align 8
-  %.not.i = icmp eq ptr %72, null
-  br i1 %.not.i, label %_ZN15InstructionAttrD2Ev.exit, label %73
+  %66 = getelementptr inbounds i8, ptr %64, i64 16
+  %67 = load ptr, ptr %66, align 8
+  %68 = getelementptr inbounds i8, ptr %67, i64 1
+  store i8 114, ptr %67, align 1
+  %69 = getelementptr inbounds i8, ptr %67, i64 2
+  store i8 %.0.i3.i, ptr %68, align 1
+  %70 = getelementptr inbounds i8, ptr %67, i64 3
+  store i8 %.0.i4.i, ptr %69, align 1
+  store ptr %70, ptr %66, align 8
+  %71 = load ptr, ptr %20, align 8
+  %.not.i = icmp eq ptr %71, null
+  br i1 %.not.i, label %_ZN15InstructionAttrD2Ev.exit, label %72
 
-73:                                               ; preds = %_ZN9Assembler22simd_prefix_and_encodeE11XMMRegisterS0_S0_NS_13VexSimdPrefixENS_9VexOpcodeEP15InstructionAttrb.exit
-  %74 = getelementptr inbounds i8, ptr %72, i64 32
-  store ptr null, ptr %74, align 8
+72:                                               ; preds = %_ZN9Assembler22simd_prefix_and_encodeE11XMMRegisterS0_S0_NS_13VexSimdPrefixENS_9VexOpcodeEP15InstructionAttrb.exit
+  %73 = getelementptr inbounds i8, ptr %71, i64 32
+  store ptr null, ptr %73, align 8
   br label %_ZN15InstructionAttrD2Ev.exit
 
-_ZN15InstructionAttrD2Ev.exit:                    ; preds = %_ZN9Assembler22simd_prefix_and_encodeE11XMMRegisterS0_S0_NS_13VexSimdPrefixENS_9VexOpcodeEP15InstructionAttrb.exit, %73
+_ZN15InstructionAttrD2Ev.exit:                    ; preds = %_ZN9Assembler22simd_prefix_and_encodeE11XMMRegisterS0_S0_NS_13VexSimdPrefixENS_9VexOpcodeEP15InstructionAttrb.exit, %72
   ret void
 }
 
@@ -70033,145 +70033,145 @@ define hidden void @_ZN9Assembler5psrlqE11XMMRegisteri(ptr noundef nonnull align
   %27 = trunc i64 %26 to i32
   %28 = sub i32 %27, ptrtoint (ptr getelementptr inbounds (i8, ptr @all_XMMRegisterImpls, i64 1) to i32)
   %29 = icmp sgt i32 %9, 0
-  br i1 %29, label %30, label %33
+  br i1 %29, label %30, label %32
 
 30:                                               ; preds = %3
-  %31 = icmp ult i32 %28, 32
-  %spec.select.i = select i1 %31, i32 %28, i32 0
-  %32 = call noundef i32 @_ZN9Assembler21vex_prefix_and_encodeEiiiNS_13VexSimdPrefixENS_9VexOpcodeEP15InstructionAttrb(ptr noundef nonnull align 8 dereferenceable(40) %0, i32 noundef 2, i32 noundef %spec.select.i, i32 noundef %28, i32 noundef 1, i32 noundef 1, ptr noundef nonnull %4, i1 noundef zeroext false)
+  %spec.select.i.i = icmp ult i32 %28, 32
+  %spec.select.i = select i1 %spec.select.i.i, i32 %28, i32 0
+  %31 = call noundef i32 @_ZN9Assembler21vex_prefix_and_encodeEiiiNS_13VexSimdPrefixENS_9VexOpcodeEP15InstructionAttrb(ptr noundef nonnull align 8 dereferenceable(40) %0, i32 noundef 2, i32 noundef %spec.select.i, i32 noundef %28, i32 noundef 1, i32 noundef 1, ptr noundef nonnull %4, i1 noundef zeroext false)
   br label %_ZN9Assembler22simd_prefix_and_encodeE11XMMRegisterS0_S0_NS_13VexSimdPrefixENS_9VexOpcodeEP15InstructionAttrb.exit
 
-33:                                               ; preds = %3
+32:                                               ; preds = %3
   %.not = icmp eq i64 %6, 0
-  %34 = getelementptr inbounds i8, ptr %0, i64 8
-  %35 = load ptr, ptr %34, align 8
-  %36 = getelementptr inbounds i8, ptr %35, i64 16
-  %37 = load ptr, ptr %36, align 8
-  %38 = getelementptr inbounds i8, ptr %37, i64 1
-  store i8 102, ptr %37, align 1
-  store ptr %38, ptr %36, align 8
-  %39 = icmp sgt i32 %28, 15
-  br i1 %.not, label %65, label %40
+  %33 = getelementptr inbounds i8, ptr %0, i64 8
+  %34 = load ptr, ptr %33, align 8
+  %35 = getelementptr inbounds i8, ptr %34, i64 16
+  %36 = load ptr, ptr %35, align 8
+  %37 = getelementptr inbounds i8, ptr %36, i64 1
+  store i8 102, ptr %36, align 1
+  store ptr %37, ptr %35, align 8
+  %38 = icmp sgt i32 %28, 15
+  br i1 %.not, label %64, label %39
 
-40:                                               ; preds = %33
-  br i1 %39, label %41, label %56
+39:                                               ; preds = %32
+  br i1 %38, label %40, label %55
 
-41:                                               ; preds = %40
-  %42 = and i32 %28, 16
-  %43 = lshr i32 %28, 3
-  %44 = and i32 %43, 1
-  %45 = or disjoint i32 %44, %42
-  %46 = and i32 %28, 7
-  %47 = load ptr, ptr %34, align 8
-  %48 = getelementptr inbounds i8, ptr %47, i64 16
-  %49 = load ptr, ptr %48, align 8
-  %50 = getelementptr inbounds i8, ptr %49, i64 1
-  store i8 -43, ptr %49, align 1
-  store ptr %50, ptr %48, align 8
-  %51 = load ptr, ptr %34, align 8
-  %52 = trunc nuw nsw i32 %45 to i8
-  %.0.i.i2.i.i.i.i.i = or disjoint i8 %52, 8
-  %53 = getelementptr inbounds i8, ptr %51, i64 16
-  %54 = load ptr, ptr %53, align 8
-  %55 = getelementptr inbounds i8, ptr %54, i64 1
-  store i8 %.0.i.i2.i.i.i.i.i, ptr %54, align 1
-  store ptr %55, ptr %53, align 8
+40:                                               ; preds = %39
+  %41 = and i32 %28, 16
+  %42 = lshr i32 %28, 3
+  %43 = and i32 %42, 1
+  %44 = or disjoint i32 %43, %41
+  %45 = and i32 %28, 7
+  %46 = load ptr, ptr %33, align 8
+  %47 = getelementptr inbounds i8, ptr %46, i64 16
+  %48 = load ptr, ptr %47, align 8
+  %49 = getelementptr inbounds i8, ptr %48, i64 1
+  store i8 -43, ptr %48, align 1
+  store ptr %49, ptr %47, align 8
+  %50 = load ptr, ptr %33, align 8
+  %51 = trunc nuw nsw i32 %44 to i8
+  %.0.i.i2.i.i.i.i.i = or disjoint i8 %51, 8
+  %52 = getelementptr inbounds i8, ptr %50, i64 16
+  %53 = load ptr, ptr %52, align 8
+  %54 = getelementptr inbounds i8, ptr %53, i64 1
+  store i8 %.0.i.i2.i.i.i.i.i, ptr %53, align 1
+  store ptr %54, ptr %52, align 8
   br label %_ZN9Assembler21rex_prefix_and_encodeEiiNS_13VexSimdPrefixENS_9VexOpcodeEb.exit
 
-56:                                               ; preds = %40
-  %57 = icmp slt i32 %28, 8
-  %58 = load ptr, ptr %34, align 8
-  %59 = getelementptr inbounds i8, ptr %58, i64 16
-  %60 = load ptr, ptr %59, align 8
-  %61 = getelementptr inbounds i8, ptr %60, i64 1
-  br i1 %57, label %62, label %63
+55:                                               ; preds = %39
+  %56 = icmp slt i32 %28, 8
+  %57 = load ptr, ptr %33, align 8
+  %58 = getelementptr inbounds i8, ptr %57, i64 16
+  %59 = load ptr, ptr %58, align 8
+  %60 = getelementptr inbounds i8, ptr %59, i64 1
+  br i1 %56, label %61, label %62
 
-62:                                               ; preds = %56
-  store i8 72, ptr %60, align 1
-  store ptr %61, ptr %59, align 8
+61:                                               ; preds = %55
+  store i8 72, ptr %59, align 1
+  store ptr %60, ptr %58, align 8
   br label %_ZN9Assembler21rex_prefix_and_encodeEiiNS_13VexSimdPrefixENS_9VexOpcodeEb.exit
 
-63:                                               ; preds = %56
-  store i8 73, ptr %60, align 1
-  store ptr %61, ptr %59, align 8
-  %64 = add nsw i32 %28, -8
+62:                                               ; preds = %55
+  store i8 73, ptr %59, align 1
+  store ptr %60, ptr %58, align 8
+  %63 = add nsw i32 %28, -8
   br label %_ZN9Assembler21rex_prefix_and_encodeEiiNS_13VexSimdPrefixENS_9VexOpcodeEb.exit
 
-65:                                               ; preds = %33
-  br i1 %39, label %66, label %80
+64:                                               ; preds = %32
+  br i1 %38, label %65, label %79
 
-66:                                               ; preds = %65
-  %67 = and i32 %28, 16
-  %68 = lshr i32 %28, 3
-  %69 = and i32 %68, 1
-  %70 = or disjoint i32 %69, %67
-  %71 = and i32 %28, 7
-  %72 = load ptr, ptr %34, align 8
-  %73 = getelementptr inbounds i8, ptr %72, i64 16
-  %74 = load ptr, ptr %73, align 8
-  %75 = getelementptr inbounds i8, ptr %74, i64 1
-  store i8 -43, ptr %74, align 1
-  store ptr %75, ptr %73, align 8
-  %76 = load ptr, ptr %34, align 8
-  %.0.i.i2.i.i.i.i18.i = trunc nuw nsw i32 %70 to i8
-  %77 = getelementptr inbounds i8, ptr %76, i64 16
-  %78 = load ptr, ptr %77, align 8
-  %79 = getelementptr inbounds i8, ptr %78, i64 1
-  store i8 %.0.i.i2.i.i.i.i18.i, ptr %78, align 1
-  store ptr %79, ptr %77, align 8
+65:                                               ; preds = %64
+  %66 = and i32 %28, 16
+  %67 = lshr i32 %28, 3
+  %68 = and i32 %67, 1
+  %69 = or disjoint i32 %68, %66
+  %70 = and i32 %28, 7
+  %71 = load ptr, ptr %33, align 8
+  %72 = getelementptr inbounds i8, ptr %71, i64 16
+  %73 = load ptr, ptr %72, align 8
+  %74 = getelementptr inbounds i8, ptr %73, i64 1
+  store i8 -43, ptr %73, align 1
+  store ptr %74, ptr %72, align 8
+  %75 = load ptr, ptr %33, align 8
+  %.0.i.i2.i.i.i.i18.i = trunc nuw nsw i32 %69 to i8
+  %76 = getelementptr inbounds i8, ptr %75, i64 16
+  %77 = load ptr, ptr %76, align 8
+  %78 = getelementptr inbounds i8, ptr %77, i64 1
+  store i8 %.0.i.i2.i.i.i.i18.i, ptr %77, align 1
+  store ptr %78, ptr %76, align 8
   br label %_ZN9Assembler21rex_prefix_and_encodeEiiNS_13VexSimdPrefixENS_9VexOpcodeEb.exit
 
-80:                                               ; preds = %65
-  %81 = icmp sgt i32 %28, 7
-  br i1 %81, label %82, label %_ZN9Assembler21rex_prefix_and_encodeEiiNS_13VexSimdPrefixENS_9VexOpcodeEb.exit
+79:                                               ; preds = %64
+  %80 = icmp sgt i32 %28, 7
+  br i1 %80, label %81, label %_ZN9Assembler21rex_prefix_and_encodeEiiNS_13VexSimdPrefixENS_9VexOpcodeEb.exit
 
-82:                                               ; preds = %80
-  %83 = load ptr, ptr %34, align 8
-  %84 = getelementptr inbounds i8, ptr %83, i64 16
-  %85 = load ptr, ptr %84, align 8
-  %86 = getelementptr inbounds i8, ptr %85, i64 1
-  store i8 65, ptr %85, align 1
-  store ptr %86, ptr %84, align 8
-  %87 = add nsw i32 %28, -8
+81:                                               ; preds = %79
+  %82 = load ptr, ptr %33, align 8
+  %83 = getelementptr inbounds i8, ptr %82, i64 16
+  %84 = load ptr, ptr %83, align 8
+  %85 = getelementptr inbounds i8, ptr %84, i64 1
+  store i8 65, ptr %84, align 1
+  store ptr %85, ptr %83, align 8
+  %86 = add nsw i32 %28, -8
   br label %_ZN9Assembler21rex_prefix_and_encodeEiiNS_13VexSimdPrefixENS_9VexOpcodeEb.exit
 
-_ZN9Assembler21rex_prefix_and_encodeEiiNS_13VexSimdPrefixENS_9VexOpcodeEb.exit: ; preds = %80, %82, %62, %63, %41, %66
-  %.in = phi i32 [ %46, %41 ], [ %71, %66 ], [ %28, %62 ], [ %64, %63 ], [ %87, %82 ], [ %28, %80 ]
-  %88 = or i32 %.in, 16
-  %89 = load ptr, ptr %34, align 8
-  %90 = getelementptr inbounds i8, ptr %89, i64 16
-  %91 = load ptr, ptr %90, align 8
-  %92 = getelementptr inbounds i8, ptr %91, i64 1
-  store i8 15, ptr %91, align 1
-  store ptr %92, ptr %90, align 8
+_ZN9Assembler21rex_prefix_and_encodeEiiNS_13VexSimdPrefixENS_9VexOpcodeEb.exit: ; preds = %79, %81, %61, %62, %40, %65
+  %.in = phi i32 [ %45, %40 ], [ %70, %65 ], [ %28, %61 ], [ %63, %62 ], [ %86, %81 ], [ %28, %79 ]
+  %87 = or i32 %.in, 16
+  %88 = load ptr, ptr %33, align 8
+  %89 = getelementptr inbounds i8, ptr %88, i64 16
+  %90 = load ptr, ptr %89, align 8
+  %91 = getelementptr inbounds i8, ptr %90, i64 1
+  store i8 15, ptr %90, align 1
+  store ptr %91, ptr %89, align 8
   br label %_ZN9Assembler22simd_prefix_and_encodeE11XMMRegisterS0_S0_NS_13VexSimdPrefixENS_9VexOpcodeEP15InstructionAttrb.exit
 
 _ZN9Assembler22simd_prefix_and_encodeE11XMMRegisterS0_S0_NS_13VexSimdPrefixENS_9VexOpcodeEP15InstructionAttrb.exit: ; preds = %30, %_ZN9Assembler21rex_prefix_and_encodeEiiNS_13VexSimdPrefixENS_9VexOpcodeEb.exit
-  %.0.i = phi i32 [ %32, %30 ], [ %88, %_ZN9Assembler21rex_prefix_and_encodeEiiNS_13VexSimdPrefixENS_9VexOpcodeEb.exit ]
-  %93 = getelementptr inbounds i8, ptr %0, i64 8
-  %94 = load ptr, ptr %93, align 8
-  %95 = trunc i32 %.0.i to i8
-  %.0.i3.i = or i8 %95, -64
+  %.0.i = phi i32 [ %31, %30 ], [ %87, %_ZN9Assembler21rex_prefix_and_encodeEiiNS_13VexSimdPrefixENS_9VexOpcodeEb.exit ]
+  %92 = getelementptr inbounds i8, ptr %0, i64 8
+  %93 = load ptr, ptr %92, align 8
+  %94 = trunc i32 %.0.i to i8
+  %.0.i3.i = or i8 %94, -64
   %.0.i4.i = trunc i32 %2 to i8
-  %96 = getelementptr inbounds i8, ptr %94, i64 16
-  %97 = load ptr, ptr %96, align 8
-  %98 = getelementptr inbounds i8, ptr %97, i64 1
-  store i8 115, ptr %97, align 1
-  %99 = getelementptr inbounds i8, ptr %97, i64 2
-  store i8 %.0.i3.i, ptr %98, align 1
-  %100 = getelementptr inbounds i8, ptr %97, i64 3
-  store i8 %.0.i4.i, ptr %99, align 1
-  store ptr %100, ptr %96, align 8
-  %101 = load ptr, ptr %23, align 8
-  %.not.i = icmp eq ptr %101, null
-  br i1 %.not.i, label %_ZN15InstructionAttrD2Ev.exit, label %102
+  %95 = getelementptr inbounds i8, ptr %93, i64 16
+  %96 = load ptr, ptr %95, align 8
+  %97 = getelementptr inbounds i8, ptr %96, i64 1
+  store i8 115, ptr %96, align 1
+  %98 = getelementptr inbounds i8, ptr %96, i64 2
+  store i8 %.0.i3.i, ptr %97, align 1
+  %99 = getelementptr inbounds i8, ptr %96, i64 3
+  store i8 %.0.i4.i, ptr %98, align 1
+  store ptr %99, ptr %95, align 8
+  %100 = load ptr, ptr %23, align 8
+  %.not.i = icmp eq ptr %100, null
+  br i1 %.not.i, label %_ZN15InstructionAttrD2Ev.exit, label %101
 
-102:                                              ; preds = %_ZN9Assembler22simd_prefix_and_encodeE11XMMRegisterS0_S0_NS_13VexSimdPrefixENS_9VexOpcodeEP15InstructionAttrb.exit
-  %103 = getelementptr inbounds i8, ptr %101, i64 32
-  store ptr null, ptr %103, align 8
+101:                                              ; preds = %_ZN9Assembler22simd_prefix_and_encodeE11XMMRegisterS0_S0_NS_13VexSimdPrefixENS_9VexOpcodeEP15InstructionAttrb.exit
+  %102 = getelementptr inbounds i8, ptr %100, i64 32
+  store ptr null, ptr %102, align 8
   br label %_ZN15InstructionAttrD2Ev.exit
 
-_ZN15InstructionAttrD2Ev.exit:                    ; preds = %_ZN9Assembler22simd_prefix_and_encodeE11XMMRegisterS0_S0_NS_13VexSimdPrefixENS_9VexOpcodeEP15InstructionAttrb.exit, %102
+_ZN15InstructionAttrD2Ev.exit:                    ; preds = %_ZN9Assembler22simd_prefix_and_encodeE11XMMRegisterS0_S0_NS_13VexSimdPrefixENS_9VexOpcodeEP15InstructionAttrb.exit, %101
   ret void
 }
 
@@ -70223,41 +70223,41 @@ define hidden void @_ZN9Assembler5psrlwE11XMMRegisterS0_(ptr noundef nonnull ali
   %33 = trunc i64 %32 to i32
   %34 = sub i32 %33, ptrtoint (ptr getelementptr inbounds (i8, ptr @all_XMMRegisterImpls, i64 1) to i32)
   %35 = icmp sgt i32 %9, 0
-  br i1 %35, label %36, label %39
+  br i1 %35, label %36, label %38
 
 36:                                               ; preds = %3
-  %37 = icmp ult i32 %29, 32
-  %spec.select.i = select i1 %37, i32 %29, i32 0
-  %38 = call noundef i32 @_ZN9Assembler21vex_prefix_and_encodeEiiiNS_13VexSimdPrefixENS_9VexOpcodeEP15InstructionAttrb(ptr noundef nonnull align 8 dereferenceable(40) %0, i32 noundef %29, i32 noundef %spec.select.i, i32 noundef %34, i32 noundef 1, i32 noundef 1, ptr noundef nonnull %4, i1 noundef zeroext false)
+  %spec.select.i.i = icmp ult i32 %29, 32
+  %spec.select.i = select i1 %spec.select.i.i, i32 %29, i32 0
+  %37 = call noundef i32 @_ZN9Assembler21vex_prefix_and_encodeEiiiNS_13VexSimdPrefixENS_9VexOpcodeEP15InstructionAttrb(ptr noundef nonnull align 8 dereferenceable(40) %0, i32 noundef %29, i32 noundef %spec.select.i, i32 noundef %34, i32 noundef 1, i32 noundef 1, ptr noundef nonnull %4, i1 noundef zeroext false)
   br label %_ZN9Assembler22simd_prefix_and_encodeE11XMMRegisterS0_S0_NS_13VexSimdPrefixENS_9VexOpcodeEP15InstructionAttrb.exit
 
-39:                                               ; preds = %3
-  %40 = tail call noundef i32 @_ZN9Assembler21rex_prefix_and_encodeEiiNS_13VexSimdPrefixENS_9VexOpcodeEb(ptr noundef nonnull align 8 dereferenceable(40) %0, i32 noundef %29, i32 noundef %34, i32 noundef 1, i32 noundef 1, i1 noundef zeroext false)
+38:                                               ; preds = %3
+  %39 = tail call noundef i32 @_ZN9Assembler21rex_prefix_and_encodeEiiNS_13VexSimdPrefixENS_9VexOpcodeEb(ptr noundef nonnull align 8 dereferenceable(40) %0, i32 noundef %29, i32 noundef %34, i32 noundef 1, i32 noundef 1, i1 noundef zeroext false)
   br label %_ZN9Assembler22simd_prefix_and_encodeE11XMMRegisterS0_S0_NS_13VexSimdPrefixENS_9VexOpcodeEP15InstructionAttrb.exit
 
-_ZN9Assembler22simd_prefix_and_encodeE11XMMRegisterS0_S0_NS_13VexSimdPrefixENS_9VexOpcodeEP15InstructionAttrb.exit: ; preds = %36, %39
-  %.0.i = phi i32 [ %38, %36 ], [ %40, %39 ]
-  %41 = getelementptr inbounds i8, ptr %0, i64 8
-  %42 = load ptr, ptr %41, align 8
-  %43 = trunc i32 %.0.i to i8
-  %.0.i2.i = or i8 %43, -64
-  %44 = getelementptr inbounds i8, ptr %42, i64 16
-  %45 = load ptr, ptr %44, align 8
-  %46 = getelementptr inbounds i8, ptr %45, i64 1
-  store i8 -47, ptr %45, align 1
-  %47 = getelementptr inbounds i8, ptr %45, i64 2
-  store i8 %.0.i2.i, ptr %46, align 1
-  store ptr %47, ptr %44, align 8
-  %48 = load ptr, ptr %24, align 8
-  %.not.i = icmp eq ptr %48, null
-  br i1 %.not.i, label %_ZN15InstructionAttrD2Ev.exit, label %49
+_ZN9Assembler22simd_prefix_and_encodeE11XMMRegisterS0_S0_NS_13VexSimdPrefixENS_9VexOpcodeEP15InstructionAttrb.exit: ; preds = %36, %38
+  %.0.i = phi i32 [ %37, %36 ], [ %39, %38 ]
+  %40 = getelementptr inbounds i8, ptr %0, i64 8
+  %41 = load ptr, ptr %40, align 8
+  %42 = trunc i32 %.0.i to i8
+  %.0.i2.i = or i8 %42, -64
+  %43 = getelementptr inbounds i8, ptr %41, i64 16
+  %44 = load ptr, ptr %43, align 8
+  %45 = getelementptr inbounds i8, ptr %44, i64 1
+  store i8 -47, ptr %44, align 1
+  %46 = getelementptr inbounds i8, ptr %44, i64 2
+  store i8 %.0.i2.i, ptr %45, align 1
+  store ptr %46, ptr %43, align 8
+  %47 = load ptr, ptr %24, align 8
+  %.not.i = icmp eq ptr %47, null
+  br i1 %.not.i, label %_ZN15InstructionAttrD2Ev.exit, label %48
 
-49:                                               ; preds = %_ZN9Assembler22simd_prefix_and_encodeE11XMMRegisterS0_S0_NS_13VexSimdPrefixENS_9VexOpcodeEP15InstructionAttrb.exit
-  %50 = getelementptr inbounds i8, ptr %48, i64 32
-  store ptr null, ptr %50, align 8
+48:                                               ; preds = %_ZN9Assembler22simd_prefix_and_encodeE11XMMRegisterS0_S0_NS_13VexSimdPrefixENS_9VexOpcodeEP15InstructionAttrb.exit
+  %49 = getelementptr inbounds i8, ptr %47, i64 32
+  store ptr null, ptr %49, align 8
   br label %_ZN15InstructionAttrD2Ev.exit
 
-_ZN15InstructionAttrD2Ev.exit:                    ; preds = %_ZN9Assembler22simd_prefix_and_encodeE11XMMRegisterS0_S0_NS_13VexSimdPrefixENS_9VexOpcodeEP15InstructionAttrb.exit, %49
+_ZN15InstructionAttrD2Ev.exit:                    ; preds = %_ZN9Assembler22simd_prefix_and_encodeE11XMMRegisterS0_S0_NS_13VexSimdPrefixENS_9VexOpcodeEP15InstructionAttrb.exit, %48
   ret void
 }
 
@@ -70305,41 +70305,41 @@ define hidden void @_ZN9Assembler5psrldE11XMMRegisterS0_(ptr noundef nonnull ali
   %29 = trunc i64 %28 to i32
   %30 = sub i32 %29, ptrtoint (ptr getelementptr inbounds (i8, ptr @all_XMMRegisterImpls, i64 1) to i32)
   %31 = icmp sgt i32 %6, 0
-  br i1 %31, label %32, label %35
+  br i1 %31, label %32, label %34
 
 32:                                               ; preds = %3
-  %33 = icmp ult i32 %25, 32
-  %spec.select.i = select i1 %33, i32 %25, i32 0
-  %34 = call noundef i32 @_ZN9Assembler21vex_prefix_and_encodeEiiiNS_13VexSimdPrefixENS_9VexOpcodeEP15InstructionAttrb(ptr noundef nonnull align 8 dereferenceable(40) %0, i32 noundef %25, i32 noundef %spec.select.i, i32 noundef %30, i32 noundef 1, i32 noundef 1, ptr noundef nonnull %4, i1 noundef zeroext false)
+  %spec.select.i.i = icmp ult i32 %25, 32
+  %spec.select.i = select i1 %spec.select.i.i, i32 %25, i32 0
+  %33 = call noundef i32 @_ZN9Assembler21vex_prefix_and_encodeEiiiNS_13VexSimdPrefixENS_9VexOpcodeEP15InstructionAttrb(ptr noundef nonnull align 8 dereferenceable(40) %0, i32 noundef %25, i32 noundef %spec.select.i, i32 noundef %30, i32 noundef 1, i32 noundef 1, ptr noundef nonnull %4, i1 noundef zeroext false)
   br label %_ZN9Assembler22simd_prefix_and_encodeE11XMMRegisterS0_S0_NS_13VexSimdPrefixENS_9VexOpcodeEP15InstructionAttrb.exit
 
-35:                                               ; preds = %3
-  %36 = tail call noundef i32 @_ZN9Assembler21rex_prefix_and_encodeEiiNS_13VexSimdPrefixENS_9VexOpcodeEb(ptr noundef nonnull align 8 dereferenceable(40) %0, i32 noundef %25, i32 noundef %30, i32 noundef 1, i32 noundef 1, i1 noundef zeroext false)
+34:                                               ; preds = %3
+  %35 = tail call noundef i32 @_ZN9Assembler21rex_prefix_and_encodeEiiNS_13VexSimdPrefixENS_9VexOpcodeEb(ptr noundef nonnull align 8 dereferenceable(40) %0, i32 noundef %25, i32 noundef %30, i32 noundef 1, i32 noundef 1, i1 noundef zeroext false)
   br label %_ZN9Assembler22simd_prefix_and_encodeE11XMMRegisterS0_S0_NS_13VexSimdPrefixENS_9VexOpcodeEP15InstructionAttrb.exit
 
-_ZN9Assembler22simd_prefix_and_encodeE11XMMRegisterS0_S0_NS_13VexSimdPrefixENS_9VexOpcodeEP15InstructionAttrb.exit: ; preds = %32, %35
-  %.0.i = phi i32 [ %34, %32 ], [ %36, %35 ]
-  %37 = getelementptr inbounds i8, ptr %0, i64 8
-  %38 = load ptr, ptr %37, align 8
-  %39 = trunc i32 %.0.i to i8
-  %.0.i2.i = or i8 %39, -64
-  %40 = getelementptr inbounds i8, ptr %38, i64 16
-  %41 = load ptr, ptr %40, align 8
-  %42 = getelementptr inbounds i8, ptr %41, i64 1
-  store i8 -46, ptr %41, align 1
-  %43 = getelementptr inbounds i8, ptr %41, i64 2
-  store i8 %.0.i2.i, ptr %42, align 1
-  store ptr %43, ptr %40, align 8
-  %44 = load ptr, ptr %20, align 8
-  %.not.i = icmp eq ptr %44, null
-  br i1 %.not.i, label %_ZN15InstructionAttrD2Ev.exit, label %45
+_ZN9Assembler22simd_prefix_and_encodeE11XMMRegisterS0_S0_NS_13VexSimdPrefixENS_9VexOpcodeEP15InstructionAttrb.exit: ; preds = %32, %34
+  %.0.i = phi i32 [ %33, %32 ], [ %35, %34 ]
+  %36 = getelementptr inbounds i8, ptr %0, i64 8
+  %37 = load ptr, ptr %36, align 8
+  %38 = trunc i32 %.0.i to i8
+  %.0.i2.i = or i8 %38, -64
+  %39 = getelementptr inbounds i8, ptr %37, i64 16
+  %40 = load ptr, ptr %39, align 8
+  %41 = getelementptr inbounds i8, ptr %40, i64 1
+  store i8 -46, ptr %40, align 1
+  %42 = getelementptr inbounds i8, ptr %40, i64 2
+  store i8 %.0.i2.i, ptr %41, align 1
+  store ptr %42, ptr %39, align 8
+  %43 = load ptr, ptr %20, align 8
+  %.not.i = icmp eq ptr %43, null
+  br i1 %.not.i, label %_ZN15InstructionAttrD2Ev.exit, label %44
 
-45:                                               ; preds = %_ZN9Assembler22simd_prefix_and_encodeE11XMMRegisterS0_S0_NS_13VexSimdPrefixENS_9VexOpcodeEP15InstructionAttrb.exit
-  %46 = getelementptr inbounds i8, ptr %44, i64 32
-  store ptr null, ptr %46, align 8
+44:                                               ; preds = %_ZN9Assembler22simd_prefix_and_encodeE11XMMRegisterS0_S0_NS_13VexSimdPrefixENS_9VexOpcodeEP15InstructionAttrb.exit
+  %45 = getelementptr inbounds i8, ptr %43, i64 32
+  store ptr null, ptr %45, align 8
   br label %_ZN15InstructionAttrD2Ev.exit
 
-_ZN15InstructionAttrD2Ev.exit:                    ; preds = %_ZN9Assembler22simd_prefix_and_encodeE11XMMRegisterS0_S0_NS_13VexSimdPrefixENS_9VexOpcodeEP15InstructionAttrb.exit, %45
+_ZN15InstructionAttrD2Ev.exit:                    ; preds = %_ZN9Assembler22simd_prefix_and_encodeE11XMMRegisterS0_S0_NS_13VexSimdPrefixENS_9VexOpcodeEP15InstructionAttrb.exit, %44
   ret void
 }
 
@@ -70391,42 +70391,42 @@ define hidden void @_ZN9Assembler5psrlqE11XMMRegisterS0_(ptr noundef nonnull ali
   %32 = trunc i64 %31 to i32
   %33 = sub i32 %32, ptrtoint (ptr getelementptr inbounds (i8, ptr @all_XMMRegisterImpls, i64 1) to i32)
   %34 = icmp sgt i32 %9, 0
-  br i1 %34, label %35, label %38
+  br i1 %34, label %35, label %37
 
 35:                                               ; preds = %3
-  %36 = icmp ult i32 %28, 32
-  %spec.select.i = select i1 %36, i32 %28, i32 0
-  %37 = call noundef i32 @_ZN9Assembler21vex_prefix_and_encodeEiiiNS_13VexSimdPrefixENS_9VexOpcodeEP15InstructionAttrb(ptr noundef nonnull align 8 dereferenceable(40) %0, i32 noundef %28, i32 noundef %spec.select.i, i32 noundef %33, i32 noundef 1, i32 noundef 1, ptr noundef nonnull %4, i1 noundef zeroext false)
+  %spec.select.i.i = icmp ult i32 %28, 32
+  %spec.select.i = select i1 %spec.select.i.i, i32 %28, i32 0
+  %36 = call noundef i32 @_ZN9Assembler21vex_prefix_and_encodeEiiiNS_13VexSimdPrefixENS_9VexOpcodeEP15InstructionAttrb(ptr noundef nonnull align 8 dereferenceable(40) %0, i32 noundef %28, i32 noundef %spec.select.i, i32 noundef %33, i32 noundef 1, i32 noundef 1, ptr noundef nonnull %4, i1 noundef zeroext false)
   br label %_ZN9Assembler22simd_prefix_and_encodeE11XMMRegisterS0_S0_NS_13VexSimdPrefixENS_9VexOpcodeEP15InstructionAttrb.exit
 
-38:                                               ; preds = %3
-  %39 = icmp ne i64 %6, 0
-  %40 = tail call noundef i32 @_ZN9Assembler21rex_prefix_and_encodeEiiNS_13VexSimdPrefixENS_9VexOpcodeEb(ptr noundef nonnull align 8 dereferenceable(40) %0, i32 noundef %28, i32 noundef %33, i32 noundef 1, i32 noundef 1, i1 noundef zeroext %39)
+37:                                               ; preds = %3
+  %38 = icmp ne i64 %6, 0
+  %39 = tail call noundef i32 @_ZN9Assembler21rex_prefix_and_encodeEiiNS_13VexSimdPrefixENS_9VexOpcodeEb(ptr noundef nonnull align 8 dereferenceable(40) %0, i32 noundef %28, i32 noundef %33, i32 noundef 1, i32 noundef 1, i1 noundef zeroext %38)
   br label %_ZN9Assembler22simd_prefix_and_encodeE11XMMRegisterS0_S0_NS_13VexSimdPrefixENS_9VexOpcodeEP15InstructionAttrb.exit
 
-_ZN9Assembler22simd_prefix_and_encodeE11XMMRegisterS0_S0_NS_13VexSimdPrefixENS_9VexOpcodeEP15InstructionAttrb.exit: ; preds = %35, %38
-  %.0.i = phi i32 [ %37, %35 ], [ %40, %38 ]
-  %41 = getelementptr inbounds i8, ptr %0, i64 8
-  %42 = load ptr, ptr %41, align 8
-  %43 = trunc i32 %.0.i to i8
-  %.0.i2.i = or i8 %43, -64
-  %44 = getelementptr inbounds i8, ptr %42, i64 16
-  %45 = load ptr, ptr %44, align 8
-  %46 = getelementptr inbounds i8, ptr %45, i64 1
-  store i8 -45, ptr %45, align 1
-  %47 = getelementptr inbounds i8, ptr %45, i64 2
-  store i8 %.0.i2.i, ptr %46, align 1
-  store ptr %47, ptr %44, align 8
-  %48 = load ptr, ptr %23, align 8
-  %.not.i = icmp eq ptr %48, null
-  br i1 %.not.i, label %_ZN15InstructionAttrD2Ev.exit, label %49
+_ZN9Assembler22simd_prefix_and_encodeE11XMMRegisterS0_S0_NS_13VexSimdPrefixENS_9VexOpcodeEP15InstructionAttrb.exit: ; preds = %35, %37
+  %.0.i = phi i32 [ %36, %35 ], [ %39, %37 ]
+  %40 = getelementptr inbounds i8, ptr %0, i64 8
+  %41 = load ptr, ptr %40, align 8
+  %42 = trunc i32 %.0.i to i8
+  %.0.i2.i = or i8 %42, -64
+  %43 = getelementptr inbounds i8, ptr %41, i64 16
+  %44 = load ptr, ptr %43, align 8
+  %45 = getelementptr inbounds i8, ptr %44, i64 1
+  store i8 -45, ptr %44, align 1
+  %46 = getelementptr inbounds i8, ptr %44, i64 2
+  store i8 %.0.i2.i, ptr %45, align 1
+  store ptr %46, ptr %43, align 8
+  %47 = load ptr, ptr %23, align 8
+  %.not.i = icmp eq ptr %47, null
+  br i1 %.not.i, label %_ZN15InstructionAttrD2Ev.exit, label %48
 
-49:                                               ; preds = %_ZN9Assembler22simd_prefix_and_encodeE11XMMRegisterS0_S0_NS_13VexSimdPrefixENS_9VexOpcodeEP15InstructionAttrb.exit
-  %50 = getelementptr inbounds i8, ptr %48, i64 32
-  store ptr null, ptr %50, align 8
+48:                                               ; preds = %_ZN9Assembler22simd_prefix_and_encodeE11XMMRegisterS0_S0_NS_13VexSimdPrefixENS_9VexOpcodeEP15InstructionAttrb.exit
+  %49 = getelementptr inbounds i8, ptr %47, i64 32
+  store ptr null, ptr %49, align 8
   br label %_ZN15InstructionAttrD2Ev.exit
 
-_ZN15InstructionAttrD2Ev.exit:                    ; preds = %_ZN9Assembler22simd_prefix_and_encodeE11XMMRegisterS0_S0_NS_13VexSimdPrefixENS_9VexOpcodeEP15InstructionAttrb.exit, %49
+_ZN15InstructionAttrD2Ev.exit:                    ; preds = %_ZN9Assembler22simd_prefix_and_encodeE11XMMRegisterS0_S0_NS_13VexSimdPrefixENS_9VexOpcodeEP15InstructionAttrb.exit, %48
   ret void
 }
 
@@ -71067,97 +71067,97 @@ define hidden void @_ZN9Assembler5psrawE11XMMRegisteri(ptr noundef nonnull align
   %28 = trunc i64 %27 to i32
   %29 = sub i32 %28, ptrtoint (ptr getelementptr inbounds (i8, ptr @all_XMMRegisterImpls, i64 1) to i32)
   %30 = icmp sgt i32 %9, 0
-  br i1 %30, label %31, label %34
+  br i1 %30, label %31, label %33
 
 31:                                               ; preds = %3
-  %32 = icmp ult i32 %29, 32
-  %spec.select.i = select i1 %32, i32 %29, i32 0
-  %33 = call noundef i32 @_ZN9Assembler21vex_prefix_and_encodeEiiiNS_13VexSimdPrefixENS_9VexOpcodeEP15InstructionAttrb(ptr noundef nonnull align 8 dereferenceable(40) %0, i32 noundef 4, i32 noundef %spec.select.i, i32 noundef %29, i32 noundef 1, i32 noundef 1, ptr noundef nonnull %4, i1 noundef zeroext false)
+  %spec.select.i.i = icmp ult i32 %29, 32
+  %spec.select.i = select i1 %spec.select.i.i, i32 %29, i32 0
+  %32 = call noundef i32 @_ZN9Assembler21vex_prefix_and_encodeEiiiNS_13VexSimdPrefixENS_9VexOpcodeEP15InstructionAttrb(ptr noundef nonnull align 8 dereferenceable(40) %0, i32 noundef 4, i32 noundef %spec.select.i, i32 noundef %29, i32 noundef 1, i32 noundef 1, ptr noundef nonnull %4, i1 noundef zeroext false)
   br label %_ZN9Assembler22simd_prefix_and_encodeE11XMMRegisterS0_S0_NS_13VexSimdPrefixENS_9VexOpcodeEP15InstructionAttrb.exit
 
-34:                                               ; preds = %3
-  %35 = getelementptr inbounds i8, ptr %0, i64 8
-  %36 = load ptr, ptr %35, align 8
-  %37 = getelementptr inbounds i8, ptr %36, i64 16
-  %38 = load ptr, ptr %37, align 8
-  %39 = getelementptr inbounds i8, ptr %38, i64 1
-  store i8 102, ptr %38, align 1
-  store ptr %39, ptr %37, align 8
-  %40 = icmp sgt i32 %29, 15
-  br i1 %40, label %41, label %55
+33:                                               ; preds = %3
+  %34 = getelementptr inbounds i8, ptr %0, i64 8
+  %35 = load ptr, ptr %34, align 8
+  %36 = getelementptr inbounds i8, ptr %35, i64 16
+  %37 = load ptr, ptr %36, align 8
+  %38 = getelementptr inbounds i8, ptr %37, i64 1
+  store i8 102, ptr %37, align 1
+  store ptr %38, ptr %36, align 8
+  %39 = icmp sgt i32 %29, 15
+  br i1 %39, label %40, label %54
 
-41:                                               ; preds = %34
-  %42 = and i32 %29, 16
-  %43 = lshr i32 %29, 3
-  %44 = and i32 %43, 1
-  %45 = or disjoint i32 %44, %42
-  %46 = and i32 %29, 7
-  %47 = load ptr, ptr %35, align 8
-  %48 = getelementptr inbounds i8, ptr %47, i64 16
-  %49 = load ptr, ptr %48, align 8
-  %50 = getelementptr inbounds i8, ptr %49, i64 1
-  store i8 -43, ptr %49, align 1
-  store ptr %50, ptr %48, align 8
-  %51 = load ptr, ptr %35, align 8
-  %.0.i.i2.i.i.i.i18.i = trunc nuw nsw i32 %45 to i8
-  %52 = getelementptr inbounds i8, ptr %51, i64 16
-  %53 = load ptr, ptr %52, align 8
-  %54 = getelementptr inbounds i8, ptr %53, i64 1
-  store i8 %.0.i.i2.i.i.i.i18.i, ptr %53, align 1
-  store ptr %54, ptr %52, align 8
+40:                                               ; preds = %33
+  %41 = and i32 %29, 16
+  %42 = lshr i32 %29, 3
+  %43 = and i32 %42, 1
+  %44 = or disjoint i32 %43, %41
+  %45 = and i32 %29, 7
+  %46 = load ptr, ptr %34, align 8
+  %47 = getelementptr inbounds i8, ptr %46, i64 16
+  %48 = load ptr, ptr %47, align 8
+  %49 = getelementptr inbounds i8, ptr %48, i64 1
+  store i8 -43, ptr %48, align 1
+  store ptr %49, ptr %47, align 8
+  %50 = load ptr, ptr %34, align 8
+  %.0.i.i2.i.i.i.i18.i = trunc nuw nsw i32 %44 to i8
+  %51 = getelementptr inbounds i8, ptr %50, i64 16
+  %52 = load ptr, ptr %51, align 8
+  %53 = getelementptr inbounds i8, ptr %52, i64 1
+  store i8 %.0.i.i2.i.i.i.i18.i, ptr %52, align 1
+  store ptr %53, ptr %51, align 8
   br label %_ZN9Assembler21rex_prefix_and_encodeEiiNS_13VexSimdPrefixENS_9VexOpcodeEb.exit
 
-55:                                               ; preds = %34
-  %56 = icmp sgt i32 %29, 7
-  br i1 %56, label %57, label %_ZN9Assembler21rex_prefix_and_encodeEiiNS_13VexSimdPrefixENS_9VexOpcodeEb.exit
+54:                                               ; preds = %33
+  %55 = icmp sgt i32 %29, 7
+  br i1 %55, label %56, label %_ZN9Assembler21rex_prefix_and_encodeEiiNS_13VexSimdPrefixENS_9VexOpcodeEb.exit
 
-57:                                               ; preds = %55
-  %58 = load ptr, ptr %35, align 8
-  %59 = getelementptr inbounds i8, ptr %58, i64 16
-  %60 = load ptr, ptr %59, align 8
-  %61 = getelementptr inbounds i8, ptr %60, i64 1
-  store i8 65, ptr %60, align 1
-  store ptr %61, ptr %59, align 8
-  %62 = add nsw i32 %29, -8
+56:                                               ; preds = %54
+  %57 = load ptr, ptr %34, align 8
+  %58 = getelementptr inbounds i8, ptr %57, i64 16
+  %59 = load ptr, ptr %58, align 8
+  %60 = getelementptr inbounds i8, ptr %59, i64 1
+  store i8 65, ptr %59, align 1
+  store ptr %60, ptr %58, align 8
+  %61 = add nsw i32 %29, -8
   br label %_ZN9Assembler21rex_prefix_and_encodeEiiNS_13VexSimdPrefixENS_9VexOpcodeEb.exit
 
-_ZN9Assembler21rex_prefix_and_encodeEiiNS_13VexSimdPrefixENS_9VexOpcodeEb.exit: ; preds = %55, %57, %41
-  %.in = phi i32 [ %46, %41 ], [ %62, %57 ], [ %29, %55 ]
-  %63 = or i32 %.in, 32
-  %64 = load ptr, ptr %35, align 8
-  %65 = getelementptr inbounds i8, ptr %64, i64 16
-  %66 = load ptr, ptr %65, align 8
-  %67 = getelementptr inbounds i8, ptr %66, i64 1
-  store i8 15, ptr %66, align 1
-  store ptr %67, ptr %65, align 8
+_ZN9Assembler21rex_prefix_and_encodeEiiNS_13VexSimdPrefixENS_9VexOpcodeEb.exit: ; preds = %54, %56, %40
+  %.in = phi i32 [ %45, %40 ], [ %61, %56 ], [ %29, %54 ]
+  %62 = or i32 %.in, 32
+  %63 = load ptr, ptr %34, align 8
+  %64 = getelementptr inbounds i8, ptr %63, i64 16
+  %65 = load ptr, ptr %64, align 8
+  %66 = getelementptr inbounds i8, ptr %65, i64 1
+  store i8 15, ptr %65, align 1
+  store ptr %66, ptr %64, align 8
   br label %_ZN9Assembler22simd_prefix_and_encodeE11XMMRegisterS0_S0_NS_13VexSimdPrefixENS_9VexOpcodeEP15InstructionAttrb.exit
 
 _ZN9Assembler22simd_prefix_and_encodeE11XMMRegisterS0_S0_NS_13VexSimdPrefixENS_9VexOpcodeEP15InstructionAttrb.exit: ; preds = %31, %_ZN9Assembler21rex_prefix_and_encodeEiiNS_13VexSimdPrefixENS_9VexOpcodeEb.exit
-  %.0.i = phi i32 [ %33, %31 ], [ %63, %_ZN9Assembler21rex_prefix_and_encodeEiiNS_13VexSimdPrefixENS_9VexOpcodeEb.exit ]
-  %68 = getelementptr inbounds i8, ptr %0, i64 8
-  %69 = load ptr, ptr %68, align 8
-  %70 = trunc i32 %.0.i to i8
-  %.0.i3.i = or i8 %70, -64
+  %.0.i = phi i32 [ %32, %31 ], [ %62, %_ZN9Assembler21rex_prefix_and_encodeEiiNS_13VexSimdPrefixENS_9VexOpcodeEb.exit ]
+  %67 = getelementptr inbounds i8, ptr %0, i64 8
+  %68 = load ptr, ptr %67, align 8
+  %69 = trunc i32 %.0.i to i8
+  %.0.i3.i = or i8 %69, -64
   %.0.i4.i = trunc i32 %2 to i8
-  %71 = getelementptr inbounds i8, ptr %69, i64 16
-  %72 = load ptr, ptr %71, align 8
-  %73 = getelementptr inbounds i8, ptr %72, i64 1
-  store i8 113, ptr %72, align 1
-  %74 = getelementptr inbounds i8, ptr %72, i64 2
-  store i8 %.0.i3.i, ptr %73, align 1
-  %75 = getelementptr inbounds i8, ptr %72, i64 3
-  store i8 %.0.i4.i, ptr %74, align 1
-  store ptr %75, ptr %71, align 8
-  %76 = load ptr, ptr %24, align 8
-  %.not.i = icmp eq ptr %76, null
-  br i1 %.not.i, label %_ZN15InstructionAttrD2Ev.exit, label %77
+  %70 = getelementptr inbounds i8, ptr %68, i64 16
+  %71 = load ptr, ptr %70, align 8
+  %72 = getelementptr inbounds i8, ptr %71, i64 1
+  store i8 113, ptr %71, align 1
+  %73 = getelementptr inbounds i8, ptr %71, i64 2
+  store i8 %.0.i3.i, ptr %72, align 1
+  %74 = getelementptr inbounds i8, ptr %71, i64 3
+  store i8 %.0.i4.i, ptr %73, align 1
+  store ptr %74, ptr %70, align 8
+  %75 = load ptr, ptr %24, align 8
+  %.not.i = icmp eq ptr %75, null
+  br i1 %.not.i, label %_ZN15InstructionAttrD2Ev.exit, label %76
 
-77:                                               ; preds = %_ZN9Assembler22simd_prefix_and_encodeE11XMMRegisterS0_S0_NS_13VexSimdPrefixENS_9VexOpcodeEP15InstructionAttrb.exit
-  %78 = getelementptr inbounds i8, ptr %76, i64 32
-  store ptr null, ptr %78, align 8
+76:                                               ; preds = %_ZN9Assembler22simd_prefix_and_encodeE11XMMRegisterS0_S0_NS_13VexSimdPrefixENS_9VexOpcodeEP15InstructionAttrb.exit
+  %77 = getelementptr inbounds i8, ptr %75, i64 32
+  store ptr null, ptr %77, align 8
   br label %_ZN15InstructionAttrD2Ev.exit
 
-_ZN15InstructionAttrD2Ev.exit:                    ; preds = %_ZN9Assembler22simd_prefix_and_encodeE11XMMRegisterS0_S0_NS_13VexSimdPrefixENS_9VexOpcodeEP15InstructionAttrb.exit, %77
+_ZN15InstructionAttrD2Ev.exit:                    ; preds = %_ZN9Assembler22simd_prefix_and_encodeE11XMMRegisterS0_S0_NS_13VexSimdPrefixENS_9VexOpcodeEP15InstructionAttrb.exit, %76
   ret void
 }
 
@@ -71200,105 +71200,105 @@ define hidden void @_ZN9Assembler5psradE11XMMRegisteri(ptr noundef nonnull align
   %24 = trunc i64 %23 to i32
   %25 = sub i32 %24, ptrtoint (ptr getelementptr inbounds (i8, ptr @all_XMMRegisterImpls, i64 1) to i32)
   %26 = icmp sgt i32 %6, 0
-  br i1 %26, label %27, label %30
+  br i1 %26, label %27, label %29
 
 27:                                               ; preds = %3
-  %28 = icmp ult i32 %25, 32
-  %spec.select.i = select i1 %28, i32 %25, i32 0
-  %29 = call noundef i32 @_ZN9Assembler21vex_prefix_and_encodeEiiiNS_13VexSimdPrefixENS_9VexOpcodeEP15InstructionAttrb(ptr noundef nonnull align 8 dereferenceable(40) %0, i32 noundef 4, i32 noundef %spec.select.i, i32 noundef %25, i32 noundef 1, i32 noundef 1, ptr noundef nonnull %4, i1 noundef zeroext false)
+  %spec.select.i.i = icmp ult i32 %25, 32
+  %spec.select.i = select i1 %spec.select.i.i, i32 %25, i32 0
+  %28 = call noundef i32 @_ZN9Assembler21vex_prefix_and_encodeEiiiNS_13VexSimdPrefixENS_9VexOpcodeEP15InstructionAttrb(ptr noundef nonnull align 8 dereferenceable(40) %0, i32 noundef 4, i32 noundef %spec.select.i, i32 noundef %25, i32 noundef 1, i32 noundef 1, ptr noundef nonnull %4, i1 noundef zeroext false)
   br label %_ZN9Assembler22simd_prefix_and_encodeE11XMMRegisterS0_S0_NS_13VexSimdPrefixENS_9VexOpcodeEP15InstructionAttrb.exit
 
-30:                                               ; preds = %3
-  %31 = getelementptr inbounds i8, ptr %0, i64 8
-  %32 = load ptr, ptr %31, align 8
-  %33 = getelementptr inbounds i8, ptr %32, i64 16
-  %34 = load ptr, ptr %33, align 8
-  %35 = getelementptr inbounds i8, ptr %34, i64 1
-  store i8 102, ptr %34, align 1
-  store ptr %35, ptr %33, align 8
-  %36 = icmp sgt i32 %25, 15
-  br i1 %36, label %37, label %51
+29:                                               ; preds = %3
+  %30 = getelementptr inbounds i8, ptr %0, i64 8
+  %31 = load ptr, ptr %30, align 8
+  %32 = getelementptr inbounds i8, ptr %31, i64 16
+  %33 = load ptr, ptr %32, align 8
+  %34 = getelementptr inbounds i8, ptr %33, i64 1
+  store i8 102, ptr %33, align 1
+  store ptr %34, ptr %32, align 8
+  %35 = icmp sgt i32 %25, 15
+  br i1 %35, label %36, label %50
 
-37:                                               ; preds = %30
-  %38 = and i32 %25, 16
-  %39 = lshr i32 %25, 3
-  %40 = and i32 %39, 1
-  %41 = or disjoint i32 %40, %38
-  %42 = and i32 %25, 7
-  %43 = load ptr, ptr %31, align 8
-  %44 = getelementptr inbounds i8, ptr %43, i64 16
-  %45 = load ptr, ptr %44, align 8
-  %46 = getelementptr inbounds i8, ptr %45, i64 1
-  store i8 -43, ptr %45, align 1
-  store ptr %46, ptr %44, align 8
-  %47 = load ptr, ptr %31, align 8
-  %.0.i.i2.i.i.i.i18.i = trunc nuw nsw i32 %41 to i8
-  %48 = getelementptr inbounds i8, ptr %47, i64 16
-  %49 = load ptr, ptr %48, align 8
-  %50 = getelementptr inbounds i8, ptr %49, i64 1
-  store i8 %.0.i.i2.i.i.i.i18.i, ptr %49, align 1
-  store ptr %50, ptr %48, align 8
+36:                                               ; preds = %29
+  %37 = and i32 %25, 16
+  %38 = lshr i32 %25, 3
+  %39 = and i32 %38, 1
+  %40 = or disjoint i32 %39, %37
+  %41 = and i32 %25, 7
+  %42 = load ptr, ptr %30, align 8
+  %43 = getelementptr inbounds i8, ptr %42, i64 16
+  %44 = load ptr, ptr %43, align 8
+  %45 = getelementptr inbounds i8, ptr %44, i64 1
+  store i8 -43, ptr %44, align 1
+  store ptr %45, ptr %43, align 8
+  %46 = load ptr, ptr %30, align 8
+  %.0.i.i2.i.i.i.i18.i = trunc nuw nsw i32 %40 to i8
+  %47 = getelementptr inbounds i8, ptr %46, i64 16
+  %48 = load ptr, ptr %47, align 8
+  %49 = getelementptr inbounds i8, ptr %48, i64 1
+  store i8 %.0.i.i2.i.i.i.i18.i, ptr %48, align 1
+  store ptr %49, ptr %47, align 8
   br label %_ZN9Assembler21rex_prefix_and_encodeEiiNS_13VexSimdPrefixENS_9VexOpcodeEb.exit
 
-51:                                               ; preds = %30
-  %52 = icmp sgt i32 %25, 7
-  br i1 %52, label %53, label %_ZN9Assembler21rex_prefix_and_encodeEiiNS_13VexSimdPrefixENS_9VexOpcodeEb.exit
+50:                                               ; preds = %29
+  %51 = icmp sgt i32 %25, 7
+  br i1 %51, label %52, label %_ZN9Assembler21rex_prefix_and_encodeEiiNS_13VexSimdPrefixENS_9VexOpcodeEb.exit
 
-53:                                               ; preds = %51
-  %54 = load ptr, ptr %31, align 8
-  %55 = getelementptr inbounds i8, ptr %54, i64 16
-  %56 = load ptr, ptr %55, align 8
-  %57 = getelementptr inbounds i8, ptr %56, i64 1
-  store i8 65, ptr %56, align 1
-  store ptr %57, ptr %55, align 8
-  %58 = add nsw i32 %25, -8
+52:                                               ; preds = %50
+  %53 = load ptr, ptr %30, align 8
+  %54 = getelementptr inbounds i8, ptr %53, i64 16
+  %55 = load ptr, ptr %54, align 8
+  %56 = getelementptr inbounds i8, ptr %55, i64 1
+  store i8 65, ptr %55, align 1
+  store ptr %56, ptr %54, align 8
+  %57 = add nsw i32 %25, -8
   br label %_ZN9Assembler21rex_prefix_and_encodeEiiNS_13VexSimdPrefixENS_9VexOpcodeEb.exit
 
-_ZN9Assembler21rex_prefix_and_encodeEiiNS_13VexSimdPrefixENS_9VexOpcodeEb.exit: ; preds = %51, %53, %37
-  %.in = phi i32 [ %42, %37 ], [ %58, %53 ], [ %25, %51 ]
-  %59 = or i32 %.in, 32
-  %60 = load ptr, ptr %31, align 8
-  %61 = getelementptr inbounds i8, ptr %60, i64 16
-  %62 = load ptr, ptr %61, align 8
-  %63 = getelementptr inbounds i8, ptr %62, i64 1
-  store i8 15, ptr %62, align 1
-  store ptr %63, ptr %61, align 8
+_ZN9Assembler21rex_prefix_and_encodeEiiNS_13VexSimdPrefixENS_9VexOpcodeEb.exit: ; preds = %50, %52, %36
+  %.in = phi i32 [ %41, %36 ], [ %57, %52 ], [ %25, %50 ]
+  %58 = or i32 %.in, 32
+  %59 = load ptr, ptr %30, align 8
+  %60 = getelementptr inbounds i8, ptr %59, i64 16
+  %61 = load ptr, ptr %60, align 8
+  %62 = getelementptr inbounds i8, ptr %61, i64 1
+  store i8 15, ptr %61, align 1
+  store ptr %62, ptr %60, align 8
   br label %_ZN9Assembler22simd_prefix_and_encodeE11XMMRegisterS0_S0_NS_13VexSimdPrefixENS_9VexOpcodeEP15InstructionAttrb.exit
 
 _ZN9Assembler22simd_prefix_and_encodeE11XMMRegisterS0_S0_NS_13VexSimdPrefixENS_9VexOpcodeEP15InstructionAttrb.exit: ; preds = %27, %_ZN9Assembler21rex_prefix_and_encodeEiiNS_13VexSimdPrefixENS_9VexOpcodeEb.exit
-  %.0.i = phi i32 [ %29, %27 ], [ %59, %_ZN9Assembler21rex_prefix_and_encodeEiiNS_13VexSimdPrefixENS_9VexOpcodeEb.exit ]
-  %64 = getelementptr inbounds i8, ptr %0, i64 8
-  %65 = load ptr, ptr %64, align 8
-  %66 = getelementptr inbounds i8, ptr %65, i64 16
-  %67 = load ptr, ptr %66, align 8
-  %68 = getelementptr inbounds i8, ptr %67, i64 1
-  store i8 114, ptr %67, align 1
-  store ptr %68, ptr %66, align 8
-  %69 = load ptr, ptr %64, align 8
-  %70 = trunc i32 %.0.i to i8
-  %.0.i.i = or i8 %70, -64
-  %71 = getelementptr inbounds i8, ptr %69, i64 16
-  %72 = load ptr, ptr %71, align 8
-  %73 = getelementptr inbounds i8, ptr %72, i64 1
-  store i8 %.0.i.i, ptr %72, align 1
-  store ptr %73, ptr %71, align 8
-  %74 = load ptr, ptr %64, align 8
+  %.0.i = phi i32 [ %28, %27 ], [ %58, %_ZN9Assembler21rex_prefix_and_encodeEiiNS_13VexSimdPrefixENS_9VexOpcodeEb.exit ]
+  %63 = getelementptr inbounds i8, ptr %0, i64 8
+  %64 = load ptr, ptr %63, align 8
+  %65 = getelementptr inbounds i8, ptr %64, i64 16
+  %66 = load ptr, ptr %65, align 8
+  %67 = getelementptr inbounds i8, ptr %66, i64 1
+  store i8 114, ptr %66, align 1
+  store ptr %67, ptr %65, align 8
+  %68 = load ptr, ptr %63, align 8
+  %69 = trunc i32 %.0.i to i8
+  %.0.i.i = or i8 %69, -64
+  %70 = getelementptr inbounds i8, ptr %68, i64 16
+  %71 = load ptr, ptr %70, align 8
+  %72 = getelementptr inbounds i8, ptr %71, i64 1
+  store i8 %.0.i.i, ptr %71, align 1
+  store ptr %72, ptr %70, align 8
+  %73 = load ptr, ptr %63, align 8
   %.0.i.i6 = trunc i32 %2 to i8
-  %75 = getelementptr inbounds i8, ptr %74, i64 16
-  %76 = load ptr, ptr %75, align 8
-  %77 = getelementptr inbounds i8, ptr %76, i64 1
-  store i8 %.0.i.i6, ptr %76, align 1
-  store ptr %77, ptr %75, align 8
-  %78 = load ptr, ptr %20, align 8
-  %.not.i = icmp eq ptr %78, null
-  br i1 %.not.i, label %_ZN15InstructionAttrD2Ev.exit, label %79
+  %74 = getelementptr inbounds i8, ptr %73, i64 16
+  %75 = load ptr, ptr %74, align 8
+  %76 = getelementptr inbounds i8, ptr %75, i64 1
+  store i8 %.0.i.i6, ptr %75, align 1
+  store ptr %76, ptr %74, align 8
+  %77 = load ptr, ptr %20, align 8
+  %.not.i = icmp eq ptr %77, null
+  br i1 %.not.i, label %_ZN15InstructionAttrD2Ev.exit, label %78
 
-79:                                               ; preds = %_ZN9Assembler22simd_prefix_and_encodeE11XMMRegisterS0_S0_NS_13VexSimdPrefixENS_9VexOpcodeEP15InstructionAttrb.exit
-  %80 = getelementptr inbounds i8, ptr %78, i64 32
-  store ptr null, ptr %80, align 8
+78:                                               ; preds = %_ZN9Assembler22simd_prefix_and_encodeE11XMMRegisterS0_S0_NS_13VexSimdPrefixENS_9VexOpcodeEP15InstructionAttrb.exit
+  %79 = getelementptr inbounds i8, ptr %77, i64 32
+  store ptr null, ptr %79, align 8
   br label %_ZN15InstructionAttrD2Ev.exit
 
-_ZN15InstructionAttrD2Ev.exit:                    ; preds = %_ZN9Assembler22simd_prefix_and_encodeE11XMMRegisterS0_S0_NS_13VexSimdPrefixENS_9VexOpcodeEP15InstructionAttrb.exit, %79
+_ZN15InstructionAttrD2Ev.exit:                    ; preds = %_ZN9Assembler22simd_prefix_and_encodeE11XMMRegisterS0_S0_NS_13VexSimdPrefixENS_9VexOpcodeEP15InstructionAttrb.exit, %78
   ret void
 }
 
@@ -71350,41 +71350,41 @@ define hidden void @_ZN9Assembler5psrawE11XMMRegisterS0_(ptr noundef nonnull ali
   %33 = trunc i64 %32 to i32
   %34 = sub i32 %33, ptrtoint (ptr getelementptr inbounds (i8, ptr @all_XMMRegisterImpls, i64 1) to i32)
   %35 = icmp sgt i32 %9, 0
-  br i1 %35, label %36, label %39
+  br i1 %35, label %36, label %38
 
 36:                                               ; preds = %3
-  %37 = icmp ult i32 %29, 32
-  %spec.select.i = select i1 %37, i32 %29, i32 0
-  %38 = call noundef i32 @_ZN9Assembler21vex_prefix_and_encodeEiiiNS_13VexSimdPrefixENS_9VexOpcodeEP15InstructionAttrb(ptr noundef nonnull align 8 dereferenceable(40) %0, i32 noundef %29, i32 noundef %spec.select.i, i32 noundef %34, i32 noundef 1, i32 noundef 1, ptr noundef nonnull %4, i1 noundef zeroext false)
+  %spec.select.i.i = icmp ult i32 %29, 32
+  %spec.select.i = select i1 %spec.select.i.i, i32 %29, i32 0
+  %37 = call noundef i32 @_ZN9Assembler21vex_prefix_and_encodeEiiiNS_13VexSimdPrefixENS_9VexOpcodeEP15InstructionAttrb(ptr noundef nonnull align 8 dereferenceable(40) %0, i32 noundef %29, i32 noundef %spec.select.i, i32 noundef %34, i32 noundef 1, i32 noundef 1, ptr noundef nonnull %4, i1 noundef zeroext false)
   br label %_ZN9Assembler22simd_prefix_and_encodeE11XMMRegisterS0_S0_NS_13VexSimdPrefixENS_9VexOpcodeEP15InstructionAttrb.exit
 
-39:                                               ; preds = %3
-  %40 = tail call noundef i32 @_ZN9Assembler21rex_prefix_and_encodeEiiNS_13VexSimdPrefixENS_9VexOpcodeEb(ptr noundef nonnull align 8 dereferenceable(40) %0, i32 noundef %29, i32 noundef %34, i32 noundef 1, i32 noundef 1, i1 noundef zeroext false)
+38:                                               ; preds = %3
+  %39 = tail call noundef i32 @_ZN9Assembler21rex_prefix_and_encodeEiiNS_13VexSimdPrefixENS_9VexOpcodeEb(ptr noundef nonnull align 8 dereferenceable(40) %0, i32 noundef %29, i32 noundef %34, i32 noundef 1, i32 noundef 1, i1 noundef zeroext false)
   br label %_ZN9Assembler22simd_prefix_and_encodeE11XMMRegisterS0_S0_NS_13VexSimdPrefixENS_9VexOpcodeEP15InstructionAttrb.exit
 
-_ZN9Assembler22simd_prefix_and_encodeE11XMMRegisterS0_S0_NS_13VexSimdPrefixENS_9VexOpcodeEP15InstructionAttrb.exit: ; preds = %36, %39
-  %.0.i = phi i32 [ %38, %36 ], [ %40, %39 ]
-  %41 = getelementptr inbounds i8, ptr %0, i64 8
-  %42 = load ptr, ptr %41, align 8
-  %43 = trunc i32 %.0.i to i8
-  %.0.i2.i = or i8 %43, -64
-  %44 = getelementptr inbounds i8, ptr %42, i64 16
-  %45 = load ptr, ptr %44, align 8
-  %46 = getelementptr inbounds i8, ptr %45, i64 1
-  store i8 -31, ptr %45, align 1
-  %47 = getelementptr inbounds i8, ptr %45, i64 2
-  store i8 %.0.i2.i, ptr %46, align 1
-  store ptr %47, ptr %44, align 8
-  %48 = load ptr, ptr %24, align 8
-  %.not.i = icmp eq ptr %48, null
-  br i1 %.not.i, label %_ZN15InstructionAttrD2Ev.exit, label %49
+_ZN9Assembler22simd_prefix_and_encodeE11XMMRegisterS0_S0_NS_13VexSimdPrefixENS_9VexOpcodeEP15InstructionAttrb.exit: ; preds = %36, %38
+  %.0.i = phi i32 [ %37, %36 ], [ %39, %38 ]
+  %40 = getelementptr inbounds i8, ptr %0, i64 8
+  %41 = load ptr, ptr %40, align 8
+  %42 = trunc i32 %.0.i to i8
+  %.0.i2.i = or i8 %42, -64
+  %43 = getelementptr inbounds i8, ptr %41, i64 16
+  %44 = load ptr, ptr %43, align 8
+  %45 = getelementptr inbounds i8, ptr %44, i64 1
+  store i8 -31, ptr %44, align 1
+  %46 = getelementptr inbounds i8, ptr %44, i64 2
+  store i8 %.0.i2.i, ptr %45, align 1
+  store ptr %46, ptr %43, align 8
+  %47 = load ptr, ptr %24, align 8
+  %.not.i = icmp eq ptr %47, null
+  br i1 %.not.i, label %_ZN15InstructionAttrD2Ev.exit, label %48
 
-49:                                               ; preds = %_ZN9Assembler22simd_prefix_and_encodeE11XMMRegisterS0_S0_NS_13VexSimdPrefixENS_9VexOpcodeEP15InstructionAttrb.exit
-  %50 = getelementptr inbounds i8, ptr %48, i64 32
-  store ptr null, ptr %50, align 8
+48:                                               ; preds = %_ZN9Assembler22simd_prefix_and_encodeE11XMMRegisterS0_S0_NS_13VexSimdPrefixENS_9VexOpcodeEP15InstructionAttrb.exit
+  %49 = getelementptr inbounds i8, ptr %47, i64 32
+  store ptr null, ptr %49, align 8
   br label %_ZN15InstructionAttrD2Ev.exit
 
-_ZN15InstructionAttrD2Ev.exit:                    ; preds = %_ZN9Assembler22simd_prefix_and_encodeE11XMMRegisterS0_S0_NS_13VexSimdPrefixENS_9VexOpcodeEP15InstructionAttrb.exit, %49
+_ZN15InstructionAttrD2Ev.exit:                    ; preds = %_ZN9Assembler22simd_prefix_and_encodeE11XMMRegisterS0_S0_NS_13VexSimdPrefixENS_9VexOpcodeEP15InstructionAttrb.exit, %48
   ret void
 }
 
@@ -71432,41 +71432,41 @@ define hidden void @_ZN9Assembler5psradE11XMMRegisterS0_(ptr noundef nonnull ali
   %29 = trunc i64 %28 to i32
   %30 = sub i32 %29, ptrtoint (ptr getelementptr inbounds (i8, ptr @all_XMMRegisterImpls, i64 1) to i32)
   %31 = icmp sgt i32 %6, 0
-  br i1 %31, label %32, label %35
+  br i1 %31, label %32, label %34
 
 32:                                               ; preds = %3
-  %33 = icmp ult i32 %25, 32
-  %spec.select.i = select i1 %33, i32 %25, i32 0
-  %34 = call noundef i32 @_ZN9Assembler21vex_prefix_and_encodeEiiiNS_13VexSimdPrefixENS_9VexOpcodeEP15InstructionAttrb(ptr noundef nonnull align 8 dereferenceable(40) %0, i32 noundef %25, i32 noundef %spec.select.i, i32 noundef %30, i32 noundef 1, i32 noundef 1, ptr noundef nonnull %4, i1 noundef zeroext false)
+  %spec.select.i.i = icmp ult i32 %25, 32
+  %spec.select.i = select i1 %spec.select.i.i, i32 %25, i32 0
+  %33 = call noundef i32 @_ZN9Assembler21vex_prefix_and_encodeEiiiNS_13VexSimdPrefixENS_9VexOpcodeEP15InstructionAttrb(ptr noundef nonnull align 8 dereferenceable(40) %0, i32 noundef %25, i32 noundef %spec.select.i, i32 noundef %30, i32 noundef 1, i32 noundef 1, ptr noundef nonnull %4, i1 noundef zeroext false)
   br label %_ZN9Assembler22simd_prefix_and_encodeE11XMMRegisterS0_S0_NS_13VexSimdPrefixENS_9VexOpcodeEP15InstructionAttrb.exit
 
-35:                                               ; preds = %3
-  %36 = tail call noundef i32 @_ZN9Assembler21rex_prefix_and_encodeEiiNS_13VexSimdPrefixENS_9VexOpcodeEb(ptr noundef nonnull align 8 dereferenceable(40) %0, i32 noundef %25, i32 noundef %30, i32 noundef 1, i32 noundef 1, i1 noundef zeroext false)
+34:                                               ; preds = %3
+  %35 = tail call noundef i32 @_ZN9Assembler21rex_prefix_and_encodeEiiNS_13VexSimdPrefixENS_9VexOpcodeEb(ptr noundef nonnull align 8 dereferenceable(40) %0, i32 noundef %25, i32 noundef %30, i32 noundef 1, i32 noundef 1, i1 noundef zeroext false)
   br label %_ZN9Assembler22simd_prefix_and_encodeE11XMMRegisterS0_S0_NS_13VexSimdPrefixENS_9VexOpcodeEP15InstructionAttrb.exit
 
-_ZN9Assembler22simd_prefix_and_encodeE11XMMRegisterS0_S0_NS_13VexSimdPrefixENS_9VexOpcodeEP15InstructionAttrb.exit: ; preds = %32, %35
-  %.0.i = phi i32 [ %34, %32 ], [ %36, %35 ]
-  %37 = getelementptr inbounds i8, ptr %0, i64 8
-  %38 = load ptr, ptr %37, align 8
-  %39 = trunc i32 %.0.i to i8
-  %.0.i2.i = or i8 %39, -64
-  %40 = getelementptr inbounds i8, ptr %38, i64 16
-  %41 = load ptr, ptr %40, align 8
-  %42 = getelementptr inbounds i8, ptr %41, i64 1
-  store i8 -30, ptr %41, align 1
-  %43 = getelementptr inbounds i8, ptr %41, i64 2
-  store i8 %.0.i2.i, ptr %42, align 1
-  store ptr %43, ptr %40, align 8
-  %44 = load ptr, ptr %20, align 8
-  %.not.i = icmp eq ptr %44, null
-  br i1 %.not.i, label %_ZN15InstructionAttrD2Ev.exit, label %45
+_ZN9Assembler22simd_prefix_and_encodeE11XMMRegisterS0_S0_NS_13VexSimdPrefixENS_9VexOpcodeEP15InstructionAttrb.exit: ; preds = %32, %34
+  %.0.i = phi i32 [ %33, %32 ], [ %35, %34 ]
+  %36 = getelementptr inbounds i8, ptr %0, i64 8
+  %37 = load ptr, ptr %36, align 8
+  %38 = trunc i32 %.0.i to i8
+  %.0.i2.i = or i8 %38, -64
+  %39 = getelementptr inbounds i8, ptr %37, i64 16
+  %40 = load ptr, ptr %39, align 8
+  %41 = getelementptr inbounds i8, ptr %40, i64 1
+  store i8 -30, ptr %40, align 1
+  %42 = getelementptr inbounds i8, ptr %40, i64 2
+  store i8 %.0.i2.i, ptr %41, align 1
+  store ptr %42, ptr %39, align 8
+  %43 = load ptr, ptr %20, align 8
+  %.not.i = icmp eq ptr %43, null
+  br i1 %.not.i, label %_ZN15InstructionAttrD2Ev.exit, label %44
 
-45:                                               ; preds = %_ZN9Assembler22simd_prefix_and_encodeE11XMMRegisterS0_S0_NS_13VexSimdPrefixENS_9VexOpcodeEP15InstructionAttrb.exit
-  %46 = getelementptr inbounds i8, ptr %44, i64 32
-  store ptr null, ptr %46, align 8
+44:                                               ; preds = %_ZN9Assembler22simd_prefix_and_encodeE11XMMRegisterS0_S0_NS_13VexSimdPrefixENS_9VexOpcodeEP15InstructionAttrb.exit
+  %45 = getelementptr inbounds i8, ptr %43, i64 32
+  store ptr null, ptr %45, align 8
   br label %_ZN15InstructionAttrD2Ev.exit
 
-_ZN15InstructionAttrD2Ev.exit:                    ; preds = %_ZN9Assembler22simd_prefix_and_encodeE11XMMRegisterS0_S0_NS_13VexSimdPrefixENS_9VexOpcodeEP15InstructionAttrb.exit, %45
+_ZN15InstructionAttrD2Ev.exit:                    ; preds = %_ZN9Assembler22simd_prefix_and_encodeE11XMMRegisterS0_S0_NS_13VexSimdPrefixENS_9VexOpcodeEP15InstructionAttrb.exit, %44
   ret void
 }
 
@@ -71954,41 +71954,41 @@ define hidden void @_ZN9Assembler4pandE11XMMRegisterS0_(ptr noundef nonnull alig
   %29 = trunc i64 %28 to i32
   %30 = sub i32 %29, ptrtoint (ptr getelementptr inbounds (i8, ptr @all_XMMRegisterImpls, i64 1) to i32)
   %31 = icmp sgt i32 %6, 0
-  br i1 %31, label %32, label %35
+  br i1 %31, label %32, label %34
 
 32:                                               ; preds = %3
-  %33 = icmp ult i32 %25, 32
-  %spec.select.i = select i1 %33, i32 %25, i32 0
-  %34 = call noundef i32 @_ZN9Assembler21vex_prefix_and_encodeEiiiNS_13VexSimdPrefixENS_9VexOpcodeEP15InstructionAttrb(ptr noundef nonnull align 8 dereferenceable(40) %0, i32 noundef %25, i32 noundef %spec.select.i, i32 noundef %30, i32 noundef 1, i32 noundef 1, ptr noundef nonnull %4, i1 noundef zeroext false)
+  %spec.select.i.i = icmp ult i32 %25, 32
+  %spec.select.i = select i1 %spec.select.i.i, i32 %25, i32 0
+  %33 = call noundef i32 @_ZN9Assembler21vex_prefix_and_encodeEiiiNS_13VexSimdPrefixENS_9VexOpcodeEP15InstructionAttrb(ptr noundef nonnull align 8 dereferenceable(40) %0, i32 noundef %25, i32 noundef %spec.select.i, i32 noundef %30, i32 noundef 1, i32 noundef 1, ptr noundef nonnull %4, i1 noundef zeroext false)
   br label %_ZN9Assembler22simd_prefix_and_encodeE11XMMRegisterS0_S0_NS_13VexSimdPrefixENS_9VexOpcodeEP15InstructionAttrb.exit
 
-35:                                               ; preds = %3
-  %36 = tail call noundef i32 @_ZN9Assembler21rex_prefix_and_encodeEiiNS_13VexSimdPrefixENS_9VexOpcodeEb(ptr noundef nonnull align 8 dereferenceable(40) %0, i32 noundef %25, i32 noundef %30, i32 noundef 1, i32 noundef 1, i1 noundef zeroext false)
+34:                                               ; preds = %3
+  %35 = tail call noundef i32 @_ZN9Assembler21rex_prefix_and_encodeEiiNS_13VexSimdPrefixENS_9VexOpcodeEb(ptr noundef nonnull align 8 dereferenceable(40) %0, i32 noundef %25, i32 noundef %30, i32 noundef 1, i32 noundef 1, i1 noundef zeroext false)
   br label %_ZN9Assembler22simd_prefix_and_encodeE11XMMRegisterS0_S0_NS_13VexSimdPrefixENS_9VexOpcodeEP15InstructionAttrb.exit
 
-_ZN9Assembler22simd_prefix_and_encodeE11XMMRegisterS0_S0_NS_13VexSimdPrefixENS_9VexOpcodeEP15InstructionAttrb.exit: ; preds = %32, %35
-  %.0.i = phi i32 [ %34, %32 ], [ %36, %35 ]
-  %37 = getelementptr inbounds i8, ptr %0, i64 8
-  %38 = load ptr, ptr %37, align 8
-  %39 = trunc i32 %.0.i to i8
-  %.0.i2.i = or i8 %39, -64
-  %40 = getelementptr inbounds i8, ptr %38, i64 16
-  %41 = load ptr, ptr %40, align 8
-  %42 = getelementptr inbounds i8, ptr %41, i64 1
-  store i8 -37, ptr %41, align 1
-  %43 = getelementptr inbounds i8, ptr %41, i64 2
-  store i8 %.0.i2.i, ptr %42, align 1
-  store ptr %43, ptr %40, align 8
-  %44 = load ptr, ptr %20, align 8
-  %.not.i = icmp eq ptr %44, null
-  br i1 %.not.i, label %_ZN15InstructionAttrD2Ev.exit, label %45
+_ZN9Assembler22simd_prefix_and_encodeE11XMMRegisterS0_S0_NS_13VexSimdPrefixENS_9VexOpcodeEP15InstructionAttrb.exit: ; preds = %32, %34
+  %.0.i = phi i32 [ %33, %32 ], [ %35, %34 ]
+  %36 = getelementptr inbounds i8, ptr %0, i64 8
+  %37 = load ptr, ptr %36, align 8
+  %38 = trunc i32 %.0.i to i8
+  %.0.i2.i = or i8 %38, -64
+  %39 = getelementptr inbounds i8, ptr %37, i64 16
+  %40 = load ptr, ptr %39, align 8
+  %41 = getelementptr inbounds i8, ptr %40, i64 1
+  store i8 -37, ptr %40, align 1
+  %42 = getelementptr inbounds i8, ptr %40, i64 2
+  store i8 %.0.i2.i, ptr %41, align 1
+  store ptr %42, ptr %39, align 8
+  %43 = load ptr, ptr %20, align 8
+  %.not.i = icmp eq ptr %43, null
+  br i1 %.not.i, label %_ZN15InstructionAttrD2Ev.exit, label %44
 
-45:                                               ; preds = %_ZN9Assembler22simd_prefix_and_encodeE11XMMRegisterS0_S0_NS_13VexSimdPrefixENS_9VexOpcodeEP15InstructionAttrb.exit
-  %46 = getelementptr inbounds i8, ptr %44, i64 32
-  store ptr null, ptr %46, align 8
+44:                                               ; preds = %_ZN9Assembler22simd_prefix_and_encodeE11XMMRegisterS0_S0_NS_13VexSimdPrefixENS_9VexOpcodeEP15InstructionAttrb.exit
+  %45 = getelementptr inbounds i8, ptr %43, i64 32
+  store ptr null, ptr %45, align 8
   br label %_ZN15InstructionAttrD2Ev.exit
 
-_ZN15InstructionAttrD2Ev.exit:                    ; preds = %_ZN9Assembler22simd_prefix_and_encodeE11XMMRegisterS0_S0_NS_13VexSimdPrefixENS_9VexOpcodeEP15InstructionAttrb.exit, %45
+_ZN15InstructionAttrD2Ev.exit:                    ; preds = %_ZN9Assembler22simd_prefix_and_encodeE11XMMRegisterS0_S0_NS_13VexSimdPrefixENS_9VexOpcodeEP15InstructionAttrb.exit, %44
   ret void
 }
 
@@ -73206,42 +73206,42 @@ define hidden void @_ZN9Assembler5pandnE11XMMRegisterS0_(ptr noundef nonnull ali
   %32 = trunc i64 %31 to i32
   %33 = sub i32 %32, ptrtoint (ptr getelementptr inbounds (i8, ptr @all_XMMRegisterImpls, i64 1) to i32)
   %34 = icmp sgt i32 %9, 0
-  br i1 %34, label %35, label %38
+  br i1 %34, label %35, label %37
 
 35:                                               ; preds = %3
-  %36 = icmp ult i32 %28, 32
-  %spec.select.i = select i1 %36, i32 %28, i32 0
-  %37 = call noundef i32 @_ZN9Assembler21vex_prefix_and_encodeEiiiNS_13VexSimdPrefixENS_9VexOpcodeEP15InstructionAttrb(ptr noundef nonnull align 8 dereferenceable(40) %0, i32 noundef %28, i32 noundef %spec.select.i, i32 noundef %33, i32 noundef 1, i32 noundef 1, ptr noundef nonnull %4, i1 noundef zeroext false)
+  %spec.select.i.i = icmp ult i32 %28, 32
+  %spec.select.i = select i1 %spec.select.i.i, i32 %28, i32 0
+  %36 = call noundef i32 @_ZN9Assembler21vex_prefix_and_encodeEiiiNS_13VexSimdPrefixENS_9VexOpcodeEP15InstructionAttrb(ptr noundef nonnull align 8 dereferenceable(40) %0, i32 noundef %28, i32 noundef %spec.select.i, i32 noundef %33, i32 noundef 1, i32 noundef 1, ptr noundef nonnull %4, i1 noundef zeroext false)
   br label %_ZN9Assembler22simd_prefix_and_encodeE11XMMRegisterS0_S0_NS_13VexSimdPrefixENS_9VexOpcodeEP15InstructionAttrb.exit
 
-38:                                               ; preds = %3
-  %39 = icmp ne i64 %6, 0
-  %40 = tail call noundef i32 @_ZN9Assembler21rex_prefix_and_encodeEiiNS_13VexSimdPrefixENS_9VexOpcodeEb(ptr noundef nonnull align 8 dereferenceable(40) %0, i32 noundef %28, i32 noundef %33, i32 noundef 1, i32 noundef 1, i1 noundef zeroext %39)
+37:                                               ; preds = %3
+  %38 = icmp ne i64 %6, 0
+  %39 = tail call noundef i32 @_ZN9Assembler21rex_prefix_and_encodeEiiNS_13VexSimdPrefixENS_9VexOpcodeEb(ptr noundef nonnull align 8 dereferenceable(40) %0, i32 noundef %28, i32 noundef %33, i32 noundef 1, i32 noundef 1, i1 noundef zeroext %38)
   br label %_ZN9Assembler22simd_prefix_and_encodeE11XMMRegisterS0_S0_NS_13VexSimdPrefixENS_9VexOpcodeEP15InstructionAttrb.exit
 
-_ZN9Assembler22simd_prefix_and_encodeE11XMMRegisterS0_S0_NS_13VexSimdPrefixENS_9VexOpcodeEP15InstructionAttrb.exit: ; preds = %35, %38
-  %.0.i = phi i32 [ %37, %35 ], [ %40, %38 ]
-  %41 = getelementptr inbounds i8, ptr %0, i64 8
-  %42 = load ptr, ptr %41, align 8
-  %43 = trunc i32 %.0.i to i8
-  %.0.i2.i = or i8 %43, -64
-  %44 = getelementptr inbounds i8, ptr %42, i64 16
-  %45 = load ptr, ptr %44, align 8
-  %46 = getelementptr inbounds i8, ptr %45, i64 1
-  store i8 -33, ptr %45, align 1
-  %47 = getelementptr inbounds i8, ptr %45, i64 2
-  store i8 %.0.i2.i, ptr %46, align 1
-  store ptr %47, ptr %44, align 8
-  %48 = load ptr, ptr %23, align 8
-  %.not.i = icmp eq ptr %48, null
-  br i1 %.not.i, label %_ZN15InstructionAttrD2Ev.exit, label %49
+_ZN9Assembler22simd_prefix_and_encodeE11XMMRegisterS0_S0_NS_13VexSimdPrefixENS_9VexOpcodeEP15InstructionAttrb.exit: ; preds = %35, %37
+  %.0.i = phi i32 [ %36, %35 ], [ %39, %37 ]
+  %40 = getelementptr inbounds i8, ptr %0, i64 8
+  %41 = load ptr, ptr %40, align 8
+  %42 = trunc i32 %.0.i to i8
+  %.0.i2.i = or i8 %42, -64
+  %43 = getelementptr inbounds i8, ptr %41, i64 16
+  %44 = load ptr, ptr %43, align 8
+  %45 = getelementptr inbounds i8, ptr %44, i64 1
+  store i8 -33, ptr %44, align 1
+  %46 = getelementptr inbounds i8, ptr %44, i64 2
+  store i8 %.0.i2.i, ptr %45, align 1
+  store ptr %46, ptr %43, align 8
+  %47 = load ptr, ptr %23, align 8
+  %.not.i = icmp eq ptr %47, null
+  br i1 %.not.i, label %_ZN15InstructionAttrD2Ev.exit, label %48
 
-49:                                               ; preds = %_ZN9Assembler22simd_prefix_and_encodeE11XMMRegisterS0_S0_NS_13VexSimdPrefixENS_9VexOpcodeEP15InstructionAttrb.exit
-  %50 = getelementptr inbounds i8, ptr %48, i64 32
-  store ptr null, ptr %50, align 8
+48:                                               ; preds = %_ZN9Assembler22simd_prefix_and_encodeE11XMMRegisterS0_S0_NS_13VexSimdPrefixENS_9VexOpcodeEP15InstructionAttrb.exit
+  %49 = getelementptr inbounds i8, ptr %47, i64 32
+  store ptr null, ptr %49, align 8
   br label %_ZN15InstructionAttrD2Ev.exit
 
-_ZN15InstructionAttrD2Ev.exit:                    ; preds = %_ZN9Assembler22simd_prefix_and_encodeE11XMMRegisterS0_S0_NS_13VexSimdPrefixENS_9VexOpcodeEP15InstructionAttrb.exit, %49
+_ZN15InstructionAttrD2Ev.exit:                    ; preds = %_ZN9Assembler22simd_prefix_and_encodeE11XMMRegisterS0_S0_NS_13VexSimdPrefixENS_9VexOpcodeEP15InstructionAttrb.exit, %48
   ret void
 }
 
@@ -73362,41 +73362,41 @@ define hidden void @_ZN9Assembler3porE11XMMRegisterS0_(ptr noundef nonnull align
   %29 = trunc i64 %28 to i32
   %30 = sub i32 %29, ptrtoint (ptr getelementptr inbounds (i8, ptr @all_XMMRegisterImpls, i64 1) to i32)
   %31 = icmp sgt i32 %6, 0
-  br i1 %31, label %32, label %35
+  br i1 %31, label %32, label %34
 
 32:                                               ; preds = %3
-  %33 = icmp ult i32 %25, 32
-  %spec.select.i = select i1 %33, i32 %25, i32 0
-  %34 = call noundef i32 @_ZN9Assembler21vex_prefix_and_encodeEiiiNS_13VexSimdPrefixENS_9VexOpcodeEP15InstructionAttrb(ptr noundef nonnull align 8 dereferenceable(40) %0, i32 noundef %25, i32 noundef %spec.select.i, i32 noundef %30, i32 noundef 1, i32 noundef 1, ptr noundef nonnull %4, i1 noundef zeroext false)
+  %spec.select.i.i = icmp ult i32 %25, 32
+  %spec.select.i = select i1 %spec.select.i.i, i32 %25, i32 0
+  %33 = call noundef i32 @_ZN9Assembler21vex_prefix_and_encodeEiiiNS_13VexSimdPrefixENS_9VexOpcodeEP15InstructionAttrb(ptr noundef nonnull align 8 dereferenceable(40) %0, i32 noundef %25, i32 noundef %spec.select.i, i32 noundef %30, i32 noundef 1, i32 noundef 1, ptr noundef nonnull %4, i1 noundef zeroext false)
   br label %_ZN9Assembler22simd_prefix_and_encodeE11XMMRegisterS0_S0_NS_13VexSimdPrefixENS_9VexOpcodeEP15InstructionAttrb.exit
 
-35:                                               ; preds = %3
-  %36 = tail call noundef i32 @_ZN9Assembler21rex_prefix_and_encodeEiiNS_13VexSimdPrefixENS_9VexOpcodeEb(ptr noundef nonnull align 8 dereferenceable(40) %0, i32 noundef %25, i32 noundef %30, i32 noundef 1, i32 noundef 1, i1 noundef zeroext false)
+34:                                               ; preds = %3
+  %35 = tail call noundef i32 @_ZN9Assembler21rex_prefix_and_encodeEiiNS_13VexSimdPrefixENS_9VexOpcodeEb(ptr noundef nonnull align 8 dereferenceable(40) %0, i32 noundef %25, i32 noundef %30, i32 noundef 1, i32 noundef 1, i1 noundef zeroext false)
   br label %_ZN9Assembler22simd_prefix_and_encodeE11XMMRegisterS0_S0_NS_13VexSimdPrefixENS_9VexOpcodeEP15InstructionAttrb.exit
 
-_ZN9Assembler22simd_prefix_and_encodeE11XMMRegisterS0_S0_NS_13VexSimdPrefixENS_9VexOpcodeEP15InstructionAttrb.exit: ; preds = %32, %35
-  %.0.i = phi i32 [ %34, %32 ], [ %36, %35 ]
-  %37 = getelementptr inbounds i8, ptr %0, i64 8
-  %38 = load ptr, ptr %37, align 8
-  %39 = trunc i32 %.0.i to i8
-  %.0.i2.i = or i8 %39, -64
-  %40 = getelementptr inbounds i8, ptr %38, i64 16
-  %41 = load ptr, ptr %40, align 8
-  %42 = getelementptr inbounds i8, ptr %41, i64 1
-  store i8 -21, ptr %41, align 1
-  %43 = getelementptr inbounds i8, ptr %41, i64 2
-  store i8 %.0.i2.i, ptr %42, align 1
-  store ptr %43, ptr %40, align 8
-  %44 = load ptr, ptr %20, align 8
-  %.not.i = icmp eq ptr %44, null
-  br i1 %.not.i, label %_ZN15InstructionAttrD2Ev.exit, label %45
+_ZN9Assembler22simd_prefix_and_encodeE11XMMRegisterS0_S0_NS_13VexSimdPrefixENS_9VexOpcodeEP15InstructionAttrb.exit: ; preds = %32, %34
+  %.0.i = phi i32 [ %33, %32 ], [ %35, %34 ]
+  %36 = getelementptr inbounds i8, ptr %0, i64 8
+  %37 = load ptr, ptr %36, align 8
+  %38 = trunc i32 %.0.i to i8
+  %.0.i2.i = or i8 %38, -64
+  %39 = getelementptr inbounds i8, ptr %37, i64 16
+  %40 = load ptr, ptr %39, align 8
+  %41 = getelementptr inbounds i8, ptr %40, i64 1
+  store i8 -21, ptr %40, align 1
+  %42 = getelementptr inbounds i8, ptr %40, i64 2
+  store i8 %.0.i2.i, ptr %41, align 1
+  store ptr %42, ptr %39, align 8
+  %43 = load ptr, ptr %20, align 8
+  %.not.i = icmp eq ptr %43, null
+  br i1 %.not.i, label %_ZN15InstructionAttrD2Ev.exit, label %44
 
-45:                                               ; preds = %_ZN9Assembler22simd_prefix_and_encodeE11XMMRegisterS0_S0_NS_13VexSimdPrefixENS_9VexOpcodeEP15InstructionAttrb.exit
-  %46 = getelementptr inbounds i8, ptr %44, i64 32
-  store ptr null, ptr %46, align 8
+44:                                               ; preds = %_ZN9Assembler22simd_prefix_and_encodeE11XMMRegisterS0_S0_NS_13VexSimdPrefixENS_9VexOpcodeEP15InstructionAttrb.exit
+  %45 = getelementptr inbounds i8, ptr %43, i64 32
+  store ptr null, ptr %45, align 8
   br label %_ZN15InstructionAttrD2Ev.exit
 
-_ZN15InstructionAttrD2Ev.exit:                    ; preds = %_ZN9Assembler22simd_prefix_and_encodeE11XMMRegisterS0_S0_NS_13VexSimdPrefixENS_9VexOpcodeEP15InstructionAttrb.exit, %45
+_ZN15InstructionAttrD2Ev.exit:                    ; preds = %_ZN9Assembler22simd_prefix_and_encodeE11XMMRegisterS0_S0_NS_13VexSimdPrefixENS_9VexOpcodeEP15InstructionAttrb.exit, %44
   ret void
 }
 
@@ -74176,41 +74176,41 @@ define hidden void @_ZN9Assembler4pxorE11XMMRegisterS0_(ptr noundef nonnull alig
   %29 = trunc i64 %28 to i32
   %30 = sub i32 %29, ptrtoint (ptr getelementptr inbounds (i8, ptr @all_XMMRegisterImpls, i64 1) to i32)
   %31 = icmp sgt i32 %6, 0
-  br i1 %31, label %32, label %35
+  br i1 %31, label %32, label %34
 
 32:                                               ; preds = %3
-  %33 = icmp ult i32 %25, 32
-  %spec.select.i = select i1 %33, i32 %25, i32 0
-  %34 = call noundef i32 @_ZN9Assembler21vex_prefix_and_encodeEiiiNS_13VexSimdPrefixENS_9VexOpcodeEP15InstructionAttrb(ptr noundef nonnull align 8 dereferenceable(40) %0, i32 noundef %25, i32 noundef %spec.select.i, i32 noundef %30, i32 noundef 1, i32 noundef 1, ptr noundef nonnull %4, i1 noundef zeroext false)
+  %spec.select.i.i = icmp ult i32 %25, 32
+  %spec.select.i = select i1 %spec.select.i.i, i32 %25, i32 0
+  %33 = call noundef i32 @_ZN9Assembler21vex_prefix_and_encodeEiiiNS_13VexSimdPrefixENS_9VexOpcodeEP15InstructionAttrb(ptr noundef nonnull align 8 dereferenceable(40) %0, i32 noundef %25, i32 noundef %spec.select.i, i32 noundef %30, i32 noundef 1, i32 noundef 1, ptr noundef nonnull %4, i1 noundef zeroext false)
   br label %_ZN9Assembler22simd_prefix_and_encodeE11XMMRegisterS0_S0_NS_13VexSimdPrefixENS_9VexOpcodeEP15InstructionAttrb.exit
 
-35:                                               ; preds = %3
-  %36 = tail call noundef i32 @_ZN9Assembler21rex_prefix_and_encodeEiiNS_13VexSimdPrefixENS_9VexOpcodeEb(ptr noundef nonnull align 8 dereferenceable(40) %0, i32 noundef %25, i32 noundef %30, i32 noundef 1, i32 noundef 1, i1 noundef zeroext false)
+34:                                               ; preds = %3
+  %35 = tail call noundef i32 @_ZN9Assembler21rex_prefix_and_encodeEiiNS_13VexSimdPrefixENS_9VexOpcodeEb(ptr noundef nonnull align 8 dereferenceable(40) %0, i32 noundef %25, i32 noundef %30, i32 noundef 1, i32 noundef 1, i1 noundef zeroext false)
   br label %_ZN9Assembler22simd_prefix_and_encodeE11XMMRegisterS0_S0_NS_13VexSimdPrefixENS_9VexOpcodeEP15InstructionAttrb.exit
 
-_ZN9Assembler22simd_prefix_and_encodeE11XMMRegisterS0_S0_NS_13VexSimdPrefixENS_9VexOpcodeEP15InstructionAttrb.exit: ; preds = %32, %35
-  %.0.i = phi i32 [ %34, %32 ], [ %36, %35 ]
-  %37 = getelementptr inbounds i8, ptr %0, i64 8
-  %38 = load ptr, ptr %37, align 8
-  %39 = trunc i32 %.0.i to i8
-  %.0.i2.i = or i8 %39, -64
-  %40 = getelementptr inbounds i8, ptr %38, i64 16
-  %41 = load ptr, ptr %40, align 8
-  %42 = getelementptr inbounds i8, ptr %41, i64 1
-  store i8 -17, ptr %41, align 1
-  %43 = getelementptr inbounds i8, ptr %41, i64 2
-  store i8 %.0.i2.i, ptr %42, align 1
-  store ptr %43, ptr %40, align 8
-  %44 = load ptr, ptr %20, align 8
-  %.not.i = icmp eq ptr %44, null
-  br i1 %.not.i, label %_ZN15InstructionAttrD2Ev.exit, label %45
+_ZN9Assembler22simd_prefix_and_encodeE11XMMRegisterS0_S0_NS_13VexSimdPrefixENS_9VexOpcodeEP15InstructionAttrb.exit: ; preds = %32, %34
+  %.0.i = phi i32 [ %33, %32 ], [ %35, %34 ]
+  %36 = getelementptr inbounds i8, ptr %0, i64 8
+  %37 = load ptr, ptr %36, align 8
+  %38 = trunc i32 %.0.i to i8
+  %.0.i2.i = or i8 %38, -64
+  %39 = getelementptr inbounds i8, ptr %37, i64 16
+  %40 = load ptr, ptr %39, align 8
+  %41 = getelementptr inbounds i8, ptr %40, i64 1
+  store i8 -17, ptr %40, align 1
+  %42 = getelementptr inbounds i8, ptr %40, i64 2
+  store i8 %.0.i2.i, ptr %41, align 1
+  store ptr %42, ptr %39, align 8
+  %43 = load ptr, ptr %20, align 8
+  %.not.i = icmp eq ptr %43, null
+  br i1 %.not.i, label %_ZN15InstructionAttrD2Ev.exit, label %44
 
-45:                                               ; preds = %_ZN9Assembler22simd_prefix_and_encodeE11XMMRegisterS0_S0_NS_13VexSimdPrefixENS_9VexOpcodeEP15InstructionAttrb.exit
-  %46 = getelementptr inbounds i8, ptr %44, i64 32
-  store ptr null, ptr %46, align 8
+44:                                               ; preds = %_ZN9Assembler22simd_prefix_and_encodeE11XMMRegisterS0_S0_NS_13VexSimdPrefixENS_9VexOpcodeEP15InstructionAttrb.exit
+  %45 = getelementptr inbounds i8, ptr %43, i64 32
+  store ptr null, ptr %45, align 8
   br label %_ZN15InstructionAttrD2Ev.exit
 
-_ZN15InstructionAttrD2Ev.exit:                    ; preds = %_ZN9Assembler22simd_prefix_and_encodeE11XMMRegisterS0_S0_NS_13VexSimdPrefixENS_9VexOpcodeEP15InstructionAttrb.exit, %45
+_ZN15InstructionAttrD2Ev.exit:                    ; preds = %_ZN9Assembler22simd_prefix_and_encodeE11XMMRegisterS0_S0_NS_13VexSimdPrefixENS_9VexOpcodeEP15InstructionAttrb.exit, %44
   ret void
 }
 
@@ -91810,44 +91810,44 @@ define hidden void @_ZN9Assembler13gf2p8affineqbE11XMMRegisterS0_i(ptr noundef n
   %30 = trunc i64 %29 to i32
   %31 = sub i32 %30, ptrtoint (ptr getelementptr inbounds (i8, ptr @all_XMMRegisterImpls, i64 1) to i32)
   %32 = icmp sgt i32 %7, 0
-  br i1 %32, label %33, label %36
+  br i1 %32, label %33, label %35
 
 33:                                               ; preds = %4
-  %34 = icmp ult i32 %26, 32
-  %spec.select.i = select i1 %34, i32 %26, i32 0
-  %35 = call noundef i32 @_ZN9Assembler21vex_prefix_and_encodeEiiiNS_13VexSimdPrefixENS_9VexOpcodeEP15InstructionAttrb(ptr noundef nonnull align 8 dereferenceable(40) %0, i32 noundef %26, i32 noundef %spec.select.i, i32 noundef %31, i32 noundef 1, i32 noundef 3, ptr noundef nonnull %5, i1 noundef zeroext false)
+  %spec.select.i.i = icmp ult i32 %26, 32
+  %spec.select.i = select i1 %spec.select.i.i, i32 %26, i32 0
+  %34 = call noundef i32 @_ZN9Assembler21vex_prefix_and_encodeEiiiNS_13VexSimdPrefixENS_9VexOpcodeEP15InstructionAttrb(ptr noundef nonnull align 8 dereferenceable(40) %0, i32 noundef %26, i32 noundef %spec.select.i, i32 noundef %31, i32 noundef 1, i32 noundef 3, ptr noundef nonnull %5, i1 noundef zeroext false)
   br label %_ZN9Assembler22simd_prefix_and_encodeE11XMMRegisterS0_S0_NS_13VexSimdPrefixENS_9VexOpcodeEP15InstructionAttrb.exit
 
-36:                                               ; preds = %4
-  %37 = tail call noundef i32 @_ZN9Assembler21rex_prefix_and_encodeEiiNS_13VexSimdPrefixENS_9VexOpcodeEb(ptr noundef nonnull align 8 dereferenceable(40) %0, i32 noundef %26, i32 noundef %31, i32 noundef 1, i32 noundef 3, i1 noundef zeroext true)
+35:                                               ; preds = %4
+  %36 = tail call noundef i32 @_ZN9Assembler21rex_prefix_and_encodeEiiNS_13VexSimdPrefixENS_9VexOpcodeEb(ptr noundef nonnull align 8 dereferenceable(40) %0, i32 noundef %26, i32 noundef %31, i32 noundef 1, i32 noundef 3, i1 noundef zeroext true)
   br label %_ZN9Assembler22simd_prefix_and_encodeE11XMMRegisterS0_S0_NS_13VexSimdPrefixENS_9VexOpcodeEP15InstructionAttrb.exit
 
-_ZN9Assembler22simd_prefix_and_encodeE11XMMRegisterS0_S0_NS_13VexSimdPrefixENS_9VexOpcodeEP15InstructionAttrb.exit: ; preds = %33, %36
-  %.0.i = phi i32 [ %35, %33 ], [ %37, %36 ]
-  %38 = getelementptr inbounds i8, ptr %0, i64 8
-  %39 = load ptr, ptr %38, align 8
-  %40 = trunc i32 %.0.i to i8
-  %.0.i3.i = or i8 %40, -64
+_ZN9Assembler22simd_prefix_and_encodeE11XMMRegisterS0_S0_NS_13VexSimdPrefixENS_9VexOpcodeEP15InstructionAttrb.exit: ; preds = %33, %35
+  %.0.i = phi i32 [ %34, %33 ], [ %36, %35 ]
+  %37 = getelementptr inbounds i8, ptr %0, i64 8
+  %38 = load ptr, ptr %37, align 8
+  %39 = trunc i32 %.0.i to i8
+  %.0.i3.i = or i8 %39, -64
   %.0.i4.i = trunc i32 %3 to i8
-  %41 = getelementptr inbounds i8, ptr %39, i64 16
-  %42 = load ptr, ptr %41, align 8
-  %43 = getelementptr inbounds i8, ptr %42, i64 1
-  store i8 -50, ptr %42, align 1
-  %44 = getelementptr inbounds i8, ptr %42, i64 2
-  store i8 %.0.i3.i, ptr %43, align 1
-  %45 = getelementptr inbounds i8, ptr %42, i64 3
-  store i8 %.0.i4.i, ptr %44, align 1
-  store ptr %45, ptr %41, align 8
-  %46 = load ptr, ptr %21, align 8
-  %.not.i = icmp eq ptr %46, null
-  br i1 %.not.i, label %_ZN15InstructionAttrD2Ev.exit, label %47
+  %40 = getelementptr inbounds i8, ptr %38, i64 16
+  %41 = load ptr, ptr %40, align 8
+  %42 = getelementptr inbounds i8, ptr %41, i64 1
+  store i8 -50, ptr %41, align 1
+  %43 = getelementptr inbounds i8, ptr %41, i64 2
+  store i8 %.0.i3.i, ptr %42, align 1
+  %44 = getelementptr inbounds i8, ptr %41, i64 3
+  store i8 %.0.i4.i, ptr %43, align 1
+  store ptr %44, ptr %40, align 8
+  %45 = load ptr, ptr %21, align 8
+  %.not.i = icmp eq ptr %45, null
+  br i1 %.not.i, label %_ZN15InstructionAttrD2Ev.exit, label %46
 
-47:                                               ; preds = %_ZN9Assembler22simd_prefix_and_encodeE11XMMRegisterS0_S0_NS_13VexSimdPrefixENS_9VexOpcodeEP15InstructionAttrb.exit
-  %48 = getelementptr inbounds i8, ptr %46, i64 32
-  store ptr null, ptr %48, align 8
+46:                                               ; preds = %_ZN9Assembler22simd_prefix_and_encodeE11XMMRegisterS0_S0_NS_13VexSimdPrefixENS_9VexOpcodeEP15InstructionAttrb.exit
+  %47 = getelementptr inbounds i8, ptr %45, i64 32
+  store ptr null, ptr %47, align 8
   br label %_ZN15InstructionAttrD2Ev.exit
 
-_ZN15InstructionAttrD2Ev.exit:                    ; preds = %_ZN9Assembler22simd_prefix_and_encodeE11XMMRegisterS0_S0_NS_13VexSimdPrefixENS_9VexOpcodeEP15InstructionAttrb.exit, %47
+_ZN15InstructionAttrD2Ev.exit:                    ; preds = %_ZN9Assembler22simd_prefix_and_encodeE11XMMRegisterS0_S0_NS_13VexSimdPrefixENS_9VexOpcodeEP15InstructionAttrb.exit, %46
   ret void
 }
 
@@ -94891,44 +94891,44 @@ define hidden void @_ZN9Assembler9pclmulqdqE11XMMRegisterS0_i(ptr noundef nonnul
   %28 = trunc i64 %27 to i32
   %29 = sub i32 %28, ptrtoint (ptr getelementptr inbounds (i8, ptr @all_XMMRegisterImpls, i64 1) to i32)
   %30 = icmp sgt i32 %7, 0
-  br i1 %30, label %31, label %34
+  br i1 %30, label %31, label %33
 
 31:                                               ; preds = %4
-  %32 = icmp ult i32 %24, 32
-  %spec.select.i = select i1 %32, i32 %24, i32 0
-  %33 = call noundef i32 @_ZN9Assembler21vex_prefix_and_encodeEiiiNS_13VexSimdPrefixENS_9VexOpcodeEP15InstructionAttrb(ptr noundef nonnull align 8 dereferenceable(40) %0, i32 noundef %24, i32 noundef %spec.select.i, i32 noundef %29, i32 noundef 1, i32 noundef 3, ptr noundef nonnull %5, i1 noundef zeroext false)
+  %spec.select.i.i = icmp ult i32 %24, 32
+  %spec.select.i = select i1 %spec.select.i.i, i32 %24, i32 0
+  %32 = call noundef i32 @_ZN9Assembler21vex_prefix_and_encodeEiiiNS_13VexSimdPrefixENS_9VexOpcodeEP15InstructionAttrb(ptr noundef nonnull align 8 dereferenceable(40) %0, i32 noundef %24, i32 noundef %spec.select.i, i32 noundef %29, i32 noundef 1, i32 noundef 3, ptr noundef nonnull %5, i1 noundef zeroext false)
   br label %_ZN9Assembler22simd_prefix_and_encodeE11XMMRegisterS0_S0_NS_13VexSimdPrefixENS_9VexOpcodeEP15InstructionAttrb.exit
 
-34:                                               ; preds = %4
-  %35 = tail call noundef i32 @_ZN9Assembler21rex_prefix_and_encodeEiiNS_13VexSimdPrefixENS_9VexOpcodeEb(ptr noundef nonnull align 8 dereferenceable(40) %0, i32 noundef %24, i32 noundef %29, i32 noundef 1, i32 noundef 3, i1 noundef zeroext false)
+33:                                               ; preds = %4
+  %34 = tail call noundef i32 @_ZN9Assembler21rex_prefix_and_encodeEiiNS_13VexSimdPrefixENS_9VexOpcodeEb(ptr noundef nonnull align 8 dereferenceable(40) %0, i32 noundef %24, i32 noundef %29, i32 noundef 1, i32 noundef 3, i1 noundef zeroext false)
   br label %_ZN9Assembler22simd_prefix_and_encodeE11XMMRegisterS0_S0_NS_13VexSimdPrefixENS_9VexOpcodeEP15InstructionAttrb.exit
 
-_ZN9Assembler22simd_prefix_and_encodeE11XMMRegisterS0_S0_NS_13VexSimdPrefixENS_9VexOpcodeEP15InstructionAttrb.exit: ; preds = %31, %34
-  %.0.i = phi i32 [ %33, %31 ], [ %35, %34 ]
-  %36 = getelementptr inbounds i8, ptr %0, i64 8
-  %37 = load ptr, ptr %36, align 8
-  %38 = trunc i32 %.0.i to i8
-  %.0.i3.i = or i8 %38, -64
+_ZN9Assembler22simd_prefix_and_encodeE11XMMRegisterS0_S0_NS_13VexSimdPrefixENS_9VexOpcodeEP15InstructionAttrb.exit: ; preds = %31, %33
+  %.0.i = phi i32 [ %32, %31 ], [ %34, %33 ]
+  %35 = getelementptr inbounds i8, ptr %0, i64 8
+  %36 = load ptr, ptr %35, align 8
+  %37 = trunc i32 %.0.i to i8
+  %.0.i3.i = or i8 %37, -64
   %.0.i4.i = trunc i32 %3 to i8
-  %39 = getelementptr inbounds i8, ptr %37, i64 16
-  %40 = load ptr, ptr %39, align 8
-  %41 = getelementptr inbounds i8, ptr %40, i64 1
-  store i8 68, ptr %40, align 1
-  %42 = getelementptr inbounds i8, ptr %40, i64 2
-  store i8 %.0.i3.i, ptr %41, align 1
-  %43 = getelementptr inbounds i8, ptr %40, i64 3
-  store i8 %.0.i4.i, ptr %42, align 1
-  store ptr %43, ptr %39, align 8
-  %44 = load ptr, ptr %19, align 8
-  %.not.i = icmp eq ptr %44, null
-  br i1 %.not.i, label %_ZN15InstructionAttrD2Ev.exit, label %45
+  %38 = getelementptr inbounds i8, ptr %36, i64 16
+  %39 = load ptr, ptr %38, align 8
+  %40 = getelementptr inbounds i8, ptr %39, i64 1
+  store i8 68, ptr %39, align 1
+  %41 = getelementptr inbounds i8, ptr %39, i64 2
+  store i8 %.0.i3.i, ptr %40, align 1
+  %42 = getelementptr inbounds i8, ptr %39, i64 3
+  store i8 %.0.i4.i, ptr %41, align 1
+  store ptr %42, ptr %38, align 8
+  %43 = load ptr, ptr %19, align 8
+  %.not.i = icmp eq ptr %43, null
+  br i1 %.not.i, label %_ZN15InstructionAttrD2Ev.exit, label %44
 
-45:                                               ; preds = %_ZN9Assembler22simd_prefix_and_encodeE11XMMRegisterS0_S0_NS_13VexSimdPrefixENS_9VexOpcodeEP15InstructionAttrb.exit
-  %46 = getelementptr inbounds i8, ptr %44, i64 32
-  store ptr null, ptr %46, align 8
+44:                                               ; preds = %_ZN9Assembler22simd_prefix_and_encodeE11XMMRegisterS0_S0_NS_13VexSimdPrefixENS_9VexOpcodeEP15InstructionAttrb.exit
+  %45 = getelementptr inbounds i8, ptr %43, i64 32
+  store ptr null, ptr %45, align 8
   br label %_ZN15InstructionAttrD2Ev.exit
 
-_ZN15InstructionAttrD2Ev.exit:                    ; preds = %_ZN9Assembler22simd_prefix_and_encodeE11XMMRegisterS0_S0_NS_13VexSimdPrefixENS_9VexOpcodeEP15InstructionAttrb.exit, %45
+_ZN15InstructionAttrD2Ev.exit:                    ; preds = %_ZN9Assembler22simd_prefix_and_encodeE11XMMRegisterS0_S0_NS_13VexSimdPrefixENS_9VexOpcodeEP15InstructionAttrb.exit, %44
   ret void
 }
 
@@ -95654,7 +95654,7 @@ define hidden void @_ZN9Assembler7prefixqE7Address11XMMRegister(ptr nocapture no
   %26 = sub i32 %25, ptrtoint (ptr getelementptr inbounds (i8, ptr @all_RegisterImpls, i64 1) to i32)
   %27 = and i32 %26, -16
   %spec.select.i1 = icmp eq i32 %27, 16
-  br i1 %spec.select.i1, label %28, label %71
+  br i1 %spec.select.i1, label %28, label %69
 
 28:                                               ; preds = %19, %11, %3
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %4, ptr noundef nonnull align 8 dereferenceable(64) %1, i64 21, i1 false)
@@ -95672,126 +95672,126 @@ define hidden void @_ZN9Assembler7prefixqE7Address11XMMRegister(ptr nocapture no
   %37 = ptrtoint ptr %36 to i64
   %38 = trunc i64 %37 to i32
   %39 = sub i32 %38, ptrtoint (ptr getelementptr inbounds (i8, ptr @all_RegisterImpls, i64 1) to i32)
-  %40 = icmp ult i32 %39, 32
-  br i1 %40, label %41, label %_ZN9Assembler12prefixq_rex2E7Address11XMMRegister.exit
+  %spec.select.i.i6.i = icmp ult i32 %39, 32
+  br i1 %spec.select.i.i6.i, label %40, label %_ZN9Assembler12prefixq_rex2E7Address11XMMRegister.exit
 
-41:                                               ; preds = %28
-  %42 = shl nuw nsw i32 %39, 1
-  %spec.select.i.i.i = and i32 %42, 32
-  %43 = lshr i32 %39, 2
-  %44 = and i32 %43, 2
-  %.1.i.i6.i = or disjoint i32 %spec.select.i.i.i, %44
+40:                                               ; preds = %28
+  %41 = shl nuw nsw i32 %39, 1
+  %spec.select.i1.i.i = and i32 %41, 32
+  %42 = lshr i32 %39, 2
+  %43 = and i32 %42, 2
+  %.1.i.i7.i = or disjoint i32 %spec.select.i1.i.i, %43
   br label %_ZN9Assembler12prefixq_rex2E7Address11XMMRegister.exit
 
-_ZN9Assembler12prefixq_rex2E7Address11XMMRegister.exit: ; preds = %28, %41
-  %45 = phi i32 [ %.1.i.i6.i, %41 ], [ 0, %28 ]
-  %46 = sext i32 %.sroa.0.0.copyload.i.i to i64
-  %47 = getelementptr inbounds %"class.Register::RegisterImpl", ptr getelementptr inbounds (i8, ptr @all_RegisterImpls, i64 1), i64 %46
-  %48 = ptrtoint ptr %47 to i64
-  %49 = trunc i64 %48 to i32
-  %50 = sub i32 %49, ptrtoint (ptr getelementptr inbounds (i8, ptr @all_RegisterImpls, i64 1) to i32)
-  %51 = icmp ult i32 %50, 32
-  %52 = lshr i32 %50, 3
-  %53 = and i32 %52, 1
-  %54 = and i32 %50, 16
-  %.1.i.i.i = or disjoint i32 %53, %54
-  %55 = select i1 %51, i32 %.1.i.i.i, i32 0
-  %56 = shl i32 %9, 2
-  %spec.select.i.i = and i32 %56, 64
-  %57 = lshr i32 %9, 1
-  %58 = and i32 %57, 4
-  %59 = or disjoint i32 %58, %spec.select.i.i
-  %.1.i.i = or disjoint i32 %59, %55
-  %60 = or i32 %.1.i.i, %45
-  %61 = getelementptr inbounds i8, ptr %0, i64 8
+_ZN9Assembler12prefixq_rex2E7Address11XMMRegister.exit: ; preds = %28, %40
+  %44 = phi i32 [ %.1.i.i7.i, %40 ], [ 0, %28 ]
+  %45 = sext i32 %.sroa.0.0.copyload.i.i to i64
+  %46 = getelementptr inbounds %"class.Register::RegisterImpl", ptr getelementptr inbounds (i8, ptr @all_RegisterImpls, i64 1), i64 %45
+  %47 = ptrtoint ptr %46 to i64
+  %48 = trunc i64 %47 to i32
+  %49 = sub i32 %48, ptrtoint (ptr getelementptr inbounds (i8, ptr @all_RegisterImpls, i64 1) to i32)
+  %spec.select.i.i.i = icmp ult i32 %49, 32
+  %50 = lshr i32 %49, 3
+  %51 = and i32 %50, 1
+  %52 = and i32 %49, 16
+  %.1.i.i.i = or disjoint i32 %51, %52
+  %53 = select i1 %spec.select.i.i.i, i32 %.1.i.i.i, i32 0
+  %54 = shl i32 %9, 2
+  %spec.select.i.i = and i32 %54, 64
+  %55 = lshr i32 %9, 1
+  %56 = and i32 %55, 4
+  %57 = or disjoint i32 %56, %spec.select.i.i
+  %.1.i.i = or disjoint i32 %57, %53
+  %58 = or i32 %.1.i.i, %44
+  %59 = getelementptr inbounds i8, ptr %0, i64 8
+  %60 = load ptr, ptr %59, align 8
+  %61 = getelementptr inbounds i8, ptr %60, i64 16
   %62 = load ptr, ptr %61, align 8
-  %63 = getelementptr inbounds i8, ptr %62, i64 16
-  %64 = load ptr, ptr %63, align 8
-  %65 = getelementptr inbounds i8, ptr %64, i64 1
-  store i8 -43, ptr %64, align 1
-  store ptr %65, ptr %63, align 8
-  %66 = load ptr, ptr %61, align 8
-  %67 = trunc nuw nsw i32 %60 to i8
-  %.0.i.i2.i.i = or i8 %67, 8
-  %68 = getelementptr inbounds i8, ptr %66, i64 16
-  %69 = load ptr, ptr %68, align 8
-  %70 = getelementptr inbounds i8, ptr %69, i64 1
-  store i8 %.0.i.i2.i.i, ptr %69, align 1
-  store ptr %70, ptr %68, align 8
-  br label %96
+  %63 = getelementptr inbounds i8, ptr %62, i64 1
+  store i8 -43, ptr %62, align 1
+  store ptr %63, ptr %61, align 8
+  %64 = load ptr, ptr %59, align 8
+  %65 = trunc nuw nsw i32 %58 to i8
+  %.0.i.i2.i.i = or i8 %65, 8
+  %66 = getelementptr inbounds i8, ptr %64, i64 16
+  %67 = load ptr, ptr %66, align 8
+  %68 = getelementptr inbounds i8, ptr %67, i64 1
+  store i8 %.0.i.i2.i.i, ptr %67, align 1
+  store ptr %68, ptr %66, align 8
+  br label %94
 
-71:                                               ; preds = %19
-  %72 = icmp slt i32 %9, 8
-  %73 = and i32 %17, -24
+69:                                               ; preds = %19
+  %70 = icmp slt i32 %9, 8
+  %71 = and i32 %17, -24
+  %72 = icmp eq i32 %71, 8
+  %73 = and i32 %26, -24
   %74 = icmp eq i32 %73, 8
-  %75 = and i32 %26, -24
-  %76 = icmp eq i32 %75, 8
-  %77 = getelementptr inbounds i8, ptr %0, i64 8
+  %75 = getelementptr inbounds i8, ptr %0, i64 8
+  %76 = load ptr, ptr %75, align 8
+  %77 = getelementptr inbounds i8, ptr %76, i64 16
   %78 = load ptr, ptr %77, align 8
-  %79 = getelementptr inbounds i8, ptr %78, i64 16
-  %80 = load ptr, ptr %79, align 8
-  %81 = getelementptr inbounds i8, ptr %80, i64 1
-  br i1 %72, label %82, label %89
+  %79 = getelementptr inbounds i8, ptr %78, i64 1
+  br i1 %70, label %80, label %87
 
-82:                                               ; preds = %71
-  br i1 %74, label %83, label %86
+80:                                               ; preds = %69
+  br i1 %72, label %81, label %84
 
-83:                                               ; preds = %82
-  br i1 %76, label %84, label %85
+81:                                               ; preds = %80
+  br i1 %74, label %82, label %83
 
-84:                                               ; preds = %83
-  store i8 75, ptr %80, align 1
-  store ptr %81, ptr %79, align 8
-  br label %96
+82:                                               ; preds = %81
+  store i8 75, ptr %78, align 1
+  store ptr %79, ptr %77, align 8
+  br label %94
 
-85:                                               ; preds = %83
-  store i8 73, ptr %80, align 1
-  store ptr %81, ptr %79, align 8
-  br label %96
+83:                                               ; preds = %81
+  store i8 73, ptr %78, align 1
+  store ptr %79, ptr %77, align 8
+  br label %94
 
-86:                                               ; preds = %82
-  br i1 %76, label %87, label %88
+84:                                               ; preds = %80
+  br i1 %74, label %85, label %86
 
-87:                                               ; preds = %86
-  store i8 74, ptr %80, align 1
-  store ptr %81, ptr %79, align 8
-  br label %96
+85:                                               ; preds = %84
+  store i8 74, ptr %78, align 1
+  store ptr %79, ptr %77, align 8
+  br label %94
 
-88:                                               ; preds = %86
-  store i8 72, ptr %80, align 1
-  store ptr %81, ptr %79, align 8
-  br label %96
+86:                                               ; preds = %84
+  store i8 72, ptr %78, align 1
+  store ptr %79, ptr %77, align 8
+  br label %94
 
-89:                                               ; preds = %71
-  br i1 %74, label %90, label %93
+87:                                               ; preds = %69
+  br i1 %72, label %88, label %91
 
-90:                                               ; preds = %89
-  br i1 %76, label %91, label %92
+88:                                               ; preds = %87
+  br i1 %74, label %89, label %90
 
-91:                                               ; preds = %90
-  store i8 79, ptr %80, align 1
-  store ptr %81, ptr %79, align 8
-  br label %96
+89:                                               ; preds = %88
+  store i8 79, ptr %78, align 1
+  store ptr %79, ptr %77, align 8
+  br label %94
 
-92:                                               ; preds = %90
-  store i8 77, ptr %80, align 1
-  store ptr %81, ptr %79, align 8
-  br label %96
+90:                                               ; preds = %88
+  store i8 77, ptr %78, align 1
+  store ptr %79, ptr %77, align 8
+  br label %94
 
-93:                                               ; preds = %89
-  br i1 %76, label %94, label %95
+91:                                               ; preds = %87
+  br i1 %74, label %92, label %93
 
-94:                                               ; preds = %93
-  store i8 78, ptr %80, align 1
-  store ptr %81, ptr %79, align 8
-  br label %96
+92:                                               ; preds = %91
+  store i8 78, ptr %78, align 1
+  store ptr %79, ptr %77, align 8
+  br label %94
 
-95:                                               ; preds = %93
-  store i8 76, ptr %80, align 1
-  store ptr %81, ptr %79, align 8
-  br label %96
+93:                                               ; preds = %91
+  store i8 76, ptr %78, align 1
+  store ptr %79, ptr %77, align 8
+  br label %94
 
-96:                                               ; preds = %92, %91, %95, %94, %85, %84, %88, %87, %_ZN9Assembler12prefixq_rex2E7Address11XMMRegister.exit
+94:                                               ; preds = %90, %89, %93, %92, %83, %82, %86, %85, %_ZN9Assembler12prefixq_rex2E7Address11XMMRegister.exit
   ret void
 }
 
@@ -95827,7 +95827,7 @@ define hidden void @_ZN9Assembler6prefixE7Address11XMMRegister(ptr nocapture nou
   %26 = sub i32 %25, ptrtoint (ptr getelementptr inbounds (i8, ptr @all_RegisterImpls, i64 1) to i32)
   %27 = and i32 %26, -16
   %spec.select.i1 = icmp eq i32 %27, 16
-  br i1 %spec.select.i1, label %28, label %71
+  br i1 %spec.select.i1, label %28, label %69
 
 28:                                               ; preds = %19, %11, %3
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %4, ptr noundef nonnull align 8 dereferenceable(64) %1, i64 21, i1 false)
@@ -95845,131 +95845,131 @@ define hidden void @_ZN9Assembler6prefixE7Address11XMMRegister(ptr nocapture nou
   %37 = ptrtoint ptr %36 to i64
   %38 = trunc i64 %37 to i32
   %39 = sub i32 %38, ptrtoint (ptr getelementptr inbounds (i8, ptr @all_RegisterImpls, i64 1) to i32)
-  %40 = icmp ult i32 %39, 32
-  br i1 %40, label %41, label %_ZN9Assembler12prefixq_rex2E7Address11XMMRegister.exit
+  %spec.select.i.i6.i = icmp ult i32 %39, 32
+  br i1 %spec.select.i.i6.i, label %40, label %_ZN9Assembler12prefixq_rex2E7Address11XMMRegister.exit
 
-41:                                               ; preds = %28
-  %42 = shl nuw nsw i32 %39, 1
-  %spec.select.i.i.i = and i32 %42, 32
-  %43 = lshr i32 %39, 2
-  %44 = and i32 %43, 2
-  %.1.i.i6.i = or disjoint i32 %spec.select.i.i.i, %44
+40:                                               ; preds = %28
+  %41 = shl nuw nsw i32 %39, 1
+  %spec.select.i1.i.i = and i32 %41, 32
+  %42 = lshr i32 %39, 2
+  %43 = and i32 %42, 2
+  %.1.i.i7.i = or disjoint i32 %spec.select.i1.i.i, %43
   br label %_ZN9Assembler12prefixq_rex2E7Address11XMMRegister.exit
 
-_ZN9Assembler12prefixq_rex2E7Address11XMMRegister.exit: ; preds = %28, %41
-  %45 = phi i32 [ %.1.i.i6.i, %41 ], [ 0, %28 ]
-  %46 = sext i32 %.sroa.0.0.copyload.i.i to i64
-  %47 = getelementptr inbounds %"class.Register::RegisterImpl", ptr getelementptr inbounds (i8, ptr @all_RegisterImpls, i64 1), i64 %46
-  %48 = ptrtoint ptr %47 to i64
-  %49 = trunc i64 %48 to i32
-  %50 = sub i32 %49, ptrtoint (ptr getelementptr inbounds (i8, ptr @all_RegisterImpls, i64 1) to i32)
-  %51 = icmp ult i32 %50, 32
-  %52 = lshr i32 %50, 3
-  %53 = and i32 %52, 1
-  %54 = and i32 %50, 16
-  %.1.i.i.i = or disjoint i32 %53, %54
-  %55 = select i1 %51, i32 %.1.i.i.i, i32 0
-  %56 = shl i32 %9, 2
-  %spec.select.i.i = and i32 %56, 64
-  %57 = lshr i32 %9, 1
-  %58 = and i32 %57, 4
-  %59 = or disjoint i32 %58, %spec.select.i.i
-  %.1.i.i = or disjoint i32 %59, %55
-  %60 = or i32 %.1.i.i, %45
-  %61 = getelementptr inbounds i8, ptr %0, i64 8
+_ZN9Assembler12prefixq_rex2E7Address11XMMRegister.exit: ; preds = %28, %40
+  %44 = phi i32 [ %.1.i.i7.i, %40 ], [ 0, %28 ]
+  %45 = sext i32 %.sroa.0.0.copyload.i.i to i64
+  %46 = getelementptr inbounds %"class.Register::RegisterImpl", ptr getelementptr inbounds (i8, ptr @all_RegisterImpls, i64 1), i64 %45
+  %47 = ptrtoint ptr %46 to i64
+  %48 = trunc i64 %47 to i32
+  %49 = sub i32 %48, ptrtoint (ptr getelementptr inbounds (i8, ptr @all_RegisterImpls, i64 1) to i32)
+  %spec.select.i.i.i = icmp ult i32 %49, 32
+  %50 = lshr i32 %49, 3
+  %51 = and i32 %50, 1
+  %52 = and i32 %49, 16
+  %.1.i.i.i = or disjoint i32 %51, %52
+  %53 = select i1 %spec.select.i.i.i, i32 %.1.i.i.i, i32 0
+  %54 = shl i32 %9, 2
+  %spec.select.i.i = and i32 %54, 64
+  %55 = lshr i32 %9, 1
+  %56 = and i32 %55, 4
+  %57 = or disjoint i32 %56, %spec.select.i.i
+  %.1.i.i = or disjoint i32 %57, %53
+  %58 = or i32 %.1.i.i, %44
+  %59 = getelementptr inbounds i8, ptr %0, i64 8
+  %60 = load ptr, ptr %59, align 8
+  %61 = getelementptr inbounds i8, ptr %60, i64 16
   %62 = load ptr, ptr %61, align 8
-  %63 = getelementptr inbounds i8, ptr %62, i64 16
-  %64 = load ptr, ptr %63, align 8
-  %65 = getelementptr inbounds i8, ptr %64, i64 1
-  store i8 -43, ptr %64, align 1
-  store ptr %65, ptr %63, align 8
-  %66 = load ptr, ptr %61, align 8
-  %67 = trunc nuw nsw i32 %60 to i8
-  %.0.i.i2.i.i = or i8 %67, 8
-  %68 = getelementptr inbounds i8, ptr %66, i64 16
-  %69 = load ptr, ptr %68, align 8
-  %70 = getelementptr inbounds i8, ptr %69, i64 1
-  store i8 %.0.i.i2.i.i, ptr %69, align 1
-  store ptr %70, ptr %68, align 8
-  br label %105
+  %63 = getelementptr inbounds i8, ptr %62, i64 1
+  store i8 -43, ptr %62, align 1
+  store ptr %63, ptr %61, align 8
+  %64 = load ptr, ptr %59, align 8
+  %65 = trunc nuw nsw i32 %58 to i8
+  %.0.i.i2.i.i = or i8 %65, 8
+  %66 = getelementptr inbounds i8, ptr %64, i64 16
+  %67 = load ptr, ptr %66, align 8
+  %68 = getelementptr inbounds i8, ptr %67, i64 1
+  store i8 %.0.i.i2.i.i, ptr %67, align 1
+  store ptr %68, ptr %66, align 8
+  br label %103
 
-71:                                               ; preds = %19
-  %72 = icmp slt i32 %9, 8
-  %73 = and i32 %17, -24
+69:                                               ; preds = %19
+  %70 = icmp slt i32 %9, 8
+  %71 = and i32 %17, -24
+  %72 = icmp eq i32 %71, 8
+  %73 = and i32 %26, -24
   %74 = icmp eq i32 %73, 8
-  %75 = and i32 %26, -24
-  %76 = icmp eq i32 %75, 8
-  br i1 %72, label %77, label %93
+  br i1 %70, label %75, label %91
 
-77:                                               ; preds = %71
-  br i1 %74, label %78, label %86
+75:                                               ; preds = %69
+  br i1 %72, label %76, label %84
 
-78:                                               ; preds = %77
-  %79 = getelementptr inbounds i8, ptr %0, i64 8
+76:                                               ; preds = %75
+  %77 = getelementptr inbounds i8, ptr %0, i64 8
+  %78 = load ptr, ptr %77, align 8
+  %79 = getelementptr inbounds i8, ptr %78, i64 16
   %80 = load ptr, ptr %79, align 8
-  %81 = getelementptr inbounds i8, ptr %80, i64 16
-  %82 = load ptr, ptr %81, align 8
-  %83 = getelementptr inbounds i8, ptr %82, i64 1
-  br i1 %76, label %84, label %85
+  %81 = getelementptr inbounds i8, ptr %80, i64 1
+  br i1 %74, label %82, label %83
 
-84:                                               ; preds = %78
-  store i8 67, ptr %82, align 1
-  store ptr %83, ptr %81, align 8
-  br label %105
+82:                                               ; preds = %76
+  store i8 67, ptr %80, align 1
+  store ptr %81, ptr %79, align 8
+  br label %103
 
-85:                                               ; preds = %78
-  store i8 65, ptr %82, align 1
-  store ptr %83, ptr %81, align 8
-  br label %105
+83:                                               ; preds = %76
+  store i8 65, ptr %80, align 1
+  store ptr %81, ptr %79, align 8
+  br label %103
 
-86:                                               ; preds = %77
-  br i1 %76, label %87, label %105
+84:                                               ; preds = %75
+  br i1 %74, label %85, label %103
 
-87:                                               ; preds = %86
-  %88 = getelementptr inbounds i8, ptr %0, i64 8
+85:                                               ; preds = %84
+  %86 = getelementptr inbounds i8, ptr %0, i64 8
+  %87 = load ptr, ptr %86, align 8
+  %88 = getelementptr inbounds i8, ptr %87, i64 16
   %89 = load ptr, ptr %88, align 8
-  %90 = getelementptr inbounds i8, ptr %89, i64 16
-  %91 = load ptr, ptr %90, align 8
-  %92 = getelementptr inbounds i8, ptr %91, i64 1
-  store i8 66, ptr %91, align 1
-  store ptr %92, ptr %90, align 8
-  br label %105
+  %90 = getelementptr inbounds i8, ptr %89, i64 1
+  store i8 66, ptr %89, align 1
+  store ptr %90, ptr %88, align 8
+  br label %103
 
-93:                                               ; preds = %71
-  %94 = getelementptr inbounds i8, ptr %0, i64 8
+91:                                               ; preds = %69
+  %92 = getelementptr inbounds i8, ptr %0, i64 8
+  %93 = load ptr, ptr %92, align 8
+  %94 = getelementptr inbounds i8, ptr %93, i64 16
   %95 = load ptr, ptr %94, align 8
-  %96 = getelementptr inbounds i8, ptr %95, i64 16
-  %97 = load ptr, ptr %96, align 8
-  %98 = getelementptr inbounds i8, ptr %97, i64 1
-  br i1 %74, label %99, label %102
+  %96 = getelementptr inbounds i8, ptr %95, i64 1
+  br i1 %72, label %97, label %100
 
-99:                                               ; preds = %93
-  br i1 %76, label %100, label %101
+97:                                               ; preds = %91
+  br i1 %74, label %98, label %99
 
-100:                                              ; preds = %99
-  store i8 71, ptr %97, align 1
-  store ptr %98, ptr %96, align 8
-  br label %105
+98:                                               ; preds = %97
+  store i8 71, ptr %95, align 1
+  store ptr %96, ptr %94, align 8
+  br label %103
 
-101:                                              ; preds = %99
-  store i8 69, ptr %97, align 1
-  store ptr %98, ptr %96, align 8
-  br label %105
+99:                                               ; preds = %97
+  store i8 69, ptr %95, align 1
+  store ptr %96, ptr %94, align 8
+  br label %103
 
-102:                                              ; preds = %93
-  br i1 %76, label %103, label %104
+100:                                              ; preds = %91
+  br i1 %74, label %101, label %102
 
-103:                                              ; preds = %102
-  store i8 70, ptr %97, align 1
-  store ptr %98, ptr %96, align 8
-  br label %105
+101:                                              ; preds = %100
+  store i8 70, ptr %95, align 1
+  store ptr %96, ptr %94, align 8
+  br label %103
 
-104:                                              ; preds = %102
-  store i8 68, ptr %97, align 1
-  store ptr %98, ptr %96, align 8
-  br label %105
+102:                                              ; preds = %100
+  store i8 68, ptr %95, align 1
+  store ptr %96, ptr %94, align 8
+  br label %103
 
-105:                                              ; preds = %101, %100, %104, %103, %85, %84, %87, %86, %_ZN9Assembler12prefixq_rex2E7Address11XMMRegister.exit
+103:                                              ; preds = %99, %98, %102, %101, %83, %82, %85, %84, %_ZN9Assembler12prefixq_rex2E7Address11XMMRegister.exit
   ret void
 }
 
@@ -96390,7 +96390,7 @@ define hidden void @_ZN9Assembler6vcmppdE11XMMRegisterS0_S0_ii(ptr noundef nonnu
   %30 = trunc i64 %29 to i32
   %31 = sub i32 %30, ptrtoint (ptr getelementptr inbounds (i8, ptr @all_XMMRegisterImpls, i64 1) to i32)
   %32 = icmp sgt i32 %9, 0
-  br i1 %32, label %33, label %41
+  br i1 %32, label %33, label %40
 
 33:                                               ; preds = %6
   %34 = sext i32 %2 to i64
@@ -96398,42 +96398,42 @@ define hidden void @_ZN9Assembler6vcmppdE11XMMRegisterS0_S0_ii(ptr noundef nonnu
   %36 = ptrtoint ptr %35 to i64
   %37 = trunc i64 %36 to i32
   %38 = sub i32 %37, ptrtoint (ptr getelementptr inbounds (i8, ptr @all_XMMRegisterImpls, i64 1) to i32)
-  %39 = icmp ult i32 %38, 32
-  %spec.select.i = select i1 %39, i32 %38, i32 0
-  %40 = call noundef i32 @_ZN9Assembler21vex_prefix_and_encodeEiiiNS_13VexSimdPrefixENS_9VexOpcodeEP15InstructionAttrb(ptr noundef nonnull align 8 dereferenceable(40) %0, i32 noundef %26, i32 noundef %spec.select.i, i32 noundef %31, i32 noundef 1, i32 noundef 1, ptr noundef nonnull %7, i1 noundef zeroext false)
+  %spec.select.i.i = icmp ult i32 %38, 32
+  %spec.select.i = select i1 %spec.select.i.i, i32 %38, i32 0
+  %39 = call noundef i32 @_ZN9Assembler21vex_prefix_and_encodeEiiiNS_13VexSimdPrefixENS_9VexOpcodeEP15InstructionAttrb(ptr noundef nonnull align 8 dereferenceable(40) %0, i32 noundef %26, i32 noundef %spec.select.i, i32 noundef %31, i32 noundef 1, i32 noundef 1, ptr noundef nonnull %7, i1 noundef zeroext false)
   br label %_ZN9Assembler22simd_prefix_and_encodeE11XMMRegisterS0_S0_NS_13VexSimdPrefixENS_9VexOpcodeEP15InstructionAttrb.exit
 
-41:                                               ; preds = %6
-  %42 = tail call noundef i32 @_ZN9Assembler21rex_prefix_and_encodeEiiNS_13VexSimdPrefixENS_9VexOpcodeEb(ptr noundef nonnull align 8 dereferenceable(40) %0, i32 noundef %26, i32 noundef %31, i32 noundef 1, i32 noundef 1, i1 noundef zeroext false)
+40:                                               ; preds = %6
+  %41 = tail call noundef i32 @_ZN9Assembler21rex_prefix_and_encodeEiiNS_13VexSimdPrefixENS_9VexOpcodeEb(ptr noundef nonnull align 8 dereferenceable(40) %0, i32 noundef %26, i32 noundef %31, i32 noundef 1, i32 noundef 1, i1 noundef zeroext false)
   br label %_ZN9Assembler22simd_prefix_and_encodeE11XMMRegisterS0_S0_NS_13VexSimdPrefixENS_9VexOpcodeEP15InstructionAttrb.exit
 
-_ZN9Assembler22simd_prefix_and_encodeE11XMMRegisterS0_S0_NS_13VexSimdPrefixENS_9VexOpcodeEP15InstructionAttrb.exit: ; preds = %33, %41
-  %.0.i = phi i32 [ %40, %33 ], [ %42, %41 ]
-  %43 = getelementptr inbounds i8, ptr %0, i64 8
-  %44 = load ptr, ptr %43, align 8
-  %45 = trunc i32 %.0.i to i8
-  %.0.i3.i = or i8 %45, -64
-  %46 = trunc i32 %4 to i8
-  %.0.i4.i = and i8 %46, 15
-  %47 = getelementptr inbounds i8, ptr %44, i64 16
-  %48 = load ptr, ptr %47, align 8
-  %49 = getelementptr inbounds i8, ptr %48, i64 1
-  store i8 -62, ptr %48, align 1
-  %50 = getelementptr inbounds i8, ptr %48, i64 2
-  store i8 %.0.i3.i, ptr %49, align 1
-  %51 = getelementptr inbounds i8, ptr %48, i64 3
-  store i8 %.0.i4.i, ptr %50, align 1
-  store ptr %51, ptr %47, align 8
-  %52 = load ptr, ptr %21, align 8
-  %.not.i = icmp eq ptr %52, null
-  br i1 %.not.i, label %_ZN15InstructionAttrD2Ev.exit, label %53
+_ZN9Assembler22simd_prefix_and_encodeE11XMMRegisterS0_S0_NS_13VexSimdPrefixENS_9VexOpcodeEP15InstructionAttrb.exit: ; preds = %33, %40
+  %.0.i = phi i32 [ %39, %33 ], [ %41, %40 ]
+  %42 = getelementptr inbounds i8, ptr %0, i64 8
+  %43 = load ptr, ptr %42, align 8
+  %44 = trunc i32 %.0.i to i8
+  %.0.i3.i = or i8 %44, -64
+  %45 = trunc i32 %4 to i8
+  %.0.i4.i = and i8 %45, 15
+  %46 = getelementptr inbounds i8, ptr %43, i64 16
+  %47 = load ptr, ptr %46, align 8
+  %48 = getelementptr inbounds i8, ptr %47, i64 1
+  store i8 -62, ptr %47, align 1
+  %49 = getelementptr inbounds i8, ptr %47, i64 2
+  store i8 %.0.i3.i, ptr %48, align 1
+  %50 = getelementptr inbounds i8, ptr %47, i64 3
+  store i8 %.0.i4.i, ptr %49, align 1
+  store ptr %50, ptr %46, align 8
+  %51 = load ptr, ptr %21, align 8
+  %.not.i = icmp eq ptr %51, null
+  br i1 %.not.i, label %_ZN15InstructionAttrD2Ev.exit, label %52
 
-53:                                               ; preds = %_ZN9Assembler22simd_prefix_and_encodeE11XMMRegisterS0_S0_NS_13VexSimdPrefixENS_9VexOpcodeEP15InstructionAttrb.exit
-  %54 = getelementptr inbounds i8, ptr %52, i64 32
-  store ptr null, ptr %54, align 8
+52:                                               ; preds = %_ZN9Assembler22simd_prefix_and_encodeE11XMMRegisterS0_S0_NS_13VexSimdPrefixENS_9VexOpcodeEP15InstructionAttrb.exit
+  %53 = getelementptr inbounds i8, ptr %51, i64 32
+  store ptr null, ptr %53, align 8
   br label %_ZN15InstructionAttrD2Ev.exit
 
-_ZN15InstructionAttrD2Ev.exit:                    ; preds = %_ZN9Assembler22simd_prefix_and_encodeE11XMMRegisterS0_S0_NS_13VexSimdPrefixENS_9VexOpcodeEP15InstructionAttrb.exit, %53
+_ZN15InstructionAttrD2Ev.exit:                    ; preds = %_ZN9Assembler22simd_prefix_and_encodeE11XMMRegisterS0_S0_NS_13VexSimdPrefixENS_9VexOpcodeEP15InstructionAttrb.exit, %52
   ret void
 }
 
@@ -102983,13 +102983,13 @@ define hidden noundef range(i32 0, 32) i32 @_ZN9Assembler20get_base_prefix_bitsE
   %5 = ptrtoint ptr %4 to i64
   %6 = trunc i64 %5 to i32
   %7 = sub i32 %6, ptrtoint (ptr getelementptr inbounds (i8, ptr @all_RegisterImpls, i64 1) to i32)
-  %8 = icmp ult i32 %7, 32
-  %9 = and i32 %7, 16
-  %10 = lshr i32 %7, 3
-  %11 = and i32 %10, 1
-  %.1.i = or disjoint i32 %11, %9
-  %12 = select i1 %8, i32 %.1.i, i32 0
-  ret i32 %12
+  %spec.select.i = icmp ult i32 %7, 32
+  %8 = and i32 %7, 16
+  %9 = lshr i32 %7, 3
+  %10 = and i32 %9, 1
+  %.1.i = or disjoint i32 %10, %8
+  %11 = select i1 %spec.select.i, i32 %.1.i, i32 0
+  ret i32 %11
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
@@ -102999,20 +102999,20 @@ define hidden noundef range(i32 0, 64) i32 @_ZN9Assembler21get_index_prefix_bits
   %5 = ptrtoint ptr %4 to i64
   %6 = trunc i64 %5 to i32
   %7 = sub i32 %6, ptrtoint (ptr getelementptr inbounds (i8, ptr @all_RegisterImpls, i64 1) to i32)
-  %8 = icmp ult i32 %7, 32
-  br i1 %8, label %9, label %13
+  %spec.select.i = icmp ult i32 %7, 32
+  br i1 %spec.select.i, label %8, label %12
 
-9:                                                ; preds = %2
-  %10 = shl nuw nsw i32 %7, 1
-  %spec.select.i = and i32 %10, 32
-  %11 = lshr i32 %7, 2
-  %12 = and i32 %11, 2
-  %.1.i = or disjoint i32 %spec.select.i, %12
-  br label %13
+8:                                                ; preds = %2
+  %9 = shl nuw nsw i32 %7, 1
+  %spec.select.i1 = and i32 %9, 32
+  %10 = lshr i32 %7, 2
+  %11 = and i32 %10, 2
+  %.1.i = or disjoint i32 %spec.select.i1, %11
+  br label %12
 
-13:                                               ; preds = %2, %9
-  %14 = phi i32 [ %.1.i, %9 ], [ 0, %2 ]
-  ret i32 %14
+12:                                               ; preds = %2, %8
+  %13 = phi i32 [ %.1.i, %8 ], [ 0, %2 ]
+  ret i32 %13
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
@@ -103072,37 +103072,37 @@ define hidden void @_ZN9Assembler11prefix_rex2E8Register7Address(ptr nocapture n
   %6 = ptrtoint ptr %5 to i64
   %7 = trunc i64 %6 to i32
   %8 = sub i32 %7, ptrtoint (ptr getelementptr inbounds (i8, ptr @all_RegisterImpls, i64 1) to i32)
-  %9 = icmp ult i32 %8, 32
-  %10 = and i32 %8, 16
-  %11 = lshr i32 %8, 3
-  %12 = and i32 %11, 1
-  %.1.i.i = or disjoint i32 %12, %10
-  %13 = select i1 %9, i32 %.1.i.i, i32 0
-  %14 = sext i32 %1 to i64
-  %15 = getelementptr inbounds %"class.Register::RegisterImpl", ptr getelementptr inbounds (i8, ptr @all_RegisterImpls, i64 1), i64 %14
-  %16 = ptrtoint ptr %15 to i64
-  %17 = trunc i64 %16 to i32
-  %18 = sub i32 %17, ptrtoint (ptr getelementptr inbounds (i8, ptr @all_RegisterImpls, i64 1) to i32)
-  %19 = shl i32 %18, 2
-  %spec.select.i = and i32 %19, 64
-  %20 = lshr i32 %18, 1
-  %21 = and i32 %20, 4
-  %.1.i = or disjoint i32 %spec.select.i, %21
-  %22 = or disjoint i32 %.1.i, %13
-  %23 = getelementptr inbounds i8, ptr %0, i64 8
-  %24 = load ptr, ptr %23, align 8
-  %25 = getelementptr inbounds i8, ptr %24, i64 16
-  %26 = load ptr, ptr %25, align 8
-  %27 = getelementptr inbounds i8, ptr %26, i64 1
-  store i8 -43, ptr %26, align 1
-  store ptr %27, ptr %25, align 8
-  %28 = load ptr, ptr %23, align 8
-  %.0.i.i2.i = trunc nuw nsw i32 %22 to i8
-  %29 = getelementptr inbounds i8, ptr %28, i64 16
-  %30 = load ptr, ptr %29, align 8
-  %31 = getelementptr inbounds i8, ptr %30, i64 1
-  store i8 %.0.i.i2.i, ptr %30, align 1
-  store ptr %31, ptr %29, align 8
+  %spec.select.i.i = icmp ult i32 %8, 32
+  %9 = and i32 %8, 16
+  %10 = lshr i32 %8, 3
+  %11 = and i32 %10, 1
+  %.1.i.i = or disjoint i32 %11, %9
+  %12 = select i1 %spec.select.i.i, i32 %.1.i.i, i32 0
+  %13 = sext i32 %1 to i64
+  %14 = getelementptr inbounds %"class.Register::RegisterImpl", ptr getelementptr inbounds (i8, ptr @all_RegisterImpls, i64 1), i64 %13
+  %15 = ptrtoint ptr %14 to i64
+  %16 = trunc i64 %15 to i32
+  %17 = sub i32 %16, ptrtoint (ptr getelementptr inbounds (i8, ptr @all_RegisterImpls, i64 1) to i32)
+  %18 = shl i32 %17, 2
+  %spec.select.i = and i32 %18, 64
+  %19 = lshr i32 %17, 1
+  %20 = and i32 %19, 4
+  %.1.i = or disjoint i32 %spec.select.i, %20
+  %21 = or disjoint i32 %.1.i, %12
+  %22 = getelementptr inbounds i8, ptr %0, i64 8
+  %23 = load ptr, ptr %22, align 8
+  %24 = getelementptr inbounds i8, ptr %23, i64 16
+  %25 = load ptr, ptr %24, align 8
+  %26 = getelementptr inbounds i8, ptr %25, i64 1
+  store i8 -43, ptr %25, align 1
+  store ptr %26, ptr %24, align 8
+  %27 = load ptr, ptr %22, align 8
+  %.0.i.i2.i = trunc nuw nsw i32 %21 to i8
+  %28 = getelementptr inbounds i8, ptr %27, i64 16
+  %29 = load ptr, ptr %28, align 8
+  %30 = getelementptr inbounds i8, ptr %29, i64 1
+  store i8 %.0.i.i2.i, ptr %29, align 1
+  store ptr %30, ptr %28, align 8
   ret void
 }
 
@@ -103116,47 +103116,47 @@ define hidden void @_ZN9Assembler11prefix_rex2E7Addressb(ptr nocapture noundef n
   %7 = ptrtoint ptr %6 to i64
   %8 = trunc i64 %7 to i32
   %9 = sub i32 %8, ptrtoint (ptr getelementptr inbounds (i8, ptr @all_RegisterImpls, i64 1) to i32)
-  %10 = icmp ult i32 %9, 32
-  br i1 %10, label %11, label %_ZN9Assembler21get_index_prefix_bitsE8Register.exit
+  %spec.select.i.i6 = icmp ult i32 %9, 32
+  br i1 %spec.select.i.i6, label %10, label %_ZN9Assembler21get_index_prefix_bitsE8Register.exit
 
-11:                                               ; preds = %3
-  %12 = shl nuw nsw i32 %9, 1
-  %spec.select.i.i = and i32 %12, 32
-  %13 = lshr i32 %9, 2
-  %14 = and i32 %13, 2
-  %.1.i.i6 = or disjoint i32 %spec.select.i.i, %14
+10:                                               ; preds = %3
+  %11 = shl nuw nsw i32 %9, 1
+  %spec.select.i1.i = and i32 %11, 32
+  %12 = lshr i32 %9, 2
+  %13 = and i32 %12, 2
+  %.1.i.i7 = or disjoint i32 %spec.select.i1.i, %13
   br label %_ZN9Assembler21get_index_prefix_bitsE8Register.exit
 
-_ZN9Assembler21get_index_prefix_bitsE8Register.exit: ; preds = %3, %11
-  %15 = phi i32 [ %.1.i.i6, %11 ], [ 0, %3 ]
-  %16 = select i1 %2, i32 128, i32 0
-  %17 = sext i32 %.sroa.0.0.copyload.i to i64
-  %18 = getelementptr inbounds %"class.Register::RegisterImpl", ptr getelementptr inbounds (i8, ptr @all_RegisterImpls, i64 1), i64 %17
-  %19 = ptrtoint ptr %18 to i64
-  %20 = trunc i64 %19 to i32
-  %21 = sub i32 %20, ptrtoint (ptr getelementptr inbounds (i8, ptr @all_RegisterImpls, i64 1) to i32)
-  %22 = icmp ult i32 %21, 32
-  %23 = lshr i32 %21, 3
-  %24 = and i32 %23, 1
-  %25 = and i32 %21, 16
-  %.1.i.i = or disjoint i32 %24, %25
-  %26 = select i1 %22, i32 %.1.i.i, i32 0
-  %27 = or disjoint i32 %26, %16
-  %28 = or i32 %27, %15
-  %29 = getelementptr inbounds i8, ptr %0, i64 8
+_ZN9Assembler21get_index_prefix_bitsE8Register.exit: ; preds = %3, %10
+  %14 = phi i32 [ %.1.i.i7, %10 ], [ 0, %3 ]
+  %15 = select i1 %2, i32 128, i32 0
+  %16 = sext i32 %.sroa.0.0.copyload.i to i64
+  %17 = getelementptr inbounds %"class.Register::RegisterImpl", ptr getelementptr inbounds (i8, ptr @all_RegisterImpls, i64 1), i64 %16
+  %18 = ptrtoint ptr %17 to i64
+  %19 = trunc i64 %18 to i32
+  %20 = sub i32 %19, ptrtoint (ptr getelementptr inbounds (i8, ptr @all_RegisterImpls, i64 1) to i32)
+  %spec.select.i.i = icmp ult i32 %20, 32
+  %21 = lshr i32 %20, 3
+  %22 = and i32 %21, 1
+  %23 = and i32 %20, 16
+  %.1.i.i = or disjoint i32 %22, %23
+  %24 = select i1 %spec.select.i.i, i32 %.1.i.i, i32 0
+  %25 = or disjoint i32 %24, %15
+  %26 = or i32 %25, %14
+  %27 = getelementptr inbounds i8, ptr %0, i64 8
+  %28 = load ptr, ptr %27, align 8
+  %29 = getelementptr inbounds i8, ptr %28, i64 16
   %30 = load ptr, ptr %29, align 8
-  %31 = getelementptr inbounds i8, ptr %30, i64 16
-  %32 = load ptr, ptr %31, align 8
-  %33 = getelementptr inbounds i8, ptr %32, i64 1
-  store i8 -43, ptr %32, align 1
-  store ptr %33, ptr %31, align 8
-  %34 = load ptr, ptr %29, align 8
-  %.0.i.i2.i = trunc nuw i32 %28 to i8
-  %35 = getelementptr inbounds i8, ptr %34, i64 16
-  %36 = load ptr, ptr %35, align 8
-  %37 = getelementptr inbounds i8, ptr %36, i64 1
-  store i8 %.0.i.i2.i, ptr %36, align 1
-  store ptr %37, ptr %35, align 8
+  %31 = getelementptr inbounds i8, ptr %30, i64 1
+  store i8 -43, ptr %30, align 1
+  store ptr %31, ptr %29, align 8
+  %32 = load ptr, ptr %27, align 8
+  %.0.i.i2.i = trunc nuw i32 %26 to i8
+  %33 = getelementptr inbounds i8, ptr %32, i64 16
+  %34 = load ptr, ptr %33, align 8
+  %35 = getelementptr inbounds i8, ptr %34, i64 1
+  store i8 %.0.i.i2.i, ptr %34, align 1
+  store ptr %35, ptr %33, align 8
   ret void
 }
 
@@ -103170,58 +103170,58 @@ define hidden void @_ZN9Assembler11prefix_rex2E7Address8Registerbb(ptr nocapture
   %9 = ptrtoint ptr %8 to i64
   %10 = trunc i64 %9 to i32
   %11 = sub i32 %10, ptrtoint (ptr getelementptr inbounds (i8, ptr @all_RegisterImpls, i64 1) to i32)
-  %12 = icmp ult i32 %11, 32
-  br i1 %12, label %13, label %_ZN9Assembler21get_index_prefix_bitsE8Register.exit
+  %spec.select.i.i7 = icmp ult i32 %11, 32
+  br i1 %spec.select.i.i7, label %12, label %_ZN9Assembler21get_index_prefix_bitsE8Register.exit
 
-13:                                               ; preds = %5
-  %14 = shl nuw nsw i32 %11, 1
-  %spec.select.i.i = and i32 %14, 32
-  %15 = lshr i32 %11, 2
-  %16 = and i32 %15, 2
-  %.1.i.i7 = or disjoint i32 %spec.select.i.i, %16
+12:                                               ; preds = %5
+  %13 = shl nuw nsw i32 %11, 1
+  %spec.select.i1.i = and i32 %13, 32
+  %14 = lshr i32 %11, 2
+  %15 = and i32 %14, 2
+  %.1.i.i8 = or disjoint i32 %spec.select.i1.i, %15
   br label %_ZN9Assembler21get_index_prefix_bitsE8Register.exit
 
-_ZN9Assembler21get_index_prefix_bitsE8Register.exit: ; preds = %5, %13
-  %17 = phi i32 [ %.1.i.i7, %13 ], [ 0, %5 ]
-  %18 = select i1 %4, i32 128, i32 0
-  %19 = sext i32 %.sroa.0.0.copyload.i to i64
-  %20 = getelementptr inbounds %"class.Register::RegisterImpl", ptr getelementptr inbounds (i8, ptr @all_RegisterImpls, i64 1), i64 %19
-  %21 = ptrtoint ptr %20 to i64
-  %22 = trunc i64 %21 to i32
-  %23 = sub i32 %22, ptrtoint (ptr getelementptr inbounds (i8, ptr @all_RegisterImpls, i64 1) to i32)
-  %24 = icmp ult i32 %23, 32
-  %25 = lshr i32 %23, 3
-  %26 = and i32 %25, 1
-  %27 = and i32 %23, 16
-  %.1.i.i = or disjoint i32 %26, %27
-  %28 = select i1 %24, i32 %.1.i.i, i32 0
-  %29 = sext i32 %2 to i64
-  %30 = getelementptr inbounds %"class.Register::RegisterImpl", ptr getelementptr inbounds (i8, ptr @all_RegisterImpls, i64 1), i64 %29
-  %31 = ptrtoint ptr %30 to i64
-  %32 = trunc i64 %31 to i32
-  %33 = sub i32 %32, ptrtoint (ptr getelementptr inbounds (i8, ptr @all_RegisterImpls, i64 1) to i32)
-  %34 = shl i32 %33, 2
-  %spec.select.i = and i32 %34, 64
-  %35 = lshr i32 %33, 1
-  %36 = and i32 %35, 4
-  %37 = or disjoint i32 %36, %18
-  %.1.i = or disjoint i32 %37, %spec.select.i
-  %38 = or disjoint i32 %.1.i, %28
-  %39 = or i32 %38, %17
-  %40 = getelementptr inbounds i8, ptr %0, i64 8
+_ZN9Assembler21get_index_prefix_bitsE8Register.exit: ; preds = %5, %12
+  %16 = phi i32 [ %.1.i.i8, %12 ], [ 0, %5 ]
+  %17 = select i1 %4, i32 128, i32 0
+  %18 = sext i32 %.sroa.0.0.copyload.i to i64
+  %19 = getelementptr inbounds %"class.Register::RegisterImpl", ptr getelementptr inbounds (i8, ptr @all_RegisterImpls, i64 1), i64 %18
+  %20 = ptrtoint ptr %19 to i64
+  %21 = trunc i64 %20 to i32
+  %22 = sub i32 %21, ptrtoint (ptr getelementptr inbounds (i8, ptr @all_RegisterImpls, i64 1) to i32)
+  %spec.select.i.i = icmp ult i32 %22, 32
+  %23 = lshr i32 %22, 3
+  %24 = and i32 %23, 1
+  %25 = and i32 %22, 16
+  %.1.i.i = or disjoint i32 %24, %25
+  %26 = select i1 %spec.select.i.i, i32 %.1.i.i, i32 0
+  %27 = sext i32 %2 to i64
+  %28 = getelementptr inbounds %"class.Register::RegisterImpl", ptr getelementptr inbounds (i8, ptr @all_RegisterImpls, i64 1), i64 %27
+  %29 = ptrtoint ptr %28 to i64
+  %30 = trunc i64 %29 to i32
+  %31 = sub i32 %30, ptrtoint (ptr getelementptr inbounds (i8, ptr @all_RegisterImpls, i64 1) to i32)
+  %32 = shl i32 %31, 2
+  %spec.select.i = and i32 %32, 64
+  %33 = lshr i32 %31, 1
+  %34 = and i32 %33, 4
+  %35 = or disjoint i32 %34, %17
+  %.1.i = or disjoint i32 %35, %spec.select.i
+  %36 = or disjoint i32 %.1.i, %26
+  %37 = or i32 %36, %16
+  %38 = getelementptr inbounds i8, ptr %0, i64 8
+  %39 = load ptr, ptr %38, align 8
+  %40 = getelementptr inbounds i8, ptr %39, i64 16
   %41 = load ptr, ptr %40, align 8
-  %42 = getelementptr inbounds i8, ptr %41, i64 16
-  %43 = load ptr, ptr %42, align 8
-  %44 = getelementptr inbounds i8, ptr %43, i64 1
-  store i8 -43, ptr %43, align 1
-  store ptr %44, ptr %42, align 8
-  %45 = load ptr, ptr %40, align 8
-  %.0.i.i2.i = trunc nuw i32 %39 to i8
-  %46 = getelementptr inbounds i8, ptr %45, i64 16
-  %47 = load ptr, ptr %46, align 8
-  %48 = getelementptr inbounds i8, ptr %47, i64 1
-  store i8 %.0.i.i2.i, ptr %47, align 1
-  store ptr %48, ptr %46, align 8
+  %42 = getelementptr inbounds i8, ptr %41, i64 1
+  store i8 -43, ptr %41, align 1
+  store ptr %42, ptr %40, align 8
+  %43 = load ptr, ptr %38, align 8
+  %.0.i.i2.i = trunc nuw i32 %37 to i8
+  %44 = getelementptr inbounds i8, ptr %43, i64 16
+  %45 = load ptr, ptr %44, align 8
+  %46 = getelementptr inbounds i8, ptr %45, i64 1
+  store i8 %.0.i.i2.i, ptr %45, align 1
+  store ptr %46, ptr %44, align 8
   ret void
 }
 
@@ -103235,57 +103235,57 @@ define hidden void @_ZN9Assembler12prefixq_rex2E7Address11XMMRegister(ptr nocapt
   %7 = ptrtoint ptr %6 to i64
   %8 = trunc i64 %7 to i32
   %9 = sub i32 %8, ptrtoint (ptr getelementptr inbounds (i8, ptr @all_RegisterImpls, i64 1) to i32)
-  %10 = icmp ult i32 %9, 32
-  br i1 %10, label %11, label %_ZN9Assembler21get_index_prefix_bitsE8Register.exit
+  %spec.select.i.i6 = icmp ult i32 %9, 32
+  br i1 %spec.select.i.i6, label %10, label %_ZN9Assembler21get_index_prefix_bitsE8Register.exit
 
-11:                                               ; preds = %3
-  %12 = shl nuw nsw i32 %9, 1
-  %spec.select.i.i = and i32 %12, 32
-  %13 = lshr i32 %9, 2
-  %14 = and i32 %13, 2
-  %.1.i.i6 = or disjoint i32 %spec.select.i.i, %14
+10:                                               ; preds = %3
+  %11 = shl nuw nsw i32 %9, 1
+  %spec.select.i1.i = and i32 %11, 32
+  %12 = lshr i32 %9, 2
+  %13 = and i32 %12, 2
+  %.1.i.i7 = or disjoint i32 %spec.select.i1.i, %13
   br label %_ZN9Assembler21get_index_prefix_bitsE8Register.exit
 
-_ZN9Assembler21get_index_prefix_bitsE8Register.exit: ; preds = %3, %11
-  %15 = phi i32 [ %.1.i.i6, %11 ], [ 0, %3 ]
-  %16 = sext i32 %.sroa.0.0.copyload.i to i64
-  %17 = getelementptr inbounds %"class.Register::RegisterImpl", ptr getelementptr inbounds (i8, ptr @all_RegisterImpls, i64 1), i64 %16
-  %18 = ptrtoint ptr %17 to i64
-  %19 = trunc i64 %18 to i32
-  %20 = sub i32 %19, ptrtoint (ptr getelementptr inbounds (i8, ptr @all_RegisterImpls, i64 1) to i32)
-  %21 = icmp ult i32 %20, 32
-  %22 = lshr i32 %20, 3
-  %23 = and i32 %22, 1
-  %24 = and i32 %20, 16
-  %.1.i.i = or disjoint i32 %23, %24
-  %25 = select i1 %21, i32 %.1.i.i, i32 0
-  %26 = sext i32 %2 to i64
-  %27 = getelementptr inbounds %"class.XMMRegister::XMMRegisterImpl", ptr getelementptr inbounds (i8, ptr @all_XMMRegisterImpls, i64 1), i64 %26
-  %28 = ptrtoint ptr %27 to i64
-  %29 = trunc i64 %28 to i32
-  %30 = sub i32 %29, ptrtoint (ptr getelementptr inbounds (i8, ptr @all_XMMRegisterImpls, i64 1) to i32)
-  %31 = shl i32 %30, 2
-  %spec.select.i = and i32 %31, 64
-  %32 = lshr i32 %30, 1
-  %33 = and i32 %32, 4
-  %34 = or disjoint i32 %33, %spec.select.i
-  %.1.i = or disjoint i32 %34, %25
-  %35 = or i32 %.1.i, %15
-  %36 = getelementptr inbounds i8, ptr %0, i64 8
+_ZN9Assembler21get_index_prefix_bitsE8Register.exit: ; preds = %3, %10
+  %14 = phi i32 [ %.1.i.i7, %10 ], [ 0, %3 ]
+  %15 = sext i32 %.sroa.0.0.copyload.i to i64
+  %16 = getelementptr inbounds %"class.Register::RegisterImpl", ptr getelementptr inbounds (i8, ptr @all_RegisterImpls, i64 1), i64 %15
+  %17 = ptrtoint ptr %16 to i64
+  %18 = trunc i64 %17 to i32
+  %19 = sub i32 %18, ptrtoint (ptr getelementptr inbounds (i8, ptr @all_RegisterImpls, i64 1) to i32)
+  %spec.select.i.i = icmp ult i32 %19, 32
+  %20 = lshr i32 %19, 3
+  %21 = and i32 %20, 1
+  %22 = and i32 %19, 16
+  %.1.i.i = or disjoint i32 %21, %22
+  %23 = select i1 %spec.select.i.i, i32 %.1.i.i, i32 0
+  %24 = sext i32 %2 to i64
+  %25 = getelementptr inbounds %"class.XMMRegister::XMMRegisterImpl", ptr getelementptr inbounds (i8, ptr @all_XMMRegisterImpls, i64 1), i64 %24
+  %26 = ptrtoint ptr %25 to i64
+  %27 = trunc i64 %26 to i32
+  %28 = sub i32 %27, ptrtoint (ptr getelementptr inbounds (i8, ptr @all_XMMRegisterImpls, i64 1) to i32)
+  %29 = shl i32 %28, 2
+  %spec.select.i = and i32 %29, 64
+  %30 = lshr i32 %28, 1
+  %31 = and i32 %30, 4
+  %32 = or disjoint i32 %31, %spec.select.i
+  %.1.i = or disjoint i32 %32, %23
+  %33 = or i32 %.1.i, %14
+  %34 = getelementptr inbounds i8, ptr %0, i64 8
+  %35 = load ptr, ptr %34, align 8
+  %36 = getelementptr inbounds i8, ptr %35, i64 16
   %37 = load ptr, ptr %36, align 8
-  %38 = getelementptr inbounds i8, ptr %37, i64 16
-  %39 = load ptr, ptr %38, align 8
-  %40 = getelementptr inbounds i8, ptr %39, i64 1
-  store i8 -43, ptr %39, align 1
-  store ptr %40, ptr %38, align 8
-  %41 = load ptr, ptr %36, align 8
-  %42 = trunc nsw i32 %35 to i8
-  %.0.i.i2.i = or i8 %42, 8
-  %43 = getelementptr inbounds i8, ptr %41, i64 16
-  %44 = load ptr, ptr %43, align 8
-  %45 = getelementptr inbounds i8, ptr %44, i64 1
-  store i8 %.0.i.i2.i, ptr %44, align 1
-  store ptr %45, ptr %43, align 8
+  %38 = getelementptr inbounds i8, ptr %37, i64 1
+  store i8 -43, ptr %37, align 1
+  store ptr %38, ptr %36, align 8
+  %39 = load ptr, ptr %34, align 8
+  %40 = trunc nsw i32 %33 to i8
+  %.0.i.i2.i = or i8 %40, 8
+  %41 = getelementptr inbounds i8, ptr %39, i64 16
+  %42 = load ptr, ptr %41, align 8
+  %43 = getelementptr inbounds i8, ptr %42, i64 1
+  store i8 %.0.i.i2.i, ptr %42, align 1
+  store ptr %43, ptr %41, align 8
   ret void
 }
 
@@ -103299,56 +103299,56 @@ define hidden void @_ZN9Assembler11prefix_rex2E7Address11XMMRegister(ptr nocaptu
   %7 = ptrtoint ptr %6 to i64
   %8 = trunc i64 %7 to i32
   %9 = sub i32 %8, ptrtoint (ptr getelementptr inbounds (i8, ptr @all_RegisterImpls, i64 1) to i32)
-  %10 = icmp ult i32 %9, 32
-  br i1 %10, label %11, label %_ZN9Assembler21get_index_prefix_bitsE8Register.exit
+  %spec.select.i.i6 = icmp ult i32 %9, 32
+  br i1 %spec.select.i.i6, label %10, label %_ZN9Assembler21get_index_prefix_bitsE8Register.exit
 
-11:                                               ; preds = %3
-  %12 = shl nuw nsw i32 %9, 1
-  %spec.select.i.i = and i32 %12, 32
-  %13 = lshr i32 %9, 2
-  %14 = and i32 %13, 2
-  %.1.i.i6 = or disjoint i32 %spec.select.i.i, %14
+10:                                               ; preds = %3
+  %11 = shl nuw nsw i32 %9, 1
+  %spec.select.i1.i = and i32 %11, 32
+  %12 = lshr i32 %9, 2
+  %13 = and i32 %12, 2
+  %.1.i.i7 = or disjoint i32 %spec.select.i1.i, %13
   br label %_ZN9Assembler21get_index_prefix_bitsE8Register.exit
 
-_ZN9Assembler21get_index_prefix_bitsE8Register.exit: ; preds = %3, %11
-  %15 = phi i32 [ %.1.i.i6, %11 ], [ 0, %3 ]
-  %16 = sext i32 %.sroa.0.0.copyload.i to i64
-  %17 = getelementptr inbounds %"class.Register::RegisterImpl", ptr getelementptr inbounds (i8, ptr @all_RegisterImpls, i64 1), i64 %16
-  %18 = ptrtoint ptr %17 to i64
-  %19 = trunc i64 %18 to i32
-  %20 = sub i32 %19, ptrtoint (ptr getelementptr inbounds (i8, ptr @all_RegisterImpls, i64 1) to i32)
-  %21 = icmp ult i32 %20, 32
-  %22 = lshr i32 %20, 3
-  %23 = and i32 %22, 1
-  %24 = and i32 %20, 16
-  %.1.i.i = or disjoint i32 %23, %24
-  %25 = select i1 %21, i32 %.1.i.i, i32 0
-  %26 = sext i32 %2 to i64
-  %27 = getelementptr inbounds %"class.XMMRegister::XMMRegisterImpl", ptr getelementptr inbounds (i8, ptr @all_XMMRegisterImpls, i64 1), i64 %26
-  %28 = ptrtoint ptr %27 to i64
-  %29 = trunc i64 %28 to i32
-  %30 = sub i32 %29, ptrtoint (ptr getelementptr inbounds (i8, ptr @all_XMMRegisterImpls, i64 1) to i32)
-  %31 = shl i32 %30, 2
-  %spec.select.i = and i32 %31, 64
-  %32 = lshr i32 %30, 1
-  %33 = and i32 %32, 4
-  %.1.i = or disjoint i32 %spec.select.i, %33
-  %34 = or disjoint i32 %.1.i, %25
-  %35 = or i32 %34, %15
-  %36 = getelementptr inbounds i8, ptr %0, i64 8
+_ZN9Assembler21get_index_prefix_bitsE8Register.exit: ; preds = %3, %10
+  %14 = phi i32 [ %.1.i.i7, %10 ], [ 0, %3 ]
+  %15 = sext i32 %.sroa.0.0.copyload.i to i64
+  %16 = getelementptr inbounds %"class.Register::RegisterImpl", ptr getelementptr inbounds (i8, ptr @all_RegisterImpls, i64 1), i64 %15
+  %17 = ptrtoint ptr %16 to i64
+  %18 = trunc i64 %17 to i32
+  %19 = sub i32 %18, ptrtoint (ptr getelementptr inbounds (i8, ptr @all_RegisterImpls, i64 1) to i32)
+  %spec.select.i.i = icmp ult i32 %19, 32
+  %20 = lshr i32 %19, 3
+  %21 = and i32 %20, 1
+  %22 = and i32 %19, 16
+  %.1.i.i = or disjoint i32 %21, %22
+  %23 = select i1 %spec.select.i.i, i32 %.1.i.i, i32 0
+  %24 = sext i32 %2 to i64
+  %25 = getelementptr inbounds %"class.XMMRegister::XMMRegisterImpl", ptr getelementptr inbounds (i8, ptr @all_XMMRegisterImpls, i64 1), i64 %24
+  %26 = ptrtoint ptr %25 to i64
+  %27 = trunc i64 %26 to i32
+  %28 = sub i32 %27, ptrtoint (ptr getelementptr inbounds (i8, ptr @all_XMMRegisterImpls, i64 1) to i32)
+  %29 = shl i32 %28, 2
+  %spec.select.i = and i32 %29, 64
+  %30 = lshr i32 %28, 1
+  %31 = and i32 %30, 4
+  %.1.i = or disjoint i32 %spec.select.i, %31
+  %32 = or disjoint i32 %.1.i, %23
+  %33 = or i32 %32, %14
+  %34 = getelementptr inbounds i8, ptr %0, i64 8
+  %35 = load ptr, ptr %34, align 8
+  %36 = getelementptr inbounds i8, ptr %35, i64 16
   %37 = load ptr, ptr %36, align 8
-  %38 = getelementptr inbounds i8, ptr %37, i64 16
-  %39 = load ptr, ptr %38, align 8
-  %40 = getelementptr inbounds i8, ptr %39, i64 1
-  store i8 -43, ptr %39, align 1
-  store ptr %40, ptr %38, align 8
-  %41 = load ptr, ptr %36, align 8
-  %.0.i.i2.i = trunc nuw nsw i32 %35 to i8
-  %42 = getelementptr inbounds i8, ptr %41, i64 16
-  %43 = load ptr, ptr %42, align 8
-  %44 = getelementptr inbounds i8, ptr %43, i64 1
-  store i8 %.0.i.i2.i, ptr %43, align 1
-  store ptr %44, ptr %42, align 8
+  %38 = getelementptr inbounds i8, ptr %37, i64 1
+  store i8 -43, ptr %37, align 1
+  store ptr %38, ptr %36, align 8
+  %39 = load ptr, ptr %34, align 8
+  %.0.i.i2.i = trunc nuw nsw i32 %33 to i8
+  %40 = getelementptr inbounds i8, ptr %39, i64 16
+  %41 = load ptr, ptr %40, align 8
+  %42 = getelementptr inbounds i8, ptr %41, i64 1
+  store i8 %.0.i.i2.i, ptr %41, align 1
+  store ptr %42, ptr %40, align 8
   ret void
 }
 
@@ -103432,34 +103432,34 @@ define hidden noundef range(i32 54536, 54784) i32 @_ZN9Assembler16get_prefixq_re
   %7 = ptrtoint ptr %6 to i64
   %8 = trunc i64 %7 to i32
   %9 = sub i32 %8, ptrtoint (ptr getelementptr inbounds (i8, ptr @all_RegisterImpls, i64 1) to i32)
-  %10 = icmp ult i32 %9, 32
-  br i1 %10, label %11, label %_ZN9Assembler21get_index_prefix_bitsE8Register.exit
+  %spec.select.i.i7 = icmp ult i32 %9, 32
+  br i1 %spec.select.i.i7, label %10, label %_ZN9Assembler21get_index_prefix_bitsE8Register.exit
 
-11:                                               ; preds = %3
-  %12 = shl nuw nsw i32 %9, 1
-  %spec.select.i.i = and i32 %12, 32
-  %13 = lshr i32 %9, 2
-  %14 = and i32 %13, 2
-  %.1.i.i7 = or disjoint i32 %spec.select.i.i, %14
+10:                                               ; preds = %3
+  %11 = shl nuw nsw i32 %9, 1
+  %spec.select.i1.i = and i32 %11, 32
+  %12 = lshr i32 %9, 2
+  %13 = and i32 %12, 2
+  %.1.i.i8 = or disjoint i32 %spec.select.i1.i, %13
   br label %_ZN9Assembler21get_index_prefix_bitsE8Register.exit
 
-_ZN9Assembler21get_index_prefix_bitsE8Register.exit: ; preds = %3, %11
-  %15 = phi i32 [ %.1.i.i7, %11 ], [ 0, %3 ]
-  %16 = sext i32 %.sroa.0.0.copyload.i to i64
-  %17 = getelementptr inbounds %"class.Register::RegisterImpl", ptr getelementptr inbounds (i8, ptr @all_RegisterImpls, i64 1), i64 %16
-  %18 = ptrtoint ptr %17 to i64
-  %19 = trunc i64 %18 to i32
-  %20 = sub i32 %19, ptrtoint (ptr getelementptr inbounds (i8, ptr @all_RegisterImpls, i64 1) to i32)
-  %21 = icmp ult i32 %20, 32
-  %22 = lshr i32 %20, 3
-  %23 = and i32 %22, 1
-  %24 = and i32 %20, 16
-  %.1.i.i = or disjoint i32 %23, %24
-  %25 = select i1 %21, i32 %.1.i.i, i32 0
-  %26 = select i1 %2, i32 54664, i32 54536
-  %27 = or disjoint i32 %26, %25
-  %28 = or i32 %27, %15
-  ret i32 %28
+_ZN9Assembler21get_index_prefix_bitsE8Register.exit: ; preds = %3, %10
+  %14 = phi i32 [ %.1.i.i8, %10 ], [ 0, %3 ]
+  %15 = sext i32 %.sroa.0.0.copyload.i to i64
+  %16 = getelementptr inbounds %"class.Register::RegisterImpl", ptr getelementptr inbounds (i8, ptr @all_RegisterImpls, i64 1), i64 %15
+  %17 = ptrtoint ptr %16 to i64
+  %18 = trunc i64 %17 to i32
+  %19 = sub i32 %18, ptrtoint (ptr getelementptr inbounds (i8, ptr @all_RegisterImpls, i64 1) to i32)
+  %spec.select.i.i = icmp ult i32 %19, 32
+  %20 = lshr i32 %19, 3
+  %21 = and i32 %20, 1
+  %22 = and i32 %19, 16
+  %.1.i.i = or disjoint i32 %21, %22
+  %23 = select i1 %spec.select.i.i, i32 %.1.i.i, i32 0
+  %24 = select i1 %2, i32 54664, i32 54536
+  %25 = or disjoint i32 %24, %23
+  %26 = or i32 %25, %14
+  ret i32 %26
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
@@ -103487,7 +103487,7 @@ define hidden noundef i32 @_ZN9Assembler11get_prefixqE7Addressb(ptr nocapture no
   %21 = sub i32 %20, ptrtoint (ptr getelementptr inbounds (i8, ptr @all_RegisterImpls, i64 1) to i32)
   %22 = and i32 %21, -16
   %spec.select.i6 = icmp eq i32 %22, 16
-  br i1 %spec.select.i6, label %23, label %54
+  br i1 %spec.select.i6, label %23, label %52
 
 23:                                               ; preds = %14, %3
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %5, ptr noundef nonnull align 8 dereferenceable(64) %1, i64 21, i1 false)
@@ -103505,136 +103505,136 @@ define hidden noundef i32 @_ZN9Assembler11get_prefixqE7Addressb(ptr nocapture no
   %32 = ptrtoint ptr %31 to i64
   %33 = trunc i64 %32 to i32
   %34 = sub i32 %33, ptrtoint (ptr getelementptr inbounds (i8, ptr @all_RegisterImpls, i64 1) to i32)
-  %35 = icmp ult i32 %34, 32
-  br i1 %35, label %36, label %_ZN9Assembler16get_prefixq_rex2E7Addressb.exit
+  %spec.select.i.i7.i = icmp ult i32 %34, 32
+  br i1 %spec.select.i.i7.i, label %35, label %_ZN9Assembler16get_prefixq_rex2E7Addressb.exit
 
-36:                                               ; preds = %23
-  %37 = shl nuw nsw i32 %34, 1
-  %spec.select.i.i.i = and i32 %37, 32
-  %38 = lshr i32 %34, 2
-  %39 = and i32 %38, 2
-  %.1.i.i7.i = or disjoint i32 %spec.select.i.i.i, %39
+35:                                               ; preds = %23
+  %36 = shl nuw nsw i32 %34, 1
+  %spec.select.i1.i.i = and i32 %36, 32
+  %37 = lshr i32 %34, 2
+  %38 = and i32 %37, 2
+  %.1.i.i8.i = or disjoint i32 %spec.select.i1.i.i, %38
   br label %_ZN9Assembler16get_prefixq_rex2E7Addressb.exit
 
-_ZN9Assembler16get_prefixq_rex2E7Addressb.exit:   ; preds = %23, %36
-  %40 = phi i32 [ %.1.i.i7.i, %36 ], [ 0, %23 ]
-  %41 = sext i32 %.sroa.0.0.copyload.i.i to i64
-  %42 = getelementptr inbounds %"class.Register::RegisterImpl", ptr getelementptr inbounds (i8, ptr @all_RegisterImpls, i64 1), i64 %41
-  %43 = ptrtoint ptr %42 to i64
-  %44 = trunc i64 %43 to i32
-  %45 = sub i32 %44, ptrtoint (ptr getelementptr inbounds (i8, ptr @all_RegisterImpls, i64 1) to i32)
-  %46 = icmp ult i32 %45, 32
-  %47 = lshr i32 %45, 3
-  %48 = and i32 %47, 1
-  %49 = and i32 %45, 16
-  %.1.i.i.i = or disjoint i32 %48, %49
-  %50 = select i1 %46, i32 %.1.i.i.i, i32 0
-  %51 = select i1 %2, i32 54664, i32 54536
-  %52 = or disjoint i32 %50, %51
-  %53 = or i32 %52, %40
-  br label %119
+_ZN9Assembler16get_prefixq_rex2E7Addressb.exit:   ; preds = %23, %35
+  %39 = phi i32 [ %.1.i.i8.i, %35 ], [ 0, %23 ]
+  %40 = sext i32 %.sroa.0.0.copyload.i.i to i64
+  %41 = getelementptr inbounds %"class.Register::RegisterImpl", ptr getelementptr inbounds (i8, ptr @all_RegisterImpls, i64 1), i64 %40
+  %42 = ptrtoint ptr %41 to i64
+  %43 = trunc i64 %42 to i32
+  %44 = sub i32 %43, ptrtoint (ptr getelementptr inbounds (i8, ptr @all_RegisterImpls, i64 1) to i32)
+  %spec.select.i.i.i = icmp ult i32 %44, 32
+  %45 = lshr i32 %44, 3
+  %46 = and i32 %45, 1
+  %47 = and i32 %44, 16
+  %.1.i.i.i = or disjoint i32 %46, %47
+  %48 = select i1 %spec.select.i.i.i, i32 %.1.i.i.i, i32 0
+  %49 = select i1 %2, i32 54664, i32 54536
+  %50 = or disjoint i32 %48, %49
+  %51 = or i32 %50, %39
+  br label %115
 
-54:                                               ; preds = %14
+52:                                               ; preds = %14
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %6, ptr noundef nonnull align 8 dereferenceable(64) %1, i64 21, i1 false)
-  %55 = getelementptr inbounds i8, ptr %6, i64 24
-  %56 = getelementptr inbounds i8, ptr %1, i64 24
+  %53 = getelementptr inbounds i8, ptr %6, i64 24
+  %54 = getelementptr inbounds i8, ptr %1, i64 24
+  %55 = load ptr, ptr %54, align 8
+  %56 = getelementptr inbounds i8, ptr %55, i64 16
   %57 = load ptr, ptr %56, align 8
-  %58 = getelementptr inbounds i8, ptr %57, i64 16
-  %59 = load ptr, ptr %58, align 8
-  call void %59(ptr noundef nonnull align 8 dereferenceable(40) %56, ptr noundef nonnull align 8 dereferenceable(40) %55) #18
+  call void %57(ptr noundef nonnull align 8 dereferenceable(40) %54, ptr noundef nonnull align 8 dereferenceable(40) %53) #18
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %4)
-  %60 = load i32, ptr %6, align 8
-  %61 = sext i32 %60 to i64
-  %62 = getelementptr inbounds %"class.Register::RegisterImpl", ptr getelementptr inbounds (i8, ptr @all_RegisterImpls, i64 1), i64 %61
-  %63 = ptrtoint ptr %62 to i64
-  %64 = trunc i64 %63 to i32
-  %65 = sub i32 %64, ptrtoint (ptr getelementptr inbounds (i8, ptr @all_RegisterImpls, i64 1) to i32)
-  %66 = and i32 %65, -16
-  %spec.select.i.i = icmp eq i32 %66, 16
-  br i1 %spec.select.i.i, label %84, label %67
+  %58 = load i32, ptr %6, align 8
+  %59 = sext i32 %58 to i64
+  %60 = getelementptr inbounds %"class.Register::RegisterImpl", ptr getelementptr inbounds (i8, ptr @all_RegisterImpls, i64 1), i64 %59
+  %61 = ptrtoint ptr %60 to i64
+  %62 = trunc i64 %61 to i32
+  %63 = sub i32 %62, ptrtoint (ptr getelementptr inbounds (i8, ptr @all_RegisterImpls, i64 1) to i32)
+  %64 = and i32 %63, -16
+  %spec.select.i.i = icmp eq i32 %64, 16
+  br i1 %spec.select.i.i, label %82, label %65
 
-67:                                               ; preds = %54
-  %68 = getelementptr inbounds i8, ptr %6, i64 4
-  %69 = load i32, ptr %68, align 4
-  %70 = sext i32 %69 to i64
-  %71 = getelementptr inbounds %"class.Register::RegisterImpl", ptr getelementptr inbounds (i8, ptr @all_RegisterImpls, i64 1), i64 %70
-  %72 = ptrtoint ptr %71 to i64
-  %73 = trunc i64 %72 to i32
-  %74 = sub i32 %73, ptrtoint (ptr getelementptr inbounds (i8, ptr @all_RegisterImpls, i64 1) to i32)
-  %75 = and i32 %74, -16
-  %spec.select.i5.i = icmp eq i32 %75, 16
-  br i1 %spec.select.i5.i, label %84, label %76
+65:                                               ; preds = %52
+  %66 = getelementptr inbounds i8, ptr %6, i64 4
+  %67 = load i32, ptr %66, align 4
+  %68 = sext i32 %67 to i64
+  %69 = getelementptr inbounds %"class.Register::RegisterImpl", ptr getelementptr inbounds (i8, ptr @all_RegisterImpls, i64 1), i64 %68
+  %70 = ptrtoint ptr %69 to i64
+  %71 = trunc i64 %70 to i32
+  %72 = sub i32 %71, ptrtoint (ptr getelementptr inbounds (i8, ptr @all_RegisterImpls, i64 1) to i32)
+  %73 = and i32 %72, -16
+  %spec.select.i5.i = icmp eq i32 %73, 16
+  br i1 %spec.select.i5.i, label %82, label %74
 
-76:                                               ; preds = %67
-  %77 = and i32 %65, -24
-  %78 = icmp eq i32 %77, 8
-  %79 = select i1 %78, i32 73, i32 72
-  %80 = and i32 %74, -24
-  %81 = icmp eq i32 %80, 8
-  %82 = select i1 %81, i32 2, i32 8
-  %83 = or i32 %82, %79
+74:                                               ; preds = %65
+  %75 = and i32 %63, -24
+  %76 = icmp eq i32 %75, 8
+  %77 = select i1 %76, i32 73, i32 72
+  %78 = and i32 %72, -24
+  %79 = icmp eq i32 %78, 8
+  %80 = select i1 %79, i32 2, i32 8
+  %81 = or i32 %80, %77
   br label %_ZN9Assembler11get_prefixqE7Address8Registerb.exit
 
-84:                                               ; preds = %67, %54
+82:                                               ; preds = %65, %52
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %4, ptr noundef nonnull align 8 dereferenceable(64) %6, i64 21, i1 false)
-  %85 = getelementptr inbounds i8, ptr %4, i64 24
-  %86 = load ptr, ptr %55, align 8
-  %87 = getelementptr inbounds i8, ptr %86, i64 16
-  %88 = load ptr, ptr %87, align 8
-  call void %88(ptr noundef nonnull align 8 dereferenceable(40) %55, ptr noundef nonnull align 8 dereferenceable(40) %85) #18
+  %83 = getelementptr inbounds i8, ptr %4, i64 24
+  %84 = load ptr, ptr %53, align 8
+  %85 = getelementptr inbounds i8, ptr %84, i64 16
+  %86 = load ptr, ptr %85, align 8
+  call void %86(ptr noundef nonnull align 8 dereferenceable(40) %53, ptr noundef nonnull align 8 dereferenceable(40) %83) #18
   %.sroa.0.0.copyload.i.i.i = load i32, ptr %4, align 8
-  %89 = getelementptr inbounds i8, ptr %4, i64 4
-  %.sroa.0.0.copyload.i7.i.i = load i32, ptr %89, align 4
-  %90 = sext i32 %.sroa.0.0.copyload.i7.i.i to i64
-  %91 = getelementptr inbounds %"class.Register::RegisterImpl", ptr getelementptr inbounds (i8, ptr @all_RegisterImpls, i64 1), i64 %90
-  %92 = ptrtoint ptr %91 to i64
-  %93 = trunc i64 %92 to i32
-  %94 = sub i32 %93, ptrtoint (ptr getelementptr inbounds (i8, ptr @all_RegisterImpls, i64 1) to i32)
-  %95 = icmp ult i32 %94, 32
-  br i1 %95, label %96, label %_ZN9Assembler16get_prefixq_rex2E7Address8Registerb.exit.i
+  %87 = getelementptr inbounds i8, ptr %4, i64 4
+  %.sroa.0.0.copyload.i7.i.i = load i32, ptr %87, align 4
+  %88 = sext i32 %.sroa.0.0.copyload.i7.i.i to i64
+  %89 = getelementptr inbounds %"class.Register::RegisterImpl", ptr getelementptr inbounds (i8, ptr @all_RegisterImpls, i64 1), i64 %88
+  %90 = ptrtoint ptr %89 to i64
+  %91 = trunc i64 %90 to i32
+  %92 = sub i32 %91, ptrtoint (ptr getelementptr inbounds (i8, ptr @all_RegisterImpls, i64 1) to i32)
+  %spec.select.i.i8.i.i = icmp ult i32 %92, 32
+  br i1 %spec.select.i.i8.i.i, label %93, label %_ZN9Assembler16get_prefixq_rex2E7Address8Registerb.exit.i
 
-96:                                               ; preds = %84
-  %97 = shl nuw nsw i32 %94, 1
-  %spec.select.i.i.i.i = and i32 %97, 32
-  %98 = lshr i32 %94, 2
-  %99 = and i32 %98, 2
-  %.1.i.i8.i.i = or disjoint i32 %spec.select.i.i.i.i, %99
+93:                                               ; preds = %82
+  %94 = shl nuw nsw i32 %92, 1
+  %spec.select.i1.i.i.i = and i32 %94, 32
+  %95 = lshr i32 %92, 2
+  %96 = and i32 %95, 2
+  %.1.i.i9.i.i = or disjoint i32 %spec.select.i1.i.i.i, %96
   br label %_ZN9Assembler16get_prefixq_rex2E7Address8Registerb.exit.i
 
-_ZN9Assembler16get_prefixq_rex2E7Address8Registerb.exit.i: ; preds = %96, %84
-  %100 = phi i32 [ %.1.i.i8.i.i, %96 ], [ 0, %84 ]
-  %101 = sext i32 %.sroa.0.0.copyload.i.i.i to i64
-  %102 = getelementptr inbounds %"class.Register::RegisterImpl", ptr getelementptr inbounds (i8, ptr @all_RegisterImpls, i64 1), i64 %101
-  %103 = ptrtoint ptr %102 to i64
-  %104 = trunc i64 %103 to i32
-  %105 = sub i32 %104, ptrtoint (ptr getelementptr inbounds (i8, ptr @all_RegisterImpls, i64 1) to i32)
-  %106 = icmp ult i32 %105, 32
-  %107 = lshr i32 %105, 3
-  %108 = and i32 %107, 1
-  %109 = and i32 %105, 16
-  %.1.i.i.i.i = or disjoint i32 %109, %108
-  %110 = or disjoint i32 %.1.i.i.i.i, 54536
-  %111 = select i1 %106, i32 %110, i32 54536
-  %112 = or i32 %100, %111
+_ZN9Assembler16get_prefixq_rex2E7Address8Registerb.exit.i: ; preds = %93, %82
+  %97 = phi i32 [ %.1.i.i9.i.i, %93 ], [ 0, %82 ]
+  %98 = sext i32 %.sroa.0.0.copyload.i.i.i to i64
+  %99 = getelementptr inbounds %"class.Register::RegisterImpl", ptr getelementptr inbounds (i8, ptr @all_RegisterImpls, i64 1), i64 %98
+  %100 = ptrtoint ptr %99 to i64
+  %101 = trunc i64 %100 to i32
+  %102 = sub i32 %101, ptrtoint (ptr getelementptr inbounds (i8, ptr @all_RegisterImpls, i64 1) to i32)
+  %spec.select.i.i.i.i = icmp ult i32 %102, 32
+  %103 = lshr i32 %102, 3
+  %104 = and i32 %103, 1
+  %105 = and i32 %102, 16
+  %.1.i.i.i.i = or disjoint i32 %105, %104
+  %106 = or disjoint i32 %.1.i.i.i.i, 54536
+  %107 = select i1 %spec.select.i.i.i.i, i32 %106, i32 54536
+  %108 = or i32 %97, %107
   br label %_ZN9Assembler11get_prefixqE7Address8Registerb.exit
 
-_ZN9Assembler11get_prefixqE7Address8Registerb.exit: ; preds = %_ZN9Assembler16get_prefixq_rex2E7Address8Registerb.exit.i, %76
-  %.0.i = phi i32 [ %112, %_ZN9Assembler16get_prefixq_rex2E7Address8Registerb.exit.i ], [ %83, %76 ]
+_ZN9Assembler11get_prefixqE7Address8Registerb.exit: ; preds = %_ZN9Assembler16get_prefixq_rex2E7Address8Registerb.exit.i, %74
+  %.0.i = phi i32 [ %108, %_ZN9Assembler16get_prefixq_rex2E7Address8Registerb.exit.i ], [ %81, %74 ]
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %4)
-  %113 = shl i32 %.0.i, 24
-  br i1 %2, label %114, label %117
+  %109 = shl i32 %.0.i, 24
+  br i1 %2, label %110, label %113
 
-114:                                              ; preds = %_ZN9Assembler11get_prefixqE7Address8Registerb.exit
-  %115 = ashr exact i32 %113, 16
-  %116 = or disjoint i32 %115, 15
-  br label %119
+110:                                              ; preds = %_ZN9Assembler11get_prefixqE7Address8Registerb.exit
+  %111 = ashr exact i32 %109, 16
+  %112 = or disjoint i32 %111, 15
+  br label %115
 
-117:                                              ; preds = %_ZN9Assembler11get_prefixqE7Address8Registerb.exit
-  %118 = ashr exact i32 %113, 24
-  br label %119
+113:                                              ; preds = %_ZN9Assembler11get_prefixqE7Address8Registerb.exit
+  %114 = ashr exact i32 %109, 24
+  br label %115
 
-119:                                              ; preds = %114, %117, %_ZN9Assembler16get_prefixq_rex2E7Addressb.exit
-  %.0 = phi i32 [ %53, %_ZN9Assembler16get_prefixq_rex2E7Addressb.exit ], [ %116, %114 ], [ %118, %117 ]
+115:                                              ; preds = %110, %113, %_ZN9Assembler16get_prefixq_rex2E7Addressb.exit
+  %.0 = phi i32 [ %51, %_ZN9Assembler16get_prefixq_rex2E7Addressb.exit ], [ %112, %110 ], [ %114, %113 ]
   ret i32 %.0
 }
 
@@ -103670,7 +103670,7 @@ define hidden noundef range(i32 72, 54784) i32 @_ZN9Assembler11get_prefixqE7Addr
   %26 = trunc i64 %25 to i32
   %27 = sub i32 %26, ptrtoint (ptr getelementptr inbounds (i8, ptr @all_RegisterImpls, i64 1) to i32)
   %28 = icmp sgt i32 %27, 15
-  br i1 %28, label %29, label %69
+  br i1 %28, label %29, label %67
 
 29:                                               ; preds = %22, %13, %4
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %5, ptr noundef nonnull align 8 dereferenceable(64) %1, i64 21, i1 false)
@@ -103688,64 +103688,64 @@ define hidden noundef range(i32 72, 54784) i32 @_ZN9Assembler11get_prefixqE7Addr
   %38 = ptrtoint ptr %37 to i64
   %39 = trunc i64 %38 to i32
   %40 = sub i32 %39, ptrtoint (ptr getelementptr inbounds (i8, ptr @all_RegisterImpls, i64 1) to i32)
-  %41 = icmp ult i32 %40, 32
-  br i1 %41, label %42, label %_ZN9Assembler16get_prefixq_rex2E7Address8Registerb.exit
+  %spec.select.i.i8.i = icmp ult i32 %40, 32
+  br i1 %spec.select.i.i8.i, label %41, label %_ZN9Assembler16get_prefixq_rex2E7Address8Registerb.exit
 
-42:                                               ; preds = %29
-  %43 = shl nuw nsw i32 %40, 1
-  %spec.select.i.i.i = and i32 %43, 32
-  %44 = lshr i32 %40, 2
-  %45 = and i32 %44, 2
-  %.1.i.i8.i = or disjoint i32 %spec.select.i.i.i, %45
+41:                                               ; preds = %29
+  %42 = shl nuw nsw i32 %40, 1
+  %spec.select.i1.i.i = and i32 %42, 32
+  %43 = lshr i32 %40, 2
+  %44 = and i32 %43, 2
+  %.1.i.i9.i = or disjoint i32 %spec.select.i1.i.i, %44
   br label %_ZN9Assembler16get_prefixq_rex2E7Address8Registerb.exit
 
-_ZN9Assembler16get_prefixq_rex2E7Address8Registerb.exit: ; preds = %29, %42
-  %46 = phi i32 [ %.1.i.i8.i, %42 ], [ 0, %29 ]
-  %47 = sext i32 %.sroa.0.0.copyload.i.i to i64
-  %48 = getelementptr inbounds %"class.Register::RegisterImpl", ptr getelementptr inbounds (i8, ptr @all_RegisterImpls, i64 1), i64 %47
-  %49 = ptrtoint ptr %48 to i64
-  %50 = trunc i64 %49 to i32
-  %51 = sub i32 %50, ptrtoint (ptr getelementptr inbounds (i8, ptr @all_RegisterImpls, i64 1) to i32)
-  %52 = icmp ult i32 %51, 32
-  %53 = lshr i32 %51, 3
-  %54 = and i32 %53, 1
-  %55 = and i32 %51, 16
-  %.1.i.i.i = or disjoint i32 %54, %55
-  %56 = select i1 %52, i32 %.1.i.i.i, i32 0
-  %57 = sext i32 %2 to i64
-  %58 = getelementptr inbounds %"class.Register::RegisterImpl", ptr getelementptr inbounds (i8, ptr @all_RegisterImpls, i64 1), i64 %57
-  %59 = ptrtoint ptr %58 to i64
-  %60 = trunc i64 %59 to i32
-  %61 = sub i32 %60, ptrtoint (ptr getelementptr inbounds (i8, ptr @all_RegisterImpls, i64 1) to i32)
-  %62 = shl i32 %61, 2
-  %spec.select.i.i = and i32 %62, 64
-  %63 = lshr i32 %61, 1
-  %64 = and i32 %63, 4
-  %65 = select i1 %3, i32 54664, i32 54536
-  %66 = or disjoint i32 %64, %65
-  %.1.i.i = or disjoint i32 %66, %spec.select.i.i
-  %67 = or disjoint i32 %.1.i.i, %56
-  %68 = or i32 %67, %46
-  br label %83
+_ZN9Assembler16get_prefixq_rex2E7Address8Registerb.exit: ; preds = %29, %41
+  %45 = phi i32 [ %.1.i.i9.i, %41 ], [ 0, %29 ]
+  %46 = sext i32 %.sroa.0.0.copyload.i.i to i64
+  %47 = getelementptr inbounds %"class.Register::RegisterImpl", ptr getelementptr inbounds (i8, ptr @all_RegisterImpls, i64 1), i64 %46
+  %48 = ptrtoint ptr %47 to i64
+  %49 = trunc i64 %48 to i32
+  %50 = sub i32 %49, ptrtoint (ptr getelementptr inbounds (i8, ptr @all_RegisterImpls, i64 1) to i32)
+  %spec.select.i.i.i = icmp ult i32 %50, 32
+  %51 = lshr i32 %50, 3
+  %52 = and i32 %51, 1
+  %53 = and i32 %50, 16
+  %.1.i.i.i = or disjoint i32 %52, %53
+  %54 = select i1 %spec.select.i.i.i, i32 %.1.i.i.i, i32 0
+  %55 = sext i32 %2 to i64
+  %56 = getelementptr inbounds %"class.Register::RegisterImpl", ptr getelementptr inbounds (i8, ptr @all_RegisterImpls, i64 1), i64 %55
+  %57 = ptrtoint ptr %56 to i64
+  %58 = trunc i64 %57 to i32
+  %59 = sub i32 %58, ptrtoint (ptr getelementptr inbounds (i8, ptr @all_RegisterImpls, i64 1) to i32)
+  %60 = shl i32 %59, 2
+  %spec.select.i.i = and i32 %60, 64
+  %61 = lshr i32 %59, 1
+  %62 = and i32 %61, 4
+  %63 = select i1 %3, i32 54664, i32 54536
+  %64 = or disjoint i32 %62, %63
+  %.1.i.i = or disjoint i32 %64, %spec.select.i.i
+  %65 = or disjoint i32 %.1.i.i, %54
+  %66 = or i32 %65, %45
+  br label %81
 
-69:                                               ; preds = %22
-  %70 = and i32 %11, -24
-  %71 = icmp eq i32 %70, 8
-  %72 = select i1 %71, i32 73, i32 72
-  %73 = and i32 %20, -24
-  %74 = icmp eq i32 %73, 8
-  %75 = select i1 %74, i32 2, i32 0
-  %76 = icmp sgt i32 %27, 7
-  %77 = select i1 %76, i32 4, i32 0
-  %78 = or disjoint i32 %72, %77
-  %79 = or disjoint i32 %78, %75
-  %80 = shl nuw nsw i32 %79, 8
-  %81 = or disjoint i32 %80, 15
-  %82 = select i1 %3, i32 %81, i32 %79
-  br label %83
+67:                                               ; preds = %22
+  %68 = and i32 %11, -24
+  %69 = icmp eq i32 %68, 8
+  %70 = select i1 %69, i32 73, i32 72
+  %71 = and i32 %20, -24
+  %72 = icmp eq i32 %71, 8
+  %73 = select i1 %72, i32 2, i32 0
+  %74 = icmp sgt i32 %27, 7
+  %75 = select i1 %74, i32 4, i32 0
+  %76 = or disjoint i32 %70, %75
+  %77 = or disjoint i32 %76, %73
+  %78 = shl nuw nsw i32 %77, 8
+  %79 = or disjoint i32 %78, 15
+  %80 = select i1 %3, i32 %79, i32 %77
+  br label %81
 
-83:                                               ; preds = %69, %_ZN9Assembler16get_prefixq_rex2E7Address8Registerb.exit
-  %.0 = phi i32 [ %68, %_ZN9Assembler16get_prefixq_rex2E7Address8Registerb.exit ], [ %82, %69 ]
+81:                                               ; preds = %67, %_ZN9Assembler16get_prefixq_rex2E7Address8Registerb.exit
+  %.0 = phi i32 [ %66, %_ZN9Assembler16get_prefixq_rex2E7Address8Registerb.exit ], [ %80, %67 ]
   ret i32 %.0
 }
 
@@ -103759,45 +103759,45 @@ define hidden noundef range(i32 54536, 54784) i32 @_ZN9Assembler16get_prefixq_re
   %8 = ptrtoint ptr %7 to i64
   %9 = trunc i64 %8 to i32
   %10 = sub i32 %9, ptrtoint (ptr getelementptr inbounds (i8, ptr @all_RegisterImpls, i64 1) to i32)
-  %11 = icmp ult i32 %10, 32
-  br i1 %11, label %12, label %_ZN9Assembler21get_index_prefix_bitsE8Register.exit
+  %spec.select.i.i8 = icmp ult i32 %10, 32
+  br i1 %spec.select.i.i8, label %11, label %_ZN9Assembler21get_index_prefix_bitsE8Register.exit
 
-12:                                               ; preds = %4
-  %13 = shl nuw nsw i32 %10, 1
-  %spec.select.i.i = and i32 %13, 32
-  %14 = lshr i32 %10, 2
-  %15 = and i32 %14, 2
-  %.1.i.i8 = or disjoint i32 %spec.select.i.i, %15
+11:                                               ; preds = %4
+  %12 = shl nuw nsw i32 %10, 1
+  %spec.select.i1.i = and i32 %12, 32
+  %13 = lshr i32 %10, 2
+  %14 = and i32 %13, 2
+  %.1.i.i9 = or disjoint i32 %spec.select.i1.i, %14
   br label %_ZN9Assembler21get_index_prefix_bitsE8Register.exit
 
-_ZN9Assembler21get_index_prefix_bitsE8Register.exit: ; preds = %4, %12
-  %16 = phi i32 [ %.1.i.i8, %12 ], [ 0, %4 ]
-  %17 = sext i32 %.sroa.0.0.copyload.i to i64
-  %18 = getelementptr inbounds %"class.Register::RegisterImpl", ptr getelementptr inbounds (i8, ptr @all_RegisterImpls, i64 1), i64 %17
-  %19 = ptrtoint ptr %18 to i64
-  %20 = trunc i64 %19 to i32
-  %21 = sub i32 %20, ptrtoint (ptr getelementptr inbounds (i8, ptr @all_RegisterImpls, i64 1) to i32)
-  %22 = icmp ult i32 %21, 32
-  %23 = lshr i32 %21, 3
-  %24 = and i32 %23, 1
-  %25 = and i32 %21, 16
-  %.1.i.i = or disjoint i32 %24, %25
-  %26 = select i1 %22, i32 %.1.i.i, i32 0
-  %27 = sext i32 %2 to i64
-  %28 = getelementptr inbounds %"class.Register::RegisterImpl", ptr getelementptr inbounds (i8, ptr @all_RegisterImpls, i64 1), i64 %27
-  %29 = ptrtoint ptr %28 to i64
-  %30 = trunc i64 %29 to i32
-  %31 = sub i32 %30, ptrtoint (ptr getelementptr inbounds (i8, ptr @all_RegisterImpls, i64 1) to i32)
-  %32 = shl i32 %31, 2
-  %spec.select.i = and i32 %32, 64
-  %33 = lshr i32 %31, 1
-  %34 = and i32 %33, 4
-  %35 = select i1 %3, i32 54664, i32 54536
-  %36 = or disjoint i32 %35, %34
-  %.1.i = or disjoint i32 %36, %spec.select.i
-  %37 = or disjoint i32 %.1.i, %26
-  %38 = or i32 %37, %16
-  ret i32 %38
+_ZN9Assembler21get_index_prefix_bitsE8Register.exit: ; preds = %4, %11
+  %15 = phi i32 [ %.1.i.i9, %11 ], [ 0, %4 ]
+  %16 = sext i32 %.sroa.0.0.copyload.i to i64
+  %17 = getelementptr inbounds %"class.Register::RegisterImpl", ptr getelementptr inbounds (i8, ptr @all_RegisterImpls, i64 1), i64 %16
+  %18 = ptrtoint ptr %17 to i64
+  %19 = trunc i64 %18 to i32
+  %20 = sub i32 %19, ptrtoint (ptr getelementptr inbounds (i8, ptr @all_RegisterImpls, i64 1) to i32)
+  %spec.select.i.i = icmp ult i32 %20, 32
+  %21 = lshr i32 %20, 3
+  %22 = and i32 %21, 1
+  %23 = and i32 %20, 16
+  %.1.i.i = or disjoint i32 %22, %23
+  %24 = select i1 %spec.select.i.i, i32 %.1.i.i, i32 0
+  %25 = sext i32 %2 to i64
+  %26 = getelementptr inbounds %"class.Register::RegisterImpl", ptr getelementptr inbounds (i8, ptr @all_RegisterImpls, i64 1), i64 %25
+  %27 = ptrtoint ptr %26 to i64
+  %28 = trunc i64 %27 to i32
+  %29 = sub i32 %28, ptrtoint (ptr getelementptr inbounds (i8, ptr @all_RegisterImpls, i64 1) to i32)
+  %30 = shl i32 %29, 2
+  %spec.select.i = and i32 %30, 64
+  %31 = lshr i32 %29, 1
+  %32 = and i32 %31, 4
+  %33 = select i1 %3, i32 54664, i32 54536
+  %34 = or disjoint i32 %33, %32
+  %.1.i = or disjoint i32 %34, %spec.select.i
+  %35 = or disjoint i32 %.1.i, %24
+  %36 = or i32 %35, %15
+  ret i32 %36
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
@@ -103824,7 +103824,7 @@ define hidden void @_ZN9Assembler7prefixqE7Address(ptr nocapture noundef nonnull
   %19 = sub i32 %18, ptrtoint (ptr getelementptr inbounds (i8, ptr @all_RegisterImpls, i64 1) to i32)
   %20 = and i32 %19, -16
   %spec.select.i1 = icmp eq i32 %20, 16
-  br i1 %spec.select.i1, label %21, label %56
+  br i1 %spec.select.i1, label %21, label %54
 
 21:                                               ; preds = %12, %2
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %3, ptr noundef nonnull align 8 dereferenceable(64) %1, i64 21, i1 false)
@@ -103842,63 +103842,63 @@ define hidden void @_ZN9Assembler7prefixqE7Address(ptr nocapture noundef nonnull
   %30 = ptrtoint ptr %29 to i64
   %31 = trunc i64 %30 to i32
   %32 = sub i32 %31, ptrtoint (ptr getelementptr inbounds (i8, ptr @all_RegisterImpls, i64 1) to i32)
-  %33 = icmp ult i32 %32, 32
-  br i1 %33, label %34, label %_ZN9Assembler16get_prefixq_rex2E7Addressb.exit
+  %spec.select.i.i7.i = icmp ult i32 %32, 32
+  br i1 %spec.select.i.i7.i, label %33, label %_ZN9Assembler16get_prefixq_rex2E7Addressb.exit
 
-34:                                               ; preds = %21
-  %35 = shl nuw nsw i32 %32, 1
-  %spec.select.i.i.i = and i32 %35, 32
-  %36 = lshr i32 %32, 2
-  %37 = and i32 %36, 2
-  %.1.i.i7.i = or disjoint i32 %spec.select.i.i.i, %37
+33:                                               ; preds = %21
+  %34 = shl nuw nsw i32 %32, 1
+  %spec.select.i1.i.i = and i32 %34, 32
+  %35 = lshr i32 %32, 2
+  %36 = and i32 %35, 2
+  %.1.i.i8.i = or disjoint i32 %spec.select.i1.i.i, %36
   br label %_ZN9Assembler16get_prefixq_rex2E7Addressb.exit
 
-_ZN9Assembler16get_prefixq_rex2E7Addressb.exit:   ; preds = %21, %34
-  %38 = phi i32 [ %.1.i.i7.i, %34 ], [ 0, %21 ]
-  %39 = sext i32 %.sroa.0.0.copyload.i.i to i64
-  %40 = getelementptr inbounds %"class.Register::RegisterImpl", ptr getelementptr inbounds (i8, ptr @all_RegisterImpls, i64 1), i64 %39
-  %41 = ptrtoint ptr %40 to i64
-  %42 = trunc i64 %41 to i32
-  %43 = sub i32 %42, ptrtoint (ptr getelementptr inbounds (i8, ptr @all_RegisterImpls, i64 1) to i32)
-  %44 = icmp ult i32 %43, 32
-  %45 = lshr i32 %43, 3
-  %46 = and i32 %45, 1
-  %47 = and i32 %43, 16
-  %.1.i.i.i = or disjoint i32 %47, %46
-  %48 = or disjoint i32 %.1.i.i.i, 8
-  %49 = select i1 %44, i32 %48, i32 8
-  %50 = or i32 %38, %49
-  %51 = getelementptr inbounds i8, ptr %0, i64 8
+_ZN9Assembler16get_prefixq_rex2E7Addressb.exit:   ; preds = %21, %33
+  %37 = phi i32 [ %.1.i.i8.i, %33 ], [ 0, %21 ]
+  %38 = sext i32 %.sroa.0.0.copyload.i.i to i64
+  %39 = getelementptr inbounds %"class.Register::RegisterImpl", ptr getelementptr inbounds (i8, ptr @all_RegisterImpls, i64 1), i64 %38
+  %40 = ptrtoint ptr %39 to i64
+  %41 = trunc i64 %40 to i32
+  %42 = sub i32 %41, ptrtoint (ptr getelementptr inbounds (i8, ptr @all_RegisterImpls, i64 1) to i32)
+  %spec.select.i.i.i = icmp ult i32 %42, 32
+  %43 = lshr i32 %42, 3
+  %44 = and i32 %43, 1
+  %45 = and i32 %42, 16
+  %.1.i.i.i = or disjoint i32 %45, %44
+  %46 = or disjoint i32 %.1.i.i.i, 8
+  %47 = select i1 %spec.select.i.i.i, i32 %46, i32 8
+  %48 = or i32 %37, %47
+  %49 = getelementptr inbounds i8, ptr %0, i64 8
+  %50 = load ptr, ptr %49, align 8
+  %51 = getelementptr inbounds i8, ptr %50, i64 16
   %52 = load ptr, ptr %51, align 8
-  %53 = getelementptr inbounds i8, ptr %52, i64 16
-  %54 = load ptr, ptr %53, align 8
-  %55 = getelementptr inbounds i8, ptr %54, i64 1
-  store i8 -43, ptr %54, align 1
-  store ptr %55, ptr %53, align 8
-  br label %64
+  %53 = getelementptr inbounds i8, ptr %52, i64 1
+  store i8 -43, ptr %52, align 1
+  store ptr %53, ptr %51, align 8
+  br label %62
 
-56:                                               ; preds = %12
+54:                                               ; preds = %12
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %4, ptr noundef nonnull align 8 dereferenceable(64) %1, i64 21, i1 false)
-  %57 = getelementptr inbounds i8, ptr %4, i64 24
-  %58 = getelementptr inbounds i8, ptr %1, i64 24
+  %55 = getelementptr inbounds i8, ptr %4, i64 24
+  %56 = getelementptr inbounds i8, ptr %1, i64 24
+  %57 = load ptr, ptr %56, align 8
+  %58 = getelementptr inbounds i8, ptr %57, i64 16
   %59 = load ptr, ptr %58, align 8
-  %60 = getelementptr inbounds i8, ptr %59, i64 16
-  %61 = load ptr, ptr %60, align 8
-  call void %61(ptr noundef nonnull align 8 dereferenceable(40) %58, ptr noundef nonnull align 8 dereferenceable(40) %57) #18
-  %62 = call noundef i32 @_ZN9Assembler11get_prefixqE7Addressb(ptr nonnull align 8 poison, ptr noundef nonnull %4, i1 noundef zeroext false)
-  %63 = getelementptr inbounds i8, ptr %0, i64 8
-  br label %64
+  call void %59(ptr noundef nonnull align 8 dereferenceable(40) %56, ptr noundef nonnull align 8 dereferenceable(40) %55) #18
+  %60 = call noundef i32 @_ZN9Assembler11get_prefixqE7Addressb(ptr nonnull align 8 poison, ptr noundef nonnull %4, i1 noundef zeroext false)
+  %61 = getelementptr inbounds i8, ptr %0, i64 8
+  br label %62
 
-64:                                               ; preds = %56, %_ZN9Assembler16get_prefixq_rex2E7Addressb.exit
-  %.sink = phi i32 [ %62, %56 ], [ %50, %_ZN9Assembler16get_prefixq_rex2E7Addressb.exit ]
-  %.sink5.in = phi ptr [ %63, %56 ], [ %51, %_ZN9Assembler16get_prefixq_rex2E7Addressb.exit ]
+62:                                               ; preds = %54, %_ZN9Assembler16get_prefixq_rex2E7Addressb.exit
+  %.sink = phi i32 [ %60, %54 ], [ %48, %_ZN9Assembler16get_prefixq_rex2E7Addressb.exit ]
+  %.sink5.in = phi ptr [ %61, %54 ], [ %49, %_ZN9Assembler16get_prefixq_rex2E7Addressb.exit ]
   %.sink5 = load ptr, ptr %.sink5.in, align 8
   %.0.i.i = trunc i32 %.sink to i8
-  %65 = getelementptr inbounds i8, ptr %.sink5, i64 16
-  %66 = load ptr, ptr %65, align 8
-  %67 = getelementptr inbounds i8, ptr %66, i64 1
-  store i8 %.0.i.i, ptr %66, align 1
-  store ptr %67, ptr %65, align 8
+  %63 = getelementptr inbounds i8, ptr %.sink5, i64 16
+  %64 = load ptr, ptr %63, align 8
+  %65 = getelementptr inbounds i8, ptr %64, i64 1
+  store i8 %.0.i.i, ptr %64, align 1
+  store ptr %65, ptr %63, align 8
   ret void
 }
 
@@ -104706,8 +104706,8 @@ define hidden void @_ZN9Assembler5adcxqE8RegisterS0_(ptr noundef nonnull align 8
   %14 = trunc i64 %13 to i32
   %15 = sub i32 %14, ptrtoint (ptr getelementptr inbounds (i8, ptr @all_RegisterImpls, i64 1) to i32)
   %16 = and i32 %15, -16
-  %or.cond6.i = icmp eq i32 %16, 16
-  br i1 %or.cond6.i, label %._crit_edge, label %_ZN9Assembler10needs_rex2E8RegisterS0_S0_.exit
+  %or.cond8.i = icmp eq i32 %16, 16
+  br i1 %or.cond8.i, label %._crit_edge, label %_ZN9Assembler10needs_rex2E8RegisterS0_S0_.exit
 
 ._crit_edge:                                      ; preds = %3, %11
   store i8 1, ptr %4, align 8
@@ -104889,8 +104889,8 @@ define hidden void @_ZN9Assembler5adoxqE8RegisterS0_(ptr noundef nonnull align 8
   %14 = trunc i64 %13 to i32
   %15 = sub i32 %14, ptrtoint (ptr getelementptr inbounds (i8, ptr @all_RegisterImpls, i64 1) to i32)
   %16 = and i32 %15, -16
-  %or.cond6.i = icmp eq i32 %16, 16
-  br i1 %or.cond6.i, label %._crit_edge, label %_ZN9Assembler10needs_rex2E8RegisterS0_S0_.exit
+  %or.cond8.i = icmp eq i32 %16, 16
+  br i1 %or.cond8.i, label %._crit_edge, label %_ZN9Assembler10needs_rex2E8RegisterS0_S0_.exit
 
 ._crit_edge:                                      ; preds = %3, %11
   store i8 1, ptr %4, align 8
@@ -107488,41 +107488,41 @@ define hidden void @_ZN9Assembler9cvtsi2sdqE11XMMRegister8Register(ptr noundef n
   %34 = trunc i64 %33 to i32
   %35 = sub i32 %34, ptrtoint (ptr getelementptr inbounds (i8, ptr @all_XMMRegisterImpls, i64 1) to i32)
   %36 = icmp sgt i32 %6, 0
-  br i1 %36, label %37, label %40
+  br i1 %36, label %37, label %39
 
 37:                                               ; preds = %3
-  %38 = icmp ult i32 %30, 32
-  %spec.select.i5 = select i1 %38, i32 %30, i32 0
-  %39 = call noundef i32 @_ZN9Assembler21vex_prefix_and_encodeEiiiNS_13VexSimdPrefixENS_9VexOpcodeEP15InstructionAttrb(ptr noundef nonnull align 8 dereferenceable(40) %0, i32 noundef %30, i32 noundef %spec.select.i5, i32 noundef %35, i32 noundef 3, i32 noundef 1, ptr noundef nonnull %4, i1 noundef zeroext true)
+  %spec.select.i.i = icmp ult i32 %30, 32
+  %spec.select.i5 = select i1 %spec.select.i.i, i32 %30, i32 0
+  %38 = call noundef i32 @_ZN9Assembler21vex_prefix_and_encodeEiiiNS_13VexSimdPrefixENS_9VexOpcodeEP15InstructionAttrb(ptr noundef nonnull align 8 dereferenceable(40) %0, i32 noundef %30, i32 noundef %spec.select.i5, i32 noundef %35, i32 noundef 3, i32 noundef 1, ptr noundef nonnull %4, i1 noundef zeroext true)
   br label %_ZN9Assembler22simd_prefix_and_encodeE11XMMRegisterS0_S0_NS_13VexSimdPrefixENS_9VexOpcodeEP15InstructionAttrb.exit
 
-40:                                               ; preds = %3
-  %41 = tail call noundef i32 @_ZN9Assembler21rex_prefix_and_encodeEiiNS_13VexSimdPrefixENS_9VexOpcodeEb(ptr noundef nonnull align 8 dereferenceable(40) %0, i32 noundef %30, i32 noundef %35, i32 noundef 3, i32 noundef 1, i1 noundef zeroext true)
+39:                                               ; preds = %3
+  %40 = tail call noundef i32 @_ZN9Assembler21rex_prefix_and_encodeEiiNS_13VexSimdPrefixENS_9VexOpcodeEb(ptr noundef nonnull align 8 dereferenceable(40) %0, i32 noundef %30, i32 noundef %35, i32 noundef 3, i32 noundef 1, i1 noundef zeroext true)
   br label %_ZN9Assembler22simd_prefix_and_encodeE11XMMRegisterS0_S0_NS_13VexSimdPrefixENS_9VexOpcodeEP15InstructionAttrb.exit
 
-_ZN9Assembler22simd_prefix_and_encodeE11XMMRegisterS0_S0_NS_13VexSimdPrefixENS_9VexOpcodeEP15InstructionAttrb.exit: ; preds = %37, %40
-  %.0.i = phi i32 [ %39, %37 ], [ %41, %40 ]
-  %42 = getelementptr inbounds i8, ptr %0, i64 8
-  %43 = load ptr, ptr %42, align 8
-  %44 = trunc i32 %.0.i to i8
-  %.0.i2.i = or i8 %44, -64
-  %45 = getelementptr inbounds i8, ptr %43, i64 16
-  %46 = load ptr, ptr %45, align 8
-  %47 = getelementptr inbounds i8, ptr %46, i64 1
-  store i8 42, ptr %46, align 1
-  %48 = getelementptr inbounds i8, ptr %46, i64 2
-  store i8 %.0.i2.i, ptr %47, align 1
-  store ptr %48, ptr %45, align 8
-  %49 = load ptr, ptr %20, align 8
-  %.not.i = icmp eq ptr %49, null
-  br i1 %.not.i, label %_ZN15InstructionAttrD2Ev.exit, label %50
+_ZN9Assembler22simd_prefix_and_encodeE11XMMRegisterS0_S0_NS_13VexSimdPrefixENS_9VexOpcodeEP15InstructionAttrb.exit: ; preds = %37, %39
+  %.0.i = phi i32 [ %38, %37 ], [ %40, %39 ]
+  %41 = getelementptr inbounds i8, ptr %0, i64 8
+  %42 = load ptr, ptr %41, align 8
+  %43 = trunc i32 %.0.i to i8
+  %.0.i2.i = or i8 %43, -64
+  %44 = getelementptr inbounds i8, ptr %42, i64 16
+  %45 = load ptr, ptr %44, align 8
+  %46 = getelementptr inbounds i8, ptr %45, i64 1
+  store i8 42, ptr %45, align 1
+  %47 = getelementptr inbounds i8, ptr %45, i64 2
+  store i8 %.0.i2.i, ptr %46, align 1
+  store ptr %47, ptr %44, align 8
+  %48 = load ptr, ptr %20, align 8
+  %.not.i = icmp eq ptr %48, null
+  br i1 %.not.i, label %_ZN15InstructionAttrD2Ev.exit, label %49
 
-50:                                               ; preds = %_ZN9Assembler22simd_prefix_and_encodeE11XMMRegisterS0_S0_NS_13VexSimdPrefixENS_9VexOpcodeEP15InstructionAttrb.exit
-  %51 = getelementptr inbounds i8, ptr %49, i64 32
-  store ptr null, ptr %51, align 8
+49:                                               ; preds = %_ZN9Assembler22simd_prefix_and_encodeE11XMMRegisterS0_S0_NS_13VexSimdPrefixENS_9VexOpcodeEP15InstructionAttrb.exit
+  %50 = getelementptr inbounds i8, ptr %48, i64 32
+  store ptr null, ptr %50, align 8
   br label %_ZN15InstructionAttrD2Ev.exit
 
-_ZN15InstructionAttrD2Ev.exit:                    ; preds = %_ZN9Assembler22simd_prefix_and_encodeE11XMMRegisterS0_S0_NS_13VexSimdPrefixENS_9VexOpcodeEP15InstructionAttrb.exit, %50
+_ZN15InstructionAttrD2Ev.exit:                    ; preds = %_ZN9Assembler22simd_prefix_and_encodeE11XMMRegisterS0_S0_NS_13VexSimdPrefixENS_9VexOpcodeEP15InstructionAttrb.exit, %49
   ret void
 }
 

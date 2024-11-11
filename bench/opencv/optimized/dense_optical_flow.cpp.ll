@@ -1066,8 +1066,8 @@ _ZN2cv3PtrINS_20FarnebackOpticalFlowEED2Ev.exit:  ; preds = %_ZN2cv3PtrINS_20Far
   br label %.body140
 
 438:                                              ; preds = %422
-  %439 = icmp ugt i32 %425, 640
-  %440 = icmp ugt i32 %426, 480
+  %439 = icmp samesign ugt i32 %425, 640
+  %440 = icmp samesign ugt i32 %426, 480
   %or.cond.i = select i1 %439, i1 true, i1 %440
   br i1 %or.cond.i, label %441, label %453
 

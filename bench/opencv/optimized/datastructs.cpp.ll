@@ -9541,7 +9541,7 @@ cvGetSeqReaderPos.exit680:                        ; preds = %1379, %1388
   br i1 %1476, label %1478, label %1519
 
 1478:                                             ; preds = %1477
-  %1479 = icmp ugt i32 %1211, %1400
+  %1479 = icmp samesign ugt i32 %1211, %1400
   %1480 = add nsw i32 %.1, 1
   %1481 = sext i32 %1480 to i64
   %1482 = getelementptr inbounds [48 x %struct.anon], ptr %28, i64 0, i64 %1481
@@ -10154,7 +10154,7 @@ cvStartReadSeq.exit:                              ; preds = %42, %45
 
 169:                                              ; preds = %165
   %170 = sub nuw nsw i32 %167, %168
-  %.not44.i = icmp ult i32 %170, %168
+  %.not44.i = icmp samesign ult i32 %170, %168
   br i1 %.not44.i, label %171, label %cvGetSeqElem.exit
 
 171:                                              ; preds = %169, %165

@@ -15760,7 +15760,7 @@ define hidden void @_ZN4core5slice4sort6shared9smallsort18small_sort_network17hb
 8:                                                ; preds = %6
   call void @llvm.lifetime.start.p0(i64 256, ptr nonnull %4)
   %9 = lshr i64 %1, 1
-  %10 = icmp ult i64 %1, 18
+  %10 = icmp samesign ult i64 %1, 18
   %11 = getelementptr i64, ptr %0, i64 %9
   %12 = sub nuw nsw i64 %1, %9
   br i1 %10, label %.split.us, label %.split
@@ -15839,7 +15839,7 @@ _ZN4core5slice4sort6shared9smallsort11insert_tail17h7041f5e5e1f97988E.llvm.97032
   br i1 %36, label %39, label %37
 
 37:                                               ; preds = %.split
-  %38 = icmp ugt i64 %.sroa.9.0, 8
+  %38 = icmp samesign ugt i64 %.sroa.9.0, 8
   br i1 %38, label %40, label %41
 
 39:                                               ; preds = %.split
@@ -16983,7 +16983,7 @@ define hidden void @_ZN4core5slice4sort6shared9smallsort31small_sort_general_wit
   unreachable
 
 15:                                               ; preds = %11
-  %16 = icmp ugt i64 %1, 7
+  %16 = icmp samesign ugt i64 %1, 7
   br i1 %16, label %22, label %91
 
 17:                                               ; preds = %11

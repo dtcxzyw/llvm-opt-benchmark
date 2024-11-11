@@ -892,7 +892,7 @@ while.end.i.i:                                    ; preds = %if.end74.i.i, %if.t
   %83 = load i8, ptr @VERBOSE, align 1
   %tobool.not.i.i = icmp ne i8 %83, 0
   %.pre.i.i = zext i16 %newStart.0.lcssa.i.i to i32
-  %cmp78.i.i = icmp ugt i32 %.lcssa.i.i, %.pre.i.i
+  %cmp78.i.i = icmp samesign ugt i32 %.lcssa.i.i, %.pre.i.i
   %or.cond.i.i = select i1 %tobool.not.i.i, i1 %cmp78.i.i, i1 false
   br i1 %or.cond.i.i, label %if.then79.i.i, label %if.end87.i.i
 
@@ -940,7 +940,7 @@ _ZL19singleCompactStage3P8MBCSData.exit.i:        ; preds = %for.body93.i.i
   call void @llvm.lifetime.end.p0(i64 8192, ptr nonnull %map.i.i)
   call void @llvm.lifetime.start.p0(i64 2014, ptr nonnull %map.i27.i)
   store i16 0, ptr %map.i27.i, align 16
-  %cmp61.i.i = icmp ugt i32 %84, 64
+  %cmp61.i.i = icmp samesign ugt i32 %84, 64
   br i1 %cmp61.i.i, label %while.body.i39.i, label %while.end.i29.i
 
 while.body.i39.i:                                 ; preds = %_ZL19singleCompactStage3P8MBCSData.exit.i, %if.end79.i.i
@@ -1057,7 +1057,7 @@ while.end.i29.i:                                  ; preds = %if.end79.i.i, %_ZL1
   %97 = load i8, ptr @VERBOSE, align 1
   %tobool.not.i31.i = icmp ne i8 %97, 0
   %.pre.i32.i = zext i16 %newStart.0.lcssa.i30.i to i32
-  %cmp83.i.i = icmp ugt i32 %84, %.pre.i32.i
+  %cmp83.i.i = icmp samesign ugt i32 %84, %.pre.i32.i
   %or.cond.i33.i = select i1 %tobool.not.i31.i, i1 %cmp83.i.i, i1 false
   br i1 %or.cond.i33.i, label %if.then84.i.i, label %if.end92.i.i
 
@@ -1218,7 +1218,7 @@ while.end.i64.i:                                  ; preds = %if.end77.i.i, %if.e
   %112 = load i8, ptr @VERBOSE, align 1
   %tobool.not.i67.i = icmp ne i8 %112, 0
   %.pre.i68.i = zext i16 %newStart.0.lcssa.i65.i to i32
-  %cmp81.i.i = icmp ugt i32 %.lcssa.i66.i, %.pre.i68.i
+  %cmp81.i.i = icmp samesign ugt i32 %.lcssa.i66.i, %.pre.i68.i
   %or.cond.i69.i = select i1 %tobool.not.i67.i, i1 %cmp81.i.i, i1 false
   br i1 %or.cond.i69.i, label %if.then82.i.i, label %if.end90.i.i
 
@@ -1664,7 +1664,7 @@ while.body.i:                                     ; preds = %if.then17, %while.b
   store i8 %cond.i10.i, ptr %incdec.ptr.i, align 1
   %incdec.ptr6.i = getelementptr inbounds i8, ptr %bytes.addr.012.i, i64 1
   %dec.i = add nsw i32 %length.addr.013.i, -1
-  %cmp.i = icmp ugt i32 %length.addr.013.i, 1
+  %cmp.i = icmp samesign ugt i32 %length.addr.013.i, 1
   br i1 %cmp.i, label %while.body.i, label %_ZL10printBytesPcPKhi.exit, !llvm.loop !33
 
 _ZL10printBytesPcPKhi.exit:                       ; preds = %while.body.i, %if.then17
@@ -1734,7 +1734,7 @@ while.body.i139:                                  ; preds = %if.then25, %while.b
   store i8 %cond.i10.i151, ptr %incdec.ptr.i147, align 1
   %incdec.ptr6.i153 = getelementptr inbounds i8, ptr %bytes.addr.012.i142, i64 1
   %dec.i154 = add nsw i32 %length.addr.013.i141, -1
-  %cmp.i155 = icmp ugt i32 %length.addr.013.i141, 1
+  %cmp.i155 = icmp samesign ugt i32 %length.addr.013.i141, 1
   br i1 %cmp.i155, label %while.body.i139, label %_ZL10printBytesPcPKhi.exit156, !llvm.loop !33
 
 _ZL10printBytesPcPKhi.exit156:                    ; preds = %while.body.i139, %if.then25
@@ -1980,7 +1980,7 @@ if.then160:                                       ; preds = %sw.bb151
   br i1 %cmp161, label %if.end183, label %if.else163
 
 if.else163:                                       ; preds = %if.then160
-  %cmp164 = icmp ult i16 %46, -8192
+  %cmp164 = icmp samesign ult i16 %46, -8192
   br i1 %cmp164, label %if.then165, label %if.else176
 
 if.then165:                                       ; preds = %if.else163
@@ -2071,7 +2071,7 @@ if.then235:                                       ; preds = %if.else233
   br label %return
 
 if.else240:                                       ; preds = %if.else233
-  %cmp241 = icmp ult i32 %c, 65536
+  %cmp241 = icmp samesign ult i32 %c, 65536
   br i1 %cmp241, label %if.then242, label %if.else251
 
 if.then242:                                       ; preds = %if.else240
@@ -2393,7 +2393,7 @@ while.body.i:                                     ; preds = %if.then, %while.bod
   store i8 %cond.i10.i, ptr %incdec.ptr.i, align 1
   %incdec.ptr6.i = getelementptr inbounds i8, ptr %bytes.addr.012.i, i64 1
   %dec.i = add nsw i32 %length.addr.013.i, -1
-  %cmp.i = icmp ugt i32 %length.addr.013.i, 1
+  %cmp.i = icmp samesign ugt i32 %length.addr.013.i, 1
   br i1 %cmp.i, label %while.body.i, label %_ZL10printBytesPcPKhi.exit, !llvm.loop !33
 
 _ZL10printBytesPcPKhi.exit:                       ; preds = %while.body.i, %if.then
@@ -2543,7 +2543,7 @@ while.body.i138:                                  ; preds = %if.then44, %while.b
   store i8 %cond.i10.i150, ptr %incdec.ptr.i146, align 1
   %incdec.ptr6.i152 = getelementptr inbounds i8, ptr %bytes.addr.012.i141, i64 1
   %dec.i153 = add nsw i32 %length.addr.013.i140, -1
-  %cmp.i154 = icmp ugt i32 %length.addr.013.i140, 1
+  %cmp.i154 = icmp samesign ugt i32 %length.addr.013.i140, 1
   br i1 %cmp.i154, label %while.body.i138, label %_ZL10printBytesPcPKhi.exit155, !llvm.loop !33
 
 _ZL10printBytesPcPKhi.exit155:                    ; preds = %while.body.i138, %if.then44
@@ -2680,7 +2680,7 @@ while.body.i158:                                  ; preds = %if.then107, %while.
   store i8 %cond.i10.i170, ptr %incdec.ptr.i166, align 1
   %incdec.ptr6.i172 = getelementptr inbounds i8, ptr %bytes.addr.012.i161, i64 1
   %dec.i173 = add nsw i32 %length.addr.013.i160, -1
-  %cmp.i174 = icmp ugt i32 %length.addr.013.i160, 1
+  %cmp.i174 = icmp samesign ugt i32 %length.addr.013.i160, 1
   br i1 %cmp.i174, label %while.body.i158, label %_ZL10printBytesPcPKhi.exit175, !llvm.loop !33
 
 _ZL10printBytesPcPKhi.exit175:                    ; preds = %while.body.i158, %if.then107
@@ -2876,7 +2876,7 @@ while.body.i178:                                  ; preds = %if.then202, %while.
   store i8 %cond.i10.i190, ptr %incdec.ptr.i186, align 1
   %incdec.ptr6.i192 = getelementptr inbounds i8, ptr %bytes.addr.012.i181, i64 1
   %dec.i193 = add nsw i32 %length.addr.013.i180, -1
-  %cmp.i194 = icmp ugt i32 %length.addr.013.i180, 1
+  %cmp.i194 = icmp samesign ugt i32 %length.addr.013.i180, 1
   br i1 %cmp.i194, label %while.body.i178, label %_ZL10printBytesPcPKhi.exit195, !llvm.loop !33
 
 _ZL10printBytesPcPKhi.exit195:                    ; preds = %while.body.i178, %if.then202
@@ -2916,7 +2916,7 @@ while.body.i198:                                  ; preds = %if.then208, %while.
   store i8 %cond.i10.i210, ptr %incdec.ptr.i206, align 1
   %incdec.ptr6.i212 = getelementptr inbounds i8, ptr %bytes.addr.012.i201, i64 1
   %dec.i213 = add nsw i32 %length.addr.013.i200, -1
-  %cmp.i214 = icmp ugt i32 %length.addr.013.i200, 1
+  %cmp.i214 = icmp samesign ugt i32 %length.addr.013.i200, 1
   br i1 %cmp.i214, label %while.body.i198, label %_ZL10printBytesPcPKhi.exit215, !llvm.loop !33
 
 _ZL10printBytesPcPKhi.exit215:                    ; preds = %while.body.i198, %if.then208
@@ -2973,7 +2973,7 @@ while.body:                                       ; preds = %entry, %while.body
   store i8 %cond.i10, ptr %incdec.ptr, align 1
   %incdec.ptr6 = getelementptr inbounds i8, ptr %bytes.addr.012, i64 1
   %dec = add nsw i32 %length.addr.013, -1
-  %cmp = icmp ugt i32 %length.addr.013, 1
+  %cmp = icmp samesign ugt i32 %length.addr.013, 1
   br i1 %cmp, label %while.body, label %while.end, !llvm.loop !33
 
 while.end:                                        ; preds = %while.body, %entry

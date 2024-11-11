@@ -135,7 +135,7 @@ if.then7.i.i.us:                                  ; preds = %if.then5.i.i.us
   br label %_ZNK3ue29CharReach9find_nextEm.exit.us
 
 for.cond.i.i.us:                                  ; preds = %if.then5.i.i.us, %if.end.i.i.us
-  %cmp14.i.i.us = icmp ult i64 %i.02031.us, 192
+  %cmp14.i.i.us = icmp samesign ult i64 %i.02031.us, 192
   br i1 %cmp14.i.i.us, label %for.body.i.i.us, label %return
 
 for.body.i.i.us:                                  ; preds = %for.cond.i.i.us
@@ -146,7 +146,7 @@ for.body.i.i.us:                                  ; preds = %for.cond.i.i.us
   br i1 %tobool17.not.i.i.us, label %for.cond.i.i.1.us, label %if.then18.i.i.us, !llvm.loop !6
 
 for.cond.i.i.1.us:                                ; preds = %for.body.i.i.us
-  %cmp14.i.i.1.us = icmp ult i64 %i.02031.us, 128
+  %cmp14.i.i.1.us = icmp samesign ult i64 %i.02031.us, 128
   br i1 %cmp14.i.i.1.us, label %for.body.i.i.1.us, label %return
 
 for.body.i.i.1.us:                                ; preds = %for.cond.i.i.1.us
@@ -193,7 +193,7 @@ if.then7.i.i:                                     ; preds = %if.then5.i.i
   br label %_ZNK3ue29CharReach9find_nextEm.exit
 
 for.cond.i.i:                                     ; preds = %if.then5.i.i, %if.end.i.i
-  %cmp14.i.i = icmp ult i64 %i.02031, 192
+  %cmp14.i.i = icmp samesign ult i64 %i.02031, 192
   br i1 %cmp14.i.i, label %for.body.i.i, label %return
 
 for.body.i.i:                                     ; preds = %for.cond.i.i
@@ -204,7 +204,7 @@ for.body.i.i:                                     ; preds = %for.cond.i.i
   br i1 %tobool17.not.i.i, label %for.cond.i.i.1, label %if.then18.i.i, !llvm.loop !6
 
 for.cond.i.i.1:                                   ; preds = %for.body.i.i
-  %cmp14.i.i.1 = icmp ult i64 %i.02031, 128
+  %cmp14.i.i.1 = icmp samesign ult i64 %i.02031, 128
   br i1 %cmp14.i.i.1, label %for.body.i.i.1, label %return
 
 for.body.i.i.1:                                   ; preds = %for.cond.i.i.1
@@ -215,7 +215,7 @@ for.body.i.i.1:                                   ; preds = %for.cond.i.i.1
   br i1 %tobool17.not.i.i.1, label %for.cond.i.i.2, label %if.then18.i.i, !llvm.loop !6
 
 for.cond.i.i.2:                                   ; preds = %for.body.i.i.1
-  %cmp14.i.i.2 = icmp ugt i64 %i.02031, 63
+  %cmp14.i.i.2 = icmp samesign ugt i64 %i.02031, 63
   br i1 %cmp14.i.i.2, label %return, label %if.then18.i.i
 
 if.then18.i.i:                                    ; preds = %for.cond.i.i.2, %for.body.i.i.1, %for.body.i.i
@@ -668,7 +668,7 @@ for.body.i.i:                                     ; preds = %for.cond.i.i
   br i1 %tobool17.not.i.i, label %for.cond.i.i.1, label %if.then18.i.i, !llvm.loop !6
 
 for.cond.i.i.1:                                   ; preds = %for.body.i.i
-  %cmp14.i.i.1 = icmp ult i64 %i.016, 128
+  %cmp14.i.i.1 = icmp samesign ult i64 %i.016, 128
   br i1 %cmp14.i.i.1, label %for.body.i.i.1, label %nrvo.skipdtor
 
 for.body.i.i.1:                                   ; preds = %for.cond.i.i.1
@@ -679,7 +679,7 @@ for.body.i.i.1:                                   ; preds = %for.cond.i.i.1
   br i1 %tobool17.not.i.i.1, label %for.cond.i.i.2, label %if.then18.i.i, !llvm.loop !6
 
 for.cond.i.i.2:                                   ; preds = %for.body.i.i.1
-  %cmp14.i.i.2 = icmp ugt i64 %i.016, 63
+  %cmp14.i.i.2 = icmp samesign ugt i64 %i.016, 63
   %18 = load i64, ptr %arrayidx.i.i37.i.i.2, align 8
   %tobool17.not.i.i.2 = icmp eq i64 %18, 0
   %or.cond = select i1 %cmp14.i.i.2, i1 true, i1 %tobool17.not.i.i.2
@@ -930,7 +930,7 @@ if.end.i.i.backedge:                              ; preds = %if.then18.i.i, %if.
   br label %if.end.i.i, !llvm.loop !20
 
 for.cond.i.i:                                     ; preds = %if.then5.i.i, %if.end.i.i
-  %cmp14.i.i = icmp ult i64 %i.013, 192
+  %cmp14.i.i = icmp samesign ult i64 %i.013, 192
   br i1 %cmp14.i.i, label %for.body.i.i, label %for.cond.cleanup
 
 for.body.i.i:                                     ; preds = %for.cond.i.i
@@ -941,7 +941,7 @@ for.body.i.i:                                     ; preds = %for.cond.i.i
   br i1 %tobool17.not.i.i, label %for.cond.i.i.1, label %if.then18.i.i, !llvm.loop !6
 
 for.cond.i.i.1:                                   ; preds = %for.body.i.i
-  %cmp14.i.i.1 = icmp ult i64 %i.013, 128
+  %cmp14.i.i.1 = icmp samesign ult i64 %i.013, 128
   br i1 %cmp14.i.i.1, label %for.body.i.i.1, label %for.cond.cleanup
 
 for.body.i.i.1:                                   ; preds = %for.cond.i.i.1
@@ -952,7 +952,7 @@ for.body.i.i.1:                                   ; preds = %for.cond.i.i.1
   br i1 %tobool17.not.i.i.1, label %for.cond.i.i.2, label %if.then18.i.i, !llvm.loop !6
 
 for.cond.i.i.2:                                   ; preds = %for.body.i.i.1
-  %cmp14.i.i.2 = icmp ugt i64 %i.013, 63
+  %cmp14.i.i.2 = icmp samesign ugt i64 %i.013, 63
   %11 = load i64, ptr %arrayidx.i.i37.i.i.2, align 8
   %tobool17.not.i.i.2 = icmp eq i64 %11, 0
   %or.cond = select i1 %cmp14.i.i.2, i1 true, i1 %tobool17.not.i.i.2
@@ -1026,7 +1026,7 @@ if.then7.i.i.us:                                  ; preds = %if.then5.i.i.us
   br label %if.end.i.i.backedge.us
 
 for.cond.i.i.us:                                  ; preds = %if.then5.i.i.us, %if.end.i.i.us
-  %cmp14.i.i.us = icmp ult i64 %c.025.us, 192
+  %cmp14.i.i.us = icmp samesign ult i64 %c.025.us, 192
   br i1 %cmp14.i.i.us, label %for.body.i.i.us, label %for.cond.cleanup
 
 for.body.i.i.us:                                  ; preds = %for.cond.i.i.us
@@ -1037,7 +1037,7 @@ for.body.i.i.us:                                  ; preds = %for.cond.i.i.us
   br i1 %tobool17.not.i.i.us, label %for.cond.i.i.1.us, label %if.then18.i.i.us, !llvm.loop !6
 
 for.cond.i.i.1.us:                                ; preds = %for.body.i.i.us
-  %cmp14.i.i.1.us = icmp ult i64 %c.025.us, 128
+  %cmp14.i.i.1.us = icmp samesign ult i64 %c.025.us, 128
   br i1 %cmp14.i.i.1.us, label %for.body.i.i.1.us, label %for.cond.cleanup
 
 for.body.i.i.1.us:                                ; preds = %for.cond.i.i.1.us
@@ -1101,7 +1101,7 @@ if.end.i.i.backedge:                              ; preds = %if.then18.i.i, %if.
   br label %if.end.i.i, !llvm.loop !21
 
 for.cond.i.i:                                     ; preds = %if.then5.i.i, %if.end.i.i
-  %cmp14.i.i = icmp ult i64 %c.025, 192
+  %cmp14.i.i = icmp samesign ult i64 %c.025, 192
   br i1 %cmp14.i.i, label %for.body.i.i, label %for.cond.cleanup
 
 for.body.i.i:                                     ; preds = %for.cond.i.i
@@ -1112,7 +1112,7 @@ for.body.i.i:                                     ; preds = %for.cond.i.i
   br i1 %tobool17.not.i.i, label %for.cond.i.i.1, label %if.then18.i.i, !llvm.loop !6
 
 for.cond.i.i.1:                                   ; preds = %for.body.i.i
-  %cmp14.i.i.1 = icmp ult i64 %c.025, 128
+  %cmp14.i.i.1 = icmp samesign ult i64 %c.025, 128
   br i1 %cmp14.i.i.1, label %for.body.i.i.1, label %for.cond.cleanup
 
 for.body.i.i.1:                                   ; preds = %for.cond.i.i.1
@@ -1123,7 +1123,7 @@ for.body.i.i.1:                                   ; preds = %for.cond.i.i.1
   br i1 %tobool17.not.i.i.1, label %for.cond.i.i.2, label %if.then18.i.i, !llvm.loop !6
 
 for.cond.i.i.2:                                   ; preds = %for.body.i.i.1
-  %cmp14.i.i.2 = icmp ugt i64 %c.025, 63
+  %cmp14.i.i.2 = icmp samesign ugt i64 %c.025, 63
   br i1 %cmp14.i.i.2, label %for.cond.cleanup, label %if.then18.i.i
 
 if.then18.i.i:                                    ; preds = %for.cond.i.i.2, %for.body.i.i.1, %for.body.i.i

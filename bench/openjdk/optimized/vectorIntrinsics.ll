@@ -2101,7 +2101,7 @@ _ZL20is_klass_initializedPK11TypeInstPtr.exit.thread: ; preds = %191, %_ZL20is_k
   %614 = load ptr, ptr %613, align 8
   %615 = tail call noundef ptr @_ZN8TypeVect4makeEPK4Typejb(ptr noundef %614, i32 noundef %293, i1 noundef zeroext %611) #9
   %.off = add nsw i32 %1, -1
-  %switch = icmp ult i32 %.off, 2
+  %switch = icmp samesign ult i32 %.off, 2
   br i1 %switch, label %616, label %621
 
 616:                                              ; preds = %609

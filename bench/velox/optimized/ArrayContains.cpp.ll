@@ -13129,7 +13129,7 @@ if.end.i.i.i.i:                                   ; preds = %for.body.i.i.i4033
   br i1 %cmp.i.i.i.i.i.i, label %if.then4.i.i.i.i, label %if.end9.i.i.i.i
 
 if.then4.i.i.i.i:                                 ; preds = %if.end.i.i.i.i
-  %cmp5.i.i.i.i = icmp ult i32 %1462, 5
+  %cmp5.i.i.i.i = icmp samesign ult i32 %1462, 5
   br i1 %cmp5.i.i.i.i, label %_ZZN8facebook5velox9functions12_GLOBAL__N_110applyTypedILNS0_8TypeKindE7EEEvRKNS0_17SelectivityVectorERNS0_13DecodedVectorES9_S9_RNS0_4exec7EvalCtxERNS0_10FlatVectorIbEEENKUlT_E_clIiEEDaSG_.exit.i.i, label %_ZNK8facebook5velox10StringVieweqERKS1_.exit.i.i.i
 
 if.end9.i.i.i.i:                                  ; preds = %if.end.i.i.i.i
@@ -13301,7 +13301,7 @@ if.end.i.i.i.i.i.i.i.i:                           ; preds = %for.body.i.i.i.i.i.
   br i1 %cmp.i.i.i.i.i.i.i.i.i.i, label %if.then4.i.i.i.i.i.i.i.i, label %if.end9.i.i.i.i.i.i.i.i
 
 if.then4.i.i.i.i.i.i.i.i:                         ; preds = %if.end.i.i.i.i.i.i.i.i
-  %cmp5.i.i.i.i.i.i.i.i = icmp ult i32 %1485, 5
+  %cmp5.i.i.i.i.i.i.i.i = icmp samesign ult i32 %1485, 5
   br i1 %cmp5.i.i.i.i.i.i.i.i, label %_ZZN8facebook5velox9functions12_GLOBAL__N_110applyTypedILNS0_8TypeKindE7EEEvRKNS0_17SelectivityVectorERNS0_13DecodedVectorES9_S9_RNS0_4exec7EvalCtxERNS0_10FlatVectorIbEEENKUlT_E_clImEEDaSG_.exit.i.i.i.i.i.i, label %_ZNK8facebook5velox10StringVieweqERKS1_.exit.i.i.i.i.i.i.i
 
 if.end9.i.i.i.i.i.i.i.i:                          ; preds = %if.end.i.i.i.i.i.i.i.i
@@ -13376,7 +13376,7 @@ if.end.i.i28.i.i.i.i.i.i:                         ; preds = %for.body.i21.i.i.i.
   br i1 %cmp.i.i.i.i29.i.i.i.i.i.i, label %if.then4.i.i36.i.i.i.i.i.i, label %if.end9.i.i30.i.i.i.i.i.i
 
 if.then4.i.i36.i.i.i.i.i.i:                       ; preds = %if.end.i.i28.i.i.i.i.i.i
-  %cmp5.i.i37.i.i.i.i.i.i = icmp ult i32 %1500, 5
+  %cmp5.i.i37.i.i.i.i.i.i = icmp samesign ult i32 %1500, 5
   br i1 %cmp5.i.i37.i.i.i.i.i.i, label %_ZZN8facebook5velox9functions12_GLOBAL__N_110applyTypedILNS0_8TypeKindE7EEEvRKNS0_17SelectivityVectorERNS0_13DecodedVectorES9_S9_RNS0_4exec7EvalCtxERNS0_10FlatVectorIbEEENKUlT_E_clIiEEDaSG_.exit.i.i.i.i.i.i, label %_ZNK8facebook5velox10StringVieweqERKS1_.exit.i38.i.i.i.i.i.i
 
 if.end9.i.i30.i.i.i.i.i.i:                        ; preds = %if.end.i.i28.i.i.i.i.i.i
@@ -13794,7 +13794,7 @@ if.end9.i.us.i.i.i.i.i.i.i:                       ; preds = %if.end.i36.us.i.i.i
   br i1 %cmp15.i.us.i.i.i.i.i.i.i, label %if.then10.i.i.i.i.i.i.i3860, label %for.inc.us.i.i.i.i.i.i.i3881
 
 if.then4.i37.us.i.i.i.i.i.i.i:                    ; preds = %if.end.i36.us.i.i.i.i.i.i.i
-  %cmp5.i.us.i.i.i.i.i.i.i = icmp ult i32 %1563, 5
+  %cmp5.i.us.i.i.i.i.i.i.i = icmp samesign ult i32 %1563, 5
   %cmp8.i.us.i.i.i.i.i.i.i = icmp eq ptr %retval.sroa.2.0.copyload.i29.us.i.i.i.i.i.i.i, %retval.sroa.2.0.copyload.i.i.i.i.i.i.i.i
   %or.cond.us.i.i.i.i.i.i.i = select i1 %cmp5.i.us.i.i.i.i.i.i.i, i1 true, i1 %cmp8.i.us.i.i.i.i.i.i.i
   br i1 %or.cond.us.i.i.i.i.i.i.i, label %if.then10.i.i.i.i.i.i.i3860, label %for.inc.us.i.i.i.i.i.i.i3881
@@ -13852,7 +13852,7 @@ if.end9.i.us72.i.i.i.i.i.i.i:                     ; preds = %if.end.i36.us70.i.i
   br i1 %cmp15.i.us77.i.i.i.i.i.i.i, label %if.then10.i.i.i.i.i.i.i3860, label %for.inc.us82.i.i.i.i.i.i.i
 
 if.then4.i37.us78.i.i.i.i.i.i.i:                  ; preds = %if.end.i36.us70.i.i.i.i.i.i.i
-  %cmp5.i.us79.i.i.i.i.i.i.i = icmp ult i32 %1570, 5
+  %cmp5.i.us79.i.i.i.i.i.i.i = icmp samesign ult i32 %1570, 5
   %cmp8.i.us80.i.i.i.i.i.i.i = icmp eq ptr %retval.sroa.2.0.copyload.i29.us68.i.i.i.i.i.i.i, %retval.sroa.2.0.copyload.i.i.i.i.i.i.i.i
   %or.cond.us81.i.i.i.i.i.i.i = select i1 %cmp5.i.us79.i.i.i.i.i.i.i, i1 true, i1 %cmp8.i.us80.i.i.i.i.i.i.i
   br i1 %or.cond.us81.i.i.i.i.i.i.i, label %if.then10.i.i.i.i.i.i.i3860, label %for.inc.us82.i.i.i.i.i.i.i
@@ -13922,7 +13922,7 @@ if.end9.i.us118.i.i.i.i.i.i.i:                    ; preds = %if.end.i36.us116.i.
   br i1 %cmp15.i.us123.i.i.i.i.i.i.i, label %if.then10.i.i.i.i.i.i.i3860, label %for.inc.us128.i.i.i.i.i.i.i
 
 if.then4.i37.us124.i.i.i.i.i.i.i:                 ; preds = %if.end.i36.us116.i.i.i.i.i.i.i
-  %cmp5.i.us125.i.i.i.i.i.i.i = icmp ult i32 %1578, 5
+  %cmp5.i.us125.i.i.i.i.i.i.i = icmp samesign ult i32 %1578, 5
   %cmp8.i.us126.i.i.i.i.i.i.i = icmp eq ptr %retval.sroa.2.0.copyload.i29.us114.i.i.i.i.i.i.i, %retval.sroa.2.0.copyload.i.i.i.i.i.i.i.i
   %or.cond.us127.i.i.i.i.i.i.i = select i1 %cmp5.i.us125.i.i.i.i.i.i.i, i1 true, i1 %cmp8.i.us126.i.i.i.i.i.i.i
   br i1 %or.cond.us127.i.i.i.i.i.i.i, label %if.then10.i.i.i.i.i.i.i3860, label %for.inc.us128.i.i.i.i.i.i.i
@@ -13989,7 +13989,7 @@ if.end.i36.i.i.i.i.i.i.i:                         ; preds = %_ZNK8facebook5velox
   br i1 %cmp.i.i.i.i.i.i.i.i.i78.i, label %if.then4.i37.i.i.i.i.i.i.i, label %if.end9.i.i.i.i.i.i.i79.i
 
 if.then4.i37.i.i.i.i.i.i.i:                       ; preds = %if.end.i36.i.i.i.i.i.i.i
-  %cmp5.i.i.i.i.i.i.i83.i = icmp ult i32 %1587, 5
+  %cmp5.i.i.i.i.i.i.i83.i = icmp samesign ult i32 %1587, 5
   %cmp8.i.i.i.i.i.i.i84.i = icmp eq ptr %retval.sroa.2.0.copyload.i29.i.i.i.i.i.i.i, %retval.sroa.2.0.copyload.i.i.i.i.i.i.i.i
   %or.cond.i.i.i.i.i.i.i = select i1 %cmp5.i.i.i.i.i.i.i83.i, i1 true, i1 %cmp8.i.i.i.i.i.i.i84.i
   br i1 %or.cond.i.i.i.i.i.i.i, label %if.then10.i.i.i.i.i.i.i3860, label %for.inc.i.i.i.i.i.i75.i
@@ -14314,7 +14314,7 @@ if.end.i.i.i.i4660:                               ; preds = %for.body.i.i.i4653
   br i1 %cmp.i.i.i.i.i.i4661, label %if.then4.i.i.i.i4667, label %if.end9.i.i.i.i4662
 
 if.then4.i.i.i.i4667:                             ; preds = %if.end.i.i.i.i4660
-  %cmp5.i.i.i.i4668 = icmp ult i32 %1644, 5
+  %cmp5.i.i.i.i4668 = icmp samesign ult i32 %1644, 5
   br i1 %cmp5.i.i.i.i4668, label %_ZZN8facebook5velox9functions12_GLOBAL__N_110applyTypedILNS0_8TypeKindE8EEEvRKNS0_17SelectivityVectorERNS0_13DecodedVectorES9_S9_RNS0_4exec7EvalCtxERNS0_10FlatVectorIbEEENKUlT_E_clIiEEDaSG_.exit.i.i, label %_ZNK8facebook5velox10StringVieweqERKS1_.exit.i.i.i4669
 
 if.end9.i.i.i.i4662:                              ; preds = %if.end.i.i.i.i4660
@@ -14486,7 +14486,7 @@ if.end.i.i.i.i.i.i.i.i4563:                       ; preds = %for.body.i.i.i.i.i.
   br i1 %cmp.i.i.i.i.i.i.i.i.i.i4564, label %if.then4.i.i.i.i.i.i.i.i4570, label %if.end9.i.i.i.i.i.i.i.i4565
 
 if.then4.i.i.i.i.i.i.i.i4570:                     ; preds = %if.end.i.i.i.i.i.i.i.i4563
-  %cmp5.i.i.i.i.i.i.i.i4571 = icmp ult i32 %1667, 5
+  %cmp5.i.i.i.i.i.i.i.i4571 = icmp samesign ult i32 %1667, 5
   br i1 %cmp5.i.i.i.i.i.i.i.i4571, label %_ZZN8facebook5velox9functions12_GLOBAL__N_110applyTypedILNS0_8TypeKindE8EEEvRKNS0_17SelectivityVectorERNS0_13DecodedVectorES9_S9_RNS0_4exec7EvalCtxERNS0_10FlatVectorIbEEENKUlT_E_clImEEDaSG_.exit.i.i.i.i.i.i, label %_ZNK8facebook5velox10StringVieweqERKS1_.exit.i.i.i.i.i.i.i4572
 
 if.end9.i.i.i.i.i.i.i.i4565:                      ; preds = %if.end.i.i.i.i.i.i.i.i4563
@@ -14561,7 +14561,7 @@ if.end.i.i28.i.i.i.i.i.i4605:                     ; preds = %for.body.i21.i.i.i.
   br i1 %cmp.i.i.i.i29.i.i.i.i.i.i4606, label %if.then4.i.i36.i.i.i.i.i.i4612, label %if.end9.i.i30.i.i.i.i.i.i4607
 
 if.then4.i.i36.i.i.i.i.i.i4612:                   ; preds = %if.end.i.i28.i.i.i.i.i.i4605
-  %cmp5.i.i37.i.i.i.i.i.i4613 = icmp ult i32 %1682, 5
+  %cmp5.i.i37.i.i.i.i.i.i4613 = icmp samesign ult i32 %1682, 5
   br i1 %cmp5.i.i37.i.i.i.i.i.i4613, label %_ZZN8facebook5velox9functions12_GLOBAL__N_110applyTypedILNS0_8TypeKindE8EEEvRKNS0_17SelectivityVectorERNS0_13DecodedVectorES9_S9_RNS0_4exec7EvalCtxERNS0_10FlatVectorIbEEENKUlT_E_clIiEEDaSG_.exit.i.i.i.i.i.i, label %_ZNK8facebook5velox10StringVieweqERKS1_.exit.i38.i.i.i.i.i.i4614
 
 if.end9.i.i30.i.i.i.i.i.i4607:                    ; preds = %if.end.i.i28.i.i.i.i.i.i4605
@@ -14979,7 +14979,7 @@ if.end9.i.us.i.i.i.i.i.i.i4378:                   ; preds = %if.end.i36.us.i.i.i
   br i1 %cmp15.i.us.i.i.i.i.i.i.i4381, label %if.then10.i.i.i.i.i.i.i4269, label %for.inc.us.i.i.i.i.i.i.i4373
 
 if.then4.i37.us.i.i.i.i.i.i.i4382:                ; preds = %if.end.i36.us.i.i.i.i.i.i.i4376
-  %cmp5.i.us.i.i.i.i.i.i.i4383 = icmp ult i32 %1745, 5
+  %cmp5.i.us.i.i.i.i.i.i.i4383 = icmp samesign ult i32 %1745, 5
   %cmp8.i.us.i.i.i.i.i.i.i4384 = icmp eq ptr %retval.sroa.2.0.copyload.i29.us.i.i.i.i.i.i.i4371, %retval.sroa.2.0.copyload.i.i.i.i.i.i.i.i4208
   %or.cond.us.i.i.i.i.i.i.i4385 = select i1 %cmp5.i.us.i.i.i.i.i.i.i4383, i1 true, i1 %cmp8.i.us.i.i.i.i.i.i.i4384
   br i1 %or.cond.us.i.i.i.i.i.i.i4385, label %if.then10.i.i.i.i.i.i.i4269, label %for.inc.us.i.i.i.i.i.i.i4373
@@ -15037,7 +15037,7 @@ if.end9.i.us72.i.i.i.i.i.i.i4346:                 ; preds = %if.end.i36.us70.i.i
   br i1 %cmp15.i.us77.i.i.i.i.i.i.i4349, label %if.then10.i.i.i.i.i.i.i4269, label %for.inc.us82.i.i.i.i.i.i.i4340
 
 if.then4.i37.us78.i.i.i.i.i.i.i4350:              ; preds = %if.end.i36.us70.i.i.i.i.i.i.i4344
-  %cmp5.i.us79.i.i.i.i.i.i.i4351 = icmp ult i32 %1752, 5
+  %cmp5.i.us79.i.i.i.i.i.i.i4351 = icmp samesign ult i32 %1752, 5
   %cmp8.i.us80.i.i.i.i.i.i.i4352 = icmp eq ptr %retval.sroa.2.0.copyload.i29.us68.i.i.i.i.i.i.i4338, %retval.sroa.2.0.copyload.i.i.i.i.i.i.i.i4208
   %or.cond.us81.i.i.i.i.i.i.i4353 = select i1 %cmp5.i.us79.i.i.i.i.i.i.i4351, i1 true, i1 %cmp8.i.us80.i.i.i.i.i.i.i4352
   br i1 %or.cond.us81.i.i.i.i.i.i.i4353, label %if.then10.i.i.i.i.i.i.i4269, label %for.inc.us82.i.i.i.i.i.i.i4340
@@ -15107,7 +15107,7 @@ if.end9.i.us118.i.i.i.i.i.i.i4312:                ; preds = %if.end.i36.us116.i.
   br i1 %cmp15.i.us123.i.i.i.i.i.i.i4315, label %if.then10.i.i.i.i.i.i.i4269, label %for.inc.us128.i.i.i.i.i.i.i4306
 
 if.then4.i37.us124.i.i.i.i.i.i.i4316:             ; preds = %if.end.i36.us116.i.i.i.i.i.i.i4310
-  %cmp5.i.us125.i.i.i.i.i.i.i4317 = icmp ult i32 %1760, 5
+  %cmp5.i.us125.i.i.i.i.i.i.i4317 = icmp samesign ult i32 %1760, 5
   %cmp8.i.us126.i.i.i.i.i.i.i4318 = icmp eq ptr %retval.sroa.2.0.copyload.i29.us114.i.i.i.i.i.i.i4304, %retval.sroa.2.0.copyload.i.i.i.i.i.i.i.i4208
   %or.cond.us127.i.i.i.i.i.i.i4319 = select i1 %cmp5.i.us125.i.i.i.i.i.i.i4317, i1 true, i1 %cmp8.i.us126.i.i.i.i.i.i.i4318
   br i1 %or.cond.us127.i.i.i.i.i.i.i4319, label %if.then10.i.i.i.i.i.i.i4269, label %for.inc.us128.i.i.i.i.i.i.i4306
@@ -15174,7 +15174,7 @@ if.end.i36.i.i.i.i.i.i.i4263:                     ; preds = %_ZNK8facebook5velox
   br i1 %cmp.i.i.i.i.i.i.i.i.i78.i4264, label %if.then4.i37.i.i.i.i.i.i.i4270, label %if.end9.i.i.i.i.i.i.i79.i4265
 
 if.then4.i37.i.i.i.i.i.i.i4270:                   ; preds = %if.end.i36.i.i.i.i.i.i.i4263
-  %cmp5.i.i.i.i.i.i.i83.i4271 = icmp ult i32 %1769, 5
+  %cmp5.i.i.i.i.i.i.i83.i4271 = icmp samesign ult i32 %1769, 5
   %cmp8.i.i.i.i.i.i.i84.i4272 = icmp eq ptr %retval.sroa.2.0.copyload.i29.i.i.i.i.i.i.i4242, %retval.sroa.2.0.copyload.i.i.i.i.i.i.i.i4208
   %or.cond.i.i.i.i.i.i.i4273 = select i1 %cmp5.i.i.i.i.i.i.i83.i4271, i1 true, i1 %cmp8.i.i.i.i.i.i.i84.i4272
   br i1 %or.cond.i.i.i.i.i.i.i4273, label %if.then10.i.i.i.i.i.i.i4269, label %for.inc.i.i.i.i.i.i75.i4244
@@ -20169,7 +20169,7 @@ if.end.i.i:                                       ; preds = %for.body.i
   br i1 %cmp.i.i.i.i, label %if.then4.i.i, label %if.end9.i.i
 
 if.then4.i.i:                                     ; preds = %if.end.i.i
-  %cmp5.i.i = icmp ult i32 %29, 5
+  %cmp5.i.i = icmp samesign ult i32 %29, 5
   br i1 %cmp5.i.i, label %_ZZN8facebook5velox9functions12_GLOBAL__N_110applyTypedILNS0_8TypeKindE7EEEvRKNS0_17SelectivityVectorERNS0_13DecodedVectorES9_S9_RNS0_4exec7EvalCtxERNS0_10FlatVectorIbEEENKUlT_E_clIiEEDaSG_.exit, label %_ZNK8facebook5velox10StringVieweqERKS1_.exit.i
 
 if.end9.i.i:                                      ; preds = %if.end.i.i
@@ -20331,7 +20331,7 @@ if.end9.i.us:                                     ; preds = %if.end.i36.us
   br i1 %cmp15.i.us, label %if.then12, label %for.inc.us
 
 if.then4.i37.us:                                  ; preds = %if.end.i36.us
-  %cmp5.i.us = icmp ult i32 %31, 5
+  %cmp5.i.us = icmp samesign ult i32 %31, 5
   %cmp8.i.us = icmp eq ptr %retval.sroa.2.0.copyload.i29.us, %retval.sroa.2.0.copyload.i
   %or.cond.us = select i1 %cmp5.i.us, i1 true, i1 %cmp8.i.us
   br i1 %or.cond.us, label %if.then12, label %for.inc.us
@@ -20389,7 +20389,7 @@ if.end9.i.us72:                                   ; preds = %if.end.i36.us70
   br i1 %cmp15.i.us77, label %if.then12, label %for.inc.us82
 
 if.then4.i37.us78:                                ; preds = %if.end.i36.us70
-  %cmp5.i.us79 = icmp ult i32 %38, 5
+  %cmp5.i.us79 = icmp samesign ult i32 %38, 5
   %cmp8.i.us80 = icmp eq ptr %retval.sroa.2.0.copyload.i29.us68, %retval.sroa.2.0.copyload.i
   %or.cond.us81 = select i1 %cmp5.i.us79, i1 true, i1 %cmp8.i.us80
   br i1 %or.cond.us81, label %if.then12, label %for.inc.us82
@@ -20459,7 +20459,7 @@ if.end9.i.us118:                                  ; preds = %if.end.i36.us116
   br i1 %cmp15.i.us123, label %if.then12, label %for.inc.us128
 
 if.then4.i37.us124:                               ; preds = %if.end.i36.us116
-  %cmp5.i.us125 = icmp ult i32 %46, 5
+  %cmp5.i.us125 = icmp samesign ult i32 %46, 5
   %cmp8.i.us126 = icmp eq ptr %retval.sroa.2.0.copyload.i29.us114, %retval.sroa.2.0.copyload.i
   %or.cond.us127 = select i1 %cmp5.i.us125, i1 true, i1 %cmp8.i.us126
   br i1 %or.cond.us127, label %if.then12, label %for.inc.us128
@@ -20528,7 +20528,7 @@ if.end.i36:                                       ; preds = %_ZNK8facebook5velox
   br i1 %cmp.i.i.i, label %if.then4.i37, label %if.end9.i
 
 if.then4.i37:                                     ; preds = %if.end.i36
-  %cmp5.i = icmp ult i32 %56, 5
+  %cmp5.i = icmp samesign ult i32 %56, 5
   %cmp8.i = icmp eq ptr %retval.sroa.2.0.copyload.i29, %retval.sroa.2.0.copyload.i
   %or.cond = select i1 %cmp5.i, i1 true, i1 %cmp8.i
   br i1 %or.cond, label %if.then12, label %for.inc
@@ -20674,7 +20674,7 @@ if.end.i.i:                                       ; preds = %for.body.i
   br i1 %cmp.i.i.i.i, label %if.then4.i.i, label %if.end9.i.i
 
 if.then4.i.i:                                     ; preds = %if.end.i.i
-  %cmp5.i.i = icmp ult i32 %29, 5
+  %cmp5.i.i = icmp samesign ult i32 %29, 5
   br i1 %cmp5.i.i, label %_ZZN8facebook5velox9functions12_GLOBAL__N_110applyTypedILNS0_8TypeKindE8EEEvRKNS0_17SelectivityVectorERNS0_13DecodedVectorES9_S9_RNS0_4exec7EvalCtxERNS0_10FlatVectorIbEEENKUlT_E_clIiEEDaSG_.exit, label %_ZNK8facebook5velox10StringVieweqERKS1_.exit.i
 
 if.end9.i.i:                                      ; preds = %if.end.i.i
@@ -20836,7 +20836,7 @@ if.end9.i.us:                                     ; preds = %if.end.i36.us
   br i1 %cmp15.i.us, label %if.then12, label %for.inc.us
 
 if.then4.i37.us:                                  ; preds = %if.end.i36.us
-  %cmp5.i.us = icmp ult i32 %31, 5
+  %cmp5.i.us = icmp samesign ult i32 %31, 5
   %cmp8.i.us = icmp eq ptr %retval.sroa.2.0.copyload.i29.us, %retval.sroa.2.0.copyload.i
   %or.cond.us = select i1 %cmp5.i.us, i1 true, i1 %cmp8.i.us
   br i1 %or.cond.us, label %if.then12, label %for.inc.us
@@ -20894,7 +20894,7 @@ if.end9.i.us72:                                   ; preds = %if.end.i36.us70
   br i1 %cmp15.i.us77, label %if.then12, label %for.inc.us82
 
 if.then4.i37.us78:                                ; preds = %if.end.i36.us70
-  %cmp5.i.us79 = icmp ult i32 %38, 5
+  %cmp5.i.us79 = icmp samesign ult i32 %38, 5
   %cmp8.i.us80 = icmp eq ptr %retval.sroa.2.0.copyload.i29.us68, %retval.sroa.2.0.copyload.i
   %or.cond.us81 = select i1 %cmp5.i.us79, i1 true, i1 %cmp8.i.us80
   br i1 %or.cond.us81, label %if.then12, label %for.inc.us82
@@ -20964,7 +20964,7 @@ if.end9.i.us118:                                  ; preds = %if.end.i36.us116
   br i1 %cmp15.i.us123, label %if.then12, label %for.inc.us128
 
 if.then4.i37.us124:                               ; preds = %if.end.i36.us116
-  %cmp5.i.us125 = icmp ult i32 %46, 5
+  %cmp5.i.us125 = icmp samesign ult i32 %46, 5
   %cmp8.i.us126 = icmp eq ptr %retval.sroa.2.0.copyload.i29.us114, %retval.sroa.2.0.copyload.i
   %or.cond.us127 = select i1 %cmp5.i.us125, i1 true, i1 %cmp8.i.us126
   br i1 %or.cond.us127, label %if.then12, label %for.inc.us128
@@ -21033,7 +21033,7 @@ if.end.i36:                                       ; preds = %_ZNK8facebook5velox
   br i1 %cmp.i.i.i, label %if.then4.i37, label %if.end9.i
 
 if.then4.i37:                                     ; preds = %if.end.i36
-  %cmp5.i = icmp ult i32 %56, 5
+  %cmp5.i = icmp samesign ult i32 %56, 5
   %cmp8.i = icmp eq ptr %retval.sroa.2.0.copyload.i29, %retval.sroa.2.0.copyload.i
   %or.cond = select i1 %cmp5.i, i1 true, i1 %cmp8.i
   br i1 %or.cond, label %if.then12, label %for.inc

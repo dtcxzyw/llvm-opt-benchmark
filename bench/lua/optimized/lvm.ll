@@ -1716,7 +1716,7 @@ entry:
   br i1 %cmp, label %if.then, label %if.else3
 
 if.then:                                          ; preds = %entry
-  %cmp1 = icmp ult i64 %y, -63
+  %cmp1 = icmp samesign ult i64 %y, -63
   br i1 %cmp1, label %return, label %if.else
 
 if.else:                                          ; preds = %if.then
@@ -1725,7 +1725,7 @@ if.else:                                          ; preds = %if.then
   br label %return
 
 if.else3:                                         ; preds = %entry
-  %cmp4 = icmp ugt i64 %y, 63
+  %cmp4 = icmp samesign ugt i64 %y, 63
   %shl = shl i64 %x, %y
   %spec.select = select i1 %cmp4, i64 0, i64 %shl
   br label %return
@@ -4685,7 +4685,7 @@ if.then2056:                                      ; preds = %luaV_tointegerns.ex
   br i1 %cmp.i2046, label %if.then.i2052, label %if.else3.i2047
 
 if.then.i2052:                                    ; preds = %if.then2056
-  %cmp1.i2053 = icmp ult i64 %ib2042.3, -63
+  %cmp1.i2053 = icmp samesign ult i64 %ib2042.3, -63
   br i1 %cmp1.i2053, label %luaV_shiftl.exit2057, label %if.else.i2054
 
 if.else.i2054:                                    ; preds = %if.then.i2052
@@ -4694,7 +4694,7 @@ if.else.i2054:                                    ; preds = %if.then.i2052
   br label %luaV_shiftl.exit2057
 
 if.else3.i2047:                                   ; preds = %if.then2056
-  %cmp4.i2048 = icmp ugt i64 %ib2042.3, 63
+  %cmp4.i2048 = icmp samesign ugt i64 %ib2042.3, 63
   %shl.i2049 = shl i64 %conv2059, %ib2042.3
   %spec.select.i2050 = select i1 %cmp4.i2048, i64 0, i64 %shl.i2049
   br label %luaV_shiftl.exit2057
@@ -5761,13 +5761,13 @@ if.then2920:                                      ; preds = %luaV_tointegerns.ex
   br i1 %cmp.i2224, label %if.then.i2230, label %if.else3.i2225
 
 if.then.i2230:                                    ; preds = %if.then2920
-  %cmp1.i2231 = icmp ult i64 %sub2923, -63
+  %cmp1.i2231 = icmp samesign ult i64 %sub2923, -63
   %shr.i2234 = lshr i64 %i12891.3, %i22892.4
   %spec.select = select i1 %cmp1.i2231, i64 0, i64 %shr.i2234
   br label %luaV_shiftl.exit2235
 
 if.else3.i2225:                                   ; preds = %if.then2920
-  %cmp4.i2226 = icmp ugt i64 %sub2923, 63
+  %cmp4.i2226 = icmp samesign ugt i64 %sub2923, 63
   %shl.i2227 = shl i64 %i12891.3, %sub2923
   %spec.select.i2228 = select i1 %cmp4.i2226, i64 0, i64 %shl.i2227
   br label %luaV_shiftl.exit2235
@@ -5871,7 +5871,7 @@ if.then2986:                                      ; preds = %luaV_tointegerns.ex
   br i1 %cmp.i2266, label %if.then.i2272, label %if.else3.i2267
 
 if.then.i2272:                                    ; preds = %if.then2986
-  %cmp1.i2273 = icmp ult i64 %i22958.4, -63
+  %cmp1.i2273 = icmp samesign ult i64 %i22958.4, -63
   br i1 %cmp1.i2273, label %luaV_shiftl.exit2277, label %if.else.i2274
 
 if.else.i2274:                                    ; preds = %if.then.i2272
@@ -5880,7 +5880,7 @@ if.else.i2274:                                    ; preds = %if.then.i2272
   br label %luaV_shiftl.exit2277
 
 if.else3.i2267:                                   ; preds = %if.then2986
-  %cmp4.i2268 = icmp ugt i64 %i22958.4, 63
+  %cmp4.i2268 = icmp samesign ugt i64 %i22958.4, 63
   %shl.i2269 = shl i64 %i12957.3, %i22958.4
   %spec.select.i2270 = select i1 %cmp4.i2268, i64 0, i64 %shl.i2269
   br label %luaV_shiftl.exit2277
@@ -7696,7 +7696,7 @@ for.body:                                         ; preds = %for.body.preheader,
   %tt_4326 = getelementptr inbounds i8, ptr %675, i64 8
   store i8 0, ptr %tt_4326, align 8
   %dec4327 = add nsw i32 %nres.02875, -1
-  %cmp4318 = icmp ugt i32 %nres.02875, 1
+  %cmp4318 = icmp samesign ugt i32 %nres.02875, 1
   br i1 %cmp4318, label %for.body, label %ret, !llvm.loop !12
 
 L_OP_RETURN1:                                     ; preds = %indirectgoto
@@ -7757,7 +7757,7 @@ for.body4376:                                     ; preds = %for.body4376.prehea
   %tt_4379 = getelementptr inbounds i8, ptr %681, i64 8
   store i8 0, ptr %tt_4379, align 8
   %dec4381 = add nsw i32 %nres4345.02873, -1
-  %cmp4370 = icmp ugt i32 %nres4345.02873, 2
+  %cmp4370 = icmp samesign ugt i32 %nres4345.02873, 2
   br i1 %cmp4370, label %for.body4376, label %ret, !llvm.loop !13
 
 ret:                                              ; preds = %for.body4376, %for.body, %if.else4355, %if.else4311, %if.then4334, %if.then4352, %if.then4302, %if.end4291, %if.else4225

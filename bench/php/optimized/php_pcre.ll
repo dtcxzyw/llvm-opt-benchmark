@@ -2815,7 +2815,7 @@ define internal fastcc void @php_do_pcre_match(ptr noundef %0, ptr nocapture nou
 
 30:                                               ; preds = %28
   %31 = getelementptr inbounds i8, ptr %0, i64 112
-  %32 = icmp ult i32 %9, 4
+  %32 = icmp samesign ult i32 %9, 4
   br i1 %32, label %.thread233, label %33
 
 33:                                               ; preds = %30
@@ -4590,7 +4590,7 @@ define hidden void @zif_preg_replace_callback(ptr noundef %0, ptr nocapture noun
   br i1 %47, label %48, label %.thread261
 
 48:                                               ; preds = %46, %.critedge242
-  %49 = icmp ult i32 %11, 5
+  %49 = icmp samesign ult i32 %11, 5
   br i1 %49, label %.thread289, label %50
 
 50:                                               ; preds = %48
@@ -4897,7 +4897,7 @@ define hidden void @zif_preg_replace_callback_array(ptr noundef %0, ptr nocaptur
   br i1 %37, label %38, label %.thread365
 
 38:                                               ; preds = %36, %.critedge
-  %39 = icmp ult i32 %10, 4
+  %39 = icmp samesign ult i32 %10, 4
   br i1 %39, label %.thread378, label %40
 
 40:                                               ; preds = %38

@@ -10712,7 +10712,7 @@ _ZN3gmx14LogWriteHelperaSERKNS_14LogEntryWriterE.exit164: ; preds = %_ZN3gmx14Lo
   %453 = getelementptr inbounds i8, ptr %.sroa.05.07.i.i.i.i.i, i64 12
   %454 = getelementptr inbounds i8, ptr %.09.i.i.i.i.i, i64 12
   %455 = add nsw i64 %.048.i.i.i.i.i, -1
-  %456 = icmp ugt i64 %.048.i.i.i.i.i, 1
+  %456 = icmp samesign ugt i64 %.048.i.i.i.i.i, 1
   br i1 %456, label %.lr.ph.i.i.i.i.i, label %_ZSt4copyIN3gmx12ArrayRefIterINS0_11BasicVectorIfEEEEN9__gnu_cxx17__normal_iteratorIPS3_St6vectorIS3_SaIS3_EEEEET0_T_SD_SC_.exit, !llvm.loop !99
 
 _ZSt4copyIN3gmx12ArrayRefIterINS0_11BasicVectorIfEEEEN9__gnu_cxx17__normal_iteratorIPS3_St6vectorIS3_SaIS3_EEEEET0_T_SD_SC_.exit: ; preds = %.lr.ph.i.i.i.i.i, %445

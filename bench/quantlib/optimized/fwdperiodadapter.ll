@@ -804,7 +804,7 @@ if.then.i.invoke.cont115_crit_edge:               ; preds = %if.then.i
   br label %invoke.cont115
 
 if.else.i:                                        ; preds = %if.then109
-  %cmp4.i = icmp ult i64 %75, %sub.ptr.div.i
+  %cmp4.i = icmp samesign ult i64 %75, %sub.ptr.div.i
   br i1 %cmp4.i, label %if.then5.i, label %invoke.cont115
 
 if.then5.i:                                       ; preds = %if.else.i

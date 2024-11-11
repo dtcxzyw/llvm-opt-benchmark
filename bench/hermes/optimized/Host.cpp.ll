@@ -1365,7 +1365,7 @@ _ZNK4llvh9StringRef12getAsIntegerIjEENSt9enable_ifIXntsr3std14numeric_limitsIT_E
 
 if.then57:                                        ; preds = %lor.lhs.false.i
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ULLVal.i)
-  %cmp58 = icmp ugt i64 %24, 3905
+  %cmp58 = icmp samesign ugt i64 %24, 3905
   br i1 %cmp58, label %land.lhs.true, label %if.end60
 
 land.lhs.true:                                    ; preds = %if.then57
@@ -1374,7 +1374,7 @@ land.lhs.true:                                    ; preds = %if.then57
   br label %cleanup
 
 if.end60:                                         ; preds = %if.then57
-  %cmp61 = icmp ugt i64 %24, 2963
+  %cmp61 = icmp samesign ugt i64 %24, 2963
   br i1 %cmp61, label %land.lhs.true62, label %if.end65
 
 land.lhs.true62:                                  ; preds = %if.end60
@@ -1383,11 +1383,11 @@ land.lhs.true62:                                  ; preds = %if.end60
   br label %cleanup
 
 if.end65:                                         ; preds = %if.end60
-  %cmp66 = icmp ugt i64 %24, 2826
+  %cmp66 = icmp samesign ugt i64 %24, 2826
   br i1 %cmp66, label %cleanup, label %if.end68
 
 if.end68:                                         ; preds = %if.end65
-  %cmp69 = icmp ugt i64 %24, 2816
+  %cmp69 = icmp samesign ugt i64 %24, 2816
   br i1 %cmp69, label %cleanup, label %_ZN4llvh9StringRefC2EPKc.exit178
 
 for.inc75:                                        ; preds = %if.end.i273, %for.body38
@@ -2162,7 +2162,7 @@ if.end.i:                                         ; preds = %_ZN4llvh9StringRefC
   br i1 %24, label %if.end22, label %if.end.i149
 
 _ZN4llvh9StringRefC2EPKc.exit77:                  ; preds = %_ZN4llvh9StringRefC2EPKc.exit57
-  %cmp.i = icmp ugt i64 %.sroa.speculated11.i.i, 6
+  %cmp.i = icmp samesign ugt i64 %.sroa.speculated11.i.i, 6
   br i1 %cmp.i, label %if.end.i149, label %for.inc
 
 if.end.i149:                                      ; preds = %if.end.i, %_ZN4llvh9StringRefC2EPKc.exit77

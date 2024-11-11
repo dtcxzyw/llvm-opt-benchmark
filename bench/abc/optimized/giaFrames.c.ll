@@ -2642,7 +2642,7 @@ Gia_ObjUnrReadCi.exit:                            ; preds = %222, %204, %197, %1
   %244 = load i32, ptr %243, align 4
   store i32 %244, ptr %242, align 4
   %indvars.iv.next.i = add nsw i64 %indvars.iv.i, -1
-  %245 = icmp ugt i64 %indvars.iv.i, 2
+  %245 = icmp samesign ugt i64 %indvars.iv.i, 2
   br i1 %245, label %.lr.ph.i, label %Gia_ObjUnrWrite.exit, !llvm.loop !20
 
 Gia_ObjUnrWrite.exit:                             ; preds = %.lr.ph.i, %Gia_ObjUnrReadCi.exit

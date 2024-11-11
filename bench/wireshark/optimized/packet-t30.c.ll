@@ -885,7 +885,7 @@ define internal fastcc void @dissect_t30_dis_dtc(ptr noundef %0, ptr noundef %1,
   %87 = tail call ptr @proto_tree_add_item(ptr noundef %3, i32 noundef %86, ptr noundef %0, i32 noundef 6, i32 noundef 1, i32 noundef 0) #7
   %88 = and i8 %75, 1
   %89 = icmp eq i8 %88, 0
-  %90 = icmp ult i32 %2, 5
+  %90 = icmp samesign ult i32 %2, 5
   %or.cond3 = or i1 %90, %89
   br i1 %or.cond3, label %315, label %91
 
@@ -913,7 +913,7 @@ define internal fastcc void @dissect_t30_dis_dtc(ptr noundef %0, ptr noundef %1,
   %108 = tail call ptr @proto_tree_add_item(ptr noundef %3, i32 noundef %107, ptr noundef %0, i32 noundef 7, i32 noundef 1, i32 noundef 0) #7
   %109 = and i8 %92, 1
   %110 = icmp eq i8 %109, 0
-  %111 = icmp ult i32 %2, 6
+  %111 = icmp samesign ult i32 %2, 6
   %or.cond5 = or i1 %111, %110
   br i1 %or.cond5, label %315, label %112
 
@@ -944,7 +944,7 @@ define internal fastcc void @dissect_t30_dis_dtc(ptr noundef %0, ptr noundef %1,
   %131 = tail call ptr @proto_tree_add_item(ptr noundef %3, i32 noundef %130, ptr noundef %0, i32 noundef 8, i32 noundef 1, i32 noundef 0) #7
   %132 = and i8 %113, 1
   %133 = icmp eq i8 %132, 0
-  %134 = icmp ult i32 %2, 7
+  %134 = icmp samesign ult i32 %2, 7
   %or.cond7 = or i1 %134, %133
   br i1 %or.cond7, label %315, label %135
 
@@ -973,7 +973,7 @@ define internal fastcc void @dissect_t30_dis_dtc(ptr noundef %0, ptr noundef %1,
   %152 = tail call ptr @proto_tree_add_item(ptr noundef %3, i32 noundef %151, ptr noundef %0, i32 noundef 9, i32 noundef 1, i32 noundef 0) #7
   %153 = and i8 %136, 1
   %154 = icmp eq i8 %153, 0
-  %155 = icmp ult i32 %2, 8
+  %155 = icmp samesign ult i32 %2, 8
   %or.cond9 = or i1 %155, %154
   br i1 %or.cond9, label %315, label %156
 
@@ -997,7 +997,7 @@ define internal fastcc void @dissect_t30_dis_dtc(ptr noundef %0, ptr noundef %1,
   %169 = tail call ptr @proto_tree_add_item(ptr noundef %3, i32 noundef %168, ptr noundef %0, i32 noundef 10, i32 noundef 1, i32 noundef 0) #7
   %170 = and i8 %157, 1
   %171 = icmp eq i8 %170, 0
-  %172 = icmp ult i32 %2, 9
+  %172 = icmp samesign ult i32 %2, 9
   %or.cond11 = or i1 %172, %171
   br i1 %or.cond11, label %315, label %173
 
@@ -1027,7 +1027,7 @@ define internal fastcc void @dissect_t30_dis_dtc(ptr noundef %0, ptr noundef %1,
   %192 = tail call ptr @proto_tree_add_item(ptr noundef %3, i32 noundef %191, ptr noundef %0, i32 noundef 11, i32 noundef 1, i32 noundef 0) #7
   %193 = and i8 %174, 1
   %194 = icmp eq i8 %193, 0
-  %195 = icmp ult i32 %2, 10
+  %195 = icmp samesign ult i32 %2, 10
   %or.cond13 = or i1 %195, %194
   br i1 %or.cond13, label %315, label %196
 
@@ -1051,7 +1051,7 @@ define internal fastcc void @dissect_t30_dis_dtc(ptr noundef %0, ptr noundef %1,
   %213 = tail call ptr @proto_tree_add_item(ptr noundef %3, i32 noundef %212, ptr noundef %0, i32 noundef 12, i32 noundef 1, i32 noundef 0) #7
   %214 = and i8 %197, 1
   %215 = icmp eq i8 %214, 0
-  %216 = icmp ult i32 %2, 11
+  %216 = icmp samesign ult i32 %2, 11
   %or.cond15 = or i1 %216, %215
   br i1 %or.cond15, label %315, label %217
 
@@ -1075,7 +1075,7 @@ define internal fastcc void @dissect_t30_dis_dtc(ptr noundef %0, ptr noundef %1,
   %234 = tail call ptr @proto_tree_add_item(ptr noundef %3, i32 noundef %233, ptr noundef %0, i32 noundef 13, i32 noundef 1, i32 noundef 0) #7
   %235 = and i8 %218, 1
   %236 = icmp eq i8 %235, 0
-  %237 = icmp ult i32 %2, 12
+  %237 = icmp samesign ult i32 %2, 12
   %or.cond17 = or i1 %237, %236
   br i1 %or.cond17, label %315, label %238
 
@@ -1097,7 +1097,7 @@ define internal fastcc void @dissect_t30_dis_dtc(ptr noundef %0, ptr noundef %1,
   %253 = tail call ptr @proto_tree_add_item(ptr noundef %3, i32 noundef %252, ptr noundef %0, i32 noundef 14, i32 noundef 1, i32 noundef 0) #7
   %254 = and i8 %239, 1
   %255 = icmp eq i8 %254, 0
-  %256 = icmp ult i32 %2, 13
+  %256 = icmp samesign ult i32 %2, 13
   %or.cond19 = or i1 %256, %255
   br i1 %or.cond19, label %315, label %257
 
@@ -1125,7 +1125,7 @@ define internal fastcc void @dissect_t30_dis_dtc(ptr noundef %0, ptr noundef %1,
   %274 = tail call ptr @proto_tree_add_item(ptr noundef %3, i32 noundef %273, ptr noundef %0, i32 noundef 15, i32 noundef 1, i32 noundef 0) #7
   %275 = and i8 %258, 1
   %276 = icmp eq i8 %275, 0
-  %277 = icmp ult i32 %2, 14
+  %277 = icmp samesign ult i32 %2, 14
   %or.cond21 = or i1 %277, %276
   br i1 %or.cond21, label %315, label %278
 
@@ -1149,7 +1149,7 @@ define internal fastcc void @dissect_t30_dis_dtc(ptr noundef %0, ptr noundef %1,
   %295 = tail call ptr @proto_tree_add_item(ptr noundef %3, i32 noundef %294, ptr noundef %0, i32 noundef 16, i32 noundef 1, i32 noundef 0) #7
   %296 = and i8 %279, 1
   %297 = icmp eq i8 %296, 0
-  %298 = icmp ult i32 %2, 15
+  %298 = icmp samesign ult i32 %2, 15
   %or.cond23 = or i1 %298, %297
   br i1 %or.cond23, label %315, label %299
 

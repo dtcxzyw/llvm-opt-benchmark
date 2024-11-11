@@ -876,11 +876,11 @@ entry:
   br i1 %cmp, label %if.then, label %if.else19
 
 if.then:                                          ; preds = %entry
-  %cmp1.not = icmp ult i32 %0, 134217728
+  %cmp1.not = icmp samesign ult i32 %0, 134217728
   br i1 %cmp1.not, label %if.then2, label %if.else
 
 if.then2:                                         ; preds = %if.then
-  %cmp4 = icmp ult i32 %0, 67108864
+  %cmp4 = icmp samesign ult i32 %0, 67108864
   br i1 %cmp4, label %land.lhs.true, label %if.end
 
 land.lhs.true:                                    ; preds = %if.then2

@@ -2475,7 +2475,7 @@ define internal fastcc i32 @dissect_tlv(ptr noundef %0, ptr noundef %1, i32 noun
 
 215:                                              ; preds = %50
   %216 = icmp samesign ugt i32 %19, 1
-  %217 = icmp ugt i32 %7, 5
+  %217 = icmp samesign ugt i32 %7, 5
   %218 = and i1 %216, %217
   br i1 %218, label %.lr.ph.preheader, label %.loopexit
 
@@ -2500,7 +2500,7 @@ define internal fastcc i32 @dissect_tlv(ptr noundef %0, ptr noundef %1, i32 noun
 226:                                              ; preds = %.lr.ph
   %227 = sub nsw i32 %.0429488, %222
   %228 = icmp slt i32 %227, 0
-  %229 = icmp ult i32 %.0434486, %222
+  %229 = icmp samesign ult i32 %.0434486, %222
   %or.cond455 = select i1 %228, i1 %229, i1 false
   br i1 %or.cond455, label %230, label %234
 
@@ -2933,7 +2933,7 @@ define internal fastcc void @dissect_tlv_fec(ptr noundef %0, ptr noundef %1, i32
   %206 = zext i8 %.in to i32
   %207 = sub nsw i32 %206, %201
   %208 = icmp slt i32 %207, 0
-  %209 = icmp ult i32 %.2621798, %201
+  %209 = icmp samesign ult i32 %.2621798, %201
   %or.cond682 = select i1 %208, i1 %209, i1 false
   br i1 %or.cond682, label %210, label %214
 
@@ -3216,7 +3216,7 @@ define internal fastcc void @dissect_tlv_fec(ptr noundef %0, ptr noundef %1, i32
   %.3622 = phi i32 [ %403, %400 ], [ %395, %375 ]
   %.3 = phi i32 [ %404, %400 ], [ %396, %375 ]
   %407 = icmp ugt i32 %406, 1
-  %408 = icmp ugt i32 %.3622, 1
+  %408 = icmp samesign ugt i32 %.3622, 1
   %409 = select i1 %407, i1 %408, i1 false
   br i1 %409, label %.lr.ph, label %.loopexit
 
@@ -3236,7 +3236,7 @@ define internal fastcc void @dissect_tlv_fec(ptr noundef %0, ptr noundef %1, i32
 416:                                              ; preds = %.lr.ph
   %417 = load i32, ptr %7, align 4
   %418 = icmp ult i32 %417, %412
-  %419 = icmp ult i32 %.4623795, %412
+  %419 = icmp samesign ult i32 %.4623795, %412
   %or.cond683 = select i1 %418, i1 %419, i1 false
   br i1 %or.cond683, label %420, label %424
 
@@ -3415,7 +3415,7 @@ define internal fastcc void @dissect_tlv_address_list(ptr noundef %0, ptr nounde
   %26 = zext nneg i8 %.055 to i64
   %27 = tail call noalias ptr @wmem_alloc(ptr noundef %25, i64 noundef %26) #5
   %28 = zext nneg i8 %.055 to i32
-  %.not60 = icmp ult i32 %21, %28
+  %.not60 = icmp samesign ult i32 %21, %28
   br i1 %.not60, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %19
@@ -3486,7 +3486,7 @@ define internal fastcc void @dissect_tlv_path_vector(ptr noundef %0, ptr noundef
   %17 = add i8 %.02326, 1
   %18 = add i32 %.027, 4
   %19 = add nsw i32 %.02425, -4
-  %20 = icmp ugt i32 %19, 3
+  %20 = icmp samesign ugt i32 %19, 3
   br i1 %20, label %10, label %._crit_edge, !llvm.loop !15
 
 ._crit_edge:                                      ; preds = %10, %5
@@ -3735,7 +3735,7 @@ define internal fastcc void @dissect_tlv_mac(ptr noundef %0, ptr noundef %1, i32
   %10 = tail call ptr @proto_tree_add_item(ptr noundef %7, i32 noundef %9, ptr noundef %0, i32 noundef %.017, i32 noundef 6, i32 noundef 0) #5
   %11 = add i32 %.017, 6
   %12 = add nsw i32 %.01516, -6
-  %13 = icmp ugt i32 %12, 5
+  %13 = icmp samesign ugt i32 %12, 5
   br i1 %13, label %.lr.ph, label %._crit_edge, !llvm.loop !16
 
 ._crit_edge:                                      ; preds = %.lr.ph, %5
@@ -3819,8 +3819,8 @@ define internal fastcc void @dissect_tlv_atm_session_parms(ptr noundef %0, ptr n
   %24 = load i32, ptr @ett_ldp_tlv_val, align 4
   %25 = tail call ptr @proto_tree_add_subtree(ptr noundef %11, ptr noundef %0, i32 noundef %22, i32 noundef %23, i32 noundef %24, ptr noundef null, ptr noundef nonnull @.str.1040) #5
   %26 = icmp ne i8 %16, 0
-  %27 = icmp ugt i32 %23, 7
-  %28 = and i1 %26, %27
+  %27 = icmp samesign ugt i32 %23, 7
+  %28 = select i1 %26, i1 %27, i1 false
   br i1 %28, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %9, %.lr.ph
@@ -3846,7 +3846,7 @@ define internal fastcc void @dissect_tlv_atm_session_parms(ptr noundef %0, ptr n
   %43 = add nsw i32 %.06264, -8
   %44 = add nsw i8 %.06066, -1
   %45 = icmp ne i8 %44, 0
-  %46 = icmp ugt i32 %43, 7
+  %46 = icmp samesign ugt i32 %43, 7
   %47 = select i1 %45, i1 %46, i1 false
   br i1 %47, label %.lr.ph, label %._crit_edge, !llvm.loop !17
 
@@ -3893,8 +3893,8 @@ define internal fastcc void @dissect_tlv_frame_relay_session_parms(ptr noundef %
   %24 = load i32, ptr @ett_ldp_tlv_val, align 4
   %25 = tail call ptr @proto_tree_add_subtree(ptr noundef %11, ptr noundef %0, i32 noundef %22, i32 noundef %23, i32 noundef %24, ptr noundef null, ptr noundef nonnull @.str.1045) #5
   %26 = icmp ne i8 %16, 0
-  %27 = icmp ugt i32 %23, 7
-  %28 = and i1 %26, %27
+  %27 = icmp samesign ugt i32 %23, 7
+  %28 = select i1 %26, i1 %27, i1 false
   br i1 %28, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %9, %.lr.ph
@@ -3922,7 +3922,7 @@ define internal fastcc void @dissect_tlv_frame_relay_session_parms(ptr noundef %
   %45 = add nsw i32 %.06466, -8
   %46 = add nsw i8 %.06367, -1
   %47 = icmp ne i8 %46, 0
-  %48 = icmp ugt i32 %45, 7
+  %48 = icmp samesign ugt i32 %45, 7
   %49 = select i1 %47, i1 %48, i1 false
   br i1 %49, label %.lr.ph, label %._crit_edge, !llvm.loop !18
 

@@ -190,7 +190,7 @@ define internal ptr @H5O__sdspace_shared_decode(ptr noundef %0, ptr noundef %1, 
 76:                                               ; preds = %67
   %77 = getelementptr inbounds i8, ptr %5, i64 3
   %78 = load i8, ptr %58, align 1
-  %79 = icmp ugt i8 %40, 1
+  %79 = icmp samesign ugt i8 %40, 1
   br i1 %79, label %80, label %96
 
 80:                                               ; preds = %76

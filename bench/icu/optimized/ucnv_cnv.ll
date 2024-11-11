@@ -59,7 +59,7 @@ while.body:                                       ; preds = %if.then, %while.bod
   %incdec.ptr4 = getelementptr inbounds i8, ptr %t.034, i64 1
   store i8 %4, ptr %t.034, align 1
   %dec = add nsw i32 %length.addr.032, -1
-  %cmp2 = icmp ugt i32 %length.addr.032, 1
+  %cmp2 = icmp samesign ugt i32 %length.addr.032, 1
   %cmp3 = icmp ult ptr %incdec.ptr4, %targetLimit
   %5 = select i1 %cmp2, i1 %cmp3, i1 false
   br i1 %5, label %while.body, label %if.end, !llvm.loop !4
@@ -76,7 +76,7 @@ while.body10:                                     ; preds = %while.cond5.prehead
   %incdec.ptr13 = getelementptr inbounds i8, ptr %o.026, i64 4
   store i32 %sourceIndex, ptr %o.026, align 4
   %dec14 = add nsw i32 %length.addr.223, -1
-  %cmp6 = icmp ugt i32 %length.addr.223, 1
+  %cmp6 = icmp samesign ugt i32 %length.addr.223, 1
   %cmp8 = icmp ult ptr %incdec.ptr12, %targetLimit
   %7 = select i1 %cmp6, i1 %cmp8, i1 false
   br i1 %7, label %while.body10, label %while.end15, !llvm.loop !6
@@ -117,7 +117,7 @@ do.body:                                          ; preds = %do.body, %if.then19
   %incdec.ptr21 = getelementptr inbounds i8, ptr %t.3, i64 1
   store i8 %8, ptr %t.3, align 1
   %dec22 = add nsw i32 %length.addr.3, -1
-  %cmp23 = icmp ugt i32 %length.addr.3, 1
+  %cmp23 = icmp samesign ugt i32 %length.addr.3, 1
   br i1 %cmp23, label %do.body, label %if.end24, !llvm.loop !7
 
 if.end24:                                         ; preds = %do.body, %if.then17
@@ -161,7 +161,7 @@ while.body:                                       ; preds = %if.then, %while.bod
   %incdec.ptr4 = getelementptr inbounds i8, ptr %t.034, i64 2
   store i16 %4, ptr %t.034, align 2
   %dec = add nsw i32 %length.addr.032, -1
-  %cmp2 = icmp ugt i32 %length.addr.032, 1
+  %cmp2 = icmp samesign ugt i32 %length.addr.032, 1
   %cmp3 = icmp ult ptr %incdec.ptr4, %targetLimit
   %5 = select i1 %cmp2, i1 %cmp3, i1 false
   br i1 %5, label %while.body, label %if.end, !llvm.loop !8
@@ -178,7 +178,7 @@ while.body10:                                     ; preds = %while.cond5.prehead
   %incdec.ptr13 = getelementptr inbounds i8, ptr %o.026, i64 4
   store i32 %sourceIndex, ptr %o.026, align 4
   %dec14 = add nsw i32 %length.addr.223, -1
-  %cmp6 = icmp ugt i32 %length.addr.223, 1
+  %cmp6 = icmp samesign ugt i32 %length.addr.223, 1
   %cmp8 = icmp ult ptr %incdec.ptr12, %targetLimit
   %7 = select i1 %cmp6, i1 %cmp8, i1 false
   br i1 %7, label %while.body10, label %while.end15, !llvm.loop !9
@@ -219,7 +219,7 @@ do.body:                                          ; preds = %do.body, %if.then19
   %incdec.ptr21 = getelementptr inbounds i8, ptr %t.3, i64 2
   store i16 %8, ptr %t.3, align 2
   %dec22 = add nsw i32 %length.addr.3, -1
-  %cmp23 = icmp ugt i32 %length.addr.3, 1
+  %cmp23 = icmp samesign ugt i32 %length.addr.3, 1
   br i1 %cmp23, label %do.body, label %if.end24, !llvm.loop !10
 
 if.end24:                                         ; preds = %do.body, %if.then17
@@ -306,7 +306,7 @@ if.then23:                                        ; preds = %if.end21
   br i1 %cmp24.not, label %if.end45, label %if.then25
 
 if.then25:                                        ; preds = %if.then23
-  %cmp26 = icmp ult i32 %c.addr.0, 65536
+  %cmp26 = icmp samesign ult i32 %c.addr.0, 65536
   br i1 %cmp26, label %if.then27, label %if.else29
 
 if.then27:                                        ; preds = %if.then25

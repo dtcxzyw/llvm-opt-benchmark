@@ -704,7 +704,7 @@ select_bits_paused.exit.thread:                   ; preds = %12, %._crit_edge
   br i1 %74, label %.thread97.i, label %75
 
 75:                                               ; preds = %71
-  %76 = icmp ult i64 %73, %.054.i
+  %76 = icmp samesign ult i64 %73, %.054.i
   br i1 %76, label %.thread27.i.i, label %77
 
 77:                                               ; preds = %75, %69, %66, %64

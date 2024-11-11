@@ -2508,7 +2508,7 @@ find_host_id.exit.i:                              ; preds = %176
   store i8 %289, ptr %188, align 1
   store i8 %291, ptr %18, align 1
   store i32 -1, ptr %189, align 1
-  %300 = icmp ugt i8 %291, 1
+  %300 = icmp samesign ugt i8 %291, 1
   br i1 %300, label %.lr.ph.i.i.i, label %.thread8.i.i
 
 .lr.ph.i.i.i:                                     ; preds = %299
@@ -3733,7 +3733,7 @@ meta_tag_expected_length.exit.i:                  ; preds = %1024, %1023, %1022,
   %.1.i.i143 = phi i32 [ %.0.i.i142, %1020 ], [ 4, %1024 ], [ 16, %1023 ], [ 4, %1022 ]
   %1025 = zext i16 %1002 to i32
   %1026 = add nuw nsw i32 %1025, 4
-  %1027 = icmp ult i32 %999, %1026
+  %1027 = icmp samesign ult i32 %999, %1026
   %1028 = icmp sgt i32 %.1.i.i143, %1025
   %or.cond440.i = select i1 %1027, i1 true, i1 %1028
   %spec.select581.i = select i1 %or.cond440.i, ptr @ei_erf_meta_truncated_tag, ptr null

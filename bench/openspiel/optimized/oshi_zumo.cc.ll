@@ -1584,7 +1584,7 @@ define void @_ZN10open_spiel9oshi_zumo13OshiZumoState14DoApplyActionsERKSt6vecto
   br label %92
 
 58:                                               ; preds = %50
-  %59 = icmp ugt i64 %28, %36
+  %59 = icmp samesign ugt i64 %28, %36
   br i1 %59, label %60, label %64
 
 60:                                               ; preds = %58
@@ -1595,7 +1595,7 @@ define void @_ZN10open_spiel9oshi_zumo13OshiZumoState14DoApplyActionsERKSt6vecto
   br label %._crit_edge
 
 64:                                               ; preds = %58
-  %65 = icmp ult i64 %28, %36
+  %65 = icmp samesign ult i64 %28, %36
   %66 = getelementptr inbounds nuw i8, ptr %0, i64 100
   %67 = load i32, ptr %66, align 4
   br i1 %65, label %68, label %._crit_edge

@@ -4353,7 +4353,7 @@ while.end.i.i.thread:                             ; preds = %invoke.cont.i
   br label %if.else.i.i588
 
 while.end.i.i:                                    ; preds = %invoke.cont.i
-  %cmp9.i.i = icmp ugt i8 %36, 9
+  %cmp9.i.i = icmp samesign ugt i8 %36, 9
   br i1 %cmp9.i.i, label %if.then.i.i589, label %if.else.i.i588
 
 if.then.i.i589:                                   ; preds = %while.end.i.i
@@ -4504,7 +4504,7 @@ while.end.i.i634.thread:                          ; preds = %invoke.cont.i630
   br label %if.else.i.i637
 
 while.end.i.i634:                                 ; preds = %invoke.cont.i630
-  %cmp9.i.i636 = icmp ugt i8 %63, 9
+  %cmp9.i.i636 = icmp samesign ugt i8 %63, 9
   br i1 %cmp9.i.i636, label %if.then.i.i640, label %if.else.i.i637
 
 if.then.i.i640:                                   ; preds = %while.end.i.i634

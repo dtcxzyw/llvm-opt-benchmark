@@ -1384,7 +1384,7 @@ sw.bb:                                            ; preds = %entry
   br i1 %cmp.i.i.i.i.i.i.i, label %land.lhs.true.i.i.i.i.i.i.i, label %cond.false.i.i.i.i.i.i.i
 
 land.lhs.true.i.i.i.i.i.i.i:                      ; preds = %sw.bb
-  %cmp2.i.i.i.i.i.i.i = icmp ult i64 %add.i.i.i.i.i.i.i, 512
+  %cmp2.i.i.i.i.i.i.i = icmp samesign ult i64 %add.i.i.i.i.i.i.i, 512
   br i1 %cmp2.i.i.i.i.i.i.i, label %if.then.i.i.i.i.i.i.i, label %cond.true.i.i.i.i.i.i.i
 
 if.then.i.i.i.i.i.i.i:                            ; preds = %land.lhs.true.i.i.i.i.i.i.i
@@ -1433,7 +1433,7 @@ sw.bb2:                                           ; preds = %entry
   br i1 %cmp.i.i.i.i.i.i.i15, label %land.lhs.true.i.i.i.i.i.i.i25, label %cond.false.i.i.i.i.i.i.i16
 
 land.lhs.true.i.i.i.i.i.i.i25:                    ; preds = %sw.bb2
-  %cmp2.i.i.i.i.i.i.i26 = icmp ult i64 %add.i.i.i.i.i.i.i14, 512
+  %cmp2.i.i.i.i.i.i.i26 = icmp samesign ult i64 %add.i.i.i.i.i.i.i14, 512
   br i1 %cmp2.i.i.i.i.i.i.i26, label %if.then.i.i.i.i.i.i.i29, label %cond.true.i.i.i.i.i.i.i27
 
 if.then.i.i.i.i.i.i.i29:                          ; preds = %land.lhs.true.i.i.i.i.i.i.i25
@@ -1486,7 +1486,7 @@ sw.bb4:                                           ; preds = %entry
   br i1 %cmp.i.i.i.i.i.i.i40, label %land.lhs.true.i.i.i.i.i.i.i42, label %_ZNK4YAML16StreamCharSourceixEm.exit.thread31.i
 
 land.lhs.true.i.i.i.i.i.i.i42:                    ; preds = %sw.bb4
-  %cmp2.i.i.i.i.i.i.i43 = icmp ult i64 %add.i.i.i.i.i.i.i39, 512
+  %cmp2.i.i.i.i.i.i.i43 = icmp samesign ult i64 %add.i.i.i.i.i.i.i39, 512
   br i1 %cmp2.i.i.i.i.i.i.i43, label %_ZNK4YAML16StreamCharSourceixEm.exit.thread.i, label %_ZNK4YAML16StreamCharSourceixEm.exit.i
 
 _ZNK4YAML16StreamCharSourceixEm.exit.i:           ; preds = %land.lhs.true.i.i.i.i.i.i.i42

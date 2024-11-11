@@ -21749,7 +21749,7 @@ _ZN4llvm5ErrorD2Ev.exit238:                       ; preds = %277, %271
   %295 = getelementptr inbounds nuw i8, ptr %291, i64 104
   %296 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %295) #29
   %297 = and i64 %296, 4294967295
-  %298 = icmp ugt i64 %268, %297
+  %298 = icmp samesign ugt i64 %268, %297
   br i1 %298, label %_ZN4llvm5ErrorD2Ev.exit242, label %324
 
 _ZN4llvm5ErrorD2Ev.exit242:                       ; preds = %294
@@ -29481,7 +29481,7 @@ switch.early.test.i.i:                            ; preds = %542
 
 _ZN4llvm6object14MachOBindEntry11readSLEB128EPPKc.exit: ; preds = %546
   %553 = icmp ugt i32 %550, 63
-  %.not52.i.i = icmp ult i8 %538, 64
+  %.not52.i.i = icmp samesign ult i8 %538, 64
   %or.cond.i.i = select i1 %553, i1 true, i1 %.not52.i.i
   %554 = zext nneg i32 %550 to i64
   %555 = shl nsw i64 -1, %554
@@ -31139,7 +31139,7 @@ switch.early.test.i:                              ; preds = %19
 
 32:                                               ; preds = %25
   %33 = icmp ugt i32 %29, 63
-  %.not52.i = icmp ult i8 %15, 64
+  %.not52.i = icmp samesign ult i8 %15, 64
   %or.cond.i = select i1 %33, i1 true, i1 %.not52.i
   %34 = zext nneg i32 %29 to i64
   %35 = shl nsw i64 -1, %34

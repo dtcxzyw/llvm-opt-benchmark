@@ -733,7 +733,7 @@ define void @Extra_PrintBinary(ptr nocapture noundef %0, ptr nocapture noundef r
   %11 = and i32 %10, 1
   %12 = or disjoint i32 %11, 48
   %fputc = tail call i32 @fputc(i32 %12, ptr %0)
-  %13 = icmp ugt i32 %.0.in5, 1
+  %13 = icmp samesign ugt i32 %.0.in5, 1
   br i1 %13, label %.lr.ph, label %._crit_edge, !llvm.loop !14
 
 ._crit_edge:                                      ; preds = %.lr.ph, %3
@@ -947,7 +947,7 @@ define void @Extra_PrintHexadecimal(ptr nocapture noundef %0, ptr nocapture noun
   br label %20
 
 20:                                               ; preds = %16, %18
-  %21 = icmp ugt i32 %.013.in, 1
+  %21 = icmp samesign ugt i32 %.013.in, 1
   br i1 %21, label %.lr.ph, label %._crit_edge, !llvm.loop !17
 
 ._crit_edge:                                      ; preds = %20, %3
@@ -1017,7 +1017,7 @@ define void @Extra_PrintHexadecimalString(ptr nocapture noundef writeonly %0, pt
   %storemerge = select i1 %25, i8 %28, i8 %27
   %.1 = getelementptr inbounds i8, ptr %.02432, i64 1
   store i8 %storemerge, ptr %.02432, align 1
-  %29 = icmp ugt i32 %.0.in33, 1
+  %29 = icmp samesign ugt i32 %.0.in33, 1
   br i1 %29, label %.lr.ph, label %._crit_edge, !llvm.loop !18
 
 ._crit_edge:                                      ; preds = %.lr.ph, %.critedge31
@@ -1064,7 +1064,7 @@ define void @Extra_PrintHex(ptr nocapture noundef %0, ptr nocapture noundef read
   br label %24
 
 24:                                               ; preds = %20, %22
-  %25 = icmp ugt i32 %.016.in, 1
+  %25 = icmp samesign ugt i32 %.016.in, 1
   br i1 %25, label %.lr.ph, label %._crit_edge, !llvm.loop !19
 
 ._crit_edge:                                      ; preds = %24, %3
@@ -1105,7 +1105,7 @@ define void @Extra_PrintHex2(ptr nocapture noundef %0, ptr nocapture noundef rea
   br label %23
 
 23:                                               ; preds = %19, %21
-  %24 = icmp ugt i32 %.015.in, 1
+  %24 = icmp samesign ugt i32 %.015.in, 1
   br i1 %24, label %.lr.ph, label %._crit_edge, !llvm.loop !20
 
 ._crit_edge:                                      ; preds = %23, %3

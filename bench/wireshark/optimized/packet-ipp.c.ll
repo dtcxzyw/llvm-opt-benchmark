@@ -1418,7 +1418,7 @@ add_integer_tree.exit.i:                          ; preds = %.critedge.i.i, %330
   %.3.i154.i = phi i32 [ 0, %553 ], [ %167, %.critedge14.i.i.preheader ]
   %498 = add i32 %.4260.i.i, 1
   %499 = add nsw i8 %.0255.i.i, -53
-  %or.cond5.i.i = icmp ult i8 %499, 2
+  %or.cond5.i.i = icmp samesign ult i8 %499, 2
   %500 = icmp samesign ugt i32 %.3252.i.i, 4
   %or.cond7.i.i = select i1 %or.cond5.i.i, i1 %500, i1 false
   br i1 %or.cond7.i.i, label %501, label %523

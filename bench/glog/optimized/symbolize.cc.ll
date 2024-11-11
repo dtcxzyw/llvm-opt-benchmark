@@ -719,7 +719,7 @@ switch.early.test.i.i.i:                          ; preds = %.lr.ph.i.i.i
 
 136:                                              ; preds = %switch.early.test.i.i.i, %switch.early.test.i.i.i, %switch.early.test.i.i.i, %switch.early.test.i.i.i, %switch.early.test.i.i.i, %switch.early.test.i.i.i, %switch.early.test.i.i.i, %switch.early.test.i.i.i, %switch.early.test.i.i.i, %switch.early.test.i.i.i, %switch.early.test.i.i.i, %switch.early.test.i.i.i, %.lr.ph.i.i.i
   %137 = shl i64 %132, 4
-  %138 = icmp ult i8 %.fr27.i.i.i, 65
+  %138 = icmp samesign ult i8 %.fr27.i.i.i, 65
   %139 = add nsw i32 %134, -48
   %140 = sext i32 %139 to i64
   %141 = and i32 %134, 15
@@ -790,7 +790,7 @@ switch.early.test.i68.i.i:                        ; preds = %.lr.ph.i64.i.i
 
 160:                                              ; preds = %switch.early.test.i68.i.i, %switch.early.test.i68.i.i, %switch.early.test.i68.i.i, %switch.early.test.i68.i.i, %switch.early.test.i68.i.i, %switch.early.test.i68.i.i, %switch.early.test.i68.i.i, %switch.early.test.i68.i.i, %switch.early.test.i68.i.i, %switch.early.test.i68.i.i, %switch.early.test.i68.i.i, %switch.early.test.i68.i.i, %.lr.ph.i64.i.i
   %161 = shl i64 %.1116.i.i, 4
-  %162 = icmp ult i8 %.fr27.i66.i.i, 65
+  %162 = icmp samesign ult i8 %.fr27.i66.i.i, 65
   %163 = add nsw i32 %158, -48
   %164 = sext i32 %163 to i64
   %165 = and i32 %158, 15
@@ -1794,7 +1794,7 @@ switch.early.test:                                ; preds = %.lr.ph
 
 12:                                               ; preds = %switch.early.test, %switch.early.test, %switch.early.test, %switch.early.test, %switch.early.test, %switch.early.test, %switch.early.test, %switch.early.test, %switch.early.test, %switch.early.test, %switch.early.test, %switch.early.test, %.lr.ph
   %13 = shl i64 %8, 4
-  %14 = icmp ult i8 %.fr27, 65
+  %14 = icmp samesign ult i8 %.fr27, 65
   %15 = add nsw i32 %10, -48
   %16 = sext i32 %15 to i64
   %17 = and i32 %10, 15

@@ -347,7 +347,7 @@ define internal i32 @dissect_mcp(ptr noundef %0, ptr noundef %1, ptr noundef %2,
 
 131:                                              ; preds = %119, %122, %109, %115, %97, %105, %87, %93, %68, %81, %60, %66, %50, %56, %127
   %132 = add nuw nsw i32 %41, %31
-  %133 = icmp ult i32 %132, %19
+  %133 = icmp samesign ult i32 %132, %19
   br i1 %133, label %22, label %.loopexit, !llvm.loop !4
 
 .loopexit:                                        ; preds = %131, %.thread, %4, %44, %25

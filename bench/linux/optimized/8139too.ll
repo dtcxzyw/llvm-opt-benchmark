@@ -1645,7 +1645,7 @@ define internal noundef i32 @rtl8139_start_xmit(ptr noundef %0, ptr noundef %1) 
   br i1 %10, label %11, label %37, !prof !18
 
 11:                                               ; preds = %2
-  %12 = icmp ult i32 %6, 60
+  %12 = icmp samesign ult i32 %6, 60
   br i1 %12, label %13, label %17
 
 13:                                               ; preds = %11

@@ -2052,7 +2052,7 @@ define dso_local noundef range(i32 -12, 1) i32 @ip6_fraglist_init(ptr nocapture 
   %76 = getelementptr i8, ptr %71, i64 %.idx
   %77 = load i32, ptr %76, align 8
   %78 = add i32 %77, %74
-  %79 = icmp ugt i64 %73, 1
+  %79 = icmp samesign ugt i64 %73, 1
   br i1 %79, label %72, label %.loopexit, !llvm.loop !44
 
 .loopexit:                                        ; preds = %72, %41
@@ -2823,7 +2823,7 @@ define dso_local i32 @ip6_fragment(ptr noundef %0, ptr noundef %1, ptr noundef %
   %184 = getelementptr i8, ptr %179, i64 %.idx
   %185 = load i32, ptr %184, align 8
   %186 = add i32 %185, %182
-  %187 = icmp ugt i64 %181, 1
+  %187 = icmp samesign ugt i64 %181, 1
   br i1 %187, label %180, label %.loopexit42, !llvm.loop !44
 
 .loopexit42:                                      ; preds = %180, %169

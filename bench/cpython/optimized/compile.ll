@@ -27698,7 +27698,7 @@ codegen_addop_i.exit.i.us:                        ; preds = %instr_sequence_next
   store i64 %.compoundliteral67.sroa.0.0.insert.insert.i.us, ptr %i_loc.i.i.i391.us, align 4
   %loc.sroa.2.0.i_loc.sroa_idx.i.i.i392.us = getelementptr inbounds i8, ptr %arrayidx.i.i.i389.us, i64 16
   store i64 %.compoundliteral67.sroa.3.8.insert.insert.i.us, ptr %loc.sroa.2.0.i_loc.sroa_idx.i.i.i392.us, align 4
-  %cmp.i393.us = icmp ugt i64 %count.addr.05.i.us, 2
+  %cmp.i393.us = icmp samesign ugt i64 %count.addr.05.i.us, 2
   br i1 %cmp.i393.us, label %while.body.i377.us, label %pattern_helper_rotate.exit.loopexit.us, !llvm.loop !106
 
 pattern_helper_rotate.exit.loopexit.us:           ; preds = %codegen_addop_i.exit.i.us
@@ -27940,7 +27940,7 @@ codegen_addop_i.exit.i:                           ; preds = %instr_sequence_next
   store i64 %.compoundliteral163.sroa.0.0.insert.insert.i250, ptr %i_loc.i.i.i566, align 4
   %loc.sroa.2.0.i_loc.sroa_idx.i.i.i567 = getelementptr inbounds i8, ptr %arrayidx.i.i.i564, i64 16
   store i64 %.compoundliteral163.sroa.3.8.insert.insert.i254, ptr %loc.sroa.2.0.i_loc.sroa_idx.i.i.i567, align 4
-  %cmp.i568 = icmp ugt i64 %count.addr.05.i, 2
+  %cmp.i568 = icmp samesign ugt i64 %count.addr.05.i, 2
   br i1 %cmp.i568, label %while.body.i552, label %if.end175.i, !llvm.loop !106
 
 if.end175.i:                                      ; preds = %codegen_addop_i.exit.i, %for.body162.i
@@ -28951,7 +28951,7 @@ codegen_addop_i.exit.i:                           ; preds = %instr_sequence_next
   store i64 %loc.coerce0, ptr %i_loc.i.i.i, align 4
   %loc.sroa.2.0.i_loc.sroa_idx.i.i.i = getelementptr inbounds i8, ptr %arrayidx.i.i.i, i64 16
   store i64 %loc.coerce1, ptr %loc.sroa.2.0.i_loc.sroa_idx.i.i.i, align 4
-  %cmp.i = icmp ugt i64 %count.addr.05.i, 2
+  %cmp.i = icmp samesign ugt i64 %count.addr.05.i, 2
   br i1 %cmp.i, label %while.body.i, label %if.end20.loopexit, !llvm.loop !106
 
 if.end20.loopexit:                                ; preds = %codegen_addop_i.exit.i

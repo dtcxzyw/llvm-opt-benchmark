@@ -6593,7 +6593,7 @@ define linkonce_odr dso_local void @_ZN4absl7debian218container_internal5btreeIN
   %59 = sub nsw i32 %58, %.sroa.speculated
   %.not73 = icmp sle i32 %52, %59
   %narrow = add nuw nsw i8 %55, %49
-  %60 = icmp ult i8 %narrow, 61
+  %60 = icmp samesign ult i8 %narrow, 61
   %or.cond91 = select i1 %.not73, i1 true, i1 %60
   br i1 %or.cond91, label %61, label %71
 

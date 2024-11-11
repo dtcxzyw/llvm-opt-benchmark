@@ -3196,7 +3196,7 @@ define internal fastcc noundef ptr @parse_file_info(ptr noundef %0, ptr noundef 
   %20 = tail call fastcc i32 @toi(ptr noundef nonnull %19, i32 noundef 4)
   %21 = zext i32 %20 to i64
   %22 = add nsw i64 %10, -33
-  %23 = icmp ult i64 %22, %16
+  %23 = icmp samesign ult i64 %22, %16
   %24 = icmp eq i8 %15, 0
   %or.cond3 = or i1 %24, %23
   br i1 %or.cond3, label %25, label %26
@@ -4373,7 +4373,7 @@ parse_rockridge_NM1.exit:                         ; preds = %175, %177, %179, %1
 
 264:                                              ; preds = %257
   %265 = zext i8 %261 to i32
-  %266 = icmp ult i32 %262, %265
+  %266 = icmp samesign ult i32 %262, %265
   br i1 %266, label %parse_rockridge_SL1.exit, label %267
 
 267:                                              ; preds = %264
@@ -4383,7 +4383,7 @@ parse_rockridge_NM1.exit:                         ; preds = %175, %177, %179, %1
 
 270:                                              ; preds = %257
   %271 = zext i8 %261 to i32
-  %272 = icmp ult i32 %262, %271
+  %272 = icmp samesign ult i32 %262, %271
   br i1 %272, label %parse_rockridge_SL1.exit, label %273
 
 273:                                              ; preds = %270
@@ -4477,7 +4477,7 @@ parse_rockridge_SL1.exit:                         ; preds = %257, %264, %270, %2
   %.0.i137 = phi ptr [ %314, %312 ], [ %305, %310 ]
   %317 = and i32 %307, 2
   %318 = icmp ne i32 %317, 0
-  %319 = icmp ugt i32 %.065.i, 16
+  %319 = icmp samesign ugt i32 %.065.i, 16
   %or.cond3.i = select i1 %318, i1 %319, i1 false
   br i1 %or.cond3.i, label %320, label %324
 
@@ -4493,7 +4493,7 @@ parse_rockridge_SL1.exit:                         ; preds = %257, %264, %270, %2
   %.1.i138 = phi ptr [ %322, %320 ], [ %.0.i137, %316 ]
   %325 = and i32 %307, 4
   %326 = icmp ne i32 %325, 0
-  %327 = icmp ugt i32 %.166.i, 16
+  %327 = icmp samesign ugt i32 %.166.i, 16
   %or.cond5.i = select i1 %326, i1 %327, i1 false
   br i1 %or.cond5.i, label %328, label %332
 
@@ -4509,7 +4509,7 @@ parse_rockridge_SL1.exit:                         ; preds = %257, %264, %270, %2
   %.2.i = phi ptr [ %330, %328 ], [ %.1.i138, %324 ]
   %333 = and i32 %307, 8
   %334 = icmp ne i32 %333, 0
-  %335 = icmp ugt i32 %.267.i, 16
+  %335 = icmp samesign ugt i32 %.267.i, 16
   %or.cond7.i = select i1 %334, i1 %335, i1 false
   br i1 %or.cond7.i, label %336, label %parse_rockridge_TF1.exit
 
@@ -4583,7 +4583,7 @@ isodate7.exit.i:                                  ; preds = %362, %340
   %.3.i = phi ptr [ %368, %isodate7.exit.i ], [ %305, %338 ]
   %371 = and i32 %307, 2
   %372 = icmp ne i32 %371, 0
-  %373 = icmp ugt i32 %.368.i, 6
+  %373 = icmp samesign ugt i32 %.368.i, 6
   %or.cond11.i = select i1 %372, i1 %373, i1 false
   br i1 %or.cond11.i, label %374, label %404
 
@@ -4647,7 +4647,7 @@ isodate7.exit80.i:                                ; preds = %396, %374
   %.4.i = phi ptr [ %402, %isodate7.exit80.i ], [ %.3.i, %370 ]
   %405 = and i32 %307, 4
   %406 = icmp ne i32 %405, 0
-  %407 = icmp ugt i32 %.469.i, 6
+  %407 = icmp samesign ugt i32 %.469.i, 6
   %or.cond13.i = select i1 %406, i1 %407, i1 false
   br i1 %or.cond13.i, label %408, label %438
 
@@ -4711,7 +4711,7 @@ isodate7.exit87.i:                                ; preds = %430, %408
   %.5.i = phi ptr [ %436, %isodate7.exit87.i ], [ %.4.i, %404 ]
   %439 = and i32 %307, 8
   %440 = icmp ne i32 %439, 0
-  %441 = icmp ugt i32 %.570.i, 6
+  %441 = icmp samesign ugt i32 %.570.i, 6
   %or.cond15.i = select i1 %440, i1 %441, i1 false
   br i1 %or.cond15.i, label %442, label %parse_rockridge_TF1.exit
 

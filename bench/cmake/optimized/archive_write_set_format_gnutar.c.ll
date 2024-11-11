@@ -683,7 +683,7 @@ define internal fastcc range(i32 -25, 1) i32 @archive_format_gnutar_header(ptr n
   %59 = getelementptr inbounds i8, ptr %.01216.i, i64 -1
   store i8 %58, ptr %59, align 1
   %60 = lshr i64 %.01315.i, 3
-  %61 = icmp ugt i32 %.01117.i, 1
+  %61 = icmp samesign ugt i32 %.01117.i, 1
   br i1 %61, label %54, label %62, !llvm.loop !5
 
 62:                                               ; preds = %54
@@ -715,7 +715,7 @@ format_octal.exit:                                ; preds = %62, %.preheader.pre
   %73 = getelementptr inbounds i8, ptr %.01216.i.i, i64 -1
   store i8 %72, ptr %73, align 1
   %74 = lshr i64 %.01315.i.i, 3
-  %75 = icmp ugt i32 %.01117.i.i, 1
+  %75 = icmp samesign ugt i32 %.01117.i.i, 1
   br i1 %75, label %68, label %76, !llvm.loop !5
 
 76:                                               ; preds = %68
@@ -735,7 +735,7 @@ format_octal.exit:                                ; preds = %62, %.preheader.pre
   %83 = getelementptr inbounds i8, ptr %.069.i.i, i64 -1
   store i8 %82, ptr %83, align 1
   %84 = lshr i64 %.078.i.i, 8
-  %85 = icmp ugt i32 %.010.i.i, 1
+  %85 = icmp samesign ugt i32 %.010.i.i, 1
   br i1 %85, label %80, label %format_256.exit.i, !llvm.loop !7
 
 format_256.exit.i:                                ; preds = %80
@@ -771,7 +771,7 @@ format_number.exit.thread:                        ; preds = %76, %format_256.exi
   %98 = getelementptr inbounds i8, ptr %.01216.i.i103, i64 -1
   store i8 %97, ptr %98, align 1
   %99 = lshr i64 %.01315.i.i104, 3
-  %100 = icmp ugt i32 %.01117.i.i102, 1
+  %100 = icmp samesign ugt i32 %.01117.i.i102, 1
   br i1 %100, label %93, label %101, !llvm.loop !5
 
 101:                                              ; preds = %93
@@ -791,7 +791,7 @@ format_number.exit.thread:                        ; preds = %76, %format_256.exi
   %108 = getelementptr inbounds i8, ptr %.069.i.i97, i64 -1
   store i8 %107, ptr %108, align 1
   %109 = lshr i64 %.078.i.i98, 8
-  %110 = icmp ugt i32 %.010.i.i96, 1
+  %110 = icmp samesign ugt i32 %.010.i.i96, 1
   br i1 %110, label %105, label %format_256.exit.i99, !llvm.loop !7
 
 format_256.exit.i99:                              ; preds = %105
@@ -827,7 +827,7 @@ format_number.exit106.thread:                     ; preds = %101, %format_256.ex
   %123 = getelementptr inbounds i8, ptr %.01216.i.i114, i64 -1
   store i8 %122, ptr %123, align 1
   %124 = lshr i64 %.01315.i.i115, 3
-  %125 = icmp ugt i32 %.01117.i.i113, 1
+  %125 = icmp samesign ugt i32 %.01117.i.i113, 1
   br i1 %125, label %118, label %126, !llvm.loop !5
 
 126:                                              ; preds = %118
@@ -847,7 +847,7 @@ format_number.exit106.thread:                     ; preds = %101, %format_256.ex
   %133 = getelementptr inbounds i8, ptr %.069.i.i108, i64 -1
   store i8 %132, ptr %133, align 1
   %134 = lshr i64 %.078.i.i109, 8
-  %135 = icmp ugt i32 %.010.i.i107, 1
+  %135 = icmp samesign ugt i32 %.010.i.i107, 1
   br i1 %135, label %130, label %format_256.exit.i110, !llvm.loop !7
 
 format_256.exit.i110:                             ; preds = %130
@@ -878,7 +878,7 @@ format_number.exit117.thread:                     ; preds = %126, %format_256.ex
   %145 = getelementptr inbounds i8, ptr %.01216.i119, i64 -1
   store i8 %144, ptr %145, align 1
   %146 = lshr i64 %.01315.i120, 3
-  %147 = icmp ugt i32 %.01117.i118, 1
+  %147 = icmp samesign ugt i32 %.01117.i118, 1
   br i1 %147, label %140, label %148, !llvm.loop !5
 
 148:                                              ; preds = %140
@@ -916,7 +916,7 @@ format_octal.exit123:                             ; preds = %148, %.preheader.pr
   %163 = getelementptr inbounds i8, ptr %.01216.i126, i64 -1
   store i8 %162, ptr %163, align 1
   %164 = lshr i64 %.01315.i127, 3
-  %165 = icmp ugt i32 %.01117.i125, 1
+  %165 = icmp samesign ugt i32 %.01117.i125, 1
   br i1 %165, label %158, label %166, !llvm.loop !5
 
 166:                                              ; preds = %158
@@ -946,7 +946,7 @@ format_octal.exit130.thread:                      ; preds = %166, %168
   %176 = getelementptr inbounds i8, ptr %.01216.i133, i64 -1
   store i8 %175, ptr %176, align 1
   %177 = lshr i64 %.01315.i134, 3
-  %178 = icmp ugt i32 %.01117.i132, 1
+  %178 = icmp samesign ugt i32 %.01117.i132, 1
   br i1 %178, label %171, label %179, !llvm.loop !5
 
 179:                                              ; preds = %171
@@ -993,7 +993,7 @@ format_octal.exit137.thread:                      ; preds = %179, %181, %152
   %197 = getelementptr inbounds i8, ptr %.01216.i140, i64 -1
   store i8 %196, ptr %197, align 1
   %198 = lshr i64 %.01315.i141, 3
-  %199 = icmp ugt i32 %.01117.i139, 1
+  %199 = icmp samesign ugt i32 %.01117.i139, 1
   br i1 %199, label %192, label %200, !llvm.loop !5
 
 200:                                              ; preds = %192

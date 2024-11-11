@@ -26164,7 +26164,7 @@ _ZN12_GLOBAL__N_114DarwinPlatformD2Ev.exit:       ; preds = %_ZNSt8optionalIN12_
   br label %235
 
 _ZNK4llvm9StringRef11starts_withES0_.exit3.thread40: ; preds = %3
-  %.not.i7 = icmp ult i64 %2, 6
+  %.not.i7 = icmp samesign ult i64 %2, 6
   br i1 %.not.i7, label %_ZNK4llvm9StringRef11starts_withES0_.exit29.thread45, label %_ZNK4llvm9StringRef11starts_withES0_.exit9
 
 _ZNK4llvm9StringRef11starts_withES0_.exit9:       ; preds = %_ZNK4llvm9StringRef11starts_withES0_.exit3, %_ZNK4llvm9StringRef11starts_withES0_.exit.thread39, %_ZNK4llvm9StringRef11starts_withES0_.exit3.thread40
@@ -26476,7 +26476,7 @@ _ZN12_GLOBAL__N_114DarwinPlatformD2Ev.exit23:     ; preds = %_ZNSt8optionalIN12_
   br label %235
 
 _ZNK4llvm9StringRef11starts_withES0_.exit17.thread43: ; preds = %_ZNK4llvm9StringRef11starts_withES0_.exit14.thread42
-  %.not.i24 = icmp ult i64 %2, 9
+  %.not.i24 = icmp samesign ult i64 %2, 9
   br i1 %.not.i24, label %_ZNK4llvm9StringRef11starts_withES0_.exit38, label %_ZNK4llvm9StringRef11starts_withES0_.exit26
 
 _ZNK4llvm9StringRef11starts_withES0_.exit26:      ; preds = %_ZNK4llvm9StringRef11starts_withES0_.exit17, %_ZNK4llvm9StringRef11starts_withES0_.exit17.thread43
@@ -26582,7 +26582,7 @@ _ZN12_GLOBAL__N_114DarwinPlatformD2Ev.exit35:     ; preds = %_ZNSt8optionalIN12_
   br label %235
 
 _ZNK4llvm9StringRef11starts_withES0_.exit29.thread45: ; preds = %_ZNK4llvm9StringRef11starts_withES0_.exit3.thread40
-  %.not.i36 = icmp ult i64 %2, 2
+  %.not.i36 = icmp samesign ult i64 %2, 2
   br i1 %.not.i36, label %_ZNK4llvm9StringRef11starts_withES0_.exit41.thread47, label %_ZNK4llvm9StringRef11starts_withES0_.exit38
 
 _ZNK4llvm9StringRef11starts_withES0_.exit38:      ; preds = %_ZNK4llvm9StringRef11starts_withES0_.exit29, %_ZNK4llvm9StringRef11starts_withES0_.exit26.thread44, %_ZNK4llvm9StringRef11starts_withES0_.exit17.thread43, %_ZNK4llvm9StringRef11starts_withES0_.exit9.thread41, %_ZNK4llvm9StringRef11starts_withES0_.exit29.thread45

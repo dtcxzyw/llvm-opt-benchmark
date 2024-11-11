@@ -222,7 +222,7 @@ _Z22countTrailingNullBytesPKhi.exit:              ; preds = %land.rhs.i, %while.
   br i1 %cmp3, label %return, label %if.end5
 
 if.end5:                                          ; preds = %_Z22countTrailingNullBytesPKhi.exit
-  %cmp6 = icmp ugt i32 %Count.0.lcssa.i.fr, 1
+  %cmp6 = icmp samesign ugt i32 %Count.0.lcssa.i.fr, 1
   %spec.select = select i1 %cmp6, i32 2, i32 1
   br label %return
 
@@ -252,7 +252,7 @@ _Z18countEmbeddedNullsPKhj.exit:                  ; preds = %for.body.i, %if.end
 
 if.end13:                                         ; preds = %_Z18countEmbeddedNullsPKhj.exit
   %div14 = udiv i32 %NumChars, 3
-  %cmp15.not = icmp ult i32 %Result.0.lcssa.i, %div14
+  %cmp15.not = icmp samesign ult i32 %Result.0.lcssa.i, %div14
   %.8 = select i1 %cmp15.not, i32 1, i32 2
   br label %return
 
@@ -1750,7 +1750,7 @@ if.end34.i.i:                                     ; preds = %_ZL15startsWithDigi
   br i1 %cmp37.i.i, label %land.lhs.true.i.i, label %if.end51.i.i
 
 land.lhs.true.i.i:                                ; preds = %if.end34.i.i
-  %cmp40.i.i = icmp ult i8 %23, 123
+  %cmp40.i.i = icmp samesign ult i8 %23, 123
   br i1 %cmp40.i.i, label %if.then41.i.i, label %CharLiteralError.i.i
 
 if.then41.i.i:                                    ; preds = %land.lhs.true.i.i
@@ -1862,7 +1862,7 @@ if.end34.i19.i:                                   ; preds = %_ZL15startsWithDigi
   br i1 %cmp37.i20.i, label %land.lhs.true.i30.i, label %if.end51.i21.i
 
 land.lhs.true.i30.i:                              ; preds = %if.end34.i19.i
-  %cmp40.i31.i = icmp ult i8 %39, 123
+  %cmp40.i31.i = icmp samesign ult i8 %39, 123
   br i1 %cmp40.i31.i, label %if.then41.i32.i, label %CharLiteralError.i23.i
 
 if.then41.i32.i:                                  ; preds = %land.lhs.true.i30.i
@@ -2013,7 +2013,7 @@ if.end34.i:                                       ; preds = %_ZL15startsWithDigi
   br i1 %cmp37.i, label %land.lhs.true.i, label %if.end51.i
 
 land.lhs.true.i:                                  ; preds = %if.end34.i
-  %cmp40.i = icmp ult i8 %58, 123
+  %cmp40.i = icmp samesign ult i8 %58, 123
   br i1 %cmp40.i, label %if.then41.i, label %CharLiteralError.i
 
 if.then41.i:                                      ; preds = %land.lhs.true.i
@@ -3829,7 +3829,7 @@ _ZNK10StringView10startsWithES_.exit.i104:        ; preds = %if.else33
   br i1 %tobool1.not.i.i.i.i.i.i106, label %if.then39, label %_ZL14isFunctionType10StringView.exit.thread
 
 lor.rhs.i:                                        ; preds = %if.else33
-  %cmp.i11.i = icmp ult i64 %sub.ptr.sub.i4.i.i, 4
+  %cmp.i11.i = icmp samesign ult i64 %sub.ptr.sub.i4.i.i, 4
   br i1 %cmp.i11.i, label %if.else46, label %_ZL14isFunctionType10StringView.exit
 
 _ZL14isFunctionType10StringView.exit:             ; preds = %lor.rhs.i

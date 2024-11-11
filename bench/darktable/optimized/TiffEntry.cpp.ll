@@ -225,7 +225,7 @@ define hidden void @_ZN8rawspeed9TiffEntryC2EPNS_7TiffIFDERNS_10ByteStreamE(ptr 
 
 76:                                               ; preds = %71
   %77 = add nuw nsw i32 %68, %54
-  %78 = icmp ule i32 %77, %14
+  %78 = icmp samesign ule i32 %77, %14
   tail call void @llvm.assume(i1 %78)
   %79 = getelementptr inbounds i8, ptr %23, i64 %70
   %80 = zext i32 %21 to i64

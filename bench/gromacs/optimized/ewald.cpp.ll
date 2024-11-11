@@ -318,7 +318,7 @@ _ZNSt6vectorI9t_complexSaIS0_EE6resizeEm.exit240: ; preds = %118, %120, %122, %1
 
 .preheader53.lr.ph.i:                             ; preds = %.preheader54.i
   %139 = getelementptr inbounds i8, ptr %84, i64 8
-  %140 = icmp ugt i32 %136, 2
+  %140 = icmp samesign ugt i32 %136, 2
   %wide.trip.count91.i = zext nneg i32 %12 to i64
   br i1 %140, label %.preheader53.us.preheader.i, label %.preheader53.i
 

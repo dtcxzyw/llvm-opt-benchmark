@@ -180,7 +180,7 @@ define dso_local void @rhash_byte_to_base64(ptr nocapture noundef writeonly %0, 
   br i1 %36, label %37, label %43
 
 37:                                               ; preds = %35
-  %38 = icmp ult i8 %.132, 26
+  %38 = icmp samesign ult i8 %.132, 26
   br i1 %38, label %39, label %41
 
 39:                                               ; preds = %37
@@ -304,7 +304,7 @@ define dso_local i64 @rhash_base64_url_encoded_helper(ptr noundef %0, ptr nounde
   br i1 %41, label %42, label %48
 
 42:                                               ; preds = %40
-  %43 = icmp ult i8 %.132.i, 26
+  %43 = icmp samesign ult i8 %.132.i, 26
   br i1 %43, label %44, label %46
 
 44:                                               ; preds = %42
@@ -508,7 +508,7 @@ rhash_urlencode.exit:                             ; preds = %77, %._crit_edge.i2
   br i1 %145, label %146, label %152
 
 146:                                              ; preds = %144
-  %147 = icmp ult i8 %.132.i39, 26
+  %147 = icmp samesign ult i8 %.132.i39, 26
   br i1 %147, label %148, label %150
 
 148:                                              ; preds = %146

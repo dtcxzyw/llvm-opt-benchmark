@@ -2239,7 +2239,7 @@ if.then20:                                        ; preds = %if.end18
 
 if.else:                                          ; preds = %if.end18
   %sub = add nsw i32 %groupNum, -1
-  %cmp5.i = icmp ugt i32 %5, %sub
+  %cmp5.i = icmp samesign ugt i32 %5, %sub
   br i1 %cmp5.i, label %cond.true.i, label %_ZNK6icu_759UVector3210elementAtiEi.exit
 
 cond.true.i:                                      ; preds = %if.else
@@ -2569,7 +2569,7 @@ if.then10.i:                                      ; preds = %if.end8.i
 
 if.else.i:                                        ; preds = %if.end8.i
   %sub.i = add nsw i32 %group, -1
-  %cmp5.i.i = icmp ugt i32 %4, %sub.i
+  %cmp5.i.i = icmp samesign ugt i32 %4, %sub.i
   br i1 %cmp5.i.i, label %cond.true.i.i, label %_ZNK6icu_759UVector3210elementAtiEi.exit.i
 
 cond.true.i.i:                                    ; preds = %if.else.i
@@ -2687,7 +2687,7 @@ if.then10:                                        ; preds = %if.end8
 
 if.else:                                          ; preds = %if.end8
   %sub = add nsw i32 %group, -1
-  %cmp5.i = icmp ugt i32 %4, %sub
+  %cmp5.i = icmp samesign ugt i32 %4, %sub
   br i1 %cmp5.i, label %cond.true.i, label %_ZNK6icu_759UVector3210elementAtiEi.exit
 
 cond.true.i:                                      ; preds = %if.else
@@ -3201,7 +3201,7 @@ cond.end287:                                      ; preds = %cond.false281, %con
   br i1 %cmp289, label %land.lhs.true290, label %if.end335
 
 land.lhs.true290:                                 ; preds = %cond.end287
-  %cmp291 = icmp ult i32 %cond268, 256
+  %cmp291 = icmp samesign ult i32 %cond268, 256
   %75 = load ptr, ptr %fPattern113, align 8
   br i1 %cmp291, label %land.lhs.true292, label %land.lhs.true297
 
@@ -14164,7 +14164,7 @@ if.end13.i:                                       ; preds = %lor.lhs.false.i
 
 if.else.i:                                        ; preds = %if.end13.i
   %sub.i = add nsw i32 %groupNum, -1
-  %cmp5.i.i = icmp ugt i32 %5, %sub.i
+  %cmp5.i.i = icmp samesign ugt i32 %5, %sub.i
   br i1 %cmp5.i.i, label %cond.true.i.i, label %if.else.i28
 
 cond.true.i.i:                                    ; preds = %if.else.i
@@ -14190,7 +14190,7 @@ if.else.i28:                                      ; preds = %cond.true.i.i, %if.
   %arrayidx.i = getelementptr inbounds [1 x i64], ptr %fExtra.i, i64 0, i64 %cond.i.i
   %s.0.i = load i64, ptr %arrayidx.i, align 8
   %sub.i29 = add nsw i32 %groupNum, -1
-  %cmp5.i.i30 = icmp ugt i32 %5, %sub.i29
+  %cmp5.i.i30 = icmp samesign ugt i32 %5, %sub.i29
   br i1 %cmp5.i.i30, label %cond.true.i.i36, label %_ZNK6icu_759UVector3210elementAtiEi.exit.i31
 
 cond.true.i.i36:                                  ; preds = %if.else.i28
@@ -14474,7 +14474,7 @@ if.then15:                                        ; preds = %if.end13
 
 if.else:                                          ; preds = %if.end13
   %sub = add nsw i32 %group, -1
-  %cmp5.i = icmp ugt i32 %5, %sub
+  %cmp5.i = icmp samesign ugt i32 %5, %sub
   br i1 %cmp5.i, label %cond.true.i, label %_ZNK6icu_759UVector3210elementAtiEi.exit
 
 cond.true.i:                                      ; preds = %if.else
@@ -16695,7 +16695,7 @@ if.end8.i:                                        ; preds = %if.end6.i
 if.end13.i:                                       ; preds = %if.end8.i
   %46 = add nsw i64 %indvars.iv, -1
   %47 = zext i32 %44 to i64
-  %cmp5.i.i = icmp ult i64 %46, %47
+  %cmp5.i.i = icmp samesign ult i64 %46, %47
   br i1 %cmp5.i.i, label %cond.true.i.i196, label %if.end8.i188
 
 if.end8.i188:                                     ; preds = %if.end13.i
@@ -17177,7 +17177,7 @@ if.then15.i:                                      ; preds = %if.end13.i
 
 if.else.i:                                        ; preds = %if.end13.i
   %sub.i = add nsw i32 %group, -1
-  %cmp5.i.i = icmp ugt i32 %5, %sub.i
+  %cmp5.i.i = icmp samesign ugt i32 %5, %sub.i
   br i1 %cmp5.i.i, label %cond.true.i.i, label %_ZNK6icu_759UVector3210elementAtiEi.exit.i
 
 cond.true.i.i:                                    ; preds = %if.else.i

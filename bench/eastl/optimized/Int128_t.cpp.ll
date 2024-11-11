@@ -278,7 +278,7 @@ entry:
   br i1 %cmp.i, label %if.then.i, label %if.else22.i
 
 if.then.i:                                        ; preds = %entry
-  %cmp1.i = icmp ult i32 %nShift, 64
+  %cmp1.i = icmp samesign ult i32 %nShift, 64
   br i1 %cmp1.i, label %if.then2.i, label %if.else14.i
 
 if.then2.i:                                       ; preds = %if.then.i
@@ -320,7 +320,7 @@ if.else14.i:                                      ; preds = %if.then.i
 
 if.else22.i:                                      ; preds = %entry
   %sub23.i = sub nsw i32 0, %nShift
-  %cmp1.i.i = icmp ult i32 %sub23.i, 64
+  %cmp1.i.i = icmp samesign ult i32 %sub23.i, 64
   %mPart1.i.i = getelementptr inbounds i8, ptr %this, i64 8
   %4 = load i64, ptr %mPart1.i.i, align 8
   br i1 %cmp1.i.i, label %if.else.i.i, label %if.else15.i.i
@@ -357,7 +357,7 @@ entry:
   br i1 %cmp, label %if.then, label %if.else23
 
 if.then:                                          ; preds = %entry
-  %cmp1 = icmp ult i32 %nShift, 64
+  %cmp1 = icmp samesign ult i32 %nShift, 64
   br i1 %cmp1, label %if.then2, label %if.else15
 
 if.then2:                                         ; preds = %if.then
@@ -398,7 +398,7 @@ if.else15:                                        ; preds = %if.then
 
 if.else23:                                        ; preds = %entry
   %sub24 = sub nsw i32 0, %nShift
-  %cmp1.i = icmp ult i32 %sub24, 64
+  %cmp1.i = icmp samesign ult i32 %sub24, 64
   br i1 %cmp1.i, label %if.then3.i, label %if.else14.i
 
 if.then3.i:                                       ; preds = %if.else23
@@ -439,7 +439,7 @@ entry:
   br i1 %cmp, label %if.then, label %if.else22
 
 if.then:                                          ; preds = %entry
-  %cmp1 = icmp ult i32 %nShift, 64
+  %cmp1 = icmp samesign ult i32 %nShift, 64
   br i1 %cmp1, label %if.then2, label %if.else14
 
 if.then2:                                         ; preds = %if.then
@@ -483,7 +483,7 @@ if.else14:                                        ; preds = %if.then
 
 if.else22:                                        ; preds = %entry
   %sub23 = sub nsw i32 0, %nShift
-  %cmp1.i = icmp ult i32 %sub23, 64
+  %cmp1.i = icmp samesign ult i32 %sub23, 64
   br i1 %cmp1.i, label %if.else.i, label %if.else15.i
 
 if.else.i:                                        ; preds = %if.else22
@@ -640,7 +640,7 @@ if.then:                                          ; preds = %entry
   br label %return
 
 if.else:                                          ; preds = %entry
-  %cmp2 = icmp ult i32 %nIndex, 128
+  %cmp2 = icmp samesign ult i32 %nIndex, 128
   br i1 %cmp2, label %if.then3, label %return
 
 if.then3:                                         ; preds = %if.else
@@ -682,7 +682,7 @@ if.else:                                          ; preds = %if.then
   br label %if.end20
 
 if.else6:                                         ; preds = %entry
-  %cmp7 = icmp ult i32 %nIndex, 128
+  %cmp7 = icmp samesign ult i32 %nIndex, 128
   br i1 %cmp7, label %if.then8, label %if.end20
 
 if.then8:                                         ; preds = %if.else6
@@ -1120,7 +1120,7 @@ if.then:                                          ; preds = %entry
   %mPart12.i.i = getelementptr inbounds i8, ptr %this, i64 8
   %not3.i = xor i64 %conv.i.i, -1
   %add.i.i = sub nsw i64 0, %conv.i.i
-  %cmp.i.i = icmp uge i64 %add.i.i, %not3.i
+  %cmp.i.i = icmp samesign uge i64 %add.i.i, %not3.i
   store i64 %add.i.i, ptr %this, align 8
   %add8.i.i = sext i1 %cmp.i.i to i64
   store i64 %add8.i.i, ptr %mPart12.i.i, align 8
@@ -1148,7 +1148,7 @@ if.then:                                          ; preds = %entry
   %mPart12.i.i = getelementptr inbounds i8, ptr %this, i64 8
   %not3.i = xor i64 %conv.i.i, -1
   %add.i.i = sub nsw i64 0, %conv.i.i
-  %cmp.i.i = icmp uge i64 %add.i.i, %not3.i
+  %cmp.i.i = icmp samesign uge i64 %add.i.i, %not3.i
   store i64 %add.i.i, ptr %this, align 8
   %add8.i.i = sext i1 %cmp.i.i to i64
   store i64 %add8.i.i, ptr %mPart12.i.i, align 8
@@ -1176,7 +1176,7 @@ if.then:                                          ; preds = %entry
   %mPart12.i.i = getelementptr inbounds i8, ptr %this, i64 8
   %not3.i = xor i64 %conv.i.i, -1
   %add.i.i = sub nsw i64 0, %conv.i.i
-  %cmp.i.i = icmp uge i64 %add.i.i, %not3.i
+  %cmp.i.i = icmp samesign uge i64 %add.i.i, %not3.i
   store i64 %add.i.i, ptr %this, align 8
   %add8.i.i = sext i1 %cmp.i.i to i64
   store i64 %add8.i.i, ptr %mPart12.i.i, align 8
@@ -2743,7 +2743,7 @@ entry:
   br i1 %cmp.i, label %if.then.i, label %if.else23.i
 
 if.then.i:                                        ; preds = %entry
-  %cmp1.i = icmp ult i32 %nShift, 64
+  %cmp1.i = icmp samesign ult i32 %nShift, 64
   %mPart1.i = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load i64, ptr %mPart1.i, align 8
   br i1 %cmp1.i, label %if.then2.i, label %if.else15.i
@@ -2779,7 +2779,7 @@ if.else15.i:                                      ; preds = %if.then.i
 
 if.else23.i:                                      ; preds = %entry
   %sub24.i = sub nsw i32 0, %nShift
-  %cmp1.i.i = icmp ult i32 %sub24.i, 64
+  %cmp1.i.i = icmp samesign ult i32 %sub24.i, 64
   %2 = load i64, ptr %this, align 8
   br i1 %cmp1.i.i, label %if.then3.i.i, label %if.else14.i.i
 
@@ -2817,7 +2817,7 @@ entry:
   br i1 %cmp.i, label %if.then.i, label %if.else23.i
 
 if.then.i:                                        ; preds = %entry
-  %cmp1.i = icmp ult i32 %nShift, 64
+  %cmp1.i = icmp samesign ult i32 %nShift, 64
   %mPart1.i = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load i64, ptr %mPart1.i, align 8
   br i1 %cmp1.i, label %if.then2.i, label %if.else15.i
@@ -2845,7 +2845,7 @@ if.else15.i:                                      ; preds = %if.then.i
 
 if.else23.i:                                      ; preds = %entry
   %sub24.i = sub nsw i32 0, %nShift
-  %cmp1.i.i = icmp ult i32 %sub24.i, 64
+  %cmp1.i.i = icmp samesign ult i32 %sub24.i, 64
   %2 = load i64, ptr %this, align 8
   br i1 %cmp1.i.i, label %if.then3.i.i, label %if.else14.i.i
 
@@ -2883,7 +2883,7 @@ entry:
   br i1 %cmp.i, label %if.then.i, label %if.else22.i
 
 if.then.i:                                        ; preds = %entry
-  %cmp1.i = icmp ult i32 %nShift, 64
+  %cmp1.i = icmp samesign ult i32 %nShift, 64
   br i1 %cmp1.i, label %if.then2.i, label %if.else14.i
 
 if.then2.i:                                       ; preds = %if.then.i
@@ -2917,7 +2917,7 @@ if.else14.i:                                      ; preds = %if.then.i
 
 if.else22.i:                                      ; preds = %entry
   %sub23.i = sub nsw i32 0, %nShift
-  %cmp1.i.i = icmp ult i32 %sub23.i, 64
+  %cmp1.i.i = icmp samesign ult i32 %sub23.i, 64
   %mPart1.i.i = getelementptr inbounds i8, ptr %this, i64 8
   %4 = load i64, ptr %mPart1.i.i, align 8
   br i1 %cmp1.i.i, label %if.else.i.i, label %if.else15.i.i
@@ -3955,7 +3955,7 @@ if.then:                                          ; preds = %entry
   %mPart12.i.i = getelementptr inbounds i8, ptr %this, i64 8
   %not3.i = xor i64 %conv.i.i, -1
   %add.i.i = sub nsw i64 0, %conv.i.i
-  %cmp.i.i = icmp uge i64 %add.i.i, %not3.i
+  %cmp.i.i = icmp samesign uge i64 %add.i.i, %not3.i
   store i64 %add.i.i, ptr %this, align 8
   %add8.i.i = sext i1 %cmp.i.i to i64
   store i64 %add8.i.i, ptr %mPart12.i.i, align 8
@@ -3983,7 +3983,7 @@ if.then:                                          ; preds = %entry
   %mPart12.i.i = getelementptr inbounds i8, ptr %this, i64 8
   %not3.i = xor i64 %conv.i.i, -1
   %add.i.i = sub nsw i64 0, %conv.i.i
-  %cmp.i.i = icmp uge i64 %add.i.i, %not3.i
+  %cmp.i.i = icmp samesign uge i64 %add.i.i, %not3.i
   store i64 %add.i.i, ptr %this, align 8
   %add8.i.i = sext i1 %cmp.i.i to i64
   store i64 %add8.i.i, ptr %mPart12.i.i, align 8
@@ -4011,7 +4011,7 @@ if.then:                                          ; preds = %entry
   %mPart12.i.i = getelementptr inbounds i8, ptr %this, i64 8
   %not3.i = xor i64 %conv.i.i, -1
   %add.i.i = sub nsw i64 0, %conv.i.i
-  %cmp.i.i = icmp uge i64 %add.i.i, %not3.i
+  %cmp.i.i = icmp samesign uge i64 %add.i.i, %not3.i
   store i64 %add.i.i, ptr %this, align 8
   %add8.i.i = sext i1 %cmp.i.i to i64
   store i64 %add8.i.i, ptr %mPart12.i.i, align 8
@@ -5558,7 +5558,7 @@ entry:
   br i1 %cmp.i, label %if.then.i, label %if.else23.i
 
 if.then.i:                                        ; preds = %entry
-  %cmp1.i = icmp ult i32 %nShift, 64
+  %cmp1.i = icmp samesign ult i32 %nShift, 64
   %mPart1.i = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load i64, ptr %mPart1.i, align 8
   br i1 %cmp1.i, label %if.then2.i, label %if.else15.i
@@ -5594,7 +5594,7 @@ if.else15.i:                                      ; preds = %if.then.i
 
 if.else23.i:                                      ; preds = %entry
   %sub24.i = sub nsw i32 0, %nShift
-  %cmp1.i.i = icmp ult i32 %sub24.i, 64
+  %cmp1.i.i = icmp samesign ult i32 %sub24.i, 64
   %2 = load i64, ptr %this, align 8
   br i1 %cmp1.i.i, label %if.then3.i.i, label %if.else14.i.i
 
@@ -5633,7 +5633,7 @@ entry:
   br i1 %cmp.i, label %if.then.i, label %if.else22.i
 
 if.then.i:                                        ; preds = %entry
-  %cmp1.i = icmp ult i32 %nShift, 64
+  %cmp1.i = icmp samesign ult i32 %nShift, 64
   br i1 %cmp1.i, label %if.then2.i, label %if.else14.i
 
 if.then2.i:                                       ; preds = %if.then.i
@@ -5675,7 +5675,7 @@ if.else14.i:                                      ; preds = %if.then.i
 
 if.else22.i:                                      ; preds = %entry
   %sub23.i = sub nsw i32 0, %nShift
-  %cmp1.i.i = icmp ult i32 %sub23.i, 64
+  %cmp1.i.i = icmp samesign ult i32 %sub23.i, 64
   %mPart1.i.i = getelementptr inbounds i8, ptr %this, i64 8
   %4 = load i64, ptr %mPart1.i.i, align 8
   br i1 %cmp1.i.i, label %if.else.i.i, label %if.else15.i.i
@@ -5712,7 +5712,7 @@ entry:
   br i1 %cmp.i, label %if.then.i, label %if.else23.i
 
 if.then.i:                                        ; preds = %entry
-  %cmp1.i = icmp ult i32 %nShift, 64
+  %cmp1.i = icmp samesign ult i32 %nShift, 64
   %mPart1.i = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load i64, ptr %mPart1.i, align 8
   br i1 %cmp1.i, label %if.then2.i, label %if.else15.i
@@ -5740,7 +5740,7 @@ if.else15.i:                                      ; preds = %if.then.i
 
 if.else23.i:                                      ; preds = %entry
   %sub24.i = sub nsw i32 0, %nShift
-  %cmp1.i.i = icmp ult i32 %sub24.i, 64
+  %cmp1.i.i = icmp samesign ult i32 %sub24.i, 64
   %2 = load i64, ptr %this, align 8
   br i1 %cmp1.i.i, label %if.then3.i.i, label %if.else14.i.i
 
@@ -5778,7 +5778,7 @@ entry:
   br i1 %cmp.i, label %if.then.i, label %if.else22.i
 
 if.then.i:                                        ; preds = %entry
-  %cmp1.i = icmp ult i32 %nShift, 64
+  %cmp1.i = icmp samesign ult i32 %nShift, 64
   br i1 %cmp1.i, label %if.then2.i, label %if.else14.i
 
 if.then2.i:                                       ; preds = %if.then.i
@@ -5812,7 +5812,7 @@ if.else14.i:                                      ; preds = %if.then.i
 
 if.else22.i:                                      ; preds = %entry
   %sub23.i = sub nsw i32 0, %nShift
-  %cmp1.i.i = icmp ult i32 %sub23.i, 64
+  %cmp1.i.i = icmp samesign ult i32 %sub23.i, 64
   %mPart1.i.i = getelementptr inbounds i8, ptr %this, i64 8
   %4 = load i64, ptr %mPart1.i.i, align 8
   br i1 %cmp1.i.i, label %if.else.i.i, label %if.else15.i.i

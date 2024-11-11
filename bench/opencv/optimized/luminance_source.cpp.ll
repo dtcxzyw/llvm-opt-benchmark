@@ -319,7 +319,7 @@ _ZN5zxing8ArrayRefIcED2Ev.exit30:                 ; preds = %75, %78, %83
   br i1 %93, label %96, label %94
 
 94:                                               ; preds = %92
-  %95 = icmp ult i8 %90, -64
+  %95 = icmp samesign ult i8 %90, -64
   %. = select i1 %95, i8 46, i8 32
   br label %96
 

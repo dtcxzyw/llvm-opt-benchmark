@@ -722,7 +722,7 @@ define hidden range(i32 0, 2) i32 @VP8LColorSpaceTransform(i32 noundef %0, i32 n
   %69 = load ptr, ptr @VP8LTransformColor, align 8
   call void %69(ptr noundef nonnull %10, ptr noundef %.01415.i.us, i32 noundef %63) #8
   %70 = getelementptr inbounds i32, ptr %.01415.i.us, i64 %22
-  %71 = icmp ugt i32 %.016.i.us, 1
+  %71 = icmp samesign ugt i32 %.016.i.us, 1
   br i1 %71, label %67, label %CopyTileWithColorTransform.exit.us, !llvm.loop !15
 
 CopyTileWithColorTransform.exit.us:               ; preds = %67, %55
@@ -1040,7 +1040,7 @@ GetBestGreenToRed.exit:                           ; preds = %GetPredictionCostCr
   br i1 %exitcond.not.i.i.i.i48, label %GetPredictionCostCrossColorBlue.exit.i, label %105, !llvm.loop !8
 
 GetPredictionCostCrossColorBlue.exit.i:           ; preds = %105
-  %115 = icmp ugt i32 %5, 50
+  %115 = icmp samesign ugt i32 %5, 50
   %116 = icmp sgt i32 %5, 24
   %117 = select i1 %115, i64 7, i64 4
   %.sroa.2.0.extract.shift.i.i = lshr i24 %4, 16

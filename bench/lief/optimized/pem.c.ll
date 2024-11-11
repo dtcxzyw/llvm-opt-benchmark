@@ -166,7 +166,7 @@ define hidden i32 @mbedtls_pem_read_buffer(ptr noundef writeonly %0, ptr nocaptu
   br i1 %85, label %86, label %102
 
 86:                                               ; preds = %84
-  %87 = icmp ult i64 %82, 22
+  %87 = icmp samesign ult i64 %82, 22
   br i1 %87, label %159, label %88
 
 88:                                               ; preds = %86

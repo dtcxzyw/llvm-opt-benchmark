@@ -374,7 +374,7 @@ if.end.i13:                                       ; preds = %grisu2.exit
   br i1 %cmp11.i, label %land.lhs.true13.i, label %if.end50.i
 
 land.lhs.true13.i:                                ; preds = %if.end.i13
-  %cmp14.i = icmp ugt i32 %K.0, -7
+  %cmp14.i = icmp samesign ugt i32 %K.0, -7
   %cmp16.i = icmp slt i32 %cond.i, 4
   %or.cond.i = select i1 %cmp14.i, i1 true, i1 %cmp16.i
   br i1 %or.cond.i, label %if.then18.i, label %if.end50.i

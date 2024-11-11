@@ -1039,7 +1039,7 @@ define dso_local i32 @x509_process_extension(ptr nocapture noundef %0, i64 nound
   br i1 %105, label %106, label %.thread
 
 106:                                              ; preds = %100
-  %107 = icmp ult i64 %4, 4
+  %107 = icmp samesign ult i64 %4, 4
   br i1 %107, label %.thread, label %108
 
 108:                                              ; preds = %106
@@ -1096,7 +1096,7 @@ define dso_local noundef range(i32 -74, 1) i32 @x509_decode_time(ptr nocapture n
   %narrow41 = add nuw nsw i8 %16, %19
   %20 = zext nneg i8 %narrow41 to i32
   %21 = getelementptr i8, ptr %3, i64 2
-  %22 = icmp ugt i8 %narrow41, 49
+  %22 = icmp samesign ugt i8 %narrow41, 49
   br i1 %22, label %23, label %25
 
 23:                                               ; preds = %18
@@ -1247,7 +1247,7 @@ define dso_local noundef range(i32 -74, 1) i32 @x509_decode_time(ptr nocapture n
   br i1 %124, label %125, label %.thread
 
 125:                                              ; preds = %119
-  %126 = icmp ult i32 %61, 1970
+  %126 = icmp samesign ult i32 %61, 1970
   %127 = add nsw i32 %73, -13
   %128 = icmp ult i32 %127, -12
   %129 = select i1 %126, i1 true, i1 %128
@@ -1284,11 +1284,11 @@ define dso_local noundef range(i32 -74, 1) i32 @x509_decode_time(ptr nocapture n
 
 150:                                              ; preds = %147
   %151 = icmp samesign ult i32 %148, %85
-  %152 = icmp ugt i8 %narrow44, 24
+  %152 = icmp samesign ugt i8 %narrow44, 24
   %153 = select i1 %151, i1 true, i1 %152
-  %154 = icmp ugt i8 %narrow45, 59
+  %154 = icmp samesign ugt i8 %narrow45, 59
   %155 = select i1 %153, i1 true, i1 %154
-  %156 = icmp ugt i8 %narrow46, 60
+  %156 = icmp samesign ugt i8 %narrow46, 60
   %157 = select i1 %155, i1 true, i1 %156
   br i1 %157, label %.thread, label %158
 

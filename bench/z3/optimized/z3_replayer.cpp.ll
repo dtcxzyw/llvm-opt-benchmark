@@ -3252,15 +3252,15 @@ entry:
   br i1 %cmp, label %land.lhs.true, label %if.then
 
 land.lhs.true:                                    ; preds = %entry
-  %cmp3 = icmp ult i32 %0, 58
+  %cmp3 = icmp samesign ult i32 %0, 58
   br i1 %cmp3, label %if.end, label %lor.lhs.false
 
 lor.lhs.false:                                    ; preds = %land.lhs.true
-  %cmp5 = icmp ugt i32 %0, 64
+  %cmp5 = icmp samesign ugt i32 %0, 64
   br i1 %cmp5, label %land.lhs.true6, label %if.then
 
 land.lhs.true6:                                   ; preds = %lor.lhs.false
-  %cmp8 = icmp ult i32 %0, 71
+  %cmp8 = icmp samesign ult i32 %0, 71
   %1 = add nsw i32 %0, -97
   %or.cond30 = icmp ult i32 %1, 6
   %or.cond31 = select i1 %cmp8, i1 true, i1 %or.cond30
@@ -3595,7 +3595,7 @@ lor.lhs.false4.i:                                 ; preds = %while.cond
   br i1 %cmp6.i, label %land.lhs.true.i, label %while.end
 
 land.lhs.true.i:                                  ; preds = %lor.lhs.false4.i
-  %cmp8.i = icmp ult i32 %.fr, 58
+  %cmp8.i = icmp samesign ult i32 %.fr, 58
   br i1 %cmp8.i, label %while.body, label %switch.early.test
 
 switch.early.test:                                ; preds = %land.lhs.true.i
@@ -3752,7 +3752,7 @@ lor.lhs.false4.i:                                 ; preds = %while.cond
   br i1 %cmp6.i, label %land.lhs.true.i, label %while.end
 
 land.lhs.true.i:                                  ; preds = %lor.lhs.false4.i
-  %cmp8.i = icmp ult i32 %.fr, 58
+  %cmp8.i = icmp samesign ult i32 %.fr, 58
   br i1 %cmp8.i, label %while.body, label %switch.early.test
 
 switch.early.test:                                ; preds = %land.lhs.true.i

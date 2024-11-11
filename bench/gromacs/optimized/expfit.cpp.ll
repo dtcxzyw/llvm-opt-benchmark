@@ -1028,7 +1028,7 @@ _Z11effnNparamsi.exit.i:                          ; preds = %93, %92
   %116 = fcmp olt double %115, %109
   %.sroa.speculated38.i = select i1 %116, double %109, double %115
   store double %.sroa.speculated38.i, ptr %112, align 8
-  %117 = icmp ugt i32 %.0.i.i, 5
+  %117 = icmp samesign ugt i32 %.0.i.i, 5
   br i1 %117, label %118, label %_ZL19initiate_fit_paramsiPd.exit.thread
 
 118:                                              ; preds = %111
@@ -1039,7 +1039,7 @@ _Z11effnNparamsi.exit.i:                          ; preds = %93, %92
   %123 = fcmp olt double %122, %.sroa.speculated38.i
   %.sroa.speculated34.i = select i1 %123, double %.sroa.speculated38.i, double %122
   store double %.sroa.speculated34.i, ptr %119, align 8
-  %124 = icmp ugt i32 %.0.i.i, 7
+  %124 = icmp samesign ugt i32 %.0.i.i, 7
   br i1 %124, label %125, label %_ZL19initiate_fit_paramsiPd.exit.thread
 
 125:                                              ; preds = %118
@@ -1134,7 +1134,7 @@ _Z11effnNparamsi.exit.i165:                       ; preds = %139, %_ZL19initiate
   %166 = tail call double @llvm.fabs.f64(double %165)
   %167 = fadd double %161, %166
   store double %167, ptr %164, align 8
-  %168 = icmp ugt i32 %.0.i.i166, 5
+  %168 = icmp samesign ugt i32 %.0.i.i166, 5
   br i1 %168, label %169, label %_ZL18extract_fit_paramsiPd.exit
 
 169:                                              ; preds = %163
@@ -1143,7 +1143,7 @@ _Z11effnNparamsi.exit.i165:                       ; preds = %139, %_ZL19initiate
   %172 = tail call double @llvm.fabs.f64(double %171)
   %173 = fadd double %167, %172
   store double %173, ptr %170, align 8
-  %174 = icmp ugt i32 %.0.i.i166, 7
+  %174 = icmp samesign ugt i32 %.0.i.i166, 7
   br i1 %174, label %175, label %_ZL18extract_fit_paramsiPd.exit
 
 175:                                              ; preds = %169
@@ -1909,7 +1909,7 @@ _Z15effnDescriptioni.exit:                        ; preds = %23
   %.sroa.speculated128 = select i1 %34, float %.0156, float %18
   %35 = fpext float %.sroa.speculated128 to double
   %36 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.46, double noundef %33, double noundef %35)
-  %37 = icmp ugt i32 %1, 1
+  %37 = icmp samesign ugt i32 %1, 1
   %spec.select = select i1 %37, ptr @.str.53, ptr @.str.54
   %38 = shl nuw nsw i64 1, %29
   %.fr164 = freeze i64 %38

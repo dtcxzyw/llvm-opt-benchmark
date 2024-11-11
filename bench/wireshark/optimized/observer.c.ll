@@ -351,7 +351,7 @@ define internal range(i32 0, 2) i32 @observer_read(ptr nocapture noundef readonl
 20:                                               ; preds = %16
   %21 = load i16, ptr %15, align 2
   %22 = zext i16 %21 to i32
-  %23 = icmp ugt i32 %17, %22
+  %23 = icmp samesign ugt i32 %17, %22
   br i1 %23, label %24, label %26
 
 24:                                               ; preds = %20

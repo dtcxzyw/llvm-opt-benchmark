@@ -1296,25 +1296,25 @@ entry:
 if.then:                                          ; preds = %entry
   %shr = lshr i64 %and.i, 16
   %xor = xor i64 %shr, %and.i
-  %cmp2 = icmp ult i32 %n, 257
+  %cmp2 = icmp samesign ult i32 %n, 257
   br i1 %cmp2, label %if.then3, label %if.end21
 
 if.then3:                                         ; preds = %if.then
   %shr4 = lshr i64 %xor, 8
   %xor5 = xor i64 %shr4, %xor
-  %cmp6 = icmp ult i32 %n, 17
+  %cmp6 = icmp samesign ult i32 %n, 17
   br i1 %cmp6, label %if.then7, label %if.end21
 
 if.then7:                                         ; preds = %if.then3
   %shr8 = lshr i64 %xor5, 4
   %xor9 = xor i64 %shr8, %xor5
-  %cmp10 = icmp ult i32 %n, 5
+  %cmp10 = icmp samesign ult i32 %n, 5
   br i1 %cmp10, label %if.then11, label %if.end21
 
 if.then11:                                        ; preds = %if.then7
   %shr12 = lshr i64 %xor9, 2
   %xor13 = xor i64 %shr12, %xor9
-  %cmp14 = icmp ult i32 %n, 3
+  %cmp14 = icmp samesign ult i32 %n, 3
   br i1 %cmp14, label %if.then15, label %if.end21
 
 if.then15:                                        ; preds = %if.then11

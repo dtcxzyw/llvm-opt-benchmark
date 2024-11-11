@@ -162,7 +162,7 @@ define { i64, i64 } @_RINvMs6_NtCs7oQ2vmvFkJi_9hashbrown3rawINtB6_8RawTableTNtNt
   br i1 %36, label %46, label %39
 
 37:                                               ; preds = %32
-  %38 = icmp ult i64 %.sroa.0.0.sroa.speculated.i, 4
+  %38 = icmp samesign ult i64 %.sroa.0.0.sroa.speculated.i, 4
   %..i.i = select i1 %38, i64 4, i64 8
   br label %50
 

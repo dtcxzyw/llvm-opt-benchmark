@@ -16329,7 +16329,7 @@ _ZNK4llvm9StringRef9ends_withES0_.exit:           ; preds = %_ZNK5clang12FileEnt
   br i1 %393, label %_ZNK4llvm9StringRef9ends_withES0_.exit.thread, label %_ZNK4llvm9StringRef9ends_withES0_.exit153
 
 _ZNK4llvm9StringRef9ends_withES0_.exit.thread194: ; preds = %_ZNK5clang12FileEntryRef7getNameEv.exit
-  %.not.i151 = icmp ult i64 %390, 18
+  %.not.i151 = icmp samesign ult i64 %390, 18
   br i1 %.not.i151, label %_ZNK4llvm9StringRef9ends_withES0_.exit153.thread195, label %_ZNK4llvm9StringRef9ends_withES0_.exit153
 
 _ZNK4llvm9StringRef9ends_withES0_.exit153:        ; preds = %_ZNK4llvm9StringRef9ends_withES0_.exit, %_ZNK4llvm9StringRef9ends_withES0_.exit.thread194
@@ -24335,7 +24335,7 @@ _ZN4llvm15SmallVectorImplINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE1
   %34 = getelementptr inbounds i8, ptr %.0910.i.i.i.i.i, i64 32
   %35 = getelementptr inbounds i8, ptr %.0811.i.i.i.i.i, i64 32
   %36 = add nsw i64 %.012.i.i.i.i.i, -1
-  %37 = icmp ugt i64 %.012.i.i.i.i.i, 1
+  %37 = icmp samesign ugt i64 %.012.i.i.i.i.i, 1
   br i1 %37, label %.lr.ph.i.i.i.i.i, label %_ZSt4moveIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES6_ET0_T_S8_S7_.exit, !llvm.loop !481
 
 _ZSt4moveIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES6_ET0_T_S8_S7_.exit: ; preds = %.lr.ph.i.i.i.i.i, %29, %27
@@ -24425,7 +24425,7 @@ _ZN4llvm15SmallVectorImplINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE5
   %62 = getelementptr inbounds i8, ptr %.0910.i.i.i.i.i51, i64 32
   %63 = getelementptr inbounds i8, ptr %.0811.i.i.i.i.i50, i64 32
   %64 = add nsw i64 %.012.i.i.i.i.i49, -1
-  %65 = icmp ugt i64 %.012.i.i.i.i.i49, 1
+  %65 = icmp samesign ugt i64 %.012.i.i.i.i.i49, 1
   br i1 %65, label %.lr.ph.i.i.i.i.i48, label %_ZSt4moveIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES6_ET0_T_S8_S7_.exit52, !llvm.loop !481
 
 _ZSt4moveIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES6_ET0_T_S8_S7_.exit52: ; preds = %.lr.ph.i.i.i.i.i48, %57, %56, %_ZN4llvm15SmallVectorImplINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE5clearEv.exit46
@@ -28821,7 +28821,7 @@ define linkonce_odr noundef nonnull align 8 dereferenceable(16) ptr @_ZN4llvm15S
   %27 = getelementptr inbounds i8, ptr %.0910.i.i.i.i.i, i64 112
   %28 = getelementptr inbounds i8, ptr %.0811.i.i.i.i.i, i64 112
   %29 = add nsw i64 %.012.i.i.i.i.i, -1
-  %30 = icmp ugt i64 %.012.i.i.i.i.i, 1
+  %30 = icmp samesign ugt i64 %.012.i.i.i.i.i, 1
   br i1 %30, label %.lr.ph.i.i.i.i.i, label %_ZSt4moveIPN5clang6Module20UnresolvedExportDeclES3_ET0_T_S5_S4_.exit, !llvm.loop !511
 
 _ZSt4moveIPN5clang6Module20UnresolvedExportDeclES3_ET0_T_S5_S4_.exit: ; preds = %.lr.ph.i.i.i.i.i, %15, %13
@@ -29016,7 +29016,7 @@ _ZN4llvm23SmallVectorTemplateBaseIN5clang6Module20UnresolvedExportDeclELb0EE4gro
   %95 = getelementptr inbounds i8, ptr %.0910.i.i.i.i.i53, i64 112
   %96 = getelementptr inbounds i8, ptr %.0811.i.i.i.i.i52, i64 112
   %97 = add nsw i64 %.012.i.i.i.i.i51, -1
-  %98 = icmp ugt i64 %.012.i.i.i.i.i51, 1
+  %98 = icmp samesign ugt i64 %.012.i.i.i.i.i51, 1
   br i1 %98, label %.lr.ph.i.i.i.i.i50, label %_ZSt4moveIPN5clang6Module20UnresolvedExportDeclES3_ET0_T_S5_S4_.exit54, !llvm.loop !511
 
 _ZSt4moveIPN5clang6Module20UnresolvedExportDeclES3_ET0_T_S5_S4_.exit54: ; preds = %.lr.ph.i.i.i.i.i50, %83, %82, %_ZN4llvm23SmallVectorTemplateBaseIN5clang6Module20UnresolvedExportDeclELb0EE4growEm.exit
@@ -29270,7 +29270,7 @@ _ZN4llvm15SmallVectorImplISt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcES
   %37 = getelementptr inbounds i8, ptr %.0910.i.i.i.i.i, i64 40
   %38 = getelementptr inbounds i8, ptr %.0811.i.i.i.i.i, i64 40
   %39 = add nsw i64 %.012.i.i.i.i.i, -1
-  %40 = icmp ugt i64 %.012.i.i.i.i.i, 1
+  %40 = icmp samesign ugt i64 %.012.i.i.i.i.i, 1
   br i1 %40, label %.lr.ph.i.i.i.i.i, label %_ZSt4moveIPSt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN5clang14SourceLocationEESA_ET0_T_SC_SB_.exit, !llvm.loop !513
 
 _ZSt4moveIPSt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN5clang14SourceLocationEESA_ET0_T_SC_SB_.exit: ; preds = %.lr.ph.i.i.i.i.i, %29, %27
@@ -29364,7 +29364,7 @@ _ZN4llvm15SmallVectorImplISt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcES
   %68 = getelementptr inbounds i8, ptr %.0910.i.i.i.i.i52, i64 40
   %69 = getelementptr inbounds i8, ptr %.0811.i.i.i.i.i51, i64 40
   %70 = add nsw i64 %.012.i.i.i.i.i50, -1
-  %71 = icmp ugt i64 %.012.i.i.i.i.i50, 1
+  %71 = icmp samesign ugt i64 %.012.i.i.i.i.i50, 1
   br i1 %71, label %.lr.ph.i.i.i.i.i49, label %_ZSt4moveIPSt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN5clang14SourceLocationEESA_ET0_T_SC_SB_.exit53, !llvm.loop !513
 
 _ZSt4moveIPSt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN5clang14SourceLocationEESA_ET0_T_SC_SB_.exit53: ; preds = %.lr.ph.i.i.i.i.i49, %60, %59, %_ZN4llvm15SmallVectorImplISt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN5clang14SourceLocationEEE5clearEv.exit46
@@ -29657,7 +29657,7 @@ define linkonce_odr noundef nonnull align 8 dereferenceable(16) ptr @_ZN4llvm15S
   %20 = getelementptr inbounds i8, ptr %.0910.i.i.i.i.i, i64 96
   %21 = getelementptr inbounds i8, ptr %.0811.i.i.i.i.i, i64 96
   %22 = add nsw i64 %.012.i.i.i.i.i, -1
-  %23 = icmp ugt i64 %.012.i.i.i.i.i, 1
+  %23 = icmp samesign ugt i64 %.012.i.i.i.i.i, 1
   br i1 %23, label %.lr.ph.i.i.i.i.i, label %_ZSt4moveIPN4llvm11SmallVectorISt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN5clang14SourceLocationEELj2EEESD_ET0_T_SF_SE_.exit, !llvm.loop !515
 
 _ZSt4moveIPN4llvm11SmallVectorISt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN5clang14SourceLocationEELj2EEESD_ET0_T_SF_SE_.exit: ; preds = %.lr.ph.i.i.i.i.i, %15, %13
@@ -29840,7 +29840,7 @@ _ZN4llvm23SmallVectorTemplateBaseINS_11SmallVectorISt4pairINSt7__cxx1112basic_st
   %78 = getelementptr inbounds i8, ptr %.0910.i.i.i.i.i52, i64 96
   %79 = getelementptr inbounds i8, ptr %.0811.i.i.i.i.i51, i64 96
   %80 = add nsw i64 %.012.i.i.i.i.i50, -1
-  %81 = icmp ugt i64 %.012.i.i.i.i.i50, 1
+  %81 = icmp samesign ugt i64 %.012.i.i.i.i.i50, 1
   br i1 %81, label %.lr.ph.i.i.i.i.i49, label %_ZSt4moveIPN4llvm11SmallVectorISt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN5clang14SourceLocationEELj2EEESD_ET0_T_SF_SE_.exit53, !llvm.loop !515
 
 _ZSt4moveIPN4llvm11SmallVectorISt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN5clang14SourceLocationEELj2EEESD_ET0_T_SF_SE_.exit53: ; preds = %.lr.ph.i.i.i.i.i49, %73, %72, %_ZN4llvm23SmallVectorTemplateBaseINS_11SmallVectorISt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN5clang14SourceLocationEELj2EEELb0EE4growEm.exit
@@ -30735,7 +30735,7 @@ define linkonce_odr void @_ZSt16__insertion_sortIPN5clang6Module6HeaderEN9__gnu_
   %30 = load i64, ptr %29, align 8
   store i64 %30, ptr %28, align 8
   %31 = add nsw i64 %.010.i.i.i.i.i, -1
-  %32 = icmp ugt i64 %.010.i.i.i.i.i, 1
+  %32 = icmp samesign ugt i64 %.010.i.i.i.i.i, 1
   br i1 %32, label %.lr.ph.i.i.i.i.i, label %_ZSt13move_backwardIPN5clang6Module6HeaderES3_ET0_T_S5_S4_.exit, !llvm.loop !533
 
 _ZSt13move_backwardIPN5clang6Module6HeaderES3_ET0_T_S5_S4_.exit: ; preds = %.lr.ph.i.i.i.i.i, %13
@@ -31247,7 +31247,7 @@ _ZSt22__chunk_insertion_sortIPN5clang6Module6HeaderElN9__gnu_cxx5__ops15_Iter_co
   %49 = getelementptr inbounds i8, ptr %.0910.i.i.i.i.i.i, i64 72
   %50 = getelementptr inbounds i8, ptr %.0811.i.i.i.i.i.i, i64 72
   %51 = add nsw i64 %.012.i.i.i.i.i.i, -1
-  %52 = icmp ugt i64 %.012.i.i.i.i.i.i, 1
+  %52 = icmp samesign ugt i64 %.012.i.i.i.i.i.i, 1
   br i1 %52, label %.lr.ph.i.i.i.i.i.i, label %_ZSt4moveIPN5clang6Module6HeaderES3_ET0_T_S5_S4_.exit.i, !llvm.loop !544
 
 _ZSt4moveIPN5clang6Module6HeaderES3_ET0_T_S5_S4_.exit.i: ; preds = %.lr.ph.i.i.i.i.i.i, %._crit_edge.i
@@ -31277,7 +31277,7 @@ _ZSt4moveIPN5clang6Module6HeaderES3_ET0_T_S5_S4_.exit.i: ; preds = %.lr.ph.i.i.i
   %65 = getelementptr inbounds i8, ptr %.0910.i.i.i.i.i26.i, i64 72
   %66 = getelementptr inbounds i8, ptr %.0811.i.i.i.i.i25.i, i64 72
   %67 = add nsw i64 %.012.i.i.i.i.i24.i, -1
-  %68 = icmp ugt i64 %.012.i.i.i.i.i24.i, 1
+  %68 = icmp samesign ugt i64 %.012.i.i.i.i.i24.i, 1
   br i1 %68, label %.lr.ph.i.i.i.i.i23.i, label %_ZSt12__move_mergeIPN5clang6Module6HeaderES3_N9__gnu_cxx5__ops15_Iter_comp_iterIPFbRKS2_S8_EEEET0_T_SD_SD_SD_SC_T1_.exit, !llvm.loop !544
 
 _ZSt12__move_mergeIPN5clang6Module6HeaderES3_N9__gnu_cxx5__ops15_Iter_comp_iterIPFbRKS2_S8_EEEET0_T_SD_SD_SD_SC_T1_.exit: ; preds = %.lr.ph.i.i.i.i.i23.i, %_ZSt4moveIPN5clang6Module6HeaderES3_ET0_T_S5_S4_.exit.i
@@ -31374,7 +31374,7 @@ _ZSt17__merge_sort_loopIPN5clang6Module6HeaderES3_lN9__gnu_cxx5__ops15_Iter_comp
   %106 = getelementptr inbounds i8, ptr %.0910.i.i.i.i.i.i53, i64 72
   %107 = getelementptr inbounds i8, ptr %.0811.i.i.i.i.i.i52, i64 72
   %108 = add nsw i64 %.012.i.i.i.i.i.i51, -1
-  %109 = icmp ugt i64 %.012.i.i.i.i.i.i51, 1
+  %109 = icmp samesign ugt i64 %.012.i.i.i.i.i.i51, 1
   br i1 %109, label %.lr.ph.i.i.i.i.i.i50, label %_ZSt4moveIPN5clang6Module6HeaderES3_ET0_T_S5_S4_.exit.i41, !llvm.loop !544
 
 _ZSt4moveIPN5clang6Module6HeaderES3_ET0_T_S5_S4_.exit.i41: ; preds = %.lr.ph.i.i.i.i.i.i50, %._crit_edge.i37
@@ -31404,7 +31404,7 @@ _ZSt4moveIPN5clang6Module6HeaderES3_ET0_T_S5_S4_.exit.i41: ; preds = %.lr.ph.i.i
   %122 = getelementptr inbounds i8, ptr %.0910.i.i.i.i.i26.i48, i64 72
   %123 = getelementptr inbounds i8, ptr %.0811.i.i.i.i.i25.i47, i64 72
   %124 = add nsw i64 %.012.i.i.i.i.i24.i46, -1
-  %125 = icmp ugt i64 %.012.i.i.i.i.i24.i46, 1
+  %125 = icmp samesign ugt i64 %.012.i.i.i.i.i24.i46, 1
   br i1 %125, label %.lr.ph.i.i.i.i.i23.i45, label %_ZSt12__move_mergeIPN5clang6Module6HeaderES3_N9__gnu_cxx5__ops15_Iter_comp_iterIPFbRKS2_S8_EEEET0_T_SD_SD_SD_SC_T1_.exit63, !llvm.loop !544
 
 _ZSt12__move_mergeIPN5clang6Module6HeaderES3_N9__gnu_cxx5__ops15_Iter_comp_iterIPFbRKS2_S8_EEEET0_T_SD_SD_SD_SC_T1_.exit63: ; preds = %.lr.ph.i.i.i.i.i23.i45, %_ZSt4moveIPN5clang6Module6HeaderES3_ET0_T_S5_S4_.exit.i41
@@ -31468,7 +31468,7 @@ tailrecurse._crit_edge:                           ; preds = %tailrecurse, %8
   %23 = getelementptr inbounds i8, ptr %.0910.i.i.i.i.i, i64 72
   %24 = getelementptr inbounds i8, ptr %.0811.i.i.i.i.i, i64 72
   %25 = add nsw i64 %.012.i.i.i.i.i, -1
-  %26 = icmp ugt i64 %.012.i.i.i.i.i, 1
+  %26 = icmp samesign ugt i64 %.012.i.i.i.i.i, 1
   br i1 %26, label %.lr.ph.i.i.i.i.i, label %_ZSt4moveIPN5clang6Module6HeaderES3_ET0_T_S5_S4_.exit, !llvm.loop !544
 
 _ZSt4moveIPN5clang6Module6HeaderES3_ET0_T_S5_S4_.exit: ; preds = %.lr.ph.i.i.i.i.i, %tailrecurse._crit_edge
@@ -31510,7 +31510,7 @@ _ZSt4moveIPN5clang6Module6HeaderES3_ET0_T_S5_S4_.exit: ; preds = %.lr.ph.i.i.i.i
   %40 = getelementptr inbounds i8, ptr %.0910.i.i.i.i.i74, i64 72
   %41 = getelementptr inbounds i8, ptr %.0811.i.i.i.i.i73, i64 72
   %42 = add nsw i64 %.012.i.i.i.i.i72, -1
-  %43 = icmp ugt i64 %.012.i.i.i.i.i72, 1
+  %43 = icmp samesign ugt i64 %.012.i.i.i.i.i72, 1
   br i1 %43, label %.lr.ph.i.i.i.i.i71, label %_ZSt4moveIPN5clang6Module6HeaderES3_ET0_T_S5_S4_.exit75, !llvm.loop !544
 
 _ZSt4moveIPN5clang6Module6HeaderES3_ET0_T_S5_S4_.exit75: ; preds = %.lr.ph.i.i.i.i.i71, %29
@@ -31684,7 +31684,7 @@ define linkonce_odr noundef ptr @_ZSt12__move_mergeIPN5clang6Module6HeaderES3_N9
   %40 = getelementptr inbounds i8, ptr %.0910.i.i.i.i.i, i64 72
   %41 = getelementptr inbounds i8, ptr %.0811.i.i.i.i.i, i64 72
   %42 = add nsw i64 %.012.i.i.i.i.i, -1
-  %43 = icmp ugt i64 %.012.i.i.i.i.i, 1
+  %43 = icmp samesign ugt i64 %.012.i.i.i.i.i, 1
   br i1 %43, label %.lr.ph.i.i.i.i.i, label %_ZSt4moveIPN5clang6Module6HeaderES3_ET0_T_S5_S4_.exit, !llvm.loop !544
 
 _ZSt4moveIPN5clang6Module6HeaderES3_ET0_T_S5_S4_.exit: ; preds = %.lr.ph.i.i.i.i.i, %._crit_edge
@@ -31714,7 +31714,7 @@ _ZSt4moveIPN5clang6Module6HeaderES3_ET0_T_S5_S4_.exit: ; preds = %.lr.ph.i.i.i.i
   %56 = getelementptr inbounds i8, ptr %.0910.i.i.i.i.i26, i64 72
   %57 = getelementptr inbounds i8, ptr %.0811.i.i.i.i.i25, i64 72
   %58 = add nsw i64 %.012.i.i.i.i.i24, -1
-  %59 = icmp ugt i64 %.012.i.i.i.i.i24, 1
+  %59 = icmp samesign ugt i64 %.012.i.i.i.i.i24, 1
   br i1 %59, label %.lr.ph.i.i.i.i.i23, label %_ZSt4moveIPN5clang6Module6HeaderES3_ET0_T_S5_S4_.exit27, !llvm.loop !544
 
 _ZSt4moveIPN5clang6Module6HeaderES3_ET0_T_S5_S4_.exit27: ; preds = %.lr.ph.i.i.i.i.i23, %_ZSt4moveIPN5clang6Module6HeaderES3_ET0_T_S5_S4_.exit
@@ -31797,7 +31797,7 @@ define linkonce_odr void @_ZSt21__move_merge_adaptiveIPN5clang6Module6HeaderES3_
   %41 = getelementptr inbounds i8, ptr %.0910.i.i.i.i.i, i64 72
   %42 = getelementptr inbounds i8, ptr %.0811.i.i.i.i.i, i64 72
   %43 = add nsw i64 %.012.i.i.i.i.i, -1
-  %44 = icmp ugt i64 %.012.i.i.i.i.i, 1
+  %44 = icmp samesign ugt i64 %.012.i.i.i.i.i, 1
   br i1 %44, label %.lr.ph.i.i.i.i.i, label %_ZSt4moveIPN5clang6Module6HeaderES3_ET0_T_S5_S4_.exit, !llvm.loop !544
 
 _ZSt4moveIPN5clang6Module6HeaderES3_ET0_T_S5_S4_.exit: ; preds = %.lr.ph.i.i.i.i.i, %28, %._crit_edge
@@ -31835,7 +31835,7 @@ define linkonce_odr void @_ZSt30__move_merge_adaptive_backwardIPN5clang6Module6H
   %22 = load i64, ptr %21, align 8
   store i64 %22, ptr %20, align 8
   %23 = add nsw i64 %.010.i.i.i.i.i, -1
-  %24 = icmp ugt i64 %.010.i.i.i.i.i, 1
+  %24 = icmp samesign ugt i64 %.010.i.i.i.i.i, 1
   br i1 %24, label %.lr.ph.i.i.i.i.i, label %_ZSt13move_backwardIPN5clang6Module6HeaderES3_ET0_T_S5_S4_.exit, !llvm.loop !533
 
 25:                                               ; preds = %6
@@ -31899,7 +31899,7 @@ define linkonce_odr void @_ZSt30__move_merge_adaptive_backwardIPN5clang6Module6H
   %56 = load i64, ptr %55, align 8
   store i64 %56, ptr %54, align 8
   %57 = add nsw i64 %.010.i.i.i.i.i35, -1
-  %58 = icmp ugt i64 %.010.i.i.i.i.i35, 1
+  %58 = icmp samesign ugt i64 %.010.i.i.i.i.i35, 1
   br i1 %58, label %.lr.ph.i.i.i.i.i34, label %_ZSt13move_backwardIPN5clang6Module6HeaderES3_ET0_T_S5_S4_.exit, !llvm.loop !533
 
 59:                                               ; preds = %29
@@ -31957,7 +31957,7 @@ define linkonce_odr noundef ptr @_ZSt17__rotate_adaptiveIPN5clang6Module6HeaderE
   %23 = getelementptr inbounds i8, ptr %.0910.i.i.i.i.i, i64 72
   %24 = getelementptr inbounds i8, ptr %.0811.i.i.i.i.i, i64 72
   %25 = add nsw i64 %.012.i.i.i.i.i, -1
-  %26 = icmp ugt i64 %.012.i.i.i.i.i, 1
+  %26 = icmp samesign ugt i64 %.012.i.i.i.i.i, 1
   br i1 %26, label %.lr.ph.i.i.i.i.i, label %_ZSt4moveIPN5clang6Module6HeaderES3_ET0_T_S5_S4_.exit, !llvm.loop !544
 
 _ZSt4moveIPN5clang6Module6HeaderES3_ET0_T_S5_S4_.exit: ; preds = %.lr.ph.i.i.i.i.i, %10
@@ -31986,7 +31986,7 @@ _ZSt4moveIPN5clang6Module6HeaderES3_ET0_T_S5_S4_.exit: ; preds = %.lr.ph.i.i.i.i
   %39 = load i64, ptr %38, align 8
   store i64 %39, ptr %37, align 8
   %40 = add nsw i64 %.010.i.i.i.i.i, -1
-  %41 = icmp ugt i64 %.010.i.i.i.i.i, 1
+  %41 = icmp samesign ugt i64 %.010.i.i.i.i.i, 1
   br i1 %41, label %.lr.ph.i.i.i.i.i37, label %_ZSt13move_backwardIPN5clang6Module6HeaderES3_ET0_T_S5_S4_.exit, !llvm.loop !533
 
 _ZSt13move_backwardIPN5clang6Module6HeaderES3_ET0_T_S5_S4_.exit: ; preds = %.lr.ph.i.i.i.i.i37, %_ZSt4moveIPN5clang6Module6HeaderES3_ET0_T_S5_S4_.exit
@@ -32015,7 +32015,7 @@ _ZSt13move_backwardIPN5clang6Module6HeaderES3_ET0_T_S5_S4_.exit: ; preds = %.lr.
   %54 = getelementptr inbounds i8, ptr %.0910.i.i.i.i.i43, i64 72
   %55 = getelementptr inbounds i8, ptr %.0811.i.i.i.i.i42, i64 72
   %56 = add nsw i64 %.012.i.i.i.i.i41, -1
-  %57 = icmp ugt i64 %.012.i.i.i.i.i41, 1
+  %57 = icmp samesign ugt i64 %.012.i.i.i.i.i41, 1
   br i1 %57, label %.lr.ph.i.i.i.i.i40, label %_ZSt4moveIPN5clang6Module6HeaderES3_ET0_T_S5_S4_.exit44, !llvm.loop !544
 
 58:                                               ; preds = %7
@@ -32052,7 +32052,7 @@ _ZSt13move_backwardIPN5clang6Module6HeaderES3_ET0_T_S5_S4_.exit: ; preds = %.lr.
   %73 = getelementptr inbounds i8, ptr %.0910.i.i.i.i.i50, i64 72
   %74 = getelementptr inbounds i8, ptr %.0811.i.i.i.i.i49, i64 72
   %75 = add nsw i64 %.012.i.i.i.i.i48, -1
-  %76 = icmp ugt i64 %.012.i.i.i.i.i48, 1
+  %76 = icmp samesign ugt i64 %.012.i.i.i.i.i48, 1
   br i1 %76, label %.lr.ph.i.i.i.i.i47, label %_ZSt4moveIPN5clang6Module6HeaderES3_ET0_T_S5_S4_.exit51, !llvm.loop !544
 
 _ZSt4moveIPN5clang6Module6HeaderES3_ET0_T_S5_S4_.exit51: ; preds = %.lr.ph.i.i.i.i.i47, %60
@@ -32081,7 +32081,7 @@ _ZSt4moveIPN5clang6Module6HeaderES3_ET0_T_S5_S4_.exit51: ; preds = %.lr.ph.i.i.i
   %88 = getelementptr inbounds i8, ptr %.0910.i.i.i.i.i57, i64 72
   %89 = getelementptr inbounds i8, ptr %.0811.i.i.i.i.i56, i64 72
   %90 = add nsw i64 %.012.i.i.i.i.i55, -1
-  %91 = icmp ugt i64 %.012.i.i.i.i.i55, 1
+  %91 = icmp samesign ugt i64 %.012.i.i.i.i.i55, 1
   br i1 %91, label %.lr.ph.i.i.i.i.i54, label %_ZSt4moveIPN5clang6Module6HeaderES3_ET0_T_S5_S4_.exit58, !llvm.loop !544
 
 _ZSt4moveIPN5clang6Module6HeaderES3_ET0_T_S5_S4_.exit58: ; preds = %.lr.ph.i.i.i.i.i54, %_ZSt4moveIPN5clang6Module6HeaderES3_ET0_T_S5_S4_.exit51
@@ -32110,7 +32110,7 @@ _ZSt4moveIPN5clang6Module6HeaderES3_ET0_T_S5_S4_.exit58: ; preds = %.lr.ph.i.i.i
   %105 = load i64, ptr %104, align 8
   store i64 %105, ptr %103, align 8
   %106 = add nsw i64 %.010.i.i.i.i.i62, -1
-  %107 = icmp ugt i64 %.010.i.i.i.i.i62, 1
+  %107 = icmp samesign ugt i64 %.010.i.i.i.i.i62, 1
   br i1 %107, label %.lr.ph.i.i.i.i.i61, label %_ZSt4moveIPN5clang6Module6HeaderES3_ET0_T_S5_S4_.exit44, !llvm.loop !533
 
 108:                                              ; preds = %58
@@ -32154,7 +32154,7 @@ define linkonce_odr noundef nonnull align 8 dereferenceable(16) ptr @_ZN4llvm15S
   %15 = getelementptr inbounds i8, ptr %.0910.i.i.i.i.i, i64 40
   %16 = getelementptr inbounds i8, ptr %.0811.i.i.i.i.i, i64 40
   %17 = add nsw i64 %.012.i.i.i.i.i, -1
-  %18 = icmp ugt i64 %.012.i.i.i.i.i, 1
+  %18 = icmp samesign ugt i64 %.012.i.i.i.i.i, 1
   br i1 %18, label %.lr.ph.i.i.i.i.i, label %_ZSt4copyIPKSt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN5clang14SourceLocationEEPS9_ET0_T_SE_SD_.exit.loopexit, !llvm.loop !549
 
 _ZSt4copyIPKSt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN5clang14SourceLocationEEPS9_ET0_T_SE_SD_.exit.loopexit: ; preds = %.lr.ph.i.i.i.i.i
@@ -32229,7 +32229,7 @@ _ZN4llvm15SmallVectorImplISt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcES
   %41 = getelementptr inbounds i8, ptr %.0910.i.i.i.i.i35, i64 40
   %42 = getelementptr inbounds i8, ptr %.0811.i.i.i.i.i34, i64 40
   %43 = add nsw i64 %.012.i.i.i.i.i33, -1
-  %44 = icmp ugt i64 %.012.i.i.i.i.i33, 1
+  %44 = icmp samesign ugt i64 %.012.i.i.i.i.i33, 1
   br i1 %44, label %.lr.ph.i.i.i.i.i32, label %_ZSt4copyIPKSt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN5clang14SourceLocationEEPS9_ET0_T_SE_SD_.exit36, !llvm.loop !549
 
 _ZSt4copyIPKSt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN5clang14SourceLocationEEPS9_ET0_T_SE_SD_.exit36: ; preds = %.lr.ph.i.i.i.i.i32, %33, %32, %_ZN4llvm15SmallVectorImplISt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN5clang14SourceLocationEEE5clearEv.exit

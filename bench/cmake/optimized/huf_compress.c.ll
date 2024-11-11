@@ -646,7 +646,7 @@ HUF_sort.exit:                                    ; preds = %64
   %128 = getelementptr inbounds i8, ptr %121, i64 7
   store i8 %127, ptr %128, align 1
   %indvars.iv.next116.i = add nsw i64 %indvars.iv115.i, -1
-  %129 = icmp ugt i64 %indvars.iv115.i, 256
+  %129 = icmp samesign ugt i64 %indvars.iv115.i, 256
   br i1 %129, label %.lr.ph100.i, label %.preheader.i26, !llvm.loop !21
 
 .lr.ph103.i:                                      ; preds = %.lr.ph103.i, %.lr.ph103.preheader.i
@@ -687,7 +687,7 @@ HUF_buildTree.exit:                               ; preds = %.lr.ph103.i, %.preh
   %146 = getelementptr inbounds i8, ptr %14, i64 %.offs58
   %147 = load i8, ptr %146, align 1
   %148 = zext i8 %147 to i32
-  %149 = icmp ult i32 %spec.store.select, %148
+  %149 = icmp samesign ult i32 %spec.store.select, %148
   br i1 %149, label %.lr.ph.i36, label %.preheader108.i
 
 .lr.ph.i36:                                       ; preds = %142
@@ -722,7 +722,7 @@ HUF_buildTree.exit:                               ; preds = %.lr.ph103.i, %.preh
   %158 = getelementptr inbounds i8, ptr %14, i64 %.offs60
   %159 = load i8, ptr %158, align 1
   %160 = zext i8 %159 to i32
-  %161 = icmp ult i32 %spec.store.select, %160
+  %161 = icmp samesign ult i32 %spec.store.select, %160
   br i1 %161, label %152, label %.preheader108.loopexit.i, !llvm.loop !23
 
 162:                                              ; preds = %162, %.preheader108.i
@@ -1004,7 +1004,7 @@ HUF_setMaxHeight.exit:                            ; preds = %.outer.i, %253, %HU
   %274 = add i16 %273, %.040.i
   %275 = lshr i16 %274, 1
   %indvars.iv.next46.i = add nsw i64 %indvars.iv45.i, -1
-  %276 = icmp ugt i64 %indvars.iv45.i, 1
+  %276 = icmp samesign ugt i64 %indvars.iv45.i, 1
   br i1 %276, label %.lr.ph41.i, label %.preheader35.i.preheader, !llvm.loop !32
 
 .preheader35.i.preheader:                         ; preds = %.lr.ph41.i, %.preheader36.i
@@ -1201,7 +1201,7 @@ define internal fastcc i64 @HUF_compress1X_usingCTable_internal(ptr noundef %0, 
   %33 = or i64 %31, %32
   %34 = add i64 %29, %.sroa.262.13279
   %35 = add nsw i32 %.025613282, -1
-  %36 = icmp ugt i32 %.025613282, 1
+  %36 = icmp samesign ugt i32 %.025613282, 1
   br i1 %36, label %.preheader3125, label %37, !llvm.loop !37
 
 37:                                               ; preds = %.preheader3125
@@ -1415,7 +1415,7 @@ define internal fastcc i64 @HUF_compress1X_usingCTable_internal(ptr noundef %0, 
   %158 = or i64 %156, %157
   %159 = add i64 %154, %.sroa.262.83235
   %160 = add nsw i32 %.025733237, -1
-  %161 = icmp ugt i32 %.025733237, 1
+  %161 = icmp samesign ugt i32 %.025733237, 1
   br i1 %161, label %.preheader3133, label %162, !llvm.loop !37
 
 162:                                              ; preds = %.preheader3133
@@ -1612,7 +1612,7 @@ define internal fastcc i64 @HUF_compress1X_usingCTable_internal(ptr noundef %0, 
   %278 = or i64 %276, %277
   %279 = add i64 %274, %.sroa.262.143213
   %280 = add nsw i32 %.025563215, -1
-  %281 = icmp ugt i32 %.025563215, 1
+  %281 = icmp samesign ugt i32 %.025563215, 1
   br i1 %281, label %.preheader3137, label %282, !llvm.loop !37
 
 282:                                              ; preds = %.preheader3137
@@ -1806,7 +1806,7 @@ define internal fastcc i64 @HUF_compress1X_usingCTable_internal(ptr noundef %0, 
   %395 = or i64 %393, %394
   %396 = add i64 %391, %.sroa.262.203191
   %397 = add nsw i32 %.025483193, -1
-  %398 = icmp ugt i32 %.025483193, 1
+  %398 = icmp samesign ugt i32 %.025483193, 1
   br i1 %398, label %.preheader3141, label %399, !llvm.loop !37
 
 399:                                              ; preds = %.preheader3141
@@ -2003,7 +2003,7 @@ define internal fastcc i64 @HUF_compress1X_usingCTable_internal(ptr noundef %0, 
   %515 = or i64 %513, %514
   %516 = add i64 %511, %.sroa.262.263169
   %517 = add nsw i32 %.025403171, -1
-  %518 = icmp ugt i32 %.025403171, 1
+  %518 = icmp samesign ugt i32 %.025403171, 1
   br i1 %518, label %.preheader3145, label %519, !llvm.loop !37
 
 519:                                              ; preds = %.preheader3145
@@ -2200,7 +2200,7 @@ define internal fastcc i64 @HUF_compress1X_usingCTable_internal(ptr noundef %0, 
   %635 = or i64 %633, %634
   %636 = add i64 %631, %.sroa.262.323150
   %637 = add nsw i32 %.025323152, -1
-  %638 = icmp ugt i32 %.025323152, 1
+  %638 = icmp samesign ugt i32 %.025323152, 1
   br i1 %638, label %.preheader3149, label %639, !llvm.loop !37
 
 639:                                              ; preds = %.preheader3149
@@ -2397,7 +2397,7 @@ define internal fastcc i64 @HUF_compress1X_usingCTable_internal(ptr noundef %0, 
   %755 = or i64 %753, %754
   %756 = add i64 %751, %.sroa.262.383257
   %757 = add nsw i32 %.025243259, -1
-  %758 = icmp ugt i32 %.025243259, 1
+  %758 = icmp samesign ugt i32 %.025243259, 1
   br i1 %758, label %.preheader3129, label %759, !llvm.loop !37
 
 759:                                              ; preds = %.preheader3129
@@ -2785,7 +2785,7 @@ HUF_cardinality.exit:                             ; preds = %.lr.ph.i
 
 25:                                               ; preds = %.lr.ph.split.us
   %26 = zext i32 %.062.us to i64
-  %27 = icmp ult i64 %23, %26
+  %27 = icmp samesign ult i64 %23, %26
   %28 = icmp ugt i32 %.062.us, %22
   %or.cond.us = and i1 %27, %28
   br i1 %or.cond.us, label %.loopexit, label %29
@@ -2824,7 +2824,7 @@ HUF_estimateCompressedSize.exit.us:               ; preds = %29
 
 41:                                               ; preds = %.lr.ph.split
   %42 = zext i32 %.062 to i64
-  %43 = icmp ult i64 %39, %42
+  %43 = icmp samesign ult i64 %39, %42
   %44 = icmp ugt i32 %.062, %20
   %or.cond = and i1 %43, %44
   br i1 %or.cond, label %.loopexit, label %45
@@ -2948,7 +2948,7 @@ define internal fastcc i64 @HUF_compress_internal(ptr noundef %0, i64 noundef %1
 41:                                               ; preds = %36, %31
   %42 = and i32 %11, 8
   %43 = icmp ne i32 %42, 0
-  %44 = icmp ugt i64 %3, 40959
+  %44 = icmp samesign ugt i64 %3, 40959
   %or.cond3 = and i1 %44, %43
   br i1 %or.cond3, label %45, label %55
 

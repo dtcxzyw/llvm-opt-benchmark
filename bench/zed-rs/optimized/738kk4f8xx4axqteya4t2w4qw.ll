@@ -3878,7 +3878,7 @@ default.unreachable5.i.i.i:                       ; preds = %214
   %287 = add nsw i32 %285, -1
   %288 = add nsw i32 %287, %286
   %289 = lshr i32 %288, %.sroa.067.0.i
-  %290 = icmp ult i32 %289, 65536
+  %290 = icmp samesign ult i32 %289, 65536
   %291 = trunc nuw i32 %289 to i16
   %.sroa.5153.0.i = select i1 %290, i16 %291, i16 undef
   call void @llvm.lifetime.start.p0(i64 0, ptr nonnull %8), !noalias !789
@@ -4904,7 +4904,7 @@ default.unreachable5.i.i.i:                       ; preds = %214
   %287 = add nsw i32 %285, -1
   %288 = add nsw i32 %287, %286
   %289 = lshr i32 %288, %.sroa.067.0.i
-  %290 = icmp ult i32 %289, 65536
+  %290 = icmp samesign ult i32 %289, 65536
   %291 = trunc nuw i32 %289 to i16
   %.sroa.5153.0.i = select i1 %290, i16 %291, i16 undef
   call void @llvm.lifetime.start.p0(i64 0, ptr nonnull %8), !noalias !1008
@@ -107124,7 +107124,7 @@ define hidden void @_ZN4gpui8platform5blade14blade_renderer13BladeRenderer4draw1
   %.1.i.i.i.i.i.i = sext i1 %135 to i8
   %.sroa.0.0.i.i.i.i.i.i = select i1 %134, i8 %..i.i.i.i.i.i, i8 %.1.i.i.i.i.i.i
   %136 = add nsw i8 %.sroa.0.0.i.i.i.i.i.i, -3
-  %switch.i.i.i.i = icmp ult i8 %136, -2
+  %switch.i.i.i.i = icmp samesign ult i8 %136, -2
   %..i4.i.i = select i1 %switch.i.i.i.i, float %124, float %130
   %137 = fcmp ugt float %127, %133
   %138 = fcmp ult float %127, %133
@@ -107132,7 +107132,7 @@ define hidden void @_ZN4gpui8platform5blade14blade_renderer13BladeRenderer4draw1
   %.1.i.i.i4.i.i.i = sext i1 %138 to i8
   %.sroa.0.0.i.i.i5.i.i.i = select i1 %137, i8 %..i.i.i3.i.i.i, i8 %.1.i.i.i4.i.i.i
   %139 = add nsw i8 %.sroa.0.0.i.i.i5.i.i.i, -3
-  %switch.i6.i.i.i = icmp ult i8 %139, -2
+  %switch.i6.i.i.i = icmp samesign ult i8 %139, -2
   %.sroa.01.0.i5.i.i = select i1 %switch.i6.i.i.i, float %127, float %133
   invoke void @"_ZN4gpui8geometry15Bounds$LT$T$GT$12from_corners17h5b7232d0ec820b58E.llvm.14019313651612263248"(ptr noalias nocapture noundef nonnull sret([16 x i8]) align 4 dereferenceable(16) %30, float noundef %..i.i.i, float noundef %.sroa.01.0.i.i.i, float noundef %..i4.i.i, float noundef %.sroa.01.0.i5.i.i)
           to label %196 unwind label %.thread94.i
@@ -108192,7 +108192,7 @@ default.unreachable:                              ; preds = %.noexc136
   %.1.i.i.i.i.i = sext i1 %547 to i8
   %.sroa.0.0.i.i.i.i.i = select i1 %546, i8 %..i.i.i.i.i, i8 %.1.i.i.i.i.i
   %548 = add nsw i8 %.sroa.0.0.i.i.i.i.i, -3
-  %switch.i.i.i = icmp ult i8 %548, -2
+  %switch.i.i.i = icmp samesign ult i8 %548, -2
   %..i4.i = select i1 %switch.i.i.i, float %536, float %542
   %549 = fcmp ugt float %539, %545
   %550 = fcmp ult float %539, %545
@@ -108200,7 +108200,7 @@ default.unreachable:                              ; preds = %.noexc136
   %.1.i.i.i4.i.i = sext i1 %550 to i8
   %.sroa.0.0.i.i.i5.i.i = select i1 %549, i8 %..i.i.i3.i.i, i8 %.1.i.i.i4.i.i
   %551 = add nsw i8 %.sroa.0.0.i.i.i5.i.i, -3
-  %switch.i6.i.i = icmp ult i8 %551, -2
+  %switch.i6.i.i = icmp samesign ult i8 %551, -2
   %.sroa.01.0.i5.i = select i1 %switch.i6.i.i, float %539, float %545
   invoke void @"_ZN4gpui8geometry15Bounds$LT$T$GT$12from_corners17h5b7232d0ec820b58E.llvm.14019313651612263248"(ptr noalias nocapture noundef nonnull sret([16 x i8]) align 4 dereferenceable(16) %47, float noundef %..i.i, float noundef %.sroa.01.0.i.i139, float noundef %..i4.i, float noundef %.sroa.01.0.i5.i)
           to label %552 unwind label %.loopexit
@@ -108997,7 +108997,7 @@ _ZN4gpui5scene9Primitive12content_mask17hb14751c1b17c366aE.exit: ; preds = %2, %
   %.1.i.i.i.i.i = sext i1 %36 to i8
   %.sroa.0.0.i.i.i.i.i = select i1 %35, i8 %..i.i.i.i.i, i8 %.1.i.i.i.i.i
   %37 = add nsw i8 %.sroa.0.0.i.i.i.i.i, -3
-  %switch.i.i.i = icmp ult i8 %37, -2
+  %switch.i.i.i = icmp samesign ult i8 %37, -2
   %..i4.i = select i1 %switch.i.i.i, float %25, float %31
   %38 = fcmp ugt float %28, %34
   %39 = fcmp ult float %28, %34
@@ -109005,7 +109005,7 @@ _ZN4gpui5scene9Primitive12content_mask17hb14751c1b17c366aE.exit: ; preds = %2, %
   %.1.i.i.i4.i.i = sext i1 %39 to i8
   %.sroa.0.0.i.i.i5.i.i = select i1 %38, i8 %..i.i.i3.i.i, i8 %.1.i.i.i4.i.i
   %40 = add nsw i8 %.sroa.0.0.i.i.i5.i.i, -3
-  %switch.i6.i.i = icmp ult i8 %40, -2
+  %switch.i6.i.i = icmp samesign ult i8 %40, -2
   %.sroa.01.0.i5.i = select i1 %switch.i6.i.i, float %28, float %34
   invoke void @"_ZN4gpui8geometry15Bounds$LT$T$GT$12from_corners17h5b7232d0ec820b58E.llvm.14019313651612263248"(ptr noalias nocapture noundef nonnull sret([16 x i8]) align 4 dereferenceable(16) %6, float noundef %..i.i, float noundef %.sroa.01.0.i.i, float noundef %..i4.i, float noundef %.sroa.01.0.i5.i)
           to label %"_ZN4gpui8geometry15Bounds$LT$T$GT$9intersect17h7c6dbd620846f38eE.exit" unwind label %9
@@ -109019,7 +109019,7 @@ _ZN4gpui5scene9Primitive12content_mask17hb14751c1b17c366aE.exit: ; preds = %2, %
   %.1.i.i.i.i = sext i1 %44 to i8
   %.sroa.0.0.i.i.i.i = select i1 %43, i8 %..i.i.i.i, i8 %.1.i.i.i.i
   %45 = add nsw i8 %.sroa.0.0.i.i.i.i, -3
-  %switch.i.i = icmp ult i8 %45, -2
+  %switch.i.i = icmp samesign ult i8 %45, -2
   br i1 %switch.i.i, label %"_ZN4gpui8geometry15Bounds$LT$T$GT$8is_empty17h19b002ff622f63c2E.exit.thread", label %"_ZN4gpui8geometry15Bounds$LT$T$GT$8is_empty17h19b002ff622f63c2E.exit"
 
 "_ZN4gpui8geometry15Bounds$LT$T$GT$8is_empty17h19b002ff622f63c2E.exit": ; preds = %"_ZN4gpui8geometry15Bounds$LT$T$GT$9intersect17h7c6dbd620846f38eE.exit"
@@ -109031,7 +109031,7 @@ _ZN4gpui5scene9Primitive12content_mask17hb14751c1b17c366aE.exit: ; preds = %2, %
   %.1.i.i.i4.i = sext i1 %49 to i8
   %.sroa.0.0.i.i.i5.i = select i1 %48, i8 %..i.i.i3.i, i8 %.1.i.i.i4.i
   %50 = add nsw i8 %.sroa.0.0.i.i.i5.i, -3
-  %switch.i6.i = icmp ult i8 %50, -2
+  %switch.i6.i = icmp samesign ult i8 %50, -2
   br i1 %switch.i6.i, label %"_ZN4gpui8geometry15Bounds$LT$T$GT$8is_empty17h19b002ff622f63c2E.exit.thread", label %51
 
 51:                                               ; preds = %"_ZN4gpui8geometry15Bounds$LT$T$GT$8is_empty17h19b002ff622f63c2E.exit"
@@ -110228,7 +110228,7 @@ define hidden void @_ZN4gpui5scene5Scene16insert_primitive17h3cbbb8cc989a43b9E(p
   %.1.i.i.i.i.i = sext i1 %23 to i8
   %.sroa.0.0.i.i.i.i.i = select i1 %22, i8 %..i.i.i.i.i, i8 %.1.i.i.i.i.i
   %24 = add nsw i8 %.sroa.0.0.i.i.i.i.i, -3
-  %switch.i.i.i = icmp ult i8 %24, -2
+  %switch.i.i.i = icmp samesign ult i8 %24, -2
   %..i4.i = select i1 %switch.i.i.i, float %16, float %20
   %25 = fcmp ugt float %18, %21
   %26 = fcmp ult float %18, %21
@@ -110236,7 +110236,7 @@ define hidden void @_ZN4gpui5scene5Scene16insert_primitive17h3cbbb8cc989a43b9E(p
   %.1.i.i.i4.i.i = sext i1 %26 to i8
   %.sroa.0.0.i.i.i5.i.i = select i1 %25, i8 %..i.i.i3.i.i, i8 %.1.i.i.i4.i.i
   %27 = add nsw i8 %.sroa.0.0.i.i.i5.i.i, -3
-  %switch.i6.i.i = icmp ult i8 %27, -2
+  %switch.i6.i.i = icmp samesign ult i8 %27, -2
   %.sroa.01.0.i5.i = select i1 %switch.i6.i.i, float %18, float %21
   call void @"_ZN4gpui8geometry15Bounds$LT$T$GT$12from_corners17h5b7232d0ec820b58E.llvm.14019313651612263248"(ptr noalias nocapture noundef nonnull sret([16 x i8]) align 4 dereferenceable(16) %4, float noundef %..i.i, float noundef %.sroa.01.0.i.i, float noundef %..i4.i, float noundef %.sroa.01.0.i5.i)
   %28 = getelementptr inbounds i8, ptr %4, i64 8
@@ -110247,7 +110247,7 @@ define hidden void @_ZN4gpui5scene5Scene16insert_primitive17h3cbbb8cc989a43b9E(p
   %.1.i.i.i.i = sext i1 %31 to i8
   %.sroa.0.0.i.i.i.i = select i1 %30, i8 %..i.i.i.i, i8 %.1.i.i.i.i
   %32 = add nsw i8 %.sroa.0.0.i.i.i.i, -3
-  %switch.i.i = icmp ult i8 %32, -2
+  %switch.i.i = icmp samesign ult i8 %32, -2
   br i1 %switch.i.i, label %"_ZN4core3ptr43drop_in_place$LT$gpui..scene..Primitive$GT$17h479a663c2ec11debE.llvm.4626617337515605756.exit", label %"_ZN4gpui8geometry15Bounds$LT$T$GT$8is_empty17h19b002ff622f63c2E.exit"
 
 .body:                                            ; preds = %76
@@ -110265,7 +110265,7 @@ define hidden void @_ZN4gpui5scene5Scene16insert_primitive17h3cbbb8cc989a43b9E(p
   %.1.i.i.i4.i = sext i1 %37 to i8
   %.sroa.0.0.i.i.i5.i = select i1 %36, i8 %..i.i.i3.i, i8 %.1.i.i.i4.i
   %38 = add nsw i8 %.sroa.0.0.i.i.i5.i, -3
-  %switch.i6.i = icmp ult i8 %38, -2
+  %switch.i6.i = icmp samesign ult i8 %38, -2
   br i1 %switch.i6.i, label %"_ZN4core3ptr43drop_in_place$LT$gpui..scene..Primitive$GT$17h479a663c2ec11debE.llvm.4626617337515605756.exit", label %39
 
 39:                                               ; preds = %"_ZN4gpui8geometry15Bounds$LT$T$GT$8is_empty17h19b002ff622f63c2E.exit"
@@ -110583,7 +110583,7 @@ define hidden void @_ZN4gpui5scene5Scene16insert_primitive17h8778c117e3e926e0E(p
   %.1.i.i.i.i.i = sext i1 %20 to i8
   %.sroa.0.0.i.i.i.i.i = select i1 %19, i8 %..i.i.i.i.i, i8 %.1.i.i.i.i.i
   %21 = add nsw i8 %.sroa.0.0.i.i.i.i.i, -3
-  %switch.i.i.i = icmp ult i8 %21, -2
+  %switch.i.i.i = icmp samesign ult i8 %21, -2
   %..i4.i = select i1 %switch.i.i.i, float %14, float %17
   %22 = fcmp ugt float %16, %18
   %23 = fcmp ult float %16, %18
@@ -110591,7 +110591,7 @@ define hidden void @_ZN4gpui5scene5Scene16insert_primitive17h8778c117e3e926e0E(p
   %.1.i.i.i4.i.i = sext i1 %23 to i8
   %.sroa.0.0.i.i.i5.i.i = select i1 %22, i8 %..i.i.i3.i.i, i8 %.1.i.i.i4.i.i
   %24 = add nsw i8 %.sroa.0.0.i.i.i5.i.i, -3
-  %switch.i6.i.i = icmp ult i8 %24, -2
+  %switch.i6.i.i = icmp samesign ult i8 %24, -2
   %.sroa.01.0.i5.i = select i1 %switch.i6.i.i, float %16, float %18
   %25 = trunc i64 %5 to i32
   call void @"_ZN4gpui8geometry15Bounds$LT$T$GT$12from_corners17h5b7232d0ec820b58E.llvm.14019313651612263248"(ptr noalias nocapture noundef nonnull sret([16 x i8]) align 4 dereferenceable(16) %4, float noundef %..i.i, float noundef %.sroa.01.0.i.i, float noundef %..i4.i, float noundef %.sroa.01.0.i5.i)
@@ -110603,7 +110603,7 @@ define hidden void @_ZN4gpui5scene5Scene16insert_primitive17h8778c117e3e926e0E(p
   %.1.i.i.i.i = sext i1 %29 to i8
   %.sroa.0.0.i.i.i.i = select i1 %28, i8 %..i.i.i.i, i8 %.1.i.i.i.i
   %30 = add nsw i8 %.sroa.0.0.i.i.i.i, -3
-  %switch.i.i = icmp ult i8 %30, -2
+  %switch.i.i = icmp samesign ult i8 %30, -2
   br i1 %switch.i.i, label %"_ZN4core3ptr43drop_in_place$LT$gpui..scene..Primitive$GT$17h479a663c2ec11debE.llvm.4626617337515605756.exit", label %"_ZN4gpui8geometry15Bounds$LT$T$GT$8is_empty17h19b002ff622f63c2E.exit"
 
 .body:                                            ; preds = %74
@@ -110621,7 +110621,7 @@ define hidden void @_ZN4gpui5scene5Scene16insert_primitive17h8778c117e3e926e0E(p
   %.1.i.i.i4.i = sext i1 %35 to i8
   %.sroa.0.0.i.i.i5.i = select i1 %34, i8 %..i.i.i3.i, i8 %.1.i.i.i4.i
   %36 = add nsw i8 %.sroa.0.0.i.i.i5.i, -3
-  %switch.i6.i = icmp ult i8 %36, -2
+  %switch.i6.i = icmp samesign ult i8 %36, -2
   br i1 %switch.i6.i, label %"_ZN4core3ptr43drop_in_place$LT$gpui..scene..Primitive$GT$17h479a663c2ec11debE.llvm.4626617337515605756.exit", label %37
 
 37:                                               ; preds = %"_ZN4gpui8geometry15Bounds$LT$T$GT$8is_empty17h19b002ff622f63c2E.exit"
@@ -110957,7 +110957,7 @@ define hidden void @_ZN4gpui5scene5Scene16insert_primitive17hdb3be0b1ffbf8504E(p
   %.1.i.i.i.i.i = sext i1 %20 to i8
   %.sroa.0.0.i.i.i.i.i = select i1 %19, i8 %..i.i.i.i.i, i8 %.1.i.i.i.i.i
   %21 = add nsw i8 %.sroa.0.0.i.i.i.i.i, -3
-  %switch.i.i.i = icmp ult i8 %21, -2
+  %switch.i.i.i = icmp samesign ult i8 %21, -2
   %..i4.i = select i1 %switch.i.i.i, float %14, float %17
   %22 = fcmp ugt float %16, %18
   %23 = fcmp ult float %16, %18
@@ -110965,7 +110965,7 @@ define hidden void @_ZN4gpui5scene5Scene16insert_primitive17hdb3be0b1ffbf8504E(p
   %.1.i.i.i4.i.i = sext i1 %23 to i8
   %.sroa.0.0.i.i.i5.i.i = select i1 %22, i8 %..i.i.i3.i.i, i8 %.1.i.i.i4.i.i
   %24 = add nsw i8 %.sroa.0.0.i.i.i5.i.i, -3
-  %switch.i6.i.i = icmp ult i8 %24, -2
+  %switch.i6.i.i = icmp samesign ult i8 %24, -2
   %.sroa.01.0.i5.i = select i1 %switch.i6.i.i, float %16, float %18
   call void @"_ZN4gpui8geometry15Bounds$LT$T$GT$12from_corners17h5b7232d0ec820b58E.llvm.14019313651612263248"(ptr noalias nocapture noundef nonnull sret([16 x i8]) align 4 dereferenceable(16) %4, float noundef %..i.i, float noundef %.sroa.01.0.i.i, float noundef %..i4.i, float noundef %.sroa.01.0.i5.i)
   %25 = getelementptr inbounds i8, ptr %4, i64 8
@@ -110976,7 +110976,7 @@ define hidden void @_ZN4gpui5scene5Scene16insert_primitive17hdb3be0b1ffbf8504E(p
   %.1.i.i.i.i = sext i1 %28 to i8
   %.sroa.0.0.i.i.i.i = select i1 %27, i8 %..i.i.i.i, i8 %.1.i.i.i.i
   %29 = add nsw i8 %.sroa.0.0.i.i.i.i, -3
-  %switch.i.i = icmp ult i8 %29, -2
+  %switch.i.i = icmp samesign ult i8 %29, -2
   br i1 %switch.i.i, label %"_ZN4core3ptr43drop_in_place$LT$gpui..scene..Primitive$GT$17h479a663c2ec11debE.llvm.4626617337515605756.exit", label %"_ZN4gpui8geometry15Bounds$LT$T$GT$8is_empty17h19b002ff622f63c2E.exit"
 
 .body:                                            ; preds = %98
@@ -110994,7 +110994,7 @@ define hidden void @_ZN4gpui5scene5Scene16insert_primitive17hdb3be0b1ffbf8504E(p
   %.1.i.i.i4.i = sext i1 %34 to i8
   %.sroa.0.0.i.i.i5.i = select i1 %33, i8 %..i.i.i3.i, i8 %.1.i.i.i4.i
   %35 = add nsw i8 %.sroa.0.0.i.i.i5.i, -3
-  %switch.i6.i = icmp ult i8 %35, -2
+  %switch.i6.i = icmp samesign ult i8 %35, -2
   br i1 %switch.i6.i, label %"_ZN4core3ptr43drop_in_place$LT$gpui..scene..Primitive$GT$17h479a663c2ec11debE.llvm.4626617337515605756.exit", label %36
 
 36:                                               ; preds = %"_ZN4gpui8geometry15Bounds$LT$T$GT$8is_empty17h19b002ff622f63c2E.exit"
@@ -111324,7 +111324,7 @@ define hidden void @_ZN4gpui5scene5Scene16insert_primitive17he20e4411a0a3e90bE(p
   %.1.i.i.i.i.i = sext i1 %23 to i8
   %.sroa.0.0.i.i.i.i.i = select i1 %22, i8 %..i.i.i.i.i, i8 %.1.i.i.i.i.i
   %24 = add nsw i8 %.sroa.0.0.i.i.i.i.i, -3
-  %switch.i.i.i = icmp ult i8 %24, -2
+  %switch.i.i.i = icmp samesign ult i8 %24, -2
   %..i4.i = select i1 %switch.i.i.i, float %16, float %20
   %25 = fcmp ugt float %18, %21
   %26 = fcmp ult float %18, %21
@@ -111332,7 +111332,7 @@ define hidden void @_ZN4gpui5scene5Scene16insert_primitive17he20e4411a0a3e90bE(p
   %.1.i.i.i4.i.i = sext i1 %26 to i8
   %.sroa.0.0.i.i.i5.i.i = select i1 %25, i8 %..i.i.i3.i.i, i8 %.1.i.i.i4.i.i
   %27 = add nsw i8 %.sroa.0.0.i.i.i5.i.i, -3
-  %switch.i6.i.i = icmp ult i8 %27, -2
+  %switch.i6.i.i = icmp samesign ult i8 %27, -2
   %.sroa.01.0.i5.i = select i1 %switch.i6.i.i, float %18, float %21
   call void @"_ZN4gpui8geometry15Bounds$LT$T$GT$12from_corners17h5b7232d0ec820b58E.llvm.14019313651612263248"(ptr noalias nocapture noundef nonnull sret([16 x i8]) align 4 dereferenceable(16) %4, float noundef %..i.i, float noundef %.sroa.01.0.i.i, float noundef %..i4.i, float noundef %.sroa.01.0.i5.i)
   %28 = getelementptr inbounds i8, ptr %4, i64 8
@@ -111343,7 +111343,7 @@ define hidden void @_ZN4gpui5scene5Scene16insert_primitive17he20e4411a0a3e90bE(p
   %.1.i.i.i.i = sext i1 %31 to i8
   %.sroa.0.0.i.i.i.i = select i1 %30, i8 %..i.i.i.i, i8 %.1.i.i.i.i
   %32 = add nsw i8 %.sroa.0.0.i.i.i.i, -3
-  %switch.i.i = icmp ult i8 %32, -2
+  %switch.i.i = icmp samesign ult i8 %32, -2
   br i1 %switch.i.i, label %"_ZN4core3ptr43drop_in_place$LT$gpui..scene..Primitive$GT$17h479a663c2ec11debE.llvm.4626617337515605756.exit", label %"_ZN4gpui8geometry15Bounds$LT$T$GT$8is_empty17h19b002ff622f63c2E.exit"
 
 .body:                                            ; preds = %76
@@ -111361,7 +111361,7 @@ define hidden void @_ZN4gpui5scene5Scene16insert_primitive17he20e4411a0a3e90bE(p
   %.1.i.i.i4.i = sext i1 %37 to i8
   %.sroa.0.0.i.i.i5.i = select i1 %36, i8 %..i.i.i3.i, i8 %.1.i.i.i4.i
   %38 = add nsw i8 %.sroa.0.0.i.i.i5.i, -3
-  %switch.i6.i = icmp ult i8 %38, -2
+  %switch.i6.i = icmp samesign ult i8 %38, -2
   br i1 %switch.i6.i, label %"_ZN4core3ptr43drop_in_place$LT$gpui..scene..Primitive$GT$17h479a663c2ec11debE.llvm.4626617337515605756.exit", label %39
 
 39:                                               ; preds = %"_ZN4gpui8geometry15Bounds$LT$T$GT$8is_empty17h19b002ff622f63c2E.exit"
@@ -111730,7 +111730,7 @@ define hidden void @_ZN4gpui5scene5Scene16insert_primitive17hefd4c7b8cb5b39dfE(p
   %.1.i.i.i.i.i = sext i1 %23 to i8
   %.sroa.0.0.i.i.i.i.i = select i1 %22, i8 %..i.i.i.i.i, i8 %.1.i.i.i.i.i
   %24 = add nsw i8 %.sroa.0.0.i.i.i.i.i, -3
-  %switch.i.i.i = icmp ult i8 %24, -2
+  %switch.i.i.i = icmp samesign ult i8 %24, -2
   %..i4.i = select i1 %switch.i.i.i, float %16, float %20
   %25 = fcmp ugt float %18, %21
   %26 = fcmp ult float %18, %21
@@ -111738,7 +111738,7 @@ define hidden void @_ZN4gpui5scene5Scene16insert_primitive17hefd4c7b8cb5b39dfE(p
   %.1.i.i.i4.i.i = sext i1 %26 to i8
   %.sroa.0.0.i.i.i5.i.i = select i1 %25, i8 %..i.i.i3.i.i, i8 %.1.i.i.i4.i.i
   %27 = add nsw i8 %.sroa.0.0.i.i.i5.i.i, -3
-  %switch.i6.i.i = icmp ult i8 %27, -2
+  %switch.i6.i.i = icmp samesign ult i8 %27, -2
   %.sroa.01.0.i5.i = select i1 %switch.i6.i.i, float %18, float %21
   call void @"_ZN4gpui8geometry15Bounds$LT$T$GT$12from_corners17h5b7232d0ec820b58E.llvm.14019313651612263248"(ptr noalias nocapture noundef nonnull sret([16 x i8]) align 4 dereferenceable(16) %4, float noundef %..i.i, float noundef %.sroa.01.0.i.i, float noundef %..i4.i, float noundef %.sroa.01.0.i5.i)
   %28 = getelementptr inbounds i8, ptr %4, i64 8
@@ -111749,7 +111749,7 @@ define hidden void @_ZN4gpui5scene5Scene16insert_primitive17hefd4c7b8cb5b39dfE(p
   %.1.i.i.i.i = sext i1 %31 to i8
   %.sroa.0.0.i.i.i.i = select i1 %30, i8 %..i.i.i.i, i8 %.1.i.i.i.i
   %32 = add nsw i8 %.sroa.0.0.i.i.i.i, -3
-  %switch.i.i = icmp ult i8 %32, -2
+  %switch.i.i = icmp samesign ult i8 %32, -2
   br i1 %switch.i.i, label %"_ZN4core3ptr43drop_in_place$LT$gpui..scene..Primitive$GT$17h479a663c2ec11debE.llvm.4626617337515605756.exit", label %"_ZN4gpui8geometry15Bounds$LT$T$GT$8is_empty17h19b002ff622f63c2E.exit"
 
 .body:                                            ; preds = %76
@@ -111767,7 +111767,7 @@ define hidden void @_ZN4gpui5scene5Scene16insert_primitive17hefd4c7b8cb5b39dfE(p
   %.1.i.i.i4.i = sext i1 %37 to i8
   %.sroa.0.0.i.i.i5.i = select i1 %36, i8 %..i.i.i3.i, i8 %.1.i.i.i4.i
   %38 = add nsw i8 %.sroa.0.0.i.i.i5.i, -3
-  %switch.i6.i = icmp ult i8 %38, -2
+  %switch.i6.i = icmp samesign ult i8 %38, -2
   br i1 %switch.i6.i, label %"_ZN4core3ptr43drop_in_place$LT$gpui..scene..Primitive$GT$17h479a663c2ec11debE.llvm.4626617337515605756.exit", label %39
 
 39:                                               ; preds = %"_ZN4gpui8geometry15Bounds$LT$T$GT$8is_empty17h19b002ff622f63c2E.exit"
@@ -114745,13 +114745,13 @@ define internal fastcc void @"_ZN4gpui5scene34Path$LT$gpui..geometry..Pixels$GT$
   tail call void @llvm.experimental.noalias.scope.decl(metadata !23233)
   %23 = call noundef i8 @"_ZN57_$LT$gpui..geometry..Pixels$u20$as$u20$core..cmp..Ord$GT$3cmp17h438081e2d43681eaE"(ptr noalias noundef nonnull readonly align 4 dereferenceable(16) %16, ptr noalias noundef nonnull readonly align 4 dereferenceable(16) %12), !range !23235, !noalias !23236
   %24 = add nsw i8 %23, -3
-  %switch.i.i.i = icmp ult i8 %24, -2
+  %switch.i.i.i = icmp samesign ult i8 %24, -2
   %.val.i.i = load float, ptr %16, align 8, !alias.scope !23230, !noalias !23238
   %.sroa.0.0.i.i = select i1 %switch.i.i.i, float %.val.i.i, float %17
   %25 = getelementptr inbounds i8, ptr %0, i64 36
   %26 = call noundef i8 @"_ZN57_$LT$gpui..geometry..Pixels$u20$as$u20$core..cmp..Ord$GT$3cmp17h438081e2d43681eaE"(ptr noalias noundef nonnull readonly align 4 dereferenceable(4) %25, ptr noalias noundef nonnull readonly align 4 dereferenceable(4) %20), !range !23235, !noalias !23236
   %27 = add nsw i8 %26, -3
-  %switch.i3.i.i = icmp ult i8 %27, -2
+  %switch.i3.i.i = icmp samesign ult i8 %27, -2
   %.val5.i.i = load float, ptr %25, align 4, !alias.scope !23230, !noalias !23238
   %.val6.i.i = load float, ptr %20, align 4, !alias.scope !23233, !noalias !23239
   %.sroa.01.0.i.i = select i1 %switch.i3.i.i, float %.val5.i.i, float %.val6.i.i
@@ -114802,13 +114802,13 @@ define internal fastcc void @"_ZN4gpui5scene34Path$LT$gpui..geometry..Pixels$GT$
   call void @llvm.experimental.noalias.scope.decl(metadata !23267)
   %51 = call noundef i8 @"_ZN57_$LT$gpui..geometry..Pixels$u20$as$u20$core..cmp..Ord$GT$3cmp17h438081e2d43681eaE"(ptr noalias noundef nonnull readonly align 4 dereferenceable(16) %13, ptr noalias noundef nonnull readonly align 4 dereferenceable(16) %11), !range !23235, !noalias !23269
   %52 = add nsw i8 %51, -3
-  %switch.i.i.i1 = icmp ult i8 %52, -2
+  %switch.i.i.i1 = icmp samesign ult i8 %52, -2
   %.val.i.i2 = load float, ptr %13, align 4, !alias.scope !23264, !noalias !23271
   %.sroa.0.0.i.i4 = select i1 %switch.i.i.i1, float %.val.i.i2, float %45
   %53 = getelementptr inbounds i8, ptr %13, i64 4
   %54 = call noundef i8 @"_ZN57_$LT$gpui..geometry..Pixels$u20$as$u20$core..cmp..Ord$GT$3cmp17h438081e2d43681eaE"(ptr noalias noundef nonnull readonly align 4 dereferenceable(4) %53, ptr noalias noundef nonnull readonly align 4 dereferenceable(4) %48), !range !23235, !noalias !23269
   %55 = add nsw i8 %54, -3
-  %switch.i3.i.i5 = icmp ult i8 %55, -2
+  %switch.i3.i.i5 = icmp samesign ult i8 %55, -2
   %.val5.i.i6 = load float, ptr %53, align 4, !alias.scope !23264, !noalias !23271
   %.val6.i.i7 = load float, ptr %48, align 4, !alias.scope !23267, !noalias !23272
   %.sroa.01.0.i.i8 = select i1 %switch.i3.i.i5, float %.val5.i.i6, float %.val6.i.i7
@@ -114859,13 +114859,13 @@ define internal fastcc void @"_ZN4gpui5scene34Path$LT$gpui..geometry..Pixels$GT$
   call void @llvm.experimental.noalias.scope.decl(metadata !23300)
   %79 = call noundef i8 @"_ZN57_$LT$gpui..geometry..Pixels$u20$as$u20$core..cmp..Ord$GT$3cmp17h438081e2d43681eaE"(ptr noalias noundef nonnull readonly align 4 dereferenceable(16) %14, ptr noalias noundef nonnull readonly align 4 dereferenceable(16) %10), !range !23235, !noalias !23302
   %80 = add nsw i8 %79, -3
-  %switch.i.i.i13 = icmp ult i8 %80, -2
+  %switch.i.i.i13 = icmp samesign ult i8 %80, -2
   %.val.i.i14 = load float, ptr %14, align 4, !alias.scope !23297, !noalias !23304
   %.sroa.0.0.i.i16 = select i1 %switch.i.i.i13, float %.val.i.i14, float %73
   %81 = getelementptr inbounds i8, ptr %14, i64 4
   %82 = call noundef i8 @"_ZN57_$LT$gpui..geometry..Pixels$u20$as$u20$core..cmp..Ord$GT$3cmp17h438081e2d43681eaE"(ptr noalias noundef nonnull readonly align 4 dereferenceable(4) %81, ptr noalias noundef nonnull readonly align 4 dereferenceable(4) %76), !range !23235, !noalias !23302
   %83 = add nsw i8 %82, -3
-  %switch.i3.i.i17 = icmp ult i8 %83, -2
+  %switch.i3.i.i17 = icmp samesign ult i8 %83, -2
   %.val5.i.i18 = load float, ptr %81, align 4, !alias.scope !23297, !noalias !23304
   %.val6.i.i19 = load float, ptr %76, align 4, !alias.scope !23300, !noalias !23305
   %.sroa.01.0.i.i20 = select i1 %switch.i3.i.i17, float %.val5.i.i18, float %.val6.i.i19

@@ -3364,7 +3364,7 @@ default.unreachable:                              ; preds = %105
   br i1 %172, label %173, label %178
 
 173:                                              ; preds = %171
-  %174 = icmp ult i32 %3, 40
+  %174 = icmp samesign ult i32 %3, 40
   br i1 %174, label %255, label %175
 
 175:                                              ; preds = %173

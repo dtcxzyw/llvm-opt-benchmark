@@ -333,7 +333,7 @@ if.end100:                                        ; preds = %if.end87
 for.cond.preheader:                               ; preds = %if.end100
   %div66 = lshr i64 %conv101, 1
   %invariant.gep = getelementptr i8, ptr %call90, i64 %conv101
-  %cmp104109.not = icmp ult i32 %call95, 2
+  %cmp104109.not = icmp samesign ult i32 %call95, 2
   br i1 %cmp104109.not, label %if.end112, label %for.body
 
 for.body:                                         ; preds = %for.cond.preheader, %for.body

@@ -517,7 +517,7 @@ invoke.cont25:                                    ; preds = %while.body
 if.then28:                                        ; preds = %invoke.cont25
   %move = getelementptr inbounds i8, ptr %src, i64 40
   %4 = load ptr, ptr %move, align 8
-  %cmp29 = icmp ult i32 %call23, 65536
+  %cmp29 = icmp samesign ult i32 %call23, 65536
   %cond30.neg = select i1 %cmp29, i32 -1, i32 -2
   %call32 = invoke noundef i32 %4(ptr noundef nonnull %src, i32 noundef %cond30.neg, i32 noundef 1)
           to label %if.end52 unwind label %lpad.loopexit.split-lp.loopexit.split-lp

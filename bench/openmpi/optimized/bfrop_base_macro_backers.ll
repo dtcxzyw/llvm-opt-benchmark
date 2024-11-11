@@ -523,7 +523,7 @@ pmix_bfrops_base_tma_argv_count.exit.i:           ; preds = %.lr.ph.i.i, %.prehe
   %29 = load ptr, ptr %28, align 8
   store ptr %29, ptr %27, align 8
   %indvars.iv.next.i = add nsw i64 %indvars.iv.i, -1
-  %30 = icmp ugt i64 %indvars.iv.i, 1
+  %30 = icmp samesign ugt i64 %indvars.iv.i, 1
   br i1 %30, label %.lr.ph.i, label %._crit_edge.loopexit.i, !llvm.loop !8
 
 ._crit_edge.loopexit.i:                           ; preds = %.lr.ph.i

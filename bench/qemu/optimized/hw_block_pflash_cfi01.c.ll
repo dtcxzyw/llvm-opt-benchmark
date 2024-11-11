@@ -1267,7 +1267,7 @@ if.end34.i.i:                                     ; preds = %for.body.i107.i, %i
   br i1 %cmp39.i.i, label %for.cond44.preheader.i.i, label %pflash_cfi_query.exit.i
 
 if.end34.thread.i.i:                              ; preds = %for.cond.preheader.i.i
-  %cmp3949.i.i = icmp ugt i8 %63, 1
+  %cmp3949.i.i = icmp samesign ugt i8 %63, 1
   br i1 %cmp3949.i.i, label %for.body49.preheader.i.i, label %pflash_cfi_query.exit.i
 
 for.cond44.preheader.i.i:                         ; preds = %if.end34.i.i

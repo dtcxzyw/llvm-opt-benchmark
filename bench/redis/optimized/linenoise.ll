@@ -1067,7 +1067,7 @@ if.then11:                                        ; preds = %if.then
   br label %if.end32
 
 if.else:                                          ; preds = %if.then
-  %cmp14.not = icmp ult i32 %add, %0
+  %cmp14.not = icmp samesign ult i32 %add, %0
   br i1 %cmp14.not, label %if.end18, label %if.then15
 
 if.then15:                                        ; preds = %if.else

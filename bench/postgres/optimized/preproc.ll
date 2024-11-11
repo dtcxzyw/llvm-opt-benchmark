@@ -1638,7 +1638,7 @@ define dso_local range(i32 0, 3) i32 @base_yyparse() local_unnamed_addr #0 {
   br label %.preheader5068
 
 67:                                               ; preds = %64
-  %68 = icmp ult i32 %61, 829
+  %68 = icmp samesign ult i32 %61, 829
   br i1 %68, label %69, label %74
 
 69:                                               ; preds = %67
@@ -32006,7 +32006,7 @@ define internal fastcc noundef ptr @create_questionmarks(ptr noundef %0) unnamed
   %16 = tail call ptr @mm_strdup(ptr noundef nonnull @.str.1326) #17
   %17 = tail call ptr (i32, ...) @cat_str(i32 noundef 3, ptr noundef %.01625, ptr noundef %15, ptr noundef %16)
   %18 = add nsw i32 %.224, -1
-  %19 = icmp ugt i32 %.224, 1
+  %19 = icmp samesign ugt i32 %.224, 1
   br i1 %19, label %.lr.ph26, label %._crit_edge, !llvm.loop !23
 
 ._crit_edge:                                      ; preds = %.lr.ph26, %8, %.loopexit

@@ -9417,7 +9417,7 @@ _ZNK9__gnu_cxx5__ops15_Iter_less_iterclINS_17__normal_iteratorIPSt4pairIN12_GLOB
   %27 = getelementptr inbounds i8, ptr %.069.i.i.i.i.i, i64 -32
   %28 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEOS4_(ptr noundef nonnull align 8 dereferenceable(32) %27, ptr noundef nonnull align 8 dereferenceable(32) %26) #22
   %29 = add nsw i64 %.010.i.i.i.i.i, -1
-  %30 = icmp ugt i64 %.010.i.i.i.i.i, 1
+  %30 = icmp samesign ugt i64 %.010.i.i.i.i.i, 1
   br i1 %30, label %.lr.ph.i.i.i.i.i, label %_ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPSt4pairIN12_GLOBAL__N_18TypeSpecES4_ESt6vectorIS5_SaIS5_EEEESA_ET0_T_SC_SB_.exit, !llvm.loop !108
 
 _ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPSt4pairIN12_GLOBAL__N_18TypeSpecES4_ESt6vectorIS5_SaIS5_EEEESA_ET0_T_SC_SB_.exit: ; preds = %.lr.ph.i.i.i.i.i, %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclINS_17__normal_iteratorIPSt4pairIN12_GLOBAL__N_18TypeSpecES6_ESt6vectorIS7_SaIS7_EEEESC_EEbT_T0_.exit.thread
@@ -16708,7 +16708,7 @@ _ZNK4llvm9StringRef3strB5cxx11Ev.exit71.i:        ; preds = %213, %212
   %236 = getelementptr inbounds nuw i8, ptr %45, i64 32
   %237 = getelementptr inbounds %"class.(anonymous namespace)::Type", ptr %.sroa.059.0.lcssa, i64 %167
   %238 = ptrtoint ptr %237 to i64
-  %.not116.i = icmp ult i64 %167, 4
+  %.not116.i = icmp samesign ult i64 %167, 4
   %239 = lshr i64 %167, 2
   %240 = getelementptr inbounds nuw i8, ptr %21, i64 32
   %241 = getelementptr inbounds nuw i8, ptr %20, i64 32
@@ -16827,7 +16827,7 @@ _ZStplIcSt11char_traitsIcESaIcEENSt7__cxx1112basic_stringIT_T0_T1_EEOS8_S9_.exit
   %286 = sdiv exact i64 %285, 56
   %287 = add nsw i64 %286, 4294967295
   %288 = and i64 %287, 4294967295
-  %289 = icmp ult i64 %indvars.iv.next.pre-phi.i, %288
+  %289 = icmp samesign ult i64 %indvars.iv.next.pre-phi.i, %288
   br i1 %289, label %.lr.ph126.i, label %._crit_edge127.i, !llvm.loop !473
 
 ._crit_edge127.i:                                 ; preds = %281, %_ZStplIcSt11char_traitsIcESaIcEENSt7__cxx1112basic_stringIT_T0_T1_EEOS8_S9_.exit.i

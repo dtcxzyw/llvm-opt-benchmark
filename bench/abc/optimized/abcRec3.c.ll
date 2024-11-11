@@ -2964,7 +2964,7 @@ define void @Lms_ManPrintFreqStats(ptr nocapture noundef readonly %0) local_unna
   br i1 %41, label %.lr.ph.i, label %Abc_TtSupportSize.exit
 
 .lr.ph.i:                                         ; preds = %.lr.ph
-  %42 = icmp ult i32 %40, 7
+  %42 = icmp samesign ult i32 %40, 7
   %43 = add nsw i32 %40, -6
   %44 = shl nuw i32 1, %43
   %45 = sext i32 %44 to i64
@@ -8277,7 +8277,7 @@ Vec_StrAlloc.exit:                                ; preds = %11
 
 .lr.ph:                                           ; preds = %Vec_StrAlloc.exit
   %24 = icmp sgt i32 %5, 0
-  %25 = icmp ult i32 %5, 7
+  %25 = icmp samesign ult i32 %5, 7
   %26 = add nsw i32 %5, -6
   %27 = shl nuw i32 1, %26
   %28 = sext i32 %27 to i64

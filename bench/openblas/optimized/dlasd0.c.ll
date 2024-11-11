@@ -271,7 +271,7 @@ define void @dlasd0_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
   %180 = and i64 %179, 1
   %181 = icmp eq i64 %180, 0
   %182 = select i1 %181, i32 1, i32 2
-  %183 = icmp ult i64 %176, 3
+  %183 = icmp samesign ult i64 %176, 3
   br i1 %183, label %.loopexit11, label %.preheader
 
 .preheader:                                       ; preds = %178, %.preheader

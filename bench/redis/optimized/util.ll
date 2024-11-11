@@ -713,38 +713,38 @@ if.end6:                                          ; preds = %if.end3
   br i1 %cmp7, label %if.then8, label %if.end32
 
 if.then8:                                         ; preds = %if.end6
-  %cmp9 = icmp ult i64 %v.tr19, 100000000
+  %cmp9 = icmp samesign ult i64 %v.tr19, 100000000
   br i1 %cmp9, label %if.then10, label %if.end21
 
 if.then10:                                        ; preds = %if.then8
-  %cmp11 = icmp ult i64 %v.tr19, 1000000
+  %cmp11 = icmp samesign ult i64 %v.tr19, 1000000
   br i1 %cmp11, label %if.then12, label %if.end17
 
 if.then12:                                        ; preds = %if.then10
-  %cmp13 = icmp ult i64 %v.tr19, 10000
+  %cmp13 = icmp samesign ult i64 %v.tr19, 10000
   br i1 %cmp13, label %return, label %if.end15
 
 if.end15:                                         ; preds = %if.then12
-  %cmp16 = icmp ugt i64 %v.tr19, 99999
+  %cmp16 = icmp samesign ugt i64 %v.tr19, 99999
   %add = select i1 %cmp16, i32 6, i32 5
   br label %return
 
 if.end17:                                         ; preds = %if.then10
-  %cmp18 = icmp ugt i64 %v.tr19, 9999999
+  %cmp18 = icmp samesign ugt i64 %v.tr19, 9999999
   %add20 = select i1 %cmp18, i32 8, i32 7
   br label %return
 
 if.end21:                                         ; preds = %if.then8
-  %cmp22 = icmp ult i64 %v.tr19, 10000000000
+  %cmp22 = icmp samesign ult i64 %v.tr19, 10000000000
   br i1 %cmp22, label %if.then24, label %if.end28
 
 if.then24:                                        ; preds = %if.end21
-  %cmp25 = icmp ugt i64 %v.tr19, 999999999
+  %cmp25 = icmp samesign ugt i64 %v.tr19, 999999999
   %add27 = select i1 %cmp25, i32 10, i32 9
   br label %return
 
 if.end28:                                         ; preds = %if.end21
-  %cmp29 = icmp ugt i64 %v.tr19, 99999999999
+  %cmp29 = icmp samesign ugt i64 %v.tr19, 99999999999
   %add31 = select i1 %cmp29, i32 12, i32 11
   br label %return
 
@@ -787,38 +787,38 @@ if.end6.i:                                        ; preds = %if.end3.i
   br i1 %cmp7.i, label %if.then8.i, label %if.end32.i
 
 if.then8.i:                                       ; preds = %if.end6.i
-  %cmp9.i = icmp ult i64 %v.tr19.i, 100000000
+  %cmp9.i = icmp samesign ult i64 %v.tr19.i, 100000000
   br i1 %cmp9.i, label %if.then10.i, label %if.end21.i
 
 if.then10.i:                                      ; preds = %if.then8.i
-  %cmp11.i = icmp ult i64 %v.tr19.i, 1000000
+  %cmp11.i = icmp samesign ult i64 %v.tr19.i, 1000000
   br i1 %cmp11.i, label %if.then12.i, label %if.end17.i
 
 if.then12.i:                                      ; preds = %if.then10.i
-  %cmp13.i = icmp ult i64 %v.tr19.i, 10000
+  %cmp13.i = icmp samesign ult i64 %v.tr19.i, 10000
   br i1 %cmp13.i, label %digits10.exit, label %if.end15.i
 
 if.end15.i:                                       ; preds = %if.then12.i
-  %cmp16.i = icmp ugt i64 %v.tr19.i, 99999
+  %cmp16.i = icmp samesign ugt i64 %v.tr19.i, 99999
   %add.i = select i1 %cmp16.i, i32 6, i32 5
   br label %digits10.exit
 
 if.end17.i:                                       ; preds = %if.then10.i
-  %cmp18.i = icmp ugt i64 %v.tr19.i, 9999999
+  %cmp18.i = icmp samesign ugt i64 %v.tr19.i, 9999999
   %add20.i = select i1 %cmp18.i, i32 8, i32 7
   br label %digits10.exit
 
 if.end21.i:                                       ; preds = %if.then8.i
-  %cmp22.i = icmp ult i64 %v.tr19.i, 10000000000
+  %cmp22.i = icmp samesign ult i64 %v.tr19.i, 10000000000
   br i1 %cmp22.i, label %if.then24.i, label %if.end28.i
 
 if.then24.i:                                      ; preds = %if.end21.i
-  %cmp25.i = icmp ugt i64 %v.tr19.i, 999999999
+  %cmp25.i = icmp samesign ugt i64 %v.tr19.i, 999999999
   %add27.i = select i1 %cmp25.i, i32 10, i32 9
   br label %digits10.exit
 
 if.end28.i:                                       ; preds = %if.end21.i
-  %cmp29.i = icmp ugt i64 %v.tr19.i, 99999999999
+  %cmp29.i = icmp samesign ugt i64 %v.tr19.i, 99999999999
   %add31.i = select i1 %cmp29.i, i32 12, i32 11
   br label %digits10.exit
 
@@ -836,7 +836,7 @@ digits10.exit:                                    ; preds = %if.end.i, %if.end3.
   br label %return
 
 if.else:                                          ; preds = %entry
-  %cmp17.i4 = icmp ult i64 %v, 10
+  %cmp17.i4 = icmp samesign ult i64 %v, 10
   br i1 %cmp17.i4, label %digits10.exit40, label %if.end.i5
 
 if.end.i5:                                        ; preds = %if.else, %if.end32.i13
@@ -854,38 +854,38 @@ if.end6.i11:                                      ; preds = %if.end3.i9
   br i1 %cmp7.i12, label %if.then8.i20, label %if.end32.i13
 
 if.then8.i20:                                     ; preds = %if.end6.i11
-  %cmp9.i21 = icmp ult i64 %v.tr19.i6, 100000000
+  %cmp9.i21 = icmp samesign ult i64 %v.tr19.i6, 100000000
   br i1 %cmp9.i21, label %if.then10.i30, label %if.end21.i22
 
 if.then10.i30:                                    ; preds = %if.then8.i20
-  %cmp11.i31 = icmp ult i64 %v.tr19.i6, 1000000
+  %cmp11.i31 = icmp samesign ult i64 %v.tr19.i6, 1000000
   br i1 %cmp11.i31, label %if.then12.i35, label %if.end17.i32
 
 if.then12.i35:                                    ; preds = %if.then10.i30
-  %cmp13.i36 = icmp ult i64 %v.tr19.i6, 10000
+  %cmp13.i36 = icmp samesign ult i64 %v.tr19.i6, 10000
   br i1 %cmp13.i36, label %digits10.exit40, label %if.end15.i37
 
 if.end15.i37:                                     ; preds = %if.then12.i35
-  %cmp16.i38 = icmp ugt i64 %v.tr19.i6, 99999
+  %cmp16.i38 = icmp samesign ugt i64 %v.tr19.i6, 99999
   %add.i39 = select i1 %cmp16.i38, i32 6, i32 5
   br label %digits10.exit40
 
 if.end17.i32:                                     ; preds = %if.then10.i30
-  %cmp18.i33 = icmp ugt i64 %v.tr19.i6, 9999999
+  %cmp18.i33 = icmp samesign ugt i64 %v.tr19.i6, 9999999
   %add20.i34 = select i1 %cmp18.i33, i32 8, i32 7
   br label %digits10.exit40
 
 if.end21.i22:                                     ; preds = %if.then8.i20
-  %cmp22.i23 = icmp ult i64 %v.tr19.i6, 10000000000
+  %cmp22.i23 = icmp samesign ult i64 %v.tr19.i6, 10000000000
   br i1 %cmp22.i23, label %if.then24.i27, label %if.end28.i24
 
 if.then24.i27:                                    ; preds = %if.end21.i22
-  %cmp25.i28 = icmp ugt i64 %v.tr19.i6, 999999999
+  %cmp25.i28 = icmp samesign ugt i64 %v.tr19.i6, 999999999
   %add27.i29 = select i1 %cmp25.i28, i32 10, i32 9
   br label %digits10.exit40
 
 if.end28.i24:                                     ; preds = %if.end21.i22
-  %cmp29.i25 = icmp ugt i64 %v.tr19.i6, 99999999999
+  %cmp29.i25 = icmp samesign ugt i64 %v.tr19.i6, 99999999999
   %add31.i26 = select i1 %cmp29.i25, i32 12, i32 11
   br label %digits10.exit40
 
@@ -970,38 +970,38 @@ if.end6.i:                                        ; preds = %if.end3.i
   br i1 %cmp7.i, label %if.then8.i, label %if.end32.i
 
 if.then8.i:                                       ; preds = %if.end6.i
-  %cmp9.i = icmp ult i64 %v.tr19.i, 100000000
+  %cmp9.i = icmp samesign ult i64 %v.tr19.i, 100000000
   br i1 %cmp9.i, label %if.then10.i, label %if.end21.i
 
 if.then10.i:                                      ; preds = %if.then8.i
-  %cmp11.i = icmp ult i64 %v.tr19.i, 1000000
+  %cmp11.i = icmp samesign ult i64 %v.tr19.i, 1000000
   br i1 %cmp11.i, label %if.then12.i, label %if.end17.i
 
 if.then12.i:                                      ; preds = %if.then10.i
-  %cmp13.i = icmp ult i64 %v.tr19.i, 10000
+  %cmp13.i = icmp samesign ult i64 %v.tr19.i, 10000
   br i1 %cmp13.i, label %digits10.exit, label %if.end15.i
 
 if.end15.i:                                       ; preds = %if.then12.i
-  %cmp16.i = icmp ugt i64 %v.tr19.i, 99999
+  %cmp16.i = icmp samesign ugt i64 %v.tr19.i, 99999
   %add.i = select i1 %cmp16.i, i32 6, i32 5
   br label %digits10.exit
 
 if.end17.i:                                       ; preds = %if.then10.i
-  %cmp18.i = icmp ugt i64 %v.tr19.i, 9999999
+  %cmp18.i = icmp samesign ugt i64 %v.tr19.i, 9999999
   %add20.i = select i1 %cmp18.i, i32 8, i32 7
   br label %digits10.exit
 
 if.end21.i:                                       ; preds = %if.then8.i
-  %cmp22.i = icmp ult i64 %v.tr19.i, 10000000000
+  %cmp22.i = icmp samesign ult i64 %v.tr19.i, 10000000000
   br i1 %cmp22.i, label %if.then24.i, label %if.end28.i
 
 if.then24.i:                                      ; preds = %if.end21.i
-  %cmp25.i = icmp ugt i64 %v.tr19.i, 999999999
+  %cmp25.i = icmp samesign ugt i64 %v.tr19.i, 999999999
   %add27.i = select i1 %cmp25.i, i32 10, i32 9
   br label %digits10.exit
 
 if.end28.i:                                       ; preds = %if.end21.i
-  %cmp29.i = icmp ugt i64 %v.tr19.i, 99999999999
+  %cmp29.i = icmp samesign ugt i64 %v.tr19.i, 99999999999
   %add31.i = select i1 %cmp29.i, i32 12, i32 11
   br label %digits10.exit
 
@@ -1149,7 +1149,7 @@ if.else81.thread:                                 ; preds = %if.end20.thread
 if.then30:                                        ; preds = %if.end20
   %narrow = add nsw i8 %2, -48
   %sub = zext nneg i8 %narrow to i64
-  %cmp3746 = icmp ult i64 %plen.0, %slen
+  %cmp3746 = icmp samesign ult i64 %plen.0, %slen
   br i1 %cmp3746, label %land.lhs.true39, label %if.end70
 
 land.lhs.true39:                                  ; preds = %if.then30, %if.end60
@@ -1263,7 +1263,7 @@ if.else81.thread.i:                               ; preds = %if.end20.thread.i
 if.then30.i:                                      ; preds = %if.end20.i
   %narrow.i = add nsw i8 %2, -48
   %sub.i = zext nneg i8 %narrow.i to i64
-  %cmp3746.i = icmp ult i64 %plen.0.i, %call
+  %cmp3746.i = icmp samesign ult i64 %plen.0.i, %call
   br i1 %cmp3746.i, label %land.lhs.true39.i, label %if.end70.i
 
 land.lhs.true39.i:                                ; preds = %if.then30.i, %if.end60.i
@@ -1391,7 +1391,7 @@ if.else81.thread.i:                               ; preds = %if.end20.thread.i
 if.then30.i:                                      ; preds = %if.end20.i
   %narrow.i = add nsw i8 %2, -48
   %sub.i = zext nneg i8 %narrow.i to i64
-  %cmp3746.i = icmp ult i64 %plen.0.i, %slen
+  %cmp3746.i = icmp samesign ult i64 %plen.0.i, %slen
   br i1 %cmp3746.i, label %land.lhs.true39.i, label %if.end70.i
 
 land.lhs.true39.i:                                ; preds = %if.then30.i, %if.end60.i
@@ -1491,7 +1491,7 @@ while.body:                                       ; preds = %base_16_char_type.e
 lor.lhs.false:                                    ; preds = %while.body
   %sub9 = xor i64 %sub, -1
   %div1111 = lshr i64 %sub9, 4
-  %cmp12 = icmp ugt i64 %result.0, %div1111
+  %cmp12 = icmp samesign ugt i64 %result.0, %div1111
   br i1 %cmp12, label %return, label %if.end
 
 if.end:                                           ; preds = %lor.lhs.false
@@ -1843,38 +1843,38 @@ if.end6.i:                                        ; preds = %if.end3.i
   br i1 %cmp7.i, label %if.then8.i, label %if.end32.i
 
 if.then8.i:                                       ; preds = %if.end6.i
-  %cmp9.i = icmp ult i64 %v.tr19.i, 100000000
+  %cmp9.i = icmp samesign ult i64 %v.tr19.i, 100000000
   br i1 %cmp9.i, label %if.then10.i, label %if.end21.i
 
 if.then10.i:                                      ; preds = %if.then8.i
-  %cmp11.i = icmp ult i64 %v.tr19.i, 1000000
+  %cmp11.i = icmp samesign ult i64 %v.tr19.i, 1000000
   br i1 %cmp11.i, label %if.then12.i, label %if.end17.i
 
 if.then12.i:                                      ; preds = %if.then10.i
-  %cmp13.i = icmp ult i64 %v.tr19.i, 10000
+  %cmp13.i = icmp samesign ult i64 %v.tr19.i, 10000
   br i1 %cmp13.i, label %digits10.exit, label %if.end15.i
 
 if.end15.i:                                       ; preds = %if.then12.i
-  %cmp16.i = icmp ugt i64 %v.tr19.i, 99999
+  %cmp16.i = icmp samesign ugt i64 %v.tr19.i, 99999
   %add.i = select i1 %cmp16.i, i32 6, i32 5
   br label %digits10.exit
 
 if.end17.i:                                       ; preds = %if.then10.i
-  %cmp18.i = icmp ugt i64 %v.tr19.i, 9999999
+  %cmp18.i = icmp samesign ugt i64 %v.tr19.i, 9999999
   %add20.i = select i1 %cmp18.i, i32 8, i32 7
   br label %digits10.exit
 
 if.end21.i:                                       ; preds = %if.then8.i
-  %cmp22.i = icmp ult i64 %v.tr19.i, 10000000000
+  %cmp22.i = icmp samesign ult i64 %v.tr19.i, 10000000000
   br i1 %cmp22.i, label %if.then24.i, label %if.end28.i
 
 if.then24.i:                                      ; preds = %if.end21.i
-  %cmp25.i = icmp ugt i64 %v.tr19.i, 999999999
+  %cmp25.i = icmp samesign ugt i64 %v.tr19.i, 999999999
   %add27.i = select i1 %cmp25.i, i32 10, i32 9
   br label %digits10.exit
 
 if.end28.i:                                       ; preds = %if.end21.i
-  %cmp29.i = icmp ugt i64 %v.tr19.i, 99999999999
+  %cmp29.i = icmp samesign ugt i64 %v.tr19.i, 99999999999
   %add31.i = select i1 %cmp29.i, i32 12, i32 11
   br label %digits10.exit
 

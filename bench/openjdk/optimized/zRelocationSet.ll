@@ -1267,7 +1267,7 @@ _ZN8ZLiveMap15iterate_segmentIZNS_7iterateIZN5ZPage14object_iterateIZN25ZRelocat
 61:                                               ; preds = %59
   %62 = call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %57, i1 true)
   %63 = add nuw nsw i64 %62, %24
-  %64 = icmp ult i64 %63, 64
+  %64 = icmp samesign ult i64 %63, 64
   br i1 %64, label %_ZNK8ZLiveMap17next_live_segmentEm.exit, label %.loopexit
 
 _ZNK8ZLiveMap17next_live_segmentEm.exit:          ; preds = %55, %61

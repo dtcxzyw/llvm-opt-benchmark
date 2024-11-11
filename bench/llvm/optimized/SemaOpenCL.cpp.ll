@@ -4144,7 +4144,7 @@ _ZNK5clang4Type6castAsINS_17FunctionProtoTypeEEEPKT_v.exit: ; preds = %3, %19
 32:                                               ; preds = %_ZNK5clang4Type6castAsINS_17FunctionProtoTypeEEEPKT_v.exit
   %33 = add nsw i32 %27, -1
   %invariant.gep.i = getelementptr inbounds i8, ptr %1, i64 8
-  %.not11.i = icmp ugt i32 %2, %33
+  %.not11.i = icmp samesign ugt i32 %2, %33
   br i1 %.not11.i, label %_ZN5clangL31checkOpenCLEnqueueLocalSizeArgsERNS_4SemaEPNS_8CallExprEjj.exit, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %32

@@ -5583,7 +5583,7 @@ _ZN5image6codecs3bmp7decoder9num_bytes17h6706b8407e8ee386E.llvm.6960974148744716
   br label %"_ZN5image6codecs3bmp7decoder19BmpDecoder$LT$R$GT$23read_bitmap_info_header17h53b4ccdaa1c9296dE.exit.thread"
 
 258:                                              ; preds = %253
-  %259 = icmp ugt i32 %.val.i.i, 65535
+  %259 = icmp samesign ugt i32 %.val.i.i, 65535
   %260 = icmp sgt i32 %.val.i137.i, 65535
   %or.cond5.i = or i1 %259, %260
   br i1 %or.cond5.i, label %270, label %268
@@ -7035,7 +7035,7 @@ _ZN5image6codecs3bmp7decoder9num_bytes17h6706b8407e8ee386E.llvm.6960974148744716
   br label %"_ZN5image6codecs3bmp7decoder19BmpDecoder$LT$R$GT$23read_bitmap_info_header17h03538ad65770b354E.exit.thread"
 
 207:                                              ; preds = %202
-  %208 = icmp ugt i32 %204, 65535
+  %208 = icmp samesign ugt i32 %204, 65535
   %209 = icmp sgt i32 %.val.i136.i, 65535
   %or.cond5.i = or i1 %209, %208
   br i1 %or.cond5.i, label %219, label %217

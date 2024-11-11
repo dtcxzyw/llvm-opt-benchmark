@@ -306,7 +306,7 @@ define hidden void @_ZN11OSContainer22print_container_helperEP12outputStreamlPKc
   br i1 %4, label %5, label %10
 
 5:                                                ; preds = %3
-  %6 = icmp ugt i64 %1, 1023
+  %6 = icmp samesign ugt i64 %1, 1023
   br i1 %6, label %7, label %9
 
 7:                                                ; preds = %5

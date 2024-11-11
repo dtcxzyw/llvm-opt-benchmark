@@ -1970,7 +1970,7 @@ _ZN8ciMethod16java_code_at_bciEi.exit:            ; preds = %_ZN8ciMethod4codeEv
   %111 = load i32, ptr %104, align 4
   %112 = getelementptr inbounds [3 x i32], ptr %18, i64 0, i64 %indvars.iv.i
   store i32 %111, ptr %112, align 4
-  %113 = icmp ugt i64 %indvars.iv.i, 1
+  %113 = icmp samesign ugt i64 %indvars.iv.i, 1
   br i1 %113, label %103, label %.critedge.i, !llvm.loop !18
 
 .critedge.loopexit.split.loop.exit17.i:           ; preds = %103
@@ -2241,7 +2241,7 @@ define hidden void @_ZN13ciCallProfile12add_receiverEP7ciKlassi(ptr nocapture no
   %17 = load i32, ptr %10, align 4
   %18 = getelementptr inbounds [3 x i32], ptr %5, i64 0, i64 %indvars.iv
   store i32 %17, ptr %18, align 4
-  %19 = icmp ugt i64 %indvars.iv, 1
+  %19 = icmp samesign ugt i64 %indvars.iv, 1
   br i1 %19, label %9, label %.critedge, !llvm.loop !18
 
 .critedge.loopexit.split.loop.exit17:             ; preds = %9

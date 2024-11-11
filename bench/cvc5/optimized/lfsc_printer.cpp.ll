@@ -27292,7 +27292,7 @@ for.body.i.i.i.i.i:                               ; preds = %for.body.i.i.i.i.i,
   %incdec.ptr1.i.i.i.i.i = getelementptr inbounds i8, ptr %__result.addr.06.i.i.i.i.i, i64 -24
   %call.i.i.i.i.i = tail call noundef nonnull align 8 dereferenceable(24) ptr @_ZN4cvc58internal5proof5PExpraSERKS2_(ptr noundef nonnull align 8 dereferenceable(24) %incdec.ptr1.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(24) %incdec.ptr.i.i.i.i.i)
   %dec.i.i.i.i.i = add nsw i64 %__n.07.i.i.i.i.i, -1
-  %cmp.i.i.i.i.i = icmp ugt i64 %__n.07.i.i.i.i.i, 1
+  %cmp.i.i.i.i.i = icmp samesign ugt i64 %__n.07.i.i.i.i.i, 1
   br i1 %cmp.i.i.i.i.i, label %for.body.i.i.i.i.i, label %_ZSt13move_backwardIPN4cvc58internal5proof5PExprES4_ET0_T_S6_S5_.exit, !llvm.loop !132
 
 _ZSt13move_backwardIPN4cvc58internal5proof5PExprES4_ET0_T_S6_S5_.exit: ; preds = %for.body.i.i.i.i.i, %if.then16
@@ -27311,7 +27311,7 @@ for.body.i.i.i.i.i34:                             ; preds = %for.body.i.i.i.i.i3
   %incdec.ptr.i.i.i.i.i36 = getelementptr inbounds i8, ptr %__first.addr.07.i.i.i.i.i, i64 24
   %incdec.ptr1.i.i.i.i.i37 = getelementptr inbounds i8, ptr %__result.addr.08.i.i.i.i.i, i64 24
   %dec.i.i.i.i.i38 = add nsw i64 %__n.09.i.i.i.i.i, -1
-  %cmp.i.i.i.i.i39 = icmp ugt i64 %__n.09.i.i.i.i.i, 1
+  %cmp.i.i.i.i.i39 = icmp samesign ugt i64 %__n.09.i.i.i.i.i, 1
   br i1 %cmp.i.i.i.i.i39, label %for.body.i.i.i.i.i34, label %if.end109, !llvm.loop !133
 
 _ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPN4cvc58internal5proof5PExprESt6vectorIS5_SaIS5_EEEEmEvRT_T0_.exit: ; preds = %if.then9
@@ -27340,7 +27340,7 @@ for.body.i.i.i.i.i52:                             ; preds = %for.body.i.i.i.i.i5
   %incdec.ptr.i.i.i.i.i57 = getelementptr inbounds i8, ptr %__first.addr.07.i.i.i.i.i55, i64 24
   %incdec.ptr1.i.i.i.i.i58 = getelementptr inbounds i8, ptr %__result.addr.08.i.i.i.i.i54, i64 24
   %dec.i.i.i.i.i59 = add nsw i64 %__n.09.i.i.i.i.i53, -1
-  %cmp.i.i.i.i.i60 = icmp ugt i64 %__n.09.i.i.i.i.i53, 1
+  %cmp.i.i.i.i.i60 = icmp samesign ugt i64 %__n.09.i.i.i.i.i53, 1
   br i1 %cmp.i.i.i.i.i60, label %for.body.i.i.i.i.i52, label %if.end109, !llvm.loop !133
 
 if.else68:                                        ; preds = %if.then

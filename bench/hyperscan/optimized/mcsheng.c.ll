@@ -676,7 +676,7 @@ if.else65.i.i:                                    ; preds = %do.body61.i.i
 if.then69.i.i:                                    ; preds = %if.else65.i.i
   %113 = load i16, ptr %sheng_accel_limit.i.i, align 2
   %conv70.i.i = zext i16 %113 to i32
-  %cmp71.i.i = icmp ugt i32 %s.i.5.i, %conv70.i.i
+  %cmp71.i.i = icmp samesign ugt i32 %s.i.5.i, %conv70.i.i
   br i1 %cmp71.i.i, label %if.then73.i.i, label %if.end79.i.i
 
 if.then73.i.i:                                    ; preds = %if.then69.i.i
@@ -1974,7 +1974,7 @@ if.else73.i.i:                                    ; preds = %if.end156.i.i, %if.
 if.then77.i.i:                                    ; preds = %if.else73.i.i
   %121 = load i16, ptr %sheng_accel_limit.i.i, align 2
   %conv78.i.i = zext i16 %121 to i32
-  %cmp79.i.i = icmp ugt i32 %s.i.4.i, %conv78.i.i
+  %cmp79.i.i = icmp samesign ugt i32 %s.i.4.i, %conv78.i.i
   br i1 %cmp79.i.i, label %if.then81.i.i, label %if.end87.i.i
 
 if.then81.i.i:                                    ; preds = %if.then77.i.i
@@ -3517,7 +3517,7 @@ if.else65.i.i:                                    ; preds = %do.body61.i.i
 if.then69.i.i:                                    ; preds = %if.else65.i.i
   %111 = load i16, ptr %sheng_accel_limit.i.i, align 2
   %conv70.i.i = zext i16 %111 to i32
-  %cmp71.i.i = icmp ugt i32 %s.i.5.i, %conv70.i.i
+  %cmp71.i.i = icmp samesign ugt i32 %s.i.5.i, %conv70.i.i
   br i1 %cmp71.i.i, label %if.then73.i.i, label %if.end79.i.i
 
 if.then73.i.i:                                    ; preds = %if.then69.i.i
@@ -4678,13 +4678,13 @@ if.else73.i.preheader.i:                          ; preds = %with_accel.i.if.els
 if.else73.i.i:                                    ; preds = %if.end156.i.i, %if.else73.i.preheader.i
   %c.i.3.i = phi ptr [ %c.i.49.i, %if.end156.i.i ], [ %c.i.3.ph.i, %if.else73.i.preheader.i ]
   %s.i.4.i = phi i32 [ %s.i.511.i, %if.end156.i.i ], [ %s.i.4.ph.i, %if.else73.i.preheader.i ]
-  %cmp75.i.i = icmp ult i32 %s.i.4.i, %conv74.i.pre-phi.i
+  %cmp75.i.i = icmp samesign ult i32 %s.i.4.i, %conv74.i.pre-phi.i
   br i1 %cmp75.i.i, label %if.then77.i.i, label %if.else97.i.i
 
 if.then77.i.i:                                    ; preds = %if.else73.i.i
   %119 = load i16, ptr %sheng_accel_limit.i.i, align 2
   %conv78.i.i = zext i16 %119 to i32
-  %cmp79.i.i = icmp ugt i32 %s.i.4.i, %conv78.i.i
+  %cmp79.i.i = icmp samesign ugt i32 %s.i.4.i, %conv78.i.i
   br i1 %cmp79.i.i, label %if.then81.i.i, label %if.end87.i.i
 
 if.then81.i.i:                                    ; preds = %if.then77.i.i
@@ -5843,7 +5843,7 @@ if.else65.i.i:                                    ; preds = %do.body61.i.i
 if.then69.i.i:                                    ; preds = %if.else65.i.i
   %108 = load i16, ptr %sheng_accel_limit.i.i, align 2
   %conv70.i.i = zext i16 %108 to i32
-  %cmp71.i.i = icmp ugt i32 %s.i.5.i, %conv70.i.i
+  %cmp71.i.i = icmp samesign ugt i32 %s.i.5.i, %conv70.i.i
   br i1 %cmp71.i.i, label %if.then73.i.i, label %if.end79.i.i
 
 if.then73.i.i:                                    ; preds = %if.then69.i.i
@@ -6970,13 +6970,13 @@ if.else73.i.preheader.i:                          ; preds = %with_accel.i.if.els
 if.else73.i.i:                                    ; preds = %if.end156.i.i, %if.else73.i.preheader.i
   %c.i.3.i = phi ptr [ %c.i.4.i, %if.end156.i.i ], [ %c.i.3.ph.i, %if.else73.i.preheader.i ]
   %s.i.4.i = phi i32 [ %s.i.5.i, %if.end156.i.i ], [ %s.i.4.ph.i, %if.else73.i.preheader.i ]
-  %cmp75.i.i = icmp ult i32 %s.i.4.i, %conv74.i.pre-phi.i
+  %cmp75.i.i = icmp samesign ult i32 %s.i.4.i, %conv74.i.pre-phi.i
   br i1 %cmp75.i.i, label %if.then77.i.i, label %if.else97.i.i
 
 if.then77.i.i:                                    ; preds = %if.else73.i.i
   %117 = load i16, ptr %sheng_accel_limit.i.i, align 2
   %conv78.i.i = zext i16 %117 to i32
-  %cmp79.i.i = icmp ugt i32 %s.i.4.i, %conv78.i.i
+  %cmp79.i.i = icmp samesign ugt i32 %s.i.4.i, %conv78.i.i
   br i1 %cmp79.i.i, label %if.then81.i.i, label %if.end87.i.i
 
 if.then81.i.i:                                    ; preds = %if.then77.i.i

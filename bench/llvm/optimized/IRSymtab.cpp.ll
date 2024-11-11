@@ -3246,7 +3246,7 @@ define linkonce_odr hidden void @_ZN4llvm6detail12DenseSetImplINS_9StringRefENS_
 
 _ZN4llvm12PowerOf2CeilEm.exit:                    ; preds = %3
   %12 = add nsw i64 %11, -1
-  %13 = icmp ugt i64 %12, 2147483647
+  %13 = icmp samesign ugt i64 %12, 2147483647
   br i1 %13, label %_ZN4llvm12PowerOf2CeilEm.exit.thread, label %14
 
 14:                                               ; preds = %_ZN4llvm12PowerOf2CeilEm.exit

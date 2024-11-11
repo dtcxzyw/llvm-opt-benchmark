@@ -6384,7 +6384,7 @@ has_internal_arg_info.exit.preheader:             ; preds = %261, %258
 
 292:                                              ; preds = %288
   %293 = zext i32 %spec.select to i64
-  %.not430 = icmp ult i64 %289, %293
+  %.not430 = icmp samesign ult i64 %289, %293
   br i1 %.not430, label %.thread492, label %294
 
 294:                                              ; preds = %292

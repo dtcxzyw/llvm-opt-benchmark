@@ -2923,7 +2923,7 @@ define internal fastcc void @fill_window(ptr nocapture noundef %0) unnamed_addr 
   %197 = add i64 %192, %196
   %198 = getelementptr i8, ptr %118, i64 16
   %199 = add nsw i32 %115, -16
-  %200 = icmp ugt i32 %115, 31
+  %200 = icmp samesign ugt i32 %115, 31
   br i1 %200, label %.preheader8, label %.loopexit, !llvm.loop !18
 
 .loopexit:                                        ; preds = %.preheader8

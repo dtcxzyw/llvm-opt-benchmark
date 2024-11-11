@@ -2002,7 +2002,7 @@ Vec_PtrFree.exit:                                 ; preds = %39
 40:                                               ; preds = %29
   %41 = getelementptr inbounds ptr, ptr %12, i64 %indvars.iv.next
   store ptr %.036, ptr %41, align 8
-  %42 = icmp ugt i64 %indvars.iv, 1
+  %42 = icmp samesign ugt i64 %indvars.iv, 1
   br i1 %42, label %20, label %.critedge, !llvm.loop !13
 
 .critedge:                                        ; preds = %40, %Vec_PtrStart.exit, %Vec_PtrFree.exit

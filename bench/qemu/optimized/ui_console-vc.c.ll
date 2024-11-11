@@ -254,7 +254,7 @@ if.then:                                          ; preds = %sw.default
   store i8 27, ptr %buf, align 16
   %incdec.ptr5 = getelementptr inbounds i8, ptr %buf, i64 2
   store i8 91, ptr %incdec.ptr, align 1
-  %cmp6 = icmp ugt i32 %keysym, 57609
+  %cmp6 = icmp samesign ugt i32 %keysym, 57609
   %div.lhs.trunc = trunc i32 %keysym to i8
   br i1 %cmp6, label %if.then7, label %if.end
 

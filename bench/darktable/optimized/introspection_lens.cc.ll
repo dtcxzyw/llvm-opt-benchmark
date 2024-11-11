@@ -1966,10 +1966,10 @@ define void @process(ptr nocapture noundef readonly %0, ptr nocapture noundef re
   %924 = shl nsw i64 %911, 2
   %925 = getelementptr i8, ptr %845, i64 %924
   %926 = getelementptr i8, ptr %925, i64 428
-  %927 = icmp ult i32 %898, 16
+  %927 = icmp samesign ult i32 %898, 16
   %928 = trunc nuw nsw i64 %916 to i32
   %929 = shl i32 %928, 2
-  %930 = icmp ugt i64 %916, 1073741823
+  %930 = icmp samesign ugt i64 %916, 1073741823
   %931 = shl nuw nsw i64 %916, 4
   %932 = and i64 %914, 2147483640
   %933 = insertelement <8 x i32> poison, i32 %905, i64 0
@@ -6674,7 +6674,7 @@ define void @commit_params(ptr noundef %0, ptr noundef %1, ptr nocapture noundef
   br i1 %1130, label %1131, label %.loopexit73
 
 1131:                                             ; preds = %1129
-  %1132 = icmp ult i32 %978, 8
+  %1132 = icmp samesign ult i32 %978, 8
   br i1 %1132, label %1157, label %1133
 
 1133:                                             ; preds = %1131
@@ -9382,7 +9382,7 @@ define internal fastcc void @_ZL9_lens_setP15dt_iop_module_tPK6lfLens(ptr nounde
   %347 = phi i32 [ 1, %324 ], [ %340, %338 ], [ 3, %336 ], [ %345, %343 ], [ 0, %341 ]
   %348 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %8, i64 noundef 30, ptr noundef nonnull @.str.160, i32 noundef %347, double noundef %331) #31
   call void @dt_bauhaus_combobox_add(ptr noundef %326, ptr noundef nonnull %8)
-  %349 = icmp ult i32 %325, 35
+  %349 = icmp samesign ult i32 %325, 35
   br i1 %349, label %350, label %.loopexit
 
 350:                                              ; preds = %346
@@ -10179,7 +10179,7 @@ define internal fastcc noundef i32 @_ZL18_init_coeffs_md_v1PK10dt_image_tPK20dt_
   %39 = getelementptr inbounds i8, ptr %1, i64 308
   %40 = getelementptr inbounds i8, ptr %0, i64 664
   %41 = zext nneg i32 %25 to i64
-  %42 = icmp ult i32 %25, 40
+  %42 = icmp samesign ult i32 %25, 40
   br i1 %42, label %.preheader52, label %43
 
 43:                                               ; preds = %27
@@ -10472,7 +10472,7 @@ define internal fastcc noundef i32 @_ZL18_init_coeffs_md_v1PK10dt_image_tPK20dt_
 
 274:                                              ; preds = %273
   %275 = zext nneg i32 %257 to i64
-  %276 = icmp ult i32 %257, 32
+  %276 = icmp samesign ult i32 %257, 32
   br i1 %276, label %323, label %277
 
 277:                                              ; preds = %274
@@ -10610,7 +10610,7 @@ define internal fastcc noundef i32 @_ZL18_init_coeffs_md_v1PK10dt_image_tPK20dt_
   br i1 %374, label %485, label %376
 
 376:                                              ; preds = %371
-  %377 = icmp ult i32 %257, 40
+  %377 = icmp samesign ult i32 %257, 40
   br i1 %377, label %460, label %378
 
 378:                                              ; preds = %376
@@ -10741,7 +10741,7 @@ define internal fastcc noundef i32 @_ZL18_init_coeffs_md_v1PK10dt_image_tPK20dt_
   br i1 %484, label %.loopexit, label %.preheader20
 
 485:                                              ; preds = %371
-  %486 = icmp ult i32 %257, 48
+  %486 = icmp samesign ult i32 %257, 48
   br i1 %486, label %552, label %487
 
 487:                                              ; preds = %485
@@ -10952,7 +10952,7 @@ define internal fastcc noundef i32 @_ZL18_init_coeffs_md_v1PK10dt_image_tPK20dt_
   %643 = and i32 %640, 1
   %644 = icmp ne i32 %643, 0
   %645 = zext nneg i32 %257 to i64
-  %646 = icmp ult i32 %257, 40
+  %646 = icmp samesign ult i32 %257, 40
   br i1 %646, label %.preheader57, label %647
 
 647:                                              ; preds = %639

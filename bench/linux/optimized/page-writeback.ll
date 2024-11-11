@@ -1633,7 +1633,7 @@ define internal fastcc range(i32 -11, 1) i32 @balance_dirty_pages(ptr noundef %0
 
 263:                                              ; preds = %259
   %264 = lshr i64 %236, 4
-  %265 = icmp ugt i64 %164, %264
+  %265 = icmp samesign ugt i64 %164, %264
   br i1 %265, label %266, label %270
 
 266:                                              ; preds = %263

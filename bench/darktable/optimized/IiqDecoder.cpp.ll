@@ -847,7 +847,7 @@ define hidden void @_ZN8rawspeed10IiqDecoder17decodeRawInternalEv(ptr dead_on_un
   tail call void @llvm.assume(i1 %16)
   %17 = getelementptr inbounds i8, ptr %15, i64 8
   %18 = zext nneg i32 %14 to i64
-  %19 = icmp ult i32 %14, 4
+  %19 = icmp samesign ult i32 %14, 4
   br i1 %19, label %20, label %21
 
 20:                                               ; preds = %12
@@ -855,7 +855,7 @@ define hidden void @_ZN8rawspeed10IiqDecoder17decodeRawInternalEv(ptr dead_on_un
   unreachable
 
 21:                                               ; preds = %12
-  %22 = icmp ult i32 %14, 8
+  %22 = icmp samesign ult i32 %14, 8
   br i1 %22, label %23, label %24
 
 23:                                               ; preds = %21
@@ -863,7 +863,7 @@ define hidden void @_ZN8rawspeed10IiqDecoder17decodeRawInternalEv(ptr dead_on_un
   unreachable
 
 24:                                               ; preds = %21
-  %25 = icmp ult i32 %14, 12
+  %25 = icmp samesign ult i32 %14, 12
   br i1 %25, label %26, label %27
 
 26:                                               ; preds = %24
@@ -892,7 +892,7 @@ define hidden void @_ZN8rawspeed10IiqDecoder17decodeRawInternalEv(ptr dead_on_un
 
 37:                                               ; preds = %32
   %38 = add nuw nsw i32 %29, 4
-  %39 = icmp ule i32 %38, %14
+  %39 = icmp samesign ule i32 %38, %14
   tail call void @llvm.assume(i1 %39)
   %40 = getelementptr inbounds i8, ptr %17, i64 %33
   %41 = load i32, ptr %40, align 1
@@ -906,7 +906,7 @@ define hidden void @_ZN8rawspeed10IiqDecoder17decodeRawInternalEv(ptr dead_on_un
 
 45:                                               ; preds = %37
   %46 = add nuw nsw i32 %29, 8
-  %47 = icmp ule i32 %46, %14
+  %47 = icmp samesign ule i32 %46, %14
   tail call void @llvm.assume(i1 %47)
   %48 = icmp ugt i32 %41, 268435455
   br i1 %48, label %49, label %50
@@ -929,7 +929,7 @@ define hidden void @_ZN8rawspeed10IiqDecoder17decodeRawInternalEv(ptr dead_on_un
 
 57:                                               ; preds = %50
   %58 = add nuw nsw i32 %51, %46
-  %59 = icmp ule i32 %58, %14
+  %59 = icmp samesign ule i32 %58, %14
   tail call void @llvm.assume(i1 %59)
   %60 = icmp sgt i32 %51, -1
   tail call void @llvm.assume(i1 %60)
@@ -1871,7 +1871,7 @@ define hidden void @_ZNK8rawspeed10IiqDecoder16CorrectPhaseOneCENS_10ByteStreamE
 
 45:                                               ; preds = %40
   %46 = add nuw nsw i32 %37, 4
-  %47 = icmp ule i32 %46, %14
+  %47 = icmp samesign ule i32 %46, %14
   tail call void @llvm.assume(i1 %47)
   %48 = getelementptr inbounds i8, ptr %31, i64 %41
   %49 = load i32, ptr %48, align 1
@@ -1887,7 +1887,7 @@ define hidden void @_ZNK8rawspeed10IiqDecoder16CorrectPhaseOneCENS_10ByteStreamE
 
 55:                                               ; preds = %45
   %56 = add nuw nsw i32 %37, 8
-  %57 = icmp ule i32 %56, %14
+  %57 = icmp samesign ule i32 %56, %14
   tail call void @llvm.assume(i1 %57)
   %58 = icmp ugt i32 %51, 357913941
   br i1 %58, label %59, label %60
@@ -1910,7 +1910,7 @@ define hidden void @_ZNK8rawspeed10IiqDecoder16CorrectPhaseOneCENS_10ByteStreamE
 
 67:                                               ; preds = %60
   %68 = add nuw nsw i32 %61, %56
-  %69 = icmp ule i32 %68, %14
+  %69 = icmp samesign ule i32 %68, %14
   tail call void @llvm.assume(i1 %69)
   %70 = icmp sgt i32 %61, -1
   tail call void @llvm.assume(i1 %70)
@@ -6432,7 +6432,7 @@ define linkonce_odr hidden void @_ZN8rawspeed6SplineItE7prepareEv(ptr noundef no
   %52 = getelementptr inbounds i8, ptr %0, i64 8
   %53 = load ptr, ptr %52, align 8, !tbaa !286
   %54 = load i32, ptr %53, align 4, !tbaa !20
-  %55 = icmp ult i32 %3, 16
+  %55 = icmp samesign ult i32 %3, 16
   br i1 %55, label %.preheader48, label %56
 
 .preheader48:                                     ; preds = %89, %51
@@ -6494,7 +6494,7 @@ define linkonce_odr hidden void @_ZN8rawspeed6SplineItE7prepareEv(ptr noundef no
   %94 = getelementptr inbounds i8, ptr %0, i64 32
   %95 = load ptr, ptr %94, align 8, !tbaa !294
   %96 = add nsw i64 %4, -1
-  %97 = icmp ult i32 %3, 10
+  %97 = icmp samesign ult i32 %3, 10
   br i1 %97, label %.loopexit12, label %126
 
 .loopexit12.loopexit:                             ; preds = %146

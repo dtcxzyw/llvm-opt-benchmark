@@ -251,7 +251,7 @@ if.then.i27:                                      ; preds = %_ZNK8facebook5velox
   unreachable
 
 if.end.i:                                         ; preds = %_ZNK8facebook5velox6Buffer9asMutableIcEEPT_v.exit
-  %cmp.i.i.i26 = icmp ult i32 %size, 13
+  %cmp.i.i.i26 = icmp samesign ult i32 %size, 13
   br i1 %cmp.i.i.i26, label %if.then2.i, label %if.else.i
 
 if.then2.i:                                       ; preds = %if.end.i

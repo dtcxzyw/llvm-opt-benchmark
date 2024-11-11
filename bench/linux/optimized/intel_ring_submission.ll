@@ -56,7 +56,7 @@ define dso_local i32 @intel_ring_submission_setup(ptr noundef %0) local_unnamed_
   br label %22
 
 17:                                               ; preds = %12
-  %18 = icmp ugt i8 %7, 2
+  %18 = icmp samesign ugt i8 %7, 2
   %19 = getelementptr inbounds i8, ptr %0, i64 768
   br i1 %18, label %20, label %21
 
@@ -109,7 +109,7 @@ define dso_local i32 @intel_ring_submission_setup(ptr noundef %0) local_unnamed_
   br label %54
 
 42:                                               ; preds = %22
-  %43 = icmp ugt i8 %38, 3
+  %43 = icmp samesign ugt i8 %38, 3
   br i1 %43, label %44, label %46
 
 44:                                               ; preds = %42
@@ -191,7 +191,7 @@ define dso_local i32 @intel_ring_submission_setup(ptr noundef %0) local_unnamed_
   br label %83
 
 79:                                               ; preds = %74
-  %80 = icmp ult i8 %70, 4
+  %80 = icmp samesign ult i8 %70, 4
   %81 = getelementptr inbounds i8, ptr %0, i64 888
   %82 = select i1 %80, ptr @gen2_emit_flush, ptr @gen4_emit_flush_rcs
   store ptr %82, ptr %81, align 8

@@ -1772,7 +1772,7 @@ define void @gui_init(ptr noundef %0) local_unnamed_addr #1 {
 150:                                              ; preds = %5
   %151 = getelementptr inbounds i8, ptr %17, i64 24
   %152 = zext nneg i32 %26 to i64
-  %153 = icmp ult i32 %26, 16
+  %153 = icmp samesign ult i32 %26, 16
   %154 = add nsw i64 %152, -257
   %155 = icmp ult i64 %154, -256
   %156 = select i1 %153, i1 true, i1 %155
@@ -1878,7 +1878,7 @@ define void @gui_init(ptr noundef %0) local_unnamed_addr #1 {
 214:                                              ; preds = %196
   %215 = getelementptr inbounds i8, ptr %199, i64 24
   %216 = zext nneg i32 %212 to i64
-  %217 = icmp ult i32 %212, 16
+  %217 = icmp samesign ult i32 %212, 16
   %218 = add nsw i64 %216, -257
   %219 = icmp ult i64 %218, -256
   %220 = select i1 %217, i1 true, i1 %219
@@ -2046,7 +2046,7 @@ define void @gui_init(ptr noundef %0) local_unnamed_addr #1 {
 329:                                              ; preds = %311
   %330 = getelementptr inbounds i8, ptr %314, i64 24
   %331 = zext nneg i32 %327 to i64
-  %332 = icmp ult i32 %327, 16
+  %332 = icmp samesign ult i32 %327, 16
   %333 = add nsw i64 %331, -257
   %334 = icmp ult i64 %333, -256
   %335 = select i1 %332, i1 true, i1 %334
@@ -2373,7 +2373,7 @@ define internal noundef i32 @_area_draw_callback(ptr noundef %0, ptr noundef %1,
 43:                                               ; preds = %39
   %44 = getelementptr inbounds i8, ptr %42, i64 24
   %45 = zext nneg i32 %23 to i64
-  %46 = icmp ult i32 %23, 16
+  %46 = icmp samesign ult i32 %23, 16
   br i1 %46, label %.preheader46, label %47
 
 .preheader46:                                     ; preds = %60, %43
@@ -2438,7 +2438,7 @@ define internal noundef i32 @_area_draw_callback(ptr noundef %0, ptr noundef %1,
 81:                                               ; preds = %62
   %82 = getelementptr inbounds i8, ptr %68, i64 24
   %83 = zext nneg i32 %79 to i64
-  %84 = icmp ult i32 %79, 16
+  %84 = icmp samesign ult i32 %79, 16
   %85 = add nsw i64 %83, -257
   %86 = icmp ult i64 %85, -256
   %87 = select i1 %84, i1 true, i1 %86
@@ -3905,7 +3905,7 @@ define internal noundef range(i32 0, 2) i32 @_area_button_press_callback(ptr nou
   %104 = getelementptr inbounds i8, ptr %10, i64 3232
   %105 = load float, ptr %104, align 8, !tbaa !82
   %106 = zext nneg i32 %23 to i64
-  %107 = icmp ult i32 %23, 17
+  %107 = icmp samesign ult i32 %23, 17
   br i1 %107, label %.loopexit18, label %130
 
 .loopexit18:                                      ; preds = %178, %130, %102
@@ -4120,7 +4120,7 @@ define internal noundef range(i32 0, 2) i32 @_area_button_press_callback(ptr nou
 
 248:                                              ; preds = %237
   %249 = zext nneg i32 %246 to i64
-  %250 = icmp ult i32 %246, 24
+  %250 = icmp samesign ult i32 %246, 24
   br i1 %250, label %286, label %251
 
 251:                                              ; preds = %248
@@ -4616,7 +4616,7 @@ define internal noundef i32 @_area_motion_notify_callback(ptr noundef %0, ptr no
   %177 = insertelement <2 x float> poison, float %155, i64 0
   %178 = shufflevector <2 x float> %177, <2 x float> poison, <2 x i32> zeroinitializer
   %179 = and i64 %176, 3
-  %180 = icmp ult i32 %107, 4
+  %180 = icmp samesign ult i32 %107, 4
   br i1 %180, label %.loopexit14, label %181
 
 181:                                              ; preds = %175
@@ -5194,7 +5194,7 @@ define void @init_pipe(ptr nocapture noundef readonly %0, ptr nocapture noundef 
 26:                                               ; preds = %3
   %27 = getelementptr inbounds i8, ptr %15, i64 24
   %28 = zext nneg i32 %24 to i64
-  %29 = icmp ult i32 %24, 16
+  %29 = icmp samesign ult i32 %24, 16
   %30 = add nsw i64 %28, -257
   %31 = icmp ult i64 %30, -256
   %32 = select i1 %29, i1 true, i1 %31
@@ -5300,7 +5300,7 @@ define void @init_pipe(ptr nocapture noundef readonly %0, ptr nocapture noundef 
 90:                                               ; preds = %72
   %91 = getelementptr inbounds i8, ptr %75, i64 24
   %92 = zext nneg i32 %88 to i64
-  %93 = icmp ult i32 %88, 16
+  %93 = icmp samesign ult i32 %88, 16
   %94 = add nsw i64 %92, -257
   %95 = icmp ult i64 %94, -256
   %96 = select i1 %93, i1 true, i1 %95
@@ -5468,7 +5468,7 @@ define void @init_pipe(ptr nocapture noundef readonly %0, ptr nocapture noundef 
 205:                                              ; preds = %187
   %206 = getelementptr inbounds i8, ptr %190, i64 24
   %207 = zext nneg i32 %203 to i64
-  %208 = icmp ult i32 %203, 16
+  %208 = icmp samesign ult i32 %203, 16
   %209 = add nsw i64 %207, -257
   %210 = icmp ult i64 %209, -256
   %211 = select i1 %208, i1 true, i1 %210
@@ -6108,7 +6108,7 @@ define void @process(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noun
 232:                                              ; preds = %228
   %233 = getelementptr inbounds i8, ptr %231, i64 24
   %234 = zext nneg i32 %229 to i64
-  %235 = icmp ult i32 %229, 16
+  %235 = icmp samesign ult i32 %229, 16
   br i1 %235, label %.loopexit48.loopexit, label %236
 
 236:                                              ; preds = %232
@@ -6256,7 +6256,7 @@ define void @process(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noun
 332:                                              ; preds = %326
   %333 = getelementptr inbounds i8, ptr %331, i64 24
   %334 = zext nneg i32 %328 to i64
-  %335 = icmp ult i32 %328, 16
+  %335 = icmp samesign ult i32 %328, 16
   br i1 %335, label %.loopexit47.loopexit, label %336
 
 336:                                              ; preds = %332
@@ -6406,7 +6406,7 @@ define void @process(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noun
 434:                                              ; preds = %428
   %435 = getelementptr inbounds i8, ptr %433, i64 24
   %436 = zext nneg i32 %430 to i64
-  %437 = icmp ult i32 %430, 16
+  %437 = icmp samesign ult i32 %430, 16
   br i1 %437, label %.loopexit46.loopexit, label %438
 
 438:                                              ; preds = %434

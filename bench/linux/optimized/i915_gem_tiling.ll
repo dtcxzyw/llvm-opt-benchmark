@@ -705,7 +705,7 @@ define dso_local i32 @i915_gem_set_tiling_ioctl(ptr nocapture noundef readonly %
   br i1 %56, label %114, label %.thread10
 
 57:                                               ; preds = %51
-  %58 = icmp ugt i8 %53, 3
+  %58 = icmp samesign ugt i8 %53, 3
   br i1 %58, label %59, label %61
 
 59:                                               ; preds = %57

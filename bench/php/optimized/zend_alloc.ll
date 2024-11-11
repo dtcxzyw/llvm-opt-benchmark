@@ -998,7 +998,7 @@ define noalias ptr @_zend_mm_alloc(ptr noundef %0, i64 noundef %1) local_unnamed
   br i1 %3, label %4, label %73
 
 4:                                                ; preds = %2
-  %5 = icmp ult i64 %1, 65
+  %5 = icmp samesign ult i64 %1, 65
   br i1 %5, label %6, label %11
 
 6:                                                ; preds = %4
@@ -1278,11 +1278,11 @@ define ptr @_zend_mm_realloc(ptr noundef %0, ptr noundef %1, i64 noundef %2) loc
   %34 = getelementptr inbounds [30 x i32], ptr @bin_data_size, i64 0, i64 %33
   %35 = load i32, ptr %34, align 4
   %36 = zext i32 %35 to i64
-  %37 = icmp ult i64 %2, %36
+  %37 = icmp samesign ult i64 %2, %36
   br i1 %37, label %38, label %343
 
 38:                                               ; preds = %31
-  %39 = icmp ult i64 %2, 65
+  %39 = icmp samesign ult i64 %2, 65
   br i1 %39, label %40, label %45
 
 40:                                               ; preds = %38
@@ -1352,7 +1352,7 @@ define ptr @_zend_mm_realloc(ptr noundef %0, ptr noundef %1, i64 noundef %2) loc
 77:                                               ; preds = %75
   %78 = getelementptr inbounds i8, ptr %0, i64 24
   %79 = load i64, ptr %78, align 8
-  %80 = icmp ult i64 %2, 65
+  %80 = icmp samesign ult i64 %2, 65
   br i1 %80, label %81, label %85
 
 81:                                               ; preds = %77
@@ -1849,11 +1849,11 @@ define ptr @_zend_mm_realloc2(ptr noundef %0, ptr noundef %1, i64 noundef %2, i6
   %35 = getelementptr inbounds [30 x i32], ptr @bin_data_size, i64 0, i64 %34
   %36 = load i32, ptr %35, align 4
   %37 = zext i32 %36 to i64
-  %38 = icmp ult i64 %2, %37
+  %38 = icmp samesign ult i64 %2, %37
   br i1 %38, label %39, label %346
 
 39:                                               ; preds = %32
-  %40 = icmp ult i64 %2, 65
+  %40 = icmp samesign ult i64 %2, 65
   br i1 %40, label %41, label %46
 
 41:                                               ; preds = %39
@@ -1924,7 +1924,7 @@ define ptr @_zend_mm_realloc2(ptr noundef %0, ptr noundef %1, i64 noundef %2, i6
 79:                                               ; preds = %77
   %80 = getelementptr inbounds i8, ptr %0, i64 24
   %81 = load i64, ptr %80, align 8
-  %82 = icmp ult i64 %2, 65
+  %82 = icmp samesign ult i64 %2, 65
   br i1 %82, label %83, label %87
 
 83:                                               ; preds = %79
@@ -6503,7 +6503,7 @@ define noalias ptr @_emalloc(i64 noundef %0) local_unnamed_addr #9 {
   br i1 %9, label %10, label %79
 
 10:                                               ; preds = %8
-  %11 = icmp ult i64 %0, 65
+  %11 = icmp samesign ult i64 %0, 65
   br i1 %11, label %12, label %17
 
 12:                                               ; preds = %10
@@ -6807,11 +6807,11 @@ define ptr @_erealloc(ptr noundef %0, i64 noundef %1) local_unnamed_addr #7 {
   %40 = getelementptr inbounds [30 x i32], ptr @bin_data_size, i64 0, i64 %39
   %41 = load i32, ptr %40, align 4
   %42 = zext i32 %41 to i64
-  %43 = icmp ult i64 %1, %42
+  %43 = icmp samesign ult i64 %1, %42
   br i1 %43, label %44, label %318
 
 44:                                               ; preds = %37
-  %45 = icmp ult i64 %1, 65
+  %45 = icmp samesign ult i64 %1, 65
   br i1 %45, label %46, label %51
 
 46:                                               ; preds = %44
@@ -6881,7 +6881,7 @@ define ptr @_erealloc(ptr noundef %0, i64 noundef %1) local_unnamed_addr #7 {
 83:                                               ; preds = %81
   %84 = getelementptr inbounds i8, ptr %3, i64 24
   %85 = load i64, ptr %84, align 8
-  %86 = icmp ult i64 %1, 65
+  %86 = icmp samesign ult i64 %1, 65
   br i1 %86, label %87, label %91
 
 87:                                               ; preds = %83
@@ -7329,11 +7329,11 @@ define ptr @_erealloc2(ptr noundef %0, i64 noundef %1, i64 noundef %2) local_unn
   %41 = getelementptr inbounds [30 x i32], ptr @bin_data_size, i64 0, i64 %40
   %42 = load i32, ptr %41, align 4
   %43 = zext i32 %42 to i64
-  %44 = icmp ult i64 %1, %43
+  %44 = icmp samesign ult i64 %1, %43
   br i1 %44, label %45, label %321
 
 45:                                               ; preds = %38
-  %46 = icmp ult i64 %1, 65
+  %46 = icmp samesign ult i64 %1, 65
   br i1 %46, label %47, label %52
 
 47:                                               ; preds = %45
@@ -7404,7 +7404,7 @@ define ptr @_erealloc2(ptr noundef %0, i64 noundef %1, i64 noundef %2) local_unn
 85:                                               ; preds = %83
   %86 = getelementptr inbounds i8, ptr %4, i64 24
   %87 = load i64, ptr %86, align 8
-  %88 = icmp ult i64 %1, 65
+  %88 = icmp samesign ult i64 %1, 65
   br i1 %88, label %89, label %93
 
 89:                                               ; preds = %85
@@ -8907,7 +8907,7 @@ define internal fastcc ptr @zend_mm_realloc_slow(ptr noundef %0, ptr noundef %1,
   br i1 %7, label %8, label %75
 
 8:                                                ; preds = %4
-  %9 = icmp ult i64 %2, 65
+  %9 = icmp samesign ult i64 %2, 65
   br i1 %9, label %10, label %15
 
 10:                                               ; preds = %8

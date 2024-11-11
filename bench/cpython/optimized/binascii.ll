@@ -540,7 +540,7 @@ while.body.us.us.i:                               ; preds = %if.end26.us.i, %whi
   %conv40.us.us.i = add nuw nsw i8 %11, 32
   %ascii_data.3.us.us.i = getelementptr i8, ptr %ascii_data.229.us.us.i, i64 1
   store i8 %conv40.us.us.i, ptr %ascii_data.229.us.us.i, align 1
-  %cmp28.us.us.i = icmp ugt i32 %leftbits.128.us.us.i, 11
+  %cmp28.us.us.i = icmp samesign ugt i32 %leftbits.128.us.us.i, 11
   br i1 %cmp28.us.us.i, label %while.body.us.us.i, label %for.inc.us.i, !llvm.loop !7
 
 for.body.i:                                       ; preds = %for.body.lr.ph.i, %for.inc.i
@@ -578,7 +578,7 @@ while.body.i:                                     ; preds = %if.end26.i, %while.
   %spec.select.i = select i1 %tobool34.not.i, i8 96, i8 %conv40.i
   %ascii_data.3.i = getelementptr i8, ptr %ascii_data.229.i, i64 1
   store i8 %spec.select.i, ptr %ascii_data.229.i, align 1
-  %cmp28.i = icmp ugt i32 %leftbits.128.i, 11
+  %cmp28.i = icmp samesign ugt i32 %leftbits.128.i, 11
   br i1 %cmp28.i, label %while.body.i, label %for.inc.i, !llvm.loop !7
 
 for.inc.i:                                        ; preds = %while.body.i, %if.end26.i
@@ -1064,7 +1064,7 @@ while.body.i:                                     ; preds = %for.body.i, %while.
   %9 = load i8, ptr %arrayidx.i, align 1
   %incdec.ptr.i = getelementptr i8, ptr %ascii_data.13.i, i64 1
   store i8 %9, ptr %ascii_data.13.i, align 1
-  %cmp12.i = icmp ugt i32 %leftbits.12.i, 11
+  %cmp12.i = icmp samesign ugt i32 %leftbits.12.i, 11
   br i1 %cmp12.i, label %while.body.i, label %for.inc.i, !llvm.loop !9
 
 for.inc.i:                                        ; preds = %while.body.i, %for.body.i
@@ -1426,7 +1426,7 @@ while.body.i:                                     ; preds = %while.body.i.prehea
   %4 = load i16, ptr %arrayidx.i, align 2
   %conv3.i = zext i16 %4 to i32
   %xor4.i = xor i32 %and2.i, %conv3.i
-  %cmp.i = icmp ugt i64 %len.04.i, 1
+  %cmp.i = icmp samesign ugt i64 %len.04.i, 1
   br i1 %cmp.i, label %while.body.i, label %exit.sink.split, !llvm.loop !11
 
 land.lhs.true10:                                  ; preds = %if.end5
@@ -1461,7 +1461,7 @@ while.body.i14:                                   ; preds = %while.body.i14.preh
   %7 = load i16, ptr %arrayidx.i26, align 2
   %conv3.i27 = zext i16 %7 to i32
   %xor4.i28 = xor i32 %and2.i20, %conv3.i27
-  %cmp.i29 = icmp ugt i64 %len.04.i15, 1
+  %cmp.i29 = icmp samesign ugt i64 %len.04.i15, 1
   br i1 %cmp.i29, label %while.body.i14, label %exit.sink.split, !llvm.loop !11
 
 exit.sink.split:                                  ; preds = %while.body.i, %while.body.i14, %if.end5.split, %land.lhs.true10.split
@@ -1532,7 +1532,7 @@ skip_optional:                                    ; preds = %if.end8, %land.lhs.
 
 if.then.i:                                        ; preds = %skip_optional
   %call.i = call ptr @PyEval_SaveThread() #5
-  %cmp41.i = icmp ugt i64 %data.val7, 1073741824
+  %cmp41.i = icmp samesign ugt i64 %data.val7, 1073741824
   br i1 %cmp41.i, label %while.body.i, label %while.end.i
 
 while.body.i:                                     ; preds = %if.then.i, %while.body.i
@@ -2000,7 +2000,7 @@ land.lhs.true71.i:                                ; preds = %lor.lhs.false61.i, 
   br i1 %cmp73.i, label %if.then102.i, label %switch.early.test.i
 
 lor.lhs.false75.i:                                ; preds = %lor.lhs.false61.i, %land.lhs.true51.i
-  %cmp78.i = icmp ugt i8 %10, 32
+  %cmp78.i = icmp samesign ugt i8 %10, 32
   br i1 %cmp78.i, label %if.else115.i, label %switch.early.test.i
 
 switch.early.test.i:                              ; preds = %lor.lhs.false75.i, %land.lhs.true71.i
@@ -2185,7 +2185,7 @@ land.lhs.true280.i:                               ; preds = %lor.lhs.false270.i,
   br i1 %cmp282.i, label %if.then311.i, label %switch.early.test215.i
 
 lor.lhs.false284.i:                               ; preds = %lor.lhs.false270.i, %land.lhs.true260.i
-  %cmp287.i = icmp ugt i8 %19, 32
+  %cmp287.i = icmp samesign ugt i8 %19, 32
   br i1 %cmp287.i, label %if.else334.i, label %switch.early.test215.i
 
 switch.early.test215.i:                           ; preds = %lor.lhs.false284.i, %land.lhs.true280.i

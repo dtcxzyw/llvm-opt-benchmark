@@ -1879,7 +1879,7 @@ define noundef i32 @slurm_receive_msg(i32 noundef %0, ptr noundef %1, i32 nounde
 
 43:                                               ; preds = %36
   %44 = mul nuw nsw i32 %40, 10000
-  %45 = icmp ugt i32 %2, %44
+  %45 = icmp samesign ugt i32 %2, %44
   br i1 %45, label %46, label %54
 
 46:                                               ; preds = %43
@@ -1899,7 +1899,7 @@ define noundef i32 @slurm_receive_msg(i32 noundef %0, ptr noundef %1, i32 nounde
   br label %58
 
 54:                                               ; preds = %43
-  %55 = icmp ult i32 %2, 1000
+  %55 = icmp samesign ult i32 %2, 1000
   br i1 %55, label %56, label %58
 
 56:                                               ; preds = %54

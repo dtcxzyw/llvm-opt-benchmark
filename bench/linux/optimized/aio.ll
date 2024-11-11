@@ -797,7 +797,7 @@ define dso_local range(i64 -2147483648, 4294967296) i64 @__ia32_compat_sys_io_su
   %18 = getelementptr inbounds i8, ptr %15, i64 64
   %19 = load i32, ptr %18, align 64
   %20 = tail call i32 @llvm.umin.i32(i32 %19, i32 %10)
-  %21 = icmp ugt i32 %20, 2
+  %21 = icmp samesign ugt i32 %20, 2
   br i1 %21, label %.thread, label %22
 
 .thread:                                          ; preds = %17

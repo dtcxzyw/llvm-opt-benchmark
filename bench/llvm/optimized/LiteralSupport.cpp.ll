@@ -6210,7 +6210,7 @@ _ZN5clang17DiagnosticBuilder4EmitEv.exit.i:       ; preds = %662, %657
   br label %_ZN5clang17DiagnosticBuilderD2Ev.exit
 
 684:                                              ; preds = %652
-  %685 = icmp ugt i32 %.fr, 159
+  %685 = icmp samesign ugt i32 %.fr, 159
   br i1 %685, label %700, label %switch.early.test
 
 switch.early.test:                                ; preds = %684

@@ -30904,7 +30904,7 @@ if.then13.i4.i19.i:                               ; preds = %if.else.i.i17.i
 
 call.i.i.i.i.i3.noexc:                            ; preds = %if.else.i.i17.i, %if.then.i5.i21.i, %_ZN4cvc58internal12NodeTemplateILb1EEaSERKS2_.exit.i, %if.then13.i4.i19.i
   %dec.i.i.i.i.i = add nsw i64 %__n.07.i.i.i.i.i, -1
-  %cmp.i.i.i.i.i4 = icmp ugt i64 %__n.07.i.i.i.i.i, 1
+  %cmp.i.i.i.i.i4 = icmp samesign ugt i64 %__n.07.i.i.i.i.i, 1
   br i1 %cmp.i.i.i.i.i4, label %for.body.i.i.i.i.i, label %invoke.cont, !llvm.loop !236
 
 invoke.cont:                                      ; preds = %call.i.i.i.i.i3.noexc, %_ZNSt4pairIN4cvc58internal12NodeTemplateILb1EEES3_EC2EOS4_.exit

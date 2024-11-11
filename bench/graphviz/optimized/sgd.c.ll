@@ -834,7 +834,7 @@ gv_calloc.exit:                                   ; preds = %362
   %409 = getelementptr inbounds i8, ptr %35, i64 %408
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %407, ptr noundef nonnull align 4 dereferenceable(16) %409, i64 16, i1 false)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %409, ptr noundef nonnull align 4 dereferenceable(16) %3, i64 16, i1 false)
-  %410 = icmp ugt i64 %indvars.iv.i, 2
+  %410 = icmp samesign ugt i64 %indvars.iv.i, 2
   br i1 %410, label %.lr.ph.i167, label %fisheryates_shuffle.exit
 
 fisheryates_shuffle.exit:                         ; preds = %.lr.ph.i167, %405

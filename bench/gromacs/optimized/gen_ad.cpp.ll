@@ -3182,7 +3182,7 @@ _ZL5cpparN3gmx8ArrayRefIK17InteractionOfTypeEENS0_I18InteractionsOfTypeEEi.exit5
   %1250 = getelementptr inbounds i8, ptr %15, i64 8
   %1251 = getelementptr inbounds i8, ptr %15, i64 16
   %.not.i565 = icmp eq i32 %1246, 1
-  %1252 = icmp ugt i32 %1246, 2
+  %1252 = icmp samesign ugt i32 %1246, 2
   %.pre147.i = load ptr, ptr %1250, align 8
   br i1 %.not.i565, label %.lr.ph100.split.us.i, label %.lr.ph100.split.i
 

@@ -5442,7 +5442,7 @@ if.then.i.i.i.i85.i.i:                            ; preds = %invoke.cont25.i875.
   unreachable
 
 if.end.i.i.i.i84.i.i:                             ; preds = %invoke.cont25.i875.i.i.i
-  %cmp.i.i.i.i.i879.i.i.i = icmp ult i32 %conv.i.i.i.i26.i, 13
+  %cmp.i.i.i.i.i879.i.i.i = icmp samesign ult i32 %conv.i.i.i.i26.i, 13
   br i1 %cmp.i.i.i.i.i879.i.i.i, label %if.then2.i.i.i.i.i.i, label %if.else.i.i.i.i.i.i149
 
 if.then2.i.i.i.i.i.i:                             ; preds = %if.end.i.i.i.i84.i.i
@@ -5685,7 +5685,7 @@ if.then.i.i.i1013.i.i.i:                          ; preds = %invoke.cont24.i.i.i
   unreachable
 
 if.end.i.i.i969.i.i.i:                            ; preds = %invoke.cont24.i.i.i.i
-  %cmp.i.i.i.i.i970.i.i.i = icmp ult i32 %conv.i.i967.i.i.i, 13
+  %cmp.i.i.i.i.i970.i.i.i = icmp samesign ult i32 %conv.i.i967.i.i.i, 13
   br i1 %cmp.i.i.i.i.i970.i.i.i, label %if.then2.i.i.i1008.i.i.i, label %if.else.i.i.i971.i.i.i
 
 if.then2.i.i.i1008.i.i.i:                         ; preds = %if.end.i.i.i969.i.i.i
@@ -15410,11 +15410,11 @@ if.then.i:                                        ; preds = %if.end8
   br i1 %lnot, label %_ZNK5folly3f146detail8F14TableINS1_20ValueContainerPolicyIPKN8facebook5velox6BufferEvvvvEEE25computeChunkCountAndScaleEmbb.exit, label %if.then3.i
 
 if.then3.i:                                       ; preds = %if.then.i
-  %cmp4.i = icmp ult i64 %.sroa.speculated, 3
+  %cmp4.i = icmp samesign ult i64 %.sroa.speculated, 3
   br i1 %cmp4.i, label %_ZNK5folly3f146detail8F14TableINS1_20ValueContainerPolicyIPKN8facebook5velox6BufferEvvvvEEE25computeChunkCountAndScaleEmbb.exit, label %if.else.i
 
 if.else.i:                                        ; preds = %if.then3.i
-  %cmp6.inv.i = icmp ugt i64 %.sroa.speculated, 6
+  %cmp6.inv.i = icmp samesign ugt i64 %.sroa.speculated, 6
   %spec.select.i = select i1 %cmp6.inv.i, i64 14, i64 6
   br label %_ZNK5folly3f146detail8F14TableINS1_20ValueContainerPolicyIPKN8facebook5velox6BufferEvvvvEEE25computeChunkCountAndScaleEmbb.exit
 
@@ -16045,11 +16045,11 @@ if.then.i:                                        ; preds = %if.end5
   br i1 %cmp.i4.i.i, label %if.then.i.i.i, label %if.else11.i.i.i
 
 if.then.i.i.i:                                    ; preds = %if.then.i
-  %cmp4.i.i.i = icmp ult i64 %.sroa.speculated.i.i, 3
+  %cmp4.i.i.i = icmp samesign ult i64 %.sroa.speculated.i.i, 3
   br i1 %cmp4.i.i.i, label %_ZN5folly3f146detail8F14TableINS1_20ValueContainerPolicyIPKN8facebook5velox6BufferEvvvvEEE20reserveForInsertImplEmmmm.exit.i, label %if.else.i.i.i
 
 if.else.i.i.i:                                    ; preds = %if.then.i.i.i
-  %cmp6.inv.i.i.i = icmp ugt i64 %.sroa.speculated.i.i, 6
+  %cmp6.inv.i.i.i = icmp samesign ugt i64 %.sroa.speculated.i.i, 6
   %spec.select.i.i.i = select i1 %cmp6.inv.i.i.i, i64 14, i64 6
   br label %_ZN5folly3f146detail8F14TableINS1_20ValueContainerPolicyIPKN8facebook5velox6BufferEvvvvEEE20reserveForInsertImplEmmmm.exit.i
 

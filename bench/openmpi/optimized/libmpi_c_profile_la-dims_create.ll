@@ -175,7 +175,7 @@ define i32 @PMPI_Dims_create(i32 noundef %0, i32 noundef %1, ptr noundef %2) #0 
 .preheader33.i:                                   ; preds = %.preheader33.loopexit.i, %63
   %.030.lcssa.i = phi i32 [ %.141, %63 ], [ %80, %.preheader33.loopexit.i ]
   %.028.lcssa.i = phi i32 [ 0, %63 ], [ %76, %.preheader33.loopexit.i ]
-  %77 = icmp ugt i32 %.030.lcssa.i, 1
+  %77 = icmp samesign ugt i32 %.030.lcssa.i, 1
   %78 = icmp sgt i32 %66, 2
   %79 = select i1 %77, i1 %78, i1 false
   br i1 %79, label %.preheader.i, label %._crit_edge45.i

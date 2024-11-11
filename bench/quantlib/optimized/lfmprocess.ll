@@ -5017,7 +5017,7 @@ invoke.cont:                                      ; preds = %if.end.i.i.i.i.i.i.
   %6 = tail call double @llvm.fmuladd.f64(double %3, double %5, double 1.000000e+00)
   %div = fdiv double 1.000000e+00, %6
   store double %div, ptr %call5.i.i.i.i2.i.i7, align 8, !tbaa !78
-  %cmp11 = icmp ugt i64 %0, 1
+  %cmp11 = icmp samesign ugt i64 %0, 1
   br i1 %cmp11, label %for.body.preheader, label %nrvo.skipdtor
 
 for.body.preheader:                               ; preds = %invoke.cont

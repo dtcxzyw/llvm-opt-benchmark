@@ -3187,7 +3187,7 @@ _ZNK17RootResolutionSet20in_set_address_rangeERK16RootCallbackInfo.exit: ; preds
   br label %43
 
 39:                                               ; preds = %.lr.ph.i.i
-  %40 = icmp ugt i64 %35, %8
+  %40 = icmp samesign ugt i64 %35, %8
   br i1 %40, label %41, label %_ZNK17RootResolutionSet5exactERK16RootCallbackInfo.exit
 
 41:                                               ; preds = %39

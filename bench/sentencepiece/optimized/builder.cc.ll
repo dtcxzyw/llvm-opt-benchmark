@@ -16607,7 +16607,7 @@ _ZNK9__gnu_cxx5__ops15_Iter_less_iterclINS_17__normal_iteratorIPSt4pairINSt7__cx
   %36 = getelementptr inbounds i8, ptr %.069.i.i.i.i.i, i64 -8
   store i32 %35, ptr %36, align 8
   %37 = add nsw i64 %.010.i.i.i.i.i, -1
-  %38 = icmp ugt i64 %.010.i.i.i.i.i, 1
+  %38 = icmp samesign ugt i64 %.010.i.i.i.i.i, 1
   br i1 %38, label %.lr.ph.i.i.i.i.i, label %.loopexit, !llvm.loop !268
 
 .loopexit:                                        ; preds = %.lr.ph.i.i.i.i.i, %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclINS_17__normal_iteratorIPSt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEiESt6vectorISB_SaISB_EEEESG_EEbT_T0_.exit.thread
@@ -19983,7 +19983,7 @@ _ZN5Darts7Details22DoubleArrayBuilderUnit10set_offsetEj.exit: ; preds = %68
   %76 = getelementptr inbounds %"class.Darts::Details::DoubleArrayBuilderUnit", ptr %74, i64 %75
   %77 = load i32, ptr %76, align 4
   %78 = and i32 %77, -2147483137
-  %79 = icmp ult i32 %52, 2097152
+  %79 = icmp samesign ult i32 %52, 2097152
   %80 = shl nuw nsw i32 %52, 2
   %81 = or i32 %80, 512
   %82 = shl nuw nsw i32 %52, 10
@@ -20520,7 +20520,7 @@ _ZN5Darts7Details22DoubleArrayBuilderUnit10set_offsetEj.exit: ; preds = %_ZNK5Da
   %98 = getelementptr inbounds %"class.Darts::Details::DoubleArrayBuilderUnit", ptr %97, i64 %91
   %99 = load i32, ptr %98, align 4
   %100 = and i32 %99, -2147483137
-  %101 = icmp ult i32 %92, 2097152
+  %101 = icmp samesign ult i32 %92, 2097152
   %102 = shl nuw nsw i32 %92, 2
   %103 = or i32 %102, 512
   %104 = shl nuw nsw i32 %92, 10
@@ -21138,7 +21138,7 @@ _ZN5Darts7Details22DoubleArrayBuilderUnit10set_offsetEj.exit: ; preds = %_ZNK5Da
   %155 = getelementptr inbounds %"class.Darts::Details::DoubleArrayBuilderUnit", ptr %154, i64 %148
   %156 = load i32, ptr %155, align 4
   %157 = and i32 %156, -2147483137
-  %158 = icmp ult i32 %149, 2097152
+  %158 = icmp samesign ult i32 %149, 2097152
   %159 = shl nuw nsw i32 %149, 2
   %160 = or i32 %159, 512
   %161 = shl nuw nsw i32 %149, 10

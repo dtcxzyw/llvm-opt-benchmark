@@ -5274,7 +5274,7 @@ define void @Rtl_NtkPrintConst(ptr nocapture noundef readonly %0, ptr nocapture 
   %23 = lshr i32 %21, %22
   %24 = and i32 %23, 1
   %25 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %.val11.val, ptr noundef nonnull @.str.73, i32 noundef %24) #37
-  %26 = icmp ugt i32 %.0.in12, 1
+  %26 = icmp samesign ugt i32 %.0.in12, 1
   br i1 %26, label %16, label %.loopexit, !llvm.loop !53
 
 .loopexit:                                        ; preds = %16, %11, %7
@@ -5411,7 +5411,7 @@ define void @Rtl_NtkPrintSig(ptr nocapture noundef readonly %0, i32 noundef %1) 
   %35 = lshr i32 %33, %34
   %36 = and i32 %35, 1
   %37 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %.val11.val.i, ptr noundef nonnull @.str.73, i32 noundef %36) #37
-  %38 = icmp ugt i32 %.0.in12.i, 1
+  %38 = icmp samesign ugt i32 %.0.in12.i, 1
   br i1 %38, label %28, label %Rtl_NtkPrintConst.exit, !llvm.loop !53
 
 39:                                               ; preds = %2
@@ -10623,7 +10623,7 @@ define void @Rtl_NtkCollectConcatInfo(ptr nocapture noundef %0, ptr nocapture no
   %7 = load i32, ptr %6, align 4
   tail call void @Rtl_NtkCollectSignalInfo(ptr noundef %0, i32 noundef %7)
   %indvars.iv.next = add nsw i64 %indvars.iv, -1
-  %8 = icmp ugt i64 %indvars.iv, 1
+  %8 = icmp samesign ugt i64 %indvars.iv, 1
   br i1 %8, label %.lr.ph, label %._crit_edge, !llvm.loop !89
 
 ._crit_edge:                                      ; preds = %.lr.ph, %2
@@ -10694,7 +10694,7 @@ define void @Rtl_NtkCollectSignalInfo(ptr nocapture noundef %0, i32 noundef %1) 
   %36 = load i32, ptr %35, align 4
   tail call void @Rtl_NtkCollectSignalInfo(ptr noundef %0, i32 noundef %36)
   %indvars.iv.next = add nsw i64 %indvars.iv, -1
-  %37 = icmp ugt i64 %indvars.iv, 1
+  %37 = icmp samesign ugt i64 %indvars.iv, 1
   br i1 %37, label %.lr.ph, label %Rtl_NtkCollectConcatInfo.exit, !llvm.loop !89
 
 default.unreachable:                              ; preds = %2
@@ -10940,7 +10940,7 @@ define void @Rtl_NtkCollectConcatRange(ptr nocapture noundef %0, ptr nocapture n
   %7 = load i32, ptr %6, align 4
   tail call void @Rtl_NtkCollectSignalRange(ptr noundef %0, i32 noundef %7)
   %indvars.iv.next = add nsw i64 %indvars.iv, -1
-  %8 = icmp ugt i64 %indvars.iv, 1
+  %8 = icmp samesign ugt i64 %indvars.iv, 1
   br i1 %8, label %.lr.ph, label %._crit_edge, !llvm.loop !92
 
 ._crit_edge:                                      ; preds = %.lr.ph, %2
@@ -11011,7 +11011,7 @@ define void @Rtl_NtkCollectSignalRange(ptr nocapture noundef %0, i32 noundef %1)
   %36 = load i32, ptr %35, align 4
   tail call void @Rtl_NtkCollectSignalRange(ptr noundef %0, i32 noundef %36)
   %indvars.iv.next = add nsw i64 %indvars.iv, -1
-  %37 = icmp ugt i64 %indvars.iv, 1
+  %37 = icmp samesign ugt i64 %indvars.iv, 1
   br i1 %37, label %.lr.ph, label %Rtl_NtkCollectConcatRange.exit, !llvm.loop !92
 
 default.unreachable:                              ; preds = %2

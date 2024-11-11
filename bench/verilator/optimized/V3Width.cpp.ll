@@ -50018,7 +50018,7 @@ _ZNK7AstNode5widthEv.exit.thread:                 ; preds = %_ZN7AstNode11privat
 
 _ZNK8V3Number7isMsbXZEv.exit:                     ; preds = %92
   %.tr811.i.i = add nsw i32 %.fr.i.i, -1
-  %99 = icmp ult i32 %.fr.i.i, 129
+  %99 = icmp samesign ult i32 %.fr.i.i, 129
   %100 = load ptr, ptr %20, align 8
   %spec.select.i7.i.i = select i1 %99, ptr %20, ptr %100
   %101 = lshr i32 %.tr811.i.i, 5
@@ -50569,7 +50569,7 @@ _ZN7AstNode11privateCastI8AstConstP11AstNodeExprEEPT_PS_.exit.thread: ; preds = 
 
 _ZNK12V3NumberData3numEv.exit.i.i:                ; preds = %48
   %53 = add nsw i32 %50, -1
-  %54 = icmp ult i32 %50, 129
+  %54 = icmp samesign ult i32 %50, 129
   %55 = load ptr, ptr %44, align 8
   %spec.select.i10.i.i = select i1 %54, ptr %44, ptr %55
   %56 = lshr i32 %53, 5
@@ -51906,7 +51906,7 @@ tailrecurse:                                      ; preds = %.lr.ph, %tailrecurs
   br i1 %.not, label %_ZNK12V3NumberData3numEv.exit, label %tailrecurse
 
 _ZNK12V3NumberData3numEv.exit:                    ; preds = %tailrecurse
-  %11 = icmp ult i32 %.fr, 129
+  %11 = icmp samesign ult i32 %.fr, 129
   %12 = load ptr, ptr %0, align 8
   %spec.select.i7 = select i1 %11, ptr %0, ptr %12
   %13 = lshr i32 %.tr811, 5
@@ -52034,7 +52034,7 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZNK8V3Number10isNegativeEv(pt
 
 _ZNK12V3NumberData3numEv.exit.i:                  ; preds = %5
   %10 = add nsw i32 %7, -1
-  %11 = icmp ult i32 %7, 129
+  %11 = icmp samesign ult i32 %7, 129
   %12 = load ptr, ptr %0, align 8
   %spec.select.i10.i = select i1 %11, ptr %0, ptr %12
   %13 = lshr i32 %10, 5
@@ -52200,7 +52200,7 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZNK8V3Number6bitIs1Ei(ptr nou
   br i1 %.not, label %_ZNK12V3NumberData3numEv.exit, label %23
 
 _ZNK12V3NumberData3numEv.exit:                    ; preds = %7
-  %10 = icmp ult i32 %9, 129
+  %10 = icmp samesign ult i32 %9, 129
   %11 = load ptr, ptr %0, align 8
   %spec.select.i10 = select i1 %10, ptr %0, ptr %11
   %12 = lshr i32 %1, 5
@@ -61803,7 +61803,7 @@ _ZZN7AstNode11foreachImplI9AstVarRefZN12WidthVisitor5visitEP15AstClockingItemEUl
 
 _ZZN7AstNode11foreachImplI9AstVarRefZN12WidthVisitor5visitEP15AstClockingItemEUlPS1_E_EEvPNSt11conditionalIXsr3std8is_constIT_EE5valueEKS_S_E4typeERKT0_bENKUlPS_E_clESG_.exit: ; preds = %21, %38
   %.7.idx = phi i64 [ %.080.idx, %21 ], [ %.6.idx, %38 ]
-  %41 = icmp ugt i64 %.7.idx, 16
+  %41 = icmp samesign ugt i64 %.7.idx, 16
   br i1 %41, label %.lr.ph.preheader, label %._crit_edge
 
 .lr.ph.preheader:                                 ; preds = %_ZZN7AstNode11foreachImplI9AstVarRefZN12WidthVisitor5visitEP15AstClockingItemEUlPS1_E_EEvPNSt11conditionalIXsr3std8is_constIT_EE5valueEKS_S_E4typeERKT0_bENKUlPS_E_clESG_.exit.thread, %_ZZN7AstNode11foreachImplI9AstVarRefZN12WidthVisitor5visitEP15AstClockingItemEUlPS1_E_EEvPNSt11conditionalIXsr3std8is_constIT_EE5valueEKS_S_E4typeERKT0_bENKUlPS_E_clESG_.exit
@@ -70034,7 +70034,7 @@ _ZZN7AstNode11foreachImplI9AstVarRefZN12WidthVisitor5visitEP12AstMemberSelEUlPS1
 
 _ZZN7AstNode11foreachImplI9AstVarRefZN12WidthVisitor5visitEP12AstMemberSelEUlPS1_E_EEvPNSt11conditionalIXsr3std8is_constIT_EE5valueEKS_S_E4typeERKT0_bENKUlPS_E_clESG_.exit: ; preds = %21, %38
   %.7.idx = phi i64 [ %.077.idx, %21 ], [ %.6.idx, %38 ]
-  %41 = icmp ugt i64 %.7.idx, 16
+  %41 = icmp samesign ugt i64 %.7.idx, 16
   br i1 %41, label %.lr.ph.preheader, label %._crit_edge
 
 .lr.ph.preheader:                                 ; preds = %_ZZN7AstNode11foreachImplI9AstVarRefZN12WidthVisitor5visitEP12AstMemberSelEUlPS1_E_EEvPNSt11conditionalIXsr3std8is_constIT_EE5valueEKS_S_E4typeERKT0_bENKUlPS_E_clESG_.exit.thread, %_ZZN7AstNode11foreachImplI9AstVarRefZN12WidthVisitor5visitEP12AstMemberSelEUlPS1_E_EEvPNSt11conditionalIXsr3std8is_constIT_EE5valueEKS_S_E4typeERKT0_bENKUlPS_E_clESG_.exit

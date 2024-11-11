@@ -1439,7 +1439,7 @@ define void @arrangeQuoters_superFast_iVar5(ptr nocapture noundef %0, ptr nocapt
   %39 = load i32, ptr %38, align 4
   store i32 %39, ptr %37, align 4
   %indvars.iv.next = add nsw i64 %indvars.iv, -4
-  %40 = icmp ugt i64 %indvars.iv, 4
+  %40 = icmp samesign ugt i64 %indvars.iv, 4
   br i1 %40, label %26, label %._crit_edge, !llvm.loop !12
 
 ._crit_edge:                                      ; preds = %26, %13
@@ -1857,7 +1857,7 @@ minTemp2_fast_iVar5.exit:                         ; preds = %64, %58, %61
   %106 = load i32, ptr %105, align 4
   store i32 %106, ptr %104, align 4
   %indvars.iv.next.i65 = add nsw i64 %indvars.iv.i64, -4
-  %107 = icmp ugt i64 %indvars.iv.i64, 4
+  %107 = icmp samesign ugt i64 %indvars.iv.i64, 4
   br i1 %107, label %93, label %._crit_edge.i, !llvm.loop !12
 
 ._crit_edge.i:                                    ; preds = %93, %80
@@ -1915,7 +1915,7 @@ minTemp2_fast_iVar5.exit:                         ; preds = %64, %58, %61
   %139 = load i32, ptr %138, align 4
   store i32 %139, ptr %136, align 4
   %indvars.iv.next.i71 = add nsw i64 %indvars.iv.i69, -4
-  %140 = icmp ugt i64 %indvars.iv.i69, 4
+  %140 = icmp samesign ugt i64 %indvars.iv.i69, 4
   br i1 %140, label %124, label %._crit_edge.i67, !llvm.loop !12
 
 ._crit_edge.i67:                                  ; preds = %124, %115
@@ -1965,7 +1965,7 @@ minTemp2_fast_iVar5.exit:                         ; preds = %64, %58, %61
   %169 = load i32, ptr %168, align 4
   store i32 %169, ptr %166, align 4
   %indvars.iv.next.i78 = add nsw i64 %indvars.iv.i76, -4
-  %170 = icmp ugt i64 %indvars.iv.i76, 4
+  %170 = icmp samesign ugt i64 %indvars.iv.i76, 4
   br i1 %170, label %154, label %arrangeQuoters_superFast_iVar5.exit79, !llvm.loop !12
 
 arrangeQuoters_superFast_iVar5.exit79:            ; preds = %154, %143
@@ -2034,7 +2034,7 @@ arrangeQuoters_superFast_iVar5.exit79:            ; preds = %154, %143
   %213 = load i32, ptr %212, align 4
   store i32 %213, ptr %211, align 4
   %indvars.iv.next.i85 = add nsw i64 %indvars.iv.i83, -4
-  %214 = icmp ugt i64 %indvars.iv.i83, 4
+  %214 = icmp samesign ugt i64 %indvars.iv.i83, 4
   br i1 %214, label %200, label %._crit_edge.i81, !llvm.loop !12
 
 ._crit_edge.i81:                                  ; preds = %200, %187
@@ -2144,7 +2144,7 @@ minTemp3_fast_iVar5.exit:                         ; preds = %238, %232, %235
   %278 = load i32, ptr %277, align 4
   store i32 %278, ptr %276, align 4
   %indvars.iv.next.i100 = add nsw i64 %indvars.iv.i98, -4
-  %279 = icmp ugt i64 %indvars.iv.i98, 4
+  %279 = icmp samesign ugt i64 %indvars.iv.i98, 4
   br i1 %279, label %265, label %._crit_edge.i96, !llvm.loop !12
 
 ._crit_edge.i96:                                  ; preds = %265, %253
@@ -2206,7 +2206,7 @@ minTemp3_fast_iVar5.exit:                         ; preds = %238, %232, %235
   %319 = load i32, ptr %318, align 4
   store i32 %319, ptr %317, align 4
   %indvars.iv.next.i107 = add nsw i64 %indvars.iv.i105, -4
-  %320 = icmp ugt i64 %indvars.iv.i105, 4
+  %320 = icmp samesign ugt i64 %indvars.iv.i105, 4
   br i1 %320, label %306, label %._crit_edge.i103, !llvm.loop !12
 
 ._crit_edge.i103:                                 ; preds = %306, %294
@@ -2297,7 +2297,7 @@ define void @minimalSwapAndFlipIVar_superFast_iVar5_noEBFC(ptr nocapture noundef
   %39 = load i32, ptr %38, align 4
   store i32 %39, ptr %37, align 4
   %indvars.iv.next.i6 = add nsw i64 %indvars.iv.i5, -4
-  %40 = icmp ugt i64 %indvars.iv.i5, 4
+  %40 = icmp samesign ugt i64 %indvars.iv.i5, 4
   br i1 %40, label %27, label %arrangeQuoters_superFast_iVar5.exit, !llvm.loop !12
 
 arrangeQuoters_superFast_iVar5.exit:              ; preds = %27, %19
@@ -3678,7 +3678,7 @@ minimalSwapAndFlipIVar_superFast_lessThen5_noEBFC.exit: ; preds = %17, %arrangeQ
   %96 = load i32, ptr %95, align 4
   store i32 %96, ptr %94, align 4
   %indvars.iv.next.i6.i = add nsw i64 %indvars.iv.i5.i, -4
-  %97 = icmp ugt i64 %indvars.iv.i5.i, 4
+  %97 = icmp samesign ugt i64 %indvars.iv.i5.i, 4
   br i1 %97, label %84, label %arrangeQuoters_superFast_iVar5.exit.i, !llvm.loop !12
 
 arrangeQuoters_superFast_iVar5.exit.i:            ; preds = %84, %76
@@ -3873,7 +3873,7 @@ define void @bitReverceOrder(ptr noundef %0, i32 noundef %1) local_unnamed_addr 
   %.0.in5 = phi i32 [ %.0, %.lr.ph ], [ %1, %2 ]
   %.0 = add nsw i32 %.0.in5, -1
   tail call void @Kit_TruthChangePhase_64bit(ptr noundef %0, i32 noundef %1, i32 noundef %.0) #9
-  %4 = icmp ugt i32 %.0.in5, 1
+  %4 = icmp samesign ugt i32 %.0.in5, 1
   br i1 %4, label %.lr.ph, label %._crit_edge, !llvm.loop !32
 
 ._crit_edge:                                      ; preds = %.lr.ph, %2
@@ -3892,7 +3892,7 @@ define void @luckyCanonicizer_final_fast_16Vars1(ptr noundef %0, i32 noundef %1,
   %.0.in5.i = phi i32 [ %.0.i, %.lr.ph.i ], [ %1, %6 ]
   %.0.i = add nsw i32 %.0.in5.i, -1
   tail call void @Kit_TruthChangePhase_64bit(ptr noundef %0, i32 noundef %1, i32 noundef %.0.i) #9
-  %9 = icmp ugt i32 %.0.in5.i, 1
+  %9 = icmp samesign ugt i32 %.0.in5.i, 1
   br i1 %9, label %.lr.ph.i, label %bitReverceOrder.exit, !llvm.loop !32
 
 bitReverceOrder.exit:                             ; preds = %.lr.ph.i, %6
@@ -3920,7 +3920,7 @@ define i32 @luckyCanonicizer_final_fast(ptr noundef %0, i32 noundef %1, ptr noun
   br label %luckyCanonicizer_final_fast_16Vars.exit
 
 10:                                               ; preds = %3
-  %11 = icmp ult i32 %1, 17
+  %11 = icmp samesign ult i32 %1, 17
   br i1 %11, label %12, label %luckyCanonicizer_final_fast_16Vars.exit
 
 12:                                               ; preds = %10
@@ -3965,7 +3965,7 @@ define i32 @luckyCanonicizer_final_fast1(ptr noundef %0, i32 noundef %1, ptr nou
   br label %20
 
 10:                                               ; preds = %3
-  %11 = icmp ult i32 %1, 17
+  %11 = icmp samesign ult i32 %1, 17
   br i1 %11, label %12, label %20
 
 12:                                               ; preds = %10
@@ -3980,7 +3980,7 @@ define i32 @luckyCanonicizer_final_fast1(ptr noundef %0, i32 noundef %1, ptr nou
   %.0.in5.i.i = phi i32 [ %.0.i.i, %.lr.ph.i.i ], [ %1, %12 ]
   %.0.i.i = add nsw i32 %.0.in5.i.i, -1
   call void @Kit_TruthChangePhase_64bit(ptr noundef %0, i32 noundef %1, i32 noundef %.0.i.i) #9
-  %16 = icmp ugt i32 %.0.in5.i.i, 1
+  %16 = icmp samesign ugt i32 %.0.in5.i.i, 1
   br i1 %16, label %.lr.ph.i.i, label %luckyCanonicizer_final_fast_16Vars1.exit, !llvm.loop !32
 
 luckyCanonicizer_final_fast_16Vars1.exit:         ; preds = %.lr.ph.i.i

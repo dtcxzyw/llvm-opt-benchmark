@@ -2549,7 +2549,7 @@ _ZN4llvmeqENS_9StringRefES0_.exit.thread46:       ; preds = %_ZNK4llvm5Value7get
   br label %99
 
 87:                                               ; preds = %81
-  %switch.selectcmp.i.i.i.i.i.i.i.i = icmp ugt i8 %71, 3
+  %switch.selectcmp.i.i.i.i.i.i.i.i = icmp samesign ugt i8 %71, 3
   br i1 %switch.selectcmp.i.i.i.i.i.i.i.i, label %93, label %88
 
 88:                                               ; preds = %87
@@ -2856,7 +2856,7 @@ define dso_local void @_ZN4llvm5Value8takeNameEPS0_(ptr noundef nonnull align 8 
   br label %44
 
 25:                                               ; preds = %19
-  %switch.selectcmp.i.i.i.i.i.i.i.i = icmp ugt i8 %9, 3
+  %switch.selectcmp.i.i.i.i.i.i.i.i = icmp samesign ugt i8 %9, 3
   br i1 %switch.selectcmp.i.i.i.i.i.i.i.i, label %31, label %26
 
 26:                                               ; preds = %25
@@ -3021,7 +3021,7 @@ _ZNK4llvm5Value12getValueNameEv.exit:             ; preds = %68, %55, %.loopexit
   br label %.sink.split.i21
 
 105:                                              ; preds = %99
-  %switch.selectcmp.i.i.i.i.i.i.i.i26 = icmp ugt i8 %89, 3
+  %switch.selectcmp.i.i.i.i.i.i.i.i26 = icmp samesign ugt i8 %89, 3
   br i1 %switch.selectcmp.i.i.i.i.i.i.i.i26, label %111, label %106
 
 106:                                              ; preds = %105
@@ -3104,7 +3104,7 @@ _ZL9getSymTabPN4llvm5ValueERPNS_16ValueSymbolTableE.exit31.thread: ; preds = %.s
   br label %.sink.split.i36
 
 138:                                              ; preds = %132
-  %switch.selectcmp.i.i.i.i.i.i.i.i41 = icmp ugt i8 %122, 3
+  %switch.selectcmp.i.i.i.i.i.i.i.i41 = icmp samesign ugt i8 %122, 3
   br i1 %switch.selectcmp.i.i.i.i.i.i.i.i41, label %144, label %139
 
 139:                                              ; preds = %138
@@ -7407,7 +7407,7 @@ _ZNK4llvm6MDNode10getOperandEj.exit:              ; preds = %117, %121
   br label %_ZNK4llvm11Instruction11getMetadataEj.exit.thread
 
 133:                                              ; preds = %75
-  %134 = icmp ugt i8 %5, 21
+  %134 = icmp samesign ugt i8 %5, 21
   br i1 %134, label %_ZNK4llvm11Instruction11getMetadataEj.exit.thread, label %135
 
 135:                                              ; preds = %133

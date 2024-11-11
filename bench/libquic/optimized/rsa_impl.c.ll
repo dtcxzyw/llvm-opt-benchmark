@@ -57,7 +57,7 @@ if.then3.i:                                       ; preds = %if.end.i
   br label %return
 
 if.end4.i:                                        ; preds = %if.end.i
-  %cmp5.i = icmp ult i32 %call.i, 34
+  %cmp5.i = icmp samesign ult i32 %call.i, 34
   br i1 %cmp5.i, label %if.then6.i, label %if.end4
 
 if.then6.i:                                       ; preds = %if.end4.i
@@ -435,7 +435,7 @@ if.then3.i:                                       ; preds = %if.end.i
   br label %return
 
 if.end4.i:                                        ; preds = %if.end.i
-  %cmp5.i = icmp ult i32 %call.i, 34
+  %cmp5.i = icmp samesign ult i32 %call.i, 34
   br i1 %cmp5.i, label %if.then6.i, label %if.end13
 
 if.then6.i:                                       ; preds = %if.end4.i

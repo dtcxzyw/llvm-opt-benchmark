@@ -4777,7 +4777,7 @@ define void @process(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noun
   %120 = shl nsw i64 %119, 2
   %121 = getelementptr i8, ptr %2, i64 %120
   %122 = sub i32 %98, %99
-  %123 = icmp ult i32 %88, 8
+  %123 = icmp samesign ult i32 %88, 8
   %124 = icmp ugt ptr %113, %3
   %125 = icmp ult ptr %91, %112
   %126 = and i1 %124, %125
@@ -6531,7 +6531,7 @@ define void @process(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noun
   %1388 = zext nneg i32 %1334 to i64
   %1389 = insertelement <2 x float> poison, float %462, i64 0
   %1390 = shufflevector <2 x float> %1389, <2 x float> poison, <2 x i32> zeroinitializer
-  %1391 = icmp ult i32 %1334, 32
+  %1391 = icmp samesign ult i32 %1334, 32
   %1392 = icmp ugt ptr %1387, %3
   %1393 = icmp ugt ptr %1382, %2
   %1394 = and i1 %1393, %1392
@@ -7382,7 +7382,7 @@ define void @process(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noun
   %2076 = zext nneg i32 %2061 to i64
   %2077 = zext nneg i32 %2065 to i64
   %2078 = sub i64 %8, %7
-  %2079 = icmp ult i32 %2065, 32
+  %2079 = icmp samesign ult i32 %2065, 32
   %2080 = icmp ult i64 %2078, 128
   %2081 = or i1 %2080, %2079
   %2082 = and i64 %2077, 2147483616
@@ -11040,7 +11040,7 @@ default.unreachable409:                           ; preds = %2283, %2252, %2229,
   %4899 = sext i32 %4893 to i64
   %4900 = zext nneg i32 %4871 to i64
   %4901 = and i64 %4896, 3
-  %4902 = icmp ult i32 %4875, 4
+  %4902 = icmp samesign ult i32 %4875, 4
   %4903 = and i64 %4896, 2147483644
   %4904 = icmp eq i64 %4901, 0
   br label %4905

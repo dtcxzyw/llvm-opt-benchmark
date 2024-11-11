@@ -1676,7 +1676,7 @@ define internal fastcc void @overwrite(ptr noundef %0, ptr noundef %1, i32 nound
   br i1 %11, label %.thread, label %12
 
 12:                                               ; preds = %6
-  %13 = icmp ugt i64 %10, %.031
+  %13 = icmp samesign ugt i64 %10, %.031
   br i1 %13, label %14, label %.thread
 
 14:                                               ; preds = %12

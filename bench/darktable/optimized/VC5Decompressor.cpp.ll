@@ -5901,7 +5901,7 @@ define hidden void @_ZNK8rawspeed15VC5Decompressor7Wavelet12HighPassBand6decodeE
   br label %240
 
 177:                                              ; preds = %173
-  %178 = icmp ugt i32 %168, 10
+  %178 = icmp samesign ugt i32 %168, 10
   tail call void @llvm.assume(i1 %178)
   %179 = add nsw i32 %168, -11
   store i32 %179, ptr %16, align 8, !tbaa !356
@@ -8586,7 +8586,7 @@ define linkonce_odr hidden i64 @_ZN8rawspeed15VC5Decompressor6getRLVERKNS_20Pref
   br label %137
 
 71:                                               ; preds = %67
-  %72 = icmp ugt i32 %62, 10
+  %72 = icmp samesign ugt i32 %62, 10
   tail call void @llvm.assume(i1 %72)
   %73 = add nsw i32 %62, -11
   store i32 %73, ptr %6, align 8, !tbaa !356

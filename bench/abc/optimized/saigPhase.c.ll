@@ -2811,7 +2811,7 @@ Saig_TsiComputePrefix.exit:                       ; preds = %45, %44, %Saig_TsiS
   br label %92
 
 72:                                               ; preds = %69
-  %73 = icmp ugt i32 %2, 256
+  %73 = icmp samesign ugt i32 %2, 256
   br i1 %73, label %74, label %75
 
 74:                                               ; preds = %72

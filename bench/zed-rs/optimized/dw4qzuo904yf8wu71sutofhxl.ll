@@ -4075,7 +4075,7 @@ define internal fastcc void @"_ZN10image_webp3vp819Vp8Decoder$LT$R$GT$17read_coe
   br i1 %34, label %35, label %37
 
 35:                                               ; preds = %29
-  %36 = icmp ult i64 %.sroa.0.0195, 3
+  %36 = icmp samesign ult i64 %.sroa.0.0195, 3
   br i1 %36, label %38, label %40
 
 37:                                               ; preds = %29

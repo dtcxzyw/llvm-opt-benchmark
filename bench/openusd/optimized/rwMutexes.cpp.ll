@@ -1132,7 +1132,7 @@ define internal void @_ZNSt6thread11_State_implINS_8_InvokerISt5tupleIJZL22Test_
   %.01.i.i.i8.i.i.i.i.i.i.i = phi i32 [ %19, %.lr.ph.i.i.i7.i.i.i.i.i.i.i ], [ %.sroa.0.0.i3.i.i.i.i.i.i.i.ph, %17 ]
   %19 = add nsw i32 %.01.i.i.i8.i.i.i.i.i.i.i, -1
   tail call void @llvm.x86.sse2.pause()
-  %20 = icmp ugt i32 %.01.i.i.i8.i.i.i.i.i.i.i, 1
+  %20 = icmp samesign ugt i32 %.01.i.i.i8.i.i.i.i.i.i.i, 1
   br i1 %20, label %.lr.ph.i.i.i7.i.i.i.i.i.i.i, label %_ZN3tbb6detail2d0L13machine_pauseEi.exit.i.i6.i.i.i.i.i.i.i, !llvm.loop !15
 
 _ZN3tbb6detail2d0L13machine_pauseEi.exit.i.i6.i.i.i.i.i.i.i: ; preds = %.lr.ph.i.i.i7.i.i.i.i.i.i.i, %17
@@ -1197,7 +1197,7 @@ _ZN3tbb6detail2d114rw_scoped_lockINS1_13spin_rw_mutexEED2Ev.exit.i.i.i.i.i: ; pr
   %.01.i.i.i.i.i.i.i.i.i.i = phi i32 [ %44, %.lr.ph.i.i.i.i.i.i.i.i.i.i ], [ %.sroa.0.15053.i.i.i.i.i.i.i.i, %.lr.ph.i.i.preheader.i.i.i.i.i.i.i.i ]
   %44 = add nsw i32 %.01.i.i.i.i.i.i.i.i.i.i, -1
   tail call void @llvm.x86.sse2.pause()
-  %45 = icmp ugt i32 %.01.i.i.i.i.i.i.i.i.i.i, 1
+  %45 = icmp samesign ugt i32 %.01.i.i.i.i.i.i.i.i.i.i, 1
   br i1 %45, label %.lr.ph.i.i.i.i.i.i.i.i.i.i, label %_ZN3tbb6detail2d0L13machine_pauseEi.exit.i.i.i.i.i.i.i.i.i, !llvm.loop !15
 
 _ZN3tbb6detail2d0L13machine_pauseEi.exit.i.i.i.i.i.i.i.i.i: ; preds = %.lr.ph.i.i.i.i.i.i.i.i.i.i, %.thread.i.i.i.i.i.i.i.i

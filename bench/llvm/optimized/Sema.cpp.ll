@@ -32783,7 +32783,7 @@ define linkonce_odr noundef nonnull align 8 dereferenceable(16) ptr @_ZN4llvm15S
   %18 = getelementptr inbounds i8, ptr %.0910.i.i.i.i.i, i64 64
   %19 = getelementptr inbounds i8, ptr %.0811.i.i.i.i.i, i64 64
   %20 = add nsw i64 %.012.i.i.i.i.i, -1
-  %21 = icmp ugt i64 %.012.i.i.i.i.i, 1
+  %21 = icmp samesign ugt i64 %.012.i.i.i.i.i, 1
   br i1 %21, label %.lr.ph.i.i.i.i.i, label %_ZSt4copyIPKN5clang9FixItHintEPS1_ET0_T_S6_S5_.exit.loopexit, !llvm.loop !342
 
 _ZSt4copyIPKN5clang9FixItHintEPS1_ET0_T_S6_S5_.exit.loopexit: ; preds = %.lr.ph.i.i.i.i.i
@@ -32864,7 +32864,7 @@ _ZN4llvm15SmallVectorImplIN5clang9FixItHintEE5clearEv.exit: ; preds = %.lr.ph.i.
   %49 = getelementptr inbounds i8, ptr %.0910.i.i.i.i.i34, i64 64
   %50 = getelementptr inbounds i8, ptr %.0811.i.i.i.i.i33, i64 64
   %51 = add nsw i64 %.012.i.i.i.i.i32, -1
-  %52 = icmp ugt i64 %.012.i.i.i.i.i32, 1
+  %52 = icmp samesign ugt i64 %.012.i.i.i.i.i32, 1
   br i1 %52, label %.lr.ph.i.i.i.i.i31, label %_ZSt4copyIPKN5clang9FixItHintEPS1_ET0_T_S6_S5_.exit35, !llvm.loop !342
 
 _ZSt4copyIPKN5clang9FixItHintEPS1_ET0_T_S6_S5_.exit35: ; preds = %.lr.ph.i.i.i.i.i31, %38, %37, %_ZN4llvm15SmallVectorImplIN5clang9FixItHintEE5clearEv.exit
@@ -40830,7 +40830,7 @@ define linkonce_odr void @_ZNSt5dequeISt4pairIPN5clang9ValueDeclENS1_14SourceLoc
   br i1 %33, label %34, label %40
 
 34:                                               ; preds = %24
-  %35 = icmp ult i64 %32, 32
+  %35 = icmp samesign ult i64 %32, 32
   br i1 %35, label %36, label %38
 
 36:                                               ; preds = %34
@@ -40935,7 +40935,7 @@ _ZSt22__uninitialized_copy_aIPSt4pairIPN5clang9ValueDeclENS1_14SourceLocationEES
   br i1 %89, label %90, label %96
 
 90:                                               ; preds = %78
-  %91 = icmp ult i64 %88, 32
+  %91 = icmp samesign ult i64 %88, 32
   br i1 %91, label %92, label %94
 
 92:                                               ; preds = %90
@@ -41116,7 +41116,7 @@ define linkonce_odr void @_ZNSt5dequeISt4pairIPN5clang9ValueDeclENS1_14SourceLoc
   br i1 %78, label %79, label %85
 
 79:                                               ; preds = %71
-  %80 = icmp ult i64 %77, 32
+  %80 = icmp samesign ult i64 %77, 32
   br i1 %80, label %81, label %83
 
 81:                                               ; preds = %79
@@ -41155,7 +41155,7 @@ _ZNSt5dequeISt4pairIPN5clang9ValueDeclENS1_14SourceLocationEESaIS5_EE28_M_reserv
   br i1 %100, label %101, label %107
 
 101:                                              ; preds = %_ZNSt5dequeISt4pairIPN5clang9ValueDeclENS1_14SourceLocationEESaIS5_EE28_M_reserve_elements_at_frontEm.exit
-  %102 = icmp ult i64 %99, 32
+  %102 = icmp samesign ult i64 %99, 32
   br i1 %102, label %103, label %105
 
 103:                                              ; preds = %101
@@ -41207,7 +41207,7 @@ _ZStplRKSt15_Deque_iteratorISt4pairIPN5clang9ValueDeclENS1_14SourceLocationEERS5
   br i1 %127, label %128, label %134
 
 128:                                              ; preds = %117
-  %129 = icmp ult i64 %126, 32
+  %129 = icmp samesign ult i64 %126, 32
   br i1 %129, label %130, label %132
 
 130:                                              ; preds = %128
@@ -41331,7 +41331,7 @@ _ZSt22__uninitialized_move_aISt15_Deque_iteratorISt4pairIPN5clang9ValueDeclENS2_
   br i1 %184, label %185, label %191
 
 185:                                              ; preds = %_ZSt22__uninitialized_move_aISt15_Deque_iteratorISt4pairIPN5clang9ValueDeclENS2_14SourceLocationEERS6_PS6_ES9_SaIS6_EET0_T_SC_SB_RT1_.exit
-  %186 = icmp ult i64 %183, 32
+  %186 = icmp samesign ult i64 %183, 32
   br i1 %186, label %187, label %189
 
 187:                                              ; preds = %185
@@ -41397,7 +41397,7 @@ _ZStmiRKSt15_Deque_iteratorISt4pairIPN5clang9ValueDeclENS1_14SourceLocationEERS5
   %216 = getelementptr inbounds i8, ptr %.0910.i.i.i.i.i.i, i64 16
   %217 = getelementptr inbounds i8, ptr %.0811.i.i.i.i.i.i, i64 16
   %218 = add nsw i64 %.012.i.i.i.i.i.i, -1
-  %219 = icmp ugt i64 %.012.i.i.i.i.i.i, 1
+  %219 = icmp samesign ugt i64 %.012.i.i.i.i.i.i, 1
   br i1 %219, label %.lr.ph.i.i.i.i.i.i, label %_ZSt14__copy_move_a1ILb0EPSt4pairIPN5clang9ValueDeclENS1_14SourceLocationEES6_ET1_T0_S8_S7_.exit.i.i.i, !llvm.loop !469
 
 _ZSt14__copy_move_a1ILb0EPSt4pairIPN5clang9ValueDeclENS1_14SourceLocationEES6_ET1_T0_S8_S7_.exit.i.i.i: ; preds = %.lr.ph.i.i.i.i.i.i, %.lr.ph.i.i.i
@@ -41409,7 +41409,7 @@ _ZSt14__copy_move_a1ILb0EPSt4pairIPN5clang9ValueDeclENS1_14SourceLocationEES6_ET
   br i1 %224, label %225, label %231
 
 225:                                              ; preds = %_ZSt14__copy_move_a1ILb0EPSt4pairIPN5clang9ValueDeclENS1_14SourceLocationEES6_ET1_T0_S8_S7_.exit.i.i.i
-  %226 = icmp ult i64 %223, 32
+  %226 = icmp samesign ult i64 %223, 32
   br i1 %226, label %227, label %229
 
 227:                                              ; preds = %225
@@ -41566,7 +41566,7 @@ _ZSt25__uninitialized_move_copyISt15_Deque_iteratorISt4pairIPN5clang9ValueDeclEN
   %294 = getelementptr inbounds i8, ptr %.0910.i.i.i.i.i.i58, i64 16
   %295 = getelementptr inbounds i8, ptr %.0811.i.i.i.i.i.i57, i64 16
   %296 = add nsw i64 %.012.i.i.i.i.i.i56, -1
-  %297 = icmp ugt i64 %.012.i.i.i.i.i.i56, 1
+  %297 = icmp samesign ugt i64 %.012.i.i.i.i.i.i56, 1
   br i1 %297, label %.lr.ph.i.i.i.i.i.i55, label %_ZSt14__copy_move_a1ILb0EPSt4pairIPN5clang9ValueDeclENS1_14SourceLocationEES6_ET1_T0_S8_S7_.exit.i.i.i49, !llvm.loop !469
 
 _ZSt14__copy_move_a1ILb0EPSt4pairIPN5clang9ValueDeclENS1_14SourceLocationEES6_ET1_T0_S8_S7_.exit.i.i.i49: ; preds = %.lr.ph.i.i.i.i.i.i55, %.lr.ph.i.i.i41
@@ -41578,7 +41578,7 @@ _ZSt14__copy_move_a1ILb0EPSt4pairIPN5clang9ValueDeclENS1_14SourceLocationEES6_ET
   br i1 %302, label %303, label %309
 
 303:                                              ; preds = %_ZSt14__copy_move_a1ILb0EPSt4pairIPN5clang9ValueDeclENS1_14SourceLocationEES6_ET1_T0_S8_S7_.exit.i.i.i49
-  %304 = icmp ult i64 %301, 32
+  %304 = icmp samesign ult i64 %301, 32
   br i1 %304, label %305, label %307
 
 305:                                              ; preds = %303
@@ -41647,7 +41647,7 @@ _ZNSt15_Deque_iteratorISt4pairIPN5clang9ValueDeclENS1_14SourceLocationEERS5_PS5_
   br i1 %337, label %338, label %344
 
 338:                                              ; preds = %331
-  %339 = icmp ult i64 %336, 32
+  %339 = icmp samesign ult i64 %336, 32
   br i1 %339, label %340, label %342
 
 340:                                              ; preds = %338
@@ -41687,7 +41687,7 @@ _ZNSt5dequeISt4pairIPN5clang9ValueDeclENS1_14SourceLocationEESaIS5_EE27_M_reserv
   br i1 %360, label %361, label %367
 
 361:                                              ; preds = %_ZNSt5dequeISt4pairIPN5clang9ValueDeclENS1_14SourceLocationEESaIS5_EE27_M_reserve_elements_at_backEm.exit
-  %362 = icmp ult i64 %359, 32
+  %362 = icmp samesign ult i64 %359, 32
   br i1 %362, label %363, label %365
 
 363:                                              ; preds = %361
@@ -41740,7 +41740,7 @@ _ZStmiRKSt15_Deque_iteratorISt4pairIPN5clang9ValueDeclENS1_14SourceLocationEERS5
   br i1 %389, label %390, label %396
 
 390:                                              ; preds = %380
-  %391 = icmp ult i64 %388, 32
+  %391 = icmp samesign ult i64 %388, 32
   br i1 %391, label %392, label %394
 
 392:                                              ; preds = %390
@@ -41894,7 +41894,7 @@ _ZSt22__uninitialized_move_aISt15_Deque_iteratorISt4pairIPN5clang9ValueDeclENS2_
   %456 = getelementptr inbounds i8, ptr %.0910.i.i.i.i.i.i103, i64 16
   %457 = getelementptr inbounds i8, ptr %.0811.i.i.i.i.i.i102, i64 16
   %458 = add nsw i64 %.012.i.i.i.i.i.i101, -1
-  %459 = icmp ugt i64 %.012.i.i.i.i.i.i101, 1
+  %459 = icmp samesign ugt i64 %.012.i.i.i.i.i.i101, 1
   br i1 %459, label %.lr.ph.i.i.i.i.i.i100, label %_ZSt14__copy_move_a1ILb0EPSt4pairIPN5clang9ValueDeclENS1_14SourceLocationEES6_ET1_T0_S8_S7_.exit.i.i.i94, !llvm.loop !469
 
 _ZSt14__copy_move_a1ILb0EPSt4pairIPN5clang9ValueDeclENS1_14SourceLocationEES6_ET1_T0_S8_S7_.exit.i.i.i94: ; preds = %.lr.ph.i.i.i.i.i.i100, %.lr.ph.i.i.i86
@@ -41906,7 +41906,7 @@ _ZSt14__copy_move_a1ILb0EPSt4pairIPN5clang9ValueDeclENS1_14SourceLocationEES6_ET
   br i1 %464, label %465, label %471
 
 465:                                              ; preds = %_ZSt14__copy_move_a1ILb0EPSt4pairIPN5clang9ValueDeclENS1_14SourceLocationEES6_ET1_T0_S8_S7_.exit.i.i.i94
-  %466 = icmp ult i64 %463, 32
+  %466 = icmp samesign ult i64 %463, 32
   br i1 %466, label %467, label %469
 
 467:                                              ; preds = %465
@@ -42060,7 +42060,7 @@ _ZSt25__uninitialized_copy_moveIPSt4pairIPN5clang9ValueDeclENS1_14SourceLocation
   %531 = getelementptr inbounds i8, ptr %.0910.i.i.i.i.i.i153, i64 16
   %532 = getelementptr inbounds i8, ptr %.0811.i.i.i.i.i.i152, i64 16
   %533 = add nsw i64 %.012.i.i.i.i.i.i151, -1
-  %534 = icmp ugt i64 %.012.i.i.i.i.i.i151, 1
+  %534 = icmp samesign ugt i64 %.012.i.i.i.i.i.i151, 1
   br i1 %534, label %.lr.ph.i.i.i.i.i.i150, label %_ZSt14__copy_move_a1ILb0EPSt4pairIPN5clang9ValueDeclENS1_14SourceLocationEES6_ET1_T0_S8_S7_.exit.i.i.i144, !llvm.loop !469
 
 _ZSt14__copy_move_a1ILb0EPSt4pairIPN5clang9ValueDeclENS1_14SourceLocationEES6_ET1_T0_S8_S7_.exit.i.i.i144: ; preds = %.lr.ph.i.i.i.i.i.i150, %.lr.ph.i.i.i136
@@ -42072,7 +42072,7 @@ _ZSt14__copy_move_a1ILb0EPSt4pairIPN5clang9ValueDeclENS1_14SourceLocationEES6_ET
   br i1 %539, label %540, label %546
 
 540:                                              ; preds = %_ZSt14__copy_move_a1ILb0EPSt4pairIPN5clang9ValueDeclENS1_14SourceLocationEES6_ET1_T0_S8_S7_.exit.i.i.i144
-  %541 = icmp ult i64 %538, 32
+  %541 = icmp samesign ult i64 %538, 32
   br i1 %541, label %542, label %544
 
 542:                                              ; preds = %540
@@ -42432,7 +42432,7 @@ define linkonce_odr void @_ZSt15__copy_move_ditILb1ESt4pairIPN5clang9ValueDeclEN
   %35 = getelementptr inbounds i8, ptr %.0910.i.i.i.i, i64 16
   %36 = getelementptr inbounds i8, ptr %.0811.i.i.i.i, i64 16
   %37 = add nsw i64 %.012.i.i.i.i, -1
-  %38 = icmp ugt i64 %.012.i.i.i.i, 1
+  %38 = icmp samesign ugt i64 %.012.i.i.i.i, 1
   br i1 %38, label %.lr.ph.i.i.i.i, label %_ZSt14__copy_move_a1ILb1EPSt4pairIPN5clang9ValueDeclENS1_14SourceLocationEES6_ET1_T0_S8_S7_.exit.i, !llvm.loop !573
 
 _ZSt14__copy_move_a1ILb1EPSt4pairIPN5clang9ValueDeclENS1_14SourceLocationEES6_ET1_T0_S8_S7_.exit.i: ; preds = %.lr.ph.i.i.i.i, %.lr.ph.i
@@ -42444,7 +42444,7 @@ _ZSt14__copy_move_a1ILb1EPSt4pairIPN5clang9ValueDeclENS1_14SourceLocationEES6_ET
   br i1 %43, label %44, label %50
 
 44:                                               ; preds = %_ZSt14__copy_move_a1ILb1EPSt4pairIPN5clang9ValueDeclENS1_14SourceLocationEES6_ET1_T0_S8_S7_.exit.i
-  %45 = icmp ult i64 %42, 32
+  %45 = icmp samesign ult i64 %42, 32
   br i1 %45, label %46, label %48
 
 46:                                               ; preds = %44
@@ -42531,7 +42531,7 @@ _ZSt14__copy_move_a1ILb1EPSt4pairIPN5clang9ValueDeclENS1_14SourceLocationEES5_EN
   %82 = getelementptr inbounds i8, ptr %.0910.i.i.i.i20, i64 16
   %83 = getelementptr inbounds i8, ptr %.0811.i.i.i.i19, i64 16
   %84 = add nsw i64 %.012.i.i.i.i18, -1
-  %85 = icmp ugt i64 %.012.i.i.i.i18, 1
+  %85 = icmp samesign ugt i64 %.012.i.i.i.i18, 1
   br i1 %85, label %.lr.ph.i.i.i.i17, label %_ZSt14__copy_move_a1ILb1EPSt4pairIPN5clang9ValueDeclENS1_14SourceLocationEES6_ET1_T0_S8_S7_.exit.i13, !llvm.loop !573
 
 _ZSt14__copy_move_a1ILb1EPSt4pairIPN5clang9ValueDeclENS1_14SourceLocationEES6_ET1_T0_S8_S7_.exit.i13: ; preds = %.lr.ph.i.i.i.i17, %71
@@ -42543,7 +42543,7 @@ _ZSt14__copy_move_a1ILb1EPSt4pairIPN5clang9ValueDeclENS1_14SourceLocationEES6_ET
   br i1 %90, label %91, label %97
 
 91:                                               ; preds = %_ZSt14__copy_move_a1ILb1EPSt4pairIPN5clang9ValueDeclENS1_14SourceLocationEES6_ET1_T0_S8_S7_.exit.i13
-  %92 = icmp ult i64 %89, 32
+  %92 = icmp samesign ult i64 %89, 32
   br i1 %92, label %93, label %95
 
 93:                                               ; preds = %91
@@ -42631,7 +42631,7 @@ _ZSt14__copy_move_a1ILb1EPSt4pairIPN5clang9ValueDeclENS1_14SourceLocationEES5_EN
   %132 = getelementptr inbounds i8, ptr %.0910.i.i.i.i40, i64 16
   %133 = getelementptr inbounds i8, ptr %.0811.i.i.i.i39, i64 16
   %134 = add nsw i64 %.012.i.i.i.i38, -1
-  %135 = icmp ugt i64 %.012.i.i.i.i38, 1
+  %135 = icmp samesign ugt i64 %.012.i.i.i.i38, 1
   br i1 %135, label %.lr.ph.i.i.i.i37, label %_ZSt14__copy_move_a1ILb1EPSt4pairIPN5clang9ValueDeclENS1_14SourceLocationEES6_ET1_T0_S8_S7_.exit.i33, !llvm.loop !573
 
 _ZSt14__copy_move_a1ILb1EPSt4pairIPN5clang9ValueDeclENS1_14SourceLocationEES6_ET1_T0_S8_S7_.exit.i33: ; preds = %.lr.ph.i.i.i.i37, %.lr.ph.i29
@@ -42643,7 +42643,7 @@ _ZSt14__copy_move_a1ILb1EPSt4pairIPN5clang9ValueDeclENS1_14SourceLocationEES6_ET
   br i1 %140, label %141, label %147
 
 141:                                              ; preds = %_ZSt14__copy_move_a1ILb1EPSt4pairIPN5clang9ValueDeclENS1_14SourceLocationEES6_ET1_T0_S8_S7_.exit.i33
-  %142 = icmp ult i64 %139, 32
+  %142 = icmp samesign ult i64 %139, 32
   br i1 %142, label %143, label %145
 
 143:                                              ; preds = %141
@@ -42721,7 +42721,7 @@ _ZNSt15_Deque_iteratorISt4pairIPN5clang9ValueDeclENS1_14SourceLocationEERS5_PS5_
   %182 = getelementptr inbounds i8, ptr %.0910.i.i.i.i60, i64 16
   %183 = getelementptr inbounds i8, ptr %.0811.i.i.i.i59, i64 16
   %184 = add nsw i64 %.012.i.i.i.i58, -1
-  %185 = icmp ugt i64 %.012.i.i.i.i58, 1
+  %185 = icmp samesign ugt i64 %.012.i.i.i.i58, 1
   br i1 %185, label %.lr.ph.i.i.i.i57, label %_ZSt14__copy_move_a1ILb1EPSt4pairIPN5clang9ValueDeclENS1_14SourceLocationEES6_ET1_T0_S8_S7_.exit.i53, !llvm.loop !573
 
 _ZSt14__copy_move_a1ILb1EPSt4pairIPN5clang9ValueDeclENS1_14SourceLocationEES6_ET1_T0_S8_S7_.exit.i53: ; preds = %.lr.ph.i.i.i.i57, %.lr.ph.i49
@@ -42733,7 +42733,7 @@ _ZSt14__copy_move_a1ILb1EPSt4pairIPN5clang9ValueDeclENS1_14SourceLocationEES6_ET
   br i1 %190, label %191, label %197
 
 191:                                              ; preds = %_ZSt14__copy_move_a1ILb1EPSt4pairIPN5clang9ValueDeclENS1_14SourceLocationEES6_ET1_T0_S8_S7_.exit.i53
-  %192 = icmp ult i64 %189, 32
+  %192 = icmp samesign ult i64 %189, 32
   br i1 %192, label %193, label %195
 
 193:                                              ; preds = %191
@@ -42860,7 +42860,7 @@ define linkonce_odr void @_ZSt24__copy_move_backward_ditILb1ESt4pairIPN5clang9Va
   %47 = load i32, ptr %45, align 8, !noalias !585
   store i32 %47, ptr %46, align 8, !noalias !585
   %48 = add nsw i64 %.010.i.i.i.i, -1
-  %49 = icmp ugt i64 %.010.i.i.i.i, 1
+  %49 = icmp samesign ugt i64 %.010.i.i.i.i, 1
   br i1 %49, label %.lr.ph.i.i.i.i, label %_ZSt23__copy_move_backward_a1ILb1EPSt4pairIPN5clang9ValueDeclENS1_14SourceLocationEES6_ET1_T0_S8_S7_.exit.loopexit.i, !llvm.loop !588
 
 _ZSt23__copy_move_backward_a1ILb1EPSt4pairIPN5clang9ValueDeclENS1_14SourceLocationEES6_ET1_T0_S8_S7_.exit.loopexit.i: ; preds = %.lr.ph.i.i.i.i
@@ -42880,7 +42880,7 @@ _ZSt23__copy_move_backward_a1ILb1EPSt4pairIPN5clang9ValueDeclENS1_14SourceLocati
   br i1 %54, label %55, label %61
 
 55:                                               ; preds = %_ZSt23__copy_move_backward_a1ILb1EPSt4pairIPN5clang9ValueDeclENS1_14SourceLocationEES6_ET1_T0_S8_S7_.exit.i
-  %56 = icmp ult i64 %53, 32
+  %56 = icmp samesign ult i64 %53, 32
   br i1 %56, label %57, label %59
 
 57:                                               ; preds = %55
@@ -42991,7 +42991,7 @@ _ZSt23__copy_move_backward_a1ILb1EPSt4pairIPN5clang9ValueDeclENS1_14SourceLocati
   %107 = load i32, ptr %105, align 8, !noalias !590
   store i32 %107, ptr %106, align 8, !noalias !590
   %108 = add nsw i64 %.010.i.i.i.i21, -1
-  %109 = icmp ugt i64 %.010.i.i.i.i21, 1
+  %109 = icmp samesign ugt i64 %.010.i.i.i.i21, 1
   br i1 %109, label %.lr.ph.i.i.i.i20, label %_ZSt23__copy_move_backward_a1ILb1EPSt4pairIPN5clang9ValueDeclENS1_14SourceLocationEES6_ET1_T0_S8_S7_.exit.loopexit.i24, !llvm.loop !588
 
 _ZSt23__copy_move_backward_a1ILb1EPSt4pairIPN5clang9ValueDeclENS1_14SourceLocationEES6_ET1_T0_S8_S7_.exit.loopexit.i24: ; preds = %.lr.ph.i.i.i.i20
@@ -43011,7 +43011,7 @@ _ZSt23__copy_move_backward_a1ILb1EPSt4pairIPN5clang9ValueDeclENS1_14SourceLocati
   br i1 %114, label %115, label %121
 
 115:                                              ; preds = %_ZSt23__copy_move_backward_a1ILb1EPSt4pairIPN5clang9ValueDeclENS1_14SourceLocationEES6_ET1_T0_S8_S7_.exit.i16
-  %116 = icmp ult i64 %113, 32
+  %116 = icmp samesign ult i64 %113, 32
   br i1 %116, label %117, label %119
 
 117:                                              ; preds = %115
@@ -43122,7 +43122,7 @@ _ZSt23__copy_move_backward_a1ILb1EPSt4pairIPN5clang9ValueDeclENS1_14SourceLocati
   %169 = load i32, ptr %167, align 8, !noalias !594
   store i32 %169, ptr %168, align 8, !noalias !594
   %170 = add nsw i64 %.010.i.i.i.i48, -1
-  %171 = icmp ugt i64 %.010.i.i.i.i48, 1
+  %171 = icmp samesign ugt i64 %.010.i.i.i.i48, 1
   br i1 %171, label %.lr.ph.i.i.i.i47, label %_ZSt23__copy_move_backward_a1ILb1EPSt4pairIPN5clang9ValueDeclENS1_14SourceLocationEES6_ET1_T0_S8_S7_.exit.loopexit.i51, !llvm.loop !588
 
 _ZSt23__copy_move_backward_a1ILb1EPSt4pairIPN5clang9ValueDeclENS1_14SourceLocationEES6_ET1_T0_S8_S7_.exit.loopexit.i51: ; preds = %.lr.ph.i.i.i.i47
@@ -43142,7 +43142,7 @@ _ZSt23__copy_move_backward_a1ILb1EPSt4pairIPN5clang9ValueDeclENS1_14SourceLocati
   br i1 %176, label %177, label %183
 
 177:                                              ; preds = %_ZSt23__copy_move_backward_a1ILb1EPSt4pairIPN5clang9ValueDeclENS1_14SourceLocationEES6_ET1_T0_S8_S7_.exit.i43
-  %178 = icmp ult i64 %175, 32
+  %178 = icmp samesign ult i64 %175, 32
   br i1 %178, label %179, label %181
 
 179:                                              ; preds = %177
@@ -43245,7 +43245,7 @@ _ZNSt15_Deque_iteratorISt4pairIPN5clang9ValueDeclENS1_14SourceLocationEERS5_PS5_
   %233 = load i32, ptr %231, align 8, !noalias !597
   store i32 %233, ptr %232, align 8, !noalias !597
   %234 = add nsw i64 %.010.i.i.i.i75, -1
-  %235 = icmp ugt i64 %.010.i.i.i.i75, 1
+  %235 = icmp samesign ugt i64 %.010.i.i.i.i75, 1
   br i1 %235, label %.lr.ph.i.i.i.i74, label %_ZSt23__copy_move_backward_a1ILb1EPSt4pairIPN5clang9ValueDeclENS1_14SourceLocationEES6_ET1_T0_S8_S7_.exit.loopexit.i78, !llvm.loop !588
 
 _ZSt23__copy_move_backward_a1ILb1EPSt4pairIPN5clang9ValueDeclENS1_14SourceLocationEES6_ET1_T0_S8_S7_.exit.loopexit.i78: ; preds = %.lr.ph.i.i.i.i74
@@ -43265,7 +43265,7 @@ _ZSt23__copy_move_backward_a1ILb1EPSt4pairIPN5clang9ValueDeclENS1_14SourceLocati
   br i1 %240, label %241, label %247
 
 241:                                              ; preds = %_ZSt23__copy_move_backward_a1ILb1EPSt4pairIPN5clang9ValueDeclENS1_14SourceLocationEES6_ET1_T0_S8_S7_.exit.i70
-  %242 = icmp ult i64 %239, 32
+  %242 = icmp samesign ult i64 %239, 32
   br i1 %242, label %243, label %245
 
 243:                                              ; preds = %241

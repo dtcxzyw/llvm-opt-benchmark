@@ -38,7 +38,7 @@ if.end.i:                                         ; preds = %entry
   br i1 %or.cond.i, label %return, label %if.end11.i
 
 if.end11.i:                                       ; preds = %if.end.i
-  %cmp13.i = icmp ult i16 %call3.i, 4160
+  %cmp13.i = icmp samesign ult i16 %call3.i, 4160
   br i1 %cmp13.i, label %if.then15.i, label %if.else.i
 
 if.then15.i:                                      ; preds = %if.end11.i

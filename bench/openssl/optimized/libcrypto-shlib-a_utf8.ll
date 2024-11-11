@@ -54,7 +54,7 @@ if.else34:                                        ; preds = %if.else
   br i1 %cmp37, label %if.then39, label %if.else78
 
 if.then39:                                        ; preds = %if.else34
-  %cmp40 = icmp ult i32 %len, 3
+  %cmp40 = icmp samesign ult i32 %len, 3
   br i1 %cmp40, label %return, label %if.end43
 
 if.end43:                                         ; preds = %if.then39
@@ -95,7 +95,7 @@ if.else78:                                        ; preds = %if.else34
   br i1 %cmp81, label %if.then83, label %return
 
 if.then83:                                        ; preds = %if.else78
-  %cmp84 = icmp ult i32 %len, 4
+  %cmp84 = icmp samesign ult i32 %len, 4
   br i1 %cmp84, label %return, label %if.end87
 
 if.end87:                                         ; preds = %if.then83

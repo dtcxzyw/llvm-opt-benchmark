@@ -30,7 +30,7 @@ entry:
   br i1 %or.cond, label %return, label %if.end
 
 if.end:                                           ; preds = %entry
-  %cmp2 = icmp ugt i32 %dof, 150
+  %cmp2 = icmp samesign ugt i32 %dof, 150
   br i1 %cmp2, label %if.then3, label %if.end17
 
 if.then3:                                         ; preds = %if.end

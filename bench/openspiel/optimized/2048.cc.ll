@@ -1332,26 +1332,29 @@ switch.lookup:                                    ; preds = %4
   %18 = load ptr, ptr %17, align 8
   br label %19
 
-19:                                               ; preds = %23, %switch.lookup
-  %.013 = phi i32 [ %2, %switch.lookup ], [ %21, %23 ]
-  %.0 = phi i32 [ %1, %switch.lookup ], [ %20, %23 ]
+19:                                               ; preds = %24, %switch.lookup
+  %.013 = phi i32 [ %2, %switch.lookup ], [ %21, %24 ]
+  %.0 = phi i32 [ %1, %switch.lookup ], [ %20, %24 ]
   %20 = add nsw i32 %.0, %.sroa.0.0.extract.trunc
   %21 = add nsw i32 %.013, %.sroa.2.0.extract.trunc
-  %22 = or i32 %20, %21
-  %spec.select.i = icmp ult i32 %22, 4
-  br i1 %spec.select.i, label %23, label %.critedge
+  %or.cond.i = icmp ult i32 %20, 4
+  %22 = icmp sgt i32 %21, -1
+  %or.cond3.i = and i1 %22, %or.cond.i
+  %23 = icmp samesign ult i32 %21, 4
+  %spec.select.i = select i1 %or.cond3.i, i1 %23, i1 false
+  br i1 %spec.select.i, label %24, label %.critedge
 
-23:                                               ; preds = %19
-  %24 = shl nuw nsw i32 %20, 2
-  %25 = or disjoint i32 %24, %21
-  %26 = zext nneg i32 %25 to i64
-  %27 = getelementptr inbounds %"struct.open_spiel::twenty_forty_eight::Tile", ptr %18, i64 %26
-  %.sroa.0.0.copyload.i.i = load i64, ptr %27, align 4
-  %28 = and i64 %.sroa.0.0.copyload.i.i, 4294967295
-  %29 = icmp eq i64 %28, 0
-  br i1 %29, label %19, label %.critedge, !llvm.loop !8
+24:                                               ; preds = %19
+  %25 = shl nuw nsw i32 %20, 2
+  %26 = or disjoint i32 %25, %21
+  %27 = zext nneg i32 %26 to i64
+  %28 = getelementptr inbounds %"struct.open_spiel::twenty_forty_eight::Tile", ptr %18, i64 %27
+  %.sroa.0.0.copyload.i.i = load i64, ptr %28, align 4
+  %29 = and i64 %.sroa.0.0.copyload.i.i, 4294967295
+  %30 = icmp eq i64 %29, 0
+  br i1 %30, label %19, label %.critedge, !llvm.loop !8
 
-.critedge:                                        ; preds = %19, %23
+.critedge:                                        ; preds = %19, %24
   %.sroa.3.0.insert.ext = zext i32 %.013 to i64
   %.sroa.3.0.insert.shift = shl nuw i64 %.sroa.3.0.insert.ext, 32
   %.sroa.014.0.insert.ext = zext i32 %.0 to i64
@@ -1429,19 +1432,22 @@ switch.lookup:                                    ; preds = %.preheader
   %.sroa.2.0.extract.trunc = trunc nuw i64 %.sroa.2.0.extract.shift to i32
   %25 = add nsw i32 %1, %.sroa.0.0.extract.trunc
   %26 = add nsw i32 %2, %.sroa.2.0.extract.trunc
-  %27 = or i32 %26, %25
-  %spec.select.i.i = icmp ult i32 %27, 4
+  %or.cond.i.i = icmp ult i32 %25, 4
+  %27 = icmp sgt i32 %26, -1
+  %or.cond3.i.i = and i1 %or.cond.i.i, %27
+  %28 = icmp samesign ult i32 %26, 4
+  %spec.select.i.i = select i1 %or.cond3.i.i, i1 %28, i1 false
   br i1 %spec.select.i.i, label %_ZNK10open_spiel18twenty_forty_eight21TwentyFortyEightState14GetCellContentEii.exit, label %_ZNK10open_spiel18twenty_forty_eight21TwentyFortyEightState14GetCellContentEii.exit.thread
 
 _ZNK10open_spiel18twenty_forty_eight21TwentyFortyEightState14GetCellContentEii.exit: ; preds = %switch.lookup
-  %28 = shl nuw nsw i32 %25, 2
-  %29 = or disjoint i32 %28, %26
-  %30 = zext nneg i32 %29 to i64
-  %31 = getelementptr inbounds %"struct.open_spiel::twenty_forty_eight::Tile", ptr %10, i64 %30
-  %.sroa.0.0.copyload.i.i = load i64, ptr %31, align 4
+  %29 = shl nuw nsw i32 %25, 2
+  %30 = or disjoint i32 %29, %26
+  %31 = zext nneg i32 %30 to i64
+  %32 = getelementptr inbounds %"struct.open_spiel::twenty_forty_eight::Tile", ptr %10, i64 %31
+  %.sroa.0.0.copyload.i.i = load i64, ptr %32, align 4
   %.sroa.0.0.extract.trunc.i = trunc i64 %.sroa.0.0.copyload.i.i to i32
-  %32 = icmp eq i32 %.sroa.0.0.extract.trunc.i, %.sroa.06.0.extract.trunc
-  br i1 %32, label %.loopexit, label %_ZNK10open_spiel18twenty_forty_eight21TwentyFortyEightState14GetCellContentEii.exit.thread
+  %33 = icmp eq i32 %.sroa.0.0.extract.trunc.i, %.sroa.06.0.extract.trunc
+  br i1 %33, label %.loopexit, label %_ZNK10open_spiel18twenty_forty_eight21TwentyFortyEightState14GetCellContentEii.exit.thread
 
 _ZNK10open_spiel18twenty_forty_eight21TwentyFortyEightState14GetCellContentEii.exit.thread: ; preds = %switch.lookup, %_ZNK10open_spiel18twenty_forty_eight21TwentyFortyEightState14GetCellContentEii.exit
   %.016.add = add nuw nsw i64 %.016.idx20, 8
@@ -1455,23 +1461,26 @@ _ZNK10open_spiel18twenty_forty_eight21TwentyFortyEightState14GetCellContentEii.e
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
 define noundef i32 @_ZNK10open_spiel18twenty_forty_eight21TwentyFortyEightState14GetCellContentEii(ptr nocapture noundef nonnull readonly align 8 dereferenceable(120) %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #7 align 2 {
-  %4 = or i32 %2, %1
-  %spec.select.i = icmp ult i32 %4, 4
-  br i1 %spec.select.i, label %5, label %12
+  %or.cond.i = icmp ult i32 %1, 4
+  %4 = icmp sgt i32 %2, -1
+  %or.cond3.i = and i1 %or.cond.i, %4
+  %5 = icmp samesign ult i32 %2, 4
+  %spec.select.i = select i1 %or.cond3.i, i1 %5, i1 false
+  br i1 %spec.select.i, label %6, label %13
 
-5:                                                ; preds = %3
-  %6 = getelementptr inbounds nuw i8, ptr %0, i64 80
-  %7 = shl nuw nsw i32 %1, 2
-  %8 = or disjoint i32 %7, %2
-  %9 = zext nneg i32 %8 to i64
-  %10 = load ptr, ptr %6, align 8
-  %11 = getelementptr inbounds %"struct.open_spiel::twenty_forty_eight::Tile", ptr %10, i64 %9
-  %.sroa.0.0.copyload.i = load i64, ptr %11, align 4
+6:                                                ; preds = %3
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 80
+  %8 = shl nuw nsw i32 %1, 2
+  %9 = or disjoint i32 %8, %2
+  %10 = zext nneg i32 %9 to i64
+  %11 = load ptr, ptr %7, align 8
+  %12 = getelementptr inbounds %"struct.open_spiel::twenty_forty_eight::Tile", ptr %11, i64 %10
+  %.sroa.0.0.copyload.i = load i64, ptr %12, align 4
   %.sroa.0.0.extract.trunc = trunc i64 %.sroa.0.0.copyload.i to i32
-  br label %12
+  br label %13
 
-12:                                               ; preds = %3, %5
-  %.0 = phi i32 [ %.sroa.0.0.extract.trunc, %5 ], [ 0, %3 ]
+13:                                               ; preds = %3, %6
+  %.0 = phi i32 [ %.sroa.0.0.extract.trunc, %6 ], [ 0, %3 ]
   ret i32 %.0
 }
 
@@ -1555,7 +1564,7 @@ define void @_ZN10open_spiel18twenty_forty_eight21TwentyFortyEightState13DoApply
 15:                                               ; preds = %13, %9
   store i8 0, ptr %10, align 8
   %16 = icmp eq i64 %1, 32
-  br i1 %16, label %97, label %17
+  br i1 %16, label %96, label %17
 
 17:                                               ; preds = %15
   %18 = tail call { i64, i8 } @_ZNK10open_spiel18twenty_forty_eight21TwentyFortyEightState25SpielActionToChanceActionEl(ptr nonnull align 8 poison, i64 noundef %1)
@@ -1573,7 +1582,7 @@ define void @_ZN10open_spiel18twenty_forty_eight21TwentyFortyEightState13DoApply
   %25 = getelementptr inbounds %"struct.open_spiel::twenty_forty_eight::Tile", ptr %24, i64 %23
   %.sroa.0.0.extract.trunc.i = select i1 %19, i40 4, i40 2
   store i40 %.sroa.0.0.extract.trunc.i, ptr %25, align 4
-  br label %97
+  br label %96
 
 26:                                               ; preds = %2
   %27 = getelementptr inbounds nuw i8, ptr %0, i64 112
@@ -1611,161 +1620,172 @@ _ZN10open_spiel18twenty_forty_eight21TwentyFortyEightState12PrepareTilesEv.exit.
   br label %40
 
 40:                                               ; preds = %_ZN10open_spiel18twenty_forty_eight21TwentyFortyEightState12PrepareTilesEv.exit.preheader, %_ZN10open_spiel18twenty_forty_eight21TwentyFortyEightState12PrepareTilesEv.exit
-  %.0.idx99 = phi i64 [ 0, %_ZN10open_spiel18twenty_forty_eight21TwentyFortyEightState12PrepareTilesEv.exit.preheader ], [ %.0.add, %_ZN10open_spiel18twenty_forty_eight21TwentyFortyEightState12PrepareTilesEv.exit ]
-  %.0.ptr = getelementptr inbounds i8, ptr %35, i64 %.0.idx99
+  %.0.idx107 = phi i64 [ 0, %_ZN10open_spiel18twenty_forty_eight21TwentyFortyEightState12PrepareTilesEv.exit.preheader ], [ %.0.add, %_ZN10open_spiel18twenty_forty_eight21TwentyFortyEightState12PrepareTilesEv.exit ]
+  %.0.ptr = getelementptr inbounds i8, ptr %35, i64 %.0.idx107
   %41 = load i32, ptr %.0.ptr, align 4
-  %42 = shl nuw nsw i32 %41, 2
-  br label %43
+  %.fr = freeze i32 %41
+  %or.cond.i.i = icmp ult i32 %.fr, 4
+  %42 = shl nuw nsw i32 %.fr, 2
+  br i1 %or.cond.i.i, label %.split, label %_ZN10open_spiel18twenty_forty_eight21TwentyFortyEightState12PrepareTilesEv.exit
 
-43:                                               ; preds = %40, %_ZNK10open_spiel18twenty_forty_eight21TwentyFortyEightState14GetCellContentEii.exit.thread
-  %.046.idx98 = phi i64 [ 16, %40 ], [ %.046.add, %_ZNK10open_spiel18twenty_forty_eight21TwentyFortyEightState14GetCellContentEii.exit.thread ]
-  %.046.ptr = getelementptr inbounds i8, ptr %35, i64 %.046.idx98
-  %44 = load i32, ptr %.046.ptr, align 4
-  %45 = or i32 %44, %41
-  %spec.select.i.i = icmp ult i32 %45, 4
+.split:                                           ; preds = %40, %_ZNK10open_spiel18twenty_forty_eight21TwentyFortyEightState14GetCellContentEii.exit.thread
+  %.046.idx104 = phi i64 [ %.046.add, %_ZNK10open_spiel18twenty_forty_eight21TwentyFortyEightState14GetCellContentEii.exit.thread ], [ 16, %40 ]
+  %.046.ptr = getelementptr inbounds i8, ptr %35, i64 %.046.idx104
+  %43 = load i32, ptr %.046.ptr, align 4
+  %spec.select.i.i = icmp ult i32 %43, 4
   br i1 %spec.select.i.i, label %_ZNK10open_spiel18twenty_forty_eight21TwentyFortyEightState14GetCellContentEii.exit, label %_ZNK10open_spiel18twenty_forty_eight21TwentyFortyEightState14GetCellContentEii.exit.thread
 
-_ZNK10open_spiel18twenty_forty_eight21TwentyFortyEightState14GetCellContentEii.exit: ; preds = %43
-  %46 = or disjoint i32 %44, %42
-  %47 = zext nneg i32 %46 to i64
-  %48 = load ptr, ptr %28, align 8
-  %49 = getelementptr inbounds %"struct.open_spiel::twenty_forty_eight::Tile", ptr %48, i64 %47
-  %.sroa.0.0.copyload.i.i = load i64, ptr %49, align 4
+_ZNK10open_spiel18twenty_forty_eight21TwentyFortyEightState14GetCellContentEii.exit: ; preds = %.split
+  %44 = or disjoint i32 %43, %42
+  %45 = zext nneg i32 %44 to i64
+  %46 = load ptr, ptr %28, align 8
+  %47 = getelementptr inbounds %"struct.open_spiel::twenty_forty_eight::Tile", ptr %46, i64 %45
+  %.sroa.0.0.copyload.i.i = load i64, ptr %47, align 4
   %.sroa.0.0.extract.trunc.i59 = trunc i64 %.sroa.0.0.copyload.i.i to i32
-  %50 = icmp sgt i32 %.sroa.0.0.extract.trunc.i59, 0
-  br i1 %50, label %51, label %_ZNK10open_spiel18twenty_forty_eight21TwentyFortyEightState14GetCellContentEii.exit.thread
+  %48 = icmp sgt i32 %.sroa.0.0.extract.trunc.i59, 0
+  br i1 %48, label %49, label %_ZNK10open_spiel18twenty_forty_eight21TwentyFortyEightState14GetCellContentEii.exit.thread
 
-51:                                               ; preds = %_ZNK10open_spiel18twenty_forty_eight21TwentyFortyEightState14GetCellContentEii.exit
+49:                                               ; preds = %_ZNK10open_spiel18twenty_forty_eight21TwentyFortyEightState14GetCellContentEii.exit
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %3)
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %4)
-  br i1 %38, label %switch.lookup, label %52
+  br i1 %38, label %switch.lookup, label %50
 
-52:                                               ; preds = %51
+50:                                               ; preds = %49
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %4) #27
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %3, ptr noundef nonnull @.str.24, ptr noundef nonnull align 1 dereferenceable(1) %4)
-          to label %53 unwind label %55
+          to label %51 unwind label %53
 
-53:                                               ; preds = %52
+51:                                               ; preds = %50
   invoke void @_ZN10open_spiel15SpielFatalErrorERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(32) %3) #26
-          to label %54 unwind label %57
+          to label %52 unwind label %55
 
-54:                                               ; preds = %53
+52:                                               ; preds = %51
   unreachable
 
-55:                                               ; preds = %52
+53:                                               ; preds = %50
+  %54 = landingpad { ptr, i32 }
+          cleanup
+  br label %57
+
+55:                                               ; preds = %51
   %56 = landingpad { ptr, i32 }
           cleanup
-  br label %59
-
-57:                                               ; preds = %53
-  %58 = landingpad { ptr, i32 }
-          cleanup
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %3) #27
-  br label %59
+  br label %57
 
-59:                                               ; preds = %57, %55
-  %.pn.i.i = phi { ptr, i32 } [ %58, %57 ], [ %56, %55 ]
+57:                                               ; preds = %55, %53
+  %.pn.i.i = phi { ptr, i32 } [ %56, %55 ], [ %54, %53 ]
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %4) #27
   resume { ptr, i32 } %.pn.i.i
 
-switch.lookup:                                    ; preds = %51
+switch.lookup:                                    ; preds = %49
   %switch.load = load i64, ptr %switch.gep, align 8
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %3)
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %4)
   %.sroa.0.0.extract.trunc.i60 = trunc i64 %switch.load to i32
   %.sroa.2.0.extract.shift.i = lshr i64 %switch.load, 32
   %.sroa.2.0.extract.trunc.i = trunc nuw i64 %.sroa.2.0.extract.shift.i to i32
-  br label %60
+  br label %58
 
-60:                                               ; preds = %64, %switch.lookup
-  %.013.i = phi i32 [ %44, %switch.lookup ], [ %62, %64 ]
-  %.0.i61 = phi i32 [ %41, %switch.lookup ], [ %61, %64 ]
-  %61 = add nsw i32 %.0.i61, %.sroa.0.0.extract.trunc.i60
-  %62 = add nsw i32 %.013.i, %.sroa.2.0.extract.trunc.i
-  %63 = or i32 %61, %62
-  %spec.select.i.i62 = icmp ult i32 %63, 4
-  br i1 %spec.select.i.i62, label %64, label %.critedge
+58:                                               ; preds = %63, %switch.lookup
+  %.013.i = phi i32 [ %43, %switch.lookup ], [ %60, %63 ]
+  %.0.i61 = phi i32 [ %.fr, %switch.lookup ], [ %59, %63 ]
+  %59 = add nsw i32 %.0.i61, %.sroa.0.0.extract.trunc.i60
+  %60 = add nsw i32 %.013.i, %.sroa.2.0.extract.trunc.i
+  %or.cond.i.i62 = icmp ult i32 %59, 4
+  %61 = icmp sgt i32 %60, -1
+  %or.cond3.i.i63 = and i1 %61, %or.cond.i.i62
+  %62 = icmp samesign ult i32 %60, 4
+  %spec.select.i.i64 = select i1 %or.cond3.i.i63, i1 %62, i1 false
+  br i1 %spec.select.i.i64, label %63, label %_ZNK10open_spiel18twenty_forty_eight21TwentyFortyEightState20FindFarthestPositionEiii.exit
 
-64:                                               ; preds = %60
-  %65 = shl nuw nsw i32 %61, 2
-  %66 = or disjoint i32 %65, %62
-  %67 = zext nneg i32 %66 to i64
-  %68 = getelementptr inbounds %"struct.open_spiel::twenty_forty_eight::Tile", ptr %48, i64 %67
-  %.sroa.0.0.copyload.i.i.i = load i64, ptr %68, align 4
-  %69 = and i64 %.sroa.0.0.copyload.i.i.i, 4294967295
-  %70 = icmp eq i64 %69, 0
-  br i1 %70, label %60, label %_ZNK10open_spiel18twenty_forty_eight21TwentyFortyEightState14GetCellContentEii.exit67, !llvm.loop !8
+63:                                               ; preds = %58
+  %64 = shl nuw nsw i32 %59, 2
+  %65 = or disjoint i32 %64, %60
+  %66 = zext nneg i32 %65 to i64
+  %67 = getelementptr inbounds %"struct.open_spiel::twenty_forty_eight::Tile", ptr %46, i64 %66
+  %.sroa.0.0.copyload.i.i.i = load i64, ptr %67, align 4
+  %68 = and i64 %.sroa.0.0.copyload.i.i.i, 4294967295
+  %69 = icmp eq i64 %68, 0
+  br i1 %69, label %58, label %_ZNK10open_spiel18twenty_forty_eight21TwentyFortyEightState20FindFarthestPositionEiii.exit, !llvm.loop !8
 
-_ZNK10open_spiel18twenty_forty_eight21TwentyFortyEightState14GetCellContentEii.exit67: ; preds = %64
-  %71 = shl nuw nsw i32 %61, 2
-  %72 = or disjoint i32 %71, %62
-  %73 = zext nneg i32 %72 to i64
-  %74 = getelementptr inbounds %"struct.open_spiel::twenty_forty_eight::Tile", ptr %48, i64 %73
-  %.sroa.0.0.copyload.i.i65 = load i64, ptr %74, align 4
-  %.sroa.0.0.extract.trunc.i66 = trunc i64 %.sroa.0.0.copyload.i.i65 to i32
-  %75 = icmp eq i32 %.sroa.0.0.extract.trunc.i66, %.sroa.0.0.extract.trunc.i59
-  %76 = and i64 %.sroa.0.0.copyload.i.i65, 4294967296
-  %.not53 = icmp eq i64 %76, 0
-  %or.cond = and i1 %75, %.not53
-  br i1 %or.cond, label %77, label %.critedge
+_ZNK10open_spiel18twenty_forty_eight21TwentyFortyEightState20FindFarthestPositionEiii.exit: ; preds = %58, %63
+  %.lcssa109 = phi i1 [ %61, %58 ], [ true, %63 ]
+  %.lcssa = phi i1 [ %62, %58 ], [ true, %63 ]
+  %or.cond3.i.i66 = and i1 %.lcssa109, %or.cond.i.i62
+  %spec.select.i.i67 = select i1 %or.cond3.i.i66, i1 %.lcssa, i1 false
+  br i1 %spec.select.i.i67, label %_ZNK10open_spiel18twenty_forty_eight21TwentyFortyEightState14GetCellContentEii.exit71, label %.critedge
 
-77:                                               ; preds = %_ZNK10open_spiel18twenty_forty_eight21TwentyFortyEightState14GetCellContentEii.exit67
-  %78 = shl nuw nsw i32 %.sroa.0.0.extract.trunc.i59, 1
-  %79 = load i32, ptr %27, align 8
-  %80 = add nsw i32 %79, %78
-  store i32 %80, ptr %27, align 8
-  %.sroa.081.0.insert.ext = zext nneg i32 %78 to i64
-  %.sroa.081.0.insert.insert = or disjoint i64 %.sroa.081.0.insert.ext, 4294967296
-  %.sroa.0.0.extract.trunc.i71 = trunc nuw nsw i64 %.sroa.081.0.insert.insert to i40
-  store i40 %.sroa.0.0.extract.trunc.i71, ptr %74, align 4
+_ZNK10open_spiel18twenty_forty_eight21TwentyFortyEightState14GetCellContentEii.exit71: ; preds = %_ZNK10open_spiel18twenty_forty_eight21TwentyFortyEightState20FindFarthestPositionEiii.exit
+  %70 = shl nuw nsw i32 %59, 2
+  %71 = or disjoint i32 %70, %60
+  %72 = zext nneg i32 %71 to i64
+  %73 = getelementptr inbounds %"struct.open_spiel::twenty_forty_eight::Tile", ptr %46, i64 %72
+  %.sroa.0.0.copyload.i.i69 = load i64, ptr %73, align 4
+  %.sroa.0.0.extract.trunc.i70 = trunc i64 %.sroa.0.0.copyload.i.i69 to i32
+  %74 = icmp eq i32 %.sroa.0.0.extract.trunc.i70, %.sroa.0.0.extract.trunc.i59
+  %75 = and i64 %.sroa.0.0.copyload.i.i69, 4294967296
+  %.not53 = icmp eq i64 %75, 0
+  %or.cond = and i1 %74, %.not53
+  br i1 %or.cond, label %76, label %.critedge
+
+76:                                               ; preds = %_ZNK10open_spiel18twenty_forty_eight21TwentyFortyEightState14GetCellContentEii.exit71
+  %77 = shl nuw nsw i32 %.sroa.0.0.extract.trunc.i59, 1
+  %78 = load i32, ptr %27, align 8
+  %79 = add nsw i32 %78, %77
+  store i32 %79, ptr %27, align 8
+  %.sroa.085.0.insert.ext = zext nneg i32 %77 to i64
+  %.sroa.085.0.insert.insert = or disjoint i64 %.sroa.085.0.insert.ext, 4294967296
+  %.sroa.0.0.extract.trunc.i75 = trunc nuw nsw i64 %.sroa.085.0.insert.insert to i40
+  store i40 %.sroa.0.0.extract.trunc.i75, ptr %73, align 4
   br label %.critedge58
 
-.critedge:                                        ; preds = %60, %_ZNK10open_spiel18twenty_forty_eight21TwentyFortyEightState14GetCellContentEii.exit67
-  %.not54 = icmp eq i32 %.0.i61, %41
-  %.not55 = icmp eq i32 %.013.i, %44
+.critedge:                                        ; preds = %_ZNK10open_spiel18twenty_forty_eight21TwentyFortyEightState20FindFarthestPositionEiii.exit, %_ZNK10open_spiel18twenty_forty_eight21TwentyFortyEightState14GetCellContentEii.exit71
+  %.not54 = icmp eq i32 %.0.i61, %.fr
+  %.not55 = icmp eq i32 %.013.i, %43
   %or.cond56 = and i1 %.not55, %.not54
-  br i1 %or.cond56, label %_ZNK10open_spiel18twenty_forty_eight21TwentyFortyEightState14GetCellContentEii.exit.thread, label %81
+  br i1 %or.cond56, label %_ZNK10open_spiel18twenty_forty_eight21TwentyFortyEightState14GetCellContentEii.exit.thread, label %80
 
-81:                                               ; preds = %.critedge
-  %82 = shl nuw nsw i32 %.0.i61, 2
-  %83 = or disjoint i32 %82, %.013.i
-  %84 = zext nneg i32 %83 to i64
-  %85 = getelementptr inbounds %"struct.open_spiel::twenty_forty_eight::Tile", ptr %48, i64 %84
-  %86 = trunc i64 %.sroa.0.0.copyload.i.i to i40
-  %.sroa.0.0.extract.trunc.i72 = and i40 %86, 2147483647
-  store i40 %.sroa.0.0.extract.trunc.i72, ptr %85, align 4
+80:                                               ; preds = %.critedge
+  %81 = shl nsw i32 %.0.i61, 2
+  %82 = or disjoint i32 %81, %.013.i
+  %83 = sext i32 %82 to i64
+  %84 = getelementptr inbounds %"struct.open_spiel::twenty_forty_eight::Tile", ptr %46, i64 %83
+  %85 = trunc i64 %.sroa.0.0.copyload.i.i to i40
+  %.sroa.0.0.extract.trunc.i76 = and i40 %85, 2147483647
+  store i40 %.sroa.0.0.extract.trunc.i76, ptr %84, align 4
   br label %.critedge58
 
-.critedge58:                                      ; preds = %81, %77
-  %87 = load ptr, ptr %28, align 8
-  %88 = getelementptr inbounds %"struct.open_spiel::twenty_forty_eight::Tile", ptr %87, i64 %47
-  store i40 0, ptr %88, align 4
+.critedge58:                                      ; preds = %80, %76
+  %86 = load ptr, ptr %28, align 8
+  %87 = getelementptr inbounds %"struct.open_spiel::twenty_forty_eight::Tile", ptr %86, i64 %45
+  store i40 0, ptr %87, align 4
   store i32 -1, ptr %36, align 8
   br label %_ZNK10open_spiel18twenty_forty_eight21TwentyFortyEightState14GetCellContentEii.exit.thread
 
-_ZNK10open_spiel18twenty_forty_eight21TwentyFortyEightState14GetCellContentEii.exit.thread: ; preds = %43, %.critedge, %_ZNK10open_spiel18twenty_forty_eight21TwentyFortyEightState14GetCellContentEii.exit, %.critedge58
-  %.046.add = add nuw nsw i64 %.046.idx98, 4
+_ZNK10open_spiel18twenty_forty_eight21TwentyFortyEightState14GetCellContentEii.exit.thread: ; preds = %.split, %.critedge, %_ZNK10open_spiel18twenty_forty_eight21TwentyFortyEightState14GetCellContentEii.exit, %.critedge58
+  %.046.add = add nuw nsw i64 %.046.idx104, 4
   %.not51 = icmp eq i64 %.046.add, 32
-  br i1 %.not51, label %_ZN10open_spiel18twenty_forty_eight21TwentyFortyEightState12PrepareTilesEv.exit, label %43
+  br i1 %.not51, label %_ZN10open_spiel18twenty_forty_eight21TwentyFortyEightState12PrepareTilesEv.exit, label %.split
 
-_ZN10open_spiel18twenty_forty_eight21TwentyFortyEightState12PrepareTilesEv.exit: ; preds = %_ZNK10open_spiel18twenty_forty_eight21TwentyFortyEightState14GetCellContentEii.exit.thread
-  %.0.add = add nuw nsw i64 %.0.idx99, 4
+_ZN10open_spiel18twenty_forty_eight21TwentyFortyEightState12PrepareTilesEv.exit: ; preds = %_ZNK10open_spiel18twenty_forty_eight21TwentyFortyEightState14GetCellContentEii.exit.thread, %40
+  %.0.add = add nuw nsw i64 %.0.idx107, 4
   %.not = icmp eq i64 %.0.add, 16
-  br i1 %.not, label %89, label %40
+  br i1 %.not, label %88, label %40
 
-89:                                               ; preds = %_ZN10open_spiel18twenty_forty_eight21TwentyFortyEightState12PrepareTilesEv.exit
-  %90 = load i32, ptr %27, align 8
-  %91 = getelementptr inbounds nuw i8, ptr %0, i64 108
-  %92 = load i32, ptr %91, align 4
-  %93 = add nsw i32 %92, %90
-  store i32 %93, ptr %91, align 4
-  %94 = getelementptr inbounds nuw i8, ptr %0, i64 116
-  %95 = load i32, ptr %94, align 4
-  %96 = add nsw i32 %95, 1
-  store i32 %96, ptr %94, align 4
-  br label %97
+88:                                               ; preds = %_ZN10open_spiel18twenty_forty_eight21TwentyFortyEightState12PrepareTilesEv.exit
+  %89 = load i32, ptr %27, align 8
+  %90 = getelementptr inbounds nuw i8, ptr %0, i64 108
+  %91 = load i32, ptr %90, align 4
+  %92 = add nsw i32 %91, %89
+  store i32 %92, ptr %90, align 4
+  %93 = getelementptr inbounds nuw i8, ptr %0, i64 116
+  %94 = load i32, ptr %93, align 4
+  %95 = add nsw i32 %94, 1
+  store i32 %95, ptr %93, align 4
+  br label %96
 
-97:                                               ; preds = %15, %89, %17
+96:                                               ; preds = %15, %88, %17
   ret void
 }
 
@@ -1776,86 +1796,77 @@ define noundef zeroext i1 @_ZNK10open_spiel18twenty_forty_eight21TwentyFortyEigh
   %5 = trunc i64 %1 to i32
   br label %6
 
-6:                                                ; preds = %2, %34
-  %.030.idx54 = phi i64 [ 0, %2 ], [ %.030.add, %34 ]
-  %.030.ptr = getelementptr inbounds i8, ptr %3, i64 %.030.idx54
+6:                                                ; preds = %2, %.split58.us
+  %.030.idx59 = phi i64 [ 0, %2 ], [ %.030.add, %.split58.us ]
+  %.030.ptr = getelementptr inbounds i8, ptr %3, i64 %.030.idx59
   %7 = load i32, ptr %.030.ptr, align 4
-  %8 = shl nuw nsw i32 %7, 2
-  br label %9
+  %.fr = freeze i32 %7
+  %or.cond.i.i = icmp ult i32 %.fr, 4
+  %8 = shl nuw nsw i32 %.fr, 2
+  br i1 %or.cond.i.i, label %.split, label %.split58.us
 
-9:                                                ; preds = %6, %_ZNK10open_spiel18twenty_forty_eight21TwentyFortyEightState14GetCellContentEii.exit.thread
-  %.031.idx53 = phi i64 [ 16, %6 ], [ %.031.add, %_ZNK10open_spiel18twenty_forty_eight21TwentyFortyEightState14GetCellContentEii.exit.thread ]
-  %.031.ptr = getelementptr inbounds i8, ptr %3, i64 %.031.idx53
-  %10 = load i32, ptr %.031.ptr, align 4
-  %11 = or i32 %10, %7
-  %spec.select.i.i = icmp ult i32 %11, 4
+.split:                                           ; preds = %6, %_ZNK10open_spiel18twenty_forty_eight21TwentyFortyEightState14GetCellContentEii.exit.thread
+  %.031.idx56 = phi i64 [ %.031.add, %_ZNK10open_spiel18twenty_forty_eight21TwentyFortyEightState14GetCellContentEii.exit.thread ], [ 16, %6 ]
+  %.031.ptr = getelementptr inbounds i8, ptr %3, i64 %.031.idx56
+  %9 = load i32, ptr %.031.ptr, align 4
+  %spec.select.i.i = icmp ult i32 %9, 4
   br i1 %spec.select.i.i, label %_ZNK10open_spiel18twenty_forty_eight21TwentyFortyEightState14GetCellContentEii.exit, label %_ZNK10open_spiel18twenty_forty_eight21TwentyFortyEightState14GetCellContentEii.exit.thread
 
-_ZNK10open_spiel18twenty_forty_eight21TwentyFortyEightState14GetCellContentEii.exit: ; preds = %9
-  %12 = or disjoint i32 %10, %8
-  %13 = zext nneg i32 %12 to i64
-  %14 = load ptr, ptr %4, align 8
-  %15 = getelementptr inbounds %"struct.open_spiel::twenty_forty_eight::Tile", ptr %14, i64 %13
-  %.sroa.0.0.copyload.i.i = load i64, ptr %15, align 4
+_ZNK10open_spiel18twenty_forty_eight21TwentyFortyEightState14GetCellContentEii.exit: ; preds = %.split
+  %10 = or disjoint i32 %9, %8
+  %11 = zext nneg i32 %10 to i64
+  %12 = load ptr, ptr %4, align 8
+  %13 = getelementptr inbounds %"struct.open_spiel::twenty_forty_eight::Tile", ptr %12, i64 %11
+  %.sroa.0.0.copyload.i.i = load i64, ptr %13, align 4
   %.sroa.0.0.extract.trunc.i = trunc i64 %.sroa.0.0.copyload.i.i to i32
-  %16 = icmp sgt i32 %.sroa.0.0.extract.trunc.i, 0
-  br i1 %16, label %17, label %_ZNK10open_spiel18twenty_forty_eight21TwentyFortyEightState14GetCellContentEii.exit.thread
+  %14 = icmp sgt i32 %.sroa.0.0.extract.trunc.i, 0
+  br i1 %14, label %15, label %_ZNK10open_spiel18twenty_forty_eight21TwentyFortyEightState14GetCellContentEii.exit.thread
 
-17:                                               ; preds = %_ZNK10open_spiel18twenty_forty_eight21TwentyFortyEightState14GetCellContentEii.exit
-  %18 = tail call { i64, i64 } @_ZNK10open_spiel18twenty_forty_eight21TwentyFortyEightState20FindFarthestPositionEiii(ptr noundef nonnull align 8 dereferenceable(120) %0, i32 noundef %7, i32 noundef %10, i32 noundef %5)
-  %19 = extractvalue { i64, i64 } %18, 0
-  %.sroa.0.0.extract.trunc = trunc i64 %19 to i32
-  %.sroa.2.0.extract.shift = lshr i64 %19, 32
+15:                                               ; preds = %_ZNK10open_spiel18twenty_forty_eight21TwentyFortyEightState14GetCellContentEii.exit
+  %16 = tail call { i64, i64 } @_ZNK10open_spiel18twenty_forty_eight21TwentyFortyEightState20FindFarthestPositionEiii(ptr noundef nonnull align 8 dereferenceable(120) %0, i32 noundef %.fr, i32 noundef %9, i32 noundef %5)
+  %17 = extractvalue { i64, i64 } %16, 0
+  %.sroa.0.0.extract.trunc = trunc i64 %17 to i32
+  %.sroa.2.0.extract.shift = lshr i64 %17, 32
   %.sroa.2.0.extract.trunc = trunc nuw i64 %.sroa.2.0.extract.shift to i32
-  %20 = extractvalue { i64, i64 } %18, 1
-  %.sroa.5.8.extract.shift = lshr i64 %20, 32
-  %.sroa.5.8.extract.trunc = trunc nuw i64 %.sroa.5.8.extract.shift to i32
-  %21 = or i64 %.sroa.5.8.extract.shift, %20
-  %22 = and i64 %21, 4294967292
-  %spec.select.i.i40 = icmp eq i64 %22, 0
-  br i1 %spec.select.i.i40, label %_ZNK10open_spiel18twenty_forty_eight21TwentyFortyEightState14GetCellContentEii.exit44, label %.critedge
+  %18 = extractvalue { i64, i64 } %16, 1
+  %19 = and i64 %18, -12884901892
+  %spec.select.i.i42 = icmp eq i64 %19, 0
+  br i1 %spec.select.i.i42, label %_ZNK10open_spiel18twenty_forty_eight21TwentyFortyEightState14GetCellContentEii.exit46, label %.critedge
 
-_ZNK10open_spiel18twenty_forty_eight21TwentyFortyEightState14GetCellContentEii.exit44: ; preds = %17
-  %23 = shl i64 %20, 2
-  %.masked = and i64 %23, 4294967292
-  %24 = or i64 %.masked, %.sroa.5.8.extract.shift
-  %25 = load ptr, ptr %4, align 8
-  %26 = getelementptr inbounds %"struct.open_spiel::twenty_forty_eight::Tile", ptr %25, i64 %24
-  %.sroa.0.0.copyload.i.i42 = load i64, ptr %26, align 4
-  %.sroa.0.0.extract.trunc.i43 = trunc i64 %.sroa.0.0.copyload.i.i42 to i32
-  %27 = icmp eq i32 %.sroa.0.0.extract.trunc.i43, %.sroa.0.0.extract.trunc.i
-  br i1 %27, label %28, label %.critedge
+_ZNK10open_spiel18twenty_forty_eight21TwentyFortyEightState14GetCellContentEii.exit46: ; preds = %15
+  %.sroa.5.8.extract.shift = lshr i64 %18, 32
+  %20 = shl nuw nsw i64 %18, 2
+  %.masked = and i64 %20, 12
+  %21 = or disjoint i64 %.masked, %.sroa.5.8.extract.shift
+  %22 = load ptr, ptr %4, align 8
+  %23 = getelementptr inbounds %"struct.open_spiel::twenty_forty_eight::Tile", ptr %22, i64 %21
+  %.sroa.0.0.copyload.i.i44 = load i64, ptr %23, align 4
+  %.sroa.0.0.extract.trunc.i45 = trunc i64 %.sroa.0.0.copyload.i.i44 to i32
+  %24 = icmp eq i32 %.sroa.0.0.extract.trunc.i45, %.sroa.0.0.extract.trunc.i
+  %25 = and i64 %.sroa.0.0.copyload.i.i44, 4294967296
+  %.not36 = icmp eq i64 %25, 0
+  %or.cond = and i1 %24, %.not36
+  br i1 %or.cond, label %.loopexit, label %.critedge
 
-28:                                               ; preds = %_ZNK10open_spiel18twenty_forty_eight21TwentyFortyEightState14GetCellContentEii.exit44
-  %.sroa.0.0.extract.trunc.i45 = trunc i64 %20 to i32
-  %29 = shl nsw i32 %.sroa.0.0.extract.trunc.i45, 2
-  %30 = add nsw i32 %29, %.sroa.5.8.extract.trunc
-  %31 = sext i32 %30 to i64
-  %32 = getelementptr inbounds %"struct.open_spiel::twenty_forty_eight::Tile", ptr %25, i64 %31
-  %.sroa.01.0.copyload.i = load i64, ptr %32, align 4
-  %33 = and i64 %.sroa.01.0.copyload.i, 4294967296
-  %.not36 = icmp eq i64 %33, 0
-  br i1 %.not36, label %.loopexit, label %.critedge
-
-.critedge:                                        ; preds = %17, %_ZNK10open_spiel18twenty_forty_eight21TwentyFortyEightState14GetCellContentEii.exit44, %28
-  %.not37 = icmp eq i32 %7, %.sroa.0.0.extract.trunc
-  %.not38 = icmp eq i32 %10, %.sroa.2.0.extract.trunc
+.critedge:                                        ; preds = %15, %_ZNK10open_spiel18twenty_forty_eight21TwentyFortyEightState14GetCellContentEii.exit46
+  %.not37 = icmp eq i32 %.fr, %.sroa.0.0.extract.trunc
+  %.not38 = icmp eq i32 %9, %.sroa.2.0.extract.trunc
   %or.cond39 = select i1 %.not37, i1 %.not38, i1 false
   br i1 %or.cond39, label %_ZNK10open_spiel18twenty_forty_eight21TwentyFortyEightState14GetCellContentEii.exit.thread, label %.loopexit
 
-_ZNK10open_spiel18twenty_forty_eight21TwentyFortyEightState14GetCellContentEii.exit.thread: ; preds = %9, %.critedge, %_ZNK10open_spiel18twenty_forty_eight21TwentyFortyEightState14GetCellContentEii.exit
-  %.031.add = add nuw nsw i64 %.031.idx53, 4
+_ZNK10open_spiel18twenty_forty_eight21TwentyFortyEightState14GetCellContentEii.exit.thread: ; preds = %.split, %.critedge, %_ZNK10open_spiel18twenty_forty_eight21TwentyFortyEightState14GetCellContentEii.exit
+  %.031.add = add nuw nsw i64 %.031.idx56, 4
   %.not34 = icmp eq i64 %.031.add, 32
-  br i1 %.not34, label %34, label %9
+  br i1 %.not34, label %.split58.us, label %.split
 
-34:                                               ; preds = %_ZNK10open_spiel18twenty_forty_eight21TwentyFortyEightState14GetCellContentEii.exit.thread
-  %.030.add = add nuw nsw i64 %.030.idx54, 4
+.split58.us:                                      ; preds = %_ZNK10open_spiel18twenty_forty_eight21TwentyFortyEightState14GetCellContentEii.exit.thread, %6
+  %.030.add = add nuw nsw i64 %.030.idx59, 4
   %.not.not = icmp eq i64 %.030.add, 16
   br i1 %.not.not, label %.loopexit, label %6
 
-.loopexit:                                        ; preds = %34, %.critedge, %28
-  %.not52 = phi i1 [ true, %28 ], [ true, %.critedge ], [ false, %34 ]
-  ret i1 %.not52
+.loopexit:                                        ; preds = %.split58.us, %.critedge, %_ZNK10open_spiel18twenty_forty_eight21TwentyFortyEightState14GetCellContentEii.exit46
+  %.not55 = phi i1 [ true, %_ZNK10open_spiel18twenty_forty_eight21TwentyFortyEightState14GetCellContentEii.exit46 ], [ true, %.critedge ], [ false, %.split58.us ]
+  ret i1 %.not55
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -2717,7 +2728,7 @@ define void @_ZNK10open_spiel18twenty_forty_eight21TwentyFortyEightState12LegalA
 
 9:                                                ; preds = %2
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, i8 0, i64 24, i1 false)
-  br label %109
+  br label %102
 
 10:                                               ; preds = %2
   %11 = load ptr, ptr %1, align 8
@@ -2731,7 +2742,7 @@ define void @_ZNK10open_spiel18twenty_forty_eight21TwentyFortyEightState12LegalA
   %17 = getelementptr inbounds i8, ptr %16, i64 216
   %18 = load ptr, ptr %17, align 8
   tail call void %18(ptr dead_on_unwind writable sret(%"class.std::vector.33") align 8 %0, ptr noundef nonnull align 8 dereferenceable(60) %1)
-  br label %109
+  br label %102
 
 19:                                               ; preds = %10
   %20 = tail call noalias noundef nonnull dereferenceable(32) ptr @_Znwm(i64 noundef 32) #29
@@ -2743,7 +2754,7 @@ define void @_ZNK10open_spiel18twenty_forty_eight21TwentyFortyEightState12LegalA
   br label %24
 
 24:                                               ; preds = %19, %_ZNK10open_spiel18twenty_forty_eight21TwentyFortyEightState21DoesActionChangeBoardEl.exit
-  %25 = phi ptr [ null, %19 ], [ %108, %_ZNK10open_spiel18twenty_forty_eight21TwentyFortyEightState21DoesActionChangeBoardEl.exit ]
+  %25 = phi ptr [ null, %19 ], [ %101, %_ZNK10open_spiel18twenty_forty_eight21TwentyFortyEightState21DoesActionChangeBoardEl.exit ]
   %.sroa.025.0.idx36 = phi i64 [ 0, %19 ], [ %.sroa.025.0.add, %_ZNK10open_spiel18twenty_forty_eight21TwentyFortyEightState21DoesActionChangeBoardEl.exit ]
   %.sroa.025.0.ptr = getelementptr inbounds i8, ptr %20, i64 %.sroa.025.0.idx36
   %26 = load i64, ptr %.sroa.025.0.ptr, align 8
@@ -2755,243 +2766,243 @@ define void @_ZNK10open_spiel18twenty_forty_eight21TwentyFortyEightState12LegalA
   %switch.gep = getelementptr inbounds [4 x i64], ptr @switch.table._ZNK10open_spiel18twenty_forty_eight21TwentyFortyEightState12LegalActionsEv, i64 0, i64 %31
   br label %32
 
-32:                                               ; preds = %73, %24
-  %.030.idx54.i = phi i64 [ 0, %24 ], [ %.030.add.i, %73 ]
-  %.030.ptr.i = getelementptr inbounds i8, ptr %27, i64 %.030.idx54.i
+32:                                               ; preds = %.split58.us.i, %24
+  %.030.idx59.i = phi i64 [ 0, %24 ], [ %.030.add.i, %.split58.us.i ]
+  %.030.ptr.i = getelementptr inbounds i8, ptr %27, i64 %.030.idx59.i
   %33 = load i32, ptr %.030.ptr.i, align 4
-  %34 = shl nuw nsw i32 %33, 2
-  br label %35
+  %.fr.i = freeze i32 %33
+  %or.cond.i.i.i = icmp ult i32 %.fr.i, 4
+  %34 = shl nuw nsw i32 %.fr.i, 2
+  br i1 %or.cond.i.i.i, label %.split.i, label %.split58.us.i
 
-35:                                               ; preds = %_ZNK10open_spiel18twenty_forty_eight21TwentyFortyEightState14GetCellContentEii.exit.thread.i, %32
-  %.031.idx53.i = phi i64 [ 16, %32 ], [ %.031.add.i, %_ZNK10open_spiel18twenty_forty_eight21TwentyFortyEightState14GetCellContentEii.exit.thread.i ]
-  %.031.ptr.i = getelementptr inbounds i8, ptr %27, i64 %.031.idx53.i
-  %36 = load i32, ptr %.031.ptr.i, align 4
-  %37 = or i32 %36, %33
-  %spec.select.i.i.i = icmp ult i32 %37, 4
+.split.i:                                         ; preds = %32, %_ZNK10open_spiel18twenty_forty_eight21TwentyFortyEightState14GetCellContentEii.exit.thread.i
+  %.031.idx56.i = phi i64 [ %.031.add.i, %_ZNK10open_spiel18twenty_forty_eight21TwentyFortyEightState14GetCellContentEii.exit.thread.i ], [ 16, %32 ]
+  %.031.ptr.i = getelementptr inbounds i8, ptr %27, i64 %.031.idx56.i
+  %35 = load i32, ptr %.031.ptr.i, align 4
+  %spec.select.i.i.i = icmp ult i32 %35, 4
   br i1 %spec.select.i.i.i, label %_ZNK10open_spiel18twenty_forty_eight21TwentyFortyEightState14GetCellContentEii.exit.i, label %_ZNK10open_spiel18twenty_forty_eight21TwentyFortyEightState14GetCellContentEii.exit.thread.i
 
-_ZNK10open_spiel18twenty_forty_eight21TwentyFortyEightState14GetCellContentEii.exit.i: ; preds = %35
-  %38 = or disjoint i32 %36, %34
-  %39 = zext nneg i32 %38 to i64
-  %40 = getelementptr inbounds %"struct.open_spiel::twenty_forty_eight::Tile", ptr %28, i64 %39
-  %.sroa.0.0.copyload.i.i.i = load i64, ptr %40, align 4
+_ZNK10open_spiel18twenty_forty_eight21TwentyFortyEightState14GetCellContentEii.exit.i: ; preds = %.split.i
+  %36 = or disjoint i32 %35, %34
+  %37 = zext nneg i32 %36 to i64
+  %38 = getelementptr inbounds %"struct.open_spiel::twenty_forty_eight::Tile", ptr %28, i64 %37
+  %.sroa.0.0.copyload.i.i.i = load i64, ptr %38, align 4
   %.sroa.0.0.extract.trunc.i.i = trunc i64 %.sroa.0.0.copyload.i.i.i to i32
-  %41 = icmp sgt i32 %.sroa.0.0.extract.trunc.i.i, 0
-  br i1 %41, label %42, label %_ZNK10open_spiel18twenty_forty_eight21TwentyFortyEightState14GetCellContentEii.exit.thread.i
+  %39 = icmp sgt i32 %.sroa.0.0.extract.trunc.i.i, 0
+  br i1 %39, label %40, label %_ZNK10open_spiel18twenty_forty_eight21TwentyFortyEightState14GetCellContentEii.exit.thread.i
 
-42:                                               ; preds = %_ZNK10open_spiel18twenty_forty_eight21TwentyFortyEightState14GetCellContentEii.exit.i
+40:                                               ; preds = %_ZNK10open_spiel18twenty_forty_eight21TwentyFortyEightState14GetCellContentEii.exit.i
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %3)
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %4)
-  br i1 %30, label %switch.lookup, label %43
+  br i1 %30, label %switch.lookup, label %41
 
-43:                                               ; preds = %42
+41:                                               ; preds = %40
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %4) #27
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %3, ptr noundef nonnull @.str.24, ptr noundef nonnull align 1 dereferenceable(1) %4)
-          to label %44 unwind label %46
+          to label %42 unwind label %44
 
-44:                                               ; preds = %43
+42:                                               ; preds = %41
   invoke void @_ZN10open_spiel15SpielFatalErrorERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(32) %3) #26
-          to label %45 unwind label %48
+          to label %43 unwind label %46
 
-45:                                               ; preds = %44
+43:                                               ; preds = %42
   unreachable
 
-46:                                               ; preds = %43
+44:                                               ; preds = %41
+  %45 = landingpad { ptr, i32 }
+          cleanup
+  br label %48
+
+46:                                               ; preds = %42
   %47 = landingpad { ptr, i32 }
           cleanup
-  br label %50
-
-48:                                               ; preds = %44
-  %49 = landingpad { ptr, i32 }
-          cleanup
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %3) #27
-  br label %50
+  br label %48
 
-50:                                               ; preds = %48, %46
-  %.pn.i.i = phi { ptr, i32 } [ %49, %48 ], [ %47, %46 ]
+48:                                               ; preds = %46, %44
+  %.pn.i.i = phi { ptr, i32 } [ %47, %46 ], [ %45, %44 ]
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %4) #27
   %.pre = load ptr, ptr %0, align 8
   br label %.body22
 
-switch.lookup:                                    ; preds = %42
+switch.lookup:                                    ; preds = %40
   %switch.load = load i64, ptr %switch.gep, align 8
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %3)
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %4)
   %.sroa.0.0.extract.trunc.i17 = trunc i64 %switch.load to i32
   %.sroa.2.0.extract.shift.i18 = lshr i64 %switch.load, 32
   %.sroa.2.0.extract.trunc.i19 = trunc nuw i64 %.sroa.2.0.extract.shift.i18 to i32
-  br label %51
+  br label %49
 
-51:                                               ; preds = %55, %switch.lookup
-  %.013.i = phi i32 [ %36, %switch.lookup ], [ %53, %55 ]
-  %.0.i = phi i32 [ %33, %switch.lookup ], [ %52, %55 ]
-  %52 = add nsw i32 %.0.i, %.sroa.0.0.extract.trunc.i17
-  %53 = add nsw i32 %.013.i, %.sroa.2.0.extract.trunc.i19
-  %54 = or i32 %52, %53
-  %spec.select.i.i = icmp ult i32 %54, 4
-  br i1 %spec.select.i.i, label %55, label %.noexc
+49:                                               ; preds = %54, %switch.lookup
+  %.013.i = phi i32 [ %35, %switch.lookup ], [ %51, %54 ]
+  %.0.i = phi i32 [ %.fr.i, %switch.lookup ], [ %50, %54 ]
+  %50 = add nsw i32 %.0.i, %.sroa.0.0.extract.trunc.i17
+  %51 = add nsw i32 %.013.i, %.sroa.2.0.extract.trunc.i19
+  %or.cond.i.i = icmp ult i32 %50, 4
+  %52 = icmp sgt i32 %51, -1
+  %or.cond3.i.i = and i1 %52, %or.cond.i.i
+  %53 = icmp samesign ult i32 %51, 4
+  %spec.select.i.i = select i1 %or.cond3.i.i, i1 %53, i1 false
+  br i1 %spec.select.i.i, label %54, label %.noexc
 
-55:                                               ; preds = %51
-  %56 = shl nuw nsw i32 %52, 2
-  %57 = or disjoint i32 %56, %53
-  %58 = zext nneg i32 %57 to i64
-  %59 = getelementptr inbounds %"struct.open_spiel::twenty_forty_eight::Tile", ptr %28, i64 %58
-  %.sroa.0.0.copyload.i.i.i21 = load i64, ptr %59, align 4
-  %60 = and i64 %.sroa.0.0.copyload.i.i.i21, 4294967295
-  %61 = icmp eq i64 %60, 0
-  br i1 %61, label %51, label %.noexc, !llvm.loop !8
+54:                                               ; preds = %49
+  %55 = shl nuw nsw i32 %50, 2
+  %56 = or disjoint i32 %55, %51
+  %57 = zext nneg i32 %56 to i64
+  %58 = getelementptr inbounds %"struct.open_spiel::twenty_forty_eight::Tile", ptr %28, i64 %57
+  %.sroa.0.0.copyload.i.i.i21 = load i64, ptr %58, align 4
+  %59 = and i64 %.sroa.0.0.copyload.i.i.i21, 4294967295
+  %60 = icmp eq i64 %59, 0
+  br i1 %60, label %49, label %.noexc, !llvm.loop !8
 
-.noexc:                                           ; preds = %55, %51
-  %.sroa.4.8.insert.ext.i = zext i32 %53 to i64
-  %.sroa.216.8.insert.ext.i = zext i32 %52 to i64
-  %62 = or i64 %.sroa.216.8.insert.ext.i, %.sroa.4.8.insert.ext.i
-  %spec.select.i.i40.i = icmp samesign ult i64 %62, 4
-  br i1 %spec.select.i.i40.i, label %_ZNK10open_spiel18twenty_forty_eight21TwentyFortyEightState14GetCellContentEii.exit44.i, label %.critedge.i
+.noexc:                                           ; preds = %54, %49
+  %.sroa.4.8.insert.ext.i = zext i32 %51 to i64
+  %.sroa.4.8.insert.shift.i = shl nuw i64 %.sroa.4.8.insert.ext.i, 32
+  %.sroa.216.8.insert.ext.i = zext i32 %50 to i64
+  %.sroa.216.8.insert.insert.i = or disjoint i64 %.sroa.4.8.insert.shift.i, %.sroa.216.8.insert.ext.i
+  %61 = and i64 %.sroa.216.8.insert.insert.i, -12884901892
+  %spec.select.i.i42.i = icmp eq i64 %61, 0
+  br i1 %spec.select.i.i42.i, label %_ZNK10open_spiel18twenty_forty_eight21TwentyFortyEightState14GetCellContentEii.exit46.i, label %.critedge.i
 
-_ZNK10open_spiel18twenty_forty_eight21TwentyFortyEightState14GetCellContentEii.exit44.i: ; preds = %.noexc
-  %63 = shl nuw nsw i64 %.sroa.216.8.insert.ext.i, 2
-  %64 = or disjoint i64 %63, %.sroa.4.8.insert.ext.i
-  %65 = getelementptr inbounds %"struct.open_spiel::twenty_forty_eight::Tile", ptr %28, i64 %64
-  %.sroa.0.0.copyload.i.i42.i = load i64, ptr %65, align 4
-  %.sroa.0.0.extract.trunc.i43.i = trunc i64 %.sroa.0.0.copyload.i.i42.i to i32
-  %66 = icmp eq i32 %.sroa.0.0.extract.trunc.i43.i, %.sroa.0.0.extract.trunc.i.i
-  br i1 %66, label %67, label %.critedge.i
+_ZNK10open_spiel18twenty_forty_eight21TwentyFortyEightState14GetCellContentEii.exit46.i: ; preds = %.noexc
+  %62 = shl nuw nsw i64 %.sroa.216.8.insert.insert.i, 2
+  %.masked.i = and i64 %62, 12
+  %63 = or disjoint i64 %.masked.i, %.sroa.4.8.insert.ext.i
+  %64 = getelementptr inbounds %"struct.open_spiel::twenty_forty_eight::Tile", ptr %28, i64 %63
+  %.sroa.0.0.copyload.i.i44.i = load i64, ptr %64, align 4
+  %.sroa.0.0.extract.trunc.i45.i = trunc i64 %.sroa.0.0.copyload.i.i44.i to i32
+  %65 = icmp eq i32 %.sroa.0.0.extract.trunc.i45.i, %.sroa.0.0.extract.trunc.i.i
+  %66 = and i64 %.sroa.0.0.copyload.i.i44.i, 4294967296
+  %.not36.i = icmp eq i64 %66, 0
+  %or.cond.i = and i1 %65, %.not36.i
+  br i1 %or.cond.i, label %67, label %.critedge.i
 
-67:                                               ; preds = %_ZNK10open_spiel18twenty_forty_eight21TwentyFortyEightState14GetCellContentEii.exit44.i
-  %68 = shl nsw i32 %52, 2
-  %69 = add nsw i32 %68, %53
-  %70 = sext i32 %69 to i64
-  %71 = getelementptr inbounds %"struct.open_spiel::twenty_forty_eight::Tile", ptr %28, i64 %70
-  %.sroa.01.0.copyload.i.i = load i64, ptr %71, align 4
-  %72 = and i64 %.sroa.01.0.copyload.i.i, 4294967296
-  %.not36.i = icmp eq i64 %72, 0
-  br i1 %.not36.i, label %74, label %.critedge.i
-
-.critedge.i:                                      ; preds = %67, %_ZNK10open_spiel18twenty_forty_eight21TwentyFortyEightState14GetCellContentEii.exit44.i, %.noexc
-  %.not37.i = icmp eq i32 %33, %.0.i
-  %.not38.i = icmp eq i32 %36, %.013.i
+.critedge.i:                                      ; preds = %_ZNK10open_spiel18twenty_forty_eight21TwentyFortyEightState14GetCellContentEii.exit46.i, %.noexc
+  %.not37.i = icmp eq i32 %.fr.i, %.0.i
+  %.not38.i = icmp eq i32 %35, %.013.i
   %or.cond39.i = and i1 %.not38.i, %.not37.i
-  br i1 %or.cond39.i, label %_ZNK10open_spiel18twenty_forty_eight21TwentyFortyEightState14GetCellContentEii.exit.thread.i, label %74
+  br i1 %or.cond39.i, label %_ZNK10open_spiel18twenty_forty_eight21TwentyFortyEightState14GetCellContentEii.exit.thread.i, label %67
 
-_ZNK10open_spiel18twenty_forty_eight21TwentyFortyEightState14GetCellContentEii.exit.thread.i: ; preds = %.critedge.i, %_ZNK10open_spiel18twenty_forty_eight21TwentyFortyEightState14GetCellContentEii.exit.i, %35
-  %.031.add.i = add nuw nsw i64 %.031.idx53.i, 4
+_ZNK10open_spiel18twenty_forty_eight21TwentyFortyEightState14GetCellContentEii.exit.thread.i: ; preds = %.critedge.i, %_ZNK10open_spiel18twenty_forty_eight21TwentyFortyEightState14GetCellContentEii.exit.i, %.split.i
+  %.031.add.i = add nuw nsw i64 %.031.idx56.i, 4
   %.not34.i = icmp eq i64 %.031.add.i, 32
-  br i1 %.not34.i, label %73, label %35
+  br i1 %.not34.i, label %.split58.us.i, label %.split.i
 
-73:                                               ; preds = %_ZNK10open_spiel18twenty_forty_eight21TwentyFortyEightState14GetCellContentEii.exit.thread.i
-  %.030.add.i = add nuw nsw i64 %.030.idx54.i, 4
+.split58.us.i:                                    ; preds = %_ZNK10open_spiel18twenty_forty_eight21TwentyFortyEightState14GetCellContentEii.exit.thread.i, %32
+  %.030.add.i = add nuw nsw i64 %.030.idx59.i, 4
   %.not.not.i = icmp eq i64 %.030.add.i, 16
   br i1 %.not.not.i, label %_ZNK10open_spiel18twenty_forty_eight21TwentyFortyEightState21DoesActionChangeBoardEl.exit, label %32
 
-74:                                               ; preds = %67, %.critedge.i
-  %75 = load ptr, ptr %23, align 8
-  %.not.i = icmp eq ptr %25, %75
-  br i1 %.not.i, label %79, label %76
+67:                                               ; preds = %_ZNK10open_spiel18twenty_forty_eight21TwentyFortyEightState14GetCellContentEii.exit46.i, %.critedge.i
+  %68 = load ptr, ptr %23, align 8
+  %.not.i = icmp eq ptr %25, %68
+  br i1 %.not.i, label %72, label %69
 
-76:                                               ; preds = %74
+69:                                               ; preds = %67
   store i64 %26, ptr %25, align 8
-  %77 = load ptr, ptr %22, align 8
-  %78 = getelementptr inbounds i8, ptr %77, i64 8
-  store ptr %78, ptr %22, align 8
+  %70 = load ptr, ptr %22, align 8
+  %71 = getelementptr inbounds i8, ptr %70, i64 8
+  store ptr %71, ptr %22, align 8
   br label %_ZNK10open_spiel18twenty_forty_eight21TwentyFortyEightState21DoesActionChangeBoardEl.exit
 
-79:                                               ; preds = %74
-  %80 = load ptr, ptr %0, align 8
-  %81 = ptrtoint ptr %25 to i64
-  %82 = ptrtoint ptr %80 to i64
-  %83 = sub i64 %81, %82
-  %84 = icmp eq i64 %83, 9223372036854775800
-  br i1 %84, label %85, label %_ZNKSt6vectorIlSaIlEE12_M_check_lenEmPKc.exit.i.i
+72:                                               ; preds = %67
+  %73 = load ptr, ptr %0, align 8
+  %74 = ptrtoint ptr %25 to i64
+  %75 = ptrtoint ptr %73 to i64
+  %76 = sub i64 %74, %75
+  %77 = icmp eq i64 %76, 9223372036854775800
+  br i1 %77, label %78, label %_ZNKSt6vectorIlSaIlEE12_M_check_lenEmPKc.exit.i.i
 
-85:                                               ; preds = %79
+78:                                               ; preds = %72
   invoke void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str.62) #26
           to label %.noexc7 unwind label %.loopexit.split-lp
 
-.noexc7:                                          ; preds = %85
+.noexc7:                                          ; preds = %78
   unreachable
 
-_ZNKSt6vectorIlSaIlEE12_M_check_lenEmPKc.exit.i.i: ; preds = %79
-  %86 = ashr exact i64 %83, 3
-  %.sroa.speculated.i.i.i = tail call i64 @llvm.umax.i64(i64 %86, i64 1)
-  %87 = add nsw i64 %.sroa.speculated.i.i.i, %86
-  %88 = icmp ult i64 %87, %86
-  %89 = tail call i64 @llvm.umin.i64(i64 %87, i64 1152921504606846975)
-  %90 = select i1 %88, i64 1152921504606846975, i64 %89
-  %.not.i.i.i = icmp eq i64 %90, 0
-  br i1 %.not.i.i.i, label %_ZNSt12_Vector_baseIlSaIlEE11_M_allocateEm.exit.i.i, label %91
+_ZNKSt6vectorIlSaIlEE12_M_check_lenEmPKc.exit.i.i: ; preds = %72
+  %79 = ashr exact i64 %76, 3
+  %.sroa.speculated.i.i.i = tail call i64 @llvm.umax.i64(i64 %79, i64 1)
+  %80 = add nsw i64 %.sroa.speculated.i.i.i, %79
+  %81 = icmp ult i64 %80, %79
+  %82 = tail call i64 @llvm.umin.i64(i64 %80, i64 1152921504606846975)
+  %83 = select i1 %81, i64 1152921504606846975, i64 %82
+  %.not.i.i.i = icmp eq i64 %83, 0
+  br i1 %.not.i.i.i, label %_ZNSt12_Vector_baseIlSaIlEE11_M_allocateEm.exit.i.i, label %84
 
-91:                                               ; preds = %_ZNKSt6vectorIlSaIlEE12_M_check_lenEmPKc.exit.i.i
-  %92 = shl nuw nsw i64 %90, 3
-  %93 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %92) #29
+84:                                               ; preds = %_ZNKSt6vectorIlSaIlEE12_M_check_lenEmPKc.exit.i.i
+  %85 = shl nuw nsw i64 %83, 3
+  %86 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %85) #29
           to label %_ZNSt12_Vector_baseIlSaIlEE11_M_allocateEm.exit.i.i unwind label %.loopexit
 
-_ZNSt12_Vector_baseIlSaIlEE11_M_allocateEm.exit.i.i: ; preds = %91, %_ZNKSt6vectorIlSaIlEE12_M_check_lenEmPKc.exit.i.i
-  %94 = phi ptr [ null, %_ZNKSt6vectorIlSaIlEE12_M_check_lenEmPKc.exit.i.i ], [ %93, %91 ]
-  %95 = getelementptr inbounds i64, ptr %94, i64 %86
-  store i64 %26, ptr %95, align 8
-  %96 = icmp sgt i64 %83, 0
-  br i1 %96, label %97, label %_ZNSt6vectorIlSaIlEE11_S_relocateEPlS2_S2_RS0_.exit16.i.i
+_ZNSt12_Vector_baseIlSaIlEE11_M_allocateEm.exit.i.i: ; preds = %84, %_ZNKSt6vectorIlSaIlEE12_M_check_lenEmPKc.exit.i.i
+  %87 = phi ptr [ null, %_ZNKSt6vectorIlSaIlEE12_M_check_lenEmPKc.exit.i.i ], [ %86, %84 ]
+  %88 = getelementptr inbounds i64, ptr %87, i64 %79
+  store i64 %26, ptr %88, align 8
+  %89 = icmp sgt i64 %76, 0
+  br i1 %89, label %90, label %_ZNSt6vectorIlSaIlEE11_S_relocateEPlS2_S2_RS0_.exit16.i.i
 
-97:                                               ; preds = %_ZNSt12_Vector_baseIlSaIlEE11_M_allocateEm.exit.i.i
-  tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %94, ptr align 8 %80, i64 %83, i1 false)
+90:                                               ; preds = %_ZNSt12_Vector_baseIlSaIlEE11_M_allocateEm.exit.i.i
+  tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %87, ptr align 8 %73, i64 %76, i1 false)
   br label %_ZNSt6vectorIlSaIlEE11_S_relocateEPlS2_S2_RS0_.exit16.i.i
 
-_ZNSt6vectorIlSaIlEE11_S_relocateEPlS2_S2_RS0_.exit16.i.i: ; preds = %97, %_ZNSt12_Vector_baseIlSaIlEE11_M_allocateEm.exit.i.i
-  %98 = getelementptr inbounds i8, ptr %94, i64 %83
-  %99 = getelementptr inbounds i8, ptr %98, i64 8
-  %.not.i17.i.i = icmp eq ptr %80, null
-  br i1 %.not.i17.i.i, label %_ZNSt6vectorIlSaIlEE17_M_realloc_insertIJRKlEEEvN9__gnu_cxx17__normal_iteratorIPlS1_EEDpOT_.exit.i, label %100
+_ZNSt6vectorIlSaIlEE11_S_relocateEPlS2_S2_RS0_.exit16.i.i: ; preds = %90, %_ZNSt12_Vector_baseIlSaIlEE11_M_allocateEm.exit.i.i
+  %91 = getelementptr inbounds i8, ptr %87, i64 %76
+  %92 = getelementptr inbounds i8, ptr %91, i64 8
+  %.not.i17.i.i = icmp eq ptr %73, null
+  br i1 %.not.i17.i.i, label %_ZNSt6vectorIlSaIlEE17_M_realloc_insertIJRKlEEEvN9__gnu_cxx17__normal_iteratorIPlS1_EEDpOT_.exit.i, label %93
 
-100:                                              ; preds = %_ZNSt6vectorIlSaIlEE11_S_relocateEPlS2_S2_RS0_.exit16.i.i
-  tail call void @_ZdlPvm(ptr noundef nonnull %80, i64 noundef %83) #30
+93:                                               ; preds = %_ZNSt6vectorIlSaIlEE11_S_relocateEPlS2_S2_RS0_.exit16.i.i
+  tail call void @_ZdlPvm(ptr noundef nonnull %73, i64 noundef %76) #30
   br label %_ZNSt6vectorIlSaIlEE17_M_realloc_insertIJRKlEEEvN9__gnu_cxx17__normal_iteratorIPlS1_EEDpOT_.exit.i
 
-_ZNSt6vectorIlSaIlEE17_M_realloc_insertIJRKlEEEvN9__gnu_cxx17__normal_iteratorIPlS1_EEDpOT_.exit.i: ; preds = %100, %_ZNSt6vectorIlSaIlEE11_S_relocateEPlS2_S2_RS0_.exit16.i.i
-  store ptr %94, ptr %0, align 8
-  store ptr %99, ptr %22, align 8
-  %101 = getelementptr inbounds i64, ptr %94, i64 %90
-  store ptr %101, ptr %23, align 8
+_ZNSt6vectorIlSaIlEE17_M_realloc_insertIJRKlEEEvN9__gnu_cxx17__normal_iteratorIPlS1_EEDpOT_.exit.i: ; preds = %93, %_ZNSt6vectorIlSaIlEE11_S_relocateEPlS2_S2_RS0_.exit16.i.i
+  store ptr %87, ptr %0, align 8
+  store ptr %92, ptr %22, align 8
+  %94 = getelementptr inbounds i64, ptr %87, i64 %83
+  store ptr %94, ptr %23, align 8
   br label %_ZNK10open_spiel18twenty_forty_eight21TwentyFortyEightState21DoesActionChangeBoardEl.exit
 
-.loopexit:                                        ; preds = %91
+.loopexit:                                        ; preds = %84
   %lpad.loopexit = landingpad { ptr, i32 }
           cleanup
   br label %.body22
 
-.loopexit.split-lp:                               ; preds = %85
+.loopexit.split-lp:                               ; preds = %78
   %lpad.loopexit.split-lp = landingpad { ptr, i32 }
           cleanup
   br label %.body22
 
-.body22:                                          ; preds = %.loopexit, %.loopexit.split-lp, %50
-  %102 = phi ptr [ %.pre, %50 ], [ %80, %.loopexit ], [ %80, %.loopexit.split-lp ]
-  %eh.lpad-body23 = phi { ptr, i32 } [ %.pn.i.i, %50 ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
-  %.not.i.i.i9 = icmp eq ptr %102, null
-  br i1 %.not.i.i.i9, label %_ZNSt6vectorIlSaIlEED2Ev.exit13, label %103
+.body22:                                          ; preds = %.loopexit, %.loopexit.split-lp, %48
+  %95 = phi ptr [ %.pre, %48 ], [ %73, %.loopexit ], [ %73, %.loopexit.split-lp ]
+  %eh.lpad-body23 = phi { ptr, i32 } [ %.pn.i.i, %48 ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
+  %.not.i.i.i9 = icmp eq ptr %95, null
+  br i1 %.not.i.i.i9, label %_ZNSt6vectorIlSaIlEED2Ev.exit13, label %96
 
-103:                                              ; preds = %.body22
-  %104 = load ptr, ptr %23, align 8
-  %105 = ptrtoint ptr %104 to i64
-  %106 = ptrtoint ptr %102 to i64
-  %107 = sub i64 %105, %106
-  call void @_ZdlPvm(ptr noundef nonnull %102, i64 noundef %107) #30
+96:                                               ; preds = %.body22
+  %97 = load ptr, ptr %23, align 8
+  %98 = ptrtoint ptr %97 to i64
+  %99 = ptrtoint ptr %95 to i64
+  %100 = sub i64 %98, %99
+  call void @_ZdlPvm(ptr noundef nonnull %95, i64 noundef %100) #30
   br label %_ZNSt6vectorIlSaIlEED2Ev.exit13
 
-_ZNSt6vectorIlSaIlEED2Ev.exit13:                  ; preds = %.body22, %103
+_ZNSt6vectorIlSaIlEED2Ev.exit13:                  ; preds = %.body22, %96
   call void @_ZdlPvm(ptr noundef nonnull %20, i64 noundef 32) #30
   resume { ptr, i32 } %eh.lpad-body23
 
-_ZNK10open_spiel18twenty_forty_eight21TwentyFortyEightState21DoesActionChangeBoardEl.exit: ; preds = %73, %_ZNSt6vectorIlSaIlEE17_M_realloc_insertIJRKlEEEvN9__gnu_cxx17__normal_iteratorIPlS1_EEDpOT_.exit.i, %76
-  %108 = phi ptr [ %99, %_ZNSt6vectorIlSaIlEE17_M_realloc_insertIJRKlEEEvN9__gnu_cxx17__normal_iteratorIPlS1_EEDpOT_.exit.i ], [ %78, %76 ], [ %25, %73 ]
+_ZNK10open_spiel18twenty_forty_eight21TwentyFortyEightState21DoesActionChangeBoardEl.exit: ; preds = %.split58.us.i, %_ZNSt6vectorIlSaIlEE17_M_realloc_insertIJRKlEEEvN9__gnu_cxx17__normal_iteratorIPlS1_EEDpOT_.exit.i, %69
+  %101 = phi ptr [ %92, %_ZNSt6vectorIlSaIlEE17_M_realloc_insertIJRKlEEEvN9__gnu_cxx17__normal_iteratorIPlS1_EEDpOT_.exit.i ], [ %71, %69 ], [ %25, %.split58.us.i ]
   %.sroa.025.0.add = add nuw nsw i64 %.sroa.025.0.idx36, 8
   %.not = icmp eq i64 %.sroa.025.0.add, 32
   br i1 %.not, label %_ZNSt6vectorIlSaIlEED2Ev.exit16, label %24
 
 _ZNSt6vectorIlSaIlEED2Ev.exit16:                  ; preds = %_ZNK10open_spiel18twenty_forty_eight21TwentyFortyEightState21DoesActionChangeBoardEl.exit
   tail call void @_ZdlPvm(ptr noundef nonnull %20, i64 noundef 32) #30
-  br label %109
+  br label %102
 
-109:                                              ; preds = %_ZNSt6vectorIlSaIlEED2Ev.exit16, %15, %9
+102:                                              ; preds = %_ZNSt6vectorIlSaIlEED2Ev.exit16, %15, %9
   ret void
 }
 

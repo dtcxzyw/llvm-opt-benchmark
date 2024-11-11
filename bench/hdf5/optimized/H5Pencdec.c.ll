@@ -75,7 +75,7 @@ define noundef i32 @H5P__encode_size_t(ptr nocapture noundef readonly %0, ptr no
   br label %H5VM_limit_enc_size.exit
 
 20:                                               ; preds = %6
-  %.not27.i.i = icmp ult i64 %4, 1099511627776
+  %.not27.i.i = icmp samesign ult i64 %4, 1099511627776
   br i1 %.not27.i.i, label %27, label %21
 
 21:                                               ; preds = %20
@@ -95,11 +95,11 @@ define noundef i32 @H5P__encode_size_t(ptr nocapture noundef readonly %0, ptr no
 
 32:                                               ; preds = %3
   %33 = lshr i64 %4, 16
-  %.not23.i.i = icmp ult i64 %4, 65536
+  %.not23.i.i = icmp samesign ult i64 %4, 65536
   br i1 %.not23.i.i, label %46, label %34
 
 34:                                               ; preds = %32
-  %.not25.i.i = icmp ult i64 %4, 16777216
+  %.not25.i.i = icmp samesign ult i64 %4, 16777216
   br i1 %.not25.i.i, label %41, label %35
 
 35:                                               ; preds = %34
@@ -118,7 +118,7 @@ define noundef i32 @H5P__encode_size_t(ptr nocapture noundef readonly %0, ptr no
   br label %H5VM_limit_enc_size.exit
 
 46:                                               ; preds = %32
-  %.not24.i.i = icmp ult i64 %4, 256
+  %.not24.i.i = icmp samesign ult i64 %4, 256
   br i1 %.not24.i.i, label %53, label %47
 
 47:                                               ; preds = %46
@@ -211,7 +211,7 @@ define noundef i32 @H5P__encode_hsize_t(ptr nocapture noundef readonly %0, ptr n
   br label %H5VM_limit_enc_size.exit
 
 20:                                               ; preds = %6
-  %.not27.i.i = icmp ult i64 %4, 1099511627776
+  %.not27.i.i = icmp samesign ult i64 %4, 1099511627776
   br i1 %.not27.i.i, label %27, label %21
 
 21:                                               ; preds = %20
@@ -231,11 +231,11 @@ define noundef i32 @H5P__encode_hsize_t(ptr nocapture noundef readonly %0, ptr n
 
 32:                                               ; preds = %3
   %33 = lshr i64 %4, 16
-  %.not23.i.i = icmp ult i64 %4, 65536
+  %.not23.i.i = icmp samesign ult i64 %4, 65536
   br i1 %.not23.i.i, label %46, label %34
 
 34:                                               ; preds = %32
-  %.not25.i.i = icmp ult i64 %4, 16777216
+  %.not25.i.i = icmp samesign ult i64 %4, 16777216
   br i1 %.not25.i.i, label %41, label %35
 
 35:                                               ; preds = %34
@@ -254,7 +254,7 @@ define noundef i32 @H5P__encode_hsize_t(ptr nocapture noundef readonly %0, ptr n
   br label %H5VM_limit_enc_size.exit
 
 46:                                               ; preds = %32
-  %.not24.i.i = icmp ult i64 %4, 256
+  %.not24.i.i = icmp samesign ult i64 %4, 256
   br i1 %.not24.i.i, label %53, label %47
 
 47:                                               ; preds = %46

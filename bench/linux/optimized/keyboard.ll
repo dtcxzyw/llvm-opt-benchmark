@@ -1442,7 +1442,7 @@ define dso_local i32 @vt_do_kdgkb_ioctl(i32 noundef %0, ptr noundef %1, i32 noun
 
 29:                                               ; preds = %21
   %30 = add nuw i64 %27, 1
-  %31 = icmp ugt i64 %27, 511
+  %31 = icmp samesign ugt i64 %27, 511
   br i1 %31, label %32, label %33, !prof !15
 
 32:                                               ; preds = %29
@@ -2599,7 +2599,7 @@ define internal void @kbd_event(ptr nocapture noundef readonly %0, i32 noundef %
   br label %498
 
 433:                                              ; preds = %165
-  %434 = icmp ugt i32 %2, 255
+  %434 = icmp samesign ugt i32 %2, 255
   br i1 %434, label %.thread42, label %435
 
 435:                                              ; preds = %433
@@ -2746,7 +2746,7 @@ define internal void @kbd_event(ptr nocapture noundef readonly %0, i32 noundef %
   br i1 %508, label %509, label %622
 
 509:                                              ; preds = %.thread42
-  %510 = icmp ult i32 %2, 128
+  %510 = icmp samesign ult i32 %2, 128
   %511 = icmp eq i32 %3, 0
   br i1 %510, label %512, label %541
 
@@ -3095,7 +3095,7 @@ do_compute_shiftstate.exit:                       ; preds = %692, %667
   br label %772
 
 700:                                              ; preds = %645
-  %701 = icmp ult i32 %2, 256
+  %701 = icmp samesign ult i32 %2, 256
   br i1 %701, label %708, label %702
 
 702:                                              ; preds = %700

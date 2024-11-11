@@ -1501,7 +1501,7 @@ for.body.i29:                                     ; preds = %if.then23, %for.bod
   %28 = load i8, ptr %arrayidx.i30, align 1
   %conv.i = sext i8 %28 to i64
   %or.i = or i64 %shl.i, %conv.i
-  %cmp.i31 = icmp ugt i64 %indvars.iv15.i, 1
+  %cmp.i31 = icmp samesign ugt i64 %indvars.iv15.i, 1
   br i1 %cmp.i31, label %for.body.i29, label %for.end.i, !llvm.loop !10
 
 for.end.i:                                        ; preds = %for.body.i29, %if.then23.thread
@@ -3824,11 +3824,11 @@ if.end9:                                          ; preds = %if.end
   br i1 %cmp13, label %for.cond.preheader, label %for.cond19.preheader
 
 for.cond19.preheader:                             ; preds = %if.end9
-  %cmp2020 = icmp ult i32 %conv12, -21
+  %cmp2020 = icmp samesign ult i32 %conv12, -21
   br i1 %cmp2020, label %for.body21, label %for.end24
 
 for.cond.preheader:                               ; preds = %if.end9
-  %cmp1524 = icmp ugt i32 %conv12, 21
+  %cmp1524 = icmp samesign ugt i32 %conv12, 21
   br i1 %cmp1524, label %for.body, label %for.end
 
 for.body:                                         ; preds = %for.cond.preheader, %for.body
@@ -3836,7 +3836,7 @@ for.body:                                         ; preds = %for.cond.preheader,
   %i.025 = phi i32 [ %sub16, %for.body ], [ %conv12, %for.cond.preheader ]
   %mul = fmul double %n.addr.026, 1.000000e+22
   %sub16 = add nsw i32 %i.025, -22
-  %cmp15 = icmp ugt i32 %i.025, 43
+  %cmp15 = icmp samesign ugt i32 %i.025, 43
   br i1 %cmp15, label %for.body, label %for.end, !llvm.loop !22
 
 for.end:                                          ; preds = %for.body, %for.cond.preheader
@@ -3853,7 +3853,7 @@ for.body21:                                       ; preds = %for.cond19.preheade
   %i18.021 = phi i32 [ %add, %for.body21 ], [ %conv12, %for.cond19.preheader ]
   %div22 = fdiv double %n.addr.222, 1.000000e+22
   %add = add nsw i32 %i18.021, 22
-  %cmp20 = icmp ult i32 %i18.021, -43
+  %cmp20 = icmp samesign ult i32 %i18.021, -43
   br i1 %cmp20, label %for.body21, label %for.end24, !llvm.loop !23
 
 for.end24:                                        ; preds = %for.body21, %for.cond19.preheader
@@ -4857,7 +4857,7 @@ if.end.i35:                                       ; preds = %if.then.i30
   br label %_ZNK6icu_756number4impl15DecimalQuantity11getDigitPosEi.exit39
 
 if.else.i21:                                      ; preds = %for.body
-  %or.cond.i22 = icmp ugt i64 %indvars.iv, 15
+  %or.cond.i22 = icmp samesign ugt i64 %indvars.iv, 15
   br i1 %or.cond.i22, label %_ZNK6icu_756number4impl15DecimalQuantity11getDigitPosEi.exit39, label %if.end8.i23
 
 if.end8.i23:                                      ; preds = %if.else.i21
@@ -5331,11 +5331,11 @@ if.then24:                                        ; preds = %switch.early.test10
   br i1 %cmp26, label %cond.end, label %if.else28
 
 if.else28:                                        ; preds = %if.then24
-  %cmp30 = icmp ult i8 %retval.0.i120, 5
+  %cmp30 = icmp samesign ult i8 %retval.0.i120, 5
   br i1 %cmp30, label %lor.rhs, label %if.else32
 
 if.else32:                                        ; preds = %if.else28
-  %cmp34 = icmp ult i8 %retval.0.i120, 7
+  %cmp34 = icmp samesign ult i8 %retval.0.i120, 7
   %. = select i1 %cmp34, i32 1, i32 3
   br label %cond.true
 
@@ -5383,7 +5383,7 @@ for.inc.us:                                       ; preds = %if.end.i173.us, %fo
 
 for.body:                                         ; preds = %for.body.lr.ph, %for.inc
   %indvars.iv = phi i64 [ %indvars.iv.next, %for.inc ], [ %14, %for.body.lr.ph ]
-  %or.cond.i160 = icmp ugt i64 %indvars.iv, 15
+  %or.cond.i160 = icmp samesign ugt i64 %indvars.iv, 15
   br i1 %or.cond.i160, label %for.inc, label %if.end8.i161
 
 if.end8.i161:                                     ; preds = %for.body
@@ -5671,11 +5671,11 @@ if.then162:                                       ; preds = %switch.early.test11
   br i1 %cmp164, label %if.end188, label %if.else166
 
 if.else166:                                       ; preds = %if.then162
-  %cmp168 = icmp ult i8 %retval.0.i120, 5
+  %cmp168 = icmp samesign ult i8 %retval.0.i120, 5
   br i1 %cmp168, label %if.end188, label %if.else170
 
 if.else170:                                       ; preds = %if.else166
-  %cmp172 = icmp ult i8 %retval.0.i120, 7
+  %cmp172 = icmp samesign ult i8 %retval.0.i120, 7
   %.114 = select i1 %cmp172, i32 1, i32 3
   br label %if.end188
 
@@ -7175,7 +7175,7 @@ for.body:                                         ; preds = %for.body.lr.ph, %fo
   %4 = load i8, ptr %arrayidx, align 1
   %conv = sext i8 %4 to i64
   %or = or i64 %shl, %conv
-  %cmp = icmp ugt i64 %indvars.iv15, 1
+  %cmp = icmp samesign ugt i64 %indvars.iv15, 1
   br i1 %cmp, label %for.body, label %for.end, !llvm.loop !10
 
 for.end:                                          ; preds = %for.body, %if.then

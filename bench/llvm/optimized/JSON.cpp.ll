@@ -7497,7 +7497,7 @@ thread-pre-split.i:                               ; preds = %95
 
 .lr.ph.i33:                                       ; preds = %thread-pre-split.i, %121
   %100 = phi i16 [ %118, %121 ], [ %.pr.i, %thread-pre-split.i ]
-  %101 = icmp ugt i16 %100, -9217
+  %101 = icmp samesign ugt i16 %100, -9217
   br i1 %101, label %102, label %104
 
 102:                                              ; preds = %.lr.ph.i33

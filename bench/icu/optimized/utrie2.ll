@@ -32,7 +32,7 @@ cond.false:                                       ; preds = %if.then
   br i1 %cmp4, label %cond.true5, label %cond.false16
 
 cond.true5:                                       ; preds = %cond.false
-  %cmp7 = icmp ult i32 %c, 56320
+  %cmp7 = icmp samesign ult i32 %c, 56320
   %cond = select i1 %cmp7, i32 320, i32 0
   %shr8 = lshr i32 %c, 5
   %add9 = add nuw nsw i32 %cond, %shr8
@@ -121,7 +121,7 @@ cond.false64:                                     ; preds = %if.then51
 
 cond.true66:                                      ; preds = %cond.false64
   %15 = load ptr, ptr %trie, align 8
-  %cmp68 = icmp ult i32 %c, 56320
+  %cmp68 = icmp samesign ult i32 %c, 56320
   %cond69 = select i1 %cmp68, i32 320, i32 0
   %shr70 = lshr i32 %c, 5
   %add71 = add nuw nsw i32 %cond69, %shr70
@@ -362,7 +362,7 @@ cond.false.i:                                     ; preds = %entry
 
 cond.true3.i:                                     ; preds = %cond.false.i
   %3 = load ptr, ptr %trie, align 8
-  %cmp5.i = icmp ult i32 %call, 56320
+  %cmp5.i = icmp samesign ult i32 %call, 56320
   %cond.i = select i1 %cmp5.i, i32 320, i32 0
   %shr6.i = lshr i32 %call, 5
   %add7.i = add nuw nsw i32 %cond.i, %shr6.i
@@ -469,7 +469,7 @@ cond.false.i:                                     ; preds = %entry
 
 cond.true3.i:                                     ; preds = %cond.false.i
   %3 = load ptr, ptr %trie, align 8
-  %cmp5.i = icmp ult i32 %call, 56320
+  %cmp5.i = icmp samesign ult i32 %call, 56320
   %cond.i = select i1 %cmp5.i, i32 320, i32 0
   %shr6.i = lshr i32 %call, 5
   %add7.i = add nuw nsw i32 %cond.i, %shr6.i
@@ -562,7 +562,7 @@ if.then6:                                         ; preds = %lor.lhs.false, %if.
   br label %return
 
 if.end7:                                          ; preds = %lor.lhs.false
-  %cmp8 = icmp ult i32 %length, 16
+  %cmp8 = icmp samesign ult i32 %length, 16
   br i1 %cmp8, label %if.then9, label %if.end10
 
 if.then9:                                         ; preds = %if.end7
@@ -615,7 +615,7 @@ if.end17:                                         ; preds = %if.end13
   %mul36.pn.v = select i1 %cmp26, i32 3, i32 4
   %mul36.pn = shl nuw nsw i32 %conv20, %mul36.pn.v
   %actualLength.0 = add nuw nsw i32 %add32, %mul36.pn
-  %cmp42 = icmp ult i32 %length, %actualLength.0
+  %cmp42 = icmp samesign ult i32 %length, %actualLength.0
   br i1 %cmp42, label %if.then43, label %if.end44
 
 if.then43:                                        ; preds = %if.end17

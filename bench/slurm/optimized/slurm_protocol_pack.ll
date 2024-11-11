@@ -272,7 +272,7 @@ define void @pack_header(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
   br i1 %.not79, label %.sink.split, label %.sink.split.sink.split
 
 48:                                               ; preds = %9
-  %49 = icmp ugt i16 %11, 9983
+  %49 = icmp samesign ugt i16 %11, 9983
   br i1 %49, label %50, label %79
 
 50:                                               ; preds = %48
@@ -507,7 +507,7 @@ define range(i32 -1, 1) i32 @unpack_header(ptr noundef %0, ptr noundef %1) local
   br label %98
 
 54:                                               ; preds = %9
-  %55 = icmp ugt i16 %10, 9983
+  %55 = icmp samesign ugt i16 %10, 9983
   br i1 %55, label %56, label %91
 
 56:                                               ; preds = %54
@@ -1133,7 +1133,7 @@ define void @pack_config_file(ptr noundef readonly %0, i16 noundef zeroext %1, p
   br label %48
 
 27:                                               ; preds = %3
-  %28 = icmp ugt i16 %1, 9983
+  %28 = icmp samesign ugt i16 %1, 9983
   br i1 %28, label %29, label %48
 
 29:                                               ; preds = %27
@@ -1222,7 +1222,7 @@ define range(i32 -1, 1) i32 @unpack_config_file(ptr nocapture noundef writeonly 
   br i1 %.not17, label %33, label %32
 
 22:                                               ; preds = %3
-  %23 = icmp ugt i16 %1, 9983
+  %23 = icmp samesign ugt i16 %1, 9983
   br i1 %23, label %24, label %33
 
 24:                                               ; preds = %22
@@ -4549,7 +4549,7 @@ slurm_pack_list.exit:                             ; preds = %375, %376, %.loopex
   br label %2037
 
 1020:                                             ; preds = %3
-  %1021 = icmp ugt i16 %2, 9983
+  %1021 = icmp samesign ugt i16 %2, 9983
   br i1 %1021, label %1022, label %2037
 
 1022:                                             ; preds = %1020
@@ -6822,7 +6822,7 @@ pack_step_id.exit:                                ; preds = %pack_step_id.exit.l
   br label %284
 
 154:                                              ; preds = %3
-  %155 = icmp ugt i16 %2, 9983
+  %155 = icmp samesign ugt i16 %2, 9983
   br i1 %155, label %156, label %284
 
 156:                                              ; preds = %154
@@ -8311,7 +8311,7 @@ define internal fastcc void @_pack_sib_msg(ptr nocapture noundef readonly %0, pt
   br label %137
 
 71:                                               ; preds = %3
-  %72 = icmp ugt i16 %2, 9983
+  %72 = icmp samesign ugt i16 %2, 9983
   br i1 %72, label %73, label %137
 
 73:                                               ; preds = %71
@@ -9011,7 +9011,7 @@ define internal fastcc void @_pack_resource_allocation_response_msg(ptr nocaptur
   br label %246
 
 118:                                              ; preds = %2
-  %119 = icmp ugt i16 %6, 9983
+  %119 = icmp samesign ugt i16 %6, 9983
   br i1 %119, label %120, label %246
 
 120:                                              ; preds = %118
@@ -9575,7 +9575,7 @@ define internal fastcc void @_pack_update_node_msg(ptr nocapture noundef readonl
   br label %.sink.split
 
 86:                                               ; preds = %3
-  %87 = icmp ugt i16 %2, 9983
+  %87 = icmp samesign ugt i16 %2, 9983
   br i1 %87, label %88, label %159
 
 88:                                               ; preds = %86
@@ -10171,7 +10171,7 @@ define internal fastcc void @_pack_update_resv_msg(ptr nocapture noundef readonl
   br label %202
 
 102:                                              ; preds = %3
-  %103 = icmp ugt i16 %2, 9983
+  %103 = icmp samesign ugt i16 %2, 9983
   br i1 %103, label %104, label %202
 
 104:                                              ; preds = %102
@@ -11084,7 +11084,7 @@ pack_step_id.exit:                                ; preds = %3
   br label %.sink.split
 
 298:                                              ; preds = %3
-  %299 = icmp ugt i16 %2, 9983
+  %299 = icmp samesign ugt i16 %2, 9983
   br i1 %299, label %pack_step_id.exit595, label %596
 
 pack_step_id.exit595:                             ; preds = %298
@@ -12697,7 +12697,7 @@ define internal fastcc void @_pack_batch_job_launch_msg(ptr noundef %0, ptr noun
   br label %353
 
 177:                                              ; preds = %12
-  %178 = icmp ugt i16 %2, 9983
+  %178 = icmp samesign ugt i16 %2, 9983
   br i1 %178, label %179, label %353
 
 179:                                              ; preds = %177
@@ -13152,7 +13152,7 @@ define internal fastcc void @_pack_prolog_launch_msg(ptr nocapture noundef reado
   br label %143
 
 68:                                               ; preds = %2
-  %69 = icmp ugt i16 %6, 9983
+  %69 = icmp samesign ugt i16 %6, 9983
   br i1 %69, label %70, label %143
 
 70:                                               ; preds = %68
@@ -13734,7 +13734,7 @@ pack_step_id.exit:                                ; preds = %3
   br label %361
 
 182:                                              ; preds = %3
-  %183 = icmp ugt i16 %2, 9983
+  %183 = icmp samesign ugt i16 %2, 9983
   br i1 %183, label %pack_step_id.exit386, label %361
 
 pack_step_id.exit386:                             ; preds = %182
@@ -14266,7 +14266,7 @@ define internal fastcc void @_pack_suspend_int_msg(ptr nocapture noundef readonl
   br i1 %4, label %.sink.split, label %5
 
 5:                                                ; preds = %3
-  %6 = icmp ugt i16 %2, 9983
+  %6 = icmp samesign ugt i16 %2, 9983
   br i1 %6, label %7, label %11
 
 7:                                                ; preds = %5
@@ -14901,7 +14901,7 @@ define internal fastcc void @_pack_file_bcast(ptr nocapture noundef readonly %0,
   br label %.sink.split
 
 44:                                               ; preds = %3
-  %45 = icmp ugt i16 %2, 9983
+  %45 = icmp samesign ugt i16 %2, 9983
   br i1 %45, label %46, label %88
 
 46:                                               ; preds = %44
@@ -15455,7 +15455,7 @@ define internal fastcc void @_pack_topo_info_msg(ptr nocapture noundef readonly 
   br label %.loopexit
 
 9:                                                ; preds = %3
-  %10 = icmp ugt i16 %2, 9983
+  %10 = icmp samesign ugt i16 %2, 9983
   br i1 %10, label %11, label %.loopexit
 
 11:                                               ; preds = %9
@@ -15592,18 +15592,18 @@ define internal fastcc void @_pack_forward_data_msg(ptr nocapture noundef readon
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc void @_pack_ping_slurmd_resp(ptr nocapture noundef readonly %0, ptr noundef %1, i16 noundef zeroext %2) unnamed_addr #0 {
-  %4 = icmp ugt i16 %2, 9983
-  br i1 %4, label %.sink.split, label %8
+  %or.cond = icmp ugt i16 %2, 9983
+  br i1 %or.cond, label %.sink.split, label %7
 
 .sink.split:                                      ; preds = %3
-  %5 = load i32, ptr %0, align 8
-  tail call void @pack32(i32 noundef %5, ptr noundef %1) #8
-  %6 = getelementptr inbounds i8, ptr %0, i64 8
-  %7 = load i64, ptr %6, align 8
-  tail call void @pack64(i64 noundef %7, ptr noundef %1) #8
-  br label %8
+  %4 = load i32, ptr %0, align 8
+  tail call void @pack32(i32 noundef %4, ptr noundef %1) #8
+  %5 = getelementptr inbounds i8, ptr %0, i64 8
+  %6 = load i64, ptr %5, align 8
+  tail call void @pack64(i64 noundef %6, ptr noundef %1) #8
+  br label %7
 
-8:                                                ; preds = %3, %.sink.split
+7:                                                ; preds = %3, %.sink.split
   ret void
 }
 
@@ -18706,7 +18706,7 @@ define internal fastcc range(i32 -1, 1) i32 @_unpack_slurm_ctl_conf_msg(ptr noca
   br i1 %.not1304, label %1525, label %1524
 
 877:                                              ; preds = %3
-  %878 = icmp ugt i16 %2, 9983
+  %878 = icmp samesign ugt i16 %2, 9983
   br i1 %878, label %879, label %1525
 
 879:                                              ; preds = %877
@@ -21236,7 +21236,7 @@ define internal fastcc range(i32 -1, 1) i32 @_unpack_node_info_msg(ptr nocapture
   br i1 %229, label %.lr.ph.split.us, label %.loopexit, !llvm.loop !53
 
 .lr.ph.split:                                     ; preds = %.lr.ph
-  %230 = icmp ugt i16 %2, 10239
+  %230 = icmp samesign ugt i16 %2, 10239
   br i1 %230, label %.lr.ph.split.split.us, label %.lr.ph.split.split
 
 .lr.ph.split.split.us:                            ; preds = %.lr.ph.split, %377
@@ -22456,7 +22456,7 @@ define internal fastcc range(i32 -1, 1) i32 @_unpack_node_registration_status_ms
   br i1 %.not243, label %269, label %.loopexit
 
 154:                                              ; preds = %3
-  %155 = icmp ugt i16 %2, 9983
+  %155 = icmp samesign ugt i16 %2, 9983
   br i1 %155, label %156, label %269
 
 156:                                              ; preds = %154
@@ -23865,7 +23865,7 @@ define internal fastcc range(i32 -1, 1) i32 @_unpack_sib_msg(ptr nocapture nound
   br label %129
 
 70:                                               ; preds = %3
-  %71 = icmp ugt i16 %2, 9983
+  %71 = icmp samesign ugt i16 %2, 9983
   br i1 %71, label %72, label %129
 
 72:                                               ; preds = %70
@@ -24616,7 +24616,7 @@ define internal fastcc range(i32 -1, 1) i32 @_unpack_resource_allocation_respons
   br label %241
 
 135:                                              ; preds = %2
-  %136 = icmp ugt i16 %30, 9983
+  %136 = icmp samesign ugt i16 %30, 9983
   br i1 %136, label %137, label %241
 
 137:                                              ; preds = %135
@@ -25099,7 +25099,7 @@ define internal fastcc range(i32 -1, 1) i32 @_unpack_update_node_msg(ptr nocaptu
   br i1 %.not90, label %111, label %110
 
 70:                                               ; preds = %3
-  %71 = icmp ugt i16 %2, 9983
+  %71 = icmp samesign ugt i16 %2, 9983
   br i1 %71, label %72, label %111
 
 72:                                               ; preds = %70
@@ -25566,7 +25566,7 @@ define internal fastcc range(i32 -1, 1) i32 @_unpack_update_resv_msg(ptr nocaptu
   br i1 %.not139, label %167, label %171
 
 89:                                               ; preds = %3
-  %90 = icmp ugt i16 %2, 9983
+  %90 = icmp samesign ugt i16 %2, 9983
   br i1 %90, label %91, label %167
 
 91:                                               ; preds = %89
@@ -26896,7 +26896,7 @@ define internal fastcc range(i32 -1, 1) i32 @_unpack_launch_tasks_request_msg(pt
   br i1 %.not698, label %714, label %unpack_step_id_members.exit
 
 378:                                              ; preds = %3
-  %379 = icmp ugt i16 %2, 9983
+  %379 = icmp samesign ugt i16 %2, 9983
   br i1 %379, label %380, label %714
 
 380:                                              ; preds = %378
@@ -30126,7 +30126,7 @@ define internal fastcc range(i32 -1, 1) i32 @_unpack_batch_job_launch_msg(ptr no
   br i1 %.not279, label %316, label %315
 
 174:                                              ; preds = %3
-  %175 = icmp ugt i16 %2, 9983
+  %175 = icmp samesign ugt i16 %2, 9983
   br i1 %175, label %176, label %316
 
 176:                                              ; preds = %174
@@ -30548,7 +30548,7 @@ define internal fastcc range(i32 -1, 1) i32 @_unpack_prolog_launch_msg(ptr nocap
   br i1 %.not114, label %132, label %133
 
 74:                                               ; preds = %2
-  %75 = icmp ugt i16 %23, 9983
+  %75 = icmp samesign ugt i16 %23, 9983
   br i1 %75, label %76, label %133
 
 76:                                               ; preds = %74
@@ -31152,7 +31152,7 @@ define internal fastcc range(i32 -1, 1) i32 @_unpack_job_step_create_request_msg
   br i1 %.not265, label %307, label %unpack_step_id_members.exit
 
 173:                                              ; preds = %3
-  %174 = icmp ugt i16 %2, 9983
+  %174 = icmp samesign ugt i16 %2, 9983
   br i1 %174, label %175, label %307
 
 175:                                              ; preds = %173
@@ -31747,7 +31747,7 @@ define internal fastcc range(i32 -1, 1) i32 @_unpack_suspend_int_msg(ptr nocaptu
   br i1 %.not21, label %25, label %24
 
 13:                                               ; preds = %3
-  %14 = icmp ugt i16 %2, 9983
+  %14 = icmp samesign ugt i16 %2, 9983
   br i1 %14, label %15, label %25
 
 15:                                               ; preds = %13
@@ -32868,7 +32868,7 @@ define internal fastcc range(i32 -1, 1) i32 @_unpack_burst_buffer_info_msg(ptr n
   br i1 %236, label %.lr.ph463, label %.loopexit424, !llvm.loop !86
 
 237:                                              ; preds = %51
-  %238 = icmp ugt i16 %2, 9983
+  %238 = icmp samesign ugt i16 %2, 9983
   br i1 %238, label %239, label %.loopexit424
 
 239:                                              ; preds = %237
@@ -33390,7 +33390,7 @@ define internal fastcc range(i32 -1, 1) i32 @_unpack_file_bcast(ptr nocapture no
   br i1 %65, label %119, label %120
 
 66:                                               ; preds = %3
-  %67 = icmp ugt i16 %2, 9983
+  %67 = icmp samesign ugt i16 %2, 9983
   br i1 %67, label %68, label %120
 
 68:                                               ; preds = %66
@@ -34192,7 +34192,7 @@ define internal fastcc range(i32 -1, 1) i32 @_unpack_topo_info_msg(ptr nocapture
   br label %.loopexit
 
 12:                                               ; preds = %3
-  %13 = icmp ugt i16 %2, 9983
+  %13 = icmp samesign ugt i16 %2, 9983
   br i1 %13, label %14, label %.loopexit
 
 14:                                               ; preds = %12
@@ -34889,7 +34889,7 @@ define internal fastcc range(i32 -1, 1) i32 @_unpack_stats_response_msg(ptr noca
   br i1 %.not341, label %348, label %347
 
 180:                                              ; preds = %3
-  %181 = icmp ugt i16 %2, 9983
+  %181 = icmp samesign ugt i16 %2, 9983
   br i1 %181, label %182, label %348
 
 182:                                              ; preds = %180
@@ -35283,7 +35283,7 @@ define internal fastcc range(i32 -1, 1) i32 @_unpack_ping_slurmd_resp(ptr nocapt
   br i1 %.not17, label %19, label %18
 
 11:                                               ; preds = %3
-  %12 = icmp ugt i16 %2, 9983
+  %12 = icmp samesign ugt i16 %2, 9983
   br i1 %12, label %13, label %19
 
 13:                                               ; preds = %11
@@ -37839,7 +37839,7 @@ define internal fastcc range(i32 -1, 1) i32 @_unpack_job_info_members(ptr nounde
   br i1 %.not870, label %1135, label %1134
 
 642:                                              ; preds = %3
-  %643 = icmp ugt i16 %2, 9983
+  %643 = icmp samesign ugt i16 %2, 9983
   br i1 %643, label %644, label %1135
 
 644:                                              ; preds = %642

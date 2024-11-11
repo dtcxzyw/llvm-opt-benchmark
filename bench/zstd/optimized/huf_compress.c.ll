@@ -677,7 +677,7 @@ for.body80.i:                                     ; preds = %for.body80.i, %whil
   %nbBits92.i = getelementptr inbounds i8, ptr %arrayidx82.i, i64 7
   store i8 %add88.i, ptr %nbBits92.i, align 1
   %indvars.iv.next84.i = add nsw i64 %indvars.iv83.i, -1
-  %cmp78.i = icmp ugt i64 %indvars.iv83.i, 256
+  %cmp78.i = icmp samesign ugt i64 %indvars.iv83.i, 256
   br i1 %cmp78.i, label %for.body80.i, label %for.cond96.preheader.i, !llvm.loop !20
 
 for.body99.i:                                     ; preds = %for.body99.i, %for.body99.preheader.i
@@ -718,7 +718,7 @@ do.end.i:                                         ; preds = %HUF_buildTree.exit
   %nbBits476.i = getelementptr inbounds i8, ptr %add.ptr, i64 %nbBits476.i.offs
   %34 = load i8, ptr %nbBits476.i, align 1
   %conv577.i = zext i8 %34 to i32
-  %cmp678.i = icmp ult i32 %spec.store.select, %conv577.i
+  %cmp678.i = icmp samesign ult i32 %spec.store.select, %conv577.i
   br i1 %cmp678.i, label %while.body.lr.ph.i, label %while.cond19.preheader.i
 
 while.body.lr.ph.i:                               ; preds = %do.end.i
@@ -753,7 +753,7 @@ while.body.i:                                     ; preds = %while.body.i, %whil
   %nbBits4.i = getelementptr inbounds i8, ptr %add.ptr, i64 %nbBits4.i.offs
   %36 = load i8, ptr %nbBits4.i, align 1
   %conv5.i = zext i8 %36 to i32
-  %cmp6.i = icmp ult i32 %spec.store.select, %conv5.i
+  %cmp6.i = icmp samesign ult i32 %spec.store.select, %conv5.i
   br i1 %cmp6.i, label %while.body.i, label %while.cond19.preheader.loopexit.i, !llvm.loop !22
 
 while.cond19.i:                                   ; preds = %while.cond19.i, %while.cond19.preheader.i
@@ -1035,7 +1035,7 @@ for.body6.i47:                                    ; preds = %for.body6.i47, %for
   %add12.i = add i16 %65, %min.029.i
   %66 = lshr i16 %add12.i, 1
   %indvars.iv.next34.i = add nsw i64 %indvars.iv33.i, -1
-  %cmp5.i = icmp ugt i64 %indvars.iv33.i, 1
+  %cmp5.i = icmp samesign ugt i64 %indvars.iv33.i, 1
   br i1 %cmp5.i, label %for.body6.i47, label %for.body21.i.preheader, !llvm.loop !31
 
 for.body21.i.preheader:                           ; preds = %for.body6.i47, %for.cond4.preheader.i
@@ -1257,7 +1257,7 @@ for.body.i.i:                                     ; preds = %for.body.i.i, %for.
   %or.i2462.i = or i64 %shr.i2455.i, %and.i1597.i
   %add.i2467.i = add i64 %2, %bitC.i.sroa.262.12273.i
   %dec6.i.i = add nsw i32 %rem.i.02276.i, -1
-  %cmp3.i.i = icmp ugt i32 %rem.i.02276.i, 1
+  %cmp3.i.i = icmp samesign ugt i32 %rem.i.02276.i, 1
   br i1 %cmp3.i.i, label %for.body.i.i, label %for.end.i.i, !llvm.loop !36
 
 for.end.i.i:                                      ; preds = %for.body.i.i
@@ -1471,7 +1471,7 @@ for.body.i313.i:                                  ; preds = %for.body.i313.i, %f
   %or.i3106.i = or i64 %shr.i3099.i, %and.i1608.i
   %add.i3111.i = add i64 %25, %bitC.i.sroa.262.82227.i
   %dec6.i318.i = add nsw i32 %rem.i250.02229.i, -1
-  %cmp3.i311.i = icmp ugt i32 %rem.i250.02229.i, 1
+  %cmp3.i311.i = icmp samesign ugt i32 %rem.i250.02229.i, 1
   br i1 %cmp3.i311.i, label %for.body.i313.i, label %for.end.i312.i, !llvm.loop !36
 
 for.end.i312.i:                                   ; preds = %for.body.i313.i
@@ -1668,7 +1668,7 @@ for.body.i391.i:                                  ; preds = %for.body.i391.i, %f
   %or.i3267.i = or i64 %shr.i3260.i, %and.i1620.i
   %add.i3272.i = add i64 %47, %bitC.i.sroa.262.142204.i
   %dec6.i396.i = add nsw i32 %rem.i328.02206.i, -1
-  %cmp3.i389.i = icmp ugt i32 %rem.i328.02206.i, 1
+  %cmp3.i389.i = icmp samesign ugt i32 %rem.i328.02206.i, 1
   br i1 %cmp3.i389.i, label %for.body.i391.i, label %for.end.i390.i, !llvm.loop !36
 
 for.end.i390.i:                                   ; preds = %for.body.i391.i
@@ -1862,7 +1862,7 @@ for.body.i469.i:                                  ; preds = %for.body.i469.i, %f
   %or.i3428.i = or i64 %shr.i3421.i, %and.i1628.i
   %add.i3433.i = add i64 %70, %bitC.i.sroa.262.202181.i
   %dec6.i474.i = add nsw i32 %rem.i406.02183.i, -1
-  %cmp3.i467.i = icmp ugt i32 %rem.i406.02183.i, 1
+  %cmp3.i467.i = icmp samesign ugt i32 %rem.i406.02183.i, 1
   br i1 %cmp3.i467.i, label %for.body.i469.i, label %for.end.i468.i, !llvm.loop !36
 
 for.end.i468.i:                                   ; preds = %for.body.i469.i
@@ -2059,7 +2059,7 @@ for.body.i547.i:                                  ; preds = %for.body.i547.i, %f
   %or.i3589.i = or i64 %shr.i3582.i, %and.i1640.i
   %add.i3594.i = add i64 %92, %bitC.i.sroa.262.262158.i
   %dec6.i552.i = add nsw i32 %rem.i484.02160.i, -1
-  %cmp3.i545.i = icmp ugt i32 %rem.i484.02160.i, 1
+  %cmp3.i545.i = icmp samesign ugt i32 %rem.i484.02160.i, 1
   br i1 %cmp3.i545.i, label %for.body.i547.i, label %for.end.i546.i, !llvm.loop !36
 
 for.end.i546.i:                                   ; preds = %for.body.i547.i
@@ -2256,7 +2256,7 @@ for.body.i625.i:                                  ; preds = %for.body.i625.i, %f
   %or.i3750.i = or i64 %shr.i3743.i, %and.i1651.i
   %add.i3755.i = add i64 %114, %bitC.i.sroa.262.322138.i
   %dec6.i630.i = add nsw i32 %rem.i562.02140.i, -1
-  %cmp3.i623.i = icmp ugt i32 %rem.i562.02140.i, 1
+  %cmp3.i623.i = icmp samesign ugt i32 %rem.i562.02140.i, 1
   br i1 %cmp3.i623.i, label %for.body.i625.i, label %for.end.i624.i, !llvm.loop !36
 
 for.end.i624.i:                                   ; preds = %for.body.i625.i
@@ -2453,7 +2453,7 @@ for.body.i703.i:                                  ; preds = %for.body.i703.i, %f
   %or.i3911.i = or i64 %shr.i3904.i, %and.i1663.i
   %add.i3916.i = add i64 %137, %bitC.i.sroa.262.382250.i
   %dec6.i708.i = add nsw i32 %rem.i640.02252.i, -1
-  %cmp3.i701.i = icmp ugt i32 %rem.i640.02252.i, 1
+  %cmp3.i701.i = icmp samesign ugt i32 %rem.i640.02252.i, 1
   br i1 %cmp3.i701.i, label %for.body.i703.i, label %for.end.i702.i, !llvm.loop !36
 
 for.end.i702.i:                                   ; preds = %for.body.i703.i
@@ -2846,7 +2846,7 @@ do.end4.us:                                       ; preds = %do.end4.us.preheade
 
 if.end9.us:                                       ; preds = %do.end4.us
   %conv.us = zext i32 %optLogGuess.043.us to i64
-  %cmp10.us = icmp ult i64 %call5.us, %conv.us
+  %cmp10.us = icmp samesign ult i64 %call5.us, %conv.us
   %cmp12.us = icmp ugt i32 %optLogGuess.043.us, %add.i285358
   %or.cond.us = and i1 %cmp10.us, %cmp12.us
   br i1 %or.cond.us, label %return, label %if.end15.us
@@ -2885,7 +2885,7 @@ do.end4:                                          ; preds = %do.end4.lr.ph, %for
 
 if.end9:                                          ; preds = %do.end4
   %conv = zext i32 %optLogGuess.043 to i64
-  %cmp10 = icmp ult i64 %call5, %conv
+  %cmp10 = icmp samesign ult i64 %call5, %conv
   %cmp12 = icmp ugt i32 %optLogGuess.043, %add.i28
   %or.cond = and i1 %cmp10, %cmp12
   br i1 %or.cond, label %return, label %if.end15
@@ -3011,7 +3011,7 @@ if.then25:                                        ; preds = %land.lhs.true23
 if.end27:                                         ; preds = %land.lhs.true23, %if.end17
   %and28 = and i32 %flags, 8
   %tobool29 = icmp ne i32 %and28, 0
-  %cmp31 = icmp ugt i64 %srcSize, 40959
+  %cmp31 = icmp samesign ugt i64 %srcSize, 40959
   %or.cond1 = and i1 %cmp31, %tobool29
   br i1 %or.cond1, label %do.end53, label %if.end59
 
@@ -3393,7 +3393,7 @@ for.body.i:                                       ; preds = %for.body.i.preheade
   %or.i2462 = or i64 %shr.i2455, %and.i1597
   %add.i2467 = add i64 %2, %bitC.i.sroa.262.12273
   %dec6.i = add nsw i32 %rem.i.02276, -1
-  %cmp3.i = icmp ugt i32 %rem.i.02276, 1
+  %cmp3.i = icmp samesign ugt i32 %rem.i.02276, 1
   br i1 %cmp3.i, label %for.body.i, label %for.end.i, !llvm.loop !36
 
 for.end.i:                                        ; preds = %for.body.i
@@ -3607,7 +3607,7 @@ for.body.i313:                                    ; preds = %for.body.i313.prehe
   %or.i3106 = or i64 %shr.i3099, %and.i1608
   %add.i3111 = add i64 %25, %bitC.i.sroa.262.82227
   %dec6.i318 = add nsw i32 %rem.i250.02229, -1
-  %cmp3.i311 = icmp ugt i32 %rem.i250.02229, 1
+  %cmp3.i311 = icmp samesign ugt i32 %rem.i250.02229, 1
   br i1 %cmp3.i311, label %for.body.i313, label %for.end.i312, !llvm.loop !36
 
 for.end.i312:                                     ; preds = %for.body.i313
@@ -3804,7 +3804,7 @@ for.body.i391:                                    ; preds = %for.body.i391.prehe
   %or.i3267 = or i64 %shr.i3260, %and.i1620
   %add.i3272 = add i64 %47, %bitC.i.sroa.262.142204
   %dec6.i396 = add nsw i32 %rem.i328.02206, -1
-  %cmp3.i389 = icmp ugt i32 %rem.i328.02206, 1
+  %cmp3.i389 = icmp samesign ugt i32 %rem.i328.02206, 1
   br i1 %cmp3.i389, label %for.body.i391, label %for.end.i390, !llvm.loop !36
 
 for.end.i390:                                     ; preds = %for.body.i391
@@ -3998,7 +3998,7 @@ for.body.i469:                                    ; preds = %for.body.i469.prehe
   %or.i3428 = or i64 %shr.i3421, %and.i1628
   %add.i3433 = add i64 %70, %bitC.i.sroa.262.202181
   %dec6.i474 = add nsw i32 %rem.i406.02183, -1
-  %cmp3.i467 = icmp ugt i32 %rem.i406.02183, 1
+  %cmp3.i467 = icmp samesign ugt i32 %rem.i406.02183, 1
   br i1 %cmp3.i467, label %for.body.i469, label %for.end.i468, !llvm.loop !36
 
 for.end.i468:                                     ; preds = %for.body.i469
@@ -4195,7 +4195,7 @@ for.body.i547:                                    ; preds = %for.body.i547.prehe
   %or.i3589 = or i64 %shr.i3582, %and.i1640
   %add.i3594 = add i64 %92, %bitC.i.sroa.262.262158
   %dec6.i552 = add nsw i32 %rem.i484.02160, -1
-  %cmp3.i545 = icmp ugt i32 %rem.i484.02160, 1
+  %cmp3.i545 = icmp samesign ugt i32 %rem.i484.02160, 1
   br i1 %cmp3.i545, label %for.body.i547, label %for.end.i546, !llvm.loop !36
 
 for.end.i546:                                     ; preds = %for.body.i547
@@ -4392,7 +4392,7 @@ for.body.i625:                                    ; preds = %for.body.i625.prehe
   %or.i3750 = or i64 %shr.i3743, %and.i1651
   %add.i3755 = add i64 %114, %bitC.i.sroa.262.322138
   %dec6.i630 = add nsw i32 %rem.i562.02140, -1
-  %cmp3.i623 = icmp ugt i32 %rem.i562.02140, 1
+  %cmp3.i623 = icmp samesign ugt i32 %rem.i562.02140, 1
   br i1 %cmp3.i623, label %for.body.i625, label %for.end.i624, !llvm.loop !36
 
 for.end.i624:                                     ; preds = %for.body.i625
@@ -4589,7 +4589,7 @@ for.body.i703:                                    ; preds = %for.body.i703.prehe
   %or.i3911 = or i64 %shr.i3904, %and.i1663
   %add.i3916 = add i64 %137, %bitC.i.sroa.262.382250
   %dec6.i708 = add nsw i32 %rem.i640.02252, -1
-  %cmp3.i701 = icmp ugt i32 %rem.i640.02252, 1
+  %cmp3.i701 = icmp samesign ugt i32 %rem.i640.02252, 1
   br i1 %cmp3.i701, label %for.body.i703, label %for.end.i702, !llvm.loop !36
 
 for.end.i702:                                     ; preds = %for.body.i703

@@ -84,7 +84,7 @@ define internal fastcc void @__lrc_init_regs(ptr nocapture noundef %0, ptr nound
   br i1 %29, label %40, label %30
 
 30:                                               ; preds = %28
-  %31 = icmp ugt i8 %13, 8
+  %31 = icmp samesign ugt i8 %13, 8
   %32 = select i1 %31, ptr @gen9_rcs_offsets, ptr @gen8_rcs_offsets
   br label %40
 
@@ -97,7 +97,7 @@ define internal fastcc void @__lrc_init_regs(ptr nocapture noundef %0, ptr nound
   br i1 %36, label %40, label %37
 
 37:                                               ; preds = %35
-  %38 = icmp ugt i8 %13, 8
+  %38 = icmp samesign ugt i8 %13, 8
   %39 = select i1 %38, ptr @gen9_xcs_offsets, ptr @gen8_xcs_offsets
   br label %40
 
@@ -129,7 +129,7 @@ define internal fastcc void @__lrc_init_regs(ptr nocapture noundef %0, ptr nound
   %58 = shl nuw nsw i8 %56, 1
   %59 = zext nneg i8 %58 to i32
   %60 = add nsw i32 %59, -1
-  %61 = icmp ult i8 %46, 64
+  %61 = icmp samesign ult i8 %46, 64
   %62 = select i1 %61, i32 285212672, i32 285216768
   %63 = or i32 %60, %62
   store i32 %63, ptr %47, align 4
@@ -271,7 +271,7 @@ define internal fastcc void @__lrc_init_regs(ptr nocapture noundef %0, ptr nound
   br i1 %150, label %159, label %151
 
 151:                                              ; preds = %149
-  %152 = icmp ugt i8 %141, 8
+  %152 = icmp samesign ugt i8 %141, 8
   br i1 %152, label %159, label %153
 
 153:                                              ; preds = %151
@@ -448,7 +448,7 @@ define internal fastcc void @__lrc_init_regs(ptr nocapture noundef %0, ptr nound
   br i1 %283, label %291, label %284
 
 284:                                              ; preds = %267
-  %285 = icmp ugt i8 %282, 8
+  %285 = icmp samesign ugt i8 %282, 8
   br i1 %285, label %291, label %286
 
 286:                                              ; preds = %284
@@ -491,7 +491,7 @@ define internal fastcc void @__lrc_init_regs(ptr nocapture noundef %0, ptr nound
   br i1 %315, label %.thread25, label %316
 
 316:                                              ; preds = %299
-  %317 = icmp ugt i8 %314, 8
+  %317 = icmp samesign ugt i8 %314, 8
   br i1 %317, label %.thread25, label %318
 
 318:                                              ; preds = %316
@@ -517,7 +517,7 @@ define internal fastcc void @__lrc_init_regs(ptr nocapture noundef %0, ptr nound
   br i1 %330, label %.thread37.thread, label %331
 
 331:                                              ; preds = %329
-  %332 = icmp ugt i8 %327, 8
+  %332 = icmp samesign ugt i8 %327, 8
   br i1 %332, label %.thread37.thread, label %333
 
 333:                                              ; preds = %331
@@ -555,7 +555,7 @@ define internal fastcc void @__lrc_init_regs(ptr nocapture noundef %0, ptr nound
   br i1 %355, label %select.unfold39, label %356
 
 356:                                              ; preds = %354
-  %357 = icmp ugt i8 %346, 8
+  %357 = icmp samesign ugt i8 %346, 8
   br i1 %357, label %select.unfold39, label %358
 
 358:                                              ; preds = %356
@@ -599,7 +599,7 @@ define dso_local void @lrc_reset_regs(ptr nocapture noundef readonly %0, ptr noc
   br i1 %16, label %select.unfold, label %17
 
 17:                                               ; preds = %15
-  %18 = icmp ugt i8 %7, 8
+  %18 = icmp samesign ugt i8 %7, 8
   br i1 %18, label %select.unfold, label %19
 
 19:                                               ; preds = %17
@@ -1064,7 +1064,7 @@ define dso_local range(i32 265, 0) i32 @lrc_update_regs(ptr noundef %0, ptr noun
   br i1 %119, label %.thread, label %120
 
 120:                                              ; preds = %61
-  %121 = icmp ugt i8 %118, 8
+  %121 = icmp samesign ugt i8 %118, 8
   br i1 %121, label %.thread, label %122
 
 122:                                              ; preds = %120
@@ -1089,7 +1089,7 @@ define dso_local range(i32 265, 0) i32 @lrc_update_regs(ptr noundef %0, ptr noun
   br i1 %133, label %.thread15.thread, label %134
 
 134:                                              ; preds = %132
-  %135 = icmp ugt i8 %130, 8
+  %135 = icmp samesign ugt i8 %130, 8
   br i1 %135, label %.thread15.thread, label %136
 
 136:                                              ; preds = %134
@@ -1214,7 +1214,7 @@ define dso_local range(i32 265, 0) i32 @lrc_update_regs(ptr noundef %0, ptr noun
   br i1 %228, label %235, label %229
 
 229:                                              ; preds = %216
-  %230 = icmp ugt i8 %227, 8
+  %230 = icmp samesign ugt i8 %227, 8
   br i1 %230, label %235, label %231
 
 231:                                              ; preds = %229
@@ -1578,7 +1578,7 @@ define internal ptr @gen12_emit_indirect_ctx_xcs(ptr nocapture noundef readonly 
   br i1 %41, label %49, label %42
 
 42:                                               ; preds = %40
-  %43 = icmp ugt i8 %32, 8
+  %43 = icmp samesign ugt i8 %32, 8
   br i1 %43, label %49, label %44
 
 44:                                               ; preds = %42
@@ -1745,7 +1745,7 @@ define internal ptr @gen12_emit_indirect_ctx_rcs(ptr nocapture noundef readonly 
   br i1 %79, label %87, label %80
 
 80:                                               ; preds = %78
-  %81 = icmp ugt i8 %70, 8
+  %81 = icmp samesign ugt i8 %70, 8
   br i1 %81, label %87, label %82
 
 82:                                               ; preds = %80
@@ -2036,7 +2036,7 @@ define dso_local void @lrc_update_offsets(ptr nocapture noundef readonly %0, ptr
   br i1 %27, label %38, label %28
 
 28:                                               ; preds = %26
-  %29 = icmp ugt i8 %11, 8
+  %29 = icmp samesign ugt i8 %11, 8
   %30 = select i1 %29, ptr @gen9_rcs_offsets, ptr @gen8_rcs_offsets
   br label %38
 
@@ -2049,7 +2049,7 @@ define dso_local void @lrc_update_offsets(ptr nocapture noundef readonly %0, ptr
   br i1 %34, label %38, label %35
 
 35:                                               ; preds = %33
-  %36 = icmp ugt i8 %11, 8
+  %36 = icmp samesign ugt i8 %11, 8
   %37 = select i1 %36, ptr @gen9_xcs_offsets, ptr @gen8_xcs_offsets
   br label %38
 
@@ -2081,7 +2081,7 @@ define dso_local void @lrc_update_offsets(ptr nocapture noundef readonly %0, ptr
   %56 = shl nuw nsw i8 %54, 1
   %57 = zext nneg i8 %56 to i32
   %58 = add nsw i32 %57, -1
-  %59 = icmp ult i8 %44, 64
+  %59 = icmp samesign ult i8 %44, 64
   %60 = select i1 %59, i32 285212672, i32 285216768
   %61 = or i32 %58, %60
   store i32 %61, ptr %45, align 4
@@ -2213,7 +2213,7 @@ define dso_local void @lrc_check_regs(ptr nocapture noundef readonly %0, ptr nou
   br i1 %61, label %select.unfold, label %62
 
 62:                                               ; preds = %60
-  %63 = icmp ugt i8 %52, 8
+  %63 = icmp samesign ugt i8 %52, 8
   br i1 %63, label %select.unfold, label %64
 
 64:                                               ; preds = %62

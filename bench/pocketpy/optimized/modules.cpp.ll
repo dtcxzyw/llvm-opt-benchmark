@@ -6480,7 +6480,7 @@ define internal noundef ptr @"_ZZN4pkpy15add_module_mathEPNS_2VMEEN4$_258__invok
   resume { ptr, i32 } %12
 
 13:                                               ; preds = %3
-  %.not3.i = icmp ult i64 %7, 2
+  %.not3.i = icmp samesign ult i64 %7, 2
   br i1 %.not3.i, label %._crit_edge.thread.i, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %13, %.lr.ph.i

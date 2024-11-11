@@ -3465,7 +3465,7 @@ define internal fastcc range(i32 0, 2) i32 @checkBufYUV(ptr nocapture noundef no
 114:                                              ; preds = %112
   %115 = zext i8 %104 to i32
   %116 = icmp samesign ugt i32 %86, %115
-  %117 = icmp ult i32 %87, %115
+  %117 = icmp samesign ult i32 %87, %115
   %or.cond183.us = select i1 %116, i1 true, i1 %117
   br i1 %or.cond183.us, label %.split336.us, label %125
 
@@ -3478,7 +3478,7 @@ define internal fastcc range(i32 0, 2) i32 @checkBufYUV(ptr nocapture noundef no
 121:                                              ; preds = %118
   %122 = zext i8 %104 to i32
   %123 = icmp samesign ugt i32 %92, %122
-  %124 = icmp ult i32 %93, %122
+  %124 = icmp samesign ult i32 %93, %122
   %or.cond179.us323 = or i1 %123, %124
   br i1 %or.cond179.us323, label %.split313.us, label %125
 
@@ -3532,7 +3532,7 @@ define internal fastcc range(i32 0, 2) i32 @checkBufYUV(ptr nocapture noundef no
 150:                                              ; preds = %147
   %151 = zext i8 %133 to i32
   %152 = icmp samesign ugt i32 %92, %151
-  %153 = icmp ult i32 %93, %151
+  %153 = icmp samesign ult i32 %93, %151
   %or.cond179.us.us = or i1 %152, %153
   br i1 %or.cond179.us.us, label %.split313.us, label %154
 

@@ -120,7 +120,7 @@ define hidden noundef i32 @_ZN20AbstractDisassembler14print_locationEPhS0_S0_P12
   %28 = sub i64 %26, %27
   %29 = trunc i64 %28 to i32
   %30 = icmp slt i32 %29, 256
-  %31 = icmp ult i32 %29, 65536
+  %31 = icmp samesign ult i32 %29, 65536
   %32 = icmp slt i32 %29, 16777216
   %33 = select i1 %32, i32 6, i32 8
   %34 = select i1 %31, i32 4, i32 %33

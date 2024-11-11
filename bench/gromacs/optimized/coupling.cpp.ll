@@ -4781,7 +4781,7 @@ _ZN3gmx23UniformRealDistributionIfEclINS_12ThreeFry2x64ILj64EEEEEfRT_.exit: ; pr
   %24 = fcmp oeq float %23, 1.000000e+00
   %25 = tail call float @llvm.fmuladd.f32(float %23, float 2.000000e+00, float -1.000000e+00)
   %26 = select i1 %24, float -1.000000e+00, float %25
-  %27 = icmp ugt i32 %21, 1
+  %27 = icmp samesign ugt i32 %21, 1
   br i1 %27, label %28, label %._crit_edge.i.i.i.i19
 
 ._crit_edge.i.i.i.i19:                            ; preds = %_ZN3gmx23UniformRealDistributionIfEclINS_12ThreeFry2x64ILj64EEEEEfRT_.exit
@@ -8240,7 +8240,7 @@ _ZN3gmx23UniformRealDistributionIfEclINS_12ThreeFry2x64ILj64EEEEEfRT_.exit.i: ; 
   %153 = fcmp oeq float %152, 1.000000e+00
   %154 = tail call float @llvm.fmuladd.f32(float %152, float 2.000000e+00, float -1.000000e+00)
   %155 = select i1 %153, float -1.000000e+00, float %154
-  %156 = icmp ugt i32 %150, 1
+  %156 = icmp samesign ugt i32 %150, 1
   br i1 %156, label %157, label %._crit_edge.i.i.i.i19.i
 
 ._crit_edge.i.i.i.i19.i:                          ; preds = %_ZN3gmx23UniformRealDistributionIfEclINS_12ThreeFry2x64ILj64EEEEEfRT_.exit.i

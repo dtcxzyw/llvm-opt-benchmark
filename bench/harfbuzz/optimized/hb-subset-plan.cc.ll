@@ -2993,7 +2993,7 @@ if.end.i:                                         ; preds = %if.end50
   br i1 %cmp.i.i.i.i, label %_ZN11hb_vector_tIiLb0EE6resizeEibb.exit.i, label %if.end.i.i.i
 
 if.end.i.i.i:                                     ; preds = %if.end.i
-  %cmp9.not.i.i.i = icmp ugt i32 %add.i.i.i.i, %33
+  %cmp9.not.i.i.i = icmp samesign ugt i32 %add.i.i.i.i, %33
   br i1 %cmp9.not.i.i.i, label %while.body.i.i.i, label %if.end.i.i
 
 while.body.i.i.i:                                 ; preds = %if.end.i.i.i, %while.body.i.i.i
@@ -16242,7 +16242,7 @@ if.end.i.i.i.i:                                   ; preds = %entry
   br i1 %cmp.not.i.i.i.i.not, label %_ZN12hb_bit_set_t26allocate_compact_workspaceER11hb_vector_tIjLb0EE.exit, label %lor.rhs.i.i.i.i
 
 lor.rhs.i.i.i.i:                                  ; preds = %if.end.i.i.i.i
-  %1 = icmp ugt i32 %0, 1073741823
+  %1 = icmp samesign ugt i32 %0, 1073741823
   br i1 %1, label %cleanup.thread, label %_ZN11hb_vector_tIjLb0EE14realloc_vectorIjTnPN12hb_enable_ifIXsr3std28is_trivially_copy_assignableIT_EE5valueEvE4typeELPv0EEEPjj11hb_priorityILj0EE.exit.i.i.i.i
 
 _ZN11hb_vector_tIjLb0EE14realloc_vectorIjTnPN12hb_enable_ifIXsr3std28is_trivially_copy_assignableIT_EE5valueEvE4typeELPv0EEEPjj11hb_priorityILj0EE.exit.i.i.i.i: ; preds = %lor.rhs.i.i.i.i
@@ -17658,7 +17658,7 @@ if.then22:                                        ; preds = %if.end
 
 if.end39:                                         ; preds = %if.end
   %sub42 = add nsw i32 %add.i.i, -1
-  %cmp43138 = icmp ugt i32 %sub42, 1
+  %cmp43138 = icmp samesign ugt i32 %sub42, 1
   br i1 %cmp43138, label %land.rhs.preheader, label %for.end
 
 land.rhs.preheader:                               ; preds = %if.end39
@@ -23354,7 +23354,7 @@ _ZL14_hb_cmp_methodIjZNK2OT19CmapSubtableFormat413accelerator_t9get_glyphEjPjE11
   %10 = load i8, ptr %arrayidx3.i.i4.i.i.i.i.i, align 1
   %conv4.i.i5.i.i.i.i.i = zext i8 %10 to i32
   %add.i.i6.i.i.i.i.i = or disjoint i32 %shl.i.i3.i.i.i.i.i, %conv4.i.i5.i.i.i.i.i
-  %cmp4.i.i.i.i.i = icmp ult i32 %codepoint, %add.i.i6.i.i.i.i.i
+  %cmp4.i.i.i.i.i = icmp samesign ult i32 %codepoint, %add.i.i6.i.i.i.i.i
   br i1 %cmp4.i.i.i.i.i, label %if.then.i.i.i, label %if.end.i
 
 if.then.i.i.i:                                    ; preds = %_ZL14_hb_cmp_methodIjZNK2OT19CmapSubtableFormat413accelerator_t9get_glyphEjPjE11CustomRangeJjEEiPKvS6_DpT1_.exit.i.i.i
@@ -23643,7 +23643,7 @@ _ZL14_hb_cmp_methodIjZNK2OT19CmapSubtableFormat413accelerator_t9get_glyphEjPjE11
   %6 = load i8, ptr %arrayidx3.i.i4.i.i.i.i, align 1
   %conv4.i.i5.i.i.i.i = zext i8 %6 to i32
   %add.i.i6.i.i.i.i = or disjoint i32 %shl.i.i3.i.i.i.i, %conv4.i.i5.i.i.i.i
-  %cmp4.i.i.i.i = icmp ult i32 %codepoint, %add.i.i6.i.i.i.i
+  %cmp4.i.i.i.i = icmp samesign ult i32 %codepoint, %add.i.i6.i.i.i.i
   br i1 %cmp4.i.i.i.i, label %if.then.i.i, label %if.end
 
 if.then.i.i:                                      ; preds = %_ZL14_hb_cmp_methodIjZNK2OT19CmapSubtableFormat413accelerator_t9get_glyphEjPjE11CustomRangeJjEEiPKvS6_DpT1_.exit.i.i
@@ -28017,7 +28017,7 @@ cond.end:                                         ; preds = %if.then.i18, %cond.
   br i1 %cmp.i.i.i, label %for.end52, label %if.end.i.i
 
 if.end.i.i:                                       ; preds = %cond.end
-  %cmp9.not.i.i = icmp ugt i32 %add.i.i, %20
+  %cmp9.not.i.i = icmp samesign ugt i32 %add.i.i, %20
   br i1 %cmp9.not.i.i, label %while.body.i.i, label %if.end
 
 while.body.i.i:                                   ; preds = %if.end.i.i, %while.body.i.i
@@ -50498,7 +50498,7 @@ _ZNK9hb_iter_tIN2OT6Layout6Common8Coverage6iter_tEjEcvbEv.exit.i.i.i.i.i.prehead
   %20 = load i8, ptr %arrayidx3.i.i.i4.i.i.i.i.i.i.i, align 1
   %conv4.i.i.i5.i.i.i.i.i.i.i74 = zext i8 %20 to i32
   %add.i.i.i6.i.i.i.i.i.i.i75 = or disjoint i32 %shl.i.i.i3.i.i.i.i.i.i.i73, %conv4.i.i.i5.i.i.i.i.i.i.i74
-  %cmp.i7.i.i.i.i.i.i.i76 = icmp ult i32 %ref.tmp.sroa.8.0.i, %add.i.i.i6.i.i.i.i.i.i.i75
+  %cmp.i7.i.i.i.i.i.i.i76 = icmp samesign ult i32 %ref.tmp.sroa.8.0.i, %add.i.i.i6.i.i.i.i.i.i.i75
   %tobool.i.i.i.i.i.i.i77 = icmp ne i32 %add.i.i.i.i.i.i, 0
   %or.cond.i.i.i78 = select i1 %cmp.i7.i.i.i.i.i.i.i76, i1 %tobool.i.i.i.i.i.i.i77, i1 false
   br i1 %or.cond.i.i.i78, label %land.rhs.i.i.i.lr.ph, label %_ZNK9hb_iter_tIN2OT6Layout6Common8Coverage6iter_tEjEcvbEv.exit.i.i.i.i.i.i.i.i.lr.ph.i.i
@@ -67372,7 +67372,7 @@ _ZNK9hb_iter_tIN2OT6Layout6Common8Coverage6iter_tEjEcvbEv.exit.i.i.i.i.i.prehead
   %53 = load i8, ptr %arrayidx3.i.i.i4.i.i.i.i.i.i.i, align 1
   %conv4.i.i.i5.i.i.i.i.i.i.i103 = zext i8 %53 to i32
   %add.i.i.i6.i.i.i.i.i.i.i104 = or disjoint i32 %shl.i.i.i3.i.i.i.i.i.i.i102, %conv4.i.i.i5.i.i.i.i.i.i.i103
-  %cmp.i7.i.i.i.i.i.i.i105 = icmp ult i32 %ref.tmp.sroa.8.0.i, %add.i.i.i6.i.i.i.i.i.i.i104
+  %cmp.i7.i.i.i.i.i.i.i105 = icmp samesign ult i32 %ref.tmp.sroa.8.0.i, %add.i.i.i6.i.i.i.i.i.i.i104
   %tobool.i.i.i.i.i.i.i106 = icmp ne i32 %add.i.i.i.i.i.i, 0
   %or.cond.i.i.i107 = select i1 %cmp.i7.i.i.i.i.i.i.i105, i1 %tobool.i.i.i.i.i.i.i106, i1 false
   br i1 %or.cond.i.i.i107, label %land.rhs.i.i.i.lr.ph, label %_ZNK9hb_iter_tIN2OT6Layout6Common8Coverage6iter_tEjEcvbEv.exit.i.i.i.i.i.i.i.i.lr.ph.i.i
@@ -81037,7 +81037,7 @@ if.end.i.i.i.i:                                   ; preds = %if.end
   br i1 %cmp.not.i.i.i.i.not, label %if.end7, label %lor.rhs.i.i.i.i
 
 lor.rhs.i.i.i.i:                                  ; preds = %if.end.i.i.i.i
-  %3 = icmp ugt i32 %1, 1073741823
+  %3 = icmp samesign ugt i32 %1, 1073741823
   br i1 %3, label %cleanup.thread, label %_ZN11hb_vector_tIjLb0EE14realloc_vectorIjTnPN12hb_enable_ifIXsr3std28is_trivially_copy_assignableIT_EE5valueEvE4typeELPv0EEEPjj11hb_priorityILj0EE.exit.i.i.i.i
 
 _ZN11hb_vector_tIjLb0EE14realloc_vectorIjTnPN12hb_enable_ifIXsr3std28is_trivially_copy_assignableIT_EE5valueEvE4typeELPv0EEEPjj11hb_priorityILj0EE.exit.i.i.i.i: ; preds = %lor.rhs.i.i.i.i
@@ -84136,7 +84136,7 @@ _ZNK9hb_iter_tIN2OT6Layout6Common8Coverage6iter_tEjEcvbEv.exit.i.i.i.i.i.prehead
   %20 = load i8, ptr %arrayidx3.i.i.i4.i.i.i.i.i.i.i, align 1
   %conv4.i.i.i5.i.i.i.i.i.i.i77 = zext i8 %20 to i32
   %add.i.i.i6.i.i.i.i.i.i.i78 = or disjoint i32 %shl.i.i.i3.i.i.i.i.i.i.i76, %conv4.i.i.i5.i.i.i.i.i.i.i77
-  %cmp.i7.i.i.i.i.i.i.i79 = icmp ult i32 %ref.tmp.sroa.8.0.i, %add.i.i.i6.i.i.i.i.i.i.i78
+  %cmp.i7.i.i.i.i.i.i.i79 = icmp samesign ult i32 %ref.tmp.sroa.8.0.i, %add.i.i.i6.i.i.i.i.i.i.i78
   %tobool.i.i.i.i.i.i.i80 = icmp ne i32 %add.i.i.i.i.i.i, 0
   %or.cond.i.i.i81 = select i1 %cmp.i7.i.i.i.i.i.i.i79, i1 %tobool.i.i.i.i.i.i.i80, i1 false
   br i1 %or.cond.i.i.i81, label %land.rhs.i.i.i.lr.ph, label %_ZNK9hb_iter_tIN2OT6Layout6Common8Coverage6iter_tEjEcvbEv.exit.i.i.i.i.i.i.i.i.lr.ph.i.i
@@ -86440,7 +86440,7 @@ _ZNK9hb_iter_tIN2OT6Layout6Common8Coverage6iter_tEjEcvbEv.exit.i.i.i.i.i.prehead
   %22 = load i8, ptr %arrayidx3.i.i.i4.i.i.i.i.i.i.i, align 1
   %conv4.i.i.i5.i.i.i.i.i.i.i87 = zext i8 %22 to i32
   %add.i.i.i6.i.i.i.i.i.i.i88 = or disjoint i32 %shl.i.i.i3.i.i.i.i.i.i.i86, %conv4.i.i.i5.i.i.i.i.i.i.i87
-  %cmp.i7.i.i.i.i.i.i.i89 = icmp ult i32 %ref.tmp.sroa.8.0.i, %add.i.i.i6.i.i.i.i.i.i.i88
+  %cmp.i7.i.i.i.i.i.i.i89 = icmp samesign ult i32 %ref.tmp.sroa.8.0.i, %add.i.i.i6.i.i.i.i.i.i.i88
   %tobool.i.i.i.i.i.i.i90 = icmp ne i32 %add.i.i.i.i.i.i, 0
   %or.cond.i.i.i91 = select i1 %cmp.i7.i.i.i.i.i.i.i89, i1 %tobool.i.i.i.i.i.i.i90, i1 false
   br i1 %or.cond.i.i.i91, label %land.rhs.i.i.i.lr.ph, label %_ZNK9hb_iter_tIN2OT6Layout6Common8Coverage6iter_tEjEcvbEv.exit.i.i.i.i.i.i
@@ -89139,7 +89139,7 @@ _ZNK9hb_iter_tIN2OT6Layout6Common8Coverage6iter_tEjEcvbEv.exit.i.i.i.i.i.prehead
   %20 = load i8, ptr %arrayidx3.i.i.i4.i.i.i.i.i.i.i, align 1
   %conv4.i.i.i5.i.i.i.i.i.i.i73 = zext i8 %20 to i32
   %add.i.i.i6.i.i.i.i.i.i.i74 = or disjoint i32 %shl.i.i.i3.i.i.i.i.i.i.i72, %conv4.i.i.i5.i.i.i.i.i.i.i73
-  %cmp.i7.i.i.i.i.i.i.i75 = icmp ult i32 %ref.tmp.sroa.8.0.i, %add.i.i.i6.i.i.i.i.i.i.i74
+  %cmp.i7.i.i.i.i.i.i.i75 = icmp samesign ult i32 %ref.tmp.sroa.8.0.i, %add.i.i.i6.i.i.i.i.i.i.i74
   %tobool.i.i.i.i.i.i.i76 = icmp ne i32 %add.i.i.i.i.i.i, 0
   %or.cond.i.i.i77 = select i1 %cmp.i7.i.i.i.i.i.i.i75, i1 %tobool.i.i.i.i.i.i.i76, i1 false
   br i1 %or.cond.i.i.i77, label %land.rhs.i.i.i.lr.ph, label %_ZNK9hb_iter_tIN2OT6Layout6Common8Coverage6iter_tEjEcvbEv.exit.i.i.i.i.i.i.lr.ph.i.i
@@ -91019,7 +91019,7 @@ _ZNK9hb_iter_tIN2OT6Layout6Common8Coverage6iter_tEjEcvbEv.exit.i.i.i.i.i.prehead
   %18 = load i8, ptr %arrayidx3.i.i.i4.i.i.i.i.i.i.i, align 1
   %conv4.i.i.i5.i.i.i.i.i.i.i75 = zext i8 %18 to i32
   %add.i.i.i6.i.i.i.i.i.i.i76 = or disjoint i32 %shl.i.i.i3.i.i.i.i.i.i.i74, %conv4.i.i.i5.i.i.i.i.i.i.i75
-  %cmp.i7.i.i.i.i.i.i.i77 = icmp ult i32 %ref.tmp.sroa.8.0.i, %add.i.i.i6.i.i.i.i.i.i.i76
+  %cmp.i7.i.i.i.i.i.i.i77 = icmp samesign ult i32 %ref.tmp.sroa.8.0.i, %add.i.i.i6.i.i.i.i.i.i.i76
   %tobool.i.i.i.i.i.i.i78 = icmp ne i32 %add.i.i.i.i.i.i, 0
   %or.cond.i.i.i79 = select i1 %cmp.i7.i.i.i.i.i.i.i77, i1 %tobool.i.i.i.i.i.i.i78, i1 false
   br i1 %or.cond.i.i.i79, label %land.rhs.i.i.i.lr.ph, label %_ZNK9hb_iter_tIN2OT6Layout6Common8Coverage6iter_tEjEcvbEv.exit.i.i.i.i.i.i.i.i.lr.ph.i.i
@@ -97995,7 +97995,7 @@ _ZNK2OT7ArrayOfIN3CFF17FDSelect3_4_RangeINS_7IntTypeIjLj4EEENS3_ItLj2EEEEES4_Eix
   %36 = load i8, ptr %arrayidx12.i.i105, align 1
   %conv13.i.i106 = zext i8 %36 to i32
   %add14.i.i107 = or disjoint i32 %add10.i.i104, %conv13.i.i106
-  %cmp.not.i121 = icmp ult i64 %indvars.iv188, %.pre-phi
+  %cmp.not.i121 = icmp samesign ult i64 %indvars.iv188, %.pre-phi
   br i1 %cmp.not.i121, label %if.end.i123, label %_ZNK2OT7ArrayOfIN3CFF17FDSelect3_4_RangeINS_7IntTypeIjLj4EEENS3_ItLj2EEEEES4_EixEi.exit127
 
 if.end.i123:                                      ; preds = %_ZNK2OT7ArrayOfIN3CFF17FDSelect3_4_RangeINS_7IntTypeIjLj4EEENS3_ItLj2EEEEES4_EixEi.exit94

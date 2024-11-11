@@ -6253,7 +6253,7 @@ define hidden void @_ZN6cvtest6insertERKN2cv3MatERS1_i(ptr noundef nonnull align
 19:                                               ; preds = %12
   %20 = lshr i32 %14, 3
   %21 = and i32 %20, 511
-  %.not = icmp ugt i32 %2, %21
+  %.not = icmp samesign ugt i32 %2, %21
   br i1 %.not, label %22, label %30
 
 22:                                               ; preds = %19, %12, %3
@@ -6485,7 +6485,7 @@ define hidden void @_ZN6cvtest7extractERKN2cv3MatERS1_i(ptr noundef nonnull alig
   %17 = load i32, ptr %0, align 8
   %18 = lshr i32 %17, 3
   %19 = and i32 %18, 511
-  %.not = icmp ugt i32 %2, %19
+  %.not = icmp samesign ugt i32 %2, %19
   br i1 %.not, label %20, label %28
 
 20:                                               ; preds = %16, %3
@@ -12633,7 +12633,7 @@ _ZNSt6vectorIiSaIiEE6resizeEm.exit.i:             ; preds = %315, %321, %319, %3
   %345 = getelementptr inbounds i32, ptr %344, i64 %indvars.iv.next.i
   store i32 %343, ptr %345, align 4
   %346 = udiv i64 %.02227.i, %341
-  %347 = icmp ugt i64 %indvars.iv.i, 1
+  %347 = icmp samesign ugt i64 %indvars.iv.i, 1
   br i1 %347, label %328, label %_ZN6cvtestL6setposERKN2cv3MatERSt6vectorIiSaIiEEm.exit, !llvm.loop !331
 
 348:                                              ; preds = %_ZNSt6vectorIiSaIiEE6resizeEm.exit.i
@@ -12649,7 +12649,7 @@ _ZNSt6vectorIiSaIiEE6resizeEm.exit.i:             ; preds = %315, %321, %319, %3
   %350 = load ptr, ptr %4, align 8
   %351 = getelementptr inbounds i32, ptr %350, i64 %indvars.iv.next33.i
   store i32 -1, ptr %351, align 4
-  %352 = icmp ugt i64 %indvars.iv32.i, 1
+  %352 = icmp samesign ugt i64 %indvars.iv32.i, 1
   br i1 %352, label %.lr.ph29.i, label %_ZN6cvtestL6setposERKN2cv3MatERSt6vectorIiSaIiEEm.exit, !llvm.loop !332
 
 _ZN6cvtestL6setposERKN2cv3MatERSt6vectorIiSaIiEEm.exit: ; preds = %328, %.lr.ph29.i, %348, %324, %302
@@ -12726,7 +12726,7 @@ _ZNSt6vectorIiSaIiEE6resizeEm.exit.i287:          ; preds = %365, %371, %369, %3
   %395 = getelementptr inbounds i32, ptr %394, i64 %indvars.iv.next.i292
   store i32 %393, ptr %395, align 4
   %396 = udiv i64 %.02227.i291, %391
-  %397 = icmp ugt i64 %indvars.iv.i290, 1
+  %397 = icmp samesign ugt i64 %indvars.iv.i290, 1
   br i1 %397, label %378, label %_ZN6cvtestL6setposERKN2cv3MatERSt6vectorIiSaIiEEm.exit299.preheader, !llvm.loop !331
 
 398:                                              ; preds = %_ZNSt6vectorIiSaIiEE6resizeEm.exit.i287
@@ -12742,7 +12742,7 @@ _ZNSt6vectorIiSaIiEE6resizeEm.exit.i287:          ; preds = %365, %371, %369, %3
   %400 = load ptr, ptr %3, align 8
   %401 = getelementptr inbounds i32, ptr %400, i64 %indvars.iv.next33.i296
   store i32 -1, ptr %401, align 4
-  %402 = icmp ugt i64 %indvars.iv32.i295, 1
+  %402 = icmp samesign ugt i64 %indvars.iv32.i295, 1
   br i1 %402, label %.lr.ph29.i294, label %_ZN6cvtestL6setposERKN2cv3MatERSt6vectorIiSaIiEEm.exit299.preheader, !llvm.loop !332
 
 _ZN6cvtestL6setposERKN2cv3MatERSt6vectorIiSaIiEEm.exit299.preheader: ; preds = %378, %.lr.ph29.i294, %398, %374, %_ZN6cvtestL6setposERKN2cv3MatERSt6vectorIiSaIiEEm.exit
@@ -20762,7 +20762,7 @@ _ZN6cvtest11cmpUlpsInt_IhEEdPKT_S3_mimRm.exit:    ; preds = %191, %148, %172, %.
   %253 = getelementptr inbounds i32, ptr %252, i64 %indvars.iv.next.i
   store i32 %251, ptr %253, align 4
   %254 = udiv i64 %.02227.i, %249
-  %255 = icmp ugt i64 %indvars.iv.i, 1
+  %255 = icmp samesign ugt i64 %indvars.iv.i, 1
   br i1 %255, label %236, label %_ZN6cvtestL6setposERKN2cv3MatERSt6vectorIiSaIiEEm.exit, !llvm.loop !331
 
 _ZN6cvtestL6setposERKN2cv3MatERSt6vectorIiSaIiEEm.exit: ; preds = %236, %51, %231, %._crit_edge
@@ -21126,7 +21126,7 @@ _ZN6cvtestL9checkInt_IhEEvPKT_miimRm.exit.thread: ; preds = %93, %82, %70, %63, 
   %151 = getelementptr inbounds i32, ptr %150, i64 %indvars.iv.next.i
   store i32 %149, ptr %151, align 4
   %152 = udiv i64 %.02227.i, %147
-  %153 = icmp ugt i64 %indvars.iv.i, 1
+  %153 = icmp samesign ugt i64 %indvars.iv.i, 1
   br i1 %153, label %134, label %_ZN6cvtestL6setposERKN2cv3MatERSt6vectorIiSaIiEEm.exit, !llvm.loop !331
 
 _ZN6cvtestL6setposERKN2cv3MatERSt6vectorIiSaIiEEm.exit: ; preds = %105, %134, %30, %128, %108
@@ -21852,7 +21852,7 @@ _ZN6cvtest11cmpUlpsInt_IhEEdPKT_S3_mimRm.exit:    ; preds = %271, %241, %206, %.
   %338 = getelementptr inbounds i32, ptr %337, i64 %indvars.iv.next.i
   store i32 %336, ptr %338, align 4
   %339 = udiv i64 %.02227.i, %334
-  %340 = icmp ugt i64 %indvars.iv.i, 1
+  %340 = icmp samesign ugt i64 %indvars.iv.i, 1
   br i1 %340, label %321, label %_ZN6cvtestL6setposERKN2cv3MatERSt6vectorIiSaIiEEm.exit.preheader, !llvm.loop !331
 
 _ZN6cvtestL6setposERKN2cv3MatERSt6vectorIiSaIiEEm.exit.preheader: ; preds = %321, %316, %295
@@ -27301,7 +27301,7 @@ define hidden void @_ZN6cvtest17calcSobelKernel2DEiiii(ptr dead_on_unwind noalia
   %17 = icmp sgt i32 %16, -1
   %or.cond40 = and i1 %17, %15
   %18 = add nuw nsw i32 %2, %1
-  %19 = icmp ult i32 %18, 4
+  %19 = icmp samesign ult i32 %18, 4
   %or.cond54 = select i1 %or.cond40, i1 %19, i1 false
   br i1 %or.cond54, label %32, label %24
 
@@ -27309,7 +27309,7 @@ define hidden void @_ZN6cvtest17calcSobelKernel2DEiiii(ptr dead_on_unwind noalia
   %21 = or i32 %2, %1
   %or.cond41 = icmp sgt i32 %21, -1
   %22 = add nuw nsw i32 %2, %1
-  %23 = icmp ult i32 %22, 4
+  %23 = icmp samesign ult i32 %22, 4
   %or.cond51 = select i1 %or.cond41, i1 %23, i1 false
   br i1 %or.cond51, label %34, label %24
 

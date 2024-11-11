@@ -339,7 +339,7 @@ define noundef range(i32 0, 2) i32 @write_image(ptr noundef %0, ptr noundef %1, 
   %160 = shl nuw nsw i64 %157, 3
   %161 = or disjoint i64 %160, 6
   %162 = zext nneg i32 %153 to i64
-  %163 = icmp ult i32 %153, 17
+  %163 = icmp samesign ult i32 %153, 17
   %164 = and i64 %162, 15
   %165 = icmp eq i64 %164, 0
   %166 = select i1 %165, i64 16, i64 %164

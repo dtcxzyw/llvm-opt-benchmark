@@ -40,7 +40,7 @@ define dso_local i64 @HUF_readDTableX1_wksp(ptr nocapture noundef %0, ptr nounde
   br i1 %22, label %HUF_rescaleStats.exit, label %23
 
 23:                                               ; preds = %16
-  %24 = icmp ult i32 %21, %19
+  %24 = icmp samesign ult i32 %21, %19
   br i1 %24, label %25, label %.lr.ph
 
 25:                                               ; preds = %23
@@ -446,7 +446,7 @@ define dso_local i64 @HUF_readDTableX2_wksp(ptr noundef %0, ptr noundef %1, i64 
   br i1 %24, label %274, label %25
 
 25:                                               ; preds = %22
-  %26 = icmp ult i32 %23, 12
+  %26 = icmp samesign ult i32 %23, 12
   %27 = icmp eq i32 %9, 12
   %or.cond = select i1 %26, i1 %27, i1 false
   %28 = add nuw nsw i32 %23, 1

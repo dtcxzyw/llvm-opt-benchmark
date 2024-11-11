@@ -2908,14 +2908,14 @@ define range(i32 -4, 3) i32 @tinfl_decompress(ptr noundef %0, ptr noundef %1, pt
   br i1 %404, label %405, label %407
 
 405:                                              ; preds = %398
-  %.not1592 = icmp ult i16 %402, 512
+  %.not1592 = icmp samesign ult i16 %402, 512
   %406 = lshr i32 %403, 9
-  %.not1593 = icmp ult i32 %.41, %406
+  %.not1593 = icmp samesign ult i32 %.41, %406
   %or.cond1635 = select i1 %.not1592, i1 true, i1 %.not1593
   br i1 %or.cond1635, label %427, label %454
 
 407:                                              ; preds = %398
-  %408 = icmp ugt i32 %.41, 10
+  %408 = icmp samesign ugt i32 %.41, 10
   br i1 %408, label %.preheader1721, label %427
 
 .preheader1721:                                   ; preds = %407
@@ -3221,14 +3221,14 @@ define range(i32 -4, 3) i32 @tinfl_decompress(ptr noundef %0, ptr noundef %1, pt
   br i1 %562, label %563, label %565
 
 563:                                              ; preds = %556
-  %.not1570 = icmp ult i16 %560, 512
+  %.not1570 = icmp samesign ult i16 %560, 512
   %564 = lshr i32 %561, 9
-  %.not1571 = icmp ult i32 %.52, %564
+  %.not1571 = icmp samesign ult i32 %.52, %564
   %or.cond1640 = select i1 %.not1570, i1 true, i1 %.not1571
   br i1 %or.cond1640, label %585, label %612
 
 565:                                              ; preds = %556
-  %566 = icmp ugt i32 %.52, 10
+  %566 = icmp samesign ugt i32 %.52, 10
   br i1 %566, label %.preheader1729, label %585
 
 .preheader1729:                                   ; preds = %565
@@ -3615,14 +3615,14 @@ define range(i32 -4, 3) i32 @tinfl_decompress(ptr noundef %0, ptr noundef %1, pt
   br i1 %755, label %756, label %758
 
 756:                                              ; preds = %749
-  %.not1578 = icmp ult i16 %753, 512
+  %.not1578 = icmp samesign ult i16 %753, 512
   %757 = lshr i32 %754, 9
   %.not1579 = icmp ult i32 %.63, %757
   %or.cond1641 = or i1 %.not1578, %.not1579
   br i1 %or.cond1641, label %778, label %805
 
 758:                                              ; preds = %749
-  %759 = icmp ugt i32 %.63, 10
+  %759 = icmp samesign ugt i32 %.63, 10
   br i1 %759, label %.preheader1726, label %778
 
 .preheader1726:                                   ; preds = %758
@@ -9768,7 +9768,7 @@ define range(i32 0, 2) i32 @mz_zip_reader_locate_file_v2(ptr noundef %0, ptr nou
   ]
 
 119:                                              ; preds = %.preheader199.us.us
-  %120 = icmp ugt i64 %indvars.iv273, 1
+  %120 = icmp samesign ugt i64 %indvars.iv273, 1
   br i1 %120, label %.preheader199.us.us, label %.split.loop.exit309
 
 .split.loop.exit310:                              ; preds = %.preheader199.us.us, %.preheader199.us.us, %.preheader199.us.us
@@ -9880,7 +9880,7 @@ define range(i32 0, 2) i32 @mz_zip_reader_locate_file_v2(ptr noundef %0, ptr nou
   ]
 
 163:                                              ; preds = %.preheader199.us
-  %164 = icmp ugt i64 %indvars.iv265, 1
+  %164 = icmp samesign ugt i64 %indvars.iv265, 1
   br i1 %164, label %.preheader199.us, label %.split.loop.exit306
 
 .split.loop.exit307:                              ; preds = %.preheader199.us, %.preheader199.us, %.preheader199.us
@@ -19199,7 +19199,7 @@ define internal fastcc range(i32 0, 2) i32 @tdefl_compress_block(ptr noundef non
   %41 = or disjoint i32 %39, %40
   %42 = add nsw i32 %.175114.i.i, -1
   %43 = lshr i32 %.067116.i.i, 1
-  %44 = icmp ugt i32 %.175114.i.i, 1
+  %44 = icmp samesign ugt i32 %.175114.i.i, 1
   br i1 %44, label %38, label %45
 
 45:                                               ; preds = %38
@@ -19282,7 +19282,7 @@ tdefl_optimize_huffman_table.exit.i:              ; preds = %48
   %74 = or disjoint i32 %72, %73
   %75 = add nsw i32 %.175114.i44.i, -1
   %76 = lshr i32 %.067116.i42.i, 1
-  %77 = icmp ugt i32 %.175114.i44.i, 1
+  %77 = icmp samesign ugt i32 %.175114.i44.i, 1
   br i1 %77, label %71, label %78
 
 78:                                               ; preds = %71
@@ -19831,7 +19831,7 @@ tdefl_optimize_huffman_table.exit47.i:            ; preds = %80
   store i32 %346, ptr %298, align 8
   %347 = add nuw nsw i32 %storemerge302.lcssa.i, 5
   store i32 %347, ptr %295, align 4
-  %348 = icmp ugt i32 %storemerge302.lcssa.i, 2
+  %348 = icmp samesign ugt i32 %storemerge302.lcssa.i, 2
   br i1 %348, label %.lr.ph352.i, label %.preheader319.i
 
 .lr.ph352.i:                                      ; preds = %._crit_edge349.i
@@ -19964,7 +19964,7 @@ tdefl_optimize_huffman_table.exit47.i:            ; preds = %80
   store i32 %417, ptr %298, align 8
   %418 = add nuw nsw i32 %409, 3
   store i32 %418, ptr %295, align 4
-  %419 = icmp ugt i32 %409, 4
+  %419 = icmp samesign ugt i32 %409, 4
   br i1 %419, label %.lr.ph358.i, label %._crit_edge359.i
 
 .lr.ph358.i:                                      ; preds = %407
@@ -20040,7 +20040,7 @@ tdefl_optimize_huffman_table.exit47.i:            ; preds = %80
   store i32 %459, ptr %298, align 8
   %460 = add nuw nsw i32 %446, %457
   store i32 %460, ptr %295, align 4
-  %461 = icmp ugt i32 %460, 7
+  %461 = icmp samesign ugt i32 %460, 7
   br i1 %461, label %.lr.ph364.i, label %._crit_edge365.i
 
 .lr.ph364.i:                                      ; preds = %444
@@ -20398,7 +20398,7 @@ tdefl_start_static_block.exit:                    ; preds = %100, %tdefl_optimiz
   store i32 %694, ptr %535, align 8
   %695 = add nuw nsw i32 %687, %686
   store i32 %695, ptr %537, align 4
-  %696 = icmp ugt i32 %695, 7
+  %696 = icmp samesign ugt i32 %695, 7
   br i1 %696, label %.lr.ph167.i, label %._crit_edge168.i
 
 .lr.ph167.i:                                      ; preds = %684
@@ -20474,7 +20474,7 @@ tdefl_start_static_block.exit:                    ; preds = %100, %tdefl_optimiz
   store i32 %732, ptr %535, align 8
   %733 = add nuw nsw i32 %724, %730
   store i32 %733, ptr %537, align 4
-  %734 = icmp ugt i32 %733, 7
+  %734 = icmp samesign ugt i32 %733, 7
   br i1 %734, label %.lr.ph178.i, label %._crit_edge179.i
 
 .lr.ph178.i:                                      ; preds = %._crit_edge176.i
@@ -21066,7 +21066,7 @@ tdefl_huffman_enforce_max_code_size.exit:         ; preds = %.loopexit.i, %tdefl
   %213 = getelementptr inbounds [3 x [288 x i8]], ptr %198, i64 0, i64 %12, i64 %212
   store i8 %207, ptr %213, align 1
   %214 = add nsw i32 %.074105, -1
-  %215 = icmp ugt i32 %.074105, 1
+  %215 = icmp samesign ugt i32 %.074105, 1
   br i1 %215, label %209, label %._crit_edge109.loopexit
 
 ._crit_edge109.loopexit:                          ; preds = %209
@@ -21136,7 +21136,7 @@ tdefl_huffman_enforce_max_code_size.exit:         ; preds = %.loopexit.i, %tdefl
   %241 = or disjoint i32 %240, %239
   %242 = add nsw i32 %.175114, -1
   %243 = lshr i32 %.067116, 1
-  %244 = icmp ugt i32 %.175114, 1
+  %244 = icmp samesign ugt i32 %.175114, 1
   br i1 %244, label %238, label %245
 
 245:                                              ; preds = %238

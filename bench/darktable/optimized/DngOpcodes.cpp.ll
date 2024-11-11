@@ -2283,7 +2283,7 @@ define linkonce_odr hidden void @_ZNK8rawspeed10DngOpcodes11PixelOpcode7applyOPI
   %86 = zext i32 %77 to i64
   %87 = add nsw i64 %86, -1
   %88 = and i64 %86, 3
-  %89 = icmp ult i64 %87, 3
+  %89 = icmp samesign ult i64 %87, 3
   %90 = and i64 %86, 4294967292
   %91 = icmp eq i64 %88, 0
   br i1 %89, label %.split11.us, label %.split
@@ -3228,14 +3228,14 @@ define linkonce_odr hidden void @_ZN8rawspeed10DngOpcodes9ROIOpcodeC2ERKNS_8RawI
   br i1 %84, label %85, label %93
 
 85:                                               ; preds = %81
-  %86 = icmp ule i32 %66, %75
-  %87 = icmp ule i32 %54, %77
+  %86 = icmp samesign ule i32 %66, %75
+  %87 = icmp samesign ule i32 %54, %77
   %88 = select i1 %86, i1 %87, i1 false
   br i1 %88, label %89, label %93
 
 89:                                               ; preds = %85
-  %90 = icmp uge i32 %66, %42
-  %91 = icmp uge i32 %54, %30
+  %90 = icmp samesign uge i32 %66, %42
+  %91 = icmp samesign uge i32 %54, %30
   %92 = select i1 %90, i1 %91, i1 false
   br i1 %92, label %107, label %93
 

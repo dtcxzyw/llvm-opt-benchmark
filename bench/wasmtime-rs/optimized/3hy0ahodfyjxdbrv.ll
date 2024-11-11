@@ -11485,7 +11485,7 @@ _ZN17cranelift_codegen2ir12instructions6Opcode13is_terminator17hffc2d395505617f2
   unreachable
 
 133:                                              ; preds = %.noexc25, %.noexc25, %.noexc25, %.noexc25, %.noexc25, %.noexc25, %.noexc25
-  %switch.i.i.i.i = icmp ult i8 %132, 4
+  %switch.i.i.i.i = icmp samesign ult i8 %132, 4
   %..i.i.i = zext i1 %switch.i.i.i.i to i32
   br label %.loopexit
 

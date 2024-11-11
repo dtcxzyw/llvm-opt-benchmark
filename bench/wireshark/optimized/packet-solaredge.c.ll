@@ -1234,7 +1234,7 @@ tailrecurse.i:                                    ; preds = %376, %106
 
 374:                                              ; preds = %372, %.thread279.i, %274, %272, %.thread277.i, %143
   %.0.i = phi i32 [ %373, %372 ], [ %371, %.thread279.i ], [ %341, %274 ], [ %273, %272 ], [ %271, %.thread277.i ], [ %162, %143 ]
-  %375 = icmp ult i32 %.0.i, %28
+  %375 = icmp samesign ult i32 %.0.i, %28
   br i1 %375, label %376, label %dissect_solaredge_devicedata.exit
 
 376:                                              ; preds = %374

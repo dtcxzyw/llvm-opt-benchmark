@@ -511,7 +511,7 @@ _ZL10_hb_ucd_dmj.exit:                            ; preds = %_ZL24_hb_ucd_decomp
   br i1 %46, label %47, label %62
 
 47:                                               ; preds = %44
-  %48 = icmp ult i16 %42, 826
+  %48 = icmp samesign ult i16 %42, 826
   br i1 %48, label %49, label %54
 
 49:                                               ; preds = %47
@@ -538,7 +538,7 @@ _ZL10_hb_ucd_dmj.exit:                            ; preds = %_ZL24_hb_ucd_decomp
 62:                                               ; preds = %44
   %63 = zext i16 %42 to i32
   %64 = add nsw i32 %63, -936
-  %65 = icmp ult i32 %64, 638
+  %65 = icmp samesign ult i32 %64, 638
   br i1 %65, label %66, label %74
 
 66:                                               ; preds = %62

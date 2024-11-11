@@ -355,7 +355,7 @@ define noundef ptr @lv_tlsf_add_pool(ptr noundef %0, ptr noundef %1, i64 noundef
   %11 = getelementptr inbounds nuw i8, ptr %10, i64 8
   %12 = add nsw i64 %4, -15
   store i64 %12, ptr %11, align 8, !tbaa !15
-  %13 = icmp ult i64 %12, 256
+  %13 = icmp samesign ult i64 %12, 256
   br i1 %13, label %14, label %17
 
 14:                                               ; preds = %8
@@ -644,7 +644,7 @@ lv_tlsf_create.exit:                              ; preds = %13, %2
   %22 = getelementptr inbounds nuw i8, ptr %21, i64 8
   %23 = add nsw i64 %15, -2391
   store i64 %23, ptr %22, align 8, !tbaa !15
-  %24 = icmp ult i64 %23, 256
+  %24 = icmp samesign ult i64 %23, 256
   br i1 %24, label %25, label %28
 
 25:                                               ; preds = %19

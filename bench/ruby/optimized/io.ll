@@ -648,7 +648,7 @@ define dso_local noundef i32 @rb_cloexec_open(ptr nocapture noundef readonly %0,
   br i1 %16, label %.thread, label %17
 
 17:                                               ; preds = %._crit_edge
-  %18 = icmp ult i32 %.lcssa, 3
+  %18 = icmp samesign ult i32 %.lcssa, 3
   %19 = load i32, ptr @rb_cloexec_open.o_cloexec_state, align 4
   %20 = icmp eq i32 %19, 0
   %or.cond = select i1 %18, i1 true, i1 %20
@@ -6357,7 +6357,7 @@ define dso_local void @rb_close_before_exec(i32 noundef %0, i32 noundef %1, i64 
 11:                                               ; preds = %8
   %12 = getelementptr i8, ptr %4, i64 %9
   %13 = ptrtoint ptr %12 to i64
-  %14 = icmp ugt i64 %9, 9
+  %14 = icmp samesign ugt i64 %9, 9
   br i1 %14, label %.lr.ph.i, label %.critedge.i
 
 .lr.ph.i:                                         ; preds = %11, %24
@@ -10832,7 +10832,7 @@ define internal i64 @rb_io_s_popen(i32 noundef %0, ptr nocapture noundef readonl
 
 12:                                               ; preds = %5
   %13 = add nsw i32 %0, -1
-  %14 = icmp ugt i32 %13, 1
+  %14 = icmp samesign ugt i32 %13, 1
   br i1 %14, label %.thread, label %.thread34
 
 .thread:                                          ; preds = %5, %12
@@ -13940,7 +13940,7 @@ rb_io_check_byte_readable.exit122.backedge:       ; preds = %130, %.thread133, %
   br i1 %148, label %120, label %.loopexit135, !llvm.loop !96
 
 149:                                              ; preds = %.thread133
-  %150 = icmp ult i32 %128, -9
+  %150 = icmp samesign ult i32 %128, -9
   br i1 %150, label %.loopexit, label %151
 
 151:                                              ; preds = %149
@@ -21975,7 +21975,7 @@ RSTRING_PTR.exit:                                 ; preds = %72, %76
 
 read_buffered_data.exit:                          ; preds = %RSTRING_PTR.exit
   %80 = zext nneg i32 %78 to i64
-  %81 = icmp ult i64 %.0.i, %80
+  %81 = icmp samesign ult i64 %.0.i, %80
   %82 = trunc i64 %.0.i to i32
   %spec.select.i = select i1 %81, i32 %82, i32 %78
   %83 = sext i32 %spec.select.i to i64
@@ -32452,7 +32452,7 @@ RSTRING_PTR.exit:                                 ; preds = %rb_io_check_closed.
 
 read_buffered_data.exit:                          ; preds = %RSTRING_PTR.exit
   %92 = zext nneg i32 %90 to i64
-  %93 = icmp ult i64 %.0.i, %92
+  %93 = icmp samesign ult i64 %.0.i, %92
   %94 = trunc i64 %.0.i to i32
   %spec.select.i = select i1 %93, i32 %94, i32 %90
   %95 = sext i32 %spec.select.i to i64

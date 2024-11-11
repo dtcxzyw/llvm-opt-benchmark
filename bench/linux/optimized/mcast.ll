@@ -4560,7 +4560,7 @@ define internal void @mld_query_work(ptr noundef %0) #0 align 16 {
   br label %295
 
 184:                                              ; preds = %135, %131, %126
-  %185 = icmp ugt i32 %70, 27
+  %185 = icmp samesign ugt i32 %70, 27
   br i1 %185, label %186, label %.thread
 
 186:                                              ; preds = %184

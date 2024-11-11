@@ -437,7 +437,7 @@ define void @dlarrf_(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noca
   %334 = select i1 %332, double %331, double %333
   %335 = fcmp oge double %301, %334
   %336 = select i1 %335, double %301, double %334
-  %337 = icmp ugt i64 %299, 2
+  %337 = icmp samesign ugt i64 %299, 2
   br i1 %337, label %298, label %.loopexit, !llvm.loop !13
 
 .loopexit:                                        ; preds = %326, %286
@@ -510,7 +510,7 @@ define void @dlarrf_(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noca
   %387 = select i1 %385, double %384, double %386
   %388 = fcmp oge double %360, %387
   %389 = select i1 %388, double %360, double %387
-  %390 = icmp ugt i64 %358, 2
+  %390 = icmp samesign ugt i64 %358, 2
   br i1 %390, label %357, label %.loopexit14, !llvm.loop !14
 
 .loopexit14:                                      ; preds = %380, %346

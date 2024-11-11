@@ -581,7 +581,7 @@ if.then2:                                         ; preds = %if.then
   br label %return
 
 if.end:                                           ; preds = %if.then
-  %cmp5 = icmp ugt i64 %call, 1048575
+  %cmp5 = icmp samesign ugt i64 %call, 1048575
   br i1 %cmp5, label %if.then6, label %if.end10
 
 if.then6:                                         ; preds = %if.end

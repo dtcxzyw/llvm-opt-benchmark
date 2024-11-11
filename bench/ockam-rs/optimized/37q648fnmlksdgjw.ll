@@ -3176,7 +3176,7 @@ define hidden void @"_ZN109_$LT$kafka_protocol..messages..fetch_request..FetchRe
   store i64 %93, ptr %52, align 8, !alias.scope !432, !noalias !425
   %94 = getelementptr inbounds i8, ptr %91, i64 1
   store ptr %94, ptr %90, align 8, !alias.scope !432, !noalias !425
-  %95 = icmp ugt i16 %2, 6
+  %95 = icmp samesign ugt i16 %2, 6
   br i1 %95, label %98, label %.thread420
 
 96:                                               ; preds = %87
@@ -3224,7 +3224,7 @@ define hidden void @"_ZN109_$LT$kafka_protocol..messages..fetch_request..FetchRe
 
 "_ZN101_$LT$kafka_protocol..protocol..types..Int32$u20$as$u20$kafka_protocol..protocol..Decoder$LT$T$GT$$GT$6decode17hc0167cb2a52038b4E.exit306.thread": ; preds = %108
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %31)
-  %112 = icmp ugt i16 %2, 11
+  %112 = icmp samesign ugt i16 %2, 11
   br i1 %112, label %127, label %115
 
 113:                                              ; preds = %110
@@ -3358,7 +3358,7 @@ define hidden void @"_ZN109_$LT$kafka_protocol..messages..fetch_request..FetchRe
   store i64 %.sroa.5173.0.copyload, ptr %.sroa.572.0..sroa_idx, align 8
   call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %24)
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %23)
-  %147 = icmp ugt i16 %2, 10
+  %147 = icmp samesign ugt i16 %2, 10
   br i1 %147, label %172, label %167
 
 148:                                              ; preds = %141
@@ -7305,7 +7305,7 @@ _ZN5alloc3fmt6format17h31a4ee338d1d039bE.llvm.18105196424206627646.exit739.i: ; 
   %951 = and i8 %949, 63
   %952 = zext nneg i8 %951 to i32
   %953 = or disjoint i32 %950, %952
-  %954 = icmp ugt i8 %943, -33
+  %954 = icmp samesign ugt i8 %943, -33
   br i1 %954, label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h3f923f0f7fa3d546E.llvm.18105196424206627646.exit15.i.i.i.i.i.i", label %"_ZN87_$LT$core..str..iter..CharIndices$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h116b89e244d98b1cE.exit.thread11.i.i.i.i"
 
 955:                                              ; preds = %.lr.ph.i.i.i
@@ -7323,7 +7323,7 @@ _ZN5alloc3fmt6format17h31a4ee338d1d039bE.llvm.18105196424206627646.exit739.i: ; 
   %963 = or disjoint i32 %960, %962
   %964 = shl nuw nsw i32 %946, 12
   %965 = or disjoint i32 %963, %964
-  %966 = icmp ugt i8 %943, -17
+  %966 = icmp samesign ugt i8 %943, -17
   br i1 %966, label %967, label %"_ZN87_$LT$core..str..iter..CharIndices$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h116b89e244d98b1cE.exit.thread11.i.i.i.i"
 
 967:                                              ; preds = %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h3f923f0f7fa3d546E.llvm.18105196424206627646.exit15.i.i.i.i.i.i"
@@ -29222,7 +29222,7 @@ define hidden void @"_ZN111_$LT$kafka_protocol..messages..fetch_request..Forgott
   br i1 %or.cond, label %30, label %32
 
 30:                                               ; preds = %3
-  %31 = icmp ugt i16 %2, 11
+  %31 = icmp samesign ugt i16 %2, 11
   br i1 %31, label %46, label %34
 
 32:                                               ; preds = %3
@@ -29420,7 +29420,7 @@ _ZN14kafka_protocol8protocol3buf7ByteBuf17try_copy_to_slice17hea2d377e06df598dE.
   br label %.thread229
 
 90:                                               ; preds = %82
-  %91 = icmp ugt i16 %2, 11
+  %91 = icmp samesign ugt i16 %2, 11
   br i1 %91, label %105, label %93
 
 .thread229:                                       ; preds = %117, %88
@@ -90064,7 +90064,7 @@ define hidden { i64, i64 } @"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$14reserve_r
   br i1 %35, label %38, label %46
 
 36:                                               ; preds = %30
-  %37 = icmp ult i64 %.0.sroa.speculated.i, 4
+  %37 = icmp samesign ult i64 %.0.sroa.speculated.i, 4
   %..i.i.i = select i1 %37, i64 4, i64 8
   br label %.thread.i.i.thread
 
@@ -90469,7 +90469,7 @@ define internal fastcc i64 @"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$14reserve_r
   br i1 %32, label %35, label %43
 
 33:                                               ; preds = %27
-  %34 = icmp ult i64 %.0.sroa.speculated.i, 4
+  %34 = icmp samesign ult i64 %.0.sroa.speculated.i, 4
   %..i.i.i = select i1 %34, i64 4, i64 8
   br label %.thread.i.i
 
@@ -90854,7 +90854,7 @@ define internal fastcc i64 @"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$14reserve_r
   br i1 %32, label %35, label %43
 
 33:                                               ; preds = %27
-  %34 = icmp ult i64 %.0.sroa.speculated.i, 4
+  %34 = icmp samesign ult i64 %.0.sroa.speculated.i, 4
   %..i.i.i = select i1 %34, i64 4, i64 8
   br label %.thread.i.i
 
@@ -91238,7 +91238,7 @@ define internal fastcc i64 @"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$14reserve_r
   br i1 %27, label %30, label %38
 
 28:                                               ; preds = %22
-  %29 = icmp ult i64 %.0.sroa.speculated.i, 4
+  %29 = icmp samesign ult i64 %.0.sroa.speculated.i, 4
   %..i.i.i = select i1 %29, i64 4, i64 8
   br label %.thread.i.i.thread
 
@@ -91510,7 +91510,7 @@ define internal fastcc i64 @"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$14reserve_r
   br i1 %32, label %35, label %43
 
 33:                                               ; preds = %27
-  %34 = icmp ult i64 %.0.sroa.speculated.i, 4
+  %34 = icmp samesign ult i64 %.0.sroa.speculated.i, 4
   %..i.i.i = select i1 %34, i64 4, i64 8
   br label %.thread.i.i
 
@@ -91906,7 +91906,7 @@ define internal fastcc i64 @"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$14reserve_r
   br i1 %32, label %35, label %43
 
 33:                                               ; preds = %27
-  %34 = icmp ult i64 %.0.sroa.speculated.i, 4
+  %34 = icmp samesign ult i64 %.0.sroa.speculated.i, 4
   %..i.i.i = select i1 %34, i64 4, i64 8
   br label %.thread.i.i
 
@@ -92297,7 +92297,7 @@ define internal fastcc i64 @"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$14reserve_r
   br i1 %32, label %35, label %43
 
 33:                                               ; preds = %27
-  %34 = icmp ult i64 %.0.sroa.speculated.i, 4
+  %34 = icmp samesign ult i64 %.0.sroa.speculated.i, 4
   %..i.i.i = select i1 %34, i64 4, i64 8
   br label %.thread.i.i
 
@@ -92683,7 +92683,7 @@ define internal fastcc i64 @"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$14reserve_r
   br i1 %27, label %30, label %38
 
 28:                                               ; preds = %22
-  %29 = icmp ult i64 %.0.sroa.speculated.i, 4
+  %29 = icmp samesign ult i64 %.0.sroa.speculated.i, 4
   %..i.i.i = select i1 %29, i64 4, i64 8
   br label %.thread.i.i.thread
 
@@ -92955,7 +92955,7 @@ define internal fastcc i64 @"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$14reserve_r
   br i1 %32, label %35, label %43
 
 33:                                               ; preds = %27
-  %34 = icmp ult i64 %.0.sroa.speculated.i, 4
+  %34 = icmp samesign ult i64 %.0.sroa.speculated.i, 4
   %..i.i.i = select i1 %34, i64 4, i64 8
   br label %.thread.i.i
 
@@ -93872,7 +93872,7 @@ define hidden void @"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$22fallible_with_cap
   br i1 %10, label %13, label %21
 
 11:                                               ; preds = %6
-  %12 = icmp ult i64 %1, 4
+  %12 = icmp samesign ult i64 %1, 4
   %..i.i = select i1 %12, i64 4, i64 8
   br label %.thread.i
 
@@ -96856,7 +96856,7 @@ define hidden void @_ZN9hashbrown3raw5inner13RawTableInner22fallible_with_capaci
   br i1 %15, label %18, label %27
 
 16:                                               ; preds = %11
-  %17 = icmp ult i64 %4, 4
+  %17 = icmp samesign ult i64 %4, 4
   %..i = select i1 %17, i64 4, i64 8
   br label %33
 
@@ -96969,7 +96969,7 @@ _ZN9hashbrown3raw5inner5alloc5inner8do_alloc17ha68e5659ccccd963E.exit.i: ; preds
   br label %26
 
 _ZN9hashbrown3raw5inner13RawTableInner17new_uninitialized17h2700112e5937f127E.exit: ; preds = %_ZN9hashbrown3raw5inner5alloc5inner8do_alloc17ha68e5659ccccd963E.exit.i
-  %69 = icmp ult i64 %.sroa.6.039.ph, 9
+  %69 = icmp samesign ult i64 %.sroa.6.039.ph, 9
   %70 = add nsw i64 %.sroa.6.039.ph, -1
   %71 = lshr i64 %.sroa.6.039.ph, 3
   %72 = mul nuw nsw i64 %71, 7

@@ -2602,7 +2602,7 @@ define internal range(i32 0, 2) i32 @dissect_ip_heur(ptr noundef %0, ptr noundef
   br i1 %10, label %11, label %21
 
 11:                                               ; preds = %7
-  %12 = icmp ult i32 %5, 8
+  %12 = icmp samesign ult i32 %5, 8
   br i1 %12, label %31, label %13
 
 13:                                               ; preds = %11
@@ -2776,7 +2776,7 @@ define internal i32 @dissect_ipopt_timestamp(ptr noundef %0, ptr noundef %1, ptr
 .lr.ph.split.us:                                  ; preds = %.lr.ph, %37
   %.087.us = phi i32 [ %44, %37 ], [ %27, %.lr.ph ]
   %.07886.us = phi i32 [ %43, %37 ], [ 4, %.lr.ph ]
-  %30 = icmp ult i32 %.087.us, 8
+  %30 = icmp samesign ult i32 %.087.us, 8
   br i1 %30, label %.split.us, label %31
 
 31:                                               ; preds = %.lr.ph.split.us
@@ -2803,7 +2803,7 @@ define internal i32 @dissect_ipopt_timestamp(ptr noundef %0, ptr noundef %1, ptr
 .lr.ph.split:                                     ; preds = %.lr.ph, %49
   %.087 = phi i32 [ %53, %49 ], [ %27, %.lr.ph ]
   %.07886 = phi i32 [ %52, %49 ], [ 4, %.lr.ph ]
-  %45 = icmp ult i32 %.087, 4
+  %45 = icmp samesign ult i32 %.087, 4
   br i1 %45, label %47, label %49
 
 .split.us:                                        ; preds = %.lr.ph.split.us
@@ -3255,7 +3255,7 @@ define internal i32 @dissect_ipopt_record_route(ptr noundef %0, ptr noundef %1, 
 .lr.ph.split.us:                                  ; preds = %.lr.ph, %dissect_option_route.exit.us
   %.065.us = phi i32 [ %45, %dissect_option_route.exit.us ], [ %22, %.lr.ph ]
   %.05064.us = phi i32 [ %46, %dissect_option_route.exit.us ], [ 3, %.lr.ph ]
-  %26 = icmp ult i32 %.065.us, 4
+  %26 = icmp samesign ult i32 %.065.us, 4
   br i1 %26, label %.split.us, label %27
 
 27:                                               ; preds = %.lr.ph.split.us
@@ -3299,7 +3299,7 @@ dissect_option_route.exit.us:                     ; preds = %41, %37, %34, %27
 .lr.ph.split:                                     ; preds = %.lr.ph, %dissect_option_route.exit
   %.065 = phi i32 [ %91, %dissect_option_route.exit ], [ %22, %.lr.ph ]
   %.05064 = phi i32 [ %92, %dissect_option_route.exit ], [ 3, %.lr.ph ]
-  %47 = icmp ult i32 %.065, 4
+  %47 = icmp samesign ult i32 %.065, 4
   br i1 %47, label %.split.us, label %49
 
 .split.us:                                        ; preds = %.lr.ph.split, %.lr.ph.split.us
@@ -3510,7 +3510,7 @@ define internal i32 @dissect_ipopt_sdb(ptr noundef %0, ptr noundef %1, ptr nound
   %15 = tail call ptr @proto_tree_add_item(ptr noundef %9, i32 noundef %14, ptr noundef %0, i32 noundef %.01920, i32 noundef 4, i32 noundef 0) #8
   %16 = add nuw nsw i32 %.01920, 4
   %17 = add nsw i32 %.021, -4
-  %18 = icmp ugt i32 %.021, 7
+  %18 = icmp samesign ugt i32 %.021, 7
   br i1 %18, label %.lr.ph, label %._crit_edge, !llvm.loop !16
 
 ._crit_edge:                                      ; preds = %.lr.ph, %4
@@ -4342,7 +4342,7 @@ define internal fastcc i32 @dissect_ipopt_route(ptr noundef %0, ptr noundef %1, 
 .lr.ph.split.us:                                  ; preds = %.lr.ph, %dissect_option_route.exit.us
   %.084112.us = phi i32 [ %46, %dissect_option_route.exit.us ], [ 3, %.lr.ph ]
   %.085111.us = phi i32 [ %45, %dissect_option_route.exit.us ], [ %21, %.lr.ph ]
-  %26 = icmp ult i32 %.085111.us, 4
+  %26 = icmp samesign ult i32 %.085111.us, 4
   br i1 %26, label %.split.us, label %27
 
 27:                                               ; preds = %.lr.ph.split.us
@@ -4386,7 +4386,7 @@ dissect_option_route.exit.us:                     ; preds = %41, %37, %34, %27
 .lr.ph.split:                                     ; preds = %.lr.ph, %dissect_option_route.exit
   %.084112 = phi i32 [ %134, %dissect_option_route.exit ], [ 3, %.lr.ph ]
   %.085111 = phi i32 [ %133, %dissect_option_route.exit ], [ %21, %.lr.ph ]
-  %47 = icmp ult i32 %.085111, 4
+  %47 = icmp samesign ult i32 %.085111, 4
   br i1 %47, label %.split.us, label %49
 
 .split.us:                                        ; preds = %.lr.ph.split, %.lr.ph.split.us

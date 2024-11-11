@@ -990,8 +990,8 @@ if.then271:                                       ; preds = %if.end269
   br i1 %cmp273, label %if.end288, label %if.else276
 
 if.else276:                                       ; preds = %if.then271
-  %cmp277 = icmp ult i32 %call272, 6
-  %cmp281 = icmp ult i32 %call272, 40
+  %cmp277 = icmp samesign ult i32 %call272, 6
+  %cmp281 = icmp samesign ult i32 %call272, 40
   %div59 = lshr i32 %call272, 1
   %spec.select = select i1 %cmp281, i32 %div59, i32 20
   %div59.sink = select i1 %cmp277, i32 3, i32 %spec.select
@@ -3610,7 +3610,7 @@ for.inc67.i:                                      ; preds = %Q_.exit34.i, %for.b
   %indvars.iv.next46.pre-phi.i = phi i64 [ %.pre52.i, %for.body55.for.inc67_crit_edge.i ], [ %504, %Q_.exit34.i ]
   %506 = phi i32 [ %500, %for.body55.for.inc67_crit_edge.i ], [ %.pre51.i, %Q_.exit34.i ]
   %507 = zext i32 %506 to i64
-  %cmp53.i = icmp ult i64 %indvars.iv.next46.pre-phi.i, %507
+  %cmp53.i = icmp samesign ult i64 %indvars.iv.next46.pre-phi.i, %507
   br i1 %cmp53.i, label %for.body55.i, label %show_pack_info.exit, !llvm.loop !26
 
 show_pack_info.exit:                              ; preds = %for.inc67.i, %if.end51.i
@@ -5777,7 +5777,7 @@ if.end48:                                         ; preds = %for.body
   %add50 = add i64 %25, %24
   store i64 %add50, ptr @base_cache_used, align 8
   tail call fastcc void @prune_base_data(ptr noundef nonnull %16)
-  %cmp29 = icmp ugt i64 %indvars.iv61, 1
+  %cmp29 = icmp samesign ugt i64 %indvars.iv61, 1
   br i1 %cmp29, label %for.body, label %for.end, !llvm.loop !36
 
 for.end:                                          ; preds = %if.end48, %if.end28.thread, %if.end28

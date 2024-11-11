@@ -2665,7 +2665,7 @@ _ZN4absl12lts_2023080223inlined_vector_internal13MallocAdapterISaIN9grpc_core14W
   br i1 %cmp18.not, label %for.body.preheader.i, label %invoke.cont4.i
 
 invoke.cont24:                                    ; preds = %if.end
-  %cmp6.not.i = icmp ult i64 %1, 2
+  %cmp6.not.i = icmp samesign ult i64 %1, 2
   br i1 %cmp6.not.i, label %invoke.cont44.thread, label %for.body.preheader.i
 
 invoke.cont44.thread:                             ; preds = %invoke.cont24

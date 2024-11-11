@@ -877,7 +877,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7SdfPathD2Ev.exit.i43: ; preds = %196, %183
 .noexc32.i:                                       ; preds = %.noexc31.i
   %234 = getelementptr inbounds i8, ptr %.056.i.i.i.i.i.i, i64 8
   %235 = add nsw i64 %.07.i.i.i.i.i.i, -1
-  %236 = icmp ugt i64 %.07.i.i.i.i.i.i, 1
+  %236 = icmp samesign ugt i64 %.07.i.i.i.i.i.i, 1
   br i1 %236, label %.lr.ph.i.i.i.i.i.i, label %_ZSt4copyIN9__gnu_cxx17__normal_iteratorIPN32pxrInternal_v0_24__pxrReserved__7SdfPathESt6vectorIS3_SaIS3_EEEESt16ostream_iteratorIS3_cSt11char_traitsIcEEET0_T_SE_SD_.exit.loopexit.i, !llvm.loop !10
 
 _ZSt4copyIN9__gnu_cxx17__normal_iteratorIPN32pxrInternal_v0_24__pxrReserved__7SdfPathESt6vectorIS3_SaIS3_EEEESt16ostream_iteratorIS3_cSt11char_traitsIcEEET0_T_SE_SD_.exit.loopexit.i: ; preds = %.noexc32.i
@@ -8759,7 +8759,7 @@ define internal fastcc void @_ZL5_DumpPN32pxrInternal_v0_24__pxrReserved__12Hd_S
 .noexc7:                                          ; preds = %.noexc6
   %16 = getelementptr inbounds i8, ptr %.056.i.i.i.i.i, i64 8
   %17 = add nsw i64 %.07.i.i.i.i.i, -1
-  %18 = icmp ugt i64 %.07.i.i.i.i.i, 1
+  %18 = icmp samesign ugt i64 %.07.i.i.i.i.i, 1
   br i1 %18, label %.lr.ph.i.i.i.i.i, label %_ZSt4copyIN9__gnu_cxx17__normal_iteratorIPKN32pxrInternal_v0_24__pxrReserved__7SdfPathESt6vectorIS3_SaIS3_EEEESt16ostream_iteratorIS3_cSt11char_traitsIcEEET0_T_SF_SE_.exit, !llvm.loop !22
 
 _ZSt4copyIN9__gnu_cxx17__normal_iteratorIPKN32pxrInternal_v0_24__pxrReserved__7SdfPathESt6vectorIS3_SaIS3_EEEESt16ostream_iteratorIS3_cSt11char_traitsIcEEET0_T_SF_SE_.exit: ; preds = %.noexc7, %5
@@ -9113,7 +9113,7 @@ _ZNSt23mersenne_twister_engineImLm32ELm624ELm397ELm31ELm2567483615ELm11ELm429496
   %135 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) @_ZSt4cout, ptr noundef nonnull @.str.8), !noalias !47
   %136 = getelementptr inbounds i8, ptr %.056.i.i.i.i.i, i64 8
   %137 = add nsw i64 %.07.i.i.i.i.i, -1
-  %138 = icmp ugt i64 %.07.i.i.i.i.i, 1
+  %138 = icmp samesign ugt i64 %.07.i.i.i.i.i, 1
   br i1 %138, label %.lr.ph.i.i.i.i.i, label %_ZSt4copyIN9__gnu_cxx17__normal_iteratorIPN32pxrInternal_v0_24__pxrReserved__7SdfPathESt6vectorIS3_SaIS3_EEEESt16ostream_iteratorIS3_cSt11char_traitsIcEEET0_T_SE_SD_.exit, !llvm.loop !10
 
 _ZSt4copyIN9__gnu_cxx17__normal_iteratorIPN32pxrInternal_v0_24__pxrReserved__7SdfPathESt6vectorIS3_SaIS3_EEEESt16ostream_iteratorIS3_cSt11char_traitsIcEEET0_T_SE_SD_.exit: ; preds = %.lr.ph.i.i.i.i.i, %_ZNSt23mersenne_twister_engineImLm32ELm624ELm397ELm31ELm2567483615ELm11ELm4294967295ELm7ELm2636928640ELm15ELm4022730752ELm18ELm1812433253EEC2Em.exit

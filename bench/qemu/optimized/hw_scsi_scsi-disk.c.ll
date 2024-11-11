@@ -3751,7 +3751,7 @@ while.body.i.us.i:                                ; preds = %if.end40.i.us.i, %f
   br i1 %tobool.not.i.us.i, label %if.else.i.us.i, label %if.then.i.us.i
 
 if.then.i.us.i:                                   ; preds = %while.body.i.us.i
-  %cmp5.i.us.i = icmp ult i32 %len.addr.039.i.us.i, 4
+  %cmp5.i.us.i = icmp samesign ult i32 %len.addr.039.i.us.i, 4
   br i1 %cmp5.i.us.i, label %if.then73.i, label %if.end20.i.us.i
 
 if.end20.i.us.i:                                  ; preds = %if.then.i.us.i
@@ -3782,7 +3782,7 @@ if.end23.i.us.i:                                  ; preds = %if.end20.thread.i.u
   %p.addr.134.i.us.i = phi ptr [ %add.ptr18.i.us.i, %if.end20.thread.i.us.i ], [ %add.ptr11.i.us.i, %if.end20.i.us.i ]
   %page_len.033.i.us.i = phi i32 [ %conv17.i.us.i, %if.end20.thread.i.us.i ], [ %conv1.i.i.us.i, %if.end20.i.us.i ]
   %len.addr.132.i.us.i = phi i32 [ %sub19.i.us.i, %if.end20.thread.i.us.i ], [ %sub.i.us.i, %if.end20.i.us.i ]
-  %cmp24.i.us.i = icmp ugt i32 %page_len.033.i.us.i, %len.addr.132.i.us.i
+  %cmp24.i.us.i = icmp samesign ugt i32 %page_len.033.i.us.i, %len.addr.132.i.us.i
   br i1 %cmp24.i.us.i, label %if.then26.i.us.i, label %if.end31.i.us.i
 
 if.then26.i.us.i:                                 ; preds = %if.end23.i.us.i
@@ -3990,7 +3990,7 @@ if.end8.i:                                        ; preds = %if.end.i
   %47 = tail call i16 @llvm.bswap.i16(i16 %inbuf.val.i)
   %conv1.i.i21 = zext i16 %47 to i32
   %add.i = add nuw nsw i32 %conv1.i.i21, 2
-  %cmp10.i = icmp ugt i32 %add.i, %conv.i
+  %cmp10.i = icmp samesign ugt i32 %add.i, %conv.i
   br i1 %cmp10.i, label %invalid_param_len.i23, label %if.end13.i
 
 if.end13.i:                                       ; preds = %if.end8.i
@@ -3999,7 +3999,7 @@ if.end13.i:                                       ; preds = %if.end8.i
   %48 = tail call i16 @llvm.bswap.i16(i16 %arrayidx14.val.i)
   %conv1.i22.i = zext i16 %48 to i32
   %add16.i = add nuw nsw i32 %conv1.i22.i, 8
-  %cmp17.i = icmp ule i32 %add16.i, %conv.i
+  %cmp17.i = icmp samesign ule i32 %add16.i, %conv.i
   %and23.i = and i32 %conv1.i22.i, 15
   %tobool24.not.i = icmp eq i32 %and23.i, 0
   %or.cond.i22 = and i1 %cmp17.i, %tobool24.not.i

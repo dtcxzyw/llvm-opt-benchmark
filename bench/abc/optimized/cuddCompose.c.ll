@@ -1848,7 +1848,7 @@ ddIsIthAddVar.exit.thread:                        ; preds = %26, %32, %ddIsIthAd
 82:                                               ; preds = %ddIsIthAddVar.exit, %75
   %.187 = phi ptr [ %.086115, %ddIsIthAddVar.exit ], [ %72, %75 ]
   %.1 = phi ptr [ %.085116, %ddIsIthAddVar.exit ], [ %51, %75 ]
-  %83 = icmp ugt i64 %indvars.iv, 1
+  %83 = icmp samesign ugt i64 %indvars.iv, 1
   br i1 %83, label %26, label %.preheader, !llvm.loop !22
 
 84:                                               ; preds = %.preheader, %112

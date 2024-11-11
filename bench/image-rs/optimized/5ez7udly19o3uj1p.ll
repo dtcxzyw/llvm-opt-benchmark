@@ -7125,7 +7125,7 @@ switch.lookup:                                    ; preds = %switch.hole_check, 
   %64 = phi i1 [ false, %62 ], [ true, %61 ], [ true, %switch.lookup ], [ true, %switch.lookup ], [ true, %switch.lookup ], [ true, %switch.lookup ], [ true, %switch.lookup ]
   %65 = phi i1 [ false, %62 ], [ true, %61 ], [ false, %switch.lookup ], [ false, %switch.lookup ], [ false, %switch.lookup ], [ false, %switch.lookup ], [ false, %switch.lookup ]
   %.0193 = phi i8 [ 2, %62 ], [ 1, %61 ], [ 0, %switch.lookup ], [ 0, %switch.lookup ], [ 0, %switch.lookup ], [ 0, %switch.lookup ], [ 0, %switch.lookup ]
-  %66 = icmp ult i8 %3, 4
+  %66 = icmp samesign ult i8 %3, 4
   br i1 %66, label %switch.lookup415, label %68
 
 67:                                               ; preds = %switch.hole_check414, %71
@@ -7134,7 +7134,7 @@ switch.lookup:                                    ; preds = %switch.hole_check, 
 
 68:                                               ; preds = %63
   %69 = icmp ne i8 %3, 4
-  %70 = icmp ult i8 %3, 8
+  %70 = icmp samesign ult i8 %3, 8
   %or.cond17 = and i1 %69, %70
   br i1 %or.cond17, label %switch.lookup415, label %71
 
@@ -7988,7 +7988,7 @@ switch.lookup:                                    ; preds = %switch.hole_check, 
   %86 = phi i1 [ false, %84 ], [ true, %83 ], [ true, %switch.lookup ], [ true, %switch.lookup ], [ true, %switch.lookup ], [ true, %switch.lookup ], [ true, %switch.lookup ]
   %87 = phi i1 [ false, %84 ], [ true, %83 ], [ false, %switch.lookup ], [ false, %switch.lookup ], [ false, %switch.lookup ], [ false, %switch.lookup ], [ false, %switch.lookup ]
   %.0193 = phi i8 [ 2, %84 ], [ 1, %83 ], [ 0, %switch.lookup ], [ 0, %switch.lookup ], [ 0, %switch.lookup ], [ 0, %switch.lookup ], [ 0, %switch.lookup ]
-  %88 = icmp ult i8 %3, 4
+  %88 = icmp samesign ult i8 %3, 4
   br i1 %88, label %switch.lookup492, label %90
 
 89:                                               ; preds = %switch.hole_check491, %93
@@ -7997,7 +7997,7 @@ switch.lookup:                                    ; preds = %switch.hole_check, 
 
 90:                                               ; preds = %85
   %91 = icmp ne i8 %3, 4
-  %92 = icmp ult i8 %3, 8
+  %92 = icmp samesign ult i8 %3, 8
   %or.cond17 = and i1 %91, %92
   br i1 %or.cond17, label %switch.lookup492, label %93
 
@@ -8744,7 +8744,7 @@ switch.lookup:                                    ; preds = %switch.hole_check, 
   %67 = phi i1 [ false, %65 ], [ true, %64 ], [ true, %switch.lookup ], [ true, %switch.lookup ], [ true, %switch.lookup ], [ true, %switch.lookup ], [ true, %switch.lookup ]
   %68 = phi i1 [ false, %65 ], [ true, %64 ], [ false, %switch.lookup ], [ false, %switch.lookup ], [ false, %switch.lookup ], [ false, %switch.lookup ], [ false, %switch.lookup ]
   %.0193 = phi i8 [ 2, %65 ], [ 1, %64 ], [ 0, %switch.lookup ], [ 0, %switch.lookup ], [ 0, %switch.lookup ], [ 0, %switch.lookup ], [ 0, %switch.lookup ]
-  %69 = icmp ult i8 %3, 4
+  %69 = icmp samesign ult i8 %3, 4
   br i1 %69, label %switch.lookup414, label %71
 
 70:                                               ; preds = %switch.hole_check413, %74
@@ -8753,7 +8753,7 @@ switch.lookup:                                    ; preds = %switch.hole_check, 
 
 71:                                               ; preds = %66
   %72 = icmp ne i8 %3, 4
-  %73 = icmp ult i8 %3, 8
+  %73 = icmp samesign ult i8 %3, 8
   %or.cond17 = and i1 %72, %73
   br i1 %or.cond17, label %switch.lookup414, label %74
 
@@ -10413,8 +10413,8 @@ _ZN4core4iter6traits8iterator8Iterator6max_by17he347ae188b27aae9E.exit: ; preds 
   %359 = and i8 %357, 15
   store i8 %359, ptr %40, align 1
   %360 = icmp ugt i8 %357, 63
-  %361 = icmp ugt i8 %357, 31
-  %or.cond14 = and i1 %361, %134
+  %361 = icmp samesign ugt i8 %357, 31
+  %or.cond14 = select i1 %134, i1 %361, i1 false
   %or.cond414 = select i1 %360, i1 true, i1 %or.cond14
   br i1 %or.cond414, label %409, label %364
 
@@ -11610,8 +11610,8 @@ _ZN4core4iter6traits8iterator8Iterator6max_by17he347ae188b27aae9E.exit: ; preds 
   %348 = and i8 %346, 15
   store i8 %348, ptr %40, align 1
   %349 = icmp ugt i8 %346, 63
-  %350 = icmp ugt i8 %346, 31
-  %or.cond14 = and i1 %350, %135
+  %350 = icmp samesign ugt i8 %346, 31
+  %or.cond14 = select i1 %135, i1 %350, i1 false
   %or.cond457 = select i1 %349, i1 true, i1 %or.cond14
   br i1 %or.cond457, label %398, label %353
 
@@ -12836,8 +12836,8 @@ _ZN4core4iter6traits8iterator8Iterator6max_by17he347ae188b27aae9E.exit: ; preds 
   %370 = and i8 %368, 15
   store i8 %370, ptr %37, align 1
   %371 = icmp ugt i8 %368, 63
-  %372 = icmp ugt i8 %368, 31
-  %or.cond14 = and i1 %372, %131
+  %372 = icmp samesign ugt i8 %368, 31
+  %or.cond14 = select i1 %131, i1 %372, i1 false
   %or.cond441 = select i1 %371, i1 true, i1 %or.cond14
   br i1 %or.cond441, label %420, label %375
 
@@ -28278,14 +28278,14 @@ define hidden void @"_ZN86_$LT$image..codecs..gif..GifDecoder$LT$R$GT$$u20$as$u2
   %113 = zext i16 %87 to i64
   %114 = shl nuw nsw i64 %113, 2
   %115 = mul nuw nsw i64 %114, %108
-  %.not.i187 = icmp ugt i64 %115, %3
+  %.not.i187 = icmp samesign ugt i64 %115, %3
   br i1 %.not.i187, label %.invoke, label %116
 
 116:                                              ; preds = %112
   %117 = getelementptr i8, ptr %2, i64 %115
   %118 = mul nuw nsw i64 %114, %109
   %119 = sub nuw nsw i64 %3, %115
-  %.not.i189 = icmp ugt i64 %118, %119
+  %.not.i189 = icmp samesign ugt i64 %118, %119
   br i1 %.not.i189, label %.invoke, label %121
 
 .invoke:                                          ; preds = %116, %112
@@ -29284,14 +29284,14 @@ define hidden void @"_ZN86_$LT$image..codecs..gif..GifDecoder$LT$R$GT$$u20$as$u2
   %114 = zext i16 %88 to i64
   %115 = shl nuw nsw i64 %114, 2
   %116 = mul nuw nsw i64 %115, %109
-  %.not.i188 = icmp ugt i64 %116, %3
+  %.not.i188 = icmp samesign ugt i64 %116, %3
   br i1 %.not.i188, label %.invoke, label %117
 
 117:                                              ; preds = %113
   %118 = getelementptr i8, ptr %2, i64 %116
   %119 = mul nuw nsw i64 %115, %110
   %120 = sub nuw nsw i64 %3, %116
-  %.not.i190 = icmp ugt i64 %119, %120
+  %.not.i190 = icmp samesign ugt i64 %119, %120
   br i1 %.not.i190, label %.invoke, label %122
 
 .invoke:                                          ; preds = %117, %113

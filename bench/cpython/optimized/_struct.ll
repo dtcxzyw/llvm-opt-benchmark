@@ -2757,7 +2757,7 @@ do.body:                                          ; preds = %do.body, %entry
   %conv = zext i8 %0 to i64
   %or = or disjoint i64 %shl, %conv
   %dec = add nsw i64 %i.0, -1
-  %cmp = icmp ugt i64 %i.0, 1
+  %cmp = icmp samesign ugt i64 %i.0, 1
   br i1 %cmp, label %do.body, label %do.end, !llvm.loop !17
 
 do.end:                                           ; preds = %do.body
@@ -2952,7 +2952,7 @@ do.body:                                          ; preds = %do.body, %entry
   %conv = zext i8 %0 to i64
   %or = or disjoint i64 %shl, %conv
   %dec = add nsw i64 %i.0, -1
-  %cmp = icmp ugt i64 %i.0, 1
+  %cmp = icmp samesign ugt i64 %i.0, 1
   br i1 %cmp, label %do.body, label %do.end, !llvm.loop !21
 
 do.end:                                           ; preds = %do.body
@@ -2977,7 +2977,7 @@ do.body:                                          ; preds = %do.body, %entry
   %conv = zext i8 %0 to i64
   %or = or disjoint i64 %shl, %conv
   %dec = add nsw i64 %i.0, -1
-  %cmp = icmp ugt i64 %i.0, 1
+  %cmp = icmp samesign ugt i64 %i.0, 1
   br i1 %cmp, label %do.body, label %do.end, !llvm.loop !22
 
 do.end:                                           ; preds = %do.body
@@ -4698,7 +4698,7 @@ do.body:                                          ; preds = %do.body, %entry
   %0 = load i8, ptr %arrayidx, align 1
   %conv = zext i8 %0 to i64
   %or = or disjoint i64 %shl, %conv
-  %cmp = icmp ugt i64 %i.0, 1
+  %cmp = icmp samesign ugt i64 %i.0, 1
   br i1 %cmp, label %do.body, label %do.end, !llvm.loop !24
 
 do.end:                                           ; preds = %do.body
@@ -4893,7 +4893,7 @@ do.body:                                          ; preds = %do.body, %entry
   %0 = load i8, ptr %arrayidx, align 1
   %conv = zext i8 %0 to i64
   %or = or disjoint i64 %shl, %conv
-  %cmp = icmp ugt i64 %i.0, 1
+  %cmp = icmp samesign ugt i64 %i.0, 1
   br i1 %cmp, label %do.body, label %do.end, !llvm.loop !28
 
 do.end:                                           ; preds = %do.body
@@ -4917,7 +4917,7 @@ do.body:                                          ; preds = %do.body, %entry
   %0 = load i8, ptr %arrayidx, align 1
   %conv = zext i8 %0 to i64
   %or = or disjoint i64 %shl, %conv
-  %cmp = icmp ugt i64 %i.0, 1
+  %cmp = icmp samesign ugt i64 %i.0, 1
   br i1 %cmp, label %do.body, label %do.end, !llvm.loop !29
 
 do.end:                                           ; preds = %do.body

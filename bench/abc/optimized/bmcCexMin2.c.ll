@@ -753,7 +753,7 @@ Vec_IntStart.exit:                                ; preds = %Vec_IntAlloc.exit.t
   br label %483
 
 483:                                              ; preds = %.sink.split, %343, %454
-  %484 = icmp ugt i64 %indvars.iv347, 2
+  %484 = icmp samesign ugt i64 %indvars.iv347, 2
   br i1 %484, label %.lr.ph320, label %.critedge10, !llvm.loop !11
 
 .critedge10:                                      ; preds = %.lr.ph320, %483, %.critedge8

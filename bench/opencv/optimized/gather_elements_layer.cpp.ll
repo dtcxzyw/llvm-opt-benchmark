@@ -1375,7 +1375,7 @@ _ZNSt12_Vector_baseIiSaIiEE13_M_deallocateEPim.exit.i58: ; preds = %_ZNSt12_Vect
   br i1 %.not.i, label %.invoke, label %.preheader.i
 
 .preheader.i:                                     ; preds = %59
-  %.not3.i = icmp ult i32 %.val18, 2
+  %.not3.i = icmp samesign ult i32 %.val18, 2
   br i1 %.not3.i, label %_ZN2cv3dnn14dnn4_v20240521L5totalERKSt6vectorIiSaIiEEii.exit, label %.lr.ph.preheader.i
 
 .lr.ph.preheader.i:                               ; preds = %.preheader.i
@@ -1642,7 +1642,7 @@ _ZNSt12_Vector_baseIiSaIiEE13_M_deallocateEPim.exit.i58: ; preds = %_ZNSt12_Vect
   br i1 %.not.i, label %.invoke, label %.preheader.i
 
 .preheader.i:                                     ; preds = %60
-  %.not3.i = icmp ult i32 %.val18, 2
+  %.not3.i = icmp samesign ult i32 %.val18, 2
   br i1 %.not3.i, label %_ZN2cv3dnn14dnn4_v20240521L5totalERKSt6vectorIiSaIiEEii.exit, label %.lr.ph.preheader.i
 
 .lr.ph.preheader.i:                               ; preds = %.preheader.i
@@ -1909,7 +1909,7 @@ _ZNSt12_Vector_baseIiSaIiEE13_M_deallocateEPim.exit.i58: ; preds = %_ZNSt12_Vect
   br i1 %.not.i, label %.invoke, label %.preheader.i
 
 .preheader.i:                                     ; preds = %60
-  %.not3.i = icmp ult i32 %.val18, 2
+  %.not3.i = icmp samesign ult i32 %.val18, 2
   br i1 %.not3.i, label %_ZN2cv3dnn14dnn4_v20240521L5totalERKSt6vectorIiSaIiEEii.exit, label %.lr.ph.preheader.i
 
 .lr.ph.preheader.i:                               ; preds = %.preheader.i

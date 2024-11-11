@@ -937,7 +937,7 @@ checkSplitConditions.exit:                        ; preds = %checkSplitCondition
   %424 = lshr i32 %423, 2
   %narrow138 = add nuw nsw i32 %.0.i, 4
   %narrow241 = add nuw nsw i32 %narrow138, %424
-  %425 = icmp ult i32 %narrow241, 8161
+  %425 = icmp samesign ult i32 %narrow241, 8161
   br i1 %425, label %426, label %checkSplitConditions.exit.thread
 
 426:                                              ; preds = %422
@@ -1373,7 +1373,7 @@ fetch_att.exit504.i:                              ; preds = %583, %577, %574, %5
   %649 = select i1 %645, i32 %648, i32 %644
   %650 = load ptr, ptr %120, align 8
   %651 = load i32, ptr %650, align 4
-  %652 = icmp ugt i32 %649, 1
+  %652 = icmp samesign ugt i32 %649, 1
   br i1 %652, label %.lr.ph.preheader.i.i, label %._crit_edge.i.i
 
 .lr.ph.preheader.i.i:                             ; preds = %647
@@ -2816,7 +2816,7 @@ spgMatchNodeAction.exit:                          ; preds = %1332, %ItemPointerI
   br i1 %1372, label %1381, label %1376
 
 1376:                                             ; preds = %1369
-  %1377 = icmp ugt i32 %1370, %1375
+  %1377 = icmp samesign ugt i32 %1370, %1375
   br i1 %1377, label %1378, label %1381
 
 1378:                                             ; preds = %1376

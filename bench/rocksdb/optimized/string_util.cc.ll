@@ -333,7 +333,7 @@ if.then:                                          ; preds = %entry
   br label %return
 
 if.else:                                          ; preds = %entry
-  %cmp1 = icmp ugt i64 %bytes, 10737418239
+  %cmp1 = icmp samesign ugt i64 %bytes, 10737418239
   br i1 %cmp1, label %if.then2, label %if.else6
 
 if.then2:                                         ; preds = %if.else
@@ -343,7 +343,7 @@ if.then2:                                         ; preds = %if.else
   br label %return
 
 if.else6:                                         ; preds = %if.else
-  %cmp7 = icmp ugt i64 %bytes, 10485759
+  %cmp7 = icmp samesign ugt i64 %bytes, 10485759
   br i1 %cmp7, label %if.then8, label %if.else12
 
 if.then8:                                         ; preds = %if.else6
@@ -353,7 +353,7 @@ if.then8:                                         ; preds = %if.else6
   br label %return
 
 if.else12:                                        ; preds = %if.else6
-  %cmp13 = icmp ugt i64 %bytes, 10239
+  %cmp13 = icmp samesign ugt i64 %bytes, 10239
   %conv15 = sext i32 %len to i64
   br i1 %cmp13, label %if.then14, label %if.else18
 
@@ -676,8 +676,8 @@ if.then:                                          ; preds = %while.body
 
 lor.lhs.false:                                    ; preds = %if.then
   %cmp6 = icmp eq i64 %v.018, 1844674407370955161
-  %cmp9 = icmp ugt i8 %1, 5
-  %or.cond1 = and i1 %cmp6, %cmp9
+  %cmp9 = icmp samesign ugt i8 %1, 5
+  %or.cond1 = select i1 %cmp6, i1 %cmp9, i1 false
   br i1 %or.cond1, label %return, label %if.end
 
 if.end:                                           ; preds = %lor.lhs.false

@@ -18,7 +18,7 @@ define dso_local void @time64_to_tm(i64 noundef %0, i32 noundef %1, ptr nocaptur
   br i1 %8, label %9, label %20
 
 9:                                                ; preds = %3
-  %10 = icmp ult i64 %7, -86400
+  %10 = icmp samesign ult i64 %7, -86400
   %.neg9 = sext i1 %10 to i64
   %11 = zext i1 %10 to i64
   %.neg8 = tail call i64 @llvm.usub.sat.i64(i64 -86400, i64 %7)

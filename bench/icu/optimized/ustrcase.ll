@@ -755,7 +755,7 @@ if.end:                                           ; preds = %if.then2, %if.then
 if.end4:                                          ; preds = %if.end
   %not = xor i32 %result, -1
   %cmp5 = icmp slt i32 %destIndex, %destCapacity
-  %cmp6 = icmp ugt i32 %result, -65537
+  %cmp6 = icmp samesign ugt i32 %result, -65537
   %or.cond = and i1 %cmp5, %cmp6
   br i1 %or.cond, label %if.then7, label %if.end30
 
@@ -768,12 +768,12 @@ if.then7:                                         ; preds = %if.end4
   br label %return
 
 if.else:                                          ; preds = %entry
-  %cmp9 = icmp ult i32 %result, 32
+  %cmp9 = icmp samesign ult i32 %result, 32
   br i1 %cmp9, label %if.end26, label %if.else11
 
 if.else11:                                        ; preds = %if.else
   %cmp12 = icmp slt i32 %destIndex, %destCapacity
-  %cmp14 = icmp ult i32 %result, 65536
+  %cmp14 = icmp samesign ult i32 %result, 65536
   %or.cond1 = and i1 %cmp12, %cmp14
   br i1 %or.cond1, label %if.then15, label %if.else23
 
@@ -820,7 +820,7 @@ if.then35:                                        ; preds = %if.end33
   br i1 %cmp36, label %if.then37, label %if.else66
 
 if.then37:                                        ; preds = %if.then35
-  %cmp38 = icmp ult i32 %c.0, 65536
+  %cmp38 = icmp samesign ult i32 %c.0, 65536
   br i1 %cmp38, label %if.then39, label %if.else44
 
 if.then39:                                        ; preds = %if.then37
@@ -832,7 +832,7 @@ if.then39:                                        ; preds = %if.then37
   br label %return
 
 if.else44:                                        ; preds = %if.then37
-  %cmp45 = icmp ult i32 %c.0, 1114112
+  %cmp45 = icmp samesign ult i32 %c.0, 1114112
   br i1 %cmp45, label %land.lhs.true46, label %do.end
 
 land.lhs.true46:                                  ; preds = %if.else44
@@ -883,7 +883,7 @@ while.body:                                       ; preds = %while.body.preheade
   %arrayidx73 = getelementptr inbounds i16, ptr %dest, i64 %indvars.iv
   store i16 %4, ptr %arrayidx73, align 2
   %dec = add nsw i32 %length.265, -1
-  %cmp70 = icmp ugt i32 %length.265, 1
+  %cmp70 = icmp samesign ugt i32 %length.265, 1
   br i1 %cmp70, label %while.body, label %return.loopexit, !llvm.loop !7
 
 if.else78:                                        ; preds = %if.end33
@@ -1228,7 +1228,7 @@ entry:
   br i1 %or.cond10, label %return, label %if.else
 
 if.else:                                          ; preds = %entry
-  %cmp5 = icmp ult i32 %c, 1024
+  %cmp5 = icmp samesign ult i32 %c, 1024
   br i1 %cmp5, label %if.then6, label %if.else7
 
 if.then6:                                         ; preds = %if.else
@@ -1239,7 +1239,7 @@ if.then6:                                         ; preds = %if.else
   br label %return
 
 if.else7:                                         ; preds = %if.else
-  %cmp8 = icmp ult i32 %c, 8192
+  %cmp8 = icmp samesign ult i32 %c, 8192
   br i1 %cmp8, label %if.then9, label %if.else14
 
 if.then9:                                         ; preds = %if.else7
@@ -1422,7 +1422,7 @@ do.end:                                           ; preds = %for.body, %if.then8
   br i1 %or.cond10.i, label %if.else192, label %if.else.i
 
 if.else.i:                                        ; preds = %do.end
-  %cmp5.i = icmp ult i32 %c.0, 1024
+  %cmp5.i = icmp samesign ult i32 %c.0, 1024
   br i1 %cmp5.i, label %if.then6.i, label %if.else7.i
 
 if.then6.i:                                       ; preds = %if.else.i
@@ -1432,7 +1432,7 @@ if.then6.i:                                       ; preds = %if.else.i
   br label %_ZN6icu_7510GreekUpper13getLetterDataEi.exit
 
 if.else7.i:                                       ; preds = %if.else.i
-  %cmp8.i = icmp ult i32 %c.0, 8192
+  %cmp8.i = icmp samesign ult i32 %c.0, 8192
   br i1 %cmp8.i, label %if.then9.i, label %if.else14.i
 
 if.then9.i:                                       ; preds = %if.else7.i
@@ -1804,7 +1804,7 @@ if.else.i152:                                     ; preds = %while.body185
 _ZN6icu_7512_GLOBAL__N_111appendUCharEPDsiiDs.exit160: ; preds = %if.then.i157, %if.else.i152
   %add.i155 = add nuw nsw i32 %destIndex.3191, 1
   %dec = add nsw i32 %numYpogegrammeni.2190, -1
-  %cmp184 = icmp ugt i32 %numYpogegrammeni.2190, 1
+  %cmp184 = icmp samesign ugt i32 %numYpogegrammeni.2190, 1
   br i1 %cmp184, label %while.body185, label %if.end199, !llvm.loop !12
 
 while.end187:                                     ; preds = %if.end181
@@ -2370,7 +2370,7 @@ lor.lhs.false18:                                  ; preds = %land.lhs.true14
   br i1 %or.cond43, label %if.then24, label %if.end33.thread
 
 if.then24:                                        ; preds = %lor.lhs.false18, %land.lhs.true14
-  %cmp25 = icmp ult i32 %destCapacity, 301
+  %cmp25 = icmp samesign ult i32 %destCapacity, 301
   br i1 %cmp25, label %if.end33, label %if.else
 
 if.else:                                          ; preds = %if.then24
@@ -2514,7 +2514,7 @@ if.end30.i:                                       ; preds = %if.then29.i, %if.en
   br i1 %cmp.i.i.i, label %ustrcase_internalFold_75.exit, label %if.then.i.i
 
 if.then.i.i:                                      ; preds = %if.end30.i
-  %cmp.i.i1 = icmp ugt i32 %call.i, %destCapacity
+  %cmp.i.i1 = icmp samesign ugt i32 %call.i, %destCapacity
   br i1 %cmp.i.i1, label %if.then1.i.i, label %if.else.i.i
 
 if.then1.i.i:                                     ; preds = %if.then.i.i
@@ -2963,7 +2963,7 @@ if.end187:                                        ; preds = %if.then179, %if.els
   store ptr %start1.1, ptr %stack1, align 16
   store ptr %s1.addr.3, ptr %s191, align 8
   store ptr %limit1.2, ptr %limit193, align 16
-  %cmp194 = icmp ult i32 %call171, 32
+  %cmp194 = icmp samesign ult i32 %call171, 32
   br i1 %cmp194, label %if.then195, label %if.else197
 
 if.then195:                                       ; preds = %if.end187
@@ -2973,7 +2973,7 @@ if.then195:                                       ; preds = %if.end187
   br label %if.end219
 
 if.else197:                                       ; preds = %if.end187
-  %cmp199 = icmp ult i32 %call171, 65536
+  %cmp199 = icmp samesign ult i32 %call171, 65536
   br i1 %cmp199, label %if.then200, label %if.else205
 
 if.then200:                                       ; preds = %if.else197
@@ -3034,7 +3034,7 @@ if.end243:                                        ; preds = %if.then235, %if.els
   store ptr %start2.1, ptr %stack2, align 16
   store ptr %s2.addr.4, ptr %s247, align 8
   store ptr %limit2.2, ptr %limit249, align 16
-  %cmp251 = icmp ult i32 %call227, 32
+  %cmp251 = icmp samesign ult i32 %call227, 32
   br i1 %cmp251, label %if.then252, label %if.else255
 
 if.then252:                                       ; preds = %if.end243
@@ -3044,7 +3044,7 @@ if.then252:                                       ; preds = %if.end243
   br label %if.end280
 
 if.else255:                                       ; preds = %if.end243
-  %cmp258 = icmp ult i32 %call227, 65536
+  %cmp258 = icmp samesign ult i32 %call227, 65536
   br i1 %cmp258, label %if.then259, label %if.else264
 
 if.then259:                                       ; preds = %if.else255
@@ -3069,8 +3069,8 @@ if.end280:                                        ; preds = %if.else264, %if.the
   br label %for.cond, !llvm.loop !20
 
 if.end285:                                        ; preds = %land.lhs.true226, %if.end224
-  %cmp286 = icmp ult i32 %c1.1, 55296
-  %cmp288 = icmp ult i32 %c2.1, 55296
+  %cmp286 = icmp samesign ult i32 %c1.1, 55296
+  %cmp288 = icmp samesign ult i32 %c2.1, 55296
   %or.cond.not3 = or i1 %cmp286, %cmp288
   %and290 = and i32 %options, 32768
   %tobool291.not = icmp eq i32 %and290, 0
@@ -3078,7 +3078,7 @@ if.end285:                                        ; preds = %land.lhs.true226, %
   br i1 %or.cond135, label %if.end337, label %if.then292
 
 if.then292:                                       ; preds = %if.end285
-  %cmp293 = icmp ugt i32 %c1.1, 56319
+  %cmp293 = icmp samesign ugt i32 %c1.1, 56319
   %cmp295.not = icmp eq ptr %s1.addr.1, %limit1.2
   %or.cond136 = select i1 %cmp293, i1 true, i1 %cmp295.not
   br i1 %or.cond136, label %lor.lhs.false300, label %land.lhs.true296
@@ -3110,7 +3110,7 @@ if.else312:                                       ; preds = %land.lhs.true306, %
 
 if.end314:                                        ; preds = %land.lhs.true296, %land.lhs.true306, %if.else312
   %c1.4 = phi i32 [ %c1.1, %land.lhs.true296 ], [ %c1.1, %land.lhs.true306 ], [ %sub313, %if.else312 ]
-  %cmp315 = icmp ugt i32 %c2.1, 56319
+  %cmp315 = icmp samesign ugt i32 %c2.1, 56319
   %cmp317.not = icmp eq ptr %s2.addr.1, %limit2.2
   %or.cond138 = select i1 %cmp315, i1 true, i1 %cmp317.not
   br i1 %or.cond138, label %lor.lhs.false322, label %land.lhs.true318

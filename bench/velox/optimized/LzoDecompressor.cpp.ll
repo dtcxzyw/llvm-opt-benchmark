@@ -545,7 +545,7 @@ while.body215:                                    ; preds = %while.cond213.prehe
   br i1 %cmp214, label %while.body215, label %if.end275, !llvm.loop !8
 
 if.else219:                                       ; preds = %if.end208
-  %cmp220 = icmp ult i32 %matchOffset.0195, 7
+  %cmp220 = icmp samesign ult i32 %matchOffset.0195, 7
   br i1 %cmp220, label %if.then221, label %if.else238
 
 if.then221:                                       ; preds = %if.else219

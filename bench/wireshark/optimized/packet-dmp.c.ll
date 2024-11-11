@@ -1847,7 +1847,7 @@ dmp_dec_subm_time.exit.thread.i:                  ; preds = %211
 
 217:                                              ; preds = %200
   %218 = add nsw i32 %203, -450
-  %219 = icmp ult i32 %210, %218
+  %219 = icmp samesign ult i32 %210, %218
   br i1 %219, label %220, label %222
 
 220:                                              ; preds = %217
@@ -1918,7 +1918,7 @@ dmp_dec_subm_time.exit.i:                         ; preds = %222, %220
   br i1 %258, label %dmp_dec_time_diff.exit.i, label %259
 
 259:                                              ; preds = %257
-  %260 = icmp ult i8 %244, -32
+  %260 = icmp samesign ult i8 %244, -32
   br i1 %260, label %261, label %264
 
 261:                                              ; preds = %259
@@ -1927,7 +1927,7 @@ dmp_dec_subm_time.exit.i:                         ; preds = %222, %220
   br label %dmp_dec_time_diff.exit.thread.i
 
 264:                                              ; preds = %259
-  %265 = icmp ult i8 %244, -8
+  %265 = icmp samesign ult i8 %244, -8
   br i1 %265, label %266, label %dmp_dec_time_diff.exit.thread334.i
 
 266:                                              ; preds = %264
@@ -4010,7 +4010,7 @@ proto_item_set_generated.exit432:                 ; preds = %326, %323, %319, %3
   br label %dmp_dec_exp_time.exit
 
 372:                                              ; preds = %367
-  %373 = icmp ult i8 %354, -68
+  %373 = icmp samesign ult i8 %354, -68
   br i1 %373, label %374, label %377
 
 374:                                              ; preds = %372
@@ -4019,7 +4019,7 @@ proto_item_set_generated.exit432:                 ; preds = %326, %323, %319, %3
   br label %dmp_dec_exp_time.exit
 
 377:                                              ; preds = %372
-  %378 = icmp ult i8 %354, -28
+  %378 = icmp samesign ult i8 %354, -28
   br i1 %378, label %379, label %382
 
 379:                                              ; preds = %377
@@ -4189,7 +4189,7 @@ dmp_dec_dtg.exit.thread537:                       ; preds = %420, %416, %dmp_dec
   br i1 %463, label %467, label %464
 
 464:                                              ; preds = %.split.us.i.i
-  %465 = icmp ult i8 %461, 36
+  %465 = icmp samesign ult i8 %461, 36
   %466 = add nuw nsw i8 %461, 55
   %spec.select118.i.i = select i1 %465, i8 %466, i8 42
   %spec.select119.i.i = select i1 %465, i32 %.093100.us.i.i, i32 1
@@ -4233,7 +4233,7 @@ dmp_dec_xbyte_sic.exit.i:                         ; preds = %469
   br label %dissect_dmp_sic.exit
 
 482:                                              ; preds = %444
-  %483 = icmp ult i8 %445, -66
+  %483 = icmp samesign ult i8 %445, -66
   br i1 %483, label %484, label %536
 
 484:                                              ; preds = %482
@@ -4266,7 +4266,7 @@ dmp_dec_xbyte_sic.exit.i:                         ; preds = %469
   br label %523
 
 502:                                              ; preds = %.split.i.i
-  %503 = icmp ult i8 %497, 36
+  %503 = icmp samesign ult i8 %497, 36
   br i1 %503, label %504, label %506
 
 504:                                              ; preds = %502
@@ -4274,7 +4274,7 @@ dmp_dec_xbyte_sic.exit.i:                         ; preds = %469
   br label %523
 
 506:                                              ; preds = %502
-  %507 = icmp ult i8 %497, 62
+  %507 = icmp samesign ult i8 %497, 62
   br i1 %507, label %508, label %510
 
 508:                                              ; preds = %506
@@ -4367,7 +4367,7 @@ dmp_dec_xbyte_sic.exit246.i:                      ; preds = %523
   br label %dissect_dmp_sic.exit
 
 536:                                              ; preds = %482
-  %537 = icmp ult i8 %445, -64
+  %537 = icmp samesign ult i8 %445, -64
   br i1 %537, label %538, label %539
 
 538:                                              ; preds = %536
@@ -4375,7 +4375,7 @@ dmp_dec_xbyte_sic.exit246.i:                      ; preds = %523
   br label %753
 
 539:                                              ; preds = %536
-  %540 = icmp ult i8 %445, -48
+  %540 = icmp samesign ult i8 %445, -48
   br i1 %540, label %541, label %606
 
 541:                                              ; preds = %539
@@ -4428,7 +4428,7 @@ dmp_dec_xbyte_sic.exit246.i:                      ; preds = %523
   br i1 %573, label %577, label %574
 
 574:                                              ; preds = %.split.us.i247.us.i
-  %575 = icmp ult i8 %571, 36
+  %575 = icmp samesign ult i8 %571, 36
   %576 = add nuw nsw i8 %571, 55
   %spec.select118.i251.us.i = select i1 %575, i8 %576, i8 42
   %spec.select119.i252.us.i = select i1 %575, i32 %.093100.us.i250.us.i, i32 1
@@ -4503,7 +4503,7 @@ dmp_dec_xbyte_sic.exit260.us.i:                   ; preds = %579
   br label %dissect_dmp_sic.exit
 
 606:                                              ; preds = %539
-  %607 = icmp ult i8 %445, -32
+  %607 = icmp samesign ult i8 %445, -32
   br i1 %607, label %608, label %749
 
 608:                                              ; preds = %606
@@ -5153,7 +5153,7 @@ dissect_dmp_message.exit:                         ; preds = %887, %892, %proto_i
   br i1 %979, label %dmp_dec_del_time.exit.i, label %980
 
 980:                                              ; preds = %978
-  %981 = icmp ult i8 %967, -68
+  %981 = icmp samesign ult i8 %967, -68
   br i1 %981, label %982, label %985
 
 982:                                              ; preds = %980
@@ -5162,7 +5162,7 @@ dissect_dmp_message.exit:                         ; preds = %887, %892, %proto_i
   br label %dmp_dec_del_time.exit.thread.i
 
 985:                                              ; preds = %980
-  %986 = icmp ult i8 %967, -28
+  %986 = icmp samesign ult i8 %967, -28
   br i1 %986, label %987, label %990
 
 987:                                              ; preds = %985
@@ -5346,7 +5346,7 @@ switch.lookup:                                    ; preds = %1071
   br label %dmp_dec_exp_time.exit.i
 
 1100:                                             ; preds = %1095
-  %1101 = icmp ult i8 %1082, -68
+  %1101 = icmp samesign ult i8 %1082, -68
   br i1 %1101, label %1102, label %1105
 
 1102:                                             ; preds = %1100
@@ -5355,7 +5355,7 @@ switch.lookup:                                    ; preds = %1071
   br label %dmp_dec_exp_time.exit.i
 
 1105:                                             ; preds = %1100
-  %1106 = icmp ult i8 %1082, -28
+  %1106 = icmp samesign ult i8 %1082, -28
   br i1 %1106, label %1107, label %1110
 
 1107:                                             ; preds = %1105
@@ -5461,7 +5461,7 @@ dmp_dec_exp_time.exit.thread124.i:                ; preds = %dmp_dec_exp_time.ex
   br i1 %1160, label %1161, label %1169
 
 1161:                                             ; preds = %1155
-  %1162 = icmp ugt i32 %1156, 64
+  %1162 = icmp samesign ugt i32 %1156, 64
   br i1 %1162, label %1163, label %1164
 
 1163:                                             ; preds = %1161
@@ -7376,7 +7376,7 @@ define internal fastcc range(i32 0, 2) i32 @dmp_dec_xbyte_sic(i64 noundef range(
   br i1 %17, label %21, label %18
 
 18:                                               ; preds = %.split.us
-  %19 = icmp ult i8 %15, 36
+  %19 = icmp samesign ult i8 %15, 36
   %20 = add nuw nsw i8 %15, 55
   %spec.select118 = select i1 %19, i8 %20, i8 42
   %spec.select119 = select i1 %19, i32 %.093100.us, i32 1
@@ -7425,7 +7425,7 @@ define internal fastcc range(i32 0, 2) i32 @dmp_dec_xbyte_sic(i64 noundef range(
   br label %62
 
 41:                                               ; preds = %.split
-  %42 = icmp ult i8 %36, 36
+  %42 = icmp samesign ult i8 %36, 36
   br i1 %42, label %43, label %45
 
 43:                                               ; preds = %41
@@ -7433,7 +7433,7 @@ define internal fastcc range(i32 0, 2) i32 @dmp_dec_xbyte_sic(i64 noundef range(
   br label %62
 
 45:                                               ; preds = %41
-  %46 = icmp ult i8 %36, 62
+  %46 = icmp samesign ult i8 %36, 62
   br i1 %46, label %47, label %49
 
 47:                                               ; preds = %45

@@ -2478,7 +2478,7 @@ entry:
 
 if.then:                                          ; preds = %entry
   %shr.i = lshr i64 %n, 3
-  %tobool.not.i = icmp ult i64 %n, 8
+  %tobool.not.i = icmp samesign ult i64 %n, 8
   br i1 %tobool.not.i, label %if.end.i, label %for.body.i
 
 for.body.i:                                       ; preds = %if.then, %cond.end.i
@@ -2939,7 +2939,7 @@ entry:
 
 if.then.i:                                        ; preds = %entry
   %shr.i.i = lshr i64 %n, 3
-  %tobool.not.i.i = icmp ult i64 %n, 8
+  %tobool.not.i.i = icmp samesign ult i64 %n, 8
   br i1 %tobool.not.i.i, label %if.end.i.i, label %for.body.i.i
 
 for.body.i.i:                                     ; preds = %if.then.i, %cond.end.i.i
@@ -3494,7 +3494,7 @@ entry:
 
 if.then:                                          ; preds = %entry
   %shr.i = lshr i64 %n, 3
-  %tobool.not.i = icmp ult i64 %n, 8
+  %tobool.not.i = icmp samesign ult i64 %n, 8
   br i1 %tobool.not.i, label %if.end.i, label %for.body.i
 
 for.body.i:                                       ; preds = %if.then, %cond.end.i
@@ -3958,7 +3958,7 @@ entry:
 
 if.then.i:                                        ; preds = %entry
   %shr.i.i = lshr i64 %n, 3
-  %tobool.not.i.i = icmp ult i64 %n, 8
+  %tobool.not.i.i = icmp samesign ult i64 %n, 8
   br i1 %tobool.not.i.i, label %if.end.i.i, label %for.body.i.i
 
 for.body.i.i:                                     ; preds = %if.then.i, %cond.end.i.i
@@ -4522,7 +4522,7 @@ entry:
 
 if.then:                                          ; preds = %entry
   %shr.i = lshr i64 %n, 3
-  %tobool.not.i = icmp ult i64 %n, 8
+  %tobool.not.i = icmp samesign ult i64 %n, 8
   br i1 %tobool.not.i, label %if.end.i, label %for.body.i
 
 for.body.i:                                       ; preds = %if.then, %cond.end.i
@@ -4990,7 +4990,7 @@ entry:
 
 if.then.i:                                        ; preds = %entry
   %shr.i.i = lshr i64 %n, 3
-  %tobool.not.i.i = icmp ult i64 %n, 8
+  %tobool.not.i.i = icmp samesign ult i64 %n, 8
   br i1 %tobool.not.i.i, label %if.end.i.i, label %for.body.i.i
 
 for.body.i.i:                                     ; preds = %if.then.i, %cond.end.i.i
@@ -6118,7 +6118,7 @@ entry:
 
 if.then:                                          ; preds = %entry
   %shr.i = lshr i64 %n, 4
-  %tobool.not.i = icmp ult i64 %n, 16
+  %tobool.not.i = icmp samesign ult i64 %n, 16
   br i1 %tobool.not.i, label %if.end.i, label %for.body.i
 
 for.body.i:                                       ; preds = %if.then, %cond.end.i
@@ -6581,7 +6581,7 @@ entry:
 
 if.then.i:                                        ; preds = %entry
   %shr.i.i = lshr i64 %n, 4
-  %tobool.not.i.i = icmp ult i64 %n, 16
+  %tobool.not.i.i = icmp samesign ult i64 %n, 16
   br i1 %tobool.not.i.i, label %if.end.i.i, label %for.body.i.i
 
 for.body.i.i:                                     ; preds = %if.then.i, %cond.end.i.i
@@ -7155,7 +7155,7 @@ entry:
 
 if.then:                                          ; preds = %entry
   %shr.i = lshr i64 %n, 4
-  %tobool.not.i = icmp ult i64 %n, 16
+  %tobool.not.i = icmp samesign ult i64 %n, 16
   br i1 %tobool.not.i, label %if.end.i, label %for.body.i
 
 for.body.i:                                       ; preds = %if.then, %cond.end.i
@@ -7619,7 +7619,7 @@ entry:
 
 if.then.i:                                        ; preds = %entry
   %shr.i.i = lshr i64 %n, 4
-  %tobool.not.i.i = icmp ult i64 %n, 16
+  %tobool.not.i.i = icmp samesign ult i64 %n, 16
   br i1 %tobool.not.i.i, label %if.end.i.i, label %for.body.i.i
 
 for.body.i.i:                                     ; preds = %if.then.i, %cond.end.i.i
@@ -8205,7 +8205,7 @@ entry:
 
 if.then:                                          ; preds = %entry
   %shr.i = lshr i64 %n, 4
-  %tobool.not.i = icmp ult i64 %n, 16
+  %tobool.not.i = icmp samesign ult i64 %n, 16
   br i1 %tobool.not.i, label %if.end.i, label %for.body.i
 
 for.body.i:                                       ; preds = %if.then, %cond.end.i
@@ -8673,7 +8673,7 @@ entry:
 
 if.then.i:                                        ; preds = %entry
   %shr.i.i = lshr i64 %n, 4
-  %tobool.not.i.i = icmp ult i64 %n, 16
+  %tobool.not.i.i = icmp samesign ult i64 %n, 16
   br i1 %tobool.not.i.i, label %if.end.i.i, label %for.body.i.i
 
 for.body.i.i:                                     ; preds = %if.then.i, %cond.end.i.i
@@ -10898,7 +10898,7 @@ entry:
 
 if.then:                                          ; preds = %entry
   %shr.i = lshr i64 %n, 5
-  %tobool.not.i = icmp ult i64 %n, 32
+  %tobool.not.i = icmp samesign ult i64 %n, 32
   br i1 %tobool.not.i, label %if.end.i, label %for.body.i
 
 for.body.i:                                       ; preds = %if.then, %cond.end.i
@@ -11361,7 +11361,7 @@ entry:
 
 if.then.i:                                        ; preds = %entry
   %shr.i.i = lshr i64 %n, 5
-  %tobool.not.i.i = icmp ult i64 %n, 32
+  %tobool.not.i.i = icmp samesign ult i64 %n, 32
   br i1 %tobool.not.i.i, label %if.end.i.i, label %for.body.i.i
 
 for.body.i.i:                                     ; preds = %if.then.i, %cond.end.i.i
@@ -11973,7 +11973,7 @@ entry:
 
 if.then:                                          ; preds = %entry
   %shr.i = lshr i64 %n, 5
-  %tobool.not.i = icmp ult i64 %n, 32
+  %tobool.not.i = icmp samesign ult i64 %n, 32
   br i1 %tobool.not.i, label %if.end.i, label %for.body.i
 
 for.body.i:                                       ; preds = %if.then, %cond.end.i
@@ -12438,7 +12438,7 @@ entry:
 
 if.then.i:                                        ; preds = %entry
   %shr.i.i = lshr i64 %n, 5
-  %tobool.not.i.i = icmp ult i64 %n, 32
+  %tobool.not.i.i = icmp samesign ult i64 %n, 32
   br i1 %tobool.not.i.i, label %if.end.i.i, label %for.body.i.i
 
 for.body.i.i:                                     ; preds = %if.then.i, %cond.end.i.i
@@ -18488,7 +18488,7 @@ for.body2370:                                     ; preds = %_ZNK5eastl6bitsetIL
 _ZNK5eastl6bitsetILm64EmE9find_prevEm.exit5471:   ; preds = %for.body2370
   %sub.i.i5434 = sub nuw nsw i64 64, %j2242.46314
   %shr.i.i5435 = lshr i64 -1, %sub.i.i5434
-  %tobool1.not.i.i.i5439 = icmp ult i64 %shr.i.i5435, 4294967296
+  %tobool1.not.i.i.i5439 = icmp samesign ult i64 %shr.i.i5435, 4294967296
   %shr.i.i.i5440 = lshr i64 4294967295, %sub.i.i5434
   %spec.select.i.i.i5441 = select i1 %tobool1.not.i.i.i5439, i64 %shr.i.i5435, i64 %shr.i.i.i5440
   %spec.select18.i.i.i5442 = select i1 %tobool1.not.i.i.i5439, i32 0, i32 32

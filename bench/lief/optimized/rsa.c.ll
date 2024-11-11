@@ -1835,7 +1835,7 @@ define hidden i32 @mbedtls_rsa_rsaes_oaep_decrypt(ptr noundef %0, ptr noundef %1
   %27 = shl nuw nsw i32 %26, 1
   %28 = add nuw nsw i32 %27, 2
   %29 = zext nneg i32 %28 to i64
-  %30 = icmp ult i64 %17, %29
+  %30 = icmp samesign ult i64 %17, %29
   br i1 %30, label %89, label %31
 
 31:                                               ; preds = %24
@@ -2516,7 +2516,7 @@ define hidden i32 @mbedtls_rsa_rsassa_pss_verify_ext(ptr noundef %0, i32 noundef
   %spec.select = getelementptr inbounds i8, ptr %11, i64 %spec.select.idx
   %spec.select91 = select i1 %46, i64 %18, i64 %13
   %47 = add nuw nsw i64 %44, 2
-  %48 = icmp ult i64 %spec.select91, %47
+  %48 = icmp samesign ult i64 %spec.select91, %47
   br i1 %48, label %93, label %49
 
 49:                                               ; preds = %43

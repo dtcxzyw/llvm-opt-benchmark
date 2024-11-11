@@ -324,7 +324,7 @@ define double @zend_strtod(ptr noundef %0, ptr noundef writeonly %1) local_unnam
   br label %105
 
 100:                                              ; preds = %._crit_edge884
-  %101 = icmp ult i32 %.4456.lcssa, 17
+  %101 = icmp samesign ult i32 %.4456.lcssa, 17
   br i1 %101, label %102, label %105
 
 102:                                              ; preds = %100
@@ -490,7 +490,7 @@ define double @zend_strtod(ptr noundef %0, ptr noundef writeonly %1) local_unnam
   %170 = uitofp i32 %.3399705 to double
   %171 = tail call double @llvm.fmuladd.f64(double %169, double %159, double %170)
   store double %171, ptr %11, align 8
-  %172 = icmp ult i32 %spec.store.select706, 16
+  %172 = icmp samesign ult i32 %spec.store.select706, 16
   %173 = bitcast double %171 to i64
   %174 = lshr i64 %173, 32
   %175 = trunc nuw i64 %174 to i32
@@ -514,7 +514,7 @@ define double @zend_strtod(ptr noundef %0, ptr noundef writeonly %1) local_unnam
   br i1 %184, label %185, label %205
 
 185:                                              ; preds = %183
-  %186 = icmp ult i32 %157, 23
+  %186 = icmp samesign ult i32 %157, 23
   br i1 %186, label %187, label %192
 
 187:                                              ; preds = %185
@@ -545,7 +545,7 @@ define double @zend_strtod(ptr noundef %0, ptr noundef writeonly %1) local_unnam
   br label %Bfree.exit583
 
 205:                                              ; preds = %183
-  %206 = icmp ugt i32 %157, -23
+  %206 = icmp samesign ugt i32 %157, -23
   br i1 %206, label %207, label %213
 
 207:                                              ; preds = %205
@@ -720,7 +720,7 @@ Bfree.exit581:                                    ; preds = %268, %269
   br label %Bfree.exit583
 
 282:                                              ; preds = %233
-  %283 = icmp ugt i32 %218, 31
+  %283 = icmp samesign ugt i32 %218, 31
   br i1 %283, label %.lr.ph909.preheader, label %._crit_edge910
 
 .lr.ph909.preheader:                              ; preds = %282
@@ -820,15 +820,15 @@ Bfree.exit581:                                    ; preds = %268, %269
   %336 = phi i32 [ %332, %325 ], [ %214, %322 ]
   %.promoted = phi double [ %329, %325 ], [ %216, %322 ]
   %337 = lshr i32 %323, 4
-  %.not527 = icmp ult i32 %323, 16
+  %.not527 = icmp samesign ult i32 %323, 16
   br i1 %.not527, label %383, label %338
 
 338:                                              ; preds = %334
-  %339 = icmp ugt i32 %323, 511
+  %339 = icmp samesign ugt i32 %323, 511
   br i1 %339, label %382, label %.lr.ph903.preheader
 
 .lr.ph903.preheader:                              ; preds = %338
-  %.not528 = icmp ult i32 %323, 256
+  %.not528 = icmp samesign ult i32 %323, 256
   %spec.select718 = select i1 %.not528, i32 0, i32 106
   %.promoted1226 = load double, ptr %11, align 8
   br label %.lr.ph903
@@ -1131,7 +1131,7 @@ s2b.exit:                                         ; preds = %.lr.ph42.i, %457
   %473 = getelementptr inbounds i8, ptr %11, i64 4
   %474 = icmp ne i32 %.sroa.42.0, 0
   %475 = icmp ne i32 %384, %.6458
-  %or.cond44 = or i1 %474, %475
+  %or.cond44 = select i1 %475, i1 true, i1 %474
   %.not552 = icmp ne i32 %.sroa.42.0, 0
   br label %Bfree.exit628
 
@@ -1233,7 +1233,7 @@ i2b.exit:                                         ; preds = %503, %508
 523:                                              ; preds = %i2b.exit
   %524 = sub nuw nsw i32 -1021, %520
   %525 = sub nsw i32 %521, %524
-  %526 = icmp ugt i32 %520, -1053
+  %526 = icmp samesign ugt i32 %520, -1053
   br i1 %526, label %527, label %529
 
 527:                                              ; preds = %523
@@ -1241,7 +1241,7 @@ i2b.exit:                                         ; preds = %503, %508
   br label %534
 
 529:                                              ; preds = %523
-  %530 = icmp ugt i32 %520, -1073
+  %530 = icmp samesign ugt i32 %520, -1073
   br i1 %530, label %531, label %534
 
 531:                                              ; preds = %529
@@ -4029,7 +4029,7 @@ rv_alloc.exit:                                    ; preds = %175, %185
   %217 = getelementptr inbounds [23 x double], ptr @tens, i64 0, i64 %216
   %218 = load double, ptr %217, align 8
   %219 = fmul double %191, %218
-  %.not515822 = icmp ult i32 %213, 16
+  %.not515822 = icmp samesign ult i32 %213, 16
   br i1 %.not515822, label %.loopexit734, label %.lr.ph.preheader
 
 .lr.ph.preheader:                                 ; preds = %214
@@ -5899,7 +5899,7 @@ Bfree.exit.i:                                     ; preds = %31, %30
   br i1 %43, label %44, label %46
 
 44:                                               ; preds = %42
-  %45 = icmp ugt i32 %11, %.078
+  %45 = icmp samesign ugt i32 %11, %.078
   br i1 %45, label %49, label %.preheader101
 
 .preheader101:                                    ; preds = %44
@@ -5907,7 +5907,7 @@ Bfree.exit.i:                                     ; preds = %31, %30
   br i1 %.not127, label %._crit_edge111, label %.lr.ph110
 
 46:                                               ; preds = %42
-  %.old1 = icmp ult i32 %11, -3
+  %.old1 = icmp samesign ult i32 %11, -3
   br i1 %.old1, label %47, label %88
 
 47:                                               ; preds = %46

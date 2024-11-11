@@ -2660,7 +2660,7 @@ _ZN4llvm9BitVector7wordShlEj.exit:                ; preds = %8, %_ZSt4copyIPmS0_
   %65 = or i64 %62, %64
   store i64 %65, ptr %63, align 8
   %indvars.iv.next = add nsw i64 %indvars.iv, -1
-  %66 = icmp ugt i64 %indvars.iv, 1
+  %66 = icmp samesign ugt i64 %indvars.iv, 1
   %indvars.iv.next24 = add nsw i64 %indvars.iv23, -1
   br i1 %66, label %51, label %._crit_edge, !llvm.loop !120
 

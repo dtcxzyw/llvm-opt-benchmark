@@ -119,7 +119,7 @@ define internal range(i32 0, 2) i32 @CompressAlphaJob(ptr nocapture noundef %0, 
   br i1 %27, label %46, label %.critedge.i
 
 46:                                               ; preds = %41
-  %47 = icmp ult i32 %16, 71
+  %47 = icmp samesign ult i32 %16, 71
   br i1 %47, label %48, label %51
 
 48:                                               ; preds = %46

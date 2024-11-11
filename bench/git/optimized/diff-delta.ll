@@ -156,7 +156,7 @@ do.body88:                                        ; preds = %do.body, %do.body88
   %next89 = getelementptr inbounds i8, ptr %entry1.4, i64 16
   %6 = load ptr, ptr %next89, align 8
   %sub90 = add nsw i32 %acc.2, -64
-  %cmp91 = icmp ugt i32 %acc.2, 64
+  %cmp91 = icmp samesign ugt i32 %acc.2, 64
   br i1 %cmp91, label %do.body88, label %do.end, !llvm.loop !9
 
 do.end:                                           ; preds = %do.body88

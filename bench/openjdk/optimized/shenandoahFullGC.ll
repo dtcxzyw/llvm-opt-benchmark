@@ -4032,7 +4032,7 @@ define linkonce_odr hidden void @_ZN14ShenandoahHeap21marked_object_iterateI37Sh
   br i1 %24, label %.lr.ph, label %.loopexit
 
 25:                                               ; preds = %4
-  %26 = icmp ult i64 %22, 257
+  %26 = icmp samesign ult i64 %22, 257
   br i1 %26, label %.preheader66.split.preheader, label %28
 
 .preheader66.split.preheader:                     ; preds = %25
@@ -4441,7 +4441,7 @@ define linkonce_odr hidden void @_ZN14ShenandoahHeap21marked_object_iterateI31Sh
   br i1 %24, label %.lr.ph, label %.loopexit
 
 25:                                               ; preds = %4
-  %26 = icmp ult i64 %22, 257
+  %26 = icmp samesign ult i64 %22, 257
   br i1 %26, label %.preheader66.split.preheader, label %28
 
 .preheader66.split.preheader:                     ; preds = %25
@@ -4915,7 +4915,7 @@ define linkonce_odr hidden void @_ZN14ShenandoahHeap21marked_object_iterateI43Sh
   br i1 %24, label %.lr.ph, label %.loopexit
 
 25:                                               ; preds = %4
-  %26 = icmp ult i64 %22, 257
+  %26 = icmp samesign ult i64 %22, 257
   br i1 %26, label %.preheader66.split.preheader, label %28
 
 .preheader66.split.preheader:                     ; preds = %25

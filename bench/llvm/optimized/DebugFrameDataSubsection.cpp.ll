@@ -1185,7 +1185,7 @@ _ZNSt6vectorIN4llvm8codeview9FrameDataESaIS2_EE17_S_check_init_lenEmRKS3_.exit.i
   %33 = shl nuw nsw i64 %32, 1
   %34 = xor i64 %33, 126
   call fastcc void @"_ZSt16__introsort_loopIN9__gnu_cxx17__normal_iteratorIPN4llvm8codeview9FrameDataESt6vectorIS4_SaIS4_EEEElNS0_5__ops15_Iter_comp_iterIZNKS3_24DebugFrameDataSubsection6commitERNS2_18BinaryStreamWriterEE3$_0EEEvT_SH_T0_T1_"(ptr nonnull %28, ptr nonnull %29, i64 noundef %34)
-  %35 = icmp ugt i64 %24, 512
+  %35 = icmp samesign ugt i64 %24, 512
   br i1 %35, label %.lr.ph.i.i.i.i.i.i, label %.preheader.i26.i.i.i.i.i
 
 .lr.ph.i.i.i.i.i.i:                               ; preds = %27

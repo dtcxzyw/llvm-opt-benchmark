@@ -1056,7 +1056,7 @@ _ZL7scalbnAdi.exit304.i:                          ; preds = %333, %330, %322, %3
   br label %_ZL7scalbnAdi.exit318.i
 
 364:                                              ; preds = %359
-  %365 = icmp ult i32 %.1230.i, -1076
+  %365 = icmp samesign ult i32 %.1230.i, -1076
   br i1 %365, label %_ZL7scalbnAdi.exit318.i, label %366
 
 366:                                              ; preds = %364

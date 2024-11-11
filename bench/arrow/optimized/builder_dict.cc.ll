@@ -20987,7 +20987,7 @@ if.then:                                          ; preds = %entry
   br i1 %cmp2, label %if.then3, label %if.end28
 
 if.then3:                                         ; preds = %if.then
-  %cmp4 = icmp ult i32 %conv, 4
+  %cmp4 = icmp samesign ult i32 %conv, 4
   br i1 %cmp4, label %if.then5, label %if.end18
 
 if.then5:                                         ; preds = %if.then3

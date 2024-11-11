@@ -852,7 +852,7 @@ _ZN15btCompoundShape23removeChildShapeByIndexEi.exit: ; preds = %if.end.i, %if.t
 
 for.inc:                                          ; preds = %for.body, %_ZN15btCompoundShape23removeChildShapeByIndexEi.exit
   %18 = phi i32 [ %3, %for.body ], [ %dec.i.i, %_ZN15btCompoundShape23removeChildShapeByIndexEi.exit ]
-  %cmp = icmp ugt i64 %indvars.iv, 1
+  %cmp = icmp samesign ugt i64 %indvars.iv, 1
   br i1 %cmp, label %for.body, label %for.end, !llvm.loop !8
 
 for.end:                                          ; preds = %for.inc, %entry

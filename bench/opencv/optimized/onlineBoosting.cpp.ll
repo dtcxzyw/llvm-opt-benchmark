@@ -1865,7 +1865,7 @@ define hidden noundef range(i32 -1, 2147483647) i32 @_ZN2cv6detail8tracking15onl
   %.123 = select i1 %15, float %14, float %.02229
   %16 = trunc nuw nsw i64 %indvars.iv.next to i32
   %.121 = select i1 %15, i32 %16, i32 %.02030
-  %17 = icmp ugt i64 %indvars.iv, 1
+  %17 = icmp samesign ugt i64 %indvars.iv, 1
   br i1 %17, label %12, label %._crit_edge, !llvm.loop !22
 
 ._crit_edge:                                      ; preds = %12

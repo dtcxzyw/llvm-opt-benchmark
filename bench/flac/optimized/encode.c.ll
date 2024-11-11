@@ -3622,7 +3622,7 @@ while.body741:                                    ; preds = %while.cond732
 if.end750:                                        ; preds = %while.body741
   %add754 = add nuw nsw i32 %consecutive_eos_count.0, 1
   %cond757 = select i1 %cmp747, i32 %add754, i32 0
-  %cmp758 = icmp ugt i32 %cond757, 1
+  %cmp758 = icmp samesign ugt i32 %cond757, 1
   br i1 %cmp758, label %if.then760, label %if.end762
 
 if.then760:                                       ; preds = %if.end750

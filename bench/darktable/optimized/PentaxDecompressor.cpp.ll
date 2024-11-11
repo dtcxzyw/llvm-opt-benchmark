@@ -2233,7 +2233,7 @@ define hidden void @_ZNK8rawspeed18PentaxDecompressor10decompressENS_10ByteStrea
   br label %213
 
 160:                                              ; preds = %154
-  %161 = icmp ugt i32 %149, 10
+  %161 = icmp samesign ugt i32 %149, 10
   tail call void @llvm.assume(i1 %161)
   %162 = add nsw i32 %149, -11
   %163 = shl i64 %151, 11
@@ -2322,7 +2322,7 @@ define hidden void @_ZNK8rawspeed18PentaxDecompressor10decompressENS_10ByteStrea
   br i1 %95, label %240, label %221
 
 221:                                              ; preds = %220
-  %222 = icmp ugt i32 %217, 15
+  %222 = icmp samesign ugt i32 %217, 15
   tail call void @llvm.assume(i1 %222)
   %223 = add nsw i32 %217, -16
   %224 = shl i64 %216, 16
@@ -2330,7 +2330,7 @@ define hidden void @_ZNK8rawspeed18PentaxDecompressor10decompressENS_10ByteStrea
 
 225:                                              ; preds = %213
   %226 = zext nneg i8 %214 to i32
-  %227 = icmp uge i32 %217, %226
+  %227 = icmp samesign uge i32 %217, %226
   tail call void @llvm.assume(i1 %227)
   %228 = sub nuw nsw i32 64, %226
   %229 = zext nneg i32 %228 to i64

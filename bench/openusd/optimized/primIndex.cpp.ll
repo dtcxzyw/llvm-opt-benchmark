@@ -18921,7 +18921,7 @@ _ZNKSt8functionIFbRKN32pxrInternal_v0_24__pxrReserved__7SdfPathEEEclES3_.exit: ;
   %.01.i.i.i8.i = phi i32 [ %353, %.lr.ph.i.i.i7.i ], [ %.sroa.0.0.i3.i.ph, %351 ]
   %353 = add nsw i32 %.01.i.i.i8.i, -1
   call void @llvm.x86.sse2.pause()
-  %354 = icmp ugt i32 %.01.i.i.i8.i, 1
+  %354 = icmp samesign ugt i32 %.01.i.i.i8.i, 1
   br i1 %354, label %.lr.ph.i.i.i7.i, label %_ZN3tbb6detail2d0L13machine_pauseEi.exit.i.i6.i, !llvm.loop !197
 
 _ZN3tbb6detail2d0L13machine_pauseEi.exit.i.i6.i:  ; preds = %.lr.ph.i.i.i7.i, %351
@@ -59867,7 +59867,7 @@ _ZSt22__uninitialized_move_aIPN32pxrInternal_v0_24__pxrReserved__19PcpCulledDepe
   %81 = getelementptr inbounds i8, ptr %.069.i.i.i.i.i, i64 -88
   %82 = tail call noundef nonnull align 8 dereferenceable(88) ptr @_ZN32pxrInternal_v0_24__pxrReserved__19PcpCulledDependencyaSEOS0_(ptr noundef nonnull align 8 dereferenceable(88) %81, ptr noundef nonnull align 8 dereferenceable(88) %80)
   %83 = add nsw i64 %.010.i.i.i.i.i, -1
-  %84 = icmp ugt i64 %.010.i.i.i.i.i, 1
+  %84 = icmp samesign ugt i64 %.010.i.i.i.i.i, 1
   br i1 %84, label %.lr.ph.i.i.i.i.i51, label %_ZSt13move_backwardIPN32pxrInternal_v0_24__pxrReserved__19PcpCulledDependencyES2_ET0_T_S4_S3_.exit, !llvm.loop !615
 
 _ZSt13move_backwardIPN32pxrInternal_v0_24__pxrReserved__19PcpCulledDependencyES2_ET0_T_S4_S3_.exit: ; preds = %.lr.ph.i.i.i.i.i51, %_ZSt22__uninitialized_move_aIPN32pxrInternal_v0_24__pxrReserved__19PcpCulledDependencyES2_SaIS1_EET0_T_S5_S4_RT1_.exit
@@ -59886,7 +59886,7 @@ _ZSt13move_backwardIPN32pxrInternal_v0_24__pxrReserved__19PcpCulledDependencyES2
   %88 = getelementptr inbounds i8, ptr %.0910.i.i.i.i.i, i64 88
   %89 = getelementptr inbounds i8, ptr %.0811.i.i.i.i.i, i64 88
   %90 = add nsw i64 %.012.i.i.i.i.i, -1
-  %91 = icmp ugt i64 %.012.i.i.i.i.i, 1
+  %91 = icmp samesign ugt i64 %.012.i.i.i.i.i, 1
   br i1 %91, label %.lr.ph.i.i.i.i.i53, label %_ZSt4copyISt13move_iteratorIN9__gnu_cxx17__normal_iteratorIPN32pxrInternal_v0_24__pxrReserved__19PcpCulledDependencyESt6vectorIS4_SaIS4_EEEEES9_ET0_T_SC_SB_.exit, !llvm.loop !616
 
 _ZSt7advanceISt13move_iteratorIN9__gnu_cxx17__normal_iteratorIPN32pxrInternal_v0_24__pxrReserved__19PcpCulledDependencyESt6vectorIS4_SaIS4_EEEEEmEvRT_T0_.exit: ; preds = %17
@@ -60125,7 +60125,7 @@ _ZSt22__uninitialized_move_aIPN32pxrInternal_v0_24__pxrReserved__19PcpCulledDepe
   %203 = getelementptr inbounds i8, ptr %.0910.i.i.i.i.i72, i64 88
   %204 = getelementptr inbounds i8, ptr %.0811.i.i.i.i.i71, i64 88
   %205 = add nsw i64 %.012.i.i.i.i.i70, -1
-  %206 = icmp ugt i64 %.012.i.i.i.i.i70, 1
+  %206 = icmp samesign ugt i64 %.012.i.i.i.i.i70, 1
   br i1 %206, label %.lr.ph.i.i.i.i.i69, label %_ZSt4copyISt13move_iteratorIN9__gnu_cxx17__normal_iteratorIPN32pxrInternal_v0_24__pxrReserved__19PcpCulledDependencyESt6vectorIS4_SaIS4_EEEEES9_ET0_T_SC_SB_.exit, !llvm.loop !616
 
 207:                                              ; preds = %5

@@ -132573,7 +132573,7 @@ thread-pre-split:                                 ; preds = %148
 197:                                              ; preds = %193
   %198 = sub nuw i32 %136, %134
   %199 = zext i32 %198 to i64
-  %200 = icmp ugt i64 %194, %199
+  %200 = icmp samesign ugt i64 %194, %199
   br i1 %200, label %201, label %202
 
 201:                                              ; preds = %197

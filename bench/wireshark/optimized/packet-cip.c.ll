@@ -12634,7 +12634,7 @@ define internal range(i32 -2147483648, 262143) i32 @dissect_time_sync_port_state
   %12 = zext i16 %9 to i32
   %13 = shl nuw nsw i32 %12, 2
   %14 = or disjoint i32 %13, 2
-  %15 = icmp ugt i32 %14, %5
+  %15 = icmp samesign ugt i32 %14, %5
   br i1 %15, label %.loopexit.sink.split, label %.preheader
 
 .preheader:                                       ; preds = %8
@@ -12683,7 +12683,7 @@ define internal range(i32 -2147483648, 262143) i32 @dissect_time_sync_port_enabl
   %12 = zext i16 %9 to i32
   %13 = shl nuw nsw i32 %12, 2
   %14 = or disjoint i32 %13, 2
-  %15 = icmp ugt i32 %14, %5
+  %15 = icmp samesign ugt i32 %14, %5
   br i1 %15, label %.loopexit.sink.split, label %.preheader
 
 .preheader:                                       ; preds = %8
@@ -12732,7 +12732,7 @@ define internal range(i32 -2147483648, 262143) i32 @dissect_time_sync_port_log_a
   %12 = zext i16 %9 to i32
   %13 = shl nuw nsw i32 %12, 2
   %14 = or disjoint i32 %13, 2
-  %15 = icmp ugt i32 %14, %5
+  %15 = icmp samesign ugt i32 %14, %5
   br i1 %15, label %.loopexit.sink.split, label %.preheader
 
 .preheader:                                       ; preds = %8
@@ -12781,7 +12781,7 @@ define internal range(i32 -2147483648, 262143) i32 @dissect_time_sync_port_log_s
   %12 = zext i16 %9 to i32
   %13 = shl nuw nsw i32 %12, 2
   %14 = or disjoint i32 %13, 2
-  %15 = icmp ugt i32 %14, %5
+  %15 = icmp samesign ugt i32 %14, %5
   br i1 %15, label %.loopexit.sink.split, label %.preheader
 
 .preheader:                                       ; preds = %8
@@ -12883,7 +12883,7 @@ define internal i32 @dissect_time_sync_prod_desc(ptr noundef %0, ptr noundef %1,
 
 18:                                               ; preds = %11
   %19 = add nuw nsw i32 %14, 4
-  %20 = icmp ugt i32 %19, %5
+  %20 = icmp samesign ugt i32 %19, %5
   br i1 %20, label %21, label %23
 
 21:                                               ; preds = %18
@@ -12926,7 +12926,7 @@ define internal i32 @dissect_time_sync_revision_data(ptr noundef %0, ptr noundef
 
 18:                                               ; preds = %11
   %19 = add nuw nsw i32 %14, 4
-  %20 = icmp ugt i32 %19, %5
+  %20 = icmp samesign ugt i32 %19, %5
   br i1 %20, label %21, label %23
 
 21:                                               ; preds = %18
@@ -12969,7 +12969,7 @@ define internal i32 @dissect_time_sync_user_desc(ptr noundef %0, ptr noundef %1,
 
 18:                                               ; preds = %11
   %19 = add nuw nsw i32 %14, 4
-  %20 = icmp ugt i32 %19, %5
+  %20 = icmp samesign ugt i32 %19, %5
   br i1 %20, label %21, label %23
 
 21:                                               ; preds = %18
@@ -13001,7 +13001,7 @@ define internal range(i32 -2147483648, 655353) i32 @dissect_time_sync_port_profi
   %12 = zext i16 %9 to i32
   %13 = mul nuw nsw i32 %12, 10
   %14 = add nuw nsw i32 %13, 2
-  %15 = icmp ugt i32 %14, %5
+  %15 = icmp samesign ugt i32 %14, %5
   br i1 %15, label %.loopexit.sink.split, label %.preheader
 
 .preheader:                                       ; preds = %8
@@ -13051,7 +13051,7 @@ define internal range(i32 -2147483648, 2359263) i32 @dissect_time_sync_port_phys
   %13 = zext i16 %10 to i32
   %14 = mul nuw nsw i32 %13, 36
   %15 = or disjoint i32 %14, 2
-  %16 = icmp ugt i32 %15, %5
+  %16 = icmp samesign ugt i32 %15, %5
   br i1 %16, label %.loopexit.sink.split, label %.preheader
 
 .preheader:                                       ; preds = %9
@@ -13109,7 +13109,7 @@ define internal range(i32 -2147483648, 1441773) i32 @dissect_time_sync_port_prot
   %12 = zext i16 %9 to i32
   %13 = mul nuw nsw i32 %12, 22
   %14 = add nuw nsw i32 %13, 2
-  %15 = icmp ugt i32 %14, %5
+  %15 = icmp samesign ugt i32 %14, %5
   br i1 %15, label %.loopexit.sink.split, label %.preheader
 
 .preheader:                                       ; preds = %8

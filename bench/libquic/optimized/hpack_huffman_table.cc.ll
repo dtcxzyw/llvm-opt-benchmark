@@ -1854,7 +1854,7 @@ if.end22.thread:                                  ; preds = %if.end
   br label %if.end29.thread
 
 if.end22:                                         ; preds = %if.end
-  %cmp23 = icmp ugt i8 %5, 16
+  %cmp23 = icmp samesign ugt i8 %5, 16
   br i1 %cmp23, label %if.end29.thread, label %if.end29
 
 if.end29.thread:                                  ; preds = %if.end22, %if.end22.thread
@@ -1867,7 +1867,7 @@ if.end29.thread:                                  ; preds = %if.end22, %if.end22
   br label %if.then31
 
 if.end29:                                         ; preds = %if.end22
-  %cmp30 = icmp ugt i8 %5, 8
+  %cmp30 = icmp samesign ugt i8 %5, 8
   br i1 %cmp30, label %if.then31, label %if.end36
 
 if.then31:                                        ; preds = %if.end29.thread, %if.end29

@@ -399,7 +399,7 @@ define dso_local noundef zeroext i1 @RS_execute(ptr nocapture noundef readonly %
   %20 = tail call i32 @pg_mblen(ptr noundef %.252) #7
   %21 = sext i32 %20 to i64
   %22 = getelementptr i8, ptr %.252, i64 %21
-  %23 = icmp ugt i32 %.153, 1
+  %23 = icmp samesign ugt i32 %.153, 1
   br i1 %23, label %.lr.ph55, label %.loopexit, !llvm.loop !11
 
 .loopexit:                                        ; preds = %.lr.ph55, %15

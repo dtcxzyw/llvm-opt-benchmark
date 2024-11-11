@@ -2273,7 +2273,7 @@ _eval_nodes_lln.exit:                             ; preds = %.thread256.i, %1008
   %1093 = call i32 @llvm.smax.i32(i32 %.0343..i, i32 %1092)
   %1094 = load i16, ptr %1036, align 8
   %1095 = zext i16 %1094 to i32
-  %1096 = icmp ugt i32 %1093, %1095
+  %1096 = icmp samesign ugt i32 %1093, %1095
   br i1 %1096, label %1097, label %1105
 
 1097:                                             ; preds = %1090

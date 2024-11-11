@@ -3285,7 +3285,7 @@ _ZNK5Yosys5RTLIL6SigBitneERKS1_.exit.i69:         ; preds = %1119
   br i1 %.not1.i70, label %.backedge.i68, label %_ZNK5Yosys5RTLIL6SigBitneERKS1_.exit.thread.loopexit.split.loop.exit43.i71
 
 .backedge.i68:                                    ; preds = %_ZNK5Yosys5RTLIL6SigBitneERKS1_.exit.i69, %1122
-  %1127 = icmp ugt i64 %indvars.iv.i48, 2
+  %1127 = icmp samesign ugt i64 %indvars.iv.i48, 2
   br i1 %1127, label %1093, label %_ZNK5Yosys5RTLIL6SigBitneERKS1_.exit.thread.i45, !llvm.loop !31
 
 _ZNK5Yosys5RTLIL6SigBitneERKS1_.exit.thread.loopexit.split.loop.exit.i64: ; preds = %_ZNK5Yosys5RTLIL7SigSpecixEi.exit11.i62
@@ -4404,7 +4404,7 @@ _ZNK5Yosys5RTLIL6SigBitneERKS1_.exit.i:           ; preds = %1549
   br i1 %.not1.i, label %.backedge.i, label %_ZNK5Yosys5RTLIL6SigBitneERKS1_.exit.thread.loopexit.split.loop.exit43.i
 
 .backedge.i:                                      ; preds = %_ZNK5Yosys5RTLIL6SigBitneERKS1_.exit.i, %1552
-  %1557 = icmp ugt i64 %indvars.iv.i, 2
+  %1557 = icmp samesign ugt i64 %indvars.iv.i, 2
   br i1 %1557, label %1523, label %_ZNK5Yosys5RTLIL6SigBitneERKS1_.exit.thread.i, !llvm.loop !31
 
 _ZNK5Yosys5RTLIL6SigBitneERKS1_.exit.thread.loopexit.split.loop.exit.i: ; preds = %_ZNK5Yosys5RTLIL7SigSpecixEi.exit11.i
@@ -44814,7 +44814,7 @@ _ZNSt12_Vector_baseIN5Yosys5RTLIL8SigChunkESaIS2_EE13_M_deallocateEPS2_m.exit: ;
   %45 = getelementptr inbounds i8, ptr %.0910.i.i.i.i.i, i64 40
   %46 = getelementptr inbounds i8, ptr %.0811.i.i.i.i.i, i64 40
   %47 = add nsw i64 %.012.i.i.i.i.i, -1
-  %48 = icmp ugt i64 %.012.i.i.i.i.i, 1
+  %48 = icmp samesign ugt i64 %.012.i.i.i.i.i, 1
   br i1 %48, label %.lr.ph.i.i.i.i.i, label %_ZSt4copyIN9__gnu_cxx17__normal_iteratorIPKN5Yosys5RTLIL8SigChunkESt6vectorIS4_SaIS4_EEEENS1_IPS4_S9_EEET0_T_SE_SD_.exit.loopexit, !llvm.loop !451
 
 _ZSt4copyIN9__gnu_cxx17__normal_iteratorIPKN5Yosys5RTLIL8SigChunkESt6vectorIS4_SaIS4_EEEENS1_IPS4_S9_EEET0_T_SE_SD_.exit.loopexit: ; preds = %.lr.ph.i.i.i.i.i
@@ -44874,7 +44874,7 @@ _ZSt8_DestroyIN5Yosys5RTLIL8SigChunkEEvPT_.exit.i.i.i28: ; preds = %54, %.lr.ph.
   %66 = getelementptr inbounds i8, ptr %.0910.i.i.i.i.i35, i64 40
   %67 = getelementptr inbounds i8, ptr %.0811.i.i.i.i.i34, i64 40
   %68 = add nsw i64 %.012.i.i.i.i.i33, -1
-  %69 = icmp ugt i64 %.012.i.i.i.i.i33, 1
+  %69 = icmp samesign ugt i64 %.012.i.i.i.i.i33, 1
   br i1 %69, label %.lr.ph.i.i.i.i.i32, label %_ZSt4copyIPN5Yosys5RTLIL8SigChunkES3_ET0_T_S5_S4_.exit.loopexit, !llvm.loop !453
 
 _ZSt4copyIPN5Yosys5RTLIL8SigChunkES3_ET0_T_S5_S4_.exit.loopexit: ; preds = %.lr.ph.i.i.i.i.i32

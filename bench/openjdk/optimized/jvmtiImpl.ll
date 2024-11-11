@@ -1241,7 +1241,7 @@ define hidden void @_ZN15JvmtiBreakpoint22each_method_version_doEM6MethodFviE(pt
   br label %_ZN12ResourceMarkD2Ev.exit
 
 115:                                              ; preds = %49, %55, %67
-  %116 = icmp ugt i64 %indvars.iv, 1
+  %116 = icmp samesign ugt i64 %indvars.iv, 1
   br i1 %116, label %49, label %_ZN12ResourceMarkD2Ev.exit, !llvm.loop !15
 
 _ZN12ResourceMarkD2Ev.exit:                       ; preds = %115, %43, %114, %112
@@ -1400,7 +1400,7 @@ define hidden void @_ZN15JvmtiBreakpoint3setEv(ptr nocapture noundef nonnull rea
   br label %_ZN12ResourceMarkD2Ev.exit.i
 
 88:                                               ; preds = %48, %36, %30
-  %89 = icmp ugt i64 %indvars.iv.i, 1
+  %89 = icmp samesign ugt i64 %indvars.iv.i, 1
   br i1 %89, label %30, label %_ZN12ResourceMarkD2Ev.exit.i, !llvm.loop !15
 
 _ZN12ResourceMarkD2Ev.exit.i:                     ; preds = %88, %87, %85, %.lr.ph54.i
@@ -1546,7 +1546,7 @@ define hidden void @_ZN15JvmtiBreakpoint5clearEv(ptr nocapture noundef nonnull r
   br label %_ZN12ResourceMarkD2Ev.exit.i
 
 88:                                               ; preds = %48, %36, %30
-  %89 = icmp ugt i64 %indvars.iv.i, 1
+  %89 = icmp samesign ugt i64 %indvars.iv.i, 1
   br i1 %89, label %30, label %_ZN12ResourceMarkD2Ev.exit.i, !llvm.loop !15
 
 _ZN12ResourceMarkD2Ev.exit.i:                     ; preds = %88, %87, %85, %.lr.ph54.i
@@ -2415,7 +2415,7 @@ define hidden noundef zeroext i1 @_ZN20VM_BaseGetOrSetLocal19check_slot_type_lvt
   %23 = getelementptr inbounds i8, ptr %8, i64 44
   %24 = load i16, ptr %23, align 4
   %25 = zext i16 %24 to i32
-  %.not = icmp ult i32 %22, %25
+  %.not = icmp samesign ult i32 %22, %25
   br i1 %.not, label %102, label %.sink.split
 
 26:                                               ; preds = %2
@@ -2582,7 +2582,7 @@ define hidden noundef zeroext i1 @_ZN20VM_BaseGetOrSetLocal22check_slot_type_no_
   %19 = getelementptr inbounds i8, ptr %18, i64 44
   %20 = load i16, ptr %19, align 4
   %21 = zext i16 %20 to i32
-  %.not = icmp ult i32 %16, %21
+  %.not = icmp samesign ult i32 %16, %21
   br i1 %.not, label %22, label %.sink.split
 
 22:                                               ; preds = %12
@@ -2759,7 +2759,7 @@ define hidden void @_ZN20VM_BaseGetOrSetLocal4doitEv(ptr noundef nonnull align 8
   %64 = getelementptr inbounds i8, ptr %63, i64 44
   %65 = load i16, ptr %64, align 4
   %66 = zext i16 %65 to i32
-  %.not.i = icmp ult i32 %61, %66
+  %.not.i = icmp samesign ult i32 %61, %66
   br i1 %.not.i, label %67, label %_ZN20VM_BaseGetOrSetLocal22check_slot_type_no_lvtEP10javaVFrame.exit
 
 67:                                               ; preds = %57

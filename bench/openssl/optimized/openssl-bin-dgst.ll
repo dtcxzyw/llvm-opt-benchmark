@@ -1156,7 +1156,7 @@ if.else49:                                        ; preds = %if.end28
 if.then52:                                        ; preds = %if.else49
   %conv54 = zext nneg i32 %xoflen to i64
   store i64 %conv54, ptr %len, align 8
-  %cmp55 = icmp ugt i32 %xoflen, 8192
+  %cmp55 = icmp samesign ugt i32 %xoflen, 8192
   br i1 %cmp55, label %if.then57, label %if.end59
 
 if.then57:                                        ; preds = %if.then52

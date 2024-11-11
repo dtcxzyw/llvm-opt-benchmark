@@ -1162,7 +1162,7 @@ make_temp_sockdir.exit.i:                         ; preds = %296
 
 370:                                              ; preds = %362
   store i8 0, ptr %364, align 1
-  %371 = icmp ugt i64 %indvars.iv.i.i, 1
+  %371 = icmp samesign ugt i64 %indvars.iv.i.i, 1
   br i1 %371, label %362, label %.critedge.i.i, !llvm.loop !8
 
 .critedge.i.i:                                    ; preds = %370, %362, %.lr.ph30.i.i
@@ -1923,7 +1923,7 @@ create_role.exit:                                 ; preds = %._crit_edge.i
 
 675:                                              ; preds = %667
   store i8 0, ptr %669, align 1
-  %676 = icmp ugt i64 %indvars.iv.i, 1
+  %676 = icmp samesign ugt i64 %indvars.iv.i, 1
   br i1 %676, label %667, label %.critedge.i, !llvm.loop !19
 
 .critedge.i:                                      ; preds = %675, %667, %.lr.ph195.i

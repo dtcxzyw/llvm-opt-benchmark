@@ -3956,7 +3956,7 @@ _ZNSt12_Vector_baseIlSaIlEE11_M_allocateEm.exit.i.i: ; preds = %_ZNSt6vectorIlSa
   %161 = getelementptr inbounds i8, ptr %.0910.i.i.i.i.i.i.i.i.i.i, i64 4
   %162 = getelementptr inbounds i8, ptr %.0811.i.i.i.i.i.i.i.i.i.i, i64 8
   %163 = add nsw i64 %.012.i.i.i.i.i.i.i.i.i.i, -1
-  %164 = icmp ugt i64 %.012.i.i.i.i.i.i.i.i.i.i, 1
+  %164 = icmp samesign ugt i64 %.012.i.i.i.i.i.i.i.i.i.i, 1
   br i1 %164, label %.lr.ph.i.i.i.i.i.i.i.i.i.i, label %_ZNSt6vectorIlSaIlEEC2IN9__gnu_cxx17__normal_iteratorIPiS_IiSaIiEEEEvEET_S9_RKS0_.exit.loopexit, !llvm.loop !84
 
 _ZNSt12_Vector_baseIlSaIlEED2Ev.exit.i:           ; preds = %156, %_ZNSt12_Vector_baseIlSaIlEE11_M_allocateEm.exit.i.i

@@ -146,11 +146,11 @@ if.then10:                                        ; preds = %if.end
   br label %if.end20
 
 if.end11:                                         ; preds = %if.end
-  %cmp12 = icmp ult i32 %length, 2
+  %cmp12 = icmp samesign ult i32 %length, 2
   br i1 %cmp12, label %if.end20, label %if.else
 
 if.else:                                          ; preds = %if.end11
-  %cmp14 = icmp ult i32 %length, 9
+  %cmp14 = icmp samesign ult i32 %length, 9
   %tobool16 = icmp ne i8 %sortStable, 0
   %or.cond4 = or i1 %cmp14, %tobool16
   %1 = add nuw i32 %itemSize, 31

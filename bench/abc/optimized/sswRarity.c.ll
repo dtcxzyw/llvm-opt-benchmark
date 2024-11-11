@@ -194,7 +194,7 @@ Vec_IntAlloc.exit.i:
   %27 = load i32, ptr %26, align 4
   %28 = getelementptr inbounds i32, ptr %11, i64 %indvars.iv.next
   store i32 %27, ptr %28, align 4
-  %29 = icmp ugt i64 %indvars.iv, 1
+  %29 = icmp samesign ugt i64 %indvars.iv, 1
   br i1 %29, label %20, label %._crit_edge, !llvm.loop !8
 
 ._crit_edge:                                      ; preds = %20, %Vec_IntAlloc.exit.i

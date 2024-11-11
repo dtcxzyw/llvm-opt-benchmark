@@ -739,7 +739,7 @@ switch.lookup:                                    ; preds = %entry
   %1 = zext nneg i32 %type to i64
   %switch.gep = getelementptr inbounds [6 x i32], ptr @switch.table.udbg_enumArrayValue, i64 0, i64 %1
   %switch.load = load i32, ptr %switch.gep, align 4
-  %cmp1.not = icmp ult i32 %field, %switch.load
+  %cmp1.not = icmp samesign ult i32 %field, %switch.load
   br i1 %cmp1.not, label %switch.lookup16, label %return
 
 switch.lookup16:                                  ; preds = %switch.lookup
@@ -772,7 +772,7 @@ switch.lookup:                                    ; preds = %entry
   %1 = zext nneg i32 %type to i64
   %switch.gep = getelementptr inbounds [6 x i32], ptr @switch.table.udbg_enumArrayValue, i64 0, i64 %1
   %switch.load = load i32, ptr %switch.gep, align 4
-  %cmp1.not = icmp ult i32 %field, %switch.load
+  %cmp1.not = icmp samesign ult i32 %field, %switch.load
   br i1 %cmp1.not, label %switch.lookup14, label %return
 
 switch.lookup14:                                  ; preds = %switch.lookup
@@ -792,8 +792,8 @@ return:                                           ; preds = %entry, %switch.look
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read, inaccessiblemem: none) uwtable
 define i32 @udbg_enumByName(i32 noundef %type, ptr nocapture noundef readonly %value) local_unnamed_addr #8 {
 entry:
-  %cmp1.not = icmp ult i32 %type, 6
-  br i1 %cmp1.not, label %switch.lookup, label %return
+  %or.cond = icmp ult i32 %type, 6
+  br i1 %or.cond, label %switch.lookup, label %return
 
 switch.lookup:                                    ; preds = %entry
   %0 = zext nneg i32 %type to i64

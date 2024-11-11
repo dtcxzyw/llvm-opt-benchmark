@@ -1682,7 +1682,7 @@ define internal i64 @sock_s_unpack_sockaddr_in(i64 %0, i64 noundef %1) #0 {
   unreachable
 
 16:                                               ; preds = %12, %12
-  %.not.i.i = icmp ult i64 %8, 2147483648
+  %.not.i.i = icmp samesign ult i64 %8, 2147483648
   br i1 %.not.i.i, label %RSTRING_LENINT.exit, label %17
 
 17:                                               ; preds = %16
@@ -1779,7 +1779,7 @@ define internal i64 @sock_s_unpack_sockaddr_un(i64 %0, i64 noundef %1) #0 {
   unreachable
 
 16:                                               ; preds = %12
-  %17 = icmp ugt i64 %8, 110
+  %17 = icmp samesign ugt i64 %8, 110
   br i1 %17, label %18, label %RSTRING_LENINT.exit
 
 18:                                               ; preds = %16

@@ -4944,7 +4944,7 @@ define internal i32 @snd_ctl_elem_user_tlv(ptr noundef %0, i32 noundef %1, i32 n
   br i1 %96, label %.loopexit10, label %97
 
 97:                                               ; preds = %94
-  %98 = icmp ugt i64 %88, 2147483647
+  %98 = icmp samesign ugt i64 %88, 2147483647
   br i1 %98, label %99, label %100, !prof !30
 
 99:                                               ; preds = %97

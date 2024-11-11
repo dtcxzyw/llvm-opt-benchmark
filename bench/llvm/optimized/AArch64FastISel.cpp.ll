@@ -1032,7 +1032,7 @@ _ZL12isIntExtFreePKN4llvm11InstructionE.exit.thread.i: ; preds = %315, %_ZNK12_G
 
 363:                                              ; preds = %361
   %364 = and i64 %335, 4294967295
-  %.not53.i.i = icmp uge i64 %.0.i.i.i, %364
+  %.not53.i.i = icmp samesign uge i64 %.0.i.i.i, %364
   %brmerge.not.i.i = and i1 %.053.shrunk.i, %.not53.i.i
   br i1 %brmerge.not.i.i, label %365, label %377
 
@@ -2453,8 +2453,8 @@ _ZNK4llvm3MVT15isFloatingPointEv.exit.thread:     ; preds = %99
   %115 = getelementptr inbounds nuw i8, ptr %110, i64 744
   %116 = load i8, ptr %115, align 8
   %117 = trunc i8 %116 to i1
-  %spec.select.i.i = icmp ult i16 %108, 120
-  %or.cond147 = and i1 %spec.select.i.i, %117
+  %spec.select.i.i = icmp samesign ult i16 %108, 120
+  %or.cond147 = select i1 %117, i1 %spec.select.i.i, i1 false
   br i1 %or.cond147, label %_ZNK4llvm3MVT13is64BitVectorEv.exit, label %_ZNK4llvm3MVT14is128BitVectorEv.exit.thread
 
 118:                                              ; preds = %107
@@ -7789,7 +7789,7 @@ _ZN4llvm5APIntD2Ev.exit.i:                        ; preds = %213, %210, %_ZNK4ll
   br label %239
 
 235:                                              ; preds = %233
-  %236 = icmp ugt i32 %120, 31
+  %236 = icmp samesign ugt i32 %120, 31
   %brmerge63.i = or i1 %236, %218
   br i1 %brmerge63.i, label %239, label %237
 
@@ -13344,7 +13344,7 @@ define internal fastcc noundef i32 @_ZN12_GLOBAL__N_115AArch64FastISel10emitIntE
   ]
 
 13:                                               ; preds = %12
-  %switch.i = icmp ult i16 %.off, 2
+  %switch.i = icmp samesign ult i16 %.off, 2
   br i1 %switch.i, label %.thread.i, label %14
 
 14:                                               ; preds = %13
@@ -14653,7 +14653,7 @@ define internal fastcc noundef i32 @_ZN12_GLOBAL__N_115AArch64FastISel10emitASR_
 
 52:                                               ; preds = %50
   %53 = and i64 %23, 4294967295
-  %.not39 = icmp uge i64 %4, %53
+  %.not39 = icmp samesign uge i64 %4, %53
   %brmerge.not = and i1 %5, %.not39
   br i1 %brmerge.not, label %54, label %66
 
@@ -17633,7 +17633,7 @@ switch.lookup:                                    ; preds = %16
 102:                                              ; preds = %100, %81
   %.sroa.067.0 = phi i32 [ %101, %100 ], [ %82, %81 ]
   %103 = select i1 %4, i1 %36, i1 false
-  %104 = icmp ult i16 %1, 8
+  %104 = icmp samesign ult i16 %1, 8
   %or.cond85 = select i1 %103, i1 %104, i1 false
   br i1 %or.cond85, label %105, label %.critedge
 
@@ -17997,7 +17997,7 @@ switch.lookup:                                    ; preds = %switch.hole_check
   %22 = zext nneg i32 %21 to i64
   %23 = and i64 %.val81, %22
   %.not68 = icmp eq i64 %23, 0
-  %24 = icmp ult i64 %.val81, 256
+  %24 = icmp samesign ult i64 %.val81, 256
   %or.cond = or i1 %24, %.not68
   br i1 %or.cond, label %26, label %.thread133
 
@@ -18020,7 +18020,7 @@ switch.lookup:                                    ; preds = %switch.hole_check
 31:                                               ; preds = %27
   %32 = zext nneg i32 %switch.load to i64
   %33 = udiv i64 %.val81, %32
-  %34 = icmp ugt i64 %33, 4095
+  %34 = icmp samesign ugt i64 %33, 4095
   br i1 %34, label %.thread133, label %.thread139
 
 .thread139:                                       ; preds = %25, %31, %27
@@ -20070,7 +20070,7 @@ _ZN12_GLOBAL__N_115AArch64FastISel13isMemCpySmallEmN4llvm10MaybeAlignE.exit: ; p
   br i1 %20, label %27, label %21
 
 21:                                               ; preds = %19
-  %22 = icmp ugt i64 %.02351, 3
+  %22 = icmp samesign ugt i64 %.02351, 3
   br i1 %22, label %27, label %23
 
 23:                                               ; preds = %21

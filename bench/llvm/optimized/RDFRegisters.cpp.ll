@@ -2018,7 +2018,7 @@ define dso_local noundef zeroext i1 @_ZNK4llvm3rdf20PhysicalRegisterInfo4lessENS
   br i1 %15, label %16, label %18
 
 16:                                               ; preds = %14
-  %17 = icmp ult i32 %1, %3
+  %17 = icmp samesign ult i32 %1, %3
   br label %77
 
 18:                                               ; preds = %14
@@ -2275,7 +2275,7 @@ _ZN4llvmlsERNS_11raw_ostreamERKNS_9PrintableE.exit9: ; preds = %54
 
 65:                                               ; preds = %52
   %66 = add nsw i32 %2, -1073741824
-  %67 = icmp ult i32 %66, 65536
+  %67 = icmp samesign ult i32 %66, 65536
   %.str..str.1 = select i1 %67, ptr @.str, ptr @.str.1
   %68 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %69 = load ptr, ptr %68, align 8

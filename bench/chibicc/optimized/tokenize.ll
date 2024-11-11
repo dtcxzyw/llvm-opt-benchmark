@@ -649,7 +649,7 @@ if.then150.i.i:                                   ; preds = %if.else147.i.i
   br label %convert_pp_int.exit.thread.i
 
 if.else151.i.i:                                   ; preds = %if.else147.i.i
-  %tobool153.not.i.i = icmp ult i64 %call24.i.i, 4294967296
+  %tobool153.not.i.i = icmp samesign ult i64 %call24.i.i, 4294967296
   br i1 %tobool153.not.i.i, label %if.else155.i.i, label %if.then154.i.i
 
 if.then154.i.i:                                   ; preds = %if.else151.i.i
@@ -657,7 +657,7 @@ if.then154.i.i:                                   ; preds = %if.else151.i.i
   br label %convert_pp_int.exit.thread.i
 
 if.else155.i.i:                                   ; preds = %if.else151.i.i
-  %tobool157.not.i.i = icmp ult i64 %call24.i.i, 2147483648
+  %tobool157.not.i.i = icmp samesign ult i64 %call24.i.i, 2147483648
   br i1 %tobool157.not.i.i, label %if.else159.i.i, label %if.then158.i.i
 
 if.then158.i.i:                                   ; preds = %if.else155.i.i

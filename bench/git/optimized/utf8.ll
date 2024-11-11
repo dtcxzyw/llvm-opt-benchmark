@@ -337,7 +337,7 @@ land.lhs.true146:                                 ; preds = %lor.lhs.false141
   br i1 %cmp149, label %invalid, label %if.end157
 
 lor.lhs.false151:                                 ; preds = %lor.lhs.false141
-  %cmp154 = icmp ugt i8 %2, -12
+  %cmp154 = icmp samesign ugt i8 %2, -12
   br i1 %cmp154, label %invalid, label %if.end157
 
 if.end157:                                        ; preds = %land.lhs.true146, %lor.lhs.false151

@@ -2775,7 +2775,7 @@ delete.notnull:                                   ; preds = %invoke.cont3
   br label %for.inc
 
 for.inc:                                          ; preds = %invoke.cont3, %delete.notnull
-  %cmp = icmp ugt i32 %i.09.in, 1
+  %cmp = icmp samesign ugt i32 %i.09.in, 1
   br i1 %cmp, label %for.body, label %for.end, !llvm.loop !16
 
 for.end:                                          ; preds = %for.inc, %entry
@@ -2803,7 +2803,7 @@ delete.notnull15:                                 ; preds = %invoke.cont12
   br label %for.inc19
 
 for.inc19:                                        ; preds = %invoke.cont12, %delete.notnull15
-  %cmp9 = icmp ugt i32 %i.112.in, 1
+  %cmp9 = icmp samesign ugt i32 %i.112.in, 1
   br i1 %cmp9, label %for.body10, label %for.end21, !llvm.loop !17
 
 for.end21:                                        ; preds = %for.inc19, %for.end

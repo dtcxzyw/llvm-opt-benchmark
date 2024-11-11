@@ -59,7 +59,7 @@ define range(i32 -51, 1) i32 @php_pcre2_jit_compile(ptr noundef %0, i32 noundef 
 6:                                                ; preds = %4
   %7 = getelementptr inbounds i8, ptr %0, i64 32
   %8 = load ptr, ptr %7, align 8
-  %.not44 = icmp ult i32 %1, 256
+  %.not44 = icmp samesign ult i32 %1, 256
   br i1 %.not44, label %17, label %9
 
 9:                                                ; preds = %6
@@ -909,7 +909,7 @@ bracketend.exit.i:                                ; preds = %156
   store i8 0, ptr %229, align 1
   %230 = load i64, ptr %84, align 8
   %231 = getelementptr inbounds i8, ptr %.0100114.i, i64 %230
-  %232 = icmp ugt i32 %.0101113.i, 1
+  %232 = icmp samesign ugt i32 %.0101113.i, 1
   br i1 %232, label %.lr.ph.i, label %._crit_edge.i
 
 ._crit_edge.i:                                    ; preds = %.lr.ph.i, %199
@@ -13519,7 +13519,7 @@ thread-pre-split.backedge:                        ; preds = %207, %258, %210, %.
   %263 = sub i64 %23, %262
   %264 = getelementptr inbounds i32, ptr %260, i64 %263
   store i32 1, ptr %264, align 4
-  %265 = icmp ugt i32 %.1, 4
+  %265 = icmp samesign ugt i32 %.1, 4
   br i1 %265, label %.thread.loopexit292, label %thread-pre-split.backedge
 
 .thread.loopexit292:                              ; preds = %258, %209, %151, %bracketend.exit, %182, %207
@@ -18790,7 +18790,7 @@ sljit_emit_op1.exit.i:                            ; preds = %emit_mov.exit.threa
 71:                                               ; preds = %65
   %72 = getelementptr inbounds i8, ptr %9, i64 152
   store i32 0, ptr %72, align 8
-  %or.cond.i.i = icmp ult i32 %54, 268435456
+  %or.cond.i.i = icmp samesign ult i32 %54, 268435456
   br i1 %or.cond.i.i, label %73, label %emit_lea_binary.exit.thread.i
 
 73:                                               ; preds = %71
@@ -24752,7 +24752,7 @@ sljit_emit_op1.exit848.thread:                    ; preds = %emit_mov.exit1077, 
   %2593 = shl nuw nsw i64 %.in1426, 3
   %2594 = getelementptr inbounds i8, ptr %2432, i64 152
   store i32 0, ptr %2594, align 8
-  %or.cond.i1066 = icmp ult i32 %.6.i, 268435456
+  %or.cond.i1066 = icmp samesign ult i32 %.6.i, 268435456
   br i1 %or.cond.i1066, label %2595, label %emit_lea_binary.exit1074.thread
 
 2595:                                             ; preds = %sljit_emit_op1.exit848.thread
@@ -24922,7 +24922,7 @@ sljit_emit_op1.exit814:                           ; preds = %2630, %2628, %emit_
   %2642 = or disjoint i32 %2641, 8
   %2643 = lshr exact i32 %.0238.i, 1
   %2644 = zext nneg i32 %2643 to i64
-  %or.cond.i995 = icmp ult i32 %.3242.i, 268435457
+  %or.cond.i995 = icmp samesign ult i32 %.3242.i, 268435457
   %.neg = mul i64 %2638, -34359738368
   %2645 = ashr exact i64 %.neg, 32
   %2646 = icmp eq i8 %2458, -115
@@ -30620,7 +30620,7 @@ compile_iterator_backtrackingpath.exit:           ; preds = %sljit_set_label.exi
 1001:                                             ; preds = %set_jumps.exit, %set_jumps.exit, %set_jumps.exit, %set_jumps.exit
   %1002 = load ptr, ptr %0, align 8
   %1003 = add nsw i8 %54, -113
-  %spec.select.i = icmp ult i8 %1003, 2
+  %spec.select.i = icmp samesign ult i8 %1003, 2
   %1004 = select i1 %spec.select.i, i64 3, i64 5
   %1005 = getelementptr inbounds i8, ptr %53, i64 %1004
   %1006 = load i8, ptr %1005, align 1
@@ -58564,7 +58564,7 @@ sljit_set_label.exit200:                          ; preds = %sljit_emit_op2.exit
   br label %sljit_set_label.exit187
 
 444:                                              ; preds = %198
-  %445 = icmp ugt i32 %1, 2047
+  %445 = icmp samesign ugt i32 %1, 2047
   %446 = icmp ult i32 %2, 65536
   %or.cond = and i1 %445, %446
   br i1 %or.cond, label %447, label %539
@@ -62032,7 +62032,7 @@ define internal fastcc range(i32 0, 2) i32 @char_has_othercase(ptr nocapture nou
 
 99:                                               ; preds = %9, %27, %71, %81, %40, %20, %97
   %.0 = phi i32 [ %23, %20 ], [ %36, %27 ], [ %55, %40 ], [ %80, %71 ], [ %96, %81 ], [ %11, %9 ], [ %98, %97 ]
-  %100 = icmp ugt i32 %.0, 127
+  %100 = icmp samesign ugt i32 %.0, 127
   br i1 %100, label %101, label %117
 
 101:                                              ; preds = %99
@@ -70024,7 +70024,7 @@ sljit_emit_op1.exit670:                           ; preds = %890, %865, %883, %e
   br label %sljit_emit_op2.exit678
 
 sljit_emit_op2.exit678:                           ; preds = %929, %931
-  %935 = icmp ugt i32 %.0414, 1
+  %935 = icmp samesign ugt i32 %.0414, 1
   br i1 %935, label %941, label %936
 
 936:                                              ; preds = %sljit_emit_op2.exit678
@@ -70391,7 +70391,7 @@ sljit_set_label.exit706:                          ; preds = %sljit_emit_op1.exit
 
 1137:                                             ; preds = %1097
   %1138 = zext i8 %1096 to i32
-  %1139 = icmp ugt i8 %1096, -65
+  %1139 = icmp samesign ugt i8 %1096, -65
   br i1 %1139, label %1140, label %1226
 
 1140:                                             ; preds = %1137
@@ -74125,8 +74125,8 @@ sljit_emit_op2.exit231:                           ; preds = %112, %110, %115, %a
   %.0176530539 = phi i32 [ %.0176530540, %add_jump.exit ], [ %.0176530540, %sljit_emit_op1.exit252 ], [ 0, %115 ], [ 0, %110 ], [ 0, %112 ]
   %.0175532537 = phi i32 [ %.0175532538, %add_jump.exit ], [ %.0175532538, %sljit_emit_op1.exit252 ], [ %.0175, %115 ], [ %.0175, %110 ], [ %.0175, %112 ]
   %.1180 = phi ptr [ %167, %add_jump.exit ], [ %177, %sljit_emit_op1.exit252 ], [ %.0179, %115 ], [ %.0179, %110 ], [ %.0179, %112 ]
-  %178 = icmp ugt i32 %.0176530539, 1
-  %179 = icmp ugt i32 %.0175532537, 1
+  %178 = icmp samesign ugt i32 %.0176530539, 1
+  %179 = icmp samesign ugt i32 %.0175532537, 1
   %or.cond = select i1 %178, i1 true, i1 %179
   br i1 %or.cond, label %180, label %sljit_emit_op1.exit257
 
@@ -75031,7 +75031,7 @@ emit_mov.exit508.thread:                          ; preds = %528
   br label %sljit_emit_op1.exit398
 
 sljit_emit_op1.exit398:                           ; preds = %528, %emit_mov.exit508.thread, %sljit_emit_op1.exit393
-  %531 = icmp ugt i32 %.0176529, 1
+  %531 = icmp samesign ugt i32 %.0176529, 1
   br i1 %531, label %532, label %552
 
 532:                                              ; preds = %sljit_emit_op1.exit398
@@ -78716,7 +78716,7 @@ add_jump.exit:                                    ; preds = %38, %68, %sljit_all
   %.1 = phi ptr [ %.0.i.i, %sljit_alloc_memory.exit.i ], [ %.04852, %68 ], [ %.04852, %38 ]
   %74 = load i64, ptr %23, align 8
   %75 = getelementptr inbounds i8, ptr %.054, i64 %74
-  %76 = icmp ugt i32 %.034.in53, 2
+  %76 = icmp samesign ugt i32 %.034.in53, 2
   br i1 %76, label %38, label %._crit_edge
 
 ._crit_edge:                                      ; preds = %add_jump.exit, %sljit_emit_op1.exit
@@ -83569,7 +83569,7 @@ sljit_emit_op1.exit796.thread:                    ; preds = %emit_mov.exit1145, 
   %417 = shl nuw nsw i64 %.in, 3
   %418 = getelementptr inbounds i8, ptr %5, i64 152
   store i32 0, ptr %418, align 8
-  %or.cond.i1146 = icmp ult i32 %402, 268435456
+  %or.cond.i1146 = icmp samesign ult i32 %402, 268435456
   br i1 %or.cond.i1146, label %419, label %emit_lea_binary.exit.thread
 
 419:                                              ; preds = %sljit_emit_op1.exit796.thread
@@ -84505,7 +84505,7 @@ sljit_emit_op2.exit936:                           ; preds = %726, %731
 sljit_emit_op2.exit939:                           ; preds = %emit_mov.exit1313, %733, %.lr.ph1661.split, %754, %753, %sljit_emit_op2.exit936
   %760 = load i64, ptr %625, align 8
   %761 = getelementptr inbounds i8, ptr %.06131660, i64 %760
-  %762 = icmp ugt i32 %.0627.in1659, 2
+  %762 = icmp samesign ugt i32 %.0627.in1659, 2
   br i1 %762, label %.lr.ph1661.split, label %._crit_edge.loopexit, !llvm.loop !9
 
 ._crit_edge.loopexit:                             ; preds = %sljit_emit_op2.exit939
@@ -101533,7 +101533,7 @@ define internal ptr @do_extuni_utf_invalid(ptr nocapture noundef readonly %0, pt
 
 90:                                               ; preds = %.lr.ph
   %91 = icmp ugt ptr %86, %4
-  %92 = icmp ult i8 %87, -64
+  %92 = icmp samesign ult i8 %87, -64
   %or.cond168 = and i1 %91, %92
   br i1 %or.cond168, label %93, label %._crit_edge
 
@@ -102243,7 +102243,7 @@ define internal fastcc i32 @char_get_othercase_bit(ptr nocapture noundef nonnull
 98:                                               ; preds = %5, %10, %28, %72, %82, %41, %21
   %99 = phi i8 [ %11, %21 ], [ %11, %28 ], [ %11, %41 ], [ %11, %72 ], [ %11, %82 ], [ %11, %10 ], [ %8, %5 ]
   %.058 = phi i32 [ %24, %21 ], [ %37, %28 ], [ %56, %41 ], [ %81, %72 ], [ %97, %82 ], [ %12, %10 ], [ %9, %5 ]
-  %100 = icmp ult i32 %.058, 128
+  %100 = icmp samesign ult i32 %.058, 128
   br i1 %100, label %101, label %.thread65
 
 101:                                              ; preds = %98
@@ -102286,7 +102286,7 @@ define internal fastcc i32 @char_get_othercase_bit(ptr nocapture noundef nonnull
   %.057.in = load i8, ptr %.057.in.in, align 1
   %.057 = zext i8 %.057.in to i32
   %129 = xor i32 %.1, %.057
-  %130 = icmp ult i32 %.1, 128
+  %130 = icmp samesign ult i32 %.1, 128
   %131 = icmp eq i32 %129, 32
   %or.cond = select i1 %130, i1 %131, i1 false
   br i1 %or.cond, label %154, label %132
@@ -102301,7 +102301,7 @@ define internal fastcc i32 @char_get_othercase_bit(ptr nocapture noundef nonnull
 
 137:                                              ; preds = %132
   %138 = icmp ne i32 %4, 0
-  %139 = icmp ugt i32 %.169, 127
+  %139 = icmp samesign ugt i32 %.169, 127
   %or.cond3 = and i1 %138, %139
   br i1 %or.cond3, label %140, label %154
 
@@ -103790,7 +103790,7 @@ sljit_emit_jump.exit:                             ; preds = %161, %169
   br label %sljit_set_label.exit
 
 sljit_set_label.exit:                             ; preds = %sljit_set_label.exit.critedge, %add_jump.exit, %sljit_emit_op2.exit, %173, %146, %175, %sljit_emit_jump.exit, %66
-  %180 = icmp ult i32 %.074, %.073
+  %180 = icmp samesign ult i32 %.074, %.073
   br i1 %180, label %181, label %sljit_emit_op1.exit134
 
 181:                                              ; preds = %sljit_set_label.exit
@@ -104103,7 +104103,7 @@ sljit_alloc_memory.exit.i142:                     ; preds = %310, %301
   br label %add_jump.exit144
 
 add_jump.exit144:                                 ; preds = %sljit_alloc_memory.exit.i142, %309, %sljit_emit_op2.exit137, %285
-  %316 = icmp ult i32 %.074, %.073
+  %316 = icmp samesign ult i32 %.074, %.073
   br i1 %316, label %317, label %sljit_emit_op1.exit134
 
 317:                                              ; preds = %add_jump.exit144
@@ -104212,7 +104212,7 @@ sljit_emit_op1.exit134.sink.split:                ; preds = %355, %282
 
 sljit_emit_op1.exit134:                           ; preds = %sljit_emit_op1.exit134.sink.split, %355, %282, %sljit_emit_op2u.exit, %sljit_set_label.exit129, %add_jump.exit144, %sljit_set_label.exit
   tail call fastcc void @check_start_used_ptr(ptr noundef %0)
-  %358 = icmp ult i32 %.074, %.073
+  %358 = icmp samesign ult i32 %.074, %.073
   br i1 %358, label %359, label %sljit_alloc_memory.exit.thread
 
 359:                                              ; preds = %sljit_emit_op1.exit134

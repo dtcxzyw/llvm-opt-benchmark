@@ -6651,7 +6651,7 @@ _ZN4llvm15SmallVectorImplIPKN12_GLOBAL__N_19ClassInfoEE7reserveEm.exit.i.i.i.i: 
   %2394 = getelementptr inbounds i8, ptr %.0910.i.i.i.i.i.i.i.i.i.i.i.i, i64 8
   %2395 = getelementptr inbounds i8, ptr %.0811.i.i.i.i.i.i.i.i.i.i.i.i, i64 8
   %2396 = add nsw i64 %.012.i.i.i.i.i.i.i.i.i.i.i.i, -1
-  %2397 = icmp ugt i64 %.012.i.i.i.i.i.i.i.i.i.i.i.i, 1
+  %2397 = icmp samesign ugt i64 %.012.i.i.i.i.i.i.i.i.i.i.i.i, 1
   br i1 %2397, label %.lr.ph.i.i.i.i.i.i.i.i.i.i.i.i, label %_ZN4llvm11SmallVectorIPKN12_GLOBAL__N_19ClassInfoELj16EEC2IN9__gnu_cxx17__normal_iteratorIPKPS2_St6vectorIS9_SaIS9_EEEEvEET_SG_.exit.i.i, !llvm.loop !83
 
 _ZN4llvm11SmallVectorIPKN12_GLOBAL__N_19ClassInfoELj16EEC2IN9__gnu_cxx17__normal_iteratorIPKPS2_St6vectorIS9_SaIS9_EEEEvEET_SG_.exit.i.i: ; preds = %.lr.ph.i.i.i.i.i.i.i.i.i.i.i.i, %_ZN4llvm15SmallVectorImplIPKN12_GLOBAL__N_19ClassInfoEE7reserveEm.exit.i.i.i.i

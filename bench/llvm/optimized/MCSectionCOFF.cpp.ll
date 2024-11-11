@@ -341,7 +341,7 @@ _ZN4llvm11raw_ostreamlsEc.exit76:                 ; preds = %_ZN4llvm11raw_ostre
   br label %_ZN4llvm11raw_ostreamlsEc.exit79
 
 120:                                              ; preds = %_ZN4llvm11raw_ostreamlsEc.exit76
-  %.not37 = icmp ult i32 %112, 1073741824
+  %.not37 = icmp samesign ult i32 %112, 1073741824
   %121 = load ptr, ptr %46, align 8
   %122 = load ptr, ptr %44, align 8
   %.not.i83 = icmp ult ptr %121, %122

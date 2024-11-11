@@ -18,7 +18,7 @@ define void @sscal_(ptr nocapture noundef readonly %0, ptr nocapture noundef rea
   br i1 %11, label %.preheader41, label %.lr.ph.preheader
 
 .preheader41:                                     ; preds = %10
-  %12 = icmp ugt i32 %5, 5
+  %12 = icmp samesign ugt i32 %5, 5
   br i1 %12, label %.lr.ph45.preheader, label %.preheader
 
 .lr.ph45.preheader:                               ; preds = %.preheader41

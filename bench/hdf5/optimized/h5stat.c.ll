@@ -2227,7 +2227,7 @@ ceil_log10.exit.i44:                              ; preds = %.lr.ph.i.i40, %466
   br i1 %663, label %664, label %674
 
 664:                                              ; preds = %661
-  %665 = icmp ult i32 %662, 7
+  %665 = icmp samesign ult i32 %662, 7
   br i1 %665, label %666, label %671
 
 666:                                              ; preds = %664

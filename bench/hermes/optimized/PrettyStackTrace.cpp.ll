@@ -135,7 +135,7 @@ if.end:                                           ; preds = %entry
   br i1 %cmp.i, label %if.end15.sink.split.i, label %if.else.i
 
 if.else.i:                                        ; preds = %if.end
-  %cmp5.i.not = icmp ult i32 %call, %0
+  %cmp5.i.not = icmp samesign ult i32 %call, %0
   br i1 %cmp5.i.not, label %_ZN4llvh15SmallVectorImplIcE6resizeEm.exit, label %if.then6.i
 
 if.then6.i:                                       ; preds = %if.else.i

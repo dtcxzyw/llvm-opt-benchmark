@@ -385,7 +385,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_113get_cpu_timesERN5boost5timer9cpu
 
 12:                                               ; preds = %9
   %13 = udiv i64 1000000000, %10
-  %14 = icmp ugt i64 %10, 1000000000
+  %14 = icmp samesign ugt i64 %10, 1000000000
   %spec.store.select.i = select i1 %14, i64 -1, i64 %13
   br label %_ZN12_GLOBAL__N_111tick_factorEv.exit
 
@@ -471,7 +471,7 @@ define void @_ZN5boost5timer9cpu_timer4stopEv(ptr nocapture noundef nonnull alig
 
 14:                                               ; preds = %11
   %15 = udiv i64 1000000000, %12
-  %16 = icmp ugt i64 %12, 1000000000
+  %16 = icmp samesign ugt i64 %12, 1000000000
   %spec.store.select.i.i = select i1 %16, i64 -1, i64 %15
   br label %_ZN12_GLOBAL__N_111tick_factorEv.exit.i
 
@@ -695,7 +695,7 @@ define void @_ZN5boost5timer14auto_cpu_timer6reportEv(ptr nocapture noundef nonn
 
 18:                                               ; preds = %15
   %19 = udiv i64 1000000000, %16
-  %20 = icmp ugt i64 %16, 1000000000
+  %20 = icmp samesign ugt i64 %16, 1000000000
   %spec.store.select.i.i = select i1 %20, i64 -1, i64 %19
   br label %_ZN12_GLOBAL__N_111tick_factorEv.exit.i
 

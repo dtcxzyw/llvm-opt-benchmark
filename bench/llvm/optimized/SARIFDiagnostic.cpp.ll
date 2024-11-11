@@ -1261,7 +1261,7 @@ define linkonce_odr noundef nonnull align 8 dereferenceable(16) ptr @_ZN4llvm15S
   %14 = getelementptr inbounds i8, ptr %.0910.i.i.i.i.i, i64 48
   %15 = getelementptr inbounds i8, ptr %.0811.i.i.i.i.i, i64 48
   %16 = add nsw i64 %.012.i.i.i.i.i, -1
-  %17 = icmp ugt i64 %.012.i.i.i.i.i, 1
+  %17 = icmp samesign ugt i64 %.012.i.i.i.i.i, 1
   br i1 %17, label %.lr.ph.i.i.i.i.i, label %_ZSt4copyIPKN5clang10ThreadFlowEPS1_ET0_T_S6_S5_.exit.loopexit, !llvm.loop !38
 
 _ZSt4copyIPKN5clang10ThreadFlowEPS1_ET0_T_S6_S5_.exit.loopexit: ; preds = %.lr.ph.i.i.i.i.i
@@ -1337,7 +1337,7 @@ _ZN4llvm15SmallVectorImplIN5clang10ThreadFlowEE5clearEv.exit: ; preds = %.lr.ph.
   %41 = getelementptr inbounds i8, ptr %.0910.i.i.i.i.i35, i64 48
   %42 = getelementptr inbounds i8, ptr %.0811.i.i.i.i.i34, i64 48
   %43 = add nsw i64 %.012.i.i.i.i.i33, -1
-  %44 = icmp ugt i64 %.012.i.i.i.i.i33, 1
+  %44 = icmp samesign ugt i64 %.012.i.i.i.i.i33, 1
   br i1 %44, label %.lr.ph.i.i.i.i.i32, label %_ZSt4copyIPKN5clang10ThreadFlowEPS1_ET0_T_S6_S5_.exit36, !llvm.loop !38
 
 _ZSt4copyIPKN5clang10ThreadFlowEPS1_ET0_T_S6_S5_.exit36: ; preds = %.lr.ph.i.i.i.i.i32, %34, %33, %_ZN4llvm15SmallVectorImplIN5clang10ThreadFlowEE5clearEv.exit
@@ -1642,7 +1642,7 @@ _ZN4llvm15SmallVectorImplIN5clang10ThreadFlowEE12assignRemoteEOS3_.exit: ; preds
   %37 = getelementptr inbounds i8, ptr %.0910.i.i.i.i.i, i64 48
   %38 = getelementptr inbounds i8, ptr %.0811.i.i.i.i.i, i64 48
   %39 = add nsw i64 %.012.i.i.i.i.i, -1
-  %40 = icmp ugt i64 %.012.i.i.i.i.i, 1
+  %40 = icmp samesign ugt i64 %.012.i.i.i.i.i, 1
   br i1 %40, label %.lr.ph.i.i.i.i.i, label %_ZSt4moveIPN5clang10ThreadFlowES2_ET0_T_S4_S3_.exit, !llvm.loop !41
 
 _ZSt4moveIPN5clang10ThreadFlowES2_ET0_T_S4_S3_.exit: ; preds = %.lr.ph.i.i.i.i.i, %30, %28
@@ -1738,7 +1738,7 @@ _ZN4llvm15SmallVectorImplIN5clang10ThreadFlowEE5clearEv.exit46: ; preds = %.lr.p
   %70 = getelementptr inbounds i8, ptr %.0910.i.i.i.i.i52, i64 48
   %71 = getelementptr inbounds i8, ptr %.0811.i.i.i.i.i51, i64 48
   %72 = add nsw i64 %.012.i.i.i.i.i50, -1
-  %73 = icmp ugt i64 %.012.i.i.i.i.i50, 1
+  %73 = icmp samesign ugt i64 %.012.i.i.i.i.i50, 1
   br i1 %73, label %.lr.ph.i.i.i.i.i49, label %_ZSt4moveIPN5clang10ThreadFlowES2_ET0_T_S4_S3_.exit53, !llvm.loop !41
 
 _ZSt4moveIPN5clang10ThreadFlowES2_ET0_T_S4_S3_.exit53: ; preds = %.lr.ph.i.i.i.i.i49, %63, %62, %_ZN4llvm15SmallVectorImplIN5clang10ThreadFlowEE5clearEv.exit46

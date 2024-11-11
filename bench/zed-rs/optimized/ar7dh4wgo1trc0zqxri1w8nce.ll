@@ -632,48 +632,48 @@ define hidden void @_ZN3der6reader6Reader9read_byte17h01acda146f1215dbE(ptr dead
 define hidden void @_ZN3der6reader6Reader9read_into17h459eeb46d343f193E(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([56 x i8]) align 8 dereferenceable(56) %0, ptr noalias noundef align 8 dereferenceable(32) %1, ptr noalias noundef nonnull align 1 %2, i64 noundef %3) unnamed_addr #2 {
   %5 = alloca [56 x i8], align 8
   call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %5)
-  %6 = icmp ult i64 %3, 268435456
-  br i1 %6, label %7, label %11
+  %or.cond = icmp ult i64 %3, 268435456
+  br i1 %or.cond, label %6, label %10
 
-7:                                                ; preds = %4
-  %8 = trunc nuw i64 %3 to i32
-  call void @"_ZN71_$LT$der..reader..slice..SliceReader$u20$as$u20$der..reader..Reader$GT$10read_slice17hd2cf15bd855698deE"(ptr noalias nocapture noundef nonnull sret([56 x i8]) align 8 dereferenceable(56) %5, ptr noalias noundef nonnull align 8 dereferenceable(32) %1, i32 noundef %8)
-  %9 = load i32, ptr %5, align 8, !range !8, !noundef !4
-  %10 = icmp eq i32 %9, 2
-  br i1 %10, label %12, label %20
+6:                                                ; preds = %4
+  %7 = trunc nuw i64 %3 to i32
+  call void @"_ZN71_$LT$der..reader..slice..SliceReader$u20$as$u20$der..reader..Reader$GT$10read_slice17hd2cf15bd855698deE"(ptr noalias nocapture noundef nonnull sret([56 x i8]) align 8 dereferenceable(56) %5, ptr noalias noundef nonnull align 8 dereferenceable(32) %1, i32 noundef %7)
+  %8 = load i32, ptr %5, align 8, !range !8, !noundef !4
+  %9 = icmp eq i32 %8, 2
+  br i1 %9, label %11, label %19
 
-11:                                               ; preds = %4
+10:                                               ; preds = %4
   store i32 0, ptr %0, align 8
   %.sroa.329.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 8
   store i8 12, ptr %.sroa.329.0..sroa_idx, align 8
   call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %5)
-  br label %21
+  br label %20
 
-12:                                               ; preds = %7
-  %13 = getelementptr inbounds i8, ptr %5, i64 8
-  %14 = load ptr, ptr %13, align 8, !nonnull !4, !align !62, !noundef !4
-  %15 = getelementptr inbounds i8, ptr %5, i64 16
-  %16 = load i64, ptr %15, align 8, !noundef !4
+11:                                               ; preds = %6
+  %12 = getelementptr inbounds i8, ptr %5, i64 8
+  %13 = load ptr, ptr %12, align 8, !nonnull !4, !align !62, !noundef !4
+  %14 = getelementptr inbounds i8, ptr %5, i64 16
+  %15 = load i64, ptr %14, align 8, !noundef !4
   call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %5)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !72)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !75)
-  %.not.i = icmp eq i64 %3, %16
-  br i1 %.not.i, label %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$15copy_from_slice17hf17b443b3b8b2069E.exit", label %17
+  %.not.i = icmp eq i64 %3, %15
+  br i1 %.not.i, label %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$15copy_from_slice17hf17b443b3b8b2069E.exit", label %16
 
-17:                                               ; preds = %12
-  tail call void @"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$15copy_from_slice17len_mismatch_fail17ha53e432951fc4fd6E"(i64 noundef %3, i64 noundef %16, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.275589fc601a160700474d931209081a.1.llvm.5873051107199620381) #17, !noalias !77
+16:                                               ; preds = %11
+  tail call void @"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$15copy_from_slice17len_mismatch_fail17ha53e432951fc4fd6E"(i64 noundef %3, i64 noundef %15, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.275589fc601a160700474d931209081a.1.llvm.5873051107199620381) #17, !noalias !77
   unreachable
 
-"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$15copy_from_slice17hf17b443b3b8b2069E.exit": ; preds = %12
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %2, ptr nonnull readonly align 1 %14, i64 %3, i1 false), !alias.scope !77, !noalias !78
-  %18 = getelementptr inbounds i8, ptr %0, i64 8
-  store ptr %2, ptr %18, align 8
-  %19 = getelementptr inbounds i8, ptr %0, i64 16
-  store i64 %3, ptr %19, align 8
+"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$15copy_from_slice17hf17b443b3b8b2069E.exit": ; preds = %11
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %2, ptr nonnull readonly align 1 %13, i64 %3, i1 false), !alias.scope !77, !noalias !78
+  %17 = getelementptr inbounds i8, ptr %0, i64 8
+  store ptr %2, ptr %17, align 8
+  %18 = getelementptr inbounds i8, ptr %0, i64 16
+  store i64 %3, ptr %18, align 8
   store i32 2, ptr %0, align 8
-  br label %21
+  br label %20
 
-20:                                               ; preds = %7
+19:                                               ; preds = %6
   %.sroa.535.0..sroa_idx = getelementptr inbounds i8, ptr %5, i64 4
   %.sroa.535.0.copyload = load i32, ptr %.sroa.535.0..sroa_idx, align 4
   %.sroa.636.0..sroa_idx = getelementptr inbounds i8, ptr %5, i64 8
@@ -684,16 +684,16 @@ define hidden void @_ZN3der6reader6Reader9read_into17h459eeb46d343f193E(ptr dead
   %.sroa.543.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 24
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %.sroa.543.0..sroa_idx, ptr noundef nonnull align 8 dereferenceable(32) %.sroa.838.0..sroa_idx, i64 32, i1 false)
   call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %5)
-  store i32 %9, ptr %0, align 8
+  store i32 %8, ptr %0, align 8
   %.sroa.240.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 4
   store i32 %.sroa.535.0.copyload, ptr %.sroa.240.0..sroa_idx, align 4
   %.sroa.341.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 8
   store ptr %.sroa.636.0.copyload, ptr %.sroa.341.0..sroa_idx, align 8
   %.sroa.442.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 16
   store i64 %.sroa.737.0.copyload, ptr %.sroa.442.0..sroa_idx, align 8
-  br label %21
+  br label %20
 
-21:                                               ; preds = %11, %20, %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$15copy_from_slice17hf17b443b3b8b2069E.exit"
+20:                                               ; preds = %10, %19, %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$15copy_from_slice17hf17b443b3b8b2069E.exit"
   ret void
 }
 
@@ -4026,7 +4026,7 @@ define hidden void @"_ZN75_$LT$der..length..Length$u20$as$u20$core..convert..Try
   br i1 %3, label %6, label %4
 
 4:                                                ; preds = %2
-  %5 = icmp ult i64 %1, 268435456
+  %5 = icmp samesign ult i64 %1, 268435456
   br i1 %5, label %8, label %7
 
 6:                                                ; preds = %2

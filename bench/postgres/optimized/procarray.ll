@@ -661,7 +661,7 @@ ProcArrayEndTransactionInternal.exit:             ; preds = %48, %53
   %90 = add nsw i32 %.135.i, -1
   %91 = load ptr, ptr %81, align 8
   tail call void @PGSemaphoreUnlock(ptr noundef %91) #15
-  %92 = icmp ugt i32 %.135.i, 1
+  %92 = icmp samesign ugt i32 %.135.i, 1
   br i1 %92, label %.lr.ph.i, label %ProcArrayGroupClearXid.exit, !llvm.loop !10
 
 93:                                               ; preds = %78

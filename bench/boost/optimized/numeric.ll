@@ -15140,7 +15140,7 @@ _ZNKSt7__cxx119money_getIcSt19istreambuf_iteratorIcSt11char_traitsIcEEE3getES4_S
   %27 = phi x86_fp80 [ %28, %.lr.ph ], [ %.promoted, %.preheader ]
   %28 = fdiv x86_fp80 %27, 0xK4002A000000000000000
   %29 = add nsw i32 %.024, -1
-  %30 = icmp ugt i32 %.024, 1
+  %30 = icmp samesign ugt i32 %.024, 1
   br i1 %30, label %.lr.ph, label %._crit_edge, !llvm.loop !171
 
 31:                                               ; preds = %13, %8
@@ -15217,7 +15217,7 @@ _ZNKSt7__cxx119money_getIcSt19istreambuf_iteratorIcSt11char_traitsIcEEE3getES4_S
   %27 = phi x86_fp80 [ %28, %.lr.ph ], [ %.promoted, %.preheader ]
   %28 = fdiv x86_fp80 %27, 0xK4002A000000000000000
   %29 = add nsw i32 %.024, -1
-  %30 = icmp ugt i32 %.024, 1
+  %30 = icmp samesign ugt i32 %.024, 1
   br i1 %30, label %.lr.ph, label %._crit_edge, !llvm.loop !172
 
 31:                                               ; preds = %13, %8
@@ -17013,7 +17013,7 @@ _ZNKSt7num_getIcSt19istreambuf_iteratorIcSt11char_traitsIcEEE7_M_findIcEEN9__gnu
   %267 = mul i16 %.0107420, %239
   %268 = zext i16 %267 to i32
   %269 = sub nsw i32 65535, %.0.i
-  %270 = icmp ult i32 %269, %268
+  %270 = icmp samesign ult i32 %269, %268
   %271 = or i1 %.0118419, %270
   %272 = trunc nsw i32 %.0.i to i16
   %273 = add i16 %267, %272
@@ -23080,7 +23080,7 @@ _ZNKSt7__cxx119money_getIwSt19istreambuf_iteratorIwSt11char_traitsIwEEE3getES4_S
   %27 = phi x86_fp80 [ %28, %.lr.ph ], [ %.promoted, %.preheader ]
   %28 = fdiv x86_fp80 %27, 0xK4002A000000000000000
   %29 = add nsw i32 %.024, -1
-  %30 = icmp ugt i32 %.024, 1
+  %30 = icmp samesign ugt i32 %.024, 1
   br i1 %30, label %.lr.ph, label %._crit_edge, !llvm.loop !199
 
 31:                                               ; preds = %13, %8
@@ -23157,7 +23157,7 @@ _ZNKSt7__cxx119money_getIwSt19istreambuf_iteratorIwSt11char_traitsIwEEE3getES4_S
   %27 = phi x86_fp80 [ %28, %.lr.ph ], [ %.promoted, %.preheader ]
   %28 = fdiv x86_fp80 %27, 0xK4002A000000000000000
   %29 = add nsw i32 %.024, -1
-  %30 = icmp ugt i32 %.024, 1
+  %30 = icmp samesign ugt i32 %.024, 1
   br i1 %30, label %.lr.ph, label %._crit_edge, !llvm.loop !200
 
 31:                                               ; preds = %13, %8
@@ -23741,7 +23741,7 @@ _ZNKSt19istreambuf_iteratorIwSt11char_traitsIwEEdeEv.exit190._crit_edge: ; preds
 
 264:                                              ; preds = %263
   %265 = icmp sgt i32 %.4287422, 47
-  %266 = icmp ult i32 %.4287422, %258
+  %266 = icmp samesign ult i32 %.4287422, %258
   %or.cond24.i = select i1 %265, i1 %266, i1 false
   %267 = add nsw i32 %.4287422, -48
   br i1 %or.cond24.i, label %_ZNKSt7num_getIwSt19istreambuf_iteratorIwSt11char_traitsIwEEE7_M_findIwEEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEiE6__typeEPKS8_mS8_.exit.thread, label %_ZNKSt7num_getIwSt19istreambuf_iteratorIwSt11char_traitsIwEEE7_M_findIwEEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEiE6__typeEPKS8_mS8_.exit.thread299
@@ -24985,7 +24985,7 @@ _ZNKSt19istreambuf_iteratorIwSt11char_traitsIwEEdeEv.exit191._crit_edge: ; preds
 
 264:                                              ; preds = %263
   %265 = icmp sgt i32 %.4288420, 47
-  %266 = icmp ult i32 %.4288420, %256
+  %266 = icmp samesign ult i32 %.4288420, %256
   %or.cond24.i = select i1 %265, i1 %266, i1 false
   %267 = add nsw i32 %.4288420, -48
   br i1 %or.cond24.i, label %_ZNKSt7num_getIwSt19istreambuf_iteratorIwSt11char_traitsIwEEE7_M_findIwEEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEiE6__typeEPKS8_mS8_.exit.thread, label %_ZNKSt7num_getIwSt19istreambuf_iteratorIwSt11char_traitsIwEEE7_M_findIwEEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEiE6__typeEPKS8_mS8_.exit.thread300
@@ -26225,7 +26225,7 @@ _ZNKSt19istreambuf_iteratorIwSt11char_traitsIwEEdeEv.exit189._crit_edge: ; preds
 
 262:                                              ; preds = %261
   %263 = icmp sgt i32 %.4286418, 47
-  %264 = icmp ult i32 %.4286418, %256
+  %264 = icmp samesign ult i32 %.4286418, %256
   %or.cond24.i = select i1 %263, i1 %264, i1 false
   %265 = add nsw i32 %.4286418, -48
   br i1 %or.cond24.i, label %_ZNKSt7num_getIwSt19istreambuf_iteratorIwSt11char_traitsIwEEE7_M_findIwEEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEiE6__typeEPKS8_mS8_.exit.thread, label %_ZNKSt7num_getIwSt19istreambuf_iteratorIwSt11char_traitsIwEEE7_M_findIwEEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEiE6__typeEPKS8_mS8_.exit.thread298
@@ -27460,7 +27460,7 @@ _ZNKSt19istreambuf_iteratorIwSt11char_traitsIwEEdeEv.exit189._crit_edge: ; preds
 
 263:                                              ; preds = %262
   %264 = icmp sgt i32 %.4286421, 47
-  %265 = icmp ult i32 %.4286421, %257
+  %265 = icmp samesign ult i32 %.4286421, %257
   %or.cond24.i = select i1 %264, i1 %265, i1 false
   %266 = add nsw i32 %.4286421, -48
   br i1 %or.cond24.i, label %_ZNKSt7num_getIwSt19istreambuf_iteratorIwSt11char_traitsIwEEE7_M_findIwEEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEiE6__typeEPKS8_mS8_.exit.thread, label %_ZNKSt7num_getIwSt19istreambuf_iteratorIwSt11char_traitsIwEEE7_M_findIwEEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEiE6__typeEPKS8_mS8_.exit.thread298
@@ -28699,7 +28699,7 @@ _ZNKSt19istreambuf_iteratorIwSt11char_traitsIwEEdeEv.exit190._crit_edge: ; preds
 
 264:                                              ; preds = %263
   %265 = icmp sgt i32 %.4287422, 47
-  %266 = icmp ult i32 %.4287422, %258
+  %266 = icmp samesign ult i32 %.4287422, %258
   %or.cond24.i = select i1 %265, i1 %266, i1 false
   %267 = add nsw i32 %.4287422, -48
   br i1 %or.cond24.i, label %_ZNKSt7num_getIwSt19istreambuf_iteratorIwSt11char_traitsIwEEE7_M_findIwEEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEiE6__typeEPKS8_mS8_.exit.thread, label %_ZNKSt7num_getIwSt19istreambuf_iteratorIwSt11char_traitsIwEEE7_M_findIwEEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEiE6__typeEPKS8_mS8_.exit.thread299
@@ -29937,7 +29937,7 @@ _ZNKSt19istreambuf_iteratorIwSt11char_traitsIwEEdeEv.exit189._crit_edge: ; preds
 
 263:                                              ; preds = %262
   %264 = icmp sgt i32 %.4286421, 47
-  %265 = icmp ult i32 %.4286421, %257
+  %265 = icmp samesign ult i32 %.4286421, %257
   %or.cond24.i = select i1 %264, i1 %265, i1 false
   %266 = add nsw i32 %.4286421, -48
   br i1 %or.cond24.i, label %_ZNKSt7num_getIwSt19istreambuf_iteratorIwSt11char_traitsIwEEE7_M_findIwEEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEiE6__typeEPKS8_mS8_.exit.thread, label %_ZNKSt7num_getIwSt19istreambuf_iteratorIwSt11char_traitsIwEEE7_M_findIwEEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEiE6__typeEPKS8_mS8_.exit.thread298

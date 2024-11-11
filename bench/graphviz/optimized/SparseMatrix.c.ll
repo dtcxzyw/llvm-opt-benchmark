@@ -480,7 +480,7 @@ SparseMatrix_new.exit:                            ; preds = %size_of_matrix_type
   %197 = load i32, ptr %196, align 4
   %198 = getelementptr inbounds i32, ptr %27, i64 %indvars.iv248
   store i32 %197, ptr %198, align 4
-  %199 = icmp ugt i64 %indvars.iv248, 1
+  %199 = icmp samesign ugt i64 %indvars.iv248, 1
   br i1 %199, label %.lr.ph201, label %._crit_edge202
 
 ._crit_edge202:                                   ; preds = %.lr.ph201, %.loopexit154
@@ -2891,7 +2891,7 @@ SparseMatrix_general_new.exit:                    ; preds = %13, %15
   %61 = load i32, ptr %60, align 4
   store i32 %61, ptr %59, align 4
   %indvars.iv.next471 = add nsw i64 %indvars.iv470, -1
-  %62 = icmp ugt i64 %indvars.iv470, 1
+  %62 = icmp samesign ugt i64 %indvars.iv470, 1
   br i1 %62, label %.lr.ph375, label %._crit_edge376
 
 63:                                               ; preds = %._crit_edge
@@ -3002,7 +3002,7 @@ SparseMatrix_general_new.exit:                    ; preds = %13, %15
   %111 = load i32, ptr %110, align 4
   store i32 %111, ptr %109, align 4
   %indvars.iv.next452 = add nsw i64 %indvars.iv451, -1
-  %112 = icmp ugt i64 %indvars.iv451, 1
+  %112 = icmp samesign ugt i64 %indvars.iv451, 1
   br i1 %112, label %.lr.ph363, label %._crit_edge376
 
 113:                                              ; preds = %._crit_edge
@@ -3100,7 +3100,7 @@ SparseMatrix_general_new.exit:                    ; preds = %13, %15
   %150 = load i32, ptr %149, align 4
   store i32 %150, ptr %148, align 4
   %indvars.iv.next433 = add nsw i64 %indvars.iv432, -1
-  %151 = icmp ugt i64 %indvars.iv432, 1
+  %151 = icmp samesign ugt i64 %indvars.iv432, 1
   br i1 %151, label %.lr.ph350, label %._crit_edge376
 
 .lr.ph334.preheader:                              ; preds = %157, %.preheader310
@@ -3178,7 +3178,7 @@ SparseMatrix_general_new.exit:                    ; preds = %13, %15
   %178 = load i32, ptr %177, align 4
   store i32 %178, ptr %176, align 4
   %indvars.iv.next414 = add nsw i64 %indvars.iv413, -1
-  %179 = icmp ugt i64 %indvars.iv413, 1
+  %179 = icmp samesign ugt i64 %indvars.iv413, 1
   br i1 %179, label %.lr.ph338, label %._crit_edge376
 
 .lr.ph321.preheader:                              ; preds = %185, %.preheader314
@@ -3259,7 +3259,7 @@ SparseMatrix_general_new.exit:                    ; preds = %13, %15
   %212 = load i32, ptr %211, align 4
   store i32 %212, ptr %210, align 4
   %indvars.iv.next395 = add nsw i64 %indvars.iv394, -1
-  %213 = icmp ugt i64 %indvars.iv394, 1
+  %213 = icmp samesign ugt i64 %indvars.iv394, 1
   br i1 %213, label %.lr.ph327, label %._crit_edge376
 
 ._crit_edge376:                                   ; preds = %.lr.ph327, %.lr.ph338, %.lr.ph350, %.lr.ph363, %.lr.ph375
@@ -6689,7 +6689,7 @@ gv_calloc.exit118:                                ; preds = %25
   %128 = load i32, ptr %127, align 4
   store i32 %128, ptr %126, align 4
   %indvars.iv.next189 = add nsw i64 %indvars.iv188, -1
-  %129 = icmp ugt i64 %indvars.iv188, 1
+  %129 = icmp samesign ugt i64 %indvars.iv188, 1
   br i1 %129, label %.lr.ph166, label %._crit_edge167
 
 ._crit_edge167:                                   ; preds = %.lr.ph166, %.preheader

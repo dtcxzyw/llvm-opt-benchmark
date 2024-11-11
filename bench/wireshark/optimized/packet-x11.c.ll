@@ -24780,7 +24780,7 @@ define internal fastcc void @dissect_x11_replies(ptr noundef %0, ptr noundef %1,
 64:                                               ; preds = %61
   %65 = load i16, ptr %42, align 8
   %66 = icmp ne i16 %65, 0
-  %67 = icmp ult i32 %62, 8
+  %67 = icmp samesign ult i32 %62, 8
   %or.cond = and i1 %67, %66
   br i1 %or.cond, label %68, label %70
 
@@ -26081,7 +26081,7 @@ define internal fastcc void @dissect_x11_requests(ptr noundef %0, ptr noundef %1
 28:                                               ; preds = %25
   %29 = load i16, ptr %19, align 8
   %30 = icmp ne i16 %29, 0
-  %31 = icmp ult i32 %26, 4
+  %31 = icmp samesign ult i32 %26, 4
   %or.cond4 = and i1 %31, %30
   br i1 %or.cond4, label %32, label %35
 
@@ -26203,7 +26203,7 @@ define internal fastcc void @dissect_x11_requests(ptr noundef %0, ptr noundef %1
 84:                                               ; preds = %82
   %85 = load i16, ptr %19, align 8
   %86 = icmp ne i16 %85, 0
-  %87 = icmp ult i32 %26, 10
+  %87 = icmp samesign ult i32 %26, 10
   %or.cond6 = and i1 %87, %86
   br i1 %or.cond6, label %88, label %91
 

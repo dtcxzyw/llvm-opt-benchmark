@@ -1211,7 +1211,7 @@ _Z13eval_residualPKdS0_Pd.exit:                   ; preds = %45
 .preheader.i45:                                   ; preds = %._crit_edge.i, %._crit_edge49.i
   %indvars.iv60.i = phi i64 [ %indvars.iv.next61.i, %._crit_edge49.i ], [ 3, %._crit_edge.i ]
   %indvars.iv.next61.i = add nsw i64 %indvars.iv60.i, -1
-  %140 = icmp ult i64 %indvars.iv60.i, 3
+  %140 = icmp samesign ult i64 %indvars.iv60.i, 3
   br i1 %140, label %.lr.ph48.i, label %.preheader.._crit_edge49_crit_edge.i
 
 .preheader.._crit_edge49_crit_edge.i:             ; preds = %.preheader.i45

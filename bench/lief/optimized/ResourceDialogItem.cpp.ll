@@ -310,7 +310,7 @@ _ZNKSt7__cxx1112basic_stringIDsSt11char_traitsIDsESaIDsEE8capacityEv.exit.i.i.i:
 
 _ZNSt7__cxx1112basic_stringIDsSt11char_traitsIDsESaIDsEE9_M_createERmm.exit.i.i.i: ; preds = %21
   %24 = shl nuw nsw i64 %19, 1
-  %25 = icmp ult i64 %10, %24
+  %25 = icmp samesign ult i64 %10, %24
   %spec.store.select.i.i.i.i = tail call i64 @llvm.umin.i64(i64 %24, i64 2305843009213693951)
   %.0.i.i.i = select i1 %25, i64 %spec.store.select.i.i.i.i, i64 %10
   %26 = shl nuw nsw i64 %.0.i.i.i, 1
@@ -401,7 +401,7 @@ _ZNKSt7__cxx1112basic_stringIDsSt11char_traitsIDsESaIDsEE8capacityEv.exit.i.i.i7
 
 _ZNSt7__cxx1112basic_stringIDsSt11char_traitsIDsESaIDsEE9_M_createERmm.exit.i.i.i13: ; preds = %58
   %61 = shl nuw nsw i64 %56, 1
-  %62 = icmp ult i64 %47, %61
+  %62 = icmp samesign ult i64 %47, %61
   %spec.store.select.i.i.i.i14 = tail call i64 @llvm.umin.i64(i64 %61, i64 2305843009213693951)
   %.0.i.i.i15 = select i1 %62, i64 %spec.store.select.i.i.i.i14, i64 %47
   %63 = shl nuw nsw i64 %.0.i.i.i15, 1

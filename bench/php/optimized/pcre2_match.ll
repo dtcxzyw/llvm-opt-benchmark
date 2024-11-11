@@ -152,8 +152,8 @@ define i32 @php_pcre2_match(ptr noundef %0, ptr noundef %1, i64 noundef %2, i64 
 
 82:                                               ; preds = %79
   %.not908 = xor i1 %46, true
-  %83 = icmp ugt i32 %4, 1073741823
-  %84 = or i1 %83, %.not908
+  %83 = icmp samesign ugt i32 %4, 1073741823
+  %84 = select i1 %.not908, i1 true, i1 %83
   %or.cond909 = select i1 %84, i1 true, i1 %48
   br i1 %or.cond909, label %113, label %85
 
@@ -1248,8 +1248,8 @@ thread-pre-split:                                 ; preds = %481, %461, %.crited
   br i1 %or.cond920, label %619, label %633
 
 619:                                              ; preds = %616
-  %620 = icmp ult i64 %612, 5000
-  %621 = icmp ult i64 %612, 5000000
+  %620 = icmp samesign ult i64 %612, 5000
+  %621 = icmp samesign ult i64 %612, 5000000
   %or.cond45 = and i1 %392, %621
   %or.cond1082 = select i1 %620, i1 true, i1 %or.cond45
   br i1 %or.cond1082, label %622, label %633
@@ -2778,7 +2778,7 @@ define internal fastcc i32 @match(ptr noundef %0, ptr noundef %1, i16 noundef ze
 560:                                              ; preds = %.sink.split14182, %470
   %561 = phi i64 [ 1, %470 ], [ %.sink14184, %.sink.split14182 ]
   %.07688 = phi i32 [ %474, %470 ], [ %.07688.ph, %.sink.split14182 ]
-  %562 = icmp ult i32 %.07688, 128
+  %562 = icmp samesign ult i32 %.07688, 128
   br i1 %562, label %563, label %575
 
 563:                                              ; preds = %560
@@ -3305,7 +3305,7 @@ define internal fastcc i32 @match(ptr noundef %0, ptr noundef %1, i16 noundef ze
   br i1 %945, label %946, label %.preheader9835.backedge
 
 946:                                              ; preds = %944
-  %947 = icmp ugt i32 %.07858, 127
+  %947 = icmp samesign ugt i32 %.07858, 127
   br i1 %947, label %948, label %964
 
 948:                                              ; preds = %946
@@ -3517,7 +3517,7 @@ define internal fastcc i32 @match(ptr noundef %0, ptr noundef %1, i16 noundef ze
   store ptr %1084, ptr %.3, align 8
   %1085 = load i8, ptr %142, align 1
   %1086 = zext i8 %1085 to i64
-  %1087 = icmp ult i8 %143, 46
+  %1087 = icmp samesign ult i8 %143, 46
   %.neg8965 = select i1 %1087, i64 4294967263, i64 4294967250
   %1088 = add nuw nsw i64 %.neg8965, %1086
   %1089 = and i64 %1088, 4294967295
@@ -3659,7 +3659,7 @@ define internal fastcc i32 @match(ptr noundef %0, ptr noundef %1, i16 noundef ze
   store i64 %.sink14185, ptr %1103, align 8
   %1194 = getelementptr inbounds i8, ptr %1101, i64 %.sink14185
   store ptr %1194, ptr %.3, align 8
-  %1195 = icmp ugt i8 %143, 45
+  %1195 = icmp samesign ugt i8 %143, 45
   br i1 %1195, label %1196, label %1217
 
 1196:                                             ; preds = %1193
@@ -3991,7 +3991,7 @@ define internal fastcc i32 @match(ptr noundef %0, ptr noundef %1, i16 noundef ze
   %1341 = phi ptr [ %1337, %1336 ], [ %1335, %1334 ]
   %1342 = getelementptr inbounds i8, ptr %.3, i64 64
   store i32 %.sink14186, ptr %1342, align 8
-  %1343 = icmp ugt i8 %143, 45
+  %1343 = icmp samesign ugt i8 %143, 45
   br i1 %1343, label %1345, label %.preheader9606
 
 .preheader9606:                                   ; preds = %1340
@@ -4507,7 +4507,7 @@ define internal fastcc i32 @match(ptr noundef %0, ptr noundef %1, i16 noundef ze
   store ptr %1583, ptr %.3, align 8
   %1584 = load i8, ptr %142, align 1
   %1585 = zext i8 %1584 to i64
-  %1586 = icmp ugt i8 %143, 71
+  %1586 = icmp samesign ugt i8 %143, 71
   %.neg8931 = select i1 %1586, i64 4294967224, i64 4294967237
   %1587 = add nuw nsw i64 %.neg8931, %1585
   %1588 = and i64 %1587, 4294967295
@@ -4659,11 +4659,11 @@ define internal fastcc i32 @match(ptr noundef %0, ptr noundef %1, i16 noundef ze
 1696:                                             ; preds = %1609, %1637, %1680, %1670, %1623, %1597
   %1697 = phi ptr [ %1612, %1609 ], [ %1653, %1637 ], [ %1695, %1680 ], [ %1669, %1670 ], [ %1633, %1623 ], [ %1601, %1597 ]
   %1698 = phi i32 [ %1616, %1609 ], [ %1652, %1637 ], [ %1694, %1680 ], [ %1679, %1670 ], [ %1632, %1623 ], [ %1603, %1597 ]
-  %1699 = icmp ugt i8 %143, 71
+  %1699 = icmp samesign ugt i8 %143, 71
   br i1 %1699, label %1700, label %2167
 
 1700:                                             ; preds = %1696
-  %1701 = icmp ugt i32 %1698, 127
+  %1701 = icmp samesign ugt i32 %1698, 127
   %or.cond14193 = select i1 %or.cond3.not, i1 %1701, i1 false
   br i1 %or.cond14193, label %1702, label %1718
 
@@ -6421,7 +6421,7 @@ define internal fastcc i32 @match(ptr noundef %0, ptr noundef %1, i16 noundef ze
 2763:                                             ; preds = %2675, %2703, %2746, %2735, %2689
   %2764 = phi ptr [ %2678, %2675 ], [ %2699, %2689 ], [ %2719, %2703 ], [ %2745, %2735 ], [ %2762, %2746 ]
   %.37691 = phi i32 [ %2682, %2675 ], [ %2698, %2689 ], [ %2718, %2703 ], [ %2744, %2735 ], [ %2761, %2746 ]
-  %2765 = icmp ugt i32 %.37691, 255
+  %2765 = icmp samesign ugt i32 %.37691, 255
   br i1 %2765, label %2766, label %.thread9298
 
 2766:                                             ; preds = %2763
@@ -6672,7 +6672,7 @@ define internal fastcc i32 @match(ptr noundef %0, ptr noundef %1, i16 noundef ze
 
 2926:                                             ; preds = %2838, %2866, %2909, %2898, %2852
   %.47692 = phi i32 [ %2845, %2838 ], [ %2861, %2852 ], [ %2881, %2866 ], [ %2907, %2898 ], [ %2924, %2909 ]
-  %2927 = icmp ugt i32 %.47692, 255
+  %2927 = icmp samesign ugt i32 %.47692, 255
   br i1 %2927, label %2928, label %.thread9301
 
 2928:                                             ; preds = %2926
@@ -6910,7 +6910,7 @@ define internal fastcc i32 @match(ptr noundef %0, ptr noundef %1, i16 noundef ze
 3079:                                             ; preds = %3002, %3022, %3063, %3053, %3009
   %.07869 = phi i64 [ 2, %3002 ], [ 3, %3009 ], [ 4, %3022 ], [ 5, %3053 ], [ 6, %3063 ]
   %.57693 = phi i32 [ %3005, %3002 ], [ %3018, %3009 ], [ %3037, %3022 ], [ %3062, %3053 ], [ %3078, %3063 ]
-  %3080 = icmp ugt i32 %.57693, 255
+  %3080 = icmp samesign ugt i32 %.57693, 255
   br i1 %3080, label %3081, label %.thread9304
 
 3081:                                             ; preds = %3079
@@ -7868,7 +7868,7 @@ define internal fastcc i32 @match(ptr noundef %0, ptr noundef %1, i16 noundef ze
 
 3683:                                             ; preds = %3595, %3623, %3666, %3655, %3609
   %.97697 = phi i32 [ %3602, %3595 ], [ %3618, %3609 ], [ %3638, %3623 ], [ %3664, %3655 ], [ %3681, %3666 ]
-  %3684 = icmp ult i32 %.97697, 256
+  %3684 = icmp samesign ult i32 %.97697, 256
   br i1 %3684, label %.thread9310, label %3690
 
 .thread9310:                                      ; preds = %3587, %3683
@@ -8038,7 +8038,7 @@ define internal fastcc i32 @match(ptr noundef %0, ptr noundef %1, i16 noundef ze
 
 3800:                                             ; preds = %3712, %3740, %3783, %3772, %3726
   %.107698 = phi i32 [ %3719, %3712 ], [ %3735, %3726 ], [ %3755, %3740 ], [ %3781, %3772 ], [ %3798, %3783 ]
-  %3801 = icmp ult i32 %.107698, 256
+  %3801 = icmp samesign ult i32 %.107698, 256
   br i1 %3801, label %.thread9313, label %.preheader9566.preheader
 
 .thread9313:                                      ; preds = %3704, %3800
@@ -8208,7 +8208,7 @@ define internal fastcc i32 @match(ptr noundef %0, ptr noundef %1, i16 noundef ze
 
 3918:                                             ; preds = %3830, %3858, %3901, %3890, %3844
   %.117699 = phi i32 [ %3837, %3830 ], [ %3853, %3844 ], [ %3873, %3858 ], [ %3899, %3890 ], [ %3916, %3901 ]
-  %3919 = icmp ult i32 %.117699, 256
+  %3919 = icmp samesign ult i32 %.117699, 256
   br i1 %3919, label %.thread9316, label %3925
 
 .thread9316:                                      ; preds = %3822, %3918
@@ -8378,7 +8378,7 @@ define internal fastcc i32 @match(ptr noundef %0, ptr noundef %1, i16 noundef ze
 
 4035:                                             ; preds = %3947, %3975, %4018, %4007, %3961
   %.127700 = phi i32 [ %3954, %3947 ], [ %3970, %3961 ], [ %3990, %3975 ], [ %4016, %4007 ], [ %4033, %4018 ]
-  %4036 = icmp ult i32 %.127700, 256
+  %4036 = icmp samesign ult i32 %.127700, 256
   br i1 %4036, label %.thread9319, label %.preheader9566.preheader
 
 .thread9319:                                      ; preds = %3939, %4035
@@ -8548,7 +8548,7 @@ define internal fastcc i32 @match(ptr noundef %0, ptr noundef %1, i16 noundef ze
 
 4153:                                             ; preds = %4065, %4093, %4136, %4125, %4079
   %.137701 = phi i32 [ %4072, %4065 ], [ %4088, %4079 ], [ %4108, %4093 ], [ %4134, %4125 ], [ %4151, %4136 ]
-  %4154 = icmp ult i32 %.137701, 256
+  %4154 = icmp samesign ult i32 %.137701, 256
   br i1 %4154, label %.thread9322, label %4160
 
 .thread9322:                                      ; preds = %4057, %4153
@@ -8718,7 +8718,7 @@ define internal fastcc i32 @match(ptr noundef %0, ptr noundef %1, i16 noundef ze
 
 4270:                                             ; preds = %4182, %4210, %4253, %4242, %4196
   %.147702 = phi i32 [ %4189, %4182 ], [ %4205, %4196 ], [ %4225, %4210 ], [ %4251, %4242 ], [ %4268, %4253 ]
-  %4271 = icmp ult i32 %.147702, 256
+  %4271 = icmp samesign ult i32 %.147702, 256
   br i1 %4271, label %.thread9325, label %.preheader9566.preheader
 
 .thread9325:                                      ; preds = %4174, %4270
@@ -10022,7 +10022,7 @@ define internal fastcc i32 @match(ptr noundef %0, ptr noundef %1, i16 noundef ze
   br i1 %or.cond43, label %5091, label %5088
 
 5088:                                             ; preds = %5086
-  %5089 = icmp ugt i32 %.207708, 57343
+  %5089 = icmp samesign ugt i32 %.207708, 57343
   %5090 = zext i1 %5089 to i32
   br label %5091
 
@@ -12416,7 +12416,7 @@ define internal fastcc i32 @match(ptr noundef %0, ptr noundef %1, i16 noundef ze
   br i1 %or.cond79, label %6690, label %6687
 
 6687:                                             ; preds = %6685
-  %6688 = icmp ugt i32 %.317719, 57343
+  %6688 = icmp samesign ugt i32 %.317719, 57343
   %6689 = zext i1 %6688 to i32
   br label %6690
 
@@ -14292,7 +14292,7 @@ define internal fastcc i32 @match(ptr noundef %0, ptr noundef %1, i16 noundef ze
 7853:                                             ; preds = %7765, %7793, %7836, %7825, %7779, %7757
   %7854 = phi ptr [ %7768, %7765 ], [ %7789, %7779 ], [ %7809, %7793 ], [ %7835, %7825 ], [ %7852, %7836 ], [ %7758, %7757 ]
   %.407728 = phi i32 [ %7772, %7765 ], [ %7788, %7779 ], [ %7808, %7793 ], [ %7834, %7825 ], [ %7851, %7836 ], [ %7760, %7757 ]
-  %7855 = icmp ult i32 %.407728, 128
+  %7855 = icmp samesign ult i32 %.407728, 128
   br i1 %7855, label %7856, label %7862
 
 7856:                                             ; preds = %7853
@@ -17432,7 +17432,7 @@ define internal fastcc i32 @match(ptr noundef %0, ptr noundef %1, i16 noundef ze
   br i1 %or.cond127, label %9733, label %9730
 
 9730:                                             ; preds = %9728
-  %9731 = icmp ugt i32 %.507738, 57343
+  %9731 = icmp samesign ugt i32 %.507738, 57343
   %9732 = zext i1 %9731 to i32
   br label %9733
 
@@ -18415,7 +18415,7 @@ define internal fastcc i32 @match(ptr noundef %0, ptr noundef %1, i16 noundef ze
   ]
 
 10334:                                            ; preds = %10300
-  %10335 = icmp ult i32 %.547742, 256
+  %10335 = icmp samesign ult i32 %.547742, 256
   br i1 %10335, label %10336, label %.loopexit9571
 
 10336:                                            ; preds = %10334
@@ -18428,7 +18428,7 @@ define internal fastcc i32 @match(ptr noundef %0, ptr noundef %1, i16 noundef ze
   br i1 %.not9078, label %.loopexit9571, label %.backedge.backedge
 
 10342:                                            ; preds = %10300
-  %10343 = icmp ugt i32 %.547742, 255
+  %10343 = icmp samesign ugt i32 %.547742, 255
   br i1 %10343, label %.backedge.backedge, label %10344
 
 10344:                                            ; preds = %10342
@@ -18441,7 +18441,7 @@ define internal fastcc i32 @match(ptr noundef %0, ptr noundef %1, i16 noundef ze
   br i1 %10350, label %.backedge.backedge, label %.loopexit9571
 
 10351:                                            ; preds = %10300
-  %10352 = icmp ult i32 %.547742, 256
+  %10352 = icmp samesign ult i32 %.547742, 256
   br i1 %10352, label %10353, label %.loopexit9571
 
 10353:                                            ; preds = %10351
@@ -18454,7 +18454,7 @@ define internal fastcc i32 @match(ptr noundef %0, ptr noundef %1, i16 noundef ze
   br i1 %.not9077, label %.loopexit9571, label %.backedge.backedge
 
 10359:                                            ; preds = %10300
-  %10360 = icmp ugt i32 %.547742, 255
+  %10360 = icmp samesign ugt i32 %.547742, 255
   br i1 %10360, label %.backedge.backedge, label %10361
 
 10361:                                            ; preds = %10359
@@ -18467,7 +18467,7 @@ define internal fastcc i32 @match(ptr noundef %0, ptr noundef %1, i16 noundef ze
   br i1 %10367, label %.backedge.backedge, label %.loopexit9571
 
 10368:                                            ; preds = %10300
-  %10369 = icmp ult i32 %.547742, 256
+  %10369 = icmp samesign ult i32 %.547742, 256
   br i1 %10369, label %10370, label %.loopexit9571
 
 10370:                                            ; preds = %10368
@@ -18480,7 +18480,7 @@ define internal fastcc i32 @match(ptr noundef %0, ptr noundef %1, i16 noundef ze
   br i1 %.not9076, label %.loopexit9571, label %.backedge.backedge
 
 10376:                                            ; preds = %10300
-  %10377 = icmp ugt i32 %.547742, 255
+  %10377 = icmp samesign ugt i32 %.547742, 255
   br i1 %10377, label %.backedge.backedge, label %10378
 
 10378:                                            ; preds = %10376
@@ -20665,7 +20665,7 @@ thread-pre-split9336:                             ; preds = %.thread-pre-split93
   br i1 %or.cond167, label %11788, label %11785
 
 11785:                                            ; preds = %11783
-  %11786 = icmp ugt i32 %.647752, 57343
+  %11786 = icmp samesign ugt i32 %.647752, 57343
   %11787 = zext i1 %11786 to i32
   br label %11788
 
@@ -22578,7 +22578,7 @@ thread-pre-split9336:                             ; preds = %.thread-pre-split93
 12974:                                            ; preds = %12897, %12917, %12958, %12948, %12904
   %.737761 = phi i32 [ %12900, %12897 ], [ %12913, %12904 ], [ %12932, %12917 ], [ %12957, %12948 ], [ %12973, %12958 ]
   %.07604 = phi i64 [ 2, %12897 ], [ 3, %12904 ], [ 4, %12917 ], [ 5, %12948 ], [ 6, %12958 ]
-  %12975 = icmp ult i32 %.737761, 256
+  %12975 = icmp samesign ult i32 %.737761, 256
   br i1 %12975, label %.thread9338, label %12981
 
 .thread9338:                                      ; preds = %12886, %12974
@@ -22738,7 +22738,7 @@ thread-pre-split9336:                             ; preds = %.thread-pre-split93
 13083:                                            ; preds = %13006, %13026, %13067, %13057, %13013
   %.747762 = phi i32 [ %13009, %13006 ], [ %13022, %13013 ], [ %13041, %13026 ], [ %13066, %13057 ], [ %13082, %13067 ]
   %.07603 = phi i64 [ 2, %13006 ], [ 3, %13013 ], [ 4, %13026 ], [ 5, %13057 ], [ 6, %13067 ]
-  %13084 = icmp ugt i32 %.747762, 255
+  %13084 = icmp samesign ugt i32 %.747762, 255
   br i1 %13084, label %.loopexit9667, label %.thread9344
 
 .thread9344:                                      ; preds = %12995, %13083
@@ -22897,7 +22897,7 @@ thread-pre-split9336:                             ; preds = %.thread-pre-split93
 13193:                                            ; preds = %13116, %13136, %13177, %13167, %13123
   %.757763 = phi i32 [ %13119, %13116 ], [ %13132, %13123 ], [ %13151, %13136 ], [ %13176, %13167 ], [ %13192, %13177 ]
   %.07602 = phi i64 [ 2, %13116 ], [ 3, %13123 ], [ 4, %13136 ], [ 5, %13167 ], [ 6, %13177 ]
-  %13194 = icmp ult i32 %.757763, 256
+  %13194 = icmp samesign ult i32 %.757763, 256
   br i1 %13194, label %.thread9349, label %13200
 
 .thread9349:                                      ; preds = %13105, %13193
@@ -23057,7 +23057,7 @@ thread-pre-split9336:                             ; preds = %.thread-pre-split93
 13302:                                            ; preds = %13225, %13245, %13286, %13276, %13232
   %.767764 = phi i32 [ %13228, %13225 ], [ %13241, %13232 ], [ %13260, %13245 ], [ %13285, %13276 ], [ %13301, %13286 ]
   %.07601 = phi i64 [ 2, %13225 ], [ 3, %13232 ], [ 4, %13245 ], [ 5, %13276 ], [ 6, %13286 ]
-  %13303 = icmp ugt i32 %.767764, 255
+  %13303 = icmp samesign ugt i32 %.767764, 255
   br i1 %13303, label %.loopexit9667, label %.thread9355
 
 .thread9355:                                      ; preds = %13214, %13302
@@ -23216,7 +23216,7 @@ thread-pre-split9336:                             ; preds = %.thread-pre-split93
 13412:                                            ; preds = %13335, %13355, %13396, %13386, %13342
   %.777765 = phi i32 [ %13338, %13335 ], [ %13351, %13342 ], [ %13370, %13355 ], [ %13395, %13386 ], [ %13411, %13396 ]
   %.07600 = phi i64 [ 2, %13335 ], [ 3, %13342 ], [ 4, %13355 ], [ 5, %13386 ], [ 6, %13396 ]
-  %13413 = icmp ult i32 %.777765, 256
+  %13413 = icmp samesign ult i32 %.777765, 256
   br i1 %13413, label %.thread9360, label %13419
 
 .thread9360:                                      ; preds = %13324, %13412
@@ -23376,7 +23376,7 @@ thread-pre-split9336:                             ; preds = %.thread-pre-split93
 13521:                                            ; preds = %13444, %13464, %13505, %13495, %13451
   %.787766 = phi i32 [ %13447, %13444 ], [ %13460, %13451 ], [ %13479, %13464 ], [ %13504, %13495 ], [ %13520, %13505 ]
   %.07599 = phi i64 [ 2, %13444 ], [ 3, %13451 ], [ 4, %13464 ], [ 5, %13495 ], [ 6, %13505 ]
-  %13522 = icmp ugt i32 %.787766, 255
+  %13522 = icmp samesign ugt i32 %.787766, 255
   br i1 %13522, label %.loopexit9667, label %.thread9366
 
 .thread9366:                                      ; preds = %13433, %13521
@@ -24300,7 +24300,7 @@ thread-pre-split9336:                             ; preds = %.thread-pre-split93
   %13943 = load i16, ptr %54, align 2
   %13944 = zext i16 %13943 to i64
   %13945 = getelementptr inbounds i8, ptr %.0759710880, i64 %13944
-  %13946 = icmp ugt i32 %.in11285, 1
+  %13946 = icmp samesign ugt i32 %.in11285, 1
   br i1 %13946, label %13926, label %.loopexit9814
 
 13947:                                            ; preds = %.preheader9835, %.preheader9835
@@ -25693,7 +25693,7 @@ thread-pre-split9336:                             ; preds = %.thread-pre-split93
 
 .thread9381:                                      ; preds = %14726, %14739
   %14742 = getelementptr inbounds i8, ptr %.0752910873, i64 %14711
-  %14743 = icmp ugt i32 %.in11281, 1
+  %14743 = icmp samesign ugt i32 %.in11281, 1
   br i1 %14743, label %14726, label %.thread9383
 
 14744:                                            ; preds = %14627
@@ -27025,7 +27025,7 @@ thread-pre-split9420:                             ; preds = %14958
   br label %15509
 
 15500:                                            ; preds = %15476
-  %15501 = icmp ult i32 %.797767, 256
+  %15501 = icmp samesign ult i32 %.797767, 256
   br i1 %15501, label %15502, label %15509
 
 15502:                                            ; preds = %15500
@@ -27251,7 +27251,7 @@ thread-pre-split9420:                             ; preds = %14958
   br label %15657
 
 15648:                                            ; preds = %15624
-  %15649 = icmp ult i32 %.807768, 256
+  %15649 = icmp samesign ult i32 %.807768, 256
   br i1 %15649, label %15650, label %15657
 
 15650:                                            ; preds = %15648

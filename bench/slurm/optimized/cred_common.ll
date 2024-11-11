@@ -414,7 +414,7 @@ define ptr @cred_create(ptr noundef %0, i16 noundef zeroext %1) local_unnamed_ad
   br label %420
 
 219:                                              ; preds = %2
-  %220 = icmp ugt i16 %1, 9983
+  %220 = icmp samesign ugt i16 %1, 9983
   br i1 %220, label %221, label %420
 
 221:                                              ; preds = %219
@@ -1336,7 +1336,7 @@ define range(i32 -1, 1) i32 @cred_unpack(ptr nocapture noundef writeonly %0, ptr
   br i1 %.not383, label %472, label %480
 
 262:                                              ; preds = %3
-  %263 = icmp ugt i16 %2, 9983
+  %263 = icmp samesign ugt i16 %2, 9983
   br i1 %263, label %264, label %470
 
 264:                                              ; preds = %262
@@ -1941,7 +1941,7 @@ define ptr @sbcast_cred_pack(ptr nocapture noundef readonly %0, i16 noundef zero
   br label %59
 
 23:                                               ; preds = %2
-  %24 = icmp ugt i16 %1, 9983
+  %24 = icmp samesign ugt i16 %1, 9983
   br i1 %24, label %25, label %59
 
 25:                                               ; preds = %23
@@ -2096,7 +2096,7 @@ define ptr @sbcast_cred_unpack(ptr noundef %0, ptr nocapture noundef writeonly %
   br i1 %.not89, label %112, label %88
 
 49:                                               ; preds = %3
-  %50 = icmp ugt i16 %2, 9983
+  %50 = icmp samesign ugt i16 %2, 9983
   br i1 %50, label %51, label %112
 
 51:                                               ; preds = %49

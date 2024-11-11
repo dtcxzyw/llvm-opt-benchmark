@@ -1022,14 +1022,14 @@ if.end19.i:                                       ; preds = %if.end8.i
   br i1 %tobool.not.i, label %if.end39.i, label %if.then21.i
 
 if.then21.i:                                      ; preds = %if.end19.i
-  %cmp22.i = icmp ult i64 %nbytes, 12
+  %cmp22.i = icmp samesign ult i64 %nbytes, 12
   br i1 %cmp22.i, label %sw.bb12, label %if.end25.i
 
 if.end25.i:                                       ; preds = %if.then21.i
   %6 = load i16, ptr %add.ptr.i, align 1
   %7 = zext i16 %6 to i64
   %add.i = add nuw nsw i64 %7, 2
-  %cmp31.i = icmp ult i64 %sub.i, %add.i
+  %cmp31.i = icmp samesign ult i64 %sub.i, %add.i
   br i1 %cmp31.i, label %sw.bb12, label %if.end34.i
 
 if.end34.i:                                       ; preds = %if.end25.i
@@ -1253,7 +1253,7 @@ if.end25.i117:                                    ; preds = %if.then21.i115
   %29 = load i16, ptr %add.ptr.i112, align 1
   %30 = zext i16 %29 to i64
   %add.i118 = add nuw nsw i64 %30, 2
-  %cmp31.i119 = icmp ult i64 %sub.i111, %add.i118
+  %cmp31.i119 = icmp samesign ult i64 %sub.i111, %add.i118
   br i1 %cmp31.i119, label %return, label %if.end34.i120
 
 if.end34.i120:                                    ; preds = %if.end25.i117

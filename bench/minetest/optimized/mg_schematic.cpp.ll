@@ -2411,7 +2411,7 @@ delete.end:                                       ; preds = %delete.notnull, %if
   br i1 %cmp20.not257, label %for.cond.cleanup, label %for.body.lr.ph
 
 for.body.lr.ph:                                   ; preds = %delete.end
-  %cmp22 = icmp ugt i16 %rev.i.i.i, 2
+  %cmp22 = icmp samesign ugt i16 %rev.i.i.i, 2
   br i1 %cmp22, label %for.body.us, label %for.body
 
 for.body.us:                                      ; preds = %for.body.lr.ph, %for.body.us

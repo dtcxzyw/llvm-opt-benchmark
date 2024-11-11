@@ -197,7 +197,7 @@ define hidden noundef zeroext i1 @_Z15hb_parse_doublePPKcS0_Pdb(ptr nocapture no
   %31 = getelementptr inbounds i8, ptr %17, i64 1
   %32 = load i8, ptr %31, align 1
   %33 = zext i8 %32 to i32
-  %.not88.i = icmp ugt i32 %29, %33
+  %.not88.i = icmp samesign ugt i32 %29, %33
   %34 = sub nsw i32 %29, %27
   %spec.select.i = select i1 %.not88.i, i32 %25, i32 %34
   br label %35

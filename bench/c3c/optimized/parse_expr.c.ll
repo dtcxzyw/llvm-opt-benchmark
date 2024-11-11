@@ -3180,8 +3180,8 @@ read_int_suffix.exit:                             ; preds = %312, %294, %.lr.ph.
 is_power_of_two.exit:                             ; preds = %438
   %440 = tail call range(i32 1, 32) i32 @llvm.ctpop.i32(i32 %.0210)
   %441 = icmp samesign ult i32 %440, 2
-  %442 = icmp ult i32 %.0210, 129
-  %or.cond.not = and i1 %442, %441
+  %442 = icmp samesign ult i32 %.0210, 129
+  %or.cond.not = select i1 %441, i1 %442, i1 false
   br i1 %or.cond.not, label %.thread369, label %443
 
 443:                                              ; preds = %is_power_of_two.exit, %438

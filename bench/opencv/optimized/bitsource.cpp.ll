@@ -166,7 +166,7 @@ define hidden noundef i32 @_ZN5zxing9BitSource8readBitsEiRNS_12ErrorHandlerE(ptr
   br i1 %67, label %.preheader, label %93
 
 .preheader:                                       ; preds = %65
-  %68 = icmp ugt i32 %.036, 7
+  %68 = icmp samesign ugt i32 %.036, 7
   br i1 %68, label %.lr.ph, label %._crit_edge.thread
 
 .lr.ph:                                           ; preds = %.preheader
@@ -187,7 +187,7 @@ define hidden noundef i32 @_ZN5zxing9BitSource8readBitsEiRNS_12ErrorHandlerE(ptr
   %77 = trunc nsw i64 %indvars.iv.next to i32
   store i32 %77, ptr %18, align 8
   %78 = add nsw i32 %.148, -8
-  %79 = icmp ugt i32 %78, 7
+  %79 = icmp samesign ugt i32 %78, 7
   br i1 %79, label %70, label %._crit_edge, !llvm.loop !4
 
 ._crit_edge:                                      ; preds = %70

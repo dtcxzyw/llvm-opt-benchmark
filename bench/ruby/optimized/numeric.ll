@@ -4029,7 +4029,7 @@ define internal fastcc i64 @int_pow(i64 noundef %0, i64 noundef %1) unnamed_addr
 
 29:                                               ; preds = %28
   %30 = udiv i64 4611686018427387903, %.253.lcssa
-  %31 = icmp ult i64 %30, %.1
+  %31 = icmp samesign ult i64 %30, %.1
   br i1 %31, label %.loopexit, label %42
 
 32:                                               ; preds = %28
@@ -4044,7 +4044,7 @@ define internal fastcc i64 @int_pow(i64 noundef %0, i64 noundef %1) unnamed_addr
 
 36:                                               ; preds = %35
   %37 = udiv i64 4611686018427387904, %.253.nonneg
-  %38 = icmp ult i64 %37, %.1
+  %38 = icmp samesign ult i64 %37, %.1
   br i1 %38, label %.loopexit, label %42
 
 39:                                               ; preds = %35
@@ -4794,7 +4794,7 @@ define hidden i64 @ruby_num_interval_step_size(i64 noundef %0, i64 noundef %1, i
   %.045 = tail call i64 @llvm.abs.i64(i64 %18, i1 true)
   %27 = udiv i64 %.1, %.045
   %28 = add nuw i64 %27, 1
-  %29 = icmp ult i64 %27, 4611686018427387903
+  %29 = icmp samesign ult i64 %27, 4611686018427387903
   br i1 %29, label %30, label %33
 
 30:                                               ; preds = %26
@@ -8624,7 +8624,7 @@ define hidden range(i64 1, 4) i64 @rb_fix_aref(i64 noundef %0, i64 noundef %1) l
   br i1 %17, label %25, label %18
 
 18:                                               ; preds = %15
-  %19 = icmp ugt i64 %16, 62
+  %19 = icmp samesign ugt i64 %16, 62
   br i1 %19, label %20, label %22
 
 20:                                               ; preds = %18
@@ -8782,7 +8782,7 @@ define hidden i64 @rb_ulong_isqrt(i64 noundef %0) local_unnamed_addr #13 {
   %13 = shl nuw nsw i64 1, %12
   %14 = or i64 %10, %13
   %15 = udiv i64 %0, %14
-  %16 = icmp ult i64 %15, %14
+  %16 = icmp samesign ult i64 %15, %14
   br i1 %16, label %.lr.ph, label %.loopexit
 
 .lr.ph:                                           ; preds = %3, %.lr.ph
@@ -10160,7 +10160,7 @@ define internal i64 @rb_int_s_isqrt(i64 %0, i64 noundef %1) #2 {
 
 9:                                                ; preds = %5
   %10 = lshr i64 %3, 1
-  %11 = icmp ult i64 %3, 18014398509481984
+  %11 = icmp samesign ult i64 %3, 18014398509481984
   br i1 %11, label %31, label %12
 
 12:                                               ; preds = %9
@@ -10534,7 +10534,7 @@ define internal i64 @int_chr(i32 noundef %0, ptr nocapture noundef readonly %1, 
   ]
 
 14:                                               ; preds = %12
-  %15 = icmp ugt i64 %7, 255
+  %15 = icmp samesign ugt i64 %7, 255
   br i1 %15, label %16, label %20
 
 16:                                               ; preds = %14
@@ -10550,7 +10550,7 @@ define internal i64 @int_chr(i32 noundef %0, ptr nocapture noundef readonly %1, 
 20:                                               ; preds = %14
   %21 = trunc nuw i64 %7 to i8
   store i8 %21, ptr %4, align 1
-  %22 = icmp ult i64 %7, 128
+  %22 = icmp samesign ult i64 %7, 128
   br i1 %22, label %23, label %25
 
 23:                                               ; preds = %20
@@ -11624,7 +11624,7 @@ rb_int_plus.exit55.i:                             ; preds = %.critedge.i54.i, %1
   br i1 %149, label %int_aref1.exit, label %150
 
 150:                                              ; preds = %147
-  %151 = icmp ugt i64 %148, 62
+  %151 = icmp samesign ugt i64 %148, 62
   br i1 %151, label %152, label %154
 
 152:                                              ; preds = %150
@@ -11870,7 +11870,7 @@ rb_integer_type_p.exit.thread:                    ; preds = %9, %rb_integer_type
   unreachable
 
 37:                                               ; preds = %.critedge
-  %38 = icmp ult i64 %33, 2
+  %38 = icmp samesign ult i64 %33, 2
   br i1 %38, label %39, label %41
 
 39:                                               ; preds = %37
@@ -12058,7 +12058,7 @@ ruby_nonempty_memcpy.exit:                        ; preds = %37, %45
   br label %ruby_nonempty_memcpy.exit55
 
 59:                                               ; preds = %48
-  %60 = icmp ult i32 %46, 16
+  %60 = icmp samesign ult i32 %46, 16
   br i1 %60, label %61, label %111
 
 61:                                               ; preds = %59
@@ -13393,7 +13393,7 @@ float_round_overflow.exit.thread:                 ; preds = %145
   %.nonneg.i = sub i32 0, %147
   %151 = udiv i32 %.nonneg.i, 3
   %152 = add nuw nsw i32 %151, 18
-  %.not.i5365.not = icmp ult i32 %.038, %152
+  %.not.i5365.not = icmp samesign ult i32 %.038, %152
   br i1 %.not.i5365.not, label %.thread, label %rb_float_new_inline.exit
 
 153:                                              ; preds = %float_round_overflow.exit
@@ -13411,7 +13411,7 @@ float_round_underflow.exit:                       ; preds = %153, %.thread
   br i1 %.not71, label %rb_float_new_inline.exit, label %155
 
 155:                                              ; preds = %float_round_underflow.exit
-  %156 = icmp ugt i32 %.038, 14
+  %156 = icmp samesign ugt i32 %.038, 14
   br i1 %156, label %157, label %159
 
 157:                                              ; preds = %155

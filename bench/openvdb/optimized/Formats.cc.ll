@@ -97,7 +97,7 @@ lpad:                                             ; preds = %invoke.cont99, %if.
   br label %ehcleanup
 
 if.else:                                          ; preds = %invoke.cont11
-  %tobool25.not = icmp ult i64 %bytes, 1073741824
+  %tobool25.not = icmp samesign ult i64 %bytes, 1073741824
   br i1 %tobool25.not, label %if.else40, label %if.then26
 
 if.then26:                                        ; preds = %if.else
@@ -115,7 +115,7 @@ invoke.cont36:                                    ; preds = %invoke.cont32
           to label %if.end88 unwind label %lpad
 
 if.else40:                                        ; preds = %if.else
-  %tobool42.not = icmp ult i64 %bytes, 1048576
+  %tobool42.not = icmp samesign ult i64 %bytes, 1048576
   br i1 %tobool42.not, label %if.else57, label %if.then43
 
 if.then43:                                        ; preds = %if.else40
@@ -133,7 +133,7 @@ invoke.cont53:                                    ; preds = %invoke.cont49
           to label %if.end88 unwind label %lpad
 
 if.else57:                                        ; preds = %if.else40
-  %tobool59.not = icmp ult i64 %bytes, 1024
+  %tobool59.not = icmp samesign ult i64 %bytes, 1024
   br i1 %tobool59.not, label %if.else74, label %if.then60
 
 if.then60:                                        ; preds = %if.else57
@@ -275,7 +275,7 @@ lpad:                                             ; preds = %invoke.cont98, %if.
   br label %ehcleanup
 
 if.else:                                          ; preds = %invoke.cont11
-  %tobool26.not = icmp ult i64 %number, 1000000000
+  %tobool26.not = icmp samesign ult i64 %number, 1000000000
   br i1 %tobool26.not, label %if.else41, label %if.then27
 
 if.then27:                                        ; preds = %if.else
@@ -293,7 +293,7 @@ invoke.cont37:                                    ; preds = %invoke.cont33
           to label %if.end87 unwind label %lpad
 
 if.else41:                                        ; preds = %if.else
-  %tobool43.not = icmp ult i64 %number, 1000000
+  %tobool43.not = icmp samesign ult i64 %number, 1000000
   br i1 %tobool43.not, label %if.else58, label %if.then44
 
 if.then44:                                        ; preds = %if.else41
@@ -311,7 +311,7 @@ invoke.cont54:                                    ; preds = %invoke.cont50
           to label %if.end87 unwind label %lpad
 
 if.else58:                                        ; preds = %if.else41
-  %tobool60.not = icmp ult i64 %number, 1000
+  %tobool60.not = icmp samesign ult i64 %number, 1000
   br i1 %tobool60.not, label %if.else75, label %if.then61
 
 if.then61:                                        ; preds = %if.else58

@@ -897,7 +897,7 @@ define hidden void @_ZN16DeformationModel5EpochC2ERKNSt7__cxx1112basic_stringIcS
 47:                                               ; preds = %44, %40
   %48 = phi i1 [ %46, %44 ], [ true, %40 ]
   %49 = add nsw i32 %22, -1
-  %50 = icmp ugt i32 %19, 1
+  %50 = icmp samesign ugt i32 %19, 1
   %51 = zext i1 %48 to i64
   br i1 %50, label %.lr.ph.i, label %._crit_edge.i
 
@@ -13823,7 +13823,7 @@ _ZN8nlohmann6detail5lexerINS_10basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stri
   br label %_ZN8nlohmann6detail5lexerINS_10basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS_14adl_serializerES4_IhSaIhEEEENS0_22iterator_input_adapterIN9__gnu_cxx17__normal_iteratorIPKcSA_EEEEE18next_byte_in_rangeESt16initializer_listIiE.exit.thread.sink.split
 
 76:                                               ; preds = %72
-  %77 = icmp ult i32 %.1.i, 2048
+  %77 = icmp samesign ult i32 %.1.i, 2048
   br i1 %77, label %78, label %85
 
 78:                                               ; preds = %76
@@ -13837,7 +13837,7 @@ _ZN8nlohmann6detail5lexerINS_10basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stri
   br label %_ZN8nlohmann6detail5lexerINS_10basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS_14adl_serializerES4_IhSaIhEEEENS0_22iterator_input_adapterIN9__gnu_cxx17__normal_iteratorIPKcSA_EEEEE18next_byte_in_rangeESt16initializer_listIiE.exit.thread.sink.split
 
 85:                                               ; preds = %76
-  %86 = icmp ult i32 %.1.i, 65536
+  %86 = icmp samesign ult i32 %.1.i, 65536
   br i1 %86, label %87, label %98
 
 87:                                               ; preds = %85

@@ -64,7 +64,7 @@ define hidden { ptr, i64 } @_RNvXs5_CsfbvjWzJraAt_4itoahNtNtB5_7private6Sealed5w
   br label %19
 
 11:                                               ; preds = %2
-  %12 = icmp ult i8 %0, 10
+  %12 = icmp samesign ult i8 %0, 10
   br i1 %12, label %19, label %13
 
 13:                                               ; preds = %11
@@ -292,7 +292,7 @@ define hidden void @_RINvNtCs8mTrBI1stz4_15turborepo_vt1004term11extend_itoahEB4
 
 12:                                               ; preds = %2
   %.sroa.07.017.i.sroa.gep1 = getelementptr inbounds i8, ptr %3, i64 2
-  %13 = icmp ult i8 %1, 10
+  %13 = icmp samesign ult i8 %1, 10
   br i1 %13, label %20, label %14
 
 14:                                               ; preds = %12
@@ -487,7 +487,7 @@ define hidden void @_RINvNtCs8mTrBI1stz4_15turborepo_vt1004term11extend_itoatEB4
   br label %35
 
 ._crit_edge.i:                                    ; preds = %2
-  %17 = icmp ugt i16 %1, 99
+  %17 = icmp samesign ugt i16 %1, 99
   br i1 %17, label %18, label %26
 
 18:                                               ; preds = %._crit_edge.i

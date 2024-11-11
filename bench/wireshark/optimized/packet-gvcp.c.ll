@@ -2362,7 +2362,7 @@ define internal fastcc void @dissect_event_cmd(ptr noundef %0, ptr noundef %1, p
   %21 = add i32 %.05963, 2
   %22 = tail call zeroext i16 @tvb_get_ntohs(ptr noundef %1, i32 noundef %21) #5
   %23 = icmp ult i16 %22, -32767
-  %24 = icmp ult i16 %22, -28672
+  %24 = icmp samesign ult i16 %22, -28672
   %hf_gvcp_eventcmd_id.val = load i32, ptr @hf_gvcp_eventcmd_id, align 4
   %hf_gvcp_eventcmd_error_id.val = load i32, ptr @hf_gvcp_eventcmd_error_id, align 4
   %hf_gvcp_eventcmd_device_specific_id.val = load i32, ptr @hf_gvcp_eventcmd_device_specific_id, align 4
@@ -2428,7 +2428,7 @@ define internal fastcc void @dissect_eventdata_cmd(ptr noundef %0, ptr noundef %
 18:                                               ; preds = %13, %8
   %.1 = phi i32 [ %17, %13 ], [ %.069, %8 ]
   %19 = icmp ult i16 %10, -32767
-  %20 = icmp ult i16 %10, -28672
+  %20 = icmp samesign ult i16 %10, -28672
   %hf_gvcp_eventcmd_id.val = load i32, ptr @hf_gvcp_eventcmd_id, align 4
   %hf_gvcp_eventcmd_error_id.val = load i32, ptr @hf_gvcp_eventcmd_error_id, align 4
   %hf_gvcp_eventcmd_device_specific_id.val = load i32, ptr @hf_gvcp_eventcmd_device_specific_id, align 4

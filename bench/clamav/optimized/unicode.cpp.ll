@@ -535,7 +535,7 @@ define noundef i64 @_Z13WideToUtfSizePKw(ptr nocapture noundef readonly %0) loca
   br label %26
 
 7:                                                ; preds = %.lr.ph
-  %8 = icmp ult i32 %3, 2048
+  %8 = icmp samesign ult i32 %3, 2048
   br i1 %8, label %9, label %11
 
 9:                                                ; preds = %7
@@ -543,7 +543,7 @@ define noundef i64 @_Z13WideToUtfSizePKw(ptr nocapture noundef readonly %0) loca
   br label %26
 
 11:                                               ; preds = %7
-  %12 = icmp ult i32 %3, 65536
+  %12 = icmp samesign ult i32 %3, 65536
   br i1 %12, label %13, label %23
 
 13:                                               ; preds = %11
@@ -567,7 +567,7 @@ define noundef i64 @_Z13WideToUtfSizePKw(ptr nocapture noundef readonly %0) loca
   br label %26
 
 23:                                               ; preds = %11
-  %24 = icmp ult i32 %3, 2097152
+  %24 = icmp samesign ult i32 %3, 2097152
   %25 = add i64 %.023, 4
   %spec.select = select i1 %24, i64 %25, i64 %.023
   br label %26
@@ -715,7 +715,7 @@ define noundef zeroext i1 @_Z9UtfToWidePKcPwm(ptr nocapture noundef readonly %0,
   br i1 %72, label %81, label %73
 
 73:                                               ; preds = %71
-  %74 = icmp ugt i32 %.0, 65535
+  %74 = icmp samesign ugt i32 %.0, 65535
   br i1 %74, label %75, label %.split.loop.exit
 
 75:                                               ; preds = %73
@@ -724,7 +724,7 @@ define noundef zeroext i1 @_Z9UtfToWidePKcPwm(ptr nocapture noundef readonly %0,
 
 77:                                               ; preds = %75
   %78 = add nsw i64 %.037, -2
-  %79 = icmp ugt i32 %.0, 1114111
+  %79 = icmp samesign ugt i32 %.0, 1114111
   br i1 %79, label %5, label %.split.loop.exit56, !llvm.loop !11
 
 .split.loop.exit:                                 ; preds = %73

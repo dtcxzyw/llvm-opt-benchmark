@@ -3535,7 +3535,7 @@ if.then10.i.i:                                    ; preds = %if.end.i.i
 
 if.end14.i.i:                                     ; preds = %if.end.i.i
   %7 = add nsw i16 %.fr3.i.i, -65
-  %or.cond2.i.i = icmp ult i16 %7, 6
+  %or.cond2.i.i = icmp samesign ult i16 %7, 6
   %add24.i.i = add nsw i32 %conv.i25.i, -55
   %spec.select.i.i = select i1 %or.cond2.i.i, i32 %add24.i.i, i32 undef
   br label %_ZZN6hermes5regex6ParserINS0_5RegexINS0_16UTF16RegexTraitsEEEPKDsE19tryConsumeHexDigitsEjENKUlDsE_clEDs.exit.i
@@ -3623,7 +3623,7 @@ if.then10.i.i36:                                  ; preds = %if.end.i.i17
 
 if.end14.i.i21:                                   ; preds = %if.end.i.i17
   %14 = add nsw i16 %.fr3.i.i14, -65
-  %or.cond2.i.i22 = icmp ult i16 %14, 6
+  %or.cond2.i.i22 = icmp samesign ult i16 %14, 6
   %add24.i.i23 = add nsw i32 %conv.i25.i19, -55
   %spec.select.i.i24 = select i1 %or.cond2.i.i22, i32 %add24.i.i23, i32 undef
   br label %_ZN6hermes5regex6ParserINS0_5RegexINS0_16UTF16RegexTraitsEEEPKDsE19tryConsumeHexDigitsEj.exit43
@@ -3737,7 +3737,7 @@ if.then10.i.i103:                                 ; preds = %if.end.i.i84
 
 if.end14.i.i88:                                   ; preds = %if.end.i.i84
   %23 = add nsw i16 %.fr3.i.i81, -65
-  %or.cond2.i.i89 = icmp ult i16 %23, 6
+  %or.cond2.i.i89 = icmp samesign ult i16 %23, 6
   %add24.i.i90 = add nsw i32 %conv.i25.i86, -55
   %spec.select.i.i91 = select i1 %or.cond2.i.i89, i32 %add24.i.i90, i32 undef
   br label %_ZZN6hermes5regex6ParserINS0_5RegexINS0_16UTF16RegexTraitsEEEPKDsE19tryConsumeHexDigitsEjENKUlDsE_clEDs.exit.i92
@@ -3844,7 +3844,7 @@ if.then10.i.i149:                                 ; preds = %if.end.i.i130
 
 if.end14.i.i134:                                  ; preds = %if.end.i.i130
   %34 = add nsw i16 %.fr3.i.i127, -65
-  %or.cond2.i.i135 = icmp ult i16 %34, 6
+  %or.cond2.i.i135 = icmp samesign ult i16 %34, 6
   %add24.i.i136 = add nsw i32 %conv.i25.i132, -55
   %spec.select.i.i137 = select i1 %or.cond2.i.i135, i32 %add24.i.i136, i32 undef
   br label %_ZZN6hermes5regex6ParserINS0_5RegexINS0_16UTF16RegexTraitsEEEPKDsE19tryConsumeHexDigitsEjENKUlDsE_clEDs.exit.i138
@@ -11459,7 +11459,7 @@ if.then10.i.i:                                    ; preds = %if.end.i.i
 
 if.end14.i.i:                                     ; preds = %if.end.i.i
   %33 = add nsw i16 %.fr3.i.i, -65
-  %or.cond2.i.i = icmp ult i16 %33, 6
+  %or.cond2.i.i = icmp samesign ult i16 %33, 6
   %add24.i.i = add nsw i32 %conv.i25.i, -55
   %spec.select.i.i = select i1 %or.cond2.i.i, i32 %add24.i.i, i32 undef
   br label %_ZZN6hermes5regex6ParserINS0_5RegexINS0_16UTF16RegexTraitsEEEPKDsE19tryConsumeHexDigitsEjENKUlDsE_clEDs.exit.i

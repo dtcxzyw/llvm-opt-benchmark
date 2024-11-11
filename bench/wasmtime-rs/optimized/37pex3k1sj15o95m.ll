@@ -17905,7 +17905,7 @@ define { i16, i16 } @"_ZN136_$LT$cranelift_codegen..ir..dfg..DataFlowGraph..inst
   %41 = and i32 %.sroa.04.0.copyload, 65535
   %42 = zext nneg i32 %41 to i64
   %43 = add nuw nsw i64 %25, %42
-  %44 = icmp ult i64 %43, 79
+  %44 = icmp samesign ult i64 %43, 79
   br i1 %44, label %45, label %48, !prof !426
 
 45:                                               ; preds = %38
@@ -24538,7 +24538,7 @@ define void @_ZN17cranelift_codegen2ir3pcc11FactContext12struct_field17h36dc7b8d
   br i1 %9, label %_ZN17cranelift_codegen2ir5types4Type5bytes17h2a049200537afc31E.exit, label %10
 
 10:                                               ; preds = %4
-  %11 = icmp ult i16 %3, 128
+  %11 = icmp samesign ult i16 %3, 128
   %12 = and i16 %3, 15
   %13 = or disjoint i16 %12, 112
   %.0.i.i.i.i = select i1 %11, i16 %3, i16 %13
@@ -28477,7 +28477,7 @@ _ZN17cranelift_codegen2ir3dfg13DataFlowGraph12first_result17h12a6c276a8a0b228E.e
   br i1 %222, label %.split2.i, label %223
 
 223:                                              ; preds = %219
-  %224 = icmp ult i16 %.025, 128
+  %224 = icmp samesign ult i16 %.025, 128
   %225 = and i16 %.025, 15
   %226 = or disjoint i16 %225, 112
   %.0.i.i.i.i = select i1 %224, i16 %.025, i16 %226

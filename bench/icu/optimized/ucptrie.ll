@@ -31,7 +31,7 @@ if.then10:                                        ; preds = %lor.lhs.false, %if.
   br label %return
 
 if.end11:                                         ; preds = %lor.lhs.false
-  %cmp12 = icmp ult i32 %length, 16
+  %cmp12 = icmp samesign ult i32 %length, 16
   br i1 %cmp12, label %if.then13, label %if.end14
 
 if.then13:                                        ; preds = %if.end11
@@ -131,7 +131,7 @@ if.else72:                                        ; preds = %if.end39
 
 if.end76:                                         ; preds = %if.then68, %if.else72, %if.then63
   %actualLength.0 = phi i32 [ %add66, %if.then63 ], [ %add71, %if.then68 ], [ %add74, %if.else72 ]
-  %cmp77 = icmp ult i32 %length, %actualLength.0
+  %cmp77 = icmp samesign ult i32 %length, %actualLength.0
   br i1 %cmp77, label %if.then78, label %if.end79
 
 if.then78:                                        ; preds = %if.end76
@@ -704,7 +704,7 @@ if.end9:                                          ; preds = %if.end
   br i1 %cmp10, label %if.then11, label %if.else
 
 if.then11:                                        ; preds = %if.end9
-  %cmp12.not = icmp ult i32 %call5, %cond
+  %cmp12.not = icmp samesign ult i32 %call5, %cond
   br i1 %cmp12.not, label %if.end21, label %return
 
 if.else:                                          ; preds = %if.end9
@@ -713,7 +713,7 @@ if.else:                                          ; preds = %if.end9
 
 if.end17:                                         ; preds = %if.else
   store i32 %surrogateValue, ptr %spec.store.select, align 4
-  %cmp18 = icmp ugt i32 %call5, %cond
+  %cmp18 = icmp samesign ugt i32 %call5, %cond
   br i1 %cmp18, label %return, label %if.end21
 
 if.end21:                                         ; preds = %if.end17, %if.then11
@@ -760,7 +760,7 @@ if.end9.i:                                        ; preds = %if.end.i
   br i1 %cmp10.i, label %if.then11.i, label %if.else.i
 
 if.then11.i:                                      ; preds = %if.end9.i
-  %cmp12.not.i = icmp ult i32 %call5.i, %cond.i
+  %cmp12.not.i = icmp samesign ult i32 %call5.i, %cond.i
   br i1 %cmp12.not.i, label %if.end21.i, label %ucptrie_internalGetRange_75.exit
 
 if.else.i:                                        ; preds = %if.end9.i
@@ -769,7 +769,7 @@ if.else.i:                                        ; preds = %if.end9.i
 
 if.end17.i:                                       ; preds = %if.else.i
   store i32 %surrogateValue, ptr %spec.store.select.i, align 4
-  %cmp18.i = icmp ugt i32 %call5.i, %cond.i
+  %cmp18.i = icmp samesign ugt i32 %call5.i, %cond.i
   br i1 %cmp18.i, label %ucptrie_internalGetRange_75.exit, label %if.end21.i
 
 if.end21.i:                                       ; preds = %if.end17.i, %if.then11.i
@@ -1591,7 +1591,7 @@ if.end9.i.i:                                      ; preds = %if.end.i.i
   br i1 %cmp10.i.i, label %if.then11.i.i, label %if.else.i.i
 
 if.then11.i.i:                                    ; preds = %if.end9.i.i
-  %cmp12.not.i.i = icmp ult i32 %call5.i.i, %cond.i.i
+  %cmp12.not.i.i = icmp samesign ult i32 %call5.i.i, %cond.i.i
   br i1 %cmp12.not.i.i, label %if.end21.i.i, label %ucptrie_getRange_75.exit
 
 if.else.i.i:                                      ; preds = %if.end9.i.i
@@ -1600,7 +1600,7 @@ if.else.i.i:                                      ; preds = %if.end9.i.i
 
 if.end17.i.i:                                     ; preds = %if.else.i.i
   store i32 %surrogateValue, ptr %spec.store.select.i.i, align 4
-  %cmp18.i.i = icmp ugt i32 %call5.i.i, %cond.i.i
+  %cmp18.i.i = icmp samesign ugt i32 %call5.i.i, %cond.i.i
   br i1 %cmp18.i.i, label %ucptrie_getRange_75.exit, label %if.end21.i.i
 
 if.end21.i.i:                                     ; preds = %if.end17.i.i, %if.then11.i.i

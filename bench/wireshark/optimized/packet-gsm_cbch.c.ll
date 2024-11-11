@@ -389,7 +389,7 @@ define internal i32 @dissect_cbch(ptr noundef %0, ptr noundef %1, ptr noundef %2
   br label %173
 
 125:                                              ; preds = %107
-  %126 = icmp ult i8 %108, 64
+  %126 = icmp samesign ult i8 %108, 64
   br i1 %126, label %127, label %151
 
 127:                                              ; preds = %125
@@ -405,7 +405,7 @@ define internal i32 @dissect_cbch(ptr noundef %0, ptr noundef %1, ptr noundef %2
 
 134:                                              ; preds = %127
   %135 = zext nneg i8 %104 to i32
-  %136 = icmp ult i8 %108, %104
+  %136 = icmp samesign ult i8 %108, %104
   %137 = load i32, ptr @hf_gsm_cbch_slot, align 4
   %138 = add i32 %.1236.i, 1
   br i1 %136, label %139, label %149

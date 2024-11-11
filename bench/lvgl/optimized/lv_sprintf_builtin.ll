@@ -1485,7 +1485,7 @@ define internal fastcc i64 @_ftoa(ptr nocapture noundef readonly %0, ptr noundef
 120:                                              ; preds = %94, %117
   %.1121 = phi i64 [ %118, %117 ], [ %.0120.lcssa, %94 ]
   %.1117 = phi i32 [ %.0116, %117 ], [ %spec.select150, %94 ]
-  %.old7 = icmp ult i64 %.1121, 32
+  %.old7 = icmp samesign ult i64 %.1121, 32
   br i1 %.old7, label %.preheader, label %.thread
 
 .preheader:                                       ; preds = %120, %.preheader
@@ -1500,7 +1500,7 @@ define internal fastcc i64 @_ftoa(ptr nocapture noundef readonly %0, ptr noundef
   %126 = sdiv i32 %.2118, 10
   %127 = add i32 %.2118, -10
   %128 = icmp ult i32 %127, -19
-  %129 = icmp ult i64 %.6, 31
+  %129 = icmp samesign ult i64 %.6, 31
   %or.cond8 = and i1 %129, %128
   br i1 %or.cond8, label %.preheader, label %.thread, !llvm.loop !38
 
@@ -1527,7 +1527,7 @@ define internal fastcc i64 @_ftoa(ptr nocapture noundef readonly %0, ptr noundef
   %.1125 = phi i32 [ 0, %132 ], [ %spec.select151, %133 ]
   %137 = tail call i32 @llvm.umin.i32(i32 %.1125, i32 32)
   %invariant.umin = zext nneg i32 %137 to i64
-  %138 = icmp ult i64 %.7, %invariant.umin
+  %138 = icmp samesign ult i64 %.7, %invariant.umin
   br i1 %138, label %.lr.ph226.preheader, label %.loopexit
 
 .lr.ph226.preheader:                              ; preds = %136
@@ -1539,7 +1539,7 @@ define internal fastcc i64 @_ftoa(ptr nocapture noundef readonly %0, ptr noundef
 .loopexit:                                        ; preds = %.lr.ph226.preheader, %136, %.thread
   %.0124 = phi i32 [ %6, %.thread ], [ %.1125, %136 ], [ %.1125, %.lr.ph226.preheader ]
   %.8 = phi i64 [ %.7, %.thread ], [ %.7, %136 ], [ %invariant.umin, %.lr.ph226.preheader ]
-  %140 = icmp ult i64 %.8, 32
+  %140 = icmp samesign ult i64 %.8, 32
   br i1 %140, label %141, label %148
 
 141:                                              ; preds = %.loopexit
@@ -1570,7 +1570,7 @@ define internal fastcc i64 @_ftoa(ptr nocapture noundef readonly %0, ptr noundef
 
 .preheader30.i184:                                ; preds = %148
   %149 = zext i32 %.0124 to i64
-  %150 = icmp ult i64 %.10, %149
+  %150 = icmp samesign ult i64 %.10, %149
   br i1 %150, label %.lr.ph.i185, label %.lr.ph37.i175.preheader
 
 .lr.ph.i185:                                      ; preds = %.preheader30.i184, %.lr.ph.i185
@@ -1774,7 +1774,7 @@ _ntoa_long.exit:                                  ; preds = %88
 
 .critedge.i:                                      ; preds = %.lr.ph106.preheader.i, %_ntoa_long.exit
   %.0.i118 = phi i64 [ %92, %_ntoa_long.exit ], [ %invariant.umin102.i, %.lr.ph106.preheader.i ]
-  %102 = icmp ult i64 %.0.i118, 32
+  %102 = icmp samesign ult i64 %.0.i118, 32
   br i1 %102, label %.thread.sink.split.i, label %.lr.ph37.i.i.preheader
 
 .thread.sink.split.i:                             ; preds = %.critedge.i

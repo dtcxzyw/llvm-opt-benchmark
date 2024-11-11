@@ -148,9 +148,9 @@ define hidden void @_ZN8rawspeed20PhaseOneDecompressorC2ENS_8RawImageEOSt6vector
 43:                                               ; preds = %35
   %44 = and i32 %37, 1
   %45 = icmp ne i32 %44, 0
-  %46 = icmp ugt i32 %37, 11976
+  %46 = icmp samesign ugt i32 %37, 11976
   %47 = or i1 %46, %45
-  %48 = icmp ugt i32 %40, 8854
+  %48 = icmp samesign ugt i32 %40, 8854
   %49 = select i1 %47, i1 true, i1 %48
   br i1 %49, label %50, label %52
 
@@ -835,7 +835,7 @@ define hidden void @_ZNK8rawspeed20PhaseOneDecompressor15decompressStripERKNS_13
   tail call void @llvm.assume(i1 %238)
   %239 = icmp ult i32 %229, 33
   tail call void @llvm.assume(i1 %239)
-  %240 = icmp uge i32 %226, %229
+  %240 = icmp samesign uge i32 %226, %229
   tail call void @llvm.assume(i1 %240)
   %241 = sub nuw nsw i32 64, %229
   %242 = zext nneg i32 %241 to i64

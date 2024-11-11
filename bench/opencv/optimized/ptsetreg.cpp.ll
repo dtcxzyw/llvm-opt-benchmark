@@ -3962,7 +3962,7 @@ _ZN2cv3PtrINS_19PointSetRegistratorEED2Ev.exit.sink.split: ; preds = %_ZN2cv3Ptr
 
 _ZN2cv3PtrINS_19PointSetRegistratorEED2Ev.exit:   ; preds = %_ZN2cv3PtrINS_19PointSetRegistratorEED2Ev.exit.sink.split, %254, %241, %226, %202, %189, %174
   %.047.in = phi i1 [ %173, %174 ], [ %173, %189 ], [ %173, %202 ], [ %225, %226 ], [ %225, %241 ], [ %225, %254 ], [ %.047.in.ph, %_ZN2cv3PtrINS_19PointSetRegistratorEED2Ev.exit.sink.split ]
-  %273 = icmp ugt i32 %68, 3
+  %273 = icmp samesign ugt i32 %68, 3
   %274 = icmp ne i64 %8, 0
   %275 = and i1 %274, %273
   %or.cond5 = and i1 %275, %.047.in
@@ -6003,7 +6003,7 @@ _ZN2cv3PtrINS_19PointSetRegistratorEED2Ev.exit.sink.split: ; preds = %_ZN2cv3Ptr
 
 _ZN2cv3PtrINS_19PointSetRegistratorEED2Ev.exit:   ; preds = %_ZN2cv3PtrINS_19PointSetRegistratorEED2Ev.exit.sink.split, %250, %237, %222, %198, %185, %170
   %.066.in = phi i1 [ %169, %170 ], [ %169, %185 ], [ %169, %198 ], [ %221, %222 ], [ %221, %237 ], [ %221, %250 ], [ %.066.in.ph, %_ZN2cv3PtrINS_19PointSetRegistratorEED2Ev.exit.sink.split ]
-  %269 = icmp ugt i32 %64, 2
+  %269 = icmp samesign ugt i32 %64, 2
   %270 = icmp ne i64 %8, 0
   %271 = and i1 %270, %269
   %or.cond3 = and i1 %271, %.066.in

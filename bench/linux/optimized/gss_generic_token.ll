@@ -21,15 +21,15 @@ define dso_local i32 @g_token_size(ptr nocapture noundef readonly %0, i32 nounde
   br i1 %6, label %14, label %7
 
 7:                                                ; preds = %2
-  %8 = icmp ult i32 %5, 256
+  %8 = icmp samesign ult i32 %5, 256
   br i1 %8, label %14, label %9
 
 9:                                                ; preds = %7
-  %10 = icmp ult i32 %5, 65536
+  %10 = icmp samesign ult i32 %5, 65536
   br i1 %10, label %14, label %11
 
 11:                                               ; preds = %9
-  %12 = icmp ult i32 %5, 16777216
+  %12 = icmp samesign ult i32 %5, 16777216
   %13 = select i1 %12, i32 5, i32 6
   br label %14
 
@@ -52,21 +52,21 @@ define dso_local void @g_make_token_header(ptr nocapture noundef readonly %0, i3
   br i1 %9, label %34, label %10
 
 10:                                               ; preds = %3
-  %11 = icmp ult i32 %8, 256
+  %11 = icmp samesign ult i32 %8, 256
   br i1 %11, label %31, label %12
 
 12:                                               ; preds = %10
-  %13 = icmp ult i32 %8, 65536
+  %13 = icmp samesign ult i32 %8, 65536
   br i1 %13, label %.thread4, label %14
 
 14:                                               ; preds = %12
-  %15 = icmp ult i32 %8, 16777216
+  %15 = icmp samesign ult i32 %8, 16777216
   %16 = select i1 %15, i8 -125, i8 -124
   %17 = load ptr, ptr %2, align 8
   %18 = getelementptr i8, ptr %17, i64 1
   store ptr %18, ptr %2, align 8
   store i8 %16, ptr %17, align 1
-  %19 = icmp ugt i32 %8, 16777215
+  %19 = icmp samesign ugt i32 %8, 16777215
   br i1 %19, label %20, label %.thread3
 
 20:                                               ; preds = %14
@@ -237,12 +237,12 @@ define dso_local range(i32 -2045022965, 1) i32 @g_verify_token_header(ptr nocapt
   br i1 %76, label %79, label %.thread6
 
 .thread6:                                         ; preds = %67, %72
-  %77 = icmp ult i32 %65, 2
+  %77 = icmp samesign ult i32 %65, 2
   %78 = select i1 %77, i32 -2045022964, i32 -2045022965
   br label %.thread
 
 79:                                               ; preds = %72
-  %80 = icmp ult i32 %65, 2
+  %80 = icmp samesign ult i32 %65, 2
   br i1 %80, label %.thread, label %81
 
 81:                                               ; preds = %79

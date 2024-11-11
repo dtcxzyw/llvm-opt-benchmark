@@ -15226,7 +15226,7 @@ for.cond.backedge:                                ; preds = %for.cond.backedge.s
   %18 = load i32, ptr %arrayidx10.i.i, align 4
   %inc.i.i = add i32 %18, 1
   store i32 %inc.i.i, ptr %arrayidx10.i.i, align 4
-  %cmp = icmp ugt i64 %indvars.iv, 1
+  %cmp = icmp samesign ugt i64 %indvars.iv, 1
   br i1 %cmp, label %for.body, label %for.end, !llvm.loop !46
 
 if.end:                                           ; preds = %_ZNK14expr_free_vars8containsEj.exit

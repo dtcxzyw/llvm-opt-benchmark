@@ -1274,7 +1274,7 @@ define dso_local void @apply_retpolines(ptr noundef %0, ptr noundef readnone %1)
 
 141:                                              ; preds = %140, %136
   %142 = phi i32 [ 224, %140 ], [ 208, %136 ]
-  %143 = icmp ugt i32 %55, 7
+  %143 = icmp samesign ugt i32 %55, 7
   br i1 %143, label %144, label %146
 
 144:                                              ; preds = %141
@@ -1297,7 +1297,7 @@ define dso_local void @apply_retpolines(ptr noundef %0, ptr noundef readnone %1)
   %156 = icmp eq i8 %127, -23
   %157 = load i8, ptr %14, align 2
   %158 = zext i8 %157 to i32
-  %159 = icmp ult i32 %155, %158
+  %159 = icmp samesign ult i32 %155, %158
   %160 = select i1 %156, i1 %159, i1 false
   br i1 %160, label %161, label %165
 
@@ -1310,7 +1310,7 @@ define dso_local void @apply_retpolines(ptr noundef %0, ptr noundef readnone %1)
 
 165:                                              ; preds = %161, %146
   %166 = phi i32 [ %162, %161 ], [ %155, %146 ]
-  %167 = icmp ult i32 %166, %158
+  %167 = icmp samesign ult i32 %166, %158
   br i1 %167, label %.thread28, label %172
 
 .thread28:                                        ; preds = %165
@@ -1632,7 +1632,7 @@ define dso_local void @apply_returns(ptr noundef %0, ptr noundef readnone %1) lo
 
 79:                                               ; preds = %74
   %80 = call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.9, ptr noundef %17) #21
-  %81 = icmp ugt i32 %75, 1
+  %81 = icmp samesign ugt i32 %75, 1
   br i1 %81, label %82, label %.loopexit17
 
 82:                                               ; preds = %79

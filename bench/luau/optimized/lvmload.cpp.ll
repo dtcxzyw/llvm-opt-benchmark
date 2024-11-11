@@ -64,7 +64,7 @@ define hidden void @_Z14luaV_getimportP9lua_StateP5TableP10lua_TValueS4_jb(ptr n
   %30 = zext nneg i32 %11 to i64
   %31 = getelementptr inbounds %struct.lua_TValue, ptr %2, i64 %30
   call void @_Z13luaV_gettableP9lua_StatePK10lua_TValuePS1_S4_(ptr noundef nonnull %0, ptr noundef %24, ptr noundef %31, ptr noundef %24)
-  %.not = icmp ugt i32 %4, -1073741825
+  %.not = icmp samesign ugt i32 %4, -1073741825
   br i1 %.not, label %32, label %.thread33.thread
 
 32:                                               ; preds = %29
@@ -165,7 +165,7 @@ define dso_local noundef range(i32 0, 2) i32 @_Z9luau_loadP9lua_StatePKcS2_mi(pt
           to label %50 unwind label %64
 
 50:                                               ; preds = %46
-  %51 = icmp ugt i8 %.0.copyload.i, 3
+  %51 = icmp samesign ugt i8 %.0.copyload.i, 3
   br i1 %51, label %52, label %66
 
 52:                                               ; preds = %50
@@ -1837,7 +1837,7 @@ define internal void @_ZZL17resolveImportSafeP9lua_StateP5TableP10lua_TValuejEN1
   %44 = zext nneg i32 %26 to i64
   %45 = getelementptr inbounds %struct.lua_TValue, ptr %20, i64 %44
   call void @_Z13luaV_gettableP9lua_StatePK10lua_TValuePS1_S4_(ptr noundef nonnull %0, ptr noundef nonnull %39, ptr noundef %45, ptr noundef nonnull %39)
-  %.not.i = icmp ugt i32 %22, -1073741825
+  %.not.i = icmp samesign ugt i32 %22, -1073741825
   br i1 %.not.i, label %46, label %_Z14luaV_getimportP9lua_StateP5TableP10lua_TValueS4_jb.exit
 
 46:                                               ; preds = %43

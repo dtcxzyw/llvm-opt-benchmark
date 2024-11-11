@@ -28,7 +28,7 @@ if.end5:                                          ; preds = %entry
   br i1 %cmp6, label %if.then7, label %if.else22
 
 if.then7:                                         ; preds = %if.end5
-  %cmp8 = icmp ugt i32 %retval.0.i63, 17
+  %cmp8 = icmp samesign ugt i32 %retval.0.i63, 17
   br i1 %cmp8, label %if.then9, label %if.else
 
 if.then9:                                         ; preds = %if.then7
@@ -134,7 +134,7 @@ for.body.i.i:                                     ; preds = %for.body.i.i, %_ZN1
   %arrayidx.i.i.i = getelementptr inbounds i8, ptr %buffer.coerce0, i64 %idxprom.i.i.i
   store i8 %conv.i.i, ptr %arrayidx.i.i.i, align 1
   %div.i.i = udiv i32 %number.addr.06.i.i, 10
-  %cmp.i.i67 = icmp ugt i32 %i.0.in7.i.i, 1
+  %cmp.i.i67 = icmp samesign ugt i32 %i.0.in7.i.i, 1
   br i1 %cmp.i.i67, label %for.body.i.i, label %_ZN14arrow_vendored17double_conversionL23FillDigits32FixedLengthEjiNS0_6VectorIcEEPi.exit.i, !llvm.loop !7
 
 _ZN14arrow_vendored17double_conversionL23FillDigits32FixedLengthEjiNS0_6VectorIcEEPi.exit.i: ; preds = %for.body.i.i
@@ -158,7 +158,7 @@ for.body.i10.i:                                   ; preds = %for.body.i10.i, %_Z
   %arrayidx.i.i18.i = getelementptr inbounds i8, ptr %buffer.coerce0, i64 %idxprom.i.i17.i
   store i8 %conv.i15.i, ptr %arrayidx.i.i18.i, align 1
   %div.i19.i = udiv i32 %number.addr.06.i12.i, 10
-  %cmp.i20.i = icmp ugt i32 %i.0.in7.i11.i, 1
+  %cmp.i20.i = icmp samesign ugt i32 %i.0.in7.i11.i, 1
   br i1 %cmp.i20.i, label %for.body.i10.i, label %_ZN14arrow_vendored17double_conversionL23FillDigits32FixedLengthEjiNS0_6VectorIcEEPi.exit22.i, !llvm.loop !7
 
 _ZN14arrow_vendored17double_conversionL23FillDigits32FixedLengthEjiNS0_6VectorIcEEPi.exit22.i: ; preds = %for.body.i10.i
@@ -181,7 +181,7 @@ for.body.i23.i:                                   ; preds = %for.body.i23.i, %_Z
   %arrayidx.i.i31.i = getelementptr inbounds i8, ptr %buffer.coerce0, i64 %idxprom.i.i30.i
   store i8 %conv.i28.i, ptr %arrayidx.i.i31.i, align 1
   %div.i32.i = udiv i32 %number.addr.06.i25.i, 10
-  %cmp.i33.i = icmp ugt i32 %i.0.in7.i24.i, 1
+  %cmp.i33.i = icmp samesign ugt i32 %i.0.in7.i24.i, 1
   br i1 %cmp.i33.i, label %for.body.i23.i, label %_ZN14arrow_vendored17double_conversionL23FillDigits64FixedLengthEmNS0_6VectorIcEEPi.exit, !llvm.loop !7
 
 _ZN14arrow_vendored17double_conversionL23FillDigits64FixedLengthEmNS0_6VectorIcEEPi.exit: ; preds = %for.body.i23.i
@@ -204,7 +204,7 @@ if.then24:                                        ; preds = %if.else22
   br label %if.end55
 
 if.else28:                                        ; preds = %if.else22
-  %cmp29 = icmp ugt i32 %retval.0.i63, -53
+  %cmp29 = icmp samesign ugt i32 %retval.0.i63, -53
   br i1 %cmp29, label %if.then30, label %if.else45
 
 if.then30:                                        ; preds = %if.else28
@@ -293,7 +293,7 @@ if.end43:                                         ; preds = %_ZN14arrow_vendored
   br label %if.end55
 
 if.else45:                                        ; preds = %if.else28
-  %cmp46 = icmp ult i32 %retval.0.i63, -128
+  %cmp46 = icmp samesign ult i32 %retval.0.i63, -128
   br i1 %cmp46, label %if.then47, label %if.else50
 
 if.then47:                                        ; preds = %if.else45
@@ -333,7 +333,7 @@ while.body.i105:                                  ; preds = %land.rhs.preheader.
   %indvars.iv.i100120 = phi i64 [ %indvars.iv.next.i101121, %land.rhs.i ], [ %27, %land.rhs.preheader.i ]
   %30 = trunc nuw nsw i64 %indvars.iv.next.i101121 to i32
   store i32 %30, ptr %length, align 4
-  %cmp.i = icmp ugt i64 %indvars.iv.i100120, 1
+  %cmp.i = icmp samesign ugt i64 %indvars.iv.i100120, 1
   br i1 %cmp.i, label %land.rhs.i, label %_ZN14arrow_vendored17double_conversionL9TrimZerosENS0_6VectorIcEEPiS3_.exit, !llvm.loop !8
 
 while.end.i103:                                   ; preds = %land.rhs.i
@@ -494,7 +494,7 @@ for.body.i:                                       ; preds = %for.body.i, %_ZN14a
   %arrayidx.i.i28 = getelementptr inbounds i8, ptr %buffer.coerce0, i64 %idxprom.i.i27
   store i8 %conv.i25, ptr %arrayidx.i.i28, align 1
   %div.i29 = udiv i32 %number.addr.06.i, 10
-  %cmp.i = icmp ugt i32 %i.0.in7.i, 1
+  %cmp.i = icmp samesign ugt i32 %i.0.in7.i, 1
   br i1 %cmp.i, label %for.body.i, label %_ZN14arrow_vendored17double_conversionL23FillDigits32FixedLengthEjiNS0_6VectorIcEEPi.exit, !llvm.loop !7
 
 _ZN14arrow_vendored17double_conversionL23FillDigits32FixedLengthEjiNS0_6VectorIcEEPi.exit: ; preds = %for.body.i
@@ -516,7 +516,7 @@ for.body.i31:                                     ; preds = %for.body.i31, %_ZN1
   %arrayidx.i.i39 = getelementptr inbounds i8, ptr %buffer.coerce0, i64 %idxprom.i.i38
   store i8 %conv.i36, ptr %arrayidx.i.i39, align 1
   %div.i40 = udiv i32 %number.addr.06.i33, 10
-  %cmp.i41 = icmp ugt i32 %i.0.in7.i32, 1
+  %cmp.i41 = icmp samesign ugt i32 %i.0.in7.i32, 1
   br i1 %cmp.i41, label %for.body.i31, label %if.end13.sink.split, !llvm.loop !7
 
 if.else:                                          ; preds = %entry
@@ -587,7 +587,7 @@ for.body.i75:                                     ; preds = %for.body.i75, %_ZN1
   %arrayidx.i.i83 = getelementptr inbounds i8, ptr %buffer.coerce0, i64 %idxprom.i.i82
   store i8 %conv.i80, ptr %arrayidx.i.i83, align 1
   %div.i84 = udiv i32 %number.addr.06.i77, 10
-  %cmp.i85 = icmp ugt i32 %i.0.in7.i76, 1
+  %cmp.i85 = icmp samesign ugt i32 %i.0.in7.i76, 1
   br i1 %cmp.i85, label %for.body.i75, label %if.end13.sink.split, !llvm.loop !7
 
 if.else11:                                        ; preds = %if.else
@@ -748,7 +748,7 @@ if.end7.i:                                        ; preds = %for.body.i
   %12 = load i8, ptr %gep.i, align 1
   %inc11.i = add i8 %12, 1
   store i8 %inc11.i, ptr %gep.i, align 1
-  %cmp3.i = icmp ugt i64 %indvars.iv.i, 2
+  %cmp3.i = icmp samesign ugt i64 %indvars.iv.i, 2
   br i1 %cmp3.i, label %for.body.i, label %for.end.i, !llvm.loop !12
 
 for.end.i:                                        ; preds = %if.end7.i, %if.end.i
@@ -903,7 +903,7 @@ if.end7.i63:                                      ; preds = %for.body.i58
   %31 = load i8, ptr %gep.i64, align 1
   %inc11.i65 = add i8 %31, 1
   store i8 %inc11.i65, ptr %gep.i64, align 1
-  %cmp3.i66 = icmp ugt i64 %indvars.iv.i59, 2
+  %cmp3.i66 = icmp samesign ugt i64 %indvars.iv.i59, 2
   br i1 %cmp3.i66, label %for.body.i58, label %for.end.i53, !llvm.loop !12
 
 for.end.i53:                                      ; preds = %if.end7.i63, %if.end.i48

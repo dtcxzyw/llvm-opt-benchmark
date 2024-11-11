@@ -2315,11 +2315,11 @@ define internal void @alps_process_packet_v1_v2(ptr nocapture noundef readonly %
   br i1 %103, label %104, label %112
 
 104:                                              ; preds = %93
-  %105 = icmp ugt i32 %59, 383
+  %105 = icmp samesign ugt i32 %59, 383
   %106 = add nsw i32 %59, -768
   %107 = select i1 %105, i32 %106, i32 %59
   tail call void @input_event(ptr noundef %7, i32 noundef 2, i32 noundef 0, i32 noundef %107) #14
-  %108 = icmp ugt i32 %60, 255
+  %108 = icmp samesign ugt i32 %60, 255
   %109 = add nsw i32 %60, -512
   %110 = select i1 %108, i32 %109, i32 %60
   %111 = sub nsw i32 0, %110
@@ -4640,7 +4640,7 @@ define internal void @alps_process_packet_v6(ptr nocapture noundef %0) #0 align 
   br label %.thread1
 
 68:                                               ; preds = %48
-  %69 = icmp ult i8 %8, 25
+  %69 = icmp samesign ult i8 %8, 25
   br i1 %69, label %70, label %.thread1
 
 70:                                               ; preds = %68

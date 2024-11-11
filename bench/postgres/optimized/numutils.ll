@@ -1318,7 +1318,7 @@ define dso_local range(i32 0, 7) i32 @pg_itoa(i16 noundef signext %0, ptr nocapt
   %20 = icmp uge i32 %.01115.i, %19
   %21 = zext i1 %20 to i32
   %22 = add nuw nsw i32 %16, %21
-  %23 = icmp ugt i32 %.01115.i, 9999
+  %23 = icmp samesign ugt i32 %.01115.i, 9999
   br i1 %23, label %.thread, label %._crit_edge.i.i
 
 .thread:                                          ; preds = %10
@@ -1752,7 +1752,7 @@ define dso_local range(i32 0, 21) i32 @pg_ulltoa_n(i64 noundef %0, ptr nocapture
 79:                                               ; preds = %58, %._crit_edge
   %.062 = phi i32 [ %59, %58 ], [ %56, %._crit_edge ]
   %.1 = phi i32 [ %78, %58 ], [ %.061.lcssa, %._crit_edge ]
-  %80 = icmp ugt i32 %.062, 99
+  %80 = icmp samesign ugt i32 %.062, 99
   br i1 %80, label %81, label %95
 
 81:                                               ; preds = %79

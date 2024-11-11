@@ -1143,7 +1143,7 @@ if.end48:                                         ; preds = %while.body
   %arrayidx51 = getelementptr inbounds ptr, ptr %sorted_attrs.0, i64 %indvars.iv12
   store ptr %14, ptr %arrayidx51, align 8
   store ptr %nattr, ptr %arrayidx41, align 8
-  %cmp38 = icmp ugt i64 %indvars.iv12, 1
+  %cmp38 = icmp samesign ugt i64 %indvars.iv12, 1
   br i1 %cmp38, label %while.body, label %while.end, !llvm.loop !13
 
 while.end:                                        ; preds = %if.end48, %while.body, %if.end33

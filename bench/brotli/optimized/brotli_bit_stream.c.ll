@@ -377,7 +377,7 @@ for.end:                                          ; preds = %for.end.loopexit, %
   br i1 %cmp.i, label %for.cond.i.preheader, label %if.else.i
 
 for.cond.i.preheader:                             ; preds = %for.end
-  %cmp1.i297 = icmp ugt i64 %conv35, 1
+  %cmp1.i297 = icmp samesign ugt i64 %conv35, 1
   br i1 %cmp1.i297, label %for.body.i, label %SortHuffmanTreeItems.exit
 
 for.body.i:                                       ; preds = %for.cond.i.preheader, %while.end.i
@@ -515,7 +515,7 @@ for.body42:                                       ; preds = %for.body42.preheade
   %index_right_or_value_ = getelementptr inbounds i8, ptr %node.2300, i64 -2
   store i16 %conv78, ptr %index_right_or_value_, align 2
   %incdec.ptr80 = getelementptr inbounds i8, ptr %node.2300, i64 8
-  %cmp40 = icmp ugt i32 %k.0.in303, 2
+  %cmp40 = icmp samesign ugt i32 %k.0.in303, 2
   store i64 -1, ptr %node.2300, align 4
   br i1 %cmp40, label %for.body42, label %for.end82, !llvm.loop !22
 
@@ -721,7 +721,7 @@ land.rhs:                                         ; preds = %land.rhs.preheader,
 
 for.body168:                                      ; preds = %land.rhs
   %inc169 = add i64 %reps.0306, 1
-  %k158.0 = add nuw i64 %k158.0307, 1
+  %k158.0 = add i64 %k158.0307, 1
   %exitcond322.not = icmp eq i64 %k158.0307, %length.0283
   br i1 %exitcond322.not, label %for.end172.loopexit, label %land.rhs, !llvm.loop !25
 

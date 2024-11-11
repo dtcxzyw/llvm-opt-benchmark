@@ -48953,7 +48953,7 @@ if.then10.i.i:                                    ; preds = %if.end.i.i
 
 if.end14.i.i:                                     ; preds = %if.end.i.i
   %conv15.i.i = zext nneg i32 %sub.i.i to i64
-  %cmp16.i.i = icmp ult i32 %sub.i.i, 13
+  %cmp16.i.i = icmp samesign ult i32 %sub.i.i, 13
   %cmp.i.i.i.i = icmp ult i32 %3, 13
   %or.cond.i.i = and i1 %cmp.i.i.i.i, %cmp16.i.i
   %cmp.i.i15.i.i = icmp ult i32 %2, 13
@@ -49000,7 +49000,7 @@ if.end.i:                                         ; preds = %cond.false
   br i1 %cmp.i.i.i, label %if.then4.i, label %if.end9.i
 
 if.then4.i:                                       ; preds = %if.end.i
-  %cmp5.i = icmp ult i32 %9, 5
+  %cmp5.i = icmp samesign ult i32 %9, 5
   br i1 %cmp5.i, label %_ZNK8facebook5velox10StringVieweqERKS1_.exit, label %lor.rhs.i
 
 lor.rhs.i:                                        ; preds = %if.then4.i

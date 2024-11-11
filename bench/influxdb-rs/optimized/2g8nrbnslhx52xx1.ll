@@ -6044,7 +6044,7 @@ define hidden noundef zeroext i1 @"_ZN89_$LT$chrono..format..formatting..Delayed
           cleanup
   br label %.loopexit.split-lp
 
-.loopexit.split-lp.loopexit:                      ; preds = %.noexc134.invoke, %594, %620, %631, %643, %"_ZN58_$LT$alloc..string..String$u20$as$u20$core..fmt..Write$GT$9write_str17h771a54f0f8aa9725E.exit.sink.split.i", %732, %730, %727, %721, %"_ZN58_$LT$alloc..string..String$u20$as$u20$core..fmt..Write$GT$9write_str17h771a54f0f8aa9725E.exit.i159", %738, %"_ZN58_$LT$alloc..string..String$u20$as$u20$core..fmt..Write$GT$9write_str17h771a54f0f8aa9725E.exit.i149", %749, %"_ZN58_$LT$alloc..string..String$u20$as$u20$core..fmt..Write$GT$9write_str17h771a54f0f8aa9725E.exit.i139", %760, %772, %.noexc133, %.noexc132, %_ZN5alloc6string6String4push17hcda1de4fa7de5b06E.llvm.14229044446495144540.exit90.i, %881, %.noexc129, %_ZN5alloc6string6String4push17hcda1de4fa7de5b06E.llvm.14229044446495144540.exit88.i, %872, %.noexc126, %868, %862, %.noexc122, %.noexc121, %.noexc120, %_ZN5alloc6string6String4push17hcda1de4fa7de5b06E.llvm.14229044446495144540.exit84.i, %853, %845, %825, %821, %_ZN6chrono6format10formatting14write_hundreds17h8ba82699ce7fa78eE.exit.thread.i, %799, %790, %972, %970, %967, %964, %.noexc98, %_ZN5alloc6string6String4push17hcda1de4fa7de5b06E.llvm.14229044446495144540.exit221.i, %958, %.noexc95, %_ZN5alloc6string6String4push17hcda1de4fa7de5b06E.llvm.14229044446495144540.exit219.i, %949, %.noexc92, %945, %939, %.noexc89, %929, %915, %.noexc86, %_ZN6chrono5naive9internals3Mdf7from_of17h7e22eff605a21f09E.exit.thread.thread.i, %.noexc84, %.noexc83, %.noexc82, %_ZN6chrono6format10formatting14write_hundreds17h8ba82699ce7fa78eE.exit208.thread.i, %895, %890, %981, %979, %977, %"_ZN62_$LT$chrono..format..Fixed$u20$as$u20$core..cmp..PartialEq$GT$2eq17h79bb6e6df00e2447E.exit314.i", %"_ZN62_$LT$chrono..format..Fixed$u20$as$u20$core..cmp..PartialEq$GT$2eq17h79bb6e6df00e2447E.exit.i", %556, %553, %551, %548, %545, %543, %531, %528, %525, %502, %497, %494, %468, %455
+.loopexit.split-lp.loopexit:                      ; preds = %.noexc134.invoke, %594, %620, %631, %643, %"_ZN58_$LT$alloc..string..String$u20$as$u20$core..fmt..Write$GT$9write_str17h771a54f0f8aa9725E.exit.sink.split.i", %732, %730, %727, %721, %"_ZN58_$LT$alloc..string..String$u20$as$u20$core..fmt..Write$GT$9write_str17h771a54f0f8aa9725E.exit.i159", %738, %"_ZN58_$LT$alloc..string..String$u20$as$u20$core..fmt..Write$GT$9write_str17h771a54f0f8aa9725E.exit.i149", %749, %"_ZN58_$LT$alloc..string..String$u20$as$u20$core..fmt..Write$GT$9write_str17h771a54f0f8aa9725E.exit.i139", %760, %772, %.noexc133, %.noexc132, %_ZN5alloc6string6String4push17hcda1de4fa7de5b06E.llvm.14229044446495144540.exit90.i, %881, %.noexc129, %_ZN5alloc6string6String4push17hcda1de4fa7de5b06E.llvm.14229044446495144540.exit88.i, %872, %.noexc126, %868, %862, %.noexc122, %.noexc121, %.noexc120, %_ZN5alloc6string6String4push17hcda1de4fa7de5b06E.llvm.14229044446495144540.exit84.i, %853, %845, %825, %821, %_ZN6chrono6format10formatting14write_hundreds17h8ba82699ce7fa78eE.exit.thread.i, %799, %790, %972, %970, %967, %964, %.noexc98, %_ZN5alloc6string6String4push17hcda1de4fa7de5b06E.llvm.14229044446495144540.exit221.i, %958, %.noexc95, %_ZN5alloc6string6String4push17hcda1de4fa7de5b06E.llvm.14229044446495144540.exit219.i, %949, %.noexc92, %945, %939, %.noexc89, %929, %915, %.noexc86, %_ZN6chrono5naive9internals3Mdf7from_of17h7e22eff605a21f09E.exit.thread.thread.i, %.noexc84, %.noexc83, %.noexc82, %_ZN6chrono6format10formatting14write_hundreds17h8ba82699ce7fa78eE.exit208.thread.i, %895, %890, %981, %979, %977, %"_ZN62_$LT$chrono..format..Fixed$u20$as$u20$core..cmp..PartialEq$GT$2eq17h79bb6e6df00e2447E.exit315.i", %"_ZN62_$LT$chrono..format..Fixed$u20$as$u20$core..cmp..PartialEq$GT$2eq17h79bb6e6df00e2447E.exit.i", %556, %553, %551, %548, %545, %543, %531, %528, %525, %502, %497, %494, %468, %455
   %lpad.loopexit228 = landingpad { ptr, i32 }
           cleanup
   br label %.loopexit.split-lp
@@ -6188,7 +6188,7 @@ default.unreachable:                              ; preds = %541, %539, %447, %4
   br label %_ZN6chrono6format10formatting12format_inner17h59db503767df707cE.exit.thread223
 
 474:                                              ; preds = %445
-  br i1 %trunc, label %.thread325.i, label %_ZN6chrono6format10formatting12format_inner17h59db503767df707cE.exit.thread
+  br i1 %trunc, label %.thread326.i, label %_ZN6chrono6format10formatting12format_inner17h59db503767df707cE.exit.thread
 
 475:                                              ; preds = %445
   br i1 %trunc, label %_ZN6chrono5naive9internals3Mdf7from_of17h7e22eff605a21f09E.exit.i, label %_ZN6chrono6format10formatting12format_inner17h59db503767df707cE.exit.thread
@@ -6253,7 +6253,7 @@ default.unreachable:                              ; preds = %541, %539, %447, %4
 
 .noexc22:                                         ; preds = %494
   %496 = ashr i32 %495, 10
-  br label %.thread325.i
+  br label %.thread326.i
 
 497:                                              ; preds = %478
   %498 = invoke noundef i32 @_ZN6chrono5naive7isoweek17iso_week_from_yof17hf686953d02dfb037E(i32 noundef %313, i32 noundef %307)
@@ -6340,7 +6340,7 @@ default.unreachable:                              ; preds = %541, %539, %447, %4
   %spec.select259 = select i1 %419, i64 %switch.offset241, i64 7
   br label %_ZN6chrono5naive9internals3Mdf7from_of17h7e22eff605a21f09E.exit.i
 
-.thread325.i:                                     ; preds = %474, %.noexc22
+.thread326.i:                                     ; preds = %474, %.noexc22
   %.sroa.42.1.ph.ph.in.i = phi i32 [ %496, %.noexc22 ], [ %313, %474 ]
   %.sroa.42.1.ph.ph.i = sext i32 %.sroa.42.1.ph.ph.in.i to i64
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %69), !noalias !1088
@@ -6359,7 +6359,7 @@ _ZN6chrono5naive9internals3Mdf7from_of17h7e22eff605a21f09E.exit.i: ; preds = %53
   store i64 %.sroa.42.1.ph.i, ptr %68, align 8, !noalias !1088
   br label %539
 
-539:                                              ; preds = %_ZN6chrono5naive9internals3Mdf7from_of17h7e22eff605a21f09E.exit.i, %.thread325.i
+539:                                              ; preds = %_ZN6chrono5naive9internals3Mdf7from_of17h7e22eff605a21f09E.exit.i, %.thread326.i
   %540 = load i8, ptr %342, align 2, !range !1089, !alias.scope !1053, !noalias !1056, !noundef !12
   switch i8 %540, label %default.unreachable [
     i8 0, label %551
@@ -6367,7 +6367,7 @@ _ZN6chrono5naive9internals3Mdf7from_of17h7e22eff605a21f09E.exit.i: ; preds = %53
     i8 2, label %556
   ]
 
-541:                                              ; preds = %.thread325.i
+541:                                              ; preds = %.thread326.i
   %542 = load i8, ptr %342, align 2, !range !1089, !alias.scope !1053, !noalias !1056, !noundef !12
   switch i8 %542, label %default.unreachable [
     i8 0, label %543
@@ -6605,7 +6605,7 @@ _ZN6chrono5naive9internals3Mdf7from_of17h7e22eff605a21f09E.exit.i: ; preds = %53
   br i1 %90, label %.noexc134.invoke, label %"_ZN4core3ptr41drop_in_place$LT$chrono..format..Item$GT$17h4028cdd22f7c486cE.exit59"
 
 574:                                              ; preds = %447, %447
-  br i1 %90, label %"_ZN62_$LT$chrono..format..Fixed$u20$as$u20$core..cmp..PartialEq$GT$2eq17h79bb6e6df00e2447E.exit314.i", label %"_ZN4core3ptr41drop_in_place$LT$chrono..format..Item$GT$17h4028cdd22f7c486cE.exit59"
+  br i1 %90, label %"_ZN62_$LT$chrono..format..Fixed$u20$as$u20$core..cmp..PartialEq$GT$2eq17h79bb6e6df00e2447E.exit315.i", label %"_ZN4core3ptr41drop_in_place$LT$chrono..format..Item$GT$17h4028cdd22f7c486cE.exit59"
 
 575:                                              ; preds = %447
   br i1 %or.cond269.i.not, label %784, label %"_ZN4core3ptr41drop_in_place$LT$chrono..format..Item$GT$17h4028cdd22f7c486cE.exit59"
@@ -6830,7 +6830,7 @@ _ZN6chrono5naive9internals2Of7weekday17h25cee97fdc3a2ca2E.exit.i188: ; preds = %
   %671 = and i8 %669, 63
   %672 = zext nneg i8 %671 to i32
   %673 = or disjoint i32 %670, %672
-  %674 = icmp ugt i8 %663, -33
+  %674 = icmp samesign ugt i8 %663, -33
   br i1 %674, label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hc75ea61cc721acf1E.exit15.i.i.i.i.i.i", label %"_ZN107_$LT$core..iter..adapters..fuse..Fuse$LT$I$GT$$u20$as$u20$core..iter..adapters..fuse..FuseImpl$LT$I$GT$$GT$4next17h2f1bc9cd47f2bf82E.exit.i.i"
 
 675:                                              ; preds = %661
@@ -6849,7 +6849,7 @@ _ZN6chrono5naive9internals2Of7weekday17h25cee97fdc3a2ca2E.exit.i188: ; preds = %
   %683 = or disjoint i32 %680, %682
   %684 = shl nuw nsw i32 %666, 12
   %685 = or disjoint i32 %683, %684
-  %686 = icmp ugt i8 %663, -17
+  %686 = icmp samesign ugt i8 %663, -17
   br i1 %686, label %"_ZN81_$LT$core..str..iter..Chars$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hf8331cb4ab772ac4E.exit.i.i.i.i", label %"_ZN107_$LT$core..iter..adapters..fuse..Fuse$LT$I$GT$$u20$as$u20$core..iter..adapters..fuse..FuseImpl$LT$I$GT$$GT$4next17h2f1bc9cd47f2bf82E.exit.i.i"
 
 "_ZN81_$LT$core..str..iter..Chars$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hf8331cb4ab772ac4E.exit.i.i.i.i": ; preds = %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hc75ea61cc721acf1E.exit15.i.i.i.i.i.i"
@@ -7268,7 +7268,7 @@ _ZN6chrono5naive9internals2Of7weekday17h25cee97fdc3a2ca2E.exit.i188: ; preds = %
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %47), !noalias !1088
   br i1 %780, label %_ZN6chrono6format10formatting12format_inner17h59db503767df707cE.exit.thread, label %_ZN6chrono6format10formatting12format_inner17h59db503767df707cE.exit.thread223
 
-"_ZN62_$LT$chrono..format..Fixed$u20$as$u20$core..cmp..PartialEq$GT$2eq17h79bb6e6df00e2447E.exit314.i": ; preds = %574
+"_ZN62_$LT$chrono..format..Fixed$u20$as$u20$core..cmp..PartialEq$GT$2eq17h79bb6e6df00e2447E.exit315.i": ; preds = %574
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %48), !noalias !1088
   %781 = icmp eq i8 %449, 16
   store i8 1, ptr %242, align 1, !noalias !1088
@@ -7279,7 +7279,7 @@ _ZN6chrono5naive9internals2Of7weekday17h25cee97fdc3a2ca2E.exit.i188: ; preds = %
   %783 = invoke noundef zeroext i1 @"_ZN6chrono6format10formatting46_$LT$impl$u20$chrono..format..OffsetFormat$GT$6format17h98ba6dc50ab47710E"(ptr noalias noundef nonnull readonly align 1 dereferenceable(4) %48, ptr noalias noundef nonnull align 8 dereferenceable(24) %74, i32 noundef %183)
           to label %.noexc48 unwind label %.loopexit.split-lp.loopexit
 
-.noexc48:                                         ; preds = %"_ZN62_$LT$chrono..format..Fixed$u20$as$u20$core..cmp..PartialEq$GT$2eq17h79bb6e6df00e2447E.exit314.i"
+.noexc48:                                         ; preds = %"_ZN62_$LT$chrono..format..Fixed$u20$as$u20$core..cmp..PartialEq$GT$2eq17h79bb6e6df00e2447E.exit315.i"
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %48), !noalias !1088
   br i1 %783, label %_ZN6chrono6format10formatting12format_inner17h59db503767df707cE.exit.thread, label %_ZN6chrono6format10formatting12format_inner17h59db503767df707cE.exit.thread223
 
@@ -10373,7 +10373,7 @@ define void @_ZN15influxdb3_write12write_buffer33parse_validate_and_update_catal
   %218 = and i8 %216, 63
   %219 = zext nneg i8 %218 to i32
   %220 = or disjoint i32 %217, %219
-  %221 = icmp ugt i8 %210, -33
+  %221 = icmp samesign ugt i8 %210, -33
   br i1 %221, label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hc75ea61cc721acf1E.exit15.i.i.i.i.i.i.i.i.i.i.i", label %"_ZN87_$LT$core..str..iter..CharIndices$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17ha4362d18941042d5E.exit.thread7.i.i.i.i.i.i.i.i.i"
 
 222:                                              ; preds = %201
@@ -10391,7 +10391,7 @@ define void @_ZN15influxdb3_write12write_buffer33parse_validate_and_update_catal
   %230 = or disjoint i32 %227, %229
   %231 = shl nuw nsw i32 %213, 12
   %232 = or disjoint i32 %230, %231
-  %233 = icmp ugt i8 %210, -17
+  %233 = icmp samesign ugt i8 %210, -17
   br i1 %233, label %234, label %"_ZN87_$LT$core..str..iter..CharIndices$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17ha4362d18941042d5E.exit.thread7.i.i.i.i.i.i.i.i.i"
 
 234:                                              ; preds = %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hc75ea61cc721acf1E.exit15.i.i.i.i.i.i.i.i.i.i.i"
@@ -12232,11 +12232,11 @@ default.unreachable.i.i.i.i:                      ; preds = %766
   br i1 %769, label %"_ZN15influxdb3_write12write_buffer32validate_and_convert_parsed_line28_$u7b$$u7b$closure$u7d$$u7d$17he5880359dc56c59dE.exit.i.i.i", label %770
 
 770:                                              ; preds = %768
-  %771 = icmp ult i64 %.02.i.i.i.i.i, 5000000000000
+  %771 = icmp samesign ult i64 %.02.i.i.i.i.i, 5000000000000
   br i1 %771, label %"_ZN15influxdb3_write12write_buffer32validate_and_convert_parsed_line28_$u7b$$u7b$closure$u7d$$u7d$17he5880359dc56c59dE.exit.i.i.i", label %772
 
 772:                                              ; preds = %770
-  %773 = icmp ult i64 %.02.i.i.i.i.i, 5000000000000000
+  %773 = icmp samesign ult i64 %.02.i.i.i.i.i, 5000000000000000
   %spec.select.i.i.i.i = select i1 %773, i64 1000, i64 1
   br label %"_ZN15influxdb3_write12write_buffer32validate_and_convert_parsed_line28_$u7b$$u7b$closure$u7d$$u7d$17he5880359dc56c59dE.exit.i.i.i"
 

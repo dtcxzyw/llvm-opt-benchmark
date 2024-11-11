@@ -123,7 +123,7 @@ define dso_local i32 @float_to_shortest_decimal_bufn(float noundef %0, ptr nocap
   %75 = add nuw i64 %74, %73
   %76 = lshr i64 %75, %61
   %77 = trunc i64 %76 to i32
-  %.not158.i = icmp ult i32 %.0.i22, 4
+  %.not158.i = icmp samesign ult i32 %.0.i22, 4
   br i1 %.not158.i, label %.thread.i, label %78
 
 78:                                               ; preds = %43
@@ -157,7 +157,7 @@ define dso_local i32 @float_to_shortest_decimal_bufn(float noundef %0, ptr nocap
 
 102:                                              ; preds = %82, %78
   %.0142.i = phi i8 [ %101, %82 ], [ 0, %78 ]
-  %103 = icmp ult i32 %.0.i22, 34
+  %103 = icmp samesign ult i32 %.0.i22, 34
   br i1 %103, label %.thread.i, label %.preheader.i
 
 .thread.i:                                        ; preds = %102, %43
@@ -247,7 +247,7 @@ multipleOfPowerOf5.exit169.i:                     ; preds = %.lr.ph.i.i165.i, %1
   %152 = add nuw i64 %151, %150
   %153 = lshr i64 %152, %138
   %154 = trunc i64 %153 to i32
-  %.not.i = icmp ult i32 %120, 1048576
+  %.not.i = icmp samesign ult i32 %120, 1048576
   %.pre.i = add i32 %147, -1
   br i1 %.not.i, label %.preheader182.i, label %155
 
@@ -281,7 +281,7 @@ multipleOfPowerOf5.exit169.i:                     ; preds = %.lr.ph.i.i165.i, %1
 
 177:                                              ; preds = %158, %155
   %.2144.i = phi i8 [ %176, %158 ], [ 0, %155 ]
-  %178 = icmp ult i32 %120, 2097152
+  %178 = icmp samesign ult i32 %120, 2097152
   br i1 %178, label %.preheader182.i, label %182
 
 .preheader182.i:                                  ; preds = %184, %177, %119, %multipleOfPowerOf5.exit.i
@@ -296,7 +296,7 @@ multipleOfPowerOf5.exit169.i:                     ; preds = %.lr.ph.i.i165.i, %1
   br i1 %181, label %.lr.ph.i, label %._crit_edge.i
 
 182:                                              ; preds = %177
-  %183 = icmp ult i32 %120, 32505856
+  %183 = icmp samesign ult i32 %120, 32505856
   br i1 %183, label %184, label %.preheader.i
 
 184:                                              ; preds = %182
@@ -390,31 +390,31 @@ multipleOfPowerOf5.exit169.i:                     ; preds = %.lr.ph.i.i165.i, %1
   %.sroa.3.0.extract.trunc.i69 = phi i32 [ 0, %.thread ], [ %224, %221 ]
   %.sroa.0.067 = phi i32 [ %29, %.thread ], [ %223, %221 ]
   %.sroa.3.065 = phi i64 [ 0, %.thread ], [ %226, %221 ]
-  %229 = icmp ugt i32 %.sroa.0.067, 9999999
+  %229 = icmp samesign ugt i32 %.sroa.0.067, 9999999
   br i1 %229, label %decimalLength.exit.i, label %230
 
 230:                                              ; preds = %228
-  %231 = icmp ugt i32 %.sroa.0.067, 999999
+  %231 = icmp samesign ugt i32 %.sroa.0.067, 999999
   br i1 %231, label %decimalLength.exit.i, label %232
 
 232:                                              ; preds = %230
-  %233 = icmp ugt i32 %.sroa.0.067, 99999
+  %233 = icmp samesign ugt i32 %.sroa.0.067, 99999
   br i1 %233, label %decimalLength.exit.i, label %234
 
 234:                                              ; preds = %232
-  %235 = icmp ugt i32 %.sroa.0.067, 9999
+  %235 = icmp samesign ugt i32 %.sroa.0.067, 9999
   br i1 %235, label %decimalLength.exit.i, label %236
 
 236:                                              ; preds = %234
-  %237 = icmp ugt i32 %.sroa.0.067, 999
+  %237 = icmp samesign ugt i32 %.sroa.0.067, 999
   br i1 %237, label %decimalLength.exit.i, label %238
 
 238:                                              ; preds = %236
-  %239 = icmp ugt i32 %.sroa.0.067, 99
+  %239 = icmp samesign ugt i32 %.sroa.0.067, 99
   br i1 %239, label %decimalLength.exit.i, label %240
 
 240:                                              ; preds = %238
-  %241 = icmp ugt i32 %.sroa.0.067, 9
+  %241 = icmp samesign ugt i32 %.sroa.0.067, 9
   %..i.i = select i1 %241, i32 2, i32 1
   br label %decimalLength.exit.i
 

@@ -2553,7 +2553,7 @@ strbuf_setlen.exit200:                            ; preds = %if.end.i193, %if.th
 
 for.inc:                                          ; preds = %if.then.i20.i, %basecmp.exit36.i, %if.then.i.i140, %strbuf_setlen.exit200, %strbuf_setlen.exit190, %land.lhs.true199, %match_wildcard_base.exit, %match_wildcards, %if.end101, %ps_strncmp.exit, %land.lhs.true132, %if.end126, %land.lhs.true, %land.lhs.true39
   %never_interesting.1 = phi i32 [ 0, %strbuf_setlen.exit200 ], [ %never_interesting.3213, %if.end126 ], [ %never_interesting.3213, %ps_strncmp.exit ], [ %never_interesting.3213, %land.lhs.true132 ], [ %never_interesting.3213, %if.end101 ], [ %never_interesting.0230, %match_wildcards ], [ %never_interesting.0230, %strbuf_setlen.exit190 ], [ %never_interesting.0230, %land.lhs.true199 ], [ %never_interesting.0230, %match_wildcard_base.exit ], [ %never_interesting.0230, %land.lhs.true39 ], [ %never_interesting.0230, %land.lhs.true ], [ %never_interesting.0230, %if.then.i.i140 ], [ %never_interesting.0230, %basecmp.exit36.i ], [ %never_interesting.0230, %if.then.i20.i ]
-  %cmp28 = icmp ugt i64 %indvars.iv, 1
+  %cmp28 = icmp samesign ugt i64 %indvars.iv, 1
   br i1 %cmp28, label %for.body, label %return, !llvm.loop !19
 
 return:                                           ; preds = %if.then66, %if.end69, %land.lhs.true120, %land.lhs.true199, %if.then208, %strbuf_setlen.exit200, %interesting, %for.inc, %if.end25, %if.then6, %lor.lhs.false14, %if.end17

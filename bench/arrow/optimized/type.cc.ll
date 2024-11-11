@@ -16855,7 +16855,7 @@ _ZN5arrow6Status11DeleteStateEv.exit.i:           ; preds = %if.end8.sink.split.
   br label %return
 
 if.end:                                           ; preds = %entry
-  %cmp1 = icmp ugt i32 %byte_width, 268435455
+  %cmp1 = icmp samesign ugt i32 %byte_width, 268435455
   br i1 %cmp1, label %if.then2, label %if.end4
 
 if.then2:                                         ; preds = %if.end
@@ -22823,7 +22823,7 @@ call4.i.noexc:                                    ; preds = %if.then.i
           to label %cleanup.done28.sink.split unwind label %lpad5
 
 cleanup.done:                                     ; preds = %entry
-  %cmp11 = icmp ugt i32 %precision, 38
+  %cmp11 = icmp samesign ugt i32 %precision, 38
   br i1 %cmp11, label %cond.false15, label %cleanup.done28
 
 cond.false15:                                     ; preds = %cleanup.done
@@ -22929,7 +22929,7 @@ call4.i.noexc:                                    ; preds = %if.then.i
           to label %cleanup.done28.sink.split unwind label %lpad5
 
 cleanup.done:                                     ; preds = %entry
-  %cmp11 = icmp ugt i32 %precision, 76
+  %cmp11 = icmp samesign ugt i32 %precision, 76
   br i1 %cmp11, label %cond.false15, label %cleanup.done28
 
 cond.false15:                                     ; preds = %cleanup.done
@@ -23826,7 +23826,7 @@ if.then:                                          ; preds = %entry
   br i1 %cmp2, label %if.then3, label %if.end28
 
 if.then3:                                         ; preds = %if.then
-  %cmp4 = icmp ult i32 %conv, 4
+  %cmp4 = icmp samesign ult i32 %conv, 4
   br i1 %cmp4, label %if.then5, label %if.end18
 
 if.then5:                                         ; preds = %if.then3
@@ -31970,7 +31970,7 @@ if.else:                                          ; preds = %for.end32
   br i1 %cmp34, label %if.then35, label %if.else91
 
 if.then35:                                        ; preds = %if.else
-  %cmp.i.i30 = icmp ugt i64 %add, 2305843009213693951
+  %cmp.i.i30 = icmp samesign ugt i64 %add, 2305843009213693951
   br i1 %cmp.i.i30, label %if.then.i.i, label %if.then.i.i.i.i.i
 
 if.then.i.i:                                      ; preds = %if.then35

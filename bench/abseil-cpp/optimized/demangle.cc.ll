@@ -5129,7 +5129,7 @@ _ZN4absl18debugging_internalL8EndsWithEPNS0_5StateEc.exit: ; preds = %land.lhs.t
 
 if.then3:                                         ; preds = %_ZN4absl18debugging_internalL8EndsWithEPNS0_5StateEc.exit
   %add.i = add nuw nsw i32 %1, 1
-  %cmp1.i = icmp ult i32 %add.i, %2
+  %cmp1.i = icmp samesign ult i32 %add.i, %2
   br i1 %cmp1.i, label %for.end.i, label %for.end.i.thread
 
 for.end.i.thread:                                 ; preds = %if.then3
@@ -5835,7 +5835,7 @@ invoke.cont97:                                    ; preds = %if.else
   br i1 %or.cond, label %land.lhs.true100, label %if.end117
 
 land.lhs.true100:                                 ; preds = %invoke.cont97
-  %cmp101 = icmp ult i32 %49, 3
+  %cmp101 = icmp samesign ult i32 %49, 3
   br i1 %cmp101, label %land.lhs.true105, label %lor.lhs.false102
 
 lor.lhs.false102:                                 ; preds = %land.lhs.true100

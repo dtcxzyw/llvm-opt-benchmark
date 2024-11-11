@@ -2841,7 +2841,7 @@ define dso_local noundef i32 @dmar_fault(i32 %0, ptr noundef %1) #0 align 16 {
   br label %.thread10
 
 82:                                               ; preds = %68
-  %83 = icmp ult i8 %58, 14
+  %83 = icmp samesign ult i8 %58, 14
   br i1 %83, label %84, label %.thread8
 
 84:                                               ; preds = %82

@@ -248,7 +248,7 @@ define dso_local ptr @pci_mmconfig_lookup(i32 noundef %0, i32 noundef %1) local_
   %16 = getelementptr inbounds i8, ptr %5, i64 99
   %17 = load i8, ptr %16, align 1
   %18 = zext i8 %17 to i32
-  %19 = icmp ugt i32 %1, %18
+  %19 = icmp samesign ugt i32 %1, %18
   br i1 %19, label %20, label %.loopexit
 
 20:                                               ; preds = %15, %10, %.preheader

@@ -3745,7 +3745,7 @@ signal_child.exit23.i88:                          ; preds = %756, %754, %750, %7
   br i1 %or.cond15.i92, label %771, label %StartAutovacuumWorker.exit.i
 
 771:                                              ; preds = %765
-  %or.cond.i.i.i = icmp ult i32 %769, 3
+  %or.cond.i.i.i = icmp samesign ult i32 %769, 3
   br i1 %or.cond.i.i.i, label %canAcceptConnections.exit.thread.i.i, label %772
 
 772:                                              ; preds = %771

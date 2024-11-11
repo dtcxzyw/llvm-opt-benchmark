@@ -2421,7 +2421,7 @@ __cxx_global_var_init.exit:                       ; preds = %26
 .noexc8.i.i.i.i:                                  ; preds = %.lr.ph.i.i.i.i.i.i.i.i.i
   %142 = getelementptr inbounds i8, ptr %.056.i.i.i.i.i.i.i.i.i, i64 8
   %143 = add nsw i64 %.07.i.i.i.i.i.i.i.i.i, -1
-  %144 = icmp ugt i64 %.07.i.i.i.i.i.i.i.i.i, 1
+  %144 = icmp samesign ugt i64 %.07.i.i.i.i.i.i.i.i.i, 1
   br i1 %144, label %.lr.ph.i.i.i.i.i.i.i.i.i, label %_ZN11QStringListC2ESt16initializer_listI7QStringE.exit.i, !llvm.loop !19
 
 .loopexit.i.i.i.i:                                ; preds = %.lr.ph.i.i.i.i.i.i.i.i.i

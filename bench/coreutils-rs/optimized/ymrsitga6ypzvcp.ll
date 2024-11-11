@@ -536,7 +536,7 @@ _ZN4core3str7pattern13simd_contains17hd88dd90e038df932E.exit: ; preds = %18
   %138 = and i8 %136, 63
   %139 = zext nneg i8 %138 to i32
   %140 = or disjoint i32 %137, %139
-  %141 = icmp ugt i8 %130, -33
+  %141 = icmp samesign ugt i8 %130, -33
   br i1 %141, label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h671f607327aa0af9E.exit15.i.i.i", label %_ZN4core3str11validations15next_code_point17h21efb77c384932d1E.exit.thread.i.i
 
 142:                                              ; preds = %129
@@ -554,7 +554,7 @@ _ZN4core3str7pattern13simd_contains17hd88dd90e038df932E.exit: ; preds = %18
   %150 = or disjoint i32 %147, %149
   %151 = shl nuw nsw i32 %134, 12
   %152 = or disjoint i32 %150, %151
-  %153 = icmp ugt i8 %130, -17
+  %153 = icmp samesign ugt i8 %130, -17
   br i1 %153, label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h671f607327aa0af9E.exit17.i.i.i", label %_ZN4core3str11validations15next_code_point17h21efb77c384932d1E.exit.thread.i.i
 
 "_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h671f607327aa0af9E.exit17.i.i.i": ; preds = %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h671f607327aa0af9E.exit15.i.i.i"
@@ -4471,7 +4471,7 @@ _ZN8uu_touch20datetime_to_filetime17h27a08669bd7df525E.exit: ; preds = %_ZN12cla
 
 460:                                              ; preds = %454
   %461 = trunc nuw nsw i64 %spec.select.i.i.i to i32
-  %462 = icmp ugt i32 %.sroa.10.0.extract.trunc, 999999999
+  %462 = icmp samesign ugt i32 %.sroa.10.0.extract.trunc, 999999999
   %463 = urem i32 %461, 60
   %464 = icmp ne i32 %463, 59
   %or.cond3.not.i.i = and i1 %462, %464
@@ -4582,7 +4582,7 @@ _ZN8uu_touch20filetime_to_datetime17h7e940413663220b1E.exit: ; preds = %460
 
 496:                                              ; preds = %490
   %497 = trunc nuw nsw i64 %spec.select.i.i.i213 to i32
-  %498 = icmp ugt i32 %.sroa.694.0.copyload, 999999999
+  %498 = icmp samesign ugt i32 %.sroa.694.0.copyload, 999999999
   %499 = urem i32 %497, 60
   %500 = icmp ne i32 %499, 59
   %or.cond3.not.i.i216 = and i1 %498, %500

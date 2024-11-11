@@ -11900,7 +11900,7 @@ _ZN6casadi23casadi_clear_casadi_intEPxx.exit.thread: ; preds = %12
   %228 = getelementptr inbounds i64, ptr %16, i64 %.1209
   store i64 %227, ptr %228, align 8
   %229 = add nsw i64 %.1209, -1
-  %230 = icmp ugt i64 %.1209, 1
+  %230 = icmp samesign ugt i64 %.1209, 1
   br i1 %230, label %.lr.ph211, label %._crit_edge212, !llvm.loop !109
 
 ._crit_edge212:                                   ; preds = %.lr.ph211, %._crit_edge201, %._crit_edge205
@@ -13990,7 +13990,7 @@ _ZN6casadi23casadi_clear_casadi_intEPxx.exit.thread: ; preds = %11
   %225 = getelementptr inbounds i64, ptr %15, i64 %.1201
   store i64 %224, ptr %225, align 8
   %226 = add nsw i64 %.1201, -1
-  %227 = icmp ugt i64 %.1201, 1
+  %227 = icmp samesign ugt i64 %.1201, 1
   br i1 %227, label %.lr.ph203, label %._crit_edge204, !llvm.loop !119
 
 ._crit_edge204:                                   ; preds = %.lr.ph203, %175, %._crit_edge197

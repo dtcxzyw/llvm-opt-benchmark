@@ -8462,7 +8462,7 @@ _ZN6editor11display_map15DisplaySnapshot19x_for_display_point17haf17ed9bc72f91df
   %169 = load i8, ptr %162, align 1, !noalias !2207, !noundef !9
   %170 = and i8 %169, 63
   %171 = zext nneg i8 %170 to i32
-  %172 = icmp ugt i8 %163, -33
+  %172 = icmp samesign ugt i8 %163, -33
   br i1 %172, label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h16f59da09d4a4f0bE.exit14.i.i.i.i.i.i.i.i", label %_ZN4core4iter8adapters7flatten17and_then_or_clear17h994a4e096039ec86E.exit11.loopexit.split.loop.exit19.i.i.i.i
 
 173:                                              ; preds = %161
@@ -8479,7 +8479,7 @@ _ZN6editor11display_map15DisplaySnapshot19x_for_display_point17haf17ed9bc72f91df
   %179 = and i8 %177, 63
   %180 = zext nneg i8 %179 to i32
   %181 = or disjoint i32 %178, %180
-  %182 = icmp ugt i8 %163, -17
+  %182 = icmp samesign ugt i8 %163, -17
   br i1 %182, label %_ZN4core3ops8function6FnOnce9call_once17he030689b95f45f85E.exit.i.i.i.i.i, label %_ZN4core4iter8adapters7flatten17and_then_or_clear17h994a4e096039ec86E.exit11.loopexit.split.loop.exit.i.i.i.i
 
 _ZN4core3ops8function6FnOnce9call_once17he030689b95f45f85E.exit.i.i.i.i.i: ; preds = %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h16f59da09d4a4f0bE.exit14.i.i.i.i.i.i.i.i"
@@ -8621,7 +8621,7 @@ _ZN4core4iter8adapters7flatten17and_then_or_clear17h994a4e096039ec86E.exit11.loo
   %238 = and i8 %236, 63
   %239 = zext nneg i8 %238 to i32
   %240 = or disjoint i32 %237, %239
-  %241 = icmp ugt i8 %230, -33
+  %241 = icmp samesign ugt i8 %230, -33
   br i1 %241, label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h16f59da09d4a4f0bE.exit14.i.i.i.i8.i.i.i.i", label %"_ZN116_$LT$core..iter..adapters..flatten..FlattenCompat$LT$I$C$U$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h530124d108b2f867E.exit.thread.i.i.i"
 
 242:                                              ; preds = %228
@@ -8640,7 +8640,7 @@ _ZN4core4iter8adapters7flatten17and_then_or_clear17h994a4e096039ec86E.exit11.loo
   %250 = or disjoint i32 %247, %249
   %251 = shl nuw nsw i32 %233, 12
   %252 = or disjoint i32 %250, %251
-  %253 = icmp ugt i8 %230, -17
+  %253 = icmp samesign ugt i8 %230, -17
   br i1 %253, label %_ZN4core3ops8function6FnOnce9call_once17he030689b95f45f85E.exit.i9.i.i.i.i, label %"_ZN116_$LT$core..iter..adapters..flatten..FlattenCompat$LT$I$C$U$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h530124d108b2f867E.exit.thread.i.i.i"
 
 _ZN4core3ops8function6FnOnce9call_once17he030689b95f45f85E.exit.i9.i.i.i.i: ; preds = %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h16f59da09d4a4f0bE.exit14.i.i.i.i8.i.i.i.i"
@@ -8762,15 +8762,15 @@ _ZN4core3ops8function6FnOnce9call_once17he030689b95f45f85E.exit.thread6.i10.i.i.
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %13), !noalias !2181
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %.sroa.0.i.i)
   store i32 0, ptr %.sroa.0.i.i, align 4, !noalias !2181
-  %287 = icmp ult i32 %.sroa.0.0.i34.i.i.i, 128
+  %287 = icmp samesign ult i32 %.sroa.0.0.i34.i.i.i, 128
   br i1 %287, label %292, label %288
 
 288:                                              ; preds = %282
-  %289 = icmp ult i32 %.sroa.0.0.i34.i.i.i, 2048
+  %289 = icmp samesign ult i32 %.sroa.0.0.i34.i.i.i, 2048
   br i1 %289, label %294, label %290
 
 290:                                              ; preds = %288
-  %291 = icmp ult i32 %.sroa.0.0.i34.i.i.i, 65536
+  %291 = icmp samesign ult i32 %.sroa.0.0.i34.i.i.i, 65536
   br i1 %291, label %301, label %312
 
 292:                                              ; preds = %282
@@ -46518,7 +46518,7 @@ define hidden void @_ZN12futures_util6future8join_all8join_all17h20dfc6806731a3b
 
 "_ZN115_$LT$core..iter..adapters..filter_map..FilterMap$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$9size_hint17h77fd3dc558837122E.llvm.16970626885041381125.exit": ; preds = %36, %27, %18
   %.sink15.i.i = phi i64 [ %45, %36 ], [ %35, %27 ], [ %26, %18 ]
-  %46 = icmp ult i64 %.sink15.i.i, 31
+  %46 = icmp samesign ult i64 %.sink15.i.i, 31
   br i1 %46, label %"_ZN115_$LT$core..iter..adapters..filter_map..FilterMap$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$9size_hint17h77fd3dc558837122E.llvm.16970626885041381125.exit.thread", label %47
 
 47:                                               ; preds = %"_ZN115_$LT$core..iter..adapters..filter_map..FilterMap$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$9size_hint17h77fd3dc558837122E.llvm.16970626885041381125.exit"
@@ -46624,7 +46624,7 @@ define hidden void @_ZN12futures_util6future8join_all8join_all17h69c611d5a8eca1c
   %.sroa.5.0..sroa_idx.i = getelementptr inbounds i8, ptr %1, i64 16
   %.sroa.5.0.copyload.i = load i64, ptr %.sroa.5.0..sroa_idx.i, align 8, !alias.scope !11210, !noalias !11213
   %10 = getelementptr inbounds { { { { i64, [6 x i64] }, ptr }, { i64, ptr, ptr, ptr, ptr, ptr, { { { [4 x i64] }, i64 }, i32, [1 x i32] }, i16, i8, [5 x i8] }, { ptr, { { { [4 x i64] }, i64 }, i32, [1 x i32] }, { { { [4 x i64] }, i64 }, i32, [1 x i32] }, i64 }, ptr, { ptr, [1 x i64] }, { { [4 x i64] }, i64 }, ptr, i64 }, { i64, [2 x i64] }, ptr, ptr, i64, [24 x i8], i8, [7 x i8] }, ptr %.sroa.4.0.copyload.i, i64 %.sroa.5.0.copyload.i
-  %11 = icmp ult i64 %.sroa.5.0.copyload.i, 31
+  %11 = icmp samesign ult i64 %.sroa.5.0.copyload.i, 31
   br i1 %11, label %.noexc, label %12
 
 12:                                               ; preds = %2
@@ -46909,7 +46909,7 @@ define hidden void @_ZN12futures_util6future8join_all8join_all17ha5d1ccf263a0064
   %.sroa.5.0..sroa_idx.i = getelementptr inbounds i8, ptr %1, i64 16
   %.sroa.5.0.copyload.i = load i64, ptr %.sroa.5.0..sroa_idx.i, align 8, !alias.scope !11311, !noalias !11314
   %10 = getelementptr inbounds { i64, [2 x i64] }, ptr %.sroa.4.0.copyload.i, i64 %.sroa.5.0.copyload.i
-  %11 = icmp ult i64 %.sroa.5.0.copyload.i, 31
+  %11 = icmp samesign ult i64 %.sroa.5.0.copyload.i, 31
   br i1 %11, label %.noexc, label %12
 
 12:                                               ; preds = %2
@@ -47023,7 +47023,7 @@ define hidden void @_ZN12futures_util6future8join_all8join_all17hccadd6bb007c22f
   %.sroa.5.0..sroa_idx.i = getelementptr inbounds i8, ptr %1, i64 16
   %.sroa.5.0.copyload.i = load i64, ptr %.sroa.5.0..sroa_idx.i, align 8, !alias.scope !11338, !noalias !11341
   %10 = getelementptr inbounds { [88 x i8], i8, [7 x i8] }, ptr %.sroa.4.0.copyload.i, i64 %.sroa.5.0.copyload.i
-  %11 = icmp ult i64 %.sroa.5.0.copyload.i, 31
+  %11 = icmp samesign ult i64 %.sroa.5.0.copyload.i, 31
   br i1 %11, label %.noexc, label %12
 
 12:                                               ; preds = %2
@@ -47938,7 +47938,7 @@ define internal fastcc void @"_ZN18serde_json_lenient2de21Deserializer$LT$R$GT$1
 
 69:                                               ; preds = %32
   %70 = icmp ne i64 %.sroa.0.079, 1844674407370955161
-  %71 = icmp ugt i8 %25, 5
+  %71 = icmp samesign ugt i8 %25, 5
   %or.cond1 = or i1 %70, %71
   br i1 %or.cond1, label %77, label %72
 
@@ -48206,7 +48206,7 @@ define internal fastcc void @"_ZN18serde_json_lenient2de21Deserializer$LT$R$GT$1
 
 102:                                              ; preds = %99
   %103 = icmp ne i64 %.sroa.012.075, 1844674407370955161
-  %104 = icmp ugt i8 %69, 5
+  %104 = icmp samesign ugt i8 %69, 5
   %or.cond3 = or i1 %103, %104
   br i1 %or.cond3, label %109, label %105
 
@@ -48433,7 +48433,7 @@ define internal fastcc void @"_ZN18serde_json_lenient2de21Deserializer$LT$R$GT$1
 
 82:                                               ; preds = %46
   %83 = icmp ne i32 %.sroa.09.065, 214748364
-  %84 = icmp ugt i8 %45, 7
+  %84 = icmp samesign ugt i8 %45, 7
   %or.cond2 = or i1 %83, %84
   br i1 %or.cond2, label %88, label %85
 
@@ -143263,7 +143263,7 @@ define hidden void @"_ZN6editor3git5blame8GitBlame4sync28_$u7b$$u7b$closure$u7d$
   %54 = load i8, ptr %50, align 1, !noalias !35111, !noundef !9
   %55 = and i8 %54, 63
   %56 = zext nneg i8 %55 to i32
-  %57 = icmp ugt i8 %48, -33
+  %57 = icmp samesign ugt i8 %48, -33
   br i1 %57, label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h16f59da09d4a4f0bE.exit14.i.i.i.i.i", label %_ZN4core4iter8adapters7flatten17and_then_or_clear17h994a4e096039ec86E.exit11.loopexit.split.loop.exit21.i
 
 58:                                               ; preds = %47
@@ -143279,7 +143279,7 @@ define hidden void @"_ZN6editor3git5blame8GitBlame4sync28_$u7b$$u7b$closure$u7d$
   %64 = and i8 %62, 63
   %65 = zext nneg i8 %64 to i32
   %66 = or disjoint i32 %63, %65
-  %67 = icmp ugt i8 %48, -17
+  %67 = icmp samesign ugt i8 %48, -17
   br i1 %67, label %_ZN4core3ops8function6FnOnce9call_once17he030689b95f45f85E.exit.i.i, label %_ZN4core4iter8adapters7flatten17and_then_or_clear17h994a4e096039ec86E.exit11.loopexit.split.loop.exit.i
 
 _ZN4core3ops8function6FnOnce9call_once17he030689b95f45f85E.exit.i.i: ; preds = %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h16f59da09d4a4f0bE.exit14.i.i.i.i.i"
@@ -143373,7 +143373,7 @@ _ZN4core4iter8adapters7flatten17and_then_or_clear17h994a4e096039ec86E.exit11.loo
   %111 = and i8 %109, 63
   %112 = zext nneg i8 %111 to i32
   %113 = or disjoint i32 %110, %112
-  %114 = icmp ugt i8 %103, -33
+  %114 = icmp samesign ugt i8 %103, -33
   br i1 %114, label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h16f59da09d4a4f0bE.exit14.i.i.i.i8.i", label %"_ZN116_$LT$core..iter..adapters..flatten..FlattenCompat$LT$I$C$U$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hd9892effcde709f6E.exit"
 
 115:                                              ; preds = %102
@@ -143391,7 +143391,7 @@ _ZN4core4iter8adapters7flatten17and_then_or_clear17h994a4e096039ec86E.exit11.loo
   %123 = or disjoint i32 %120, %122
   %124 = shl nuw nsw i32 %107, 12
   %125 = or disjoint i32 %123, %124
-  %126 = icmp ugt i8 %103, -17
+  %126 = icmp samesign ugt i8 %103, -17
   br i1 %126, label %_ZN4core3ops8function6FnOnce9call_once17he030689b95f45f85E.exit.i9.i, label %"_ZN116_$LT$core..iter..adapters..flatten..FlattenCompat$LT$I$C$U$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hd9892effcde709f6E.exit"
 
 _ZN4core3ops8function6FnOnce9call_once17he030689b95f45f85E.exit.i9.i: ; preds = %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h16f59da09d4a4f0bE.exit14.i.i.i.i8.i"

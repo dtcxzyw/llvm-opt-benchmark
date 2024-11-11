@@ -2754,7 +2754,7 @@ _ZNSt6vectorIPiSaIS0_EE6assignESt16initializer_listIS0_E.exit: ; preds = %208, %
   %245 = getelementptr inbounds i8, ptr %.sroa.08.09.i.i.i.i.i.us.us.us.i.i, i64 %123
   %246 = getelementptr inbounds i8, ptr %.0410.i.i.i.i.i.us.us.us.i.i, i64 4
   %247 = add nsw i64 %.011.i.i.i.i.i.us.us.us.i.i, -1
-  %248 = icmp ugt i64 %.011.i.i.i.i.i.us.us.us.i.i, 1
+  %248 = icmp samesign ugt i64 %.011.i.i.i.i.i.us.us.us.i.i, 1
   br i1 %248, label %.lr.ph.i.i.i.i.i.us.us.us.i.i, label %_ZSt4copyIN2cv12_GLOBAL__N_116ChannelsIteratorINS1_13ConstItTraitsIhEEEEPiET0_T_S8_S7_.exit.loopexit.us.us.us.i.i, !llvm.loop !33
 
 _ZSt4copyIN2cv12_GLOBAL__N_116ChannelsIteratorINS1_13ConstItTraitsIhEEEEPiET0_T_S8_S7_.exit.loopexit.us.us.us.i.i: ; preds = %.lr.ph.i.i.i.i.i.us.us.us.i.i
@@ -2823,7 +2823,7 @@ _ZSt4copyIN2cv12_GLOBAL__N_116ChannelsIteratorINS1_13ConstItTraitsIhEEEEPiET0_T_
   %274 = getelementptr inbounds i16, ptr %.sroa.08.09.i.i.i.i.i.us.us.us.i27.i, i64 %123
   %275 = getelementptr inbounds i8, ptr %.0410.i.i.i.i.i.us.us.us.i26.i, i64 4
   %276 = add nsw i64 %.011.i.i.i.i.i.us.us.us.i25.i, -1
-  %277 = icmp ugt i64 %.011.i.i.i.i.i.us.us.us.i25.i, 1
+  %277 = icmp samesign ugt i64 %.011.i.i.i.i.i.us.us.us.i25.i, 1
   br i1 %277, label %.lr.ph.i.i.i.i.i.us.us.us.i24.i, label %_ZSt4copyIN2cv12_GLOBAL__N_116ChannelsIteratorINS1_13ConstItTraitsItEEEEPiET0_T_S8_S7_.exit.loopexit.us.us.us.i.i, !llvm.loop !36
 
 _ZSt4copyIN2cv12_GLOBAL__N_116ChannelsIteratorINS1_13ConstItTraitsItEEEEPiET0_T_S8_S7_.exit.loopexit.us.us.us.i.i: ; preds = %.lr.ph.i.i.i.i.i.us.us.us.i24.i

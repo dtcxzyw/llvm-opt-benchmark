@@ -129,7 +129,7 @@ invoke.cont:                                      ; preds = %call5.i.i.i.i2.i.i.
   tail call void @llvm.memset.p0.i64(ptr align 4 %incdec.ptr.i.i.i.i.i, i8 0, i64 %0, i1 false), !tbaa !27
   %_M_finish.i.i7.i = getelementptr inbounds nuw i8, ptr %this, i64 48
   store ptr %add.ptr.i.i.i, ptr %_M_finish.i.i7.i, align 8, !tbaa !28
-  %cmp.i.i10 = icmp ugt i64 %dimensionality, 1152921504606846975
+  %cmp.i.i10 = icmp samesign ugt i64 %dimensionality, 1152921504606846975
   br i1 %cmp.i.i10, label %if.then.i.i21, label %if.then.i.i.i.i.i12
 
 if.then.i.i21:                                    ; preds = %invoke.cont

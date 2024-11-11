@@ -20596,7 +20596,7 @@ _ZN5arrow6Status10IndexErrorIJRA56_KcRaRA16_S2_RlRA20_S2_S8_EEES0_DpOT_.exit.i.i
   br label %_ZNSt6vectorIbSaIbEED2Ev.exit.i.i
 
 invoke.cont79.i.i:                                ; preds = %if.end68.i.i
-  %div.i.i.i.i.i191538.cmp.i.i = icmp ugt i8 %93, 63
+  %div.i.i.i.i.i191538.cmp.i.i = icmp samesign ugt i8 %93, 63
   %div.i.i.i.i.i191538.i.i = zext i1 %div.i.i.i.i.i191538.cmp.i.i to i64
   %add.ptr.i.i.i.i.i192.i.i = getelementptr inbounds i64, ptr %call5.i.i.i.i1.i.i.i, i64 %div.i.i.i.i.i191538.i.i
   %95 = and i8 %93, 63
@@ -48804,7 +48804,7 @@ lpad:                                             ; preds = %_ZNSt10shared_ptrIN
   br label %ehcleanup48
 
 if.else:                                          ; preds = %entry
-  %cmp8.not = icmp ugt i32 %conv.i, 32767
+  %cmp8.not = icmp samesign ugt i32 %conv.i, 32767
   br i1 %cmp8.not, label %if.then17, label %if.then9
 
 if.then9:                                         ; preds = %if.else
@@ -52890,7 +52890,7 @@ lpad:                                             ; preds = %_ZNSt10shared_ptrIN
   br label %ehcleanup48
 
 if.else:                                          ; preds = %entry
-  %cmp8.not = icmp ugt i32 %conv.i, 32767
+  %cmp8.not = icmp samesign ugt i32 %conv.i, 32767
   br i1 %cmp8.not, label %if.then17, label %if.then9
 
 if.then9:                                         ; preds = %if.else
@@ -56061,7 +56061,7 @@ lpad:                                             ; preds = %_ZNSt10shared_ptrIN
   br label %ehcleanup48
 
 if.else:                                          ; preds = %entry
-  %cmp8.not = icmp ugt i32 %conv.i, 32767
+  %cmp8.not = icmp samesign ugt i32 %conv.i, 32767
   br i1 %cmp8.not, label %if.then17, label %if.then9
 
 if.then9:                                         ; preds = %if.else
@@ -59202,7 +59202,7 @@ lpad:                                             ; preds = %_ZNSt10shared_ptrIN
   br label %ehcleanup48
 
 if.else:                                          ; preds = %entry
-  %cmp8.not = icmp ugt i32 %add.i, 32767
+  %cmp8.not = icmp samesign ugt i32 %add.i, 32767
   br i1 %cmp8.not, label %if.then17, label %if.then9
 
 if.then9:                                         ; preds = %if.else
@@ -62977,7 +62977,7 @@ lpad:                                             ; preds = %_ZNSt10shared_ptrIN
   br label %ehcleanup48
 
 if.else:                                          ; preds = %entry
-  %cmp8.not = icmp ugt i32 %add.i, 32767
+  %cmp8.not = icmp samesign ugt i32 %add.i, 32767
   br i1 %cmp8.not, label %if.then17, label %if.then9
 
 if.then9:                                         ; preds = %if.else
@@ -66917,7 +66917,7 @@ lpad:                                             ; preds = %_ZNSt10shared_ptrIN
   br label %ehcleanup48
 
 if.else:                                          ; preds = %entry
-  %cmp8.not = icmp ugt i32 %add.i, 32767
+  %cmp8.not = icmp samesign ugt i32 %add.i, 32767
   br i1 %cmp8.not, label %if.then17, label %if.then9
 
 if.then9:                                         ; preds = %if.else
@@ -70855,7 +70855,7 @@ lpad:                                             ; preds = %_ZNSt10shared_ptrIN
   br label %ehcleanup48
 
 if.else:                                          ; preds = %entry
-  %cmp8.not = icmp ugt i32 %add.i, 32767
+  %cmp8.not = icmp samesign ugt i32 %add.i, 32767
   br i1 %cmp8.not, label %if.then17, label %if.then9
 
 if.then9:                                         ; preds = %if.else
@@ -74623,7 +74623,7 @@ lpad:                                             ; preds = %_ZNSt10shared_ptrIN
   br label %ehcleanup48
 
 if.else:                                          ; preds = %entry
-  %cmp8.not = icmp ugt i32 %add.i, 32767
+  %cmp8.not = icmp samesign ugt i32 %add.i, 32767
   br i1 %cmp8.not, label %if.then17, label %if.then9
 
 if.then9:                                         ; preds = %if.else
@@ -78557,7 +78557,7 @@ lpad:                                             ; preds = %_ZNSt10shared_ptrIN
   br label %ehcleanup48
 
 if.else:                                          ; preds = %entry
-  %cmp8.not = icmp ugt i32 %add.i, 32767
+  %cmp8.not = icmp samesign ugt i32 %add.i, 32767
   br i1 %cmp8.not, label %if.then17, label %if.then9
 
 if.then9:                                         ; preds = %if.else
@@ -82329,7 +82329,7 @@ lpad:                                             ; preds = %_ZNSt10shared_ptrIN
   br label %ehcleanup48
 
 if.else:                                          ; preds = %entry
-  %cmp8.not = icmp ugt i32 %add.i, 32767
+  %cmp8.not = icmp samesign ugt i32 %add.i, 32767
   br i1 %cmp8.not, label %if.then17, label %if.then9
 
 if.then9:                                         ; preds = %if.else
@@ -85375,7 +85375,7 @@ lpad:                                             ; preds = %_ZNSt10shared_ptrIN
   br label %ehcleanup48
 
 if.else:                                          ; preds = %entry
-  %cmp8.not = icmp ugt i32 %add.i, 32767
+  %cmp8.not = icmp samesign ugt i32 %add.i, 32767
   br i1 %cmp8.not, label %if.then17, label %if.then9
 
 if.then9:                                         ; preds = %if.else
@@ -87172,7 +87172,7 @@ if.then:                                          ; preds = %entry
   br i1 %cmp2, label %if.then3, label %if.end28
 
 if.then3:                                         ; preds = %if.then
-  %cmp4 = icmp ult i32 %conv, 4
+  %cmp4 = icmp samesign ult i32 %conv, 4
   br i1 %cmp4, label %if.then5, label %if.end18
 
 if.then5:                                         ; preds = %if.then3
@@ -89711,7 +89711,7 @@ lpad:                                             ; preds = %_ZNSt10shared_ptrIN
   br label %ehcleanup48
 
 if.else:                                          ; preds = %entry
-  %cmp8.not = icmp ugt i32 %add.i, 32767
+  %cmp8.not = icmp samesign ugt i32 %add.i, 32767
   br i1 %cmp8.not, label %if.then17, label %if.then9
 
 if.then9:                                         ; preds = %if.else
@@ -93616,7 +93616,7 @@ lpad:                                             ; preds = %_ZNSt10shared_ptrIN
   br label %ehcleanup48
 
 if.else:                                          ; preds = %entry
-  %cmp8.not = icmp ugt i32 %conv3.i, 32767
+  %cmp8.not = icmp samesign ugt i32 %conv3.i, 32767
   br i1 %cmp8.not, label %if.then17, label %if.then9
 
 if.then9:                                         ; preds = %if.else
@@ -99789,7 +99789,7 @@ lpad:                                             ; preds = %_ZNSt10shared_ptrIN
   br label %ehcleanup48
 
 if.else:                                          ; preds = %entry
-  %cmp8.not = icmp ugt i32 %conv3.i, 32767
+  %cmp8.not = icmp samesign ugt i32 %conv3.i, 32767
   br i1 %cmp8.not, label %if.then17, label %if.then9
 
 if.then9:                                         ; preds = %if.else
@@ -102919,7 +102919,7 @@ lpad:                                             ; preds = %_ZNSt10shared_ptrIN
   br label %ehcleanup48
 
 if.else:                                          ; preds = %entry
-  %cmp8.not = icmp ugt i32 %conv3.i, 32767
+  %cmp8.not = icmp samesign ugt i32 %conv3.i, 32767
   br i1 %cmp8.not, label %if.then17, label %if.then9
 
 if.then9:                                         ; preds = %if.else
@@ -105831,7 +105831,7 @@ lpad:                                             ; preds = %_ZNSt10shared_ptrIN
   br label %ehcleanup48
 
 if.else:                                          ; preds = %entry
-  %cmp8.not = icmp ugt i32 %conv3.i, 32767
+  %cmp8.not = icmp samesign ugt i32 %conv3.i, 32767
   br i1 %cmp8.not, label %if.then17, label %if.then9
 
 if.then9:                                         ; preds = %if.else
@@ -108807,7 +108807,7 @@ lpad:                                             ; preds = %_ZNSt10shared_ptrIN
   br label %ehcleanup48
 
 if.else:                                          ; preds = %entry
-  %cmp8.not = icmp ugt i32 %conv3.i, 32767
+  %cmp8.not = icmp samesign ugt i32 %conv3.i, 32767
   br i1 %cmp8.not, label %if.then17, label %if.then9
 
 if.then9:                                         ; preds = %if.else
@@ -114973,7 +114973,7 @@ lpad:                                             ; preds = %_ZNSt10shared_ptrIN
   br label %ehcleanup48
 
 if.else:                                          ; preds = %entry
-  %cmp8.not = icmp ugt i32 %conv3.i, 32767
+  %cmp8.not = icmp samesign ugt i32 %conv3.i, 32767
   br i1 %cmp8.not, label %if.then17, label %if.then9
 
 if.then9:                                         ; preds = %if.else
@@ -117881,7 +117881,7 @@ lpad:                                             ; preds = %_ZNSt10shared_ptrIN
   br label %ehcleanup48
 
 if.else:                                          ; preds = %entry
-  %cmp8.not = icmp ugt i32 %conv3.i, 32767
+  %cmp8.not = icmp samesign ugt i32 %conv3.i, 32767
   br i1 %cmp8.not, label %if.then17, label %if.then9
 
 if.then9:                                         ; preds = %if.else
@@ -120839,7 +120839,7 @@ lpad:                                             ; preds = %_ZNSt10shared_ptrIN
   br label %ehcleanup48
 
 if.else:                                          ; preds = %entry
-  %cmp8.not = icmp ugt i32 %add.i, 32767
+  %cmp8.not = icmp samesign ugt i32 %add.i, 32767
   br i1 %cmp8.not, label %if.then17, label %if.then9
 
 if.then9:                                         ; preds = %if.else
@@ -123875,7 +123875,7 @@ lpad:                                             ; preds = %_ZNSt10shared_ptrIN
   br label %ehcleanup48
 
 if.else:                                          ; preds = %entry
-  %cmp8.not = icmp ugt i32 %add.i, 32767
+  %cmp8.not = icmp samesign ugt i32 %add.i, 32767
   br i1 %cmp8.not, label %if.then17, label %if.then9
 
 if.then9:                                         ; preds = %if.else
@@ -126905,7 +126905,7 @@ lpad:                                             ; preds = %_ZNSt10shared_ptrIN
   br label %ehcleanup48
 
 if.else:                                          ; preds = %entry
-  %cmp8.not = icmp ugt i32 %add.i, 32767
+  %cmp8.not = icmp samesign ugt i32 %add.i, 32767
   br i1 %cmp8.not, label %if.then17, label %if.then9
 
 if.then9:                                         ; preds = %if.else
@@ -129935,7 +129935,7 @@ lpad:                                             ; preds = %_ZNSt10shared_ptrIN
   br label %ehcleanup48
 
 if.else:                                          ; preds = %entry
-  %cmp8.not = icmp ugt i32 %add.i, 32767
+  %cmp8.not = icmp samesign ugt i32 %add.i, 32767
   br i1 %cmp8.not, label %if.then17, label %if.then9
 
 if.then9:                                         ; preds = %if.else
@@ -132971,7 +132971,7 @@ lpad:                                             ; preds = %_ZNSt10shared_ptrIN
   br label %ehcleanup48
 
 if.else:                                          ; preds = %entry
-  %cmp8.not = icmp ugt i32 %add.i, 32767
+  %cmp8.not = icmp samesign ugt i32 %add.i, 32767
   br i1 %cmp8.not, label %if.then17, label %if.then9
 
 if.then9:                                         ; preds = %if.else
@@ -136001,7 +136001,7 @@ lpad:                                             ; preds = %_ZNSt10shared_ptrIN
   br label %ehcleanup48
 
 if.else:                                          ; preds = %entry
-  %cmp8.not = icmp ugt i32 %add.i, 32767
+  %cmp8.not = icmp samesign ugt i32 %add.i, 32767
   br i1 %cmp8.not, label %if.then17, label %if.then9
 
 if.then9:                                         ; preds = %if.else
@@ -139042,7 +139042,7 @@ lpad:                                             ; preds = %_ZNSt10shared_ptrIN
   br label %ehcleanup48
 
 if.else:                                          ; preds = %entry
-  %cmp8.not = icmp ugt i32 %add.i, 32767
+  %cmp8.not = icmp samesign ugt i32 %add.i, 32767
   br i1 %cmp8.not, label %if.then17, label %if.then9
 
 if.then9:                                         ; preds = %if.else
@@ -142817,7 +142817,7 @@ lpad:                                             ; preds = %_ZNSt10shared_ptrIN
   br label %ehcleanup48
 
 if.else:                                          ; preds = %entry
-  %cmp8.not = icmp ugt i32 %add.i, 32767
+  %cmp8.not = icmp samesign ugt i32 %add.i, 32767
   br i1 %cmp8.not, label %if.then17, label %if.then9
 
 if.then9:                                         ; preds = %if.else
@@ -145846,7 +145846,7 @@ lpad:                                             ; preds = %_ZNSt10shared_ptrIN
   br label %ehcleanup48
 
 if.else:                                          ; preds = %entry
-  %cmp8.not = icmp ugt i32 %add.i, 32767
+  %cmp8.not = icmp samesign ugt i32 %add.i, 32767
   br i1 %cmp8.not, label %if.then17, label %if.then9
 
 if.then9:                                         ; preds = %if.else
@@ -149494,7 +149494,7 @@ lpad:                                             ; preds = %_ZNSt10shared_ptrIN
   br label %ehcleanup48
 
 if.else:                                          ; preds = %entry
-  %cmp8.not = icmp ugt i32 %conv3.i, 32767
+  %cmp8.not = icmp samesign ugt i32 %conv3.i, 32767
   br i1 %cmp8.not, label %if.then17, label %if.then9
 
 if.then9:                                         ; preds = %if.else
@@ -152328,7 +152328,7 @@ lpad:                                             ; preds = %_ZNSt10shared_ptrIN
   br label %ehcleanup48
 
 if.else:                                          ; preds = %entry
-  %cmp8.not = icmp ugt i32 %conv3.i, 32767
+  %cmp8.not = icmp samesign ugt i32 %conv3.i, 32767
   br i1 %cmp8.not, label %if.then17, label %if.then9
 
 if.then9:                                         ; preds = %if.else

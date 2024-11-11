@@ -944,7 +944,7 @@ invoke.cont3:                                     ; preds = %entry
   store atomic i64 %single_burst_bytes, ptr %refill_bytes_per_period_.i monotonic, align 8
   %rate_bytes_per_sec_.i.i = getelementptr inbounds i8, ptr %this, i64 64
   %0 = load atomic i64, ptr %rate_bytes_per_sec_.i.i monotonic, align 8
-  %cmp.i.i = icmp ugt i64 %single_burst_bytes, 9223372036854
+  %cmp.i.i = icmp samesign ugt i64 %single_burst_bytes, 9223372036854
   %mul.i.i = mul nuw nsw i64 %single_burst_bytes, 1000000
   %spec.select.i.i = select i1 %cmp.i.i, i64 9223372036854775807, i64 %mul.i.i
   %retval.0.i.i = sdiv i64 %spec.select.i.i, %0
@@ -1081,7 +1081,7 @@ if.then22.i:                                      ; preds = %if.else.i
   br label %if.end49.i
 
 if.else34.i:                                      ; preds = %if.else.i
-  %cmp35.i = icmp ugt i64 %div.i12, 90
+  %cmp35.i = icmp samesign ugt i64 %div.i12, 90
   br i1 %cmp35.i, label %if.then36.i, label %_ZN7rocksdb6StatusD2Ev.exit
 
 if.then36.i:                                      ; preds = %if.else34.i
@@ -1414,7 +1414,7 @@ if.then22:                                        ; preds = %if.else
   br label %if.end49
 
 if.else34:                                        ; preds = %if.else
-  %cmp35 = icmp ugt i64 %div, 90
+  %cmp35 = icmp samesign ugt i64 %div, 90
   br i1 %cmp35, label %if.then36, label %if.end52
 
 if.then36:                                        ; preds = %if.else34
@@ -2348,7 +2348,7 @@ _ZSt14__copy_move_a1ILb0EPPN7rocksdb18GenericRateLimiter3ReqES4_ET1_T0_S6_S5_.ex
   br i1 %cmp.i7.i, label %land.lhs.true.i.i, label %cond.false.i.i
 
 land.lhs.true.i.i:                                ; preds = %_ZSt14__copy_move_a1ILb0EPPN7rocksdb18GenericRateLimiter3ReqES4_ET1_T0_S6_S5_.exit.i
-  %cmp2.i.i = icmp ult i64 %add.i.i, 64
+  %cmp2.i.i = icmp samesign ult i64 %add.i.i, 64
   br i1 %cmp2.i.i, label %if.then.i.i, label %cond.true.i.i
 
 if.then.i.i:                                      ; preds = %land.lhs.true.i.i
@@ -2436,7 +2436,7 @@ _ZSt14__copy_move_a1ILb0EPPN7rocksdb18GenericRateLimiter3ReqES4_ET1_T0_S6_S5_.ex
   br i1 %cmp.i7.i49, label %land.lhs.true.i.i63, label %cond.false.i.i50
 
 land.lhs.true.i.i63:                              ; preds = %_ZSt14__copy_move_a1ILb0EPPN7rocksdb18GenericRateLimiter3ReqES4_ET1_T0_S6_S5_.exit.i43
-  %cmp2.i.i64 = icmp ult i64 %add.i.i48, 64
+  %cmp2.i.i64 = icmp samesign ult i64 %add.i.i48, 64
   br i1 %cmp2.i.i64, label %if.then.i.i67, label %cond.true.i.i65
 
 if.then.i.i67:                                    ; preds = %land.lhs.true.i.i63
@@ -2525,7 +2525,7 @@ _ZSt14__copy_move_a1ILb0EPPN7rocksdb18GenericRateLimiter3ReqES4_ET1_T0_S6_S5_.ex
   br i1 %cmp.i7.i114, label %land.lhs.true.i.i128, label %cond.false.i.i115
 
 land.lhs.true.i.i128:                             ; preds = %_ZSt14__copy_move_a1ILb0EPPN7rocksdb18GenericRateLimiter3ReqES4_ET1_T0_S6_S5_.exit.i108
-  %cmp2.i.i129 = icmp ult i64 %add.i.i113, 64
+  %cmp2.i.i129 = icmp samesign ult i64 %add.i.i113, 64
   br i1 %cmp2.i.i129, label %if.then.i.i132, label %cond.true.i.i130
 
 if.then.i.i132:                                   ; preds = %land.lhs.true.i.i128
@@ -2604,7 +2604,7 @@ _ZSt14__copy_move_a1ILb0EPPN7rocksdb18GenericRateLimiter3ReqES4_ET1_T0_S6_S5_.ex
   br i1 %cmp.i7.i179, label %land.lhs.true.i.i193, label %cond.false.i.i180
 
 land.lhs.true.i.i193:                             ; preds = %_ZSt14__copy_move_a1ILb0EPPN7rocksdb18GenericRateLimiter3ReqES4_ET1_T0_S6_S5_.exit.i173
-  %cmp2.i.i194 = icmp ult i64 %add.i.i178, 64
+  %cmp2.i.i194 = icmp samesign ult i64 %add.i.i178, 64
   br i1 %cmp2.i.i194, label %if.then.i.i197, label %cond.true.i.i195
 
 if.then.i.i197:                                   ; preds = %land.lhs.true.i.i193

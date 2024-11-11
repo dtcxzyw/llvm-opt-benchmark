@@ -5523,7 +5523,7 @@ _ZNSt6vectorIN2cv7Point3_IfEESaIS2_EE9push_backEOS2_.exit: ; preds = %91
   %.sroa.3276.0..sroa_idx = getelementptr inbounds i8, ptr %93, i64 44
   store float %118, ptr %.sroa.3276.0..sroa_idx, align 4
   %119 = getelementptr inbounds i8, ptr %93, i64 48
-  %120 = icmp ugt i32 %7, 3
+  %120 = icmp samesign ugt i32 %7, 3
   br i1 %120, label %.preheader326.preheader, label %_ZNSt6vectorIN2cv7Point3_IfEESaIS2_EE9push_backEOS2_.exit.thread
 
 .preheader326.preheader:                          ; preds = %_ZNSt6vectorIN2cv7Point3_IfEESaIS2_EE9push_backEOS2_.exit

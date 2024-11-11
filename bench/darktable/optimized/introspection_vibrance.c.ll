@@ -115,7 +115,7 @@ define void @process(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noun
   %28 = add nsw i64 %27, -1
   %29 = lshr i64 %28, 2
   %30 = add nuw nsw i64 %29, 1
-  %31 = icmp ult i32 %17, 33
+  %31 = icmp samesign ult i32 %17, 33
   br i1 %31, label %.loopexit1, label %32
 
 32:                                               ; preds = %19

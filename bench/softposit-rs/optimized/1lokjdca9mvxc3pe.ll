@@ -343,7 +343,7 @@ define noundef i8 @_ZN9softposit4p8e07convert21convert_u32_to_p8bits17h8208a4084
   br i1 %2, label %32, label %3
 
 3:                                                ; preds = %1
-  %4 = icmp ult i32 %0, 2
+  %4 = icmp samesign ult i32 %0, 2
   br i1 %4, label %5, label %.lr.ph
 
 5:                                                ; preds = %3
@@ -398,7 +398,7 @@ define noundef i8 @_ZN9softposit4p8e07convert21convert_u64_to_p8bits17h11b8db6e4
   br i1 %2, label %32, label %3
 
 3:                                                ; preds = %1
-  %4 = icmp ult i64 %0, 2
+  %4 = icmp samesign ult i64 %0, 2
   br i1 %4, label %5, label %.lr.ph
 
 5:                                                ; preds = %3

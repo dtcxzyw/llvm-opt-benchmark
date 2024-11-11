@@ -896,7 +896,7 @@ define void @process(ptr nocapture noundef readonly %0, ptr nocapture noundef re
 535:                                              ; preds = %.loopexit79
   %536 = zext nneg i32 %529 to i64
   %537 = and i64 %536, 3
-  %538 = icmp ult i32 %529, 4
+  %538 = icmp samesign ult i32 %529, 4
   %539 = and i64 %536, 2147483644
   %540 = icmp eq i64 %537, 0
   br label %541

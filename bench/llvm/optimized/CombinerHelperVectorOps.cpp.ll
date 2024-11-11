@@ -1095,7 +1095,7 @@ _ZNK4llvm19MachineRegisterInfo7getTypeENS_8RegisterE.exit43: ; preds = %_ZNK4llv
   br label %.critedge2
 
 .critedge41:                                      ; preds = %_ZNK4llvm19MachineRegisterInfo7getTypeENS_8RegisterE.exit43
-  %95 = icmp ult i32 %39, %65
+  %95 = icmp samesign ult i32 %39, %65
   %96 = load ptr, ptr %30, align 8
   %.sroa.057.0.in.v = select i1 %95, i64 36, i64 68
   %.sroa.057.0.in = getelementptr inbounds i8, ptr %96, i64 %.sroa.057.0.in.v

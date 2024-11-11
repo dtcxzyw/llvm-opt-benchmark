@@ -3094,7 +3094,7 @@ for.body.i.i.i.i:                                 ; preds = %if.then.i.i.i.i, %f
 
 if.then.i.i.i.i:                                  ; preds = %for.body.i.i.i.i
   %add.i.i.i.i = add i32 %Count.011.i.i.i.i, 64
-  %cmp.i1.i.i.i = icmp ugt i64 %indvars.iv.i.i.i, 1
+  %cmp.i1.i.i.i = icmp samesign ugt i64 %indvars.iv.i.i.i, 1
   br i1 %cmp.i1.i.i.i, label %for.body.i.i.i.i, label %_ZNK4llvh5APInt25countLeadingZerosSlowCaseEv.exit.i.i.i, !llvm.loop !26
 
 if.else.i.i.i.i:                                  ; preds = %for.body.i.i.i.i
@@ -3308,7 +3308,7 @@ while.body.lr.ph.i.i:                             ; preds = %while.cond.preheade
   %shl.i14.i = shl i64 %8, %sh_prom.i.i40
   %arrayidx5.i16.i = getelementptr inbounds i64, ptr %call.i.i.i.i, i64 %indvars.iv.next.i9.i
   store i64 %shl.i14.i, ptr %arrayidx5.i16.i, align 8
-  %cmp6.i17.i = icmp ult i32 %.sroa.speculated.i.i, %indvars.i10.i
+  %cmp6.i17.i = icmp samesign ult i32 %.sroa.speculated.i.i, %indvars.i10.i
   br i1 %cmp6.i17.i, label %if.end16.i.preheader.i, label %_ZNK4llvh5APInt3shlEj.exit
 
 if.end16.i.preheader.i:                           ; preds = %while.body.lr.ph.i.i
@@ -3860,7 +3860,7 @@ while.body.lr.ph.i.i:                             ; preds = %while.cond.preheade
   %shl.i14.i = shl i64 %13, %sh_prom.i.i
   %arrayidx5.i16.i = getelementptr inbounds i64, ptr %call.i.i.i.i.i, i64 %indvars.iv.next.i9.i
   store i64 %shl.i14.i, ptr %arrayidx5.i16.i, align 8
-  %cmp6.i17.i = icmp ult i32 %.sroa.speculated.i.i, %indvars.i10.i
+  %cmp6.i17.i = icmp samesign ult i32 %.sroa.speculated.i.i, %indvars.i10.i
   br i1 %cmp6.i17.i, label %if.end16.i.preheader.i, label %if.end17.i.i
 
 if.end16.i.preheader.i:                           ; preds = %while.body.lr.ph.i.i
@@ -4041,7 +4041,7 @@ for.body:                                         ; preds = %for.body.lr.ph, %if
 
 if.then:                                          ; preds = %for.body
   %add = add i32 %Count.011, 64
-  %cmp = icmp ugt i32 %i.012.in, 1
+  %cmp = icmp samesign ugt i32 %i.012.in, 1
   br i1 %cmp, label %for.body, label %for.end, !llvm.loop !26
 
 if.else:                                          ; preds = %for.body
@@ -4905,7 +4905,7 @@ for.body.i.i.i.i.i:                               ; preds = %if.then.i.i.i.i.i, 
 
 if.then.i.i.i.i.i:                                ; preds = %for.body.i.i.i.i.i
   %add.i.i.i.i.i = add i32 %Count.011.i.i.i.i.i, 64
-  %cmp.i1.i.i.i.i = icmp ugt i64 %indvars.iv.i.i.i.i, 1
+  %cmp.i1.i.i.i.i = icmp samesign ugt i64 %indvars.iv.i.i.i.i, 1
   br i1 %cmp.i1.i.i.i.i, label %for.body.i.i.i.i.i, label %_ZNK4llvh5APInt13getActiveBitsEv.exit.i.i, !llvm.loop !26
 
 if.else.i.i.i.i.i:                                ; preds = %for.body.i.i.i.i.i
@@ -5068,7 +5068,7 @@ for.body.i.i:                                     ; preds = %if.then.i.i, %for.b
 
 if.then.i.i:                                      ; preds = %for.body.i.i
   %add.i.i = add i32 %Count.011.i.i, 64
-  %cmp.i1.i = icmp ugt i64 %indvars.iv.i, 1
+  %cmp.i1.i = icmp samesign ugt i64 %indvars.iv.i, 1
   br i1 %cmp.i1.i, label %for.body.i.i, label %_ZNK4llvh5APIntntEv.exit, !llvm.loop !26
 
 if.else.i.i:                                      ; preds = %for.body.i.i
@@ -5129,7 +5129,7 @@ for.body.i.i26:                                   ; preds = %if.then.i.i44, %for
 
 if.then.i.i44:                                    ; preds = %for.body.i.i26
   %add.i.i45 = add i32 %Count.011.i.i28, 64
-  %cmp.i1.i46 = icmp ugt i64 %indvars.iv.i27, 1
+  %cmp.i1.i46 = icmp samesign ugt i64 %indvars.iv.i27, 1
   br i1 %cmp.i1.i46, label %for.body.i.i26, label %_ZNK4llvh5APIntntEv.exit49, !llvm.loop !26
 
 if.else.i.i33:                                    ; preds = %for.body.i.i26
@@ -6056,7 +6056,7 @@ cleanup.action:                                   ; preds = %_ZN4llvh5APInt15cle
 if.end10:                                         ; preds = %if.end
   %conv = zext i32 %width to i64
   %sub11 = add nsw i64 %and, -1075
-  %cmp12.not = icmp ult i64 %sub11, %conv
+  %cmp12.not = icmp samesign ult i64 %sub11, %conv
   br i1 %cmp12.not, label %if.end14, label %if.then13
 
 if.then13:                                        ; preds = %if.end10
@@ -6145,7 +6145,7 @@ while.body.lr.ph.i.i:                             ; preds = %while.cond.preheade
   %shl.i14.i = shl i64 %21, %sh_prom.i.i157
   %arrayidx5.i16.i = getelementptr inbounds i64, ptr %call.i.i.i92, i64 %indvars.iv.next.i9.i
   store i64 %shl.i14.i, ptr %arrayidx5.i16.i, align 8
-  %cmp6.i17.i = icmp ult i32 %.sroa.speculated.i.i, %indvars.i10.i
+  %cmp6.i17.i = icmp samesign ult i32 %.sroa.speculated.i.i, %indvars.i10.i
   br i1 %cmp6.i17.i, label %if.end16.i.preheader.i, label %if.end17.i.i
 
 if.end16.i.preheader.i:                           ; preds = %while.body.lr.ph.i.i
@@ -6296,7 +6296,7 @@ for.body.i.i.i:                                   ; preds = %if.then.i.i.i, %for
 
 if.then.i.i.i:                                    ; preds = %for.body.i.i.i
   %add.i.i.i = add i32 %Count.011.i.i.i, 64
-  %cmp.i1.i.i = icmp ugt i64 %indvars.iv.i.i, 1
+  %cmp.i1.i.i = icmp samesign ugt i64 %indvars.iv.i.i, 1
   br i1 %cmp.i1.i.i, label %for.body.i.i.i, label %_ZNK4llvh5APInt13getActiveBitsEv.exit, !llvm.loop !26
 
 if.else.i.i.i:                                    ; preds = %for.body.i.i.i
@@ -6405,7 +6405,7 @@ for.body.i.i.i45:                                 ; preds = %if.then.i.i.i63, %f
 
 if.then.i.i.i63:                                  ; preds = %for.body.i.i.i45
   %add.i.i.i64 = add i32 %Count.011.i.i.i47, 64
-  %cmp.i1.i.i65 = icmp ugt i64 %indvars.iv.i.i46, 1
+  %cmp.i1.i.i65 = icmp samesign ugt i64 %indvars.iv.i.i46, 1
   br i1 %cmp.i1.i.i65, label %for.body.i.i.i45, label %_ZNK4llvh5APInt25countLeadingZerosSlowCaseEv.exit.i.i54, !llvm.loop !26
 
 if.else.i.i.i52:                                  ; preds = %for.body.i.i.i45
@@ -6446,7 +6446,7 @@ if.end27:                                         ; preds = %_ZNK4llvh5APInt13ge
 if.then31:                                        ; preds = %if.end27
   %20 = inttoptr i64 %Tmp.sroa.0.088 to ptr
   %21 = load i64, ptr %20, align 8
-  %cmp32 = icmp ugt i32 %sub.i62, 52
+  %cmp32 = icmp samesign ugt i32 %sub.i62, 52
   br i1 %cmp32, label %if.then33, label %if.end49
 
 if.then33:                                        ; preds = %if.then31
@@ -7022,7 +7022,7 @@ for.body.i.i.i.i.i:                               ; preds = %if.then.i.i.i.i.i, 
 
 if.then.i.i.i.i.i:                                ; preds = %for.body.i.i.i.i.i
   %add.i.i.i.i.i = add i32 %Count.011.i.i.i.i.i, 64
-  %cmp.i1.i.i.i.i = icmp ugt i64 %indvars.iv.i.i.i.i, 1
+  %cmp.i1.i.i.i.i = icmp samesign ugt i64 %indvars.iv.i.i.i.i, 1
   br i1 %cmp.i1.i.i.i.i, label %for.body.i.i.i.i.i, label %_ZNK4llvh5APInt13getActiveBitsEv.exit.i.i, !llvm.loop !26
 
 if.else.i.i.i.i.i:                                ; preds = %for.body.i.i.i.i.i
@@ -7269,7 +7269,7 @@ for.body.i.i.i.i.i:                               ; preds = %if.then.i.i.i.i.i, 
 
 if.then.i.i.i.i.i:                                ; preds = %for.body.i.i.i.i.i
   %add.i.i.i.i.i = add i32 %Count.011.i.i.i.i.i, 64
-  %cmp.i1.i.i.i.i = icmp ugt i64 %indvars.iv.i.i.i.i, 1
+  %cmp.i1.i.i.i.i = icmp samesign ugt i64 %indvars.iv.i.i.i.i, 1
   br i1 %cmp.i1.i.i.i.i, label %for.body.i.i.i.i.i, label %_ZNK4llvh5APInt13getActiveBitsEv.exit.i.i, !llvm.loop !26
 
 if.else.i.i.i.i.i:                                ; preds = %for.body.i.i.i.i.i
@@ -7592,7 +7592,7 @@ for.body.i.i.i.i.i:                               ; preds = %if.then.i.i.i.i.i, 
 
 if.then.i.i.i.i.i:                                ; preds = %for.body.i.i.i.i.i
   %add.i.i.i.i.i = add i32 %Count.011.i.i.i.i.i, 64
-  %cmp.i1.i.i.i.i = icmp ugt i64 %indvars.iv.i.i.i.i, 1
+  %cmp.i1.i.i.i.i = icmp samesign ugt i64 %indvars.iv.i.i.i.i, 1
   br i1 %cmp.i1.i.i.i.i, label %for.body.i.i.i.i.i, label %_ZNK4llvh5APInt13getActiveBitsEv.exit.i.i, !llvm.loop !26
 
 if.else.i.i.i.i.i:                                ; preds = %for.body.i.i.i.i.i
@@ -8051,7 +8051,7 @@ for.body.i.i.i.i.i:                               ; preds = %if.then.i.i.i.i.i, 
 
 if.then.i.i.i.i.i:                                ; preds = %for.body.i.i.i.i.i
   %add.i.i.i.i.i = add i32 %Count.011.i.i.i.i.i, 64
-  %cmp.i1.i.i.i.i = icmp ugt i64 %indvars.iv.i.i.i.i, 1
+  %cmp.i1.i.i.i.i = icmp samesign ugt i64 %indvars.iv.i.i.i.i, 1
   br i1 %cmp.i1.i.i.i.i, label %for.body.i.i.i.i.i, label %_ZNK4llvh5APInt13getActiveBitsEv.exit.i.i, !llvm.loop !26
 
 if.else.i.i.i.i.i:                                ; preds = %for.body.i.i.i.i.i
@@ -8268,7 +8268,7 @@ while.body.lr.ph.i.i:                             ; preds = %while.cond.preheade
   %shl.i14.i = shl i64 %17, %sh_prom.i.i40
   %arrayidx5.i16.i = getelementptr inbounds i64, ptr %call.i.i.i.i12, i64 %indvars.iv.next.i9.i
   store i64 %shl.i14.i, ptr %arrayidx5.i16.i, align 8
-  %cmp6.i17.i = icmp ult i32 %.sroa.speculated.i.i, %indvars.i10.i
+  %cmp6.i17.i = icmp samesign ult i32 %.sroa.speculated.i.i, %indvars.i10.i
   br i1 %cmp6.i17.i, label %if.end16.i.preheader.i, label %if.end17.i.i
 
 if.end16.i.preheader.i:                           ; preds = %while.body.lr.ph.i.i
@@ -8384,7 +8384,7 @@ for.body.i.i.i:                                   ; preds = %if.then.i.i.i, %for
 
 if.then.i.i.i:                                    ; preds = %for.body.i.i.i
   %add.i.i.i = add i32 %Count.011.i.i.i, 64
-  %cmp.i1.i.i = icmp ugt i64 %indvars.iv.i.i, 1
+  %cmp.i1.i.i = icmp samesign ugt i64 %indvars.iv.i.i, 1
   br i1 %cmp.i1.i.i, label %for.body.i.i.i, label %_ZNK4llvh5APInt13getActiveBitsEv.exit, !llvm.loop !26
 
 if.else.i.i.i:                                    ; preds = %for.body.i.i.i
@@ -8583,7 +8583,7 @@ _ZN4llvh5APIntC2Ejmb.exit144:                     ; preds = %if.end.thread
   %and.i.i143 = and i64 %shr.i.i67, 2
   %25 = inttoptr i64 %and.i.i143 to ptr
   store ptr %25, ptr %two, align 8
-  %cmp25.not971 = icmp ugt i32 %0, 4
+  %cmp25.not971 = icmp samesign ugt i32 %0, 4
   br i1 %cmp25.not971, label %lor.lhs.false.lr.ph, label %if.then27
 
 lor.lhs.false.lr.ph:                              ; preds = %_ZN4llvh5APIntC2Ejmb.exit144.thread, %_ZN4llvh5APIntC2Ejmb.exit144
@@ -8711,7 +8711,7 @@ while.body.lr.ph.i.i:                             ; preds = %while.cond.preheade
   %shl.i14.i = shl i64 %45, %sh_prom.i.i756
   %arrayidx5.i16.i = getelementptr inbounds i64, ptr %call.i.i.i.i, i64 %indvars.iv.next.i9.i
   store i64 %shl.i14.i, ptr %arrayidx5.i16.i, align 8
-  %cmp6.i17.i = icmp ult i32 %.sroa.speculated.i.i, %indvars.i10.i
+  %cmp6.i17.i = icmp samesign ult i32 %.sroa.speculated.i.i, %indvars.i10.i
   br i1 %cmp6.i17.i, label %if.end16.i.preheader.i, label %if.end17.i.i
 
 if.end16.i.preheader.i:                           ; preds = %while.body.lr.ph.i.i
@@ -9611,7 +9611,7 @@ for.body.i.i.i:                                   ; preds = %if.then.i.i.i, %for
 
 if.then.i.i.i:                                    ; preds = %for.body.i.i.i
   %add.i.i.i = add i32 %Count.011.i.i.i, 64
-  %cmp.i1.i.i = icmp ugt i64 %indvars.iv.i.i, 1
+  %cmp.i1.i.i = icmp samesign ugt i64 %indvars.iv.i.i, 1
   br i1 %cmp.i1.i.i, label %for.body.i.i.i, label %_ZNK4llvh5APInt13getActiveBitsEv.exit, !llvm.loop !26
 
 if.else.i.i.i:                                    ; preds = %for.body.i.i.i
@@ -9665,7 +9665,7 @@ for.body.i.i.i22:                                 ; preds = %if.then.i.i.i40, %f
 
 if.then.i.i.i40:                                  ; preds = %for.body.i.i.i22
   %add.i.i.i41 = add i32 %Count.011.i.i.i24, 64
-  %cmp.i1.i.i42 = icmp ugt i64 %indvars.iv.i.i23, 1
+  %cmp.i1.i.i42 = icmp samesign ugt i64 %indvars.iv.i.i23, 1
   br i1 %cmp.i1.i.i42, label %for.body.i.i.i22, label %_ZNK4llvh5APInt25countLeadingZerosSlowCaseEv.exit.i.i31, !llvm.loop !26
 
 if.else.i.i.i29:                                  ; preds = %for.body.i.i.i22
@@ -9946,7 +9946,7 @@ for.body.i.i.i.i.i:                               ; preds = %if.then.i.i.i.i.i, 
 
 if.then.i.i.i.i.i:                                ; preds = %for.body.i.i.i.i.i
   %add.i.i.i.i.i = add i32 %Count.011.i.i.i.i.i, 64
-  %cmp.i1.i.i.i.i = icmp ugt i64 %indvars.iv.i.i.i.i, 1
+  %cmp.i1.i.i.i.i = icmp samesign ugt i64 %indvars.iv.i.i.i.i, 1
   br i1 %cmp.i1.i.i.i.i, label %for.body.i.i.i.i.i, label %_ZNK4llvh5APInt13getActiveBitsEv.exit.i.i, !llvm.loop !26
 
 if.else.i.i.i.i.i:                                ; preds = %for.body.i.i.i.i.i
@@ -10243,7 +10243,7 @@ for.body.i.i.i.i.i117:                            ; preds = %if.then.i.i.i.i.i14
 
 if.then.i.i.i.i.i140:                             ; preds = %for.body.i.i.i.i.i117
   %add.i.i.i.i.i141 = add i32 %Count.011.i.i.i.i.i119, 64
-  %cmp.i1.i.i.i.i142 = icmp ugt i64 %indvars.iv.i.i.i.i118, 1
+  %cmp.i1.i.i.i.i142 = icmp samesign ugt i64 %indvars.iv.i.i.i.i118, 1
   br i1 %cmp.i1.i.i.i.i142, label %for.body.i.i.i.i.i117, label %_ZNK4llvh5APInt13getActiveBitsEv.exit.i.i126, !llvm.loop !26
 
 if.else.i.i.i.i.i124:                             ; preds = %for.body.i.i.i.i.i117
@@ -10533,7 +10533,7 @@ for.body.i.i.i:                                   ; preds = %if.then.i.i.i, %for
 
 if.then.i.i.i:                                    ; preds = %for.body.i.i.i
   %add.i.i.i = add i32 %Count.011.i.i.i, 64
-  %cmp.i1.i.i = icmp ugt i64 %indvars.iv.i.i, 1
+  %cmp.i1.i.i = icmp samesign ugt i64 %indvars.iv.i.i, 1
   br i1 %cmp.i1.i.i, label %for.body.i.i.i, label %_ZNK4llvh5APInt13getActiveBitsEv.exit, !llvm.loop !26
 
 if.else.i.i.i:                                    ; preds = %for.body.i.i.i
@@ -10586,7 +10586,7 @@ for.body.i.i.i110:                                ; preds = %if.then.i.i.i128, %
 
 if.then.i.i.i128:                                 ; preds = %for.body.i.i.i110
   %add.i.i.i129 = add i32 %Count.011.i.i.i112, 64
-  %cmp.i1.i.i130 = icmp ugt i64 %indvars.iv.i.i111, 1
+  %cmp.i1.i.i130 = icmp samesign ugt i64 %indvars.iv.i.i111, 1
   br i1 %cmp.i1.i.i130, label %for.body.i.i.i110, label %_ZNK4llvh5APInt25countLeadingZerosSlowCaseEv.exit.i.i119, !llvm.loop !26
 
 if.else.i.i.i117:                                 ; preds = %for.body.i.i.i110
@@ -12357,7 +12357,7 @@ for.body.i.i.i.i:                                 ; preds = %land.rhs, %if.then.
 
 if.then.i.i.i.i1012:                              ; preds = %for.body.i.i.i.i
   %add.i.i.i.i1013 = add i32 %Count.011.i.i.i.i, 64
-  %cmp.i1.i.i.i = icmp ugt i64 %indvars.iv.i.i.i1003, 1
+  %cmp.i1.i.i.i = icmp samesign ugt i64 %indvars.iv.i.i.i1003, 1
   br i1 %cmp.i1.i.i.i, label %for.body.i.i.i.i, label %_ZNK4llvh5APInt13getActiveBitsEv.exit.i, !llvm.loop !26
 
 if.else.i.i.i.i:                                  ; preds = %for.body.i.i.i.i
@@ -12624,7 +12624,7 @@ for.body.i.i.i:                                   ; preds = %if.then.i.i.i, %for
 
 if.then.i.i.i:                                    ; preds = %for.body.i.i.i
   %add.i.i.i = add i32 %Count.011.i.i.i, 64
-  %cmp.i1.i.i = icmp ugt i64 %indvars.iv.i.i, 1
+  %cmp.i1.i.i = icmp samesign ugt i64 %indvars.iv.i.i, 1
   br i1 %cmp.i1.i.i, label %for.body.i.i.i, label %_ZNK4llvh5APInt13getActiveBitsEv.exit, !llvm.loop !26
 
 if.else.i.i.i:                                    ; preds = %for.body.i.i.i
@@ -12678,7 +12678,7 @@ for.body.i.i.i22:                                 ; preds = %if.then.i.i.i40, %f
 
 if.then.i.i.i40:                                  ; preds = %for.body.i.i.i22
   %add.i.i.i41 = add i32 %Count.011.i.i.i24, 64
-  %cmp.i1.i.i42 = icmp ugt i64 %indvars.iv.i.i23, 1
+  %cmp.i1.i.i42 = icmp samesign ugt i64 %indvars.iv.i.i23, 1
   br i1 %cmp.i1.i.i42, label %for.body.i.i.i22, label %_ZNK4llvh5APInt25countLeadingZerosSlowCaseEv.exit.i.i31, !llvm.loop !26
 
 if.else.i.i.i29:                                  ; preds = %for.body.i.i.i22
@@ -14655,7 +14655,7 @@ for.body.i.i.i.i:                                 ; preds = %land.rhs75, %if.the
 
 if.then.i.i.i.i1843:                              ; preds = %for.body.i.i.i.i
   %add.i.i.i.i1844 = add i32 %Count.011.i.i.i.i, 64
-  %cmp.i1.i.i.i = icmp ugt i64 %indvars.iv.i.i.i1834, 1
+  %cmp.i1.i.i.i = icmp samesign ugt i64 %indvars.iv.i.i.i1834, 1
   br i1 %cmp.i1.i.i.i, label %for.body.i.i.i.i, label %_ZNK4llvh5APInt13getActiveBitsEv.exit.i, !llvm.loop !26
 
 if.else.i.i.i.i:                                  ; preds = %for.body.i.i.i.i
@@ -15483,7 +15483,7 @@ for.body.i.i.i:                                   ; preds = %if.then.i.i.i, %for
 
 if.then.i.i.i:                                    ; preds = %for.body.i.i.i
   %add.i.i.i = add i32 %Count.011.i.i.i, 64
-  %cmp.i1.i.i = icmp ugt i64 %indvars.iv.i.i, 1
+  %cmp.i1.i.i = icmp samesign ugt i64 %indvars.iv.i.i, 1
   br i1 %cmp.i1.i.i, label %for.body.i.i.i, label %_ZNK4llvh5APInt13getActiveBitsEv.exit, !llvm.loop !26
 
 if.else.i.i.i:                                    ; preds = %for.body.i.i.i
@@ -15555,7 +15555,7 @@ for.body.i.i.i.i:                                 ; preds = %if.end6, %if.then.i
 
 if.then.i.i.i.i:                                  ; preds = %for.body.i.i.i.i
   %add.i.i.i.i = add i32 %Count.011.i.i.i.i, 64
-  %cmp.i1.i.i.i = icmp ugt i64 %indvars.iv.i.i.i, 1
+  %cmp.i1.i.i.i = icmp samesign ugt i64 %indvars.iv.i.i.i, 1
   br i1 %cmp.i1.i.i.i, label %for.body.i.i.i.i, label %_ZNK4llvh5APInt13getActiveBitsEv.exit.i, !llvm.loop !26
 
 if.else.i.i.i.i:                                  ; preds = %for.body.i.i.i.i
@@ -15613,7 +15613,7 @@ for.body.i.i.i.i73:                               ; preds = %for.body.i.i.i.i73.
 
 if.then.i.i.i.i94:                                ; preds = %for.body.i.i.i.i73
   %add.i.i.i.i95 = add i32 %Count.011.i.i.i.i75, 64
-  %cmp.i1.i.i.i96 = icmp ugt i64 %indvars.iv.i.i.i74, 1
+  %cmp.i1.i.i.i96 = icmp samesign ugt i64 %indvars.iv.i.i.i74, 1
   br i1 %cmp.i1.i.i.i96, label %for.body.i.i.i.i73, label %_ZNK4llvh5APInt13getActiveBitsEv.exit.i82, !llvm.loop !26
 
 if.else.i.i.i.i80:                                ; preds = %for.body.i.i.i.i73
@@ -16159,7 +16159,7 @@ for.body.i.i.i:                                   ; preds = %if.then.i.i.i, %for
 
 if.then.i.i.i:                                    ; preds = %for.body.i.i.i
   %add.i.i.i = add i32 %Count.011.i.i.i, 64
-  %cmp.i1.i.i = icmp ugt i64 %indvars.iv.i.i, 1
+  %cmp.i1.i.i = icmp samesign ugt i64 %indvars.iv.i.i, 1
   br i1 %cmp.i1.i.i, label %for.body.i.i.i, label %_ZNK4llvh5APInt13getActiveBitsEv.exit, !llvm.loop !26
 
 if.else.i.i.i:                                    ; preds = %for.body.i.i.i
@@ -16197,7 +16197,7 @@ for.body.i.i.i.i:                                 ; preds = %_ZNK4llvh5APInt13ge
 
 if.then.i.i.i.i:                                  ; preds = %for.body.i.i.i.i
   %add.i.i.i.i = add i32 %Count.011.i.i.i.i, 64
-  %cmp.i1.i.i.i = icmp ugt i64 %indvars.iv.i.i.i, 1
+  %cmp.i1.i.i.i = icmp samesign ugt i64 %indvars.iv.i.i.i, 1
   br i1 %cmp.i1.i.i.i, label %for.body.i.i.i.i, label %_ZNK4llvh5APInt13getActiveBitsEv.exit.i, !llvm.loop !26
 
 if.else.i.i.i.i:                                  ; preds = %for.body.i.i.i.i
@@ -16233,7 +16233,7 @@ for.body.i.i.i.i16:                               ; preds = %for.body.i.i.i.i16.
 
 if.then.i.i.i.i37:                                ; preds = %for.body.i.i.i.i16
   %add.i.i.i.i38 = add i32 %Count.011.i.i.i.i18, 64
-  %cmp.i1.i.i.i39 = icmp ugt i64 %indvars.iv.i.i.i17, 1
+  %cmp.i1.i.i.i39 = icmp samesign ugt i64 %indvars.iv.i.i.i17, 1
   br i1 %cmp.i1.i.i.i39, label %for.body.i.i.i.i16, label %_ZNK4llvh5APInt13getActiveBitsEv.exit.i25, !llvm.loop !26
 
 if.else.i.i.i.i23:                                ; preds = %for.body.i.i.i.i16
@@ -16799,7 +16799,7 @@ for.body.i.i.i:                                   ; preds = %if.then.i.i.i, %for
 
 if.then.i.i.i:                                    ; preds = %for.body.i.i.i
   %add.i.i.i = add i32 %Count.011.i.i.i, 64
-  %cmp.i1.i.i = icmp ugt i64 %indvars.iv.i.i, 1
+  %cmp.i1.i.i = icmp samesign ugt i64 %indvars.iv.i.i, 1
   br i1 %cmp.i1.i.i, label %for.body.i.i.i, label %_ZNK4llvh5APInt13getActiveBitsEv.exit, !llvm.loop !26
 
 if.else.i.i.i:                                    ; preds = %for.body.i.i.i
@@ -16882,7 +16882,7 @@ for.body.i.i.i.i:                                 ; preds = %if.end9, %if.then.i
 
 if.then.i.i.i.i:                                  ; preds = %for.body.i.i.i.i
   %add.i.i.i.i = add i32 %Count.011.i.i.i.i, 64
-  %cmp.i1.i.i.i = icmp ugt i64 %indvars.iv.i.i.i, 1
+  %cmp.i1.i.i.i = icmp samesign ugt i64 %indvars.iv.i.i.i, 1
   br i1 %cmp.i1.i.i.i, label %for.body.i.i.i.i, label %_ZNK4llvh5APInt13getActiveBitsEv.exit.i, !llvm.loop !26
 
 if.else.i.i.i.i:                                  ; preds = %for.body.i.i.i.i
@@ -16956,7 +16956,7 @@ for.body.i.i.i.i136:                              ; preds = %for.body.i.i.i.i136
 
 if.then.i.i.i.i157:                               ; preds = %for.body.i.i.i.i136
   %add.i.i.i.i158 = add i32 %Count.011.i.i.i.i138, 64
-  %cmp.i1.i.i.i159 = icmp ugt i64 %indvars.iv.i.i.i137, 1
+  %cmp.i1.i.i.i159 = icmp samesign ugt i64 %indvars.iv.i.i.i137, 1
   br i1 %cmp.i1.i.i.i159, label %for.body.i.i.i.i136, label %_ZNK4llvh5APInt13getActiveBitsEv.exit.i145, !llvm.loop !26
 
 if.else.i.i.i.i143:                               ; preds = %for.body.i.i.i.i136
@@ -18344,7 +18344,7 @@ for.body.i.i.i.i.i:                               ; preds = %if.then.i.i.i.i.i, 
 
 if.then.i.i.i.i.i:                                ; preds = %for.body.i.i.i.i.i
   %add.i.i.i.i.i = add i32 %Count.011.i.i.i.i.i, 64
-  %cmp.i1.i.i.i.i = icmp ugt i64 %indvars.iv.i.i.i.i, 1
+  %cmp.i1.i.i.i.i = icmp samesign ugt i64 %indvars.iv.i.i.i.i, 1
   br i1 %cmp.i1.i.i.i.i, label %for.body.i.i.i.i.i, label %_ZNK4llvh5APInt13getActiveBitsEv.exit.i.i, !llvm.loop !26
 
 if.else.i.i.i.i.i:                                ; preds = %for.body.i.i.i.i.i
@@ -18400,7 +18400,7 @@ for.body.i.i.i.i.i14:                             ; preds = %if.then.i.i.i.i.i37
 
 if.then.i.i.i.i.i37:                              ; preds = %for.body.i.i.i.i.i14
   %add.i.i.i.i.i38 = add i32 %Count.011.i.i.i.i.i16, 64
-  %cmp.i1.i.i.i.i39 = icmp ugt i64 %indvars.iv.i.i.i.i15, 1
+  %cmp.i1.i.i.i.i39 = icmp samesign ugt i64 %indvars.iv.i.i.i.i15, 1
   br i1 %cmp.i1.i.i.i.i39, label %for.body.i.i.i.i.i14, label %_ZNK4llvh5APInt13getActiveBitsEv.exit.i.i23, !llvm.loop !26
 
 if.else.i.i.i.i.i21:                              ; preds = %for.body.i.i.i.i.i14
@@ -18596,7 +18596,7 @@ for.body.i.i.i.i.i:                               ; preds = %if.then.i.i.i.i.i, 
 
 if.then.i.i.i.i.i:                                ; preds = %for.body.i.i.i.i.i
   %add.i.i.i.i.i = add i32 %Count.011.i.i.i.i.i, 64
-  %cmp.i1.i.i.i.i = icmp ugt i64 %indvars.iv.i.i.i.i, 1
+  %cmp.i1.i.i.i.i = icmp samesign ugt i64 %indvars.iv.i.i.i.i, 1
   br i1 %cmp.i1.i.i.i.i, label %for.body.i.i.i.i.i, label %_ZNK4llvh5APInt13getActiveBitsEv.exit.i.i, !llvm.loop !26
 
 if.else.i.i.i.i.i:                                ; preds = %for.body.i.i.i.i.i
@@ -18652,7 +18652,7 @@ for.body.i.i.i.i.i14:                             ; preds = %if.then.i.i.i.i.i37
 
 if.then.i.i.i.i.i37:                              ; preds = %for.body.i.i.i.i.i14
   %add.i.i.i.i.i38 = add i32 %Count.011.i.i.i.i.i16, 64
-  %cmp.i1.i.i.i.i39 = icmp ugt i64 %indvars.iv.i.i.i.i15, 1
+  %cmp.i1.i.i.i.i39 = icmp samesign ugt i64 %indvars.iv.i.i.i.i15, 1
   br i1 %cmp.i1.i.i.i.i39, label %for.body.i.i.i.i.i14, label %_ZNK4llvh5APInt13getActiveBitsEv.exit.i.i23, !llvm.loop !26
 
 if.else.i.i.i.i.i21:                              ; preds = %for.body.i.i.i.i.i14
@@ -18795,7 +18795,7 @@ for.body.i.i.i.i.i:                               ; preds = %if.then.i.i.i.i.i, 
 
 if.then.i.i.i.i.i:                                ; preds = %for.body.i.i.i.i.i
   %add.i.i.i.i.i = add i32 %Count.011.i.i.i.i.i, 64
-  %cmp.i1.i.i.i.i = icmp ugt i64 %indvars.iv.i.i.i.i, 1
+  %cmp.i1.i.i.i.i = icmp samesign ugt i64 %indvars.iv.i.i.i.i, 1
   br i1 %cmp.i1.i.i.i.i, label %for.body.i.i.i.i.i, label %_ZNK4llvh5APInt13getActiveBitsEv.exit.i.i, !llvm.loop !26
 
 if.else.i.i.i.i.i:                                ; preds = %for.body.i.i.i.i.i
@@ -18910,7 +18910,7 @@ for.body.i.i:                                     ; preds = %if.then.i.i, %for.b
 
 if.then.i.i:                                      ; preds = %for.body.i.i
   %add.i.i = add i32 %Count.011.i.i, 64
-  %cmp.i1.i = icmp ugt i64 %indvars.iv.i, 1
+  %cmp.i1.i = icmp samesign ugt i64 %indvars.iv.i, 1
   br i1 %cmp.i1.i, label %for.body.i.i, label %_ZNK4llvh5APInt25countLeadingZerosSlowCaseEv.exit.i, !llvm.loop !26
 
 if.else.i.i:                                      ; preds = %for.body.i.i
@@ -18955,7 +18955,7 @@ for.body.i.i.i.i.i21:                             ; preds = %if.then.i.i.i.i.i44
 
 if.then.i.i.i.i.i44:                              ; preds = %for.body.i.i.i.i.i21
   %add.i.i.i.i.i45 = add i32 %Count.011.i.i.i.i.i23, 64
-  %cmp.i1.i.i.i.i46 = icmp ugt i64 %indvars.iv.i.i.i.i22, 1
+  %cmp.i1.i.i.i.i46 = icmp samesign ugt i64 %indvars.iv.i.i.i.i22, 1
   br i1 %cmp.i1.i.i.i.i46, label %for.body.i.i.i.i.i21, label %_ZNK4llvh5APInt13getActiveBitsEv.exit.i.i30, !llvm.loop !26
 
 if.else.i.i.i.i.i28:                              ; preds = %for.body.i.i.i.i.i21
@@ -19070,7 +19070,7 @@ for.body.i.i.i.i.i67:                             ; preds = %if.then.i.i.i.i.i90
 
 if.then.i.i.i.i.i90:                              ; preds = %for.body.i.i.i.i.i67
   %add.i.i.i.i.i91 = add i32 %Count.011.i.i.i.i.i69, 64
-  %cmp.i1.i.i.i.i92 = icmp ugt i64 %indvars.iv.i.i.i.i68, 1
+  %cmp.i1.i.i.i.i92 = icmp samesign ugt i64 %indvars.iv.i.i.i.i68, 1
   br i1 %cmp.i1.i.i.i.i92, label %for.body.i.i.i.i.i67, label %_ZNK4llvh5APInt13getActiveBitsEv.exit.i.i76, !llvm.loop !26
 
 if.else.i.i.i.i.i74:                              ; preds = %for.body.i.i.i.i.i67
@@ -19141,7 +19141,7 @@ for.body.i.i.i.i.i:                               ; preds = %if.then.i.i.i.i.i, 
 
 if.then.i.i.i.i.i:                                ; preds = %for.body.i.i.i.i.i
   %add.i.i.i.i.i = add i32 %Count.011.i.i.i.i.i, 64
-  %cmp.i1.i.i.i.i = icmp ugt i64 %indvars.iv.i.i.i.i, 1
+  %cmp.i1.i.i.i.i = icmp samesign ugt i64 %indvars.iv.i.i.i.i, 1
   br i1 %cmp.i1.i.i.i.i, label %for.body.i.i.i.i.i, label %_ZNK4llvh5APInt13getActiveBitsEv.exit.i.i, !llvm.loop !26
 
 if.else.i.i.i.i.i:                                ; preds = %for.body.i.i.i.i.i
@@ -19242,7 +19242,7 @@ for.body.i.i:                                     ; preds = %if.then.i.i, %for.b
 
 if.then.i.i:                                      ; preds = %for.body.i.i
   %add.i.i = add i32 %Count.011.i.i, 64
-  %cmp.i1.i = icmp ugt i64 %indvars.iv.i, 1
+  %cmp.i1.i = icmp samesign ugt i64 %indvars.iv.i, 1
   br i1 %cmp.i1.i, label %for.body.i.i, label %_ZNK4llvh5APInt25countLeadingZerosSlowCaseEv.exit.i, !llvm.loop !26
 
 if.else.i.i:                                      ; preds = %for.body.i.i
@@ -19287,7 +19287,7 @@ for.body.i.i.i.i:                                 ; preds = %if.then.i.i.i.i, %f
 
 if.then.i.i.i.i:                                  ; preds = %for.body.i.i.i.i
   %add.i.i.i.i = add i32 %Count.011.i.i.i.i, 64
-  %cmp.i1.i.i.i = icmp ugt i64 %indvars.iv.i.i.i, 1
+  %cmp.i1.i.i.i = icmp samesign ugt i64 %indvars.iv.i.i.i, 1
   br i1 %cmp.i1.i.i.i, label %for.body.i.i.i.i, label %_ZNK4llvh5APInt13getActiveBitsEv.exit.i, !llvm.loop !26
 
 if.else.i.i.i.i:                                  ; preds = %for.body.i.i.i.i
@@ -19370,7 +19370,7 @@ for.body.i.i.i.i:                                 ; preds = %if.then.i.i.i.i, %f
 
 if.then.i.i.i.i:                                  ; preds = %for.body.i.i.i.i
   %add.i.i.i.i = add i32 %Count.011.i.i.i.i, 64
-  %cmp.i1.i.i.i = icmp ugt i64 %indvars.iv.i.i.i, 1
+  %cmp.i1.i.i.i = icmp samesign ugt i64 %indvars.iv.i.i.i, 1
   br i1 %cmp.i1.i.i.i, label %for.body.i.i.i.i, label %_ZNK4llvh5APInt13getActiveBitsEv.exit.i, !llvm.loop !26
 
 if.else.i.i.i.i:                                  ; preds = %for.body.i.i.i.i
@@ -19761,7 +19761,7 @@ for.body.i.i.i:                                   ; preds = %if.then.i.i.i, %for
 
 if.then.i.i.i:                                    ; preds = %for.body.i.i.i
   %add.i.i.i = add i32 %Count.011.i.i.i, 64
-  %cmp.i1.i.i = icmp ugt i64 %indvars.iv.i.i, 1
+  %cmp.i1.i.i = icmp samesign ugt i64 %indvars.iv.i.i, 1
   br i1 %cmp.i1.i.i, label %for.body.i.i.i, label %_ZNK4llvh5APInt12getBoolValueEv.exit, !llvm.loop !26
 
 if.else.i.i.i:                                    ; preds = %for.body.i.i.i
@@ -19881,7 +19881,7 @@ for.body.i.i.i161:                                ; preds = %if.then.i.i.i180, %
 
 if.then.i.i.i180:                                 ; preds = %for.body.i.i.i161
   %add.i.i.i181 = add i32 %Count.011.i.i.i163, 64
-  %cmp.i1.i.i182 = icmp ugt i64 %indvars.iv.i.i162, 1
+  %cmp.i1.i.i182 = icmp samesign ugt i64 %indvars.iv.i.i162, 1
   br i1 %cmp.i1.i.i182, label %for.body.i.i.i161, label %_ZNK4llvh5APInt12getBoolValueEv.exit185, !llvm.loop !26
 
 if.else.i.i.i168:                                 ; preds = %for.body.i.i.i161
@@ -20839,7 +20839,7 @@ for.body.i.i.i.i:                                 ; preds = %if.then.i.i.i.i, %f
 
 if.then.i.i.i.i:                                  ; preds = %for.body.i.i.i.i
   %add.i.i.i.i = add i32 %Count.011.i.i.i.i, 64
-  %cmp.i1.i.i.i = icmp ugt i64 %indvars.iv.i.i.i, 1
+  %cmp.i1.i.i.i = icmp samesign ugt i64 %indvars.iv.i.i.i, 1
   br i1 %cmp.i1.i.i.i, label %for.body.i.i.i.i, label %_ZNK4llvh5APInt13getActiveBitsEv.exit.i, !llvm.loop !26
 
 if.else.i.i.i.i:                                  ; preds = %for.body.i.i.i.i
@@ -21009,7 +21009,7 @@ for.body.i.i.i.i:                                 ; preds = %if.then.i.i.i.i, %f
 
 if.then.i.i.i.i:                                  ; preds = %for.body.i.i.i.i
   %add.i.i.i.i = add i32 %Count.011.i.i.i.i, 64
-  %cmp.i1.i.i.i = icmp ugt i64 %indvars.iv.i.i.i, 1
+  %cmp.i1.i.i.i = icmp samesign ugt i64 %indvars.iv.i.i.i, 1
   br i1 %cmp.i1.i.i.i, label %for.body.i.i.i.i, label %_ZNK4llvh5APInt13getActiveBitsEv.exit.i, !llvm.loop !26
 
 if.else.i.i.i.i:                                  ; preds = %for.body.i.i.i.i
@@ -21320,7 +21320,7 @@ for.body.i.i.i:                                   ; preds = %if.then.i.i.i, %for
 
 if.then.i.i.i:                                    ; preds = %for.body.i.i.i
   %add.i.i.i = add i32 %Count.011.i.i.i, 64
-  %cmp.i1.i.i = icmp ugt i64 %indvars.iv.i.i, 1
+  %cmp.i1.i.i = icmp samesign ugt i64 %indvars.iv.i.i, 1
   br i1 %cmp.i1.i.i, label %for.body.i.i.i, label %delete.notnull.i, !llvm.loop !26
 
 if.else.i.i.i:                                    ; preds = %for.body.i.i.i
@@ -21725,7 +21725,7 @@ for.body.i.i.i.i:                                 ; preds = %if.then.i.i.i.i, %f
 
 if.then.i.i.i.i:                                  ; preds = %for.body.i.i.i.i
   %add.i.i.i.i = add i32 %Count.011.i.i.i.i, 64
-  %cmp.i1.i.i.i = icmp ugt i64 %indvars.iv.i.i.i, 1
+  %cmp.i1.i.i.i = icmp samesign ugt i64 %indvars.iv.i.i.i, 1
   br i1 %cmp.i1.i.i.i, label %for.body.i.i.i.i, label %_ZNK4llvh5APInt18isStrictlyPositiveEv.exit, !llvm.loop !26
 
 if.else.i.i.i.i:                                  ; preds = %for.body.i.i.i.i
@@ -23081,7 +23081,7 @@ for.body.i.i.i879:                                ; preds = %if.then.i.i.i897, %
 
 if.then.i.i.i897:                                 ; preds = %for.body.i.i.i879
   %add.i.i.i898 = add i32 %Count.011.i.i.i881, 64
-  %cmp.i1.i.i899 = icmp ugt i64 %indvars.iv.i.i880, 1
+  %cmp.i1.i.i899 = icmp samesign ugt i64 %indvars.iv.i.i880, 1
   br i1 %cmp.i1.i.i899, label %for.body.i.i.i879, label %_ZNK4llvh5APInt11isNullValueEv.exit902, !llvm.loop !26
 
 if.else.i.i.i886:                                 ; preds = %for.body.i.i.i879
@@ -23478,7 +23478,7 @@ for.body.i.i.i1355:                               ; preds = %if.then.i.i.i1373, 
 
 if.then.i.i.i1373:                                ; preds = %for.body.i.i.i1355
   %add.i.i.i1374 = add i32 %Count.011.i.i.i1357, 64
-  %cmp.i1.i.i1375 = icmp ugt i64 %indvars.iv.i.i1356, 1
+  %cmp.i1.i.i1375 = icmp samesign ugt i64 %indvars.iv.i.i1356, 1
   br i1 %cmp.i1.i.i1375, label %for.body.i.i.i1355, label %_ZNK4llvh5APInt25countLeadingZerosSlowCaseEv.exit.i.i1364, !llvm.loop !26
 
 if.else.i.i.i1362:                                ; preds = %for.body.i.i.i1355
@@ -23523,7 +23523,7 @@ for.body.i.i.i1385:                               ; preds = %if.then.i.i.i1403, 
 
 if.then.i.i.i1403:                                ; preds = %for.body.i.i.i1385
   %add.i.i.i1404 = add i32 %Count.011.i.i.i1387, 64
-  %cmp.i1.i.i1405 = icmp ugt i64 %indvars.iv.i.i1386, 1
+  %cmp.i1.i.i1405 = icmp samesign ugt i64 %indvars.iv.i.i1386, 1
   br i1 %cmp.i1.i.i1405, label %for.body.i.i.i1385, label %_ZNK4llvh5APInt25countLeadingZerosSlowCaseEv.exit.i.i1394, !llvm.loop !26
 
 if.else.i.i.i1392:                                ; preds = %for.body.i.i.i1385
@@ -23871,7 +23871,7 @@ for.body.i.i.i:                                   ; preds = %if.then.i.i.i, %for
 
 if.then.i.i.i:                                    ; preds = %for.body.i.i.i
   %add.i.i.i = add i32 %Count.011.i.i.i, 64
-  %cmp.i1.i.i = icmp ugt i64 %indvars.iv.i.i, 1
+  %cmp.i1.i.i = icmp samesign ugt i64 %indvars.iv.i.i, 1
   br i1 %cmp.i1.i.i, label %for.body.i.i.i, label %_ZNK4llvh5APInt11isNullValueEv.exit, !llvm.loop !26
 
 if.else.i.i.i:                                    ; preds = %for.body.i.i.i
@@ -24189,7 +24189,7 @@ for.body.i.i.i.i.i.i:                             ; preds = %if.then.i.i.i.i.i.i
 
 if.then.i.i.i.i.i.i:                              ; preds = %for.body.i.i.i.i.i.i
   %add.i.i.i.i.i.i = add i32 %Count.011.i.i.i.i.i.i, 64
-  %cmp.i1.i.i.i.i.i = icmp ugt i64 %indvars.iv.i.i.i.i.i, 1
+  %cmp.i1.i.i.i.i.i = icmp samesign ugt i64 %indvars.iv.i.i.i.i.i, 1
   br i1 %cmp.i1.i.i.i.i.i, label %for.body.i.i.i.i.i.i, label %_ZNK4llvh5APInt13getActiveBitsEv.exit.i.i.i, !llvm.loop !26
 
 if.else.i.i.i.i.i.i:                              ; preds = %for.body.i.i.i.i.i.i

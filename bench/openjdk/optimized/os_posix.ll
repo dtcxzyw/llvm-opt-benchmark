@@ -3041,7 +3041,7 @@ define hidden void @_ZN6Parker4parkEbl(ptr noundef nonnull align 8 dereferenceab
   %..i = zext i1 %.b8.i to i32
   %18 = call i32 @clock_gettime(i32 noundef %..i, ptr noundef nonnull %4) #28
   %19 = load i64, ptr %4, align 8
-  %20 = icmp ugt i64 %2, 99999999999999999
+  %20 = icmp samesign ugt i64 %2, 99999999999999999
   br i1 %20, label %21, label %23
 
 21:                                               ; preds = %17

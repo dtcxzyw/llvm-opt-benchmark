@@ -584,7 +584,7 @@ define hidden void @_ZN8rawspeed10Rw2Decoder17decodeRawInternalEv(ptr dead_on_un
 173:                                              ; preds = %61
   %174 = lshr i32 %71, 1
   %175 = add nuw nsw i32 %174, %71
-  %176 = icmp ult i32 %70, %175
+  %176 = icmp samesign ult i32 %70, %175
   br i1 %176, label %279, label %177
 
 177:                                              ; preds = %173

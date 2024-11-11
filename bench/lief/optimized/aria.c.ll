@@ -56,7 +56,7 @@ define hidden range(i32 -92, 1) i32 @mbedtls_aria_setkey_enc(ptr nocapture nound
   store i32 %14, ptr %15, align 4
   %16 = getelementptr inbounds i8, ptr %4, i64 16
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %16, i8 0, i64 16, i1 false)
-  %17 = icmp ugt i32 %2, 191
+  %17 = icmp samesign ugt i32 %2, 191
   br i1 %17, label %18, label %.thread
 
 18:                                               ; preds = %5
@@ -91,7 +91,7 @@ define hidden range(i32 -92, 1) i32 @mbedtls_aria_setkey_enc(ptr nocapture nound
   %37 = zext nneg i32 %33 to i64
   %38 = getelementptr inbounds [3 x [4 x i32]], ptr @__const.mbedtls_aria_setkey_enc.rc, i64 0, i64 %37
   call fastcc void @aria_fo_xor(ptr noundef %16, ptr noundef %4, ptr noundef %38, ptr noundef %16)
-  %39 = icmp ult i32 %32, 128
+  %39 = icmp samesign ult i32 %32, 128
   %40 = add nuw nsw i32 %33, 1
   %41 = select i1 %39, i32 %40, i32 0
   %42 = getelementptr inbounds i8, ptr %4, i64 32

@@ -1753,7 +1753,7 @@ mqtt_user_decode_message.exit:                    ; preds = %275, %.preheader.i,
 
 dissect_mqtt_reason_code.exit390:                 ; preds = %473, %477
   %482 = add nuw nsw i32 %70, 4
-  %483 = icmp ugt i32 %41, 3
+  %483 = icmp samesign ugt i32 %41, 3
   br i1 %483, label %484, label %.loopexit
 
 484:                                              ; preds = %dissect_mqtt_reason_code.exit390
@@ -1813,7 +1813,7 @@ dissect_mqtt_reason_code.exit392.us:              ; preds = %496, %dissect_mqtt_
 
 dissect_mqtt_reason_code.exit394:                 ; preds = %511, %515
   %520 = add nuw nsw i32 %70, 2
-  %521 = icmp ugt i32 %41, 1
+  %521 = icmp samesign ugt i32 %41, 1
   br i1 %521, label %522, label %.loopexit
 
 522:                                              ; preds = %dissect_mqtt_reason_code.exit394

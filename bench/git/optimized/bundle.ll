@@ -956,7 +956,7 @@ if.then22:                                        ; preds = %if.end15
   unreachable
 
 if.else24:                                        ; preds = %if.end15
-  %cmp25 = icmp ult i32 %spec.select35, %spec.select
+  %cmp25 = icmp samesign ult i32 %spec.select35, %spec.select
   br i1 %cmp25, label %if.then26, label %if.else29
 
 if.then26:                                        ; preds = %if.else24

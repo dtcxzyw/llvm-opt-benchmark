@@ -1946,7 +1946,7 @@ define internal fastcc noundef range(i32 0, 2) i32 @yenta_search_res(ptr nocaptu
   br i1 %29, label %30, label %42
 
 30:                                               ; preds = %24
-  %31 = icmp ult i64 %28, 15
+  %31 = icmp samesign ult i64 %28, 15
   br i1 %31, label %.loopexit, label %.preheader.preheader
 
 .preheader.preheader:                             ; preds = %30

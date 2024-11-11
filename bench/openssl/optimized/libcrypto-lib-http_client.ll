@@ -1488,7 +1488,7 @@ if.end377:                                        ; preds = %if.end371
   br i1 %cmp380.not, label %if.else408, label %if.then382
 
 if.then382:                                       ; preds = %if.end377
-  %cmp383 = icmp ult i64 %call367, 6
+  %cmp383 = icmp samesign ult i64 %call367, 6
   br i1 %cmp383, label %next_io.backedge, label %if.end386
 
 if.end386:                                        ; preds = %if.then382

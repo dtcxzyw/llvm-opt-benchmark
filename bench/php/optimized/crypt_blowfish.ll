@@ -306,7 +306,7 @@ define internal fastcc noundef ptr @BF_crypt(ptr nocapture noundef readonly %0, 
 
 36:                                               ; preds = %32
   %37 = icmp eq i8 %30, 51
-  %38 = icmp ugt i8 %34, 49
+  %38 = icmp samesign ugt i8 %34, 49
   %or.cond1877 = and i1 %37, %38
   br i1 %or.cond1877, label %42, label %39
 

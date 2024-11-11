@@ -2096,7 +2096,7 @@ define dso_local range(i64 -30, -9223372036854775808) i64 @__archive_read_filter
   %65 = getelementptr inbounds i8, ptr %42, i64 200
   %66 = load ptr, ptr %65, align 8
   %67 = icmp ne ptr %66, null
-  %68 = icmp ugt i64 %.185.i, 65536
+  %68 = icmp samesign ugt i64 %.185.i, 65536
   %or.cond.i.i = and i1 %68, %67
   br i1 %or.cond.i.i, label %69, label %client_skip_proxy.exit.thread107.i
 
@@ -3215,7 +3215,7 @@ define internal i64 @_archive_filter_bytes(ptr nocapture noundef readonly %0, i3
   %10 = getelementptr inbounds i8, ptr %.14.i, i64 16
   %11 = load ptr, ptr %10, align 8
   %12 = add nsw i32 %.0193.i, -1
-  %13 = icmp ugt i32 %.0193.i, 1
+  %13 = icmp samesign ugt i32 %.0193.i, 1
   %14 = icmp ne ptr %11, null
   %15 = select i1 %13, i1 %14, i1 false
   br i1 %15, label %.lr.ph.i, label %get_filter.exit, !llvm.loop !24
@@ -3266,7 +3266,7 @@ define internal i32 @_archive_filter_code(ptr nocapture noundef readonly %0, i32
   %10 = getelementptr inbounds i8, ptr %.14.i, i64 16
   %11 = load ptr, ptr %10, align 8
   %12 = add nsw i32 %.0193.i, -1
-  %13 = icmp ugt i32 %.0193.i, 1
+  %13 = icmp samesign ugt i32 %.0193.i, 1
   %14 = icmp ne ptr %11, null
   %15 = select i1 %13, i1 %14, i1 false
   br i1 %15, label %.lr.ph.i, label %get_filter.exit, !llvm.loop !24
@@ -3318,7 +3318,7 @@ define internal ptr @_archive_filter_name(ptr nocapture noundef readonly %0, i32
   %10 = getelementptr inbounds i8, ptr %.14.i, i64 16
   %11 = load ptr, ptr %10, align 8
   %12 = add nsw i32 %.0193.i, -1
-  %13 = icmp ugt i32 %.0193.i, 1
+  %13 = icmp samesign ugt i32 %.0193.i, 1
   %14 = icmp ne ptr %11, null
   %15 = select i1 %13, i1 %14, i1 false
   br i1 %15, label %.lr.ph.i, label %get_filter.exit, !llvm.loop !24

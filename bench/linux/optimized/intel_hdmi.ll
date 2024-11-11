@@ -1379,7 +1379,7 @@ thread-pre-split:                                 ; preds = %59
   br i1 %96, label %107, label %97
 
 97:                                               ; preds = %92
-  %98 = icmp ugt i16 %95, 7
+  %98 = icmp samesign ugt i16 %95, 7
   br i1 %98, label %107, label %99
 
 99:                                               ; preds = %97
@@ -1390,7 +1390,7 @@ thread-pre-split:                                 ; preds = %59
   br i1 %103, label %104, label %107
 
 104:                                              ; preds = %99
-  %105 = icmp ugt i16 %95, 4
+  %105 = icmp samesign ugt i16 %95, 4
   %106 = select i1 %105, i32 225000, i32 165000
   br label %107
 
@@ -4945,22 +4945,22 @@ define dso_local noundef range(i32 0, 17) i32 @intel_hdmi_dsc_get_num_slices(ptr
   br i1 %59, label %68, label %60
 
 60:                                               ; preds = %.split.split.us
-  %61 = icmp ult i32 %58, 5
+  %61 = icmp samesign ult i32 %58, 5
   %.reass4.us12 = and i1 %61, %invariant.op3
   br i1 %.reass4.us12, label %68, label %62
 
 62:                                               ; preds = %60
-  %63 = icmp ult i32 %58, 9
+  %63 = icmp samesign ult i32 %58, 9
   %.reass6.us13 = and i1 %63, %invariant.op5
   br i1 %.reass6.us13, label %68, label %64
 
 64:                                               ; preds = %62
-  %65 = icmp ult i32 %58, 13
+  %65 = icmp samesign ult i32 %58, 13
   %.reass8.us14 = and i1 %65, %invariant.op7
   br i1 %.reass8.us14, label %68, label %66
 
 66:                                               ; preds = %64
-  %67 = icmp ult i32 %58, 17
+  %67 = icmp samesign ult i32 %58, 17
   %.reass10.us15 = and i1 %67, %invariant.op9
   br i1 %.reass10.us15, label %68, label %.loopexit
 
@@ -4991,12 +4991,12 @@ define dso_local noundef range(i32 0, 17) i32 @intel_hdmi_dsc_get_num_slices(ptr
   br i1 %80, label %85, label %81
 
 81:                                               ; preds = %79
-  %82 = icmp ult i32 %77, 13
+  %82 = icmp samesign ult i32 %77, 13
   %.reass8.us20.us = and i1 %82, %invariant.op7
   br i1 %.reass8.us20.us, label %85, label %83
 
 83:                                               ; preds = %81
-  %84 = icmp ult i32 %77, 17
+  %84 = icmp samesign ult i32 %77, 17
   %.reass10.us21.us = and i1 %84, %invariant.op9
   br i1 %.reass10.us21.us, label %85, label %.loopexit
 
@@ -5024,11 +5024,11 @@ define dso_local noundef range(i32 0, 17) i32 @intel_hdmi_dsc_get_num_slices(ptr
   br i1 %97, label %102, label %98
 
 98:                                               ; preds = %96
-  %99 = icmp ult i32 %94, 9
+  %99 = icmp samesign ult i32 %94, 9
   br i1 %99, label %102, label %100
 
 100:                                              ; preds = %98
-  %101 = icmp ult i32 %94, 17
+  %101 = icmp samesign ult i32 %94, 17
   %.reass10.us21.us26 = and i1 %101, %invariant.op9
   br i1 %.reass10.us21.us26, label %102, label %.loopexit
 
@@ -5053,15 +5053,15 @@ define dso_local noundef range(i32 0, 17) i32 @intel_hdmi_dsc_get_num_slices(ptr
   br i1 %114, label %121, label %115
 
 115:                                              ; preds = %113
-  %116 = icmp ult i32 %111, 9
+  %116 = icmp samesign ult i32 %111, 9
   br i1 %116, label %121, label %117
 
 117:                                              ; preds = %115
-  %118 = icmp ult i32 %111, 13
+  %118 = icmp samesign ult i32 %111, 13
   br i1 %118, label %121, label %119
 
 119:                                              ; preds = %117
-  %120 = icmp ult i32 %111, 17
+  %120 = icmp samesign ult i32 %111, 17
   %.reass10.us21 = and i1 %120, %invariant.op9
   br i1 %.reass10.us21, label %121, label %.loopexit
 
@@ -5086,21 +5086,21 @@ define dso_local noundef range(i32 0, 17) i32 @intel_hdmi_dsc_get_num_slices(ptr
   br i1 %133, label %142, label %134
 
 134:                                              ; preds = %132
-  %135 = icmp ult i32 %130, 5
+  %135 = icmp samesign ult i32 %130, 5
   br i1 %135, label %142, label %136
 
 136:                                              ; preds = %134
-  %137 = icmp ult i32 %130, 9
+  %137 = icmp samesign ult i32 %130, 9
   %.reass6 = and i1 %137, %invariant.op5
   br i1 %.reass6, label %142, label %138
 
 138:                                              ; preds = %136
-  %139 = icmp ult i32 %130, 13
+  %139 = icmp samesign ult i32 %130, 13
   %.reass8 = and i1 %139, %invariant.op7
   br i1 %.reass8, label %142, label %140
 
 140:                                              ; preds = %138
-  %141 = icmp ult i32 %130, 17
+  %141 = icmp samesign ult i32 %130, 17
   %.reass10 = and i1 %141, %invariant.op9
   br i1 %.reass10, label %142, label %.loopexit
 
@@ -5344,7 +5344,7 @@ define internal fastcc i32 @hdmi_port_clock_valid(ptr noundef %0, i32 noundef ra
   br i1 %15, label %26, label %16
 
 16:                                               ; preds = %11
-  %17 = icmp ugt i16 %14, 7
+  %17 = icmp samesign ugt i16 %14, 7
   br i1 %17, label %26, label %18
 
 18:                                               ; preds = %16
@@ -5355,7 +5355,7 @@ define internal fastcc i32 @hdmi_port_clock_valid(ptr noundef %0, i32 noundef ra
   br i1 %22, label %23, label %26
 
 23:                                               ; preds = %18
-  %24 = icmp ugt i16 %14, 4
+  %24 = icmp samesign ugt i16 %14, 4
   %25 = select i1 %24, i32 225000, i32 165000
   br label %26
 

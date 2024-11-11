@@ -6007,7 +6007,7 @@ if.then.i.i.i269:                                 ; preds = %_ZNSt16allocator_tr
   %sub.i.i.i.i274 = shl nuw nsw i64 %140, 1
   %mul.i.i.i275 = xor i64 %sub.i.i.i.i274, 126
   call fastcc void @"_ZSt16__introsort_loopIN9__gnu_cxx17__normal_iteratorIPZN6google8protobuf8compiler3cpp13EnumGenerator15GenerateMethodsEiPNS3_2io7PrinterEE6OffsetSt6vectorISA_SaISA_EEEElNS0_5__ops15_Iter_comp_iterIZNS6_15GenerateMethodsEiS9_E3$_2EEEvT_SK_T0_T1_"(ptr nonnull %call5.i.i.i.i1.i9.i266, ptr nonnull %add.ptr.i.i.i.i.i.i.i.i.i, i64 noundef %mul.i.i.i275)
-  %cmp.i4.i.i.i276 = icmp ugt i64 %sub.ptr.sub.i.i257, 512
+  %cmp.i4.i.i.i276 = icmp samesign ugt i64 %sub.ptr.sub.i.i257, 512
   %scevgep.i.i.i.i277 = getelementptr i8, ptr %call5.i.i.i.i1.i9.i266, i64 32
   br i1 %cmp.i4.i.i.i276, label %for.body.lr.ph.i.i.i.i.i278, label %if.else.i.i.i.i
 
@@ -7664,7 +7664,7 @@ if.end:                                           ; preds = %if.then
   br label %if.end27
 
 if.else:                                          ; preds = %entry
-  %cmp5 = icmp ugt i64 %len, 8
+  %cmp5 = icmp samesign ugt i64 %len, 8
   br i1 %cmp5, label %if.then6, label %if.else14
 
 if.then6:                                         ; preds = %if.else
@@ -7685,7 +7685,7 @@ if.then6:                                         ; preds = %if.else
   br label %return
 
 if.else14:                                        ; preds = %if.else
-  %cmp15 = icmp ugt i64 %len, 3
+  %cmp15 = icmp samesign ugt i64 %len, 3
   br i1 %cmp15, label %if.then16, label %if.else18
 
 if.then16:                                        ; preds = %if.else14
@@ -15250,7 +15250,7 @@ if.then15:                                        ; preds = %if.then7
   %conv27 = zext nneg i8 %.sroa.speculated116 to i32
   %cmp31.not = icmp samesign uge i32 %conv26, %conv27
   %narrow = add nuw nsw i8 %.sroa.speculated116, %5
-  %cmp36 = icmp ult i8 %narrow, 6
+  %cmp36 = icmp samesign ult i8 %narrow, 6
   %or.cond = select i1 %cmp31.not, i1 true, i1 %cmp36
   br i1 %or.cond, label %if.then37, label %if.end53
 
@@ -15303,7 +15303,7 @@ if.then68:                                        ; preds = %if.then59
   %sub87 = sub nsw i32 %conv85, %conv86
   %cmp88.not = icmp sle i32 %conv83, %sub87
   %narrow123 = add nuw nsw i8 %.sroa.speculated, %12
-  %cmp94 = icmp ult i8 %narrow123, 6
+  %cmp94 = icmp samesign ult i8 %narrow123, 6
   %or.cond122 = select i1 %cmp88.not, i1 true, i1 %cmp94
   br i1 %or.cond122, label %if.then95, label %if.end108
 

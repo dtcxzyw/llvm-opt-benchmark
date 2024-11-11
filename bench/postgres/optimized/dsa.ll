@@ -650,7 +650,7 @@ init_span.exit:                                   ; preds = %55, %73
   br label %133
 
 99:                                               ; preds = %14
-  %100 = icmp ult i64 %1, 1024
+  %100 = icmp samesign ult i64 %1, 1024
   br i1 %100, label %101, label %.preheader
 
 101:                                              ; preds = %99

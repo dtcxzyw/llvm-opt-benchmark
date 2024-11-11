@@ -1567,7 +1567,7 @@ define signext i8 @getPhaseFuncSymbol(i32 noundef %0, i32 noundef %1) local_unna
   br label %15
 
 8:                                                ; preds = %2
-  %9 = icmp ult i32 %0, 25
+  %9 = icmp samesign ult i32 %0, 25
   br i1 %9, label %10, label %14
 
 10:                                               ; preds = %8
@@ -1608,8 +1608,8 @@ define void @addMultiVarRegsToQASM(ptr nocapture noundef readonly byval(%struct.
   br i1 %11, label %.lr.ph43, label %._crit_edge44
 
 .lr.ph43:                                         ; preds = %10
-  %12 = icmp ult i32 %3, 25
-  %13 = icmp ult i32 %3, 8
+  %12 = icmp samesign ult i32 %3, 25
+  %13 = icmp samesign ult i32 %3, 8
   %.sroa.3.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 128
   %wide.trip.count = zext nneg i32 %3 to i64
   br label %14
@@ -2007,8 +2007,8 @@ define void @qasm_recordMultiVarPhaseFunc(ptr nocapture noundef readonly byval(%
 .lr.ph80:                                         ; preds = %17
   %19 = getelementptr inbounds i8, ptr %12, i64 11
   %invariant.gep = getelementptr i8, ptr %5, i64 8
-  %20 = icmp ult i32 %3, 25
-  %21 = icmp ult i32 %3, 8
+  %20 = icmp samesign ult i32 %3, 25
+  %21 = icmp samesign ult i32 %3, 8
   %22 = add nsw i32 %3, -1
   %23 = zext nneg i32 %22 to i64
   %wide.trip.count = zext nneg i32 %3 to i64
@@ -2270,7 +2270,7 @@ define void @qasm_recordNamedPhaseFunc(ptr nocapture noundef readonly byval(%str
   br i1 %35, label %.lr.ph287, label %.loopexit
 
 .lr.ph287:                                        ; preds = %.preheader
-  %36 = icmp ult i32 %3, 8
+  %36 = icmp samesign ult i32 %3, 8
   %37 = add nsw i32 %3, -1
   %38 = zext nneg i32 %37 to i64
   %wide.trip.count321 = zext nneg i32 %3 to i64
@@ -2391,7 +2391,7 @@ getPhaseFuncSymbol.exit231:                       ; preds = %39
 
 .lr.ph274:                                        ; preds = %.preheader253
   %97 = add nsw i32 %3, -1
-  %98 = icmp ult i32 %3, 8
+  %98 = icmp samesign ult i32 %3, 8
   %99 = zext nneg i32 %97 to i64
   %wide.trip.count316 = zext nneg i32 %3 to i64
   br i1 %98, label %getPhaseFuncSymbol.exit233.us, label %getPhaseFuncSymbol.exit233.us279
@@ -2520,7 +2520,7 @@ getPhaseFuncSymbol.exit233.us279:                 ; preds = %.lr.ph274, %getPhas
   br i1 %168, label %.lr.ph, label %.loopexit
 
 .lr.ph:                                           ; preds = %.preheader255
-  %169 = icmp ult i32 %3, 8
+  %169 = icmp samesign ult i32 %3, 8
   %170 = add nsw i32 %3, -1
   %171 = zext nneg i32 %170 to i64
   br i1 %146, label %.lr.ph.split.us, label %.lr.ph.split

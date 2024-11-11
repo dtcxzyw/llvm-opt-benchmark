@@ -4469,7 +4469,7 @@ _ZNK10open_spiel8quoridor13QuoridorState6IsWallENS0_4MoveE.exit263: ; preds = %_
 
 _ZNK10open_spiel8quoridor4Move7IsValidEv.exit.i293: ; preds = %127
   %132 = icmp slt i32 %128, %.sroa.33.8.extract.trunc
-  %133 = icmp ult i32 %129, %.sroa.33.8.extract.trunc
+  %133 = icmp samesign ult i32 %129, %.sroa.33.8.extract.trunc
   %spec.select.i.i299 = and i1 %132, %133
   br i1 %spec.select.i.i299, label %134, label %_ZNK10open_spiel8quoridor13QuoridorState6IsWallENS0_4MoveE.exit225.thread
 
@@ -4514,7 +4514,7 @@ _ZNK10open_spiel8quoridor13QuoridorState6IsWallENS0_4MoveE.exit335: ; preds = %_
 
 _ZNK10open_spiel8quoridor4Move7IsValidEv.exit.i361: ; preds = %152
   %157 = icmp slt i32 %153, %.sroa.33.8.extract.trunc
-  %158 = icmp ult i32 %154, %.sroa.33.8.extract.trunc
+  %158 = icmp samesign ult i32 %154, %.sroa.33.8.extract.trunc
   %spec.select.i.i367 = and i1 %157, %158
   br i1 %spec.select.i.i367, label %159, label %_ZNK10open_spiel8quoridor13QuoridorState6IsWallENS0_4MoveE.exit335.thread
 

@@ -210,7 +210,7 @@ Vec_WrdPush.exit:
   br label %.lr.ph
 
 .critedge:                                        ; preds = %.lr.ph
-  %18 = icmp ugt i64 %indvars.iv, 1
+  %18 = icmp samesign ugt i64 %indvars.iv, 1
   br i1 %18, label %.lr.ph, label %.critedge2, !llvm.loop !7
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.critedge
@@ -493,7 +493,7 @@ Vec_WrdGrow.exit23:                               ; preds = %Vec_WrdGrow.exit23t
 38:                                               ; preds = %.lr.ph
   %39 = getelementptr inbounds i64, ptr %34, i64 %indvars.iv
   store i64 %36, ptr %39, align 8
-  %40 = icmp ugt i64 %indvars.iv, 1
+  %40 = icmp samesign ugt i64 %indvars.iv, 1
   br i1 %40, label %.lr.ph, label %._crit_edge, !llvm.loop !13
 
 ._crit_edge.loopexit.split.loop.exit:             ; preds = %.lr.ph
@@ -619,7 +619,7 @@ Vec_WrdPush.exit:
   br label %.critedge2
 
 .critedge:                                        ; preds = %23, %36
-  %55 = icmp ugt i64 %indvars.iv, 1
+  %55 = icmp samesign ugt i64 %indvars.iv, 1
   br i1 %55, label %23, label %.critedge2, !llvm.loop !14
 
 .critedge2:                                       ; preds = %.critedge, %42, %._crit_edge30.i, %._crit_edge.i

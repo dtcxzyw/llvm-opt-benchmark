@@ -337,7 +337,7 @@ _ZN4core3cmp3Ord5clamp17h9a060355ad59a718E.exit100: ; preds = %144
   %.0.in.sroa.speculated.i = select i1 %148, i32 0, i32 %149
   %150 = icmp sgt i32 %147, -1
   %151 = tail call i32 @llvm.umin.i32(i32 %147, i32 %25)
-  %152 = icmp ugt i32 %151, %.0.in.sroa.speculated.i
+  %152 = icmp samesign ugt i32 %151, %.0.in.sroa.speculated.i
   %153 = and i1 %150, %152
   br i1 %153, label %.lr.ph166, label %.thread126
 
@@ -913,7 +913,7 @@ _ZN4core3cmp3Ord5clamp17h9a060355ad59a718E.exit101: ; preds = %173
   %.0.in.sroa.speculated.i = select i1 %177, i32 0, i32 %178
   %179 = icmp sgt i32 %176, -1
   %180 = tail call i32 @llvm.umin.i32(i32 %176, i32 %35)
-  %181 = icmp ugt i32 %180, %.0.in.sroa.speculated.i
+  %181 = icmp samesign ugt i32 %180, %.0.in.sroa.speculated.i
   %182 = and i1 %179, %181
   br i1 %182, label %.lr.ph173, label %.thread138
 
@@ -1466,7 +1466,7 @@ _ZN4core3cmp3Ord5clamp17h9a060355ad59a718E.exit99: ; preds = %183
   %.0.in.sroa.speculated.i = select i1 %187, i32 0, i32 %188
   %189 = icmp sgt i32 %186, -1
   %190 = tail call i32 @llvm.umin.i32(i32 %186, i32 %29)
-  %191 = icmp ugt i32 %190, %.0.in.sroa.speculated.i
+  %191 = icmp samesign ugt i32 %190, %.0.in.sroa.speculated.i
   %192 = and i1 %189, %191
   br i1 %192, label %.lr.ph172, label %.thread131
 

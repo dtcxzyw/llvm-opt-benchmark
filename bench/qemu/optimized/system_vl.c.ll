@@ -6699,7 +6699,7 @@ if.then:                                          ; preds = %entry
   br label %return
 
 if.end:                                           ; preds = %entry
-  %cmp4 = icmp ult i32 %conv, 3
+  %cmp4 = icmp samesign ult i32 %conv, 3
   br i1 %cmp4, label %if.then6, label %if.end7
 
 if.then6:                                         ; preds = %if.end

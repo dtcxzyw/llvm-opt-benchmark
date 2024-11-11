@@ -887,7 +887,7 @@ define internal range(i32 0, 2) i32 @k12_read(ptr nocapture noundef readonly %0,
   br label %.loopexit
 
 23:                                               ; preds = %20
-  %24 = icmp ult i32 %18, 16
+  %24 = icmp samesign ult i32 %18, 16
   br i1 %24, label %25, label %27
 
 25:                                               ; preds = %23
@@ -1004,7 +1004,7 @@ define internal range(i32 0, 2) i32 @k12_seek_read(ptr nocapture noundef readonl
   br i1 %16, label %24, label %17
 
 17:                                               ; preds = %13
-  %18 = icmp ult i32 %15, 16
+  %18 = icmp samesign ult i32 %15, 16
   br i1 %18, label %19, label %20
 
 19:                                               ; preds = %17

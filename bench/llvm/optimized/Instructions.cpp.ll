@@ -12668,7 +12668,7 @@ define dso_local noundef zeroext i1 @_ZN4llvm17ShuffleVectorInst15isTransposeMas
 
 .preheader:                                       ; preds = %12
   %invariant.gep = getelementptr i8, ptr %0, i64 -8
-  %16 = icmp ugt i32 %6, 2
+  %16 = icmp samesign ugt i32 %6, 2
   br i1 %16, label %.lr.ph.preheader, label %.loopexit
 
 .lr.ph.preheader:                                 ; preds = %.preheader
@@ -14122,11 +14122,11 @@ define dso_local noundef zeroext i1 @_ZN4llvm17ShuffleVectorInst24isOneUseSingle
 
 .lr.ph57:                                         ; preds = %10
   %.idx1.i = shl nuw nsw i64 %6, 2
-  %.not43 = icmp ult i32 %2, 4
+  %.not43 = icmp samesign ult i32 %2, 4
   %12 = lshr i64 %6, 2
   %13 = and i64 %.idx1.i, 8589934576
   %14 = and i64 %6, 3
-  %15 = icmp ult i32 %2, 58
+  %15 = icmp samesign ult i32 %2, 58
   %16 = add nuw i32 %2, 63
   %17 = lshr i32 %16, 6
   %18 = zext nneg i32 %17 to i64
@@ -17457,7 +17457,7 @@ _ZNK4llvm4Type13getScalarTypeEv.exit180:          ; preds = %_ZNK4llvm4Type13get
 
 202:                                              ; preds = %201
   %203 = icmp eq i32 %.sroa.0223.0.extract.trunc, 1
-  %204 = icmp ult i64 %storemerge.in, 4294967296
+  %204 = icmp samesign ult i64 %storemerge.in, 4294967296
   %spec.select287 = and i1 %203, %204
   br label %_ZNK4llvm7details23FixedOrScalableQuantityINS_12ElementCountEjEeqERKS3_.exit129
 
@@ -17466,7 +17466,7 @@ _ZNK4llvm4Type13getScalarTypeEv.exit180:          ; preds = %_ZNK4llvm4Type13get
 
 206:                                              ; preds = %205
   %207 = icmp eq i32 %.sroa.0200.0.extract.trunc, 1
-  %208 = icmp ult i64 %storemerge33.in, 4294967296
+  %208 = icmp samesign ult i64 %storemerge33.in, 4294967296
   %spec.select288 = and i1 %207, %208
   br label %_ZNK4llvm7details23FixedOrScalableQuantityINS_12ElementCountEjEeqERKS3_.exit129
 
@@ -23967,7 +23967,7 @@ _ZSt13move_backwardIPPN4llvm5ValueES3_ET0_T_S5_S4_.exit: ; preds = %_ZSt22__unin
   %34 = getelementptr inbounds i8, ptr %.0910.i.i.i.i.i, i64 32
   %35 = getelementptr inbounds i8, ptr %.0811.i.i.i.i.i, i64 8
   %36 = add nsw i64 %.012.i.i.i.i.i, -1
-  %37 = icmp ugt i64 %.012.i.i.i.i.i, 1
+  %37 = icmp samesign ugt i64 %.012.i.i.i.i.i, 1
   br i1 %37, label %.lr.ph.i.i.i.i.i, label %_ZSt4copyIPKN4llvm3UseEN9__gnu_cxx17__normal_iteratorIPPNS0_5ValueESt6vectorIS7_SaIS7_EEEEET0_T_SE_SD_.exit, !llvm.loop !124
 
 _ZSt7advanceIPKN4llvm3UseEmEvRT_T0_.exit:         ; preds = %18
@@ -24019,7 +24019,7 @@ _ZSt22__uninitialized_move_aIPPN4llvm5ValueES3_SaIS2_EET0_T_S6_S5_RT1_.exit48: ;
   %51 = getelementptr inbounds i8, ptr %.0910.i.i.i.i.i53, i64 32
   %52 = getelementptr inbounds i8, ptr %.0811.i.i.i.i.i52, i64 8
   %53 = add nsw i64 %.012.i.i.i.i.i51, -1
-  %54 = icmp ugt i64 %.012.i.i.i.i.i51, 1
+  %54 = icmp samesign ugt i64 %.012.i.i.i.i.i51, 1
   br i1 %54, label %.lr.ph.i.i.i.i.i50, label %_ZSt4copyIPKN4llvm3UseEN9__gnu_cxx17__normal_iteratorIPPNS0_5ValueESt6vectorIS7_SaIS7_EEEEET0_T_SE_SD_.exit, !llvm.loop !124
 
 55:                                               ; preds = %5

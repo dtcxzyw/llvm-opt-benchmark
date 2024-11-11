@@ -474,7 +474,7 @@ if.end11:                                         ; preds = %if.then10, %if.then
   br label %for.inc
 
 for.inc:                                          ; preds = %for.body, %if.end11
-  %cmp = icmp ugt i64 %i.027.in, 2
+  %cmp = icmp samesign ugt i64 %i.027.in, 2
   br i1 %cmp, label %for.body, label %for.end, !llvm.loop !7
 
 for.end:                                          ; preds = %for.inc, %if.end
@@ -1944,7 +1944,7 @@ if.else47:                                        ; preds = %if.else
   ]
 
 if.then59:                                        ; preds = %if.else47, %if.else47
-  %tobool65.not = icmp ult i8 %32, 64
+  %tobool65.not = icmp samesign ult i8 %32, 64
   br i1 %tobool65.not, label %if.then66, label %if.end72
 
 if.then66:                                        ; preds = %if.then59

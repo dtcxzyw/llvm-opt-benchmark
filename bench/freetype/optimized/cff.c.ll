@@ -2759,7 +2759,7 @@ cff_free_glyph_data.exit.i:                       ; preds = %377, %372, %363
   store i64 %579, ptr %571, align 8
   %580 = add nsw i32 %.0295420.i, -1
   %581 = getelementptr inbounds i8, ptr %.0293421.i, i64 16
-  %582 = icmp ugt i32 %.0295420.i, 1
+  %582 = icmp samesign ugt i32 %.0295420.i, 1
   br i1 %582, label %562, label %.loopexit.loopexit.i, !llvm.loop !14
 
 .loopexit.loopexit.i:                             ; preds = %562
@@ -5354,7 +5354,7 @@ define internal fastcc range(i64 -140737488355328, 140737488355328) i64 @cff_par
   br label %cff_parse_integer.exit
 
 68:                                               ; preds = %63
-  %69 = icmp ult i8 %2, -5
+  %69 = icmp samesign ult i8 %2, -5
   %70 = getelementptr inbounds i8, ptr %.0.val, i64 2
   %71 = icmp ule ptr %70, %27
   %.not35.i = icmp ult ptr %27, %28
@@ -5493,7 +5493,7 @@ define internal range(i32 0, 162) i32 @cff_parse_font_matrix(ptr nocapture nound
   br label %cff_parse_integer.exit.thread.i
 
 66:                                               ; preds = %61
-  %67 = icmp ult i8 %20, -5
+  %67 = icmp samesign ult i8 %20, -5
   %68 = getelementptr inbounds i8, ptr %.068.val, i64 2
   %69 = icmp ule ptr %68, %22
   %.not35.i.i = icmp ult ptr %22, %26
@@ -5622,14 +5622,14 @@ cff_parse_fixed_dynamic.exit:                     ; preds = %23, %98, %104, %cff
 
 124:                                              ; preds = %116
   %125 = or i64 %122, -9223372036854775808
-  %126 = icmp ult i64 %125, %115
+  %126 = icmp samesign ult i64 %125, %115
   %127 = sub nsw i64 %115, %122
   %spec.select98 = select i1 %126, i64 %127, i64 -9223372036854775808
   br label %.sink.split
 
 128:                                              ; preds = %116
   %129 = sub nsw i64 9223372036854775807, %122
-  %130 = icmp ugt i64 %129, %115
+  %130 = icmp samesign ugt i64 %129, %115
   %131 = add nsw i64 %122, %115
   %spec.select99 = select i1 %130, i64 %131, i64 9223372036854775807
   br label %.sink.split
@@ -6196,7 +6196,7 @@ cff_blend_check_vector.exit:                      ; preds = %24, %23, %29
   br label %cff_parse_integer.exit.i.thread.thread.i
 
 175:                                              ; preds = %170
-  %176 = icmp ult i8 %119, -5
+  %176 = icmp samesign ult i8 %119, -5
   %177 = getelementptr inbounds i8, ptr %.val.i, i64 2
   %178 = icmp ule ptr %177, %143
   %.not35.i.i.i = icmp ult ptr %143, %144
@@ -6834,7 +6834,7 @@ define internal fastcc i64 @do_fixed(ptr nocapture noundef readonly %0, ptr %.0.
   br label %cff_parse_integer.exit
 
 83:                                               ; preds = %78
-  %84 = icmp ult i8 %3, -5
+  %84 = icmp samesign ult i8 %3, -5
   %85 = getelementptr inbounds i8, ptr %.0.val, i64 2
   %86 = icmp ule ptr %85, %42
   %.not35.i = icmp ult ptr %42, %43

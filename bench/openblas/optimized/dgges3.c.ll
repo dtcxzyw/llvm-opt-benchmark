@@ -149,17 +149,17 @@ define void @dgges3_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocaptu
 94:                                               ; preds = %91
   %95 = load i32, ptr %14, align 4, !tbaa !3
   %96 = icmp slt i32 %95, 1
-  %97 = icmp ult i32 %95, %85
+  %97 = icmp samesign ult i32 %95, %85
   %98 = and i1 %97, %64
-  %or.cond = or i1 %96, %98
+  %or.cond = select i1 %96, i1 true, i1 %98
   br i1 %or.cond, label %.thread, label %99
 
 99:                                               ; preds = %94
   %100 = load i32, ptr %16, align 4, !tbaa !3
   %101 = icmp slt i32 %100, 1
-  %102 = icmp ult i32 %100, %85
+  %102 = icmp samesign ult i32 %100, %85
   %103 = and i1 %102, %72
-  %or.cond43 = or i1 %101, %103
+  %or.cond43 = select i1 %101, i1 true, i1 %103
   br i1 %or.cond43, label %.thread, label %104
 
 104:                                              ; preds = %99

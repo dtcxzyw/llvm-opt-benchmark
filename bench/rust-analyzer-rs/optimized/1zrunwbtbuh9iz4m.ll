@@ -2686,7 +2686,7 @@ switch.early.test:                                ; preds = %541
 
 610:                                              ; preds = %switch.early.test, %switch.early.test
   tail call void @llvm.experimental.noalias.scope.decl(metadata !453)
-  %611 = icmp ult i32 %503, 14999999
+  %611 = icmp samesign ult i32 %503, 14999999
   br i1 %611, label %612, label %614
 
 612:                                              ; preds = %610

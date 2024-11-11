@@ -37,7 +37,7 @@ define void @dlaed1_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
 
 28:                                               ; preds = %24
   %29 = lshr i32 %22, 1
-  %30 = icmp ugt i32 %22, 1
+  %30 = icmp samesign ugt i32 %22, 1
   %31 = zext i1 %30 to i32
   %32 = load i32, ptr %6, align 4, !tbaa !3
   %33 = icmp slt i32 %32, %31

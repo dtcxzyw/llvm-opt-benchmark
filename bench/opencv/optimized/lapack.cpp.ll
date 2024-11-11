@@ -6936,7 +6936,7 @@ define double @cvDet(ptr noundef %0) local_unnamed_addr #0 personality ptr @__gx
   %19 = getelementptr inbounds i8, ptr %0, i64 24
   %20 = load ptr, ptr %19, align 8
   %.not107 = icmp ne ptr %20, null
-  %21 = icmp ult i32 %16, 4
+  %21 = icmp samesign ult i32 %16, 4
   %or.cond = and i1 %21, %.not107
   br i1 %or.cond, label %22, label %141
 
@@ -8887,7 +8887,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN2cv11JacobiImpl_IfEEbPT_mS2_S2
   br i1 %66, label %.lr.ph465, label %._crit_edge466
 
 .lr.ph453:                                        ; preds = %._crit_edge403
-  %69 = icmp ugt i32 %5, 2
+  %69 = icmp samesign ugt i32 %5, 2
   %wide.trip.count492 = zext nneg i32 %68 to i64
   %wide.trip.count497 = zext nneg i32 %5 to i64
   %wide.trip.count516 = zext nneg i32 %5 to i64
@@ -9474,7 +9474,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN2cv11JacobiImpl_IdEEbPT_mS2_S2
   br i1 %66, label %.lr.ph465, label %._crit_edge466
 
 .lr.ph453:                                        ; preds = %._crit_edge403
-  %69 = icmp ugt i32 %5, 2
+  %69 = icmp samesign ugt i32 %5, 2
   %wide.trip.count492 = zext nneg i32 %68 to i64
   %wide.trip.count497 = zext nneg i32 %5 to i64
   %wide.trip.count516 = zext nneg i32 %5 to i64

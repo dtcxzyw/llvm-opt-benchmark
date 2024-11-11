@@ -418,7 +418,7 @@ define internal fastcc range(i32 -95, 1) i32 @mext_check_arguments(ptr noundef %
 
 81:                                               ; preds = %75
   %82 = add nuw nsw i64 %76, %2
-  %83 = icmp ugt i64 %82, 4294967294
+  %83 = icmp samesign ugt i64 %82, 4294967294
   br i1 %83, label %108, label %84
 
 84:                                               ; preds = %81

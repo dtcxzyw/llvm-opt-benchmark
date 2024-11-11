@@ -38438,7 +38438,7 @@ if.then:                                          ; preds = %entry
   %add.i = add i32 %key, 1
   %conv.i = zext i32 %add.i to i64
   store i32 -1, ptr %ref.tmp.i, align 4
-  %cmp.i.i = icmp ult i64 %sub.ptr.div.i.i, %conv.i
+  %cmp.i.i = icmp samesign ult i64 %sub.ptr.div.i.i, %conv.i
   br i1 %cmp.i.i, label %if.then.i.i, label %if.else.i.i
 
 if.then.i.i:                                      ; preds = %if.then
@@ -38447,7 +38447,7 @@ if.then.i.i:                                      ; preds = %if.then
   br label %_ZNSt6vectorIjSaIjEE6resizeEmRKj.exit.i
 
 if.else.i.i:                                      ; preds = %if.then
-  %cmp6.i.i = icmp ugt i64 %sub.ptr.div.i.i, %conv.i
+  %cmp6.i.i = icmp samesign ugt i64 %sub.ptr.div.i.i, %conv.i
   br i1 %cmp6.i.i, label %if.then7.i.i, label %_ZNSt6vectorIjSaIjEE6resizeEmRKj.exit.i
 
 if.then7.i.i:                                     ; preds = %if.else.i.i

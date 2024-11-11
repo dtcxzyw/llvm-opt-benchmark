@@ -4315,7 +4315,7 @@ define dso_local range(i32 -115, 1) i32 @usb_reset_device(ptr noundef %0) #1 ali
   br label %128
 
 128:                                              ; preds = %125, %122, %107, %98
-  %129 = icmp ugt i64 %99, 1
+  %129 = icmp samesign ugt i64 %99, 1
   br i1 %129, label %98, label %.loopexit, !llvm.loop !35
 
 .loopexit:                                        ; preds = %128, %91
@@ -5406,7 +5406,7 @@ define internal noundef range(i32 -19, 1) i32 @hub_probe(ptr noundef %0, ptr noc
   %166 = lshr i8 %165, 3
   %167 = add nuw nsw i8 %166, 8
   %168 = zext nneg i8 %167 to i32
-  %169 = icmp ult i32 %156, %168
+  %169 = icmp samesign ult i32 %156, %168
   br i1 %169, label %.thread28, label %.thread22
 
 170:                                              ; preds = %161, %159
@@ -5853,7 +5853,7 @@ define internal void @hub_disconnect(ptr noundef %0) #1 align 16 {
   %13 = phi i32 [ %14, %.preheader ], [ %11, %1 ]
   tail call void @usb_hub_remove_port_device(ptr noundef %3, i32 noundef %13) #18
   %14 = add nsw i32 %13, -1
-  %15 = icmp ugt i32 %13, 1
+  %15 = icmp samesign ugt i32 %13, 1
   br i1 %15, label %.preheader, label %.loopexit, !llvm.loop !47
 
 .loopexit:                                        ; preds = %.preheader, %1

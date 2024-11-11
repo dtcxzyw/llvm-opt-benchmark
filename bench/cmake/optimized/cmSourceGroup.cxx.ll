@@ -1683,7 +1683,7 @@ _ZSt14__copy_move_a2ILb0EPK13cmSourceGroupPS0_ET1_T0_S5_S4_.exit: ; preds = %_ZS
   %74 = getelementptr inbounds i8, ptr %.09.i.i2634, i64 704
   %75 = getelementptr inbounds i8, ptr %.08.i.i2735, i64 704
   %76 = add nsw i64 %.0.i.i2836, -1
-  %77 = icmp ugt i64 %.0.i.i2836, 1
+  %77 = icmp samesign ugt i64 %.0.i.i2836, 1
   br i1 %77, label %.lr.ph37, label %_ZSt14__copy_move_a2ILb0EP13cmSourceGroupS1_ET1_T0_S3_S2_.exit.loopexit, !llvm.loop !30
 
 _ZSt14__copy_move_a2ILb0EP13cmSourceGroupS1_ET1_T0_S3_S2_.exit.loopexit: ; preds = %.lr.ph37

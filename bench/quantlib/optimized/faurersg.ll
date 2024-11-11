@@ -322,7 +322,7 @@ ehcleanup41:                                      ; preds = %ehcleanup40, %lpad1
 do.end:                                           ; preds = %invoke.cont8
   %base_ = getelementptr inbounds nuw i8, ptr %this, i64 112
   store i64 2, ptr %base_, align 8, !tbaa !41
-  %cmp44536 = icmp ugt i64 %dimensionality, 2
+  %cmp44536 = icmp samesign ugt i64 %dimensionality, 2
   br i1 %cmp44536, label %while.body, label %while.end
 
 while.body:                                       ; preds = %do.end, %invoke.cont46

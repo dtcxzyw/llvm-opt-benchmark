@@ -478,9 +478,9 @@ while.body56.i.i:                                 ; preds = %while.cond54.prehea
   br i1 %cmp63.i.i, label %cond.end.i.i, label %if.end86.i.i
 
 cond.end.i.i:                                     ; preds = %while.body56.i.i
-  %cmp75.i.i = icmp ugt i8 %30, -33
+  %cmp75.i.i = icmp samesign ugt i8 %30, -33
   %conv76.i.i = zext i1 %cmp75.i.i to i32
-  %cmp80.i.i = icmp ugt i8 %30, -17
+  %cmp80.i.i = icmp samesign ugt i8 %30, -17
   %conv81.i.i = zext i1 %cmp80.i.i to i32
   %add82.i.i = add i32 %add14.176.i.i, 1
   %add83.i.i = add i32 %add82.i.i, %conv81.i.i

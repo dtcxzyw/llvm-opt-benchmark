@@ -839,7 +839,7 @@ if.then20.us:                                     ; preds = %land.lhs.true15.us
 
 if.end23.us:                                      ; preds = %if.then20.us, %land.lhs.true15.us, %while.body.us
   %7 = phi ptr [ %incdec.ptr22.us, %if.then20.us ], [ %incdec.ptr.us, %land.lhs.true15.us ], [ %incdec.ptr.us, %while.body.us ]
-  %cmp.us = icmp ugt i32 %num.addr.06.us, 1
+  %cmp.us = icmp samesign ugt i32 %num.addr.06.us, 1
   br i1 %cmp.us, label %land.rhs.us, label %while.end, !llvm.loop !4
 
 land.rhs:                                         ; preds = %land.rhs.lr.ph, %if.end23
@@ -878,7 +878,7 @@ if.then20:                                        ; preds = %land.lhs.true15
 
 if.end23:                                         ; preds = %if.then20, %land.lhs.true15, %if.end
   %13 = phi ptr [ %incdec.ptr22, %if.then20 ], [ %incdec.ptr, %land.lhs.true15 ], [ %incdec.ptr, %if.end ]
-  %cmp = icmp ugt i32 %num.addr.06, 1
+  %cmp = icmp samesign ugt i32 %num.addr.06, 1
   br i1 %cmp, label %land.rhs, label %while.end, !llvm.loop !4
 
 while.end:                                        ; preds = %land.rhs.us, %if.end23.us, %land.rhs, %if.end23, %entry, %if.then
@@ -928,7 +928,7 @@ if.then:                                          ; preds = %land.lhs.true8
 
 if.end:                                           ; preds = %if.then, %land.lhs.true8, %while.body
   %7 = phi ptr [ %add.ptr, %if.then ], [ %incdec.ptr, %land.lhs.true8 ], [ %incdec.ptr, %while.body ]
-  %cmp = icmp ugt i32 %num.addr.03, 1
+  %cmp = icmp samesign ugt i32 %num.addr.03, 1
   br i1 %cmp, label %land.rhs, label %while.end, !llvm.loop !6
 
 while.end:                                        ; preds = %land.rhs, %if.end, %entry

@@ -488,7 +488,7 @@ for.body:                                         ; preds = %for.body.preheader,
   %sub9 = sub nsw i64 %sub.ptr.div.i8, %indvars.iv
   %add.ptr.i9 = getelementptr inbounds %"class.msdfgen::EdgeHolder", ptr %3, i64 %sub9
   tail call void @_ZN7msdfgen10EdgeHolder4swapERS0_S1_(ptr noundef nonnull align 8 dereferenceable(8) %add.ptr.i, ptr noundef nonnull align 8 dereferenceable(8) %add.ptr.i9)
-  %cmp = icmp ugt i64 %indvars.iv, 1
+  %cmp = icmp samesign ugt i64 %indvars.iv, 1
   br i1 %cmp, label %for.body, label %for.end.loopexit, !llvm.loop !10
 
 for.end.loopexit:                                 ; preds = %for.body

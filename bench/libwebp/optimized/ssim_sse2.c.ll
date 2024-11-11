@@ -23,7 +23,7 @@ define internal i32 @AccumulateSSE_SSE2(ptr nocapture noundef readonly %0, ptr n
 5:                                                ; preds = %3
   %.05864 = load <2 x i64>, ptr %1, align 1
   %.05965 = load <2 x i64>, ptr %0, align 1
-  %.not66 = icmp ult i32 %2, 48
+  %.not66 = icmp samesign ult i32 %2, 48
   br i1 %.not66, label %._crit_edge, label %.lr.ph.preheader
 
 .lr.ph.preheader:                                 ; preds = %5

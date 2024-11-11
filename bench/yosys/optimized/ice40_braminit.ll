@@ -1231,7 +1231,7 @@ _ZNKSt6bitsetILm16EE10_Find_nextEm.exit.i.i.i.i:  ; preds = %.noexc3.i.i.i, %_ZN
   %.not.i.i7.i.i.i.i = icmp ne i64 %416, 0
   %417 = call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %416, i1 true)
   %418 = add nuw nsw i64 %417, %415
-  %419 = icmp ult i64 %418, 16
+  %419 = icmp samesign ult i64 %418, 16
   %420 = select i1 %.not.i.i7.i.i.i.i, i1 %419, i1 false
   br i1 %420, label %_ZNKSt6bitsetILm16EE10_Find_nextEm.exit.i.i.i.i, label %_ZNKSt6bitsetILm16EE9to_stringB5cxx11Ev.exit.i, !llvm.loop !33
 

@@ -1124,7 +1124,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IN9__gnu_cxx17__normal_it
   %187 = getelementptr inbounds i8, ptr %181, i64 10
   %188 = load i8, ptr %187, align 1
   %189 = zext i8 %188 to i32
-  %190 = icmp ult i32 %184, %189
+  %190 = icmp samesign ult i32 %184, %189
   br i1 %190, label %192, label %191
 
 191:                                              ; preds = %186
@@ -1514,7 +1514,7 @@ define dso_local void @_ZN4i18n12phonenumbers23WritePrefixDescriptionsERKNSt7__c
   %30 = getelementptr inbounds i8, ptr %.sroa.0110.0150, i64 10
   %31 = load i8, ptr %30, align 1
   %32 = zext i8 %31 to i32
-  %33 = icmp ult i32 %.sroa.9.0151, %32
+  %33 = icmp samesign ult i32 %.sroa.9.0151, %32
   br i1 %33, label %35, label %34
 
 34:                                               ; preds = %29
@@ -1529,7 +1529,7 @@ define dso_local void @_ZN4i18n12phonenumbers23WritePrefixDescriptionsERKNSt7__c
   %40 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %2, ptr noundef nonnull @.str.20, i32 noundef %39) #23
   %41 = load i8, ptr %30, align 1
   %42 = zext i8 %41 to i32
-  %43 = icmp ult i32 %.sroa.9.0151, %42
+  %43 = icmp samesign ult i32 %.sroa.9.0151, %42
   br i1 %43, label %_ZNK4absl7debian218container_internal14btree_iteratorIKNS1_10btree_nodeINS1_10map_paramsIiNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4lessIiESaISt4pairIKiSA_EELi256ELb0EEEEERKSF_PSK_EptEv.exit33, label %44
 
 44:                                               ; preds = %35
@@ -1768,7 +1768,7 @@ _ZN4absl7debian218container_internal14btree_iteratorIKNS1_10btree_nodeINS1_10map
   %146 = getelementptr inbounds i8, ptr %.sroa.096.0156, i64 10
   %147 = load i8, ptr %146, align 1
   %148 = zext i8 %147 to i32
-  %149 = icmp ult i32 %.sroa.8100.0157, %148
+  %149 = icmp samesign ult i32 %.sroa.8100.0157, %148
   br i1 %149, label %151, label %150
 
 150:                                              ; preds = %145
@@ -1909,7 +1909,7 @@ _ZN4absl7debian218container_internal14btree_iteratorIKNS1_10btree_nodeINS1_10map
   %207 = getelementptr inbounds i8, ptr %.sroa.086.0167, i64 10
   %208 = load i8, ptr %207, align 1
   %209 = zext i8 %208 to i32
-  %210 = icmp ult i32 %.sroa.8.0166, %209
+  %210 = icmp samesign ult i32 %.sroa.8.0166, %209
   br i1 %210, label %212, label %211
 
 211:                                              ; preds = %206
@@ -2066,7 +2066,7 @@ define dso_local void @_ZN4i18n12phonenumbers25WritePrefixesDescriptionsERKN4abs
   %16 = getelementptr inbounds i8, ptr %.sroa.043.068, i64 10
   %17 = load i8, ptr %16, align 1
   %18 = zext i8 %17 to i32
-  %19 = icmp ult i32 %.sroa.847.069, %18
+  %19 = icmp samesign ult i32 %.sroa.847.069, %18
   br i1 %19, label %_ZNK4absl7debian218container_internal14btree_iteratorIKNS1_10btree_nodeINS1_10map_paramsINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESA_St4lessISA_ESaISt4pairIKSA_SA_EELi256ELb0EEEEERKSF_PSK_EptEv.exit, label %20
 
 20:                                               ; preds = %15
@@ -2172,7 +2172,7 @@ _ZN4absl7debian218container_internal14btree_iteratorIKNS1_10btree_nodeINS1_10map
   %69 = getelementptr inbounds i8, ptr %.sroa.033.075, i64 10
   %70 = load i8, ptr %69, align 1
   %71 = zext i8 %70 to i32
-  %72 = icmp ult i32 %.sroa.8.074, %71
+  %72 = icmp samesign ult i32 %.sroa.8.074, %71
   br i1 %72, label %_ZNK4absl7debian218container_internal14btree_iteratorIKNS1_10btree_nodeINS1_10map_paramsINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESA_St4lessISA_ESaISt4pairIKSA_SA_EELi256ELb0EEEEERKSF_PSK_EptEv.exit19, label %73
 
 73:                                               ; preds = %68
@@ -2637,7 +2637,7 @@ define dso_local void @_ZN4i18n12phonenumbers10ReplaceAllERKNSt7__cxx1112basic_s
 .noexc:                                           ; preds = %.lr.ph.i.i.i.i.i
   %21 = getelementptr inbounds i8, ptr %.056.i.i.i.i.i, i64 1
   %22 = add nsw i64 %.07.i.i.i.i.i, -1
-  %23 = icmp ugt i64 %.07.i.i.i.i.i, 1
+  %23 = icmp samesign ugt i64 %.07.i.i.i.i.i, 1
   br i1 %23, label %.lr.ph.i.i.i.i.i, label %_ZSt4copyIN9__gnu_cxx17__normal_iteratorIPKcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEESt20back_insert_iteratorIS9_EET0_T_SE_SD_.exit, !llvm.loop !35
 
 .loopexit:                                        ; preds = %.lr.ph.i.i.i.i.i
@@ -2681,7 +2681,7 @@ define dso_local void @_ZN4i18n12phonenumbers10ReplaceAllERKNSt7__cxx1112basic_s
 .noexc32:                                         ; preds = %.lr.ph.i.i.i.i.i29
   %32 = getelementptr inbounds i8, ptr %.056.i.i.i.i.i31, i64 1
   %33 = add nsw i64 %.07.i.i.i.i.i30, -1
-  %34 = icmp ugt i64 %.07.i.i.i.i.i30, 1
+  %34 = icmp samesign ugt i64 %.07.i.i.i.i.i30, 1
   br i1 %34, label %.lr.ph.i.i.i.i.i29, label %_ZSt4copyIN9__gnu_cxx17__normal_iteratorIPKcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEESt20back_insert_iteratorIS9_EET0_T_SE_SD_.exit33, !llvm.loop !35
 
 _ZSt4copyIN9__gnu_cxx17__normal_iteratorIPKcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEESt20back_insert_iteratorIS9_EET0_T_SE_SD_.exit33: ; preds = %.noexc32, %.lr.ph
@@ -2703,7 +2703,7 @@ _ZSt4copyIN9__gnu_cxx17__normal_iteratorIPKcNSt7__cxx1112basic_stringIcSt11char_
 .noexc37:                                         ; preds = %.lr.ph.i.i.i.i.i34
   %42 = getelementptr inbounds i8, ptr %.056.i.i.i.i.i36, i64 1
   %43 = add nsw i64 %.07.i.i.i.i.i35, -1
-  %44 = icmp ugt i64 %.07.i.i.i.i.i35, 1
+  %44 = icmp samesign ugt i64 %.07.i.i.i.i.i35, 1
   br i1 %44, label %.lr.ph.i.i.i.i.i34, label %_ZSt4copyIN9__gnu_cxx17__normal_iteratorIPKcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEESt20back_insert_iteratorIS9_EET0_T_SE_SD_.exit38, !llvm.loop !35
 
 _ZSt4copyIN9__gnu_cxx17__normal_iteratorIPKcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEESt20back_insert_iteratorIS9_EET0_T_SE_SD_.exit38: ; preds = %.noexc37, %_ZSt4copyIN9__gnu_cxx17__normal_iteratorIPKcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEESt20back_insert_iteratorIS9_EET0_T_SE_SD_.exit33
@@ -3225,7 +3225,7 @@ _ZStplIcSt11char_traitsIcESaIcEENSt7__cxx1112basic_stringIT_T0_T1_EERKS8_PKS5_.e
   %153 = getelementptr inbounds i8, ptr %147, i64 10
   %154 = load i8, ptr %153, align 1
   %155 = zext i8 %154 to i32
-  %156 = icmp ult i32 %150, %155
+  %156 = icmp samesign ult i32 %150, %155
   br i1 %156, label %158, label %157
 
 157:                                              ; preds = %152
@@ -3775,7 +3775,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit30: ; 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit35: ; preds = %42
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3)
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %9) #23
-  %44 = icmp ugt i32 %0, 3
+  %44 = icmp samesign ugt i32 %0, 3
   br i1 %44, label %45, label %53
 
 45:                                               ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit35
@@ -5245,7 +5245,7 @@ define linkonce_odr dso_local void @_ZN4absl7debian218container_internal5btreeIN
   %59 = sub nsw i32 %58, %.sroa.speculated
   %.not73 = icmp sle i32 %52, %59
   %narrow = add nuw nsw i8 %55, %49
-  %60 = icmp ult i8 %narrow, 6
+  %60 = icmp samesign ult i8 %narrow, 6
   %or.cond91 = select i1 %.not73, i1 true, i1 %60
   br i1 %or.cond91, label %61, label %71
 
@@ -6187,7 +6187,7 @@ define linkonce_odr dso_local void @_ZN4absl7debian218container_internal5btreeIN
   %59 = sub nsw i32 %58, %.sroa.speculated
   %.not73 = icmp sle i32 %52, %59
   %narrow = add nuw nsw i8 %55, %49
-  %60 = icmp ult i8 %narrow, 61
+  %60 = icmp samesign ult i8 %narrow, 61
   %or.cond91 = select i1 %.not73, i1 true, i1 %60
   br i1 %or.cond91, label %61, label %71
 
@@ -7332,7 +7332,7 @@ define linkonce_odr dso_local void @_ZN4absl7debian218container_internal5btreeIN
   %59 = sub nsw i32 %58, %.sroa.speculated
   %.not73 = icmp sle i32 %52, %59
   %narrow = add nuw nsw i8 %55, %49
-  %60 = icmp ult i8 %narrow, 4
+  %60 = icmp samesign ult i8 %narrow, 4
   %or.cond91 = select i1 %.not73, i1 true, i1 %60
   br i1 %or.cond91, label %61, label %71
 

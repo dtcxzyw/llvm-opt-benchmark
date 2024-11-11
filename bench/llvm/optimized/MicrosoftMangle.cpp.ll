@@ -16440,7 +16440,7 @@ _ZN4llvm11raw_ostreamlsEc.exit104:                ; preds = %264, %262, %204
   br label %291
 
 289:                                              ; preds = %278
-  %290 = icmp ugt i32 %11, 1
+  %290 = icmp samesign ugt i32 %11, 1
   br i1 %290, label %291, label %_ZN4llvm11raw_ostreamlsEPKc.exit98
 
 291:                                              ; preds = %.thread136, %289

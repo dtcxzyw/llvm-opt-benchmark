@@ -137,7 +137,7 @@ _ZNK6icu_7513CollationData7getCE32Ei.exit:        ; preds = %cond.false17.i, %co
 
 _ZNK6icu_7513CollationData7getCE32Ei.exit.thread125: ; preds = %cond.false.i
   %11 = load ptr, ptr %1, align 8
-  %cmp8.i = icmp ult i32 %c, 56320
+  %cmp8.i = icmp samesign ult i32 %c, 56320
   %cond.i = select i1 %cmp8.i, i32 320, i32 0
   %shr9.i = lshr i32 %c, 5
   %add10.i = add nuw nsw i32 %cond.i, %shr9.i
@@ -200,7 +200,7 @@ cond.true5.i52:                                   ; preds = %_ZNK6icu_7513Collat
   %data32.i25132 = getelementptr inbounds i8, ptr %26, i64 16
   %27 = load ptr, ptr %data32.i25132, align 8
   %28 = load ptr, ptr %26, align 8
-  %cmp8.i53 = icmp ult i32 %c, 56320
+  %cmp8.i53 = icmp samesign ult i32 %c, 56320
   %cond.i54 = select i1 %cmp8.i53, i32 320, i32 0
   %shr9.i55 = lshr i32 %c, 5
   %add10.i56 = add nuw nsw i32 %cond.i54, %shr9.i55
@@ -687,7 +687,7 @@ _ZNK6icu_7513CollationData14getScriptIndexEi.exit: ; preds = %if.then3.i, %if.th
   br i1 %cmp, label %return, label %if.end4
 
 if.end4:                                          ; preds = %_ZNK6icu_7513CollationData14getScriptIndexEi.exit
-  %cmp5 = icmp ugt i32 %script, 4095
+  %cmp5 = icmp samesign ugt i32 %script, 4095
   br i1 %cmp5, label %if.then6, label %for.cond.preheader
 
 for.cond.preheader:                               ; preds = %if.end4

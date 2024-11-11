@@ -4924,7 +4924,7 @@ define internal fastcc range(i32 0, 2) i32 @lzh_make_huffman_table(ptr nocapture
   store i16 %95, ptr %101, align 2
   %102 = getelementptr inbounds i8, ptr %94, i64 14
   store i16 %95, ptr %102, align 2
-  %103 = icmp ugt i32 %79, 15
+  %103 = icmp samesign ugt i32 %79, 15
   br i1 %103, label %104, label %.loopexit
 
 104:                                              ; preds = %91
@@ -4932,7 +4932,7 @@ define internal fastcc range(i32 0, 2) i32 @lzh_make_huffman_table(ptr nocapture
   %106 = zext nneg i32 %105 to i64
   %107 = getelementptr inbounds i16, ptr %86, i64 %106
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 2 dereferenceable(16) %107, ptr noundef nonnull align 2 dereferenceable(16) %94, i64 16, i1 false)
-  %108 = icmp ugt i32 %105, 15
+  %108 = icmp samesign ugt i32 %105, 15
   br i1 %108, label %.lr.ph244, label %.loopexit
 
 .lr.ph244:                                        ; preds = %104, %.lr.ph244
@@ -4966,7 +4966,7 @@ define internal fastcc range(i32 0, 2) i32 @lzh_make_huffman_table(ptr nocapture
   %indvars.iv.next277 = add nsw i64 %indvars.iv276, -2
   %116 = getelementptr inbounds i16, ptr %86, i64 %indvars.iv.next277
   store i16 %89, ptr %116, align 2
-  %117 = icmp ugt i64 %indvars.iv276, 3
+  %117 = icmp samesign ugt i64 %indvars.iv276, 3
   br i1 %117, label %115, label %._crit_edge240.loopexit, !llvm.loop !31
 
 ._crit_edge240.loopexit:                          ; preds = %115

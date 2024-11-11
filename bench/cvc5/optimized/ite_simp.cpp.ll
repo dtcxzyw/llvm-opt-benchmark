@@ -809,7 +809,7 @@ lpad62:                                           ; preds = %invoke.cont69, %inv
 
 cleanup.done:                                     ; preds = %if.end52
   %conv78 = zext i32 %call8 to i64
-  %cmp79.not = icmp ult i64 %sub.ptr.div.i196, %conv78
+  %cmp79.not = icmp samesign ult i64 %sub.ptr.div.i196, %conv78
   br i1 %cmp79.not, label %cond.false84, label %cleanup.done105
 
 cond.false84:                                     ; preds = %cleanup.done

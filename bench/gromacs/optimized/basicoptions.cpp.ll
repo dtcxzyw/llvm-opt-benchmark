@@ -2426,7 +2426,7 @@ define void @_ZN3gmx20IntegerOptionStorage16processSetValuesEPSt6vectorIiSaIiEE(
   br label %_ZN12_GLOBAL__N_112expandVectorIiEEvmPSt6vectorIT_SaIS2_EE.exit
 
 51:                                               ; preds = %47
-  %52 = icmp ugt i64 %23, %13
+  %52 = icmp samesign ugt i64 %23, %13
   br i1 %52, label %53, label %_ZN12_GLOBAL__N_112expandVectorIiEEvmPSt6vectorIT_SaIS2_EE.exit
 
 53:                                               ; preds = %51
@@ -3244,7 +3244,7 @@ define void @_ZN3gmx19DoubleOptionStorage16processSetValuesEPSt6vectorIdSaIdEE(p
   br label %_ZN12_GLOBAL__N_112expandVectorIdEEvmPSt6vectorIT_SaIS2_EE.exit
 
 51:                                               ; preds = %47
-  %52 = icmp ugt i64 %23, %13
+  %52 = icmp samesign ugt i64 %23, %13
   br i1 %52, label %53, label %_ZN12_GLOBAL__N_112expandVectorIdEEvmPSt6vectorIT_SaIS2_EE.exit
 
 53:                                               ; preds = %51
@@ -3892,7 +3892,7 @@ define void @_ZN3gmx18FloatOptionStorage16processSetValuesEPSt6vectorIfSaIfEE(pt
   br label %_ZN12_GLOBAL__N_112expandVectorIfEEvmPSt6vectorIT_SaIS2_EE.exit
 
 51:                                               ; preds = %47
-  %52 = icmp ugt i64 %23, %13
+  %52 = icmp samesign ugt i64 %23, %13
   br i1 %52, label %53, label %_ZN12_GLOBAL__N_112expandVectorIfEEvmPSt6vectorIT_SaIS2_EE.exit
 
 53:                                               ; preds = %51

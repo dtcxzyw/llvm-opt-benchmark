@@ -99,7 +99,7 @@ define dso_local range(i32 0, 7) i32 @anytime_typmod_check(i1 noundef zeroext %0
   unreachable
 
 9:                                                ; preds = %2
-  %10 = icmp ugt i32 %1, 6
+  %10 = icmp samesign ugt i32 %1, 6
   br i1 %10, label %11, label %17
 
 11:                                               ; preds = %9
@@ -6313,7 +6313,7 @@ define dso_local noundef i64 @timetz_zone(ptr nocapture noundef readonly %0) #0 
   %48 = mul i64 %47, 86400000000
   %49 = add i64 %34, %48
   %50 = add i64 %49, %40
-  %51 = icmp ugt i64 %50, 86399999999
+  %51 = icmp samesign ugt i64 %50, 86399999999
   %52 = urem i64 %50, 86400000000
   %storemerge17 = select i1 %51, i64 %52, i64 %50
   store i64 %storemerge17, ptr %33, align 8
@@ -6418,7 +6418,7 @@ define dso_local noundef i64 @timetz_izone(ptr nocapture noundef readonly %0) lo
   %55 = mul i64 %54, 86400000000
   %56 = add i64 %42, %55
   %57 = add i64 %56, %47
-  %58 = icmp ugt i64 %57, 86399999999
+  %58 = icmp samesign ugt i64 %57, 86399999999
   %59 = urem i64 %57, 86400000000
   %storemerge28 = select i1 %58, i64 %59, i64 %57
   store i64 %storemerge28, ptr %41, align 8

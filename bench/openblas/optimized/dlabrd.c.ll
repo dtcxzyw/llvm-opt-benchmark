@@ -44,7 +44,7 @@ define void @dlabrd_(ptr nocapture noundef readonly %0, ptr nocapture noundef re
   br i1 %37, label %.loopexit, label %38
 
 38:                                               ; preds = %35
-  %39 = icmp ult i32 %33, %36
+  %39 = icmp samesign ult i32 %33, %36
   %40 = load i32, ptr %2, align 4, !tbaa !3
   %41 = getelementptr i8, ptr %20, i64 8
   store i32 1, ptr %16, align 4, !tbaa !3

@@ -1544,7 +1544,7 @@ _ZNSt20back_insert_iteratorISt6vectorIN4llvm9StringRefESaIS2_EEEaSEOS2_.exit.i.i
   %389 = and i64 %388, %.pre-phi218.i
   %390 = icmp ne i64 %389, 0
   %.not.i.i.i2.i.i.i = icmp samesign ugt i64 %.pre-phi212.i, %387
-  %or.cond.i.i.i.i.i.i = and i1 %.not.i.i.i2.i.i.i, %390
+  %or.cond.i.i.i.i.i.i = select i1 %390, i1 %.not.i.i.i2.i.i.i, i1 false
   br i1 %or.cond.i.i.i.i.i.i, label %391, label %_ZL36collectHwModesReferencedForEncodingsRKN4llvm14CodeGenHwModesERSt6vectorINS_9StringRefESaIS4_EERSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt3setIS4_St4lessIS4_ES5_ESG_ISE_ESaISt4pairIKSE_SI_EEE.exit
 
 391:                                              ; preds = %386
@@ -12212,7 +12212,7 @@ _ZNSt12_Vector_baseIN12_GLOBAL__N_111OperandInfoESaIS1_EE13_M_deallocateEPS1_m.e
   %67 = getelementptr inbounds i8, ptr %.0910.i.i.i.i.i, i64 72
   %68 = getelementptr inbounds i8, ptr %.0811.i.i.i.i.i, i64 72
   %69 = add nsw i64 %.012.i.i.i.i.i, -1
-  %70 = icmp ugt i64 %.012.i.i.i.i.i, 1
+  %70 = icmp samesign ugt i64 %.012.i.i.i.i.i, 1
   br i1 %70, label %.lr.ph.i.i.i.i.i40, label %_ZSt4copyIN9__gnu_cxx17__normal_iteratorIPKN12_GLOBAL__N_111OperandInfoESt6vectorIS3_SaIS3_EEEENS1_IPS3_S8_EEET0_T_SD_SC_.exit.loopexit, !llvm.loop !216
 
 _ZSt4copyIN9__gnu_cxx17__normal_iteratorIPKN12_GLOBAL__N_111OperandInfoESt6vectorIS3_SaIS3_EEEENS1_IPS3_S8_EEET0_T_SD_SC_.exit.loopexit: ; preds = %.lr.ph.i.i.i.i.i40
@@ -12270,7 +12270,7 @@ _ZSt8_DestroyIN12_GLOBAL__N_111OperandInfoEEvPT_.exit.i.i.i46: ; preds = %74, %.
   %84 = getelementptr inbounds i8, ptr %.0910.i.i.i.i.i53, i64 72
   %85 = getelementptr inbounds i8, ptr %.0811.i.i.i.i.i52, i64 72
   %86 = add nsw i64 %.012.i.i.i.i.i51, -1
-  %87 = icmp ugt i64 %.012.i.i.i.i.i51, 1
+  %87 = icmp samesign ugt i64 %.012.i.i.i.i.i51, 1
   br i1 %87, label %.lr.ph.i.i.i.i.i50, label %_ZSt4copyIPN12_GLOBAL__N_111OperandInfoES2_ET0_T_S4_S3_.exit.loopexit, !llvm.loop !218
 
 _ZSt4copyIPN12_GLOBAL__N_111OperandInfoES2_ET0_T_S4_S3_.exit.loopexit: ; preds = %.lr.ph.i.i.i.i.i50
@@ -14705,7 +14705,7 @@ define internal fastcc noundef i32 @_ZNK12_GLOBAL__N_113FilterChooser10getIsland
   %23 = getelementptr inbounds i32, ptr %.val, i64 %indvars.iv
   %24 = load i32, ptr %23, align 4
   %25 = icmp ult i32 %24, 2
-  %switch = icmp ult i32 %.02481, 2
+  %switch = icmp samesign ult i32 %.02481, 2
   %or.cond = or i1 %19, %25
   br i1 %switch, label %26, label %58
 
@@ -22224,7 +22224,7 @@ _ZSt13move_backwardIPhS0_ET0_T_S2_S1_.exit:       ; preds = %_ZSt22__uninitializ
   %33 = getelementptr inbounds i8, ptr %.0910.i.i.i.i.i, i64 1
   %34 = getelementptr inbounds i8, ptr %.0811.i.i.i.i.i, i64 1
   %35 = add nsw i64 %.012.i.i.i.i.i, -1
-  %36 = icmp ugt i64 %.012.i.i.i.i.i, 1
+  %36 = icmp samesign ugt i64 %.012.i.i.i.i.i, 1
   br i1 %36, label %.lr.ph.i.i.i.i.i, label %_ZSt4copyIPcN9__gnu_cxx17__normal_iteratorIPhSt6vectorIhSaIhEEEEET0_T_S9_S8_.exit, !llvm.loop !311
 
 _ZSt7advanceIPcmEvRT_T0_.exit:                    ; preds = %16
@@ -22243,7 +22243,7 @@ _ZSt7advanceIPcmEvRT_T0_.exit:                    ; preds = %16
   %42 = getelementptr inbounds i8, ptr %.0910.i.i.i.i.i.i.i.i, i64 1
   %43 = getelementptr inbounds i8, ptr %.0811.i.i.i.i.i.i.i.i, i64 1
   %44 = add nsw i64 %.012.i.i.i.i.i.i.i.i, -1
-  %45 = icmp ugt i64 %.012.i.i.i.i.i.i.i.i, 1
+  %45 = icmp samesign ugt i64 %.012.i.i.i.i.i.i.i.i, 1
   br i1 %45, label %.lr.ph.i.i.i.i.i.i.i.i, label %_ZSt22__uninitialized_copy_aIPcPhhET0_T_S3_S2_RSaIT1_E.exit.loopexit, !llvm.loop !311
 
 _ZSt22__uninitialized_copy_aIPcPhhET0_T_S3_S2_RSaIT1_E.exit.loopexit: ; preds = %.lr.ph.i.i.i.i.i.i.i.i
@@ -22279,7 +22279,7 @@ _ZSt22__uninitialized_move_aIPhS0_SaIhEET0_T_S3_S2_RT1_.exit48: ; preds = %_ZSt2
   %54 = getelementptr inbounds i8, ptr %.0910.i.i.i.i.i53, i64 1
   %55 = getelementptr inbounds i8, ptr %.0811.i.i.i.i.i52, i64 1
   %56 = add nsw i64 %.012.i.i.i.i.i51, -1
-  %57 = icmp ugt i64 %.012.i.i.i.i.i51, 1
+  %57 = icmp samesign ugt i64 %.012.i.i.i.i.i51, 1
   br i1 %57, label %.lr.ph.i.i.i.i.i50, label %_ZSt4copyIPcN9__gnu_cxx17__normal_iteratorIPhSt6vectorIhSaIhEEEEET0_T_S9_S8_.exit, !llvm.loop !311
 
 58:                                               ; preds = %5

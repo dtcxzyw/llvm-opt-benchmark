@@ -7967,7 +7967,7 @@ _ZN9__gnu_cxx5__ops15_Iter_comp_iterISt8functionIFbRKSt4pairIPN7V3Sched12_GLOBAL
   %33 = getelementptr inbounds i8, ptr %.069.i.i.i.i.i, i64 -8
   store i32 %32, ptr %33, align 8
   %34 = add nsw i64 %.010.i.i.i.i.i, -1
-  %35 = icmp ugt i64 %.010.i.i.i.i.i, 1
+  %35 = icmp samesign ugt i64 %.010.i.i.i.i.i, 1
   br i1 %35, label %.lr.ph.i.i.i.i.i, label %_ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPSt4pairIPN7V3Sched12_GLOBAL__N_121SchedAcyclicVarVertexEjESt6vectorIS7_SaIS7_EEEESC_ET0_T_SE_SD_.exit, !llvm.loop !80
 
 _ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPSt4pairIPN7V3Sched12_GLOBAL__N_121SchedAcyclicVarVertexEjESt6vectorIS7_SaIS7_EEEESC_ET0_T_SE_SD_.exit: ; preds = %.lr.ph.i.i.i.i.i, %22
@@ -9299,7 +9299,7 @@ _ZN9__gnu_cxx5__ops15_Iter_comp_iterISt8functionIFbRKSt4pairIPN7V3Sched12_GLOBAL
   %171 = getelementptr inbounds i8, ptr %.0910.i.i.i.i.i.i.i, i64 16
   %172 = getelementptr inbounds i8, ptr %.0811.i.i.i.i.i.i.i, i64 16
   %173 = add nsw i64 %.012.i.i.i.i.i.i.i, -1
-  %174 = icmp ugt i64 %.012.i.i.i.i.i.i.i, 1
+  %174 = icmp samesign ugt i64 %.012.i.i.i.i.i.i.i, 1
   br i1 %174, label %.lr.ph.i.i.i.i.i.i.i, label %_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPSt4pairIPN7V3Sched12_GLOBAL__N_121SchedAcyclicVarVertexEjESt6vectorIS7_SaIS7_EEEES8_ET0_T_SE_SD_.exit.i.i, !llvm.loop !100
 
 _ZSt4moveIN9__gnu_cxx17__normal_iteratorIPSt4pairIPN7V3Sched12_GLOBAL__N_121SchedAcyclicVarVertexEjESt6vectorIS7_SaIS7_EEEES8_ET0_T_SE_SD_.exit.i.i: ; preds = %.lr.ph.i.i.i.i.i.i.i, %.critedge.i.i
@@ -9324,7 +9324,7 @@ _ZSt4moveIN9__gnu_cxx17__normal_iteratorIPSt4pairIPN7V3Sched12_GLOBAL__N_121Sche
   %184 = getelementptr inbounds i8, ptr %.0910.i.i.i.i.i18.i.i, i64 16
   %185 = getelementptr inbounds i8, ptr %.0811.i.i.i.i.i17.i.i, i64 16
   %186 = add nsw i64 %.012.i.i.i.i.i16.i.i, -1
-  %187 = icmp ugt i64 %.012.i.i.i.i.i16.i.i, 1
+  %187 = icmp samesign ugt i64 %.012.i.i.i.i.i16.i.i, 1
   br i1 %187, label %.lr.ph.i.i.i.i.i15.i.i, label %_ZSt12__move_mergeIN9__gnu_cxx17__normal_iteratorIPSt4pairIPN7V3Sched12_GLOBAL__N_121SchedAcyclicVarVertexEjESt6vectorIS7_SaIS7_EEEES8_NS0_5__ops15_Iter_comp_iterISt8functionIFbRKS7_SH_EEEEET0_T_SM_SM_SM_SL_T1_.exit.i, !llvm.loop !100
 
 _ZSt12__move_mergeIN9__gnu_cxx17__normal_iteratorIPSt4pairIPN7V3Sched12_GLOBAL__N_121SchedAcyclicVarVertexEjESt6vectorIS7_SaIS7_EEEES8_NS0_5__ops15_Iter_comp_iterISt8functionIFbRKS7_SH_EEEEET0_T_SM_SM_SM_SL_T1_.exit.i: ; preds = %.lr.ph.i.i.i.i.i15.i.i, %_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPSt4pairIPN7V3Sched12_GLOBAL__N_121SchedAcyclicVarVertexEjESt6vectorIS7_SaIS7_EEEES8_ET0_T_SE_SD_.exit.i.i
@@ -9489,7 +9489,7 @@ _ZN9__gnu_cxx5__ops15_Iter_comp_iterISt8functionIFbRKSt4pairIPN7V3Sched12_GLOBAL
   %236 = getelementptr inbounds i8, ptr %.0910.i.i.i.i.i.i49.i, i64 16
   %237 = getelementptr inbounds i8, ptr %.0811.i.i.i.i.i.i48.i, i64 16
   %238 = add nsw i64 %.012.i.i.i.i.i.i47.i, -1
-  %239 = icmp ugt i64 %.012.i.i.i.i.i.i47.i, 1
+  %239 = icmp samesign ugt i64 %.012.i.i.i.i.i.i47.i, 1
   br i1 %239, label %.lr.ph.i.i.i.i.i.i46.i, label %_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPSt4pairIPN7V3Sched12_GLOBAL__N_121SchedAcyclicVarVertexEjESt6vectorIS7_SaIS7_EEEES8_ET0_T_SE_SD_.exit.i39.i, !llvm.loop !100
 
 _ZSt4moveIN9__gnu_cxx17__normal_iteratorIPSt4pairIPN7V3Sched12_GLOBAL__N_121SchedAcyclicVarVertexEjESt6vectorIS7_SaIS7_EEEES8_ET0_T_SE_SD_.exit.i39.i: ; preds = %.lr.ph.i.i.i.i.i.i46.i, %.critedge.i35.i
@@ -9513,7 +9513,7 @@ _ZSt4moveIN9__gnu_cxx17__normal_iteratorIPSt4pairIPN7V3Sched12_GLOBAL__N_121Sche
   %248 = getelementptr inbounds i8, ptr %.0910.i.i.i.i.i18.i45.i, i64 16
   %249 = getelementptr inbounds i8, ptr %.0811.i.i.i.i.i17.i44.i, i64 16
   %250 = add nsw i64 %.012.i.i.i.i.i16.i43.i, -1
-  %251 = icmp ugt i64 %.012.i.i.i.i.i16.i43.i, 1
+  %251 = icmp samesign ugt i64 %.012.i.i.i.i.i16.i43.i, 1
   br i1 %251, label %.lr.ph.i.i.i.i.i15.i42.i, label %_ZSt12__move_mergeIN9__gnu_cxx17__normal_iteratorIPSt4pairIPN7V3Sched12_GLOBAL__N_121SchedAcyclicVarVertexEjESt6vectorIS7_SaIS7_EEEES8_NS0_5__ops15_Iter_comp_iterISt8functionIFbRKS7_SH_EEEEET0_T_SM_SM_SM_SL_T1_.exit64.i, !llvm.loop !100
 
 _ZSt12__move_mergeIN9__gnu_cxx17__normal_iteratorIPSt4pairIPN7V3Sched12_GLOBAL__N_121SchedAcyclicVarVertexEjESt6vectorIS7_SaIS7_EEEES8_NS0_5__ops15_Iter_comp_iterISt8functionIFbRKS7_SH_EEEEET0_T_SM_SM_SM_SL_T1_.exit64.i: ; preds = %.lr.ph.i.i.i.i.i15.i42.i, %_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPSt4pairIPN7V3Sched12_GLOBAL__N_121SchedAcyclicVarVertexEjESt6vectorIS7_SaIS7_EEEES8_ET0_T_SE_SD_.exit.i39.i
@@ -9721,7 +9721,7 @@ _ZN9__gnu_cxx5__ops15_Iter_comp_iterISt8functionIFbRKSt4pairIPN7V3Sched12_GLOBAL
   %319 = getelementptr inbounds i8, ptr %.0910.i.i.i.i.i.i.i78, i64 16
   %320 = getelementptr inbounds i8, ptr %.0811.i.i.i.i.i.i.i77, i64 16
   %321 = add nsw i64 %.012.i.i.i.i.i.i.i76, -1
-  %322 = icmp ugt i64 %.012.i.i.i.i.i.i.i76, 1
+  %322 = icmp samesign ugt i64 %.012.i.i.i.i.i.i.i76, 1
   br i1 %322, label %.lr.ph.i.i.i.i.i.i.i75, label %_ZSt4moveIPSt4pairIPN7V3Sched12_GLOBAL__N_121SchedAcyclicVarVertexEjEN9__gnu_cxx17__normal_iteratorIS6_St6vectorIS5_SaIS5_EEEEET0_T_SE_SD_.exit.i.i, !llvm.loop !100
 
 _ZSt4moveIPSt4pairIPN7V3Sched12_GLOBAL__N_121SchedAcyclicVarVertexEjEN9__gnu_cxx17__normal_iteratorIS6_St6vectorIS5_SaIS5_EEEEET0_T_SE_SD_.exit.i.i: ; preds = %.lr.ph.i.i.i.i.i.i.i75, %._crit_edge.i.i
@@ -9750,7 +9750,7 @@ _ZSt4moveIPSt4pairIPN7V3Sched12_GLOBAL__N_121SchedAcyclicVarVertexEjEN9__gnu_cxx
   %336 = getelementptr inbounds i8, ptr %.0910.i.i.i.i.i23.i.i, i64 16
   %337 = getelementptr inbounds i8, ptr %.0811.i.i.i.i.i22.i.i, i64 16
   %338 = add nsw i64 %.012.i.i.i.i.i21.i.i, -1
-  %339 = icmp ugt i64 %.012.i.i.i.i.i21.i.i, 1
+  %339 = icmp samesign ugt i64 %.012.i.i.i.i.i21.i.i, 1
   br i1 %339, label %.lr.ph.i.i.i.i.i20.i.i, label %_ZSt4moveIPSt4pairIPN7V3Sched12_GLOBAL__N_121SchedAcyclicVarVertexEjEN9__gnu_cxx17__normal_iteratorIS6_St6vectorIS5_SaIS5_EEEEET0_T_SE_SD_.exit24.loopexit.i.i, !llvm.loop !100
 
 _ZSt4moveIPSt4pairIPN7V3Sched12_GLOBAL__N_121SchedAcyclicVarVertexEjEN9__gnu_cxx17__normal_iteratorIS6_St6vectorIS5_SaIS5_EEEEET0_T_SE_SD_.exit24.loopexit.i.i: ; preds = %.lr.ph.i.i.i.i.i20.i.i
@@ -9921,7 +9921,7 @@ _ZN9__gnu_cxx5__ops15_Iter_comp_iterISt8functionIFbRKSt4pairIPN7V3Sched12_GLOBAL
   %394 = getelementptr inbounds i8, ptr %.0910.i.i.i.i.i.i50.i, i64 16
   %395 = getelementptr inbounds i8, ptr %.0811.i.i.i.i.i.i49.i, i64 16
   %396 = add nsw i64 %.012.i.i.i.i.i.i48.i, -1
-  %397 = icmp ugt i64 %.012.i.i.i.i.i.i48.i, 1
+  %397 = icmp samesign ugt i64 %.012.i.i.i.i.i.i48.i, 1
   br i1 %397, label %.lr.ph.i.i.i.i.i.i47.i, label %_ZSt4moveIPSt4pairIPN7V3Sched12_GLOBAL__N_121SchedAcyclicVarVertexEjEN9__gnu_cxx17__normal_iteratorIS6_St6vectorIS5_SaIS5_EEEEET0_T_SE_SD_.exit.i39.i, !llvm.loop !100
 
 _ZSt4moveIPSt4pairIPN7V3Sched12_GLOBAL__N_121SchedAcyclicVarVertexEjEN9__gnu_cxx17__normal_iteratorIS6_St6vectorIS5_SaIS5_EEEEET0_T_SE_SD_.exit.i39.i: ; preds = %.lr.ph.i.i.i.i.i.i47.i, %._crit_edge.i35.i
@@ -9952,7 +9952,7 @@ _ZSt4moveIPSt4pairIPN7V3Sched12_GLOBAL__N_121SchedAcyclicVarVertexEjEN9__gnu_cxx
   %410 = getelementptr inbounds i8, ptr %.0910.i.i.i.i.i23.i45.i, i64 16
   %411 = getelementptr inbounds i8, ptr %.0811.i.i.i.i.i22.i44.i, i64 16
   %412 = add nsw i64 %.012.i.i.i.i.i21.i43.i, -1
-  %413 = icmp ugt i64 %.012.i.i.i.i.i21.i43.i, 1
+  %413 = icmp samesign ugt i64 %.012.i.i.i.i.i21.i43.i, 1
   br i1 %413, label %.lr.ph.i.i.i.i.i20.i42.i, label %_ZSt4moveIPSt4pairIPN7V3Sched12_GLOBAL__N_121SchedAcyclicVarVertexEjEN9__gnu_cxx17__normal_iteratorIS6_St6vectorIS5_SaIS5_EEEEET0_T_SE_SD_.exit24.loopexit.i46.i, !llvm.loop !100
 
 _ZSt4moveIPSt4pairIPN7V3Sched12_GLOBAL__N_121SchedAcyclicVarVertexEjEN9__gnu_cxx17__normal_iteratorIS6_St6vectorIS5_SaIS5_EEEEET0_T_SE_SD_.exit24.loopexit.i46.i: ; preds = %.lr.ph.i.i.i.i.i20.i42.i, %_ZSt4moveIPSt4pairIPN7V3Sched12_GLOBAL__N_121SchedAcyclicVarVertexEjEN9__gnu_cxx17__normal_iteratorIS6_St6vectorIS5_SaIS5_EEEEET0_T_SE_SD_.exit.i39.i
@@ -10111,7 +10111,7 @@ define internal fastcc void @_ZSt16__merge_adaptiveIN9__gnu_cxx17__normal_iterat
   %27 = getelementptr inbounds i8, ptr %.0910.i.i.i.i.i, i64 16
   %28 = getelementptr inbounds i8, ptr %.0811.i.i.i.i.i, i64 16
   %29 = add nsw i64 %.012.i.i.i.i.i, -1
-  %30 = icmp ugt i64 %.012.i.i.i.i.i, 1
+  %30 = icmp samesign ugt i64 %.012.i.i.i.i.i, 1
   br i1 %30, label %.lr.ph.i.i.i.i.i, label %_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPSt4pairIPN7V3Sched12_GLOBAL__N_121SchedAcyclicVarVertexEjESt6vectorIS7_SaIS7_EEEES8_ET0_T_SE_SD_.exit, !llvm.loop !100
 
 _ZSt4moveIN9__gnu_cxx17__normal_iteratorIPSt4pairIPN7V3Sched12_GLOBAL__N_121SchedAcyclicVarVertexEjESt6vectorIS7_SaIS7_EEEES8_ET0_T_SE_SD_.exit: ; preds = %.lr.ph.i.i.i.i.i, %17
@@ -10223,7 +10223,7 @@ _ZN9__gnu_cxx5__ops15_Iter_comp_iterISt8functionIFbRKSt4pairIPN7V3Sched12_GLOBAL
   %64 = getelementptr inbounds i8, ptr %.0910.i.i.i.i.i.i, i64 16
   %65 = getelementptr inbounds i8, ptr %.0811.i.i.i.i.i.i, i64 16
   %66 = add nsw i64 %.012.i.i.i.i.i.i, -1
-  %67 = icmp ugt i64 %.012.i.i.i.i.i.i, 1
+  %67 = icmp samesign ugt i64 %.012.i.i.i.i.i.i, 1
   br i1 %67, label %.lr.ph.i.i.i.i.i.i, label %_ZSt21__move_merge_adaptiveIPSt4pairIPN7V3Sched12_GLOBAL__N_121SchedAcyclicVarVertexEjEN9__gnu_cxx17__normal_iteratorIS6_St6vectorIS5_SaIS5_EEEESC_NS7_5__ops15_Iter_comp_iterISt8functionIFbRKS5_SH_EEEEEvT_SL_T0_SM_T1_T2_.exit, !llvm.loop !100
 
 _ZSt21__move_merge_adaptiveIPSt4pairIPN7V3Sched12_GLOBAL__N_121SchedAcyclicVarVertexEjEN9__gnu_cxx17__normal_iteratorIS6_St6vectorIS5_SaIS5_EEEESC_NS7_5__ops15_Iter_comp_iterISt8functionIFbRKS5_SH_EEEEEvT_SL_T0_SM_T1_T2_.exit: ; preds = %.noexc83, %.lr.ph.i.i.i.i.i.i, %.critedge.i, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterISt8functionIFbRKSt4pairIPN7V3Sched12_GLOBAL__N_121SchedAcyclicVarVertexEjESA_EEEC2ERKSD_.exit
@@ -10294,7 +10294,7 @@ _ZSt21__move_merge_adaptiveIPSt4pairIPN7V3Sched12_GLOBAL__N_121SchedAcyclicVarVe
   %92 = getelementptr inbounds i8, ptr %.0910.i.i.i.i.i91, i64 16
   %93 = getelementptr inbounds i8, ptr %.0811.i.i.i.i.i90, i64 16
   %94 = add nsw i64 %.012.i.i.i.i.i89, -1
-  %95 = icmp ugt i64 %.012.i.i.i.i.i89, 1
+  %95 = icmp samesign ugt i64 %.012.i.i.i.i.i89, 1
   br i1 %95, label %.lr.ph.i.i.i.i.i88, label %_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPSt4pairIPN7V3Sched12_GLOBAL__N_121SchedAcyclicVarVertexEjESt6vectorIS7_SaIS7_EEEES8_ET0_T_SE_SD_.exit92, !llvm.loop !100
 
 _ZSt4moveIN9__gnu_cxx17__normal_iteratorIPSt4pairIPN7V3Sched12_GLOBAL__N_121SchedAcyclicVarVertexEjESt6vectorIS7_SaIS7_EEEES8_ET0_T_SE_SD_.exit92: ; preds = %.lr.ph.i.i.i.i.i88, %82
@@ -10364,7 +10364,7 @@ _ZN9__gnu_cxx5__ops15_Iter_comp_iterISt8functionIFbRKSt4pairIPN7V3Sched12_GLOBAL
   %126 = getelementptr inbounds i8, ptr %.069.i.i.i.i.i.i, i64 -8
   store i32 %125, ptr %126, align 8
   %127 = add nsw i64 %.010.i.i.i.i.i.i, -1
-  %128 = icmp ugt i64 %.010.i.i.i.i.i.i, 1
+  %128 = icmp samesign ugt i64 %.010.i.i.i.i.i.i, 1
   br i1 %128, label %.lr.ph.i.i.i.i.i.i100, label %_ZSt30__move_merge_adaptive_backwardIN9__gnu_cxx17__normal_iteratorIPSt4pairIPN7V3Sched12_GLOBAL__N_121SchedAcyclicVarVertexEjESt6vectorIS7_SaIS7_EEEES8_SC_NS0_5__ops15_Iter_comp_iterISt8functionIFbRKS7_SH_EEEEEvT_SL_T0_SM_T1_T2_.exit, !llvm.loop !80
 
 129:                                              ; preds = %_ZN9__gnu_cxx5__ops15_Iter_comp_iterISt8functionIFbRKSt4pairIPN7V3Sched12_GLOBAL__N_121SchedAcyclicVarVertexEjESA_EEEC2ERKSD_.exit97
@@ -10430,7 +10430,7 @@ _ZN9__gnu_cxx5__ops15_Iter_comp_iterISt8functionIFbRKSt4pairIPN7V3Sched12_GLOBAL
   %155 = getelementptr inbounds i8, ptr %.069.i.i.i.i.i27.i, i64 -8
   store i32 %154, ptr %155, align 8
   %156 = add nsw i64 %.010.i.i.i.i.i26.i, -1
-  %157 = icmp ugt i64 %.010.i.i.i.i.i26.i, 1
+  %157 = icmp samesign ugt i64 %.010.i.i.i.i.i26.i, 1
   br i1 %157, label %.lr.ph.i.i.i.i.i25.i, label %_ZSt30__move_merge_adaptive_backwardIN9__gnu_cxx17__normal_iteratorIPSt4pairIPN7V3Sched12_GLOBAL__N_121SchedAcyclicVarVertexEjESt6vectorIS7_SaIS7_EEEES8_SC_NS0_5__ops15_Iter_comp_iterISt8functionIFbRKS7_SH_EEEEEvT_SL_T0_SM_T1_T2_.exit, !llvm.loop !80
 
 158:                                              ; preds = %138
@@ -10914,7 +10914,7 @@ _ZN9__gnu_cxx5__ops14_Val_comp_iterISt8functionIFbRKSt4pairIPN7V3Sched12_GLOBAL_
   %332 = getelementptr inbounds i8, ptr %.0910.i.i.i.i.i.i162, i64 16
   %333 = getelementptr inbounds i8, ptr %.0811.i.i.i.i.i.i161, i64 16
   %334 = add nsw i64 %.012.i.i.i.i.i.i160, -1
-  %335 = icmp ugt i64 %.012.i.i.i.i.i.i160, 1
+  %335 = icmp samesign ugt i64 %.012.i.i.i.i.i.i160, 1
   br i1 %335, label %.lr.ph.i.i.i.i.i.i159, label %_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPSt4pairIPN7V3Sched12_GLOBAL__N_121SchedAcyclicVarVertexEjESt6vectorIS7_SaIS7_EEEES8_ET0_T_SE_SD_.exit.i, !llvm.loop !100
 
 _ZSt4moveIN9__gnu_cxx17__normal_iteratorIPSt4pairIPN7V3Sched12_GLOBAL__N_121SchedAcyclicVarVertexEjESt6vectorIS7_SaIS7_EEEES8_ET0_T_SE_SD_.exit.i: ; preds = %.lr.ph.i.i.i.i.i.i159, %322
@@ -10938,7 +10938,7 @@ _ZSt4moveIN9__gnu_cxx17__normal_iteratorIPSt4pairIPN7V3Sched12_GLOBAL__N_121Sche
   %345 = getelementptr inbounds i8, ptr %.069.i.i.i.i.i.i157, i64 -8
   store i32 %344, ptr %345, align 8
   %346 = add nsw i64 %.010.i.i.i.i.i.i156, -1
-  %347 = icmp ugt i64 %.010.i.i.i.i.i.i156, 1
+  %347 = icmp samesign ugt i64 %.010.i.i.i.i.i.i156, 1
   br i1 %347, label %.lr.ph.i.i.i.i.i37.i, label %_ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPSt4pairIPN7V3Sched12_GLOBAL__N_121SchedAcyclicVarVertexEjESt6vectorIS7_SaIS7_EEEESC_ET0_T_SE_SD_.exit.i, !llvm.loop !80
 
 _ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPSt4pairIPN7V3Sched12_GLOBAL__N_121SchedAcyclicVarVertexEjESt6vectorIS7_SaIS7_EEEESC_ET0_T_SE_SD_.exit.i: ; preds = %.lr.ph.i.i.i.i.i37.i, %_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPSt4pairIPN7V3Sched12_GLOBAL__N_121SchedAcyclicVarVertexEjESt6vectorIS7_SaIS7_EEEES8_ET0_T_SE_SD_.exit.i
@@ -10962,7 +10962,7 @@ _ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPSt4pairIPN7V3Sched12_GLOBAL_
   %357 = getelementptr inbounds i8, ptr %.0910.i.i.i.i.i42.i, i64 16
   %358 = getelementptr inbounds i8, ptr %.0811.i.i.i.i.i41.i, i64 16
   %359 = add nsw i64 %.012.i.i.i.i.i40.i, -1
-  %360 = icmp ugt i64 %.012.i.i.i.i.i40.i, 1
+  %360 = icmp samesign ugt i64 %.012.i.i.i.i.i40.i, 1
   br i1 %360, label %.lr.ph.i.i.i.i.i39.i, label %_ZSt4moveIPSt4pairIPN7V3Sched12_GLOBAL__N_121SchedAcyclicVarVertexEjEN9__gnu_cxx17__normal_iteratorIS6_St6vectorIS5_SaIS5_EEEEET0_T_SE_SD_.exit.loopexit.i, !llvm.loop !100
 
 _ZSt4moveIPSt4pairIPN7V3Sched12_GLOBAL__N_121SchedAcyclicVarVertexEjEN9__gnu_cxx17__normal_iteratorIS6_St6vectorIS5_SaIS5_EEEEET0_T_SE_SD_.exit.loopexit.i: ; preds = %.lr.ph.i.i.i.i.i39.i
@@ -11004,7 +11004,7 @@ _ZSt4moveIPSt4pairIPN7V3Sched12_GLOBAL__N_121SchedAcyclicVarVertexEjEN9__gnu_cxx
   %375 = getelementptr inbounds i8, ptr %.0910.i.i.i.i.i47.i, i64 16
   %376 = getelementptr inbounds i8, ptr %.0811.i.i.i.i.i46.i, i64 16
   %377 = add nsw i64 %.012.i.i.i.i.i45.i, -1
-  %378 = icmp ugt i64 %.012.i.i.i.i.i45.i, 1
+  %378 = icmp samesign ugt i64 %.012.i.i.i.i.i45.i, 1
   br i1 %378, label %.lr.ph.i.i.i.i.i44.i, label %_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPSt4pairIPN7V3Sched12_GLOBAL__N_121SchedAcyclicVarVertexEjESt6vectorIS7_SaIS7_EEEES8_ET0_T_SE_SD_.exit48.i, !llvm.loop !100
 
 _ZSt4moveIN9__gnu_cxx17__normal_iteratorIPSt4pairIPN7V3Sched12_GLOBAL__N_121SchedAcyclicVarVertexEjESt6vectorIS7_SaIS7_EEEES8_ET0_T_SE_SD_.exit48.i: ; preds = %.lr.ph.i.i.i.i.i44.i, %365
@@ -11028,7 +11028,7 @@ _ZSt4moveIN9__gnu_cxx17__normal_iteratorIPSt4pairIPN7V3Sched12_GLOBAL__N_121Sche
   %387 = getelementptr inbounds i8, ptr %.0910.i.i.i.i.i53.i, i64 16
   %388 = getelementptr inbounds i8, ptr %.0811.i.i.i.i.i52.i, i64 16
   %389 = add nsw i64 %.012.i.i.i.i.i51.i, -1
-  %390 = icmp ugt i64 %.012.i.i.i.i.i51.i, 1
+  %390 = icmp samesign ugt i64 %.012.i.i.i.i.i51.i, 1
   br i1 %390, label %.lr.ph.i.i.i.i.i50.i, label %_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPSt4pairIPN7V3Sched12_GLOBAL__N_121SchedAcyclicVarVertexEjESt6vectorIS7_SaIS7_EEEESC_ET0_T_SE_SD_.exit.i, !llvm.loop !100
 
 _ZSt4moveIN9__gnu_cxx17__normal_iteratorIPSt4pairIPN7V3Sched12_GLOBAL__N_121SchedAcyclicVarVertexEjESt6vectorIS7_SaIS7_EEEESC_ET0_T_SE_SD_.exit.i: ; preds = %.lr.ph.i.i.i.i.i50.i, %_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPSt4pairIPN7V3Sched12_GLOBAL__N_121SchedAcyclicVarVertexEjESt6vectorIS7_SaIS7_EEEES8_ET0_T_SE_SD_.exit48.i
@@ -11052,7 +11052,7 @@ _ZSt4moveIN9__gnu_cxx17__normal_iteratorIPSt4pairIPN7V3Sched12_GLOBAL__N_121Sche
   %401 = getelementptr inbounds i8, ptr %.069.i.i.i.i.i57.i, i64 -8
   store i32 %400, ptr %401, align 8
   %402 = add nsw i64 %.010.i.i.i.i.i56.i, -1
-  %403 = icmp ugt i64 %.010.i.i.i.i.i56.i, 1
+  %403 = icmp samesign ugt i64 %.010.i.i.i.i.i56.i, 1
   br i1 %403, label %.lr.ph.i.i.i.i.i55.i, label %_ZSt13move_backwardIPSt4pairIPN7V3Sched12_GLOBAL__N_121SchedAcyclicVarVertexEjEN9__gnu_cxx17__normal_iteratorIS6_St6vectorIS5_SaIS5_EEEEET0_T_SE_SD_.exit.loopexit.i, !llvm.loop !80
 
 _ZSt13move_backwardIPSt4pairIPN7V3Sched12_GLOBAL__N_121SchedAcyclicVarVertexEjEN9__gnu_cxx17__normal_iteratorIS6_St6vectorIS5_SaIS5_EEEEET0_T_SE_SD_.exit.loopexit.i: ; preds = %.lr.ph.i.i.i.i.i55.i

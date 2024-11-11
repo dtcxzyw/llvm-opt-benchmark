@@ -1678,7 +1678,7 @@ define internal i32 @cid_slot_load_glyph(ptr noundef %0, ptr noundef %1, i32 nou
   store i64 %183, ptr %175, align 8
   %184 = add nsw i32 %.0122153, -1
   %185 = getelementptr inbounds i8, ptr %.0121154, i64 16
-  %186 = icmp ugt i32 %.0122153, 1
+  %186 = icmp samesign ugt i32 %.0122153, 1
   br i1 %186, label %166, label %.loopexit.loopexit, !llvm.loop !12
 
 .loopexit.loopexit:                               ; preds = %166

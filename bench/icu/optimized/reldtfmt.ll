@@ -503,7 +503,7 @@ invoke.cont7:                                     ; preds = %if.then
 
 if.then9:                                         ; preds = %invoke.cont7
   store i32 0, ptr %resStrLen, align 4
-  %cmp10 = icmp ugt i32 %call8, 12
+  %cmp10 = icmp samesign ugt i32 %call8, 12
   br i1 %cmp10, label %if.then11, label %if.end15
 
 if.then11:                                        ; preds = %if.then9

@@ -240,7 +240,7 @@ define dso_local void @_ZN4llvm8SwitchCG14SwitchLowering14findJumpTablesERSt6vec
 
 41:                                               ; preds = %26
   %42 = zext i32 %31 to i64
-  %43 = icmp ult i64 %39, %42
+  %43 = icmp samesign ult i64 %39, %42
   br i1 %43, label %_ZN4llvm11SmallVectorIjLj8EED2Ev.exit138, label %44
 
 44:                                               ; preds = %41
@@ -353,7 +353,7 @@ _ZN4llvm5APIntD2Ev.exit133:                       ; preds = %_ZN4llvm5APIntD2Ev.
 98:                                               ; preds = %_ZN4llvm5APIntD2Ev.exit133, %89
   %99 = add i32 %.0117139, 1
   %100 = zext i32 %99 to i64
-  %101 = icmp ugt i64 %39, %100
+  %101 = icmp samesign ugt i64 %39, %100
   br i1 %101, label %48, label %102, !llvm.loop !10
 
 102:                                              ; preds = %98

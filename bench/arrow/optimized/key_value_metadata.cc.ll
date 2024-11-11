@@ -1018,7 +1018,7 @@ for.body.i.i.i.i.i.i.i:                           ; preds = %if.then.i.i, %for.b
   %incdec.ptr.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__first.addr.07.i.i.i.i.i.i.i, i64 32
   %incdec.ptr1.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__result.addr.08.i.i.i.i.i.i.i, i64 32
   %dec.i.i.i.i.i.i.i = add nsw i64 %__n.09.i.i.i.i.i.i.i, -1
-  %cmp.i.i.i.i.i.i.i = icmp ugt i64 %__n.09.i.i.i.i.i.i.i, 1
+  %cmp.i.i.i.i.i.i.i = icmp samesign ugt i64 %__n.09.i.i.i.i.i.i.i, 1
   br i1 %cmp.i.i.i.i.i.i.i, label %for.body.i.i.i.i.i.i.i, label %if.end.loopexit.i.i, !llvm.loop !20
 
 if.end.loopexit.i.i:                              ; preds = %for.body.i.i.i.i.i.i.i
@@ -1055,7 +1055,7 @@ for.body.i.i.i.i.i.i.i17:                         ; preds = %if.then.i.i10, %for
   %incdec.ptr.i.i.i.i.i.i.i22 = getelementptr inbounds i8, ptr %__first.addr.07.i.i.i.i.i.i.i20, i64 32
   %incdec.ptr1.i.i.i.i.i.i.i23 = getelementptr inbounds i8, ptr %__result.addr.08.i.i.i.i.i.i.i19, i64 32
   %dec.i.i.i.i.i.i.i24 = add nsw i64 %__n.09.i.i.i.i.i.i.i18, -1
-  %cmp.i.i.i.i.i.i.i25 = icmp ugt i64 %__n.09.i.i.i.i.i.i.i18, 1
+  %cmp.i.i.i.i.i.i.i25 = icmp samesign ugt i64 %__n.09.i.i.i.i.i.i.i18, 1
   br i1 %cmp.i.i.i.i.i.i.i25, label %for.body.i.i.i.i.i.i.i17, label %if.end.loopexit.i.i26, !llvm.loop !20
 
 if.end.loopexit.i.i26:                            ; preds = %for.body.i.i.i.i.i.i.i17

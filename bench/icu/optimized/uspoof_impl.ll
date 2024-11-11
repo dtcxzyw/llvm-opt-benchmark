@@ -1726,7 +1726,7 @@ do.body:                                          ; preds = %do.cond, %entry
   br i1 %cmp, label %do.cond, label %if.else
 
 if.else:                                          ; preds = %do.body
-  %cmp4 = icmp ult i32 %and.i.i, %inChar
+  %cmp4 = icmp samesign ult i32 %and.i.i, %inChar
   br i1 %cmp4, label %do.cond, label %do.end
 
 do.cond:                                          ; preds = %if.else, %do.body

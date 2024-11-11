@@ -134733,15 +134733,15 @@ for.body.i.i.i.preheader:                         ; preds = %entry
   br i1 %cmp2, label %cond.end16, label %cond.false
 
 cond.false:                                       ; preds = %for.body.i.i.i.preheader
-  %cmp3 = icmp ugt i64 %sub.ptr.div, 67
+  %cmp3 = icmp samesign ugt i64 %sub.ptr.div, 67
   br i1 %cmp3, label %cond.end16, label %cond.false5
 
 cond.false5:                                      ; preds = %cond.false
-  %cmp6 = icmp ugt i64 %sub.ptr.div, 38
+  %cmp6 = icmp samesign ugt i64 %sub.ptr.div, 38
   br i1 %cmp6, label %cond.end16, label %cond.false8
 
 cond.false8:                                      ; preds = %cond.false5
-  %cmp9 = icmp ugt i64 %sub.ptr.div, 6
+  %cmp9 = icmp samesign ugt i64 %sub.ptr.div, 6
   %sub = add nsw i64 %sub.ptr.div, -1
   %div86 = lshr i64 %sub, 1
   %cond = select i1 %cmp9, i64 3, i64 %div86

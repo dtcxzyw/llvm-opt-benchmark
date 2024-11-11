@@ -18870,7 +18870,7 @@ _ZNSt6vectorIN6casadi2MXESaIS1_EE9push_backERKS1_.exit160: ; preds = %.noexc158,
   %254 = getelementptr inbounds i8, ptr %.0910.i.i.i.i.i.i.i, i64 8
   %255 = getelementptr inbounds i8, ptr %.0811.i.i.i.i.i.i.i, i64 8
   %256 = add nsw i64 %.012.i.i.i.i.i.i.i, -1
-  %257 = icmp ugt i64 %.012.i.i.i.i.i.i.i, 1
+  %257 = icmp samesign ugt i64 %.012.i.i.i.i.i.i.i, 1
   br i1 %257, label %.lr.ph.i.i.i.i.i.i.i, label %_ZSt6copy_nIN9__gnu_cxx17__normal_iteratorIPN6casadi2MXESt6vectorIS3_SaIS3_EEEExS8_ET1_T_T0_S9_.exit, !llvm.loop !196
 
 _ZSt6copy_nIN9__gnu_cxx17__normal_iteratorIPN6casadi2MXESt6vectorIS3_SaIS3_EEEExS8_ET1_T_T0_S9_.exit: ; preds = %.noexc161
@@ -64242,7 +64242,7 @@ _ZSt22__uninitialized_move_aIPN6casadi8FunctionES2_SaIS1_EET0_T_S5_S4_RT1_.exit:
 
 .noexc:                                           ; preds = %.lr.ph.i.i.i.i.i68
   %48 = add nsw i64 %.010.i.i.i.i.i, -1
-  %49 = icmp ugt i64 %.010.i.i.i.i.i, 1
+  %49 = icmp samesign ugt i64 %.010.i.i.i.i.i, 1
   br i1 %49, label %.lr.ph.i.i.i.i.i68, label %_ZSt13move_backwardIPN6casadi8FunctionES2_ET0_T_S4_S3_.exit, !llvm.loop !490
 
 _ZSt13move_backwardIPN6casadi8FunctionES2_ET0_T_S4_S3_.exit: ; preds = %.noexc, %_ZSt22__uninitialized_move_aIPN6casadi8FunctionES2_SaIS1_EET0_T_S5_S4_RT1_.exit
@@ -65580,7 +65580,7 @@ define linkonce_odr ptr @_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traits
   %28 = getelementptr inbounds i8, ptr %.069.i.i.i.i.i.i, i64 -32
   %29 = tail call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEOS4_(ptr noundef nonnull align 8 dereferenceable(32) %28, ptr noundef nonnull align 8 dereferenceable(32) %27) #27
   %30 = add nsw i64 %.010.i.i.i.i.i.i, -1
-  %31 = icmp ugt i64 %.010.i.i.i.i.i.i, 1
+  %31 = icmp samesign ugt i64 %.010.i.i.i.i.i.i, 1
   br i1 %31, label %.lr.ph.i.i.i.i.i.i, label %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE13_M_insert_auxIS5_EEvN9__gnu_cxx17__normal_iteratorIPS5_S7_EEOT_.exit, !llvm.loop !496
 
 _ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE13_M_insert_auxIS5_EEvN9__gnu_cxx17__normal_iteratorIPS5_S7_EEOT_.exit: ; preds = %.lr.ph.i.i.i.i.i.i, %17

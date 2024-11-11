@@ -1539,7 +1539,7 @@ _ZNKSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt10unique_ptrIN3
 
 47:                                               ; preds = %41
   %48 = zext nneg i32 %45 to i64
-  %49 = icmp ugt i32 %45, 4
+  %49 = icmp samesign ugt i32 %45, 4
   br i1 %49, label %50, label %_ZNKSt6bitsetILm5EE4testEm.exit
 
 50:                                               ; preds = %47

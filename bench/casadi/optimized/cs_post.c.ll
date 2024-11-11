@@ -59,7 +59,7 @@ define ptr @cs_post(ptr noundef readonly %0, i32 noundef %1) local_unnamed_addr 
   br label %31
 
 31:                                               ; preds = %.lr.ph58, %22
-  %32 = icmp ugt i64 %indvars.iv, 1
+  %32 = icmp samesign ugt i64 %indvars.iv, 1
   br i1 %32, label %.lr.ph58, label %.lr.ph61.preheader, !llvm.loop !4
 
 .lr.ph61:                                         ; preds = %.lr.ph61.preheader, %38

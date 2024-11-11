@@ -1041,7 +1041,8 @@ define void @_ZNK3gmx21FileNameOptionStorage10typeStringB5cxx11Ev(ptr dead_on_un
 11:                                               ; preds = %6
   %12 = tail call noundef ptr @_Z16ftp2ext_with_doti(i32 noundef %4)
   %13 = load i8, ptr %12, align 1
-  %.not.i = icmp ne i8 %13, 0
+  %.fr = freeze i8 %13
+  %.not.i = icmp ne i8 %.fr, 0
   %spec.select = zext i1 %.not.i to i32
   br label %_ZN3gmx12_GLOBAL__N_115FileTypeHandlerC2Ei.exit
 
@@ -1190,7 +1191,7 @@ _ZN3gmx12_GLOBAL__N_115FileTypeHandlerC2Ei.exit.thread: ; preds = %9, %2
 _ZN3gmx12_GLOBAL__N_115FileTypeHandlerC2Ei.exit:  ; preds = %6
   %11 = tail call noundef ptr @_Z16ftp2generic_listi(i32 noundef %4)
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %0) #24
-  %12 = icmp ugt i32 %7, 2
+  %12 = icmp samesign ugt i32 %7, 2
   br i1 %12, label %13, label %.loopexit
 
 13:                                               ; preds = %_ZN3gmx12_GLOBAL__N_115FileTypeHandlerC2Ei.exit

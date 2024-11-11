@@ -492,11 +492,11 @@ ISEQ_COMPILE_DATA.exit.i.i:                       ; preds = %13, %7
   %25 = getelementptr inbounds i8, ptr %17, i64 12
   %26 = load i32, ptr %25, align 4
   %27 = zext i32 %26 to i64
-  %28 = icmp ugt i64 %24, %27
+  %28 = icmp samesign ugt i64 %24, %27
   br i1 %28, label %.preheader.i.i.i, label %compile_data_alloc2.exit
 
 .preheader.i.i.i:                                 ; preds = %20
-  %29 = icmp ugt i64 %10, %27
+  %29 = icmp samesign ugt i64 %10, %27
   br i1 %29, label %.lr.ph.i.i.i, label %._crit_edge.i.i.i
 
 .lr.ph.i.i.i:                                     ; preds = %.preheader.i.i.i, %32
@@ -35479,11 +35479,11 @@ ISEQ_COMPILE_DATA.exit.i:                         ; preds = %8, %3
   %20 = getelementptr inbounds i8, ptr %12, i64 12
   %21 = load i32, ptr %20, align 4
   %22 = zext i32 %21 to i64
-  %23 = icmp ugt i64 %19, %22
+  %23 = icmp samesign ugt i64 %19, %22
   br i1 %23, label %.preheader.i.i, label %compile_data_alloc.exit
 
 .preheader.i.i:                                   ; preds = %15
-  %24 = icmp ugt i64 %5, %22
+  %24 = icmp samesign ugt i64 %5, %22
   br i1 %24, label %.lr.ph.i.i, label %._crit_edge.i.i
 
 .lr.ph.i.i:                                       ; preds = %.preheader.i.i, %27

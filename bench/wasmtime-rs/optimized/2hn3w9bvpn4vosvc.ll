@@ -998,7 +998,7 @@ _ZN5alloc11collections5btree4node12slice_insert17hf0a65a4b54a7afc7E.exit.i19.i: 
 .lr.ph.i.i20.i:                                   ; preds = %_ZN5alloc11collections5btree4node12slice_insert17hf0a65a4b54a7afc7E.exit.i19.i, %.lr.ph.i.i20.i
   %.sroa.0.06.i.i21.i = phi i64 [ %229, %.lr.ph.i.i20.i ], [ %207, %_ZN5alloc11collections5btree4node12slice_insert17hf0a65a4b54a7afc7E.exit.i19.i ]
   %229 = add nuw nsw i64 %.sroa.0.06.i.i21.i, 1
-  %230 = icmp ult i64 %.sroa.0.06.i.i21.i, 12
+  %230 = icmp samesign ult i64 %.sroa.0.06.i.i21.i, 12
   tail call void @llvm.assume(i1 %230)
   %231 = getelementptr inbounds ptr, ptr %219, i64 %.sroa.0.06.i.i21.i
   %232 = load ptr, ptr %231, align 8, !noalias !109, !nonnull !4, !noundef !4
@@ -2709,7 +2709,7 @@ _ZN5alloc11collections5btree4node13move_to_slice17hd3626d6b1b9c0b38E.exit41.i: ;
   %175 = getelementptr i8, ptr %174, i64 8
   %176 = shl nsw i64 %157, 3
   tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %174, ptr align 8 %175, i64 %176, i1 false), !alias.scope !359, !noalias !342
-  %177 = icmp ult i64 %173, %149
+  %177 = icmp samesign ult i64 %173, %149
   br i1 %177, label %.lr.ph.i.i, label %"_ZN5alloc11collections5btree4node119NodeRef$LT$alloc..collections..btree..node..marker..Mut$C$K$C$V$C$alloc..collections..btree..node..marker..Internal$GT$30correct_childrens_parent_links17ha823ab2b776e3c03E.exit.i"
 
 .lr.ph.i.i:                                       ; preds = %_ZN5alloc11collections5btree4node13move_to_slice17hd3626d6b1b9c0b38E.exit41.i, %.lr.ph.i.i
@@ -3810,7 +3810,7 @@ default.unreachable:                              ; preds = %.lr.ph.preheader, %
   %.sroa.0.0.i619194.i = phi i64 [ %.sroa.0.0.i6191.i, %"_ZN134_$LT$$LP$core..ops..range..Bound$LT$T$GT$$C$core..ops..range..Bound$LT$T$GT$$RP$$u20$as$u20$core..ops..range..RangeBounds$LT$T$GT$$GT$9end_bound17hb696f7a8a77206d1E.exit.thread.i" ], [ %.sroa.0.0.i619194.ph.i, %.sink.split.i ]
   %.sroa.4.0.i6090.i = phi ptr [ %.sroa.4.0.i6089.i, %"_ZN134_$LT$$LP$core..ops..range..Bound$LT$T$GT$$C$core..ops..range..Bound$LT$T$GT$$RP$$u20$as$u20$core..ops..range..RangeBounds$LT$T$GT$$GT$9end_bound17hb696f7a8a77206d1E.exit.thread.i" ], [ %.sroa.4.0.i6090.ph.i, %.sink.split.i ]
   %.sroa.7.0.i = phi ptr [ undef, %"_ZN134_$LT$$LP$core..ops..range..Bound$LT$T$GT$$C$core..ops..range..Bound$LT$T$GT$$RP$$u20$as$u20$core..ops..range..RangeBounds$LT$T$GT$$GT$9end_bound17hb696f7a8a77206d1E.exit.thread.i" ], [ %.sroa.4.0.i.i, %.sink.split.i ]
-  %switch.i = icmp ult i64 %.sroa.0.0.i619194.i, 2
+  %switch.i = icmp samesign ult i64 %.sroa.0.0.i619194.i, 2
   %spec.select.i = select i1 %switch.i, ptr %.sroa.4.0.i6090.i, ptr undef
   br label %54
 

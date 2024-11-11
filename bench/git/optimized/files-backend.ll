@@ -3872,7 +3872,7 @@ do.body:                                          ; preds = %do.body.preheader, 
   ]
 
 land.rhs:                                         ; preds = %do.body
-  %cmp28 = icmp ugt i32 %create_directories_remaining.1.in, 1
+  %cmp28 = icmp samesign ugt i32 %create_directories_remaining.1.in, 1
   br i1 %cmp28, label %do.body, label %out, !llvm.loop !32
 
 out:                                              ; preds = %if.else, %land.lhs.true, %if.end7, %retry_fn, %do.body, %land.rhs

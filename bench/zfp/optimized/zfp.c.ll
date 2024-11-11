@@ -1202,8 +1202,8 @@ define range(i32 0, 6) i32 @zfp_stream_compression_mode(ptr nocapture noundef re
   %20 = add i32 %4, -1
   %21 = icmp ult i32 %20, 16658
   %or.cond35 = and i1 %19, %21
-  %22 = icmp ugt i32 %8, 63
-  %or.cond42 = and i1 %or.cond35, %22
+  %22 = icmp samesign ugt i32 %8, 63
+  %or.cond42 = select i1 %or.cond35, i1 %22, i1 false
   br i1 %or.cond42, label %23, label %27
 
 23:                                               ; preds = %18
@@ -1222,7 +1222,7 @@ define range(i32 0, 6) i32 @zfp_stream_compression_mode(ptr nocapture noundef re
   %31 = getelementptr inbounds i8, ptr %0, i64 12
   %32 = load i32, ptr %31, align 4
   %33 = icmp ne i32 %32, -1074
-  %brmerge.not = and i1 %33, %22
+  %brmerge.not = select i1 %33, i1 %22, i1 false
   %.mux = select i1 %33, i32 1, i32 3
   br i1 %brmerge.not, label %34, label %36
 
@@ -1270,8 +1270,8 @@ define double @zfp_stream_rate(ptr nocapture noundef readonly %0, i32 noundef %1
   %21 = add i32 %5, -1
   %22 = icmp ult i32 %21, 16658
   %or.cond35.i = and i1 %20, %22
-  %23 = icmp ugt i32 %9, 63
-  %or.cond42.i = and i1 %or.cond35.i, %23
+  %23 = icmp samesign ugt i32 %9, 63
+  %or.cond42.i = select i1 %or.cond35.i, i1 %23, i1 false
   br i1 %or.cond42.i, label %24, label %zfp_stream_compression_mode.exit.thread
 
 24:                                               ; preds = %19
@@ -1327,8 +1327,8 @@ define range(i32 0, 65) i32 @zfp_stream_precision(ptr nocapture noundef readonly
   %20 = add i32 %4, -1
   %21 = icmp ult i32 %20, 16658
   %or.cond35.i = and i1 %19, %21
-  %22 = icmp ugt i32 %8, 63
-  %or.cond42.i = and i1 %or.cond35.i, %22
+  %22 = icmp samesign ugt i32 %8, 63
+  %or.cond42.i = select i1 %or.cond35.i, i1 %22, i1 false
   br i1 %or.cond42.i, label %23, label %27
 
 23:                                               ; preds = %18
@@ -1389,8 +1389,8 @@ define double @zfp_stream_accuracy(ptr nocapture noundef readonly %0) local_unna
   %20 = add i32 %4, -1
   %21 = icmp ult i32 %20, 16658
   %or.cond35.i = and i1 %19, %21
-  %22 = icmp ugt i32 %8, 63
-  %or.cond42.i = and i1 %or.cond35.i, %22
+  %22 = icmp samesign ugt i32 %8, 63
+  %or.cond42.i = select i1 %or.cond35.i, i1 %22, i1 false
   br i1 %or.cond42.i, label %23, label %27
 
 23:                                               ; preds = %18
@@ -1409,7 +1409,7 @@ define double @zfp_stream_accuracy(ptr nocapture noundef readonly %0) local_unna
   %31 = getelementptr inbounds i8, ptr %0, i64 12
   %32 = load i32, ptr %31, align 4
   %33 = icmp sgt i32 %32, -1074
-  %or.cond = and i1 %22, %33
+  %or.cond = select i1 %33, i1 %22, i1 false
   br i1 %or.cond, label %zfp_stream_compression_mode.exit, label %zfp_stream_compression_mode.exit.thread
 
 zfp_stream_compression_mode.exit:                 ; preds = %30
@@ -1458,8 +1458,8 @@ define i64 @zfp_stream_mode(ptr nocapture noundef readonly %0) local_unnamed_add
   %20 = add i32 %4, -1
   %21 = icmp ult i32 %20, 16658
   %or.cond35.i = and i1 %19, %21
-  %22 = icmp ugt i32 %8, 63
-  %or.cond42.i = and i1 %or.cond35.i, %22
+  %22 = icmp samesign ugt i32 %8, 63
+  %or.cond42.i = select i1 %or.cond35.i, i1 %22, i1 false
   br i1 %or.cond42.i, label %23, label %27
 
 23:                                               ; preds = %18
@@ -1478,7 +1478,7 @@ define i64 @zfp_stream_mode(ptr nocapture noundef readonly %0) local_unnamed_add
   %31 = getelementptr inbounds i8, ptr %0, i64 12
   %32 = load i32, ptr %31, align 4
   %33 = icmp ne i32 %32, -1074
-  %brmerge.not.i = and i1 %22, %33
+  %brmerge.not.i = select i1 %33, i1 %22, i1 false
   br i1 %brmerge.not.i, label %34, label %zfp_stream_compression_mode.exit
 
 34:                                               ; preds = %30
@@ -1489,7 +1489,7 @@ zfp_stream_compression_mode.exit:                 ; preds = %30
   br i1 %33, label %zfp_stream_compression_mode.exit.thread, label %41
 
 36:                                               ; preds = %23
-  %37 = icmp ult i32 %2, 2049
+  %37 = icmp samesign ult i32 %2, 2049
   br i1 %37, label %38, label %zfp_stream_compression_mode.exit.thread
 
 38:                                               ; preds = %36
@@ -1903,7 +1903,7 @@ define range(i32 0, 6) i32 @zfp_stream_set_mode(ptr nocapture noundef writeonly 
   br i1 %3, label %4, label %19
 
 4:                                                ; preds = %2
-  %5 = icmp ult i64 %1, 2048
+  %5 = icmp samesign ult i64 %1, 2048
   br i1 %5, label %6, label %9
 
 6:                                                ; preds = %4
@@ -1912,7 +1912,7 @@ define range(i32 0, 6) i32 @zfp_stream_set_mode(ptr nocapture noundef writeonly 
   br label %35
 
 9:                                                ; preds = %4
-  %10 = icmp ult i64 %1, 2176
+  %10 = icmp samesign ult i64 %1, 2176
   br i1 %10, label %11, label %14
 
 11:                                               ; preds = %9
@@ -1952,9 +1952,9 @@ define range(i32 0, 6) i32 @zfp_stream_set_mode(ptr nocapture noundef writeonly 
   %.022 = phi i32 [ %8, %6 ], [ 16658, %11 ], [ 16658, %16 ], [ %27, %19 ], [ 16658, %14 ]
   %36 = phi i32 [ 64, %6 ], [ %13, %11 ], [ 64, %16 ], [ %31, %19 ], [ 64, %14 ]
   %37 = phi i32 [ -1074, %6 ], [ -1074, %11 ], [ %18, %16 ], [ %34, %19 ], [ -1075, %14 ]
-  %38 = icmp ule i32 %.023, %.022
+  %38 = icmp samesign ule i32 %.023, %.022
   %39 = add nsw i32 %36, -1
-  %40 = icmp ult i32 %39, 64
+  %40 = icmp samesign ult i32 %39, 64
   %or.cond3.i = and i1 %38, %40
   br i1 %or.cond3.i, label %41, label %zfp_stream_compression_mode.exit
 
@@ -1977,23 +1977,23 @@ define range(i32 0, 6) i32 @zfp_stream_set_mode(ptr nocapture noundef writeonly 
 
 49:                                               ; preds = %41
   %50 = icmp eq i32 %.023, %.022
-  %51 = icmp ult i32 %.022, 16659
+  %51 = icmp samesign ult i32 %.022, 16659
   %or.cond35.i = and i1 %50, %51
-  %52 = icmp ugt i32 %36, 63
-  %or.cond42.i = and i1 %or.cond35.i, %52
+  %52 = icmp samesign ugt i32 %36, 63
+  %or.cond42.i = select i1 %or.cond35.i, i1 %52, i1 false
   %53 = icmp eq i32 %37, -1074
   %or.cond30 = select i1 %or.cond42.i, i1 %53, i1 false
   br i1 %or.cond30, label %zfp_stream_compression_mode.exit, label %54
 
 54:                                               ; preds = %49
-  %55 = icmp ult i32 %.023, 2
-  %56 = icmp ugt i32 %.022, 16657
+  %55 = icmp samesign ult i32 %.023, 2
+  %56 = icmp samesign ugt i32 %.022, 16657
   %or.cond43.i = and i1 %55, %56
   br i1 %or.cond43.i, label %57, label %zfp_stream_compression_mode.exit
 
 57:                                               ; preds = %54
   %58 = icmp ne i32 %37, -1074
-  %brmerge.not.i = and i1 %52, %58
+  %brmerge.not.i = select i1 %58, i1 %52, i1 false
   %.mux.i = select i1 %58, i32 1, i32 3
   br i1 %brmerge.not.i, label %59, label %zfp_stream_compression_mode.exit
 
@@ -11959,9 +11959,9 @@ default.unreachable:                              ; preds = %24
   %.022.i = phi i32 [ %89, %87 ], [ 16658, %92 ], [ 16658, %97 ], [ %108, %100 ], [ 16658, %95 ]
   %117 = phi i32 [ 64, %87 ], [ %94, %92 ], [ 64, %97 ], [ %112, %100 ], [ 64, %95 ]
   %118 = phi i32 [ -1074, %87 ], [ -1074, %92 ], [ %99, %97 ], [ %115, %100 ], [ -1075, %95 ]
-  %119 = icmp ule i32 %.023.i, %.022.i
+  %119 = icmp samesign ule i32 %.023.i, %.022.i
   %120 = add nsw i32 %117, -1
-  %121 = icmp ult i32 %120, 64
+  %121 = icmp samesign ult i32 %120, 64
   %or.cond3.i.i = and i1 %119, %121
   br i1 %or.cond3.i.i, label %122, label %zfp_stream_set_mode.exit
 

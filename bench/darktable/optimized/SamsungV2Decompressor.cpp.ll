@@ -349,7 +349,7 @@ define hidden void @_ZN8rawspeed21SamsungV2DecompressorC2ERKNS_8RawImageENS_10By
   %155 = or i1 %152, %154
   %156 = icmp ugt i32 %120, 425787391
   %157 = or i1 %156, %155
-  %158 = icmp ugt i32 %118, 4336
+  %158 = icmp samesign ugt i32 %118, 4336
   %159 = or i1 %158, %157
   br i1 %159, label %160, label %162
 
@@ -831,7 +831,7 @@ define hidden void @_ZN8rawspeed21SamsungV2Decompressor13decompressRowEi(ptr noc
   br label %239
 
 202:                                              ; preds = %190
-  %203 = icmp ult i32 %195, 12
+  %203 = icmp samesign ult i32 %195, 12
   br i1 %203, label %204, label %231
 
 204:                                              ; preds = %202
@@ -1161,11 +1161,11 @@ define hidden void @_ZN8rawspeed21SamsungV2Decompressor13decompressRowEi(ptr noc
   br i1 %412, label %.loopexit, label %413
 
 413:                                              ; preds = %407
-  %414 = icmp ult i32 %411, %50
+  %414 = icmp samesign ult i32 %411, %50
   br i1 %414, label %415, label %.loopexit94
 
 415:                                              ; preds = %413
-  %416 = icmp ugt i32 %142, %411
+  %416 = icmp samesign ugt i32 %142, %411
   tail call void @llvm.assume(i1 %416)
   tail call void @llvm.assume(i1 %104)
   tail call void @llvm.assume(i1 %393)
@@ -1183,11 +1183,11 @@ define hidden void @_ZN8rawspeed21SamsungV2Decompressor13decompressRowEi(ptr noc
   br i1 %424, label %.loopexit, label %425
 
 425:                                              ; preds = %415
-  %426 = icmp ult i32 %423, %50
+  %426 = icmp samesign ult i32 %423, %50
   br i1 %426, label %427, label %.loopexit94
 
 427:                                              ; preds = %425
-  %428 = icmp ugt i32 %142, %423
+  %428 = icmp samesign ugt i32 %142, %423
   tail call void @llvm.assume(i1 %428)
   tail call void @llvm.assume(i1 %108)
   tail call void @llvm.assume(i1 %399)
@@ -1224,12 +1224,12 @@ define hidden void @_ZN8rawspeed21SamsungV2Decompressor13decompressRowEi(ptr noc
   unreachable
 
 450:                                              ; preds = %.preheader
-  %451 = icmp ult i32 %448, %50
+  %451 = icmp samesign ult i32 %448, %50
   br i1 %451, label %452, label %.loopexit94
 
 452:                                              ; preds = %450
   %453 = add nuw nsw i32 %448, 2
-  %454 = icmp ult i32 %453, %50
+  %454 = icmp samesign ult i32 %453, %50
   br i1 %454, label %455, label %.loopexit94
 
 .loopexit94:                                      ; preds = %452, %450, %425, %413
@@ -1237,7 +1237,7 @@ define hidden void @_ZN8rawspeed21SamsungV2Decompressor13decompressRowEi(ptr noc
   unreachable
 
 455:                                              ; preds = %452
-  %456 = icmp ugt i32 %142, %448
+  %456 = icmp samesign ugt i32 %142, %448
   tail call void @llvm.assume(i1 %456)
   %457 = icmp sgt i32 %444, -1
   tail call void @llvm.assume(i1 %457)
@@ -1253,7 +1253,7 @@ define hidden void @_ZN8rawspeed21SamsungV2Decompressor13decompressRowEi(ptr noc
   %465 = getelementptr inbounds i16, ptr %463, i64 %464
   %466 = load i16, ptr %465, align 2, !tbaa !120
   %467 = zext i16 %466 to i32
-  %468 = icmp ugt i32 %142, %453
+  %468 = icmp samesign ugt i32 %142, %453
   tail call void @llvm.assume(i1 %468)
   %469 = zext nneg i32 %453 to i64
   %470 = getelementptr inbounds i16, ptr %463, i64 %469
@@ -1396,7 +1396,7 @@ define hidden void @_ZN8rawspeed21SamsungV2Decompressor13decompressRowEi(ptr noc
   %556 = trunc nuw nsw i64 %555 to i32
   %557 = add nsw i32 %554, -2
   %558 = shl i64 %553, 2
-  %559 = icmp ult i32 %557, 2
+  %559 = icmp samesign ult i32 %557, 2
   br i1 %559, label %560, label %586
 
 560:                                              ; preds = %551
@@ -1446,7 +1446,7 @@ define hidden void @_ZN8rawspeed21SamsungV2Decompressor13decompressRowEi(ptr noc
   %591 = trunc nuw nsw i64 %590 to i32
   %592 = add nsw i32 %589, -2
   %593 = shl i64 %588, 2
-  %594 = icmp ult i32 %592, 2
+  %594 = icmp samesign ult i32 %592, 2
   br i1 %594, label %595, label %621
 
 595:                                              ; preds = %586
@@ -1496,7 +1496,7 @@ define hidden void @_ZN8rawspeed21SamsungV2Decompressor13decompressRowEi(ptr noc
   %626 = trunc nuw nsw i64 %625 to i32
   %627 = add nsw i32 %624, -2
   %628 = shl i64 %623, 2
-  %629 = icmp ult i32 %627, 2
+  %629 = icmp samesign ult i32 %627, 2
   br i1 %629, label %630, label %656
 
 630:                                              ; preds = %621
@@ -1566,7 +1566,7 @@ define hidden void @_ZN8rawspeed21SamsungV2Decompressor13decompressRowEi(ptr noc
 667:                                              ; preds = %666
   %668 = icmp sgt i32 %892, -1
   tail call void @llvm.assume(i1 %668), !noalias !123
-  %669 = icmp ult i32 %891, 4
+  %669 = icmp samesign ult i32 %891, 4
   br i1 %669, label %670, label %696
 
 670:                                              ; preds = %667
@@ -1651,7 +1651,7 @@ define hidden void @_ZN8rawspeed21SamsungV2Decompressor13decompressRowEi(ptr noc
 717:                                              ; preds = %716
   %718 = icmp sgt i32 %714, -1
   tail call void @llvm.assume(i1 %718), !noalias !123
-  %719 = icmp ult i32 %713, 4
+  %719 = icmp samesign ult i32 %713, 4
   br i1 %719, label %720, label %746
 
 720:                                              ; preds = %717
@@ -1746,7 +1746,7 @@ define hidden void @_ZN8rawspeed21SamsungV2Decompressor13decompressRowEi(ptr noc
 775:                                              ; preds = %774
   %776 = icmp sgt i32 %770, -1
   tail call void @llvm.assume(i1 %776), !noalias !123
-  %777 = icmp ult i32 %769, 4
+  %777 = icmp samesign ult i32 %769, 4
   br i1 %777, label %778, label %804
 
 778:                                              ; preds = %775
@@ -1864,7 +1864,7 @@ define hidden void @_ZN8rawspeed21SamsungV2Decompressor13decompressRowEi(ptr noc
 850:                                              ; preds = %656
   %851 = icmp sgt i32 %657, -1
   tail call void @llvm.assume(i1 %851), !noalias !123
-  %852 = icmp ult i32 %662, 4
+  %852 = icmp samesign ult i32 %662, 4
   br i1 %852, label %853, label %880
 
 853:                                              ; preds = %850
@@ -2025,7 +2025,7 @@ default.unreachable150:                           ; preds = %774, %716, %666, %6
   %949 = phi i32 [ %922, %939 ], [ %908, %916 ]
   %950 = phi i64 [ %947, %939 ], [ %910, %916 ]
   %951 = phi i32 [ %943, %939 ], [ %909, %916 ]
-  %952 = icmp uge i32 %951, %914
+  %952 = icmp samesign uge i32 %951, %914
   tail call void @llvm.assume(i1 %952), !noalias !123
   %953 = sub nuw nsw i32 64, %914
   %954 = zext nneg i32 %953 to i64

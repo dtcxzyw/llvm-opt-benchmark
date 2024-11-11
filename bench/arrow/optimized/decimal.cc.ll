@@ -983,7 +983,7 @@ if.end.i.i:                                       ; preds = %lor.lhs.false.i.i
   %ref.tmp6.sroa.2.0.fraction_decimal.sroa_idx.i.i = getelementptr inbounds i8, ptr %fraction_decimal.i.i, i64 8
   %ref.tmp6.sroa.2.0.copyload.i.i = load i64, ptr %ref.tmp6.sroa.2.0.fraction_decimal.sroa_idx.i.i, align 8
   %sub.i17.i.i = sub nsw i32 0, %scale
-  %8 = icmp ult i32 %scale, 77
+  %8 = icmp samesign ult i32 %scale, 77
   br i1 %8, label %if.then.i.i27.i.i, label %if.else.i.i18.i.i
 
 if.then.i.i27.i.i:                                ; preds = %if.end.i.i
@@ -1074,7 +1074,7 @@ if.end.i16.i:                                     ; preds = %lor.lhs.false.i12.i
   %ref.tmp6.sroa.2.0.fraction_decimal.sroa_idx.i25.i = getelementptr inbounds i8, ptr %fraction_decimal.i7.i, i64 8
   %ref.tmp6.sroa.2.0.copyload.i26.i = load i64, ptr %ref.tmp6.sroa.2.0.fraction_decimal.sroa_idx.i25.i, align 8
   %sub.i17.i27.i = sub nsw i32 0, %scale
-  %19 = icmp ult i32 %scale, 77
+  %19 = icmp samesign ult i32 %scale, 77
   br i1 %19, label %if.then.i.i27.i40.i, label %if.else.i.i18.i28.i
 
 if.then.i.i27.i40.i:                              ; preds = %if.end.i16.i
@@ -1188,7 +1188,7 @@ if.end.i.i:                                       ; preds = %lor.lhs.false.i.i
   %ref.tmp6.sroa.2.0.fraction_decimal.sroa_idx.i.i = getelementptr inbounds i8, ptr %fraction_decimal.i.i, i64 8
   %ref.tmp6.sroa.2.0.copyload.i.i = load i64, ptr %ref.tmp6.sroa.2.0.fraction_decimal.sroa_idx.i.i, align 8
   %sub.i17.i.i = sub nsw i32 0, %scale
-  %8 = icmp ult i32 %scale, 77
+  %8 = icmp samesign ult i32 %scale, 77
   br i1 %8, label %if.then.i.i27.i.i, label %if.else.i.i18.i.i
 
 if.then.i.i27.i.i:                                ; preds = %if.end.i.i
@@ -1279,7 +1279,7 @@ if.end.i16.i:                                     ; preds = %lor.lhs.false.i12.i
   %ref.tmp6.sroa.2.0.fraction_decimal.sroa_idx.i25.i = getelementptr inbounds i8, ptr %fraction_decimal.i7.i, i64 8
   %ref.tmp6.sroa.2.0.copyload.i26.i = load i64, ptr %ref.tmp6.sroa.2.0.fraction_decimal.sroa_idx.i25.i, align 8
   %sub.i17.i27.i = sub nsw i32 0, %scale
-  %19 = icmp ult i32 %scale, 77
+  %19 = icmp samesign ult i32 %scale, 77
   br i1 %19, label %if.then.i.i27.i40.i, label %if.else.i.i18.i28.i
 
 if.then.i.i27.i40.i:                              ; preds = %if.end.i16.i
@@ -1993,7 +1993,7 @@ if.end39.i:                                       ; preds = %if.then36.i, %if.th
 
 if.then41.i:                                      ; preds = %if.end39.i
   %sub42.i = sub nsw i32 0, %parsed_scale.0.i
-  %cmp43.i = icmp ult i32 %parsed_scale.0.i, -38
+  %cmp43.i = icmp samesign ult i32 %parsed_scale.0.i, -38
   br i1 %cmp43.i, label %if.then44.i, label %if.end45.i
 
 if.then44.i:                                      ; preds = %if.then41.i
@@ -2462,8 +2462,8 @@ if.end:                                           ; preds = %entry
 
 if.else:                                          ; preds = %if.end
   %cmp3 = icmp slt i8 %15, 0
-  %cmp9 = icmp ult i32 %length, 16
-  %19 = and i1 %cmp9, %cmp3
+  %cmp9 = icmp samesign ult i32 %length, 16
+  %19 = select i1 %cmp3, i1 %cmp9, i1 false
   %conv11 = sext i1 %19 to i64
   %mul12 = shl nuw nsw i32 %.sroa.speculated27, 3
   %sh_prom.i = zext nneg i32 %mul12 to i64
@@ -2485,7 +2485,7 @@ if.end14:                                         ; preds = %if.end, %if.else
   %20 = load i64, ptr %result.i18, align 8
   %21 = tail call noundef i64 @llvm.bswap.i64(i64 %20)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %result.i18)
-  %cmp19 = icmp ugt i32 %length, 7
+  %cmp19 = icmp samesign ugt i32 %length, 7
   br i1 %cmp19, label %if.end32, label %if.else21
 
 if.else21:                                        ; preds = %if.end14
@@ -3363,7 +3363,7 @@ if.end38.i:                                       ; preds = %if.then35.i, %if.th
 
 if.then40.i:                                      ; preds = %if.end38.i
   %sub41.i = sub nsw i32 0, %parsed_scale.0.i
-  %cmp42.i = icmp ult i32 %parsed_scale.0.i, -76
+  %cmp42.i = icmp samesign ult i32 %parsed_scale.0.i, -76
   br i1 %cmp42.i, label %if.then43.i, label %if.end44.i
 
 if.then43.i:                                      ; preds = %if.then40.i
@@ -5144,7 +5144,7 @@ if.end3:                                          ; preds = %if.end
 
 if.then8:                                         ; preds = %if.end3
   %sub9 = sub nsw i32 24, %38
-  %cmp10 = icmp ult i32 %scale, 31
+  %cmp10 = icmp samesign ult i32 %scale, 31
   br i1 %cmp10, label %if.end.i30, label %while.body.preheader
 
 if.end.i30:                                       ; preds = %if.then8
@@ -5153,7 +5153,7 @@ if.end.i30:                                       ; preds = %if.then8
   %call13 = call noundef nonnull align 8 dereferenceable(16) ptr @_ZN5arrow15BasicDecimal128mLERKS0_(ptr noundef nonnull align 8 dereferenceable(16) %x, ptr noundef nonnull align 8 dereferenceable(16) %arrayidx.i28)
   %41 = load i64, ptr %40, align 8
   %42 = load i64, ptr %x, align 8
-  %cmp228.i = icmp ugt i32 %sub9, 63
+  %cmp228.i = icmp samesign ugt i32 %sub9, 63
   br i1 %cmp228.i, label %while.body.i, label %if.then5.i
 
 while.body.i:                                     ; preds = %if.end.i30, %while.body.i
@@ -5166,7 +5166,7 @@ while.body.i:                                     ; preds = %if.end.i30, %while.
   %or.i = or i64 %result_lo.030.i, %conv.i32
   %shr.i = ashr i64 %result_hi.029.i, 63
   %sub.i33 = add nsw i32 %bits.addr.032.i, -64
-  %cmp2.i34 = icmp ugt i32 %bits.addr.032.i, 127
+  %cmp2.i34 = icmp samesign ugt i32 %bits.addr.032.i, 127
   br i1 %cmp2.i34, label %while.body.i, label %while.end.i, !llvm.loop !166
 
 while.end.i:                                      ; preds = %while.body.i
@@ -5270,7 +5270,7 @@ while.body.i87:                                   ; preds = %if.end.i42, %while.
   %or.i94 = or i64 %result_lo.030.i90, %conv.i93
   %shr.i95 = ashr i64 %result_hi.029.i91, 63
   %sub.i96 = add nsw i32 %bits.addr.032.i88, -64
-  %cmp2.i97 = icmp ugt i32 %bits.addr.032.i88, 127
+  %cmp2.i97 = icmp samesign ugt i32 %bits.addr.032.i88, 127
   br i1 %cmp2.i97, label %while.body.i87, label %while.end.i45, !llvm.loop !166
 
 while.end.i45:                                    ; preds = %while.body.i87, %if.end.i42
@@ -5353,7 +5353,7 @@ if.end57:                                         ; preds = %if.then54, %while.e
 if.end.i108:                                      ; preds = %if.end57
   %47 = load i64, ptr %40, align 8
   %48 = load i64, ptr %x, align 8
-  %cmp228.i110 = icmp ugt i32 %sub48, 63
+  %cmp228.i110 = icmp samesign ugt i32 %sub48, 63
   br i1 %cmp228.i110, label %while.body.i153, label %if.then5.i141
 
 while.body.i153:                                  ; preds = %if.end.i108, %while.body.i153
@@ -5366,7 +5366,7 @@ while.body.i153:                                  ; preds = %if.end.i108, %while
   %or.i160 = or i64 %result_lo.030.i156, %conv.i159
   %shr.i161 = ashr i64 %result_hi.029.i157, 63
   %sub.i162 = add nsw i32 %bits.addr.032.i154, -64
-  %cmp2.i163 = icmp ugt i32 %bits.addr.032.i154, 127
+  %cmp2.i163 = icmp samesign ugt i32 %bits.addr.032.i154, 127
   br i1 %cmp2.i163, label %while.body.i153, label %while.end.i111, !llvm.loop !166
 
 while.end.i111:                                   ; preds = %while.body.i153
@@ -5997,7 +5997,7 @@ if.end3:                                          ; preds = %if.end
 
 if.then8:                                         ; preds = %if.end3
   %sub9 = sub nsw i32 53, %37
-  %cmp10 = icmp ult i32 %scale, 23
+  %cmp10 = icmp samesign ult i32 %scale, 23
   br i1 %cmp10, label %if.end.i30, label %while.body.preheader
 
 if.end.i30:                                       ; preds = %if.then8
@@ -6006,7 +6006,7 @@ if.end.i30:                                       ; preds = %if.then8
   %call13 = call noundef nonnull align 8 dereferenceable(16) ptr @_ZN5arrow15BasicDecimal128mLERKS0_(ptr noundef nonnull align 8 dereferenceable(16) %x, ptr noundef nonnull align 8 dereferenceable(16) %arrayidx.i28)
   %39 = load i64, ptr %38, align 8
   %40 = load i64, ptr %x, align 8
-  %cmp228.i = icmp ugt i32 %sub9, 63
+  %cmp228.i = icmp samesign ugt i32 %sub9, 63
   br i1 %cmp228.i, label %while.body.i, label %if.then5.i
 
 while.body.i:                                     ; preds = %if.end.i30, %while.body.i
@@ -6019,7 +6019,7 @@ while.body.i:                                     ; preds = %if.end.i30, %while.
   %or.i = or i64 %result_lo.030.i, %conv.i32
   %shr.i = ashr i64 %result_hi.029.i, 63
   %sub.i33 = add nsw i32 %bits.addr.032.i, -64
-  %cmp2.i34 = icmp ugt i32 %bits.addr.032.i, 127
+  %cmp2.i34 = icmp samesign ugt i32 %bits.addr.032.i, 127
   br i1 %cmp2.i34, label %while.body.i, label %while.end.i, !llvm.loop !166
 
 while.end.i:                                      ; preds = %while.body.i
@@ -6123,7 +6123,7 @@ while.body.i87:                                   ; preds = %if.end.i42, %while.
   %or.i94 = or i64 %result_lo.030.i90, %conv.i93
   %shr.i95 = ashr i64 %result_hi.029.i91, 63
   %sub.i96 = add nsw i32 %bits.addr.032.i88, -64
-  %cmp2.i97 = icmp ugt i32 %bits.addr.032.i88, 127
+  %cmp2.i97 = icmp samesign ugt i32 %bits.addr.032.i88, 127
   br i1 %cmp2.i97, label %while.body.i87, label %while.end.i45, !llvm.loop !166
 
 while.end.i45:                                    ; preds = %while.body.i87, %if.end.i42
@@ -6206,7 +6206,7 @@ if.end57:                                         ; preds = %if.then54, %while.e
 if.end.i108:                                      ; preds = %if.end57
   %45 = load i64, ptr %38, align 8
   %46 = load i64, ptr %x, align 8
-  %cmp228.i110 = icmp ugt i32 %sub48, 63
+  %cmp228.i110 = icmp samesign ugt i32 %sub48, 63
   br i1 %cmp228.i110, label %while.body.i153, label %if.then5.i141
 
 while.body.i153:                                  ; preds = %if.end.i108, %while.body.i153
@@ -6219,7 +6219,7 @@ while.body.i153:                                  ; preds = %if.end.i108, %while
   %or.i160 = or i64 %result_lo.030.i156, %conv.i159
   %shr.i161 = ashr i64 %result_hi.029.i157, 63
   %sub.i162 = add nsw i32 %bits.addr.032.i154, -64
-  %cmp2.i163 = icmp ugt i32 %bits.addr.032.i154, 127
+  %cmp2.i163 = icmp samesign ugt i32 %bits.addr.032.i154, 127
   br i1 %cmp2.i163, label %while.body.i153, label %while.end.i111, !llvm.loop !166
 
 while.end.i111:                                   ; preds = %while.body.i153
@@ -8097,7 +8097,7 @@ if.end3:                                          ; preds = %if.end
 
 if.then8:                                         ; preds = %if.end3
   %sub9 = sub nsw i32 24, %40
-  %cmp10 = icmp ult i32 %scale, 69
+  %cmp10 = icmp samesign ult i32 %scale, 69
   br i1 %cmp10, label %if.then11, label %while.body.preheader
 
 if.then11:                                        ; preds = %if.then8
@@ -8755,7 +8755,7 @@ if.end3:                                          ; preds = %if.end
 
 if.then8:                                         ; preds = %if.end3
   %sub9 = sub nsw i32 53, %39
-  %cmp10 = icmp ult i32 %scale, 61
+  %cmp10 = icmp samesign ult i32 %scale, 61
   br i1 %cmp10, label %if.then11, label %while.body.preheader
 
 if.then11:                                        ; preds = %if.then8
@@ -9032,7 +9032,7 @@ if.end:                                           ; preds = %lor.lhs.false
   %ref.tmp12.sroa.4.0.fraction_decimal.sroa_idx = getelementptr inbounds i8, ptr %fraction_decimal, i64 24
   %ref.tmp12.sroa.4.0.copyload = load i64, ptr %ref.tmp12.sroa.4.0.fraction_decimal.sroa_idx, align 8
   %sub.i29 = sub nsw i32 0, %scale
-  %5 = icmp ult i32 %scale, 77
+  %5 = icmp samesign ult i32 %scale, 77
   br i1 %5, label %if.then.i.i45, label %if.else.i.i30
 
 if.then.i.i45:                                    ; preds = %if.end
@@ -9159,7 +9159,7 @@ if.end:                                           ; preds = %lor.lhs.false
   %ref.tmp12.sroa.4.0.fraction_decimal.sroa_idx = getelementptr inbounds i8, ptr %fraction_decimal, i64 24
   %ref.tmp12.sroa.4.0.copyload = load i64, ptr %ref.tmp12.sroa.4.0.fraction_decimal.sroa_idx, align 8
   %sub.i30 = sub nsw i32 0, %scale
-  %5 = icmp ult i32 %scale, 77
+  %5 = icmp samesign ult i32 %scale, 77
   br i1 %5, label %if.then.i.i47, label %if.else.i.i31
 
 if.then.i.i47:                                    ; preds = %if.end

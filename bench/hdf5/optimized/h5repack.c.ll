@@ -500,7 +500,7 @@ get_sfilter.exit162.i:                            ; preds = %159, %155
   br i1 %188, label %189, label %194
 
 189:                                              ; preds = %185
-  %190 = icmp ugt i32 %187, 6
+  %190 = icmp samesign ugt i32 %187, 6
   br i1 %190, label %get_sfilter.exit164.i, label %switch.lookup
 
 get_sfilter.exit164.i:                            ; preds = %189
@@ -634,7 +634,7 @@ switch.lookup:                                    ; preds = %189
   br label %check_options.exit.thread
 
 262:                                              ; preds = %242
-  %263 = icmp ugt i32 %244, %224
+  %263 = icmp samesign ugt i32 %244, %224
   br i1 %263, label %265, label %.preheader.i
 
 .preheader.i:                                     ; preds = %262

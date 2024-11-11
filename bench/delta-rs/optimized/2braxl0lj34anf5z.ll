@@ -84220,7 +84220,7 @@ define hidden void @"_ZN5alloc11collections5btree4node210Handle$LT$alloc..collec
 .lr.ph.i.i25.i:                                   ; preds = %302, %.lr.ph.i.i25.i
   %.sroa.0.06.i.i26.i = phi i64 [ %305, %.lr.ph.i.i25.i ], [ %282, %302 ]
   %305 = add nuw nsw i64 %.sroa.0.06.i.i26.i, 1
-  %306 = icmp ult i64 %.sroa.0.06.i.i26.i, 12
+  %306 = icmp samesign ult i64 %.sroa.0.06.i.i26.i, 12
   tail call void @llvm.assume(i1 %306)
   %307 = getelementptr inbounds ptr, ptr %294, i64 %.sroa.0.06.i.i26.i
   %308 = load ptr, ptr %307, align 8, !noalias !21989, !nonnull !4, !noundef !4
@@ -85064,7 +85064,7 @@ define hidden void @"_ZN5alloc11collections5btree4node210Handle$LT$alloc..collec
 .lr.ph.i.i22.i:                                   ; preds = %302, %.lr.ph.i.i22.i
   %.sroa.0.06.i.i23.i = phi i64 [ %305, %.lr.ph.i.i22.i ], [ %279, %302 ]
   %305 = add nuw nsw i64 %.sroa.0.06.i.i23.i, 1
-  %306 = icmp ult i64 %.sroa.0.06.i.i23.i, 12
+  %306 = icmp samesign ult i64 %.sroa.0.06.i.i23.i, 12
   tail call void @llvm.assume(i1 %306)
   %307 = getelementptr inbounds ptr, ptr %294, i64 %.sroa.0.06.i.i23.i
   %308 = load ptr, ptr %307, align 8, !noalias !22139, !nonnull !4, !noundef !4
@@ -89777,7 +89777,7 @@ define internal fastcc void @"_ZN6chrono8datetime40DateTime$LT$chrono..offset..u
   br label %24
 
 19:                                               ; preds = %15
-  %20 = icmp ugt i32 %2, 999999999
+  %20 = icmp samesign ugt i32 %2, 999999999
   %21 = urem i32 %16, 60
   %22 = icmp ne i32 %21, 59
   %or.cond3.not = and i1 %20, %22

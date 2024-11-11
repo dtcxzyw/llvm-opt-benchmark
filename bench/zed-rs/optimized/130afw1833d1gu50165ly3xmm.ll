@@ -825,7 +825,7 @@ define hidden void @_ZN4gpui5scene5Scene16insert_primitive17h16a19e0c1d5ae10bE(p
   %.1.i.i.i.i.i = sext i1 %36 to i8
   %.sroa.0.0.i.i.i.i.i = select i1 %35, i8 %..i.i.i.i.i, i8 %.1.i.i.i.i.i
   %37 = add nsw i8 %.sroa.0.0.i.i.i.i.i, -3
-  %switch.i.i.i = icmp ult i8 %37, -2
+  %switch.i.i.i = icmp samesign ult i8 %37, -2
   %..i4.i = select i1 %switch.i.i.i, float %25, float %31
   %38 = fcmp ugt float %28, %34
   %39 = fcmp ult float %28, %34
@@ -833,7 +833,7 @@ define hidden void @_ZN4gpui5scene5Scene16insert_primitive17h16a19e0c1d5ae10bE(p
   %.1.i.i.i4.i.i = sext i1 %39 to i8
   %.sroa.0.0.i.i.i5.i.i = select i1 %38, i8 %..i.i.i3.i.i, i8 %.1.i.i.i4.i.i
   %40 = add nsw i8 %.sroa.0.0.i.i.i5.i.i, -3
-  %switch.i6.i.i = icmp ult i8 %40, -2
+  %switch.i6.i.i = icmp samesign ult i8 %40, -2
   %.sroa.01.0.i5.i = select i1 %switch.i6.i.i, float %28, float %34
   invoke void @"_ZN4gpui8geometry15Bounds$LT$T$GT$12from_corners17h5f50997ce32eca96E.llvm.12158567587560463101"(ptr noalias nocapture noundef nonnull sret([16 x i8]) align 4 dereferenceable(16) %6, float noundef %..i.i, float noundef %.sroa.01.0.i.i, float noundef %..i4.i, float noundef %.sroa.01.0.i5.i)
           to label %"_ZN4gpui8geometry15Bounds$LT$T$GT$9intersect17h704afa7f96207a1dE.exit" unwind label %9
@@ -847,7 +847,7 @@ define hidden void @_ZN4gpui5scene5Scene16insert_primitive17h16a19e0c1d5ae10bE(p
   %.1.i.i.i.i = sext i1 %44 to i8
   %.sroa.0.0.i.i.i.i = select i1 %43, i8 %..i.i.i.i, i8 %.1.i.i.i.i
   %45 = add nsw i8 %.sroa.0.0.i.i.i.i, -3
-  %switch.i.i = icmp ult i8 %45, -2
+  %switch.i.i = icmp samesign ult i8 %45, -2
   br i1 %switch.i.i, label %"_ZN4gpui8geometry15Bounds$LT$T$GT$8is_empty17h74e5819d068e3b57E.exit.thread", label %"_ZN4gpui8geometry15Bounds$LT$T$GT$8is_empty17h74e5819d068e3b57E.exit"
 
 "_ZN4gpui8geometry15Bounds$LT$T$GT$8is_empty17h74e5819d068e3b57E.exit": ; preds = %"_ZN4gpui8geometry15Bounds$LT$T$GT$9intersect17h704afa7f96207a1dE.exit"
@@ -859,7 +859,7 @@ define hidden void @_ZN4gpui5scene5Scene16insert_primitive17h16a19e0c1d5ae10bE(p
   %.1.i.i.i4.i = sext i1 %49 to i8
   %.sroa.0.0.i.i.i5.i = select i1 %48, i8 %..i.i.i3.i, i8 %.1.i.i.i4.i
   %50 = add nsw i8 %.sroa.0.0.i.i.i5.i, -3
-  %switch.i6.i = icmp ult i8 %50, -2
+  %switch.i6.i = icmp samesign ult i8 %50, -2
   br i1 %switch.i6.i, label %"_ZN4gpui8geometry15Bounds$LT$T$GT$8is_empty17h74e5819d068e3b57E.exit.thread", label %51
 
 51:                                               ; preds = %"_ZN4gpui8geometry15Bounds$LT$T$GT$8is_empty17h74e5819d068e3b57E.exit"

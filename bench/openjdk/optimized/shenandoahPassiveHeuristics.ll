@@ -123,7 +123,7 @@ define hidden void @_ZN27ShenandoahPassiveHeuristics37choose_collection_set_from
   br i1 %22, label %_Z24byte_size_in_proper_unitImET_S0_.exit, label %23
 
 23:                                               ; preds = %21
-  %24 = icmp ugt i64 %4, 104857599
+  %24 = icmp samesign ugt i64 %4, 104857599
   br i1 %24, label %.thread, label %27
 
 .thread:                                          ; preds = %23
@@ -135,7 +135,7 @@ _Z24byte_size_in_proper_unitImET_S0_.exit:        ; preds = %21
   br label %_Z25proper_unit_for_byte_sizem.exit
 
 27:                                               ; preds = %23
-  %28 = icmp ugt i64 %4, 102399
+  %28 = icmp samesign ugt i64 %4, 102399
   %29 = lshr i64 %4, 10
   %spec.select.i = select i1 %28, i64 %29, i64 %4
   %.str.11..str.12.i = select i1 %28, ptr @.str.11, ptr @.str.12
@@ -148,7 +148,7 @@ _Z25proper_unit_for_byte_sizem.exit:              ; preds = %.thread, %_Z24byte_
   br i1 %30, label %_Z24byte_size_in_proper_unitImET_S0_.exit26, label %31
 
 31:                                               ; preds = %_Z25proper_unit_for_byte_sizem.exit
-  %32 = icmp ugt i64 %19, 104857599
+  %32 = icmp samesign ugt i64 %19, 104857599
   br i1 %32, label %.thread37, label %35
 
 .thread37:                                        ; preds = %31
@@ -160,7 +160,7 @@ _Z24byte_size_in_proper_unitImET_S0_.exit26:      ; preds = %_Z25proper_unit_for
   br label %_Z25proper_unit_for_byte_sizem.exit29
 
 35:                                               ; preds = %31
-  %36 = icmp ugt i64 %19, 102399
+  %36 = icmp samesign ugt i64 %19, 102399
   %37 = lshr i64 %19, 10
   %spec.select.i24 = select i1 %36, i64 %37, i64 %19
   %.str.11..str.12.i27 = select i1 %36, ptr @.str.11, ptr @.str.12

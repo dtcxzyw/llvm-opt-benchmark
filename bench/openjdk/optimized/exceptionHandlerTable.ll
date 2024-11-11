@@ -432,7 +432,7 @@ _ZNK21ExceptionHandlerTable12subtable_forEi.exit: ; preds = %9
   br i1 %28, label %_ZNK21ExceptionHandlerTable12subtable_forEi.exit.thread, label %29
 
 29:                                               ; preds = %25, %.lr.ph
-  %30 = icmp ugt i32 %.in, 1
+  %30 = icmp samesign ugt i32 %.in, 1
   br i1 %30, label %.lr.ph, label %_ZNK21ExceptionHandlerTable12subtable_forEi.exit.thread, !llvm.loop !9
 
 _ZNK21ExceptionHandlerTable12subtable_forEi.exit.thread: ; preds = %16, %25, %29, %_ZNK21ExceptionHandlerTable12subtable_forEi.exit, %4

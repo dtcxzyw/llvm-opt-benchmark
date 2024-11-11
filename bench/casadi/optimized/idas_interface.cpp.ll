@@ -2761,7 +2761,7 @@ _ZN6casadi9trim_pathERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit
   %167 = getelementptr inbounds i8, ptr %.0910.i.i.i.i.i, i64 8
   %168 = getelementptr inbounds i8, ptr %.0811.i.i.i.i.i, i64 8
   %169 = add nsw i64 %.012.i.i.i.i.i, -1
-  %170 = icmp ugt i64 %.012.i.i.i.i.i, 1
+  %170 = icmp samesign ugt i64 %.012.i.i.i.i.i, 1
   br i1 %170, label %.lr.ph.i.i.i.i.i, label %_ZSt4copyIN9__gnu_cxx17__normal_iteratorIPKxSt6vectorIxSaIxEEEEPdET0_T_SA_S9_.exit, !llvm.loop !19
 
 _ZSt4copyIN9__gnu_cxx17__normal_iteratorIPKxSt6vectorIxSaIxEEEEPdET0_T_SA_S9_.exit: ; preds = %.lr.ph.i.i.i.i.i, %150

@@ -1508,7 +1508,7 @@ if.then.i.i157:                                   ; preds = %if.end66
   br i1 %cmp.i.i.i.i.i.i, label %if.then.i.i.i.i.i.i, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE8capacityEv.exit.i.i.i.i
 
 if.then.i.i.i.i.i.i:                              ; preds = %if.then.i.i157
-  %cmp3.i.i.i.i.i.i = icmp ult i64 %109, 16
+  %cmp3.i.i.i.i.i.i = icmp samesign ult i64 %109, 16
   call void @llvm.assume(i1 %cmp3.i.i.i.i.i.i)
   br label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE8capacityEv.exit.i.i.i.i
 
@@ -3202,7 +3202,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE15_M_check_lengthEmmPKc.ex
 _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE8capacityEv.exit.i: ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE15_M_check_lengthEmmPKc.exit.i
   %cmp3.i.i.i150 = icmp ult i64 %24, 16
   call void @llvm.assume(i1 %cmp3.i.i.i150)
-  %cmp.not.i = icmp ugt i64 %call.i.i.i, 15
+  %cmp.not.i = icmp samesign ugt i64 %call.i.i.i, 15
   br i1 %cmp.not.i, label %land.lhs.true.i.i, label %if.then.i147
 
 _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE8capacityEv.exit.i.thread: ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE15_M_check_lengthEmmPKc.exit.i

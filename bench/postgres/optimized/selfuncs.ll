@@ -1855,7 +1855,7 @@ define internal fastcc zeroext i1 @convert_to_scalar(i64 noundef %0, i32 noundef
   %.266.lcssa.i = phi i32 [ %.064.lcssa.i, %.preheader.i ], [ %spec.select87.i, %.lr.ph119.i ]
   %.2.lcssa.i = phi i32 [ %.062.lcssa.i, %.preheader.i ], [ %.3.i, %.lr.ph119.i ]
   %36 = icmp slt i32 %.266.lcssa.i, 91
-  %37 = icmp ugt i32 %.2.lcssa.i, 64
+  %37 = icmp samesign ugt i32 %.2.lcssa.i, 64
   %or.cond.i = select i1 %36, i1 %37, i1 false
   br i1 %or.cond.i, label %38, label %40
 
@@ -1868,7 +1868,7 @@ define internal fastcc zeroext i1 @convert_to_scalar(i64 noundef %0, i32 noundef
   %.468.i = phi i32 [ %spec.store.select.i, %38 ], [ %.266.lcssa.i, %._crit_edge.i ]
   %.4.i = phi i32 [ %39, %38 ], [ %.2.lcssa.i, %._crit_edge.i ]
   %41 = icmp slt i32 %.468.i, 123
-  %42 = icmp ugt i32 %.4.i, 96
+  %42 = icmp samesign ugt i32 %.4.i, 96
   %or.cond3.i = select i1 %41, i1 %42, i1 false
   br i1 %or.cond3.i, label %43, label %45
 
@@ -1881,7 +1881,7 @@ define internal fastcc zeroext i1 @convert_to_scalar(i64 noundef %0, i32 noundef
   %.569.i = phi i32 [ %spec.store.select4.i, %43 ], [ %.468.i, %40 ]
   %.5.i = phi i32 [ %44, %43 ], [ %.4.i, %40 ]
   %46 = icmp slt i32 %.569.i, 58
-  %47 = icmp ugt i32 %.5.i, 47
+  %47 = icmp samesign ugt i32 %.5.i, 47
   %or.cond6.i = select i1 %46, i1 %47, i1 false
   br i1 %or.cond6.i, label %48, label %50
 
@@ -1957,7 +1957,7 @@ define internal fastcc zeroext i1 @convert_to_scalar(i64 noundef %0, i32 noundef
   %80 = fdiv double %79, %.02233.i.i
   %81 = fadd double %.02332.i.i, %80
   %82 = fmul double %.02233.i.i, %68
-  %83 = icmp ugt i32 %.02431.i.i, 1
+  %83 = icmp samesign ugt i32 %.02431.i.i, 1
   br i1 %83, label %71, label %convert_one_string_to_scalar.exit.i, !llvm.loop !16
 
 convert_one_string_to_scalar.exit.i:              ; preds = %71, %._crit_edge128.i
@@ -1994,7 +1994,7 @@ convert_one_string_to_scalar.exit.i:              ; preds = %71, %._crit_edge128
   %101 = fdiv double %100, %.02233.i91.i
   %102 = fadd double %.02332.i92.i, %101
   %103 = fmul double %.02233.i91.i, %90
-  %104 = icmp ugt i32 %.02431.i93.i, 1
+  %104 = icmp samesign ugt i32 %.02431.i93.i, 1
   br i1 %104, label %92, label %convert_one_string_to_scalar.exit98.i, !llvm.loop !16
 
 convert_one_string_to_scalar.exit98.i:            ; preds = %92, %convert_one_string_to_scalar.exit.i
@@ -2031,7 +2031,7 @@ convert_one_string_to_scalar.exit98.i:            ; preds = %92, %convert_one_st
   %122 = fdiv double %121, %.02233.i100.i
   %123 = fadd double %.02332.i101.i, %122
   %124 = fmul double %.02233.i100.i, %111
-  %125 = icmp ugt i32 %.02431.i102.i, 1
+  %125 = icmp samesign ugt i32 %.02431.i102.i, 1
   br i1 %125, label %113, label %convert_string_to_scalar.exit, !llvm.loop !16
 
 convert_string_to_scalar.exit:                    ; preds = %113, %convert_one_string_to_scalar.exit98.i
@@ -10569,7 +10569,7 @@ define internal fastcc void @convert_bytea_to_scalar(i64 noundef %0, ptr nocaptu
   %121 = fdiv double %120, %.02132.i
   %122 = fadd double %.02231.i, %121
   %123 = fmul double %.02132.i, 2.560000e+02
-  %124 = icmp ugt i32 %.02429.i, 1
+  %124 = icmp samesign ugt i32 %.02429.i, 1
   br i1 %124, label %116, label %convert_one_bytea_to_scalar.exit, !llvm.loop !48
 
 convert_one_bytea_to_scalar.exit:                 ; preds = %116, %._crit_edge
@@ -10594,7 +10594,7 @@ convert_one_bytea_to_scalar.exit:                 ; preds = %116, %._crit_edge
   %133 = fdiv double %132, %.02132.i99
   %134 = fadd double %.02231.i100, %133
   %135 = fmul double %.02132.i99, 2.560000e+02
-  %136 = icmp ugt i32 %.02429.i102, 1
+  %136 = icmp samesign ugt i32 %.02429.i102, 1
   br i1 %136, label %128, label %convert_one_bytea_to_scalar.exit104, !llvm.loop !48
 
 convert_one_bytea_to_scalar.exit104:              ; preds = %128, %convert_one_bytea_to_scalar.exit
@@ -10619,7 +10619,7 @@ convert_one_bytea_to_scalar.exit104:              ; preds = %128, %convert_one_b
   %145 = fdiv double %144, %.02132.i105
   %146 = fadd double %.02231.i106, %145
   %147 = fmul double %.02132.i105, 2.560000e+02
-  %148 = icmp ugt i32 %.02429.i108, 1
+  %148 = icmp samesign ugt i32 %.02429.i108, 1
   br i1 %148, label %140, label %convert_one_bytea_to_scalar.exit110, !llvm.loop !48
 
 convert_one_bytea_to_scalar.exit110:              ; preds = %140, %convert_one_bytea_to_scalar.exit104

@@ -7169,7 +7169,7 @@ terminate.lpad.i.i177:                            ; preds = %if.then.i.i.i175
   unreachable
 
 if.else88:                                        ; preds = %if.else56
-  %cmp.i178 = icmp ugt i32 %29, 9
+  %cmp.i178 = icmp samesign ugt i32 %29, 9
   br i1 %cmp.i178, label %if.then91, label %if.else107
 
 if.then91:                                        ; preds = %if.else88
@@ -12632,7 +12632,7 @@ while.body.i:                                     ; preds = %while.body.i, %whil
   %15 = load i32, ptr %arrayidx2.i, align 4
   store i32 %15, ptr %arrayidx.i4, align 4
   store i32 %14, ptr %arrayidx2.i, align 4
-  %cmp.i5 = icmp ugt i64 %indvars.iv.i, 2
+  %cmp.i5 = icmp samesign ugt i64 %indvars.iv.i, 2
   br i1 %cmp.i5, label %while.body.i, label %invoke.cont9, !llvm.loop !66
 
 invoke.cont9:                                     ; preds = %while.body.i

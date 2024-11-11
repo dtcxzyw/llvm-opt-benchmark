@@ -3586,7 +3586,7 @@ codegen_append_constraints.exit194:               ; preds = %134
   br label %codegen_append_constraints.exit203
 
 .lr.ph.i207:                                      ; preds = %138
-  %exitcond.i210 = icmp ugt i32 %117, 1022
+  %exitcond.i210 = icmp samesign ugt i32 %117, 1022
   br i1 %exitcond.i210, label %158, label %codegen_append_constraints.exit215
 
 158:                                              ; preds = %.lr.ph.i207
@@ -3607,7 +3607,7 @@ codegen_append_constraints.exit215:               ; preds = %.lr.ph.i207
   %164 = zext i32 %162 to i64
   %165 = getelementptr inbounds %struct.Expr_, ptr %163, i64 %164
   call void @llvm_emit_expr(ptr noundef %0, ptr noundef nonnull %10, ptr noundef %165) #9
-  %exitcond.i222 = icmp ugt i32 %117, 1022
+  %exitcond.i222 = icmp samesign ugt i32 %117, 1022
   br i1 %exitcond.i222, label %166, label %codegen_append_constraints.exit227
 
 166:                                              ; preds = %.lr.ph.i219

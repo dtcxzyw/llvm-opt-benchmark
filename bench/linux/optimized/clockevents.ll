@@ -439,7 +439,7 @@ define internal fastcc noundef range(i32 -62, 1) i32 @clockevents_program_min_de
   br i1 %35, label %.thread, label %45
 
 .thread:                                          ; preds = %33
-  %36 = icmp ult i64 %34, 5000
+  %36 = icmp samesign ult i64 %34, 5000
   %37 = lshr i64 %34, 1
   %38 = add nuw nsw i64 %37, %34
   %39 = tail call i64 @llvm.umin.i64(i64 %38, i64 1000000)

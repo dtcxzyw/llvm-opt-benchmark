@@ -1335,7 +1335,7 @@ define hidden noundef zeroext i1 @_ZN2cv10ThreadPool12reconfigure_Ej(ptr noundef
   br i1 %16, label %20, label %.preheader
 
 .preheader:                                       ; preds = %15
-  %17 = icmp ult i64 %13, %5
+  %17 = icmp samesign ult i64 %13, %5
   br i1 %17, label %.lr.ph, label %_ZNSt6vectorIN2cv3PtrINS0_12WorkerThreadEEESaIS3_EED2Ev.exit
 
 .lr.ph:                                           ; preds = %.preheader

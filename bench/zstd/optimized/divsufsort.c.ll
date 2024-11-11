@@ -545,7 +545,7 @@ cond.false.i.i:                                   ; preds = %cond.true.i.i
   br label %cond.end27.i.i
 
 cond.false10.i.i:                                 ; preds = %if.end.i.i
-  %tobool12.not.i.i = icmp ult i32 %conv9.i, 256
+  %tobool12.not.i.i = icmp samesign ult i32 %conv9.i, 256
   br i1 %tobool12.not.i.i, label %cond.false19.i.i, label %cond.true13.i.i
 
 cond.true13.i.i:                                  ; preds = %cond.false10.i.i
@@ -577,7 +577,7 @@ if.then30.i.i:                                    ; preds = %cond.end27.i.i
   %shr36.i.i = lshr i32 %cond28.i.i, 1
   %sub37.i.i = add nsw i32 %shr36.i.i, -7
   %shl.i.i = shl i32 %38, %sub37.i.i
-  %cmp38.i.i = icmp ugt i32 %cond28.i.i, 23
+  %cmp38.i.i = icmp samesign ugt i32 %cond28.i.i, 23
   br i1 %cmp38.i.i, label %if.then39.i.i, label %if.end43.i.i
 
 if.then39.i.i:                                    ; preds = %if.then30.i.i
@@ -894,11 +894,11 @@ for.body.i.i.i.i:                                 ; preds = %for.body.i.i.i, %fo
   %dec.i.i.i.i = add nsw i32 %n.addr.08.i.i.i.i, -1
   %incdec.ptr.i.i.i.i = getelementptr inbounds i8, ptr %a.addr.09.i.i.i.i, i64 4
   %incdec.ptr1.i.i.i.i = getelementptr inbounds i8, ptr %b.addr.07.i.i.i.i, i64 4
-  %cmp.i.i.i.i = icmp ugt i32 %n.addr.08.i.i.i.i, 1
+  %cmp.i.i.i.i = icmp samesign ugt i32 %n.addr.08.i.i.i.i, 1
   br i1 %cmp.i.i.i.i, label %for.body.i.i.i.i, label %ss_rotate.exit.i.i, !llvm.loop !19
 
 if.end.i.i.i:                                     ; preds = %for.body.i.i.i
-  %cmp11.i.i.i = icmp ult i32 %l.050.i.i.i, %r.051.i.i.i
+  %cmp11.i.i.i = icmp samesign ult i32 %l.050.i.i.i, %r.051.i.i.i
   br i1 %cmp11.i.i.i, label %if.then13.i.i.i, label %if.else.i.i.i
 
 if.then13.i.i.i:                                  ; preds = %if.end.i.i.i
@@ -1318,7 +1318,7 @@ cond.false.i.i.i:                                 ; preds = %cond.true.i.i.i241
   br label %for.cond.outer.i.i.preheader
 
 cond.false10.i.i.i:                               ; preds = %if.then12.i240
-  %tobool12.not.i.i.i = icmp ult i32 %conv5.i.i, 256
+  %tobool12.not.i.i.i = icmp samesign ult i32 %conv5.i.i, 256
   br i1 %tobool12.not.i.i.i, label %cond.false19.i.i.i, label %cond.true13.i.i.i
 
 cond.true13.i.i.i:                                ; preds = %cond.false10.i.i.i
@@ -1685,7 +1685,7 @@ do.body104.i121.i:                                ; preds = %do.body104.i121.i, 
   %dec.i125.i = add nsw i32 %s.1173.i122.i, -1
   %incdec.ptr106.i126.i = getelementptr inbounds i8, ptr %e.0171.i124.i, i64 4
   %incdec.ptr107.i127.i = getelementptr inbounds i8, ptr %f.0172.i123.i, i64 4
-  %cmp101.i128.i = icmp ugt i32 %s.1173.i122.i, 1
+  %cmp101.i128.i = icmp samesign ugt i32 %s.1173.i122.i, 1
   br i1 %cmp101.i128.i, label %do.body104.i121.i, label %for.end108.i87.i, !llvm.loop !37
 
 for.end108.i87.i:                                 ; preds = %do.body104.i121.i, %if.then88.i74.i
@@ -1719,7 +1719,7 @@ do.body130.i109.i:                                ; preds = %do.body130.i109.i, 
   %dec133.i113.i = add nsw i32 %s.3177.i110.i, -1
   %incdec.ptr134.i114.i = getelementptr inbounds i8, ptr %e.1175.i112.i, i64 4
   %incdec.ptr135.i115.i = getelementptr inbounds i8, ptr %f.1176.i111.i, i64 4
-  %cmp127.i116.i = icmp ugt i32 %s.3177.i110.i, 1
+  %cmp127.i116.i = icmp samesign ugt i32 %s.3177.i110.i, 1
   br i1 %cmp127.i116.i, label %do.body130.i109.i, label %for.end136.i99.i, !llvm.loop !38
 
 for.end136.i99.i:                                 ; preds = %do.body130.i109.i, %for.end108.i87.i
@@ -1858,7 +1858,7 @@ cond.false.i462.i.i:                              ; preds = %cond.true.i454.i.i
   br label %tr_ilg.exit477.i.i
 
 cond.false10.i467.i.i:                            ; preds = %do.body107.i.i
-  %tobool12.not.i468.i.i = icmp ult i32 %conv121.i.i, 256
+  %tobool12.not.i468.i.i = icmp samesign ult i32 %conv121.i.i, 256
   br i1 %tobool12.not.i468.i.i, label %cond.false19.i474.i.i, label %cond.true13.i469.i.i
 
 cond.true13.i469.i.i:                             ; preds = %cond.false10.i467.i.i
@@ -1908,7 +1908,7 @@ cond.false.i487.i.i:                              ; preds = %cond.true.i479.i.i
   br label %for.cond.outer.i.i.backedge
 
 cond.false10.i492.i.i:                            ; preds = %tr_ilg.exit477.i.i
-  %tobool12.not.i493.i.i = icmp ult i32 %conv135.i.i, 256
+  %tobool12.not.i493.i.i = icmp samesign ult i32 %conv135.i.i, 256
   br i1 %tobool12.not.i493.i.i, label %cond.false19.i499.i.i, label %cond.true13.i494.i.i
 
 cond.true13.i494.i.i:                             ; preds = %cond.false10.i492.i.i
@@ -1955,7 +1955,7 @@ cond.false.i512.i.i:                              ; preds = %cond.true.i504.i.i
   br label %for.cond.outer.i.i.backedge
 
 cond.false10.i517.i.i:                            ; preds = %if.then143.i.i
-  %tobool12.not.i518.i.i = icmp ult i32 %conv148.i.i, 256
+  %tobool12.not.i518.i.i = icmp samesign ult i32 %conv148.i.i, 256
   br i1 %tobool12.not.i518.i.i, label %cond.false19.i524.i.i, label %cond.true13.i519.i.i
 
 cond.true13.i519.i.i:                             ; preds = %cond.false10.i517.i.i
@@ -2029,7 +2029,7 @@ cond.false.i537.i.i:                              ; preds = %cond.true.i529.i.i
   br label %tr_ilg.exit552.i.i
 
 cond.false10.i542.i.i:                            ; preds = %do.body182.i.i
-  %tobool12.not.i543.i.i = icmp ult i32 %conv196.i.i, 256
+  %tobool12.not.i543.i.i = icmp samesign ult i32 %conv196.i.i, 256
   br i1 %tobool12.not.i543.i.i, label %cond.false19.i549.i.i, label %cond.true13.i544.i.i
 
 cond.true13.i544.i.i:                             ; preds = %cond.false10.i542.i.i
@@ -2079,7 +2079,7 @@ cond.false.i562.i.i:                              ; preds = %cond.true.i554.i.i
   br label %for.cond.outer.i.i.backedge
 
 cond.false10.i567.i.i:                            ; preds = %tr_ilg.exit552.i.i
-  %tobool12.not.i568.i.i = icmp ult i32 %conv210.i.i, 256
+  %tobool12.not.i568.i.i = icmp samesign ult i32 %conv210.i.i, 256
   br i1 %tobool12.not.i568.i.i, label %cond.false19.i574.i.i, label %cond.true13.i569.i.i
 
 cond.true13.i569.i.i:                             ; preds = %cond.false10.i567.i.i
@@ -2126,7 +2126,7 @@ cond.false.i587.i.i:                              ; preds = %cond.true.i579.i.i
   br label %for.cond.outer.i.i.backedge
 
 cond.false10.i592.i.i:                            ; preds = %if.then219.i.i
-  %tobool12.not.i593.i.i = icmp ult i32 %conv224.i.i, 256
+  %tobool12.not.i593.i.i = icmp samesign ult i32 %conv224.i.i, 256
   br i1 %tobool12.not.i593.i.i, label %cond.false19.i599.i.i, label %cond.true13.i594.i.i
 
 cond.true13.i594.i.i:                             ; preds = %cond.false10.i592.i.i
@@ -2501,7 +2501,7 @@ cond.false.i638.i.i:                              ; preds = %cond.true.i630.i.i
   br label %cond.end.i.i
 
 cond.false10.i643.i.i:                            ; preds = %cond.true.i35.i
-  %tobool12.not.i644.i.i = icmp ult i32 %conv348.i.i, 256
+  %tobool12.not.i644.i.i = icmp samesign ult i32 %conv348.i.i, 256
   br i1 %tobool12.not.i644.i.i, label %cond.false19.i650.i.i, label %cond.true13.i645.i.i
 
 cond.true13.i645.i.i:                             ; preds = %cond.false10.i643.i.i
@@ -2828,7 +2828,7 @@ for.body38.preheader.i.i.i:                       ; preds = %if.end34.i.i.i
   %arrayidx41.i.i292.i = getelementptr inbounds i32, ptr %first.addr.0.ph.i.i, i64 %indvars.iv.next118.i.i291.i
   %246 = load i32, ptr %arrayidx41.i.i292.i, align 4
   store i32 %246, ptr %first.addr.0.ph.i.i, align 4
-  %cmp20.i80.i.i295.i = icmp ugt i64 %indvars.iv.next118.i.i291.i, 1
+  %cmp20.i80.i.i295.i = icmp samesign ugt i64 %indvars.iv.next118.i.i291.i, 1
   br i1 %cmp20.i80.i.i295.i, label %for.body.i84.i.i.preheader.i, label %tr_fixdown.exit109.thread.i.i.i
 
 for.body.i84.i.i.preheader.i:                     ; preds = %for.body38.preheader.i.i.i, %tr_fixdown.exit109.i.i.i
@@ -2897,7 +2897,7 @@ tr_fixdown.exit109.i.i.i:                         ; preds = %for.inc.i99.i.i.i, 
   %arrayidx41.i.i.i = getelementptr inbounds i32, ptr %first.addr.0.ph.i.i, i64 %indvars.iv.next118.i.i.i
   %257 = load i32, ptr %arrayidx41.i.i.i, align 4
   store i32 %257, ptr %first.addr.0.ph.i.i, align 4
-  %cmp20.i80.i.i.i = icmp ugt i64 %indvars.iv.next118.i.i.i, 1
+  %cmp20.i80.i.i.i = icmp samesign ugt i64 %indvars.iv.next118.i.i.i, 1
   br i1 %cmp20.i80.i.i.i, label %for.body.i84.i.i.preheader.i, label %tr_fixdown.exit109.thread.i.i.i
 
 tr_heapsort.exit.i.i:                             ; preds = %tr_fixdown.exit109.thread.i.i.i, %if.end34.i.i.i
@@ -3439,7 +3439,7 @@ do.body104.i.i:                                   ; preds = %do.body104.i.i, %do
   %dec.i44.i = add nsw i32 %s.1173.i.i, -1
   %incdec.ptr106.i.i = getelementptr inbounds i8, ptr %e.0171.i.i, i64 4
   %incdec.ptr107.i.i = getelementptr inbounds i8, ptr %f.0172.i.i, i64 4
-  %cmp101.i.i = icmp ugt i32 %s.1173.i.i, 1
+  %cmp101.i.i = icmp samesign ugt i32 %s.1173.i.i, 1
   br i1 %cmp101.i.i, label %do.body104.i.i, label %for.end108.i.i, !llvm.loop !37
 
 for.end108.i.i:                                   ; preds = %do.body104.i.i, %if.then88.i.i
@@ -3473,7 +3473,7 @@ do.body130.i.i:                                   ; preds = %do.body130.i.i, %do
   %dec133.i.i = add nsw i32 %s.3177.i.i, -1
   %incdec.ptr134.i.i = getelementptr inbounds i8, ptr %e.1175.i.i, i64 4
   %incdec.ptr135.i.i = getelementptr inbounds i8, ptr %f.1176.i.i, i64 4
-  %cmp127.i.i = icmp ugt i32 %s.3177.i.i, 1
+  %cmp127.i.i = icmp samesign ugt i32 %s.3177.i.i, 1
   br i1 %cmp127.i.i, label %do.body130.i.i, label %tr_partition.exit.i, !llvm.loop !38
 
 tr_partition.exit.i:                              ; preds = %do.body130.i.i, %for.end108.i.i
@@ -3521,7 +3521,7 @@ cond.false.i710.i.i:                              ; preds = %cond.true.i702.i.i
   br label %cond.end584.i.i
 
 cond.false10.i715.i.i:                            ; preds = %cond.true576.i.i
-  %tobool12.not.i716.i.i = icmp ult i32 %conv581.i.i, 256
+  %tobool12.not.i716.i.i = icmp samesign ult i32 %conv581.i.i, 256
   br i1 %tobool12.not.i716.i.i, label %cond.false19.i722.i.i, label %cond.true13.i717.i.i
 
 cond.true13.i717.i.i:                             ; preds = %cond.false10.i715.i.i
@@ -3992,7 +3992,7 @@ cond.false.i767.i.i:                              ; preds = %cond.true.i759.i.i
   br label %tr_ilg.exit782.i.i
 
 cond.false10.i772.i.i:                            ; preds = %if.then1238.i.i
-  %tobool12.not.i773.i.i = icmp ult i32 %conv528.i.i, 256
+  %tobool12.not.i773.i.i = icmp samesign ult i32 %conv528.i.i, 256
   br i1 %tobool12.not.i773.i.i, label %cond.false19.i779.i.i, label %cond.true13.i774.i.i
 
 cond.true13.i774.i.i:                             ; preds = %cond.false10.i772.i.i
@@ -4279,7 +4279,7 @@ entry:
   br i1 %or.cond1, label %return, label %if.else
 
 if.else:                                          ; preds = %entry
-  %cmp4 = icmp ult i32 %n, 2
+  %cmp4 = icmp samesign ult i32 %n, 2
   br i1 %cmp4, label %if.then5, label %if.end10
 
 if.then5:                                         ; preds = %if.else
@@ -5312,7 +5312,7 @@ for.body47.preheader.i:                           ; preds = %if.end42.i
   %arrayidx50.i30 = getelementptr inbounds i32, ptr %first.addr.0, i64 %indvars.iv.next134.i29
   %55 = load i32, ptr %arrayidx50.i30, align 4
   store i32 %55, ptr %first.addr.0, align 4
-  %cmp21.i92.i35 = icmp ugt i64 %indvars.iv.next134.i29, 1
+  %cmp21.i92.i35 = icmp samesign ugt i64 %indvars.iv.next134.i29, 1
   br i1 %cmp21.i92.i35, label %for.body.i96.i.preheader, label %ss_fixdown.exit125.thread.i
 
 for.body.i96.i.preheader:                         ; preds = %for.body47.preheader.i, %ss_fixdown.exit125.i
@@ -5390,7 +5390,7 @@ ss_fixdown.exit125.i:                             ; preds = %for.inc.i115.i, %fo
   %arrayidx50.i = getelementptr inbounds i32, ptr %first.addr.0, i64 %indvars.iv.next134.i
   %68 = load i32, ptr %arrayidx50.i, align 4
   store i32 %68, ptr %first.addr.0, align 4
-  %cmp21.i92.i = icmp ugt i64 %indvars.iv.next134.i, 1
+  %cmp21.i92.i = icmp samesign ugt i64 %indvars.iv.next134.i, 1
   br i1 %cmp21.i92.i, label %for.body.i96.i.preheader, label %ss_fixdown.exit125.thread.i
 
 if.end37:                                         ; preds = %ss_fixdown.exit125.thread.i, %if.end42.i, %if.end27
@@ -6271,7 +6271,7 @@ do.body325:                                       ; preds = %do.body325.preheade
   %dec328 = add nsw i32 %s.1684, -1
   %incdec.ptr329 = getelementptr inbounds i8, ptr %e.0682, i64 4
   %incdec.ptr330 = getelementptr inbounds i8, ptr %f.0683, i64 4
-  %cmp322 = icmp ugt i32 %s.1684, 1
+  %cmp322 = icmp samesign ugt i32 %s.1684, 1
   br i1 %cmp322, label %do.body325, label %for.end331, !llvm.loop !85
 
 for.end331:                                       ; preds = %do.body325, %if.then303
@@ -6305,7 +6305,7 @@ do.body354:                                       ; preds = %do.body354.preheade
   %dec357 = add nsw i32 %s.3688, -1
   %incdec.ptr358 = getelementptr inbounds i8, ptr %e.1686, i64 4
   %incdec.ptr359 = getelementptr inbounds i8, ptr %f.1687, i64 4
-  %cmp351 = icmp ugt i32 %s.3688, 1
+  %cmp351 = icmp samesign ugt i32 %s.3688, 1
   br i1 %cmp351, label %do.body354, label %for.end360, !llvm.loop !86
 
 for.end360:                                       ; preds = %do.body354, %for.end331
@@ -6816,7 +6816,7 @@ for.body.i.i:                                     ; preds = %if.then6, %for.body
   %dec.i.i = add nsw i32 %n.addr.08.i.i, -1
   %incdec.ptr.i.i = getelementptr inbounds i8, ptr %a.addr.09.i.i, i64 4
   %incdec.ptr1.i.i = getelementptr inbounds i8, ptr %b.addr.07.i.i, i64 4
-  %cmp.i.i = icmp ugt i32 %n.addr.08.i.i, 1
+  %cmp.i.i = icmp samesign ugt i32 %n.addr.08.i.i, 1
   br i1 %cmp.i.i, label %for.body.i.i, label %ss_blockswap.exit.i, !llvm.loop !19
 
 ss_blockswap.exit.i:                              ; preds = %for.body.i.i, %if.then6
@@ -7405,7 +7405,7 @@ for.body.i.i337:                                  ; preds = %if.then68, %for.bod
   %dec.i.i341 = add nsw i32 %n.addr.08.i.i339, -1
   %incdec.ptr.i.i342 = getelementptr inbounds i8, ptr %a.addr.09.i.i338, i64 4
   %incdec.ptr1.i.i343 = getelementptr inbounds i8, ptr %b.addr.07.i.i340, i64 4
-  %cmp.i.i344 = icmp ugt i32 %n.addr.08.i.i339, 1
+  %cmp.i.i344 = icmp samesign ugt i32 %n.addr.08.i.i339, 1
   br i1 %cmp.i.i344, label %for.body.i.i337, label %ss_blockswap.exit.i284, !llvm.loop !19
 
 ss_blockswap.exit.i284:                           ; preds = %for.body.i.i337, %if.then68
@@ -7965,7 +7965,7 @@ for.body.i:                                       ; preds = %if.then227, %for.bo
   %dec.i = add nsw i32 %n.addr.08.i, -1
   %incdec.ptr.i466 = getelementptr inbounds i8, ptr %a.addr.09.i, i64 4
   %incdec.ptr1.i = getelementptr inbounds i8, ptr %b.addr.07.i, i64 4
-  %cmp.i467 = icmp ugt i32 %n.addr.08.i, 1
+  %cmp.i467 = icmp samesign ugt i32 %n.addr.08.i, 1
   br i1 %cmp.i467, label %for.body.i, label %ss_blockswap.exit, !llvm.loop !19
 
 ss_blockswap.exit:                                ; preds = %for.body.i

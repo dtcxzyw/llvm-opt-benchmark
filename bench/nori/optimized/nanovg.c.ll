@@ -16005,7 +16005,7 @@ stbi__zreceive.exit.i:                            ; preds = %stbi__zget8.exit.i.
   store i32 %77, ptr %37, align 4
   %78 = add nsw i32 %74, -1
   store i32 %78, ptr %36, align 8
-  %79 = icmp ult i32 %78, 2
+  %79 = icmp samesign ult i32 %78, 2
   br i1 %79, label %80, label %stbi__zreceive.exit31.i
 
 80:                                               ; preds = %stbi__zreceive.exit.i
@@ -16229,7 +16229,7 @@ default.unreachable:                              ; preds = %stbi__zreceive.exit
   call void @llvm.lifetime.start.p0(i64 2020, ptr nonnull %6)
   call void @llvm.lifetime.start.p0(i64 455, ptr nonnull %7)
   call void @llvm.lifetime.start.p0(i64 19, ptr nonnull %8)
-  %178 = icmp ult i32 %99, 5
+  %178 = icmp samesign ult i32 %99, 5
   br i1 %178, label %179, label %stbi__zreceive.exit.i40.i
 
 179:                                              ; preds = %177
@@ -16271,7 +16271,7 @@ stbi__zreceive.exit.i40.i:                        ; preds = %stbi__zget8.exit.i.
   %198 = add nsw i32 %194, -5
   store i32 %198, ptr %36, align 8
   %199 = add nuw nsw i32 %196, 257
-  %200 = icmp ult i32 %198, 5
+  %200 = icmp samesign ult i32 %198, 5
   br i1 %200, label %201, label %stbi__zreceive.exit60.i.i
 
 201:                                              ; preds = %stbi__zreceive.exit.i40.i
@@ -16313,7 +16313,7 @@ stbi__zreceive.exit60.i.i:                        ; preds = %stbi__zget8.exit.i.
   %220 = add nsw i32 %216, -5
   store i32 %220, ptr %36, align 8
   %221 = add nuw nsw i32 %218, 1
-  %222 = icmp ult i32 %220, 4
+  %222 = icmp samesign ult i32 %220, 4
   br i1 %222, label %223, label %stbi__zreceive.exit69.i.i
 
 223:                                              ; preds = %stbi__zreceive.exit60.i.i
@@ -31315,7 +31315,7 @@ stbi__mul2sizes_valid.exit.thread15.i.i:          ; preds = %stbi__mul2sizes_val
 
 stbi__mul2sizes_valid.exit12.i.i:                 ; preds = %stbi__mul2sizes_valid.exit.thread15.i.i
   %1898 = udiv i32 2147483647, %1860
-  %.not.i.i108 = icmp ugt i32 %1896, %1898
+  %.not.i.i108 = icmp samesign ugt i32 %1896, %1898
   br i1 %.not.i.i108, label %1899, label %stbi__mad3sizes_valid.exit.i
 
 1899:                                             ; preds = %stbi__mul2sizes_valid.exit12.i.i, %stbi__mul2sizes_valid.exit.i.i, %1888
@@ -31335,7 +31335,7 @@ stbi__mul2sizes_valid.exit.thread15.i.i.i:        ; preds = %stbi__mul2sizes_val
 
 stbi__mul2sizes_valid.exit12.i.i.i:               ; preds = %stbi__mul2sizes_valid.exit.thread15.i.i.i
   %1901 = udiv i32 2147483647, %1860
-  %.not.i.i.i109 = icmp ugt i32 %1896, %1901
+  %.not.i.i.i109 = icmp samesign ugt i32 %1896, %1901
   br i1 %.not.i.i.i109, label %stbi__malloc_mad3.exit.thread.i, label %stbi__malloc_mad3.exit.i
 
 stbi__malloc_mad3.exit.i:                         ; preds = %stbi__mul2sizes_valid.exit12.i.i.i, %stbi__mul2sizes_valid.exit.thread15.i.i.i
@@ -32996,7 +32996,7 @@ stbi__skip.exit451.i:                             ; preds = %2724, %2720
   %2740 = getelementptr inbounds i8, ptr %1904, i64 %indvars.iv82.i
   store i8 -1, ptr %2740, align 1
   %indvars.iv.next83.i = add nsw i64 %indvars.iv82.i, -4
-  %2741 = icmp ugt i64 %indvars.iv82.i, 3
+  %2741 = icmp samesign ugt i64 %indvars.iv82.i, 3
   br i1 %2741, label %.lr.ph67.i, label %.loopexit15.i, !llvm.loop !191
 
 .loopexit15.i:                                    ; preds = %.lr.ph67.i, %2733, %.loopexit17.i
@@ -34306,8 +34306,8 @@ stbi__get16be.exit273:                            ; preds = %358, %361, %stbi__r
   br label %704
 
 386:                                              ; preds = %stbi__get16be.exit273
-  %.not23.i = icmp ugt i32 %145, 536870911
-  br i1 %.not23.i, label %391, label %stbi__mul2sizes_valid.exit.thread15.i
+  %or.cond.not = icmp ult i32 %145, 536870912
+  br i1 %or.cond.not, label %stbi__mul2sizes_valid.exit.thread15.i, label %391
 
 stbi__mul2sizes_valid.exit.thread15.i:            ; preds = %386
   %387 = shl nuw nsw i32 %145, 2
@@ -34463,7 +34463,7 @@ stbi__get8.exit.i280.us:                          ; preds = %444, %stbi__refill_
 
 453:                                              ; preds = %451
   %454 = sub nuw nsw i32 257, %449
-  %455 = icmp ugt i32 %454, %427
+  %455 = icmp samesign ugt i32 %454, %427
   br i1 %455, label %.split333.us, label %456
 
 456:                                              ; preds = %453
@@ -34525,7 +34525,7 @@ stbi__get8.exit49.i.us:                           ; preds = %471, %stbi__refill_
   br label %.loopexit.i.us
 
 478:                                              ; preds = %451
-  %.not36.i.us = icmp ugt i32 %427, %449
+  %.not36.i.us = icmp samesign ugt i32 %427, %449
   br i1 %.not36.i.us, label %.thread53.i.us, label %.split333.us
 
 .thread53.i.us:                                   ; preds = %478, %431
@@ -37492,7 +37492,7 @@ stbi__get8.exit.us.us:                            ; preds = %114, %stbi__refill_
   br i1 %120, label %145, label %stbi__get8.exit.thread.us.us
 
 stbi__get8.exit.thread.us.us:                     ; preds = %stbi__get8.exit.us.us
-  %121 = icmp ult i32 %97, %119
+  %121 = icmp samesign ult i32 %97, %119
   br i1 %121, label %.split55.us, label %.preheader14.us.us
 
 .lr.ph44.us.us:                                   ; preds = %.lr.ph44.us.us.preheader, %stbi__get8.exit162.us.us
@@ -37596,7 +37596,7 @@ stbi__get8.exit156.us.us:                         ; preds = %160, %stbi__refill_
   %.0.i155.us.us = phi i8 [ %162, %160 ], [ %159, %stbi__refill_buffer.exit.i153.us.us ], [ 0, %147 ]
   %163 = and i8 %.0.i150.us.us, 127
   %164 = zext nneg i8 %163 to i32
-  %165 = icmp ult i32 %97, %164
+  %165 = icmp samesign ult i32 %97, %164
   br i1 %165, label %.split57.us, label %.preheader.us.us
 
 .loopexit.us.us.loopexit:                         ; preds = %.lr.ph48.us.us
@@ -45612,7 +45612,7 @@ stbi__get8.exit297.thread:                        ; preds = %193, %stbi__get8.ex
 215:                                              ; preds = %214
   %216 = and i32 %144, 2
   %217 = or disjoint i32 %216, 1
-  %.not261 = icmp ugt i8 %.0.i278354356, 3
+  %.not261 = icmp samesign ugt i8 %.0.i278354356, 3
   %218 = zext i1 %.not261 to i32
   %219 = add nuw nsw i32 %217, %218
   store i32 %219, ptr %47, align 8
@@ -45664,7 +45664,7 @@ stbi__get8.exit297.thread:                        ; preds = %193, %stbi__get8.ex
   br i1 %.not246, label %.preheader, label %238
 
 .preheader:                                       ; preds = %235
-  %.not688 = icmp ult i32 %52, 3
+  %.not688 = icmp samesign ult i32 %52, 3
   br i1 %.not688, label %stbi__skip.exit, label %.lr.ph685.preheader
 
 .lr.ph685.preheader:                              ; preds = %.preheader
@@ -48975,7 +48975,7 @@ stbi__mad3sizes_valid.exit._crit_edge:            ; preds = %39, %stbi__mul2size
   store i8 %335, ptr %332, align 1
   %337 = add nsw i32 %.14839, -2
   %338 = getelementptr inbounds i8, ptr %.0515841, i64 1
-  %339 = icmp ugt i32 %.14839, 3
+  %339 = icmp samesign ugt i32 %.14839, 3
   br i1 %339, label %.lr.ph842, label %._crit_edge843, !llvm.loop !338
 
 ._crit_edge843:                                   ; preds = %.lr.ph842, %.preheader689
@@ -49020,7 +49020,7 @@ stbi__mad3sizes_valid.exit._crit_edge:            ; preds = %39, %stbi__mul2size
   store i8 %361, ptr %358, align 1
   %363 = add nsw i32 %.15831, -4
   %364 = getelementptr inbounds i8, ptr %.1516833, i64 1
-  %365 = icmp ugt i32 %.15831, 7
+  %365 = icmp samesign ugt i32 %.15831, 7
   br i1 %365, label %.lr.ph834, label %._crit_edge835, !llvm.loop !339
 
 ._crit_edge835:                                   ; preds = %.lr.ph834, %.preheader690
@@ -49109,7 +49109,7 @@ stbi__mad3sizes_valid.exit._crit_edge:            ; preds = %39, %stbi__mul2size
   store i8 %413, ptr %410, align 1
   %415 = add nsw i32 %.16823, -8
   %416 = getelementptr inbounds i8, ptr %.2825, i64 1
-  %417 = icmp ugt i32 %.16823, 15
+  %417 = icmp samesign ugt i32 %.16823, 15
   br i1 %417, label %.lr.ph826, label %._crit_edge827, !llvm.loop !340
 
 ._crit_edge827:                                   ; preds = %.lr.ph826, %.preheader691
@@ -49134,7 +49134,7 @@ stbi__mad3sizes_valid.exit._crit_edge:            ; preds = %39, %stbi__mul2size
   %.not582 = icmp eq i8 %425, 0
   %426 = select i1 %.not582, i8 0, i8 %328
   store i8 %426, ptr %423, align 1
-  %427 = icmp ugt i32 %.16.lcssa, 2
+  %427 = icmp samesign ugt i32 %.16.lcssa, 2
   br i1 %427, label %428, label %.thread661
 
 428:                                              ; preds = %422
@@ -49154,7 +49154,7 @@ stbi__mad3sizes_valid.exit._crit_edge:            ; preds = %39, %stbi__mul2size
   %.not584 = icmp eq i8 %436, 0
   %437 = select i1 %.not584, i8 0, i8 %328
   store i8 %437, ptr %434, align 1
-  %438 = icmp ugt i32 %.16.lcssa, 4
+  %438 = icmp samesign ugt i32 %.16.lcssa, 4
   br i1 %438, label %439, label %.thread661
 
 439:                                              ; preds = %433
@@ -50445,8 +50445,8 @@ define internal fastcc ptr @stbi__gif_load_next(ptr noundef nonnull %0, ptr noun
   %10 = load i32, ptr %1, align 8
   %11 = getelementptr inbounds i8, ptr %1, i64 4
   %12 = load i32, ptr %11, align 4
-  %.not23.i = icmp ugt i32 %10, 536870911
-  br i1 %.not23.i, label %stbi__process_gif_raster.exit.thread.sink.split, label %stbi__mul2sizes_valid.exit.thread15.i
+  %or.cond356.not = icmp ult i32 %10, 536870912
+  br i1 %or.cond356.not, label %stbi__mul2sizes_valid.exit.thread15.i, label %stbi__process_gif_raster.exit.thread.sink.split
 
 stbi__mul2sizes_valid.exit.thread15.i:            ; preds = %9
   %13 = shl nuw nsw i32 %10, 2

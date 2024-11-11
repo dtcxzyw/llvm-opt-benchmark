@@ -1983,7 +1983,7 @@ _ZNK4llvm13CodeGenTarget14getInstructionEPKNS_6RecordE.exit153.i: ; preds = %451
   br label %518
 
 _ZNK4llvm9StringRef9ends_withES0_.exit.thread448.i: ; preds = %_ZNKSt3mapIN4llvm9StringRefES1_St4lessIS1_ESaISt4pairIKS1_S1_EEE4findERS5_.exit.thread.i
-  %.not.i154.i = icmp ult i64 %.sroa.2.0.copyload.i.i94.i, 3
+  %.not.i154.i = icmp samesign ult i64 %.sroa.2.0.copyload.i.i94.i, 3
   br i1 %.not.i154.i, label %_ZNK4llvm9StringRef9ends_withES0_.exit156.thread450.i, label %_ZNK4llvm9StringRef9ends_withES0_.exit156.i
 
 _ZNK4llvm9StringRef9ends_withES0_.exit156.i:      ; preds = %_ZNK4llvm9StringRef9ends_withES0_.exit.thread448.i, %_ZNK4llvm9StringRef9ends_withES0_.exit.i

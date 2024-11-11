@@ -8005,7 +8005,7 @@ _ZNK7AstNode6isWideEv.exit:                       ; preds = %2
 _ZNK7AstNode10widthWordsEv.exit:                  ; preds = %_ZNK7AstNode6isWideEv.exit
   %12 = add nuw nsw i32 %9, 31
   %13 = lshr i32 %12, 5
-  %14 = icmp ult i32 %1, %13
+  %14 = icmp samesign ult i32 %1, %13
   br i1 %14, label %15, label %_ZNK7AstNode6isWideEv.exit100.thread
 
 15:                                               ; preds = %_ZNK7AstNode10widthWordsEv.exit

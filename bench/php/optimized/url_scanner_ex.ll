@@ -2836,7 +2836,7 @@ define internal fastcc range(i32 -1, 1) i32 @php_url_scanner_reset_var_impl(ptr 
 
 198:                                              ; preds = %196
   %199 = icmp samesign ult i64 %190, 1024
-  %200 = icmp ult i64 %188, 9
+  %200 = icmp samesign ult i64 %188, 9
   %201 = or i1 %200, %199
   br i1 %201, label %202, label %224
 
@@ -3031,7 +3031,7 @@ define internal fastcc range(i32 -1, 1) i32 @php_url_scanner_reset_var_impl(ptr 
 
 290:                                              ; preds = %288
   %291 = icmp samesign ult i64 %282, 1024
-  %292 = icmp ult i64 %280, 9
+  %292 = icmp samesign ult i64 %280, 9
   %293 = or i1 %292, %291
   br i1 %293, label %294, label %316
 
@@ -3965,7 +3965,7 @@ passthru.exit291.i.i:                             ; preds = %90, %85
   br i1 %122, label %123, label %125
 
 123:                                              ; preds = %121
-  %124 = icmp ugt i8 %114, 64
+  %124 = icmp samesign ugt i8 %114, 64
   br i1 %124, label %159, label %127
 
 125:                                              ; preds = %121
@@ -4342,7 +4342,7 @@ passthru.exit315.i.i:                             ; preds = %262, %257
   br i1 %.not266.i.i, label %277, label %.loopexit.i.i
 
 281:                                              ; preds = %.preheader.i.i, %.preheader.i.i
-  %282 = icmp ult i8 %.0.i.i, 35
+  %282 = icmp samesign ult i8 %.0.i.i, 35
   br i1 %282, label %283, label %252
 
 283:                                              ; preds = %281
@@ -4368,7 +4368,7 @@ passthru.exit315.i.i:                             ; preds = %262, %257
   br i1 %.not264.i.i, label %285, label %.loopexit.i.i
 
 289:                                              ; preds = %.preheader316.i.i, %.preheader316.i.i
-  %290 = icmp ugt i8 %.1.i.i, 39
+  %290 = icmp samesign ugt i8 %.1.i.i, 39
   br i1 %290, label %252, label %291
 
 291:                                              ; preds = %289

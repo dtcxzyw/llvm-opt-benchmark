@@ -667,7 +667,7 @@ _ZN2cvL24createEncodeHuffmanTableEPKiPji.exit:    ; preds = %._crit_edge78.i, %1
   br i1 %229, label %230, label %236
 
 230:                                              ; preds = %223
-  %231 = icmp ult i64 %228, 12
+  %231 = icmp samesign ult i64 %228, 12
   br i1 %231, label %232, label %234
 
 232:                                              ; preds = %230
@@ -932,7 +932,7 @@ define linkonce_odr hidden noundef ptr @_ZN2cv5mjpeg19mjpeg_buffer_keeper8get_da
   br i1 %38, label %39, label %43
 
 39:                                               ; preds = %32
-  %40 = icmp ult i64 %37, 12
+  %40 = icmp samesign ult i64 %37, 12
   br i1 %40, label %_ZNSt5dequeIN2cv5mjpeg12mjpeg_bufferESaIS2_EEixEm.exit, label %41
 
 41:                                               ; preds = %39
@@ -988,7 +988,7 @@ _ZN2cv5mjpeg12mjpeg_buffer6finishEv.exit:         ; preds = %56, %59
   br i1 %71, label %72, label %84
 
 72:                                               ; preds = %_ZN2cv5mjpeg12mjpeg_buffer6finishEv.exit
-  %73 = icmp ult i64 %70, 12
+  %73 = icmp samesign ult i64 %70, 12
   br i1 %73, label %74, label %82
 
 74:                                               ; preds = %72
@@ -1088,7 +1088,7 @@ _ZN2cv5mjpeg12mjpeg_buffer6finishEv.exit:         ; preds = %56, %59
   br i1 %143, label %144, label %150
 
 144:                                              ; preds = %137
-  %145 = icmp ult i64 %142, 12
+  %145 = icmp samesign ult i64 %142, 12
   br i1 %145, label %146, label %148
 
 146:                                              ; preds = %144
@@ -1978,7 +1978,7 @@ define linkonce_odr hidden void @_ZNK2cv5mjpeg12MjpegEncoderclERKNS_5RangeE(ptr 
   br i1 %150, label %151, label %157
 
 151:                                              ; preds = %137
-  %152 = icmp ult i64 %149, 12
+  %152 = icmp samesign ult i64 %149, 12
   br i1 %152, label %153, label %155
 
 153:                                              ; preds = %151
@@ -2145,7 +2145,7 @@ _ZN2cv5mjpeg19mjpeg_buffer_keeperixEi.exit:       ; preds = %153, %161
   br i1 %262, label %268, label %263
 
 263:                                              ; preds = %259
-  %264 = icmp ugt i64 %253, %261
+  %264 = icmp samesign ugt i64 %253, %261
   br i1 %264, label %265, label %_ZN2cv5mjpeg12mjpeg_buffer6resizeEi.exit.i176.us
 
 265:                                              ; preds = %263
@@ -2321,7 +2321,7 @@ _ZN2cv5mjpeg12mjpeg_buffer8put_bitsEji.exit181.us: ; preds = %314, %304
   br i1 %350, label %356, label %351
 
 351:                                              ; preds = %347
-  %352 = icmp ugt i64 %341, %349
+  %352 = icmp samesign ugt i64 %341, %349
   br i1 %352, label %353, label %_ZN2cv5mjpeg12mjpeg_buffer6resizeEi.exit.i.us
 
 353:                                              ; preds = %351
@@ -2506,7 +2506,7 @@ _ZN2cv5mjpeg12mjpeg_buffer8put_bitsEji.exit.us:   ; preds = %401, %391
   br i1 %442, label %448, label %443
 
 443:                                              ; preds = %439
-  %444 = icmp ugt i64 %433, %441
+  %444 = icmp samesign ugt i64 %433, %441
   br i1 %444, label %445, label %_ZN2cv5mjpeg12mjpeg_buffer6resizeEi.exit.i219.us
 
 445:                                              ; preds = %443
@@ -2714,7 +2714,7 @@ _ZN2cv5mjpeg12mjpeg_buffer8put_bitsEji.exit224.us: ; preds = %494, %484
   br i1 %549, label %555, label %550
 
 550:                                              ; preds = %546
-  %551 = icmp ugt i64 %540, %548
+  %551 = icmp samesign ugt i64 %540, %548
   br i1 %551, label %552, label %_ZN2cv5mjpeg12mjpeg_buffer6resizeEi.exit.i196.us
 
 552:                                              ; preds = %550
@@ -2891,7 +2891,7 @@ _ZN2cv5mjpeg12mjpeg_buffer8put_bitsEji.exit201.us: ; preds = %601, %591
   br i1 %638, label %644, label %639
 
 639:                                              ; preds = %635
-  %640 = icmp ugt i64 %629, %637
+  %640 = icmp samesign ugt i64 %629, %637
   br i1 %640, label %641, label %_ZN2cv5mjpeg12mjpeg_buffer6resizeEi.exit.i166.us
 
 641:                                              ; preds = %639
@@ -3067,7 +3067,7 @@ _ZN2cv5mjpeg12mjpeg_buffer6resizeEi.exit.i166.us: ; preds = %_ZNSt6vectorIjSaIjE
   br i1 %728, label %734, label %729
 
 729:                                              ; preds = %725
-  %730 = icmp ugt i64 %719, %727
+  %730 = icmp samesign ugt i64 %719, %727
   br i1 %730, label %731, label %_ZN2cv5mjpeg12mjpeg_buffer6resizeEi.exit.i186.us
 
 731:                                              ; preds = %729
@@ -4469,7 +4469,7 @@ define linkonce_odr hidden void @_ZN2cv5mjpeg19mjpeg_buffer_keeper22allocate_out
   br i1 %41, label %42, label %48
 
 42:                                               ; preds = %35
-  %43 = icmp ult i64 %40, 12
+  %43 = icmp samesign ult i64 %40, 12
   br i1 %43, label %44, label %46
 
 44:                                               ; preds = %42
@@ -4530,7 +4530,7 @@ _ZN2cv5mjpeg12mjpeg_buffer6finishEv.exit:         ; preds = %61, %64
   br i1 %77, label %78, label %84
 
 78:                                               ; preds = %_ZN2cv5mjpeg12mjpeg_buffer6finishEv.exit
-  %79 = icmp ult i64 %76, 12
+  %79 = icmp samesign ult i64 %76, 12
   br i1 %79, label %80, label %82
 
 80:                                               ; preds = %78
@@ -4711,7 +4711,7 @@ define linkonce_odr hidden void @_ZN2cv5mjpeg16MotionJpegWriterC2ERKNSt7__cxx111
   br i1 %47, label %48, label %54
 
 48:                                               ; preds = %41
-  %49 = icmp ult i64 %46, 12
+  %49 = icmp samesign ult i64 %46, 12
   br i1 %49, label %50, label %52
 
 50:                                               ; preds = %48

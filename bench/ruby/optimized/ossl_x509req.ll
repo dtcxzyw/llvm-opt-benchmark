@@ -873,7 +873,7 @@ rb_array_const_ptr.exit30:                        ; preds = %27, %30
   %46 = tail call ptr @X509_REQ_delete_attr(ptr noundef nonnull %39, i32 noundef 0) #6
   tail call void @X509_ATTRIBUTE_free(ptr noundef %46) #6
   %47 = add nsw i64 %.141, -1
-  %48 = icmp ugt i64 %.141, 1
+  %48 = icmp samesign ugt i64 %.141, 1
   br i1 %48, label %.lr.ph, label %.preheader.preheader, !llvm.loop !16
 
 .preheader.preheader:                             ; preds = %.lr.ph, %42

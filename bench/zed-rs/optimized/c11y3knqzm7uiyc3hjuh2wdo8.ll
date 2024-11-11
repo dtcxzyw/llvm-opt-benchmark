@@ -23872,7 +23872,7 @@ define internal fastcc void @"_ZN10serde_json2de21Deserializer$LT$R$GT$13parse_d
 
 69:                                               ; preds = %32
   %70 = icmp ne i64 %.sroa.0.079, 1844674407370955161
-  %71 = icmp ugt i8 %25, 5
+  %71 = icmp samesign ugt i8 %25, 5
   %or.cond1 = or i1 %70, %71
   br i1 %or.cond1, label %77, label %72
 
@@ -24055,7 +24055,7 @@ define internal fastcc void @"_ZN10serde_json2de21Deserializer$LT$R$GT$13parse_d
 
 69:                                               ; preds = %32
   %70 = icmp ne i64 %.sroa.0.079, 1844674407370955161
-  %71 = icmp ugt i8 %25, 5
+  %71 = icmp samesign ugt i8 %25, 5
   %or.cond1 = or i1 %70, %71
   br i1 %or.cond1, label %77, label %72
 
@@ -24323,7 +24323,7 @@ define internal fastcc void @"_ZN10serde_json2de21Deserializer$LT$R$GT$13parse_i
 
 102:                                              ; preds = %99
   %103 = icmp ne i64 %.sroa.012.075, 1844674407370955161
-  %104 = icmp ugt i8 %69, 5
+  %104 = icmp samesign ugt i8 %69, 5
   %or.cond3 = or i1 %103, %104
   br i1 %or.cond3, label %109, label %105
 
@@ -24609,7 +24609,7 @@ define internal fastcc void @"_ZN10serde_json2de21Deserializer$LT$R$GT$13parse_i
 
 102:                                              ; preds = %99
   %103 = icmp ne i64 %.sroa.012.075, 1844674407370955161
-  %104 = icmp ugt i8 %69, 5
+  %104 = icmp samesign ugt i8 %69, 5
   %or.cond3 = or i1 %103, %104
   br i1 %or.cond3, label %109, label %105
 
@@ -25344,7 +25344,7 @@ define internal fastcc void @"_ZN10serde_json2de21Deserializer$LT$R$GT$14parse_e
 
 81:                                               ; preds = %45
   %82 = icmp ne i32 %.sroa.09.065, 214748364
-  %83 = icmp ugt i8 %44, 7
+  %83 = icmp samesign ugt i8 %44, 7
   %or.cond2 = or i1 %82, %83
   br i1 %or.cond2, label %87, label %84
 
@@ -25546,7 +25546,7 @@ define internal fastcc void @"_ZN10serde_json2de21Deserializer$LT$R$GT$14parse_e
 
 81:                                               ; preds = %45
   %82 = icmp ne i32 %.sroa.09.065, 214748364
-  %83 = icmp ugt i8 %44, 7
+  %83 = icmp samesign ugt i8 %44, 7
   %or.cond2 = or i1 %82, %83
   br i1 %or.cond2, label %87, label %84
 
@@ -31842,7 +31842,7 @@ define internal fastcc void @"_ZN18serde_json_lenient2de21Deserializer$LT$R$GT$1
 
 69:                                               ; preds = %32
   %70 = icmp ne i64 %.sroa.0.079, 1844674407370955161
-  %71 = icmp ugt i8 %25, 5
+  %71 = icmp samesign ugt i8 %25, 5
   %or.cond1 = or i1 %70, %71
   br i1 %or.cond1, label %77, label %72
 
@@ -32229,7 +32229,7 @@ define internal fastcc void @"_ZN18serde_json_lenient2de21Deserializer$LT$R$GT$1
 
 158:                                              ; preds = %65
   %159 = icmp ne i64 %.sroa.0.0, 1844674407370955161
-  %160 = icmp ugt i8 %58, 5
+  %160 = icmp samesign ugt i8 %58, 5
   %or.cond1 = or i1 %159, %160
   br i1 %or.cond1, label %174, label %161
 
@@ -32608,7 +32608,7 @@ define hidden void @"_ZN18serde_json_lenient2de21Deserializer$LT$R$GT$13parse_in
 
 163:                                              ; preds = %160
   %164 = icmp ne i64 %.sroa.012.0, 1844674407370955161
-  %165 = icmp ugt i8 %154, 5
+  %165 = icmp samesign ugt i8 %154, 5
   %or.cond3 = or i1 %164, %165
   br i1 %or.cond3, label %178, label %166
 
@@ -32916,7 +32916,7 @@ define internal fastcc void @"_ZN18serde_json_lenient2de21Deserializer$LT$R$GT$1
 
 102:                                              ; preds = %99
   %103 = icmp ne i64 %.sroa.012.075, 1844674407370955161
-  %104 = icmp ugt i8 %69, 5
+  %104 = icmp samesign ugt i8 %69, 5
   %or.cond3 = or i1 %103, %104
   br i1 %or.cond3, label %109, label %105
 
@@ -34322,7 +34322,7 @@ define internal fastcc void @"_ZN18serde_json_lenient2de21Deserializer$LT$R$GT$1
 
 227:                                              ; preds = %"_ZN92_$LT$serde_json_lenient..read..IoRead$LT$R$GT$$u20$as$u20$serde_json_lenient..read..Read$GT$7discard17h17d4664e4814a81cE.exit58"
   %228 = icmp ne i32 %.sroa.09.0, 214748364
-  %229 = icmp ugt i8 %177, 7
+  %229 = icmp samesign ugt i8 %177, 7
   %or.cond2 = or i1 %228, %229
   br i1 %or.cond2, label %233, label %230
 
@@ -34526,7 +34526,7 @@ define internal fastcc void @"_ZN18serde_json_lenient2de21Deserializer$LT$R$GT$1
 
 82:                                               ; preds = %46
   %83 = icmp ne i32 %.sroa.09.065, 214748364
-  %84 = icmp ugt i8 %45, 7
+  %84 = icmp samesign ugt i8 %45, 7
   %or.cond2 = or i1 %83, %84
   br i1 %or.cond2, label %88, label %85
 
@@ -106518,7 +106518,7 @@ define hidden void @"_ZN97_$LT$core..option..Option$LT$T$GT$$u20$as$u20$wasmtime
   br i1 %177, label %.invoke.i, label %178
 
 178:                                              ; preds = %.noexc65.i
-  %179 = icmp ugt i64 %176, 4
+  %179 = icmp samesign ugt i64 %176, 4
   br i1 %179, label %180, label %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17hf7aa09d9f18fb9d2E.exit30.i.i"
 
 180:                                              ; preds = %178
@@ -106550,7 +106550,7 @@ define hidden void @"_ZN97_$LT$core..option..Option$LT$T$GT$$u20$as$u20$wasmtime
   unreachable
 
 190:                                              ; preds = %.noexc69.i
-  %191 = icmp ugt i64 %186, 4
+  %191 = icmp samesign ugt i64 %186, 4
   br i1 %191, label %192, label %203
 
 192:                                              ; preds = %190
@@ -107324,7 +107324,7 @@ define hidden void @"_ZN97_$LT$core..option..Option$LT$T$GT$$u20$as$u20$wasmtime
   br i1 %177, label %.invoke.i, label %178
 
 178:                                              ; preds = %.noexc65.i
-  %179 = icmp ugt i64 %176, 4
+  %179 = icmp samesign ugt i64 %176, 4
   br i1 %179, label %180, label %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17hf7aa09d9f18fb9d2E.exit30.i.i"
 
 180:                                              ; preds = %178
@@ -107356,7 +107356,7 @@ define hidden void @"_ZN97_$LT$core..option..Option$LT$T$GT$$u20$as$u20$wasmtime
   unreachable
 
 190:                                              ; preds = %.noexc69.i
-  %191 = icmp ugt i64 %186, 4
+  %191 = icmp samesign ugt i64 %186, 4
   br i1 %191, label %192, label %203
 
 192:                                              ; preds = %190
@@ -107851,7 +107851,7 @@ define hidden void @"_ZN97_$LT$core..option..Option$LT$T$GT$$u20$as$u20$wasmtime
   unreachable
 
 146:                                              ; preds = %142
-  %147 = icmp ugt i64 %143, 4
+  %147 = icmp samesign ugt i64 %143, 4
   br i1 %147, label %148, label %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17h2cf6bb23121b37b0E.exit.i.i"
 
 148:                                              ; preds = %146
@@ -107886,7 +107886,7 @@ define hidden void @"_ZN97_$LT$core..option..Option$LT$T$GT$$u20$as$u20$wasmtime
 
 163:                                              ; preds = %154
   %164 = getelementptr inbounds i8, ptr %80, i64 %160
-  %165 = icmp ugt i64 %160, 2
+  %165 = icmp samesign ugt i64 %160, 2
   br i1 %165, label %166, label %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17h3413fa4e4c42bf29E.exit.i.i"
 
 166:                                              ; preds = %163
@@ -108183,7 +108183,7 @@ define hidden void @"_ZN97_$LT$core..option..Option$LT$T$GT$$u20$as$u20$wasmtime
   unreachable
 
 272:                                              ; preds = %268
-  %273 = icmp ugt i64 %269, 26
+  %273 = icmp samesign ugt i64 %269, 26
   br i1 %273, label %274, label %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17h2cf6bb23121b37b0E.exit.i52.i"
 
 274:                                              ; preds = %272
@@ -108212,7 +108212,7 @@ define hidden void @"_ZN97_$LT$core..option..Option$LT$T$GT$$u20$as$u20$wasmtime
   unreachable
 
 284:                                              ; preds = %280
-  %285 = icmp ugt i64 %281, 24
+  %285 = icmp samesign ugt i64 %281, 24
   br i1 %285, label %286, label %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17hf7aa09d9f18fb9d2E.exit.i.i"
 
 286:                                              ; preds = %284
@@ -108247,7 +108247,7 @@ define hidden void @"_ZN97_$LT$core..option..Option$LT$T$GT$$u20$as$u20$wasmtime
 
 301:                                              ; preds = %292
   %302 = getelementptr inbounds i8, ptr %80, i64 %298
-  %303 = icmp ugt i64 %298, 12
+  %303 = icmp samesign ugt i64 %298, 12
   br i1 %303, label %304, label %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17h3413fa4e4c42bf29E.exit65.i.i"
 
 304:                                              ; preds = %301
@@ -108317,7 +108317,7 @@ define hidden void @"_ZN97_$LT$core..option..Option$LT$T$GT$$u20$as$u20$wasmtime
   unreachable
 
 331:                                              ; preds = %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hedad288ffc22927dE.llvm.12421936933170541089.exit.i.i54.i"
-  %332 = icmp ugt i64 %324, 14
+  %332 = icmp samesign ugt i64 %324, 14
   br i1 %332, label %333, label %336
 
 333:                                              ; preds = %331
@@ -108355,7 +108355,7 @@ define hidden void @"_ZN97_$LT$core..option..Option$LT$T$GT$$u20$as$u20$wasmtime
   unreachable
 
 345:                                              ; preds = %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hedad288ffc22927dE.llvm.12421936933170541089.exit144.i.i.i"
-  %346 = icmp ugt i64 %339, 14
+  %346 = icmp samesign ugt i64 %339, 14
   br i1 %346, label %347, label %350
 
 347:                                              ; preds = %345
@@ -108393,7 +108393,7 @@ define hidden void @"_ZN97_$LT$core..option..Option$LT$T$GT$$u20$as$u20$wasmtime
   unreachable
 
 359:                                              ; preds = %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hedad288ffc22927dE.llvm.12421936933170541089.exit150.i.i.i"
-  %360 = icmp ugt i64 %353, 14
+  %360 = icmp samesign ugt i64 %353, 14
   br i1 %360, label %361, label %364
 
 361:                                              ; preds = %359
@@ -108431,7 +108431,7 @@ define hidden void @"_ZN97_$LT$core..option..Option$LT$T$GT$$u20$as$u20$wasmtime
   unreachable
 
 373:                                              ; preds = %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hedad288ffc22927dE.llvm.12421936933170541089.exit156.i.i.i"
-  %374 = icmp ugt i64 %367, 14
+  %374 = icmp samesign ugt i64 %367, 14
   br i1 %374, label %375, label %378
 
 375:                                              ; preds = %373
@@ -108469,7 +108469,7 @@ define hidden void @"_ZN97_$LT$core..option..Option$LT$T$GT$$u20$as$u20$wasmtime
   unreachable
 
 387:                                              ; preds = %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hedad288ffc22927dE.llvm.12421936933170541089.exit162.i.i.i"
-  %388 = icmp ugt i64 %381, 14
+  %388 = icmp samesign ugt i64 %381, 14
   br i1 %388, label %389, label %392
 
 389:                                              ; preds = %387
@@ -108507,7 +108507,7 @@ define hidden void @"_ZN97_$LT$core..option..Option$LT$T$GT$$u20$as$u20$wasmtime
   unreachable
 
 401:                                              ; preds = %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hedad288ffc22927dE.llvm.12421936933170541089.exit168.i.i.i"
-  %402 = icmp ugt i64 %395, 14
+  %402 = icmp samesign ugt i64 %395, 14
   br i1 %402, label %403, label %406
 
 403:                                              ; preds = %401
@@ -108545,7 +108545,7 @@ define hidden void @"_ZN97_$LT$core..option..Option$LT$T$GT$$u20$as$u20$wasmtime
   unreachable
 
 415:                                              ; preds = %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hedad288ffc22927dE.llvm.12421936933170541089.exit174.i.i.i"
-  %416 = icmp ugt i64 %409, 14
+  %416 = icmp samesign ugt i64 %409, 14
   br i1 %416, label %417, label %420
 
 417:                                              ; preds = %415
@@ -108583,7 +108583,7 @@ define hidden void @"_ZN97_$LT$core..option..Option$LT$T$GT$$u20$as$u20$wasmtime
   br i1 %428, label %433, label %429
 
 429:                                              ; preds = %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hedad288ffc22927dE.llvm.12421936933170541089.exit180.i.i.i"
-  %430 = icmp ugt i64 %427, 14
+  %430 = icmp samesign ugt i64 %427, 14
   br i1 %430, label %431, label %435
 
 431:                                              ; preds = %429
@@ -108617,7 +108617,7 @@ define hidden void @"_ZN97_$LT$core..option..Option$LT$T$GT$$u20$as$u20$wasmtime
   unreachable
 
 443:                                              ; preds = %439
-  %444 = icmp ugt i64 %440, 24
+  %444 = icmp samesign ugt i64 %440, 24
   br i1 %444, label %445, label %448
 
 445:                                              ; preds = %443
@@ -109124,7 +109124,7 @@ define hidden void @"_ZN97_$LT$core..option..Option$LT$T$GT$$u20$as$u20$wasmtime
   br i1 %177, label %.invoke.i, label %178
 
 178:                                              ; preds = %.noexc65.i
-  %179 = icmp ugt i64 %176, 4
+  %179 = icmp samesign ugt i64 %176, 4
   br i1 %179, label %180, label %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17hf7aa09d9f18fb9d2E.exit30.i.i"
 
 180:                                              ; preds = %178
@@ -109156,7 +109156,7 @@ define hidden void @"_ZN97_$LT$core..option..Option$LT$T$GT$$u20$as$u20$wasmtime
   unreachable
 
 190:                                              ; preds = %.noexc69.i
-  %191 = icmp ugt i64 %186, 4
+  %191 = icmp samesign ugt i64 %186, 4
   br i1 %191, label %192, label %203
 
 192:                                              ; preds = %190

@@ -224,7 +224,7 @@ define internal void @CollectColorBlueTransforms_SSE41(ptr noundef %0, i32 nound
   %18 = insertelement <4 x i32> poison, i32 %17, i64 0
   %19 = bitcast <4 x i32> %18 to <8 x i16>
   %20 = shufflevector <8 x i16> %19, <8 x i16> poison, <8 x i32> <i32 0, i32 1, i32 0, i32 1, i32 0, i32 1, i32 0, i32 1>
-  %.not127128 = icmp ult i32 %2, 8
+  %.not127128 = icmp samesign ult i32 %2, 8
   br i1 %.not127128, label %.lr.ph132.split.us.preheader, label %.lr.ph.preheader
 
 .lr.ph.preheader:                                 ; preds = %.lr.ph132
@@ -408,7 +408,7 @@ define internal void @CollectColorRedTransforms_SSE41(ptr noundef %0, i32 nounde
   %12 = insertelement <4 x i32> poison, i32 %11, i64 0
   %13 = bitcast <4 x i32> %12 to <8 x i16>
   %14 = shufflevector <8 x i16> %13, <8 x i16> poison, <8 x i32> <i32 0, i32 1, i32 0, i32 1, i32 0, i32 1, i32 0, i32 1>
-  %.not8889 = icmp ult i32 %2, 8
+  %.not8889 = icmp samesign ult i32 %2, 8
   br i1 %.not8889, label %.lr.ph93.split.us.preheader, label %.lr.ph.preheader
 
 .lr.ph.preheader:                                 ; preds = %.lr.ph93

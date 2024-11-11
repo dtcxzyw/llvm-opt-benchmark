@@ -1217,7 +1217,7 @@ define dso_local i32 @i915_ggtt_probe_hw(ptr noundef %0) local_unnamed_addr #0 a
   br label %221
 
 135:                                              ; preds = %15
-  %136 = icmp ugt i8 %27, 5
+  %136 = icmp samesign ugt i8 %27, 5
   br i1 %136, label %137, label %219
 
 137:                                              ; preds = %135

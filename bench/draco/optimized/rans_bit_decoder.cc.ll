@@ -146,7 +146,7 @@ thread-pre-split:                                 ; preds = %25
   br label %_ZN5dracoL13ans_read_initEPNS_10AnsDecoderEPKhi.exit.thread12
 
 63:                                               ; preds = %49
-  %64 = icmp ult i32 %30, 3
+  %64 = icmp samesign ult i32 %30, 3
   br i1 %64, label %_ZN5draco13DecoderBuffer6DecodeIhEEbPT_.exit, label %_ZN5dracoL13ans_read_initEPNS_10AnsDecoderEPKhi.exit
 
 _ZN5dracoL13ans_read_initEPNS_10AnsDecoderEPKhi.exit.thread12: ; preds = %53, %44

@@ -771,7 +771,7 @@ _ZNK4llvm9StringRef9ends_withES0_.exit.thread:    ; preds = %_ZNK4llvm9StringRef
   br label %108
 
 _ZNK4llvm9StringRef9ends_withES0_.exit.thread107: ; preds = %_ZL18isOSObjectThisCastN4llvm9StringRefE.exit.thread
-  %.not.i44 = icmp ult i64 %3, 3
+  %.not.i44 = icmp samesign ult i64 %3, 3
   br i1 %.not.i44, label %_ZNK4llvm9StringRef11starts_withES0_.exit48.thread109, label %_ZNK4llvm9StringRef11starts_withES0_.exit
 
 _ZNK4llvm9StringRef11starts_withES0_.exit:        ; preds = %_ZNK4llvm9StringRef9ends_withES0_.exit, %_ZNK4llvm9StringRef9ends_withES0_.exit.thread107
@@ -2239,7 +2239,7 @@ _ZNK4llvm9StringRef11starts_withES0_.exit.thread: ; preds = %_ZNK4llvm9StringRef
   br label %_ZN4llvm12ImmutableMapIjN5clang4ento9ArgEffectENS_16ImutKeyValueInfoIjS3_EEED2Ev.exit141.thread
 
 _ZNK4llvm9StringRef11starts_withES0_.exit.thread585: ; preds = %_ZN4llvmeqENS_9StringRefES0_.exit284.thread583
-  %.not.i299 = icmp ult i64 %.sroa.261.0.copyload.pre, 2
+  %.not.i299 = icmp samesign ult i64 %.sroa.261.0.copyload.pre, 2
   br i1 %.not.i299, label %_ZNK4llvm9StringRef11starts_withES0_.exit301.thread586, label %_ZNK4llvm9StringRef11starts_withES0_.exit301
 
 _ZNK4llvm9StringRef11starts_withES0_.exit301:     ; preds = %_ZNK4llvm9StringRef11starts_withES0_.exit, %_ZNK4llvm9StringRef11starts_withES0_.exit.thread585

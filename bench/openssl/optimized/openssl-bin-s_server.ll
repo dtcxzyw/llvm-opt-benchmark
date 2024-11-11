@@ -5458,7 +5458,7 @@ if.then262:                                       ; preds = %for.body251
 for.inc268:                                       ; preds = %for.body251, %if.then262
   %i.1 = phi i32 [ %inc263, %if.then262 ], [ %i.0204, %for.body251 ]
   %lf_num.3 = phi i32 [ %dec, %if.then262 ], [ %lf_num.2205, %for.body251 ]
-  %cmp249 = icmp ugt i64 %indvars.iv217, 1
+  %cmp249 = icmp samesign ugt i64 %indvars.iv217, 1
   br i1 %cmp249, label %for.body251, label %if.end273, !llvm.loop !22
 
 if.else271:                                       ; preds = %if.then229

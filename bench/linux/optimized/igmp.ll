@@ -1104,7 +1104,7 @@ define dso_local range(i32 -42, 1) i32 @ip_mc_check_igmp(ptr noundef %0) #0 alig
 
 34:                                               ; preds = %27
   %35 = shl i8 %31, 2
-  %36 = icmp ult i8 %35, 20
+  %36 = icmp samesign ult i8 %35, 20
   br i1 %36, label %.thread, label %37
 
 37:                                               ; preds = %34

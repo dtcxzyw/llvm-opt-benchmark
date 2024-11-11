@@ -1142,7 +1142,7 @@ define dso_local i32 @intel_fbc_atomic_check(ptr noundef %0) local_unnamed_addr 
   ]
 
 112:                                              ; preds = %101
-  %113 = icmp ugt i16 %105, 4
+  %113 = icmp samesign ugt i16 %105, 4
   br i1 %113, label %119, label %114
 
 114:                                              ; preds = %112
@@ -1197,7 +1197,7 @@ define dso_local i32 @intel_fbc_atomic_check(ptr noundef %0) local_unnamed_addr 
   br label %142
 
 138:                                              ; preds = %124, %119, %119
-  %139 = icmp ugt i16 %105, 8
+  %139 = icmp samesign ugt i16 %105, 8
   %140 = getelementptr inbounds i8, ptr %120, i64 120
   %141 = load i64, ptr %140, align 8
   br i1 %139, label %142, label %144
@@ -2917,7 +2917,7 @@ define internal fastcc zeroext i1 @rotation_is_valid(ptr nocapture noundef reado
   br label %31
 
 20:                                               ; preds = %1
-  %21 = icmp ugt i16 %5, 4
+  %21 = icmp samesign ugt i16 %5, 4
   br i1 %21, label %31, label %22
 
 22:                                               ; preds = %20
@@ -2948,7 +2948,7 @@ define internal fastcc zeroext i1 @stride_is_valid(ptr nocapture noundef readonl
   br i1 %6, label %77, label %7
 
 7:                                                ; preds = %1
-  %8 = icmp ugt i16 %5, 8
+  %8 = icmp samesign ugt i16 %5, 8
   br i1 %8, label %9, label %40
 
 9:                                                ; preds = %7
@@ -2993,7 +2993,7 @@ define internal fastcc zeroext i1 @stride_is_valid(ptr nocapture noundef readonl
   br label %77
 
 40:                                               ; preds = %7
-  %41 = icmp ugt i16 %5, 4
+  %41 = icmp samesign ugt i16 %5, 4
   br i1 %41, label %77, label %42
 
 42:                                               ; preds = %40
@@ -3064,7 +3064,7 @@ define internal fastcc zeroext i1 @intel_fbc_plane_size_valid(ptr nocapture noun
   br i1 %6, label %22, label %7
 
 7:                                                ; preds = %1
-  %8 = icmp ugt i16 %5, 7
+  %8 = icmp samesign ugt i16 %5, 7
   br i1 %8, label %22, label %9
 
 9:                                                ; preds = %7
@@ -3081,7 +3081,7 @@ define internal fastcc zeroext i1 @intel_fbc_plane_size_valid(ptr nocapture noun
   br i1 %17, label %18, label %22
 
 18:                                               ; preds = %15
-  %19 = icmp ugt i16 %5, 4
+  %19 = icmp samesign ugt i16 %5, 4
   %20 = select i1 %19, i32 4096, i32 2048
   %21 = select i1 %19, i32 2048, i32 1536
   br label %22
@@ -3121,7 +3121,7 @@ define internal fastcc zeroext i1 @intel_fbc_hw_tracking_covers_screen(ptr nocap
   br i1 %8, label %20, label %9
 
 9:                                                ; preds = %7
-  %10 = icmp ugt i16 %5, 6
+  %10 = icmp samesign ugt i16 %5, 6
   br i1 %10, label %20, label %11
 
 11:                                               ; preds = %9
@@ -3132,7 +3132,7 @@ define internal fastcc zeroext i1 @intel_fbc_hw_tracking_covers_screen(ptr nocap
   br i1 %15, label %16, label %20
 
 16:                                               ; preds = %11
-  %17 = icmp ugt i16 %5, 4
+  %17 = icmp samesign ugt i16 %5, 4
   %18 = select i1 %17, i32 4096, i32 2048
   %19 = select i1 %17, i32 2048, i32 1536
   br label %20

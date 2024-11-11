@@ -357,7 +357,7 @@ define void @_ZN5boost4urls3url12reserve_implEmRNS0_8url_base4op_tE(ptr nocaptur
 16:                                               ; preds = %13
   %17 = lshr i64 %12, 1
   %18 = sub nuw nsw i64 16, %17
-  %.not15 = icmp ugt i64 %12, %18
+  %.not15 = icmp samesign ugt i64 %12, %18
   %19 = add nuw nsw i64 %17, %12
   %spec.select16 = select i1 %.not15, i64 16, i64 %19
   %spec.select = tail call i64 @llvm.umax.i64(i64 %spec.select16, i64 %1)

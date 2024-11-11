@@ -877,7 +877,7 @@ _ZN12ResourceMarkD2Ev.exit:                       ; preds = %37, %35, %9
   br label %_ZN17GrowableArrayViewIP11ModuleEntryE9delete_atEi.exit
 
 _ZN17GrowableArrayViewIP11ModuleEntryE9delete_atEi.exit: ; preds = %57, %52, %61
-  %62 = icmp ugt i64 %indvars.iv, 1
+  %62 = icmp samesign ugt i64 %indvars.iv, 1
   br i1 %62, label %.lr.ph, label %_ZNK11ModuleEntry14has_reads_listEv.exit.thread, !llvm.loop !8
 
 _ZNK11ModuleEntry14has_reads_listEv.exit.thread:  ; preds = %_ZN17GrowableArrayViewIP11ModuleEntryE9delete_atEi.exit, %_ZN12ResourceMarkD2Ev.exit, %5, %_ZNK11ModuleEntry14has_reads_listEv.exit, %1
@@ -3148,7 +3148,7 @@ _ZN12ResourceMarkD2Ev.exit.i.i.i:                 ; preds = %41, %39, %14
   br label %_ZN17GrowableArrayViewIP11ModuleEntryE9delete_atEi.exit.i.i.i
 
 _ZN17GrowableArrayViewIP11ModuleEntryE9delete_atEi.exit.i.i.i: ; preds = %99, %97, %73, %71, %67, %63, %58
-  %100 = icmp ugt i64 %indvars.iv.i.i.i, 1
+  %100 = icmp samesign ugt i64 %indvars.iv.i.i.i, 1
   br i1 %100, label %.lr.ph.i.i.i, label %_ZN11ModuleEntry11purge_readsEv.exit.i.i, !llvm.loop !8
 
 _ZN11ModuleEntry11purge_readsEv.exit.i.i:         ; preds = %_ZN17GrowableArrayViewIP11ModuleEntryE9delete_atEi.exit.i.i.i, %_ZN12ResourceMarkD2Ev.exit.i.i.i, %_ZNK11ModuleEntry14has_reads_listEv.exit.i.i.i, %10, %.lr.ph.i.i

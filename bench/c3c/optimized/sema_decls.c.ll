@@ -11313,7 +11313,7 @@ define internal fastcc noundef zeroext i1 @sema_analyse_operator_common(ptr noca
   br label %42
 
 18:                                               ; preds = %7
-  %19 = icmp ult i32 %9, %3
+  %19 = icmp samesign ult i32 %9, %3
   br i1 %19, label %.thread48, label %23
 
 .thread48:                                        ; preds = %4, %18

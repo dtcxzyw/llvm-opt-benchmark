@@ -355,7 +355,7 @@ if.end215:                                        ; preds = %for.end199
   %32 = load double, ptr %arrayidx212, align 8
   %33 = tail call double @llvm.fmuladd.f64(double %32, double %conv206, double %31)
   store double %33, ptr %rv, align 8
-  %cmp216 = icmp ult i32 %i.0, 16
+  %cmp216 = icmp samesign ult i32 %i.0, 16
   br i1 %cmp216, label %land.lhs.true218, label %if.end257
 
 land.lhs.true218:                                 ; preds = %for.end199.thread, %for.end199, %if.end215
@@ -378,7 +378,7 @@ if.end224:                                        ; preds = %if.then221
   br i1 %cmp225, label %if.then227, label %if.else248
 
 if.then227:                                       ; preds = %if.end224
-  %cmp228 = icmp ult i32 %add153939953, 23
+  %cmp228 = icmp samesign ult i32 %add153939953, 23
   br i1 %cmp228, label %if.then230, label %if.end234
 
 if.then230:                                       ; preds = %if.then227
@@ -390,7 +390,7 @@ if.then230:                                       ; preds = %if.then227
 
 if.end234:                                        ; preds = %if.then227
   %add236 = sub nsw i32 37, %i.0.lcssa937955
-  %cmp237.not = icmp ugt i32 %add153939953, %add236
+  %cmp237.not = icmp samesign ugt i32 %add153939953, %add236
   br i1 %cmp237.not, label %if.end257, label %if.then239
 
 if.then239:                                       ; preds = %if.end234
@@ -407,7 +407,7 @@ if.then239:                                       ; preds = %if.end234
   br label %ret
 
 if.else248:                                       ; preds = %if.end224
-  %cmp249 = icmp ugt i32 %add153939953, -23
+  %cmp249 = icmp samesign ugt i32 %add153939953, -23
   br i1 %cmp249, label %if.then251, label %if.end257
 
 if.then251:                                       ; preds = %if.else248
@@ -456,7 +456,7 @@ if.then271:                                       ; preds = %if.end268
   br i1 %cmp272, label %ovfl, label %if.end275
 
 if.end275:                                        ; preds = %if.then271
-  %cmp277805 = icmp ugt i32 %add259, 31
+  %cmp277805 = icmp samesign ugt i32 %add259, 31
   br i1 %cmp277805, label %for.body279.preheader, label %for.end290
 
 for.body279.preheader:                            ; preds = %if.end275
@@ -911,7 +911,7 @@ s2b.exit:                                         ; preds = %for.cond18.i, %if.e
   %sub.i365 = add nsw i32 %and.i, -1
   %idxprom.i366 = zext nneg i32 %sub.i365 to i64
   %arrayidx.i367 = getelementptr [3 x i32], ptr @pow5mult.p05, i64 0, i64 %idxprom.i366
-  %tobool3.not.i = icmp ult i32 %bb2.0, 4
+  %tobool3.not.i = icmp samesign ult i32 %bb2.0, 4
   %shr.i = lshr i32 %bb2.0, 2
   %cmp534 = icmp sgt i32 %bd2.0, 0
   %and.i389 = and i32 %bd2.0, 3
@@ -919,7 +919,7 @@ s2b.exit:                                         ; preds = %for.cond18.i, %if.e
   %sub.i392 = add nsw i32 %and.i389, -1
   %idxprom.i393 = zext nneg i32 %sub.i392 to i64
   %arrayidx.i394 = getelementptr [3 x i32], ptr @pow5mult.p05, i64 0, i64 %idxprom.i393
-  %tobool3.not.i399 = icmp ult i32 %bd2.0, 4
+  %tobool3.not.i399 = icmp samesign ult i32 %bd2.0, 4
   %shr.i401 = lshr i32 %bd2.0, 2
   %arrayidx745 = getelementptr inbounds i8, ptr %rv, i64 4
   br label %for.cond454
@@ -2449,7 +2449,7 @@ if.then18:                                        ; preds = %lor.lhs.false, %lan
 
 if.then20:                                        ; preds = %if.then18
   store i32 -1074, ptr %e, align 4
-  %cmp22 = icmp ult i32 %sub, -1105
+  %cmp22 = icmp samesign ult i32 %sub, -1105
   br i1 %cmp22, label %if.then23, label %if.end31
 
 if.then23:                                        ; preds = %if.then20
@@ -3439,7 +3439,7 @@ if.then.i55:                                      ; preds = %if.then14
 
 if.end2.i:                                        ; preds = %if.then.i55, %if.then14
   %b.addr.0.i = phi ptr [ %call.i, %if.then.i55 ], [ %rv.0.i.i, %if.then14 ]
-  %tobool3.not.i = icmp ult i32 %add, 4
+  %tobool3.not.i = icmp samesign ult i32 %add, 4
   br i1 %tobool3.not.i, label %if.end27, label %if.end5.i
 
 if.end5.i:                                        ; preds = %if.end2.i

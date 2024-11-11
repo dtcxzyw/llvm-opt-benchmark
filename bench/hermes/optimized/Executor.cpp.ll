@@ -1420,7 +1420,7 @@ _ZN6hermes5regex6CursorINS0_16UTF16RegexTraitsEE12consumeUTF16Ev.exit467: ; pred
   br i1 %cmp286, label %if.end309, label %lor.rhs
 
 lor.rhs:                                          ; preds = %_ZN6hermes5regex6CursorINS0_16UTF16RegexTraitsEE12consumeUTF16Ev.exit467
-  %cmp.i468 = icmp ult i32 %retval.0.i456, 128
+  %cmp.i468 = icmp samesign ult i32 %retval.0.i456, 128
   br i1 %cmp.i468, label %if.then.i470, label %if.end7.i
 
 if.then.i470:                                     ; preds = %lor.rhs
@@ -2290,7 +2290,7 @@ _ZN6hermes5regex6CursorINS0_16UTF16RegexTraitsEE12consumeUTF16Ev.exit817: ; pred
   br i1 %cmp648, label %land.rhs.backedge, label %lor.rhs649
 
 lor.rhs649:                                       ; preds = %_ZN6hermes5regex6CursorINS0_16UTF16RegexTraitsEE12consumeUTF16Ev.exit817
-  %cmp.i818 = icmp ult i32 %retval.0.i773, 128
+  %cmp.i818 = icmp samesign ult i32 %retval.0.i773, 128
   br i1 %cmp.i818, label %if.then.i822, label %if.end7.i819
 
 if.then.i822:                                     ; preds = %lor.rhs649
@@ -2307,7 +2307,7 @@ if.end7.i819:                                     ; preds = %lor.rhs649
 
 _ZN6hermes5regex16UTF16RegexTraits12canonicalizeEjb.exit826: ; preds = %if.then.i822, %if.end7.i819
   %retval.0.i821 = phi i32 [ %c.addr.0.i825, %if.then.i822 ], [ %call.i820, %if.end7.i819 ]
-  %cmp.i827 = icmp ult i32 %retval.0.i806, 128
+  %cmp.i827 = icmp samesign ult i32 %retval.0.i806, 128
   br i1 %cmp.i827, label %if.then.i831, label %if.end7.i828
 
 if.then.i831:                                     ; preds = %_ZN6hermes5regex16UTF16RegexTraits12canonicalizeEjb.exit826

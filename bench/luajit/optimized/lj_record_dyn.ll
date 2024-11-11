@@ -468,7 +468,7 @@ for.body43:                                       ; preds = %if.end, %for.body43
   %arrayidx47 = getelementptr inbounds i8, ptr %arrayidx45, i64 4
   store i32 %19, ptr %arrayidx47, align 4
   %dec = add nsw i64 %i.165, -1
-  %cmp41 = icmp ugt i64 %i.165, 2
+  %cmp41 = icmp samesign ugt i64 %i.165, 2
   br i1 %cmp41, label %for.body43, label %for.end49, !llvm.loop !6
 
 for.end49:                                        ; preds = %for.body43, %if.end
@@ -6085,7 +6085,7 @@ if.then70:                                        ; preds = %if.else64
   br i1 %cmp72, label %if.then74, label %if.else129
 
 if.then74:                                        ; preds = %if.then70
-  %cmp75.not.not = icmp ugt i64 %sub3, %nresults
+  %cmp75.not.not = icmp samesign ugt i64 %sub3, %nresults
   %cond80 = select i1 %cmp75.not.not, i64 %nresults, i64 %sub4
   %conv84 = trunc i32 %call65 to i16
   br i1 %cmp75.not.not, label %if.then83, label %if.else91

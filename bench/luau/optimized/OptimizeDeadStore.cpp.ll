@@ -2321,7 +2321,7 @@ _ZN4Luau7CodeGen20RemoveDeadStoreState8maybeUseENS0_4IrOpE.exit323: ; preds = %4
   store i32 -1, ptr %497, align 8
   %498 = getelementptr inbounds i8, ptr %495, i64 12
   store i8 0, ptr %498, align 4
-  %499 = icmp ugt i32 %479, 1
+  %499 = icmp samesign ugt i32 %479, 1
   br i1 %499, label %500, label %_ZN4Luau7CodeGen20RemoveDeadStoreState8maybeUseENS0_4IrOpE.exit326
 
 500:                                              ; preds = %.thread377

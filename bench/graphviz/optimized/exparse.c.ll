@@ -607,7 +607,7 @@ define ptr @extypename(ptr nocapture noundef readonly %0, i32 noundef %1) local_
   br i1 %3, label %4, label %11
 
 4:                                                ; preds = %2
-  %5 = icmp ult i32 %1, 264
+  %5 = icmp samesign ult i32 %1, 264
   %6 = add nsw i32 %1, -258
   %7 = select i1 %5, i32 %6, i32 0
   %8 = zext nneg i32 %7 to i64
@@ -707,7 +707,7 @@ switch.early.test:                                ; preds = %7
   br i1 %11, label %29, label %35
 
 29:                                               ; preds = %28
-  %30 = icmp ult i32 %.fr, 264
+  %30 = icmp samesign ult i32 %.fr, 264
   %31 = select i1 %30, i32 %13, i32 0
   %32 = zext nneg i32 %31 to i64
   %33 = getelementptr inbounds [6 x ptr], ptr @typename, i64 0, i64 %32
@@ -726,7 +726,7 @@ extypename.exit:                                  ; preds = %29, %35
   br i1 %39, label %40, label %46
 
 40:                                               ; preds = %extypename.exit
-  %41 = icmp ult i32 %2, 264
+  %41 = icmp samesign ult i32 %2, 264
   %42 = select i1 %41, i32 %16, i32 0
   %43 = zext nneg i32 %42 to i64
   %44 = getelementptr inbounds [6 x ptr], ptr @typename, i64 0, i64 %43
@@ -791,7 +791,7 @@ extypename.exit120:                               ; preds = %40, %46
   br i1 %76, label %77, label %84
 
 77:                                               ; preds = %73
-  %78 = icmp ult i32 %75, 264
+  %78 = icmp samesign ult i32 %75, 264
   %79 = add nsw i32 %75, -258
   %80 = select i1 %78, i32 %79, i32 0
   %81 = zext nneg i32 %80 to i64
@@ -820,7 +820,7 @@ extypename.exit122:                               ; preds = %77, %84
   br i1 %94, label %95, label %102
 
 95:                                               ; preds = %89
-  %96 = icmp ult i32 %93, 264
+  %96 = icmp samesign ult i32 %93, 264
   %97 = add nsw i32 %93, -258
   %98 = select i1 %96, i32 %97, i32 0
   %99 = zext nneg i32 %98 to i64
@@ -841,7 +841,7 @@ extypename.exit124:                               ; preds = %95, %102
   br i1 %107, label %108, label %114
 
 108:                                              ; preds = %extypename.exit124
-  %109 = icmp ult i32 %2, 264
+  %109 = icmp samesign ult i32 %2, 264
   %110 = select i1 %109, i32 %16, i32 0
   %111 = zext nneg i32 %110 to i64
   %112 = getelementptr inbounds [6 x ptr], ptr @typename, i64 0, i64 %111
@@ -866,7 +866,7 @@ extypename.exit126:                               ; preds = %108, %114
   br i1 %121, label %122, label %129
 
 122:                                              ; preds = %119
-  %123 = icmp ult i32 %120, 264
+  %123 = icmp samesign ult i32 %120, 264
   %124 = add nsw i32 %120, -258
   %125 = select i1 %123, i32 %124, i32 0
   %126 = zext nneg i32 %125 to i64
@@ -887,7 +887,7 @@ extypename.exit128:                               ; preds = %122, %129
   br i1 %134, label %135, label %141
 
 135:                                              ; preds = %extypename.exit128
-  %136 = icmp ult i32 %2, 264
+  %136 = icmp samesign ult i32 %2, 264
   %137 = select i1 %136, i32 %16, i32 0
   %138 = zext nneg i32 %137 to i64
   %139 = getelementptr inbounds [6 x ptr], ptr @typename, i64 0, i64 %138
@@ -966,7 +966,7 @@ extypename.exit130:                               ; preds = %135, %141
   br i1 %172, label %173, label %180
 
 173:                                              ; preds = %167
-  %174 = icmp ult i32 %171, 264
+  %174 = icmp samesign ult i32 %171, 264
   %175 = add nsw i32 %171, -258
   %176 = select i1 %174, i32 %175, i32 0
   %177 = zext nneg i32 %176 to i64
@@ -987,7 +987,7 @@ extypename.exit132:                               ; preds = %173, %180
   br i1 %185, label %186, label %192
 
 186:                                              ; preds = %extypename.exit132
-  %187 = icmp ult i32 %2, 264
+  %187 = icmp samesign ult i32 %2, 264
   %188 = select i1 %187, i32 %16, i32 0
   %189 = zext nneg i32 %188 to i64
   %190 = getelementptr inbounds [6 x ptr], ptr @typename, i64 0, i64 %189
@@ -1021,7 +1021,7 @@ extypename.exit134:                               ; preds = %186, %192
   br i1 %206, label %207, label %214
 
 207:                                              ; preds = %204
-  %208 = icmp ult i32 %205, 264
+  %208 = icmp samesign ult i32 %205, 264
   %209 = add nsw i32 %205, -258
   %210 = select i1 %208, i32 %209, i32 0
   %211 = zext nneg i32 %210 to i64
@@ -1042,7 +1042,7 @@ extypename.exit136:                               ; preds = %207, %214
   br i1 %219, label %220, label %226
 
 220:                                              ; preds = %extypename.exit136
-  %221 = icmp ult i32 %2, 264
+  %221 = icmp samesign ult i32 %2, 264
   %222 = select i1 %221, i32 %16, i32 0
   %223 = zext nneg i32 %222 to i64
   %224 = getelementptr inbounds [6 x ptr], ptr @typename, i64 0, i64 %223
@@ -1691,7 +1691,7 @@ define range(i32 0, 3) i32 @ex_parse() local_unnamed_addr #0 {
   br label %.preheader
 
 82:                                               ; preds = %79
-  %83 = icmp ult i32 %72, 337
+  %83 = icmp samesign ult i32 %72, 337
   br i1 %83, label %84, label %89
 
 84:                                               ; preds = %82
@@ -2649,7 +2649,7 @@ exisAssign.exit.thread:                           ; preds = %316, %324, %exisAss
   br i1 %547, label %548, label %555
 
 548:                                              ; preds = %544
-  %549 = icmp ult i32 %546, 264
+  %549 = icmp samesign ult i32 %546, 264
   %550 = add nuw i64 %537, 4294967038
   %551 = and i64 %550, 4294967295
   %552 = select i1 %549, i64 %551, i64 0
@@ -2675,7 +2675,7 @@ extypename.exit:                                  ; preds = %548, %555
   br i1 %563, label %564, label %571
 
 564:                                              ; preds = %extypename.exit
-  %565 = icmp ult i32 %562, 264
+  %565 = icmp samesign ult i32 %562, 264
   %566 = add nsw i32 %562, -258
   %567 = select i1 %565, i32 %566, i32 0
   %568 = zext nneg i32 %567 to i64
@@ -4708,7 +4708,7 @@ thread-pre-split:                                 ; preds = %1548, %1562
   br i1 %1687, label %1688, label %1695
 
 1688:                                             ; preds = %1684
-  %1689 = icmp ult i32 %1686, 264
+  %1689 = icmp samesign ult i32 %1686, 264
   %1690 = add nuw i64 %1677, 4294967038
   %1691 = and i64 %1690, 4294967295
   %1692 = select i1 %1689, i64 %1691, i64 0
@@ -4734,7 +4734,7 @@ extypename.exit931:                               ; preds = %1688, %1695
   br i1 %1703, label %1704, label %1711
 
 1704:                                             ; preds = %extypename.exit931
-  %1705 = icmp ult i32 %1702, 264
+  %1705 = icmp samesign ult i32 %1702, 264
   %1706 = add nsw i32 %1702, -258
   %1707 = select i1 %1705, i32 %1706, i32 0
   %1708 = zext nneg i32 %1707 to i64
@@ -4952,7 +4952,7 @@ extypename.exit933:                               ; preds = %1704, %1711
   br i1 %1834, label %1835, label %1842
 
 1835:                                             ; preds = %1831
-  %1836 = icmp ult i32 %1833, 264
+  %1836 = icmp samesign ult i32 %1833, 264
   %1837 = add nuw i64 %1825, 4294967038
   %1838 = and i64 %1837, 4294967295
   %1839 = select i1 %1836, i64 %1838, i64 0
@@ -4978,7 +4978,7 @@ extypename.exit935:                               ; preds = %1835, %1842
   br i1 %1850, label %1851, label %1858
 
 1851:                                             ; preds = %extypename.exit935
-  %1852 = icmp ult i32 %1849, 264
+  %1852 = icmp samesign ult i32 %1849, 264
   %1853 = add nsw i32 %1849, -258
   %1854 = select i1 %1852, i32 %1853, i32 0
   %1855 = zext nneg i32 %1854 to i64
@@ -6137,7 +6137,7 @@ define internal fastcc void @checkBinary(ptr nocapture noundef readonly %0, ptr 
   br i1 %16, label %18, label %25
 
 18:                                               ; preds = %17
-  %19 = icmp ult i32 %15, 264
+  %19 = icmp samesign ult i32 %15, 264
   %20 = add nsw i32 %15, -258
   %21 = select i1 %19, i32 %20, i32 0
   %22 = zext nneg i32 %21 to i64
@@ -6159,7 +6159,7 @@ extypename.exit:                                  ; preds = %18, %25
   br i1 %31, label %32, label %39
 
 32:                                               ; preds = %extypename.exit
-  %33 = icmp ult i32 %30, 264
+  %33 = icmp samesign ult i32 %30, 264
   %34 = add nsw i32 %30, -258
   %35 = select i1 %33, i32 %34, i32 0
   %36 = zext nneg i32 %35 to i64
@@ -6183,7 +6183,7 @@ extypename.exit14:                                ; preds = %32, %39
   br i1 %16, label %45, label %52
 
 45:                                               ; preds = %44
-  %46 = icmp ult i32 %15, 264
+  %46 = icmp samesign ult i32 %15, 264
   %47 = add nsw i32 %15, -258
   %48 = select i1 %46, i32 %47, i32 0
   %49 = zext nneg i32 %48 to i64
@@ -6522,7 +6522,7 @@ define internal fastcc noundef ptr @exnewsplit(ptr nocapture noundef readonly %0
   br i1 %20, label %21, label %28
 
 21:                                               ; preds = %16
-  %22 = icmp ult i32 %19, 264
+  %22 = icmp samesign ult i32 %19, 264
   %23 = add nsw i32 %19, -258
   %24 = select i1 %22, i32 %23, i32 0
   %25 = zext nneg i32 %24 to i64
@@ -6557,7 +6557,7 @@ extypename.exit:                                  ; preds = %21, %28
   br i1 %41, label %42, label %49
 
 42:                                               ; preds = %37
-  %43 = icmp ult i32 %40, 264
+  %43 = icmp samesign ult i32 %40, 264
   %44 = add nsw i32 %40, -258
   %45 = select i1 %43, i32 %44, i32 0
   %46 = zext nneg i32 %45 to i64
@@ -6590,7 +6590,7 @@ extypename.exit37:                                ; preds = %42, %49
   br i1 %60, label %61, label %68
 
 61:                                               ; preds = %57
-  %62 = icmp ult i32 %59, 264
+  %62 = icmp samesign ult i32 %59, 264
   %63 = add nsw i32 %59, -258
   %64 = select i1 %62, i32 %63, i32 0
   %65 = zext nneg i32 %64 to i64
@@ -6627,7 +6627,7 @@ extypename.exit39:                                ; preds = %61, %68
   br i1 %80, label %81, label %88
 
 81:                                               ; preds = %77
-  %82 = icmp ult i32 %79, 264
+  %82 = icmp samesign ult i32 %79, 264
   %83 = add nsw i32 %79, -258
   %84 = select i1 %82, i32 %83, i32 0
   %85 = zext nneg i32 %84 to i64
@@ -6764,7 +6764,7 @@ extypename.exit43.i:                              ; preds = %25
   br i1 %43, label %44, label %51
 
 44:                                               ; preds = %41
-  %45 = icmp ult i32 %42, 264
+  %45 = icmp samesign ult i32 %42, 264
   %46 = add nsw i32 %42, -258
   %47 = select i1 %45, i32 %46, i32 0
   %48 = zext nneg i32 %47 to i64

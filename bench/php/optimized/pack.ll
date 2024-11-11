@@ -399,7 +399,7 @@ define hidden void @zif_pack(ptr noundef %0, ptr nocapture noundef writeonly %1)
 130:                                              ; preds = %128
   %131 = sub nsw i32 2147483647, %.0517721
   %132 = lshr i32 %131, 1
-  %133 = icmp ult i32 %132, %104
+  %133 = icmp samesign ult i32 %132, %104
   br i1 %133, label %134, label %138
 
 134:                                              ; preds = %130, %128
@@ -424,7 +424,7 @@ define hidden void @zif_pack(ptr noundef %0, ptr nocapture noundef writeonly %1)
 143:                                              ; preds = %141
   %144 = sub nsw i32 2147483647, %.0517721
   %145 = lshr i32 %144, 2
-  %146 = icmp ult i32 %145, %104
+  %146 = icmp samesign ult i32 %145, %104
   br i1 %146, label %147, label %151
 
 147:                                              ; preds = %143, %141
@@ -449,7 +449,7 @@ define hidden void @zif_pack(ptr noundef %0, ptr nocapture noundef writeonly %1)
 156:                                              ; preds = %154
   %157 = sub nsw i32 2147483647, %.0517721
   %158 = lshr i32 %157, 2
-  %159 = icmp ult i32 %158, %104
+  %159 = icmp samesign ult i32 %158, %104
   br i1 %159, label %160, label %164
 
 160:                                              ; preds = %156, %154
@@ -474,7 +474,7 @@ define hidden void @zif_pack(ptr noundef %0, ptr nocapture noundef writeonly %1)
 169:                                              ; preds = %167
   %170 = sub nsw i32 2147483647, %.0517721
   %171 = lshr i32 %170, 3
-  %172 = icmp ult i32 %171, %104
+  %172 = icmp samesign ult i32 %171, %104
   br i1 %172, label %173, label %177
 
 173:                                              ; preds = %169, %167
@@ -499,7 +499,7 @@ define hidden void @zif_pack(ptr noundef %0, ptr nocapture noundef writeonly %1)
 182:                                              ; preds = %180
   %183 = sub nsw i32 2147483647, %.0517721
   %184 = lshr i32 %183, 2
-  %185 = icmp ult i32 %184, %104
+  %185 = icmp samesign ult i32 %184, %104
   br i1 %185, label %186, label %190
 
 186:                                              ; preds = %182, %180
@@ -524,7 +524,7 @@ define hidden void @zif_pack(ptr noundef %0, ptr nocapture noundef writeonly %1)
 195:                                              ; preds = %193
   %196 = sub nsw i32 2147483647, %.0517721
   %197 = lshr i32 %196, 3
-  %198 = icmp ult i32 %197, %104
+  %198 = icmp samesign ult i32 %197, %104
   br i1 %198, label %199, label %203
 
 199:                                              ; preds = %195, %193
@@ -845,7 +845,7 @@ define hidden void @zif_pack(ptr noundef %0, ptr nocapture noundef writeonly %1)
   %328 = or i8 %323, %327
   store i8 %328, ptr %326, align 1
   %329 = xor i32 %.0515793, 4
-  %330 = icmp ugt i32 %.in815, 1
+  %330 = icmp samesign ugt i32 %.in815, 1
   br i1 %330, label %.lr.ph797, label %._crit_edge798.loopexit
 
 ._crit_edge798.loopexit:                          ; preds = %322
@@ -898,7 +898,7 @@ define hidden void @zif_pack(ptr noundef %0, ptr nocapture noundef writeonly %1)
   store i8 %349, ptr %348, align 1
   %indvars.iv.next903 = add nsw i64 %indvars.iv902, 1
   %indvars.iv.next905 = add nsw i64 %indvars.iv904, 1
-  %350 = icmp ugt i32 %.2534785, 1
+  %350 = icmp samesign ugt i32 %.2534785, 1
   br i1 %350, label %.lr.ph789, label %.loopexit.loopexit
 
 351:                                              ; preds = %221
@@ -1105,7 +1105,7 @@ php_pack.exit641:                                 ; preds = %410
   %432 = getelementptr inbounds [1 x i8], ptr %220, i64 0, i64 %431
   store float %430, ptr %432, align 1
   %433 = add i32 %.10527754, 4
-  %434 = icmp ugt i32 %.in813, 1
+  %434 = icmp samesign ugt i32 %.in813, 1
   br i1 %434, label %.lr.ph756, label %.loopexit.loopexit820
 
 .lr.ph751:                                        ; preds = %.lr.ph751.preheader, %444
@@ -1135,7 +1135,7 @@ php_pack.exit641:                                 ; preds = %410
   %448 = getelementptr inbounds [1 x i8], ptr %220, i64 0, i64 %447
   store float %446, ptr %448, align 1
   %449 = add i32 %.11528749, 4
-  %450 = icmp ugt i32 %.in812, 1
+  %450 = icmp samesign ugt i32 %.in812, 1
   br i1 %450, label %.lr.ph751, label %.loopexit.loopexit821
 
 .lr.ph746:                                        ; preds = %.lr.ph746.preheader, %460
@@ -1167,7 +1167,7 @@ php_pack.exit641:                                 ; preds = %410
   %466 = call i32 @llvm.bswap.i32(i32 %465)
   store i32 %466, ptr %464, align 1
   %467 = add i32 %.12529744, 4
-  %468 = icmp ugt i32 %.in811, 1
+  %468 = icmp samesign ugt i32 %.in811, 1
   br i1 %468, label %.lr.ph746, label %.loopexit.loopexit822
 
 .lr.ph741:                                        ; preds = %.lr.ph741.preheader, %478
@@ -1196,7 +1196,7 @@ php_pack.exit641:                                 ; preds = %410
   %481 = getelementptr inbounds [1 x i8], ptr %220, i64 0, i64 %480
   store double %479, ptr %481, align 1
   %482 = add i32 %.13530739, 8
-  %483 = icmp ugt i32 %.in810, 1
+  %483 = icmp samesign ugt i32 %.in810, 1
   br i1 %483, label %.lr.ph741, label %.loopexit.loopexit823
 
 .lr.ph736:                                        ; preds = %.lr.ph736.preheader, %493
@@ -1225,7 +1225,7 @@ php_pack.exit641:                                 ; preds = %410
   %496 = getelementptr inbounds [1 x i8], ptr %220, i64 0, i64 %495
   store double %494, ptr %496, align 1
   %497 = add i32 %.14531734, 8
-  %498 = icmp ugt i32 %.in, 1
+  %498 = icmp samesign ugt i32 %.in, 1
   br i1 %498, label %.lr.ph736, label %.loopexit.loopexit824
 
 .lr.ph782:                                        ; preds = %.lr.ph782.preheader, %508
@@ -1256,7 +1256,7 @@ php_pack.exit641:                                 ; preds = %410
   %.sroa.0.0.insert.insert.i.i642 = call i64 @llvm.bswap.i64(i64 %512)
   store i64 %.sroa.0.0.insert.insert.i.i642, ptr %511, align 1
   %513 = add i32 %.15780, 8
-  %514 = icmp ugt i32 %.in814, 1
+  %514 = icmp samesign ugt i32 %.in814, 1
   br i1 %514, label %.lr.ph782, label %.loopexit.loopexit816
 
 515:                                              ; preds = %221
@@ -1697,7 +1697,7 @@ define hidden void @zif_unpack(ptr noundef %0, ptr nocapture noundef %1) local_u
   %or.cond12 = select i1 %129, i1 %130, i1 false
   %131 = sext i32 %spec.store.select to i64
   %132 = zext nneg i32 %spec.store.select to i64
-  %133 = icmp ugt i32 %108, 1
+  %133 = icmp samesign ugt i32 %108, 1
   %134 = add nuw nsw i64 %132, 32
   %135 = and i64 %134, 504
   %cond = icmp eq i8 %75, 74
@@ -1910,7 +1910,7 @@ define hidden void @zif_unpack(ptr noundef %0, ptr nocapture noundef %1) local_u
   ]
 
 227:                                              ; preds = %223, %223, %223, %223, %223
-  %228 = icmp ugt i64 %.19421182, 1
+  %228 = icmp samesign ugt i64 %.19421182, 1
   br i1 %228, label %223, label %._crit_edge1185
 
 ._crit_edge1185:                                  ; preds = %227, %223, %216

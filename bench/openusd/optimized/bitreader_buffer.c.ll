@@ -104,7 +104,7 @@ aom_rb_read_bit.exit:                             ; preds = %16, %24, %26
   %.0.i = phi i32 [ %22, %16 ], [ 0, %26 ], [ 0, %24 ]
   %28 = shl nuw i32 %.0.i, %.0
   %29 = or i32 %28, %.067
-  %30 = icmp ugt i32 %.0.in8, 1
+  %30 = icmp samesign ugt i32 %.0.in8, 1
   br i1 %30, label %8, label %._crit_edge, !llvm.loop !4
 
 ._crit_edge:                                      ; preds = %aom_rb_read_bit.exit, %2
@@ -162,7 +162,7 @@ aom_rb_read_bit.exit:                             ; preds = %16, %24, %26
   %.0.i = phi i32 [ %22, %16 ], [ 0, %26 ], [ 0, %24 ]
   %28 = shl nuw i32 %.0.i, %.0
   %29 = or i32 %28, %.067
-  %30 = icmp ugt i32 %.0.in8, 1
+  %30 = icmp samesign ugt i32 %.0.in8, 1
   br i1 %30, label %8, label %._crit_edge, !llvm.loop !6
 
 ._crit_edge:                                      ; preds = %aom_rb_read_bit.exit, %2
@@ -221,7 +221,7 @@ aom_rb_read_bit.exit.i:                           ; preds = %27, %25, %17
   %.0.i.i = phi i32 [ %23, %17 ], [ 0, %27 ], [ 0, %25 ]
   %29 = shl nuw i32 %.0.i.i, %.0.i
   %30 = or i32 %29, %.067.i
-  %31 = icmp ugt i32 %.0.in8.i, 1
+  %31 = icmp samesign ugt i32 %.0.in8.i, 1
   br i1 %31, label %9, label %aom_rb_read_literal.exit, !llvm.loop !4
 
 aom_rb_read_literal.exit:                         ; preds = %aom_rb_read_bit.exit.i, %2
@@ -322,7 +322,7 @@ aom_rb_read_bit.exit.i:                           ; preds = %44, %42, %34
   %.0.i.i = phi i32 [ %40, %34 ], [ 0, %44 ], [ 0, %42 ]
   %46 = shl nuw i32 %.0.i.i, %.0.i10
   %47 = or i32 %46, %.067.i
-  %48 = icmp ugt i32 %.0.in8.i, 1
+  %48 = icmp samesign ugt i32 %.0.in8.i, 1
   br i1 %48, label %.lr.ph.i, label %aom_rb_read_literal.exit, !llvm.loop !4
 
 aom_rb_read_literal.exit:                         ; preds = %aom_rb_read_bit.exit.i, %.critedge.thread
@@ -413,7 +413,7 @@ aom_rb_read_bit.exit.i.i.i.i:                     ; preds = %44, %42, %34
   %.0.i.i.i.i.i = phi i32 [ %40, %34 ], [ 0, %44 ], [ 0, %42 ]
   %46 = shl nuw i32 %.0.i.i.i.i.i, %.0.i.i.i.i
   %47 = or i32 %46, %.067.i.i.i.i
-  %48 = icmp ugt i32 %.0.in8.i.i.i.i, 1
+  %48 = icmp samesign ugt i32 %.0.in8.i.i.i.i, 1
   br i1 %48, label %26, label %aom_rb_read_literal.exit.i.i.i, !llvm.loop !4
 
 aom_rb_read_literal.exit.i.i.i:                   ; preds = %aom_rb_read_bit.exit.i.i.i.i
@@ -553,7 +553,7 @@ aom_rb_read_bit.exit.i27.i.i:                     ; preds = %121, %119, %111
   %.0.i.i28.i.i = phi i32 [ %117, %111 ], [ 0, %121 ], [ 0, %119 ]
   %123 = shl nuw i32 %.0.i.i28.i.i, %.0.i25.i.i
   %124 = or i32 %123, %.067.i.i.i
-  %125 = icmp ugt i32 %.0.in8.i.i.i, 1
+  %125 = icmp samesign ugt i32 %.0.in8.i.i.i, 1
   br i1 %125, label %103, label %aom_rb_read_literal.exit.i.i, !llvm.loop !4
 
 aom_rb_read_literal.exit.i.i:                     ; preds = %aom_rb_read_bit.exit.i27.i.i, %aom_rb_read_bit.exit.thread.i.i

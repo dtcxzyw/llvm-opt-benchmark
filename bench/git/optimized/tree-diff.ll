@@ -519,7 +519,7 @@ for.body198:                                      ; preds = %for.body198.prehead
   %arrayidx200 = getelementptr inbounds ptr, ptr %tptree.0256, i64 %indvars.iv.next248
   %55 = load ptr, ptr %arrayidx200, align 8
   call void @free(ptr noundef %55) #10
-  %cmp196 = icmp ugt i64 %indvars.iv247, 1
+  %cmp196 = icmp samesign ugt i64 %indvars.iv247, 1
   br i1 %cmp196, label %for.body198, label %do.body203, !llvm.loop !15
 
 do.body203:                                       ; preds = %for.body198, %for.end194.thread, %for.end194

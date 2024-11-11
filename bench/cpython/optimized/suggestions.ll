@@ -1353,7 +1353,7 @@ if.then36:                                        ; preds = %if.end30
   br label %return
 
 if.end38:                                         ; preds = %if.end30
-  %cmp39 = icmp ult i64 %b_size.addr.1, %a_size.addr.1
+  %cmp39 = icmp samesign ult i64 %b_size.addr.1, %a_size.addr.1
   br i1 %cmp39, label %if.then41, label %if.end42
 
 if.then41:                                        ; preds = %if.end38

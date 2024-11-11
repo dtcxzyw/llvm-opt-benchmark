@@ -5573,7 +5573,7 @@ while.body.i:                                     ; preds = %while.body.i, %whil
   %11 = load ptr, ptr %arrayidx2.i, align 8
   store ptr %11, ptr %arrayidx.i, align 8
   store ptr %10, ptr %arrayidx2.i, align 8
-  %cmp.i = icmp ugt i64 %indvars.iv.i, 2
+  %cmp.i = icmp samesign ugt i64 %indvars.iv.i, 2
   br i1 %cmp.i, label %while.body.i, label %_Z7shuffleIP4exprEvjPT_R10random_gen.exit, !llvm.loop !41
 
 _Z7shuffleIP4exprEvjPT_R10random_gen.exit:        ; preds = %while.body.i, %invoke.cont.thread, %invoke.cont
@@ -5997,7 +5997,7 @@ while.body.i91:                                   ; preds = %while.body.i91, %wh
   %76 = load ptr, ptr %arrayidx2.i101, align 8
   store ptr %76, ptr %arrayidx.i99, align 8
   store ptr %75, ptr %arrayidx2.i101, align 8
-  %cmp.i102 = icmp ugt i64 %indvars.iv.i92, 2
+  %cmp.i102 = icmp samesign ugt i64 %indvars.iv.i92, 2
   br i1 %cmp.i102, label %while.body.i91, label %_Z7shuffleIP4exprEvjPT_R10random_gen.exit103, !llvm.loop !41
 
 _Z7shuffleIP4exprEvjPT_R10random_gen.exit103:     ; preds = %while.body.i91, %_ZN10ref_vectorI4expr11ast_managerED2Ev.exit80, %invoke.cont22
@@ -11962,7 +11962,7 @@ _ZN3opt13weighted_coreaSEOS0_.exit:               ; preds = %if.end.i.i.i15, %if
   %bf.set34.i.i22.i.i.i = or disjoint i8 %bf.clear16.i.i13.i.i.i, %23
   store i8 %bf.set34.i.i22.i.i.i, ptr %m_owner4.i.i7.i.i.i, align 4
   %dec.i.i.i.i.i = add nsw i64 %__n.07.i.i.i.i.i, -1
-  %cmp.i.i.i.i.i = icmp ugt i64 %__n.07.i.i.i.i.i, 1
+  %cmp.i.i.i.i.i = icmp samesign ugt i64 %__n.07.i.i.i.i.i, 1
   br i1 %cmp.i.i.i.i.i, label %if.end.i.i.i15, label %invoke.cont, !llvm.loop !75
 
 invoke.cont:                                      ; preds = %_ZN3opt13weighted_coreaSEOS0_.exit, %if.then2

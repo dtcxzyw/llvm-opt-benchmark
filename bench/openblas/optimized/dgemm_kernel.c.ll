@@ -80,7 +80,7 @@ define noundef i32 @dgemm_kernel(i64 noundef %0, i64 noundef %1, i64 noundef %2,
   %56 = sub nsw i64 %21, %50
   %57 = getelementptr inbounds double, ptr %46, i64 %56
   %58 = add nsw i64 %39, -12
-  %59 = icmp ugt i64 %39, 23
+  %59 = icmp samesign ugt i64 %39, 23
   br i1 %59, label %33, label %.loopexit26, !llvm.loop !10
 
 .loopexit25:                                      ; preds = %69, %.loopexit26
@@ -123,7 +123,7 @@ define noundef i32 @dgemm_kernel(i64 noundef %0, i64 noundef %1, i64 noundef %2,
   %92 = sub nsw i64 %32, %86
   %93 = getelementptr inbounds double, ptr %82, i64 %92
   %94 = add nsw i64 %75, -10
-  %95 = icmp ugt i64 %75, 19
+  %95 = icmp samesign ugt i64 %75, 19
   br i1 %95, label %69, label %.loopexit25, !llvm.loop !14
 
 .loopexit24:                                      ; preds = %.preheader, %.loopexit25
@@ -170,7 +170,7 @@ define noundef i32 @dgemm_kernel(i64 noundef %0, i64 noundef %1, i64 noundef %2,
   %129 = sub nsw i64 %18, %123
   %130 = getelementptr inbounds double, ptr %119, i64 %129
   %131 = add nsw i64 %112, -8
-  %132 = icmp ugt i64 %112, 15
+  %132 = icmp samesign ugt i64 %112, 15
   br i1 %132, label %.preheader, label %.loopexit24, !llvm.loop !16
 
 .loopexit23:                                      ; preds = %144, %.loopexit24
@@ -217,7 +217,7 @@ define noundef i32 @dgemm_kernel(i64 noundef %0, i64 noundef %1, i64 noundef %2,
   %167 = sub nsw i64 %106, %161
   %168 = getelementptr inbounds double, ptr %157, i64 %167
   %169 = add nsw i64 %150, -6
-  %170 = icmp ugt i64 %150, 11
+  %170 = icmp samesign ugt i64 %150, 11
   br i1 %170, label %144, label %.loopexit23, !llvm.loop !18
 
 .loopexit22:                                      ; preds = %182, %.loopexit23
@@ -264,7 +264,7 @@ define noundef i32 @dgemm_kernel(i64 noundef %0, i64 noundef %1, i64 noundef %2,
   %205 = sub nsw i64 %143, %199
   %206 = getelementptr inbounds double, ptr %195, i64 %205
   %207 = add nsw i64 %188, -4
-  %208 = icmp ugt i64 %188, 7
+  %208 = icmp samesign ugt i64 %188, 7
   br i1 %208, label %182, label %.loopexit22, !llvm.loop !20
 
 209:                                              ; preds = %209, %180
@@ -295,7 +295,7 @@ define noundef i32 @dgemm_kernel(i64 noundef %0, i64 noundef %1, i64 noundef %2,
   %232 = sub nsw i64 %181, %226
   %233 = getelementptr inbounds double, ptr %222, i64 %232
   %234 = add nsw i64 %215, -2
-  %235 = icmp ugt i64 %215, 3
+  %235 = icmp samesign ugt i64 %215, 3
   br i1 %235, label %209, label %.loopexit, !llvm.loop !22
 
 .loopexit:                                        ; preds = %209, %.loopexit22

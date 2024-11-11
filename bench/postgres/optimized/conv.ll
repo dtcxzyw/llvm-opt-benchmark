@@ -463,7 +463,7 @@ define dso_local i32 @UtfToLocal(ptr noundef %0, i32 noundef %1, ptr nocapture n
   %52 = or disjoint i32 %51, %49
   %53 = zext i8 %.0122 to i32
   %54 = or disjoint i32 %52, %53
-  %55 = icmp ugt i32 %.0112199, %22
+  %55 = icmp samesign ugt i32 %.0112199, %22
   %or.cond140 = and i1 %.not, %55
   br i1 %or.cond140, label %56, label %137
 

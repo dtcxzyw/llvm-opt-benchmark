@@ -125,7 +125,7 @@ define noundef i32 @dissect_oer_constrained_integer(ptr noundef %0, i32 noundef 
   br label %51
 
 16:                                               ; preds = %12
-  %17 = icmp ult i64 %6, 65536
+  %17 = icmp samesign ult i64 %6, 65536
   br i1 %17, label %18, label %20
 
 18:                                               ; preds = %16
@@ -151,7 +151,7 @@ define noundef i32 @dissect_oer_constrained_integer(ptr noundef %0, i32 noundef 
   unreachable
 
 30:                                               ; preds = %9
-  %31 = icmp ugt i64 %5, -129
+  %31 = icmp samesign ugt i64 %5, -129
   %32 = icmp slt i64 %6, 128
   %or.cond = and i1 %31, %32
   br i1 %or.cond, label %33, label %35
@@ -161,7 +161,7 @@ define noundef i32 @dissect_oer_constrained_integer(ptr noundef %0, i32 noundef 
   br label %51
 
 35:                                               ; preds = %30
-  %36 = icmp ugt i64 %5, -32769
+  %36 = icmp samesign ugt i64 %5, -32769
   %37 = icmp slt i64 %6, 32768
   %or.cond3 = and i1 %36, %37
   br i1 %or.cond3, label %38, label %40
@@ -171,7 +171,7 @@ define noundef i32 @dissect_oer_constrained_integer(ptr noundef %0, i32 noundef 
   br label %51
 
 40:                                               ; preds = %35
-  %41 = icmp ugt i64 %5, -2147483649
+  %41 = icmp samesign ugt i64 %5, -2147483649
   %42 = icmp slt i64 %6, 2147483648
   %or.cond5 = and i1 %41, %42
   br i1 %or.cond5, label %43, label %45
@@ -981,7 +981,7 @@ index_get_field_name.exit:                        ; preds = %137, %145
   %172 = add nsw i32 %159, -1
   %173 = zext nneg i8 %162 to i32
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %12, i8 0, i64 16, i1 false)
-  %174 = icmp ugt i32 %172, 16
+  %174 = icmp samesign ugt i32 %172, 16
   br i1 %174, label %175, label %181
 
 175:                                              ; preds = %170

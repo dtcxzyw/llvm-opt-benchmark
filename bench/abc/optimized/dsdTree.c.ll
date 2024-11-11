@@ -1531,7 +1531,7 @@ define void @Dsd_TreePrint2_rec(ptr noundef %0, ptr noundef %1, ptr noundef %2, 
   br label %Abc_TtPrintHexRev.exit
 
 48:                                               ; preds = %24
-  %49 = icmp ult i16 %35, 7
+  %49 = icmp samesign ult i16 %35, 7
   %50 = add nsw i32 %36, -6
   %51 = shl nuw i32 1, %50
   %52 = sext i32 %51 to i64

@@ -3637,7 +3637,7 @@ spa_pod_parser_can_collect.exit.i:                ; preds = %273
 293:                                              ; preds = %289
   %294 = add nuw nsw i32 %100, 8
   store i32 %294, ptr %2, align 16
-  %295 = icmp ult i32 %100, 33
+  %295 = icmp samesign ult i32 %100, 33
   br i1 %295, label %296, label %._crit_edge10
 
 ._crit_edge10:                                    ; preds = %293
@@ -3667,7 +3667,7 @@ spa_pod_parser_can_collect.exit.i:                ; preds = %273
 305:                                              ; preds = %301
   %306 = add nuw nsw i32 %100, 8
   store i32 %306, ptr %2, align 16
-  %307 = icmp ult i32 %100, 33
+  %307 = icmp samesign ult i32 %100, 33
   br i1 %307, label %308, label %._crit_edge5
 
 ._crit_edge5:                                     ; preds = %305
@@ -3915,7 +3915,7 @@ thread-pre-split157.i:                            ; preds = %spa_pod_is_string.e
   %431 = add nuw nsw i32 %100, 8
   store i32 %431, ptr %2, align 16
   %432 = load ptr, ptr %430, align 8
-  %433 = icmp ult i32 %100, 33
+  %433 = icmp samesign ult i32 %100, 33
   br i1 %433, label %434, label %._crit_edge
 
 ._crit_edge:                                      ; preds = %427
@@ -4553,7 +4553,7 @@ define internal void @spa_pod_builder_add(ptr nocapture noundef nonnull %0, ...)
   %113 = add nuw nsw i32 %104, 8
   store i32 %113, ptr %16, align 16
   %114 = load i32, ptr %112, align 4
-  %115 = icmp ult i32 %104, 33
+  %115 = icmp samesign ult i32 %104, 33
   br i1 %115, label %116, label %._crit_edge
 
 ._crit_edge:                                      ; preds = %109
@@ -5064,7 +5064,7 @@ spa_pod_builder_push_choice.exit.i:               ; preds = %spa_pod_builder_raw
   %334 = add nuw nsw i32 %325, 8
   store i32 %334, ptr %16, align 16
   %335 = load ptr, ptr %333, align 8
-  %336 = icmp ult i32 %325, 33
+  %336 = icmp samesign ult i32 %325, 33
   br i1 %336, label %337, label %._crit_edge11
 
 ._crit_edge11:                                    ; preds = %330
@@ -5111,7 +5111,7 @@ spa_pod_builder_push_choice.exit.i:               ; preds = %spa_pod_builder_raw
   %359 = add nuw nsw i32 %350, 8
   store i32 %359, ptr %16, align 16
   %360 = load ptr, ptr %358, align 8
-  %361 = icmp ult i32 %350, 33
+  %361 = icmp samesign ult i32 %350, 33
   br i1 %361, label %362, label %._crit_edge9
 
 ._crit_edge9:                                     ; preds = %355
@@ -5283,7 +5283,7 @@ spa_pod_builder_bytes.exit.i:                     ; preds = %.lr.ph.i.i153.i, %.
   %441 = add nuw nsw i32 %432, 8
   store i32 %441, ptr %16, align 16
   %442 = load i32, ptr %440, align 4
-  %443 = icmp ult i32 %432, 33
+  %443 = icmp samesign ult i32 %432, 33
   br i1 %443, label %448, label %..thread212.i_crit_edge
 
 ..thread212.i_crit_edge:                          ; preds = %437
@@ -5304,7 +5304,7 @@ spa_pod_builder_bytes.exit.i:                     ; preds = %.lr.ph.i.i153.i, %.
   %451 = add nuw nsw i32 %432, 16
   store i32 %451, ptr %16, align 16
   %452 = load i32, ptr %450, align 4
-  %453 = icmp ult i32 %432, 25
+  %453 = icmp samesign ult i32 %432, 25
   br i1 %453, label %459, label %..thread215.i_crit_edge
 
 ..thread215.i_crit_edge:                          ; preds = %448
@@ -5326,7 +5326,7 @@ spa_pod_builder_bytes.exit.i:                     ; preds = %.lr.ph.i.i153.i, %.
   %462 = add nuw nsw i32 %432, 24
   store i32 %462, ptr %16, align 16
   %463 = load i32, ptr %461, align 4
-  %464 = icmp ult i32 %432, 17
+  %464 = icmp samesign ult i32 %432, 17
   br i1 %464, label %465, label %._crit_edge7
 
 ._crit_edge7:                                     ; preds = %459
@@ -5440,7 +5440,7 @@ spa_pod_builder_array.exit.i:                     ; preds = %.lr.ph.i.i169.i, %.
   %516 = add nuw nsw i32 %507, 8
   store i32 %516, ptr %16, align 16
   %517 = load i32, ptr %515, align 4
-  %518 = icmp ult i32 %507, 33
+  %518 = icmp samesign ult i32 %507, 33
   br i1 %518, label %519, label %._crit_edge3
 
 ._crit_edge3:                                     ; preds = %512

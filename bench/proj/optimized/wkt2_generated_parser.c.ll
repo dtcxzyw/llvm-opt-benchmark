@@ -671,7 +671,7 @@ define hidden range(i32 0, 3) i32 @pj_wkt2_parse(ptr noundef %0) local_unnamed_a
   br i1 %51, label %59, label %52
 
 52:                                               ; preds = %50
-  %53 = icmp ult i32 %.5, 410
+  %53 = icmp samesign ult i32 %.5, 410
   br i1 %53, label %54, label %59
 
 54:                                               ; preds = %52

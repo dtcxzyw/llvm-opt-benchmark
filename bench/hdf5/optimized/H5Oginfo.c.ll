@@ -102,7 +102,7 @@ define internal ptr @H5O__ginfo_decode(ptr nocapture readnone %0, ptr nocapture 
   %49 = and i8 %43, 1
   %50 = getelementptr inbounds i8, ptr %26, i64 4
   store i8 %49, ptr %50, align 4
-  %51 = icmp ugt i8 %43, 1
+  %51 = icmp samesign ugt i8 %43, 1
   %52 = getelementptr inbounds i8, ptr %26, i64 10
   %53 = zext i1 %51 to i8
   store i8 %53, ptr %52, align 2

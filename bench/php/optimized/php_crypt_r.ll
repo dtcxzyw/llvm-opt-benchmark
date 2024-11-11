@@ -105,7 +105,7 @@ sub_2:                                            ; preds = %sub_1
   %23 = zext nneg i32 %22 to i64
   call void @PHP_MD5Update(ptr noundef nonnull %4, ptr noundef nonnull %3, i64 noundef %23) #7
   %24 = add nsw i32 %.086, -16
-  %25 = icmp ugt i32 %.086, 16
+  %25 = icmp samesign ugt i32 %.086, 16
   br i1 %25, label %.lr.ph, label %._crit_edge
 
 ._crit_edge:                                      ; preds = %.lr.ph, %.critedge
@@ -215,7 +215,7 @@ sub_2:                                            ; preds = %sub_1
   %67 = getelementptr inbounds i8, ptr %.046.i, i64 1
   store i8 %66, ptr %.046.i, align 1
   %68 = lshr i32 %.037.i, 6
-  %69 = icmp ugt i32 %.08.i, 1
+  %69 = icmp samesign ugt i32 %.08.i, 1
   br i1 %69, label %61, label %to64.exit
 
 to64.exit:                                        ; preds = %61
@@ -247,7 +247,7 @@ to64.exit:                                        ; preds = %61
   %90 = getelementptr inbounds i8, ptr %.046.i66, i64 1
   store i8 %89, ptr %.046.i66, align 1
   %91 = lshr i32 %.037.i65, 6
-  %92 = icmp ugt i32 %.08.i64, 1
+  %92 = icmp samesign ugt i32 %.08.i64, 1
   br i1 %92, label %84, label %to64.exit67
 
 to64.exit67:                                      ; preds = %84
@@ -279,7 +279,7 @@ to64.exit67:                                      ; preds = %84
   %113 = getelementptr inbounds i8, ptr %.046.i70, i64 1
   store i8 %112, ptr %.046.i70, align 1
   %114 = lshr i32 %.037.i69, 6
-  %115 = icmp ugt i32 %.08.i68, 1
+  %115 = icmp samesign ugt i32 %.08.i68, 1
   br i1 %115, label %107, label %to64.exit71
 
 to64.exit71:                                      ; preds = %107
@@ -311,7 +311,7 @@ to64.exit71:                                      ; preds = %107
   %136 = getelementptr inbounds i8, ptr %.046.i74, i64 1
   store i8 %135, ptr %.046.i74, align 1
   %137 = lshr i32 %.037.i73, 6
-  %138 = icmp ugt i32 %.08.i72, 1
+  %138 = icmp samesign ugt i32 %.08.i72, 1
   br i1 %138, label %130, label %to64.exit75
 
 to64.exit75:                                      ; preds = %130
@@ -343,7 +343,7 @@ to64.exit75:                                      ; preds = %130
   %159 = getelementptr inbounds i8, ptr %.046.i78, i64 1
   store i8 %158, ptr %.046.i78, align 1
   %160 = lshr i32 %.037.i77, 6
-  %161 = icmp ugt i32 %.08.i76, 1
+  %161 = icmp samesign ugt i32 %.08.i76, 1
   br i1 %161, label %153, label %to64.exit79
 
 to64.exit79:                                      ; preds = %153
@@ -365,7 +365,7 @@ to64.exit79:                                      ; preds = %153
   %172 = getelementptr inbounds i8, ptr %.046.i82, i64 1
   store i8 %171, ptr %.046.i82, align 1
   %173 = lshr i32 %.037.i81, 6
-  %174 = icmp ugt i32 %.08.i80, 1
+  %174 = icmp samesign ugt i32 %.08.i80, 1
   br i1 %174, label %166, label %to64.exit83
 
 to64.exit83:                                      ; preds = %166

@@ -1778,7 +1778,7 @@ _ZN10WriterHostI11EncoderHostI20BigEndianEncoderImplS1_ES0_I20Varint128EncoderIm
 61:                                               ; preds = %.lr.ph, %54
   %.125 = phi i32 [ %59, %54 ], [ %.02428, %.lr.ph ]
   %.1 = phi i64 [ %60, %54 ], [ %.029, %.lr.ph ]
-  %62 = icmp ugt i64 %indvars.iv, 1
+  %62 = icmp samesign ugt i64 %indvars.iv, 1
   br i1 %62, label %.lr.ph, label %._crit_edge, !llvm.loop !12
 
 ._crit_edge:                                      ; preds = %61

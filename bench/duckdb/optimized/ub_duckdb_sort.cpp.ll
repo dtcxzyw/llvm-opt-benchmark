@@ -16504,9 +16504,9 @@ while.cond.preheader:                             ; preds = %invoke.cont14
 while.body:                                       ; preds = %while.cond.preheader, %while.body
   %2 = phi i64 [ %inc, %while.body ], [ %max_bits.promoted, %while.cond.preheader ]
   %inc = add nuw nsw i64 %2, 1
-  %cmp = icmp ult i64 %2, 9
+  %cmp = icmp samesign ult i64 %2, 9
   %shr = lshr i64 %call19, %inc
-  %cmp22 = icmp ugt i64 %shr, 1
+  %cmp22 = icmp samesign ugt i64 %shr, 1
   %or.cond = select i1 %cmp, i1 %cmp22, i1 false
   br i1 %or.cond, label %while.body, label %while.cond.while.end_crit_edge, !llvm.loop !401
 
@@ -17052,7 +17052,7 @@ while.cond:                                       ; preds = %while.cond, %cond.e
   %new_bits.0 = phi i64 [ %5, %cond.end.thread ], [ %inc, %while.cond ]
   %cmp = icmp ult i64 %new_bits.0, %6
   %div38 = lshr i64 %cardinality, %new_bits.0
-  %cmp17 = icmp ugt i64 %div38, 122880
+  %cmp17 = icmp samesign ugt i64 %div38, 122880
   %or.cond = select i1 %cmp, i1 %cmp17, i1 false
   %inc = add nuw i64 %new_bits.0, 1
   br i1 %or.cond, label %while.cond, label %while.end, !llvm.loop !433
@@ -28271,7 +28271,7 @@ if.else:                                          ; preds = %entry
 if.then3:                                         ; preds = %if.else
   %15 = load ptr, ptr %dataptr, align 8, !tbaa !17
   %entry_size5 = getelementptr inbounds i8, ptr %sort_layout, i64 248
-  %cmp.i = icmp ugt i64 %14, 1
+  %cmp.i = icmp samesign ugt i64 %14, 1
   br i1 %cmp.i, label %for.body.lr.ph.i, label %if.end29
 
 for.body.lr.ph.i:                                 ; preds = %if.then3

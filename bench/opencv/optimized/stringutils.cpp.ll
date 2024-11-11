@@ -380,7 +380,7 @@ define hidden void @_ZN5zxing6common11StringUtils18guessEncodingZXingB5cxx11EPci
   br i1 %84, label %85, label %90
 
 85:                                               ; preds = %83
-  %86 = icmp ult i8 %35, -64
+  %86 = icmp samesign ult i8 %35, -64
   %87 = and i8 %35, -33
   %88 = icmp eq i8 %87, -41
   %or.cond17 = or i1 %86, %88

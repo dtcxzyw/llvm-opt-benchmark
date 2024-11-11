@@ -8371,7 +8371,7 @@ _ZN7Matcher21vector_size_supportedE9BasicTypei.exit: ; preds = %5
   br i1 %244, label %_ZN7Matcher21vector_size_supportedE9BasicTypei.exit.thread, label %245
 
 245:                                              ; preds = %242
-  %246 = icmp ult i32 %243, 3
+  %246 = icmp samesign ult i32 %243, 3
   br i1 %246, label %247, label %.thread
 
 247:                                              ; preds = %245

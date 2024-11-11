@@ -1050,7 +1050,7 @@ if.then.i.i11:                                    ; preds = %sw.bb3.i9
   %idxprom.i.i = zext nneg i32 %div22.i.i to i64
   %arrayidx.i.i = getelementptr [4 x i32], ptr %TxStatus.i.i, i64 0, i64 %idxprom.i.i
   store i32 %conv7, ptr %arrayidx.i.i, align 4
-  %cmp.i.i = icmp ugt i32 %sub.i, 3
+  %cmp.i.i = icmp samesign ugt i32 %sub.i, 3
   %and.i43.i = and i32 %conv7, 8
   %tobool1.not.i.i = icmp eq i32 %and.i43.i, 0
   %or.cond.i.i = or i1 %cmp.i.i, %tobool1.not.i.i

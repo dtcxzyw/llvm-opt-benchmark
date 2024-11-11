@@ -65,16 +65,16 @@ define dso_local i32 @pglz_compress(ptr noundef %0, i32 noundef %1, ptr noundef 
   br i1 %33, label %40, label %34
 
 34:                                               ; preds = %30
-  %35 = icmp ult i32 %1, 256
+  %35 = icmp samesign ult i32 %1, 256
   br i1 %35, label %40, label %36
 
 36:                                               ; preds = %34
-  %37 = icmp ult i32 %1, 512
+  %37 = icmp samesign ult i32 %1, 512
   br i1 %37, label %40, label %38
 
 38:                                               ; preds = %.thread215, %36
   %.0160210214217 = phi i32 [ %29, %.thread215 ], [ %32, %36 ]
-  %39 = icmp ult i32 %1, 1024
+  %39 = icmp samesign ult i32 %1, 1024
   %. = select i1 %39, i32 4096, i32 8192
   br label %40
 
@@ -270,7 +270,7 @@ pglz_find_match.exit:                             ; preds = %._crit_edge.i
   %.1155 = phi ptr [ %.0140248, %134 ], [ %.0154244, %pglz_find_match.exit ]
   %.1 = phi ptr [ %135, %134 ], [ %.0140248, %pglz_find_match.exit ]
   %137 = or i8 %.1162, %.1170
-  %138 = icmp ugt i32 %spec.select.us.i, 17
+  %138 = icmp samesign ugt i32 %spec.select.us.i, 17
   %139 = lshr i32 %spec.select79.us.i, 4
   %140 = getelementptr i8, ptr %.1, i64 2
   br i1 %138, label %141, label %147

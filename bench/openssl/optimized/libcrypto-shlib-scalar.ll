@@ -297,7 +297,7 @@ for.body4.i:                                      ; preds = %for.cond1.preheader
   %inc.i = add nuw nsw i64 %j.09.i, 1
   %inc5.i = add nuw nsw i64 %k.110.i, 1
   %cmp2.i = icmp samesign ult i64 %j.09.i, 7
-  %cmp3.i = icmp ult i64 %k.110.i, 55
+  %cmp3.i = icmp samesign ult i64 %k.110.i, 55
   %1 = and i1 %cmp3.i, %cmp2.i
   br i1 %1, label %for.body4.i, label %for.end.i, !llvm.loop !11
 
@@ -438,7 +438,7 @@ for.body4.i.i:                                    ; preds = %for.cond1.preheader
   %inc.i.i = add nuw nsw i64 %j.09.i.i, 1
   %inc5.i.i = add nuw nsw i64 %k.110.i.i, 1
   %cmp2.i.i = icmp samesign ult i64 %j.09.i.i, 7
-  %cmp3.i.i = icmp ult i64 %k.110.i.i, 55
+  %cmp3.i.i = icmp samesign ult i64 %k.110.i.i, 55
   %3 = and i1 %cmp3.i.i, %cmp2.i.i
   br i1 %3, label %for.body4.i.i, label %for.end.i.i, !llvm.loop !11
 

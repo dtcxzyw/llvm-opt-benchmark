@@ -15193,7 +15193,7 @@ define void @_Z24communicateGpuHaloForcesRK9t_commrecbPN3gmx19FixedCapacityVecto
   %44 = load i64, ptr %9, align 8
   %45 = add i64 %44, 1
   store i64 %45, ptr %9, align 8
-  %46 = icmp ugt i64 %indvars.iv, 1
+  %46 = icmp samesign ugt i64 %indvars.iv, 1
   br i1 %46, label %.lr.ph, label %.loopexit, !llvm.loop !180
 
 ._crit_edge:                                      ; preds = %.loopexit, %3

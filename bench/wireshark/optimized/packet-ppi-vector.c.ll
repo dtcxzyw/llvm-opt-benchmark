@@ -450,16 +450,16 @@ define internal i32 @dissect_ppi_vector(ptr noundef %0, ptr noundef %1, ptr noun
   br label %48
 
 43:                                               ; preds = %37
-  %.not406.i = icmp ult i32 %35, 67108864
+  %.not406.i = icmp samesign ult i32 %35, 67108864
   br i1 %.not406.i, label %46, label %44
 
 44:                                               ; preds = %43
-  %.not408.i = icmp ugt i32 %35, 134217727
+  %.not408.i = icmp samesign ugt i32 %35, 134217727
   %45 = select i1 %.not408.i, i32 3, i32 2
   br label %48
 
 46:                                               ; preds = %43
-  %.not407.i = icmp ugt i32 %35, 33554431
+  %.not407.i = icmp samesign ugt i32 %35, 33554431
   %47 = zext i1 %.not407.i to i32
   br label %48
 
@@ -469,30 +469,30 @@ define internal i32 @dissect_ppi_vector(ptr noundef %0, ptr noundef %1, ptr noun
   br label %62
 
 51:                                               ; preds = %36
-  %.not398.i = icmp ult i32 %35, 1048576
+  %.not398.i = icmp samesign ult i32 %35, 1048576
   br i1 %.not398.i, label %57, label %52
 
 52:                                               ; preds = %51
-  %.not402.i = icmp ult i32 %35, 4194304
-  %.not404.i = icmp ugt i32 %35, 8388607
+  %.not402.i = icmp samesign ult i32 %35, 4194304
+  %.not404.i = icmp samesign ugt i32 %35, 8388607
   %53 = select i1 %.not404.i, i32 3, i32 2
-  %.not403.i = icmp ugt i32 %35, 2097151
+  %.not403.i = icmp samesign ugt i32 %35, 2097151
   %54 = zext i1 %.not403.i to i32
   %55 = select i1 %.not402.i, i32 %54, i32 %53
   %56 = or disjoint i32 %55, 4
   br label %62
 
 57:                                               ; preds = %51
-  %.not399.i = icmp ult i32 %35, 262144
+  %.not399.i = icmp samesign ult i32 %35, 262144
   br i1 %.not399.i, label %60, label %58
 
 58:                                               ; preds = %57
-  %.not401.i = icmp ugt i32 %35, 524287
+  %.not401.i = icmp samesign ugt i32 %35, 524287
   %59 = select i1 %.not401.i, i32 3, i32 2
   br label %62
 
 60:                                               ; preds = %57
-  %.not400.i = icmp ugt i32 %35, 131071
+  %.not400.i = icmp samesign ugt i32 %35, 131071
   %61 = zext i1 %.not400.i to i32
   br label %62
 
@@ -502,34 +502,34 @@ define internal i32 @dissect_ppi_vector(ptr noundef %0, ptr noundef %1, ptr noun
   br label %91
 
 65:                                               ; preds = %32
-  %.not382.i = icmp ult i32 %35, 256
+  %.not382.i = icmp samesign ult i32 %35, 256
   br i1 %.not382.i, label %80, label %66
 
 66:                                               ; preds = %65
-  %.not390.i = icmp ult i32 %35, 4096
+  %.not390.i = icmp samesign ult i32 %35, 4096
   br i1 %.not390.i, label %72, label %67
 
 67:                                               ; preds = %66
-  %.not394.i = icmp ult i32 %35, 16384
-  %.not396.i = icmp ugt i32 %35, 32767
+  %.not394.i = icmp samesign ult i32 %35, 16384
+  %.not396.i = icmp samesign ugt i32 %35, 32767
   %68 = select i1 %.not396.i, i32 3, i32 2
-  %.not395.i = icmp ugt i32 %35, 8191
+  %.not395.i = icmp samesign ugt i32 %35, 8191
   %69 = zext i1 %.not395.i to i32
   %70 = select i1 %.not394.i, i32 %69, i32 %68
   %71 = or disjoint i32 %70, 4
   br label %77
 
 72:                                               ; preds = %66
-  %.not391.i = icmp ult i32 %35, 1024
+  %.not391.i = icmp samesign ult i32 %35, 1024
   br i1 %.not391.i, label %75, label %73
 
 73:                                               ; preds = %72
-  %.not393.i = icmp ugt i32 %35, 2047
+  %.not393.i = icmp samesign ugt i32 %35, 2047
   %74 = select i1 %.not393.i, i32 3, i32 2
   br label %77
 
 75:                                               ; preds = %72
-  %.not392.i = icmp ugt i32 %35, 511
+  %.not392.i = icmp samesign ugt i32 %35, 511
   %76 = zext i1 %.not392.i to i32
   br label %77
 
@@ -539,30 +539,30 @@ define internal i32 @dissect_ppi_vector(ptr noundef %0, ptr noundef %1, ptr noun
   br label %91
 
 80:                                               ; preds = %65
-  %.not383.i = icmp ult i32 %35, 16
+  %.not383.i = icmp samesign ult i32 %35, 16
   br i1 %.not383.i, label %86, label %81
 
 81:                                               ; preds = %80
-  %.not387.i = icmp ult i32 %35, 64
-  %.not389.i = icmp ugt i32 %35, 127
+  %.not387.i = icmp samesign ult i32 %35, 64
+  %.not389.i = icmp samesign ugt i32 %35, 127
   %82 = select i1 %.not389.i, i32 3, i32 2
-  %.not388.i = icmp ugt i32 %35, 31
+  %.not388.i = icmp samesign ugt i32 %35, 31
   %83 = zext i1 %.not388.i to i32
   %84 = select i1 %.not387.i, i32 %83, i32 %82
   %85 = or disjoint i32 %84, 4
   br label %91
 
 86:                                               ; preds = %80
-  %.not384.i = icmp ult i32 %35, 4
+  %.not384.i = icmp samesign ult i32 %35, 4
   br i1 %.not384.i, label %89, label %87
 
 87:                                               ; preds = %86
-  %.not386.i = icmp ugt i32 %35, 7
+  %.not386.i = icmp samesign ugt i32 %35, 7
   %88 = icmp slt i32 %.0360430.i, 4
   br i1 %.not386.i, label %.thread427.i, label %.thread.i
 
 89:                                               ; preds = %86
-  %.not385.i = icmp ugt i32 %35, 1
+  %.not385.i = icmp samesign ugt i32 %35, 1
   %90 = zext i1 %.not385.i to i32
   br label %91
 
@@ -1014,7 +1014,7 @@ define internal i32 @dissect_ppi_vector(ptr noundef %0, ptr noundef %1, ptr noun
   %344 = add nsw i32 %10, -8
   %345 = and i32 %340, 1
   %346 = icmp ne i32 %345, 0
-  %347 = icmp ugt i16 %9, 11
+  %347 = icmp samesign ugt i16 %9, 11
   %or.cond.i = and i1 %347, %346
   br i1 %or.cond.i, label %348, label %355
 
@@ -1039,7 +1039,7 @@ define internal i32 @dissect_ppi_vector(ptr noundef %0, ptr noundef %1, ptr noun
   %.0311384.i = phi i32 [ 0, %355 ], [ %349, %348 ], [ %349, %354 ]
   %356 = and i32 %340, 2
   %357 = icmp ne i32 %356, 0
-  %358 = icmp ugt i16 %9, 15
+  %358 = icmp samesign ugt i16 %9, 15
   %or.cond3.i = and i1 %358, %357
   br i1 %or.cond3.i, label %361, label %.lr.ph.i48
 
@@ -1155,16 +1155,16 @@ annotate_vector_chars.exit.i:                     ; preds = %.critedge.i
   br label %401
 
 396:                                              ; preds = %390
-  %.not356.i = icmp ult i32 %388, 67108864
+  %.not356.i = icmp samesign ult i32 %388, 67108864
   br i1 %.not356.i, label %399, label %397
 
 397:                                              ; preds = %396
-  %.not358.i = icmp ugt i32 %388, 134217727
+  %.not358.i = icmp samesign ugt i32 %388, 134217727
   %398 = select i1 %.not358.i, i32 3, i32 2
   br label %401
 
 399:                                              ; preds = %396
-  %.not357.i = icmp ugt i32 %388, 33554431
+  %.not357.i = icmp samesign ugt i32 %388, 33554431
   %400 = zext i1 %.not357.i to i32
   br label %401
 
@@ -1174,30 +1174,30 @@ annotate_vector_chars.exit.i:                     ; preds = %.critedge.i
   br label %415
 
 404:                                              ; preds = %389
-  %.not348.i = icmp ult i32 %388, 1048576
+  %.not348.i = icmp samesign ult i32 %388, 1048576
   br i1 %.not348.i, label %410, label %405
 
 405:                                              ; preds = %404
-  %.not352.i = icmp ult i32 %388, 4194304
-  %.not354.i = icmp ugt i32 %388, 8388607
+  %.not352.i = icmp samesign ult i32 %388, 4194304
+  %.not354.i = icmp samesign ugt i32 %388, 8388607
   %406 = select i1 %.not354.i, i32 3, i32 2
-  %.not353.i = icmp ugt i32 %388, 2097151
+  %.not353.i = icmp samesign ugt i32 %388, 2097151
   %407 = zext i1 %.not353.i to i32
   %408 = select i1 %.not352.i, i32 %407, i32 %406
   %409 = or disjoint i32 %408, 4
   br label %415
 
 410:                                              ; preds = %404
-  %.not349.i = icmp ult i32 %388, 262144
+  %.not349.i = icmp samesign ult i32 %388, 262144
   br i1 %.not349.i, label %413, label %411
 
 411:                                              ; preds = %410
-  %.not351.i = icmp ugt i32 %388, 524287
+  %.not351.i = icmp samesign ugt i32 %388, 524287
   %412 = select i1 %.not351.i, i32 3, i32 2
   br label %415
 
 413:                                              ; preds = %410
-  %.not350.i = icmp ugt i32 %388, 131071
+  %.not350.i = icmp samesign ugt i32 %388, 131071
   %414 = zext i1 %.not350.i to i32
   br label %415
 
@@ -1207,34 +1207,34 @@ annotate_vector_chars.exit.i:                     ; preds = %.critedge.i
   br label %444
 
 418:                                              ; preds = %385
-  %.not332.i = icmp ult i32 %388, 256
+  %.not332.i = icmp samesign ult i32 %388, 256
   br i1 %.not332.i, label %433, label %419
 
 419:                                              ; preds = %418
-  %.not340.i = icmp ult i32 %388, 4096
+  %.not340.i = icmp samesign ult i32 %388, 4096
   br i1 %.not340.i, label %425, label %420
 
 420:                                              ; preds = %419
-  %.not344.i = icmp ult i32 %388, 16384
-  %.not346.i = icmp ugt i32 %388, 32767
+  %.not344.i = icmp samesign ult i32 %388, 16384
+  %.not346.i = icmp samesign ugt i32 %388, 32767
   %421 = select i1 %.not346.i, i32 3, i32 2
-  %.not345.i = icmp ugt i32 %388, 8191
+  %.not345.i = icmp samesign ugt i32 %388, 8191
   %422 = zext i1 %.not345.i to i32
   %423 = select i1 %.not344.i, i32 %422, i32 %421
   %424 = or disjoint i32 %423, 4
   br label %430
 
 425:                                              ; preds = %419
-  %.not341.i = icmp ult i32 %388, 1024
+  %.not341.i = icmp samesign ult i32 %388, 1024
   br i1 %.not341.i, label %428, label %426
 
 426:                                              ; preds = %425
-  %.not343.i = icmp ugt i32 %388, 2047
+  %.not343.i = icmp samesign ugt i32 %388, 2047
   %427 = select i1 %.not343.i, i32 3, i32 2
   br label %430
 
 428:                                              ; preds = %425
-  %.not342.i = icmp ugt i32 %388, 511
+  %.not342.i = icmp samesign ugt i32 %388, 511
   %429 = zext i1 %.not342.i to i32
   br label %430
 
@@ -1244,30 +1244,30 @@ annotate_vector_chars.exit.i:                     ; preds = %.critedge.i
   br label %444
 
 433:                                              ; preds = %418
-  %.not333.i = icmp ult i32 %388, 16
+  %.not333.i = icmp samesign ult i32 %388, 16
   br i1 %.not333.i, label %439, label %434
 
 434:                                              ; preds = %433
-  %.not337.i = icmp ult i32 %388, 64
-  %.not339.i = icmp ugt i32 %388, 127
+  %.not337.i = icmp samesign ult i32 %388, 64
+  %.not339.i = icmp samesign ugt i32 %388, 127
   %435 = select i1 %.not339.i, i32 3, i32 2
-  %.not338.i = icmp ugt i32 %388, 31
+  %.not338.i = icmp samesign ugt i32 %388, 31
   %436 = zext i1 %.not338.i to i32
   %437 = select i1 %.not337.i, i32 %436, i32 %435
   %438 = or disjoint i32 %437, 4
   br label %444
 
 439:                                              ; preds = %433
-  %.not334.i = icmp ult i32 %388, 4
+  %.not334.i = icmp samesign ult i32 %388, 4
   br i1 %.not334.i, label %442, label %440
 
 440:                                              ; preds = %439
-  %.not336.i = icmp ugt i32 %388, 7
+  %.not336.i = icmp samesign ugt i32 %388, 7
   %441 = icmp slt i32 %.0305401.i, 4
   br i1 %.not336.i, label %.thread398.i, label %.thread397.i
 
 442:                                              ; preds = %439
-  %.not335.i = icmp ugt i32 %388, 1
+  %.not335.i = icmp samesign ugt i32 %388, 1
   %443 = zext i1 %.not335.i to i32
   br label %444
 

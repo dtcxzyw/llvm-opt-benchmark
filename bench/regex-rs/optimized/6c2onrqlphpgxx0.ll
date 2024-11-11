@@ -341,7 +341,7 @@ _ZN4core3cmp10PartialOrd2ge17h1cb516e475837d8dE.exit.thread.i: ; preds = %_ZN4co
   br label %57
 
 40:                                               ; preds = %24
-  %41 = icmp ugt i64 %.val24, 1
+  %41 = icmp samesign ugt i64 %.val24, 1
   br i1 %41, label %"_ZN115_$LT$core..ops..range..RangeInclusive$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$9index_mut17hbcb90ce71142deacE.exit.i.i.i", label %_ZN5alloc5slice11stable_sort17h7e199d352faa924dE.exit
 
 42:                                               ; preds = %86, %43
@@ -1251,7 +1251,7 @@ _ZN4core3cmp10PartialOrd2ge17h9543987646581915E.exit.thread.i: ; preds = %_ZN4co
   br label %57
 
 40:                                               ; preds = %24
-  %41 = icmp ugt i64 %.val22, 1
+  %41 = icmp samesign ugt i64 %.val22, 1
   br i1 %41, label %"_ZN115_$LT$core..ops..range..RangeInclusive$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$9index_mut17h1d1b488b013abffdE.exit.i.i.i", label %_ZN5alloc5slice11stable_sort17h45b92d02aff35654E.exit
 
 42:                                               ; preds = %86, %43
@@ -3652,7 +3652,7 @@ define hidden void @_ZN4core5slice4sort10merge_sort17hff02937ffd2dfb1eE(ptr noal
   br label %42
 
 24:                                               ; preds = %3
-  %25 = icmp ugt i64 %1, 1
+  %25 = icmp samesign ugt i64 %1, 1
   br i1 %25, label %280, label %41
 
 26:                                               ; preds = %102, %27

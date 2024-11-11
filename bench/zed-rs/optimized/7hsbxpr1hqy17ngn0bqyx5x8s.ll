@@ -51513,7 +51513,7 @@ default.unreachable251:                           ; preds = %3
   %.sroa.5197.0.copyload = load ptr, ptr %52, align 8, !nonnull !5, !noundef !5
   %.sroa.6198.0.copyload = load i64, ptr %53, align 8
   %98 = getelementptr inbounds { ptr, i64, [8 x i8], i8, [7 x i8] }, ptr %.sroa.5197.0.copyload, i64 %.sroa.6198.0.copyload
-  %99 = icmp ult i64 %.sroa.6198.0.copyload, 31
+  %99 = icmp samesign ult i64 %.sroa.6198.0.copyload, 31
   br i1 %99, label %.noexc.i, label %100
 
 100:                                              ; preds = %"_ZN4core3ptr251drop_in_place$LT$alloc..vec..into_iter..IntoIter$LT$$LP$workspace..WorkspaceId$C$workspace..persistence..model..LocalPaths$C$workspace..persistence..model..LocalPathsOrder$C$core..option..Option$LT$u64$GT$$C$core..option..Option$LT$u64$GT$$RP$$GT$$GT$17hc1af1fc6221f9da9E.exit"

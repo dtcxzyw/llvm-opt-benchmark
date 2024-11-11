@@ -1297,7 +1297,7 @@ define linkonce_odr hidden void @_ZN2cv2ml10TreeParams10setCVFoldsEi(ptr noundef
   br label %27
 
 15:                                               ; preds = %2
-  %16 = icmp ugt i32 %1, 1
+  %16 = icmp samesign ugt i32 %1, 1
   br i1 %16, label %17, label %24
 
 17:                                               ; preds = %15

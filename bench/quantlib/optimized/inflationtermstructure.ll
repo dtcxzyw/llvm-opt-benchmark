@@ -2627,11 +2627,11 @@ sw.bb3:                                           ; preds = %entry
   br i1 %cmp4, label %sw.epilog, label %if.else6
 
 if.else6:                                         ; preds = %sw.bb3
-  %cmp7 = icmp ult i32 %call, 7
+  %cmp7 = icmp samesign ult i32 %call, 7
   br i1 %cmp7, label %sw.epilog, label %if.else9
 
 if.else9:                                         ; preds = %if.else6
-  %cmp10 = icmp ult i32 %call, 10
+  %cmp10 = icmp samesign ult i32 %call, 10
   %.13 = select i1 %cmp10, i32 7, i32 10
   %.14 = select i1 %cmp10, i32 9, i32 12
   br label %sw.epilog

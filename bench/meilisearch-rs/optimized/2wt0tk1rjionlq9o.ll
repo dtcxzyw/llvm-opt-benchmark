@@ -1576,7 +1576,7 @@ define hidden void @_ZN9hashbrown3raw5inner13RawTableInner22fallible_with_capaci
   br i1 %14, label %24, label %17
 
 15:                                               ; preds = %11
-  %16 = icmp ult i64 %4, 4
+  %16 = icmp samesign ult i64 %4, 4
   %..i = select i1 %16, i64 4, i64 8
   br label %25
 
@@ -1683,7 +1683,7 @@ _ZN9hashbrown3raw5inner5alloc5inner8do_alloc17h8c3552d9c26b3df3E.exit.i: ; preds
   unreachable
 
 _ZN9hashbrown3raw5inner13RawTableInner17new_uninitialized17h6632c4ea96c13f0dE.exit: ; preds = %_ZN9hashbrown3raw5inner5alloc5inner8do_alloc17h8c3552d9c26b3df3E.exit.i
-  %67 = icmp ult i64 %.sroa.4.0.i.ph, 9
+  %67 = icmp samesign ult i64 %.sroa.4.0.i.ph, 9
   %68 = add nsw i64 %.sroa.4.0.i.ph, -1
   %69 = lshr i64 %.sroa.4.0.i.ph, 3
   %70 = mul nuw nsw i64 %69, 7

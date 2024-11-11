@@ -11034,7 +11034,7 @@ define linkonce_odr hidden void @_ZN5Eigen12DenseStorageIfLin1ELin1ELin1ELi0EE6r
   br i1 %12, label %13, label %.sink.split
 
 13:                                               ; preds = %10
-  %14 = icmp ugt i64 %1, 4611686018427387903
+  %14 = icmp samesign ugt i64 %1, 4611686018427387903
   br i1 %14, label %15, label %17
 
 15:                                               ; preds = %13

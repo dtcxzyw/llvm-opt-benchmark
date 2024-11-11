@@ -2773,7 +2773,7 @@ if.end75:                                         ; preds = %if.then68, %if.then
   %data_size.0 = phi i64 [ %23, %if.then68 ], [ 0, %if.then63 ]
   %data_buffer.0 = phi ptr [ %cond.i, %if.then68 ], [ null, %if.then63 ]
   %type_id.off.i90 = add nsw i32 %2, -13
-  %switch.i91 = icmp ult i32 %type_id.off.i90, 2
+  %switch.i91 = icmp samesign ult i32 %type_id.off.i90, 2
   %add.ptr = getelementptr inbounds i8, ptr %value.tr, i64 48
   br i1 %switch.i91, label %if.then77, label %if.else82
 

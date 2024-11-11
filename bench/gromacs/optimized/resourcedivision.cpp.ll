@@ -515,7 +515,7 @@ common.resume:                                    ; preds = %.body, %144, %157
   %.043.i = phi i32 [ %166, %.preheader.i ], [ %2, %159 ]
   %162 = mul nsw i32 %.043.i, %.val109
   %163 = icmp sgt i32 %162, %140
-  %164 = icmp ugt i32 %.043.i, 1
+  %164 = icmp samesign ugt i32 %.043.i, 1
   %165 = and i1 %164, %163
   %166 = add nsw i32 %.043.i, -1
   br i1 %165, label %.preheader.i, label %167, !llvm.loop !6

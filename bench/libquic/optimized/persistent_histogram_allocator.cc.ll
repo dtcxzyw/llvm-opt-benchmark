@@ -1656,7 +1656,7 @@ if.then19:                                        ; preds = %if.end18.thread, %i
   %sub.ptr.div.i.i = ashr exact i64 %sub.ptr.sub.i.i, 2
   %sub.i = add nsw i64 %sub.ptr.div.i.i, -1
   %9 = add nsw i64 %sub.ptr.div.i.i, -2305843009213693953
-  %cmp22 = icmp ult i64 %9, -2305843009213693951
+  %cmp22 = icmp samesign ult i64 %9, -2305843009213693951
   br i1 %cmp22, label %if.then23, label %if.end24
 
 if.then23:                                        ; preds = %if.then19

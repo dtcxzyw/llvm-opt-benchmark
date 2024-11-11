@@ -1833,7 +1833,7 @@ define void @_ZN4pkpy7PyDeque9insertObjEbbiPNS_8PyObjectE(ptr noundef nonnull al
   br i1 %145, label %146, label %152
 
 146:                                              ; preds = %138
-  %147 = icmp ult i64 %144, 64
+  %147 = icmp samesign ult i64 %144, 64
   br i1 %147, label %148, label %150
 
 148:                                              ; preds = %146
@@ -2169,7 +2169,7 @@ define noundef range(i32 -1, -2147483648) i32 @_ZN4pkpy7PyDeque9findIndexEPNS_2V
   br i1 %136, label %137, label %143
 
 137:                                              ; preds = %127
-  %138 = icmp ult i64 %135, 64
+  %138 = icmp samesign ult i64 %135, 64
   br i1 %138, label %139, label %141
 
 139:                                              ; preds = %137
@@ -3961,7 +3961,7 @@ define internal noundef ptr @"_ZZN4pkpy7PyDeque9_registerEPNS_2VMEPNS_8PyObjectE
   br i1 %46, label %47, label %53
 
 47:                                               ; preds = %3
-  %48 = icmp ult i64 %45, 64
+  %48 = icmp samesign ult i64 %45, 64
   br i1 %48, label %49, label %51
 
 49:                                               ; preds = %47
@@ -4867,7 +4867,7 @@ define internal void @"_ZZN4pkpy7PyDeque9_registerEPNS_2VMEPNS_8PyObjectES4_EN3$
   br i1 %47, label %48, label %54
 
 48:                                               ; preds = %4
-  %49 = icmp ult i64 %46, 64
+  %49 = icmp samesign ult i64 %46, 64
   br i1 %49, label %50, label %52
 
 50:                                               ; preds = %48
@@ -4949,7 +4949,7 @@ define internal void @"_ZZN4pkpy7PyDeque9_registerEPNS_2VMEPNS_8PyObjectES4_EN3$
   br i1 %48, label %49, label %55
 
 49:                                               ; preds = %3
-  %50 = icmp ult i64 %47, 64
+  %50 = icmp samesign ult i64 %47, 64
   br i1 %50, label %51, label %53
 
 51:                                               ; preds = %49
@@ -5428,7 +5428,7 @@ _ZNSt8_Rb_treeIPN4pkpy8PyObjectES2_St9_IdentityIS2_ESt4lessIS2_ESaIS2_EE10_M_ins
   br i1 %70, label %71, label %77
 
 71:                                               ; preds = %61
-  %72 = icmp ult i64 %68, 65
+  %72 = icmp samesign ult i64 %68, 65
   br i1 %72, label %73, label %75
 
 73:                                               ; preds = %71
@@ -5839,7 +5839,7 @@ define internal noundef ptr @"_ZZN4pkpy7PyDeque9_registerEPNS_2VMEPNS_8PyObjectE
   br i1 %105, label %106, label %112
 
 106:                                              ; preds = %99
-  %107 = icmp ult i64 %104, 64
+  %107 = icmp samesign ult i64 %104, 64
   br i1 %107, label %108, label %110
 
 108:                                              ; preds = %106
@@ -5878,7 +5878,7 @@ _ZNKSt5dequeIPN4pkpy8PyObjectESaIS2_EEixEm.exit.i: ; preds = %114, %108
   br i1 %130, label %131, label %137
 
 131:                                              ; preds = %_ZNKSt5dequeIPN4pkpy8PyObjectESaIS2_EEixEm.exit.i
-  %132 = icmp ult i64 %129, 64
+  %132 = icmp samesign ult i64 %129, 64
   br i1 %132, label %133, label %135
 
 133:                                              ; preds = %131
@@ -7387,7 +7387,7 @@ define internal noundef ptr @"_ZZN4pkpy7PyDeque9_registerEPNS_2VMEPNS_8PyObjectE
   br i1 %51, label %52, label %58
 
 52:                                               ; preds = %42
-  %53 = icmp ult i64 %50, 64
+  %53 = icmp samesign ult i64 %50, 64
   br i1 %53, label %54, label %56
 
 54:                                               ; preds = %52
@@ -7421,7 +7421,7 @@ _ZNSt5dequeIPN4pkpy8PyObjectESaIS2_EEixEm.exit.i: ; preds = %60, %54
   br i1 %71, label %72, label %78
 
 72:                                               ; preds = %_ZNSt5dequeIPN4pkpy8PyObjectESaIS2_EEixEm.exit.i
-  %73 = icmp ult i64 %70, 64
+  %73 = icmp samesign ult i64 %70, 64
   br i1 %73, label %74, label %76
 
 74:                                               ; preds = %72
@@ -7451,7 +7451,7 @@ _ZNSt5dequeIPN4pkpy8PyObjectESaIS2_EEixEm.exit23.i: ; preds = %80, %74
   br i1 %51, label %88, label %94
 
 88:                                               ; preds = %_ZNSt5dequeIPN4pkpy8PyObjectESaIS2_EEixEm.exit23.i
-  %89 = icmp ult i64 %50, 64
+  %89 = icmp samesign ult i64 %50, 64
   br i1 %89, label %90, label %92
 
 90:                                               ; preds = %88
@@ -7490,7 +7490,7 @@ _ZNSt5dequeIPN4pkpy8PyObjectESaIS2_EEixEm.exit25.i: ; preds = %96, %90
   br i1 %111, label %112, label %118
 
 112:                                              ; preds = %_ZNSt5dequeIPN4pkpy8PyObjectESaIS2_EEixEm.exit25.i
-  %113 = icmp ult i64 %110, 64
+  %113 = icmp samesign ult i64 %110, 64
   br i1 %113, label %114, label %116
 
 114:                                              ; preds = %112
@@ -8771,7 +8771,7 @@ _ZNSt5dequeIPN4pkpy8PyObjectESaIS2_EE8pop_backEv.exit: ; preds = %110, %112
   br i1 %131, label %132, label %138
 
 132:                                              ; preds = %118
-  %133 = icmp ult i64 %130, 64
+  %133 = icmp samesign ult i64 %130, 64
   br i1 %133, label %134, label %136
 
 134:                                              ; preds = %132
@@ -8875,7 +8875,7 @@ define linkonce_odr void @_ZSt24__copy_move_backward_ditILb1EPN4pkpy8PyObjectERS
   br i1 %40, label %41, label %47
 
 41:                                               ; preds = %35
-  %42 = icmp ult i64 %39, 64
+  %42 = icmp samesign ult i64 %39, 64
   br i1 %42, label %43, label %45
 
 43:                                               ; preds = %41
@@ -8977,7 +8977,7 @@ _ZSt23__copy_move_backward_a1ILb1EPPN4pkpy8PyObjectES2_EN9__gnu_cxx11__enable_if
   br i1 %85, label %86, label %92
 
 86:                                               ; preds = %80
-  %87 = icmp ult i64 %84, 64
+  %87 = icmp samesign ult i64 %84, 64
   br i1 %87, label %88, label %90
 
 88:                                               ; preds = %86
@@ -9079,7 +9079,7 @@ _ZSt23__copy_move_backward_a1ILb1EPPN4pkpy8PyObjectES2_EN9__gnu_cxx11__enable_if
   br i1 %132, label %133, label %139
 
 133:                                              ; preds = %127
-  %134 = icmp ult i64 %131, 64
+  %134 = icmp samesign ult i64 %131, 64
   br i1 %134, label %135, label %137
 
 135:                                              ; preds = %133
@@ -9173,7 +9173,7 @@ _ZNSt15_Deque_iteratorIPN4pkpy8PyObjectERS2_PS2_EmIEl.exit.i45: ; preds = %141, 
   br i1 %181, label %182, label %188
 
 182:                                              ; preds = %176
-  %183 = icmp ult i64 %180, 64
+  %183 = icmp samesign ult i64 %180, 64
   br i1 %183, label %184, label %186
 
 184:                                              ; preds = %182
@@ -9279,7 +9279,7 @@ _ZSt14__copy_move_a1ILb1EPPN4pkpy8PyObjectES3_ET1_T0_S5_S4_.exit.i: ; preds = %3
   br i1 %35, label %36, label %42
 
 36:                                               ; preds = %_ZSt14__copy_move_a1ILb1EPPN4pkpy8PyObjectES3_ET1_T0_S5_S4_.exit.i
-  %37 = icmp ult i64 %34, 64
+  %37 = icmp samesign ult i64 %34, 64
   br i1 %37, label %38, label %40
 
 38:                                               ; preds = %36
@@ -9367,7 +9367,7 @@ _ZSt14__copy_move_a1ILb1EPPN4pkpy8PyObjectES3_ET1_T0_S5_S4_.exit.i17: ; preds = 
   br i1 %74, label %75, label %81
 
 75:                                               ; preds = %_ZSt14__copy_move_a1ILb1EPPN4pkpy8PyObjectES3_ET1_T0_S5_S4_.exit.i17
-  %76 = icmp ult i64 %73, 64
+  %76 = icmp samesign ult i64 %73, 64
   br i1 %76, label %77, label %79
 
 77:                                               ; preds = %75
@@ -9456,7 +9456,7 @@ _ZSt14__copy_move_a1ILb1EPPN4pkpy8PyObjectES3_ET1_T0_S5_S4_.exit.i34: ; preds = 
   br i1 %116, label %117, label %123
 
 117:                                              ; preds = %_ZSt14__copy_move_a1ILb1EPPN4pkpy8PyObjectES3_ET1_T0_S5_S4_.exit.i34
-  %118 = icmp ult i64 %115, 64
+  %118 = icmp samesign ult i64 %115, 64
   br i1 %118, label %119, label %121
 
 119:                                              ; preds = %117
@@ -9535,7 +9535,7 @@ _ZSt14__copy_move_a1ILb1EPPN4pkpy8PyObjectES3_ET1_T0_S5_S4_.exit.i51: ; preds = 
   br i1 %158, label %159, label %165
 
 159:                                              ; preds = %_ZSt14__copy_move_a1ILb1EPPN4pkpy8PyObjectES3_ET1_T0_S5_S4_.exit.i51
-  %160 = icmp ult i64 %157, 64
+  %160 = icmp samesign ult i64 %157, 64
   br i1 %160, label %161, label %163
 
 161:                                              ; preds = %159
@@ -10190,7 +10190,7 @@ _ZNSt15_Deque_iteratorIPN4pkpy8PyObjectERS2_PS2_EppEv.exit5: ; preds = %_ZNSt15_
   br i1 %86, label %87, label %93
 
 87:                                               ; preds = %_ZNSt15_Deque_iteratorIPN4pkpy8PyObjectERS2_PS2_EppEv.exit5
-  %88 = icmp ult i64 %85, 64
+  %88 = icmp samesign ult i64 %85, 64
   br i1 %88, label %89, label %91
 
 89:                                               ; preds = %87
@@ -10353,7 +10353,7 @@ _ZNSt15_Deque_iteratorIPN4pkpy8PyObjectERS2_PS2_EmmEv.exit7: ; preds = %_ZNSt15_
   br i1 %162, label %163, label %169
 
 163:                                              ; preds = %_ZNSt15_Deque_iteratorIPN4pkpy8PyObjectERS2_PS2_EmmEv.exit7
-  %164 = icmp ult i64 %161, 64
+  %164 = icmp samesign ult i64 %161, 64
   br i1 %164, label %165, label %167
 
 165:                                              ; preds = %163

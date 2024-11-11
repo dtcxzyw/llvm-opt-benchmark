@@ -42,7 +42,7 @@ define i64 @wcsnrtombs(ptr noundef %0, ptr nocapture noundef %1, i64 noundef %2,
   br i1 %15, label %21, label %24
 
 21:                                               ; preds = %20
-  %22 = icmp ugt i64 %17, %.13448
+  %22 = icmp samesign ugt i64 %17, %.13448
   br i1 %22, label %.thread, label %23
 
 23:                                               ; preds = %21

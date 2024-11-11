@@ -965,7 +965,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__15Tf_EnumRegistry12_GetInstanceEv.exit: ; p
   %.01.i.i.i.i.i = phi i32 [ %57, %.lr.ph.i.i.i.i.i ], [ %.sroa.0.02.i.i.i, %55 ]
   %57 = add nsw i32 %.01.i.i.i.i.i, -1
   call void @llvm.x86.sse2.pause()
-  %58 = icmp ugt i32 %.01.i.i.i.i.i, 1
+  %58 = icmp samesign ugt i32 %.01.i.i.i.i.i, 1
   br i1 %58, label %.lr.ph.i.i.i.i.i, label %_ZN3tbb6detail2d0L13machine_pauseEi.exit.i.i.i.i, !llvm.loop !13
 
 _ZN3tbb6detail2d0L13machine_pauseEi.exit.i.i.i.i: ; preds = %.lr.ph.i.i.i.i.i, %55
@@ -1401,7 +1401,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__15Tf_EnumRegistry12_GetInstanceEv.exit: ; p
   %.01.i.i.i.i.i = phi i32 [ %26, %.lr.ph.i.i.i.i.i ], [ %.sroa.0.02.i.i.i, %24 ]
   %26 = add nsw i32 %.01.i.i.i.i.i, -1
   tail call void @llvm.x86.sse2.pause()
-  %27 = icmp ugt i32 %.01.i.i.i.i.i, 1
+  %27 = icmp samesign ugt i32 %.01.i.i.i.i.i, 1
   br i1 %27, label %.lr.ph.i.i.i.i.i, label %_ZN3tbb6detail2d0L13machine_pauseEi.exit.i.i.i.i, !llvm.loop !13
 
 _ZN3tbb6detail2d0L13machine_pauseEi.exit.i.i.i.i: ; preds = %.lr.ph.i.i.i.i.i, %24
@@ -1554,7 +1554,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__15Tf_EnumRegistry12_GetInstanceEv.exit: ; p
   %.01.i.i.i.i.i = phi i32 [ %26, %.lr.ph.i.i.i.i.i ], [ %.sroa.0.02.i.i.i, %24 ]
   %26 = add nsw i32 %.01.i.i.i.i.i, -1
   tail call void @llvm.x86.sse2.pause()
-  %27 = icmp ugt i32 %.01.i.i.i.i.i, 1
+  %27 = icmp samesign ugt i32 %.01.i.i.i.i.i, 1
   br i1 %27, label %.lr.ph.i.i.i.i.i, label %_ZN3tbb6detail2d0L13machine_pauseEi.exit.i.i.i.i, !llvm.loop !13
 
 _ZN3tbb6detail2d0L13machine_pauseEi.exit.i.i.i.i: ; preds = %.lr.ph.i.i.i.i.i, %24
@@ -1709,7 +1709,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__15Tf_EnumRegistry12_GetInstanceEv.exit: ; p
   %.01.i.i.i.i.i = phi i32 [ %26, %.lr.ph.i.i.i.i.i ], [ %.sroa.0.02.i.i.i, %24 ]
   %26 = add nsw i32 %.01.i.i.i.i.i, -1
   tail call void @llvm.x86.sse2.pause()
-  %27 = icmp ugt i32 %.01.i.i.i.i.i, 1
+  %27 = icmp samesign ugt i32 %.01.i.i.i.i.i, 1
   br i1 %27, label %.lr.ph.i.i.i.i.i, label %_ZN3tbb6detail2d0L13machine_pauseEi.exit.i.i.i.i, !llvm.loop !13
 
 _ZN3tbb6detail2d0L13machine_pauseEi.exit.i.i.i.i: ; preds = %.lr.ph.i.i.i.i.i, %24
@@ -1859,7 +1859,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__15Tf_EnumRegistry12_GetInstanceEv.exit: ; p
   %.01.i.i.i.i.i = phi i32 [ %24, %.lr.ph.i.i.i.i.i ], [ %.sroa.0.02.i.i.i, %22 ]
   %24 = add nsw i32 %.01.i.i.i.i.i, -1
   tail call void @llvm.x86.sse2.pause()
-  %25 = icmp ugt i32 %.01.i.i.i.i.i, 1
+  %25 = icmp samesign ugt i32 %.01.i.i.i.i.i, 1
   br i1 %25, label %.lr.ph.i.i.i.i.i, label %_ZN3tbb6detail2d0L13machine_pauseEi.exit.i.i.i.i, !llvm.loop !13
 
 _ZN3tbb6detail2d0L13machine_pauseEi.exit.i.i.i.i: ; preds = %.lr.ph.i.i.i.i.i, %22
@@ -2107,7 +2107,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__15Tf_EnumRegistry12_GetInstanceEv.exit: ; p
   %.01.i.i.i.i.i = phi i32 [ %10, %.lr.ph.i.i.i.i.i ], [ %.sroa.0.02.i.i.i, %8 ]
   %10 = add nsw i32 %.01.i.i.i.i.i, -1
   tail call void @llvm.x86.sse2.pause()
-  %11 = icmp ugt i32 %.01.i.i.i.i.i, 1
+  %11 = icmp samesign ugt i32 %.01.i.i.i.i.i, 1
   br i1 %11, label %.lr.ph.i.i.i.i.i, label %_ZN3tbb6detail2d0L13machine_pauseEi.exit.i.i.i.i, !llvm.loop !13
 
 _ZN3tbb6detail2d0L13machine_pauseEi.exit.i.i.i.i: ; preds = %.lr.ph.i.i.i.i.i, %8
@@ -2297,7 +2297,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__15Tf_EnumRegistry12_GetInstanceEv.exit: ; p
   %.01.i.i.i.i.i = phi i32 [ %11, %.lr.ph.i.i.i.i.i ], [ %.sroa.0.02.i.i.i, %9 ]
   %11 = add nsw i32 %.01.i.i.i.i.i, -1
   tail call void @llvm.x86.sse2.pause()
-  %12 = icmp ugt i32 %.01.i.i.i.i.i, 1
+  %12 = icmp samesign ugt i32 %.01.i.i.i.i.i, 1
   br i1 %12, label %.lr.ph.i.i.i.i.i, label %_ZN3tbb6detail2d0L13machine_pauseEi.exit.i.i.i.i, !llvm.loop !13
 
 _ZN3tbb6detail2d0L13machine_pauseEi.exit.i.i.i.i: ; preds = %.lr.ph.i.i.i.i.i, %9
@@ -2476,7 +2476,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__15Tf_EnumRegistry12_GetInstanceEv.exit: ; p
   %.01.i.i.i.i.i = phi i32 [ %10, %.lr.ph.i.i.i.i.i ], [ %.sroa.0.02.i.i.i, %8 ]
   %10 = add nsw i32 %.01.i.i.i.i.i, -1
   tail call void @llvm.x86.sse2.pause()
-  %11 = icmp ugt i32 %.01.i.i.i.i.i, 1
+  %11 = icmp samesign ugt i32 %.01.i.i.i.i.i, 1
   br i1 %11, label %.lr.ph.i.i.i.i.i, label %_ZN3tbb6detail2d0L13machine_pauseEi.exit.i.i.i.i, !llvm.loop !13
 
 _ZN3tbb6detail2d0L13machine_pauseEi.exit.i.i.i.i: ; preds = %.lr.ph.i.i.i.i.i, %8
@@ -4644,7 +4644,7 @@ define linkonce_odr void @_ZN32pxrInternal_v0_24__pxrReserved__15Tf_EnumRegistry
   %.01.i.i.i.i.i = phi i32 [ %16, %.lr.ph.i.i.i.i.i ], [ %.sroa.0.02.i.i.i, %14 ]
   %16 = add nsw i32 %.01.i.i.i.i.i, -1
   tail call void @llvm.x86.sse2.pause()
-  %17 = icmp ugt i32 %.01.i.i.i.i.i, 1
+  %17 = icmp samesign ugt i32 %.01.i.i.i.i.i, 1
   br i1 %17, label %.lr.ph.i.i.i.i.i, label %_ZN3tbb6detail2d0L13machine_pauseEi.exit.i.i.i.i, !llvm.loop !13
 
 _ZN3tbb6detail2d0L13machine_pauseEi.exit.i.i.i.i: ; preds = %.lr.ph.i.i.i.i.i, %14

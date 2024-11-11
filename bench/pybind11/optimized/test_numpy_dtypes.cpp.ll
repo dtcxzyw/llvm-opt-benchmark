@@ -52488,7 +52488,7 @@ define linkonce_odr hidden void @_ZSt16__insertion_sortIN9__gnu_cxx17__normal_it
 
 _ZZN8pybind115dtype13strip_paddingElEN11field_descraSEOS1_.exit: ; preds = %52, %57, %60
   %64 = add nsw i64 %.010.i.i.i.i.i, -1
-  %65 = icmp ugt i64 %.010.i.i.i.i.i, 1
+  %65 = icmp samesign ugt i64 %.010.i.i.i.i.i, 1
   br i1 %65, label %28, label %.loopexit, !llvm.loop !1368
 
 .loopexit:                                        ; preds = %_ZZN8pybind115dtype13strip_paddingElEN11field_descraSEOS1_.exit, %18

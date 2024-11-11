@@ -37386,7 +37386,7 @@ _ZN4llvm5APIntC2Ejmbb.exit.i.thread:              ; preds = %_ZNK4llvm7SDValue24
 
 _ZN4llvm5APIntC2Ejmbb.exit.i:                     ; preds = %_ZNK4llvm7SDValue24getScalarValueSizeInBitsEv.exit
   store i64 0, ptr %11, align 8, !alias.scope !185
-  %52 = icmp ult i32 %48, 2
+  %52 = icmp samesign ult i32 %48, 2
   br i1 %52, label %_ZN4llvm5APInt14getHighBitsSetEjj.exit.thread, label %53
 
 53:                                               ; preds = %_ZN4llvm5APIntC2Ejmbb.exit.i.thread, %_ZN4llvm5APIntC2Ejmbb.exit.i
@@ -59458,7 +59458,7 @@ _ZN4llvm5APIntD2Ev.exit342:                       ; preds = %_ZN4llvm5APIntD2Ev.
   %158 = call { ptr, i32 } @_ZN4llvm12SelectionDAG7getNodeEjRKNS_5SDLocENS_3EVTENS_7SDValueES5_(ptr noundef nonnull align 8 dereferenceable(904) %2, i32 noundef 185, ptr noundef nonnull align 8 dereferenceable(12) %5, i16 %.sroa.0122.0.copyload, ptr %.sroa.2124.0.copyload, ptr noundef nonnull byval(%"class.llvm::SDValue") align 8 %27, ptr noundef nonnull byval(%"class.llvm::SDValue") align 8 %32) #28
   %.fca.0.extract97 = extractvalue { ptr, i32 } %158, 0
   %.fca.1.extract98 = extractvalue { ptr, i32 } %158, 1
-  %159 = icmp ult i32 %89, 9
+  %159 = icmp samesign ult i32 %89, 9
   br i1 %159, label %214, label %160
 
 160:                                              ; preds = %_ZN4llvm5APIntD2Ev.exit342
@@ -60261,7 +60261,7 @@ _ZN4llvm5APIntD2Ev.exit299:                       ; preds = %_ZN4llvm5APIntD2Ev.
   %149 = call { ptr, i32 } @_ZN4llvm12SelectionDAG7getNodeEjRKNS_5SDLocENS_3EVTENS_7SDValueES5_S5_S5_(ptr noundef nonnull align 8 dereferenceable(904) %2, i32 noundef 388, ptr noundef nonnull align 8 dereferenceable(12) %5, i16 %.sroa.066.0.copyload, ptr %.sroa.268.0.copyload, ptr noundef nonnull byval(%"class.llvm::SDValue") align 8 %33, ptr noundef nonnull byval(%"class.llvm::SDValue") align 8 %34, ptr noundef nonnull byval(%"class.llvm::SDValue") align 8 %7, ptr noundef nonnull byval(%"class.llvm::SDValue") align 8 %8) #28
   %.fca.0.extract62 = extractvalue { ptr, i32 } %149, 0
   %.fca.1.extract63 = extractvalue { ptr, i32 } %149, 1
-  %150 = icmp ult i32 %87, 9
+  %150 = icmp samesign ult i32 %87, 9
   br i1 %150, label %193, label %151
 
 151:                                              ; preds = %_ZN4llvm5APIntD2Ev.exit299
@@ -74695,7 +74695,7 @@ _ZNK4llvm3EVT13getSizeInBitsEv.exit:              ; preds = %77, %81
 
 _ZN4llvm5APIntC2Ejmbb.exit.i:                     ; preds = %_ZNK4llvm3EVT13getSizeInBitsEv.exit
   store i64 0, ptr %15, align 8, !alias.scope !411
-  %88 = icmp ult i32 %84, 2
+  %88 = icmp samesign ult i32 %84, 2
   br i1 %88, label %_ZN4llvm5APInt13getLowBitsSetEjj.exit, label %.thread.thread
 
 .thread.thread:                                   ; preds = %_ZN4llvm5APIntC2Ejmbb.exit.i
@@ -81495,7 +81495,7 @@ _ZNK4llvm3EVT8isVectorEv.exit:                    ; preds = %_ZN4llvm12Selection
   %91 = add nsw i64 %90, -1
   %92 = getelementptr inbounds [240 x i16], ptr @_ZZNK4llvm3MVT23getVectorMinNumElementsEvE10NElemTable, i64 0, i64 %91
   %93 = load i16, ptr %92, align 2
-  %spec.select.i.i.i.i = icmp ult i16 %85, 137
+  %spec.select.i.i.i.i = icmp samesign ult i16 %85, 137
   %.sroa.0.0.extract.trunc.i.i.i = zext i16 %93 to i32
   br i1 %spec.select.i.i.i.i, label %96, label %94
 
@@ -81688,7 +81688,7 @@ _ZNK4llvm3EVT8isVectorEv.exit217:                 ; preds = %_ZN4llvm12Selection
   %138 = add nsw i64 %137, -1
   %139 = getelementptr inbounds [240 x i16], ptr @_ZZNK4llvm3MVT23getVectorMinNumElementsEvE10NElemTable, i64 0, i64 %138
   %140 = load i16, ptr %139, align 2
-  %spec.select.i.i.i.i219 = icmp ult i16 %.sroa.0126.0.copyload, 137
+  %spec.select.i.i.i.i219 = icmp samesign ult i16 %.sroa.0126.0.copyload, 137
   %.sroa.0.0.extract.trunc.i.i.i220 = zext i16 %140 to i32
   br i1 %spec.select.i.i.i.i219, label %143, label %141
 
@@ -82256,7 +82256,7 @@ _ZNK4llvm3EVT12getStoreSizeEv.exit257:            ; preds = %200, %204
 _ZNK4llvm3EVT23getVectorMinNumElementsEv.exit:    ; preds = %213, %219
   %.sroa.0.0.in.i.i = phi i64 [ %.sroa.0.0.insert.insert.i.i.i.i, %213 ], [ %220, %219 ]
   %221 = and i64 %.sroa.0.0.in.i.i, 4294967295
-  %222 = icmp ult i64 %221, %188
+  %222 = icmp samesign ult i64 %221, %188
   br i1 %222, label %223, label %259
 
 223:                                              ; preds = %_ZNK4llvm3EVT23getVectorMinNumElementsEv.exit
@@ -87867,7 +87867,7 @@ _ZN4llvm5APInt15clearUnusedBitsEv.exit.i.i.i.i:   ; preds = %_ZNK4llvm5APInt11co
   %25 = zext nneg i32 %24 to i64
   %26 = shl i64 %19, %25
   %27 = ashr exact i64 %26, %25
-  %.not11.i.i.i = icmp ugt i32 %20, %22
+  %.not11.i.i.i = icmp samesign ugt i32 %20, %22
   %narrow.i.i.i.i = select i1 %.not11.i.i.i, i32 %..i.i.i.i, i32 63
   %.pn.i.i.i.i = zext nneg i32 %narrow.i.i.i.i to i64
   %storemerge.i.i.i.i = ashr i64 %27, %.pn.i.i.i.i
@@ -88104,7 +88104,7 @@ _ZNK4llvm5APInt11countr_zeroEv.exit.thread.i.i.i: ; preds = %_ZN4llvm5APIntC2ERK
   br i1 %.not4.i.i.i, label %33, label %29
 
 24:                                               ; preds = %_ZNK4llvm5APInt11countr_zeroEv.exit.i.i.i
-  %.not11.i.i.i = icmp ugt i32 %20, %22
+  %.not11.i.i.i = icmp samesign ugt i32 %20, %22
   br i1 %.not11.i.i.i, label %26, label %25
 
 25:                                               ; preds = %24
@@ -89839,7 +89839,7 @@ switch.lookup:                                    ; preds = %.lr.ph, %27
   %18 = getelementptr inbounds i8, ptr %.069.i.i.i.i.i, i64 -8
   store i32 %17, ptr %18, align 8
   %19 = add nsw i64 %.010.i.i.i.i.i, -1
-  %20 = icmp ugt i64 %.010.i.i.i.i.i, 1
+  %20 = icmp samesign ugt i64 %.010.i.i.i.i.i, 1
   br i1 %20, label %.lr.ph.i.i.i.i.i, label %_ZSt13move_backwardIPSt4pairIN4llvm9StringRefENS1_14TargetLowering14ConstraintTypeEES6_ET0_T_S8_S7_.exit, !llvm.loop !521
 
 _ZSt13move_backwardIPSt4pairIN4llvm9StringRefENS1_14TargetLowering14ConstraintTypeEES6_ET0_T_S8_S7_.exit: ; preds = %.lr.ph.i.i.i.i.i, %8
@@ -90226,7 +90226,7 @@ tailrecurse._crit_edge:                           ; preds = %tailrecurse, %7
   %17 = getelementptr inbounds i8, ptr %.0910.i.i.i.i.i, i64 24
   %18 = getelementptr inbounds i8, ptr %.0811.i.i.i.i.i, i64 24
   %19 = add nsw i64 %.012.i.i.i.i.i, -1
-  %20 = icmp ugt i64 %.012.i.i.i.i.i, 1
+  %20 = icmp samesign ugt i64 %.012.i.i.i.i.i, 1
   br i1 %20, label %.lr.ph.i.i.i.i.i, label %_ZSt4moveIPSt4pairIN4llvm9StringRefENS1_14TargetLowering14ConstraintTypeEES6_ET0_T_S8_S7_.exit, !llvm.loop !530
 
 _ZSt4moveIPSt4pairIN4llvm9StringRefENS1_14TargetLowering14ConstraintTypeEES6_ET0_T_S8_S7_.exit: ; preds = %.lr.ph.i.i.i.i.i
@@ -90301,7 +90301,7 @@ _ZSt4moveIPSt4pairIN4llvm9StringRefENS1_14TargetLowering14ConstraintTypeEES6_ET0
   %42 = getelementptr inbounds i8, ptr %.0910.i.i.i.i.i.i, i64 24
   %43 = getelementptr inbounds i8, ptr %.0811.i.i.i.i.i.i, i64 24
   %44 = add nsw i64 %.012.i.i.i.i.i.i, -1
-  %45 = icmp ugt i64 %.012.i.i.i.i.i.i, 1
+  %45 = icmp samesign ugt i64 %.012.i.i.i.i.i.i, 1
   br i1 %45, label %.lr.ph.i.i.i.i.i.i, label %"_ZSt21__move_merge_adaptiveIPSt4pairIN4llvm9StringRefENS1_14TargetLowering14ConstraintTypeEES6_S6_N9__gnu_cxx5__ops15_Iter_comp_iterIZNKS3_24getConstraintPreferencesERNS3_14AsmOperandInfoEE3$_0EEEvT_SE_T0_SF_T1_T2_.exit", !llvm.loop !530
 
 46:                                               ; preds = %.lr.ph, %tailrecurse
@@ -90335,7 +90335,7 @@ _ZSt4moveIPSt4pairIN4llvm9StringRefENS1_14TargetLowering14ConstraintTypeEES6_ET0
   %55 = getelementptr inbounds i8, ptr %.0910.i.i.i.i.i78, i64 24
   %56 = getelementptr inbounds i8, ptr %.0811.i.i.i.i.i77, i64 24
   %57 = add nsw i64 %.012.i.i.i.i.i76, -1
-  %58 = icmp ugt i64 %.012.i.i.i.i.i76, 1
+  %58 = icmp samesign ugt i64 %.012.i.i.i.i.i76, 1
   br i1 %58, label %.lr.ph.i.i.i.i.i75, label %_ZSt4moveIPSt4pairIN4llvm9StringRefENS1_14TargetLowering14ConstraintTypeEES6_ET0_T_S8_S7_.exit79, !llvm.loop !530
 
 _ZSt4moveIPSt4pairIN4llvm9StringRefENS1_14TargetLowering14ConstraintTypeEES6_ET0_T_S8_S7_.exit79: ; preds = %.lr.ph.i.i.i.i.i75, %48
@@ -90366,7 +90366,7 @@ _ZSt4moveIPSt4pairIN4llvm9StringRefENS1_14TargetLowering14ConstraintTypeEES6_ET0
   %70 = getelementptr inbounds i8, ptr %.069.i.i.i.i.i.i, i64 -8
   store i32 %69, ptr %70, align 8
   %71 = add nsw i64 %.010.i.i.i.i.i.i, -1
-  %72 = icmp ugt i64 %.010.i.i.i.i.i.i, 1
+  %72 = icmp samesign ugt i64 %.010.i.i.i.i.i.i, 1
   br i1 %72, label %.lr.ph.i.i.i.i.i.i89, label %"_ZSt21__move_merge_adaptiveIPSt4pairIN4llvm9StringRefENS1_14TargetLowering14ConstraintTypeEES6_S6_N9__gnu_cxx5__ops15_Iter_comp_iterIZNKS3_24getConstraintPreferencesERNS3_14AsmOperandInfoEE3$_0EEEvT_SE_T0_SF_T1_T2_.exit", !llvm.loop !521
 
 73:                                               ; preds = %_ZSt4moveIPSt4pairIN4llvm9StringRefENS1_14TargetLowering14ConstraintTypeEES6_ET0_T_S8_S7_.exit79
@@ -90434,7 +90434,7 @@ switch.lookup:                                    ; preds = %switch.lookup.outer
   %96 = getelementptr inbounds i8, ptr %.069.i.i.i.i.i36.i, i64 -8
   store i32 %95, ptr %96, align 8
   %97 = add nsw i64 %.010.i.i.i.i.i35.i, -1
-  %98 = icmp ugt i64 %.010.i.i.i.i.i35.i, 1
+  %98 = icmp samesign ugt i64 %.010.i.i.i.i.i35.i, 1
   br i1 %98, label %.lr.ph.i.i.i.i.i34.i, label %"_ZSt21__move_merge_adaptiveIPSt4pairIN4llvm9StringRefENS1_14TargetLowering14ConstraintTypeEES6_S6_N9__gnu_cxx5__ops15_Iter_comp_iterIZNKS3_24getConstraintPreferencesERNS3_14AsmOperandInfoEE3$_0EEEvT_SE_T0_SF_T1_T2_.exit", !llvm.loop !521
 
 99:                                               ; preds = %switch.lookup
@@ -90649,7 +90649,7 @@ define internal fastcc void @"_ZSt17__merge_sort_loopIPSt4pairIN4llvm9StringRefE
   %34 = getelementptr inbounds i8, ptr %.0910.i.i.i.i.i.i, i64 24
   %35 = getelementptr inbounds i8, ptr %.0811.i.i.i.i.i.i, i64 24
   %36 = add nsw i64 %.012.i.i.i.i.i.i, -1
-  %37 = icmp ugt i64 %.012.i.i.i.i.i.i, 1
+  %37 = icmp samesign ugt i64 %.012.i.i.i.i.i.i, 1
   br i1 %37, label %.lr.ph.i.i.i.i.i.i, label %_ZSt4moveIPSt4pairIN4llvm9StringRefENS1_14TargetLowering14ConstraintTypeEES6_ET0_T_S8_S7_.exit.i, !llvm.loop !530
 
 _ZSt4moveIPSt4pairIN4llvm9StringRefENS1_14TargetLowering14ConstraintTypeEES6_ET0_T_S8_S7_.exit.i: ; preds = %.lr.ph.i.i.i.i.i.i, %._crit_edge.i
@@ -90676,7 +90676,7 @@ _ZSt4moveIPSt4pairIN4llvm9StringRefENS1_14TargetLowering14ConstraintTypeEES6_ET0
   %46 = getelementptr inbounds i8, ptr %.0910.i.i.i.i.i26.i, i64 24
   %47 = getelementptr inbounds i8, ptr %.0811.i.i.i.i.i25.i, i64 24
   %48 = add nsw i64 %.012.i.i.i.i.i24.i, -1
-  %49 = icmp ugt i64 %.012.i.i.i.i.i24.i, 1
+  %49 = icmp samesign ugt i64 %.012.i.i.i.i.i24.i, 1
   br i1 %49, label %.lr.ph.i.i.i.i.i23.i, label %"_ZSt12__move_mergeIPSt4pairIN4llvm9StringRefENS1_14TargetLowering14ConstraintTypeEES6_N9__gnu_cxx5__ops15_Iter_comp_iterIZNKS3_24getConstraintPreferencesERNS3_14AsmOperandInfoEE3$_0EEET0_T_SF_SF_SF_SE_T1_.exit", !llvm.loop !530
 
 "_ZSt12__move_mergeIPSt4pairIN4llvm9StringRefENS1_14TargetLowering14ConstraintTypeEES6_N9__gnu_cxx5__ops15_Iter_comp_iterIZNKS3_24getConstraintPreferencesERNS3_14AsmOperandInfoEE3$_0EEET0_T_SF_SF_SF_SE_T1_.exit": ; preds = %.lr.ph.i.i.i.i.i23.i, %_ZSt4moveIPSt4pairIN4llvm9StringRefENS1_14TargetLowering14ConstraintTypeEES6_ET0_T_S8_S7_.exit.i
@@ -90763,7 +90763,7 @@ _ZSt4moveIPSt4pairIN4llvm9StringRefENS1_14TargetLowering14ConstraintTypeEES6_ET0
   %77 = getelementptr inbounds i8, ptr %.0910.i.i.i.i.i.i39, i64 24
   %78 = getelementptr inbounds i8, ptr %.0811.i.i.i.i.i.i38, i64 24
   %79 = add nsw i64 %.012.i.i.i.i.i.i37, -1
-  %80 = icmp ugt i64 %.012.i.i.i.i.i.i37, 1
+  %80 = icmp samesign ugt i64 %.012.i.i.i.i.i.i37, 1
   br i1 %80, label %.lr.ph.i.i.i.i.i.i36, label %_ZSt4moveIPSt4pairIN4llvm9StringRefENS1_14TargetLowering14ConstraintTypeEES6_ET0_T_S8_S7_.exit.i27, !llvm.loop !530
 
 _ZSt4moveIPSt4pairIN4llvm9StringRefENS1_14TargetLowering14ConstraintTypeEES6_ET0_T_S8_S7_.exit.i27: ; preds = %.lr.ph.i.i.i.i.i.i36, %._crit_edge.i23
@@ -90789,7 +90789,7 @@ _ZSt4moveIPSt4pairIN4llvm9StringRefENS1_14TargetLowering14ConstraintTypeEES6_ET0
   %88 = getelementptr inbounds i8, ptr %.0910.i.i.i.i.i26.i34, i64 24
   %89 = getelementptr inbounds i8, ptr %.0811.i.i.i.i.i25.i33, i64 24
   %90 = add nsw i64 %.012.i.i.i.i.i24.i32, -1
-  %91 = icmp ugt i64 %.012.i.i.i.i.i24.i32, 1
+  %91 = icmp samesign ugt i64 %.012.i.i.i.i.i24.i32, 1
   br i1 %91, label %.lr.ph.i.i.i.i.i23.i31, label %"_ZSt12__move_mergeIPSt4pairIN4llvm9StringRefENS1_14TargetLowering14ConstraintTypeEES6_N9__gnu_cxx5__ops15_Iter_comp_iterIZNKS3_24getConstraintPreferencesERNS3_14AsmOperandInfoEE3$_0EEET0_T_SF_SF_SF_SE_T1_.exit56", !llvm.loop !530
 
 "_ZSt12__move_mergeIPSt4pairIN4llvm9StringRefENS1_14TargetLowering14ConstraintTypeEES6_N9__gnu_cxx5__ops15_Iter_comp_iterIZNKS3_24getConstraintPreferencesERNS3_14AsmOperandInfoEE3$_0EEET0_T_SF_SF_SF_SE_T1_.exit56": ; preds = %.lr.ph.i.i.i.i.i23.i31, %_ZSt4moveIPSt4pairIN4llvm9StringRefENS1_14TargetLowering14ConstraintTypeEES6_ET0_T_S8_S7_.exit.i27
@@ -90830,7 +90830,7 @@ define linkonce_odr noundef ptr @_ZSt17__rotate_adaptiveIPSt4pairIN4llvm9StringR
   %19 = getelementptr inbounds i8, ptr %.0910.i.i.i.i.i, i64 24
   %20 = getelementptr inbounds i8, ptr %.0811.i.i.i.i.i, i64 24
   %21 = add nsw i64 %.012.i.i.i.i.i, -1
-  %22 = icmp ugt i64 %.012.i.i.i.i.i, 1
+  %22 = icmp samesign ugt i64 %.012.i.i.i.i.i, 1
   br i1 %22, label %.lr.ph.i.i.i.i.i, label %_ZSt4moveIPSt4pairIN4llvm9StringRefENS1_14TargetLowering14ConstraintTypeEES6_ET0_T_S8_S7_.exit, !llvm.loop !530
 
 _ZSt4moveIPSt4pairIN4llvm9StringRefENS1_14TargetLowering14ConstraintTypeEES6_ET0_T_S8_S7_.exit: ; preds = %.lr.ph.i.i.i.i.i, %10
@@ -90856,7 +90856,7 @@ _ZSt4moveIPSt4pairIN4llvm9StringRefENS1_14TargetLowering14ConstraintTypeEES6_ET0
   %31 = getelementptr inbounds i8, ptr %.069.i.i.i.i.i, i64 -8
   store i32 %30, ptr %31, align 8
   %32 = add nsw i64 %.010.i.i.i.i.i, -1
-  %33 = icmp ugt i64 %.010.i.i.i.i.i, 1
+  %33 = icmp samesign ugt i64 %.010.i.i.i.i.i, 1
   br i1 %33, label %.lr.ph.i.i.i.i.i37, label %_ZSt13move_backwardIPSt4pairIN4llvm9StringRefENS1_14TargetLowering14ConstraintTypeEES6_ET0_T_S8_S7_.exit, !llvm.loop !521
 
 _ZSt13move_backwardIPSt4pairIN4llvm9StringRefENS1_14TargetLowering14ConstraintTypeEES6_ET0_T_S8_S7_.exit: ; preds = %.lr.ph.i.i.i.i.i37, %_ZSt4moveIPSt4pairIN4llvm9StringRefENS1_14TargetLowering14ConstraintTypeEES6_ET0_T_S8_S7_.exit
@@ -90882,7 +90882,7 @@ _ZSt13move_backwardIPSt4pairIN4llvm9StringRefENS1_14TargetLowering14ConstraintTy
   %42 = getelementptr inbounds i8, ptr %.0910.i.i.i.i.i43, i64 24
   %43 = getelementptr inbounds i8, ptr %.0811.i.i.i.i.i42, i64 24
   %44 = add nsw i64 %.012.i.i.i.i.i41, -1
-  %45 = icmp ugt i64 %.012.i.i.i.i.i41, 1
+  %45 = icmp samesign ugt i64 %.012.i.i.i.i.i41, 1
   br i1 %45, label %.lr.ph.i.i.i.i.i40, label %_ZSt4moveIPSt4pairIN4llvm9StringRefENS1_14TargetLowering14ConstraintTypeEES6_ET0_T_S8_S7_.exit44, !llvm.loop !530
 
 46:                                               ; preds = %7
@@ -90916,7 +90916,7 @@ _ZSt13move_backwardIPSt4pairIN4llvm9StringRefENS1_14TargetLowering14ConstraintTy
   %57 = getelementptr inbounds i8, ptr %.0910.i.i.i.i.i50, i64 24
   %58 = getelementptr inbounds i8, ptr %.0811.i.i.i.i.i49, i64 24
   %59 = add nsw i64 %.012.i.i.i.i.i48, -1
-  %60 = icmp ugt i64 %.012.i.i.i.i.i48, 1
+  %60 = icmp samesign ugt i64 %.012.i.i.i.i.i48, 1
   br i1 %60, label %.lr.ph.i.i.i.i.i47, label %_ZSt4moveIPSt4pairIN4llvm9StringRefENS1_14TargetLowering14ConstraintTypeEES6_ET0_T_S8_S7_.exit51, !llvm.loop !530
 
 _ZSt4moveIPSt4pairIN4llvm9StringRefENS1_14TargetLowering14ConstraintTypeEES6_ET0_T_S8_S7_.exit51: ; preds = %.lr.ph.i.i.i.i.i47, %48
@@ -90942,7 +90942,7 @@ _ZSt4moveIPSt4pairIN4llvm9StringRefENS1_14TargetLowering14ConstraintTypeEES6_ET0
   %68 = getelementptr inbounds i8, ptr %.0910.i.i.i.i.i57, i64 24
   %69 = getelementptr inbounds i8, ptr %.0811.i.i.i.i.i56, i64 24
   %70 = add nsw i64 %.012.i.i.i.i.i55, -1
-  %71 = icmp ugt i64 %.012.i.i.i.i.i55, 1
+  %71 = icmp samesign ugt i64 %.012.i.i.i.i.i55, 1
   br i1 %71, label %.lr.ph.i.i.i.i.i54, label %_ZSt4moveIPSt4pairIN4llvm9StringRefENS1_14TargetLowering14ConstraintTypeEES6_ET0_T_S8_S7_.exit58, !llvm.loop !530
 
 _ZSt4moveIPSt4pairIN4llvm9StringRefENS1_14TargetLowering14ConstraintTypeEES6_ET0_T_S8_S7_.exit58: ; preds = %.lr.ph.i.i.i.i.i54, %_ZSt4moveIPSt4pairIN4llvm9StringRefENS1_14TargetLowering14ConstraintTypeEES6_ET0_T_S8_S7_.exit51
@@ -90968,7 +90968,7 @@ _ZSt4moveIPSt4pairIN4llvm9StringRefENS1_14TargetLowering14ConstraintTypeEES6_ET0
   %81 = getelementptr inbounds i8, ptr %.069.i.i.i.i.i63, i64 -8
   store i32 %80, ptr %81, align 8
   %82 = add nsw i64 %.010.i.i.i.i.i62, -1
-  %83 = icmp ugt i64 %.010.i.i.i.i.i62, 1
+  %83 = icmp samesign ugt i64 %.010.i.i.i.i.i62, 1
   br i1 %83, label %.lr.ph.i.i.i.i.i61, label %_ZSt4moveIPSt4pairIN4llvm9StringRefENS1_14TargetLowering14ConstraintTypeEES6_ET0_T_S8_S7_.exit44, !llvm.loop !521
 
 84:                                               ; preds = %46

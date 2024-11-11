@@ -316,7 +316,7 @@ if.then21:                                        ; preds = %if.then11
 
 if.end24:                                         ; preds = %if.then11
   %conv25 = trunc nuw i64 %mul to i32
-  %cmp.i83 = icmp ugt i64 %mul, 513535
+  %cmp.i83 = icmp samesign ugt i64 %mul, 513535
   br i1 %cmp.i83, label %_ZN6hermes2vm16ArrayStorageBaseINS0_11HermesValueEE6createERNS0_7RuntimeEj.exit, label %if.end.i
 
 if.end.i:                                         ; preds = %if.end24
@@ -686,7 +686,7 @@ if.end165:                                        ; preds = %for.end155
   %size_.i156 = getelementptr inbounds i8, ptr %49, i64 4
   %50 = load atomic i32, ptr %size_.i156 monotonic, align 4
   %conv168 = zext i32 %50 to i64
-  %cmp169 = icmp ugt i64 %mul158, %conv168
+  %cmp169 = icmp samesign ugt i64 %mul158, %conv168
   br i1 %cmp169, label %if.then170, label %if.end194
 
 if.then170:                                       ; preds = %if.end165

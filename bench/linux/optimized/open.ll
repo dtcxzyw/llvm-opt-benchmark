@@ -504,7 +504,7 @@ define dso_local range(i64 -2147483648, 2147483648) i64 @do_sys_ftruncate(i32 no
 26:                                               ; preds = %21
   %27 = icmp ne i32 %2, 0
   %28 = and i1 %27, %14
-  %29 = icmp ugt i64 %1, 2147483647
+  %29 = icmp samesign ugt i64 %1, 2147483647
   %30 = and i1 %29, %28
   br i1 %30, label %89, label %31
 
@@ -702,7 +702,7 @@ define dso_local i32 @vfs_fallocate(ptr noundef %0, i32 noundef %1, i64 noundef 
   br i1 %30, label %31, label %83
 
 31:                                               ; preds = %25
-  %32 = icmp ult i32 %1, 64
+  %32 = icmp samesign ult i32 %1, 64
   %33 = and i32 %1, 58
   %34 = icmp eq i32 %33, 0
   %35 = or i1 %32, %34
@@ -1633,7 +1633,7 @@ define dso_local range(i64 -2147483648, 2147483648) i64 @__x64_sys_fchmodat2(ptr
   %18 = lshr exact i32 %14, 8
   %19 = and i32 %18, 1
   %20 = xor i32 %19, 1
-  %21 = icmp ult i32 %14, 4096
+  %21 = icmp samesign ult i32 %14, 4096
   %22 = or disjoint i32 %20, 16384
   %23 = select i1 %21, i32 %20, i32 %22
   %24 = call i32 @user_path_at_empty(i32 noundef %11, ptr noundef %12, i32 noundef %23, ptr noundef nonnull %2, ptr noundef null) #14
@@ -1690,7 +1690,7 @@ define dso_local range(i64 -2147483648, 2147483648) i64 @__ia32_sys_fchmodat2(pt
   %19 = lshr exact i32 %15, 8
   %20 = and i32 %19, 1
   %21 = xor i32 %20, 1
-  %22 = icmp ult i32 %15, 4096
+  %22 = icmp samesign ult i32 %15, 4096
   %23 = or disjoint i32 %21, 16384
   %24 = select i1 %22, i32 %21, i32 %23
   %25 = call i32 @user_path_at_empty(i32 noundef %12, ptr noundef %13, i32 noundef %24, ptr noundef nonnull %2, ptr noundef null) #14
@@ -2004,7 +2004,7 @@ define dso_local i32 @do_fchownat(i32 noundef %0, ptr noundef %1, i32 noundef %2
   %10 = lshr exact i32 %4, 8
   %11 = and i32 %10, 1
   %12 = xor i32 %11, 1
-  %13 = icmp ult i32 %4, 4096
+  %13 = icmp samesign ult i32 %4, 4096
   %14 = or disjoint i32 %12, 16384
   %15 = select i1 %13, i32 %12, i32 %14
   %16 = call i32 @user_path_at_empty(i32 noundef %0, ptr noundef %1, i32 noundef %15, ptr noundef nonnull %6, ptr noundef null) #14
@@ -4103,7 +4103,7 @@ define internal fastcc range(i64 -2147483648, 2147483648) i64 @do_faccessat(i32 
   %11 = lshr exact i32 %3, 8
   %12 = and i32 %11, 1
   %13 = xor i32 %12, 1
-  %14 = icmp ult i32 %3, 4096
+  %14 = icmp samesign ult i32 %3, 4096
   %15 = or disjoint i32 %13, 16384
   %16 = select i1 %14, i32 %13, i32 %15
   %17 = and i32 %3, 512

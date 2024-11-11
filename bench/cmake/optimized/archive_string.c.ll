@@ -3570,7 +3570,7 @@ define internal range(i32 -1, 1) i32 @archive_string_normalize_D(ptr noundef %0,
   %200 = getelementptr inbounds [467 x i8], ptr @u_decomposable_blocks, i64 0, i64 %199
   %201 = load i8, ptr %200, align 1
   %.not480 = icmp eq i8 %201, 0
-  %202 = icmp ugt i32 %.pr, 119364
+  %202 = icmp samesign ugt i32 %.pr, 119364
   %or.cond492 = or i1 %202, %.not480
   br i1 %or.cond492, label %.critedge489, label %203
 
@@ -6084,7 +6084,7 @@ utf16_to_unicode.exit.thread.thread.i:            ; preds = %.split.i, %23, %25,
   %43 = phi i32 [ %spec.select32.i, %utf16_to_unicode.exit.thread.i ], [ -1, %.split.i ], [ -1, %25 ], [ -1, %23 ]
   %44 = sub i64 %.028.i, %spec.select27.i
   %45 = getelementptr inbounds i8, ptr %.026.i, i64 %spec.select27.i
-  %46 = icmp ugt i32 %.1526.i, 127
+  %46 = icmp samesign ugt i32 %.1526.i, 127
   %47 = trunc nuw nsw i32 %.1526.i to i8
   %storemerge.i = select i1 %46, i8 63, i8 %47
   %.2.i = select i1 %46, i32 -1, i32 %43
@@ -6190,7 +6190,7 @@ utf16_to_unicode.exit.thread.us.thread.i:         ; preds = %.split.us.i, %18, %
   %33 = phi i32 [ %spec.select31.i, %utf16_to_unicode.exit.thread.us.i ], [ -1, %.split.us.i ], [ -1, %20 ], [ -1, %18 ]
   %34 = sub i64 %.028.us.i, %spec.select.us19.i
   %35 = getelementptr inbounds i8, ptr %.026.us.i, i64 %spec.select.us19.i
-  %36 = icmp ugt i32 %.15.us18.i, 127
+  %36 = icmp samesign ugt i32 %.15.us18.i, 127
   %37 = trunc nuw nsw i32 %.15.us18.i to i8
   %storemerge.us.i = select i1 %36, i8 63, i8 %37
   %.2.us.i = select i1 %36, i32 -1, i32 %33

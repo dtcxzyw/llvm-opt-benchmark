@@ -240,7 +240,7 @@ define dso_local noundef range(i64 0, 29) i64 @rpc_pton(ptr noundef %0, ptr noun
   br label %74
 
 .loopexit:                                        ; preds = %10, %5
-  %65 = icmp ugt i64 %2, 16
+  %65 = icmp samesign ugt i64 %2, 16
   %66 = icmp ult i64 %4, 16
   %67 = or i1 %65, %66
   br i1 %67, label %74, label %68

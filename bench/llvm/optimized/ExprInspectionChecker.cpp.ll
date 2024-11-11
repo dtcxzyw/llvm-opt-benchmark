@@ -1100,7 +1100,7 @@ _ZNK4llvm9StringRef11starts_withES0_.exit.i139.i: ; preds = %_ZN4llvm12StringSwi
   br i1 %25, label %_ZN4llvm12StringSwitchIMN12_GLOBAL__N_121ExprInspectionCheckerEKFvPKN5clang8CallExprERNS3_4ento14CheckerContextEESB_E10StartsWithENS_13StringLiteralESB_.exit219.thread.i, label %_ZNK4llvm9StringRef11starts_withES0_.exit.i147.i
 
 _ZN4llvm12StringSwitchIMN12_GLOBAL__N_121ExprInspectionCheckerEKFvPKN5clang8CallExprERNS3_4ento14CheckerContextEESB_E10StartsWithENS_13StringLiteralESB_.exit143.i: ; preds = %_ZN4llvm12StringSwitchIMN12_GLOBAL__N_121ExprInspectionCheckerEKFvPKN5clang8CallExprERNS3_4ento14CheckerContextEESB_E4CaseENS_13StringLiteralESB_.exit135.i
-  %.not.i.i145.i = icmp ult i64 %15, 19
+  %.not.i.i145.i = icmp samesign ult i64 %15, 19
   br i1 %.not.i.i145.i, label %_ZN4llvm12StringSwitchIMN12_GLOBAL__N_121ExprInspectionCheckerEKFvPKN5clang8CallExprERNS3_4ento14CheckerContextEESB_E10StartsWithENS_13StringLiteralESB_.exit151.i, label %_ZNK4llvm9StringRef11starts_withES0_.exit.i147.i
 
 _ZNK4llvm9StringRef11starts_withES0_.exit.i147.i: ; preds = %_ZN4llvm12StringSwitchIMN12_GLOBAL__N_121ExprInspectionCheckerEKFvPKN5clang8CallExprERNS3_4ento14CheckerContextEESB_E10StartsWithENS_13StringLiteralESB_.exit143.i, %_ZNK4llvm9StringRef11starts_withES0_.exit.i139.i, %_ZN4llvmeqENS_9StringRefES0_.exit.i131.i, %_ZN4llvmeqENS_9StringRefES0_.exit.i111.i, %_ZN4llvmeqENS_9StringRefES0_.exit.i.i

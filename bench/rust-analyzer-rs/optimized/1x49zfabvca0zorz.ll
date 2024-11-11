@@ -62955,7 +62955,7 @@ _ZN15ra_ap_rustc_abi9Primitive4size17h0af1a03105ad0dc5E.llvm.6424288313766077374
 
 _ZN15ra_ap_rustc_abi4Size4bits17hd304254189ad847eE.llvm.6424288313766077374.exit.i: ; preds = %_ZN15ra_ap_rustc_abi9Primitive4size17h0af1a03105ad0dc5E.llvm.6424288313766077374.exit.i
   %.neg6.i = mul nsw i64 %.0.i.i, -8
-  %19 = icmp ult i64 %.0.i.i, 17
+  %19 = icmp samesign ult i64 %.0.i.i, 17
   br i1 %19, label %_ZN15ra_ap_rustc_abi5Niche9available17h7f542a67354214adE.exit, label %20
 
 20:                                               ; preds = %_ZN15ra_ap_rustc_abi4Size4bits17hd304254189ad847eE.llvm.6424288313766077374.exit.i

@@ -988,7 +988,7 @@ define dso_local i32 @mei_irq_write_handler(ptr noundef %0, ptr noundef %1) #0 a
   br i1 %59, label %.thread, label %60
 
 60:                                               ; preds = %53
-  %61 = icmp ult i32 %58, 3
+  %61 = icmp samesign ult i32 %58, 3
   br i1 %61, label %.thread, label %62
 
 62:                                               ; preds = %60
@@ -1052,7 +1052,7 @@ define dso_local i32 @mei_irq_write_handler(ptr noundef %0, ptr noundef %1) #0 a
   br i1 %95, label %.thread, label %96
 
 96:                                               ; preds = %87
-  %97 = icmp ult i32 %94, 2
+  %97 = icmp samesign ult i32 %94, 2
   br i1 %97, label %.thread, label %98
 
 98:                                               ; preds = %96

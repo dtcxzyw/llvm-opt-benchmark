@@ -799,7 +799,7 @@ define dso_local i32 @intel_atomic_setup_scalers(ptr noundef %0, ptr nocapture n
   br label %193
 
 184:                                              ; preds = %174
-  %185 = icmp ugt i16 %178, 9
+  %185 = icmp samesign ugt i16 %178, 9
   br i1 %185, label %193, label %186
 
 186:                                              ; preds = %184

@@ -580,7 +580,7 @@ lor.lhs.false:                                    ; preds = %if.else41
 
 invoke.cont46:                                    ; preds = %lor.lhs.false
   %cmp48 = icmp eq i32 %call47, 10
-  %cmp49 = icmp ugt i64 %call43, 128
+  %cmp49 = icmp samesign ugt i64 %call43, 128
   %or.cond = and i1 %cmp49, %cmp48
   br i1 %or.cond, label %if.then57, label %lor.lhs.false50
 
@@ -590,7 +590,7 @@ lor.lhs.false50:                                  ; preds = %invoke.cont46
 
 invoke.cont52:                                    ; preds = %lor.lhs.false50
   %cmp54 = icmp ne i32 %call53, 10
-  %cmp56 = icmp ugt i64 %call43, 32
+  %cmp56 = icmp samesign ugt i64 %call43, 32
   %or.cond1 = and i1 %cmp56, %cmp54
   br i1 %or.cond1, label %if.then57, label %if.end59
 

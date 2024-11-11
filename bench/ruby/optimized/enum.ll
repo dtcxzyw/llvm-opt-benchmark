@@ -194,7 +194,7 @@ rb_num2long_inline.exit:                          ; preds = %9, %11
 20:                                               ; preds = %16
   %.not = icmp ne i32 %2, 0
   %21 = select i1 %.not, i64 1152921504606846975, i64 2305843009213693951
-  %22 = icmp ult i64 %21, %.0.i
+  %22 = icmp samesign ult i64 %21, %.0.i
   br i1 %22, label %23, label %25
 
 23:                                               ; preds = %20
@@ -3510,7 +3510,7 @@ rb_array_len.exit:                                ; preds = %28, %31
 
 39:                                               ; preds = %.preheader.split.us
   %40 = add nsw i64 %.1.us, -1
-  %41 = icmp ugt i64 %.1.us, 1
+  %41 = icmp samesign ugt i64 %.1.us, 1
   br i1 %41, label %.critedge.us, label %.loopexit31
 
 .critedge.us:                                     ; preds = %39, %.preheader.split.us
@@ -4522,7 +4522,7 @@ define internal fastcc void @rb_uniform_quicksort_intro_2(ptr noundef %0, ptr no
 tailrecurse:                                      ; preds = %176
   %11 = add i64 %.tr102129, -1
   %12 = lshr exact i64 %178, 4
-  %13 = icmp ult i64 %178, 272
+  %13 = icmp samesign ult i64 %178, 272
   br i1 %13, label %tailrecurse._crit_edge, label %.lr.ph
 
 tailrecurse._crit_edge:                           ; preds = %tailrecurse, %3
@@ -8772,7 +8772,7 @@ rb_num2long_inline.exit:                          ; preds = %16, %18
 26:                                               ; preds = %23
   %27 = sub nsw i64 1, %.0.i
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4)
-  %or.cond.i.i = icmp ult i64 %.0.i, 4611686018427387906
+  %or.cond.i.i = icmp samesign ult i64 %.0.i, 4611686018427387906
   br i1 %or.cond.i.i, label %28, label %31
 
 28:                                               ; preds = %26

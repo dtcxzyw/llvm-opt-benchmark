@@ -114,7 +114,7 @@ define dso_local range(i32 0, 5) i32 @XmlUtf8Encode(i32 noundef %0, ptr nocaptur
   br i1 %3, label %53, label %4
 
 4:                                                ; preds = %2
-  %5 = icmp ult i32 %0, 128
+  %5 = icmp samesign ult i32 %0, 128
   br i1 %5, label %6, label %8
 
 6:                                                ; preds = %4
@@ -123,7 +123,7 @@ define dso_local range(i32 0, 5) i32 @XmlUtf8Encode(i32 noundef %0, ptr nocaptur
   br label %53
 
 8:                                                ; preds = %4
-  %9 = icmp ult i32 %0, 2048
+  %9 = icmp samesign ult i32 %0, 2048
   br i1 %9, label %10, label %18
 
 10:                                               ; preds = %8
@@ -139,7 +139,7 @@ define dso_local range(i32 0, 5) i32 @XmlUtf8Encode(i32 noundef %0, ptr nocaptur
   br label %53
 
 18:                                               ; preds = %8
-  %19 = icmp ult i32 %0, 65536
+  %19 = icmp samesign ult i32 %0, 65536
   br i1 %19, label %20, label %33
 
 20:                                               ; preds = %18
@@ -161,7 +161,7 @@ define dso_local range(i32 0, 5) i32 @XmlUtf8Encode(i32 noundef %0, ptr nocaptur
   br label %53
 
 33:                                               ; preds = %18
-  %34 = icmp ult i32 %0, 1114112
+  %34 = icmp samesign ult i32 %0, 1114112
   br i1 %34, label %35, label %53
 
 35:                                               ; preds = %33
@@ -199,7 +199,7 @@ define dso_local range(i32 0, 3) i32 @XmlUtf16Encode(i32 noundef %0, ptr nocaptu
   br i1 %3, label %19, label %4
 
 4:                                                ; preds = %2
-  %5 = icmp ult i32 %0, 65536
+  %5 = icmp samesign ult i32 %0, 65536
   br i1 %5, label %6, label %8
 
 6:                                                ; preds = %4
@@ -208,7 +208,7 @@ define dso_local range(i32 0, 3) i32 @XmlUtf16Encode(i32 noundef %0, ptr nocaptu
   br label %19
 
 8:                                                ; preds = %4
-  %9 = icmp ult i32 %0, 1114112
+  %9 = icmp samesign ult i32 %0, 1114112
   br i1 %9, label %10, label %19
 
 10:                                               ; preds = %8
@@ -290,7 +290,7 @@ define dso_local noundef ptr @XmlInitUnknownEncoding(ptr noundef writeonly %0, p
   br i1 %26, label %27, label %35
 
 27:                                               ; preds = %25
-  %28 = icmp ult i32 %18, -4
+  %28 = icmp samesign ult i32 %18, -4
   %or.cond = or i1 %.not105, %28
   br i1 %or.cond, label %.loopexit, label %29
 
@@ -306,7 +306,7 @@ define dso_local noundef ptr @XmlInitUnknownEncoding(ptr noundef writeonly %0, p
   br label %116
 
 35:                                               ; preds = %25
-  %36 = icmp ult i32 %18, 128
+  %36 = icmp samesign ult i32 %18, 128
   br i1 %36, label %37, label %51
 
 37:                                               ; preds = %35
@@ -376,7 +376,7 @@ define dso_local noundef ptr @XmlInitUnknownEncoding(ptr noundef writeonly %0, p
   br label %116
 
 checkCharRefNumber.exit:                          ; preds = %58, %53, %51
-  %65 = icmp ugt i32 %18, 65535
+  %65 = icmp samesign ugt i32 %18, 65535
   br i1 %65, label %.loopexit, label %66
 
 66:                                               ; preds = %checkCharRefNumber.exit
@@ -427,7 +427,7 @@ checkCharRefNumber.exit:                          ; preds = %58, %53, %51
 96:                                               ; preds = %94, %95, %81
   %97 = getelementptr inbounds [256 x [4 x i8]], ptr %7, i64 0, i64 %indvars.iv116
   %98 = getelementptr inbounds i8, ptr %97, i64 1
-  %99 = icmp ult i32 %18, 2048
+  %99 = icmp samesign ult i32 %18, 2048
   br i1 %99, label %100, label %104
 
 100:                                              ; preds = %96
@@ -661,7 +661,7 @@ define internal range(i32 0, 3) i32 @unknown_toUtf8(ptr nocapture noundef readon
   br i1 %30, label %XmlUtf8Encode.exit, label %31
 
 31:                                               ; preds = %26
-  %32 = icmp ult i32 %29, 128
+  %32 = icmp samesign ult i32 %29, 128
   br i1 %32, label %33, label %35
 
 33:                                               ; preds = %31
@@ -670,7 +670,7 @@ define internal range(i32 0, 3) i32 @unknown_toUtf8(ptr nocapture noundef readon
   br label %XmlUtf8Encode.exit
 
 35:                                               ; preds = %31
-  %36 = icmp ult i32 %29, 2048
+  %36 = icmp samesign ult i32 %29, 2048
   br i1 %36, label %37, label %44
 
 37:                                               ; preds = %35
@@ -685,7 +685,7 @@ define internal range(i32 0, 3) i32 @unknown_toUtf8(ptr nocapture noundef readon
   br label %XmlUtf8Encode.exit
 
 44:                                               ; preds = %35
-  %45 = icmp ult i32 %29, 65536
+  %45 = icmp samesign ult i32 %29, 65536
   br i1 %45, label %46, label %57
 
 46:                                               ; preds = %44
@@ -705,7 +705,7 @@ define internal range(i32 0, 3) i32 @unknown_toUtf8(ptr nocapture noundef readon
   br label %XmlUtf8Encode.exit
 
 57:                                               ; preds = %44
-  %58 = icmp ult i32 %29, 1114112
+  %58 = icmp samesign ult i32 %29, 1114112
   br i1 %58, label %59, label %XmlUtf8Encode.exit
 
 59:                                               ; preds = %57
@@ -1690,7 +1690,7 @@ define internal i32 @normal_prologTok(ptr noundef %0, ptr noundef %1, ptr nounde
   br i1 %.not93.i, label %.loopexit.sink.split.i, label %151
 
 131:                                              ; preds = %116
-  %132 = icmp ult i64 %114, 3
+  %132 = icmp samesign ult i64 %114, 3
   br i1 %132, label %normal_scanPoundName.exit, label %133
 
 133:                                              ; preds = %131
@@ -1708,7 +1708,7 @@ define internal i32 @normal_prologTok(ptr noundef %0, ptr noundef %1, ptr nounde
   br i1 %.not91.i, label %.loopexit.sink.split.i, label %151
 
 141:                                              ; preds = %116
-  %142 = icmp ult i64 %114, 4
+  %142 = icmp samesign ult i64 %114, 4
   br i1 %142, label %normal_scanPoundName.exit, label %143
 
 143:                                              ; preds = %141
@@ -1784,7 +1784,7 @@ define internal i32 @normal_prologTok(ptr noundef %0, ptr noundef %1, ptr nounde
   br i1 %.not99.i, label %.loopexit.sink.split.i.loopexit, label %192
 
 176:                                              ; preds = %162
-  %177 = icmp ult i64 %163, 3
+  %177 = icmp samesign ult i64 %163, 3
   br i1 %177, label %normal_scanPoundName.exit, label %178
 
 178:                                              ; preds = %176
@@ -1800,7 +1800,7 @@ define internal i32 @normal_prologTok(ptr noundef %0, ptr noundef %1, ptr nounde
   br i1 %.not97.i, label %.loopexit.sink.split.i.loopexit, label %192
 
 184:                                              ; preds = %162
-  %185 = icmp ult i64 %163, 4
+  %185 = icmp samesign ult i64 %163, 4
   br i1 %185, label %normal_scanPoundName.exit, label %186
 
 186:                                              ; preds = %184
@@ -2020,7 +2020,7 @@ define internal i32 @normal_prologTok(ptr noundef %0, ptr noundef %1, ptr nounde
   br label %normal_scanPoundName.exit
 
 282:                                              ; preds = %266
-  %283 = icmp ult i64 %267, 3
+  %283 = icmp samesign ult i64 %267, 3
   br i1 %283, label %normal_scanPoundName.exit, label %284
 
 284:                                              ; preds = %282
@@ -2040,7 +2040,7 @@ define internal i32 @normal_prologTok(ptr noundef %0, ptr noundef %1, ptr nounde
   br label %normal_scanPoundName.exit
 
 291:                                              ; preds = %266
-  %292 = icmp ult i64 %267, 4
+  %292 = icmp samesign ult i64 %267, 4
   br i1 %292, label %normal_scanPoundName.exit, label %293
 
 293:                                              ; preds = %291
@@ -2197,7 +2197,7 @@ define internal i32 @normal_contentTok(ptr noundef %0, ptr noundef %1, ptr nound
   br label %normal_scanLt.exit
 
 34:                                               ; preds = %17
-  %35 = icmp ult i64 %15, 3
+  %35 = icmp samesign ult i64 %15, 3
   br i1 %35, label %normal_scanLt.exit, label %36
 
 36:                                               ; preds = %34
@@ -2219,7 +2219,7 @@ define internal i32 @normal_contentTok(ptr noundef %0, ptr noundef %1, ptr nound
   br label %normal_scanLt.exit
 
 45:                                               ; preds = %17
-  %46 = icmp ult i64 %15, 4
+  %46 = icmp samesign ult i64 %15, 4
   br i1 %46, label %normal_scanLt.exit, label %47
 
 47:                                               ; preds = %45
@@ -2342,7 +2342,7 @@ define internal i32 @normal_contentTok(ptr noundef %0, ptr noundef %1, ptr nound
   br i1 %.not103.i.i, label %.loopexit.sink.split.i.i, label %124
 
 104:                                              ; preds = %89
-  %105 = icmp ult i64 %87, 3
+  %105 = icmp samesign ult i64 %87, 3
   br i1 %105, label %normal_scanLt.exit, label %106
 
 106:                                              ; preds = %104
@@ -2360,7 +2360,7 @@ define internal i32 @normal_contentTok(ptr noundef %0, ptr noundef %1, ptr nound
   br i1 %.not101.i.i, label %.loopexit.sink.split.i.i, label %124
 
 114:                                              ; preds = %89
-  %115 = icmp ult i64 %87, 4
+  %115 = icmp samesign ult i64 %87, 4
   br i1 %115, label %normal_scanLt.exit, label %116
 
 116:                                              ; preds = %114
@@ -2433,7 +2433,7 @@ define internal i32 @normal_contentTok(ptr noundef %0, ptr noundef %1, ptr nound
   br i1 %.not109.i.i, label %.loopexit.sink.split.i.i, label %181
 
 149:                                              ; preds = %135
-  %150 = icmp ult i64 %136, 3
+  %150 = icmp samesign ult i64 %136, 3
   br i1 %150, label %normal_scanLt.exit, label %151
 
 151:                                              ; preds = %149
@@ -2449,7 +2449,7 @@ define internal i32 @normal_contentTok(ptr noundef %0, ptr noundef %1, ptr nound
   br i1 %.not107.i.i, label %.loopexit.sink.split.i.i, label %181
 
 157:                                              ; preds = %135
-  %158 = icmp ult i64 %136, 4
+  %158 = icmp samesign ult i64 %136, 4
   br i1 %158, label %normal_scanLt.exit, label %159
 
 159:                                              ; preds = %157
@@ -2584,7 +2584,7 @@ define internal i32 @normal_contentTok(ptr noundef %0, ptr noundef %1, ptr nound
   br label %normal_scanLt.exit
 
 214:                                              ; preds = %198
-  %215 = icmp ult i64 %199, 3
+  %215 = icmp samesign ult i64 %199, 3
   br i1 %215, label %normal_scanLt.exit, label %216
 
 216:                                              ; preds = %214
@@ -2604,7 +2604,7 @@ define internal i32 @normal_contentTok(ptr noundef %0, ptr noundef %1, ptr nound
   br label %normal_scanLt.exit
 
 223:                                              ; preds = %198
-  %224 = icmp ult i64 %199, 4
+  %224 = icmp samesign ult i64 %199, 4
   br i1 %224, label %normal_scanLt.exit, label %225
 
 225:                                              ; preds = %223
@@ -2963,7 +2963,7 @@ define internal i32 @normal_contentTok(ptr noundef %0, ptr noundef %1, ptr nound
   br label %424
 
 392:                                              ; preds = %378
-  %393 = icmp ult i64 %379, 3
+  %393 = icmp samesign ult i64 %379, 3
   br i1 %393, label %397, label %394
 
 394:                                              ; preds = %392
@@ -2981,7 +2981,7 @@ define internal i32 @normal_contentTok(ptr noundef %0, ptr noundef %1, ptr nound
   br label %424
 
 400:                                              ; preds = %378
-  %401 = icmp ult i64 %379, 4
+  %401 = icmp samesign ult i64 %379, 4
   br i1 %401, label %405, label %402
 
 402:                                              ; preds = %400
@@ -3009,7 +3009,7 @@ define internal i32 @normal_contentTok(ptr noundef %0, ptr noundef %1, ptr nound
   br i1 %412, label %413, label %424
 
 413:                                              ; preds = %409
-  %414 = icmp ugt i64 %379, 2
+  %414 = icmp samesign ugt i64 %379, 2
   br i1 %414, label %415, label %421
 
 415:                                              ; preds = %413
@@ -3225,7 +3225,7 @@ define internal range(i32 -4, 41) i32 @normal_cdataSectionTok(ptr noundef %0, pt
   br i1 %.not94, label %108, label %.sink.split
 
 98:                                               ; preds = %87
-  %99 = icmp ult i64 %88, 3
+  %99 = icmp samesign ult i64 %88, 3
   br i1 %99, label %.sink.split, label %100
 
 100:                                              ; preds = %98
@@ -3235,7 +3235,7 @@ define internal range(i32 -4, 41) i32 @normal_cdataSectionTok(ptr noundef %0, pt
   br i1 %.not93, label %108, label %.sink.split
 
 103:                                              ; preds = %87
-  %104 = icmp ult i64 %88, 4
+  %104 = icmp samesign ult i64 %88, 4
   br i1 %104, label %.sink.split, label %105
 
 105:                                              ; preds = %103
@@ -4442,7 +4442,7 @@ define internal fastcc range(i32 -27, 28) i32 @normal_scanLit(i32 noundef range(
   br label %60
 
 28:                                               ; preds = %14
-  %29 = icmp ult i64 %15, 3
+  %29 = icmp samesign ult i64 %15, 3
   br i1 %29, label %.loopexit, label %30
 
 30:                                               ; preds = %28
@@ -4460,7 +4460,7 @@ define internal fastcc range(i32 -27, 28) i32 @normal_scanLit(i32 noundef range(
   br label %60
 
 36:                                               ; preds = %14
-  %37 = icmp ult i64 %15, 4
+  %37 = icmp samesign ult i64 %15, 4
   br i1 %37, label %.loopexit, label %38
 
 38:                                               ; preds = %36
@@ -4678,7 +4678,7 @@ define internal fastcc i32 @normal_scanPi(ptr noundef %0, ptr noundef %1, ptr no
   br label %.loopexit
 
 28:                                               ; preds = %10
-  %29 = icmp ult i64 %8, 3
+  %29 = icmp samesign ult i64 %8, 3
   br i1 %29, label %.loopexit, label %30
 
 30:                                               ; preds = %28
@@ -4700,7 +4700,7 @@ define internal fastcc i32 @normal_scanPi(ptr noundef %0, ptr noundef %1, ptr no
   br label %.loopexit
 
 39:                                               ; preds = %10
-  %40 = icmp ult i64 %8, 4
+  %40 = icmp samesign ult i64 %8, 4
   br i1 %40, label %.loopexit, label %41
 
 41:                                               ; preds = %39
@@ -4791,7 +4791,7 @@ define internal fastcc i32 @normal_scanPi(ptr noundef %0, ptr noundef %1, ptr no
   br label %.loopexit
 
 79:                                               ; preds = %62
-  %80 = icmp ult i64 %63, 3
+  %80 = icmp samesign ult i64 %63, 3
   br i1 %80, label %.loopexit, label %81
 
 81:                                               ; preds = %79
@@ -4811,7 +4811,7 @@ define internal fastcc i32 @normal_scanPi(ptr noundef %0, ptr noundef %1, ptr no
   br label %.loopexit
 
 88:                                               ; preds = %62
-  %89 = icmp ult i64 %63, 4
+  %89 = icmp samesign ult i64 %63, 4
   br i1 %89, label %.loopexit, label %90
 
 90:                                               ; preds = %88
@@ -5080,7 +5080,7 @@ define internal fastcc range(i32 -2, 29) i32 @normal_scanPercent(ptr noundef %0,
   br i1 %.not95, label %.loopexit.sink.split, label %46
 
 25:                                               ; preds = %9
-  %26 = icmp ult i64 %7, 3
+  %26 = icmp samesign ult i64 %7, 3
   br i1 %26, label %.loopexit, label %27
 
 27:                                               ; preds = %25
@@ -5098,7 +5098,7 @@ define internal fastcc range(i32 -2, 29) i32 @normal_scanPercent(ptr noundef %0,
   br i1 %.not93, label %.loopexit.sink.split, label %46
 
 35:                                               ; preds = %9
-  %36 = icmp ult i64 %7, 4
+  %36 = icmp samesign ult i64 %7, 4
   br i1 %36, label %.loopexit, label %37
 
 37:                                               ; preds = %35
@@ -5171,7 +5171,7 @@ define internal fastcc range(i32 -2, 29) i32 @normal_scanPercent(ptr noundef %0,
   br i1 %.not101, label %.loopexit.sink.split, label %89
 
 71:                                               ; preds = %57
-  %72 = icmp ult i64 %58, 3
+  %72 = icmp samesign ult i64 %58, 3
   br i1 %72, label %.loopexit, label %73
 
 73:                                               ; preds = %71
@@ -5187,7 +5187,7 @@ define internal fastcc range(i32 -2, 29) i32 @normal_scanPercent(ptr noundef %0,
   br i1 %.not99, label %.loopexit.sink.split, label %89
 
 79:                                               ; preds = %57
-  %80 = icmp ult i64 %58, 4
+  %80 = icmp samesign ult i64 %58, 4
   br i1 %80, label %.loopexit, label %81
 
 81:                                               ; preds = %79
@@ -5284,7 +5284,7 @@ define internal fastcc range(i32 -2, 14) i32 @normal_scanComment(ptr noundef %0,
   br label %67
 
 34:                                               ; preds = %21
-  %35 = icmp ult i64 %22, 3
+  %35 = icmp samesign ult i64 %22, 3
   br i1 %35, label %.loopexit, label %36
 
 36:                                               ; preds = %34
@@ -5298,7 +5298,7 @@ define internal fastcc range(i32 -2, 14) i32 @normal_scanComment(ptr noundef %0,
   br label %67
 
 41:                                               ; preds = %21
-  %42 = icmp ult i64 %22, 4
+  %42 = icmp samesign ult i64 %22, 4
   br i1 %42, label %.loopexit, label %43
 
 43:                                               ; preds = %41
@@ -5458,7 +5458,7 @@ define internal fastcc range(i32 -2, 11) i32 @normal_scanRef(ptr noundef %0, ptr
   br i1 %.not97, label %normal_scanCharRef.exit.sink.split, label %91
 
 25:                                               ; preds = %9
-  %26 = icmp ult i64 %7, 3
+  %26 = icmp samesign ult i64 %7, 3
   br i1 %26, label %normal_scanCharRef.exit, label %27
 
 27:                                               ; preds = %25
@@ -5476,7 +5476,7 @@ define internal fastcc range(i32 -2, 11) i32 @normal_scanRef(ptr noundef %0, ptr
   br i1 %.not95, label %normal_scanCharRef.exit.sink.split, label %91
 
 35:                                               ; preds = %9
-  %36 = icmp ult i64 %7, 4
+  %36 = icmp samesign ult i64 %7, 4
   br i1 %36, label %normal_scanCharRef.exit, label %37
 
 37:                                               ; preds = %35
@@ -5634,7 +5634,7 @@ define internal fastcc range(i32 -2, 11) i32 @normal_scanRef(ptr noundef %0, ptr
   br i1 %.not103, label %normal_scanCharRef.exit.sink.split, label %134
 
 116:                                              ; preds = %102
-  %117 = icmp ult i64 %103, 3
+  %117 = icmp samesign ult i64 %103, 3
   br i1 %117, label %normal_scanCharRef.exit, label %118
 
 118:                                              ; preds = %116
@@ -5650,7 +5650,7 @@ define internal fastcc range(i32 -2, 11) i32 @normal_scanRef(ptr noundef %0, ptr
   br i1 %.not101, label %normal_scanCharRef.exit.sink.split, label %134
 
 124:                                              ; preds = %102
-  %125 = icmp ult i64 %103, 4
+  %125 = icmp samesign ult i64 %103, 4
   br i1 %125, label %normal_scanCharRef.exit, label %126
 
 126:                                              ; preds = %124
@@ -5758,7 +5758,7 @@ define internal fastcc range(i32 -2, 4) i32 @normal_scanAtts(ptr noundef %0, ptr
   br label %213
 
 38:                                               ; preds = %20
-  %39 = icmp ult i64 %21, 3
+  %39 = icmp samesign ult i64 %21, 3
   br i1 %39, label %.loopexit111, label %40
 
 40:                                               ; preds = %38
@@ -5778,7 +5778,7 @@ define internal fastcc range(i32 -2, 4) i32 @normal_scanAtts(ptr noundef %0, ptr
   br label %213
 
 48:                                               ; preds = %20
-  %49 = icmp ult i64 %21, 4
+  %49 = icmp samesign ult i64 %21, 4
   br i1 %49, label %.loopexit111, label %50
 
 50:                                               ; preds = %48
@@ -6528,7 +6528,7 @@ define internal range(i32 0, 2) i32 @utf8_isInvalid2(ptr nocapture readnone %0, 
   br i1 %8, label %12, label %9
 
 9:                                                ; preds = %5
-  %10 = icmp ugt i8 %7, -65
+  %10 = icmp samesign ugt i8 %7, -65
   %11 = zext i1 %10 to i32
   br label %12
 
@@ -6556,15 +6556,15 @@ define internal range(i32 0, 2) i32 @utf8_isInvalid3(ptr nocapture readnone %0, 
   br i1 %12, label %13, label %.thread13
 
 13:                                               ; preds = %9
-  %14 = icmp ugt i8 %4, -67
+  %14 = icmp samesign ugt i8 %4, -67
   br i1 %14, label %30, label %.thread.thread
 
 15:                                               ; preds = %6
-  %16 = icmp ugt i8 %4, -65
+  %16 = icmp samesign ugt i8 %4, -65
   br i1 %16, label %30, label %18
 
 .thread13:                                        ; preds = %9
-  %17 = icmp ugt i8 %4, -65
+  %17 = icmp samesign ugt i8 %4, -65
   br i1 %17, label %30, label %.thread
 
 18:                                               ; preds = %15
@@ -6632,7 +6632,7 @@ define internal range(i32 0, 2) i32 @utf8_isInvalid4(ptr nocapture readnone %0, 
 17:                                               ; preds = %15
   %18 = icmp eq i8 %9, -12
   %.in.v = select i1 %18, i8 -113, i8 -65
-  %.in = icmp ugt i8 %12, %.in.v
+  %.in = icmp samesign ugt i8 %12, %.in.v
   br label %19
 
 19:                                               ; preds = %15, %17, %13
@@ -6888,7 +6888,7 @@ unicode_byte_type.exit201.thread:                 ; preds = %64, %72, %unicode_b
   br i1 %98, label %99, label %111
 
 99:                                               ; preds = %96
-  %100 = icmp ugt i64 %90, 3
+  %100 = icmp samesign ugt i64 %90, 3
   br i1 %100, label %101, label %239
 
 101:                                              ; preds = %99
@@ -7167,7 +7167,7 @@ unicode_byte_type.exit207.thread288:              ; preds = %189, %193, %unicode
   br label %239
 
 unicode_byte_type.exit207.thread291:              ; preds = %189, %189, %189, %189, %unicode_byte_type.exit207
-  %223 = icmp ult i64 %190, 4
+  %223 = icmp samesign ult i64 %190, 4
   br i1 %223, label %239, label %224
 
 224:                                              ; preds = %unicode_byte_type.exit207.thread291
@@ -7389,7 +7389,7 @@ unicode_byte_type.exit.thread297.i:               ; preds = %.unicode_byte_type.
   br label %little2_scanLt.exit
 
 unicode_byte_type.exit.thread300.i:               ; preds = %unicode_byte_type.exit.i, %31, %31, %31, %31
-  %66 = icmp ult i64 %29, 4
+  %66 = icmp samesign ult i64 %29, 4
   br i1 %66, label %little2_scanLt.exit, label %67
 
 67:                                               ; preds = %unicode_byte_type.exit.thread300.i
@@ -7547,7 +7547,7 @@ unicode_byte_type.exit.thread135.i.i:             ; preds = %unicode_byte_type.e
   br i1 %135, label %little2_scanLt.exit, label %.loopexit.sink.split.i.i
 
 unicode_byte_type.exit.thread138.i.i:             ; preds = %unicode_byte_type.exit.i.i, %106, %106, %106, %106
-  %136 = icmp ult i64 %104, 4
+  %136 = icmp samesign ult i64 %104, 4
   br i1 %136, label %little2_scanLt.exit, label %.loopexit.sink.split.i.i
 
 .lr.ph.i.i:                                       ; preds = %130, %161
@@ -7776,7 +7776,7 @@ unicode_byte_type.exit139.thread304.i:            ; preds = %.unicode_byte_type.
   br label %little2_scanLt.exit
 
 unicode_byte_type.exit139.thread307.i:            ; preds = %unicode_byte_type.exit139.i, %188, %188, %188, %188
-  %222 = icmp ult i64 %189, 4
+  %222 = icmp samesign ult i64 %189, 4
   br i1 %222, label %little2_scanLt.exit, label %223
 
 223:                                              ; preds = %unicode_byte_type.exit139.thread307.i
@@ -8126,7 +8126,7 @@ unicode_byte_type.exit113:                        ; preds = %354
   br label %398
 
 unicode_byte_type.exit113.thread300:              ; preds = %354, %354, %354, %354, %unicode_byte_type.exit113
-  %371 = icmp ult i64 %355, 4
+  %371 = icmp samesign ult i64 %355, 4
   br i1 %371, label %372, label %373
 
 372:                                              ; preds = %unicode_byte_type.exit113.thread300
@@ -8138,7 +8138,7 @@ unicode_byte_type.exit113.thread300:              ; preds = %354, %354, %354, %3
   br label %398
 
 375:                                              ; preds = %unicode_byte_type.exit113
-  %376 = icmp ugt i64 %355, 3
+  %376 = icmp samesign ugt i64 %355, 3
   br i1 %376, label %377, label %unicode_byte_type.exit113.thread
 
 377:                                              ; preds = %375
@@ -8154,7 +8154,7 @@ unicode_byte_type.exit113.thread300:              ; preds = %354, %354, %354, %3
   br i1 %384, label %385, label %398
 
 385:                                              ; preds = %382
-  %386 = icmp ugt i64 %355, 5
+  %386 = icmp samesign ugt i64 %355, 5
   br i1 %386, label %387, label %unicode_byte_type.exit113.thread
 
 387:                                              ; preds = %385
@@ -8423,7 +8423,7 @@ unicode_byte_type.exit92:                         ; preds = %93
   br i1 %104, label %.sink.split, label %unicode_byte_type.exit92.thread108
 
 unicode_byte_type.exit92.thread111:               ; preds = %93, %93, %93, %93, %unicode_byte_type.exit92
-  %105 = icmp ult i64 %94, 4
+  %105 = icmp samesign ult i64 %94, 4
   br i1 %105, label %.sink.split, label %unicode_byte_type.exit92.thread108
 
 unicode_byte_type.exit92.thread108:               ; preds = %unicode_byte_type.exit92, %97, %93, %unicode_byte_type.exit92.thread111, %103
@@ -10014,7 +10014,7 @@ unicode_byte_type.exit:                           ; preds = %11
   br label %45
 
 unicode_byte_type.exit.thread42:                  ; preds = %11, %11, %11, %11, %unicode_byte_type.exit
-  %27 = icmp ult i64 %12, 4
+  %27 = icmp samesign ult i64 %12, 4
   br i1 %27, label %.loopexit, label %28
 
 28:                                               ; preds = %unicode_byte_type.exit.thread42
@@ -10153,7 +10153,7 @@ unicode_byte_type.exit43:                         ; preds = %27
   ]
 
 35:                                               ; preds = %unicode_byte_type.exit43
-  %36 = icmp ugt i64 %28, 3
+  %36 = icmp samesign ugt i64 %28, 3
   br i1 %36, label %37, label %.loopexit
 
 37:                                               ; preds = %35
@@ -10294,7 +10294,7 @@ unicode_byte_type.exit.thread195:                 ; preds = %15, %14, %unicode_b
   br label %.loopexit
 
 unicode_byte_type.exit.thread198:                 ; preds = %14, %14, %14, %14, %unicode_byte_type.exit
-  %47 = icmp ult i64 %8, 4
+  %47 = icmp samesign ult i64 %8, 4
   br i1 %47, label %.loopexit, label %48
 
 48:                                               ; preds = %unicode_byte_type.exit.thread198
@@ -10394,7 +10394,7 @@ unicode_byte_type.exit110.thread201:              ; preds = %49, %54, %unicode_b
   br label %.loopexit
 
 unicode_byte_type.exit110.thread204:              ; preds = %49, %49, %49, %49, %unicode_byte_type.exit110
-  %84 = icmp ult i64 %50, 4
+  %84 = icmp samesign ult i64 %50, 4
   br i1 %84, label %.loopexit, label %85
 
 85:                                               ; preds = %unicode_byte_type.exit110.thread204
@@ -10691,7 +10691,7 @@ unicode_byte_type.exit.thread106:                 ; preds = %9, %12, %unicode_by
   br i1 %40, label %.loopexit, label %.loopexit.sink.split
 
 unicode_byte_type.exit.thread109:                 ; preds = %9, %9, %9, %9, %unicode_byte_type.exit
-  %41 = icmp ult i64 %7, 4
+  %41 = icmp samesign ult i64 %7, 4
   br i1 %41, label %.loopexit, label %.loopexit.sink.split
 
 42:                                               ; preds = %unicode_byte_type.exit, %unicode_byte_type.exit, %unicode_byte_type.exit, %unicode_byte_type.exit
@@ -10769,7 +10769,7 @@ unicode_byte_type.exit65.thread112:               ; preds = %43, %47, %unicode_b
   br i1 %73, label %.loopexit, label %.loopexit.sink.split
 
 unicode_byte_type.exit65.thread115:               ; preds = %43, %43, %43, %43, %unicode_byte_type.exit65
-  %74 = icmp ult i64 %44, 4
+  %74 = icmp samesign ult i64 %44, 4
   br i1 %74, label %.loopexit, label %.loopexit.sink.split
 
 75:                                               ; preds = %unicode_byte_type.exit65
@@ -10865,7 +10865,7 @@ unicode_byte_type.exit.thread92:                  ; preds = %9, %12, %unicode_by
   br i1 %40, label %.loopexit, label %.loopexit.sink.split
 
 unicode_byte_type.exit.thread95:                  ; preds = %unicode_byte_type.exit, %9, %9, %9, %9
-  %41 = icmp ult i64 %7, 4
+  %41 = icmp samesign ult i64 %7, 4
   br i1 %41, label %.loopexit, label %.loopexit.sink.split
 
 42:                                               ; preds = %.lr.ph, %67
@@ -10946,7 +10946,7 @@ unicode_byte_type.exit63.thread98:                ; preds = %42, %46, %unicode_b
   br i1 %72, label %.loopexit, label %.loopexit.sink.split
 
 unicode_byte_type.exit63.thread101:               ; preds = %42, %42, %42, %42, %unicode_byte_type.exit63
-  %73 = icmp ult i64 %43, 4
+  %73 = icmp samesign ult i64 %43, 4
   br i1 %73, label %.loopexit, label %.loopexit.sink.split
 
 .loopexit.sink.split.loopexit123:                 ; preds = %unicode_byte_type.exit63, %unicode_byte_type.exit63, %unicode_byte_type.exit63, %unicode_byte_type.exit63, %unicode_byte_type.exit63, %unicode_byte_type.exit63, %unicode_byte_type.exit63
@@ -11044,7 +11044,7 @@ unicode_byte_type.exit:                           ; preds = %22
   br label %67
 
 unicode_byte_type.exit.thread57:                  ; preds = %22, %22, %22, %22, %unicode_byte_type.exit
-  %38 = icmp ult i64 %23, 4
+  %38 = icmp samesign ult i64 %23, 4
   br i1 %38, label %.loopexit, label %39
 
 39:                                               ; preds = %unicode_byte_type.exit.thread57
@@ -11265,7 +11265,7 @@ unicode_byte_type.exit.thread131:                 ; preds = %9, %12, %unicode_by
   br i1 %40, label %little2_scanCharRef.exit, label %little2_scanCharRef.exit.sink.split
 
 unicode_byte_type.exit.thread134:                 ; preds = %9, %9, %9, %9, %unicode_byte_type.exit
-  %41 = icmp ult i64 %7, 4
+  %41 = icmp samesign ult i64 %7, 4
   br i1 %41, label %little2_scanCharRef.exit, label %little2_scanCharRef.exit.sink.split
 
 42:                                               ; preds = %unicode_byte_type.exit
@@ -11454,7 +11454,7 @@ unicode_byte_type.exit68.thread137:               ; preds = %99, %103, %unicode_
   br i1 %129, label %little2_scanCharRef.exit, label %little2_scanCharRef.exit.sink.split
 
 unicode_byte_type.exit68.thread140:               ; preds = %99, %99, %99, %99, %unicode_byte_type.exit68
-  %130 = icmp ult i64 %100, 4
+  %130 = icmp samesign ult i64 %100, 4
   br i1 %130, label %little2_scanCharRef.exit, label %little2_scanCharRef.exit.sink.split
 
 131:                                              ; preds = %unicode_byte_type.exit68
@@ -11553,7 +11553,7 @@ unicode_byte_type.exit.thread412:                 ; preds = %11, %15, %unicode_b
   br i1 %37, label %.loopexit90, label %.loopexit90.sink.split
 
 unicode_byte_type.exit.thread415:                 ; preds = %11, %11, %11, %11, %unicode_byte_type.exit
-  %38 = icmp ult i64 %12, 4
+  %38 = icmp samesign ult i64 %12, 4
   br i1 %38, label %.loopexit90, label %.loopexit90.sink.split
 
 39:                                               ; preds = %unicode_byte_type.exit, %unicode_byte_type.exit, %unicode_byte_type.exit
@@ -12376,7 +12376,7 @@ unicode_byte_type.exit201.thread:                 ; preds = %66, %74, %unicode_b
   br i1 %100, label %101, label %113
 
 101:                                              ; preds = %97
-  %102 = icmp ugt i64 %92, 3
+  %102 = icmp samesign ugt i64 %92, 3
   br i1 %102, label %103, label %244
 
 103:                                              ; preds = %101
@@ -12658,7 +12658,7 @@ unicode_byte_type.exit207.thread288:              ; preds = %192, %195, %unicode
   br label %244
 
 unicode_byte_type.exit207.thread291:              ; preds = %192, %192, %192, %192, %unicode_byte_type.exit207
-  %228 = icmp ult i64 %193, 4
+  %228 = icmp samesign ult i64 %193, 4
   br i1 %228, label %244, label %229
 
 229:                                              ; preds = %unicode_byte_type.exit207.thread291
@@ -12883,7 +12883,7 @@ unicode_byte_type.exit.thread298.i:               ; preds = %.unicode_byte_type.
   br label %big2_scanLt.exit
 
 unicode_byte_type.exit.thread301.i:               ; preds = %unicode_byte_type.exit.i, %32, %32, %32, %32
-  %68 = icmp ult i64 %30, 4
+  %68 = icmp samesign ult i64 %30, 4
   br i1 %68, label %big2_scanLt.exit, label %69
 
 69:                                               ; preds = %unicode_byte_type.exit.thread301.i
@@ -13043,7 +13043,7 @@ unicode_byte_type.exit.thread135.i.i:             ; preds = %unicode_byte_type.e
   br i1 %138, label %big2_scanLt.exit, label %.loopexit.sink.split.i.i
 
 unicode_byte_type.exit.thread138.i.i:             ; preds = %unicode_byte_type.exit.i.i, %108, %108, %108, %108
-  %139 = icmp ult i64 %106, 4
+  %139 = icmp samesign ult i64 %106, 4
   br i1 %139, label %big2_scanLt.exit, label %.loopexit.sink.split.i.i
 
 .lr.ph.i.i:                                       ; preds = %133, %165
@@ -13276,7 +13276,7 @@ unicode_byte_type.exit139.thread305.i:            ; preds = %.unicode_byte_type.
   br label %big2_scanLt.exit
 
 unicode_byte_type.exit139.thread308.i:            ; preds = %unicode_byte_type.exit139.i, %192, %192, %192, %192
-  %227 = icmp ult i64 %193, 4
+  %227 = icmp samesign ult i64 %193, 4
   br i1 %227, label %big2_scanLt.exit, label %228
 
 228:                                              ; preds = %unicode_byte_type.exit139.thread308.i
@@ -13629,7 +13629,7 @@ unicode_byte_type.exit113:                        ; preds = %360
   br label %405
 
 unicode_byte_type.exit113.thread302:              ; preds = %360, %360, %360, %360, %unicode_byte_type.exit113
-  %378 = icmp ult i64 %361, 4
+  %378 = icmp samesign ult i64 %361, 4
   br i1 %378, label %379, label %380
 
 379:                                              ; preds = %unicode_byte_type.exit113.thread302
@@ -13641,7 +13641,7 @@ unicode_byte_type.exit113.thread302:              ; preds = %360, %360, %360, %3
   br label %405
 
 382:                                              ; preds = %unicode_byte_type.exit113
-  %383 = icmp ugt i64 %361, 3
+  %383 = icmp samesign ugt i64 %361, 3
   br i1 %383, label %384, label %unicode_byte_type.exit113.thread
 
 384:                                              ; preds = %382
@@ -13657,7 +13657,7 @@ unicode_byte_type.exit113.thread302:              ; preds = %360, %360, %360, %3
   br i1 %391, label %392, label %405
 
 392:                                              ; preds = %388
-  %393 = icmp ugt i64 %361, 5
+  %393 = icmp samesign ugt i64 %361, 5
   br i1 %393, label %394, label %unicode_byte_type.exit113.thread
 
 394:                                              ; preds = %392
@@ -13928,7 +13928,7 @@ unicode_byte_type.exit92:                         ; preds = %94
   br i1 %106, label %.sink.split, label %unicode_byte_type.exit92.thread108
 
 unicode_byte_type.exit92.thread111:               ; preds = %94, %94, %94, %94, %unicode_byte_type.exit92
-  %107 = icmp ult i64 %95, 4
+  %107 = icmp samesign ult i64 %95, 4
   br i1 %107, label %.sink.split, label %unicode_byte_type.exit92.thread108
 
 unicode_byte_type.exit92.thread108:               ; preds = %unicode_byte_type.exit92, %97, %94, %unicode_byte_type.exit92.thread111, %105
@@ -15537,7 +15537,7 @@ unicode_byte_type.exit:                           ; preds = %11
   br label %46
 
 unicode_byte_type.exit.thread42:                  ; preds = %11, %11, %11, %11, %unicode_byte_type.exit
-  %28 = icmp ult i64 %12, 4
+  %28 = icmp samesign ult i64 %12, 4
   br i1 %28, label %.loopexit, label %29
 
 29:                                               ; preds = %unicode_byte_type.exit.thread42
@@ -15676,7 +15676,7 @@ unicode_byte_type.exit43:                         ; preds = %27
   ]
 
 35:                                               ; preds = %unicode_byte_type.exit43
-  %36 = icmp ugt i64 %28, 3
+  %36 = icmp samesign ugt i64 %28, 3
   br i1 %36, label %37, label %.loopexit
 
 37:                                               ; preds = %35
@@ -15819,7 +15819,7 @@ unicode_byte_type.exit.thread195:                 ; preds = %14, %13, %unicode_b
   br label %.loopexit
 
 unicode_byte_type.exit.thread198:                 ; preds = %13, %13, %13, %13, %unicode_byte_type.exit
-  %49 = icmp ult i64 %8, 4
+  %49 = icmp samesign ult i64 %8, 4
   br i1 %49, label %.loopexit, label %50
 
 50:                                               ; preds = %unicode_byte_type.exit.thread198
@@ -15921,7 +15921,7 @@ unicode_byte_type.exit110.thread201:              ; preds = %51, %55, %unicode_b
   br label %.loopexit
 
 unicode_byte_type.exit110.thread204:              ; preds = %51, %51, %51, %51, %unicode_byte_type.exit110
-  %88 = icmp ult i64 %52, 4
+  %88 = icmp samesign ult i64 %52, 4
   br i1 %88, label %.loopexit, label %89
 
 89:                                               ; preds = %unicode_byte_type.exit110.thread204
@@ -16222,7 +16222,7 @@ unicode_byte_type.exit.thread106:                 ; preds = %9, %11, %unicode_by
   br i1 %42, label %.loopexit, label %.loopexit.sink.split
 
 unicode_byte_type.exit.thread109:                 ; preds = %9, %9, %9, %9, %unicode_byte_type.exit
-  %43 = icmp ult i64 %7, 4
+  %43 = icmp samesign ult i64 %7, 4
   br i1 %43, label %.loopexit, label %.loopexit.sink.split
 
 44:                                               ; preds = %unicode_byte_type.exit, %unicode_byte_type.exit, %unicode_byte_type.exit, %unicode_byte_type.exit
@@ -16302,7 +16302,7 @@ unicode_byte_type.exit65.thread112:               ; preds = %45, %48, %unicode_b
   br i1 %77, label %.loopexit, label %.loopexit.sink.split
 
 unicode_byte_type.exit65.thread115:               ; preds = %45, %45, %45, %45, %unicode_byte_type.exit65
-  %78 = icmp ult i64 %46, 4
+  %78 = icmp samesign ult i64 %46, 4
   br i1 %78, label %.loopexit, label %.loopexit.sink.split
 
 79:                                               ; preds = %unicode_byte_type.exit65
@@ -16400,7 +16400,7 @@ unicode_byte_type.exit.thread92:                  ; preds = %9, %11, %unicode_by
   br i1 %42, label %.loopexit, label %.loopexit.sink.split
 
 unicode_byte_type.exit.thread95:                  ; preds = %unicode_byte_type.exit, %9, %9, %9, %9
-  %43 = icmp ult i64 %7, 4
+  %43 = icmp samesign ult i64 %7, 4
   br i1 %43, label %.loopexit, label %.loopexit.sink.split
 
 44:                                               ; preds = %.lr.ph, %71
@@ -16483,7 +16483,7 @@ unicode_byte_type.exit63.thread98:                ; preds = %44, %47, %unicode_b
   br i1 %76, label %.loopexit, label %.loopexit.sink.split
 
 unicode_byte_type.exit63.thread101:               ; preds = %44, %44, %44, %44, %unicode_byte_type.exit63
-  %77 = icmp ult i64 %45, 4
+  %77 = icmp samesign ult i64 %45, 4
   br i1 %77, label %.loopexit, label %.loopexit.sink.split
 
 .loopexit.sink.split.loopexit123:                 ; preds = %unicode_byte_type.exit63, %unicode_byte_type.exit63, %unicode_byte_type.exit63, %unicode_byte_type.exit63, %unicode_byte_type.exit63, %unicode_byte_type.exit63, %unicode_byte_type.exit63
@@ -16582,7 +16582,7 @@ unicode_byte_type.exit:                           ; preds = %22
   br label %68
 
 unicode_byte_type.exit.thread57:                  ; preds = %22, %22, %22, %22, %unicode_byte_type.exit
-  %39 = icmp ult i64 %23, 4
+  %39 = icmp samesign ult i64 %23, 4
   br i1 %39, label %.loopexit, label %40
 
 40:                                               ; preds = %unicode_byte_type.exit.thread57
@@ -16805,7 +16805,7 @@ unicode_byte_type.exit.thread131:                 ; preds = %9, %11, %unicode_by
   br i1 %42, label %big2_scanCharRef.exit, label %big2_scanCharRef.exit.sink.split
 
 unicode_byte_type.exit.thread134:                 ; preds = %9, %9, %9, %9, %unicode_byte_type.exit
-  %43 = icmp ult i64 %7, 4
+  %43 = icmp samesign ult i64 %7, 4
   br i1 %43, label %big2_scanCharRef.exit, label %big2_scanCharRef.exit.sink.split
 
 44:                                               ; preds = %unicode_byte_type.exit
@@ -16996,7 +16996,7 @@ unicode_byte_type.exit68.thread137:               ; preds = %101, %104, %unicode
   br i1 %133, label %big2_scanCharRef.exit, label %big2_scanCharRef.exit.sink.split
 
 unicode_byte_type.exit68.thread140:               ; preds = %101, %101, %101, %101, %unicode_byte_type.exit68
-  %134 = icmp ult i64 %102, 4
+  %134 = icmp samesign ult i64 %102, 4
   br i1 %134, label %big2_scanCharRef.exit, label %big2_scanCharRef.exit.sink.split
 
 135:                                              ; preds = %unicode_byte_type.exit68
@@ -17097,7 +17097,7 @@ unicode_byte_type.exit.thread429:                 ; preds = %11, %14, %unicode_b
   br i1 %39, label %.loopexit90, label %.loopexit90.sink.split
 
 unicode_byte_type.exit.thread432:                 ; preds = %11, %11, %11, %11, %unicode_byte_type.exit
-  %40 = icmp ult i64 %12, 4
+  %40 = icmp samesign ult i64 %12, 4
   br i1 %40, label %.loopexit90, label %.loopexit90.sink.split
 
 41:                                               ; preds = %unicode_byte_type.exit, %unicode_byte_type.exit, %unicode_byte_type.exit

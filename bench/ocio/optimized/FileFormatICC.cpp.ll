@@ -396,7 +396,7 @@ while.body:                                       ; preds = %entry, %while.body
   store i8 %6, ptr %arrayidx7, align 1
   %add.ptr = getelementptr inbounds i8, ptr %ptr.012, i64 8
   %dec = add nsw i32 %num.addr.011, -1
-  %cmp = icmp ugt i32 %num.addr.011, 1
+  %cmp = icmp samesign ugt i32 %num.addr.011, 1
   br i1 %cmp, label %while.body, label %while.end, !llvm.loop !4
 
 while.end:                                        ; preds = %while.body, %entry
@@ -425,7 +425,7 @@ while.body:                                       ; preds = %entry, %while.body
   store i8 %2, ptr %arrayidx3, align 1
   %add.ptr = getelementptr inbounds i8, ptr %ptr.08, i64 4
   %dec = add nsw i32 %num.addr.07, -1
-  %cmp = icmp ugt i32 %num.addr.07, 1
+  %cmp = icmp samesign ugt i32 %num.addr.07, 1
   br i1 %cmp, label %while.body, label %while.end, !llvm.loop !6
 
 while.end:                                        ; preds = %while.body, %entry
@@ -448,7 +448,7 @@ while.body:                                       ; preds = %entry, %while.body
   store i8 %0, ptr %arrayidx1, align 1
   %add.ptr = getelementptr inbounds i8, ptr %ptr.06, i64 2
   %dec = add nsw i32 %num.addr.05, -1
-  %cmp = icmp ugt i32 %num.addr.05, 1
+  %cmp = icmp samesign ugt i32 %num.addr.05, 1
   br i1 %cmp, label %while.body, label %while.end, !llvm.loop !7
 
 while.end:                                        ; preds = %while.body, %entry
@@ -546,7 +546,7 @@ while.body.i:                                     ; preds = %_ZN9SampleICC5Read8
   store i8 %7, ptr %arrayidx7.i, align 1
   %add.ptr.i4 = getelementptr inbounds i8, ptr %ptr.012.i, i64 8
   %dec.i = add nsw i32 %num.addr.011.i, -1
-  %cmp.i = icmp ugt i32 %num.addr.011.i, 1
+  %cmp.i = icmp samesign ugt i32 %num.addr.011.i, 1
   br i1 %cmp.i, label %while.body.i, label %_ZN9SampleICC11Swap64ArrayEPvi.exit, !llvm.loop !4
 
 _ZN9SampleICC11Swap64ArrayEPvi.exit:              ; preds = %while.body.i, %entry, %_ZN9SampleICC5Read8ERSiPvi.exit
@@ -594,7 +594,7 @@ while.body.i:                                     ; preds = %_ZN9SampleICC5Read8
   store i8 %3, ptr %arrayidx3.i, align 1
   %add.ptr.i4 = getelementptr inbounds i8, ptr %ptr.08.i, i64 4
   %dec.i = add nsw i32 %num.addr.07.i, -1
-  %cmp.i = icmp ugt i32 %num.addr.07.i, 1
+  %cmp.i = icmp samesign ugt i32 %num.addr.07.i, 1
   br i1 %cmp.i, label %while.body.i, label %_ZN9SampleICC11Swap32ArrayEPvi.exit, !llvm.loop !6
 
 _ZN9SampleICC11Swap32ArrayEPvi.exit:              ; preds = %while.body.i, %entry, %_ZN9SampleICC5Read8ERSiPvi.exit
@@ -636,7 +636,7 @@ while.body.i:                                     ; preds = %_ZN9SampleICC5Read8
   store i8 %1, ptr %arrayidx1.i, align 1
   %add.ptr.i4 = getelementptr inbounds i8, ptr %ptr.06.i, i64 2
   %dec.i = add nsw i32 %num.addr.05.i, -1
-  %cmp.i = icmp ugt i32 %num.addr.05.i, 1
+  %cmp.i = icmp samesign ugt i32 %num.addr.05.i, 1
   br i1 %cmp.i, label %while.body.i, label %_ZN9SampleICC11Swap16ArrayEPvi.exit, !llvm.loop !7
 
 _ZN9SampleICC11Swap16ArrayEPvi.exit:              ; preds = %while.body.i, %entry, %_ZN9SampleICC5Read8ERSiPvi.exit
@@ -6392,7 +6392,7 @@ lor.lhs.false:                                    ; preds = %entry
   %add.ptr = getelementptr inbounds i8, ptr %istream, i64 %vbase.offset
   %call = tail call noundef zeroext i1 @_ZNKSt9basic_iosIcSt11char_traitsIcEE4goodEv(ptr noundef nonnull align 8 dereferenceable(264) %add.ptr)
   %sub.off = add nsw i64 %conv, -20
-  %cmp4.not = icmp ult i64 %sub.off, 12
+  %cmp4.not = icmp samesign ult i64 %sub.off, 12
   %or.cond = select i1 %call, i1 %cmp4.not, i1 false
   br i1 %or.cond, label %if.end6, label %return
 
@@ -6458,7 +6458,7 @@ while.body.i.i20:                                 ; preds = %_ZN9SampleICC5Read8
   store i8 %6, ptr %arrayidx3.i.i25, align 1
   %add.ptr.i4.i26 = getelementptr inbounds i8, ptr %ptr.08.i.i21, i64 4
   %dec.i.i27 = add nsw i32 %num.addr.07.i.i22, -1
-  %cmp.i.i28 = icmp ugt i32 %num.addr.07.i.i22, 1
+  %cmp.i.i28 = icmp samesign ugt i32 %num.addr.07.i.i22, 1
   br i1 %cmp.i.i28, label %while.body.i.i20, label %return, !llvm.loop !6
 
 return:                                           ; preds = %while.body.i.i20, %_ZN9SampleICC5Read8ERSiPvi.exit.i, %_ZN9SampleICC5Read8ERSiPvi.exit.i12, %if.end9, %if.end6, %entry, %lor.lhs.false
@@ -7545,7 +7545,7 @@ while.body.i.i190:                                ; preds = %call6.i.i188.noexc,
   store i8 %31, ptr %arrayidx1.i.i193, align 1
   %add.ptr.i4.i194 = getelementptr inbounds i8, ptr %ptr.06.i.i191, i64 2
   %dec.i.i195 = add nsw i32 %num.addr.05.i.i192, -1
-  %cmp.i.i196 = icmp ugt i32 %num.addr.05.i.i192, 1
+  %cmp.i.i196 = icmp samesign ugt i32 %num.addr.05.i.i192, 1
   br i1 %cmp.i.i196, label %while.body.i.i190, label %invoke.cont50, !llvm.loop !7
 
 invoke.cont50:                                    ; preds = %while.body.i.i190, %call6.i.i188.noexc, %call.i.i180.noexc

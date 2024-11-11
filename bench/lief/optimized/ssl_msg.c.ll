@@ -2265,7 +2265,7 @@ ssl_swap_epochs.exit143:                          ; preds = %113, %111, %93, %.t
   %152 = ptrtoint ptr %150 to i64
   %153 = sub i64 %151, %152
   %154 = sub i64 %148, %153
-  %155 = icmp ult i32 %120, 12
+  %155 = icmp samesign ult i32 %120, 12
   br i1 %155, label %159, label %156
 
 156:                                              ; preds = %142
@@ -2578,7 +2578,7 @@ mbedtls_ssl_get_record_expansion.exit:            ; preds = %13, %35
   br i1 %37, label %42, label %38
 
 38:                                               ; preds = %mbedtls_ssl_get_record_expansion.exit
-  %.not35 = icmp ugt i32 %.0.i, %.0.i38
+  %.not35 = icmp samesign ugt i32 %.0.i, %.0.i38
   br i1 %.not35, label %39, label %42
 
 39:                                               ; preds = %38
@@ -4827,7 +4827,7 @@ ssl_hs_is_proper_fragment.exit.i:                 ; preds = %439, %436, %432
 ssl_get_reassembly_buffer_size.exit.i:            ; preds = %452, %451
   %.0.i104.i = phi i64 [ %458, %452 ], [ %413, %451 ]
   %459 = sub nuw nsw i64 32768, %448
-  %460 = icmp ugt i64 %.0.i104.i, %459
+  %460 = icmp samesign ugt i64 %.0.i104.i, %459
   br i1 %460, label %461, label %467
 
 461:                                              ; preds = %ssl_get_reassembly_buffer_size.exit.i

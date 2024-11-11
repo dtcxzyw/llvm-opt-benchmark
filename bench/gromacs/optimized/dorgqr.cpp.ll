@@ -75,30 +75,30 @@ define void @dorgqr_(ptr nocapture noundef readonly %0, ptr nocapture noundef re
   br label %.thread
 
 42:                                               ; preds = %39
-  %43 = icmp ugt i32 %.fr163, 32
+  %43 = icmp samesign ugt i32 %.fr163, 32
   br i1 %43, label %44, label %.thread174
 
 44:                                               ; preds = %42
-  %45 = icmp ugt i32 %.fr163, 128
+  %45 = icmp samesign ugt i32 %.fr163, 128
   br i1 %45, label %46, label %.thread174
 
 46:                                               ; preds = %44
   store i32 %28, ptr %15, align 4
   %47 = shl nsw i32 %28, 5
-  %48 = icmp ult i32 %23, %47
+  %48 = icmp samesign ult i32 %23, %47
   br i1 %48, label %49, label %.thread174
 
 49:                                               ; preds = %46
   %50 = udiv i32 %23, %28
-  %51 = icmp ugt i32 %50, 1
+  %51 = icmp samesign ugt i32 %50, 1
   br i1 %51, label %.thread174, label %72
 
 .thread174:                                       ; preds = %42, %44, %46, %49
   %.0145182 = phi i32 [ %47, %49 ], [ %28, %42 ], [ %28, %44 ], [ %47, %46 ]
   %.0146180 = phi i32 [ 128, %49 ], [ 0, %42 ], [ 128, %44 ], [ 128, %46 ]
   %.0149179 = phi i32 [ %50, %49 ], [ 32, %42 ], [ 32, %44 ], [ 32, %46 ]
-  %52 = icmp ult i32 %.0149179, %.fr163
-  %53 = icmp ult i32 %.0146180, %.fr163
+  %52 = icmp samesign ult i32 %.0149179, %.fr163
+  %53 = icmp samesign ult i32 %.0146180, %.fr163
   %or.cond171 = and i1 %53, %52
   br i1 %or.cond171, label %54, label %72
 

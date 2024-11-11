@@ -33,7 +33,7 @@ define hidden void @_ZN4ncnn26cast_fp32_to_fp16_sse_f16cERKNS_3MatERS0_RKNS_6Opt
   %23 = and i32 %16, 2147483640
   %wide.trip.count71.i = zext nneg i32 %11 to i64
   %24 = or disjoint i32 %23, 3
-  %25 = icmp ult i32 %24, %16
+  %25 = icmp samesign ult i32 %24, %16
   br label %.lr.ph.us.i
 
 .lr.ph.us.i:                                      ; preds = %._crit_edge.us.i, %.lr.ph.us.preheader.i
@@ -283,7 +283,7 @@ define hidden void @_ZN4ncnn26cast_fp16_to_fp32_sse_f16cERKNS_3MatERS0_RKNS_6Opt
   %23 = and i32 %16, 2147483640
   %wide.trip.count71.i = zext nneg i32 %11 to i64
   %24 = or disjoint i32 %23, 3
-  %25 = icmp ult i32 %24, %16
+  %25 = icmp samesign ult i32 %24, %16
   br label %.lr.ph.us.i
 
 .lr.ph.us.i:                                      ; preds = %._crit_edge.us.i, %.lr.ph.us.preheader.i

@@ -2179,7 +2179,7 @@ define dso_local void @__audit_uring_exit(i32 noundef %0, i64 noundef %1) local_
   br i1 %17, label %18, label %22, !prof !22
 
 18:                                               ; preds = %16
-  %19 = icmp ugt i64 %1, -517
+  %19 = icmp samesign ugt i64 %1, -517
   %20 = icmp ne i64 %1, -515
   %21 = and i1 %19, %20
   br i1 %21, label %23, label %22
@@ -2785,7 +2785,7 @@ define dso_local void @__audit_syscall_exit(i32 noundef %0, i64 noundef %1) loca
   br i1 %22, label %23, label %27, !prof !22
 
 23:                                               ; preds = %21
-  %24 = icmp ugt i64 %1, -517
+  %24 = icmp samesign ugt i64 %1, -517
   %25 = icmp ne i64 %1, -515
   %26 = and i1 %24, %25
   br i1 %26, label %28, label %27

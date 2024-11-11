@@ -1091,7 +1091,7 @@ if.then:                                          ; preds = %entry
   unreachable
 
 if.end:                                           ; preds = %entry
-  %cmp1 = icmp ult i64 %capacity, 1025
+  %cmp1 = icmp samesign ult i64 %capacity, 1025
   br i1 %cmp1, label %if.then2, label %if.end3
 
 if.then2:                                         ; preds = %if.end

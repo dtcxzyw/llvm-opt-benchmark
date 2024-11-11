@@ -1079,7 +1079,7 @@ if.then42.i:                                      ; preds = %land.lhs.true40.i
   br label %for.body.preheader.i
 
 if.end44.i:                                       ; preds = %if.then28.i
-  %cmp45.not39.i = icmp ugt i64 %call15.i, %call30.i
+  %cmp45.not39.i = icmp samesign ugt i64 %call15.i, %call30.i
   br i1 %cmp45.not39.i, label %rtsp_parse_transport.exit, label %for.body.preheader.i
 
 for.body.preheader.i:                             ; preds = %if.end44.i, %if.then42.i, %land.lhs.true40.i, %do.body.i, %if.then23.i

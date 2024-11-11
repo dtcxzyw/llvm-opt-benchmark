@@ -3827,7 +3827,7 @@ define hidden void @_ZN4core5slice4sort10merge_sort17h09ac08f757c04a27E(ptr noal
   br label %45
 
 24:                                               ; preds = %3
-  %25 = icmp ugt i64 %1, 1
+  %25 = icmp samesign ugt i64 %1, 1
   br i1 %25, label %"_ZN115_$LT$core..ops..range..RangeInclusive$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$9index_mut17hb3d5920cb33bfcd1E.exit.i", label %_ZN4core5slice4sort25insertion_sort_shift_left17h8b3e76087b9c8081E.exit
 
 26:                                               ; preds = %63, %27
@@ -4485,7 +4485,7 @@ define hidden void @_ZN4core5slice4sort10merge_sort17h9223d9e497afe5e3E(ptr noal
   br label %47
 
 26:                                               ; preds = %3
-  %27 = icmp ugt i64 %1, 1
+  %27 = icmp samesign ugt i64 %1, 1
   br i1 %27, label %.preheader.i69, label %_ZN4core5slice4sort25insertion_sort_shift_left17h15e77ee1c755d5a1E.exit
 
 28:                                               ; preds = %.body, %29
@@ -5199,7 +5199,7 @@ define hidden void @_ZN4core5slice4sort10merge_sort17hc608d402055874b8E(ptr noal
   br label %46
 
 24:                                               ; preds = %3
-  %25 = icmp ugt i64 %1, 1
+  %25 = icmp samesign ugt i64 %1, 1
   br i1 %25, label %321, label %45
 
 26:                                               ; preds = %127, %27

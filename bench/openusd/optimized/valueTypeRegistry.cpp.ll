@@ -550,7 +550,7 @@ define void @_ZNK32pxrInternal_v0_24__pxrReserved__21Sdf_ValueTypeRegistry11GetA
   %.01.i.i.i8.i.i.i = phi i32 [ %15, %.lr.ph.i.i.i7.i.i.i ], [ %.sroa.0.0.i3.i.i.i.ph, %13 ]
   %15 = add nsw i32 %.01.i.i.i8.i.i.i, -1
   tail call void @llvm.x86.sse2.pause(), !noalias !7
-  %16 = icmp ugt i32 %.01.i.i.i8.i.i.i, 1
+  %16 = icmp samesign ugt i32 %.01.i.i.i8.i.i.i, 1
   br i1 %16, label %.lr.ph.i.i.i7.i.i.i, label %_ZN3tbb6detail2d0L13machine_pauseEi.exit.i.i6.i.i.i, !llvm.loop !10
 
 _ZN3tbb6detail2d0L13machine_pauseEi.exit.i.i6.i.i.i: ; preds = %.lr.ph.i.i.i7.i.i.i, %13
@@ -667,7 +667,7 @@ define ptr @_ZNK32pxrInternal_v0_24__pxrReserved__21Sdf_ValueTypeRegistry8FindTy
   %.01.i.i.i8.i.i.i = phi i32 [ %16, %.lr.ph.i.i.i7.i.i.i ], [ %.sroa.0.0.i3.i.i.i.ph, %14 ]
   %16 = add nsw i32 %.01.i.i.i8.i.i.i, -1
   tail call void @llvm.x86.sse2.pause()
-  %17 = icmp ugt i32 %.01.i.i.i8.i.i.i, 1
+  %17 = icmp samesign ugt i32 %.01.i.i.i8.i.i.i, 1
   br i1 %17, label %.lr.ph.i.i.i7.i.i.i, label %_ZN3tbb6detail2d0L13machine_pauseEi.exit.i.i6.i.i.i, !llvm.loop !10
 
 _ZN3tbb6detail2d0L13machine_pauseEi.exit.i.i6.i.i.i: ; preds = %.lr.ph.i.i.i7.i.i.i, %14
@@ -736,7 +736,7 @@ define ptr @_ZNK32pxrInternal_v0_24__pxrReserved__21Sdf_ValueTypeRegistry8FindTy
   %.01.i.i.i8.i.i.i = phi i32 [ %17, %.lr.ph.i.i.i7.i.i.i ], [ %.sroa.0.0.i3.i.i.i.ph, %15 ]
   %17 = add nsw i32 %.01.i.i.i8.i.i.i, -1
   call void @llvm.x86.sse2.pause()
-  %18 = icmp ugt i32 %.01.i.i.i8.i.i.i, 1
+  %18 = icmp samesign ugt i32 %.01.i.i.i8.i.i.i, 1
   br i1 %18, label %.lr.ph.i.i.i7.i.i.i, label %_ZN3tbb6detail2d0L13machine_pauseEi.exit.i.i6.i.i.i, !llvm.loop !10
 
 _ZN3tbb6detail2d0L13machine_pauseEi.exit.i.i6.i.i.i: ; preds = %.lr.ph.i.i.i7.i.i.i, %15
@@ -845,7 +845,7 @@ define ptr @_ZNK32pxrInternal_v0_24__pxrReserved__21Sdf_ValueTypeRegistry8FindTy
   %.01.i.i.i8.i.i.i = phi i32 [ %17, %.lr.ph.i.i.i7.i.i.i ], [ %.sroa.0.0.i3.i.i.i.ph, %15 ]
   %17 = add nsw i32 %.01.i.i.i8.i.i.i, -1
   call void @llvm.x86.sse2.pause()
-  %18 = icmp ugt i32 %.01.i.i.i8.i.i.i, 1
+  %18 = icmp samesign ugt i32 %.01.i.i.i8.i.i.i, 1
   br i1 %18, label %.lr.ph.i.i.i7.i.i.i, label %_ZN3tbb6detail2d0L13machine_pauseEi.exit.i.i6.i.i.i, !llvm.loop !10
 
 _ZN3tbb6detail2d0L13machine_pauseEi.exit.i.i6.i.i.i: ; preds = %.lr.ph.i.i.i7.i.i.i, %15
@@ -960,7 +960,7 @@ define internal fastcc noundef ptr @_ZNK32pxrInternal_v0_24__pxrReserved__12_GLO
   %.01.i.i.i8.i.i = phi i32 [ %15, %.lr.ph.i.i.i7.i.i ], [ %.sroa.0.0.i3.i.i.ph, %13 ]
   %15 = add nsw i32 %.01.i.i.i8.i.i, -1
   tail call void @llvm.x86.sse2.pause()
-  %16 = icmp ugt i32 %.01.i.i.i8.i.i, 1
+  %16 = icmp samesign ugt i32 %.01.i.i.i8.i.i, 1
   br i1 %16, label %.lr.ph.i.i.i7.i.i, label %_ZN3tbb6detail2d0L13machine_pauseEi.exit.i.i6.i.i, !llvm.loop !10
 
 _ZN3tbb6detail2d0L13machine_pauseEi.exit.i.i6.i.i: ; preds = %.lr.ph.i.i.i7.i.i, %13
@@ -1207,7 +1207,7 @@ define ptr @_ZNK32pxrInternal_v0_24__pxrReserved__21Sdf_ValueTypeRegistry20FindO
   %.01.i.i.i.i.i.i = phi i32 [ %18, %.lr.ph.i.i.i.i.i.i ], [ %.sroa.0.15053.i.i.i.i, %.lr.ph.i.i.preheader.i.i.i.i ]
   %18 = add nsw i32 %.01.i.i.i.i.i.i, -1
   tail call void @llvm.x86.sse2.pause()
-  %19 = icmp ugt i32 %.01.i.i.i.i.i.i, 1
+  %19 = icmp samesign ugt i32 %.01.i.i.i.i.i.i, 1
   br i1 %19, label %.lr.ph.i.i.i.i.i.i, label %_ZN3tbb6detail2d0L13machine_pauseEi.exit.i.i.i.i.i, !llvm.loop !10
 
 _ZN3tbb6detail2d0L13machine_pauseEi.exit.i.i.i.i.i: ; preds = %.lr.ph.i.i.i.i.i.i, %.thread.i.i.i.i
@@ -1746,7 +1746,7 @@ define void @_ZN32pxrInternal_v0_24__pxrReserved__21Sdf_ValueTypeRegistry7AddTyp
   %.01.i.i.i.i.i.i = phi i32 [ %28, %.lr.ph.i.i.i.i.i.i ], [ %.sroa.0.15053.i.i.i.i, %.lr.ph.i.i.preheader.i.i.i.i ]
   %28 = add nsw i32 %.01.i.i.i.i.i.i, -1
   tail call void @llvm.x86.sse2.pause()
-  %29 = icmp ugt i32 %.01.i.i.i.i.i.i, 1
+  %29 = icmp samesign ugt i32 %.01.i.i.i.i.i.i, 1
   br i1 %29, label %.lr.ph.i.i.i.i.i.i, label %_ZN3tbb6detail2d0L13machine_pauseEi.exit.i.i.i.i.i, !llvm.loop !10
 
 _ZN3tbb6detail2d0L13machine_pauseEi.exit.i.i.i.i.i: ; preds = %.lr.ph.i.i.i.i.i.i, %.thread.i.i.i.i
@@ -1878,7 +1878,7 @@ define void @_ZN32pxrInternal_v0_24__pxrReserved__21Sdf_ValueTypeRegistry7AddTyp
   %.01.i.i.i.i.i.i = phi i32 [ %28, %.lr.ph.i.i.i.i.i.i ], [ %.sroa.0.15053.i.i.i.i, %.lr.ph.i.i.preheader.i.i.i.i ]
   %28 = add nsw i32 %.01.i.i.i.i.i.i, -1
   tail call void @llvm.x86.sse2.pause()
-  %29 = icmp ugt i32 %.01.i.i.i.i.i.i, 1
+  %29 = icmp samesign ugt i32 %.01.i.i.i.i.i.i, 1
   br i1 %29, label %.lr.ph.i.i.i.i.i.i, label %_ZN3tbb6detail2d0L13machine_pauseEi.exit.i.i.i.i.i, !llvm.loop !10
 
 _ZN3tbb6detail2d0L13machine_pauseEi.exit.i.i.i.i.i: ; preds = %.lr.ph.i.i.i.i.i.i, %.thread.i.i.i.i
@@ -2011,7 +2011,7 @@ define void @_ZN32pxrInternal_v0_24__pxrReserved__21Sdf_ValueTypeRegistry5ClearE
   %.01.i.i.i.i.i.i = phi i32 [ %15, %.lr.ph.i.i.i.i.i.i ], [ %.sroa.0.15053.i.i.i.i, %.lr.ph.i.i.preheader.i.i.i.i ]
   %15 = add nsw i32 %.01.i.i.i.i.i.i, -1
   tail call void @llvm.x86.sse2.pause()
-  %16 = icmp ugt i32 %.01.i.i.i.i.i.i, 1
+  %16 = icmp samesign ugt i32 %.01.i.i.i.i.i.i, 1
   br i1 %16, label %.lr.ph.i.i.i.i.i.i, label %_ZN3tbb6detail2d0L13machine_pauseEi.exit.i.i.i.i.i, !llvm.loop !10
 
 _ZN3tbb6detail2d0L13machine_pauseEi.exit.i.i.i.i.i: ; preds = %.lr.ph.i.i.i.i.i.i, %.thread.i.i.i.i

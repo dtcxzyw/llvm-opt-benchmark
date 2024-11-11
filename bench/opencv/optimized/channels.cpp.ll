@@ -1483,7 +1483,7 @@ define void @_ZN2cv14extractChannelERKNS_11_InputArrayERKNS_12_OutputArrayEi(ptr
 14:                                               ; preds = %11
   %15 = lshr i32 %10, 3
   %16 = and i32 %15, 511
-  %.not = icmp ugt i32 %2, %16
+  %.not = icmp samesign ugt i32 %2, %16
   br i1 %.not, label %19, label %27
 
 17:                                               ; preds = %34, %31, %27, %3
@@ -1689,7 +1689,7 @@ define void @_ZN2cv13insertChannelERKNS_11_InputArrayERKNS_17_InputOutputArrayEi
   br i1 %35, label %36, label %40
 
 36:                                               ; preds = %34
-  %37 = icmp ule i32 %2, %17
+  %37 = icmp samesign ule i32 %2, %17
   %38 = and i32 %12, 4088
   %39 = icmp eq i32 %38, 0
   %or.cond = and i1 %39, %37
@@ -1854,7 +1854,7 @@ define internal void @_ZN2cvL13mixChannels8uEPPKvPKiPPvS4_ii(ptr nocapture nound
   %15 = and i32 %8, -2
   %16 = add nuw nsw i32 %15, 2
   %wide.trip.count.i = zext nneg i32 %5 to i64
-  %17 = icmp ult i32 %16, %4
+  %17 = icmp samesign ult i32 %16, %4
   br i1 %17, label %.lr.ph64.split.split.i.us, label %.lr.ph64.split.split.i
 
 .lr.ph64.split.split.i.us:                        ; preds = %.lr.ph64.split.split.preheader.i, %48
@@ -2032,7 +2032,7 @@ define internal void @_ZN2cvL14mixChannels16uEPPKvPKiPPvS4_ii(ptr nocapture noun
   %15 = and i32 %8, -2
   %16 = add nuw nsw i32 %15, 2
   %wide.trip.count.i = zext nneg i32 %5 to i64
-  %17 = icmp ult i32 %16, %4
+  %17 = icmp samesign ult i32 %16, %4
   br i1 %17, label %.lr.ph64.split.split.i.us, label %.lr.ph64.split.split.i
 
 .lr.ph64.split.split.i.us:                        ; preds = %.lr.ph64.split.split.preheader.i, %48
@@ -2210,7 +2210,7 @@ define internal void @_ZN2cvL14mixChannels32sEPPKvPKiPPvS4_ii(ptr nocapture noun
   %15 = and i32 %8, -2
   %16 = add nuw nsw i32 %15, 2
   %wide.trip.count.i = zext nneg i32 %5 to i64
-  %17 = icmp ult i32 %16, %4
+  %17 = icmp samesign ult i32 %16, %4
   br i1 %17, label %.lr.ph64.split.split.i.us, label %.lr.ph64.split.split.i
 
 .lr.ph64.split.split.i.us:                        ; preds = %.lr.ph64.split.split.preheader.i, %48
@@ -2388,7 +2388,7 @@ define internal void @_ZN2cvL14mixChannels64sEPPKvPKiPPvS4_ii(ptr nocapture noun
   %15 = and i32 %8, -2
   %16 = add nuw nsw i32 %15, 2
   %wide.trip.count.i = zext nneg i32 %5 to i64
-  %17 = icmp ult i32 %16, %4
+  %17 = icmp samesign ult i32 %16, %4
   br i1 %17, label %.lr.ph64.split.split.i.us, label %.lr.ph64.split.split.i
 
 .lr.ph64.split.split.i.us:                        ; preds = %.lr.ph64.split.split.preheader.i, %48

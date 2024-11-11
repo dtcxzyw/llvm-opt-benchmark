@@ -6749,7 +6749,7 @@ skl_format_to_fourcc.exit:                        ; preds = %76, %82, %83, %84, 
   br label %175
 
 127:                                              ; preds = %122
-  %128 = icmp ugt i16 %123, 11
+  %128 = icmp samesign ugt i16 %123, 11
   %129 = getelementptr inbounds i8, ptr %44, i64 120
   br i1 %128, label %130, label %131
 

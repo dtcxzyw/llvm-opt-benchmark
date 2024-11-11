@@ -1640,7 +1640,7 @@ define i32 @process_blip_store_container(ptr noundef %0, i64 noundef %1, ptr nou
 
 59:                                               ; preds = %48, %57
   %.0 = phi i64 [ %52, %57 ], [ %55, %48 ]
-  %60 = icmp ult i64 %.0, 8
+  %60 = icmp samesign ult i64 %.0, 8
   br i1 %60, label %.loopexit.sink.split, label %61
 
 61:                                               ; preds = %59
@@ -2724,7 +2724,7 @@ define internal fastcc range(i32 0, 27) i32 @parse_formula(ptr nocapture noundef
 
 166:                                              ; preds = %164
   %167 = add nsw i32 %158, -32768
-  %168 = icmp ult i32 %167, 809
+  %168 = icmp samesign ult i32 %167, 809
   br i1 %168, label %169, label %get_function_name.exit
 
 169:                                              ; preds = %166
@@ -2786,7 +2786,7 @@ get_function_name.exit:                           ; preds = %160, %164, %166, %1
 
 202:                                              ; preds = %200
   %203 = add nsw i32 %194, -32768
-  %204 = icmp ult i32 %203, 809
+  %204 = icmp samesign ult i32 %203, 809
   br i1 %204, label %205, label %get_function_name.exit314
 
 205:                                              ; preds = %202

@@ -14861,7 +14861,7 @@ _ZNK4llvm9KnownBits21countMinTrailingZerosEv.exit16: ; preds = %69, %74
   br i1 %79, label %_ZN4llvm5APInt10setLowBitsEj.exit, label %80
 
 80:                                               ; preds = %78
-  %81 = icmp ult i32 %57, 65
+  %81 = icmp samesign ult i32 %57, 65
   br i1 %81, label %82, label %96
 
 82:                                               ; preds = %80

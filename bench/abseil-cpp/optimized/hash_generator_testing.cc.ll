@@ -253,8 +253,8 @@ call.i.i.i.i.i.noexc:                             ; preds = %if.then.i.i.i.i
   %conv2.i.i.i.i.i = trunc i128 %mul.i.i.i.i.i to i64
   %extract9.i.i.i.i.i = lshr i128 %mul.i.i.i.i.i, 64
   %extract.t10.i.i.i.i.i = trunc nuw nsw i128 %extract9.i.i.i.i.i to i8
-  %cmp315.i.i.i.i.i = icmp ult i64 %conv2.i.i.i.i.i, 36
-  br i1 %cmp315.i.i.i.i.i, label %while.body.i.i.i.i.preheader.i, label %"_ZZNK4absl18container_internal13hash_internal9GeneratorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEvEclEvENK3$_0clEv.exit.i"
+  %or.cond = icmp ult i64 %conv2.i.i.i.i.i, 36
+  br i1 %or.cond, label %while.body.i.i.i.i.preheader.i, label %"_ZZNK4absl18container_internal13hash_internal9GeneratorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEvEclEvENK3$_0clEv.exit.i"
 
 while.body.i.i.i.i.preheader.i:                   ; preds = %call.i.i.i.i.i.noexc
   %_M_p.i.i = getelementptr inbounds i8, ptr %3, i64 2496
@@ -520,8 +520,8 @@ if.then.i.i.i.i:                                  ; preds = %for.body.i, %init.c
   %conv2.i.i.i.i.i = trunc i128 %mul.i.i.i.i.i to i64
   %extract9.i.i.i.i.i = lshr i128 %mul.i.i.i.i.i, 64
   %extract.t10.i.i.i.i.i = trunc nuw nsw i128 %extract9.i.i.i.i.i to i8
-  %cmp315.i.i.i.i.i = icmp ult i64 %conv2.i.i.i.i.i, 36
-  br i1 %cmp315.i.i.i.i.i, label %while.body.i.i.i.i.preheader.i, label %"_ZZNK4absl18container_internal13hash_internal9GeneratorISt17basic_string_viewIcSt11char_traitsIcEEvEclEvENK3$_0clEv.exit.i"
+  %or.cond = icmp ult i64 %conv2.i.i.i.i.i, 36
+  br i1 %or.cond, label %while.body.i.i.i.i.preheader.i, label %"_ZZNK4absl18container_internal13hash_internal9GeneratorISt17basic_string_viewIcSt11char_traitsIcEEvEclEvENK3$_0clEv.exit.i"
 
 while.body.i.i.i.i.preheader.i:                   ; preds = %if.then.i.i.i.i
   %_M_p.i.i = getelementptr inbounds i8, ptr %15, i64 2496

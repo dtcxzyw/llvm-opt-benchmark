@@ -268,8 +268,8 @@ define void @_ZN2cv8ximgproc11BrightEdgesERNS_3MatES2_iii(ptr noundef nonnull al
   %129 = getelementptr inbounds i8, ptr %127, i64 %128
   %130 = load i8, ptr %129, align 1
   %131 = zext i8 %130 to i32
-  %.not.i.i = icmp ugt i32 %111, %120
-  %.not108.i.i = icmp ugt i32 %111, %125
+  %.not.i.i = icmp samesign ugt i32 %111, %120
+  %.not108.i.i = icmp samesign ugt i32 %111, %125
   %or.cond.i.i = select i1 %.not.i.i, i1 true, i1 %.not108.i.i
   br i1 %or.cond.i.i, label %141, label %132
 
@@ -300,8 +300,8 @@ define void @_ZN2cv8ximgproc11BrightEdgesERNS_3MatES2_iii(ptr noundef nonnull al
   %148 = getelementptr inbounds i8, ptr %127, i64 %indvars.iv.i
   %149 = load i8, ptr %148, align 1
   %150 = zext i8 %149 to i32
-  %.not111.i.i = icmp ugt i32 %111, %144
-  %.not112.i.i = icmp ugt i32 %111, %147
+  %.not111.i.i = icmp samesign ugt i32 %111, %144
+  %.not112.i.i = icmp samesign ugt i32 %111, %147
   %or.cond123.i.i = select i1 %.not111.i.i, i1 true, i1 %.not112.i.i
   br i1 %or.cond123.i.i, label %161, label %151
 
@@ -333,8 +333,8 @@ define void @_ZN2cv8ximgproc11BrightEdgesERNS_3MatES2_iii(ptr noundef nonnull al
   %168 = getelementptr inbounds i8, ptr %127, i64 %114
   %169 = load i8, ptr %168, align 1
   %170 = zext i8 %169 to i32
-  %.not115.i.i = icmp ugt i32 %111, %164
-  %.not116.i.i = icmp ugt i32 %111, %167
+  %.not115.i.i = icmp samesign ugt i32 %111, %164
+  %.not116.i.i = icmp samesign ugt i32 %111, %167
   %or.cond125.i.i = select i1 %.not115.i.i, i1 true, i1 %.not116.i.i
   br i1 %or.cond125.i.i, label %181, label %171
 
@@ -366,8 +366,8 @@ define void @_ZN2cv8ximgproc11BrightEdgesERNS_3MatES2_iii(ptr noundef nonnull al
   %188 = getelementptr inbounds i8, ptr %106, i64 %114
   %189 = load i8, ptr %188, align 1
   %190 = zext i8 %189 to i32
-  %.not119.i.i = icmp ugt i32 %111, %184
-  %.not120.i.i = icmp ugt i32 %111, %187
+  %.not119.i.i = icmp samesign ugt i32 %111, %184
+  %.not120.i.i = icmp samesign ugt i32 %111, %187
   %or.cond127.i.i = select i1 %.not119.i.i, i1 true, i1 %.not120.i.i
   br i1 %or.cond127.i.i, label %201, label %191
 
@@ -390,7 +390,7 @@ define void @_ZN2cv8ximgproc11BrightEdgesERNS_3MatES2_iii(ptr noundef nonnull al
 
 201:                                              ; preds = %197, %191, %181
   %.3.i.i = phi i32 [ %.2.i.i, %191 ], [ %.2.i.i, %181 ], [ %spec.select128.i.i, %197 ]
-  %202 = icmp ult i32 %.3.i.i, 2
+  %202 = icmp samesign ult i32 %.3.i.i, 2
   %203 = load ptr, ptr %83, align 8
   %204 = load ptr, ptr %84, align 8
   %205 = load i64, ptr %204, align 8
@@ -549,7 +549,7 @@ define void @_ZN2cv8ximgproc11BrightEdgesERNS_3MatES2_iii(ptr noundef nonnull al
   %315 = add nuw nsw i32 %314, %312
   %316 = add nuw nsw i32 %315, %308
   %317 = add nuw nsw i32 %316, %311
-  %318 = icmp ult i32 %317, 1020
+  %318 = icmp samesign ult i32 %317, 1020
   %319 = zext i1 %318 to i32
   %.4.i.i = add nuw nsw i32 %.3.i71.i, %319
   %320 = getelementptr inbounds i8, ptr %275, i64 %indvars.iv.next104.i
@@ -563,7 +563,7 @@ define void @_ZN2cv8ximgproc11BrightEdgesERNS_3MatES2_iii(ptr noundef nonnull al
   %328 = add nuw nsw i32 %327, %302
   %329 = add nuw nsw i32 %328, %322
   %330 = add nuw nsw i32 %329, %325
-  %331 = icmp ult i32 %330, 1020
+  %331 = icmp samesign ult i32 %330, 1020
   %332 = zext i1 %331 to i32
   %.5.i.i = add nuw nsw i32 %.4.i.i, %332
   %333 = getelementptr inbounds i8, ptr %275, i64 %249
@@ -591,7 +591,7 @@ define void @_ZN2cv8ximgproc11BrightEdgesERNS_3MatES2_iii(ptr noundef nonnull al
   %355 = add nuw nsw i32 %354, %341
   %356 = add nuw nsw i32 %355, %347
   %357 = add nuw nsw i32 %356, %350
-  %358 = icmp ult i32 %357, 1020
+  %358 = icmp samesign ult i32 %357, 1020
   %359 = zext i1 %358 to i32
   %360 = add nuw nsw i32 %350, %341
   %361 = add nuw nsw i32 %360, %237
@@ -599,7 +599,7 @@ define void @_ZN2cv8ximgproc11BrightEdgesERNS_3MatES2_iii(ptr noundef nonnull al
   %363 = add nuw nsw i32 %362, %252
   %364 = add nuw nsw i32 %363, %261
   %365 = add nuw nsw i32 %364, %270
-  %366 = icmp ult i32 %365, 1020
+  %366 = icmp samesign ult i32 %365, 1020
   %367 = zext i1 %366 to i32
   %.6.i.i = add nuw nsw i32 %.5.i.i, %359
   %.7.i.i = add nuw nsw i32 %.6.i.i, %367

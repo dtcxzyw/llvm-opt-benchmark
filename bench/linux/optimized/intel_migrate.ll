@@ -654,7 +654,7 @@ define dso_local i32 @intel_context_migrate_copy(ptr noundef %0, ptr noundef %1,
   br i1 %196, label %333, label %197
 
 197:                                              ; preds = %194
-  %198 = icmp ult i32 %195, %190
+  %198 = icmp samesign ult i32 %195, %190
   br i1 %198, label %333, label %199
 
 199:                                              ; preds = %197
@@ -692,7 +692,7 @@ define dso_local i32 @intel_context_migrate_copy(ptr noundef %0, ptr noundef %1,
 223:                                              ; preds = %221
   %224 = and i32 %190, 12288
   %225 = icmp eq i32 %224, 12288
-  %226 = icmp ult i32 %190, 36864
+  %226 = icmp samesign ult i32 %190, 36864
   %227 = and i1 %226, %225
   br i1 %227, label %.thread48, label %232
 

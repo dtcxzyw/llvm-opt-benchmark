@@ -2494,12 +2494,12 @@ string_list_add.exit50.i:                         ; preds = %121
   %282 = getelementptr inbounds i8, ptr %281, i64 32
   %283 = load i32, ptr %282, align 8
   %284 = icmp ne i32 %283, 0
-  %285 = icmp ugt i32 %272, 50
+  %285 = icmp samesign ugt i32 %272, 50
   %or.cond7 = and i1 %285, %284
   br i1 %or.cond7, label %287, label %289
 
 286:                                              ; preds = %276
-  %.old6 = icmp ugt i32 %272, 50
+  %.old6 = icmp samesign ugt i32 %272, 50
   br i1 %.old6, label %287, label %289
 
 287:                                              ; preds = %280, %286

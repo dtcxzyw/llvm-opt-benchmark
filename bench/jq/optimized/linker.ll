@@ -1079,7 +1079,7 @@ default_search.exit:                              ; preds = %94, %110, %112
 
 131:                                              ; preds = %130
   tail call void @jv_free(i64 %127, ptr %128) #11
-  %132 = icmp ugt i32 %.0152189, 1
+  %132 = icmp samesign ugt i32 %.0152189, 1
   br i1 %132, label %22, label %.outer._crit_edge, !llvm.loop !9
 
 133:                                              ; preds = %130

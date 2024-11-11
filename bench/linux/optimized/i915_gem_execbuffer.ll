@@ -316,7 +316,7 @@ define dso_local i32 @i915_gem_execbuffer2_ioctl(ptr noundef %0, ptr noundef %1,
   br i1 %144, label %454, label %145
 
 145:                                              ; preds = %143
-  %146 = icmp ult i8 %107, 6
+  %146 = icmp samesign ult i8 %107, 6
   br i1 %146, label %147, label %454
 
 147:                                              ; preds = %145

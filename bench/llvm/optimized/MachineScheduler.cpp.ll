@@ -17746,7 +17746,7 @@ define linkonce_odr hidden void @_ZN4llvm18RegisterPassParserINS_20MachineSchedR
   %20 = getelementptr inbounds i8, ptr %.0910.i.i.i.i.i.i.i, i64 56
   %21 = getelementptr inbounds i8, ptr %.0811.i.i.i.i.i.i.i, i64 56
   %22 = add nsw i64 %.012.i.i.i.i.i.i.i, -1
-  %23 = icmp ugt i64 %.012.i.i.i.i.i.i.i, 1
+  %23 = icmp samesign ugt i64 %.012.i.i.i.i.i.i.i, 1
   br i1 %23, label %.lr.ph.i.i.i.i.i.i.i, label %_ZN4llvm2cl6parserIPFPNS_17ScheduleDAGInstrsEPNS_19MachineSchedContextEEE19removeLiteralOptionENS_9StringRefE.exit, !llvm.loop !119
 
 _ZN4llvm2cl6parserIPFPNS_17ScheduleDAGInstrsEPNS_19MachineSchedContextEEE19removeLiteralOptionENS_9StringRefE.exit: ; preds = %.lr.ph.i.i.i.i.i.i.i, %3
@@ -22090,7 +22090,7 @@ _ZN4llvm15SmallVectorImplIN12_GLOBAL__N_124BaseMemOpClusterMutation9MemOpInfoEE1
   %102 = getelementptr inbounds i8, ptr %.0910.i.i.i.i.i.i.i.i.i, i64 80
   %103 = getelementptr inbounds i8, ptr %.0811.i.i.i.i.i.i.i.i.i, i64 80
   %104 = add nsw i64 %.012.i.i.i.i.i.i.i.i.i, -1
-  %105 = icmp ugt i64 %.012.i.i.i.i.i.i.i.i.i, 1
+  %105 = icmp samesign ugt i64 %.012.i.i.i.i.i.i.i.i.i, 1
   br i1 %105, label %.lr.ph.i.i.i.i.i.i.i.i.i, label %_ZSt4moveIPN12_GLOBAL__N_124BaseMemOpClusterMutation9MemOpInfoES3_ET0_T_S5_S4_.exit.i.i.i.i, !llvm.loop !169
 
 _ZSt4moveIPN12_GLOBAL__N_124BaseMemOpClusterMutation9MemOpInfoES3_ET0_T_S5_S4_.exit.i.i.i.i: ; preds = %.lr.ph.i.i.i.i.i.i.i.i.i, %93, %92
@@ -22220,7 +22220,7 @@ _ZN4llvm15SmallVectorImplIN12_GLOBAL__N_124BaseMemOpClusterMutation9MemOpInfoEE5
   %148 = getelementptr inbounds i8, ptr %.0910.i.i.i.i.i63.i.i.i.i, i64 80
   %149 = getelementptr inbounds i8, ptr %.0811.i.i.i.i.i62.i.i.i.i, i64 80
   %150 = add nsw i64 %.012.i.i.i.i.i61.i.i.i.i, -1
-  %151 = icmp ugt i64 %.012.i.i.i.i.i61.i.i.i.i, 1
+  %151 = icmp samesign ugt i64 %.012.i.i.i.i.i61.i.i.i.i, 1
   br i1 %151, label %.lr.ph.i.i.i.i.i60.i.i.i.i, label %_ZSt4moveIPN12_GLOBAL__N_124BaseMemOpClusterMutation9MemOpInfoES3_ET0_T_S5_S4_.exit64.i.i.i.i, !llvm.loop !169
 
 _ZSt4moveIPN12_GLOBAL__N_124BaseMemOpClusterMutation9MemOpInfoES3_ET0_T_S5_S4_.exit64.i.i.i.i: ; preds = %.lr.ph.i.i.i.i.i60.i.i.i.i, %140, %139, %_ZN4llvm15SmallVectorImplIN12_GLOBAL__N_124BaseMemOpClusterMutation9MemOpInfoEE5clearEv.exit57.i.i.i.i
@@ -23252,7 +23252,7 @@ _ZN12_GLOBAL__N_124BaseMemOpClusterMutation9MemOpInfoC2EOS1_.exit: ; preds = %13
   %32 = getelementptr inbounds i8, ptr %.078.i.i.i.i.i, i64 -24
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(17) %31, ptr noundef nonnull align 8 dereferenceable(17) %32, i64 17, i1 false)
   %33 = add nsw i64 %.010.i.i.i.i.i, -1
-  %34 = icmp ugt i64 %.010.i.i.i.i.i, 1
+  %34 = icmp samesign ugt i64 %.010.i.i.i.i.i, 1
   br i1 %34, label %.lr.ph.i.i.i.i.i, label %_ZSt13move_backwardIPN12_GLOBAL__N_124BaseMemOpClusterMutation9MemOpInfoES3_ET0_T_S5_S4_.exit, !llvm.loop !179
 
 _ZSt13move_backwardIPN12_GLOBAL__N_124BaseMemOpClusterMutation9MemOpInfoES3_ET0_T_S5_S4_.exit: ; preds = %.lr.ph.i.i.i.i.i, %_ZN12_GLOBAL__N_124BaseMemOpClusterMutation9MemOpInfoC2EOS1_.exit

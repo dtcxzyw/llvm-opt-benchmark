@@ -580,7 +580,7 @@ AddToken.exit181:                                 ; preds = %TBufferNewPage.exit
   br i1 %245, label %376, label %276
 
 276:                                              ; preds = %AddToken.exit181
-  %277 = icmp ugt i16 %66, 6
+  %277 = icmp samesign ugt i16 %66, 6
   %278 = add i32 %.0118299, 7
   %279 = getelementptr inbounds i8, ptr %.0120298, i64 28
   %280 = load i32, ptr %22, align 8
@@ -694,7 +694,7 @@ TBufferNewPage.exit.i192:                         ; preds = %316
   br label %AddConstantToken.exit
 
 333:                                              ; preds = %AddToken.exit189
-  %334 = icmp ugt i16 %66, 8
+  %334 = icmp samesign ugt i16 %66, 8
   br i1 %311, label %._crit_edge.i199, label %335
 
 ._crit_edge.i199:                                 ; preds = %333

@@ -31455,7 +31455,7 @@ for.body.i.i.i.i.i:                               ; preds = %if.then16, %for.bod
   %incdec.ptr.i.i.i.i.i = getelementptr inbounds i8, ptr %__first.addr.07.i.i.i.i.i, i64 40
   %incdec.ptr1.i.i.i.i.i = getelementptr inbounds i8, ptr %__result.addr.08.i.i.i.i.i, i64 40
   %dec.i.i.i.i.i = add nsw i64 %__n.09.i.i.i.i.i, -1
-  %cmp.i.i.i.i.i35 = icmp ugt i64 %__n.09.i.i.i.i.i, 1
+  %cmp.i.i.i.i.i35 = icmp samesign ugt i64 %__n.09.i.i.i.i.i, 1
   br i1 %cmp.i.i.i.i.i35, label %for.body.i.i.i.i.i, label %if.end22.loopexit, !llvm.loop !70
 
 if.end22.loopexit:                                ; preds = %for.body.i.i.i.i.i
@@ -31572,7 +31572,7 @@ for.body.i.i.i.i.i72:                             ; preds = %for.body.i.i.i.i.i7
   %incdec.ptr.i.i.i.i.i77 = getelementptr inbounds i8, ptr %__first.addr.07.i.i.i.i.i75, i64 40
   %incdec.ptr1.i.i.i.i.i78 = getelementptr inbounds i8, ptr %__result.addr.08.i.i.i.i.i74, i64 40
   %dec.i.i.i.i.i79 = add nsw i64 %__n.09.i.i.i.i.i73, -1
-  %cmp.i.i.i.i.i80 = icmp ugt i64 %__n.09.i.i.i.i.i73, 1
+  %cmp.i.i.i.i.i80 = icmp samesign ugt i64 %__n.09.i.i.i.i.i73, 1
   br i1 %cmp.i.i.i.i.i80, label %for.body.i.i.i.i.i72, label %if.end37, !llvm.loop !70
 
 if.end37:                                         ; preds = %for.body.i.i.i.i.i72, %if.else, %_ZN4llvh23SmallVectorTemplateBaseINS_11SmallStringILj24EEELb0EE13destroy_rangeEPS2_S4_.exit63

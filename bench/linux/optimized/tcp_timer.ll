@@ -210,7 +210,7 @@ define dso_local void @tcp_retransmit_timer(ptr noundef %0) local_unnamed_addr #
   %33 = load i8, ptr %32, align 1
   %34 = lshr i8 %33, 1
   %35 = zext nneg i8 %34 to i32
-  %36 = icmp ugt i32 %31, %35
+  %36 = icmp samesign ugt i32 %31, %35
   br i1 %36, label %47, label %37
 
 37:                                               ; preds = %30
@@ -748,7 +748,7 @@ retransmits_timed_out.exit14:                     ; preds = %346, %385, %393
   %406 = phi i32 [ %217, %213 ], [ %210, %208 ]
   %407 = load i8, ptr %182, align 1
   %408 = zext i8 %407 to i32
-  %.not = icmp ugt i32 %406, %408
+  %.not = icmp samesign ugt i32 %406, %408
   br i1 %.not, label %.thread, label %retransmits_timed_out.exit15
 
 .thread:                                          ; preds = %retransmits_timed_out.exit.thread, %401, %405
@@ -1408,7 +1408,7 @@ define dso_local void @tcp_write_timer_handler(ptr noundef %0) local_unnamed_add
   %93 = getelementptr inbounds i8, ptr %0, i64 1213
   %94 = load i8, ptr %93, align 1
   %95 = zext i8 %94 to i32
-  %96 = icmp ugt i32 %92, %95
+  %96 = icmp samesign ugt i32 %92, %95
   br i1 %96, label %107, label %.thread
 
 .thread:                                          ; preds = %66, %91, %49

@@ -4536,7 +4536,7 @@ define internal fastcc void @proto_mpeg_descriptor_dissect_partial_transport_str
   %14 = mul nuw nsw i32 %10, 400
   %15 = tail call ptr (ptr, i32, ptr, i32, i32, i32, i32, ptr, ...) @proto_tree_add_uint_bits_format_value(ptr noundef %3, i32 noundef %11, ptr noundef %0, i32 noundef %13, i32 noundef 22, i32 noundef %10, i32 noundef 0, ptr noundef nonnull @.str.758, i32 noundef %14) #5
   %16 = add nsw i32 %2, -3
-  %17 = icmp ult i32 %16, 3
+  %17 = icmp samesign ult i32 %16, 3
   br i1 %17, label %46, label %18
 
 18:                                               ; preds = %6

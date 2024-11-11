@@ -1327,7 +1327,7 @@ define internal fastcc i32 @dissect_thrift_raw_binary(ptr noundef %0, ptr nounde
   ]
 
 34:                                               ; preds = %31
-  %35 = icmp ult i32 %29, 5
+  %35 = icmp samesign ult i32 %29, 5
   br i1 %35, label %thrift_get_varint_enc.exit.thread, label %thrift_get_varint_enc.exit.thread76
 
 thrift_get_varint_enc.exit.thread76:              ; preds = %34
@@ -1748,7 +1748,7 @@ compact_struct_type_to_generic_type.exit:         ; preds = %58, %switch.lookup
   ]
 
 84:                                               ; preds = %81
-  %85 = icmp ult i32 %79, 5
+  %85 = icmp samesign ult i32 %79, 5
   br i1 %85, label %thrift_get_varint_enc.exit.thread, label %thrift_get_varint_enc.exit.thread120
 
 thrift_get_varint_enc.exit.thread120:             ; preds = %84
@@ -2135,7 +2135,7 @@ define i32 @dissect_thrift_t_map(ptr noundef %0, ptr noundef %1, ptr noundef %2,
   ]
 
 40:                                               ; preds = %37
-  %41 = icmp ult i32 %35, 5
+  %41 = icmp samesign ult i32 %35, 5
   br i1 %41, label %thrift_get_varint_enc.exit.thread, label %thrift_get_varint_enc.exit.thread147
 
 thrift_get_varint_enc.exit.thread147:             ; preds = %40
@@ -3063,7 +3063,7 @@ define internal i32 @dissect_thrift_transport(ptr noundef %0, ptr noundef %1, pt
   br label %is_thrift_strict_version.exit.thread
 
 14:                                               ; preds = %4
-  %15 = icmp ult i32 %6, 10
+  %15 = icmp samesign ult i32 %6, 10
   br i1 %15, label %.thread, label %16
 
 16:                                               ; preds = %14
@@ -3440,7 +3440,7 @@ define internal fastcc i32 @dissect_thrift_varint(ptr noundef %0, ptr noundef %1
   ]
 
 16:                                               ; preds = %13
-  %17 = icmp ult i32 %11, %5
+  %17 = icmp samesign ult i32 %11, %5
   br i1 %17, label %thrift_get_varint_enc.exit.thread, label %thrift_get_varint_enc.exit.thread102
 
 thrift_get_varint_enc.exit.thread102:             ; preds = %16
@@ -3740,7 +3740,7 @@ define internal fastcc i32 @dissect_thrift_field_header(ptr noundef %0, ptr noun
   br i1 %53, label %54, label %thrift_get_varint_enc.exit
 
 54:                                               ; preds = %50
-  %55 = icmp ult i32 %48, 3
+  %55 = icmp samesign ult i32 %48, 3
   br i1 %55, label %thrift_get_varint_enc.exit.thread, label %thrift_get_varint_enc.exit.thread216
 
 thrift_get_varint_enc.exit.thread216:             ; preds = %54
@@ -4338,7 +4338,7 @@ define internal fastcc i32 @dissect_thrift_compact_type(ptr noundef %0, ptr noun
   ]
 
 104:                                              ; preds = %101
-  %105 = icmp ult i32 %99, 5
+  %105 = icmp samesign ult i32 %99, 5
   br i1 %105, label %thrift_get_varint_enc.exit.thread.i, label %thrift_get_varint_enc.exit.thread48.i
 
 thrift_get_varint_enc.exit.thread48.i:            ; preds = %104
@@ -4490,7 +4490,7 @@ dissect_thrift_compact_binary.exit:               ; preds = %134
   ]
 
 186:                                              ; preds = %183
-  %187 = icmp ult i32 %181, 5
+  %187 = icmp samesign ult i32 %181, 5
   br i1 %187, label %thrift_get_varint_enc.exit.thread, label %thrift_get_varint_enc.exit.thread102
 
 thrift_get_varint_enc.exit.thread102:             ; preds = %186
@@ -5266,7 +5266,7 @@ define internal fastcc i32 @thrift_binary_utf8_isprint(ptr noundef %0, i32 nound
   br i1 %28, label %29, label %31
 
 29:                                               ; preds = %26
-  %30 = icmp ugt i8 %10, -63
+  %30 = icmp samesign ugt i8 %10, -63
   br i1 %30, label %44, label %._crit_edge
 
 31:                                               ; preds = %26
@@ -5296,7 +5296,7 @@ define internal fastcc i32 @thrift_binary_utf8_isprint(ptr noundef %0, i32 nound
   br i1 %41, label %44, label %42
 
 42:                                               ; preds = %40
-  %43 = icmp ugt i8 %10, -12
+  %43 = icmp samesign ugt i8 %10, -12
   br i1 %43, label %._crit_edge, label %44
 
 44:                                               ; preds = %42, %40, %35, %34, %29, %25, %25, %19, %36
@@ -5430,7 +5430,7 @@ define internal fastcc i32 @dissect_thrift_compact_list_set(ptr noundef %0, ptr 
   ]
 
 66:                                               ; preds = %63
-  %67 = icmp ult i32 %61, 5
+  %67 = icmp samesign ult i32 %61, 5
   br i1 %67, label %thrift_get_varint_enc.exit.thread, label %thrift_get_varint_enc.exit.thread97
 
 thrift_get_varint_enc.exit.thread97:              ; preds = %66
@@ -5879,7 +5879,7 @@ define internal fastcc i32 @dissect_thrift_loop(ptr noundef %0, ptr noundef %1, 
 11:                                               ; preds = %.lr.ph, %36
   %.050 = phi i32 [ %5, %.lr.ph ], [ %37, %36 ]
   %.04149 = phi i32 [ 0, %.lr.ph ], [ %33, %36 ]
-  %12 = icmp ult i32 %.050, 4
+  %12 = icmp samesign ult i32 %.050, 4
   br i1 %12, label %39, label %13
 
 13:                                               ; preds = %11
@@ -6011,7 +6011,7 @@ define internal fastcc i32 @dissect_thrift_common(ptr noundef %0, ptr noundef %1
   br i1 %.not240, label %99, label %40
 
 40:                                               ; preds = %39
-  %41 = icmp ult i32 %37, 5
+  %41 = icmp samesign ult i32 %37, 5
   br i1 %41, label %304, label %42
 
 42:                                               ; preds = %40
@@ -6032,7 +6032,7 @@ define internal fastcc i32 @dissect_thrift_common(ptr noundef %0, ptr noundef %1
   br i1 %54, label %55, label %thrift_get_varint_enc.exit
 
 55:                                               ; preds = %51
-  %56 = icmp ult i32 %49, 5
+  %56 = icmp samesign ult i32 %49, 5
   br i1 %56, label %thrift_get_varint_enc.exit.thread, label %57
 
 57:                                               ; preds = %55
@@ -6069,7 +6069,7 @@ thrift_get_varint_enc.exit:                       ; preds = %51
   br i1 %74, label %75, label %thrift_get_varint_enc.exit250
 
 75:                                               ; preds = %71
-  %76 = icmp ult i32 %69, 5
+  %76 = icmp samesign ult i32 %69, 5
   br i1 %76, label %thrift_get_varint_enc.exit.thread, label %77
 
 77:                                               ; preds = %75
@@ -6118,7 +6118,7 @@ thrift_get_varint_enc.exit250:                    ; preds = %71
   br i1 %.not242, label %126, label %102
 
 102:                                              ; preds = %99
-  %103 = icmp ult i32 %37, 13
+  %103 = icmp samesign ult i32 %37, 13
   br i1 %103, label %304, label %104
 
 104:                                              ; preds = %102
@@ -6152,7 +6152,7 @@ thrift_get_varint_enc.exit250:                    ; preds = %71
   br label %149
 
 126:                                              ; preds = %99
-  %127 = icmp ult i32 %37, 10
+  %127 = icmp samesign ult i32 %37, 10
   br i1 %127, label %304, label %128
 
 128:                                              ; preds = %126

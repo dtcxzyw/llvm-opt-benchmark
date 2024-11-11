@@ -1774,7 +1774,7 @@ define void @rijndaelEncrypt(ptr noundef readonly %0, i32 noundef %1, ptr nocapt
   %1142 = getelementptr inbounds i8, ptr %0, i64 188
   %1143 = load i32, ptr %1142, align 4
   %1144 = xor i32 %1141, %1143
-  %1145 = icmp ugt i32 %1, 12
+  %1145 = icmp samesign ugt i32 %1, 12
   br i1 %1145, label %1146, label %1339
 
 1146:                                             ; preds = %952
@@ -3297,7 +3297,7 @@ define void @rijndaelDecrypt(ptr noundef readonly %0, i32 noundef %1, ptr nocapt
   %1142 = getelementptr inbounds i8, ptr %0, i64 188
   %1143 = load i32, ptr %1142, align 4
   %1144 = xor i32 %1141, %1143
-  %1145 = icmp ugt i32 %1, 12
+  %1145 = icmp samesign ugt i32 %1, 12
   br i1 %1145, label %1146, label %1339
 
 1146:                                             ; preds = %952

@@ -596,7 +596,7 @@ define { i64, ptr } @binop_multiply(i64 %0, ptr %1, i64 %2, ptr %3) local_unname
   %40 = add nsw i32 %.075, -1
   %.sroa.868.2 = extractvalue { i64, ptr } %39, 1
   %.sroa.066.2 = extractvalue { i64, ptr } %39, 0
-  %41 = icmp ugt i32 %.075, 1
+  %41 = icmp samesign ugt i32 %.075, 1
   br i1 %41, label %.lr.ph, label %.loopexit, !llvm.loop !7
 
 .loopexit:                                        ; preds = %.lr.ph, %29, %25
@@ -6459,7 +6459,7 @@ define internal { i64, ptr } @f_strptime(ptr nocapture readnone %0, i64 %1, ptr 
   %52 = add nsw i32 %51, 1900
   %53 = sdiv i32 %52, 100
   %54 = srem i32 %52, 100
-  %55 = icmp ult i32 %47, 2
+  %55 = icmp samesign ult i32 %47, 2
   %56 = sext i1 %55 to i32
   %spec.select.i = add nsw i32 %54, %56
   %.016.v.i = select i1 %55, i32 11, i32 -1
@@ -6497,7 +6497,7 @@ define internal { i64, ptr } @f_strptime(ptr nocapture readnone %0, i64 %1, ptr 
   br i1 %or.cond17, label %81, label %98
 
 81:                                               ; preds = %78
-  %82 = icmp ugt i32 %47, 1
+  %82 = icmp samesign ugt i32 %47, 1
   br i1 %82, label %83, label %set_tm_yday.exit
 
 83:                                               ; preds = %81

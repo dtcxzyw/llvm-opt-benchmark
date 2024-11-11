@@ -1602,7 +1602,7 @@ put_char.exit104:                                 ; preds = %111, %120
   br label %.critedge
 
 136:                                              ; preds = %121
-  %137 = icmp ult i32 %41, 65536
+  %137 = icmp samesign ult i32 %41, 65536
   br i1 %137, label %.thread, label %139
 
 .thread:                                          ; preds = %65, %136

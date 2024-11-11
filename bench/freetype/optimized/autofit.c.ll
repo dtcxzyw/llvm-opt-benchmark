@@ -4130,8 +4130,8 @@ define hidden range(i32 0, 7) i32 @af_shaper_get_coverage(ptr noundef readonly %
   br i1 %75, label %76, label %.loopexit98
 
 76:                                               ; preds = %.lr.ph111
-  %77 = icmp ult i8 %72, -32
-  %78 = icmp ult i8 %72, -16
+  %77 = icmp samesign ult i8 %72, -32
+  %78 = icmp samesign ult i8 %72, -16
   %. = select i1 %78, i32 15, i32 7
   %.125 = select i1 %78, i32 2, i32 3
   %.sink = select i1 %77, i32 31, i32 %.
@@ -4336,8 +4336,8 @@ define hidden noundef ptr @af_shaper_get_cluster(ptr noundef %0, ptr nocapture n
   %26 = phi i8 [ %.pr, %.lr.ph ], [ %22, %.preheader68 ]
   %27 = getelementptr inbounds i8, ptr %.05973, i64 1
   %28 = icmp slt i8 %26, 0
-  %29 = icmp ult i8 %26, -32
-  %30 = icmp ult i8 %26, -16
+  %29 = icmp samesign ult i8 %26, -32
+  %30 = icmp samesign ult i8 %26, -16
   %spec.select = select i1 %30, i64 1, i64 2
   %.062 = select i1 %29, i64 0, i64 %spec.select
   %scevgep = getelementptr i8, ptr %.05973, i64 2
@@ -5911,7 +5911,7 @@ define internal fastcc i32 @af_latin_hints_compute_segments(ptr noundef %0, i32 
 215:                                              ; preds = %211
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %3)
   store i32 0, ptr %3, align 4
-  %216 = icmp ult i32 %212, 18
+  %216 = icmp samesign ult i32 %212, 18
   br i1 %216, label %217, label %220
 
 217:                                              ; preds = %215
@@ -9344,7 +9344,7 @@ af_cjk_snap_width.exit:                           ; preds = %53, %57
   br label %85
 
 77:                                               ; preds = %72
-  %78 = icmp ult i64 %.023.i, 128
+  %78 = icmp samesign ult i64 %.023.i, 128
   br i1 %78, label %79, label %82
 
 79:                                               ; preds = %77
@@ -9648,8 +9648,8 @@ define internal fastcc void @af_latin_metrics_scale_dim(ptr nocapture noundef %0
   %158 = icmp slt i32 %154, 0
   %159 = sub nsw i64 0, %157
   %spec.select177 = select i1 %158, i64 %159, i64 %157
-  %160 = icmp ult i64 %spec.select177, 32
-  %161 = icmp ult i64 %spec.select177, 48
+  %160 = icmp samesign ult i64 %spec.select177, 32
+  %161 = icmp samesign ult i64 %spec.select177, 48
   %. = select i1 %161, i64 32, i64 64
   %.1153 = select i1 %160, i64 0, i64 %.
   %162 = sub nsw i64 0, %.1153
@@ -10996,7 +10996,7 @@ define internal fastcc i64 @af_latin_compute_stem_width(i32 %.5148.val, ptr noca
   br label %121
 
 35:                                               ; preds = %29
-  %36 = icmp ult i64 %.2, 192
+  %36 = icmp samesign ult i64 %.2, 192
   br i1 %36, label %37, label %48
 
 37:                                               ; preds = %35
@@ -11151,7 +11151,7 @@ af_latin_snap_width.exit:                         ; preds = %82, %86
   br label %121
 
 106:                                              ; preds = %101
-  %107 = icmp ult i64 %.023.i, 128
+  %107 = icmp samesign ult i64 %.023.i, 128
   br i1 %107, label %108, label %118
 
 108:                                              ; preds = %106
@@ -11970,7 +11970,7 @@ define internal fastcc i64 @af_loader_compute_darkening(ptr nocapture readonly %
 67:                                               ; preds = %59
   %68 = shl i32 %16, 16
   %69 = zext i32 %68 to i64
-  %70 = icmp ult i64 %.079, %69
+  %70 = icmp samesign ult i64 %.079, %69
   br i1 %70, label %71, label %85
 
 71:                                               ; preds = %67
@@ -11996,7 +11996,7 @@ define internal fastcc i64 @af_loader_compute_darkening(ptr nocapture readonly %
 85:                                               ; preds = %67
   %86 = shl i32 %20, 16
   %87 = zext i32 %86 to i64
-  %88 = icmp ult i64 %.079, %87
+  %88 = icmp samesign ult i64 %.079, %87
   br i1 %88, label %89, label %103
 
 89:                                               ; preds = %85, %71
@@ -12027,7 +12027,7 @@ define internal fastcc i64 @af_loader_compute_darkening(ptr nocapture readonly %
 103:                                              ; preds = %85
   %104 = shl i32 %24, 16
   %105 = zext i32 %104 to i64
-  %106 = icmp ult i64 %.079, %105
+  %106 = icmp samesign ult i64 %.079, %105
   br i1 %106, label %107, label %121
 
 107:                                              ; preds = %._crit_edge, %103
@@ -12273,11 +12273,11 @@ af_property_get_face_globals.exit:                ; preds = %35, %40
   %86 = icmp sgt i32 %72, %74
   %87 = icmp sgt i32 %69, 500
   %or.cond15 = select i1 %86, i1 true, i1 %87
-  %88 = icmp ugt i32 %71, 500
+  %88 = icmp samesign ugt i32 %71, 500
   %or.cond17 = select i1 %or.cond15, i1 true, i1 %88
-  %89 = icmp ugt i32 %73, 500
+  %89 = icmp samesign ugt i32 %73, 500
   %or.cond19 = select i1 %or.cond17, i1 true, i1 %89
-  %90 = icmp ugt i32 %67, 500
+  %90 = icmp samesign ugt i32 %67, 500
   %or.cond21 = select i1 %or.cond19, i1 true, i1 %90
   br i1 %or.cond21, label %.loopexit, label %91
 

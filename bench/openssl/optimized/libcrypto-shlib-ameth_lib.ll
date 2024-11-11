@@ -45,7 +45,7 @@ entry:
   br i1 %cmp, label %return, label %if.end
 
 if.end:                                           ; preds = %entry
-  %cmp1 = icmp ult i32 %idx, 16
+  %cmp1 = icmp samesign ult i32 %idx, 16
   br i1 %cmp1, label %if.then2, label %if.end3
 
 if.then2:                                         ; preds = %if.end
@@ -247,7 +247,7 @@ land.lhs.true:                                    ; preds = %if.end18
   br i1 %cmp26, label %return, label %for.cond.backedge
 
 for.cond.backedge:                                ; preds = %if.end18, %land.lhs.true, %EVP_PKEY_asn1_get0.exit
-  %cmp13 = icmp ugt i64 %indvars.iv, 1
+  %cmp13 = icmp samesign ugt i64 %indvars.iv, 1
   br i1 %cmp13, label %if.end.i, label %return, !llvm.loop !4
 
 return:                                           ; preds = %land.lhs.true, %for.cond.backedge, %EVP_PKEY_asn1_get_count.exit, %if.then4

@@ -16371,7 +16371,7 @@ _ZnamRKN5clang10ASTContextEm.exit32:              ; preds = %68, %.critedge.i.i.
   %73 = getelementptr inbounds i8, ptr %.0910.i.i.i.i.i, i64 8
   %74 = getelementptr inbounds i8, ptr %.0811.i.i.i.i.i, i64 8
   %75 = add nsw i64 %.012.i.i.i.i.i, -1
-  %76 = icmp ugt i64 %.012.i.i.i.i.i, 1
+  %76 = icmp samesign ugt i64 %.012.i.i.i.i.i, 1
   br i1 %76, label %.lr.ph.i.i.i.i.i, label %_ZSt4copyIPPN5clang4ExprEPPNS0_4StmtEET0_T_S8_S7_.exit, !llvm.loop !962
 
 _ZSt4copyIPPN5clang4ExprEPPNS0_4StmtEET0_T_S8_S7_.exit: ; preds = %.lr.ph.i.i.i.i.i, %_ZnamRKN5clang10ASTContextEm.exit32
@@ -16612,7 +16612,7 @@ _ZnamRKN5clang10ASTContextEm.exit:                ; preds = %43, %.critedge.i.i.
   %51 = getelementptr inbounds i8, ptr %.0910.i.i.i.i.i, i64 8
   %52 = getelementptr inbounds i8, ptr %.0811.i.i.i.i.i, i64 8
   %53 = add nsw i64 %.012.i.i.i.i.i, -1
-  %54 = icmp ugt i64 %.012.i.i.i.i.i, 1
+  %54 = icmp samesign ugt i64 %.012.i.i.i.i.i, 1
   br i1 %54, label %.lr.ph.i.i.i.i.i, label %_ZSt4copyIPKPN5clang4ExprEPPNS0_4StmtEET0_T_S9_S8_.exit, !llvm.loop !963
 
 _ZSt4copyIPKPN5clang4ExprEPPNS0_4StmtEET0_T_S9_S8_.exit: ; preds = %.lr.ph.i.i.i.i.i, %_ZnamRKN5clang10ASTContextEm.exit

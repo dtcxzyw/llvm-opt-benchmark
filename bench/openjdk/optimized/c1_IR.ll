@@ -1546,7 +1546,7 @@ _ZN11Compilation12is_profilingEv.exit.thread:     ; preds = %_ZN13GrowableArrayI
   %122 = load i64, ptr %121, align 8
   %123 = and i64 %122, %118
   store i64 %123, ptr %121, align 8
-  %124 = icmp ugt i64 %indvars.iv29.i, 1
+  %124 = icmp samesign ugt i64 %indvars.iv29.i, 1
   br i1 %124, label %.lr.ph21.i, label %._crit_edge22.i, !llvm.loop !16
 
 ._crit_edge22.i:                                  ; preds = %.lr.ph21.i, %._crit_edge.i
@@ -1781,7 +1781,7 @@ _ZNK10BlockBegin13number_of_suxEv.exit:           ; preds = %62
   %95 = getelementptr inbounds ptr, ptr %94, i64 %indvars.iv.next
   %96 = load ptr, ptr %95, align 8
   tail call void @_ZN22ComputeLinearScanOrder11count_edgesEP10BlockBeginS1_(ptr noundef nonnull align 8 dereferenceable(200) %0, ptr noundef %96, ptr noundef nonnull %1)
-  %97 = icmp ugt i64 %indvars.iv, 1
+  %97 = icmp samesign ugt i64 %indvars.iv, 1
   br i1 %97, label %.lr.ph, label %._crit_edge, !llvm.loop !20
 
 ._crit_edge:                                      ; preds = %.lr.ph, %62, %_ZNK10BlockBegin13number_of_suxEv.exit
@@ -1802,7 +1802,7 @@ _ZNK10BlockBegin13number_of_suxEv.exit:           ; preds = %62
   %105 = getelementptr inbounds ptr, ptr %104, i64 %indvars.iv.next38
   %106 = load ptr, ptr %105, align 8
   tail call void @_ZN22ComputeLinearScanOrder11count_edgesEP10BlockBeginS1_(ptr noundef nonnull align 8 dereferenceable(200) %0, ptr noundef %106, ptr noundef nonnull %1)
-  %107 = icmp ugt i64 %indvars.iv37, 1
+  %107 = icmp samesign ugt i64 %indvars.iv37, 1
   br i1 %107, label %103, label %._crit_edge35, !llvm.loop !21
 
 ._crit_edge35:                                    ; preds = %103, %._crit_edge
@@ -2256,7 +2256,7 @@ define hidden void @_ZN22ComputeLinearScanOrder23clear_non_natural_loopsEP10Bloc
   %58 = load i64, ptr %57, align 8
   %59 = and i64 %58, %54
   store i64 %59, ptr %57, align 8
-  %60 = icmp ugt i64 %indvars.iv29, 1
+  %60 = icmp samesign ugt i64 %indvars.iv29, 1
   br i1 %60, label %.lr.ph21, label %._crit_edge22, !llvm.loop !16
 
 ._crit_edge22:                                    ; preds = %.lr.ph21, %._crit_edge
@@ -2395,7 +2395,7 @@ _ZN26GrowableArrayWithAllocatorIP10BlockBegin13GrowableArrayIS1_EE6appendERKS1_.
   %spec.select = add nuw nsw i32 %.02258, %76
   %77 = trunc nuw nsw i64 %indvars.iv.next to i32
   %spec.select26 = select i1 %.not56, i32 %77, i32 %.059
-  %78 = icmp ugt i64 %indvars.iv, 1
+  %78 = icmp samesign ugt i64 %indvars.iv, 1
   br i1 %78, label %67, label %._crit_edge, !llvm.loop !27
 
 ._crit_edge:                                      ; preds = %67, %58

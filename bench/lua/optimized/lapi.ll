@@ -199,7 +199,7 @@ for.body:                                         ; preds = %if.then, %for.body
   %tt_ = getelementptr inbounds i8, ptr %3, i64 8
   store i8 0, ptr %tt_, align 8
   %dec = add nsw i64 %diff.015, -1
-  %cmp4 = icmp ugt i64 %diff.015, 1
+  %cmp4 = icmp samesign ugt i64 %diff.015, 1
   br i1 %cmp4, label %for.body, label %if.end.thread, !llvm.loop !7
 
 if.end.thread:                                    ; preds = %for.body
@@ -437,7 +437,7 @@ if.then18.i:                                      ; preds = %if.else14.i
   %nupvalues.i = getelementptr inbounds i8, ptr %8, i64 10
   %9 = load i8, ptr %nupvalues.i, align 2
   %conv21.i = zext i8 %9 to i32
-  %cmp22.not.i = icmp ugt i32 %sub.i, %conv21.i
+  %cmp22.not.i = icmp samesign ugt i32 %sub.i, %conv21.i
   br i1 %cmp22.not.i, label %cond.false.i, label %cond.true.i
 
 cond.true.i:                                      ; preds = %if.then18.i
@@ -513,7 +513,7 @@ if.then18.i28:                                    ; preds = %if.else14.i22
   %nupvalues.i30 = getelementptr inbounds i8, ptr %19, i64 10
   %20 = load i8, ptr %nupvalues.i30, align 2
   %conv21.i31 = zext i8 %20 to i32
-  %cmp22.not.i32 = icmp ugt i32 %sub.i29, %conv21.i31
+  %cmp22.not.i32 = icmp samesign ugt i32 %sub.i29, %conv21.i31
   br i1 %cmp22.not.i32, label %cond.false.i38, label %cond.true.i33
 
 cond.true.i33:                                    ; preds = %if.then18.i28
@@ -640,7 +640,7 @@ if.then18.i:                                      ; preds = %if.else14.i
   %nupvalues.i = getelementptr inbounds i8, ptr %7, i64 10
   %8 = load i8, ptr %nupvalues.i, align 2
   %conv21.i = zext i8 %8 to i32
-  %cmp22.not.i = icmp ugt i32 %sub.i, %conv21.i
+  %cmp22.not.i = icmp samesign ugt i32 %sub.i, %conv21.i
   br i1 %cmp22.not.i, label %cond.false.i, label %cond.true.i
 
 cond.true.i:                                      ; preds = %if.then18.i
@@ -733,7 +733,7 @@ if.then18.i:                                      ; preds = %if.else14.i
   %nupvalues.i = getelementptr inbounds i8, ptr %8, i64 10
   %9 = load i8, ptr %nupvalues.i, align 2
   %conv21.i = zext i8 %9 to i32
-  %cmp22.not.i = icmp ugt i32 %sub.i, %conv21.i
+  %cmp22.not.i = icmp samesign ugt i32 %sub.i, %conv21.i
   br i1 %cmp22.not.i, label %cond.false.i, label %cond.true.i
 
 cond.true.i:                                      ; preds = %if.then18.i
@@ -846,7 +846,7 @@ if.then18.i:                                      ; preds = %if.else14.i
   %nupvalues.i = getelementptr inbounds i8, ptr %8, i64 10
   %9 = load i8, ptr %nupvalues.i, align 2
   %conv21.i = zext i8 %9 to i32
-  %cmp22.not.i = icmp ugt i32 %sub.i, %conv21.i
+  %cmp22.not.i = icmp samesign ugt i32 %sub.i, %conv21.i
   br i1 %cmp22.not.i, label %cond.false.i, label %cond.true.i
 
 cond.true.i:                                      ; preds = %if.then18.i
@@ -936,7 +936,7 @@ if.then18.i:                                      ; preds = %if.else14.i
   %nupvalues.i = getelementptr inbounds i8, ptr %8, i64 10
   %9 = load i8, ptr %nupvalues.i, align 2
   %conv21.i = zext i8 %9 to i32
-  %cmp22.not.i = icmp ugt i32 %sub.i, %conv21.i
+  %cmp22.not.i = icmp samesign ugt i32 %sub.i, %conv21.i
   br i1 %cmp22.not.i, label %cond.false.i, label %cond.true.i
 
 cond.true.i:                                      ; preds = %if.then18.i
@@ -1025,7 +1025,7 @@ if.then18.i:                                      ; preds = %if.else14.i
   %nupvalues.i = getelementptr inbounds i8, ptr %8, i64 10
   %9 = load i8, ptr %nupvalues.i, align 2
   %conv21.i = zext i8 %9 to i32
-  %cmp22.not.i = icmp ugt i32 %sub.i, %conv21.i
+  %cmp22.not.i = icmp samesign ugt i32 %sub.i, %conv21.i
   br i1 %cmp22.not.i, label %cond.false.i, label %cond.true.i
 
 cond.true.i:                                      ; preds = %if.then18.i
@@ -1122,7 +1122,7 @@ if.then18.i:                                      ; preds = %if.else14.i
   %nupvalues.i = getelementptr inbounds i8, ptr %8, i64 10
   %9 = load i8, ptr %nupvalues.i, align 2
   %conv21.i = zext i8 %9 to i32
-  %cmp22.not.i = icmp ugt i32 %sub.i, %conv21.i
+  %cmp22.not.i = icmp samesign ugt i32 %sub.i, %conv21.i
   br i1 %cmp22.not.i, label %cond.false.i, label %cond.true.i
 
 cond.true.i:                                      ; preds = %if.then18.i
@@ -1212,7 +1212,7 @@ if.then18.i:                                      ; preds = %if.else14.i
   %nupvalues.i = getelementptr inbounds i8, ptr %8, i64 10
   %9 = load i8, ptr %nupvalues.i, align 2
   %conv21.i = zext i8 %9 to i32
-  %cmp22.not.i = icmp ugt i32 %sub.i, %conv21.i
+  %cmp22.not.i = icmp samesign ugt i32 %sub.i, %conv21.i
   br i1 %cmp22.not.i, label %cond.false.i, label %cond.true.i
 
 cond.true.i:                                      ; preds = %if.then18.i
@@ -1302,7 +1302,7 @@ if.then18.i:                                      ; preds = %if.else14.i
   %nupvalues.i = getelementptr inbounds i8, ptr %8, i64 10
   %9 = load i8, ptr %nupvalues.i, align 2
   %conv21.i = zext i8 %9 to i32
-  %cmp22.not.i = icmp ugt i32 %sub.i, %conv21.i
+  %cmp22.not.i = icmp samesign ugt i32 %sub.i, %conv21.i
   br i1 %cmp22.not.i, label %cond.false.i, label %cond.true.i
 
 cond.true.i:                                      ; preds = %if.then18.i
@@ -1378,7 +1378,7 @@ if.then18.i25:                                    ; preds = %if.else14.i19
   %nupvalues.i27 = getelementptr inbounds i8, ptr %19, i64 10
   %20 = load i8, ptr %nupvalues.i27, align 2
   %conv21.i28 = zext i8 %20 to i32
-  %cmp22.not.i29 = icmp ugt i32 %sub.i26, %conv21.i28
+  %cmp22.not.i29 = icmp samesign ugt i32 %sub.i26, %conv21.i28
   br i1 %cmp22.not.i29, label %cond.false.i35, label %cond.true.i30
 
 cond.true.i30:                                    ; preds = %if.then18.i25
@@ -1533,7 +1533,7 @@ if.then18.i:                                      ; preds = %if.else14.i
   %nupvalues.i = getelementptr inbounds i8, ptr %8, i64 10
   %9 = load i8, ptr %nupvalues.i, align 2
   %conv21.i = zext i8 %9 to i32
-  %cmp22.not.i = icmp ugt i32 %sub.i, %conv21.i
+  %cmp22.not.i = icmp samesign ugt i32 %sub.i, %conv21.i
   br i1 %cmp22.not.i, label %cond.false.i, label %cond.true.i
 
 cond.true.i:                                      ; preds = %if.then18.i
@@ -1609,7 +1609,7 @@ if.then18.i32:                                    ; preds = %if.else14.i26
   %nupvalues.i34 = getelementptr inbounds i8, ptr %19, i64 10
   %20 = load i8, ptr %nupvalues.i34, align 2
   %conv21.i35 = zext i8 %20 to i32
-  %cmp22.not.i36 = icmp ugt i32 %sub.i33, %conv21.i35
+  %cmp22.not.i36 = icmp samesign ugt i32 %sub.i33, %conv21.i35
   br i1 %cmp22.not.i36, label %cond.false.i42, label %cond.true.i37
 
 cond.true.i37:                                    ; preds = %if.then18.i32
@@ -1768,7 +1768,7 @@ if.then18.i:                                      ; preds = %if.else14.i
   %nupvalues.i = getelementptr inbounds i8, ptr %8, i64 10
   %9 = load i8, ptr %nupvalues.i, align 2
   %conv21.i = zext i8 %9 to i32
-  %cmp22.not.i = icmp ugt i32 %sub.i, %conv21.i
+  %cmp22.not.i = icmp samesign ugt i32 %sub.i, %conv21.i
   br i1 %cmp22.not.i, label %cond.false.i, label %cond.true.i
 
 cond.true.i:                                      ; preds = %if.then18.i
@@ -1879,7 +1879,7 @@ if.then18.i:                                      ; preds = %if.else14.i
   %nupvalues.i = getelementptr inbounds i8, ptr %8, i64 10
   %9 = load i8, ptr %nupvalues.i, align 2
   %conv21.i = zext i8 %9 to i32
-  %cmp22.not.i = icmp ugt i32 %sub.i, %conv21.i
+  %cmp22.not.i = icmp samesign ugt i32 %sub.i, %conv21.i
   br i1 %cmp22.not.i, label %cond.false.i, label %cond.true.i
 
 cond.true.i:                                      ; preds = %if.then18.i
@@ -1990,7 +1990,7 @@ if.then18.i:                                      ; preds = %if.else14.i
   %nupvalues.i = getelementptr inbounds i8, ptr %8, i64 10
   %9 = load i8, ptr %nupvalues.i, align 2
   %conv21.i = zext i8 %9 to i32
-  %cmp22.not.i = icmp ugt i32 %sub.i, %conv21.i
+  %cmp22.not.i = icmp samesign ugt i32 %sub.i, %conv21.i
   br i1 %cmp22.not.i, label %cond.false.i, label %cond.true.i
 
 cond.true.i:                                      ; preds = %if.then18.i
@@ -2081,7 +2081,7 @@ if.then18.i:                                      ; preds = %if.else14.i
   %nupvalues.i = getelementptr inbounds i8, ptr %8, i64 10
   %9 = load i8, ptr %nupvalues.i, align 2
   %conv21.i = zext i8 %9 to i32
-  %cmp22.not.i = icmp ugt i32 %sub.i, %conv21.i
+  %cmp22.not.i = icmp samesign ugt i32 %sub.i, %conv21.i
   br i1 %cmp22.not.i, label %cond.false.i, label %cond.true.i
 
 cond.true.i:                                      ; preds = %if.then18.i
@@ -2185,7 +2185,7 @@ if.then18.i32:                                    ; preds = %if.else14.i26
   %nupvalues.i34 = getelementptr inbounds i8, ptr %24, i64 10
   %25 = load i8, ptr %nupvalues.i34, align 2
   %conv21.i35 = zext i8 %25 to i32
-  %cmp22.not.i36 = icmp ugt i32 %sub.i33, %conv21.i35
+  %cmp22.not.i36 = icmp samesign ugt i32 %sub.i33, %conv21.i35
   br i1 %cmp22.not.i36, label %cond.false.i42, label %cond.true.i37
 
 cond.true.i37:                                    ; preds = %if.then18.i32
@@ -2302,7 +2302,7 @@ if.then18.i:                                      ; preds = %if.else14.i
   %nupvalues.i = getelementptr inbounds i8, ptr %8, i64 10
   %9 = load i8, ptr %nupvalues.i, align 2
   %conv21.i = zext i8 %9 to i32
-  %cmp22.not.i = icmp ugt i32 %sub.i, %conv21.i
+  %cmp22.not.i = icmp samesign ugt i32 %sub.i, %conv21.i
   br i1 %cmp22.not.i, label %cond.false.i, label %cond.true.i
 
 cond.true.i:                                      ; preds = %if.then18.i
@@ -2424,7 +2424,7 @@ if.then18.i:                                      ; preds = %if.else14.i
   %nupvalues.i = getelementptr inbounds i8, ptr %8, i64 10
   %9 = load i8, ptr %nupvalues.i, align 2
   %conv21.i = zext i8 %9 to i32
-  %cmp22.not.i = icmp ugt i32 %sub.i, %conv21.i
+  %cmp22.not.i = icmp samesign ugt i32 %sub.i, %conv21.i
   br i1 %cmp22.not.i, label %cond.false.i, label %cond.true.i
 
 cond.true.i:                                      ; preds = %if.then18.i
@@ -2527,7 +2527,7 @@ if.then18.i:                                      ; preds = %if.else14.i
   %nupvalues.i = getelementptr inbounds i8, ptr %8, i64 10
   %9 = load i8, ptr %nupvalues.i, align 2
   %conv21.i = zext i8 %9 to i32
-  %cmp22.not.i = icmp ugt i32 %sub.i, %conv21.i
+  %cmp22.not.i = icmp samesign ugt i32 %sub.i, %conv21.i
   br i1 %cmp22.not.i, label %cond.false.i, label %cond.true.i
 
 cond.true.i:                                      ; preds = %if.then18.i
@@ -2637,7 +2637,7 @@ if.then18.i:                                      ; preds = %if.else14.i
   %nupvalues.i = getelementptr inbounds i8, ptr %8, i64 10
   %9 = load i8, ptr %nupvalues.i, align 2
   %conv21.i = zext i8 %9 to i32
-  %cmp22.not.i = icmp ugt i32 %sub.i, %conv21.i
+  %cmp22.not.i = icmp samesign ugt i32 %sub.i, %conv21.i
   br i1 %cmp22.not.i, label %cond.false.i, label %cond.true.i
 
 cond.true.i:                                      ; preds = %if.then18.i
@@ -2732,7 +2732,7 @@ if.then18.i:                                      ; preds = %if.else14.i
   %nupvalues.i = getelementptr inbounds i8, ptr %8, i64 10
   %9 = load i8, ptr %nupvalues.i, align 2
   %conv21.i = zext i8 %9 to i32
-  %cmp22.not.i = icmp ugt i32 %sub.i, %conv21.i
+  %cmp22.not.i = icmp samesign ugt i32 %sub.i, %conv21.i
   br i1 %cmp22.not.i, label %cond.false.i, label %cond.true.i
 
 cond.true.i:                                      ; preds = %if.then18.i
@@ -3226,7 +3226,7 @@ if.then18.i:                                      ; preds = %if.else14.i
   %nupvalues.i = getelementptr inbounds i8, ptr %8, i64 10
   %9 = load i8, ptr %nupvalues.i, align 2
   %conv21.i = zext i8 %9 to i32
-  %cmp22.not.i = icmp ugt i32 %sub.i, %conv21.i
+  %cmp22.not.i = icmp samesign ugt i32 %sub.i, %conv21.i
   br i1 %cmp22.not.i, label %cond.false.i, label %cond.true.i
 
 cond.true.i:                                      ; preds = %if.then18.i
@@ -3356,7 +3356,7 @@ if.then18.i:                                      ; preds = %if.else14.i
   %nupvalues.i = getelementptr inbounds i8, ptr %8, i64 10
   %9 = load i8, ptr %nupvalues.i, align 2
   %conv21.i = zext i8 %9 to i32
-  %cmp22.not.i = icmp ugt i32 %sub.i, %conv21.i
+  %cmp22.not.i = icmp samesign ugt i32 %sub.i, %conv21.i
   br i1 %cmp22.not.i, label %cond.false.i, label %cond.true.i
 
 cond.true.i:                                      ; preds = %if.then18.i
@@ -3492,7 +3492,7 @@ if.then18.i:                                      ; preds = %if.else14.i
   %nupvalues.i = getelementptr inbounds i8, ptr %8, i64 10
   %9 = load i8, ptr %nupvalues.i, align 2
   %conv21.i = zext i8 %9 to i32
-  %cmp22.not.i = icmp ugt i32 %sub.i, %conv21.i
+  %cmp22.not.i = icmp samesign ugt i32 %sub.i, %conv21.i
   br i1 %cmp22.not.i, label %cond.false.i, label %cond.true.i
 
 cond.true.i:                                      ; preds = %if.then18.i
@@ -3639,7 +3639,7 @@ if.then18.i.i:                                    ; preds = %if.else14.i.i
   %nupvalues.i.i = getelementptr inbounds i8, ptr %8, i64 10
   %9 = load i8, ptr %nupvalues.i.i, align 2
   %conv21.i.i = zext i8 %9 to i32
-  %cmp22.not.i.i = icmp ugt i32 %sub.i.i, %conv21.i.i
+  %cmp22.not.i.i = icmp samesign ugt i32 %sub.i.i, %conv21.i.i
   br i1 %cmp22.not.i.i, label %cond.false.i.i, label %cond.true.i.i
 
 cond.true.i.i:                                    ; preds = %if.then18.i.i
@@ -3754,7 +3754,7 @@ if.then18.i.i:                                    ; preds = %if.else14.i.i
   %nupvalues.i.i = getelementptr inbounds i8, ptr %8, i64 10
   %9 = load i8, ptr %nupvalues.i.i, align 2
   %conv21.i.i = zext i8 %9 to i32
-  %cmp22.not.i.i = icmp ugt i32 %sub.i.i, %conv21.i.i
+  %cmp22.not.i.i = icmp samesign ugt i32 %sub.i.i, %conv21.i.i
   br i1 %cmp22.not.i.i, label %cond.false.i.i, label %cond.true.i.i
 
 cond.true.i.i:                                    ; preds = %if.then18.i.i
@@ -3866,7 +3866,7 @@ if.then18.i.i:                                    ; preds = %if.else14.i.i
   %nupvalues.i.i = getelementptr inbounds i8, ptr %8, i64 10
   %9 = load i8, ptr %nupvalues.i.i, align 2
   %conv21.i.i = zext i8 %9 to i32
-  %cmp22.not.i.i = icmp ugt i32 %sub.i.i, %conv21.i.i
+  %cmp22.not.i.i = icmp samesign ugt i32 %sub.i.i, %conv21.i.i
   br i1 %cmp22.not.i.i, label %cond.false.i.i, label %cond.true.i.i
 
 cond.true.i.i:                                    ; preds = %if.then18.i.i
@@ -4021,7 +4021,7 @@ if.then18.i:                                      ; preds = %if.else14.i
   %nupvalues.i = getelementptr inbounds i8, ptr %8, i64 10
   %9 = load i8, ptr %nupvalues.i, align 2
   %conv21.i = zext i8 %9 to i32
-  %cmp22.not.i = icmp ugt i32 %sub.i, %conv21.i
+  %cmp22.not.i = icmp samesign ugt i32 %sub.i, %conv21.i
   br i1 %cmp22.not.i, label %cond.false.i, label %cond.true.i
 
 cond.true.i:                                      ; preds = %if.then18.i
@@ -4150,7 +4150,7 @@ if.then18.i:                                      ; preds = %if.else14.i
   %nupvalues.i = getelementptr inbounds i8, ptr %8, i64 10
   %9 = load i8, ptr %nupvalues.i, align 2
   %conv21.i = zext i8 %9 to i32
-  %cmp22.not.i = icmp ugt i32 %sub.i, %conv21.i
+  %cmp22.not.i = icmp samesign ugt i32 %sub.i, %conv21.i
   br i1 %cmp22.not.i, label %cond.false.i, label %cond.true.i
 
 cond.true.i:                                      ; preds = %if.then18.i
@@ -4182,7 +4182,7 @@ lor.lhs.false:                                    ; preds = %index2value.exit
   %nuvalue = getelementptr inbounds i8, ptr %12, i64 10
   %13 = load i16, ptr %nuvalue, align 2
   %conv = zext i16 %13 to i32
-  %cmp1 = icmp ugt i32 %n, %conv
+  %cmp1 = icmp samesign ugt i32 %n, %conv
   br i1 %cmp1, label %if.then, label %if.else
 
 if.then:                                          ; preds = %lor.lhs.false, %index2value.exit
@@ -4379,7 +4379,7 @@ if.then18.i:                                      ; preds = %if.else14.i
   %nupvalues.i = getelementptr inbounds i8, ptr %8, i64 10
   %9 = load i8, ptr %nupvalues.i, align 2
   %conv21.i = zext i8 %9 to i32
-  %cmp22.not.i = icmp ugt i32 %sub.i, %conv21.i
+  %cmp22.not.i = icmp samesign ugt i32 %sub.i, %conv21.i
   br i1 %cmp22.not.i, label %cond.false.i, label %cond.true.i
 
 cond.true.i:                                      ; preds = %if.then18.i
@@ -4534,7 +4534,7 @@ if.then18.i:                                      ; preds = %if.else14.i
   %nupvalues.i = getelementptr inbounds i8, ptr %8, i64 10
   %9 = load i8, ptr %nupvalues.i, align 2
   %conv21.i = zext i8 %9 to i32
-  %cmp22.not.i = icmp ugt i32 %sub.i, %conv21.i
+  %cmp22.not.i = icmp samesign ugt i32 %sub.i, %conv21.i
   br i1 %cmp22.not.i, label %cond.false.i, label %cond.true.i
 
 cond.true.i:                                      ; preds = %if.then18.i
@@ -4620,7 +4620,7 @@ if.then18.i:                                      ; preds = %if.else14.i
   %nupvalues.i = getelementptr inbounds i8, ptr %8, i64 10
   %9 = load i8, ptr %nupvalues.i, align 2
   %conv21.i = zext i8 %9 to i32
-  %cmp22.not.i = icmp ugt i32 %sub.i, %conv21.i
+  %cmp22.not.i = icmp samesign ugt i32 %sub.i, %conv21.i
   br i1 %cmp22.not.i, label %cond.false.i, label %cond.true.i
 
 cond.true.i:                                      ; preds = %if.then18.i
@@ -4799,7 +4799,7 @@ if.then18.i.i:                                    ; preds = %if.else14.i.i
   %nupvalues.i.i = getelementptr inbounds i8, ptr %8, i64 10
   %9 = load i8, ptr %nupvalues.i.i, align 2
   %conv21.i.i = zext i8 %9 to i32
-  %cmp22.not.i.i = icmp ugt i32 %sub.i.i, %conv21.i.i
+  %cmp22.not.i.i = icmp samesign ugt i32 %sub.i.i, %conv21.i.i
   br i1 %cmp22.not.i.i, label %cond.false.i.i, label %cond.true.i.i
 
 cond.true.i.i:                                    ; preds = %if.then18.i.i
@@ -4937,7 +4937,7 @@ if.then18.i.i:                                    ; preds = %if.else14.i.i
   %nupvalues.i.i = getelementptr inbounds i8, ptr %8, i64 10
   %9 = load i8, ptr %nupvalues.i.i, align 2
   %conv21.i.i = zext i8 %9 to i32
-  %cmp22.not.i.i = icmp ugt i32 %sub.i.i, %conv21.i.i
+  %cmp22.not.i.i = icmp samesign ugt i32 %sub.i.i, %conv21.i.i
   br i1 %cmp22.not.i.i, label %cond.false.i.i, label %cond.true.i.i
 
 cond.true.i.i:                                    ; preds = %if.then18.i.i
@@ -5060,7 +5060,7 @@ if.then18.i:                                      ; preds = %if.else14.i
   %nupvalues.i = getelementptr inbounds i8, ptr %8, i64 10
   %9 = load i8, ptr %nupvalues.i, align 2
   %conv21.i = zext i8 %9 to i32
-  %cmp22.not.i = icmp ugt i32 %sub.i, %conv21.i
+  %cmp22.not.i = icmp samesign ugt i32 %sub.i, %conv21.i
   br i1 %cmp22.not.i, label %cond.false.i, label %cond.true.i
 
 cond.true.i:                                      ; preds = %if.then18.i
@@ -5246,7 +5246,7 @@ if.then18.i:                                      ; preds = %if.else14.i
   %nupvalues.i = getelementptr inbounds i8, ptr %8, i64 10
   %9 = load i8, ptr %nupvalues.i, align 2
   %conv21.i = zext i8 %9 to i32
-  %cmp22.not.i = icmp ugt i32 %sub.i, %conv21.i
+  %cmp22.not.i = icmp samesign ugt i32 %sub.i, %conv21.i
   br i1 %cmp22.not.i, label %cond.false.i, label %cond.true.i
 
 cond.true.i:                                      ; preds = %if.then18.i
@@ -6128,7 +6128,7 @@ if.then18.i.i:                                    ; preds = %if.else14.i.i
   %nupvalues.i.i = getelementptr inbounds i8, ptr %8, i64 10
   %9 = load i8, ptr %nupvalues.i.i, align 2
   %conv21.i.i = zext i8 %9 to i32
-  %cmp22.not.i.i = icmp ugt i32 %sub.i.i, %conv21.i.i
+  %cmp22.not.i.i = icmp samesign ugt i32 %sub.i.i, %conv21.i.i
   br i1 %cmp22.not.i.i, label %cond.false.i.i, label %cond.true.i.i
 
 cond.true.i.i:                                    ; preds = %if.then18.i.i
@@ -6313,7 +6313,7 @@ if.then18.i:                                      ; preds = %if.else14.i
   %nupvalues.i = getelementptr inbounds i8, ptr %8, i64 10
   %9 = load i8, ptr %nupvalues.i, align 2
   %conv21.i = zext i8 %9 to i32
-  %cmp22.not.i = icmp ugt i32 %sub.i, %conv21.i
+  %cmp22.not.i = icmp samesign ugt i32 %sub.i, %conv21.i
   br i1 %cmp22.not.i, label %cond.false.i, label %cond.true.i
 
 cond.true.i:                                      ; preds = %if.then18.i
@@ -6497,7 +6497,7 @@ if.then18.i:                                      ; preds = %if.else14.i
   %nupvalues.i = getelementptr inbounds i8, ptr %8, i64 10
   %9 = load i8, ptr %nupvalues.i, align 2
   %conv21.i = zext i8 %9 to i32
-  %cmp22.not.i = icmp ugt i32 %sub.i, %conv21.i
+  %cmp22.not.i = icmp samesign ugt i32 %sub.i, %conv21.i
   br i1 %cmp22.not.i, label %cond.false.i, label %cond.true.i
 
 cond.true.i:                                      ; preds = %if.then18.i
@@ -6648,7 +6648,7 @@ if.then18.i:                                      ; preds = %if.else14.i
   %nupvalues.i = getelementptr inbounds i8, ptr %8, i64 10
   %9 = load i8, ptr %nupvalues.i, align 2
   %conv21.i = zext i8 %9 to i32
-  %cmp22.not.i = icmp ugt i32 %sub.i, %conv21.i
+  %cmp22.not.i = icmp samesign ugt i32 %sub.i, %conv21.i
   br i1 %cmp22.not.i, label %cond.false.i, label %cond.true.i
 
 cond.true.i:                                      ; preds = %if.then18.i
@@ -6820,7 +6820,7 @@ if.then18.i:                                      ; preds = %if.else14.i
   %nupvalues.i = getelementptr inbounds i8, ptr %8, i64 10
   %9 = load i8, ptr %nupvalues.i, align 2
   %conv21.i = zext i8 %9 to i32
-  %cmp22.not.i = icmp ugt i32 %sub.i, %conv21.i
+  %cmp22.not.i = icmp samesign ugt i32 %sub.i, %conv21.i
   br i1 %cmp22.not.i, label %cond.false.i, label %cond.true.i
 
 cond.true.i:                                      ; preds = %if.then18.i
@@ -6904,7 +6904,7 @@ if.then18.i.i:                                    ; preds = %if.else14.i.i
   %nupvalues.i.i = getelementptr inbounds i8, ptr %21, i64 10
   %22 = load i8, ptr %nupvalues.i.i, align 2
   %conv21.i.i = zext i8 %22 to i32
-  %cmp22.not.i.i = icmp ugt i32 %sub.i.i, %conv21.i.i
+  %cmp22.not.i.i = icmp samesign ugt i32 %sub.i.i, %conv21.i.i
   br i1 %cmp22.not.i.i, label %cond.false.i.i, label %cond.true.i.i
 
 cond.true.i.i:                                    ; preds = %if.then18.i.i
@@ -6961,7 +6961,7 @@ land.lhs.true:                                    ; preds = %sw.bb2
   %nupvalues = getelementptr inbounds i8, ptr %29, i64 10
   %30 = load i8, ptr %nupvalues, align 2
   %conv4 = zext i8 %30 to i32
-  %cmp5.not = icmp ugt i32 %n, %conv4
+  %cmp5.not = icmp samesign ugt i32 %n, %conv4
   br i1 %cmp5.not, label %return, label %if.then
 
 if.then:                                          ; preds = %land.lhs.true
@@ -7033,7 +7033,7 @@ if.then18.i.i:                                    ; preds = %if.else14.i.i
   %nupvalues.i.i = getelementptr inbounds i8, ptr %8, i64 10
   %9 = load i8, ptr %nupvalues.i.i, align 2
   %conv21.i.i = zext i8 %9 to i32
-  %cmp22.not.i.i = icmp ugt i32 %sub.i.i, %conv21.i.i
+  %cmp22.not.i.i = icmp samesign ugt i32 %sub.i.i, %conv21.i.i
   br i1 %cmp22.not.i.i, label %cond.false.i.i, label %cond.true.i.i
 
 cond.true.i.i:                                    ; preds = %if.then18.i.i
@@ -7130,7 +7130,7 @@ if.then18.i.i34:                                  ; preds = %if.else14.i.i28
   %nupvalues.i.i36 = getelementptr inbounds i8, ptr %22, i64 10
   %23 = load i8, ptr %nupvalues.i.i36, align 2
   %conv21.i.i37 = zext i8 %23 to i32
-  %cmp22.not.i.i38 = icmp ugt i32 %sub.i.i35, %conv21.i.i37
+  %cmp22.not.i.i38 = icmp samesign ugt i32 %sub.i.i35, %conv21.i.i37
   br i1 %cmp22.not.i.i38, label %cond.false.i.i44, label %cond.true.i.i39
 
 cond.true.i.i39:                                  ; preds = %if.then18.i.i34

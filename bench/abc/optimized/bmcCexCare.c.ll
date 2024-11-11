@@ -1042,7 +1042,7 @@ Gia_ObjIsPi.exit97.thread:                        ; preds = %Gia_ObjIsPi.exit.th
   br label %119
 
 119:                                              ; preds = %53, %85, %102, %115, %117, %110, %90, %79, %92, %93
-  %120 = icmp ugt i64 %indvars.iv126, 2
+  %120 = icmp samesign ugt i64 %indvars.iv126, 2
   br i1 %120, label %51, label %.critedge4, !llvm.loop !20
 
 .critedge4:                                       ; preds = %51, %119, %.critedge2

@@ -1640,7 +1640,7 @@ define hidden void @_ZN4core5slice4sort10merge_sort17h3144be2b034d769bE(ptr noal
   br label %40
 
 23:                                               ; preds = %3
-  %24 = icmp ugt i64 %1, 1
+  %24 = icmp samesign ugt i64 %1, 1
   br i1 %24, label %"_ZN115_$LT$core..ops..range..RangeInclusive$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$9index_mut17h725eca7ccf6e7f6bE.exit.i", label %_ZN4core5slice4sort25insertion_sort_shift_left17h040ff22343e456aaE.exit
 
 25:                                               ; preds = %70, %26
@@ -2389,7 +2389,7 @@ define hidden void @_ZN4core5slice4sort10merge_sort17h390146cf9f77c78bE(ptr noal
   br label %42
 
 25:                                               ; preds = %3
-  %26 = icmp ugt i64 %1, 1
+  %26 = icmp samesign ugt i64 %1, 1
   br i1 %26, label %.preheader.i77, label %_ZN4core5slice4sort25insertion_sort_shift_left17h466c677a07f4c654E.exit
 
 27:                                               ; preds = %.body, %28
@@ -3114,7 +3114,7 @@ define hidden void @_ZN4core5slice4sort10merge_sort17h45b6dfff9e0631dbE(ptr noal
   br label %41
 
 23:                                               ; preds = %3
-  %24 = icmp ugt i64 %1, 1
+  %24 = icmp samesign ugt i64 %1, 1
   br i1 %24, label %237, label %40
 
 25:                                               ; preds = %.body, %26
@@ -3740,7 +3740,7 @@ define hidden void @_ZN4core5slice4sort10merge_sort17h542659a22688a024E(ptr noal
   br label %41
 
 24:                                               ; preds = %3
-  %25 = icmp ugt i64 %1, 1
+  %25 = icmp samesign ugt i64 %1, 1
   br i1 %25, label %.preheader.i78, label %_ZN4core5slice4sort25insertion_sort_shift_left17h7464cccb90388198E.exit
 
 26:                                               ; preds = %.body, %27
@@ -9355,7 +9355,7 @@ define noundef zeroext i1 @"_ZN92_$LT$rustfmt_nightly..emitter..checkstyle..xml.
   %51 = and i8 %49, 63
   %52 = zext nneg i8 %51 to i32
   %53 = or disjoint i32 %50, %52
-  %54 = icmp ugt i8 %43, -33
+  %54 = icmp samesign ugt i8 %43, -33
   br i1 %54, label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h41003f3b62a7d8caE.exit15.i", label %.thread32
 
 55:                                               ; preds = %41
@@ -9373,7 +9373,7 @@ define noundef zeroext i1 @"_ZN92_$LT$rustfmt_nightly..emitter..checkstyle..xml.
   %63 = or disjoint i32 %60, %62
   %64 = shl nuw nsw i32 %46, 12
   %65 = or disjoint i32 %63, %64
-  %66 = icmp ugt i8 %43, -17
+  %66 = icmp samesign ugt i8 %43, -17
   br i1 %66, label %67, label %.thread32
 
 67:                                               ; preds = %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h41003f3b62a7d8caE.exit15.i"
@@ -28731,7 +28731,7 @@ common.resume:                                    ; preds = %604, %259, %291, %4
   br i1 %433, label %434, label %_ZN4core4iter6traits8iterator8Iterator8try_fold17h4dc753b10907468cE.exit.thread506
 
 434:                                              ; preds = %427
-  %435 = icmp ult i64 %.fca.1.extract.val6.i, 16
+  %435 = icmp samesign ult i64 %.fca.1.extract.val6.i, 16
   br i1 %435, label %436, label %"_ZN52_$LT$char$u20$as$u20$core..str..pattern..Pattern$GT$15is_contained_in17h9bbc13c80f63d09dE.llvm.17476841346288807550.exit.i.i.i.i"
 
 436:                                              ; preds = %434

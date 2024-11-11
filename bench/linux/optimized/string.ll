@@ -220,7 +220,7 @@ define dso_local i64 @strscpy(ptr nocapture noundef writeonly %0, ptr noundef %1
   %13 = sub nuw nsw i64 4096, %12
   %14 = tail call i64 @llvm.umin.i64(i64 %13, i64 %2)
   %15 = select i1 %11, i64 %2, i64 %14
-  %16 = icmp ugt i64 %15, 7
+  %16 = icmp samesign ugt i64 %15, 7
   br i1 %16, label %.lr.ph, label %.preheader.preheader
 
 .lr.ph:                                           ; preds = %8, %36

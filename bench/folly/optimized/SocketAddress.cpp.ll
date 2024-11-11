@@ -1327,7 +1327,7 @@ if.end3:                                          ; preds = %if.then2, %if.end.i
   %2 = phi ptr [ %.pre, %if.end.if.end3_crit_edge ], [ %call.i, %if.then2 ]
   store i8 1, ptr %external_, align 2, !tbaa !7
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 2 %2, ptr align 2 %address, i64 %conv, i1 false)
-  %cmp.i = icmp ult i32 %addrlen, 2
+  %cmp.i = icmp samesign ult i32 %addrlen, 2
   br i1 %cmp.i, label %if.then.i, label %if.end.i
 
 if.then.i:                                        ; preds = %if.end3

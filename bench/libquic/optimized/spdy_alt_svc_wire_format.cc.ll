@@ -577,7 +577,7 @@ if.end.i.i.i38:                                   ; preds = %land.rhs.i.i.i
   %19 = load i8, ptr %c.addr.013.i.i.i, align 1
   %conv10.i.i.i = sext i8 %19 to i32
   %sub11.i.i.i = sub nsw i32 65583, %conv10.i.i.i
-  %cmp12.i.i.i = icmp ult i32 %sub11.i.i.i, %conv7.i.i.i
+  %cmp12.i.i.i = icmp samesign ult i32 %sub11.i.i.i, %conv7.i.i.i
   br i1 %cmp12.i.i.i, label %cleanup231, label %if.end14.i.i.i
 
 if.end14.i.i.i:                                   ; preds = %if.end.i.i.i38
@@ -1497,7 +1497,7 @@ if.end.i.i:                                       ; preds = %land.rhs.i.i
   %5 = load i8, ptr %c.addr.013.i.i, align 1
   %conv10.i.i = sext i8 %5 to i32
   %sub11.i.i = sub nsw i32 65583, %conv10.i.i
-  %cmp12.i.i = icmp ult i32 %sub11.i.i, %conv7.i.i
+  %cmp12.i.i = icmp samesign ult i32 %sub11.i.i, %conv7.i.i
   br i1 %cmp12.i.i, label %return, label %if.end14.i.i
 
 if.end14.i.i:                                     ; preds = %if.end.i.i
@@ -1620,7 +1620,7 @@ if.end.i:                                         ; preds = %land.rhs.i
   %3 = load i8, ptr %c.addr.013.i, align 1
   %conv10.i = sext i8 %3 to i32
   %sub11.i = sub nsw i32 65583, %conv10.i
-  %cmp12.i = icmp ult i32 %sub11.i, %conv7.i
+  %cmp12.i = icmp samesign ult i32 %sub11.i, %conv7.i
   br i1 %cmp12.i, label %_ZN3net12_GLOBAL__N_124ParsePositiveIntegerImplItEEbPKcS3_PT_.exit, label %if.end14.i
 
 if.end14.i:                                       ; preds = %if.end.i

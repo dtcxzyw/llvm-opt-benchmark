@@ -1413,7 +1413,7 @@ phar_validate_alias.exit:                         ; preds = %505
   br i1 %.not737, label %519, label %phar_validate_alias.exit.thread
 
 phar_validate_alias.exit.thread:                  ; preds = %496, %499, %501, %503, %505, %phar_validate_alias.exit
-  %508 = icmp ugt i32 %.017.lcssa.i611, 50
+  %508 = icmp samesign ugt i32 %.017.lcssa.i611, 50
   br i1 %508, label %509, label %514
 
 509:                                              ; preds = %phar_validate_alias.exit.thread
@@ -3181,7 +3181,7 @@ define internal fastcc range(i32 0, 3) i32 @phar_tar_writeheaders_int(ptr nounde
   %73 = getelementptr inbounds i8, ptr %.01116.i, i64 -1
   store i8 %72, ptr %73, align 1
   %74 = lshr i32 %.01315.i, 3
-  %75 = icmp ugt i32 %.017.i, 1
+  %75 = icmp samesign ugt i32 %.017.i, 1
   br i1 %75, label %68, label %76
 
 76:                                               ; preds = %68
@@ -3208,7 +3208,7 @@ phar_tar_octal.exit:                              ; preds = %76, %.preheader.pre
   %85 = getelementptr inbounds i8, ptr %.01116.i140, i64 -1
   store i8 %84, ptr %85, align 1
   %86 = lshr i32 %.01315.i141, 3
-  %87 = icmp ugt i32 %.017.i139, 1
+  %87 = icmp samesign ugt i32 %.017.i139, 1
   br i1 %87, label %80, label %88
 
 88:                                               ; preds = %80
@@ -3245,7 +3245,7 @@ phar_tar_octal.exit144:                           ; preds = %88
   %105 = getelementptr inbounds i8, ptr %.01116.i146, i64 -1
   store i8 %104, ptr %105, align 1
   %106 = lshr i32 %.01315.i147, 3
-  %107 = icmp ugt i32 %.017.i145, 1
+  %107 = icmp samesign ugt i32 %.017.i145, 1
   br i1 %107, label %100, label %108
 
 108:                                              ; preds = %100
@@ -3331,7 +3331,7 @@ phar_tar_checksum.exit:                           ; preds = %.lr.ph.i
   %148 = getelementptr inbounds i8, ptr %.01116.i152, i64 -1
   store i8 %147, ptr %148, align 1
   %149 = lshr i32 %.01315.i153, 3
-  %150 = icmp ugt i32 %.017.i151, 1
+  %150 = icmp samesign ugt i32 %.017.i151, 1
   br i1 %150, label %143, label %151
 
 151:                                              ; preds = %143

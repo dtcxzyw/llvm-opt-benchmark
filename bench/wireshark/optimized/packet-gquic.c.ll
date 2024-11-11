@@ -1876,7 +1876,7 @@ get_len_offset.exit:                              ; preds = %218, %228, %229, %2
   br label %.loopexit
 
 285:                                              ; preds = %217
-  %.not445 = icmp ult i8 %30, 64
+  %.not445 = icmp samesign ult i8 %30, 64
   br i1 %.not445, label %413, label %286
 
 286:                                              ; preds = %285
@@ -2906,7 +2906,7 @@ switch.lookup:                                    ; preds = %65
   br label %.loopexit
 
 87:                                               ; preds = %65
-  %.not144 = icmp ult i8 %25, 64
+  %.not144 = icmp samesign ult i8 %25, 64
   br i1 %.not144, label %156, label %switch.lookup190
 
 switch.lookup190:                                 ; preds = %87

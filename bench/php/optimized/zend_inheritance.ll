@@ -10067,7 +10067,7 @@ add_compatibility_obligation.exit:                ; preds = %22, %27
   br label %32
 
 30:                                               ; preds = %5
-  %31 = icmp ult i32 %7, 2
+  %31 = icmp samesign ult i32 %7, 2
   tail call void @llvm.assume(i1 %31)
   tail call fastcc void @emit_incompatible_method_error(ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, i32 noundef %7)
   br label %32

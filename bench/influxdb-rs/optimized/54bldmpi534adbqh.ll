@@ -12359,7 +12359,7 @@ define hidden void @_ZN9hashbrown3raw5inner13RawTableInner22fallible_with_capaci
   br i1 %15, label %18, label %27
 
 16:                                               ; preds = %11
-  %17 = icmp ult i64 %4, 4
+  %17 = icmp samesign ult i64 %4, 4
   %..i = select i1 %17, i64 4, i64 8
   br label %33
 
@@ -12472,7 +12472,7 @@ _ZN9hashbrown3raw5inner5alloc5inner8do_alloc17h24e18c975929ea06E.exit.i: ; preds
   br label %26
 
 _ZN9hashbrown3raw5inner13RawTableInner17new_uninitialized17hf250137d26cdf01fE.exit: ; preds = %_ZN9hashbrown3raw5inner5alloc5inner8do_alloc17h24e18c975929ea06E.exit.i
-  %70 = icmp ult i64 %.sroa.6.056.ph, 9
+  %70 = icmp samesign ult i64 %.sroa.6.056.ph, 9
   %71 = add nsw i64 %.sroa.6.056.ph, -1
   %72 = lshr i64 %.sroa.6.056.ph, 3
   %73 = mul nuw nsw i64 %72, 7
@@ -13602,11 +13602,11 @@ define hidden noundef range(i8 1, 5) i8 @_ZN15influxdb3_write15guess_precision17
   br i1 %2, label %7, label %3
 
 3:                                                ; preds = %1
-  %4 = icmp ult i64 %.02, 5000000000000
+  %4 = icmp samesign ult i64 %.02, 5000000000000
   br i1 %4, label %7, label %5
 
 5:                                                ; preds = %3
-  %6 = icmp ult i64 %.02, 5000000000000000
+  %6 = icmp samesign ult i64 %.02, 5000000000000000
   %. = select i1 %6, i8 3, i8 4
   br label %7
 

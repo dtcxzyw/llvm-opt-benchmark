@@ -354,7 +354,7 @@ if.else51.us:                                     ; preds = %sw.bb.us
   br i1 %cmp53.us, label %if.then54.us, label %if.else65.us
 
 if.else65.us:                                     ; preds = %if.else51.us
-  %cmp67.us = icmp ult i8 %19, 9
+  %cmp67.us = icmp samesign ult i8 %19, 9
   br i1 %cmp67.us, label %if.then68.us, label %if.else72.us
 
 if.else72.us:                                     ; preds = %if.else65.us
@@ -527,7 +527,7 @@ if.then191:                                       ; preds = %if.else185
   br label %if.end216
 
 if.else198:                                       ; preds = %if.else185
-  %cmp200 = icmp ugt i8 %19, -8
+  %cmp200 = icmp samesign ugt i8 %19, -8
   br i1 %cmp200, label %if.then201, label %if.else209
 
 if.then201:                                       ; preds = %if.else198
@@ -633,11 +633,11 @@ sw.bb252.us:                                      ; preds = %while.body246.us
   br i1 %cmp257.us, label %if.then258.us, label %if.else262.us
 
 if.else262.us:                                    ; preds = %sw.bb252.us
-  %cmp264.us = icmp ult i8 %31, -24
+  %cmp264.us = icmp samesign ult i8 %31, -24
   br i1 %cmp264.us, label %fastSingle, label %if.else269.us
 
 if.else269.us:                                    ; preds = %if.else262.us
-  %cmp271.us = icmp ult i8 %31, -16
+  %cmp271.us = icmp samesign ult i8 %31, -16
   br i1 %cmp271.us, label %if.then272, label %if.else279.us
 
 if.else279.us:                                    ; preds = %if.else269.us
@@ -956,7 +956,7 @@ if.else76.us:                                     ; preds = %sw.bb.us
   br i1 %cmp78.us, label %if.then79.us, label %if.else90.us
 
 if.else90.us:                                     ; preds = %if.else76.us
-  %cmp92.us = icmp ult i8 %22, 9
+  %cmp92.us = icmp samesign ult i8 %22, 9
   br i1 %cmp92.us, label %if.then93.us, label %if.else97.us
 
 if.else97.us:                                     ; preds = %if.else90.us
@@ -1174,7 +1174,7 @@ if.then237:                                       ; preds = %if.else231
   br label %if.end262
 
 if.else244:                                       ; preds = %if.else231
-  %cmp246 = icmp ugt i8 %22, -8
+  %cmp246 = icmp samesign ugt i8 %22, -8
   br i1 %cmp246, label %if.then247, label %if.else255
 
 if.then247:                                       ; preds = %if.else244
@@ -1301,11 +1301,11 @@ sw.bb304.us:                                      ; preds = %while.body297.us
   br i1 %cmp309.us, label %if.then310.us, label %if.else314.us
 
 if.else314.us:                                    ; preds = %sw.bb304.us
-  %cmp316.us = icmp ult i8 %36, -24
+  %cmp316.us = icmp samesign ult i8 %36, -24
   br i1 %cmp316.us, label %fastSingle, label %if.else321.us
 
 if.else321.us:                                    ; preds = %if.else314.us
-  %cmp323.us = icmp ult i8 %36, -16
+  %cmp323.us = icmp samesign ult i8 %36, -16
   br i1 %cmp323.us, label %if.then324, label %if.else331.us
 
 if.else331.us:                                    ; preds = %if.else321.us
@@ -1803,7 +1803,7 @@ lor.rhs.i:                                        ; preds = %land.rhs.i
   br i1 %cmp2.i, label %_ZL24isInOffsetWindowOrDirectjj.exit, label %if.else138
 
 _ZL24isInOffsetWindowOrDirectjj.exit:             ; preds = %lor.rhs.i
-  %cmp4.i310 = icmp ult i16 %32, 32
+  %cmp4.i310 = icmp samesign ult i16 %32, 32
   %sh_prom.i = zext nneg i16 %32 to i64
   %shl.i = shl nuw i64 1, %sh_prom.i
   %and.i311 = and i64 %shl.i, 9729
@@ -3023,7 +3023,7 @@ lor.rhs.i:                                        ; preds = %land.rhs.i
   br i1 %cmp2.i, label %_ZL24isInOffsetWindowOrDirectjj.exit, label %if.else161
 
 _ZL24isInOffsetWindowOrDirectjj.exit:             ; preds = %lor.rhs.i
-  %cmp4.i364 = icmp ult i16 %35, 32
+  %cmp4.i364 = icmp samesign ult i16 %35, 32
   %sh_prom.i = zext nneg i16 %35 to i64
   %shl.i = shl nuw i64 1, %sh_prom.i
   %and.i365 = and i64 %shl.i, 9729

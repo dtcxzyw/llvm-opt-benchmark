@@ -8241,7 +8241,7 @@ _ZN8language6buffer14BufferSnapshot11language_at17hb84e71905371967cE.exit.i.i.i:
   %236 = and i8 %234, 63
   %237 = zext nneg i8 %236 to i32
   %238 = or disjoint i32 %235, %237
-  %239 = icmp ugt i8 %228, -33
+  %239 = icmp samesign ugt i8 %228, -33
   br i1 %239, label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h0453a65b29138040E.exit14.i.i.i.i.i.i", label %"_ZN81_$LT$core..str..iter..Chars$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hb5130c238633cf11E.exit.i.i.i.i"
 
 240:                                              ; preds = %.lr.ph.i.i35.i.i
@@ -8259,7 +8259,7 @@ _ZN8language6buffer14BufferSnapshot11language_at17hb84e71905371967cE.exit.i.i.i:
   %248 = or disjoint i32 %245, %247
   %249 = shl nuw nsw i32 %231, 12
   %250 = or disjoint i32 %248, %249
-  %251 = icmp ugt i8 %228, -17
+  %251 = icmp samesign ugt i8 %228, -17
   br i1 %251, label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h0453a65b29138040E.exit16.i.i.i.i.i.i", label %"_ZN81_$LT$core..str..iter..Chars$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hb5130c238633cf11E.exit.i.i.i.i"
 
 "_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h0453a65b29138040E.exit16.i.i.i.i.i.i": ; preds = %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h0453a65b29138040E.exit14.i.i.i.i.i.i"

@@ -1202,7 +1202,7 @@ if.then19:                                        ; preds = %land.lhs.true
   br label %for.inc
 
 for.inc:                                          ; preds = %for.body, %land.lhs.true, %if.then19
-  %cmp12 = icmp ugt i32 %i.024.in, 1
+  %cmp12 = icmp samesign ugt i32 %i.024.in, 1
   br i1 %cmp12, label %for.body, label %for.end, !llvm.loop !9
 
 for.end:                                          ; preds = %for.inc, %while.end
@@ -1499,7 +1499,7 @@ if.then39.i:                                      ; preds = %if.then35.i
   %arrayidx40.i = getelementptr inbounds i8, ptr %call9, i64 32
   %next42.i = getelementptr inbounds i8, ptr %call9, i64 16
   store ptr %arrayidx40.i, ptr %next42.i, align 8
-  %cmp4448.i = icmp ugt i32 %co_list_num.1.i, 2
+  %cmp4448.i = icmp samesign ugt i32 %co_list_num.1.i, 2
   br i1 %cmp4448.i, label %for.body45.preheader.i, label %for.end59.i
 
 for.body45.preheader.i:                           ; preds = %if.then39.i

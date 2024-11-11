@@ -410,7 +410,7 @@ define internal range(i32 0, 2) i32 @zueci_u_cp437(i32 noundef %0, ptr nocapture
   br label %22
 
 15:                                               ; preds = %.preheader
-  %16 = icmp ult i32 %0, %11
+  %16 = icmp samesign ult i32 %0, %11
   br i1 %16, label %17, label %19
 
 17:                                               ; preds = %15
@@ -444,7 +444,7 @@ define internal range(i32 0, 2) i32 @zueci_u_iso8859_2(i32 noundef %0, ptr nocap
   br i1 %3, label %4, label %8
 
 4:                                                ; preds = %2
-  %5 = icmp ugt i32 %0, 127
+  %5 = icmp samesign ugt i32 %0, 127
   br i1 %5, label %zueci_u_iso8859.exit, label %6
 
 6:                                                ; preds = %4
@@ -492,7 +492,7 @@ define internal range(i32 0, 2) i32 @zueci_u_iso8859_2(i32 noundef %0, ptr nocap
   br label %39
 
 32:                                               ; preds = %22
-  %33 = icmp ult i32 %0, %28
+  %33 = icmp samesign ult i32 %0, %28
   br i1 %33, label %34, label %36
 
 34:                                               ; preds = %32
@@ -526,7 +526,7 @@ define internal range(i32 0, 2) i32 @zueci_u_iso8859_3(i32 noundef %0, ptr nocap
   br i1 %3, label %4, label %8
 
 4:                                                ; preds = %2
-  %5 = icmp ugt i32 %0, 127
+  %5 = icmp samesign ugt i32 %0, 127
   br i1 %5, label %zueci_u_iso8859.exit, label %6
 
 6:                                                ; preds = %4
@@ -574,7 +574,7 @@ define internal range(i32 0, 2) i32 @zueci_u_iso8859_3(i32 noundef %0, ptr nocap
   br label %39
 
 32:                                               ; preds = %22
-  %33 = icmp ult i32 %0, %28
+  %33 = icmp samesign ult i32 %0, %28
   br i1 %33, label %34, label %36
 
 34:                                               ; preds = %32
@@ -608,7 +608,7 @@ define internal range(i32 0, 2) i32 @zueci_u_iso8859_4(i32 noundef %0, ptr nocap
   br i1 %3, label %4, label %8
 
 4:                                                ; preds = %2
-  %5 = icmp ugt i32 %0, 127
+  %5 = icmp samesign ugt i32 %0, 127
   br i1 %5, label %zueci_u_iso8859.exit, label %6
 
 6:                                                ; preds = %4
@@ -656,7 +656,7 @@ define internal range(i32 0, 2) i32 @zueci_u_iso8859_4(i32 noundef %0, ptr nocap
   br label %39
 
 32:                                               ; preds = %22
-  %33 = icmp ult i32 %0, %28
+  %33 = icmp samesign ult i32 %0, %28
   br i1 %33, label %34, label %36
 
 34:                                               ; preds = %32
@@ -690,7 +690,7 @@ define internal range(i32 0, 2) i32 @zueci_u_iso8859_5(i32 noundef %0, ptr nocap
   br i1 %3, label %4, label %8
 
 4:                                                ; preds = %2
-  %5 = icmp ugt i32 %0, 127
+  %5 = icmp samesign ugt i32 %0, 127
   br i1 %5, label %zueci_u_iso8859.exit, label %6
 
 6:                                                ; preds = %4
@@ -738,7 +738,7 @@ define internal range(i32 0, 2) i32 @zueci_u_iso8859_5(i32 noundef %0, ptr nocap
   br label %39
 
 32:                                               ; preds = %22
-  %33 = icmp ult i32 %0, %28
+  %33 = icmp samesign ult i32 %0, %28
   br i1 %33, label %34, label %36
 
 34:                                               ; preds = %32
@@ -772,7 +772,7 @@ define internal range(i32 0, 2) i32 @zueci_u_iso8859_6(i32 noundef %0, ptr nocap
   br i1 %3, label %4, label %8
 
 4:                                                ; preds = %2
-  %5 = icmp ugt i32 %0, 127
+  %5 = icmp samesign ugt i32 %0, 127
   br i1 %5, label %zueci_u_iso8859.exit, label %6
 
 6:                                                ; preds = %4
@@ -820,7 +820,7 @@ define internal range(i32 0, 2) i32 @zueci_u_iso8859_6(i32 noundef %0, ptr nocap
   br label %39
 
 32:                                               ; preds = %22
-  %33 = icmp ult i32 %0, %28
+  %33 = icmp samesign ult i32 %0, %28
   br i1 %33, label %34, label %36
 
 34:                                               ; preds = %32
@@ -854,7 +854,7 @@ define internal range(i32 0, 2) i32 @zueci_u_iso8859_7(i32 noundef %0, ptr nocap
   br i1 %3, label %4, label %8
 
 4:                                                ; preds = %2
-  %5 = icmp ugt i32 %0, 127
+  %5 = icmp samesign ugt i32 %0, 127
   br i1 %5, label %zueci_u_iso8859.exit, label %6
 
 6:                                                ; preds = %4
@@ -902,7 +902,7 @@ define internal range(i32 0, 2) i32 @zueci_u_iso8859_7(i32 noundef %0, ptr nocap
   br label %39
 
 32:                                               ; preds = %22
-  %33 = icmp ult i32 %0, %28
+  %33 = icmp samesign ult i32 %0, %28
   br i1 %33, label %34, label %36
 
 34:                                               ; preds = %32
@@ -936,7 +936,7 @@ define internal range(i32 0, 2) i32 @zueci_u_iso8859_8(i32 noundef %0, ptr nocap
   br i1 %3, label %4, label %8
 
 4:                                                ; preds = %2
-  %5 = icmp ugt i32 %0, 127
+  %5 = icmp samesign ugt i32 %0, 127
   br i1 %5, label %zueci_u_iso8859.exit, label %6
 
 6:                                                ; preds = %4
@@ -984,7 +984,7 @@ define internal range(i32 0, 2) i32 @zueci_u_iso8859_8(i32 noundef %0, ptr nocap
   br label %39
 
 32:                                               ; preds = %22
-  %33 = icmp ult i32 %0, %28
+  %33 = icmp samesign ult i32 %0, %28
   br i1 %33, label %34, label %36
 
 34:                                               ; preds = %32
@@ -1018,7 +1018,7 @@ define internal range(i32 0, 2) i32 @zueci_u_iso8859_9(i32 noundef %0, ptr nocap
   br i1 %3, label %4, label %8
 
 4:                                                ; preds = %2
-  %5 = icmp ugt i32 %0, 127
+  %5 = icmp samesign ugt i32 %0, 127
   br i1 %5, label %zueci_u_iso8859.exit, label %6
 
 6:                                                ; preds = %4
@@ -1066,7 +1066,7 @@ define internal range(i32 0, 2) i32 @zueci_u_iso8859_9(i32 noundef %0, ptr nocap
   br label %39
 
 32:                                               ; preds = %22
-  %33 = icmp ult i32 %0, %28
+  %33 = icmp samesign ult i32 %0, %28
   br i1 %33, label %34, label %36
 
 34:                                               ; preds = %32
@@ -1100,7 +1100,7 @@ define internal range(i32 0, 2) i32 @zueci_u_iso8859_10(i32 noundef %0, ptr noca
   br i1 %3, label %4, label %8
 
 4:                                                ; preds = %2
-  %5 = icmp ugt i32 %0, 127
+  %5 = icmp samesign ugt i32 %0, 127
   br i1 %5, label %zueci_u_iso8859.exit, label %6
 
 6:                                                ; preds = %4
@@ -1148,7 +1148,7 @@ define internal range(i32 0, 2) i32 @zueci_u_iso8859_10(i32 noundef %0, ptr noca
   br label %39
 
 32:                                               ; preds = %22
-  %33 = icmp ult i32 %0, %28
+  %33 = icmp samesign ult i32 %0, %28
   br i1 %33, label %34, label %36
 
 34:                                               ; preds = %32
@@ -1182,7 +1182,7 @@ define internal range(i32 0, 2) i32 @zueci_u_iso8859_11(i32 noundef %0, ptr noca
   br i1 %3, label %4, label %8
 
 4:                                                ; preds = %2
-  %5 = icmp ugt i32 %0, 127
+  %5 = icmp samesign ugt i32 %0, 127
   br i1 %5, label %zueci_u_iso8859.exit, label %6
 
 6:                                                ; preds = %4
@@ -1230,7 +1230,7 @@ define internal range(i32 0, 2) i32 @zueci_u_iso8859_11(i32 noundef %0, ptr noca
   br label %39
 
 32:                                               ; preds = %22
-  %33 = icmp ult i32 %0, %28
+  %33 = icmp samesign ult i32 %0, %28
   br i1 %33, label %34, label %36
 
 34:                                               ; preds = %32
@@ -1264,7 +1264,7 @@ define internal range(i32 0, 2) i32 @zueci_u_iso8859_13(i32 noundef %0, ptr noca
   br i1 %3, label %4, label %8
 
 4:                                                ; preds = %2
-  %5 = icmp ugt i32 %0, 127
+  %5 = icmp samesign ugt i32 %0, 127
   br i1 %5, label %zueci_u_iso8859.exit, label %6
 
 6:                                                ; preds = %4
@@ -1312,7 +1312,7 @@ define internal range(i32 0, 2) i32 @zueci_u_iso8859_13(i32 noundef %0, ptr noca
   br label %39
 
 32:                                               ; preds = %22
-  %33 = icmp ult i32 %0, %28
+  %33 = icmp samesign ult i32 %0, %28
   br i1 %33, label %34, label %36
 
 34:                                               ; preds = %32
@@ -1346,7 +1346,7 @@ define internal range(i32 0, 2) i32 @zueci_u_iso8859_14(i32 noundef %0, ptr noca
   br i1 %3, label %4, label %8
 
 4:                                                ; preds = %2
-  %5 = icmp ugt i32 %0, 127
+  %5 = icmp samesign ugt i32 %0, 127
   br i1 %5, label %zueci_u_iso8859.exit, label %6
 
 6:                                                ; preds = %4
@@ -1394,7 +1394,7 @@ define internal range(i32 0, 2) i32 @zueci_u_iso8859_14(i32 noundef %0, ptr noca
   br label %39
 
 32:                                               ; preds = %22
-  %33 = icmp ult i32 %0, %28
+  %33 = icmp samesign ult i32 %0, %28
   br i1 %33, label %34, label %36
 
 34:                                               ; preds = %32
@@ -1428,7 +1428,7 @@ define internal range(i32 0, 2) i32 @zueci_u_iso8859_15(i32 noundef %0, ptr noca
   br i1 %3, label %4, label %8
 
 4:                                                ; preds = %2
-  %5 = icmp ugt i32 %0, 127
+  %5 = icmp samesign ugt i32 %0, 127
   br i1 %5, label %zueci_u_iso8859.exit, label %6
 
 6:                                                ; preds = %4
@@ -1476,7 +1476,7 @@ define internal range(i32 0, 2) i32 @zueci_u_iso8859_15(i32 noundef %0, ptr noca
   br label %39
 
 32:                                               ; preds = %22
-  %33 = icmp ult i32 %0, %28
+  %33 = icmp samesign ult i32 %0, %28
   br i1 %33, label %34, label %36
 
 34:                                               ; preds = %32
@@ -1510,7 +1510,7 @@ define internal range(i32 0, 2) i32 @zueci_u_iso8859_16(i32 noundef %0, ptr noca
   br i1 %3, label %4, label %8
 
 4:                                                ; preds = %2
-  %5 = icmp ugt i32 %0, 127
+  %5 = icmp samesign ugt i32 %0, 127
   br i1 %5, label %zueci_u_iso8859.exit, label %6
 
 6:                                                ; preds = %4
@@ -1558,7 +1558,7 @@ define internal range(i32 0, 2) i32 @zueci_u_iso8859_16(i32 noundef %0, ptr noca
   br label %39
 
 32:                                               ; preds = %22
-  %33 = icmp ult i32 %0, %28
+  %33 = icmp samesign ult i32 %0, %28
   br i1 %33, label %34, label %36
 
 34:                                               ; preds = %32
@@ -1608,7 +1608,7 @@ switch.early.test:                                ; preds = %2
   br i1 %or.cond5, label %8, label %46
 
 8:                                                ; preds = %6
-  %9 = icmp ugt i32 %0, 40864
+  %9 = icmp samesign ugt i32 %0, 40864
   br i1 %9, label %zueci_u_lookup_uro.exit, label %10
 
 10:                                               ; preds = %8
@@ -1704,7 +1704,7 @@ switch.early.test:                                ; preds = %2
   br label %90
 
 72:                                               ; preds = %.preheader
-  %73 = icmp ult i32 %0, %68
+  %73 = icmp samesign ult i32 %0, %68
   br i1 %73, label %74, label %76
 
 74:                                               ; preds = %72
@@ -1795,7 +1795,7 @@ define internal range(i32 0, 2) i32 @zueci_u_cp1250(i32 noundef %0, ptr nocaptur
   br label %36
 
 29:                                               ; preds = %19
-  %30 = icmp ult i32 %0, %25
+  %30 = icmp samesign ult i32 %0, %25
   br i1 %30, label %31, label %33
 
 31:                                               ; preds = %29
@@ -1873,7 +1873,7 @@ define internal range(i32 0, 2) i32 @zueci_u_cp1251(i32 noundef %0, ptr nocaptur
   br label %36
 
 29:                                               ; preds = %19
-  %30 = icmp ult i32 %0, %25
+  %30 = icmp samesign ult i32 %0, %25
   br i1 %30, label %31, label %33
 
 31:                                               ; preds = %29
@@ -1936,7 +1936,7 @@ define internal range(i32 0, 2) i32 @zueci_u_cp1252(i32 noundef %0, ptr nocaptur
   br label %26
 
 19:                                               ; preds = %.preheader
-  %20 = icmp ult i32 %0, %15
+  %20 = icmp samesign ult i32 %0, %15
   br i1 %20, label %21, label %23
 
 21:                                               ; preds = %19
@@ -2014,7 +2014,7 @@ define internal range(i32 0, 2) i32 @zueci_u_cp1256(i32 noundef %0, ptr nocaptur
   br label %36
 
 29:                                               ; preds = %19
-  %30 = icmp ult i32 %0, %25
+  %30 = icmp samesign ult i32 %0, %25
   br i1 %30, label %31, label %33
 
 31:                                               ; preds = %29
@@ -2112,7 +2112,7 @@ define internal range(i32 0, 3) i32 @zueci_u_big5(i32 noundef %0, ptr nocapture 
   br i1 %or.cond, label %9, label %47
 
 9:                                                ; preds = %6
-  %10 = icmp ugt i32 %0, 40879
+  %10 = icmp samesign ugt i32 %0, 40879
   br i1 %10, label %zueci_u_lookup_uro.exit, label %11
 
 11:                                               ; preds = %9
@@ -2179,7 +2179,7 @@ define internal range(i32 0, 3) i32 @zueci_u_big5(i32 noundef %0, ptr nocapture 
   br label %72
 
 58:                                               ; preds = %.preheader
-  %59 = icmp ult i32 %0, %54
+  %59 = icmp samesign ult i32 %0, %54
   br i1 %59, label %60, label %62
 
 60:                                               ; preds = %58
@@ -2227,7 +2227,7 @@ define internal range(i32 0, 3) i32 @zueci_u_gb2312(i32 noundef %0, ptr nocaptur
   br i1 %or.cond, label %8, label %46
 
 8:                                                ; preds = %6
-  %9 = icmp ugt i32 %0, 40175
+  %9 = icmp samesign ugt i32 %0, 40175
   br i1 %9, label %zueci_u_lookup_uro.exit, label %10
 
 10:                                               ; preds = %8
@@ -2305,7 +2305,7 @@ define internal range(i32 0, 3) i32 @zueci_u_gb2312(i32 noundef %0, ptr nocaptur
   br label %80
 
 65:                                               ; preds = %.lr.ph
-  %66 = icmp ult i32 %0, %61
+  %66 = icmp samesign ult i32 %0, %61
   br i1 %66, label %67, label %69
 
 67:                                               ; preds = %65
@@ -2313,7 +2313,7 @@ define internal range(i32 0, 3) i32 @zueci_u_gb2312(i32 noundef %0, ptr nocaptur
   br label %80
 
 69:                                               ; preds = %65
-  %70 = icmp ugt i32 %0, 19968
+  %70 = icmp samesign ugt i32 %0, 19968
   %71 = add nsw i32 %57, 6627
   %72 = select i1 %70, i32 %71, i32 %57
   %73 = sext i32 %72 to i64
@@ -2355,7 +2355,7 @@ define internal range(i32 0, 3) i32 @zueci_u_ksx1001(i32 noundef %0, ptr nocaptu
   br i1 %or.cond, label %9, label %47
 
 9:                                                ; preds = %6
-  %10 = icmp ugt i32 %0, 40863
+  %10 = icmp samesign ugt i32 %0, 40863
   br i1 %10, label %zueci_u_lookup_uro.exit, label %11
 
 11:                                               ; preds = %9
@@ -2433,7 +2433,7 @@ define internal range(i32 0, 3) i32 @zueci_u_ksx1001(i32 noundef %0, ptr nocaptu
   br label %80
 
 66:                                               ; preds = %.lr.ph
-  %67 = icmp ult i32 %0, %62
+  %67 = icmp samesign ult i32 %0, %62
   br i1 %67, label %68, label %70
 
 68:                                               ; preds = %66
@@ -2499,7 +2499,7 @@ define internal range(i32 0, 3) i32 @zueci_u_gbk(i32 noundef %0, ptr nocapture n
   br i1 %or.cond, label %14, label %18
 
 14:                                               ; preds = %11
-  %15 = icmp ugt i32 %0, 40879
+  %15 = icmp samesign ugt i32 %0, 40879
   br i1 %15, label %.loopexit, label %16
 
 16:                                               ; preds = %14
@@ -2528,7 +2528,7 @@ define internal range(i32 0, 3) i32 @zueci_u_gbk(i32 noundef %0, ptr nocapture n
   br label %43
 
 29:                                               ; preds = %.preheader
-  %30 = icmp ult i32 %0, %25
+  %30 = icmp samesign ult i32 %0, %25
   br i1 %30, label %31, label %33
 
 31:                                               ; preds = %29
@@ -2659,13 +2659,13 @@ define internal range(i32 1, 5) i32 @zueci_u_gb18030(i32 noundef %0, ptr nocaptu
   br i1 %or.cond, label %44, label %68
 
 44:                                               ; preds = %42
-  %45 = icmp ult i32 %0, 58566
+  %45 = icmp samesign ult i32 %0, 58566
   br i1 %45, label %46, label %56
 
 46:                                               ; preds = %44
   %.lhs.trunc = trunc nuw i32 %43 to i16
   %47 = udiv i16 %.lhs.trunc, 94
-  %48 = icmp ult i32 %43, 564
+  %48 = icmp samesign ult i32 %43, 564
   %49 = select i1 %48, i16 170, i16 242
   %50 = add nuw nsw i16 %49, %47
   %51 = trunc i16 %50 to i8
@@ -2720,7 +2720,7 @@ define internal range(i32 1, 5) i32 @zueci_u_gb18030(i32 noundef %0, ptr nocaptu
   br label %90
 
 79:                                               ; preds = %.preheader98
-  %80 = icmp ult i32 %0, %75
+  %80 = icmp samesign ult i32 %0, %75
   br i1 %80, label %81, label %83
 
 81:                                               ; preds = %79
@@ -3146,7 +3146,7 @@ zueci_encode_utf8.exit:                           ; preds = %.lr.ph, %25
   br i1 %or.cond160, label %zueci_is_valid_utf8.exit.thread, label %40
 
 40:                                               ; preds = %37
-  %41 = icmp ult i32 %3, 128
+  %41 = icmp samesign ult i32 %3, 128
   br i1 %41, label %42, label %44
 
 42:                                               ; preds = %40
@@ -3155,7 +3155,7 @@ zueci_encode_utf8.exit:                           ; preds = %.lr.ph, %25
   br label %zueci_encode_utf8.exit162
 
 44:                                               ; preds = %40
-  %45 = icmp ult i32 %3, 2048
+  %45 = icmp samesign ult i32 %3, 2048
   br i1 %45, label %46, label %53
 
 46:                                               ; preds = %44
@@ -3502,7 +3502,7 @@ zueci_is_valid_utf8.exit:                         ; preds = %.preheader190
 
 .lr.ph237:                                        ; preds = %199
   %201 = ptrtoint ptr %11 to i64
-  %202 = icmp ult i32 %0, 19
+  %202 = icmp samesign ult i32 %0, 19
   %203 = and i32 %0, 958
   %or.cond9.i = icmp eq i32 %203, 34
   %204 = icmp eq i32 %0, 32
@@ -3781,11 +3781,11 @@ switch.early.test147:                             ; preds = %6
   br i1 %or.cond135, label %.loopexit, label %28
 
 28:                                               ; preds = %25
-  %29 = icmp ult i32 %3, 128
+  %29 = icmp samesign ult i32 %3, 128
   br i1 %29, label %zueci_encode_utf8.exit, label %30
 
 30:                                               ; preds = %28
-  %31 = icmp ult i32 %3, 2048
+  %31 = icmp samesign ult i32 %3, 2048
   %. = select i1 %31, i32 2, i32 3
   br label %zueci_encode_utf8.exit
 
@@ -3953,7 +3953,7 @@ switch.early.test:                                ; preds = %zueci_decode_utf8.e
 
 .lr.ph197:                                        ; preds = %92
   %94 = ptrtoint ptr %9 to i64
-  %95 = icmp ult i32 %0, 19
+  %95 = icmp samesign ult i32 %0, 19
   %96 = and i32 %0, 958
   %or.cond9.i = icmp eq i32 %96, 34
   %97 = icmp eq i32 %0, 32
@@ -4407,7 +4407,7 @@ define internal range(i32 0, 2) i32 @zueci_iso8859_6_u(ptr nocapture noundef rea
   br i1 %.not.i, label %22, label %.sink.split.i
 
 22:                                               ; preds = %11
-  %23 = icmp ult i8 %12, 83
+  %23 = icmp samesign ult i8 %12, 83
   br i1 %23, label %24, label %33
 
 24:                                               ; preds = %22
@@ -4468,7 +4468,7 @@ define internal range(i32 0, 2) i32 @zueci_iso8859_7_u(ptr nocapture noundef rea
   br i1 %.not.i, label %22, label %.sink.split.i
 
 22:                                               ; preds = %11
-  %23 = icmp ult i8 %12, 95
+  %23 = icmp samesign ult i8 %12, 95
   br i1 %23, label %24, label %33
 
 24:                                               ; preds = %22
@@ -4529,7 +4529,7 @@ define internal range(i32 0, 2) i32 @zueci_iso8859_8_u(ptr nocapture noundef rea
   br i1 %.not.i, label %22, label %.sink.split.i
 
 22:                                               ; preds = %11
-  %23 = icmp ult i8 %12, 95
+  %23 = icmp samesign ult i8 %12, 95
   br i1 %23, label %24, label %33
 
 24:                                               ; preds = %22
@@ -4590,7 +4590,7 @@ define internal range(i32 0, 2) i32 @zueci_iso8859_9_u(ptr nocapture noundef rea
   br i1 %.not.i, label %22, label %.sink.split.i
 
 22:                                               ; preds = %11
-  %23 = icmp ult i8 %12, 95
+  %23 = icmp samesign ult i8 %12, 95
   br i1 %23, label %24, label %33
 
 24:                                               ; preds = %22
@@ -4708,7 +4708,7 @@ define internal range(i32 0, 2) i32 @zueci_iso8859_11_u(ptr nocapture noundef re
   br i1 %.not.i, label %22, label %.sink.split.i
 
 22:                                               ; preds = %11
-  %23 = icmp ult i8 %12, 92
+  %23 = icmp samesign ult i8 %12, 92
   br i1 %23, label %24, label %33
 
 24:                                               ; preds = %22
@@ -4826,7 +4826,7 @@ define internal range(i32 0, 2) i32 @zueci_iso8859_14_u(ptr nocapture noundef re
   br i1 %.not.i, label %22, label %.sink.split.i
 
 22:                                               ; preds = %11
-  %23 = icmp ult i8 %12, 95
+  %23 = icmp samesign ult i8 %12, 95
   br i1 %23, label %24, label %33
 
 24:                                               ; preds = %22
@@ -4887,7 +4887,7 @@ define internal range(i32 0, 2) i32 @zueci_iso8859_15_u(ptr nocapture noundef re
   br i1 %.not.i, label %22, label %.sink.split.i
 
 22:                                               ; preds = %11
-  %23 = icmp ult i8 %12, 31
+  %23 = icmp samesign ult i8 %12, 31
   br i1 %23, label %24, label %33
 
 24:                                               ; preds = %22
@@ -4948,7 +4948,7 @@ define internal range(i32 0, 2) i32 @zueci_iso8859_16_u(ptr nocapture noundef re
   br i1 %.not.i, label %22, label %.sink.split.i
 
 22:                                               ; preds = %11
-  %23 = icmp ult i8 %12, 95
+  %23 = icmp samesign ult i8 %12, 95
   br i1 %23, label %24, label %33
 
 24:                                               ; preds = %22
@@ -5036,7 +5036,7 @@ define internal range(i32 0, 3) i32 @zueci_sjis_u(ptr nocapture noundef readonly
   br i1 %or.cond20, label %switch.lookup, label %32
 
 32:                                               ; preds = %25
-  %33 = icmp ugt i8 %5, -17
+  %33 = icmp samesign ugt i8 %5, -17
   br i1 %33, label %34, label %41
 
 34:                                               ; preds = %32
@@ -5050,7 +5050,7 @@ define internal range(i32 0, 3) i32 @zueci_sjis_u(ptr nocapture noundef readonly
 
 41:                                               ; preds = %32
   %42 = add nsw i32 %6, -129
-  %43 = icmp ugt i8 %5, -96
+  %43 = icmp samesign ugt i8 %5, -96
   %.neg = select i1 %43, i32 -64, i32 0
   %44 = add nsw i32 %42, %.neg
   %45 = mul nsw i32 %44, 188
@@ -5099,7 +5099,7 @@ define internal range(i32 0, 2) i32 @zueci_cp1250_u(ptr nocapture noundef readon
   br i1 %7, label %.sink.split.i, label %8
 
 8:                                                ; preds = %4
-  %9 = icmp ugt i8 %5, -97
+  %9 = icmp samesign ugt i8 %5, -97
   br i1 %9, label %10, label %21
 
 10:                                               ; preds = %8
@@ -5154,7 +5154,7 @@ define internal range(i32 0, 2) i32 @zueci_cp1251_u(ptr nocapture noundef readon
   br i1 %7, label %.sink.split.i, label %8
 
 8:                                                ; preds = %4
-  %9 = icmp ugt i8 %5, -97
+  %9 = icmp samesign ugt i8 %5, -97
   br i1 %9, label %10, label %21
 
 10:                                               ; preds = %8
@@ -5246,7 +5246,7 @@ define internal range(i32 0, 2) i32 @zueci_cp1256_u(ptr nocapture noundef readon
   br i1 %7, label %.sink.split.i, label %8
 
 8:                                                ; preds = %4
-  %9 = icmp ugt i8 %5, -97
+  %9 = icmp samesign ugt i8 %5, -97
   br i1 %9, label %10, label %21
 
 10:                                               ; preds = %8
@@ -5311,7 +5311,7 @@ define internal range(i32 0, 5) i32 @zueci_utf16be_u(ptr nocapture noundef reado
   br i1 %or.cond, label %.sink.split, label %15
 
 15:                                               ; preds = %6
-  %16 = icmp ugt i8 %7, -37
+  %16 = icmp samesign ugt i8 %7, -37
   %17 = icmp ult i32 %1, 4
   %or.cond4 = or i1 %17, %16
   br i1 %or.cond4, label %32, label %18
@@ -5374,11 +5374,11 @@ define internal range(i32 0, 3) i32 @zueci_big5_u(ptr nocapture noundef readonly
 
 8:                                                ; preds = %4
   %9 = icmp ult i32 %1, 2
-  %10 = icmp ult i8 %5, -95
+  %10 = icmp samesign ult i8 %5, -95
   %or.cond = or i1 %9, %10
   %11 = icmp eq i8 %5, -56
   %or.cond5 = or i1 %11, %or.cond
-  %12 = icmp ugt i8 %5, -7
+  %12 = icmp samesign ugt i8 %5, -7
   %or.cond8 = or i1 %12, %or.cond5
   br i1 %or.cond8, label %37, label %13
 
@@ -5399,7 +5399,7 @@ define internal range(i32 0, 3) i32 @zueci_big5_u(ptr nocapture noundef readonly
 21:                                               ; preds = %18
   %22 = icmp ugt i8 %15, 126
   %23 = add nsw i32 %6, -161
-  %24 = icmp ugt i8 %5, -56
+  %24 = icmp samesign ugt i8 %5, -56
   %.neg = sext i1 %24 to i32
   %25 = add nsw i32 %23, %.neg
   %26 = mul nsw i32 %25, 157
@@ -5441,12 +5441,12 @@ define internal range(i32 0, 3) i32 @zueci_gb2312_u(ptr nocapture noundef readon
 
 8:                                                ; preds = %4
   %9 = icmp ult i32 %1, 2
-  %10 = icmp ult i8 %5, -95
+  %10 = icmp samesign ult i8 %5, -95
   %or.cond = or i1 %9, %10
   br i1 %or.cond, label %29, label %11
 
 11:                                               ; preds = %8
-  %12 = icmp ugt i8 %5, -87
+  %12 = icmp samesign ugt i8 %5, -87
   switch i8 %5, label %13 [
     i8 -1, label %29
     i8 -2, label %29
@@ -5509,12 +5509,12 @@ define internal range(i32 0, 3) i32 @zueci_ksx1001_u(ptr nocapture noundef reado
 
 8:                                                ; preds = %4
   %9 = icmp ult i32 %1, 2
-  %10 = icmp ult i8 %5, -95
+  %10 = icmp samesign ult i8 %5, -95
   %or.cond = or i1 %9, %10
   br i1 %or.cond, label %31, label %11
 
 11:                                               ; preds = %8
-  %12 = icmp ugt i8 %5, -84
+  %12 = icmp samesign ugt i8 %5, -84
   switch i8 %5, label %13 [
     i8 -1, label %31
     i8 -2, label %31
@@ -5536,7 +5536,7 @@ define internal range(i32 0, 3) i32 @zueci_ksx1001_u(ptr nocapture noundef reado
   %19 = add nsw i32 %6, -161
   %.neg = select i1 %12, i32 -3, i32 0
   %20 = add nsw i32 %19, %.neg
-  %21 = icmp ugt i8 %5, -55
+  %21 = icmp samesign ugt i8 %5, -55
   %.neg37 = sext i1 %21 to i32
   %22 = add nsw i32 %20, %.neg37
   %23 = mul nsw i32 %22, 94
@@ -5591,7 +5591,7 @@ switch.early.test:                                ; preds = %8
   br i1 %or.cond11, label %68, label %17
 
 17:                                               ; preds = %10
-  %18 = icmp ugt i8 %5, -96
+  %18 = icmp samesign ugt i8 %5, -96
   %19 = add nsw i8 %5, 95
   %or.cond14 = icmp ult i8 %19, 9
   br i1 %or.cond14, label %23, label %20
@@ -5670,7 +5670,7 @@ switch.early.test:                                ; preds = %8
   br i1 %18, label %51, label %54
 
 51:                                               ; preds = %.loopexit
-  %52 = icmp ult i8 %5, -88
+  %52 = icmp samesign ult i8 %5, -88
   %53 = icmp ugt i8 %12, -96
   %or.cond104 = or i1 %52, %53
   br i1 %or.cond104, label %68, label %54
@@ -5739,7 +5739,7 @@ switch.early.test:                                ; preds = %8
   %17 = add i8 %14, -48
   %18 = icmp ult i8 %17, 10
   %or.cond11 = select i1 %15, i1 %18, i1 false
-  %19 = icmp ult i8 %5, -28
+  %19 = icmp samesign ult i8 %5, -28
   %or.cond17 = and i1 %19, %or.cond11
   br i1 %or.cond17, label %20, label %82
 
@@ -5762,7 +5762,7 @@ switch.early.test:                                ; preds = %8
 34:                                               ; preds = %20
   %35 = add nsw i32 %32, 2077121478
   %or.cond19 = icmp ult i32 %35, 201252086
-  %36 = icmp ugt i32 %32, -483222987
+  %36 = icmp samesign ugt i32 %32, -483222987
   %or.cond21 = or i1 %36, %or.cond19
   %37 = add i8 %22, 1
   %38 = icmp ult i8 %37, -126
@@ -5777,7 +5777,7 @@ switch.early.test:                                ; preds = %8
   br i1 %42, label %.loopexit.sink.split, label %43
 
 43:                                               ; preds = %41
-  %44 = icmp ugt i8 %5, -113
+  %44 = icmp samesign ugt i8 %5, -113
   br i1 %44, label %45, label %.preheader
 
 45:                                               ; preds = %43
@@ -5846,7 +5846,7 @@ switch.early.test:                                ; preds = %8
   br i1 %or.cond42, label %91, label %88
 
 88:                                               ; preds = %86
-  %89 = icmp ugt i8 %5, -9
+  %89 = icmp samesign ugt i8 %5, -9
   %90 = icmp ugt i8 %14, -96
   %or.cond48 = select i1 %89, i1 %90, i1 false
   br i1 %or.cond48, label %92, label %98
@@ -5856,7 +5856,7 @@ switch.early.test:                                ; preds = %8
   br i1 %.old47, label %92, label %.thread188
 
 92:                                               ; preds = %91, %88
-  %93 = icmp ugt i8 %5, -9
+  %93 = icmp samesign ugt i8 %5, -9
   %.neg = select i1 %93, i32 -242, i32 -170
   %94 = add nsw i32 %.neg, %6
   %95 = mul nsw i32 %94, 94
@@ -5984,7 +5984,7 @@ define internal range(i32 0, 5) i32 @zueci_utf16le_u(ptr nocapture noundef reado
   br i1 %or.cond, label %.sink.split, label %15
 
 15:                                               ; preds = %6
-  %16 = icmp ugt i8 %8, -37
+  %16 = icmp samesign ugt i8 %8, -37
   %17 = icmp ult i32 %1, 4
   %or.cond4 = or i1 %17, %16
   br i1 %or.cond4, label %32, label %18

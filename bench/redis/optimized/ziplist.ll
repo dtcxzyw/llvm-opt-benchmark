@@ -3288,7 +3288,7 @@ if.end9:                                          ; preds = %if.end4
   %add.ptr = getelementptr inbounds i8, ptr %zl, i64 4
   %2 = load i32, ptr %add.ptr, align 4
   %conv10 = zext i32 %2 to i64
-  %cmp12 = icmp ult i64 %sub, %conv10
+  %cmp12 = icmp samesign ult i64 %sub, %conv10
   br i1 %cmp12, label %return, label %if.end15
 
 if.end15:                                         ; preds = %if.end9
@@ -3576,7 +3576,7 @@ if.then12.i:                                      ; preds = %while.end.i, %if.el
 
 ziplistLen.exit:                                  ; preds = %if.then.i, %if.then12.i
   %len.0.i = phi i32 [ %conv.i, %if.then.i ], [ %len.1.lcssa17.i, %if.then12.i ]
-  %tobool.not = icmp ult i32 %len.0.i, 2
+  %tobool.not = icmp samesign ult i32 %len.0.i, 2
   br i1 %tobool.not, label %cond.false, label %for.cond.preheader
 
 for.cond.preheader:                               ; preds = %while.end.i, %ziplistLen.exit

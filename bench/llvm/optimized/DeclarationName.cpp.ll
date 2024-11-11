@@ -206,7 +206,7 @@ _ZNK5clang15DeclarationName11getNameKindEv.exit40: ; preds = %20, %21
 
 _ZNK5clang15DeclarationName11getNameKindEv.exit44: ; preds = %_ZNK5clang15DeclarationName11getNameKindEv.exit40, %26
   %.0.i42 = phi i32 [ %30, %26 ], [ %14, %_ZNK5clang15DeclarationName11getNameKindEv.exit40 ]
-  %31 = icmp ult i32 %.0.i38, %.0.i42
+  %31 = icmp samesign ult i32 %.0.i38, %.0.i42
   %32 = select i1 %31, i32 -1, i32 1
   br label %_ZNK4llvm9StringRef7compareES0_.exit
 

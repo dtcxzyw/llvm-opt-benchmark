@@ -1167,7 +1167,7 @@ define internal range(i32 0, -2147483648) i32 @dissect_ecmp_tcp(ptr noundef %0, 
   %122 = tail call ptr @tfs_get_string(i32 noundef %121, ptr noundef nonnull @tfs_response_request) #4
   %123 = zext i8 %22 to i32
   tail call void (ptr, i32, ptr, ...) @col_add_fstr(ptr noundef %119, i32 noundef 25, ptr noundef nonnull @.str.597, ptr noundef %112, ptr noundef %122, i32 noundef %123) #4
-  %or.cond = icmp ult i8 %97, 2
+  %or.cond = icmp samesign ult i8 %97, 2
   br i1 %or.cond, label %124, label %159
 
 124:                                              ; preds = %108

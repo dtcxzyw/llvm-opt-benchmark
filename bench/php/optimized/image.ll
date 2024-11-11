@@ -1300,7 +1300,7 @@ php_handle_psd.exit.i:                            ; preds = %259, %257, %255
   br i1 %328, label %329, label %php_handle_bmp.exit.i
 
 329:                                              ; preds = %327
-  %330 = icmp ult i32 %313, 65
+  %330 = icmp samesign ult i32 %313, 65
   %331 = and i32 %313, 2147483631
   %332 = icmp eq i32 %331, 108
   %or.cond3.i.i = or i1 %330, %332
@@ -1493,7 +1493,7 @@ php_handle_jp2.exit.i:                            ; preds = %373, %.thread26.i.i
   br i1 %429, label %430, label %460
 
 430:                                              ; preds = %402
-  %431 = icmp ult i32 %spec.select.i.i, 9
+  %431 = icmp samesign ult i32 %spec.select.i.i, 9
   br i1 %431, label %php_handle_iff.exit.i, label %432
 
 432:                                              ; preds = %430

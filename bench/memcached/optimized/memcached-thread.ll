@@ -1553,15 +1553,15 @@ if.else:                                          ; preds = %for.end
   br i1 %cmp5, label %if.end20, label %if.else7
 
 if.else7:                                         ; preds = %if.else
-  %cmp8 = icmp ult i32 %nthreads, 5
+  %cmp8 = icmp samesign ult i32 %nthreads, 5
   br i1 %cmp8, label %if.end20, label %if.else10
 
 if.else10:                                        ; preds = %if.else7
-  %cmp11 = icmp ult i32 %nthreads, 11
+  %cmp11 = icmp samesign ult i32 %nthreads, 11
   br i1 %cmp11, label %if.end20, label %if.else13
 
 if.else13:                                        ; preds = %if.else10
-  %cmp14 = icmp ult i32 %nthreads, 21
+  %cmp14 = icmp samesign ult i32 %nthreads, 21
   %. = select i1 %cmp14, i32 14, i32 15
   br label %if.end20
 

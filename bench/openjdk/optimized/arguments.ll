@@ -4960,7 +4960,7 @@ define internal fastcc noundef zeroext i1 @_ZL13parse_integerIjEbPKcPT_(ptr noun
   ]
 
 26:                                               ; preds = %24, %24
-  %.not4.i.i = icmp ult i64 %16, 4194304
+  %.not4.i.i = icmp samesign ult i64 %16, 4194304
   br i1 %.not4.i.i, label %_Z14multiply_by_1kIjEbRT_.exit.thread.i, label %_ZL13parse_integerIjEbPKcPPcPT_.exit.thread
 
 _Z14multiply_by_1kIjEbRT_.exit.thread.i:          ; preds = %26

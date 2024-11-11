@@ -790,7 +790,7 @@ define hidden noundef i32 @dissect_snmp_engineid(ptr noundef %0, ptr noundef %1,
   %9 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %2, i32 noundef %3) #11
   %10 = load i32, ptr @hf_snmp_engineid_conform, align 4
   %11 = tail call ptr @proto_tree_add_item(ptr noundef %0, i32 noundef %10, ptr noundef %2, i32 noundef %3, i32 noundef 1, i32 noundef 0) #11
-  %12 = icmp ult i32 %4, 4
+  %12 = icmp samesign ult i32 %4, 4
   br i1 %12, label %.thread135, label %13
 
 13:                                               ; preds = %8
@@ -890,7 +890,7 @@ define hidden noundef i32 @dissect_snmp_engineid(ptr noundef %0, ptr noundef %1,
   br label %.thread135
 
 59:                                               ; preds = %30
-  %60 = icmp ult i32 %4, 33
+  %60 = icmp samesign ult i32 %4, 33
   br i1 %60, label %61, label %.thread138
 
 61:                                               ; preds = %59

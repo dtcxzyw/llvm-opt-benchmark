@@ -1662,7 +1662,7 @@ if.then.i:                                        ; preds = %call5.i.i.i.i2.i.i.
   unreachable
 
 if.end.i:                                         ; preds = %call5.i.i.i.i2.i.i.noexc
-  %cmp3.i = icmp ugt i64 %add, 1
+  %cmp3.i = icmp samesign ugt i64 %add, 1
   br i1 %cmp3.i, label %_ZNSt12_Vector_baseIdSaIdEE11_M_allocateEm.exit.i, label %invoke.cont91
 
 _ZNSt12_Vector_baseIdSaIdEE11_M_allocateEm.exit.i: ; preds = %if.end.i

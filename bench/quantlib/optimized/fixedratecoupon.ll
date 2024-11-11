@@ -3223,7 +3223,7 @@ invoke.cont72:                                    ; preds = %invoke.cont69
   %49 = load i64, ptr %47, align 8, !tbaa !122
   store i64 %49, ptr %start, align 8, !tbaa !122
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %end) #29
-  %cmp.not.i.i.i110 = icmp ugt i64 %sub.ptr.div.i.i, 1
+  %cmp.not.i.i.i110 = icmp samesign ugt i64 %sub.ptr.div.i.i, 1
   br i1 %cmp.not.i.i.i110, label %invoke.cont76, label %if.then.i.i.i111
 
 if.then.i.i.i111:                                 ; preds = %invoke.cont72.thread, %invoke.cont72

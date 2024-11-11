@@ -15253,7 +15253,7 @@ _ZN6google8protobuf2io16CodedInputStream12ReadVarint32EPj.exit43.i: ; preds = %1
           to label %123 unwind label %.loopexit.split-lp
 
 123:                                              ; preds = %121
-  %124 = icmp ult i32 %.0668688.i, 128
+  %124 = icmp samesign ult i32 %.0668688.i, 128
   %125 = trunc i32 %.0668688.i to i8
   br i1 %124, label %126, label %128
 
@@ -15266,7 +15266,7 @@ _ZN6google8protobuf2io16CodedInputStream12ReadVarint32EPj.exit43.i: ; preds = %1
   %129 = or i8 %125, -128
   store i8 %129, ptr %122, align 1
   %130 = lshr i32 %.0668688.i, 7
-  %131 = icmp ult i32 %.0668688.i, 16384
+  %131 = icmp samesign ult i32 %.0668688.i, 16384
   br i1 %131, label %132, label %136
 
 132:                                              ; preds = %128

@@ -27,7 +27,7 @@ define noundef zeroext i1 @_ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_con
   br i1 %19, label %20, label %100
 
 20:                                               ; preds = %18
-  %21 = icmp ugt i32 %.0.i98, 17
+  %21 = icmp samesign ugt i32 %.0.i98, 17
   br i1 %21, label %22, label %29
 
 22:                                               ; preds = %20
@@ -133,7 +133,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversionL12FillDigits32EjNS0
   %68 = getelementptr inbounds i8, ptr %2, i64 %67
   store i8 %64, ptr %68, align 1
   %69 = udiv i32 %.089.i.i, 10
-  %70 = icmp ugt i32 %.0.in10.i.i, 1
+  %70 = icmp samesign ugt i32 %.0.in10.i.i, 1
   br i1 %70, label %61, label %_ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversionL23FillDigits32FixedLengthEjiNS0_6VectorIcEEPi.exit.i, !llvm.loop !7
 
 _ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversionL23FillDigits32FixedLengthEjiNS0_6VectorIcEEPi.exit.i: ; preds = %61
@@ -157,7 +157,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversionL23FillDigits32Fixed
   %82 = getelementptr inbounds i8, ptr %2, i64 %81
   store i8 %78, ptr %82, align 1
   %83 = udiv i32 %.089.i21.i, 10
-  %84 = icmp ugt i32 %.0.in10.i20.i, 1
+  %84 = icmp samesign ugt i32 %.0.in10.i20.i, 1
   br i1 %84, label %75, label %_ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversionL23FillDigits32FixedLengthEjiNS0_6VectorIcEEPi.exit23.i, !llvm.loop !7
 
 _ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversionL23FillDigits32FixedLengthEjiNS0_6VectorIcEEPi.exit23.i: ; preds = %75
@@ -180,7 +180,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversionL23FillDigits32Fixed
   %95 = getelementptr inbounds i8, ptr %2, i64 %94
   store i8 %91, ptr %95, align 1
   %96 = udiv i32 %.089.i25.i, 10
-  %97 = icmp ugt i32 %.0.in10.i24.i, 1
+  %97 = icmp samesign ugt i32 %.0.in10.i24.i, 1
   br i1 %97, label %88, label %_ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversionL23FillDigits64FixedLengthEmNS0_6VectorIcEEPi.exit, !llvm.loop !7
 
 _ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversionL23FillDigits64FixedLengthEmNS0_6VectorIcEEPi.exit: ; preds = %88
@@ -203,7 +203,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversionL23FillDigits64Fixed
   br label %144
 
 106:                                              ; preds = %100
-  %107 = icmp ugt i32 %.0.i98, -53
+  %107 = icmp samesign ugt i32 %.0.i98, -53
   br i1 %107, label %108, label %139
 
 108:                                              ; preds = %106
@@ -292,7 +292,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversionL12FillDigits32EjNS0
   br label %144
 
 139:                                              ; preds = %106
-  %140 = icmp ult i32 %.0.i98, -128
+  %140 = icmp samesign ult i32 %.0.i98, -128
   br i1 %140, label %141, label %143
 
 141:                                              ; preds = %139
@@ -332,7 +332,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversionL12FillDigits32EjNS0
   %indvars.iv.i119140 = phi i64 [ %indvars.iv.next.i120141, %.lr.ph.i118 ], [ %146, %.lr.ph.preheader.i ]
   %153 = trunc nuw nsw i64 %indvars.iv.next.i120141 to i32
   store i32 %153, ptr %4, align 4
-  %154 = icmp ugt i64 %indvars.iv.i119140, 1
+  %154 = icmp samesign ugt i64 %indvars.iv.i119140, 1
   br i1 %154, label %.lr.ph.i118, label %_ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversionL9TrimZerosENS0_6VectorIcEEPiS3_.exit, !llvm.loop !8
 
 .critedge.i:                                      ; preds = %.lr.ph.i118
@@ -492,7 +492,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversionL12FillDigits32EjNS0
   %37 = getelementptr inbounds i8, ptr %1, i64 %36
   store i8 %33, ptr %37, align 1
   %38 = udiv i32 %.089.i, 10
-  %39 = icmp ugt i32 %.0.in10.i, 1
+  %39 = icmp samesign ugt i32 %.0.in10.i, 1
   br i1 %39, label %30, label %_ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversionL23FillDigits32FixedLengthEjiNS0_6VectorIcEEPi.exit, !llvm.loop !7
 
 _ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversionL23FillDigits32FixedLengthEjiNS0_6VectorIcEEPi.exit: ; preds = %30
@@ -514,7 +514,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversionL23FillDigits32Fixed
   %49 = getelementptr inbounds i8, ptr %1, i64 %48
   store i8 %45, ptr %49, align 1
   %50 = udiv i32 %.089.i46, 10
-  %51 = icmp ugt i32 %.0.in10.i45, 1
+  %51 = icmp samesign ugt i32 %.0.in10.i45, 1
   br i1 %51, label %42, label %_ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversionL12FillDigits32EjNS0_6VectorIcEEPi.exit90.sink.split, !llvm.loop !7
 
 52:                                               ; preds = %3
@@ -585,7 +585,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversionL12FillDigits32EjNS0
   %78 = getelementptr inbounds i8, ptr %1, i64 %77
   store i8 %74, ptr %78, align 1
   %79 = udiv i32 %.089.i69, 10
-  %80 = icmp ugt i32 %.0.in10.i68, 1
+  %80 = icmp samesign ugt i32 %.0.in10.i68, 1
   br i1 %80, label %71, label %_ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversionL12FillDigits32EjNS0_6VectorIcEEPi.exit90.sink.split, !llvm.loop !7
 
 81:                                               ; preds = %52
@@ -745,7 +745,7 @@ define internal fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_c
   %49 = load i8, ptr %gep.i, align 1
   %50 = add i8 %49, 1
   store i8 %50, ptr %gep.i, align 1
-  %51 = icmp ugt i64 %indvars.iv.i, 2
+  %51 = icmp samesign ugt i64 %indvars.iv.i, 2
   br i1 %51, label %.lr.ph.i, label %._crit_edge.i, !llvm.loop !12
 
 ._crit_edge.i:                                    ; preds = %48, %37
@@ -900,7 +900,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversion7UInt12814DivModPowe
   %121 = load i8, ptr %gep.i53, align 1
   %122 = add i8 %121, 1
   store i8 %122, ptr %gep.i53, align 1
-  %123 = icmp ugt i64 %indvars.iv.i50, 2
+  %123 = icmp samesign ugt i64 %indvars.iv.i50, 2
   br i1 %123, label %.lr.ph.i49, label %._crit_edge.i47, !llvm.loop !12
 
 ._crit_edge.i47:                                  ; preds = %120, %109

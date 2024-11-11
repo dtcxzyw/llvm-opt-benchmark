@@ -954,7 +954,7 @@ for.body:                                         ; preds = %for.body.lr.ph, %fo
   %50 = load i32, ptr %m_lifeTime, align 8
   %inc = add nsw i32 %50, 1
   store i32 %inc, ptr %m_lifeTime, align 8
-  %cmp = icmp ugt i64 %indvars.iv, 1
+  %cmp = icmp samesign ugt i64 %indvars.iv, 1
   br i1 %cmp, label %for.body, label %for.body16.lr.ph, !llvm.loop !8
 
 for.body16:                                       ; preds = %for.body16.lr.ph, %for.inc45
@@ -1122,7 +1122,7 @@ if.then41:                                        ; preds = %if.else40
   br label %for.inc45
 
 for.inc45:                                        ; preds = %_ZN20btPersistentManifold18removeContactPointEi.exit, %if.else40, %if.then41, %_ZN20btPersistentManifold18removeContactPointEi.exit112
-  %cmp15 = icmp ugt i64 %indvars.iv126, 1
+  %cmp15 = icmp samesign ugt i64 %indvars.iv126, 1
   br i1 %cmp15, label %for.body16, label %for.end47, !llvm.loop !9
 
 for.end47:                                        ; preds = %for.inc45, %entry

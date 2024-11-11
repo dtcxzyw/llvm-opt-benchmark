@@ -148,8 +148,8 @@ _ZN6google12Check_GTImplB5cxx11EiiPKc.exit.i:     ; preds = %_ZN6google22MakeChe
 
 28:                                               ; preds = %27
   %29 = icmp eq i32 %1, 1
-  %30 = icmp ult i32 %3, 131072
-  %or.cond.i = or i1 %29, %30
+  %30 = icmp samesign ult i32 %3, 131072
+  %or.cond.i = select i1 %29, i1 true, i1 %30
   br i1 %or.cond.i, label %.lr.ph.i.i.i.preheader.i.i.i.i, label %31
 
 .lr.ph.i.i.i.preheader.i.i.i.i:                   ; preds = %28

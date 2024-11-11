@@ -1262,7 +1262,7 @@ default.unreachable149:                           ; preds = %167, %149, %131, %1
 225:                                              ; preds = %209
   %226 = icmp sgt i32 %115, -1
   tail call void @llvm.assume(i1 %226)
-  %227 = icmp ult i32 %188, %132
+  %227 = icmp samesign ult i32 %188, %132
   br i1 %227, label %228, label %255
 
 228:                                              ; preds = %225
@@ -1312,7 +1312,7 @@ default.unreachable149:                           ; preds = %167, %149, %131, %1
   %256 = phi i32 [ %229, %246 ], [ %115, %225 ]
   %257 = phi i64 [ %254, %246 ], [ %187, %225 ]
   %258 = phi i32 [ %250, %246 ], [ %188, %225 ]
-  %259 = icmp uge i32 %258, %132
+  %259 = icmp samesign uge i32 %258, %132
   tail call void @llvm.assume(i1 %259)
   %260 = sub nuw nsw i32 64, %132
   %261 = zext nneg i32 %260 to i64
@@ -1332,7 +1332,7 @@ default.unreachable149:                           ; preds = %167, %149, %131, %1
   store i16 %269, ptr %270, align 2, !tbaa !135
   %271 = icmp ult i32 %262, 65
   tail call void @llvm.assume(i1 %271)
-  %272 = icmp ult i32 %262, %132
+  %272 = icmp samesign ult i32 %262, %132
   br i1 %272, label %273, label %299
 
 273:                                              ; preds = %255
@@ -1378,7 +1378,7 @@ default.unreachable149:                           ; preds = %167, %149, %131, %1
   %300 = phi i32 [ %274, %290 ], [ %256, %255 ]
   %301 = phi i64 [ %298, %290 ], [ %264, %255 ]
   %302 = phi i32 [ %294, %290 ], [ %262, %255 ]
-  %303 = icmp uge i32 %302, %132
+  %303 = icmp samesign uge i32 %302, %132
   tail call void @llvm.assume(i1 %303)
   %304 = sub nsw i32 %302, %132
   %305 = shl i64 %301, %263
@@ -1394,7 +1394,7 @@ default.unreachable149:                           ; preds = %167, %149, %131, %1
   store i16 %312, ptr %313, align 2, !tbaa !135
   %314 = icmp ult i32 %304, 65
   tail call void @llvm.assume(i1 %314)
-  %315 = icmp ult i32 %304, %132
+  %315 = icmp samesign ult i32 %304, %132
   br i1 %315, label %316, label %342
 
 316:                                              ; preds = %299
@@ -1440,7 +1440,7 @@ default.unreachable149:                           ; preds = %167, %149, %131, %1
   %343 = phi i32 [ %317, %333 ], [ %300, %299 ]
   %344 = phi i64 [ %341, %333 ], [ %305, %299 ]
   %345 = phi i32 [ %337, %333 ], [ %304, %299 ]
-  %346 = icmp uge i32 %345, %132
+  %346 = icmp samesign uge i32 %345, %132
   tail call void @llvm.assume(i1 %346)
   %347 = sub nsw i32 %345, %132
   %348 = shl i64 %344, %263
@@ -1456,7 +1456,7 @@ default.unreachable149:                           ; preds = %167, %149, %131, %1
   store i16 %355, ptr %356, align 2, !tbaa !135
   %357 = icmp ult i32 %347, 65
   tail call void @llvm.assume(i1 %357)
-  %358 = icmp ult i32 %347, %132
+  %358 = icmp samesign ult i32 %347, %132
   br i1 %358, label %359, label %385
 
 359:                                              ; preds = %342
@@ -1502,7 +1502,7 @@ default.unreachable149:                           ; preds = %167, %149, %131, %1
   %386 = phi i32 [ %360, %376 ], [ %343, %342 ]
   %387 = phi i64 [ %384, %376 ], [ %348, %342 ]
   %388 = phi i32 [ %380, %376 ], [ %347, %342 ]
-  %389 = icmp uge i32 %388, %132
+  %389 = icmp samesign uge i32 %388, %132
   tail call void @llvm.assume(i1 %389)
   %390 = sub nsw i32 %388, %132
   %391 = shl i64 %387, %263
@@ -1551,7 +1551,7 @@ default.unreachable149:                           ; preds = %167, %149, %131, %1
   tail call void @llvm.assume(i1 %421)
   %422 = icmp sgt i32 %397, -1
   tail call void @llvm.assume(i1 %422)
-  %423 = icmp ult i32 %396, %150
+  %423 = icmp samesign ult i32 %396, %150
   br i1 %423, label %424, label %450
 
 424:                                              ; preds = %420
@@ -1597,7 +1597,7 @@ default.unreachable149:                           ; preds = %167, %149, %131, %1
   %451 = phi i32 [ %425, %441 ], [ %397, %420 ]
   %452 = phi i64 [ %449, %441 ], [ %395, %420 ]
   %453 = phi i32 [ %445, %441 ], [ %396, %420 ]
-  %454 = icmp uge i32 %453, %150
+  %454 = icmp samesign uge i32 %453, %150
   tail call void @llvm.assume(i1 %454)
   %455 = sub nuw nsw i32 64, %150
   %456 = zext nneg i32 %455 to i64
@@ -1616,7 +1616,7 @@ default.unreachable149:                           ; preds = %167, %149, %131, %1
   store i16 %466, ptr %467, align 2, !tbaa !135
   %468 = icmp ult i32 %457, 65
   tail call void @llvm.assume(i1 %468)
-  %469 = icmp ult i32 %457, %150
+  %469 = icmp samesign ult i32 %457, %150
   br i1 %469, label %470, label %496
 
 470:                                              ; preds = %450
@@ -1662,7 +1662,7 @@ default.unreachable149:                           ; preds = %167, %149, %131, %1
   %497 = phi i32 [ %471, %487 ], [ %451, %450 ]
   %498 = phi i64 [ %495, %487 ], [ %459, %450 ]
   %499 = phi i32 [ %491, %487 ], [ %457, %450 ]
-  %500 = icmp uge i32 %499, %150
+  %500 = icmp samesign uge i32 %499, %150
   tail call void @llvm.assume(i1 %500)
   %501 = sub nsw i32 %499, %150
   %502 = shl i64 %498, %458
@@ -1678,7 +1678,7 @@ default.unreachable149:                           ; preds = %167, %149, %131, %1
   store i16 %509, ptr %510, align 2, !tbaa !135
   %511 = icmp ult i32 %501, 65
   tail call void @llvm.assume(i1 %511)
-  %512 = icmp ult i32 %501, %150
+  %512 = icmp samesign ult i32 %501, %150
   br i1 %512, label %513, label %539
 
 513:                                              ; preds = %496
@@ -1724,7 +1724,7 @@ default.unreachable149:                           ; preds = %167, %149, %131, %1
   %540 = phi i32 [ %514, %530 ], [ %497, %496 ]
   %541 = phi i64 [ %538, %530 ], [ %502, %496 ]
   %542 = phi i32 [ %534, %530 ], [ %501, %496 ]
-  %543 = icmp uge i32 %542, %150
+  %543 = icmp samesign uge i32 %542, %150
   tail call void @llvm.assume(i1 %543)
   %544 = sub nsw i32 %542, %150
   %545 = shl i64 %541, %458
@@ -1740,7 +1740,7 @@ default.unreachable149:                           ; preds = %167, %149, %131, %1
   store i16 %552, ptr %553, align 2, !tbaa !135
   %554 = icmp ult i32 %544, 65
   tail call void @llvm.assume(i1 %554)
-  %555 = icmp ult i32 %544, %150
+  %555 = icmp samesign ult i32 %544, %150
   br i1 %555, label %556, label %582
 
 556:                                              ; preds = %539
@@ -1786,7 +1786,7 @@ default.unreachable149:                           ; preds = %167, %149, %131, %1
   %583 = phi i32 [ %557, %573 ], [ %540, %539 ]
   %584 = phi i64 [ %581, %573 ], [ %545, %539 ]
   %585 = phi i32 [ %577, %573 ], [ %544, %539 ]
-  %586 = icmp uge i32 %585, %150
+  %586 = icmp samesign uge i32 %585, %150
   tail call void @llvm.assume(i1 %586)
   %587 = sub nsw i32 %585, %150
   %588 = shl i64 %584, %458
@@ -1835,7 +1835,7 @@ default.unreachable149:                           ; preds = %167, %149, %131, %1
   tail call void @llvm.assume(i1 %617)
   %618 = icmp sgt i32 %594, -1
   tail call void @llvm.assume(i1 %618)
-  %619 = icmp ult i32 %593, %168
+  %619 = icmp samesign ult i32 %593, %168
   br i1 %619, label %620, label %647
 
 620:                                              ; preds = %616
@@ -1885,7 +1885,7 @@ default.unreachable149:                           ; preds = %167, %149, %131, %1
   %648 = phi i32 [ %621, %638 ], [ %594, %616 ]
   %649 = phi i64 [ %646, %638 ], [ %592, %616 ]
   %650 = phi i32 [ %642, %638 ], [ %593, %616 ]
-  %651 = icmp uge i32 %650, %168
+  %651 = icmp samesign uge i32 %650, %168
   tail call void @llvm.assume(i1 %651)
   %652 = sub nuw nsw i32 64, %168
   %653 = zext nneg i32 %652 to i64
@@ -1904,7 +1904,7 @@ default.unreachable149:                           ; preds = %167, %149, %131, %1
   store i16 %662, ptr %663, align 2, !tbaa !135
   %664 = icmp ult i32 %654, 65
   tail call void @llvm.assume(i1 %664)
-  %665 = icmp ult i32 %654, %168
+  %665 = icmp samesign ult i32 %654, %168
   br i1 %665, label %666, label %692
 
 666:                                              ; preds = %647
@@ -1950,7 +1950,7 @@ default.unreachable149:                           ; preds = %167, %149, %131, %1
   %693 = phi i32 [ %667, %683 ], [ %648, %647 ]
   %694 = phi i64 [ %691, %683 ], [ %656, %647 ]
   %695 = phi i32 [ %687, %683 ], [ %654, %647 ]
-  %696 = icmp uge i32 %695, %168
+  %696 = icmp samesign uge i32 %695, %168
   tail call void @llvm.assume(i1 %696)
   %697 = sub nsw i32 %695, %168
   %698 = shl i64 %694, %655
@@ -1964,7 +1964,7 @@ default.unreachable149:                           ; preds = %167, %149, %131, %1
   store i16 %704, ptr %705, align 2, !tbaa !135
   %706 = icmp ult i32 %697, 65
   tail call void @llvm.assume(i1 %706)
-  %707 = icmp ult i32 %697, %168
+  %707 = icmp samesign ult i32 %697, %168
   br i1 %707, label %708, label %734
 
 708:                                              ; preds = %692
@@ -2010,7 +2010,7 @@ default.unreachable149:                           ; preds = %167, %149, %131, %1
   %735 = phi i32 [ %709, %725 ], [ %693, %692 ]
   %736 = phi i64 [ %733, %725 ], [ %698, %692 ]
   %737 = phi i32 [ %729, %725 ], [ %697, %692 ]
-  %738 = icmp uge i32 %737, %168
+  %738 = icmp samesign uge i32 %737, %168
   tail call void @llvm.assume(i1 %738)
   %739 = sub nsw i32 %737, %168
   %740 = shl i64 %736, %655
@@ -2024,7 +2024,7 @@ default.unreachable149:                           ; preds = %167, %149, %131, %1
   store i16 %746, ptr %747, align 2, !tbaa !135
   %748 = icmp ult i32 %739, 65
   tail call void @llvm.assume(i1 %748)
-  %749 = icmp ult i32 %739, %168
+  %749 = icmp samesign ult i32 %739, %168
   br i1 %749, label %750, label %776
 
 750:                                              ; preds = %734
@@ -2070,7 +2070,7 @@ default.unreachable149:                           ; preds = %167, %149, %131, %1
   %777 = phi i32 [ %751, %767 ], [ %735, %734 ]
   %778 = phi i64 [ %775, %767 ], [ %740, %734 ]
   %779 = phi i32 [ %771, %767 ], [ %739, %734 ]
-  %780 = icmp uge i32 %779, %168
+  %780 = icmp samesign uge i32 %779, %168
   tail call void @llvm.assume(i1 %780)
   %781 = sub nsw i32 %779, %168
   %782 = shl i64 %778, %655
@@ -2115,7 +2115,7 @@ default.unreachable149:                           ; preds = %167, %149, %131, %1
   tail call void @llvm.assume(i1 %810)
   %811 = icmp sgt i32 %788, -1
   tail call void @llvm.assume(i1 %811)
-  %812 = icmp ult i32 %787, %186
+  %812 = icmp samesign ult i32 %787, %186
   br i1 %812, label %813, label %839
 
 813:                                              ; preds = %809
@@ -2161,7 +2161,7 @@ default.unreachable149:                           ; preds = %167, %149, %131, %1
   %840 = phi i32 [ %814, %830 ], [ %788, %809 ]
   %841 = phi i64 [ %838, %830 ], [ %786, %809 ]
   %842 = phi i32 [ %834, %830 ], [ %787, %809 ]
-  %843 = icmp uge i32 %842, %186
+  %843 = icmp samesign uge i32 %842, %186
   tail call void @llvm.assume(i1 %843)
   %844 = sub nuw nsw i32 64, %186
   %845 = zext nneg i32 %844 to i64
@@ -2178,7 +2178,7 @@ default.unreachable149:                           ; preds = %167, %149, %131, %1
   store i16 %854, ptr %855, align 2, !tbaa !135
   %856 = icmp ult i32 %846, 65
   tail call void @llvm.assume(i1 %856)
-  %857 = icmp ult i32 %846, %186
+  %857 = icmp samesign ult i32 %846, %186
   br i1 %857, label %858, label %884
 
 858:                                              ; preds = %839
@@ -2224,7 +2224,7 @@ default.unreachable149:                           ; preds = %167, %149, %131, %1
   %885 = phi i32 [ %859, %875 ], [ %840, %839 ]
   %886 = phi i64 [ %883, %875 ], [ %848, %839 ]
   %887 = phi i32 [ %879, %875 ], [ %846, %839 ]
-  %888 = icmp uge i32 %887, %186
+  %888 = icmp samesign uge i32 %887, %186
   tail call void @llvm.assume(i1 %888)
   %889 = sub nsw i32 %887, %186
   %890 = shl i64 %886, %847
@@ -2238,7 +2238,7 @@ default.unreachable149:                           ; preds = %167, %149, %131, %1
   store i16 %896, ptr %897, align 2, !tbaa !135
   %898 = icmp ult i32 %889, 65
   tail call void @llvm.assume(i1 %898)
-  %899 = icmp ult i32 %889, %186
+  %899 = icmp samesign ult i32 %889, %186
   br i1 %899, label %900, label %926
 
 900:                                              ; preds = %884
@@ -2284,7 +2284,7 @@ default.unreachable149:                           ; preds = %167, %149, %131, %1
   %927 = phi i32 [ %901, %917 ], [ %885, %884 ]
   %928 = phi i64 [ %925, %917 ], [ %890, %884 ]
   %929 = phi i32 [ %921, %917 ], [ %889, %884 ]
-  %930 = icmp uge i32 %929, %186
+  %930 = icmp samesign uge i32 %929, %186
   tail call void @llvm.assume(i1 %930)
   %931 = sub nsw i32 %929, %186
   %932 = shl i64 %928, %847
@@ -2298,7 +2298,7 @@ default.unreachable149:                           ; preds = %167, %149, %131, %1
   store i16 %938, ptr %939, align 2, !tbaa !135
   %940 = icmp ult i32 %931, 65
   tail call void @llvm.assume(i1 %940)
-  %941 = icmp ult i32 %931, %186
+  %941 = icmp samesign ult i32 %931, %186
   br i1 %941, label %942, label %968
 
 942:                                              ; preds = %926
@@ -2344,7 +2344,7 @@ default.unreachable149:                           ; preds = %167, %149, %131, %1
   %969 = phi i32 [ %943, %959 ], [ %927, %926 ]
   %970 = phi i64 [ %967, %959 ], [ %932, %926 ]
   %971 = phi i32 [ %963, %959 ], [ %931, %926 ]
-  %972 = icmp uge i32 %971, %186
+  %972 = icmp samesign uge i32 %971, %186
   tail call void @llvm.assume(i1 %972)
   %973 = sub nsw i32 %971, %186
   %974 = shl i64 %970, %847
@@ -2706,7 +2706,7 @@ default.unreachable149:                           ; preds = %167, %149, %131, %1
   tail call void @llvm.assume(i1 %1202)
   %1203 = icmp sgt i32 %1192, -1
   tail call void @llvm.assume(i1 %1203)
-  %1204 = icmp ult i32 %1191, %150
+  %1204 = icmp samesign ult i32 %1191, %150
   br i1 %1204, label %1205, label %1231
 
 1205:                                             ; preds = %1201
@@ -3036,7 +3036,7 @@ default.unreachable149:                           ; preds = %167, %149, %131, %1
   tail call void @llvm.assume(i1 %1420)
   %1421 = icmp sgt i32 %1405, -1
   tail call void @llvm.assume(i1 %1421)
-  %1422 = icmp ult i32 %1404, %168
+  %1422 = icmp samesign ult i32 %1404, %168
   br i1 %1422, label %1423, label %1450
 
 1423:                                             ; preds = %1419
@@ -3086,7 +3086,7 @@ default.unreachable149:                           ; preds = %167, %149, %131, %1
   %1451 = phi i32 [ %1424, %1441 ], [ %1405, %1419 ]
   %1452 = phi i64 [ %1449, %1441 ], [ %1403, %1419 ]
   %1453 = phi i32 [ %1445, %1441 ], [ %1404, %1419 ]
-  %1454 = icmp uge i32 %1453, %168
+  %1454 = icmp samesign uge i32 %1453, %168
   tail call void @llvm.assume(i1 %1454)
   %1455 = sub nuw nsw i32 64, %168
   %1456 = zext nneg i32 %1455 to i64
@@ -3120,7 +3120,7 @@ default.unreachable149:                           ; preds = %167, %149, %131, %1
   tail call void @llvm.assume(i1 %1474)
   %1475 = icmp sgt i32 %1465, -1
   tail call void @llvm.assume(i1 %1475)
-  %1476 = icmp ult i32 %1464, %168
+  %1476 = icmp samesign ult i32 %1464, %168
   br i1 %1476, label %1477, label %1503
 
 1477:                                             ; preds = %1473
@@ -3166,7 +3166,7 @@ default.unreachable149:                           ; preds = %167, %149, %131, %1
   %1504 = phi i32 [ %1478, %1494 ], [ %1465, %1473 ]
   %1505 = phi i64 [ %1502, %1494 ], [ %1463, %1473 ]
   %1506 = phi i32 [ %1498, %1494 ], [ %1464, %1473 ]
-  %1507 = icmp uge i32 %1506, %168
+  %1507 = icmp samesign uge i32 %1506, %168
   tail call void @llvm.assume(i1 %1507)
   %1508 = sub nuw nsw i32 64, %168
   %1509 = zext nneg i32 %1508 to i64
@@ -3200,7 +3200,7 @@ default.unreachable149:                           ; preds = %167, %149, %131, %1
   tail call void @llvm.assume(i1 %1527)
   %1528 = icmp sgt i32 %1518, -1
   tail call void @llvm.assume(i1 %1528)
-  %1529 = icmp ult i32 %1517, %168
+  %1529 = icmp samesign ult i32 %1517, %168
   br i1 %1529, label %1530, label %1556
 
 1530:                                             ; preds = %1526
@@ -3246,7 +3246,7 @@ default.unreachable149:                           ; preds = %167, %149, %131, %1
   %1557 = phi i32 [ %1531, %1547 ], [ %1518, %1526 ]
   %1558 = phi i64 [ %1555, %1547 ], [ %1516, %1526 ]
   %1559 = phi i32 [ %1551, %1547 ], [ %1517, %1526 ]
-  %1560 = icmp uge i32 %1559, %168
+  %1560 = icmp samesign uge i32 %1559, %168
   tail call void @llvm.assume(i1 %1560)
   %1561 = sub nuw nsw i32 64, %168
   %1562 = zext nneg i32 %1561 to i64
@@ -3280,7 +3280,7 @@ default.unreachable149:                           ; preds = %167, %149, %131, %1
   tail call void @llvm.assume(i1 %1580)
   %1581 = icmp sgt i32 %1571, -1
   tail call void @llvm.assume(i1 %1581)
-  %1582 = icmp ult i32 %1570, %168
+  %1582 = icmp samesign ult i32 %1570, %168
   br i1 %1582, label %1583, label %1609
 
 1583:                                             ; preds = %1579
@@ -3326,7 +3326,7 @@ default.unreachable149:                           ; preds = %167, %149, %131, %1
   %1610 = phi i32 [ %1584, %1600 ], [ %1571, %1579 ]
   %1611 = phi i64 [ %1608, %1600 ], [ %1569, %1579 ]
   %1612 = phi i32 [ %1604, %1600 ], [ %1570, %1579 ]
-  %1613 = icmp uge i32 %1612, %168
+  %1613 = icmp samesign uge i32 %1612, %168
   tail call void @llvm.assume(i1 %1613)
   %1614 = sub nuw nsw i32 64, %168
   %1615 = zext nneg i32 %1614 to i64
@@ -3361,7 +3361,7 @@ default.unreachable149:                           ; preds = %167, %149, %131, %1
   tail call void @llvm.assume(i1 %1634)
   %1635 = icmp sgt i32 %1624, -1
   tail call void @llvm.assume(i1 %1635)
-  %1636 = icmp ult i32 %1623, %186
+  %1636 = icmp samesign ult i32 %1623, %186
   br i1 %1636, label %1637, label %1663
 
 1637:                                             ; preds = %1633
@@ -3407,7 +3407,7 @@ default.unreachable149:                           ; preds = %167, %149, %131, %1
   %1664 = phi i32 [ %1638, %1654 ], [ %1624, %1633 ]
   %1665 = phi i64 [ %1662, %1654 ], [ %1622, %1633 ]
   %1666 = phi i32 [ %1658, %1654 ], [ %1623, %1633 ]
-  %1667 = icmp uge i32 %1666, %186
+  %1667 = icmp samesign uge i32 %1666, %186
   tail call void @llvm.assume(i1 %1667)
   %1668 = sub nuw nsw i32 64, %186
   %1669 = zext nneg i32 %1668 to i64
@@ -3441,7 +3441,7 @@ default.unreachable149:                           ; preds = %167, %149, %131, %1
   tail call void @llvm.assume(i1 %1687)
   %1688 = icmp sgt i32 %1678, -1
   tail call void @llvm.assume(i1 %1688)
-  %1689 = icmp ult i32 %1677, %186
+  %1689 = icmp samesign ult i32 %1677, %186
   br i1 %1689, label %1690, label %1716
 
 1690:                                             ; preds = %1686
@@ -3487,7 +3487,7 @@ default.unreachable149:                           ; preds = %167, %149, %131, %1
   %1717 = phi i32 [ %1691, %1707 ], [ %1678, %1686 ]
   %1718 = phi i64 [ %1715, %1707 ], [ %1676, %1686 ]
   %1719 = phi i32 [ %1711, %1707 ], [ %1677, %1686 ]
-  %1720 = icmp uge i32 %1719, %186
+  %1720 = icmp samesign uge i32 %1719, %186
   tail call void @llvm.assume(i1 %1720)
   %1721 = sub nuw nsw i32 64, %186
   %1722 = zext nneg i32 %1721 to i64
@@ -3521,7 +3521,7 @@ default.unreachable149:                           ; preds = %167, %149, %131, %1
   tail call void @llvm.assume(i1 %1740)
   %1741 = icmp sgt i32 %1731, -1
   tail call void @llvm.assume(i1 %1741)
-  %1742 = icmp ult i32 %1730, %186
+  %1742 = icmp samesign ult i32 %1730, %186
   br i1 %1742, label %1743, label %1769
 
 1743:                                             ; preds = %1739
@@ -3567,7 +3567,7 @@ default.unreachable149:                           ; preds = %167, %149, %131, %1
   %1770 = phi i32 [ %1744, %1760 ], [ %1731, %1739 ]
   %1771 = phi i64 [ %1768, %1760 ], [ %1729, %1739 ]
   %1772 = phi i32 [ %1764, %1760 ], [ %1730, %1739 ]
-  %1773 = icmp uge i32 %1772, %186
+  %1773 = icmp samesign uge i32 %1772, %186
   tail call void @llvm.assume(i1 %1773)
   %1774 = sub nuw nsw i32 64, %186
   %1775 = zext nneg i32 %1774 to i64
@@ -3601,7 +3601,7 @@ default.unreachable149:                           ; preds = %167, %149, %131, %1
   tail call void @llvm.assume(i1 %1793)
   %1794 = icmp sgt i32 %1784, -1
   tail call void @llvm.assume(i1 %1794)
-  %1795 = icmp ult i32 %1783, %186
+  %1795 = icmp samesign ult i32 %1783, %186
   br i1 %1795, label %1796, label %1822
 
 1796:                                             ; preds = %1792
@@ -3647,7 +3647,7 @@ default.unreachable149:                           ; preds = %167, %149, %131, %1
   %1823 = phi i32 [ %1797, %1813 ], [ %1784, %1792 ]
   %1824 = phi i64 [ %1821, %1813 ], [ %1782, %1792 ]
   %1825 = phi i32 [ %1817, %1813 ], [ %1783, %1792 ]
-  %1826 = icmp uge i32 %1825, %186
+  %1826 = icmp samesign uge i32 %1825, %186
   tail call void @llvm.assume(i1 %1826)
   %1827 = sub nuw nsw i32 64, %186
   %1828 = zext nneg i32 %1827 to i64

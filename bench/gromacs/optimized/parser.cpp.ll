@@ -557,7 +557,7 @@ define noundef range(i32 0, 5) i32 @_Z21_gmx_sel_yypush_parseP17_gmx_sel_yypstat
 
 213:                                              ; preds = %206
   %214 = shl nuw nsw i64 %202, 1
-  %215 = icmp ugt i64 %202, 5000
+  %215 = icmp samesign ugt i64 %202, 5000
   %spec.select = select i1 %215, i64 10000, i64 %214
   store i64 %spec.select, ptr %201, align 8
   %216 = mul nuw nsw i64 %spec.select, 18
@@ -726,7 +726,7 @@ define noundef range(i32 0, 5) i32 @_Z21_gmx_sel_yypush_parseP17_gmx_sel_yypstat
   br label %319
 
 298:                                              ; preds = %291
-  %299 = icmp ult i32 %.5, 289
+  %299 = icmp samesign ult i32 %.5, 289
   br i1 %299, label %300, label %305
 
 300:                                              ; preds = %298
@@ -804,7 +804,7 @@ define noundef range(i32 0, 5) i32 @_Z21_gmx_sel_yypush_parseP17_gmx_sel_yypstat
   %341 = load ptr, ptr @stderr, align 8
   %342 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %341, ptr noundef nonnull @.str.6, ptr noundef nonnull @.str.9) #25
   %343 = load ptr, ptr @stderr, align 8
-  %344 = icmp ult i32 %.0752, 49
+  %344 = icmp samesign ult i32 %.0752, 49
   %.str.18..str.19.i1291 = select i1 %344, ptr @.str.18, ptr @.str.19
   %345 = zext nneg i32 %.0752 to i64
   %346 = getelementptr inbounds [75 x ptr], ptr @_ZL7yytname, i64 0, i64 %345

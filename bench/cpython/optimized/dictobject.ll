@@ -1242,7 +1242,7 @@ if.then63:                                        ; preds = %do.body58
   unreachable
 
 do.body66:                                        ; preds = %do.body58
-  %cmp68 = icmp ult i64 %6, 31
+  %cmp68 = icmp samesign ult i64 %6, 31
   br i1 %cmp68, label %if.end73, label %if.then70
 
 if.then70:                                        ; preds = %do.body66
@@ -2759,7 +2759,7 @@ if.end7.i.i:                                      ; preds = %if.else.i.i, %if.th
   br label %return
 
 if.end:                                           ; preds = %entry
-  %cmp1 = icmp ugt i64 %minused, 87381
+  %cmp1 = icmp samesign ugt i64 %minused, 87381
   br i1 %cmp1, label %if.else.i.thread, label %if.end4
 
 if.else.i.thread:                                 ; preds = %if.end
@@ -6561,11 +6561,11 @@ if.end:                                           ; preds = %entry
   %sh_prom.i = zext nneg i8 %log2_newsize to i64
   %shl1.i = shl i64 2, %sh_prom.i
   %div.i = udiv i64 %shl1.i, 3
-  %cmp.i = icmp ult i8 %log2_newsize, 8
+  %cmp.i = icmp samesign ult i8 %log2_newsize, 8
   br i1 %cmp.i, label %if.end21.i, label %if.else.i
 
 if.else.i:                                        ; preds = %if.end
-  %cmp6.i = icmp ult i8 %log2_newsize, 16
+  %cmp6.i = icmp samesign ult i8 %log2_newsize, 16
   br i1 %cmp6.i, label %if.then8.i, label %if.else10.i
 
 if.then8.i:                                       ; preds = %if.else.i
@@ -6573,7 +6573,7 @@ if.then8.i:                                       ; preds = %if.else.i
   br label %if.else32.i
 
 if.else10.i:                                      ; preds = %if.else.i
-  %cmp12.i = icmp ugt i8 %log2_newsize, 31
+  %cmp12.i = icmp samesign ugt i8 %log2_newsize, 31
   br i1 %cmp12.i, label %if.then14.i, label %if.else17.i
 
 if.then14.i:                                      ; preds = %if.else10.i
@@ -13513,7 +13513,7 @@ if.then30:                                        ; preds = %if.end26
   br label %if.end55
 
 sw.bb33:                                          ; preds = %if.end22
-  %cmp34 = icmp ult i64 %call16, %call19
+  %cmp34 = icmp samesign ult i64 %call16, %call19
   br i1 %cmp34, label %if.then35, label %if.end55.thread
 
 if.then35:                                        ; preds = %sw.bb33
@@ -13521,7 +13521,7 @@ if.then35:                                        ; preds = %sw.bb33
   br label %sw.epilog
 
 sw.bb38:                                          ; preds = %if.end22
-  %cmp39.not = icmp ugt i64 %call16, %call19
+  %cmp39.not = icmp samesign ugt i64 %call16, %call19
   br i1 %cmp39.not, label %if.end55.thread, label %if.then40
 
 if.then40:                                        ; preds = %sw.bb38
@@ -13529,7 +13529,7 @@ if.then40:                                        ; preds = %sw.bb38
   br label %sw.epilog
 
 sw.bb43:                                          ; preds = %if.end22
-  %cmp44 = icmp ugt i64 %call16, %call19
+  %cmp44 = icmp samesign ugt i64 %call16, %call19
   br i1 %cmp44, label %if.then45, label %if.end55.thread
 
 if.then45:                                        ; preds = %sw.bb43
@@ -13537,7 +13537,7 @@ if.then45:                                        ; preds = %sw.bb43
   br label %sw.epilog
 
 sw.bb48:                                          ; preds = %if.end22
-  %cmp49.not = icmp ult i64 %call16, %call19
+  %cmp49.not = icmp samesign ult i64 %call16, %call19
   br i1 %cmp49.not, label %if.end55.thread, label %if.then50
 
 if.then50:                                        ; preds = %sw.bb48

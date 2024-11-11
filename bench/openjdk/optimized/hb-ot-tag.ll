@@ -935,7 +935,7 @@ _ZL12lang_matchesPKcS0_S0_j.exit949.i.i:          ; preds = %.thread1149.i.i
   br label %.sink.split
 
 _ZL12lang_matchesPKcS0_S0_j.exit949.thread.i.i:   ; preds = %131
-  %282 = icmp ult i32 %135, 7
+  %282 = icmp samesign ult i32 %135, 7
   br i1 %282, label %sub_0.i.i, label %_ZL12lang_matchesPKcS0_S0_j.exit949.thread.thread.i.i
 
 _ZL12lang_matchesPKcS0_S0_j.exit949.thread.thread.i.i: ; preds = %_ZL12lang_matchesPKcS0_S0_j.exit949.thread.i.i, %_ZL12lang_matchesPKcS0_S0_j.exit949.i.i, %.thread1149.i.i
@@ -1687,7 +1687,7 @@ _ZL12lang_matchesPKcS0_S0_j.exit1003.i.i:         ; preds = %.thread1215.i.i
   br label %.sink.split
 
 _ZL12lang_matchesPKcS0_S0_j.exit1003.thread.i.i:  ; preds = %538
-  %563 = icmp ult i32 %542, 7
+  %563 = icmp samesign ult i32 %542, 7
   br i1 %563, label %_ZL12lang_matchesPKcS0_S0_j.exit1009.thread.i.i, label %_ZL12lang_matchesPKcS0_S0_j.exit1003.thread.thread.i.i
 
 _ZL12lang_matchesPKcS0_S0_j.exit1003.thread.thread.i.i: ; preds = %_ZL12lang_matchesPKcS0_S0_j.exit1003.thread.i.i, %_ZL12lang_matchesPKcS0_S0_j.exit1003.i.i, %.thread1215.i.i
@@ -1914,7 +1914,7 @@ _ZL12lang_matchesPKcS0_S0_j.exit1024.i.i:         ; preds = %.thread1232.i.i
   br label %.sink.split
 
 _ZL12lang_matchesPKcS0_S0_j.exit1024.thread.i.i:  ; preds = %602
-  %645 = icmp ult i32 %606, 7
+  %645 = icmp samesign ult i32 %606, 7
   br i1 %645, label %sub_01333.i.i, label %_ZL12lang_matchesPKcS0_S0_j.exit1024.thread.thread.i.i
 
 _ZL12lang_matchesPKcS0_S0_j.exit1024.thread.thread.i.i: ; preds = %_ZL12lang_matchesPKcS0_S0_j.exit1024.thread.i.i, %_ZL12lang_matchesPKcS0_S0_j.exit1024.i.i, %.thread1232.i.i
@@ -2223,7 +2223,7 @@ _ZL12lang_matchesPKcS0_S0_j.exit1045.i.i:         ; preds = %.thread1251.i.i
   br label %.sink.split
 
 _ZL12lang_matchesPKcS0_S0_j.exit1045.thread.i.i:  ; preds = %744
-  %769 = icmp ult i32 %748, 7
+  %769 = icmp samesign ult i32 %748, 7
   br i1 %769, label %sub_01342.i.i, label %_ZL12lang_matchesPKcS0_S0_j.exit1045.thread.thread.i.i
 
 _ZL12lang_matchesPKcS0_S0_j.exit1045.thread.thread.i.i: ; preds = %_ZL12lang_matchesPKcS0_S0_j.exit1045.thread.i.i, %_ZL12lang_matchesPKcS0_S0_j.exit1045.i.i, %.thread1251.i.i
@@ -2393,7 +2393,7 @@ _ZL12lang_matchesPKcS0_S0_j.exit1057.i.i:         ; preds = %.thread1261.i.i
   br label %.sink.split
 
 _ZL12lang_matchesPKcS0_S0_j.exit1057.thread.i.i:  ; preds = %809
-  %834 = icmp ult i32 %813, 7
+  %834 = icmp samesign ult i32 %813, 7
   br i1 %834, label %sub_01351.i.i, label %_ZL12lang_matchesPKcS0_S0_j.exit1057.thread.thread.i.i
 
 _ZL12lang_matchesPKcS0_S0_j.exit1057.thread.thread.i.i: ; preds = %_ZL12lang_matchesPKcS0_S0_j.exit1057.thread.i.i, %_ZL12lang_matchesPKcS0_S0_j.exit1057.i.i, %.thread1261.i.i
@@ -2618,7 +2618,7 @@ _ZL12lang_matchesPKcS0_S0_j.exit1077.i.i:         ; preds = %.thread1272.i.i
   br label %.sink.split
 
 _ZL12lang_matchesPKcS0_S0_j.exit1077.thread.i.i:  ; preds = %899
-  %924 = icmp ult i32 %903, 7
+  %924 = icmp samesign ult i32 %903, 7
   br i1 %924, label %sub_01359.i.i, label %_ZL12lang_matchesPKcS0_S0_j.exit1077.thread.thread.i.i
 
 _ZL12lang_matchesPKcS0_S0_j.exit1077.thread.thread.i.i: ; preds = %_ZL12lang_matchesPKcS0_S0_j.exit1077.thread.i.i, %_ZL12lang_matchesPKcS0_S0_j.exit1077.i.i, %.thread1272.i.i

@@ -547,7 +547,7 @@ define hidden i64 @ft_lzwstate_io(ptr noundef %0, ptr noundef writeonly %1, i64 
   br i1 %62, label %.loopexit168, label %55
 
 63:                                               ; preds = %55
-  %64 = icmp ugt i32 %56, 255
+  %64 = icmp samesign ugt i32 %56, 255
   br i1 %64, label %.thread, label %.loopexit167
 
 .thread:                                          ; preds = %58, %63
@@ -557,7 +557,7 @@ define hidden i64 @ft_lzwstate_io(ptr noundef %0, ptr noundef writeonly %1, i64 
   br i1 %.not135, label %.lr.ph188, label %67
 
 67:                                               ; preds = %.thread
-  %68 = icmp ugt i32 %65, %66
+  %68 = icmp samesign ugt i32 %65, %66
   br i1 %68, label %.loopexit168, label %69
 
 69:                                               ; preds = %67
@@ -583,12 +583,12 @@ define hidden i64 @ft_lzwstate_io(ptr noundef %0, ptr noundef writeonly %1, i64 
   br i1 %84, label %.thread.i, label %85
 
 85:                                               ; preds = %75
-  %86 = icmp ugt i64 %79, 65532
+  %86 = icmp samesign ugt i64 %79, 65532
   br i1 %86, label %88, label %.thread31.i
 
 .thread.i:                                        ; preds = %75
   store ptr null, ptr %81, align 8
-  %87 = icmp ugt i64 %79, 65532
+  %87 = icmp samesign ugt i64 %79, 65532
   %spec.select.i = select i1 %87, i64 65536, i64 %80
   br label %.thread31.i
 
@@ -674,12 +674,12 @@ ft_lzwstate_stack_grow.exit:                      ; preds = %93, %95
   br i1 %122, label %.thread.i149, label %123
 
 123:                                              ; preds = %117
-  %124 = icmp ugt i64 %120, 65532
+  %124 = icmp samesign ugt i64 %120, 65532
   br i1 %124, label %126, label %.thread31.i144
 
 .thread.i149:                                     ; preds = %117
   store ptr null, ptr %108, align 8
-  %125 = icmp ugt i64 %120, 65532
+  %125 = icmp samesign ugt i64 %120, 65532
   %spec.select.i150 = select i1 %125, i64 65536, i64 %121
   br label %.thread31.i144
 
@@ -762,12 +762,12 @@ ft_lzwstate_stack_grow.exit151:                   ; preds = %131, %133
   br i1 %163, label %.thread.i158, label %164
 
 164:                                              ; preds = %154
-  %165 = icmp ugt i64 %158, 65532
+  %165 = icmp samesign ugt i64 %158, 65532
   br i1 %165, label %167, label %.thread31.i153
 
 .thread.i158:                                     ; preds = %154
   store ptr null, ptr %160, align 8
-  %166 = icmp ugt i64 %158, 65532
+  %166 = icmp samesign ugt i64 %158, 65532
   %spec.select.i159 = select i1 %166, i64 65536, i64 %159
   br label %.thread31.i153
 

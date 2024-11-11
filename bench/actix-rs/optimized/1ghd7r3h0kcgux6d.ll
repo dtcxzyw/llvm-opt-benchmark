@@ -7642,7 +7642,7 @@ thread-pre-split288:                              ; preds = %459
 596:                                              ; preds = %591
   call void @llvm.lifetime.start.p0(i64 264, ptr nonnull %8), !noalias !621
   call void @"_ZN102_$LT$brotli..enc..brotli_bit_stream..MetaBlockSplit$LT$Alloc$GT$$u20$as$u20$core..default..Default$GT$7default17h0b5cf102879d0f7cE"(ptr noalias nocapture noundef nonnull sret({ { { { { { { ptr, i64 } }, {} }, {} } }, { { { { { ptr, i64 } }, {} }, {} } }, i64, i64 }, { { { { { { ptr, i64 } }, {} }, {} } }, { { { { { ptr, i64 } }, {} }, {} } }, i64, i64 }, { { { { { { ptr, i64 } }, {} }, {} } }, { { { { { ptr, i64 } }, {} }, {} } }, i64, i64 }, { { { { { ptr, i64 } }, {} }, {} } }, { { { { { ptr, i64 } }, {} }, {} } }, { { { { { ptr, i64 } }, {} }, {} } }, { { { { { ptr, i64 } }, {} }, {} } }, { { { { { ptr, i64 } }, {} }, {} } }, i64, i64, i64, i64, i64 }) align 8 dereferenceable(264) %8), !noalias !634
-  %597 = icmp ult i32 %507, 10
+  %597 = icmp samesign ult i32 %507, 10
   br i1 %597, label %603, label %601
 
 598:                                              ; preds = %591
@@ -9052,7 +9052,7 @@ thread-pre-split288:                              ; preds = %459
 596:                                              ; preds = %591
   call void @llvm.lifetime.start.p0(i64 264, ptr nonnull %8), !noalias !752
   call void @"_ZN102_$LT$brotli..enc..brotli_bit_stream..MetaBlockSplit$LT$Alloc$GT$$u20$as$u20$core..default..Default$GT$7default17h0b5cf102879d0f7cE"(ptr noalias nocapture noundef nonnull sret({ { { { { { { ptr, i64 } }, {} }, {} } }, { { { { { ptr, i64 } }, {} }, {} } }, i64, i64 }, { { { { { { ptr, i64 } }, {} }, {} } }, { { { { { ptr, i64 } }, {} }, {} } }, i64, i64 }, { { { { { { ptr, i64 } }, {} }, {} } }, { { { { { ptr, i64 } }, {} }, {} } }, i64, i64 }, { { { { { ptr, i64 } }, {} }, {} } }, { { { { { ptr, i64 } }, {} }, {} } }, { { { { { ptr, i64 } }, {} }, {} } }, { { { { { ptr, i64 } }, {} }, {} } }, { { { { { ptr, i64 } }, {} }, {} } }, i64, i64, i64, i64, i64 }) align 8 dereferenceable(264) %8), !noalias !764
-  %597 = icmp ult i32 %507, 10
+  %597 = icmp samesign ult i32 %507, 10
   br i1 %597, label %603, label %601
 
 598:                                              ; preds = %591
@@ -10143,7 +10143,7 @@ define internal fastcc void @_ZN6brotli3enc6encode17EnsureInitialized17he31be0b3
   br i1 %11, label %.sink.split.i, label %12
 
 12:                                               ; preds = %5
-  %13 = icmp ugt i32 %10, 24
+  %13 = icmp samesign ugt i32 %10, 24
   br i1 %13, label %14, label %20
 
 14:                                               ; preds = %12
@@ -10153,7 +10153,7 @@ define internal fastcc void @_ZN6brotli3enc6encode17EnsureInitialized17he31be0b3
   br i1 %17, label %18, label %.sink.split.i
 
 18:                                               ; preds = %14
-  %19 = icmp ugt i32 %10, 30
+  %19 = icmp samesign ugt i32 %10, 30
   br i1 %19, label %.sink.split.i, label %20
 
 .sink.split.i:                                    ; preds = %18, %14, %5
@@ -10180,7 +10180,7 @@ _ZN6brotli3enc6encode14SanitizeParams17hfaa645002561aa54E.exit: ; preds = %20, %
   br i1 %switch.i, label %_ZN6brotli3enc6encode14ComputeLgBlock17he66d1f6c9084f287E.exit, label %29
 
 29:                                               ; preds = %_ZN6brotli3enc6encode14SanitizeParams17hfaa645002561aa54E.exit
-  %30 = icmp ult i32 %8, 4
+  %30 = icmp samesign ult i32 %8, 4
   br i1 %30, label %_ZN6brotli3enc6encode14ComputeLgBlock17he66d1f6c9084f287E.exit, label %31
 
 31:                                               ; preds = %29
@@ -10188,9 +10188,9 @@ _ZN6brotli3enc6encode14SanitizeParams17hfaa645002561aa54E.exit: ; preds = %20, %
   br i1 %32, label %33, label %36
 
 33:                                               ; preds = %31
-  %34 = icmp ugt i32 %8, 8
-  %35 = icmp ugt i32 %21, 16
-  %or.cond33 = and i1 %34, %35
+  %34 = icmp samesign ugt i32 %8, 8
+  %35 = icmp samesign ugt i32 %21, 16
+  %or.cond33 = select i1 %34, i1 %35, i1 false
   br i1 %or.cond33, label %37, label %_ZN6brotli3enc6encode14ComputeLgBlock17he66d1f6c9084f287E.exit
 
 36:                                               ; preds = %31
@@ -10549,7 +10549,7 @@ _ZN6brotli3enc7command17GetCopyLengthCode17hab981e27915e86caE.exit: ; preds = %1
   br label %_ZN6brotli3enc7command18CombineLengthCodes17he28c5563882f5f20E.exit
 
 155:                                              ; preds = %_ZN6brotli3enc7command17GetCopyLengthCode17hab981e27915e86caE.exit
-  %156 = icmp ult i16 %.0.i, 8
+  %156 = icmp samesign ult i16 %.0.i, 8
   %157 = or disjoint i16 %139, 64
   %spec.select.i = select i1 %156, i16 %139, i16 %157
   br label %_ZN6brotli3enc7command18CombineLengthCodes17he28c5563882f5f20E.exit

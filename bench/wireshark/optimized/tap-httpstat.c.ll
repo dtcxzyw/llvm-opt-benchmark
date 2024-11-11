@@ -139,19 +139,19 @@ define internal range(i32 0, 2) i32 @httpstat_packet(ptr noundef %0, ptr nocaptu
   br i1 %or.cond, label %54, label %18
 
 18:                                               ; preds = %15
-  %19 = icmp ult i32 %16, 200
+  %19 = icmp samesign ult i32 %16, 200
   br i1 %19, label %26, label %20
 
 20:                                               ; preds = %18
-  %21 = icmp ult i32 %16, 300
+  %21 = icmp samesign ult i32 %16, 300
   br i1 %21, label %26, label %22
 
 22:                                               ; preds = %20
-  %23 = icmp ult i32 %16, 400
+  %23 = icmp samesign ult i32 %16, 400
   br i1 %23, label %26, label %24
 
 24:                                               ; preds = %22
-  %25 = icmp ult i32 %16, 500
+  %25 = icmp samesign ult i32 %16, 500
   %. = select i1 %25, i64 499, i64 599
   br label %26
 

@@ -2329,7 +2329,7 @@ define dso_local range(i32 -30, 1) i32 @archive_acl_from_text_w(ptr nocapture no
 
 72:                                               ; preds = %70
   %73 = icmp eq i32 %.022.i, 214748364
-  %74 = icmp ugt i32 %68, 55
+  %74 = icmp samesign ugt i32 %68, 55
   %or.cond19.i = and i1 %73, %74
   br i1 %or.cond19.i, label %79, label %75
 
@@ -2377,7 +2377,7 @@ isint_w.exit.thread:                              ; preds = %.preheader.i154, %.
 
 94:                                               ; preds = %92
   %95 = icmp eq i32 %.022.i159, 214748364
-  %96 = icmp ugt i32 %90, 55
+  %96 = icmp samesign ugt i32 %90, 55
   %or.cond19.i162 = and i1 %95, %96
   br i1 %or.cond19.i162, label %101, label %97
 
@@ -2626,7 +2626,7 @@ ismode_w.exit.thread250:                          ; preds = %146, %134, %147, %i
 
 185:                                              ; preds = %183
   %186 = icmp eq i32 %.022.i178, 214748364
-  %187 = icmp ugt i32 %181, 55
+  %187 = icmp samesign ugt i32 %181, 55
   %or.cond19.i181 = and i1 %186, %187
   br i1 %or.cond19.i181, label %192, label %188
 
@@ -2845,7 +2845,7 @@ isint_w.exit183:                                  ; preds = %.preheader.i177, %1
 
 267:                                              ; preds = %265
   %268 = icmp eq i32 %.022.i191, 214748364
-  %269 = icmp ugt i32 %263, 55
+  %269 = icmp samesign ugt i32 %263, 55
   %or.cond19.i194 = and i1 %268, %269
   br i1 %or.cond19.i194, label %274, label %270
 
@@ -3219,7 +3219,7 @@ define dso_local range(i32 -2147483648, 1) i32 @archive_acl_from_text_l(ptr noca
 
 72:                                               ; preds = %70
   %73 = icmp eq i32 %.022.i, 214748364
-  %74 = icmp ugt i8 %68, 55
+  %74 = icmp samesign ugt i8 %68, 55
   %or.cond19.i = and i1 %73, %74
   br i1 %or.cond19.i, label %80, label %75
 
@@ -3268,7 +3268,7 @@ isint.exit.thread:                                ; preds = %.preheader.i164, %.
 
 94:                                               ; preds = %92
   %95 = icmp eq i32 %.022.i169, 214748364
-  %96 = icmp ugt i8 %90, 55
+  %96 = icmp samesign ugt i8 %90, 55
   %or.cond19.i172 = and i1 %95, %96
   br i1 %or.cond19.i172, label %102, label %97
 
@@ -3522,7 +3522,7 @@ ismode.exit.thread269:                            ; preds = %144, %133, %145, %i
 
 176:                                              ; preds = %174
   %177 = icmp eq i32 %.022.i191, 214748364
-  %178 = icmp ugt i8 %172, 55
+  %178 = icmp samesign ugt i8 %172, 55
   %or.cond19.i194 = and i1 %177, %178
   br i1 %or.cond19.i194, label %184, label %179
 
@@ -3742,7 +3742,7 @@ isint.exit197:                                    ; preds = %.preheader.i190, %1
 
 252:                                              ; preds = %250
   %253 = icmp eq i32 %.022.i207, 214748364
-  %254 = icmp ugt i8 %248, 55
+  %254 = icmp samesign ugt i8 %248, 55
   %or.cond19.i210 = and i1 %253, %254
   br i1 %or.cond19.i210, label %260, label %255
 

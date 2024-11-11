@@ -374,7 +374,7 @@ if.else:                                          ; preds = %if.then3
   br label %return
 
 if.else14:                                        ; preds = %if.then
-  %tobool16.not = icmp ult i64 %l, 1099511627776
+  %tobool16.not = icmp samesign ult i64 %l, 1099511627776
   br i1 %tobool16.not, label %if.else24, label %if.then17
 
 if.then17:                                        ; preds = %if.else14
@@ -394,11 +394,11 @@ if.else24:                                        ; preds = %if.else14
   br label %return
 
 if.else31:                                        ; preds = %entry
-  %tobool33.not = icmp ult i64 %l, 65536
+  %tobool33.not = icmp samesign ult i64 %l, 65536
   br i1 %tobool33.not, label %if.else51, label %if.then34
 
 if.then34:                                        ; preds = %if.else31
-  %tobool36.not = icmp ult i64 %l, 16777216
+  %tobool36.not = icmp samesign ult i64 %l, 16777216
   br i1 %tobool36.not, label %if.else44, label %if.then37
 
 if.then37:                                        ; preds = %if.then34
@@ -418,7 +418,7 @@ if.else44:                                        ; preds = %if.then34
   br label %return
 
 if.else51:                                        ; preds = %if.else31
-  %tobool53.not = icmp ult i64 %l, 256
+  %tobool53.not = icmp samesign ult i64 %l, 256
   br i1 %tobool53.not, label %if.else61, label %if.then54
 
 if.then54:                                        ; preds = %if.else51
@@ -484,7 +484,7 @@ if.else.i:                                        ; preds = %if.then3.i
   br label %BN_num_bits_word.exit
 
 if.else14.i:                                      ; preds = %if.then.i
-  %tobool16.not.i = icmp ult i64 %2, 1099511627776
+  %tobool16.not.i = icmp samesign ult i64 %2, 1099511627776
   br i1 %tobool16.not.i, label %if.else24.i, label %if.then17.i
 
 if.then17.i:                                      ; preds = %if.else14.i
@@ -504,11 +504,11 @@ if.else24.i:                                      ; preds = %if.else14.i
   br label %BN_num_bits_word.exit
 
 if.else31.i:                                      ; preds = %if.end
-  %tobool33.not.i = icmp ult i64 %2, 65536
+  %tobool33.not.i = icmp samesign ult i64 %2, 65536
   br i1 %tobool33.not.i, label %if.else51.i, label %if.then34.i
 
 if.then34.i:                                      ; preds = %if.else31.i
-  %tobool36.not.i = icmp ult i64 %2, 16777216
+  %tobool36.not.i = icmp samesign ult i64 %2, 16777216
   br i1 %tobool36.not.i, label %if.else44.i, label %if.then37.i
 
 if.then37.i:                                      ; preds = %if.then34.i
@@ -528,7 +528,7 @@ if.else44.i:                                      ; preds = %if.then34.i
   br label %BN_num_bits_word.exit
 
 if.else51.i:                                      ; preds = %if.else31.i
-  %tobool53.not.i = icmp ult i64 %2, 256
+  %tobool53.not.i = icmp samesign ult i64 %2, 256
   br i1 %tobool53.not.i, label %if.else61.i, label %if.then54.i
 
 if.then54.i:                                      ; preds = %if.else51.i
@@ -601,7 +601,7 @@ if.else.i.i:                                      ; preds = %if.then3.i.i
   br label %BN_num_bits_word.exit.i
 
 if.else14.i.i:                                    ; preds = %if.then.i.i
-  %tobool16.not.i.i = icmp ult i64 %2, 1099511627776
+  %tobool16.not.i.i = icmp samesign ult i64 %2, 1099511627776
   br i1 %tobool16.not.i.i, label %if.else24.i.i, label %if.then17.i.i
 
 if.then17.i.i:                                    ; preds = %if.else14.i.i
@@ -621,11 +621,11 @@ if.else24.i.i:                                    ; preds = %if.else14.i.i
   br label %BN_num_bits_word.exit.i
 
 if.else31.i.i:                                    ; preds = %if.end.i
-  %tobool33.not.i.i = icmp ult i64 %2, 65536
+  %tobool33.not.i.i = icmp samesign ult i64 %2, 65536
   br i1 %tobool33.not.i.i, label %if.else51.i.i, label %if.then34.i.i
 
 if.then34.i.i:                                    ; preds = %if.else31.i.i
-  %tobool36.not.i.i = icmp ult i64 %2, 16777216
+  %tobool36.not.i.i = icmp samesign ult i64 %2, 16777216
   br i1 %tobool36.not.i.i, label %if.else44.i.i, label %if.then37.i.i
 
 if.then37.i.i:                                    ; preds = %if.then34.i.i
@@ -645,7 +645,7 @@ if.else44.i.i:                                    ; preds = %if.then34.i.i
   br label %BN_num_bits_word.exit.i
 
 if.else51.i.i:                                    ; preds = %if.else31.i.i
-  %tobool53.not.i.i = icmp ult i64 %2, 256
+  %tobool53.not.i.i = icmp samesign ult i64 %2, 256
   br i1 %tobool53.not.i.i, label %if.else61.i.i, label %if.then54.i.i
 
 if.then54.i.i:                                    ; preds = %if.else51.i.i

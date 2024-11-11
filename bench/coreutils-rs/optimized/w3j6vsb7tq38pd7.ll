@@ -179,7 +179,7 @@ define hidden void @"_ZN4core4iter8adapters10filter_map19filter_map_try_fold28_$
   %44 = and i8 %42, 63
   %45 = zext nneg i8 %44 to i32
   %46 = or disjoint i32 %43, %45
-  %47 = icmp ugt i8 %36, -33
+  %47 = icmp samesign ugt i8 %36, -33
   br i1 %47, label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h5f5d71cf7d5442deE.exit15.i.i.i.i", label %_ZN5alloc3fmt6format17h7ead8f60e83381d7E.exit.i
 
 48:                                               ; preds = %35
@@ -197,7 +197,7 @@ define hidden void @"_ZN4core4iter8adapters10filter_map19filter_map_try_fold28_$
   %56 = or disjoint i32 %53, %55
   %57 = shl nuw nsw i32 %40, 12
   %58 = or disjoint i32 %56, %57
-  %59 = icmp ugt i8 %36, -17
+  %59 = icmp samesign ugt i8 %36, -17
   br i1 %59, label %_ZN4core4iter6traits8iterator8Iterator3nth17h8397d4032f4c4111E.exit.i, label %_ZN5alloc3fmt6format17h7ead8f60e83381d7E.exit.i
 
 _ZN4core4iter6traits8iterator8Iterator3nth17h8397d4032f4c4111E.exit.i: ; preds = %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h5f5d71cf7d5442deE.exit15.i.i.i.i"

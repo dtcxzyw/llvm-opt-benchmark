@@ -13559,7 +13559,7 @@ for.inc104:                                       ; preds = %sw.bb96, %for.body8
   %undef_index.1 = phi i32 [ %undef_index.0365, %for.body85 ], [ %35, %sw.bb94 ], [ %undef_index.0365, %sw.bb96 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %cmp83 = icmp samesign ult i64 %indvars.iv.next, %33
-  %cmp84 = icmp ult i32 %num_undef.1, 2
+  %cmp84 = icmp samesign ult i32 %num_undef.1, 2
   %38 = select i1 %cmp83, i1 %cmp84, i1 false
   br i1 %38, label %for.body85, label %for.end106, !llvm.loop !53
 

@@ -1254,7 +1254,7 @@ if.end243:                                        ; preds = %do.end, %land.lhs.t
   br i1 %cmp244, label %if.end251.sink.split, label %if.end247
 
 if.end247:                                        ; preds = %if.end243
-  %cmp248 = icmp ugt i32 %64, 500
+  %cmp248 = icmp samesign ugt i32 %64, 500
   br i1 %cmp248, label %if.end251.sink.split, label %if.end251
 
 if.end251.sink.split:                             ; preds = %if.end247, %if.end243
@@ -7239,7 +7239,7 @@ entry:
   br i1 %cmp, label %if.end3.sink.split, label %if.end
 
 if.end:                                           ; preds = %entry
-  %cmp1 = icmp ugt i32 %0, 500
+  %cmp1 = icmp samesign ugt i32 %0, 500
   br i1 %cmp1, label %if.end3.sink.split, label %if.end3
 
 if.end3.sink.split:                               ; preds = %if.end, %entry

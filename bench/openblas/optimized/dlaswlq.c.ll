@@ -40,7 +40,7 @@ define void @dlaswlq_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nounde
   br i1 %32, label %55, label %33
 
 33:                                               ; preds = %30
-  %34 = icmp ule i32 %31, %25
+  %34 = icmp samesign ule i32 %31, %25
   %35 = icmp eq i32 %25, 0
   %36 = or i1 %35, %34
   br i1 %36, label %37, label %55
@@ -84,9 +84,9 @@ define void @dlaswlq_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nounde
   br label %123
 
 59:                                               ; preds = %51
-  %60 = icmp ult i32 %25, %28
-  %61 = icmp ult i32 %38, %28
-  %or.cond9 = and i1 %60, %61
+  %60 = icmp samesign ult i32 %25, %28
+  %61 = icmp samesign ult i32 %38, %28
+  %or.cond9 = select i1 %60, i1 %61, i1 false
   br i1 %or.cond9, label %63, label %62
 
 62:                                               ; preds = %59

@@ -1034,7 +1034,7 @@ define hidden void @zif_dns_get_record(ptr noundef %0, ptr nocapture noundef %1)
   br i1 %34, label %35, label %.thread434
 
 35:                                               ; preds = %33, %.critedge380
-  %36 = icmp ult i32 %12, 3
+  %36 = icmp samesign ult i32 %12, 3
   br i1 %36, label %.thread465, label %37
 
 37:                                               ; preds = %35
@@ -2715,7 +2715,7 @@ _php_dns_free_res.exit249:                        ; preds = %119
 
 .backedge:                                        ; preds = %164, %168, %132
   %.1.be = phi ptr [ %141, %132 ], [ %166, %168 ], [ %166, %164 ]
-  %142 = icmp ugt i32 %.in295, 1
+  %142 = icmp samesign ugt i32 %.in295, 1
   %143 = icmp ult ptr %.1.be, %83
   %144 = select i1 %142, i1 %143, i1 false
   br i1 %144, label %109, label %._crit_edge294

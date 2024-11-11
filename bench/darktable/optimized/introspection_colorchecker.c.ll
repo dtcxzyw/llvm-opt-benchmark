@@ -371,7 +371,7 @@ define void @process(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noun
 26:                                               ; preds = %11
   %27 = getelementptr inbounds i8, ptr %13, i64 4
   %28 = zext nneg i32 %21 to i64
-  %29 = icmp ult i32 %21, 8
+  %29 = icmp samesign ult i32 %21, 8
   br i1 %29, label %57, label %30
 
 30:                                               ; preds = %26
@@ -820,7 +820,7 @@ define void @commit_params(ptr nocapture noundef readnone %0, ptr noundef readon
   %36 = getelementptr inbounds i8, ptr %1, i64 196
   %37 = getelementptr inbounds i8, ptr %1, i64 392
   %38 = zext nneg i32 %26 to i64
-  %39 = icmp ult i32 %25, 8
+  %39 = icmp samesign ult i32 %25, 8
   br i1 %39, label %120, label %40
 
 40:                                               ; preds = %34
@@ -2199,7 +2199,7 @@ define void @commit_params(ptr nocapture noundef readnone %0, ptr noundef readon
 995:                                              ; preds = %994
   %996 = getelementptr inbounds i8, ptr %1, i64 588
   %997 = zext nneg i32 %26 to i64
-  %998 = icmp ult i32 %25, 16
+  %998 = icmp samesign ult i32 %25, 16
   br i1 %998, label %.preheader133, label %999
 
 .preheader133:                                    ; preds = %1051, %995
@@ -2588,7 +2588,7 @@ define void @commit_params(ptr nocapture noundef readnone %0, ptr noundef readon
 1271:                                             ; preds = %.loopexit83
   %1272 = getelementptr inbounds i8, ptr %1, i64 784
   %1273 = zext nneg i32 %26 to i64
-  %1274 = icmp ult i32 %25, 16
+  %1274 = icmp samesign ult i32 %25, 16
   br i1 %1274, label %.preheader125, label %1275
 
 .preheader125:                                    ; preds = %1327, %1271
@@ -2976,7 +2976,7 @@ define void @commit_params(ptr nocapture noundef readnone %0, ptr noundef readon
 1544:                                             ; preds = %.loopexit78
   %1545 = getelementptr inbounds i8, ptr %1, i64 980
   %1546 = zext nneg i32 %26 to i64
-  %1547 = icmp ult i32 %25, 16
+  %1547 = icmp samesign ult i32 %25, 16
   br i1 %1547, label %.preheader117, label %1548
 
 .preheader117:                                    ; preds = %1600, %1544

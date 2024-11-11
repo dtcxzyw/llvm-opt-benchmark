@@ -127,7 +127,7 @@ thread-pre-split:                                 ; preds = %33
   %78 = getelementptr i32, ptr %61, i64 %75
   store i32 %77, ptr %78, align 4, !tbaa !3
   %79 = add nsw i64 %69, -1
-  %80 = icmp ugt i64 %69, 1
+  %80 = icmp samesign ugt i64 %69, 1
   br i1 %80, label %68, label %.loopexit31, !llvm.loop !7
 
 .loopexit31:                                      ; preds = %68, %62

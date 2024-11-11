@@ -406,7 +406,7 @@ define hidden void @_ZN17PreservedMarksSet7restoreEP13WorkerThreads(ptr noundef 
   br i1 %22, label %_Z24byte_size_in_proper_unitImET_S0_.exit.i, label %23
 
 23:                                               ; preds = %19
-  %24 = icmp ugt i64 %20, 104857599
+  %24 = icmp samesign ugt i64 %20, 104857599
   br i1 %24, label %.thread.i, label %27
 
 .thread.i:                                        ; preds = %23
@@ -418,7 +418,7 @@ _Z24byte_size_in_proper_unitImET_S0_.exit.i:      ; preds = %19
   br label %_Z25proper_unit_for_byte_sizem.exit.i
 
 27:                                               ; preds = %23
-  %28 = icmp ugt i64 %20, 102399
+  %28 = icmp samesign ugt i64 %20, 102399
   %29 = lshr i64 %20, 10
   %spec.select.i.i = select i1 %28, i64 %29, i64 %20
   %.str.11..str.12.i.i = select i1 %28, ptr @.str.11, ptr @.str.12

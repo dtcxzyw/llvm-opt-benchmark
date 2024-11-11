@@ -2034,7 +2034,7 @@ define i32 @jio_snprintf(ptr noundef %0, i64 noundef %1, ptr noundef %2, ...) lo
   %7 = call noundef i32 @_ZN2os9vsnprintfEPcmPKcP13__va_list_tag(ptr noundef %0, i64 noundef %1, ptr noundef %2, ptr noundef nonnull %4) #16
   %8 = icmp sgt i32 %7, 0
   %9 = zext nneg i32 %7 to i64
-  %.not.i = icmp ugt i64 %1, %9
+  %.not.i = icmp samesign ugt i64 %1, %9
   %spec.store.select.i = select i1 %.not.i, i32 %7, i32 -1
   %.0.i = select i1 %8, i32 %spec.store.select.i, i32 %7
   br label %jio_vsnprintf.exit
@@ -22868,7 +22868,7 @@ _ZN16JvmtiThreadState40class_to_verify_considering_redefinitionEP5KlassP10JavaTh
   %66 = phi i8 [ %63, %64 ], [ 7, %59 ], [ 7, %59 ]
   %67 = getelementptr inbounds i8, ptr %2, i64 %indvars.iv.next
   store i8 %66, ptr %67, align 1
-  %68 = icmp ugt i64 %indvars.iv, 1
+  %68 = icmp samesign ugt i64 %indvars.iv, 1
   br i1 %68, label %59, label %.loopexit, !llvm.loop !46
 
 .loopexit:                                        ; preds = %65, %51, %_ZN16JvmtiThreadState40class_to_verify_considering_redefinitionEP5KlassP10JavaThread.exit
@@ -27582,7 +27582,7 @@ define i32 @jio_vsnprintf(ptr noundef %0, i64 noundef %1, ptr noundef %2, ptr no
   %7 = tail call noundef i32 @_ZN2os9vsnprintfEPcmPKcP13__va_list_tag(ptr noundef %0, i64 noundef %1, ptr noundef %2, ptr noundef %3) #16
   %8 = icmp sgt i32 %7, 0
   %9 = zext nneg i32 %7 to i64
-  %.not = icmp ugt i64 %1, %9
+  %.not = icmp samesign ugt i64 %1, %9
   %spec.store.select = select i1 %.not, i32 %7, i32 -1
   %.0 = select i1 %8, i32 %spec.store.select, i32 %7
   br label %10
@@ -34721,7 +34721,7 @@ _ZN20ThreadInVMfromNativeC2EP10JavaThread.exit:   ; preds = %_ZN18SafepointMecha
   %28 = zext i8 %27 to i32
   %29 = add i32 %26, %28
   %30 = getelementptr inbounds i8, ptr %.056.i, i64 1
-  %31 = icmp ugt i32 %.047.i, 1
+  %31 = icmp samesign ugt i32 %.047.i, 1
   br i1 %31, label %.lr.ph.i, label %_ZN16java_lang_String9hash_codeEPKai.exit, !llvm.loop !62
 
 _ZN16java_lang_String9hash_codeEPKai.exit:        ; preds = %.lr.ph.i, %18
@@ -34741,7 +34741,7 @@ _ZN16java_lang_String9hash_codeEPKai.exit:        ; preds = %.lr.ph.i, %18
   %38 = zext i8 %37 to i32
   %39 = add i32 %36, %38
   %40 = getelementptr inbounds i8, ptr %.056.i20, i64 1
-  %41 = icmp ugt i32 %.047.i19, 1
+  %41 = icmp samesign ugt i32 %.047.i19, 1
   br i1 %41, label %.lr.ph.i17, label %_ZN16java_lang_String9hash_codeEPKai.exit21, !llvm.loop !62
 
 _ZN16java_lang_String9hash_codeEPKai.exit21:      ; preds = %.lr.ph.i17, %_ZN16java_lang_String9hash_codeEPKai.exit
@@ -34762,7 +34762,7 @@ _ZN16java_lang_String9hash_codeEPKai.exit21:      ; preds = %.lr.ph.i17, %_ZN16j
   %49 = zext i8 %48 to i32
   %50 = add i32 %47, %49
   %51 = getelementptr inbounds i8, ptr %.056.i26, i64 1
-  %52 = icmp ugt i32 %.047.i25, 1
+  %52 = icmp samesign ugt i32 %.047.i25, 1
   br i1 %52, label %.lr.ph.i23, label %_ZN16java_lang_String9hash_codeEPKai.exit27, !llvm.loop !62
 
 _ZN16java_lang_String9hash_codeEPKai.exit27:      ; preds = %.lr.ph.i23, %_ZN16java_lang_String9hash_codeEPKai.exit21

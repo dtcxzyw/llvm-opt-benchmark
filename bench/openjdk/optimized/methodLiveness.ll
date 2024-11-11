@@ -128,7 +128,7 @@ _ZN14MethodLiveness10BasicBlock16compute_gen_killEP8ciMethod.exit.i: ; preds = %
   store ptr %39, ptr %12, align 8
   call void @_ZN14MethodLiveness10BasicBlock22compute_gen_kill_rangeEP16ciBytecodeStream(ptr noundef nonnull align 8 dereferenceable(169) %17, ptr noundef nonnull %2)
   call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %2)
-  %40 = icmp ugt i64 %indvars.iv.i, 1
+  %40 = icmp samesign ugt i64 %indvars.iv.i, 1
   br i1 %40, label %14, label %_ZN14MethodLiveness13init_gen_killEv.exit, !llvm.loop !6
 
 _ZN14MethodLiveness13init_gen_killEv.exit:        ; preds = %_ZN14MethodLiveness10BasicBlock16compute_gen_killEP8ciMethod.exit.i
@@ -1960,7 +1960,7 @@ _ZN14MethodLiveness10BasicBlock16compute_gen_killEP8ciMethod.exit: ; preds = %19
   store ptr %38, ptr %11, align 8
   call void @_ZN14MethodLiveness10BasicBlock22compute_gen_kill_rangeEP16ciBytecodeStream(ptr noundef nonnull align 8 dereferenceable(169) %16, ptr noundef nonnull %2)
   call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %2)
-  %39 = icmp ugt i64 %indvars.iv, 1
+  %39 = icmp samesign ugt i64 %indvars.iv, 1
   br i1 %39, label %13, label %._crit_edge, !llvm.loop !6
 
 ._crit_edge:                                      ; preds = %_ZN14MethodLiveness10BasicBlock16compute_gen_killEP8ciMethod.exit, %1
@@ -2152,7 +2152,7 @@ define hidden void @_ZN14MethodLiveness10BasicBlock9propagateEPS_(ptr noundef no
   br label %_ZN14MethodLiveness13work_list_addEPNS_10BasicBlockE.exit
 
 _ZN14MethodLiveness13work_list_addEPNS_10BasicBlockE.exit: ; preds = %26, %22, %14
-  %29 = icmp ugt i64 %indvars.iv, 1
+  %29 = icmp samesign ugt i64 %indvars.iv, 1
   br i1 %29, label %14, label %._crit_edge, !llvm.loop !21
 
 ._crit_edge:                                      ; preds = %_ZN14MethodLiveness13work_list_addEPNS_10BasicBlockE.exit, %2
@@ -2194,7 +2194,7 @@ _ZN14MethodLiveness13work_list_addEPNS_10BasicBlockE.exit: ; preds = %26, %22, %
   br label %_ZN14MethodLiveness13work_list_addEPNS_10BasicBlockE.exit12
 
 _ZN14MethodLiveness13work_list_addEPNS_10BasicBlockE.exit12: ; preds = %48, %44, %36
-  %51 = icmp ugt i64 %indvars.iv21, 1
+  %51 = icmp samesign ugt i64 %indvars.iv21, 1
   br i1 %51, label %36, label %._crit_edge19, !llvm.loop !22
 
 ._crit_edge19:                                    ; preds = %_ZN14MethodLiveness13work_list_addEPNS_10BasicBlockE.exit12, %._crit_edge

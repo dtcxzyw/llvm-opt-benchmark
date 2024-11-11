@@ -32027,7 +32027,7 @@ _ZN4llvm12SelectionDAG9getSelectERKNS_5SDLocENS_3EVTENS_7SDValueES5_S5_NS_11SDNo
 
 _ZNK4llvm5APInt16countLeadingOnesEv.exit:         ; preds = %209, %211
   %.0.i.i = phi i32 [ %218, %211 ], [ 0, %209 ]
-  %.not319 = icmp ult i32 %.0.i.i, %92
+  %.not319 = icmp samesign ult i32 %.0.i.i, %92
   br i1 %.not319, label %220, label %switch.lookup
 
 _ZNK4llvm5APInt16countLeadingOnesEv.exit.thread:  ; preds = %205
@@ -39059,13 +39059,13 @@ _ZNK4llvm5APInt13getActiveBitsEv.exit.i:          ; preds = %_ZNK4llvm5APInt3uge
   %124 = call noundef i32 @_ZNK4llvm5APInt25countLeadingZerosSlowCaseEv(ptr noundef nonnull align 8 dereferenceable(12) %2) #19
   %125 = sub i32 %113, %124
   %126 = icmp ugt i32 %125, 64
-  %127 = icmp ugt i64 %.0.i.i.i447, %123
-  %or.cond = or i1 %126, %127
+  %127 = icmp samesign ugt i64 %.0.i.i.i447, %123
+  %or.cond = select i1 %126, i1 true, i1 %127
   br i1 %or.cond, label %_ZNK4llvm5APInt3ugtEm.exit.thread, label %_ZNK4llvm5APInteqEm.exit
 
 _ZNK4llvm5APInt3ugtEm.exit:                       ; preds = %_ZNK4llvm5APInt3ugeEm.exit
   %128 = and i64 %109, 4294967295
-  %129 = icmp ugt i64 %.0.i.i.i, %128
+  %129 = icmp samesign ugt i64 %.0.i.i.i, %128
   br i1 %129, label %_ZNK4llvm5APInt3ugtEm.exit.thread, label %_ZNK4llvm5APInteqEm.exit
 
 _ZNK4llvm5APInt3ugtEm.exit.thread:                ; preds = %_ZNK4llvm5APInt13getActiveBitsEv.exit.i, %_ZNK4llvm5APInt3ugtEm.exit
@@ -39353,13 +39353,13 @@ _ZNK4llvm5APInt13getActiveBitsEv.exit.i410:       ; preds = %_ZNK4llvm5APInt3uge
   %223 = call noundef i32 @_ZNK4llvm5APInt25countLeadingZerosSlowCaseEv(ptr noundef nonnull align 8 dereferenceable(12) %2) #19
   %224 = sub i32 %113, %223
   %225 = icmp ugt i32 %224, 64
-  %226 = icmp ugt i64 %.0.i.i.i408454, %222
-  %or.cond497 = or i1 %225, %226
+  %226 = icmp samesign ugt i64 %.0.i.i.i408454, %222
+  %or.cond497 = select i1 %225, i1 true, i1 %226
   br i1 %or.cond497, label %.thread456, label %_ZNK4llvm5APInteqEm.exit420
 
 _ZNK4llvm5APInt3ugtEm.exit413:                    ; preds = %_ZNK4llvm5APInt3ugeEm.exit409
   %227 = and i64 %109, 4294967295
-  %228 = icmp ugt i64 %.0.i.i.i408, %227
+  %228 = icmp samesign ugt i64 %.0.i.i.i408, %227
   br i1 %228, label %229, label %_ZNK4llvm5APInteqEm.exit420
 
 229:                                              ; preds = %_ZNK4llvm5APInt3ugtEm.exit413
@@ -39649,13 +39649,13 @@ _ZNK4llvm5APInt13getActiveBitsEv.exit.i429:       ; preds = %_ZNK4llvm5APInt3uge
   %318 = call noundef i32 @_ZNK4llvm5APInt25countLeadingZerosSlowCaseEv(ptr noundef nonnull align 8 dereferenceable(12) %2) #19
   %319 = sub i32 %113, %318
   %320 = icmp ugt i32 %319, 64
-  %321 = icmp ugt i64 %.0.i.i.i427469, %317
-  %or.cond498 = or i1 %320, %321
+  %321 = icmp samesign ugt i64 %.0.i.i.i427469, %317
+  %or.cond498 = select i1 %320, i1 true, i1 %321
   br i1 %or.cond498, label %.thread471, label %_ZNK4llvm5APInteqEm.exit439
 
 _ZNK4llvm5APInt3ugtEm.exit432:                    ; preds = %_ZNK4llvm5APInt3ugeEm.exit428
   %322 = and i64 %109, 4294967295
-  %323 = icmp ugt i64 %.0.i.i.i427, %322
+  %323 = icmp samesign ugt i64 %.0.i.i.i427, %322
   br i1 %323, label %324, label %_ZNK4llvm5APInteqEm.exit439
 
 324:                                              ; preds = %_ZNK4llvm5APInt3ugtEm.exit432

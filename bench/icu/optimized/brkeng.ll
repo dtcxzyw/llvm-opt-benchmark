@@ -932,7 +932,7 @@ _ZN6icu_755MutexD2Ev.exit:                        ; preds = %lpad
   resume { ptr, i32 } %lpad.phi
 
 if.end11:                                         ; preds = %invoke.cont7, %invoke.cont4
-  %cmp = icmp ugt i32 %dec19.in, 1
+  %cmp = icmp samesign ugt i32 %dec19.in, 1
   br i1 %cmp, label %while.body, label %while.end, !llvm.loop !6
 
 while.end:                                        ; preds = %if.end11, %if.end

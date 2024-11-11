@@ -1234,7 +1234,7 @@ _ZNK4llvm3MVT13is32BitVectorEv.exit:              ; preds = %27
   br i1 %spec.select.i, label %36, label %.thread43
 
 36:                                               ; preds = %34
-  %switch = icmp ult i16 %35, 5
+  %switch = icmp samesign ult i16 %35, 5
   %spec.select48 = select i1 %switch, i64 4, i64 8
   %spec.select49 = select i1 %switch, ptr @_ZL8PRegList, ptr @_ZL8ZRegList
   br label %.critedge

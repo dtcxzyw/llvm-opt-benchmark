@@ -914,7 +914,7 @@ _ZN2cv3PtrINS_7linemod8DetectorEED2Ev.exit185:    ; preds = %_ZN2cv3PtrINS_7line
 .noexc188:                                        ; preds = %.noexc187
   %320 = getelementptr inbounds i8, ptr %.056.i.i.i.i.i, i64 32
   %321 = add nsw i64 %.07.i.i.i.i.i, -1
-  %322 = icmp ugt i64 %.07.i.i.i.i.i, 1
+  %322 = icmp samesign ugt i64 %.07.i.i.i.i.i, 1
   br i1 %322, label %.lr.ph.i.i.i.i.i, label %_ZSt4copyIN9__gnu_cxx17__normal_iteratorIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt6vectorIS7_SaIS7_EEEESt16ostream_iteratorIS7_cS5_EET0_T_SG_SF_.exit.loopexit, !llvm.loop !17
 
 323:                                              ; preds = %192

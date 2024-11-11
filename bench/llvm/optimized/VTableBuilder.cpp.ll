@@ -686,7 +686,7 @@ _ZN4llvm14OwningArrayRefIN5clang15VTableComponentEEC2ENS_8ArrayRefIS2_EE.exit: ;
   %27 = getelementptr inbounds i8, ptr %.0910.i.i.i.i.i.i, i64 64
   %28 = getelementptr inbounds i8, ptr %.0811.i.i.i.i.i.i, i64 64
   %29 = add nsw i64 %.012.i.i.i.i.i.i, -1
-  %30 = icmp ugt i64 %.012.i.i.i.i.i.i, 1
+  %30 = icmp samesign ugt i64 %.012.i.i.i.i.i.i, 1
   br i1 %30, label %.lr.ph.i.i.i.i.i.i, label %_ZN4llvm14OwningArrayRefISt4pairImN5clang9ThunkInfoEEEC2ENS_8ArrayRefIS4_EE.exit, !llvm.loop !4
 
 _ZN4llvm14OwningArrayRefISt4pairImN5clang9ThunkInfoEEEC2ENS_8ArrayRefIS4_EE.exit: ; preds = %.lr.ph.i.i.i.i.i.i, %.loopexit.thread.i, %.loopexit.i
@@ -897,7 +897,7 @@ _ZN4llvm14OwningArrayRefImED2Ev.exit:             ; preds = %105, %_ZN4llvm14Own
   %125 = getelementptr inbounds i8, ptr %.069.i.i.i.i.i.i.i.i.i.i.i, i64 -56
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %125, ptr noundef nonnull align 8 dereferenceable(56) %124, i64 56, i1 false)
   %126 = add nsw i64 %.010.i.i.i.i.i.i.i.i.i.i.i, -1
-  %127 = icmp ugt i64 %.010.i.i.i.i.i.i.i.i.i.i.i, 1
+  %127 = icmp samesign ugt i64 %.010.i.i.i.i.i.i.i.i.i.i.i, 1
   br i1 %127, label %.lr.ph.i.i.i.i.i.i.i.i.i.i.i, label %_ZSt13move_backwardIPSt4pairImN5clang9ThunkInfoEES4_ET0_T_S6_S5_.exit.i.i.i.i.i.i, !llvm.loop !11
 
 _ZSt13move_backwardIPSt4pairImN5clang9ThunkInfoEES4_ET0_T_S6_S5_.exit.i.i.i.i.i.i: ; preds = %.lr.ph.i.i.i.i.i.i.i.i.i.i.i
@@ -1021,7 +1021,7 @@ _ZSt13move_backwardIPSt4pairImN5clang9ThunkInfoEES4_ET0_T_S6_S5_.exit.i.i.i.i.i.
   %155 = getelementptr inbounds i8, ptr %.069.i.i.i.i.i.i50.i.i.i.i.i, i64 -56
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %155, ptr noundef nonnull align 8 dereferenceable(56) %154, i64 56, i1 false)
   %156 = add nsw i64 %.010.i.i.i.i.i.i49.i.i.i.i.i, -1
-  %157 = icmp ugt i64 %.010.i.i.i.i.i.i49.i.i.i.i.i, 1
+  %157 = icmp samesign ugt i64 %.010.i.i.i.i.i.i49.i.i.i.i.i, 1
   br i1 %157, label %.lr.ph.i.i.i.i.i.i48.i.i.i.i.i, label %_ZSt13move_backwardIPSt4pairImN5clang9ThunkInfoEES4_ET0_T_S6_S5_.exit.i46.i.i.i.i.i, !llvm.loop !11
 
 _ZSt13move_backwardIPSt4pairImN5clang9ThunkInfoEES4_ET0_T_S6_S5_.exit.i46.i.i.i.i.i: ; preds = %.lr.ph.i.i.i.i.i.i48.i.i.i.i.i, %145
@@ -21156,7 +21156,7 @@ _ZN4llvm15SmallVectorImplIN5clang15VTableComponentEE7reserveEm.exit: ; preds = %
   store i64 %27, ptr %.045.i.i.i.i.i.i.i.i, align 8
   %28 = getelementptr inbounds i8, ptr %.045.i.i.i.i.i.i.i.i, i64 8
   %29 = add nsw i64 %.06.i.i.i.i.i.i.i.i, -1
-  %30 = icmp ugt i64 %.06.i.i.i.i.i.i.i.i, 1
+  %30 = icmp samesign ugt i64 %.06.i.i.i.i.i.i.i.i, 1
   br i1 %30, label %.lr.ph.i.i.i.i.i.i.i.i, label %_ZN4llvm23SmallVectorTemplateBaseIN5clang15VTableComponentELb1EE18uninitialized_copyISt16reverse_iteratorIPKS2_EPS2_EEvT_SA_T0_.exit, !llvm.loop !312
 
 _ZN4llvm23SmallVectorTemplateBaseIN5clang15VTableComponentELb1EE18uninitialized_copyISt16reverse_iteratorIPKS2_EPS2_EEvT_SA_T0_.exit: ; preds = %.lr.ph.i.i.i.i.i.i.i.i, %_ZN4llvm15SmallVectorImplIN5clang15VTableComponentEE7reserveEm.exit
@@ -23168,7 +23168,7 @@ _ZN4llvm15SmallVectorImplISt4pairIPKN5clang13CXXMethodDeclENS2_9CharUnitsEEE12as
   %34 = getelementptr inbounds i8, ptr %.0910.i.i.i.i.i, i64 16
   %35 = getelementptr inbounds i8, ptr %.0811.i.i.i.i.i, i64 16
   %36 = add nsw i64 %.012.i.i.i.i.i, -1
-  %37 = icmp ugt i64 %.012.i.i.i.i.i, 1
+  %37 = icmp samesign ugt i64 %.012.i.i.i.i.i, 1
   br i1 %37, label %.lr.ph.i.i.i.i.i, label %_ZSt4moveIPSt4pairIPKN5clang13CXXMethodDeclENS1_9CharUnitsEES7_ET0_T_S9_S8_.exit, !llvm.loop !348
 
 _ZSt4moveIPSt4pairIPKN5clang13CXXMethodDeclENS1_9CharUnitsEES7_ET0_T_S9_S8_.exit: ; preds = %.lr.ph.i.i.i.i.i, %25, %24
@@ -23218,7 +23218,7 @@ _ZSt4moveIPSt4pairIPKN5clang13CXXMethodDeclENS1_9CharUnitsEES7_ET0_T_S9_S8_.exit
   %57 = getelementptr inbounds i8, ptr %.0910.i.i.i.i.i38, i64 16
   %58 = getelementptr inbounds i8, ptr %.0811.i.i.i.i.i37, i64 16
   %59 = add nsw i64 %.012.i.i.i.i.i36, -1
-  %60 = icmp ugt i64 %.012.i.i.i.i.i36, 1
+  %60 = icmp samesign ugt i64 %.012.i.i.i.i.i36, 1
   br i1 %60, label %.lr.ph.i.i.i.i.i35, label %_ZSt4moveIPSt4pairIPKN5clang13CXXMethodDeclENS1_9CharUnitsEES7_ET0_T_S9_S8_.exit39, !llvm.loop !348
 
 _ZSt4moveIPSt4pairIPKN5clang13CXXMethodDeclENS1_9CharUnitsEES7_ET0_T_S9_S8_.exit39: ; preds = %.lr.ph.i.i.i.i.i35, %49, %48, %44
@@ -23282,7 +23282,7 @@ define linkonce_odr noundef nonnull align 8 dereferenceable(16) ptr @_ZN4llvm15S
   %15 = getelementptr inbounds i8, ptr %.0910.i.i.i.i.i, i64 16
   %16 = getelementptr inbounds i8, ptr %.0811.i.i.i.i.i, i64 16
   %17 = add nsw i64 %.012.i.i.i.i.i, -1
-  %18 = icmp ugt i64 %.012.i.i.i.i.i, 1
+  %18 = icmp samesign ugt i64 %.012.i.i.i.i.i, 1
   br i1 %18, label %.lr.ph.i.i.i.i.i, label %_ZSt4copyIPKSt4pairIPKN5clang13CXXMethodDeclENS1_9CharUnitsEEPS6_ET0_T_SB_SA_.exit, !llvm.loop !349
 
 _ZSt4copyIPKSt4pairIPKN5clang13CXXMethodDeclENS1_9CharUnitsEEPS6_ET0_T_SB_SA_.exit: ; preds = %.lr.ph.i.i.i.i.i, %7
@@ -23328,7 +23328,7 @@ _ZSt4copyIPKSt4pairIPKN5clang13CXXMethodDeclENS1_9CharUnitsEEPS6_ET0_T_SB_SA_.ex
   %36 = getelementptr inbounds i8, ptr %.0910.i.i.i.i.i34, i64 16
   %37 = getelementptr inbounds i8, ptr %.0811.i.i.i.i.i33, i64 16
   %38 = add nsw i64 %.012.i.i.i.i.i32, -1
-  %39 = icmp ugt i64 %.012.i.i.i.i.i32, 1
+  %39 = icmp samesign ugt i64 %.012.i.i.i.i.i32, 1
   br i1 %39, label %.lr.ph.i.i.i.i.i31, label %_ZSt4copyIPKSt4pairIPKN5clang13CXXMethodDeclENS1_9CharUnitsEEPS6_ET0_T_SB_SA_.exit35, !llvm.loop !349
 
 _ZSt4copyIPKSt4pairIPKN5clang13CXXMethodDeclENS1_9CharUnitsEEPS6_ET0_T_SB_SA_.exit35: ; preds = %.lr.ph.i.i.i.i.i31, %28, %27, %23
@@ -36583,7 +36583,7 @@ _ZN4llvm15SmallVectorImplIPKN5clang13CXXMethodDeclEE7reserveEm.exit: ; preds = %
   store ptr %27, ptr %.045.i.i.i.i.i.i.i.i, align 8
   %28 = getelementptr inbounds i8, ptr %.045.i.i.i.i.i.i.i.i, i64 8
   %29 = add nsw i64 %.06.i.i.i.i.i.i.i.i, -1
-  %30 = icmp ugt i64 %.06.i.i.i.i.i.i.i.i, 1
+  %30 = icmp samesign ugt i64 %.06.i.i.i.i.i.i.i.i, 1
   br i1 %30, label %.lr.ph.i.i.i.i.i.i.i.i, label %_ZN4llvm23SmallVectorTemplateBaseIPKN5clang13CXXMethodDeclELb1EE18uninitialized_copyISt16reverse_iteratorIPKS4_EPS4_EEvT_SC_T0_.exit, !llvm.loop !502
 
 _ZN4llvm23SmallVectorTemplateBaseIPKN5clang13CXXMethodDeclELb1EE18uninitialized_copyISt16reverse_iteratorIPKS4_EPS4_EEvT_SC_T0_.exit: ; preds = %.lr.ph.i.i.i.i.i.i.i.i, %_ZN4llvm15SmallVectorImplIPKN5clang13CXXMethodDeclEE7reserveEm.exit

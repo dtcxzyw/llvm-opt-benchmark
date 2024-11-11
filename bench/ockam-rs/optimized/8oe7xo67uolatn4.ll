@@ -965,7 +965,7 @@ define hidden void @"_ZN59_$LT$der..length..Length$u20$as$u20$der..decode..Decod
   br label %52
 
 26:                                               ; preds = %20
-  %27 = icmp ult i8 %17, -123
+  %27 = icmp samesign ult i8 %17, -123
   br i1 %27, label %29, label %28
 
 28:                                               ; preds = %26
@@ -1164,7 +1164,7 @@ define hidden void @"_ZN59_$LT$der..length..Length$u20$as$u20$der..decode..Decod
   br label %52
 
 26:                                               ; preds = %20
-  %27 = icmp ult i8 %17, -123
+  %27 = icmp samesign ult i8 %17, -123
   br i1 %27, label %29, label %28
 
 28:                                               ; preds = %26
@@ -1363,7 +1363,7 @@ define hidden void @"_ZN59_$LT$der..length..Length$u20$as$u20$der..decode..Decod
   br label %52
 
 26:                                               ; preds = %20
-  %27 = icmp ult i8 %17, -123
+  %27 = icmp samesign ult i8 %17, -123
   br i1 %27, label %29, label %28
 
 28:                                               ; preds = %26

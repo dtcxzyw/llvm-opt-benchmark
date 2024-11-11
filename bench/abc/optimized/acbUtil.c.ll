@@ -4676,7 +4676,7 @@ Vec_QueIsMember.exit:                             ; preds = %46
 
 Vec_QuePrio.exit.i.i:                             ; preds = %70, %67
   %72 = phi float [ %69, %67 ], [ %71, %70 ]
-  %73 = icmp ugt i32 %63, 1
+  %73 = icmp samesign ugt i32 %63, 1
   %74 = getelementptr inbounds i8, ptr %57, i64 8
   br i1 %73, label %.lr.ph.i.i29, label %Vec_QueMoveUp.exit.thread.i
 
@@ -5645,7 +5645,7 @@ Vec_IntPush.exit118.i:                            ; preds = %132, %Vec_IntGrow.e
   br label %Vec_IntPush.exit125.i
 
 146:                                              ; preds = %142
-  %147 = icmp ult i32 %.val92.i, 16
+  %147 = icmp samesign ult i32 %.val92.i, 16
   br i1 %147, label %148, label %156
 
 148:                                              ; preds = %146
@@ -5719,7 +5719,7 @@ Vec_IntPush.exit125.i:                            ; preds = %166, %Vec_IntGrow.e
   br label %Vec_IntPush.exit132.i
 
 180:                                              ; preds = %176
-  %181 = icmp ult i32 %.val93.i, 16
+  %181 = icmp samesign ult i32 %.val93.i, 16
   br i1 %181, label %182, label %190
 
 182:                                              ; preds = %180
@@ -5793,7 +5793,7 @@ Vec_IntPush.exit132.i:                            ; preds = %200, %Vec_IntGrow.e
   br label %Vec_IntPush.exit139.i
 
 214:                                              ; preds = %210
-  %215 = icmp ult i32 %.val94.i, 16
+  %215 = icmp samesign ult i32 %.val94.i, 16
   br i1 %215, label %216, label %224
 
 216:                                              ; preds = %214
@@ -5867,7 +5867,7 @@ Vec_IntPush.exit139.i:                            ; preds = %234, %Vec_IntGrow.e
   br label %Vec_WrdPush.exit.i
 
 248:                                              ; preds = %244
-  %249 = icmp ult i32 %.val95.i, 16
+  %249 = icmp samesign ult i32 %.val95.i, 16
   br i1 %249, label %250, label %258
 
 250:                                              ; preds = %248
@@ -5941,7 +5941,7 @@ Vec_WrdPush.exit.i:                               ; preds = %268, %Vec_WrdGrow.e
   br label %Vec_IntPush.exit150.i
 
 282:                                              ; preds = %278
-  %283 = icmp ult i32 %.val96.i, 16
+  %283 = icmp samesign ult i32 %.val96.i, 16
   br i1 %283, label %284, label %292
 
 284:                                              ; preds = %282
@@ -6015,7 +6015,7 @@ Vec_IntPush.exit150.i:                            ; preds = %302, %Vec_IntGrow.e
   br label %Vec_IntPush.exit157.i
 
 316:                                              ; preds = %312
-  %317 = icmp ult i32 %.val97.i, 16
+  %317 = icmp samesign ult i32 %.val97.i, 16
   br i1 %317, label %318, label %326
 
 318:                                              ; preds = %316
@@ -6089,7 +6089,7 @@ Vec_IntPush.exit157.i:                            ; preds = %336, %Vec_IntGrow.e
   br label %Vec_IntPush.exit164.i
 
 350:                                              ; preds = %346
-  %351 = icmp ult i32 %.val84.i, 16
+  %351 = icmp samesign ult i32 %.val84.i, 16
   br i1 %351, label %352, label %360
 
 352:                                              ; preds = %350
@@ -6163,7 +6163,7 @@ Vec_IntPush.exit164.i:                            ; preds = %370, %Vec_IntGrow.e
   br label %Vec_IntPush.exit171.i
 
 384:                                              ; preds = %380
-  %385 = icmp ult i32 %.val98.i, 16
+  %385 = icmp samesign ult i32 %.val98.i, 16
   br i1 %385, label %386, label %394
 
 386:                                              ; preds = %384
@@ -6237,7 +6237,7 @@ Vec_IntPush.exit171.i:                            ; preds = %404, %Vec_IntGrow.e
   br label %Vec_IntPush.exit178.i
 
 418:                                              ; preds = %414
-  %419 = icmp ult i32 %.val87.i, 16
+  %419 = icmp samesign ult i32 %.val87.i, 16
   br i1 %419, label %420, label %428
 
 420:                                              ; preds = %418
@@ -6311,7 +6311,7 @@ Vec_IntPush.exit178.i:                            ; preds = %438, %Vec_IntGrow.e
   br label %Vec_IntPush.exit185.i
 
 452:                                              ; preds = %448
-  %453 = icmp ult i32 %.val88.i, 16
+  %453 = icmp samesign ult i32 %.val88.i, 16
   br i1 %453, label %454, label %462
 
 454:                                              ; preds = %452
@@ -6385,7 +6385,7 @@ Vec_IntPush.exit185.i:                            ; preds = %472, %Vec_IntGrow.e
   br label %Vec_IntPush.exit192.i
 
 486:                                              ; preds = %482
-  %487 = icmp ult i32 %.val89.i, 16
+  %487 = icmp samesign ult i32 %.val89.i, 16
   br i1 %487, label %488, label %496
 
 488:                                              ; preds = %486
@@ -6459,7 +6459,7 @@ Vec_IntPush.exit192.i:                            ; preds = %506, %Vec_IntGrow.e
   br label %Vec_IntPush.exit199.i
 
 520:                                              ; preds = %516
-  %521 = icmp ult i32 %.val90.i, 16
+  %521 = icmp samesign ult i32 %.val90.i, 16
   br i1 %521, label %522, label %530
 
 522:                                              ; preds = %520
@@ -6533,7 +6533,7 @@ Vec_IntPush.exit199.i:                            ; preds = %540, %Vec_IntGrow.e
   br label %Vec_FltPush.exit.i
 
 554:                                              ; preds = %550
-  %555 = icmp ult i32 %.val99.i, 16
+  %555 = icmp samesign ult i32 %.val99.i, 16
   br i1 %555, label %556, label %564
 
 556:                                              ; preds = %554

@@ -1527,7 +1527,7 @@ for.body.i.i.i.i.i.i.i:                           ; preds = %invoke.cont, %call.
 call.i.i.i.i.i.i.i.i.i.i.noexc:                   ; preds = %for.body.i.i.i.i.i.i.i
   %incdec.ptr.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__first.addr.05.i.i.i.i.i.i.i, i64 4
   %dec.i.i.i.i.i.i.i = add nsw i64 %__n.06.i.i.i.i.i.i.i, -1
-  %cmp.i.i.i.i.i.i.i = icmp ugt i64 %__n.06.i.i.i.i.i.i.i, 1
+  %cmp.i.i.i.i.i.i.i = icmp samesign ugt i64 %__n.06.i.i.i.i.i.i.i, 1
   br i1 %cmp.i.i.i.i.i.i.i, label %for.body.i.i.i.i.i.i.i, label %invoke.cont2.loopexit, !llvm.loop !25
 
 invoke.cont2.loopexit:                            ; preds = %call.i.i.i.i.i.i.i.i.i.i.noexc
@@ -2053,15 +2053,15 @@ for.body.i.i.i.preheader:                         ; preds = %entry
   br i1 %cmp2, label %cond.end16, label %cond.false
 
 cond.false:                                       ; preds = %for.body.i.i.i.preheader
-  %cmp3 = icmp ugt i64 %sub.ptr.div, 67
+  %cmp3 = icmp samesign ugt i64 %sub.ptr.div, 67
   br i1 %cmp3, label %cond.end16, label %cond.false5
 
 cond.false5:                                      ; preds = %cond.false
-  %cmp6 = icmp ugt i64 %sub.ptr.div, 38
+  %cmp6 = icmp samesign ugt i64 %sub.ptr.div, 38
   br i1 %cmp6, label %cond.end16, label %cond.false8
 
 cond.false8:                                      ; preds = %cond.false5
-  %cmp9 = icmp ugt i64 %sub.ptr.div, 6
+  %cmp9 = icmp samesign ugt i64 %sub.ptr.div, 6
   %sub = add nsw i64 %sub.ptr.div, -1
   %div86 = lshr i64 %sub, 1
   %cond = select i1 %cmp9, i64 3, i64 %div86

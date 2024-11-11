@@ -1092,7 +1092,7 @@ define hidden void @"_ZN5alloc11collections5btree4node210Handle$LT$alloc..collec
 .lr.ph.i.i22.i:                                   ; preds = %329, %.lr.ph.i.i22.i
   %.sroa.0.06.i.i23.i = phi i64 [ %332, %.lr.ph.i.i22.i ], [ %306, %329 ]
   %332 = add nuw nsw i64 %.sroa.0.06.i.i23.i, 1
-  %333 = icmp ult i64 %.sroa.0.06.i.i23.i, 12
+  %333 = icmp samesign ult i64 %.sroa.0.06.i.i23.i, 12
   tail call void @llvm.assume(i1 %333)
   %334 = getelementptr inbounds ptr, ptr %321, i64 %.sroa.0.06.i.i23.i
   %335 = load ptr, ptr %334, align 8, !noalias !222, !nonnull !7, !noundef !7

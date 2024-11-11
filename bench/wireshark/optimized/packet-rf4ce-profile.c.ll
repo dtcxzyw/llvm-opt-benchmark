@@ -1314,7 +1314,7 @@ define internal fastcc void @dissect_rf4ce_profile_attrs(ptr noundef %0, ptr nou
   %184 = add i32 %183, 2
   store i32 %184, ptr %2, align 4
   %185 = add nsw i32 %.0110.i, -2
-  %186 = icmp ugt i32 %.0110.i, 2
+  %186 = icmp samesign ugt i32 %.0110.i, 2
   br i1 %186, label %.lr.ph.i, label %dissect_rf4ce_profile_zrc20_attrs.exit, !llvm.loop !7
 
 dissect_rf4ce_profile_zrc20_attrs.exit:           ; preds = %.lr.ph.i, %.lr.ph113.i, %79, %80, %139, %162, %170, %176

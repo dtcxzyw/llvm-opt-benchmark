@@ -375,7 +375,7 @@ getbit_from_table.exit:                           ; preds = %get_byte.exit.i, %8
   br i1 %120, label %121, label %127
 
 121:                                              ; preds = %getbit_from_table.exit
-  %122 = icmp ugt i32 %.0273, 9
+  %122 = icmp samesign ugt i32 %.0273, 9
   br i1 %122, label %123, label %125
 
 123:                                              ; preds = %121

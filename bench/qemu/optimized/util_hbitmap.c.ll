@@ -589,7 +589,7 @@ if.end8:                                          ; preds = %if.end4
   br i1 %cmp9, label %return, label %if.end11
 
 if.end11:                                         ; preds = %if.end8
-  %cmp12 = icmp ugt i64 %call, %start
+  %cmp12 = icmp samesign ugt i64 %call, %start
   br i1 %cmp12, label %if.then13, label %if.end14
 
 if.then13:                                        ; preds = %if.end11
@@ -610,7 +610,7 @@ if.end18:                                         ; preds = %if.end14
   br i1 %cmp20, label %return, label %if.end22
 
 if.end22:                                         ; preds = %if.end18
-  %cmp23 = icmp ugt i64 %call19, %start
+  %cmp23 = icmp samesign ugt i64 %call19, %start
   br i1 %cmp23, label %if.end26, label %if.else25
 
 if.else25:                                        ; preds = %if.end22

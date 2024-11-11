@@ -712,7 +712,7 @@ _ZN5Eigen15PlainObjectBaseINS_6MatrixIdLin1ELi1ELi0ELin1ELi1EEEE6resizeEll.exit2
   %85 = getelementptr inbounds i8, ptr %72, i64 16
   %86 = load <2 x double>, ptr %85, align 16
   %87 = fmul <2 x double> %84, %86
-  %88 = icmp ugt i64 %67, 7
+  %88 = icmp samesign ugt i64 %67, 7
   br i1 %88, label %.lr.ph.i.i.i.i.i, label %._crit_edge.i.i.i.i.i
 
 .lr.ph.i.i.i.i.i:                                 ; preds = %82, %.lr.ph.i.i.i.i.i
@@ -828,7 +828,7 @@ define hidden noundef double @_ZNK5ceres8internal18LineSearchFunction21Direction
   %20 = and <2 x i64> %19, splat (i64 9223372036854775807)
   %21 = bitcast <2 x i64> %20 to <2 x double>
   %invariant.gep.i.i.i.i.i.i = getelementptr inbounds i8, ptr %7, i64 48
-  %22 = icmp ugt i64 %3, 7
+  %22 = icmp samesign ugt i64 %3, 7
   br i1 %22, label %.lr.ph.i.i.i.i.i.i, label %._crit_edge.i.i.i.i.i.i
 
 .lr.ph.i.i.i.i.i.i:                               ; preds = %17, %.lr.ph.i.i.i.i.i.i
@@ -2125,7 +2125,7 @@ _ZN5Eigen15PlainObjectBaseINS_6MatrixIdLin1ELi1ELi0ELin1ELi1EEEE6resizeEll.exit.
   br i1 %83, label %84, label %.noexc
 
 84:                                               ; preds = %_ZN5Eigen15PlainObjectBaseINS_6MatrixIdLin1ELi1ELi0ELin1ELi1EEEE6resizeEll.exit.i.i.i.i.i.i.i.i
-  %85 = icmp ugt i64 %80, 2305843009213693951
+  %85 = icmp samesign ugt i64 %80, 2305843009213693951
   br i1 %85, label %.invoke, label %86
 
 86:                                               ; preds = %84
@@ -2212,7 +2212,7 @@ _ZN5Eigen6MatrixIdLin1ELi1ELi0ELin1ELi1EEaSERKS1_.exit: ; preds = %.lr.ph.i.i.i.
   %125 = and <2 x i64> %124, splat (i64 9223372036854775807)
   %126 = bitcast <2 x i64> %125 to <2 x double>
   %invariant.gep.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %112, i64 48
-  %127 = icmp ugt i64 %108, 7
+  %127 = icmp samesign ugt i64 %108, 7
   br i1 %127, label %.lr.ph.i.i.i.i.i.i.i, label %._crit_edge.i.i.i.i.i.i.i
 
 .lr.ph.i.i.i.i.i.i.i:                             ; preds = %122, %.lr.ph.i.i.i.i.i.i.i
@@ -2905,7 +2905,7 @@ _ZN5Eigen15PlainObjectBaseINS_6MatrixIdLin1ELi1ELi0ELin1ELi1EEEE6resizeEll.exit.
   br i1 %86, label %87, label %.noexc
 
 87:                                               ; preds = %_ZN5Eigen15PlainObjectBaseINS_6MatrixIdLin1ELi1ELi0ELin1ELi1EEEE6resizeEll.exit.i.i.i.i.i.i.i.i
-  %88 = icmp ugt i64 %83, 2305843009213693951
+  %88 = icmp samesign ugt i64 %83, 2305843009213693951
   br i1 %88, label %.invoke, label %89
 
 89:                                               ; preds = %87
@@ -3323,7 +3323,7 @@ define hidden noundef zeroext i1 @_ZNK5ceres8internal15WolfeLineSearch15Bracketi
   %43 = and <2 x i64> %42, splat (i64 9223372036854775807)
   %44 = bitcast <2 x i64> %43 to <2 x double>
   %invariant.gep.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %30, i64 48
-  %45 = icmp ugt i64 %26, 7
+  %45 = icmp samesign ugt i64 %26, 7
   br i1 %45, label %.lr.ph.i.i.i.i.i.i.i, label %._crit_edge.i.i.i.i.i.i.i
 
 .lr.ph.i.i.i.i.i.i.i:                             ; preds = %40, %.lr.ph.i.i.i.i.i.i.i
@@ -4395,7 +4395,7 @@ define hidden noundef zeroext i1 @_ZNK5ceres8internal15WolfeLineSearch9ZoomPhase
   %163 = and <2 x i64> %162, splat (i64 9223372036854775807)
   %164 = bitcast <2 x i64> %163 to <2 x double>
   %invariant.gep.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %150, i64 48
-  %165 = icmp ugt i64 %146, 7
+  %165 = icmp samesign ugt i64 %146, 7
   br i1 %165, label %.lr.ph.i.i.i.i.i.i.i, label %._crit_edge.i.i.i.i.i.i.i
 
 .lr.ph.i.i.i.i.i.i.i:                             ; preds = %160, %.lr.ph.i.i.i.i.i.i.i
@@ -5226,7 +5226,7 @@ define linkonce_odr hidden void @_ZN5Eigen12DenseStorageIdLin1ELin1ELi1ELi0EE6re
   br i1 %9, label %10, label %.sink.split
 
 10:                                               ; preds = %7
-  %11 = icmp ugt i64 %1, 2305843009213693951
+  %11 = icmp samesign ugt i64 %1, 2305843009213693951
   br i1 %11, label %12, label %14
 
 12:                                               ; preds = %10

@@ -837,7 +837,7 @@ _ZN7OptoReg8as_VMRegEi.exit:                      ; preds = %3
   %14 = sub i32 %13, ptrtoint (ptr getelementptr inbounds (i8, ptr @all_VMRegs, i64 1) to i32)
   %15 = icmp sgt i32 %14, 79
   %16 = select i1 %11, i32 336, i32 592
-  %17 = icmp ult i32 %14, %16
+  %17 = icmp samesign ult i32 %14, %16
   %18 = select i1 %15, i1 %17, i1 false
   br i1 %18, label %19, label %33
 
@@ -1344,7 +1344,7 @@ define linkonce_odr hidden void @_ZN18XSaveLiveRegistersD2Ev(ptr noundef nonnull
   %24 = add nsw i32 %23, 8
   store i32 %24, ptr %8, align 4
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %3)
-  %25 = icmp ugt i64 %indvars.iv, 1
+  %25 = icmp samesign ugt i64 %indvars.iv, 1
   br i1 %25, label %18, label %._crit_edge, !llvm.loop !11
 
 ._crit_edge:                                      ; preds = %18, %1
@@ -1391,7 +1391,7 @@ define linkonce_odr hidden void @_ZN18XSaveLiveRegistersD2Ev(ptr noundef nonnull
   %46 = add nsw i32 %45, 8
   store i32 %46, ptr %30, align 4
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %2)
-  %47 = icmp ugt i64 %indvars.iv26, 1
+  %47 = icmp samesign ugt i64 %indvars.iv26, 1
   br i1 %47, label %40, label %._crit_edge20, !llvm.loop !12
 
 ._crit_edge20:                                    ; preds = %40, %._crit_edge
@@ -1413,7 +1413,7 @@ define linkonce_odr hidden void @_ZN18XSaveLiveRegistersD2Ev(ptr noundef nonnull
   %55 = load ptr, ptr %52, align 8
   %56 = getelementptr inbounds %"struct.XSaveLiveRegisters::XMMRegisterData", ptr %55, i64 %indvars.iv.next30
   call void @_ZN18XSaveLiveRegisters20xmm_register_restoreERKNS_15XMMRegisterDataE(ptr noundef nonnull align 8 dereferenceable(88) %0, ptr noundef nonnull align 4 dereferenceable(8) %56)
-  %57 = icmp ugt i64 %indvars.iv29, 1
+  %57 = icmp samesign ugt i64 %indvars.iv29, 1
   br i1 %57, label %54, label %._crit_edge24, !llvm.loop !13
 
 ._crit_edge24:                                    ; preds = %54, %._crit_edge20
@@ -2569,8 +2569,8 @@ _ZN26GrowableArrayWithAllocatorI9KRegister13GrowableArrayIS0_EE6appendERKS0_.exi
   %583 = icmp slt i32 %553, 3
   %584 = icmp sgt i32 %522, 79
   %585 = select i1 %583, i32 336, i32 592
-  %586 = icmp ult i32 %522, %585
-  %587 = and i1 %584, %586
+  %586 = icmp samesign ult i32 %522, %585
+  %587 = select i1 %584, i1 %586, i1 false
   br i1 %587, label %588, label %633
 
 588:                                              ; preds = %582

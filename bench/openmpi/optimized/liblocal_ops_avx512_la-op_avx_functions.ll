@@ -35,7 +35,7 @@ define internal void @ompi_op_avx_2buff_max_int8_t_avx512(ptr noundef %0, ptr no
   store <64 x i8> %14, ptr %.1122161, align 1
   %15 = getelementptr inbounds i8, ptr %.1122161, i64 64
   %16 = add nsw i32 %.1163, -64
-  %17 = icmp ugt i32 %.1163, 127
+  %17 = icmp samesign ugt i32 %.1163, 127
   br i1 %17, label %.lr.ph, label %._crit_edge, !llvm.loop !4
 
 ._crit_edge:                                      ; preds = %.lr.ph, %.preheader160
@@ -73,7 +73,7 @@ define internal void @ompi_op_avx_2buff_max_int8_t_avx512(ptr noundef %0, ptr no
   store <32 x i8> %27, ptr %.3124166, align 1
   %28 = getelementptr inbounds i8, ptr %.3124166, i64 32
   %29 = add nsw i32 %.3168, -32
-  %30 = icmp ugt i32 %.3168, 63
+  %30 = icmp samesign ugt i32 %.3168, 63
   br i1 %30, label %.lr.ph169, label %._crit_edge170, !llvm.loop !6
 
 ._crit_edge170:                                   ; preds = %.lr.ph169, %.preheader159
@@ -109,7 +109,7 @@ define internal void @ompi_op_avx_2buff_max_int8_t_avx512(ptr noundef %0, ptr no
   store <16 x i8> %40, ptr %.5126174, align 1
   %41 = getelementptr inbounds i8, ptr %.5126174, i64 16
   %42 = add nsw i32 %.5176, -16
-  %43 = icmp ugt i32 %.5176, 31
+  %43 = icmp samesign ugt i32 %.5176, 31
   br i1 %43, label %.lr.ph177, label %.loopexit158, !llvm.loop !7
 
 .loopexit158:                                     ; preds = %.lr.ph177, %32
@@ -240,7 +240,7 @@ define internal void @ompi_op_avx_2buff_max_uint8_t_avx512(ptr noundef %0, ptr n
   store <64 x i8> %14, ptr %.1122161, align 1
   %15 = getelementptr inbounds i8, ptr %.1122161, i64 64
   %16 = add nsw i32 %.1163, -64
-  %17 = icmp ugt i32 %.1163, 127
+  %17 = icmp samesign ugt i32 %.1163, 127
   br i1 %17, label %.lr.ph, label %._crit_edge, !llvm.loop !9
 
 ._crit_edge:                                      ; preds = %.lr.ph, %.preheader160
@@ -278,7 +278,7 @@ define internal void @ompi_op_avx_2buff_max_uint8_t_avx512(ptr noundef %0, ptr n
   store <32 x i8> %27, ptr %.3124166, align 1
   %28 = getelementptr inbounds i8, ptr %.3124166, i64 32
   %29 = add nsw i32 %.3168, -32
-  %30 = icmp ugt i32 %.3168, 63
+  %30 = icmp samesign ugt i32 %.3168, 63
   br i1 %30, label %.lr.ph169, label %._crit_edge170, !llvm.loop !10
 
 ._crit_edge170:                                   ; preds = %.lr.ph169, %.preheader159
@@ -314,7 +314,7 @@ define internal void @ompi_op_avx_2buff_max_uint8_t_avx512(ptr noundef %0, ptr n
   store <16 x i8> %40, ptr %.5126174, align 1
   %41 = getelementptr inbounds i8, ptr %.5126174, i64 16
   %42 = add nsw i32 %.5176, -16
-  %43 = icmp ugt i32 %.5176, 31
+  %43 = icmp samesign ugt i32 %.5176, 31
   br i1 %43, label %.lr.ph177, label %.loopexit158, !llvm.loop !11
 
 .loopexit158:                                     ; preds = %.lr.ph177, %32
@@ -445,7 +445,7 @@ define internal void @ompi_op_avx_2buff_max_int16_t_avx512(ptr noundef %0, ptr n
   store <32 x i16> %14, ptr %.1122161, align 1
   %15 = getelementptr inbounds i8, ptr %.1122161, i64 64
   %16 = add nsw i32 %.1163, -32
-  %17 = icmp ugt i32 %.1163, 63
+  %17 = icmp samesign ugt i32 %.1163, 63
   br i1 %17, label %.lr.ph, label %._crit_edge, !llvm.loop !13
 
 ._crit_edge:                                      ; preds = %.lr.ph, %.preheader160
@@ -483,7 +483,7 @@ define internal void @ompi_op_avx_2buff_max_int16_t_avx512(ptr noundef %0, ptr n
   store <16 x i16> %27, ptr %.3124166, align 1
   %28 = getelementptr inbounds i8, ptr %.3124166, i64 32
   %29 = add nsw i32 %.3168, -16
-  %30 = icmp ugt i32 %.3168, 31
+  %30 = icmp samesign ugt i32 %.3168, 31
   br i1 %30, label %.lr.ph169, label %._crit_edge170, !llvm.loop !14
 
 ._crit_edge170:                                   ; preds = %.lr.ph169, %.preheader159
@@ -521,7 +521,7 @@ define internal void @ompi_op_avx_2buff_max_int16_t_avx512(ptr noundef %0, ptr n
   store <8 x i16> %42, ptr %.5126174, align 1
   %43 = getelementptr inbounds i8, ptr %.5126174, i64 16
   %44 = add nsw i32 %.5176, -8
-  %45 = icmp ugt i32 %.5176, 15
+  %45 = icmp samesign ugt i32 %.5176, 15
   br i1 %45, label %.lr.ph177, label %.loopexit158, !llvm.loop !15
 
 .loopexit158:                                     ; preds = %.lr.ph177, %32
@@ -652,7 +652,7 @@ define internal void @ompi_op_avx_2buff_max_uint16_t_avx512(ptr noundef %0, ptr 
   store <32 x i16> %14, ptr %.1122161, align 1
   %15 = getelementptr inbounds i8, ptr %.1122161, i64 64
   %16 = add nsw i32 %.1163, -32
-  %17 = icmp ugt i32 %.1163, 63
+  %17 = icmp samesign ugt i32 %.1163, 63
   br i1 %17, label %.lr.ph, label %._crit_edge, !llvm.loop !17
 
 ._crit_edge:                                      ; preds = %.lr.ph, %.preheader160
@@ -690,7 +690,7 @@ define internal void @ompi_op_avx_2buff_max_uint16_t_avx512(ptr noundef %0, ptr 
   store <16 x i16> %27, ptr %.3124166, align 1
   %28 = getelementptr inbounds i8, ptr %.3124166, i64 32
   %29 = add nsw i32 %.3168, -16
-  %30 = icmp ugt i32 %.3168, 31
+  %30 = icmp samesign ugt i32 %.3168, 31
   br i1 %30, label %.lr.ph169, label %._crit_edge170, !llvm.loop !18
 
 ._crit_edge170:                                   ; preds = %.lr.ph169, %.preheader159
@@ -728,7 +728,7 @@ define internal void @ompi_op_avx_2buff_max_uint16_t_avx512(ptr noundef %0, ptr 
   store <8 x i16> %42, ptr %.5126174, align 1
   %43 = getelementptr inbounds i8, ptr %.5126174, i64 16
   %44 = add nsw i32 %.5176, -8
-  %45 = icmp ugt i32 %.5176, 15
+  %45 = icmp samesign ugt i32 %.5176, 15
   br i1 %45, label %.lr.ph177, label %.loopexit158, !llvm.loop !19
 
 .loopexit158:                                     ; preds = %.lr.ph177, %32
@@ -859,7 +859,7 @@ define internal void @ompi_op_avx_2buff_max_int32_t_avx512(ptr noundef %0, ptr n
   store <16 x i32> %14, ptr %.1122154, align 1
   %15 = getelementptr inbounds i8, ptr %.1122154, i64 64
   %16 = add nsw i32 %.1156, -16
-  %17 = icmp ugt i32 %.1156, 31
+  %17 = icmp samesign ugt i32 %.1156, 31
   br i1 %17, label %.lr.ph, label %._crit_edge, !llvm.loop !21
 
 ._crit_edge:                                      ; preds = %.lr.ph, %.preheader153
@@ -897,7 +897,7 @@ define internal void @ompi_op_avx_2buff_max_int32_t_avx512(ptr noundef %0, ptr n
   store <8 x i32> %27, ptr %.3124159, align 1
   %28 = getelementptr inbounds i8, ptr %.3124159, i64 32
   %29 = add nsw i32 %.3161, -8
-  %30 = icmp ugt i32 %.3161, 15
+  %30 = icmp samesign ugt i32 %.3161, 15
   br i1 %30, label %.lr.ph162, label %._crit_edge163, !llvm.loop !22
 
 ._crit_edge163:                                   ; preds = %.lr.ph162, %.preheader152
@@ -935,7 +935,7 @@ define internal void @ompi_op_avx_2buff_max_int32_t_avx512(ptr noundef %0, ptr n
   store <4 x i32> %42, ptr %.5126167, align 1
   %43 = getelementptr inbounds i8, ptr %.5126167, i64 16
   %44 = add nsw i32 %.5169, -4
-  %45 = icmp ugt i32 %.5169, 7
+  %45 = icmp samesign ugt i32 %.5169, 7
   br i1 %45, label %.lr.ph170, label %.loopexit151, !llvm.loop !23
 
 .loopexit151:                                     ; preds = %.lr.ph170, %32
@@ -1066,7 +1066,7 @@ define internal void @ompi_op_avx_2buff_max_uint32_t_avx512(ptr noundef %0, ptr 
   store <16 x i32> %14, ptr %.1122154, align 1
   %15 = getelementptr inbounds i8, ptr %.1122154, i64 64
   %16 = add nsw i32 %.1156, -16
-  %17 = icmp ugt i32 %.1156, 31
+  %17 = icmp samesign ugt i32 %.1156, 31
   br i1 %17, label %.lr.ph, label %._crit_edge, !llvm.loop !25
 
 ._crit_edge:                                      ; preds = %.lr.ph, %.preheader153
@@ -1104,7 +1104,7 @@ define internal void @ompi_op_avx_2buff_max_uint32_t_avx512(ptr noundef %0, ptr 
   store <8 x i32> %27, ptr %.3124159, align 1
   %28 = getelementptr inbounds i8, ptr %.3124159, i64 32
   %29 = add nsw i32 %.3161, -8
-  %30 = icmp ugt i32 %.3161, 15
+  %30 = icmp samesign ugt i32 %.3161, 15
   br i1 %30, label %.lr.ph162, label %._crit_edge163, !llvm.loop !26
 
 ._crit_edge163:                                   ; preds = %.lr.ph162, %.preheader152
@@ -1142,7 +1142,7 @@ define internal void @ompi_op_avx_2buff_max_uint32_t_avx512(ptr noundef %0, ptr 
   store <4 x i32> %42, ptr %.5126167, align 1
   %43 = getelementptr inbounds i8, ptr %.5126167, i64 16
   %44 = add nsw i32 %.5169, -4
-  %45 = icmp ugt i32 %.5169, 7
+  %45 = icmp samesign ugt i32 %.5169, 7
   br i1 %45, label %.lr.ph170, label %.loopexit151, !llvm.loop !27
 
 .loopexit151:                                     ; preds = %.lr.ph170, %32
@@ -1273,7 +1273,7 @@ define internal void @ompi_op_avx_2buff_max_int64_t_avx512(ptr noundef %0, ptr n
   store <8 x i64> %14, ptr %.1122154, align 1
   %15 = getelementptr inbounds i8, ptr %.1122154, i64 64
   %16 = add nsw i32 %.1156, -8
-  %17 = icmp ugt i32 %.1156, 15
+  %17 = icmp samesign ugt i32 %.1156, 15
   br i1 %17, label %.lr.ph, label %._crit_edge, !llvm.loop !29
 
 ._crit_edge:                                      ; preds = %.lr.ph, %.preheader153
@@ -1311,7 +1311,7 @@ define internal void @ompi_op_avx_2buff_max_int64_t_avx512(ptr noundef %0, ptr n
   store <4 x i64> %27, ptr %.3124159, align 1
   %28 = getelementptr inbounds i8, ptr %.3124159, i64 32
   %29 = add nsw i32 %.3161, -4
-  %30 = icmp ugt i32 %.3161, 7
+  %30 = icmp samesign ugt i32 %.3161, 7
   br i1 %30, label %.lr.ph162, label %._crit_edge163, !llvm.loop !30
 
 ._crit_edge163:                                   ; preds = %.lr.ph162, %.preheader152
@@ -1349,7 +1349,7 @@ define internal void @ompi_op_avx_2buff_max_int64_t_avx512(ptr noundef %0, ptr n
   store <2 x i64> %42, ptr %.5126167, align 1
   %43 = getelementptr inbounds i8, ptr %.5126167, i64 16
   %44 = add nsw i32 %.5169, -2
-  %45 = icmp ugt i32 %.5169, 3
+  %45 = icmp samesign ugt i32 %.5169, 3
   br i1 %45, label %.lr.ph170, label %.loopexit151, !llvm.loop !31
 
 .loopexit151:                                     ; preds = %.lr.ph170, %32
@@ -1480,7 +1480,7 @@ define internal void @ompi_op_avx_2buff_max_uint64_t_avx512(ptr noundef %0, ptr 
   store <8 x i64> %14, ptr %.1122154, align 1
   %15 = getelementptr inbounds i8, ptr %.1122154, i64 64
   %16 = add nsw i32 %.1156, -8
-  %17 = icmp ugt i32 %.1156, 15
+  %17 = icmp samesign ugt i32 %.1156, 15
   br i1 %17, label %.lr.ph, label %._crit_edge, !llvm.loop !33
 
 ._crit_edge:                                      ; preds = %.lr.ph, %.preheader153
@@ -1518,7 +1518,7 @@ define internal void @ompi_op_avx_2buff_max_uint64_t_avx512(ptr noundef %0, ptr 
   store <4 x i64> %27, ptr %.3124159, align 1
   %28 = getelementptr inbounds i8, ptr %.3124159, i64 32
   %29 = add nsw i32 %.3161, -4
-  %30 = icmp ugt i32 %.3161, 7
+  %30 = icmp samesign ugt i32 %.3161, 7
   br i1 %30, label %.lr.ph162, label %._crit_edge163, !llvm.loop !34
 
 ._crit_edge163:                                   ; preds = %.lr.ph162, %.preheader152
@@ -1556,7 +1556,7 @@ define internal void @ompi_op_avx_2buff_max_uint64_t_avx512(ptr noundef %0, ptr 
   store <2 x i64> %42, ptr %.5126167, align 1
   %43 = getelementptr inbounds i8, ptr %.5126167, i64 16
   %44 = add nsw i32 %.5169, -2
-  %45 = icmp ugt i32 %.5169, 3
+  %45 = icmp samesign ugt i32 %.5169, 3
   br i1 %45, label %.lr.ph170, label %.loopexit151, !llvm.loop !35
 
 .loopexit151:                                     ; preds = %.lr.ph170, %32
@@ -1687,7 +1687,7 @@ define internal void @ompi_op_avx_2buff_max_float_avx512(ptr nocapture noundef r
   store <16 x float> %13, ptr %.1122156, align 1
   %14 = getelementptr inbounds i8, ptr %.1122156, i64 64
   %15 = add nsw i32 %.1158, -16
-  %16 = icmp ugt i32 %.1158, 31
+  %16 = icmp samesign ugt i32 %.1158, 31
   br i1 %16, label %.lr.ph, label %._crit_edge, !llvm.loop !37
 
 ._crit_edge:                                      ; preds = %.lr.ph, %.preheader155
@@ -1725,7 +1725,7 @@ define internal void @ompi_op_avx_2buff_max_float_avx512(ptr nocapture noundef r
   store <8 x float> %25, ptr %.3124161, align 1
   %26 = getelementptr inbounds i8, ptr %.3124161, i64 32
   %27 = add nsw i32 %.3163, -8
-  %28 = icmp ugt i32 %.3163, 15
+  %28 = icmp samesign ugt i32 %.3163, 15
   br i1 %28, label %.lr.ph164, label %._crit_edge165, !llvm.loop !38
 
 ._crit_edge165:                                   ; preds = %.lr.ph164, %.preheader154
@@ -1761,7 +1761,7 @@ define internal void @ompi_op_avx_2buff_max_float_avx512(ptr nocapture noundef r
   store <4 x float> %37, ptr %.5126169, align 1
   %38 = getelementptr inbounds i8, ptr %.5126169, i64 16
   %39 = add nsw i32 %.5171, -4
-  %40 = icmp ugt i32 %.5171, 7
+  %40 = icmp samesign ugt i32 %.5171, 7
   br i1 %40, label %.lr.ph172, label %.loopexit153, !llvm.loop !39
 
 .loopexit153:                                     ; preds = %.lr.ph172, %30
@@ -1900,7 +1900,7 @@ define internal void @ompi_op_avx_2buff_max_double_avx512(ptr nocapture noundef 
   store <8 x double> %13, ptr %.1122156, align 1
   %14 = getelementptr inbounds i8, ptr %.1122156, i64 64
   %15 = add nsw i32 %.1158, -8
-  %16 = icmp ugt i32 %.1158, 15
+  %16 = icmp samesign ugt i32 %.1158, 15
   br i1 %16, label %.lr.ph, label %._crit_edge, !llvm.loop !41
 
 ._crit_edge:                                      ; preds = %.lr.ph, %.preheader155
@@ -1938,7 +1938,7 @@ define internal void @ompi_op_avx_2buff_max_double_avx512(ptr nocapture noundef 
   store <4 x double> %25, ptr %.3124161, align 1
   %26 = getelementptr inbounds i8, ptr %.3124161, i64 32
   %27 = add nsw i32 %.3163, -4
-  %28 = icmp ugt i32 %.3163, 7
+  %28 = icmp samesign ugt i32 %.3163, 7
   br i1 %28, label %.lr.ph164, label %._crit_edge165, !llvm.loop !42
 
 ._crit_edge165:                                   ; preds = %.lr.ph164, %.preheader154
@@ -1974,7 +1974,7 @@ define internal void @ompi_op_avx_2buff_max_double_avx512(ptr nocapture noundef 
   store <2 x double> %37, ptr %.5126169, align 1
   %38 = getelementptr inbounds i8, ptr %.5126169, i64 16
   %39 = add nsw i32 %.5171, -2
-  %40 = icmp ugt i32 %.5171, 3
+  %40 = icmp samesign ugt i32 %.5171, 3
   br i1 %40, label %.lr.ph172, label %.loopexit153, !llvm.loop !43
 
 .loopexit153:                                     ; preds = %.lr.ph172, %30
@@ -2113,7 +2113,7 @@ define internal void @ompi_op_avx_2buff_min_int8_t_avx512(ptr noundef %0, ptr no
   store <64 x i8> %14, ptr %.1122161, align 1
   %15 = getelementptr inbounds i8, ptr %.1122161, i64 64
   %16 = add nsw i32 %.1163, -64
-  %17 = icmp ugt i32 %.1163, 127
+  %17 = icmp samesign ugt i32 %.1163, 127
   br i1 %17, label %.lr.ph, label %._crit_edge, !llvm.loop !45
 
 ._crit_edge:                                      ; preds = %.lr.ph, %.preheader160
@@ -2151,7 +2151,7 @@ define internal void @ompi_op_avx_2buff_min_int8_t_avx512(ptr noundef %0, ptr no
   store <32 x i8> %27, ptr %.3124166, align 1
   %28 = getelementptr inbounds i8, ptr %.3124166, i64 32
   %29 = add nsw i32 %.3168, -32
-  %30 = icmp ugt i32 %.3168, 63
+  %30 = icmp samesign ugt i32 %.3168, 63
   br i1 %30, label %.lr.ph169, label %._crit_edge170, !llvm.loop !46
 
 ._crit_edge170:                                   ; preds = %.lr.ph169, %.preheader159
@@ -2187,7 +2187,7 @@ define internal void @ompi_op_avx_2buff_min_int8_t_avx512(ptr noundef %0, ptr no
   store <16 x i8> %40, ptr %.5126174, align 1
   %41 = getelementptr inbounds i8, ptr %.5126174, i64 16
   %42 = add nsw i32 %.5176, -16
-  %43 = icmp ugt i32 %.5176, 31
+  %43 = icmp samesign ugt i32 %.5176, 31
   br i1 %43, label %.lr.ph177, label %.loopexit158, !llvm.loop !47
 
 .loopexit158:                                     ; preds = %.lr.ph177, %32
@@ -2318,7 +2318,7 @@ define internal void @ompi_op_avx_2buff_min_uint8_t_avx512(ptr noundef %0, ptr n
   store <64 x i8> %14, ptr %.1122161, align 1
   %15 = getelementptr inbounds i8, ptr %.1122161, i64 64
   %16 = add nsw i32 %.1163, -64
-  %17 = icmp ugt i32 %.1163, 127
+  %17 = icmp samesign ugt i32 %.1163, 127
   br i1 %17, label %.lr.ph, label %._crit_edge, !llvm.loop !49
 
 ._crit_edge:                                      ; preds = %.lr.ph, %.preheader160
@@ -2356,7 +2356,7 @@ define internal void @ompi_op_avx_2buff_min_uint8_t_avx512(ptr noundef %0, ptr n
   store <32 x i8> %27, ptr %.3124166, align 1
   %28 = getelementptr inbounds i8, ptr %.3124166, i64 32
   %29 = add nsw i32 %.3168, -32
-  %30 = icmp ugt i32 %.3168, 63
+  %30 = icmp samesign ugt i32 %.3168, 63
   br i1 %30, label %.lr.ph169, label %._crit_edge170, !llvm.loop !50
 
 ._crit_edge170:                                   ; preds = %.lr.ph169, %.preheader159
@@ -2392,7 +2392,7 @@ define internal void @ompi_op_avx_2buff_min_uint8_t_avx512(ptr noundef %0, ptr n
   store <16 x i8> %40, ptr %.5126174, align 1
   %41 = getelementptr inbounds i8, ptr %.5126174, i64 16
   %42 = add nsw i32 %.5176, -16
-  %43 = icmp ugt i32 %.5176, 31
+  %43 = icmp samesign ugt i32 %.5176, 31
   br i1 %43, label %.lr.ph177, label %.loopexit158, !llvm.loop !51
 
 .loopexit158:                                     ; preds = %.lr.ph177, %32
@@ -2523,7 +2523,7 @@ define internal void @ompi_op_avx_2buff_min_int16_t_avx512(ptr noundef %0, ptr n
   store <32 x i16> %14, ptr %.1122161, align 1
   %15 = getelementptr inbounds i8, ptr %.1122161, i64 64
   %16 = add nsw i32 %.1163, -32
-  %17 = icmp ugt i32 %.1163, 63
+  %17 = icmp samesign ugt i32 %.1163, 63
   br i1 %17, label %.lr.ph, label %._crit_edge, !llvm.loop !53
 
 ._crit_edge:                                      ; preds = %.lr.ph, %.preheader160
@@ -2561,7 +2561,7 @@ define internal void @ompi_op_avx_2buff_min_int16_t_avx512(ptr noundef %0, ptr n
   store <16 x i16> %27, ptr %.3124166, align 1
   %28 = getelementptr inbounds i8, ptr %.3124166, i64 32
   %29 = add nsw i32 %.3168, -16
-  %30 = icmp ugt i32 %.3168, 31
+  %30 = icmp samesign ugt i32 %.3168, 31
   br i1 %30, label %.lr.ph169, label %._crit_edge170, !llvm.loop !54
 
 ._crit_edge170:                                   ; preds = %.lr.ph169, %.preheader159
@@ -2599,7 +2599,7 @@ define internal void @ompi_op_avx_2buff_min_int16_t_avx512(ptr noundef %0, ptr n
   store <8 x i16> %42, ptr %.5126174, align 1
   %43 = getelementptr inbounds i8, ptr %.5126174, i64 16
   %44 = add nsw i32 %.5176, -8
-  %45 = icmp ugt i32 %.5176, 15
+  %45 = icmp samesign ugt i32 %.5176, 15
   br i1 %45, label %.lr.ph177, label %.loopexit158, !llvm.loop !55
 
 .loopexit158:                                     ; preds = %.lr.ph177, %32
@@ -2730,7 +2730,7 @@ define internal void @ompi_op_avx_2buff_min_uint16_t_avx512(ptr noundef %0, ptr 
   store <32 x i16> %14, ptr %.1122161, align 1
   %15 = getelementptr inbounds i8, ptr %.1122161, i64 64
   %16 = add nsw i32 %.1163, -32
-  %17 = icmp ugt i32 %.1163, 63
+  %17 = icmp samesign ugt i32 %.1163, 63
   br i1 %17, label %.lr.ph, label %._crit_edge, !llvm.loop !57
 
 ._crit_edge:                                      ; preds = %.lr.ph, %.preheader160
@@ -2768,7 +2768,7 @@ define internal void @ompi_op_avx_2buff_min_uint16_t_avx512(ptr noundef %0, ptr 
   store <16 x i16> %27, ptr %.3124166, align 1
   %28 = getelementptr inbounds i8, ptr %.3124166, i64 32
   %29 = add nsw i32 %.3168, -16
-  %30 = icmp ugt i32 %.3168, 31
+  %30 = icmp samesign ugt i32 %.3168, 31
   br i1 %30, label %.lr.ph169, label %._crit_edge170, !llvm.loop !58
 
 ._crit_edge170:                                   ; preds = %.lr.ph169, %.preheader159
@@ -2806,7 +2806,7 @@ define internal void @ompi_op_avx_2buff_min_uint16_t_avx512(ptr noundef %0, ptr 
   store <8 x i16> %42, ptr %.5126174, align 1
   %43 = getelementptr inbounds i8, ptr %.5126174, i64 16
   %44 = add nsw i32 %.5176, -8
-  %45 = icmp ugt i32 %.5176, 15
+  %45 = icmp samesign ugt i32 %.5176, 15
   br i1 %45, label %.lr.ph177, label %.loopexit158, !llvm.loop !59
 
 .loopexit158:                                     ; preds = %.lr.ph177, %32
@@ -2937,7 +2937,7 @@ define internal void @ompi_op_avx_2buff_min_int32_t_avx512(ptr noundef %0, ptr n
   store <16 x i32> %14, ptr %.1122154, align 1
   %15 = getelementptr inbounds i8, ptr %.1122154, i64 64
   %16 = add nsw i32 %.1156, -16
-  %17 = icmp ugt i32 %.1156, 31
+  %17 = icmp samesign ugt i32 %.1156, 31
   br i1 %17, label %.lr.ph, label %._crit_edge, !llvm.loop !61
 
 ._crit_edge:                                      ; preds = %.lr.ph, %.preheader153
@@ -2975,7 +2975,7 @@ define internal void @ompi_op_avx_2buff_min_int32_t_avx512(ptr noundef %0, ptr n
   store <8 x i32> %27, ptr %.3124159, align 1
   %28 = getelementptr inbounds i8, ptr %.3124159, i64 32
   %29 = add nsw i32 %.3161, -8
-  %30 = icmp ugt i32 %.3161, 15
+  %30 = icmp samesign ugt i32 %.3161, 15
   br i1 %30, label %.lr.ph162, label %._crit_edge163, !llvm.loop !62
 
 ._crit_edge163:                                   ; preds = %.lr.ph162, %.preheader152
@@ -3013,7 +3013,7 @@ define internal void @ompi_op_avx_2buff_min_int32_t_avx512(ptr noundef %0, ptr n
   store <4 x i32> %42, ptr %.5126167, align 1
   %43 = getelementptr inbounds i8, ptr %.5126167, i64 16
   %44 = add nsw i32 %.5169, -4
-  %45 = icmp ugt i32 %.5169, 7
+  %45 = icmp samesign ugt i32 %.5169, 7
   br i1 %45, label %.lr.ph170, label %.loopexit151, !llvm.loop !63
 
 .loopexit151:                                     ; preds = %.lr.ph170, %32
@@ -3144,7 +3144,7 @@ define internal void @ompi_op_avx_2buff_min_uint32_t_avx512(ptr noundef %0, ptr 
   store <16 x i32> %14, ptr %.1122154, align 1
   %15 = getelementptr inbounds i8, ptr %.1122154, i64 64
   %16 = add nsw i32 %.1156, -16
-  %17 = icmp ugt i32 %.1156, 31
+  %17 = icmp samesign ugt i32 %.1156, 31
   br i1 %17, label %.lr.ph, label %._crit_edge, !llvm.loop !65
 
 ._crit_edge:                                      ; preds = %.lr.ph, %.preheader153
@@ -3182,7 +3182,7 @@ define internal void @ompi_op_avx_2buff_min_uint32_t_avx512(ptr noundef %0, ptr 
   store <8 x i32> %27, ptr %.3124159, align 1
   %28 = getelementptr inbounds i8, ptr %.3124159, i64 32
   %29 = add nsw i32 %.3161, -8
-  %30 = icmp ugt i32 %.3161, 15
+  %30 = icmp samesign ugt i32 %.3161, 15
   br i1 %30, label %.lr.ph162, label %._crit_edge163, !llvm.loop !66
 
 ._crit_edge163:                                   ; preds = %.lr.ph162, %.preheader152
@@ -3220,7 +3220,7 @@ define internal void @ompi_op_avx_2buff_min_uint32_t_avx512(ptr noundef %0, ptr 
   store <4 x i32> %42, ptr %.5126167, align 1
   %43 = getelementptr inbounds i8, ptr %.5126167, i64 16
   %44 = add nsw i32 %.5169, -4
-  %45 = icmp ugt i32 %.5169, 7
+  %45 = icmp samesign ugt i32 %.5169, 7
   br i1 %45, label %.lr.ph170, label %.loopexit151, !llvm.loop !67
 
 .loopexit151:                                     ; preds = %.lr.ph170, %32
@@ -3351,7 +3351,7 @@ define internal void @ompi_op_avx_2buff_min_int64_t_avx512(ptr noundef %0, ptr n
   store <8 x i64> %14, ptr %.1122154, align 1
   %15 = getelementptr inbounds i8, ptr %.1122154, i64 64
   %16 = add nsw i32 %.1156, -8
-  %17 = icmp ugt i32 %.1156, 15
+  %17 = icmp samesign ugt i32 %.1156, 15
   br i1 %17, label %.lr.ph, label %._crit_edge, !llvm.loop !69
 
 ._crit_edge:                                      ; preds = %.lr.ph, %.preheader153
@@ -3389,7 +3389,7 @@ define internal void @ompi_op_avx_2buff_min_int64_t_avx512(ptr noundef %0, ptr n
   store <4 x i64> %27, ptr %.3124159, align 1
   %28 = getelementptr inbounds i8, ptr %.3124159, i64 32
   %29 = add nsw i32 %.3161, -4
-  %30 = icmp ugt i32 %.3161, 7
+  %30 = icmp samesign ugt i32 %.3161, 7
   br i1 %30, label %.lr.ph162, label %._crit_edge163, !llvm.loop !70
 
 ._crit_edge163:                                   ; preds = %.lr.ph162, %.preheader152
@@ -3427,7 +3427,7 @@ define internal void @ompi_op_avx_2buff_min_int64_t_avx512(ptr noundef %0, ptr n
   store <2 x i64> %42, ptr %.5126167, align 1
   %43 = getelementptr inbounds i8, ptr %.5126167, i64 16
   %44 = add nsw i32 %.5169, -2
-  %45 = icmp ugt i32 %.5169, 3
+  %45 = icmp samesign ugt i32 %.5169, 3
   br i1 %45, label %.lr.ph170, label %.loopexit151, !llvm.loop !71
 
 .loopexit151:                                     ; preds = %.lr.ph170, %32
@@ -3558,7 +3558,7 @@ define internal void @ompi_op_avx_2buff_min_uint64_t_avx512(ptr noundef %0, ptr 
   store <8 x i64> %14, ptr %.1122154, align 1
   %15 = getelementptr inbounds i8, ptr %.1122154, i64 64
   %16 = add nsw i32 %.1156, -8
-  %17 = icmp ugt i32 %.1156, 15
+  %17 = icmp samesign ugt i32 %.1156, 15
   br i1 %17, label %.lr.ph, label %._crit_edge, !llvm.loop !73
 
 ._crit_edge:                                      ; preds = %.lr.ph, %.preheader153
@@ -3596,7 +3596,7 @@ define internal void @ompi_op_avx_2buff_min_uint64_t_avx512(ptr noundef %0, ptr 
   store <4 x i64> %27, ptr %.3124159, align 1
   %28 = getelementptr inbounds i8, ptr %.3124159, i64 32
   %29 = add nsw i32 %.3161, -4
-  %30 = icmp ugt i32 %.3161, 7
+  %30 = icmp samesign ugt i32 %.3161, 7
   br i1 %30, label %.lr.ph162, label %._crit_edge163, !llvm.loop !74
 
 ._crit_edge163:                                   ; preds = %.lr.ph162, %.preheader152
@@ -3634,7 +3634,7 @@ define internal void @ompi_op_avx_2buff_min_uint64_t_avx512(ptr noundef %0, ptr 
   store <2 x i64> %42, ptr %.5126167, align 1
   %43 = getelementptr inbounds i8, ptr %.5126167, i64 16
   %44 = add nsw i32 %.5169, -2
-  %45 = icmp ugt i32 %.5169, 3
+  %45 = icmp samesign ugt i32 %.5169, 3
   br i1 %45, label %.lr.ph170, label %.loopexit151, !llvm.loop !75
 
 .loopexit151:                                     ; preds = %.lr.ph170, %32
@@ -3765,7 +3765,7 @@ define internal void @ompi_op_avx_2buff_min_float_avx512(ptr nocapture noundef r
   store <16 x float> %13, ptr %.1122156, align 1
   %14 = getelementptr inbounds i8, ptr %.1122156, i64 64
   %15 = add nsw i32 %.1158, -16
-  %16 = icmp ugt i32 %.1158, 31
+  %16 = icmp samesign ugt i32 %.1158, 31
   br i1 %16, label %.lr.ph, label %._crit_edge, !llvm.loop !77
 
 ._crit_edge:                                      ; preds = %.lr.ph, %.preheader155
@@ -3803,7 +3803,7 @@ define internal void @ompi_op_avx_2buff_min_float_avx512(ptr nocapture noundef r
   store <8 x float> %25, ptr %.3124161, align 1
   %26 = getelementptr inbounds i8, ptr %.3124161, i64 32
   %27 = add nsw i32 %.3163, -8
-  %28 = icmp ugt i32 %.3163, 15
+  %28 = icmp samesign ugt i32 %.3163, 15
   br i1 %28, label %.lr.ph164, label %._crit_edge165, !llvm.loop !78
 
 ._crit_edge165:                                   ; preds = %.lr.ph164, %.preheader154
@@ -3839,7 +3839,7 @@ define internal void @ompi_op_avx_2buff_min_float_avx512(ptr nocapture noundef r
   store <4 x float> %37, ptr %.5126169, align 1
   %38 = getelementptr inbounds i8, ptr %.5126169, i64 16
   %39 = add nsw i32 %.5171, -4
-  %40 = icmp ugt i32 %.5171, 7
+  %40 = icmp samesign ugt i32 %.5171, 7
   br i1 %40, label %.lr.ph172, label %.loopexit153, !llvm.loop !79
 
 .loopexit153:                                     ; preds = %.lr.ph172, %30
@@ -3978,7 +3978,7 @@ define internal void @ompi_op_avx_2buff_min_double_avx512(ptr nocapture noundef 
   store <8 x double> %13, ptr %.1122156, align 1
   %14 = getelementptr inbounds i8, ptr %.1122156, i64 64
   %15 = add nsw i32 %.1158, -8
-  %16 = icmp ugt i32 %.1158, 15
+  %16 = icmp samesign ugt i32 %.1158, 15
   br i1 %16, label %.lr.ph, label %._crit_edge, !llvm.loop !81
 
 ._crit_edge:                                      ; preds = %.lr.ph, %.preheader155
@@ -4016,7 +4016,7 @@ define internal void @ompi_op_avx_2buff_min_double_avx512(ptr nocapture noundef 
   store <4 x double> %25, ptr %.3124161, align 1
   %26 = getelementptr inbounds i8, ptr %.3124161, i64 32
   %27 = add nsw i32 %.3163, -4
-  %28 = icmp ugt i32 %.3163, 7
+  %28 = icmp samesign ugt i32 %.3163, 7
   br i1 %28, label %.lr.ph164, label %._crit_edge165, !llvm.loop !82
 
 ._crit_edge165:                                   ; preds = %.lr.ph164, %.preheader154
@@ -4052,7 +4052,7 @@ define internal void @ompi_op_avx_2buff_min_double_avx512(ptr nocapture noundef 
   store <2 x double> %37, ptr %.5126169, align 1
   %38 = getelementptr inbounds i8, ptr %.5126169, i64 16
   %39 = add nsw i32 %.5171, -2
-  %40 = icmp ugt i32 %.5171, 3
+  %40 = icmp samesign ugt i32 %.5171, 3
   br i1 %40, label %.lr.ph172, label %.loopexit153, !llvm.loop !83
 
 .loopexit153:                                     ; preds = %.lr.ph172, %30
@@ -4191,7 +4191,7 @@ define internal void @ompi_op_avx_2buff_sum_int8_t_avx512(ptr noundef %0, ptr no
   store <64 x i8> %14, ptr %.1106115, align 1
   %15 = getelementptr inbounds i8, ptr %.1106115, i64 64
   %16 = add nsw i32 %.1117, -64
-  %17 = icmp ugt i32 %.1117, 127
+  %17 = icmp samesign ugt i32 %.1117, 127
   br i1 %17, label %.lr.ph, label %._crit_edge, !llvm.loop !85
 
 ._crit_edge:                                      ; preds = %.lr.ph, %.preheader114
@@ -4229,7 +4229,7 @@ define internal void @ompi_op_avx_2buff_sum_int8_t_avx512(ptr noundef %0, ptr no
   store <32 x i8> %27, ptr %.3108120, align 1
   %28 = getelementptr inbounds i8, ptr %.3108120, i64 32
   %29 = add nsw i32 %.3122, -32
-  %30 = icmp ugt i32 %.3122, 63
+  %30 = icmp samesign ugt i32 %.3122, 63
   br i1 %30, label %.lr.ph123, label %._crit_edge124, !llvm.loop !86
 
 ._crit_edge124:                                   ; preds = %.lr.ph123, %.preheader113
@@ -4265,7 +4265,7 @@ define internal void @ompi_op_avx_2buff_sum_int8_t_avx512(ptr noundef %0, ptr no
   store <16 x i8> %40, ptr %.5110128, align 1
   %41 = getelementptr inbounds i8, ptr %.5110128, i64 16
   %42 = add nsw i32 %.5130, -16
-  %43 = icmp ugt i32 %.5130, 31
+  %43 = icmp samesign ugt i32 %.5130, 31
   br i1 %43, label %.lr.ph131, label %.loopexit112, !llvm.loop !87
 
 .loopexit112:                                     ; preds = %.lr.ph131, %32
@@ -4396,7 +4396,7 @@ define internal void @ompi_op_avx_2buff_sum_uint8_t_avx512(ptr noundef %0, ptr n
   store <64 x i8> %14, ptr %.1106115, align 1
   %15 = getelementptr inbounds i8, ptr %.1106115, i64 64
   %16 = add nsw i32 %.1117, -64
-  %17 = icmp ugt i32 %.1117, 127
+  %17 = icmp samesign ugt i32 %.1117, 127
   br i1 %17, label %.lr.ph, label %._crit_edge, !llvm.loop !89
 
 ._crit_edge:                                      ; preds = %.lr.ph, %.preheader114
@@ -4434,7 +4434,7 @@ define internal void @ompi_op_avx_2buff_sum_uint8_t_avx512(ptr noundef %0, ptr n
   store <32 x i8> %27, ptr %.3108120, align 1
   %28 = getelementptr inbounds i8, ptr %.3108120, i64 32
   %29 = add nsw i32 %.3122, -32
-  %30 = icmp ugt i32 %.3122, 63
+  %30 = icmp samesign ugt i32 %.3122, 63
   br i1 %30, label %.lr.ph123, label %._crit_edge124, !llvm.loop !90
 
 ._crit_edge124:                                   ; preds = %.lr.ph123, %.preheader113
@@ -4470,7 +4470,7 @@ define internal void @ompi_op_avx_2buff_sum_uint8_t_avx512(ptr noundef %0, ptr n
   store <16 x i8> %40, ptr %.5110128, align 1
   %41 = getelementptr inbounds i8, ptr %.5110128, i64 16
   %42 = add nsw i32 %.5130, -16
-  %43 = icmp ugt i32 %.5130, 31
+  %43 = icmp samesign ugt i32 %.5130, 31
   br i1 %43, label %.lr.ph131, label %.loopexit112, !llvm.loop !91
 
 .loopexit112:                                     ; preds = %.lr.ph131, %32
@@ -4601,7 +4601,7 @@ define internal void @ompi_op_avx_2buff_sum_int16_t_avx512(ptr noundef %0, ptr n
   store <32 x i16> %14, ptr %.1106115, align 1
   %15 = getelementptr inbounds i8, ptr %.1106115, i64 64
   %16 = add nsw i32 %.1117, -32
-  %17 = icmp ugt i32 %.1117, 63
+  %17 = icmp samesign ugt i32 %.1117, 63
   br i1 %17, label %.lr.ph, label %._crit_edge, !llvm.loop !93
 
 ._crit_edge:                                      ; preds = %.lr.ph, %.preheader114
@@ -4639,7 +4639,7 @@ define internal void @ompi_op_avx_2buff_sum_int16_t_avx512(ptr noundef %0, ptr n
   store <16 x i16> %27, ptr %.3108120, align 1
   %28 = getelementptr inbounds i8, ptr %.3108120, i64 32
   %29 = add nsw i32 %.3122, -16
-  %30 = icmp ugt i32 %.3122, 31
+  %30 = icmp samesign ugt i32 %.3122, 31
   br i1 %30, label %.lr.ph123, label %._crit_edge124, !llvm.loop !94
 
 ._crit_edge124:                                   ; preds = %.lr.ph123, %.preheader113
@@ -4677,7 +4677,7 @@ define internal void @ompi_op_avx_2buff_sum_int16_t_avx512(ptr noundef %0, ptr n
   store <8 x i16> %42, ptr %.5110128, align 1
   %43 = getelementptr inbounds i8, ptr %.5110128, i64 16
   %44 = add nsw i32 %.5130, -8
-  %45 = icmp ugt i32 %.5130, 15
+  %45 = icmp samesign ugt i32 %.5130, 15
   br i1 %45, label %.lr.ph131, label %.loopexit112, !llvm.loop !95
 
 .loopexit112:                                     ; preds = %.lr.ph131, %32
@@ -4808,7 +4808,7 @@ define internal void @ompi_op_avx_2buff_sum_uint16_t_avx512(ptr noundef %0, ptr 
   store <32 x i16> %14, ptr %.1106115, align 1
   %15 = getelementptr inbounds i8, ptr %.1106115, i64 64
   %16 = add nsw i32 %.1117, -32
-  %17 = icmp ugt i32 %.1117, 63
+  %17 = icmp samesign ugt i32 %.1117, 63
   br i1 %17, label %.lr.ph, label %._crit_edge, !llvm.loop !97
 
 ._crit_edge:                                      ; preds = %.lr.ph, %.preheader114
@@ -4846,7 +4846,7 @@ define internal void @ompi_op_avx_2buff_sum_uint16_t_avx512(ptr noundef %0, ptr 
   store <16 x i16> %27, ptr %.3108120, align 1
   %28 = getelementptr inbounds i8, ptr %.3108120, i64 32
   %29 = add nsw i32 %.3122, -16
-  %30 = icmp ugt i32 %.3122, 31
+  %30 = icmp samesign ugt i32 %.3122, 31
   br i1 %30, label %.lr.ph123, label %._crit_edge124, !llvm.loop !98
 
 ._crit_edge124:                                   ; preds = %.lr.ph123, %.preheader113
@@ -4884,7 +4884,7 @@ define internal void @ompi_op_avx_2buff_sum_uint16_t_avx512(ptr noundef %0, ptr 
   store <8 x i16> %42, ptr %.5110128, align 1
   %43 = getelementptr inbounds i8, ptr %.5110128, i64 16
   %44 = add nsw i32 %.5130, -8
-  %45 = icmp ugt i32 %.5130, 15
+  %45 = icmp samesign ugt i32 %.5130, 15
   br i1 %45, label %.lr.ph131, label %.loopexit112, !llvm.loop !99
 
 .loopexit112:                                     ; preds = %.lr.ph131, %32
@@ -5015,7 +5015,7 @@ define internal void @ompi_op_avx_2buff_sum_int32_t_avx512(ptr noundef %0, ptr n
   store <16 x i32> %14, ptr %.1106115, align 1
   %15 = getelementptr inbounds i8, ptr %.1106115, i64 64
   %16 = add nsw i32 %.1117, -16
-  %17 = icmp ugt i32 %.1117, 31
+  %17 = icmp samesign ugt i32 %.1117, 31
   br i1 %17, label %.lr.ph, label %._crit_edge, !llvm.loop !101
 
 ._crit_edge:                                      ; preds = %.lr.ph, %.preheader114
@@ -5053,7 +5053,7 @@ define internal void @ompi_op_avx_2buff_sum_int32_t_avx512(ptr noundef %0, ptr n
   store <8 x i32> %27, ptr %.3108120, align 1
   %28 = getelementptr inbounds i8, ptr %.3108120, i64 32
   %29 = add nsw i32 %.3122, -8
-  %30 = icmp ugt i32 %.3122, 15
+  %30 = icmp samesign ugt i32 %.3122, 15
   br i1 %30, label %.lr.ph123, label %._crit_edge124, !llvm.loop !102
 
 ._crit_edge124:                                   ; preds = %.lr.ph123, %.preheader113
@@ -5091,7 +5091,7 @@ define internal void @ompi_op_avx_2buff_sum_int32_t_avx512(ptr noundef %0, ptr n
   store <4 x i32> %42, ptr %.5110128, align 1
   %43 = getelementptr inbounds i8, ptr %.5110128, i64 16
   %44 = add nsw i32 %.5130, -4
-  %45 = icmp ugt i32 %.5130, 7
+  %45 = icmp samesign ugt i32 %.5130, 7
   br i1 %45, label %.lr.ph131, label %.loopexit112, !llvm.loop !103
 
 .loopexit112:                                     ; preds = %.lr.ph131, %32
@@ -5222,7 +5222,7 @@ define internal void @ompi_op_avx_2buff_sum_uint32_t_avx512(ptr noundef %0, ptr 
   store <16 x i32> %14, ptr %.1106115, align 1
   %15 = getelementptr inbounds i8, ptr %.1106115, i64 64
   %16 = add nsw i32 %.1117, -16
-  %17 = icmp ugt i32 %.1117, 31
+  %17 = icmp samesign ugt i32 %.1117, 31
   br i1 %17, label %.lr.ph, label %._crit_edge, !llvm.loop !105
 
 ._crit_edge:                                      ; preds = %.lr.ph, %.preheader114
@@ -5260,7 +5260,7 @@ define internal void @ompi_op_avx_2buff_sum_uint32_t_avx512(ptr noundef %0, ptr 
   store <8 x i32> %27, ptr %.3108120, align 1
   %28 = getelementptr inbounds i8, ptr %.3108120, i64 32
   %29 = add nsw i32 %.3122, -8
-  %30 = icmp ugt i32 %.3122, 15
+  %30 = icmp samesign ugt i32 %.3122, 15
   br i1 %30, label %.lr.ph123, label %._crit_edge124, !llvm.loop !106
 
 ._crit_edge124:                                   ; preds = %.lr.ph123, %.preheader113
@@ -5298,7 +5298,7 @@ define internal void @ompi_op_avx_2buff_sum_uint32_t_avx512(ptr noundef %0, ptr 
   store <4 x i32> %42, ptr %.5110128, align 1
   %43 = getelementptr inbounds i8, ptr %.5110128, i64 16
   %44 = add nsw i32 %.5130, -4
-  %45 = icmp ugt i32 %.5130, 7
+  %45 = icmp samesign ugt i32 %.5130, 7
   br i1 %45, label %.lr.ph131, label %.loopexit112, !llvm.loop !107
 
 .loopexit112:                                     ; preds = %.lr.ph131, %32
@@ -5429,7 +5429,7 @@ define internal void @ompi_op_avx_2buff_sum_int64_t_avx512(ptr noundef %0, ptr n
   store <8 x i64> %14, ptr %.1106115, align 1
   %15 = getelementptr inbounds i8, ptr %.1106115, i64 64
   %16 = add nsw i32 %.1117, -8
-  %17 = icmp ugt i32 %.1117, 15
+  %17 = icmp samesign ugt i32 %.1117, 15
   br i1 %17, label %.lr.ph, label %._crit_edge, !llvm.loop !109
 
 ._crit_edge:                                      ; preds = %.lr.ph, %.preheader114
@@ -5467,7 +5467,7 @@ define internal void @ompi_op_avx_2buff_sum_int64_t_avx512(ptr noundef %0, ptr n
   store <4 x i64> %27, ptr %.3108120, align 1
   %28 = getelementptr inbounds i8, ptr %.3108120, i64 32
   %29 = add nsw i32 %.3122, -4
-  %30 = icmp ugt i32 %.3122, 7
+  %30 = icmp samesign ugt i32 %.3122, 7
   br i1 %30, label %.lr.ph123, label %._crit_edge124, !llvm.loop !110
 
 ._crit_edge124:                                   ; preds = %.lr.ph123, %.preheader113
@@ -5505,7 +5505,7 @@ define internal void @ompi_op_avx_2buff_sum_int64_t_avx512(ptr noundef %0, ptr n
   store <2 x i64> %42, ptr %.5110128, align 1
   %43 = getelementptr inbounds i8, ptr %.5110128, i64 16
   %44 = add nsw i32 %.5130, -2
-  %45 = icmp ugt i32 %.5130, 3
+  %45 = icmp samesign ugt i32 %.5130, 3
   br i1 %45, label %.lr.ph131, label %.loopexit112, !llvm.loop !111
 
 .loopexit112:                                     ; preds = %.lr.ph131, %32
@@ -5636,7 +5636,7 @@ define internal void @ompi_op_avx_2buff_sum_uint64_t_avx512(ptr noundef %0, ptr 
   store <8 x i64> %14, ptr %.1106115, align 1
   %15 = getelementptr inbounds i8, ptr %.1106115, i64 64
   %16 = add nsw i32 %.1117, -8
-  %17 = icmp ugt i32 %.1117, 15
+  %17 = icmp samesign ugt i32 %.1117, 15
   br i1 %17, label %.lr.ph, label %._crit_edge, !llvm.loop !113
 
 ._crit_edge:                                      ; preds = %.lr.ph, %.preheader114
@@ -5674,7 +5674,7 @@ define internal void @ompi_op_avx_2buff_sum_uint64_t_avx512(ptr noundef %0, ptr 
   store <4 x i64> %27, ptr %.3108120, align 1
   %28 = getelementptr inbounds i8, ptr %.3108120, i64 32
   %29 = add nsw i32 %.3122, -4
-  %30 = icmp ugt i32 %.3122, 7
+  %30 = icmp samesign ugt i32 %.3122, 7
   br i1 %30, label %.lr.ph123, label %._crit_edge124, !llvm.loop !114
 
 ._crit_edge124:                                   ; preds = %.lr.ph123, %.preheader113
@@ -5712,7 +5712,7 @@ define internal void @ompi_op_avx_2buff_sum_uint64_t_avx512(ptr noundef %0, ptr 
   store <2 x i64> %42, ptr %.5110128, align 1
   %43 = getelementptr inbounds i8, ptr %.5110128, i64 16
   %44 = add nsw i32 %.5130, -2
-  %45 = icmp ugt i32 %.5130, 3
+  %45 = icmp samesign ugt i32 %.5130, 3
   br i1 %45, label %.lr.ph131, label %.loopexit112, !llvm.loop !115
 
 .loopexit112:                                     ; preds = %.lr.ph131, %32
@@ -5843,7 +5843,7 @@ define internal void @ompi_op_avx_2buff_add_float_avx512(ptr nocapture noundef r
   store <16 x float> %13, ptr %.1106117, align 1
   %14 = getelementptr inbounds i8, ptr %.1106117, i64 64
   %15 = add nsw i32 %.1119, -16
-  %16 = icmp ugt i32 %.1119, 31
+  %16 = icmp samesign ugt i32 %.1119, 31
   br i1 %16, label %.lr.ph, label %._crit_edge, !llvm.loop !117
 
 ._crit_edge:                                      ; preds = %.lr.ph, %.preheader116
@@ -5881,7 +5881,7 @@ define internal void @ompi_op_avx_2buff_add_float_avx512(ptr nocapture noundef r
   store <8 x float> %25, ptr %.3108122, align 1
   %26 = getelementptr inbounds i8, ptr %.3108122, i64 32
   %27 = add nsw i32 %.3124, -8
-  %28 = icmp ugt i32 %.3124, 15
+  %28 = icmp samesign ugt i32 %.3124, 15
   br i1 %28, label %.lr.ph125, label %._crit_edge126, !llvm.loop !118
 
 ._crit_edge126:                                   ; preds = %.lr.ph125, %.preheader115
@@ -5917,7 +5917,7 @@ define internal void @ompi_op_avx_2buff_add_float_avx512(ptr nocapture noundef r
   store <4 x float> %37, ptr %.5110130, align 1
   %38 = getelementptr inbounds i8, ptr %.5110130, i64 16
   %39 = add nsw i32 %.5132, -4
-  %40 = icmp ugt i32 %.5132, 7
+  %40 = icmp samesign ugt i32 %.5132, 7
   br i1 %40, label %.lr.ph133, label %.loopexit114, !llvm.loop !119
 
 .loopexit114:                                     ; preds = %.lr.ph133, %30
@@ -6048,7 +6048,7 @@ define internal void @ompi_op_avx_2buff_add_double_avx512(ptr nocapture noundef 
   store <8 x double> %13, ptr %.1106117, align 1
   %14 = getelementptr inbounds i8, ptr %.1106117, i64 64
   %15 = add nsw i32 %.1119, -8
-  %16 = icmp ugt i32 %.1119, 15
+  %16 = icmp samesign ugt i32 %.1119, 15
   br i1 %16, label %.lr.ph, label %._crit_edge, !llvm.loop !121
 
 ._crit_edge:                                      ; preds = %.lr.ph, %.preheader116
@@ -6086,7 +6086,7 @@ define internal void @ompi_op_avx_2buff_add_double_avx512(ptr nocapture noundef 
   store <4 x double> %25, ptr %.3108122, align 1
   %26 = getelementptr inbounds i8, ptr %.3108122, i64 32
   %27 = add nsw i32 %.3124, -4
-  %28 = icmp ugt i32 %.3124, 7
+  %28 = icmp samesign ugt i32 %.3124, 7
   br i1 %28, label %.lr.ph125, label %._crit_edge126, !llvm.loop !122
 
 ._crit_edge126:                                   ; preds = %.lr.ph125, %.preheader115
@@ -6122,7 +6122,7 @@ define internal void @ompi_op_avx_2buff_add_double_avx512(ptr nocapture noundef 
   store <2 x double> %37, ptr %.5110130, align 1
   %38 = getelementptr inbounds i8, ptr %.5110130, i64 16
   %39 = add nsw i32 %.5132, -2
-  %40 = icmp ugt i32 %.5132, 3
+  %40 = icmp samesign ugt i32 %.5132, 3
   br i1 %40, label %.lr.ph133, label %.loopexit114, !llvm.loop !123
 
 .loopexit114:                                     ; preds = %.lr.ph133, %30
@@ -6253,7 +6253,7 @@ define internal void @ompi_op_avx_2buff_prod_int8_t_avx512(ptr nocapture noundef
   store <32 x i8> %14, ptr %.16769, align 1
   %15 = getelementptr inbounds i8, ptr %.16769, i64 32
   %16 = add nsw i32 %.171, -32
-  %17 = icmp ugt i32 %.171, 63
+  %17 = icmp samesign ugt i32 %.171, 63
   br i1 %17, label %.lr.ph, label %._crit_edge, !llvm.loop !125
 
 ._crit_edge:                                      ; preds = %.lr.ph, %.preheader
@@ -6391,7 +6391,7 @@ define internal void @ompi_op_avx_2buff_prod_uint8_t_avx512(ptr nocapture nounde
   store <32 x i8> %14, ptr %.16769, align 1
   %15 = getelementptr inbounds i8, ptr %.16769, i64 32
   %16 = add nsw i32 %.171, -32
-  %17 = icmp ugt i32 %.171, 63
+  %17 = icmp samesign ugt i32 %.171, 63
   br i1 %17, label %.lr.ph, label %._crit_edge, !llvm.loop !127
 
 ._crit_edge:                                      ; preds = %.lr.ph, %.preheader
@@ -6529,7 +6529,7 @@ define internal void @ompi_op_avx_2buff_prod_int16_t_avx512(ptr noundef %0, ptr 
   store <32 x i16> %14, ptr %.1106115, align 1
   %15 = getelementptr inbounds i8, ptr %.1106115, i64 64
   %16 = add nsw i32 %.1117, -32
-  %17 = icmp ugt i32 %.1117, 63
+  %17 = icmp samesign ugt i32 %.1117, 63
   br i1 %17, label %.lr.ph, label %._crit_edge, !llvm.loop !129
 
 ._crit_edge:                                      ; preds = %.lr.ph, %.preheader114
@@ -6567,7 +6567,7 @@ define internal void @ompi_op_avx_2buff_prod_int16_t_avx512(ptr noundef %0, ptr 
   store <16 x i16> %27, ptr %.3108120, align 1
   %28 = getelementptr inbounds i8, ptr %.3108120, i64 32
   %29 = add nsw i32 %.3122, -16
-  %30 = icmp ugt i32 %.3122, 31
+  %30 = icmp samesign ugt i32 %.3122, 31
   br i1 %30, label %.lr.ph123, label %._crit_edge124, !llvm.loop !130
 
 ._crit_edge124:                                   ; preds = %.lr.ph123, %.preheader113
@@ -6605,7 +6605,7 @@ define internal void @ompi_op_avx_2buff_prod_int16_t_avx512(ptr noundef %0, ptr 
   store <8 x i16> %42, ptr %.5110128, align 1
   %43 = getelementptr inbounds i8, ptr %.5110128, i64 16
   %44 = add nsw i32 %.5130, -8
-  %45 = icmp ugt i32 %.5130, 15
+  %45 = icmp samesign ugt i32 %.5130, 15
   br i1 %45, label %.lr.ph131, label %.loopexit112, !llvm.loop !131
 
 .loopexit112:                                     ; preds = %.lr.ph131, %32
@@ -6736,7 +6736,7 @@ define internal void @ompi_op_avx_2buff_prod_uint16_t_avx512(ptr noundef %0, ptr
   store <32 x i16> %14, ptr %.1106115, align 1
   %15 = getelementptr inbounds i8, ptr %.1106115, i64 64
   %16 = add nsw i32 %.1117, -32
-  %17 = icmp ugt i32 %.1117, 63
+  %17 = icmp samesign ugt i32 %.1117, 63
   br i1 %17, label %.lr.ph, label %._crit_edge, !llvm.loop !133
 
 ._crit_edge:                                      ; preds = %.lr.ph, %.preheader114
@@ -6774,7 +6774,7 @@ define internal void @ompi_op_avx_2buff_prod_uint16_t_avx512(ptr noundef %0, ptr
   store <16 x i16> %27, ptr %.3108120, align 1
   %28 = getelementptr inbounds i8, ptr %.3108120, i64 32
   %29 = add nsw i32 %.3122, -16
-  %30 = icmp ugt i32 %.3122, 31
+  %30 = icmp samesign ugt i32 %.3122, 31
   br i1 %30, label %.lr.ph123, label %._crit_edge124, !llvm.loop !134
 
 ._crit_edge124:                                   ; preds = %.lr.ph123, %.preheader113
@@ -6812,7 +6812,7 @@ define internal void @ompi_op_avx_2buff_prod_uint16_t_avx512(ptr noundef %0, ptr
   store <8 x i16> %42, ptr %.5110128, align 1
   %43 = getelementptr inbounds i8, ptr %.5110128, i64 16
   %44 = add nsw i32 %.5130, -8
-  %45 = icmp ugt i32 %.5130, 15
+  %45 = icmp samesign ugt i32 %.5130, 15
   br i1 %45, label %.lr.ph131, label %.loopexit112, !llvm.loop !135
 
 .loopexit112:                                     ; preds = %.lr.ph131, %32
@@ -6943,7 +6943,7 @@ define internal void @ompi_op_avx_2buff_prod_int32_t_avx512(ptr noundef %0, ptr 
   store <16 x i32> %14, ptr %.1106115, align 1
   %15 = getelementptr inbounds i8, ptr %.1106115, i64 64
   %16 = add nsw i32 %.1117, -16
-  %17 = icmp ugt i32 %.1117, 31
+  %17 = icmp samesign ugt i32 %.1117, 31
   br i1 %17, label %.lr.ph, label %._crit_edge, !llvm.loop !137
 
 ._crit_edge:                                      ; preds = %.lr.ph, %.preheader114
@@ -6981,7 +6981,7 @@ define internal void @ompi_op_avx_2buff_prod_int32_t_avx512(ptr noundef %0, ptr 
   store <8 x i32> %27, ptr %.3108120, align 1
   %28 = getelementptr inbounds i8, ptr %.3108120, i64 32
   %29 = add nsw i32 %.3122, -8
-  %30 = icmp ugt i32 %.3122, 15
+  %30 = icmp samesign ugt i32 %.3122, 15
   br i1 %30, label %.lr.ph123, label %._crit_edge124, !llvm.loop !138
 
 ._crit_edge124:                                   ; preds = %.lr.ph123, %.preheader113
@@ -7019,7 +7019,7 @@ define internal void @ompi_op_avx_2buff_prod_int32_t_avx512(ptr noundef %0, ptr 
   store <4 x i32> %42, ptr %.5110128, align 1
   %43 = getelementptr inbounds i8, ptr %.5110128, i64 16
   %44 = add nsw i32 %.5130, -4
-  %45 = icmp ugt i32 %.5130, 7
+  %45 = icmp samesign ugt i32 %.5130, 7
   br i1 %45, label %.lr.ph131, label %.loopexit112, !llvm.loop !139
 
 .loopexit112:                                     ; preds = %.lr.ph131, %32
@@ -7150,7 +7150,7 @@ define internal void @ompi_op_avx_2buff_prod_uint32_t_avx512(ptr noundef %0, ptr
   store <16 x i32> %14, ptr %.1106115, align 1
   %15 = getelementptr inbounds i8, ptr %.1106115, i64 64
   %16 = add nsw i32 %.1117, -16
-  %17 = icmp ugt i32 %.1117, 31
+  %17 = icmp samesign ugt i32 %.1117, 31
   br i1 %17, label %.lr.ph, label %._crit_edge, !llvm.loop !141
 
 ._crit_edge:                                      ; preds = %.lr.ph, %.preheader114
@@ -7188,7 +7188,7 @@ define internal void @ompi_op_avx_2buff_prod_uint32_t_avx512(ptr noundef %0, ptr
   store <8 x i32> %27, ptr %.3108120, align 1
   %28 = getelementptr inbounds i8, ptr %.3108120, i64 32
   %29 = add nsw i32 %.3122, -8
-  %30 = icmp ugt i32 %.3122, 15
+  %30 = icmp samesign ugt i32 %.3122, 15
   br i1 %30, label %.lr.ph123, label %._crit_edge124, !llvm.loop !142
 
 ._crit_edge124:                                   ; preds = %.lr.ph123, %.preheader113
@@ -7226,7 +7226,7 @@ define internal void @ompi_op_avx_2buff_prod_uint32_t_avx512(ptr noundef %0, ptr
   store <4 x i32> %42, ptr %.5110128, align 1
   %43 = getelementptr inbounds i8, ptr %.5110128, i64 16
   %44 = add nsw i32 %.5130, -4
-  %45 = icmp ugt i32 %.5130, 7
+  %45 = icmp samesign ugt i32 %.5130, 7
   br i1 %45, label %.lr.ph131, label %.loopexit112, !llvm.loop !143
 
 .loopexit112:                                     ; preds = %.lr.ph131, %32
@@ -7357,7 +7357,7 @@ define internal void @ompi_op_avx_2buff_prod_int64_t_avx512(ptr noundef %0, ptr 
   store <8 x i64> %14, ptr %.1106115, align 1
   %15 = getelementptr inbounds i8, ptr %.1106115, i64 64
   %16 = add nsw i32 %.1117, -8
-  %17 = icmp ugt i32 %.1117, 15
+  %17 = icmp samesign ugt i32 %.1117, 15
   br i1 %17, label %.lr.ph, label %._crit_edge, !llvm.loop !145
 
 ._crit_edge:                                      ; preds = %.lr.ph, %.preheader114
@@ -7395,7 +7395,7 @@ define internal void @ompi_op_avx_2buff_prod_int64_t_avx512(ptr noundef %0, ptr 
   store <4 x i64> %27, ptr %.3108120, align 1
   %28 = getelementptr inbounds i8, ptr %.3108120, i64 32
   %29 = add nsw i32 %.3122, -4
-  %30 = icmp ugt i32 %.3122, 7
+  %30 = icmp samesign ugt i32 %.3122, 7
   br i1 %30, label %.lr.ph123, label %._crit_edge124, !llvm.loop !146
 
 ._crit_edge124:                                   ; preds = %.lr.ph123, %.preheader113
@@ -7433,7 +7433,7 @@ define internal void @ompi_op_avx_2buff_prod_int64_t_avx512(ptr noundef %0, ptr 
   store <2 x i64> %42, ptr %.5110128, align 1
   %43 = getelementptr inbounds i8, ptr %.5110128, i64 16
   %44 = add nsw i32 %.5130, -2
-  %45 = icmp ugt i32 %.5130, 3
+  %45 = icmp samesign ugt i32 %.5130, 3
   br i1 %45, label %.lr.ph131, label %.loopexit112, !llvm.loop !147
 
 .loopexit112:                                     ; preds = %.lr.ph131, %32
@@ -7564,7 +7564,7 @@ define internal void @ompi_op_avx_2buff_prod_uint64_t_avx512(ptr noundef %0, ptr
   store <8 x i64> %14, ptr %.1106115, align 1
   %15 = getelementptr inbounds i8, ptr %.1106115, i64 64
   %16 = add nsw i32 %.1117, -8
-  %17 = icmp ugt i32 %.1117, 15
+  %17 = icmp samesign ugt i32 %.1117, 15
   br i1 %17, label %.lr.ph, label %._crit_edge, !llvm.loop !149
 
 ._crit_edge:                                      ; preds = %.lr.ph, %.preheader114
@@ -7602,7 +7602,7 @@ define internal void @ompi_op_avx_2buff_prod_uint64_t_avx512(ptr noundef %0, ptr
   store <4 x i64> %27, ptr %.3108120, align 1
   %28 = getelementptr inbounds i8, ptr %.3108120, i64 32
   %29 = add nsw i32 %.3122, -4
-  %30 = icmp ugt i32 %.3122, 7
+  %30 = icmp samesign ugt i32 %.3122, 7
   br i1 %30, label %.lr.ph123, label %._crit_edge124, !llvm.loop !150
 
 ._crit_edge124:                                   ; preds = %.lr.ph123, %.preheader113
@@ -7640,7 +7640,7 @@ define internal void @ompi_op_avx_2buff_prod_uint64_t_avx512(ptr noundef %0, ptr
   store <2 x i64> %42, ptr %.5110128, align 1
   %43 = getelementptr inbounds i8, ptr %.5110128, i64 16
   %44 = add nsw i32 %.5130, -2
-  %45 = icmp ugt i32 %.5130, 3
+  %45 = icmp samesign ugt i32 %.5130, 3
   br i1 %45, label %.lr.ph131, label %.loopexit112, !llvm.loop !151
 
 .loopexit112:                                     ; preds = %.lr.ph131, %32
@@ -7771,7 +7771,7 @@ define internal void @ompi_op_avx_2buff_mul_float_avx512(ptr nocapture noundef r
   store <16 x float> %13, ptr %.1106117, align 1
   %14 = getelementptr inbounds i8, ptr %.1106117, i64 64
   %15 = add nsw i32 %.1119, -16
-  %16 = icmp ugt i32 %.1119, 31
+  %16 = icmp samesign ugt i32 %.1119, 31
   br i1 %16, label %.lr.ph, label %._crit_edge, !llvm.loop !153
 
 ._crit_edge:                                      ; preds = %.lr.ph, %.preheader116
@@ -7809,7 +7809,7 @@ define internal void @ompi_op_avx_2buff_mul_float_avx512(ptr nocapture noundef r
   store <8 x float> %25, ptr %.3108122, align 1
   %26 = getelementptr inbounds i8, ptr %.3108122, i64 32
   %27 = add nsw i32 %.3124, -8
-  %28 = icmp ugt i32 %.3124, 15
+  %28 = icmp samesign ugt i32 %.3124, 15
   br i1 %28, label %.lr.ph125, label %._crit_edge126, !llvm.loop !154
 
 ._crit_edge126:                                   ; preds = %.lr.ph125, %.preheader115
@@ -7845,7 +7845,7 @@ define internal void @ompi_op_avx_2buff_mul_float_avx512(ptr nocapture noundef r
   store <4 x float> %37, ptr %.5110130, align 1
   %38 = getelementptr inbounds i8, ptr %.5110130, i64 16
   %39 = add nsw i32 %.5132, -4
-  %40 = icmp ugt i32 %.5132, 7
+  %40 = icmp samesign ugt i32 %.5132, 7
   br i1 %40, label %.lr.ph133, label %.loopexit114, !llvm.loop !155
 
 .loopexit114:                                     ; preds = %.lr.ph133, %30
@@ -7976,7 +7976,7 @@ define internal void @ompi_op_avx_2buff_mul_double_avx512(ptr nocapture noundef 
   store <8 x double> %13, ptr %.1106117, align 1
   %14 = getelementptr inbounds i8, ptr %.1106117, i64 64
   %15 = add nsw i32 %.1119, -8
-  %16 = icmp ugt i32 %.1119, 15
+  %16 = icmp samesign ugt i32 %.1119, 15
   br i1 %16, label %.lr.ph, label %._crit_edge, !llvm.loop !157
 
 ._crit_edge:                                      ; preds = %.lr.ph, %.preheader116
@@ -8014,7 +8014,7 @@ define internal void @ompi_op_avx_2buff_mul_double_avx512(ptr nocapture noundef 
   store <4 x double> %25, ptr %.3108122, align 1
   %26 = getelementptr inbounds i8, ptr %.3108122, i64 32
   %27 = add nsw i32 %.3124, -4
-  %28 = icmp ugt i32 %.3124, 7
+  %28 = icmp samesign ugt i32 %.3124, 7
   br i1 %28, label %.lr.ph125, label %._crit_edge126, !llvm.loop !158
 
 ._crit_edge126:                                   ; preds = %.lr.ph125, %.preheader115
@@ -8050,7 +8050,7 @@ define internal void @ompi_op_avx_2buff_mul_double_avx512(ptr nocapture noundef 
   store <2 x double> %37, ptr %.5110130, align 1
   %38 = getelementptr inbounds i8, ptr %.5110130, i64 16
   %39 = add nsw i32 %.5132, -2
-  %40 = icmp ugt i32 %.5132, 3
+  %40 = icmp samesign ugt i32 %.5132, 3
   br i1 %40, label %.lr.ph133, label %.loopexit114, !llvm.loop !159
 
 .loopexit114:                                     ; preds = %.lr.ph133, %30
@@ -8181,7 +8181,7 @@ define internal void @ompi_op_avx_2buff_band_int8_t_avx512(ptr noundef %0, ptr n
   store <8 x i64> %13, ptr %.1106116, align 1
   %14 = getelementptr inbounds i8, ptr %.1106116, i64 64
   %15 = add nsw i32 %.1118, -64
-  %16 = icmp ugt i32 %.1118, 127
+  %16 = icmp samesign ugt i32 %.1118, 127
   br i1 %16, label %.lr.ph, label %._crit_edge, !llvm.loop !161
 
 ._crit_edge:                                      ; preds = %.lr.ph, %.preheader115
@@ -8219,7 +8219,7 @@ define internal void @ompi_op_avx_2buff_band_int8_t_avx512(ptr noundef %0, ptr n
   store <4 x i64> %26, ptr %.3108121, align 1
   %27 = getelementptr inbounds i8, ptr %.3108121, i64 32
   %28 = add nsw i32 %.3123, -32
-  %29 = icmp ugt i32 %.3123, 63
+  %29 = icmp samesign ugt i32 %.3123, 63
   br i1 %29, label %.lr.ph124, label %._crit_edge125, !llvm.loop !162
 
 ._crit_edge125:                                   ; preds = %.lr.ph124, %.preheader114
@@ -8255,7 +8255,7 @@ define internal void @ompi_op_avx_2buff_band_int8_t_avx512(ptr noundef %0, ptr n
   store <16 x i8> %38, ptr %.5110129, align 1
   %39 = getelementptr inbounds i8, ptr %.5110129, i64 16
   %40 = add nsw i32 %.5131, -16
-  %41 = icmp ugt i32 %.5131, 31
+  %41 = icmp samesign ugt i32 %.5131, 31
   br i1 %41, label %.lr.ph132, label %.loopexit113, !llvm.loop !163
 
 .loopexit113:                                     ; preds = %.lr.ph132, %31
@@ -8386,7 +8386,7 @@ define internal void @ompi_op_avx_2buff_band_uint8_t_avx512(ptr noundef %0, ptr 
   store <8 x i64> %13, ptr %.1106116, align 1
   %14 = getelementptr inbounds i8, ptr %.1106116, i64 64
   %15 = add nsw i32 %.1118, -64
-  %16 = icmp ugt i32 %.1118, 127
+  %16 = icmp samesign ugt i32 %.1118, 127
   br i1 %16, label %.lr.ph, label %._crit_edge, !llvm.loop !165
 
 ._crit_edge:                                      ; preds = %.lr.ph, %.preheader115
@@ -8424,7 +8424,7 @@ define internal void @ompi_op_avx_2buff_band_uint8_t_avx512(ptr noundef %0, ptr 
   store <4 x i64> %26, ptr %.3108121, align 1
   %27 = getelementptr inbounds i8, ptr %.3108121, i64 32
   %28 = add nsw i32 %.3123, -32
-  %29 = icmp ugt i32 %.3123, 63
+  %29 = icmp samesign ugt i32 %.3123, 63
   br i1 %29, label %.lr.ph124, label %._crit_edge125, !llvm.loop !166
 
 ._crit_edge125:                                   ; preds = %.lr.ph124, %.preheader114
@@ -8460,7 +8460,7 @@ define internal void @ompi_op_avx_2buff_band_uint8_t_avx512(ptr noundef %0, ptr 
   store <16 x i8> %38, ptr %.5110129, align 1
   %39 = getelementptr inbounds i8, ptr %.5110129, i64 16
   %40 = add nsw i32 %.5131, -16
-  %41 = icmp ugt i32 %.5131, 31
+  %41 = icmp samesign ugt i32 %.5131, 31
   br i1 %41, label %.lr.ph132, label %.loopexit113, !llvm.loop !167
 
 .loopexit113:                                     ; preds = %.lr.ph132, %31
@@ -8591,7 +8591,7 @@ define internal void @ompi_op_avx_2buff_band_int16_t_avx512(ptr noundef %0, ptr 
   store <8 x i64> %13, ptr %.1106116, align 1
   %14 = getelementptr inbounds i8, ptr %.1106116, i64 64
   %15 = add nsw i32 %.1118, -32
-  %16 = icmp ugt i32 %.1118, 63
+  %16 = icmp samesign ugt i32 %.1118, 63
   br i1 %16, label %.lr.ph, label %._crit_edge, !llvm.loop !169
 
 ._crit_edge:                                      ; preds = %.lr.ph, %.preheader115
@@ -8629,7 +8629,7 @@ define internal void @ompi_op_avx_2buff_band_int16_t_avx512(ptr noundef %0, ptr 
   store <4 x i64> %26, ptr %.3108121, align 1
   %27 = getelementptr inbounds i8, ptr %.3108121, i64 32
   %28 = add nsw i32 %.3123, -16
-  %29 = icmp ugt i32 %.3123, 31
+  %29 = icmp samesign ugt i32 %.3123, 31
   br i1 %29, label %.lr.ph124, label %._crit_edge125, !llvm.loop !170
 
 ._crit_edge125:                                   ; preds = %.lr.ph124, %.preheader114
@@ -8665,7 +8665,7 @@ define internal void @ompi_op_avx_2buff_band_int16_t_avx512(ptr noundef %0, ptr 
   store <16 x i8> %38, ptr %.5110129, align 1
   %39 = getelementptr inbounds i8, ptr %.5110129, i64 16
   %40 = add nsw i32 %.5131, -8
-  %41 = icmp ugt i32 %.5131, 15
+  %41 = icmp samesign ugt i32 %.5131, 15
   br i1 %41, label %.lr.ph132, label %.loopexit113, !llvm.loop !171
 
 .loopexit113:                                     ; preds = %.lr.ph132, %31
@@ -8796,7 +8796,7 @@ define internal void @ompi_op_avx_2buff_band_uint16_t_avx512(ptr noundef %0, ptr
   store <8 x i64> %13, ptr %.1106116, align 1
   %14 = getelementptr inbounds i8, ptr %.1106116, i64 64
   %15 = add nsw i32 %.1118, -32
-  %16 = icmp ugt i32 %.1118, 63
+  %16 = icmp samesign ugt i32 %.1118, 63
   br i1 %16, label %.lr.ph, label %._crit_edge, !llvm.loop !173
 
 ._crit_edge:                                      ; preds = %.lr.ph, %.preheader115
@@ -8834,7 +8834,7 @@ define internal void @ompi_op_avx_2buff_band_uint16_t_avx512(ptr noundef %0, ptr
   store <4 x i64> %26, ptr %.3108121, align 1
   %27 = getelementptr inbounds i8, ptr %.3108121, i64 32
   %28 = add nsw i32 %.3123, -16
-  %29 = icmp ugt i32 %.3123, 31
+  %29 = icmp samesign ugt i32 %.3123, 31
   br i1 %29, label %.lr.ph124, label %._crit_edge125, !llvm.loop !174
 
 ._crit_edge125:                                   ; preds = %.lr.ph124, %.preheader114
@@ -8870,7 +8870,7 @@ define internal void @ompi_op_avx_2buff_band_uint16_t_avx512(ptr noundef %0, ptr
   store <16 x i8> %38, ptr %.5110129, align 1
   %39 = getelementptr inbounds i8, ptr %.5110129, i64 16
   %40 = add nsw i32 %.5131, -8
-  %41 = icmp ugt i32 %.5131, 15
+  %41 = icmp samesign ugt i32 %.5131, 15
   br i1 %41, label %.lr.ph132, label %.loopexit113, !llvm.loop !175
 
 .loopexit113:                                     ; preds = %.lr.ph132, %31
@@ -9001,7 +9001,7 @@ define internal void @ompi_op_avx_2buff_band_int32_t_avx512(ptr noundef %0, ptr 
   store <8 x i64> %13, ptr %.1106116, align 1
   %14 = getelementptr inbounds i8, ptr %.1106116, i64 64
   %15 = add nsw i32 %.1118, -16
-  %16 = icmp ugt i32 %.1118, 31
+  %16 = icmp samesign ugt i32 %.1118, 31
   br i1 %16, label %.lr.ph, label %._crit_edge, !llvm.loop !177
 
 ._crit_edge:                                      ; preds = %.lr.ph, %.preheader115
@@ -9039,7 +9039,7 @@ define internal void @ompi_op_avx_2buff_band_int32_t_avx512(ptr noundef %0, ptr 
   store <4 x i64> %26, ptr %.3108121, align 1
   %27 = getelementptr inbounds i8, ptr %.3108121, i64 32
   %28 = add nsw i32 %.3123, -8
-  %29 = icmp ugt i32 %.3123, 15
+  %29 = icmp samesign ugt i32 %.3123, 15
   br i1 %29, label %.lr.ph124, label %._crit_edge125, !llvm.loop !178
 
 ._crit_edge125:                                   ; preds = %.lr.ph124, %.preheader114
@@ -9075,7 +9075,7 @@ define internal void @ompi_op_avx_2buff_band_int32_t_avx512(ptr noundef %0, ptr 
   store <16 x i8> %38, ptr %.5110129, align 1
   %39 = getelementptr inbounds i8, ptr %.5110129, i64 16
   %40 = add nsw i32 %.5131, -4
-  %41 = icmp ugt i32 %.5131, 7
+  %41 = icmp samesign ugt i32 %.5131, 7
   br i1 %41, label %.lr.ph132, label %.loopexit113, !llvm.loop !179
 
 .loopexit113:                                     ; preds = %.lr.ph132, %31
@@ -9206,7 +9206,7 @@ define internal void @ompi_op_avx_2buff_band_uint32_t_avx512(ptr noundef %0, ptr
   store <8 x i64> %13, ptr %.1106116, align 1
   %14 = getelementptr inbounds i8, ptr %.1106116, i64 64
   %15 = add nsw i32 %.1118, -16
-  %16 = icmp ugt i32 %.1118, 31
+  %16 = icmp samesign ugt i32 %.1118, 31
   br i1 %16, label %.lr.ph, label %._crit_edge, !llvm.loop !181
 
 ._crit_edge:                                      ; preds = %.lr.ph, %.preheader115
@@ -9244,7 +9244,7 @@ define internal void @ompi_op_avx_2buff_band_uint32_t_avx512(ptr noundef %0, ptr
   store <4 x i64> %26, ptr %.3108121, align 1
   %27 = getelementptr inbounds i8, ptr %.3108121, i64 32
   %28 = add nsw i32 %.3123, -8
-  %29 = icmp ugt i32 %.3123, 15
+  %29 = icmp samesign ugt i32 %.3123, 15
   br i1 %29, label %.lr.ph124, label %._crit_edge125, !llvm.loop !182
 
 ._crit_edge125:                                   ; preds = %.lr.ph124, %.preheader114
@@ -9280,7 +9280,7 @@ define internal void @ompi_op_avx_2buff_band_uint32_t_avx512(ptr noundef %0, ptr
   store <16 x i8> %38, ptr %.5110129, align 1
   %39 = getelementptr inbounds i8, ptr %.5110129, i64 16
   %40 = add nsw i32 %.5131, -4
-  %41 = icmp ugt i32 %.5131, 7
+  %41 = icmp samesign ugt i32 %.5131, 7
   br i1 %41, label %.lr.ph132, label %.loopexit113, !llvm.loop !183
 
 .loopexit113:                                     ; preds = %.lr.ph132, %31
@@ -9411,7 +9411,7 @@ define internal void @ompi_op_avx_2buff_band_int64_t_avx512(ptr noundef %0, ptr 
   store <8 x i64> %13, ptr %.1106116, align 1
   %14 = getelementptr inbounds i8, ptr %.1106116, i64 64
   %15 = add nsw i32 %.1118, -8
-  %16 = icmp ugt i32 %.1118, 15
+  %16 = icmp samesign ugt i32 %.1118, 15
   br i1 %16, label %.lr.ph, label %._crit_edge, !llvm.loop !185
 
 ._crit_edge:                                      ; preds = %.lr.ph, %.preheader115
@@ -9449,7 +9449,7 @@ define internal void @ompi_op_avx_2buff_band_int64_t_avx512(ptr noundef %0, ptr 
   store <4 x i64> %26, ptr %.3108121, align 1
   %27 = getelementptr inbounds i8, ptr %.3108121, i64 32
   %28 = add nsw i32 %.3123, -4
-  %29 = icmp ugt i32 %.3123, 7
+  %29 = icmp samesign ugt i32 %.3123, 7
   br i1 %29, label %.lr.ph124, label %._crit_edge125, !llvm.loop !186
 
 ._crit_edge125:                                   ; preds = %.lr.ph124, %.preheader114
@@ -9485,7 +9485,7 @@ define internal void @ompi_op_avx_2buff_band_int64_t_avx512(ptr noundef %0, ptr 
   store <16 x i8> %38, ptr %.5110129, align 1
   %39 = getelementptr inbounds i8, ptr %.5110129, i64 16
   %40 = add nsw i32 %.5131, -2
-  %41 = icmp ugt i32 %.5131, 3
+  %41 = icmp samesign ugt i32 %.5131, 3
   br i1 %41, label %.lr.ph132, label %.loopexit113, !llvm.loop !187
 
 .loopexit113:                                     ; preds = %.lr.ph132, %31
@@ -9616,7 +9616,7 @@ define internal void @ompi_op_avx_2buff_band_uint64_t_avx512(ptr noundef %0, ptr
   store <8 x i64> %13, ptr %.1106116, align 1
   %14 = getelementptr inbounds i8, ptr %.1106116, i64 64
   %15 = add nsw i32 %.1118, -8
-  %16 = icmp ugt i32 %.1118, 15
+  %16 = icmp samesign ugt i32 %.1118, 15
   br i1 %16, label %.lr.ph, label %._crit_edge, !llvm.loop !189
 
 ._crit_edge:                                      ; preds = %.lr.ph, %.preheader115
@@ -9654,7 +9654,7 @@ define internal void @ompi_op_avx_2buff_band_uint64_t_avx512(ptr noundef %0, ptr
   store <4 x i64> %26, ptr %.3108121, align 1
   %27 = getelementptr inbounds i8, ptr %.3108121, i64 32
   %28 = add nsw i32 %.3123, -4
-  %29 = icmp ugt i32 %.3123, 7
+  %29 = icmp samesign ugt i32 %.3123, 7
   br i1 %29, label %.lr.ph124, label %._crit_edge125, !llvm.loop !190
 
 ._crit_edge125:                                   ; preds = %.lr.ph124, %.preheader114
@@ -9690,7 +9690,7 @@ define internal void @ompi_op_avx_2buff_band_uint64_t_avx512(ptr noundef %0, ptr
   store <16 x i8> %38, ptr %.5110129, align 1
   %39 = getelementptr inbounds i8, ptr %.5110129, i64 16
   %40 = add nsw i32 %.5131, -2
-  %41 = icmp ugt i32 %.5131, 3
+  %41 = icmp samesign ugt i32 %.5131, 3
   br i1 %41, label %.lr.ph132, label %.loopexit113, !llvm.loop !191
 
 .loopexit113:                                     ; preds = %.lr.ph132, %31
@@ -9821,7 +9821,7 @@ define internal void @ompi_op_avx_2buff_bor_int8_t_avx512(ptr noundef %0, ptr no
   store <8 x i64> %13, ptr %.1106116, align 1
   %14 = getelementptr inbounds i8, ptr %.1106116, i64 64
   %15 = add nsw i32 %.1118, -64
-  %16 = icmp ugt i32 %.1118, 127
+  %16 = icmp samesign ugt i32 %.1118, 127
   br i1 %16, label %.lr.ph, label %._crit_edge, !llvm.loop !193
 
 ._crit_edge:                                      ; preds = %.lr.ph, %.preheader115
@@ -9859,7 +9859,7 @@ define internal void @ompi_op_avx_2buff_bor_int8_t_avx512(ptr noundef %0, ptr no
   store <4 x i64> %26, ptr %.3108121, align 1
   %27 = getelementptr inbounds i8, ptr %.3108121, i64 32
   %28 = add nsw i32 %.3123, -32
-  %29 = icmp ugt i32 %.3123, 63
+  %29 = icmp samesign ugt i32 %.3123, 63
   br i1 %29, label %.lr.ph124, label %._crit_edge125, !llvm.loop !194
 
 ._crit_edge125:                                   ; preds = %.lr.ph124, %.preheader114
@@ -9895,7 +9895,7 @@ define internal void @ompi_op_avx_2buff_bor_int8_t_avx512(ptr noundef %0, ptr no
   store <16 x i8> %38, ptr %.5110129, align 1
   %39 = getelementptr inbounds i8, ptr %.5110129, i64 16
   %40 = add nsw i32 %.5131, -16
-  %41 = icmp ugt i32 %.5131, 31
+  %41 = icmp samesign ugt i32 %.5131, 31
   br i1 %41, label %.lr.ph132, label %.loopexit113, !llvm.loop !195
 
 .loopexit113:                                     ; preds = %.lr.ph132, %31
@@ -10026,7 +10026,7 @@ define internal void @ompi_op_avx_2buff_bor_uint8_t_avx512(ptr noundef %0, ptr n
   store <8 x i64> %13, ptr %.1106116, align 1
   %14 = getelementptr inbounds i8, ptr %.1106116, i64 64
   %15 = add nsw i32 %.1118, -64
-  %16 = icmp ugt i32 %.1118, 127
+  %16 = icmp samesign ugt i32 %.1118, 127
   br i1 %16, label %.lr.ph, label %._crit_edge, !llvm.loop !197
 
 ._crit_edge:                                      ; preds = %.lr.ph, %.preheader115
@@ -10064,7 +10064,7 @@ define internal void @ompi_op_avx_2buff_bor_uint8_t_avx512(ptr noundef %0, ptr n
   store <4 x i64> %26, ptr %.3108121, align 1
   %27 = getelementptr inbounds i8, ptr %.3108121, i64 32
   %28 = add nsw i32 %.3123, -32
-  %29 = icmp ugt i32 %.3123, 63
+  %29 = icmp samesign ugt i32 %.3123, 63
   br i1 %29, label %.lr.ph124, label %._crit_edge125, !llvm.loop !198
 
 ._crit_edge125:                                   ; preds = %.lr.ph124, %.preheader114
@@ -10100,7 +10100,7 @@ define internal void @ompi_op_avx_2buff_bor_uint8_t_avx512(ptr noundef %0, ptr n
   store <16 x i8> %38, ptr %.5110129, align 1
   %39 = getelementptr inbounds i8, ptr %.5110129, i64 16
   %40 = add nsw i32 %.5131, -16
-  %41 = icmp ugt i32 %.5131, 31
+  %41 = icmp samesign ugt i32 %.5131, 31
   br i1 %41, label %.lr.ph132, label %.loopexit113, !llvm.loop !199
 
 .loopexit113:                                     ; preds = %.lr.ph132, %31
@@ -10231,7 +10231,7 @@ define internal void @ompi_op_avx_2buff_bor_int16_t_avx512(ptr noundef %0, ptr n
   store <8 x i64> %13, ptr %.1106116, align 1
   %14 = getelementptr inbounds i8, ptr %.1106116, i64 64
   %15 = add nsw i32 %.1118, -32
-  %16 = icmp ugt i32 %.1118, 63
+  %16 = icmp samesign ugt i32 %.1118, 63
   br i1 %16, label %.lr.ph, label %._crit_edge, !llvm.loop !201
 
 ._crit_edge:                                      ; preds = %.lr.ph, %.preheader115
@@ -10269,7 +10269,7 @@ define internal void @ompi_op_avx_2buff_bor_int16_t_avx512(ptr noundef %0, ptr n
   store <4 x i64> %26, ptr %.3108121, align 1
   %27 = getelementptr inbounds i8, ptr %.3108121, i64 32
   %28 = add nsw i32 %.3123, -16
-  %29 = icmp ugt i32 %.3123, 31
+  %29 = icmp samesign ugt i32 %.3123, 31
   br i1 %29, label %.lr.ph124, label %._crit_edge125, !llvm.loop !202
 
 ._crit_edge125:                                   ; preds = %.lr.ph124, %.preheader114
@@ -10305,7 +10305,7 @@ define internal void @ompi_op_avx_2buff_bor_int16_t_avx512(ptr noundef %0, ptr n
   store <16 x i8> %38, ptr %.5110129, align 1
   %39 = getelementptr inbounds i8, ptr %.5110129, i64 16
   %40 = add nsw i32 %.5131, -8
-  %41 = icmp ugt i32 %.5131, 15
+  %41 = icmp samesign ugt i32 %.5131, 15
   br i1 %41, label %.lr.ph132, label %.loopexit113, !llvm.loop !203
 
 .loopexit113:                                     ; preds = %.lr.ph132, %31
@@ -10436,7 +10436,7 @@ define internal void @ompi_op_avx_2buff_bor_uint16_t_avx512(ptr noundef %0, ptr 
   store <8 x i64> %13, ptr %.1106116, align 1
   %14 = getelementptr inbounds i8, ptr %.1106116, i64 64
   %15 = add nsw i32 %.1118, -32
-  %16 = icmp ugt i32 %.1118, 63
+  %16 = icmp samesign ugt i32 %.1118, 63
   br i1 %16, label %.lr.ph, label %._crit_edge, !llvm.loop !205
 
 ._crit_edge:                                      ; preds = %.lr.ph, %.preheader115
@@ -10474,7 +10474,7 @@ define internal void @ompi_op_avx_2buff_bor_uint16_t_avx512(ptr noundef %0, ptr 
   store <4 x i64> %26, ptr %.3108121, align 1
   %27 = getelementptr inbounds i8, ptr %.3108121, i64 32
   %28 = add nsw i32 %.3123, -16
-  %29 = icmp ugt i32 %.3123, 31
+  %29 = icmp samesign ugt i32 %.3123, 31
   br i1 %29, label %.lr.ph124, label %._crit_edge125, !llvm.loop !206
 
 ._crit_edge125:                                   ; preds = %.lr.ph124, %.preheader114
@@ -10510,7 +10510,7 @@ define internal void @ompi_op_avx_2buff_bor_uint16_t_avx512(ptr noundef %0, ptr 
   store <16 x i8> %38, ptr %.5110129, align 1
   %39 = getelementptr inbounds i8, ptr %.5110129, i64 16
   %40 = add nsw i32 %.5131, -8
-  %41 = icmp ugt i32 %.5131, 15
+  %41 = icmp samesign ugt i32 %.5131, 15
   br i1 %41, label %.lr.ph132, label %.loopexit113, !llvm.loop !207
 
 .loopexit113:                                     ; preds = %.lr.ph132, %31
@@ -10641,7 +10641,7 @@ define internal void @ompi_op_avx_2buff_bor_int32_t_avx512(ptr noundef %0, ptr n
   store <8 x i64> %13, ptr %.1106116, align 1
   %14 = getelementptr inbounds i8, ptr %.1106116, i64 64
   %15 = add nsw i32 %.1118, -16
-  %16 = icmp ugt i32 %.1118, 31
+  %16 = icmp samesign ugt i32 %.1118, 31
   br i1 %16, label %.lr.ph, label %._crit_edge, !llvm.loop !209
 
 ._crit_edge:                                      ; preds = %.lr.ph, %.preheader115
@@ -10679,7 +10679,7 @@ define internal void @ompi_op_avx_2buff_bor_int32_t_avx512(ptr noundef %0, ptr n
   store <4 x i64> %26, ptr %.3108121, align 1
   %27 = getelementptr inbounds i8, ptr %.3108121, i64 32
   %28 = add nsw i32 %.3123, -8
-  %29 = icmp ugt i32 %.3123, 15
+  %29 = icmp samesign ugt i32 %.3123, 15
   br i1 %29, label %.lr.ph124, label %._crit_edge125, !llvm.loop !210
 
 ._crit_edge125:                                   ; preds = %.lr.ph124, %.preheader114
@@ -10715,7 +10715,7 @@ define internal void @ompi_op_avx_2buff_bor_int32_t_avx512(ptr noundef %0, ptr n
   store <16 x i8> %38, ptr %.5110129, align 1
   %39 = getelementptr inbounds i8, ptr %.5110129, i64 16
   %40 = add nsw i32 %.5131, -4
-  %41 = icmp ugt i32 %.5131, 7
+  %41 = icmp samesign ugt i32 %.5131, 7
   br i1 %41, label %.lr.ph132, label %.loopexit113, !llvm.loop !211
 
 .loopexit113:                                     ; preds = %.lr.ph132, %31
@@ -10846,7 +10846,7 @@ define internal void @ompi_op_avx_2buff_bor_uint32_t_avx512(ptr noundef %0, ptr 
   store <8 x i64> %13, ptr %.1106116, align 1
   %14 = getelementptr inbounds i8, ptr %.1106116, i64 64
   %15 = add nsw i32 %.1118, -16
-  %16 = icmp ugt i32 %.1118, 31
+  %16 = icmp samesign ugt i32 %.1118, 31
   br i1 %16, label %.lr.ph, label %._crit_edge, !llvm.loop !213
 
 ._crit_edge:                                      ; preds = %.lr.ph, %.preheader115
@@ -10884,7 +10884,7 @@ define internal void @ompi_op_avx_2buff_bor_uint32_t_avx512(ptr noundef %0, ptr 
   store <4 x i64> %26, ptr %.3108121, align 1
   %27 = getelementptr inbounds i8, ptr %.3108121, i64 32
   %28 = add nsw i32 %.3123, -8
-  %29 = icmp ugt i32 %.3123, 15
+  %29 = icmp samesign ugt i32 %.3123, 15
   br i1 %29, label %.lr.ph124, label %._crit_edge125, !llvm.loop !214
 
 ._crit_edge125:                                   ; preds = %.lr.ph124, %.preheader114
@@ -10920,7 +10920,7 @@ define internal void @ompi_op_avx_2buff_bor_uint32_t_avx512(ptr noundef %0, ptr 
   store <16 x i8> %38, ptr %.5110129, align 1
   %39 = getelementptr inbounds i8, ptr %.5110129, i64 16
   %40 = add nsw i32 %.5131, -4
-  %41 = icmp ugt i32 %.5131, 7
+  %41 = icmp samesign ugt i32 %.5131, 7
   br i1 %41, label %.lr.ph132, label %.loopexit113, !llvm.loop !215
 
 .loopexit113:                                     ; preds = %.lr.ph132, %31
@@ -11051,7 +11051,7 @@ define internal void @ompi_op_avx_2buff_bor_int64_t_avx512(ptr noundef %0, ptr n
   store <8 x i64> %13, ptr %.1106116, align 1
   %14 = getelementptr inbounds i8, ptr %.1106116, i64 64
   %15 = add nsw i32 %.1118, -8
-  %16 = icmp ugt i32 %.1118, 15
+  %16 = icmp samesign ugt i32 %.1118, 15
   br i1 %16, label %.lr.ph, label %._crit_edge, !llvm.loop !217
 
 ._crit_edge:                                      ; preds = %.lr.ph, %.preheader115
@@ -11089,7 +11089,7 @@ define internal void @ompi_op_avx_2buff_bor_int64_t_avx512(ptr noundef %0, ptr n
   store <4 x i64> %26, ptr %.3108121, align 1
   %27 = getelementptr inbounds i8, ptr %.3108121, i64 32
   %28 = add nsw i32 %.3123, -4
-  %29 = icmp ugt i32 %.3123, 7
+  %29 = icmp samesign ugt i32 %.3123, 7
   br i1 %29, label %.lr.ph124, label %._crit_edge125, !llvm.loop !218
 
 ._crit_edge125:                                   ; preds = %.lr.ph124, %.preheader114
@@ -11125,7 +11125,7 @@ define internal void @ompi_op_avx_2buff_bor_int64_t_avx512(ptr noundef %0, ptr n
   store <16 x i8> %38, ptr %.5110129, align 1
   %39 = getelementptr inbounds i8, ptr %.5110129, i64 16
   %40 = add nsw i32 %.5131, -2
-  %41 = icmp ugt i32 %.5131, 3
+  %41 = icmp samesign ugt i32 %.5131, 3
   br i1 %41, label %.lr.ph132, label %.loopexit113, !llvm.loop !219
 
 .loopexit113:                                     ; preds = %.lr.ph132, %31
@@ -11256,7 +11256,7 @@ define internal void @ompi_op_avx_2buff_bor_uint64_t_avx512(ptr noundef %0, ptr 
   store <8 x i64> %13, ptr %.1106116, align 1
   %14 = getelementptr inbounds i8, ptr %.1106116, i64 64
   %15 = add nsw i32 %.1118, -8
-  %16 = icmp ugt i32 %.1118, 15
+  %16 = icmp samesign ugt i32 %.1118, 15
   br i1 %16, label %.lr.ph, label %._crit_edge, !llvm.loop !221
 
 ._crit_edge:                                      ; preds = %.lr.ph, %.preheader115
@@ -11294,7 +11294,7 @@ define internal void @ompi_op_avx_2buff_bor_uint64_t_avx512(ptr noundef %0, ptr 
   store <4 x i64> %26, ptr %.3108121, align 1
   %27 = getelementptr inbounds i8, ptr %.3108121, i64 32
   %28 = add nsw i32 %.3123, -4
-  %29 = icmp ugt i32 %.3123, 7
+  %29 = icmp samesign ugt i32 %.3123, 7
   br i1 %29, label %.lr.ph124, label %._crit_edge125, !llvm.loop !222
 
 ._crit_edge125:                                   ; preds = %.lr.ph124, %.preheader114
@@ -11330,7 +11330,7 @@ define internal void @ompi_op_avx_2buff_bor_uint64_t_avx512(ptr noundef %0, ptr 
   store <16 x i8> %38, ptr %.5110129, align 1
   %39 = getelementptr inbounds i8, ptr %.5110129, i64 16
   %40 = add nsw i32 %.5131, -2
-  %41 = icmp ugt i32 %.5131, 3
+  %41 = icmp samesign ugt i32 %.5131, 3
   br i1 %41, label %.lr.ph132, label %.loopexit113, !llvm.loop !223
 
 .loopexit113:                                     ; preds = %.lr.ph132, %31
@@ -11461,7 +11461,7 @@ define internal void @ompi_op_avx_2buff_bxor_int8_t_avx512(ptr noundef %0, ptr n
   store <8 x i64> %13, ptr %.1106116, align 1
   %14 = getelementptr inbounds i8, ptr %.1106116, i64 64
   %15 = add nsw i32 %.1118, -64
-  %16 = icmp ugt i32 %.1118, 127
+  %16 = icmp samesign ugt i32 %.1118, 127
   br i1 %16, label %.lr.ph, label %._crit_edge, !llvm.loop !225
 
 ._crit_edge:                                      ; preds = %.lr.ph, %.preheader115
@@ -11499,7 +11499,7 @@ define internal void @ompi_op_avx_2buff_bxor_int8_t_avx512(ptr noundef %0, ptr n
   store <4 x i64> %26, ptr %.3108121, align 1
   %27 = getelementptr inbounds i8, ptr %.3108121, i64 32
   %28 = add nsw i32 %.3123, -32
-  %29 = icmp ugt i32 %.3123, 63
+  %29 = icmp samesign ugt i32 %.3123, 63
   br i1 %29, label %.lr.ph124, label %._crit_edge125, !llvm.loop !226
 
 ._crit_edge125:                                   ; preds = %.lr.ph124, %.preheader114
@@ -11535,7 +11535,7 @@ define internal void @ompi_op_avx_2buff_bxor_int8_t_avx512(ptr noundef %0, ptr n
   store <16 x i8> %38, ptr %.5110129, align 1
   %39 = getelementptr inbounds i8, ptr %.5110129, i64 16
   %40 = add nsw i32 %.5131, -16
-  %41 = icmp ugt i32 %.5131, 31
+  %41 = icmp samesign ugt i32 %.5131, 31
   br i1 %41, label %.lr.ph132, label %.loopexit113, !llvm.loop !227
 
 .loopexit113:                                     ; preds = %.lr.ph132, %31
@@ -11666,7 +11666,7 @@ define internal void @ompi_op_avx_2buff_bxor_uint8_t_avx512(ptr noundef %0, ptr 
   store <8 x i64> %13, ptr %.1106116, align 1
   %14 = getelementptr inbounds i8, ptr %.1106116, i64 64
   %15 = add nsw i32 %.1118, -64
-  %16 = icmp ugt i32 %.1118, 127
+  %16 = icmp samesign ugt i32 %.1118, 127
   br i1 %16, label %.lr.ph, label %._crit_edge, !llvm.loop !229
 
 ._crit_edge:                                      ; preds = %.lr.ph, %.preheader115
@@ -11704,7 +11704,7 @@ define internal void @ompi_op_avx_2buff_bxor_uint8_t_avx512(ptr noundef %0, ptr 
   store <4 x i64> %26, ptr %.3108121, align 1
   %27 = getelementptr inbounds i8, ptr %.3108121, i64 32
   %28 = add nsw i32 %.3123, -32
-  %29 = icmp ugt i32 %.3123, 63
+  %29 = icmp samesign ugt i32 %.3123, 63
   br i1 %29, label %.lr.ph124, label %._crit_edge125, !llvm.loop !230
 
 ._crit_edge125:                                   ; preds = %.lr.ph124, %.preheader114
@@ -11740,7 +11740,7 @@ define internal void @ompi_op_avx_2buff_bxor_uint8_t_avx512(ptr noundef %0, ptr 
   store <16 x i8> %38, ptr %.5110129, align 1
   %39 = getelementptr inbounds i8, ptr %.5110129, i64 16
   %40 = add nsw i32 %.5131, -16
-  %41 = icmp ugt i32 %.5131, 31
+  %41 = icmp samesign ugt i32 %.5131, 31
   br i1 %41, label %.lr.ph132, label %.loopexit113, !llvm.loop !231
 
 .loopexit113:                                     ; preds = %.lr.ph132, %31
@@ -11871,7 +11871,7 @@ define internal void @ompi_op_avx_2buff_bxor_int16_t_avx512(ptr noundef %0, ptr 
   store <8 x i64> %13, ptr %.1106116, align 1
   %14 = getelementptr inbounds i8, ptr %.1106116, i64 64
   %15 = add nsw i32 %.1118, -32
-  %16 = icmp ugt i32 %.1118, 63
+  %16 = icmp samesign ugt i32 %.1118, 63
   br i1 %16, label %.lr.ph, label %._crit_edge, !llvm.loop !233
 
 ._crit_edge:                                      ; preds = %.lr.ph, %.preheader115
@@ -11909,7 +11909,7 @@ define internal void @ompi_op_avx_2buff_bxor_int16_t_avx512(ptr noundef %0, ptr 
   store <4 x i64> %26, ptr %.3108121, align 1
   %27 = getelementptr inbounds i8, ptr %.3108121, i64 32
   %28 = add nsw i32 %.3123, -16
-  %29 = icmp ugt i32 %.3123, 31
+  %29 = icmp samesign ugt i32 %.3123, 31
   br i1 %29, label %.lr.ph124, label %._crit_edge125, !llvm.loop !234
 
 ._crit_edge125:                                   ; preds = %.lr.ph124, %.preheader114
@@ -11945,7 +11945,7 @@ define internal void @ompi_op_avx_2buff_bxor_int16_t_avx512(ptr noundef %0, ptr 
   store <16 x i8> %38, ptr %.5110129, align 1
   %39 = getelementptr inbounds i8, ptr %.5110129, i64 16
   %40 = add nsw i32 %.5131, -8
-  %41 = icmp ugt i32 %.5131, 15
+  %41 = icmp samesign ugt i32 %.5131, 15
   br i1 %41, label %.lr.ph132, label %.loopexit113, !llvm.loop !235
 
 .loopexit113:                                     ; preds = %.lr.ph132, %31
@@ -12076,7 +12076,7 @@ define internal void @ompi_op_avx_2buff_bxor_uint16_t_avx512(ptr noundef %0, ptr
   store <8 x i64> %13, ptr %.1106116, align 1
   %14 = getelementptr inbounds i8, ptr %.1106116, i64 64
   %15 = add nsw i32 %.1118, -32
-  %16 = icmp ugt i32 %.1118, 63
+  %16 = icmp samesign ugt i32 %.1118, 63
   br i1 %16, label %.lr.ph, label %._crit_edge, !llvm.loop !237
 
 ._crit_edge:                                      ; preds = %.lr.ph, %.preheader115
@@ -12114,7 +12114,7 @@ define internal void @ompi_op_avx_2buff_bxor_uint16_t_avx512(ptr noundef %0, ptr
   store <4 x i64> %26, ptr %.3108121, align 1
   %27 = getelementptr inbounds i8, ptr %.3108121, i64 32
   %28 = add nsw i32 %.3123, -16
-  %29 = icmp ugt i32 %.3123, 31
+  %29 = icmp samesign ugt i32 %.3123, 31
   br i1 %29, label %.lr.ph124, label %._crit_edge125, !llvm.loop !238
 
 ._crit_edge125:                                   ; preds = %.lr.ph124, %.preheader114
@@ -12150,7 +12150,7 @@ define internal void @ompi_op_avx_2buff_bxor_uint16_t_avx512(ptr noundef %0, ptr
   store <16 x i8> %38, ptr %.5110129, align 1
   %39 = getelementptr inbounds i8, ptr %.5110129, i64 16
   %40 = add nsw i32 %.5131, -8
-  %41 = icmp ugt i32 %.5131, 15
+  %41 = icmp samesign ugt i32 %.5131, 15
   br i1 %41, label %.lr.ph132, label %.loopexit113, !llvm.loop !239
 
 .loopexit113:                                     ; preds = %.lr.ph132, %31
@@ -12281,7 +12281,7 @@ define internal void @ompi_op_avx_2buff_bxor_int32_t_avx512(ptr noundef %0, ptr 
   store <8 x i64> %13, ptr %.1106116, align 1
   %14 = getelementptr inbounds i8, ptr %.1106116, i64 64
   %15 = add nsw i32 %.1118, -16
-  %16 = icmp ugt i32 %.1118, 31
+  %16 = icmp samesign ugt i32 %.1118, 31
   br i1 %16, label %.lr.ph, label %._crit_edge, !llvm.loop !241
 
 ._crit_edge:                                      ; preds = %.lr.ph, %.preheader115
@@ -12319,7 +12319,7 @@ define internal void @ompi_op_avx_2buff_bxor_int32_t_avx512(ptr noundef %0, ptr 
   store <4 x i64> %26, ptr %.3108121, align 1
   %27 = getelementptr inbounds i8, ptr %.3108121, i64 32
   %28 = add nsw i32 %.3123, -8
-  %29 = icmp ugt i32 %.3123, 15
+  %29 = icmp samesign ugt i32 %.3123, 15
   br i1 %29, label %.lr.ph124, label %._crit_edge125, !llvm.loop !242
 
 ._crit_edge125:                                   ; preds = %.lr.ph124, %.preheader114
@@ -12355,7 +12355,7 @@ define internal void @ompi_op_avx_2buff_bxor_int32_t_avx512(ptr noundef %0, ptr 
   store <16 x i8> %38, ptr %.5110129, align 1
   %39 = getelementptr inbounds i8, ptr %.5110129, i64 16
   %40 = add nsw i32 %.5131, -4
-  %41 = icmp ugt i32 %.5131, 7
+  %41 = icmp samesign ugt i32 %.5131, 7
   br i1 %41, label %.lr.ph132, label %.loopexit113, !llvm.loop !243
 
 .loopexit113:                                     ; preds = %.lr.ph132, %31
@@ -12486,7 +12486,7 @@ define internal void @ompi_op_avx_2buff_bxor_uint32_t_avx512(ptr noundef %0, ptr
   store <8 x i64> %13, ptr %.1106116, align 1
   %14 = getelementptr inbounds i8, ptr %.1106116, i64 64
   %15 = add nsw i32 %.1118, -16
-  %16 = icmp ugt i32 %.1118, 31
+  %16 = icmp samesign ugt i32 %.1118, 31
   br i1 %16, label %.lr.ph, label %._crit_edge, !llvm.loop !245
 
 ._crit_edge:                                      ; preds = %.lr.ph, %.preheader115
@@ -12524,7 +12524,7 @@ define internal void @ompi_op_avx_2buff_bxor_uint32_t_avx512(ptr noundef %0, ptr
   store <4 x i64> %26, ptr %.3108121, align 1
   %27 = getelementptr inbounds i8, ptr %.3108121, i64 32
   %28 = add nsw i32 %.3123, -8
-  %29 = icmp ugt i32 %.3123, 15
+  %29 = icmp samesign ugt i32 %.3123, 15
   br i1 %29, label %.lr.ph124, label %._crit_edge125, !llvm.loop !246
 
 ._crit_edge125:                                   ; preds = %.lr.ph124, %.preheader114
@@ -12560,7 +12560,7 @@ define internal void @ompi_op_avx_2buff_bxor_uint32_t_avx512(ptr noundef %0, ptr
   store <16 x i8> %38, ptr %.5110129, align 1
   %39 = getelementptr inbounds i8, ptr %.5110129, i64 16
   %40 = add nsw i32 %.5131, -4
-  %41 = icmp ugt i32 %.5131, 7
+  %41 = icmp samesign ugt i32 %.5131, 7
   br i1 %41, label %.lr.ph132, label %.loopexit113, !llvm.loop !247
 
 .loopexit113:                                     ; preds = %.lr.ph132, %31
@@ -12691,7 +12691,7 @@ define internal void @ompi_op_avx_2buff_bxor_int64_t_avx512(ptr noundef %0, ptr 
   store <8 x i64> %13, ptr %.1106116, align 1
   %14 = getelementptr inbounds i8, ptr %.1106116, i64 64
   %15 = add nsw i32 %.1118, -8
-  %16 = icmp ugt i32 %.1118, 15
+  %16 = icmp samesign ugt i32 %.1118, 15
   br i1 %16, label %.lr.ph, label %._crit_edge, !llvm.loop !249
 
 ._crit_edge:                                      ; preds = %.lr.ph, %.preheader115
@@ -12729,7 +12729,7 @@ define internal void @ompi_op_avx_2buff_bxor_int64_t_avx512(ptr noundef %0, ptr 
   store <4 x i64> %26, ptr %.3108121, align 1
   %27 = getelementptr inbounds i8, ptr %.3108121, i64 32
   %28 = add nsw i32 %.3123, -4
-  %29 = icmp ugt i32 %.3123, 7
+  %29 = icmp samesign ugt i32 %.3123, 7
   br i1 %29, label %.lr.ph124, label %._crit_edge125, !llvm.loop !250
 
 ._crit_edge125:                                   ; preds = %.lr.ph124, %.preheader114
@@ -12765,7 +12765,7 @@ define internal void @ompi_op_avx_2buff_bxor_int64_t_avx512(ptr noundef %0, ptr 
   store <16 x i8> %38, ptr %.5110129, align 1
   %39 = getelementptr inbounds i8, ptr %.5110129, i64 16
   %40 = add nsw i32 %.5131, -2
-  %41 = icmp ugt i32 %.5131, 3
+  %41 = icmp samesign ugt i32 %.5131, 3
   br i1 %41, label %.lr.ph132, label %.loopexit113, !llvm.loop !251
 
 .loopexit113:                                     ; preds = %.lr.ph132, %31
@@ -12896,7 +12896,7 @@ define internal void @ompi_op_avx_2buff_bxor_uint64_t_avx512(ptr noundef %0, ptr
   store <8 x i64> %13, ptr %.1106116, align 1
   %14 = getelementptr inbounds i8, ptr %.1106116, i64 64
   %15 = add nsw i32 %.1118, -8
-  %16 = icmp ugt i32 %.1118, 15
+  %16 = icmp samesign ugt i32 %.1118, 15
   br i1 %16, label %.lr.ph, label %._crit_edge, !llvm.loop !253
 
 ._crit_edge:                                      ; preds = %.lr.ph, %.preheader115
@@ -12934,7 +12934,7 @@ define internal void @ompi_op_avx_2buff_bxor_uint64_t_avx512(ptr noundef %0, ptr
   store <4 x i64> %26, ptr %.3108121, align 1
   %27 = getelementptr inbounds i8, ptr %.3108121, i64 32
   %28 = add nsw i32 %.3123, -4
-  %29 = icmp ugt i32 %.3123, 7
+  %29 = icmp samesign ugt i32 %.3123, 7
   br i1 %29, label %.lr.ph124, label %._crit_edge125, !llvm.loop !254
 
 ._crit_edge125:                                   ; preds = %.lr.ph124, %.preheader114
@@ -12970,7 +12970,7 @@ define internal void @ompi_op_avx_2buff_bxor_uint64_t_avx512(ptr noundef %0, ptr
   store <16 x i8> %38, ptr %.5110129, align 1
   %39 = getelementptr inbounds i8, ptr %.5110129, i64 16
   %40 = add nsw i32 %.5131, -2
-  %41 = icmp ugt i32 %.5131, 3
+  %41 = icmp samesign ugt i32 %.5131, 3
   br i1 %41, label %.lr.ph132, label %.loopexit113, !llvm.loop !255
 
 .loopexit113:                                     ; preds = %.lr.ph132, %31
@@ -13103,7 +13103,7 @@ define internal void @ompi_op_avx_3buff_max_int8_t_avx512(ptr noalias noundef %0
   store <64 x i8> %16, ptr %.1131178, align 1
   %17 = getelementptr inbounds i8, ptr %.1131178, i64 64
   %18 = add nsw i32 %.1138177, -64
-  %19 = icmp ugt i32 %.1138177, 127
+  %19 = icmp samesign ugt i32 %.1138177, 127
   br i1 %19, label %.lr.ph, label %._crit_edge, !llvm.loop !257
 
 ._crit_edge:                                      ; preds = %.lr.ph, %.preheader176
@@ -13140,7 +13140,7 @@ define internal void @ompi_op_avx_3buff_max_int8_t_avx512(ptr noalias noundef %0
   store <32 x i8> %29, ptr %.3133185, align 1
   %30 = getelementptr inbounds i8, ptr %.3133185, i64 32
   %31 = add nsw i32 %.3140184, -32
-  %32 = icmp ugt i32 %.3140184, 63
+  %32 = icmp samesign ugt i32 %.3140184, 63
   br i1 %32, label %.lr.ph188, label %._crit_edge189, !llvm.loop !258
 
 ._crit_edge189:                                   ; preds = %.lr.ph188, %.preheader175
@@ -13180,7 +13180,7 @@ define internal void @ompi_op_avx_3buff_max_int8_t_avx512(ptr noalias noundef %0
   store <16 x i8> %43, ptr %.5135195, align 1
   %44 = getelementptr inbounds i8, ptr %.5135195, i64 16
   %45 = add nsw i32 %.5142194, -16
-  %46 = icmp ugt i32 %.5142194, 31
+  %46 = icmp samesign ugt i32 %.5142194, 31
   br i1 %46, label %.lr.ph198, label %.loopexit174, !llvm.loop !259
 
 .loopexit174:                                     ; preds = %.lr.ph198, %34
@@ -13323,7 +13323,7 @@ define internal void @ompi_op_avx_3buff_max_uint8_t_avx512(ptr noalias noundef %
   store <64 x i8> %16, ptr %.1131178, align 1
   %17 = getelementptr inbounds i8, ptr %.1131178, i64 64
   %18 = add nsw i32 %.1138177, -64
-  %19 = icmp ugt i32 %.1138177, 127
+  %19 = icmp samesign ugt i32 %.1138177, 127
   br i1 %19, label %.lr.ph, label %._crit_edge, !llvm.loop !261
 
 ._crit_edge:                                      ; preds = %.lr.ph, %.preheader176
@@ -13360,7 +13360,7 @@ define internal void @ompi_op_avx_3buff_max_uint8_t_avx512(ptr noalias noundef %
   store <32 x i8> %29, ptr %.3133185, align 1
   %30 = getelementptr inbounds i8, ptr %.3133185, i64 32
   %31 = add nsw i32 %.3140184, -32
-  %32 = icmp ugt i32 %.3140184, 63
+  %32 = icmp samesign ugt i32 %.3140184, 63
   br i1 %32, label %.lr.ph188, label %._crit_edge189, !llvm.loop !262
 
 ._crit_edge189:                                   ; preds = %.lr.ph188, %.preheader175
@@ -13400,7 +13400,7 @@ define internal void @ompi_op_avx_3buff_max_uint8_t_avx512(ptr noalias noundef %
   store <16 x i8> %43, ptr %.5135195, align 1
   %44 = getelementptr inbounds i8, ptr %.5135195, i64 16
   %45 = add nsw i32 %.5142194, -16
-  %46 = icmp ugt i32 %.5142194, 31
+  %46 = icmp samesign ugt i32 %.5142194, 31
   br i1 %46, label %.lr.ph198, label %.loopexit174, !llvm.loop !263
 
 .loopexit174:                                     ; preds = %.lr.ph198, %34
@@ -13543,7 +13543,7 @@ define internal void @ompi_op_avx_3buff_max_int16_t_avx512(ptr noalias noundef %
   store <32 x i16> %16, ptr %.1131178, align 1
   %17 = getelementptr inbounds i8, ptr %.1131178, i64 64
   %18 = add nsw i32 %.1138177, -32
-  %19 = icmp ugt i32 %.1138177, 63
+  %19 = icmp samesign ugt i32 %.1138177, 63
   br i1 %19, label %.lr.ph, label %._crit_edge, !llvm.loop !265
 
 ._crit_edge:                                      ; preds = %.lr.ph, %.preheader176
@@ -13580,7 +13580,7 @@ define internal void @ompi_op_avx_3buff_max_int16_t_avx512(ptr noalias noundef %
   store <16 x i16> %29, ptr %.3133185, align 1
   %30 = getelementptr inbounds i8, ptr %.3133185, i64 32
   %31 = add nsw i32 %.3140184, -16
-  %32 = icmp ugt i32 %.3140184, 31
+  %32 = icmp samesign ugt i32 %.3140184, 31
   br i1 %32, label %.lr.ph188, label %._crit_edge189, !llvm.loop !266
 
 ._crit_edge189:                                   ; preds = %.lr.ph188, %.preheader175
@@ -13622,7 +13622,7 @@ define internal void @ompi_op_avx_3buff_max_int16_t_avx512(ptr noalias noundef %
   store <8 x i16> %45, ptr %.5135195, align 1
   %46 = getelementptr inbounds i8, ptr %.5135195, i64 16
   %47 = add nsw i32 %.5142194, -8
-  %48 = icmp ugt i32 %.5142194, 15
+  %48 = icmp samesign ugt i32 %.5142194, 15
   br i1 %48, label %.lr.ph198, label %.loopexit174, !llvm.loop !267
 
 .loopexit174:                                     ; preds = %.lr.ph198, %34
@@ -13765,7 +13765,7 @@ define internal void @ompi_op_avx_3buff_max_uint16_t_avx512(ptr noalias noundef 
   store <32 x i16> %16, ptr %.1131178, align 1
   %17 = getelementptr inbounds i8, ptr %.1131178, i64 64
   %18 = add nsw i32 %.1138177, -32
-  %19 = icmp ugt i32 %.1138177, 63
+  %19 = icmp samesign ugt i32 %.1138177, 63
   br i1 %19, label %.lr.ph, label %._crit_edge, !llvm.loop !269
 
 ._crit_edge:                                      ; preds = %.lr.ph, %.preheader176
@@ -13802,7 +13802,7 @@ define internal void @ompi_op_avx_3buff_max_uint16_t_avx512(ptr noalias noundef 
   store <16 x i16> %29, ptr %.3133185, align 1
   %30 = getelementptr inbounds i8, ptr %.3133185, i64 32
   %31 = add nsw i32 %.3140184, -16
-  %32 = icmp ugt i32 %.3140184, 31
+  %32 = icmp samesign ugt i32 %.3140184, 31
   br i1 %32, label %.lr.ph188, label %._crit_edge189, !llvm.loop !270
 
 ._crit_edge189:                                   ; preds = %.lr.ph188, %.preheader175
@@ -13844,7 +13844,7 @@ define internal void @ompi_op_avx_3buff_max_uint16_t_avx512(ptr noalias noundef 
   store <8 x i16> %45, ptr %.5135195, align 1
   %46 = getelementptr inbounds i8, ptr %.5135195, i64 16
   %47 = add nsw i32 %.5142194, -8
-  %48 = icmp ugt i32 %.5142194, 15
+  %48 = icmp samesign ugt i32 %.5142194, 15
   br i1 %48, label %.lr.ph198, label %.loopexit174, !llvm.loop !271
 
 .loopexit174:                                     ; preds = %.lr.ph198, %34
@@ -13987,7 +13987,7 @@ define internal void @ompi_op_avx_3buff_max_int32_t_avx512(ptr noalias noundef %
   store <16 x i32> %16, ptr %.1131171, align 1
   %17 = getelementptr inbounds i8, ptr %.1131171, i64 64
   %18 = add nsw i32 %.1138170, -16
-  %19 = icmp ugt i32 %.1138170, 31
+  %19 = icmp samesign ugt i32 %.1138170, 31
   br i1 %19, label %.lr.ph, label %._crit_edge, !llvm.loop !273
 
 ._crit_edge:                                      ; preds = %.lr.ph, %.preheader169
@@ -14024,7 +14024,7 @@ define internal void @ompi_op_avx_3buff_max_int32_t_avx512(ptr noalias noundef %
   store <8 x i32> %29, ptr %.3133178, align 1
   %30 = getelementptr inbounds i8, ptr %.3133178, i64 32
   %31 = add nsw i32 %.3140177, -8
-  %32 = icmp ugt i32 %.3140177, 15
+  %32 = icmp samesign ugt i32 %.3140177, 15
   br i1 %32, label %.lr.ph181, label %._crit_edge182, !llvm.loop !274
 
 ._crit_edge182:                                   ; preds = %.lr.ph181, %.preheader168
@@ -14066,7 +14066,7 @@ define internal void @ompi_op_avx_3buff_max_int32_t_avx512(ptr noalias noundef %
   store <4 x i32> %45, ptr %.5135188, align 1
   %46 = getelementptr inbounds i8, ptr %.5135188, i64 16
   %47 = add nsw i32 %.5142187, -4
-  %48 = icmp ugt i32 %.5142187, 7
+  %48 = icmp samesign ugt i32 %.5142187, 7
   br i1 %48, label %.lr.ph191, label %.loopexit167, !llvm.loop !275
 
 .loopexit167:                                     ; preds = %.lr.ph191, %34
@@ -14209,7 +14209,7 @@ define internal void @ompi_op_avx_3buff_max_uint32_t_avx512(ptr noalias noundef 
   store <16 x i32> %16, ptr %.1131171, align 1
   %17 = getelementptr inbounds i8, ptr %.1131171, i64 64
   %18 = add nsw i32 %.1138170, -16
-  %19 = icmp ugt i32 %.1138170, 31
+  %19 = icmp samesign ugt i32 %.1138170, 31
   br i1 %19, label %.lr.ph, label %._crit_edge, !llvm.loop !277
 
 ._crit_edge:                                      ; preds = %.lr.ph, %.preheader169
@@ -14246,7 +14246,7 @@ define internal void @ompi_op_avx_3buff_max_uint32_t_avx512(ptr noalias noundef 
   store <8 x i32> %29, ptr %.3133178, align 1
   %30 = getelementptr inbounds i8, ptr %.3133178, i64 32
   %31 = add nsw i32 %.3140177, -8
-  %32 = icmp ugt i32 %.3140177, 15
+  %32 = icmp samesign ugt i32 %.3140177, 15
   br i1 %32, label %.lr.ph181, label %._crit_edge182, !llvm.loop !278
 
 ._crit_edge182:                                   ; preds = %.lr.ph181, %.preheader168
@@ -14288,7 +14288,7 @@ define internal void @ompi_op_avx_3buff_max_uint32_t_avx512(ptr noalias noundef 
   store <4 x i32> %45, ptr %.5135188, align 1
   %46 = getelementptr inbounds i8, ptr %.5135188, i64 16
   %47 = add nsw i32 %.5142187, -4
-  %48 = icmp ugt i32 %.5142187, 7
+  %48 = icmp samesign ugt i32 %.5142187, 7
   br i1 %48, label %.lr.ph191, label %.loopexit167, !llvm.loop !279
 
 .loopexit167:                                     ; preds = %.lr.ph191, %34
@@ -14431,7 +14431,7 @@ define internal void @ompi_op_avx_3buff_max_int64_t_avx512(ptr noalias noundef %
   store <8 x i64> %16, ptr %.1131171, align 1
   %17 = getelementptr inbounds i8, ptr %.1131171, i64 64
   %18 = add nsw i32 %.1138170, -8
-  %19 = icmp ugt i32 %.1138170, 15
+  %19 = icmp samesign ugt i32 %.1138170, 15
   br i1 %19, label %.lr.ph, label %._crit_edge, !llvm.loop !281
 
 ._crit_edge:                                      ; preds = %.lr.ph, %.preheader169
@@ -14468,7 +14468,7 @@ define internal void @ompi_op_avx_3buff_max_int64_t_avx512(ptr noalias noundef %
   store <4 x i64> %29, ptr %.3133178, align 1
   %30 = getelementptr inbounds i8, ptr %.3133178, i64 32
   %31 = add nsw i32 %.3140177, -4
-  %32 = icmp ugt i32 %.3140177, 7
+  %32 = icmp samesign ugt i32 %.3140177, 7
   br i1 %32, label %.lr.ph181, label %._crit_edge182, !llvm.loop !282
 
 ._crit_edge182:                                   ; preds = %.lr.ph181, %.preheader168
@@ -14510,7 +14510,7 @@ define internal void @ompi_op_avx_3buff_max_int64_t_avx512(ptr noalias noundef %
   store <2 x i64> %45, ptr %.5135188, align 1
   %46 = getelementptr inbounds i8, ptr %.5135188, i64 16
   %47 = add nsw i32 %.5142187, -2
-  %48 = icmp ugt i32 %.5142187, 3
+  %48 = icmp samesign ugt i32 %.5142187, 3
   br i1 %48, label %.lr.ph191, label %.loopexit167, !llvm.loop !283
 
 .loopexit167:                                     ; preds = %.lr.ph191, %34
@@ -14653,7 +14653,7 @@ define internal void @ompi_op_avx_3buff_max_uint64_t_avx512(ptr noalias noundef 
   store <8 x i64> %16, ptr %.1131171, align 1
   %17 = getelementptr inbounds i8, ptr %.1131171, i64 64
   %18 = add nsw i32 %.1138170, -8
-  %19 = icmp ugt i32 %.1138170, 15
+  %19 = icmp samesign ugt i32 %.1138170, 15
   br i1 %19, label %.lr.ph, label %._crit_edge, !llvm.loop !285
 
 ._crit_edge:                                      ; preds = %.lr.ph, %.preheader169
@@ -14690,7 +14690,7 @@ define internal void @ompi_op_avx_3buff_max_uint64_t_avx512(ptr noalias noundef 
   store <4 x i64> %29, ptr %.3133178, align 1
   %30 = getelementptr inbounds i8, ptr %.3133178, i64 32
   %31 = add nsw i32 %.3140177, -4
-  %32 = icmp ugt i32 %.3140177, 7
+  %32 = icmp samesign ugt i32 %.3140177, 7
   br i1 %32, label %.lr.ph181, label %._crit_edge182, !llvm.loop !286
 
 ._crit_edge182:                                   ; preds = %.lr.ph181, %.preheader168
@@ -14732,7 +14732,7 @@ define internal void @ompi_op_avx_3buff_max_uint64_t_avx512(ptr noalias noundef 
   store <2 x i64> %45, ptr %.5135188, align 1
   %46 = getelementptr inbounds i8, ptr %.5135188, i64 16
   %47 = add nsw i32 %.5142187, -2
-  %48 = icmp ugt i32 %.5142187, 3
+  %48 = icmp samesign ugt i32 %.5142187, 3
   br i1 %48, label %.lr.ph191, label %.loopexit167, !llvm.loop !287
 
 .loopexit167:                                     ; preds = %.lr.ph191, %34
@@ -14875,7 +14875,7 @@ define internal void @ompi_op_avx_3buff_max_float_avx512(ptr nocapture noundef r
   store <16 x float> %15, ptr %.1138172, align 1
   %16 = getelementptr inbounds i8, ptr %.1138172, i64 64
   %17 = add nsw i32 %.1175, -16
-  %18 = icmp ugt i32 %.1175, 31
+  %18 = icmp samesign ugt i32 %.1175, 31
   br i1 %18, label %.lr.ph, label %._crit_edge, !llvm.loop !289
 
 ._crit_edge:                                      ; preds = %.lr.ph, %.preheader171
@@ -14917,7 +14917,7 @@ define internal void @ompi_op_avx_3buff_max_float_avx512(ptr nocapture noundef r
   store <8 x float> %28, ptr %.3140179, align 1
   %29 = getelementptr inbounds i8, ptr %.3140179, i64 32
   %30 = add nsw i32 %.3182, -8
-  %31 = icmp ugt i32 %.3182, 15
+  %31 = icmp samesign ugt i32 %.3182, 15
   br i1 %31, label %.lr.ph183, label %._crit_edge184, !llvm.loop !290
 
 ._crit_edge184:                                   ; preds = %.lr.ph183, %.preheader170
@@ -14957,7 +14957,7 @@ define internal void @ompi_op_avx_3buff_max_float_avx512(ptr nocapture noundef r
   store <4 x float> %41, ptr %.5142189, align 1
   %42 = getelementptr inbounds i8, ptr %.5142189, i64 16
   %43 = add nsw i32 %.5192, -4
-  %44 = icmp ugt i32 %.5192, 7
+  %44 = icmp samesign ugt i32 %.5192, 7
   br i1 %44, label %.lr.ph193, label %.loopexit169, !llvm.loop !291
 
 .loopexit169:                                     ; preds = %.lr.ph193, %33
@@ -15108,7 +15108,7 @@ define internal void @ompi_op_avx_3buff_max_double_avx512(ptr nocapture noundef 
   store <8 x double> %15, ptr %.1138172, align 1
   %16 = getelementptr inbounds i8, ptr %.1138172, i64 64
   %17 = add nsw i32 %.1175, -8
-  %18 = icmp ugt i32 %.1175, 15
+  %18 = icmp samesign ugt i32 %.1175, 15
   br i1 %18, label %.lr.ph, label %._crit_edge, !llvm.loop !293
 
 ._crit_edge:                                      ; preds = %.lr.ph, %.preheader171
@@ -15150,7 +15150,7 @@ define internal void @ompi_op_avx_3buff_max_double_avx512(ptr nocapture noundef 
   store <4 x double> %28, ptr %.3140179, align 1
   %29 = getelementptr inbounds i8, ptr %.3140179, i64 32
   %30 = add nsw i32 %.3182, -4
-  %31 = icmp ugt i32 %.3182, 7
+  %31 = icmp samesign ugt i32 %.3182, 7
   br i1 %31, label %.lr.ph183, label %._crit_edge184, !llvm.loop !294
 
 ._crit_edge184:                                   ; preds = %.lr.ph183, %.preheader170
@@ -15190,7 +15190,7 @@ define internal void @ompi_op_avx_3buff_max_double_avx512(ptr nocapture noundef 
   store <2 x double> %41, ptr %.5142189, align 1
   %42 = getelementptr inbounds i8, ptr %.5142189, i64 16
   %43 = add nsw i32 %.5192, -2
-  %44 = icmp ugt i32 %.5192, 3
+  %44 = icmp samesign ugt i32 %.5192, 3
   br i1 %44, label %.lr.ph193, label %.loopexit169, !llvm.loop !295
 
 .loopexit169:                                     ; preds = %.lr.ph193, %33
@@ -15341,7 +15341,7 @@ define internal void @ompi_op_avx_3buff_min_int8_t_avx512(ptr noalias noundef %0
   store <64 x i8> %16, ptr %.1131178, align 1
   %17 = getelementptr inbounds i8, ptr %.1131178, i64 64
   %18 = add nsw i32 %.1138177, -64
-  %19 = icmp ugt i32 %.1138177, 127
+  %19 = icmp samesign ugt i32 %.1138177, 127
   br i1 %19, label %.lr.ph, label %._crit_edge, !llvm.loop !297
 
 ._crit_edge:                                      ; preds = %.lr.ph, %.preheader176
@@ -15378,7 +15378,7 @@ define internal void @ompi_op_avx_3buff_min_int8_t_avx512(ptr noalias noundef %0
   store <32 x i8> %29, ptr %.3133185, align 1
   %30 = getelementptr inbounds i8, ptr %.3133185, i64 32
   %31 = add nsw i32 %.3140184, -32
-  %32 = icmp ugt i32 %.3140184, 63
+  %32 = icmp samesign ugt i32 %.3140184, 63
   br i1 %32, label %.lr.ph188, label %._crit_edge189, !llvm.loop !298
 
 ._crit_edge189:                                   ; preds = %.lr.ph188, %.preheader175
@@ -15418,7 +15418,7 @@ define internal void @ompi_op_avx_3buff_min_int8_t_avx512(ptr noalias noundef %0
   store <16 x i8> %43, ptr %.5135195, align 1
   %44 = getelementptr inbounds i8, ptr %.5135195, i64 16
   %45 = add nsw i32 %.5142194, -16
-  %46 = icmp ugt i32 %.5142194, 31
+  %46 = icmp samesign ugt i32 %.5142194, 31
   br i1 %46, label %.lr.ph198, label %.loopexit174, !llvm.loop !299
 
 .loopexit174:                                     ; preds = %.lr.ph198, %34
@@ -15561,7 +15561,7 @@ define internal void @ompi_op_avx_3buff_min_uint8_t_avx512(ptr noalias noundef %
   store <64 x i8> %16, ptr %.1131178, align 1
   %17 = getelementptr inbounds i8, ptr %.1131178, i64 64
   %18 = add nsw i32 %.1138177, -64
-  %19 = icmp ugt i32 %.1138177, 127
+  %19 = icmp samesign ugt i32 %.1138177, 127
   br i1 %19, label %.lr.ph, label %._crit_edge, !llvm.loop !301
 
 ._crit_edge:                                      ; preds = %.lr.ph, %.preheader176
@@ -15598,7 +15598,7 @@ define internal void @ompi_op_avx_3buff_min_uint8_t_avx512(ptr noalias noundef %
   store <32 x i8> %29, ptr %.3133185, align 1
   %30 = getelementptr inbounds i8, ptr %.3133185, i64 32
   %31 = add nsw i32 %.3140184, -32
-  %32 = icmp ugt i32 %.3140184, 63
+  %32 = icmp samesign ugt i32 %.3140184, 63
   br i1 %32, label %.lr.ph188, label %._crit_edge189, !llvm.loop !302
 
 ._crit_edge189:                                   ; preds = %.lr.ph188, %.preheader175
@@ -15638,7 +15638,7 @@ define internal void @ompi_op_avx_3buff_min_uint8_t_avx512(ptr noalias noundef %
   store <16 x i8> %43, ptr %.5135195, align 1
   %44 = getelementptr inbounds i8, ptr %.5135195, i64 16
   %45 = add nsw i32 %.5142194, -16
-  %46 = icmp ugt i32 %.5142194, 31
+  %46 = icmp samesign ugt i32 %.5142194, 31
   br i1 %46, label %.lr.ph198, label %.loopexit174, !llvm.loop !303
 
 .loopexit174:                                     ; preds = %.lr.ph198, %34
@@ -15781,7 +15781,7 @@ define internal void @ompi_op_avx_3buff_min_int16_t_avx512(ptr noalias noundef %
   store <32 x i16> %16, ptr %.1131178, align 1
   %17 = getelementptr inbounds i8, ptr %.1131178, i64 64
   %18 = add nsw i32 %.1138177, -32
-  %19 = icmp ugt i32 %.1138177, 63
+  %19 = icmp samesign ugt i32 %.1138177, 63
   br i1 %19, label %.lr.ph, label %._crit_edge, !llvm.loop !305
 
 ._crit_edge:                                      ; preds = %.lr.ph, %.preheader176
@@ -15818,7 +15818,7 @@ define internal void @ompi_op_avx_3buff_min_int16_t_avx512(ptr noalias noundef %
   store <16 x i16> %29, ptr %.3133185, align 1
   %30 = getelementptr inbounds i8, ptr %.3133185, i64 32
   %31 = add nsw i32 %.3140184, -16
-  %32 = icmp ugt i32 %.3140184, 31
+  %32 = icmp samesign ugt i32 %.3140184, 31
   br i1 %32, label %.lr.ph188, label %._crit_edge189, !llvm.loop !306
 
 ._crit_edge189:                                   ; preds = %.lr.ph188, %.preheader175
@@ -15860,7 +15860,7 @@ define internal void @ompi_op_avx_3buff_min_int16_t_avx512(ptr noalias noundef %
   store <8 x i16> %45, ptr %.5135195, align 1
   %46 = getelementptr inbounds i8, ptr %.5135195, i64 16
   %47 = add nsw i32 %.5142194, -8
-  %48 = icmp ugt i32 %.5142194, 15
+  %48 = icmp samesign ugt i32 %.5142194, 15
   br i1 %48, label %.lr.ph198, label %.loopexit174, !llvm.loop !307
 
 .loopexit174:                                     ; preds = %.lr.ph198, %34
@@ -16003,7 +16003,7 @@ define internal void @ompi_op_avx_3buff_min_uint16_t_avx512(ptr noalias noundef 
   store <32 x i16> %16, ptr %.1131178, align 1
   %17 = getelementptr inbounds i8, ptr %.1131178, i64 64
   %18 = add nsw i32 %.1138177, -32
-  %19 = icmp ugt i32 %.1138177, 63
+  %19 = icmp samesign ugt i32 %.1138177, 63
   br i1 %19, label %.lr.ph, label %._crit_edge, !llvm.loop !309
 
 ._crit_edge:                                      ; preds = %.lr.ph, %.preheader176
@@ -16040,7 +16040,7 @@ define internal void @ompi_op_avx_3buff_min_uint16_t_avx512(ptr noalias noundef 
   store <16 x i16> %29, ptr %.3133185, align 1
   %30 = getelementptr inbounds i8, ptr %.3133185, i64 32
   %31 = add nsw i32 %.3140184, -16
-  %32 = icmp ugt i32 %.3140184, 31
+  %32 = icmp samesign ugt i32 %.3140184, 31
   br i1 %32, label %.lr.ph188, label %._crit_edge189, !llvm.loop !310
 
 ._crit_edge189:                                   ; preds = %.lr.ph188, %.preheader175
@@ -16082,7 +16082,7 @@ define internal void @ompi_op_avx_3buff_min_uint16_t_avx512(ptr noalias noundef 
   store <8 x i16> %45, ptr %.5135195, align 1
   %46 = getelementptr inbounds i8, ptr %.5135195, i64 16
   %47 = add nsw i32 %.5142194, -8
-  %48 = icmp ugt i32 %.5142194, 15
+  %48 = icmp samesign ugt i32 %.5142194, 15
   br i1 %48, label %.lr.ph198, label %.loopexit174, !llvm.loop !311
 
 .loopexit174:                                     ; preds = %.lr.ph198, %34
@@ -16225,7 +16225,7 @@ define internal void @ompi_op_avx_3buff_min_int32_t_avx512(ptr noalias noundef %
   store <16 x i32> %16, ptr %.1131171, align 1
   %17 = getelementptr inbounds i8, ptr %.1131171, i64 64
   %18 = add nsw i32 %.1138170, -16
-  %19 = icmp ugt i32 %.1138170, 31
+  %19 = icmp samesign ugt i32 %.1138170, 31
   br i1 %19, label %.lr.ph, label %._crit_edge, !llvm.loop !313
 
 ._crit_edge:                                      ; preds = %.lr.ph, %.preheader169
@@ -16262,7 +16262,7 @@ define internal void @ompi_op_avx_3buff_min_int32_t_avx512(ptr noalias noundef %
   store <8 x i32> %29, ptr %.3133178, align 1
   %30 = getelementptr inbounds i8, ptr %.3133178, i64 32
   %31 = add nsw i32 %.3140177, -8
-  %32 = icmp ugt i32 %.3140177, 15
+  %32 = icmp samesign ugt i32 %.3140177, 15
   br i1 %32, label %.lr.ph181, label %._crit_edge182, !llvm.loop !314
 
 ._crit_edge182:                                   ; preds = %.lr.ph181, %.preheader168
@@ -16304,7 +16304,7 @@ define internal void @ompi_op_avx_3buff_min_int32_t_avx512(ptr noalias noundef %
   store <4 x i32> %45, ptr %.5135188, align 1
   %46 = getelementptr inbounds i8, ptr %.5135188, i64 16
   %47 = add nsw i32 %.5142187, -4
-  %48 = icmp ugt i32 %.5142187, 7
+  %48 = icmp samesign ugt i32 %.5142187, 7
   br i1 %48, label %.lr.ph191, label %.loopexit167, !llvm.loop !315
 
 .loopexit167:                                     ; preds = %.lr.ph191, %34
@@ -16447,7 +16447,7 @@ define internal void @ompi_op_avx_3buff_min_uint32_t_avx512(ptr noalias noundef 
   store <16 x i32> %16, ptr %.1131171, align 1
   %17 = getelementptr inbounds i8, ptr %.1131171, i64 64
   %18 = add nsw i32 %.1138170, -16
-  %19 = icmp ugt i32 %.1138170, 31
+  %19 = icmp samesign ugt i32 %.1138170, 31
   br i1 %19, label %.lr.ph, label %._crit_edge, !llvm.loop !317
 
 ._crit_edge:                                      ; preds = %.lr.ph, %.preheader169
@@ -16484,7 +16484,7 @@ define internal void @ompi_op_avx_3buff_min_uint32_t_avx512(ptr noalias noundef 
   store <8 x i32> %29, ptr %.3133178, align 1
   %30 = getelementptr inbounds i8, ptr %.3133178, i64 32
   %31 = add nsw i32 %.3140177, -8
-  %32 = icmp ugt i32 %.3140177, 15
+  %32 = icmp samesign ugt i32 %.3140177, 15
   br i1 %32, label %.lr.ph181, label %._crit_edge182, !llvm.loop !318
 
 ._crit_edge182:                                   ; preds = %.lr.ph181, %.preheader168
@@ -16526,7 +16526,7 @@ define internal void @ompi_op_avx_3buff_min_uint32_t_avx512(ptr noalias noundef 
   store <4 x i32> %45, ptr %.5135188, align 1
   %46 = getelementptr inbounds i8, ptr %.5135188, i64 16
   %47 = add nsw i32 %.5142187, -4
-  %48 = icmp ugt i32 %.5142187, 7
+  %48 = icmp samesign ugt i32 %.5142187, 7
   br i1 %48, label %.lr.ph191, label %.loopexit167, !llvm.loop !319
 
 .loopexit167:                                     ; preds = %.lr.ph191, %34
@@ -16669,7 +16669,7 @@ define internal void @ompi_op_avx_3buff_min_int64_t_avx512(ptr noalias noundef %
   store <8 x i64> %16, ptr %.1131171, align 1
   %17 = getelementptr inbounds i8, ptr %.1131171, i64 64
   %18 = add nsw i32 %.1138170, -8
-  %19 = icmp ugt i32 %.1138170, 15
+  %19 = icmp samesign ugt i32 %.1138170, 15
   br i1 %19, label %.lr.ph, label %._crit_edge, !llvm.loop !321
 
 ._crit_edge:                                      ; preds = %.lr.ph, %.preheader169
@@ -16706,7 +16706,7 @@ define internal void @ompi_op_avx_3buff_min_int64_t_avx512(ptr noalias noundef %
   store <4 x i64> %29, ptr %.3133178, align 1
   %30 = getelementptr inbounds i8, ptr %.3133178, i64 32
   %31 = add nsw i32 %.3140177, -4
-  %32 = icmp ugt i32 %.3140177, 7
+  %32 = icmp samesign ugt i32 %.3140177, 7
   br i1 %32, label %.lr.ph181, label %._crit_edge182, !llvm.loop !322
 
 ._crit_edge182:                                   ; preds = %.lr.ph181, %.preheader168
@@ -16748,7 +16748,7 @@ define internal void @ompi_op_avx_3buff_min_int64_t_avx512(ptr noalias noundef %
   store <2 x i64> %45, ptr %.5135188, align 1
   %46 = getelementptr inbounds i8, ptr %.5135188, i64 16
   %47 = add nsw i32 %.5142187, -2
-  %48 = icmp ugt i32 %.5142187, 3
+  %48 = icmp samesign ugt i32 %.5142187, 3
   br i1 %48, label %.lr.ph191, label %.loopexit167, !llvm.loop !323
 
 .loopexit167:                                     ; preds = %.lr.ph191, %34
@@ -16891,7 +16891,7 @@ define internal void @ompi_op_avx_3buff_min_uint64_t_avx512(ptr noalias noundef 
   store <8 x i64> %16, ptr %.1131171, align 1
   %17 = getelementptr inbounds i8, ptr %.1131171, i64 64
   %18 = add nsw i32 %.1138170, -8
-  %19 = icmp ugt i32 %.1138170, 15
+  %19 = icmp samesign ugt i32 %.1138170, 15
   br i1 %19, label %.lr.ph, label %._crit_edge, !llvm.loop !325
 
 ._crit_edge:                                      ; preds = %.lr.ph, %.preheader169
@@ -16928,7 +16928,7 @@ define internal void @ompi_op_avx_3buff_min_uint64_t_avx512(ptr noalias noundef 
   store <4 x i64> %29, ptr %.3133178, align 1
   %30 = getelementptr inbounds i8, ptr %.3133178, i64 32
   %31 = add nsw i32 %.3140177, -4
-  %32 = icmp ugt i32 %.3140177, 7
+  %32 = icmp samesign ugt i32 %.3140177, 7
   br i1 %32, label %.lr.ph181, label %._crit_edge182, !llvm.loop !326
 
 ._crit_edge182:                                   ; preds = %.lr.ph181, %.preheader168
@@ -16970,7 +16970,7 @@ define internal void @ompi_op_avx_3buff_min_uint64_t_avx512(ptr noalias noundef 
   store <2 x i64> %45, ptr %.5135188, align 1
   %46 = getelementptr inbounds i8, ptr %.5135188, i64 16
   %47 = add nsw i32 %.5142187, -2
-  %48 = icmp ugt i32 %.5142187, 3
+  %48 = icmp samesign ugt i32 %.5142187, 3
   br i1 %48, label %.lr.ph191, label %.loopexit167, !llvm.loop !327
 
 .loopexit167:                                     ; preds = %.lr.ph191, %34
@@ -17113,7 +17113,7 @@ define internal void @ompi_op_avx_3buff_min_float_avx512(ptr nocapture noundef r
   store <16 x float> %15, ptr %.1138172, align 1
   %16 = getelementptr inbounds i8, ptr %.1138172, i64 64
   %17 = add nsw i32 %.1175, -16
-  %18 = icmp ugt i32 %.1175, 31
+  %18 = icmp samesign ugt i32 %.1175, 31
   br i1 %18, label %.lr.ph, label %._crit_edge, !llvm.loop !329
 
 ._crit_edge:                                      ; preds = %.lr.ph, %.preheader171
@@ -17155,7 +17155,7 @@ define internal void @ompi_op_avx_3buff_min_float_avx512(ptr nocapture noundef r
   store <8 x float> %28, ptr %.3140179, align 1
   %29 = getelementptr inbounds i8, ptr %.3140179, i64 32
   %30 = add nsw i32 %.3182, -8
-  %31 = icmp ugt i32 %.3182, 15
+  %31 = icmp samesign ugt i32 %.3182, 15
   br i1 %31, label %.lr.ph183, label %._crit_edge184, !llvm.loop !330
 
 ._crit_edge184:                                   ; preds = %.lr.ph183, %.preheader170
@@ -17195,7 +17195,7 @@ define internal void @ompi_op_avx_3buff_min_float_avx512(ptr nocapture noundef r
   store <4 x float> %41, ptr %.5142189, align 1
   %42 = getelementptr inbounds i8, ptr %.5142189, i64 16
   %43 = add nsw i32 %.5192, -4
-  %44 = icmp ugt i32 %.5192, 7
+  %44 = icmp samesign ugt i32 %.5192, 7
   br i1 %44, label %.lr.ph193, label %.loopexit169, !llvm.loop !331
 
 .loopexit169:                                     ; preds = %.lr.ph193, %33
@@ -17346,7 +17346,7 @@ define internal void @ompi_op_avx_3buff_min_double_avx512(ptr nocapture noundef 
   store <8 x double> %15, ptr %.1138172, align 1
   %16 = getelementptr inbounds i8, ptr %.1138172, i64 64
   %17 = add nsw i32 %.1175, -8
-  %18 = icmp ugt i32 %.1175, 15
+  %18 = icmp samesign ugt i32 %.1175, 15
   br i1 %18, label %.lr.ph, label %._crit_edge, !llvm.loop !333
 
 ._crit_edge:                                      ; preds = %.lr.ph, %.preheader171
@@ -17388,7 +17388,7 @@ define internal void @ompi_op_avx_3buff_min_double_avx512(ptr nocapture noundef 
   store <4 x double> %28, ptr %.3140179, align 1
   %29 = getelementptr inbounds i8, ptr %.3140179, i64 32
   %30 = add nsw i32 %.3182, -4
-  %31 = icmp ugt i32 %.3182, 7
+  %31 = icmp samesign ugt i32 %.3182, 7
   br i1 %31, label %.lr.ph183, label %._crit_edge184, !llvm.loop !334
 
 ._crit_edge184:                                   ; preds = %.lr.ph183, %.preheader170
@@ -17428,7 +17428,7 @@ define internal void @ompi_op_avx_3buff_min_double_avx512(ptr nocapture noundef 
   store <2 x double> %41, ptr %.5142189, align 1
   %42 = getelementptr inbounds i8, ptr %.5142189, i64 16
   %43 = add nsw i32 %.5192, -2
-  %44 = icmp ugt i32 %.5192, 3
+  %44 = icmp samesign ugt i32 %.5192, 3
   br i1 %44, label %.lr.ph193, label %.loopexit169, !llvm.loop !335
 
 .loopexit169:                                     ; preds = %.lr.ph193, %33
@@ -17579,7 +17579,7 @@ define internal void @ompi_op_avx_3buff_sum_int8_t_avx512(ptr noalias noundef %0
   store <64 x i8> %16, ptr %.1115132, align 1
   %17 = getelementptr inbounds i8, ptr %.1115132, i64 64
   %18 = add nsw i32 %.1122131, -64
-  %19 = icmp ugt i32 %.1122131, 127
+  %19 = icmp samesign ugt i32 %.1122131, 127
   br i1 %19, label %.lr.ph, label %._crit_edge, !llvm.loop !337
 
 ._crit_edge:                                      ; preds = %.lr.ph, %.preheader130
@@ -17616,7 +17616,7 @@ define internal void @ompi_op_avx_3buff_sum_int8_t_avx512(ptr noalias noundef %0
   store <32 x i8> %29, ptr %.3117139, align 1
   %30 = getelementptr inbounds i8, ptr %.3117139, i64 32
   %31 = add nsw i32 %.3124138, -32
-  %32 = icmp ugt i32 %.3124138, 63
+  %32 = icmp samesign ugt i32 %.3124138, 63
   br i1 %32, label %.lr.ph142, label %._crit_edge143, !llvm.loop !338
 
 ._crit_edge143:                                   ; preds = %.lr.ph142, %.preheader129
@@ -17656,7 +17656,7 @@ define internal void @ompi_op_avx_3buff_sum_int8_t_avx512(ptr noalias noundef %0
   store <16 x i8> %43, ptr %.5119149, align 1
   %44 = getelementptr inbounds i8, ptr %.5119149, i64 16
   %45 = add nsw i32 %.5126148, -16
-  %46 = icmp ugt i32 %.5126148, 31
+  %46 = icmp samesign ugt i32 %.5126148, 31
   br i1 %46, label %.lr.ph152, label %.loopexit128, !llvm.loop !339
 
 .loopexit128:                                     ; preds = %.lr.ph152, %34
@@ -17799,7 +17799,7 @@ define internal void @ompi_op_avx_3buff_sum_uint8_t_avx512(ptr noalias noundef %
   store <64 x i8> %16, ptr %.1115132, align 1
   %17 = getelementptr inbounds i8, ptr %.1115132, i64 64
   %18 = add nsw i32 %.1122131, -64
-  %19 = icmp ugt i32 %.1122131, 127
+  %19 = icmp samesign ugt i32 %.1122131, 127
   br i1 %19, label %.lr.ph, label %._crit_edge, !llvm.loop !341
 
 ._crit_edge:                                      ; preds = %.lr.ph, %.preheader130
@@ -17836,7 +17836,7 @@ define internal void @ompi_op_avx_3buff_sum_uint8_t_avx512(ptr noalias noundef %
   store <32 x i8> %29, ptr %.3117139, align 1
   %30 = getelementptr inbounds i8, ptr %.3117139, i64 32
   %31 = add nsw i32 %.3124138, -32
-  %32 = icmp ugt i32 %.3124138, 63
+  %32 = icmp samesign ugt i32 %.3124138, 63
   br i1 %32, label %.lr.ph142, label %._crit_edge143, !llvm.loop !342
 
 ._crit_edge143:                                   ; preds = %.lr.ph142, %.preheader129
@@ -17876,7 +17876,7 @@ define internal void @ompi_op_avx_3buff_sum_uint8_t_avx512(ptr noalias noundef %
   store <16 x i8> %43, ptr %.5119149, align 1
   %44 = getelementptr inbounds i8, ptr %.5119149, i64 16
   %45 = add nsw i32 %.5126148, -16
-  %46 = icmp ugt i32 %.5126148, 31
+  %46 = icmp samesign ugt i32 %.5126148, 31
   br i1 %46, label %.lr.ph152, label %.loopexit128, !llvm.loop !343
 
 .loopexit128:                                     ; preds = %.lr.ph152, %34
@@ -18019,7 +18019,7 @@ define internal void @ompi_op_avx_3buff_sum_int16_t_avx512(ptr noalias noundef %
   store <32 x i16> %16, ptr %.1115132, align 1
   %17 = getelementptr inbounds i8, ptr %.1115132, i64 64
   %18 = add nsw i32 %.1122131, -32
-  %19 = icmp ugt i32 %.1122131, 63
+  %19 = icmp samesign ugt i32 %.1122131, 63
   br i1 %19, label %.lr.ph, label %._crit_edge, !llvm.loop !345
 
 ._crit_edge:                                      ; preds = %.lr.ph, %.preheader130
@@ -18056,7 +18056,7 @@ define internal void @ompi_op_avx_3buff_sum_int16_t_avx512(ptr noalias noundef %
   store <16 x i16> %29, ptr %.3117139, align 1
   %30 = getelementptr inbounds i8, ptr %.3117139, i64 32
   %31 = add nsw i32 %.3124138, -16
-  %32 = icmp ugt i32 %.3124138, 31
+  %32 = icmp samesign ugt i32 %.3124138, 31
   br i1 %32, label %.lr.ph142, label %._crit_edge143, !llvm.loop !346
 
 ._crit_edge143:                                   ; preds = %.lr.ph142, %.preheader129
@@ -18098,7 +18098,7 @@ define internal void @ompi_op_avx_3buff_sum_int16_t_avx512(ptr noalias noundef %
   store <8 x i16> %45, ptr %.5119149, align 1
   %46 = getelementptr inbounds i8, ptr %.5119149, i64 16
   %47 = add nsw i32 %.5126148, -8
-  %48 = icmp ugt i32 %.5126148, 15
+  %48 = icmp samesign ugt i32 %.5126148, 15
   br i1 %48, label %.lr.ph152, label %.loopexit128, !llvm.loop !347
 
 .loopexit128:                                     ; preds = %.lr.ph152, %34
@@ -18241,7 +18241,7 @@ define internal void @ompi_op_avx_3buff_sum_uint16_t_avx512(ptr noalias noundef 
   store <32 x i16> %16, ptr %.1115132, align 1
   %17 = getelementptr inbounds i8, ptr %.1115132, i64 64
   %18 = add nsw i32 %.1122131, -32
-  %19 = icmp ugt i32 %.1122131, 63
+  %19 = icmp samesign ugt i32 %.1122131, 63
   br i1 %19, label %.lr.ph, label %._crit_edge, !llvm.loop !349
 
 ._crit_edge:                                      ; preds = %.lr.ph, %.preheader130
@@ -18278,7 +18278,7 @@ define internal void @ompi_op_avx_3buff_sum_uint16_t_avx512(ptr noalias noundef 
   store <16 x i16> %29, ptr %.3117139, align 1
   %30 = getelementptr inbounds i8, ptr %.3117139, i64 32
   %31 = add nsw i32 %.3124138, -16
-  %32 = icmp ugt i32 %.3124138, 31
+  %32 = icmp samesign ugt i32 %.3124138, 31
   br i1 %32, label %.lr.ph142, label %._crit_edge143, !llvm.loop !350
 
 ._crit_edge143:                                   ; preds = %.lr.ph142, %.preheader129
@@ -18320,7 +18320,7 @@ define internal void @ompi_op_avx_3buff_sum_uint16_t_avx512(ptr noalias noundef 
   store <8 x i16> %45, ptr %.5119149, align 1
   %46 = getelementptr inbounds i8, ptr %.5119149, i64 16
   %47 = add nsw i32 %.5126148, -8
-  %48 = icmp ugt i32 %.5126148, 15
+  %48 = icmp samesign ugt i32 %.5126148, 15
   br i1 %48, label %.lr.ph152, label %.loopexit128, !llvm.loop !351
 
 .loopexit128:                                     ; preds = %.lr.ph152, %34
@@ -18463,7 +18463,7 @@ define internal void @ompi_op_avx_3buff_sum_int32_t_avx512(ptr noalias noundef %
   store <16 x i32> %16, ptr %.1115132, align 1
   %17 = getelementptr inbounds i8, ptr %.1115132, i64 64
   %18 = add nsw i32 %.1122131, -16
-  %19 = icmp ugt i32 %.1122131, 31
+  %19 = icmp samesign ugt i32 %.1122131, 31
   br i1 %19, label %.lr.ph, label %._crit_edge, !llvm.loop !353
 
 ._crit_edge:                                      ; preds = %.lr.ph, %.preheader130
@@ -18500,7 +18500,7 @@ define internal void @ompi_op_avx_3buff_sum_int32_t_avx512(ptr noalias noundef %
   store <8 x i32> %29, ptr %.3117139, align 1
   %30 = getelementptr inbounds i8, ptr %.3117139, i64 32
   %31 = add nsw i32 %.3124138, -8
-  %32 = icmp ugt i32 %.3124138, 15
+  %32 = icmp samesign ugt i32 %.3124138, 15
   br i1 %32, label %.lr.ph142, label %._crit_edge143, !llvm.loop !354
 
 ._crit_edge143:                                   ; preds = %.lr.ph142, %.preheader129
@@ -18542,7 +18542,7 @@ define internal void @ompi_op_avx_3buff_sum_int32_t_avx512(ptr noalias noundef %
   store <4 x i32> %45, ptr %.5119149, align 1
   %46 = getelementptr inbounds i8, ptr %.5119149, i64 16
   %47 = add nsw i32 %.5126148, -4
-  %48 = icmp ugt i32 %.5126148, 7
+  %48 = icmp samesign ugt i32 %.5126148, 7
   br i1 %48, label %.lr.ph152, label %.loopexit128, !llvm.loop !355
 
 .loopexit128:                                     ; preds = %.lr.ph152, %34
@@ -18685,7 +18685,7 @@ define internal void @ompi_op_avx_3buff_sum_uint32_t_avx512(ptr noalias noundef 
   store <16 x i32> %16, ptr %.1115132, align 1
   %17 = getelementptr inbounds i8, ptr %.1115132, i64 64
   %18 = add nsw i32 %.1122131, -16
-  %19 = icmp ugt i32 %.1122131, 31
+  %19 = icmp samesign ugt i32 %.1122131, 31
   br i1 %19, label %.lr.ph, label %._crit_edge, !llvm.loop !357
 
 ._crit_edge:                                      ; preds = %.lr.ph, %.preheader130
@@ -18722,7 +18722,7 @@ define internal void @ompi_op_avx_3buff_sum_uint32_t_avx512(ptr noalias noundef 
   store <8 x i32> %29, ptr %.3117139, align 1
   %30 = getelementptr inbounds i8, ptr %.3117139, i64 32
   %31 = add nsw i32 %.3124138, -8
-  %32 = icmp ugt i32 %.3124138, 15
+  %32 = icmp samesign ugt i32 %.3124138, 15
   br i1 %32, label %.lr.ph142, label %._crit_edge143, !llvm.loop !358
 
 ._crit_edge143:                                   ; preds = %.lr.ph142, %.preheader129
@@ -18764,7 +18764,7 @@ define internal void @ompi_op_avx_3buff_sum_uint32_t_avx512(ptr noalias noundef 
   store <4 x i32> %45, ptr %.5119149, align 1
   %46 = getelementptr inbounds i8, ptr %.5119149, i64 16
   %47 = add nsw i32 %.5126148, -4
-  %48 = icmp ugt i32 %.5126148, 7
+  %48 = icmp samesign ugt i32 %.5126148, 7
   br i1 %48, label %.lr.ph152, label %.loopexit128, !llvm.loop !359
 
 .loopexit128:                                     ; preds = %.lr.ph152, %34
@@ -18907,7 +18907,7 @@ define internal void @ompi_op_avx_3buff_sum_int64_t_avx512(ptr noalias noundef %
   store <8 x i64> %16, ptr %.1115132, align 1
   %17 = getelementptr inbounds i8, ptr %.1115132, i64 64
   %18 = add nsw i32 %.1122131, -8
-  %19 = icmp ugt i32 %.1122131, 15
+  %19 = icmp samesign ugt i32 %.1122131, 15
   br i1 %19, label %.lr.ph, label %._crit_edge, !llvm.loop !361
 
 ._crit_edge:                                      ; preds = %.lr.ph, %.preheader130
@@ -18944,7 +18944,7 @@ define internal void @ompi_op_avx_3buff_sum_int64_t_avx512(ptr noalias noundef %
   store <4 x i64> %29, ptr %.3117139, align 1
   %30 = getelementptr inbounds i8, ptr %.3117139, i64 32
   %31 = add nsw i32 %.3124138, -4
-  %32 = icmp ugt i32 %.3124138, 7
+  %32 = icmp samesign ugt i32 %.3124138, 7
   br i1 %32, label %.lr.ph142, label %._crit_edge143, !llvm.loop !362
 
 ._crit_edge143:                                   ; preds = %.lr.ph142, %.preheader129
@@ -18986,7 +18986,7 @@ define internal void @ompi_op_avx_3buff_sum_int64_t_avx512(ptr noalias noundef %
   store <2 x i64> %45, ptr %.5119149, align 1
   %46 = getelementptr inbounds i8, ptr %.5119149, i64 16
   %47 = add nsw i32 %.5126148, -2
-  %48 = icmp ugt i32 %.5126148, 3
+  %48 = icmp samesign ugt i32 %.5126148, 3
   br i1 %48, label %.lr.ph152, label %.loopexit128, !llvm.loop !363
 
 .loopexit128:                                     ; preds = %.lr.ph152, %34
@@ -19129,7 +19129,7 @@ define internal void @ompi_op_avx_3buff_sum_uint64_t_avx512(ptr noalias noundef 
   store <8 x i64> %16, ptr %.1115132, align 1
   %17 = getelementptr inbounds i8, ptr %.1115132, i64 64
   %18 = add nsw i32 %.1122131, -8
-  %19 = icmp ugt i32 %.1122131, 15
+  %19 = icmp samesign ugt i32 %.1122131, 15
   br i1 %19, label %.lr.ph, label %._crit_edge, !llvm.loop !365
 
 ._crit_edge:                                      ; preds = %.lr.ph, %.preheader130
@@ -19166,7 +19166,7 @@ define internal void @ompi_op_avx_3buff_sum_uint64_t_avx512(ptr noalias noundef 
   store <4 x i64> %29, ptr %.3117139, align 1
   %30 = getelementptr inbounds i8, ptr %.3117139, i64 32
   %31 = add nsw i32 %.3124138, -4
-  %32 = icmp ugt i32 %.3124138, 7
+  %32 = icmp samesign ugt i32 %.3124138, 7
   br i1 %32, label %.lr.ph142, label %._crit_edge143, !llvm.loop !366
 
 ._crit_edge143:                                   ; preds = %.lr.ph142, %.preheader129
@@ -19208,7 +19208,7 @@ define internal void @ompi_op_avx_3buff_sum_uint64_t_avx512(ptr noalias noundef 
   store <2 x i64> %45, ptr %.5119149, align 1
   %46 = getelementptr inbounds i8, ptr %.5119149, i64 16
   %47 = add nsw i32 %.5126148, -2
-  %48 = icmp ugt i32 %.5126148, 3
+  %48 = icmp samesign ugt i32 %.5126148, 3
   br i1 %48, label %.lr.ph152, label %.loopexit128, !llvm.loop !367
 
 .loopexit128:                                     ; preds = %.lr.ph152, %34
@@ -19351,7 +19351,7 @@ define internal void @ompi_op_avx_3buff_add_float_avx512(ptr nocapture noundef r
   store <16 x float> %15, ptr %.1122133, align 1
   %16 = getelementptr inbounds i8, ptr %.1122133, i64 64
   %17 = add nsw i32 %.1136, -16
-  %18 = icmp ugt i32 %.1136, 31
+  %18 = icmp samesign ugt i32 %.1136, 31
   br i1 %18, label %.lr.ph, label %._crit_edge, !llvm.loop !369
 
 ._crit_edge:                                      ; preds = %.lr.ph, %.preheader132
@@ -19393,7 +19393,7 @@ define internal void @ompi_op_avx_3buff_add_float_avx512(ptr nocapture noundef r
   store <8 x float> %28, ptr %.3124140, align 1
   %29 = getelementptr inbounds i8, ptr %.3124140, i64 32
   %30 = add nsw i32 %.3143, -8
-  %31 = icmp ugt i32 %.3143, 15
+  %31 = icmp samesign ugt i32 %.3143, 15
   br i1 %31, label %.lr.ph144, label %._crit_edge145, !llvm.loop !370
 
 ._crit_edge145:                                   ; preds = %.lr.ph144, %.preheader131
@@ -19433,7 +19433,7 @@ define internal void @ompi_op_avx_3buff_add_float_avx512(ptr nocapture noundef r
   store <4 x float> %41, ptr %.5126150, align 1
   %42 = getelementptr inbounds i8, ptr %.5126150, i64 16
   %43 = add nsw i32 %.5153, -4
-  %44 = icmp ugt i32 %.5153, 7
+  %44 = icmp samesign ugt i32 %.5153, 7
   br i1 %44, label %.lr.ph154, label %.loopexit130, !llvm.loop !371
 
 .loopexit130:                                     ; preds = %.lr.ph154, %33
@@ -19576,7 +19576,7 @@ define internal void @ompi_op_avx_3buff_add_double_avx512(ptr nocapture noundef 
   store <8 x double> %15, ptr %.1122133, align 1
   %16 = getelementptr inbounds i8, ptr %.1122133, i64 64
   %17 = add nsw i32 %.1136, -8
-  %18 = icmp ugt i32 %.1136, 15
+  %18 = icmp samesign ugt i32 %.1136, 15
   br i1 %18, label %.lr.ph, label %._crit_edge, !llvm.loop !373
 
 ._crit_edge:                                      ; preds = %.lr.ph, %.preheader132
@@ -19618,7 +19618,7 @@ define internal void @ompi_op_avx_3buff_add_double_avx512(ptr nocapture noundef 
   store <4 x double> %28, ptr %.3124140, align 1
   %29 = getelementptr inbounds i8, ptr %.3124140, i64 32
   %30 = add nsw i32 %.3143, -4
-  %31 = icmp ugt i32 %.3143, 7
+  %31 = icmp samesign ugt i32 %.3143, 7
   br i1 %31, label %.lr.ph144, label %._crit_edge145, !llvm.loop !374
 
 ._crit_edge145:                                   ; preds = %.lr.ph144, %.preheader131
@@ -19658,7 +19658,7 @@ define internal void @ompi_op_avx_3buff_add_double_avx512(ptr nocapture noundef 
   store <2 x double> %41, ptr %.5126150, align 1
   %42 = getelementptr inbounds i8, ptr %.5126150, i64 16
   %43 = add nsw i32 %.5153, -2
-  %44 = icmp ugt i32 %.5153, 3
+  %44 = icmp samesign ugt i32 %.5153, 3
   br i1 %44, label %.lr.ph154, label %.loopexit130, !llvm.loop !375
 
 .loopexit130:                                     ; preds = %.lr.ph154, %33
@@ -19801,7 +19801,7 @@ define internal void @ompi_op_avx_3buff_prod_int8_t_avx512(ptr noalias nocapture
   store <32 x i8> %16, ptr %.17278, align 1
   %17 = getelementptr inbounds i8, ptr %.17278, i64 32
   %18 = add nsw i32 %.17577, -32
-  %19 = icmp ugt i32 %.17577, 63
+  %19 = icmp samesign ugt i32 %.17577, 63
   br i1 %19, label %.lr.ph, label %._crit_edge, !llvm.loop !377
 
 ._crit_edge:                                      ; preds = %.lr.ph, %.preheader
@@ -19952,7 +19952,7 @@ define internal void @ompi_op_avx_3buff_prod_uint8_t_avx512(ptr noalias nocaptur
   store <32 x i8> %16, ptr %.17278, align 1
   %17 = getelementptr inbounds i8, ptr %.17278, i64 32
   %18 = add nsw i32 %.17577, -32
-  %19 = icmp ugt i32 %.17577, 63
+  %19 = icmp samesign ugt i32 %.17577, 63
   br i1 %19, label %.lr.ph, label %._crit_edge, !llvm.loop !379
 
 ._crit_edge:                                      ; preds = %.lr.ph, %.preheader
@@ -20103,7 +20103,7 @@ define internal void @ompi_op_avx_3buff_prod_int16_t_avx512(ptr noalias noundef 
   store <32 x i16> %16, ptr %.1115132, align 1
   %17 = getelementptr inbounds i8, ptr %.1115132, i64 64
   %18 = add nsw i32 %.1122131, -32
-  %19 = icmp ugt i32 %.1122131, 63
+  %19 = icmp samesign ugt i32 %.1122131, 63
   br i1 %19, label %.lr.ph, label %._crit_edge, !llvm.loop !381
 
 ._crit_edge:                                      ; preds = %.lr.ph, %.preheader130
@@ -20140,7 +20140,7 @@ define internal void @ompi_op_avx_3buff_prod_int16_t_avx512(ptr noalias noundef 
   store <16 x i16> %29, ptr %.3117139, align 1
   %30 = getelementptr inbounds i8, ptr %.3117139, i64 32
   %31 = add nsw i32 %.3124138, -16
-  %32 = icmp ugt i32 %.3124138, 31
+  %32 = icmp samesign ugt i32 %.3124138, 31
   br i1 %32, label %.lr.ph142, label %._crit_edge143, !llvm.loop !382
 
 ._crit_edge143:                                   ; preds = %.lr.ph142, %.preheader129
@@ -20182,7 +20182,7 @@ define internal void @ompi_op_avx_3buff_prod_int16_t_avx512(ptr noalias noundef 
   store <8 x i16> %45, ptr %.5119149, align 1
   %46 = getelementptr inbounds i8, ptr %.5119149, i64 16
   %47 = add nsw i32 %.5126148, -8
-  %48 = icmp ugt i32 %.5126148, 15
+  %48 = icmp samesign ugt i32 %.5126148, 15
   br i1 %48, label %.lr.ph152, label %.loopexit128, !llvm.loop !383
 
 .loopexit128:                                     ; preds = %.lr.ph152, %34
@@ -20325,7 +20325,7 @@ define internal void @ompi_op_avx_3buff_prod_uint16_t_avx512(ptr noalias noundef
   store <32 x i16> %16, ptr %.1115132, align 1
   %17 = getelementptr inbounds i8, ptr %.1115132, i64 64
   %18 = add nsw i32 %.1122131, -32
-  %19 = icmp ugt i32 %.1122131, 63
+  %19 = icmp samesign ugt i32 %.1122131, 63
   br i1 %19, label %.lr.ph, label %._crit_edge, !llvm.loop !385
 
 ._crit_edge:                                      ; preds = %.lr.ph, %.preheader130
@@ -20362,7 +20362,7 @@ define internal void @ompi_op_avx_3buff_prod_uint16_t_avx512(ptr noalias noundef
   store <16 x i16> %29, ptr %.3117139, align 1
   %30 = getelementptr inbounds i8, ptr %.3117139, i64 32
   %31 = add nsw i32 %.3124138, -16
-  %32 = icmp ugt i32 %.3124138, 31
+  %32 = icmp samesign ugt i32 %.3124138, 31
   br i1 %32, label %.lr.ph142, label %._crit_edge143, !llvm.loop !386
 
 ._crit_edge143:                                   ; preds = %.lr.ph142, %.preheader129
@@ -20404,7 +20404,7 @@ define internal void @ompi_op_avx_3buff_prod_uint16_t_avx512(ptr noalias noundef
   store <8 x i16> %45, ptr %.5119149, align 1
   %46 = getelementptr inbounds i8, ptr %.5119149, i64 16
   %47 = add nsw i32 %.5126148, -8
-  %48 = icmp ugt i32 %.5126148, 15
+  %48 = icmp samesign ugt i32 %.5126148, 15
   br i1 %48, label %.lr.ph152, label %.loopexit128, !llvm.loop !387
 
 .loopexit128:                                     ; preds = %.lr.ph152, %34
@@ -20547,7 +20547,7 @@ define internal void @ompi_op_avx_3buff_prod_int32_t_avx512(ptr noalias noundef 
   store <16 x i32> %16, ptr %.1115132, align 1
   %17 = getelementptr inbounds i8, ptr %.1115132, i64 64
   %18 = add nsw i32 %.1122131, -16
-  %19 = icmp ugt i32 %.1122131, 31
+  %19 = icmp samesign ugt i32 %.1122131, 31
   br i1 %19, label %.lr.ph, label %._crit_edge, !llvm.loop !389
 
 ._crit_edge:                                      ; preds = %.lr.ph, %.preheader130
@@ -20584,7 +20584,7 @@ define internal void @ompi_op_avx_3buff_prod_int32_t_avx512(ptr noalias noundef 
   store <8 x i32> %29, ptr %.3117139, align 1
   %30 = getelementptr inbounds i8, ptr %.3117139, i64 32
   %31 = add nsw i32 %.3124138, -8
-  %32 = icmp ugt i32 %.3124138, 15
+  %32 = icmp samesign ugt i32 %.3124138, 15
   br i1 %32, label %.lr.ph142, label %._crit_edge143, !llvm.loop !390
 
 ._crit_edge143:                                   ; preds = %.lr.ph142, %.preheader129
@@ -20626,7 +20626,7 @@ define internal void @ompi_op_avx_3buff_prod_int32_t_avx512(ptr noalias noundef 
   store <4 x i32> %45, ptr %.5119149, align 1
   %46 = getelementptr inbounds i8, ptr %.5119149, i64 16
   %47 = add nsw i32 %.5126148, -4
-  %48 = icmp ugt i32 %.5126148, 7
+  %48 = icmp samesign ugt i32 %.5126148, 7
   br i1 %48, label %.lr.ph152, label %.loopexit128, !llvm.loop !391
 
 .loopexit128:                                     ; preds = %.lr.ph152, %34
@@ -20769,7 +20769,7 @@ define internal void @ompi_op_avx_3buff_prod_uint32_t_avx512(ptr noalias noundef
   store <16 x i32> %16, ptr %.1115132, align 1
   %17 = getelementptr inbounds i8, ptr %.1115132, i64 64
   %18 = add nsw i32 %.1122131, -16
-  %19 = icmp ugt i32 %.1122131, 31
+  %19 = icmp samesign ugt i32 %.1122131, 31
   br i1 %19, label %.lr.ph, label %._crit_edge, !llvm.loop !393
 
 ._crit_edge:                                      ; preds = %.lr.ph, %.preheader130
@@ -20806,7 +20806,7 @@ define internal void @ompi_op_avx_3buff_prod_uint32_t_avx512(ptr noalias noundef
   store <8 x i32> %29, ptr %.3117139, align 1
   %30 = getelementptr inbounds i8, ptr %.3117139, i64 32
   %31 = add nsw i32 %.3124138, -8
-  %32 = icmp ugt i32 %.3124138, 15
+  %32 = icmp samesign ugt i32 %.3124138, 15
   br i1 %32, label %.lr.ph142, label %._crit_edge143, !llvm.loop !394
 
 ._crit_edge143:                                   ; preds = %.lr.ph142, %.preheader129
@@ -20848,7 +20848,7 @@ define internal void @ompi_op_avx_3buff_prod_uint32_t_avx512(ptr noalias noundef
   store <4 x i32> %45, ptr %.5119149, align 1
   %46 = getelementptr inbounds i8, ptr %.5119149, i64 16
   %47 = add nsw i32 %.5126148, -4
-  %48 = icmp ugt i32 %.5126148, 7
+  %48 = icmp samesign ugt i32 %.5126148, 7
   br i1 %48, label %.lr.ph152, label %.loopexit128, !llvm.loop !395
 
 .loopexit128:                                     ; preds = %.lr.ph152, %34
@@ -20991,7 +20991,7 @@ define internal void @ompi_op_avx_3buff_prod_int64_t_avx512(ptr noalias noundef 
   store <8 x i64> %16, ptr %.1115132, align 1
   %17 = getelementptr inbounds i8, ptr %.1115132, i64 64
   %18 = add nsw i32 %.1122131, -8
-  %19 = icmp ugt i32 %.1122131, 15
+  %19 = icmp samesign ugt i32 %.1122131, 15
   br i1 %19, label %.lr.ph, label %._crit_edge, !llvm.loop !397
 
 ._crit_edge:                                      ; preds = %.lr.ph, %.preheader130
@@ -21028,7 +21028,7 @@ define internal void @ompi_op_avx_3buff_prod_int64_t_avx512(ptr noalias noundef 
   store <4 x i64> %29, ptr %.3117139, align 1
   %30 = getelementptr inbounds i8, ptr %.3117139, i64 32
   %31 = add nsw i32 %.3124138, -4
-  %32 = icmp ugt i32 %.3124138, 7
+  %32 = icmp samesign ugt i32 %.3124138, 7
   br i1 %32, label %.lr.ph142, label %._crit_edge143, !llvm.loop !398
 
 ._crit_edge143:                                   ; preds = %.lr.ph142, %.preheader129
@@ -21070,7 +21070,7 @@ define internal void @ompi_op_avx_3buff_prod_int64_t_avx512(ptr noalias noundef 
   store <2 x i64> %45, ptr %.5119149, align 1
   %46 = getelementptr inbounds i8, ptr %.5119149, i64 16
   %47 = add nsw i32 %.5126148, -2
-  %48 = icmp ugt i32 %.5126148, 3
+  %48 = icmp samesign ugt i32 %.5126148, 3
   br i1 %48, label %.lr.ph152, label %.loopexit128, !llvm.loop !399
 
 .loopexit128:                                     ; preds = %.lr.ph152, %34
@@ -21213,7 +21213,7 @@ define internal void @ompi_op_avx_3buff_prod_uint64_t_avx512(ptr noalias noundef
   store <8 x i64> %16, ptr %.1115132, align 1
   %17 = getelementptr inbounds i8, ptr %.1115132, i64 64
   %18 = add nsw i32 %.1122131, -8
-  %19 = icmp ugt i32 %.1122131, 15
+  %19 = icmp samesign ugt i32 %.1122131, 15
   br i1 %19, label %.lr.ph, label %._crit_edge, !llvm.loop !401
 
 ._crit_edge:                                      ; preds = %.lr.ph, %.preheader130
@@ -21250,7 +21250,7 @@ define internal void @ompi_op_avx_3buff_prod_uint64_t_avx512(ptr noalias noundef
   store <4 x i64> %29, ptr %.3117139, align 1
   %30 = getelementptr inbounds i8, ptr %.3117139, i64 32
   %31 = add nsw i32 %.3124138, -4
-  %32 = icmp ugt i32 %.3124138, 7
+  %32 = icmp samesign ugt i32 %.3124138, 7
   br i1 %32, label %.lr.ph142, label %._crit_edge143, !llvm.loop !402
 
 ._crit_edge143:                                   ; preds = %.lr.ph142, %.preheader129
@@ -21292,7 +21292,7 @@ define internal void @ompi_op_avx_3buff_prod_uint64_t_avx512(ptr noalias noundef
   store <2 x i64> %45, ptr %.5119149, align 1
   %46 = getelementptr inbounds i8, ptr %.5119149, i64 16
   %47 = add nsw i32 %.5126148, -2
-  %48 = icmp ugt i32 %.5126148, 3
+  %48 = icmp samesign ugt i32 %.5126148, 3
   br i1 %48, label %.lr.ph152, label %.loopexit128, !llvm.loop !403
 
 .loopexit128:                                     ; preds = %.lr.ph152, %34
@@ -21435,7 +21435,7 @@ define internal void @ompi_op_avx_3buff_mul_float_avx512(ptr nocapture noundef r
   store <16 x float> %15, ptr %.1122133, align 1
   %16 = getelementptr inbounds i8, ptr %.1122133, i64 64
   %17 = add nsw i32 %.1136, -16
-  %18 = icmp ugt i32 %.1136, 31
+  %18 = icmp samesign ugt i32 %.1136, 31
   br i1 %18, label %.lr.ph, label %._crit_edge, !llvm.loop !405
 
 ._crit_edge:                                      ; preds = %.lr.ph, %.preheader132
@@ -21477,7 +21477,7 @@ define internal void @ompi_op_avx_3buff_mul_float_avx512(ptr nocapture noundef r
   store <8 x float> %28, ptr %.3124140, align 1
   %29 = getelementptr inbounds i8, ptr %.3124140, i64 32
   %30 = add nsw i32 %.3143, -8
-  %31 = icmp ugt i32 %.3143, 15
+  %31 = icmp samesign ugt i32 %.3143, 15
   br i1 %31, label %.lr.ph144, label %._crit_edge145, !llvm.loop !406
 
 ._crit_edge145:                                   ; preds = %.lr.ph144, %.preheader131
@@ -21517,7 +21517,7 @@ define internal void @ompi_op_avx_3buff_mul_float_avx512(ptr nocapture noundef r
   store <4 x float> %41, ptr %.5126150, align 1
   %42 = getelementptr inbounds i8, ptr %.5126150, i64 16
   %43 = add nsw i32 %.5153, -4
-  %44 = icmp ugt i32 %.5153, 7
+  %44 = icmp samesign ugt i32 %.5153, 7
   br i1 %44, label %.lr.ph154, label %.loopexit130, !llvm.loop !407
 
 .loopexit130:                                     ; preds = %.lr.ph154, %33
@@ -21660,7 +21660,7 @@ define internal void @ompi_op_avx_3buff_mul_double_avx512(ptr nocapture noundef 
   store <8 x double> %15, ptr %.1122133, align 1
   %16 = getelementptr inbounds i8, ptr %.1122133, i64 64
   %17 = add nsw i32 %.1136, -8
-  %18 = icmp ugt i32 %.1136, 15
+  %18 = icmp samesign ugt i32 %.1136, 15
   br i1 %18, label %.lr.ph, label %._crit_edge, !llvm.loop !409
 
 ._crit_edge:                                      ; preds = %.lr.ph, %.preheader132
@@ -21702,7 +21702,7 @@ define internal void @ompi_op_avx_3buff_mul_double_avx512(ptr nocapture noundef 
   store <4 x double> %28, ptr %.3124140, align 1
   %29 = getelementptr inbounds i8, ptr %.3124140, i64 32
   %30 = add nsw i32 %.3143, -4
-  %31 = icmp ugt i32 %.3143, 7
+  %31 = icmp samesign ugt i32 %.3143, 7
   br i1 %31, label %.lr.ph144, label %._crit_edge145, !llvm.loop !410
 
 ._crit_edge145:                                   ; preds = %.lr.ph144, %.preheader131
@@ -21742,7 +21742,7 @@ define internal void @ompi_op_avx_3buff_mul_double_avx512(ptr nocapture noundef 
   store <2 x double> %41, ptr %.5126150, align 1
   %42 = getelementptr inbounds i8, ptr %.5126150, i64 16
   %43 = add nsw i32 %.5153, -2
-  %44 = icmp ugt i32 %.5153, 3
+  %44 = icmp samesign ugt i32 %.5153, 3
   br i1 %44, label %.lr.ph154, label %.loopexit130, !llvm.loop !411
 
 .loopexit130:                                     ; preds = %.lr.ph154, %33
@@ -21885,7 +21885,7 @@ define internal void @ompi_op_avx_3buff_and_int8_t_avx512(ptr noundef %0, ptr no
   store <8 x i64> %15, ptr %.1122132, align 1
   %16 = getelementptr inbounds i8, ptr %.1122132, i64 64
   %17 = add nsw i32 %.1135, -64
-  %18 = icmp ugt i32 %.1135, 127
+  %18 = icmp samesign ugt i32 %.1135, 127
   br i1 %18, label %.lr.ph, label %._crit_edge, !llvm.loop !413
 
 ._crit_edge:                                      ; preds = %.lr.ph, %.preheader131
@@ -21927,7 +21927,7 @@ define internal void @ompi_op_avx_3buff_and_int8_t_avx512(ptr noundef %0, ptr no
   store <4 x i64> %29, ptr %.3124139, align 1
   %30 = getelementptr inbounds i8, ptr %.3124139, i64 32
   %31 = add nsw i32 %.3142, -32
-  %32 = icmp ugt i32 %.3142, 63
+  %32 = icmp samesign ugt i32 %.3142, 63
   br i1 %32, label %.lr.ph143, label %._crit_edge144, !llvm.loop !414
 
 ._crit_edge144:                                   ; preds = %.lr.ph143, %.preheader130
@@ -21967,7 +21967,7 @@ define internal void @ompi_op_avx_3buff_and_int8_t_avx512(ptr noundef %0, ptr no
   store <16 x i8> %42, ptr %.5126149, align 1
   %43 = getelementptr inbounds i8, ptr %.5126149, i64 16
   %44 = add nsw i32 %.5152, -16
-  %45 = icmp ugt i32 %.5152, 31
+  %45 = icmp samesign ugt i32 %.5152, 31
   br i1 %45, label %.lr.ph153, label %.loopexit129, !llvm.loop !415
 
 .loopexit129:                                     ; preds = %.lr.ph153, %34
@@ -22110,7 +22110,7 @@ define internal void @ompi_op_avx_3buff_and_uint8_t_avx512(ptr noundef %0, ptr n
   store <8 x i64> %15, ptr %.1122132, align 1
   %16 = getelementptr inbounds i8, ptr %.1122132, i64 64
   %17 = add nsw i32 %.1135, -64
-  %18 = icmp ugt i32 %.1135, 127
+  %18 = icmp samesign ugt i32 %.1135, 127
   br i1 %18, label %.lr.ph, label %._crit_edge, !llvm.loop !417
 
 ._crit_edge:                                      ; preds = %.lr.ph, %.preheader131
@@ -22152,7 +22152,7 @@ define internal void @ompi_op_avx_3buff_and_uint8_t_avx512(ptr noundef %0, ptr n
   store <4 x i64> %29, ptr %.3124139, align 1
   %30 = getelementptr inbounds i8, ptr %.3124139, i64 32
   %31 = add nsw i32 %.3142, -32
-  %32 = icmp ugt i32 %.3142, 63
+  %32 = icmp samesign ugt i32 %.3142, 63
   br i1 %32, label %.lr.ph143, label %._crit_edge144, !llvm.loop !418
 
 ._crit_edge144:                                   ; preds = %.lr.ph143, %.preheader130
@@ -22192,7 +22192,7 @@ define internal void @ompi_op_avx_3buff_and_uint8_t_avx512(ptr noundef %0, ptr n
   store <16 x i8> %42, ptr %.5126149, align 1
   %43 = getelementptr inbounds i8, ptr %.5126149, i64 16
   %44 = add nsw i32 %.5152, -16
-  %45 = icmp ugt i32 %.5152, 31
+  %45 = icmp samesign ugt i32 %.5152, 31
   br i1 %45, label %.lr.ph153, label %.loopexit129, !llvm.loop !419
 
 .loopexit129:                                     ; preds = %.lr.ph153, %34
@@ -22335,7 +22335,7 @@ define internal void @ompi_op_avx_3buff_and_int16_t_avx512(ptr noundef %0, ptr n
   store <8 x i64> %15, ptr %.1122132, align 1
   %16 = getelementptr inbounds i8, ptr %.1122132, i64 64
   %17 = add nsw i32 %.1135, -32
-  %18 = icmp ugt i32 %.1135, 63
+  %18 = icmp samesign ugt i32 %.1135, 63
   br i1 %18, label %.lr.ph, label %._crit_edge, !llvm.loop !421
 
 ._crit_edge:                                      ; preds = %.lr.ph, %.preheader131
@@ -22377,7 +22377,7 @@ define internal void @ompi_op_avx_3buff_and_int16_t_avx512(ptr noundef %0, ptr n
   store <4 x i64> %29, ptr %.3124139, align 1
   %30 = getelementptr inbounds i8, ptr %.3124139, i64 32
   %31 = add nsw i32 %.3142, -16
-  %32 = icmp ugt i32 %.3142, 31
+  %32 = icmp samesign ugt i32 %.3142, 31
   br i1 %32, label %.lr.ph143, label %._crit_edge144, !llvm.loop !422
 
 ._crit_edge144:                                   ; preds = %.lr.ph143, %.preheader130
@@ -22417,7 +22417,7 @@ define internal void @ompi_op_avx_3buff_and_int16_t_avx512(ptr noundef %0, ptr n
   store <16 x i8> %42, ptr %.5126149, align 1
   %43 = getelementptr inbounds i8, ptr %.5126149, i64 16
   %44 = add nsw i32 %.5152, -8
-  %45 = icmp ugt i32 %.5152, 15
+  %45 = icmp samesign ugt i32 %.5152, 15
   br i1 %45, label %.lr.ph153, label %.loopexit129, !llvm.loop !423
 
 .loopexit129:                                     ; preds = %.lr.ph153, %34
@@ -22560,7 +22560,7 @@ define internal void @ompi_op_avx_3buff_and_uint16_t_avx512(ptr noundef %0, ptr 
   store <8 x i64> %15, ptr %.1122132, align 1
   %16 = getelementptr inbounds i8, ptr %.1122132, i64 64
   %17 = add nsw i32 %.1135, -32
-  %18 = icmp ugt i32 %.1135, 63
+  %18 = icmp samesign ugt i32 %.1135, 63
   br i1 %18, label %.lr.ph, label %._crit_edge, !llvm.loop !425
 
 ._crit_edge:                                      ; preds = %.lr.ph, %.preheader131
@@ -22602,7 +22602,7 @@ define internal void @ompi_op_avx_3buff_and_uint16_t_avx512(ptr noundef %0, ptr 
   store <4 x i64> %29, ptr %.3124139, align 1
   %30 = getelementptr inbounds i8, ptr %.3124139, i64 32
   %31 = add nsw i32 %.3142, -16
-  %32 = icmp ugt i32 %.3142, 31
+  %32 = icmp samesign ugt i32 %.3142, 31
   br i1 %32, label %.lr.ph143, label %._crit_edge144, !llvm.loop !426
 
 ._crit_edge144:                                   ; preds = %.lr.ph143, %.preheader130
@@ -22642,7 +22642,7 @@ define internal void @ompi_op_avx_3buff_and_uint16_t_avx512(ptr noundef %0, ptr 
   store <16 x i8> %42, ptr %.5126149, align 1
   %43 = getelementptr inbounds i8, ptr %.5126149, i64 16
   %44 = add nsw i32 %.5152, -8
-  %45 = icmp ugt i32 %.5152, 15
+  %45 = icmp samesign ugt i32 %.5152, 15
   br i1 %45, label %.lr.ph153, label %.loopexit129, !llvm.loop !427
 
 .loopexit129:                                     ; preds = %.lr.ph153, %34
@@ -22785,7 +22785,7 @@ define internal void @ompi_op_avx_3buff_and_int32_t_avx512(ptr noundef %0, ptr n
   store <8 x i64> %15, ptr %.1122132, align 1
   %16 = getelementptr inbounds i8, ptr %.1122132, i64 64
   %17 = add nsw i32 %.1135, -16
-  %18 = icmp ugt i32 %.1135, 31
+  %18 = icmp samesign ugt i32 %.1135, 31
   br i1 %18, label %.lr.ph, label %._crit_edge, !llvm.loop !429
 
 ._crit_edge:                                      ; preds = %.lr.ph, %.preheader131
@@ -22827,7 +22827,7 @@ define internal void @ompi_op_avx_3buff_and_int32_t_avx512(ptr noundef %0, ptr n
   store <4 x i64> %29, ptr %.3124139, align 1
   %30 = getelementptr inbounds i8, ptr %.3124139, i64 32
   %31 = add nsw i32 %.3142, -8
-  %32 = icmp ugt i32 %.3142, 15
+  %32 = icmp samesign ugt i32 %.3142, 15
   br i1 %32, label %.lr.ph143, label %._crit_edge144, !llvm.loop !430
 
 ._crit_edge144:                                   ; preds = %.lr.ph143, %.preheader130
@@ -22867,7 +22867,7 @@ define internal void @ompi_op_avx_3buff_and_int32_t_avx512(ptr noundef %0, ptr n
   store <16 x i8> %42, ptr %.5126149, align 1
   %43 = getelementptr inbounds i8, ptr %.5126149, i64 16
   %44 = add nsw i32 %.5152, -4
-  %45 = icmp ugt i32 %.5152, 7
+  %45 = icmp samesign ugt i32 %.5152, 7
   br i1 %45, label %.lr.ph153, label %.loopexit129, !llvm.loop !431
 
 .loopexit129:                                     ; preds = %.lr.ph153, %34
@@ -23010,7 +23010,7 @@ define internal void @ompi_op_avx_3buff_and_uint32_t_avx512(ptr noundef %0, ptr 
   store <8 x i64> %15, ptr %.1122132, align 1
   %16 = getelementptr inbounds i8, ptr %.1122132, i64 64
   %17 = add nsw i32 %.1135, -16
-  %18 = icmp ugt i32 %.1135, 31
+  %18 = icmp samesign ugt i32 %.1135, 31
   br i1 %18, label %.lr.ph, label %._crit_edge, !llvm.loop !433
 
 ._crit_edge:                                      ; preds = %.lr.ph, %.preheader131
@@ -23052,7 +23052,7 @@ define internal void @ompi_op_avx_3buff_and_uint32_t_avx512(ptr noundef %0, ptr 
   store <4 x i64> %29, ptr %.3124139, align 1
   %30 = getelementptr inbounds i8, ptr %.3124139, i64 32
   %31 = add nsw i32 %.3142, -8
-  %32 = icmp ugt i32 %.3142, 15
+  %32 = icmp samesign ugt i32 %.3142, 15
   br i1 %32, label %.lr.ph143, label %._crit_edge144, !llvm.loop !434
 
 ._crit_edge144:                                   ; preds = %.lr.ph143, %.preheader130
@@ -23092,7 +23092,7 @@ define internal void @ompi_op_avx_3buff_and_uint32_t_avx512(ptr noundef %0, ptr 
   store <16 x i8> %42, ptr %.5126149, align 1
   %43 = getelementptr inbounds i8, ptr %.5126149, i64 16
   %44 = add nsw i32 %.5152, -4
-  %45 = icmp ugt i32 %.5152, 7
+  %45 = icmp samesign ugt i32 %.5152, 7
   br i1 %45, label %.lr.ph153, label %.loopexit129, !llvm.loop !435
 
 .loopexit129:                                     ; preds = %.lr.ph153, %34
@@ -23235,7 +23235,7 @@ define internal void @ompi_op_avx_3buff_and_int64_t_avx512(ptr noundef %0, ptr n
   store <8 x i64> %15, ptr %.1122132, align 1
   %16 = getelementptr inbounds i8, ptr %.1122132, i64 64
   %17 = add nsw i32 %.1135, -8
-  %18 = icmp ugt i32 %.1135, 15
+  %18 = icmp samesign ugt i32 %.1135, 15
   br i1 %18, label %.lr.ph, label %._crit_edge, !llvm.loop !437
 
 ._crit_edge:                                      ; preds = %.lr.ph, %.preheader131
@@ -23277,7 +23277,7 @@ define internal void @ompi_op_avx_3buff_and_int64_t_avx512(ptr noundef %0, ptr n
   store <4 x i64> %29, ptr %.3124139, align 1
   %30 = getelementptr inbounds i8, ptr %.3124139, i64 32
   %31 = add nsw i32 %.3142, -4
-  %32 = icmp ugt i32 %.3142, 7
+  %32 = icmp samesign ugt i32 %.3142, 7
   br i1 %32, label %.lr.ph143, label %._crit_edge144, !llvm.loop !438
 
 ._crit_edge144:                                   ; preds = %.lr.ph143, %.preheader130
@@ -23317,7 +23317,7 @@ define internal void @ompi_op_avx_3buff_and_int64_t_avx512(ptr noundef %0, ptr n
   store <16 x i8> %42, ptr %.5126149, align 1
   %43 = getelementptr inbounds i8, ptr %.5126149, i64 16
   %44 = add nsw i32 %.5152, -2
-  %45 = icmp ugt i32 %.5152, 3
+  %45 = icmp samesign ugt i32 %.5152, 3
   br i1 %45, label %.lr.ph153, label %.loopexit129, !llvm.loop !439
 
 .loopexit129:                                     ; preds = %.lr.ph153, %34
@@ -23460,7 +23460,7 @@ define internal void @ompi_op_avx_3buff_and_uint64_t_avx512(ptr noundef %0, ptr 
   store <8 x i64> %15, ptr %.1122132, align 1
   %16 = getelementptr inbounds i8, ptr %.1122132, i64 64
   %17 = add nsw i32 %.1135, -8
-  %18 = icmp ugt i32 %.1135, 15
+  %18 = icmp samesign ugt i32 %.1135, 15
   br i1 %18, label %.lr.ph, label %._crit_edge, !llvm.loop !441
 
 ._crit_edge:                                      ; preds = %.lr.ph, %.preheader131
@@ -23502,7 +23502,7 @@ define internal void @ompi_op_avx_3buff_and_uint64_t_avx512(ptr noundef %0, ptr 
   store <4 x i64> %29, ptr %.3124139, align 1
   %30 = getelementptr inbounds i8, ptr %.3124139, i64 32
   %31 = add nsw i32 %.3142, -4
-  %32 = icmp ugt i32 %.3142, 7
+  %32 = icmp samesign ugt i32 %.3142, 7
   br i1 %32, label %.lr.ph143, label %._crit_edge144, !llvm.loop !442
 
 ._crit_edge144:                                   ; preds = %.lr.ph143, %.preheader130
@@ -23542,7 +23542,7 @@ define internal void @ompi_op_avx_3buff_and_uint64_t_avx512(ptr noundef %0, ptr 
   store <16 x i8> %42, ptr %.5126149, align 1
   %43 = getelementptr inbounds i8, ptr %.5126149, i64 16
   %44 = add nsw i32 %.5152, -2
-  %45 = icmp ugt i32 %.5152, 3
+  %45 = icmp samesign ugt i32 %.5152, 3
   br i1 %45, label %.lr.ph153, label %.loopexit129, !llvm.loop !443
 
 .loopexit129:                                     ; preds = %.lr.ph153, %34
@@ -23685,7 +23685,7 @@ define internal void @ompi_op_avx_3buff_or_int8_t_avx512(ptr noundef %0, ptr nou
   store <8 x i64> %15, ptr %.1122132, align 1
   %16 = getelementptr inbounds i8, ptr %.1122132, i64 64
   %17 = add nsw i32 %.1135, -64
-  %18 = icmp ugt i32 %.1135, 127
+  %18 = icmp samesign ugt i32 %.1135, 127
   br i1 %18, label %.lr.ph, label %._crit_edge, !llvm.loop !445
 
 ._crit_edge:                                      ; preds = %.lr.ph, %.preheader131
@@ -23727,7 +23727,7 @@ define internal void @ompi_op_avx_3buff_or_int8_t_avx512(ptr noundef %0, ptr nou
   store <4 x i64> %29, ptr %.3124139, align 1
   %30 = getelementptr inbounds i8, ptr %.3124139, i64 32
   %31 = add nsw i32 %.3142, -32
-  %32 = icmp ugt i32 %.3142, 63
+  %32 = icmp samesign ugt i32 %.3142, 63
   br i1 %32, label %.lr.ph143, label %._crit_edge144, !llvm.loop !446
 
 ._crit_edge144:                                   ; preds = %.lr.ph143, %.preheader130
@@ -23767,7 +23767,7 @@ define internal void @ompi_op_avx_3buff_or_int8_t_avx512(ptr noundef %0, ptr nou
   store <16 x i8> %42, ptr %.5126149, align 1
   %43 = getelementptr inbounds i8, ptr %.5126149, i64 16
   %44 = add nsw i32 %.5152, -16
-  %45 = icmp ugt i32 %.5152, 31
+  %45 = icmp samesign ugt i32 %.5152, 31
   br i1 %45, label %.lr.ph153, label %.loopexit129, !llvm.loop !447
 
 .loopexit129:                                     ; preds = %.lr.ph153, %34
@@ -23910,7 +23910,7 @@ define internal void @ompi_op_avx_3buff_or_uint8_t_avx512(ptr noundef %0, ptr no
   store <8 x i64> %15, ptr %.1122132, align 1
   %16 = getelementptr inbounds i8, ptr %.1122132, i64 64
   %17 = add nsw i32 %.1135, -64
-  %18 = icmp ugt i32 %.1135, 127
+  %18 = icmp samesign ugt i32 %.1135, 127
   br i1 %18, label %.lr.ph, label %._crit_edge, !llvm.loop !449
 
 ._crit_edge:                                      ; preds = %.lr.ph, %.preheader131
@@ -23952,7 +23952,7 @@ define internal void @ompi_op_avx_3buff_or_uint8_t_avx512(ptr noundef %0, ptr no
   store <4 x i64> %29, ptr %.3124139, align 1
   %30 = getelementptr inbounds i8, ptr %.3124139, i64 32
   %31 = add nsw i32 %.3142, -32
-  %32 = icmp ugt i32 %.3142, 63
+  %32 = icmp samesign ugt i32 %.3142, 63
   br i1 %32, label %.lr.ph143, label %._crit_edge144, !llvm.loop !450
 
 ._crit_edge144:                                   ; preds = %.lr.ph143, %.preheader130
@@ -23992,7 +23992,7 @@ define internal void @ompi_op_avx_3buff_or_uint8_t_avx512(ptr noundef %0, ptr no
   store <16 x i8> %42, ptr %.5126149, align 1
   %43 = getelementptr inbounds i8, ptr %.5126149, i64 16
   %44 = add nsw i32 %.5152, -16
-  %45 = icmp ugt i32 %.5152, 31
+  %45 = icmp samesign ugt i32 %.5152, 31
   br i1 %45, label %.lr.ph153, label %.loopexit129, !llvm.loop !451
 
 .loopexit129:                                     ; preds = %.lr.ph153, %34
@@ -24135,7 +24135,7 @@ define internal void @ompi_op_avx_3buff_or_int16_t_avx512(ptr noundef %0, ptr no
   store <8 x i64> %15, ptr %.1122132, align 1
   %16 = getelementptr inbounds i8, ptr %.1122132, i64 64
   %17 = add nsw i32 %.1135, -32
-  %18 = icmp ugt i32 %.1135, 63
+  %18 = icmp samesign ugt i32 %.1135, 63
   br i1 %18, label %.lr.ph, label %._crit_edge, !llvm.loop !453
 
 ._crit_edge:                                      ; preds = %.lr.ph, %.preheader131
@@ -24177,7 +24177,7 @@ define internal void @ompi_op_avx_3buff_or_int16_t_avx512(ptr noundef %0, ptr no
   store <4 x i64> %29, ptr %.3124139, align 1
   %30 = getelementptr inbounds i8, ptr %.3124139, i64 32
   %31 = add nsw i32 %.3142, -16
-  %32 = icmp ugt i32 %.3142, 31
+  %32 = icmp samesign ugt i32 %.3142, 31
   br i1 %32, label %.lr.ph143, label %._crit_edge144, !llvm.loop !454
 
 ._crit_edge144:                                   ; preds = %.lr.ph143, %.preheader130
@@ -24217,7 +24217,7 @@ define internal void @ompi_op_avx_3buff_or_int16_t_avx512(ptr noundef %0, ptr no
   store <16 x i8> %42, ptr %.5126149, align 1
   %43 = getelementptr inbounds i8, ptr %.5126149, i64 16
   %44 = add nsw i32 %.5152, -8
-  %45 = icmp ugt i32 %.5152, 15
+  %45 = icmp samesign ugt i32 %.5152, 15
   br i1 %45, label %.lr.ph153, label %.loopexit129, !llvm.loop !455
 
 .loopexit129:                                     ; preds = %.lr.ph153, %34
@@ -24360,7 +24360,7 @@ define internal void @ompi_op_avx_3buff_or_uint16_t_avx512(ptr noundef %0, ptr n
   store <8 x i64> %15, ptr %.1122132, align 1
   %16 = getelementptr inbounds i8, ptr %.1122132, i64 64
   %17 = add nsw i32 %.1135, -32
-  %18 = icmp ugt i32 %.1135, 63
+  %18 = icmp samesign ugt i32 %.1135, 63
   br i1 %18, label %.lr.ph, label %._crit_edge, !llvm.loop !457
 
 ._crit_edge:                                      ; preds = %.lr.ph, %.preheader131
@@ -24402,7 +24402,7 @@ define internal void @ompi_op_avx_3buff_or_uint16_t_avx512(ptr noundef %0, ptr n
   store <4 x i64> %29, ptr %.3124139, align 1
   %30 = getelementptr inbounds i8, ptr %.3124139, i64 32
   %31 = add nsw i32 %.3142, -16
-  %32 = icmp ugt i32 %.3142, 31
+  %32 = icmp samesign ugt i32 %.3142, 31
   br i1 %32, label %.lr.ph143, label %._crit_edge144, !llvm.loop !458
 
 ._crit_edge144:                                   ; preds = %.lr.ph143, %.preheader130
@@ -24442,7 +24442,7 @@ define internal void @ompi_op_avx_3buff_or_uint16_t_avx512(ptr noundef %0, ptr n
   store <16 x i8> %42, ptr %.5126149, align 1
   %43 = getelementptr inbounds i8, ptr %.5126149, i64 16
   %44 = add nsw i32 %.5152, -8
-  %45 = icmp ugt i32 %.5152, 15
+  %45 = icmp samesign ugt i32 %.5152, 15
   br i1 %45, label %.lr.ph153, label %.loopexit129, !llvm.loop !459
 
 .loopexit129:                                     ; preds = %.lr.ph153, %34
@@ -24585,7 +24585,7 @@ define internal void @ompi_op_avx_3buff_or_int32_t_avx512(ptr noundef %0, ptr no
   store <8 x i64> %15, ptr %.1122132, align 1
   %16 = getelementptr inbounds i8, ptr %.1122132, i64 64
   %17 = add nsw i32 %.1135, -16
-  %18 = icmp ugt i32 %.1135, 31
+  %18 = icmp samesign ugt i32 %.1135, 31
   br i1 %18, label %.lr.ph, label %._crit_edge, !llvm.loop !461
 
 ._crit_edge:                                      ; preds = %.lr.ph, %.preheader131
@@ -24627,7 +24627,7 @@ define internal void @ompi_op_avx_3buff_or_int32_t_avx512(ptr noundef %0, ptr no
   store <4 x i64> %29, ptr %.3124139, align 1
   %30 = getelementptr inbounds i8, ptr %.3124139, i64 32
   %31 = add nsw i32 %.3142, -8
-  %32 = icmp ugt i32 %.3142, 15
+  %32 = icmp samesign ugt i32 %.3142, 15
   br i1 %32, label %.lr.ph143, label %._crit_edge144, !llvm.loop !462
 
 ._crit_edge144:                                   ; preds = %.lr.ph143, %.preheader130
@@ -24667,7 +24667,7 @@ define internal void @ompi_op_avx_3buff_or_int32_t_avx512(ptr noundef %0, ptr no
   store <16 x i8> %42, ptr %.5126149, align 1
   %43 = getelementptr inbounds i8, ptr %.5126149, i64 16
   %44 = add nsw i32 %.5152, -4
-  %45 = icmp ugt i32 %.5152, 7
+  %45 = icmp samesign ugt i32 %.5152, 7
   br i1 %45, label %.lr.ph153, label %.loopexit129, !llvm.loop !463
 
 .loopexit129:                                     ; preds = %.lr.ph153, %34
@@ -24810,7 +24810,7 @@ define internal void @ompi_op_avx_3buff_or_uint32_t_avx512(ptr noundef %0, ptr n
   store <8 x i64> %15, ptr %.1122132, align 1
   %16 = getelementptr inbounds i8, ptr %.1122132, i64 64
   %17 = add nsw i32 %.1135, -16
-  %18 = icmp ugt i32 %.1135, 31
+  %18 = icmp samesign ugt i32 %.1135, 31
   br i1 %18, label %.lr.ph, label %._crit_edge, !llvm.loop !465
 
 ._crit_edge:                                      ; preds = %.lr.ph, %.preheader131
@@ -24852,7 +24852,7 @@ define internal void @ompi_op_avx_3buff_or_uint32_t_avx512(ptr noundef %0, ptr n
   store <4 x i64> %29, ptr %.3124139, align 1
   %30 = getelementptr inbounds i8, ptr %.3124139, i64 32
   %31 = add nsw i32 %.3142, -8
-  %32 = icmp ugt i32 %.3142, 15
+  %32 = icmp samesign ugt i32 %.3142, 15
   br i1 %32, label %.lr.ph143, label %._crit_edge144, !llvm.loop !466
 
 ._crit_edge144:                                   ; preds = %.lr.ph143, %.preheader130
@@ -24892,7 +24892,7 @@ define internal void @ompi_op_avx_3buff_or_uint32_t_avx512(ptr noundef %0, ptr n
   store <16 x i8> %42, ptr %.5126149, align 1
   %43 = getelementptr inbounds i8, ptr %.5126149, i64 16
   %44 = add nsw i32 %.5152, -4
-  %45 = icmp ugt i32 %.5152, 7
+  %45 = icmp samesign ugt i32 %.5152, 7
   br i1 %45, label %.lr.ph153, label %.loopexit129, !llvm.loop !467
 
 .loopexit129:                                     ; preds = %.lr.ph153, %34
@@ -25035,7 +25035,7 @@ define internal void @ompi_op_avx_3buff_or_int64_t_avx512(ptr noundef %0, ptr no
   store <8 x i64> %15, ptr %.1122132, align 1
   %16 = getelementptr inbounds i8, ptr %.1122132, i64 64
   %17 = add nsw i32 %.1135, -8
-  %18 = icmp ugt i32 %.1135, 15
+  %18 = icmp samesign ugt i32 %.1135, 15
   br i1 %18, label %.lr.ph, label %._crit_edge, !llvm.loop !469
 
 ._crit_edge:                                      ; preds = %.lr.ph, %.preheader131
@@ -25077,7 +25077,7 @@ define internal void @ompi_op_avx_3buff_or_int64_t_avx512(ptr noundef %0, ptr no
   store <4 x i64> %29, ptr %.3124139, align 1
   %30 = getelementptr inbounds i8, ptr %.3124139, i64 32
   %31 = add nsw i32 %.3142, -4
-  %32 = icmp ugt i32 %.3142, 7
+  %32 = icmp samesign ugt i32 %.3142, 7
   br i1 %32, label %.lr.ph143, label %._crit_edge144, !llvm.loop !470
 
 ._crit_edge144:                                   ; preds = %.lr.ph143, %.preheader130
@@ -25117,7 +25117,7 @@ define internal void @ompi_op_avx_3buff_or_int64_t_avx512(ptr noundef %0, ptr no
   store <16 x i8> %42, ptr %.5126149, align 1
   %43 = getelementptr inbounds i8, ptr %.5126149, i64 16
   %44 = add nsw i32 %.5152, -2
-  %45 = icmp ugt i32 %.5152, 3
+  %45 = icmp samesign ugt i32 %.5152, 3
   br i1 %45, label %.lr.ph153, label %.loopexit129, !llvm.loop !471
 
 .loopexit129:                                     ; preds = %.lr.ph153, %34
@@ -25260,7 +25260,7 @@ define internal void @ompi_op_avx_3buff_or_uint64_t_avx512(ptr noundef %0, ptr n
   store <8 x i64> %15, ptr %.1122132, align 1
   %16 = getelementptr inbounds i8, ptr %.1122132, i64 64
   %17 = add nsw i32 %.1135, -8
-  %18 = icmp ugt i32 %.1135, 15
+  %18 = icmp samesign ugt i32 %.1135, 15
   br i1 %18, label %.lr.ph, label %._crit_edge, !llvm.loop !473
 
 ._crit_edge:                                      ; preds = %.lr.ph, %.preheader131
@@ -25302,7 +25302,7 @@ define internal void @ompi_op_avx_3buff_or_uint64_t_avx512(ptr noundef %0, ptr n
   store <4 x i64> %29, ptr %.3124139, align 1
   %30 = getelementptr inbounds i8, ptr %.3124139, i64 32
   %31 = add nsw i32 %.3142, -4
-  %32 = icmp ugt i32 %.3142, 7
+  %32 = icmp samesign ugt i32 %.3142, 7
   br i1 %32, label %.lr.ph143, label %._crit_edge144, !llvm.loop !474
 
 ._crit_edge144:                                   ; preds = %.lr.ph143, %.preheader130
@@ -25342,7 +25342,7 @@ define internal void @ompi_op_avx_3buff_or_uint64_t_avx512(ptr noundef %0, ptr n
   store <16 x i8> %42, ptr %.5126149, align 1
   %43 = getelementptr inbounds i8, ptr %.5126149, i64 16
   %44 = add nsw i32 %.5152, -2
-  %45 = icmp ugt i32 %.5152, 3
+  %45 = icmp samesign ugt i32 %.5152, 3
   br i1 %45, label %.lr.ph153, label %.loopexit129, !llvm.loop !475
 
 .loopexit129:                                     ; preds = %.lr.ph153, %34
@@ -25485,7 +25485,7 @@ define internal void @ompi_op_avx_3buff_xor_int8_t_avx512(ptr noundef %0, ptr no
   store <8 x i64> %15, ptr %.1122132, align 1
   %16 = getelementptr inbounds i8, ptr %.1122132, i64 64
   %17 = add nsw i32 %.1135, -64
-  %18 = icmp ugt i32 %.1135, 127
+  %18 = icmp samesign ugt i32 %.1135, 127
   br i1 %18, label %.lr.ph, label %._crit_edge, !llvm.loop !477
 
 ._crit_edge:                                      ; preds = %.lr.ph, %.preheader131
@@ -25527,7 +25527,7 @@ define internal void @ompi_op_avx_3buff_xor_int8_t_avx512(ptr noundef %0, ptr no
   store <4 x i64> %29, ptr %.3124139, align 1
   %30 = getelementptr inbounds i8, ptr %.3124139, i64 32
   %31 = add nsw i32 %.3142, -32
-  %32 = icmp ugt i32 %.3142, 63
+  %32 = icmp samesign ugt i32 %.3142, 63
   br i1 %32, label %.lr.ph143, label %._crit_edge144, !llvm.loop !478
 
 ._crit_edge144:                                   ; preds = %.lr.ph143, %.preheader130
@@ -25567,7 +25567,7 @@ define internal void @ompi_op_avx_3buff_xor_int8_t_avx512(ptr noundef %0, ptr no
   store <16 x i8> %42, ptr %.5126149, align 1
   %43 = getelementptr inbounds i8, ptr %.5126149, i64 16
   %44 = add nsw i32 %.5152, -16
-  %45 = icmp ugt i32 %.5152, 31
+  %45 = icmp samesign ugt i32 %.5152, 31
   br i1 %45, label %.lr.ph153, label %.loopexit129, !llvm.loop !479
 
 .loopexit129:                                     ; preds = %.lr.ph153, %34
@@ -25710,7 +25710,7 @@ define internal void @ompi_op_avx_3buff_xor_uint8_t_avx512(ptr noundef %0, ptr n
   store <8 x i64> %15, ptr %.1122132, align 1
   %16 = getelementptr inbounds i8, ptr %.1122132, i64 64
   %17 = add nsw i32 %.1135, -64
-  %18 = icmp ugt i32 %.1135, 127
+  %18 = icmp samesign ugt i32 %.1135, 127
   br i1 %18, label %.lr.ph, label %._crit_edge, !llvm.loop !481
 
 ._crit_edge:                                      ; preds = %.lr.ph, %.preheader131
@@ -25752,7 +25752,7 @@ define internal void @ompi_op_avx_3buff_xor_uint8_t_avx512(ptr noundef %0, ptr n
   store <4 x i64> %29, ptr %.3124139, align 1
   %30 = getelementptr inbounds i8, ptr %.3124139, i64 32
   %31 = add nsw i32 %.3142, -32
-  %32 = icmp ugt i32 %.3142, 63
+  %32 = icmp samesign ugt i32 %.3142, 63
   br i1 %32, label %.lr.ph143, label %._crit_edge144, !llvm.loop !482
 
 ._crit_edge144:                                   ; preds = %.lr.ph143, %.preheader130
@@ -25792,7 +25792,7 @@ define internal void @ompi_op_avx_3buff_xor_uint8_t_avx512(ptr noundef %0, ptr n
   store <16 x i8> %42, ptr %.5126149, align 1
   %43 = getelementptr inbounds i8, ptr %.5126149, i64 16
   %44 = add nsw i32 %.5152, -16
-  %45 = icmp ugt i32 %.5152, 31
+  %45 = icmp samesign ugt i32 %.5152, 31
   br i1 %45, label %.lr.ph153, label %.loopexit129, !llvm.loop !483
 
 .loopexit129:                                     ; preds = %.lr.ph153, %34
@@ -25935,7 +25935,7 @@ define internal void @ompi_op_avx_3buff_xor_int16_t_avx512(ptr noundef %0, ptr n
   store <8 x i64> %15, ptr %.1122132, align 1
   %16 = getelementptr inbounds i8, ptr %.1122132, i64 64
   %17 = add nsw i32 %.1135, -32
-  %18 = icmp ugt i32 %.1135, 63
+  %18 = icmp samesign ugt i32 %.1135, 63
   br i1 %18, label %.lr.ph, label %._crit_edge, !llvm.loop !485
 
 ._crit_edge:                                      ; preds = %.lr.ph, %.preheader131
@@ -25977,7 +25977,7 @@ define internal void @ompi_op_avx_3buff_xor_int16_t_avx512(ptr noundef %0, ptr n
   store <4 x i64> %29, ptr %.3124139, align 1
   %30 = getelementptr inbounds i8, ptr %.3124139, i64 32
   %31 = add nsw i32 %.3142, -16
-  %32 = icmp ugt i32 %.3142, 31
+  %32 = icmp samesign ugt i32 %.3142, 31
   br i1 %32, label %.lr.ph143, label %._crit_edge144, !llvm.loop !486
 
 ._crit_edge144:                                   ; preds = %.lr.ph143, %.preheader130
@@ -26017,7 +26017,7 @@ define internal void @ompi_op_avx_3buff_xor_int16_t_avx512(ptr noundef %0, ptr n
   store <16 x i8> %42, ptr %.5126149, align 1
   %43 = getelementptr inbounds i8, ptr %.5126149, i64 16
   %44 = add nsw i32 %.5152, -8
-  %45 = icmp ugt i32 %.5152, 15
+  %45 = icmp samesign ugt i32 %.5152, 15
   br i1 %45, label %.lr.ph153, label %.loopexit129, !llvm.loop !487
 
 .loopexit129:                                     ; preds = %.lr.ph153, %34
@@ -26160,7 +26160,7 @@ define internal void @ompi_op_avx_3buff_xor_uint16_t_avx512(ptr noundef %0, ptr 
   store <8 x i64> %15, ptr %.1122132, align 1
   %16 = getelementptr inbounds i8, ptr %.1122132, i64 64
   %17 = add nsw i32 %.1135, -32
-  %18 = icmp ugt i32 %.1135, 63
+  %18 = icmp samesign ugt i32 %.1135, 63
   br i1 %18, label %.lr.ph, label %._crit_edge, !llvm.loop !489
 
 ._crit_edge:                                      ; preds = %.lr.ph, %.preheader131
@@ -26202,7 +26202,7 @@ define internal void @ompi_op_avx_3buff_xor_uint16_t_avx512(ptr noundef %0, ptr 
   store <4 x i64> %29, ptr %.3124139, align 1
   %30 = getelementptr inbounds i8, ptr %.3124139, i64 32
   %31 = add nsw i32 %.3142, -16
-  %32 = icmp ugt i32 %.3142, 31
+  %32 = icmp samesign ugt i32 %.3142, 31
   br i1 %32, label %.lr.ph143, label %._crit_edge144, !llvm.loop !490
 
 ._crit_edge144:                                   ; preds = %.lr.ph143, %.preheader130
@@ -26242,7 +26242,7 @@ define internal void @ompi_op_avx_3buff_xor_uint16_t_avx512(ptr noundef %0, ptr 
   store <16 x i8> %42, ptr %.5126149, align 1
   %43 = getelementptr inbounds i8, ptr %.5126149, i64 16
   %44 = add nsw i32 %.5152, -8
-  %45 = icmp ugt i32 %.5152, 15
+  %45 = icmp samesign ugt i32 %.5152, 15
   br i1 %45, label %.lr.ph153, label %.loopexit129, !llvm.loop !491
 
 .loopexit129:                                     ; preds = %.lr.ph153, %34
@@ -26385,7 +26385,7 @@ define internal void @ompi_op_avx_3buff_xor_int32_t_avx512(ptr noundef %0, ptr n
   store <8 x i64> %15, ptr %.1122132, align 1
   %16 = getelementptr inbounds i8, ptr %.1122132, i64 64
   %17 = add nsw i32 %.1135, -16
-  %18 = icmp ugt i32 %.1135, 31
+  %18 = icmp samesign ugt i32 %.1135, 31
   br i1 %18, label %.lr.ph, label %._crit_edge, !llvm.loop !493
 
 ._crit_edge:                                      ; preds = %.lr.ph, %.preheader131
@@ -26427,7 +26427,7 @@ define internal void @ompi_op_avx_3buff_xor_int32_t_avx512(ptr noundef %0, ptr n
   store <4 x i64> %29, ptr %.3124139, align 1
   %30 = getelementptr inbounds i8, ptr %.3124139, i64 32
   %31 = add nsw i32 %.3142, -8
-  %32 = icmp ugt i32 %.3142, 15
+  %32 = icmp samesign ugt i32 %.3142, 15
   br i1 %32, label %.lr.ph143, label %._crit_edge144, !llvm.loop !494
 
 ._crit_edge144:                                   ; preds = %.lr.ph143, %.preheader130
@@ -26467,7 +26467,7 @@ define internal void @ompi_op_avx_3buff_xor_int32_t_avx512(ptr noundef %0, ptr n
   store <16 x i8> %42, ptr %.5126149, align 1
   %43 = getelementptr inbounds i8, ptr %.5126149, i64 16
   %44 = add nsw i32 %.5152, -4
-  %45 = icmp ugt i32 %.5152, 7
+  %45 = icmp samesign ugt i32 %.5152, 7
   br i1 %45, label %.lr.ph153, label %.loopexit129, !llvm.loop !495
 
 .loopexit129:                                     ; preds = %.lr.ph153, %34
@@ -26610,7 +26610,7 @@ define internal void @ompi_op_avx_3buff_xor_uint32_t_avx512(ptr noundef %0, ptr 
   store <8 x i64> %15, ptr %.1122132, align 1
   %16 = getelementptr inbounds i8, ptr %.1122132, i64 64
   %17 = add nsw i32 %.1135, -16
-  %18 = icmp ugt i32 %.1135, 31
+  %18 = icmp samesign ugt i32 %.1135, 31
   br i1 %18, label %.lr.ph, label %._crit_edge, !llvm.loop !497
 
 ._crit_edge:                                      ; preds = %.lr.ph, %.preheader131
@@ -26652,7 +26652,7 @@ define internal void @ompi_op_avx_3buff_xor_uint32_t_avx512(ptr noundef %0, ptr 
   store <4 x i64> %29, ptr %.3124139, align 1
   %30 = getelementptr inbounds i8, ptr %.3124139, i64 32
   %31 = add nsw i32 %.3142, -8
-  %32 = icmp ugt i32 %.3142, 15
+  %32 = icmp samesign ugt i32 %.3142, 15
   br i1 %32, label %.lr.ph143, label %._crit_edge144, !llvm.loop !498
 
 ._crit_edge144:                                   ; preds = %.lr.ph143, %.preheader130
@@ -26692,7 +26692,7 @@ define internal void @ompi_op_avx_3buff_xor_uint32_t_avx512(ptr noundef %0, ptr 
   store <16 x i8> %42, ptr %.5126149, align 1
   %43 = getelementptr inbounds i8, ptr %.5126149, i64 16
   %44 = add nsw i32 %.5152, -4
-  %45 = icmp ugt i32 %.5152, 7
+  %45 = icmp samesign ugt i32 %.5152, 7
   br i1 %45, label %.lr.ph153, label %.loopexit129, !llvm.loop !499
 
 .loopexit129:                                     ; preds = %.lr.ph153, %34
@@ -26835,7 +26835,7 @@ define internal void @ompi_op_avx_3buff_xor_int64_t_avx512(ptr noundef %0, ptr n
   store <8 x i64> %15, ptr %.1122132, align 1
   %16 = getelementptr inbounds i8, ptr %.1122132, i64 64
   %17 = add nsw i32 %.1135, -8
-  %18 = icmp ugt i32 %.1135, 15
+  %18 = icmp samesign ugt i32 %.1135, 15
   br i1 %18, label %.lr.ph, label %._crit_edge, !llvm.loop !501
 
 ._crit_edge:                                      ; preds = %.lr.ph, %.preheader131
@@ -26877,7 +26877,7 @@ define internal void @ompi_op_avx_3buff_xor_int64_t_avx512(ptr noundef %0, ptr n
   store <4 x i64> %29, ptr %.3124139, align 1
   %30 = getelementptr inbounds i8, ptr %.3124139, i64 32
   %31 = add nsw i32 %.3142, -4
-  %32 = icmp ugt i32 %.3142, 7
+  %32 = icmp samesign ugt i32 %.3142, 7
   br i1 %32, label %.lr.ph143, label %._crit_edge144, !llvm.loop !502
 
 ._crit_edge144:                                   ; preds = %.lr.ph143, %.preheader130
@@ -26917,7 +26917,7 @@ define internal void @ompi_op_avx_3buff_xor_int64_t_avx512(ptr noundef %0, ptr n
   store <16 x i8> %42, ptr %.5126149, align 1
   %43 = getelementptr inbounds i8, ptr %.5126149, i64 16
   %44 = add nsw i32 %.5152, -2
-  %45 = icmp ugt i32 %.5152, 3
+  %45 = icmp samesign ugt i32 %.5152, 3
   br i1 %45, label %.lr.ph153, label %.loopexit129, !llvm.loop !503
 
 .loopexit129:                                     ; preds = %.lr.ph153, %34
@@ -27060,7 +27060,7 @@ define internal void @ompi_op_avx_3buff_xor_uint64_t_avx512(ptr noundef %0, ptr 
   store <8 x i64> %15, ptr %.1122132, align 1
   %16 = getelementptr inbounds i8, ptr %.1122132, i64 64
   %17 = add nsw i32 %.1135, -8
-  %18 = icmp ugt i32 %.1135, 15
+  %18 = icmp samesign ugt i32 %.1135, 15
   br i1 %18, label %.lr.ph, label %._crit_edge, !llvm.loop !505
 
 ._crit_edge:                                      ; preds = %.lr.ph, %.preheader131
@@ -27102,7 +27102,7 @@ define internal void @ompi_op_avx_3buff_xor_uint64_t_avx512(ptr noundef %0, ptr 
   store <4 x i64> %29, ptr %.3124139, align 1
   %30 = getelementptr inbounds i8, ptr %.3124139, i64 32
   %31 = add nsw i32 %.3142, -4
-  %32 = icmp ugt i32 %.3142, 7
+  %32 = icmp samesign ugt i32 %.3142, 7
   br i1 %32, label %.lr.ph143, label %._crit_edge144, !llvm.loop !506
 
 ._crit_edge144:                                   ; preds = %.lr.ph143, %.preheader130
@@ -27142,7 +27142,7 @@ define internal void @ompi_op_avx_3buff_xor_uint64_t_avx512(ptr noundef %0, ptr 
   store <16 x i8> %42, ptr %.5126149, align 1
   %43 = getelementptr inbounds i8, ptr %.5126149, i64 16
   %44 = add nsw i32 %.5152, -2
-  %45 = icmp ugt i32 %.5152, 3
+  %45 = icmp samesign ugt i32 %.5152, 3
   br i1 %45, label %.lr.ph153, label %.loopexit129, !llvm.loop !507
 
 .loopexit129:                                     ; preds = %.lr.ph153, %34

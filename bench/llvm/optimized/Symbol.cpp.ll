@@ -509,7 +509,7 @@ _ZNK4llvm9StringRef11starts_withES0_.exit:        ; preds = %3
   br label %_ZNK4llvm9StringRef11starts_withES0_.exit29.thread
 
 8:                                                ; preds = %3
-  %.not.i9 = icmp ult i64 %2, 14
+  %.not.i9 = icmp samesign ult i64 %2, 14
   br i1 %.not.i9, label %23, label %_ZNK4llvm9StringRef11starts_withES0_.exit11
 
 _ZNK4llvm9StringRef11starts_withES0_.exit11:      ; preds = %_ZNK4llvm9StringRef11starts_withES0_.exit, %8
@@ -537,7 +537,7 @@ _ZNK4llvm9StringRef11starts_withES0_.exit17:      ; preds = %13
   br label %_ZNK4llvm9StringRef11starts_withES0_.exit29.thread
 
 18:                                               ; preds = %13
-  %.not.i21 = icmp ult i64 %2, 15
+  %.not.i21 = icmp samesign ult i64 %2, 15
   br i1 %.not.i21, label %_ZNK4llvm9StringRef11starts_withES0_.exit29, label %_ZNK4llvm9StringRef11starts_withES0_.exit23
 
 _ZNK4llvm9StringRef11starts_withES0_.exit23:      ; preds = %_ZNK4llvm9StringRef11starts_withES0_.exit17, %18

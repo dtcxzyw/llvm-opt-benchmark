@@ -2019,7 +2019,7 @@ _ZNSt6vectorIjSaIjEE6resizeEm.exit55:             ; preds = %70, %72, %79, %81
   %119 = getelementptr inbounds i32, ptr %116, i64 %indvars.iv
   store i32 %118, ptr %119, align 4
   %indvars.iv.next = add nsw i64 %indvars.iv, -1
-  %120 = icmp ugt i64 %indvars.iv, 1
+  %120 = icmp samesign ugt i64 %indvars.iv, 1
   %indvars.iv.next76 = add nsw i64 %indvars.iv75, -1
   br i1 %120, label %.lr.ph68, label %._crit_edge69, !llvm.loop !21
 

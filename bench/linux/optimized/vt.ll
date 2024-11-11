@@ -1289,7 +1289,7 @@ define dso_local void @clear_buffer_attributes(ptr nocapture noundef readonly %0
   store i16 %22, ptr %17, align 2
   %23 = add nsw i32 %16, -1
   %24 = getelementptr i8, ptr %17, i64 2
-  %25 = icmp ugt i32 %16, 1
+  %25 = icmp samesign ugt i32 %16, 1
   br i1 %25, label %15, label %.loopexit, !llvm.loop !38
 
 .loopexit:                                        ; preds = %15, %1
@@ -1520,7 +1520,7 @@ define dso_local void @redraw_screen(ptr noundef %0, i32 noundef %1) #0 align 16
   store i16 %130, ptr %125, align 2
   %131 = add nsw i32 %124, -1
   %132 = getelementptr i8, ptr %125, i64 2
-  %133 = icmp ugt i32 %124, 1
+  %133 = icmp samesign ugt i32 %124, 1
   br i1 %133, label %123, label %.loopexit, !llvm.loop !38
 
 .loopexit:                                        ; preds = %123, %109, %104
@@ -4149,7 +4149,7 @@ define dso_local noundef range(i32 -22, 1) i32 @do_take_over_console(ptr noundef
   store i16 %197, ptr %192, align 2
   %198 = add nsw i32 %191, -1
   %199 = getelementptr i8, ptr %192, i64 2
-  %200 = icmp ugt i32 %191, 1
+  %200 = icmp samesign ugt i32 %191, 1
   br i1 %200, label %190, label %.loopexit, !llvm.loop !38
 
 .loopexit:                                        ; preds = %190, %177, %162, %127, %125
@@ -5723,7 +5723,7 @@ define internal void @console_callback(ptr nocapture readnone %0) #0 align 16 {
 5:                                                ; preds = %1
   %6 = load i32, ptr @fg_console, align 4
   %7 = icmp ne i32 %3, %6
-  %8 = icmp ult i32 %3, 63
+  %8 = icmp samesign ult i32 %3, 63
   %9 = and i1 %8, %7
   br i1 %9, label %10, label %23
 
@@ -10241,7 +10241,7 @@ define internal fastcc void @csi_m(ptr noundef nonnull %0) unnamed_addr #0 align
   br i1 %70, label %71, label %77
 
 71:                                               ; preds = %68
-  %72 = icmp ult i32 %19, 100
+  %72 = icmp samesign ult i32 %19, 100
   br i1 %72, label %73, label %74
 
 73:                                               ; preds = %71
@@ -10763,7 +10763,7 @@ define internal fastcc noundef i32 @vc_t416_color(ptr noundef nonnull %0, i32 no
   br label %92
 
 34:                                               ; preds = %17
-  %35 = icmp ult i32 %20, 16
+  %35 = icmp samesign ult i32 %20, 16
   br i1 %35, label %36, label %48
 
 36:                                               ; preds = %34
@@ -10784,7 +10784,7 @@ define internal fastcc noundef i32 @vc_t416_color(ptr noundef nonnull %0, i32 no
   br label %92
 
 48:                                               ; preds = %34
-  %49 = icmp ult i32 %20, 232
+  %49 = icmp samesign ult i32 %20, 232
   %50 = trunc i32 %20 to i8
   br i1 %49, label %51, label %67
 

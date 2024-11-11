@@ -1528,7 +1528,7 @@ for.body:                                         ; preds = %for.body.preheader,
   %arrayidx.i = getelementptr inbounds %"struct.icu_75::SpanInfo", ptr %8, i64 %indvars.iv.next
   %arrayidx.i8 = getelementptr inbounds %"struct.icu_75::SpanInfo", ptr %8, i64 %indvars.iv
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %arrayidx.i8, ptr noundef nonnull align 4 dereferenceable(16) %arrayidx.i, i64 16, i1 false)
-  %cmp13 = icmp ugt i64 %indvars.iv, 1
+  %cmp13 = icmp samesign ugt i64 %indvars.iv, 1
   br i1 %cmp13, label %for.body, label %for.end, !llvm.loop !10
 
 for.end:                                          ; preds = %for.body, %if.end11

@@ -2007,7 +2007,7 @@ for.body.preheader:                               ; preds = %call5.i.i.i.i4.i.i.
   call void @llvm.memset.p0.i64(ptr align 8 %incdec.ptr.i.i.i.i.i337, i8 0, i64 %118, i1 false), !tbaa !37
   %umax = call i64 @llvm.umax.i64(i64 %sub.ptr.div.i.i.i, i64 1)
   %xtraiter = and i64 %umax, 3
-  %119 = icmp ult i64 %sub.ptr.div.i.i.i, 4
+  %119 = icmp samesign ult i64 %sub.ptr.div.i.i.i, 4
   br i1 %119, label %_ZNSt6vectorImSaImEED2Ev.exit365.unr-lcssa, label %for.body.preheader.new
 
 for.body.preheader.new:                           ; preds = %for.body.preheader
@@ -3803,7 +3803,7 @@ for.body109.preheader:                            ; preds = %call5.i.i.i.i4.i.i.
   call void @llvm.memset.p0.i64(ptr align 8 %incdec.ptr.i.i.i.i.i300, i8 0, i64 %44, i1 false), !tbaa !37
   %umax = call i64 @llvm.umax.i64(i64 %sub.ptr.div.i, i64 1)
   %xtraiter = and i64 %umax, 3
-  %45 = icmp ult i64 %sub.ptr.div.i, 4
+  %45 = icmp samesign ult i64 %sub.ptr.div.i, 4
   br i1 %45, label %_ZNSt6vectorImSaImEED2Ev.exit322.loopexit.unr-lcssa, label %for.body109.preheader.new
 
 for.body109.preheader.new:                        ; preds = %for.body109.preheader

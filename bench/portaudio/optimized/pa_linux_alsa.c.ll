@@ -2961,7 +2961,7 @@ define internal fastcc range(i32 -9999, 1) i32 @GropeDevice(ptr noundef %0, i32 
 
 85:                                               ; preds = %82
   %86 = icmp ne i32 %1, 0
-  %87 = icmp ugt i32 %83, 128
+  %87 = icmp samesign ugt i32 %83, 128
   %or.cond = and i1 %86, %87
   br i1 %or.cond, label %88, label %89
 
@@ -6006,7 +6006,7 @@ define internal fastcc i32 @PaAlsaStream_WaitForFrames(ptr noundef %0, ptr nocap
 
 118:                                              ; preds = %115
   tail call void @Pa_Sleep(i64 noundef 1) #25
-  %119 = icmp ugt i32 %.073.ph159, 2046
+  %119 = icmp samesign ugt i32 %.073.ph159, 2046
   br i1 %119, label %120, label %.thread134
 
 120:                                              ; preds = %118

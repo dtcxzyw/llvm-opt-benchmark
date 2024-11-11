@@ -1741,15 +1741,15 @@ _ZL17GetAutoSenseRadixRN4llvm9StringRefE.exit:    ; preds = %3, %.thread36.sink.
   br i1 %54, label %55, label %.thread35
 
 55:                                               ; preds = %51
-  %56 = icmp ult i8 %53, 58
+  %56 = icmp samesign ult i8 %53, 58
   br i1 %56, label %63, label %57
 
 57:                                               ; preds = %55
-  %58 = icmp ugt i8 %53, 96
+  %58 = icmp samesign ugt i8 %53, 96
   br i1 %58, label %59, label %61
 
 59:                                               ; preds = %57
-  %60 = icmp ult i8 %53, 123
+  %60 = icmp samesign ult i8 %53, 123
   br i1 %60, label %63, label %.thread35
 
 61:                                               ; preds = %57
@@ -2203,11 +2203,11 @@ _ZN4llvm5APIntaSEm.exit.split.us:                 ; preds = %_ZN4llvm5APIntaSEm.
   br i1 %125, label %126, label %.thread88
 
 126:                                              ; preds = %_ZN4llvm5APIntaSEm.exit.split.us
-  %127 = icmp ult i8 %124, 58
+  %127 = icmp samesign ult i8 %124, 58
   br i1 %127, label %134, label %128
 
 128:                                              ; preds = %126
-  %129 = icmp ugt i8 %124, 96
+  %129 = icmp samesign ugt i8 %124, 96
   br i1 %129, label %132, label %130
 
 130:                                              ; preds = %128
@@ -2216,7 +2216,7 @@ _ZN4llvm5APIntaSEm.exit.split.us:                 ; preds = %_ZN4llvm5APIntaSEm.
   br i1 %or.cond.us, label %134, label %.thread88
 
 132:                                              ; preds = %128
-  %133 = icmp ult i8 %124, 123
+  %133 = icmp samesign ult i8 %124, 123
   br i1 %133, label %134, label %.thread88
 
 134:                                              ; preds = %126, %132, %130
@@ -2292,15 +2292,15 @@ _ZN4llvm5APIntaSEm.exit.split:                    ; preds = %_ZN4llvm5APIntaSEm.
   br i1 %172, label %173, label %.thread88
 
 173:                                              ; preds = %_ZN4llvm5APIntaSEm.exit.split
-  %174 = icmp ult i8 %171, 58
+  %174 = icmp samesign ult i8 %171, 58
   br i1 %174, label %181, label %175
 
 175:                                              ; preds = %173
-  %176 = icmp ugt i8 %171, 96
+  %176 = icmp samesign ugt i8 %171, 96
   br i1 %176, label %177, label %179
 
 177:                                              ; preds = %175
-  %178 = icmp ult i8 %171, 123
+  %178 = icmp samesign ult i8 %171, 123
   br i1 %178, label %181, label %.thread88
 
 179:                                              ; preds = %175

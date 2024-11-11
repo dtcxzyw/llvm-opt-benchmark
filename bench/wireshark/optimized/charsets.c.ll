@@ -300,7 +300,7 @@ define ptr @get_ucs_2_string(ptr noundef %0, ptr nocapture noundef readonly %1, 
   br i1 %22, label %.lr.ph, label %._crit_edge
 
 .thread:                                          ; preds = %11
-  %23 = icmp ugt i32 %2, 3
+  %23 = icmp samesign ugt i32 %2, 3
   br i1 %23, label %.lr.ph.split.preheader, label %._crit_edge
 
 .lr.ph:                                           ; preds = %20
@@ -392,7 +392,7 @@ define ptr @get_utf_16_string(ptr noundef %0, ptr nocapture noundef readonly %1,
   br i1 %22, label %.lr.ph, label %.loopexit
 
 .thread:                                          ; preds = %11
-  %23 = icmp ugt i32 %2, 3
+  %23 = icmp samesign ugt i32 %2, 3
   br i1 %23, label %.lr.ph.split.preheader, label %.loopexit
 
 .lr.ph:                                           ; preds = %20
@@ -554,7 +554,7 @@ define ptr @get_ucs_4_string(ptr noundef %0, ptr nocapture noundef readonly %1, 
   br i1 %18, label %.lr.ph, label %._crit_edge
 
 .thread:                                          ; preds = %11
-  %19 = icmp ugt i32 %2, 7
+  %19 = icmp samesign ugt i32 %2, 7
   br i1 %19, label %.lr.ph.split.preheader, label %._crit_edge
 
 .lr.ph:                                           ; preds = %16
@@ -1014,7 +1014,7 @@ define ptr @get_nonascii_unichar2_string(ptr noundef %0, ptr nocapture noundef r
   tail call void @wmem_strbuf_append_unichar(ptr noundef %7, i32 noundef %13) #6
   %14 = getelementptr i8, ptr %.011, i64 1
   %15 = add nsw i32 %.0910, -1
-  %16 = icmp ugt i32 %.0910, 1
+  %16 = icmp samesign ugt i32 %.0910, 1
   br i1 %16, label %.lr.ph, label %._crit_edge, !llvm.loop !16
 
 ._crit_edge:                                      ; preds = %.lr.ph, %4

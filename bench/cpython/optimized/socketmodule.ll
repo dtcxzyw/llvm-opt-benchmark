@@ -1580,7 +1580,7 @@ if.then.i:                                        ; preds = %entry.split
   br label %exit
 
 if.end.i:                                         ; preds = %entry.split
-  %cmp1.i = icmp ugt i32 %call, 65535
+  %cmp1.i = icmp samesign ugt i32 %call, 65535
   br i1 %cmp1.i, label %if.then2.i, label %if.end3.i
 
 if.then2.i:                                       ; preds = %if.end.i
@@ -1676,7 +1676,7 @@ if.then.i:                                        ; preds = %entry.split
   br label %exit
 
 if.end.i:                                         ; preds = %entry.split
-  %cmp1.i = icmp ugt i32 %call, 65535
+  %cmp1.i = icmp samesign ugt i32 %call, 65535
   br i1 %cmp1.i, label %if.then2.i, label %if.end3.i
 
 if.then2.i:                                       ; preds = %if.end.i
@@ -2803,8 +2803,8 @@ entry:
 
 if.end:                                           ; preds = %entry
   %0 = load i64, ptr %length, align 8
-  %cmp.i = icmp ugt i64 %0, 2147483631
-  br i1 %cmp.i, label %if.then3, label %if.end5
+  %or.cond = icmp ugt i64 %0, 2147483631
+  br i1 %or.cond, label %if.then3, label %if.end5
 
 if.then3:                                         ; preds = %if.end
   %1 = load ptr, ptr @PyExc_OverflowError, align 8
@@ -2831,14 +2831,14 @@ entry:
 
 if.end:                                           ; preds = %entry
   %0 = load i64, ptr %length, align 8
-  %cmp.i = icmp ugt i64 %0, 2147483623
-  br i1 %cmp.i, label %if.then3, label %if.end.i
+  %or.cond = icmp ugt i64 %0, 2147483623
+  br i1 %or.cond, label %if.then3, label %if.end.i
 
 if.end.i:                                         ; preds = %if.end
   %sub.i = add nuw nsw i64 %0, 7
   %and.i = and i64 %sub.i, 4294967288
   %add1.i = add nuw nsw i64 %and.i, 16
-  %cmp3.i = icmp ult i64 %add1.i, %0
+  %cmp3.i = icmp samesign ult i64 %add1.i, %0
   br i1 %cmp3.i, label %if.then3, label %if.end4
 
 if.then3:                                         ; preds = %if.end.i, %if.end
@@ -8603,7 +8603,7 @@ if.end33:                                         ; preds = %if.else23
   br i1 %cmp34, label %land.lhs.true35, label %if.end45
 
 land.lhs.true35:                                  ; preds = %if.end33
-  %cmp36 = icmp ugt i64 %ncmsgs.0, 104811045873349725
+  %cmp36 = icmp samesign ugt i64 %ncmsgs.0, 104811045873349725
   br i1 %cmp36, label %if.then43, label %cond.end40
 
 cond.end40:                                       ; preds = %land.lhs.true35
@@ -8669,7 +8669,7 @@ if.end.i:                                         ; preds = %if.end62
   %sub.i = add nuw nsw i64 %9, 7
   %and.i73 = and i64 %sub.i, 4294967288
   %add1.i = add nuw nsw i64 %and.i73, 16
-  %cmp3.i = icmp ult i64 %add1.i, %9
+  %cmp3.i = icmp samesign ult i64 %add1.i, %9
   br i1 %cmp3.i, label %if.then67, label %if.end68
 
 if.then67:                                        ; preds = %if.end62, %if.end.i

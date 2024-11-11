@@ -420,7 +420,7 @@ for.body.preheader:                               ; preds = %for.cond.preheader
 for.cond:                                         ; preds = %for.body.preheader, %for.body
   %indvars.iv.next327 = phi i64 [ %indvars.iv.next, %for.body ], [ %indvars.iv.next321, %for.body.preheader ]
   %indvars.iv326 = phi i64 [ %indvars.iv.next327, %for.body ], [ %6, %for.body.preheader ]
-  %cmp20 = icmp ugt i64 %indvars.iv326, 1
+  %cmp20 = icmp samesign ugt i64 %indvars.iv326, 1
   br i1 %cmp20, label %for.body, label %for.end104, !llvm.loop !10
 
 for.body:                                         ; preds = %for.cond
@@ -1171,7 +1171,7 @@ strbuf_addch.exit102:                             ; preds = %strbuf_avail.exit.i
   %32 = load i64, ptr %len.i.i90, align 8
   %arrayidx3.i97 = getelementptr inbounds i8, ptr %31, i64 %32
   store i8 0, ptr %arrayidx3.i97, align 1
-  %cmp115 = icmp ugt i32 %consecutive_spaces.2239, 1
+  %cmp115 = icmp samesign ugt i32 %consecutive_spaces.2239, 1
   br i1 %cmp115, label %while.body117, label %while.end118, !llvm.loop !16
 
 while.end118:                                     ; preds = %strbuf_addch.exit102, %if.then78, %while.cond113.preheader

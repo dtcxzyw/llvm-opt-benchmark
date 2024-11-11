@@ -4371,7 +4371,7 @@ define dso_local noundef i32 @timers_dead_cpu(i32 noundef %0) local_unnamed_addr
   br label %calc_wheel_index.exit
 
 160:                                              ; preds = %155
-  %161 = icmp ugt i64 %86, 1056964607
+  %161 = icmp samesign ugt i64 %86, 1056964607
   %162 = add i64 %85, 1040187392
   %163 = select i1 %161, i64 %162, i64 %84
   %164 = lshr i64 %163, 24
@@ -5229,7 +5229,7 @@ define internal fastcc range(i32 0, 576) i32 @calc_wheel_index(i64 noundef %0, i
   br label %88
 
 78:                                               ; preds = %73
-  %79 = icmp ugt i64 %4, 1056964607
+  %79 = icmp samesign ugt i64 %4, 1056964607
   %80 = add i64 %1, 1040187392
   %81 = select i1 %79, i64 %80, i64 %0
   %82 = lshr i64 %81, 24

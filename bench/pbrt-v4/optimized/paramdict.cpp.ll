@@ -2126,7 +2126,7 @@ if.then.i.i.i:                                    ; preds = %if.end5.i
 
 _ZNSt6vectorIN4pbrt8SpectrumESaIS1_EE17_S_check_init_lenEmRKS2_.exit.i.i: ; preds = %if.end5.i
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %agg.result, i8 0, i64 24, i1 false), !alias.scope !19
-  %cmp.not.i.i.i.i.i = icmp ult i64 %2, 3
+  %cmp.not.i.i.i.i.i = icmp samesign ult i64 %2, 3
   br i1 %cmp.not.i.i.i.i.i, label %"_ZN4pbrtL11returnArrayINS_8SpectrumEN4pstd6vectorIfNS2_3pmr21polymorphic_allocatorIfEEEEZNKS_19ParameterDictionary20extractSpectrumArrayERKNS_15ParsedParameterENS_12SpectrumTypeENS5_ISt4byteEEE3$_0EESt6vectorIT_SaISH_EERKT0_SB_iT1_.exit", label %for.body.lr.ph.i
 
 for.body.lr.ph.i:                                 ; preds = %_ZNSt6vectorIN4pbrt8SpectrumESaIS1_EE17_S_check_init_lenEmRKS2_.exit.i.i
@@ -3861,7 +3861,7 @@ if.then.i.i.i.i:                                  ; preds = %if.end5.i.i
 
 _ZNSt6vectorIN4pbrt6Point3IfEESaIS2_EE17_S_check_init_lenEmRKS3_.exit.i.i.i: ; preds = %if.end5.i.i
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %agg.result, i8 0, i64 24, i1 false), !alias.scope !100
-  %cmp.not.i.i.i.i.i.i = icmp ult i64 %5, 3
+  %cmp.not.i.i.i.i.i.i = icmp samesign ult i64 %5, 3
   br i1 %cmp.not.i.i.i.i.i.i, label %_ZN4pbrtL11returnArrayINS_6Point3IfEEN4pstd6vectorIfNS3_3pmr21polymorphic_allocatorIfEEEEPFS2_PKfPKNS_7FileLocEEEESt6vectorIT_SaISH_EERKT0_RKNS_15ParsedParameterEiT1_.exit.i, label %for.body.lr.ph.i.i
 
 for.body.lr.ph.i.i:                               ; preds = %_ZNSt6vectorIN4pbrt6Point3IfEESaIS2_EE17_S_check_init_lenEmRKS3_.exit.i.i.i
@@ -4001,7 +4001,7 @@ if.then.i.i.i.i:                                  ; preds = %if.end5.i.i
 
 _ZNSt6vectorIN4pbrt7Vector3IfEESaIS2_EE17_S_check_init_lenEmRKS3_.exit.i.i.i: ; preds = %if.end5.i.i
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %agg.result, i8 0, i64 24, i1 false), !alias.scope !108
-  %cmp.not.i.i.i.i.i.i = icmp ult i64 %5, 3
+  %cmp.not.i.i.i.i.i.i = icmp samesign ult i64 %5, 3
   br i1 %cmp.not.i.i.i.i.i.i, label %_ZN4pbrtL11returnArrayINS_7Vector3IfEEN4pstd6vectorIfNS3_3pmr21polymorphic_allocatorIfEEEEPFS2_PKfPKNS_7FileLocEEEESt6vectorIT_SaISH_EERKT0_RKNS_15ParsedParameterEiT1_.exit.i, label %for.body.lr.ph.i.i
 
 for.body.lr.ph.i.i:                               ; preds = %_ZNSt6vectorIN4pbrt7Vector3IfEESaIS2_EE17_S_check_init_lenEmRKS3_.exit.i.i.i
@@ -4141,7 +4141,7 @@ if.then.i.i.i.i:                                  ; preds = %if.end5.i.i
 
 _ZNSt6vectorIN4pbrt7Normal3IfEESaIS2_EE17_S_check_init_lenEmRKS3_.exit.i.i.i: ; preds = %if.end5.i.i
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %agg.result, i8 0, i64 24, i1 false), !alias.scope !116
-  %cmp.not.i.i.i.i.i.i = icmp ult i64 %5, 3
+  %cmp.not.i.i.i.i.i.i = icmp samesign ult i64 %5, 3
   br i1 %cmp.not.i.i.i.i.i.i, label %_ZN4pbrtL11returnArrayINS_7Normal3IfEEN4pstd6vectorIfNS3_3pmr21polymorphic_allocatorIfEEEEPFS2_PKfPKNS_7FileLocEEEESt6vectorIT_SaISH_EERKT0_RKNS_15ParsedParameterEiT1_.exit.i, label %for.body.lr.ph.i.i
 
 for.body.lr.ph.i.i:                               ; preds = %_ZNSt6vectorIN4pbrt7Normal3IfEESaIS2_EE17_S_check_init_lenEmRKS3_.exit.i.i.i
@@ -4796,7 +4796,7 @@ if.then.i.i:                                      ; preds = %if.end
 
 _ZNSt6vectorIN4pbrt3RGBESaIS1_EE17_S_check_init_lenEmRKS2_.exit.i: ; preds = %if.end
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %agg.result, i8 0, i64 24, i1 false)
-  %cmp.not.i.i.i.i = icmp ult i64 %5, 3
+  %cmp.not.i.i.i.i = icmp samesign ult i64 %5, 3
   br i1 %cmp.not.i.i.i.i, label %invoke.cont.thread, label %for.body17.lr.ph
 
 invoke.cont.thread:                               ; preds = %_ZNSt6vectorIN4pbrt3RGBESaIS1_EE17_S_check_init_lenEmRKS2_.exit.i

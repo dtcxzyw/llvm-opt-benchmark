@@ -1396,7 +1396,7 @@ _ZN13ObjectMonitor16short_fixed_spinEP10JavaThreadib.exit: ; preds = %8, %10
   br label %67
 
 67:                                               ; preds = %66, %63
-  %68 = icmp ugt i32 %.in, 1
+  %68 = icmp samesign ugt i32 %.in, 1
   br i1 %68, label %31, label %_ZN13ObjectMonitor18try_set_owner_fromEPvS0_.exit, !llvm.loop !20
 
 _ZN13ObjectMonitor18try_set_owner_fromEPvS0_.exit: ; preds = %67

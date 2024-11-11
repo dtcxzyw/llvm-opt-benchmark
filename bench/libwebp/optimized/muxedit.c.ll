@@ -1224,8 +1224,8 @@ MuxDeleteAllNamedData.exit.thread82.i:            ; preds = %92, %82
   br i1 %or.cond3.i, label %CreateVP8XChunk.exit.thread, label %162
 
 162:                                              ; preds = %.loopexit.i
-  %163 = icmp ugt i32 %.279.ph.i, 16777216
-  %164 = icmp ugt i32 %.176.ph.i, 16777216
+  %163 = icmp samesign ugt i32 %.279.ph.i, 16777216
+  %164 = icmp samesign ugt i32 %.176.ph.i, 16777216
   %or.cond5.i = select i1 %163, i1 true, i1 %164
   br i1 %or.cond5.i, label %CreateVP8XChunk.exit.thread, label %165
 

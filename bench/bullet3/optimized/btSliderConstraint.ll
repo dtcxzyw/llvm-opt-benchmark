@@ -2824,7 +2824,7 @@ if.then:                                          ; preds = %sw.bb
   br label %sw.epilog.sink.split
 
 if.else:                                          ; preds = %sw.bb
-  %cmp2 = icmp ult i32 %axis, 3
+  %cmp2 = icmp samesign ult i32 %axis, 3
   br i1 %cmp2, label %if.then3, label %if.else6
 
 if.then3:                                         ; preds = %if.else
@@ -2842,7 +2842,7 @@ if.then8:                                         ; preds = %if.else6
   br label %sw.epilog.sink.split
 
 if.else11:                                        ; preds = %if.else6
-  %cmp12 = icmp ult i32 %axis, 6
+  %cmp12 = icmp samesign ult i32 %axis, 6
   br i1 %cmp12, label %if.then13, label %sw.epilog
 
 if.then13:                                        ; preds = %if.else11
@@ -2878,7 +2878,7 @@ if.then35:                                        ; preds = %sw.bb33
   br label %sw.epilog.sink.split
 
 if.else38:                                        ; preds = %sw.bb33
-  %cmp39 = icmp ult i32 %axis, 3
+  %cmp39 = icmp samesign ult i32 %axis, 3
   br i1 %cmp39, label %if.then40, label %if.else43
 
 if.then40:                                        ; preds = %if.else38
@@ -2896,7 +2896,7 @@ if.then45:                                        ; preds = %if.else43
   br label %sw.epilog.sink.split
 
 if.else48:                                        ; preds = %if.else43
-  %cmp49 = icmp ult i32 %axis, 6
+  %cmp49 = icmp samesign ult i32 %axis, 6
   br i1 %cmp49, label %if.then50, label %sw.epilog
 
 if.then50:                                        ; preds = %if.else48
@@ -2935,7 +2935,7 @@ if.then:                                          ; preds = %sw.bb
   br label %sw.epilog
 
 if.else:                                          ; preds = %sw.bb
-  %cmp2 = icmp ult i32 %axis, 3
+  %cmp2 = icmp samesign ult i32 %axis, 3
   br i1 %cmp2, label %if.then3, label %if.else4
 
 if.then3:                                         ; preds = %if.else
@@ -2953,7 +2953,7 @@ if.then6:                                         ; preds = %if.else4
   br label %sw.epilog
 
 if.else7:                                         ; preds = %if.else4
-  %cmp8 = icmp ult i32 %axis, 6
+  %cmp8 = icmp samesign ult i32 %axis, 6
   br i1 %cmp8, label %if.then9, label %sw.epilog
 
 if.then9:                                         ; preds = %if.else7
@@ -2989,7 +2989,7 @@ if.then25:                                        ; preds = %sw.bb23
   br label %sw.epilog
 
 if.else26:                                        ; preds = %sw.bb23
-  %cmp27 = icmp ult i32 %axis, 3
+  %cmp27 = icmp samesign ult i32 %axis, 3
   br i1 %cmp27, label %if.then28, label %if.else29
 
 if.then28:                                        ; preds = %if.else26
@@ -3007,7 +3007,7 @@ if.then31:                                        ; preds = %if.else29
   br label %sw.epilog
 
 if.else32:                                        ; preds = %if.else29
-  %cmp33 = icmp ult i32 %axis, 6
+  %cmp33 = icmp samesign ult i32 %axis, 6
   br i1 %cmp33, label %if.then34, label %sw.epilog
 
 if.then34:                                        ; preds = %if.else32

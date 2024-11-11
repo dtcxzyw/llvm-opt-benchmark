@@ -189,7 +189,7 @@ define internal fastcc i32 @stanag4607_read_file(ptr nocapture %.96.val, ptr nou
   br label %118
 
 44:                                               ; preds = %20
-  %45 = icmp ult i32 %40, 37
+  %45 = icmp samesign ult i32 %40, 37
   br i1 %45, label %46, label %48
 
 46:                                               ; preds = %44

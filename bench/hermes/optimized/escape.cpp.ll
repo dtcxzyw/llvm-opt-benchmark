@@ -140,7 +140,7 @@ if.else13.i.i.i:                                  ; preds = %if.else.i.i.i
   br label %if.end.i.i44
 
 if.end.i:                                         ; preds = %_ZN4llvh15SmallVectorImplIDsE7reserveEm.exit
-  %tobool.not.i4.i = icmp ult i32 %ref.tmp.sroa.5.8.extract.trunc, 1073741824
+  %tobool.not.i4.i = icmp samesign ult i32 %ref.tmp.sroa.5.8.extract.trunc, 1073741824
   br i1 %tobool.not.i4.i, label %if.end.i13, label %if.end.i5.i
 
 if.end.i5.i:                                      ; preds = %if.end.i
@@ -366,7 +366,7 @@ _ZN4llvh23SmallVectorTemplateBaseIDsLb1EE9push_backERKDs.exit90: ; preds = %if.t
   %add.i89 = add i32 %36, 1
   store i32 %add.i89, ptr %Size.i.i.i.i.i.i, align 8
   %37 = lshr i16 %cond.i, 4
-  %cmp1.i = icmp ult i16 %cond.i, 160
+  %cmp1.i = icmp samesign ult i16 %cond.i, 160
   %conv.i = or disjoint i16 %37, 48
   %conv3.i = add nuw nsw i16 %37, 55
   %retval.0.i = select i1 %cmp1.i, i16 %conv.i, i16 %conv3.i
@@ -657,7 +657,7 @@ while.body.lr.ph:                                 ; preds = %_ZN4llvh15SmallVect
   %10 = extractvalue { ptr, i64 } %call17910, 1
   %str.sroa.25.8.extract.trunc = trunc i64 %10 to i32
   %tobool.i.i = icmp slt i32 %str.sroa.25.8.extract.trunc, 0
-  %tobool.not.i5.i = icmp ult i32 %str.sroa.25.8.extract.trunc, 1073741824
+  %tobool.not.i5.i = icmp samesign ult i32 %str.sroa.25.8.extract.trunc, 1073741824
   %bf.clear8.i16.i = and i64 %10, 1073741823
   %11 = and i32 %str.sroa.25.8.extract.trunc, 1073741824
   %tobool.not.i.i = icmp eq i32 %11, 0
@@ -2478,7 +2478,7 @@ if.else13.i.i.i:                                  ; preds = %if.else.i.i.i
   br label %if.end.i.i56
 
 if.end.i:                                         ; preds = %_ZN4llvh15SmallVectorImplIDsE7reserveEm.exit
-  %tobool.not.i4.i = icmp ult i32 %str.sroa.5.8.extract.trunc, 1073741824
+  %tobool.not.i4.i = icmp samesign ult i32 %str.sroa.5.8.extract.trunc, 1073741824
   br i1 %tobool.not.i4.i, label %if.end.i25, label %if.end.i5.i
 
 if.end.i5.i:                                      ; preds = %if.end.i
@@ -3313,7 +3313,7 @@ if.else13.i.i.i:                                  ; preds = %if.else.i.i.i
   br label %if.end.i.i60
 
 if.end.i:                                         ; preds = %_ZN4llvh15SmallVectorImplIDsE7reserveEm.exit
-  %tobool.not.i4.i = icmp ult i32 %str.sroa.5.8.extract.trunc, 1073741824
+  %tobool.not.i4.i = icmp samesign ult i32 %str.sroa.5.8.extract.trunc, 1073741824
   br i1 %tobool.not.i4.i, label %if.end.i29, label %if.end.i5.i
 
 if.end.i5.i:                                      ; preds = %if.end.i

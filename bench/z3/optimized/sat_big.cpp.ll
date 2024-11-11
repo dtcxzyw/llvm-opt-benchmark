@@ -504,7 +504,7 @@ while.body.i:                                     ; preds = %while.body.i, %whil
   %50 = load i32, ptr %arrayidx2.i, align 4
   store i32 %50, ptr %arrayidx.i53, align 4
   store i32 %__tmp.sroa.0.0.copyload.i.i, ptr %arrayidx2.i, align 4
-  %cmp.i54 = icmp ugt i64 %indvars.iv.i, 2
+  %cmp.i54 = icmp samesign ugt i64 %indvars.iv.i, 2
   br i1 %cmp.i54, label %while.body.i, label %invoke.cont77.loopexit, !llvm.loop !7
 
 invoke.cont77.loopexit:                           ; preds = %while.body.i
@@ -832,7 +832,7 @@ while.body.i.i:                                   ; preds = %while.body.i.i, %wh
   %89 = load i32, ptr %arrayidx2.i.i, align 4
   store i32 %89, ptr %arrayidx.i5.i, align 4
   store i32 %__tmp.sroa.0.0.copyload.i.i.i, ptr %arrayidx2.i.i, align 4
-  %cmp.i6.i = icmp ugt i64 %indvars.iv.i.i, 2
+  %cmp.i6.i = icmp samesign ugt i64 %indvars.iv.i.i, 2
   br i1 %cmp.i6.i, label %while.body.i.i, label %_Z7shuffleIN3sat7literalEEvjPT_R10random_gen.exit.i, !llvm.loop !7
 
 _Z7shuffleIN3sat7literalEEvjPT_R10random_gen.exit.i: ; preds = %while.body.i.i, %_ZNK6vectorIN3sat7literalELb0EjE4sizeEv.exit.i, %for.body.i
@@ -1181,7 +1181,7 @@ while.body.i:                                     ; preds = %while.body.i, %whil
   %9 = load i32, ptr %arrayidx2.i, align 4
   store i32 %9, ptr %arrayidx.i5, align 4
   store i32 %__tmp.sroa.0.0.copyload.i.i, ptr %arrayidx2.i, align 4
-  %cmp.i6 = icmp ugt i64 %indvars.iv.i, 2
+  %cmp.i6 = icmp samesign ugt i64 %indvars.iv.i, 2
   br i1 %cmp.i6, label %while.body.i, label %_Z7shuffleIN3sat7literalEEvjPT_R10random_gen.exit, !llvm.loop !7
 
 _Z7shuffleIN3sat7literalEEvjPT_R10random_gen.exit: ; preds = %while.body.i, %for.body, %_ZNK6vectorIN3sat7literalELb0EjE4sizeEv.exit
@@ -1245,7 +1245,7 @@ while.body.i.i:                                   ; preds = %while.body.i.i, %wh
   %9 = load i32, ptr %arrayidx2.i.i, align 4
   store i32 %9, ptr %arrayidx.i5.i, align 4
   store i32 %__tmp.sroa.0.0.copyload.i.i.i, ptr %arrayidx2.i.i, align 4
-  %cmp.i6.i = icmp ugt i64 %indvars.iv.i.i, 2
+  %cmp.i6.i = icmp samesign ugt i64 %indvars.iv.i.i, 2
   br i1 %cmp.i6.i, label %while.body.i.i, label %_Z7shuffleIN3sat7literalEEvjPT_R10random_gen.exit.i, !llvm.loop !7
 
 _Z7shuffleIN3sat7literalEEvjPT_R10random_gen.exit.i: ; preds = %while.body.i.i, %_ZNK6vectorIN3sat7literalELb0EjE4sizeEv.exit.i, %for.body.i
@@ -1737,7 +1737,7 @@ while.body.i139:                                  ; preds = %while.body.i139, %w
   %55 = load i64, ptr %arrayidx2.i, align 4
   store i64 %55, ptr %arrayidx.i140, align 4
   store i64 %54, ptr %arrayidx2.i, align 4
-  %cmp.i141 = icmp ugt i64 %indvars.iv.i, 2
+  %cmp.i141 = icmp samesign ugt i64 %indvars.iv.i, 2
   br i1 %cmp.i141, label %while.body.i139, label %_Z7shuffleIN3sat3big6pframeEEvjPT_R10random_gen.exit, !llvm.loop !20
 
 _Z7shuffleIN3sat3big6pframeEEvjPT_R10random_gen.exit: ; preds = %while.body.i139

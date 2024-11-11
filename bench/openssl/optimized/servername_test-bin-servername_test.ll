@@ -340,8 +340,8 @@ lor.lhs.false:                                    ; preds = %entry
 PACKET_buf_init.exit:                             ; preds = %lor.lhs.false
   %call3 = call i32 @test_true(ptr noundef nonnull @.str, i32 noundef 56, ptr noundef nonnull @.str.17, i32 noundef 1) #3
   %tobool4.not = icmp eq i32 %call3, 0
-  %cmp.i5 = icmp ult i64 %call, 5
-  %or.cond = or i1 %cmp.i5, %tobool4.not
+  %cmp.i5 = icmp samesign ult i64 %call, 5
+  %or.cond = select i1 %tobool4.not, i1 true, i1 %cmp.i5
   br i1 %or.cond, label %end, label %lor.lhs.false8
 
 PACKET_buf_init.exit.thread:                      ; preds = %lor.lhs.false
@@ -350,7 +350,7 @@ PACKET_buf_init.exit.thread:                      ; preds = %lor.lhs.false
 
 lor.lhs.false8:                                   ; preds = %PACKET_buf_init.exit
   %sub.i.i = add nsw i64 %call, -5
-  %cmp.i9 = icmp ugt i64 %sub.i.i, 3
+  %cmp.i9 = icmp samesign ugt i64 %sub.i.i, 3
   %retval.0.i13 = zext i1 %cmp.i9 to i32
   %call12 = call i32 @test_true(ptr noundef nonnull @.str, i32 noundef 60, ptr noundef nonnull @.str.18, i32 noundef %retval.0.i13) #3
   %tobool13.not = icmp eq i32 %call12, 0
@@ -379,7 +379,7 @@ lor.lhs.false.i:                                  ; preds = %lor.lhs.false20
   %1 = load i8, ptr %pkt.sroa.0.3, align 1
   %sub.i.i.i = add nsw i64 %pkt.sroa.16.3, -1
   %conv.i = zext i8 %1 to i64
-  %cmp.i.i.i = icmp ult i64 %sub.i.i.i, %conv.i
+  %cmp.i.i.i = icmp samesign ult i64 %sub.i.i.i, %conv.i
   br i1 %cmp.i.i.i, label %PACKET_get_length_prefixed_1.exit, label %if.end.i22
 
 if.end.i22:                                       ; preds = %lor.lhs.false.i
@@ -404,7 +404,7 @@ PACKET_get_length_prefixed_1.exit.thread:         ; preds = %lor.lhs.false20
   br i1 %tobool25.not172, label %end, label %PACKET_get_length_prefixed_2.exit.thread
 
 lor.lhs.false26:                                  ; preds = %PACKET_get_length_prefixed_1.exit
-  %cmp.i.i.i25 = icmp ult i64 %pkt.sroa.16.4, 2
+  %cmp.i.i.i25 = icmp samesign ult i64 %pkt.sroa.16.4, 2
   br i1 %cmp.i.i.i25, label %PACKET_get_length_prefixed_2.exit, label %lor.lhs.false.i26
 
 lor.lhs.false.i26:                                ; preds = %lor.lhs.false26
@@ -416,7 +416,7 @@ lor.lhs.false.i26:                                ; preds = %lor.lhs.false26
   %conv2.i.i.i = zext i8 %3 to i64
   %or.i.i.i = or disjoint i64 %shl.i.i.i, %conv2.i.i.i
   %sub.i.i.i29 = add nsw i64 %pkt.sroa.16.4, -2
-  %cmp.i.i4.i = icmp ult i64 %sub.i.i.i29, %or.i.i.i
+  %cmp.i.i4.i = icmp samesign ult i64 %sub.i.i.i29, %or.i.i.i
   br i1 %cmp.i.i4.i, label %PACKET_get_length_prefixed_2.exit, label %if.end.i30
 
 if.end.i30:                                       ; preds = %lor.lhs.false.i26
@@ -448,7 +448,7 @@ lor.lhs.false.i36:                                ; preds = %lor.lhs.false32
   %4 = load i8, ptr %pkt.sroa.0.5, align 1
   %sub.i.i.i38 = add nsw i64 %pkt.sroa.16.5, -1
   %conv.i39 = zext i8 %4 to i64
-  %cmp.i.i.i40 = icmp ult i64 %sub.i.i.i38, %conv.i39
+  %cmp.i.i.i40 = icmp samesign ult i64 %sub.i.i.i38, %conv.i39
   br i1 %cmp.i.i.i40, label %PACKET_get_length_prefixed_1.exit47, label %if.end.i41
 
 if.end.i41:                                       ; preds = %lor.lhs.false.i36
@@ -468,7 +468,7 @@ PACKET_get_length_prefixed_1.exit47:              ; preds = %PACKET_get_length_p
   br i1 %tobool37.not, label %end, label %lor.lhs.false38
 
 lor.lhs.false38:                                  ; preds = %PACKET_get_length_prefixed_1.exit47
-  %cmp.i.i.i50 = icmp ult i64 %pkt.sroa.16.6, 2
+  %cmp.i.i.i50 = icmp samesign ult i64 %pkt.sroa.16.6, 2
   br i1 %cmp.i.i.i50, label %PACKET_as_length_prefixed_2.exit, label %lor.lhs.false.i51
 
 lor.lhs.false.i51:                                ; preds = %lor.lhs.false38
@@ -622,7 +622,7 @@ lor.lhs.false78:                                  ; preds = %PACKET_get_1.exit
   br i1 %tobool80.not, label %end, label %lor.lhs.false81
 
 lor.lhs.false81:                                  ; preds = %lor.lhs.false78
-  %cmp.i.i.i114 = icmp ult i64 %pkt4.sroa.7.1, 2
+  %cmp.i.i.i114 = icmp samesign ult i64 %pkt4.sroa.7.1, 2
   br i1 %cmp.i.i.i114, label %PACKET_get_length_prefixed_2.exit130, label %lor.lhs.false.i115
 
 lor.lhs.false.i115:                               ; preds = %lor.lhs.false81
@@ -634,7 +634,7 @@ lor.lhs.false.i115:                               ; preds = %lor.lhs.false81
   %conv2.i.i.i120 = zext i8 %15 to i64
   %or.i.i.i121 = or disjoint i64 %shl.i.i.i118, %conv2.i.i.i120
   %sub.i.i.i122 = add nsw i64 %pkt4.sroa.7.1, -2
-  %cmp.i.i4.i123 = icmp ult i64 %sub.i.i.i122, %or.i.i.i121
+  %cmp.i.i4.i123 = icmp samesign ult i64 %sub.i.i.i122, %or.i.i.i121
   br i1 %cmp.i.i4.i123, label %PACKET_get_length_prefixed_2.exit130, label %if.end.i124
 
 if.end.i124:                                      ; preds = %lor.lhs.false.i115

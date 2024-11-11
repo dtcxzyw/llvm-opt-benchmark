@@ -947,7 +947,7 @@ while.body93:                                     ; preds = %while.body93.prehea
   %vfn104 = getelementptr inbounds i8, ptr %vtable103, i64 120
   %26 = load ptr, ptr %vfn104, align 8
   %call105 = tail call noundef i32 %26(ptr noundef nonnull align 8 dereferenceable(16) %this, i32 noundef %conv102)
-  %cmp92 = icmp ugt i64 %indvars.iv81, 1
+  %cmp92 = icmp samesign ugt i64 %indvars.iv81, 1
   br i1 %cmp92, label %while.body93, label %while.end106, !llvm.loop !11
 
 while.end106:                                     ; preds = %while.body93, %while.cond91.preheader
@@ -1505,7 +1505,7 @@ delete.notnull19.i145:                            ; preds = %if.end12.i142
 
 _ZN6icu_7517StringTrieBuilder12registerNodeEPNS0_4NodeER10UErrorCode.exit149: ; preds = %new.cont87, %delete.notnull.i129, %if.then2.i148, %delete.notnull8.i138, %if.end12.i142, %delete.notnull19.i145
   %retval.0.i132 = phi ptr [ null, %if.then2.i148 ], [ %55, %delete.notnull8.i138 ], [ null, %delete.notnull19.i145 ], [ null, %delete.notnull.i129 ], [ %call73, %if.end12.i142 ], [ null, %new.cont87 ]
-  %cmp71 = icmp ugt i64 %indvars.iv165, 1
+  %cmp71 = icmp samesign ugt i64 %indvars.iv165, 1
   br i1 %cmp71, label %while.body72, label %return, !llvm.loop !14
 
 return:                                           ; preds = %_ZN6icu_7517StringTrieBuilder12registerNodeEPNS0_4NodeER10UErrorCode.exit149, %_ZN6icu_7517StringTrieBuilder12registerNodeEPNS0_4NodeER10UErrorCode.exit, %while.end, %entry, %if.then20

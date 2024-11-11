@@ -359,7 +359,7 @@ _ZN4llvm23SmallVectorTemplateBaseIPN5clang13OpenACCClauseELb1EE9push_backES3_.ex
   br label %37
 
 31:                                               ; preds = %16
-  %32 = icmp ult i64 %19, 4
+  %32 = icmp samesign ult i64 %19, 4
   br i1 %32, label %33, label %37
 
 33:                                               ; preds = %31
@@ -6076,7 +6076,7 @@ _ZN5clang6Parser10ParseScopeD2Ev.exit:            ; preds = %14, %14, %14, %14
   %20 = load i8, ptr %5, align 1
   %21 = and i8 %20, 1
   store i8 0, ptr %5, align 1
-  %switch.i = icmp ult i32 %19, 3
+  %switch.i = icmp samesign ult i32 %19, 3
   %..i = select i1 %switch.i, i32 268435462, i32 0
   call void @_ZN5clang6Parser10EnterScopeEj(ptr noundef nonnull align 8 dereferenceable(2936) %0, i32 noundef %..i) #13
   %22 = load ptr, ptr %7, align 8
@@ -6837,7 +6837,7 @@ _ZN4llvm15SmallVectorImplISt4pairIPN5clang14IdentifierInfoENS2_14SourceLocationE
   %34 = getelementptr inbounds i8, ptr %.0910.i.i.i.i.i, i64 16
   %35 = getelementptr inbounds i8, ptr %.0811.i.i.i.i.i, i64 16
   %36 = add nsw i64 %.012.i.i.i.i.i, -1
-  %37 = icmp ugt i64 %.012.i.i.i.i.i, 1
+  %37 = icmp samesign ugt i64 %.012.i.i.i.i.i, 1
   br i1 %37, label %.lr.ph.i.i.i.i.i, label %_ZSt4moveIPSt4pairIPN5clang14IdentifierInfoENS1_14SourceLocationEES6_ET0_T_S8_S7_.exit, !llvm.loop !21
 
 _ZSt4moveIPSt4pairIPN5clang14IdentifierInfoENS1_14SourceLocationEES6_ET0_T_S8_S7_.exit: ; preds = %.lr.ph.i.i.i.i.i, %25, %24
@@ -6887,7 +6887,7 @@ _ZSt4moveIPSt4pairIPN5clang14IdentifierInfoENS1_14SourceLocationEES6_ET0_T_S8_S7
   %57 = getelementptr inbounds i8, ptr %.0910.i.i.i.i.i38, i64 16
   %58 = getelementptr inbounds i8, ptr %.0811.i.i.i.i.i37, i64 16
   %59 = add nsw i64 %.012.i.i.i.i.i36, -1
-  %60 = icmp ugt i64 %.012.i.i.i.i.i36, 1
+  %60 = icmp samesign ugt i64 %.012.i.i.i.i.i36, 1
   br i1 %60, label %.lr.ph.i.i.i.i.i35, label %_ZSt4moveIPSt4pairIPN5clang14IdentifierInfoENS1_14SourceLocationEES6_ET0_T_S8_S7_.exit39, !llvm.loop !21
 
 _ZSt4moveIPSt4pairIPN5clang14IdentifierInfoENS1_14SourceLocationEES6_ET0_T_S8_S7_.exit39: ; preds = %.lr.ph.i.i.i.i.i35, %49, %48, %44

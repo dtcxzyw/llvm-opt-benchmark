@@ -98,7 +98,7 @@ define internal fastcc noundef ptr @network_in(ptr noundef %0, i1 noundef zeroex
   %24 = load i8, ptr %23, align 1
   %25 = icmp eq i8 %24, 2
   %26 = select i1 %25, i32 32, i32 128
-  %27 = icmp ugt i32 %18, %26
+  %27 = icmp samesign ugt i32 %18, %26
   br i1 %27, label %28, label %34
 
 28:                                               ; preds = %20, %3
@@ -316,7 +316,7 @@ define internal fastcc ptr @network_recv(ptr noundef %0, i1 noundef zeroext %1) 
   %24 = load i8, ptr %23, align 1
   %25 = icmp eq i8 %24, 2
   %26 = select i1 %25, i32 32, i32 128
-  %27 = icmp ugt i32 %18, %26
+  %27 = icmp samesign ugt i32 %18, %26
   br i1 %27, label %28, label %33
 
 28:                                               ; preds = %20, %17
@@ -2341,7 +2341,7 @@ define dso_local noundef i64 @network_broadcast(ptr nocapture noundef readonly %
 24:                                               ; preds = %1, %33
   %indvars.iv = phi i64 [ 0, %1 ], [ %indvars.iv.next, %33 ]
   %.04149 = phi i32 [ %16, %1 ], [ %.1, %33 ]
-  %25 = icmp ugt i32 %.04149, 7
+  %25 = icmp samesign ugt i32 %.04149, 7
   br i1 %25, label %26, label %28
 
 26:                                               ; preds = %24

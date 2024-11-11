@@ -1563,7 +1563,7 @@ for.body.lr.ph:                                   ; preds = %invoke.cont10
   %m_data = getelementptr inbounds i8, ptr %vm, i64 32
   %wide.trip.count = zext nneg i32 %mul6.i to i64
   %xtraiter = and i64 %wide.trip.count, 3
-  %4 = icmp ult i32 %mul6.i, 4
+  %4 = icmp samesign ult i32 %mul6.i, 4
   br i1 %4, label %for.cond14.preheader.loopexit.unr-lcssa, label %for.body.lr.ph.new
 
 for.body.lr.ph.new:                               ; preds = %for.body.lr.ph

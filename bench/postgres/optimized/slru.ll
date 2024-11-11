@@ -356,7 +356,7 @@ SlruRecentlyUsed.exit:                            ; preds = %2, %25
   %45 = ptrtoint ptr %42 to i64
   %46 = and i64 %45, 7
   %47 = icmp eq i64 %46, 0
-  %48 = icmp ult i32 %34, 129
+  %48 = icmp samesign ult i32 %34, 129
   %or.cond.i = and i1 %48, %47
   br i1 %or.cond.i, label %49, label %SimpleLruZeroLSNs.exit.sink.split
 
@@ -811,7 +811,7 @@ SlruPhysicalReadPage.exit:                        ; preds = %95, %100, %117, %12
   %136 = ptrtoint ptr %133 to i64
   %137 = and i64 %136, 7
   %138 = icmp eq i64 %137, 0
-  %139 = icmp ult i32 %125, 129
+  %139 = icmp samesign ult i32 %125, 129
   %or.cond.i = and i1 %139, %138
   br i1 %or.cond.i, label %140, label %SimpleLruZeroLSNs.exit.sink.split
 

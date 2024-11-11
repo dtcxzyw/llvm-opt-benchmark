@@ -392,7 +392,7 @@ for.body.lr.ph:                                   ; preds = %invoke.cont17
   %sub84 = fsub double 1.000000e+00, %epsilon
   %mul91 = mul i64 %size, 50
   %conv92 = uitofp i64 %mul91 to double
-  %cmp101512 = icmp ugt i64 %size, 1
+  %cmp101512 = icmp samesign ugt i64 %size, 1
   %ncp_.i = getelementptr inbounds nuw i8, ptr %ref.tmp122, i64 8
   br label %for.body
 

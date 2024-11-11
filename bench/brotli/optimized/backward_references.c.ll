@@ -95,7 +95,7 @@ if.then.i659.i:                                   ; preds = %sw.bb
   %add9.i.i = add nsw i32 %7, 3
   %arrayidx10.i.i = getelementptr inbounds i8, ptr %dist_cache, i64 36
   store i32 %add9.i.i, ptr %arrayidx10.i.i, align 4
-  %cmp11.i666.i = icmp ugt i32 %6, 10
+  %cmp11.i666.i = icmp samesign ugt i32 %6, 10
   br i1 %cmp11.i666.i, label %if.then12.i.i, label %PrepareDistanceCache.exit.i
 
 if.then12.i.i:                                    ; preds = %if.then.i659.i
@@ -2158,7 +2158,7 @@ if.then.i674.i:                                   ; preds = %if.then145.i
   store i32 %sub7.i683.i, ptr %arrayidx8.i684.i, align 4
   %add9.i685.i = add nsw i32 %conv153.i, 3
   store i32 %add9.i685.i, ptr %arrayidx10.i686.i, align 4
-  %cmp11.i687.i = icmp ugt i32 %173, 10
+  %cmp11.i687.i = icmp samesign ugt i32 %173, 10
   br i1 %cmp11.i687.i, label %if.then12.i689.i, label %if.end155.i
 
 if.then12.i689.i:                                 ; preds = %if.then.i674.i
@@ -2565,7 +2565,7 @@ if.then.i.i777.i:                                 ; preds = %sw.bb2
   %add9.i.i788.i = add nsw i32 %221, 3
   %arrayidx10.i.i789.i = getelementptr inbounds i8, ptr %dist_cache, i64 36
   store i32 %add9.i.i788.i, ptr %arrayidx10.i.i789.i, align 4
-  %cmp11.i.i790.i = icmp ugt i32 %220, 10
+  %cmp11.i.i790.i = icmp samesign ugt i32 %220, 10
   br i1 %cmp11.i.i790.i, label %if.then12.i.i792.i, label %PrepareDistanceCacheH6.exit806.i
 
 if.then12.i.i792.i:                               ; preds = %if.then.i.i777.i
@@ -4638,7 +4638,7 @@ if.then.i.i765.i:                                 ; preds = %if.then145.i591
   store i32 %sub7.i.i.i, ptr %arrayidx8.i.i.i, align 4
   %add9.i.i.i = add nsw i32 %conv153.i592, 3
   store i32 %add9.i.i.i, ptr %arrayidx10.i.i.i, align 4
-  %cmp11.i.i.i = icmp ugt i32 %389, 10
+  %cmp11.i.i.i = icmp samesign ugt i32 %389, 10
   br i1 %cmp11.i.i.i, label %if.then12.i.i.i, label %if.end155.i519
 
 if.then12.i.i.i:                                  ; preds = %if.then.i.i765.i
@@ -14326,7 +14326,7 @@ if.then.i.i.i807.i:                               ; preds = %sw.bb7
   %add9.i.i.i818.i = add nsw i32 %1183, 3
   %arrayidx10.i.i.i819.i = getelementptr inbounds i8, ptr %dist_cache, i64 36
   store i32 %add9.i.i.i818.i, ptr %arrayidx10.i.i.i819.i, align 4
-  %cmp11.i.i.i820.i = icmp ugt i32 %1182, 10
+  %cmp11.i.i.i820.i = icmp samesign ugt i32 %1182, 10
   br i1 %cmp11.i.i.i820.i, label %if.then12.i.i.i822.i, label %PrepareDistanceCacheH65.exit836.i
 
 if.then12.i.i.i822.i:                             ; preds = %if.then.i.i.i807.i
@@ -16728,7 +16728,7 @@ if.then.i.i.i.i5537:                              ; preds = %if.then145.i5534
   store i32 %sub7.i.i.i.i, ptr %arrayidx8.i.i.i.i, align 4
   %add9.i.i.i.i = add nsw i32 %conv153.i5535, 3
   store i32 %add9.i.i.i.i, ptr %arrayidx10.i.i.i.i, align 4
-  %cmp11.i.i.i.i = icmp ugt i32 %1375, 10
+  %cmp11.i.i.i.i = icmp samesign ugt i32 %1375, 10
   br i1 %cmp11.i.i.i.i, label %if.then12.i.i.i.i, label %if.end155.i5404
 
 if.then12.i.i.i.i:                                ; preds = %if.then.i.i.i.i5537
@@ -20789,7 +20789,7 @@ if.then.i607.i:                                   ; preds = %sw.bb13
   %add9.i.i7495 = add nsw i32 %1739, 3
   %arrayidx10.i.i7496 = getelementptr inbounds i8, ptr %dist_cache, i64 36
   store i32 %add9.i.i7495, ptr %arrayidx10.i.i7496, align 4
-  %cmp11.i613.i = icmp ugt i32 %1738, 10
+  %cmp11.i613.i = icmp samesign ugt i32 %1738, 10
   br i1 %cmp11.i613.i, label %if.then12.i.i7497, label %PrepareDistanceCache.exit.i7045
 
 if.then12.i.i7497:                                ; preds = %if.then.i607.i
@@ -22129,7 +22129,7 @@ if.then.i621.i:                                   ; preds = %if.then136.i7303
   store i32 %sub7.i630.i, ptr %arrayidx8.i631.i, align 4
   %add9.i632.i = add nsw i32 %conv144.i7304, 3
   store i32 %add9.i632.i, ptr %arrayidx10.i633.i, align 4
-  %cmp11.i634.i = icmp ugt i32 %1853, 10
+  %cmp11.i634.i = icmp samesign ugt i32 %1853, 10
   br i1 %cmp11.i634.i, label %if.then12.i636.i, label %if.end146.i7235
 
 if.then12.i636.i:                                 ; preds = %if.then.i621.i
@@ -22536,7 +22536,7 @@ if.then.i.i405.i:                                 ; preds = %sw.bb14
   %add9.i.i416.i = add nsw i32 %1901, 3
   %arrayidx10.i.i417.i = getelementptr inbounds i8, ptr %dist_cache, i64 36
   store i32 %add9.i.i416.i, ptr %arrayidx10.i.i417.i, align 4
-  %cmp11.i.i418.i = icmp ugt i32 %1900, 10
+  %cmp11.i.i418.i = icmp samesign ugt i32 %1900, 10
   br i1 %cmp11.i.i418.i, label %if.then12.i.i420.i, label %PrepareDistanceCacheH6.exit434.i
 
 if.then12.i.i420.i:                               ; preds = %if.then.i.i405.i
@@ -23886,7 +23886,7 @@ if.then.i.i.i7884:                                ; preds = %if.then136.i7881
   store i32 %sub7.i.i.i7889, ptr %arrayidx8.i.i.i7550, align 4
   %add9.i.i.i7890 = add nsw i32 %conv144.i7882, 3
   store i32 %add9.i.i.i7890, ptr %arrayidx10.i.i.i7551, align 4
-  %cmp11.i.i.i7891 = icmp ugt i32 %2017, 10
+  %cmp11.i.i.i7891 = icmp samesign ugt i32 %2017, 10
   br i1 %cmp11.i.i.i7891, label %if.then12.i.i.i7892, label %if.end146.i7749
 
 if.then12.i.i.i7892:                              ; preds = %if.then.i.i.i7884
@@ -32994,7 +32994,7 @@ if.then.i.i.i440.i:                               ; preds = %sw.bb21
   %add9.i.i.i451.i = add nsw i32 %2787, 3
   %arrayidx10.i.i.i452.i = getelementptr inbounds i8, ptr %dist_cache, i64 36
   store i32 %add9.i.i.i451.i, ptr %arrayidx10.i.i.i452.i, align 4
-  %cmp11.i.i.i453.i = icmp ugt i32 %2786, 10
+  %cmp11.i.i.i453.i = icmp samesign ugt i32 %2786, 10
   br i1 %cmp11.i.i.i453.i, label %if.then12.i.i.i455.i, label %PrepareDistanceCacheH65.exit469.i
 
 if.then12.i.i.i455.i:                             ; preds = %if.then.i.i.i440.i
@@ -34673,7 +34673,7 @@ if.then.i.i.i.i12557:                             ; preds = %if.then136.i12554
   store i32 %sub7.i.i.i.i12562, ptr %arrayidx8.i.i.i.i12209, align 4
   %add9.i.i.i.i12563 = add nsw i32 %conv144.i12555, 3
   store i32 %add9.i.i.i.i12563, ptr %arrayidx10.i.i.i.i12210, align 4
-  %cmp11.i.i.i.i12564 = icmp ugt i32 %2927, 10
+  %cmp11.i.i.i.i12564 = icmp samesign ugt i32 %2927, 10
   br i1 %cmp11.i.i.i.i12564, label %if.then12.i.i.i.i12565, label %if.end146.i12418
 
 if.then12.i.i.i.i12565:                           ; preds = %if.then.i.i.i.i12557

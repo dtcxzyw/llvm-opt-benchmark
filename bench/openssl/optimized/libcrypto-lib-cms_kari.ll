@@ -946,7 +946,7 @@ if.else.i:                                        ; preds = %if.end28.i
   br i1 %cmp32.i, label %enc.i, label %if.else34.i
 
 if.else34.i:                                      ; preds = %if.else.i
-  %cmp35.i = icmp ult i32 %call11.i, 25
+  %cmp35.i = icmp samesign ult i32 %call11.i, 25
   %.str.3..str.4.i = select i1 %cmp35.i, ptr @.str.3, ptr @.str.4
   br label %enc.i
 

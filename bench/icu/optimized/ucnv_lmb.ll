@@ -539,7 +539,7 @@ if.then9.i:                                       ; preds = %land.lhs.true.i
   %incdec.ptr.i150 = getelementptr inbounds i8, ptr %pLMBCS.0588, i64 1
   store i8 %17, ptr %pLMBCS.0588, align 1
   %cmp10.i = icmp eq i32 %call.i, 1
-  %cmp13.i = icmp ugt i8 %17, 15
+  %cmp13.i = icmp samesign ugt i8 %17, 15
   %or.cond.i = and i1 %cmp13.i, %cmp10.i
   br i1 %or.cond.i, label %if.then14.i, label %if.end17.i
 
@@ -1897,7 +1897,7 @@ if.else53:                                        ; preds = %switch.early.test
   br i1 %cmp55, label %if.then56, label %if.then129
 
 if.then56:                                        ; preds = %if.else53
-  %cmp59 = icmp ugt i8 %.fr, 19
+  %cmp59 = icmp samesign ugt i8 %.fr, 19
   br i1 %cmp59, label %if.then62, label %lor.lhs.false60
 
 lor.lhs.false60:                                  ; preds = %if.then56
@@ -1916,7 +1916,7 @@ if.then62:                                        ; preds = %lor.lhs.false60, %i
   br label %return
 
 if.else63:                                        ; preds = %lor.lhs.false60
-  %cmp65 = icmp ugt i8 %.fr, 15
+  %cmp65 = icmp samesign ugt i8 %.fr, 15
   br i1 %cmp65, label %do.body67, label %do.body95
 
 do.body67:                                        ; preds = %if.else63

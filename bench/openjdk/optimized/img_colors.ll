@@ -1069,7 +1069,7 @@ find_nearest.exit..lr.ph.preheader.i.i_crit_edge: ; preds = %find_nearest.exit
 557:                                              ; preds = %.lr.ph.i.i
   %558 = getelementptr inbounds [33 x ptr], ptr @offenders, i64 0, i64 %indvars.iv.i.i
   store ptr %553, ptr %558, align 8
-  %559 = icmp ugt i64 %indvars.iv.i.i, 1
+  %559 = icmp samesign ugt i64 %indvars.iv.i.i, 1
   br i1 %559, label %.lr.ph.i.i, label %._crit_edge.i.i, !llvm.loop !23
 
 ._crit_edge.split.loop.exit14.i.i:                ; preds = %.lr.ph.i.i

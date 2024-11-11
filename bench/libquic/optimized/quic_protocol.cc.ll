@@ -1357,7 +1357,7 @@ if.then.i.i.i10:                                  ; preds = %lpad8
   br label %eh.resume
 
 if.else:                                          ; preds = %for.body
-  %cmp10 = icmp ult i32 %4, 34
+  %cmp10 = icmp samesign ult i32 %4, 34
   br i1 %cmp10, label %if.then11, label %if.else16
 
 if.then11:                                        ; preds = %if.else

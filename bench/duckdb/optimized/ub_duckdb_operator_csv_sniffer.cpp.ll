@@ -14274,15 +14274,15 @@ lor.lhs.false.i:                                  ; preds = %for.body.i
   br i1 %cmp14.i, label %land.lhs.true.i, label %if.else.i
 
 land.lhs.true.i:                                  ; preds = %lor.lhs.false.i
-  %cmp17.i = icmp ult i8 %88, 58
+  %cmp17.i = icmp samesign ult i8 %88, 58
   br i1 %cmp17.i, label %if.then.i, label %lor.lhs.false18.i
 
 lor.lhs.false18.i:                                ; preds = %land.lhs.true.i
-  %cmp21.i = icmp ugt i8 %88, 64
+  %cmp21.i = icmp samesign ugt i8 %88, 64
   br i1 %cmp21.i, label %land.lhs.true22.i, label %if.else.i
 
 land.lhs.true22.i:                                ; preds = %lor.lhs.false18.i
-  %cmp25.i = icmp ult i8 %88, 91
+  %cmp25.i = icmp samesign ult i8 %88, 91
   %89 = add nsw i8 %88, -97
   %or.cond.i = icmp ult i8 %89, 26
   %or.cond4.i = select i1 %cmp25.i, i1 true, i1 %or.cond.i

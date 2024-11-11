@@ -9831,7 +9831,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit: ; pr
 143:                                              ; preds = %124
   store i32 %125, ptr %15, align 4
   store i32 10, ptr %16, align 4
-  %144 = icmp ult i32 %125, 11
+  %144 = icmp samesign ult i32 %125, 11
   br i1 %144, label %150, label %145
 
 145:                                              ; preds = %143
@@ -9923,7 +9923,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit66: ; 
 168:                                              ; preds = %155
   store i32 %157, ptr %25, align 4
   store i32 10, ptr %26, align 4
-  %169 = icmp ult i32 %157, 11
+  %169 = icmp samesign ult i32 %157, 11
   br i1 %169, label %175, label %170
 
 170:                                              ; preds = %168

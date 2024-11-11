@@ -1094,7 +1094,7 @@ if.then8:                                         ; preds = %land.lhs.true12.i44
   %19 = load i32, ptr %len.i33.le, align 4
   %add18 = add i32 %19, %18
   %conv19 = zext i32 %add18 to i64
-  %cmp20 = icmp ult i64 %add17, %conv19
+  %cmp20 = icmp samesign ult i64 %add17, %conv19
   br i1 %cmp20, label %if.then22, label %if.else33
 
 if.then22:                                        ; preds = %if.then8
@@ -1223,7 +1223,7 @@ if.then7:                                         ; preds = %land.lhs.true12.us.
   %20 = load i32, ptr %len.us.i31.le, align 4
   %add16 = add i32 %20, %19
   %conv17 = zext i32 %add16 to i64
-  %cmp18 = icmp ult i64 %add15, %conv17
+  %cmp18 = icmp samesign ult i64 %add15, %conv17
   br i1 %cmp18, label %if.then20, label %if.end31
 
 if.then20:                                        ; preds = %if.then7

@@ -27565,7 +27565,7 @@ define linkonce_odr noundef i32 @_ZN5Eigen8internal27computeFromTridiagonal_impl
 
 .preheader93:                                     ; preds = %.critedge, %33
   %.171.in = phi i64 [ %.171, %33 ], [ %.1, %.critedge ]
-  %32 = icmp ugt i64 %.171.in, 1
+  %32 = icmp samesign ugt i64 %.171.in, 1
   br i1 %32, label %33, label %.critedge2
 
 33:                                               ; preds = %.preheader93

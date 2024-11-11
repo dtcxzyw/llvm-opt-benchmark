@@ -487,7 +487,7 @@ select.unfold.i:                                  ; preds = %88, %select.unfold.
   %92 = load i32, ptr %91, align 4
   %93 = getelementptr inbounds i32, ptr %.0.i87, i64 %indvars.iv.next.i92
   store i32 %92, ptr %93, align 4
-  %94 = icmp ugt i64 %indvars.iv.i91, 1
+  %94 = icmp samesign ugt i64 %indvars.iv.i91, 1
   br i1 %94, label %select.unfold.i, label %Gia_ManTruthCopy.exit, !llvm.loop !13
 
 95:                                               ; preds = %Vec_IntFetch.exit88
@@ -501,7 +501,7 @@ select.unfold.i95:                                ; preds = %95, %select.unfold.
   %98 = load i32, ptr %97, align 4
   %99 = getelementptr inbounds i32, ptr %.0.i87, i64 %indvars.iv.next.i97
   store i32 %98, ptr %99, align 4
-  %100 = icmp ugt i64 %indvars.iv.i96, 1
+  %100 = icmp samesign ugt i64 %indvars.iv.i96, 1
   br i1 %100, label %select.unfold.i95, label %Gia_ManTruthCopy.exit, !llvm.loop !13
 
 Gia_ManTruthCopy.exit:                            ; preds = %select.unfold.i, %select.unfold.i95, %95, %88
@@ -631,7 +631,7 @@ select.unfold.i102:                               ; preds = %select.unfold.i102,
   %155 = load i32, ptr %154, align 4
   %156 = xor i32 %155, -1
   store i32 %156, ptr %154, align 4
-  %157 = icmp ugt i64 %indvars.iv.i103, 1
+  %157 = icmp samesign ugt i64 %indvars.iv.i103, 1
   br i1 %157, label %select.unfold.i102, label %Gia_ManTruthNot.exit, !llvm.loop !15
 
 Gia_ManTruthNot.exit:                             ; preds = %select.unfold.i102, %149
@@ -947,7 +947,7 @@ define noundef ptr @Gia_ManPerformBidec(ptr noundef %0, i32 noundef %1) local_un
   br label %232
 
 9:                                                ; preds = %2
-  %10 = icmp ugt i32 %5, 15
+  %10 = icmp samesign ugt i32 %5, 15
   br i1 %10, label %11, label %12
 
 11:                                               ; preds = %9

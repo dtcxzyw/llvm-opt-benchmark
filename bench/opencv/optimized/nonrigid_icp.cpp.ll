@@ -1560,7 +1560,7 @@ _ZNSt16allocator_traitsISaIfEE8allocateERS0_m.exit.i.i.i.i: ; preds = %536
 .noexc630.thread:                                 ; preds = %_ZNSt16allocator_traitsISaIfEE8allocateERS0_m.exit.i.i.i.i
   call void @llvm.memmove.p0.p0.i64(ptr nonnull align 4 %538, ptr align 4 %.sroa.01264.0.lcssa, i64 %534, i1 false)
   %539 = getelementptr inbounds i8, ptr %538, i64 %534
-  %540 = icmp ult i64 %535, 2
+  %540 = icmp samesign ult i64 %535, 2
   br i1 %540, label %.lr.ph.i.preheader, label %541
 
 541:                                              ; preds = %.noexc630.thread

@@ -84,7 +84,7 @@ define void @_ZN6opencc8UTF8Util11SkipUtf8BomEP8_IO_FILE(ptr noundef %0) local_u
   %20 = getelementptr inbounds [3 x i32], ptr %2, i64 0, i64 %indvars.iv.next27
   %21 = load i32, ptr %20, align 4
   %22 = tail call i32 @ungetc(i32 noundef %21, ptr noundef nonnull %0)
-  %23 = icmp ugt i64 %indvars.iv26, 1
+  %23 = icmp samesign ugt i64 %indvars.iv26, 1
   br i1 %23, label %.lr.ph, label %.loopexit, !llvm.loop !6
 
 .loopexit:                                        ; preds = %.lr.ph, %.critedge, %4, %1

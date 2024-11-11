@@ -13959,7 +13959,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_113YAMLConverter13convertParamsERKS
 69:                                               ; preds = %33
   %70 = add i32 %67, 1
   %71 = zext i32 %70 to i64
-  %72 = icmp ult i64 %66, %71
+  %72 = icmp samesign ult i64 %66, %71
   br i1 %72, label %73, label %75
 
 73:                                               ; preds = %69
@@ -13968,7 +13968,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_113YAMLConverter13convertParamsERKS
   br label %_ZNSt6vectorIN5clang9api_notes9ParamInfoESaIS2_EE6resizeEm.exit
 
 75:                                               ; preds = %69
-  %76 = icmp ugt i64 %66, %71
+  %76 = icmp samesign ugt i64 %66, %71
   br i1 %76, label %77, label %_ZNSt6vectorIN5clang9api_notes9ParamInfoESaIS2_EE6resizeEm.exit
 
 77:                                               ; preds = %75

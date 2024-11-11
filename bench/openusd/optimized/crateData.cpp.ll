@@ -6383,7 +6383,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7VtValueaSEOS0_.exit.i.i.i.i.i.i.i: ; preds
   %119 = getelementptr inbounds i8, ptr %.0910.i.i.i.i.i.i.i, i64 16
   %120 = getelementptr inbounds i8, ptr %.0811.i.i.i.i.i.i.i, i64 16
   %121 = add nsw i64 %.012.i.i.i.i.i.i.i, -1
-  %122 = icmp ugt i64 %.012.i.i.i.i.i.i.i, 1
+  %122 = icmp samesign ugt i64 %.012.i.i.i.i.i.i.i, 1
   br i1 %122, label %_ZN32pxrInternal_v0_24__pxrReserved__7VtValueaSEOS0_.exit.i.i.i.i.i.i.i, label %_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPN32pxrInternal_v0_24__pxrReserved__7VtValueESt6vectorIS3_SaIS3_EEEES8_ET0_T_SA_S9_.exit.loopexit.i.i, !llvm.loop !56
 
 _ZSt4moveIN9__gnu_cxx17__normal_iteratorIPN32pxrInternal_v0_24__pxrReserved__7VtValueESt6vectorIS3_SaIS3_EEEES8_ET0_T_SA_S9_.exit.loopexit.i.i: ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__7VtValueaSEOS0_.exit.i.i.i.i.i.i.i
@@ -28386,7 +28386,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7VtValueaSEOS0_.exit.i.i.i.i.i.i: ; preds =
   %34 = getelementptr inbounds i8, ptr %.069.i.i.i.i.i.i, i64 -16
   call void @_ZN32pxrInternal_v0_24__pxrReserved__7VtValue5_MoveERS0_S1_(ptr noundef nonnull align 8 dereferenceable(16) %33, ptr noundef nonnull align 8 dereferenceable(16) %34) #26
   %35 = add nsw i64 %.010.i.i.i.i.i.i, -1
-  %36 = icmp ugt i64 %.010.i.i.i.i.i.i, 1
+  %36 = icmp samesign ugt i64 %.010.i.i.i.i.i.i, 1
   br i1 %36, label %_ZN32pxrInternal_v0_24__pxrReserved__7VtValueaSEOS0_.exit.i.i.i.i.i.i, label %_ZSt13move_backwardIPN32pxrInternal_v0_24__pxrReserved__7VtValueES2_ET0_T_S4_S3_.exit.i, !llvm.loop !285
 
 _ZSt13move_backwardIPN32pxrInternal_v0_24__pxrReserved__7VtValueES2_ET0_T_S4_S3_.exit.i: ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__7VtValueaSEOS0_.exit.i.i.i.i.i.i, %19

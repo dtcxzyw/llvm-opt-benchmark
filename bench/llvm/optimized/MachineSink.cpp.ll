@@ -3230,7 +3230,7 @@ _ZN4llvm26MachineInstrBundleIteratorINS_12MachineInstrELb0EEmmEv.exit33: ; preds
 
 153:                                              ; preds = %_ZN4llvm26MachineInstrBundleIteratorINS_12MachineInstrELb0EEmmEv.exit33, %_ZN4llvm26MachineInstrBundleIteratorINS_12MachineInstrELb0EEmmEv.exit33, %_ZN4llvm26MachineInstrBundleIteratorINS_12MachineInstrELb0EEmmEv.exit33, %_ZN4llvm26MachineInstrBundleIteratorINS_12MachineInstrELb0EEmmEv.exit33, %_ZN4llvm26MachineInstrBundleIteratorINS_12MachineInstrELb0EEmmEv.exit33, %_ZN4llvm26MachineInstrBundleIteratorINS_12MachineInstrELb0EEmmEv.exit33
   %.off.i.i = add nsw i16 %152, -13
-  %spec.select.i34 = icmp ult i16 %.off.i.i, 2
+  %spec.select.i34 = icmp samesign ult i16 %.off.i.i, 2
   br i1 %spec.select.i34, label %154, label %.thread
 
 154:                                              ; preds = %153
@@ -3580,7 +3580,7 @@ _ZNK4llvm12MachineInstr12isConvergentENS0_9QueryTypeE.exit.thread48.i: ; preds =
   br i1 %321, label %334, label %_ZN12_GLOBAL__N_114MachineSinking18PerformSinkAndFoldERN4llvm12MachineInstrEPNS1_17MachineBasicBlockE.exit.thread
 
 322:                                              ; preds = %313
-  %323 = icmp ult i32 %311, 1073741824
+  %323 = icmp samesign ult i32 %311, 1073741824
   %324 = and i32 %308, 16777216
   %.not.i156.i = icmp eq i32 %324, 0
   %or.cond55.i = and i1 %.not.i156.i, %323
@@ -3791,7 +3791,7 @@ _ZN4llvm23SmallVectorTemplateBaseINS_8RegisterELb1EE9push_backES1_.exit.i: ; pre
   %428 = getelementptr inbounds i8, ptr %427, i64 160
   %429 = load ptr, ptr %428, align 8
   %430 = call noundef zeroext i1 %429(ptr noundef nonnull align 8 dereferenceable(80) %426, ptr noundef nonnull align 8 dereferenceable(70) %.sroa.0112.0) #19
-  %431 = icmp ult i32 %411, 1073741824
+  %431 = icmp samesign ult i32 %411, 1073741824
   %or.cond57.i = and i1 %431, %430
   br i1 %or.cond57.i, label %432, label %.thread.i
 
@@ -23136,7 +23136,7 @@ _ZN4llvm15SmallVectorImplISt4pairIPNS_12MachineInstrENS_11SmallVectorIjLj2EEEEE1
   %44 = getelementptr inbounds i8, ptr %.0910.i.i.i.i.i, i64 32
   %45 = getelementptr inbounds i8, ptr %.0811.i.i.i.i.i, i64 32
   %46 = add nsw i64 %.012.i.i.i.i.i, -1
-  %47 = icmp ugt i64 %.012.i.i.i.i.i, 1
+  %47 = icmp samesign ugt i64 %.012.i.i.i.i.i, 1
   br i1 %47, label %.lr.ph.i.i.i.i.i, label %_ZSt4moveIPSt4pairIPN4llvm12MachineInstrENS1_11SmallVectorIjLj2EEEES7_ET0_T_S9_S8_.exit, !llvm.loop !371
 
 _ZSt4moveIPSt4pairIPN4llvm12MachineInstrENS1_11SmallVectorIjLj2EEEES7_ET0_T_S9_S8_.exit: ; preds = %.lr.ph.i.i.i.i.i, %36, %34
@@ -23278,7 +23278,7 @@ _ZN4llvm23SmallVectorTemplateBaseISt4pairIPNS_12MachineInstrENS_11SmallVectorIjL
   %99 = getelementptr inbounds i8, ptr %.0910.i.i.i.i.i53, i64 32
   %100 = getelementptr inbounds i8, ptr %.0811.i.i.i.i.i52, i64 32
   %101 = add nsw i64 %.012.i.i.i.i.i51, -1
-  %102 = icmp ugt i64 %.012.i.i.i.i.i51, 1
+  %102 = icmp samesign ugt i64 %.012.i.i.i.i.i51, 1
   br i1 %102, label %.lr.ph.i.i.i.i.i50, label %_ZSt4moveIPSt4pairIPN4llvm12MachineInstrENS1_11SmallVectorIjLj2EEEES7_ET0_T_S9_S8_.exit54, !llvm.loop !371
 
 _ZSt4moveIPSt4pairIPN4llvm12MachineInstrENS1_11SmallVectorIjLj2EEEES7_ET0_T_S9_S8_.exit54: ; preds = %.lr.ph.i.i.i.i.i50, %91, %90, %_ZN4llvm23SmallVectorTemplateBaseISt4pairIPNS_12MachineInstrENS_11SmallVectorIjLj2EEEELb0EE4growEm.exit
@@ -23394,7 +23394,7 @@ define linkonce_odr noundef nonnull align 8 dereferenceable(16) ptr @_ZN4llvm15S
   %16 = getelementptr inbounds i8, ptr %.0910.i.i.i.i.i, i64 32
   %17 = getelementptr inbounds i8, ptr %.0811.i.i.i.i.i, i64 32
   %18 = add nsw i64 %.012.i.i.i.i.i, -1
-  %19 = icmp ugt i64 %.012.i.i.i.i.i, 1
+  %19 = icmp samesign ugt i64 %.012.i.i.i.i.i, 1
   br i1 %19, label %.lr.ph.i.i.i.i.i, label %_ZSt4copyIPKSt4pairIPN4llvm12MachineInstrENS1_11SmallVectorIjLj2EEEEPS6_ET0_T_SB_SA_.exit.loopexit, !llvm.loop !372
 
 _ZSt4copyIPKSt4pairIPN4llvm12MachineInstrENS1_11SmallVectorIjLj2EEEEPS6_ET0_T_SB_SA_.exit.loopexit: ; preds = %.lr.ph.i.i.i.i.i
@@ -23510,7 +23510,7 @@ _ZN4llvm23SmallVectorTemplateBaseISt4pairIPNS_12MachineInstrENS_11SmallVectorIjL
   %60 = getelementptr inbounds i8, ptr %.0910.i.i.i.i.i34, i64 32
   %61 = getelementptr inbounds i8, ptr %.0811.i.i.i.i.i33, i64 32
   %62 = add nsw i64 %.012.i.i.i.i.i32, -1
-  %63 = icmp ugt i64 %.012.i.i.i.i.i32, 1
+  %63 = icmp samesign ugt i64 %.012.i.i.i.i.i32, 1
   br i1 %63, label %.lr.ph.i.i.i.i.i31, label %_ZSt4copyIPKSt4pairIPN4llvm12MachineInstrENS1_11SmallVectorIjLj2EEEEPS6_ET0_T_SB_SA_.exit35, !llvm.loop !372
 
 _ZSt4copyIPKSt4pairIPN4llvm12MachineInstrENS1_11SmallVectorIjLj2EEEEPS6_ET0_T_SB_SA_.exit35: ; preds = %.lr.ph.i.i.i.i.i31, %52, %51, %_ZN4llvm23SmallVectorTemplateBaseISt4pairIPNS_12MachineInstrENS_11SmallVectorIjLj2EEEELb0EE4growEm.exit

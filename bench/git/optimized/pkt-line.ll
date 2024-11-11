@@ -1032,7 +1032,7 @@ if.then20:                                        ; preds = %if.else
   br label %return
 
 if.else21:                                        ; preds = %if.else
-  %cmp22 = icmp ult i32 %or10.i, 4
+  %cmp22 = icmp samesign ult i32 %or10.i, 4
   br i1 %cmp22, label %if.then23, label %if.end36
 
 if.then23:                                        ; preds = %if.else21

@@ -11,13 +11,13 @@ define noundef i32 @domatcopy_k_rt(i64 noundef %0, i64 noundef %1, double nounde
   br i1 %10, label %390, label %11
 
 11:                                               ; preds = %7
-  %12 = icmp ult i64 %0, 4
+  %12 = icmp samesign ult i64 %0, 4
   br i1 %12, label %.loopexit8, label %13
 
 13:                                               ; preds = %11
   %14 = lshr i64 %0, 2
   %15 = lshr i64 %1, 2
-  %16 = icmp ult i64 %1, 4
+  %16 = icmp samesign ult i64 %1, 4
   %17 = and i64 %1, 2
   %18 = icmp eq i64 %17, 0
   %19 = and i64 %1, 1
@@ -65,7 +65,7 @@ define noundef i32 @domatcopy_k_rt(i64 noundef %0, i64 noundef %1, double nounde
   %42 = getelementptr inbounds i8, ptr %26, i64 24
   store double %41, ptr %42, align 8, !tbaa !3
   %43 = add nsw i64 %24, -1
-  %44 = icmp ugt i64 %24, 1
+  %44 = icmp samesign ugt i64 %24, 1
   br i1 %44, label %.split.us.split.us.split, label %.loopexit8, !llvm.loop !7
 
 .split.us.split:                                  ; preds = %.split.us, %97
@@ -398,7 +398,7 @@ define noundef i32 @domatcopy_k_rt(i64 noundef %0, i64 noundef %1, double nounde
   %293 = getelementptr inbounds double, ptr %261, i64 %254
   %294 = getelementptr inbounds double, ptr %262, i64 %254
   %295 = add nsw i64 %256, -1
-  %296 = icmp ugt i64 %256, 1
+  %296 = icmp samesign ugt i64 %256, 1
   br i1 %296, label %255, label %.loopexit6, !llvm.loop !11
 
 .loopexit6:                                       ; preds = %255, %244
@@ -498,7 +498,7 @@ define noundef i32 @domatcopy_k_rt(i64 noundef %0, i64 noundef %1, double nounde
   %365 = getelementptr inbounds double, ptr %349, i64 %343
   %366 = getelementptr inbounds double, ptr %350, i64 %343
   %367 = add nsw i64 %345, -1
-  %368 = icmp ugt i64 %345, 1
+  %368 = icmp samesign ugt i64 %345, 1
   br i1 %368, label %344, label %.loopexit, !llvm.loop !12
 
 .loopexit:                                        ; preds = %344, %336

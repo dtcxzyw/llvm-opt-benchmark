@@ -3049,7 +3049,7 @@ Vec_IntStartFull.exit:                            ; preds = %Vec_IntAlloc.exit.t
 
 94:                                               ; preds = %83, %77, %89
   %.4 = phi i32 [ %.3320, %77 ], [ %91, %89 ], [ %.3320, %83 ]
-  %95 = icmp ugt i64 %indvars.iv346, 1
+  %95 = icmp samesign ugt i64 %indvars.iv346, 1
   br i1 %95, label %77, label %.critedge4.preheader, !llvm.loop !30
 
 .critedge4:                                       ; preds = %.lr.ph327, %.critedge4

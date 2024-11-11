@@ -108,7 +108,7 @@ define nonnull ptr @_sfcvt(ptr nocapture noundef readonly %0, i32 noundef %1, pt
   br label %77
 
 49:                                               ; preds = %42
-  %50 = icmp ult i64 %39, 3000
+  %50 = icmp samesign ult i64 %39, 3000
   br i1 %50, label %51, label %53
 
 51:                                               ; preds = %49
@@ -117,7 +117,7 @@ define nonnull ptr @_sfcvt(ptr nocapture noundef readonly %0, i32 noundef %1, pt
   br label %77
 
 53:                                               ; preds = %49
-  %54 = icmp ult i64 %39, 4000
+  %54 = icmp samesign ult i64 %39, 4000
   br i1 %54, label %55, label %57
 
 55:                                               ; preds = %53
@@ -131,11 +131,11 @@ define nonnull ptr @_sfcvt(ptr nocapture noundef readonly %0, i32 noundef %1, pt
   br label %77
 
 59:                                               ; preds = %.lr.ph
-  %60 = icmp ult i64 %39, 7000
+  %60 = icmp samesign ult i64 %39, 7000
   br i1 %60, label %61, label %67
 
 61:                                               ; preds = %59
-  %62 = icmp ult i64 %39, 6000
+  %62 = icmp samesign ult i64 %39, 6000
   br i1 %62, label %63, label %65
 
 63:                                               ; preds = %61
@@ -149,7 +149,7 @@ define nonnull ptr @_sfcvt(ptr nocapture noundef readonly %0, i32 noundef %1, pt
   br label %77
 
 67:                                               ; preds = %59
-  %68 = icmp ult i64 %39, 8000
+  %68 = icmp samesign ult i64 %39, 8000
   br i1 %68, label %69, label %71
 
 69:                                               ; preds = %67
@@ -158,7 +158,7 @@ define nonnull ptr @_sfcvt(ptr nocapture noundef readonly %0, i32 noundef %1, pt
   br label %77
 
 71:                                               ; preds = %67
-  %72 = icmp ult i64 %39, 9000
+  %72 = icmp samesign ult i64 %39, 9000
   br i1 %72, label %73, label %75
 
 73:                                               ; preds = %71
@@ -195,7 +195,7 @@ define nonnull ptr @_sfcvt(ptr nocapture noundef readonly %0, i32 noundef %1, pt
   br label %120
 
 87:                                               ; preds = %79
-  %88 = icmp ult i64 %.3275, 300
+  %88 = icmp samesign ult i64 %.3275, 300
   br i1 %88, label %89, label %92
 
 89:                                               ; preds = %87
@@ -205,7 +205,7 @@ define nonnull ptr @_sfcvt(ptr nocapture noundef readonly %0, i32 noundef %1, pt
   br label %120
 
 92:                                               ; preds = %87
-  %93 = icmp ult i64 %.3275, 400
+  %93 = icmp samesign ult i64 %.3275, 400
   %94 = getelementptr inbounds i8, ptr %.0252302, i64 -3
   br i1 %93, label %95, label %97
 
@@ -220,11 +220,11 @@ define nonnull ptr @_sfcvt(ptr nocapture noundef readonly %0, i32 noundef %1, pt
   br label %120
 
 99:                                               ; preds = %77
-  %100 = icmp ult i64 %.3275, 700
+  %100 = icmp samesign ult i64 %.3275, 700
   br i1 %100, label %101, label %108
 
 101:                                              ; preds = %99
-  %102 = icmp ult i64 %.3275, 600
+  %102 = icmp samesign ult i64 %.3275, 600
   %103 = getelementptr inbounds i8, ptr %.0252302, i64 -3
   br i1 %102, label %104, label %106
 
@@ -239,7 +239,7 @@ define nonnull ptr @_sfcvt(ptr nocapture noundef readonly %0, i32 noundef %1, pt
   br label %120
 
 108:                                              ; preds = %99
-  %109 = icmp ult i64 %.3275, 800
+  %109 = icmp samesign ult i64 %.3275, 800
   br i1 %109, label %110, label %113
 
 110:                                              ; preds = %108
@@ -249,7 +249,7 @@ define nonnull ptr @_sfcvt(ptr nocapture noundef readonly %0, i32 noundef %1, pt
   br label %120
 
 113:                                              ; preds = %108
-  %114 = icmp ult i64 %.3275, 900
+  %114 = icmp samesign ult i64 %.3275, 900
   %115 = getelementptr inbounds i8, ptr %.0252302, i64 -3
   br i1 %114, label %116, label %118
 
@@ -280,11 +280,11 @@ define nonnull ptr @_sfcvt(ptr nocapture noundef readonly %0, i32 noundef %1, pt
 ._crit_edge:                                      ; preds = %120, %33
   %.2268.lcssa = phi i64 [ %34, %33 ], [ %38, %120 ]
   %.0252.lcssa = phi ptr [ getelementptr inbounds (i8, ptr @_sfcvt.Buf, i64 512), %33 ], [ %40, %120 ]
-  %129 = icmp ult i64 %.2268.lcssa, 100
+  %129 = icmp samesign ult i64 %.2268.lcssa, 100
   br i1 %129, label %130, label %144
 
 130:                                              ; preds = %._crit_edge
-  %131 = icmp ult i64 %.2268.lcssa, 10
+  %131 = icmp samesign ult i64 %.2268.lcssa, 10
   br i1 %131, label %132, label %136
 
 132:                                              ; preds = %130
@@ -307,44 +307,44 @@ define nonnull ptr @_sfcvt(ptr nocapture noundef readonly %0, i32 noundef %1, pt
   br label %241
 
 144:                                              ; preds = %._crit_edge
-  %145 = icmp ult i64 %.2268.lcssa, 1000
+  %145 = icmp samesign ult i64 %.2268.lcssa, 1000
   br i1 %145, label %146, label %172
 
 146:                                              ; preds = %144
   %147 = getelementptr inbounds i8, ptr %.0252.lcssa, i64 -3
-  %148 = icmp ult i64 %.2268.lcssa, 500
+  %148 = icmp samesign ult i64 %.2268.lcssa, 500
   br i1 %148, label %149, label %155
 
 149:                                              ; preds = %146
-  %150 = icmp ult i64 %.2268.lcssa, 200
+  %150 = icmp samesign ult i64 %.2268.lcssa, 200
   br i1 %150, label %163, label %151
 
 151:                                              ; preds = %149
-  %152 = icmp ult i64 %.2268.lcssa, 300
+  %152 = icmp samesign ult i64 %.2268.lcssa, 300
   br i1 %152, label %163, label %153
 
 153:                                              ; preds = %151
-  %154 = icmp ult i64 %.2268.lcssa, 400
+  %154 = icmp samesign ult i64 %.2268.lcssa, 400
   %. = select i1 %154, i8 51, i8 52
   %.349 = select i1 %154, i64 -300, i64 -400
   br label %163
 
 155:                                              ; preds = %146
-  %156 = icmp ult i64 %.2268.lcssa, 700
+  %156 = icmp samesign ult i64 %.2268.lcssa, 700
   br i1 %156, label %157, label %159
 
 157:                                              ; preds = %155
-  %158 = icmp ult i64 %.2268.lcssa, 600
+  %158 = icmp samesign ult i64 %.2268.lcssa, 600
   %.350 = select i1 %158, i8 53, i8 54
   %.351 = select i1 %158, i64 -500, i64 -600
   br label %163
 
 159:                                              ; preds = %155
-  %160 = icmp ult i64 %.2268.lcssa, 800
+  %160 = icmp samesign ult i64 %.2268.lcssa, 800
   br i1 %160, label %163, label %161
 
 161:                                              ; preds = %159
-  %162 = icmp ult i64 %.2268.lcssa, 900
+  %162 = icmp samesign ult i64 %.2268.lcssa, 900
   %.352 = select i1 %162, i8 56, i8 57
   %.353 = select i1 %162, i64 -800, i64 -900
   br label %163
@@ -367,39 +367,39 @@ define nonnull ptr @_sfcvt(ptr nocapture noundef readonly %0, i32 noundef %1, pt
 
 172:                                              ; preds = %144
   %173 = getelementptr inbounds i8, ptr %.0252.lcssa, i64 -4
-  %174 = icmp ult i64 %.2268.lcssa, 5000
+  %174 = icmp samesign ult i64 %.2268.lcssa, 5000
   br i1 %174, label %175, label %181
 
 175:                                              ; preds = %172
-  %176 = icmp ult i64 %.2268.lcssa, 2000
+  %176 = icmp samesign ult i64 %.2268.lcssa, 2000
   br i1 %176, label %189, label %177
 
 177:                                              ; preds = %175
-  %178 = icmp ult i64 %.2268.lcssa, 3000
+  %178 = icmp samesign ult i64 %.2268.lcssa, 3000
   br i1 %178, label %189, label %179
 
 179:                                              ; preds = %177
-  %180 = icmp ult i64 %.2268.lcssa, 4000
+  %180 = icmp samesign ult i64 %.2268.lcssa, 4000
   %.354 = select i1 %180, i8 51, i8 52
   %.355 = select i1 %180, i64 -3000, i64 -4000
   br label %189
 
 181:                                              ; preds = %172
-  %182 = icmp ult i64 %.2268.lcssa, 7000
+  %182 = icmp samesign ult i64 %.2268.lcssa, 7000
   br i1 %182, label %183, label %185
 
 183:                                              ; preds = %181
-  %184 = icmp ult i64 %.2268.lcssa, 6000
+  %184 = icmp samesign ult i64 %.2268.lcssa, 6000
   %.356 = select i1 %184, i8 53, i8 54
   %.357 = select i1 %184, i64 -5000, i64 -6000
   br label %189
 
 185:                                              ; preds = %181
-  %186 = icmp ult i64 %.2268.lcssa, 8000
+  %186 = icmp samesign ult i64 %.2268.lcssa, 8000
   br i1 %186, label %189, label %187
 
 187:                                              ; preds = %185
-  %188 = icmp ult i64 %.2268.lcssa, 9000
+  %188 = icmp samesign ult i64 %.2268.lcssa, 9000
   %.358 = select i1 %188, i8 56, i8 57
   %.359 = select i1 %188, i64 -8000, i64 -9000
   br label %189
@@ -409,15 +409,15 @@ define nonnull ptr @_sfcvt(ptr nocapture noundef readonly %0, i32 noundef %1, pt
   %.sink346 = phi i64 [ -1000, %175 ], [ -2000, %177 ], [ %.355, %179 ], [ %.357, %183 ], [ -7000, %185 ], [ %.359, %187 ]
   store i8 %.sink347, ptr %173, align 1
   %190 = add nsw i64 %.2268.lcssa, %.sink346
-  %191 = icmp ult i64 %190, 500
+  %191 = icmp samesign ult i64 %190, 500
   br i1 %191, label %192, label %212
 
 192:                                              ; preds = %189
-  %193 = icmp ult i64 %190, 200
+  %193 = icmp samesign ult i64 %190, 200
   br i1 %193, label %194, label %200
 
 194:                                              ; preds = %192
-  %195 = icmp ult i64 %190, 100
+  %195 = icmp samesign ult i64 %190, 100
   %196 = getelementptr inbounds i8, ptr %.0252.lcssa, i64 -3
   br i1 %195, label %197, label %198
 
@@ -431,7 +431,7 @@ define nonnull ptr @_sfcvt(ptr nocapture noundef readonly %0, i32 noundef %1, pt
   br label %233
 
 200:                                              ; preds = %192
-  %201 = icmp ult i64 %190, 300
+  %201 = icmp samesign ult i64 %190, 300
   br i1 %201, label %202, label %205
 
 202:                                              ; preds = %200
@@ -441,7 +441,7 @@ define nonnull ptr @_sfcvt(ptr nocapture noundef readonly %0, i32 noundef %1, pt
   br label %233
 
 205:                                              ; preds = %200
-  %206 = icmp ult i64 %190, 400
+  %206 = icmp samesign ult i64 %190, 400
   %207 = getelementptr inbounds i8, ptr %.0252.lcssa, i64 -3
   br i1 %206, label %208, label %210
 
@@ -456,11 +456,11 @@ define nonnull ptr @_sfcvt(ptr nocapture noundef readonly %0, i32 noundef %1, pt
   br label %233
 
 212:                                              ; preds = %189
-  %213 = icmp ult i64 %190, 700
+  %213 = icmp samesign ult i64 %190, 700
   br i1 %213, label %214, label %221
 
 214:                                              ; preds = %212
-  %215 = icmp ult i64 %190, 600
+  %215 = icmp samesign ult i64 %190, 600
   %216 = getelementptr inbounds i8, ptr %.0252.lcssa, i64 -3
   br i1 %215, label %217, label %219
 
@@ -475,7 +475,7 @@ define nonnull ptr @_sfcvt(ptr nocapture noundef readonly %0, i32 noundef %1, pt
   br label %233
 
 221:                                              ; preds = %212
-  %222 = icmp ult i64 %190, 800
+  %222 = icmp samesign ult i64 %190, 800
   br i1 %222, label %223, label %226
 
 223:                                              ; preds = %221
@@ -485,7 +485,7 @@ define nonnull ptr @_sfcvt(ptr nocapture noundef readonly %0, i32 noundef %1, pt
   br label %233
 
 226:                                              ; preds = %221
-  %227 = icmp ult i64 %190, 900
+  %227 = icmp samesign ult i64 %190, 900
   %228 = getelementptr inbounds i8, ptr %.0252.lcssa, i64 -3
   br i1 %227, label %229, label %231
 

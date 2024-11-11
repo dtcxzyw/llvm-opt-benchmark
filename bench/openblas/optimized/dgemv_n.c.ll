@@ -25,7 +25,7 @@ define noundef i32 @dgemv_n(i64 noundef %0, i64 noundef %1, i64 noundef %2, doub
   %25 = icmp ne i64 %23, %21
   %26 = icmp eq i64 %9, 1
   %27 = icmp eq i64 %7, 1
-  %28 = icmp ult i64 %1, 4
+  %28 = icmp samesign ult i64 %1, 4
   %29 = getelementptr inbounds i8, ptr %13, i64 8
   %30 = getelementptr inbounds i8, ptr %13, i64 16
   %31 = getelementptr inbounds i8, ptr %13, i64 24

@@ -606,7 +606,7 @@ cleanup.action108:                                ; preds = %ehcleanup105, %_ZNK
   br label %ehcleanup126
 
 if.end111:                                        ; preds = %if.end87
-  %cmp112 = icmp ugt i32 %and64, 1114111
+  %cmp112 = icmp samesign ugt i32 %and64, 1114111
   br i1 %cmp112, label %if.then113, label %if.end122
 
 if.then113:                                       ; preds = %if.end111

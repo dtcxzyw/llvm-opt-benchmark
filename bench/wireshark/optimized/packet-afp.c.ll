@@ -2443,7 +2443,7 @@ define internal i32 @dissect_afp_server_status(ptr noundef %0, ptr nocapture nou
   %62 = tail call zeroext i16 @tvb_get_ntohs(ptr noundef %0, i32 noundef 0) #7
   %63 = zext i16 %62 to i32
   %.not295 = icmp eq i16 %62, 0
-  %.not296 = icmp ugt i32 %.6, %63
+  %.not296 = icmp samesign ugt i32 %.6, %63
   %or.cond = select i1 %.not295, i1 true, i1 %.not296
   br i1 %or.cond, label %67, label %64
 
@@ -2456,7 +2456,7 @@ define internal i32 @dissect_afp_server_status(ptr noundef %0, ptr nocapture nou
   %68 = tail call zeroext i16 @tvb_get_ntohs(ptr noundef %0, i32 noundef 2) #7
   %69 = zext i16 %68 to i32
   %.not297 = icmp eq i16 %68, 0
-  %.not298 = icmp ugt i32 %.6, %69
+  %.not298 = icmp samesign ugt i32 %.6, %69
   %or.cond310 = select i1 %.not297, i1 true, i1 %.not298
   br i1 %or.cond310, label %.loopexit319, label %70
 
@@ -6655,7 +6655,7 @@ spotlight_CNID_array.exit:                        ; preds = %.lr.ph.i261, %188, 
   br i1 %211, label %spotlight_date.exit.thread, label %.preheader.i
 
 .preheader.i:                                     ; preds = %207
-  %.not.i264 = icmp ult i64 %208, 4294967296
+  %.not.i264 = icmp samesign ult i64 %208, 4294967296
   br i1 %.not.i264, label %spotlight_date.exit, label %.lr.ph.i265
 
 spotlight_date.exit.thread:                       ; preds = %207

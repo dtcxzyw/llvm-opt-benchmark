@@ -129,7 +129,7 @@ getJavaPath.exit52:                               ; preds = %16
   store ptr %3, ptr %35, align 8
   %45 = getelementptr inbounds i8, ptr %35, i64 8
   store ptr @.str.5, ptr %45, align 8
-  %46 = icmp ugt i32 %0, 1
+  %46 = icmp samesign ugt i32 %0, 1
   br i1 %46, label %47, label %70
 
 47:                                               ; preds = %44
@@ -184,7 +184,7 @@ getJavaPath.exit52:                               ; preds = %16
 70:                                               ; preds = %68, %44
   %.037 = phi i32 [ 3, %68 ], [ 2, %44 ]
   %.036 = phi i32 [ 2, %68 ], [ 1, %44 ]
-  %71 = icmp ult i32 %.036, %0
+  %71 = icmp samesign ult i32 %.036, %0
   %72 = zext nneg i32 %.037 to i64
   br i1 %71, label %.lr.ph.preheader, label %._crit_edge
 
@@ -329,7 +329,7 @@ define hidden noundef ptr @isJar(ptr nocapture noundef readonly %0) local_unname
   %29 = zext i16 %28 to i64
   %30 = add nuw nsw i64 %26, 30
   %31 = add nuw nsw i64 %30, %29
-  %.not26 = icmp ugt i64 %31, %6
+  %.not26 = icmp samesign ugt i64 %31, %6
   br i1 %.not26, label %.loopexit, label %32
 
 32:                                               ; preds = %23

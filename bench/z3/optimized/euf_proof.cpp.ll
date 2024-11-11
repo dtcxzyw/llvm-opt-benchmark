@@ -3205,7 +3205,7 @@ for.body.i.i.i.i.i.i.i.i.i:                       ; preds = %for.body.i.i.i.i.i.
   %frombool.i.i.i.i.i.i.i.i.i.i.i.i.i.i = and i8 %49, 1
   store i8 %frombool.i.i.i.i.i.i.i.i.i.i.i.i.i.i, ptr %incdec.ptr1.i.i.i.i.i.i.i.i.i, align 1
   %dec.i.i.i.i.i.i.i.i.i = add nsw i64 %__n.07.i.i.i.i.i.i.i.i.i, -1
-  %cmp.i.i.i.i.i.i.i.i.i = icmp ugt i64 %__n.07.i.i.i.i.i.i.i.i.i, 1
+  %cmp.i.i.i.i.i.i.i.i.i = icmp samesign ugt i64 %__n.07.i.i.i.i.i.i.i.i.i, 1
   br i1 %cmp.i.i.i.i.i.i.i.i.i, label %for.body.i.i.i.i.i.i.i.i.i, label %_ZSt13move_backwardIPSt5tupleIJP3appS2_mbEES4_ET0_T_S6_S5_.exit.i.i.i.i, !llvm.loop !21
 
 _ZSt13move_backwardIPSt5tupleIJP3appS2_mbEES4_ET0_T_S6_S5_.exit.i.i.i.i: ; preds = %for.body.i.i.i.i.i.i.i.i.i
@@ -3381,7 +3381,7 @@ for.body.i.i.i.i.i.i75.i.i.i:                     ; preds = %for.body.i.i.i.i.i.
   %frombool.i.i.i.i.i.i.i.i.i.i.i87.i.i.i = and i8 %80, 1
   store i8 %frombool.i.i.i.i.i.i.i.i.i.i.i87.i.i.i, ptr %incdec.ptr1.i.i.i.i.i.i80.i.i.i, align 1
   %dec.i.i.i.i.i.i88.i.i.i = add nsw i64 %__n.07.i.i.i.i.i.i76.i.i.i, -1
-  %cmp.i.i.i.i.i.i89.i.i.i = icmp ugt i64 %__n.07.i.i.i.i.i.i76.i.i.i, 1
+  %cmp.i.i.i.i.i.i89.i.i.i = icmp samesign ugt i64 %__n.07.i.i.i.i.i.i76.i.i.i, 1
   br i1 %cmp.i.i.i.i.i.i89.i.i.i, label %for.body.i.i.i.i.i.i75.i.i.i, label %_ZSt13move_backwardIPSt5tupleIJP3appS2_mbEES4_ET0_T_S6_S5_.exit.i72.i.i.i, !llvm.loop !21
 
 _ZSt13move_backwardIPSt5tupleIJP3appS2_mbEES4_ET0_T_S6_S5_.exit.i72.i.i.i: ; preds = %for.body.i.i.i.i.i.i75.i.i.i, %if.then2.i66.i.i.i

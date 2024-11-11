@@ -2390,7 +2390,7 @@ define internal void @dis_msg_submit(ptr noundef %0, ptr noundef %1, ptr noundef
   br label %.sink.split.i
 
 110:                                              ; preds = %94
-  %111 = icmp ult i8 %95, -88
+  %111 = icmp samesign ult i8 %95, -88
   br i1 %111, label %112, label %120
 
 112:                                              ; preds = %110
@@ -2404,7 +2404,7 @@ define internal void @dis_msg_submit(ptr noundef %0, ptr noundef %1, ptr noundef
   br label %.sink.split.i
 
 120:                                              ; preds = %110
-  %121 = icmp ult i8 %95, -59
+  %121 = icmp samesign ult i8 %95, -59
   %122 = load i32, ptr @hf_gsm_sms_vp_validity_period, align 4
   br i1 %121, label %123, label %126
 

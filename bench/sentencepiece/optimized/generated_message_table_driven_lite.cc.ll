@@ -52,7 +52,7 @@ define noundef zeroext i1 @_ZN6google8protobuf8internal31MergePartialFromCodedSt
   br label %_ZN6google8protobuf8internal31MergePartialFromCodedStreamImplINS1_12_GLOBAL__N_123UnknownFieldHandlerLiteEEEbPNS0_11MessageLiteERKNS1_10ParseTableEPNS0_2io16CodedInputStreamE.exit
 
 9:                                                ; preds = %3
-  %10 = icmp ult i32 %5, 2048
+  %10 = icmp samesign ult i32 %5, 2048
   br i1 %10, label %11, label %13
 
 11:                                               ; preds = %9

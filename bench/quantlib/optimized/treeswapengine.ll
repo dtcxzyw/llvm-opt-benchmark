@@ -3240,7 +3240,7 @@ if.then.i.i55:                                    ; preds = %if.then.i.i.i.i.i.i
           to label %.noexc unwind label %lpad45
 
 .noexc:                                           ; preds = %if.then.i.i55
-  %cmp.i1.i.i = icmp ugt i64 %sub.ptr.sub.i.i.i.i.i, 128
+  %cmp.i1.i.i = icmp samesign ugt i64 %sub.ptr.sub.i.i.i.i.i, 128
   %scevgep.i.i.i = getelementptr i8, ptr %call5.i.i.i.i1.i, i64 8
   br i1 %cmp.i1.i.i, label %for.body.i.i.i.i, label %if.else.i.i.i
 

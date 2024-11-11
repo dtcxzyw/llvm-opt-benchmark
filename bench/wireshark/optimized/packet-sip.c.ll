@@ -2197,7 +2197,7 @@ define internal i32 @dissect_sip_tcp(ptr noundef %0, ptr noundef %1, ptr noundef
 .lr.ph:                                           ; preds = %27, %42
   %.057 = phi i32 [ %44, %42 ], [ %30, %27 ]
   %.04956 = phi i32 [ %43, %42 ], [ %28, %27 ]
-  %32 = icmp ult i32 %.057, 1500
+  %32 = icmp samesign ult i32 %.057, 1500
   br i1 %32, label %33, label %39
 
 33:                                               ; preds = %.lr.ph

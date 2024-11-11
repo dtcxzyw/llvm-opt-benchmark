@@ -3734,10 +3734,10 @@ _ZNSt6vectorISt10unique_ptrIN12_GLOBAL__N_111IfConverter10IfcvtTokenESt14default
 1431:                                             ; preds = %1420, %1420, %1420, %1420
   %1432 = icmp eq i32 %1408, 5
   %1433 = add nsw i32 %1408, -3
-  %1434 = icmp ugt i32 %1433, 1
+  %1434 = icmp samesign ugt i32 %1433, 1
   %1435 = load i8, ptr getelementptr inbounds (i8, ptr @_ZL15DisableTriangle, i64 128), align 8
   %1436 = trunc i8 %1435 to i1
-  %switch95 = icmp ugt i32 %1433, 2
+  %switch95 = icmp samesign ugt i32 %1433, 2
   %or.cond.not = select i1 %1436, i1 %switch95, i1 false
   br i1 %or.cond.not, label %.thread211, label %1437
 

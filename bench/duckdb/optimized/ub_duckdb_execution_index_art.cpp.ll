@@ -7843,7 +7843,7 @@ while.end.i.i260.thread:                          ; preds = %invoke.cont6.i
   br label %if.else.i.i263
 
 while.end.i.i260:                                 ; preds = %invoke.cont6.i
-  %cmp9.i.i262 = icmp ugt i8 %50, 9
+  %cmp9.i.i262 = icmp samesign ugt i8 %50, 9
   br i1 %cmp9.i.i262, label %if.then.i.i266, label %if.else.i.i263
 
 if.then.i.i266:                                   ; preds = %while.end.i.i260
@@ -9084,7 +9084,7 @@ while.end.i.i227.thread:                          ; preds = %invoke.cont6.i
   br label %if.else.i.i230
 
 while.end.i.i227:                                 ; preds = %invoke.cont6.i
-  %cmp9.i.i229 = icmp ugt i8 %52, 9
+  %cmp9.i.i229 = icmp samesign ugt i8 %52, 9
   br i1 %cmp9.i.i229, label %if.then.i.i233, label %if.else.i.i230
 
 if.then.i.i233:                                   ; preds = %while.end.i.i227
@@ -10033,7 +10033,7 @@ while.end.i.i.thread:                             ; preds = %invoke.cont6.i
   br label %if.else.i.i
 
 while.end.i.i:                                    ; preds = %invoke.cont6.i
-  %cmp9.i.i = icmp ugt i8 %24, 9
+  %cmp9.i.i = icmp samesign ugt i8 %24, 9
   br i1 %cmp9.i.i, label %if.then.i.i86, label %if.else.i.i
 
 if.then.i.i86:                                    ; preds = %while.end.i.i
@@ -12201,7 +12201,7 @@ if.then8:                                         ; preds = %if.end
   %call9 = tail call noundef nonnull align 8 dereferenceable(24) ptr @_ZN6duckdb6Prefix3NewERNS_3ARTERNS_4NodeE(ptr noundef nonnull align 8 dereferenceable(401) %art, ptr noundef nonnull align 8 dereferenceable(8) %child_node)
   %18 = load i8, ptr %arrayidx, align 1, !tbaa !14
   %conv1385 = zext i8 %18 to i64
-  %cmp1486 = icmp ult i64 %add, %conv1385
+  %cmp1486 = icmp samesign ult i64 %add, %conv1385
   br i1 %cmp1486, label %for.body.preheader, label %for.cond.cleanup
 
 for.body.preheader:                               ; preds = %if.then8
@@ -12246,7 +12246,7 @@ _ZN6duckdb6Prefix6AppendERNS_3ARTEh.exit:         ; preds = %if.then.i, %for.bod
   %inc = add nuw nsw i64 %i.088, 1
   %24 = load i8, ptr %arrayidx, align 1, !tbaa !14
   %conv13 = zext i8 %24 to i64
-  %cmp14 = icmp ult i64 %inc, %conv13
+  %cmp14 = icmp samesign ult i64 %inc, %conv13
   br i1 %cmp14, label %for.body, label %for.cond.cleanup, !llvm.loop !184
 
 if.then23:                                        ; preds = %for.cond.cleanup

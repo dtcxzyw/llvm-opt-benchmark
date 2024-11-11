@@ -446,7 +446,7 @@ _ZNSt6vectorIiSaIiEE6insertIN9__gnu_cxx17__normal_iteratorIPiS1_EEvEES6_NS4_IPKi
   %179 = srem i32 %.fr53.us.i, 929
   %180 = sub nsw i32 929, %179
   %.urem.us.i = sub nsw i32 0, %179
-  %.cmp.us.i = icmp ult i32 %180, 929
+  %.cmp.us.i = icmp samesign ult i32 %180, 929
   %181 = select i1 %.cmp.us.i, i32 %180, i32 %.urem.us.i
   store i32 %181, ptr %144, align 4
   %indvars.iv.next61.i = add nuw nsw i64 %indvars.iv60.i, 1
@@ -1386,15 +1386,15 @@ define noundef range(i32 2, 7) i32 @_ZN5ZXing6Pdf4177Encoder41GetRecommendedMini
   br i1 %2, label %9, label %3
 
 3:                                                ; preds = %1
-  %4 = icmp ult i32 %0, 161
+  %4 = icmp samesign ult i32 %0, 161
   br i1 %4, label %9, label %5
 
 5:                                                ; preds = %3
-  %6 = icmp ult i32 %0, 321
+  %6 = icmp samesign ult i32 %0, 321
   br i1 %6, label %9, label %7
 
 7:                                                ; preds = %5
-  %8 = icmp ult i32 %0, 864
+  %8 = icmp samesign ult i32 %0, 864
   %. = select i1 %8, i32 5, i32 6
   br label %9
 
@@ -1484,7 +1484,7 @@ _ZSt13move_backwardIPiS0_ET0_T_S2_S1_.exit:       ; preds = %_ZSt22__uninitializ
   store i32 %38, ptr %.045.i.i.i.i.i, align 4
   %39 = getelementptr inbounds i8, ptr %.045.i.i.i.i.i, i64 4
   %40 = add nsw i64 %.06.i.i.i.i.i, -1
-  %41 = icmp ugt i64 %.06.i.i.i.i.i, 1
+  %41 = icmp samesign ugt i64 %.06.i.i.i.i.i, 1
   br i1 %41, label %.lr.ph.i.i.i.i.i, label %_ZSt4copyISt16reverse_iteratorIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEES7_ET0_T_SA_S9_.exit, !llvm.loop !18
 
 _ZSt7advanceISt16reverse_iteratorIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEEmEvRT_T0_.exit: ; preds = %17
@@ -1505,7 +1505,7 @@ _ZSt7advanceISt16reverse_iteratorIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSa
   store i32 %49, ptr %.045.i.i.i.i.i.i.i.i, align 4
   %50 = getelementptr inbounds i8, ptr %.045.i.i.i.i.i.i.i.i, i64 4
   %51 = add nsw i64 %.06.i.i.i.i.i.i.i.i, -1
-  %52 = icmp ugt i64 %.06.i.i.i.i.i.i.i.i, 1
+  %52 = icmp samesign ugt i64 %.06.i.i.i.i.i.i.i.i, 1
   br i1 %52, label %.lr.ph.i.i.i.i.i.i.i.i, label %_ZSt22__uninitialized_copy_aISt16reverse_iteratorIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEES3_iET0_T_SA_S9_RSaIT1_E.exit.loopexit, !llvm.loop !18
 
 _ZSt22__uninitialized_copy_aISt16reverse_iteratorIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEES3_iET0_T_SA_S9_RSaIT1_E.exit.loopexit: ; preds = %.lr.ph.i.i.i.i.i.i.i.i
@@ -1548,7 +1548,7 @@ _ZSt22__uninitialized_move_aIPiS0_SaIiEET0_T_S3_S2_RT1_.exit42: ; preds = %_ZSt2
   store i32 %65, ptr %.045.i.i.i.i.i48, align 4
   %66 = getelementptr inbounds i8, ptr %.045.i.i.i.i.i48, i64 4
   %67 = add nsw i64 %.06.i.i.i.i.i47, -1
-  %68 = icmp ugt i64 %.06.i.i.i.i.i47, 1
+  %68 = icmp samesign ugt i64 %.06.i.i.i.i.i47, 1
   br i1 %68, label %.lr.ph.i.i.i.i.i45, label %_ZSt4copyISt16reverse_iteratorIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEES7_ET0_T_SA_S9_.exit, !llvm.loop !18
 
 69:                                               ; preds = %6
@@ -1602,7 +1602,7 @@ _ZNSt12_Vector_baseIiSaIiEE11_M_allocateEm.exit:  ; preds = %_ZNKSt6vectorIiSaIi
   store i32 %90, ptr %.045.i.i.i.i.i.i.i.i56, align 4
   %91 = getelementptr inbounds i8, ptr %.045.i.i.i.i.i.i.i.i56, i64 4
   %92 = add nsw i64 %.06.i.i.i.i.i.i.i.i55, -1
-  %93 = icmp ugt i64 %.06.i.i.i.i.i.i.i.i55, 1
+  %93 = icmp samesign ugt i64 %.06.i.i.i.i.i.i.i.i55, 1
   br i1 %93, label %.lr.ph.i.i.i.i.i.i.i.i53, label %_ZSt22__uninitialized_copy_aISt16reverse_iteratorIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEES3_iET0_T_SA_S9_RSaIT1_E.exit57, !llvm.loop !18
 
 _ZSt22__uninitialized_copy_aISt16reverse_iteratorIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEES3_iET0_T_SA_S9_RSaIT1_E.exit57: ; preds = %.lr.ph.i.i.i.i.i.i.i.i53

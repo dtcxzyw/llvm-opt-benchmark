@@ -6645,7 +6645,7 @@ define dso_local noundef zeroext i1 @_ZN8tinygltf13DecodeDataURIEPSt6vectorIhSaI
   %146 = getelementptr inbounds i8, ptr %.0910.i.i.i.i.i, i64 1
   %147 = getelementptr inbounds i8, ptr %.0811.i.i.i.i.i, i64 1
   %148 = add nsw i64 %.012.i.i.i.i.i, -1
-  %149 = icmp ugt i64 %.012.i.i.i.i.i, 1
+  %149 = icmp samesign ugt i64 %.012.i.i.i.i.i, 1
   br i1 %149, label %.lr.ph.i.i.i.i.i, label %_ZSt4copyIN9__gnu_cxx17__normal_iteratorIPcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEENS1_IPhSt6vectorIhSaIhEEEEET0_T_SG_SF_.exit, !llvm.loop !43
 
 _ZSt4copyIN9__gnu_cxx17__normal_iteratorIPcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEENS1_IPhSt6vectorIhSaIhEEEEET0_T_SG_SF_.exit: ; preds = %.lr.ph.i.i.i.i.i, %137, %135, %131
@@ -44158,7 +44158,7 @@ _ZSt14__copy_move_a2ILb0EPKN8tinygltf5ValueEPS1_ET1_T0_S6_S5_.exit: ; preds = %_
   %76 = getelementptr inbounds i8, ptr %.09.i.i2634, i64 152
   %77 = getelementptr inbounds i8, ptr %.08.i.i2735, i64 152
   %78 = add nsw i64 %.0.i.i2836, -1
-  %79 = icmp ugt i64 %.0.i.i2836, 1
+  %79 = icmp samesign ugt i64 %.0.i.i2836, 1
   br i1 %79, label %.lr.ph37, label %_ZSt14__copy_move_a2ILb0EPN8tinygltf5ValueES2_ET1_T0_S4_S3_.exit.loopexit, !llvm.loop !1104
 
 _ZSt14__copy_move_a2ILb0EPN8tinygltf5ValueES2_ET1_T0_S4_S3_.exit.loopexit: ; preds = %.lr.ph37
@@ -65187,35 +65187,35 @@ define linkonce_odr dso_local void @_ZN8nlohmann6detail9dtoa_impl16grisu2_digit_
   br i1 %21, label %_ZN8nlohmann6detail9dtoa_impl18find_largest_pow10EjRj.exit.preheader, label %22
 
 22:                                               ; preds = %7
-  %23 = icmp ugt i32 %18, 99999999
+  %23 = icmp samesign ugt i32 %18, 99999999
   br i1 %23, label %_ZN8nlohmann6detail9dtoa_impl18find_largest_pow10EjRj.exit.preheader, label %24
 
 24:                                               ; preds = %22
-  %25 = icmp ugt i32 %18, 9999999
+  %25 = icmp samesign ugt i32 %18, 9999999
   br i1 %25, label %_ZN8nlohmann6detail9dtoa_impl18find_largest_pow10EjRj.exit.preheader, label %26
 
 26:                                               ; preds = %24
-  %27 = icmp ugt i32 %18, 999999
+  %27 = icmp samesign ugt i32 %18, 999999
   br i1 %27, label %_ZN8nlohmann6detail9dtoa_impl18find_largest_pow10EjRj.exit.preheader, label %28
 
 28:                                               ; preds = %26
-  %29 = icmp ugt i32 %18, 99999
+  %29 = icmp samesign ugt i32 %18, 99999
   br i1 %29, label %_ZN8nlohmann6detail9dtoa_impl18find_largest_pow10EjRj.exit.preheader, label %30
 
 30:                                               ; preds = %28
-  %31 = icmp ugt i32 %18, 9999
+  %31 = icmp samesign ugt i32 %18, 9999
   br i1 %31, label %_ZN8nlohmann6detail9dtoa_impl18find_largest_pow10EjRj.exit.preheader, label %32
 
 32:                                               ; preds = %30
-  %33 = icmp ugt i32 %18, 999
+  %33 = icmp samesign ugt i32 %18, 999
   br i1 %33, label %_ZN8nlohmann6detail9dtoa_impl18find_largest_pow10EjRj.exit.preheader, label %34
 
 34:                                               ; preds = %32
-  %35 = icmp ugt i32 %18, 99
+  %35 = icmp samesign ugt i32 %18, 99
   br i1 %35, label %_ZN8nlohmann6detail9dtoa_impl18find_largest_pow10EjRj.exit.preheader, label %36
 
 36:                                               ; preds = %34
-  %37 = icmp ugt i32 %18, 9
+  %37 = icmp samesign ugt i32 %18, 9
   %..i = select i1 %37, i32 10, i32 1
   %.20.i = select i1 %37, i32 2, i32 1
   br label %_ZN8nlohmann6detail9dtoa_impl18find_largest_pow10EjRj.exit.preheader
@@ -65289,7 +65289,7 @@ _ZN8nlohmann6detail9dtoa_impl18find_largest_pow10EjRj.exit: ; preds = %_ZN8nlohm
 
 70:                                               ; preds = %_ZN8nlohmann6detail9dtoa_impl18find_largest_pow10EjRj.exit
   %71 = udiv i32 %.07381, 10
-  %72 = icmp ugt i32 %.04782, 1
+  %72 = icmp samesign ugt i32 %.04782, 1
   br i1 %72, label %_ZN8nlohmann6detail9dtoa_impl18find_largest_pow10EjRj.exit, label %.preheader, !llvm.loop !1336
 
 .preheader:                                       ; preds = %70, %.preheader
@@ -66967,7 +66967,7 @@ _ZN8nlohmann6detail5lexerINS_10basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stri
   br label %_ZN8nlohmann6detail5lexerINS_10basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS_14adl_serializerEEEE18next_byte_in_rangeESt16initializer_listIiE.exit.thread.sink.split
 
 75:                                               ; preds = %71
-  %76 = icmp ult i32 %.1.i, 2048
+  %76 = icmp samesign ult i32 %.1.i, 2048
   br i1 %76, label %77, label %84
 
 77:                                               ; preds = %75
@@ -66981,7 +66981,7 @@ _ZN8nlohmann6detail5lexerINS_10basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stri
   br label %_ZN8nlohmann6detail5lexerINS_10basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS_14adl_serializerEEEE18next_byte_in_rangeESt16initializer_listIiE.exit.thread.sink.split
 
 84:                                               ; preds = %75
-  %85 = icmp ult i32 %.1.i, 65536
+  %85 = icmp samesign ult i32 %.1.i, 65536
   br i1 %85, label %86, label %97
 
 86:                                               ; preds = %84
@@ -73555,7 +73555,7 @@ _ZN8nlohmann10basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_trai
   %81 = getelementptr inbounds i8, ptr %.0910.i.i.i.i.i.i.i, i64 16
   %82 = getelementptr inbounds i8, ptr %.0811.i.i.i.i.i.i.i, i64 16
   %83 = add nsw i64 %.012.i.i.i.i.i.i.i, -1
-  %84 = icmp ugt i64 %.012.i.i.i.i.i.i.i, 1
+  %84 = icmp samesign ugt i64 %.012.i.i.i.i.i.i.i, 1
   br i1 %84, label %75, label %_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPN8nlohmann10basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS2_14adl_serializerEEES5_ISD_SaISD_EEEESH_ET0_T_SJ_SI_.exit.loopexit.i.i, !llvm.loop !1393
 
 _ZSt4moveIN9__gnu_cxx17__normal_iteratorIPN8nlohmann10basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS2_14adl_serializerEEES5_ISD_SaISD_EEEESH_ET0_T_SJ_SI_.exit.loopexit.i.i: ; preds = %75

@@ -131,7 +131,7 @@ _ZNSt6vectorIN3gmx11t_sortblockESaIS1_EE17_S_check_init_lenEmRKS2_.exit.i: ; pre
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %37, i8 0, i64 16, i1 false)
   %39 = getelementptr inbounds i8, ptr %37, i64 16
   %.off116 = add nsw i32 %14, -3
-  %40 = icmp ult i32 %.off116, 3
+  %40 = icmp samesign ult i32 %.off116, 3
   br i1 %40, label %.preheader117.lr.ph, label %.lr.ph.i.i.i.i.i.i.i.i.i
 
 .lr.ph.i.i.i.i.i.i.i.i.i:                         ; preds = %.noexc60, %.lr.ph.i.i.i.i.i.i.i.i.i

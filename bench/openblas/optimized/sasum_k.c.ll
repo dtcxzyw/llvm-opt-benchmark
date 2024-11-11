@@ -35,7 +35,7 @@ define float @sasum_k(i64 noundef %0, ptr noundef %1, i64 noundef %2) local_unna
   br i1 %20, label %21, label %130
 
 21:                                               ; preds = %19
-  %22 = icmp ugt i64 %0, 255
+  %22 = icmp samesign ugt i64 %0, 255
   br i1 %22, label %24, label %.thread.i
 
 .thread.i:                                        ; preds = %21
@@ -245,7 +245,7 @@ define internal noundef i32 @asum_thread_function(i64 noundef %0, i64 %1, i64 %2
   br i1 %15, label %16, label %125
 
 16:                                               ; preds = %14
-  %17 = icmp ugt i64 %0, 255
+  %17 = icmp samesign ugt i64 %0, 255
   br i1 %17, label %19, label %.thread.i
 
 .thread.i:                                        ; preds = %16

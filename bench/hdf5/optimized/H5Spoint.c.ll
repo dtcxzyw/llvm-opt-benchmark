@@ -698,7 +698,7 @@ define internal range(i32 -1, 1) i32 @H5S__point_deserialize(ptr nocapture nound
   br label %289
 
 46:                                               ; preds = %27
-  %47 = icmp ugt i32 %39, 1
+  %47 = icmp samesign ugt i32 %39, 1
   br i1 %47, label %48, label %59
 
 48:                                               ; preds = %46
@@ -1290,7 +1290,7 @@ define internal range(i32 -1, 1) i32 @H5S__point_offset(ptr nocapture noundef re
   store i64 %30, ptr %1, align 8
   %31 = load i64, ptr %22, align 8
   %32 = mul i64 %31, %.026
-  %33 = icmp ugt i64 %indvars.iv, 1
+  %33 = icmp samesign ugt i64 %indvars.iv, 1
   br i1 %33, label %.lr.ph, label %.loopexit
 
 .loopexit:                                        ; preds = %28, %2, %24
@@ -3248,7 +3248,7 @@ define internal fastcc range(i32 -1, 1) i32 @H5S__point_get_version_enc_size(ptr
   br label %89
 
 81:                                               ; preds = %._crit_edge
-  %82 = icmp ugt i64 %.036.lcssa, 65535
+  %82 = icmp samesign ugt i64 %.036.lcssa, 65535
   br i1 %82, label %83, label %84
 
 83:                                               ; preds = %81

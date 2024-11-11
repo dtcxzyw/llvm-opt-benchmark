@@ -943,7 +943,7 @@ _ZNSt12_Vector_baseIiSaIiEE11_M_allocateEm.exit.i.i.i: ; preds = %_ZNSt6vectorIi
   %241 = getelementptr inbounds i8, ptr %.0910.i.i.i.i.i.i.i.i.i.i.i, i64 1
   %242 = getelementptr inbounds i8, ptr %.0811.i.i.i.i.i.i.i.i.i.i.i, i64 4
   %243 = add nsw i64 %.012.i.i.i.i.i.i.i.i.i.i.i, -1
-  %244 = icmp ugt i64 %.012.i.i.i.i.i.i.i.i.i.i.i, 1
+  %244 = icmp samesign ugt i64 %.012.i.i.i.i.i.i.i.i.i.i.i, 1
   br i1 %244, label %.lr.ph.i.i.i.i.i.i.i.i.i.i.i, label %.loopexit.i, !llvm.loop !11
 
 .loopexit.i:                                      ; preds = %.lr.ph.i.i.i.i.i.i.i.i.i.i.i, %_ZNSt6vectorIiSaIiEE17_S_check_init_lenEmRKS0_.exit.i.i.i
@@ -992,7 +992,7 @@ _ZNSt12_Vector_baseIiSaIiEE11_M_allocateEm.exit.i.i.i: ; preds = %_ZNSt6vectorIi
   %262 = getelementptr inbounds i8, ptr %.0910.i.i.i.i.i.i.i.i, i64 4
   %263 = getelementptr inbounds i8, ptr %.0811.i.i.i.i.i.i.i.i, i64 1
   %264 = add nsw i64 %.012.i.i.i.i.i.i.i.i, -1
-  %265 = icmp ugt i64 %.012.i.i.i.i.i.i.i.i, 1
+  %265 = icmp samesign ugt i64 %.012.i.i.i.i.i.i.i.i, 1
   br i1 %265, label %.lr.ph.i.i.i.i.i.i.i.i, label %_ZSt6copy_nIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEiNS1_IPhS3_IhSaIhEEEEET1_T_T0_SB_.exitthread-pre-split.i, !llvm.loop !12
 
 _ZSt6copy_nIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEiNS1_IPhS3_IhSaIhEEEEET1_T_T0_SB_.exitthread-pre-split.i: ; preds = %.lr.ph.i.i.i.i.i.i.i.i, %250
@@ -1923,7 +1923,7 @@ _ZN5ZXing7Content6appendERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.
   br label %.body.i77
 
 541:                                              ; preds = %.preheader.i.i
-  %542 = icmp ult i32 %529, 4
+  %542 = icmp samesign ult i32 %529, 4
   br i1 %542, label %543, label %571
 
 543:                                              ; preds = %541
@@ -1991,7 +1991,7 @@ _ZNSt6vectorIhSaIhEE17_M_realloc_insertIJRKhEEEvN9__gnu_cxx17__normal_iteratorIP
   br label %_ZN5ZXing7Content9push_backEh.exit.i.i
 
 571:                                              ; preds = %541
-  %572 = icmp ult i32 %529, 14
+  %572 = icmp samesign ult i32 %529, 14
   br i1 %572, label %573, label %600
 
 573:                                              ; preds = %571
@@ -2058,7 +2058,7 @@ _ZNSt6vectorIhSaIhEE17_M_realloc_insertIJRKhEEEvN9__gnu_cxx17__normal_iteratorIP
   br label %_ZN5ZXing7Content9push_backEh.exit.i.i
 
 600:                                              ; preds = %571
-  %601 = icmp ult i32 %529, 40
+  %601 = icmp samesign ult i32 %529, 40
   br i1 %601, label %602, label %629
 
 602:                                              ; preds = %600
@@ -2257,7 +2257,7 @@ _ZN5ZXing10DataMatrix22DecodedBitStreamParserL20DecodeAnsiX12SegmentERNS_9BitSou
   br label %_ZN5ZXing7Content9push_backEh.exit.i96
 
 665:                                              ; preds = %661
-  %666 = icmp ult i32 %660, 40
+  %666 = icmp samesign ult i32 %660, 40
   br i1 %666, label %667, label %698
 
 667:                                              ; preds = %665
@@ -2891,7 +2891,7 @@ _ZN5ZXing7Content9push_backEh.exit.i95.i:         ; preds = %_ZNSt6vectorIhSaIhE
           to label %.noexc114.i unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.i.loopexit.split-lp.loopexit.split-lp.loopexit, !noalias !15
 
 .noexc114.i:                                      ; preds = %911
-  %913 = icmp ult i32 %909, 192
+  %913 = icmp samesign ult i32 %909, 192
   br i1 %913, label %914, label %918
 
 914:                                              ; preds = %.noexc114.i
@@ -2996,7 +2996,7 @@ _ZNSt6vectorIhSaIhEE17_M_realloc_insertIJRKhEEEvN9__gnu_cxx17__normal_iteratorIP
   br label %_ZN5ZXing7Content9push_backEh.exit.i
 
 958:                                              ; preds = %926
-  %959 = icmp ult i32 %295, 230
+  %959 = icmp samesign ult i32 %295, 230
   br i1 %959, label %960, label %973
 
 960:                                              ; preds = %958
@@ -3028,7 +3028,7 @@ _ZN5ZXing7Content6appendERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.
   br label %.body.i77
 
 973:                                              ; preds = %958
-  %974 = icmp ugt i32 %295, 241
+  %974 = icmp samesign ugt i32 %295, 241
   br i1 %974, label %975, label %_ZN5ZXing7Content9push_backEh.exit.i
 
 975:                                              ; preds = %973
@@ -3835,7 +3835,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEmcRKS3_.exit: ; pre
   %34 = or disjoint i8 %33, 48
   store i8 %34, ptr %30, align 1
   %35 = udiv i32 %.02037, 10
-  %36 = icmp ugt i64 %indvars.iv, 1
+  %36 = icmp samesign ugt i64 %indvars.iv, 1
   %37 = icmp ugt i32 %.02037, 9
   %38 = select i1 %36, i1 %37, i1 false
   br i1 %38, label %.lr.ph, label %._crit_edge, !llvm.loop !24
@@ -4144,7 +4144,7 @@ _ZSt13move_backwardIPhS0_ET0_T_S2_S1_.exit:       ; preds = %_ZSt22__uninitializ
   %33 = getelementptr inbounds i8, ptr %.0910.i.i.i.i.i, i64 1
   %34 = getelementptr inbounds i8, ptr %.0811.i.i.i.i.i, i64 1
   %35 = add nsw i64 %.012.i.i.i.i.i, -1
-  %36 = icmp ugt i64 %.012.i.i.i.i.i, 1
+  %36 = icmp samesign ugt i64 %.012.i.i.i.i.i, 1
   br i1 %36, label %.lr.ph.i.i.i.i.i, label %_ZSt4copyIN9__gnu_cxx17__normal_iteratorIPKcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEENS1_IPhSt6vectorIhSaIhEEEEET0_T_SH_SG_.exit, !llvm.loop !27
 
 _ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPKcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEmEvRT_T0_.exit: ; preds = %16
@@ -4163,7 +4163,7 @@ _ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPKcNSt7__cxx1112basic_stringIcSt11ch
   %42 = getelementptr inbounds i8, ptr %.0910.i.i.i.i.i.i.i.i, i64 1
   %43 = getelementptr inbounds i8, ptr %.0811.i.i.i.i.i.i.i.i, i64 1
   %44 = add nsw i64 %.012.i.i.i.i.i.i.i.i, -1
-  %45 = icmp ugt i64 %.012.i.i.i.i.i.i.i.i, 1
+  %45 = icmp samesign ugt i64 %.012.i.i.i.i.i.i.i.i, 1
   br i1 %45, label %.lr.ph.i.i.i.i.i.i.i.i, label %_ZSt22__uninitialized_copy_aIN9__gnu_cxx17__normal_iteratorIPKcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEPhhET0_T_SD_SC_RSaIT1_E.exit.loopexit, !llvm.loop !27
 
 _ZSt22__uninitialized_copy_aIN9__gnu_cxx17__normal_iteratorIPKcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEPhhET0_T_SD_SC_RSaIT1_E.exit.loopexit: ; preds = %.lr.ph.i.i.i.i.i.i.i.i
@@ -4199,7 +4199,7 @@ _ZSt22__uninitialized_move_aIPhS0_SaIhEET0_T_S3_S2_RT1_.exit52: ; preds = %_ZSt2
   %54 = getelementptr inbounds i8, ptr %.0910.i.i.i.i.i57, i64 1
   %55 = getelementptr inbounds i8, ptr %.0811.i.i.i.i.i56, i64 1
   %56 = add nsw i64 %.012.i.i.i.i.i55, -1
-  %57 = icmp ugt i64 %.012.i.i.i.i.i55, 1
+  %57 = icmp samesign ugt i64 %.012.i.i.i.i.i55, 1
   br i1 %57, label %.lr.ph.i.i.i.i.i54, label %_ZSt4copyIN9__gnu_cxx17__normal_iteratorIPKcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEENS1_IPhSt6vectorIhSaIhEEEEET0_T_SH_SG_.exit, !llvm.loop !27
 
 58:                                               ; preds = %5

@@ -3982,7 +3982,7 @@ define noalias noundef ptr @parse_key_string(ptr noundef %0, i8 noundef zeroext 
   br label %169
 
 61:                                               ; preds = %52
-  %62 = icmp ugt i32 %37, 1
+  %62 = icmp samesign ugt i32 %37, 1
   br i1 %62, label %63, label %84
 
 63:                                               ; preds = %61

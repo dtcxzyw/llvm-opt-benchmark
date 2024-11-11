@@ -3646,7 +3646,7 @@ zend_update_extended_stmts.exit:                  ; preds = %zend_update_extende
   %138 = add nsw i32 %.03.i, -1
   %.08.i = load i32, ptr %137, align 4
   %139 = sext i32 %.08.i to i64
-  %140 = icmp ugt i32 %.03.i, 2
+  %140 = icmp samesign ugt i32 %.03.i, 2
   br i1 %140, label %.lr.ph.i161, label %zend_get_brk_cont_target.exit
 
 zend_get_brk_cont_target.exit:                    ; preds = %.lr.ph.i161, %129

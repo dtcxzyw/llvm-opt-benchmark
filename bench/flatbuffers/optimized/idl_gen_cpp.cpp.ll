@@ -31235,7 +31235,7 @@ for.body.i.i.i.i.i:                               ; preds = %for.body.i.i.i.i.i.
   %filename3.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__last.addr.05.i.i.i.i.i, i64 -32
   %call4.i.i.i.i.i.i = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEOS4_(ptr noundef nonnull align 8 dereferenceable(32) %filename.i.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(32) %filename3.i.i.i.i.i.i) #23
   %dec.i.i.i.i.i = add nsw i64 %__n.07.i.i.i.i.i, -1
-  %cmp.i.i.i.i.i = icmp ugt i64 %__n.07.i.i.i.i.i, 1
+  %cmp.i.i.i.i.i = icmp samesign ugt i64 %__n.07.i.i.i.i.i, 1
   br i1 %cmp.i.i.i.i.i, label %for.body.i.i.i.i.i, label %invoke.cont, !llvm.loop !143
 
 invoke.cont:                                      ; preds = %for.body.i.i.i.i.i, %if.then9
@@ -31749,7 +31749,7 @@ for.body.i.i.i.i.i.i:                             ; preds = %while.end.i, %for.b
   %incdec.ptr.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__first.addr.07.i.i.i.i.i.i, i64 64
   %incdec.ptr1.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__result.addr.08.i.i.i.i.i.i, i64 64
   %dec.i.i.i.i.i.i = add nsw i64 %__n.09.i.i.i.i.i.i, -1
-  %cmp.i.i.i.i.i.i = icmp ugt i64 %__n.09.i.i.i.i.i.i, 1
+  %cmp.i.i.i.i.i.i = icmp samesign ugt i64 %__n.09.i.i.i.i.i.i, 1
   br i1 %cmp.i.i.i.i.i.i, label %for.body.i.i.i.i.i.i, label %_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPN11flatbuffers12IncludedFileESt6vectorIS3_SaIS3_EEEES4_ET0_T_SA_S9_.exit.i, !llvm.loop !154
 
 _ZSt4moveIN9__gnu_cxx17__normal_iteratorIPN11flatbuffers12IncludedFileESt6vectorIS3_SaIS3_EEEES4_ET0_T_SA_S9_.exit.i: ; preds = %for.body.i.i.i.i.i.i, %while.end.i
@@ -31772,7 +31772,7 @@ for.body.i.i.i.i.i16.i:                           ; preds = %_ZSt4moveIN9__gnu_c
   %incdec.ptr.i.i.i.i.i24.i = getelementptr inbounds i8, ptr %__first.addr.07.i.i.i.i.i19.i, i64 64
   %incdec.ptr1.i.i.i.i.i25.i = getelementptr inbounds i8, ptr %__result.addr.08.i.i.i.i.i18.i, i64 64
   %dec.i.i.i.i.i26.i = add nsw i64 %__n.09.i.i.i.i.i17.i, -1
-  %cmp.i.i.i.i.i27.i = icmp ugt i64 %__n.09.i.i.i.i.i17.i, 1
+  %cmp.i.i.i.i.i27.i = icmp samesign ugt i64 %__n.09.i.i.i.i.i17.i, 1
   br i1 %cmp.i.i.i.i.i27.i, label %for.body.i.i.i.i.i16.i, label %_ZSt12__move_mergeIN9__gnu_cxx17__normal_iteratorIPN11flatbuffers12IncludedFileESt6vectorIS3_SaIS3_EEEES4_NS0_5__ops15_Iter_less_iterEET0_T_SC_SC_SC_SB_T1_.exit, !llvm.loop !154
 
 _ZSt12__move_mergeIN9__gnu_cxx17__normal_iteratorIPN11flatbuffers12IncludedFileESt6vectorIS3_SaIS3_EEEES4_NS0_5__ops15_Iter_less_iterEET0_T_SC_SC_SC_SB_T1_.exit: ; preds = %for.body.i.i.i.i.i16.i, %_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPN11flatbuffers12IncludedFileESt6vectorIS3_SaIS3_EEEES4_ET0_T_SA_S9_.exit.i
@@ -31868,7 +31868,7 @@ for.body.i.i.i.i.i.i35:                           ; preds = %while.end.i27, %for
   %incdec.ptr.i.i.i.i.i.i43 = getelementptr inbounds i8, ptr %__first.addr.07.i.i.i.i.i.i38, i64 64
   %incdec.ptr1.i.i.i.i.i.i44 = getelementptr inbounds i8, ptr %__result.addr.08.i.i.i.i.i.i37, i64 64
   %dec.i.i.i.i.i.i45 = add nsw i64 %__n.09.i.i.i.i.i.i36, -1
-  %cmp.i.i.i.i.i.i46 = icmp ugt i64 %__n.09.i.i.i.i.i.i36, 1
+  %cmp.i.i.i.i.i.i46 = icmp samesign ugt i64 %__n.09.i.i.i.i.i.i36, 1
   br i1 %cmp.i.i.i.i.i.i46, label %for.body.i.i.i.i.i.i35, label %_ZSt4moveIPN11flatbuffers12IncludedFileEN9__gnu_cxx17__normal_iteratorIS2_St6vectorIS1_SaIS1_EEEEET0_T_SA_S9_.exit.i, !llvm.loop !154
 
 _ZSt4moveIPN11flatbuffers12IncludedFileEN9__gnu_cxx17__normal_iteratorIS2_St6vectorIS1_SaIS1_EEEEET0_T_SA_S9_.exit.i: ; preds = %for.body.i.i.i.i.i.i35, %while.end.i27
@@ -31895,7 +31895,7 @@ for.body.i.i.i.i.i25.i:                           ; preds = %_ZSt4moveIPN11flatb
   %incdec.ptr.i.i.i.i.i33.i = getelementptr inbounds i8, ptr %__first.addr.07.i.i.i.i.i28.i, i64 64
   %incdec.ptr1.i.i.i.i.i34.i = getelementptr inbounds i8, ptr %__result.addr.08.i.i.i.i.i27.i, i64 64
   %dec.i.i.i.i.i35.i = add nsw i64 %__n.09.i.i.i.i.i26.i, -1
-  %cmp.i.i.i.i.i36.i = icmp ugt i64 %__n.09.i.i.i.i.i26.i, 1
+  %cmp.i.i.i.i.i36.i = icmp samesign ugt i64 %__n.09.i.i.i.i.i26.i, 1
   br i1 %cmp.i.i.i.i.i36.i, label %for.body.i.i.i.i.i25.i, label %_ZSt4moveIPN11flatbuffers12IncludedFileEN9__gnu_cxx17__normal_iteratorIS2_St6vectorIS1_SaIS1_EEEEET0_T_SA_S9_.exit37.loopexit.i, !llvm.loop !154
 
 _ZSt4moveIPN11flatbuffers12IncludedFileEN9__gnu_cxx17__normal_iteratorIS2_St6vectorIS1_SaIS1_EEEEET0_T_SA_S9_.exit37.loopexit.i: ; preds = %for.body.i.i.i.i.i25.i
@@ -31958,7 +31958,7 @@ for.body.i.i.i.i.i:                               ; preds = %if.then, %for.body.
   %incdec.ptr.i.i.i.i.i = getelementptr inbounds i8, ptr %__first.addr.07.i.i.i.i.i, i64 64
   %incdec.ptr1.i.i.i.i.i = getelementptr inbounds i8, ptr %__result.addr.08.i.i.i.i.i, i64 64
   %dec.i.i.i.i.i = add nsw i64 %__n.09.i.i.i.i.i, -1
-  %cmp.i.i.i.i.i = icmp ugt i64 %__n.09.i.i.i.i.i, 1
+  %cmp.i.i.i.i.i = icmp samesign ugt i64 %__n.09.i.i.i.i.i, 1
   br i1 %cmp.i.i.i.i.i, label %for.body.i.i.i.i.i, label %_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPN11flatbuffers12IncludedFileESt6vectorIS3_SaIS3_EEEES4_ET0_T_SA_S9_.exit, !llvm.loop !154
 
 _ZSt4moveIN9__gnu_cxx17__normal_iteratorIPN11flatbuffers12IncludedFileESt6vectorIS3_SaIS3_EEEES4_ET0_T_SA_S9_.exit: ; preds = %for.body.i.i.i.i.i, %if.then
@@ -31993,7 +31993,7 @@ for.body.i.i.i.i.i32:                             ; preds = %if.then15, %for.bod
   %incdec.ptr.i.i.i.i.i40 = getelementptr inbounds i8, ptr %__first.addr.07.i.i.i.i.i35, i64 64
   %incdec.ptr1.i.i.i.i.i41 = getelementptr inbounds i8, ptr %__result.addr.08.i.i.i.i.i34, i64 64
   %dec.i.i.i.i.i42 = add nsw i64 %__n.09.i.i.i.i.i33, -1
-  %cmp.i.i.i.i.i43 = icmp ugt i64 %__n.09.i.i.i.i.i33, 1
+  %cmp.i.i.i.i.i43 = icmp samesign ugt i64 %__n.09.i.i.i.i.i33, 1
   br i1 %cmp.i.i.i.i.i43, label %for.body.i.i.i.i.i32, label %_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPN11flatbuffers12IncludedFileESt6vectorIS3_SaIS3_EEEES4_ET0_T_SA_S9_.exit44, !llvm.loop !154
 
 _ZSt4moveIN9__gnu_cxx17__normal_iteratorIPN11flatbuffers12IncludedFileESt6vectorIS3_SaIS3_EEEES4_ET0_T_SA_S9_.exit44: ; preds = %for.body.i.i.i.i.i32, %if.then15
@@ -32193,7 +32193,7 @@ for.body.i.i.i.i.i:                               ; preds = %while.end, %for.bod
   %incdec.ptr.i.i.i.i.i = getelementptr inbounds i8, ptr %__first.addr.07.i.i.i.i.i, i64 64
   %incdec.ptr1.i.i.i.i.i = getelementptr inbounds i8, ptr %__result.addr.08.i.i.i.i.i, i64 64
   %dec.i.i.i.i.i = add nsw i64 %__n.09.i.i.i.i.i, -1
-  %cmp.i.i.i.i.i = icmp ugt i64 %__n.09.i.i.i.i.i, 1
+  %cmp.i.i.i.i.i = icmp samesign ugt i64 %__n.09.i.i.i.i.i, 1
   br i1 %cmp.i.i.i.i.i, label %for.body.i.i.i.i.i, label %_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPN11flatbuffers12IncludedFileESt6vectorIS3_SaIS3_EEEES4_ET0_T_SA_S9_.exit, !llvm.loop !154
 
 _ZSt4moveIN9__gnu_cxx17__normal_iteratorIPN11flatbuffers12IncludedFileESt6vectorIS3_SaIS3_EEEES4_ET0_T_SA_S9_.exit: ; preds = %for.body.i.i.i.i.i, %while.end
@@ -32216,7 +32216,7 @@ for.body.i.i.i.i.i16:                             ; preds = %_ZSt4moveIN9__gnu_c
   %incdec.ptr.i.i.i.i.i24 = getelementptr inbounds i8, ptr %__first.addr.07.i.i.i.i.i19, i64 64
   %incdec.ptr1.i.i.i.i.i25 = getelementptr inbounds i8, ptr %__result.addr.08.i.i.i.i.i18, i64 64
   %dec.i.i.i.i.i26 = add nsw i64 %__n.09.i.i.i.i.i17, -1
-  %cmp.i.i.i.i.i27 = icmp ugt i64 %__n.09.i.i.i.i.i17, 1
+  %cmp.i.i.i.i.i27 = icmp samesign ugt i64 %__n.09.i.i.i.i.i17, 1
   br i1 %cmp.i.i.i.i.i27, label %for.body.i.i.i.i.i16, label %_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPN11flatbuffers12IncludedFileESt6vectorIS3_SaIS3_EEEES4_ET0_T_SA_S9_.exit28, !llvm.loop !154
 
 _ZSt4moveIN9__gnu_cxx17__normal_iteratorIPN11flatbuffers12IncludedFileESt6vectorIS3_SaIS3_EEEES4_ET0_T_SA_S9_.exit28: ; preds = %for.body.i.i.i.i.i16, %_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPN11flatbuffers12IncludedFileESt6vectorIS3_SaIS3_EEEES4_ET0_T_SA_S9_.exit
@@ -32296,7 +32296,7 @@ for.body.i.i.i.i.i:                               ; preds = %while.end, %for.bod
   %incdec.ptr.i.i.i.i.i = getelementptr inbounds i8, ptr %__first.addr.07.i.i.i.i.i, i64 64
   %incdec.ptr1.i.i.i.i.i = getelementptr inbounds i8, ptr %__result.addr.08.i.i.i.i.i, i64 64
   %dec.i.i.i.i.i = add nsw i64 %__n.09.i.i.i.i.i, -1
-  %cmp.i.i.i.i.i = icmp ugt i64 %__n.09.i.i.i.i.i, 1
+  %cmp.i.i.i.i.i = icmp samesign ugt i64 %__n.09.i.i.i.i.i, 1
   br i1 %cmp.i.i.i.i.i, label %for.body.i.i.i.i.i, label %_ZSt4moveIPN11flatbuffers12IncludedFileEN9__gnu_cxx17__normal_iteratorIS2_St6vectorIS1_SaIS1_EEEEET0_T_SA_S9_.exit, !llvm.loop !154
 
 _ZSt4moveIPN11flatbuffers12IncludedFileEN9__gnu_cxx17__normal_iteratorIS2_St6vectorIS1_SaIS1_EEEEET0_T_SA_S9_.exit: ; preds = %for.body.i.i.i.i.i, %while.end
@@ -32323,7 +32323,7 @@ for.body.i.i.i.i.i25:                             ; preds = %_ZSt4moveIPN11flatb
   %incdec.ptr.i.i.i.i.i33 = getelementptr inbounds i8, ptr %__first.addr.07.i.i.i.i.i28, i64 64
   %incdec.ptr1.i.i.i.i.i34 = getelementptr inbounds i8, ptr %__result.addr.08.i.i.i.i.i27, i64 64
   %dec.i.i.i.i.i35 = add nsw i64 %__n.09.i.i.i.i.i26, -1
-  %cmp.i.i.i.i.i36 = icmp ugt i64 %__n.09.i.i.i.i.i26, 1
+  %cmp.i.i.i.i.i36 = icmp samesign ugt i64 %__n.09.i.i.i.i.i26, 1
   br i1 %cmp.i.i.i.i.i36, label %for.body.i.i.i.i.i25, label %_ZSt4moveIPN11flatbuffers12IncludedFileEN9__gnu_cxx17__normal_iteratorIS2_St6vectorIS1_SaIS1_EEEEET0_T_SA_S9_.exit37.loopexit, !llvm.loop !154
 
 _ZSt4moveIPN11flatbuffers12IncludedFileEN9__gnu_cxx17__normal_iteratorIS2_St6vectorIS1_SaIS1_EEEEET0_T_SA_S9_.exit37.loopexit: ; preds = %for.body.i.i.i.i.i25
@@ -32406,7 +32406,7 @@ for.body.i.i.i.i.i:                               ; preds = %if.then13, %for.bod
   %incdec.ptr.i.i.i.i.i = getelementptr inbounds i8, ptr %__first.addr.07.i.i.i.i.i, i64 64
   %incdec.ptr1.i.i.i.i.i = getelementptr inbounds i8, ptr %__result.addr.08.i.i.i.i.i, i64 64
   %dec.i.i.i.i.i = add nsw i64 %__n.09.i.i.i.i.i, -1
-  %cmp.i.i.i.i.i = icmp ugt i64 %__n.09.i.i.i.i.i, 1
+  %cmp.i.i.i.i.i = icmp samesign ugt i64 %__n.09.i.i.i.i.i, 1
   br i1 %cmp.i.i.i.i.i, label %for.body.i.i.i.i.i, label %if.end18, !llvm.loop !154
 
 if.end18:                                         ; preds = %if.end, %for.body.i.i.i.i.i, %entry, %if.then13
@@ -32438,7 +32438,7 @@ for.body.i.i.i.i.i:                               ; preds = %if.then, %for.body.
   %filename3.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__last.addr.05.i.i.i.i.i, i64 -32
   %call4.i.i.i.i.i.i = tail call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEOS4_(ptr noundef nonnull align 8 dereferenceable(32) %filename.i.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(32) %filename3.i.i.i.i.i.i) #23
   %dec.i.i.i.i.i = add nsw i64 %__n.07.i.i.i.i.i, -1
-  %cmp.i.i.i.i.i = icmp ugt i64 %__n.07.i.i.i.i.i, 1
+  %cmp.i.i.i.i.i = icmp samesign ugt i64 %__n.07.i.i.i.i.i, 1
   br i1 %cmp.i.i.i.i.i, label %for.body.i.i.i.i.i, label %return, !llvm.loop !143
 
 if.else:                                          ; preds = %entry
@@ -32503,7 +32503,7 @@ for.body.i.i.i.i.i23:                             ; preds = %if.then18, %for.bod
   %filename3.i.i.i.i.i.i31 = getelementptr inbounds i8, ptr %__last.addr.05.i.i.i.i.i26, i64 -32
   %call4.i.i.i.i.i.i32 = tail call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEOS4_(ptr noundef nonnull align 8 dereferenceable(32) %filename.i.i.i.i.i.i30, ptr noundef nonnull align 8 dereferenceable(32) %filename3.i.i.i.i.i.i31) #23
   %dec.i.i.i.i.i33 = add nsw i64 %__n.07.i.i.i.i.i24, -1
-  %cmp.i.i.i.i.i34 = icmp ugt i64 %__n.07.i.i.i.i.i24, 1
+  %cmp.i.i.i.i.i34 = icmp samesign ugt i64 %__n.07.i.i.i.i.i24, 1
   br i1 %cmp.i.i.i.i.i34, label %for.body.i.i.i.i.i23, label %return, !llvm.loop !143
 
 if.else27:                                        ; preds = %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclIPN11flatbuffers12IncludedFileENS_17__normal_iteratorIS5_St6vectorIS4_SaIS4_EEEEEEbT_T0_.exit
@@ -32551,7 +32551,7 @@ for.body.i.i.i.i.i:                               ; preds = %if.then4, %for.body
   %incdec.ptr.i.i.i.i.i = getelementptr inbounds i8, ptr %__first.addr.07.i.i.i.i.i, i64 64
   %incdec.ptr1.i.i.i.i.i = getelementptr inbounds i8, ptr %__result.addr.08.i.i.i.i.i, i64 64
   %dec.i.i.i.i.i = add nsw i64 %__n.09.i.i.i.i.i, -1
-  %cmp.i.i.i.i.i = icmp ugt i64 %__n.09.i.i.i.i.i, 1
+  %cmp.i.i.i.i.i = icmp samesign ugt i64 %__n.09.i.i.i.i.i, 1
   br i1 %cmp.i.i.i.i.i, label %for.body.i.i.i.i.i, label %_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPN11flatbuffers12IncludedFileESt6vectorIS3_SaIS3_EEEES4_ET0_T_SA_S9_.exit, !llvm.loop !154
 
 _ZSt4moveIN9__gnu_cxx17__normal_iteratorIPN11flatbuffers12IncludedFileESt6vectorIS3_SaIS3_EEEES4_ET0_T_SA_S9_.exit: ; preds = %for.body.i.i.i.i.i, %if.then4
@@ -32573,7 +32573,7 @@ for.body.i.i.i.i.i15:                             ; preds = %_ZSt4moveIN9__gnu_c
   %filename3.i.i.i.i.i.i20 = getelementptr inbounds i8, ptr %__last.addr.05.i.i.i.i.i, i64 -32
   %call4.i.i.i.i.i.i21 = tail call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEOS4_(ptr noundef nonnull align 8 dereferenceable(32) %filename.i.i.i.i.i.i19, ptr noundef nonnull align 8 dereferenceable(32) %filename3.i.i.i.i.i.i20) #23
   %dec.i.i.i.i.i22 = add nsw i64 %__n.07.i.i.i.i.i, -1
-  %cmp.i.i.i.i.i23 = icmp ugt i64 %__n.07.i.i.i.i.i, 1
+  %cmp.i.i.i.i.i23 = icmp samesign ugt i64 %__n.07.i.i.i.i.i, 1
   br i1 %cmp.i.i.i.i.i23, label %for.body.i.i.i.i.i15, label %_ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPN11flatbuffers12IncludedFileESt6vectorIS3_SaIS3_EEEES8_ET0_T_SA_S9_.exit, !llvm.loop !143
 
 _ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPN11flatbuffers12IncludedFileESt6vectorIS3_SaIS3_EEEES8_ET0_T_SA_S9_.exit: ; preds = %for.body.i.i.i.i.i15, %_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPN11flatbuffers12IncludedFileESt6vectorIS3_SaIS3_EEEES4_ET0_T_SA_S9_.exit
@@ -32595,7 +32595,7 @@ for.body.i.i.i.i.i34:                             ; preds = %_ZSt13move_backward
   %incdec.ptr.i.i.i.i.i42 = getelementptr inbounds i8, ptr %__first.addr.07.i.i.i.i.i37, i64 64
   %incdec.ptr1.i.i.i.i.i43 = getelementptr inbounds i8, ptr %__result.addr.08.i.i.i.i.i36, i64 64
   %dec.i.i.i.i.i44 = add nsw i64 %__n.09.i.i.i.i.i35, -1
-  %cmp.i.i.i.i.i45 = icmp ugt i64 %__n.09.i.i.i.i.i35, 1
+  %cmp.i.i.i.i.i45 = icmp samesign ugt i64 %__n.09.i.i.i.i.i35, 1
   br i1 %cmp.i.i.i.i.i45, label %for.body.i.i.i.i.i34, label %_ZSt4moveIPN11flatbuffers12IncludedFileEN9__gnu_cxx17__normal_iteratorIS2_St6vectorIS1_SaIS1_EEEEET0_T_SA_S9_.exit.loopexit, !llvm.loop !154
 
 _ZSt4moveIPN11flatbuffers12IncludedFileEN9__gnu_cxx17__normal_iteratorIS2_St6vectorIS1_SaIS1_EEEEET0_T_SA_S9_.exit.loopexit: ; preds = %for.body.i.i.i.i.i34
@@ -32635,7 +32635,7 @@ for.body.i.i.i.i.i52:                             ; preds = %if.then24, %for.bod
   %incdec.ptr.i.i.i.i.i60 = getelementptr inbounds i8, ptr %__first.addr.07.i.i.i.i.i55, i64 64
   %incdec.ptr1.i.i.i.i.i61 = getelementptr inbounds i8, ptr %__result.addr.08.i.i.i.i.i54, i64 64
   %dec.i.i.i.i.i62 = add nsw i64 %__n.09.i.i.i.i.i53, -1
-  %cmp.i.i.i.i.i63 = icmp ugt i64 %__n.09.i.i.i.i.i53, 1
+  %cmp.i.i.i.i.i63 = icmp samesign ugt i64 %__n.09.i.i.i.i.i53, 1
   br i1 %cmp.i.i.i.i.i63, label %for.body.i.i.i.i.i52, label %_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPN11flatbuffers12IncludedFileESt6vectorIS3_SaIS3_EEEES4_ET0_T_SA_S9_.exit64, !llvm.loop !154
 
 _ZSt4moveIN9__gnu_cxx17__normal_iteratorIPN11flatbuffers12IncludedFileESt6vectorIS3_SaIS3_EEEES4_ET0_T_SA_S9_.exit64: ; preds = %for.body.i.i.i.i.i52, %if.then24
@@ -32657,7 +32657,7 @@ for.body.i.i.i.i.i75:                             ; preds = %_ZSt4moveIN9__gnu_c
   %incdec.ptr.i.i.i.i.i83 = getelementptr inbounds i8, ptr %__first.addr.07.i.i.i.i.i78, i64 64
   %incdec.ptr1.i.i.i.i.i84 = getelementptr inbounds i8, ptr %__result.addr.08.i.i.i.i.i77, i64 64
   %dec.i.i.i.i.i85 = add nsw i64 %__n.09.i.i.i.i.i76, -1
-  %cmp.i.i.i.i.i86 = icmp ugt i64 %__n.09.i.i.i.i.i76, 1
+  %cmp.i.i.i.i.i86 = icmp samesign ugt i64 %__n.09.i.i.i.i.i76, 1
   br i1 %cmp.i.i.i.i.i86, label %for.body.i.i.i.i.i75, label %_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPN11flatbuffers12IncludedFileESt6vectorIS3_SaIS3_EEEES8_ET0_T_SA_S9_.exit, !llvm.loop !154
 
 _ZSt4moveIN9__gnu_cxx17__normal_iteratorIPN11flatbuffers12IncludedFileESt6vectorIS3_SaIS3_EEEES8_ET0_T_SA_S9_.exit: ; preds = %for.body.i.i.i.i.i75, %_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPN11flatbuffers12IncludedFileESt6vectorIS3_SaIS3_EEEES4_ET0_T_SA_S9_.exit64
@@ -32679,7 +32679,7 @@ for.body.i.i.i.i.i97:                             ; preds = %_ZSt4moveIN9__gnu_c
   %filename3.i.i.i.i.i.i105 = getelementptr inbounds i8, ptr %__last.addr.05.i.i.i.i.i100, i64 -32
   %call4.i.i.i.i.i.i106 = tail call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEOS4_(ptr noundef nonnull align 8 dereferenceable(32) %filename.i.i.i.i.i.i104, ptr noundef nonnull align 8 dereferenceable(32) %filename3.i.i.i.i.i.i105) #23
   %dec.i.i.i.i.i107 = add nsw i64 %__n.07.i.i.i.i.i98, -1
-  %cmp.i.i.i.i.i108 = icmp ugt i64 %__n.07.i.i.i.i.i98, 1
+  %cmp.i.i.i.i.i108 = icmp samesign ugt i64 %__n.07.i.i.i.i.i98, 1
   br i1 %cmp.i.i.i.i.i108, label %for.body.i.i.i.i.i97, label %_ZSt13move_backwardIPN11flatbuffers12IncludedFileEN9__gnu_cxx17__normal_iteratorIS2_St6vectorIS1_SaIS1_EEEEET0_T_SA_S9_.exit.loopexit, !llvm.loop !143
 
 _ZSt13move_backwardIPN11flatbuffers12IncludedFileEN9__gnu_cxx17__normal_iteratorIS2_St6vectorIS1_SaIS1_EEEEET0_T_SA_S9_.exit.loopexit: ; preds = %for.body.i.i.i.i.i97
@@ -47910,8 +47910,8 @@ invoke.cont3:                                     ; preds = %invoke.cont
 
 invoke.cont7:                                     ; preds = %invoke.cont3
   %cmp.not.i = icmp ne ptr %2, null
-  %7 = icmp ult i32 %5, 10
-  %8 = and i1 %7, %cmp.not.i
+  %7 = icmp samesign ult i32 %5, 10
+  %8 = select i1 %cmp.not.i, i1 %7, i1 false
   invoke void @_ZNK11flatbuffers3cpp12CppGenerator12GenTypeBasicB5cxx11ERKNS_4TypeEb(ptr nonnull sret(%"class.std::__cxx11::basic_string") align 8 %ref.tmp6, ptr noundef nonnull align 8 dereferenceable(1497) %this, ptr noundef nonnull align 8 dereferenceable(26) %element_type, i1 noundef zeroext %8)
           to label %invoke.cont9 unwind label %lpad2
 

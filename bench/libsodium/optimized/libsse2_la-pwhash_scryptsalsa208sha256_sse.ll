@@ -38,7 +38,7 @@ if.then10:                                        ; preds = %if.end7
 if.end12:                                         ; preds = %if.end7
   %0 = tail call range(i64 0, 33) i64 @llvm.ctpop.i64(i64 %N)
   %cmp13 = icmp samesign ugt i64 %0, 1
-  %cmp15 = icmp ult i64 %N, 2
+  %cmp15 = icmp samesign ult i64 %N, 2
   %or.cond = or i1 %cmp15, %cmp13
   br i1 %or.cond, label %if.then17, label %if.end19
 
@@ -65,7 +65,7 @@ if.end27:                                         ; preds = %if.end19
 
 lor.lhs.false30:                                  ; preds = %if.end27
   %div31 = udiv i64 144115188075855871, %conv
-  %cmp32 = icmp ugt i64 %N, %div31
+  %cmp32 = icmp samesign ugt i64 %N, %div31
   br i1 %cmp32, label %if.then34, label %if.end36
 
 if.then34:                                        ; preds = %lor.lhs.false30, %if.end27

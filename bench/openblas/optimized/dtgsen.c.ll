@@ -99,7 +99,7 @@ define void @dtgsen_(ptr nocapture noundef readonly %0, ptr noundef %1, ptr noun
 79:                                               ; preds = %76
   %80 = load i32, ptr %1, align 4, !tbaa !3
   %81 = icmp ne i32 %80, 0
-  %82 = icmp ult i32 %77, %67
+  %82 = icmp samesign ult i32 %77, %67
   %83 = and i1 %82, %81
   br i1 %83, label %92, label %84
 
@@ -111,7 +111,7 @@ define void @dtgsen_(ptr nocapture noundef readonly %0, ptr noundef %1, ptr noun
 87:                                               ; preds = %84
   %88 = load i32, ptr %2, align 4, !tbaa !3
   %89 = icmp ne i32 %88, 0
-  %90 = icmp ult i32 %85, %67
+  %90 = icmp samesign ult i32 %85, %67
   %91 = and i1 %90, %89
   br i1 %91, label %92, label %96
 

@@ -1364,7 +1364,7 @@ _ZN14ExceptionTableC2EPK6Method.exit:             ; preds = %3
   %26 = getelementptr inbounds %class.ExceptionTableElement, ptr %11, i64 %indvars.iv, i32 1
   %27 = load i16, ptr %26, align 2
   %28 = zext i16 %27 to i32
-  %29 = icmp ult i32 %1, %28
+  %29 = icmp samesign ult i32 %1, %28
   br i1 %29, label %30, label %32
 
 30:                                               ; preds = %25
@@ -1582,7 +1582,7 @@ define hidden void @_ZN9Relocator22adjust_local_var_tableEii(ptr noundef nonnull
   %26 = load i16, ptr %25, align 2
   %27 = zext i16 %26 to i32
   %28 = add nuw nsw i32 %27, %20
-  %29 = icmp ugt i32 %28, %1
+  %29 = icmp samesign ugt i32 %28, %1
   br i1 %29, label %30, label %32
 
 30:                                               ; preds = %24
@@ -1682,7 +1682,7 @@ define hidden void @_ZN9Relocator22adjust_stack_map_tableEii(ptr noundef nonnull
   br label %_ZNK15stack_map_frame12offset_deltaEv.exit
 
 46:                                               ; preds = %40
-  %47 = icmp ugt i8 %27, -6
+  %47 = icmp samesign ugt i8 %27, -6
   %48 = and i8 %27, -4
   %49 = icmp ne i8 %48, -8
   %spec.select.i.i.not.i = or i1 %47, %49
@@ -1698,7 +1698,7 @@ define hidden void @_ZN9Relocator22adjust_stack_map_tableEii(ptr noundef nonnull
 
 55:                                               ; preds = %46
   %56 = zext i8 %27 to i32
-  %57 = icmp ult i8 %27, -4
+  %57 = icmp samesign ult i8 %27, -4
   %58 = add nsw i32 %56, -255
   %59 = icmp ult i32 %58, -4
   %spec.select.i.i34.not.i = select i1 %57, i1 true, i1 %59
@@ -1897,7 +1897,7 @@ _ZN19same_frame_extended9create_atEPht.exit:      ; preds = %155, %154, %_ZNK15s
   br i1 %or.cond41.i, label %176, label %161
 
 161:                                              ; preds = %159
-  %162 = icmp ugt i8 %156, -6
+  %162 = icmp samesign ugt i8 %156, -6
   %163 = and i8 %156, -4
   %164 = icmp ne i8 %163, -8
   %spec.select.i.i.not.i85 = or i1 %162, %164
@@ -1905,7 +1905,7 @@ _ZN19same_frame_extended9create_atEPht.exit:      ; preds = %155, %154, %_ZNK15s
 
 165:                                              ; preds = %161
   %166 = zext i8 %156 to i32
-  %167 = icmp ult i8 %156, -4
+  %167 = icmp samesign ult i8 %156, -4
   %168 = add nsw i32 %166, -255
   %169 = icmp ult i32 %168, -4
   %spec.select.i.i32.not.i = select i1 %167, i1 true, i1 %169
@@ -1950,7 +1950,7 @@ _ZNK15stack_map_frame5typesEv.exit.thread190:     ; preds = %176
 .thread113.thread:                                ; preds = %.thread113..thread113.thread_crit_edge, %161
   %.pre-phi = phi i1 [ %179, %.thread113..thread113.thread_crit_edge ], [ false, %161 ]
   %.0.i86.ph115118 = phi i32 [ %.0.i86.ph115, %.thread113..thread113.thread_crit_edge ], [ 0, %161 ]
-  %182 = icmp ugt i8 %156, -6
+  %182 = icmp samesign ugt i8 %156, -6
   %spec.select.i.i.not.i90 = or i1 %182, %.pre-phi
   br i1 %spec.select.i.i.not.i90, label %.thread113.thread..thread113.thread.thread_crit_edge, label %_ZNK15stack_map_frame5typesEv.exit
 
@@ -1963,7 +1963,7 @@ _ZNK15stack_map_frame5typesEv.exit.thread190:     ; preds = %176
 .thread113.thread.thread:                         ; preds = %.thread113.thread..thread113.thread.thread_crit_edge, %170
   %.pre-phi167 = phi i1 [ %183, %.thread113.thread..thread113.thread.thread_crit_edge ], [ false, %170 ]
   %.0.i86.ph115118121 = phi i32 [ %.0.i86.ph115118, %.thread113.thread..thread113.thread.thread_crit_edge ], [ %171, %170 ]
-  %184 = icmp ult i8 %156, -4
+  %184 = icmp samesign ult i8 %156, -4
   %spec.select.i.i33.not.i = select i1 %184, i1 true, i1 %.pre-phi167
   br i1 %spec.select.i.i33.not.i, label %187, label %185
 
@@ -2132,7 +2132,7 @@ thread-pre-split:                                 ; preds = %thread-pre-split.lo
   br label %_ZNK15stack_map_frame4nextEv.exit
 
 248:                                              ; preds = %242
-  %249 = icmp ugt i8 %232, -6
+  %249 = icmp samesign ugt i8 %232, -6
   %250 = and i8 %232, -4
   %251 = icmp ne i8 %250, -8
   %spec.select.i.i.not.i.i = or i1 %249, %251
@@ -2140,7 +2140,7 @@ thread-pre-split:                                 ; preds = %thread-pre-split.lo
 
 252:                                              ; preds = %248
   %253 = zext i8 %232 to i32
-  %254 = icmp ult i8 %232, -4
+  %254 = icmp samesign ult i8 %232, -4
   %255 = add nsw i32 %253, -255
   %256 = icmp ult i32 %255, -4
   %spec.select.i.i33.not.i.i = select i1 %254, i1 true, i1 %256
@@ -2340,7 +2340,7 @@ define linkonce_odr hidden void @_ZN15stack_map_frame16set_offset_deltaEi(ptr no
   br label %_ZN19same_frame_extended16set_offset_deltaEi.exit
 
 35:                                               ; preds = %24
-  %36 = icmp ugt i8 %3, -6
+  %36 = icmp samesign ugt i8 %3, -6
   %37 = and i8 %3, -4
   %38 = icmp ne i8 %37, -8
   %spec.select.i.i.not = or i1 %36, %38
@@ -2366,7 +2366,7 @@ define linkonce_odr hidden void @_ZN15stack_map_frame16set_offset_deltaEi(ptr no
 
 49:                                               ; preds = %35
   %50 = zext i8 %3 to i32
-  %51 = icmp ult i8 %3, -4
+  %51 = icmp samesign ult i8 %3, -4
   %52 = add nsw i32 %50, -255
   %53 = icmp ult i32 %52, -4
   %spec.select.i.i37.not = select i1 %51, i1 true, i1 %53
@@ -2564,7 +2564,7 @@ _ZN14ExceptionTableC2EPK6Method.exit.i:           ; preds = %44
   %79 = getelementptr inbounds %class.ExceptionTableElement, ptr %64, i64 %indvars.iv.i, i32 1
   %80 = load i16, ptr %79, align 2
   %81 = zext i16 %80 to i32
-  %82 = icmp ult i32 %1, %81
+  %82 = icmp samesign ult i32 %1, %81
   br i1 %82, label %83, label %85
 
 83:                                               ; preds = %78

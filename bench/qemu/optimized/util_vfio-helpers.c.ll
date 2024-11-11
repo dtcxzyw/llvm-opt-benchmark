@@ -1054,7 +1054,7 @@ if.end.i84:                                       ; preds = %for.body.i79
 
 for.inc.i89:                                      ; preds = %if.end.i84, %for.body.i79
   %47 = phi i64 [ %cond.i87, %if.end.i84 ], [ %43, %for.body.i79 ]
-  %cmp.i90 = icmp ugt i64 %indvars.iv.i80, 1
+  %cmp.i90 = icmp samesign ugt i64 %indvars.iv.i80, 1
   br i1 %cmp.i90, label %for.body.i79, label %qemu_vfio_find_temp_iova.exit, !llvm.loop !9
 
 qemu_vfio_find_temp_iova.exit:                    ; preds = %for.inc.i89, %if.else35

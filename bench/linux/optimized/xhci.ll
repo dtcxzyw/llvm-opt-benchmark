@@ -10971,7 +10971,7 @@ default.unreachable7:                             ; preds = %27
   %.lhs.trunc8 = add i32 %70, 999
   %71 = udiv i32 %.lhs.trunc8, 1000
   %.zext = trunc i32 %71 to i16
-  %72 = icmp ult i64 %67, 127001
+  %72 = icmp samesign ult i64 %67, 127001
   br i1 %72, label %.thread6, label %73
 
 73:                                               ; preds = %69
@@ -11076,7 +11076,7 @@ default.unreachable7:                             ; preds = %27
   %.lhs.trunc = trunc nuw i64 %129 to i32
   %142 = udiv i32 %.lhs.trunc, 256000
   %143 = trunc nuw nsw i32 %142 to i16
-  %144 = icmp ult i64 %129, 256000
+  %144 = icmp samesign ult i64 %129, 256000
   br i1 %144, label %.thread4, label %.thread6
 
 .thread6:                                         ; preds = %69, %65, %136, %76, %141

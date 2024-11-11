@@ -537,7 +537,7 @@ define range(i32 0, 3) i32 @zendparse() local_unnamed_addr #0 {
   br i1 %59, label %.thread1703, label %60
 
 60:                                               ; preds = %58
-  %61 = icmp ult i32 %.5, 407
+  %61 = icmp samesign ult i32 %.5, 407
   br i1 %61, label %62, label %67
 
 62:                                               ; preds = %60

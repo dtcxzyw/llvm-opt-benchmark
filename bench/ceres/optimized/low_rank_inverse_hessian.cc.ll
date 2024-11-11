@@ -198,7 +198,7 @@ define hidden noundef zeroext i1 @_ZN5ceres8internal21LowRankInverseHessian6Upda
   %23 = getelementptr inbounds i8, ptr %10, i64 16
   %24 = load <2 x double>, ptr %23, align 16
   %25 = fmul <2 x double> %22, %24
-  %26 = icmp ugt i64 %6, 7
+  %26 = icmp samesign ugt i64 %6, 7
   br i1 %26, label %.lr.ph.i.i.i.i.i, label %._crit_edge.i.i.i.i.i
 
 .lr.ph.i.i.i.i.i:                                 ; preds = %20, %.lr.ph.i.i.i.i.i
@@ -516,7 +516,7 @@ _ZN5Eigen5BlockINS_6MatrixIdLin1ELin1ELi0ELin1ELin1EEELin1ELi1ELb1EEaSINS1_IdLin
   %192 = load <2 x double>, ptr %191, align 16
   %193 = fmul <2 x double> %192, %192
   %invariant.gep.i.i.i.i = getelementptr inbounds i8, ptr %181, i64 48
-  %194 = icmp ugt i64 %178, 7
+  %194 = icmp samesign ugt i64 %178, 7
   br i1 %194, label %.lr.ph.i.i.i.i, label %._crit_edge.i.i.i.i
 
 .lr.ph.i.i.i.i:                                   ; preds = %190, %.lr.ph.i.i.i.i
@@ -1365,7 +1365,7 @@ define linkonce_odr hidden void @_ZN5Eigen12DenseStorageIdLin1ELin1ELin1ELi0EE6r
   br i1 %12, label %13, label %.sink.split
 
 13:                                               ; preds = %10
-  %14 = icmp ugt i64 %1, 2305843009213693951
+  %14 = icmp samesign ugt i64 %1, 2305843009213693951
   br i1 %14, label %15, label %17
 
 15:                                               ; preds = %13
@@ -1422,7 +1422,7 @@ define linkonce_odr hidden void @_ZN5Eigen12DenseStorageIdLin1ELin1ELi1ELi0EE6re
   br i1 %9, label %10, label %.sink.split
 
 10:                                               ; preds = %7
-  %11 = icmp ugt i64 %1, 2305843009213693951
+  %11 = icmp samesign ugt i64 %1, 2305843009213693951
   br i1 %11, label %12, label %14
 
 12:                                               ; preds = %10

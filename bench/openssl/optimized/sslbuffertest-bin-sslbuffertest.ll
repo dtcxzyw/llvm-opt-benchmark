@@ -151,11 +151,11 @@ if.end:                                           ; preds = %entry
 for.cond.preheader:                               ; preds = %if.end
   %cmp18 = icmp sgt i32 %test, 0
   %cmp32.not = icmp eq i32 %test, 1
-  %cmp48 = icmp ugt i32 %test, 2
+  %cmp48 = icmp samesign ugt i32 %test, 2
   %cmp64.not = icmp eq i32 %test, 3
   %cmp109 = icmp sgt i32 %test, 4
   %cmp125.not = icmp eq i32 %test, 5
-  %cmp141 = icmp ugt i32 %test, 6
+  %cmp141 = icmp samesign ugt i32 %test, 6
   %cmp157.not = icmp eq i32 %test, 7
   br label %for.cond11.preheader
 

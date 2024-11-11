@@ -670,7 +670,7 @@ define internal fastcc range(i32 1, 83886081) i32 @anybit_typmodin(ptr noundef %
   unreachable
 
 17:                                               ; preds = %10
-  %18 = icmp ugt i32 %11, 83886080
+  %18 = icmp samesign ugt i32 %11, 83886080
   br i1 %18, label %19, label %23
 
 19:                                               ; preds = %17
@@ -2413,7 +2413,7 @@ define dso_local i64 @bitshiftleft(ptr nocapture noundef readonly %0) #0 {
 72:                                               ; preds = %65
   %73 = and i64 %56, 7
   %74 = icmp eq i64 %73, 0
-  %75 = icmp ult i32 %8, 8200
+  %75 = icmp samesign ult i32 %8, 8200
   %or.cond7 = and i1 %75, %74
   br i1 %or.cond7, label %76, label %89
 
@@ -2596,7 +2596,7 @@ define dso_local i64 @bitshiftright(ptr nocapture noundef readonly %0) #0 {
 60:                                               ; preds = %52
   %61 = and i64 %56, 7
   %62 = icmp eq i64 %61, 0
-  %63 = icmp ult i32 %8, 8200
+  %63 = icmp samesign ult i32 %8, 8200
   %or.cond7 = and i1 %63, %62
   br i1 %or.cond7, label %64, label %74
 
@@ -2789,7 +2789,7 @@ define dso_local noundef i64 @bitfromint4(ptr nocapture noundef readonly %0) loc
   %41 = trunc i32 %40 to i8
   %42 = getelementptr i8, ptr %.24552, i64 1
   store i8 %41, ptr %.24552, align 1
-  %43 = icmp ugt i32 %.253, 15
+  %43 = icmp samesign ugt i32 %.253, 15
   br i1 %43, label %.lr.ph55, label %._crit_edge56, !llvm.loop !28
 
 ._crit_edge56:                                    ; preds = %.lr.ph55, %37
@@ -2939,7 +2939,7 @@ define dso_local noundef i64 @bitfromint8(ptr nocapture noundef readonly %0) loc
   %42 = trunc i64 %41 to i8
   %43 = getelementptr i8, ptr %.24552, i64 1
   store i8 %42, ptr %.24552, align 1
-  %44 = icmp ugt i64 %indvars.iv, 15
+  %44 = icmp samesign ugt i64 %indvars.iv, 15
   br i1 %44, label %.lr.ph55, label %._crit_edge56.loopexit, !llvm.loop !30
 
 ._crit_edge56.loopexit:                           ; preds = %.lr.ph55

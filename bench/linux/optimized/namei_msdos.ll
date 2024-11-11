@@ -1325,7 +1325,7 @@ define internal fastcc noundef range(i32 -22, 1) i32 @msdos_format_name(ptr noca
   %151 = select i1 %149, i8 %150, i8 %119
   %152 = getelementptr i8, ptr %114, i64 1
   store i8 %151, ptr %114, align 1
-  %153 = icmp ugt i32 %116, 1
+  %153 = icmp samesign ugt i32 %116, 1
   %154 = ptrtoint ptr %152 to i64
   %155 = sub i64 %154, %18
   %156 = icmp slt i64 %155, 11

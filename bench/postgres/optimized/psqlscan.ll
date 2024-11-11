@@ -7544,7 +7544,7 @@ define dso_local noundef ptr @psqlscan_prepare_buffer(ptr nocapture noundef read
   %38 = phi i32 [ %29, %.lr.ph.preheader ], [ %39, %.lr.ph ]
   %indvars.iv.next = add nsw i64 %indvars.iv, 1
   %39 = add nsw i32 %38, -1
-  %40 = icmp ugt i32 %38, 1
+  %40 = icmp samesign ugt i32 %38, 1
   %41 = icmp slt i64 %indvars.iv.next, %11
   %42 = select i1 %40, i1 %41, i1 false
   br i1 %42, label %.lr.ph, label %.loopexit.loopexit, !llvm.loop !19

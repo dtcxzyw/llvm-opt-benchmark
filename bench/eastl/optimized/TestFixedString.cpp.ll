@@ -28521,7 +28521,7 @@ cond.false.i.i.i77:                               ; preds = %if.then.i.i68
   br label %_ZN5eastl12basic_stringIcNS_22fixed_vector_allocatorILm1ELm128ELm1ELm0ELb0ENS_9allocatorEEEE6resizeEm.exit80
 
 if.else.i56:                                      ; preds = %for.body
-  %cmp8.i57 = icmp ugt i64 %n.0129, %cond.i.i54
+  %cmp8.i57 = icmp samesign ugt i64 %n.0129, %cond.i.i54
   br i1 %cmp8.i57, label %if.then9.i58, label %_ZN5eastl12basic_stringIcNS_22fixed_vector_allocatorILm1ELm128ELm1ELm0ELb0ENS_9allocatorEEEE6resizeEm.exit80
 
 if.then9.i58:                                     ; preds = %if.else.i56
@@ -29025,7 +29025,7 @@ cond.false.i.i.i78:                               ; preds = %if.then.i.i68
   br label %_ZN5eastl12basic_stringIDsNS_22fixed_vector_allocatorILm2ELm128ELm2ELm0ELb0ENS_9allocatorEEEE6resizeEm.exit81
 
 if.else.i56:                                      ; preds = %for.body
-  %cmp8.i57 = icmp ugt i64 %n.0131, %cond.i.i54
+  %cmp8.i57 = icmp samesign ugt i64 %n.0131, %cond.i.i54
   br i1 %cmp8.i57, label %if.then9.i58, label %_ZN5eastl12basic_stringIDsNS_22fixed_vector_allocatorILm2ELm128ELm2ELm0ELb0ENS_9allocatorEEEE6resizeEm.exit81
 
 if.then9.i58:                                     ; preds = %if.else.i56
@@ -29532,7 +29532,7 @@ cond.false.i.i.i78:                               ; preds = %if.then.i.i68
   br label %_ZN5eastl12basic_stringIDiNS_22fixed_vector_allocatorILm4ELm128ELm4ELm0ELb0ENS_9allocatorEEEE6resizeEm.exit81
 
 if.else.i56:                                      ; preds = %for.body
-  %cmp8.i57 = icmp ugt i64 %n.0131, %cond.i.i54
+  %cmp8.i57 = icmp samesign ugt i64 %n.0131, %cond.i.i54
   br i1 %cmp8.i57, label %if.then9.i58, label %_ZN5eastl12basic_stringIDiNS_22fixed_vector_allocatorILm4ELm128ELm4ELm0ELb0ENS_9allocatorEEEE6resizeEm.exit81
 
 if.then9.i58:                                     ; preds = %if.else.i56
@@ -31391,7 +31391,7 @@ cond.false.i.i.i77:                               ; preds = %if.then.i.i68
   br label %_ZN5eastl12basic_stringIcNS_22fixed_vector_allocatorILm1ELm128ELm1ELm0ELb0E15MallocAllocatorEEE6resizeEm.exit80
 
 if.else.i56:                                      ; preds = %for.body
-  %cmp8.i57 = icmp ugt i64 %n.0129, %cond.i.i54
+  %cmp8.i57 = icmp samesign ugt i64 %n.0129, %cond.i.i54
   br i1 %cmp8.i57, label %if.then9.i58, label %_ZN5eastl12basic_stringIcNS_22fixed_vector_allocatorILm1ELm128ELm1ELm0ELb0E15MallocAllocatorEEE6resizeEm.exit80
 
 if.then9.i58:                                     ; preds = %if.else.i56
@@ -31895,7 +31895,7 @@ cond.false.i.i.i78:                               ; preds = %if.then.i.i68
   br label %_ZN5eastl12basic_stringIDsNS_22fixed_vector_allocatorILm2ELm128ELm2ELm0ELb0E15MallocAllocatorEEE6resizeEm.exit81
 
 if.else.i56:                                      ; preds = %for.body
-  %cmp8.i57 = icmp ugt i64 %n.0131, %cond.i.i54
+  %cmp8.i57 = icmp samesign ugt i64 %n.0131, %cond.i.i54
   br i1 %cmp8.i57, label %if.then9.i58, label %_ZN5eastl12basic_stringIDsNS_22fixed_vector_allocatorILm2ELm128ELm2ELm0ELb0E15MallocAllocatorEEE6resizeEm.exit81
 
 if.then9.i58:                                     ; preds = %if.else.i56
@@ -32402,7 +32402,7 @@ cond.false.i.i.i78:                               ; preds = %if.then.i.i68
   br label %_ZN5eastl12basic_stringIDiNS_22fixed_vector_allocatorILm4ELm128ELm4ELm0ELb0E15MallocAllocatorEEE6resizeEm.exit81
 
 if.else.i56:                                      ; preds = %for.body
-  %cmp8.i57 = icmp ugt i64 %n.0131, %cond.i.i54
+  %cmp8.i57 = icmp samesign ugt i64 %n.0131, %cond.i.i54
   br i1 %cmp8.i57, label %if.then9.i58, label %_ZN5eastl12basic_stringIDiNS_22fixed_vector_allocatorILm4ELm128ELm4ELm0ELb0E15MallocAllocatorEEE6resizeEm.exit81
 
 if.then9.i58:                                     ; preds = %if.else.i56

@@ -10108,7 +10108,7 @@ if.end44.i:                                       ; preds = %if.end36.i
   br i1 %cmp49.i, label %sw.bb, label %while.body.backedge.i
 
 if.end58.i:                                       ; preds = %if.end7.i
-  %cmp64.i = icmp ult i64 %call40.i, %1
+  %cmp64.i = icmp samesign ult i64 %call40.i, %1
   br i1 %cmp64.i, label %evhttp_handle_chunked_read.exit.thread67, label %if.end67.i
 
 if.end67.i:                                       ; preds = %if.end58.i

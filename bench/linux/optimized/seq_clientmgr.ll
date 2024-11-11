@@ -138,7 +138,7 @@ define dso_local ptr @snd_seq_client_use_ptr(i32 noundef %0) local_unnamed_addr 
   br i1 %16, label %17, label %58
 
 17:                                               ; preds = %13
-  %18 = icmp ult i32 %0, 16
+  %18 = icmp samesign ult i32 %0, 16
   br i1 %18, label %19, label %34
 
 19:                                               ; preds = %17
@@ -169,7 +169,7 @@ define dso_local ptr @snd_seq_client_use_ptr(i32 noundef %0) local_unnamed_addr 
   br label %.loopexit
 
 34:                                               ; preds = %17
-  %35 = icmp ult i32 %0, 128
+  %35 = icmp samesign ult i32 %0, 128
   br i1 %35, label %36, label %.loopexit
 
 36:                                               ; preds = %34
@@ -3518,7 +3518,7 @@ define internal noundef range(i32 -2, 1) i32 @snd_seq_ioctl_query_next_client(pt
   %7 = icmp slt i32 %3, -1
   %spec.store.select = select i1 %7, i32 0, i32 %6
   store i32 %spec.store.select, ptr %1, align 4
-  %8 = icmp ult i32 %spec.store.select, 192
+  %8 = icmp samesign ult i32 %spec.store.select, 192
   br i1 %8, label %.preheader, label %.thread7
 
 .preheader:                                       ; preds = %5, %12

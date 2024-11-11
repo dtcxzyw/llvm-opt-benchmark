@@ -2358,7 +2358,7 @@ define noundef zeroext i1 @_ZNK10open_spiel5twixt5Board18PositionIsOffBoardE8Pos
   br i1 %or.cond11, label %13, label %16
 
 13:                                               ; preds = %9
-  %14 = icmp ult i64 %1, 4294967296
+  %14 = icmp samesign ult i64 %1, 4294967296
   %15 = icmp eq i32 %11, %.sroa.5.0.extract.trunc
   %spec.select = select i1 %14, i1 true, i1 %15
   br label %16
@@ -4194,7 +4194,7 @@ define void @_ZNK10open_spiel5twixt5Board14AppendLinkCharERNSt7__cxx1112basic_st
   br i1 %or.cond11.i, label %_ZNK10open_spiel5twixt5Board18PositionIsOffBoardE8Position.exit, label %_ZNK10open_spiel5twixt5Board18PositionIsOffBoardE8Position.exit.thread32
 
 _ZNK10open_spiel5twixt5Board18PositionIsOffBoardE8Position.exit: ; preds = %18
-  %22 = icmp ult i64 %2, 4294967296
+  %22 = icmp samesign ult i64 %2, 4294967296
   %23 = icmp eq i32 %20, %.sroa.5.0.extract.trunc.i
   %spec.select.i = select i1 %22, i1 true, i1 %23
   br i1 %spec.select.i, label %_ZNK10open_spiel5twixt5Board18PositionIsOffBoardE8Position.exit.thread, label %_ZNK10open_spiel5twixt5Board18PositionIsOffBoardE8Position.exit.thread32
@@ -4545,7 +4545,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit64: ; 
   br i1 %or.cond11.i, label %_ZNK10open_spiel5twixt5Board18PositionIsOffBoardE8Position.exit, label %.thread
 
 _ZNK10open_spiel5twixt5Board18PositionIsOffBoardE8Position.exit: ; preds = %63
-  %67 = icmp ult i64 %2, 4294967296
+  %67 = icmp samesign ult i64 %2, 4294967296
   %68 = icmp eq i32 %65, %.sroa.6.0.extract.trunc
   %spec.select.i = select i1 %67, i1 true, i1 %68
   br i1 %spec.select.i, label %_ZNK10open_spiel5twixt5Board18PositionIsOffBoardE8Position.exit.thread, label %70
@@ -4630,7 +4630,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit74: ; 
   br label %.body
 
 .thread:                                          ; preds = %63, %70
-  %85 = icmp ult i64 %2, 4294967296
+  %85 = icmp samesign ult i64 %2, 4294967296
   %86 = icmp eq i32 %65, %.sroa.6.0.extract.trunc
   %or.cond = select i1 %85, i1 true, i1 %86
   br i1 %or.cond, label %87, label %101

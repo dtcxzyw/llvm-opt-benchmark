@@ -891,7 +891,7 @@ calc_inet_union_params.exit.thread:               ; preds = %1, %calc_inet_union
   store i16 %.1184, ptr %88, align 2
   %89 = add i16 %.1184, 1
   %90 = zext i16 %89 to i32
-  %.not86 = icmp ult i32 %10, %90
+  %.not86 = icmp samesign ult i32 %10, %90
   br i1 %.not86, label %._crit_edge, label %69, !llvm.loop !8
 
 ._crit_edge:                                      ; preds = %86
@@ -945,7 +945,7 @@ calc_inet_union_params.exit.thread:               ; preds = %1, %calc_inet_union
   store i16 %.3192, ptr %107, align 2
   %108 = add i16 %.3192, 1
   %109 = zext i16 %108 to i32
-  %.not89 = icmp ult i32 %10, %109
+  %.not89 = icmp samesign ult i32 %10, %109
   br i1 %.not89, label %.loopexitthread-pre-split, label %.lr.ph193, !llvm.loop !11
 
 .loopexitthread-pre-split:                        ; preds = %56, %.lr.ph193, %.preheader

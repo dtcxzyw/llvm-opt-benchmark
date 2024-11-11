@@ -165,11 +165,11 @@ entry:
   br i1 %cmp, label %if.end7, label %if.else
 
 if.else:                                          ; preds = %entry
-  %cmp1 = icmp ult i32 %bits, 4096
+  %cmp1 = icmp samesign ult i32 %bits, 4096
   br i1 %cmp1, label %if.end7, label %if.else3
 
 if.else3:                                         ; preds = %if.else
-  %cmp4 = icmp ult i32 %bits, 8192
+  %cmp4 = icmp samesign ult i32 %bits, 8192
   %spec.select = select i1 %cmp4, i32 4, i32 5
   br label %if.end7
 

@@ -257,7 +257,7 @@ if.then88:                                        ; preds = %for.end85
   br label %for.inc99
 
 if.else91:                                        ; preds = %for.end85
-  %cmp92 = icmp ult i32 %nd.4.lcssa, 16
+  %cmp92 = icmp samesign ult i32 %nd.4.lcssa, 16
   br i1 %cmp92, label %if.then93, label %for.inc99
 
 if.then93:                                        ; preds = %if.else91
@@ -538,7 +538,7 @@ if.end215:                                        ; preds = %if.end202
   %conv214 = uitofp i32 %z.3 to double
   %49 = tail call double @llvm.fmuladd.f64(double %48, double %conv208, double %conv214)
   store double %49, ptr %rv, align 8
-  %cmp216 = icmp ult i32 %nd.2, 16
+  %cmp216 = icmp samesign ult i32 %nd.2, 16
   %50 = bitcast double %49 to i64
   %51 = lshr i64 %50, 32
   %52 = trunc nuw i64 %51 to i32
@@ -562,7 +562,7 @@ if.end222:                                        ; preds = %if.then219
   br i1 %cmp223, label %if.then224, label %if.else243
 
 if.then224:                                       ; preds = %if.end222
-  %cmp225 = icmp ult i32 %sub203, 23
+  %cmp225 = icmp samesign ult i32 %sub203, 23
   br i1 %cmp225, label %if.then226, label %if.end230
 
 if.then226:                                       ; preds = %if.then224
@@ -593,7 +593,7 @@ if.then234:                                       ; preds = %if.end230
   br label %ret
 
 if.else243:                                       ; preds = %if.end222
-  %cmp244 = icmp ugt i32 %sub203, -23
+  %cmp244 = icmp samesign ugt i32 %sub203, -23
   br i1 %cmp244, label %if.then245, label %if.end251
 
 if.then245:                                       ; preds = %if.else243
@@ -650,7 +650,7 @@ ovfl:                                             ; preds = %if.then703, %for.en
   br label %ret
 
 if.end270:                                        ; preds = %if.then264
-  %cmp272707 = icmp ugt i32 %add253, 31
+  %cmp272707 = icmp samesign ugt i32 %add253, 31
   br i1 %cmp272707, label %for.body273.preheader, label %for.end284
 
 for.body273.preheader:                            ; preds = %if.end270
@@ -750,15 +750,15 @@ if.end314:                                        ; preds = %if.then310, %if.the
   %89 = phi i32 [ %86, %if.then310 ], [ %62, %if.then306 ]
   %rv.promoted = phi double [ %div313, %if.then310 ], [ %64, %if.then306 ]
   %shr315 = lshr i32 %sub307, 4
-  %tobool316.not = icmp ult i32 %sub307, 16
+  %tobool316.not = icmp samesign ult i32 %sub307, 16
   br i1 %tobool316.not, label %if.end372, label %if.then317
 
 if.then317:                                       ; preds = %if.end314
-  %cmp318 = icmp ugt i32 %sub307, 511
+  %cmp318 = icmp samesign ugt i32 %sub307, 511
   br i1 %cmp318, label %undfl, label %for.body328.preheader
 
 for.body328.preheader:                            ; preds = %if.then317
-  %tobool322.not = icmp ult i32 %sub307, 256
+  %tobool322.not = icmp samesign ult i32 %sub307, 256
   %spec.select559 = select i1 %tobool322.not, i32 0, i32 106
   %rv.promoted934 = load double, ptr %rv, align 8
   br label %for.body328
@@ -1080,7 +1080,7 @@ _ZN6dmg_fpL3s2bEPKciiji.exit:                     ; preds = %for.body12.i, %if.e
   %tobool719 = icmp ne i32 %bc.sroa.39.0, 0
   %cmp749 = icmp eq i32 %nd.2, %nd.6
   %tobool752 = icmp eq i32 %bc.sroa.39.0, 0
-  %or.cond16.not562 = and i1 %tobool752, %cmp749
+  %or.cond16.not562 = select i1 %cmp749, i1 %tobool752, i1 false
   br label %for.cond437
 
 for.cond437:                                      ; preds = %for.cond437.backedge, %_ZN6dmg_fpL3s2bEPKciiji.exit
@@ -4173,7 +4173,7 @@ if.then132:                                       ; preds = %if.else129
   %arrayidx135 = getelementptr inbounds [23 x double], ptr @_ZN6dmg_fpL4tensE, i64 0, i64 %idxprom134
   %43 = load double, ptr %arrayidx135, align 8
   %mul136 = fmul double %38, %43
-  %tobool139.not780 = icmp ult i32 %sub130, 16
+  %tobool139.not780 = icmp samesign ult i32 %sub130, 16
   br i1 %tobool139.not780, label %if.end154, label %for.body140.preheader
 
 for.body140.preheader:                            ; preds = %if.then132

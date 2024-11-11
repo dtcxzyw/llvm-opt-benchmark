@@ -1937,7 +1937,7 @@ sub_1164:                                         ; preds = %.tail158, %sub_1160
   %108 = icmp eq i8 %107, 92
   %spec.store.select = select i1 %108, i8 47, i8 %107
   store i8 %spec.store.select, ptr %106, align 1
-  %109 = icmp ugt i64 %indvars.iv260, 1
+  %109 = icmp samesign ugt i64 %indvars.iv260, 1
   br i1 %109, label %.lr.ph207, label %._crit_edge, !llvm.loop !22
 
 ._crit_edge:                                      ; preds = %.lr.ph207, %100
@@ -1971,7 +1971,7 @@ sub_1164:                                         ; preds = %.tail158, %sub_1160
   %122 = icmp eq i8 %121, 92
   %spec.store.select143 = select i1 %122, i8 47, i8 %121
   store i8 %spec.store.select143, ptr %120, align 1
-  %123 = icmp ugt i64 %indvars.iv263, 1
+  %123 = icmp samesign ugt i64 %indvars.iv263, 1
   br i1 %123, label %.lr.ph210, label %._crit_edge211, !llvm.loop !23
 
 ._crit_edge211:                                   ; preds = %.lr.ph210, %113

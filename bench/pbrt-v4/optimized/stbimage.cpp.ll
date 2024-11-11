@@ -3402,7 +3402,7 @@ land.lhs.true.i.i:                                ; preds = %_ZL21stbi__mul2size
 
 _ZL21stbi__mul2sizes_validii.exit14.i.i:          ; preds = %land.lhs.true.i.i
   %div.i11.i.i = udiv i32 2147483647, %29
-  %cmp5.i12.not.i.i = icmp ugt i32 %mul.i.i, %div.i11.i.i
+  %cmp5.i12.not.i.i = icmp samesign ugt i32 %mul.i.i, %div.i11.i.i
   br i1 %cmp5.i12.not.i.i, label %if.then69.i, label %if.end.i.i.i.i
 
 if.then69.i:                                      ; preds = %_ZL21stbi__mul2sizes_validii.exit14.i.i, %_ZL21stbi__mul2sizes_validii.exit.i.i
@@ -3423,7 +3423,7 @@ if.end.i8.i.i.i:                                  ; preds = %_ZL21stbi__mul2size
 
 _ZL21stbi__mul2sizes_validii.exit14.i.i.i:        ; preds = %if.end.i8.i.i.i
   %div.i11.i.i.i = udiv i32 2147483647, %29
-  %cmp5.i12.not.i.i.i = icmp ugt i32 %mul.i.i, %div.i11.i.i.i
+  %cmp5.i12.not.i.i.i = icmp samesign ugt i32 %mul.i.i, %div.i11.i.i.i
   br i1 %cmp5.i12.not.i.i.i, label %if.then78.i, label %_ZL17stbi__malloc_mad3iiii.exit.i
 
 _ZL17stbi__malloc_mad3iiii.exit.i:                ; preds = %_ZL21stbi__mul2sizes_validii.exit14.i.i.i, %if.end.i8.i.i.i
@@ -4903,7 +4903,7 @@ for.body476.i:                                    ; preds = %for.body476.i, %for
   %arrayidx478.i = getelementptr inbounds i8, ptr %call.i.i.i53, i64 %indvars.iv100.i
   store i8 -1, ptr %arrayidx478.i, align 1
   %indvars.iv.next101.i = add nsw i64 %indvars.iv100.i, -4
-  %cmp475.i = icmp ugt i64 %indvars.iv100.i, 3
+  %cmp475.i = icmp samesign ugt i64 %indvars.iv100.i, 3
   br i1 %cmp475.i, label %for.body476.i, label %if.end482.i, !llvm.loop !23
 
 if.end482.i:                                      ; preds = %for.body476.i, %if.then468.i, %if.end464.i
@@ -6787,14 +6787,14 @@ _ZL18stbi__jpeg_get_bitP10stbi__jpeg.exit117.i.us.i.i.i.i: ; preds = %if.then.i1
   br label %if.end148.i.us.i.i.i.i
 
 if.then121.i.us.i.i.i.i:                          ; preds = %if.end117.i.us.i.i.i.i
-  %cmp122.i.us.i.i.i.i = icmp ult i32 %call113.i.us.i.i.i.i, 240
+  %cmp122.i.us.i.i.i.i = icmp samesign ult i32 %call113.i.us.i.i.i.i, 240
   br i1 %cmp122.i.us.i.i.i.i, label %if.then123.i.us.i.i.i.i, label %if.end148.i.us.i.i.i.i
 
 if.then123.i.us.i.i.i.i:                          ; preds = %if.then121.i.us.i.i.i.i
   %notmask.i.us.i.i.i.i = shl nsw i32 -1, %shr119.i.us.i.i.i.i
   %sub125.i.us.i.i.i.i = xor i32 %notmask.i.us.i.i.i.i, -1
   store i32 %sub125.i.us.i.i.i.i, ptr %eob_run.i.i.i.i.i, align 4
-  %tobool127.not.i.us.i.i.i.i = icmp ult i32 %call113.i.us.i.i.i.i, 16
+  %tobool127.not.i.us.i.i.i.i = icmp samesign ult i32 %call113.i.us.i.i.i.i, 16
   br i1 %tobool127.not.i.us.i.i.i.i, label %if.end148.i.us.i.i.i.i, label %if.then128.i.us.i.i.i.i
 
 if.then128.i.us.i.i.i.i:                          ; preds = %if.then123.i.us.i.i.i.i
@@ -7018,7 +7018,7 @@ _ZL20stbi__extend_receiveP10stbi__jpegi.exit.i.us.i.i.i.i: ; preds = %if.then.i.
   br label %do.cond.i.us.i.i.i.i
 
 if.then33.i.us.i.i.i.i:                           ; preds = %if.end29.i.us.i.i.i.i
-  %cmp34.i.us.i.i.i.i = icmp ult i32 %call25.i.us.i.i.i.i, 240
+  %cmp34.i.us.i.i.i.i = icmp samesign ult i32 %call25.i.us.i.i.i.i, 240
   br i1 %cmp34.i.us.i.i.i.i, label %if.then35.i.us.i.i.i.i, label %if.end46.i.us.i.i.i.i
 
 if.end46.i.us.i.i.i.i:                            ; preds = %if.then33.i.us.i.i.i.i
@@ -7034,7 +7034,7 @@ do.cond.i.us.i.i.i.i:                             ; preds = %if.end46.i.us.i.i.i
 if.then35.i.us.i.i.i.i:                           ; preds = %if.then33.i.us.i.i.i.i
   %shl36.i.us.i.i.i.i = shl nuw nsw i32 1, %shr31.i.us.i.i.i.i
   store i32 %shl36.i.us.i.i.i.i, ptr %eob_run.i.i.i.i.i, align 4
-  %tobool38.not.i.us.i.i.i.i = icmp ult i32 %call25.i.us.i.i.i.i, 16
+  %tobool38.not.i.us.i.i.i.i = icmp samesign ult i32 %call25.i.us.i.i.i.i, 16
   br i1 %tobool38.not.i.us.i.i.i.i, label %if.end270.us.sink.split.i.i.i.i, label %if.then39.i.us.i.i.i.i
 
 if.then39.i.us.i.i.i.i:                           ; preds = %if.then35.i.us.i.i.i.i
@@ -9732,7 +9732,7 @@ _ZL10stbi__get8P13stbi__context.exit.us.us:       ; preds = %if.then.i107.us.us,
   br i1 %cmp147.us.us, label %if.then148.us.us, label %if.else170.us.us
 
 if.else170.us.us:                                 ; preds = %_ZL10stbi__get8P13stbi__context.exit.us.us
-  %cmp172.us.us = icmp ult i32 %sub44.us.us, %conv146.us.us
+  %cmp172.us.us = icmp samesign ult i32 %sub44.us.us, %conv146.us.us
   br i1 %cmp172.us.us, label %if.then173, label %for.cond178.preheader.us.us
 
 for.body181.us.us:                                ; preds = %for.body181.us.us.preheader, %_ZL10stbi__get8P13stbi__context.exit173.us.us
@@ -9854,7 +9854,7 @@ _ZL10stbi__get8P13stbi__context.exit140.us.us:    ; preds = %if.then.i138.us.us,
   %retval.0.i135.us.us = phi i8 [ %56, %if.then.i138.us.us ], [ %55, %_ZL19stbi__refill_bufferP13stbi__context.exit.i132.us.us ], [ 0, %if.end.i111.us.us ]
   %sub151.us.us = and i8 %retval.0.i106.us.us, 127
   %conv153.us.us = zext nneg i8 %sub151.us.us to i32
-  %cmp154.us.us = icmp ult i32 %sub44.us.us, %conv153.us.us
+  %cmp154.us.us = icmp samesign ult i32 %sub44.us.us, %conv153.us.us
   br i1 %cmp154.us.us, label %if.then155, label %for.cond160.preheader.us.us
 
 if.end191.us.us.loopexit:                         ; preds = %for.body163.us.us
@@ -12789,7 +12789,7 @@ if.end.i.i.i:                                     ; preds = %land.end
 
 _ZL21stbi__mul2sizes_validii.exit.i.i:            ; preds = %if.end.i.i.i
   %div.i.i.i = udiv i32 2147483647, %x
-  %cmp5.i.not.i.i = icmp ugt i32 %req_comp, %div.i.i.i
+  %cmp5.i.not.i.i = icmp samesign ugt i32 %req_comp, %div.i.i.i
   br i1 %cmp5.i.not.i.i, label %if.then4, label %land.lhs.true.i.i
 
 land.lhs.true.i.i:                                ; preds = %_ZL21stbi__mul2sizes_validii.exit.i.i, %if.end.i.i.i
@@ -13884,8 +13884,8 @@ if.end:                                           ; preds = %if.then
   %1 = load i32, ptr %g, align 8
   %h = getelementptr inbounds i8, ptr %g, i64 4
   %2 = load i32, ptr %h, align 4
-  %cmp5.i.not.i = icmp ugt i32 %1, 536870911
-  br i1 %cmp5.i.not.i, label %return.sink.split, label %land.lhs.true.i
+  %or.cond495.not = icmp ult i32 %1, 536870912
+  br i1 %or.cond495.not, label %land.lhs.true.i, label %return.sink.split
 
 land.lhs.true.i:                                  ; preds = %if.end
   %mul.i = shl nuw nsw i32 %1, 2
@@ -16412,7 +16412,7 @@ if.else:                                          ; preds = %_ZL10stbi__get8P13s
   br i1 %cmp2, label %if.then3, label %if.then11
 
 if.then3:                                         ; preds = %if.else
-  %cmp4.not = icmp ugt i32 %sub107, %conv
+  %cmp4.not = icmp samesign ugt i32 %sub107, %conv
   br i1 %cmp4.not, label %if.end, label %return
 
 if.end:                                           ; preds = %if.end.i, %if.then3
@@ -16484,7 +16484,7 @@ _ZL10stbi__get8P13stbi__context.exit53:           ; preds = %if.then.i51, %if.en
 
 if.then11:                                        ; preds = %if.else
   %sub12 = sub nuw nsw i32 257, %conv
-  %cmp13 = icmp ugt i32 %sub12, %sub107
+  %cmp13 = icmp samesign ugt i32 %sub12, %sub107
   br i1 %cmp13, label %return, label %if.end15
 
 if.end15:                                         ; preds = %if.then11

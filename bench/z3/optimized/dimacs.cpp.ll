@@ -2012,7 +2012,7 @@ if.end4:                                          ; preds = %if.then3, %if.then,
   br i1 %cmp6, label %if.then9, label %lor.lhs.false
 
 lor.lhs.false:                                    ; preds = %if.end4
-  %cmp8 = icmp ugt i32 %6, 57
+  %cmp8 = icmp samesign ugt i32 %6, 57
   br i1 %cmp8, label %land.lhs.true, label %while.body
 
 if.then9:                                         ; preds = %if.end4
@@ -2020,7 +2020,7 @@ if.then9:                                         ; preds = %if.end4
   br i1 %cmp11, label %if.then14, label %if.else22
 
 land.lhs.true:                                    ; preds = %lor.lhs.false
-  %cmp13 = icmp ult i32 %6, 128
+  %cmp13 = icmp samesign ult i32 %6, 128
   br i1 %cmp13, label %if.then14, label %if.else22
 
 if.then14:                                        ; preds = %if.then9, %land.lhs.true

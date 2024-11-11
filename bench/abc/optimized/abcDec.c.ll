@@ -769,7 +769,7 @@ define noalias noundef ptr @Abc_TtStoreLoad(ptr noundef %0, i32 noundef %1) loca
 11:                                               ; preds = %6
   %12 = call noalias dereferenceable_or_null(24) ptr @malloc(i64 noundef 24) #18
   store i32 %7, ptr %12, align 8
-  %13 = icmp ult i32 %7, 7
+  %13 = icmp samesign ult i32 %7, 7
   %14 = add nsw i32 %7, -6
   %15 = shl nuw nsw i32 1, %14
   %16 = select i1 %13, i32 1, i32 %15
@@ -847,7 +847,7 @@ Abc_FileSize.exit:                                ; preds = %34
   %50 = tail call ptr @Abc_FileRead(ptr noundef %0)
   %51 = tail call noalias dereferenceable_or_null(24) ptr @malloc(i64 noundef 24) #18
   store i32 %1, ptr %51, align 8
-  %52 = icmp ult i32 %1, 7
+  %52 = icmp samesign ult i32 %1, 7
   %53 = add nsw i32 %1, -6
   %54 = shl nuw i32 1, %53
   %55 = select i1 %52, i32 1, i32 %54
@@ -1460,7 +1460,7 @@ Vec_StrFree.exit:                                 ; preds = %Vec_IntFree.exit, %
   br i1 %152, label %.lr.ph.i, label %Abc_TtSupportSize.exit
 
 .lr.ph.i:                                         ; preds = %147
-  %153 = icmp ult i32 %151, 7
+  %153 = icmp samesign ult i32 %151, 7
   %154 = add nsw i32 %151, -6
   %155 = shl nuw i32 1, %154
   %156 = sext i32 %155 to i64

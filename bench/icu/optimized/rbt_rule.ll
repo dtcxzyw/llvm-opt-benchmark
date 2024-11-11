@@ -564,7 +564,7 @@ invoke.cont12:                                    ; preds = %if.end9
   br label %if.end26
 
 if.else15:                                        ; preds = %if.end9
-  %cmp17 = icmp ult i32 %postContextPos, %anteContextPos.sink
+  %cmp17 = icmp samesign ult i32 %postContextPos, %anteContextPos.sink
   br i1 %cmp17, label %if.then21, label %invoke.cont18
 
 invoke.cont18:                                    ; preds = %if.else15

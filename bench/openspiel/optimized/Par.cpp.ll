@@ -644,7 +644,7 @@ _Z8rawscoreiii.exit:                              ; preds = %62, %60, %58, %_Z8r
   br label %_Z8rawscoreiii.exit496
 
 141:                                              ; preds = %137
-  %142 = icmp ult i32 %.4445, 4
+  %142 = icmp samesign ult i32 %.4445, 4
   br i1 %142, label %143, label %146
 
 143:                                              ; preds = %141

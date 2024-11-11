@@ -301,7 +301,7 @@ define internal fastcc range(i32 0, 2) i32 @parse_toshiba_packet(ptr noundef %0,
   br label %.loopexit
 
 44:                                               ; preds = %39
-  %45 = icmp ugt i32 %40, 262144
+  %45 = icmp samesign ugt i32 %40, 262144
   br i1 %45, label %46, label %48
 
 46:                                               ; preds = %44

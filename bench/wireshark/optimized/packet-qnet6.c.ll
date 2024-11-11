@@ -2356,7 +2356,7 @@ display_coid.exit:                                ; preds = %214, %241, %242
   br i1 %or.cond, label %448, label %314
 
 278:                                              ; preds = %display_coid.exit
-  %279 = icmp ult i32 %.0506, 60
+  %279 = icmp samesign ult i32 %.0506, 60
   br i1 %279, label %448, label %280
 
 280:                                              ; preds = %278
@@ -2508,7 +2508,7 @@ display_coid.exit:                                ; preds = %214, %241, %242
   %385 = load i32, ptr %3, align 4
   %386 = add i32 %385, 4
   store i32 %386, ptr %3, align 4
-  %387 = icmp ult i32 %51, 16
+  %387 = icmp samesign ult i32 %51, 16
   br i1 %387, label %448, label %388
 
 388:                                              ; preds = %381
@@ -3133,7 +3133,7 @@ define internal fastcc range(i32 -1, 1) i32 @dissect_qnet6_kif_cred(ptr noundef 
   %68 = tail call i32 @llvm.umin.i32(i32 %6, i32 76)
   %69 = add nsw i32 %68, -44
   %70 = shl nuw nsw i32 %60, 2
-  %71 = icmp ult i32 %69, %70
+  %71 = icmp samesign ult i32 %69, %70
   br i1 %71, label %87, label %72
 
 72:                                               ; preds = %67
@@ -3160,7 +3160,7 @@ define internal fastcc range(i32 -1, 1) i32 @dissect_qnet6_kif_cred(ptr noundef 
   %81 = add i32 %80, 4
   store i32 %81, ptr %2, align 4
   %82 = add nuw i32 %.13, 4
-  %83 = icmp ugt i32 %.11152, 4
+  %83 = icmp samesign ugt i32 %.11152, 4
   br i1 %83, label %.lr.ph, label %._crit_edge, !llvm.loop !8
 
 ._crit_edge:                                      ; preds = %.lr.ph, %72, %73
@@ -3261,7 +3261,7 @@ tailrecurse:                                      ; preds = %tailrecurse.backedg
   %40 = add i32 %39, 2
   store i32 %40, ptr %3, align 4
   %41 = add i32 %12, -4
-  %42 = icmp ult i32 %41, 36
+  %42 = icmp samesign ult i32 %41, 36
   br i1 %42, label %dissect_qnet6_kif_msgsend_msg_devctl.exit, label %43
 
 43:                                               ; preds = %33
@@ -3346,7 +3346,7 @@ tailrecurse:                                      ; preds = %tailrecurse.backedg
   %109 = add i32 %108, 2
   store i32 %109, ptr %3, align 4
   %110 = zext i16 %87 to i32
-  %111 = icmp ult i32 %44, %110
+  %111 = icmp samesign ult i32 %44, %110
   %112 = trunc nuw i32 %44 to i16
   %spec.select = select i1 %111, i16 %112, i16 %87
   %113 = zext i16 %spec.select to i32
@@ -3383,7 +3383,7 @@ tailrecurse:                                      ; preds = %tailrecurse.backedg
   %130 = trunc nuw nsw i32 %128 to i16
   %131 = sub nuw nsw i16 8, %130
   %132 = zext nneg i16 %131 to i32
-  %133 = icmp ult i32 %.0289, %132
+  %133 = icmp samesign ult i32 %.0289, %132
   %134 = trunc nuw nsw i32 %.0289 to i16
   %spec.select304 = select i1 %133, i16 %134, i16 %131
   %135 = zext nneg i16 %spec.select304 to i32
@@ -3585,7 +3585,7 @@ dissect_qnet6_kif_msgsend_msg_extra.exit:         ; preds = %160, %186, %190
   %.sink = phi i32 [ 16, %204 ], [ %.sink.ph, %.sink.split ]
   %249 = and i16 %208, 32767
   %250 = zext nneg i16 %249 to i32
-  %251 = icmp ult i32 %.sink, %250
+  %251 = icmp samesign ult i32 %.sink, %250
   br i1 %251, label %252, label %dissect_qnet6_kif_msgsend_msg_extra.exit509
 
 252:                                              ; preds = %247
@@ -3682,7 +3682,7 @@ dissect_qnet6_kif_msgsend_msg_extra.exit509:      ; preds = %247, %252, %255
   %.sink496 = phi i32 [ 16, %263 ], [ %.sink496.ph, %.sink.split502 ]
   %308 = and i16 %267, 32767
   %309 = zext nneg i16 %308 to i32
-  %310 = icmp ult i32 %.sink496, %309
+  %310 = icmp samesign ult i32 %.sink496, %309
   br i1 %310, label %311, label %dissect_qnet6_kif_msgsend_msg_extra.exit511
 
 311:                                              ; preds = %306

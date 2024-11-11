@@ -900,7 +900,7 @@ lor.lhs.false:                                    ; preds = %entry
   br i1 %or.cond, label %return.sink.split, label %if.end
 
 if.end:                                           ; preds = %lor.lhs.false
-  %cmp3 = icmp ugt i32 %stringCount, 4
+  %cmp3 = icmp samesign ugt i32 %stringCount, 4
   br i1 %cmp3, label %if.then4, label %if.end16
 
 if.then4:                                         ; preds = %if.end

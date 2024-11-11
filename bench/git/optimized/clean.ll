@@ -2704,14 +2704,14 @@ if.end68.i:                                       ; preds = %for.inc37.i.i, %for
 lor.lhs.false73.i:                                ; preds = %if.end68.i
   %105 = load i32, ptr %nr1, align 4
   %cmp75.i = icmp sle i32 %top.0.i, %105
-  %cmp78.i = icmp ule i32 %bottom.0.i, %top.0.i
+  %cmp78.i = icmp samesign ule i32 %bottom.0.i, %top.0.i
   %cmp82.not.i = icmp eq i32 %bottom.0.i, %top.0.i
   %106 = select i1 %tobool.not.i61, i1 %cmp78.i, i1 %cmp82.not.i
   %or.cond45.i = select i1 %cmp75.i, i1 %106, i1 false
   br i1 %or.cond45.i, label %for.cond89.preheader.i, label %if.then84.i
 
 for.cond89.preheader.i:                           ; preds = %lor.lhs.false73.i
-  %cmp90.not19.i = icmp ugt i32 %bottom.0.i, %top.0.i
+  %cmp90.not19.i = icmp samesign ugt i32 %bottom.0.i, %top.0.i
   br i1 %cmp90.not19.i, label %for.inc97.i, label %for.body92.preheader.i
 
 for.body92.preheader.i:                           ; preds = %for.cond89.preheader.i

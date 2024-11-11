@@ -583,8 +583,8 @@ define dso_local i32 @GetNewObjectId() local_unnamed_addr #1 {
 12:                                               ; preds = %5
   %13 = load i8, ptr @IsPostmasterEnvironment, align 1
   %14 = trunc i8 %13 to i1
-  %15 = icmp ult i32 %10, 10000
-  %or.cond = or i1 %15, %14
+  %15 = icmp samesign ult i32 %10, 10000
+  %or.cond = select i1 %14, i1 true, i1 %15
   br i1 %or.cond, label %.sink.split, label %18
 
 .sink.split:                                      ; preds = %12

@@ -26978,7 +26978,7 @@ _ZNSt13unordered_mapIlSt6vectorIlSaIlEESt4hashIlESt8equal_toIlESaISt4pairIKlS2_E
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 8
   %871 = add nsw i32 %.02732.i.i, -8
   %.024.i.i = add nuw nsw i64 %.02435.i.i, 1
-  %872 = icmp ugt i32 %.02732.i.i, 16
+  %872 = icmp samesign ugt i32 %.02732.i.i, 16
   br i1 %872, label %.lr.ph.i.i, label %._crit_edge.loopexit.i.i, !llvm.loop !45
 
 ._crit_edge.loopexit.i.i:                         ; preds = %.lr.ph.i.i
@@ -27051,7 +27051,7 @@ _ZN5faiss15BitstringReader4readEi.exit.i:         ; preds = %._crit_edge.i.i, %8
   %indvars.iv.next.i92.i = add nuw nsw i64 %indvars.iv.i88.i, 8
   %908 = add nsw i32 %.02732.i91.i, -8
   %.024.i93.i = add nuw nsw i64 %.02435.i89.i, 1
-  %909 = icmp ugt i32 %.02732.i91.i, 16
+  %909 = icmp samesign ugt i32 %.02732.i91.i, 16
   br i1 %909, label %.lr.ph.i87.i, label %._crit_edge.loopexit.i94.i, !llvm.loop !45
 
 ._crit_edge.loopexit.i94.i:                       ; preds = %.lr.ph.i87.i
@@ -27193,7 +27193,7 @@ _ZNSt13unordered_mapIlSt6vectorIlSaIlEESt4hashIlESt8equal_toIlESaISt4pairIKlS2_E
   %indvars.iv.next.i113.i = add nuw nsw i64 %indvars.iv.i109.i, 8
   %971 = add nsw i32 %.02732.i112.i, -8
   %.024.i114.i = add nuw nsw i64 %.02435.i110.i, 1
-  %972 = icmp ugt i32 %.02732.i112.i, 16
+  %972 = icmp samesign ugt i32 %.02732.i112.i, 16
   br i1 %972, label %.lr.ph.i108.i, label %._crit_edge.loopexit.i115.i, !llvm.loop !45
 
 ._crit_edge.loopexit.i115.i:                      ; preds = %.lr.ph.i108.i
@@ -28157,7 +28157,7 @@ _ZNSt13unordered_mapIlN5faiss15IndexBinaryHash12InvertedListESt4hashIlESt8equal_
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 8
   %238 = add nsw i32 %.02732.i, -8
   %.024.i = add nuw nsw i64 %.02435.i, 1
-  %239 = icmp ugt i32 %.02732.i, 16
+  %239 = icmp samesign ugt i32 %.02732.i, 16
   br i1 %239, label %.lr.ph.i, label %._crit_edge.loopexit.i, !llvm.loop !45
 
 ._crit_edge.loopexit.i:                           ; preds = %.lr.ph.i
@@ -28230,7 +28230,7 @@ _ZN5faiss15BitstringReader4readEi.exit:           ; preds = %225, %._crit_edge.i
   %indvars.iv.next.i151 = add nuw nsw i64 %indvars.iv.i147, 8
   %275 = add nsw i32 %.02732.i150, -8
   %.024.i152 = add nuw nsw i64 %.02435.i148, 1
-  %276 = icmp ugt i32 %.02732.i150, 16
+  %276 = icmp samesign ugt i32 %.02732.i150, 16
   br i1 %276, label %.lr.ph.i146, label %._crit_edge.loopexit.i153, !llvm.loop !45
 
 ._crit_edge.loopexit.i153:                        ; preds = %.lr.ph.i146

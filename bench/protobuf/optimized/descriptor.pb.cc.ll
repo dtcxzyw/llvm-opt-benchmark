@@ -3969,7 +3969,7 @@ if.then8.i.i.i:                                   ; preds = %if.end6.i.i.i
   br i1 %call2.i.i.i.i, label %_ZNK6google8protobuf20FieldDescriptorProto13IsInitializedEv.exit.i, label %return
 
 _ZNK6google8protobuf20FieldDescriptorProto13IsInitializedEv.exit.i: ; preds = %if.then8.i.i.i, %if.end6.i.i.i, %for.body.i26
-  %cmp.i34 = icmp ult i64 %indvars.iv.i27, 2
+  %cmp.i34 = icmp samesign ult i64 %indvars.iv.i27, 2
   br i1 %cmp.i34, label %if.end14, label %for.body.i26, !llvm.loop !37
 
 if.end14:                                         ; preds = %_ZNK6google8protobuf20FieldDescriptorProto13IsInitializedEv.exit.i, %if.end10
@@ -7419,7 +7419,7 @@ if.then8.i.i.i:                                   ; preds = %if.end6.i.i.i
   br i1 %call2.i.i.i.i, label %_ZNK6google8protobuf20FieldDescriptorProto13IsInitializedEv.exit.i, label %return
 
 _ZNK6google8protobuf20FieldDescriptorProto13IsInitializedEv.exit.i: ; preds = %if.then8.i.i.i, %if.end6.i.i.i, %for.body.i
-  %cmp.i = icmp ult i64 %indvars.iv.i, 2
+  %cmp.i = icmp samesign ult i64 %indvars.iv.i, 2
   br i1 %cmp.i, label %if.end, label %for.body.i, !llvm.loop !37
 
 if.end:                                           ; preds = %_ZNK6google8protobuf20FieldDescriptorProto13IsInitializedEv.exit.i, %entry
@@ -7535,7 +7535,7 @@ if.then8.i.i.i47:                                 ; preds = %if.end6.i.i.i43
   br i1 %call2.i.i.i.i49, label %_ZNK6google8protobuf30DescriptorProto_ExtensionRange13IsInitializedEv.exit.i, label %return
 
 _ZNK6google8protobuf30DescriptorProto_ExtensionRange13IsInitializedEv.exit.i: ; preds = %if.then8.i.i.i47, %if.end6.i.i.i43, %for.body.i25
-  %cmp.i50 = icmp ult i64 %indvars.iv.i26, 2
+  %cmp.i50 = icmp samesign ult i64 %indvars.iv.i26, 2
   br i1 %cmp.i50, label %if.end14, label %for.body.i25, !llvm.loop !58
 
 if.end14:                                         ; preds = %_ZNK6google8protobuf30DescriptorProto_ExtensionRange13IsInitializedEv.exit.i, %if.end10
@@ -7595,7 +7595,7 @@ if.then8.i.i.i76:                                 ; preds = %if.end6.i.i.i72
   br i1 %call2.i.i.i.i78, label %_ZNK6google8protobuf20FieldDescriptorProto13IsInitializedEv.exit.i79, label %return
 
 _ZNK6google8protobuf20FieldDescriptorProto13IsInitializedEv.exit.i79: ; preds = %if.then8.i.i.i76, %if.end6.i.i.i72, %for.body.i54
-  %cmp.i80 = icmp ult i64 %indvars.iv.i55, 2
+  %cmp.i80 = icmp samesign ult i64 %indvars.iv.i55, 2
   br i1 %cmp.i80, label %if.end18, label %for.body.i54, !llvm.loop !37
 
 if.end18:                                         ; preds = %_ZNK6google8protobuf20FieldDescriptorProto13IsInitializedEv.exit.i79, %if.end14
@@ -7655,7 +7655,7 @@ if.then8.i.i.i107:                                ; preds = %if.end6.i.i.i103
   br i1 %call2.i.i.i.i109, label %_ZNK6google8protobuf20OneofDescriptorProto13IsInitializedEv.exit.i, label %return
 
 _ZNK6google8protobuf20OneofDescriptorProto13IsInitializedEv.exit.i: ; preds = %if.then8.i.i.i107, %if.end6.i.i.i103, %for.body.i85
-  %cmp.i110 = icmp ult i64 %indvars.iv.i86, 2
+  %cmp.i110 = icmp samesign ult i64 %indvars.iv.i86, 2
   br i1 %cmp.i110, label %if.end22, label %for.body.i85, !llvm.loop !59
 
 if.end22:                                         ; preds = %_ZNK6google8protobuf20OneofDescriptorProto13IsInitializedEv.exit.i, %if.end18
@@ -13583,7 +13583,7 @@ if.then8.i.i.i:                                   ; preds = %if.end6.i.i.i
   br i1 %call2.i.i.i.i, label %_ZNK6google8protobuf24EnumValueDescriptorProto13IsInitializedEv.exit.i, label %return
 
 _ZNK6google8protobuf24EnumValueDescriptorProto13IsInitializedEv.exit.i: ; preds = %if.then8.i.i.i, %if.end6.i.i.i, %for.body.i
-  %cmp.i = icmp ult i64 %indvars.iv.i, 2
+  %cmp.i = icmp samesign ult i64 %indvars.iv.i, 2
   br i1 %cmp.i, label %if.end, label %for.body.i, !llvm.loop !88
 
 if.end:                                           ; preds = %_ZNK6google8protobuf24EnumValueDescriptorProto13IsInitializedEv.exit.i, %entry
@@ -15392,7 +15392,7 @@ if.then8.i.i.i:                                   ; preds = %if.end6.i.i.i
   br i1 %call2.i.i.i.i, label %_ZNK6google8protobuf21MethodDescriptorProto13IsInitializedEv.exit.i, label %return
 
 _ZNK6google8protobuf21MethodDescriptorProto13IsInitializedEv.exit.i: ; preds = %if.then8.i.i.i, %if.end6.i.i.i, %for.body.i
-  %cmp.i = icmp ult i64 %indvars.iv.i, 2
+  %cmp.i = icmp samesign ult i64 %indvars.iv.i, 2
   br i1 %cmp.i, label %if.end, label %for.body.i, !llvm.loop !95
 
 if.end:                                           ; preds = %_ZNK6google8protobuf21MethodDescriptorProto13IsInitializedEv.exit.i, %entry
@@ -28186,7 +28186,7 @@ if.then.i.i:                                      ; preds = %for.body.i
   br i1 %call2.i.i.i, label %_ZNK6google8protobuf43FeatureSetDefaults_FeatureSetEditionDefault13IsInitializedEv.exit.i, label %_ZN6google8protobuf8internal17AllAreInitializedINS0_43FeatureSetDefaults_FeatureSetEditionDefaultEEEbRKNS0_16RepeatedPtrFieldIT_EE.exit
 
 _ZNK6google8protobuf43FeatureSetDefaults_FeatureSetEditionDefault13IsInitializedEv.exit.i: ; preds = %if.then.i.i, %for.body.i
-  %cmp.i = icmp ult i64 %indvars.iv.i, 2
+  %cmp.i = icmp samesign ult i64 %indvars.iv.i, 2
   br i1 %cmp.i, label %_ZN6google8protobuf8internal17AllAreInitializedINS0_43FeatureSetDefaults_FeatureSetEditionDefaultEEEbRKNS0_16RepeatedPtrFieldIT_EE.exit, label %for.body.i, !llvm.loop !167
 
 _ZN6google8protobuf8internal17AllAreInitializedINS0_43FeatureSetDefaults_FeatureSetEditionDefaultEEEbRKNS0_16RepeatedPtrFieldIT_EE.exit: ; preds = %if.then.i.i, %_ZNK6google8protobuf43FeatureSetDefaults_FeatureSetEditionDefault13IsInitializedEv.exit.i, %entry
@@ -28816,7 +28816,7 @@ _ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit: ; preds = %if.
   %retval.0.i = phi ptr [ %call.i95, %if.then.i94 ], [ %target, %if.then ]
   store i8 10, ptr %retval.0.i, align 1
   %ptr.addr.i174.0146 = getelementptr inbounds i8, ptr %retval.0.i, i64 1
-  %cmp.i176147 = icmp ugt i32 %1, 127
+  %cmp.i176147 = icmp samesign ugt i32 %1, 127
   br i1 %cmp.i176147, label %while.body.i179, label %_ZN6google8protobuf2io19EpsCopyOutputStream15UnsafeWriteSizeEjPh.exit
 
 while.body.i179:                                  ; preds = %_ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit, %while.body.i179
@@ -28904,7 +28904,7 @@ _ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit104: ; preds = %
   %retval.0.i103 = phi ptr [ %call.i102, %if.then.i101 ], [ %target.addr.0, %if.then7 ]
   store i8 18, ptr %retval.0.i103, align 1
   %ptr.addr.i185.0157 = getelementptr inbounds i8, ptr %retval.0.i103, i64 1
-  %cmp.i187158 = icmp ugt i32 %9, 127
+  %cmp.i187158 = icmp samesign ugt i32 %9, 127
   br i1 %cmp.i187158, label %while.body.i190, label %_ZN6google8protobuf2io19EpsCopyOutputStream15UnsafeWriteSizeEjPh.exit195
 
 while.body.i190:                                  ; preds = %_ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit104, %while.body.i190
@@ -30108,7 +30108,7 @@ _ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit: ; preds = %if.
   %retval.0.i = phi ptr [ %call.i47, %if.then.i46 ], [ %target, %if.then ]
   store i8 10, ptr %retval.0.i, align 1
   %ptr.addr.i92.090 = getelementptr inbounds i8, ptr %retval.0.i, i64 1
-  %cmp.i9391 = icmp ugt i32 %1, 127
+  %cmp.i9391 = icmp samesign ugt i32 %1, 127
   br i1 %cmp.i9391, label %while.body.i, label %_ZN6google8protobuf2io19EpsCopyOutputStream15UnsafeWriteSizeEjPh.exit
 
 while.body.i:                                     ; preds = %_ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit, %while.body.i

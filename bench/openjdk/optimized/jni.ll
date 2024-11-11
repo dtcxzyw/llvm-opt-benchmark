@@ -27537,7 +27537,7 @@ _ZNK7oopDesc5klassEv.exit45:                      ; preds = %162, %172
   %.072 = phi i32 [ %177, %.lr.ph ], [ %175, %_ZNK7oopDesc5klassEv.exit45 ]
   call void (ptr, ptr, ...) @_ZN12outputStream5printEPKcz(ptr noundef nonnull align 8 dereferenceable(56) %6, ptr noundef nonnull @.str.15) #15
   %177 = add nsw i32 %.072, -1
-  %178 = icmp ugt i32 %.072, 2
+  %178 = icmp samesign ugt i32 %.072, 2
   br i1 %178, label %.lr.ph, label %._crit_edge, !llvm.loop !698
 
 ._crit_edge:                                      ; preds = %.lr.ph, %_ZNK7oopDesc5klassEv.exit45

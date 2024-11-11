@@ -237,7 +237,7 @@ thread-pre-split.thread.i45:                      ; preds = %thread-pre-split.i4
 
 thread-pre-split:                                 ; preds = %thread-pre-split.thread.i45, %86
   %92 = phi i32 [ %87, %86 ], [ %80, %thread-pre-split.thread.i45 ]
-  %93 = icmp ugt i32 %92, 49
+  %93 = icmp samesign ugt i32 %92, 49
   br i1 %93, label %122, label %.thread64
 
 .thread64:                                        ; preds = %68, %thread-pre-split.i46, %thread-pre-split
@@ -1276,7 +1276,7 @@ sub_1470:                                         ; preds = %sub_0469
   br i1 %259, label %260, label %.critedge17
 
 260:                                              ; preds = %256
-  %261 = icmp ult i8 %258, 64
+  %261 = icmp samesign ult i8 %258, 64
   %262 = icmp samesign ult i64 %indvars.iv683, 12
   %or.cond40 = select i1 %261, i1 %262, i1 false
   br i1 %or.cond40, label %263, label %.critedge17
@@ -1518,7 +1518,7 @@ sub_1470:                                         ; preds = %sub_0469
   %356 = mul i32 %355, %.0356582
   %357 = add i32 %356, %351
   %358 = mul i32 %.0356582, 10
-  %359 = icmp ugt i64 %indvars.iv707, 1
+  %359 = icmp samesign ugt i64 %indvars.iv707, 1
   br i1 %359, label %.lr.ph584, label %.sink.split, !llvm.loop !19
 
 .sink.split:                                      ; preds = %.lr.ph584, %.critedge30.thread
@@ -1702,7 +1702,7 @@ define internal fastcc void @write_timestamp_string(ptr nocapture noundef nonnul
   br label %105
 
 9:                                                ; preds = %3
-  %10 = icmp ult i32 %1, 100
+  %10 = icmp samesign ult i32 %1, 100
   br i1 %10, label %11, label %17
 
 11:                                               ; preds = %9
@@ -1717,7 +1717,7 @@ define internal fastcc void @write_timestamp_string(ptr nocapture noundef nonnul
   br label %105
 
 17:                                               ; preds = %9
-  %18 = icmp ult i32 %1, 1000
+  %18 = icmp samesign ult i32 %1, 1000
   br i1 %18, label %19, label %31
 
 19:                                               ; preds = %17
@@ -1740,7 +1740,7 @@ define internal fastcc void @write_timestamp_string(ptr nocapture noundef nonnul
   br label %105
 
 31:                                               ; preds = %17
-  %32 = icmp ult i32 %1, 10000
+  %32 = icmp samesign ult i32 %1, 10000
   br i1 %32, label %33, label %50
 
 33:                                               ; preds = %31
@@ -1769,7 +1769,7 @@ define internal fastcc void @write_timestamp_string(ptr nocapture noundef nonnul
   br label %105
 
 50:                                               ; preds = %31
-  %51 = icmp ult i32 %1, 100000
+  %51 = icmp samesign ult i32 %1, 100000
   br i1 %51, label %52, label %74
 
 52:                                               ; preds = %50
@@ -1805,7 +1805,7 @@ define internal fastcc void @write_timestamp_string(ptr nocapture noundef nonnul
   br label %105
 
 74:                                               ; preds = %50
-  %75 = icmp ult i32 %1, 1000000
+  %75 = icmp samesign ult i32 %1, 1000000
   br i1 %75, label %76, label %103
 
 76:                                               ; preds = %74

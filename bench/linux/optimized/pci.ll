@@ -2087,7 +2087,7 @@ define internal fastcc range(i32 -22, 1) i32 @__pci_set_power_state(ptr noundef 
   br label %.thread14
 
 84:                                               ; preds = %42
-  %85 = icmp ugt i32 %1, 2
+  %85 = icmp samesign ugt i32 %1, 2
   br i1 %85, label %.thread8, label %.thread9
 
 .thread8:                                         ; preds = %84
@@ -9906,7 +9906,7 @@ define dso_local noundef range(i32 -22, 1) i32 @pcix_set_mmrbc(ptr noundef %0, i
   br i1 %34, label %52, label %35
 
 35:                                               ; preds = %29
-  %36 = icmp ugt i32 %12, %33
+  %36 = icmp samesign ugt i32 %12, %33
   br i1 %36, label %37, label %44
 
 37:                                               ; preds = %35
@@ -10009,7 +10009,7 @@ define dso_local range(i32 -2147483648, 1) i32 @pcie_set_readrq(ptr noundef %0, 
   %40 = zext nneg i16 %39 to i32
   %41 = shl nuw nsw i32 128, %40
   call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %3) #27
-  %42 = icmp ugt i32 %25, %41
+  %42 = icmp samesign ugt i32 %25, %41
   br i1 %42, label %43, label %45
 
 43:                                               ; preds = %35

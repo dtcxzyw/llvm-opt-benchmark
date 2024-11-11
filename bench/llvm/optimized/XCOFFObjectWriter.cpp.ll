@@ -1212,7 +1212,7 @@ _ZSt14__copy_move_a1ILb0EPPSt5dequeIN12_GLOBAL__N_112XCOFFSectionESaIS2_EES6_ET1
   br i1 %92, label %93, label %99
 
 93:                                               ; preds = %_ZSt14__copy_move_a1ILb0EPPSt5dequeIN12_GLOBAL__N_112XCOFFSectionESaIS2_EES6_ET1_T0_S8_S7_.exit.i.i.i.i.i.i.i.i.i
-  %94 = icmp ult i64 %91, 64
+  %94 = icmp samesign ult i64 %91, 64
   br i1 %94, label %95, label %97
 
 95:                                               ; preds = %93
@@ -1294,7 +1294,7 @@ _ZSt14__copy_move_a1ILb0EPPSt5dequeIN12_GLOBAL__N_112XCOFFSectionESaIS2_EES6_ET1
   br i1 %129, label %130, label %136
 
 130:                                              ; preds = %_ZSt14__copy_move_a1ILb0EPPSt5dequeIN12_GLOBAL__N_112XCOFFSectionESaIS2_EES6_ET1_T0_S8_S7_.exit.i17.i.i.i.i.i.i.i.i
-  %131 = icmp ult i64 %128, 64
+  %131 = icmp samesign ult i64 %128, 64
   br i1 %131, label %132, label %134
 
 132:                                              ; preds = %130
@@ -1375,7 +1375,7 @@ _ZSt14__copy_move_a1ILb0EPPSt5dequeIN12_GLOBAL__N_112XCOFFSectionESaIS2_EES6_ET1
   br i1 %167, label %168, label %174
 
 168:                                              ; preds = %_ZSt14__copy_move_a1ILb0EPPSt5dequeIN12_GLOBAL__N_112XCOFFSectionESaIS2_EES6_ET1_T0_S8_S7_.exit.i34.i.i.i.i.i.i.i.i
-  %169 = icmp ult i64 %166, 64
+  %169 = icmp samesign ult i64 %166, 64
   br i1 %169, label %170, label %172
 
 170:                                              ; preds = %168
@@ -1446,7 +1446,7 @@ _ZSt14__copy_move_a1ILb0EPPSt5dequeIN12_GLOBAL__N_112XCOFFSectionESaIS2_EES6_ET1
   br i1 %201, label %202, label %208
 
 202:                                              ; preds = %_ZSt14__copy_move_a1ILb0EPPSt5dequeIN12_GLOBAL__N_112XCOFFSectionESaIS2_EES6_ET1_T0_S8_S7_.exit.i51.i.i.i.i.i.i.i.i
-  %203 = icmp ult i64 %200, 64
+  %203 = icmp samesign ult i64 %200, 64
   br i1 %203, label %204, label %206
 
 204:                                              ; preds = %202

@@ -284,7 +284,7 @@ for.body:                                         ; preds = %for.body.lr.ph, %fo
   %conv84 = trunc nuw i32 %shr82 to i8
   %incdec.ptr85 = getelementptr inbounds i8, ptr %out.addr.0215, i64 8
   store i8 %conv84, ptr %incdec.ptr81, align 1
-  %cmp = icmp ugt i64 %l.0, 7
+  %cmp = icmp samesign ugt i64 %l.0, 7
   br i1 %cmp, label %for.body, label %for.end, !llvm.loop !13
 
 for.end:                                          ; preds = %for.body
@@ -527,7 +527,7 @@ for.body227:                                      ; preds = %for.body227.lr.ph, 
   %conv291 = trunc nuw i32 %shr289 to i8
   %incdec.ptr292 = getelementptr inbounds i8, ptr %out.addr.1225, i64 8
   store i8 %conv291, ptr %incdec.ptr288, align 1
-  %cmp225 = icmp ugt i64 %l.1, 7
+  %cmp225 = icmp samesign ugt i64 %l.1, 7
   br i1 %cmp225, label %for.body227, label %for.end295, !llvm.loop !14
 
 for.end295:                                       ; preds = %for.body227

@@ -3412,74 +3412,74 @@ define internal i64 @proc_curry(i32 noundef %0, ptr nocapture noundef readonly %
   %6 = getelementptr inbounds i8, ptr %5, i64 32
   %7 = load ptr, ptr %6, align 8
   %8 = call fastcc i32 @rb_vm_block_min_max_arity(ptr noundef %7, ptr noundef nonnull %4)
-  %9 = icmp ugt i32 %0, 1
-  br i1 %9, label %10, label %rb_check_arity.exit
+  %or.cond.not = icmp ult i32 %0, 2
+  br i1 %or.cond.not, label %rb_check_arity.exit, label %9
 
-10:                                               ; preds = %3
+9:                                                ; preds = %3
   tail call void @rb_error_arity(i32 noundef %0, i32 noundef 0, i32 noundef 1) #21
   unreachable
 
 rb_check_arity.exit:                              ; preds = %3
-  %11 = icmp eq i32 %0, 0
-  br i1 %11, label %15, label %12
+  %10 = icmp eq i32 %0, 0
+  br i1 %10, label %14, label %11
 
-12:                                               ; preds = %rb_check_arity.exit
-  %13 = load i64, ptr %1, align 8
-  %14 = icmp eq i64 %13, 4
-  br i1 %14, label %15, label %19
+11:                                               ; preds = %rb_check_arity.exit
+  %12 = load i64, ptr %1, align 8
+  %13 = icmp eq i64 %12, 4
+  br i1 %13, label %14, label %18
 
-15:                                               ; preds = %12, %rb_check_arity.exit
-  %16 = sext i32 %8 to i64
-  %17 = shl nsw i64 %16, 1
-  %18 = or disjoint i64 %17, 1
+14:                                               ; preds = %11, %rb_check_arity.exit
+  %15 = sext i32 %8 to i64
+  %16 = shl nsw i64 %15, 1
+  %17 = or disjoint i64 %16, 1
   br label %rb_check_arity.exit10
 
-19:                                               ; preds = %12
-  %20 = tail call i64 @rb_fix2int(i64 noundef %13) #20
-  %21 = trunc i64 %20 to i32
-  %22 = load ptr, ptr %6, align 8
-  %23 = getelementptr inbounds i8, ptr %22, i64 32
-  %24 = load i8, ptr %23, align 8
-  %25 = and i8 %24, 2
-  %.not.i = icmp eq i8 %25, 0
-  br i1 %.not.i, label %rb_check_arity.exit10, label %26
+18:                                               ; preds = %11
+  %19 = tail call i64 @rb_fix2int(i64 noundef %12) #20
+  %20 = trunc i64 %19 to i32
+  %21 = load ptr, ptr %6, align 8
+  %22 = getelementptr inbounds i8, ptr %21, i64 32
+  %23 = load i8, ptr %22, align 8
+  %24 = and i8 %23, 2
+  %.not.i = icmp eq i8 %24, 0
+  br i1 %.not.i, label %rb_check_arity.exit10, label %25
 
-26:                                               ; preds = %19
-  %27 = load i32, ptr %4, align 4
-  %28 = icmp sgt i32 %8, %21
-  br i1 %28, label %31, label %29
+25:                                               ; preds = %18
+  %26 = load i32, ptr %4, align 4
+  %27 = icmp sgt i32 %8, %20
+  br i1 %27, label %30, label %28
 
-29:                                               ; preds = %26
-  %.not.i9 = icmp ne i32 %27, -1
-  %30 = icmp slt i32 %27, %21
-  %or.cond.i = and i1 %.not.i9, %30
-  br i1 %or.cond.i, label %31, label %rb_check_arity.exit10
+28:                                               ; preds = %25
+  %.not.i9 = icmp ne i32 %26, -1
+  %29 = icmp slt i32 %26, %20
+  %or.cond.i = and i1 %.not.i9, %29
+  br i1 %or.cond.i, label %30, label %rb_check_arity.exit10
 
-31:                                               ; preds = %29, %26
-  tail call void @rb_error_arity(i32 noundef %21, i32 noundef %8, i32 noundef %27) #21
+30:                                               ; preds = %28, %25
+  tail call void @rb_error_arity(i32 noundef %20, i32 noundef %8, i32 noundef %26) #21
   unreachable
 
-rb_check_arity.exit10:                            ; preds = %29, %19, %15
-  %.0 = phi i64 [ %18, %15 ], [ %13, %19 ], [ %13, %29 ]
-  %32 = tail call i64 @rb_ary_new() #20
-  %33 = tail call i64 (i64, ...) @rb_ary_new_from_args(i64 noundef 3, i64 noundef %2, i64 noundef %32, i64 noundef %.0) #20
-  %34 = load ptr, ptr %6, align 8
-  %35 = getelementptr inbounds i8, ptr %34, i64 32
-  %36 = load i8, ptr %35, align 8
-  %37 = and i8 %36, 2
+rb_check_arity.exit10:                            ; preds = %28, %18, %14
+  %.0 = phi i64 [ %17, %14 ], [ %12, %18 ], [ %12, %28 ]
+  %31 = tail call i64 @rb_ary_new() #20
+  %32 = tail call i64 (i64, ...) @rb_ary_new_from_args(i64 noundef 3, i64 noundef %2, i64 noundef %31, i64 noundef %.0) #20
+  %33 = load ptr, ptr %6, align 8
+  %34 = getelementptr inbounds i8, ptr %33, i64 32
+  %35 = load i8, ptr %34, align 8
+  %36 = and i8 %35, 2
+  %37 = tail call i64 @rb_ary_freeze(i64 noundef %31) #20
   %38 = tail call i64 @rb_ary_freeze(i64 noundef %32) #20
-  %39 = tail call i64 @rb_ary_freeze(i64 noundef %33) #20
-  %40 = load i64, ptr @rb_mRubyVMFrozenCore, align 8
-  %41 = tail call i64 @rb_block_call(i64 noundef %40, i64 noundef 3057, i32 noundef 0, ptr noundef null, ptr noundef nonnull @curry, i64 noundef %33) #20
-  %42 = inttoptr i64 %41 to ptr
-  %43 = getelementptr inbounds i8, ptr %42, i64 32
-  %44 = load ptr, ptr %43, align 8
-  %45 = getelementptr inbounds i8, ptr %44, i64 32
-  %46 = load i8, ptr %45, align 8
-  %47 = and i8 %46, -3
-  %48 = or disjoint i8 %47, %37
-  store i8 %48, ptr %45, align 8
-  ret i64 %41
+  %39 = load i64, ptr @rb_mRubyVMFrozenCore, align 8
+  %40 = tail call i64 @rb_block_call(i64 noundef %39, i64 noundef 3057, i32 noundef 0, ptr noundef null, ptr noundef nonnull @curry, i64 noundef %32) #20
+  %41 = inttoptr i64 %40 to ptr
+  %42 = getelementptr inbounds i8, ptr %41, i64 32
+  %43 = load ptr, ptr %42, align 8
+  %44 = getelementptr inbounds i8, ptr %43, i64 32
+  %45 = load i8, ptr %44, align 8
+  %46 = and i8 %45, -3
+  %47 = or disjoint i8 %46, %36
+  store i8 %47, ptr %44, align 8
+  ret i64 %40
 }
 
 ; Function Attrs: nounwind sspstrong uwtable

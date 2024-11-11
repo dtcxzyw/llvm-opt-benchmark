@@ -1173,13 +1173,13 @@ define internal range(i32 0, 3) i32 @lv_draw_mask_angle(ptr noundef %0, i32 noun
   br i1 %33, label %34, label %.thread
 
 34:                                               ; preds = %21
-  %35 = icmp ult i32 %12, 91
+  %35 = icmp samesign ult i32 %12, 91
   %36 = icmp slt i32 %32, 0
   %or.cond3 = select i1 %35, i1 %36, i1 false
   br i1 %or.cond3, label %.thread, label %37
 
 37:                                               ; preds = %34
-  %38 = icmp ugt i32 %12, 90
+  %38 = icmp samesign ugt i32 %12, 90
   br i1 %38, label %39, label %.thread
 
 39:                                               ; preds = %37
@@ -1192,13 +1192,13 @@ define internal range(i32 0, 3) i32 @lv_draw_mask_angle(ptr noundef %0, i32 noun
   br i1 %41, label %42, label %.thread263
 
 42:                                               ; preds = %.thread
-  %43 = icmp ult i32 %16, 91
+  %43 = icmp samesign ult i32 %16, 91
   %44 = icmp slt i32 %.0220, 0
   %or.cond9 = select i1 %43, i1 %44, i1 false
   br i1 %or.cond9, label %.thread263, label %45
 
 45:                                               ; preds = %42
-  %46 = icmp ugt i32 %16, 90
+  %46 = icmp samesign ugt i32 %16, 90
   br i1 %46, label %47, label %.thread263
 
 47:                                               ; preds = %45
@@ -1274,34 +1274,34 @@ define internal range(i32 0, 3) i32 @lv_draw_mask_angle(ptr noundef %0, i32 noun
   %87 = load i32, ptr %86, align 4, !tbaa !46
   %88 = mul nsw i32 %87, %84
   %89 = ashr i32 %88, 10
-  %90 = icmp ugt i32 %12, 270
+  %90 = icmp samesign ugt i32 %12, 270
   br i1 %90, label %91, label %94
 
 91:                                               ; preds = %78
-  %92 = icmp ult i32 %12, 360
+  %92 = icmp samesign ult i32 %12, 360
   %93 = icmp slt i32 %89, 0
   %or.cond13 = select i1 %92, i1 %93, i1 false
   br i1 %or.cond13, label %97, label %94
 
 94:                                               ; preds = %78, %91
-  %95 = icmp ult i32 %12, 270
+  %95 = icmp samesign ult i32 %12, 270
   %96 = tail call i32 @llvm.smin.i32(i32 %89, i32 0)
   %spec.store.select33 = select i1 %95, i32 %96, i32 %89
   br label %97
 
 97:                                               ; preds = %91, %94
   %.0215 = phi i32 [ %spec.store.select33, %94 ], [ 0, %91 ]
-  %98 = icmp ugt i32 %73, 270
+  %98 = icmp samesign ugt i32 %73, 270
   br i1 %98, label %99, label %102
 
 99:                                               ; preds = %97
-  %100 = icmp ult i32 %73, 360
+  %100 = icmp samesign ult i32 %73, 360
   %101 = icmp slt i32 %.0215, 0
   %or.cond19 = select i1 %100, i1 %101, i1 false
   br i1 %or.cond19, label %105, label %102
 
 102:                                              ; preds = %97, %99
-  %103 = icmp ult i32 %73, 270
+  %103 = icmp samesign ult i32 %73, 270
   %104 = tail call i32 @llvm.smin.i32(i32 %.0215, i32 0)
   %spec.store.select34 = select i1 %103, i32 %104, i32 %.0215
   br label %105

@@ -159,7 +159,7 @@ define void @dlarrj_(ptr nocapture noundef readonly %0, ptr nocapture noundef re
   %126 = fcmp olt double %74, %60
   %127 = zext i1 %126 to i32
   %128 = zext i1 %126 to i64
-  %129 = icmp ugt i64 %46, %128
+  %129 = icmp samesign ugt i64 %46, %128
   br i1 %129, label %.lr.ph38, label %.split35.us
 
 .lr.ph38:                                         ; preds = %.preheader22.split33.us, %.lr.ph38
@@ -169,7 +169,7 @@ define void @dlarrj_(ptr nocapture noundef readonly %0, ptr nocapture noundef re
   %133 = fmul double %130, 2.000000e+00
   %134 = fcmp olt double %74, %132
   %135 = zext i1 %134 to i64
-  %136 = icmp ugt i64 %46, %135
+  %136 = icmp samesign ugt i64 %46, %135
   br i1 %136, label %.lr.ph38, label %.split35.us.loopexit
 
 137:                                              ; preds = %.loopexit21

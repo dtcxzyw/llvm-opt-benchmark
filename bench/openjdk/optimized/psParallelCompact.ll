@@ -2833,7 +2833,7 @@ define hidden void @_ZN17PSParallelCompact21fill_dense_prefix_endENS_7SpaceIdE(i
   %55 = getelementptr inbounds i8, ptr %.010.i, i64 %.neg.i
   %56 = load i8, ptr %55, align 1
   %57 = zext i8 %56 to i32
-  %58 = icmp ugt i32 %47, %57
+  %58 = icmp samesign ugt i32 %47, %57
   br i1 %58, label %_ZNK16ObjectStartArray30block_start_reaching_into_cardEPP12HeapWordImpl.exit, label %.lr.ph.i, !llvm.loop !17
 
 _ZNK16ObjectStartArray30block_start_reaching_into_cardEPP12HeapWordImpl.exit: ; preds = %.lr.ph.i, %38

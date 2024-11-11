@@ -4926,7 +4926,7 @@ buffer_size_check.exit2825:                       ; preds = %resize_buffer.exit2
   %.018673452 = phi i64 [ %2227, %.lr.ph3455 ], [ %2224, %2223 ]
   %2227 = call i64 (i64, i64, i32, ...) @rb_funcall(i64 noundef %.018673452, i64 noundef 42, i32 noundef 1, i64 noundef 2000000001) #10
   %2228 = add nsw i32 %.018653453, -9
-  %2229 = icmp ugt i32 %.018653453, 17
+  %2229 = icmp samesign ugt i32 %.018653453, 17
   br i1 %2229, label %.lr.ph3455, label %.preheader3111, !llvm.loop !235
 
 .lr.ph3460:                                       ; preds = %.preheader3111, %.lr.ph3460
@@ -4934,7 +4934,7 @@ buffer_size_check.exit2825:                       ; preds = %resize_buffer.exit2
   %.118663458 = phi i32 [ %2231, %.lr.ph3460 ], [ %.01865.lcssa, %.preheader3111 ]
   %2230 = mul i64 %.018643459, 10
   %2231 = add nsw i32 %.118663458, -1
-  %2232 = icmp ugt i32 %.118663458, 1
+  %2232 = icmp samesign ugt i32 %.118663458, 1
   br i1 %2232, label %.lr.ph3460, label %._crit_edge3461, !llvm.loop !236
 
 ._crit_edge3461:                                  ; preds = %.lr.ph3460

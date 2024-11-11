@@ -364,7 +364,7 @@ if.then.i:                                        ; preds = %land.lhs.true.i
 
 if.end.i:                                         ; preds = %if.then.i, %land.lhs.true.i
   %len.0.i = phi i32 [ %dec.i, %if.then.i ], [ %conv7.i, %land.lhs.true.i ]
-  %cmp14.i = icmp ugt i32 %len.0.i, 2
+  %cmp14.i = icmp samesign ugt i32 %len.0.i, 2
   br i1 %cmp14.i, label %land.lhs.true16.i, label %if.end25.i
 
 land.lhs.true16.i:                                ; preds = %if.end.i

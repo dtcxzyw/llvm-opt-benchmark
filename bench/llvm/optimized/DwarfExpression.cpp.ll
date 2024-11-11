@@ -1742,7 +1742,7 @@ define dso_local noundef zeroext i1 @_ZN4llvm15DwarfExpression23addMachineRegExp
   %80 = and i16 %79, -8
   %81 = or disjoint i16 %80, 1
   store i16 %81, ptr %54, align 4
-  %82 = icmp ult i32 %74, 32
+  %82 = icmp samesign ult i32 %74, 32
   br i1 %82, label %83, label %88
 
 83:                                               ; preds = %76

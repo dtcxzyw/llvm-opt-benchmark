@@ -4718,7 +4718,7 @@ define linkonce_odr void @_ZN3gmx19StatePropagatorData26ReferenceTemperatureHelp
   %45 = getelementptr inbounds i8, ptr %.sroa.05.07.i.i.i.i.i, i64 4
   %46 = getelementptr inbounds i8, ptr %.09.i.i.i.i.i, i64 4
   %47 = add nsw i64 %.048.i.i.i.i.i, -1
-  %48 = icmp ugt i64 %.048.i.i.i.i.i, 1
+  %48 = icmp samesign ugt i64 %.048.i.i.i.i.i, 1
   br i1 %48, label %.lr.ph.i.i.i.i.i, label %_ZSt4copyIN3gmx12ArrayRefIterIKfEEN9__gnu_cxx17__normal_iteratorIPfSt6vectorIfSaIfEEEEET0_T_SC_SB_.exit, !llvm.loop !77
 
 _ZSt4copyIN3gmx12ArrayRefIterIKfEEN9__gnu_cxx17__normal_iteratorIPfSt6vectorIfSaIfEEEEET0_T_SC_SB_.exit: ; preds = %.lr.ph.i.i.i.i.i, %._crit_edge
@@ -5099,7 +5099,7 @@ _ZNSt10unique_ptrI7t_stateSt14default_deleteIS0_EED2Ev.exit5: ; preds = %_ZNSt10
   %30 = getelementptr inbounds i8, ptr %.sroa.05.07.i.i.i.i.i, i64 4
   %31 = getelementptr inbounds i8, ptr %.09.i.i.i.i.i, i64 4
   %32 = add nsw i64 %.048.i.i.i.i.i, -1
-  %33 = icmp ugt i64 %.048.i.i.i.i.i, 1
+  %33 = icmp samesign ugt i64 %.048.i.i.i.i.i, 1
   br i1 %33, label %.lr.ph.i.i.i.i.i, label %_ZSt4copyIN3gmx12ArrayRefIterIKfEEPfET0_T_S6_S5_.exit.loopexit, !llvm.loop !77
 
 _ZSt4copyIN3gmx12ArrayRefIterIKfEEPfET0_T_S6_S5_.exit.loopexit: ; preds = %.lr.ph.i.i.i.i.i

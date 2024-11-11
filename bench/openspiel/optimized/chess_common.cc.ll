@@ -464,7 +464,7 @@ define i16 @_ZN10open_spiel12chess_common24DestinationIndexToOffsetEiRKSt5arrayI
 33:                                               ; preds = %27
   store i32 %19, ptr %8, align 4
   store i64 8, ptr %9, align 8
-  %34 = icmp ult i32 %19, 8
+  %34 = icmp samesign ult i32 %19, 8
   br i1 %34, label %39, label %35
 
 35:                                               ; preds = %33
@@ -628,7 +628,7 @@ define i16 @_ZN10open_spiel12chess_common24DestinationIndexToOffsetEiRKSt5arrayI
 33:                                               ; preds = %27
   store i32 %19, ptr %8, align 4
   store i64 2, ptr %9, align 8
-  %34 = icmp ult i32 %19, 2
+  %34 = icmp samesign ult i32 %19, 2
   br i1 %34, label %39, label %35
 
 35:                                               ; preds = %33

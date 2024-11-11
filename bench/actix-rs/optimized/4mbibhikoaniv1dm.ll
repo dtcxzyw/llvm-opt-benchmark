@@ -282,7 +282,7 @@ define internal fastcc noundef zeroext i1 @"_ZN113_$LT$brotli..enc..backward_ref
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %19)
   store <16 x i8> <i8 0, i8 0, i8 0, i8 0, i8 -1, i8 1, i8 -2, i8 2, i8 -3, i8 3, i8 -1, i8 1, i8 -2, i8 2, i8 -3, i8 3>, ptr %19, align 16
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %19)
-  %74 = icmp ult i64 %.sroa.0.085.us, 15
+  %74 = icmp samesign ult i64 %.sroa.0.085.us, 15
   br i1 %74, label %67, label %.outer32._crit_edge
 
 .lr.ph.split:                                     ; preds = %.lr.ph

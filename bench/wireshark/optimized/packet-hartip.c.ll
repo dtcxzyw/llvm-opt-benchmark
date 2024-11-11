@@ -984,7 +984,7 @@ dissect_session_init.exit:                        ; preds = %95, %101
   br label %159
 
 148:                                              ; preds = %127
-  %149 = icmp ugt i32 %133, 4
+  %149 = icmp samesign ugt i32 %133, 4
   br i1 %149, label %150, label %155
 
 150:                                              ; preds = %148
@@ -1488,7 +1488,7 @@ dissect_session_init.exit:                        ; preds = %95, %101
 472:                                              ; preds = %461
   %473 = zext i8 %466 to i32
   %474 = add nsw i32 %.6120.i, -7
-  %.not77.i.i.i = icmp ult i32 %474, %473
+  %.not77.i.i.i = icmp samesign ult i32 %474, %473
   br i1 %.not77.i.i.i, label %.thread184.i, label %475
 
 475:                                              ; preds = %472
@@ -1500,10 +1500,10 @@ dissect_session_init.exit:                        ; preds = %95, %101
   %481 = add i8 %466, -2
   %482 = zext i8 %481 to i32
   %483 = icmp eq i8 %481, 0
-  %484 = icmp ult i32 %.6120.i, 10
+  %484 = icmp samesign ult i32 %.6120.i, 10
   %or.cond3.not82.i.i.i = or i1 %484, %483
   %485 = add nsw i32 %.6120.i, -9
-  %.not78.i.i.i = icmp ult i32 %485, %482
+  %.not78.i.i.i = icmp samesign ult i32 %485, %482
   %or.cond79.i.i.i = select i1 %or.cond3.not82.i.i.i, i1 true, i1 %.not78.i.i.i
   br i1 %or.cond79.i.i.i, label %.thread184.i, label %486
 
@@ -1551,7 +1551,7 @@ dissect_session_init.exit:                        ; preds = %95, %101
   %513 = icmp eq i8 %511, 0
   %514 = icmp eq i32 %.06479.i.i.i, 4
   %or.cond.not76.i.i.i = select i1 %513, i1 true, i1 %514
-  %.not.i95.i.i = icmp ult i32 %510, %512
+  %.not.i95.i.i = icmp samesign ult i32 %510, %512
   %or.cond71.i.i.i = select i1 %or.cond.not76.i.i.i, i1 true, i1 %.not.i95.i.i
   br i1 %or.cond71.i.i.i, label %529, label %515
 

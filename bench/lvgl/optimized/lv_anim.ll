@@ -1207,7 +1207,7 @@ define i32 @lv_anim_path_bounce(ptr nocapture noundef readonly %0) local_unnamed
   br label %38
 
 16:                                               ; preds = %1
-  %17 = icmp ult i32 %6, 614
+  %17 = icmp samesign ult i32 %6, 614
   br i1 %17, label %18, label %22
 
 18:                                               ; preds = %16
@@ -1217,7 +1217,7 @@ define i32 @lv_anim_path_bounce(ptr nocapture noundef readonly %0) local_unnamed
   br label %38
 
 22:                                               ; preds = %16
-  %23 = icmp ult i32 %6, 819
+  %23 = icmp samesign ult i32 %6, 819
   br i1 %23, label %24, label %27
 
 24:                                               ; preds = %22
@@ -1227,7 +1227,7 @@ define i32 @lv_anim_path_bounce(ptr nocapture noundef readonly %0) local_unnamed
   br label %38
 
 27:                                               ; preds = %22
-  %28 = icmp ult i32 %6, 921
+  %28 = icmp samesign ult i32 %6, 921
   br i1 %28, label %29, label %33
 
 29:                                               ; preds = %27
@@ -1237,7 +1237,7 @@ define i32 @lv_anim_path_bounce(ptr nocapture noundef readonly %0) local_unnamed
   br label %38
 
 33:                                               ; preds = %27
-  %34 = icmp ult i32 %6, 1025
+  %34 = icmp samesign ult i32 %6, 1025
   br i1 %34, label %35, label %38
 
 35:                                               ; preds = %33

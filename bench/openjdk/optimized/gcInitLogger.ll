@@ -139,7 +139,7 @@ _ZN12GCInitLogger13print_versionEv.exit:          ; preds = %0, %12
   br i1 %18, label %_Z24byte_size_in_proper_unitImET_S0_.exit.i, label %19
 
 19:                                               ; preds = %_ZN12GCInitLogger13print_versionEv.exit
-  %20 = icmp ugt i64 %17, 104857599
+  %20 = icmp samesign ugt i64 %17, 104857599
   br i1 %20, label %.thread.i, label %23
 
 .thread.i:                                        ; preds = %19
@@ -151,7 +151,7 @@ _Z24byte_size_in_proper_unitImET_S0_.exit.i:      ; preds = %_ZN12GCInitLogger13
   br label %_ZN12GCInitLogger12print_memoryEv.exit
 
 23:                                               ; preds = %19
-  %24 = icmp ugt i64 %17, 102399
+  %24 = icmp samesign ugt i64 %17, 102399
   %25 = lshr i64 %17, 10
   %spec.select.i.i = select i1 %24, i64 %25, i64 %17
   %.str.25..str.26.i.i = select i1 %24, ptr @.str.25, ptr @.str.26
@@ -325,7 +325,7 @@ define hidden void @_ZN12GCInitLogger12print_memoryEv(ptr nocapture nonnull read
   br i1 %4, label %_Z24byte_size_in_proper_unitImET_S0_.exit, label %5
 
 5:                                                ; preds = %1
-  %6 = icmp ugt i64 %3, 104857599
+  %6 = icmp samesign ugt i64 %3, 104857599
   br i1 %6, label %.thread, label %9
 
 .thread:                                          ; preds = %5
@@ -337,7 +337,7 @@ _Z24byte_size_in_proper_unitImET_S0_.exit:        ; preds = %1
   br label %_Z25proper_unit_for_byte_sizem.exit
 
 9:                                                ; preds = %5
-  %10 = icmp ugt i64 %3, 102399
+  %10 = icmp samesign ugt i64 %3, 102399
   %11 = lshr i64 %3, 10
   %spec.select.i = select i1 %10, i64 %11, i64 %3
   %.str.25..str.26.i = select i1 %10, ptr @.str.25, ptr @.str.26

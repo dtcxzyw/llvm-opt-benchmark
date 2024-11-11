@@ -4087,7 +4087,7 @@ _ZNSt10filesystem7__cxx114pathD2Ev.exit.i:        ; preds = %281, %278
 316:                                              ; preds = %300
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %242), !noalias !55
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %243), !noalias !55
-  %317 = icmp ugt i32 %302, 669
+  %317 = icmp samesign ugt i32 %302, 669
   call void @llvm.experimental.noalias.scope.decl(metadata !58)
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %240), !noalias !55
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %241), !noalias !55

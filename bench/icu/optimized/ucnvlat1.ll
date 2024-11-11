@@ -98,7 +98,7 @@ do.body:                                          ; preds = %do.body, %if.then10
   %add.ptr = getelementptr inbounds i8, ptr %target.1, i64 16
   %add.ptr34 = getelementptr inbounds i8, ptr %source.1, i64 8
   %dec = add nsw i32 %count.0, -1
-  %cmp35 = icmp ugt i32 %count.0, 1
+  %cmp35 = icmp samesign ugt i32 %count.0, 1
   br i1 %cmp35, label %do.body, label %do.end, !llvm.loop !4
 
 do.end:                                           ; preds = %do.body
@@ -174,7 +174,7 @@ while.body:                                       ; preds = %while.body.preheade
   %incdec.ptr63 = getelementptr inbounds i8, ptr %target.261, i64 2
   store i16 %conv62, ptr %target.261, align 2
   %dec64 = add nsw i32 %targetCapacity.262, -1
-  %cmp61 = icmp ugt i32 %targetCapacity.262, 1
+  %cmp61 = icmp samesign ugt i32 %targetCapacity.262, 1
   br i1 %cmp61, label %while.body, label %while.end, !llvm.loop !7
 
 while.end:                                        ; preds = %while.body
@@ -433,7 +433,7 @@ while.body:                                       ; preds = %if.then135, %while.
   %incdec.ptr169 = getelementptr inbounds i8, ptr %offsets.2171, i64 64
   store i32 %inc166, ptr %incdec.ptr167, align 4
   %dec170 = add nsw i32 %count.2173, -1
-  %cmp138 = icmp ugt i32 %count.2173, 1
+  %cmp138 = icmp samesign ugt i32 %count.2173, 1
   br i1 %cmp138, label %while.body, label %if.end172, !llvm.loop !10
 
 if.end172:                                        ; preds = %while.body, %if.then135, %do.end, %if.end17
@@ -774,9 +774,9 @@ cond.false:                                       ; preds = %if.then83
   br i1 %cmp95, label %cond.true96, label %cond.end105
 
 cond.true96:                                      ; preds = %cond.false
-  %cmp98 = icmp ugt i8 %16, -33
+  %cmp98 = icmp samesign ugt i8 %16, -33
   %conv99 = zext i1 %cmp98 to i32
-  %cmp101 = icmp ugt i8 %16, -17
+  %cmp101 = icmp samesign ugt i8 %16, -17
   %add = select i1 %cmp101, i32 3, i32 2
   %add103 = add nuw nsw i32 %add, %conv99
   br label %cond.end105
@@ -932,7 +932,7 @@ while.body:                                       ; preds = %if.then70, %while.b
   store i32 %inc85, ptr %arrayidx88, align 4
   %add.ptr89 = getelementptr inbounds i8, ptr %offsets.197, i64 32
   %dec90 = add nsw i32 %count.299, -1
-  %cmp73 = icmp ugt i32 %count.299, 1
+  %cmp73 = icmp samesign ugt i32 %count.299, 1
   br i1 %cmp73, label %while.body, label %if.end92, !llvm.loop !15
 
 if.end92:                                         ; preds = %while.body, %if.then70, %do.end, %entry

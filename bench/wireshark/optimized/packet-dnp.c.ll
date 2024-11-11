@@ -1288,7 +1288,7 @@ define internal i32 @dissect_dnp3_tcp(ptr noundef %0, ptr noundef %1, ptr nounde
 15:                                               ; preds = %13
   %16 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef 1) #6
   %.not16.i = icmp eq i8 %16, 100
-  %17 = icmp ult i32 %5, 10
+  %17 = icmp samesign ult i32 %5, 10
   %or.cond.i = select i1 %17, i1 true, i1 %.01422.i
   %or.cond18.i = select i1 %.not16.i, i1 %or.cond.i, i1 false
   br i1 %or.cond18.i, label %check_dnp3_header.exit, label %check_dnp3_header.exit.thread
@@ -4538,7 +4538,7 @@ define internal range(i32 0, 2) i32 @dnp3_udp_check_header(ptr nocapture readnon
 15:                                               ; preds = %13
   %16 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %1, i32 noundef 1) #6
   %.not16.i = icmp eq i8 %16, 100
-  %17 = icmp ult i32 %5, 10
+  %17 = icmp samesign ult i32 %5, 10
   %or.cond.i = select i1 %17, i1 true, i1 %.01422.i
   %or.cond18.i = select i1 %.not16.i, i1 %or.cond.i, i1 false
   br i1 %or.cond18.i, label %18, label %check_dnp3_header.exit

@@ -1264,7 +1264,7 @@ catch.i.i:                                        ; preds = %lpad8.i.i, %lpad.lo
 
 if.end.i.i:                                       ; preds = %invoke.cont6.i.i
   call void @llvm.lifetime.start.p0(i64 1024, ptr nonnull %c.i.i.i)
-  %cmp9.i.i.i = icmp ugt i32 %23, 1023
+  %cmp9.i.i.i = icmp samesign ugt i32 %23, 1023
   br i1 %cmp9.i.i.i, label %while.body.i.i.i, label %while.end.i.i.i
 
 while.body.i.i.i:                                 ; preds = %if.end.i.i, %if.end.i.i.i
@@ -2539,7 +2539,7 @@ invoke.cont268:                                   ; preds = %_ZSt25__unguarded_l
   ]
 
 sw.epilog.i:                                      ; preds = %invoke.cont268, %invoke.cont268, %invoke.cont268, %invoke.cont268
-  %cmp.i = icmp ugt i64 %.pre379, 4
+  %cmp.i = icmp samesign ugt i64 %.pre379, 4
   %div22.i = zext i1 %cmp.i to i64
   %spec.select.i = lshr i64 %.pre379, %div22.i
   %invariant.gep.i = getelementptr i8, ptr %optData.sroa.0.1, i64 -56

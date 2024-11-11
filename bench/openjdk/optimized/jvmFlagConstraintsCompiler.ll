@@ -200,7 +200,7 @@ _Z30CompileThresholdConstraintFunclb.exit:        ; preds = %2
   br label %26
 
 23:                                               ; preds = %20
-  %24 = icmp ugt i64 %0, %11
+  %24 = icmp samesign ugt i64 %0, %11
   br i1 %24, label %25, label %26
 
 25:                                               ; preds = %23

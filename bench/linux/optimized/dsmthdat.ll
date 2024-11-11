@@ -401,7 +401,7 @@ define dso_local i32 @acpi_ds_store_object_to_local(i8 noundef zeroext %0, i32 n
   br label %67
 
 61:                                               ; preds = %38, %42, %46
-  %62 = icmp ugt i32 %1, 6
+  %62 = icmp samesign ugt i32 %1, 6
   br i1 %62, label %.thread12, label %63
 
 .thread12:                                        ; preds = %61
@@ -443,7 +443,7 @@ define dso_local i32 @acpi_ds_store_object_to_local(i8 noundef zeroext %0, i32 n
   br label %88
 
 81:                                               ; preds = %75
-  %82 = icmp ugt i32 %1, 6
+  %82 = icmp samesign ugt i32 %1, 6
   br i1 %82, label %83, label %84
 
 83:                                               ; preds = %.thread12, %81

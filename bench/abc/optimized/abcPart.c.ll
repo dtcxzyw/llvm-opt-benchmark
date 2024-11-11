@@ -2546,7 +2546,7 @@ Abc_NtkSuppCharCommon.exit.us.us:                 ; preds = %19
 
 Abc_Base2Log.exit.us.us:                          ; preds = %35
   %39 = add nsw i32 %.val41.us.us, -100
-  %40 = icmp ult i32 %39, 2
+  %40 = icmp samesign ult i32 %39, 2
   %41 = add nsw i32 %.val41.us.us, -101
   %42 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %41, i1 true)
   %43 = sub nuw nsw i32 32, %42
@@ -2615,7 +2615,7 @@ Abc_NtkSuppCharCommon.exit.us:                    ; preds = %53
 
 Abc_Base2Log.exit.us:                             ; preds = %67
   %72 = add nsw i32 %.val39.us, -100
-  %73 = icmp ult i32 %72, 2
+  %73 = icmp samesign ult i32 %72, 2
   %74 = add nsw i32 %.val39.us, -101
   %75 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %74, i1 true)
   %76 = sub nuw nsw i32 32, %75

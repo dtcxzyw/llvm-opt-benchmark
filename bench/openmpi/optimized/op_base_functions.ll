@@ -23,7 +23,7 @@ define internal void @ompi_op_base_2buff_max_int8_t(ptr nocapture noundef readon
   %10 = getelementptr inbounds i8, ptr %.017, i64 1
   %11 = getelementptr inbounds i8, ptr %.01116, i64 1
   %12 = add nsw i32 %.01215, -1
-  %13 = icmp ugt i32 %.01215, 1
+  %13 = icmp samesign ugt i32 %.01215, 1
   br i1 %13, label %.lr.ph, label %._crit_edge, !llvm.loop !4
 
 ._crit_edge:                                      ; preds = %.lr.ph, %5
@@ -47,7 +47,7 @@ define internal void @ompi_op_base_2buff_max_uint8_t(ptr nocapture noundef reado
   %10 = getelementptr inbounds i8, ptr %.017, i64 1
   %11 = getelementptr inbounds i8, ptr %.01116, i64 1
   %12 = add nsw i32 %.01215, -1
-  %13 = icmp ugt i32 %.01215, 1
+  %13 = icmp samesign ugt i32 %.01215, 1
   br i1 %13, label %.lr.ph, label %._crit_edge, !llvm.loop !6
 
 ._crit_edge:                                      ; preds = %.lr.ph, %5
@@ -71,7 +71,7 @@ define internal void @ompi_op_base_2buff_max_int16_t(ptr nocapture noundef reado
   %10 = getelementptr inbounds i8, ptr %.017, i64 2
   %11 = getelementptr inbounds i8, ptr %.01116, i64 2
   %12 = add nsw i32 %.01215, -1
-  %13 = icmp ugt i32 %.01215, 1
+  %13 = icmp samesign ugt i32 %.01215, 1
   br i1 %13, label %.lr.ph, label %._crit_edge, !llvm.loop !7
 
 ._crit_edge:                                      ; preds = %.lr.ph, %5
@@ -95,7 +95,7 @@ define internal void @ompi_op_base_2buff_max_uint16_t(ptr nocapture noundef read
   %10 = getelementptr inbounds i8, ptr %.017, i64 2
   %11 = getelementptr inbounds i8, ptr %.01116, i64 2
   %12 = add nsw i32 %.01215, -1
-  %13 = icmp ugt i32 %.01215, 1
+  %13 = icmp samesign ugt i32 %.01215, 1
   br i1 %13, label %.lr.ph, label %._crit_edge, !llvm.loop !8
 
 ._crit_edge:                                      ; preds = %.lr.ph, %5
@@ -119,7 +119,7 @@ define internal void @ompi_op_base_2buff_max_int32_t(ptr nocapture noundef reado
   %10 = getelementptr inbounds i8, ptr %.017, i64 4
   %11 = getelementptr inbounds i8, ptr %.01116, i64 4
   %12 = add nsw i32 %.01215, -1
-  %13 = icmp ugt i32 %.01215, 1
+  %13 = icmp samesign ugt i32 %.01215, 1
   br i1 %13, label %.lr.ph, label %._crit_edge, !llvm.loop !9
 
 ._crit_edge:                                      ; preds = %.lr.ph, %5
@@ -143,7 +143,7 @@ define internal void @ompi_op_base_2buff_max_uint32_t(ptr nocapture noundef read
   %10 = getelementptr inbounds i8, ptr %.017, i64 4
   %11 = getelementptr inbounds i8, ptr %.01116, i64 4
   %12 = add nsw i32 %.01215, -1
-  %13 = icmp ugt i32 %.01215, 1
+  %13 = icmp samesign ugt i32 %.01215, 1
   br i1 %13, label %.lr.ph, label %._crit_edge, !llvm.loop !10
 
 ._crit_edge:                                      ; preds = %.lr.ph, %5
@@ -167,7 +167,7 @@ define internal void @ompi_op_base_2buff_max_int64_t(ptr nocapture noundef reado
   %10 = getelementptr inbounds i8, ptr %.017, i64 8
   %11 = getelementptr inbounds i8, ptr %.01116, i64 8
   %12 = add nsw i32 %.01215, -1
-  %13 = icmp ugt i32 %.01215, 1
+  %13 = icmp samesign ugt i32 %.01215, 1
   br i1 %13, label %.lr.ph, label %._crit_edge, !llvm.loop !11
 
 ._crit_edge:                                      ; preds = %.lr.ph, %5
@@ -191,7 +191,7 @@ define internal void @ompi_op_base_2buff_max_uint64_t(ptr nocapture noundef read
   %10 = getelementptr inbounds i8, ptr %.017, i64 8
   %11 = getelementptr inbounds i8, ptr %.01116, i64 8
   %12 = add nsw i32 %.01215, -1
-  %13 = icmp ugt i32 %.01215, 1
+  %13 = icmp samesign ugt i32 %.01215, 1
   br i1 %13, label %.lr.ph, label %._crit_edge, !llvm.loop !12
 
 ._crit_edge:                                      ; preds = %.lr.ph, %5
@@ -215,7 +215,7 @@ define internal void @ompi_op_base_2buff_max_fortran_integer(ptr nocapture nound
   %10 = getelementptr inbounds i8, ptr %.017, i64 4
   %11 = getelementptr inbounds i8, ptr %.01116, i64 4
   %12 = add nsw i32 %.01215, -1
-  %13 = icmp ugt i32 %.01215, 1
+  %13 = icmp samesign ugt i32 %.01215, 1
   br i1 %13, label %.lr.ph, label %._crit_edge, !llvm.loop !13
 
 ._crit_edge:                                      ; preds = %.lr.ph, %5
@@ -239,7 +239,7 @@ define internal void @ompi_op_base_2buff_max_fortran_integer1(ptr nocapture noun
   %10 = getelementptr inbounds i8, ptr %.017, i64 1
   %11 = getelementptr inbounds i8, ptr %.01116, i64 1
   %12 = add nsw i32 %.01215, -1
-  %13 = icmp ugt i32 %.01215, 1
+  %13 = icmp samesign ugt i32 %.01215, 1
   br i1 %13, label %.lr.ph, label %._crit_edge, !llvm.loop !14
 
 ._crit_edge:                                      ; preds = %.lr.ph, %5
@@ -263,7 +263,7 @@ define internal void @ompi_op_base_2buff_max_fortran_integer2(ptr nocapture noun
   %10 = getelementptr inbounds i8, ptr %.017, i64 2
   %11 = getelementptr inbounds i8, ptr %.01116, i64 2
   %12 = add nsw i32 %.01215, -1
-  %13 = icmp ugt i32 %.01215, 1
+  %13 = icmp samesign ugt i32 %.01215, 1
   br i1 %13, label %.lr.ph, label %._crit_edge, !llvm.loop !15
 
 ._crit_edge:                                      ; preds = %.lr.ph, %5
@@ -287,7 +287,7 @@ define internal void @ompi_op_base_2buff_max_fortran_integer4(ptr nocapture noun
   %10 = getelementptr inbounds i8, ptr %.017, i64 4
   %11 = getelementptr inbounds i8, ptr %.01116, i64 4
   %12 = add nsw i32 %.01215, -1
-  %13 = icmp ugt i32 %.01215, 1
+  %13 = icmp samesign ugt i32 %.01215, 1
   br i1 %13, label %.lr.ph, label %._crit_edge, !llvm.loop !16
 
 ._crit_edge:                                      ; preds = %.lr.ph, %5
@@ -311,7 +311,7 @@ define internal void @ompi_op_base_2buff_max_fortran_integer8(ptr nocapture noun
   %10 = getelementptr inbounds i8, ptr %.017, i64 8
   %11 = getelementptr inbounds i8, ptr %.01116, i64 8
   %12 = add nsw i32 %.01215, -1
-  %13 = icmp ugt i32 %.01215, 1
+  %13 = icmp samesign ugt i32 %.01215, 1
   br i1 %13, label %.lr.ph, label %._crit_edge, !llvm.loop !17
 
 ._crit_edge:                                      ; preds = %.lr.ph, %5
@@ -336,7 +336,7 @@ define internal void @ompi_op_base_2buff_max_short_float(ptr nocapture noundef r
   %11 = getelementptr inbounds i8, ptr %.017, i64 2
   %12 = getelementptr inbounds i8, ptr %.01116, i64 2
   %13 = add nsw i32 %.01215, -1
-  %14 = icmp ugt i32 %.01215, 1
+  %14 = icmp samesign ugt i32 %.01215, 1
   br i1 %14, label %.lr.ph, label %._crit_edge, !llvm.loop !18
 
 ._crit_edge:                                      ; preds = %.lr.ph, %5
@@ -361,7 +361,7 @@ define internal void @ompi_op_base_2buff_max_float(ptr nocapture noundef readonl
   %11 = getelementptr inbounds i8, ptr %.017, i64 4
   %12 = getelementptr inbounds i8, ptr %.01116, i64 4
   %13 = add nsw i32 %.01215, -1
-  %14 = icmp ugt i32 %.01215, 1
+  %14 = icmp samesign ugt i32 %.01215, 1
   br i1 %14, label %.lr.ph, label %._crit_edge, !llvm.loop !19
 
 ._crit_edge:                                      ; preds = %.lr.ph, %5
@@ -386,7 +386,7 @@ define internal void @ompi_op_base_2buff_max_double(ptr nocapture noundef readon
   %11 = getelementptr inbounds i8, ptr %.017, i64 8
   %12 = getelementptr inbounds i8, ptr %.01116, i64 8
   %13 = add nsw i32 %.01215, -1
-  %14 = icmp ugt i32 %.01215, 1
+  %14 = icmp samesign ugt i32 %.01215, 1
   br i1 %14, label %.lr.ph, label %._crit_edge, !llvm.loop !20
 
 ._crit_edge:                                      ; preds = %.lr.ph, %5
@@ -411,7 +411,7 @@ define internal void @ompi_op_base_2buff_max_fortran_real(ptr nocapture noundef 
   %11 = getelementptr inbounds i8, ptr %.017, i64 4
   %12 = getelementptr inbounds i8, ptr %.01116, i64 4
   %13 = add nsw i32 %.01215, -1
-  %14 = icmp ugt i32 %.01215, 1
+  %14 = icmp samesign ugt i32 %.01215, 1
   br i1 %14, label %.lr.ph, label %._crit_edge, !llvm.loop !21
 
 ._crit_edge:                                      ; preds = %.lr.ph, %5
@@ -436,7 +436,7 @@ define internal void @ompi_op_base_2buff_max_fortran_real4(ptr nocapture noundef
   %11 = getelementptr inbounds i8, ptr %.017, i64 4
   %12 = getelementptr inbounds i8, ptr %.01116, i64 4
   %13 = add nsw i32 %.01215, -1
-  %14 = icmp ugt i32 %.01215, 1
+  %14 = icmp samesign ugt i32 %.01215, 1
   br i1 %14, label %.lr.ph, label %._crit_edge, !llvm.loop !22
 
 ._crit_edge:                                      ; preds = %.lr.ph, %5
@@ -461,7 +461,7 @@ define internal void @ompi_op_base_2buff_max_fortran_real8(ptr nocapture noundef
   %11 = getelementptr inbounds i8, ptr %.017, i64 8
   %12 = getelementptr inbounds i8, ptr %.01116, i64 8
   %13 = add nsw i32 %.01215, -1
-  %14 = icmp ugt i32 %.01215, 1
+  %14 = icmp samesign ugt i32 %.01215, 1
   br i1 %14, label %.lr.ph, label %._crit_edge, !llvm.loop !23
 
 ._crit_edge:                                      ; preds = %.lr.ph, %5
@@ -486,7 +486,7 @@ define internal void @ompi_op_base_2buff_max_fortran_real16(ptr nocapture nounde
   %11 = getelementptr inbounds i8, ptr %.017, i64 16
   %12 = getelementptr inbounds i8, ptr %.01116, i64 16
   %13 = add nsw i32 %.01215, -1
-  %14 = icmp ugt i32 %.01215, 1
+  %14 = icmp samesign ugt i32 %.01215, 1
   br i1 %14, label %.lr.ph, label %._crit_edge, !llvm.loop !24
 
 ._crit_edge:                                      ; preds = %.lr.ph, %5
@@ -511,7 +511,7 @@ define internal void @ompi_op_base_2buff_max_fortran_double_precision(ptr nocapt
   %11 = getelementptr inbounds i8, ptr %.017, i64 8
   %12 = getelementptr inbounds i8, ptr %.01116, i64 8
   %13 = add nsw i32 %.01215, -1
-  %14 = icmp ugt i32 %.01215, 1
+  %14 = icmp samesign ugt i32 %.01215, 1
   br i1 %14, label %.lr.ph, label %._crit_edge, !llvm.loop !25
 
 ._crit_edge:                                      ; preds = %.lr.ph, %5
@@ -536,7 +536,7 @@ define internal void @ompi_op_base_2buff_max_long_double(ptr nocapture noundef r
   %11 = getelementptr inbounds i8, ptr %.017, i64 16
   %12 = getelementptr inbounds i8, ptr %.01116, i64 16
   %13 = add nsw i32 %.01215, -1
-  %14 = icmp ugt i32 %.01215, 1
+  %14 = icmp samesign ugt i32 %.01215, 1
   br i1 %14, label %.lr.ph, label %._crit_edge, !llvm.loop !26
 
 ._crit_edge:                                      ; preds = %.lr.ph, %5
@@ -560,7 +560,7 @@ define internal void @ompi_op_base_2buff_max_long(ptr nocapture noundef readonly
   %10 = getelementptr inbounds i8, ptr %.017, i64 8
   %11 = getelementptr inbounds i8, ptr %.01116, i64 8
   %12 = add nsw i32 %.01215, -1
-  %13 = icmp ugt i32 %.01215, 1
+  %13 = icmp samesign ugt i32 %.01215, 1
   br i1 %13, label %.lr.ph, label %._crit_edge, !llvm.loop !27
 
 ._crit_edge:                                      ; preds = %.lr.ph, %5
@@ -584,7 +584,7 @@ define internal void @ompi_op_base_2buff_max_unsigned_long(ptr nocapture noundef
   %10 = getelementptr inbounds i8, ptr %.017, i64 8
   %11 = getelementptr inbounds i8, ptr %.01116, i64 8
   %12 = add nsw i32 %.01215, -1
-  %13 = icmp ugt i32 %.01215, 1
+  %13 = icmp samesign ugt i32 %.01215, 1
   br i1 %13, label %.lr.ph, label %._crit_edge, !llvm.loop !28
 
 ._crit_edge:                                      ; preds = %.lr.ph, %5
@@ -608,7 +608,7 @@ define internal void @ompi_op_base_2buff_min_int8_t(ptr nocapture noundef readon
   %10 = getelementptr inbounds i8, ptr %.017, i64 1
   %11 = getelementptr inbounds i8, ptr %.01116, i64 1
   %12 = add nsw i32 %.01215, -1
-  %13 = icmp ugt i32 %.01215, 1
+  %13 = icmp samesign ugt i32 %.01215, 1
   br i1 %13, label %.lr.ph, label %._crit_edge, !llvm.loop !29
 
 ._crit_edge:                                      ; preds = %.lr.ph, %5
@@ -632,7 +632,7 @@ define internal void @ompi_op_base_2buff_min_uint8_t(ptr nocapture noundef reado
   %10 = getelementptr inbounds i8, ptr %.017, i64 1
   %11 = getelementptr inbounds i8, ptr %.01116, i64 1
   %12 = add nsw i32 %.01215, -1
-  %13 = icmp ugt i32 %.01215, 1
+  %13 = icmp samesign ugt i32 %.01215, 1
   br i1 %13, label %.lr.ph, label %._crit_edge, !llvm.loop !30
 
 ._crit_edge:                                      ; preds = %.lr.ph, %5
@@ -656,7 +656,7 @@ define internal void @ompi_op_base_2buff_min_int16_t(ptr nocapture noundef reado
   %10 = getelementptr inbounds i8, ptr %.017, i64 2
   %11 = getelementptr inbounds i8, ptr %.01116, i64 2
   %12 = add nsw i32 %.01215, -1
-  %13 = icmp ugt i32 %.01215, 1
+  %13 = icmp samesign ugt i32 %.01215, 1
   br i1 %13, label %.lr.ph, label %._crit_edge, !llvm.loop !31
 
 ._crit_edge:                                      ; preds = %.lr.ph, %5
@@ -680,7 +680,7 @@ define internal void @ompi_op_base_2buff_min_uint16_t(ptr nocapture noundef read
   %10 = getelementptr inbounds i8, ptr %.017, i64 2
   %11 = getelementptr inbounds i8, ptr %.01116, i64 2
   %12 = add nsw i32 %.01215, -1
-  %13 = icmp ugt i32 %.01215, 1
+  %13 = icmp samesign ugt i32 %.01215, 1
   br i1 %13, label %.lr.ph, label %._crit_edge, !llvm.loop !32
 
 ._crit_edge:                                      ; preds = %.lr.ph, %5
@@ -704,7 +704,7 @@ define internal void @ompi_op_base_2buff_min_int32_t(ptr nocapture noundef reado
   %10 = getelementptr inbounds i8, ptr %.017, i64 4
   %11 = getelementptr inbounds i8, ptr %.01116, i64 4
   %12 = add nsw i32 %.01215, -1
-  %13 = icmp ugt i32 %.01215, 1
+  %13 = icmp samesign ugt i32 %.01215, 1
   br i1 %13, label %.lr.ph, label %._crit_edge, !llvm.loop !33
 
 ._crit_edge:                                      ; preds = %.lr.ph, %5
@@ -728,7 +728,7 @@ define internal void @ompi_op_base_2buff_min_uint32_t(ptr nocapture noundef read
   %10 = getelementptr inbounds i8, ptr %.017, i64 4
   %11 = getelementptr inbounds i8, ptr %.01116, i64 4
   %12 = add nsw i32 %.01215, -1
-  %13 = icmp ugt i32 %.01215, 1
+  %13 = icmp samesign ugt i32 %.01215, 1
   br i1 %13, label %.lr.ph, label %._crit_edge, !llvm.loop !34
 
 ._crit_edge:                                      ; preds = %.lr.ph, %5
@@ -752,7 +752,7 @@ define internal void @ompi_op_base_2buff_min_int64_t(ptr nocapture noundef reado
   %10 = getelementptr inbounds i8, ptr %.017, i64 8
   %11 = getelementptr inbounds i8, ptr %.01116, i64 8
   %12 = add nsw i32 %.01215, -1
-  %13 = icmp ugt i32 %.01215, 1
+  %13 = icmp samesign ugt i32 %.01215, 1
   br i1 %13, label %.lr.ph, label %._crit_edge, !llvm.loop !35
 
 ._crit_edge:                                      ; preds = %.lr.ph, %5
@@ -776,7 +776,7 @@ define internal void @ompi_op_base_2buff_min_uint64_t(ptr nocapture noundef read
   %10 = getelementptr inbounds i8, ptr %.017, i64 8
   %11 = getelementptr inbounds i8, ptr %.01116, i64 8
   %12 = add nsw i32 %.01215, -1
-  %13 = icmp ugt i32 %.01215, 1
+  %13 = icmp samesign ugt i32 %.01215, 1
   br i1 %13, label %.lr.ph, label %._crit_edge, !llvm.loop !36
 
 ._crit_edge:                                      ; preds = %.lr.ph, %5
@@ -800,7 +800,7 @@ define internal void @ompi_op_base_2buff_min_fortran_integer(ptr nocapture nound
   %10 = getelementptr inbounds i8, ptr %.017, i64 4
   %11 = getelementptr inbounds i8, ptr %.01116, i64 4
   %12 = add nsw i32 %.01215, -1
-  %13 = icmp ugt i32 %.01215, 1
+  %13 = icmp samesign ugt i32 %.01215, 1
   br i1 %13, label %.lr.ph, label %._crit_edge, !llvm.loop !37
 
 ._crit_edge:                                      ; preds = %.lr.ph, %5
@@ -824,7 +824,7 @@ define internal void @ompi_op_base_2buff_min_fortran_integer1(ptr nocapture noun
   %10 = getelementptr inbounds i8, ptr %.017, i64 1
   %11 = getelementptr inbounds i8, ptr %.01116, i64 1
   %12 = add nsw i32 %.01215, -1
-  %13 = icmp ugt i32 %.01215, 1
+  %13 = icmp samesign ugt i32 %.01215, 1
   br i1 %13, label %.lr.ph, label %._crit_edge, !llvm.loop !38
 
 ._crit_edge:                                      ; preds = %.lr.ph, %5
@@ -848,7 +848,7 @@ define internal void @ompi_op_base_2buff_min_fortran_integer2(ptr nocapture noun
   %10 = getelementptr inbounds i8, ptr %.017, i64 2
   %11 = getelementptr inbounds i8, ptr %.01116, i64 2
   %12 = add nsw i32 %.01215, -1
-  %13 = icmp ugt i32 %.01215, 1
+  %13 = icmp samesign ugt i32 %.01215, 1
   br i1 %13, label %.lr.ph, label %._crit_edge, !llvm.loop !39
 
 ._crit_edge:                                      ; preds = %.lr.ph, %5
@@ -872,7 +872,7 @@ define internal void @ompi_op_base_2buff_min_fortran_integer4(ptr nocapture noun
   %10 = getelementptr inbounds i8, ptr %.017, i64 4
   %11 = getelementptr inbounds i8, ptr %.01116, i64 4
   %12 = add nsw i32 %.01215, -1
-  %13 = icmp ugt i32 %.01215, 1
+  %13 = icmp samesign ugt i32 %.01215, 1
   br i1 %13, label %.lr.ph, label %._crit_edge, !llvm.loop !40
 
 ._crit_edge:                                      ; preds = %.lr.ph, %5
@@ -896,7 +896,7 @@ define internal void @ompi_op_base_2buff_min_fortran_integer8(ptr nocapture noun
   %10 = getelementptr inbounds i8, ptr %.017, i64 8
   %11 = getelementptr inbounds i8, ptr %.01116, i64 8
   %12 = add nsw i32 %.01215, -1
-  %13 = icmp ugt i32 %.01215, 1
+  %13 = icmp samesign ugt i32 %.01215, 1
   br i1 %13, label %.lr.ph, label %._crit_edge, !llvm.loop !41
 
 ._crit_edge:                                      ; preds = %.lr.ph, %5
@@ -921,7 +921,7 @@ define internal void @ompi_op_base_2buff_min_short_float(ptr nocapture noundef r
   %11 = getelementptr inbounds i8, ptr %.017, i64 2
   %12 = getelementptr inbounds i8, ptr %.01116, i64 2
   %13 = add nsw i32 %.01215, -1
-  %14 = icmp ugt i32 %.01215, 1
+  %14 = icmp samesign ugt i32 %.01215, 1
   br i1 %14, label %.lr.ph, label %._crit_edge, !llvm.loop !42
 
 ._crit_edge:                                      ; preds = %.lr.ph, %5
@@ -946,7 +946,7 @@ define internal void @ompi_op_base_2buff_min_float(ptr nocapture noundef readonl
   %11 = getelementptr inbounds i8, ptr %.017, i64 4
   %12 = getelementptr inbounds i8, ptr %.01116, i64 4
   %13 = add nsw i32 %.01215, -1
-  %14 = icmp ugt i32 %.01215, 1
+  %14 = icmp samesign ugt i32 %.01215, 1
   br i1 %14, label %.lr.ph, label %._crit_edge, !llvm.loop !43
 
 ._crit_edge:                                      ; preds = %.lr.ph, %5
@@ -971,7 +971,7 @@ define internal void @ompi_op_base_2buff_min_double(ptr nocapture noundef readon
   %11 = getelementptr inbounds i8, ptr %.017, i64 8
   %12 = getelementptr inbounds i8, ptr %.01116, i64 8
   %13 = add nsw i32 %.01215, -1
-  %14 = icmp ugt i32 %.01215, 1
+  %14 = icmp samesign ugt i32 %.01215, 1
   br i1 %14, label %.lr.ph, label %._crit_edge, !llvm.loop !44
 
 ._crit_edge:                                      ; preds = %.lr.ph, %5
@@ -996,7 +996,7 @@ define internal void @ompi_op_base_2buff_min_fortran_real(ptr nocapture noundef 
   %11 = getelementptr inbounds i8, ptr %.017, i64 4
   %12 = getelementptr inbounds i8, ptr %.01116, i64 4
   %13 = add nsw i32 %.01215, -1
-  %14 = icmp ugt i32 %.01215, 1
+  %14 = icmp samesign ugt i32 %.01215, 1
   br i1 %14, label %.lr.ph, label %._crit_edge, !llvm.loop !45
 
 ._crit_edge:                                      ; preds = %.lr.ph, %5
@@ -1021,7 +1021,7 @@ define internal void @ompi_op_base_2buff_min_fortran_real4(ptr nocapture noundef
   %11 = getelementptr inbounds i8, ptr %.017, i64 4
   %12 = getelementptr inbounds i8, ptr %.01116, i64 4
   %13 = add nsw i32 %.01215, -1
-  %14 = icmp ugt i32 %.01215, 1
+  %14 = icmp samesign ugt i32 %.01215, 1
   br i1 %14, label %.lr.ph, label %._crit_edge, !llvm.loop !46
 
 ._crit_edge:                                      ; preds = %.lr.ph, %5
@@ -1046,7 +1046,7 @@ define internal void @ompi_op_base_2buff_min_fortran_real8(ptr nocapture noundef
   %11 = getelementptr inbounds i8, ptr %.017, i64 8
   %12 = getelementptr inbounds i8, ptr %.01116, i64 8
   %13 = add nsw i32 %.01215, -1
-  %14 = icmp ugt i32 %.01215, 1
+  %14 = icmp samesign ugt i32 %.01215, 1
   br i1 %14, label %.lr.ph, label %._crit_edge, !llvm.loop !47
 
 ._crit_edge:                                      ; preds = %.lr.ph, %5
@@ -1071,7 +1071,7 @@ define internal void @ompi_op_base_2buff_min_fortran_real16(ptr nocapture nounde
   %11 = getelementptr inbounds i8, ptr %.017, i64 16
   %12 = getelementptr inbounds i8, ptr %.01116, i64 16
   %13 = add nsw i32 %.01215, -1
-  %14 = icmp ugt i32 %.01215, 1
+  %14 = icmp samesign ugt i32 %.01215, 1
   br i1 %14, label %.lr.ph, label %._crit_edge, !llvm.loop !48
 
 ._crit_edge:                                      ; preds = %.lr.ph, %5
@@ -1096,7 +1096,7 @@ define internal void @ompi_op_base_2buff_min_fortran_double_precision(ptr nocapt
   %11 = getelementptr inbounds i8, ptr %.017, i64 8
   %12 = getelementptr inbounds i8, ptr %.01116, i64 8
   %13 = add nsw i32 %.01215, -1
-  %14 = icmp ugt i32 %.01215, 1
+  %14 = icmp samesign ugt i32 %.01215, 1
   br i1 %14, label %.lr.ph, label %._crit_edge, !llvm.loop !49
 
 ._crit_edge:                                      ; preds = %.lr.ph, %5
@@ -1121,7 +1121,7 @@ define internal void @ompi_op_base_2buff_min_long_double(ptr nocapture noundef r
   %11 = getelementptr inbounds i8, ptr %.017, i64 16
   %12 = getelementptr inbounds i8, ptr %.01116, i64 16
   %13 = add nsw i32 %.01215, -1
-  %14 = icmp ugt i32 %.01215, 1
+  %14 = icmp samesign ugt i32 %.01215, 1
   br i1 %14, label %.lr.ph, label %._crit_edge, !llvm.loop !50
 
 ._crit_edge:                                      ; preds = %.lr.ph, %5
@@ -1145,7 +1145,7 @@ define internal void @ompi_op_base_2buff_min_long(ptr nocapture noundef readonly
   %10 = getelementptr inbounds i8, ptr %.017, i64 8
   %11 = getelementptr inbounds i8, ptr %.01116, i64 8
   %12 = add nsw i32 %.01215, -1
-  %13 = icmp ugt i32 %.01215, 1
+  %13 = icmp samesign ugt i32 %.01215, 1
   br i1 %13, label %.lr.ph, label %._crit_edge, !llvm.loop !51
 
 ._crit_edge:                                      ; preds = %.lr.ph, %5
@@ -1169,7 +1169,7 @@ define internal void @ompi_op_base_2buff_min_unsigned_long(ptr nocapture noundef
   %10 = getelementptr inbounds i8, ptr %.017, i64 8
   %11 = getelementptr inbounds i8, ptr %.01116, i64 8
   %12 = add nsw i32 %.01215, -1
-  %13 = icmp ugt i32 %.01215, 1
+  %13 = icmp samesign ugt i32 %.01215, 1
   br i1 %13, label %.lr.ph, label %._crit_edge, !llvm.loop !52
 
 ._crit_edge:                                      ; preds = %.lr.ph, %5
@@ -1193,7 +1193,7 @@ define internal void @ompi_op_base_2buff_sum_int8_t(ptr nocapture noundef readon
   %12 = add i8 %11, %9
   store i8 %12, ptr %.010, align 1
   %13 = add nsw i32 %.078, -1
-  %14 = icmp ugt i32 %.078, 1
+  %14 = icmp samesign ugt i32 %.078, 1
   br i1 %14, label %.lr.ph, label %._crit_edge, !llvm.loop !53
 
 ._crit_edge:                                      ; preds = %.lr.ph, %5
@@ -1217,7 +1217,7 @@ define internal void @ompi_op_base_2buff_sum_uint8_t(ptr nocapture noundef reado
   %12 = add i8 %11, %9
   store i8 %12, ptr %.010, align 1
   %13 = add nsw i32 %.078, -1
-  %14 = icmp ugt i32 %.078, 1
+  %14 = icmp samesign ugt i32 %.078, 1
   br i1 %14, label %.lr.ph, label %._crit_edge, !llvm.loop !54
 
 ._crit_edge:                                      ; preds = %.lr.ph, %5
@@ -1241,7 +1241,7 @@ define internal void @ompi_op_base_2buff_sum_int16_t(ptr nocapture noundef reado
   %12 = add i16 %11, %9
   store i16 %12, ptr %.010, align 2
   %13 = add nsw i32 %.078, -1
-  %14 = icmp ugt i32 %.078, 1
+  %14 = icmp samesign ugt i32 %.078, 1
   br i1 %14, label %.lr.ph, label %._crit_edge, !llvm.loop !55
 
 ._crit_edge:                                      ; preds = %.lr.ph, %5
@@ -1265,7 +1265,7 @@ define internal void @ompi_op_base_2buff_sum_uint16_t(ptr nocapture noundef read
   %12 = add i16 %11, %9
   store i16 %12, ptr %.010, align 2
   %13 = add nsw i32 %.078, -1
-  %14 = icmp ugt i32 %.078, 1
+  %14 = icmp samesign ugt i32 %.078, 1
   br i1 %14, label %.lr.ph, label %._crit_edge, !llvm.loop !56
 
 ._crit_edge:                                      ; preds = %.lr.ph, %5
@@ -1289,7 +1289,7 @@ define internal void @ompi_op_base_2buff_sum_int32_t(ptr nocapture noundef reado
   %12 = add nsw i32 %11, %9
   store i32 %12, ptr %.010, align 4
   %13 = add nsw i32 %.078, -1
-  %14 = icmp ugt i32 %.078, 1
+  %14 = icmp samesign ugt i32 %.078, 1
   br i1 %14, label %.lr.ph, label %._crit_edge, !llvm.loop !57
 
 ._crit_edge:                                      ; preds = %.lr.ph, %5
@@ -1313,7 +1313,7 @@ define internal void @ompi_op_base_2buff_sum_uint32_t(ptr nocapture noundef read
   %12 = add i32 %11, %9
   store i32 %12, ptr %.010, align 4
   %13 = add nsw i32 %.078, -1
-  %14 = icmp ugt i32 %.078, 1
+  %14 = icmp samesign ugt i32 %.078, 1
   br i1 %14, label %.lr.ph, label %._crit_edge, !llvm.loop !58
 
 ._crit_edge:                                      ; preds = %.lr.ph, %5
@@ -1337,7 +1337,7 @@ define internal void @ompi_op_base_2buff_sum_int64_t(ptr nocapture noundef reado
   %12 = add nsw i64 %11, %9
   store i64 %12, ptr %.010, align 8
   %13 = add nsw i32 %.078, -1
-  %14 = icmp ugt i32 %.078, 1
+  %14 = icmp samesign ugt i32 %.078, 1
   br i1 %14, label %.lr.ph, label %._crit_edge, !llvm.loop !59
 
 ._crit_edge:                                      ; preds = %.lr.ph, %5
@@ -1361,7 +1361,7 @@ define internal void @ompi_op_base_2buff_sum_uint64_t(ptr nocapture noundef read
   %12 = add i64 %11, %9
   store i64 %12, ptr %.010, align 8
   %13 = add nsw i32 %.078, -1
-  %14 = icmp ugt i32 %.078, 1
+  %14 = icmp samesign ugt i32 %.078, 1
   br i1 %14, label %.lr.ph, label %._crit_edge, !llvm.loop !60
 
 ._crit_edge:                                      ; preds = %.lr.ph, %5
@@ -1385,7 +1385,7 @@ define internal void @ompi_op_base_2buff_sum_fortran_integer(ptr nocapture nound
   %12 = add nsw i32 %11, %9
   store i32 %12, ptr %.010, align 4
   %13 = add nsw i32 %.078, -1
-  %14 = icmp ugt i32 %.078, 1
+  %14 = icmp samesign ugt i32 %.078, 1
   br i1 %14, label %.lr.ph, label %._crit_edge, !llvm.loop !61
 
 ._crit_edge:                                      ; preds = %.lr.ph, %5
@@ -1409,7 +1409,7 @@ define internal void @ompi_op_base_2buff_sum_fortran_integer1(ptr nocapture noun
   %12 = add i8 %11, %9
   store i8 %12, ptr %.010, align 1
   %13 = add nsw i32 %.078, -1
-  %14 = icmp ugt i32 %.078, 1
+  %14 = icmp samesign ugt i32 %.078, 1
   br i1 %14, label %.lr.ph, label %._crit_edge, !llvm.loop !62
 
 ._crit_edge:                                      ; preds = %.lr.ph, %5
@@ -1433,7 +1433,7 @@ define internal void @ompi_op_base_2buff_sum_fortran_integer2(ptr nocapture noun
   %12 = add i16 %11, %9
   store i16 %12, ptr %.010, align 2
   %13 = add nsw i32 %.078, -1
-  %14 = icmp ugt i32 %.078, 1
+  %14 = icmp samesign ugt i32 %.078, 1
   br i1 %14, label %.lr.ph, label %._crit_edge, !llvm.loop !63
 
 ._crit_edge:                                      ; preds = %.lr.ph, %5
@@ -1457,7 +1457,7 @@ define internal void @ompi_op_base_2buff_sum_fortran_integer4(ptr nocapture noun
   %12 = add nsw i32 %11, %9
   store i32 %12, ptr %.010, align 4
   %13 = add nsw i32 %.078, -1
-  %14 = icmp ugt i32 %.078, 1
+  %14 = icmp samesign ugt i32 %.078, 1
   br i1 %14, label %.lr.ph, label %._crit_edge, !llvm.loop !64
 
 ._crit_edge:                                      ; preds = %.lr.ph, %5
@@ -1481,7 +1481,7 @@ define internal void @ompi_op_base_2buff_sum_fortran_integer8(ptr nocapture noun
   %12 = add nsw i64 %11, %9
   store i64 %12, ptr %.010, align 8
   %13 = add nsw i32 %.078, -1
-  %14 = icmp ugt i32 %.078, 1
+  %14 = icmp samesign ugt i32 %.078, 1
   br i1 %14, label %.lr.ph, label %._crit_edge, !llvm.loop !65
 
 ._crit_edge:                                      ; preds = %.lr.ph, %5
@@ -1505,7 +1505,7 @@ define internal void @ompi_op_base_2buff_sum_short_float(ptr nocapture noundef r
   %12 = fadd half %9, %11
   store half %12, ptr %.010, align 2
   %13 = add nsw i32 %.078, -1
-  %14 = icmp ugt i32 %.078, 1
+  %14 = icmp samesign ugt i32 %.078, 1
   br i1 %14, label %.lr.ph, label %._crit_edge, !llvm.loop !66
 
 ._crit_edge:                                      ; preds = %.lr.ph, %5
@@ -1529,7 +1529,7 @@ define internal void @ompi_op_base_2buff_sum_float(ptr nocapture noundef readonl
   %12 = fadd float %9, %11
   store float %12, ptr %.010, align 4
   %13 = add nsw i32 %.078, -1
-  %14 = icmp ugt i32 %.078, 1
+  %14 = icmp samesign ugt i32 %.078, 1
   br i1 %14, label %.lr.ph, label %._crit_edge, !llvm.loop !67
 
 ._crit_edge:                                      ; preds = %.lr.ph, %5
@@ -1553,7 +1553,7 @@ define internal void @ompi_op_base_2buff_sum_double(ptr nocapture noundef readon
   %12 = fadd double %9, %11
   store double %12, ptr %.010, align 8
   %13 = add nsw i32 %.078, -1
-  %14 = icmp ugt i32 %.078, 1
+  %14 = icmp samesign ugt i32 %.078, 1
   br i1 %14, label %.lr.ph, label %._crit_edge, !llvm.loop !68
 
 ._crit_edge:                                      ; preds = %.lr.ph, %5
@@ -1577,7 +1577,7 @@ define internal void @ompi_op_base_2buff_sum_fortran_real(ptr nocapture noundef 
   %12 = fadd float %9, %11
   store float %12, ptr %.010, align 4
   %13 = add nsw i32 %.078, -1
-  %14 = icmp ugt i32 %.078, 1
+  %14 = icmp samesign ugt i32 %.078, 1
   br i1 %14, label %.lr.ph, label %._crit_edge, !llvm.loop !69
 
 ._crit_edge:                                      ; preds = %.lr.ph, %5
@@ -1601,7 +1601,7 @@ define internal void @ompi_op_base_2buff_sum_fortran_real4(ptr nocapture noundef
   %12 = fadd float %9, %11
   store float %12, ptr %.010, align 4
   %13 = add nsw i32 %.078, -1
-  %14 = icmp ugt i32 %.078, 1
+  %14 = icmp samesign ugt i32 %.078, 1
   br i1 %14, label %.lr.ph, label %._crit_edge, !llvm.loop !70
 
 ._crit_edge:                                      ; preds = %.lr.ph, %5
@@ -1625,7 +1625,7 @@ define internal void @ompi_op_base_2buff_sum_fortran_real8(ptr nocapture noundef
   %12 = fadd double %9, %11
   store double %12, ptr %.010, align 8
   %13 = add nsw i32 %.078, -1
-  %14 = icmp ugt i32 %.078, 1
+  %14 = icmp samesign ugt i32 %.078, 1
   br i1 %14, label %.lr.ph, label %._crit_edge, !llvm.loop !71
 
 ._crit_edge:                                      ; preds = %.lr.ph, %5
@@ -1649,7 +1649,7 @@ define internal void @ompi_op_base_2buff_sum_fortran_real16(ptr nocapture nounde
   %12 = fadd x86_fp80 %9, %11
   store x86_fp80 %12, ptr %.010, align 16
   %13 = add nsw i32 %.078, -1
-  %14 = icmp ugt i32 %.078, 1
+  %14 = icmp samesign ugt i32 %.078, 1
   br i1 %14, label %.lr.ph, label %._crit_edge, !llvm.loop !72
 
 ._crit_edge:                                      ; preds = %.lr.ph, %5
@@ -1673,7 +1673,7 @@ define internal void @ompi_op_base_2buff_sum_fortran_double_precision(ptr nocapt
   %12 = fadd double %9, %11
   store double %12, ptr %.010, align 8
   %13 = add nsw i32 %.078, -1
-  %14 = icmp ugt i32 %.078, 1
+  %14 = icmp samesign ugt i32 %.078, 1
   br i1 %14, label %.lr.ph, label %._crit_edge, !llvm.loop !73
 
 ._crit_edge:                                      ; preds = %.lr.ph, %5
@@ -1697,7 +1697,7 @@ define internal void @ompi_op_base_2buff_sum_long_double(ptr nocapture noundef r
   %12 = fadd x86_fp80 %9, %11
   store x86_fp80 %12, ptr %.010, align 16
   %13 = add nsw i32 %.078, -1
-  %14 = icmp ugt i32 %.078, 1
+  %14 = icmp samesign ugt i32 %.078, 1
   br i1 %14, label %.lr.ph, label %._crit_edge, !llvm.loop !74
 
 ._crit_edge:                                      ; preds = %.lr.ph, %5
@@ -1727,7 +1727,7 @@ define internal void @ompi_op_base_2buff_sum_c_short_float_complex(ptr nocapture
   %16 = add nsw i32 %.01112, -1
   %17 = getelementptr inbounds i8, ptr %.01013, i64 4
   %18 = getelementptr inbounds i8, ptr %.014, i64 4
-  %19 = icmp ugt i32 %.01112, 1
+  %19 = icmp samesign ugt i32 %.01112, 1
   br i1 %19, label %.lr.ph, label %._crit_edge, !llvm.loop !75
 
 ._crit_edge:                                      ; preds = %.lr.ph, %5
@@ -1757,7 +1757,7 @@ define internal void @ompi_op_base_2buff_sum_c_float_complex(ptr nocapture nound
   store float %16, ptr %.010, align 4
   store float %17, ptr %14, align 4
   %18 = add nsw i32 %.078, -1
-  %19 = icmp ugt i32 %.078, 1
+  %19 = icmp samesign ugt i32 %.078, 1
   br i1 %19, label %.lr.ph, label %._crit_edge, !llvm.loop !76
 
 ._crit_edge:                                      ; preds = %.lr.ph, %5
@@ -1787,7 +1787,7 @@ define internal void @ompi_op_base_2buff_sum_c_double_complex(ptr nocapture noun
   store double %16, ptr %.010, align 8
   store double %17, ptr %14, align 8
   %18 = add nsw i32 %.078, -1
-  %19 = icmp ugt i32 %.078, 1
+  %19 = icmp samesign ugt i32 %.078, 1
   br i1 %19, label %.lr.ph, label %._crit_edge, !llvm.loop !77
 
 ._crit_edge:                                      ; preds = %.lr.ph, %5
@@ -1817,7 +1817,7 @@ define internal void @ompi_op_base_2buff_sum_c_long_double_complex(ptr nocapture
   store x86_fp80 %16, ptr %.010, align 16
   store x86_fp80 %17, ptr %14, align 16
   %18 = add nsw i32 %.078, -1
-  %19 = icmp ugt i32 %.078, 1
+  %19 = icmp samesign ugt i32 %.078, 1
   br i1 %19, label %.lr.ph, label %._crit_edge, !llvm.loop !78
 
 ._crit_edge:                                      ; preds = %.lr.ph, %5
@@ -1841,7 +1841,7 @@ define internal void @ompi_op_base_2buff_sum_long(ptr nocapture noundef readonly
   %12 = add nsw i64 %11, %9
   store i64 %12, ptr %.010, align 8
   %13 = add nsw i32 %.078, -1
-  %14 = icmp ugt i32 %.078, 1
+  %14 = icmp samesign ugt i32 %.078, 1
   br i1 %14, label %.lr.ph, label %._crit_edge, !llvm.loop !79
 
 ._crit_edge:                                      ; preds = %.lr.ph, %5
@@ -1865,7 +1865,7 @@ define internal void @ompi_op_base_2buff_sum_unsigned_long(ptr nocapture noundef
   %12 = add i64 %11, %9
   store i64 %12, ptr %.010, align 8
   %13 = add nsw i32 %.078, -1
-  %14 = icmp ugt i32 %.078, 1
+  %14 = icmp samesign ugt i32 %.078, 1
   br i1 %14, label %.lr.ph, label %._crit_edge, !llvm.loop !80
 
 ._crit_edge:                                      ; preds = %.lr.ph, %5
@@ -1889,7 +1889,7 @@ define internal void @ompi_op_base_2buff_prod_int8_t(ptr nocapture noundef reado
   %12 = mul i8 %11, %9
   store i8 %12, ptr %.010, align 1
   %13 = add nsw i32 %.078, -1
-  %14 = icmp ugt i32 %.078, 1
+  %14 = icmp samesign ugt i32 %.078, 1
   br i1 %14, label %.lr.ph, label %._crit_edge, !llvm.loop !81
 
 ._crit_edge:                                      ; preds = %.lr.ph, %5
@@ -1913,7 +1913,7 @@ define internal void @ompi_op_base_2buff_prod_uint8_t(ptr nocapture noundef read
   %12 = mul i8 %11, %9
   store i8 %12, ptr %.010, align 1
   %13 = add nsw i32 %.078, -1
-  %14 = icmp ugt i32 %.078, 1
+  %14 = icmp samesign ugt i32 %.078, 1
   br i1 %14, label %.lr.ph, label %._crit_edge, !llvm.loop !82
 
 ._crit_edge:                                      ; preds = %.lr.ph, %5
@@ -1937,7 +1937,7 @@ define internal void @ompi_op_base_2buff_prod_int16_t(ptr nocapture noundef read
   %12 = mul i16 %11, %9
   store i16 %12, ptr %.010, align 2
   %13 = add nsw i32 %.078, -1
-  %14 = icmp ugt i32 %.078, 1
+  %14 = icmp samesign ugt i32 %.078, 1
   br i1 %14, label %.lr.ph, label %._crit_edge, !llvm.loop !83
 
 ._crit_edge:                                      ; preds = %.lr.ph, %5
@@ -1961,7 +1961,7 @@ define internal void @ompi_op_base_2buff_prod_uint16_t(ptr nocapture noundef rea
   %12 = mul i16 %11, %9
   store i16 %12, ptr %.010, align 2
   %13 = add nsw i32 %.078, -1
-  %14 = icmp ugt i32 %.078, 1
+  %14 = icmp samesign ugt i32 %.078, 1
   br i1 %14, label %.lr.ph, label %._crit_edge, !llvm.loop !84
 
 ._crit_edge:                                      ; preds = %.lr.ph, %5
@@ -1985,7 +1985,7 @@ define internal void @ompi_op_base_2buff_prod_int32_t(ptr nocapture noundef read
   %12 = mul nsw i32 %11, %9
   store i32 %12, ptr %.010, align 4
   %13 = add nsw i32 %.078, -1
-  %14 = icmp ugt i32 %.078, 1
+  %14 = icmp samesign ugt i32 %.078, 1
   br i1 %14, label %.lr.ph, label %._crit_edge, !llvm.loop !85
 
 ._crit_edge:                                      ; preds = %.lr.ph, %5
@@ -2009,7 +2009,7 @@ define internal void @ompi_op_base_2buff_prod_uint32_t(ptr nocapture noundef rea
   %12 = mul i32 %11, %9
   store i32 %12, ptr %.010, align 4
   %13 = add nsw i32 %.078, -1
-  %14 = icmp ugt i32 %.078, 1
+  %14 = icmp samesign ugt i32 %.078, 1
   br i1 %14, label %.lr.ph, label %._crit_edge, !llvm.loop !86
 
 ._crit_edge:                                      ; preds = %.lr.ph, %5
@@ -2033,7 +2033,7 @@ define internal void @ompi_op_base_2buff_prod_int64_t(ptr nocapture noundef read
   %12 = mul nsw i64 %11, %9
   store i64 %12, ptr %.010, align 8
   %13 = add nsw i32 %.078, -1
-  %14 = icmp ugt i32 %.078, 1
+  %14 = icmp samesign ugt i32 %.078, 1
   br i1 %14, label %.lr.ph, label %._crit_edge, !llvm.loop !87
 
 ._crit_edge:                                      ; preds = %.lr.ph, %5
@@ -2057,7 +2057,7 @@ define internal void @ompi_op_base_2buff_prod_uint64_t(ptr nocapture noundef rea
   %12 = mul i64 %11, %9
   store i64 %12, ptr %.010, align 8
   %13 = add nsw i32 %.078, -1
-  %14 = icmp ugt i32 %.078, 1
+  %14 = icmp samesign ugt i32 %.078, 1
   br i1 %14, label %.lr.ph, label %._crit_edge, !llvm.loop !88
 
 ._crit_edge:                                      ; preds = %.lr.ph, %5
@@ -2081,7 +2081,7 @@ define internal void @ompi_op_base_2buff_prod_fortran_integer(ptr nocapture noun
   %12 = mul nsw i32 %11, %9
   store i32 %12, ptr %.010, align 4
   %13 = add nsw i32 %.078, -1
-  %14 = icmp ugt i32 %.078, 1
+  %14 = icmp samesign ugt i32 %.078, 1
   br i1 %14, label %.lr.ph, label %._crit_edge, !llvm.loop !89
 
 ._crit_edge:                                      ; preds = %.lr.ph, %5
@@ -2105,7 +2105,7 @@ define internal void @ompi_op_base_2buff_prod_fortran_integer1(ptr nocapture nou
   %12 = mul i8 %11, %9
   store i8 %12, ptr %.010, align 1
   %13 = add nsw i32 %.078, -1
-  %14 = icmp ugt i32 %.078, 1
+  %14 = icmp samesign ugt i32 %.078, 1
   br i1 %14, label %.lr.ph, label %._crit_edge, !llvm.loop !90
 
 ._crit_edge:                                      ; preds = %.lr.ph, %5
@@ -2129,7 +2129,7 @@ define internal void @ompi_op_base_2buff_prod_fortran_integer2(ptr nocapture nou
   %12 = mul i16 %11, %9
   store i16 %12, ptr %.010, align 2
   %13 = add nsw i32 %.078, -1
-  %14 = icmp ugt i32 %.078, 1
+  %14 = icmp samesign ugt i32 %.078, 1
   br i1 %14, label %.lr.ph, label %._crit_edge, !llvm.loop !91
 
 ._crit_edge:                                      ; preds = %.lr.ph, %5
@@ -2153,7 +2153,7 @@ define internal void @ompi_op_base_2buff_prod_fortran_integer4(ptr nocapture nou
   %12 = mul nsw i32 %11, %9
   store i32 %12, ptr %.010, align 4
   %13 = add nsw i32 %.078, -1
-  %14 = icmp ugt i32 %.078, 1
+  %14 = icmp samesign ugt i32 %.078, 1
   br i1 %14, label %.lr.ph, label %._crit_edge, !llvm.loop !92
 
 ._crit_edge:                                      ; preds = %.lr.ph, %5
@@ -2177,7 +2177,7 @@ define internal void @ompi_op_base_2buff_prod_fortran_integer8(ptr nocapture nou
   %12 = mul nsw i64 %11, %9
   store i64 %12, ptr %.010, align 8
   %13 = add nsw i32 %.078, -1
-  %14 = icmp ugt i32 %.078, 1
+  %14 = icmp samesign ugt i32 %.078, 1
   br i1 %14, label %.lr.ph, label %._crit_edge, !llvm.loop !93
 
 ._crit_edge:                                      ; preds = %.lr.ph, %5
@@ -2201,7 +2201,7 @@ define internal void @ompi_op_base_2buff_prod_short_float(ptr nocapture noundef 
   %12 = fmul half %9, %11
   store half %12, ptr %.010, align 2
   %13 = add nsw i32 %.078, -1
-  %14 = icmp ugt i32 %.078, 1
+  %14 = icmp samesign ugt i32 %.078, 1
   br i1 %14, label %.lr.ph, label %._crit_edge, !llvm.loop !94
 
 ._crit_edge:                                      ; preds = %.lr.ph, %5
@@ -2225,7 +2225,7 @@ define internal void @ompi_op_base_2buff_prod_float(ptr nocapture noundef readon
   %12 = fmul float %9, %11
   store float %12, ptr %.010, align 4
   %13 = add nsw i32 %.078, -1
-  %14 = icmp ugt i32 %.078, 1
+  %14 = icmp samesign ugt i32 %.078, 1
   br i1 %14, label %.lr.ph, label %._crit_edge, !llvm.loop !95
 
 ._crit_edge:                                      ; preds = %.lr.ph, %5
@@ -2249,7 +2249,7 @@ define internal void @ompi_op_base_2buff_prod_double(ptr nocapture noundef reado
   %12 = fmul double %9, %11
   store double %12, ptr %.010, align 8
   %13 = add nsw i32 %.078, -1
-  %14 = icmp ugt i32 %.078, 1
+  %14 = icmp samesign ugt i32 %.078, 1
   br i1 %14, label %.lr.ph, label %._crit_edge, !llvm.loop !96
 
 ._crit_edge:                                      ; preds = %.lr.ph, %5
@@ -2273,7 +2273,7 @@ define internal void @ompi_op_base_2buff_prod_fortran_real(ptr nocapture noundef
   %12 = fmul float %9, %11
   store float %12, ptr %.010, align 4
   %13 = add nsw i32 %.078, -1
-  %14 = icmp ugt i32 %.078, 1
+  %14 = icmp samesign ugt i32 %.078, 1
   br i1 %14, label %.lr.ph, label %._crit_edge, !llvm.loop !97
 
 ._crit_edge:                                      ; preds = %.lr.ph, %5
@@ -2297,7 +2297,7 @@ define internal void @ompi_op_base_2buff_prod_fortran_real4(ptr nocapture nounde
   %12 = fmul float %9, %11
   store float %12, ptr %.010, align 4
   %13 = add nsw i32 %.078, -1
-  %14 = icmp ugt i32 %.078, 1
+  %14 = icmp samesign ugt i32 %.078, 1
   br i1 %14, label %.lr.ph, label %._crit_edge, !llvm.loop !98
 
 ._crit_edge:                                      ; preds = %.lr.ph, %5
@@ -2321,7 +2321,7 @@ define internal void @ompi_op_base_2buff_prod_fortran_real8(ptr nocapture nounde
   %12 = fmul double %9, %11
   store double %12, ptr %.010, align 8
   %13 = add nsw i32 %.078, -1
-  %14 = icmp ugt i32 %.078, 1
+  %14 = icmp samesign ugt i32 %.078, 1
   br i1 %14, label %.lr.ph, label %._crit_edge, !llvm.loop !99
 
 ._crit_edge:                                      ; preds = %.lr.ph, %5
@@ -2345,7 +2345,7 @@ define internal void @ompi_op_base_2buff_prod_fortran_real16(ptr nocapture nound
   %12 = fmul x86_fp80 %9, %11
   store x86_fp80 %12, ptr %.010, align 16
   %13 = add nsw i32 %.078, -1
-  %14 = icmp ugt i32 %.078, 1
+  %14 = icmp samesign ugt i32 %.078, 1
   br i1 %14, label %.lr.ph, label %._crit_edge, !llvm.loop !100
 
 ._crit_edge:                                      ; preds = %.lr.ph, %5
@@ -2369,7 +2369,7 @@ define internal void @ompi_op_base_2buff_prod_fortran_double_precision(ptr nocap
   %12 = fmul double %9, %11
   store double %12, ptr %.010, align 8
   %13 = add nsw i32 %.078, -1
-  %14 = icmp ugt i32 %.078, 1
+  %14 = icmp samesign ugt i32 %.078, 1
   br i1 %14, label %.lr.ph, label %._crit_edge, !llvm.loop !101
 
 ._crit_edge:                                      ; preds = %.lr.ph, %5
@@ -2393,7 +2393,7 @@ define internal void @ompi_op_base_2buff_prod_long_double(ptr nocapture noundef 
   %12 = fmul x86_fp80 %9, %11
   store x86_fp80 %12, ptr %.010, align 16
   %13 = add nsw i32 %.078, -1
-  %14 = icmp ugt i32 %.078, 1
+  %14 = icmp samesign ugt i32 %.078, 1
   br i1 %14, label %.lr.ph, label %._crit_edge, !llvm.loop !102
 
 ._crit_edge:                                      ; preds = %.lr.ph, %5
@@ -2432,7 +2432,7 @@ define internal void @ompi_op_base_2buff_prod_c_short_float_complex(ptr nocaptur
   %25 = add nsw i32 %.020, -1
   %26 = getelementptr inbounds i8, ptr %.01619, i64 4
   %27 = getelementptr inbounds i8, ptr %.01718, i64 4
-  %28 = icmp ugt i32 %.020, 1
+  %28 = icmp samesign ugt i32 %.020, 1
   br i1 %28, label %.lr.ph, label %._crit_edge, !llvm.loop !103
 
 ._crit_edge:                                      ; preds = %.lr.ph, %5
@@ -2606,7 +2606,7 @@ define internal void @ompi_op_base_2buff_prod_long(ptr nocapture noundef readonl
   %12 = mul nsw i64 %11, %9
   store i64 %12, ptr %.010, align 8
   %13 = add nsw i32 %.078, -1
-  %14 = icmp ugt i32 %.078, 1
+  %14 = icmp samesign ugt i32 %.078, 1
   br i1 %14, label %.lr.ph, label %._crit_edge, !llvm.loop !108
 
 ._crit_edge:                                      ; preds = %.lr.ph, %5
@@ -2630,7 +2630,7 @@ define internal void @ompi_op_base_2buff_prod_unsigned_long(ptr nocapture nounde
   %12 = mul i64 %11, %9
   store i64 %12, ptr %.010, align 8
   %13 = add nsw i32 %.078, -1
-  %14 = icmp ugt i32 %.078, 1
+  %14 = icmp samesign ugt i32 %.078, 1
   br i1 %14, label %.lr.ph, label %._crit_edge, !llvm.loop !109
 
 ._crit_edge:                                      ; preds = %.lr.ph, %5
@@ -3049,7 +3049,7 @@ define internal void @ompi_op_base_2buff_band_int8_t(ptr nocapture noundef reado
   %11 = getelementptr inbounds i8, ptr %.013, i64 1
   %12 = getelementptr inbounds i8, ptr %.0912, i64 1
   %13 = add nsw i32 %.01011, -1
-  %14 = icmp ugt i32 %.01011, 1
+  %14 = icmp samesign ugt i32 %.01011, 1
   br i1 %14, label %.lr.ph, label %._crit_edge, !llvm.loop !122
 
 ._crit_edge:                                      ; preds = %.lr.ph, %5
@@ -3073,7 +3073,7 @@ define internal void @ompi_op_base_2buff_band_uint8_t(ptr nocapture noundef read
   %11 = getelementptr inbounds i8, ptr %.013, i64 1
   %12 = getelementptr inbounds i8, ptr %.0912, i64 1
   %13 = add nsw i32 %.01011, -1
-  %14 = icmp ugt i32 %.01011, 1
+  %14 = icmp samesign ugt i32 %.01011, 1
   br i1 %14, label %.lr.ph, label %._crit_edge, !llvm.loop !123
 
 ._crit_edge:                                      ; preds = %.lr.ph, %5
@@ -3097,7 +3097,7 @@ define internal void @ompi_op_base_2buff_band_int16_t(ptr nocapture noundef read
   %11 = getelementptr inbounds i8, ptr %.013, i64 2
   %12 = getelementptr inbounds i8, ptr %.0912, i64 2
   %13 = add nsw i32 %.01011, -1
-  %14 = icmp ugt i32 %.01011, 1
+  %14 = icmp samesign ugt i32 %.01011, 1
   br i1 %14, label %.lr.ph, label %._crit_edge, !llvm.loop !124
 
 ._crit_edge:                                      ; preds = %.lr.ph, %5
@@ -3121,7 +3121,7 @@ define internal void @ompi_op_base_2buff_band_uint16_t(ptr nocapture noundef rea
   %11 = getelementptr inbounds i8, ptr %.013, i64 2
   %12 = getelementptr inbounds i8, ptr %.0912, i64 2
   %13 = add nsw i32 %.01011, -1
-  %14 = icmp ugt i32 %.01011, 1
+  %14 = icmp samesign ugt i32 %.01011, 1
   br i1 %14, label %.lr.ph, label %._crit_edge, !llvm.loop !125
 
 ._crit_edge:                                      ; preds = %.lr.ph, %5
@@ -3145,7 +3145,7 @@ define internal void @ompi_op_base_2buff_band_int32_t(ptr nocapture noundef read
   %11 = getelementptr inbounds i8, ptr %.013, i64 4
   %12 = getelementptr inbounds i8, ptr %.0912, i64 4
   %13 = add nsw i32 %.01011, -1
-  %14 = icmp ugt i32 %.01011, 1
+  %14 = icmp samesign ugt i32 %.01011, 1
   br i1 %14, label %.lr.ph, label %._crit_edge, !llvm.loop !126
 
 ._crit_edge:                                      ; preds = %.lr.ph, %5
@@ -3169,7 +3169,7 @@ define internal void @ompi_op_base_2buff_band_uint32_t(ptr nocapture noundef rea
   %11 = getelementptr inbounds i8, ptr %.013, i64 4
   %12 = getelementptr inbounds i8, ptr %.0912, i64 4
   %13 = add nsw i32 %.01011, -1
-  %14 = icmp ugt i32 %.01011, 1
+  %14 = icmp samesign ugt i32 %.01011, 1
   br i1 %14, label %.lr.ph, label %._crit_edge, !llvm.loop !127
 
 ._crit_edge:                                      ; preds = %.lr.ph, %5
@@ -3193,7 +3193,7 @@ define internal void @ompi_op_base_2buff_band_int64_t(ptr nocapture noundef read
   %11 = getelementptr inbounds i8, ptr %.013, i64 8
   %12 = getelementptr inbounds i8, ptr %.0912, i64 8
   %13 = add nsw i32 %.01011, -1
-  %14 = icmp ugt i32 %.01011, 1
+  %14 = icmp samesign ugt i32 %.01011, 1
   br i1 %14, label %.lr.ph, label %._crit_edge, !llvm.loop !128
 
 ._crit_edge:                                      ; preds = %.lr.ph, %5
@@ -3217,7 +3217,7 @@ define internal void @ompi_op_base_2buff_band_uint64_t(ptr nocapture noundef rea
   %11 = getelementptr inbounds i8, ptr %.013, i64 8
   %12 = getelementptr inbounds i8, ptr %.0912, i64 8
   %13 = add nsw i32 %.01011, -1
-  %14 = icmp ugt i32 %.01011, 1
+  %14 = icmp samesign ugt i32 %.01011, 1
   br i1 %14, label %.lr.ph, label %._crit_edge, !llvm.loop !129
 
 ._crit_edge:                                      ; preds = %.lr.ph, %5
@@ -3241,7 +3241,7 @@ define internal void @ompi_op_base_2buff_band_fortran_integer(ptr nocapture noun
   %11 = getelementptr inbounds i8, ptr %.013, i64 4
   %12 = getelementptr inbounds i8, ptr %.0912, i64 4
   %13 = add nsw i32 %.01011, -1
-  %14 = icmp ugt i32 %.01011, 1
+  %14 = icmp samesign ugt i32 %.01011, 1
   br i1 %14, label %.lr.ph, label %._crit_edge, !llvm.loop !130
 
 ._crit_edge:                                      ; preds = %.lr.ph, %5
@@ -3265,7 +3265,7 @@ define internal void @ompi_op_base_2buff_band_fortran_integer1(ptr nocapture nou
   %11 = getelementptr inbounds i8, ptr %.013, i64 1
   %12 = getelementptr inbounds i8, ptr %.0912, i64 1
   %13 = add nsw i32 %.01011, -1
-  %14 = icmp ugt i32 %.01011, 1
+  %14 = icmp samesign ugt i32 %.01011, 1
   br i1 %14, label %.lr.ph, label %._crit_edge, !llvm.loop !131
 
 ._crit_edge:                                      ; preds = %.lr.ph, %5
@@ -3289,7 +3289,7 @@ define internal void @ompi_op_base_2buff_band_fortran_integer2(ptr nocapture nou
   %11 = getelementptr inbounds i8, ptr %.013, i64 2
   %12 = getelementptr inbounds i8, ptr %.0912, i64 2
   %13 = add nsw i32 %.01011, -1
-  %14 = icmp ugt i32 %.01011, 1
+  %14 = icmp samesign ugt i32 %.01011, 1
   br i1 %14, label %.lr.ph, label %._crit_edge, !llvm.loop !132
 
 ._crit_edge:                                      ; preds = %.lr.ph, %5
@@ -3313,7 +3313,7 @@ define internal void @ompi_op_base_2buff_band_fortran_integer4(ptr nocapture nou
   %11 = getelementptr inbounds i8, ptr %.013, i64 4
   %12 = getelementptr inbounds i8, ptr %.0912, i64 4
   %13 = add nsw i32 %.01011, -1
-  %14 = icmp ugt i32 %.01011, 1
+  %14 = icmp samesign ugt i32 %.01011, 1
   br i1 %14, label %.lr.ph, label %._crit_edge, !llvm.loop !133
 
 ._crit_edge:                                      ; preds = %.lr.ph, %5
@@ -3337,7 +3337,7 @@ define internal void @ompi_op_base_2buff_band_fortran_integer8(ptr nocapture nou
   %11 = getelementptr inbounds i8, ptr %.013, i64 8
   %12 = getelementptr inbounds i8, ptr %.0912, i64 8
   %13 = add nsw i32 %.01011, -1
-  %14 = icmp ugt i32 %.01011, 1
+  %14 = icmp samesign ugt i32 %.01011, 1
   br i1 %14, label %.lr.ph, label %._crit_edge, !llvm.loop !134
 
 ._crit_edge:                                      ; preds = %.lr.ph, %5
@@ -3361,7 +3361,7 @@ define internal void @ompi_op_base_2buff_band_byte(ptr nocapture noundef readonl
   %11 = getelementptr inbounds i8, ptr %.013, i64 1
   %12 = getelementptr inbounds i8, ptr %.0912, i64 1
   %13 = add nsw i32 %.01011, -1
-  %14 = icmp ugt i32 %.01011, 1
+  %14 = icmp samesign ugt i32 %.01011, 1
   br i1 %14, label %.lr.ph, label %._crit_edge, !llvm.loop !135
 
 ._crit_edge:                                      ; preds = %.lr.ph, %5
@@ -3385,7 +3385,7 @@ define internal void @ompi_op_base_2buff_band_long(ptr nocapture noundef readonl
   %11 = getelementptr inbounds i8, ptr %.013, i64 8
   %12 = getelementptr inbounds i8, ptr %.0912, i64 8
   %13 = add nsw i32 %.01011, -1
-  %14 = icmp ugt i32 %.01011, 1
+  %14 = icmp samesign ugt i32 %.01011, 1
   br i1 %14, label %.lr.ph, label %._crit_edge, !llvm.loop !136
 
 ._crit_edge:                                      ; preds = %.lr.ph, %5
@@ -3409,7 +3409,7 @@ define internal void @ompi_op_base_2buff_band_unsigned_long(ptr nocapture nounde
   %11 = getelementptr inbounds i8, ptr %.013, i64 8
   %12 = getelementptr inbounds i8, ptr %.0912, i64 8
   %13 = add nsw i32 %.01011, -1
-  %14 = icmp ugt i32 %.01011, 1
+  %14 = icmp samesign ugt i32 %.01011, 1
   br i1 %14, label %.lr.ph, label %._crit_edge, !llvm.loop !137
 
 ._crit_edge:                                      ; preds = %.lr.ph, %5
@@ -3828,7 +3828,7 @@ define internal void @ompi_op_base_2buff_bor_int8_t(ptr nocapture noundef readon
   %11 = getelementptr inbounds i8, ptr %.013, i64 1
   %12 = getelementptr inbounds i8, ptr %.0912, i64 1
   %13 = add nsw i32 %.01011, -1
-  %14 = icmp ugt i32 %.01011, 1
+  %14 = icmp samesign ugt i32 %.01011, 1
   br i1 %14, label %.lr.ph, label %._crit_edge, !llvm.loop !150
 
 ._crit_edge:                                      ; preds = %.lr.ph, %5
@@ -3852,7 +3852,7 @@ define internal void @ompi_op_base_2buff_bor_uint8_t(ptr nocapture noundef reado
   %11 = getelementptr inbounds i8, ptr %.013, i64 1
   %12 = getelementptr inbounds i8, ptr %.0912, i64 1
   %13 = add nsw i32 %.01011, -1
-  %14 = icmp ugt i32 %.01011, 1
+  %14 = icmp samesign ugt i32 %.01011, 1
   br i1 %14, label %.lr.ph, label %._crit_edge, !llvm.loop !151
 
 ._crit_edge:                                      ; preds = %.lr.ph, %5
@@ -3876,7 +3876,7 @@ define internal void @ompi_op_base_2buff_bor_int16_t(ptr nocapture noundef reado
   %11 = getelementptr inbounds i8, ptr %.013, i64 2
   %12 = getelementptr inbounds i8, ptr %.0912, i64 2
   %13 = add nsw i32 %.01011, -1
-  %14 = icmp ugt i32 %.01011, 1
+  %14 = icmp samesign ugt i32 %.01011, 1
   br i1 %14, label %.lr.ph, label %._crit_edge, !llvm.loop !152
 
 ._crit_edge:                                      ; preds = %.lr.ph, %5
@@ -3900,7 +3900,7 @@ define internal void @ompi_op_base_2buff_bor_uint16_t(ptr nocapture noundef read
   %11 = getelementptr inbounds i8, ptr %.013, i64 2
   %12 = getelementptr inbounds i8, ptr %.0912, i64 2
   %13 = add nsw i32 %.01011, -1
-  %14 = icmp ugt i32 %.01011, 1
+  %14 = icmp samesign ugt i32 %.01011, 1
   br i1 %14, label %.lr.ph, label %._crit_edge, !llvm.loop !153
 
 ._crit_edge:                                      ; preds = %.lr.ph, %5
@@ -3924,7 +3924,7 @@ define internal void @ompi_op_base_2buff_bor_int32_t(ptr nocapture noundef reado
   %11 = getelementptr inbounds i8, ptr %.013, i64 4
   %12 = getelementptr inbounds i8, ptr %.0912, i64 4
   %13 = add nsw i32 %.01011, -1
-  %14 = icmp ugt i32 %.01011, 1
+  %14 = icmp samesign ugt i32 %.01011, 1
   br i1 %14, label %.lr.ph, label %._crit_edge, !llvm.loop !154
 
 ._crit_edge:                                      ; preds = %.lr.ph, %5
@@ -3948,7 +3948,7 @@ define internal void @ompi_op_base_2buff_bor_uint32_t(ptr nocapture noundef read
   %11 = getelementptr inbounds i8, ptr %.013, i64 4
   %12 = getelementptr inbounds i8, ptr %.0912, i64 4
   %13 = add nsw i32 %.01011, -1
-  %14 = icmp ugt i32 %.01011, 1
+  %14 = icmp samesign ugt i32 %.01011, 1
   br i1 %14, label %.lr.ph, label %._crit_edge, !llvm.loop !155
 
 ._crit_edge:                                      ; preds = %.lr.ph, %5
@@ -3972,7 +3972,7 @@ define internal void @ompi_op_base_2buff_bor_int64_t(ptr nocapture noundef reado
   %11 = getelementptr inbounds i8, ptr %.013, i64 8
   %12 = getelementptr inbounds i8, ptr %.0912, i64 8
   %13 = add nsw i32 %.01011, -1
-  %14 = icmp ugt i32 %.01011, 1
+  %14 = icmp samesign ugt i32 %.01011, 1
   br i1 %14, label %.lr.ph, label %._crit_edge, !llvm.loop !156
 
 ._crit_edge:                                      ; preds = %.lr.ph, %5
@@ -3996,7 +3996,7 @@ define internal void @ompi_op_base_2buff_bor_uint64_t(ptr nocapture noundef read
   %11 = getelementptr inbounds i8, ptr %.013, i64 8
   %12 = getelementptr inbounds i8, ptr %.0912, i64 8
   %13 = add nsw i32 %.01011, -1
-  %14 = icmp ugt i32 %.01011, 1
+  %14 = icmp samesign ugt i32 %.01011, 1
   br i1 %14, label %.lr.ph, label %._crit_edge, !llvm.loop !157
 
 ._crit_edge:                                      ; preds = %.lr.ph, %5
@@ -4020,7 +4020,7 @@ define internal void @ompi_op_base_2buff_bor_fortran_integer(ptr nocapture nound
   %11 = getelementptr inbounds i8, ptr %.013, i64 4
   %12 = getelementptr inbounds i8, ptr %.0912, i64 4
   %13 = add nsw i32 %.01011, -1
-  %14 = icmp ugt i32 %.01011, 1
+  %14 = icmp samesign ugt i32 %.01011, 1
   br i1 %14, label %.lr.ph, label %._crit_edge, !llvm.loop !158
 
 ._crit_edge:                                      ; preds = %.lr.ph, %5
@@ -4044,7 +4044,7 @@ define internal void @ompi_op_base_2buff_bor_fortran_integer1(ptr nocapture noun
   %11 = getelementptr inbounds i8, ptr %.013, i64 1
   %12 = getelementptr inbounds i8, ptr %.0912, i64 1
   %13 = add nsw i32 %.01011, -1
-  %14 = icmp ugt i32 %.01011, 1
+  %14 = icmp samesign ugt i32 %.01011, 1
   br i1 %14, label %.lr.ph, label %._crit_edge, !llvm.loop !159
 
 ._crit_edge:                                      ; preds = %.lr.ph, %5
@@ -4068,7 +4068,7 @@ define internal void @ompi_op_base_2buff_bor_fortran_integer2(ptr nocapture noun
   %11 = getelementptr inbounds i8, ptr %.013, i64 2
   %12 = getelementptr inbounds i8, ptr %.0912, i64 2
   %13 = add nsw i32 %.01011, -1
-  %14 = icmp ugt i32 %.01011, 1
+  %14 = icmp samesign ugt i32 %.01011, 1
   br i1 %14, label %.lr.ph, label %._crit_edge, !llvm.loop !160
 
 ._crit_edge:                                      ; preds = %.lr.ph, %5
@@ -4092,7 +4092,7 @@ define internal void @ompi_op_base_2buff_bor_fortran_integer4(ptr nocapture noun
   %11 = getelementptr inbounds i8, ptr %.013, i64 4
   %12 = getelementptr inbounds i8, ptr %.0912, i64 4
   %13 = add nsw i32 %.01011, -1
-  %14 = icmp ugt i32 %.01011, 1
+  %14 = icmp samesign ugt i32 %.01011, 1
   br i1 %14, label %.lr.ph, label %._crit_edge, !llvm.loop !161
 
 ._crit_edge:                                      ; preds = %.lr.ph, %5
@@ -4116,7 +4116,7 @@ define internal void @ompi_op_base_2buff_bor_fortran_integer8(ptr nocapture noun
   %11 = getelementptr inbounds i8, ptr %.013, i64 8
   %12 = getelementptr inbounds i8, ptr %.0912, i64 8
   %13 = add nsw i32 %.01011, -1
-  %14 = icmp ugt i32 %.01011, 1
+  %14 = icmp samesign ugt i32 %.01011, 1
   br i1 %14, label %.lr.ph, label %._crit_edge, !llvm.loop !162
 
 ._crit_edge:                                      ; preds = %.lr.ph, %5
@@ -4140,7 +4140,7 @@ define internal void @ompi_op_base_2buff_bor_byte(ptr nocapture noundef readonly
   %11 = getelementptr inbounds i8, ptr %.013, i64 1
   %12 = getelementptr inbounds i8, ptr %.0912, i64 1
   %13 = add nsw i32 %.01011, -1
-  %14 = icmp ugt i32 %.01011, 1
+  %14 = icmp samesign ugt i32 %.01011, 1
   br i1 %14, label %.lr.ph, label %._crit_edge, !llvm.loop !163
 
 ._crit_edge:                                      ; preds = %.lr.ph, %5
@@ -4164,7 +4164,7 @@ define internal void @ompi_op_base_2buff_bor_long(ptr nocapture noundef readonly
   %11 = getelementptr inbounds i8, ptr %.013, i64 8
   %12 = getelementptr inbounds i8, ptr %.0912, i64 8
   %13 = add nsw i32 %.01011, -1
-  %14 = icmp ugt i32 %.01011, 1
+  %14 = icmp samesign ugt i32 %.01011, 1
   br i1 %14, label %.lr.ph, label %._crit_edge, !llvm.loop !164
 
 ._crit_edge:                                      ; preds = %.lr.ph, %5
@@ -4188,7 +4188,7 @@ define internal void @ompi_op_base_2buff_bor_unsigned_long(ptr nocapture noundef
   %11 = getelementptr inbounds i8, ptr %.013, i64 8
   %12 = getelementptr inbounds i8, ptr %.0912, i64 8
   %13 = add nsw i32 %.01011, -1
-  %14 = icmp ugt i32 %.01011, 1
+  %14 = icmp samesign ugt i32 %.01011, 1
   br i1 %14, label %.lr.ph, label %._crit_edge, !llvm.loop !165
 
 ._crit_edge:                                      ; preds = %.lr.ph, %5
@@ -4215,7 +4215,7 @@ define internal void @ompi_op_base_2buff_lxor_int8_t(ptr nocapture noundef reado
   %12 = getelementptr inbounds i8, ptr %.014, i64 1
   %13 = getelementptr inbounds i8, ptr %.0913, i64 1
   %14 = add nsw i32 %.01012, -1
-  %15 = icmp ugt i32 %.01012, 1
+  %15 = icmp samesign ugt i32 %.01012, 1
   br i1 %15, label %.lr.ph, label %._crit_edge, !llvm.loop !166
 
 ._crit_edge:                                      ; preds = %.lr.ph, %5
@@ -4242,7 +4242,7 @@ define internal void @ompi_op_base_2buff_lxor_uint8_t(ptr nocapture noundef read
   %12 = getelementptr inbounds i8, ptr %.014, i64 1
   %13 = getelementptr inbounds i8, ptr %.0913, i64 1
   %14 = add nsw i32 %.01012, -1
-  %15 = icmp ugt i32 %.01012, 1
+  %15 = icmp samesign ugt i32 %.01012, 1
   br i1 %15, label %.lr.ph, label %._crit_edge, !llvm.loop !167
 
 ._crit_edge:                                      ; preds = %.lr.ph, %5
@@ -4269,7 +4269,7 @@ define internal void @ompi_op_base_2buff_lxor_int16_t(ptr nocapture noundef read
   %12 = getelementptr inbounds i8, ptr %.014, i64 2
   %13 = getelementptr inbounds i8, ptr %.0913, i64 2
   %14 = add nsw i32 %.01012, -1
-  %15 = icmp ugt i32 %.01012, 1
+  %15 = icmp samesign ugt i32 %.01012, 1
   br i1 %15, label %.lr.ph, label %._crit_edge, !llvm.loop !168
 
 ._crit_edge:                                      ; preds = %.lr.ph, %5
@@ -4296,7 +4296,7 @@ define internal void @ompi_op_base_2buff_lxor_uint16_t(ptr nocapture noundef rea
   %12 = getelementptr inbounds i8, ptr %.014, i64 2
   %13 = getelementptr inbounds i8, ptr %.0913, i64 2
   %14 = add nsw i32 %.01012, -1
-  %15 = icmp ugt i32 %.01012, 1
+  %15 = icmp samesign ugt i32 %.01012, 1
   br i1 %15, label %.lr.ph, label %._crit_edge, !llvm.loop !169
 
 ._crit_edge:                                      ; preds = %.lr.ph, %5
@@ -4323,7 +4323,7 @@ define internal void @ompi_op_base_2buff_lxor_int32_t(ptr nocapture noundef read
   %12 = getelementptr inbounds i8, ptr %.014, i64 4
   %13 = getelementptr inbounds i8, ptr %.0913, i64 4
   %14 = add nsw i32 %.01012, -1
-  %15 = icmp ugt i32 %.01012, 1
+  %15 = icmp samesign ugt i32 %.01012, 1
   br i1 %15, label %.lr.ph, label %._crit_edge, !llvm.loop !170
 
 ._crit_edge:                                      ; preds = %.lr.ph, %5
@@ -4350,7 +4350,7 @@ define internal void @ompi_op_base_2buff_lxor_uint32_t(ptr nocapture noundef rea
   %12 = getelementptr inbounds i8, ptr %.014, i64 4
   %13 = getelementptr inbounds i8, ptr %.0913, i64 4
   %14 = add nsw i32 %.01012, -1
-  %15 = icmp ugt i32 %.01012, 1
+  %15 = icmp samesign ugt i32 %.01012, 1
   br i1 %15, label %.lr.ph, label %._crit_edge, !llvm.loop !171
 
 ._crit_edge:                                      ; preds = %.lr.ph, %5
@@ -4377,7 +4377,7 @@ define internal void @ompi_op_base_2buff_lxor_int64_t(ptr nocapture noundef read
   %12 = getelementptr inbounds i8, ptr %.014, i64 8
   %13 = getelementptr inbounds i8, ptr %.0913, i64 8
   %14 = add nsw i32 %.01012, -1
-  %15 = icmp ugt i32 %.01012, 1
+  %15 = icmp samesign ugt i32 %.01012, 1
   br i1 %15, label %.lr.ph, label %._crit_edge, !llvm.loop !172
 
 ._crit_edge:                                      ; preds = %.lr.ph, %5
@@ -4404,7 +4404,7 @@ define internal void @ompi_op_base_2buff_lxor_uint64_t(ptr nocapture noundef rea
   %12 = getelementptr inbounds i8, ptr %.014, i64 8
   %13 = getelementptr inbounds i8, ptr %.0913, i64 8
   %14 = add nsw i32 %.01012, -1
-  %15 = icmp ugt i32 %.01012, 1
+  %15 = icmp samesign ugt i32 %.01012, 1
   br i1 %15, label %.lr.ph, label %._crit_edge, !llvm.loop !173
 
 ._crit_edge:                                      ; preds = %.lr.ph, %5
@@ -4431,7 +4431,7 @@ define internal void @ompi_op_base_2buff_lxor_fortran_logical(ptr nocapture noun
   %12 = getelementptr inbounds i8, ptr %.014, i64 4
   %13 = getelementptr inbounds i8, ptr %.0913, i64 4
   %14 = add nsw i32 %.01012, -1
-  %15 = icmp ugt i32 %.01012, 1
+  %15 = icmp samesign ugt i32 %.01012, 1
   br i1 %15, label %.lr.ph, label %._crit_edge, !llvm.loop !174
 
 ._crit_edge:                                      ; preds = %.lr.ph, %5
@@ -4456,7 +4456,7 @@ define internal void @ompi_op_base_2buff_lxor_bool(ptr nocapture noundef readonl
   %12 = getelementptr inbounds i8, ptr %.013, i64 1
   %13 = getelementptr inbounds i8, ptr %.0912, i64 1
   %14 = add nsw i32 %.01011, -1
-  %15 = icmp ugt i32 %.01011, 1
+  %15 = icmp samesign ugt i32 %.01011, 1
   br i1 %15, label %.lr.ph, label %._crit_edge, !llvm.loop !175
 
 ._crit_edge:                                      ; preds = %.lr.ph, %5
@@ -4483,7 +4483,7 @@ define internal void @ompi_op_base_2buff_lxor_long(ptr nocapture noundef readonl
   %12 = getelementptr inbounds i8, ptr %.014, i64 8
   %13 = getelementptr inbounds i8, ptr %.0913, i64 8
   %14 = add nsw i32 %.01012, -1
-  %15 = icmp ugt i32 %.01012, 1
+  %15 = icmp samesign ugt i32 %.01012, 1
   br i1 %15, label %.lr.ph, label %._crit_edge, !llvm.loop !176
 
 ._crit_edge:                                      ; preds = %.lr.ph, %5
@@ -4510,7 +4510,7 @@ define internal void @ompi_op_base_2buff_lxor_unsigned_long(ptr nocapture nounde
   %12 = getelementptr inbounds i8, ptr %.014, i64 8
   %13 = getelementptr inbounds i8, ptr %.0913, i64 8
   %14 = add nsw i32 %.01012, -1
-  %15 = icmp ugt i32 %.01012, 1
+  %15 = icmp samesign ugt i32 %.01012, 1
   br i1 %15, label %.lr.ph, label %._crit_edge, !llvm.loop !177
 
 ._crit_edge:                                      ; preds = %.lr.ph, %5
@@ -4534,7 +4534,7 @@ define internal void @ompi_op_base_2buff_bxor_int8_t(ptr nocapture noundef reado
   %11 = getelementptr inbounds i8, ptr %.013, i64 1
   %12 = getelementptr inbounds i8, ptr %.0912, i64 1
   %13 = add nsw i32 %.01011, -1
-  %14 = icmp ugt i32 %.01011, 1
+  %14 = icmp samesign ugt i32 %.01011, 1
   br i1 %14, label %.lr.ph, label %._crit_edge, !llvm.loop !178
 
 ._crit_edge:                                      ; preds = %.lr.ph, %5
@@ -4558,7 +4558,7 @@ define internal void @ompi_op_base_2buff_bxor_uint8_t(ptr nocapture noundef read
   %11 = getelementptr inbounds i8, ptr %.013, i64 1
   %12 = getelementptr inbounds i8, ptr %.0912, i64 1
   %13 = add nsw i32 %.01011, -1
-  %14 = icmp ugt i32 %.01011, 1
+  %14 = icmp samesign ugt i32 %.01011, 1
   br i1 %14, label %.lr.ph, label %._crit_edge, !llvm.loop !179
 
 ._crit_edge:                                      ; preds = %.lr.ph, %5
@@ -4582,7 +4582,7 @@ define internal void @ompi_op_base_2buff_bxor_int16_t(ptr nocapture noundef read
   %11 = getelementptr inbounds i8, ptr %.013, i64 2
   %12 = getelementptr inbounds i8, ptr %.0912, i64 2
   %13 = add nsw i32 %.01011, -1
-  %14 = icmp ugt i32 %.01011, 1
+  %14 = icmp samesign ugt i32 %.01011, 1
   br i1 %14, label %.lr.ph, label %._crit_edge, !llvm.loop !180
 
 ._crit_edge:                                      ; preds = %.lr.ph, %5
@@ -4606,7 +4606,7 @@ define internal void @ompi_op_base_2buff_bxor_uint16_t(ptr nocapture noundef rea
   %11 = getelementptr inbounds i8, ptr %.013, i64 2
   %12 = getelementptr inbounds i8, ptr %.0912, i64 2
   %13 = add nsw i32 %.01011, -1
-  %14 = icmp ugt i32 %.01011, 1
+  %14 = icmp samesign ugt i32 %.01011, 1
   br i1 %14, label %.lr.ph, label %._crit_edge, !llvm.loop !181
 
 ._crit_edge:                                      ; preds = %.lr.ph, %5
@@ -4630,7 +4630,7 @@ define internal void @ompi_op_base_2buff_bxor_int32_t(ptr nocapture noundef read
   %11 = getelementptr inbounds i8, ptr %.013, i64 4
   %12 = getelementptr inbounds i8, ptr %.0912, i64 4
   %13 = add nsw i32 %.01011, -1
-  %14 = icmp ugt i32 %.01011, 1
+  %14 = icmp samesign ugt i32 %.01011, 1
   br i1 %14, label %.lr.ph, label %._crit_edge, !llvm.loop !182
 
 ._crit_edge:                                      ; preds = %.lr.ph, %5
@@ -4654,7 +4654,7 @@ define internal void @ompi_op_base_2buff_bxor_uint32_t(ptr nocapture noundef rea
   %11 = getelementptr inbounds i8, ptr %.013, i64 4
   %12 = getelementptr inbounds i8, ptr %.0912, i64 4
   %13 = add nsw i32 %.01011, -1
-  %14 = icmp ugt i32 %.01011, 1
+  %14 = icmp samesign ugt i32 %.01011, 1
   br i1 %14, label %.lr.ph, label %._crit_edge, !llvm.loop !183
 
 ._crit_edge:                                      ; preds = %.lr.ph, %5
@@ -4678,7 +4678,7 @@ define internal void @ompi_op_base_2buff_bxor_int64_t(ptr nocapture noundef read
   %11 = getelementptr inbounds i8, ptr %.013, i64 8
   %12 = getelementptr inbounds i8, ptr %.0912, i64 8
   %13 = add nsw i32 %.01011, -1
-  %14 = icmp ugt i32 %.01011, 1
+  %14 = icmp samesign ugt i32 %.01011, 1
   br i1 %14, label %.lr.ph, label %._crit_edge, !llvm.loop !184
 
 ._crit_edge:                                      ; preds = %.lr.ph, %5
@@ -4702,7 +4702,7 @@ define internal void @ompi_op_base_2buff_bxor_uint64_t(ptr nocapture noundef rea
   %11 = getelementptr inbounds i8, ptr %.013, i64 8
   %12 = getelementptr inbounds i8, ptr %.0912, i64 8
   %13 = add nsw i32 %.01011, -1
-  %14 = icmp ugt i32 %.01011, 1
+  %14 = icmp samesign ugt i32 %.01011, 1
   br i1 %14, label %.lr.ph, label %._crit_edge, !llvm.loop !185
 
 ._crit_edge:                                      ; preds = %.lr.ph, %5
@@ -4726,7 +4726,7 @@ define internal void @ompi_op_base_2buff_bxor_fortran_integer(ptr nocapture noun
   %11 = getelementptr inbounds i8, ptr %.013, i64 4
   %12 = getelementptr inbounds i8, ptr %.0912, i64 4
   %13 = add nsw i32 %.01011, -1
-  %14 = icmp ugt i32 %.01011, 1
+  %14 = icmp samesign ugt i32 %.01011, 1
   br i1 %14, label %.lr.ph, label %._crit_edge, !llvm.loop !186
 
 ._crit_edge:                                      ; preds = %.lr.ph, %5
@@ -4750,7 +4750,7 @@ define internal void @ompi_op_base_2buff_bxor_fortran_integer1(ptr nocapture nou
   %11 = getelementptr inbounds i8, ptr %.013, i64 1
   %12 = getelementptr inbounds i8, ptr %.0912, i64 1
   %13 = add nsw i32 %.01011, -1
-  %14 = icmp ugt i32 %.01011, 1
+  %14 = icmp samesign ugt i32 %.01011, 1
   br i1 %14, label %.lr.ph, label %._crit_edge, !llvm.loop !187
 
 ._crit_edge:                                      ; preds = %.lr.ph, %5
@@ -4774,7 +4774,7 @@ define internal void @ompi_op_base_2buff_bxor_fortran_integer2(ptr nocapture nou
   %11 = getelementptr inbounds i8, ptr %.013, i64 2
   %12 = getelementptr inbounds i8, ptr %.0912, i64 2
   %13 = add nsw i32 %.01011, -1
-  %14 = icmp ugt i32 %.01011, 1
+  %14 = icmp samesign ugt i32 %.01011, 1
   br i1 %14, label %.lr.ph, label %._crit_edge, !llvm.loop !188
 
 ._crit_edge:                                      ; preds = %.lr.ph, %5
@@ -4798,7 +4798,7 @@ define internal void @ompi_op_base_2buff_bxor_fortran_integer4(ptr nocapture nou
   %11 = getelementptr inbounds i8, ptr %.013, i64 4
   %12 = getelementptr inbounds i8, ptr %.0912, i64 4
   %13 = add nsw i32 %.01011, -1
-  %14 = icmp ugt i32 %.01011, 1
+  %14 = icmp samesign ugt i32 %.01011, 1
   br i1 %14, label %.lr.ph, label %._crit_edge, !llvm.loop !189
 
 ._crit_edge:                                      ; preds = %.lr.ph, %5
@@ -4822,7 +4822,7 @@ define internal void @ompi_op_base_2buff_bxor_fortran_integer8(ptr nocapture nou
   %11 = getelementptr inbounds i8, ptr %.013, i64 8
   %12 = getelementptr inbounds i8, ptr %.0912, i64 8
   %13 = add nsw i32 %.01011, -1
-  %14 = icmp ugt i32 %.01011, 1
+  %14 = icmp samesign ugt i32 %.01011, 1
   br i1 %14, label %.lr.ph, label %._crit_edge, !llvm.loop !190
 
 ._crit_edge:                                      ; preds = %.lr.ph, %5
@@ -4846,7 +4846,7 @@ define internal void @ompi_op_base_2buff_bxor_byte(ptr nocapture noundef readonl
   %11 = getelementptr inbounds i8, ptr %.013, i64 1
   %12 = getelementptr inbounds i8, ptr %.0912, i64 1
   %13 = add nsw i32 %.01011, -1
-  %14 = icmp ugt i32 %.01011, 1
+  %14 = icmp samesign ugt i32 %.01011, 1
   br i1 %14, label %.lr.ph, label %._crit_edge, !llvm.loop !191
 
 ._crit_edge:                                      ; preds = %.lr.ph, %5
@@ -4870,7 +4870,7 @@ define internal void @ompi_op_base_2buff_bxor_long(ptr nocapture noundef readonl
   %11 = getelementptr inbounds i8, ptr %.013, i64 8
   %12 = getelementptr inbounds i8, ptr %.0912, i64 8
   %13 = add nsw i32 %.01011, -1
-  %14 = icmp ugt i32 %.01011, 1
+  %14 = icmp samesign ugt i32 %.01011, 1
   br i1 %14, label %.lr.ph, label %._crit_edge, !llvm.loop !192
 
 ._crit_edge:                                      ; preds = %.lr.ph, %5
@@ -4894,7 +4894,7 @@ define internal void @ompi_op_base_2buff_bxor_unsigned_long(ptr nocapture nounde
   %11 = getelementptr inbounds i8, ptr %.013, i64 8
   %12 = getelementptr inbounds i8, ptr %.0912, i64 8
   %13 = add nsw i32 %.01011, -1
-  %14 = icmp ugt i32 %.01011, 1
+  %14 = icmp samesign ugt i32 %.01011, 1
   br i1 %14, label %.lr.ph, label %._crit_edge, !llvm.loop !193
 
 ._crit_edge:                                      ; preds = %.lr.ph, %5
@@ -5770,7 +5770,7 @@ define internal void @ompi_op_base_3buff_max_int8_t(ptr noalias nocapture nounde
   %12 = getelementptr inbounds i8, ptr %.01419, i64 1
   %13 = getelementptr inbounds i8, ptr %.01320, i64 1
   %14 = add nsw i32 %.01518, -1
-  %15 = icmp ugt i32 %.01518, 1
+  %15 = icmp samesign ugt i32 %.01518, 1
   br i1 %15, label %.lr.ph, label %._crit_edge, !llvm.loop !212
 
 ._crit_edge:                                      ; preds = %.lr.ph, %6
@@ -5796,7 +5796,7 @@ define internal void @ompi_op_base_3buff_max_uint8_t(ptr noalias nocapture nound
   %12 = getelementptr inbounds i8, ptr %.01419, i64 1
   %13 = getelementptr inbounds i8, ptr %.01320, i64 1
   %14 = add nsw i32 %.01518, -1
-  %15 = icmp ugt i32 %.01518, 1
+  %15 = icmp samesign ugt i32 %.01518, 1
   br i1 %15, label %.lr.ph, label %._crit_edge, !llvm.loop !213
 
 ._crit_edge:                                      ; preds = %.lr.ph, %6
@@ -5822,7 +5822,7 @@ define internal void @ompi_op_base_3buff_max_int16_t(ptr noalias nocapture nound
   %12 = getelementptr inbounds i8, ptr %.01419, i64 2
   %13 = getelementptr inbounds i8, ptr %.01320, i64 2
   %14 = add nsw i32 %.01518, -1
-  %15 = icmp ugt i32 %.01518, 1
+  %15 = icmp samesign ugt i32 %.01518, 1
   br i1 %15, label %.lr.ph, label %._crit_edge, !llvm.loop !214
 
 ._crit_edge:                                      ; preds = %.lr.ph, %6
@@ -5848,7 +5848,7 @@ define internal void @ompi_op_base_3buff_max_uint16_t(ptr noalias nocapture noun
   %12 = getelementptr inbounds i8, ptr %.01419, i64 2
   %13 = getelementptr inbounds i8, ptr %.01320, i64 2
   %14 = add nsw i32 %.01518, -1
-  %15 = icmp ugt i32 %.01518, 1
+  %15 = icmp samesign ugt i32 %.01518, 1
   br i1 %15, label %.lr.ph, label %._crit_edge, !llvm.loop !215
 
 ._crit_edge:                                      ; preds = %.lr.ph, %6
@@ -5874,7 +5874,7 @@ define internal void @ompi_op_base_3buff_max_int32_t(ptr noalias nocapture nound
   %12 = getelementptr inbounds i8, ptr %.01419, i64 4
   %13 = getelementptr inbounds i8, ptr %.01320, i64 4
   %14 = add nsw i32 %.01518, -1
-  %15 = icmp ugt i32 %.01518, 1
+  %15 = icmp samesign ugt i32 %.01518, 1
   br i1 %15, label %.lr.ph, label %._crit_edge, !llvm.loop !216
 
 ._crit_edge:                                      ; preds = %.lr.ph, %6
@@ -5900,7 +5900,7 @@ define internal void @ompi_op_base_3buff_max_uint32_t(ptr noalias nocapture noun
   %12 = getelementptr inbounds i8, ptr %.01419, i64 4
   %13 = getelementptr inbounds i8, ptr %.01320, i64 4
   %14 = add nsw i32 %.01518, -1
-  %15 = icmp ugt i32 %.01518, 1
+  %15 = icmp samesign ugt i32 %.01518, 1
   br i1 %15, label %.lr.ph, label %._crit_edge, !llvm.loop !217
 
 ._crit_edge:                                      ; preds = %.lr.ph, %6
@@ -5926,7 +5926,7 @@ define internal void @ompi_op_base_3buff_max_int64_t(ptr noalias nocapture nound
   %12 = getelementptr inbounds i8, ptr %.01419, i64 8
   %13 = getelementptr inbounds i8, ptr %.01320, i64 8
   %14 = add nsw i32 %.01518, -1
-  %15 = icmp ugt i32 %.01518, 1
+  %15 = icmp samesign ugt i32 %.01518, 1
   br i1 %15, label %.lr.ph, label %._crit_edge, !llvm.loop !218
 
 ._crit_edge:                                      ; preds = %.lr.ph, %6
@@ -5952,7 +5952,7 @@ define internal void @ompi_op_base_3buff_max_uint64_t(ptr noalias nocapture noun
   %12 = getelementptr inbounds i8, ptr %.01419, i64 8
   %13 = getelementptr inbounds i8, ptr %.01320, i64 8
   %14 = add nsw i32 %.01518, -1
-  %15 = icmp ugt i32 %.01518, 1
+  %15 = icmp samesign ugt i32 %.01518, 1
   br i1 %15, label %.lr.ph, label %._crit_edge, !llvm.loop !219
 
 ._crit_edge:                                      ; preds = %.lr.ph, %6
@@ -5978,7 +5978,7 @@ define internal void @ompi_op_base_3buff_max_fortran_integer(ptr noalias nocaptu
   %12 = getelementptr inbounds i8, ptr %.01419, i64 4
   %13 = getelementptr inbounds i8, ptr %.01320, i64 4
   %14 = add nsw i32 %.01518, -1
-  %15 = icmp ugt i32 %.01518, 1
+  %15 = icmp samesign ugt i32 %.01518, 1
   br i1 %15, label %.lr.ph, label %._crit_edge, !llvm.loop !220
 
 ._crit_edge:                                      ; preds = %.lr.ph, %6
@@ -6004,7 +6004,7 @@ define internal void @ompi_op_base_3buff_max_fortran_integer1(ptr noalias nocapt
   %12 = getelementptr inbounds i8, ptr %.01419, i64 1
   %13 = getelementptr inbounds i8, ptr %.01320, i64 1
   %14 = add nsw i32 %.01518, -1
-  %15 = icmp ugt i32 %.01518, 1
+  %15 = icmp samesign ugt i32 %.01518, 1
   br i1 %15, label %.lr.ph, label %._crit_edge, !llvm.loop !221
 
 ._crit_edge:                                      ; preds = %.lr.ph, %6
@@ -6030,7 +6030,7 @@ define internal void @ompi_op_base_3buff_max_fortran_integer2(ptr noalias nocapt
   %12 = getelementptr inbounds i8, ptr %.01419, i64 2
   %13 = getelementptr inbounds i8, ptr %.01320, i64 2
   %14 = add nsw i32 %.01518, -1
-  %15 = icmp ugt i32 %.01518, 1
+  %15 = icmp samesign ugt i32 %.01518, 1
   br i1 %15, label %.lr.ph, label %._crit_edge, !llvm.loop !222
 
 ._crit_edge:                                      ; preds = %.lr.ph, %6
@@ -6056,7 +6056,7 @@ define internal void @ompi_op_base_3buff_max_fortran_integer4(ptr noalias nocapt
   %12 = getelementptr inbounds i8, ptr %.01419, i64 4
   %13 = getelementptr inbounds i8, ptr %.01320, i64 4
   %14 = add nsw i32 %.01518, -1
-  %15 = icmp ugt i32 %.01518, 1
+  %15 = icmp samesign ugt i32 %.01518, 1
   br i1 %15, label %.lr.ph, label %._crit_edge, !llvm.loop !223
 
 ._crit_edge:                                      ; preds = %.lr.ph, %6
@@ -6082,7 +6082,7 @@ define internal void @ompi_op_base_3buff_max_fortran_integer8(ptr noalias nocapt
   %12 = getelementptr inbounds i8, ptr %.01419, i64 8
   %13 = getelementptr inbounds i8, ptr %.01320, i64 8
   %14 = add nsw i32 %.01518, -1
-  %15 = icmp ugt i32 %.01518, 1
+  %15 = icmp samesign ugt i32 %.01518, 1
   br i1 %15, label %.lr.ph, label %._crit_edge, !llvm.loop !224
 
 ._crit_edge:                                      ; preds = %.lr.ph, %6
@@ -6109,7 +6109,7 @@ define internal void @ompi_op_base_3buff_max_short_float(ptr noalias nocapture n
   %13 = getelementptr inbounds i8, ptr %.01419, i64 2
   %14 = getelementptr inbounds i8, ptr %.01320, i64 2
   %15 = add nsw i32 %.01518, -1
-  %16 = icmp ugt i32 %.01518, 1
+  %16 = icmp samesign ugt i32 %.01518, 1
   br i1 %16, label %.lr.ph, label %._crit_edge, !llvm.loop !225
 
 ._crit_edge:                                      ; preds = %.lr.ph, %6
@@ -6136,7 +6136,7 @@ define internal void @ompi_op_base_3buff_max_float(ptr noalias nocapture noundef
   %13 = getelementptr inbounds i8, ptr %.01419, i64 4
   %14 = getelementptr inbounds i8, ptr %.01320, i64 4
   %15 = add nsw i32 %.01518, -1
-  %16 = icmp ugt i32 %.01518, 1
+  %16 = icmp samesign ugt i32 %.01518, 1
   br i1 %16, label %.lr.ph, label %._crit_edge, !llvm.loop !226
 
 ._crit_edge:                                      ; preds = %.lr.ph, %6
@@ -6163,7 +6163,7 @@ define internal void @ompi_op_base_3buff_max_double(ptr noalias nocapture nounde
   %13 = getelementptr inbounds i8, ptr %.01419, i64 8
   %14 = getelementptr inbounds i8, ptr %.01320, i64 8
   %15 = add nsw i32 %.01518, -1
-  %16 = icmp ugt i32 %.01518, 1
+  %16 = icmp samesign ugt i32 %.01518, 1
   br i1 %16, label %.lr.ph, label %._crit_edge, !llvm.loop !227
 
 ._crit_edge:                                      ; preds = %.lr.ph, %6
@@ -6190,7 +6190,7 @@ define internal void @ompi_op_base_3buff_max_fortran_real(ptr noalias nocapture 
   %13 = getelementptr inbounds i8, ptr %.01419, i64 4
   %14 = getelementptr inbounds i8, ptr %.01320, i64 4
   %15 = add nsw i32 %.01518, -1
-  %16 = icmp ugt i32 %.01518, 1
+  %16 = icmp samesign ugt i32 %.01518, 1
   br i1 %16, label %.lr.ph, label %._crit_edge, !llvm.loop !228
 
 ._crit_edge:                                      ; preds = %.lr.ph, %6
@@ -6217,7 +6217,7 @@ define internal void @ompi_op_base_3buff_max_fortran_real4(ptr noalias nocapture
   %13 = getelementptr inbounds i8, ptr %.01419, i64 4
   %14 = getelementptr inbounds i8, ptr %.01320, i64 4
   %15 = add nsw i32 %.01518, -1
-  %16 = icmp ugt i32 %.01518, 1
+  %16 = icmp samesign ugt i32 %.01518, 1
   br i1 %16, label %.lr.ph, label %._crit_edge, !llvm.loop !229
 
 ._crit_edge:                                      ; preds = %.lr.ph, %6
@@ -6244,7 +6244,7 @@ define internal void @ompi_op_base_3buff_max_fortran_real8(ptr noalias nocapture
   %13 = getelementptr inbounds i8, ptr %.01419, i64 8
   %14 = getelementptr inbounds i8, ptr %.01320, i64 8
   %15 = add nsw i32 %.01518, -1
-  %16 = icmp ugt i32 %.01518, 1
+  %16 = icmp samesign ugt i32 %.01518, 1
   br i1 %16, label %.lr.ph, label %._crit_edge, !llvm.loop !230
 
 ._crit_edge:                                      ; preds = %.lr.ph, %6
@@ -6271,7 +6271,7 @@ define internal void @ompi_op_base_3buff_max_fortran_real16(ptr noalias nocaptur
   %13 = getelementptr inbounds i8, ptr %.01419, i64 16
   %14 = getelementptr inbounds i8, ptr %.01320, i64 16
   %15 = add nsw i32 %.01518, -1
-  %16 = icmp ugt i32 %.01518, 1
+  %16 = icmp samesign ugt i32 %.01518, 1
   br i1 %16, label %.lr.ph, label %._crit_edge, !llvm.loop !231
 
 ._crit_edge:                                      ; preds = %.lr.ph, %6
@@ -6298,7 +6298,7 @@ define internal void @ompi_op_base_3buff_max_fortran_double_precision(ptr noalia
   %13 = getelementptr inbounds i8, ptr %.01419, i64 8
   %14 = getelementptr inbounds i8, ptr %.01320, i64 8
   %15 = add nsw i32 %.01518, -1
-  %16 = icmp ugt i32 %.01518, 1
+  %16 = icmp samesign ugt i32 %.01518, 1
   br i1 %16, label %.lr.ph, label %._crit_edge, !llvm.loop !232
 
 ._crit_edge:                                      ; preds = %.lr.ph, %6
@@ -6325,7 +6325,7 @@ define internal void @ompi_op_base_3buff_max_long_double(ptr noalias nocapture n
   %13 = getelementptr inbounds i8, ptr %.01419, i64 16
   %14 = getelementptr inbounds i8, ptr %.01320, i64 16
   %15 = add nsw i32 %.01518, -1
-  %16 = icmp ugt i32 %.01518, 1
+  %16 = icmp samesign ugt i32 %.01518, 1
   br i1 %16, label %.lr.ph, label %._crit_edge, !llvm.loop !233
 
 ._crit_edge:                                      ; preds = %.lr.ph, %6
@@ -6351,7 +6351,7 @@ define internal void @ompi_op_base_3buff_max_long(ptr noalias nocapture noundef 
   %12 = getelementptr inbounds i8, ptr %.01419, i64 8
   %13 = getelementptr inbounds i8, ptr %.01320, i64 8
   %14 = add nsw i32 %.01518, -1
-  %15 = icmp ugt i32 %.01518, 1
+  %15 = icmp samesign ugt i32 %.01518, 1
   br i1 %15, label %.lr.ph, label %._crit_edge, !llvm.loop !234
 
 ._crit_edge:                                      ; preds = %.lr.ph, %6
@@ -6377,7 +6377,7 @@ define internal void @ompi_op_base_3buff_max_unsigned_long(ptr noalias nocapture
   %12 = getelementptr inbounds i8, ptr %.01419, i64 8
   %13 = getelementptr inbounds i8, ptr %.01320, i64 8
   %14 = add nsw i32 %.01518, -1
-  %15 = icmp ugt i32 %.01518, 1
+  %15 = icmp samesign ugt i32 %.01518, 1
   br i1 %15, label %.lr.ph, label %._crit_edge, !llvm.loop !235
 
 ._crit_edge:                                      ; preds = %.lr.ph, %6
@@ -6403,7 +6403,7 @@ define internal void @ompi_op_base_3buff_min_int8_t(ptr noalias nocapture nounde
   %12 = getelementptr inbounds i8, ptr %.01419, i64 1
   %13 = getelementptr inbounds i8, ptr %.01320, i64 1
   %14 = add nsw i32 %.01518, -1
-  %15 = icmp ugt i32 %.01518, 1
+  %15 = icmp samesign ugt i32 %.01518, 1
   br i1 %15, label %.lr.ph, label %._crit_edge, !llvm.loop !236
 
 ._crit_edge:                                      ; preds = %.lr.ph, %6
@@ -6429,7 +6429,7 @@ define internal void @ompi_op_base_3buff_min_uint8_t(ptr noalias nocapture nound
   %12 = getelementptr inbounds i8, ptr %.01419, i64 1
   %13 = getelementptr inbounds i8, ptr %.01320, i64 1
   %14 = add nsw i32 %.01518, -1
-  %15 = icmp ugt i32 %.01518, 1
+  %15 = icmp samesign ugt i32 %.01518, 1
   br i1 %15, label %.lr.ph, label %._crit_edge, !llvm.loop !237
 
 ._crit_edge:                                      ; preds = %.lr.ph, %6
@@ -6455,7 +6455,7 @@ define internal void @ompi_op_base_3buff_min_int16_t(ptr noalias nocapture nound
   %12 = getelementptr inbounds i8, ptr %.01419, i64 2
   %13 = getelementptr inbounds i8, ptr %.01320, i64 2
   %14 = add nsw i32 %.01518, -1
-  %15 = icmp ugt i32 %.01518, 1
+  %15 = icmp samesign ugt i32 %.01518, 1
   br i1 %15, label %.lr.ph, label %._crit_edge, !llvm.loop !238
 
 ._crit_edge:                                      ; preds = %.lr.ph, %6
@@ -6481,7 +6481,7 @@ define internal void @ompi_op_base_3buff_min_uint16_t(ptr noalias nocapture noun
   %12 = getelementptr inbounds i8, ptr %.01419, i64 2
   %13 = getelementptr inbounds i8, ptr %.01320, i64 2
   %14 = add nsw i32 %.01518, -1
-  %15 = icmp ugt i32 %.01518, 1
+  %15 = icmp samesign ugt i32 %.01518, 1
   br i1 %15, label %.lr.ph, label %._crit_edge, !llvm.loop !239
 
 ._crit_edge:                                      ; preds = %.lr.ph, %6
@@ -6507,7 +6507,7 @@ define internal void @ompi_op_base_3buff_min_int32_t(ptr noalias nocapture nound
   %12 = getelementptr inbounds i8, ptr %.01419, i64 4
   %13 = getelementptr inbounds i8, ptr %.01320, i64 4
   %14 = add nsw i32 %.01518, -1
-  %15 = icmp ugt i32 %.01518, 1
+  %15 = icmp samesign ugt i32 %.01518, 1
   br i1 %15, label %.lr.ph, label %._crit_edge, !llvm.loop !240
 
 ._crit_edge:                                      ; preds = %.lr.ph, %6
@@ -6533,7 +6533,7 @@ define internal void @ompi_op_base_3buff_min_uint32_t(ptr noalias nocapture noun
   %12 = getelementptr inbounds i8, ptr %.01419, i64 4
   %13 = getelementptr inbounds i8, ptr %.01320, i64 4
   %14 = add nsw i32 %.01518, -1
-  %15 = icmp ugt i32 %.01518, 1
+  %15 = icmp samesign ugt i32 %.01518, 1
   br i1 %15, label %.lr.ph, label %._crit_edge, !llvm.loop !241
 
 ._crit_edge:                                      ; preds = %.lr.ph, %6
@@ -6559,7 +6559,7 @@ define internal void @ompi_op_base_3buff_min_int64_t(ptr noalias nocapture nound
   %12 = getelementptr inbounds i8, ptr %.01419, i64 8
   %13 = getelementptr inbounds i8, ptr %.01320, i64 8
   %14 = add nsw i32 %.01518, -1
-  %15 = icmp ugt i32 %.01518, 1
+  %15 = icmp samesign ugt i32 %.01518, 1
   br i1 %15, label %.lr.ph, label %._crit_edge, !llvm.loop !242
 
 ._crit_edge:                                      ; preds = %.lr.ph, %6
@@ -6585,7 +6585,7 @@ define internal void @ompi_op_base_3buff_min_uint64_t(ptr noalias nocapture noun
   %12 = getelementptr inbounds i8, ptr %.01419, i64 8
   %13 = getelementptr inbounds i8, ptr %.01320, i64 8
   %14 = add nsw i32 %.01518, -1
-  %15 = icmp ugt i32 %.01518, 1
+  %15 = icmp samesign ugt i32 %.01518, 1
   br i1 %15, label %.lr.ph, label %._crit_edge, !llvm.loop !243
 
 ._crit_edge:                                      ; preds = %.lr.ph, %6
@@ -6611,7 +6611,7 @@ define internal void @ompi_op_base_3buff_min_fortran_integer(ptr noalias nocaptu
   %12 = getelementptr inbounds i8, ptr %.01419, i64 4
   %13 = getelementptr inbounds i8, ptr %.01320, i64 4
   %14 = add nsw i32 %.01518, -1
-  %15 = icmp ugt i32 %.01518, 1
+  %15 = icmp samesign ugt i32 %.01518, 1
   br i1 %15, label %.lr.ph, label %._crit_edge, !llvm.loop !244
 
 ._crit_edge:                                      ; preds = %.lr.ph, %6
@@ -6637,7 +6637,7 @@ define internal void @ompi_op_base_3buff_min_fortran_integer1(ptr noalias nocapt
   %12 = getelementptr inbounds i8, ptr %.01419, i64 1
   %13 = getelementptr inbounds i8, ptr %.01320, i64 1
   %14 = add nsw i32 %.01518, -1
-  %15 = icmp ugt i32 %.01518, 1
+  %15 = icmp samesign ugt i32 %.01518, 1
   br i1 %15, label %.lr.ph, label %._crit_edge, !llvm.loop !245
 
 ._crit_edge:                                      ; preds = %.lr.ph, %6
@@ -6663,7 +6663,7 @@ define internal void @ompi_op_base_3buff_min_fortran_integer2(ptr noalias nocapt
   %12 = getelementptr inbounds i8, ptr %.01419, i64 2
   %13 = getelementptr inbounds i8, ptr %.01320, i64 2
   %14 = add nsw i32 %.01518, -1
-  %15 = icmp ugt i32 %.01518, 1
+  %15 = icmp samesign ugt i32 %.01518, 1
   br i1 %15, label %.lr.ph, label %._crit_edge, !llvm.loop !246
 
 ._crit_edge:                                      ; preds = %.lr.ph, %6
@@ -6689,7 +6689,7 @@ define internal void @ompi_op_base_3buff_min_fortran_integer4(ptr noalias nocapt
   %12 = getelementptr inbounds i8, ptr %.01419, i64 4
   %13 = getelementptr inbounds i8, ptr %.01320, i64 4
   %14 = add nsw i32 %.01518, -1
-  %15 = icmp ugt i32 %.01518, 1
+  %15 = icmp samesign ugt i32 %.01518, 1
   br i1 %15, label %.lr.ph, label %._crit_edge, !llvm.loop !247
 
 ._crit_edge:                                      ; preds = %.lr.ph, %6
@@ -6715,7 +6715,7 @@ define internal void @ompi_op_base_3buff_min_fortran_integer8(ptr noalias nocapt
   %12 = getelementptr inbounds i8, ptr %.01419, i64 8
   %13 = getelementptr inbounds i8, ptr %.01320, i64 8
   %14 = add nsw i32 %.01518, -1
-  %15 = icmp ugt i32 %.01518, 1
+  %15 = icmp samesign ugt i32 %.01518, 1
   br i1 %15, label %.lr.ph, label %._crit_edge, !llvm.loop !248
 
 ._crit_edge:                                      ; preds = %.lr.ph, %6
@@ -6742,7 +6742,7 @@ define internal void @ompi_op_base_3buff_min_short_float(ptr noalias nocapture n
   %13 = getelementptr inbounds i8, ptr %.01419, i64 2
   %14 = getelementptr inbounds i8, ptr %.01320, i64 2
   %15 = add nsw i32 %.01518, -1
-  %16 = icmp ugt i32 %.01518, 1
+  %16 = icmp samesign ugt i32 %.01518, 1
   br i1 %16, label %.lr.ph, label %._crit_edge, !llvm.loop !249
 
 ._crit_edge:                                      ; preds = %.lr.ph, %6
@@ -6769,7 +6769,7 @@ define internal void @ompi_op_base_3buff_min_float(ptr noalias nocapture noundef
   %13 = getelementptr inbounds i8, ptr %.01419, i64 4
   %14 = getelementptr inbounds i8, ptr %.01320, i64 4
   %15 = add nsw i32 %.01518, -1
-  %16 = icmp ugt i32 %.01518, 1
+  %16 = icmp samesign ugt i32 %.01518, 1
   br i1 %16, label %.lr.ph, label %._crit_edge, !llvm.loop !250
 
 ._crit_edge:                                      ; preds = %.lr.ph, %6
@@ -6796,7 +6796,7 @@ define internal void @ompi_op_base_3buff_min_double(ptr noalias nocapture nounde
   %13 = getelementptr inbounds i8, ptr %.01419, i64 8
   %14 = getelementptr inbounds i8, ptr %.01320, i64 8
   %15 = add nsw i32 %.01518, -1
-  %16 = icmp ugt i32 %.01518, 1
+  %16 = icmp samesign ugt i32 %.01518, 1
   br i1 %16, label %.lr.ph, label %._crit_edge, !llvm.loop !251
 
 ._crit_edge:                                      ; preds = %.lr.ph, %6
@@ -6823,7 +6823,7 @@ define internal void @ompi_op_base_3buff_min_fortran_real(ptr noalias nocapture 
   %13 = getelementptr inbounds i8, ptr %.01419, i64 4
   %14 = getelementptr inbounds i8, ptr %.01320, i64 4
   %15 = add nsw i32 %.01518, -1
-  %16 = icmp ugt i32 %.01518, 1
+  %16 = icmp samesign ugt i32 %.01518, 1
   br i1 %16, label %.lr.ph, label %._crit_edge, !llvm.loop !252
 
 ._crit_edge:                                      ; preds = %.lr.ph, %6
@@ -6850,7 +6850,7 @@ define internal void @ompi_op_base_3buff_min_fortran_real4(ptr noalias nocapture
   %13 = getelementptr inbounds i8, ptr %.01419, i64 4
   %14 = getelementptr inbounds i8, ptr %.01320, i64 4
   %15 = add nsw i32 %.01518, -1
-  %16 = icmp ugt i32 %.01518, 1
+  %16 = icmp samesign ugt i32 %.01518, 1
   br i1 %16, label %.lr.ph, label %._crit_edge, !llvm.loop !253
 
 ._crit_edge:                                      ; preds = %.lr.ph, %6
@@ -6877,7 +6877,7 @@ define internal void @ompi_op_base_3buff_min_fortran_real8(ptr noalias nocapture
   %13 = getelementptr inbounds i8, ptr %.01419, i64 8
   %14 = getelementptr inbounds i8, ptr %.01320, i64 8
   %15 = add nsw i32 %.01518, -1
-  %16 = icmp ugt i32 %.01518, 1
+  %16 = icmp samesign ugt i32 %.01518, 1
   br i1 %16, label %.lr.ph, label %._crit_edge, !llvm.loop !254
 
 ._crit_edge:                                      ; preds = %.lr.ph, %6
@@ -6904,7 +6904,7 @@ define internal void @ompi_op_base_3buff_min_fortran_real16(ptr noalias nocaptur
   %13 = getelementptr inbounds i8, ptr %.01419, i64 16
   %14 = getelementptr inbounds i8, ptr %.01320, i64 16
   %15 = add nsw i32 %.01518, -1
-  %16 = icmp ugt i32 %.01518, 1
+  %16 = icmp samesign ugt i32 %.01518, 1
   br i1 %16, label %.lr.ph, label %._crit_edge, !llvm.loop !255
 
 ._crit_edge:                                      ; preds = %.lr.ph, %6
@@ -6931,7 +6931,7 @@ define internal void @ompi_op_base_3buff_min_fortran_double_precision(ptr noalia
   %13 = getelementptr inbounds i8, ptr %.01419, i64 8
   %14 = getelementptr inbounds i8, ptr %.01320, i64 8
   %15 = add nsw i32 %.01518, -1
-  %16 = icmp ugt i32 %.01518, 1
+  %16 = icmp samesign ugt i32 %.01518, 1
   br i1 %16, label %.lr.ph, label %._crit_edge, !llvm.loop !256
 
 ._crit_edge:                                      ; preds = %.lr.ph, %6
@@ -6958,7 +6958,7 @@ define internal void @ompi_op_base_3buff_min_long_double(ptr noalias nocapture n
   %13 = getelementptr inbounds i8, ptr %.01419, i64 16
   %14 = getelementptr inbounds i8, ptr %.01320, i64 16
   %15 = add nsw i32 %.01518, -1
-  %16 = icmp ugt i32 %.01518, 1
+  %16 = icmp samesign ugt i32 %.01518, 1
   br i1 %16, label %.lr.ph, label %._crit_edge, !llvm.loop !257
 
 ._crit_edge:                                      ; preds = %.lr.ph, %6
@@ -6984,7 +6984,7 @@ define internal void @ompi_op_base_3buff_min_long(ptr noalias nocapture noundef 
   %12 = getelementptr inbounds i8, ptr %.01419, i64 8
   %13 = getelementptr inbounds i8, ptr %.01320, i64 8
   %14 = add nsw i32 %.01518, -1
-  %15 = icmp ugt i32 %.01518, 1
+  %15 = icmp samesign ugt i32 %.01518, 1
   br i1 %15, label %.lr.ph, label %._crit_edge, !llvm.loop !258
 
 ._crit_edge:                                      ; preds = %.lr.ph, %6
@@ -7010,7 +7010,7 @@ define internal void @ompi_op_base_3buff_min_unsigned_long(ptr noalias nocapture
   %12 = getelementptr inbounds i8, ptr %.01419, i64 8
   %13 = getelementptr inbounds i8, ptr %.01320, i64 8
   %14 = add nsw i32 %.01518, -1
-  %15 = icmp ugt i32 %.01518, 1
+  %15 = icmp samesign ugt i32 %.01518, 1
   br i1 %15, label %.lr.ph, label %._crit_edge, !llvm.loop !259
 
 ._crit_edge:                                      ; preds = %.lr.ph, %6
@@ -7036,7 +7036,7 @@ define internal void @ompi_op_base_3buff_sum_int8_t(ptr noalias nocapture nounde
   %14 = getelementptr inbounds i8, ptr %.014, i64 1
   store i8 %13, ptr %.014, align 1
   %15 = add nsw i32 %.01011, -1
-  %16 = icmp ugt i32 %.01011, 1
+  %16 = icmp samesign ugt i32 %.01011, 1
   br i1 %16, label %.lr.ph, label %._crit_edge, !llvm.loop !260
 
 ._crit_edge:                                      ; preds = %.lr.ph, %6
@@ -7062,7 +7062,7 @@ define internal void @ompi_op_base_3buff_sum_uint8_t(ptr noalias nocapture nound
   %14 = getelementptr inbounds i8, ptr %.014, i64 1
   store i8 %13, ptr %.014, align 1
   %15 = add nsw i32 %.01011, -1
-  %16 = icmp ugt i32 %.01011, 1
+  %16 = icmp samesign ugt i32 %.01011, 1
   br i1 %16, label %.lr.ph, label %._crit_edge, !llvm.loop !261
 
 ._crit_edge:                                      ; preds = %.lr.ph, %6
@@ -7088,7 +7088,7 @@ define internal void @ompi_op_base_3buff_sum_int16_t(ptr noalias nocapture nound
   %14 = getelementptr inbounds i8, ptr %.014, i64 2
   store i16 %13, ptr %.014, align 2
   %15 = add nsw i32 %.01011, -1
-  %16 = icmp ugt i32 %.01011, 1
+  %16 = icmp samesign ugt i32 %.01011, 1
   br i1 %16, label %.lr.ph, label %._crit_edge, !llvm.loop !262
 
 ._crit_edge:                                      ; preds = %.lr.ph, %6
@@ -7114,7 +7114,7 @@ define internal void @ompi_op_base_3buff_sum_uint16_t(ptr noalias nocapture noun
   %14 = getelementptr inbounds i8, ptr %.014, i64 2
   store i16 %13, ptr %.014, align 2
   %15 = add nsw i32 %.01011, -1
-  %16 = icmp ugt i32 %.01011, 1
+  %16 = icmp samesign ugt i32 %.01011, 1
   br i1 %16, label %.lr.ph, label %._crit_edge, !llvm.loop !263
 
 ._crit_edge:                                      ; preds = %.lr.ph, %6
@@ -7140,7 +7140,7 @@ define internal void @ompi_op_base_3buff_sum_int32_t(ptr noalias nocapture nound
   %14 = getelementptr inbounds i8, ptr %.014, i64 4
   store i32 %13, ptr %.014, align 4
   %15 = add nsw i32 %.01011, -1
-  %16 = icmp ugt i32 %.01011, 1
+  %16 = icmp samesign ugt i32 %.01011, 1
   br i1 %16, label %.lr.ph, label %._crit_edge, !llvm.loop !264
 
 ._crit_edge:                                      ; preds = %.lr.ph, %6
@@ -7166,7 +7166,7 @@ define internal void @ompi_op_base_3buff_sum_uint32_t(ptr noalias nocapture noun
   %14 = getelementptr inbounds i8, ptr %.014, i64 4
   store i32 %13, ptr %.014, align 4
   %15 = add nsw i32 %.01011, -1
-  %16 = icmp ugt i32 %.01011, 1
+  %16 = icmp samesign ugt i32 %.01011, 1
   br i1 %16, label %.lr.ph, label %._crit_edge, !llvm.loop !265
 
 ._crit_edge:                                      ; preds = %.lr.ph, %6
@@ -7192,7 +7192,7 @@ define internal void @ompi_op_base_3buff_sum_int64_t(ptr noalias nocapture nound
   %14 = getelementptr inbounds i8, ptr %.014, i64 8
   store i64 %13, ptr %.014, align 8
   %15 = add nsw i32 %.01011, -1
-  %16 = icmp ugt i32 %.01011, 1
+  %16 = icmp samesign ugt i32 %.01011, 1
   br i1 %16, label %.lr.ph, label %._crit_edge, !llvm.loop !266
 
 ._crit_edge:                                      ; preds = %.lr.ph, %6
@@ -7218,7 +7218,7 @@ define internal void @ompi_op_base_3buff_sum_uint64_t(ptr noalias nocapture noun
   %14 = getelementptr inbounds i8, ptr %.014, i64 8
   store i64 %13, ptr %.014, align 8
   %15 = add nsw i32 %.01011, -1
-  %16 = icmp ugt i32 %.01011, 1
+  %16 = icmp samesign ugt i32 %.01011, 1
   br i1 %16, label %.lr.ph, label %._crit_edge, !llvm.loop !267
 
 ._crit_edge:                                      ; preds = %.lr.ph, %6
@@ -7244,7 +7244,7 @@ define internal void @ompi_op_base_3buff_sum_fortran_integer(ptr noalias nocaptu
   %14 = getelementptr inbounds i8, ptr %.014, i64 4
   store i32 %13, ptr %.014, align 4
   %15 = add nsw i32 %.01011, -1
-  %16 = icmp ugt i32 %.01011, 1
+  %16 = icmp samesign ugt i32 %.01011, 1
   br i1 %16, label %.lr.ph, label %._crit_edge, !llvm.loop !268
 
 ._crit_edge:                                      ; preds = %.lr.ph, %6
@@ -7270,7 +7270,7 @@ define internal void @ompi_op_base_3buff_sum_fortran_integer1(ptr noalias nocapt
   %14 = getelementptr inbounds i8, ptr %.014, i64 1
   store i8 %13, ptr %.014, align 1
   %15 = add nsw i32 %.01011, -1
-  %16 = icmp ugt i32 %.01011, 1
+  %16 = icmp samesign ugt i32 %.01011, 1
   br i1 %16, label %.lr.ph, label %._crit_edge, !llvm.loop !269
 
 ._crit_edge:                                      ; preds = %.lr.ph, %6
@@ -7296,7 +7296,7 @@ define internal void @ompi_op_base_3buff_sum_fortran_integer2(ptr noalias nocapt
   %14 = getelementptr inbounds i8, ptr %.014, i64 2
   store i16 %13, ptr %.014, align 2
   %15 = add nsw i32 %.01011, -1
-  %16 = icmp ugt i32 %.01011, 1
+  %16 = icmp samesign ugt i32 %.01011, 1
   br i1 %16, label %.lr.ph, label %._crit_edge, !llvm.loop !270
 
 ._crit_edge:                                      ; preds = %.lr.ph, %6
@@ -7322,7 +7322,7 @@ define internal void @ompi_op_base_3buff_sum_fortran_integer4(ptr noalias nocapt
   %14 = getelementptr inbounds i8, ptr %.014, i64 4
   store i32 %13, ptr %.014, align 4
   %15 = add nsw i32 %.01011, -1
-  %16 = icmp ugt i32 %.01011, 1
+  %16 = icmp samesign ugt i32 %.01011, 1
   br i1 %16, label %.lr.ph, label %._crit_edge, !llvm.loop !271
 
 ._crit_edge:                                      ; preds = %.lr.ph, %6
@@ -7348,7 +7348,7 @@ define internal void @ompi_op_base_3buff_sum_fortran_integer8(ptr noalias nocapt
   %14 = getelementptr inbounds i8, ptr %.014, i64 8
   store i64 %13, ptr %.014, align 8
   %15 = add nsw i32 %.01011, -1
-  %16 = icmp ugt i32 %.01011, 1
+  %16 = icmp samesign ugt i32 %.01011, 1
   br i1 %16, label %.lr.ph, label %._crit_edge, !llvm.loop !272
 
 ._crit_edge:                                      ; preds = %.lr.ph, %6
@@ -7374,7 +7374,7 @@ define internal void @ompi_op_base_3buff_sum_short_float(ptr noalias nocapture n
   %14 = getelementptr inbounds i8, ptr %.014, i64 2
   store half %13, ptr %.014, align 2
   %15 = add nsw i32 %.01011, -1
-  %16 = icmp ugt i32 %.01011, 1
+  %16 = icmp samesign ugt i32 %.01011, 1
   br i1 %16, label %.lr.ph, label %._crit_edge, !llvm.loop !273
 
 ._crit_edge:                                      ; preds = %.lr.ph, %6
@@ -7400,7 +7400,7 @@ define internal void @ompi_op_base_3buff_sum_float(ptr noalias nocapture noundef
   %14 = getelementptr inbounds i8, ptr %.014, i64 4
   store float %13, ptr %.014, align 4
   %15 = add nsw i32 %.01011, -1
-  %16 = icmp ugt i32 %.01011, 1
+  %16 = icmp samesign ugt i32 %.01011, 1
   br i1 %16, label %.lr.ph, label %._crit_edge, !llvm.loop !274
 
 ._crit_edge:                                      ; preds = %.lr.ph, %6
@@ -7426,7 +7426,7 @@ define internal void @ompi_op_base_3buff_sum_double(ptr noalias nocapture nounde
   %14 = getelementptr inbounds i8, ptr %.014, i64 8
   store double %13, ptr %.014, align 8
   %15 = add nsw i32 %.01011, -1
-  %16 = icmp ugt i32 %.01011, 1
+  %16 = icmp samesign ugt i32 %.01011, 1
   br i1 %16, label %.lr.ph, label %._crit_edge, !llvm.loop !275
 
 ._crit_edge:                                      ; preds = %.lr.ph, %6
@@ -7452,7 +7452,7 @@ define internal void @ompi_op_base_3buff_sum_fortran_real(ptr noalias nocapture 
   %14 = getelementptr inbounds i8, ptr %.014, i64 4
   store float %13, ptr %.014, align 4
   %15 = add nsw i32 %.01011, -1
-  %16 = icmp ugt i32 %.01011, 1
+  %16 = icmp samesign ugt i32 %.01011, 1
   br i1 %16, label %.lr.ph, label %._crit_edge, !llvm.loop !276
 
 ._crit_edge:                                      ; preds = %.lr.ph, %6
@@ -7478,7 +7478,7 @@ define internal void @ompi_op_base_3buff_sum_fortran_real4(ptr noalias nocapture
   %14 = getelementptr inbounds i8, ptr %.014, i64 4
   store float %13, ptr %.014, align 4
   %15 = add nsw i32 %.01011, -1
-  %16 = icmp ugt i32 %.01011, 1
+  %16 = icmp samesign ugt i32 %.01011, 1
   br i1 %16, label %.lr.ph, label %._crit_edge, !llvm.loop !277
 
 ._crit_edge:                                      ; preds = %.lr.ph, %6
@@ -7504,7 +7504,7 @@ define internal void @ompi_op_base_3buff_sum_fortran_real8(ptr noalias nocapture
   %14 = getelementptr inbounds i8, ptr %.014, i64 8
   store double %13, ptr %.014, align 8
   %15 = add nsw i32 %.01011, -1
-  %16 = icmp ugt i32 %.01011, 1
+  %16 = icmp samesign ugt i32 %.01011, 1
   br i1 %16, label %.lr.ph, label %._crit_edge, !llvm.loop !278
 
 ._crit_edge:                                      ; preds = %.lr.ph, %6
@@ -7530,7 +7530,7 @@ define internal void @ompi_op_base_3buff_sum_fortran_real16(ptr noalias nocaptur
   %14 = getelementptr inbounds i8, ptr %.014, i64 16
   store x86_fp80 %13, ptr %.014, align 16
   %15 = add nsw i32 %.01011, -1
-  %16 = icmp ugt i32 %.01011, 1
+  %16 = icmp samesign ugt i32 %.01011, 1
   br i1 %16, label %.lr.ph, label %._crit_edge, !llvm.loop !279
 
 ._crit_edge:                                      ; preds = %.lr.ph, %6
@@ -7556,7 +7556,7 @@ define internal void @ompi_op_base_3buff_sum_fortran_double_precision(ptr noalia
   %14 = getelementptr inbounds i8, ptr %.014, i64 8
   store double %13, ptr %.014, align 8
   %15 = add nsw i32 %.01011, -1
-  %16 = icmp ugt i32 %.01011, 1
+  %16 = icmp samesign ugt i32 %.01011, 1
   br i1 %16, label %.lr.ph, label %._crit_edge, !llvm.loop !280
 
 ._crit_edge:                                      ; preds = %.lr.ph, %6
@@ -7582,7 +7582,7 @@ define internal void @ompi_op_base_3buff_sum_long_double(ptr noalias nocapture n
   %14 = getelementptr inbounds i8, ptr %.014, i64 16
   store x86_fp80 %13, ptr %.014, align 16
   %15 = add nsw i32 %.01011, -1
-  %16 = icmp ugt i32 %.01011, 1
+  %16 = icmp samesign ugt i32 %.01011, 1
   br i1 %16, label %.lr.ph, label %._crit_edge, !llvm.loop !281
 
 ._crit_edge:                                      ; preds = %.lr.ph, %6
@@ -7615,7 +7615,7 @@ define internal void @ompi_op_base_3buff_sum_c_short_float_complex(ptr noalias n
   %19 = getelementptr inbounds i8, ptr %.01518, i64 4
   %20 = getelementptr inbounds i8, ptr %.01419, i64 4
   %21 = getelementptr inbounds i8, ptr %.020, i64 4
-  %22 = icmp ugt i32 %.01617, 1
+  %22 = icmp samesign ugt i32 %.01617, 1
   br i1 %22, label %.lr.ph, label %._crit_edge, !llvm.loop !282
 
 ._crit_edge:                                      ; preds = %.lr.ph, %6
@@ -7648,7 +7648,7 @@ define internal void @ompi_op_base_3buff_sum_c_float_complex(ptr noalias nocaptu
   store float %17, ptr %.014, align 4
   store float %18, ptr %20, align 4
   %21 = add nsw i32 %.01011, -1
-  %22 = icmp ugt i32 %.01011, 1
+  %22 = icmp samesign ugt i32 %.01011, 1
   br i1 %22, label %.lr.ph, label %._crit_edge, !llvm.loop !283
 
 ._crit_edge:                                      ; preds = %.lr.ph, %6
@@ -7681,7 +7681,7 @@ define internal void @ompi_op_base_3buff_sum_c_double_complex(ptr noalias nocapt
   store double %17, ptr %.014, align 8
   store double %18, ptr %20, align 8
   %21 = add nsw i32 %.01011, -1
-  %22 = icmp ugt i32 %.01011, 1
+  %22 = icmp samesign ugt i32 %.01011, 1
   br i1 %22, label %.lr.ph, label %._crit_edge, !llvm.loop !284
 
 ._crit_edge:                                      ; preds = %.lr.ph, %6
@@ -7714,7 +7714,7 @@ define internal void @ompi_op_base_3buff_sum_c_long_double_complex(ptr noalias n
   store x86_fp80 %17, ptr %.014, align 16
   store x86_fp80 %18, ptr %20, align 16
   %21 = add nsw i32 %.01011, -1
-  %22 = icmp ugt i32 %.01011, 1
+  %22 = icmp samesign ugt i32 %.01011, 1
   br i1 %22, label %.lr.ph, label %._crit_edge, !llvm.loop !285
 
 ._crit_edge:                                      ; preds = %.lr.ph, %6
@@ -7740,7 +7740,7 @@ define internal void @ompi_op_base_3buff_sum_long(ptr noalias nocapture noundef 
   %14 = getelementptr inbounds i8, ptr %.014, i64 8
   store i64 %13, ptr %.014, align 8
   %15 = add nsw i32 %.01011, -1
-  %16 = icmp ugt i32 %.01011, 1
+  %16 = icmp samesign ugt i32 %.01011, 1
   br i1 %16, label %.lr.ph, label %._crit_edge, !llvm.loop !286
 
 ._crit_edge:                                      ; preds = %.lr.ph, %6
@@ -7766,7 +7766,7 @@ define internal void @ompi_op_base_3buff_sum_unsigned_long(ptr noalias nocapture
   %14 = getelementptr inbounds i8, ptr %.014, i64 8
   store i64 %13, ptr %.014, align 8
   %15 = add nsw i32 %.01011, -1
-  %16 = icmp ugt i32 %.01011, 1
+  %16 = icmp samesign ugt i32 %.01011, 1
   br i1 %16, label %.lr.ph, label %._crit_edge, !llvm.loop !287
 
 ._crit_edge:                                      ; preds = %.lr.ph, %6
@@ -7792,7 +7792,7 @@ define internal void @ompi_op_base_3buff_prod_int8_t(ptr noalias nocapture nound
   %14 = getelementptr inbounds i8, ptr %.014, i64 1
   store i8 %13, ptr %.014, align 1
   %15 = add nsw i32 %.01011, -1
-  %16 = icmp ugt i32 %.01011, 1
+  %16 = icmp samesign ugt i32 %.01011, 1
   br i1 %16, label %.lr.ph, label %._crit_edge, !llvm.loop !288
 
 ._crit_edge:                                      ; preds = %.lr.ph, %6
@@ -7818,7 +7818,7 @@ define internal void @ompi_op_base_3buff_prod_uint8_t(ptr noalias nocapture noun
   %14 = getelementptr inbounds i8, ptr %.014, i64 1
   store i8 %13, ptr %.014, align 1
   %15 = add nsw i32 %.01011, -1
-  %16 = icmp ugt i32 %.01011, 1
+  %16 = icmp samesign ugt i32 %.01011, 1
   br i1 %16, label %.lr.ph, label %._crit_edge, !llvm.loop !289
 
 ._crit_edge:                                      ; preds = %.lr.ph, %6
@@ -7844,7 +7844,7 @@ define internal void @ompi_op_base_3buff_prod_int16_t(ptr noalias nocapture noun
   %14 = getelementptr inbounds i8, ptr %.014, i64 2
   store i16 %13, ptr %.014, align 2
   %15 = add nsw i32 %.01011, -1
-  %16 = icmp ugt i32 %.01011, 1
+  %16 = icmp samesign ugt i32 %.01011, 1
   br i1 %16, label %.lr.ph, label %._crit_edge, !llvm.loop !290
 
 ._crit_edge:                                      ; preds = %.lr.ph, %6
@@ -7870,7 +7870,7 @@ define internal void @ompi_op_base_3buff_prod_uint16_t(ptr noalias nocapture nou
   %14 = getelementptr inbounds i8, ptr %.014, i64 2
   store i16 %13, ptr %.014, align 2
   %15 = add nsw i32 %.01011, -1
-  %16 = icmp ugt i32 %.01011, 1
+  %16 = icmp samesign ugt i32 %.01011, 1
   br i1 %16, label %.lr.ph, label %._crit_edge, !llvm.loop !291
 
 ._crit_edge:                                      ; preds = %.lr.ph, %6
@@ -7896,7 +7896,7 @@ define internal void @ompi_op_base_3buff_prod_int32_t(ptr noalias nocapture noun
   %14 = getelementptr inbounds i8, ptr %.014, i64 4
   store i32 %13, ptr %.014, align 4
   %15 = add nsw i32 %.01011, -1
-  %16 = icmp ugt i32 %.01011, 1
+  %16 = icmp samesign ugt i32 %.01011, 1
   br i1 %16, label %.lr.ph, label %._crit_edge, !llvm.loop !292
 
 ._crit_edge:                                      ; preds = %.lr.ph, %6
@@ -7922,7 +7922,7 @@ define internal void @ompi_op_base_3buff_prod_uint32_t(ptr noalias nocapture nou
   %14 = getelementptr inbounds i8, ptr %.014, i64 4
   store i32 %13, ptr %.014, align 4
   %15 = add nsw i32 %.01011, -1
-  %16 = icmp ugt i32 %.01011, 1
+  %16 = icmp samesign ugt i32 %.01011, 1
   br i1 %16, label %.lr.ph, label %._crit_edge, !llvm.loop !293
 
 ._crit_edge:                                      ; preds = %.lr.ph, %6
@@ -7948,7 +7948,7 @@ define internal void @ompi_op_base_3buff_prod_int64_t(ptr noalias nocapture noun
   %14 = getelementptr inbounds i8, ptr %.014, i64 8
   store i64 %13, ptr %.014, align 8
   %15 = add nsw i32 %.01011, -1
-  %16 = icmp ugt i32 %.01011, 1
+  %16 = icmp samesign ugt i32 %.01011, 1
   br i1 %16, label %.lr.ph, label %._crit_edge, !llvm.loop !294
 
 ._crit_edge:                                      ; preds = %.lr.ph, %6
@@ -7974,7 +7974,7 @@ define internal void @ompi_op_base_3buff_prod_uint64_t(ptr noalias nocapture nou
   %14 = getelementptr inbounds i8, ptr %.014, i64 8
   store i64 %13, ptr %.014, align 8
   %15 = add nsw i32 %.01011, -1
-  %16 = icmp ugt i32 %.01011, 1
+  %16 = icmp samesign ugt i32 %.01011, 1
   br i1 %16, label %.lr.ph, label %._crit_edge, !llvm.loop !295
 
 ._crit_edge:                                      ; preds = %.lr.ph, %6
@@ -8000,7 +8000,7 @@ define internal void @ompi_op_base_3buff_prod_fortran_integer(ptr noalias nocapt
   %14 = getelementptr inbounds i8, ptr %.014, i64 4
   store i32 %13, ptr %.014, align 4
   %15 = add nsw i32 %.01011, -1
-  %16 = icmp ugt i32 %.01011, 1
+  %16 = icmp samesign ugt i32 %.01011, 1
   br i1 %16, label %.lr.ph, label %._crit_edge, !llvm.loop !296
 
 ._crit_edge:                                      ; preds = %.lr.ph, %6
@@ -8026,7 +8026,7 @@ define internal void @ompi_op_base_3buff_prod_fortran_integer1(ptr noalias nocap
   %14 = getelementptr inbounds i8, ptr %.014, i64 1
   store i8 %13, ptr %.014, align 1
   %15 = add nsw i32 %.01011, -1
-  %16 = icmp ugt i32 %.01011, 1
+  %16 = icmp samesign ugt i32 %.01011, 1
   br i1 %16, label %.lr.ph, label %._crit_edge, !llvm.loop !297
 
 ._crit_edge:                                      ; preds = %.lr.ph, %6
@@ -8052,7 +8052,7 @@ define internal void @ompi_op_base_3buff_prod_fortran_integer2(ptr noalias nocap
   %14 = getelementptr inbounds i8, ptr %.014, i64 2
   store i16 %13, ptr %.014, align 2
   %15 = add nsw i32 %.01011, -1
-  %16 = icmp ugt i32 %.01011, 1
+  %16 = icmp samesign ugt i32 %.01011, 1
   br i1 %16, label %.lr.ph, label %._crit_edge, !llvm.loop !298
 
 ._crit_edge:                                      ; preds = %.lr.ph, %6
@@ -8078,7 +8078,7 @@ define internal void @ompi_op_base_3buff_prod_fortran_integer4(ptr noalias nocap
   %14 = getelementptr inbounds i8, ptr %.014, i64 4
   store i32 %13, ptr %.014, align 4
   %15 = add nsw i32 %.01011, -1
-  %16 = icmp ugt i32 %.01011, 1
+  %16 = icmp samesign ugt i32 %.01011, 1
   br i1 %16, label %.lr.ph, label %._crit_edge, !llvm.loop !299
 
 ._crit_edge:                                      ; preds = %.lr.ph, %6
@@ -8104,7 +8104,7 @@ define internal void @ompi_op_base_3buff_prod_fortran_integer8(ptr noalias nocap
   %14 = getelementptr inbounds i8, ptr %.014, i64 8
   store i64 %13, ptr %.014, align 8
   %15 = add nsw i32 %.01011, -1
-  %16 = icmp ugt i32 %.01011, 1
+  %16 = icmp samesign ugt i32 %.01011, 1
   br i1 %16, label %.lr.ph, label %._crit_edge, !llvm.loop !300
 
 ._crit_edge:                                      ; preds = %.lr.ph, %6
@@ -8130,7 +8130,7 @@ define internal void @ompi_op_base_3buff_prod_short_float(ptr noalias nocapture 
   %14 = getelementptr inbounds i8, ptr %.014, i64 2
   store half %13, ptr %.014, align 2
   %15 = add nsw i32 %.01011, -1
-  %16 = icmp ugt i32 %.01011, 1
+  %16 = icmp samesign ugt i32 %.01011, 1
   br i1 %16, label %.lr.ph, label %._crit_edge, !llvm.loop !301
 
 ._crit_edge:                                      ; preds = %.lr.ph, %6
@@ -8156,7 +8156,7 @@ define internal void @ompi_op_base_3buff_prod_float(ptr noalias nocapture nounde
   %14 = getelementptr inbounds i8, ptr %.014, i64 4
   store float %13, ptr %.014, align 4
   %15 = add nsw i32 %.01011, -1
-  %16 = icmp ugt i32 %.01011, 1
+  %16 = icmp samesign ugt i32 %.01011, 1
   br i1 %16, label %.lr.ph, label %._crit_edge, !llvm.loop !302
 
 ._crit_edge:                                      ; preds = %.lr.ph, %6
@@ -8182,7 +8182,7 @@ define internal void @ompi_op_base_3buff_prod_double(ptr noalias nocapture nound
   %14 = getelementptr inbounds i8, ptr %.014, i64 8
   store double %13, ptr %.014, align 8
   %15 = add nsw i32 %.01011, -1
-  %16 = icmp ugt i32 %.01011, 1
+  %16 = icmp samesign ugt i32 %.01011, 1
   br i1 %16, label %.lr.ph, label %._crit_edge, !llvm.loop !303
 
 ._crit_edge:                                      ; preds = %.lr.ph, %6
@@ -8208,7 +8208,7 @@ define internal void @ompi_op_base_3buff_prod_fortran_real(ptr noalias nocapture
   %14 = getelementptr inbounds i8, ptr %.014, i64 4
   store float %13, ptr %.014, align 4
   %15 = add nsw i32 %.01011, -1
-  %16 = icmp ugt i32 %.01011, 1
+  %16 = icmp samesign ugt i32 %.01011, 1
   br i1 %16, label %.lr.ph, label %._crit_edge, !llvm.loop !304
 
 ._crit_edge:                                      ; preds = %.lr.ph, %6
@@ -8234,7 +8234,7 @@ define internal void @ompi_op_base_3buff_prod_fortran_real4(ptr noalias nocaptur
   %14 = getelementptr inbounds i8, ptr %.014, i64 4
   store float %13, ptr %.014, align 4
   %15 = add nsw i32 %.01011, -1
-  %16 = icmp ugt i32 %.01011, 1
+  %16 = icmp samesign ugt i32 %.01011, 1
   br i1 %16, label %.lr.ph, label %._crit_edge, !llvm.loop !305
 
 ._crit_edge:                                      ; preds = %.lr.ph, %6
@@ -8260,7 +8260,7 @@ define internal void @ompi_op_base_3buff_prod_fortran_real8(ptr noalias nocaptur
   %14 = getelementptr inbounds i8, ptr %.014, i64 8
   store double %13, ptr %.014, align 8
   %15 = add nsw i32 %.01011, -1
-  %16 = icmp ugt i32 %.01011, 1
+  %16 = icmp samesign ugt i32 %.01011, 1
   br i1 %16, label %.lr.ph, label %._crit_edge, !llvm.loop !306
 
 ._crit_edge:                                      ; preds = %.lr.ph, %6
@@ -8286,7 +8286,7 @@ define internal void @ompi_op_base_3buff_prod_fortran_real16(ptr noalias nocaptu
   %14 = getelementptr inbounds i8, ptr %.014, i64 16
   store x86_fp80 %13, ptr %.014, align 16
   %15 = add nsw i32 %.01011, -1
-  %16 = icmp ugt i32 %.01011, 1
+  %16 = icmp samesign ugt i32 %.01011, 1
   br i1 %16, label %.lr.ph, label %._crit_edge, !llvm.loop !307
 
 ._crit_edge:                                      ; preds = %.lr.ph, %6
@@ -8312,7 +8312,7 @@ define internal void @ompi_op_base_3buff_prod_fortran_double_precision(ptr noali
   %14 = getelementptr inbounds i8, ptr %.014, i64 8
   store double %13, ptr %.014, align 8
   %15 = add nsw i32 %.01011, -1
-  %16 = icmp ugt i32 %.01011, 1
+  %16 = icmp samesign ugt i32 %.01011, 1
   br i1 %16, label %.lr.ph, label %._crit_edge, !llvm.loop !308
 
 ._crit_edge:                                      ; preds = %.lr.ph, %6
@@ -8338,7 +8338,7 @@ define internal void @ompi_op_base_3buff_prod_long_double(ptr noalias nocapture 
   %14 = getelementptr inbounds i8, ptr %.014, i64 16
   store x86_fp80 %13, ptr %.014, align 16
   %15 = add nsw i32 %.01011, -1
-  %16 = icmp ugt i32 %.01011, 1
+  %16 = icmp samesign ugt i32 %.01011, 1
   br i1 %16, label %.lr.ph, label %._crit_edge, !llvm.loop !309
 
 ._crit_edge:                                      ; preds = %.lr.ph, %6
@@ -8380,7 +8380,7 @@ define internal void @ompi_op_base_3buff_prod_c_short_float_complex(ptr noalias 
   %28 = getelementptr inbounds i8, ptr %.01922, i64 4
   %29 = getelementptr inbounds i8, ptr %.01823, i64 4
   %30 = getelementptr inbounds i8, ptr %.024, i64 4
-  %31 = icmp ugt i32 %.02021, 1
+  %31 = icmp samesign ugt i32 %.02021, 1
   br i1 %31, label %.lr.ph, label %._crit_edge, !llvm.loop !310
 
 ._crit_edge:                                      ; preds = %.lr.ph, %6
@@ -8565,7 +8565,7 @@ define internal void @ompi_op_base_3buff_prod_long(ptr noalias nocapture noundef
   %14 = getelementptr inbounds i8, ptr %.014, i64 8
   store i64 %13, ptr %.014, align 8
   %15 = add nsw i32 %.01011, -1
-  %16 = icmp ugt i32 %.01011, 1
+  %16 = icmp samesign ugt i32 %.01011, 1
   br i1 %16, label %.lr.ph, label %._crit_edge, !llvm.loop !314
 
 ._crit_edge:                                      ; preds = %.lr.ph, %6
@@ -8591,7 +8591,7 @@ define internal void @ompi_op_base_3buff_prod_unsigned_long(ptr noalias nocaptur
   %14 = getelementptr inbounds i8, ptr %.014, i64 8
   store i64 %13, ptr %.014, align 8
   %15 = add nsw i32 %.01011, -1
-  %16 = icmp ugt i32 %.01011, 1
+  %16 = icmp samesign ugt i32 %.01011, 1
   br i1 %16, label %.lr.ph, label %._crit_edge, !llvm.loop !315
 
 ._crit_edge:                                      ; preds = %.lr.ph, %6
@@ -9036,7 +9036,7 @@ define internal void @ompi_op_base_3buff_band_int8_t(ptr noalias nocapture nound
   %13 = getelementptr inbounds i8, ptr %.01215, i64 1
   %14 = getelementptr inbounds i8, ptr %.01116, i64 1
   %15 = add nsw i32 %.01314, -1
-  %16 = icmp ugt i32 %.01314, 1
+  %16 = icmp samesign ugt i32 %.01314, 1
   br i1 %16, label %.lr.ph, label %._crit_edge, !llvm.loop !328
 
 ._crit_edge:                                      ; preds = %.lr.ph, %6
@@ -9062,7 +9062,7 @@ define internal void @ompi_op_base_3buff_band_uint8_t(ptr noalias nocapture noun
   %13 = getelementptr inbounds i8, ptr %.01215, i64 1
   %14 = getelementptr inbounds i8, ptr %.01116, i64 1
   %15 = add nsw i32 %.01314, -1
-  %16 = icmp ugt i32 %.01314, 1
+  %16 = icmp samesign ugt i32 %.01314, 1
   br i1 %16, label %.lr.ph, label %._crit_edge, !llvm.loop !329
 
 ._crit_edge:                                      ; preds = %.lr.ph, %6
@@ -9088,7 +9088,7 @@ define internal void @ompi_op_base_3buff_band_int16_t(ptr noalias nocapture noun
   %13 = getelementptr inbounds i8, ptr %.01215, i64 2
   %14 = getelementptr inbounds i8, ptr %.01116, i64 2
   %15 = add nsw i32 %.01314, -1
-  %16 = icmp ugt i32 %.01314, 1
+  %16 = icmp samesign ugt i32 %.01314, 1
   br i1 %16, label %.lr.ph, label %._crit_edge, !llvm.loop !330
 
 ._crit_edge:                                      ; preds = %.lr.ph, %6
@@ -9114,7 +9114,7 @@ define internal void @ompi_op_base_3buff_band_uint16_t(ptr noalias nocapture nou
   %13 = getelementptr inbounds i8, ptr %.01215, i64 2
   %14 = getelementptr inbounds i8, ptr %.01116, i64 2
   %15 = add nsw i32 %.01314, -1
-  %16 = icmp ugt i32 %.01314, 1
+  %16 = icmp samesign ugt i32 %.01314, 1
   br i1 %16, label %.lr.ph, label %._crit_edge, !llvm.loop !331
 
 ._crit_edge:                                      ; preds = %.lr.ph, %6
@@ -9140,7 +9140,7 @@ define internal void @ompi_op_base_3buff_band_int32_t(ptr noalias nocapture noun
   %13 = getelementptr inbounds i8, ptr %.01215, i64 4
   %14 = getelementptr inbounds i8, ptr %.01116, i64 4
   %15 = add nsw i32 %.01314, -1
-  %16 = icmp ugt i32 %.01314, 1
+  %16 = icmp samesign ugt i32 %.01314, 1
   br i1 %16, label %.lr.ph, label %._crit_edge, !llvm.loop !332
 
 ._crit_edge:                                      ; preds = %.lr.ph, %6
@@ -9166,7 +9166,7 @@ define internal void @ompi_op_base_3buff_band_uint32_t(ptr noalias nocapture nou
   %13 = getelementptr inbounds i8, ptr %.01215, i64 4
   %14 = getelementptr inbounds i8, ptr %.01116, i64 4
   %15 = add nsw i32 %.01314, -1
-  %16 = icmp ugt i32 %.01314, 1
+  %16 = icmp samesign ugt i32 %.01314, 1
   br i1 %16, label %.lr.ph, label %._crit_edge, !llvm.loop !333
 
 ._crit_edge:                                      ; preds = %.lr.ph, %6
@@ -9192,7 +9192,7 @@ define internal void @ompi_op_base_3buff_band_int64_t(ptr noalias nocapture noun
   %13 = getelementptr inbounds i8, ptr %.01215, i64 8
   %14 = getelementptr inbounds i8, ptr %.01116, i64 8
   %15 = add nsw i32 %.01314, -1
-  %16 = icmp ugt i32 %.01314, 1
+  %16 = icmp samesign ugt i32 %.01314, 1
   br i1 %16, label %.lr.ph, label %._crit_edge, !llvm.loop !334
 
 ._crit_edge:                                      ; preds = %.lr.ph, %6
@@ -9218,7 +9218,7 @@ define internal void @ompi_op_base_3buff_band_uint64_t(ptr noalias nocapture nou
   %13 = getelementptr inbounds i8, ptr %.01215, i64 8
   %14 = getelementptr inbounds i8, ptr %.01116, i64 8
   %15 = add nsw i32 %.01314, -1
-  %16 = icmp ugt i32 %.01314, 1
+  %16 = icmp samesign ugt i32 %.01314, 1
   br i1 %16, label %.lr.ph, label %._crit_edge, !llvm.loop !335
 
 ._crit_edge:                                      ; preds = %.lr.ph, %6
@@ -9244,7 +9244,7 @@ define internal void @ompi_op_base_3buff_band_fortran_integer(ptr noalias nocapt
   %13 = getelementptr inbounds i8, ptr %.01215, i64 4
   %14 = getelementptr inbounds i8, ptr %.01116, i64 4
   %15 = add nsw i32 %.01314, -1
-  %16 = icmp ugt i32 %.01314, 1
+  %16 = icmp samesign ugt i32 %.01314, 1
   br i1 %16, label %.lr.ph, label %._crit_edge, !llvm.loop !336
 
 ._crit_edge:                                      ; preds = %.lr.ph, %6
@@ -9270,7 +9270,7 @@ define internal void @ompi_op_base_3buff_band_fortran_integer1(ptr noalias nocap
   %13 = getelementptr inbounds i8, ptr %.01215, i64 1
   %14 = getelementptr inbounds i8, ptr %.01116, i64 1
   %15 = add nsw i32 %.01314, -1
-  %16 = icmp ugt i32 %.01314, 1
+  %16 = icmp samesign ugt i32 %.01314, 1
   br i1 %16, label %.lr.ph, label %._crit_edge, !llvm.loop !337
 
 ._crit_edge:                                      ; preds = %.lr.ph, %6
@@ -9296,7 +9296,7 @@ define internal void @ompi_op_base_3buff_band_fortran_integer2(ptr noalias nocap
   %13 = getelementptr inbounds i8, ptr %.01215, i64 2
   %14 = getelementptr inbounds i8, ptr %.01116, i64 2
   %15 = add nsw i32 %.01314, -1
-  %16 = icmp ugt i32 %.01314, 1
+  %16 = icmp samesign ugt i32 %.01314, 1
   br i1 %16, label %.lr.ph, label %._crit_edge, !llvm.loop !338
 
 ._crit_edge:                                      ; preds = %.lr.ph, %6
@@ -9322,7 +9322,7 @@ define internal void @ompi_op_base_3buff_band_fortran_integer4(ptr noalias nocap
   %13 = getelementptr inbounds i8, ptr %.01215, i64 4
   %14 = getelementptr inbounds i8, ptr %.01116, i64 4
   %15 = add nsw i32 %.01314, -1
-  %16 = icmp ugt i32 %.01314, 1
+  %16 = icmp samesign ugt i32 %.01314, 1
   br i1 %16, label %.lr.ph, label %._crit_edge, !llvm.loop !339
 
 ._crit_edge:                                      ; preds = %.lr.ph, %6
@@ -9348,7 +9348,7 @@ define internal void @ompi_op_base_3buff_band_fortran_integer8(ptr noalias nocap
   %13 = getelementptr inbounds i8, ptr %.01215, i64 8
   %14 = getelementptr inbounds i8, ptr %.01116, i64 8
   %15 = add nsw i32 %.01314, -1
-  %16 = icmp ugt i32 %.01314, 1
+  %16 = icmp samesign ugt i32 %.01314, 1
   br i1 %16, label %.lr.ph, label %._crit_edge, !llvm.loop !340
 
 ._crit_edge:                                      ; preds = %.lr.ph, %6
@@ -9374,7 +9374,7 @@ define internal void @ompi_op_base_3buff_band_byte(ptr noalias nocapture noundef
   %13 = getelementptr inbounds i8, ptr %.01215, i64 1
   %14 = getelementptr inbounds i8, ptr %.01116, i64 1
   %15 = add nsw i32 %.01314, -1
-  %16 = icmp ugt i32 %.01314, 1
+  %16 = icmp samesign ugt i32 %.01314, 1
   br i1 %16, label %.lr.ph, label %._crit_edge, !llvm.loop !341
 
 ._crit_edge:                                      ; preds = %.lr.ph, %6
@@ -9400,7 +9400,7 @@ define internal void @ompi_op_base_3buff_band_long(ptr noalias nocapture noundef
   %13 = getelementptr inbounds i8, ptr %.01215, i64 8
   %14 = getelementptr inbounds i8, ptr %.01116, i64 8
   %15 = add nsw i32 %.01314, -1
-  %16 = icmp ugt i32 %.01314, 1
+  %16 = icmp samesign ugt i32 %.01314, 1
   br i1 %16, label %.lr.ph, label %._crit_edge, !llvm.loop !342
 
 ._crit_edge:                                      ; preds = %.lr.ph, %6
@@ -9426,7 +9426,7 @@ define internal void @ompi_op_base_3buff_band_unsigned_long(ptr noalias nocaptur
   %13 = getelementptr inbounds i8, ptr %.01215, i64 8
   %14 = getelementptr inbounds i8, ptr %.01116, i64 8
   %15 = add nsw i32 %.01314, -1
-  %16 = icmp ugt i32 %.01314, 1
+  %16 = icmp samesign ugt i32 %.01314, 1
   br i1 %16, label %.lr.ph, label %._crit_edge, !llvm.loop !343
 
 ._crit_edge:                                      ; preds = %.lr.ph, %6
@@ -9871,7 +9871,7 @@ define internal void @ompi_op_base_3buff_bor_int8_t(ptr noalias nocapture nounde
   %13 = getelementptr inbounds i8, ptr %.01215, i64 1
   %14 = getelementptr inbounds i8, ptr %.01116, i64 1
   %15 = add nsw i32 %.01314, -1
-  %16 = icmp ugt i32 %.01314, 1
+  %16 = icmp samesign ugt i32 %.01314, 1
   br i1 %16, label %.lr.ph, label %._crit_edge, !llvm.loop !356
 
 ._crit_edge:                                      ; preds = %.lr.ph, %6
@@ -9897,7 +9897,7 @@ define internal void @ompi_op_base_3buff_bor_uint8_t(ptr noalias nocapture nound
   %13 = getelementptr inbounds i8, ptr %.01215, i64 1
   %14 = getelementptr inbounds i8, ptr %.01116, i64 1
   %15 = add nsw i32 %.01314, -1
-  %16 = icmp ugt i32 %.01314, 1
+  %16 = icmp samesign ugt i32 %.01314, 1
   br i1 %16, label %.lr.ph, label %._crit_edge, !llvm.loop !357
 
 ._crit_edge:                                      ; preds = %.lr.ph, %6
@@ -9923,7 +9923,7 @@ define internal void @ompi_op_base_3buff_bor_int16_t(ptr noalias nocapture nound
   %13 = getelementptr inbounds i8, ptr %.01215, i64 2
   %14 = getelementptr inbounds i8, ptr %.01116, i64 2
   %15 = add nsw i32 %.01314, -1
-  %16 = icmp ugt i32 %.01314, 1
+  %16 = icmp samesign ugt i32 %.01314, 1
   br i1 %16, label %.lr.ph, label %._crit_edge, !llvm.loop !358
 
 ._crit_edge:                                      ; preds = %.lr.ph, %6
@@ -9949,7 +9949,7 @@ define internal void @ompi_op_base_3buff_bor_uint16_t(ptr noalias nocapture noun
   %13 = getelementptr inbounds i8, ptr %.01215, i64 2
   %14 = getelementptr inbounds i8, ptr %.01116, i64 2
   %15 = add nsw i32 %.01314, -1
-  %16 = icmp ugt i32 %.01314, 1
+  %16 = icmp samesign ugt i32 %.01314, 1
   br i1 %16, label %.lr.ph, label %._crit_edge, !llvm.loop !359
 
 ._crit_edge:                                      ; preds = %.lr.ph, %6
@@ -9975,7 +9975,7 @@ define internal void @ompi_op_base_3buff_bor_int32_t(ptr noalias nocapture nound
   %13 = getelementptr inbounds i8, ptr %.01215, i64 4
   %14 = getelementptr inbounds i8, ptr %.01116, i64 4
   %15 = add nsw i32 %.01314, -1
-  %16 = icmp ugt i32 %.01314, 1
+  %16 = icmp samesign ugt i32 %.01314, 1
   br i1 %16, label %.lr.ph, label %._crit_edge, !llvm.loop !360
 
 ._crit_edge:                                      ; preds = %.lr.ph, %6
@@ -10001,7 +10001,7 @@ define internal void @ompi_op_base_3buff_bor_uint32_t(ptr noalias nocapture noun
   %13 = getelementptr inbounds i8, ptr %.01215, i64 4
   %14 = getelementptr inbounds i8, ptr %.01116, i64 4
   %15 = add nsw i32 %.01314, -1
-  %16 = icmp ugt i32 %.01314, 1
+  %16 = icmp samesign ugt i32 %.01314, 1
   br i1 %16, label %.lr.ph, label %._crit_edge, !llvm.loop !361
 
 ._crit_edge:                                      ; preds = %.lr.ph, %6
@@ -10027,7 +10027,7 @@ define internal void @ompi_op_base_3buff_bor_int64_t(ptr noalias nocapture nound
   %13 = getelementptr inbounds i8, ptr %.01215, i64 8
   %14 = getelementptr inbounds i8, ptr %.01116, i64 8
   %15 = add nsw i32 %.01314, -1
-  %16 = icmp ugt i32 %.01314, 1
+  %16 = icmp samesign ugt i32 %.01314, 1
   br i1 %16, label %.lr.ph, label %._crit_edge, !llvm.loop !362
 
 ._crit_edge:                                      ; preds = %.lr.ph, %6
@@ -10053,7 +10053,7 @@ define internal void @ompi_op_base_3buff_bor_uint64_t(ptr noalias nocapture noun
   %13 = getelementptr inbounds i8, ptr %.01215, i64 8
   %14 = getelementptr inbounds i8, ptr %.01116, i64 8
   %15 = add nsw i32 %.01314, -1
-  %16 = icmp ugt i32 %.01314, 1
+  %16 = icmp samesign ugt i32 %.01314, 1
   br i1 %16, label %.lr.ph, label %._crit_edge, !llvm.loop !363
 
 ._crit_edge:                                      ; preds = %.lr.ph, %6
@@ -10079,7 +10079,7 @@ define internal void @ompi_op_base_3buff_bor_fortran_integer(ptr noalias nocaptu
   %13 = getelementptr inbounds i8, ptr %.01215, i64 4
   %14 = getelementptr inbounds i8, ptr %.01116, i64 4
   %15 = add nsw i32 %.01314, -1
-  %16 = icmp ugt i32 %.01314, 1
+  %16 = icmp samesign ugt i32 %.01314, 1
   br i1 %16, label %.lr.ph, label %._crit_edge, !llvm.loop !364
 
 ._crit_edge:                                      ; preds = %.lr.ph, %6
@@ -10105,7 +10105,7 @@ define internal void @ompi_op_base_3buff_bor_fortran_integer1(ptr noalias nocapt
   %13 = getelementptr inbounds i8, ptr %.01215, i64 1
   %14 = getelementptr inbounds i8, ptr %.01116, i64 1
   %15 = add nsw i32 %.01314, -1
-  %16 = icmp ugt i32 %.01314, 1
+  %16 = icmp samesign ugt i32 %.01314, 1
   br i1 %16, label %.lr.ph, label %._crit_edge, !llvm.loop !365
 
 ._crit_edge:                                      ; preds = %.lr.ph, %6
@@ -10131,7 +10131,7 @@ define internal void @ompi_op_base_3buff_bor_fortran_integer2(ptr noalias nocapt
   %13 = getelementptr inbounds i8, ptr %.01215, i64 2
   %14 = getelementptr inbounds i8, ptr %.01116, i64 2
   %15 = add nsw i32 %.01314, -1
-  %16 = icmp ugt i32 %.01314, 1
+  %16 = icmp samesign ugt i32 %.01314, 1
   br i1 %16, label %.lr.ph, label %._crit_edge, !llvm.loop !366
 
 ._crit_edge:                                      ; preds = %.lr.ph, %6
@@ -10157,7 +10157,7 @@ define internal void @ompi_op_base_3buff_bor_fortran_integer4(ptr noalias nocapt
   %13 = getelementptr inbounds i8, ptr %.01215, i64 4
   %14 = getelementptr inbounds i8, ptr %.01116, i64 4
   %15 = add nsw i32 %.01314, -1
-  %16 = icmp ugt i32 %.01314, 1
+  %16 = icmp samesign ugt i32 %.01314, 1
   br i1 %16, label %.lr.ph, label %._crit_edge, !llvm.loop !367
 
 ._crit_edge:                                      ; preds = %.lr.ph, %6
@@ -10183,7 +10183,7 @@ define internal void @ompi_op_base_3buff_bor_fortran_integer8(ptr noalias nocapt
   %13 = getelementptr inbounds i8, ptr %.01215, i64 8
   %14 = getelementptr inbounds i8, ptr %.01116, i64 8
   %15 = add nsw i32 %.01314, -1
-  %16 = icmp ugt i32 %.01314, 1
+  %16 = icmp samesign ugt i32 %.01314, 1
   br i1 %16, label %.lr.ph, label %._crit_edge, !llvm.loop !368
 
 ._crit_edge:                                      ; preds = %.lr.ph, %6
@@ -10209,7 +10209,7 @@ define internal void @ompi_op_base_3buff_bor_byte(ptr noalias nocapture noundef 
   %13 = getelementptr inbounds i8, ptr %.01215, i64 1
   %14 = getelementptr inbounds i8, ptr %.01116, i64 1
   %15 = add nsw i32 %.01314, -1
-  %16 = icmp ugt i32 %.01314, 1
+  %16 = icmp samesign ugt i32 %.01314, 1
   br i1 %16, label %.lr.ph, label %._crit_edge, !llvm.loop !369
 
 ._crit_edge:                                      ; preds = %.lr.ph, %6
@@ -10235,7 +10235,7 @@ define internal void @ompi_op_base_3buff_bor_long(ptr noalias nocapture noundef 
   %13 = getelementptr inbounds i8, ptr %.01215, i64 8
   %14 = getelementptr inbounds i8, ptr %.01116, i64 8
   %15 = add nsw i32 %.01314, -1
-  %16 = icmp ugt i32 %.01314, 1
+  %16 = icmp samesign ugt i32 %.01314, 1
   br i1 %16, label %.lr.ph, label %._crit_edge, !llvm.loop !370
 
 ._crit_edge:                                      ; preds = %.lr.ph, %6
@@ -10261,7 +10261,7 @@ define internal void @ompi_op_base_3buff_bor_unsigned_long(ptr noalias nocapture
   %13 = getelementptr inbounds i8, ptr %.01215, i64 8
   %14 = getelementptr inbounds i8, ptr %.01116, i64 8
   %15 = add nsw i32 %.01314, -1
-  %16 = icmp ugt i32 %.01314, 1
+  %16 = icmp samesign ugt i32 %.01314, 1
   br i1 %16, label %.lr.ph, label %._crit_edge, !llvm.loop !371
 
 ._crit_edge:                                      ; preds = %.lr.ph, %6
@@ -10290,7 +10290,7 @@ define internal void @ompi_op_base_3buff_lxor_int8_t(ptr noalias nocapture nound
   %14 = getelementptr inbounds i8, ptr %.01216, i64 1
   %15 = getelementptr inbounds i8, ptr %.01117, i64 1
   %16 = add nsw i32 %.01315, -1
-  %17 = icmp ugt i32 %.01315, 1
+  %17 = icmp samesign ugt i32 %.01315, 1
   br i1 %17, label %.lr.ph, label %._crit_edge, !llvm.loop !372
 
 ._crit_edge:                                      ; preds = %.lr.ph, %6
@@ -10319,7 +10319,7 @@ define internal void @ompi_op_base_3buff_lxor_uint8_t(ptr noalias nocapture noun
   %14 = getelementptr inbounds i8, ptr %.01216, i64 1
   %15 = getelementptr inbounds i8, ptr %.01117, i64 1
   %16 = add nsw i32 %.01315, -1
-  %17 = icmp ugt i32 %.01315, 1
+  %17 = icmp samesign ugt i32 %.01315, 1
   br i1 %17, label %.lr.ph, label %._crit_edge, !llvm.loop !373
 
 ._crit_edge:                                      ; preds = %.lr.ph, %6
@@ -10348,7 +10348,7 @@ define internal void @ompi_op_base_3buff_lxor_int16_t(ptr noalias nocapture noun
   %14 = getelementptr inbounds i8, ptr %.01216, i64 2
   %15 = getelementptr inbounds i8, ptr %.01117, i64 2
   %16 = add nsw i32 %.01315, -1
-  %17 = icmp ugt i32 %.01315, 1
+  %17 = icmp samesign ugt i32 %.01315, 1
   br i1 %17, label %.lr.ph, label %._crit_edge, !llvm.loop !374
 
 ._crit_edge:                                      ; preds = %.lr.ph, %6
@@ -10377,7 +10377,7 @@ define internal void @ompi_op_base_3buff_lxor_uint16_t(ptr noalias nocapture nou
   %14 = getelementptr inbounds i8, ptr %.01216, i64 2
   %15 = getelementptr inbounds i8, ptr %.01117, i64 2
   %16 = add nsw i32 %.01315, -1
-  %17 = icmp ugt i32 %.01315, 1
+  %17 = icmp samesign ugt i32 %.01315, 1
   br i1 %17, label %.lr.ph, label %._crit_edge, !llvm.loop !375
 
 ._crit_edge:                                      ; preds = %.lr.ph, %6
@@ -10406,7 +10406,7 @@ define internal void @ompi_op_base_3buff_lxor_int32_t(ptr noalias nocapture noun
   %14 = getelementptr inbounds i8, ptr %.01216, i64 4
   %15 = getelementptr inbounds i8, ptr %.01117, i64 4
   %16 = add nsw i32 %.01315, -1
-  %17 = icmp ugt i32 %.01315, 1
+  %17 = icmp samesign ugt i32 %.01315, 1
   br i1 %17, label %.lr.ph, label %._crit_edge, !llvm.loop !376
 
 ._crit_edge:                                      ; preds = %.lr.ph, %6
@@ -10435,7 +10435,7 @@ define internal void @ompi_op_base_3buff_lxor_uint32_t(ptr noalias nocapture nou
   %14 = getelementptr inbounds i8, ptr %.01216, i64 4
   %15 = getelementptr inbounds i8, ptr %.01117, i64 4
   %16 = add nsw i32 %.01315, -1
-  %17 = icmp ugt i32 %.01315, 1
+  %17 = icmp samesign ugt i32 %.01315, 1
   br i1 %17, label %.lr.ph, label %._crit_edge, !llvm.loop !377
 
 ._crit_edge:                                      ; preds = %.lr.ph, %6
@@ -10464,7 +10464,7 @@ define internal void @ompi_op_base_3buff_lxor_int64_t(ptr noalias nocapture noun
   %14 = getelementptr inbounds i8, ptr %.01216, i64 8
   %15 = getelementptr inbounds i8, ptr %.01117, i64 8
   %16 = add nsw i32 %.01315, -1
-  %17 = icmp ugt i32 %.01315, 1
+  %17 = icmp samesign ugt i32 %.01315, 1
   br i1 %17, label %.lr.ph, label %._crit_edge, !llvm.loop !378
 
 ._crit_edge:                                      ; preds = %.lr.ph, %6
@@ -10493,7 +10493,7 @@ define internal void @ompi_op_base_3buff_lxor_uint64_t(ptr noalias nocapture nou
   %14 = getelementptr inbounds i8, ptr %.01216, i64 8
   %15 = getelementptr inbounds i8, ptr %.01117, i64 8
   %16 = add nsw i32 %.01315, -1
-  %17 = icmp ugt i32 %.01315, 1
+  %17 = icmp samesign ugt i32 %.01315, 1
   br i1 %17, label %.lr.ph, label %._crit_edge, !llvm.loop !379
 
 ._crit_edge:                                      ; preds = %.lr.ph, %6
@@ -10522,7 +10522,7 @@ define internal void @ompi_op_base_3buff_lxor_fortran_logical(ptr noalias nocapt
   %14 = getelementptr inbounds i8, ptr %.01216, i64 4
   %15 = getelementptr inbounds i8, ptr %.01117, i64 4
   %16 = add nsw i32 %.01315, -1
-  %17 = icmp ugt i32 %.01315, 1
+  %17 = icmp samesign ugt i32 %.01315, 1
   br i1 %17, label %.lr.ph, label %._crit_edge, !llvm.loop !380
 
 ._crit_edge:                                      ; preds = %.lr.ph, %6
@@ -10549,7 +10549,7 @@ define internal void @ompi_op_base_3buff_lxor_bool(ptr noalias nocapture noundef
   %14 = getelementptr inbounds i8, ptr %.01215, i64 1
   %15 = getelementptr inbounds i8, ptr %.01116, i64 1
   %16 = add nsw i32 %.01314, -1
-  %17 = icmp ugt i32 %.01314, 1
+  %17 = icmp samesign ugt i32 %.01314, 1
   br i1 %17, label %.lr.ph, label %._crit_edge, !llvm.loop !381
 
 ._crit_edge:                                      ; preds = %.lr.ph, %6
@@ -10578,7 +10578,7 @@ define internal void @ompi_op_base_3buff_lxor_long(ptr noalias nocapture noundef
   %14 = getelementptr inbounds i8, ptr %.01216, i64 8
   %15 = getelementptr inbounds i8, ptr %.01117, i64 8
   %16 = add nsw i32 %.01315, -1
-  %17 = icmp ugt i32 %.01315, 1
+  %17 = icmp samesign ugt i32 %.01315, 1
   br i1 %17, label %.lr.ph, label %._crit_edge, !llvm.loop !382
 
 ._crit_edge:                                      ; preds = %.lr.ph, %6
@@ -10607,7 +10607,7 @@ define internal void @ompi_op_base_3buff_lxor_unsigned_long(ptr noalias nocaptur
   %14 = getelementptr inbounds i8, ptr %.01216, i64 8
   %15 = getelementptr inbounds i8, ptr %.01117, i64 8
   %16 = add nsw i32 %.01315, -1
-  %17 = icmp ugt i32 %.01315, 1
+  %17 = icmp samesign ugt i32 %.01315, 1
   br i1 %17, label %.lr.ph, label %._crit_edge, !llvm.loop !383
 
 ._crit_edge:                                      ; preds = %.lr.ph, %6
@@ -10633,7 +10633,7 @@ define internal void @ompi_op_base_3buff_bxor_int8_t(ptr noalias nocapture nound
   %13 = getelementptr inbounds i8, ptr %.01215, i64 1
   %14 = getelementptr inbounds i8, ptr %.01116, i64 1
   %15 = add nsw i32 %.01314, -1
-  %16 = icmp ugt i32 %.01314, 1
+  %16 = icmp samesign ugt i32 %.01314, 1
   br i1 %16, label %.lr.ph, label %._crit_edge, !llvm.loop !384
 
 ._crit_edge:                                      ; preds = %.lr.ph, %6
@@ -10659,7 +10659,7 @@ define internal void @ompi_op_base_3buff_bxor_uint8_t(ptr noalias nocapture noun
   %13 = getelementptr inbounds i8, ptr %.01215, i64 1
   %14 = getelementptr inbounds i8, ptr %.01116, i64 1
   %15 = add nsw i32 %.01314, -1
-  %16 = icmp ugt i32 %.01314, 1
+  %16 = icmp samesign ugt i32 %.01314, 1
   br i1 %16, label %.lr.ph, label %._crit_edge, !llvm.loop !385
 
 ._crit_edge:                                      ; preds = %.lr.ph, %6
@@ -10685,7 +10685,7 @@ define internal void @ompi_op_base_3buff_bxor_int16_t(ptr noalias nocapture noun
   %13 = getelementptr inbounds i8, ptr %.01215, i64 2
   %14 = getelementptr inbounds i8, ptr %.01116, i64 2
   %15 = add nsw i32 %.01314, -1
-  %16 = icmp ugt i32 %.01314, 1
+  %16 = icmp samesign ugt i32 %.01314, 1
   br i1 %16, label %.lr.ph, label %._crit_edge, !llvm.loop !386
 
 ._crit_edge:                                      ; preds = %.lr.ph, %6
@@ -10711,7 +10711,7 @@ define internal void @ompi_op_base_3buff_bxor_uint16_t(ptr noalias nocapture nou
   %13 = getelementptr inbounds i8, ptr %.01215, i64 2
   %14 = getelementptr inbounds i8, ptr %.01116, i64 2
   %15 = add nsw i32 %.01314, -1
-  %16 = icmp ugt i32 %.01314, 1
+  %16 = icmp samesign ugt i32 %.01314, 1
   br i1 %16, label %.lr.ph, label %._crit_edge, !llvm.loop !387
 
 ._crit_edge:                                      ; preds = %.lr.ph, %6
@@ -10737,7 +10737,7 @@ define internal void @ompi_op_base_3buff_bxor_int32_t(ptr noalias nocapture noun
   %13 = getelementptr inbounds i8, ptr %.01215, i64 4
   %14 = getelementptr inbounds i8, ptr %.01116, i64 4
   %15 = add nsw i32 %.01314, -1
-  %16 = icmp ugt i32 %.01314, 1
+  %16 = icmp samesign ugt i32 %.01314, 1
   br i1 %16, label %.lr.ph, label %._crit_edge, !llvm.loop !388
 
 ._crit_edge:                                      ; preds = %.lr.ph, %6
@@ -10763,7 +10763,7 @@ define internal void @ompi_op_base_3buff_bxor_uint32_t(ptr noalias nocapture nou
   %13 = getelementptr inbounds i8, ptr %.01215, i64 4
   %14 = getelementptr inbounds i8, ptr %.01116, i64 4
   %15 = add nsw i32 %.01314, -1
-  %16 = icmp ugt i32 %.01314, 1
+  %16 = icmp samesign ugt i32 %.01314, 1
   br i1 %16, label %.lr.ph, label %._crit_edge, !llvm.loop !389
 
 ._crit_edge:                                      ; preds = %.lr.ph, %6
@@ -10789,7 +10789,7 @@ define internal void @ompi_op_base_3buff_bxor_int64_t(ptr noalias nocapture noun
   %13 = getelementptr inbounds i8, ptr %.01215, i64 8
   %14 = getelementptr inbounds i8, ptr %.01116, i64 8
   %15 = add nsw i32 %.01314, -1
-  %16 = icmp ugt i32 %.01314, 1
+  %16 = icmp samesign ugt i32 %.01314, 1
   br i1 %16, label %.lr.ph, label %._crit_edge, !llvm.loop !390
 
 ._crit_edge:                                      ; preds = %.lr.ph, %6
@@ -10815,7 +10815,7 @@ define internal void @ompi_op_base_3buff_bxor_uint64_t(ptr noalias nocapture nou
   %13 = getelementptr inbounds i8, ptr %.01215, i64 8
   %14 = getelementptr inbounds i8, ptr %.01116, i64 8
   %15 = add nsw i32 %.01314, -1
-  %16 = icmp ugt i32 %.01314, 1
+  %16 = icmp samesign ugt i32 %.01314, 1
   br i1 %16, label %.lr.ph, label %._crit_edge, !llvm.loop !391
 
 ._crit_edge:                                      ; preds = %.lr.ph, %6
@@ -10841,7 +10841,7 @@ define internal void @ompi_op_base_3buff_bxor_fortran_integer(ptr noalias nocapt
   %13 = getelementptr inbounds i8, ptr %.01215, i64 4
   %14 = getelementptr inbounds i8, ptr %.01116, i64 4
   %15 = add nsw i32 %.01314, -1
-  %16 = icmp ugt i32 %.01314, 1
+  %16 = icmp samesign ugt i32 %.01314, 1
   br i1 %16, label %.lr.ph, label %._crit_edge, !llvm.loop !392
 
 ._crit_edge:                                      ; preds = %.lr.ph, %6
@@ -10867,7 +10867,7 @@ define internal void @ompi_op_base_3buff_bxor_fortran_integer1(ptr noalias nocap
   %13 = getelementptr inbounds i8, ptr %.01215, i64 1
   %14 = getelementptr inbounds i8, ptr %.01116, i64 1
   %15 = add nsw i32 %.01314, -1
-  %16 = icmp ugt i32 %.01314, 1
+  %16 = icmp samesign ugt i32 %.01314, 1
   br i1 %16, label %.lr.ph, label %._crit_edge, !llvm.loop !393
 
 ._crit_edge:                                      ; preds = %.lr.ph, %6
@@ -10893,7 +10893,7 @@ define internal void @ompi_op_base_3buff_bxor_fortran_integer2(ptr noalias nocap
   %13 = getelementptr inbounds i8, ptr %.01215, i64 2
   %14 = getelementptr inbounds i8, ptr %.01116, i64 2
   %15 = add nsw i32 %.01314, -1
-  %16 = icmp ugt i32 %.01314, 1
+  %16 = icmp samesign ugt i32 %.01314, 1
   br i1 %16, label %.lr.ph, label %._crit_edge, !llvm.loop !394
 
 ._crit_edge:                                      ; preds = %.lr.ph, %6
@@ -10919,7 +10919,7 @@ define internal void @ompi_op_base_3buff_bxor_fortran_integer4(ptr noalias nocap
   %13 = getelementptr inbounds i8, ptr %.01215, i64 4
   %14 = getelementptr inbounds i8, ptr %.01116, i64 4
   %15 = add nsw i32 %.01314, -1
-  %16 = icmp ugt i32 %.01314, 1
+  %16 = icmp samesign ugt i32 %.01314, 1
   br i1 %16, label %.lr.ph, label %._crit_edge, !llvm.loop !395
 
 ._crit_edge:                                      ; preds = %.lr.ph, %6
@@ -10945,7 +10945,7 @@ define internal void @ompi_op_base_3buff_bxor_fortran_integer8(ptr noalias nocap
   %13 = getelementptr inbounds i8, ptr %.01215, i64 8
   %14 = getelementptr inbounds i8, ptr %.01116, i64 8
   %15 = add nsw i32 %.01314, -1
-  %16 = icmp ugt i32 %.01314, 1
+  %16 = icmp samesign ugt i32 %.01314, 1
   br i1 %16, label %.lr.ph, label %._crit_edge, !llvm.loop !396
 
 ._crit_edge:                                      ; preds = %.lr.ph, %6
@@ -10971,7 +10971,7 @@ define internal void @ompi_op_base_3buff_bxor_byte(ptr noalias nocapture noundef
   %13 = getelementptr inbounds i8, ptr %.01215, i64 1
   %14 = getelementptr inbounds i8, ptr %.01116, i64 1
   %15 = add nsw i32 %.01314, -1
-  %16 = icmp ugt i32 %.01314, 1
+  %16 = icmp samesign ugt i32 %.01314, 1
   br i1 %16, label %.lr.ph, label %._crit_edge, !llvm.loop !397
 
 ._crit_edge:                                      ; preds = %.lr.ph, %6
@@ -10997,7 +10997,7 @@ define internal void @ompi_op_base_3buff_bxor_long(ptr noalias nocapture noundef
   %13 = getelementptr inbounds i8, ptr %.01215, i64 8
   %14 = getelementptr inbounds i8, ptr %.01116, i64 8
   %15 = add nsw i32 %.01314, -1
-  %16 = icmp ugt i32 %.01314, 1
+  %16 = icmp samesign ugt i32 %.01314, 1
   br i1 %16, label %.lr.ph, label %._crit_edge, !llvm.loop !398
 
 ._crit_edge:                                      ; preds = %.lr.ph, %6
@@ -11023,7 +11023,7 @@ define internal void @ompi_op_base_3buff_bxor_unsigned_long(ptr noalias nocaptur
   %13 = getelementptr inbounds i8, ptr %.01215, i64 8
   %14 = getelementptr inbounds i8, ptr %.01116, i64 8
   %15 = add nsw i32 %.01314, -1
-  %16 = icmp ugt i32 %.01314, 1
+  %16 = icmp samesign ugt i32 %.01314, 1
   br i1 %16, label %.lr.ph, label %._crit_edge, !llvm.loop !399
 
 ._crit_edge:                                      ; preds = %.lr.ph, %6

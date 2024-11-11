@@ -216,7 +216,7 @@ define dso_local range(i32 -2147483648, 1) i32 @tcf_em_tree_validate(ptr nocaptu
   br i1 %76, label %77, label %87
 
 77:                                               ; preds = %73
-  %78 = icmp ult i32 %62, 4
+  %78 = icmp samesign ult i32 %62, 4
   br i1 %78, label %.thread27, label %79
 
 79:                                               ; preds = %77
@@ -901,7 +901,7 @@ define dso_local i32 @__tcf_em_tree_match(ptr noundef %0, ptr nocapture noundef 
   br label %6
 
 96:                                               ; preds = %90, %87, %69
-  %97 = icmp ugt i64 %70, 1
+  %97 = icmp samesign ugt i64 %70, 1
   br i1 %97, label %69, label %.loopexit
 
 98:                                               ; preds = %.loopexit8

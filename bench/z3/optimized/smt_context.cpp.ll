@@ -15084,7 +15084,7 @@ while.body.i:                                     ; preds = %while.body.i, %whil
   %13 = load i32, ptr %arrayidx2.i, align 4
   store i32 %13, ptr %arrayidx.i21, align 4
   store i32 %__tmp.sroa.0.0.copyload.i.i, ptr %arrayidx2.i, align 4
-  %cmp.i22 = icmp ugt i64 %indvars.iv.i, 2
+  %cmp.i22 = icmp samesign ugt i64 %indvars.iv.i, 2
   br i1 %cmp.i22, label %while.body.i, label %_Z7shuffleIN3sat7literalEEvjPT_R10random_gen.exit, !llvm.loop !66
 
 _Z7shuffleIN3sat7literalEEvjPT_R10random_gen.exit: ; preds = %while.body.i, %_ZNK6vectorIN3sat7literalELb0EjE4sizeEv.exit

@@ -951,7 +951,7 @@ define internal noundef i32 @iommu_v1_read_and_clear_dirty(ptr nocapture noundef
   %51 = and i64 %50, 511
   %52 = getelementptr i64, ptr %47, i64 %51
   %53 = shl nuw i64 4096, %48
-  %54 = icmp ugt i64 %indvars.iv, 1
+  %54 = icmp samesign ugt i64 %indvars.iv, 1
   br i1 %54, label %.preheader.i, label %.loopexit2.i, !llvm.loop !37
 
 .loopexit2.i:                                     ; preds = %44, %39, %39, %22

@@ -1125,7 +1125,7 @@ define internal fastcc range(i64 -2147483648, 2147483648) i64 @hidraw_send_repor
   br label %53
 
 23:                                               ; preds = %13
-  %24 = icmp ult i64 %1, 2
+  %24 = icmp samesign ult i64 %1, 2
   br i1 %24, label %25, label %31
 
 25:                                               ; preds = %23

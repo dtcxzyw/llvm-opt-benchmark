@@ -990,7 +990,7 @@ getRightMostDot.exit:                             ; preds = %58, %54
 73:                                               ; preds = %.thread, %72
   %.1130162 = phi i32 [ %spec.select149, %.thread ], [ %.0129194, %72 ]
   %.1133159 = phi i32 [ 1, %.thread ], [ %.0132193, %72 ]
-  %74 = icmp ult i64 %.010.i, %indvars.iv
+  %74 = icmp samesign ult i64 %.010.i, %indvars.iv
   br i1 %74, label %75, label %79
 
 75:                                               ; preds = %73

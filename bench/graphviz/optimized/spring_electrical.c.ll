@@ -585,7 +585,7 @@ define void @export_embedding(ptr nocapture noundef %0, i32 noundef %1, ptr noca
   br i1 %124, label %.lr.ph236.split, label %.loopexit
 
 125:                                              ; preds = %.loopexit190
-  %126 = icmp ult i32 %103, 500000
+  %126 = icmp samesign ult i32 %103, 500000
   br i1 %126, label %127, label %.loopexit.sink.split
 
 127:                                              ; preds = %125

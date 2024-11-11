@@ -186,7 +186,7 @@ define void @pack_slurm_step_layout(ptr noundef readonly %0, ptr noundef %1, i16
   br label %.loopexit
 
 61:                                               ; preds = %3
-  %62 = icmp ugt i16 %2, 9983
+  %62 = icmp samesign ugt i16 %2, 9983
   br i1 %62, label %63, label %101
 
 63:                                               ; preds = %61
@@ -447,7 +447,7 @@ define range(i32 -1, 1) i32 @unpack_slurm_step_layout(ptr nocapture noundef writ
   br label %.loopexit140
 
 86:                                               ; preds = %3
-  %87 = icmp ugt i16 %2, 9983
+  %87 = icmp samesign ugt i16 %2, 9983
   br i1 %87, label %88, label %140
 
 88:                                               ; preds = %86

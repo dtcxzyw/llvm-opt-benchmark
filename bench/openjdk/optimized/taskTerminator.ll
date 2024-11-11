@@ -217,7 +217,7 @@ define hidden void @_ZN14TaskTerminator18prepare_for_returnEP6Threadm(ptr nounde
   br i1 %.not, label %.preheader, label %15
 
 .preheader:                                       ; preds = %8
-  %13 = icmp ugt i64 %2, 1
+  %13 = icmp samesign ugt i64 %2, 1
   br i1 %13, label %.lr.ph, label %.loopexit
 
 .lr.ph:                                           ; preds = %.preheader

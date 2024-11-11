@@ -14933,7 +14933,7 @@ define internal fastcc void @_ZN9regalloc27checker12CheckerState5check17h3b598b3
   br i1 %60, label %61, label %63
 
 61:                                               ; preds = %.lr.ph.i
-  %62 = icmp ult i32 %.val.i, 1073741824
+  %62 = icmp samesign ult i32 %.val.i, 1073741824
   br i1 %62, label %65, label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$3any17hd7b38fe09beb72b9E.exit"
 
 63:                                               ; preds = %.lr.ph.i
@@ -14942,7 +14942,7 @@ define internal fastcc void @_ZN9regalloc27checker12CheckerState5check17h3b598b3
   br i1 %switch.not.i.i, label %.invoke, label %"_ZN9regalloc27checker12CheckerState5check28_$u7b$$u7b$closure$u7d$$u7d$17h2abdaf95f234803cE.exit.i"
 
 65:                                               ; preds = %61
-  %switch2.i.i = icmp ult i32 %.val.i, 100663296
+  %switch2.i.i = icmp samesign ult i32 %.val.i, 100663296
   br i1 %switch2.i.i, label %"_ZN9regalloc27checker12CheckerState5check28_$u7b$$u7b$closure$u7d$$u7d$17h2abdaf95f234803cE.exit.i", label %.invoke
 
 "_ZN9regalloc27checker12CheckerState5check28_$u7b$$u7b$closure$u7d$$u7d$17h2abdaf95f234803cE.exit.i": ; preds = %65, %63
@@ -15143,7 +15143,7 @@ _ZN9regalloc27Operand10constraint17h239d5f8a8b8d6956E.exit.i.thread.i: ; preds =
   br i1 %139, label %140, label %142
 
 140:                                              ; preds = %"_ZN9hashbrown3map28HashMap$LT$K$C$V$C$S$C$A$GT$12contains_key17h1df6e73d203599c8E.exit.i"
-  %141 = icmp ult i32 %121, 1073741824
+  %141 = icmp samesign ult i32 %121, 1073741824
   br i1 %141, label %146, label %157
 
 142:                                              ; preds = %"_ZN9hashbrown3map28HashMap$LT$K$C$V$C$S$C$A$GT$12contains_key17h1df6e73d203599c8E.exit.i", %.thread.i

@@ -608,7 +608,7 @@ define internal fastcc noundef ptr @_ZL24cvStartFindContours_ImplPvP12CvMemStora
   store i32 %112, ptr %113, align 4
   %116 = getelementptr inbounds i8, ptr %73, i64 32
   call void @cvSaveMemStoragePos(ptr noundef nonnull %1, ptr noundef nonnull %116)
-  %117 = icmp ugt i32 %4, 2
+  %117 = icmp samesign ugt i32 %4, 2
   br i1 %117, label %118, label %121
 
 118:                                              ; preds = %110

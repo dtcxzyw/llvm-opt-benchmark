@@ -34697,7 +34697,7 @@ _ZN4core3str7pattern13simd_contains17he1b4c355bd816daaE.exit: ; preds = %39, %18
   %166 = and i8 %164, 63
   %167 = zext nneg i8 %166 to i32
   %168 = or disjoint i32 %165, %167
-  %169 = icmp ugt i8 %158, -33
+  %169 = icmp samesign ugt i8 %158, -33
   br i1 %169, label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h56b22c765953e12eE.exit15.i.i.i", label %_ZN4core3str11validations15next_code_point17h34adc5e17767eaceE.exit.thread.i.i
 
 170:                                              ; preds = %157
@@ -34715,7 +34715,7 @@ _ZN4core3str7pattern13simd_contains17he1b4c355bd816daaE.exit: ; preds = %39, %18
   %178 = or disjoint i32 %175, %177
   %179 = shl nuw nsw i32 %162, 12
   %180 = or disjoint i32 %178, %179
-  %181 = icmp ugt i8 %158, -17
+  %181 = icmp samesign ugt i8 %158, -17
   br i1 %181, label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h56b22c765953e12eE.exit17.i.i.i", label %_ZN4core3str11validations15next_code_point17h34adc5e17767eaceE.exit.thread.i.i
 
 "_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h56b22c765953e12eE.exit17.i.i.i": ; preds = %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h56b22c765953e12eE.exit15.i.i.i"
@@ -88233,7 +88233,7 @@ select.unfold.us:                                 ; preds = %.split.split.split.
   %28 = trunc i64 %27 to i32
   %29 = sub i32 0, %28
   %30 = icmp ult i32 %29, %15
-  %31 = icmp ult i32 %29, 10
+  %31 = icmp samesign ult i32 %29, 10
   %32 = or disjoint i32 %29, 48
   %33 = sub i32 87, %28
   %.0.i.ph.us = select i1 %31, i32 %32, i32 %33
@@ -88253,7 +88253,7 @@ select.unfold.us:                                 ; preds = %.split.split.split.
 
 40:                                               ; preds = %.split57.us
   %41 = add nsw i64 %.02746.us53, -4
-  %42 = icmp ult i64 %25, 3
+  %42 = icmp samesign ult i64 %25, 3
   br i1 %42, label %43, label %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$15copy_from_slice17h205f938a744d1e18E.exit"
 
 43:                                               ; preds = %40

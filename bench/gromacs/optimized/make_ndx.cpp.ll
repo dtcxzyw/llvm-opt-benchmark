@@ -3379,7 +3379,7 @@ _ZSt13move_backwardIP10IndexGroupS1_ET0_T_S3_S2_.exit: ; preds = %_ZN10IndexGrou
   %62 = getelementptr inbounds i8, ptr %.0910.i.i.i.i.i, i64 56
   %63 = getelementptr inbounds i8, ptr %.0811.i.i.i.i.i, i64 56
   %64 = add nsw i64 %.012.i.i.i.i.i, -1
-  %65 = icmp ugt i64 %.012.i.i.i.i.i, 1
+  %65 = icmp samesign ugt i64 %.012.i.i.i.i.i, 1
   br i1 %65, label %.lr.ph.i.i.i.i.i53, label %_ZSt4copyIN9__gnu_cxx17__normal_iteratorIPK10IndexGroupSt6vectorIS2_SaIS2_EEEENS1_IPS2_S7_EEET0_T_SC_SB_.exit, !llvm.loop !35
 
 _ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPK10IndexGroupSt6vectorIS2_SaIS2_EEEEmEvRT_T0_.exit: ; preds = %17
@@ -3440,7 +3440,7 @@ _ZSt22__uninitialized_move_aIP10IndexGroupS1_SaIS0_EET0_T_S4_S3_RT1_.exit60: ; p
   %90 = getelementptr inbounds i8, ptr %.0910.i.i.i.i.i66, i64 56
   %91 = getelementptr inbounds i8, ptr %.0811.i.i.i.i.i65, i64 56
   %92 = add nsw i64 %.012.i.i.i.i.i64, -1
-  %93 = icmp ugt i64 %.012.i.i.i.i.i64, 1
+  %93 = icmp samesign ugt i64 %.012.i.i.i.i.i64, 1
   br i1 %93, label %.lr.ph.i.i.i.i.i63, label %_ZSt4copyIN9__gnu_cxx17__normal_iteratorIPK10IndexGroupSt6vectorIS2_SaIS2_EEEENS1_IPS2_S7_EEET0_T_SC_SB_.exit, !llvm.loop !35
 
 94:                                               ; preds = %5
@@ -4558,7 +4558,7 @@ _ZL12parse_stringPPcPiN3gmx8ArrayRefIK10IndexGroupEE.exit.thread: ; preds = %_ZL
   br label %_ZL18select_atomnumbersPPcPK7t_atomsiPiS4_S_.exit
 
 117:                                              ; preds = %109
-  %.not39.not46.not.i = icmp ugt i32 %99, %112
+  %.not39.not46.not.i = icmp samesign ugt i32 %99, %112
   %.pre56.i = load i32, ptr %4, align 4
   br i1 %.not39.not46.not.i, label %._crit_edge.i153, label %.lr.ph.i152.preheader
 
@@ -4954,7 +4954,7 @@ _ZL10make_gnameiN3gmx8ArrayRefIPcEES1_.exit:      ; preds = %.lr.ph.i161, %.lr.p
   %288 = load i8, ptr %287, align 1
   store i8 %288, ptr %286, align 1
   %indvars.iv.next262 = add nsw i64 %indvars.iv261, -1
-  %289 = icmp ugt i64 %indvars.iv261, 1
+  %289 = icmp samesign ugt i64 %indvars.iv261, 1
   br i1 %289, label %.lr.ph236, label %._crit_edge237, !llvm.loop !51
 
 ._crit_edge237:                                   ; preds = %.lr.ph236, %._crit_edge233

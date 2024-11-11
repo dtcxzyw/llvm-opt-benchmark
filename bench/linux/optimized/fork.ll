@@ -5471,7 +5471,7 @@ define internal fastcc range(i64 -2147483648, 2147483648) i64 @__se_sys_clone3(i
   br i1 %9, label %85, label %10, !prof !11
 
 10:                                               ; preds = %2
-  %11 = icmp ult i64 %1, 64
+  %11 = icmp samesign ult i64 %1, 64
   br i1 %11, label %85, label %12, !prof !11
 
 12:                                               ; preds = %10
@@ -5479,7 +5479,7 @@ define internal fastcc range(i64 -2147483648, 2147483648) i64 @__se_sys_clone3(i
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(128) %5, i8 0, i64 128, i1 false), !annotation !12
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(88) %3, i8 0, i64 88, i1 false), !annotation !12
   %13 = tail call i64 @llvm.umin.i64(i64 %1, i64 88)
-  %14 = icmp ult i64 %1, 88
+  %14 = icmp samesign ult i64 %1, 88
   %15 = tail call i64 @llvm.umax.i64(i64 %1, i64 88)
   %16 = sub nuw nsw i64 %15, %13
   br i1 %14, label %17, label %19

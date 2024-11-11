@@ -5808,7 +5808,7 @@ define hidden void @_ZN22SystemDictionaryShared36adjust_lambda_proxy_class_dicti
   br label %22
 
 22:                                               ; preds = %21, %.lr.ph.i.i.i.i
-  %23 = icmp ugt i64 %indvars.iv.i.i.i.i, 1
+  %23 = icmp samesign ugt i64 %indvars.iv.i.i.i.i, 1
   br i1 %23, label %.lr.ph.i.i.i.i, label %_ZZNK21ResourceHashtableBaseI29FixedResourceHashtableStorageILj137E19LambdaProxyClassKey28DumpTimeLambdaProxyClassInfoES1_S2_LN6AnyObj15allocation_typeE2EL8MEMFLAGS13EXadL_ZNS1_13DUMPTIME_HASHERKS1_EEXadL_ZNS1_15DUMPTIME_EQUALSES8_S8_EEE7iterateI26AdjustLambdaProxyClassInfoEEvPT_ENKUlRS1_RS2_E_clESE_SF_.exit.i.i, !llvm.loop !31
 
 _ZZNK21ResourceHashtableBaseI29FixedResourceHashtableStorageILj137E19LambdaProxyClassKey28DumpTimeLambdaProxyClassInfoES1_S2_LN6AnyObj15allocation_typeE2EL8MEMFLAGS13EXadL_ZNS1_13DUMPTIME_HASHERKS1_EEXadL_ZNS1_15DUMPTIME_EQUALSES8_S8_EEE7iterateI26AdjustLambdaProxyClassInfoEEvPT_ENKUlRS1_RS2_E_clESE_SF_.exit.i.i: ; preds = %22, %.lr.ph.i.i
@@ -7178,7 +7178,7 @@ define linkonce_odr hidden noundef i32 @_ZNK19LambdaProxyClassKey13dumptime_hash
   %14 = zext i8 %13 to i32
   %15 = add i32 %12, %14
   %16 = getelementptr inbounds i8, ptr %.056.i.i, i64 1
-  %17 = icmp ugt i32 %.047.i.i, 1
+  %17 = icmp samesign ugt i32 %.047.i.i, 1
   br i1 %17, label %.lr.ph.i.i, label %_ZN19LambdaProxyClassKey13dumptime_hashEP6Symbol.exit, !llvm.loop !45
 
 _ZN19LambdaProxyClassKey13dumptime_hashEP6Symbol.exit: ; preds = %.lr.ph.i.i, %1, %6
@@ -7209,7 +7209,7 @@ _ZN19LambdaProxyClassKey13dumptime_hashEP6Symbol.exit: ; preds = %.lr.ph.i.i, %1
   %29 = zext i8 %28 to i32
   %30 = add i32 %27, %29
   %31 = getelementptr inbounds i8, ptr %.056.i.i6, i64 1
-  %32 = icmp ugt i32 %.047.i.i5, 1
+  %32 = icmp samesign ugt i32 %.047.i.i5, 1
   br i1 %32, label %.lr.ph.i.i3, label %_ZN19LambdaProxyClassKey13dumptime_hashEP6Symbol.exit8, !llvm.loop !45
 
 _ZN19LambdaProxyClassKey13dumptime_hashEP6Symbol.exit8: ; preds = %.lr.ph.i.i3, %_ZN19LambdaProxyClassKey13dumptime_hashEP6Symbol.exit, %21
@@ -7240,7 +7240,7 @@ _ZN19LambdaProxyClassKey13dumptime_hashEP6Symbol.exit8: ; preds = %.lr.ph.i.i3, 
   %44 = zext i8 %43 to i32
   %45 = add i32 %42, %44
   %46 = getelementptr inbounds i8, ptr %.056.i.i14, i64 1
-  %47 = icmp ugt i32 %.047.i.i13, 1
+  %47 = icmp samesign ugt i32 %.047.i.i13, 1
   br i1 %47, label %.lr.ph.i.i11, label %_ZN19LambdaProxyClassKey13dumptime_hashEP6Symbol.exit16, !llvm.loop !45
 
 _ZN19LambdaProxyClassKey13dumptime_hashEP6Symbol.exit16: ; preds = %.lr.ph.i.i11, %_ZN19LambdaProxyClassKey13dumptime_hashEP6Symbol.exit8, %36
@@ -7271,7 +7271,7 @@ _ZN19LambdaProxyClassKey13dumptime_hashEP6Symbol.exit16: ; preds = %.lr.ph.i.i11
   %59 = zext i8 %58 to i32
   %60 = add i32 %57, %59
   %61 = getelementptr inbounds i8, ptr %.056.i.i22, i64 1
-  %62 = icmp ugt i32 %.047.i.i21, 1
+  %62 = icmp samesign ugt i32 %.047.i.i21, 1
   br i1 %62, label %.lr.ph.i.i19, label %_ZN19LambdaProxyClassKey13dumptime_hashEP6Symbol.exit24, !llvm.loop !45
 
 _ZN19LambdaProxyClassKey13dumptime_hashEP6Symbol.exit24: ; preds = %.lr.ph.i.i19, %_ZN19LambdaProxyClassKey13dumptime_hashEP6Symbol.exit16, %51
@@ -7302,7 +7302,7 @@ _ZN19LambdaProxyClassKey13dumptime_hashEP6Symbol.exit24: ; preds = %.lr.ph.i.i19
   %74 = zext i8 %73 to i32
   %75 = add i32 %72, %74
   %76 = getelementptr inbounds i8, ptr %.056.i.i30, i64 1
-  %77 = icmp ugt i32 %.047.i.i29, 1
+  %77 = icmp samesign ugt i32 %.047.i.i29, 1
   br i1 %77, label %.lr.ph.i.i27, label %_ZN19LambdaProxyClassKey13dumptime_hashEP6Symbol.exit32, !llvm.loop !45
 
 _ZN19LambdaProxyClassKey13dumptime_hashEP6Symbol.exit32: ; preds = %.lr.ph.i.i27, %_ZN19LambdaProxyClassKey13dumptime_hashEP6Symbol.exit24, %66

@@ -7425,7 +7425,7 @@ _ZNSt12_Vector_baseIN7jsonnet8internal13FodderElementESaIS2_EE13_M_deallocateEPS
   %45 = getelementptr inbounds i8, ptr %.0910.i.i.i.i.i, i64 40
   %46 = getelementptr inbounds i8, ptr %.0811.i.i.i.i.i, i64 40
   %47 = add nsw i64 %.012.i.i.i.i.i, -1
-  %48 = icmp ugt i64 %.012.i.i.i.i.i, 1
+  %48 = icmp samesign ugt i64 %.012.i.i.i.i.i, 1
   br i1 %48, label %.lr.ph.i.i.i.i.i, label %_ZSt4copyIN9__gnu_cxx17__normal_iteratorIPKN7jsonnet8internal13FodderElementESt6vectorIS4_SaIS4_EEEENS1_IPS4_S9_EEET0_T_SE_SD_.exit.loopexit, !llvm.loop !47
 
 _ZSt4copyIN9__gnu_cxx17__normal_iteratorIPKN7jsonnet8internal13FodderElementESt6vectorIS4_SaIS4_EEEENS1_IPS4_S9_EEET0_T_SE_SD_.exit.loopexit: ; preds = %.lr.ph.i.i.i.i.i
@@ -7498,7 +7498,7 @@ _ZSt8_DestroyIN7jsonnet8internal13FodderElementEEvPT_.exit.i.i.i35: ; preds = %5
   %66 = getelementptr inbounds i8, ptr %.0910.i.i.i.i.i42, i64 40
   %67 = getelementptr inbounds i8, ptr %.0811.i.i.i.i.i41, i64 40
   %68 = add nsw i64 %.012.i.i.i.i.i40, -1
-  %69 = icmp ugt i64 %.012.i.i.i.i.i40, 1
+  %69 = icmp samesign ugt i64 %.012.i.i.i.i.i40, 1
   br i1 %69, label %.lr.ph.i.i.i.i.i39, label %_ZSt4copyIPN7jsonnet8internal13FodderElementES3_ET0_T_S5_S4_.exit.loopexit, !llvm.loop !49
 
 _ZSt4copyIPN7jsonnet8internal13FodderElementES3_ET0_T_S5_S4_.exit.loopexit: ; preds = %.lr.ph.i.i.i.i.i39
@@ -10461,7 +10461,7 @@ _ZSt22__uninitialized_move_aIPN7jsonnet8internal11SortImports10ImportElemES4_SaI
   %32 = getelementptr inbounds i8, ptr %.069.i.i.i.i.i, i64 -232
   %33 = tail call noundef nonnull align 8 dereferenceable(232) ptr @_ZN7jsonnet8internal11SortImports10ImportElemaSEOS2_(ptr noundef nonnull align 8 dereferenceable(232) %32, ptr noundef nonnull align 8 dereferenceable(232) %31) #25
   %34 = add nsw i64 %.010.i.i.i.i.i, -1
-  %35 = icmp ugt i64 %.010.i.i.i.i.i, 1
+  %35 = icmp samesign ugt i64 %.010.i.i.i.i.i, 1
   br i1 %35, label %.lr.ph.i.i.i.i.i51, label %_ZSt13move_backwardIPN7jsonnet8internal11SortImports10ImportElemES4_ET0_T_S6_S5_.exit, !llvm.loop !108
 
 _ZSt13move_backwardIPN7jsonnet8internal11SortImports10ImportElemES4_ET0_T_S6_S5_.exit: ; preds = %.lr.ph.i.i.i.i.i51, %_ZSt22__uninitialized_move_aIPN7jsonnet8internal11SortImports10ImportElemES4_SaIS3_EET0_T_S7_S6_RT1_.exit
@@ -10480,7 +10480,7 @@ _ZSt13move_backwardIPN7jsonnet8internal11SortImports10ImportElemES4_ET0_T_S6_S5_
   %39 = getelementptr inbounds i8, ptr %.0910.i.i.i.i.i, i64 232
   %40 = getelementptr inbounds i8, ptr %.0811.i.i.i.i.i, i64 232
   %41 = add nsw i64 %.012.i.i.i.i.i, -1
-  %42 = icmp ugt i64 %.012.i.i.i.i.i, 1
+  %42 = icmp samesign ugt i64 %.012.i.i.i.i.i, 1
   br i1 %42, label %.lr.ph.i.i.i.i.i53, label %_ZSt4copyIN9__gnu_cxx17__normal_iteratorIPN7jsonnet8internal11SortImports10ImportElemESt6vectorIS5_SaIS5_EEEESA_ET0_T_SC_SB_.exit, !llvm.loop !109
 
 _ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPN7jsonnet8internal11SortImports10ImportElemESt6vectorIS5_SaIS5_EEEEmEvRT_T0_.exit: ; preds = %17
@@ -10576,7 +10576,7 @@ _ZSt22__uninitialized_move_aIPN7jsonnet8internal11SortImports10ImportElemES4_SaI
   %66 = getelementptr inbounds i8, ptr %.0910.i.i.i.i.i66, i64 232
   %67 = getelementptr inbounds i8, ptr %.0811.i.i.i.i.i65, i64 232
   %68 = add nsw i64 %.012.i.i.i.i.i64, -1
-  %69 = icmp ugt i64 %.012.i.i.i.i.i64, 1
+  %69 = icmp samesign ugt i64 %.012.i.i.i.i.i64, 1
   br i1 %69, label %.lr.ph.i.i.i.i.i63, label %_ZSt4copyIN9__gnu_cxx17__normal_iteratorIPN7jsonnet8internal11SortImports10ImportElemESt6vectorIS5_SaIS5_EEEESA_ET0_T_SC_SB_.exit, !llvm.loop !109
 
 70:                                               ; preds = %5
@@ -11283,7 +11283,7 @@ _ZNKSt7__cxx1112basic_stringIDiSt11char_traitsIDiESaIDiEE8capacityEv.exit.i.i.i:
 
 _ZNSt7__cxx1112basic_stringIDiSt11char_traitsIDiESaIDiEE9_M_createERmm.exit.i.i.i: ; preds = %16
   %19 = shl nuw nsw i64 %14, 1
-  %20 = icmp ult i64 %5, %19
+  %20 = icmp samesign ult i64 %5, %19
   %spec.store.select.i.i.i.i = tail call i64 @llvm.umin.i64(i64 %19, i64 1152921504606846975)
   %.0.i.i.i = select i1 %20, i64 %spec.store.select.i.i.i.i, i64 %5
   %21 = shl nuw nsw i64 %.0.i.i.i, 2
@@ -11472,7 +11472,7 @@ _ZNSt12_Vector_baseIN7jsonnet8internal8ArgParamESaIS2_EE13_M_deallocateEPS2_m.ex
   %48 = getelementptr inbounds i8, ptr %.0910.i.i.i.i.i, i64 88
   %49 = getelementptr inbounds i8, ptr %.0811.i.i.i.i.i, i64 88
   %50 = add nsw i64 %.012.i.i.i.i.i, -1
-  %51 = icmp ugt i64 %.012.i.i.i.i.i, 1
+  %51 = icmp samesign ugt i64 %.012.i.i.i.i.i, 1
   br i1 %51, label %.lr.ph.i.i.i.i.i, label %_ZSt4copyIN9__gnu_cxx17__normal_iteratorIPKN7jsonnet8internal8ArgParamESt6vectorIS4_SaIS4_EEEENS1_IPS4_S9_EEET0_T_SE_SD_.exit.loopexit, !llvm.loop !111
 
 _ZSt4copyIN9__gnu_cxx17__normal_iteratorIPKN7jsonnet8internal8ArgParamESt6vectorIS4_SaIS4_EEEENS1_IPS4_S9_EEET0_T_SE_SD_.exit.loopexit: ; preds = %.lr.ph.i.i.i.i.i
@@ -11529,7 +11529,7 @@ _ZSt4copyIN9__gnu_cxx17__normal_iteratorIPKN7jsonnet8internal8ArgParamESt6vector
   %72 = getelementptr inbounds i8, ptr %.0910.i.i.i.i.i33, i64 88
   %73 = getelementptr inbounds i8, ptr %.0811.i.i.i.i.i32, i64 88
   %74 = add nsw i64 %.012.i.i.i.i.i31, -1
-  %75 = icmp ugt i64 %.012.i.i.i.i.i31, 1
+  %75 = icmp samesign ugt i64 %.012.i.i.i.i.i31, 1
   br i1 %75, label %.lr.ph.i.i.i.i.i30, label %_ZSt4copyIPN7jsonnet8internal8ArgParamES3_ET0_T_S5_S4_.exit.loopexit, !llvm.loop !113
 
 _ZSt4copyIPN7jsonnet8internal8ArgParamES3_ET0_T_S5_S4_.exit.loopexit: ; preds = %.lr.ph.i.i.i.i.i30
@@ -14167,7 +14167,7 @@ _ZN7jsonnet8internal11SortImports10ImportElemaSEOS2_.exit: ; preds = %_ZSt8_Dest
   %172 = getelementptr inbounds i8, ptr %.078.i.i.i.i.i, i64 -176
   %173 = call noundef nonnull align 8 dereferenceable(176) ptr @_ZN7jsonnet8internal5Local4BindaSEOS2_(ptr noundef nonnull align 8 dereferenceable(176) %171, ptr noundef nonnull align 8 dereferenceable(176) %172) #25
   %174 = add nsw i64 %.010.i.i.i.i.i, -1
-  %175 = icmp ugt i64 %.010.i.i.i.i.i, 1
+  %175 = icmp samesign ugt i64 %.010.i.i.i.i.i, 1
   br i1 %175, label %.lr.ph.i.i.i.i.i7, label %.loopexit, !llvm.loop !108
 
 .loopexit:                                        ; preds = %_ZN7jsonnet8internal11SortImports10ImportElemaSEOS2_.exit, %_ZN7jsonnet8internal11SortImports10ImportElemC2EOS2_.exit
@@ -14694,7 +14694,7 @@ _ZNSt12_Vector_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE
   %35 = getelementptr inbounds i8, ptr %.0910.i.i.i.i.i, i64 32
   %36 = getelementptr inbounds i8, ptr %.0811.i.i.i.i.i, i64 32
   %37 = add nsw i64 %.012.i.i.i.i.i, -1
-  %38 = icmp ugt i64 %.012.i.i.i.i.i, 1
+  %38 = icmp samesign ugt i64 %.012.i.i.i.i.i, 1
   br i1 %38, label %.lr.ph.i.i.i.i.i, label %_ZSt4copyIN9__gnu_cxx17__normal_iteratorIPKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt6vectorIS7_SaIS7_EEEENS1_IPS7_SC_EEET0_T_SH_SG_.exit.loopexit, !llvm.loop !127
 
 _ZSt4copyIN9__gnu_cxx17__normal_iteratorIPKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt6vectorIS7_SaIS7_EEEENS1_IPS7_SC_EEET0_T_SH_SG_.exit.loopexit: ; preds = %.lr.ph.i.i.i.i.i
@@ -14734,7 +14734,7 @@ _ZSt4copyIN9__gnu_cxx17__normal_iteratorIPKNSt7__cxx1112basic_stringIcSt11char_t
   %47 = getelementptr inbounds i8, ptr %.0910.i.i.i.i.i32, i64 32
   %48 = getelementptr inbounds i8, ptr %.0811.i.i.i.i.i31, i64 32
   %49 = add nsw i64 %.012.i.i.i.i.i30, -1
-  %50 = icmp ugt i64 %.012.i.i.i.i.i30, 1
+  %50 = icmp samesign ugt i64 %.012.i.i.i.i.i30, 1
   br i1 %50, label %.lr.ph.i.i.i.i.i29, label %_ZSt4copyIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES6_ET0_T_S8_S7_.exit.loopexit, !llvm.loop !129
 
 _ZSt4copyIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES6_ET0_T_S8_S7_.exit.loopexit: ; preds = %.lr.ph.i.i.i.i.i29

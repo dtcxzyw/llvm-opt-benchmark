@@ -1567,7 +1567,7 @@ define weak_odr noundef zeroext i1 @_ZNK7GaelMls5RIMLSI6CMeshOE27computePotentia
 31:                                               ; preds = %20
   %32 = add nuw nsw i64 %10, 5
   %33 = and i64 %32, 4294967295
-  %34 = icmp ugt i64 %33, %28
+  %34 = icmp samesign ugt i64 %33, %28
   br i1 %34, label %35, label %37
 
 35:                                               ; preds = %31
@@ -1576,7 +1576,7 @@ define weak_odr noundef zeroext i1 @_ZNK7GaelMls5RIMLSI6CMeshOE27computePotentia
   br label %_ZNSt6vectorIfSaIfEE6resizeEm.exit
 
 37:                                               ; preds = %31
-  %38 = icmp ult i64 %33, %28
+  %38 = icmp samesign ult i64 %33, %28
   br i1 %38, label %39, label %_ZNSt6vectorIfSaIfEE6resizeEm.exit
 
 39:                                               ; preds = %37

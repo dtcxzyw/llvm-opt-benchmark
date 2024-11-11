@@ -599,7 +599,7 @@ define hidden void @_ZN4core5slice4sort10merge_sort17h79343fe3696549afE(ptr noal
   br label %42
 
 25:                                               ; preds = %3
-  %26 = icmp ugt i64 %1, 1
+  %26 = icmp samesign ugt i64 %1, 1
   br i1 %26, label %.preheader.i77, label %_ZN4core5slice4sort25insertion_sort_shift_left17h1ae935e5a73ef618E.exit
 
 27:                                               ; preds = %.body, %28

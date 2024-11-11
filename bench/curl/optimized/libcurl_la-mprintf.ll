@@ -3528,7 +3528,7 @@ if.then80:                                        ; preds = %while.cond.preheade
   %incdec.ptr.i12 = getelementptr inbounds i8, ptr %18, i64 1
   store ptr %incdec.ptr.i12, ptr %userp, align 8
   %dec74 = add nsw i32 %dec7477, -1
-  %cmp75 = icmp ugt i32 %dec7477, 1
+  %cmp75 = icmp samesign ugt i32 %dec7477, 1
   br i1 %cmp75, label %if.then80, label %if.then90.loopexit, !llvm.loop !6
 
 if.then90.loopexit:                               ; preds = %if.then80
@@ -3565,7 +3565,7 @@ if.then106:                                       ; preds = %if.then90, %if.then
   %23 = load ptr, ptr %userp, align 8
   %incdec.ptr.i14 = getelementptr inbounds i8, ptr %23, i64 1
   store ptr %incdec.ptr.i14, ptr %userp, align 8
-  %cmp100 = icmp ugt i32 %width.482, 2
+  %cmp100 = icmp samesign ugt i32 %width.482, 2
   br i1 %cmp100, label %if.then106, label %for.inc695.loopexit127, !llvm.loop !7
 
 if.end113:                                        ; preds = %sw.bb66
@@ -3861,7 +3861,7 @@ if.then357:                                       ; preds = %if.then357.preheade
   %61 = load ptr, ptr %userp, align 8
   %incdec.ptr.i24 = getelementptr inbounds i8, ptr %61, i64 1
   store ptr %incdec.ptr.i24, ptr %userp, align 8
-  %cmp351 = icmp ugt i32 %width.13114, 1
+  %cmp351 = icmp samesign ugt i32 %width.13114, 1
   br i1 %cmp351, label %if.then357, label %for.inc695.loopexit, !llvm.loop !13
 
 sw.bb364:                                         ; preds = %if.end58
@@ -4001,7 +4001,7 @@ if.then458:                                       ; preds = %if.then458.preheade
   %76 = load ptr, ptr %userp, align 8
   %incdec.ptr.i28 = getelementptr inbounds i8, ptr %76, i64 1
   store ptr %incdec.ptr.i28, ptr %userp, align 8
-  %cmp452 = icmp ugt i32 %width.1672, 1
+  %cmp452 = icmp samesign ugt i32 %width.1672, 1
   br i1 %cmp452, label %if.then458, label %if.end464.loopexit, !llvm.loop !16
 
 if.end464.loopexit:                               ; preds = %if.then458
@@ -4099,7 +4099,7 @@ if.then532:                                       ; preds = %for.end520, %if.the
   %91 = load ptr, ptr %userp, align 8
   %incdec.ptr.i32 = getelementptr inbounds i8, ptr %91, i64 1
   store ptr %incdec.ptr.i32, ptr %userp, align 8
-  %cmp526 = icmp ugt i32 %width.1956, 1
+  %cmp526 = icmp samesign ugt i32 %width.1956, 1
   br i1 %cmp526, label %if.then532, label %for.inc695.loopexit128, !llvm.loop !19
 
 sw.bb540:                                         ; preds = %if.end58

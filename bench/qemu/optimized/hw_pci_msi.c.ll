@@ -530,7 +530,7 @@ if.else:                                          ; preds = %entry
   unreachable
 
 if.end:                                           ; preds = %entry
-  %cmp.i = icmp ult i32 %vector, 32
+  %cmp.i = icmp samesign ult i32 %vector, 32
   br i1 %cmp.i, label %if.end.i, label %if.else.i
 
 if.else.i:                                        ; preds = %if.end
@@ -635,7 +635,7 @@ lor.lhs.false:                                    ; preds = %entry
   %sub.i.i = add nsw i64 %add.i.i, %conv9
   %add.i3.i = add nsw i64 %conv10, -1
   %sub.i4.i = add nsw i64 %add.i3.i, %switch.load
-  %cmp.i = icmp ult i64 %sub.i4.i, %conv8
+  %cmp.i = icmp samesign ult i64 %sub.i4.i, %conv8
   %cmp2.i = icmp ult i64 %sub.i.i, %conv10
   %.not.i.not = select i1 %cmp.i, i1 true, i1 %cmp2.i
   br i1 %.not.i.not, label %for.end96, label %if.end

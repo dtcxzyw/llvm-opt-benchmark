@@ -1695,7 +1695,7 @@ if.else35:                                        ; preds = %if.else31
   br i1 %cmp37, label %land.lhs.true38, label %if.else56
 
 land.lhs.true38:                                  ; preds = %if.else35
-  %cmp45 = icmp ugt i16 %.fr, 8203
+  %cmp45 = icmp samesign ugt i16 %.fr, 8203
   br i1 %cmp45, label %if.then46, label %switch.early.test
 
 switch.early.test:                                ; preds = %land.lhs.true38
@@ -1863,7 +1863,7 @@ if.else27:                                        ; preds = %if.else
   br i1 %cmp29, label %land.lhs.true30, label %for.inc
 
 land.lhs.true30:                                  ; preds = %if.else27
-  %cmp32 = icmp ugt i16 %0, 27
+  %cmp32 = icmp samesign ugt i16 %0, 27
   %9 = add nsw i16 %0, -9
   %or.cond3 = icmp ult i16 %9, 5
   %or.cond23 = select i1 %cmp32, i1 true, i1 %or.cond3
@@ -2019,7 +2019,7 @@ if.then16:                                        ; preds = %land.lhs.true12
   br i1 %cmp17, label %if.then23, label %lor.lhs.false
 
 lor.lhs.false:                                    ; preds = %if.then16
-  %cmp18 = icmp ugt i32 %labelLength, 5
+  %cmp18 = icmp samesign ugt i32 %labelLength, 5
   br i1 %cmp18, label %land.lhs.true19, label %if.end26
 
 land.lhs.true19:                                  ; preds = %lor.lhs.false
@@ -3623,11 +3623,11 @@ do.end85:                                         ; preds = %if.then58, %if.then
   br i1 %12, label %for.inc, label %for.inc.sink.split
 
 if.else93:                                        ; preds = %if.else52
-  %cmp94 = icmp ugt i16 %2, 1631
+  %cmp94 = icmp samesign ugt i16 %2, 1631
   br i1 %cmp94, label %if.then95, label %for.inc
 
 if.then95:                                        ; preds = %if.else93
-  %cmp96 = icmp ult i16 %2, 1642
+  %cmp96 = icmp samesign ult i16 %2, 1642
   br i1 %cmp96, label %if.then97, label %if.else103
 
 if.then97:                                        ; preds = %if.then95
@@ -3635,7 +3635,7 @@ if.then97:                                        ; preds = %if.then95
   br i1 %cmp98, label %for.inc.sink.split, label %for.inc
 
 if.else103:                                       ; preds = %if.then95
-  %cmp104 = icmp ugt i16 %2, 1775
+  %cmp104 = icmp samesign ugt i16 %2, 1775
   br i1 %cmp104, label %if.then105, label %for.inc
 
 if.then105:                                       ; preds = %if.else103

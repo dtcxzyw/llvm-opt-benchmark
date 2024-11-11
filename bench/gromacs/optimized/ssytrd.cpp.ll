@@ -88,7 +88,7 @@ define void @ssytrd_(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noun
   br i1 %48, label %49, label %59
 
 49:                                               ; preds = %47
-  %50 = icmp ugt i32 %44, 128
+  %50 = icmp samesign ugt i32 %44, 128
   br i1 %50, label %51, label %60
 
 51:                                               ; preds = %49

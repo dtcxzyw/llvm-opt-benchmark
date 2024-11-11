@@ -12479,7 +12479,7 @@ define noundef zeroext i1 @"_ZN80_$LT$regex_automata..util..alphabet..ByteClasse
   br i1 %67, label %68, label %73
 
 68:                                               ; preds = %66
-  %69 = icmp ugt i64 %.sroa.5.0, 255
+  %69 = icmp samesign ugt i64 %.sroa.5.0, 255
   call void @llvm.lifetime.start.p0(i64 0, ptr nonnull %3), !noalias !3342
   br i1 %69, label %70, label %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17h839709a51b834882E.llvm.8347807780687254574.exit.i.i"
 
@@ -12692,7 +12692,7 @@ define range(i32 0, 33554432) i32 @"_ZN104_$LT$regex_automata..util..alphabet..B
   br label %19
 
 16:                                               ; preds = %12
-  %17 = icmp ugt i64 %4, 255
+  %17 = icmp samesign ugt i64 %4, 255
   call void @llvm.lifetime.start.p0(i64 0, ptr nonnull %2)
   br i1 %17, label %18, label %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17h839709a51b834882E.llvm.8347807780687254574.exit"
 

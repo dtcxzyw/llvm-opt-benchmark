@@ -77,7 +77,7 @@ for.body.i:                                       ; preds = %if.end, %for.body.i
   %sub.i81 = add nsw i32 %out_len.addr.055.i, -2
   %sub4.i = add nsw i32 %in_bitsize.addr.053.i, -104
   %add.ptr5.i = getelementptr inbounds i8, ptr %out.addr.056.i, i64 16
-  %cmp.i = icmp ugt i32 %in_bitsize.addr.053.i, 207
+  %cmp.i = icmp samesign ugt i32 %in_bitsize.addr.053.i, 207
   br i1 %cmp.i, label %for.body.i, label %for.end.i, !llvm.loop !4
 
 for.end.i:                                        ; preds = %for.body.i
@@ -87,7 +87,7 @@ for.end.i:                                        ; preds = %for.body.i
   %add.ptr26 = getelementptr inbounds i64, ptr %add.ptr, i64 %idx.ext25
   %add.ptr29 = getelementptr inbounds i64, ptr %add.ptr, i64 %idx.ext28
   %add.ptr32 = getelementptr inbounds i64, ptr %add.ptr, i64 %idx.ext31
-  %cmp6.i = icmp ugt i32 %sub4.i, 52
+  %cmp6.i = icmp samesign ugt i32 %sub4.i, 52
   br i1 %cmp6.i, label %if.then.i, label %if.else.i
 
 if.then.i:                                        ; preds = %for.end.i
@@ -103,7 +103,7 @@ for.body.i.i:                                     ; preds = %for.body.i.i, %if.t
   %conv.i.i = zext i8 %1 to i64
   %add.i.i = or disjoint i64 %shl.i.i, %conv.i.i
   %indvars.iv.next.i.i = add nsw i64 %indvars.iv.i.i, -1
-  %cmp.i.i = icmp ugt i64 %indvars.iv.i.i, 1
+  %cmp.i.i = icmp samesign ugt i64 %indvars.iv.i.i, 1
   br i1 %cmp.i.i, label %for.body.i.i, label %get_digit.exit.i, !llvm.loop !6
 
 get_digit.exit.i:                                 ; preds = %for.body.i.i
@@ -124,7 +124,7 @@ for.body.i31.i:                                   ; preds = %for.body.i31.i, %ge
   %conv.i36.i = zext i8 %3 to i64
   %add.i37.i = or disjoint i64 %shl.i34.i, %conv.i36.i
   %indvars.iv.next.i38.i = add nsw i64 %indvars.iv.i32.i, -1
-  %cmp.i39.i = icmp ugt i64 %indvars.iv.i32.i, 1
+  %cmp.i39.i = icmp samesign ugt i64 %indvars.iv.i32.i, 1
   br i1 %cmp.i39.i, label %for.body.i31.i, label %get_digit.exit40.i, !llvm.loop !6
 
 get_digit.exit40.i:                               ; preds = %for.body.i31.i
@@ -155,7 +155,7 @@ for.body.i42.i:                                   ; preds = %for.body.i42.i, %if
   %conv.i47.i = zext i8 %5 to i64
   %add.i48.i = or disjoint i64 %shl.i45.i, %conv.i47.i
   %indvars.iv.next.i49.i = add nsw i64 %indvars.iv.i43.i, -1
-  %cmp.i50.i = icmp ugt i64 %indvars.iv.i43.i, 1
+  %cmp.i50.i = icmp samesign ugt i64 %indvars.iv.i43.i, 1
   br i1 %cmp.i50.i, label %for.body.i42.i, label %get_digit.exit51.i, !llvm.loop !6
 
 get_digit.exit51.i:                               ; preds = %for.body.i42.i
@@ -197,11 +197,11 @@ for.body.i142:                                    ; preds = %for.body.i142.prehe
   %sub.i155 = add nsw i32 %out_len.addr.055.i144, -2
   %sub4.i156 = add nsw i32 %in_bitsize.addr.053.i146, -104
   %add.ptr5.i157 = getelementptr inbounds i8, ptr %out.addr.056.i143, i64 16
-  %cmp.i158 = icmp ugt i32 %in_bitsize.addr.053.i146, 207
+  %cmp.i158 = icmp samesign ugt i32 %in_bitsize.addr.053.i146, 207
   br i1 %cmp.i158, label %for.body.i142, label %for.end.i83, !llvm.loop !4
 
 for.end.i83:                                      ; preds = %for.body.i142
-  %cmp6.i88 = icmp ugt i32 %in_bitsize.addr.053.i146, 156
+  %cmp6.i88 = icmp samesign ugt i32 %in_bitsize.addr.053.i146, 156
   br i1 %cmp6.i88, label %if.then.i112, label %if.else.i89
 
 if.then.i112:                                     ; preds = %for.end.i83
@@ -217,7 +217,7 @@ for.body.i.i114:                                  ; preds = %for.body.i.i114, %i
   %conv.i.i119 = zext i8 %8 to i64
   %add.i.i120 = or disjoint i64 %shl.i.i117, %conv.i.i119
   %indvars.iv.next.i.i121 = add nsw i64 %indvars.iv.i.i115, -1
-  %cmp.i.i122 = icmp ugt i64 %indvars.iv.i.i115, 1
+  %cmp.i.i122 = icmp samesign ugt i64 %indvars.iv.i.i115, 1
   br i1 %cmp.i.i122, label %for.body.i.i114, label %get_digit.exit.i123, !llvm.loop !6
 
 get_digit.exit.i123:                              ; preds = %for.body.i.i114
@@ -238,7 +238,7 @@ for.body.i31.i128:                                ; preds = %for.body.i31.i128, 
   %conv.i36.i133 = zext i8 %10 to i64
   %add.i37.i134 = or disjoint i64 %shl.i34.i131, %conv.i36.i133
   %indvars.iv.next.i38.i135 = add nsw i64 %indvars.iv.i32.i129, -1
-  %cmp.i39.i136 = icmp ugt i64 %indvars.iv.i32.i129, 1
+  %cmp.i39.i136 = icmp samesign ugt i64 %indvars.iv.i32.i129, 1
   br i1 %cmp.i39.i136, label %for.body.i31.i128, label %get_digit.exit40.i137, !llvm.loop !6
 
 get_digit.exit40.i137:                            ; preds = %for.body.i31.i128
@@ -250,7 +250,7 @@ get_digit.exit40.i137:                            ; preds = %for.body.i31.i128
   br label %if.end24.i91
 
 if.else.i89:                                      ; preds = %for.end.i83
-  %cmp18.i90 = icmp ugt i32 %in_bitsize.addr.053.i146, 104
+  %cmp18.i90 = icmp samesign ugt i32 %in_bitsize.addr.053.i146, 104
   br i1 %cmp18.i90, label %if.then19.i96, label %if.end24.i91
 
 if.then19.i96:                                    ; preds = %if.else.i89
@@ -269,7 +269,7 @@ for.body.i42.i100:                                ; preds = %for.body.i42.i100, 
   %conv.i47.i105 = zext i8 %12 to i64
   %add.i48.i106 = or disjoint i64 %shl.i45.i103, %conv.i47.i105
   %indvars.iv.next.i49.i107 = add nsw i64 %indvars.iv.i43.i101, -1
-  %cmp.i50.i108 = icmp ugt i64 %indvars.iv.i43.i101, 1
+  %cmp.i50.i108 = icmp samesign ugt i64 %indvars.iv.i43.i101, 1
   br i1 %cmp.i50.i108, label %for.body.i42.i100, label %get_digit.exit51.i109, !llvm.loop !6
 
 get_digit.exit51.i109:                            ; preds = %for.body.i42.i100
@@ -311,11 +311,11 @@ for.body.i220:                                    ; preds = %for.body.i220.prehe
   %sub.i233 = add nsw i32 %out_len.addr.055.i222, -2
   %sub4.i234 = add nsw i32 %in_bitsize.addr.053.i224, -104
   %add.ptr5.i235 = getelementptr inbounds i8, ptr %out.addr.056.i221, i64 16
-  %cmp.i236 = icmp ugt i32 %in_bitsize.addr.053.i224, 207
+  %cmp.i236 = icmp samesign ugt i32 %in_bitsize.addr.053.i224, 207
   br i1 %cmp.i236, label %for.body.i220, label %for.end.i161, !llvm.loop !4
 
 for.end.i161:                                     ; preds = %for.body.i220
-  %cmp6.i166 = icmp ugt i32 %in_bitsize.addr.053.i224, 156
+  %cmp6.i166 = icmp samesign ugt i32 %in_bitsize.addr.053.i224, 156
   br i1 %cmp6.i166, label %if.then.i190, label %if.else.i167
 
 if.then.i190:                                     ; preds = %for.end.i161
@@ -331,7 +331,7 @@ for.body.i.i192:                                  ; preds = %for.body.i.i192, %i
   %conv.i.i197 = zext i8 %15 to i64
   %add.i.i198 = or disjoint i64 %shl.i.i195, %conv.i.i197
   %indvars.iv.next.i.i199 = add nsw i64 %indvars.iv.i.i193, -1
-  %cmp.i.i200 = icmp ugt i64 %indvars.iv.i.i193, 1
+  %cmp.i.i200 = icmp samesign ugt i64 %indvars.iv.i.i193, 1
   br i1 %cmp.i.i200, label %for.body.i.i192, label %get_digit.exit.i201, !llvm.loop !6
 
 get_digit.exit.i201:                              ; preds = %for.body.i.i192
@@ -352,7 +352,7 @@ for.body.i31.i206:                                ; preds = %for.body.i31.i206, 
   %conv.i36.i211 = zext i8 %17 to i64
   %add.i37.i212 = or disjoint i64 %shl.i34.i209, %conv.i36.i211
   %indvars.iv.next.i38.i213 = add nsw i64 %indvars.iv.i32.i207, -1
-  %cmp.i39.i214 = icmp ugt i64 %indvars.iv.i32.i207, 1
+  %cmp.i39.i214 = icmp samesign ugt i64 %indvars.iv.i32.i207, 1
   br i1 %cmp.i39.i214, label %for.body.i31.i206, label %get_digit.exit40.i215, !llvm.loop !6
 
 get_digit.exit40.i215:                            ; preds = %for.body.i31.i206
@@ -364,7 +364,7 @@ get_digit.exit40.i215:                            ; preds = %for.body.i31.i206
   br label %if.end24.i169
 
 if.else.i167:                                     ; preds = %for.end.i161
-  %cmp18.i168 = icmp ugt i32 %in_bitsize.addr.053.i224, 104
+  %cmp18.i168 = icmp samesign ugt i32 %in_bitsize.addr.053.i224, 104
   br i1 %cmp18.i168, label %if.then19.i174, label %if.end24.i169
 
 if.then19.i174:                                   ; preds = %if.else.i167
@@ -383,7 +383,7 @@ for.body.i42.i178:                                ; preds = %for.body.i42.i178, 
   %conv.i47.i183 = zext i8 %19 to i64
   %add.i48.i184 = or disjoint i64 %shl.i45.i181, %conv.i47.i183
   %indvars.iv.next.i49.i185 = add nsw i64 %indvars.iv.i43.i179, -1
-  %cmp.i50.i186 = icmp ugt i64 %indvars.iv.i43.i179, 1
+  %cmp.i50.i186 = icmp samesign ugt i64 %indvars.iv.i43.i179, 1
   br i1 %cmp.i50.i186, label %for.body.i42.i178, label %get_digit.exit51.i187, !llvm.loop !6
 
 get_digit.exit51.i187:                            ; preds = %for.body.i42.i178
@@ -425,11 +425,11 @@ for.body.i298:                                    ; preds = %for.body.i298.prehe
   %sub.i311 = add nsw i32 %out_len.addr.055.i300, -2
   %sub4.i312 = add nsw i32 %in_bitsize.addr.053.i302, -104
   %add.ptr5.i313 = getelementptr inbounds i8, ptr %out.addr.056.i299, i64 16
-  %cmp.i314 = icmp ugt i32 %in_bitsize.addr.053.i302, 207
+  %cmp.i314 = icmp samesign ugt i32 %in_bitsize.addr.053.i302, 207
   br i1 %cmp.i314, label %for.body.i298, label %for.end.i239, !llvm.loop !4
 
 for.end.i239:                                     ; preds = %for.body.i298
-  %cmp6.i244 = icmp ugt i32 %in_bitsize.addr.053.i302, 156
+  %cmp6.i244 = icmp samesign ugt i32 %in_bitsize.addr.053.i302, 156
   br i1 %cmp6.i244, label %if.then.i268, label %if.else.i245
 
 if.then.i268:                                     ; preds = %for.end.i239
@@ -445,7 +445,7 @@ for.body.i.i270:                                  ; preds = %for.body.i.i270, %i
   %conv.i.i275 = zext i8 %22 to i64
   %add.i.i276 = or disjoint i64 %shl.i.i273, %conv.i.i275
   %indvars.iv.next.i.i277 = add nsw i64 %indvars.iv.i.i271, -1
-  %cmp.i.i278 = icmp ugt i64 %indvars.iv.i.i271, 1
+  %cmp.i.i278 = icmp samesign ugt i64 %indvars.iv.i.i271, 1
   br i1 %cmp.i.i278, label %for.body.i.i270, label %get_digit.exit.i279, !llvm.loop !6
 
 get_digit.exit.i279:                              ; preds = %for.body.i.i270
@@ -466,7 +466,7 @@ for.body.i31.i284:                                ; preds = %for.body.i31.i284, 
   %conv.i36.i289 = zext i8 %24 to i64
   %add.i37.i290 = or disjoint i64 %shl.i34.i287, %conv.i36.i289
   %indvars.iv.next.i38.i291 = add nsw i64 %indvars.iv.i32.i285, -1
-  %cmp.i39.i292 = icmp ugt i64 %indvars.iv.i32.i285, 1
+  %cmp.i39.i292 = icmp samesign ugt i64 %indvars.iv.i32.i285, 1
   br i1 %cmp.i39.i292, label %for.body.i31.i284, label %get_digit.exit40.i293, !llvm.loop !6
 
 get_digit.exit40.i293:                            ; preds = %for.body.i31.i284
@@ -478,7 +478,7 @@ get_digit.exit40.i293:                            ; preds = %for.body.i31.i284
   br label %if.end24.i247
 
 if.else.i245:                                     ; preds = %for.end.i239
-  %cmp18.i246 = icmp ugt i32 %in_bitsize.addr.053.i302, 104
+  %cmp18.i246 = icmp samesign ugt i32 %in_bitsize.addr.053.i302, 104
   br i1 %cmp18.i246, label %if.then19.i252, label %if.end24.i247
 
 if.then19.i252:                                   ; preds = %if.else.i245
@@ -497,7 +497,7 @@ for.body.i42.i256:                                ; preds = %for.body.i42.i256, 
   %conv.i47.i261 = zext i8 %26 to i64
   %add.i48.i262 = or disjoint i64 %shl.i45.i259, %conv.i47.i261
   %indvars.iv.next.i49.i263 = add nsw i64 %indvars.iv.i43.i257, -1
-  %cmp.i50.i264 = icmp ugt i64 %indvars.iv.i43.i257, 1
+  %cmp.i50.i264 = icmp samesign ugt i64 %indvars.iv.i43.i257, 1
   br i1 %cmp.i50.i264, label %for.body.i42.i256, label %get_digit.exit51.i265, !llvm.loop !6
 
 get_digit.exit51.i265:                            ; preds = %for.body.i42.i256
@@ -539,11 +539,11 @@ for.body.i376:                                    ; preds = %for.body.i376.prehe
   %sub.i389 = add nsw i32 %out_len.addr.055.i378, -2
   %sub4.i390 = add nsw i32 %in_bitsize.addr.053.i380, -104
   %add.ptr5.i391 = getelementptr inbounds i8, ptr %out.addr.056.i377, i64 16
-  %cmp.i392 = icmp ugt i32 %in_bitsize.addr.053.i380, 207
+  %cmp.i392 = icmp samesign ugt i32 %in_bitsize.addr.053.i380, 207
   br i1 %cmp.i392, label %for.body.i376, label %for.end.i317, !llvm.loop !4
 
 for.end.i317:                                     ; preds = %for.body.i376
-  %cmp6.i322 = icmp ugt i32 %in_bitsize.addr.053.i380, 156
+  %cmp6.i322 = icmp samesign ugt i32 %in_bitsize.addr.053.i380, 156
   br i1 %cmp6.i322, label %if.then.i346, label %if.else.i323
 
 if.then.i346:                                     ; preds = %for.end.i317
@@ -559,7 +559,7 @@ for.body.i.i348:                                  ; preds = %for.body.i.i348, %i
   %conv.i.i353 = zext i8 %29 to i64
   %add.i.i354 = or disjoint i64 %shl.i.i351, %conv.i.i353
   %indvars.iv.next.i.i355 = add nsw i64 %indvars.iv.i.i349, -1
-  %cmp.i.i356 = icmp ugt i64 %indvars.iv.i.i349, 1
+  %cmp.i.i356 = icmp samesign ugt i64 %indvars.iv.i.i349, 1
   br i1 %cmp.i.i356, label %for.body.i.i348, label %get_digit.exit.i357, !llvm.loop !6
 
 get_digit.exit.i357:                              ; preds = %for.body.i.i348
@@ -580,7 +580,7 @@ for.body.i31.i362:                                ; preds = %for.body.i31.i362, 
   %conv.i36.i367 = zext i8 %31 to i64
   %add.i37.i368 = or disjoint i64 %shl.i34.i365, %conv.i36.i367
   %indvars.iv.next.i38.i369 = add nsw i64 %indvars.iv.i32.i363, -1
-  %cmp.i39.i370 = icmp ugt i64 %indvars.iv.i32.i363, 1
+  %cmp.i39.i370 = icmp samesign ugt i64 %indvars.iv.i32.i363, 1
   br i1 %cmp.i39.i370, label %for.body.i31.i362, label %get_digit.exit40.i371, !llvm.loop !6
 
 get_digit.exit40.i371:                            ; preds = %for.body.i31.i362
@@ -592,7 +592,7 @@ get_digit.exit40.i371:                            ; preds = %for.body.i31.i362
   br label %if.end24.i325
 
 if.else.i323:                                     ; preds = %for.end.i317
-  %cmp18.i324 = icmp ugt i32 %in_bitsize.addr.053.i380, 104
+  %cmp18.i324 = icmp samesign ugt i32 %in_bitsize.addr.053.i380, 104
   br i1 %cmp18.i324, label %if.then19.i330, label %if.end24.i325
 
 if.then19.i330:                                   ; preds = %if.else.i323
@@ -611,7 +611,7 @@ for.body.i42.i334:                                ; preds = %for.body.i42.i334, 
   %conv.i47.i339 = zext i8 %33 to i64
   %add.i48.i340 = or disjoint i64 %shl.i45.i337, %conv.i47.i339
   %indvars.iv.next.i49.i341 = add nsw i64 %indvars.iv.i43.i335, -1
-  %cmp.i50.i342 = icmp ugt i64 %indvars.iv.i43.i335, 1
+  %cmp.i50.i342 = icmp samesign ugt i64 %indvars.iv.i43.i335, 1
   br i1 %cmp.i50.i342, label %for.body.i42.i334, label %get_digit.exit51.i343, !llvm.loop !6
 
 get_digit.exit51.i343:                            ; preds = %for.body.i42.i334
@@ -653,11 +653,11 @@ for.body.i454:                                    ; preds = %for.body.i454.prehe
   %sub.i467 = add nsw i32 %out_len.addr.055.i456, -2
   %sub4.i468 = add nsw i32 %in_bitsize.addr.053.i458, -104
   %add.ptr5.i469 = getelementptr inbounds i8, ptr %out.addr.056.i455, i64 16
-  %cmp.i470 = icmp ugt i32 %in_bitsize.addr.053.i458, 207
+  %cmp.i470 = icmp samesign ugt i32 %in_bitsize.addr.053.i458, 207
   br i1 %cmp.i470, label %for.body.i454, label %for.end.i395, !llvm.loop !4
 
 for.end.i395:                                     ; preds = %for.body.i454
-  %cmp6.i400 = icmp ugt i32 %in_bitsize.addr.053.i458, 156
+  %cmp6.i400 = icmp samesign ugt i32 %in_bitsize.addr.053.i458, 156
   br i1 %cmp6.i400, label %if.then.i424, label %if.else.i401
 
 if.then.i424:                                     ; preds = %for.end.i395
@@ -673,7 +673,7 @@ for.body.i.i426:                                  ; preds = %for.body.i.i426, %i
   %conv.i.i431 = zext i8 %36 to i64
   %add.i.i432 = or disjoint i64 %shl.i.i429, %conv.i.i431
   %indvars.iv.next.i.i433 = add nsw i64 %indvars.iv.i.i427, -1
-  %cmp.i.i434 = icmp ugt i64 %indvars.iv.i.i427, 1
+  %cmp.i.i434 = icmp samesign ugt i64 %indvars.iv.i.i427, 1
   br i1 %cmp.i.i434, label %for.body.i.i426, label %get_digit.exit.i435, !llvm.loop !6
 
 get_digit.exit.i435:                              ; preds = %for.body.i.i426
@@ -694,7 +694,7 @@ for.body.i31.i440:                                ; preds = %for.body.i31.i440, 
   %conv.i36.i445 = zext i8 %38 to i64
   %add.i37.i446 = or disjoint i64 %shl.i34.i443, %conv.i36.i445
   %indvars.iv.next.i38.i447 = add nsw i64 %indvars.iv.i32.i441, -1
-  %cmp.i39.i448 = icmp ugt i64 %indvars.iv.i32.i441, 1
+  %cmp.i39.i448 = icmp samesign ugt i64 %indvars.iv.i32.i441, 1
   br i1 %cmp.i39.i448, label %for.body.i31.i440, label %get_digit.exit40.i449, !llvm.loop !6
 
 get_digit.exit40.i449:                            ; preds = %for.body.i31.i440
@@ -706,7 +706,7 @@ get_digit.exit40.i449:                            ; preds = %for.body.i31.i440
   br label %if.end24.i403
 
 if.else.i401:                                     ; preds = %for.end.i395
-  %cmp18.i402 = icmp ugt i32 %in_bitsize.addr.053.i458, 104
+  %cmp18.i402 = icmp samesign ugt i32 %in_bitsize.addr.053.i458, 104
   br i1 %cmp18.i402, label %if.then19.i408, label %if.end24.i403
 
 if.then19.i408:                                   ; preds = %if.else.i401
@@ -725,7 +725,7 @@ for.body.i42.i412:                                ; preds = %for.body.i42.i412, 
   %conv.i47.i417 = zext i8 %40 to i64
   %add.i48.i418 = or disjoint i64 %shl.i45.i415, %conv.i47.i417
   %indvars.iv.next.i49.i419 = add nsw i64 %indvars.iv.i43.i413, -1
-  %cmp.i50.i420 = icmp ugt i64 %indvars.iv.i43.i413, 1
+  %cmp.i50.i420 = icmp samesign ugt i64 %indvars.iv.i43.i413, 1
   br i1 %cmp.i50.i420, label %for.body.i42.i412, label %get_digit.exit51.i421, !llvm.loop !6
 
 get_digit.exit51.i421:                            ; preds = %for.body.i42.i412
@@ -932,7 +932,7 @@ if.end168.i:                                      ; preds = %if.then163.i, %if.e
   call void %damm.0.i(ptr noundef nonnull %add.ptr.i475, ptr noundef nonnull %add.ptr.i475, ptr noundef nonnull %add.ptr.i475, ptr noundef nonnull %add.ptr20, ptr noundef nonnull %k0) #5, !callees !8
   call void %damm.0.i(ptr noundef nonnull %add.ptr.i475, ptr noundef nonnull %add.ptr.i475, ptr noundef nonnull %add.ptr.i475, ptr noundef nonnull %add.ptr20, ptr noundef nonnull %k0) #5, !callees !8
   call void %damm.0.i(ptr noundef nonnull %add.ptr.i475, ptr noundef nonnull %add.ptr.i475, ptr noundef nonnull %add.ptr18.i, ptr noundef nonnull %add.ptr20, ptr noundef nonnull %k0) #5, !callees !8
-  %cmp120.i = icmp ugt i32 %exp_bit_no.017.in.i, 9
+  %cmp120.i = icmp samesign ugt i32 %exp_bit_no.017.in.i, 9
   br i1 %cmp120.i, label %for.body122.i, label %if.end44, !llvm.loop !11
 
 if.end44:                                         ; preds = %if.end168.i, %cond.end.i
@@ -973,11 +973,11 @@ for.body3.i:                                      ; preds = %for.body3.i.prehead
   %add.ptr7.i = getelementptr inbounds i8, ptr %out_str.051.i, i64 13
   %sub.i490 = add nsw i32 %out_bitsize.addr.052.i, -104
   %add.ptr9.i = getelementptr inbounds i8, ptr %in.addr.050.i, i64 16
-  %cmp2.i = icmp ugt i32 %out_bitsize.addr.052.i, 207
+  %cmp2.i = icmp samesign ugt i32 %out_bitsize.addr.052.i, 207
   br i1 %cmp2.i, label %for.body3.i, label %for.end10.i, !llvm.loop !12
 
 for.end10.i:                                      ; preds = %for.body3.i
-  %cmp11.i = icmp ugt i32 %out_bitsize.addr.052.i, 156
+  %cmp11.i = icmp samesign ugt i32 %out_bitsize.addr.052.i, 156
   br i1 %cmp11.i, label %if.then.i483, label %if.else.i482
 
 if.then.i483:                                     ; preds = %for.end10.i
@@ -993,7 +993,7 @@ for.body.i.i484:                                  ; preds = %for.body.i.i484, %i
   store i8 %conv.i.i485, ptr %out.addr.04.i.i, align 1
   %shr.i.i = lshr i64 %digit.addr.06.i.i, 8
   %dec.i.i = add nsw i32 %out_len.addr.05.i.i, -1
-  %cmp.i.i486 = icmp ugt i32 %out_len.addr.05.i.i, 1
+  %cmp.i.i486 = icmp samesign ugt i32 %out_len.addr.05.i.i, 1
   br i1 %cmp.i.i486, label %for.body.i.i484, label %put_digit.exit.i, !llvm.loop !13
 
 put_digit.exit.i:                                 ; preds = %for.body.i.i484
@@ -1020,7 +1020,7 @@ for.body.i25.i:                                   ; preds = %for.body.i25.i, %fo
   store i8 %conv.i29.i, ptr %out.addr.04.i28.i, align 1
   %shr.i31.i = lshr i64 %digit.addr.06.i26.i, 8
   %dec.i32.i = add nsw i32 %out_len.addr.05.i27.i, -1
-  %cmp.i33.i = icmp ugt i32 %out_len.addr.05.i27.i, 1
+  %cmp.i33.i = icmp samesign ugt i32 %out_len.addr.05.i27.i, 1
   br i1 %cmp.i33.i, label %for.body.i25.i, label %from_words52.exit, !llvm.loop !13
 
 if.else.i482:                                     ; preds = %for.end10.i
@@ -1046,7 +1046,7 @@ for.body.i36.i:                                   ; preds = %for.body.i36.i, %fo
   store i8 %conv.i40.i, ptr %out.addr.04.i39.i, align 1
   %shr.i42.i = lshr i64 %digit.addr.06.i37.i, 8
   %dec.i43.i = add nsw i32 %out_len.addr.05.i38.i, -1
-  %cmp.i44.i = icmp ugt i32 %out_len.addr.05.i38.i, 1
+  %cmp.i44.i = icmp samesign ugt i32 %out_len.addr.05.i38.i, 1
   br i1 %cmp.i44.i, label %for.body.i36.i, label %from_words52.exit, !llvm.loop !13
 
 from_words52.exit:                                ; preds = %for.body.i36.i, %for.body.i25.i, %put_digit.exit.i, %if.else.i482, %if.then22.i
@@ -1077,11 +1077,11 @@ for.body3.i546:                                   ; preds = %for.body3.i546.preh
   %add.ptr7.i555 = getelementptr inbounds i8, ptr %out_str.051.i548, i64 13
   %sub.i556 = add nsw i32 %out_bitsize.addr.052.i547, -104
   %add.ptr9.i557 = getelementptr inbounds i8, ptr %in.addr.050.i549, i64 16
-  %cmp2.i558 = icmp ugt i32 %out_bitsize.addr.052.i547, 207
+  %cmp2.i558 = icmp samesign ugt i32 %out_bitsize.addr.052.i547, 207
   br i1 %cmp2.i558, label %for.body3.i546, label %for.end10.i496, !llvm.loop !12
 
 for.end10.i496:                                   ; preds = %for.body3.i546
-  %cmp11.i500 = icmp ugt i32 %out_bitsize.addr.052.i547, 156
+  %cmp11.i500 = icmp samesign ugt i32 %out_bitsize.addr.052.i547, 156
   br i1 %cmp11.i500, label %if.then.i517, label %if.else.i501
 
 if.then.i517:                                     ; preds = %for.end10.i496
@@ -1097,7 +1097,7 @@ for.body.i.i518:                                  ; preds = %for.body.i.i518, %i
   store i8 %conv.i.i522, ptr %out.addr.04.i.i521, align 1
   %shr.i.i524 = lshr i64 %digit.addr.06.i.i519, 8
   %dec.i.i525 = add nsw i32 %out_len.addr.05.i.i520, -1
-  %cmp.i.i526 = icmp ugt i32 %out_len.addr.05.i.i520, 1
+  %cmp.i.i526 = icmp samesign ugt i32 %out_len.addr.05.i.i520, 1
   br i1 %cmp.i.i526, label %for.body.i.i518, label %put_digit.exit.i527, !llvm.loop !13
 
 put_digit.exit.i527:                              ; preds = %for.body.i.i518
@@ -1124,7 +1124,7 @@ for.body.i25.i537:                                ; preds = %for.body.i25.i537, 
   store i8 %conv.i29.i541, ptr %out.addr.04.i28.i540, align 1
   %shr.i31.i543 = lshr i64 %digit.addr.06.i26.i538, 8
   %dec.i32.i544 = add nsw i32 %out_len.addr.05.i27.i539, -1
-  %cmp.i33.i545 = icmp ugt i32 %out_len.addr.05.i27.i539, 1
+  %cmp.i33.i545 = icmp samesign ugt i32 %out_len.addr.05.i27.i539, 1
   br i1 %cmp.i33.i545, label %for.body.i25.i537, label %from_words52.exit560, !llvm.loop !13
 
 if.else.i501:                                     ; preds = %for.end10.i496
@@ -1150,7 +1150,7 @@ for.body.i36.i508:                                ; preds = %for.body.i36.i508, 
   store i8 %conv.i40.i512, ptr %out.addr.04.i39.i511, align 1
   %shr.i42.i514 = lshr i64 %digit.addr.06.i37.i509, 8
   %dec.i43.i515 = add nsw i32 %out_len.addr.05.i38.i510, -1
-  %cmp.i44.i516 = icmp ugt i32 %out_len.addr.05.i38.i510, 1
+  %cmp.i44.i516 = icmp samesign ugt i32 %out_len.addr.05.i38.i510, 1
   br i1 %cmp.i44.i516, label %for.body.i36.i508, label %from_words52.exit560, !llvm.loop !13
 
 from_words52.exit560:                             ; preds = %for.body.i36.i508, %for.body.i25.i537, %put_digit.exit.i527, %if.else.i501, %if.then22.i503

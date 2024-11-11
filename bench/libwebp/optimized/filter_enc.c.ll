@@ -174,7 +174,7 @@ GetMBSSIM.exit:                                   ; preds = %47
   br i1 %62, label %63, label %GetILevel.exit.i
 
 63:                                               ; preds = %57
-  %64 = icmp ugt i32 %61, 4
+  %64 = icmp samesign ugt i32 %61, 4
   %.1.v.i.i = select i1 %64, i32 2, i32 1
   %.1.i.i = lshr i32 %55, %.1.v.i.i
   %65 = sub nsw i32 9, %61

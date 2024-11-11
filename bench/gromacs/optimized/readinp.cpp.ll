@@ -3355,7 +3355,7 @@ define linkonce_odr void @_ZSt16__insertion_sortIN9__gnu_cxx17__normal_iteratorI
   %36 = getelementptr inbounds i8, ptr %.069.i.i.i.i.i, i64 -8
   store i32 %35, ptr %36, align 8
   %37 = add nsw i64 %.010.i.i.i.i.i, -1
-  %38 = icmp ugt i64 %.010.i.i.i.i.i, 1
+  %38 = icmp samesign ugt i64 %.010.i.i.i.i.i, 1
   br i1 %38, label %.lr.ph.i.i.i.i.i, label %.loopexit, !llvm.loop !74
 
 .loopexit:                                        ; preds = %.lr.ph.i.i.i.i.i, %16

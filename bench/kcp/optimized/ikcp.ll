@@ -1328,7 +1328,7 @@ if.end17:                                         ; preds = %if.end11
   %add.ptr.i = getelementptr inbounds i8, ptr %data.addr.0257, i64 24
   %sub = add nsw i64 %size.addr.0253, -24
   %conv25 = zext i32 %len.0.copyload to i64
-  %cmp26 = icmp ult i64 %sub, %conv25
+  %cmp26 = icmp samesign ult i64 %sub, %conv25
   %cmp29 = icmp slt i32 %len.0.copyload, 0
   %or.cond1 = or i1 %cmp29, %cmp26
   br i1 %or.cond1, label %return, label %if.end32

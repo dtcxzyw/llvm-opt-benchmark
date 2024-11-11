@@ -5541,7 +5541,7 @@ while.body.us:                                    ; preds = %while.body.lr.ph.sp
   %num_rows_left.022.us = phi i32 [ %dec.us, %while.body.us ], [ %num_rows, %while.body.lr.ph.split.us ]
   %dec.us = add nsw i32 %num_rows_left.022.us, -1
   %add.us = add i32 %num_bytes_skipped.023.us, %column_metadata.sroa.26.0.extract.trunc19
-  %cmp.us = icmp ugt i32 %num_rows_left.022.us, 1
+  %cmp.us = icmp samesign ugt i32 %num_rows_left.022.us, 1
   %cmp2.us = icmp slt i32 %add.us, %num_tail_bytes_to_skip
   %15 = select i1 %cmp.us, i1 %cmp2.us, i1 false
   br i1 %15, label %while.body.us, label %while.end, !llvm.loop !111
@@ -5574,7 +5574,7 @@ while.body:                                       ; preds = %while.body.lr.ph.sp
   %26 = load i32, ptr %24, align 4
   %sub19 = add i32 %25, %num_bytes_skipped.023
   %add20 = sub i32 %sub19, %26
-  %cmp = icmp ugt i64 %indvars.iv, 1
+  %cmp = icmp samesign ugt i64 %indvars.iv, 1
   %cmp2 = icmp slt i32 %add20, %num_tail_bytes_to_skip
   %27 = select i1 %cmp, i1 %cmp2, i1 false
   br i1 %27, label %while.body, label %while.end.loopexit26, !llvm.loop !111
@@ -7449,7 +7449,7 @@ for.body.i.i:                                     ; preds = %for.body.i540, %for
   store i64 %ret.0.copyload.i.i.i, ptr %add.ptr6.i.i, align 1
   %inc.i.i = add i32 %word_id.05.i.i, 1
   %conv3.i.i = zext i32 %inc.i.i to i64
-  %cmp.not.i.i559 = icmp ult i64 %div.i.i.i, %conv3.i.i
+  %cmp.not.i.i559 = icmp samesign ult i64 %div.i.i.i, %conv3.i.i
   br i1 %cmp.not.i.i559, label %"_ZZN5arrow7compute16ExecBatchBuilder14AppendSelectedERKSt10shared_ptrINS_9ArrayDataEEPNS0_18ResizableArrayDataEiPKtPNS_10MemoryPoolEENK3$_4clEiPKhj.exit.i", label %for.body.i.i, !llvm.loop !127
 
 "_ZZN5arrow7compute16ExecBatchBuilder14AppendSelectedERKSt10shared_ptrINS_9ArrayDataEEPNS0_18ResizableArrayDataEiPKtPNS_10MemoryPoolEENK3$_4clEiPKhj.exit.i": ; preds = %for.body.i.i, %for.body.i540
@@ -7510,7 +7510,7 @@ for.body.i48.i:                                   ; preds = %for.body.i48.i, %fo
   store i64 %ret.0.copyload.i.i53.i, ptr %add.ptr6.i51.i, align 1
   %inc.i54.i = add i32 %word_id.05.i50.i, 1
   %conv3.i55.i = zext i32 %inc.i54.i to i64
-  %cmp.not.i56.i = icmp ult i64 %div.i.i46.i, %conv3.i55.i
+  %cmp.not.i56.i = icmp samesign ult i64 %div.i.i46.i, %conv3.i55.i
   br i1 %cmp.not.i56.i, label %"_ZZN5arrow7compute16ExecBatchBuilder14AppendSelectedERKSt10shared_ptrINS_9ArrayDataEEPNS0_18ResizableArrayDataEiPKtPNS_10MemoryPoolEENK3$_4clEiPKhj.exit57.loopexit.i", label %for.body.i48.i, !llvm.loop !127
 
 "_ZZN5arrow7compute16ExecBatchBuilder14AppendSelectedERKSt10shared_ptrINS_9ArrayDataEEPNS0_18ResizableArrayDataEiPKtPNS_10MemoryPoolEENK3$_4clEiPKhj.exit57.loopexit.i": ; preds = %for.body.i48.i

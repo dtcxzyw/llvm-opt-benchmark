@@ -205,7 +205,7 @@ define hidden void @_ZN5fuzzy7matcher7Matcher16match_candidates17h25320f12130e88
   %95 = and i8 %93, 63
   %96 = zext nneg i8 %95 to i32
   %97 = or disjoint i32 %94, %96
-  %98 = icmp ugt i8 %87, -33
+  %98 = icmp samesign ugt i8 %87, -33
   br i1 %98, label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h7b16e310e11bb67fE.exit14.i", label %.thread97
 
 99:                                               ; preds = %.lr.ph
@@ -223,7 +223,7 @@ define hidden void @_ZN5fuzzy7matcher7Matcher16match_candidates17h25320f12130e88
   %107 = or disjoint i32 %104, %106
   %108 = shl nuw nsw i32 %90, 12
   %109 = or disjoint i32 %107, %108
-  %110 = icmp ugt i8 %87, -17
+  %110 = icmp samesign ugt i8 %87, -17
   br i1 %110, label %113, label %.thread97
 
 "_ZN4core3ptr48drop_in_place$LT$alloc..vec..Vec$LT$char$GT$$GT$17h6f2544353738829eE.exit": ; preds = %342, %338, %111

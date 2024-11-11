@@ -111,12 +111,12 @@ define hidden noundef i32 @"_ZN9softposit5p32e27convert41_$LT$impl$u20$softposit
   ret i32 %.0
 
 5:                                                ; preds = %3
-  %6 = icmp ugt i32 %0, 2142240767
+  %6 = icmp samesign ugt i32 %0, 2142240767
   br i1 %6, label %4, label %10
 
 7:                                                ; preds = %3
   %8 = sub nsw i32 0, %0
-  %9 = icmp ugt i32 %8, 2142240767
+  %9 = icmp samesign ugt i32 %8, 2142240767
   br i1 %9, label %4, label %10
 
 10:                                               ; preds = %7, %5
@@ -298,12 +298,12 @@ define hidden noundef i32 @_ZN9softposit5p32e24math5sleef6kernel6exp_m117h3c14aa
   br i1 %.not.i, label %12, label %14
 
 12:                                               ; preds = %11
-  %13 = icmp ugt i32 %9, 2142240767
+  %13 = icmp samesign ugt i32 %9, 2142240767
   br i1 %13, label %"_ZN9softposit5p32e27convert41_$LT$impl$u20$softposit..p32e2..P32E2$GT$6to_i3217hc1a6c5bbffa9436eE.llvm.10961338582784087609.exit", label %17
 
 14:                                               ; preds = %11
   %15 = sub nsw i32 0, %9
-  %16 = icmp ugt i32 %15, 2142240767
+  %16 = icmp samesign ugt i32 %15, 2142240767
   br i1 %16, label %"_ZN9softposit5p32e27convert41_$LT$impl$u20$softposit..p32e2..P32E2$GT$6to_i3217hc1a6c5bbffa9436eE.llvm.10961338582784087609.exit", label %17
 
 17:                                               ; preds = %14, %12
@@ -951,12 +951,12 @@ _ZN9softposit5p32e27convert22convert_u32_to_p32bits17h615e043045e072d1E.exit: ; 
   br i1 %.not.i, label %23, label %25
 
 23:                                               ; preds = %22
-  %24 = icmp ugt i32 %1, 2142240767
+  %24 = icmp samesign ugt i32 %1, 2142240767
   br i1 %24, label %"_ZN9softposit5p32e27convert41_$LT$impl$u20$softposit..p32e2..P32E2$GT$6to_i3217hc1a6c5bbffa9436eE.llvm.10961338582784087609.exit.thread109", label %28
 
 25:                                               ; preds = %22
   %26 = sub nsw i32 0, %1
-  %27 = icmp ugt i32 %26, 2142240767
+  %27 = icmp samesign ugt i32 %26, 2142240767
   br i1 %27, label %"_ZN9softposit5p32e27convert41_$LT$impl$u20$softposit..p32e2..P32E2$GT$6to_i3217hc1a6c5bbffa9436eE.llvm.10961338582784087609.exit104", label %28
 
 28:                                               ; preds = %25, %23
@@ -1037,11 +1037,11 @@ _ZN9softposit5p32e25P32E215calculate_scale17h23828a4b6407a1edE.llvm.164196413843
   br i1 %.not.i87, label %72, label %74
 
 72:                                               ; preds = %71
-  %73 = icmp ugt i32 %1, 2142240767
+  %73 = icmp samesign ugt i32 %1, 2142240767
   br i1 %73, label %"_ZN9softposit5p32e27convert41_$LT$impl$u20$softposit..p32e2..P32E2$GT$6to_i3217hc1a6c5bbffa9436eE.llvm.10961338582784087609.exit.thread109", label %76
 
 74:                                               ; preds = %71
-  %75 = icmp ugt i32 %21, 2142240767
+  %75 = icmp samesign ugt i32 %21, 2142240767
   br i1 %75, label %"_ZN9softposit5p32e27convert41_$LT$impl$u20$softposit..p32e2..P32E2$GT$6to_i3217hc1a6c5bbffa9436eE.llvm.10961338582784087609.exit104", label %76
 
 76:                                               ; preds = %74, %72
@@ -1122,11 +1122,11 @@ _ZN9softposit5p32e25P32E215calculate_scale17h23828a4b6407a1edE.llvm.164196413843
   br i1 %.not.i87, label %120, label %122
 
 120:                                              ; preds = %119
-  %121 = icmp ugt i32 %1, 2142240767
+  %121 = icmp samesign ugt i32 %1, 2142240767
   br i1 %121, label %"_ZN9softposit5p32e27convert41_$LT$impl$u20$softposit..p32e2..P32E2$GT$6to_i3217hc1a6c5bbffa9436eE.llvm.10961338582784087609.exit104", label %124
 
 122:                                              ; preds = %119
-  %123 = icmp ugt i32 %21, 2142240767
+  %123 = icmp samesign ugt i32 %21, 2142240767
   br i1 %123, label %"_ZN9softposit5p32e27convert41_$LT$impl$u20$softposit..p32e2..P32E2$GT$6to_i3217hc1a6c5bbffa9436eE.llvm.10961338582784087609.exit104", label %124
 
 124:                                              ; preds = %122, %120
@@ -1166,12 +1166,12 @@ _ZN9softposit5p32e25P32E215calculate_scale17h23828a4b6407a1edE.llvm.164196413843
   br i1 %.not.i.i, label %139, label %141
 
 139:                                              ; preds = %138
-  %140 = icmp ugt i32 %136, 2142240767
+  %140 = icmp samesign ugt i32 %136, 2142240767
   br i1 %140, label %"_ZN9softposit5p32e27convert41_$LT$impl$u20$softposit..p32e2..P32E2$GT$6to_i3217hc1a6c5bbffa9436eE.llvm.10961338582784087609.exit.i", label %144
 
 141:                                              ; preds = %138
   %142 = sub nsw i32 0, %136
-  %143 = icmp ugt i32 %142, 2142240767
+  %143 = icmp samesign ugt i32 %142, 2142240767
   br i1 %143, label %"_ZN9softposit5p32e27convert41_$LT$impl$u20$softposit..p32e2..P32E2$GT$6to_i3217hc1a6c5bbffa9436eE.llvm.10961338582784087609.exit.i", label %144
 
 144:                                              ; preds = %141, %139
@@ -1649,12 +1649,12 @@ define noundef i32 @_ZN9softposit5p32e24math5sleef3sin17h1c7df31d6c465e5bE(i32 n
   br i1 %.not.i, label %18, label %20
 
 18:                                               ; preds = %17
-  %19 = icmp ugt i32 %15, 2142240767
+  %19 = icmp samesign ugt i32 %15, 2142240767
   br i1 %19, label %"_ZN9softposit5p32e27convert41_$LT$impl$u20$softposit..p32e2..P32E2$GT$6to_i3217hc1a6c5bbffa9436eE.llvm.10961338582784087609.exit", label %23
 
 20:                                               ; preds = %17
   %21 = sub nsw i32 0, %15
-  %22 = icmp ugt i32 %21, 2142240767
+  %22 = icmp samesign ugt i32 %21, 2142240767
   br i1 %22, label %"_ZN9softposit5p32e27convert41_$LT$impl$u20$softposit..p32e2..P32E2$GT$6to_i3217hc1a6c5bbffa9436eE.llvm.10961338582784087609.exit", label %23
 
 23:                                               ; preds = %20, %18
@@ -1851,12 +1851,12 @@ define noundef i32 @_ZN9softposit5p32e24math5sleef3cos17h90497f359d2c8995E(i32 n
   br i1 %.not.i, label %25, label %27
 
 25:                                               ; preds = %24
-  %26 = icmp ugt i32 %22, 2142240767
+  %26 = icmp samesign ugt i32 %22, 2142240767
   br i1 %26, label %"_ZN9softposit5p32e27convert41_$LT$impl$u20$softposit..p32e2..P32E2$GT$6to_i3217hc1a6c5bbffa9436eE.llvm.10961338582784087609.exit.thread", label %30
 
 27:                                               ; preds = %24
   %28 = sub nsw i32 0, %22
-  %29 = icmp ugt i32 %28, 2142240767
+  %29 = icmp samesign ugt i32 %28, 2142240767
   br i1 %29, label %"_ZN9softposit5p32e27convert41_$LT$impl$u20$softposit..p32e2..P32E2$GT$6to_i3217hc1a6c5bbffa9436eE.llvm.10961338582784087609.exit.thread", label %30
 
 30:                                               ; preds = %27, %25
@@ -2119,12 +2119,12 @@ define { i32, i32 } @_ZN9softposit5p32e24math5sleef7sin_cos17h26098b81853a2de8E(
   br i1 %.not.i, label %22, label %24
 
 22:                                               ; preds = %21
-  %23 = icmp ugt i32 %19, 2142240767
+  %23 = icmp samesign ugt i32 %19, 2142240767
   br i1 %23, label %"_ZN9softposit5p32e27convert41_$LT$impl$u20$softposit..p32e2..P32E2$GT$6to_i3217hc1a6c5bbffa9436eE.llvm.10961338582784087609.exit", label %27
 
 24:                                               ; preds = %21
   %25 = sub nsw i32 0, %19
-  %26 = icmp ugt i32 %25, 2142240767
+  %26 = icmp samesign ugt i32 %25, 2142240767
   br i1 %26, label %"_ZN9softposit5p32e27convert41_$LT$impl$u20$softposit..p32e2..P32E2$GT$6to_i3217hc1a6c5bbffa9436eE.llvm.10961338582784087609.exit", label %27
 
 27:                                               ; preds = %24, %22
@@ -2327,12 +2327,12 @@ define noundef i32 @_ZN9softposit5p32e24math5sleef3tan17hcc30bc70ca467b55E(i32 n
   br i1 %.not.i, label %15, label %17
 
 15:                                               ; preds = %14
-  %16 = icmp ugt i32 %12, 2142240767
+  %16 = icmp samesign ugt i32 %12, 2142240767
   br i1 %16, label %"_ZN9softposit5p32e27convert41_$LT$impl$u20$softposit..p32e2..P32E2$GT$6to_i3217hc1a6c5bbffa9436eE.llvm.10961338582784087609.exit", label %20
 
 17:                                               ; preds = %14
   %18 = sub nsw i32 0, %12
-  %19 = icmp ugt i32 %18, 2142240767
+  %19 = icmp samesign ugt i32 %18, 2142240767
   br i1 %19, label %"_ZN9softposit5p32e27convert41_$LT$impl$u20$softposit..p32e2..P32E2$GT$6to_i3217hc1a6c5bbffa9436eE.llvm.10961338582784087609.exit", label %20
 
 20:                                               ; preds = %17, %15
@@ -3069,12 +3069,12 @@ define noundef i32 @_ZN9softposit5p32e24math5sleef4exp217h06699633706008f9E(i32 
   br i1 %.not.i, label %32, label %34
 
 32:                                               ; preds = %31
-  %33 = icmp ugt i32 %3, 2142240767
+  %33 = icmp samesign ugt i32 %3, 2142240767
   br i1 %33, label %"_ZN9softposit5p32e27convert41_$LT$impl$u20$softposit..p32e2..P32E2$GT$6to_i3217hc1a6c5bbffa9436eE.llvm.10961338582784087609.exit", label %37
 
 34:                                               ; preds = %31
   %35 = sub nsw i32 0, %3
-  %36 = icmp ugt i32 %35, 2142240767
+  %36 = icmp samesign ugt i32 %35, 2142240767
   br i1 %36, label %"_ZN9softposit5p32e27convert41_$LT$impl$u20$softposit..p32e2..P32E2$GT$6to_i3217hc1a6c5bbffa9436eE.llvm.10961338582784087609.exit", label %37
 
 37:                                               ; preds = %34, %32
@@ -3226,12 +3226,12 @@ define noundef i32 @_ZN9softposit5p32e24math5sleef5exp1017h0aa6f3c223873f50E(i32
   br i1 %.not.i, label %21, label %23
 
 21:                                               ; preds = %20
-  %22 = icmp ugt i32 %6, 2142240767
+  %22 = icmp samesign ugt i32 %6, 2142240767
   br i1 %22, label %"_ZN9softposit5p32e27convert41_$LT$impl$u20$softposit..p32e2..P32E2$GT$6to_i3217hc1a6c5bbffa9436eE.llvm.10961338582784087609.exit", label %26
 
 23:                                               ; preds = %20
   %24 = sub nsw i32 0, %6
-  %25 = icmp ugt i32 %24, 2142240767
+  %25 = icmp samesign ugt i32 %24, 2142240767
   br i1 %25, label %"_ZN9softposit5p32e27convert41_$LT$impl$u20$softposit..p32e2..P32E2$GT$6to_i3217hc1a6c5bbffa9436eE.llvm.10961338582784087609.exit", label %26
 
 26:                                               ; preds = %23, %21
@@ -3347,12 +3347,12 @@ define noundef i32 @_ZN9softposit5p32e24math5sleef3exp17hbbe3e5e7379a8bc8E(i32 n
   br i1 %.not.i, label %12, label %14
 
 12:                                               ; preds = %11
-  %13 = icmp ugt i32 %9, 2142240767
+  %13 = icmp samesign ugt i32 %9, 2142240767
   br i1 %13, label %"_ZN9softposit5p32e27convert41_$LT$impl$u20$softposit..p32e2..P32E2$GT$6to_i3217hc1a6c5bbffa9436eE.llvm.10961338582784087609.exit", label %17
 
 14:                                               ; preds = %11
   %15 = sub nsw i32 0, %9
-  %16 = icmp ugt i32 %15, 2142240767
+  %16 = icmp samesign ugt i32 %15, 2142240767
   br i1 %16, label %"_ZN9softposit5p32e27convert41_$LT$impl$u20$softposit..p32e2..P32E2$GT$6to_i3217hc1a6c5bbffa9436eE.llvm.10961338582784087609.exit", label %17
 
 17:                                               ; preds = %14, %12

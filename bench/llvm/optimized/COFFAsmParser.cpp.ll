@@ -1554,55 +1554,55 @@ define internal noundef zeroext i1 @_ZN4llvm20MCAsmParserExtension15HandleDirect
 
 58:                                               ; preds = %44
   %59 = load i64, ptr %7, align 8
-  %60 = icmp ugt i64 %59, 4294967295
-  br i1 %60, label %61, label %66
+  %or.cond.not.i = icmp ult i64 %59, 4294967296
+  br i1 %or.cond.not.i, label %65, label %60
 
-61:                                               ; preds = %58
-  %62 = getelementptr inbounds nuw i8, ptr %9, i64 32
-  %63 = getelementptr inbounds nuw i8, ptr %9, i64 33
-  store i8 1, ptr %63, align 1
+60:                                               ; preds = %58
+  %61 = getelementptr inbounds nuw i8, ptr %9, i64 32
+  %62 = getelementptr inbounds nuw i8, ptr %9, i64 33
+  store i8 1, ptr %62, align 1
   store ptr @.str.48, ptr %9, align 8
-  store i8 3, ptr %62, align 8
-  %64 = load ptr, ptr %11, align 8
-  %65 = call noundef zeroext i1 @_ZN4llvm11MCAsmParser5ErrorENS_5SMLocERKNS_5TwineENS_7SMRangeE(ptr noundef nonnull align 8 dereferenceable(34) %64, ptr %.sroa.03.0.i, ptr noundef nonnull align 8 dereferenceable(34) %9, ptr null, ptr null) #11
+  store i8 3, ptr %61, align 8
+  %63 = load ptr, ptr %11, align 8
+  %64 = call noundef zeroext i1 @_ZN4llvm11MCAsmParser5ErrorENS_5SMLocERKNS_5TwineENS_7SMRangeE(ptr noundef nonnull align 8 dereferenceable(34) %63, ptr %.sroa.03.0.i, ptr noundef nonnull align 8 dereferenceable(34) %9, ptr null, ptr null) #11
   br label %_ZN12_GLOBAL__N_113COFFAsmParser22ParseDirectiveSecRel32EN4llvm9StringRefENS1_5SMLocE.exit
 
-66:                                               ; preds = %58
-  %67 = load ptr, ptr %11, align 8
-  %68 = load ptr, ptr %67, align 8
-  %69 = getelementptr inbounds i8, ptr %68, i64 48
-  %70 = load ptr, ptr %69, align 8
-  %71 = call noundef nonnull align 8 dereferenceable(2432) ptr %70(ptr noundef nonnull align 8 dereferenceable(34) %67) #11
-  %72 = getelementptr inbounds nuw i8, ptr %10, i64 32
-  store i8 5, ptr %72, align 8
-  %73 = getelementptr inbounds nuw i8, ptr %10, i64 33
-  store i8 1, ptr %73, align 1
-  %74 = load ptr, ptr %5, align 8
-  store ptr %74, ptr %10, align 8
-  %75 = getelementptr inbounds nuw i8, ptr %5, i64 8
-  %76 = load i64, ptr %75, align 8
-  %77 = getelementptr inbounds nuw i8, ptr %10, i64 8
-  store i64 %76, ptr %77, align 8
-  %78 = call noundef ptr @_ZN4llvm9MCContext17getOrCreateSymbolERKNS_5TwineE(ptr noundef nonnull align 8 dereferenceable(2432) %71, ptr noundef nonnull align 8 dereferenceable(34) %10) #11
-  %79 = load ptr, ptr %11, align 8
-  %80 = load ptr, ptr %79, align 8
-  %81 = getelementptr inbounds i8, ptr %80, i64 184
-  %82 = load ptr, ptr %81, align 8
-  %83 = call noundef nonnull align 8 dereferenceable(40) ptr %82(ptr noundef nonnull align 8 dereferenceable(34) %79) #11
-  %84 = load ptr, ptr %11, align 8
-  %85 = load ptr, ptr %84, align 8
-  %86 = getelementptr inbounds i8, ptr %85, i64 56
-  %87 = load ptr, ptr %86, align 8
-  %88 = call noundef nonnull align 8 dereferenceable(288) ptr %87(ptr noundef nonnull align 8 dereferenceable(34) %84) #11
-  %89 = load i64, ptr %7, align 8
-  %90 = load ptr, ptr %88, align 8
-  %91 = getelementptr inbounds i8, ptr %90, i64 368
-  %92 = load ptr, ptr %91, align 8
-  call void %92(ptr noundef nonnull align 8 dereferenceable(288) %88, ptr noundef %78, i64 noundef %89) #11
+65:                                               ; preds = %58
+  %66 = load ptr, ptr %11, align 8
+  %67 = load ptr, ptr %66, align 8
+  %68 = getelementptr inbounds i8, ptr %67, i64 48
+  %69 = load ptr, ptr %68, align 8
+  %70 = call noundef nonnull align 8 dereferenceable(2432) ptr %69(ptr noundef nonnull align 8 dereferenceable(34) %66) #11
+  %71 = getelementptr inbounds nuw i8, ptr %10, i64 32
+  store i8 5, ptr %71, align 8
+  %72 = getelementptr inbounds nuw i8, ptr %10, i64 33
+  store i8 1, ptr %72, align 1
+  %73 = load ptr, ptr %5, align 8
+  store ptr %73, ptr %10, align 8
+  %74 = getelementptr inbounds nuw i8, ptr %5, i64 8
+  %75 = load i64, ptr %74, align 8
+  %76 = getelementptr inbounds nuw i8, ptr %10, i64 8
+  store i64 %75, ptr %76, align 8
+  %77 = call noundef ptr @_ZN4llvm9MCContext17getOrCreateSymbolERKNS_5TwineE(ptr noundef nonnull align 8 dereferenceable(2432) %70, ptr noundef nonnull align 8 dereferenceable(34) %10) #11
+  %78 = load ptr, ptr %11, align 8
+  %79 = load ptr, ptr %78, align 8
+  %80 = getelementptr inbounds i8, ptr %79, i64 184
+  %81 = load ptr, ptr %80, align 8
+  %82 = call noundef nonnull align 8 dereferenceable(40) ptr %81(ptr noundef nonnull align 8 dereferenceable(34) %78) #11
+  %83 = load ptr, ptr %11, align 8
+  %84 = load ptr, ptr %83, align 8
+  %85 = getelementptr inbounds i8, ptr %84, i64 56
+  %86 = load ptr, ptr %85, align 8
+  %87 = call noundef nonnull align 8 dereferenceable(288) ptr %86(ptr noundef nonnull align 8 dereferenceable(34) %83) #11
+  %88 = load i64, ptr %7, align 8
+  %89 = load ptr, ptr %87, align 8
+  %90 = getelementptr inbounds i8, ptr %89, i64 368
+  %91 = load ptr, ptr %90, align 8
+  call void %91(ptr noundef nonnull align 8 dereferenceable(288) %87, ptr noundef %77, i64 noundef %88) #11
   br label %_ZN12_GLOBAL__N_113COFFAsmParser22ParseDirectiveSecRel32EN4llvm9StringRefENS1_5SMLocE.exit
 
-_ZN12_GLOBAL__N_113COFFAsmParser22ParseDirectiveSecRel32EN4llvm9StringRefENS1_5SMLocE.exit: ; preds = %17, %32, %53, %61, %66
-  %.0.i = phi i1 [ %21, %17 ], [ %57, %53 ], [ %65, %61 ], [ false, %66 ], [ true, %32 ]
+_ZN12_GLOBAL__N_113COFFAsmParser22ParseDirectiveSecRel32EN4llvm9StringRefENS1_5SMLocE.exit: ; preds = %17, %32, %53, %60, %65
+  %.0.i = phi i1 [ %21, %17 ], [ %57, %53 ], [ %64, %60 ], [ false, %65 ], [ true, %32 ]
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5)
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %6)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7)

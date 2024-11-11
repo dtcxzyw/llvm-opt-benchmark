@@ -174,7 +174,7 @@ define void @_ZN6uu_pwd12logical_path17h32c6f387717b4209E(ptr noalias nocapture 
   %45 = and i8 %43, 63
   %46 = zext nneg i8 %45 to i32
   %47 = or disjoint i32 %44, %46
-  %48 = icmp ugt i8 %37, -33
+  %48 = icmp samesign ugt i8 %37, -33
   br i1 %48, label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h1c760e62cf412fc7E.exit15.i.i.i.i.i.i.i.i", label %"_ZN97_$LT$core..str..pattern..MultiCharEqSearcher$LT$C$GT$$u20$as$u20$core..str..pattern..Searcher$GT$4next17h1daae34ffda03130E.exit.i.i.i.i.i"
 
 49:                                               ; preds = %35
@@ -192,7 +192,7 @@ define void @_ZN6uu_pwd12logical_path17h32c6f387717b4209E(ptr noalias nocapture 
   %57 = or disjoint i32 %54, %56
   %58 = shl nuw nsw i32 %40, 12
   %59 = or disjoint i32 %57, %58
-  %60 = icmp ugt i8 %37, -17
+  %60 = icmp samesign ugt i8 %37, -17
   br i1 %60, label %61, label %"_ZN97_$LT$core..str..pattern..MultiCharEqSearcher$LT$C$GT$$u20$as$u20$core..str..pattern..Searcher$GT$4next17h1daae34ffda03130E.exit.i.i.i.i.i"
 
 61:                                               ; preds = %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h1c760e62cf412fc7E.exit15.i.i.i.i.i.i.i.i"

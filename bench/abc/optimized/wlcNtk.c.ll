@@ -1486,7 +1486,7 @@ Vec_IntFill.exit:                                 ; preds = %18, %Vec_IntGrow.ex
   br i1 %28, label %.lr.ph, label %.critedge2
 
 .lr.ph:                                           ; preds = %25
-  %29 = icmp ugt i32 %.val27, 2
+  %29 = icmp samesign ugt i32 %.val27, 2
   %30 = getelementptr inbounds i8, ptr %26, i64 16
   br i1 %29, label %.lr.ph.split.us, label %.lr.ph.split
 
@@ -1811,7 +1811,7 @@ define void @Wlc_NtkCreateLevels_rec(ptr nocapture noundef readonly %0, ptr noun
   br i1 %25, label %.lr.ph57, label %.critedge2
 
 .lr.ph57:                                         ; preds = %.critedge.preheader
-  %26 = icmp ugt i32 %.val42, 2
+  %26 = icmp samesign ugt i32 %.val42, 2
   %27 = getelementptr inbounds i8, ptr %1, i64 16
   br i1 %26, label %.lr.ph57.split.us, label %.lr.ph57.split
 
@@ -5989,7 +5989,7 @@ Wlc_ObjConstValue.exit:                           ; preds = %Wlc_ObjHasArray.exi
   %265 = add nuw nsw i32 %262, 87
   %.0.i.i = select i1 %263, i32 %264, i32 %265
   %fputc.i = tail call i32 @fputc(i32 %.0.i.i, ptr %238)
-  %266 = icmp ugt i32 %.0.in5.i, 1
+  %266 = icmp samesign ugt i32 %.0.in5.i, 1
   br i1 %266, label %.lr.ph.i, label %Abc_TtPrintHexArrayRev.exit, !llvm.loop !42
 
 267:                                              ; preds = %Wlc_ObjName.exit138

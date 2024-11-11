@@ -9811,7 +9811,7 @@ for.body.i:                                       ; preds = %for.body.i, %for.bo
   %33 = load double, ptr %arrayidx.i5.i, align 8, !tbaa !65
   %call.i.i = tail call noundef double @_ZNK8QuantLib24LognormalCmsSpreadPricer9integrandEd(ptr noundef nonnull align 8 dereferenceable(424) %this, double noundef %33)
   %34 = tail call double @llvm.fmuladd.f64(double %31, double %call.i.i, double %sum.07.i)
-  %cmp.i = icmp ugt i64 %indvars.iv.i, 1
+  %cmp.i = icmp samesign ugt i64 %indvars.iv.i, 1
   br i1 %cmp.i, label %for.body.i, label %_ZNK8QuantLib18GaussianQuadratureclINS_24LognormalCmsSpreadPricer11integrand_fEEEdRKT_.exit, !llvm.loop !258
 
 _ZNK8QuantLib18GaussianQuadratureclINS_24LognormalCmsSpreadPricer11integrand_fEEEdRKT_.exit: ; preds = %for.body.i, %_ZNK5boost10shared_ptrIN8QuantLib18GaussianQuadratureEEdeEv.exit

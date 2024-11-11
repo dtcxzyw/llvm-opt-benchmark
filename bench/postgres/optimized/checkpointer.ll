@@ -228,7 +228,7 @@ UpdateSharedMemoryConfig.exit:                    ; preds = %44, %47
   call void @RememberSyncRequest(ptr noundef nonnull %77, i32 noundef %78) #13
   %79 = getelementptr i8, ptr %.01114.i, i64 32
   %80 = add nsw i32 %.015.i, -1
-  %81 = icmp ugt i32 %.015.i, 1
+  %81 = icmp samesign ugt i32 %.015.i, 1
   br i1 %81, label %.lr.ph.i, label %._crit_edge.i, !llvm.loop !7
 
 ._crit_edge.i:                                    ; preds = %.lr.ph.i, %70
@@ -756,7 +756,7 @@ define dso_local void @AbsorbSyncRequests() local_unnamed_addr #2 {
   tail call void @RememberSyncRequest(ptr noundef nonnull %24, i32 noundef %25) #13
   %26 = getelementptr i8, ptr %.01114, i64 32
   %27 = add nsw i32 %.015, -1
-  %28 = icmp ugt i32 %.015, 1
+  %28 = icmp samesign ugt i32 %.015, 1
   br i1 %28, label %.lr.ph, label %._crit_edge, !llvm.loop !7
 
 ._crit_edge:                                      ; preds = %.lr.ph, %17

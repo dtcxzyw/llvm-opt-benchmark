@@ -461,7 +461,7 @@ if.end.i:                                         ; preds = %land.lhs.true
   br i1 %or.cond14.i, label %if.end, label %is_printable.exit
 
 is_printable.exit:                                ; preds = %if.end.i
-  %memchr.bounds.i = icmp ugt i64 %value, 63
+  %memchr.bounds.i = icmp samesign ugt i64 %value, 63
   %4 = shl nuw i64 1, %value
   %.fr27 = freeze i64 %4
   %5 = and i64 %.fr27, -6629022124314984447

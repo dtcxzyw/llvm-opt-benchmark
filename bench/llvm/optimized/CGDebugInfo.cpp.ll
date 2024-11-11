@@ -14030,7 +14030,7 @@ _ZN4llvm23SmallVectorTemplateBaseIPNS_8MetadataELb1EE9push_backES2_.exit45: ; pr
   br i1 %140, label %159, label %141
 
 141:                                              ; preds = %138
-  %142 = icmp ult i32 %139, 4
+  %142 = icmp samesign ult i32 %139, 4
   br i1 %142, label %143, label %148
 
 143:                                              ; preds = %141
@@ -37516,7 +37516,7 @@ _ZN4llvm9remove_ifIRNS_11SmallVectorISt4pairIjPNS_6MDNodeEELj2EEEZNS_13IRBuilder
   %68 = getelementptr inbounds i8, ptr %.0910.i.i.i.i.i.i, i64 16
   %69 = getelementptr inbounds i8, ptr %.0811.i.i.i.i.i.i, i64 16
   %70 = add nsw i64 %.012.i.i.i.i.i.i, -1
-  %71 = icmp ugt i64 %.012.i.i.i.i.i.i, 1
+  %71 = icmp samesign ugt i64 %.012.i.i.i.i.i.i, 1
   br i1 %71, label %.lr.ph.i.i.i.i.i.i, label %_ZN4llvm15SmallVectorImplISt4pairIjPNS_6MDNodeEEE5eraseEPKS4_S7_.exit, !llvm.loop !255
 
 _ZN4llvm15SmallVectorImplISt4pairIjPNS_6MDNodeEEE5eraseEPKS4_S7_.exit: ; preds = %.lr.ph.i.i.i.i.i.i, %_ZN4llvm9remove_ifIRNS_11SmallVectorISt4pairIjPNS_6MDNodeEELj2EEEZNS_13IRBuilderBase25AddOrRemoveMetadataToCopyEjS4_EUlRKS5_E_EEDaOT_T0_.exit
@@ -46657,7 +46657,7 @@ define internal fastcc noundef zeroext i1 @_ZN5clang19RecursiveASTVisitorIN12_GL
   br i1 %.not9.i.i.i, label %_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_119ReconstitutableTypeEE20WalkUpFromRecordTypeEPNS_10RecordTypeE.exit, label %21
 
 21:                                               ; preds = %16
-  %22 = icmp ult i32 %14, -2
+  %22 = icmp samesign ult i32 %14, -2
   br i1 %22, label %30, label %_ZL25ReferencesAnonymousEntityPN5clang10RecordTypeE.exit.i.i
 
 _ZL25ReferencesAnonymousEntityPN5clang10RecordTypeE.exit.i.i: ; preds = %21
@@ -70639,7 +70639,7 @@ define internal fastcc noundef zeroext i1 @_ZN5clang19RecursiveASTVisitorIN12_GL
   br i1 %.not9.i.i.i, label %_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_119ReconstitutableTypeEE20WalkUpFromRecordTypeEPNS_10RecordTypeE.exit, label %21
 
 21:                                               ; preds = %16
-  %22 = icmp ult i32 %14, -2
+  %22 = icmp samesign ult i32 %14, -2
   br i1 %22, label %30, label %_ZL25ReferencesAnonymousEntityPN5clang10RecordTypeE.exit.i.i
 
 _ZL25ReferencesAnonymousEntityPN5clang10RecordTypeE.exit.i.i: ; preds = %21
@@ -87636,7 +87636,7 @@ define internal fastcc noundef zeroext i1 @"_ZN5clang19RecursiveASTVisitorIZZL25
   br i1 %.not9.i.i, label %"_ZZZL25ReferencesAnonymousEntityN4llvm8ArrayRefIN5clang16TemplateArgumentEEEENK3$_0clERKS2_EN19ReferencesAnonymous15VisitRecordTypeEPNS1_10RecordTypeE.exit", label %14
 
 14:                                               ; preds = %9
-  %15 = icmp ult i32 %7, -2
+  %15 = icmp samesign ult i32 %7, -2
   br i1 %15, label %_ZL25ReferencesAnonymousEntityPN5clang10RecordTypeE.exit.i.thread, label %_ZL25ReferencesAnonymousEntityPN5clang10RecordTypeE.exit.i
 
 _ZL25ReferencesAnonymousEntityPN5clang10RecordTypeE.exit.i: ; preds = %14
@@ -110650,7 +110650,7 @@ define internal fastcc noundef zeroext i1 @"_ZN5clang19RecursiveASTVisitorIZZL25
   br i1 %.not9.i.i, label %"_ZZZL25ReferencesAnonymousEntityN4llvm8ArrayRefIN5clang16TemplateArgumentEEEENK3$_0clERKS2_EN19ReferencesAnonymous15VisitRecordTypeEPNS1_10RecordTypeE.exit", label %14
 
 14:                                               ; preds = %9
-  %15 = icmp ult i32 %7, -2
+  %15 = icmp samesign ult i32 %7, -2
   br i1 %15, label %_ZL25ReferencesAnonymousEntityPN5clang10RecordTypeE.exit.i.thread, label %_ZL25ReferencesAnonymousEntityPN5clang10RecordTypeE.exit.i
 
 _ZL25ReferencesAnonymousEntityPN5clang10RecordTypeE.exit.i: ; preds = %14

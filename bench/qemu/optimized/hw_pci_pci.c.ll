@@ -1370,7 +1370,7 @@ if.else3:                                         ; preds = %if.end
   unreachable
 
 if.end4:                                          ; preds = %if.end
-  %cmp5 = icmp ult i32 %region_num, 7
+  %cmp5 = icmp samesign ult i32 %region_num, 7
   br i1 %cmp5, label %if.end8, label %if.else7
 
 if.else7:                                         ; preds = %if.end4
@@ -1393,7 +1393,7 @@ if.end12:                                         ; preds = %if.end8
   %3 = load i8, ptr %arrayidx, align 1
   %4 = and i8 %3, 127
   %cmp15 = icmp ne i8 %4, 1
-  %cmp17 = icmp ult i32 %region_num, 2
+  %cmp17 = icmp samesign ult i32 %region_num, 2
   %or.cond = or i1 %cmp17, %cmp15
   br i1 %or.cond, label %if.end21, label %if.else20
 
@@ -2722,7 +2722,7 @@ pci_secondary_bus_in_range.exit:                  ; preds = %land.lhs.true.i
   %arrayidx5.i = getelementptr i8, ptr %.val, i64 26
   %6 = load i8, ptr %arrayidx5.i, align 1
   %conv6.i = zext i8 %6 to i32
-  %cmp7.i.not = icmp ugt i32 %bus_num, %conv6.i
+  %cmp7.i.not = icmp samesign ugt i32 %bus_num, %conv6.i
   br i1 %cmp7.i.not, label %return, label %if.end6
 
 if.end6:                                          ; preds = %pci_secondary_bus_in_range.exit, %if.end2
@@ -2784,7 +2784,7 @@ pci_secondary_bus_in_range.exit.i:                ; preds = %land.lhs.true.i.i
   %arrayidx5.i.i = getelementptr i8, ptr %.val.i, i64 26
   %13 = load i8, ptr %arrayidx5.i.i, align 1
   %conv6.i.i = zext i8 %13 to i32
-  %cmp7.i.not.i = icmp ugt i32 %bus_num, %conv6.i.i
+  %cmp7.i.not.i = icmp samesign ugt i32 %bus_num, %conv6.i.i
   br i1 %cmp7.i.not.i, label %for.inc.i, label %for.inc25
 
 for.inc.i:                                        ; preds = %pci_secondary_bus_in_range.exit.i, %land.lhs.true.i.i, %if.then.i, %land.lhs.true.i27, %for.body.i
@@ -2814,7 +2814,7 @@ pci_secondary_bus_in_range.exit39:                ; preds = %land.lhs.true.i31
   %arrayidx5.i36 = getelementptr i8, ptr %.val18, i64 26
   %18 = load i8, ptr %arrayidx5.i36, align 1
   %conv6.i37 = zext i8 %18 to i32
-  %cmp7.i38.not = icmp ugt i32 %bus_num, %conv6.i37
+  %cmp7.i38.not = icmp samesign ugt i32 %bus_num, %conv6.i37
   br i1 %cmp7.i38.not, label %for.inc, label %for.inc25
 
 for.inc:                                          ; preds = %for.inc.i, %if.else, %land.lhs.true.i31, %pci_secondary_bus_in_range.exit39
@@ -5731,7 +5731,7 @@ if.then42.i:                                      ; preds = %if.else39.i
   br label %pci_add_option_rom.exit
 
 if.else44.i:                                      ; preds = %if.else39.i
-  %cmp45.i = icmp ugt i64 %call34.i, 2147483648
+  %cmp45.i = icmp samesign ugt i64 %call34.i, 2147483648
   br i1 %cmp45.i, label %if.then47.i, label %if.end51.i
 
 if.then47.i:                                      ; preds = %if.else44.i
@@ -5746,7 +5746,7 @@ if.end51.i:                                       ; preds = %if.else44.i
 
 if.then55.i:                                      ; preds = %if.end51.i
   %conv57.i = zext i32 %120 to i64
-  %cmp58.i = icmp ugt i64 %call34.i, %conv57.i
+  %cmp58.i = icmp samesign ugt i64 %call34.i, %conv57.i
   br i1 %cmp58.i, label %if.then60.i, label %if.end70.i
 
 if.then60.i:                                      ; preds = %if.then55.i

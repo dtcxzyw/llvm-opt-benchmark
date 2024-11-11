@@ -785,7 +785,7 @@ define internal fastcc noundef range(i32 -22, 1) i32 @check_overlay_src(ptr noca
   %26 = getelementptr inbounds i8, ptr %1, i64 24
   %27 = load i16, ptr %26, align 4
   %28 = icmp ugt i16 %27, 1024
-  %.old = icmp ult i16 %22, 12
+  %.old = icmp samesign ult i16 %22, 12
   %or.cond5 = select i1 %28, i1 true, i1 %.old
   br i1 %or.cond5, label %132, label %36
 
@@ -797,13 +797,13 @@ define internal fastcc noundef range(i32 -22, 1) i32 @check_overlay_src(ptr noca
   %32 = getelementptr inbounds i8, ptr %1, i64 24
   %33 = load i16, ptr %32, align 4
   %34 = icmp ugt i16 %33, 2048
-  %35 = icmp ult i16 %22, 12
+  %35 = icmp samesign ult i16 %22, 12
   %or.cond = select i1 %34, i1 true, i1 %35
   br i1 %or.cond, label %132, label %36
 
 36:                                               ; preds = %25, %31
   %37 = phi i16 [ %27, %25 ], [ %33, %31 ]
-  %38 = icmp ult i16 %37, 20
+  %38 = icmp samesign ult i16 %37, 20
   br i1 %38, label %132, label %39
 
 39:                                               ; preds = %36

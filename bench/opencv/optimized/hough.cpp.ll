@@ -5860,7 +5860,7 @@ _ZSt25__unguarded_linear_insertIN9__gnu_cxx17__normal_iteratorIPN2cv15EstimatedC
   %619 = getelementptr inbounds i8, ptr %.069.i.i.i.i.i.i39.i, i64 -16
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %619, ptr noundef nonnull align 4 dereferenceable(16) %618, i64 16, i1 false)
   %620 = add nsw i64 %.010.i.i.i.i.i.i38.i, -1
-  %621 = icmp ugt i64 %.010.i.i.i.i.i.i38.i, 1
+  %621 = icmp samesign ugt i64 %.010.i.i.i.i.i.i38.i, 1
   br i1 %621, label %.lr.ph.i.i.i.i.i.i37.i, label %_ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPN2cv15EstimatedCircleESt6vectorIS3_SaIS3_EEEES8_ET0_T_SA_S9_.exit.i35.i, !llvm.loop !87
 
 _ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPN2cv15EstimatedCircleESt6vectorIS3_SaIS3_EEEES8_ET0_T_SA_S9_.exit.i35.i: ; preds = %.lr.ph.i.i.i.i.i.i37.i, %.preheader.preheader.i34.i
@@ -7454,7 +7454,7 @@ _ZSt25__unguarded_linear_insertIN9__gnu_cxx17__normal_iteratorIPN2cv15EstimatedC
   %1191 = getelementptr inbounds i8, ptr %.069.i.i.i.i.i.i39.i331, i64 -16
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %1191, ptr noundef nonnull align 4 dereferenceable(16) %1190, i64 16, i1 false)
   %1192 = add nsw i64 %.010.i.i.i.i.i.i38.i330, -1
-  %1193 = icmp ugt i64 %.010.i.i.i.i.i.i38.i330, 1
+  %1193 = icmp samesign ugt i64 %.010.i.i.i.i.i.i38.i330, 1
   br i1 %1193, label %.lr.ph.i.i.i.i.i.i37.i329, label %_ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPN2cv15EstimatedCircleESt6vectorIS3_SaIS3_EEEES8_ET0_T_SA_S9_.exit.i35.i327, !llvm.loop !87
 
 _ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPN2cv15EstimatedCircleESt6vectorIS3_SaIS3_EEEES8_ET0_T_SA_S9_.exit.i35.i327: ; preds = %.lr.ph.i.i.i.i.i.i37.i329, %.preheader.preheader.i34.i326
@@ -13458,7 +13458,7 @@ _ZSt22__uninitialized_move_aIPN2cv15EstimatedCircleES2_SaIS1_EET0_T_S5_S4_RT1_.e
   %40 = getelementptr inbounds i8, ptr %.069.i.i.i.i.i, i64 -16
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %40, ptr noundef nonnull align 4 dereferenceable(16) %39, i64 16, i1 false)
   %41 = add nsw i64 %.010.i.i.i.i.i, -1
-  %42 = icmp ugt i64 %.010.i.i.i.i.i, 1
+  %42 = icmp samesign ugt i64 %.010.i.i.i.i.i, 1
   br i1 %42, label %.lr.ph.i.i.i.i.i, label %_ZSt13move_backwardIPN2cv15EstimatedCircleES2_ET0_T_S4_S3_.exit, !llvm.loop !87
 
 _ZSt13move_backwardIPN2cv15EstimatedCircleES2_ET0_T_S4_S3_.exit: ; preds = %.lr.ph.i.i.i.i.i, %_ZSt22__uninitialized_move_aIPN2cv15EstimatedCircleES2_SaIS1_EET0_T_S5_S4_RT1_.exit
@@ -13473,7 +13473,7 @@ _ZSt13move_backwardIPN2cv15EstimatedCircleES2_ET0_T_S4_S3_.exit: ; preds = %.lr.
   %44 = getelementptr inbounds i8, ptr %.0910.i.i.i.i.i, i64 16
   %45 = getelementptr inbounds i8, ptr %.0811.i.i.i.i.i, i64 16
   %46 = add nsw i64 %.012.i.i.i.i.i, -1
-  %47 = icmp ugt i64 %.012.i.i.i.i.i, 1
+  %47 = icmp samesign ugt i64 %.012.i.i.i.i.i, 1
   br i1 %47, label %.lr.ph.i.i.i.i.i51, label %_ZSt4copyIN9__gnu_cxx17__normal_iteratorIPN2cv15EstimatedCircleESt6vectorIS3_SaIS3_EEEES8_ET0_T_SA_S9_.exit, !llvm.loop !160
 
 _ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPN2cv15EstimatedCircleESt6vectorIS3_SaIS3_EEEEmEvRT_T0_.exit: ; preds = %17
@@ -13563,7 +13563,7 @@ _ZSt22__uninitialized_move_aIPN2cv15EstimatedCircleES2_SaIS1_EET0_T_S5_S4_RT1_.e
   %76 = getelementptr inbounds i8, ptr %.0910.i.i.i.i.i66, i64 16
   %77 = getelementptr inbounds i8, ptr %.0811.i.i.i.i.i65, i64 16
   %78 = add nsw i64 %.012.i.i.i.i.i64, -1
-  %79 = icmp ugt i64 %.012.i.i.i.i.i64, 1
+  %79 = icmp samesign ugt i64 %.012.i.i.i.i.i64, 1
   br i1 %79, label %.lr.ph.i.i.i.i.i63, label %_ZSt4copyIN9__gnu_cxx17__normal_iteratorIPN2cv15EstimatedCircleESt6vectorIS3_SaIS3_EEEES8_ET0_T_SA_S9_.exit, !llvm.loop !160
 
 80:                                               ; preds = %5
@@ -15710,7 +15710,7 @@ _ZSt25__unguarded_linear_insertIN9__gnu_cxx17__normal_iteratorIPN2cv15EstimatedC
   %43 = getelementptr inbounds i8, ptr %.069.i.i.i.i.i.i39, i64 -16
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %43, ptr noundef nonnull align 4 dereferenceable(16) %42, i64 16, i1 false)
   %44 = add nsw i64 %.010.i.i.i.i.i.i38, -1
-  %45 = icmp ugt i64 %.010.i.i.i.i.i.i38, 1
+  %45 = icmp samesign ugt i64 %.010.i.i.i.i.i.i38, 1
   br i1 %45, label %.lr.ph.i.i.i.i.i.i37, label %_ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPN2cv15EstimatedCircleESt6vectorIS3_SaIS3_EEEES8_ET0_T_SA_S9_.exit.i35, !llvm.loop !87
 
 _ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPN2cv15EstimatedCircleESt6vectorIS3_SaIS3_EEEES8_ET0_T_SA_S9_.exit.i35: ; preds = %.lr.ph.i.i.i.i.i.i37, %.preheader.preheader.i34

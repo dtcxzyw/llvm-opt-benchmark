@@ -720,7 +720,7 @@ if.then7:                                         ; preds = %if.end
 
 if.else:                                          ; preds = %if.end
   %sub16 = sub nsw i32 0, %match
-  %cmp17 = icmp ult i32 %conv9, %sub16
+  %cmp17 = icmp samesign ult i32 %conv9, %sub16
   br i1 %cmp17, label %return, label %if.end21
 
 if.end21:                                         ; preds = %if.else, %if.then7

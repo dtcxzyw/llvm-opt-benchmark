@@ -1237,7 +1237,7 @@ common.resume:                                    ; preds = %49, %21
   br label %_ZN5boost7archive6detail15common_iarchiveINS0_16binary_wiarchiveEE13load_overrideINS0_12version_typeEEEvRT_.exit
 
 29:                                               ; preds = %23
-  %30 = icmp ugt i16 %10, 5
+  %30 = icmp samesign ugt i16 %10, 5
   br i1 %30, label %31, label %35
 
 31:                                               ; preds = %29
@@ -1252,7 +1252,7 @@ common.resume:                                    ; preds = %49, %21
   br label %_ZN5boost7archive6detail15common_iarchiveINS0_16binary_wiarchiveEE13load_overrideINS0_12version_typeEEEvRT_.exit
 
 35:                                               ; preds = %29
-  %36 = icmp ugt i16 %10, 2
+  %36 = icmp samesign ugt i16 %10, 2
   %37 = getelementptr inbounds i8, ptr %0, i64 40
   br i1 %36, label %38, label %41
 
@@ -1667,7 +1667,7 @@ _ZNSt15basic_streambufIwSt11char_traitsIwEE6sbumpcEv.exit: ; preds = %26, %29
   br label %_ZNSt15basic_streambufIwSt11char_traitsIwEE6sbumpcEv.exit18
 
 50:                                               ; preds = %39
-  %51 = icmp ult i32 %.0.i, 8
+  %51 = icmp samesign ult i32 %.0.i, 8
   %52 = load ptr, ptr %9, align 8, !tbaa !20
   %53 = getelementptr inbounds nuw i8, ptr %52, i64 16
   %54 = load ptr, ptr %53, align 8, !tbaa !69

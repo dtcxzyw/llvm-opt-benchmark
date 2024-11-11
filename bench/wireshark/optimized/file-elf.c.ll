@@ -2684,7 +2684,7 @@ value_guard.exit.i1072:                           ; preds = %918
   %923 = call ptr @rval_to_str_const(i32 noundef %922, ptr noundef nonnull @dynamic_tag_rvals, ptr noundef nonnull @.str.627) #5
   call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %913, ptr noundef nonnull @.str.660, ptr noundef %923) #5
   %924 = add i32 %.09621258, 8
-  %925 = icmp ult i64 %919, 34
+  %925 = icmp samesign ult i64 %919, 34
   br i1 %925, label %926, label %.critedge84.i
 
 926:                                              ; preds = %value_guard.exit.i1072
@@ -3265,7 +3265,7 @@ value_guard.exit1086:                             ; preds = %1172
 
 1198:                                             ; preds = %._crit_edge
   %1199 = call i32 @tvb_captured_length(ptr noundef %0) #5
-  %1200 = icmp ult i64 %1194, 2147483648
+  %1200 = icmp samesign ult i64 %1194, 2147483648
   br i1 %1200, label %value_guard.exit1087, label %1201
 
 1201:                                             ; preds = %1198

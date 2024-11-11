@@ -1484,7 +1484,7 @@ invoke.cont36:                                    ; preds = %if.else
   %sub.ptr.rhs.cast43 = ptrtoint ptr %compressed to i64
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(262144) %call.i5758, i8 0, i64 262144, i1 false)
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(524296) %call.i, i8 0, i64 524296, i1 false)
-  %cmp.not72.i = icmp ugt i32 %1, %2
+  %cmp.not72.i = icmp samesign ugt i32 %1, %2
   br i1 %cmp.not72.i, label %for.end.i, label %for.body.lr.ph.i
 
 for.body.lr.ph.i:                                 ; preds = %invoke.cont36
@@ -1567,7 +1567,7 @@ lpad.i24.i:                                       ; preds = %if.then9.i
   br label %common.resume.i
 
 if.end10.i:                                       ; preds = %if.then3.i
-  %cmp8.i27.i = icmp ult i32 %sub.i.i, 8
+  %cmp8.i27.i = icmp samesign ult i32 %sub.i.i, 8
   br i1 %cmp8.i27.i, label %_ZN7Imf_3_212_GLOBAL__N_17getBitsEiRmRiRPKc.exit40.loopexit.i, label %_ZN7Imf_3_212_GLOBAL__N_17getBitsEiRmRiRPKc.exit40.i
 
 _ZN7Imf_3_212_GLOBAL__N_17getBitsEiRmRiRPKc.exit40.loopexit.i: ; preds = %if.end10.i
@@ -2044,7 +2044,7 @@ if.end.i116:                                      ; preds = %if.then.i115
   br i1 %cmp15.i117, label %if.then16.i121, label %if.else45.i118
 
 if.then16.i121:                                   ; preds = %if.end.i116
-  %cmp17.i = icmp ult i32 %sub10.i, 8
+  %cmp17.i = icmp samesign ult i32 %sub10.i, 8
   br i1 %cmp17.i, label %if.then18.i, label %if.end24.i
 
 if.then18.i:                                      ; preds = %if.then16.i121
@@ -2376,7 +2376,7 @@ if.end179.i:                                      ; preds = %if.then172.i
   br i1 %cmp182.i, label %if.then183.i, label %if.else217.i
 
 if.then183.i:                                     ; preds = %if.end179.i
-  %cmp184.i = icmp ult i32 %sub176.i, 8
+  %cmp184.i = icmp samesign ult i32 %sub176.i, 8
   br i1 %cmp184.i, label %if.then185.i, label %if.end191.i
 
 if.then185.i:                                     ; preds = %if.then183.i

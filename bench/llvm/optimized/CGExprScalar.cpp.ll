@@ -672,7 +672,7 @@ _ZNK5clang4Type13isBooleanTypeEv.exit46.thread:   ; preds = %_ZNK5clang4Type13is
   %.not40 = select i1 %80, i1 true, i1 %81
   %.demorgan = or i1 %52, %54
   %or.cond = and i1 %.demorgan, %.not40
-  %82 = icmp ugt i32 %50, %47
+  %82 = icmp samesign ugt i32 %50, %47
   %83 = and i1 %82, %54
   %not.or.cond = xor i1 %or.cond, true
   %84 = select i1 %not.or.cond, i1 true, i1 %83
@@ -37807,7 +37807,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_117ScalarExprEmitter14EmitBinOpChec
   %11 = load i32, ptr %10, align 8
   %12 = add i32 %11, -22
   %13 = icmp ult i32 %12, 10
-  %14 = icmp ugt i32 %11, 28
+  %14 = icmp samesign ugt i32 %11, 28
   %.0.v.i = select i1 %14, i32 -13, i32 -20
   %.0.i = select i1 %13, i32 %.0.v.i, i32 0
   %.030 = add nsw i32 %.0.i, %11

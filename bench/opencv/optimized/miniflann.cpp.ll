@@ -26341,7 +26341,7 @@ _ZNSt6vectorIjSaIjEE9push_backERKj.exit:          ; preds = %10, %_ZNSt6vectorIj
   %40 = shl nuw i32 1, %.0
   %41 = or i32 %40, %1
   tail call void @_ZN7cvflann8LshIndexINS_10HammingLUTEE13fill_xor_maskEjijRSt6vectorIjSaIjEE(ptr noundef nonnull align 8 dereferenceable(161) %0, i32 noundef %41, i32 noundef %.0, i32 noundef %38, ptr noundef nonnull align 8 dereferenceable(24) %4)
-  %42 = icmp ugt i32 %.0.in13, 1
+  %42 = icmp samesign ugt i32 %.0.in13, 1
   br i1 %42, label %39, label %.loopexit, !llvm.loop !204
 
 .loopexit:                                        ; preds = %39, %_ZNSt6vectorIjSaIjEE9push_backERKj.exit
@@ -35844,7 +35844,7 @@ define linkonce_odr hidden void @_ZN7cvflann18KNNSimpleResultSetIfE8addPointEfi(
   br label %30
 
 30:                                               ; preds = %24, %20
-  %31 = icmp ugt i64 %indvars.iv, 1
+  %31 = icmp samesign ugt i64 %indvars.iv, 1
   br i1 %31, label %15, label %._crit_edge.loopexit, !llvm.loop !269
 
 ._crit_edge.loopexit.split.loop.exit:             ; preds = %15
@@ -37578,7 +37578,7 @@ define linkonce_odr hidden void @_ZN7cvflann11KDTreeIndexINS_2L2IfEEE9meanSplitE
 108:                                              ; preds = %.lr.ph.i
   store i64 %104, ptr %98, align 8
   store i64 %99, ptr %103, align 8
-  %109 = icmp ugt i64 %indvars.iv.i, 2
+  %109 = icmp samesign ugt i64 %indvars.iv.i, 2
   br i1 %109, label %.lr.ph.i, label %.critedge.i, !llvm.loop !282
 
 .critedge.i:                                      ; preds = %108, %.lr.ph.i, %92, %82
@@ -50867,7 +50867,7 @@ _ZNSt6vectorIiSaIiEED2Ev.exit:                    ; preds = %14
   %138 = load i32, ptr %136, align 4
   store i32 %138, ptr %135, align 4
   store i32 %137, ptr %136, align 4
-  %139 = icmp ugt i64 %indvars.iv, 2
+  %139 = icmp samesign ugt i64 %indvars.iv, 2
   br i1 %139, label %.lr.ph, label %.critedge, !llvm.loop !422
 
 .critedge:                                        ; preds = %134, %.lr.ph, %125
@@ -58359,7 +58359,7 @@ _ZNSt6vectorIjSaIjEE9push_backERKj.exit:          ; preds = %10, %_ZNSt6vectorIj
   %40 = shl nuw i32 1, %.0
   %41 = or i32 %40, %1
   tail call void @_ZN7cvflann8LshIndexINS_2L2IfEEE13fill_xor_maskEjijRSt6vectorIjSaIjEE(ptr noundef nonnull align 8 dereferenceable(161) %0, i32 noundef %41, i32 noundef %.0, i32 noundef %38, ptr noundef nonnull align 8 dereferenceable(24) %4)
-  %42 = icmp ugt i32 %.0.in13, 1
+  %42 = icmp samesign ugt i32 %.0.in13, 1
   br i1 %42, label %39, label %.loopexit, !llvm.loop !510
 
 .loopexit:                                        ; preds = %39, %_ZNSt6vectorIjSaIjEE9push_backERKj.exit
@@ -66999,7 +66999,7 @@ define linkonce_odr hidden void @_ZN7cvflann11KDTreeIndexINS_2L1IfEEE9meanSplitE
 108:                                              ; preds = %.lr.ph.i
   store i64 %104, ptr %98, align 8
   store i64 %99, ptr %103, align 8
-  %109 = icmp ugt i64 %indvars.iv.i, 2
+  %109 = icmp samesign ugt i64 %indvars.iv.i, 2
   br i1 %109, label %.lr.ph.i, label %.critedge.i, !llvm.loop !559
 
 .critedge.i:                                      ; preds = %108, %.lr.ph.i, %92, %82
@@ -79793,7 +79793,7 @@ _ZNSt6vectorIiSaIiEED2Ev.exit:                    ; preds = %14
   %146 = load i32, ptr %144, align 4
   store i32 %146, ptr %143, align 4
   store i32 %145, ptr %144, align 4
-  %147 = icmp ugt i64 %indvars.iv, 2
+  %147 = icmp samesign ugt i64 %indvars.iv, 2
   br i1 %147, label %.lr.ph, label %.critedge, !llvm.loop !696
 
 .critedge:                                        ; preds = %142, %.lr.ph, %133
@@ -86543,7 +86543,7 @@ _ZNSt6vectorIjSaIjEE9push_backERKj.exit:          ; preds = %10, %_ZNSt6vectorIj
   %40 = shl nuw i32 1, %.0
   %41 = or i32 %40, %1
   tail call void @_ZN7cvflann8LshIndexINS_2L1IfEEE13fill_xor_maskEjijRSt6vectorIjSaIjEE(ptr noundef nonnull align 8 dereferenceable(161) %0, i32 noundef %41, i32 noundef %.0, i32 noundef %38, ptr noundef nonnull align 8 dereferenceable(24) %4)
-  %42 = icmp ugt i32 %.0.in13, 1
+  %42 = icmp samesign ugt i32 %.0.in13, 1
   br i1 %42, label %39, label %.loopexit, !llvm.loop !777
 
 .loopexit:                                        ; preds = %39, %_ZNSt6vectorIjSaIjEE9push_backERKj.exit

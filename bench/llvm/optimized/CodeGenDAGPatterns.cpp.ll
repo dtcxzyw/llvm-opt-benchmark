@@ -6891,7 +6891,7 @@ _ZNK4llvm19MachineValueTypeSet14const_iterator13find_from_posEj.exit545: ; preds
 
 _ZNK4llvm3MVT19getScalarSizeInBitsEv.exit.i.i576: ; preds = %581
   %583 = trunc i32 %.sroa.531.155.i548 to i16
-  %spec.select.i.i.i573 = icmp ult i16 %579, 137
+  %spec.select.i.i.i573 = icmp samesign ult i16 %579, 137
   %.mask.i575 = and i32 %storemerge53.i550, 65535
   %584 = zext nneg i32 %.mask.i575 to i64
   %585 = add nsw i64 %584, -1
@@ -42324,7 +42324,7 @@ _ZNSt12_Vector_baseIN4llvm10ScopedNameESaIS1_EE13_M_deallocateEPS1_m.exit: ; pre
   %51 = getelementptr inbounds i8, ptr %.0910.i.i.i.i.i, i64 40
   %52 = getelementptr inbounds i8, ptr %.0811.i.i.i.i.i, i64 40
   %53 = add nsw i64 %.012.i.i.i.i.i, -1
-  %54 = icmp ugt i64 %.012.i.i.i.i.i, 1
+  %54 = icmp samesign ugt i64 %.012.i.i.i.i.i, 1
   br i1 %54, label %.lr.ph.i.i.i.i.i25, label %_ZSt4copyIN9__gnu_cxx17__normal_iteratorIPKN4llvm10ScopedNameESt6vectorIS3_SaIS3_EEEENS1_IPS3_S8_EEET0_T_SD_SC_.exit.loopexit, !llvm.loop !769
 
 _ZSt4copyIN9__gnu_cxx17__normal_iteratorIPKN4llvm10ScopedNameESt6vectorIS3_SaIS3_EEEENS1_IPS3_S8_EEET0_T_SD_SC_.exit.loopexit: ; preds = %.lr.ph.i.i.i.i.i25
@@ -42372,7 +42372,7 @@ _ZSt4copyIN9__gnu_cxx17__normal_iteratorIPKN4llvm10ScopedNameESt6vectorIS3_SaIS3
   %67 = getelementptr inbounds i8, ptr %.0910.i.i.i.i.i34, i64 40
   %68 = getelementptr inbounds i8, ptr %.0811.i.i.i.i.i33, i64 40
   %69 = add nsw i64 %.012.i.i.i.i.i32, -1
-  %70 = icmp ugt i64 %.012.i.i.i.i.i32, 1
+  %70 = icmp samesign ugt i64 %.012.i.i.i.i.i32, 1
   br i1 %70, label %.lr.ph.i.i.i.i.i31, label %_ZSt4copyIPN4llvm10ScopedNameES2_ET0_T_S4_S3_.exit.loopexit, !llvm.loop !771
 
 _ZSt4copyIPN4llvm10ScopedNameES2_ET0_T_S4_S3_.exit.loopexit: ; preds = %.lr.ph.i.i.i.i.i31

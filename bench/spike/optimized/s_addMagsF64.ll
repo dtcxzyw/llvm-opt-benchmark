@@ -114,7 +114,7 @@ softfloat_shiftRightJam64.exit:                   ; preds = %59, %51, %41, %34
   %.1 = phi i64 [ %8, %34 ], [ %8, %41 ], [ %5, %51 ], [ %5, %59 ]
   %62 = add nuw nsw i64 %.055, 2305843009213693952
   %63 = add nuw nsw i64 %62, %.154
-  %64 = icmp ult i64 %63, 4611686018427387904
+  %64 = icmp samesign ult i64 %63, 4611686018427387904
   br i1 %64, label %65, label %68
 
 65:                                               ; preds = %softfloat_shiftRightJam64.exit

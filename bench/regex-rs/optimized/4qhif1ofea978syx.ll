@@ -1321,19 +1321,19 @@ define hidden range(i64 0, 9007194959773699) i64 @_ZN12regex_syntax5debug11utf8_
   br i1 %7, label %.thread61, label %8
 
 8:                                                ; preds = %5
-  %9 = icmp ult i8 %6, -64
+  %9 = icmp samesign ult i8 %6, -64
   br i1 %9, label %_ZN12regex_syntax5debug11utf8_decode3len17h1a2bfcb4e11f38b4E.exit.thread43, label %10
 
 10:                                               ; preds = %8
-  %11 = icmp ult i8 %6, -32
+  %11 = icmp samesign ult i8 %6, -32
   br i1 %11, label %_ZN12regex_syntax5debug11utf8_decode3len17h1a2bfcb4e11f38b4E.exit.thread, label %12
 
 12:                                               ; preds = %10
-  %13 = icmp ult i8 %6, -16
+  %13 = icmp samesign ult i8 %6, -16
   br i1 %13, label %_ZN12regex_syntax5debug11utf8_decode3len17h1a2bfcb4e11f38b4E.exit.thread, label %_ZN12regex_syntax5debug11utf8_decode3len17h1a2bfcb4e11f38b4E.exit
 
 _ZN12regex_syntax5debug11utf8_decode3len17h1a2bfcb4e11f38b4E.exit: ; preds = %12
-  %14 = icmp ult i8 %6, -8
+  %14 = icmp samesign ult i8 %6, -8
   br i1 %14, label %.thread, label %_ZN12regex_syntax5debug11utf8_decode3len17h1a2bfcb4e11f38b4E.exit.thread43
 
 15:                                               ; preds = %_ZN12regex_syntax5debug11utf8_decode3len17h1a2bfcb4e11f38b4E.exit.thread43, %.thread61, %64, %2, %62
@@ -1393,7 +1393,7 @@ _ZN12regex_syntax5debug11utf8_decode3len17h1a2bfcb4e11f38b4E.exit.thread43: ; pr
   %34 = and i8 %32, 63
   %35 = zext nneg i8 %34 to i32
   %36 = or disjoint i32 %33, %35
-  %37 = icmp ugt i8 %26, -33
+  %37 = icmp samesign ugt i8 %26, -33
   br i1 %37, label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17ha9763db3cafc62b3E.exit15.i", label %.thread56
 
 38:                                               ; preds = %25
@@ -1411,7 +1411,7 @@ _ZN12regex_syntax5debug11utf8_decode3len17h1a2bfcb4e11f38b4E.exit.thread43: ; pr
   %46 = or disjoint i32 %43, %45
   %47 = shl nuw nsw i32 %30, 12
   %48 = or disjoint i32 %46, %47
-  %49 = icmp ugt i8 %26, -17
+  %49 = icmp samesign ugt i8 %26, -17
   br i1 %49, label %50, label %.thread56
 
 50:                                               ; preds = %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17ha9763db3cafc62b3E.exit15.i"

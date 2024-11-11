@@ -3154,7 +3154,7 @@ _ZN2cvL27icvGetIntensityHistogram256INS_10AutoBufferIiLm256EEEEEvRKNS_3MatERT_.e
   %indvars.iv.next40.i.i = add nuw nsw i64 %indvars.iv39.i.i, 1
   %191 = trunc nuw nsw i64 %indvars.iv.next40.i.i to i32
   %.sroa.speculated.i.i = call i32 @llvm.umin.i32(i32 %191, i32 255)
-  %.not34.i.i = icmp ugt i32 %.sroa.speculated29.i.i, %.sroa.speculated.i.i
+  %.not34.i.i = icmp samesign ugt i32 %.sroa.speculated29.i.i, %.sroa.speculated.i.i
   br i1 %.not34.i.i, label %._crit_edge.i114.i, label %.lr.ph.i111.i
 
 .lr.ph.i111.i:                                    ; preds = %_ZN2cvL27icvGetIntensityHistogram256INS_10AutoBufferIiLm256EEEEEvRKNS_3MatERT_.exit.i
@@ -3245,7 +3245,7 @@ _ZN2cvL25icvGradientOfHistogram256INS_10AutoBufferIiLm256EEEEEvRKT_RS3_.exit.i: 
   %237 = load i32, ptr %236, align 4
   %238 = add nsw i32 %235, %237
   %239 = icmp slt i32 %238, %158
-  %240 = icmp ult i64 %indvars.iv.i, 64
+  %240 = icmp samesign ult i64 %indvars.iv.i, 64
   %or.cond.i = and i1 %240, %239
   br i1 %or.cond.i, label %249, label %241
 
@@ -3266,7 +3266,7 @@ _ZN2cvL25icvGradientOfHistogram256INS_10AutoBufferIiLm256EEEEEvRKT_RS3_.exit.i: 
 249:                                              ; preds = %241, %229, %225, %220
   %.196.i = phi i32 [ %.095139.i, %229 ], [ %242, %241 ], [ %.095139.i, %225 ], [ %.095139.i, %220 ]
   %250 = icmp ugt i64 %indvars.iv.i, 3
-  %251 = icmp ult i32 %.196.i, 20
+  %251 = icmp samesign ult i32 %.196.i, 20
   %252 = select i1 %250, i1 %251, i1 false
   br i1 %252, label %220, label %253, !llvm.loop !31
 
@@ -19946,7 +19946,7 @@ define linkonce_odr hidden void @_ZN7cvflann18KNNSimpleResultSetIfE8addPointEfi(
   br label %30
 
 30:                                               ; preds = %24, %20
-  %31 = icmp ugt i64 %indvars.iv, 1
+  %31 = icmp samesign ugt i64 %indvars.iv, 1
   br i1 %31, label %15, label %._crit_edge.loopexit, !llvm.loop !212
 
 ._crit_edge.loopexit.split.loop.exit:             ; preds = %15
@@ -21504,7 +21504,7 @@ define linkonce_odr hidden void @_ZN7cvflann11KDTreeIndexINS_9L2_SimpleIfEEE9mea
 108:                                              ; preds = %.lr.ph.i
   store i64 %104, ptr %98, align 8
   store i64 %99, ptr %103, align 8
-  %109 = icmp ugt i64 %indvars.iv.i, 2
+  %109 = icmp samesign ugt i64 %indvars.iv.i, 2
   br i1 %109, label %.lr.ph.i, label %.critedge.i, !llvm.loop !224
 
 .critedge.i:                                      ; preds = %108, %.lr.ph.i, %92, %82
@@ -34545,7 +34545,7 @@ _ZNK7cvflann9L2_SimpleIfEclIPfS3_EEfT_T0_mf.exit63.us: ; preds = %_ZNK7cvflann9L
   %65 = load i32, ptr %63, align 4
   store i32 %65, ptr %62, align 4
   store i32 %64, ptr %63, align 4
-  %66 = icmp ugt i64 %indvars.iv106, 2
+  %66 = icmp samesign ugt i64 %indvars.iv106, 2
   br i1 %66, label %.lr.ph.us, label %.critedge.us, !llvm.loop !378
 
 .preheader:                                       ; preds = %.critedge, %.critedge.us, %_ZNK7cvflann9L2_SimpleIfEclIPfS3_EEfT_T0_mf.exit.thread, %_ZNK7cvflann9L2_SimpleIfEclIPfS3_EEfT_T0_mf.exit
@@ -34647,7 +34647,7 @@ _ZNSt6vectorIiSaIiEED2Ev.exit:                    ; preds = %14
   %111 = load i32, ptr %109, align 4
   store i32 %111, ptr %108, align 4
   store i32 %110, ptr %109, align 4
-  %112 = icmp ugt i64 %indvars.iv, 2
+  %112 = icmp samesign ugt i64 %indvars.iv, 2
   br i1 %112, label %.lr.ph, label %.critedge, !llvm.loop !378
 
 .critedge:                                        ; preds = %107, %.lr.ph, %98
@@ -41575,7 +41575,7 @@ _ZNSt6vectorIjSaIjEE9push_backERKj.exit:          ; preds = %10, %_ZNSt6vectorIj
   %40 = shl nuw i32 1, %.0
   %41 = or i32 %40, %1
   tail call void @_ZN7cvflann8LshIndexINS_9L2_SimpleIfEEE13fill_xor_maskEjijRSt6vectorIjSaIjEE(ptr noundef nonnull align 8 dereferenceable(161) %0, i32 noundef %41, i32 noundef %.0, i32 noundef %38, ptr noundef nonnull align 8 dereferenceable(24) %4)
-  %42 = icmp ugt i32 %.0.in13, 1
+  %42 = icmp samesign ugt i32 %.0.in13, 1
   br i1 %42, label %39, label %.loopexit, !llvm.loop !465
 
 .loopexit:                                        ; preds = %39, %_ZNSt6vectorIjSaIjEE9push_backERKj.exit

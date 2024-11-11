@@ -391,7 +391,7 @@ define dso_local i32 @intel_gsc_uc_fw_upload(ptr noundef %0) local_unnamed_addr 
   br i1 %16, label %17, label %193
 
 17:                                               ; preds = %15
-  %18 = icmp ugt i32 %11, 8
+  %18 = icmp samesign ugt i32 %11, 8
   br i1 %18, label %19, label %20
 
 19:                                               ; preds = %17

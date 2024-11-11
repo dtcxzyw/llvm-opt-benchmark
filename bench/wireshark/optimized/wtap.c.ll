@@ -1782,7 +1782,7 @@ define ptr @wtap_strerror(i32 noundef %0) local_unnamed_addr #12 {
   br i1 %2, label %3, label %15
 
 3:                                                ; preds = %1
-  %4 = icmp ult i32 %0, -27
+  %4 = icmp samesign ult i32 %0, -27
   br i1 %4, label %5, label %7
 
 5:                                                ; preds = %3

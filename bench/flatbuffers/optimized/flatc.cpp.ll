@@ -12512,7 +12512,7 @@ while.body:                                       ; preds = %while.cond.preheade
   %start_of_description.137 = phi i64 [ %inc51, %while.body ], [ %chars.3, %while.cond.preheader ]
   %call50 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %add.ptr, ptr noundef nonnull @.str.325)
   %inc51 = add nuw nsw i64 %start_of_description.137, 1
-  %cmp48 = icmp ult i64 %start_of_description.137, 24
+  %cmp48 = icmp samesign ult i64 %start_of_description.137, 24
   br i1 %cmp48, label %while.body, label %if.end52, !llvm.loop !5
 
 if.end52:                                         ; preds = %while.body, %while.cond.preheader, %invoke.cont46
@@ -24807,7 +24807,7 @@ if.end6:                                          ; preds = %switch.hole_check, 
   br i1 %cmp.i.i, label %cond.true.i.i, label %cond.false7.i.i
 
 cond.true.i.i:                                    ; preds = %if.end6
-  %cmp2.i.i = icmp ult i8 %r.sroa.13.8.extract.trunc, 2
+  %cmp2.i.i = icmp samesign ult i8 %r.sroa.13.8.extract.trunc, 2
   br i1 %cmp2.i.i, label %cond.true3.i.i, label %cond.false.i.i
 
 cond.true3.i.i:                                   ; preds = %cond.true.i.i
@@ -24854,7 +24854,7 @@ if.end11:                                         ; preds = %_ZN11flexbuffers10R
   br i1 %cmp.i.i, label %cond.true.i.i.i.i, label %cond.false7.i.i.i.i
 
 cond.true.i.i.i.i:                                ; preds = %if.end11
-  %cmp2.i.i.i.i = icmp ult i8 %r.sroa.13.8.extract.trunc, 2
+  %cmp2.i.i.i.i = icmp samesign ult i8 %r.sroa.13.8.extract.trunc, 2
   br i1 %cmp2.i.i.i.i, label %cond.true3.i.i.i.i, label %cond.false.i.i.i.i
 
 cond.true3.i.i.i.i:                               ; preds = %cond.true.i.i.i.i
@@ -25002,11 +25002,11 @@ sw.bb49:                                          ; preds = %if.end17
 land.rhs52:                                       ; preds = %sw.bb49
   %idx.neg.i.i.i = sub nsw i64 0, %conv
   %add.ptr.i.i.i = getelementptr inbounds i8, ptr %add.ptr.i.i, i64 %idx.neg.i.i.i
-  %cmp.i.i.i.i.i = icmp ult i8 %r.sroa.25.8.extract.trunc, 4
+  %cmp.i.i.i.i.i = icmp samesign ult i8 %r.sroa.25.8.extract.trunc, 4
   br i1 %cmp.i.i.i.i.i, label %cond.true.i.i.i.i.i, label %cond.false7.i.i.i.i.i
 
 cond.true.i.i.i.i.i:                              ; preds = %land.rhs52
-  %cmp2.i.i.i.i.i = icmp ult i8 %r.sroa.25.8.extract.trunc, 2
+  %cmp2.i.i.i.i.i = icmp samesign ult i8 %r.sroa.25.8.extract.trunc, 2
   br i1 %cmp2.i.i.i.i.i, label %cond.true3.i.i.i.i.i, label %cond.false.i.i.i.i.i
 
 cond.true3.i.i.i.i.i:                             ; preds = %cond.true.i.i.i.i.i
@@ -25020,7 +25020,7 @@ cond.false.i.i.i.i.i:                             ; preds = %cond.true.i.i.i.i.i
   br label %_ZN11flexbuffers6StringC2EPKhh.exit
 
 cond.false7.i.i.i.i.i:                            ; preds = %land.rhs52
-  %cmp9.i.i.i.i.i = icmp ult i8 %r.sroa.25.8.extract.trunc, 8
+  %cmp9.i.i.i.i.i = icmp samesign ult i8 %r.sroa.25.8.extract.trunc, 8
   br i1 %cmp9.i.i.i.i.i, label %cond.true10.i.i.i.i.i, label %cond.false13.i.i.i.i.i
 
 cond.true10.i.i.i.i.i:                            ; preds = %cond.false7.i.i.i.i.i
@@ -25197,7 +25197,7 @@ if.end36:                                         ; preds = %if.end8.if.end36_cr
   br i1 %cmp.i.i.i.i, label %cond.true.i.i.i.i, label %cond.false7.i.i.i.i
 
 cond.true.i.i.i.i:                                ; preds = %if.end36
-  %cmp2.i.i.i.i = icmp ult i8 %r.sroa.2.8.extract.trunc, 2
+  %cmp2.i.i.i.i = icmp samesign ult i8 %r.sroa.2.8.extract.trunc, 2
   br i1 %cmp2.i.i.i.i, label %cond.true3.i.i.i.i, label %cond.false.i.i.i.i
 
 cond.true3.i.i.i.i:                               ; preds = %cond.true.i.i.i.i
@@ -25271,7 +25271,7 @@ if.end57:                                         ; preds = %if.then53
   br i1 %cmp.i.i.i.i, label %cond.true.i.i.i.i.i, label %cond.false7.i.i.i.i.i
 
 cond.true.i.i.i.i.i:                              ; preds = %if.end57
-  %cmp2.i.i.i.i.i = icmp ult i8 %r.sroa.2.8.extract.trunc, 2
+  %cmp2.i.i.i.i.i = icmp samesign ult i8 %r.sroa.2.8.extract.trunc, 2
   br i1 %cmp2.i.i.i.i.i, label %cond.true3.i.i.i.i.i, label %cond.false.i.i.i.i.i
 
 cond.true3.i.i.i.i.i:                             ; preds = %cond.true.i.i.i.i.i
@@ -25345,7 +25345,7 @@ if.then65:                                        ; preds = %if.end51
   br i1 %cmp.i.i.i.i.i52, label %cond.true.i.i.i.i.i60, label %cond.false7.i.i.i.i.i53
 
 cond.true.i.i.i.i.i60:                            ; preds = %if.then65
-  %cmp2.i.i.i.i.i61 = icmp ult i8 %cond, 2
+  %cmp2.i.i.i.i.i61 = icmp samesign ult i8 %cond, 2
   br i1 %cmp2.i.i.i.i.i61, label %cond.true3.i.i.i.i.i64, label %cond.false.i.i.i.i.i62
 
 cond.true3.i.i.i.i.i64:                           ; preds = %cond.true.i.i.i.i.i60
@@ -25425,7 +25425,7 @@ if.end:                                           ; preds = %entry
   br i1 %cmp.i.i14, label %cond.true.i.i, label %cond.false7.i.i
 
 cond.true.i.i:                                    ; preds = %if.end
-  %cmp2.i.i = icmp ult i8 %byte_width, 2
+  %cmp2.i.i = icmp samesign ult i8 %byte_width, 2
   br i1 %cmp2.i.i, label %cond.true3.i.i, label %cond.false.i.i
 
 cond.true3.i.i:                                   ; preds = %cond.true.i.i
@@ -25467,7 +25467,7 @@ if.end7:                                          ; preds = %_ZN11flexbuffers10R
   br i1 %cmp.i.i14, label %cond.true.i.i25, label %cond.false7.i.i19
 
 cond.true.i.i25:                                  ; preds = %if.end7
-  %cmp2.i.i26 = icmp ult i8 %byte_width, 2
+  %cmp2.i.i26 = icmp samesign ult i8 %byte_width, 2
   br i1 %cmp2.i.i26, label %cond.true3.i.i29, label %cond.false.i.i27
 
 cond.true3.i.i29:                                 ; preds = %cond.true.i.i25

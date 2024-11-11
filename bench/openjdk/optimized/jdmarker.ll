@@ -3485,7 +3485,7 @@ define internal fastcc void @examine_app0(ptr noundef %0, ptr nocapture noundef 
   br label %185
 
 126:                                              ; preds = %4
-  %127 = icmp ugt i32 %2, 5
+  %127 = icmp samesign ugt i32 %2, 5
   br i1 %127, label %.thread, label %.thread.thread
 
 .thread:                                          ; preds = %126

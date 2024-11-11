@@ -2658,7 +2658,7 @@ while.body.i.i:                                   ; preds = %while.body.i.i, %wh
   %shl.i.i = shl i8 %bit_mask.038.i.i, 1
   %dec.i.i = add nsw i64 %remaining.139.i.i, -1
   %cmp8.i.i = icmp ne i8 %shl.i.i, 0
-  %cmp9.i.i = icmp ugt i64 %remaining.139.i.i, 1
+  %cmp9.i.i = icmp samesign ugt i64 %remaining.139.i.i, 1
   %10 = select i1 %cmp8.i.i, i1 %cmp9.i.i, i1 false
   br i1 %10, label %while.body.i.i, label %while.end.i.i, !llvm.loop !73
 
@@ -2761,7 +2761,7 @@ while.body64.i.i:                                 ; preds = %while.cond61.prehea
   %23 = select i1 %cmp.i34.not.i.i, i8 0, i8 %bit_mask.149.i.i
   %conv71.i.i = or i8 %23, %current_byte.148.i.i
   %conv67.i.i = shl i8 %bit_mask.149.i.i, 1
-  %cmp63.i.i = icmp ugt i64 %remaining_bits.050.i.i, 1
+  %cmp63.i.i = icmp samesign ugt i64 %remaining_bits.050.i.i, 1
   br i1 %cmp63.i.i, label %while.body64.i.i, label %while.end75.i.i, !llvm.loop !76
 
 while.end75.i.i:                                  ; preds = %while.body64.i.i, %while.cond61.preheader.i.i
@@ -3017,7 +3017,7 @@ while.body.i.i:                                   ; preds = %while.body.i.i, %wh
   %shl.i.i = shl i8 %bit_mask.038.i.i, 1
   %dec.i.i = add nsw i64 %remaining.139.i.i, -1
   %cmp8.i.i = icmp ne i8 %shl.i.i, 0
-  %cmp9.i.i = icmp ugt i64 %remaining.139.i.i, 1
+  %cmp9.i.i = icmp samesign ugt i64 %remaining.139.i.i, 1
   %10 = select i1 %cmp8.i.i, i1 %cmp9.i.i, i1 false
   br i1 %10, label %while.body.i.i, label %while.end.i.i, !llvm.loop !99
 
@@ -3120,7 +3120,7 @@ while.body64.i.i:                                 ; preds = %while.cond61.prehea
   %23 = select i1 %tobool.i34.not.i.i, i8 0, i8 %bit_mask.149.i.i
   %conv71.i.i = or i8 %23, %current_byte.148.i.i
   %conv67.i.i = shl i8 %bit_mask.149.i.i, 1
-  %cmp63.i.i = icmp ugt i64 %remaining_bits.050.i.i, 1
+  %cmp63.i.i = icmp samesign ugt i64 %remaining_bits.050.i.i, 1
   br i1 %cmp63.i.i, label %while.body64.i.i, label %while.end75.i.i, !llvm.loop !102
 
 while.end75.i.i:                                  ; preds = %while.body64.i.i, %while.cond61.preheader.i.i
@@ -3265,7 +3265,7 @@ while.body.i.i:                                   ; preds = %while.body.i.i, %wh
   %shl.i.i = shl i8 %bit_mask.052.i.i, 1
   %dec.i.i = add nsw i64 %remaining.153.i.i, -1
   %cmp8.i.i = icmp ne i8 %shl.i.i, 0
-  %cmp9.i.i = icmp ugt i64 %remaining.153.i.i, 1
+  %cmp9.i.i = icmp samesign ugt i64 %remaining.153.i.i, 1
   %14 = select i1 %cmp8.i.i, i1 %cmp9.i.i, i1 false
   br i1 %14, label %while.body.i.i, label %while.end.i.i, !llvm.loop !114
 
@@ -3388,7 +3388,7 @@ while.body64.i.i:                                 ; preds = %while.body64.i.i.pr
   %33 = select i1 %tobool.i.i.i.i.i48.not.i.i, i8 0, i8 %bit_mask.163.i.i
   %conv71.i.i = or i8 %33, %current_byte.162.i.i
   %conv67.i.i = shl i8 %bit_mask.163.i.i, 1
-  %cmp63.i.i = icmp ugt i64 %remaining_bits.064.i.i, 1
+  %cmp63.i.i = icmp samesign ugt i64 %remaining_bits.064.i.i, 1
   br i1 %cmp63.i.i, label %while.body64.i.i, label %while.end75.i.i, !llvm.loop !117
 
 while.end75.i.i:                                  ; preds = %while.body64.i.i, %while.cond61.preheader.i.i
@@ -3505,7 +3505,7 @@ while.body.i.i:                                   ; preds = %while.body.i.i, %wh
   %shl.i.i = shl i8 %bit_mask.052.i.i, 1
   %dec.i.i = add nsw i64 %remaining.153.i.i, -1
   %cmp8.i.i = icmp ne i8 %shl.i.i, 0
-  %cmp9.i.i = icmp ugt i64 %remaining.153.i.i, 1
+  %cmp9.i.i = icmp samesign ugt i64 %remaining.153.i.i, 1
   %14 = select i1 %cmp8.i.i, i1 %cmp9.i.i, i1 false
   br i1 %14, label %while.body.i.i, label %while.end.i.i, !llvm.loop !129
 
@@ -3628,7 +3628,7 @@ while.body64.i.i:                                 ; preds = %while.body64.i.i.pr
   %33 = select i1 %tobool.i.i.i.i.i48.not.i.i, i8 0, i8 %bit_mask.163.i.i
   %conv71.i.i = or i8 %33, %current_byte.162.i.i
   %conv67.i.i = shl i8 %bit_mask.163.i.i, 1
-  %cmp63.i.i = icmp ugt i64 %remaining_bits.064.i.i, 1
+  %cmp63.i.i = icmp samesign ugt i64 %remaining_bits.064.i.i, 1
   br i1 %cmp63.i.i, label %while.body64.i.i, label %while.end75.i.i, !llvm.loop !132
 
 while.end75.i.i:                                  ; preds = %while.body64.i.i, %while.cond61.preheader.i.i
@@ -6529,7 +6529,7 @@ while.body:                                       ; preds = %while.body.lr.ph, %
   %shl = shl i8 %bit_mask.041, 1
   %dec = add nsw i64 %remaining.142, -1
   %cmp8 = icmp ne i8 %shl, 0
-  %cmp9 = icmp ugt i64 %remaining.142, 1
+  %cmp9 = icmp samesign ugt i64 %remaining.142, 1
   %12 = select i1 %cmp8, i1 %cmp9, i1 false
   br i1 %12, label %while.body, label %while.end, !llvm.loop !257
 
@@ -6656,7 +6656,7 @@ while.body64:                                     ; preds = %while.body64.lr.ph,
   %39 = select i1 %tobool.i33.not, i8 0, i8 %bit_mask.152
   %conv71 = or i8 %39, %current_byte.151
   %conv67 = shl i8 %bit_mask.152, 1
-  %cmp63 = icmp ugt i64 %remaining_bits.053, 1
+  %cmp63 = icmp samesign ugt i64 %remaining_bits.053, 1
   br i1 %cmp63, label %while.body64, label %while.end75, !llvm.loop !260
 
 while.end75:                                      ; preds = %while.body64, %while.cond61.preheader

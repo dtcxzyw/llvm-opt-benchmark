@@ -720,7 +720,7 @@ for.end:                                          ; preds = %_ZNSt15_Deque_itera
   br i1 %cmp.i.i45, label %land.lhs.true.i.i, label %cond.false.i.i
 
 land.lhs.true.i.i:                                ; preds = %for.end
-  %cmp2.i.i = icmp ult i64 %add.i.i44, 32
+  %cmp2.i.i = icmp samesign ult i64 %add.i.i44, 32
   br i1 %cmp2.i.i, label %if.then.i.i, label %cond.true.i.i
 
 if.then.i.i:                                      ; preds = %land.lhs.true.i.i

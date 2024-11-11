@@ -542,7 +542,7 @@ define range(i32 0, -2147483648) i32 @Wlc_ObjFaninBitNum(ptr nocapture noundef r
   br i1 %4, label %.lr.ph, label %.critedge
 
 .lr.ph:                                           ; preds = %2
-  %5 = icmp ugt i32 %.val11, 2
+  %5 = icmp samesign ugt i32 %.val11, 2
   %6 = getelementptr inbounds i8, ptr %1, i64 16
   %7 = getelementptr i8, ptr %0, i64 640
   %.val = load ptr, ptr %7, align 8
@@ -1171,7 +1171,7 @@ Wlc_ObjFaninId.exit:                              ; preds = %225, %Wlc_ObjHasArr
   br i1 %249, label %.lr.ph.i932, label %Wlc_ObjFaninBitNum.exit
 
 .lr.ph.i932:                                      ; preds = %239
-  %250 = icmp ugt i32 %.val11.i, 2
+  %250 = icmp samesign ugt i32 %.val11.i, 2
   %251 = getelementptr inbounds i8, ptr %109, i64 16
   %.val.i933 = load ptr, ptr %84, align 8
   br i1 %250, label %.lr.ph.split.us.i, label %.lr.ph.split.i
@@ -1341,7 +1341,7 @@ Wlc_ObjConstValue.exit:                           ; preds = %Wlc_ObjHasArray.exi
   %330 = add nuw nsw i32 %327, 87
   %.0.i.i = select i1 %328, i32 %329, i32 %330
   %fputc.i = call i32 @fputc(i32 %.0.i.i, ptr %0)
-  %331 = icmp ugt i32 %.0.in5.i, 1
+  %331 = icmp samesign ugt i32 %.0.in5.i, 1
   br i1 %331, label %.lr.ph.i938, label %Abc_TtPrintHexArrayRev.exit, !llvm.loop !15
 
 332:                                              ; preds = %179, %179
@@ -1757,7 +1757,7 @@ Wlc_ObjFaninId.exit970:                           ; preds = %Wlc_ObjFaninId.exit
   %527 = icmp eq i64 %indvars.iv1221, %526
   %528 = zext i1 %527 to i32
   %529 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %0, ptr noundef nonnull @.str.57, i32 noundef %528) #12
-  %530 = icmp ugt i32 %.0712.in1138, 2
+  %530 = icmp samesign ugt i32 %.0712.in1138, 2
   br i1 %530, label %.lr.ph1139, label %._crit_edge, !llvm.loop !19
 
 ._crit_edge:                                      ; preds = %.lr.ph1139, %521
@@ -1817,7 +1817,7 @@ Wlc_ObjFaninId.exit972:                           ; preds = %535, %Wlc_ObjHasArr
   %.1713.in1143 = phi i32 [ %557, %.critedge10 ], [ %.1713, %558 ]
   %.1713 = add nsw i32 %.1713.in1143, -1
   %559 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %0, ptr noundef nonnull @.str.57, i32 noundef 0) #12
-  %560 = icmp ugt i32 %.1713.in1143, 1
+  %560 = icmp samesign ugt i32 %.1713.in1143, 1
   br i1 %560, label %558, label %561, !llvm.loop !21
 
 561:                                              ; preds = %558
@@ -1947,7 +1947,7 @@ Wlc_ObjFaninId.exit977:                           ; preds = %606, %Wlc_ObjHasArr
   %.val833 = load i32, ptr %117, align 4
   %629 = sub nsw i32 %.val832, %.val833
   %630 = call i32 @llvm.abs.i32(i32 %629, i1 true)
-  %.not1095 = icmp ugt i32 %.7.in1131, %630
+  %.not1095 = icmp samesign ugt i32 %.7.in1131, %630
   %631 = select i1 %.not1095, ptr @.str.14, ptr @.str.70
   %632 = call ptr @Wlc_ObjName(ptr noundef nonnull %1, i32 noundef %581) #12
   %633 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %0, ptr noundef nonnull @.str.69, ptr noundef nonnull %631, ptr noundef %632) #12

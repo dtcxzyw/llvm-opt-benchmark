@@ -280,7 +280,7 @@ _ZNSt6vectorIiSaIiEED2Ev.exit41:                  ; preds = %.noexc35
   %82 = shl i32 %80, %81
   %83 = trunc i32 %82 to i8
   %84 = add i8 %.02163, %83
-  %85 = icmp ugt i64 %indvars.iv69, 1
+  %85 = icmp samesign ugt i64 %indvars.iv69, 1
   br i1 %85, label %.lr.ph66, label %._crit_edge67.thread, !llvm.loop !7
 
 ._crit_edge67:                                    ; preds = %._crit_edge

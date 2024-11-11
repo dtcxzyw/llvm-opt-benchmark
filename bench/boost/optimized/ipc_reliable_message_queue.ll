@@ -5934,7 +5934,7 @@ _ZNK5boost12interprocess20shared_memory_object8get_sizeERl.exit: ; preds = %9
   br label %7
 
 32:                                               ; preds = %_ZNK5boost12interprocess20shared_memory_object8get_sizeERl.exit
-  %33 = icmp ult i64 %15, 232
+  %33 = icmp samesign ult i64 %15, 232
   br i1 %33, label %.thread44, label %34, !prof !71
 
 .thread44:                                        ; preds = %17, %32

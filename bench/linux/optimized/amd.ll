@@ -454,7 +454,7 @@ define internal void @early_init_amd(ptr noundef %0) #2 align 16 {
   br label %78
 
 70:                                               ; preds = %65
-  %71 = icmp ugt i8 %66, 14
+  %71 = icmp samesign ugt i8 %66, 14
   br i1 %71, label %72, label %78
 
 72:                                               ; preds = %70

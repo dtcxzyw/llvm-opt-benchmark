@@ -3296,8 +3296,8 @@ declare noundef zeroext i16 @_ZN10open_spiel2go23VirtualPointFrom2DPointESt4pair
 define void @_ZNK10open_spiel9cursor_go13CursorGoState14ActionToStringB5cxx11Eil(ptr dead_on_unwind noalias writable sret(%"class.std::__cxx11::basic_string") align 8 %0, ptr nocapture nonnull readnone align 8 %1, i32 %2, i64 noundef %3) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %5 = alloca %"class.std::allocator", align 1
   %6 = alloca [1 x %"class.absl::debian2::str_format_internal::FormatArgImpl"], align 8
-  %.not = icmp ult i64 %3, 6
-  br i1 %.not, label %9, label %_ZN4absl7debian219str_format_internal18FormatSpecTemplateIJLNS0_23FormatConversionCharSetE131067EEEC2EUa9enable_ifIXclL_ZNS1_15ValidFormatImplIJLS3_131067EEEEbNS0_11string_viewEEfL0p_EEEPKc.exit
+  %or.cond = icmp ult i64 %3, 6
+  br i1 %or.cond, label %9, label %_ZN4absl7debian219str_format_internal18FormatSpecTemplateIJLNS0_23FormatConversionCharSetE131067EEEC2EUa9enable_ifIXclL_ZNS1_15ValidFormatImplIJLS3_131067EEEEbNS0_11string_viewEEfL0p_EEEPKc.exit
 
 _ZN4absl7debian219str_format_internal18FormatSpecTemplateIJLNS0_23FormatConversionCharSetE131067EEEC2EUa9enable_ifIXclL_ZNS1_15ValidFormatImplIJLS3_131067EEEEbNS0_11string_viewEEfL0p_EEEPKc.exit: ; preds = %4
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %6)

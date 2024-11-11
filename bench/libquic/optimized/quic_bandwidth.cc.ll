@@ -372,11 +372,11 @@ if.then:                                          ; preds = %entry
   br label %return
 
 if.end:                                           ; preds = %entry
-  %cmp5 = icmp ult i64 %0, 8000000
+  %cmp5 = icmp samesign ult i64 %0, 8000000
   br i1 %cmp5, label %if.end12, label %if.else
 
 if.else:                                          ; preds = %if.end
-  %cmp8 = icmp ult i64 %0, 8000000000
+  %cmp8 = icmp samesign ult i64 %0, 8000000000
   %. = select i1 %cmp8, i32 77, i32 71
   %.3 = select i1 %cmp8, double 1.000000e+06, double 1.000000e+09
   br label %if.end12

@@ -1510,7 +1510,7 @@ switch.early.test.i.i.i.i.i.i:                    ; preds = %for.body.i.i.i.i.i.
 
 if.then.i.i.i.i.i.i:                              ; preds = %switch.early.test.i.i.i.i.i.i, %switch.early.test.i.i.i.i.i.i, %switch.early.test.i.i.i.i.i.i, %switch.early.test.i.i.i.i.i.i, %switch.early.test.i.i.i.i.i.i, %switch.early.test.i.i.i.i.i.i, %switch.early.test.i.i.i.i.i.i, %switch.early.test.i.i.i.i.i.i, %switch.early.test.i.i.i.i.i.i, %switch.early.test.i.i.i.i.i.i, %switch.early.test.i.i.i.i.i.i, %switch.early.test.i.i.i.i.i.i, %for.body.i.i.i.i.i.i
   %shl.i.i.i.i.i.i = shl i64 %hex.022.i.i.i.i.i.i, 4
-  %cmp10.i.i.i.i.i.i = icmp ult i8 %.fr19.i.i.i.i.i.i, 65
+  %cmp10.i.i.i.i.i.i = icmp samesign ult i8 %.fr19.i.i.i.i.i.i, 65
   %sub.i.i.i.i.i.i = add nsw i32 %conv.i.i.i.i.i.i, -48
   %and.i.i.i.i.i.i = and i32 %conv.i.i.i.i.i.i, 15
   %add.i.i.i.i.i.i = add nuw nsw i32 %and.i.i.i.i.i.i, 9
@@ -1591,7 +1591,7 @@ switch.early.test.i.i33.i.i.i.i:                  ; preds = %for.body.i.i27.i.i.
 
 if.then.i.i34.i.i.i.i:                            ; preds = %switch.early.test.i.i33.i.i.i.i, %switch.early.test.i.i33.i.i.i.i, %switch.early.test.i.i33.i.i.i.i, %switch.early.test.i.i33.i.i.i.i, %switch.early.test.i.i33.i.i.i.i, %switch.early.test.i.i33.i.i.i.i, %switch.early.test.i.i33.i.i.i.i, %switch.early.test.i.i33.i.i.i.i, %switch.early.test.i.i33.i.i.i.i, %switch.early.test.i.i33.i.i.i.i, %switch.early.test.i.i33.i.i.i.i, %switch.early.test.i.i33.i.i.i.i, %for.body.i.i27.i.i.i.i
   %shl.i.i35.i.i.i.i = shl i64 %hex.022.i.i28.i.i.i.i, 4
-  %cmp10.i.i36.i.i.i.i = icmp ult i8 %.fr19.i.i30.i.i.i.i, 65
+  %cmp10.i.i36.i.i.i.i = icmp samesign ult i8 %.fr19.i.i30.i.i.i.i, 65
   %sub.i.i37.i.i.i.i = add nsw i32 %conv.i.i31.i.i.i.i, -48
   %and.i.i38.i.i.i.i = and i32 %conv.i.i31.i.i.i.i, 15
   %add.i.i39.i.i.i.i = add nuw nsw i32 %and.i.i38.i.i.i.i, 9
@@ -1709,7 +1709,7 @@ switch.early.test.i.i.i.i.i:                      ; preds = %for.body.i.i.i.i.i
 
 if.then.i50.i.i.i.i:                              ; preds = %switch.early.test.i.i.i.i.i, %switch.early.test.i.i.i.i.i, %switch.early.test.i.i.i.i.i, %switch.early.test.i.i.i.i.i, %switch.early.test.i.i.i.i.i, %switch.early.test.i.i.i.i.i, %switch.early.test.i.i.i.i.i, %switch.early.test.i.i.i.i.i, %switch.early.test.i.i.i.i.i, %switch.early.test.i.i.i.i.i, %switch.early.test.i.i.i.i.i, %switch.early.test.i.i.i.i.i, %for.body.i.i.i.i.i
   %shl.i.i.i.i.i = shl i64 %hex.022.i.i.i.i.i, 4
-  %cmp10.i.i.i.i.i = icmp ult i8 %.fr19.i.i.i.i.i, 65
+  %cmp10.i.i.i.i.i = icmp samesign ult i8 %.fr19.i.i.i.i.i, 65
   %sub.i51.i.i.i.i = add nsw i32 %conv.i.i.i.i.i, -48
   %and.i.i.i.i.i = and i32 %conv.i.i.i.i.i, 15
   %add.i.i.i.i.i = add nuw nsw i32 %and.i.i.i.i.i, 9
@@ -2680,7 +2680,7 @@ do.body9.i.i.i.i:                                 ; preds = %if.end.i.i85.i.i
 
 if.end12.i.i.i.i:                                 ; preds = %if.end.i.i85.i.i
   %div1323.i.i.i.i = lshr exact i64 %retval.0.i.i.i.i.i, 6
-  %cmp14.i.i88.i.i = icmp ult i64 %retval.0.i.i.i.i.i, 1088
+  %cmp14.i.i88.i.i = icmp samesign ult i64 %retval.0.i.i.i.i.i, 1088
   br i1 %cmp14.i.i88.i.i, label %for.cond18.preheader.i.i.i.i, label %cond.false16.i.i.i.i
 
 for.cond18.preheader.i.i.i.i:                     ; preds = %if.end12.i.i.i.i
@@ -2892,7 +2892,7 @@ cond.end10.i.i.i.i:                               ; preds = %cond.end.i.i.i.i
   br i1 %cmp12.not.i.i101.i.i, label %cond.false14.i.i.i.i, label %for.cond16.preheader.i.i.i.i
 
 for.cond16.preheader.i.i.i.i:                     ; preds = %cond.end10.i.i.i.i
-  %cmp1748.not.i.i.i.i = icmp ult i64 %retval.0.i.i80.i.i.i, 24
+  %cmp1748.not.i.i.i.i = icmp samesign ult i64 %retval.0.i.i80.i.i.i, 24
   br i1 %cmp1748.not.i.i.i.i, label %for.end.i86.i.i.i, label %for.body18.i.i.i.i
 
 cond.false14.i.i.i.i:                             ; preds = %cond.end10.i.i.i.i
@@ -3052,7 +3052,7 @@ do.body.i90.i.i.i:                                ; preds = %_ZN4absl18debugging
   br label %for.inc.i86.i.i
 
 do.body52.i.i.i.i:                                ; preds = %_ZN4absl18debugging_internal12_GLOBAL__N_111CachingFile14ReadFromOffsetEPvml.exit80.i.i.i.i
-  %cmp53.i.i.i.i = icmp ugt i64 %retval.0.i65.i.i.i.i, 3072
+  %cmp53.i.i.i.i = icmp samesign ugt i64 %retval.0.i65.i.i.i.i, 3072
   br i1 %cmp53.i.i.i.i, label %do.body56.i.i.i.i, label %do.end62.i.i.i.i
 
 do.body56.i.i.i.i:                                ; preds = %do.body52.i.i.i.i

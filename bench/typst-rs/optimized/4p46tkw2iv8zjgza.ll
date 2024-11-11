@@ -3587,7 +3587,7 @@ define hidden void @"_ZN5image6codecs3gif19GifEncoder$LT$W$GT$10encode_gif17h6d0
 
 .noexc49:                                         ; preds = %67
   %70 = mul nuw nsw i64 %.zext.i.i.i, 3
-  %71 = icmp ugt i64 %70, %65
+  %71 = icmp samesign ugt i64 %70, %65
   br i1 %71, label %72, label %73
 
 72:                                               ; preds = %.noexc49

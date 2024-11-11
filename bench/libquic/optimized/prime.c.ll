@@ -85,8 +85,8 @@ if.then:                                          ; preds = %cond.end46
   br label %return
 
 if.else:                                          ; preds = %cond.end46
-  %cmp25 = icmp ugt i32 %bits, 199
-  %cmp28 = icmp ugt i32 %bits, 149
+  %cmp25 = icmp samesign ugt i32 %bits, 199
+  %cmp28 = icmp samesign ugt i32 %bits, 149
   %cond = select i1 %cmp28, i32 18, i32 27
   %cond29 = select i1 %cmp25, i32 15, i32 %cond
   %cmp49 = icmp eq i32 %bits, 2

@@ -2258,7 +2258,7 @@ define hidden void @_ZN2cv3hfs9Magnitude13nonMaxSuppCpuEv(ptr nocapture noundef 
   br i1 %59, label %61, label %104
 
 61:                                               ; preds = %60
-  %.not192 = icmp ult i32 %49, %55
+  %.not192 = icmp samesign ult i32 %49, %55
   br i1 %.not192, label %83, label %62
 
 62:                                               ; preds = %61
@@ -2310,7 +2310,7 @@ define hidden void @_ZN2cv3hfs9Magnitude13nonMaxSuppCpuEv(ptr nocapture noundef 
 
 104:                                              ; preds = %60
   %105 = sub nsw i32 0, %55
-  %.not191 = icmp ult i32 %49, %105
+  %.not191 = icmp samesign ult i32 %49, %105
   br i1 %.not191, label %125, label %106
 
 106:                                              ; preds = %104
@@ -2413,7 +2413,7 @@ define hidden void @_ZN2cv3hfs9Magnitude13nonMaxSuppCpuEv(ptr nocapture noundef 
   br label %232
 
 188:                                              ; preds = %146
-  %189 = icmp ugt i32 %55, %49
+  %189 = icmp samesign ugt i32 %55, %49
   br i1 %189, label %190, label %211
 
 190:                                              ; preds = %188

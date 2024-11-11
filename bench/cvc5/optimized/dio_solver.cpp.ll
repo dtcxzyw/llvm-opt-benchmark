@@ -6676,7 +6676,7 @@ entry:
   br i1 %cmp.i.i.i.i, label %land.lhs.true.i.i.i.i, label %cond.false.i.i.i.i
 
 land.lhs.true.i.i.i.i:                            ; preds = %entry
-  %cmp2.i.i.i.i = icmp ult i64 %sub.ptr.div.i.i.i.i, 64
+  %cmp2.i.i.i.i = icmp samesign ult i64 %sub.ptr.div.i.i.i.i, 64
   br i1 %cmp2.i.i.i.i, label %_ZNSt5dequeImSaImEEixEm.exit, label %cond.true.i.i.i.i
 
 cond.true.i.i.i.i:                                ; preds = %land.lhs.true.i.i.i.i
@@ -6754,7 +6754,7 @@ for.body:                                         ; preds = %for.body.lr.ph, %if
   br i1 %cmp.i.i.i.i15, label %land.lhs.true.i.i.i.i25, label %cond.false.i.i.i.i16
 
 land.lhs.true.i.i.i.i25:                          ; preds = %for.body
-  %cmp2.i.i.i.i26 = icmp ult i64 %add.i.i.i.i, 64
+  %cmp2.i.i.i.i26 = icmp samesign ult i64 %add.i.i.i.i, 64
   br i1 %cmp2.i.i.i.i26, label %if.then.i.i.i.i29, label %cond.true.i.i.i.i27
 
 if.then.i.i.i.i29:                                ; preds = %land.lhs.true.i.i.i.i25
@@ -6846,7 +6846,7 @@ for.end:                                          ; preds = %for.end.loopexit, %
   br i1 %cmp.i.i.i.i44, label %land.lhs.true.i.i.i.i54, label %cond.false.i.i.i.i70
 
 land.lhs.true.i.i.i.i54:                          ; preds = %for.end
-  %cmp2.i.i.i.i55 = icmp ult i64 %add.i.i.i.i43, 64
+  %cmp2.i.i.i.i55 = icmp samesign ult i64 %add.i.i.i.i43, 64
   br i1 %cmp2.i.i.i.i55, label %if.then.i.i.i.i83, label %cond.true.i.i.i.i81
 
 if.then.i.i.i.i83:                                ; preds = %land.lhs.true.i.i.i.i54
@@ -12478,7 +12478,7 @@ for.body:                                         ; preds = %land.rhs
   br i1 %cmp.i.i.i.i, label %land.lhs.true.i.i.i.i, label %cond.false.i.i.i.i
 
 land.lhs.true.i.i.i.i:                            ; preds = %for.body
-  %cmp2.i.i.i.i = icmp ult i64 %add.i.i.i.i, 64
+  %cmp2.i.i.i.i = icmp samesign ult i64 %add.i.i.i.i, 64
   br i1 %cmp2.i.i.i.i, label %if.then.i.i.i.i, label %cond.true.i.i.i.i
 
 if.then.i.i.i.i:                                  ; preds = %land.lhs.true.i.i.i.i
@@ -12522,7 +12522,7 @@ if.then:                                          ; preds = %_ZNSt5dequeImSaImEE
   br i1 %cmp.i.i.i.i26, label %land.lhs.true.i.i.i.i36, label %cond.false.i.i.i.i27
 
 land.lhs.true.i.i.i.i36:                          ; preds = %if.then
-  %cmp2.i.i.i.i37 = icmp ult i64 %add.i.i.i.i25, 64
+  %cmp2.i.i.i.i37 = icmp samesign ult i64 %add.i.i.i.i25, 64
   br i1 %cmp2.i.i.i.i37, label %if.then.i.i.i.i40, label %cond.true.i.i.i.i38
 
 if.then.i.i.i.i40:                                ; preds = %land.lhs.true.i.i.i.i36
@@ -12602,7 +12602,7 @@ if.then17:                                        ; preds = %lor.lhs.false
   br i1 %cmp.i.i.i.i55, label %land.lhs.true.i.i.i.i65, label %cond.false.i.i.i.i56
 
 land.lhs.true.i.i.i.i65:                          ; preds = %if.then17
-  %cmp2.i.i.i.i66 = icmp ult i64 %add.i.i.i.i54, 64
+  %cmp2.i.i.i.i66 = icmp samesign ult i64 %add.i.i.i.i54, 64
   br i1 %cmp2.i.i.i.i66, label %if.then.i.i.i.i69, label %cond.true.i.i.i.i67
 
 if.then.i.i.i.i69:                                ; preds = %land.lhs.true.i.i.i.i65
@@ -15275,7 +15275,7 @@ if.then3:                                         ; preds = %if.else
   br i1 %cmp.i.i, label %land.lhs.true.i.i, label %cond.false.i.i
 
 land.lhs.true.i.i:                                ; preds = %if.then3
-  %cmp2.i.i = icmp ult i64 %add.i.i13, 64
+  %cmp2.i.i = icmp samesign ult i64 %add.i.i13, 64
   br i1 %cmp2.i.i, label %if.then.i.i, label %cond.true.i.i
 
 if.then.i.i:                                      ; preds = %land.lhs.true.i.i
@@ -23427,7 +23427,7 @@ if.end.i:                                         ; preds = %if.then.i, %if.then
   br i1 %cmp.i.i.i, label %land.lhs.true.i.i.i, label %cond.false.i.i.i
 
 land.lhs.true.i.i.i:                              ; preds = %if.end.i
-  %cmp2.i.i.i = icmp ult i64 %add.i.i.i, 64
+  %cmp2.i.i.i = icmp samesign ult i64 %add.i.i.i, 64
   br i1 %cmp2.i.i.i, label %if.then.i.i.i, label %cond.true.i.i.i
 
 if.then.i.i.i:                                    ; preds = %land.lhs.true.i.i.i

@@ -1255,7 +1255,7 @@ _load_cluster_settings.exit:                      ; preds = %119, %121, %123
   br i1 %.not256, label %282, label %.loopexit330
 
 213:                                              ; preds = %.lr.ph
-  %214 = icmp ugt i16 %141, 9983
+  %214 = icmp samesign ugt i16 %141, 9983
   br i1 %214, label %215, label %279
 
 215:                                              ; preds = %213
@@ -3136,7 +3136,7 @@ define internal fastcc void @_pack_node(ptr noundef readonly %0, ptr noundef %1,
   br label %671
 
 231:                                              ; preds = %4
-  %232 = icmp ugt i16 %2, 10239
+  %232 = icmp samesign ugt i16 %2, 10239
   br i1 %232, label %233, label %457
 
 233:                                              ; preds = %231
@@ -3559,7 +3559,7 @@ define internal fastcc void @_pack_node(ptr noundef readonly %0, ptr noundef %1,
   br label %671
 
 457:                                              ; preds = %231
-  %458 = icmp ugt i16 %2, 9983
+  %458 = icmp samesign ugt i16 %2, 9983
   br i1 %458, label %459, label %669
 
 459:                                              ; preds = %457

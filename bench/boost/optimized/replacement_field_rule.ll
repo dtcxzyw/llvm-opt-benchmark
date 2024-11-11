@@ -801,8 +801,8 @@ _ZN5boost6system10error_codeC2ERKS1_PKNS_15source_locationE.exit54: ; preds = %_
 
 72:                                               ; preds = %70
   %73 = icmp eq i64 %.0.lcssa, 1844674407370955161
-  %74 = icmp ugt i8 %68, 5
-  %or.cond = and i1 %73, %74
+  %74 = icmp samesign ugt i8 %68, 5
+  %or.cond = select i1 %73, i1 %74, i1 false
   br i1 %or.cond, label %75, label %84
 
 75:                                               ; preds = %72, %70

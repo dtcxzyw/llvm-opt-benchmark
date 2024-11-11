@@ -417,7 +417,7 @@ sw.bb:                                            ; preds = %if.end
   br i1 %tobool.not, label %if.else5, label %if.then2
 
 if.then2:                                         ; preds = %sw.bb
-  %cmp3.i = icmp ult i64 %addr, 2
+  %cmp3.i = icmp samesign ult i64 %addr, 2
   br i1 %cmp3.i, label %extract16.exit, label %if.else.i
 
 if.else.i:                                        ; preds = %if.then2
@@ -727,7 +727,7 @@ sw.bb:                                            ; preds = %trace_serial_write.
   br i1 %tobool.not, label %if.else10, label %if.then4
 
 if.then4:                                         ; preds = %sw.bb
-  %cmp3.i = icmp ult i64 %addr, 4
+  %cmp3.i = icmp samesign ult i64 %addr, 4
   br i1 %cmp3.i, label %deposit32.exit, label %if.else.i
 
 if.else.i:                                        ; preds = %if.then4
@@ -1859,7 +1859,7 @@ if.then2.i:                                       ; preds = %if.then.i
   %recv_fifo_itl.i = getelementptr inbounds i8, ptr %opaque, i64 328
   %3 = load i8, ptr %recv_fifo_itl.i, align 8
   %conv5.i = zext i8 %3 to i32
-  %cmp6.not.i = icmp ugt i32 %2, %conv5.i
+  %cmp6.not.i = icmp samesign ugt i32 %2, %conv5.i
   %sub.i = sub nuw nsw i32 %conv5.i, %2
   %spec.select.i = select i1 %cmp6.not.i, i32 1, i32 %sub.i
   br label %serial_can_receive.exit

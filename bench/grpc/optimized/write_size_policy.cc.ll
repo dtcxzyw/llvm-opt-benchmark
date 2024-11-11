@@ -160,7 +160,7 @@ if.then25:                                        ; preds = %if.then23
   br label %if.end56
 
 if.else:                                          ; preds = %if.end17
-  %cmp.i4 = icmp ugt i64 %retval.0.i.i, 1000
+  %cmp.i4 = icmp samesign ugt i64 %retval.0.i.i, 1000
   %state_39 = getelementptr inbounds i8, ptr %this, i64 16
   br i1 %cmp.i4, label %if.then38, label %if.else53
 

@@ -7802,7 +7802,7 @@ _ZNSt12_Vector_baseISt4pairIN3vcg6Point3IfEENS1_6Color4IhEEESaIS6_EE13_M_dealloc
   %38 = getelementptr inbounds i8, ptr %.0910.i.i.i.i.i, i64 16
   %39 = getelementptr inbounds i8, ptr %.0811.i.i.i.i.i, i64 16
   %40 = add nsw i64 %.012.i.i.i.i.i, -1
-  %41 = icmp ugt i64 %.012.i.i.i.i.i, 1
+  %41 = icmp samesign ugt i64 %.012.i.i.i.i.i, 1
   br i1 %41, label %.lr.ph.i.i.i.i.i, label %_ZSt22__uninitialized_copy_aIPSt4pairIN3vcg6Point3IfEENS1_6Color4IhEEES7_S6_ET0_T_S9_S8_RSaIT1_E.exit, !llvm.loop !152
 
 42:                                               ; preds = %28
@@ -7822,7 +7822,7 @@ _ZNSt12_Vector_baseISt4pairIN3vcg6Point3IfEENS1_6Color4IhEEESaIS6_EE13_M_dealloc
   %48 = getelementptr inbounds i8, ptr %.0910.i.i.i.i.i29, i64 16
   %49 = getelementptr inbounds i8, ptr %.0811.i.i.i.i.i28, i64 16
   %50 = add nsw i64 %.012.i.i.i.i.i27, -1
-  %51 = icmp ugt i64 %.012.i.i.i.i.i27, 1
+  %51 = icmp samesign ugt i64 %.012.i.i.i.i.i27, 1
   br i1 %51, label %.lr.ph.i.i.i.i.i26, label %_ZSt4copyIPSt4pairIN3vcg6Point3IfEENS1_6Color4IhEEES7_ET0_T_S9_S8_.exit.loopexit, !llvm.loop !153
 
 _ZSt4copyIPSt4pairIN3vcg6Point3IfEENS1_6Color4IhEEES7_ET0_T_S9_S8_.exit.loopexit: ; preds = %.lr.ph.i.i.i.i.i26

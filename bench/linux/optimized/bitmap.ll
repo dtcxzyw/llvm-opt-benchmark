@@ -870,7 +870,7 @@ define dso_local void @__bitmap_set(ptr nocapture noundef %0, i32 noundef %1, i3
   store i64 %18, ptr %16, align 8
   %19 = getelementptr i8, ptr %16, i64 8
   %20 = add nsw i32 %14, -64
-  %21 = icmp ugt i32 %14, 63
+  %21 = icmp samesign ugt i32 %14, 63
   br i1 %21, label %.preheader, label %22, !llvm.loop !24
 
 22:                                               ; preds = %.preheader
@@ -926,7 +926,7 @@ define dso_local void @__bitmap_clear(ptr nocapture noundef %0, i32 noundef %1, 
   store i64 %21, ptr %19, align 8
   %22 = getelementptr i8, ptr %19, i64 8
   %23 = add nsw i32 %17, -64
-  %24 = icmp ugt i32 %17, 63
+  %24 = icmp samesign ugt i32 %17, 63
   br i1 %24, label %16, label %25, !llvm.loop !25
 
 25:                                               ; preds = %16

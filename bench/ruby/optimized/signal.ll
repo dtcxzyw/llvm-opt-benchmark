@@ -1911,7 +1911,7 @@ define internal noundef i64 @esignal_init(i32 noundef %0, ptr nocapture noundef 
   br i1 %10, label %35, label %11
 
 11:                                               ; preds = %7
-  %12 = icmp ugt i32 %0, 2
+  %12 = icmp samesign ugt i32 %0, 2
   br i1 %12, label %13, label %rb_check_arity.exit
 
 13:                                               ; preds = %11
@@ -2023,27 +2023,27 @@ declare void @rb_alias(i64 noundef, i64 noundef, i64 noundef) local_unnamed_addr
 define internal i64 @interrupt_init(i32 noundef %0, ptr nocapture noundef readonly %1, i64 %2) #1 {
   %4 = alloca [2 x i64], align 16
   store i64 5, ptr %4, align 16
-  %5 = icmp ugt i32 %0, 1
-  br i1 %5, label %6, label %rb_check_arity.exit
+  %or.cond.not = icmp ult i32 %0, 2
+  br i1 %or.cond.not, label %rb_check_arity.exit, label %5
 
-6:                                                ; preds = %3
+5:                                                ; preds = %3
   tail call void @rb_error_arity(i32 noundef %0, i32 noundef 0, i32 noundef 1) #17
   unreachable
 
 rb_check_arity.exit:                              ; preds = %3
   %.not = icmp eq i32 %0, 0
-  br i1 %.not, label %9, label %7
+  br i1 %.not, label %8, label %6
 
-7:                                                ; preds = %rb_check_arity.exit
-  %8 = load i64, ptr %1, align 8
-  br label %9
+6:                                                ; preds = %rb_check_arity.exit
+  %7 = load i64, ptr %1, align 8
+  br label %8
 
-9:                                                ; preds = %rb_check_arity.exit, %7
-  %10 = phi i64 [ %8, %7 ], [ 4, %rb_check_arity.exit ]
-  %11 = getelementptr inbounds i8, ptr %4, i64 8
-  store i64 %10, ptr %11, align 8
-  %12 = call i64 @rb_call_super(i32 noundef 2, ptr noundef nonnull %4) #16
-  ret i64 %12
+8:                                                ; preds = %rb_check_arity.exit, %6
+  %9 = phi i64 [ %7, %6 ], [ 4, %rb_check_arity.exit ]
+  %10 = getelementptr inbounds i8, ptr %4, i64 8
+  store i64 %9, ptr %10, align 8
+  %11 = call i64 @rb_call_super(i32 noundef 2, ptr noundef nonnull %4) #16
+  ret i64 %11
 }
 
 ; Function Attrs: nounwind sspstrong uwtable

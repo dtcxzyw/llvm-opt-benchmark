@@ -10200,7 +10200,7 @@ if.then.i219:                                     ; preds = %if.end43
   %45 = call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %44, i1 false)
   %conv.i = trunc nuw nsw i64 %45 to i32
   %.sroa.speculated.i = call i32 @llvm.umin.i32(i32 %43, i32 %conv.i)
-  %cmp.i220.not = icmp ugt i32 %43, %conv.i
+  %cmp.i220.not = icmp samesign ugt i32 %43, %conv.i
   br i1 %cmp.i220.not, label %if.else.i, label %if.then2.i
 
 if.then2.i:                                       ; preds = %if.then.i219

@@ -953,7 +953,7 @@ _ZNK10OpenSubdiv6v3_6_03Bfr16PatchTreeBuilder17testFaceAncestorsEv.exit: ; preds
   %106 = load ptr, ptr %104, align 8
   %107 = getelementptr inbounds i32, ptr %106, i64 %105
   %108 = load i32, ptr %107, align 4
-  %109 = icmp ugt i64 %indvars.iv.i, 1
+  %109 = icmp samesign ugt i64 %indvars.iv.i, 1
   br i1 %109, label %101, label %_ZNK10OpenSubdiv6v3_6_03Bfr16PatchTreeBuilder18faceAncestorIsRootEii.exit, !llvm.loop !15
 
 _ZNK10OpenSubdiv6v3_6_03Bfr16PatchTreeBuilder18faceAncestorIsRootEii.exit: ; preds = %101
@@ -13472,7 +13472,7 @@ define noundef zeroext i1 @_ZNK10OpenSubdiv6v3_6_03Bfr16PatchTreeBuilder18faceAn
   %15 = load ptr, ptr %13, align 8
   %16 = getelementptr inbounds i32, ptr %15, i64 %14
   %17 = load i32, ptr %16, align 4
-  %18 = icmp ugt i64 %indvars.iv, 1
+  %18 = icmp samesign ugt i64 %indvars.iv, 1
   br i1 %18, label %10, label %._crit_edge, !llvm.loop !15
 
 ._crit_edge:                                      ; preds = %10, %3

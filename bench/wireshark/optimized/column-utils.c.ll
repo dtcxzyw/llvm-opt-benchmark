@@ -3335,7 +3335,7 @@ define internal fastcc void @set_abs_time(ptr noundef %0, ptr noundef %1, ptr no
   br label %48
 
 28:                                               ; preds = %19
-  %29 = icmp ugt i32 %25, 2047
+  %29 = icmp samesign ugt i32 %25, 2047
   br i1 %29, label %48, label %30
 
 30:                                               ; preds = %28
@@ -3433,7 +3433,7 @@ define internal fastcc void @set_abs_ydoy_time(ptr noundef %0, ptr noundef %1, p
   br label %54
 
 34:                                               ; preds = %19
-  %35 = icmp ugt i32 %31, 2047
+  %35 = icmp samesign ugt i32 %31, 2047
   br i1 %35, label %54, label %36
 
 36:                                               ; preds = %34
@@ -3531,7 +3531,7 @@ define internal fastcc void @set_time_hour_min_sec(ptr nocapture noundef readonl
   br label %54
 
 28:                                               ; preds = %25
-  %29 = icmp ugt i32 %.049, 2047
+  %29 = icmp samesign ugt i32 %.049, 2047
   br i1 %29, label %54, label %30
 
 30:                                               ; preds = %28

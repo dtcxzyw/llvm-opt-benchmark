@@ -363,7 +363,7 @@ define internal void @cn_rx_skb(ptr noundef %0) #0 align 16 {
 
 11:                                               ; preds = %5
   %12 = icmp ult i32 %3, %8
-  %13 = icmp ugt i32 %9, 16384
+  %13 = icmp samesign ugt i32 %9, 16384
   %14 = or i1 %12, %13
   br i1 %14, label %70, label %15
 

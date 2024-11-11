@@ -1543,7 +1543,7 @@ sw.bb7:                                           ; preds = %if.end5
   br label %sw.epilog
 
 sw.bb12:                                          ; preds = %if.end5
-  %cmp13 = icmp ugt i64 %1, 4294967295
+  %cmp13 = icmp samesign ugt i64 %1, 4294967295
   br i1 %cmp13, label %if.then14, label %if.end16
 
 if.then14:                                        ; preds = %sw.bb12

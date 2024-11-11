@@ -7421,7 +7421,7 @@ _ZN5QListI12QCPDataRangeE3endEv.exit:             ; preds = %_ZNK17QArrayDataPoi
   %82 = load i64, ptr %80, align 4
   store i64 %82, ptr %81, align 4
   %83 = add nsw i64 %.010.i.i.i.i.i.i.i, -1
-  %84 = icmp ugt i64 %.010.i.i.i.i.i.i.i, 1
+  %84 = icmp samesign ugt i64 %.010.i.i.i.i.i.i.i, 1
   br i1 %84, label %.lr.ph.i.i.i.i.i.i.i, label %_ZSt13move_backwardIN5QListI12QCPDataRangeE8iteratorES3_ET0_T_S5_S4_.exit.i.i, !llvm.loop !51
 
 85:                                               ; preds = %69
@@ -7510,7 +7510,7 @@ _ZSt25__unguarded_linear_insertIN5QListI12QCPDataRangeE8iteratorEN9__gnu_cxx5__o
   %111 = load i64, ptr %109, align 4
   store i64 %111, ptr %110, align 4
   %112 = add nsw i64 %.010.i.i.i.i.i.i36.i, -1
-  %113 = icmp ugt i64 %.010.i.i.i.i.i.i36.i, 1
+  %113 = icmp samesign ugt i64 %.010.i.i.i.i.i.i36.i, 1
   br i1 %113, label %.lr.ph.i.i.i.i.i.i35.i, label %_ZSt13move_backwardIN5QListI12QCPDataRangeE8iteratorES3_ET0_T_S5_S4_.exit.i33.i, !llvm.loop !51
 
 114:                                              ; preds = %.lr.ph.i22.i
@@ -99482,7 +99482,7 @@ _ZN16QCPDataContainerI12QCPGraphDataE5beginEv.exit: ; preds = %_ZNK17QArrayDataP
   %64 = getelementptr i8, ptr %.sroa.05.07.i.i.i.i.i, i64 16
   %65 = getelementptr i8, ptr %.sroa.0.08.i.i.i.i.i, i64 16
   %66 = add nsw i64 %.09.i.i.i.i.i, -1
-  %67 = icmp ugt i64 %.09.i.i.i.i.i, 1
+  %67 = icmp samesign ugt i64 %.09.i.i.i.i.i, 1
   br i1 %67, label %.lr.ph.i.i.i.i.i, label %.critedge3, !llvm.loop !879
 
 .critedge:                                        ; preds = %30, %34
@@ -99572,7 +99572,7 @@ _ZN16QCPDataContainerI12QCPGraphDataE3endEv.exit: ; preds = %_ZNK17QArrayDataPoi
   %97 = getelementptr i8, ptr %.sroa.05.07.i.i.i.i.i45, i64 16
   %98 = getelementptr i8, ptr %.sroa.0.08.i.i.i.i.i44, i64 16
   %99 = add nsw i64 %.09.i.i.i.i.i43, -1
-  %100 = icmp ugt i64 %.09.i.i.i.i.i43, 1
+  %100 = icmp samesign ugt i64 %.09.i.i.i.i.i43, 1
   br i1 %100, label %.lr.ph.i.i.i.i.i42, label %_ZSt4copyIN5QListI12QCPGraphDataE14const_iteratorENS2_8iteratorEET0_T_S6_S5_.exit46, !llvm.loop !879
 
 _ZSt4copyIN5QListI12QCPGraphDataE14const_iteratorENS2_8iteratorEET0_T_S6_S5_.exit46: ; preds = %.lr.ph.i.i.i.i.i42, %_ZN16QCPDataContainerI12QCPGraphDataE3endEv.exit
@@ -99675,7 +99675,7 @@ _ZN16QCPDataContainerI12QCPGraphDataE3endEv.exit54: ; preds = %_ZNK17QArrayDataP
   %145 = getelementptr i8, ptr %.sroa.0.09.i.i.i.i.i.i.i, i64 -16
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %145, ptr noundef nonnull align 8 dereferenceable(16) %144, i64 16, i1 false)
   %146 = add nsw i64 %.010.i.i.i.i.i.i.i, -1
-  %147 = icmp ugt i64 %.010.i.i.i.i.i.i.i, 1
+  %147 = icmp samesign ugt i64 %.010.i.i.i.i.i.i.i, 1
   br i1 %147, label %.lr.ph.i.i.i.i.i.i.i, label %_ZSt13move_backwardIN5QListI12QCPGraphDataE8iteratorES3_ET0_T_S5_S4_.exit.i.i, !llvm.loop !880
 
 _ZSt13move_backwardIN5QListI12QCPGraphDataE8iteratorES3_ET0_T_S5_S4_.exit.i.i: ; preds = %.lr.ph.i.i.i.i.i.i.i, %138
@@ -99776,7 +99776,7 @@ _ZSt25__unguarded_linear_insertIN5QListI12QCPGraphDataE8iteratorEN9__gnu_cxx5__o
   %170 = getelementptr i8, ptr %.sroa.0.09.i.i.i.i.i.i37.i, i64 -16
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %170, ptr noundef nonnull align 8 dereferenceable(16) %169, i64 16, i1 false)
   %171 = add nsw i64 %.010.i.i.i.i.i.i36.i, -1
-  %172 = icmp ugt i64 %.010.i.i.i.i.i.i36.i, 1
+  %172 = icmp samesign ugt i64 %.010.i.i.i.i.i.i36.i, 1
   br i1 %172, label %.lr.ph.i.i.i.i.i.i35.i, label %_ZSt13move_backwardIN5QListI12QCPGraphDataE8iteratorES3_ET0_T_S5_S4_.exit.i33.i, !llvm.loop !880
 
 _ZSt13move_backwardIN5QListI12QCPGraphDataE8iteratorES3_ET0_T_S5_S4_.exit.i33.i: ; preds = %.lr.ph.i.i.i.i.i.i35.i, %163
@@ -107308,7 +107308,7 @@ _ZNK17QArrayDataPointerI7QPointFE11needsDetachEv.exit.thread.i.i.i: ; preds = %_
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.0.08.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.05.07.i.i.i.i.i, i64 16, i1 false)
   %40 = getelementptr i8, ptr %.sroa.05.07.i.i.i.i.i, i64 16
   %41 = add nsw i64 %.09.i.i.i.i.i, -1
-  %42 = icmp ugt i64 %.09.i.i.i.i.i, 1
+  %42 = icmp samesign ugt i64 %.09.i.i.i.i.i, 1
   br i1 %42, label %.lr.ph.i.i.i.i.i, label %_ZSt4copyIN5QListI7QPointFE14const_iteratorENS2_8iteratorEET0_T_S6_S5_.exit, !llvm.loop !934
 
 _ZSt4copyIN5QListI7QPointFE14const_iteratorENS2_8iteratorEET0_T_S6_S5_.exit: ; preds = %.lr.ph.i.i.i.i.i, %36
@@ -107825,7 +107825,7 @@ _ZNK17QArrayDataPointerI7QPointFE11needsDetachEv.exit.thread.i.i.i: ; preds = %_
   %115 = getelementptr i8, ptr %.sroa.05.07.i.i.i.i.i, i64 16
   %116 = getelementptr i8, ptr %.sroa.0.08.i.i.i.i.i, i64 16
   %117 = add nsw i64 %.09.i.i.i.i.i, -1
-  %118 = icmp ugt i64 %.09.i.i.i.i.i, 1
+  %118 = icmp samesign ugt i64 %.09.i.i.i.i.i, 1
   br i1 %118, label %.lr.ph.i.i.i.i.i, label %.loopexit326, !llvm.loop !934
 
 .loopexit326:                                     ; preds = %.lr.ph.i.i.i.i.i, %111
@@ -107866,7 +107866,7 @@ _ZNK17QArrayDataPointerI7QPointFE11needsDetachEv.exit.thread.i.i.i85: ; preds = 
   %131 = getelementptr i8, ptr %.sroa.05.07.i.i.i.i.i92, i64 16
   %132 = getelementptr i8, ptr %.sroa.0.08.i.i.i.i.i91, i64 16
   %133 = add nsw i64 %.09.i.i.i.i.i90, -1
-  %134 = icmp ugt i64 %.09.i.i.i.i.i90, 1
+  %134 = icmp samesign ugt i64 %.09.i.i.i.i.i90, 1
   br i1 %134, label %.lr.ph.i.i.i.i.i89, label %_ZSt4copyIN5QListI7QPointFE14const_iteratorENS2_8iteratorEET0_T_S6_S5_.exit93, !llvm.loop !934
 
 _ZSt4copyIN5QListI7QPointFE14const_iteratorENS2_8iteratorEET0_T_S6_S5_.exit93: ; preds = %.lr.ph.i.i.i.i.i89, %127
@@ -109530,7 +109530,7 @@ _ZN5QListI12QCPGraphDataE5beginEv.exit:           ; preds = %_ZNK17QArrayDataPoi
   %213 = getelementptr i8, ptr %.sroa.05.07.i.i.i.i.i, i64 16
   %214 = getelementptr i8, ptr %.sroa.0.08.i.i.i.i.i, i64 16
   %215 = add nsw i64 %.09.i.i.i.i.i, -1
-  %216 = icmp ugt i64 %.09.i.i.i.i.i, 1
+  %216 = icmp samesign ugt i64 %.09.i.i.i.i.i, 1
   br i1 %216, label %.lr.ph.i.i.i.i.i, label %_ZSt4copyIN5QListI12QCPGraphDataE14const_iteratorENS2_8iteratorEET0_T_S6_S5_.exit, !llvm.loop !879
 
 _ZSt4copyIN5QListI12QCPGraphDataE14const_iteratorENS2_8iteratorEET0_T_S6_S5_.exit: ; preds = %.lr.ph.i.i.i.i.i, %_ZN5QListI12QCPGraphDataE5beginEv.exit, %177, %._crit_edge.thread, %48, %4, %45
@@ -111926,7 +111926,7 @@ _ZN16QCPDataContainerI12QCPCurveDataE5beginEv.exit: ; preds = %_ZNK17QArrayDataP
   %64 = getelementptr i8, ptr %.sroa.05.07.i.i.i.i.i, i64 24
   %65 = getelementptr i8, ptr %.sroa.0.08.i.i.i.i.i, i64 24
   %66 = add nsw i64 %.09.i.i.i.i.i, -1
-  %67 = icmp ugt i64 %.09.i.i.i.i.i, 1
+  %67 = icmp samesign ugt i64 %.09.i.i.i.i.i, 1
   br i1 %67, label %.lr.ph.i.i.i.i.i, label %.critedge3, !llvm.loop !956
 
 .critedge:                                        ; preds = %30, %34
@@ -112016,7 +112016,7 @@ _ZN16QCPDataContainerI12QCPCurveDataE3endEv.exit: ; preds = %_ZNK17QArrayDataPoi
   %97 = getelementptr i8, ptr %.sroa.05.07.i.i.i.i.i46, i64 24
   %98 = getelementptr i8, ptr %.sroa.0.08.i.i.i.i.i45, i64 24
   %99 = add nsw i64 %.09.i.i.i.i.i44, -1
-  %100 = icmp ugt i64 %.09.i.i.i.i.i44, 1
+  %100 = icmp samesign ugt i64 %.09.i.i.i.i.i44, 1
   br i1 %100, label %.lr.ph.i.i.i.i.i43, label %_ZSt4copyIN5QListI12QCPCurveDataE14const_iteratorENS2_8iteratorEET0_T_S6_S5_.exit47, !llvm.loop !956
 
 _ZSt4copyIN5QListI12QCPCurveDataE14const_iteratorENS2_8iteratorEET0_T_S6_S5_.exit47: ; preds = %.lr.ph.i.i.i.i.i43, %_ZN16QCPDataContainerI12QCPCurveDataE3endEv.exit
@@ -112216,7 +112216,7 @@ _ZSt25__unguarded_linear_insertIN5QListI12QCPCurveDataE8iteratorEN9__gnu_cxx5__o
   %166 = getelementptr i8, ptr %.sroa.0.09.i.i.i.i.i.i37.i, i64 -24
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %166, ptr noundef nonnull align 8 dereferenceable(24) %165, i64 24, i1 false)
   %167 = add nsw i64 %.010.i.i.i.i.i.i36.i, -1
-  %168 = icmp ugt i64 %.010.i.i.i.i.i.i36.i, 1
+  %168 = icmp samesign ugt i64 %.010.i.i.i.i.i.i36.i, 1
   br i1 %168, label %.lr.ph.i.i.i.i.i.i35.i, label %_ZSt13move_backwardIN5QListI12QCPCurveDataE8iteratorES3_ET0_T_S5_S4_.exit.i33.i, !llvm.loop !960
 
 _ZSt13move_backwardIN5QListI12QCPCurveDataE8iteratorES3_ET0_T_S5_S4_.exit.i33.i: ; preds = %.lr.ph.i.i.i.i.i.i35.i, %159
@@ -122996,7 +122996,7 @@ _ZN16QCPDataContainerI11QCPBarsDataE5beginEv.exit: ; preds = %_ZNK17QArrayDataPo
   %64 = getelementptr i8, ptr %.sroa.05.07.i.i.i.i.i, i64 16
   %65 = getelementptr i8, ptr %.sroa.0.08.i.i.i.i.i, i64 16
   %66 = add nsw i64 %.09.i.i.i.i.i, -1
-  %67 = icmp ugt i64 %.09.i.i.i.i.i, 1
+  %67 = icmp samesign ugt i64 %.09.i.i.i.i.i, 1
   br i1 %67, label %.lr.ph.i.i.i.i.i, label %.critedge3, !llvm.loop !1016
 
 .critedge:                                        ; preds = %30, %34
@@ -123086,7 +123086,7 @@ _ZN16QCPDataContainerI11QCPBarsDataE3endEv.exit:  ; preds = %_ZNK17QArrayDataPoi
   %97 = getelementptr i8, ptr %.sroa.05.07.i.i.i.i.i45, i64 16
   %98 = getelementptr i8, ptr %.sroa.0.08.i.i.i.i.i44, i64 16
   %99 = add nsw i64 %.09.i.i.i.i.i43, -1
-  %100 = icmp ugt i64 %.09.i.i.i.i.i43, 1
+  %100 = icmp samesign ugt i64 %.09.i.i.i.i.i43, 1
   br i1 %100, label %.lr.ph.i.i.i.i.i42, label %_ZSt4copyIN5QListI11QCPBarsDataE14const_iteratorENS2_8iteratorEET0_T_S6_S5_.exit46, !llvm.loop !1016
 
 _ZSt4copyIN5QListI11QCPBarsDataE14const_iteratorENS2_8iteratorEET0_T_S6_S5_.exit46: ; preds = %.lr.ph.i.i.i.i.i42, %_ZN16QCPDataContainerI11QCPBarsDataE3endEv.exit
@@ -123189,7 +123189,7 @@ _ZN16QCPDataContainerI11QCPBarsDataE3endEv.exit54: ; preds = %_ZNK17QArrayDataPo
   %145 = getelementptr i8, ptr %.sroa.0.09.i.i.i.i.i.i.i, i64 -16
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %145, ptr noundef nonnull align 8 dereferenceable(16) %144, i64 16, i1 false)
   %146 = add nsw i64 %.010.i.i.i.i.i.i.i, -1
-  %147 = icmp ugt i64 %.010.i.i.i.i.i.i.i, 1
+  %147 = icmp samesign ugt i64 %.010.i.i.i.i.i.i.i, 1
   br i1 %147, label %.lr.ph.i.i.i.i.i.i.i, label %_ZSt13move_backwardIN5QListI11QCPBarsDataE8iteratorES3_ET0_T_S5_S4_.exit.i.i, !llvm.loop !1017
 
 _ZSt13move_backwardIN5QListI11QCPBarsDataE8iteratorES3_ET0_T_S5_S4_.exit.i.i: ; preds = %.lr.ph.i.i.i.i.i.i.i, %138
@@ -123290,7 +123290,7 @@ _ZSt25__unguarded_linear_insertIN5QListI11QCPBarsDataE8iteratorEN9__gnu_cxx5__op
   %170 = getelementptr i8, ptr %.sroa.0.09.i.i.i.i.i.i37.i, i64 -16
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %170, ptr noundef nonnull align 8 dereferenceable(16) %169, i64 16, i1 false)
   %171 = add nsw i64 %.010.i.i.i.i.i.i36.i, -1
-  %172 = icmp ugt i64 %.010.i.i.i.i.i.i36.i, 1
+  %172 = icmp samesign ugt i64 %.010.i.i.i.i.i.i36.i, 1
   br i1 %172, label %.lr.ph.i.i.i.i.i.i35.i, label %_ZSt13move_backwardIN5QListI11QCPBarsDataE8iteratorES3_ET0_T_S5_S4_.exit.i33.i, !llvm.loop !1017
 
 _ZSt13move_backwardIN5QListI11QCPBarsDataE8iteratorES3_ET0_T_S5_S4_.exit.i33.i: ; preds = %.lr.ph.i.i.i.i.i.i35.i, %163
@@ -137121,7 +137121,7 @@ _ZN16QCPDataContainerI16QCPFinancialDataE5beginEv.exit: ; preds = %_ZNK17QArrayD
   %64 = getelementptr i8, ptr %.sroa.05.07.i.i.i.i.i, i64 40
   %65 = getelementptr i8, ptr %.sroa.0.08.i.i.i.i.i, i64 40
   %66 = add nsw i64 %.09.i.i.i.i.i, -1
-  %67 = icmp ugt i64 %.09.i.i.i.i.i, 1
+  %67 = icmp samesign ugt i64 %.09.i.i.i.i.i, 1
   br i1 %67, label %.lr.ph.i.i.i.i.i, label %.critedge3, !llvm.loop !1120
 
 .critedge:                                        ; preds = %30, %34
@@ -137211,7 +137211,7 @@ _ZN16QCPDataContainerI16QCPFinancialDataE3endEv.exit: ; preds = %_ZNK17QArrayDat
   %97 = getelementptr i8, ptr %.sroa.05.07.i.i.i.i.i46, i64 40
   %98 = getelementptr i8, ptr %.sroa.0.08.i.i.i.i.i45, i64 40
   %99 = add nsw i64 %.09.i.i.i.i.i44, -1
-  %100 = icmp ugt i64 %.09.i.i.i.i.i44, 1
+  %100 = icmp samesign ugt i64 %.09.i.i.i.i.i44, 1
   br i1 %100, label %.lr.ph.i.i.i.i.i43, label %_ZSt4copyIN5QListI16QCPFinancialDataE14const_iteratorENS2_8iteratorEET0_T_S6_S5_.exit47, !llvm.loop !1120
 
 _ZSt4copyIN5QListI16QCPFinancialDataE14const_iteratorENS2_8iteratorEET0_T_S6_S5_.exit47: ; preds = %.lr.ph.i.i.i.i.i43, %_ZN16QCPDataContainerI16QCPFinancialDataE3endEv.exit
@@ -137411,7 +137411,7 @@ _ZSt25__unguarded_linear_insertIN5QListI16QCPFinancialDataE8iteratorEN9__gnu_cxx
   %166 = getelementptr i8, ptr %.sroa.0.09.i.i.i.i.i.i37.i, i64 -40
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %166, ptr noundef nonnull align 8 dereferenceable(40) %165, i64 40, i1 false)
   %167 = add nsw i64 %.010.i.i.i.i.i.i36.i, -1
-  %168 = icmp ugt i64 %.010.i.i.i.i.i.i36.i, 1
+  %168 = icmp samesign ugt i64 %.010.i.i.i.i.i.i36.i, 1
   br i1 %168, label %.lr.ph.i.i.i.i.i.i35.i, label %_ZSt13move_backwardIN5QListI16QCPFinancialDataE8iteratorES3_ET0_T_S5_S4_.exit.i33.i, !llvm.loop !1124
 
 _ZSt13move_backwardIN5QListI16QCPFinancialDataE8iteratorES3_ET0_T_S5_S4_.exit.i33.i: ; preds = %.lr.ph.i.i.i.i.i.i35.i, %159
@@ -145590,7 +145590,7 @@ _ZNK8QPointerI20QCPAbstractPlottableEptEv.exit61: ; preds = %_ZNK8QPointerI20QCP
   %179 = tail call noundef zeroext i1 @_ZNK12QCPErrorBars15errorBarVisibleEi(ptr noundef nonnull align 8 dereferenceable(248) %0, i32 noundef %.053120)
   %spec.select = select i1 %179, i32 %.053120, i32 %.0121
   %180 = add nsw i32 %.053120, -1
-  %181 = icmp ugt i32 %.053120, 1
+  %181 = icmp samesign ugt i32 %.053120, 1
   %182 = load i32, ptr %3, align 4
   %183 = icmp sgt i32 %180, %182
   %or.cond115 = select i1 %181, i1 %183, i1 false
@@ -218608,7 +218608,7 @@ _ZN5QListI12QCPGraphDataE3endEv.exit16:           ; preds = %_ZNK17QArrayDataPoi
   %83 = getelementptr i8, ptr %.sroa.0.09.i.i.i.i.i, i64 -16
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %83, ptr noundef nonnull align 8 dereferenceable(16) %82, i64 16, i1 false)
   %84 = add nsw i64 %.010.i.i.i.i.i, -1
-  %85 = icmp ugt i64 %.010.i.i.i.i.i, 1
+  %85 = icmp samesign ugt i64 %.010.i.i.i.i.i, 1
   br i1 %85, label %.lr.ph.i.i.i.i.i, label %_ZSt13copy_backwardIN5QListI12QCPGraphDataE8iteratorES3_ET0_T_S5_S4_.exit, !llvm.loop !1571
 
 _ZSt13copy_backwardIN5QListI12QCPGraphDataE8iteratorES3_ET0_T_S5_S4_.exit: ; preds = %.lr.ph.i.i.i.i.i, %_ZN5QListI12QCPGraphDataE3endEv.exit16
@@ -218725,7 +218725,7 @@ _ZN16QCPDataContainerI12QCPGraphDataE3endEv.exit: ; preds = %_ZNK17QArrayDataPoi
   %54 = getelementptr i8, ptr %.sroa.0.09.i.i.i.i.i.i.i, i64 -16
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %54, ptr noundef nonnull align 8 dereferenceable(16) %53, i64 16, i1 false)
   %55 = add nsw i64 %.010.i.i.i.i.i.i.i, -1
-  %56 = icmp ugt i64 %.010.i.i.i.i.i.i.i, 1
+  %56 = icmp samesign ugt i64 %.010.i.i.i.i.i.i.i, 1
   br i1 %56, label %.lr.ph.i.i.i.i.i.i.i, label %_ZSt13move_backwardIN5QListI12QCPGraphDataE8iteratorES3_ET0_T_S5_S4_.exit.i.i, !llvm.loop !880
 
 _ZSt13move_backwardIN5QListI12QCPGraphDataE8iteratorES3_ET0_T_S5_S4_.exit.i.i: ; preds = %.lr.ph.i.i.i.i.i.i.i, %47
@@ -218826,7 +218826,7 @@ _ZSt25__unguarded_linear_insertIN5QListI12QCPGraphDataE8iteratorEN9__gnu_cxx5__o
   %79 = getelementptr i8, ptr %.sroa.0.09.i.i.i.i.i.i37.i, i64 -16
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %79, ptr noundef nonnull align 8 dereferenceable(16) %78, i64 16, i1 false)
   %80 = add nsw i64 %.010.i.i.i.i.i.i36.i, -1
-  %81 = icmp ugt i64 %.010.i.i.i.i.i.i36.i, 1
+  %81 = icmp samesign ugt i64 %.010.i.i.i.i.i.i36.i, 1
   br i1 %81, label %.lr.ph.i.i.i.i.i.i35.i, label %_ZSt13move_backwardIN5QListI12QCPGraphDataE8iteratorES3_ET0_T_S5_S4_.exit.i33.i, !llvm.loop !880
 
 _ZSt13move_backwardIN5QListI12QCPGraphDataE8iteratorES3_ET0_T_S5_S4_.exit.i33.i: ; preds = %.lr.ph.i.i.i.i.i.i35.i, %72
@@ -219658,7 +219658,7 @@ tailrecurse._crit_edge:                           ; preds = %tailrecurse, %8
   %16 = getelementptr i8, ptr %.sroa.05.07.i.i.i.i.i, i64 16
   %17 = getelementptr i8, ptr %.09.i.i.i.i.i, i64 16
   %18 = add nsw i64 %.048.i.i.i.i.i, -1
-  %19 = icmp ugt i64 %.048.i.i.i.i.i, 1
+  %19 = icmp samesign ugt i64 %.048.i.i.i.i.i, 1
   br i1 %19, label %.lr.ph.i.i.i.i.i, label %_ZSt4moveIN5QListI12QCPGraphDataE8iteratorEPS1_ET0_T_S6_S5_.exit, !llvm.loop !1588
 
 _ZSt4moveIN5QListI12QCPGraphDataE8iteratorEPS1_ET0_T_S6_S5_.exit: ; preds = %.lr.ph.i.i.i.i.i
@@ -219709,7 +219709,7 @@ _ZSt4moveIN5QListI12QCPGraphDataE8iteratorEPS1_ET0_T_S6_S5_.exit: ; preds = %.lr
   %33 = getelementptr i8, ptr %.058.i.i.i.i.i.i, i64 16
   %34 = getelementptr i8, ptr %.sroa.0.07.i.i.i.i.i.i, i64 16
   %35 = add nsw i64 %.09.i.i.i.i.i.i, -1
-  %36 = icmp ugt i64 %.09.i.i.i.i.i.i, 1
+  %36 = icmp samesign ugt i64 %.09.i.i.i.i.i.i, 1
   br i1 %36, label %.lr.ph.i.i.i.i.i.i, label %_ZSt21__move_merge_adaptiveIP12QCPGraphDataN5QListIS0_E8iteratorES4_N9__gnu_cxx5__ops15_Iter_comp_iterIPFbRKS0_S9_EEEEvT_SD_T0_SE_T1_T2_.exit, !llvm.loop !1590
 
 37:                                               ; preds = %.lr.ph, %tailrecurse
@@ -219736,7 +219736,7 @@ _ZSt4moveIN5QListI12QCPGraphDataE8iteratorEPS1_ET0_T_S6_S5_.exit: ; preds = %.lr
   %43 = getelementptr i8, ptr %.sroa.05.07.i.i.i.i.i83, i64 16
   %44 = getelementptr i8, ptr %.09.i.i.i.i.i81, i64 16
   %45 = add nsw i64 %.048.i.i.i.i.i82, -1
-  %46 = icmp ugt i64 %.048.i.i.i.i.i82, 1
+  %46 = icmp samesign ugt i64 %.048.i.i.i.i.i82, 1
   br i1 %46, label %.lr.ph.i.i.i.i.i80, label %_ZSt4moveIN5QListI12QCPGraphDataE8iteratorEPS1_ET0_T_S6_S5_.exit84, !llvm.loop !1588
 
 _ZSt4moveIN5QListI12QCPGraphDataE8iteratorEPS1_ET0_T_S6_S5_.exit84: ; preds = %.lr.ph.i.i.i.i.i80, %39
@@ -219760,7 +219760,7 @@ _ZSt4moveIN5QListI12QCPGraphDataE8iteratorEPS1_ET0_T_S6_S5_.exit84: ; preds = %.
   %55 = getelementptr i8, ptr %.sroa.0.06.i.i.i.i.i.i, i64 -16
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %55, ptr noundef nonnull align 8 dereferenceable(16) %54, i64 16, i1 false)
   %56 = add nsw i64 %.08.i.i.i.i.i.i, -1
-  %57 = icmp ugt i64 %.08.i.i.i.i.i.i, 1
+  %57 = icmp samesign ugt i64 %.08.i.i.i.i.i.i, 1
   br i1 %57, label %.lr.ph.i.i.i.i.i.i86, label %_ZSt21__move_merge_adaptiveIP12QCPGraphDataN5QListIS0_E8iteratorES4_N9__gnu_cxx5__ops15_Iter_comp_iterIPFbRKS0_S9_EEEEvT_SD_T0_SE_T1_T2_.exit, !llvm.loop !1591
 
 58:                                               ; preds = %_ZSt4moveIN5QListI12QCPGraphDataE8iteratorEPS1_ET0_T_S6_S5_.exit84
@@ -219807,7 +219807,7 @@ _ZSt4moveIN5QListI12QCPGraphDataE8iteratorEPS1_ET0_T_S6_S5_.exit84: ; preds = %.
   %75 = getelementptr i8, ptr %.sroa.0.06.i.i.i.i.i24.i, i64 -16
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %75, ptr noundef nonnull align 8 dereferenceable(16) %74, i64 16, i1 false)
   %76 = add nsw i64 %.08.i.i.i.i.i22.i, -1
-  %77 = icmp ugt i64 %.08.i.i.i.i.i22.i, 1
+  %77 = icmp samesign ugt i64 %.08.i.i.i.i.i22.i, 1
   br i1 %77, label %.lr.ph.i.i.i.i.i21.i, label %_ZSt21__move_merge_adaptiveIP12QCPGraphDataN5QListIS0_E8iteratorES4_N9__gnu_cxx5__ops15_Iter_comp_iterIPFbRKS0_S9_EEEEvT_SD_T0_SE_T1_T2_.exit, !llvm.loop !1591
 
 78:                                               ; preds = %62
@@ -219940,7 +219940,7 @@ define linkonce_odr ptr @_ZSt17__rotate_adaptiveIN5QListI12QCPGraphDataE8iterato
   %19 = getelementptr i8, ptr %.sroa.05.07.i.i.i.i.i, i64 16
   %20 = getelementptr i8, ptr %.09.i.i.i.i.i, i64 16
   %21 = add nsw i64 %.048.i.i.i.i.i, -1
-  %22 = icmp ugt i64 %.048.i.i.i.i.i, 1
+  %22 = icmp samesign ugt i64 %.048.i.i.i.i.i, 1
   br i1 %22, label %.lr.ph.i.i.i.i.i, label %_ZSt4moveIN5QListI12QCPGraphDataE8iteratorEPS1_ET0_T_S6_S5_.exit, !llvm.loop !1588
 
 _ZSt4moveIN5QListI12QCPGraphDataE8iteratorEPS1_ET0_T_S6_S5_.exit: ; preds = %.lr.ph.i.i.i.i.i, %13
@@ -219959,7 +219959,7 @@ _ZSt4moveIN5QListI12QCPGraphDataE8iteratorEPS1_ET0_T_S6_S5_.exit: ; preds = %.lr
   %28 = getelementptr i8, ptr %.sroa.0.09.i.i.i.i.i, i64 -16
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %28, ptr noundef nonnull align 8 dereferenceable(16) %27, i64 16, i1 false)
   %29 = add nsw i64 %.010.i.i.i.i.i, -1
-  %30 = icmp ugt i64 %.010.i.i.i.i.i, 1
+  %30 = icmp samesign ugt i64 %.010.i.i.i.i.i, 1
   br i1 %30, label %.lr.ph.i.i.i.i.i37, label %_ZSt13move_backwardIN5QListI12QCPGraphDataE8iteratorES3_ET0_T_S5_S4_.exit, !llvm.loop !880
 
 _ZSt13move_backwardIN5QListI12QCPGraphDataE8iteratorES3_ET0_T_S5_S4_.exit: ; preds = %.lr.ph.i.i.i.i.i37, %_ZSt4moveIN5QListI12QCPGraphDataE8iteratorEPS1_ET0_T_S6_S5_.exit
@@ -219978,7 +219978,7 @@ _ZSt13move_backwardIN5QListI12QCPGraphDataE8iteratorES3_ET0_T_S5_S4_.exit: ; pre
   %36 = getelementptr i8, ptr %.058.i.i.i.i.i, i64 16
   %37 = getelementptr i8, ptr %.sroa.0.07.i.i.i.i.i, i64 16
   %38 = add nsw i64 %.09.i.i.i.i.i40, -1
-  %39 = icmp ugt i64 %.09.i.i.i.i.i40, 1
+  %39 = icmp samesign ugt i64 %.09.i.i.i.i.i40, 1
   br i1 %39, label %.lr.ph.i.i.i.i.i39, label %_ZSt4moveIP12QCPGraphDataN5QListIS0_E8iteratorEET0_T_S6_S5_.exit, !llvm.loop !1590
 
 40:                                               ; preds = %7
@@ -220005,7 +220005,7 @@ _ZSt13move_backwardIN5QListI12QCPGraphDataE8iteratorES3_ET0_T_S5_S4_.exit: ; pre
   %48 = getelementptr i8, ptr %.sroa.05.07.i.i.i.i.i45, i64 16
   %49 = getelementptr i8, ptr %.09.i.i.i.i.i43, i64 16
   %50 = add nsw i64 %.048.i.i.i.i.i44, -1
-  %51 = icmp ugt i64 %.048.i.i.i.i.i44, 1
+  %51 = icmp samesign ugt i64 %.048.i.i.i.i.i44, 1
   br i1 %51, label %.lr.ph.i.i.i.i.i42, label %_ZSt4moveIN5QListI12QCPGraphDataE8iteratorEPS1_ET0_T_S6_S5_.exit46, !llvm.loop !1588
 
 _ZSt4moveIN5QListI12QCPGraphDataE8iteratorEPS1_ET0_T_S6_S5_.exit46: ; preds = %.lr.ph.i.i.i.i.i42, %42
@@ -220024,7 +220024,7 @@ _ZSt4moveIN5QListI12QCPGraphDataE8iteratorEPS1_ET0_T_S6_S5_.exit46: ; preds = %.
   %56 = getelementptr i8, ptr %.sroa.05.07.i.i.i.i.i50, i64 16
   %57 = getelementptr i8, ptr %.sroa.0.08.i.i.i.i.i, i64 16
   %58 = add nsw i64 %.09.i.i.i.i.i49, -1
-  %59 = icmp ugt i64 %.09.i.i.i.i.i49, 1
+  %59 = icmp samesign ugt i64 %.09.i.i.i.i.i49, 1
   br i1 %59, label %.lr.ph.i.i.i.i.i48, label %_ZSt4moveIN5QListI12QCPGraphDataE8iteratorES3_ET0_T_S5_S4_.exit, !llvm.loop !1593
 
 _ZSt4moveIN5QListI12QCPGraphDataE8iteratorES3_ET0_T_S5_S4_.exit: ; preds = %.lr.ph.i.i.i.i.i48, %_ZSt4moveIN5QListI12QCPGraphDataE8iteratorEPS1_ET0_T_S6_S5_.exit46
@@ -220043,7 +220043,7 @@ _ZSt4moveIN5QListI12QCPGraphDataE8iteratorES3_ET0_T_S5_S4_.exit: ; preds = %.lr.
   %66 = getelementptr i8, ptr %.sroa.0.06.i.i.i.i.i, i64 -16
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %66, ptr noundef nonnull align 8 dereferenceable(16) %65, i64 16, i1 false)
   %67 = add nsw i64 %.08.i.i.i.i.i, -1
-  %68 = icmp ugt i64 %.08.i.i.i.i.i, 1
+  %68 = icmp samesign ugt i64 %.08.i.i.i.i.i, 1
   br i1 %68, label %.lr.ph.i.i.i.i.i52, label %_ZSt4moveIP12QCPGraphDataN5QListIS0_E8iteratorEET0_T_S6_S5_.exit, !llvm.loop !1591
 
 69:                                               ; preds = %40
@@ -223632,7 +223632,7 @@ _ZN5QListI12QCPCurveDataE3endEv.exit16:           ; preds = %_ZNK17QArrayDataPoi
   %82 = getelementptr i8, ptr %.sroa.0.09.i.i.i.i.i, i64 -24
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %82, ptr noundef nonnull align 8 dereferenceable(24) %81, i64 24, i1 false)
   %83 = add nsw i64 %.010.i.i.i.i.i, -1
-  %84 = icmp ugt i64 %.010.i.i.i.i.i, 1
+  %84 = icmp samesign ugt i64 %.010.i.i.i.i.i, 1
   br i1 %84, label %.lr.ph.i.i.i.i.i, label %_ZSt13copy_backwardIN5QListI12QCPCurveDataE8iteratorES3_ET0_T_S5_S4_.exit, !llvm.loop !1600
 
 _ZSt13copy_backwardIN5QListI12QCPCurveDataE8iteratorES3_ET0_T_S5_S4_.exit: ; preds = %.lr.ph.i.i.i.i.i, %_ZN5QListI12QCPCurveDataE3endEv.exit16
@@ -223849,7 +223849,7 @@ _ZSt25__unguarded_linear_insertIN5QListI12QCPCurveDataE8iteratorEN9__gnu_cxx5__o
   %75 = getelementptr i8, ptr %.sroa.0.09.i.i.i.i.i.i37.i, i64 -24
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %75, ptr noundef nonnull align 8 dereferenceable(24) %74, i64 24, i1 false)
   %76 = add nsw i64 %.010.i.i.i.i.i.i36.i, -1
-  %77 = icmp ugt i64 %.010.i.i.i.i.i.i36.i, 1
+  %77 = icmp samesign ugt i64 %.010.i.i.i.i.i.i36.i, 1
   br i1 %77, label %.lr.ph.i.i.i.i.i.i35.i, label %_ZSt13move_backwardIN5QListI12QCPCurveDataE8iteratorES3_ET0_T_S5_S4_.exit.i33.i, !llvm.loop !960
 
 _ZSt13move_backwardIN5QListI12QCPCurveDataE8iteratorES3_ET0_T_S5_S4_.exit.i33.i: ; preds = %.lr.ph.i.i.i.i.i.i35.i, %68
@@ -225029,7 +225029,7 @@ tailrecurse._crit_edge:                           ; preds = %tailrecurse, %8
   %16 = getelementptr i8, ptr %.sroa.05.07.i.i.i.i.i, i64 24
   %17 = getelementptr i8, ptr %.09.i.i.i.i.i, i64 24
   %18 = add nsw i64 %.048.i.i.i.i.i, -1
-  %19 = icmp ugt i64 %.048.i.i.i.i.i, 1
+  %19 = icmp samesign ugt i64 %.048.i.i.i.i.i, 1
   br i1 %19, label %.lr.ph.i.i.i.i.i, label %_ZSt4moveIN5QListI12QCPCurveDataE8iteratorEPS1_ET0_T_S6_S5_.exit, !llvm.loop !1617
 
 _ZSt4moveIN5QListI12QCPCurveDataE8iteratorEPS1_ET0_T_S6_S5_.exit: ; preds = %.lr.ph.i.i.i.i.i
@@ -225083,7 +225083,7 @@ _ZSt4moveIN5QListI12QCPCurveDataE8iteratorEPS1_ET0_T_S6_S5_.exit: ; preds = %.lr
   %33 = getelementptr i8, ptr %.058.i.i.i.i.i.i, i64 24
   %34 = getelementptr i8, ptr %.sroa.0.07.i.i.i.i.i.i, i64 24
   %35 = add nsw i64 %.09.i.i.i.i.i.i, -1
-  %36 = icmp ugt i64 %.09.i.i.i.i.i.i, 1
+  %36 = icmp samesign ugt i64 %.09.i.i.i.i.i.i, 1
   br i1 %36, label %.lr.ph.i.i.i.i.i.i, label %_ZSt21__move_merge_adaptiveIP12QCPCurveDataN5QListIS0_E8iteratorES4_N9__gnu_cxx5__ops15_Iter_comp_iterIPFbRKS0_S9_EEEEvT_SD_T0_SE_T1_T2_.exit, !llvm.loop !1619
 
 37:                                               ; preds = %.lr.ph, %tailrecurse
@@ -225113,7 +225113,7 @@ _ZSt4moveIN5QListI12QCPCurveDataE8iteratorEPS1_ET0_T_S6_S5_.exit: ; preds = %.lr
   %43 = getelementptr i8, ptr %.sroa.05.07.i.i.i.i.i84, i64 24
   %44 = getelementptr i8, ptr %.09.i.i.i.i.i82, i64 24
   %45 = add nsw i64 %.048.i.i.i.i.i83, -1
-  %46 = icmp ugt i64 %.048.i.i.i.i.i83, 1
+  %46 = icmp samesign ugt i64 %.048.i.i.i.i.i83, 1
   br i1 %46, label %.lr.ph.i.i.i.i.i81, label %_ZSt4moveIN5QListI12QCPCurveDataE8iteratorEPS1_ET0_T_S6_S5_.exit85, !llvm.loop !1617
 
 _ZSt4moveIN5QListI12QCPCurveDataE8iteratorEPS1_ET0_T_S6_S5_.exit85: ; preds = %.lr.ph.i.i.i.i.i81, %39
@@ -225140,7 +225140,7 @@ _ZSt4moveIN5QListI12QCPCurveDataE8iteratorEPS1_ET0_T_S6_S5_.exit85: ; preds = %.
   %55 = getelementptr i8, ptr %.sroa.0.06.i.i.i.i.i.i, i64 -24
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %55, ptr noundef nonnull align 8 dereferenceable(24) %54, i64 24, i1 false)
   %56 = add nsw i64 %.08.i.i.i.i.i.i, -1
-  %57 = icmp ugt i64 %.08.i.i.i.i.i.i, 1
+  %57 = icmp samesign ugt i64 %.08.i.i.i.i.i.i, 1
   br i1 %57, label %.lr.ph.i.i.i.i.i.i88, label %_ZSt21__move_merge_adaptiveIP12QCPCurveDataN5QListIS0_E8iteratorES4_N9__gnu_cxx5__ops15_Iter_comp_iterIPFbRKS0_S9_EEEEvT_SD_T0_SE_T1_T2_.exit, !llvm.loop !1620
 
 58:                                               ; preds = %_ZSt4moveIN5QListI12QCPCurveDataE8iteratorEPS1_ET0_T_S6_S5_.exit85
@@ -225190,7 +225190,7 @@ _ZSt4moveIN5QListI12QCPCurveDataE8iteratorEPS1_ET0_T_S6_S5_.exit85: ; preds = %.
   %75 = getelementptr i8, ptr %.sroa.0.06.i.i.i.i.i25.i, i64 -24
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %75, ptr noundef nonnull align 8 dereferenceable(24) %74, i64 24, i1 false)
   %76 = add nsw i64 %.08.i.i.i.i.i23.i, -1
-  %77 = icmp ugt i64 %.08.i.i.i.i.i23.i, 1
+  %77 = icmp samesign ugt i64 %.08.i.i.i.i.i23.i, 1
   br i1 %77, label %.lr.ph.i.i.i.i.i22.i, label %_ZSt21__move_merge_adaptiveIP12QCPCurveDataN5QListIS0_E8iteratorES4_N9__gnu_cxx5__ops15_Iter_comp_iterIPFbRKS0_S9_EEEEvT_SD_T0_SE_T1_T2_.exit, !llvm.loop !1620
 
 78:                                               ; preds = %62
@@ -225329,7 +225329,7 @@ define linkonce_odr ptr @_ZSt17__rotate_adaptiveIN5QListI12QCPCurveDataE8iterato
   %19 = getelementptr i8, ptr %.sroa.05.07.i.i.i.i.i, i64 24
   %20 = getelementptr i8, ptr %.09.i.i.i.i.i, i64 24
   %21 = add nsw i64 %.048.i.i.i.i.i, -1
-  %22 = icmp ugt i64 %.048.i.i.i.i.i, 1
+  %22 = icmp samesign ugt i64 %.048.i.i.i.i.i, 1
   br i1 %22, label %.lr.ph.i.i.i.i.i, label %_ZSt4moveIN5QListI12QCPCurveDataE8iteratorEPS1_ET0_T_S6_S5_.exit, !llvm.loop !1617
 
 _ZSt4moveIN5QListI12QCPCurveDataE8iteratorEPS1_ET0_T_S6_S5_.exit: ; preds = %.lr.ph.i.i.i.i.i, %13
@@ -225351,7 +225351,7 @@ _ZSt4moveIN5QListI12QCPCurveDataE8iteratorEPS1_ET0_T_S6_S5_.exit: ; preds = %.lr
   %28 = getelementptr i8, ptr %.sroa.0.09.i.i.i.i.i, i64 -24
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %28, ptr noundef nonnull align 8 dereferenceable(24) %27, i64 24, i1 false)
   %29 = add nsw i64 %.010.i.i.i.i.i, -1
-  %30 = icmp ugt i64 %.010.i.i.i.i.i, 1
+  %30 = icmp samesign ugt i64 %.010.i.i.i.i.i, 1
   br i1 %30, label %.lr.ph.i.i.i.i.i38, label %_ZSt13move_backwardIN5QListI12QCPCurveDataE8iteratorES3_ET0_T_S5_S4_.exit, !llvm.loop !960
 
 _ZSt13move_backwardIN5QListI12QCPCurveDataE8iteratorES3_ET0_T_S5_S4_.exit: ; preds = %.lr.ph.i.i.i.i.i38, %_ZSt4moveIN5QListI12QCPCurveDataE8iteratorEPS1_ET0_T_S6_S5_.exit
@@ -225373,7 +225373,7 @@ _ZSt13move_backwardIN5QListI12QCPCurveDataE8iteratorES3_ET0_T_S5_S4_.exit: ; pre
   %36 = getelementptr i8, ptr %.058.i.i.i.i.i, i64 24
   %37 = getelementptr i8, ptr %.sroa.0.07.i.i.i.i.i, i64 24
   %38 = add nsw i64 %.09.i.i.i.i.i42, -1
-  %39 = icmp ugt i64 %.09.i.i.i.i.i42, 1
+  %39 = icmp samesign ugt i64 %.09.i.i.i.i.i42, 1
   br i1 %39, label %.lr.ph.i.i.i.i.i41, label %_ZSt4moveIP12QCPCurveDataN5QListIS0_E8iteratorEET0_T_S6_S5_.exit, !llvm.loop !1619
 
 40:                                               ; preds = %7
@@ -225403,7 +225403,7 @@ _ZSt13move_backwardIN5QListI12QCPCurveDataE8iteratorES3_ET0_T_S5_S4_.exit: ; pre
   %48 = getelementptr i8, ptr %.sroa.05.07.i.i.i.i.i48, i64 24
   %49 = getelementptr i8, ptr %.09.i.i.i.i.i46, i64 24
   %50 = add nsw i64 %.048.i.i.i.i.i47, -1
-  %51 = icmp ugt i64 %.048.i.i.i.i.i47, 1
+  %51 = icmp samesign ugt i64 %.048.i.i.i.i.i47, 1
   br i1 %51, label %.lr.ph.i.i.i.i.i45, label %_ZSt4moveIN5QListI12QCPCurveDataE8iteratorEPS1_ET0_T_S6_S5_.exit49, !llvm.loop !1617
 
 _ZSt4moveIN5QListI12QCPCurveDataE8iteratorEPS1_ET0_T_S6_S5_.exit49: ; preds = %.lr.ph.i.i.i.i.i45, %42
@@ -225425,7 +225425,7 @@ _ZSt4moveIN5QListI12QCPCurveDataE8iteratorEPS1_ET0_T_S6_S5_.exit49: ; preds = %.
   %56 = getelementptr i8, ptr %.sroa.05.07.i.i.i.i.i54, i64 24
   %57 = getelementptr i8, ptr %.sroa.0.08.i.i.i.i.i, i64 24
   %58 = add nsw i64 %.09.i.i.i.i.i53, -1
-  %59 = icmp ugt i64 %.09.i.i.i.i.i53, 1
+  %59 = icmp samesign ugt i64 %.09.i.i.i.i.i53, 1
   br i1 %59, label %.lr.ph.i.i.i.i.i52, label %_ZSt4moveIN5QListI12QCPCurveDataE8iteratorES3_ET0_T_S5_S4_.exit, !llvm.loop !1622
 
 _ZSt4moveIN5QListI12QCPCurveDataE8iteratorES3_ET0_T_S5_S4_.exit: ; preds = %.lr.ph.i.i.i.i.i52, %_ZSt4moveIN5QListI12QCPCurveDataE8iteratorEPS1_ET0_T_S6_S5_.exit49
@@ -225447,7 +225447,7 @@ _ZSt4moveIN5QListI12QCPCurveDataE8iteratorES3_ET0_T_S5_S4_.exit: ; preds = %.lr.
   %66 = getelementptr i8, ptr %.sroa.0.06.i.i.i.i.i, i64 -24
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %66, ptr noundef nonnull align 8 dereferenceable(24) %65, i64 24, i1 false)
   %67 = add nsw i64 %.08.i.i.i.i.i, -1
-  %68 = icmp ugt i64 %.08.i.i.i.i.i, 1
+  %68 = icmp samesign ugt i64 %.08.i.i.i.i.i, 1
   br i1 %68, label %.lr.ph.i.i.i.i.i57, label %_ZSt4moveIP12QCPCurveDataN5QListIS0_E8iteratorEET0_T_S6_S5_.exit, !llvm.loop !1620
 
 69:                                               ; preds = %40
@@ -229900,7 +229900,7 @@ _ZN5QListI11QCPBarsDataE3endEv.exit16:            ; preds = %_ZNK17QArrayDataPoi
   %83 = getelementptr i8, ptr %.sroa.0.09.i.i.i.i.i, i64 -16
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %83, ptr noundef nonnull align 8 dereferenceable(16) %82, i64 16, i1 false)
   %84 = add nsw i64 %.010.i.i.i.i.i, -1
-  %85 = icmp ugt i64 %.010.i.i.i.i.i, 1
+  %85 = icmp samesign ugt i64 %.010.i.i.i.i.i, 1
   br i1 %85, label %.lr.ph.i.i.i.i.i, label %_ZSt13copy_backwardIN5QListI11QCPBarsDataE8iteratorES3_ET0_T_S5_S4_.exit, !llvm.loop !1630
 
 _ZSt13copy_backwardIN5QListI11QCPBarsDataE8iteratorES3_ET0_T_S5_S4_.exit: ; preds = %.lr.ph.i.i.i.i.i, %_ZN5QListI11QCPBarsDataE3endEv.exit16
@@ -230017,7 +230017,7 @@ _ZN16QCPDataContainerI11QCPBarsDataE3endEv.exit:  ; preds = %_ZNK17QArrayDataPoi
   %54 = getelementptr i8, ptr %.sroa.0.09.i.i.i.i.i.i.i, i64 -16
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %54, ptr noundef nonnull align 8 dereferenceable(16) %53, i64 16, i1 false)
   %55 = add nsw i64 %.010.i.i.i.i.i.i.i, -1
-  %56 = icmp ugt i64 %.010.i.i.i.i.i.i.i, 1
+  %56 = icmp samesign ugt i64 %.010.i.i.i.i.i.i.i, 1
   br i1 %56, label %.lr.ph.i.i.i.i.i.i.i, label %_ZSt13move_backwardIN5QListI11QCPBarsDataE8iteratorES3_ET0_T_S5_S4_.exit.i.i, !llvm.loop !1017
 
 _ZSt13move_backwardIN5QListI11QCPBarsDataE8iteratorES3_ET0_T_S5_S4_.exit.i.i: ; preds = %.lr.ph.i.i.i.i.i.i.i, %47
@@ -230118,7 +230118,7 @@ _ZSt25__unguarded_linear_insertIN5QListI11QCPBarsDataE8iteratorEN9__gnu_cxx5__op
   %79 = getelementptr i8, ptr %.sroa.0.09.i.i.i.i.i.i37.i, i64 -16
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %79, ptr noundef nonnull align 8 dereferenceable(16) %78, i64 16, i1 false)
   %80 = add nsw i64 %.010.i.i.i.i.i.i36.i, -1
-  %81 = icmp ugt i64 %.010.i.i.i.i.i.i36.i, 1
+  %81 = icmp samesign ugt i64 %.010.i.i.i.i.i.i36.i, 1
   br i1 %81, label %.lr.ph.i.i.i.i.i.i35.i, label %_ZSt13move_backwardIN5QListI11QCPBarsDataE8iteratorES3_ET0_T_S5_S4_.exit.i33.i, !llvm.loop !1017
 
 _ZSt13move_backwardIN5QListI11QCPBarsDataE8iteratorES3_ET0_T_S5_S4_.exit.i33.i: ; preds = %.lr.ph.i.i.i.i.i.i35.i, %72
@@ -231293,7 +231293,7 @@ tailrecurse._crit_edge:                           ; preds = %tailrecurse, %8
   %16 = getelementptr i8, ptr %.sroa.05.07.i.i.i.i.i, i64 16
   %17 = getelementptr i8, ptr %.09.i.i.i.i.i, i64 16
   %18 = add nsw i64 %.048.i.i.i.i.i, -1
-  %19 = icmp ugt i64 %.048.i.i.i.i.i, 1
+  %19 = icmp samesign ugt i64 %.048.i.i.i.i.i, 1
   br i1 %19, label %.lr.ph.i.i.i.i.i, label %_ZSt4moveIN5QListI11QCPBarsDataE8iteratorEPS1_ET0_T_S6_S5_.exit, !llvm.loop !1647
 
 _ZSt4moveIN5QListI11QCPBarsDataE8iteratorEPS1_ET0_T_S6_S5_.exit: ; preds = %.lr.ph.i.i.i.i.i
@@ -231344,7 +231344,7 @@ _ZSt4moveIN5QListI11QCPBarsDataE8iteratorEPS1_ET0_T_S6_S5_.exit: ; preds = %.lr.
   %33 = getelementptr i8, ptr %.058.i.i.i.i.i.i, i64 16
   %34 = getelementptr i8, ptr %.sroa.0.07.i.i.i.i.i.i, i64 16
   %35 = add nsw i64 %.09.i.i.i.i.i.i, -1
-  %36 = icmp ugt i64 %.09.i.i.i.i.i.i, 1
+  %36 = icmp samesign ugt i64 %.09.i.i.i.i.i.i, 1
   br i1 %36, label %.lr.ph.i.i.i.i.i.i, label %_ZSt21__move_merge_adaptiveIP11QCPBarsDataN5QListIS0_E8iteratorES4_N9__gnu_cxx5__ops15_Iter_comp_iterIPFbRKS0_S9_EEEEvT_SD_T0_SE_T1_T2_.exit, !llvm.loop !1649
 
 37:                                               ; preds = %.lr.ph, %tailrecurse
@@ -231371,7 +231371,7 @@ _ZSt4moveIN5QListI11QCPBarsDataE8iteratorEPS1_ET0_T_S6_S5_.exit: ; preds = %.lr.
   %43 = getelementptr i8, ptr %.sroa.05.07.i.i.i.i.i83, i64 16
   %44 = getelementptr i8, ptr %.09.i.i.i.i.i81, i64 16
   %45 = add nsw i64 %.048.i.i.i.i.i82, -1
-  %46 = icmp ugt i64 %.048.i.i.i.i.i82, 1
+  %46 = icmp samesign ugt i64 %.048.i.i.i.i.i82, 1
   br i1 %46, label %.lr.ph.i.i.i.i.i80, label %_ZSt4moveIN5QListI11QCPBarsDataE8iteratorEPS1_ET0_T_S6_S5_.exit84, !llvm.loop !1647
 
 _ZSt4moveIN5QListI11QCPBarsDataE8iteratorEPS1_ET0_T_S6_S5_.exit84: ; preds = %.lr.ph.i.i.i.i.i80, %39
@@ -231395,7 +231395,7 @@ _ZSt4moveIN5QListI11QCPBarsDataE8iteratorEPS1_ET0_T_S6_S5_.exit84: ; preds = %.l
   %55 = getelementptr i8, ptr %.sroa.0.06.i.i.i.i.i.i, i64 -16
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %55, ptr noundef nonnull align 8 dereferenceable(16) %54, i64 16, i1 false)
   %56 = add nsw i64 %.08.i.i.i.i.i.i, -1
-  %57 = icmp ugt i64 %.08.i.i.i.i.i.i, 1
+  %57 = icmp samesign ugt i64 %.08.i.i.i.i.i.i, 1
   br i1 %57, label %.lr.ph.i.i.i.i.i.i86, label %_ZSt21__move_merge_adaptiveIP11QCPBarsDataN5QListIS0_E8iteratorES4_N9__gnu_cxx5__ops15_Iter_comp_iterIPFbRKS0_S9_EEEEvT_SD_T0_SE_T1_T2_.exit, !llvm.loop !1650
 
 58:                                               ; preds = %_ZSt4moveIN5QListI11QCPBarsDataE8iteratorEPS1_ET0_T_S6_S5_.exit84
@@ -231442,7 +231442,7 @@ _ZSt4moveIN5QListI11QCPBarsDataE8iteratorEPS1_ET0_T_S6_S5_.exit84: ; preds = %.l
   %75 = getelementptr i8, ptr %.sroa.0.06.i.i.i.i.i24.i, i64 -16
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %75, ptr noundef nonnull align 8 dereferenceable(16) %74, i64 16, i1 false)
   %76 = add nsw i64 %.08.i.i.i.i.i22.i, -1
-  %77 = icmp ugt i64 %.08.i.i.i.i.i22.i, 1
+  %77 = icmp samesign ugt i64 %.08.i.i.i.i.i22.i, 1
   br i1 %77, label %.lr.ph.i.i.i.i.i21.i, label %_ZSt21__move_merge_adaptiveIP11QCPBarsDataN5QListIS0_E8iteratorES4_N9__gnu_cxx5__ops15_Iter_comp_iterIPFbRKS0_S9_EEEEvT_SD_T0_SE_T1_T2_.exit, !llvm.loop !1650
 
 78:                                               ; preds = %62
@@ -231572,7 +231572,7 @@ define linkonce_odr ptr @_ZSt17__rotate_adaptiveIN5QListI11QCPBarsDataE8iterator
   %19 = getelementptr i8, ptr %.sroa.05.07.i.i.i.i.i, i64 16
   %20 = getelementptr i8, ptr %.09.i.i.i.i.i, i64 16
   %21 = add nsw i64 %.048.i.i.i.i.i, -1
-  %22 = icmp ugt i64 %.048.i.i.i.i.i, 1
+  %22 = icmp samesign ugt i64 %.048.i.i.i.i.i, 1
   br i1 %22, label %.lr.ph.i.i.i.i.i, label %_ZSt4moveIN5QListI11QCPBarsDataE8iteratorEPS1_ET0_T_S6_S5_.exit, !llvm.loop !1647
 
 _ZSt4moveIN5QListI11QCPBarsDataE8iteratorEPS1_ET0_T_S6_S5_.exit: ; preds = %.lr.ph.i.i.i.i.i, %13
@@ -231591,7 +231591,7 @@ _ZSt4moveIN5QListI11QCPBarsDataE8iteratorEPS1_ET0_T_S6_S5_.exit: ; preds = %.lr.
   %28 = getelementptr i8, ptr %.sroa.0.09.i.i.i.i.i, i64 -16
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %28, ptr noundef nonnull align 8 dereferenceable(16) %27, i64 16, i1 false)
   %29 = add nsw i64 %.010.i.i.i.i.i, -1
-  %30 = icmp ugt i64 %.010.i.i.i.i.i, 1
+  %30 = icmp samesign ugt i64 %.010.i.i.i.i.i, 1
   br i1 %30, label %.lr.ph.i.i.i.i.i37, label %_ZSt13move_backwardIN5QListI11QCPBarsDataE8iteratorES3_ET0_T_S5_S4_.exit, !llvm.loop !1017
 
 _ZSt13move_backwardIN5QListI11QCPBarsDataE8iteratorES3_ET0_T_S5_S4_.exit: ; preds = %.lr.ph.i.i.i.i.i37, %_ZSt4moveIN5QListI11QCPBarsDataE8iteratorEPS1_ET0_T_S6_S5_.exit
@@ -231610,7 +231610,7 @@ _ZSt13move_backwardIN5QListI11QCPBarsDataE8iteratorES3_ET0_T_S5_S4_.exit: ; pred
   %36 = getelementptr i8, ptr %.058.i.i.i.i.i, i64 16
   %37 = getelementptr i8, ptr %.sroa.0.07.i.i.i.i.i, i64 16
   %38 = add nsw i64 %.09.i.i.i.i.i40, -1
-  %39 = icmp ugt i64 %.09.i.i.i.i.i40, 1
+  %39 = icmp samesign ugt i64 %.09.i.i.i.i.i40, 1
   br i1 %39, label %.lr.ph.i.i.i.i.i39, label %_ZSt4moveIP11QCPBarsDataN5QListIS0_E8iteratorEET0_T_S6_S5_.exit, !llvm.loop !1649
 
 40:                                               ; preds = %7
@@ -231637,7 +231637,7 @@ _ZSt13move_backwardIN5QListI11QCPBarsDataE8iteratorES3_ET0_T_S5_S4_.exit: ; pred
   %48 = getelementptr i8, ptr %.sroa.05.07.i.i.i.i.i45, i64 16
   %49 = getelementptr i8, ptr %.09.i.i.i.i.i43, i64 16
   %50 = add nsw i64 %.048.i.i.i.i.i44, -1
-  %51 = icmp ugt i64 %.048.i.i.i.i.i44, 1
+  %51 = icmp samesign ugt i64 %.048.i.i.i.i.i44, 1
   br i1 %51, label %.lr.ph.i.i.i.i.i42, label %_ZSt4moveIN5QListI11QCPBarsDataE8iteratorEPS1_ET0_T_S6_S5_.exit46, !llvm.loop !1647
 
 _ZSt4moveIN5QListI11QCPBarsDataE8iteratorEPS1_ET0_T_S6_S5_.exit46: ; preds = %.lr.ph.i.i.i.i.i42, %42
@@ -231656,7 +231656,7 @@ _ZSt4moveIN5QListI11QCPBarsDataE8iteratorEPS1_ET0_T_S6_S5_.exit46: ; preds = %.l
   %56 = getelementptr i8, ptr %.sroa.05.07.i.i.i.i.i50, i64 16
   %57 = getelementptr i8, ptr %.sroa.0.08.i.i.i.i.i, i64 16
   %58 = add nsw i64 %.09.i.i.i.i.i49, -1
-  %59 = icmp ugt i64 %.09.i.i.i.i.i49, 1
+  %59 = icmp samesign ugt i64 %.09.i.i.i.i.i49, 1
   br i1 %59, label %.lr.ph.i.i.i.i.i48, label %_ZSt4moveIN5QListI11QCPBarsDataE8iteratorES3_ET0_T_S5_S4_.exit, !llvm.loop !1652
 
 _ZSt4moveIN5QListI11QCPBarsDataE8iteratorES3_ET0_T_S5_S4_.exit: ; preds = %.lr.ph.i.i.i.i.i48, %_ZSt4moveIN5QListI11QCPBarsDataE8iteratorEPS1_ET0_T_S6_S5_.exit46
@@ -231675,7 +231675,7 @@ _ZSt4moveIN5QListI11QCPBarsDataE8iteratorES3_ET0_T_S5_S4_.exit: ; preds = %.lr.p
   %66 = getelementptr i8, ptr %.sroa.0.06.i.i.i.i.i, i64 -16
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %66, ptr noundef nonnull align 8 dereferenceable(16) %65, i64 16, i1 false)
   %67 = add nsw i64 %.08.i.i.i.i.i, -1
-  %68 = icmp ugt i64 %.08.i.i.i.i.i, 1
+  %68 = icmp samesign ugt i64 %.08.i.i.i.i.i, 1
   br i1 %68, label %.lr.ph.i.i.i.i.i52, label %_ZSt4moveIP11QCPBarsDataN5QListIS0_E8iteratorEET0_T_S6_S5_.exit, !llvm.loop !1650
 
 69:                                               ; preds = %40
@@ -240102,7 +240102,7 @@ _ZN5QListI16QCPFinancialDataE3endEv.exit16:       ; preds = %_ZNK17QArrayDataPoi
   %82 = getelementptr i8, ptr %.sroa.0.09.i.i.i.i.i, i64 -40
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %82, ptr noundef nonnull align 8 dereferenceable(40) %81, i64 40, i1 false)
   %83 = add nsw i64 %.010.i.i.i.i.i, -1
-  %84 = icmp ugt i64 %.010.i.i.i.i.i, 1
+  %84 = icmp samesign ugt i64 %.010.i.i.i.i.i, 1
   br i1 %84, label %.lr.ph.i.i.i.i.i, label %_ZSt13copy_backwardIN5QListI16QCPFinancialDataE8iteratorES3_ET0_T_S5_S4_.exit, !llvm.loop !1684
 
 _ZSt13copy_backwardIN5QListI16QCPFinancialDataE8iteratorES3_ET0_T_S5_S4_.exit: ; preds = %.lr.ph.i.i.i.i.i, %_ZN5QListI16QCPFinancialDataE3endEv.exit16
@@ -240319,7 +240319,7 @@ _ZSt25__unguarded_linear_insertIN5QListI16QCPFinancialDataE8iteratorEN9__gnu_cxx
   %75 = getelementptr i8, ptr %.sroa.0.09.i.i.i.i.i.i37.i, i64 -40
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %75, ptr noundef nonnull align 8 dereferenceable(40) %74, i64 40, i1 false)
   %76 = add nsw i64 %.010.i.i.i.i.i.i36.i, -1
-  %77 = icmp ugt i64 %.010.i.i.i.i.i.i36.i, 1
+  %77 = icmp samesign ugt i64 %.010.i.i.i.i.i.i36.i, 1
   br i1 %77, label %.lr.ph.i.i.i.i.i.i35.i, label %_ZSt13move_backwardIN5QListI16QCPFinancialDataE8iteratorES3_ET0_T_S5_S4_.exit.i33.i, !llvm.loop !1124
 
 _ZSt13move_backwardIN5QListI16QCPFinancialDataE8iteratorES3_ET0_T_S5_S4_.exit.i33.i: ; preds = %.lr.ph.i.i.i.i.i.i35.i, %68
@@ -241499,7 +241499,7 @@ tailrecurse._crit_edge:                           ; preds = %tailrecurse, %8
   %16 = getelementptr i8, ptr %.sroa.05.07.i.i.i.i.i, i64 40
   %17 = getelementptr i8, ptr %.09.i.i.i.i.i, i64 40
   %18 = add nsw i64 %.048.i.i.i.i.i, -1
-  %19 = icmp ugt i64 %.048.i.i.i.i.i, 1
+  %19 = icmp samesign ugt i64 %.048.i.i.i.i.i, 1
   br i1 %19, label %.lr.ph.i.i.i.i.i, label %_ZSt4moveIN5QListI16QCPFinancialDataE8iteratorEPS1_ET0_T_S6_S5_.exit, !llvm.loop !1701
 
 _ZSt4moveIN5QListI16QCPFinancialDataE8iteratorEPS1_ET0_T_S6_S5_.exit: ; preds = %.lr.ph.i.i.i.i.i
@@ -241553,7 +241553,7 @@ _ZSt4moveIN5QListI16QCPFinancialDataE8iteratorEPS1_ET0_T_S6_S5_.exit: ; preds = 
   %33 = getelementptr i8, ptr %.058.i.i.i.i.i.i, i64 40
   %34 = getelementptr i8, ptr %.sroa.0.07.i.i.i.i.i.i, i64 40
   %35 = add nsw i64 %.09.i.i.i.i.i.i, -1
-  %36 = icmp ugt i64 %.09.i.i.i.i.i.i, 1
+  %36 = icmp samesign ugt i64 %.09.i.i.i.i.i.i, 1
   br i1 %36, label %.lr.ph.i.i.i.i.i.i, label %_ZSt21__move_merge_adaptiveIP16QCPFinancialDataN5QListIS0_E8iteratorES4_N9__gnu_cxx5__ops15_Iter_comp_iterIPFbRKS0_S9_EEEEvT_SD_T0_SE_T1_T2_.exit, !llvm.loop !1703
 
 37:                                               ; preds = %.lr.ph, %tailrecurse
@@ -241583,7 +241583,7 @@ _ZSt4moveIN5QListI16QCPFinancialDataE8iteratorEPS1_ET0_T_S6_S5_.exit: ; preds = 
   %43 = getelementptr i8, ptr %.sroa.05.07.i.i.i.i.i84, i64 40
   %44 = getelementptr i8, ptr %.09.i.i.i.i.i82, i64 40
   %45 = add nsw i64 %.048.i.i.i.i.i83, -1
-  %46 = icmp ugt i64 %.048.i.i.i.i.i83, 1
+  %46 = icmp samesign ugt i64 %.048.i.i.i.i.i83, 1
   br i1 %46, label %.lr.ph.i.i.i.i.i81, label %_ZSt4moveIN5QListI16QCPFinancialDataE8iteratorEPS1_ET0_T_S6_S5_.exit85, !llvm.loop !1701
 
 _ZSt4moveIN5QListI16QCPFinancialDataE8iteratorEPS1_ET0_T_S6_S5_.exit85: ; preds = %.lr.ph.i.i.i.i.i81, %39
@@ -241610,7 +241610,7 @@ _ZSt4moveIN5QListI16QCPFinancialDataE8iteratorEPS1_ET0_T_S6_S5_.exit85: ; preds 
   %55 = getelementptr i8, ptr %.sroa.0.06.i.i.i.i.i.i, i64 -40
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %55, ptr noundef nonnull align 8 dereferenceable(40) %54, i64 40, i1 false)
   %56 = add nsw i64 %.08.i.i.i.i.i.i, -1
-  %57 = icmp ugt i64 %.08.i.i.i.i.i.i, 1
+  %57 = icmp samesign ugt i64 %.08.i.i.i.i.i.i, 1
   br i1 %57, label %.lr.ph.i.i.i.i.i.i88, label %_ZSt21__move_merge_adaptiveIP16QCPFinancialDataN5QListIS0_E8iteratorES4_N9__gnu_cxx5__ops15_Iter_comp_iterIPFbRKS0_S9_EEEEvT_SD_T0_SE_T1_T2_.exit, !llvm.loop !1704
 
 58:                                               ; preds = %_ZSt4moveIN5QListI16QCPFinancialDataE8iteratorEPS1_ET0_T_S6_S5_.exit85
@@ -241660,7 +241660,7 @@ _ZSt4moveIN5QListI16QCPFinancialDataE8iteratorEPS1_ET0_T_S6_S5_.exit85: ; preds 
   %75 = getelementptr i8, ptr %.sroa.0.06.i.i.i.i.i25.i, i64 -40
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %75, ptr noundef nonnull align 8 dereferenceable(40) %74, i64 40, i1 false)
   %76 = add nsw i64 %.08.i.i.i.i.i23.i, -1
-  %77 = icmp ugt i64 %.08.i.i.i.i.i23.i, 1
+  %77 = icmp samesign ugt i64 %.08.i.i.i.i.i23.i, 1
   br i1 %77, label %.lr.ph.i.i.i.i.i22.i, label %_ZSt21__move_merge_adaptiveIP16QCPFinancialDataN5QListIS0_E8iteratorES4_N9__gnu_cxx5__ops15_Iter_comp_iterIPFbRKS0_S9_EEEEvT_SD_T0_SE_T1_T2_.exit, !llvm.loop !1704
 
 78:                                               ; preds = %62
@@ -241799,7 +241799,7 @@ define linkonce_odr ptr @_ZSt17__rotate_adaptiveIN5QListI16QCPFinancialDataE8ite
   %19 = getelementptr i8, ptr %.sroa.05.07.i.i.i.i.i, i64 40
   %20 = getelementptr i8, ptr %.09.i.i.i.i.i, i64 40
   %21 = add nsw i64 %.048.i.i.i.i.i, -1
-  %22 = icmp ugt i64 %.048.i.i.i.i.i, 1
+  %22 = icmp samesign ugt i64 %.048.i.i.i.i.i, 1
   br i1 %22, label %.lr.ph.i.i.i.i.i, label %_ZSt4moveIN5QListI16QCPFinancialDataE8iteratorEPS1_ET0_T_S6_S5_.exit, !llvm.loop !1701
 
 _ZSt4moveIN5QListI16QCPFinancialDataE8iteratorEPS1_ET0_T_S6_S5_.exit: ; preds = %.lr.ph.i.i.i.i.i, %13
@@ -241821,7 +241821,7 @@ _ZSt4moveIN5QListI16QCPFinancialDataE8iteratorEPS1_ET0_T_S6_S5_.exit: ; preds = 
   %28 = getelementptr i8, ptr %.sroa.0.09.i.i.i.i.i, i64 -40
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %28, ptr noundef nonnull align 8 dereferenceable(40) %27, i64 40, i1 false)
   %29 = add nsw i64 %.010.i.i.i.i.i, -1
-  %30 = icmp ugt i64 %.010.i.i.i.i.i, 1
+  %30 = icmp samesign ugt i64 %.010.i.i.i.i.i, 1
   br i1 %30, label %.lr.ph.i.i.i.i.i38, label %_ZSt13move_backwardIN5QListI16QCPFinancialDataE8iteratorES3_ET0_T_S5_S4_.exit, !llvm.loop !1124
 
 _ZSt13move_backwardIN5QListI16QCPFinancialDataE8iteratorES3_ET0_T_S5_S4_.exit: ; preds = %.lr.ph.i.i.i.i.i38, %_ZSt4moveIN5QListI16QCPFinancialDataE8iteratorEPS1_ET0_T_S6_S5_.exit
@@ -241843,7 +241843,7 @@ _ZSt13move_backwardIN5QListI16QCPFinancialDataE8iteratorES3_ET0_T_S5_S4_.exit: ;
   %36 = getelementptr i8, ptr %.058.i.i.i.i.i, i64 40
   %37 = getelementptr i8, ptr %.sroa.0.07.i.i.i.i.i, i64 40
   %38 = add nsw i64 %.09.i.i.i.i.i42, -1
-  %39 = icmp ugt i64 %.09.i.i.i.i.i42, 1
+  %39 = icmp samesign ugt i64 %.09.i.i.i.i.i42, 1
   br i1 %39, label %.lr.ph.i.i.i.i.i41, label %_ZSt4moveIP16QCPFinancialDataN5QListIS0_E8iteratorEET0_T_S6_S5_.exit, !llvm.loop !1703
 
 40:                                               ; preds = %7
@@ -241873,7 +241873,7 @@ _ZSt13move_backwardIN5QListI16QCPFinancialDataE8iteratorES3_ET0_T_S5_S4_.exit: ;
   %48 = getelementptr i8, ptr %.sroa.05.07.i.i.i.i.i48, i64 40
   %49 = getelementptr i8, ptr %.09.i.i.i.i.i46, i64 40
   %50 = add nsw i64 %.048.i.i.i.i.i47, -1
-  %51 = icmp ugt i64 %.048.i.i.i.i.i47, 1
+  %51 = icmp samesign ugt i64 %.048.i.i.i.i.i47, 1
   br i1 %51, label %.lr.ph.i.i.i.i.i45, label %_ZSt4moveIN5QListI16QCPFinancialDataE8iteratorEPS1_ET0_T_S6_S5_.exit49, !llvm.loop !1701
 
 _ZSt4moveIN5QListI16QCPFinancialDataE8iteratorEPS1_ET0_T_S6_S5_.exit49: ; preds = %.lr.ph.i.i.i.i.i45, %42
@@ -241895,7 +241895,7 @@ _ZSt4moveIN5QListI16QCPFinancialDataE8iteratorEPS1_ET0_T_S6_S5_.exit49: ; preds 
   %56 = getelementptr i8, ptr %.sroa.05.07.i.i.i.i.i54, i64 40
   %57 = getelementptr i8, ptr %.sroa.0.08.i.i.i.i.i, i64 40
   %58 = add nsw i64 %.09.i.i.i.i.i53, -1
-  %59 = icmp ugt i64 %.09.i.i.i.i.i53, 1
+  %59 = icmp samesign ugt i64 %.09.i.i.i.i.i53, 1
   br i1 %59, label %.lr.ph.i.i.i.i.i52, label %_ZSt4moveIN5QListI16QCPFinancialDataE8iteratorES3_ET0_T_S5_S4_.exit, !llvm.loop !1706
 
 _ZSt4moveIN5QListI16QCPFinancialDataE8iteratorES3_ET0_T_S5_S4_.exit: ; preds = %.lr.ph.i.i.i.i.i52, %_ZSt4moveIN5QListI16QCPFinancialDataE8iteratorEPS1_ET0_T_S6_S5_.exit49
@@ -241917,7 +241917,7 @@ _ZSt4moveIN5QListI16QCPFinancialDataE8iteratorES3_ET0_T_S5_S4_.exit: ; preds = %
   %66 = getelementptr i8, ptr %.sroa.0.06.i.i.i.i.i, i64 -40
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %66, ptr noundef nonnull align 8 dereferenceable(40) %65, i64 40, i1 false)
   %67 = add nsw i64 %.08.i.i.i.i.i, -1
-  %68 = icmp ugt i64 %.08.i.i.i.i.i, 1
+  %68 = icmp samesign ugt i64 %.08.i.i.i.i.i, 1
   br i1 %68, label %.lr.ph.i.i.i.i.i57, label %_ZSt4moveIP16QCPFinancialDataN5QListIS0_E8iteratorEET0_T_S6_S5_.exit, !llvm.loop !1704
 
 69:                                               ; preds = %40

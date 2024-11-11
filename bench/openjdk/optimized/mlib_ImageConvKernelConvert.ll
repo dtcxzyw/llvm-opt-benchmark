@@ -287,7 +287,7 @@ select.unfold.loopexit:                           ; preds = %80
   %.0222264 = phi double [ %104, %.lr.ph267 ], [ 1.000000e+00, %101 ]
   %104 = fmul double %.0222264, 0x41D0000000000000
   %105 = add nsw i32 %.1209265, -30
-  %106 = icmp ugt i32 %.1209265, 60
+  %106 = icmp samesign ugt i32 %.1209265, 60
   br i1 %106, label %.lr.ph267, label %._crit_edge268, !llvm.loop !16
 
 ._crit_edge268:                                   ; preds = %.lr.ph267, %101

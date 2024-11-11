@@ -468,7 +468,7 @@ _ZN4ncnnL21cast_fp16_to_fp32_sseERKNS_3MatERS0_RKNS_6OptionE.exit: ; preds = %._
   %242 = and i32 %237, 2147483632
   %wide.trip.count264.i = zext nneg i32 %233 to i64
   %243 = or disjoint i32 %242, 7
-  %244 = icmp ult i32 %243, %237
+  %244 = icmp samesign ult i32 %243, %237
   br label %.lr.ph.us.i237
 
 .lr.ph.us.i237:                                   ; preds = %._crit_edge.us.i238, %.lr.ph.us.preheader.i236
@@ -708,7 +708,7 @@ _ZN4ncnnL21cast_fp32_to_bf16_sseERKNS_3MatERS0_RKNS_6OptionE.exit: ; preds = %._
   %367 = and i32 %362, 2147483640
   %wide.trip.count238.i = zext nneg i32 %358 to i64
   %368 = or disjoint i32 %367, 3
-  %369 = icmp ult i32 %368, %362
+  %369 = icmp samesign ult i32 %368, %362
   br label %.lr.ph.us.i245
 
 .lr.ph.us.i245:                                   ; preds = %._crit_edge.us.i248, %.lr.ph.us.preheader.i244

@@ -49,19 +49,19 @@ define internal noundef i32 @_ZL9b_arshiftP9lua_State(ptr noundef %0) #0 {
   br i1 %7, label %8, label %11
 
 8:                                                ; preds = %5
-  %9 = icmp ult i32 %6, -31
+  %9 = icmp samesign ult i32 %6, -31
   %10 = lshr i32 %2, %3
   %spec.select = select i1 %9, i32 0, i32 %10
   br label %_ZL7b_shiftP9lua_Stateji.exit
 
 11:                                               ; preds = %5
-  %12 = icmp ugt i32 %6, 31
+  %12 = icmp samesign ugt i32 %6, 31
   %13 = shl i32 %2, %6
   %.1.i = select i1 %12, i32 0, i32 %13
   br label %_ZL7b_shiftP9lua_Stateji.exit
 
 14:                                               ; preds = %1
-  %15 = icmp ugt i32 %3, 31
+  %15 = icmp samesign ugt i32 %3, 31
   %16 = lshr i32 %2, %3
   %17 = lshr i32 -1, %3
   %18 = xor i32 %17, -1
@@ -194,7 +194,7 @@ define internal noundef i32 @_ZL9b_extractP9lua_State(ptr noundef %0) #0 {
 
 10:                                               ; preds = %7
   %11 = add nuw nsw i32 %4, %3
-  %12 = icmp ugt i32 %11, 32
+  %12 = icmp samesign ugt i32 %11, 32
   br i1 %12, label %13, label %_ZL9fieldargsP9lua_StateiPi.exit
 
 13:                                               ; preds = %10
@@ -231,7 +231,7 @@ define internal noundef i32 @_ZL8b_lshiftP9lua_State(ptr noundef %0) #0 {
   br i1 %4, label %5, label %10
 
 5:                                                ; preds = %1
-  %6 = icmp ult i32 %3, -31
+  %6 = icmp samesign ult i32 %3, -31
   br i1 %6, label %_ZL7b_shiftP9lua_Stateji.exit, label %7
 
 7:                                                ; preds = %5
@@ -240,7 +240,7 @@ define internal noundef i32 @_ZL8b_lshiftP9lua_State(ptr noundef %0) #0 {
   br label %_ZL7b_shiftP9lua_Stateji.exit
 
 10:                                               ; preds = %1
-  %11 = icmp ugt i32 %3, 31
+  %11 = icmp samesign ugt i32 %3, 31
   %12 = shl i32 %2, %3
   %.1.i = select i1 %11, i32 0, i32 %12
   br label %_ZL7b_shiftP9lua_Stateji.exit
@@ -274,7 +274,7 @@ define internal noundef i32 @_ZL9b_replaceP9lua_State(ptr noundef %0) #0 {
 
 11:                                               ; preds = %8
   %12 = add nuw nsw i32 %5, %4
-  %13 = icmp ugt i32 %12, 32
+  %13 = icmp samesign ugt i32 %12, 32
   br i1 %13, label %14, label %_ZL9fieldargsP9lua_StateiPi.exit
 
 14:                                               ; preds = %11
@@ -317,13 +317,13 @@ define internal noundef i32 @_ZL8b_rshiftP9lua_State(ptr noundef %0) #0 {
   br i1 %5, label %6, label %9
 
 6:                                                ; preds = %1
-  %7 = icmp ult i32 %4, -31
+  %7 = icmp samesign ult i32 %4, -31
   %8 = lshr i32 %2, %3
   %spec.select = select i1 %7, i32 0, i32 %8
   br label %_ZL7b_shiftP9lua_Stateji.exit
 
 9:                                                ; preds = %1
-  %10 = icmp ugt i32 %4, 31
+  %10 = icmp samesign ugt i32 %4, 31
   %11 = shl i32 %2, %4
   %.1.i = select i1 %10, i32 0, i32 %11
   br label %_ZL7b_shiftP9lua_Stateji.exit

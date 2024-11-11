@@ -12077,7 +12077,7 @@ define internal void @_ZN2cvL13remapBilinearINS_11FixedPtCastIihLi15EEENS_10Rema
   %594 = getelementptr inbounds i8, ptr %4, i64 %.idx670
   %595 = load i16, ptr %594, align 2
   %596 = sext i16 %595 to i32
-  %597 = icmp ult i32 %580, %41
+  %597 = icmp samesign ult i32 %580, %41
   br i1 %597, label %598, label %.thread746
 
 598:                                              ; preds = %590
@@ -13365,7 +13365,7 @@ define internal void @_ZN2cvL13remapBilinearINS_4CastIftEENS_10RemapNoVecILb1EEE
   %538 = getelementptr inbounds i8, ptr %4, i64 %.idx669
   %539 = load float, ptr %538, align 4
   %540 = fadd float %539, 0.000000e+00
-  %541 = icmp ult i32 %524, %42
+  %541 = icmp samesign ult i32 %524, %42
   br i1 %541, label %542, label %.thread745
 
 542:                                              ; preds = %534
@@ -14612,7 +14612,7 @@ define internal void @_ZN2cvL13remapBilinearINS_4CastIfsEENS_10RemapNoVecILb1EEE
   %538 = getelementptr inbounds i8, ptr %4, i64 %.idx669
   %539 = load float, ptr %538, align 4
   %540 = fadd float %539, 0.000000e+00
-  %541 = icmp ult i32 %524, %42
+  %541 = icmp samesign ult i32 %524, %42
   br i1 %541, label %542, label %.thread745
 
 542:                                              ; preds = %534
@@ -15756,7 +15756,7 @@ define internal void @_ZN2cvL13remapBilinearINS_4CastIffEENS_10RemapNoVecILb1EEE
   %435 = getelementptr inbounds i8, ptr %4, i64 %.idx669
   %436 = load float, ptr %435, align 4
   %437 = fadd float %436, 0.000000e+00
-  %438 = icmp ult i32 %421, %38
+  %438 = icmp samesign ult i32 %421, %38
   br i1 %438, label %439, label %.thread745
 
 439:                                              ; preds = %431
@@ -16884,7 +16884,7 @@ define internal void @_ZN2cvL13remapBilinearINS_4CastIddEENS_10RemapNoVecILb1EEE
   %459 = load float, ptr %458, align 4
   %460 = fpext float %459 to double
   %461 = fadd double %460, 0.000000e+00
-  %462 = icmp ult i32 %444, %37
+  %462 = icmp samesign ult i32 %444, %37
   br i1 %462, label %463, label %.thread745
 
 463:                                              ; preds = %454

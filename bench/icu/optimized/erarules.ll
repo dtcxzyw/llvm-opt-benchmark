@@ -368,7 +368,7 @@ lor.lhs.false113:                                 ; preds = %if.end111
   %or.cond2.i.not89 = or i1 %or.cond.i, %16
   %17 = add i32 %13, -32
   %18 = icmp ult i32 %17, -31
-  %narrow.i.not = or i1 %or.cond2.i.not89, %18
+  %narrow.i.not = or i1 %18, %or.cond2.i.not89
   br i1 %narrow.i.not, label %if.then119, label %if.end120
 
 if.then119:                                       ; preds = %lor.lhs.false113, %if.end111

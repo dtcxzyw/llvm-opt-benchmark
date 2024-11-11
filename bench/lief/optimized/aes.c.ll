@@ -1092,7 +1092,7 @@ define hidden noundef i32 @mbedtls_internal_aes_encrypt(ptr nocapture noundef re
   %274 = load i32, ptr %273, align 4
   %275 = xor i32 %270, %274
   store i32 %275, ptr %69, align 4
-  %276 = icmp ugt i32 %.055.in59, 2
+  %276 = icmp samesign ugt i32 %.055.in59, 2
   br i1 %276, label %79, label %._crit_edge, !llvm.loop !15
 
 ._crit_edge:                                      ; preds = %79, %3
@@ -1686,7 +1686,7 @@ define hidden noundef i32 @mbedtls_internal_aes_decrypt(ptr nocapture noundef re
   %274 = load i32, ptr %273, align 4
   %275 = xor i32 %270, %274
   store i32 %275, ptr %69, align 4
-  %276 = icmp ugt i32 %.055.in59, 2
+  %276 = icmp samesign ugt i32 %.055.in59, 2
   br i1 %276, label %79, label %._crit_edge, !llvm.loop !16
 
 ._crit_edge:                                      ; preds = %79, %3

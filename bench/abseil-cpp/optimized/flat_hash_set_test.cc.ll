@@ -11166,7 +11166,7 @@ if.end:                                           ; preds = %if.then
   br label %if.end27
 
 if.else:                                          ; preds = %entry
-  %cmp5 = icmp ugt i64 %len, 8
+  %cmp5 = icmp samesign ugt i64 %len, 8
   br i1 %cmp5, label %if.then6, label %if.else14
 
 if.then6:                                         ; preds = %if.else
@@ -11187,7 +11187,7 @@ if.then6:                                         ; preds = %if.else
   br label %return
 
 if.else14:                                        ; preds = %if.else
-  %cmp15 = icmp ugt i64 %len, 3
+  %cmp15 = icmp samesign ugt i64 %len, 3
   br i1 %cmp15, label %if.then16, label %if.else18
 
 if.then16:                                        ; preds = %if.else14
@@ -35866,7 +35866,7 @@ if.then.i.cont:                                   ; preds = %if.then.i.invoke
 
 if.end.i:                                         ; preds = %invoke.cont
   %_M_end_of_storage.i.i = getelementptr inbounds i8, ptr %agg.result, i64 16
-  %cmp3.i.not = icmp ult i64 %0, 2
+  %cmp3.i.not = icmp samesign ult i64 %0, 2
   br i1 %cmp3.i.not, label %invoke.cont1, label %_ZNSt12_Vector_baseIiSaIiEE11_M_allocateEm.exit.i
 
 _ZNSt12_Vector_baseIiSaIiEE11_M_allocateEm.exit.i: ; preds = %if.end.i
@@ -40837,7 +40837,7 @@ if.then.i.cont:                                   ; preds = %if.then.i.invoke
 
 if.end.i:                                         ; preds = %invoke.cont
   %_M_end_of_storage.i.i = getelementptr inbounds i8, ptr %agg.result, i64 16
-  %cmp3.i.not = icmp ult i64 %0, 2
+  %cmp3.i.not = icmp samesign ult i64 %0, 2
   br i1 %cmp3.i.not, label %invoke.cont1, label %_ZNSt12_Vector_baseIN4absl18container_internal13hash_internal4EnumESaIS3_EE11_M_allocateEm.exit.i
 
 _ZNSt12_Vector_baseIN4absl18container_internal13hash_internal4EnumESaIS3_EE11_M_allocateEm.exit.i: ; preds = %if.end.i
@@ -43199,7 +43199,7 @@ if.then.i.cont:                                   ; preds = %if.then.i.invoke
 
 if.end.i:                                         ; preds = %invoke.cont
   %_M_end_of_storage.i.i = getelementptr inbounds i8, ptr %agg.result, i64 16
-  %cmp3.i.not = icmp ult i64 %0, 2
+  %cmp3.i.not = icmp samesign ult i64 %0, 2
   br i1 %cmp3.i.not, label %invoke.cont1, label %_ZNSt12_Vector_baseIN4absl18container_internal13hash_internal9EnumClassESaIS3_EE11_M_allocateEm.exit.i
 
 _ZNSt12_Vector_baseIN4absl18container_internal13hash_internal9EnumClassESaIS3_EE11_M_allocateEm.exit.i: ; preds = %if.end.i

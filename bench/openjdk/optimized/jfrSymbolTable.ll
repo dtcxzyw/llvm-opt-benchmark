@@ -787,7 +787,7 @@ define hidden noundef i64 @_ZN14JfrSymbolTable4markEPKcb(ptr nocapture noundef n
   %11 = zext i8 %10 to i32
   %12 = add i32 %9, %11
   %13 = getelementptr inbounds i8, ptr %.056.i.i, i64 1
-  %14 = icmp ugt i32 %.047.i.i, 1
+  %14 = icmp samesign ugt i32 %.047.i.i, 1
   br i1 %14, label %.lr.ph.i.i, label %_ZN16java_lang_String9hash_codeEPKai.exit.loopexit.i, !llvm.loop !13
 
 _ZN16java_lang_String9hash_codeEPKai.exit.loopexit.i: ; preds = %.lr.ph.i.i

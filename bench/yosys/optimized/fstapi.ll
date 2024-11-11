@@ -6501,7 +6501,7 @@ _ZL15fstWriterVarintP8_IO_FILEm.exit._crit_edge:  ; preds = %_ZL15fstWriterVarin
 70:                                               ; preds = %66
   %71 = load ptr, ptr %0, align 8
   call void @llvm.lifetime.start.p0(i64 10, ptr nonnull %3)
-  %.not11.i52 = icmp ult i64 %67, 128
+  %.not11.i52 = icmp samesign ult i64 %67, 128
   br i1 %.not11.i52, label %_ZL15fstWriterVarintP8_IO_FILEm.exit60, label %.lr.ph.i53
 
 .lr.ph.i53:                                       ; preds = %70, %.lr.ph.i53

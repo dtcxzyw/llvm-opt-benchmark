@@ -1273,7 +1273,7 @@ define hidden void @_ZN3std10sys_common4once5futex4Once4call17hecd9ba03f95867edE
           to label %69 unwind label %.loopexit.split-lp.i.i.i.i, !noalias !57
 
 61:                                               ; preds = %.noexc4.i.i.i.i
-  %62 = icmp ugt i64 %52, 4294967295
+  %62 = icmp samesign ugt i64 %52, 4294967295
   br i1 %62, label %.split4.i.i.i.i.i, label %63
 
 .split4.i.i.i.i.i:                                ; preds = %61

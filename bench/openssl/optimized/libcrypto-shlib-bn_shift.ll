@@ -151,7 +151,7 @@ while.body:                                       ; preds = %while.body.preheade
   %or = tail call i64 @llvm.fshl.i64(i64 %c.0.in26, i64 %7, i64 63)
   %arrayidx21 = getelementptr inbounds i64, ptr %3, i64 %indvars.iv.next
   store i64 %or, ptr %arrayidx21, align 8
-  %cmp14 = icmp ugt i64 %indvars.iv, 1
+  %cmp14 = icmp samesign ugt i64 %indvars.iv, 1
   br i1 %cmp14, label %while.body, label %while.end.loopexit, !llvm.loop !6
 
 while.end.loopexit:                               ; preds = %while.body
@@ -264,7 +264,7 @@ for.body:                                         ; preds = %for.body.lr.ph, %fo
   %or28 = or i64 %and27, %shl
   %arrayidx31 = getelementptr inbounds i64, ptr %arrayidx8, i64 %indvars.iv.next
   store i64 %or28, ptr %arrayidx31, align 8
-  %cmp19 = icmp ugt i64 %indvars.iv, 2
+  %cmp19 = icmp samesign ugt i64 %indvars.iv, 2
   br i1 %cmp19, label %for.body, label %for.end, !llvm.loop !7
 
 for.end:                                          ; preds = %for.body, %if.then4

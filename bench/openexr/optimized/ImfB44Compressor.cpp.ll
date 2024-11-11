@@ -1678,7 +1678,7 @@ for.body.i:                                       ; preds = %for.body.i, %if.the
   br i1 %exitcond.not.i, label %if.end87, label %for.body.i, !llvm.loop !26
 
 if.else:                                          ; preds = %if.end74
-  %cmp81 = icmp ult i32 %inSize.addr.3189, 14
+  %cmp81 = icmp samesign ult i32 %inSize.addr.3189, 14
   br i1 %cmp81, label %if.then82, label %if.end83
 
 if.then82:                                        ; preds = %if.else

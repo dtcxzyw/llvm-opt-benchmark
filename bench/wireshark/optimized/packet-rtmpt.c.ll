@@ -1374,7 +1374,7 @@ switch.lookup:                                    ; preds = %141
   %switch.load = load i32, ptr %switch.gep, align 4
   %.not580 = icmp eq i8 %143, 3
   %147 = add nuw nsw i32 %switch.select3.i611, 3
-  %.not581 = icmp ult i32 %.0506994, %147
+  %.not581 = icmp samesign ult i32 %.0506994, %147
   %or.cond598 = select i1 %.not580, i1 true, i1 %.not581
   br i1 %or.cond598, label %153, label %148
 
@@ -1389,7 +1389,7 @@ switch.lookup:                                    ; preds = %141
 153:                                              ; preds = %148, %switch.lookup
   %.0535 = phi i32 [ %switch.load, %switch.lookup ], [ %spec.select599, %148 ]
   %154 = add nuw nsw i32 %.0535, %switch.select3.i611
-  %155 = icmp ult i32 %.0506994, %154
+  %155 = icmp samesign ult i32 %.0506994, %154
   br i1 %155, label %156, label %169
 
 156:                                              ; preds = %153
@@ -4202,7 +4202,7 @@ amf_get_u29.exit443:                              ; preds = %.thread470, %269, %
 328:                                              ; preds = %320, %304
   %.4 = phi i32 [ %319, %304 ], [ %327, %320 ]
   %.0378 = phi ptr [ %311, %304 ], [ %324, %320 ]
-  %.not492 = icmp ult i32 %.0.i442, 16
+  %.not492 = icmp samesign ult i32 %.0.i442, 16
   br i1 %.not492, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %328, %371

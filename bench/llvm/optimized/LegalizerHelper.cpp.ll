@@ -2964,7 +2964,7 @@ _ZN4llvm12CallLowering7ArgInfoD2Ev.exit220.i:     ; preds = %1101, %_ZN4llvm11Sm
   call void @_ZN4llvm15SmallVectorBaseIjE8set_sizeEm(ptr noundef nonnull align 8 dereferenceable(16) %1062, i64 noundef %1110) #18
   %1111 = getelementptr inbounds i8, ptr %.056.i.i.i.i.i.i, i64 168
   %1112 = add nsw i64 %.07.i.i.i.i.i.i, -1
-  %1113 = icmp ugt i64 %.07.i.i.i.i.i.i, 1
+  %1113 = icmp samesign ugt i64 %.07.i.i.i.i.i.i, 1
   br i1 %1113, label %.lr.ph.i.i.i.i.i.i, label %_ZSt4copyIPN4llvm12CallLowering7ArgInfoESt20back_insert_iteratorINS0_11SmallVectorIS2_Lj32EEEEET0_T_S9_S8_.exit.i, !llvm.loop !7
 
 _ZSt4copyIPN4llvm12CallLowering7ArgInfoESt20back_insert_iteratorINS0_11SmallVectorIS2_Lj32EEEEET0_T_S9_S8_.exit.i: ; preds = %.lr.ph.i.i.i.i.i.i, %_ZN4llvm12CallLowering7ArgInfoD2Ev.exit220.i
@@ -4271,7 +4271,7 @@ _ZNK4llvm17MachineMemOperand13getSizeInBitsEv.exit: ; preds = %_ZNK4llvm13GMemOp
   br label %659
 
 657:                                              ; preds = %648
-  %658 = icmp ugt i64 %641, %199
+  %658 = icmp samesign ugt i64 %641, %199
   br i1 %658, label %_ZN4llvm5APIntD2Ev.exit738, label %659
 
 659:                                              ; preds = %650, %657, %643
@@ -14980,7 +14980,7 @@ define dso_local noundef range(i32 1, 3) i32 @_ZN4llvm13createLibcallERNS_16Mach
   call void @_ZN4llvm15SmallVectorBaseIjE8set_sizeEm(ptr noundef nonnull align 8 dereferenceable(16) %29, i64 noundef %79) #18
   %80 = getelementptr inbounds i8, ptr %.056.i.i.i.i.i, i64 168
   %81 = add nsw i64 %.07.i.i.i.i.i, -1
-  %82 = icmp ugt i64 %.07.i.i.i.i.i, 1
+  %82 = icmp samesign ugt i64 %.07.i.i.i.i.i, 1
   br i1 %82, label %.lr.ph.i.i.i.i.i, label %_ZSt4copyIPKN4llvm12CallLowering7ArgInfoESt20back_insert_iteratorINS0_11SmallVectorIS2_Lj32EEEEET0_T_SA_S9_.exit, !llvm.loop !100
 
 _ZSt4copyIPKN4llvm12CallLowering7ArgInfoESt20back_insert_iteratorINS0_11SmallVectorIS2_Lj32EEEEET0_T_SA_S9_.exit: ; preds = %.lr.ph.i.i.i.i.i, %72
@@ -15687,7 +15687,7 @@ _ZN4llvm12CallLowering7ArgInfoD2Ev.exit47:        ; preds = %_ZN4llvm11SmallVect
   call void @_ZN4llvm15SmallVectorBaseIjE8set_sizeEm(ptr noundef nonnull align 8 dereferenceable(16) %140, i64 noundef %203) #18
   %204 = getelementptr inbounds i8, ptr %.056.i.i.i.i.i, i64 168
   %205 = add nsw i64 %.07.i.i.i.i.i, -1
-  %206 = icmp ugt i64 %.07.i.i.i.i.i, 1
+  %206 = icmp samesign ugt i64 %.07.i.i.i.i.i, 1
   br i1 %206, label %.lr.ph.i.i.i.i.i, label %_ZSt4copyIPN4llvm12CallLowering7ArgInfoESt20back_insert_iteratorINS0_11SmallVectorIS2_Lj32EEEEET0_T_S9_S8_.exit, !llvm.loop !7
 
 _ZSt4copyIPN4llvm12CallLowering7ArgInfoESt20back_insert_iteratorINS0_11SmallVectorIS2_Lj32EEEEET0_T_S9_S8_.exit: ; preds = %.lr.ph.i.i.i.i.i, %192
@@ -39398,7 +39398,7 @@ _ZNK4llvm3LLT14getNumElementsEv.exit:             ; preds = %69, %73
   %75 = trunc i64 %74 to i32
   %76 = lshr i32 %75, 3
   %77 = and i32 %76, 65535
-  %78 = icmp ult i32 %46, %77
+  %78 = icmp samesign ult i32 %46, %77
   %.val = load i32, ptr %15, align 8
   %.val62 = load i32, ptr %17, align 8
   %.sroa.010.0.copyload = select i1 %78, i32 %.val, i32 %.val62
@@ -55649,13 +55649,13 @@ _ZNK4llvm5APInt13getActiveBitsEv.exit.i172:       ; preds = %_ZNK4llvm5APInt3ugt
   %160 = call noundef i32 @_ZNK4llvm5APInt25countLeadingZerosSlowCaseEv(ptr noundef nonnull align 8 dereferenceable(12) %2) #22
   %161 = sub i32 %145, %160
   %162 = icmp ugt i32 %161, 64
-  %163 = icmp ugt i64 %.0.i.i600, %159
-  %or.cond = or i1 %162, %163
+  %163 = icmp samesign ugt i64 %.0.i.i600, %159
+  %or.cond = select i1 %162, i1 true, i1 %163
   br i1 %or.cond, label %_ZNK4llvm5APInt3ugtEm.exit175.thread, label %_ZNK4llvm5APInteqEm.exit
 
 _ZNK4llvm5APInt3ugtEm.exit175:                    ; preds = %_ZNK4llvm5APInt3ugtEm.exit
   %164 = and i64 %140, 4294967295
-  %165 = icmp ugt i64 %.0.i.i, %164
+  %165 = icmp samesign ugt i64 %.0.i.i, %164
   br i1 %165, label %_ZNK4llvm5APInt3ugtEm.exit175.thread, label %_ZNK4llvm5APInteqEm.exit
 
 _ZNK4llvm5APInt3ugtEm.exit175.thread:             ; preds = %_ZNK4llvm5APInt13getActiveBitsEv.exit.i172, %_ZNK4llvm5APInt3ugtEm.exit175
@@ -56006,13 +56006,13 @@ _ZNK4llvm5APInt13getActiveBitsEv.exit.i188:       ; preds = %_ZNK4llvm5APInt3ugt
   %311 = call noundef i32 @_ZNK4llvm5APInt25countLeadingZerosSlowCaseEv(ptr noundef nonnull align 8 dereferenceable(12) %2) #22
   %312 = sub i32 %145, %311
   %313 = icmp ugt i32 %312, 64
-  %314 = icmp ugt i64 %.0.i.i186607, %310
-  %or.cond629 = or i1 %313, %314
+  %314 = icmp samesign ugt i64 %.0.i.i186607, %310
+  %or.cond629 = select i1 %313, i1 true, i1 %314
   br i1 %or.cond629, label %.thread609, label %_ZNK4llvm5APInteqEm.exit198
 
 _ZNK4llvm5APInt3ugtEm.exit191:                    ; preds = %_ZNK4llvm5APInt3ugtEm.exit187
   %315 = and i64 %140, 4294967295
-  %316 = icmp ugt i64 %.0.i.i186, %315
+  %316 = icmp samesign ugt i64 %.0.i.i186, %315
   br i1 %316, label %317, label %_ZNK4llvm5APInteqEm.exit198
 
 317:                                              ; preds = %_ZNK4llvm5APInt3ugtEm.exit191
@@ -56365,13 +56365,13 @@ _ZNK4llvm5APInt13getActiveBitsEv.exit.i207:       ; preds = %_ZNK4llvm5APInt3ugt
   %459 = call noundef i32 @_ZNK4llvm5APInt25countLeadingZerosSlowCaseEv(ptr noundef nonnull align 8 dereferenceable(12) %2) #22
   %460 = sub i32 %145, %459
   %461 = icmp ugt i32 %460, 64
-  %462 = icmp ugt i64 %.0.i.i205616, %458
-  %or.cond630 = or i1 %461, %462
+  %462 = icmp samesign ugt i64 %.0.i.i205616, %458
+  %or.cond630 = select i1 %461, i1 true, i1 %462
   br i1 %or.cond630, label %.thread618, label %_ZNK4llvm5APInteqEm.exit217
 
 _ZNK4llvm5APInt3ugtEm.exit210:                    ; preds = %_ZNK4llvm5APInt3ugtEm.exit206
   %463 = and i64 %140, 4294967295
-  %464 = icmp ugt i64 %.0.i.i205, %463
+  %464 = icmp samesign ugt i64 %.0.i.i205, %463
   br i1 %464, label %465, label %_ZNK4llvm5APInteqEm.exit217
 
 465:                                              ; preds = %_ZNK4llvm5APInt3ugtEm.exit210
@@ -63443,7 +63443,7 @@ _ZNK4llvm3LLT14getSizeInBytesEv.exit153:          ; preds = %_ZNK4llvm3LLT19getS
   %158 = load i8, ptr %58, align 2
   %159 = trunc i8 %158 to i1
   %160 = and i64 %155, 4294967295
-  %161 = icmp ult i64 %160, %.064182
+  %161 = icmp samesign ult i64 %160, %.064182
   %or.cond70 = and i1 %161, %159
   br i1 %or.cond70, label %162, label %171
 
@@ -63468,7 +63468,7 @@ _ZNK4llvm3LLT14getSizeInBytesEv.exit153:          ; preds = %_ZNK4llvm3LLT19getS
   %.sroa.0163.4 = phi i64 [ %152, %171 ], [ %.sroa.0163.3176, %162 ]
   %.1 = phi i64 [ %155, %171 ], [ %.064182, %162 ]
   %173 = and i64 %.1, 4294967295
-  %174 = icmp ugt i64 %173, %.064182
+  %174 = icmp samesign ugt i64 %173, %.064182
   br i1 %174, label %93, label %._crit_edge, !llvm.loop !464
 
 ._crit_edge:                                      ; preds = %172, %_ZNK4llvm3LLT14getSizeInBytesEv.exit111

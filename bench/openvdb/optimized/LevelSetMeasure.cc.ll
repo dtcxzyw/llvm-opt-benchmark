@@ -5397,7 +5397,7 @@ entry:
   br i1 %cmp.i.i, label %if.then.i.i, label %_ZN3tbb6detail2d113parallel_sortIPdEEvT_S4_.exit
 
 if.then.i.i:                                      ; preds = %entry
-  %cmp1.i.i = icmp ult i64 %2, 500
+  %cmp1.i.i = icmp samesign ult i64 %2, 500
   br i1 %cmp1.i.i, label %if.then2.i.i, label %if.else.i.i
 
 if.then2.i.i:                                     ; preds = %if.then.i.i
@@ -9356,7 +9356,7 @@ entry:
   br i1 %cmp.i.i, label %if.then.i.i, label %_ZN3tbb6detail2d113parallel_sortIPdEEvT_S4_.exit
 
 if.then.i.i:                                      ; preds = %entry
-  %cmp1.i.i = icmp ult i64 %2, 500
+  %cmp1.i.i = icmp samesign ult i64 %2, 500
   br i1 %cmp1.i.i, label %if.then2.i.i, label %if.else.i.i
 
 if.then2.i.i:                                     ; preds = %if.then.i.i
@@ -12176,7 +12176,7 @@ for.body.i.i:                                     ; preds = %_ZNK7openvdb5v11_04
   br i1 %cmp.i.i.i.i.i.i, label %land.lhs.true.i.i.i.i.i.i, label %cond.false.i.i.i.i.i.i
 
 land.lhs.true.i.i.i.i.i.i:                        ; preds = %for.body.i.i
-  %cmp2.i.i.i.i.i.i = icmp ult i64 %add.i.i.i.i.i.i, 64
+  %cmp2.i.i.i.i.i.i = icmp samesign ult i64 %add.i.i.i.i.i.i, 64
   br i1 %cmp2.i.i.i.i.i.i, label %if.then.i.i.i.i.i.i, label %cond.true.i.i.i.i.i.i
 
 if.then.i.i.i.i.i.i:                              ; preds = %land.lhs.true.i.i.i.i.i.i
@@ -12434,7 +12434,7 @@ for.body.i.i39:                                   ; preds = %invoke.cont28, %_ZN
   br i1 %cmp.i.i.i.i.i.i49, label %land.lhs.true.i.i.i.i.i.i74, label %cond.false.i.i.i.i.i.i50
 
 land.lhs.true.i.i.i.i.i.i74:                      ; preds = %for.body.i.i39
-  %cmp2.i.i.i.i.i.i75 = icmp ult i64 %add.i.i.i.i.i.i48, 64
+  %cmp2.i.i.i.i.i.i75 = icmp samesign ult i64 %add.i.i.i.i.i.i48, 64
   br i1 %cmp2.i.i.i.i.i.i75, label %if.then.i.i.i.i.i.i78, label %cond.true.i.i.i.i.i.i76
 
 if.then.i.i.i.i.i.i78:                            ; preds = %land.lhs.true.i.i.i.i.i.i74
@@ -13311,7 +13311,7 @@ for.body:                                         ; preds = %for.body.lr.ph, %fo
   br i1 %cmp.i.i.i.i, label %land.lhs.true.i.i.i.i, label %cond.false.i.i.i.i
 
 land.lhs.true.i.i.i.i:                            ; preds = %for.body
-  %cmp2.i.i.i.i = icmp ult i64 %add.i.i.i.i, 64
+  %cmp2.i.i.i.i = icmp samesign ult i64 %add.i.i.i.i, 64
   br i1 %cmp2.i.i.i.i, label %if.then.i.i.i.i, label %cond.true.i.i.i.i
 
 if.then.i.i.i.i:                                  ; preds = %land.lhs.true.i.i.i.i
@@ -16086,7 +16086,7 @@ entry:
   br i1 %cmp.i.i.i.i, label %if.then.i.i.i.i, label %_ZN3tbb6detail2d113parallel_sortIPdEEvT_S4_.exit.i.i
 
 if.then.i.i.i.i:                                  ; preds = %entry
-  %cmp1.i.i.i.i = icmp ult i64 %5, 500
+  %cmp1.i.i.i.i = icmp samesign ult i64 %5, 500
   br i1 %cmp1.i.i.i.i, label %if.then2.i.i.i.i, label %if.else.i.i.i.i
 
 if.then2.i.i.i.i:                                 ; preds = %if.then.i.i.i.i
@@ -16193,7 +16193,7 @@ entry:
   br i1 %cmp.i.i.i.i, label %if.then.i.i.i.i, label %_ZN3tbb6detail2d113parallel_sortIPdEEvT_S4_.exit.i.i
 
 if.then.i.i.i.i:                                  ; preds = %entry
-  %cmp1.i.i.i.i = icmp ult i64 %5, 500
+  %cmp1.i.i.i.i = icmp samesign ult i64 %5, 500
   br i1 %cmp1.i.i.i.i, label %if.then2.i.i.i.i, label %if.else.i.i.i.i
 
 if.then2.i.i.i.i:                                 ; preds = %if.then.i.i.i.i
@@ -16371,7 +16371,7 @@ while.body.i.i.i.i.i:                             ; preds = %if.then.i.i.i.i, %w
   %delay.addr.02.i.i.i.i.i = phi i32 [ %dec.i.i.i.i.i, %while.body.i.i.i.i.i ], [ %backoff.sroa.0.03.i.i.i, %if.then.i.i.i.i ]
   %dec.i.i.i.i.i = add nsw i32 %delay.addr.02.i.i.i.i.i, -1
   tail call void @llvm.x86.sse2.pause()
-  %cmp.i.i.i.i.i = icmp ugt i32 %delay.addr.02.i.i.i.i.i, 1
+  %cmp.i.i.i.i.i = icmp samesign ugt i32 %delay.addr.02.i.i.i.i.i, 1
   br i1 %cmp.i.i.i.i.i, label %while.body.i.i.i.i.i, label %_ZN3tbb6detail2d0L13machine_pauseEi.exit.i.i.i.i, !llvm.loop !181
 
 _ZN3tbb6detail2d0L13machine_pauseEi.exit.i.i.i.i: ; preds = %while.body.i.i.i.i.i, %if.then.i.i.i.i
@@ -17977,7 +17977,7 @@ while.body.i.i.i.i.i.i:                           ; preds = %if.then.i.i.i.i.i, 
   %delay.addr.02.i.i.i.i.i.i = phi i32 [ %dec.i.i.i.i.i.i, %while.body.i.i.i.i.i.i ], [ %backoff.sroa.0.03.i.i.i.i, %if.then.i.i.i.i.i ]
   %dec.i.i.i.i.i.i = add nsw i32 %delay.addr.02.i.i.i.i.i.i, -1
   tail call void @llvm.x86.sse2.pause()
-  %cmp.i.i.i.i.i.i = icmp ugt i32 %delay.addr.02.i.i.i.i.i.i, 1
+  %cmp.i.i.i.i.i.i = icmp samesign ugt i32 %delay.addr.02.i.i.i.i.i.i, 1
   br i1 %cmp.i.i.i.i.i.i, label %while.body.i.i.i.i.i.i, label %_ZN3tbb6detail2d0L13machine_pauseEi.exit.i.i.i.i.i, !llvm.loop !181
 
 _ZN3tbb6detail2d0L13machine_pauseEi.exit.i.i.i.i.i: ; preds = %while.body.i.i.i.i.i.i, %if.then.i.i.i.i.i
@@ -18998,7 +18998,7 @@ entry:
   br i1 %cmp.i.i.i.i, label %if.then.i.i.i.i, label %_ZN3tbb6detail2d113parallel_sortIPdEEvT_S4_.exit.i.i
 
 if.then.i.i.i.i:                                  ; preds = %entry
-  %cmp1.i.i.i.i = icmp ult i64 %5, 500
+  %cmp1.i.i.i.i = icmp samesign ult i64 %5, 500
   br i1 %cmp1.i.i.i.i, label %if.then2.i.i.i.i, label %if.else.i.i.i.i
 
 if.then2.i.i.i.i:                                 ; preds = %if.then.i.i.i.i
@@ -19105,7 +19105,7 @@ entry:
   br i1 %cmp.i.i.i.i, label %if.then.i.i.i.i, label %_ZN3tbb6detail2d113parallel_sortIPdEEvT_S4_.exit.i.i
 
 if.then.i.i.i.i:                                  ; preds = %entry
-  %cmp1.i.i.i.i = icmp ult i64 %5, 500
+  %cmp1.i.i.i.i = icmp samesign ult i64 %5, 500
   br i1 %cmp1.i.i.i.i, label %if.then2.i.i.i.i, label %if.else.i.i.i.i
 
 if.then2.i.i.i.i:                                 ; preds = %if.then.i.i.i.i
@@ -23408,7 +23408,7 @@ for.body.i.i:                                     ; preds = %_ZNK7openvdb5v11_04
   br i1 %cmp.i.i.i.i.i.i, label %land.lhs.true.i.i.i.i.i.i, label %cond.false.i.i.i.i.i.i
 
 land.lhs.true.i.i.i.i.i.i:                        ; preds = %for.body.i.i
-  %cmp2.i.i.i.i.i.i = icmp ult i64 %add.i.i.i.i.i.i, 64
+  %cmp2.i.i.i.i.i.i = icmp samesign ult i64 %add.i.i.i.i.i.i, 64
   br i1 %cmp2.i.i.i.i.i.i, label %if.then.i.i.i.i.i.i, label %cond.true.i.i.i.i.i.i
 
 if.then.i.i.i.i.i.i:                              ; preds = %land.lhs.true.i.i.i.i.i.i
@@ -23666,7 +23666,7 @@ for.body.i.i39:                                   ; preds = %invoke.cont24, %_ZN
   br i1 %cmp.i.i.i.i.i.i49, label %land.lhs.true.i.i.i.i.i.i74, label %cond.false.i.i.i.i.i.i50
 
 land.lhs.true.i.i.i.i.i.i74:                      ; preds = %for.body.i.i39
-  %cmp2.i.i.i.i.i.i75 = icmp ult i64 %add.i.i.i.i.i.i48, 64
+  %cmp2.i.i.i.i.i.i75 = icmp samesign ult i64 %add.i.i.i.i.i.i48, 64
   br i1 %cmp2.i.i.i.i.i.i75, label %if.then.i.i.i.i.i.i78, label %cond.true.i.i.i.i.i.i76
 
 if.then.i.i.i.i.i.i78:                            ; preds = %land.lhs.true.i.i.i.i.i.i74
@@ -24508,7 +24508,7 @@ for.body:                                         ; preds = %for.body.lr.ph, %fo
   br i1 %cmp.i.i.i.i, label %land.lhs.true.i.i.i.i, label %cond.false.i.i.i.i
 
 land.lhs.true.i.i.i.i:                            ; preds = %for.body
-  %cmp2.i.i.i.i = icmp ult i64 %add.i.i.i.i, 64
+  %cmp2.i.i.i.i = icmp samesign ult i64 %add.i.i.i.i, 64
   br i1 %cmp2.i.i.i.i, label %if.then.i.i.i.i, label %cond.true.i.i.i.i
 
 if.then.i.i.i.i:                                  ; preds = %land.lhs.true.i.i.i.i
@@ -27283,7 +27283,7 @@ entry:
   br i1 %cmp.i.i.i.i, label %if.then.i.i.i.i, label %_ZN3tbb6detail2d113parallel_sortIPdEEvT_S4_.exit.i.i
 
 if.then.i.i.i.i:                                  ; preds = %entry
-  %cmp1.i.i.i.i = icmp ult i64 %5, 500
+  %cmp1.i.i.i.i = icmp samesign ult i64 %5, 500
   br i1 %cmp1.i.i.i.i, label %if.then2.i.i.i.i, label %if.else.i.i.i.i
 
 if.then2.i.i.i.i:                                 ; preds = %if.then.i.i.i.i
@@ -27390,7 +27390,7 @@ entry:
   br i1 %cmp.i.i.i.i, label %if.then.i.i.i.i, label %_ZN3tbb6detail2d113parallel_sortIPdEEvT_S4_.exit.i.i
 
 if.then.i.i.i.i:                                  ; preds = %entry
-  %cmp1.i.i.i.i = icmp ult i64 %5, 500
+  %cmp1.i.i.i.i = icmp samesign ult i64 %5, 500
   br i1 %cmp1.i.i.i.i, label %if.then2.i.i.i.i, label %if.else.i.i.i.i
 
 if.then2.i.i.i.i:                                 ; preds = %if.then.i.i.i.i
@@ -27568,7 +27568,7 @@ while.body.i.i.i.i.i:                             ; preds = %if.then.i.i.i.i, %w
   %delay.addr.02.i.i.i.i.i = phi i32 [ %dec.i.i.i.i.i, %while.body.i.i.i.i.i ], [ %backoff.sroa.0.03.i.i.i, %if.then.i.i.i.i ]
   %dec.i.i.i.i.i = add nsw i32 %delay.addr.02.i.i.i.i.i, -1
   tail call void @llvm.x86.sse2.pause()
-  %cmp.i.i.i.i.i = icmp ugt i32 %delay.addr.02.i.i.i.i.i, 1
+  %cmp.i.i.i.i.i = icmp samesign ugt i32 %delay.addr.02.i.i.i.i.i, 1
   br i1 %cmp.i.i.i.i.i, label %while.body.i.i.i.i.i, label %_ZN3tbb6detail2d0L13machine_pauseEi.exit.i.i.i.i, !llvm.loop !181
 
 _ZN3tbb6detail2d0L13machine_pauseEi.exit.i.i.i.i: ; preds = %while.body.i.i.i.i.i, %if.then.i.i.i.i
@@ -28791,7 +28791,7 @@ while.body.i.i.i.i.i.i:                           ; preds = %if.then.i.i.i.i.i, 
   %delay.addr.02.i.i.i.i.i.i = phi i32 [ %dec.i.i.i.i.i.i, %while.body.i.i.i.i.i.i ], [ %backoff.sroa.0.03.i.i.i.i, %if.then.i.i.i.i.i ]
   %dec.i.i.i.i.i.i = add nsw i32 %delay.addr.02.i.i.i.i.i.i, -1
   tail call void @llvm.x86.sse2.pause()
-  %cmp.i.i.i.i.i.i = icmp ugt i32 %delay.addr.02.i.i.i.i.i.i, 1
+  %cmp.i.i.i.i.i.i = icmp samesign ugt i32 %delay.addr.02.i.i.i.i.i.i, 1
   br i1 %cmp.i.i.i.i.i.i, label %while.body.i.i.i.i.i.i, label %_ZN3tbb6detail2d0L13machine_pauseEi.exit.i.i.i.i.i, !llvm.loop !181
 
 _ZN3tbb6detail2d0L13machine_pauseEi.exit.i.i.i.i.i: ; preds = %while.body.i.i.i.i.i.i, %if.then.i.i.i.i.i
@@ -29809,7 +29809,7 @@ entry:
   br i1 %cmp.i.i.i.i, label %if.then.i.i.i.i, label %_ZN3tbb6detail2d113parallel_sortIPdEEvT_S4_.exit.i.i
 
 if.then.i.i.i.i:                                  ; preds = %entry
-  %cmp1.i.i.i.i = icmp ult i64 %5, 500
+  %cmp1.i.i.i.i = icmp samesign ult i64 %5, 500
   br i1 %cmp1.i.i.i.i, label %if.then2.i.i.i.i, label %if.else.i.i.i.i
 
 if.then2.i.i.i.i:                                 ; preds = %if.then.i.i.i.i
@@ -29916,7 +29916,7 @@ entry:
   br i1 %cmp.i.i.i.i, label %if.then.i.i.i.i, label %_ZN3tbb6detail2d113parallel_sortIPdEEvT_S4_.exit.i.i
 
 if.then.i.i.i.i:                                  ; preds = %entry
-  %cmp1.i.i.i.i = icmp ult i64 %5, 500
+  %cmp1.i.i.i.i = icmp samesign ult i64 %5, 500
   br i1 %cmp1.i.i.i.i, label %if.then2.i.i.i.i, label %if.else.i.i.i.i
 
 if.then2.i.i.i.i:                                 ; preds = %if.then.i.i.i.i

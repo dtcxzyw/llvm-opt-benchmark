@@ -4475,7 +4475,7 @@ _ZN4llvm23SmallVectorTemplateBaseIcLb1EE9push_backEc.exit.i: ; preds = %551, %54
   %555 = call noundef i64 @_ZNK4llvm15SmallVectorBaseImE4sizeEv(ptr noundef nonnull align 8 dereferenceable(24) %6) #22
   %556 = add i64 %555, 1
   call void @_ZN4llvm15SmallVectorBaseImE8set_sizeEm(ptr noundef nonnull align 8 dereferenceable(24) %6, i64 noundef %556) #22
-  %557 = icmp ugt i64 %546, 36
+  %557 = icmp samesign ugt i64 %546, 36
   br i1 %557, label %.thread.i, label %560
 
 .thread.i:                                        ; preds = %_ZN4llvm23SmallVectorTemplateBaseIcLb1EE9push_backEc.exit.i

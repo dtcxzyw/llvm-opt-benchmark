@@ -35,7 +35,7 @@ define internal void @HorizontalUnfilter_SSE2(ptr noundef readonly %0, ptr nocap
   br i1 %12, label %.loopexit, label %13
 
 13:                                               ; preds = %9
-  %.not57 = icmp ult i32 %3, 9
+  %.not57 = icmp samesign ult i32 %3, 9
   br i1 %.not57, label %.preheader, label %.lr.ph.preheader
 
 .lr.ph.preheader:                                 ; preds = %13
@@ -116,7 +116,7 @@ define internal void @VerticalUnfilter_SSE2(ptr noundef readonly %0, ptr nocaptu
   br i1 %8, label %HorizontalUnfilter_SSE2.exit, label %9
 
 9:                                                ; preds = %6
-  %.not57.i = icmp ult i32 %3, 9
+  %.not57.i = icmp samesign ult i32 %3, 9
   br i1 %.not57.i, label %.preheader.i, label %.lr.ph.preheader.i
 
 .lr.ph.preheader.i:                               ; preds = %9
@@ -254,7 +254,7 @@ define internal void @GradientUnfilter_SSE2(ptr noundef readonly %0, ptr nocaptu
   br i1 %8, label %HorizontalUnfilter_SSE2.exit, label %9
 
 9:                                                ; preds = %7
-  %.not57.i = icmp ult i32 %3, 9
+  %.not57.i = icmp samesign ult i32 %3, 9
   br i1 %.not57.i, label %.preheader.i, label %.lr.ph.preheader.i
 
 .lr.ph.preheader.i:                               ; preds = %9

@@ -2854,7 +2854,7 @@ define internal fastcc range(i32 0, 19) i32 @downloadFile(ptr noundef %0, ptr no
   br label %160
 
 160:                                              ; preds = %158, %156
-  %161 = icmp ugt i32 %.09598, 1
+  %161 = icmp samesign ugt i32 %.09598, 1
   br i1 %161, label %162, label %164
 
 162:                                              ; preds = %160

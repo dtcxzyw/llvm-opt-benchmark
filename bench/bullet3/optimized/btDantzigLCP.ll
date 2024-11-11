@@ -275,7 +275,7 @@ for.body112:                                      ; preds = %for.cond110.prehead
   %incdec.ptr = getelementptr inbounds i8, ptr %ell.1340, i64 4
   %incdec.ptr128 = getelementptr inbounds i8, ptr %dee.1341, i64 4
   %dec = add nsw i32 %j.1339, -1
-  %cmp111 = icmp ugt i32 %j.1339, 1
+  %cmp111 = icmp samesign ugt i32 %j.1339, 1
   br i1 %cmp111, label %for.body112, label %for.end130, !llvm.loop !9
 
 for.end130:                                       ; preds = %for.body112, %for.body, %for.cond110.preheader
@@ -448,7 +448,7 @@ for.body165:                                      ; preds = %_ZL11btSolveL1_1PKf
   %add201 = fadd float %add195, %mul200
   %add.ptr202 = getelementptr inbounds i8, ptr %ell.2354, i64 24
   %add.ptr203 = getelementptr inbounds i8, ptr %dee.2355, i64 24
-  %cmp164 = icmp ugt i32 %j.2.in353, 11
+  %cmp164 = icmp samesign ugt i32 %j.2.in353, 11
   br i1 %cmp164, label %for.body165, label %for.cond208.preheader, !llvm.loop !13
 
 for.body210:                                      ; preds = %for.cond208.preheader, %for.body210
@@ -465,7 +465,7 @@ for.body210:                                      ; preds = %for.cond208.prehead
   %incdec.ptr217 = getelementptr inbounds i8, ptr %ell.3363, i64 4
   %incdec.ptr218 = getelementptr inbounds i8, ptr %dee.3364, i64 4
   %dec220 = add nsw i32 %j.3362, -1
-  %cmp209 = icmp ugt i32 %j.3362, 1
+  %cmp209 = icmp samesign ugt i32 %j.3362, 1
   br i1 %cmp209, label %for.body210, label %for.end221, !llvm.loop !14
 
 for.end221:                                       ; preds = %for.body210, %for.cond.preheader, %for.cond208.preheader
@@ -806,7 +806,7 @@ for.body187:                                      ; preds = %for.cond185.prehead
   %add.ptr200 = getelementptr inbounds i8, ptr %ell.1405, i64 4
   %add.ptr201 = getelementptr inbounds i8, ptr %ex.1404, i64 4
   %dec = add nsw i32 %j.1408, -1
-  %cmp186 = icmp ugt i32 %j.1408, 1
+  %cmp186 = icmp samesign ugt i32 %j.1408, 1
   br i1 %cmp186, label %for.body187, label %for.end203, !llvm.loop !16
 
 for.end203:                                       ; preds = %for.body187, %for.cond185.preheader
@@ -955,7 +955,7 @@ for.body299:                                      ; preds = %for.cond297.prehead
   %add.ptr303 = getelementptr inbounds i8, ptr %ell.3429, i64 4
   %add.ptr304 = getelementptr inbounds i8, ptr %ex.3428, i64 4
   %dec306 = add nsw i32 %j.3431, -1
-  %cmp298 = icmp ugt i32 %j.3431, 1
+  %cmp298 = icmp samesign ugt i32 %j.3431, 1
   br i1 %cmp298, label %for.body299, label %for.end307, !llvm.loop !19
 
 for.end307:                                       ; preds = %for.body299, %for.cond297.preheader
@@ -1141,7 +1141,7 @@ for.body77:                                       ; preds = %for.cond75.preheade
   %add92 = fadd float %Z31.1227, %mul85
   %add93 = fadd float %Z41.1228, %mul86
   %dec = add nsw i32 %j.1231, -1
-  %cmp76 = icmp ugt i32 %j.1231, 1
+  %cmp76 = icmp samesign ugt i32 %j.1231, 1
   br i1 %cmp76, label %for.body77, label %for.end95, !llvm.loop !22
 
 for.end95:                                        ; preds = %for.body77, %for.body, %for.cond75.preheader
@@ -1255,7 +1255,7 @@ for.body174:                                      ; preds = %for.cond172.prehead
   %add.ptr180 = getelementptr inbounds i8, ptr %ex.3252, i64 -4
   %add181 = fadd float %Z11.3251, %mul177
   %dec183 = add nsw i32 %j.3254, -1
-  %cmp173 = icmp ugt i32 %j.3254, 1
+  %cmp173 = icmp samesign ugt i32 %j.3254, 1
   br i1 %cmp173, label %for.body174, label %for.end184, !llvm.loop !25
 
 for.end184:                                       ; preds = %for.body174, %for.cond172.preheader
@@ -1831,7 +1831,7 @@ while.body.i:                                     ; preds = %for.end, %while.bod
   %add.ptr.i = getelementptr inbounds i8, ptr %a.addr.020.i, i64 8
   %add.ptr6.i = getelementptr inbounds i8, ptr %b.addr.019.i, i64 8
   %n.addr.0.i = add nsw i32 %n.addr.022.i, -2
-  %cmp.i = icmp ugt i32 %n.addr.022.i, 1
+  %cmp.i = icmp samesign ugt i32 %n.addr.022.i, 1
   br i1 %cmp.i, label %while.body.i, label %while.end.loopexit.i, !llvm.loop !38
 
 while.end.loopexit.i:                             ; preds = %while.body.i
@@ -2061,7 +2061,7 @@ while.body.i:                                     ; preds = %for.end43, %while.b
   %add.ptr.i = getelementptr inbounds i8, ptr %a.addr.020.i, i64 8
   %add.ptr6.i = getelementptr inbounds i8, ptr %b.addr.019.i, i64 8
   %n.addr.0.i = add nsw i32 %n.addr.022.i, -2
-  %cmp.i = icmp ugt i32 %n.addr.022.i, 1
+  %cmp.i = icmp samesign ugt i32 %n.addr.022.i, 1
   br i1 %cmp.i, label %while.body.i, label %while.end.loopexit.i, !llvm.loop !38
 
 while.end.loopexit.i:                             ; preds = %while.body.i
@@ -2659,7 +2659,7 @@ while.body.i:                                     ; preds = %for.body51, %while.
   %add.ptr.i = getelementptr inbounds i8, ptr %a.addr.020.i, i64 8
   %add.ptr6.i = getelementptr inbounds i8, ptr %b.addr.019.i, i64 8
   %n.addr.0.i = add nsw i32 %n.addr.022.i, -2
-  %cmp.i89 = icmp ugt i32 %n.addr.022.i, 1
+  %cmp.i89 = icmp samesign ugt i32 %n.addr.022.i, 1
   br i1 %cmp.i89, label %while.body.i, label %while.end.i, !llvm.loop !38
 
 while.end.i:                                      ; preds = %while.body.i, %for.body51
@@ -2957,7 +2957,7 @@ while.body.i.us.us:                               ; preds = %while.body.i.us.us,
   %add.ptr.i.us.us = getelementptr inbounds i8, ptr %a.addr.020.i.us.us, i64 8
   %add.ptr6.i.us.us = getelementptr inbounds i8, ptr %b.addr.019.i.us.us, i64 8
   %n.addr.0.i.us.us = add nsw i32 %n.addr.022.i.us.us, -2
-  %cmp.i.us.us = icmp ugt i32 %n.addr.022.i.us.us, 1
+  %cmp.i.us.us = icmp samesign ugt i32 %n.addr.022.i.us.us, 1
   br i1 %cmp.i.us.us, label %while.body.i.us.us, label %while.end.loopexit.i.us.us, !llvm.loop !38
 
 while.end.loopexit.i.us.us:                       ; preds = %while.body.i.us.us
@@ -2996,7 +2996,7 @@ while.body.i.us:                                  ; preds = %while.body.i.us, %f
   %add.ptr.i.us = getelementptr inbounds i8, ptr %a.addr.020.i.us, i64 8
   %add.ptr6.i.us = getelementptr inbounds i8, ptr %b.addr.019.i.us, i64 8
   %n.addr.0.i.us = add nsw i32 %n.addr.022.i.us, -2
-  %cmp.i.us = icmp ugt i32 %n.addr.022.i.us, 1
+  %cmp.i.us = icmp samesign ugt i32 %n.addr.022.i.us, 1
   br i1 %cmp.i.us, label %while.body.i.us, label %while.end.loopexit.i.us, !llvm.loop !38
 
 while.end.loopexit.i.us:                          ; preds = %while.body.i.us
@@ -4440,7 +4440,7 @@ while.body.i.i:                                   ; preds = %if.end72, %while.bo
   %add.ptr.i.i = getelementptr inbounds i8, ptr %a.addr.020.i.i, i64 8
   %add.ptr6.i.i = getelementptr inbounds i8, ptr %b.addr.019.i.i, i64 8
   %n.addr.0.i.i = add nsw i32 %n.addr.022.i.i, -2
-  %cmp.i.i665 = icmp ugt i32 %n.addr.022.i.i, 1
+  %cmp.i.i665 = icmp samesign ugt i32 %n.addr.022.i.i, 1
   br i1 %cmp.i.i665, label %while.body.i.i, label %while.end.loopexit.i.i, !llvm.loop !38
 
 while.end.loopexit.i.i:                           ; preds = %while.body.i.i
@@ -4491,7 +4491,7 @@ while.body.i.i679:                                ; preds = %_ZNK5btLCP12AiC_tim
   %add.ptr.i.i690 = getelementptr inbounds i8, ptr %a.addr.020.i.i682, i64 8
   %add.ptr6.i.i691 = getelementptr inbounds i8, ptr %b.addr.019.i.i683, i64 8
   %n.addr.0.i.i692 = add nsw i32 %n.addr.022.i.i680, -2
-  %cmp.i.i693 = icmp ugt i32 %n.addr.022.i.i680, 1
+  %cmp.i.i693 = icmp samesign ugt i32 %n.addr.022.i.i680, 1
   br i1 %cmp.i.i693, label %while.body.i.i679, label %while.end.loopexit.i.i694, !llvm.loop !38
 
 while.end.loopexit.i.i694:                        ; preds = %while.body.i.i679
@@ -4698,7 +4698,7 @@ while.body.i.us.us.i:                             ; preds = %while.body.i.us.us.
   %add.ptr.i.us.us.i = getelementptr inbounds i8, ptr %a.addr.020.i.us.us.i, i64 8
   %add.ptr6.i.us.us.i = getelementptr inbounds i8, ptr %b.addr.019.i.us.us.i, i64 8
   %n.addr.0.i.us.us.i = add nsw i32 %n.addr.022.i.us.us.i, -2
-  %cmp.i.us.us.i = icmp ugt i32 %n.addr.022.i.us.us.i, 1
+  %cmp.i.us.us.i = icmp samesign ugt i32 %n.addr.022.i.us.us.i, 1
   br i1 %cmp.i.us.us.i, label %while.body.i.us.us.i, label %while.end.loopexit.i.us.us.i, !llvm.loop !38
 
 while.end.loopexit.i.us.us.i:                     ; preds = %while.body.i.us.us.i
@@ -4735,7 +4735,7 @@ while.body.i.us.i:                                ; preds = %while.body.i.us.i, 
   %add.ptr.i.us.i = getelementptr inbounds i8, ptr %a.addr.020.i.us.i, i64 8
   %add.ptr6.i.us.i = getelementptr inbounds i8, ptr %b.addr.019.i.us.i, i64 8
   %n.addr.0.i.us.i = add nsw i32 %n.addr.022.i.us.i, -2
-  %cmp.i.us.i = icmp ugt i32 %n.addr.022.i.us.i, 1
+  %cmp.i.us.i = icmp samesign ugt i32 %n.addr.022.i.us.i, 1
   br i1 %cmp.i.us.i, label %while.body.i.us.i, label %while.end.loopexit.i.us.i, !llvm.loop !38
 
 while.end.loopexit.i.us.i:                        ; preds = %while.body.i.us.i
@@ -4859,7 +4859,7 @@ while.body.i.i772:                                ; preds = %_ZN5btLCP17pN_pluse
   %add.ptr.i.i783 = getelementptr inbounds i8, ptr %a.addr.020.i.i775, i64 8
   %add.ptr6.i.i784 = getelementptr inbounds i8, ptr %b.addr.019.i.i776, i64 8
   %n.addr.0.i.i785 = add nsw i32 %n.addr.022.i.i773, -2
-  %cmp.i.i786 = icmp ugt i32 %n.addr.022.i.i773, 1
+  %cmp.i.i786 = icmp samesign ugt i32 %n.addr.022.i.i773, 1
   br i1 %cmp.i.i786, label %while.body.i.i772, label %while.end.loopexit.i.i787, !llvm.loop !38
 
 while.end.loopexit.i.i787:                        ; preds = %while.body.i.i772

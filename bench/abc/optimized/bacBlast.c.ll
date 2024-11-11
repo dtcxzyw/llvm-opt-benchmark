@@ -7420,7 +7420,7 @@ Bac_ObjAlloc.exit:                                ; preds = %.Vec_IntGrow.exit10
   %168 = sext i32 %166 to i64
   %169 = getelementptr inbounds i32, ptr %165, i64 %168
   store i32 %115, ptr %169, align 4
-  %170 = icmp ugt i64 %indvars.iv277, 1
+  %170 = icmp samesign ugt i64 %indvars.iv277, 1
   br i1 %170, label %106, label %._crit_edge, !llvm.loop !58
 
 ._crit_edge:                                      ; preds = %Bac_ObjAlloc.exit

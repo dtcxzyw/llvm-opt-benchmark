@@ -793,7 +793,7 @@ define internal i32 @fan_set_cur_state(ptr nocapture noundef readonly %0, i64 no
   %24 = zext i8 %20 to i64
   %25 = mul nuw nsw i64 %1, %24
   %26 = add nuw nsw i64 %25, %24
-  %27 = icmp ugt i64 %26, 100
+  %27 = icmp samesign ugt i64 %26, 100
   %28 = select i1 %27, i64 100, i64 %25
   br label %34
 

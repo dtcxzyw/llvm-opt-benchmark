@@ -1843,8 +1843,8 @@ sw.bb.i66:                                        ; preds = %sw.bb68, %sw.bb68, 
   %arrayidx.i67 = getelementptr i8, ptr %opaque, i64 1406
   %39 = load i8, ptr %arrayidx.i67, align 1
   %tobool.not.i68 = icmp slt i8 %39, 0
-  %cmp.i69 = icmp ult i8 %38, 8
-  %or.cond.i = and i1 %cmp.i69, %tobool.not.i68
+  %cmp.i69 = icmp samesign ult i8 %38, 8
+  %or.cond.i = select i1 %tobool.not.i68, i1 %cmp.i69, i1 false
   br i1 %or.cond.i, label %if.then.i72, label %if.end23.i
 
 if.then.i72:                                      ; preds = %sw.bb.i66
@@ -2727,7 +2727,7 @@ if.else3.i.i:                                     ; preds = %if.end.i.i
   unreachable
 
 if.end4.i.i:                                      ; preds = %if.end.i.i
-  %cmp6.i.i = icmp ugt i32 %45, 8192
+  %cmp6.i.i = icmp samesign ugt i32 %45, 8192
   br i1 %cmp6.i.i, label %return, label %if.end8.i.i
 
 if.end8.i.i:                                      ; preds = %if.end4.i.i
@@ -3174,7 +3174,7 @@ if.else3.i.i181:                                  ; preds = %if.end.i.i178
   unreachable
 
 if.end4.i.i182:                                   ; preds = %if.end.i.i178
-  %cmp6.i.i183 = icmp ugt i32 %106, 8192
+  %cmp6.i.i183 = icmp samesign ugt i32 %106, 8192
   br i1 %cmp6.i.i183, label %bitblt_ignore, label %if.end8.i.i184
 
 if.end8.i.i184:                                   ; preds = %if.end4.i.i182
@@ -3325,7 +3325,7 @@ if.else3.i.i.i:                                   ; preds = %if.end.i.i.i233
   unreachable
 
 if.end4.i.i.i:                                    ; preds = %if.end.i.i.i233
-  %cmp6.i.i.i234 = icmp ugt i32 %119, 8192
+  %cmp6.i.i.i234 = icmp samesign ugt i32 %119, 8192
   br i1 %cmp6.i.i.i234, label %bitblt_ignore, label %if.end8.i.i.i
 
 if.end8.i.i.i:                                    ; preds = %if.end4.i.i.i
@@ -46828,7 +46828,7 @@ if.else3.i:                                       ; preds = %if.end.i
   unreachable
 
 if.end4.i:                                        ; preds = %if.end.i
-  %cmp6.i = icmp ugt i32 %4, 8192
+  %cmp6.i = icmp samesign ugt i32 %4, 8192
   br i1 %cmp6.i, label %return, label %if.end8.i
 
 if.end8.i:                                        ; preds = %if.end4.i

@@ -935,7 +935,7 @@ Vec_PtrRemove.exit:                               ; preds = %48, %45
   %88 = load ptr, ptr %64, align 8
   %89 = getelementptr inbounds ptr, ptr %88, i64 %70
   store ptr %69, ptr %89, align 8
-  %90 = icmp ugt i64 %indvars.iv, 2
+  %90 = icmp samesign ugt i64 %indvars.iv, 2
   br i1 %90, label %.lr.ph, label %.loopexit, !llvm.loop !12
 
 .loopexit:                                        ; preds = %87, %.lr.ph, %57, %Vec_PtrPushUnique.exit, %Vec_PtrRemove.exit

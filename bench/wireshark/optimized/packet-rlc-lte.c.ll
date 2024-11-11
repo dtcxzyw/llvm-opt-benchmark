@@ -2534,7 +2534,7 @@ checkChannelRepeatedNACKInfo.exit.i.i:            ; preds = %722, %628, %609
   %782 = add nsw i32 %774, -1
   %783 = and i32 %781, %782
   %784 = lshr exact i32 %774, 1
-  %785 = icmp ugt i32 %783, %784
+  %785 = icmp samesign ugt i32 %783, %784
   br i1 %785, label %786, label %checkChannelACKWindow.exit.i.i
 
 786:                                              ; preds = %771
@@ -3645,7 +3645,7 @@ define internal fastcc i32 @checkChannelSequenceInfo(ptr noundef %0, ptr noundef
 110:                                              ; preds = %108
   %111 = add nsw i32 %., -1
   %112 = and i32 %.pre314, %111
-  %113 = icmp ult i32 %112, 10
+  %113 = icmp samesign ult i32 %112, 10
   br i1 %113, label %._crit_edge, label %136
 
 ._crit_edge:                                      ; preds = %108, %110
@@ -3913,7 +3913,7 @@ reassembly_add_segment.exit:                      ; preds = %162, %163
   %277 = sub nsw i32 %276, %274
   %278 = add nsw i32 %.305, -1
   %279 = and i32 %277, %278
-  %280 = icmp ult i32 %279, 50
+  %280 = icmp samesign ult i32 %279, 50
   br i1 %280, label %281, label %368
 
 281:                                              ; preds = %275
@@ -4102,7 +4102,7 @@ reassembly_add_segment.exit311:                   ; preds = %303, %304
   %388 = add nsw i32 %387, %274
   %389 = and i32 %388, %278
   %390 = lshr exact i32 %.305, 1
-  %391 = icmp ult i32 %389, %390
+  %391 = icmp samesign ult i32 %389, %390
   %392 = getelementptr inbounds i8, ptr %79, i64 24
   %393 = getelementptr inbounds i8, ptr %79, i64 20
   br i1 %391, label %394, label %395

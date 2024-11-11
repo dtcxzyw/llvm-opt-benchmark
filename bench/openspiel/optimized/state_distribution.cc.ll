@@ -989,7 +989,7 @@ _ZNK10open_spiel5State22InformationStateStringB5cxx11Ev.exit106: ; preds = %.noe
   %228 = getelementptr inbounds i8, ptr %222, i64 10
   %229 = load i8, ptr %228, align 1
   %230 = zext i8 %229 to i32
-  %231 = icmp ult i32 %225, %230
+  %231 = icmp samesign ult i32 %225, %230
   br i1 %231, label %233, label %232
 
 232:                                              ; preds = %227
@@ -1078,7 +1078,7 @@ _ZNK10open_spiel5State22InformationStateStringB5cxx11Ev.exit106: ; preds = %.noe
   %257 = getelementptr inbounds i8, ptr %250, i64 10
   %258 = load i8, ptr %257, align 1
   %259 = zext i8 %258 to i32
-  %260 = icmp ult i32 %254, %259
+  %260 = icmp samesign ult i32 %254, %259
   br i1 %260, label %262, label %261
 
 261:                                              ; preds = %256
@@ -2378,7 +2378,7 @@ _ZN4absl7debian211string_viewC2ISaIcEEERKNSt7__cxx1112basic_stringIcSt11char_tra
   br i1 %.inv.i.i.i.i, label %.thread.i, label %_ZNK4absl7debian218container_internal22StringBtreeDefaultLessclENS0_11string_viewES3_.exit.thread.i
 
 _ZNK4absl7debian218container_internal22StringBtreeDefaultLessclENS0_11string_viewES3_.exit.i: ; preds = %735, %_ZN4absl7debian211string_viewC2ISaIcEEERKNSt7__cxx1112basic_stringIcSt11char_traitsIcET_EE.exit17.i
-  %739 = icmp ult i64 %726, %730
+  %739 = icmp samesign ult i64 %726, %730
   br i1 %739, label %_ZNK4absl7debian218container_internal22StringBtreeDefaultLessclENS0_11string_viewES3_.exit.thread.i, label %741
 
 _ZNK4absl7debian218container_internal22StringBtreeDefaultLessclENS0_11string_viewES3_.exit.thread.i: ; preds = %_ZNK4absl7debian218container_internal22StringBtreeDefaultLessclENS0_11string_viewES3_.exit.i, %738
@@ -2458,7 +2458,7 @@ _ZNK4absl7debian218container_internal5btreeINS1_10map_paramsINSt7__cxx1112basic_
   %760 = getelementptr inbounds i8, ptr %.sroa.02.0.i.i.i, i64 10
   %761 = load i8, ptr %760, align 1
   %762 = zext i8 %761 to i32
-  %763 = icmp ult i32 %.sroa.33.0.i.i.i, %762
+  %763 = icmp samesign ult i32 %.sroa.33.0.i.i.i, %762
   br i1 %763, label %765, label %764
 
 764:                                              ; preds = %759
@@ -8668,7 +8668,7 @@ define linkonce_odr void @_ZN4absl7debian218container_internal5btreeINS1_10map_p
   %59 = sub nsw i32 %58, %.sroa.speculated
   %.not73 = icmp sle i32 %52, %59
   %narrow = add nuw nsw i8 %55, %49
-  %60 = icmp ult i8 %narrow, 6
+  %60 = icmp samesign ult i8 %narrow, 6
   %or.cond91 = select i1 %.not73, i1 true, i1 %60
   br i1 %or.cond91, label %61, label %71
 

@@ -3788,7 +3788,7 @@ define dso_local noundef range(i32 0, 2) i32 @jbd2_journal_set_features(ptr noca
   %46 = and i64 %45, 16
   %47 = icmp eq i64 %46, 0
   %48 = select i1 %47, i64 %1, i64 0
-  %49 = icmp ult i64 %45, 32
+  %49 = icmp samesign ult i64 %45, 32
   br i1 %49, label %91, label %50
 
 50:                                               ; preds = %40
@@ -5152,7 +5152,7 @@ jbd2_free.exit:                                   ; preds = %jbd2_free.exit.back
   br i1 %118, label %119, label %137
 
 119:                                              ; preds = %116
-  %120 = icmp ugt i64 %117, 1
+  %120 = icmp samesign ugt i64 %117, 1
   br i1 %120, label %121, label %.thread3.i
 
 121:                                              ; preds = %119
@@ -5411,7 +5411,7 @@ define dso_local ptr @jbd2_alloc(i64 noundef %0, i32 noundef %1) local_unnamed_a
   br i1 %8, label %9, label %27
 
 9:                                                ; preds = %7
-  %10 = icmp ugt i64 %0, 1
+  %10 = icmp samesign ugt i64 %0, 1
   br i1 %10, label %11, label %.thread3
 
 11:                                               ; preds = %9
@@ -5479,7 +5479,7 @@ define dso_local void @jbd2_free(ptr noundef %0, i64 noundef %1) local_unnamed_a
   br i1 %3, label %4, label %22
 
 4:                                                ; preds = %2
-  %5 = icmp ugt i64 %1, 1
+  %5 = icmp samesign ugt i64 %1, 1
   br i1 %5, label %6, label %.thread3
 
 6:                                                ; preds = %4
@@ -6903,7 +6903,7 @@ define internal fastcc ptr @journal_init_common(ptr noundef %0, ptr noundef %1, 
   br label %.thread
 
 94:                                               ; preds = %87
-  %95 = icmp ugt i32 %89, 536870911
+  %95 = icmp samesign ugt i32 %89, 536870911
   br i1 %95, label %96, label %102
 
 96:                                               ; preds = %94
@@ -8264,7 +8264,7 @@ define dso_local void @jbd2_journal_put_journal_head(ptr noundef %0) #1 align 16
   br i1 %75, label %76, label %94
 
 76:                                               ; preds = %72
-  %77 = icmp ugt i64 %68, 1
+  %77 = icmp samesign ugt i64 %68, 1
   br i1 %77, label %78, label %.thread3.i
 
 78:                                               ; preds = %76
@@ -8325,7 +8325,7 @@ jbd2_free.exit:                                   ; preds = %94, %93, %66
   br i1 %106, label %107, label %125
 
 107:                                              ; preds = %103
-  %108 = icmp ugt i64 %68, 1
+  %108 = icmp samesign ugt i64 %68, 1
   br i1 %108, label %109, label %.thread3.i2
 
 109:                                              ; preds = %107

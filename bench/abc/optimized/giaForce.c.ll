@@ -2205,7 +2205,7 @@ define range(i32 0, 2) i32 @Frc_ManCrossCut2_rec(ptr nocapture noundef %0, ptr n
   %27 = load i32, ptr %10, align 8
   %28 = sub nsw i32 %27, %26
   store i32 %28, ptr %10, align 8
-  %29 = icmp ugt i64 %indvars.iv, 1
+  %29 = icmp samesign ugt i64 %indvars.iv, 1
   br i1 %29, label %20, label %.critedge, !llvm.loop !24
 
 .critedge:                                        ; preds = %20, %9, %2

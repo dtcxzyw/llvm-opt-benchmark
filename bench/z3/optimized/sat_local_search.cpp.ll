@@ -6183,7 +6183,7 @@ if.else52:                                        ; preds = %for.body48
   %m_coeff = getelementptr inbounds i8, ptr %__begin2.0183, i64 4
   %34 = load i32, ptr %m_coeff, align 4
   %conv53 = zext i32 %34 to i64
-  %cmp54 = icmp ult i64 %33, %conv53
+  %cmp54 = icmp samesign ult i64 %33, %conv53
   %add = select i1 %cmp54, i32 %6, i32 0
   %spec.select = add i32 %add, %best_bsb.0184
   br label %for.inc58
@@ -6256,7 +6256,7 @@ if.else96:                                        ; preds = %for.body85
   %m_coeff97 = getelementptr inbounds i8, ptr %it.0186, i64 4
   %44 = load i32, ptr %m_coeff97, align 4
   %conv98 = zext i32 %44 to i64
-  %cmp99 = icmp ult i64 %43, %conv98
+  %cmp99 = icmp samesign ult i64 %43, %conv98
   br i1 %cmp99, label %if.then100, label %for.inc107
 
 if.then100:                                       ; preds = %if.else96

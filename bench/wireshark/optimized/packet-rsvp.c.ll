@@ -4695,7 +4695,7 @@ proto_item_set_hidden.exit.i453:                  ; preds = %337, %334, %330
   %346 = call ptr @proto_tree_add_item(ptr noundef %135, i32 noundef %345, ptr noundef %0, i32 noundef %.05.i, i32 noundef 4, i32 noundef 0) #10
   %347 = add i32 %.05.i, 4
   %348 = add nsw i32 %.0314.i, -4
-  %349 = icmp ugt i32 %.0314.i, 4
+  %349 = icmp samesign ugt i32 %.0314.i, 4
   br i1 %349, label %.lr.ph6.i, label %dissect_rsvp_hop.exit, !llvm.loop !8
 
 350:                                              ; preds = %proto_item_set_hidden.exit.i453
@@ -4709,7 +4709,7 @@ proto_item_set_hidden.exit.i453:                  ; preds = %337, %334, %330
   %352 = call ptr @proto_tree_add_item(ptr noundef %135, i32 noundef %351, ptr noundef %0, i32 noundef %.13.i, i32 noundef 16, i32 noundef 0) #10
   %353 = add i32 %.13.i, 16
   %354 = add nsw i32 %.1322.i, -16
-  %355 = icmp ugt i32 %.1322.i, 16
+  %355 = icmp samesign ugt i32 %.1322.i, 16
   br i1 %355, label %.lr.ph.i, label %dissect_rsvp_hop.exit, !llvm.loop !9
 
 356:                                              ; preds = %proto_item_set_hidden.exit.i453
@@ -5204,7 +5204,7 @@ proto_item_set_hidden.exit.i468:                  ; preds = %660, %657, %652
 .lr.ph298.i:                                      ; preds = %._crit_edge.i473, %.lr.ph298.preheader.i
   %.0288296.i = phi i32 [ %.1.lcssa.i474, %._crit_edge.i473 ], [ %676, %.lr.ph298.preheader.i ]
   %.0289295.i = phi i32 [ %776, %._crit_edge.i473 ], [ %677, %.lr.ph298.preheader.i ]
-  %678 = icmp ult i32 %.0289295.i, 4
+  %678 = icmp samesign ult i32 %.0289295.i, 4
   br i1 %678, label %679, label %681
 
 679:                                              ; preds = %.lr.ph298.i

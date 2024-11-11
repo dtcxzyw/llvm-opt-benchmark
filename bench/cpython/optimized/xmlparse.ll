@@ -1633,7 +1633,7 @@ if.else.i354.i:                                   ; preds = %if.end57.i.i
   br i1 %cmp120.i.i, label %if.then58, label %if.end123.i.i
 
 if.end123.i.i:                                    ; preds = %if.else.i354.i
-  %cmp124.i.i = icmp ult i32 %conv72.i.i, 1024
+  %cmp124.i.i = icmp samesign ult i32 %conv72.i.i, 1024
   br i1 %cmp124.i.i, label %if.end134.i.i, label %if.else127.i.i
 
 if.else127.i.i:                                   ; preds = %if.end123.i.i
@@ -10390,7 +10390,7 @@ if.end62:                                         ; preds = %if.then53
   %sh_prom64 = zext nneg i8 %add56 to i64
   %shl = shl nuw i64 1, %sh_prom64
   %sub65 = add i64 %shl, -1
-  %cmp66 = icmp ugt i8 %add56, 60
+  %cmp66 = icmp samesign ugt i8 %add56, 60
   br i1 %cmp66, label %return, label %if.end69
 
 if.end69:                                         ; preds = %if.end62
@@ -11178,7 +11178,7 @@ if.else:                                          ; preds = %if.end57
   br i1 %cmp120, label %return, label %if.end123
 
 if.end123:                                        ; preds = %if.else
-  %cmp124 = icmp ult i32 %conv118, 1024
+  %cmp124 = icmp samesign ult i32 %conv118, 1024
   br i1 %cmp124, label %if.end134, label %if.else127
 
 if.else127:                                       ; preds = %if.end123

@@ -192,7 +192,7 @@ define dso_local noundef range(i32 0, 3) i32 @_Z14cmExpr_yyparsePv(ptr noundef %
   br i1 %47, label %_ZL10yydestructPKc15yysymbol_kind_tPN18cmExprParserHelper10ParserTypeEPv.exit, label %48
 
 48:                                               ; preds = %46
-  %49 = icmp ult i32 %.4, 272
+  %49 = icmp samesign ult i32 %.4, 272
   br i1 %49, label %50, label %55
 
 50:                                               ; preds = %48

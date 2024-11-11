@@ -407,7 +407,7 @@ define range(i32 0, 312) i32 @H5EA__dblock_sblk_idx(ptr nocapture noundef readon
   br label %H5VM_log2_gen.exit
 
 27:                                               ; preds = %13
-  %.not27.i = icmp ult i64 %11, 1099511627776
+  %.not27.i = icmp samesign ult i64 %11, 1099511627776
   br i1 %.not27.i, label %34, label %28
 
 28:                                               ; preds = %27
@@ -427,11 +427,11 @@ define range(i32 0, 312) i32 @H5EA__dblock_sblk_idx(ptr nocapture noundef readon
 
 39:                                               ; preds = %2
   %40 = lshr i64 %11, 16
-  %.not23.i = icmp ult i64 %11, 65536
+  %.not23.i = icmp samesign ult i64 %11, 65536
   br i1 %.not23.i, label %53, label %41
 
 41:                                               ; preds = %39
-  %.not25.i = icmp ult i64 %11, 16777216
+  %.not25.i = icmp samesign ult i64 %11, 16777216
   br i1 %.not25.i, label %48, label %42
 
 42:                                               ; preds = %41
@@ -450,7 +450,7 @@ define range(i32 0, 312) i32 @H5EA__dblock_sblk_idx(ptr nocapture noundef readon
   br label %H5VM_log2_gen.exit
 
 53:                                               ; preds = %39
-  %.not24.i = icmp ult i64 %11, 256
+  %.not24.i = icmp samesign ult i64 %11, 256
   br i1 %.not24.i, label %60, label %54
 
 54:                                               ; preds = %53

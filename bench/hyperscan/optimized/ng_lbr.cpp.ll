@@ -234,7 +234,7 @@ invoke.cont.i.i.i:                                ; preds = %_ZNK3ue25depthcvjEv
   %14 = load ptr, ptr %nfa.i, align 8, !alias.scope !28, !noalias !12
   %type.i.i.i = getelementptr inbounds i8, ptr %14, i64 8
   store i8 11, ptr %type.i.i.i, align 8, !noalias !12
-  %cmp.not.i.i.i.i.i = icmp ult i64 %tableLen.0.i.i.i, 4294967296
+  %cmp.not.i.i.i.i.i = icmp samesign ult i64 %tableLen.0.i.i.i, 4294967296
   br i1 %cmp.not.i.i.i.i.i, label %_ZN3ue2L10makeLbrNfaI7lbr_dotEENS_12bytecode_ptrI3NFAEE13NFAEngineType10RepeatTypeRKNS_5depthE.exit.i.i, label %if.then.i.i.i.i.i
 
 if.then.i.i.i.i.i:                                ; preds = %invoke.cont.i.i.i
@@ -820,7 +820,7 @@ invoke.cont.i.i88.i:                              ; preds = %_ZNK3ue25depthcvjEv
   %84 = load ptr, ptr %nfa.i.i, align 8, !alias.scope !50, !noalias !44
   %type.i.i90.i = getelementptr inbounds i8, ptr %84, i64 8
   store i8 14, ptr %type.i.i90.i, align 8, !noalias !44
-  %cmp.not.i.i.i.i91.i = icmp ult i64 %tableLen.0.i.i89.i, 4294967296
+  %cmp.not.i.i.i.i91.i = icmp samesign ult i64 %tableLen.0.i.i89.i, 4294967296
   br i1 %cmp.not.i.i.i.i91.i, label %_ZN3ue2L10makeLbrNfaI8lbr_shufEENS_12bytecode_ptrI3NFAEE13NFAEngineType10RepeatTypeRKNS_5depthE.exit.i.i, label %if.then.i.i.i.i92.i
 
 if.then.i.i.i.i92.i:                              ; preds = %.noexc224.i
@@ -1221,7 +1221,7 @@ invoke.cont.i.i242.i:                             ; preds = %_ZNK3ue25depthcvjEv
   %125 = load ptr, ptr %ref.tmp23.i, align 8, !alias.scope !63, !noalias !12
   %type.i.i244.i = getelementptr inbounds i8, ptr %125, i64 8
   store i8 15, ptr %type.i.i244.i, align 8, !noalias !12
-  %cmp.not.i.i.i.i245.i = icmp ult i64 %tableLen.0.i.i243.i, 4294967296
+  %cmp.not.i.i.i.i245.i = icmp samesign ult i64 %tableLen.0.i.i243.i, 4294967296
   br i1 %cmp.not.i.i.i.i245.i, label %_ZN3ue2L10makeLbrNfaI8lbr_trufEENS_12bytecode_ptrI3NFAEE13NFAEngineType10RepeatTypeRKNS_5depthE.exit.i.i, label %if.then.i.i.i.i246.i
 
 if.then.i.i.i.i246.i:                             ; preds = %.noexc394.i
@@ -1996,7 +1996,7 @@ invoke.cont:                                      ; preds = %entry, %_ZNK3ue25de
   %2 = load ptr, ptr %agg.result, align 8
   %type = getelementptr inbounds i8, ptr %2, i64 8
   store i8 %conv.i.i, ptr %type, align 8
-  %cmp.not.i.i = icmp ult i64 %tableLen.0, 4294967296
+  %cmp.not.i.i = icmp samesign ult i64 %tableLen.0, 4294967296
   br i1 %cmp.not.i.i, label %invoke.cont5, label %if.then.i.i
 
 if.then.i.i:                                      ; preds = %invoke.cont

@@ -3029,7 +3029,7 @@ _ZN4rand3rng3Rng3gen17hc8a6f048299e9040E.exit34.i: ; preds = %_ZN4rand3rng3Rng3g
   store i64 %95, ptr %38, align 16, !alias.scope !392, !noalias !376
   %96 = trunc i32 %94 to i8
   tail call void @llvm.experimental.noalias.scope.decl(metadata !408)
-  %97 = icmp ugt i64 %39, 61
+  %97 = icmp samesign ugt i64 %39, 61
   br i1 %97, label %98, label %_ZN4rand3rng3Rng3gen17hc8a6f048299e9040E.exit36.i
 
 98:                                               ; preds = %_ZN4rand3rng3Rng3gen17hc8a6f048299e9040E.exit34.i
@@ -3240,7 +3240,7 @@ _ZN4rand3rng3Rng3gen17hc8a6f048299e9040E.exit40.i: ; preds = %_ZN4rand3rng3Rng3g
   store i64 %174, ptr %38, align 16, !alias.scope !440, !noalias !376
   %175 = trunc i32 %173 to i8
   tail call void @llvm.experimental.noalias.scope.decl(metadata !456)
-  %176 = icmp ugt i64 %39, 58
+  %176 = icmp samesign ugt i64 %39, 58
   br i1 %176, label %177, label %_ZN4rand3rng3Rng3gen17hc8a6f048299e9040E.exit42.i
 
 177:                                              ; preds = %_ZN4rand3rng3Rng3gen17hc8a6f048299e9040E.exit40.i
@@ -3389,7 +3389,7 @@ _ZN4rand3rng3Rng3gen17hc8a6f048299e9040E.exit44.i: ; preds = %_ZN4rand3rng3Rng3g
   store i64 %228, ptr %38, align 16, !alias.scope !472, !noalias !376
   %229 = trunc i32 %227 to i8
   tail call void @llvm.experimental.noalias.scope.decl(metadata !488)
-  %230 = icmp ugt i64 %39, 56
+  %230 = icmp samesign ugt i64 %39, 56
   br i1 %230, label %231, label %_ZN4rand3rng3Rng3gen17hc8a6f048299e9040E.exit46.i
 
 231:                                              ; preds = %_ZN4rand3rng3Rng3gen17hc8a6f048299e9040E.exit44.i
@@ -3540,7 +3540,7 @@ _ZN4rand3rng3Rng3gen17hc8a6f048299e9040E.exit48.i: ; preds = %_ZN4rand3rng3Rng3g
   store i64 %282, ptr %38, align 16, !alias.scope !504, !noalias !376
   %283 = trunc i32 %281 to i8
   tail call void @llvm.experimental.noalias.scope.decl(metadata !520)
-  %284 = icmp ugt i64 %39, 54
+  %284 = icmp samesign ugt i64 %39, 54
   br i1 %284, label %285, label %_ZN4rand3rng3Rng3gen17hc8a6f048299e9040E.exit50.i
 
 285:                                              ; preds = %_ZN4rand3rng3Rng3gen17hc8a6f048299e9040E.exit48.i
@@ -3693,7 +3693,7 @@ _ZN4rand3rng3Rng3gen17hc8a6f048299e9040E.exit52.i: ; preds = %_ZN4rand3rng3Rng3g
   store i64 %336, ptr %38, align 16, !alias.scope !536, !noalias !376
   %337 = trunc i32 %335 to i8
   tail call void @llvm.experimental.noalias.scope.decl(metadata !552)
-  %338 = icmp ugt i64 %39, 52
+  %338 = icmp samesign ugt i64 %39, 52
   br i1 %338, label %339, label %_ZN4rand3rng3Rng3gen17hc8a6f048299e9040E.exit54.i
 
 339:                                              ; preds = %_ZN4rand3rng3Rng3gen17hc8a6f048299e9040E.exit52.i
@@ -3848,7 +3848,7 @@ _ZN4rand3rng3Rng3gen17hc8a6f048299e9040E.exit56.i: ; preds = %_ZN4rand3rng3Rng3g
   store i64 %390, ptr %38, align 16, !alias.scope !568, !noalias !376
   %391 = trunc i32 %389 to i8
   tail call void @llvm.experimental.noalias.scope.decl(metadata !584)
-  %392 = icmp ugt i64 %39, 50
+  %392 = icmp samesign ugt i64 %39, 50
   br i1 %392, label %393, label %_ZN4rand3rng3Rng3gen17hc8a6f048299e9040E.exit58.i
 
 393:                                              ; preds = %_ZN4rand3rng3Rng3gen17hc8a6f048299e9040E.exit56.i
@@ -4005,7 +4005,7 @@ _ZN4rand3rng3Rng3gen17hc8a6f048299e9040E.exit60.i: ; preds = %_ZN4rand3rng3Rng3g
   store i64 %444, ptr %38, align 16, !alias.scope !600, !noalias !376
   %445 = trunc i32 %443 to i8
   tail call void @llvm.experimental.noalias.scope.decl(metadata !616)
-  %446 = icmp ugt i64 %39, 48
+  %446 = icmp samesign ugt i64 %39, 48
   br i1 %446, label %447, label %_ZN4rand3rng3Rng3gen17hc8a6f048299e9040E.exit62.i
 
 447:                                              ; preds = %_ZN4rand3rng3Rng3gen17hc8a6f048299e9040E.exit60.i
@@ -4164,7 +4164,7 @@ _ZN4rand3rng3Rng3gen17hc8a6f048299e9040E.exit64.i: ; preds = %_ZN4rand3rng3Rng3g
   store i64 %498, ptr %38, align 16, !alias.scope !632, !noalias !376
   %499 = trunc i32 %497 to i8
   tail call void @llvm.experimental.noalias.scope.decl(metadata !648)
-  %500 = icmp ugt i64 %39, 46
+  %500 = icmp samesign ugt i64 %39, 46
   br i1 %500, label %501, label %_ZN4rand3rng3Rng3gen17hc8a6f048299e9040E.exit66.i
 
 501:                                              ; preds = %_ZN4rand3rng3Rng3gen17hc8a6f048299e9040E.exit64.i
@@ -4325,7 +4325,7 @@ _ZN4rand3rng3Rng3gen17hc8a6f048299e9040E.exit68.i: ; preds = %_ZN4rand3rng3Rng3g
   store i64 %552, ptr %38, align 16, !alias.scope !664, !noalias !376
   %553 = trunc i32 %551 to i8
   tail call void @llvm.experimental.noalias.scope.decl(metadata !680)
-  %554 = icmp ugt i64 %39, 44
+  %554 = icmp samesign ugt i64 %39, 44
   br i1 %554, label %555, label %_ZN4rand3rng3Rng3gen17hc8a6f048299e9040E.exit70.i
 
 555:                                              ; preds = %_ZN4rand3rng3Rng3gen17hc8a6f048299e9040E.exit68.i
@@ -4488,7 +4488,7 @@ _ZN4rand3rng3Rng3gen17hc8a6f048299e9040E.exit72.i: ; preds = %_ZN4rand3rng3Rng3g
   store i64 %606, ptr %38, align 16, !alias.scope !696, !noalias !376
   %607 = trunc i32 %605 to i8
   tail call void @llvm.experimental.noalias.scope.decl(metadata !712)
-  %608 = icmp ugt i64 %39, 42
+  %608 = icmp samesign ugt i64 %39, 42
   br i1 %608, label %609, label %_ZN4rand3rng3Rng3gen17hc8a6f048299e9040E.exit74.i
 
 609:                                              ; preds = %_ZN4rand3rng3Rng3gen17hc8a6f048299e9040E.exit72.i
@@ -4653,7 +4653,7 @@ _ZN4rand3rng3Rng3gen17hc8a6f048299e9040E.exit76.i: ; preds = %_ZN4rand3rng3Rng3g
   store i64 %660, ptr %38, align 16, !alias.scope !728, !noalias !376
   %661 = trunc i32 %659 to i8
   tail call void @llvm.experimental.noalias.scope.decl(metadata !744)
-  %662 = icmp ugt i64 %39, 40
+  %662 = icmp samesign ugt i64 %39, 40
   br i1 %662, label %663, label %_ZN4rand3rng3Rng3gen17hc8a6f048299e9040E.exit78.i
 
 663:                                              ; preds = %_ZN4rand3rng3Rng3gen17hc8a6f048299e9040E.exit76.i
@@ -4820,7 +4820,7 @@ _ZN4rand3rng3Rng3gen17hc8a6f048299e9040E.exit80.i: ; preds = %_ZN4rand3rng3Rng3g
   store i64 %714, ptr %38, align 16, !alias.scope !760, !noalias !376
   %715 = trunc i32 %713 to i8
   tail call void @llvm.experimental.noalias.scope.decl(metadata !776)
-  %716 = icmp ugt i64 %39, 38
+  %716 = icmp samesign ugt i64 %39, 38
   br i1 %716, label %717, label %_ZN4rand3rng3Rng3gen17hc8a6f048299e9040E.exit82.i
 
 717:                                              ; preds = %_ZN4rand3rng3Rng3gen17hc8a6f048299e9040E.exit80.i
@@ -4989,7 +4989,7 @@ _ZN4rand3rng3Rng3gen17hc8a6f048299e9040E.exit84.i: ; preds = %_ZN4rand3rng3Rng3g
   store i64 %768, ptr %38, align 16, !alias.scope !792, !noalias !376
   %769 = trunc i32 %767 to i8
   tail call void @llvm.experimental.noalias.scope.decl(metadata !808)
-  %770 = icmp ugt i64 %39, 36
+  %770 = icmp samesign ugt i64 %39, 36
   br i1 %770, label %771, label %_ZN4rand3rng3Rng3gen17hc8a6f048299e9040E.exit86.i
 
 771:                                              ; preds = %_ZN4rand3rng3Rng3gen17hc8a6f048299e9040E.exit84.i
@@ -5160,7 +5160,7 @@ _ZN4rand3rng3Rng3gen17hc8a6f048299e9040E.exit88.i: ; preds = %_ZN4rand3rng3Rng3g
   store i64 %822, ptr %38, align 16, !alias.scope !824, !noalias !376
   %823 = trunc i32 %821 to i8
   tail call void @llvm.experimental.noalias.scope.decl(metadata !840)
-  %824 = icmp ugt i64 %39, 34
+  %824 = icmp samesign ugt i64 %39, 34
   br i1 %824, label %825, label %_ZN4rand3rng3Rng3gen17hc8a6f048299e9040E.exit90.i
 
 825:                                              ; preds = %_ZN4rand3rng3Rng3gen17hc8a6f048299e9040E.exit88.i
@@ -5328,7 +5328,7 @@ _ZN4rand3rng3Rng3gen17hc8a6f048299e9040E.exit92.i: ; preds = %_ZN4rand3rng3Rng3g
   %872 = add nuw nsw i64 %39, 31
   store i64 %872, ptr %38, align 16, !alias.scope !856, !noalias !376
   tail call void @llvm.experimental.noalias.scope.decl(metadata !872)
-  %873 = icmp ugt i64 %39, 32
+  %873 = icmp samesign ugt i64 %39, 32
   br i1 %873, label %874, label %892
 
 874:                                              ; preds = %_ZN4rand3rng3Rng3gen17hc8a6f048299e9040E.exit92.i

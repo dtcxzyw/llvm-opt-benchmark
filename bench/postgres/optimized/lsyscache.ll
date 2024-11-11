@@ -3342,12 +3342,12 @@ get_typlen.exit.thread:                           ; preds = %2, %get_typlen.exit
 
 18:                                               ; preds = %get_typlen.exit.thread
   %19 = icmp eq i32 %0, 1042
-  %20 = icmp ult i32 %16, 33
+  %20 = icmp samesign ult i32 %16, 33
   %or.cond = or i1 %19, %20
   br i1 %or.cond, label %27, label %21
 
 21:                                               ; preds = %18
-  %22 = icmp ult i32 %16, 1000
+  %22 = icmp samesign ult i32 %16, 1000
   br i1 %22, label %23, label %27
 
 23:                                               ; preds = %21

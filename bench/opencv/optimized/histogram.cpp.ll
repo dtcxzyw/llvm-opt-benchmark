@@ -1455,7 +1455,7 @@ _ZN2cv4Mat_IiEclEi.exit.i:                        ; preds = %443, %437, %430
   %462 = sext i32 %.386139.i to i64
   %463 = getelementptr inbounds i32, ptr %461, i64 %462
   %464 = load i32, ptr %463, align 4
-  %465 = icmp ugt i64 %indvars.iv156.i, 1
+  %465 = icmp samesign ugt i64 %indvars.iv156.i, 1
   br i1 %465, label %423, label %.loopexit, !llvm.loop !36
 
 .body119:                                         ; preds = %300, %299, %290

@@ -1331,7 +1331,7 @@ _RNvXso_Cs3QyEqtpuK7A_20rustc_error_messagesNtB5_9MultiSpanNtNtCs9nhK3FOW46N_4co
   %106 = and i8 %104, 63
   %107 = zext nneg i8 %106 to i32
   %108 = or disjoint i32 %105, %107
-  %109 = icmp ugt i8 %98, -33
+  %109 = icmp samesign ugt i8 %98, -33
   br i1 %109, label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h41003f3b62a7d8caE.exit15.i.i.i.i.i.i.i.i.i", label %"_ZN87_$LT$core..str..iter..CharIndices$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hf7e5a3ea120b44ecE.exit.thread11.i.i.i.i.i.i.i"
 
 110:                                              ; preds = %.lr.ph.i.i.i.i.i.i
@@ -1349,7 +1349,7 @@ _RNvXso_Cs3QyEqtpuK7A_20rustc_error_messagesNtB5_9MultiSpanNtNtCs9nhK3FOW46N_4co
   %118 = or disjoint i32 %115, %117
   %119 = shl nuw nsw i32 %101, 12
   %120 = or disjoint i32 %118, %119
-  %121 = icmp ugt i8 %98, -17
+  %121 = icmp samesign ugt i8 %98, -17
   br i1 %121, label %122, label %"_ZN87_$LT$core..str..iter..CharIndices$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hf7e5a3ea120b44ecE.exit.thread11.i.i.i.i.i.i.i"
 
 122:                                              ; preds = %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h41003f3b62a7d8caE.exit15.i.i.i.i.i.i.i.i.i"

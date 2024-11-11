@@ -687,7 +687,7 @@ define dso_local i64 @bpf_skb_get_nlattr(i64 noundef %0, i64 noundef %1, i64 nou
   %17 = zext i32 %14 to i64
   %18 = and i64 %1, 4294967295
   %19 = add nsw i64 %17, -4
-  %20 = icmp ult i64 %19, %18
+  %20 = icmp samesign ult i64 %19, %18
   br i1 %20, label %33, label %21
 
 21:                                               ; preds = %16
@@ -731,7 +731,7 @@ define dso_local i64 @bpf_skb_get_nlattr_nest(i64 noundef %0, i64 noundef %1, i6
   %17 = zext i32 %14 to i64
   %18 = and i64 %1, 4294967295
   %19 = add nsw i64 %17, -4
-  %20 = icmp ult i64 %19, %18
+  %20 = icmp samesign ult i64 %19, %18
   br i1 %20, label %44, label %21
 
 21:                                               ; preds = %16
@@ -746,7 +746,7 @@ define dso_local i64 @bpf_skb_get_nlattr_nest(i64 noundef %0, i64 noundef %1, i6
   %28 = load i16, ptr %24, align 2
   %29 = icmp ult i16 %28, 4
   %30 = zext i16 %28 to i32
-  %31 = icmp ult i32 %25, %30
+  %31 = icmp samesign ult i32 %25, %30
   %32 = or i1 %29, %31
   br i1 %32, label %44, label %33
 
@@ -2213,7 +2213,7 @@ define dso_local noundef range(i64 -22, 1) i64 @bpf_skb_store_bytes(i64 noundef 
   br label %87
 
 87:                                               ; preds = %85, %76, %71
-  %88 = icmp ult i64 %4, 2
+  %88 = icmp samesign ult i64 %4, 2
   br i1 %88, label %94, label %89
 
 89:                                               ; preds = %87
@@ -2342,7 +2342,7 @@ define dso_local noundef range(i32 -22, 1) i32 @__bpf_skb_store_bytes(ptr nounde
   br label %83
 
 83:                                               ; preds = %81, %72, %67
-  %84 = icmp ult i64 %4, 2
+  %84 = icmp samesign ult i64 %4, 2
   br i1 %84, label %90, label %85
 
 85:                                               ; preds = %83
@@ -6783,7 +6783,7 @@ define dso_local range(i64 -2147483648, 1) i64 @bpf_skb_adjust_room(i64 noundef 
 126:                                              ; preds = %.thread9
   %127 = load i16, ptr %11, align 8
   %128 = icmp ne i16 %127, 8
-  %129 = icmp ult i64 %3, 256
+  %129 = icmp samesign ult i64 %3, 256
   %130 = or i1 %129, %128
   br i1 %130, label %131, label %136
 
@@ -6940,7 +6940,7 @@ define dso_local range(i64 -2147483648, 1) i64 @bpf_skb_adjust_room(i64 noundef 
   br i1 %229, label %230, label %.thread16
 
 230:                                              ; preds = %225
-  %231 = icmp ult i32 %10, %222
+  %231 = icmp samesign ult i32 %10, %222
   br i1 %231, label %.thread16, label %232
 
 232:                                              ; preds = %230
@@ -9597,7 +9597,7 @@ define dso_local noundef range(i64 -71, 1) i64 @bpf_skb_get_tunnel_key(i64 nound
   %65 = getelementptr inbounds i8, ptr %38, i64 43
   %66 = load i8, ptr %65, align 1
   store i8 %66, ptr %59, align 1
-  %67 = icmp ult i64 %3, 16
+  %67 = icmp samesign ult i64 %3, 16
   br i1 %67, label %71, label %68
 
 68:                                               ; preds = %56
@@ -9876,7 +9876,7 @@ define dso_local noundef range(i64 -22, 1) i64 @bpf_skb_set_tunnel_key(i64 nound
   %70 = shl nuw nsw i16 %69, 8
   %71 = and i16 %70, 2048
   %spec.select = or disjoint i16 %68, %71
-  %72 = icmp ult i64 %3, 16
+  %72 = icmp samesign ult i64 %3, 16
   %73 = and i16 %spec.select, 2337
   %spec.select2 = select i1 %72, i16 %spec.select, i16 %73
   store i16 %spec.select2, ptr %61, align 8
@@ -13000,7 +13000,7 @@ define dso_local i64 @bpf_sock_ops_load_hdr_opt(i64 noundef %0, i64 noundef %1, 
   %112 = getelementptr i8, ptr %105, i64 1
   %113 = load i8, ptr %112, align 1
   %114 = zext i8 %113 to i64
-  %115 = icmp ult i64 %109, %114
+  %115 = icmp samesign ult i64 %109, %114
   %116 = icmp ult i8 %113, 2
   %or.cond = or i1 %115, %116
   br i1 %or.cond, label %.thread14, label %117
@@ -13039,7 +13039,7 @@ define dso_local i64 @bpf_sock_ops_load_hdr_opt(i64 noundef %0, i64 noundef %1, 
   %134 = getelementptr i8, ptr %123, i64 1
   %135 = load i8, ptr %134, align 1
   %136 = zext i8 %135 to i64
-  %137 = icmp ult i64 %131, %136
+  %137 = icmp samesign ult i64 %131, %136
   br i1 %137, label %.thread14, label %138
 
 138:                                              ; preds = %133
@@ -13179,7 +13179,7 @@ define dso_local noundef i64 @bpf_sock_ops_store_hdr_opt(i64 noundef %0, i64 nou
   %61 = getelementptr i8, ptr %54, i64 1
   %62 = load i8, ptr %61, align 1
   %63 = zext i8 %62 to i64
-  %64 = icmp ult i64 %58, %63
+  %64 = icmp samesign ult i64 %58, %63
   %65 = icmp ult i8 %62, 2
   %66 = or i1 %65, %64
   br i1 %66, label %.thread.thread, label %67
@@ -13218,7 +13218,7 @@ define dso_local noundef i64 @bpf_sock_ops_store_hdr_opt(i64 noundef %0, i64 nou
   %84 = getelementptr i8, ptr %73, i64 1
   %85 = load i8, ptr %84, align 1
   %86 = zext i8 %85 to i64
-  %87 = icmp ult i64 %81, %86
+  %87 = icmp samesign ult i64 %81, %86
   %88 = icmp ult i8 %85, 2
   %89 = or i1 %88, %87
   br i1 %89, label %.thread.thread, label %90
@@ -23564,7 +23564,7 @@ define dso_local noundef range(i64 -97, 1) i64 @bpf_sk_lookup_assign(i64 noundef
 
 77:                                               ; preds = %70
   store ptr %7, ptr %71, align 8
-  %78 = icmp ugt i64 %2, 1
+  %78 = icmp samesign ugt i64 %2, 1
   %79 = getelementptr inbounds i8, ptr %6, i64 44
   %80 = zext i1 %78 to i8
   store i8 %80, ptr %79, align 4
@@ -25547,7 +25547,7 @@ default.unreachable1:                             ; preds = %113, %2
   br i1 %19, label %20, label %83
 
 20:                                               ; preds = %9
-  %21 = icmp ugt i32 %17, 32767
+  %21 = icmp samesign ugt i32 %17, 32767
   %22 = getelementptr i8, ptr %15, i64 8
   store i8 -65, ptr %15, align 4
   %23 = getelementptr inbounds i8, ptr %15, i64 1
@@ -26721,7 +26721,7 @@ define internal fastcc noundef range(i32 -22, 1) i32 @bpf_xdp_frags_shrink_tail(
   %.sink = phi ptr [ %62, %54 ], [ null, %52 ]
   tail call void @__xdp_return(ptr noundef %.sink, ptr noundef %48, i1 noundef zeroext false, ptr noundef null) #34
   %74 = add nuw i8 %39, 1
-  %75 = icmp ugt i64 %.in, 1
+  %75 = icmp samesign ugt i64 %.in, 1
   %76 = icmp sgt i32 %46, 0
   %77 = select i1 %75, i1 %76, i1 false
   br i1 %77, label %.lr.ph, label %.loopexit, !llvm.loop !163

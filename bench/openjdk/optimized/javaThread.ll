@@ -4729,7 +4729,7 @@ _ZL22_get_thread_state_name15JavaThreadState.exit: ; preds = %_ZNK10JavaThread9t
   br i1 %60, label %_Z24byte_size_in_proper_unitImET_S0_.exit, label %61
 
 61:                                               ; preds = %55
-  %62 = icmp ugt i64 %59, 104857599
+  %62 = icmp samesign ugt i64 %59, 104857599
   br i1 %62, label %.thread, label %65
 
 .thread:                                          ; preds = %61
@@ -4741,7 +4741,7 @@ _Z24byte_size_in_proper_unitImET_S0_.exit:        ; preds = %55
   br label %_Z25proper_unit_for_byte_sizem.exit
 
 65:                                               ; preds = %61
-  %66 = icmp ugt i64 %59, 102399
+  %66 = icmp samesign ugt i64 %59, 102399
   %67 = lshr i64 %59, 10
   %spec.select.i = select i1 %66, i64 %67, i64 %59
   %.str.78..str.79.i = select i1 %66, ptr @.str.78, ptr @.str.79

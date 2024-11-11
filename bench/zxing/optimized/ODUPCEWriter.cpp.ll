@@ -95,7 +95,7 @@ define void @_ZNK5ZXing4OneD10UPCEWriter6encodeERKNSt7__cxx1112basic_stringIwSt1
   %.fr31.i = freeze i32 %18
   %20 = add i32 %19, %.fr31.i
   %indvars.iv.next.i = add nsw i64 %indvars.iv.i, -2
-  %21 = icmp ugt i64 %indvars.iv.i, 1
+  %21 = icmp samesign ugt i64 %indvars.iv.i, 1
   br i1 %21, label %.lr.ph.i, label %._crit_edge.i, !llvm.loop !4
 
 ._crit_edge.i:                                    ; preds = %.lr.ph.i
@@ -116,7 +116,7 @@ define void @_ZNK5ZXing4OneD10UPCEWriter6encodeERKNSt7__cxx1112basic_stringIwSt1
   %26 = add i32 %.1.fr21.i, -48
   %.fr.i = freeze i32 %25
   %27 = add i32 %26, %.fr.i
-  %28 = icmp ugt i64 %indvars.iv28.i, 3
+  %28 = icmp samesign ugt i64 %indvars.iv28.i, 3
   br i1 %28, label %.lr.ph23.i, label %._crit_edge24.i, !llvm.loop !6
 
 ._crit_edge24.i:                                  ; preds = %.lr.ph23.i, %._crit_edge.i, %5
@@ -124,7 +124,7 @@ define void @_ZNK5ZXing4OneD10UPCEWriter6encodeERKNSt7__cxx1112basic_stringIwSt1
   %29 = srem i32 %.1.fr.lcssa.i, 10
   %30 = sub nsw i32 10, %29
   %.urem.i = sub nsw i32 0, %29
-  %.cmp.i = icmp ult i32 %30, 10
+  %.cmp.i = icmp samesign ult i32 %30, 10
   %31 = select i1 %.cmp.i, i32 %30, i32 %.urem.i
   %32 = invoke noundef signext i32 @_ZN5ZXing7ToDigitIwEET_i(i32 noundef %31)
           to label %_ZN5ZXing4GTIN17ComputeCheckDigitIwEET_RKNSt7__cxx1112basic_stringIS2_St11char_traitsIS2_ESaIS2_EEEb.exit unwind label %38
@@ -358,7 +358,7 @@ define linkonce_odr void @_ZN5ZXing4OneD12UPCEANCommon20DigitString2IntArrayILm8
   %.fr31.i = freeze i32 %39
   %41 = add i32 %40, %.fr31.i
   %indvars.iv.next.i = add nsw i64 %indvars.iv.i, -2
-  %42 = icmp ugt i64 %indvars.iv.i, 1
+  %42 = icmp samesign ugt i64 %indvars.iv.i, 1
   br i1 %42, label %.lr.ph.i, label %._crit_edge.i, !llvm.loop !4
 
 ._crit_edge.i:                                    ; preds = %.lr.ph.i
@@ -379,7 +379,7 @@ define linkonce_odr void @_ZN5ZXing4OneD12UPCEANCommon20DigitString2IntArrayILm8
   %47 = add i32 %.1.fr21.i, -48
   %.fr.i = freeze i32 %46
   %48 = add i32 %47, %.fr.i
-  %49 = icmp ugt i64 %indvars.iv28.i, 3
+  %49 = icmp samesign ugt i64 %indvars.iv28.i, 3
   br i1 %49, label %.lr.ph23.i, label %_ZN5ZXing4GTIN17ComputeCheckDigitIwEET_RKNSt7__cxx1112basic_stringIS2_St11char_traitsIS2_ESaIS2_EEEb.exit, !llvm.loop !6
 
 _ZN5ZXing4GTIN17ComputeCheckDigitIwEET_RKNSt7__cxx1112basic_stringIS2_St11char_traitsIS2_ESaIS2_EEEb.exit: ; preds = %.lr.ph23.i, %29, %._crit_edge.i
@@ -387,7 +387,7 @@ _ZN5ZXing4GTIN17ComputeCheckDigitIwEET_RKNSt7__cxx1112basic_stringIS2_St11char_t
   %50 = srem i32 %.1.fr.lcssa.i, 10
   %51 = sub nsw i32 10, %50
   %.urem.i = sub nsw i32 0, %50
-  %.cmp.i = icmp ult i32 %51, 10
+  %.cmp.i = icmp samesign ult i32 %51, 10
   %52 = select i1 %.cmp.i, i32 %51, i32 %.urem.i
   %53 = tail call noundef signext i32 @_ZN5ZXing7ToDigitIwEET_i(i32 noundef %52)
   br label %54

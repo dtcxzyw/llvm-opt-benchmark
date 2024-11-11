@@ -77,7 +77,7 @@ define dso_local range(i32 0, 9) i32 @lzma_stream_decoder_init(ptr noundef %0, p
   %34 = lshr i8 %28, 2
   %35 = and i8 %34, 1
   store i8 %35, ptr %33, align 2
-  %36 = icmp ugt i32 %3, 15
+  %36 = icmp samesign ugt i32 %3, 15
   %37 = getelementptr inbounds i8, ptr %.034, i64 371
   %38 = zext i1 %36 to i8
   store i8 %38, ptr %37, align 1

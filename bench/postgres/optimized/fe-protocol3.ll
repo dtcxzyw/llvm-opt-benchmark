@@ -116,7 +116,7 @@ define void @pqParseInput3(ptr noundef %0) local_unnamed_addr #0 {
   br label %.loopexit
 
 36:                                               ; preds = %29
-  %37 = icmp ult i32 %.fr, 30001
+  %37 = icmp samesign ult i32 %.fr, 30001
   %38 = load i8, ptr %6, align 1
   br i1 %37, label %40, label %switch.early.test
 
@@ -605,7 +605,7 @@ getParameterStatus.exit211:                       ; preds = %148
 204:                                              ; preds = %200
   %205 = and i64 %196, 1
   %206 = icmp eq i64 %205, 0
-  %207 = icmp ult i32 %193, 257
+  %207 = icmp samesign ult i32 %193, 257
   %or.cond3.i = and i1 %207, %206
   br i1 %or.cond3.i, label %208, label %.lr.ph66.i.sink.split
 
@@ -1216,7 +1216,7 @@ define internal fastcc void @getRowDescriptions(ptr noundef %0, i32 noundef %1) 
   %30 = ptrtoint ptr %27 to i64
   %31 = and i64 %30, 7
   %32 = icmp eq i64 %31, 0
-  %33 = icmp ult i32 %22, 33
+  %33 = icmp samesign ult i32 %22, 33
   %or.cond = and i1 %33, %32
   br i1 %or.cond, label %34, label %43
 
@@ -1554,7 +1554,7 @@ define internal fastcc range(i32 -1, 1) i32 @getCopyStart(ptr noundef %0, i32 no
   %23 = ptrtoint ptr %20 to i64
   %24 = and i64 %23, 7
   %25 = icmp eq i64 %24, 0
-  %26 = icmp ult i32 %15, 33
+  %26 = icmp samesign ult i32 %15, 33
   %or.cond = and i1 %26, %25
   br i1 %or.cond, label %27, label %36
 
@@ -2301,7 +2301,7 @@ define range(i32 -2, 2147483644) i32 @pqGetCopyData3(ptr noundef %0, ptr nocaptu
   br i1 %9, label %14, label %10
 
 10:                                               ; preds = %.lr.ph.split.us
-  %11 = icmp ugt i32 %8, 4
+  %11 = icmp samesign ugt i32 %8, 4
   br i1 %11, label %.split.us, label %12
 
 12:                                               ; preds = %10
@@ -2330,7 +2330,7 @@ define range(i32 -2, 2147483644) i32 @pqGetCopyData3(ptr noundef %0, ptr nocaptu
   br i1 %22, label %.loopexit, label %23
 
 23:                                               ; preds = %.lr.ph.split
-  %24 = icmp ugt i32 %21, 4
+  %24 = icmp samesign ugt i32 %21, 4
   br i1 %24, label %.split.us, label %.backedge
 
 .split.us:                                        ; preds = %23, %10
@@ -2957,7 +2957,7 @@ define ptr @pqFunctionCall3(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr 
   br label %.loopexit
 
 70:                                               ; preds = %65
-  %71 = icmp ult i32 %.fr, 30001
+  %71 = icmp samesign ult i32 %.fr, 30001
   %72 = load i8, ptr %8, align 1
   br i1 %71, label %74, label %switch.early.test
 

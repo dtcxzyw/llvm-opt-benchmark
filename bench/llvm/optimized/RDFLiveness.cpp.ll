@@ -25598,7 +25598,7 @@ _ZSt13move_backwardIPjS0_ET0_T_S2_S1_.exit:       ; preds = %_ZSt22__uninitializ
   store i32 %41, ptr %.045.i.i.i.i.i, align 4
   %42 = getelementptr inbounds i8, ptr %.045.i.i.i.i.i, i64 4
   %43 = add nsw i64 %.06.i.i.i.i.i, -1
-  %44 = icmp ugt i64 %.06.i.i.i.i.i, 1
+  %44 = icmp samesign ugt i64 %.06.i.i.i.i.i, 1
   br i1 %44, label %.lr.ph.i.i.i.i.i, label %_ZSt4copyISt16reverse_iteratorIPjEN9__gnu_cxx17__normal_iteratorIS1_St6vectorIjSaIjEEEEET0_T_SA_S9_.exit, !llvm.loop !291
 
 _ZSt7advanceISt16reverse_iteratorIPjEmEvRT_T0_.exit: ; preds = %19
@@ -25619,7 +25619,7 @@ _ZSt7advanceISt16reverse_iteratorIPjEmEvRT_T0_.exit: ; preds = %19
   store i32 %52, ptr %.045.i.i.i.i.i.i.i.i, align 4
   %53 = getelementptr inbounds i8, ptr %.045.i.i.i.i.i.i.i.i, i64 4
   %54 = add nsw i64 %.06.i.i.i.i.i.i.i.i, -1
-  %55 = icmp ugt i64 %.06.i.i.i.i.i.i.i.i, 1
+  %55 = icmp samesign ugt i64 %.06.i.i.i.i.i.i.i.i, 1
   br i1 %55, label %.lr.ph.i.i.i.i.i.i.i.i, label %_ZSt22__uninitialized_copy_aISt16reverse_iteratorIPjES1_jET0_T_S4_S3_RSaIT1_E.exit.loopexit, !llvm.loop !291
 
 _ZSt22__uninitialized_copy_aISt16reverse_iteratorIPjES1_jET0_T_S4_S3_RSaIT1_E.exit.loopexit: ; preds = %.lr.ph.i.i.i.i.i.i.i.i
@@ -25659,7 +25659,7 @@ _ZSt22__uninitialized_move_aIPjS0_SaIjEET0_T_S3_S2_RT1_.exit34: ; preds = %_ZSt2
   store i32 %68, ptr %.045.i.i.i.i.i39, align 4
   %69 = getelementptr inbounds i8, ptr %.045.i.i.i.i.i39, i64 4
   %70 = add nsw i64 %.06.i.i.i.i.i38, -1
-  %71 = icmp ugt i64 %.06.i.i.i.i.i38, 1
+  %71 = icmp samesign ugt i64 %.06.i.i.i.i.i38, 1
   br i1 %71, label %.lr.ph.i.i.i.i.i36, label %_ZSt4copyISt16reverse_iteratorIPjEN9__gnu_cxx17__normal_iteratorIS1_St6vectorIjSaIjEEEEET0_T_SA_S9_.exit, !llvm.loop !291
 
 72:                                               ; preds = %7
@@ -25713,7 +25713,7 @@ _ZSt34__uninitialized_move_if_noexcept_aIPjS0_SaIjEET0_T_S3_S2_RT1_.exit: ; pred
   store i32 %93, ptr %.045.i.i.i.i.i.i.i.i46, align 4
   %94 = getelementptr inbounds i8, ptr %.045.i.i.i.i.i.i.i.i46, i64 4
   %95 = add nsw i64 %.06.i.i.i.i.i.i.i.i45, -1
-  %96 = icmp ugt i64 %.06.i.i.i.i.i.i.i.i45, 1
+  %96 = icmp samesign ugt i64 %.06.i.i.i.i.i.i.i.i45, 1
   br i1 %96, label %.lr.ph.i.i.i.i.i.i.i.i43, label %_ZSt22__uninitialized_copy_aISt16reverse_iteratorIPjES1_jET0_T_S4_S3_RSaIT1_E.exit47, !llvm.loop !291
 
 _ZSt22__uninitialized_copy_aISt16reverse_iteratorIPjES1_jET0_T_S4_S3_RSaIT1_E.exit47: ; preds = %.lr.ph.i.i.i.i.i.i.i.i43

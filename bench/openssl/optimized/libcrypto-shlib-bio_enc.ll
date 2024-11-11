@@ -336,7 +336,7 @@ if.else66:                                        ; preds = %if.then57
 if.else70:                                        ; preds = %if.end54.thread107, %if.end54
   %.pre = phi ptr [ %.pre.pre, %if.end54.thread107 ], [ %6, %if.end54 ]
   %i.1110 = phi i32 [ %call43, %if.end54.thread107 ], [ %conv53, %if.end54 ]
-  %cmp71 = icmp ugt i32 %outl.addr.1116, 256
+  %cmp71 = icmp samesign ugt i32 %outl.addr.1116, 256
   br i1 %cmp71, label %if.then73, label %if.end102
 
 if.then73:                                        ; preds = %if.else70

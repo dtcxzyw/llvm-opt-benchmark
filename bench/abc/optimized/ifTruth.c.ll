@@ -1222,7 +1222,7 @@ Abc_TtStretch6.exit130:                           ; preds = %Abc_TtStretch6.exit
   br i1 %162, label %169, label %163
 
 163:                                              ; preds = %.lr.ph.i132
-  %164 = icmp ugt i64 %indvars.iv.next.i134, %159
+  %164 = icmp samesign ugt i64 %indvars.iv.next.i134, %159
   br i1 %164, label %165, label %167
 
 165:                                              ; preds = %163
@@ -1236,7 +1236,7 @@ Abc_TtStretch6.exit130:                           ; preds = %Abc_TtStretch6.exit
 
 169:                                              ; preds = %167, %.lr.ph.i132
   %.1.i = phi i32 [ %.017.i, %.lr.ph.i132 ], [ %168, %167 ]
-  %170 = icmp ugt i64 %indvars.iv.i133, 1
+  %170 = icmp samesign ugt i64 %indvars.iv.i133, 1
   %171 = icmp sgt i32 %.1.i, -1
   %172 = select i1 %170, i1 %171, i1 false
   br i1 %172, label %.lr.ph.i132, label %Abc_TtExpand.exit.loopexit, !llvm.loop !22
@@ -1278,7 +1278,7 @@ Abc_TtExpand.exit:                                ; preds = %Abc_TtExpand.exit.l
   br i1 %188, label %195, label %189
 
 189:                                              ; preds = %.lr.ph.i136
-  %190 = icmp ugt i64 %indvars.iv.next.i139, %185
+  %190 = icmp samesign ugt i64 %indvars.iv.next.i139, %185
   br i1 %190, label %191, label %193
 
 191:                                              ; preds = %189
@@ -1292,7 +1292,7 @@ Abc_TtExpand.exit:                                ; preds = %Abc_TtExpand.exit.l
 
 195:                                              ; preds = %193, %.lr.ph.i136
   %.1.i140 = phi i32 [ %.017.i138, %.lr.ph.i136 ], [ %194, %193 ]
-  %196 = icmp ugt i64 %indvars.iv.i137, 1
+  %196 = icmp samesign ugt i64 %indvars.iv.i137, 1
   %197 = icmp sgt i32 %.1.i140, -1
   %198 = select i1 %196, i1 %197, i1 false
   br i1 %198, label %.lr.ph.i136, label %Abc_TtExpand.exit141.loopexit, !llvm.loop !22

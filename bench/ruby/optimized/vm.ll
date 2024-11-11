@@ -25877,7 +25877,7 @@ rb_check_arity.exit:                              ; preds = %13
   unreachable
 
 17:                                               ; preds = %15
-  %18 = icmp ugt i32 %0, 3
+  %18 = icmp samesign ugt i32 %0, 3
   br i1 %18, label %.split9.i12, label %rb_check_arity.exit14
 
 .split9.i12:                                      ; preds = %17
@@ -27214,7 +27214,7 @@ define internal i64 @rb_f_catch(i32 noundef %0, ptr nocapture noundef readonly %
   unreachable
 
 6:                                                ; preds = %3
-  %7 = icmp ugt i32 %0, 1
+  %7 = icmp samesign ugt i32 %0, 1
   br i1 %7, label %.split9.i, label %rb_check_arity.exit
 
 .split9.i:                                        ; preds = %6
@@ -34369,7 +34369,7 @@ define internal i64 @vm_stat(i32 noundef %0, ptr nocapture noundef readonly %1, 
   unreachable
 
 5:                                                ; preds = %3
-  %6 = icmp ugt i32 %0, 1
+  %6 = icmp samesign ugt i32 %0, 1
   br i1 %6, label %.split9.i, label %rb_check_arity.exit
 
 .split9.i:                                        ; preds = %5
@@ -42157,8 +42157,8 @@ arg_rest_dup.exit.i437:                           ; preds = %500, %499
 
 RARRAY_ASET.exit.i:                               ; preds = %519, %.lr.ph.i439
   tail call void @rb_ary_ptr_use_end(i64 noundef %.sroa.93.18) #21
-  %520 = icmp ugt i64 %indvars.iv655, 1
-  %521 = icmp ugt i64 %indvars.iv.i440, 1
+  %520 = icmp samesign ugt i64 %indvars.iv655, 1
+  %521 = icmp samesign ugt i64 %indvars.iv.i440, 1
   %522 = and i1 %521, %520
   br i1 %522, label %.lr.ph.i439, label %.preheader.loopexit.i, !llvm.loop !155
 
@@ -42168,7 +42168,7 @@ RARRAY_ASET.exit.i:                               ; preds = %519, %.lr.ph.i439
   %523 = getelementptr i64, ptr %.sroa.0.0, i64 %indvars.iv.next27.i
   %524 = load i64, ptr %523, align 8
   %525 = tail call i64 @rb_ary_unshift(i64 noundef %.sroa.93.18, i64 noundef %524) #21
-  %526 = icmp ugt i64 %indvars.iv26.i, 1
+  %526 = icmp samesign ugt i64 %indvars.iv26.i, 1
   br i1 %526, label %.lr.ph24.i, label %args_copy.exit, !llvm.loop !156
 
 527:                                              ; preds = %498
@@ -45648,7 +45648,7 @@ vm_push_frame.exit:                               ; preds = %71
   unreachable
 
 88:                                               ; preds = %86
-  %89 = icmp ugt i32 %3, %84
+  %89 = icmp samesign ugt i32 %3, %84
   br i1 %89, label %.split9.i, label %rb_check_arity.exit
 
 .split9.i:                                        ; preds = %88
@@ -52949,7 +52949,7 @@ vm_push_frame.exit.i.i:                           ; preds = %153
   unreachable
 
 168:                                              ; preds = %166
-  %169 = icmp ugt i32 %.080.i.i, %69
+  %169 = icmp samesign ugt i32 %.080.i.i, %69
   br i1 %169, label %.split9.i.i.i, label %rb_check_arity.exit.i.i
 
 .split9.i.i.i:                                    ; preds = %168
@@ -53143,7 +53143,7 @@ RHASH_EMPTY_P.exit.i:                             ; preds = %260, %257
 
 .critedge.i.thread:                               ; preds = %244, %RHASH_EMPTY_P.exit.i, %235, %.critedge.i
   %269 = phi i32 [ %267, %.critedge.i ], [ %233, %235 ], [ %233, %RHASH_EMPTY_P.exit.i ], [ %233, %244 ]
-  %270 = icmp ugt i32 %269, 1
+  %270 = icmp samesign ugt i32 %269, 1
   br i1 %270, label %.split9.i.i, label %vm_call_check_arity.exit
 
 .split9.i.i:                                      ; preds = %.critedge.i.thread
@@ -54088,7 +54088,7 @@ RHASH_EMPTY_P.exit.i295:                          ; preds = %765, %762
 
 .critedge.i291.thread:                            ; preds = %749, %RHASH_EMPTY_P.exit.i295, %740, %.critedge.i291
   %774 = phi i32 [ %772, %.critedge.i291 ], [ %738, %740 ], [ %738, %RHASH_EMPTY_P.exit.i295 ], [ %738, %749 ]
-  %775 = icmp ugt i32 %774, 1
+  %775 = icmp samesign ugt i32 %774, 1
   br i1 %775, label %.split9.i.i292, label %vm_call_check_arity.exit297
 
 .split9.i.i292:                                   ; preds = %.critedge.i291.thread
@@ -54532,7 +54532,7 @@ current_vm_stack_arg.exit:                        ; preds = %70, %RB_SYMBOL_P.ex
 
 79:                                               ; preds = %77
   %80 = zext nneg i32 %0 to i64
-  %81 = icmp ult i32 %0, 128
+  %81 = icmp samesign ult i32 %0, 128
   br i1 %81, label %82, label %85
 
 82:                                               ; preds = %79

@@ -6028,7 +6028,7 @@ define hidden range(i32 0, 2) i32 @ccm_cbc_mac(ptr noundef %0, ptr noundef %1, p
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %50 = add nsw i32 %.04965, -1
   %51 = icmp samesign ult i64 %indvars.iv, 15
-  %52 = icmp ugt i32 %.04965, 1
+  %52 = icmp samesign ugt i32 %.04965, 1
   %53 = select i1 %51, i1 %52, i1 false
   br i1 %53, label %.lr.ph, label %.preheader63, !llvm.loop !12
 
@@ -6051,7 +6051,7 @@ define hidden range(i32 0, 2) i32 @ccm_cbc_mac(ptr noundef %0, ptr noundef %1, p
   br i1 %58, label %59, label %.preheader
 
 59:                                               ; preds = %.preheader62
-  %60 = icmp ugt i32 %.150, 15
+  %60 = icmp samesign ugt i32 %.150, 15
   br i1 %60, label %61, label %62
 
 61:                                               ; preds = %59
@@ -6085,7 +6085,7 @@ define hidden range(i32 0, 2) i32 @ccm_cbc_mac(ptr noundef %0, ptr noundef %1, p
   br i1 %73, label %74, label %88
 
 74:                                               ; preds = %.preheader
-  %75 = icmp ugt i32 %.047, 15
+  %75 = icmp samesign ugt i32 %.047, 15
   br i1 %75, label %76, label %77
 
 76:                                               ; preds = %74

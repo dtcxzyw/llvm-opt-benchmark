@@ -35,7 +35,7 @@ define hidden void @od_ec_dec_init(ptr nocapture noundef nonnull writeonly %0, p
   %16 = add nsw i16 %.02427.i, 8
   %17 = add nsw i32 %.029.i, -8
   %18 = getelementptr inbounds i8, ptr %.02328.i, i64 1
-  %19 = icmp ugt i32 %.029.i, 7
+  %19 = icmp samesign ugt i32 %.029.i, 7
   %20 = icmp ult ptr %18, %6
   %21 = select i1 %19, i1 %20, i1 false
   br i1 %21, label %.lr.ph.i, label %._crit_edge.i, !llvm.loop !4
@@ -122,7 +122,7 @@ define hidden range(i32 0, 2) i32 @od_ec_decode_bool_q15(ptr nocapture noundef n
   %39 = add i16 %.02427.i.i, 8
   %40 = add nsw i32 %.029.i.i, -8
   %41 = getelementptr inbounds i8, ptr %.02328.i.i, i64 1
-  %42 = icmp ugt i32 %.029.i.i, 7
+  %42 = icmp samesign ugt i32 %.029.i.i, 7
   %43 = icmp ult ptr %41, %31
   %44 = select i1 %42, i1 %43, i1 false
   br i1 %44, label %.lr.ph.i.i, label %._crit_edge.i.i, !llvm.loop !4
@@ -197,7 +197,7 @@ od_ec_dec_refill.exit.i:                          ; preds = %._crit_edge.i.threa
   %76 = add i16 %.02427.i.i33, 8
   %77 = add nsw i32 %.029.i.i31, -8
   %78 = getelementptr inbounds i8, ptr %.02328.i.i32, i64 1
-  %79 = icmp ugt i32 %.029.i.i31, 7
+  %79 = icmp samesign ugt i32 %.029.i.i31, 7
   %80 = icmp ult ptr %78, %68
   %81 = select i1 %79, i1 %80, i1 false
   br i1 %81, label %.lr.ph.i.i30, label %._crit_edge.i.i35, !llvm.loop !4
@@ -307,7 +307,7 @@ define hidden range(i32 -2147483647, -2147483648) i32 @od_ec_decode_cdf_q15(ptr 
   %52 = add i16 %.02427.i.i, 8
   %53 = add nsw i32 %.029.i.i, -8
   %54 = getelementptr inbounds i8, ptr %.02328.i.i, i64 1
-  %55 = icmp ugt i32 %.029.i.i, 7
+  %55 = icmp samesign ugt i32 %.029.i.i, 7
   %56 = icmp ult ptr %54, %44
   %57 = select i1 %55, i1 %56, i1 false
   br i1 %57, label %.lr.ph.i.i, label %._crit_edge.i.i, !llvm.loop !4

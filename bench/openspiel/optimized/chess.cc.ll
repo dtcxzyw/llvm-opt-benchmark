@@ -3517,7 +3517,7 @@ define { i64, i32 } @_ZN10open_spiel5chess12ActionToMoveERKlRKNS0_10ChessBoardE(
 24:                                               ; preds = %2
   store i64 %18, ptr %7, align 8
   store i32 4674, ptr %8, align 4
-  %25 = icmp ult i64 %18, 4674
+  %25 = icmp samesign ult i64 %18, 4674
   br i1 %25, label %30, label %26
 
 26:                                               ; preds = %24
@@ -4867,7 +4867,7 @@ define void @_ZNK10open_spiel5chess10ChessState14ActionToStringB5cxx11Eil(ptr de
 24:                                               ; preds = %18
   store i64 %3, ptr %10, align 8
   store i32 960, ptr %11, align 4
-  %25 = icmp ult i64 %3, 960
+  %25 = icmp samesign ult i64 %3, 960
   br i1 %25, label %_ZN4absl7debian28AlphaNumC2EPKc.exit, label %26
 
 26:                                               ; preds = %24
@@ -8856,7 +8856,7 @@ _ZN4absl7debian211string_viewC2ISaIcEEERKNSt7__cxx1112basic_stringIcSt11char_tra
   br i1 %25, label %_ZN4absl7debian210StartsWithENS0_11string_viewES1_.exit.thread, label %26
 
 26:                                               ; preds = %_ZN4absl7debian211string_viewC2ISaIcEEERKNSt7__cxx1112basic_stringIcSt11char_traitsIcET_EE.exit34
-  %.not.i = icmp ult i64 %18, %22
+  %.not.i = icmp samesign ult i64 %18, %22
   br i1 %.not.i, label %_ZN4absl7debian210StartsWithENS0_11string_viewES1_.exit.thread49, label %_ZN4absl7debian210StartsWithENS0_11string_viewES1_.exit
 
 _ZN4absl7debian210StartsWithENS0_11string_viewES1_.exit: ; preds = %26

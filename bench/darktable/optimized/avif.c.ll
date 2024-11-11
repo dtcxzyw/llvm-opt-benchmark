@@ -154,7 +154,7 @@ define noundef range(i32 0, 2) i32 @write_image(ptr nocapture noundef readonly %
   br i1 %34, label %39, label %35
 
 35:                                               ; preds = %31
-  %36 = icmp ugt i32 %33, 80
+  %36 = icmp samesign ugt i32 %33, 80
   %37 = select i1 %36, i32 2, i32 3
   br label %39
 

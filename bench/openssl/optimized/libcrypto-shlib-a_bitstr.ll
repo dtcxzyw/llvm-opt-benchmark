@@ -152,7 +152,7 @@ entry:
   br i1 %cmp, label %if.then38, label %if.end
 
 if.end:                                           ; preds = %entry
-  %cmp1 = icmp ugt i64 %len, 2147483647
+  %cmp1 = icmp samesign ugt i64 %len, 2147483647
   br i1 %cmp1, label %if.then38, label %if.end3
 
 if.end3:                                          ; preds = %if.end

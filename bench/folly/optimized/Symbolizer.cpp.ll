@@ -809,7 +809,7 @@ while.body.i.i.i.i.i.prol.loopexit:               ; preds = %while.body.i.i.i.i.
   %23 = load i16, ptr %arrayidx.i.i.i.i.i.prol, align 2, !tbaa !73
   %add.ptr.i.i.i.i.i.prol = getelementptr inbounds i8, ptr %buf.i, i64 %sub.i.i.i.i.i.prol
   store i16 %23, ptr %add.ptr.i.i.i.i.i.prol, align 1
-  %24 = icmp ult i64 %21, 2
+  %24 = icmp samesign ult i64 %21, 2
   br i1 %24, label %while.end.i.i.i.i.i, label %while.body.i.i.i.i.i.preheader.new, !prof !77
 
 while.body.i.i.i.i.i.preheader.new:               ; preds = %while.body.i.i.i.i.i.preheader, %while.body.i.i.i.i.i.prol.loopexit
@@ -919,7 +919,7 @@ while.body.i.i.i.i81.i.prol.loopexit:             ; preds = %while.body.i.i.i.i8
   %39 = load i16, ptr %arrayidx.i.i.i.i87.i.prol, align 2, !tbaa !73
   %add.ptr.i.i.i.i88.i.prol = getelementptr inbounds i8, ptr %buf.i, i64 %sub.i.i.i.i84.i.prol
   store i16 %39, ptr %add.ptr.i.i.i.i88.i.prol, align 1
-  %40 = icmp ult i64 %37, 2
+  %40 = icmp samesign ult i64 %37, 2
   br i1 %40, label %while.end.i.i.i.i66.i, label %while.body.i.i.i.i81.i.preheader.new, !prof !77
 
 while.body.i.i.i.i81.i.preheader.new:             ; preds = %while.body.i.i.i.i81.i.preheader, %while.body.i.i.i.i81.i.prol.loopexit
@@ -1056,7 +1056,7 @@ while.body.i.i.i.i144.i.prol.loopexit:            ; preds = %while.body.i.i.i.i1
   %60 = load i16, ptr %arrayidx.i.i.i.i150.i.prol, align 2, !tbaa !73
   %add.ptr.i.i.i.i151.i.prol = getelementptr inbounds i8, ptr %buf.i, i64 %sub.i.i.i.i147.i.prol
   store i16 %60, ptr %add.ptr.i.i.i.i151.i.prol, align 1
-  %61 = icmp ult i64 %58, 2
+  %61 = icmp samesign ult i64 %58, 2
   br i1 %61, label %while.end.i.i.i.i129.i, label %while.body.i.i.i.i144.i.preheader.new, !prof !77
 
 while.body.i.i.i.i144.i.preheader.new:            ; preds = %while.body.i.i.i.i144.i.preheader, %while.body.i.i.i.i144.i.prol.loopexit
@@ -1168,7 +1168,7 @@ while.body.i.i.i.i193.i.prol.loopexit:            ; preds = %while.body.i.i.i.i1
   %76 = load i16, ptr %arrayidx.i.i.i.i199.i.prol, align 2, !tbaa !73
   %add.ptr.i.i.i.i200.i.prol = getelementptr inbounds i8, ptr %buf.i, i64 %sub.i.i.i.i196.i.prol
   store i16 %76, ptr %add.ptr.i.i.i.i200.i.prol, align 1
-  %77 = icmp ult i64 %74, 2
+  %77 = icmp samesign ult i64 %74, 2
   br i1 %77, label %while.end.i.i.i.i178.i, label %while.body.i.i.i.i193.i.preheader.new, !prof !77
 
 while.body.i.i.i.i193.i.preheader.new:            ; preds = %while.body.i.i.i.i193.i.preheader, %while.body.i.i.i.i193.i.prol.loopexit
@@ -1282,7 +1282,7 @@ while.body.i.i.i.i237.i.prol.loopexit:            ; preds = %while.body.i.i.i.i2
   %92 = load i16, ptr %arrayidx.i.i.i.i243.i.prol, align 2, !tbaa !73
   %add.ptr.i.i.i.i244.i.prol = getelementptr inbounds i8, ptr %buf.i, i64 %sub.i.i.i.i240.i.prol
   store i16 %92, ptr %add.ptr.i.i.i.i244.i.prol, align 1
-  %93 = icmp ult i64 %90, 2
+  %93 = icmp samesign ult i64 %90, 2
   br i1 %93, label %while.end.i.i.i.i222.i, label %while.body.i.i.i.i237.i.preheader.new, !prof !77
 
 while.body.i.i.i.i237.i.preheader.new:            ; preds = %while.body.i.i.i.i237.i.preheader, %while.body.i.i.i.i237.i.prol.loopexit

@@ -185,7 +185,7 @@ if.end102:                                        ; preds = %if.then99, %if.end8
   br i1 %cmp6, label %if.then106, label %if.end114
 
 if.then106:                                       ; preds = %if.end102
-  %cmp107 = icmp ult i64 %len.1, 12
+  %cmp107 = icmp samesign ult i64 %len.1, 12
   br i1 %cmp107, label %return, label %if.end110
 
 if.end110:                                        ; preds = %if.then106
@@ -1108,7 +1108,7 @@ if.then:                                          ; preds = %dtls1_process_out_o
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %msg_hdr.i)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %readbytes.i)
   %93 = add nsw i32 %errtype.0.ph, 3
-  %or.cond = icmp ult i32 %93, 2
+  %or.cond = icmp samesign ult i32 %93, 2
   br i1 %or.cond, label %again, label %return
 
 if.end3:                                          ; preds = %if.end142.i, %if.end16.i, %if.then3.i

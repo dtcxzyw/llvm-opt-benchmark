@@ -504,7 +504,7 @@ if.end13:                                         ; preds = %for.body8
 
 for.inc:                                          ; preds = %for.body8, %if.end13
   %changed.2 = phi i1 [ %changed.113, %for.body8 ], [ true, %if.end13 ]
-  %cmp = icmp ugt i32 %i.014.in, 1
+  %cmp = icmp samesign ugt i32 %i.014.in, 1
   br i1 %cmp, label %for.body8, label %for.inc14, !llvm.loop !6
 
 for.inc14:                                        ; preds = %for.inc, %if.end

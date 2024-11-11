@@ -170,7 +170,7 @@ _ZN5boost6system10error_codeC2ERKS1_PKNS_15source_locationE.exit43: ; preds = %_
   br label %107
 
 64:                                               ; preds = %58
-  %65 = icmp ugt i32 %55, 25
+  %65 = icmp samesign ugt i32 %55, 25
   br i1 %65, label %66, label %75
 
 66:                                               ; preds = %64
@@ -204,7 +204,7 @@ _ZN5boost6system10error_codeC2ERKS1_PKNS_15source_locationE.exit49: ; preds = %_
   %77 = zext nneg i8 %59 to i32
   %78 = add nsw i32 %76, -48
   %79 = add nuw nsw i32 %78, %77
-  %80 = icmp ugt i32 %79, 255
+  %80 = icmp samesign ugt i32 %79, 255
   br i1 %80, label %81, label %90
 
 81:                                               ; preds = %75

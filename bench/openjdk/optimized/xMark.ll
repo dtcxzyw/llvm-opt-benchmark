@@ -973,7 +973,7 @@ define hidden void @_ZN5XMark12follow_arrayEmmb(ptr noundef nonnull align 64 der
   %7 = lshr i64 %2, 3
   %8 = inttoptr i64 %1 to ptr
   %9 = getelementptr inbounds ptr, ptr %8, i64 %7
-  %.not.i = icmp ult i64 %2, 8
+  %.not.i = icmp samesign ult i64 %2, 8
   br i1 %.not.i, label %_ZN5XMark18follow_small_arrayEmmb.exit, label %.lr.ph.i.i
 
 .lr.ph.i.i:                                       ; preds = %6, %.lr.ph.i.i

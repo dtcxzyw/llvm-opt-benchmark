@@ -977,7 +977,7 @@ for.body.i.i:                                     ; preds = %for.body.i.i, %for.
   br i1 %cmp.i.i, label %for.body.i.i, label %evdns_server_request_format_response.exit, !llvm.loop !7
 
 do.body85.i:                                      ; preds = %for.body.i
-  %cmp87.i = icmp ugt i64 %call79.i, 65534
+  %cmp87.i = icmp samesign ugt i64 %call79.i, 65534
   br i1 %cmp87.i, label %overflow.i, label %if.end90.i
 
 if.end90.i:                                       ; preds = %do.body85.i
@@ -989,7 +989,7 @@ if.end90.i:                                       ; preds = %do.body85.i
   %call96.i = call zeroext i16 @htons(i16 noundef zeroext %conv95.i) #19
   %add.ptr98.i = getelementptr inbounds i8, ptr %buf.i, i64 %call79.i
   store i16 %call96.i, ptr %add.ptr98.i, align 1
-  %cmp103.i = icmp ugt i64 %call79.i, 65532
+  %cmp103.i = icmp samesign ugt i64 %call79.i, 65532
   br i1 %cmp103.i, label %overflow.i, label %if.end106.i
 
 if.end106.i:                                      ; preds = %if.end90.i
@@ -1042,7 +1042,7 @@ if.end144.i:                                      ; preds = %while.body.i
   %call146.i = call zeroext i16 @htons(i16 noundef zeroext %24) #19
   %add.ptr148.i = getelementptr inbounds i8, ptr %buf.i, i64 %call134.i
   store i16 %call146.i, ptr %add.ptr148.i, align 1
-  %cmp153.i = icmp ugt i64 %call134.i, 65532
+  %cmp153.i = icmp samesign ugt i64 %call134.i, 65532
   br i1 %cmp153.i, label %overflow.i, label %if.end156.i
 
 if.end156.i:                                      ; preds = %if.end144.i
@@ -1052,7 +1052,7 @@ if.end156.i:                                      ; preds = %if.end144.i
   %add.ptr160.i = getelementptr inbounds i8, ptr %add.ptr148.i, i64 2
   store i16 %call158.i, ptr %add.ptr160.i, align 1
   %add164.i = add nuw nsw i64 %call134.i, 8
-  %cmp165.i = icmp ugt i64 %call134.i, 65528
+  %cmp165.i = icmp samesign ugt i64 %call134.i, 65528
   br i1 %cmp165.i, label %overflow.i, label %if.end168.i
 
 if.end168.i:                                      ; preds = %if.end156.i
@@ -1084,7 +1084,7 @@ if.end184.i:                                      ; preds = %if.then175.i
   br label %if.end223.i
 
 do.body190.i:                                     ; preds = %if.end168.i
-  %cmp192.i = icmp ugt i64 %call134.i, 65526
+  %cmp192.i = icmp samesign ugt i64 %call134.i, 65526
   br i1 %cmp192.i, label %overflow.i, label %if.end195.i
 
 if.end195.i:                                      ; preds = %do.body190.i
@@ -1095,7 +1095,7 @@ if.end195.i:                                      ; preds = %do.body190.i
   store i16 %call196.i, ptr %add.ptr198.i, align 1
   %conv202.i = zext i16 %29 to i64
   %add203.i = add nuw nsw i64 %add191.i, %conv202.i
-  %cmp204.i = icmp ugt i64 %add203.i, 65536
+  %cmp204.i = icmp samesign ugt i64 %add203.i, 65536
   br i1 %cmp204.i, label %overflow.i, label %if.end207.i
 
 if.end207.i:                                      ; preds = %if.end195.i
@@ -2970,7 +2970,7 @@ if.end33:                                         ; preds = %if.then32, %if.end2
   br i1 %tobool35.not, label %do.body48, label %if.then36
 
 if.then36:                                        ; preds = %if.end33
-  %tobool38.not = icmp ult i32 %flags, 65536
+  %tobool38.not = icmp samesign ult i32 %flags, 65536
   br i1 %tobool38.not, label %2, label %3
 
 2:                                                ; preds = %if.then36.thread, %if.then36
@@ -3769,34 +3769,34 @@ if.end53:                                         ; preds = %for.inc, %if.then25
 if.end.i:                                         ; preds = %if.end53
   %call.i = call zeroext i16 @htons(i16 noundef zeroext %cond5) #19
   store i16 %call.i, ptr %add.ptr, align 1
-  %cmp4.i = icmp ult i64 %add5.i, 4
+  %cmp4.i = icmp samesign ult i64 %add5.i, 4
   br i1 %cmp4.i, label %err1, label %if.end6.i57
 
 if.end6.i57:                                      ; preds = %if.end.i
   %call7.i = call zeroext i16 @htons(i16 noundef zeroext 256) #19
   %add.ptr8.i = getelementptr inbounds i8, ptr %call7, i64 202
   store i16 %call7.i, ptr %add.ptr8.i, align 1
-  %cmp13.i = icmp ult i64 %add5.i, 6
+  %cmp13.i = icmp samesign ult i64 %add5.i, 6
   br i1 %cmp13.i, label %err1, label %if.end15.i
 
 if.end15.i:                                       ; preds = %if.end6.i57
   %call16.i = call zeroext i16 @htons(i16 noundef zeroext 1) #19
   %add.ptr17.i = getelementptr inbounds i8, ptr %call7, i64 204
   store i16 %call16.i, ptr %add.ptr17.i, align 1
-  %cmp22.i = icmp ult i64 %add5.i, 8
+  %cmp22.i = icmp samesign ult i64 %add5.i, 8
   br i1 %cmp22.i, label %err1, label %if.end24.i
 
 if.end24.i:                                       ; preds = %if.end15.i
   %call25.i = call zeroext i16 @htons(i16 noundef zeroext 0) #19
   %add.ptr26.i = getelementptr inbounds i8, ptr %call7, i64 206
   store i16 %call25.i, ptr %add.ptr26.i, align 1
-  %cmp31.i = icmp ult i64 %add5.i, 10
+  %cmp31.i = icmp samesign ult i64 %add5.i, 10
   br i1 %cmp31.i, label %err1, label %if.end33.i
 
 if.end33.i:                                       ; preds = %if.end24.i
   %add.ptr35.i = getelementptr inbounds i8, ptr %call7, i64 208
   store i16 %call25.i, ptr %add.ptr35.i, align 1
-  %cmp40.i = icmp ult i64 %add5.i, 12
+  %cmp40.i = icmp samesign ult i64 %add5.i, 12
   br i1 %cmp40.i, label %err1, label %if.end42.i
 
 if.end42.i:                                       ; preds = %if.end33.i
@@ -3812,7 +3812,7 @@ if.end42.i:                                       ; preds = %if.end33.i
 
 do.body56.i:                                      ; preds = %if.end42.i
   %add57.i = add nuw nsw i64 %call50.i, 2
-  %cmp58.i = icmp ugt i64 %add57.i, %add5.i
+  %cmp58.i = icmp samesign ugt i64 %add57.i, %add5.i
   br i1 %cmp58.i, label %err1, label %if.end61.i
 
 if.end61.i:                                       ; preds = %do.body56.i
@@ -3820,7 +3820,7 @@ if.end61.i:                                       ; preds = %do.body56.i
   %add.ptr63.i = getelementptr inbounds i8, ptr %add.ptr, i64 %call50.i
   store i16 %call62.i, ptr %add.ptr63.i, align 1
   %add67.i = add nuw nsw i64 %call50.i, 4
-  %cmp68.i = icmp ugt i64 %add67.i, %add5.i
+  %cmp68.i = icmp samesign ugt i64 %add67.i, %add5.i
   br i1 %cmp68.i, label %err1, label %if.end71.i
 
 if.end71.i:                                       ; preds = %if.end61.i
@@ -3834,7 +3834,7 @@ if.then80.i:                                      ; preds = %if.end71.i
   %arrayidx.i = getelementptr inbounds i8, ptr %add.ptr, i64 %add67.i
   store i8 0, ptr %arrayidx.i, align 1
   %add82.i = add nuw nsw i64 %call50.i, 7
-  %cmp83.i = icmp ugt i64 %add82.i, %add5.i
+  %cmp83.i = icmp samesign ugt i64 %add82.i, %add5.i
   br i1 %cmp83.i, label %err1, label %if.end86.i
 
 if.end86.i:                                       ; preds = %if.then80.i
@@ -3842,7 +3842,7 @@ if.end86.i:                                       ; preds = %if.then80.i
   %add.ptr88.i = getelementptr inbounds i8, ptr %add.ptr63.i, i64 5
   store i16 %call87.i, ptr %add.ptr88.i, align 1
   %add92.i = add nuw nsw i64 %call50.i, 9
-  %cmp93.i = icmp ugt i64 %add92.i, %add5.i
+  %cmp93.i = icmp samesign ugt i64 %add92.i, %add5.i
   br i1 %cmp93.i, label %err1, label %if.end96.i
 
 if.end96.i:                                       ; preds = %if.end86.i
@@ -3851,7 +3851,7 @@ if.end96.i:                                       ; preds = %if.end86.i
   %add.ptr99.i = getelementptr inbounds i8, ptr %add.ptr, i64 %add82.i
   store i16 %call98.i, ptr %add.ptr99.i, align 1
   %add103.i = add nuw nsw i64 %call50.i, 13
-  %cmp104.i = icmp ugt i64 %add103.i, %add5.i
+  %cmp104.i = icmp samesign ugt i64 %add103.i, %add5.i
   br i1 %cmp104.i, label %err1, label %if.end107.i
 
 if.end107.i:                                      ; preds = %if.end96.i
@@ -3859,7 +3859,7 @@ if.end107.i:                                      ; preds = %if.end96.i
   %add.ptr109.i = getelementptr inbounds i8, ptr %add.ptr, i64 %add92.i
   store i32 %call108.i, ptr %add.ptr109.i, align 1
   %add113.i = add nuw nsw i64 %call50.i, 15
-  %cmp114.i = icmp ugt i64 %add113.i, %add5.i
+  %cmp114.i = icmp samesign ugt i64 %add113.i, %add5.i
   br i1 %cmp114.i, label %err1, label %if.end117.i
 
 if.end117.i:                                      ; preds = %if.end107.i
@@ -7989,28 +7989,28 @@ entry:
 if.end6:                                          ; preds = %entry
   %t_.0.copyload = load i16, ptr %packet, align 1
   %call = tail call zeroext i16 @ntohs(i16 noundef zeroext %t_.0.copyload) #19
-  %cmp11 = icmp ult i32 %length, 4
+  %cmp11 = icmp samesign ult i32 %length, 4
   br i1 %cmp11, label %return, label %if.end13
 
 if.end13:                                         ; preds = %if.end6
   %add.ptr15 = getelementptr inbounds i8, ptr %packet, i64 2
   %t_.0.copyload46 = load i16, ptr %add.ptr15, align 1
   %call17 = tail call zeroext i16 @ntohs(i16 noundef zeroext %t_.0.copyload46) #19
-  %cmp21 = icmp ult i32 %length, 6
+  %cmp21 = icmp samesign ult i32 %length, 6
   br i1 %cmp21, label %return, label %if.end23
 
 if.end23:                                         ; preds = %if.end13
   %add.ptr25 = getelementptr inbounds i8, ptr %packet, i64 4
   %t_.0.copyload48 = load i16, ptr %add.ptr25, align 1
   %call27 = tail call zeroext i16 @ntohs(i16 noundef zeroext %t_.0.copyload48) #19
-  %cmp31 = icmp ult i32 %length, 8
+  %cmp31 = icmp samesign ult i32 %length, 8
   br i1 %cmp31, label %return, label %if.end33
 
 if.end33:                                         ; preds = %if.end23
   %add.ptr35 = getelementptr inbounds i8, ptr %packet, i64 6
   %t_.0.copyload50 = load i16, ptr %add.ptr35, align 1
   %call37 = tail call zeroext i16 @ntohs(i16 noundef zeroext %t_.0.copyload50) #19
-  %cmp41 = icmp ult i32 %length, 10
+  %cmp41 = icmp samesign ult i32 %length, 10
   br i1 %cmp41, label %return, label %if.end43
 
 if.end43:                                         ; preds = %if.end33
@@ -8018,7 +8018,7 @@ if.end43:                                         ; preds = %if.end33
   %t_.0.copyload52 = load i16, ptr %add.ptr45, align 1
   store i32 10, ptr %j, align 4
   %call47 = tail call zeroext i16 @ntohs(i16 noundef zeroext %t_.0.copyload52) #19
-  %cmp51 = icmp ult i32 %length, 12
+  %cmp51 = icmp samesign ult i32 %length, 12
   br i1 %cmp51, label %return, label %if.end53
 
 if.end53:                                         ; preds = %if.end43
@@ -9640,35 +9640,35 @@ entry:
 if.end6:                                          ; preds = %entry
   %t_.0.copyload = load i16, ptr %packet, align 1
   %call = tail call zeroext i16 @ntohs(i16 noundef zeroext %t_.0.copyload) #19
-  %cmp11 = icmp ult i32 %length, 4
+  %cmp11 = icmp samesign ult i32 %length, 4
   br i1 %cmp11, label %if.end530, label %if.end13
 
 if.end13:                                         ; preds = %if.end6
   %add.ptr15 = getelementptr inbounds i8, ptr %packet, i64 2
   %t_.0.copyload78 = load i16, ptr %add.ptr15, align 1
   %call17 = tail call zeroext i16 @ntohs(i16 noundef zeroext %t_.0.copyload78) #19
-  %cmp21 = icmp ult i32 %length, 6
+  %cmp21 = icmp samesign ult i32 %length, 6
   br i1 %cmp21, label %if.end530, label %if.end23
 
 if.end23:                                         ; preds = %if.end13
   %add.ptr25 = getelementptr inbounds i8, ptr %packet, i64 4
   %t_.0.copyload80 = load i16, ptr %add.ptr25, align 1
   %call27 = tail call zeroext i16 @ntohs(i16 noundef zeroext %t_.0.copyload80) #19
-  %cmp31 = icmp ult i32 %length, 8
+  %cmp31 = icmp samesign ult i32 %length, 8
   br i1 %cmp31, label %if.end530, label %if.end33
 
 if.end33:                                         ; preds = %if.end23
   %add.ptr35 = getelementptr inbounds i8, ptr %packet, i64 6
   %t_.0.copyload82 = load i16, ptr %add.ptr35, align 1
   %call37 = tail call zeroext i16 @ntohs(i16 noundef zeroext %t_.0.copyload82) #19
-  %cmp41 = icmp ult i32 %length, 10
+  %cmp41 = icmp samesign ult i32 %length, 10
   br i1 %cmp41, label %if.end530, label %if.end43
 
 if.end43:                                         ; preds = %if.end33
   %add.ptr45 = getelementptr inbounds i8, ptr %packet, i64 8
   %t_.0.copyload84 = load i16, ptr %add.ptr45, align 1
   %call47 = tail call zeroext i16 @ntohs(i16 noundef zeroext %t_.0.copyload84) #19
-  %cmp51 = icmp ult i32 %length, 12
+  %cmp51 = icmp samesign ult i32 %length, 12
   br i1 %cmp51, label %if.end530, label %if.end53
 
 if.end53:                                         ; preds = %if.end43
@@ -10355,7 +10355,7 @@ if.else:                                          ; preds = %if.then10
 if.then21:                                        ; preds = %if.else
   %3 = trunc nuw nsw i32 %and19 to i16
   %conv24 = add nsw i16 %3, -1
-  %cmp26 = icmp ugt i16 %conv24, 4
+  %cmp26 = icmp samesign ugt i16 %conv24, 4
   br i1 %cmp26, label %sw.default, label %if.end43
 
 if.else31:                                        ; preds = %if.else

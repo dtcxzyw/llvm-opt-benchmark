@@ -3389,7 +3389,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit265: ;
   br label %common.resume
 
 _ZNK7AstNode8widthMinEv.exit270:                  ; preds = %_ZNK7AstNode8widthMinEv.exit
-  %288 = icmp ult i32 %276, 17
+  %288 = icmp samesign ult i32 %276, 17
   br i1 %288, label %289, label %_ZNK7AstNode6isWideEv.exit
 
 289:                                              ; preds = %_ZNK7AstNode8widthMinEv.exit270

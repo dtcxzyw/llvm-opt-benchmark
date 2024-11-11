@@ -1394,7 +1394,7 @@ define internal fastcc noundef i64 @_ZN4core4iter6traits8iterator8Iterator4fold1
   %13 = and i8 %11, 63
   %14 = zext nneg i8 %13 to i32
   %15 = or disjoint i32 %12, %14
-  %16 = icmp ugt i8 %5, -33
+  %16 = icmp samesign ugt i8 %5, -33
   br i1 %16, label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hfd38ab6598938aa8E.exit15.i.i", label %"_ZN81_$LT$core..str..iter..Chars$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17ha3bb299ebebfcc3aE.exit.thread"
 
 17:                                               ; preds = %.lr.ph
@@ -1412,7 +1412,7 @@ define internal fastcc noundef i64 @_ZN4core4iter6traits8iterator8Iterator4fold1
   %25 = or disjoint i32 %22, %24
   %26 = shl nuw nsw i32 %8, 12
   %27 = or disjoint i32 %25, %26
-  %28 = icmp ugt i8 %5, -17
+  %28 = icmp samesign ugt i8 %5, -17
   br i1 %28, label %"_ZN81_$LT$core..str..iter..Chars$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17ha3bb299ebebfcc3aE.exit", label %"_ZN81_$LT$core..str..iter..Chars$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17ha3bb299ebebfcc3aE.exit.thread"
 
 "_ZN81_$LT$core..str..iter..Chars$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17ha3bb299ebebfcc3aE.exit": ; preds = %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hfd38ab6598938aa8E.exit15.i.i"
@@ -6387,7 +6387,7 @@ _ZN5alloc5alloc15exchange_malloc17he27dc27497df8aaaE.exit.i: ; preds = %1219
   %1351 = and i8 %1349, 63
   %1352 = zext nneg i8 %1351 to i32
   %1353 = or disjoint i32 %1350, %1352
-  %1354 = icmp ugt i8 %1343, -33
+  %1354 = icmp samesign ugt i8 %1343, -33
   br i1 %1354, label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hfd38ab6598938aa8E.exit15.i.i", label %.thread166.i
 
 1355:                                             ; preds = %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h2cb4b0bbd1957a9dE.exit130.thread.i"
@@ -6405,7 +6405,7 @@ _ZN5alloc5alloc15exchange_malloc17he27dc27497df8aaaE.exit.i: ; preds = %1219
   %1363 = or disjoint i32 %1360, %1362
   %1364 = shl nuw nsw i32 %1347, 12
   %1365 = or disjoint i32 %1363, %1364
-  %1366 = icmp ugt i8 %1343, -17
+  %1366 = icmp samesign ugt i8 %1343, -17
   br i1 %1366, label %1367, label %.thread166.i
 
 1367:                                             ; preds = %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hfd38ab6598938aa8E.exit15.i.i"
@@ -25057,7 +25057,7 @@ select.unfold401:                                 ; preds = %select.unfold401.ba
   %383 = ptrtoint ptr %.sroa.0364.0 to i64
   %384 = sub nuw i64 %323, %383
   %385 = udiv exact i64 %384, 304
-  %.not.i.not.i.i = icmp ult i64 %382, %385
+  %.not.i.not.i.i = icmp samesign ult i64 %382, %385
   %386 = getelementptr inbounds { { { { { i64, ptr, {} }, i64 } } }, { { { { { i64, ptr, {} }, i64 } } } }, { { { i64, ptr, {} }, i64 } }, { { { i64, [21 x i64] } } }, { { { i32, [1 x i32] } } }, { ptr, [4 x i64] }, i8, i8, [6 x i8] }, ptr %.sroa.0364.0, i64 %382
   %387 = getelementptr inbounds i8, ptr %386, i64 304
   br i1 %.not.i.not.i.i, label %._crit_edge.i.i, label %.loopexit

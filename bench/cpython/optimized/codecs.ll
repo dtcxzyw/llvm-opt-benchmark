@@ -3159,7 +3159,7 @@ while.body:                                       ; preds = %while.body.preheade
   store i8 %conv, ptr %outp.194, align 1
   %rem = urem i32 %ch.095, %base.197
   %div83 = sdiv i32 %base.197, 10
-  %cmp80 = icmp ugt i32 %digits.196, 1
+  %cmp80 = icmp samesign ugt i32 %digits.196, 1
   br i1 %cmp80, label %while.body, label %while.end, !llvm.loop !11
 
 while.end:                                        ; preds = %while.body
@@ -3697,7 +3697,7 @@ if.then103:                                       ; preds = %PyUnicode_READ_CHAR
 if.else135:                                       ; preds = %PyUnicode_READ_CHAR.exit142.thread, %PyUnicode_READ_CHAR.exit142
   %incdec.ptr157 = phi ptr [ %incdec.ptr153, %PyUnicode_READ_CHAR.exit142.thread ], [ %incdec.ptr, %PyUnicode_READ_CHAR.exit142 ]
   %retval.0.i118155 = phi i32 [ %retval.0.i118.ph, %PyUnicode_READ_CHAR.exit142.thread ], [ %54, %PyUnicode_READ_CHAR.exit142 ]
-  %cmp136 = icmp ugt i32 %retval.0.i118155, 255
+  %cmp136 = icmp samesign ugt i32 %retval.0.i118155, 255
   %incdec.ptr139 = getelementptr i8, ptr %outp.1199, i64 2
   br i1 %cmp136, label %if.then138, label %if.else150
 
@@ -3921,7 +3921,7 @@ if.else:                                          ; preds = %PyUnicode_READ_CHAR
   br i1 %cmp23, label %if.end33, label %if.else26
 
 if.else26:                                        ; preds = %if.else
-  %cmp27 = icmp ugt i32 %retval.0.i, 255
+  %cmp27 = icmp samesign ugt i32 %retval.0.i, 255
   %. = select i1 %cmp27, i64 6, i64 4
   br label %if.end33
 
@@ -4130,7 +4130,7 @@ if.then67:                                        ; preds = %if.end64
   br label %if.end113
 
 if.else95:                                        ; preds = %if.end64
-  %cmp96 = icmp ugt i32 %retval.0.i74, 255
+  %cmp96 = icmp samesign ugt i32 %retval.0.i74, 255
   %incdec.ptr99 = getelementptr i8, ptr %outp.0109, i64 2
   br i1 %cmp96, label %if.then98, label %if.else110
 

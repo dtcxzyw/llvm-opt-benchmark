@@ -169,14 +169,14 @@ if.end9:                                          ; preds = %if.end7
   br i1 %tobool11.not, label %if.end13, label %return
 
 if.end13:                                         ; preds = %if.end9
-  %cmp14 = icmp ult i32 %level.0.i, 4
+  %cmp14 = icmp samesign ult i32 %level.0.i, 4
   %and17 = and i32 %3, 2
   %tobool18.not = icmp eq i32 %and17, 0
   %or.cond21 = or i1 %cmp14, %tobool18.not
   br i1 %or.cond21, label %if.end20, label %return
 
 if.end20:                                         ; preds = %if.end13
-  %cmp21 = icmp ugt i32 %level.0.i, 2
+  %cmp21 = icmp samesign ugt i32 %level.0.i, 2
   br i1 %cmp21, label %land.lhs.true22, label %sw.epilog
 
 land.lhs.true22:                                  ; preds = %if.end20
@@ -236,7 +236,7 @@ sw.bb64:                                          ; preds = %if.end4
   br i1 %cmp65.not, label %sw.epilog, label %return
 
 sw.bb68:                                          ; preds = %if.end4
-  %cmp69 = icmp ugt i32 %level.0.i, 2
+  %cmp69 = icmp samesign ugt i32 %level.0.i, 2
   br i1 %cmp69, label %return, label %sw.epilog
 
 sw.default:                                       ; preds = %if.end4

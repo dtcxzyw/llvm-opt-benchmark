@@ -1670,7 +1670,7 @@ if.then.i.i.i335:                                 ; preds = %lpad.i
 
 invoke.cont293:                                   ; preds = %_ZNSt12_Vector_baseIN8QuantLib31MarketModelPathwiseMultiProduct8CashFlowESaIS2_EEC2EmRKS3_.exit.i
   store ptr %call.i.i.i.i3.i, ptr %_M_finish.i.i.i, align 8, !tbaa !83
-  %cmp.i.i343 = icmp ugt i64 %call8, 384307168202282325
+  %cmp.i.i343 = icmp samesign ugt i64 %call8, 384307168202282325
   br i1 %cmp.i.i343, label %if.then.i.i357, label %_ZNSt6vectorIS_IN8QuantLib31MarketModelPathwiseMultiProduct8CashFlowESaIS2_EESaIS4_EE17_S_check_init_lenEmRKS5_.exit.i
 
 if.then.i.i357:                                   ; preds = %invoke.cont293

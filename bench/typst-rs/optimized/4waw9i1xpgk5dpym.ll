@@ -1347,7 +1347,7 @@ define hidden void @"_ZN4ecow3vec15EcoVec$LT$T$GT$4grow17h29211754e102f437E"(ptr
   unreachable
 
 5:                                                ; preds = %2
-  %6 = icmp ugt i64 %1, 9223372036854775782
+  %6 = icmp samesign ugt i64 %1, 9223372036854775782
   br i1 %6, label %7, label %"_ZN4ecow3vec15EcoVec$LT$T$GT$4size17hff19cdf3ea45d206E.exit"
 
 7:                                                ; preds = %5
@@ -1412,14 +1412,14 @@ define internal fastcc void @"_ZN4ecow3vec15EcoVec$LT$T$GT$4grow17h62271d28906d4
   unreachable
 
 5:                                                ; preds = %2
-  %6 = icmp ugt i64 %1, 1152921504606846975
+  %6 = icmp samesign ugt i64 %1, 1152921504606846975
   br i1 %6, label %.thread.i, label %7
 
 7:                                                ; preds = %5
   %8 = shl nuw i64 %1, 4
   %9 = tail call { i64, i1 } @llvm.uadd.with.overflow.i64(i64 %8, i64 16)
   %10 = extractvalue { i64, i1 } %9, 1
-  %11 = icmp ugt i64 %1, 576460752303423486
+  %11 = icmp samesign ugt i64 %1, 576460752303423486
   %or.cond.i.not.i = or i1 %11, %10
   br i1 %or.cond.i.not.i, label %.thread.i, label %"_ZN4ecow3vec15EcoVec$LT$T$GT$4size17ha289bedffb069a9fE.exit"
 
@@ -1449,7 +1449,7 @@ define internal fastcc void @"_ZN4ecow3vec15EcoVec$LT$T$GT$4grow17h62271d28906d4
   %20 = shl nuw i64 %.val.i.i, 4
   %21 = tail call { i64, i1 } @llvm.uadd.with.overflow.i64(i64 %20, i64 16)
   %22 = extractvalue { i64, i1 } %21, 1
-  %23 = icmp ugt i64 %.val.i.i, 576460752303423486
+  %23 = icmp samesign ugt i64 %.val.i.i, 576460752303423486
   %or.cond.i.not.i35 = or i1 %23, %22
   br i1 %or.cond.i.not.i35, label %.thread.i36, label %"_ZN4ecow3vec15EcoVec$LT$T$GT$4size17ha289bedffb069a9fE.exit40"
 

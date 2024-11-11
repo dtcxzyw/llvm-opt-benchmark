@@ -4911,7 +4911,7 @@ _ZNSt12_Vector_baseIN3ozz9animation7offline12RawAnimation10JointTrackENS0_12StdA
   %50 = getelementptr inbounds i8, ptr %.0910.i.i.i.i.i, i64 72
   %51 = getelementptr inbounds i8, ptr %.0811.i.i.i.i.i, i64 72
   %52 = add nsw i64 %.012.i.i.i.i.i, -1
-  %53 = icmp ugt i64 %.012.i.i.i.i.i, 1
+  %53 = icmp samesign ugt i64 %.012.i.i.i.i.i, 1
   br i1 %53, label %.lr.ph.i.i.i.i.i, label %_ZSt4copyIN9__gnu_cxx17__normal_iteratorIPKN3ozz9animation7offline12RawAnimation10JointTrackESt6vectorIS6_NS2_12StdAllocatorIS6_EEEEENS1_IPS6_SC_EEET0_T_SH_SG_.exit.loopexit, !llvm.loop !34
 
 _ZSt4copyIN9__gnu_cxx17__normal_iteratorIPKN3ozz9animation7offline12RawAnimation10JointTrackESt6vectorIS6_NS2_12StdAllocatorIS6_EEEEENS1_IPS6_SC_EEET0_T_SH_SG_.exit.loopexit: ; preds = %.lr.ph.i.i.i.i.i
@@ -4960,7 +4960,7 @@ _ZSt4copyIN9__gnu_cxx17__normal_iteratorIPKN3ozz9animation7offline12RawAnimation
   %68 = getelementptr inbounds i8, ptr %.0910.i.i.i.i.i33, i64 72
   %69 = getelementptr inbounds i8, ptr %.0811.i.i.i.i.i32, i64 72
   %70 = add nsw i64 %.012.i.i.i.i.i31, -1
-  %71 = icmp ugt i64 %.012.i.i.i.i.i31, 1
+  %71 = icmp samesign ugt i64 %.012.i.i.i.i.i31, 1
   br i1 %71, label %.lr.ph.i.i.i.i.i30, label %_ZSt4copyIPN3ozz9animation7offline12RawAnimation10JointTrackES5_ET0_T_S7_S6_.exit.loopexit, !llvm.loop !36
 
 _ZSt4copyIPN3ozz9animation7offline12RawAnimation10JointTrackES5_ET0_T_S7_S6_.exit.loopexit: ; preds = %.lr.ph.i.i.i.i.i30

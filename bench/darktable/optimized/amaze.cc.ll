@@ -3898,7 +3898,7 @@ define hidden void @amaze_demosaic(ptr nocapture noundef readonly %0, ptr nocapt
   %3220 = load i8, ptr %3219, align 1, !tbaa !94
   %3221 = zext i8 %3220 to i32
   %3222 = add nuw nsw i32 %3215, %3221
-  %3223 = icmp ugt i32 %3222, 4
+  %3223 = icmp samesign ugt i32 %3222, 4
   br i1 %3223, label %3230, label %3224
 
 3224:                                             ; preds = %3164

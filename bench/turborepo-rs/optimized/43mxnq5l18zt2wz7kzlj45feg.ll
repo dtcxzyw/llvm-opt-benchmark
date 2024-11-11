@@ -373,7 +373,7 @@ define void @_RNvMNtCs8mTrBI1stz4_15turborepo_vt1003rowNtB2_3Row6remove(ptr noal
   unreachable
 
 14:                                               ; preds = %7
-  %.not.i = icmp ult i8 %11, 64
+  %.not.i = icmp samesign ult i8 %11, 64
   br i1 %.not.i, label %_RNvMs_NtCs68wO5nsWeTG_5alloc3vecINtB4_3VecNtNtCs8mTrBI1stz4_15turborepo_vt1004cell4CellE6removeBI_.exit, label %19
 
 15:                                               ; preds = %7
@@ -439,7 +439,7 @@ define void @_RNvMNtCs8mTrBI1stz4_15turborepo_vt1003rowNtB2_3Row5erase(ptr noali
   br i1 %15, label %17, label %16
 
 16:                                               ; preds = %9
-  %.not.i = icmp ult i8 %14, 64
+  %.not.i = icmp samesign ult i8 %14, 64
   br i1 %.not.i, label %_RNvMNtCs8mTrBI1stz4_15turborepo_vt1003rowNtB2_3Row10clear_wide.exit, label %21
 
 17:                                               ; preds = %9
@@ -614,7 +614,7 @@ define void @_RNvMNtCs8mTrBI1stz4_15turborepo_vt1003rowNtB2_3Row10clear_wide(ptr
   unreachable
 
 14:                                               ; preds = %7
-  %.not = icmp ult i8 %11, 64
+  %.not = icmp samesign ult i8 %11, 64
   br i1 %.not, label %23, label %19
 
 15:                                               ; preds = %7
@@ -3019,7 +3019,7 @@ _RNvXs_NtCs8mTrBI1stz4_15turborepo_vt1004termNtB4_15ClearRowForwardNtB4_8BufWrit
 _RNvMNtCs8mTrBI1stz4_15turborepo_vt1003rowNtB2_3Row4cols.llvm.4083057626633162689.exit137: ; preds = %376
   %377 = add i16 %50, -1
   %378 = zext i16 %377 to i64
-  %379 = icmp ugt i64 %35, %378
+  %379 = icmp samesign ugt i64 %35, %378
   br i1 %379, label %_RNvMNtCs8mTrBI1stz4_15turborepo_vt1003rowNtB2_3Row4cols.llvm.4083057626633162689.exit139, label %389
 
 .thread:                                          ; preds = %374, %412, %_RINvNtCs1LoaDTb72WA_4core3ptr13drop_in_placeNtNtCs68wO5nsWeTG_5alloc6string6StringECs8mTrBI1stz4_15turborepo_vt100.exit169, %375
@@ -3113,7 +3113,7 @@ _RNvXsi_NtCs8mTrBI1stz4_15turborepo_vt1004termNtB5_10MoveFromToNtB5_8BufWrite9wr
   br label %410
 
 410:                                              ; preds = %409, %_RNvXsi_NtCs8mTrBI1stz4_15turborepo_vt1004termNtB5_10MoveFromToNtB5_8BufWrite9write_buf.exit157
-  %411 = icmp ugt i64 %35, %.sroa.4.0.insert.ext.i142
+  %411 = icmp samesign ugt i64 %35, %.sroa.4.0.insert.ext.i142
   br i1 %411, label %412, label %416
 
 412:                                              ; preds = %410

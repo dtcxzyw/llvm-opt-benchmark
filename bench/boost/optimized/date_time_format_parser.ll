@@ -1687,7 +1687,7 @@ _ZN5boost3log11v2_mt_posix3aux9anonymous12common_flagsINS2_27date_format_parser_
   br label %.thread48
 
 41:                                               ; preds = %_ZN5boost3log11v2_mt_posix3aux9anonymous12common_flagsINS2_27date_format_parser_callbackIcEEE5flushERS6_.exit
-  %42 = icmp ugt i64 %33, 5
+  %42 = icmp samesign ugt i64 %33, 5
   br i1 %42, label %.thread, label %48
 
 .thread:                                          ; preds = %35, %41
@@ -2143,7 +2143,7 @@ _ZN5boost3log11v2_mt_posix3aux9anonymous12common_flagsINS2_27time_format_parser_
   br label %.thread66
 
 45:                                               ; preds = %_ZN5boost3log11v2_mt_posix3aux9anonymous12common_flagsINS2_27time_format_parser_callbackIcEEE5flushERS6_.exit
-  %46 = icmp ugt i64 %37, 7
+  %46 = icmp samesign ugt i64 %37, 7
   br i1 %46, label %.thread, label %52
 
 .thread:                                          ; preds = %39, %45
@@ -2159,7 +2159,7 @@ _ZN5boost3log11v2_mt_posix3aux9anonymous12common_flagsINS2_27time_format_parser_
   br label %.thread66
 
 52:                                               ; preds = %45
-  %53 = icmp ugt i64 %37, 5
+  %53 = icmp samesign ugt i64 %37, 5
   br i1 %53, label %.thread65, label %59
 
 .thread65:                                        ; preds = %.thread, %52
@@ -2721,7 +2721,7 @@ _ZN5boost3log11v2_mt_posix3aux9anonymous12common_flagsINS2_32date_time_format_pa
   br label %.thread48
 
 40:                                               ; preds = %_ZN5boost3log11v2_mt_posix3aux9anonymous12common_flagsINS2_32date_time_format_parser_callbackIcEEE5flushERS6_.exit
-  %41 = icmp ugt i64 %31, 5
+  %41 = icmp samesign ugt i64 %31, 5
   br i1 %41, label %.thread, label %48
 
 .thread:                                          ; preds = %33, %40
@@ -3109,7 +3109,7 @@ _ZN5boost3log11v2_mt_posix3aux9anonymous12common_flagsINS2_32date_time_format_pa
   br label %.thread66
 
 46:                                               ; preds = %_ZN5boost3log11v2_mt_posix3aux9anonymous12common_flagsINS2_32date_time_format_parser_callbackIcEEE5flushERS6_.exit
-  %47 = icmp ugt i64 %37, 7
+  %47 = icmp samesign ugt i64 %37, 7
   br i1 %47, label %.thread, label %54
 
 .thread:                                          ; preds = %39, %46
@@ -3126,7 +3126,7 @@ _ZN5boost3log11v2_mt_posix3aux9anonymous12common_flagsINS2_32date_time_format_pa
   br label %.thread66
 
 54:                                               ; preds = %46
-  %55 = icmp ugt i64 %37, 5
+  %55 = icmp samesign ugt i64 %37, 5
   br i1 %55, label %.thread65, label %62
 
 .thread65:                                        ; preds = %.thread, %54

@@ -5240,7 +5240,7 @@ _ZNK4llvm5APInt15getLimitedValueEm.exit:          ; preds = %_ZNK4llvm5APInt13ge
 _ZNK4llvm5APInt11countr_zeroEv.exit1028:          ; preds = %2374, %2378
   %.0.i1026 = phi i32 [ %..i1027, %2374 ], [ %2379, %2378 ]
   %2380 = zext i32 %.0.i1026 to i64
-  %.not668 = icmp ugt i64 %2371, %2380
+  %.not668 = icmp samesign ugt i64 %2371, %2380
   br i1 %.not668, label %2464, label %2381
 
 2381:                                             ; preds = %_ZNK4llvm5APInt11countr_zeroEv.exit1028
@@ -5294,7 +5294,7 @@ _ZNK4llvm4User10getOperandEj.exit1033:            ; preds = %2392, %2395
   %2410 = load ptr, ptr %2409, align 8
   %2411 = call noundef i32 @_ZN4llvm18ComputeNumSignBitsEPKNS_5ValueERKNS_10DataLayoutEjPNS_15AssumptionCacheEPKNS_11InstructionEPKNS_13DominatorTreeEb(ptr noundef %2401, ptr noundef nonnull align 8 dereferenceable(512) %2406, i32 noundef %2402, ptr noundef %2408, ptr noundef %2404, ptr noundef %2410, i1 noundef zeroext true) #19
   %2412 = zext i32 %2411 to i64
-  %2413 = icmp ult i64 %2371, %2412
+  %2413 = icmp samesign ult i64 %2371, %2412
   br i1 %2413, label %2414, label %2431
 
 2414:                                             ; preds = %_ZNK4llvm4User10getOperandEj.exit1033
@@ -5708,13 +5708,13 @@ _ZNK4llvm5APInt11countl_zeroEv.exit1069:          ; preds = %_ZNK4llvm5Value9has
   %2618 = trunc nuw nsw i64 %2617 to i32
   %2619 = add nsw i32 %.neg.i1068, %2618
   %2620 = zext i32 %2619 to i64
-  %.not661 = icmp ugt i64 %2587, %2620
+  %.not661 = icmp samesign ugt i64 %2587, %2620
   br i1 %.not661, label %2692, label %2623
 
 _ZNK4llvm5APInt11countl_zeroEv.exit1069.thread:   ; preds = %_ZNK4llvm5Value9hasOneUseEv.exit1066.thread
   %2621 = call noundef i32 @_ZNK4llvm5APInt25countLeadingZerosSlowCaseEv(ptr noundef nonnull align 8 dereferenceable(12) %2) #21
   %2622 = zext i32 %2621 to i64
-  %.not6611722 = icmp ugt i64 %2587, %2622
+  %.not6611722 = icmp samesign ugt i64 %2587, %2622
   br i1 %.not6611722, label %2692, label %.thread1723
 
 2623:                                             ; preds = %_ZNK4llvm5APInt11countl_zeroEv.exit1069
@@ -20636,7 +20636,7 @@ _ZN4llvm9remove_ifIRNS_11SmallVectorISt4pairIjPNS_6MDNodeEELj2EEEZNS_13IRBuilder
   %68 = getelementptr inbounds i8, ptr %.0910.i.i.i.i.i.i, i64 16
   %69 = getelementptr inbounds i8, ptr %.0811.i.i.i.i.i.i, i64 16
   %70 = add nsw i64 %.012.i.i.i.i.i.i, -1
-  %71 = icmp ugt i64 %.012.i.i.i.i.i.i, 1
+  %71 = icmp samesign ugt i64 %.012.i.i.i.i.i.i, 1
   br i1 %71, label %.lr.ph.i.i.i.i.i.i, label %_ZN4llvm15SmallVectorImplISt4pairIjPNS_6MDNodeEEE5eraseEPKS4_S7_.exit, !llvm.loop !262
 
 _ZN4llvm15SmallVectorImplISt4pairIjPNS_6MDNodeEEE5eraseEPKS4_S7_.exit: ; preds = %.lr.ph.i.i.i.i.i.i, %_ZN4llvm9remove_ifIRNS_11SmallVectorISt4pairIjPNS_6MDNodeEELj2EEEZNS_13IRBuilderBase25AddOrRemoveMetadataToCopyEjS4_EUlRKS5_E_EEDaOT_T0_.exit

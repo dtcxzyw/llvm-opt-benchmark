@@ -4808,7 +4808,7 @@ define internal fastcc void @register_bound_param(ptr noundef %0, ptr nocapture 
   br i1 %32, label %33, label %51
 
 33:                                               ; preds = %31, %.critedge212
-  %34 = icmp ult i32 %8, 4
+  %34 = icmp samesign ult i32 %8, 4
   br i1 %34, label %52, label %35
 
 35:                                               ; preds = %33

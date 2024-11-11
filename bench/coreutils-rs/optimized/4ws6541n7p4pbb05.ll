@@ -3031,7 +3031,7 @@ _ZN5alloc3fmt6format17h7ead8f60e83381d7E.exit40:  ; preds = %47
   %70 = and i8 %68, 63
   %71 = zext nneg i8 %70 to i32
   %72 = or disjoint i32 %69, %71
-  %73 = icmp ugt i8 %62, -33
+  %73 = icmp samesign ugt i8 %62, -33
   br i1 %73, label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h0a659e0ee6351131E.exit15.i.i.i", label %97
 
 74:                                               ; preds = %61
@@ -3049,7 +3049,7 @@ _ZN5alloc3fmt6format17h7ead8f60e83381d7E.exit40:  ; preds = %47
   %82 = or disjoint i32 %79, %81
   %83 = shl nuw nsw i32 %66, 12
   %84 = or disjoint i32 %82, %83
-  %85 = icmp ugt i8 %62, -17
+  %85 = icmp samesign ugt i8 %62, -17
   br i1 %85, label %_ZN4core4iter6traits8iterator8Iterator3nth17h099989837e582776E.exit, label %97
 
 _ZN4core4iter6traits8iterator8Iterator3nth17h099989837e582776E.exit: ; preds = %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h0a659e0ee6351131E.exit15.i.i.i"
@@ -3196,7 +3196,7 @@ define internal fastcc void @_ZN7uu_tail4args9parse_num17hb06a1ebae9965a50E(ptr 
   %19 = and i8 %17, 63
   %20 = zext nneg i8 %19 to i32
   %21 = or disjoint i32 %18, %20
-  %22 = icmp ugt i8 %11, -33
+  %22 = icmp samesign ugt i8 %11, -33
   br i1 %22, label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h0a659e0ee6351131E.exit15.i", label %.thread42
 
 23:                                               ; preds = %10
@@ -3214,7 +3214,7 @@ define internal fastcc void @_ZN7uu_tail4args9parse_num17hb06a1ebae9965a50E(ptr 
   %31 = or disjoint i32 %28, %30
   %32 = shl nuw nsw i32 %15, 12
   %33 = or disjoint i32 %31, %32
-  %34 = icmp ugt i8 %11, -17
+  %34 = icmp samesign ugt i8 %11, -17
   br i1 %34, label %35, label %.thread42
 
 35:                                               ; preds = %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h0a659e0ee6351131E.exit15.i"

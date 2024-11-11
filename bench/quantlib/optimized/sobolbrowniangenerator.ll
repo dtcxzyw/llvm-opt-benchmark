@@ -1535,7 +1535,7 @@ do.end65:                                         ; preds = %do.body26
   %arrayidx.i = getelementptr i8, ptr %47, i64 -8
   store double %mul, ptr %arrayidx.i, align 8, !tbaa !42
   %invariant.gep = getelementptr i8, ptr %output.coerce, i64 -8
-  %cmp71147 = icmp ugt i64 %sub.i.i, 1
+  %cmp71147 = icmp samesign ugt i64 %sub.i.i, 1
   br i1 %cmp71147, label %for.body.lr.ph, label %for.cond102.preheader
 
 for.body.lr.ph:                                   ; preds = %do.end65
@@ -2482,7 +2482,7 @@ do.end65:                                         ; preds = %do.body26
   %arrayidx.i = getelementptr i8, ptr %47, i64 -8
   store double %mul, ptr %arrayidx.i, align 8, !tbaa !42
   %invariant.gep = getelementptr i8, ptr %output.coerce, i64 -8
-  %cmp74153 = icmp ugt i64 %sub.i.i, 1
+  %cmp74153 = icmp samesign ugt i64 %sub.i.i, 1
   br i1 %cmp74153, label %for.body.lr.ph, label %for.cond111.preheader
 
 for.body.lr.ph:                                   ; preds = %do.end65

@@ -449,7 +449,7 @@ for.body4:                                        ; preds = %for.body, %for.body
   %flips.07 = phi i64 [ %dec, %for.body4 ], [ %call, %for.body ]
   %call5 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.10)
   %dec = add nsw i64 %flips.07, -1
-  %cmp3 = icmp ugt i64 %flips.07, 1
+  %cmp3 = icmp samesign ugt i64 %flips.07, 1
   br i1 %cmp3, label %for.body4, label %for.end, !llvm.loop !5
 
 for.end:                                          ; preds = %for.body4, %for.body

@@ -7937,7 +7937,7 @@ if.end.i322:                                      ; preds = %entry
   br i1 %0, label %land.lhs.true, label %if.end.i331
 
 _ZN4llvh9StringRefC2EPKc.exit90:                  ; preds = %entry
-  %cmp.i181 = icmp ugt i64 %Arch.coerce1, 2
+  %cmp.i181 = icmp samesign ugt i64 %Arch.coerce1, 2
   br i1 %cmp.i181, label %if.end.i331.thread, label %_ZN4llvh9StringRefC2EPKc.exit150
 
 if.end.i331:                                      ; preds = %if.end.i322
@@ -8640,7 +8640,7 @@ if.end.i89:                                       ; preds = %entry
   br i1 %0, label %_ZN4llvh12StringSwitchINS_3ARM7ISAKindES2_E7DefaultES2_.exit, label %if.end.i97
 
 _ZN4llvh12StringSwitchINS_3ARM7ISAKindES2_E10StartsWithENS_13StringLiteralES2_.exit81: ; preds = %entry
-  %cmp.i.i49.not = icmp ult i64 %Arch.coerce1, 5
+  %cmp.i.i49.not = icmp samesign ult i64 %Arch.coerce1, 5
   br i1 %cmp.i.i49.not, label %_ZN4llvh12StringSwitchINS_3ARM7ISAKindES2_E10StartsWithENS_13StringLiteralES2_.exit35, label %if.end.i97
 
 if.end.i97:                                       ; preds = %if.end.i89, %_ZN4llvh12StringSwitchINS_3ARM7ISAKindES2_E10StartsWithENS_13StringLiteralES2_.exit81
@@ -8654,7 +8654,7 @@ if.end.i106:                                      ; preds = %if.end.i97
   br i1 %2, label %_ZN4llvh12StringSwitchINS_3ARM7ISAKindES2_E7DefaultES2_.exit, label %if.end.i115
 
 _ZN4llvh12StringSwitchINS_3ARM7ISAKindES2_E10StartsWithENS_13StringLiteralES2_.exit35: ; preds = %_ZN4llvh12StringSwitchINS_3ARM7ISAKindES2_E10StartsWithENS_13StringLiteralES2_.exit81
-  %cmp.i.i.not = icmp ult i64 %Arch.coerce1, 3
+  %cmp.i.i.not = icmp samesign ult i64 %Arch.coerce1, 3
   br i1 %cmp.i.i.not, label %_ZN4llvh12StringSwitchINS_3ARM7ISAKindES2_E7DefaultES2_.exit, label %if.end.i115
 
 if.end.i115:                                      ; preds = %if.end.i106, %_ZN4llvh12StringSwitchINS_3ARM7ISAKindES2_E10StartsWithENS_13StringLiteralES2_.exit35
@@ -8698,7 +8698,7 @@ if.end.i172:                                      ; preds = %_ZN4llvh9StringRefC
   br i1 %2, label %return, label %if.end.i181
 
 _ZN4llvh9StringRefC2EPKc.exit49:                  ; preds = %entry
-  %cmp.i100 = icmp ugt i64 %Arch.coerce1, 2
+  %cmp.i100 = icmp samesign ugt i64 %Arch.coerce1, 2
   br i1 %cmp.i100, label %if.end.i181.thread, label %if.end19
 
 if.end.i181:                                      ; preds = %if.end.i172, %_ZN4llvh9StringRefC2EPKc.exit39, %_ZN4llvh9StringRefC2EPKc.exit29
@@ -9077,7 +9077,7 @@ if.end.i89.i:                                     ; preds = %entry
   br i1 %0, label %_ZN4llvh3ARM12parseArchISAENS_9StringRefE.exit, label %if.end.i97.i
 
 _ZN4llvh12StringSwitchINS_3ARM7ISAKindES2_E10StartsWithENS_13StringLiteralES2_.exit81.i: ; preds = %entry
-  %cmp.i.i49.not.i = icmp ult i64 %Arch.coerce1, 5
+  %cmp.i.i49.not.i = icmp samesign ult i64 %Arch.coerce1, 5
   br i1 %cmp.i.i49.not.i, label %_ZN4llvh12StringSwitchINS_3ARM7ISAKindES2_E10StartsWithENS_13StringLiteralES2_.exit35.i, label %if.end.i97.i
 
 if.end.i97.i:                                     ; preds = %_ZN4llvh12StringSwitchINS_3ARM7ISAKindES2_E10StartsWithENS_13StringLiteralES2_.exit81.i, %if.end.i89.i
@@ -9091,7 +9091,7 @@ if.end.i106.i:                                    ; preds = %if.end.i97.i
   br i1 %2, label %_ZN4llvh3ARM12parseArchISAENS_9StringRefE.exit, label %if.end.i115.i
 
 _ZN4llvh12StringSwitchINS_3ARM7ISAKindES2_E10StartsWithENS_13StringLiteralES2_.exit35.i: ; preds = %_ZN4llvh12StringSwitchINS_3ARM7ISAKindES2_E10StartsWithENS_13StringLiteralES2_.exit81.i
-  %cmp.i.i.not.i = icmp ult i64 %Arch.coerce1, 3
+  %cmp.i.i.not.i = icmp samesign ult i64 %Arch.coerce1, 3
   br i1 %cmp.i.i.not.i, label %_ZN4llvh3ARM12parseArchISAENS_9StringRefE.exit, label %if.end.i115.i
 
 if.end.i115.i:                                    ; preds = %_ZN4llvh12StringSwitchINS_3ARM7ISAKindES2_E10StartsWithENS_13StringLiteralES2_.exit35.i, %if.end.i106.i

@@ -817,7 +817,7 @@ define dso_local void @ieee80211_get_tx_rates(ptr noundef readonly %0, ptr nound
   br i1 %227, label %241, label %228
 
 228:                                              ; preds = %221
-  %229 = icmp ugt i8 %219, 76
+  %229 = icmp samesign ugt i8 %219, 76
   br i1 %229, label %230, label %231, !prof !6
 
 230:                                              ; preds = %228

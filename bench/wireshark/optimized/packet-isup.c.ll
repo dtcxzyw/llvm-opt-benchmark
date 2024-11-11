@@ -2958,7 +2958,7 @@ define hidden noundef i32 @dissect_codec_mode(ptr noundef %0, ptr noundef %1, i3
   %41 = load i32, ptr @hf_supported_code_set, align 4
   %42 = load i32, ptr @ett_acs, align 4
   %43 = tail call ptr @proto_tree_add_bitmask_with_flags(ptr noundef %0, ptr noundef %1, i32 noundef %40, i32 noundef %41, i32 noundef %42, ptr noundef nonnull @dissect_codec_mode.supported_code_sets, i32 noundef -2147483648, i32 noundef 1) #5
-  %44 = icmp ugt i32 %3, 4
+  %44 = icmp samesign ugt i32 %3, 4
   br i1 %44, label %45, label %.thread60
 
 45:                                               ; preds = %39
@@ -6595,7 +6595,7 @@ define internal fastcc void @dissect_isup_application_transport_parameter(ptr no
   %92 = tail call ptr @fragment_add_seq_next(ptr noundef nonnull @isup_apm_msg_reassembly_table, ptr noundef %0, i32 noundef %.2, ptr noundef %1, i32 noundef %.0139, ptr noundef null, i32 noundef %91, i32 noundef %spec.store.select) #5
   %93 = and i8 %29, 63
   %.not149 = icmp eq i8 %93, 0
-  %.not150 = icmp ult i8 %29, 64
+  %.not150 = icmp samesign ult i8 %29, 64
   %or.cond155 = or i1 %.not150, %.not149
   br i1 %or.cond155, label %96, label %94
 

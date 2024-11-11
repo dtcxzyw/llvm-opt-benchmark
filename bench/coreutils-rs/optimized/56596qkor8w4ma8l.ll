@@ -1238,7 +1238,7 @@ _ZN5alloc3fmt6format17h7ead8f60e83381d7E.exit112: ; preds = %46
 70:                                               ; preds = %66
   %71 = trunc nuw nsw i64 %3 to i32
   %72 = add nsw i32 %71, -1
-  %.not = icmp ugt i32 %.0, %72
+  %.not = icmp samesign ugt i32 %.0, %72
   br i1 %.not, label %_ZN5alloc3fmt6format17h7ead8f60e83381d7E.exit127, label %_ZN5alloc3fmt6format17h7ead8f60e83381d7E.exit117
 
 73:                                               ; preds = %66

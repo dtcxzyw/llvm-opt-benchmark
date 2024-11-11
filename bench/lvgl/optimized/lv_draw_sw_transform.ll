@@ -538,7 +538,7 @@ transform_point_upscaled.exit220:                 ; preds = %.thread449, %224, %
   br label %380
 
 362:                                              ; preds = %326, %323, %306
-  %363 = icmp ult i32 %293, 256
+  %363 = icmp samesign ult i32 %293, 256
   %or.cond3.i = and i1 %363, %309
   %or.cond3.not.i = xor i1 %or.cond3.i, true
   %364 = icmp ne i32 %297, %198
@@ -556,7 +556,7 @@ transform_point_upscaled.exit220:                 ; preds = %.thread449, %224, %
   br label %380
 
 371:                                              ; preds = %362
-  %372 = icmp ult i32 %296, 256
+  %372 = icmp samesign ult i32 %296, 256
   %or.cond7.i = and i1 %372, %313
   %or.cond7.not.i = xor i1 %or.cond7.i, true
   %373 = icmp ne i32 %298, %199
@@ -754,7 +754,7 @@ transform_point_upscaled.exit220:                 ; preds = %.thread449, %224, %
   br label %498
 
 480:                                              ; preds = %419, %416, %398
-  %481 = icmp ult i32 %385, 256
+  %481 = icmp samesign ult i32 %385, 256
   %or.cond3.i227 = and i1 %481, %401
   %or.cond3.not.i228 = xor i1 %or.cond3.i227, true
   %482 = icmp ne i32 %389, %198
@@ -772,7 +772,7 @@ transform_point_upscaled.exit220:                 ; preds = %.thread449, %224, %
   br label %498
 
 489:                                              ; preds = %480
-  %490 = icmp ult i32 %388, 256
+  %490 = icmp samesign ult i32 %388, 256
   %or.cond7.i231 = and i1 %490, %404
   %or.cond7.not.i232 = xor i1 %or.cond7.i231, true
   %491 = icmp ne i32 %390, %199
@@ -933,7 +933,7 @@ transform_point_upscaled.exit220:                 ; preds = %.thread449, %224, %
   br label %601
 
 581:                                              ; preds = %544, %541, %521
-  %582 = icmp ult i32 %508, 256
+  %582 = icmp samesign ult i32 %508, 256
   %or.cond3.i241 = and i1 %582, %524
   %or.cond3.not.i242 = xor i1 %or.cond3.i241, true
   %583 = icmp ne i32 %512, %198
@@ -952,7 +952,7 @@ transform_point_upscaled.exit220:                 ; preds = %.thread449, %224, %
   br label %601
 
 591:                                              ; preds = %581
-  %592 = icmp ult i32 %511, 256
+  %592 = icmp samesign ult i32 %511, 256
   %or.cond7.i245 = and i1 %592, %528
   %or.cond7.not.i246 = xor i1 %or.cond7.i245, true
   %593 = icmp ne i32 %513, %199
@@ -1096,7 +1096,7 @@ transform_point_upscaled.exit220:                 ; preds = %.thread449, %224, %
   br label %697
 
 677:                                              ; preds = %641, %638, %620
-  %678 = icmp ult i32 %606, 256
+  %678 = icmp samesign ult i32 %606, 256
   %or.cond3.i258 = and i1 %678, %623
   %or.cond3.not.i259 = xor i1 %or.cond3.i258, true
   %679 = icmp ne i32 %610, %198
@@ -1115,7 +1115,7 @@ transform_point_upscaled.exit220:                 ; preds = %.thread449, %224, %
   br label %697
 
 687:                                              ; preds = %677
-  %688 = icmp ult i32 %609, 256
+  %688 = icmp samesign ult i32 %609, 256
   %or.cond7.i262 = and i1 %688, %627
   %or.cond7.not.i263 = xor i1 %or.cond7.i262, true
   %689 = icmp ne i32 %611, %199
@@ -1308,7 +1308,7 @@ define internal fastcc void @transform_rgb888(ptr nocapture noundef readonly %0,
   br label %106
 
 90:                                               ; preds = %60, %57, %34
-  %91 = icmp ult i32 %20, 256
+  %91 = icmp samesign ult i32 %20, 256
   %or.cond3 = and i1 %91, %37
   %or.cond3.not = xor i1 %or.cond3, true
   %92 = icmp ne i32 %25, %14
@@ -1325,7 +1325,7 @@ define internal fastcc void @transform_rgb888(ptr nocapture noundef readonly %0,
   br label %106
 
 98:                                               ; preds = %90
-  %99 = icmp ult i32 %24, 256
+  %99 = icmp samesign ult i32 %24, 256
   %or.cond7 = and i1 %99, %40
   %or.cond7.not = xor i1 %or.cond7, true
   %100 = icmp ne i32 %26, %15
@@ -1533,7 +1533,7 @@ define internal fastcc void @transform_rgb565a8(ptr nocapture noundef readonly %
 
 129:                                              ; preds = %122, %123
   %.0 = phi i8 [ %128, %123 ], [ -1, %122 ]
-  %130 = icmp ult i32 %25, 256
+  %130 = icmp samesign ult i32 %25, 256
   %or.cond4 = and i1 %130, %42
   %or.cond4.not = xor i1 %or.cond4, true
   %131 = icmp ne i32 %30, %19
@@ -1552,7 +1552,7 @@ define internal fastcc void @transform_rgb565a8(ptr nocapture noundef readonly %
   br label %151
 
 139:                                              ; preds = %129
-  %140 = icmp ult i32 %29, 256
+  %140 = icmp samesign ult i32 %29, 256
   %or.cond8 = and i1 %140, %46
   %or.cond8.not = xor i1 %or.cond8, true
   %141 = icmp ne i32 %31, %20

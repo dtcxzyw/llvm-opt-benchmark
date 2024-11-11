@@ -3861,7 +3861,7 @@ if.then1634:                                      ; preds = %sw.bb1629
   br label %shut
 
 if.else1636:                                      ; preds = %sw.bb1629
-  %cmp1637 = icmp ult i32 %call1631, 21
+  %cmp1637 = icmp samesign ult i32 %call1631, 21
   br i1 %cmp1637, label %if.then1639, label %if.else1641
 
 if.then1639:                                      ; preds = %if.else1636
@@ -4112,7 +4112,7 @@ if.end1843:                                       ; preds = %if.end1836
   %idxprom1844 = zext nneg i32 %call1838 to i64
   %arrayidx1845 = getelementptr inbounds i8, ptr %call31, i64 %idxprom1844
   store i8 0, ptr %arrayidx1845, align 1
-  %cmp1846 = icmp ult i32 %call1838, 2
+  %cmp1846 = icmp samesign ult i32 %call1838, 2
   br i1 %cmp1846, label %if.then1848, label %if.end1850
 
 if.then1848:                                      ; preds = %if.end1843
@@ -4917,7 +4917,7 @@ if.then2416:                                      ; preds = %for.body2405
 for.inc2423:                                      ; preds = %for.body2405, %if.then2416
   %i.3 = phi i32 [ %inc2418, %if.then2416 ], [ %i.22413, %for.body2405 ]
   %lf_num.3 = phi i32 [ %dec2417, %if.then2416 ], [ %lf_num.22414, %for.body2405 ]
-  %cmp2403 = icmp ugt i64 %indvars.iv2805, 1
+  %cmp2403 = icmp samesign ugt i64 %indvars.iv2805, 1
   br i1 %cmp2403, label %for.body2405, label %if.end2428, !llvm.loop !21
 
 if.else2426:                                      ; preds = %if.then2382

@@ -5815,7 +5815,7 @@ define internal void @ioc_timer_fn(ptr noundef %0) #1 align 16 {
   br label %1488
 
 1473:                                             ; preds = %1467
-  %1474 = icmp ult i32 %113, 4
+  %1474 = icmp samesign ult i32 %113, 4
   br i1 %1474, label %1475, label %1488
 
 1475:                                             ; preds = %1473
@@ -7222,7 +7222,7 @@ define internal fastcc noundef zeroext i1 @iocg_kick_delay(ptr noundef %0, ptr n
   br i1 %103, label %119, label %104
 
 104:                                              ; preds = %80
-  %105 = icmp ugt i64 %102, 24999
+  %105 = icmp samesign ugt i64 %102, 24999
   br i1 %105, label %111, label %106
 
 106:                                              ; preds = %104

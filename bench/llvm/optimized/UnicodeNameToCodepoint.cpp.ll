@@ -2488,7 +2488,7 @@ _ZN4llvm23SmallVectorTemplateBaseINS_3sys7unicode21MatchForCodepointNameELb0EE28
   %62 = load i64, ptr %61, align 8
   store i64 %62, ptr %60, align 8
   %63 = add nsw i64 %.010.i.i.i.i.i, -1
-  %64 = icmp ugt i64 %.010.i.i.i.i.i, 1
+  %64 = icmp samesign ugt i64 %.010.i.i.i.i.i, 1
   br i1 %64, label %.lr.ph.i.i.i.i.i, label %_ZSt13move_backwardIPN4llvm3sys7unicode21MatchForCodepointNameES4_ET0_T_S6_S5_.exit, !llvm.loop !43
 
 _ZSt13move_backwardIPN4llvm3sys7unicode21MatchForCodepointNameES4_ET0_T_S6_S5_.exit: ; preds = %.lr.ph.i.i.i.i.i, %_ZN4llvm23SmallVectorTemplateBaseINS_3sys7unicode21MatchForCodepointNameELb0EE28reserveForParamAndGetAddressERS3_m.exit

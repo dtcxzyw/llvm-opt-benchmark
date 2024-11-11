@@ -5010,7 +5010,7 @@ define hidden void @_ZN16wasmtime_runtime6memory6Memory9limit_new17hc4986e435f6c
 
 21:                                               ; preds = %17
   %22 = shl nuw i64 %19, 16
-  %23 = icmp ugt i64 %19, 281474976710655
+  %23 = icmp samesign ugt i64 %19, 281474976710655
   %spec.select.i = select i1 %23, i64 -65536, i64 %22
   br label %.thread
 
@@ -5019,7 +5019,7 @@ define hidden void @_ZN16wasmtime_runtime6memory6Memory9limit_new17hc4986e435f6c
   %.sroa.9.0 = phi i64 [ %spec.select.i, %21 ], [ undef, %15 ]
   %.sroa.06.0 = phi i64 [ 1, %21 ], [ 0, %15 ]
   %24 = shl i64 %13, 16
-  %25 = icmp ugt i64 %13, 281474976710655
+  %25 = icmp samesign ugt i64 %13, 281474976710655
   %.sroa.9.1 = select i1 %11, i64 %.sroa.9.0, i64 %spec.select
   %.sroa.06.1 = select i1 %11, i64 %.sroa.06.0, i64 1
   %.not44 = icmp eq ptr %2, null

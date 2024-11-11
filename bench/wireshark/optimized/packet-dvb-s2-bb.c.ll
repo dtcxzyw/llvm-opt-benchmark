@@ -1461,7 +1461,7 @@ addresses_equal.exit.i:                           ; preds = %203, %195, %virtual
   br i1 %299, label %310, label %300
 
 300:                                              ; preds = %291
-  %301 = icmp ult i16 %295, 16384
+  %301 = icmp samesign ult i16 %295, 16384
   %302 = icmp eq i8 %298, 0
   %or.cond.i.i = select i1 %301, i1 %302, i1 false
   br i1 %or.cond.i.i, label %303, label %310

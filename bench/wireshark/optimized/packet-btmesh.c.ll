@@ -6532,7 +6532,7 @@ define internal fastcc range(i32 -1, -2147483648) i32 @compute_ascii_key(ptr noc
   %.069 = phi i32 [ 3, %37 ], [ 2, %40 ]
   %.0 = phi i32 [ 1, %37 ], [ 0, %40 ]
   %46 = add nsw i32 %8, -1
-  %47 = icmp ult i32 %.069, %46
+  %47 = icmp samesign ult i32 %.069, %46
   br i1 %47, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %44, %72

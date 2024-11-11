@@ -3735,7 +3735,7 @@ mergeins.exit.i:                                  ; preds = %.lr.ph65.i.i, %.pre
   %207 = add nsw i32 %.033.i, -1
   %208 = getelementptr inbounds i8, ptr %.112634.i, i64 40
   %.1126.i = load ptr, ptr %208, align 8
-  %209 = icmp ugt i32 %.033.i, 1
+  %209 = icmp samesign ugt i32 %.033.i, 1
   br i1 %209, label %.lr.ph35.i, label %._crit_edge36.i, !llvm.loop !36
 
 ._crit_edge36.i:                                  ; preds = %.lr.ph35.i, %mergeins.exit.i
@@ -18346,7 +18346,7 @@ freearc.exit:                                     ; preds = %72, %73
   br i1 %83, label %87, label %84
 
 84:                                               ; preds = %80
-  %85 = icmp ugt i32 %82, 32
+  %85 = icmp samesign ugt i32 %82, 32
   %86 = icmp sgt i32 %5, 32
   %or.cond = or i1 %86, %85
   br i1 %or.cond, label %192, label %87
@@ -21391,7 +21391,7 @@ freearc.exit:                                     ; preds = %72, %73
   br i1 %83, label %87, label %84
 
 84:                                               ; preds = %80
-  %85 = icmp ugt i32 %82, 32
+  %85 = icmp samesign ugt i32 %82, 32
   %86 = icmp sgt i32 %5, 32
   %or.cond = or i1 %86, %85
   br i1 %or.cond, label %192, label %87
@@ -28104,7 +28104,7 @@ switch.lookup:                                    ; preds = %switch.hole_check
   %14 = zext nneg i32 %switch.tableidx to i64
   %switch.gep = getelementptr inbounds [55 x i32], ptr @switch.table.lexdigits, i64 0, i64 %14
   %switch.load = load i32, ptr %switch.gep, align 4
-  %.not26 = icmp ult i32 %switch.load, %1
+  %.not26 = icmp samesign ult i32 %switch.load, %1
   br i1 %.not26, label %15, label %.critedge.sink.split
 
 15:                                               ; preds = %switch.lookup

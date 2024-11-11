@@ -222,7 +222,7 @@ define internal i32 @sr_probe(ptr noundef %0) #2 align 16 {
   %71 = load i16, ptr %70, align 4
   %72 = zext i16 %71 to i32
   %73 = add nuw nsw i32 %72, %69
-  %74 = icmp ugt i32 %73, %64
+  %74 = icmp samesign ugt i32 %73, %64
   br i1 %74, label %75, label %80
 
 75:                                               ; preds = %66, %63, %58

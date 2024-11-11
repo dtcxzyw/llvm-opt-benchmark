@@ -272,7 +272,7 @@ define dso_local range(i32 0, 256) i32 @drm_format_info_block_width(ptr noundef 
   %7 = getelementptr inbounds i8, ptr %0, i64 5
   %8 = load i8, ptr %7, align 1
   %9 = zext i8 %8 to i32
-  %10 = icmp ult i32 %1, %9
+  %10 = icmp samesign ult i32 %1, %9
   br i1 %10, label %11, label %18
 
 11:                                               ; preds = %6
@@ -300,7 +300,7 @@ define dso_local range(i32 0, 256) i32 @drm_format_info_block_height(ptr noundef
   %7 = getelementptr inbounds i8, ptr %0, i64 5
   %8 = load i8, ptr %7, align 1
   %9 = zext i8 %8 to i32
-  %10 = icmp ult i32 %1, %9
+  %10 = icmp samesign ult i32 %1, %9
   br i1 %10, label %11, label %18
 
 11:                                               ; preds = %6
@@ -328,7 +328,7 @@ define dso_local range(i32 0, 2041) i32 @drm_format_info_bpp(ptr noundef readonl
   %7 = getelementptr inbounds i8, ptr %0, i64 5
   %8 = load i8, ptr %7, align 1
   %9 = zext i8 %8 to i32
-  %10 = icmp ult i32 %1, %9
+  %10 = icmp samesign ult i32 %1, %9
   br i1 %10, label %11, label %28
 
 11:                                               ; preds = %6
@@ -369,7 +369,7 @@ define dso_local range(i64 0, 1095216725250) i64 @drm_format_info_min_pitch(ptr 
   %8 = getelementptr inbounds i8, ptr %0, i64 5
   %9 = load i8, ptr %8, align 1
   %10 = zext i8 %9 to i32
-  %11 = icmp ult i32 %1, %10
+  %11 = icmp samesign ult i32 %1, %10
   br i1 %11, label %12, label %34
 
 12:                                               ; preds = %7

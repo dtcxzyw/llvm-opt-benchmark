@@ -1155,7 +1155,7 @@ _ZNK4llvm23AbstractLatticeFunctionINS_14PointerIntPairIPNS_5ValueELj2EN12_GLOBAL
   br label %_ZN12_GLOBAL__N_114CVPLatticeFunc15computeConstantEPN4llvm8ConstantE.exit
 
 63:                                               ; preds = %35
-  %64 = icmp ugt i8 %10, 21
+  %64 = icmp samesign ugt i8 %10, 21
   br i1 %64, label %99, label %65
 
 65:                                               ; preds = %63

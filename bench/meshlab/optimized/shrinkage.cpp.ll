@@ -67,7 +67,7 @@ define void @_Z9shrinkageRKN5Eigen6MatrixIdLin1ELi1ELi0ELin1ELi1EEERKdRS1_(ptr n
   br label %._crit_edge.i.i.i.i.i.i
 
 20:                                               ; preds = %15
-  %21 = icmp ugt i64 %11, 2305843009213693951
+  %21 = icmp samesign ugt i64 %11, 2305843009213693951
   br i1 %21, label %.invoke, label %22
 
 22:                                               ; preds = %20
@@ -176,7 +176,7 @@ common.resume:                                    ; preds = %139, %46
   br label %._crit_edge.i.i.i.i.i.i.i
 
 62:                                               ; preds = %57
-  %63 = icmp ugt i64 %53, 2305843009213693951
+  %63 = icmp samesign ugt i64 %53, 2305843009213693951
   br i1 %63, label %.invoke59, label %64
 
 64:                                               ; preds = %62
@@ -383,7 +383,7 @@ define linkonce_odr void @_ZN5Eigen12DenseStorageIdLin1ELin1ELi1ELi0EE6resizeEll
   br i1 %9, label %10, label %.sink.split
 
 10:                                               ; preds = %7
-  %11 = icmp ugt i64 %1, 2305843009213693951
+  %11 = icmp samesign ugt i64 %1, 2305843009213693951
   br i1 %11, label %12, label %14
 
 12:                                               ; preds = %10

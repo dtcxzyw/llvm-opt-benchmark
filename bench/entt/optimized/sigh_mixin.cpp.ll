@@ -81122,7 +81122,7 @@ for.body.preheader.i175:                          ; preds = %cond.true.i, %_ZNKS
   %cond.i173320 = ptrtoint ptr %cond.i173 to i64
   %add.ptr63 = getelementptr inbounds i8, ptr %cond.i173, i64 %sub.ptr.sub60
   %.pre.i176 = load ptr, ptr %__x, align 8, !tbaa !55
-  %min.iters.check302 = icmp ult i64 %__n, 4
+  %min.iters.check302 = icmp samesign ult i64 %__n, 4
   br i1 %min.iters.check302, label %for.body.i177.preheader, label %vector.ph303
 
 vector.ph303:                                     ; preds = %for.body.preheader.i175
@@ -83608,7 +83608,7 @@ for.body.preheader.i177:                          ; preds = %cond.true.i, %_ZNKS
   %cond.i175322 = ptrtoint ptr %cond.i175 to i64
   %add.ptr63 = getelementptr inbounds i8, ptr %cond.i175, i64 %sub.ptr.sub60
   %.pre.i178 = load ptr, ptr %__x, align 8, !tbaa !55
-  %min.iters.check304 = icmp ult i64 %__n, 4
+  %min.iters.check304 = icmp samesign ult i64 %__n, 4
   br i1 %min.iters.check304, label %for.body.i179.preheader, label %vector.ph305
 
 vector.ph305:                                     ; preds = %for.body.preheader.i177
@@ -99737,7 +99737,7 @@ for.body.preheader.i177:                          ; preds = %cond.true.i, %_ZNKS
   %cond.i175322 = ptrtoint ptr %cond.i175 to i64
   %add.ptr63 = getelementptr inbounds i8, ptr %cond.i175, i64 %sub.ptr.sub60
   %.pre.i178 = load ptr, ptr %__x, align 8, !tbaa !55
-  %min.iters.check304 = icmp ult i64 %__n, 4
+  %min.iters.check304 = icmp samesign ult i64 %__n, 4
   br i1 %min.iters.check304, label %for.body.i179.preheader, label %vector.ph305
 
 vector.ph305:                                     ; preds = %for.body.preheader.i177

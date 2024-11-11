@@ -64,11 +64,11 @@ sw.bb1:                                           ; preds = %if.then
 if.end:                                           ; preds = %if.then, %sw.bb1
   %sign.0 = phi i64 [ 0, %sw.bb1 ], [ 255, %if.then ]
   %dec = add nsw i32 %len, -1
-  %cmp4 = icmp ugt i32 %dec, 8
+  %cmp4 = icmp samesign ugt i32 %dec, 8
   br i1 %cmp4, label %if.then6, label %if.else16
 
 if.end.thread:                                    ; preds = %if.then
-  %cmp453 = icmp ugt i32 %len, 8
+  %cmp453 = icmp samesign ugt i32 %len, 8
   br i1 %cmp453, label %if.then6, label %if.end24.thread75
 
 if.end24.thread75:                                ; preds = %if.end.thread
@@ -228,7 +228,7 @@ for.body:                                         ; preds = %for.body.preheader,
   %arrayidx = getelementptr inbounds i8, ptr %cont.addr.0, i64 %indvars.iv.next
   store i8 %conv16, ptr %arrayidx, align 1
   %shr17 = lshr i64 %utmp.116, 8
-  %cmp14 = icmp ugt i64 %indvars.iv, 1
+  %cmp14 = icmp samesign ugt i64 %indvars.iv, 1
   br i1 %cmp14, label %for.body, label %if.end18, !llvm.loop !7
 
 if.end18:                                         ; preds = %for.body, %if.end12, %num_bits_ulong.exit

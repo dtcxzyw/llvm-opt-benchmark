@@ -1170,7 +1170,7 @@ _ZNSt6vectorIhSaIhEE6resizeEm.exit:               ; preds = %185, %164, %168, %_
   %193 = getelementptr inbounds i8, ptr %.0910.i.i.i.i.i.i.i, i64 1
   %194 = getelementptr inbounds i8, ptr %.0811.i.i.i.i.i.i.i, i64 1
   %195 = add nsw i64 %.012.i.i.i.i.i.i.i, -1
-  %196 = icmp ugt i64 %.012.i.i.i.i.i.i.i, 1
+  %196 = icmp samesign ugt i64 %.012.i.i.i.i.i.i.i, 1
   br i1 %196, label %.lr.ph.i.i.i.i.i.i.i, label %_ZSt4copyIPKcN9__gnu_cxx17__normal_iteratorIPhSt6vectorIhSaIhEEEEET0_T_SA_S9_.exit.i.i, !llvm.loop !41
 
 _ZSt4copyIPKcN9__gnu_cxx17__normal_iteratorIPhSt6vectorIhSaIhEEEEET0_T_SA_S9_.exit.i.i: ; preds = %.lr.ph.i.i.i.i.i.i.i, %_ZNSt6vectorIhSaIhEE6resizeEm.exit
@@ -1842,7 +1842,7 @@ _ZNSt6vectorIhSaIhEE6resizeEm.exit258:            ; preds = %377, %356, %360, %_
   %384 = getelementptr inbounds i8, ptr %.0910.i.i.i.i.i.i.i101, i64 1
   %385 = getelementptr inbounds i8, ptr %.0811.i.i.i.i.i.i.i100, i64 1
   %386 = add nsw i64 %.012.i.i.i.i.i.i.i99, -1
-  %387 = icmp ugt i64 %.012.i.i.i.i.i.i.i99, 1
+  %387 = icmp samesign ugt i64 %.012.i.i.i.i.i.i.i99, 1
   br i1 %387, label %.lr.ph.i.i.i.i.i.i.i98, label %_ZN4llvm6object12_GLOBAL__N_113ObjectFactory15createNullThunkERSt6vectorIhSaIhEE.exit, !llvm.loop !41
 
 _ZN4llvm6object12_GLOBAL__N_113ObjectFactory15createNullThunkERSt6vectorIhSaIhEE.exit: ; preds = %.lr.ph.i.i.i.i.i.i.i98, %_ZNSt6vectorIhSaIhEE6resizeEm.exit258
@@ -3730,7 +3730,7 @@ _ZNSt6vectorIhSaIhEE6resizeEm.exit54:             ; preds = %79, %58, %62, %_ZNS
   %88 = getelementptr inbounds i8, ptr %.0910.i.i.i.i.i.i, i64 1
   %89 = getelementptr inbounds i8, ptr %.0811.i.i.i.i.i.i, i64 1
   %90 = add nsw i64 %.012.i.i.i.i.i.i, -1
-  %91 = icmp ugt i64 %.012.i.i.i.i.i.i, 1
+  %91 = icmp samesign ugt i64 %.012.i.i.i.i.i.i, 1
   br i1 %91, label %.lr.ph.i.i.i.i.i.i, label %_ZSt4copyIPKcN9__gnu_cxx17__normal_iteratorIPhSt6vectorIhSaIhEEEEET0_T_SA_S9_.exit.loopexit.i, !llvm.loop !41
 
 _ZSt4copyIPKcN9__gnu_cxx17__normal_iteratorIPhSt6vectorIhSaIhEEEEET0_T_SA_S9_.exit.loopexit.i: ; preds = %.lr.ph.i.i.i.i.i.i

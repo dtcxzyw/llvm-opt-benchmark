@@ -3636,7 +3636,7 @@ _ZNK4llvm17RegisterClassInfo10getMinCostEPKNS_19TargetRegisterClassE.exit: ; pre
   %30 = getelementptr inbounds nuw i8, ptr %25, i64 9
   %31 = load i8, ptr %30, align 1
   %32 = zext i8 %31 to i32
-  %.not = icmp ugt i32 %3, %32
+  %.not = icmp samesign ugt i32 %3, %32
   br i1 %.not, label %33, label %58
 
 33:                                               ; preds = %_ZNK4llvm17RegisterClassInfo10getMinCostEPKNS_19TargetRegisterClassE.exit
@@ -3651,7 +3651,7 @@ _ZNK4llvm17RegisterClassInfo10getMinCostEPKNS_19TargetRegisterClassE.exit: ; pre
   %40 = getelementptr inbounds i8, ptr %39, i64 %38
   %41 = load i8, ptr %40, align 1
   %42 = zext i8 %41 to i32
-  %.not9 = icmp ugt i32 %3, %42
+  %.not9 = icmp samesign ugt i32 %3, %42
   br i1 %.not9, label %58, label %43
 
 43:                                               ; preds = %33
@@ -11917,7 +11917,7 @@ _ZN4llvm23SmallVectorTemplateBaseINS_8RegisterELb1EE9push_backES1_.exit: ; preds
   br label %_ZN4llvm16NamedRegionTimerD2Ev.exit
 
 119:                                              ; preds = %96
-  %120 = icmp ult i32 %70, 4
+  %120 = icmp samesign ult i32 %70, 4
   br i1 %120, label %.thread91, label %126
 
 .thread91:                                        ; preds = %64, %119
@@ -11933,7 +11933,7 @@ _ZN4llvm23SmallVectorTemplateBaseINS_8RegisterELb1EE9push_backES1_.exit: ; preds
   br i1 %.not56, label %.thread92, label %_ZN4llvm16NamedRegionTimerD2Ev.exit
 
 126:                                              ; preds = %119
-  %127 = icmp ugt i32 %70, 5
+  %127 = icmp samesign ugt i32 %70, 5
   br i1 %127, label %132, label %.thread92
 
 .thread92:                                        ; preds = %123, %126

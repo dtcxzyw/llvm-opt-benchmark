@@ -1048,7 +1048,7 @@ define dso_local noundef ptr @cipso_v4_optptr(ptr nocapture noundef readonly %0)
   %22 = load i8, ptr %21, align 1
   %23 = zext i8 %22 to i32
   %24 = icmp eq i8 %22, 0
-  %25 = icmp ult i32 %17, %23
+  %25 = icmp samesign ult i32 %17, %23
   %26 = or i1 %24, %25
   br i1 %26, label %.loopexit, label %27
 
@@ -1913,7 +1913,7 @@ define internal fastcc range(i32 10, 0) i32 @cipso_v4_genopt(ptr noundef %0, ptr
   %170 = icmp eq i32 %167, 0
   %171 = select i1 %170, i32 0, i32 2
   %172 = add nuw nsw i32 %171, %168
-  %173 = icmp ugt i32 %172, 30
+  %173 = icmp samesign ugt i32 %172, 30
   br i1 %173, label %.thread49, label %174
 
 174:                                              ; preds = %.preheader59

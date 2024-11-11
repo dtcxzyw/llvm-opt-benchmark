@@ -3098,7 +3098,7 @@ _ZNK9Stockfish8Position3keyEv.exit:               ; preds = %65, %76
   br i1 %100, label %101, label %111
 
 101:                                              ; preds = %99
-  %102 = icmp ugt i16 %92, 31753
+  %102 = icmp samesign ugt i16 %92, 31753
   br i1 %102, label %103, label %._crit_edge21.i
 
 ._crit_edge21.i:                                  ; preds = %101
@@ -3124,7 +3124,7 @@ _ZNK9Stockfish8Position3keyEv.exit:               ; preds = %65, %76
   br i1 %112, label %113, label %_ZN9Stockfish12_GLOBAL__N_113value_from_ttEiii.exit
 
 113:                                              ; preds = %111
-  %114 = icmp ult i16 %92, -31753
+  %114 = icmp samesign ult i16 %92, -31753
   br i1 %114, label %115, label %._crit_edge.i
 
 ._crit_edge.i:                                    ; preds = %113
@@ -3432,7 +3432,7 @@ _ZNK9Stockfish8Position13capture_stageENS_4MoveE.exit: ; preds = %137, %130, %_Z
   %295 = getelementptr inbounds i8, ptr %2, i64 41
   %296 = load i8, ptr %295, align 1
   %297 = trunc i8 %296 to i1
-  %298 = icmp ugt i32 %5, 10
+  %298 = icmp samesign ugt i32 %5, 10
   %or.cond.not = or i1 %298, %297
   br i1 %or.cond.not, label %320, label %299
 
@@ -3489,7 +3489,7 @@ _ZNK9Stockfish8Position13capture_stageENS_4MoveE.exit: ; preds = %137, %130, %_Z
   br label %.loopexit724
 
 325:                                              ; preds = %320
-  %326 = icmp ugt i32 %spec.select527, 7
+  %326 = icmp samesign ugt i32 %spec.select527, 7
   %or.cond5 = and i1 %6, %326
   br i1 %or.cond5, label %327, label %329
 
@@ -3893,7 +3893,7 @@ _ZNK9Stockfish8Position13capture_stageENS_4MoveE.exit556._crit_edge: ; preds = %
   %.neg510 = sext i1 %581 to i32
   %583 = add nuw i32 %488, %582
   %584 = add i32 %583, %.neg510
-  %585 = icmp ugt i32 %584, %.sroa.speculated588
+  %585 = icmp samesign ugt i32 %584, %.sroa.speculated588
   br i1 %585, label %586, label %589
 
 586:                                              ; preds = %575
@@ -5414,7 +5414,7 @@ _ZNK9Stockfish8Position3keyEv.exit:               ; preds = %54, %66
   br i1 %90, label %91, label %101
 
 91:                                               ; preds = %89
-  %92 = icmp ugt i16 %82, 31753
+  %92 = icmp samesign ugt i16 %82, 31753
   br i1 %92, label %93, label %._crit_edge21.i
 
 ._crit_edge21.i:                                  ; preds = %91
@@ -5440,7 +5440,7 @@ _ZNK9Stockfish8Position3keyEv.exit:               ; preds = %54, %66
   br i1 %102, label %103, label %_ZN9Stockfish12_GLOBAL__N_113value_from_ttEiii.exit
 
 103:                                              ; preds = %101
-  %104 = icmp ult i16 %82, -31753
+  %104 = icmp samesign ult i16 %82, -31753
   br i1 %104, label %105, label %._crit_edge.i
 
 ._crit_edge.i:                                    ; preds = %103
@@ -5920,7 +5920,7 @@ define internal fastcc noundef i32 @_ZN9Stockfish12_GLOBAL__N_113value_from_ttEi
   br i1 %6, label %7, label %17
 
 7:                                                ; preds = %5
-  %8 = icmp ugt i32 %0, 31753
+  %8 = icmp samesign ugt i32 %0, 31753
   br i1 %8, label %9, label %._crit_edge21
 
 ._crit_edge21:                                    ; preds = %7
@@ -5946,7 +5946,7 @@ define internal fastcc noundef i32 @_ZN9Stockfish12_GLOBAL__N_113value_from_ttEi
   br i1 %18, label %19, label %29
 
 19:                                               ; preds = %17
-  %20 = icmp ult i32 %0, -31753
+  %20 = icmp samesign ult i32 %0, -31753
   br i1 %20, label %21, label %._crit_edge
 
 ._crit_edge:                                      ; preds = %19
@@ -6089,7 +6089,7 @@ _ZNK9Stockfish8Position3keyEv.exit:               ; preds = %45, %57
   br i1 %81, label %82, label %92
 
 82:                                               ; preds = %80
-  %83 = icmp ugt i16 %73, 31753
+  %83 = icmp samesign ugt i16 %73, 31753
   br i1 %83, label %84, label %._crit_edge21.i
 
 ._crit_edge21.i:                                  ; preds = %82
@@ -6115,7 +6115,7 @@ _ZNK9Stockfish8Position3keyEv.exit:               ; preds = %45, %57
   br i1 %93, label %94, label %_ZN9Stockfish12_GLOBAL__N_113value_from_ttEiii.exit
 
 94:                                               ; preds = %92
-  %95 = icmp ult i16 %73, -31753
+  %95 = icmp samesign ult i16 %73, -31753
   br i1 %95, label %96, label %._crit_edge.i
 
 ._crit_edge.i:                                    ; preds = %94
@@ -7255,7 +7255,7 @@ _ZNK9Stockfish8Position13capture_stageENS_4MoveE.exit.thread: ; preds = %_ZNK9St
   %416 = getelementptr inbounds i8, ptr %2, i64 41
   %417 = load i8, ptr %416, align 1
   %418 = trunc i8 %417 to i1
-  %419 = icmp ugt i32 %5, 10
+  %419 = icmp samesign ugt i32 %5, 10
   %or.cond3.not = or i1 %419, %418
   br i1 %or.cond3.not, label %441, label %420
 
@@ -7376,7 +7376,7 @@ _ZNK9Stockfish8Position13capture_stageENS_4MoveE.exit.thread: ; preds = %_ZNK9St
 482:                                              ; preds = %465
   %483 = load i32, ptr %461, align 4
   %484 = icmp ne i32 %483, 0
-  %485 = icmp ult i32 %5, 16
+  %485 = icmp samesign ult i32 %5, 16
   %or.cond9 = or i1 %485, %484
   br i1 %or.cond9, label %.loopexit1108, label %486
 
@@ -7393,7 +7393,7 @@ _ZNK9Stockfish8Position13capture_stageENS_4MoveE.exit.thread: ; preds = %_ZNK9St
   br i1 %.not738, label %.critedge, label %.loopexit1108
 
 .critedge:                                        ; preds = %450, %486, %465, %441, %443, %447, %453, %459
-  %493 = icmp ugt i32 %5, 7
+  %493 = icmp samesign ugt i32 %5, 7
   %or.cond11 = and i1 %6, %493
   %494 = add nsw i32 %5, -2
   %spec.select786 = select i1 %262, i32 %5, i32 %494
@@ -7401,7 +7401,7 @@ _ZNK9Stockfish8Position13capture_stageENS_4MoveE.exit.thread: ; preds = %_ZNK9St
   %495 = add nsw i32 %.sroa.speculated897, 181
   %.neg739 = select i1 %404, i32 -68, i32 0
   %496 = add nsw i32 %495, %.neg739
-  %497 = icmp ugt i32 %.1, 3
+  %497 = icmp samesign ugt i32 %.1, 3
   %498 = call i32 @llvm.abs.i32(i32 %.sroa.speculated897, i1 true)
   %499 = icmp samesign ult i32 %498, 31507
   %or.cond788 = select i1 %497, i1 %499, i1 false
@@ -7884,7 +7884,7 @@ _ZNK9Stockfish8Position13capture_stageENS_4MoveE.exit830: ; preds = %652, %660
   %822 = icmp sge i32 %815, %821
   %.not757 = or i1 %259, %822
   %823 = select i1 %.not757, i32 2, i32 3
-  %824 = icmp ult i32 %.21140, 16
+  %824 = icmp samesign ult i32 %.21140, 16
   %825 = zext i1 %824 to i32
   %826 = add nuw nsw i32 %.21140, %825
   br label %830
@@ -8045,7 +8045,7 @@ _ZNK9Stockfish8Position13capture_stageENS_4MoveE.exit830: ; preds = %652, %660
   %.neg764 = sext i1 %929 to i32
   %931 = add nuw i32 %831, %930
   %932 = add i32 %931, %.neg764
-  %933 = icmp ugt i32 %932, %.sroa.speculated854
+  %933 = icmp samesign ugt i32 %932, %.sroa.speculated854
   br i1 %933, label %934, label %937
 
 934:                                              ; preds = %923
@@ -9084,7 +9084,7 @@ _ZNK9Stockfish8Position13capture_stageENS_4MoveE.exit: ; preds = %_ZNK9Stockfish
   %368 = getelementptr inbounds i8, ptr %2, i64 41
   %369 = load i8, ptr %368, align 1
   %370 = trunc i8 %369 to i1
-  %371 = icmp ugt i32 %5, 10
+  %371 = icmp samesign ugt i32 %5, 10
   %or.cond.not = or i1 %371, %370
   br i1 %or.cond.not, label %393, label %372
 
@@ -9142,7 +9142,7 @@ _ZNK9Stockfish8Position13capture_stageENS_4MoveE.exit: ; preds = %_ZNK9Stockfish
   br label %.loopexit909
 
 398:                                              ; preds = %393
-  %399 = icmp ugt i32 %spec.select600, 7
+  %399 = icmp samesign ugt i32 %spec.select600, 7
   %or.cond5 = and i1 %6, %399
   br i1 %or.cond5, label %400, label %402
 
@@ -9645,7 +9645,7 @@ _ZNK9Stockfish8Position13capture_stageENS_4MoveE.exit632: ; preds = %459, %467
   %.neg587 = sext i1 %733 to i32
   %735 = add nuw i32 %640, %734
   %736 = add i32 %735, %.neg587
-  %737 = icmp ugt i32 %736, %.sroa.speculated657
+  %737 = icmp samesign ugt i32 %736, %.sroa.speculated657
   br i1 %737, label %738, label %741
 
 738:                                              ; preds = %727

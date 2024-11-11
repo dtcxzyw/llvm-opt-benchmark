@@ -217,7 +217,7 @@ define range(i64 -2147483648, 2147483648) i64 @euc_jp_to_sjis(ptr nocapture noun
 88:                                               ; preds = %78
   %89 = add nuw nsw i32 %21, 351
   %90 = lshr i32 %89, 1
-  %91 = icmp ult i8 %20, -33
+  %91 = icmp samesign ult i8 %20, -33
   %92 = select i1 %91, i32 129, i32 193
   %93 = add nuw nsw i32 %90, %92
   br label %94
@@ -409,7 +409,7 @@ define range(i64 -2147483648, 2147483648) i64 @sjis_to_euc_jp(ptr nocapture noun
 
 81:                                               ; preds = %.loopexit127.i
   %82 = icmp ne i32 %.0105.i, 60223
-  %83 = icmp ult i32 %.0105.i, 61504
+  %83 = icmp samesign ult i32 %.0105.i, 61504
   %or.cond5.i = and i1 %82, %83
   %84 = add nsw i32 %.0105.i, -64588
   %or.cond7.i = icmp ult i32 %84, 177
@@ -478,7 +478,7 @@ define range(i64 -2147483648, 2147483648) i64 @sjis_to_euc_jp(ptr nocapture noun
   br label %.loopexit.i
 
 127:                                              ; preds = %107
-  %128 = icmp ugt i32 %.0105.i, 64063
+  %128 = icmp samesign ugt i32 %.0105.i, 64063
   br i1 %128, label %.preheader.i, label %.loopexit.i
 
 .preheader.i:                                     ; preds = %127, %154
@@ -861,7 +861,7 @@ define range(i64 -2147483648, 2147483648) i64 @sjis_to_mic(ptr nocapture noundef
 
 29:                                               ; preds = %27
   %30 = icmp ne i8 %20, -128
-  %31 = icmp ult i8 %20, -96
+  %31 = icmp samesign ult i8 %20, -96
   %or.cond3.i = and i1 %30, %31
   %32 = add nsw i8 %20, 32
   %or.cond5.i = icmp ult i8 %32, 29
@@ -953,7 +953,7 @@ define range(i64 -2147483648, 2147483648) i64 @sjis_to_mic(ptr nocapture noundef
 
 78:                                               ; preds = %.loopexit149.i
   %79 = icmp ne i32 %.0.i, 60223
-  %80 = icmp ult i32 %.0.i, 61504
+  %80 = icmp samesign ult i32 %.0.i, 61504
   %or.cond9.i = and i1 %79, %80
   %81 = add nsw i32 %.0.i, -64588
   %or.cond11.i = icmp ult i32 %81, 177
@@ -1026,7 +1026,7 @@ define range(i64 -2147483648, 2147483648) i64 @sjis_to_mic(ptr nocapture noundef
   br label %.loopexit.i
 
 126:                                              ; preds = %106
-  %127 = icmp ugt i32 %.0.i, 64063
+  %127 = icmp samesign ugt i32 %.0.i, 64063
   br i1 %127, label %.preheader.i, label %.loopexit.i
 
 .preheader.i:                                     ; preds = %126, %143

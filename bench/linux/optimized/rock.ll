@@ -176,7 +176,7 @@ define dso_local i32 @get_rock_ridge_filename(ptr noundef %0, ptr nocapture noun
 
 77:                                               ; preds = %76, %75, %74, %73, %72, %71, %70, %69, %68, %67, %66, %64, %64
   %78 = phi i32 [ 4, %76 ], [ 16, %75 ], [ 5, %74 ], [ 12, %73 ], [ 12, %72 ], [ 5, %71 ], [ 20, %70 ], [ 36, %69 ], [ 5, %68 ], [ 8, %67 ], [ 28, %66 ], [ 7, %64 ], [ 7, %64 ]
-  %79 = icmp ugt i32 %78, %.val18
+  %79 = icmp samesign ugt i32 %78, %.val18
   br i1 %79, label %rock_check_overflow.exit, label %83
 
 rock_check_overflow.exit:                         ; preds = %77
@@ -659,7 +659,7 @@ define internal fastcc i32 @parse_rock_ridge_inode_internal(ptr noundef %0, ptr 
 
 96:                                               ; preds = %95, %94, %93, %92, %91, %90, %89, %88, %87, %86, %85, %83, %83
   %97 = phi i32 [ 4, %95 ], [ 16, %94 ], [ 5, %93 ], [ 12, %92 ], [ 12, %91 ], [ 5, %90 ], [ 20, %89 ], [ 36, %88 ], [ 5, %87 ], [ 8, %86 ], [ 28, %85 ], [ 7, %83 ], [ 7, %83 ]
-  %98 = icmp ugt i32 %97, %.val34
+  %98 = icmp samesign ugt i32 %97, %.val34
   br i1 %98, label %rock_check_overflow.exit, label %102
 
 rock_check_overflow.exit:                         ; preds = %96

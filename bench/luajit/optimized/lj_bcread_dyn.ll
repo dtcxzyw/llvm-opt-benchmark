@@ -596,7 +596,7 @@ land.lhs.true.i:                                  ; preds = %if.then52
 if.then.i125:                                     ; preds = %land.lhs.true.i
   %66 = load i32, ptr %sizebc30, align 4
   %sub.i126 = add i32 %66, -1
-  %cmp4.i = icmp ult i32 %65, 65536
+  %cmp4.i = icmp samesign ult i32 %65, 65536
   %cmp622.not.i = icmp eq i32 %sub.i126, 0
   br i1 %cmp4.i, label %for.cond.preheader.i, label %for.cond14.preheader.i
 

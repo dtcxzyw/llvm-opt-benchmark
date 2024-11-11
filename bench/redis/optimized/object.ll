@@ -2204,7 +2204,7 @@ land.lhs.true:                                    ; preds = %lor.lhs.false2
   %8 = load i64, ptr %flags, align 8
   %and = and i64 %8, 256
   %tobool4 = icmp ne i64 %and, 0
-  %cmp6 = icmp ult i64 %retval.0.i, 64
+  %cmp6 = icmp samesign ult i64 %retval.0.i, 64
   %or.cond1 = and i1 %cmp6, %tobool4
   br i1 %or.cond1, label %if.then7, label %if.end16
 
@@ -2378,7 +2378,7 @@ land.lhs.true24:                                  ; preds = %if.then19
 
 land.lhs.true27:                                  ; preds = %lor.lhs.false22, %land.lhs.true24
   %10 = phi i64 [ %9, %lor.lhs.false22 ], [ %.old, %land.lhs.true24 ]
-  %cmp28 = icmp ult i64 %10, 10000
+  %cmp28 = icmp samesign ult i64 %10, 10000
   br i1 %cmp28, label %if.then30, label %if.else
 
 if.then30:                                        ; preds = %land.lhs.true27
@@ -4638,7 +4638,7 @@ if.then:                                          ; preds = %entry
   br i1 %cmp, label %if.then1, label %return
 
 if.then1:                                         ; preds = %if.then
-  %cmp2 = icmp ult i64 %lfu_freq, 256
+  %cmp2 = icmp samesign ult i64 %lfu_freq, 256
   br i1 %cmp2, label %cond.end, label %cond.false
 
 cond.false:                                       ; preds = %if.then1

@@ -51333,7 +51333,7 @@ _ZN8smol_str4Repr6as_str17h6612cd4653de1669E.exit: ; preds = %46, %52, %"_ZN106_
   %.1.i.i = phi i64 [ %71, %"_ZN4core6result19Result$LT$T$C$E$GT$3map17h6fa2efc74107c000E.exit.i.i" ], [ %.0.lcssa.i.i, %._crit_edge.i.i ]
   %.sroa.11.1.i.i = phi i64 [ %72, %"_ZN4core6result19Result$LT$T$C$E$GT$3map17h6fa2efc74107c000E.exit.i.i" ], [ %.sroa.11.0.lcssa.i.i, %._crit_edge.i.i ]
   %.sroa.0.1.i.i = phi ptr [ %73, %"_ZN4core6result19Result$LT$T$C$E$GT$3map17h6fa2efc74107c000E.exit.i.i" ], [ %.sroa.0.0.lcssa.i.i, %._crit_edge.i.i ]
-  %75 = icmp ugt i64 %.sroa.11.1.i.i, 1
+  %75 = icmp samesign ugt i64 %.sroa.11.1.i.i, 1
   br i1 %75, label %"_ZN4core6result19Result$LT$T$C$E$GT$3map17hce6721df292f953eE.exit.i.i", label %82
 
 "_ZN4core6result19Result$LT$T$C$E$GT$3map17hce6721df292f953eE.exit.i.i": ; preds = %74
@@ -51461,7 +51461,7 @@ _ZN8smol_str4Repr6as_str17h6612cd4653de1669E.exit23: ; preds = %112, %118, %"_ZN
   %.1.i.i28 = phi i64 [ %137, %"_ZN4core6result19Result$LT$T$C$E$GT$3map17h6fa2efc74107c000E.exit.i.i38" ], [ %.0.lcssa.i.i25, %._crit_edge.i.i24 ]
   %.sroa.11.1.i.i29 = phi i64 [ %138, %"_ZN4core6result19Result$LT$T$C$E$GT$3map17h6fa2efc74107c000E.exit.i.i38" ], [ %.sroa.11.0.lcssa.i.i26, %._crit_edge.i.i24 ]
   %.sroa.0.1.i.i30 = phi ptr [ %139, %"_ZN4core6result19Result$LT$T$C$E$GT$3map17h6fa2efc74107c000E.exit.i.i38" ], [ %.sroa.0.0.lcssa.i.i27, %._crit_edge.i.i24 ]
-  %141 = icmp ugt i64 %.sroa.11.1.i.i29, 1
+  %141 = icmp samesign ugt i64 %.sroa.11.1.i.i29, 1
   br i1 %141, label %"_ZN4core6result19Result$LT$T$C$E$GT$3map17hce6721df292f953eE.exit.i.i36", label %148
 
 "_ZN4core6result19Result$LT$T$C$E$GT$3map17hce6721df292f953eE.exit.i.i36": ; preds = %140
@@ -51550,7 +51550,7 @@ _ZN4core4hash6Hasher9write_str17h43f64857bd7a4672E.exit45: ; preds = %148, %149
   %.1.i.i50 = phi i64 [ %182, %"_ZN4core6result19Result$LT$T$C$E$GT$3map17h6fa2efc74107c000E.exit.i.i60" ], [ %.0.lcssa.i.i47, %._crit_edge.i.i46 ]
   %.sroa.11.1.i.i51 = phi i64 [ %183, %"_ZN4core6result19Result$LT$T$C$E$GT$3map17h6fa2efc74107c000E.exit.i.i60" ], [ %.sroa.11.0.lcssa.i.i48, %._crit_edge.i.i46 ]
   %.sroa.0.1.i.i52 = phi ptr [ %184, %"_ZN4core6result19Result$LT$T$C$E$GT$3map17h6fa2efc74107c000E.exit.i.i60" ], [ %.sroa.0.0.lcssa.i.i49, %._crit_edge.i.i46 ]
-  %186 = icmp ugt i64 %.sroa.11.1.i.i51, 1
+  %186 = icmp samesign ugt i64 %.sroa.11.1.i.i51, 1
   br i1 %186, label %"_ZN4core6result19Result$LT$T$C$E$GT$3map17hce6721df292f953eE.exit.i.i58", label %193
 
 "_ZN4core6result19Result$LT$T$C$E$GT$3map17hce6721df292f953eE.exit.i.i58": ; preds = %185
@@ -51640,7 +51640,7 @@ _ZN4core4hash6Hasher9write_str17h43f64857bd7a4672E.exit67: ; preds = %193, %194
   %.1.i.i72 = phi i64 [ %228, %"_ZN4core6result19Result$LT$T$C$E$GT$3map17h6fa2efc74107c000E.exit.i.i82" ], [ %.0.lcssa.i.i69, %._crit_edge.i.i68 ]
   %.sroa.11.1.i.i73 = phi i64 [ %229, %"_ZN4core6result19Result$LT$T$C$E$GT$3map17h6fa2efc74107c000E.exit.i.i82" ], [ %.sroa.11.0.lcssa.i.i70, %._crit_edge.i.i68 ]
   %.sroa.0.1.i.i74 = phi ptr [ %230, %"_ZN4core6result19Result$LT$T$C$E$GT$3map17h6fa2efc74107c000E.exit.i.i82" ], [ %.sroa.0.0.lcssa.i.i71, %._crit_edge.i.i68 ]
-  %232 = icmp ugt i64 %.sroa.11.1.i.i73, 1
+  %232 = icmp samesign ugt i64 %.sroa.11.1.i.i73, 1
   br i1 %232, label %"_ZN4core6result19Result$LT$T$C$E$GT$3map17hce6721df292f953eE.exit.i.i80", label %239
 
 "_ZN4core6result19Result$LT$T$C$E$GT$3map17hce6721df292f953eE.exit.i.i80": ; preds = %231
@@ -51761,7 +51761,7 @@ _ZN8smol_str4Repr6as_str17h6612cd4653de1669E.exit95: ; preds = %260, %266, %"_ZN
   %.1.i.i100 = phi i64 [ %285, %"_ZN4core6result19Result$LT$T$C$E$GT$3map17h6fa2efc74107c000E.exit.i.i110" ], [ %.0.lcssa.i.i97, %._crit_edge.i.i96 ]
   %.sroa.11.1.i.i101 = phi i64 [ %286, %"_ZN4core6result19Result$LT$T$C$E$GT$3map17h6fa2efc74107c000E.exit.i.i110" ], [ %.sroa.11.0.lcssa.i.i98, %._crit_edge.i.i96 ]
   %.sroa.0.1.i.i102 = phi ptr [ %287, %"_ZN4core6result19Result$LT$T$C$E$GT$3map17h6fa2efc74107c000E.exit.i.i110" ], [ %.sroa.0.0.lcssa.i.i99, %._crit_edge.i.i96 ]
-  %289 = icmp ugt i64 %.sroa.11.1.i.i101, 1
+  %289 = icmp samesign ugt i64 %.sroa.11.1.i.i101, 1
   br i1 %289, label %"_ZN4core6result19Result$LT$T$C$E$GT$3map17hce6721df292f953eE.exit.i.i108", label %296
 
 "_ZN4core6result19Result$LT$T$C$E$GT$3map17hce6721df292f953eE.exit.i.i108": ; preds = %288

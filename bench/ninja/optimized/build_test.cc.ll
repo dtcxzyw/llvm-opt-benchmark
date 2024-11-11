@@ -11739,7 +11739,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit: ; pr
   br i1 %163, label %164, label %170
 
 164:                                              ; preds = %154
-  %165 = icmp ult i64 %162, 64
+  %165 = icmp samesign ult i64 %162, 64
   br i1 %165, label %166, label %168
 
 166:                                              ; preds = %164
@@ -12137,7 +12137,7 @@ _ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEP
   br i1 %286, label %287, label %293
 
 287:                                              ; preds = %277
-  %288 = icmp ult i64 %285, 64
+  %288 = icmp samesign ult i64 %285, 64
   br i1 %288, label %289, label %291
 
 289:                                              ; preds = %287
@@ -14374,7 +14374,7 @@ _ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEP
   br i1 %184, label %185, label %190
 
 185:                                              ; preds = %182
-  %186 = icmp ult i64 %183, 64
+  %186 = icmp samesign ult i64 %183, 64
   br i1 %186, label %_ZStplRKSt15_Deque_iteratorIP4EdgeRS1_PS1_El.exit.i.thread, label %188
 
 _ZStplRKSt15_Deque_iteratorIP4EdgeRS1_PS1_El.exit.i.thread: ; preds = %185
@@ -14406,7 +14406,7 @@ _ZStplRKSt15_Deque_iteratorIP4EdgeRS1_PS1_El.exit.i: ; preds = %188, %190
   br i1 %201, label %202, label %208
 
 202:                                              ; preds = %199
-  %203 = icmp ult i64 %200, 64
+  %203 = icmp samesign ult i64 %200, 64
   br i1 %203, label %204, label %206
 
 204:                                              ; preds = %202
@@ -14489,7 +14489,7 @@ _ZN20CompareEdgesByOutput3cmpEPK4EdgeS2_.exit113: ; preds = %227
   br i1 %248, label %249, label %255
 
 249:                                              ; preds = %242
-  %250 = icmp ult i64 %247, 64
+  %250 = icmp samesign ult i64 %247, 64
   br i1 %250, label %251, label %253
 
 251:                                              ; preds = %249
@@ -14644,7 +14644,7 @@ _ZSt16__insertion_sortISt15_Deque_iteratorIP4EdgeRS2_PS2_EN9__gnu_cxx5__ops15_It
   br i1 %184, label %308, label %314
 
 308:                                              ; preds = %_ZSt16__insertion_sortISt15_Deque_iteratorIP4EdgeRS2_PS2_EN9__gnu_cxx5__ops15_Iter_comp_iterIPFbPKS1_SA_EEEEvT_SE_T0_.exit107
-  %309 = icmp ult i64 %183, 64
+  %309 = icmp samesign ult i64 %183, 64
   br i1 %309, label %310, label %312
 
 310:                                              ; preds = %308
@@ -14786,7 +14786,7 @@ _ZNSt15_Deque_iteratorIP4EdgeRS1_PS1_EppEv.exit.i.i: ; preds = %363, %_ZSt25__un
   br i1 %369, label %370, label %376
 
 370:                                              ; preds = %367
-  %371 = icmp ult i64 %368, 64
+  %371 = icmp samesign ult i64 %368, 64
   br i1 %371, label %372, label %374
 
 372:                                              ; preds = %370
@@ -14869,7 +14869,7 @@ _ZN20CompareEdgesByOutput3cmpEPK4EdgeS2_.exit110: ; preds = %395
   br i1 %416, label %417, label %423
 
 417:                                              ; preds = %410
-  %418 = icmp ult i64 %415, 64
+  %418 = icmp samesign ult i64 %415, 64
   br i1 %418, label %419, label %421
 
 419:                                              ; preds = %417
@@ -15465,7 +15465,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit367: ;
   br i1 %193, label %194, label %200
 
 194:                                              ; preds = %181
-  %195 = icmp ult i64 %192, 64
+  %195 = icmp samesign ult i64 %192, 64
   br i1 %195, label %196, label %198
 
 196:                                              ; preds = %194
@@ -16531,7 +16531,7 @@ _ZN7testing7MessageD2Ev.exit481:                  ; preds = %518, %_ZNKSt14defau
   br i1 %531, label %532, label %536
 
 532:                                              ; preds = %523
-  %533 = icmp ult i64 %530, 64
+  %533 = icmp samesign ult i64 %530, 64
   br i1 %533, label %_ZNSt5dequeIP4EdgeSaIS1_EEixEm.exit483, label %534
 
 534:                                              ; preds = %532
@@ -166575,7 +166575,7 @@ define linkonce_odr dso_local void @_ZSt27__unguarded_partition_pivotISt15_Deque
   br i1 %39, label %40, label %46
 
 40:                                               ; preds = %4
-  %41 = icmp ult i64 %38, 64
+  %41 = icmp samesign ult i64 %38, 64
   br i1 %41, label %42, label %44
 
 42:                                               ; preds = %40
@@ -166606,7 +166606,7 @@ _ZStplRKSt15_Deque_iteratorIP4EdgeRS1_PS1_El.exit: ; preds = %42, %48
   br i1 %56, label %57, label %63
 
 57:                                               ; preds = %_ZStplRKSt15_Deque_iteratorIP4EdgeRS1_PS1_El.exit
-  %58 = icmp ult i64 %55, 64
+  %58 = icmp samesign ult i64 %55, 64
   br i1 %58, label %59, label %61
 
 59:                                               ; preds = %57
@@ -166637,7 +166637,7 @@ _ZStplRKSt15_Deque_iteratorIP4EdgeRS1_PS1_El.exit4: ; preds = %59, %65
   br i1 %73, label %74, label %80
 
 74:                                               ; preds = %_ZStplRKSt15_Deque_iteratorIP4EdgeRS1_PS1_El.exit4
-  %75 = icmp ult i64 %22, 65
+  %75 = icmp samesign ult i64 %22, 65
   br i1 %75, label %76, label %78
 
 76:                                               ; preds = %74
@@ -166745,7 +166745,7 @@ _ZSt22__move_median_to_firstISt15_Deque_iteratorIP4EdgeRS2_PS2_EN9__gnu_cxx5__op
   br i1 %132, label %133, label %139
 
 133:                                              ; preds = %_ZSt22__move_median_to_firstISt15_Deque_iteratorIP4EdgeRS2_PS2_EN9__gnu_cxx5__ops15_Iter_comp_iterIPFbPKS1_SA_EEEEvT_SE_SE_SE_T0_.exit
-  %134 = icmp ult i64 %131, 64
+  %134 = icmp samesign ult i64 %131, 64
   br i1 %134, label %135, label %137
 
 135:                                              ; preds = %133
@@ -167087,7 +167087,7 @@ define linkonce_odr dso_local void @_ZSt11__make_heapISt15_Deque_iteratorIP4Edge
   br i1 %41, label %42, label %48
 
 42:                                               ; preds = %.split
-  %43 = icmp ult i64 %40, 64
+  %43 = icmp samesign ult i64 %40, 64
   br i1 %43, label %44, label %46
 
 44:                                               ; preds = %42
@@ -167141,7 +167141,7 @@ _ZStplRKSt15_Deque_iteratorIP4EdgeRS1_PS1_El.exit: ; preds = %44, %50
   br i1 %71, label %72, label %78
 
 72:                                               ; preds = %.split8
-  %73 = icmp ult i64 %70, 64
+  %73 = icmp samesign ult i64 %70, 64
   br i1 %73, label %74, label %76
 
 74:                                               ; preds = %72
@@ -167210,7 +167210,7 @@ define linkonce_odr dso_local void @_ZSt13__adjust_heapISt15_Deque_iteratorIP4Ed
   br i1 %22, label %23, label %29
 
 23:                                               ; preds = %11
-  %24 = icmp ult i64 %21, 64
+  %24 = icmp samesign ult i64 %21, 64
   br i1 %24, label %25, label %27
 
 25:                                               ; preds = %23
@@ -167242,7 +167242,7 @@ _ZStplRKSt15_Deque_iteratorIP4EdgeRS1_PS1_El.exit: ; preds = %25, %31
   br i1 %40, label %41, label %47
 
 41:                                               ; preds = %_ZStplRKSt15_Deque_iteratorIP4EdgeRS1_PS1_El.exit
-  %42 = icmp ult i64 %39, 64
+  %42 = icmp samesign ult i64 %39, 64
   br i1 %42, label %43, label %45
 
 43:                                               ; preds = %41
@@ -167284,7 +167284,7 @@ _ZStplRKSt15_Deque_iteratorIP4EdgeRS1_PS1_El.exit23: ; preds = %43, %49
   br i1 %67, label %68, label %74
 
 68:                                               ; preds = %_ZStplRKSt15_Deque_iteratorIP4EdgeRS1_PS1_El.exit23
-  %69 = icmp ult i64 %66, 64
+  %69 = icmp samesign ult i64 %66, 64
   br i1 %69, label %70, label %72
 
 70:                                               ; preds = %68
@@ -167316,7 +167316,7 @@ _ZStplRKSt15_Deque_iteratorIP4EdgeRS1_PS1_El.exit25: ; preds = %70, %76
   br i1 %85, label %86, label %92
 
 86:                                               ; preds = %_ZStplRKSt15_Deque_iteratorIP4EdgeRS1_PS1_El.exit25
-  %87 = icmp ult i64 %84, 64
+  %87 = icmp samesign ult i64 %84, 64
   br i1 %87, label %88, label %90
 
 88:                                               ; preds = %86
@@ -167375,7 +167375,7 @@ _ZStplRKSt15_Deque_iteratorIP4EdgeRS1_PS1_El.exit27: ; preds = %88, %94
   br i1 %121, label %122, label %128
 
 122:                                              ; preds = %108
-  %123 = icmp ult i64 %120, 64
+  %123 = icmp samesign ult i64 %120, 64
   br i1 %123, label %124, label %126
 
 124:                                              ; preds = %122
@@ -167407,7 +167407,7 @@ _ZStplRKSt15_Deque_iteratorIP4EdgeRS1_PS1_El.exit29: ; preds = %124, %130
   br i1 %139, label %140, label %146
 
 140:                                              ; preds = %_ZStplRKSt15_Deque_iteratorIP4EdgeRS1_PS1_El.exit29
-  %141 = icmp ult i64 %138, 64
+  %141 = icmp samesign ult i64 %138, 64
   br i1 %141, label %142, label %144
 
 142:                                              ; preds = %140
@@ -167459,7 +167459,7 @@ _ZStplRKSt15_Deque_iteratorIP4EdgeRS1_PS1_El.exit31: ; preds = %142, %148
   br i1 %167, label %168, label %172
 
 168:                                              ; preds = %.lr.ph.i
-  %169 = icmp ult i64 %166, 64
+  %169 = icmp samesign ult i64 %166, 64
   br i1 %169, label %_ZStplRKSt15_Deque_iteratorIP4EdgeRS1_PS1_El.exit.i.thread, label %170
 
 170:                                              ; preds = %168
@@ -167507,7 +167507,7 @@ _ZStplRKSt15_Deque_iteratorIP4EdgeRS1_PS1_El.exit11.i: ; preds = %185, %.thread6
   br i1 %194, label %195, label %201
 
 195:                                              ; preds = %_ZStplRKSt15_Deque_iteratorIP4EdgeRS1_PS1_El.exit11.i
-  %196 = icmp ult i64 %193, 64
+  %196 = icmp samesign ult i64 %193, 64
   br i1 %196, label %197, label %199
 
 197:                                              ; preds = %195
@@ -167544,7 +167544,7 @@ _ZStplRKSt15_Deque_iteratorIP4EdgeRS1_PS1_El.exit13.i: ; preds = %203, %197
   br i1 %212, label %213, label %219
 
 213:                                              ; preds = %.critedge.i
-  %214 = icmp ult i64 %211, 64
+  %214 = icmp samesign ult i64 %211, 64
   br i1 %214, label %215, label %217
 
 215:                                              ; preds = %213
@@ -167647,7 +167647,7 @@ define linkonce_odr dso_local void @_ZSt24__copy_move_backward_ditILb1EP4EdgeRS1
   br i1 %40, label %41, label %47
 
 41:                                               ; preds = %35
-  %42 = icmp ult i64 %39, 64
+  %42 = icmp samesign ult i64 %39, 64
   br i1 %42, label %43, label %45
 
 43:                                               ; preds = %41
@@ -167749,7 +167749,7 @@ _ZSt23__copy_move_backward_a1ILb1EPP4EdgeS1_EN9__gnu_cxx11__enable_ifIXsr23__is_
   br i1 %85, label %86, label %92
 
 86:                                               ; preds = %80
-  %87 = icmp ult i64 %84, 64
+  %87 = icmp samesign ult i64 %84, 64
   br i1 %87, label %88, label %90
 
 88:                                               ; preds = %86
@@ -167851,7 +167851,7 @@ _ZSt23__copy_move_backward_a1ILb1EPP4EdgeS1_EN9__gnu_cxx11__enable_ifIXsr23__is_
   br i1 %132, label %133, label %139
 
 133:                                              ; preds = %127
-  %134 = icmp ult i64 %131, 64
+  %134 = icmp samesign ult i64 %131, 64
   br i1 %134, label %135, label %137
 
 135:                                              ; preds = %133
@@ -167945,7 +167945,7 @@ _ZNSt15_Deque_iteratorIP4EdgeRS1_PS1_EmIEl.exit.i45: ; preds = %141, %135
   br i1 %181, label %182, label %188
 
 182:                                              ; preds = %176
-  %183 = icmp ult i64 %180, 64
+  %183 = icmp samesign ult i64 %180, 64
   br i1 %183, label %184, label %186
 
 184:                                              ; preds = %182

@@ -220,7 +220,7 @@ define range(i32 -2, 1) i32 @Pshortestpath(ptr nocapture noundef readonly %0, pt
 
 96:                                               ; preds = %80, %86
   %.1211 = phi i32 [ %.0210321, %80 ], [ %95, %86 ]
-  %97 = icmp ugt i64 %indvars.iv376, 1
+  %97 = icmp samesign ugt i64 %indvars.iv376, 1
   br i1 %97, label %.lr.ph325, label %.loopexit305
 
 .lr.ph318:                                        ; preds = %.lr.ph318.preheader, %120

@@ -1298,7 +1298,7 @@ define dso_local void @fds_cleanup(ptr nocapture noundef %0) local_unnamed_addr 
   br i1 %28, label %45, label %.preheader
 
 .preheader:                                       ; preds = %._crit_edge
-  %29 = icmp ugt i64 %26, %27
+  %29 = icmp samesign ugt i64 %26, %27
   br i1 %29, label %.lr.ph49, label %._crit_edge50
 
 .lr.ph49:                                         ; preds = %.preheader

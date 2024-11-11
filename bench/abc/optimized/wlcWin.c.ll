@@ -165,7 +165,7 @@ define range(i32 0, 2) i32 @Wlc_ObjHasArithmFanins(ptr nocapture noundef readonl
   br i1 %4, label %.lr.ph, label %.critedge
 
 .lr.ph:                                           ; preds = %2
-  %5 = icmp ugt i32 %.val9, 2
+  %5 = icmp samesign ugt i32 %.val9, 2
   %6 = getelementptr inbounds i8, ptr %1, i64 16
   %7 = getelementptr i8, ptr %0, i64 640
   %.val = load ptr, ptr %7, align 8

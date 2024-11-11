@@ -13079,7 +13079,7 @@ lpad.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.i2964: ; pre
           cleanup
   br label %lpad.i2721
 
-lpad.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.i2817: ; preds = %if.end.i93.i.i.i.i.i, %_ZN5arrow8internal6detail16FormatYYYY_MM_DDEN14arrow_vendored4date14year_month_dayEPPc.exit.i433.i.i.i.i.i.i.i.i, %if.then.i346.i.i.i.i.i.i.i.i, %_ZN5arrow8internal15StringFormatterINS_13TimestampTypeEvEclINSt6chrono8durationIlSt5ratioILl1ELl1000000000EEEERZNS_12_GLOBAL__N_112ArrayPrinter20WritePrimitiveValuesINS_12NumericArrayIS2_EES3_EENS_6StatusERKT_PT0_EUlSt17basic_string_viewIcSt11char_traitsIcEEE_EEDTclclsr3stdE7declvalISJ_EEtlSO_EEESG_lOSJ_.exit.i.i.i.i.i.i.i.i, %_ZN5arrow8internal6detail16FormatYYYY_MM_DDEN14arrow_vendored4date14year_month_dayEPPc.exit.i138.i.i.i.i.i.i.i.i, %if.then.i13.i.i.i.i.i.i.i.i, %_ZN5arrow8internal6detail16FormatYYYY_MM_DDEN14arrow_vendored4date14year_month_dayEPPc.exit.i.i.i.i.i.i.i.i.i, %if.then.i.i.i.i.i.i.i.i.i2840, %if.then36.i.i.i.i.invoke.i2819, %_ZN5arrow12_GLOBAL__N_113PrettyPrinter18IndentAfterNewlineEv.exit38.i.i.i.i.i2937, %if.then21.i.i.i.i.i.i.i2943, %if.then13.i.i.i.i.i.i.i2946, %if.then6.i.i.i.i.i.i.i2949, %if.then22.i.i.i.i.i2977, %_ZN5arrow12_GLOBAL__N_113PrettyPrinter18IndentAfterNewlineEv.exit.i.i.i.i.i2968
+lpad.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.i2817: ; preds = %if.end.i93.i.i.i.i.i, %_ZN5arrow8internal6detail16FormatYYYY_MM_DDEN14arrow_vendored4date14year_month_dayEPPc.exit.i433.i.i.i.i.i.i.i.i, %if.then.i346.i.i.i.i.i.i.i.i, %_ZN5arrow8internal15StringFormatterINS_13TimestampTypeEvEclINSt6chrono8durationIlSt5ratioILl1ELl1000000000EEEERZNS_12_GLOBAL__N_112ArrayPrinter20WritePrimitiveValuesINS_12NumericArrayIS2_EES3_EENS_6StatusERKT_PT0_EUlSt17basic_string_viewIcSt11char_traitsIcEEE_EEDTclclsr3stdE7declvalISJ_EEtlSO_EEESG_lOSJ_.exit.i.i.i.i.i.i.i.i, %_ZN5arrow8internal6detail16FormatYYYY_MM_DDEN14arrow_vendored4date14year_month_dayEPPc.exit.i138.i.i.i.i.i.i.i.i, %if.then.i13.i.i.i.i.i.i.i.i, %_ZN5arrow8internal6detail16FormatYYYY_MM_DDEN14arrow_vendored4date14year_month_dayEPPc.exit.i.i.i.i.i.i.i.i.i, %if.then.i.i.i.i.i.i.i.i.i2841, %if.then36.i.i.i.i.invoke.i2819, %_ZN5arrow12_GLOBAL__N_113PrettyPrinter18IndentAfterNewlineEv.exit38.i.i.i.i.i2937, %if.then21.i.i.i.i.i.i.i2943, %if.then13.i.i.i.i.i.i.i2946, %if.then6.i.i.i.i.i.i.i2949, %if.then22.i.i.i.i.i2977, %_ZN5arrow12_GLOBAL__N_113PrettyPrinter18IndentAfterNewlineEv.exit.i.i.i.i.i2968
   %lpad.loopexit142.i = landingpad { ptr, i32 }
           cleanup
   br label %lpad.i2721
@@ -13433,8 +13433,8 @@ _ZN5arrow12_GLOBAL__N_113PrettyPrinter18IndentAfterNewlineEv.exit51.i.i.i.i.i281
   %add.ptr.i.i.i.i.i.i.i.i.i2814 = getelementptr inbounds i64, ptr %2005, i64 %2007
   %arrayidx.i.i.i52.i.i.i.i.i2815 = getelementptr inbounds i64, ptr %add.ptr.i.i.i.i.i.i.i.i.i2814, i64 %i.0100.i.i.i.i.i
   %2008 = load i64, ptr %arrayidx.i.i.i52.i.i.i.i.i2815, align 8, !noalias !364
-  switch i32 %1960, label %sw.epilog.i.i.i.i.i.i.i.i2915 [
-    i32 3, label %sw.bb7.i.i.i.i.i.i.i.i2913
+  switch i32 %1960, label %sw.epilog.i.i.i.i.i.i.i.i2916 [
+    i32 3, label %sw.bb7.i.i.i.i.i.i.i.i2914
     i32 1, label %sw.bb3.i.i.i.i.i.i.i.i2839
     i32 2, label %sw.bb4.i.i.i.i.i.i.i.i2816
   ]
@@ -13442,154 +13442,154 @@ _ZN5arrow12_GLOBAL__N_113PrettyPrinter18IndentAfterNewlineEv.exit51.i.i.i.i.i281
 sw.bb3.i.i.i.i.i.i.i.i2839:                       ; preds = %_ZN5arrow12_GLOBAL__N_113PrettyPrinter18IndentAfterNewlineEv.exit51.i.i.i.i.i2812
   call void @llvm.lifetime.start.p0(i64 25, ptr nonnull %buffer.i.i.i.i.i.i.i.i.i2713), !noalias !364
   %2009 = add i64 %2008, 1096193779200000
-  %spec.select.i.i.i.i.i.i.i.i.i.i = icmp ult i64 %2009, 2068084742400000
-  br i1 %spec.select.i.i.i.i.i.i.i.i.i.i, label %if.end.i.i.i.i.i.i.i.i.i2841, label %if.then.i.i.i.i.i.i.i.i.i2840
+  %spec.select.i.i.i.i.i.i.i.i.i.i2840 = icmp ult i64 %2009, 2068084742400000
+  br i1 %spec.select.i.i.i.i.i.i.i.i.i.i2840, label %if.end.i.i.i.i.i.i.i.i.i2842, label %if.then.i.i.i.i.i.i.i.i.i2841
 
-if.then.i.i.i.i.i.i.i.i.i2840:                    ; preds = %sw.bb3.i.i.i.i.i.i.i.i2839
+if.then.i.i.i.i.i.i.i.i.i2841:                    ; preds = %sw.bb3.i.i.i.i.i.i.i.i2839
   invoke fastcc void @_ZN5arrow8internal6detail16FormatOutOfRangeIRlRZNS_12_GLOBAL__N_112ArrayPrinter20WritePrimitiveValuesINS_12NumericArrayINS_13TimestampTypeEEENS0_15StringFormatterIS8_vEEEENS_6StatusERKT_PT0_EUlSt17basic_string_viewIcSt11char_traitsIcEEE_EEDTclclsr3stdE7declvalISG_EEtlSL_EEEOSD_OSG_(i64 %2008, ptr noundef nonnull readonly align 8 dereferenceable(8) %appender.i.i.i.i2714)
           to label %_ZN5arrow8internal15StringFormatterINS_13TimestampTypeEvEclINSt6chrono8durationIlSt5ratioILl1ELl1000EEEERZNS_12_GLOBAL__N_112ArrayPrinter20WritePrimitiveValuesINS_12NumericArrayIS2_EES3_EENS_6StatusERKT_PT0_EUlSt17basic_string_viewIcSt11char_traitsIcEEE_EEDTclclsr3stdE7declvalISJ_EEtlSO_EEESG_lOSJ_.exit.i.i.i.i.i.i.i.i unwind label %lpad.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.i2817, !noalias !350
 
-if.end.i.i.i.i.i.i.i.i.i2841:                     ; preds = %sw.bb3.i.i.i.i.i.i.i.i2839
-  %div.i.i.i.i.i.i.i.i.i.i.i.i2842 = sdiv i64 %2008, 86400000
-  %conv.i.i.i.i.i.i.i.i.i.i.i.i = trunc i64 %div.i.i.i.i.i.i.i.i.i.i.i.i2842 to i32
-  %mul.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i = mul nsw i64 %div.i.i.i.i.i.i.i.i.i.i.i.i2842, 86400000
+if.end.i.i.i.i.i.i.i.i.i2842:                     ; preds = %sw.bb3.i.i.i.i.i.i.i.i2839
+  %div.i.i.i.i.i.i.i.i.i.i.i.i2843 = sdiv i64 %2008, 86400000
+  %conv.i.i.i.i.i.i.i.i.i.i.i.i = trunc i64 %div.i.i.i.i.i.i.i.i.i.i.i.i2843 to i32
+  %mul.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i = mul nsw i64 %div.i.i.i.i.i.i.i.i.i.i.i.i2843, 86400000
   %cmp.i.i.i.not.i.i.i.i.i.i.i.i.i = icmp slt i64 %2008, %mul.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i
-  br i1 %cmp.i.i.i.not.i.i.i.i.i.i.i.i.i, label %if.else.i.i.i.i.i.i.i.i.i2912, label %if.then11.i.i.i.i.i.i.i.i.i
+  br i1 %cmp.i.i.i.not.i.i.i.i.i.i.i.i.i, label %if.else.i.i.i.i.i.i.i.i.i2913, label %if.then11.i.i.i.i.i.i.i.i.i
 
-if.then11.i.i.i.i.i.i.i.i.i:                      ; preds = %if.end.i.i.i.i.i.i.i.i.i2841
-  %mul.i.i.i.neg.i.i.i.i.i.i.i.i.i.i.i = mul nsw i64 %div.i.i.i.i.i.i.i.i.i.i.i.i2842, -86400000
+if.then11.i.i.i.i.i.i.i.i.i:                      ; preds = %if.end.i.i.i.i.i.i.i.i.i2842
+  %mul.i.i.i.neg.i.i.i.i.i.i.i.i.i.i.i = mul nsw i64 %div.i.i.i.i.i.i.i.i.i.i.i.i2843, -86400000
   %sub.i.i.i.i.i.i.i.i.i.i.i = add nsw i64 %mul.i.i.i.neg.i.i.i.i.i.i.i.i.i.i.i, %2008
   br label %if.end25.i.i.i.i.i.i.i.i.i
 
-if.else.i.i.i.i.i.i.i.i.i2912:                    ; preds = %if.end.i.i.i.i.i.i.i.i.i2841
+if.else.i.i.i.i.i.i.i.i.i2913:                    ; preds = %if.end.i.i.i.i.i.i.i.i.i2842
   %sub.i.i6.neg.i.i.i.i.i.i.i.i.i = add nsw i64 %2008, 86400000
   %sub.i.i.i.i.i.i.i.i.i.i = sub nsw i64 %sub.i.i6.neg.i.i.i.i.i.i.i.i.i, %mul.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i
   %sub.i.i7.i.i.i.i.i.i.i.i.i = add nsw i32 %conv.i.i.i.i.i.i.i.i.i.i.i.i, -1
   br label %if.end25.i.i.i.i.i.i.i.i.i
 
-if.end25.i.i.i.i.i.i.i.i.i:                       ; preds = %if.else.i.i.i.i.i.i.i.i.i2912, %if.then11.i.i.i.i.i.i.i.i.i
-  %since_midnight.sroa.0.0.i.i.i.i.i.i.i.i.i = phi i64 [ %sub.i.i.i.i.i.i.i.i.i.i.i, %if.then11.i.i.i.i.i.i.i.i.i ], [ %sub.i.i.i.i.i.i.i.i.i.i, %if.else.i.i.i.i.i.i.i.i.i2912 ]
-  %timepoint_days.sroa.0.0.i.i.i.i.i.i.i.i.i = phi i32 [ %conv.i.i.i.i.i.i.i.i.i.i.i.i, %if.then11.i.i.i.i.i.i.i.i.i ], [ %sub.i.i7.i.i.i.i.i.i.i.i.i, %if.else.i.i.i.i.i.i.i.i.i2912 ]
+if.end25.i.i.i.i.i.i.i.i.i:                       ; preds = %if.else.i.i.i.i.i.i.i.i.i2913, %if.then11.i.i.i.i.i.i.i.i.i
+  %since_midnight.sroa.0.0.i.i.i.i.i.i.i.i.i = phi i64 [ %sub.i.i.i.i.i.i.i.i.i.i.i, %if.then11.i.i.i.i.i.i.i.i.i ], [ %sub.i.i.i.i.i.i.i.i.i.i, %if.else.i.i.i.i.i.i.i.i.i2913 ]
+  %timepoint_days.sroa.0.0.i.i.i.i.i.i.i.i.i = phi i32 [ %conv.i.i.i.i.i.i.i.i.i.i.i.i, %if.then11.i.i.i.i.i.i.i.i.i ], [ %sub.i.i7.i.i.i.i.i.i.i.i.i, %if.else.i.i.i.i.i.i.i.i.i2913 ]
   %spec.select.i.i.i.i.i.i.i.i.i.i.i.i = call i64 @llvm.abs.i64(i64 %since_midnight.sroa.0.0.i.i.i.i.i.i.i.i.i, i1 true)
-  %div.i.i11.i.i.i.i.i.i.i.i.i.i.i2843 = udiv i64 %spec.select.i.i.i.i.i.i.i.i.i.i.i.i, 3600000
-  %div.i.i212.i.i.i.i.i.i.i.i.i.i.i2844 = udiv i64 %spec.select.i.i.i.i.i.i.i.i.i.i.i.i, 60000
-  %mul.i.i.i.neg.i.i.i.i.i.i.i.i.i.i.i.i2845 = mul nsw i64 %div.i.i11.i.i.i.i.i.i.i.i.i.i.i2843, -60
-  %sub.i.i.i.i.i.i.i.i.i.i.i.i2846 = add nsw i64 %mul.i.i.i.neg.i.i.i.i.i.i.i.i.i.i.i.i2845, %div.i.i212.i.i.i.i.i.i.i.i.i.i.i2844
-  %mul.i.i.i.neg.i4.i.i.i.i.i.i.i.i.i.i.i2847 = mul nsw i64 %div.i.i11.i.i.i.i.i.i.i.i.i.i.i2843, -3600000
-  %sub.i5.i.i.i.i.i.i.i.i.i.i.i2848 = add nsw i64 %mul.i.i.i.neg.i4.i.i.i.i.i.i.i.i.i.i.i2847, %spec.select.i.i.i.i.i.i.i.i.i.i.i.i
-  %mul.i.i.i.neg.i6.i.i.i.i.i.i.i.i.i.i.i2849 = mul nsw i64 %sub.i.i.i.i.i.i.i.i.i.i.i.i2846, -60000
-  %sub.i7.i.i.i.i.i.i.i.i.i.i.i2850 = add nsw i64 %sub.i5.i.i.i.i.i.i.i.i.i.i.i2848, %mul.i.i.i.neg.i6.i.i.i.i.i.i.i.i.i.i.i2849
-  %div.i.i.i.i.i.i.i.i.i.i.i.i.i.i2851 = sdiv i64 %sub.i7.i.i.i.i.i.i.i.i.i.i.i2850, 1000
-  %mul.i.i.i.neg.i.i.i.i.i.i.i.i.i.i.i.i.i2852 = mul nsw i64 %div.i.i.i.i.i.i.i.i.i.i.i.i.i.i2851, -1000
-  %sub.i.i.i.i.i.i.i.i.i.i.i.i.i2853 = add nsw i64 %mul.i.i.i.neg.i.i.i.i.i.i.i.i.i.i.i.i.i2852, %sub.i7.i.i.i.i.i.i.i.i.i.i.i2850
-  %cmp14.i.i.i.i.i.i.i.i.i.i.i.i2854 = icmp sgt i64 %sub.i.i.i.i.i.i.i.i.i.i.i.i.i2853, 99
-  br i1 %cmp14.i.i.i.i.i.i.i.i.i.i.i.i2854, label %while.body.i.i.i.i.i.i.i.i.i.i.i.i2903, label %while.end.i.i.i.i.i.i.i.i.i.i.i.i2855
+  %div.i.i11.i.i.i.i.i.i.i.i.i.i.i2844 = udiv i64 %spec.select.i.i.i.i.i.i.i.i.i.i.i.i, 3600000
+  %div.i.i212.i.i.i.i.i.i.i.i.i.i.i2845 = udiv i64 %spec.select.i.i.i.i.i.i.i.i.i.i.i.i, 60000
+  %mul.i.i.i.neg.i.i.i.i.i.i.i.i.i.i.i.i2846 = mul nsw i64 %div.i.i11.i.i.i.i.i.i.i.i.i.i.i2844, -60
+  %sub.i.i.i.i.i.i.i.i.i.i.i.i2847 = add nsw i64 %mul.i.i.i.neg.i.i.i.i.i.i.i.i.i.i.i.i2846, %div.i.i212.i.i.i.i.i.i.i.i.i.i.i2845
+  %mul.i.i.i.neg.i4.i.i.i.i.i.i.i.i.i.i.i2848 = mul nsw i64 %div.i.i11.i.i.i.i.i.i.i.i.i.i.i2844, -3600000
+  %sub.i5.i.i.i.i.i.i.i.i.i.i.i2849 = add nsw i64 %mul.i.i.i.neg.i4.i.i.i.i.i.i.i.i.i.i.i2848, %spec.select.i.i.i.i.i.i.i.i.i.i.i.i
+  %mul.i.i.i.neg.i6.i.i.i.i.i.i.i.i.i.i.i2850 = mul nsw i64 %sub.i.i.i.i.i.i.i.i.i.i.i.i2847, -60000
+  %sub.i7.i.i.i.i.i.i.i.i.i.i.i2851 = add nsw i64 %sub.i5.i.i.i.i.i.i.i.i.i.i.i2849, %mul.i.i.i.neg.i6.i.i.i.i.i.i.i.i.i.i.i2850
+  %div.i.i.i.i.i.i.i.i.i.i.i.i.i.i2852 = sdiv i64 %sub.i7.i.i.i.i.i.i.i.i.i.i.i2851, 1000
+  %mul.i.i.i.neg.i.i.i.i.i.i.i.i.i.i.i.i.i2853 = mul nsw i64 %div.i.i.i.i.i.i.i.i.i.i.i.i.i.i2852, -1000
+  %sub.i.i.i.i.i.i.i.i.i.i.i.i.i2854 = add nsw i64 %mul.i.i.i.neg.i.i.i.i.i.i.i.i.i.i.i.i.i2853, %sub.i7.i.i.i.i.i.i.i.i.i.i.i2851
+  %cmp14.i.i.i.i.i.i.i.i.i.i.i.i2855 = icmp sgt i64 %sub.i.i.i.i.i.i.i.i.i.i.i.i.i2854, 99
+  br i1 %cmp14.i.i.i.i.i.i.i.i.i.i.i.i2855, label %while.body.i.i.i.i.i.i.i.i.i.i.i.i2904, label %while.end.i.i.i.i.i.i.i.i.i.i.i.i2856
 
-while.body.i.i.i.i.i.i.i.i.i.i.i.i2903:           ; preds = %if.end25.i.i.i.i.i.i.i.i.i, %while.body.i.i.i.i.i.i.i.i.i.i.i.i2903
-  %cursor.0.idx.i.i.i.i.i.i.i.i.i2904 = phi i64 [ %cursor.0.add.i.i.i.i.i.i.i.i.i2910, %while.body.i.i.i.i.i.i.i.i.i.i.i.i2903 ], [ 25, %if.end25.i.i.i.i.i.i.i.i.i ]
-  %value.addr.015.i.i.i.i.i.i.i.i.i.i.i.i2905 = phi i64 [ %div.i.i.i16.i.i.i.i.i.i.i.i.i, %while.body.i.i.i.i.i.i.i.i.i.i.i.i2903 ], [ %sub.i.i.i.i.i.i.i.i.i.i.i.i.i2853, %if.end25.i.i.i.i.i.i.i.i.i ]
-  %rem.i.i.i.i.i.i.i.i.i.i.i.i2906 = urem i64 %value.addr.015.i.i.i.i.i.i.i.i.i.i.i.i2905, 100
-  %mul.i.i.i.i15.i.i.i.i.i.i.i.i.i = shl nuw nsw i64 %rem.i.i.i.i.i.i.i.i.i.i.i.i2906, 1
-  %arrayidx.i.i.i.i.i.i.i.i.i.i.i.i.i2907 = getelementptr inbounds [0 x i8], ptr @_ZN5arrow8internal6detail11digit_pairsE, i64 0, i64 %mul.i.i.i.i15.i.i.i.i.i.i.i.i.i
-  %arrayidx1.i.i.i.i.i.i.i.i.i.i.i.i.i2908 = getelementptr inbounds i8, ptr %arrayidx.i.i.i.i.i.i.i.i.i.i.i.i.i2907, i64 1
-  %2010 = load i8, ptr %arrayidx1.i.i.i.i.i.i.i.i.i.i.i.i.i2908, align 1, !noalias !364
-  %gep.i.i.i.i.i.i.i.i.i2909 = getelementptr i8, ptr %invariant.gep.i.i.i.i.i.i.i.i.i2772, i64 %cursor.0.idx.i.i.i.i.i.i.i.i.i2904
-  store i8 %2010, ptr %gep.i.i.i.i.i.i.i.i.i2909, align 1, !noalias !364
-  %2011 = load i8, ptr %arrayidx.i.i.i.i.i.i.i.i.i.i.i.i.i2907, align 1, !noalias !364
-  %cursor.0.add.i.i.i.i.i.i.i.i.i2910 = add nsw i64 %cursor.0.idx.i.i.i.i.i.i.i.i.i2904, -2
-  %incdec.ptr.i3.i.i.i.i.ptr.i.i.i.i.i.i.i.i.i2911 = getelementptr inbounds i8, ptr %buffer.i.i.i.i.i.i.i.i.i2713, i64 %cursor.0.add.i.i.i.i.i.i.i.i.i2910
-  store i8 %2011, ptr %incdec.ptr.i3.i.i.i.i.ptr.i.i.i.i.i.i.i.i.i2911, align 1, !noalias !364
-  %div.i.i.i16.i.i.i.i.i.i.i.i.i = udiv i64 %value.addr.015.i.i.i.i.i.i.i.i.i.i.i.i2905, 100
-  %cmp.i.i.i17.i.i.i.i.i.i.i.i.i = icmp samesign ugt i64 %value.addr.015.i.i.i.i.i.i.i.i.i.i.i.i2905, 9999
-  br i1 %cmp.i.i.i17.i.i.i.i.i.i.i.i.i, label %while.body.i.i.i.i.i.i.i.i.i.i.i.i2903, label %while.end.i.i.i.i.i.i.i.i.i.i.i.i2855, !llvm.loop !367
+while.body.i.i.i.i.i.i.i.i.i.i.i.i2904:           ; preds = %if.end25.i.i.i.i.i.i.i.i.i, %while.body.i.i.i.i.i.i.i.i.i.i.i.i2904
+  %cursor.0.idx.i.i.i.i.i.i.i.i.i2905 = phi i64 [ %cursor.0.add.i.i.i.i.i.i.i.i.i2911, %while.body.i.i.i.i.i.i.i.i.i.i.i.i2904 ], [ 25, %if.end25.i.i.i.i.i.i.i.i.i ]
+  %value.addr.015.i.i.i.i.i.i.i.i.i.i.i.i2906 = phi i64 [ %div.i.i.i16.i.i.i.i.i.i.i.i.i, %while.body.i.i.i.i.i.i.i.i.i.i.i.i2904 ], [ %sub.i.i.i.i.i.i.i.i.i.i.i.i.i2854, %if.end25.i.i.i.i.i.i.i.i.i ]
+  %rem.i.i.i.i.i.i.i.i.i.i.i.i2907 = urem i64 %value.addr.015.i.i.i.i.i.i.i.i.i.i.i.i2906, 100
+  %mul.i.i.i.i15.i.i.i.i.i.i.i.i.i = shl nuw nsw i64 %rem.i.i.i.i.i.i.i.i.i.i.i.i2907, 1
+  %arrayidx.i.i.i.i.i.i.i.i.i.i.i.i.i2908 = getelementptr inbounds [0 x i8], ptr @_ZN5arrow8internal6detail11digit_pairsE, i64 0, i64 %mul.i.i.i.i15.i.i.i.i.i.i.i.i.i
+  %arrayidx1.i.i.i.i.i.i.i.i.i.i.i.i.i2909 = getelementptr inbounds i8, ptr %arrayidx.i.i.i.i.i.i.i.i.i.i.i.i.i2908, i64 1
+  %2010 = load i8, ptr %arrayidx1.i.i.i.i.i.i.i.i.i.i.i.i.i2909, align 1, !noalias !364
+  %gep.i.i.i.i.i.i.i.i.i2910 = getelementptr i8, ptr %invariant.gep.i.i.i.i.i.i.i.i.i2772, i64 %cursor.0.idx.i.i.i.i.i.i.i.i.i2905
+  store i8 %2010, ptr %gep.i.i.i.i.i.i.i.i.i2910, align 1, !noalias !364
+  %2011 = load i8, ptr %arrayidx.i.i.i.i.i.i.i.i.i.i.i.i.i2908, align 1, !noalias !364
+  %cursor.0.add.i.i.i.i.i.i.i.i.i2911 = add nsw i64 %cursor.0.idx.i.i.i.i.i.i.i.i.i2905, -2
+  %incdec.ptr.i3.i.i.i.i.ptr.i.i.i.i.i.i.i.i.i2912 = getelementptr inbounds i8, ptr %buffer.i.i.i.i.i.i.i.i.i2713, i64 %cursor.0.add.i.i.i.i.i.i.i.i.i2911
+  store i8 %2011, ptr %incdec.ptr.i3.i.i.i.i.ptr.i.i.i.i.i.i.i.i.i2912, align 1, !noalias !364
+  %div.i.i.i16.i.i.i.i.i.i.i.i.i = udiv i64 %value.addr.015.i.i.i.i.i.i.i.i.i.i.i.i2906, 100
+  %cmp.i.i.i17.i.i.i.i.i.i.i.i.i = icmp samesign ugt i64 %value.addr.015.i.i.i.i.i.i.i.i.i.i.i.i2906, 9999
+  br i1 %cmp.i.i.i17.i.i.i.i.i.i.i.i.i, label %while.body.i.i.i.i.i.i.i.i.i.i.i.i2904, label %while.end.i.i.i.i.i.i.i.i.i.i.i.i2856, !llvm.loop !367
 
-while.end.i.i.i.i.i.i.i.i.i.i.i.i2855:            ; preds = %while.body.i.i.i.i.i.i.i.i.i.i.i.i2903, %if.end25.i.i.i.i.i.i.i.i.i
-  %cursor.1.idx.i.i.i.i.i.i.i.i.i2856 = phi i64 [ 25, %if.end25.i.i.i.i.i.i.i.i.i ], [ %cursor.0.add.i.i.i.i.i.i.i.i.i2910, %while.body.i.i.i.i.i.i.i.i.i.i.i.i2903 ]
-  %value.addr.0.lcssa.i.i.i.i.i.i.i.i.i.i.i.i2857 = phi i64 [ %sub.i.i.i.i.i.i.i.i.i.i.i.i.i2853, %if.end25.i.i.i.i.i.i.i.i.i ], [ %div.i.i.i16.i.i.i.i.i.i.i.i.i, %while.body.i.i.i.i.i.i.i.i.i.i.i.i2903 ]
-  %cmp1.i.i.i.i.i.i.i.i.i.i.i.i2858 = icmp sgt i64 %value.addr.0.lcssa.i.i.i.i.i.i.i.i.i.i.i.i2857, 9
-  br i1 %cmp1.i.i.i.i.i.i.i.i.i.i.i.i2858, label %if.then.i.i.i.i.i.i.i.i.i.i.i.i2897, label %if.else.i.i.i.i.i.i.i.i.i.i.i.i2859
+while.end.i.i.i.i.i.i.i.i.i.i.i.i2856:            ; preds = %while.body.i.i.i.i.i.i.i.i.i.i.i.i2904, %if.end25.i.i.i.i.i.i.i.i.i
+  %cursor.1.idx.i.i.i.i.i.i.i.i.i2857 = phi i64 [ 25, %if.end25.i.i.i.i.i.i.i.i.i ], [ %cursor.0.add.i.i.i.i.i.i.i.i.i2911, %while.body.i.i.i.i.i.i.i.i.i.i.i.i2904 ]
+  %value.addr.0.lcssa.i.i.i.i.i.i.i.i.i.i.i.i2858 = phi i64 [ %sub.i.i.i.i.i.i.i.i.i.i.i.i.i2854, %if.end25.i.i.i.i.i.i.i.i.i ], [ %div.i.i.i16.i.i.i.i.i.i.i.i.i, %while.body.i.i.i.i.i.i.i.i.i.i.i.i2904 ]
+  %cmp1.i.i.i.i.i.i.i.i.i.i.i.i2859 = icmp sgt i64 %value.addr.0.lcssa.i.i.i.i.i.i.i.i.i.i.i.i2858, 9
+  br i1 %cmp1.i.i.i.i.i.i.i.i.i.i.i.i2859, label %if.then.i.i.i.i.i.i.i.i.i.i.i.i2898, label %if.else.i.i.i.i.i.i.i.i.i.i.i.i2860
 
-if.then.i.i.i.i.i.i.i.i.i.i.i.i2897:              ; preds = %while.end.i.i.i.i.i.i.i.i.i.i.i.i2855
-  %mul.i8.i.i.i.i.i.i.i.i.i.i.i.i2898 = shl nuw nsw i64 %value.addr.0.lcssa.i.i.i.i.i.i.i.i.i.i.i.i2857, 1
-  %arrayidx.i9.i.i.i.i.i.i.i.i.i.i.i.i2899 = getelementptr inbounds [0 x i8], ptr @_ZN5arrow8internal6detail11digit_pairsE, i64 0, i64 %mul.i8.i.i.i.i.i.i.i.i.i.i.i.i2898
-  %arrayidx1.i10.i.i.i.i.i.i.i.i.i.i.i.i2900 = getelementptr inbounds i8, ptr %arrayidx.i9.i.i.i.i.i.i.i.i.i.i.i.i2899, i64 1
-  %2012 = load i8, ptr %arrayidx1.i10.i.i.i.i.i.i.i.i.i.i.i.i2900, align 1, !noalias !364
-  %cursor.1.add.i.i.i.i.i.i.i.i.i2901 = add nsw i64 %cursor.1.idx.i.i.i.i.i.i.i.i.i2856, -1
-  %incdec.ptr.i.i11.i.i.i.ptr.i.i.i.i.i.i.i.i.i2902 = getelementptr inbounds i8, ptr %buffer.i.i.i.i.i.i.i.i.i2713, i64 %cursor.1.add.i.i.i.i.i.i.i.i.i2901
-  store i8 %2012, ptr %incdec.ptr.i.i11.i.i.i.ptr.i.i.i.i.i.i.i.i.i2902, align 1, !noalias !364
-  %2013 = load i8, ptr %arrayidx.i9.i.i.i.i.i.i.i.i.i.i.i.i2899, align 1, !noalias !364
-  br label %_ZN5arrow8internal6detail15FormatAllDigitsIlEEvT_PPc.exit.i.i.i.i.i.i.i.i.i.i.i2860
+if.then.i.i.i.i.i.i.i.i.i.i.i.i2898:              ; preds = %while.end.i.i.i.i.i.i.i.i.i.i.i.i2856
+  %mul.i8.i.i.i.i.i.i.i.i.i.i.i.i2899 = shl nuw nsw i64 %value.addr.0.lcssa.i.i.i.i.i.i.i.i.i.i.i.i2858, 1
+  %arrayidx.i9.i.i.i.i.i.i.i.i.i.i.i.i2900 = getelementptr inbounds [0 x i8], ptr @_ZN5arrow8internal6detail11digit_pairsE, i64 0, i64 %mul.i8.i.i.i.i.i.i.i.i.i.i.i.i2899
+  %arrayidx1.i10.i.i.i.i.i.i.i.i.i.i.i.i2901 = getelementptr inbounds i8, ptr %arrayidx.i9.i.i.i.i.i.i.i.i.i.i.i.i2900, i64 1
+  %2012 = load i8, ptr %arrayidx1.i10.i.i.i.i.i.i.i.i.i.i.i.i2901, align 1, !noalias !364
+  %cursor.1.add.i.i.i.i.i.i.i.i.i2902 = add nsw i64 %cursor.1.idx.i.i.i.i.i.i.i.i.i2857, -1
+  %incdec.ptr.i.i11.i.i.i.ptr.i.i.i.i.i.i.i.i.i2903 = getelementptr inbounds i8, ptr %buffer.i.i.i.i.i.i.i.i.i2713, i64 %cursor.1.add.i.i.i.i.i.i.i.i.i2902
+  store i8 %2012, ptr %incdec.ptr.i.i11.i.i.i.ptr.i.i.i.i.i.i.i.i.i2903, align 1, !noalias !364
+  %2013 = load i8, ptr %arrayidx.i9.i.i.i.i.i.i.i.i.i.i.i.i2900, align 1, !noalias !364
+  br label %_ZN5arrow8internal6detail15FormatAllDigitsIlEEvT_PPc.exit.i.i.i.i.i.i.i.i.i.i.i2861
 
-if.else.i.i.i.i.i.i.i.i.i.i.i.i2859:              ; preds = %while.end.i.i.i.i.i.i.i.i.i.i.i.i2855
-  %2014 = trunc i64 %value.addr.0.lcssa.i.i.i.i.i.i.i.i.i.i.i.i2857 to i8
+if.else.i.i.i.i.i.i.i.i.i.i.i.i2860:              ; preds = %while.end.i.i.i.i.i.i.i.i.i.i.i.i2856
+  %2014 = trunc i64 %value.addr.0.lcssa.i.i.i.i.i.i.i.i.i.i.i.i2858 to i8
   %conv.i.i.i.i11.i.i.i.i.i.i.i.i.i = add i8 %2014, 48
-  br label %_ZN5arrow8internal6detail15FormatAllDigitsIlEEvT_PPc.exit.i.i.i.i.i.i.i.i.i.i.i2860
+  br label %_ZN5arrow8internal6detail15FormatAllDigitsIlEEvT_PPc.exit.i.i.i.i.i.i.i.i.i.i.i2861
 
-_ZN5arrow8internal6detail15FormatAllDigitsIlEEvT_PPc.exit.i.i.i.i.i.i.i.i.i.i.i2860: ; preds = %if.else.i.i.i.i.i.i.i.i.i.i.i.i2859, %if.then.i.i.i.i.i.i.i.i.i.i.i.i2897
-  %cursor.2.idx.i.i.i.i.i.i.i.i.i2861 = phi i64 [ %cursor.1.add.i.i.i.i.i.i.i.i.i2901, %if.then.i.i.i.i.i.i.i.i.i.i.i.i2897 ], [ %cursor.1.idx.i.i.i.i.i.i.i.i.i2856, %if.else.i.i.i.i.i.i.i.i.i.i.i.i2859 ]
-  %conv.i.sink.i.i.i.i.i.i.i.i.i.i.i.i2862 = phi i8 [ %2013, %if.then.i.i.i.i.i.i.i.i.i.i.i.i2897 ], [ %conv.i.i.i.i11.i.i.i.i.i.i.i.i.i, %if.else.i.i.i.i.i.i.i.i.i.i.i.i2859 ]
-  %2015 = getelementptr i8, ptr %buffer.i.i.i.i.i.i.i.i.i2713, i64 %cursor.2.idx.i.i.i.i.i.i.i.i.i2861
-  %incdec.ptr.i.i13.i.i.i.ptr.i.i.i.i.i.i.i.i.i2863 = getelementptr i8, ptr %2015, i64 -1
-  store i8 %conv.i.sink.i.i.i.i.i.i.i.i.i.i.i.i2862, ptr %incdec.ptr.i.i13.i.i.i.ptr.i.i.i.i.i.i.i.i.i2863, align 1, !noalias !364
-  %cmp4.i.i.i.i.i.i.i.i.i.i.i2864 = icmp sgt i64 %cursor.2.idx.i.i.i.i.i.i.i.i.i2861, 23
-  br i1 %cmp4.i.i.i.i.i.i.i.i.i.i.i2864, label %while.body.i.i.preheader.i.i.i.i.i.i.i.i.i2893, label %_ZN5arrow8internal6detail14FormatHH_MM_SSINSt6chrono8durationIlSt5ratioILl1ELl1000EEEEEEvN14arrow_vendored4date8hh_mm_ssIT_EEPPc.exit.i.i.i.i.i.i.i.i.i2865
+_ZN5arrow8internal6detail15FormatAllDigitsIlEEvT_PPc.exit.i.i.i.i.i.i.i.i.i.i.i2861: ; preds = %if.else.i.i.i.i.i.i.i.i.i.i.i.i2860, %if.then.i.i.i.i.i.i.i.i.i.i.i.i2898
+  %cursor.2.idx.i.i.i.i.i.i.i.i.i2862 = phi i64 [ %cursor.1.add.i.i.i.i.i.i.i.i.i2902, %if.then.i.i.i.i.i.i.i.i.i.i.i.i2898 ], [ %cursor.1.idx.i.i.i.i.i.i.i.i.i2857, %if.else.i.i.i.i.i.i.i.i.i.i.i.i2860 ]
+  %conv.i.sink.i.i.i.i.i.i.i.i.i.i.i.i2863 = phi i8 [ %2013, %if.then.i.i.i.i.i.i.i.i.i.i.i.i2898 ], [ %conv.i.i.i.i11.i.i.i.i.i.i.i.i.i, %if.else.i.i.i.i.i.i.i.i.i.i.i.i2860 ]
+  %2015 = getelementptr i8, ptr %buffer.i.i.i.i.i.i.i.i.i2713, i64 %cursor.2.idx.i.i.i.i.i.i.i.i.i2862
+  %incdec.ptr.i.i13.i.i.i.ptr.i.i.i.i.i.i.i.i.i2864 = getelementptr i8, ptr %2015, i64 -1
+  store i8 %conv.i.sink.i.i.i.i.i.i.i.i.i.i.i.i2863, ptr %incdec.ptr.i.i13.i.i.i.ptr.i.i.i.i.i.i.i.i.i2864, align 1, !noalias !364
+  %cmp4.i.i.i.i.i.i.i.i.i.i.i2865 = icmp sgt i64 %cursor.2.idx.i.i.i.i.i.i.i.i.i2862, 23
+  br i1 %cmp4.i.i.i.i.i.i.i.i.i.i.i2865, label %while.body.i.i.preheader.i.i.i.i.i.i.i.i.i2894, label %_ZN5arrow8internal6detail14FormatHH_MM_SSINSt6chrono8durationIlSt5ratioILl1ELl1000EEEEEEvN14arrow_vendored4date8hh_mm_ssIT_EEPPc.exit.i.i.i.i.i.i.i.i.i2866
 
-while.body.i.i.preheader.i.i.i.i.i.i.i.i.i2893:   ; preds = %_ZN5arrow8internal6detail15FormatAllDigitsIlEEvT_PPc.exit.i.i.i.i.i.i.i.i.i.i.i2860
-  %2016 = add i64 %cursor.2.idx.i.i.i.i.i.i.i.i.i2861, %buffer38.i.i.i.i.i.i.i.i.i
-  %.reass102.i.i.i.i.i2894 = add i64 %invariant.op101.i.i.i.i.i2773, %cursor.2.idx.i.i.i.i.i.i.i.i.i2861
-  %umin.i.i.i.i.i.i.i.i.i2895 = call i64 @llvm.umin.i64(i64 %.reass102.i.i.i.i.i2894, i64 %1964)
-  %2017 = sub i64 %umin.i.i.i.i.i.i.i.i.i2895, %buffer38.i.i.i.i.i.i.i.i.i
-  %scevgep.i.i.i.i.i.i.i.i.i2896 = getelementptr i8, ptr %buffer.i.i.i.i.i.i.i.i.i2713, i64 %2017
-  %2018 = xor i64 %umin.i.i.i.i.i.i.i.i.i2895, -1
+while.body.i.i.preheader.i.i.i.i.i.i.i.i.i2894:   ; preds = %_ZN5arrow8internal6detail15FormatAllDigitsIlEEvT_PPc.exit.i.i.i.i.i.i.i.i.i.i.i2861
+  %2016 = add i64 %cursor.2.idx.i.i.i.i.i.i.i.i.i2862, %buffer38.i.i.i.i.i.i.i.i.i
+  %.reass102.i.i.i.i.i2895 = add i64 %invariant.op101.i.i.i.i.i2773, %cursor.2.idx.i.i.i.i.i.i.i.i.i2862
+  %umin.i.i.i.i.i.i.i.i.i2896 = call i64 @llvm.umin.i64(i64 %.reass102.i.i.i.i.i2895, i64 %1964)
+  %2017 = sub i64 %umin.i.i.i.i.i.i.i.i.i2896, %buffer38.i.i.i.i.i.i.i.i.i
+  %scevgep.i.i.i.i.i.i.i.i.i2897 = getelementptr i8, ptr %buffer.i.i.i.i.i.i.i.i.i2713, i64 %2017
+  %2018 = xor i64 %umin.i.i.i.i.i.i.i.i.i2896, -1
   %2019 = add i64 %2016, %2018
-  call void @llvm.memset.p0.i64(ptr align 1 %scevgep.i.i.i.i.i.i.i.i.i2896, i8 48, i64 %2019, i1 false), !noalias !364
-  %scevgep40.i.i.i.i.i.i.i.i.i = getelementptr i8, ptr %scevgep.i.i.i.i.i.i.i.i.i2896, i64 1
-  br label %_ZN5arrow8internal6detail14FormatHH_MM_SSINSt6chrono8durationIlSt5ratioILl1ELl1000EEEEEEvN14arrow_vendored4date8hh_mm_ssIT_EEPPc.exit.i.i.i.i.i.i.i.i.i2865
+  call void @llvm.memset.p0.i64(ptr align 1 %scevgep.i.i.i.i.i.i.i.i.i2897, i8 48, i64 %2019, i1 false), !noalias !364
+  %scevgep40.i.i.i.i.i.i.i.i.i = getelementptr i8, ptr %scevgep.i.i.i.i.i.i.i.i.i2897, i64 1
+  br label %_ZN5arrow8internal6detail14FormatHH_MM_SSINSt6chrono8durationIlSt5ratioILl1ELl1000EEEEEEvN14arrow_vendored4date8hh_mm_ssIT_EEPPc.exit.i.i.i.i.i.i.i.i.i2866
 
-_ZN5arrow8internal6detail14FormatHH_MM_SSINSt6chrono8durationIlSt5ratioILl1ELl1000EEEEEEvN14arrow_vendored4date8hh_mm_ssIT_EEPPc.exit.i.i.i.i.i.i.i.i.i2865: ; preds = %while.body.i.i.preheader.i.i.i.i.i.i.i.i.i2893, %_ZN5arrow8internal6detail15FormatAllDigitsIlEEvT_PPc.exit.i.i.i.i.i.i.i.i.i.i.i2860
-  %2020 = phi ptr [ %2015, %_ZN5arrow8internal6detail15FormatAllDigitsIlEEvT_PPc.exit.i.i.i.i.i.i.i.i.i.i.i2860 ], [ %scevgep40.i.i.i.i.i.i.i.i.i, %while.body.i.i.preheader.i.i.i.i.i.i.i.i.i2893 ]
-  %incdec.ptr.i.i.i.i.i.i.i.i.i.i.i2866 = getelementptr i8, ptr %2020, i64 -2
-  store i8 46, ptr %incdec.ptr.i.i.i.i.i.i.i.i.i.i.i2866, align 1, !noalias !364
-  %mul.i.i.i.i.i.i.i.i.i.i.i2867 = shl nsw i64 %div.i.i.i.i.i.i.i.i.i.i.i.i.i.i2851, 1
-  %arrayidx.i.i.i.i.i.i.i.i.i.i.i2868 = getelementptr inbounds [0 x i8], ptr @_ZN5arrow8internal6detail11digit_pairsE, i64 0, i64 %mul.i.i.i.i.i.i.i.i.i.i.i2867
-  %arrayidx1.i.i.i.i.i.i.i.i.i.i.i2869 = getelementptr inbounds i8, ptr %arrayidx.i.i.i.i.i.i.i.i.i.i.i2868, i64 1
-  %2021 = load i8, ptr %arrayidx1.i.i.i.i.i.i.i.i.i.i.i2869, align 1, !noalias !364
-  %incdec.ptr.i.i8.i.i.i.i.i.i.i.i.i.i2870 = getelementptr i8, ptr %2020, i64 -3
-  store i8 %2021, ptr %incdec.ptr.i.i8.i.i.i.i.i.i.i.i.i.i2870, align 1, !noalias !364
-  %2022 = load i8, ptr %arrayidx.i.i.i.i.i.i.i.i.i.i.i2868, align 1, !noalias !364
-  %incdec.ptr.i3.i.i.i.i.i.i.i.i.i.i.i2871 = getelementptr i8, ptr %2020, i64 -4
-  store i8 %2022, ptr %incdec.ptr.i3.i.i.i.i.i.i.i.i.i.i.i2871, align 1, !noalias !364
-  %incdec.ptr.i9.i.i.i.i.i.i.i.i.i.i2872 = getelementptr i8, ptr %2020, i64 -5
-  store i8 58, ptr %incdec.ptr.i9.i.i.i.i.i.i.i.i.i.i2872, align 1, !noalias !364
-  %mul.i10.i.i.i.i.i.i.i.i.i.i2873 = shl nsw i64 %sub.i.i.i.i.i.i.i.i.i.i.i.i2846, 1
-  %arrayidx.i11.i.i.i.i.i.i.i.i.i.i2874 = getelementptr inbounds [0 x i8], ptr @_ZN5arrow8internal6detail11digit_pairsE, i64 0, i64 %mul.i10.i.i.i.i.i.i.i.i.i.i2873
-  %arrayidx1.i12.i.i.i.i.i.i.i.i.i.i2875 = getelementptr inbounds i8, ptr %arrayidx.i11.i.i.i.i.i.i.i.i.i.i2874, i64 1
-  %2023 = load i8, ptr %arrayidx1.i12.i.i.i.i.i.i.i.i.i.i2875, align 1, !noalias !364
-  %incdec.ptr.i.i13.i.i.i.i.i.i.i.i.i.i2876 = getelementptr i8, ptr %2020, i64 -6
-  store i8 %2023, ptr %incdec.ptr.i.i13.i.i.i.i.i.i.i.i.i.i2876, align 1, !noalias !364
-  %2024 = load i8, ptr %arrayidx.i11.i.i.i.i.i.i.i.i.i.i2874, align 1, !noalias !364
-  %incdec.ptr.i3.i14.i.i.i.i.i.i.i.i.i.i2877 = getelementptr i8, ptr %2020, i64 -7
-  store i8 %2024, ptr %incdec.ptr.i3.i14.i.i.i.i.i.i.i.i.i.i2877, align 1, !noalias !364
-  %incdec.ptr.i15.i.i.i.i.i.i.i.i.i.i2878 = getelementptr i8, ptr %2020, i64 -8
-  store i8 58, ptr %incdec.ptr.i15.i.i.i.i.i.i.i.i.i.i2878, align 1, !noalias !364
-  %mul.i17.i.i.i.i.i.i.i.i.i.i2879 = shl nuw nsw i64 %div.i.i11.i.i.i.i.i.i.i.i.i.i.i2843, 1
-  %arrayidx.i18.i.i.i.i.i.i.i.i.i.i2880 = getelementptr inbounds [0 x i8], ptr @_ZN5arrow8internal6detail11digit_pairsE, i64 0, i64 %mul.i17.i.i.i.i.i.i.i.i.i.i2879
-  %arrayidx1.i19.i.i.i.i.i.i.i.i.i.i2881 = getelementptr inbounds i8, ptr %arrayidx.i18.i.i.i.i.i.i.i.i.i.i2880, i64 1
-  %2025 = load i8, ptr %arrayidx1.i19.i.i.i.i.i.i.i.i.i.i2881, align 1, !noalias !364
-  %incdec.ptr.i.i20.i.i.i.i.i.i.i.i.i.i2882 = getelementptr i8, ptr %2020, i64 -9
-  store i8 %2025, ptr %incdec.ptr.i.i20.i.i.i.i.i.i.i.i.i.i2882, align 1, !noalias !364
-  %2026 = load i8, ptr %arrayidx.i18.i.i.i.i.i.i.i.i.i.i2880, align 1, !noalias !364
-  %incdec.ptr.i3.i21.i.i.i.i.i.i.i.i.i.i2883 = getelementptr i8, ptr %2020, i64 -10
-  store i8 %2026, ptr %incdec.ptr.i3.i21.i.i.i.i.i.i.i.i.i.i2883, align 1, !noalias !364
-  %incdec.ptr.i.i.i.i.i.i.i.i.i.i2884 = getelementptr i8, ptr %2020, i64 -11
-  store i8 32, ptr %incdec.ptr.i.i.i.i.i.i.i.i.i.i2884, align 1, !noalias !364
-  %add.i.i.i.i.i.i.i.i.i.i.i2885 = add nsw i32 %timepoint_days.sroa.0.0.i.i.i.i.i.i.i.i.i, 719468
+_ZN5arrow8internal6detail14FormatHH_MM_SSINSt6chrono8durationIlSt5ratioILl1ELl1000EEEEEEvN14arrow_vendored4date8hh_mm_ssIT_EEPPc.exit.i.i.i.i.i.i.i.i.i2866: ; preds = %while.body.i.i.preheader.i.i.i.i.i.i.i.i.i2894, %_ZN5arrow8internal6detail15FormatAllDigitsIlEEvT_PPc.exit.i.i.i.i.i.i.i.i.i.i.i2861
+  %2020 = phi ptr [ %2015, %_ZN5arrow8internal6detail15FormatAllDigitsIlEEvT_PPc.exit.i.i.i.i.i.i.i.i.i.i.i2861 ], [ %scevgep40.i.i.i.i.i.i.i.i.i, %while.body.i.i.preheader.i.i.i.i.i.i.i.i.i2894 ]
+  %incdec.ptr.i.i.i.i.i.i.i.i.i.i.i2867 = getelementptr i8, ptr %2020, i64 -2
+  store i8 46, ptr %incdec.ptr.i.i.i.i.i.i.i.i.i.i.i2867, align 1, !noalias !364
+  %mul.i.i.i.i.i.i.i.i.i.i.i2868 = shl nsw i64 %div.i.i.i.i.i.i.i.i.i.i.i.i.i.i2852, 1
+  %arrayidx.i.i.i.i.i.i.i.i.i.i.i2869 = getelementptr inbounds [0 x i8], ptr @_ZN5arrow8internal6detail11digit_pairsE, i64 0, i64 %mul.i.i.i.i.i.i.i.i.i.i.i2868
+  %arrayidx1.i.i.i.i.i.i.i.i.i.i.i2870 = getelementptr inbounds i8, ptr %arrayidx.i.i.i.i.i.i.i.i.i.i.i2869, i64 1
+  %2021 = load i8, ptr %arrayidx1.i.i.i.i.i.i.i.i.i.i.i2870, align 1, !noalias !364
+  %incdec.ptr.i.i8.i.i.i.i.i.i.i.i.i.i2871 = getelementptr i8, ptr %2020, i64 -3
+  store i8 %2021, ptr %incdec.ptr.i.i8.i.i.i.i.i.i.i.i.i.i2871, align 1, !noalias !364
+  %2022 = load i8, ptr %arrayidx.i.i.i.i.i.i.i.i.i.i.i2869, align 1, !noalias !364
+  %incdec.ptr.i3.i.i.i.i.i.i.i.i.i.i.i2872 = getelementptr i8, ptr %2020, i64 -4
+  store i8 %2022, ptr %incdec.ptr.i3.i.i.i.i.i.i.i.i.i.i.i2872, align 1, !noalias !364
+  %incdec.ptr.i9.i.i.i.i.i.i.i.i.i.i2873 = getelementptr i8, ptr %2020, i64 -5
+  store i8 58, ptr %incdec.ptr.i9.i.i.i.i.i.i.i.i.i.i2873, align 1, !noalias !364
+  %mul.i10.i.i.i.i.i.i.i.i.i.i2874 = shl nsw i64 %sub.i.i.i.i.i.i.i.i.i.i.i.i2847, 1
+  %arrayidx.i11.i.i.i.i.i.i.i.i.i.i2875 = getelementptr inbounds [0 x i8], ptr @_ZN5arrow8internal6detail11digit_pairsE, i64 0, i64 %mul.i10.i.i.i.i.i.i.i.i.i.i2874
+  %arrayidx1.i12.i.i.i.i.i.i.i.i.i.i2876 = getelementptr inbounds i8, ptr %arrayidx.i11.i.i.i.i.i.i.i.i.i.i2875, i64 1
+  %2023 = load i8, ptr %arrayidx1.i12.i.i.i.i.i.i.i.i.i.i2876, align 1, !noalias !364
+  %incdec.ptr.i.i13.i.i.i.i.i.i.i.i.i.i2877 = getelementptr i8, ptr %2020, i64 -6
+  store i8 %2023, ptr %incdec.ptr.i.i13.i.i.i.i.i.i.i.i.i.i2877, align 1, !noalias !364
+  %2024 = load i8, ptr %arrayidx.i11.i.i.i.i.i.i.i.i.i.i2875, align 1, !noalias !364
+  %incdec.ptr.i3.i14.i.i.i.i.i.i.i.i.i.i2878 = getelementptr i8, ptr %2020, i64 -7
+  store i8 %2024, ptr %incdec.ptr.i3.i14.i.i.i.i.i.i.i.i.i.i2878, align 1, !noalias !364
+  %incdec.ptr.i15.i.i.i.i.i.i.i.i.i.i2879 = getelementptr i8, ptr %2020, i64 -8
+  store i8 58, ptr %incdec.ptr.i15.i.i.i.i.i.i.i.i.i.i2879, align 1, !noalias !364
+  %mul.i17.i.i.i.i.i.i.i.i.i.i2880 = shl nuw nsw i64 %div.i.i11.i.i.i.i.i.i.i.i.i.i.i2844, 1
+  %arrayidx.i18.i.i.i.i.i.i.i.i.i.i2881 = getelementptr inbounds [0 x i8], ptr @_ZN5arrow8internal6detail11digit_pairsE, i64 0, i64 %mul.i17.i.i.i.i.i.i.i.i.i.i2880
+  %arrayidx1.i19.i.i.i.i.i.i.i.i.i.i2882 = getelementptr inbounds i8, ptr %arrayidx.i18.i.i.i.i.i.i.i.i.i.i2881, i64 1
+  %2025 = load i8, ptr %arrayidx1.i19.i.i.i.i.i.i.i.i.i.i2882, align 1, !noalias !364
+  %incdec.ptr.i.i20.i.i.i.i.i.i.i.i.i.i2883 = getelementptr i8, ptr %2020, i64 -9
+  store i8 %2025, ptr %incdec.ptr.i.i20.i.i.i.i.i.i.i.i.i.i2883, align 1, !noalias !364
+  %2026 = load i8, ptr %arrayidx.i18.i.i.i.i.i.i.i.i.i.i2881, align 1, !noalias !364
+  %incdec.ptr.i3.i21.i.i.i.i.i.i.i.i.i.i2884 = getelementptr i8, ptr %2020, i64 -10
+  store i8 %2026, ptr %incdec.ptr.i3.i21.i.i.i.i.i.i.i.i.i.i2884, align 1, !noalias !364
+  %incdec.ptr.i.i.i.i.i.i.i.i.i.i2885 = getelementptr i8, ptr %2020, i64 -11
+  store i8 32, ptr %incdec.ptr.i.i.i.i.i.i.i.i.i.i2885, align 1, !noalias !364
+  %add.i.i.i.i.i.i.i.i.i.i.i2886 = add nsw i32 %timepoint_days.sroa.0.0.i.i.i.i.i.i.i.i.i, 719468
   %cmp.i.i18.i.i.i.i.i.i.i.i.i = icmp sgt i32 %timepoint_days.sroa.0.0.i.i.i.i.i.i.i.i.i, -719469
   %sub.i.i19.i.i.i.i.i.i.i.i.i = add nuw nsw i32 %timepoint_days.sroa.0.0.i.i.i.i.i.i.i.i.i, 573372
-  %cond.i.i.i.i.i.i.i.i.i.i.i = select i1 %cmp.i.i18.i.i.i.i.i.i.i.i.i, i32 %add.i.i.i.i.i.i.i.i.i.i.i2885, i32 %sub.i.i19.i.i.i.i.i.i.i.i.i
+  %cond.i.i.i.i.i.i.i.i.i.i.i = select i1 %cmp.i.i18.i.i.i.i.i.i.i.i.i, i32 %add.i.i.i.i.i.i.i.i.i.i.i2886, i32 %sub.i.i19.i.i.i.i.i.i.i.i.i
   %div.i.i.i.i.i.i.i.i.i.i.i = sdiv i32 %cond.i.i.i.i.i.i.i.i.i.i.i, 146097
   %mul.neg.i.i.i.i.i.i.i.i.i.i.i = mul nsw i32 %div.i.i.i.i.i.i.i.i.i.i.i, -146097
-  %sub1.i.i.i.i.i.i.i.i.i.i.i = add i32 %mul.neg.i.i.i.i.i.i.i.i.i.i.i, %add.i.i.i.i.i.i.i.i.i.i.i2885
+  %sub1.i.i.i.i.i.i.i.i.i.i.i = add i32 %mul.neg.i.i.i.i.i.i.i.i.i.i.i, %add.i.i.i.i.i.i.i.i.i.i.i2886
   %div2.i.i.i.i.i.i.i.i.i.i.i = udiv i32 %sub1.i.i.i.i.i.i.i.i.i.i.i, 1460
   %div4.i.i.i.i.i.i.i.i.i.i.i = udiv i32 %sub1.i.i.i.i.i.i.i.i.i.i.i, 36524
   %div6.i.i.i.i.i.i.i.i.i.i.i = udiv i32 %sub1.i.i.i.i.i.i.i.i.i.i.i, 146096
@@ -13647,7 +13647,7 @@ _ZN5arrow8internal6detail14FormatHH_MM_SSINSt6chrono8durationIlSt5ratioILl1ELl10
   store i8 45, ptr %incdec.ptr.i22.i.i.i.i.i.i.i.i.i.i, align 1, !noalias !364
   %sext.i.i.i.i.i.i.i.i.i.i = shl i32 %add33.i.i.i.i.i.i.i.i.i.i.i, 16
   %conv.i24.i.i.i.i.i.i.i.i.i.i = ashr exact i32 %sext.i.i.i.i.i.i.i.i.i.i, 16
-  %cmp.i.i.i.i.i.i.i.i.i.i2886 = icmp slt i32 %conv.i24.i.i.i.i.i.i.i.i.i.i, 0
+  %cmp.i.i.i.i.i.i.i.i.i.i2887 = icmp slt i32 %conv.i24.i.i.i.i.i.i.i.i.i.i, 0
   %2034 = call i32 @llvm.abs.i32(i32 %conv.i24.i.i.i.i.i.i.i.i.i.i, i1 true)
   %rem.lhs.trunc.i.i.i.i.i.i.i.i.i.i = trunc nuw i32 %2034 to i16
   %rem40.i.i.i.i.i.i.i.i.i.i = urem i16 %rem.lhs.trunc.i.i.i.i.i.i.i.i.i.i, 100
@@ -13674,9 +13674,9 @@ _ZN5arrow8internal6detail14FormatHH_MM_SSINSt6chrono8durationIlSt5ratioILl1ELl10
   %incdec.ptr.i3.i36.i.i.i.i.i.i.i.i.i.i = getelementptr i8, ptr %2020, i64 -21
   store i8 %2040, ptr %incdec.ptr.i3.i36.i.i.i.i.i.i.i.i.i.i, align 1, !noalias !364
   %cmp11.i.i.i.i.i.i.i.i.i.i = icmp samesign ugt i32 %2034, 9999
-  br i1 %cmp11.i.i.i.i.i.i.i.i.i.i, label %if.then.i.i.i.i.i.i.i.i.i.i2892, label %if.end.i.i.i.i.i.i.i.i.i.i
+  br i1 %cmp11.i.i.i.i.i.i.i.i.i.i, label %if.then.i.i.i.i.i.i.i.i.i.i2893, label %if.end.i.i.i.i.i.i.i.i.i.i
 
-if.then.i.i.i.i.i.i.i.i.i.i2892:                  ; preds = %_ZN5arrow8internal6detail14FormatHH_MM_SSINSt6chrono8durationIlSt5ratioILl1ELl1000EEEEEEvN14arrow_vendored4date8hh_mm_ssIT_EEPPc.exit.i.i.i.i.i.i.i.i.i2865
+if.then.i.i.i.i.i.i.i.i.i.i2893:                  ; preds = %_ZN5arrow8internal6detail14FormatHH_MM_SSINSt6chrono8durationIlSt5ratioILl1ELl1000EEEEEEvN14arrow_vendored4date8hh_mm_ssIT_EEPPc.exit.i.i.i.i.i.i.i.i.i2866
   %div1243.i.i.i.i.i.i.i.i.i.i = udiv i16 %rem.lhs.trunc.i.i.i.i.i.i.i.i.i.i, 10000
   %2041 = trunc nuw nsw i16 %div1243.i.i.i.i.i.i.i.i.i.i to i8
   %conv.i37.i.i.i.i.i.i.i.i.i.i = or disjoint i8 %2041, 48
@@ -13684,9 +13684,9 @@ if.then.i.i.i.i.i.i.i.i.i.i2892:                  ; preds = %_ZN5arrow8internal6
   store i8 %conv.i37.i.i.i.i.i.i.i.i.i.i, ptr %incdec.ptr.i.i38.i.i.i.i.i.i.i.i.i.i, align 1, !noalias !364
   br label %if.end.i.i.i.i.i.i.i.i.i.i
 
-if.end.i.i.i.i.i.i.i.i.i.i:                       ; preds = %if.then.i.i.i.i.i.i.i.i.i.i2892, %_ZN5arrow8internal6detail14FormatHH_MM_SSINSt6chrono8durationIlSt5ratioILl1ELl1000EEEEEEvN14arrow_vendored4date8hh_mm_ssIT_EEPPc.exit.i.i.i.i.i.i.i.i.i2865
-  %cursor.3.i.i.i.i.i.i.i.i.i = phi ptr [ %incdec.ptr.i.i38.i.i.i.i.i.i.i.i.i.i, %if.then.i.i.i.i.i.i.i.i.i.i2892 ], [ %incdec.ptr.i3.i36.i.i.i.i.i.i.i.i.i.i, %_ZN5arrow8internal6detail14FormatHH_MM_SSINSt6chrono8durationIlSt5ratioILl1ELl1000EEEEEEvN14arrow_vendored4date8hh_mm_ssIT_EEPPc.exit.i.i.i.i.i.i.i.i.i2865 ]
-  br i1 %cmp.i.i.i.i.i.i.i.i.i.i2886, label %if.then13.i.i.i.i.i.i.i.i.i.i, label %_ZN5arrow8internal6detail16FormatYYYY_MM_DDEN14arrow_vendored4date14year_month_dayEPPc.exit.i.i.i.i.i.i.i.i.i
+if.end.i.i.i.i.i.i.i.i.i.i:                       ; preds = %if.then.i.i.i.i.i.i.i.i.i.i2893, %_ZN5arrow8internal6detail14FormatHH_MM_SSINSt6chrono8durationIlSt5ratioILl1ELl1000EEEEEEvN14arrow_vendored4date8hh_mm_ssIT_EEPPc.exit.i.i.i.i.i.i.i.i.i2866
+  %cursor.3.i.i.i.i.i.i.i.i.i = phi ptr [ %incdec.ptr.i.i38.i.i.i.i.i.i.i.i.i.i, %if.then.i.i.i.i.i.i.i.i.i.i2893 ], [ %incdec.ptr.i3.i36.i.i.i.i.i.i.i.i.i.i, %_ZN5arrow8internal6detail14FormatHH_MM_SSINSt6chrono8durationIlSt5ratioILl1ELl1000EEEEEEvN14arrow_vendored4date8hh_mm_ssIT_EEPPc.exit.i.i.i.i.i.i.i.i.i2866 ]
+  br i1 %cmp.i.i.i.i.i.i.i.i.i.i2887, label %if.then13.i.i.i.i.i.i.i.i.i.i, label %_ZN5arrow8internal6detail16FormatYYYY_MM_DDEN14arrow_vendored4date14year_month_dayEPPc.exit.i.i.i.i.i.i.i.i.i
 
 if.then13.i.i.i.i.i.i.i.i.i.i:                    ; preds = %if.end.i.i.i.i.i.i.i.i.i.i
   %incdec.ptr.i39.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %cursor.3.i.i.i.i.i.i.i.i.i, i64 -1
@@ -13695,15 +13695,15 @@ if.then13.i.i.i.i.i.i.i.i.i.i:                    ; preds = %if.end.i.i.i.i.i.i.
 
 _ZN5arrow8internal6detail16FormatYYYY_MM_DDEN14arrow_vendored4date14year_month_dayEPPc.exit.i.i.i.i.i.i.i.i.i: ; preds = %if.then13.i.i.i.i.i.i.i.i.i.i, %if.end.i.i.i.i.i.i.i.i.i.i
   %cursor.4.i.i.i.i.i.i.i.i.i = phi ptr [ %incdec.ptr.i39.i.i.i.i.i.i.i.i.i.i, %if.then13.i.i.i.i.i.i.i.i.i.i ], [ %cursor.3.i.i.i.i.i.i.i.i.i, %if.end.i.i.i.i.i.i.i.i.i.i ]
-  %sub.ptr.rhs.cast.i.i.i.i.i.i.i.i.i.i2887 = ptrtoint ptr %cursor.4.i.i.i.i.i.i.i.i.i to i64
-  %sub.ptr.sub.i.i.i.i.i.i.i.i.i.i2888 = sub i64 %sub.ptr.lhs.cast.i.i.i.i.i.i.i.i.i.i2774, %sub.ptr.rhs.cast.i.i.i.i.i.i.i.i.i.i2887
-  %append.val.i.i.i.i.i.i.i.i.i2889 = load ptr, ptr %appender.i.i.i.i2714, align 8, !noalias !364
-  %2042 = getelementptr i8, ptr %append.val.i.i.i.i.i.i.i.i.i2889, i64 16
-  %append.val.val.i.i.i.i.i.i.i.i.i2890 = load ptr, ptr %2042, align 8, !noalias !364
-  %call2.i.i.i.i.i.i.i.i.i.i19.i2891 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %append.val.val.i.i.i.i.i.i.i.i.i2890, ptr noundef nonnull %cursor.4.i.i.i.i.i.i.i.i.i, i64 noundef %sub.ptr.sub.i.i.i.i.i.i.i.i.i.i2888)
+  %sub.ptr.rhs.cast.i.i.i.i.i.i.i.i.i.i2888 = ptrtoint ptr %cursor.4.i.i.i.i.i.i.i.i.i to i64
+  %sub.ptr.sub.i.i.i.i.i.i.i.i.i.i2889 = sub i64 %sub.ptr.lhs.cast.i.i.i.i.i.i.i.i.i.i2774, %sub.ptr.rhs.cast.i.i.i.i.i.i.i.i.i.i2888
+  %append.val.i.i.i.i.i.i.i.i.i2890 = load ptr, ptr %appender.i.i.i.i2714, align 8, !noalias !364
+  %2042 = getelementptr i8, ptr %append.val.i.i.i.i.i.i.i.i.i2890, i64 16
+  %append.val.val.i.i.i.i.i.i.i.i.i2891 = load ptr, ptr %2042, align 8, !noalias !364
+  %call2.i.i.i.i.i.i.i.i.i.i19.i2892 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %append.val.val.i.i.i.i.i.i.i.i.i2891, ptr noundef nonnull %cursor.4.i.i.i.i.i.i.i.i.i, i64 noundef %sub.ptr.sub.i.i.i.i.i.i.i.i.i.i2889)
           to label %_ZN5arrow8internal15StringFormatterINS_13TimestampTypeEvEclINSt6chrono8durationIlSt5ratioILl1ELl1000EEEERZNS_12_GLOBAL__N_112ArrayPrinter20WritePrimitiveValuesINS_12NumericArrayIS2_EES3_EENS_6StatusERKT_PT0_EUlSt17basic_string_viewIcSt11char_traitsIcEEE_EEDTclclsr3stdE7declvalISJ_EEtlSO_EEESG_lOSJ_.exit.i.i.i.i.i.i.i.i unwind label %lpad.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.i2817, !noalias !350
 
-_ZN5arrow8internal15StringFormatterINS_13TimestampTypeEvEclINSt6chrono8durationIlSt5ratioILl1ELl1000EEEERZNS_12_GLOBAL__N_112ArrayPrinter20WritePrimitiveValuesINS_12NumericArrayIS2_EES3_EENS_6StatusERKT_PT0_EUlSt17basic_string_viewIcSt11char_traitsIcEEE_EEDTclclsr3stdE7declvalISJ_EEtlSO_EEESG_lOSJ_.exit.i.i.i.i.i.i.i.i: ; preds = %_ZN5arrow8internal6detail16FormatYYYY_MM_DDEN14arrow_vendored4date14year_month_dayEPPc.exit.i.i.i.i.i.i.i.i.i, %if.then.i.i.i.i.i.i.i.i.i2840
+_ZN5arrow8internal15StringFormatterINS_13TimestampTypeEvEclINSt6chrono8durationIlSt5ratioILl1ELl1000EEEERZNS_12_GLOBAL__N_112ArrayPrinter20WritePrimitiveValuesINS_12NumericArrayIS2_EES3_EENS_6StatusERKT_PT0_EUlSt17basic_string_viewIcSt11char_traitsIcEEE_EEDTclclsr3stdE7declvalISJ_EEtlSO_EEESG_lOSJ_.exit.i.i.i.i.i.i.i.i: ; preds = %_ZN5arrow8internal6detail16FormatYYYY_MM_DDEN14arrow_vendored4date14year_month_dayEPPc.exit.i.i.i.i.i.i.i.i.i, %if.then.i.i.i.i.i.i.i.i.i2841
   call void @llvm.lifetime.end.p0(i64 25, ptr nonnull %buffer.i.i.i.i.i.i.i.i.i2713), !noalias !364
   br label %do.end57.i.i.i.i.i2818
 
@@ -13975,7 +13975,7 @@ _ZN5arrow8internal15StringFormatterINS_13TimestampTypeEvEclINSt6chrono8durationI
   call void @llvm.lifetime.end.p0(i64 28, ptr nonnull %buffer.i10.i.i.i.i.i.i.i.i2712), !noalias !364
   br label %do.end57.i.i.i.i.i2818
 
-sw.bb7.i.i.i.i.i.i.i.i2913:                       ; preds = %_ZN5arrow12_GLOBAL__N_113PrettyPrinter18IndentAfterNewlineEv.exit51.i.i.i.i.i2812
+sw.bb7.i.i.i.i.i.i.i.i2914:                       ; preds = %_ZN5arrow12_GLOBAL__N_113PrettyPrinter18IndentAfterNewlineEv.exit51.i.i.i.i.i2812
   call void @llvm.lifetime.start.p0(i64 31, ptr nonnull %buffer.i181.i.i.i.i.i.i.i.i), !noalias !364
   %div.i.i.i.i183.i.i.i.i.i.i.i.i = sdiv i64 %2008, 86400000000000
   %conv.i.i.i.i184.i.i.i.i.i.i.i.i = trunc nsw i64 %div.i.i.i.i183.i.i.i.i.i.i.i.i to i32
@@ -13983,12 +13983,12 @@ sw.bb7.i.i.i.i.i.i.i.i2913:                       ; preds = %_ZN5arrow12_GLOBAL_
   %cmp.i.i.i.not.i186.i.i.i.i.i.i.i.i = icmp slt i64 %2008, %mul.i.i.i.i.i.i.i185.i.i.i.i.i.i.i.i
   br i1 %cmp.i.i.i.not.i186.i.i.i.i.i.i.i.i, label %if.else.i340.i.i.i.i.i.i.i.i, label %if.then11.i187.i.i.i.i.i.i.i.i
 
-if.then11.i187.i.i.i.i.i.i.i.i:                   ; preds = %sw.bb7.i.i.i.i.i.i.i.i2913
+if.then11.i187.i.i.i.i.i.i.i.i:                   ; preds = %sw.bb7.i.i.i.i.i.i.i.i2914
   %mul.i.i.i.neg.i.i.i188.i.i.i.i.i.i.i.i = mul nsw i64 %div.i.i.i.i183.i.i.i.i.i.i.i.i, -86400000000000
   %sub.i.i.i189.i.i.i.i.i.i.i.i = add i64 %mul.i.i.i.neg.i.i.i188.i.i.i.i.i.i.i.i, %2008
   br label %if.end25.i190.i.i.i.i.i.i.i.i
 
-if.else.i340.i.i.i.i.i.i.i.i:                     ; preds = %sw.bb7.i.i.i.i.i.i.i.i2913
+if.else.i340.i.i.i.i.i.i.i.i:                     ; preds = %sw.bb7.i.i.i.i.i.i.i.i2914
   %sub.i.i6.neg.i341.i.i.i.i.i.i.i.i = add i64 %2008, 86400000000000
   %sub.i.i342.i.i.i.i.i.i.i.i = sub i64 %sub.i.i6.neg.i341.i.i.i.i.i.i.i.i, %mul.i.i.i.i.i.i.i185.i.i.i.i.i.i.i.i
   %sub.i.i7.i343.i.i.i.i.i.i.i.i = add nsw i32 %conv.i.i.i.i184.i.i.i.i.i.i.i.i, -1
@@ -14059,7 +14059,7 @@ _ZN5arrow8internal6detail15FormatAllDigitsIlEEvT_PPc.exit.i.i.i212.i.i.i.i.i.i.i
   %incdec.ptr.i.i13.i.i.i.ptr.i215.i.i.i.i.i.i.i.i = getelementptr i8, ptr %2082, i64 -1
   store i8 %conv.i.sink.i.i.i.i214.i.i.i.i.i.i.i.i, ptr %incdec.ptr.i.i13.i.i.i.ptr.i215.i.i.i.i.i.i.i.i, align 1, !noalias !364
   %cmp4.i.i.i216.i.i.i.i.i.i.i.i = icmp sgt i64 %cursor.2.idx.i213.i.i.i.i.i.i.i.i, 23
-  br i1 %cmp4.i.i.i216.i.i.i.i.i.i.i.i, label %while.body.i.i.preheader.i316.i.i.i.i.i.i.i.i, label %_ZN5arrow8internal6detail14FormatHH_MM_SSINSt6chrono8durationIlSt5ratioILl1ELl1000000000EEEEEEvN14arrow_vendored4date8hh_mm_ssIT_EEPPc.exit.i.i.i.i.i.i.i.i.i2914
+  br i1 %cmp4.i.i.i216.i.i.i.i.i.i.i.i, label %while.body.i.i.preheader.i316.i.i.i.i.i.i.i.i, label %_ZN5arrow8internal6detail14FormatHH_MM_SSINSt6chrono8durationIlSt5ratioILl1ELl1000000000EEEEEEvN14arrow_vendored4date8hh_mm_ssIT_EEPPc.exit.i.i.i.i.i.i.i.i.i2915
 
 while.body.i.i.preheader.i316.i.i.i.i.i.i.i.i:    ; preds = %_ZN5arrow8internal6detail15FormatAllDigitsIlEEvT_PPc.exit.i.i.i212.i.i.i.i.i.i.i.i
   %2083 = add i64 %cursor.2.idx.i213.i.i.i.i.i.i.i.i, %buffer38.i182.i.i.i.i.i.i.i.i
@@ -14071,9 +14071,9 @@ while.body.i.i.preheader.i316.i.i.i.i.i.i.i.i:    ; preds = %_ZN5arrow8internal6
   %2086 = add i64 %2083, %2085
   call void @llvm.memset.p0.i64(ptr align 1 %scevgep.i318.i.i.i.i.i.i.i.i, i8 48, i64 %2086, i1 false), !noalias !364
   %scevgep40.i319.i.i.i.i.i.i.i.i = getelementptr i8, ptr %scevgep.i318.i.i.i.i.i.i.i.i, i64 1
-  br label %_ZN5arrow8internal6detail14FormatHH_MM_SSINSt6chrono8durationIlSt5ratioILl1ELl1000000000EEEEEEvN14arrow_vendored4date8hh_mm_ssIT_EEPPc.exit.i.i.i.i.i.i.i.i.i2914
+  br label %_ZN5arrow8internal6detail14FormatHH_MM_SSINSt6chrono8durationIlSt5ratioILl1ELl1000000000EEEEEEvN14arrow_vendored4date8hh_mm_ssIT_EEPPc.exit.i.i.i.i.i.i.i.i.i2915
 
-_ZN5arrow8internal6detail14FormatHH_MM_SSINSt6chrono8durationIlSt5ratioILl1ELl1000000000EEEEEEvN14arrow_vendored4date8hh_mm_ssIT_EEPPc.exit.i.i.i.i.i.i.i.i.i2914: ; preds = %while.body.i.i.preheader.i316.i.i.i.i.i.i.i.i, %_ZN5arrow8internal6detail15FormatAllDigitsIlEEvT_PPc.exit.i.i.i212.i.i.i.i.i.i.i.i
+_ZN5arrow8internal6detail14FormatHH_MM_SSINSt6chrono8durationIlSt5ratioILl1ELl1000000000EEEEEEvN14arrow_vendored4date8hh_mm_ssIT_EEPPc.exit.i.i.i.i.i.i.i.i.i2915: ; preds = %while.body.i.i.preheader.i316.i.i.i.i.i.i.i.i, %_ZN5arrow8internal6detail15FormatAllDigitsIlEEvT_PPc.exit.i.i.i212.i.i.i.i.i.i.i.i
   %2087 = phi ptr [ %2082, %_ZN5arrow8internal6detail15FormatAllDigitsIlEEvT_PPc.exit.i.i.i212.i.i.i.i.i.i.i.i ], [ %scevgep40.i319.i.i.i.i.i.i.i.i, %while.body.i.i.preheader.i316.i.i.i.i.i.i.i.i ]
   %incdec.ptr.i.i.i217.i.i.i.i.i.i.i.i = getelementptr i8, ptr %2087, i64 -2
   store i8 46, ptr %incdec.ptr.i.i.i217.i.i.i.i.i.i.i.i, align 1, !noalias !364
@@ -14200,7 +14200,7 @@ _ZN5arrow8internal6detail14FormatHH_MM_SSINSt6chrono8durationIlSt5ratioILl1ELl10
   %cmp11.i.i299.i.i.i.i.i.i.i.i = icmp samesign ugt i32 %2101, 9999
   br i1 %cmp11.i.i299.i.i.i.i.i.i.i.i, label %if.then.i.i312.i.i.i.i.i.i.i.i, label %if.end.i.i300.i.i.i.i.i.i.i.i
 
-if.then.i.i312.i.i.i.i.i.i.i.i:                   ; preds = %_ZN5arrow8internal6detail14FormatHH_MM_SSINSt6chrono8durationIlSt5ratioILl1ELl1000000000EEEEEEvN14arrow_vendored4date8hh_mm_ssIT_EEPPc.exit.i.i.i.i.i.i.i.i.i2914
+if.then.i.i312.i.i.i.i.i.i.i.i:                   ; preds = %_ZN5arrow8internal6detail14FormatHH_MM_SSINSt6chrono8durationIlSt5ratioILl1ELl1000000000EEEEEEvN14arrow_vendored4date8hh_mm_ssIT_EEPPc.exit.i.i.i.i.i.i.i.i.i2915
   %div1243.i.i313.i.i.i.i.i.i.i.i = udiv i16 %rem.lhs.trunc.i.i285.i.i.i.i.i.i.i.i, 10000
   %2108 = trunc nuw nsw i16 %div1243.i.i313.i.i.i.i.i.i.i.i to i8
   %conv.i37.i.i314.i.i.i.i.i.i.i.i = or disjoint i8 %2108, 48
@@ -14208,8 +14208,8 @@ if.then.i.i312.i.i.i.i.i.i.i.i:                   ; preds = %_ZN5arrow8internal6
   store i8 %conv.i37.i.i314.i.i.i.i.i.i.i.i, ptr %incdec.ptr.i.i38.i.i315.i.i.i.i.i.i.i.i, align 1, !noalias !364
   br label %if.end.i.i300.i.i.i.i.i.i.i.i
 
-if.end.i.i300.i.i.i.i.i.i.i.i:                    ; preds = %if.then.i.i312.i.i.i.i.i.i.i.i, %_ZN5arrow8internal6detail14FormatHH_MM_SSINSt6chrono8durationIlSt5ratioILl1ELl1000000000EEEEEEvN14arrow_vendored4date8hh_mm_ssIT_EEPPc.exit.i.i.i.i.i.i.i.i.i2914
-  %cursor.3.i301.i.i.i.i.i.i.i.i = phi ptr [ %incdec.ptr.i.i38.i.i315.i.i.i.i.i.i.i.i, %if.then.i.i312.i.i.i.i.i.i.i.i ], [ %incdec.ptr.i3.i36.i.i298.i.i.i.i.i.i.i.i, %_ZN5arrow8internal6detail14FormatHH_MM_SSINSt6chrono8durationIlSt5ratioILl1ELl1000000000EEEEEEvN14arrow_vendored4date8hh_mm_ssIT_EEPPc.exit.i.i.i.i.i.i.i.i.i2914 ]
+if.end.i.i300.i.i.i.i.i.i.i.i:                    ; preds = %if.then.i.i312.i.i.i.i.i.i.i.i, %_ZN5arrow8internal6detail14FormatHH_MM_SSINSt6chrono8durationIlSt5ratioILl1ELl1000000000EEEEEEvN14arrow_vendored4date8hh_mm_ssIT_EEPPc.exit.i.i.i.i.i.i.i.i.i2915
+  %cursor.3.i301.i.i.i.i.i.i.i.i = phi ptr [ %incdec.ptr.i.i38.i.i315.i.i.i.i.i.i.i.i, %if.then.i.i312.i.i.i.i.i.i.i.i ], [ %incdec.ptr.i3.i36.i.i298.i.i.i.i.i.i.i.i, %_ZN5arrow8internal6detail14FormatHH_MM_SSINSt6chrono8durationIlSt5ratioILl1ELl1000000000EEEEEEvN14arrow_vendored4date8hh_mm_ssIT_EEPPc.exit.i.i.i.i.i.i.i.i.i2915 ]
   br i1 %cmp.i.i284.i.i.i.i.i.i.i.i, label %if.then13.i.i310.i.i.i.i.i.i.i.i, label %_ZN5arrow8internal15StringFormatterINS_13TimestampTypeEvEclINSt6chrono8durationIlSt5ratioILl1ELl1000000000EEEERZNS_12_GLOBAL__N_112ArrayPrinter20WritePrimitiveValuesINS_12NumericArrayIS2_EES3_EENS_6StatusERKT_PT0_EUlSt17basic_string_viewIcSt11char_traitsIcEEE_EEDTclclsr3stdE7declvalISJ_EEtlSO_EEESG_lOSJ_.exit.i.i.i.i.i.i.i.i
 
 if.then13.i.i310.i.i.i.i.i.i.i.i:                 ; preds = %if.end.i.i300.i.i.i.i.i.i.i.i
@@ -14231,17 +14231,17 @@ call2.i.i.i309.i.i.i.i.i.i.i.noexc.i:             ; preds = %_ZN5arrow8internal1
   call void @llvm.lifetime.end.p0(i64 31, ptr nonnull %buffer.i181.i.i.i.i.i.i.i.i), !noalias !364
   br label %do.end57.i.i.i.i.i2818
 
-sw.epilog.i.i.i.i.i.i.i.i2915:                    ; preds = %_ZN5arrow12_GLOBAL__N_113PrettyPrinter18IndentAfterNewlineEv.exit51.i.i.i.i.i2812
+sw.epilog.i.i.i.i.i.i.i.i2916:                    ; preds = %_ZN5arrow12_GLOBAL__N_113PrettyPrinter18IndentAfterNewlineEv.exit51.i.i.i.i.i2812
   call void @llvm.lifetime.start.p0(i64 22, ptr nonnull %buffer.i344.i.i.i.i.i.i.i.i), !noalias !364
   %2110 = add i64 %2008, 1096193779200
   %spec.select.i.i345.i.i.i.i.i.i.i.i = icmp ult i64 %2110, 2068084742400
   br i1 %spec.select.i.i345.i.i.i.i.i.i.i.i, label %if.end.i347.i.i.i.i.i.i.i.i, label %if.then.i346.i.i.i.i.i.i.i.i
 
-if.then.i346.i.i.i.i.i.i.i.i:                     ; preds = %sw.epilog.i.i.i.i.i.i.i.i2915
+if.then.i346.i.i.i.i.i.i.i.i:                     ; preds = %sw.epilog.i.i.i.i.i.i.i.i2916
   invoke fastcc void @_ZN5arrow8internal6detail16FormatOutOfRangeIRlRZNS_12_GLOBAL__N_112ArrayPrinter20WritePrimitiveValuesINS_12NumericArrayINS_13TimestampTypeEEENS0_15StringFormatterIS8_vEEEENS_6StatusERKT_PT0_EUlSt17basic_string_viewIcSt11char_traitsIcEEE_EEDTclclsr3stdE7declvalISG_EEtlSL_EEEOSD_OSG_(i64 %2008, ptr noundef nonnull readonly align 8 dereferenceable(8) %appender.i.i.i.i2714)
           to label %_ZN5arrow8internal15StringFormatterINS_13TimestampTypeEvEclINSt6chrono8durationIlSt5ratioILl1ELl1EEEERZNS_12_GLOBAL__N_112ArrayPrinter20WritePrimitiveValuesINS_12NumericArrayIS2_EES3_EENS_6StatusERKT_PT0_EUlSt17basic_string_viewIcSt11char_traitsIcEEE_EEDTclclsr3stdE7declvalISJ_EEtlSO_EEESG_lOSJ_.exit.i.i.i.i.i.i.i.i unwind label %lpad.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.i2817, !noalias !350
 
-if.end.i347.i.i.i.i.i.i.i.i:                      ; preds = %sw.epilog.i.i.i.i.i.i.i.i2915
+if.end.i347.i.i.i.i.i.i.i.i:                      ; preds = %sw.epilog.i.i.i.i.i.i.i.i2916
   %div.i.i.i.i348.i.i.i.i.i.i.i.i = sdiv i64 %2008, 86400
   %conv.i.i.i.i349.i.i.i.i.i.i.i.i = trunc i64 %div.i.i.i.i348.i.i.i.i.i.i.i.i to i32
   %mul.i.i.i.i.i.i.i350.i.i.i.i.i.i.i.i = mul nsw i64 %div.i.i.i.i348.i.i.i.i.i.i.i.i, 86400
@@ -14279,26 +14279,26 @@ if.end25.i355.i.i.i.i.i.i.i.i:                    ; preds = %if.else.i446.i.i.i.
   %2112 = load i8, ptr %arrayidx.i.i.i366.i.i.i.i.i.i.i.i, align 1, !noalias !364
   store i8 %2112, ptr %incdec.ptr.i3.i.i.i368.i.i.i.i.i.i.i.i, align 1, !noalias !364
   store i8 58, ptr %incdec.ptr.i.i.i369.i.i.i.i.i.i.i.i, align 1, !noalias !364
-  %mul.i5.i.i.i.i.i.i.i.i.i.i2916 = shl nsw i64 %sub.i.i.i.i360.i.i.i.i.i.i.i.i, 1
-  %arrayidx.i6.i.i.i.i.i.i.i.i.i.i2917 = getelementptr inbounds [0 x i8], ptr @_ZN5arrow8internal6detail11digit_pairsE, i64 0, i64 %mul.i5.i.i.i.i.i.i.i.i.i.i2916
-  %arrayidx1.i7.i.i.i.i.i.i.i.i.i.i2918 = getelementptr inbounds i8, ptr %arrayidx.i6.i.i.i.i.i.i.i.i.i.i2917, i64 1
-  %2113 = load i8, ptr %arrayidx1.i7.i.i.i.i.i.i.i.i.i.i2918, align 1, !noalias !364
+  %mul.i5.i.i.i.i.i.i.i.i.i.i2917 = shl nsw i64 %sub.i.i.i.i360.i.i.i.i.i.i.i.i, 1
+  %arrayidx.i6.i.i.i.i.i.i.i.i.i.i2918 = getelementptr inbounds [0 x i8], ptr @_ZN5arrow8internal6detail11digit_pairsE, i64 0, i64 %mul.i5.i.i.i.i.i.i.i.i.i.i2917
+  %arrayidx1.i7.i.i.i.i.i.i.i.i.i.i2919 = getelementptr inbounds i8, ptr %arrayidx.i6.i.i.i.i.i.i.i.i.i.i2918, i64 1
+  %2113 = load i8, ptr %arrayidx1.i7.i.i.i.i.i.i.i.i.i.i2919, align 1, !noalias !364
   store i8 %2113, ptr %incdec.ptr.i.i8.i.i370.i.i.i.i.i.i.i.i, align 1, !noalias !364
-  %2114 = load i8, ptr %arrayidx.i6.i.i.i.i.i.i.i.i.i.i2917, align 1, !noalias !364
+  %2114 = load i8, ptr %arrayidx.i6.i.i.i.i.i.i.i.i.i.i2918, align 1, !noalias !364
   store i8 %2114, ptr %incdec.ptr.i3.i9.i.i.i.i.i.i.i.i.i.i2776, align 1, !noalias !364
   store i8 58, ptr %incdec.ptr.i10.i.i.i.i.i.i.i.i.i.i2777, align 1, !noalias !364
-  %mul.i12.i.i.i.i.i.i.i.i.i.i2919 = shl nuw nsw i64 %div.i.i10.i.i.i.i.i.i.i.i.i.i.i, 1
-  %arrayidx.i13.i.i.i.i.i.i.i.i.i.i2920 = getelementptr inbounds [0 x i8], ptr @_ZN5arrow8internal6detail11digit_pairsE, i64 0, i64 %mul.i12.i.i.i.i.i.i.i.i.i.i2919
-  %arrayidx1.i14.i.i.i.i.i.i.i.i.i.i2921 = getelementptr inbounds i8, ptr %arrayidx.i13.i.i.i.i.i.i.i.i.i.i2920, i64 1
-  %2115 = load i8, ptr %arrayidx1.i14.i.i.i.i.i.i.i.i.i.i2921, align 1, !noalias !364
+  %mul.i12.i.i.i.i.i.i.i.i.i.i2920 = shl nuw nsw i64 %div.i.i10.i.i.i.i.i.i.i.i.i.i.i, 1
+  %arrayidx.i13.i.i.i.i.i.i.i.i.i.i2921 = getelementptr inbounds [0 x i8], ptr @_ZN5arrow8internal6detail11digit_pairsE, i64 0, i64 %mul.i12.i.i.i.i.i.i.i.i.i.i2920
+  %arrayidx1.i14.i.i.i.i.i.i.i.i.i.i2922 = getelementptr inbounds i8, ptr %arrayidx.i13.i.i.i.i.i.i.i.i.i.i2921, i64 1
+  %2115 = load i8, ptr %arrayidx1.i14.i.i.i.i.i.i.i.i.i.i2922, align 1, !noalias !364
   store i8 %2115, ptr %incdec.ptr.i.i15.i.i.i.i.i.i.i.i.i.i2778, align 1, !noalias !364
-  %2116 = load i8, ptr %arrayidx.i13.i.i.i.i.i.i.i.i.i.i2920, align 1, !noalias !364
+  %2116 = load i8, ptr %arrayidx.i13.i.i.i.i.i.i.i.i.i.i2921, align 1, !noalias !364
   store i8 %2116, ptr %incdec.ptr.i3.i16.i.i.i.i.i.i.i.i.i.i2779, align 1, !noalias !364
   store i8 32, ptr %incdec.ptr.i.i371.i.i.i.i.i.i.i.i, align 1, !noalias !364
   %add.i.i.i372.i.i.i.i.i.i.i.i = add nsw i32 %timepoint_days.sroa.0.0.i357.i.i.i.i.i.i.i.i, 719468
-  %cmp.i.i.i.i.i.i.i.i.i.i.i2922 = icmp sgt i32 %timepoint_days.sroa.0.0.i357.i.i.i.i.i.i.i.i, -719469
+  %cmp.i.i.i.i.i.i.i.i.i.i.i = icmp sgt i32 %timepoint_days.sroa.0.0.i357.i.i.i.i.i.i.i.i, -719469
   %sub.i.i13.i.i.i.i.i.i.i.i.i = add nuw nsw i32 %timepoint_days.sroa.0.0.i357.i.i.i.i.i.i.i.i, 573372
-  %cond.i.i.i373.i.i.i.i.i.i.i.i = select i1 %cmp.i.i.i.i.i.i.i.i.i.i.i2922, i32 %add.i.i.i372.i.i.i.i.i.i.i.i, i32 %sub.i.i13.i.i.i.i.i.i.i.i.i
+  %cond.i.i.i373.i.i.i.i.i.i.i.i = select i1 %cmp.i.i.i.i.i.i.i.i.i.i.i, i32 %add.i.i.i372.i.i.i.i.i.i.i.i, i32 %sub.i.i13.i.i.i.i.i.i.i.i.i
   %div.i.i.i374.i.i.i.i.i.i.i.i = sdiv i32 %cond.i.i.i373.i.i.i.i.i.i.i.i, 146097
   %mul.neg.i.i.i375.i.i.i.i.i.i.i.i = mul nsw i32 %div.i.i.i374.i.i.i.i.i.i.i.i, -146097
   %sub1.i.i.i376.i.i.i.i.i.i.i.i = add nsw i32 %mul.neg.i.i.i375.i.i.i.i.i.i.i.i, %add.i.i.i372.i.i.i.i.i.i.i.i
@@ -14958,8 +14958,8 @@ _ZN5arrow12_GLOBAL__N_113PrettyPrinter18IndentAfterNewlineEv.exit51.i.i.i.i.i247
 
 sw.bb3.i.i.i.i.i.i.i.i2549:                       ; preds = %_ZN5arrow12_GLOBAL__N_113PrettyPrinter18IndentAfterNewlineEv.exit51.i.i.i.i.i2475
   call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %buffer.i.i.i.i.i.i.i.i.i2333), !noalias !383
-  %cmp.i.i.i.i.i.i.i.i.i.i.i2550 = icmp ult i32 %2220, 86400000
-  br i1 %cmp.i.i.i.i.i.i.i.i.i.i.i2550, label %if.end.i.i.i.i.i.i.i.i.i2552, label %if.then.i.i.i.i.i.i.i.i.i2551
+  %spec.select.i.i.i.i.i.i.i.i.i.i2550 = icmp ult i32 %2220, 86400000
+  br i1 %spec.select.i.i.i.i.i.i.i.i.i.i2550, label %if.end.i.i.i.i.i.i.i.i.i2552, label %if.then.i.i.i.i.i.i.i.i.i2551
 
 if.then.i.i.i.i.i.i.i.i.i2551:                    ; preds = %sw.bb3.i.i.i.i.i.i.i.i2549
   invoke fastcc void @_ZN5arrow8internal6detail16FormatOutOfRangeIRiRZNS_12_GLOBAL__N_112ArrayPrinter20WritePrimitiveValuesINS_12NumericArrayINS_10Time32TypeEEENS0_15StringFormatterIS8_vEEEENS_6StatusERKT_PT0_EUlSt17basic_string_viewIcSt11char_traitsIcEEE_EEDTclclsr3stdE7declvalISG_EEtlSL_EEEOSD_OSG_(i32 %2220, ptr noundef nonnull readonly align 8 dereferenceable(8) %appender.i.i.i.i2334)
@@ -15095,8 +15095,8 @@ _ZN5arrow8internal15StringFormatterINS_10Time32TypeEvEclINSt6chrono8durationIlSt
 
 sw.bb4.i.i.i.i.i.i.i.i2479:                       ; preds = %_ZN5arrow12_GLOBAL__N_113PrettyPrinter18IndentAfterNewlineEv.exit51.i.i.i.i.i2475
   call void @llvm.lifetime.start.p0(i64 15, ptr nonnull %buffer.i10.i.i.i.i.i.i.i.i2332), !noalias !383
-  %cmp.i.i.i11.i.i.i.i.i.i.i.i2480 = icmp sgt i32 %2220, -1
-  br i1 %cmp.i.i.i11.i.i.i.i.i.i.i.i2480, label %if.end.i13.i.i.i.i.i.i.i.i2519, label %if.then.i12.i.i.i.i.i.i.i.i2481
+  %spec.select.i.i11.i.i.i.i.i.i.i.i2480 = icmp sgt i32 %2220, -1
+  br i1 %spec.select.i.i11.i.i.i.i.i.i.i.i2480, label %if.end.i13.i.i.i.i.i.i.i.i2519, label %if.then.i12.i.i.i.i.i.i.i.i2481
 
 if.then.i12.i.i.i.i.i.i.i.i2481:                  ; preds = %sw.bb4.i.i.i.i.i.i.i.i2479
   invoke fastcc void @_ZN5arrow8internal6detail16FormatOutOfRangeIRiRZNS_12_GLOBAL__N_112ArrayPrinter20WritePrimitiveValuesINS_12NumericArrayINS_10Time32TypeEEENS0_15StringFormatterIS8_vEEEENS_6StatusERKT_PT0_EUlSt17basic_string_viewIcSt11char_traitsIcEEE_EEDTclclsr3stdE7declvalISG_EEtlSL_EEEOSD_OSG_(i32 %2220, ptr noundef nonnull readonly align 8 dereferenceable(8) %appender.i.i.i.i2334)
@@ -15223,8 +15223,8 @@ _ZN5arrow8internal15StringFormatterINS_10Time32TypeEvEclINSt6chrono8durationIlSt
 
 sw.bb7.i.i.i.i.i.i.i.i2627:                       ; preds = %_ZN5arrow12_GLOBAL__N_113PrettyPrinter18IndentAfterNewlineEv.exit51.i.i.i.i.i2475
   call void @llvm.lifetime.start.p0(i64 18, ptr nonnull %buffer.i79.i.i.i.i.i.i.i.i), !noalias !383
-  %cmp.i.i.i81.i.i.i.i.i.i.i.i = icmp sgt i32 %2220, -1
-  br i1 %cmp.i.i.i81.i.i.i.i.i.i.i.i, label %if.end.i83.i.i.i.i.i.i.i.i, label %if.then.i82.i.i.i.i.i.i.i.i
+  %spec.select.i.i81.i.i.i.i.i.i.i.i = icmp sgt i32 %2220, -1
+  br i1 %spec.select.i.i81.i.i.i.i.i.i.i.i, label %if.end.i83.i.i.i.i.i.i.i.i, label %if.then.i82.i.i.i.i.i.i.i.i
 
 if.then.i82.i.i.i.i.i.i.i.i:                      ; preds = %sw.bb7.i.i.i.i.i.i.i.i2627
   invoke fastcc void @_ZN5arrow8internal6detail16FormatOutOfRangeIRiRZNS_12_GLOBAL__N_112ArrayPrinter20WritePrimitiveValuesINS_12NumericArrayINS_10Time32TypeEEENS0_15StringFormatterIS8_vEEEENS_6StatusERKT_PT0_EUlSt17basic_string_viewIcSt11char_traitsIcEEE_EEDTclclsr3stdE7declvalISG_EEtlSL_EEEOSD_OSG_(i32 %2220, ptr noundef nonnull readonly align 8 dereferenceable(8) %appender.i.i.i.i2334)
@@ -15341,8 +15341,8 @@ _ZN5arrow8internal15StringFormatterINS_10Time32TypeEvEclINSt6chrono8durationIlSt
 
 sw.epilog.i.i.i.i.i.i.i.i2630:                    ; preds = %_ZN5arrow12_GLOBAL__N_113PrettyPrinter18IndentAfterNewlineEv.exit51.i.i.i.i.i2475
   call void @llvm.lifetime.start.p0(i64 9, ptr nonnull %buffer.i142.i.i.i.i.i.i.i.i), !noalias !383
-  %cmp.i.i.i143.i.i.i.i.i.i.i.i = icmp ult i32 %2220, 86400
-  br i1 %cmp.i.i.i143.i.i.i.i.i.i.i.i, label %if.end.i145.i.i.i.i.i.i.i.i, label %if.then.i144.i.i.i.i.i.i.i.i
+  %spec.select.i.i143.i.i.i.i.i.i.i.i = icmp ult i32 %2220, 86400
+  br i1 %spec.select.i.i143.i.i.i.i.i.i.i.i, label %if.end.i145.i.i.i.i.i.i.i.i, label %if.then.i144.i.i.i.i.i.i.i.i
 
 if.then.i144.i.i.i.i.i.i.i.i:                     ; preds = %sw.epilog.i.i.i.i.i.i.i.i2630
   invoke fastcc void @_ZN5arrow8internal6detail16FormatOutOfRangeIRiRZNS_12_GLOBAL__N_112ArrayPrinter20WritePrimitiveValuesINS_12NumericArrayINS_10Time32TypeEEENS0_15StringFormatterIS8_vEEEENS_6StatusERKT_PT0_EUlSt17basic_string_viewIcSt11char_traitsIcEEE_EEDTclclsr3stdE7declvalISG_EEtlSL_EEEOSD_OSG_(i32 %2220, ptr noundef nonnull readonly align 8 dereferenceable(8) %appender.i.i.i.i2334)
@@ -15943,8 +15943,8 @@ _ZN5arrow12_GLOBAL__N_113PrettyPrinter18IndentAfterNewlineEv.exit51.i.i.i.i.i224
 
 sw.bb3.i.i.i.i.i.i.i.i:                           ; preds = %_ZN5arrow12_GLOBAL__N_113PrettyPrinter18IndentAfterNewlineEv.exit51.i.i.i.i.i2243
   call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %buffer.i.i.i.i.i.i.i.i.i), !noalias !401
-  %cmp.i.i.i.i.i.i.i.i.i.i.i = icmp ult i64 %2367, 86400000
-  br i1 %cmp.i.i.i.i.i.i.i.i.i.i.i, label %if.end.i.i.i.i.i.i.i.i.i, label %if.then.i.i.i.i.i.i.i.i.i2265
+  %spec.select.i.i.i.i.i.i.i.i.i.i = icmp ult i64 %2367, 86400000
+  br i1 %spec.select.i.i.i.i.i.i.i.i.i.i, label %if.end.i.i.i.i.i.i.i.i.i, label %if.then.i.i.i.i.i.i.i.i.i2265
 
 if.then.i.i.i.i.i.i.i.i.i2265:                    ; preds = %sw.bb3.i.i.i.i.i.i.i.i
   invoke fastcc void @_ZN5arrow8internal6detail16FormatOutOfRangeIRlRZNS_12_GLOBAL__N_112ArrayPrinter20WritePrimitiveValuesINS_12NumericArrayINS_10Time64TypeEEENS0_15StringFormatterIS8_vEEEENS_6StatusERKT_PT0_EUlSt17basic_string_viewIcSt11char_traitsIcEEE_EEDTclclsr3stdE7declvalISG_EEtlSL_EEEOSD_OSG_(i64 %2367, ptr noundef nonnull readonly align 8 dereferenceable(8) %appender.i.i.i.i)
@@ -16080,8 +16080,8 @@ _ZN5arrow8internal15StringFormatterINS_10Time64TypeEvEclINSt6chrono8durationIlSt
 
 sw.bb4.i.i.i.i.i.i.i.i:                           ; preds = %_ZN5arrow12_GLOBAL__N_113PrettyPrinter18IndentAfterNewlineEv.exit51.i.i.i.i.i2243
   call void @llvm.lifetime.start.p0(i64 15, ptr nonnull %buffer.i10.i.i.i.i.i.i.i.i), !noalias !401
-  %cmp.i.i.i11.i.i.i.i.i.i.i.i = icmp ult i64 %2367, 86400000000
-  br i1 %cmp.i.i.i11.i.i.i.i.i.i.i.i, label %if.end.i13.i.i.i.i.i.i.i.i, label %if.then.i12.i.i.i.i.i.i.i.i
+  %spec.select.i.i11.i.i.i.i.i.i.i.i = icmp ult i64 %2367, 86400000000
+  br i1 %spec.select.i.i11.i.i.i.i.i.i.i.i, label %if.end.i13.i.i.i.i.i.i.i.i, label %if.then.i12.i.i.i.i.i.i.i.i
 
 if.then.i12.i.i.i.i.i.i.i.i:                      ; preds = %sw.bb4.i.i.i.i.i.i.i.i
   invoke fastcc void @_ZN5arrow8internal6detail16FormatOutOfRangeIRlRZNS_12_GLOBAL__N_112ArrayPrinter20WritePrimitiveValuesINS_12NumericArrayINS_10Time64TypeEEENS0_15StringFormatterIS8_vEEEENS_6StatusERKT_PT0_EUlSt17basic_string_viewIcSt11char_traitsIcEEE_EEDTclclsr3stdE7declvalISG_EEtlSL_EEEOSD_OSG_(i64 %2367, ptr noundef nonnull readonly align 8 dereferenceable(8) %appender.i.i.i.i)
@@ -16212,8 +16212,8 @@ _ZN5arrow8internal15StringFormatterINS_10Time64TypeEvEclINSt6chrono8durationIlSt
 
 sw.bb7.i.i.i.i.i.i.i.i:                           ; preds = %_ZN5arrow12_GLOBAL__N_113PrettyPrinter18IndentAfterNewlineEv.exit51.i.i.i.i.i2243
   call void @llvm.lifetime.start.p0(i64 18, ptr nonnull %buffer.i82.i.i.i.i.i.i.i.i), !noalias !401
-  %cmp.i.i.i84.i.i.i.i.i.i.i.i = icmp ult i64 %2367, 86400000000000
-  br i1 %cmp.i.i.i84.i.i.i.i.i.i.i.i, label %if.end.i86.i.i.i.i.i.i.i.i, label %if.then.i85.i.i.i.i.i.i.i.i
+  %spec.select.i.i84.i.i.i.i.i.i.i.i = icmp ult i64 %2367, 86400000000000
+  br i1 %spec.select.i.i84.i.i.i.i.i.i.i.i, label %if.end.i86.i.i.i.i.i.i.i.i, label %if.then.i85.i.i.i.i.i.i.i.i
 
 if.then.i85.i.i.i.i.i.i.i.i:                      ; preds = %sw.bb7.i.i.i.i.i.i.i.i
   invoke fastcc void @_ZN5arrow8internal6detail16FormatOutOfRangeIRlRZNS_12_GLOBAL__N_112ArrayPrinter20WritePrimitiveValuesINS_12NumericArrayINS_10Time64TypeEEENS0_15StringFormatterIS8_vEEEENS_6StatusERKT_PT0_EUlSt17basic_string_viewIcSt11char_traitsIcEEE_EEDTclclsr3stdE7declvalISG_EEtlSL_EEEOSD_OSG_(i64 %2367, ptr noundef nonnull readonly align 8 dereferenceable(8) %appender.i.i.i.i)
@@ -16344,8 +16344,8 @@ _ZN5arrow8internal15StringFormatterINS_10Time64TypeEvEclINSt6chrono8durationIlSt
 
 sw.epilog.i.i.i.i.i.i.i.i:                        ; preds = %_ZN5arrow12_GLOBAL__N_113PrettyPrinter18IndentAfterNewlineEv.exit51.i.i.i.i.i2243
   call void @llvm.lifetime.start.p0(i64 9, ptr nonnull %buffer.i159.i.i.i.i.i.i.i.i), !noalias !401
-  %cmp.i.i.i160.i.i.i.i.i.i.i.i = icmp ult i64 %2367, 86400
-  br i1 %cmp.i.i.i160.i.i.i.i.i.i.i.i, label %if.end.i162.i.i.i.i.i.i.i.i, label %if.then.i161.i.i.i.i.i.i.i.i
+  %spec.select.i.i160.i.i.i.i.i.i.i.i = icmp ult i64 %2367, 86400
+  br i1 %spec.select.i.i160.i.i.i.i.i.i.i.i, label %if.end.i162.i.i.i.i.i.i.i.i, label %if.then.i161.i.i.i.i.i.i.i.i
 
 if.then.i161.i.i.i.i.i.i.i.i:                     ; preds = %sw.epilog.i.i.i.i.i.i.i.i
   invoke fastcc void @_ZN5arrow8internal6detail16FormatOutOfRangeIRlRZNS_12_GLOBAL__N_112ArrayPrinter20WritePrimitiveValuesINS_12NumericArrayINS_10Time64TypeEEENS0_15StringFormatterIS8_vEEEENS_6StatusERKT_PT0_EUlSt17basic_string_viewIcSt11char_traitsIcEEE_EEDTclclsr3stdE7declvalISG_EEtlSL_EEEOSD_OSG_(i64 %2367, ptr noundef nonnull readonly align 8 dereferenceable(8) %appender.i.i.i.i)

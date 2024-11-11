@@ -106,7 +106,7 @@ define i64 @f64_rem(i64 %0, i64 %1) local_unnamed_addr #0 {
   %54 = shl i64 %34, 9
   %55 = lshr i64 %52, 32
   %56 = mul nuw i64 %55, %51
-  %57 = icmp ult i64 %35, 30
+  %57 = icmp samesign ult i64 %35, 30
   br i1 %57, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %48, %.lr.ph
@@ -124,7 +124,7 @@ define i64 @f64_rem(i64 %0, i64 %1) local_unnamed_addr #0 {
   %65 = add nsw i64 %.0106138, -29
   %66 = lshr i64 %spec.select130, 32
   %67 = mul nuw i64 %66, %51
-  %68 = icmp ult i64 %.0106138, 29
+  %68 = icmp samesign ult i64 %.0106138, 29
   br i1 %68, label %._crit_edge, label %.lr.ph
 
 ._crit_edge:                                      ; preds = %.lr.ph, %48

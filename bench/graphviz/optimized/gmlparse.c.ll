@@ -213,7 +213,7 @@ define dso_local range(i32 0, 3) i32 @gmlparse() local_unnamed_addr #0 {
   br label %.preheader
 
 50:                                               ; preds = %47
-  %51 = icmp ult i32 %44, 290
+  %51 = icmp samesign ult i32 %44, 290
   br i1 %51, label %52, label %57
 
 52:                                               ; preds = %50

@@ -4979,7 +4979,7 @@ _ZSt4fillIPiiEvT_S1_RKT0_.exit.i:                 ; preds = %.lr.ph.i.i.i.prehea
   %111 = load i32, ptr %gep63.i, align 4
   %112 = getelementptr inbounds i32, ptr %47, i64 %indvars.iv.next91.i
   store i32 %111, ptr %112, align 4
-  %113 = icmp ugt i64 %indvars.iv90.i, 2
+  %113 = icmp samesign ugt i64 %indvars.iv90.i, 2
   br i1 %113, label %.lr.ph65.i, label %.loopexit, !llvm.loop !62
 
 .loopexit:                                        ; preds = %.lr.ph65.i, %.preheader.i
@@ -9362,7 +9362,7 @@ define linkonce_odr hidden void @_ZN5Eigen12DenseStorageIdLin1ELin1ELin1ELi1EE6r
   br i1 %12, label %13, label %.sink.split
 
 13:                                               ; preds = %10
-  %14 = icmp ugt i64 %1, 2305843009213693951
+  %14 = icmp samesign ugt i64 %1, 2305843009213693951
   br i1 %14, label %15, label %17
 
 15:                                               ; preds = %13

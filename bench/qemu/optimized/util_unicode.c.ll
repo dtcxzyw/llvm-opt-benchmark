@@ -28,7 +28,7 @@ if.end:                                           ; preds = %lor.lhs.false
   br i1 %cmp4, label %return, label %if.else
 
 if.else:                                          ; preds = %if.end
-  %cmp7 = icmp ugt i8 %0, -3
+  %cmp7 = icmp samesign ugt i8 %0, -3
   %and = and i32 %conv3, 64
   %cmp11 = icmp eq i32 %and, 0
   %or.cond30 = or i1 %cmp7, %cmp11
@@ -167,7 +167,7 @@ if.then5:                                         ; preds = %if.end2
   br label %return.sink.split
 
 if.end7:                                          ; preds = %if.end2
-  %cmp8 = icmp ult i32 %codepoint, 2048
+  %cmp8 = icmp samesign ult i32 %codepoint, 2048
   br i1 %cmp8, label %if.then10, label %if.end19
 
 if.then10:                                        ; preds = %if.end7
@@ -183,7 +183,7 @@ if.then10:                                        ; preds = %if.end7
   br label %return.sink.split
 
 if.end19:                                         ; preds = %if.end7
-  %cmp20 = icmp ult i32 %codepoint, 65536
+  %cmp20 = icmp samesign ult i32 %codepoint, 65536
   %arrayidx32 = getelementptr i8, ptr %buf, i64 1
   br i1 %cmp20, label %if.then22, label %if.end38
 

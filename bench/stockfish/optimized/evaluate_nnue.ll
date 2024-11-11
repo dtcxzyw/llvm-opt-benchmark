@@ -4478,7 +4478,7 @@ _ZN9Stockfish4Eval4NNUE18read_little_endianIjEET_RSi.exit: ; preds = %13, %9
 
 41:                                               ; preds = %27
   %42 = icmp samesign ugt i64 %.020, 8
-  %43 = icmp ult i8 %31, 64
+  %43 = icmp samesign ult i8 %31, 64
   %or.cond = or i1 %42, %43
   %44 = trunc nuw nsw i64 %39 to i32
   %notmask = shl nsw i32 -1, %44
@@ -4581,7 +4581,7 @@ _ZN9Stockfish4Eval4NNUE18read_little_endianIjEET_RSi.exit: ; preds = %13, %9
 
 40:                                               ; preds = %27
   %41 = icmp samesign ugt i64 %.020, 24
-  %42 = icmp ult i8 %31, 64
+  %42 = icmp samesign ult i8 %31, 64
   %or.cond = or i1 %41, %42
   %43 = trunc nuw nsw i64 %38 to i32
   %notmask = shl nsw i32 -1, %43

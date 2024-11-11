@@ -120,7 +120,7 @@ _ZL10u_posrelatim.exit.thread:                    ; preds = %13, %22, %_ZL10u_po
 .preheader48:                                     ; preds = %40
   %.23851 = add nsw i32 %4, -1
   %42 = icmp ne i32 %4, 1
-  %43 = icmp ule i32 %.0.i, %24
+  %43 = icmp samesign ule i32 %.0.i, %24
   %44 = and i1 %42, %43
   br i1 %44, label %.preheader47, label %.critedge
 
@@ -136,7 +136,7 @@ _ZL10u_posrelatim.exit.thread:                    ; preds = %13, %22, %_ZL10u_po
 
 46:                                               ; preds = %.preheader44, %48
   %indvars.iv70 = phi i64 [ %45, %.preheader44 ], [ %indvars.iv.next71, %48 ]
-  %47 = icmp ugt i64 %indvars.iv70, 1
+  %47 = icmp samesign ugt i64 %indvars.iv70, 1
   br i1 %47, label %48, label %.critedge2
 
 48:                                               ; preds = %46
@@ -377,7 +377,7 @@ define internal noundef i32 @_ZL7utfcharP9lua_State(ptr noundef %0) #0 {
 
 9:                                                ; preds = %6
   %10 = zext nneg i32 %7 to i64
-  %11 = icmp ult i32 %7, 128
+  %11 = icmp samesign ult i32 %7, 128
   br i1 %11, label %_ZL11buffutfcharP9lua_StateiPcPPKc.exit, label %.preheader.i.i
 
 .preheader.i.i:                                   ; preds = %9, %.preheader.i.i
@@ -443,7 +443,7 @@ _ZL11buffutfcharP9lua_StateiPcPPKc.exit:          ; preds = %9, %21
 
 38:                                               ; preds = %35
   %39 = zext nneg i32 %36 to i64
-  %40 = icmp ult i32 %36, 128
+  %40 = icmp samesign ult i32 %36, 128
   br i1 %40, label %_ZL11buffutfcharP9lua_StateiPcPPKc.exit23, label %.preheader.i.i13
 
 .preheader.i.i13:                                 ; preds = %38, %.preheader.i.i13

@@ -679,7 +679,7 @@ select_opt_exact.exit.i:                          ; preds = %comp_distance_value
   %181 = getelementptr inbounds i8, ptr %5, i64 160
   %182 = mul i32 %.pr.i.pre, 60
   %183 = udiv i32 200, %178
-  %184 = icmp ugt i32 %178, 200
+  %184 = icmp samesign ugt i32 %178, 200
   br i1 %184, label %comp_opt_exact_or_map.exit.thread.i, label %185
 
 185:                                              ; preds = %180
@@ -2652,7 +2652,7 @@ is_anychar_infinite_greedy.exit:                  ; preds = %630
 
 637:                                              ; preds = %is_anychar_infinite_greedy.exit
   %638 = udiv i32 -1, %635
-  %639 = icmp uge i32 %616, %638
+  %639 = icmp samesign uge i32 %616, %638
   %640 = mul i32 %635, %616
   %641 = icmp ugt i32 %640, 10
   %or.cond287 = or i1 %641, %639
@@ -2723,7 +2723,7 @@ is_anychar_infinite_greedy.exit.thread:           ; preds = %637, %630, %626, %6
 
 669:                                              ; preds = %665
   %670 = udiv i32 -1, %667
-  %671 = icmp uge i32 %616, %670
+  %671 = icmp samesign uge i32 %616, %670
   %672 = mul i32 %667, %616
   %673 = icmp ugt i32 %672, 10
   %or.cond289 = or i1 %673, %671
@@ -2735,7 +2735,7 @@ is_anychar_infinite_greedy.exit.thread:           ; preds = %637, %630, %626, %6
   %676 = add nuw nsw i32 %616, 2
   %spec.select.i.le365 = select i1 %.not210.i.le378, i32 %616, i32 %676
   %677 = icmp eq i32 %667, 1
-  %678 = icmp ugt i32 %616, 10
+  %678 = icmp samesign ugt i32 %616, 10
   %or.cond.i = and i1 %678, %677
   br i1 %or.cond.i, label %679, label %.thread267
 
@@ -5657,7 +5657,7 @@ define dso_local range(i32 0, 2) i32 @onig_is_code_in_cc(ptr nocapture noundef r
   br i1 %11, label %51, label %12
 
 12:                                               ; preds = %7
-  %13 = icmp ugt i32 %10, 1
+  %13 = icmp samesign ugt i32 %10, 1
   %14 = icmp ugt i32 %1, 255
   %or.cond.i = or i1 %14, %13
   br i1 %or.cond.i, label %.thread, label %39
@@ -11329,7 +11329,7 @@ define internal fastcc i32 @is_exclusive(ptr nocapture noundef nonnull readonly 
   br i1 %194, label %onig_is_code_in_cc.exit, label %195
 
 195:                                              ; preds = %190
-  %196 = icmp ugt i32 %193, 1
+  %196 = icmp samesign ugt i32 %193, 1
   %197 = icmp ugt i32 %185, 255
   %or.cond.i.i = or i1 %197, %196
   br i1 %or.cond.i.i, label %.thread.i, label %222
@@ -15159,7 +15159,7 @@ is_anychar_infinite_greedy.exit:                  ; preds = %73
 
 80:                                               ; preds = %is_anychar_infinite_greedy.exit
   %81 = udiv i32 -1, %78
-  %82 = icmp uge i32 %59, %81
+  %82 = icmp samesign uge i32 %59, %81
   %83 = mul i32 %78, %59
   %84 = icmp ugt i32 %83, 10
   %or.cond89 = or i1 %84, %82
@@ -15188,7 +15188,7 @@ is_anychar_infinite_greedy.exit.thread:           ; preds = %80, %73, %69, %66, 
 
 92:                                               ; preds = %88
   %93 = udiv i32 -1, %90
-  %94 = icmp uge i32 %59, %93
+  %94 = icmp samesign uge i32 %59, %93
   %95 = mul i32 %90, %59
   %96 = icmp ugt i32 %95, 10
   %or.cond91 = or i1 %96, %94
@@ -15197,7 +15197,7 @@ is_anychar_infinite_greedy.exit.thread:           ; preds = %80, %73, %69, %66, 
 len_multiply_cmp.exit65:                          ; preds = %.len_multiply_cmp.exit65_crit_edge, %92
   %.pre-phi = phi i32 [ %.pre117, %.len_multiply_cmp.exit65_crit_edge ], [ %95, %92 ]
   %97 = icmp eq i32 %90, 1
-  %98 = icmp ugt i32 %59, 10
+  %98 = icmp samesign ugt i32 %59, 10
   %or.cond.i = and i1 %98, %97
   %.060.i = select i1 %or.cond.i, i32 1, i32 %.pre-phi
   %99 = add nuw nsw i32 %spec.select.i51, 2

@@ -270,7 +270,7 @@ define internal fastcc void @dissect_pw_satop(ptr noundef %0, ptr noundef %1, pt
   br label %62
 
 53:                                               ; preds = %47
-  %54 = icmp ult i32 %8, %48
+  %54 = icmp samesign ult i32 %8, %48
   br i1 %54, label %55, label %57
 
 55:                                               ; preds = %53

@@ -748,7 +748,7 @@ define range(i32 -1, 1) i32 @H5B2__insert_internal(ptr noundef %0, i16 noundef z
   %64 = getelementptr inbounds i8, ptr %60, i64 32
   %65 = load i16, ptr %64, align 8
   %66 = zext i16 %65 to i32
-  %67 = icmp ugt i32 %51, %66
+  %67 = icmp samesign ugt i32 %51, %66
   br i1 %67, label %68, label %75
 
 68:                                               ; preds = %63
@@ -789,7 +789,7 @@ define range(i32 -1, 1) i32 @H5B2__insert_internal(ptr noundef %0, i16 noundef z
   %90 = getelementptr inbounds %struct.H5B2_node_ptr_t, ptr %60, i64 %89, i32 1
   %91 = load i16, ptr %90, align 8
   %92 = zext i16 %91 to i32
-  %93 = icmp ugt i32 %51, %92
+  %93 = icmp samesign ugt i32 %51, %92
   br i1 %93, label %94, label %101
 
 94:                                               ; preds = %87
@@ -823,7 +823,7 @@ define range(i32 -1, 1) i32 @H5B2__insert_internal(ptr noundef %0, i16 noundef z
   %112 = getelementptr inbounds %struct.H5B2_node_ptr_t, ptr %60, i64 %111, i32 1
   %113 = load i16, ptr %112, align 8
   %114 = zext i16 %113 to i32
-  %115 = icmp ugt i32 %51, %114
+  %115 = icmp samesign ugt i32 %51, %114
   br i1 %115, label %123, label %116
 
 116:                                              ; preds = %109
@@ -832,7 +832,7 @@ define range(i32 -1, 1) i32 @H5B2__insert_internal(ptr noundef %0, i16 noundef z
   %119 = getelementptr inbounds %struct.H5B2_node_ptr_t, ptr %60, i64 %118, i32 1
   %120 = load i16, ptr %119, align 8
   %121 = zext i16 %120 to i32
-  %122 = icmp ugt i32 %51, %121
+  %122 = icmp samesign ugt i32 %51, %121
   br i1 %122, label %123, label %130
 
 123:                                              ; preds = %116, %109
@@ -1588,7 +1588,7 @@ define range(i32 -1, 1) i32 @H5B2__remove_internal(ptr noundef %0, ptr nocapture
   %131 = getelementptr inbounds i8, ptr %127, i64 32
   %132 = load i16, ptr %131, align 8
   %133 = zext i16 %132 to i32
-  %134 = icmp ult i32 %29, %133
+  %134 = icmp samesign ult i32 %29, %133
   br i1 %134, label %135, label %142
 
 135:                                              ; preds = %130
@@ -1629,7 +1629,7 @@ define range(i32 -1, 1) i32 @H5B2__remove_internal(ptr noundef %0, ptr nocapture
   %156 = getelementptr inbounds %struct.H5B2_node_ptr_t, ptr %127, i64 %155, i32 1
   %157 = load i16, ptr %156, align 8
   %158 = zext i16 %157 to i32
-  %159 = icmp ult i32 %29, %158
+  %159 = icmp samesign ult i32 %29, %158
   br i1 %159, label %160, label %._crit_edge217
 
 160:                                              ; preds = %154
@@ -1663,7 +1663,7 @@ define range(i32 -1, 1) i32 @H5B2__remove_internal(ptr noundef %0, ptr nocapture
   %177 = getelementptr inbounds %struct.H5B2_node_ptr_t, ptr %127, i64 %176, i32 1
   %178 = load i16, ptr %177, align 8
   %179 = zext i16 %178 to i32
-  %180 = icmp ult i32 %29, %179
+  %180 = icmp samesign ult i32 %29, %179
   br i1 %180, label %188, label %181
 
 181:                                              ; preds = %174
@@ -1672,7 +1672,7 @@ define range(i32 -1, 1) i32 @H5B2__remove_internal(ptr noundef %0, ptr nocapture
   %184 = getelementptr inbounds %struct.H5B2_node_ptr_t, ptr %127, i64 %183, i32 1
   %185 = load i16, ptr %184, align 8
   %186 = zext i16 %185 to i32
-  %187 = icmp ult i32 %29, %186
+  %187 = icmp samesign ult i32 %29, %186
   br i1 %187, label %188, label %195
 
 188:                                              ; preds = %181, %174
@@ -2094,7 +2094,7 @@ define range(i32 -1, 1) i32 @H5B2__remove_internal_by_idx(ptr noundef %0, ptr no
   %115 = getelementptr inbounds i8, ptr %111, i64 32
   %116 = load i16, ptr %115, align 8
   %117 = zext i16 %116 to i32
-  %118 = icmp ult i32 %27, %117
+  %118 = icmp samesign ult i32 %27, %117
   br i1 %118, label %119, label %126
 
 119:                                              ; preds = %114
@@ -2135,7 +2135,7 @@ define range(i32 -1, 1) i32 @H5B2__remove_internal_by_idx(ptr noundef %0, ptr no
   %140 = getelementptr inbounds %struct.H5B2_node_ptr_t, ptr %111, i64 %139, i32 1
   %141 = load i16, ptr %140, align 8
   %142 = zext i16 %141 to i32
-  %143 = icmp ult i32 %27, %142
+  %143 = icmp samesign ult i32 %27, %142
   br i1 %143, label %144, label %._crit_edge331
 
 144:                                              ; preds = %138
@@ -2169,7 +2169,7 @@ define range(i32 -1, 1) i32 @H5B2__remove_internal_by_idx(ptr noundef %0, ptr no
   %161 = getelementptr inbounds %struct.H5B2_node_ptr_t, ptr %111, i64 %160, i32 1
   %162 = load i16, ptr %161, align 8
   %163 = zext i16 %162 to i32
-  %164 = icmp ult i32 %27, %163
+  %164 = icmp samesign ult i32 %27, %163
   br i1 %164, label %172, label %165
 
 165:                                              ; preds = %158
@@ -2178,7 +2178,7 @@ define range(i32 -1, 1) i32 @H5B2__remove_internal_by_idx(ptr noundef %0, ptr no
   %168 = getelementptr inbounds %struct.H5B2_node_ptr_t, ptr %111, i64 %167, i32 1
   %169 = load i16, ptr %168, align 8
   %170 = zext i16 %169 to i32
-  %171 = icmp ult i32 %27, %170
+  %171 = icmp samesign ult i32 %27, %170
   br i1 %171, label %172, label %179
 
 172:                                              ; preds = %165, %158

@@ -3246,7 +3246,7 @@ if.then10:                                        ; preds = %if.end8
   br label %if.then58
 
 if.end11:                                         ; preds = %if.end8
-  %cmp12 = icmp ugt i64 %iterations, 2147483647
+  %cmp12 = icmp samesign ugt i64 %iterations, 2147483647
   br i1 %cmp12, label %if.then13, label %if.end14
 
 if.then13:                                        ; preds = %if.end11
@@ -3284,7 +3284,7 @@ if.then27:                                        ; preds = %land.lhs.true, %if.
   br label %if.then58
 
 if.end28:                                         ; preds = %if.end24
-  %cmp29 = icmp ugt i64 %dklen.0, 2147483647
+  %cmp29 = icmp samesign ugt i64 %dklen.0, 2147483647
   br i1 %cmp29, label %if.then31, label %if.end32
 
 if.then31:                                        ; preds = %if.end28
@@ -3986,7 +3986,7 @@ while.body.lr.ph.i:                               ; preds = %PyMutex_Lock.exit
 while.body.i:                                     ; preds = %if.end5.i, %while.body.lr.ph.i
   %cp.09.i = phi ptr [ %12, %while.body.lr.ph.i ], [ %add.ptr.i, %if.end5.i ]
   %len.addr.08.i = phi i64 [ %11, %while.body.lr.ph.i ], [ %sub.i, %if.end5.i ]
-  %cmp1.i = icmp ugt i64 %len.addr.08.i, 2147483647
+  %cmp1.i = icmp samesign ugt i64 %len.addr.08.i, 2147483647
   %13 = and i64 %len.addr.08.i, 4294967295
   %process.0.i = select i1 %cmp1.i, i64 2147483647, i64 %13
   %14 = load ptr, ptr %ctx.i, align 8
@@ -4027,7 +4027,7 @@ while.body.lr.ph.i13:                             ; preds = %if.else
 while.body.i15:                                   ; preds = %if.end5.i22, %while.body.lr.ph.i13
   %cp.09.i16 = phi ptr [ %18, %while.body.lr.ph.i13 ], [ %add.ptr.i24, %if.end5.i22 ]
   %len.addr.08.i17 = phi i64 [ %8, %while.body.lr.ph.i13 ], [ %sub.i23, %if.end5.i22 ]
-  %cmp1.i18 = icmp ugt i64 %len.addr.08.i17, 2147483647
+  %cmp1.i18 = icmp samesign ugt i64 %len.addr.08.i17, 2147483647
   %19 = and i64 %len.addr.08.i17, 4294967295
   %process.0.i19 = select i1 %cmp1.i18, i64 2147483647, i64 %19
   %20 = load ptr, ptr %ctx.i14, align 8

@@ -59075,7 +59075,7 @@ define noundef zeroext i1 @ws_manuf_iter_next(ptr noundef %0, ptr nocapture noun
 23:                                               ; preds = %.thread, %22
   %.245 = phi i64 [ %20, %.thread ], [ %.136, %22 ]
   %24 = load ptr, ptr %3, align 16
-  %25 = icmp ugt i64 %.245, 1
+  %25 = icmp samesign ugt i64 %.245, 1
   br i1 %25, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %23, %31

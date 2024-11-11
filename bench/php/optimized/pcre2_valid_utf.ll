@@ -24,7 +24,7 @@ define hidden range(i32 -23, 1) i32 @_pcre2_valid_utf_8(ptr noundef %0, i64 noun
   br i1 %9, label %.thread, label %10
 
 10:                                               ; preds = %5
-  %11 = icmp ult i8 %6, -64
+  %11 = icmp samesign ult i8 %6, -64
   br i1 %11, label %12, label %15
 
 12:                                               ; preds = %10
@@ -34,7 +34,7 @@ define hidden range(i32 -23, 1) i32 @_pcre2_valid_utf_8(ptr noundef %0, i64 noun
   br label %.loopexit
 
 15:                                               ; preds = %10
-  %16 = icmp ugt i8 %6, -3
+  %16 = icmp samesign ugt i8 %6, -3
   br i1 %16, label %17, label %20
 
 17:                                               ; preds = %15
@@ -181,7 +181,7 @@ define hidden range(i32 -23, 1) i32 @_pcre2_valid_utf_8(ptr noundef %0, i64 noun
   br label %.loopexit
 
 90:                                               ; preds = %83
-  %91 = icmp ugt i8 %6, -12
+  %91 = icmp samesign ugt i8 %6, -12
   br i1 %91, label %95, label %92
 
 92:                                               ; preds = %90

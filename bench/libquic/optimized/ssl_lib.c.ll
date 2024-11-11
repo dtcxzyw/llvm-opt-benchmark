@@ -5150,7 +5150,7 @@ land.lhs.true12:                                  ; preds = %if.then
   br i1 %tobool14.not, label %land.lhs.true30, label %if.end26
 
 if.else:                                          ; preds = %if.then
-  %cmp17 = icmp ult i16 %client_version.addr.0, -256
+  %cmp17 = icmp samesign ult i16 %client_version.addr.0, -256
   br i1 %cmp17, label %if.else.if.end26_crit_edge, label %return
 
 if.else.if.end26_crit_edge:                       ; preds = %if.else
@@ -5204,7 +5204,7 @@ land.lhs.true69:                                  ; preds = %if.else65.land.lhs.
   br i1 %tobool73.not, label %land.lhs.true102, label %land.lhs.true79
 
 if.else75:                                        ; preds = %if.else65
-  %cmp77 = icmp ugt i16 %client_version.addr.1, 768
+  %cmp77 = icmp samesign ugt i16 %client_version.addr.1, 768
   br i1 %cmp77, label %if.else75.land.lhs.true79_crit_edge, label %if.else85
 
 if.else75.land.lhs.true79_crit_edge:              ; preds = %if.else75

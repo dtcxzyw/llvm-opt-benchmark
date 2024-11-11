@@ -1587,7 +1587,7 @@ dissect_non_data_shifting_command_response.exit.i.i: ; preds = %531, %get_data_b
   unreachable
 
 537:                                              ; preds = %dissect_non_data_shifting_command_response.exit.i.i
-  %538 = icmp ugt i32 %535, %.0.i.i.i92
+  %538 = icmp samesign ugt i32 %535, %.0.i.i.i92
   br i1 %538, label %539, label %dissect_response_data.exit.i
 
 539:                                              ; preds = %537

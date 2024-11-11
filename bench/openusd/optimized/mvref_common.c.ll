@@ -2677,7 +2677,7 @@ get_mv_projection.exit.us.us:                     ; preds = %114, %111
   %153 = icmp sge i32 %140, %152
   %or.cond47.not53.i.us.us = select i1 %or.cond45.not51.not55.i.us.us, i1 %153, i1 false
   %154 = add nuw nsw i32 %124, 16
-  %.not44.i.us.us = icmp ult i32 %140, %154
+  %.not44.i.us.us = icmp samesign ult i32 %140, %154
   %or.cond48.i.us.us = select i1 %or.cond47.not53.i.us.us, i1 %.not44.i.us.us, i1 false
   br i1 %or.cond48.i.us.us, label %get_block_position.exit.us.us, label %get_block_position.exit.thread.us100.us
 

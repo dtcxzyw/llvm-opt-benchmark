@@ -1101,7 +1101,7 @@ define hidden void @radius_tlv(ptr nocapture noundef readonly %0, ptr noundef %1
   br label %60
 
 24:                                               ; preds = %15
-  %25 = icmp ult i32 %.05368, %20
+  %25 = icmp samesign ult i32 %.05368, %20
   br i1 %25, label %26, label %28
 
 26:                                               ; preds = %24

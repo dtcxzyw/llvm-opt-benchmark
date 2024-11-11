@@ -44,7 +44,7 @@ define dso_local void @__crypto_xor(ptr nocapture noundef writeonly %0, ptr noca
   %25 = phi ptr [ %7, %.loopexit ], [ %35, %29 ]
   %26 = phi ptr [ %8, %.loopexit ], [ %34, %29 ]
   %27 = phi ptr [ %9, %.loopexit ], [ %33, %29 ]
-  %28 = icmp ugt i32 %24, 1
+  %28 = icmp samesign ugt i32 %24, 1
   br i1 %28, label %43, label %37
 
 29:                                               ; preds = %.loopexit

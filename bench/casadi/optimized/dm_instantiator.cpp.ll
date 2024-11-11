@@ -29623,7 +29623,7 @@ _ZN6casadi9SubMatrixINS_6MatrixIdEENS_5SliceES3_ED2Ev.exit273: ; preds = %_ZN6ca
 
 _ZN6casadi6MatrixIdED2Ev.exit275:                 ; preds = %_ZN6casadi9SubMatrixINS_6MatrixIdEENS_5SliceES3_ED2Ev.exit273, %486
   call void @_ZN6casadi12SharedObjectD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %234) #25
-  %487 = icmp ugt i64 %.0298.in, 1
+  %487 = icmp samesign ugt i64 %.0298.in, 1
   br i1 %487, label %447, label %._crit_edge, !llvm.loop !449
 
 488:                                              ; preds = %456, %455, %452
@@ -34131,7 +34131,7 @@ define linkonce_odr hidden void @_ZN6casadi13einstein_evalIdEEvxRKSt6vectorIxSaI
   %35 = load i64, ptr %34, align 8
   %36 = getelementptr inbounds i64, ptr %.pre256, i64 %31
   %37 = load i64, ptr %36, align 8
-  %38 = icmp ugt i64 %16, 2
+  %38 = icmp samesign ugt i64 %16, 2
   br i1 %38, label %39, label %.thread151
 
 39:                                               ; preds = %28
@@ -68715,7 +68715,7 @@ define linkonce_odr hidden void @_ZSt22__final_insertion_sortIN9__gnu_cxx17__nor
   %20 = getelementptr inbounds i8, ptr %.069.i.i.i.i.i.i, i64 -8
   store i64 %19, ptr %20, align 8
   %21 = add nsw i64 %.010.i.i.i.i.i.i, -1
-  %22 = icmp ugt i64 %.010.i.i.i.i.i.i, 1
+  %22 = icmp samesign ugt i64 %.010.i.i.i.i.i.i, 1
   br i1 %22, label %.lr.ph.i.i.i.i.i.i, label %_ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPSt4pairIxxESt6vectorIS3_SaIS3_EEEES8_ET0_T_SA_S9_.exit.i, !llvm.loop !985
 
 _ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPSt4pairIxxESt6vectorIS3_SaIS3_EEEES8_ET0_T_SA_S9_.exit.i: ; preds = %.lr.ph.i.i.i.i.i.i
@@ -68838,7 +68838,7 @@ _ZSt25__unguarded_linear_insertIN9__gnu_cxx17__normal_iteratorIPSt4pairIxxESt6ve
   %66 = getelementptr inbounds i8, ptr %.069.i.i.i.i.i.i37, i64 -8
   store i64 %65, ptr %66, align 8
   %67 = add nsw i64 %.010.i.i.i.i.i.i36, -1
-  %68 = icmp ugt i64 %.010.i.i.i.i.i.i36, 1
+  %68 = icmp samesign ugt i64 %.010.i.i.i.i.i.i36, 1
   br i1 %68, label %.lr.ph.i.i.i.i.i.i35, label %_ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPSt4pairIxxESt6vectorIS3_SaIS3_EEEES8_ET0_T_SA_S9_.exit.i33, !llvm.loop !985
 
 _ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPSt4pairIxxESt6vectorIS3_SaIS3_EEEES8_ET0_T_SA_S9_.exit.i33: ; preds = %.lr.ph.i.i.i.i.i.i35, %55

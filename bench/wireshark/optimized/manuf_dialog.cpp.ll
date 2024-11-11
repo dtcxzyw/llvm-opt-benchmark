@@ -1822,7 +1822,7 @@ _ZSt13move_backwardIN5QListI11QModelIndexE8iteratorES3_ET0_T_S5_S4_.exit.i.i.i.i
   %81 = getelementptr i8, ptr %.sroa.0.09.i.i.i.i.i.i58.i.i.i, i64 -24
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %81, ptr noundef nonnull align 8 dereferenceable(24) %80, i64 24, i1 false)
   %82 = add nsw i64 %.010.i.i.i.i.i.i57.i.i.i, -1
-  %83 = icmp ugt i64 %.010.i.i.i.i.i.i57.i.i.i, 1
+  %83 = icmp samesign ugt i64 %.010.i.i.i.i.i.i57.i.i.i, 1
   br i1 %83, label %.lr.ph.i.i.i.i.i.i56.i.i.i, label %_ZSt13move_backwardIN5QListI11QModelIndexE8iteratorES3_ET0_T_S5_S4_.exit.i54.i.i.i, !llvm.loop !38
 
 _ZSt13move_backwardIN5QListI11QModelIndexE8iteratorES3_ET0_T_S5_S4_.exit.i54.i.i.i: ; preds = %.lr.ph.i.i.i.i.i.i56.i.i.i, %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN11ManufDialog15copyToClipboardEvE3$_0EclIN5QListI11QModelIndexE8iteratorES9_EEbT_T0_.exit.thread.i53.i.i.i"

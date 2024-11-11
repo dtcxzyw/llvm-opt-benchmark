@@ -8990,7 +8990,7 @@ qos_calc_bitrate.exit365:                         ; preds = %167, %173, %176
   br label %qos_calc_ext2_bitrate.exit
 
 306:                                              ; preds = %301
-  %307 = icmp ult i8 %293, -9
+  %307 = icmp samesign ult i8 %293, -9
   br i1 %307, label %308, label %qos_calc_ext2_bitrate.exit
 
 308:                                              ; preds = %306
@@ -9038,7 +9038,7 @@ qos_calc_ext2_bitrate.exit:                       ; preds = %298, %303, %306, %3
   br label %qos_calc_ext2_bitrate.exit380
 
 333:                                              ; preds = %328
-  %334 = icmp ult i8 %320, -9
+  %334 = icmp samesign ult i8 %320, -9
   br i1 %334, label %335, label %qos_calc_ext2_bitrate.exit380
 
 335:                                              ; preds = %333
@@ -9086,7 +9086,7 @@ qos_calc_ext2_bitrate.exit380:                    ; preds = %325, %330, %333, %3
   br label %qos_calc_ext2_bitrate.exit382
 
 360:                                              ; preds = %355
-  %361 = icmp ult i8 %347, -9
+  %361 = icmp samesign ult i8 %347, -9
   br i1 %361, label %362, label %qos_calc_ext2_bitrate.exit382
 
 362:                                              ; preds = %360
@@ -9134,7 +9134,7 @@ qos_calc_ext2_bitrate.exit382:                    ; preds = %352, %357, %360, %3
   br label %qos_calc_ext2_bitrate.exit384
 
 387:                                              ; preds = %382
-  %388 = icmp ult i8 %374, -9
+  %388 = icmp samesign ult i8 %374, -9
   br i1 %388, label %389, label %qos_calc_ext2_bitrate.exit384
 
 389:                                              ; preds = %387

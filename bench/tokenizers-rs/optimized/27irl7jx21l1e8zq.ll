@@ -33048,7 +33048,7 @@ _ZN5alloc7raw_vec14handle_reserve17h1111f65bc787995dE.exit: ; preds = %24
   br label %48
 
 58:                                               ; preds = %48
-  %59 = icmp ult i32 %3, 2048
+  %59 = icmp samesign ult i32 %3, 2048
   br i1 %59, label %71, label %65
 
 60:                                               ; preds = %48
@@ -33066,7 +33066,7 @@ _ZN5alloc7raw_vec14handle_reserve17h1111f65bc787995dE.exit: ; preds = %24
   br label %.thread
 
 65:                                               ; preds = %58
-  %66 = icmp ult i32 %3, 65536
+  %66 = icmp samesign ult i32 %3, 65536
   %.20 = select i1 %66, i64 3, i64 4
   %67 = add i64 %.20, %2
   %68 = load i64, ptr %6, align 8, !alias.scope !5824, !noalias !5827, !noundef !4

@@ -93,7 +93,7 @@ Vec_IntSelectSort.exit:                           ; preds = %._crit_edge.i, %3
   %21 = getelementptr inbounds i32, ptr %1, i64 %indvars.iv.next
   %22 = load i32, ptr %21, align 4
   %23 = tail call fastcc i32 @Abc_ZddUniqueCreate(ptr noundef %0, i32 noundef %22, i32 noundef %.011, i32 noundef 0)
-  %24 = icmp ugt i64 %indvars.iv, 1
+  %24 = icmp samesign ugt i64 %indvars.iv, 1
   br i1 %24, label %.lr.ph, label %._crit_edge, !llvm.loop !7
 
 ._crit_edge:                                      ; preds = %.lr.ph, %Vec_IntSelectSort.exit
@@ -1067,7 +1067,7 @@ Abc_ZddCacheLookup.exit:                          ; preds = %33
 Abc_ZddCacheLookup.exit.thread:                   ; preds = %12, %29, %33, %Abc_ZddCacheLookup.exit
   %40 = load i32, ptr %8, align 4
   %41 = and i32 %40, 2147483647
-  %42 = icmp ult i32 %41, %2
+  %42 = icmp samesign ult i32 %41, %2
   %43 = getelementptr inbounds i8, ptr %8, i64 8
   %44 = load i32, ptr %43, align 4
   %45 = tail call i32 @Abc_ZddCof0(ptr noundef nonnull %0, i32 noundef %44, i32 noundef %2)
@@ -1163,7 +1163,7 @@ Abc_ZddCacheLookup.exit:                          ; preds = %33
 Abc_ZddCacheLookup.exit.thread:                   ; preds = %12, %29, %33, %Abc_ZddCacheLookup.exit
   %40 = load i32, ptr %8, align 4
   %41 = and i32 %40, 2147483647
-  %42 = icmp ult i32 %41, %2
+  %42 = icmp samesign ult i32 %41, %2
   br i1 %42, label %43, label %47
 
 43:                                               ; preds = %Abc_ZddCacheLookup.exit.thread
@@ -2239,7 +2239,7 @@ define void @Abc_ZddComb2Perm(ptr nocapture noundef readonly %0, i32 noundef %1,
   %22 = zext nneg i32 %21 to i64
   %23 = getelementptr inbounds i32, ptr %2, i64 %22
   store i32 %15, ptr %23, align 4
-  %24 = icmp ugt i64 %indvars.iv25, 1
+  %24 = icmp samesign ugt i64 %indvars.iv25, 1
   br i1 %24, label %.lr.ph23, label %._crit_edge, !llvm.loop !19
 
 ._crit_edge:                                      ; preds = %.lr.ph23, %.preheader
@@ -2379,7 +2379,7 @@ Abc_ZddCombPrint.exit:                            ; preds = %.lr.ph.i11, %.threa
   %46 = load i32, ptr %45, align 4
   store i32 %46, ptr %41, align 4
   store i32 %42, ptr %45, align 4
-  %47 = icmp ugt i64 %indvars.iv25.i, 1
+  %47 = icmp samesign ugt i64 %indvars.iv25.i, 1
   br i1 %47, label %.lr.ph23.i, label %Abc_ZddComb2Perm.exit, !llvm.loop !19
 
 Abc_ZddComb2Perm.exit:                            ; preds = %.lr.ph23.i, %.preheader.i20
@@ -2514,7 +2514,7 @@ Abc_ZddCombPrint.exit:                            ; preds = %.lr.ph.i, %._crit_e
   %47 = load i32, ptr %46, align 4
   store i32 %47, ptr %42, align 4
   store i32 %43, ptr %46, align 4
-  %48 = icmp ugt i64 %indvars.iv25.i, 1
+  %48 = icmp samesign ugt i64 %indvars.iv25.i, 1
   br i1 %48, label %.lr.ph23.i, label %Abc_ZddComb2Perm.exit, !llvm.loop !19
 
 Abc_ZddComb2Perm.exit:                            ; preds = %.lr.ph23.i, %.preheader.i
@@ -2743,7 +2743,7 @@ Abc_ZddPermPrint.exit:                            ; preds = %.lr.ph.i
 
 Abc_ZddUniqueCreate.exit:                         ; preds = %52, %.lr.ph.i17, %68
   %.035.i = phi i32 [ %86, %68 ], [ 0, %.lr.ph.i17 ], [ %42, %52 ]
-  %87 = icmp ugt i64 %indvars.iv.i18, 1
+  %87 = icmp samesign ugt i64 %indvars.iv.i18, 1
   br i1 %87, label %.lr.ph.i17, label %Abc_ZddBuildSet.exit, !llvm.loop !7
 
 Abc_ZddBuildSet.exit:                             ; preds = %Abc_ZddUniqueCreate.exit
@@ -3370,7 +3370,7 @@ Abc_ZddPermPrint.exit73:                          ; preds = %.lr.ph.i69
 
 Abc_ZddUniqueCreate.exit:                         ; preds = %103, %.lr.ph.i75, %119
   %.035.i = phi i32 [ %137, %119 ], [ 0, %.lr.ph.i75 ], [ %93, %103 ]
-  %138 = icmp ugt i64 %indvars.iv.i76, 1
+  %138 = icmp samesign ugt i64 %indvars.iv.i76, 1
   br i1 %138, label %.lr.ph.i75, label %Abc_ZddBuildSet.exit, !llvm.loop !7
 
 Abc_ZddBuildSet.exit:                             ; preds = %Abc_ZddUniqueCreate.exit, %Abc_ZddCombPrint.exit.thread
@@ -3851,7 +3851,7 @@ Abc_ZddPerm2Comb.exit:                            ; preds = %Abc_ZddPerm2Comb.ex
 
 Abc_ZddUniqueCreate.exit:                         ; preds = %140, %.lr.ph.i78, %156
   %.035.i = phi i32 [ %174, %156 ], [ 0, %.lr.ph.i78 ], [ %130, %140 ]
-  %175 = icmp ugt i64 %indvars.iv.i79, 1
+  %175 = icmp samesign ugt i64 %indvars.iv.i79, 1
   br i1 %175, label %.lr.ph.i78, label %Abc_ZddBuildSet.exit, !llvm.loop !7
 
 Abc_ZddBuildSet.exit:                             ; preds = %Abc_ZddUniqueCreate.exit

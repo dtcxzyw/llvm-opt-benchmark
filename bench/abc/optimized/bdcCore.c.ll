@@ -1248,7 +1248,7 @@ select.unfold.i50:                                ; preds = %select.unfold.i50, 
   %88 = and i32 %87, %85
   %89 = getelementptr inbounds i32, ptr %76, i64 %indvars.iv.next.i
   store i32 %88, ptr %89, align 4
-  %90 = icmp ugt i64 %indvars.iv.i51, 1
+  %90 = icmp samesign ugt i64 %indvars.iv.i51, 1
   br i1 %90, label %select.unfold.i50, label %Kit_TruthAnd.exit.loopexit, !llvm.loop !13
 
 Kit_TruthAnd.exit.loopexit:                       ; preds = %select.unfold.i50
@@ -1282,7 +1282,7 @@ select.unfold.i54:                                ; preds = %select.unfold.i54, 
   %101 = and i32 %97, %100
   %102 = getelementptr inbounds i32, ptr %92, i64 %indvars.iv.next.i56
   store i32 %101, ptr %102, align 4
-  %103 = icmp ugt i64 %indvars.iv.i55, 1
+  %103 = icmp samesign ugt i64 %indvars.iv.i55, 1
   br i1 %103, label %select.unfold.i54, label %Kit_TruthSharp.exit, !llvm.loop !14
 
 .critedge:                                        ; preds = %Abc_Clock.exit
@@ -1371,7 +1371,7 @@ select.unfold.i63:                                ; preds = %select.unfold.i63, 
   %151 = load i32, ptr %150, align 4
   %152 = getelementptr inbounds i32, ptr %142, i64 %indvars.iv.next.i65
   store i32 %151, ptr %152, align 4
-  %153 = icmp ugt i64 %indvars.iv.i64, 1
+  %153 = icmp samesign ugt i64 %indvars.iv.i64, 1
   br i1 %153, label %select.unfold.i63, label %Kit_TruthCopy.exit.loopexit, !llvm.loop !15
 
 Kit_TruthCopy.exit.loopexit:                      ; preds = %select.unfold.i63
@@ -1402,7 +1402,7 @@ select.unfold.i68:                                ; preds = %select.unfold.i68, 
   %161 = xor i32 %160, -1
   %162 = getelementptr inbounds i32, ptr %155, i64 %indvars.iv.next.i70
   store i32 %161, ptr %162, align 4
-  %163 = icmp ugt i64 %indvars.iv.i69, 1
+  %163 = icmp samesign ugt i64 %indvars.iv.i69, 1
   br i1 %163, label %select.unfold.i68, label %Kit_TruthSharp.exit, !llvm.loop !16
 
 Kit_TruthSharp.exit:                              ; preds = %select.unfold.i54, %select.unfold.i68, %Kit_TruthCopy.exit, %Kit_TruthAnd.exit

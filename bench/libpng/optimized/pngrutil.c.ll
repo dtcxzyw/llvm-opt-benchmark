@@ -197,7 +197,7 @@ define void @png_read_sig(ptr noalias noundef %0, ptr noalias noundef %1) local_
   br i1 %.not, label %20, label %13
 
 13:                                               ; preds = %6
-  %14 = icmp ult i8 %4, 4
+  %14 = icmp samesign ult i8 %4, 4
   br i1 %14, label %15, label %19
 
 15:                                               ; preds = %13
@@ -215,7 +215,7 @@ define void @png_read_sig(ptr noalias noundef %0, ptr noalias noundef %1) local_
   unreachable
 
 20:                                               ; preds = %6
-  %21 = icmp ult i8 %4, 3
+  %21 = icmp samesign ult i8 %4, 3
   br i1 %21, label %22, label %26
 
 22:                                               ; preds = %20
@@ -3098,7 +3098,7 @@ define void @png_handle_hIST(ptr noalias noundef %0, ptr noalias noundef %1, i32
   br i1 %or.cond, label %32, label %.preheader
 
 .preheader:                                       ; preds = %25
-  %.not = icmp ult i32 %2, 2
+  %.not = icmp samesign ult i32 %2, 2
   br i1 %.not, label %._crit_edge, label %png_crc_read.exit.preheader
 
 png_crc_read.exit.preheader:                      ; preds = %.preheader
@@ -6682,12 +6682,12 @@ define void @png_read_start_row(ptr noalias noundef %0) local_unnamed_addr #0 {
   ]
 
 80:                                               ; preds = %77
-  %81 = icmp ult i32 %.2, 9
+  %81 = icmp samesign ult i32 %.2, 9
   %.132 = select i1 %81, i32 16, i32 32
   br label %83
 
 82:                                               ; preds = %77, %77
-  %.inv = icmp ugt i32 %.2, 32
+  %.inv = icmp samesign ugt i32 %.2, 32
   %.133 = select i1 %.inv, i32 64, i32 32
   br label %83
 
@@ -6714,12 +6714,12 @@ define void @png_read_start_row(ptr noalias noundef %0) local_unnamed_addr #0 {
   br i1 %92, label %93, label %95
 
 93:                                               ; preds = %85, %89
-  %94 = icmp ult i32 %.3, 17
+  %94 = icmp samesign ult i32 %.3, 17
   %.134 = select i1 %94, i32 32, i32 64
   br label %100
 
 95:                                               ; preds = %89
-  %96 = icmp ult i32 %.3, 9
+  %96 = icmp samesign ult i32 %.3, 9
   %97 = icmp eq i8 %91, 6
   br i1 %96, label %98, label %99
 
@@ -6758,7 +6758,7 @@ define void @png_read_start_row(ptr noalias noundef %0) local_unnamed_addr #0 {
   %114 = add i32 %38, 7
   %115 = and i32 %114, -8
   %116 = zext i32 %115 to i64
-  %117 = icmp ugt i32 %.5, 7
+  %117 = icmp samesign ugt i32 %.5, 7
   br i1 %117, label %118, label %122
 
 118:                                              ; preds = %110

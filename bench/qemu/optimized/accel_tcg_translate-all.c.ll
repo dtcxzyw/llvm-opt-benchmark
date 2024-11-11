@@ -107,7 +107,7 @@ do.body.i.i:                                      ; preds = %do.body.i.i, %do.bo
 
 decode_sleb128.exit.i:                            ; preds = %do.body.i.i
   %cmp.i.i = icmp sgt i32 %add.i.i, 63
-  %tobool5.not.i.i = icmp ult i8 %6, 64
+  %tobool5.not.i.i = icmp samesign ult i8 %6, 64
   %or.cond.i.i = or i1 %cmp.i.i, %tobool5.not.i.i
   %sh_prom6.i.i = zext nneg i32 %add.i.i to i64
   %shl7.i.i = shl nsw i64 -1, %sh_prom6.i.i
@@ -135,7 +135,7 @@ do.body.i17.i:                                    ; preds = %decode_sleb128.exit
 
 decode_sleb128.exit35.i:                          ; preds = %do.body.i17.i
   %cmp.i28.i = icmp sgt i32 %add.i26.i, 63
-  %tobool5.not.i29.i = icmp ult i8 %9, 64
+  %tobool5.not.i29.i = icmp samesign ult i8 %9, 64
   %or.cond.i30.i = or i1 %cmp.i28.i, %tobool5.not.i29.i
   %sh_prom6.i31.i = zext nneg i32 %add.i26.i to i64
   %shl7.i32.i = shl nsw i64 -1, %sh_prom6.i31.i
@@ -296,7 +296,7 @@ do.body.i.i:                                      ; preds = %do.body.i.i, %do.bo
 
 decode_sleb128.exit.i:                            ; preds = %do.body.i.i
   %cmp.i.i = icmp sgt i32 %add.i.i, 63
-  %tobool5.not.i.i = icmp ult i8 %8, 64
+  %tobool5.not.i.i = icmp samesign ult i8 %8, 64
   %or.cond.i.i = or i1 %cmp.i.i, %tobool5.not.i.i
   %sh_prom6.i.i = zext nneg i32 %add.i.i to i64
   %shl7.i.i = shl nsw i64 -1, %sh_prom6.i.i
@@ -325,7 +325,7 @@ do.body.i17.i:                                    ; preds = %decode_sleb128.exit
 
 decode_sleb128.exit35.i:                          ; preds = %do.body.i17.i
   %cmp.i28.i = icmp sgt i32 %add.i26.i, 63
-  %tobool5.not.i29.i = icmp ult i8 %11, 64
+  %tobool5.not.i29.i = icmp samesign ult i8 %11, 64
   %or.cond.i30.i = or i1 %cmp.i28.i, %tobool5.not.i29.i
   %sh_prom6.i31.i = zext nneg i32 %add.i26.i to i64
   %shl7.i32.i = shl nsw i64 -1, %sh_prom6.i31.i

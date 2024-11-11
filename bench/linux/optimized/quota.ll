@@ -1021,7 +1021,7 @@ define internal fastcc i32 @quota_setinfo(ptr noundef %0, i32 noundef range(i32 
 
 18:                                               ; preds = %14
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(32) %5, i8 0, i64 32, i1 false)
-  %19 = icmp ult i32 %16, 4
+  %19 = icmp samesign ult i32 %16, 4
   br i1 %19, label %29, label %20
 
 20:                                               ; preds = %18

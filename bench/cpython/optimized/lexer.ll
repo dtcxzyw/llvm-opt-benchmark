@@ -2161,7 +2161,7 @@ lor.lhs.false413:                                 ; preds = %while.cond401
   br i1 %or.cond49, label %while.body426, label %while.end432
 
 while.body426:                                    ; preds = %while.cond401, %lor.lhs.false413
-  %cmp427 = icmp ugt i32 %c.5, 127
+  %cmp427 = icmp samesign ugt i32 %c.5, 127
   %spec.select882 = select i1 %cmp427, i32 1, i32 %nonascii.0
   br label %for.cond.i1074
 
@@ -2409,7 +2409,7 @@ PyUnicode_DATA.exit26.i.i:                        ; preds = %if.end.i24.i.i, %if
 PyUnicode_READ_CHAR.exit.i:                       ; preds = %PyUnicode_DATA.exit26.i.i, %PyUnicode_DATA.exit16.i.i, %PyUnicode_DATA.exit.i.i
   %retval.0.i.i = phi i32 [ %conv.i.i, %PyUnicode_DATA.exit.i.i ], [ %conv6.i.i, %PyUnicode_DATA.exit16.i.i ], [ %136, %PyUnicode_DATA.exit26.i.i ]
   %add.i = add nuw nsw i64 %call12.i, 1
-  %cmp22.i = icmp ult i64 %add.i, %call.val.i
+  %cmp22.i = icmp samesign ult i64 %add.i, %call.val.i
   br i1 %cmp22.i, label %do.body.i, label %if.end41.i
 
 do.body.i:                                        ; preds = %PyUnicode_READ_CHAR.exit.i

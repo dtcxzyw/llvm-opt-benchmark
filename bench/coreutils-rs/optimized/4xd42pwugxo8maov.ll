@@ -802,7 +802,7 @@ define hidden void @_ZN5uu_od8prn_char13format_item_c17h24728308594c05d3E.llvm.1
   unreachable
 
 40:                                               ; preds = %36
-  %41 = icmp ult i8 %37, -64
+  %41 = icmp samesign ult i8 %37, -64
   br i1 %41, label %46, label %51
 
 _ZN5alloc3fmt6format17h7ead8f60e83381d7E.exit131: ; preds = %36

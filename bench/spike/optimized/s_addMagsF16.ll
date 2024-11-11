@@ -72,7 +72,7 @@ define i16 @softfloat_addMagsF16(i64 noundef %0, i64 noundef %1) local_unnamed_a
   br label %108
 
 37:                                               ; preds = %32
-  %38 = icmp ult i8 %29, -12
+  %38 = icmp samesign ult i8 %29, -12
   br i1 %38, label %39, label %45
 
 39:                                               ; preds = %37
@@ -100,7 +100,7 @@ define i16 @softfloat_addMagsF16(i64 noundef %0, i64 noundef %1) local_unnamed_a
   br i1 %.not108, label %108, label %82
 
 51:                                               ; preds = %48
-  %52 = icmp ugt i8 %29, 12
+  %52 = icmp samesign ugt i8 %29, 12
   br i1 %52, label %53, label %56
 
 53:                                               ; preds = %51
@@ -126,7 +126,7 @@ define i16 @softfloat_addMagsF16(i64 noundef %0, i64 noundef %1) local_unnamed_a
   %62 = zext nneg i8 %.086 to i64
   %63 = shl nuw nsw i64 %.087, %62
   %64 = add nuw nsw i64 %61, %63
-  %65 = icmp ult i64 %64, 1073741824
+  %65 = icmp samesign ult i64 %64, 1073741824
   %66 = sext i1 %65 to i8
   %.3 = add nsw i8 %.293, %66
   %67 = zext i1 %65 to i64

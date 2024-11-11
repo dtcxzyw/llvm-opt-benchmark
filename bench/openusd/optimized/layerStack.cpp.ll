@@ -12024,7 +12024,7 @@ define void @_ZN32pxrInternal_v0_24__pxrReserved__13PcpLayerStack31GetExpression
   %.01.i.i.i.i.i = phi i32 [ %20, %.lr.ph.i.i.i.i.i ], [ %.sroa.0.02.i.i.i, %18 ]
   %20 = add nsw i32 %.01.i.i.i.i.i, -1
   tail call void @llvm.x86.sse2.pause()
-  %21 = icmp ugt i32 %.01.i.i.i.i.i, 1
+  %21 = icmp samesign ugt i32 %.01.i.i.i.i.i, 1
   br i1 %21, label %.lr.ph.i.i.i.i.i, label %_ZN3tbb6detail2d0L13machine_pauseEi.exit.i.i.i.i, !llvm.loop !87
 
 _ZN3tbb6detail2d0L13machine_pauseEi.exit.i.i.i.i: ; preds = %.lr.ph.i.i.i.i.i, %18
@@ -12118,7 +12118,7 @@ _ZN3tbb6detail2d118unique_scoped_lockINS1_10spin_mutexEED2Ev.exit15: ; preds = %
   %.01.i.i.i.i.i22 = phi i32 [ %50, %.lr.ph.i.i.i.i.i21 ], [ %.sroa.0.02.i.i.i17, %48 ]
   %50 = add nsw i32 %.01.i.i.i.i.i22, -1
   call void @llvm.x86.sse2.pause()
-  %51 = icmp ugt i32 %.01.i.i.i.i.i22, 1
+  %51 = icmp samesign ugt i32 %.01.i.i.i.i.i22, 1
   br i1 %51, label %.lr.ph.i.i.i.i.i21, label %_ZN3tbb6detail2d0L13machine_pauseEi.exit.i.i.i.i20, !llvm.loop !87
 
 _ZN3tbb6detail2d0L13machine_pauseEi.exit.i.i.i.i20: ; preds = %.lr.ph.i.i.i.i.i21, %48
@@ -12793,7 +12793,7 @@ _ZNSt6vectorIN32pxrInternal_v0_24__pxrReserved__8TfRefPtrINS0_8SdfLayerEEESaIS3_
   %249 = getelementptr inbounds nuw i8, ptr %38, i64 16
   store ptr %247, ptr %249, align 8
   store ptr %scevgep.i.i.i.i.i, ptr %248, align 8
-  %250 = icmp ugt i64 %241, 288230376151711743
+  %250 = icmp samesign ugt i64 %241, 288230376151711743
   br i1 %250, label %251, label %_ZNSt12_Vector_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EEC2EmRKS6_.exit.i
 
 251:                                              ; preds = %246
@@ -25356,7 +25356,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__36PcpErrorInvalidSameTargetRelocations16Rel
   store i32 0, ptr %97, align 4
   store i32 %98, ptr %96, align 4
   %99 = add nsw i64 %.010.i.i.i.i.i, -1
-  %100 = icmp ugt i64 %.010.i.i.i.i.i, 1
+  %100 = icmp samesign ugt i64 %.010.i.i.i.i.i, 1
   br i1 %100, label %.lr.ph.i.i.i.i.i, label %.loopexit, !llvm.loop !239
 
 .loopexit:                                        ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__36PcpErrorInvalidSameTargetRelocations16RelocationSourceaSEOS1_.exit, %20
@@ -28446,7 +28446,7 @@ _ZNSt12_Vector_baseISt4pairIN32pxrInternal_v0_24__pxrReserved__7SdfPathES2_ESaIS
   %74 = getelementptr inbounds i8, ptr %.0910.i.i.i.i.i, i64 16
   %75 = getelementptr inbounds i8, ptr %.0811.i.i.i.i.i, i64 16
   %76 = add nsw i64 %.012.i.i.i.i.i, -1
-  %77 = icmp ugt i64 %.012.i.i.i.i.i, 1
+  %77 = icmp samesign ugt i64 %.012.i.i.i.i.i, 1
   br i1 %77, label %.lr.ph.i.i.i.i.i25, label %_ZSt4copyIN9__gnu_cxx17__normal_iteratorIPKSt4pairIN32pxrInternal_v0_24__pxrReserved__7SdfPathES4_ESt6vectorIS5_SaIS5_EEEENS1_IPS5_SA_EEET0_T_SF_SE_.exit.loopexit, !llvm.loop !315
 
 _ZSt4copyIN9__gnu_cxx17__normal_iteratorIPKSt4pairIN32pxrInternal_v0_24__pxrReserved__7SdfPathES4_ESt6vectorIS5_SaIS5_EEEENS1_IPS5_SA_EEET0_T_SF_SE_.exit.loopexit: ; preds = %.lr.ph.i.i.i.i.i25
@@ -28475,7 +28475,7 @@ _ZSt4copyIN9__gnu_cxx17__normal_iteratorIPKSt4pairIN32pxrInternal_v0_24__pxrRese
   %85 = getelementptr inbounds i8, ptr %.0910.i.i.i.i.i30, i64 16
   %86 = getelementptr inbounds i8, ptr %.0811.i.i.i.i.i29, i64 16
   %87 = add nsw i64 %.012.i.i.i.i.i28, -1
-  %88 = icmp ugt i64 %.012.i.i.i.i.i28, 1
+  %88 = icmp samesign ugt i64 %.012.i.i.i.i.i28, 1
   br i1 %88, label %.lr.ph.i.i.i.i.i27, label %_ZSt4copyIPSt4pairIN32pxrInternal_v0_24__pxrReserved__7SdfPathES2_ES4_ET0_T_S6_S5_.exit.loopexit, !llvm.loop !316
 
 _ZSt4copyIPSt4pairIN32pxrInternal_v0_24__pxrReserved__7SdfPathES2_ES4_ET0_T_S6_S5_.exit.loopexit: ; preds = %.lr.ph.i.i.i.i.i27

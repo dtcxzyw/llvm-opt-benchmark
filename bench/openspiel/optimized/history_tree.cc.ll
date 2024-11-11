@@ -909,7 +909,7 @@ _ZNK4absl7debian218container_internal12raw_hash_setINS1_17FlatHashSetPolicyIlEEN
   %104 = getelementptr inbounds i8, ptr %97, i64 10
   %105 = load i8, ptr %104, align 1
   %106 = zext i8 %105 to i32
-  %107 = icmp ult i32 %101, %106
+  %107 = icmp samesign ult i32 %101, %106
   br i1 %107, label %_ZN4absl7debian218container_internal19btree_map_containerINS1_5btreeINS1_10map_paramsIlSt4pairIdSt10unique_ptrIN10open_spiel10algorithms11HistoryNodeESt14default_deleteIS9_EEESt4lessIlESaIS5_IKlSD_EELi256ELb0EEEEEEixIlEERSD_RSG_.exit, label %108
 
 108:                                              ; preds = %103
@@ -1296,7 +1296,7 @@ _ZN4absl7debian218container_internal15btree_containerINS1_5btreeINS1_10map_param
 
 72:                                               ; preds = %70
   %73 = zext i8 %57 to i32
-  %74 = icmp ult i32 %.sroa.33.0.i.i.i, %73
+  %74 = icmp samesign ult i32 %.sroa.33.0.i.i.i, %73
   br i1 %74, label %_ZNK4absl7debian218container_internal14btree_iteratorINS1_10btree_nodeINS1_10map_paramsIlSt4pairIdSt10unique_ptrIN10open_spiel10algorithms11HistoryNodeESt14default_deleteIS9_EEESt4lessIlESaIS5_IKlSD_EELi256ELb0EEEEERSH_PSH_EptEv.exit, label %75
 
 75:                                               ; preds = %72
@@ -1662,7 +1662,7 @@ _ZNSt12_Vector_baseIlSaIlEE13_M_deallocateEPlm.exit.i: ; preds = %_ZNSt12_Vector
   %33 = getelementptr inbounds i8, ptr %.sroa.021.036, i64 10
   %34 = load i8, ptr %33, align 1
   %35 = zext i8 %34 to i32
-  %36 = icmp ult i32 %.sroa.8.037, %35
+  %36 = icmp samesign ult i32 %.sroa.8.037, %35
   br i1 %36, label %38, label %37
 
 37:                                               ; preds = %32
@@ -4997,7 +4997,7 @@ define linkonce_odr noundef i64 @_ZN4absl7debian213hash_internal9HashState21Comb
   br label %56
 
 11:                                               ; preds = %3
-  %12 = icmp ugt i64 %2, 8
+  %12 = icmp samesign ugt i64 %2, 8
   br i1 %12, label %13, label %25
 
 13:                                               ; preds = %11
@@ -5017,7 +5017,7 @@ define linkonce_odr noundef i64 @_ZN4absl7debian213hash_internal9HashState21Comb
   br label %56
 
 25:                                               ; preds = %11
-  %26 = icmp ugt i64 %2, 3
+  %26 = icmp samesign ugt i64 %2, 3
   br i1 %26, label %27, label %36
 
 27:                                               ; preds = %25
@@ -6467,7 +6467,7 @@ define linkonce_odr void @_ZN4absl7debian218container_internal5btreeINS1_10map_p
   %59 = sub nsw i32 %58, %.sroa.speculated
   %.not73 = icmp sle i32 %52, %59
   %narrow = add nuw nsw i8 %55, %49
-  %60 = icmp ult i8 %narrow, 10
+  %60 = icmp samesign ult i8 %narrow, 10
   %or.cond91 = select i1 %.not73, i1 true, i1 %60
   br i1 %or.cond91, label %61, label %71
 

@@ -318,7 +318,7 @@ lor.lhs.false.i:                                  ; preds = %if.end2.i
   br i1 %or.cond.i, label %Curl_cidr6_match.exit.thread, label %if.end12.i
 
 if.end12.i:                                       ; preds = %lor.lhs.false.i
-  %tobool13.not.i = icmp ult i32 %22, 8
+  %tobool13.not.i = icmp samesign ult i32 %22, 8
   br i1 %tobool13.not.i, label %if.end20.i, label %land.lhs.true14.i
 
 land.lhs.true14.i:                                ; preds = %if.end12.i

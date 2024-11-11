@@ -1067,7 +1067,7 @@ if.end5.i:                                        ; preds = %if.end.i
 
 sz_size2index.exit:                               ; preds = %if.end5.i, %if.then.i
   %retval.i.0 = phi i32 [ %conv.i29, %if.then.i ], [ %add23.i, %if.end5.i ]
-  %cmp40 = icmp ult i32 %retval.i.0, 235
+  %cmp40 = icmp samesign ult i32 %retval.i.0, 235
   br i1 %cmp40, label %for.body.lr.ph, label %if.then12
 
 for.body.lr.ph:                                   ; preds = %sz_size2index.exit

@@ -550,7 +550,7 @@ thread-pre-split:                                 ; preds = %18
   store i32 %64, ptr %42, align 4
   %65 = sub nuw nsw i32 64, %54
   %66 = zext nneg i32 %65 to i64
-  %.not.i = icmp ult i64 %51, %66
+  %.not.i = icmp samesign ult i64 %51, %66
   %67 = zext nneg i32 %54 to i64
   br i1 %.not.i, label %PHP_SHA1Update.exit, label %68
 
@@ -559,7 +559,7 @@ thread-pre-split:                                 ; preds = %18
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %69, ptr noundef nonnull readonly align 16 dereferenceable(1) %5, i64 %66, i1 false)
   call fastcc void @SHA1Transform(ptr noundef nonnull %7, ptr noundef nonnull %49)
   %70 = add nuw nsw i64 %66, 63
-  %71 = icmp ult i64 %70, %51
+  %71 = icmp samesign ult i64 %70, %51
   br i1 %71, label %.lr.ph.i, label %PHP_SHA1Update.exit
 
 .lr.ph.i:                                         ; preds = %68, %.lr.ph.i

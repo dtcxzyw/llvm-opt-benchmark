@@ -897,7 +897,7 @@ while.body.i:                                     ; preds = %PyMutex_Lock.exit, 
   %call.i = call zeroext i8 @Hacl_Streaming_Keccak_update(ptr noundef %11, ptr noundef %buf.addr.07.i, i32 noundef -1) #4
   %sub.i = add nsw i64 %len.addr.08.i, -4294967295
   %add.ptr.i = getelementptr i8, ptr %buf.addr.07.i, i64 4294967295
-  %cmp.i = icmp ugt i64 %len.addr.08.i, 8589934590
+  %cmp.i = icmp samesign ugt i64 %len.addr.08.i, 8589934590
   br i1 %cmp.i, label %while.body.i, label %sha3_update.exit, !llvm.loop !4
 
 sha3_update.exit:                                 ; preds = %while.body.i, %PyMutex_Lock.exit
@@ -930,7 +930,7 @@ while.body.i16:                                   ; preds = %if.else, %while.bod
   %call.i19 = call zeroext i8 @Hacl_Streaming_Keccak_update(ptr noundef %16, ptr noundef %buf.addr.07.i18, i32 noundef -1) #4
   %sub.i20 = add nsw i64 %len.addr.08.i17, -4294967295
   %add.ptr.i21 = getelementptr i8, ptr %buf.addr.07.i18, i64 4294967295
-  %cmp.i22 = icmp ugt i64 %len.addr.08.i17, 8589934590
+  %cmp.i22 = icmp samesign ugt i64 %len.addr.08.i17, 8589934590
   br i1 %cmp.i22, label %while.body.i16, label %sha3_update.exit23, !llvm.loop !4
 
 sha3_update.exit23:                               ; preds = %while.body.i16, %if.else
@@ -987,7 +987,7 @@ while.body:                                       ; preds = %entry, %while.body
   %call = tail call zeroext i8 @Hacl_Streaming_Keccak_update(ptr noundef %state, ptr noundef %buf.addr.07, i32 noundef -1) #4
   %sub = add nsw i64 %len.addr.08, -4294967295
   %add.ptr = getelementptr i8, ptr %buf.addr.07, i64 4294967295
-  %cmp = icmp ugt i64 %len.addr.08, 8589934590
+  %cmp = icmp samesign ugt i64 %len.addr.08, 8589934590
   br i1 %cmp, label %while.body, label %while.end, !llvm.loop !4
 
 while.end:                                        ; preds = %while.body, %entry

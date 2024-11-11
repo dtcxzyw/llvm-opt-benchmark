@@ -1447,7 +1447,7 @@ _ZN26GrowableArrayWithAllocatorIP14compiledVFrame13GrowableArrayIS1_EE4pushERKS1
   br label %144
 
 144:                                              ; preds = %142, %.lr.ph.i
-  %145 = icmp ugt i64 %indvars.iv.i, 1
+  %145 = icmp samesign ugt i64 %indvars.iv.i, 1
   br i1 %145, label %.lr.ph.i, label %_ZL24restore_eliminated_locksP10JavaThreadP13GrowableArrayIP14compiledVFrameEbR5frameiRb.exit, !llvm.loop !19
 
 _ZL24restore_eliminated_locksP10JavaThreadP13GrowableArrayIP14compiledVFrameEbR5frameiRb.exit: ; preds = %144, %126
@@ -1558,7 +1558,7 @@ _ZNK6HandleclEv.exit.thread:                      ; preds = %161, %_ZNK6Handlecl
   br label %197
 
 197:                                              ; preds = %196, %191
-  %198 = icmp ugt i64 %indvars.iv.i140, 1
+  %198 = icmp samesign ugt i64 %indvars.iv.i140, 1
   br i1 %198, label %191, label %._crit_edge.i, !llvm.loop !20
 
 ._crit_edge.i:                                    ; preds = %197, %186
@@ -2197,7 +2197,7 @@ define hidden noundef zeroext i1 @_ZN14Deoptimization27deoptimize_objects_intern
 
 66:                                               ; preds = %61, %.lr.ph.i
   %67 = phi i8 [ %65, %61 ], [ %52, %.lr.ph.i ]
-  %68 = icmp ugt i64 %indvars.iv.i, 1
+  %68 = icmp samesign ugt i64 %indvars.iv.i, 1
   br i1 %68, label %.lr.ph.i, label %_ZL24restore_eliminated_locksP10JavaThreadP13GrowableArrayIP14compiledVFrameEbR5frameiRb.exit.loopexit, !llvm.loop !19
 
 _ZL24restore_eliminated_locksP10JavaThreadP13GrowableArrayIP14compiledVFrameEbR5frameiRb.exit.loopexit: ; preds = %66
@@ -2874,7 +2874,7 @@ define hidden void @_ZN14Deoptimization26pop_frames_failed_reallocsEP10JavaThrea
   br label %24
 
 24:                                               ; preds = %18, %23
-  %25 = icmp ugt i64 %indvars.iv, 1
+  %25 = icmp samesign ugt i64 %indvars.iv, 1
   br i1 %25, label %18, label %._crit_edge, !llvm.loop !20
 
 ._crit_edge:                                      ; preds = %24, %13

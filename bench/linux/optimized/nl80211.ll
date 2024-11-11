@@ -18763,7 +18763,7 @@ define internal i32 @nl80211_set_key(ptr nocapture readnone %0, ptr nocapture no
   %164 = getelementptr i8, ptr %162, i64 4
   %165 = select i1 %163, ptr null, ptr %164
   %166 = icmp eq ptr %165, null
-  %167 = icmp ugt i32 %25, 1
+  %167 = icmp samesign ugt i32 %25, 1
   %168 = or i1 %167, %166
   br i1 %168, label %select.unfold, label %169
 
@@ -26487,12 +26487,12 @@ define internal i32 @nl80211_authenticate(ptr nocapture readnone %0, ptr nocaptu
   %52 = icmp ne i32 %47, 1027077
   %53 = icmp ne i32 %42, 13
   %54 = select i1 %52, i1 true, i1 %53
-  %55 = icmp ugt i32 %31, 3
+  %55 = icmp samesign ugt i32 %31, 3
   %56 = or i1 %55, %54
   br i1 %56, label %.thread14, label %59
 
 57:                                               ; preds = %45
-  %58 = icmp ugt i32 %31, 3
+  %58 = icmp samesign ugt i32 %31, 3
   br i1 %58, label %.thread14, label %59
 
 59:                                               ; preds = %57, %51
@@ -26628,7 +26628,7 @@ define internal i32 @nl80211_authenticate(ptr nocapture readnone %0, ptr nocaptu
   br i1 %149, label %150, label %.thread14
 
 150:                                              ; preds = %142
-  %151 = icmp ult i32 %133, 4
+  %151 = icmp samesign ult i32 %133, 4
   %.phi.trans.insert = getelementptr i8, ptr %113, i64 1248
   %.pre = load ptr, ptr %.phi.trans.insert, align 8
   %152 = icmp eq ptr %.pre, null
@@ -45683,7 +45683,7 @@ define internal fastcc ptr @parse_acl_data(i16 %.82.val, ptr nocapture noundef r
 .critedge:                                        ; preds = %.lr.ph, %31
   %.lcssa = phi i32 [ %32, %31 ], [ %23, %.lr.ph ]
   %36 = zext i16 %.82.val to i32
-  %37 = icmp ugt i32 %.lcssa, %36
+  %37 = icmp samesign ugt i32 %.lcssa, %36
   br i1 %37, label %.critedge.thread, label %.critedge.thread6
 
 .critedge.thread6:                                ; preds = %17, %.critedge
@@ -48721,7 +48721,7 @@ define internal fastcc i32 @validate_scan_freqs(ptr noundef nonnull readonly %0)
   %10 = icmp ult i16 %9, 4
   %11 = zext i16 %9 to i32
   %.not = icmp samesign ult i32 %8, %11
-  %or.cond24 = or i1 %10, %.not
+  %or.cond24 = select i1 %10, i1 true, i1 %.not
   br i1 %or.cond24, label %.lr.ph20.split.us.preheader, label %12
 
 12:                                               ; preds = %.lr.ph
@@ -49166,7 +49166,7 @@ define internal fastcc ptr @nl80211_parse_sched_scan(ptr noundef %0, ptr noundef
   %18 = icmp ult i16 %17, 4
   %19 = zext i16 %17 to i32
   %.not = icmp samesign ult i32 %16, %19
-  %or.cond158 = or i1 %18, %.not
+  %or.cond158 = select i1 %18, i1 true, i1 %.not
   br i1 %or.cond158, label %.lr.ph131.preheader, label %20
 
 20:                                               ; preds = %.lr.ph

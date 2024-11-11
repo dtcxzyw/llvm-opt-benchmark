@@ -3802,14 +3802,14 @@ define i32 @tinfl_decompress(ptr noundef %0, ptr noundef %1, ptr nocapture nound
   br i1 %466, label %467, label %469
 
 467:                                              ; preds = %460
-  %.not1797 = icmp ult i16 %464, 512
+  %.not1797 = icmp samesign ult i16 %464, 512
   %468 = lshr i32 %465, 9
-  %.not1798 = icmp ult i32 %.50, %468
+  %.not1798 = icmp samesign ult i32 %.50, %468
   %or.cond1835 = select i1 %.not1797, i1 true, i1 %.not1798
   br i1 %or.cond1835, label %489, label %518
 
 469:                                              ; preds = %460
-  %470 = icmp ugt i32 %.50, 10
+  %470 = icmp samesign ugt i32 %.50, 10
   br i1 %470, label %.preheader1877, label %489
 
 .preheader1877:                                   ; preds = %469
@@ -4167,14 +4167,14 @@ define i32 @tinfl_decompress(ptr noundef %0, ptr noundef %1, ptr nocapture nound
   br i1 %630, label %631, label %633
 
 631:                                              ; preds = %624
-  %.not1775 = icmp ult i16 %628, 512
+  %.not1775 = icmp samesign ult i16 %628, 512
   %632 = lshr i32 %629, 9
-  %.not1776 = icmp ult i32 %.63, %632
+  %.not1776 = icmp samesign ult i32 %.63, %632
   %or.cond1840 = select i1 %.not1775, i1 true, i1 %.not1776
   br i1 %or.cond1840, label %653, label %682
 
 633:                                              ; preds = %624
-  %634 = icmp ugt i32 %.63, 10
+  %634 = icmp samesign ugt i32 %.63, 10
   br i1 %634, label %.preheader1885, label %653
 
 .preheader1885:                                   ; preds = %633
@@ -4610,14 +4610,14 @@ define i32 @tinfl_decompress(ptr noundef %0, ptr noundef %1, ptr nocapture nound
   br i1 %829, label %830, label %832
 
 830:                                              ; preds = %823
-  %.not1784 = icmp ult i16 %827, 512
+  %.not1784 = icmp samesign ult i16 %827, 512
   %831 = lshr i32 %828, 9
   %.not1785 = icmp ult i32 %.76, %831
   %or.cond1841 = or i1 %.not1784, %.not1785
   br i1 %or.cond1841, label %852, label %881
 
 832:                                              ; preds = %823
-  %833 = icmp ugt i32 %.76, 10
+  %833 = icmp samesign ugt i32 %.76, 10
   br i1 %833, label %.preheader1882, label %852
 
 .preheader1882:                                   ; preds = %832
@@ -8113,7 +8113,7 @@ define internal fastcc noundef range(i32 0, 2) i32 @_ZL20tdefl_compress_blockP16
   %41 = or disjoint i32 %39, %40
   %42 = add nsw i32 %.175114.i.i, -1
   %43 = lshr i32 %.067116.i.i, 1
-  %44 = icmp ugt i32 %.175114.i.i, 1
+  %44 = icmp samesign ugt i32 %.175114.i.i, 1
   br i1 %44, label %38, label %45, !llvm.loop !128
 
 45:                                               ; preds = %38
@@ -8196,7 +8196,7 @@ _ZL28tdefl_optimize_huffman_tableP16tdefl_compressoriiii.exit.i: ; preds = %48
   %74 = or disjoint i32 %72, %73
   %75 = add nsw i32 %.175114.i44.i, -1
   %76 = lshr i32 %.067116.i42.i, 1
-  %77 = icmp ugt i32 %.175114.i44.i, 1
+  %77 = icmp samesign ugt i32 %.175114.i44.i, 1
   br i1 %77, label %71, label %78, !llvm.loop !128
 
 78:                                               ; preds = %71
@@ -8745,7 +8745,7 @@ _ZL28tdefl_optimize_huffman_tableP16tdefl_compressoriiii.exit47.i: ; preds = %80
   store i32 %346, ptr %298, align 8
   %347 = add nuw nsw i32 %storemerge302.lcssa.i, 5
   store i32 %347, ptr %295, align 4
-  %348 = icmp ugt i32 %storemerge302.lcssa.i, 2
+  %348 = icmp samesign ugt i32 %storemerge302.lcssa.i, 2
   br i1 %348, label %.lr.ph352.i, label %.preheader319.i
 
 .lr.ph352.i:                                      ; preds = %._crit_edge349.i
@@ -8878,7 +8878,7 @@ _ZL28tdefl_optimize_huffman_tableP16tdefl_compressoriiii.exit47.i: ; preds = %80
   store i32 %417, ptr %298, align 8
   %418 = add nuw nsw i32 %409, 3
   store i32 %418, ptr %295, align 4
-  %419 = icmp ugt i32 %409, 4
+  %419 = icmp samesign ugt i32 %409, 4
   br i1 %419, label %.lr.ph358.i, label %._crit_edge359.i
 
 .lr.ph358.i:                                      ; preds = %407
@@ -8954,7 +8954,7 @@ _ZL28tdefl_optimize_huffman_tableP16tdefl_compressoriiii.exit47.i: ; preds = %80
   store i32 %459, ptr %298, align 8
   %460 = add nuw nsw i32 %446, %457
   store i32 %460, ptr %295, align 4
-  %461 = icmp ugt i32 %460, 7
+  %461 = icmp samesign ugt i32 %460, 7
   br i1 %461, label %.lr.ph364.i, label %._crit_edge365.i
 
 .lr.ph364.i:                                      ; preds = %444
@@ -9312,7 +9312,7 @@ _ZL24tdefl_start_static_blockP16tdefl_compressor.exit: ; preds = %100, %_ZL28tde
   store i32 %694, ptr %535, align 8
   %695 = add nuw nsw i32 %687, %686
   store i32 %695, ptr %537, align 4
-  %696 = icmp ugt i32 %695, 7
+  %696 = icmp samesign ugt i32 %695, 7
   br i1 %696, label %.lr.ph167.i, label %._crit_edge168.i
 
 .lr.ph167.i:                                      ; preds = %684
@@ -9388,7 +9388,7 @@ _ZL24tdefl_start_static_blockP16tdefl_compressor.exit: ; preds = %100, %_ZL28tde
   store i32 %732, ptr %535, align 8
   %733 = add nuw nsw i32 %724, %730
   store i32 %733, ptr %537, align 4
-  %734 = icmp ugt i32 %733, 7
+  %734 = icmp samesign ugt i32 %733, 7
   br i1 %734, label %.lr.ph178.i, label %._crit_edge179.i
 
 .lr.ph178.i:                                      ; preds = %._crit_edge176.i
@@ -9980,7 +9980,7 @@ _ZL35tdefl_huffman_enforce_max_code_sizePiii.exit: ; preds = %.loopexit.i, %_ZL2
   %213 = getelementptr inbounds [3 x [288 x i8]], ptr %198, i64 0, i64 %12, i64 %212
   store i8 %207, ptr %213, align 1
   %214 = add nsw i32 %.074105, -1
-  %215 = icmp ugt i32 %.074105, 1
+  %215 = icmp samesign ugt i32 %.074105, 1
   br i1 %215, label %209, label %._crit_edge109.loopexit, !llvm.loop !173
 
 ._crit_edge109.loopexit:                          ; preds = %209
@@ -10050,7 +10050,7 @@ _ZL35tdefl_huffman_enforce_max_code_sizePiii.exit: ; preds = %.loopexit.i, %_ZL2
   %241 = or disjoint i32 %240, %239
   %242 = add nsw i32 %.175114, -1
   %243 = lshr i32 %.067116, 1
-  %244 = icmp ugt i32 %.175114, 1
+  %244 = icmp samesign ugt i32 %.175114, 1
   br i1 %244, label %238, label %245, !llvm.loop !128
 
 245:                                              ; preds = %238
@@ -12647,7 +12647,7 @@ define i32 @mz_zip_reader_locate_file(ptr noundef readonly %0, ptr noundef reado
   ]
 
 96:                                               ; preds = %.preheader166.us.us
-  %97 = icmp ugt i64 %indvars.iv243, 1
+  %97 = icmp samesign ugt i64 %indvars.iv243, 1
   br i1 %97, label %.preheader166.us.us, label %.split.loop.exit285, !llvm.loop !191
 
 .split.loop.exit286:                              ; preds = %.preheader166.us.us, %.preheader166.us.us, %.preheader166.us.us
@@ -12759,7 +12759,7 @@ define i32 @mz_zip_reader_locate_file(ptr noundef readonly %0, ptr noundef reado
   ]
 
 140:                                              ; preds = %.preheader166.us
-  %141 = icmp ugt i64 %indvars.iv235, 1
+  %141 = icmp samesign ugt i64 %indvars.iv235, 1
   br i1 %141, label %.preheader166.us, label %.split.loop.exit280, !llvm.loop !191
 
 .split.loop.exit281:                              ; preds = %.preheader166.us, %.preheader166.us, %.preheader166.us
@@ -15614,7 +15614,7 @@ _ZL55mz_zip_writer_compute_padding_needed_for_file_alignmentP18mz_zip_archive_ta
   br label %_ZL35mz_zip_writer_validate_archive_namePKc.exit.thread
 
 64:                                               ; preds = %57
-  %65 = icmp ult i64 %59, 4
+  %65 = icmp samesign ult i64 %59, 4
   %spec.select = select i1 %65, i32 0, i32 %14
   %66 = add nuw nsw i64 %46, 30
   %67 = trunc i64 %66 to i32

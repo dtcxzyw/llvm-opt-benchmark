@@ -3320,7 +3320,7 @@ _ZNSt6vectorIfSaIfEEC2EmRKS0_.exit:               ; preds = %_ZSt6fill_nIPfmfET_
 _ZNSt6vectorIfSaIfEED2Ev.exit:                    ; preds = %30, %_ZNSt6vectorIfSaIfEEC2EmRKS0_.exit
   %31 = tail call i32 @OMP_NUM_THREADS()
   tail call void @__kmpc_push_num_threads(ptr nonnull @2, i32 %16, i32 %31)
-  %32 = icmp ugt i32 %3, 1023
+  %32 = icmp samesign ugt i32 %3, 1023
   br i1 %32, label %33, label %34
 
 33:                                               ; preds = %_ZNSt6vectorIfSaIfEED2Ev.exit

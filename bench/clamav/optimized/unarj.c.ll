@@ -861,7 +861,7 @@ define i32 @cli_unarj_extract_file(ptr noundef %0, ptr noundef %1) local_unnamed
   %50 = phi i32 [ 8, %.lr.ph.split.us.i.i ], [ 0, %.lr.ph.i.i ]
   %.051.us.i.i = phi i32 [ %51, %.lr.ph.split.us.i.i ], [ 16, %.lr.ph.i.i ]
   %51 = sub nuw nsw i32 %.051.us.i.i, %50
-  %52 = icmp ugt i32 %51, 8
+  %52 = icmp samesign ugt i32 %51, 8
   br i1 %52, label %.lr.ph.split.us.i.i, label %._crit_edge.split.us.i.i
 
 .lr.ph.split.i.i:                                 ; preds = %81, %.lr.ph.split.i.preheader.i
@@ -1153,7 +1153,7 @@ fill_buf.exit234.i:                               ; preds = %._crit_edge.i212.i,
   %184 = shl i32 %181, %183
   %185 = trunc i32 %184 to i16
   %186 = or i16 %180, %185
-  %187 = icmp ugt i32 %183, 8
+  %187 = icmp samesign ugt i32 %183, 8
   br i1 %187, label %179, label %._crit_edge.split.us.i208.i
 
 ._crit_edge.split.us.i208.i:                      ; preds = %179
@@ -1284,7 +1284,7 @@ fmap_need_off_once_len.exit.i202.i:               ; preds = %202
   %243 = shl i32 %240, %242
   %244 = trunc i32 %243 to i16
   %245 = or i16 %239, %244
-  %246 = icmp ugt i32 %242, 8
+  %246 = icmp samesign ugt i32 %242, 8
   br i1 %246, label %.lr.ph.split.us.i181.i, label %._crit_edge.split.us.i183.i
 
 ._crit_edge.split.us.i183.i:                      ; preds = %.lr.ph.split.us.i181.i
@@ -2626,7 +2626,7 @@ define internal fastcc range(i32 0, 27) i32 @decode_f(ptr nocapture noundef nonn
   %12 = phi i32 [ 8, %.lr.ph.split.us.i106 ], [ 0, %.lr.ph.i91 ]
   %.051.us.i107 = phi i32 [ %13, %.lr.ph.split.us.i106 ], [ 16, %.lr.ph.i91 ]
   %13 = sub nuw nsw i32 %.051.us.i107, %12
-  %14 = icmp ugt i32 %13, 8
+  %14 = icmp samesign ugt i32 %13, 8
   br i1 %14, label %.lr.ph.split.us.i106, label %.loopexit400
 
 .lr.ph.split.i93:                                 ; preds = %.lr.ph.split.i93.preheader, %37
@@ -3952,7 +3952,7 @@ define internal fastcc void @read_pt_len(ptr nocapture noundef nonnull %0, i32 n
   %.in = phi i16 [ %49, %.lr.ph78.preheader ], [ %56, %.lr.ph78 ]
   %56 = add nsw i16 %.in, -1
   %indvars.iv.next = add nsw i64 %indvars.iv, 1
-  %57 = icmp ugt i16 %.in, 1
+  %57 = icmp samesign ugt i16 %.in, 1
   %58 = icmp slt i64 %indvars.iv, 18
   %59 = and i1 %57, %58
   br i1 %59, label %.lr.ph78, label %.loopexit68.loopexit

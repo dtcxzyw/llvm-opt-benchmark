@@ -198,7 +198,7 @@ if.then46:                                        ; preds = %while.body
   br label %if.end50
 
 if.end50:                                         ; preds = %if.then46, %while.body
-  %cmp39 = icmp ugt i64 %indvars.iv42, 1
+  %cmp39 = icmp samesign ugt i64 %indvars.iv42, 1
   br i1 %cmp39, label %while.body, label %if.end.i, !llvm.loop !4
 
 for.inc:                                          ; preds = %if.end28, %for.body

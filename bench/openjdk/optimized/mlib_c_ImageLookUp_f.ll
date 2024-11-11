@@ -31,7 +31,7 @@ define hidden void @mlib_c_ImageLookUp_U8_U8(ptr noundef %0, i32 noundef %1, ptr
   br i1 %15, label %.preheader900.lr.ph.split.us, label %.loopexit
 
 .preheader900.lr.ph.split.us:                     ; preds = %.preheader900.lr.ph
-  %23 = icmp ugt i32 %4, 3
+  %23 = icmp samesign ugt i32 %4, 3
   %wide.trip.count1286 = zext nneg i32 %6 to i64
   br i1 %23, label %.preheader900.lr.ph.split.us.split.us, label %.preheader900.lr.ph.split.us.split
 
@@ -1837,7 +1837,7 @@ define hidden void @mlib_c_ImageLookUp_S16_U8(ptr nocapture noundef readonly %0,
   br i1 %10, label %.preheader103.lr.ph.split.us, label %.loopexit
 
 .preheader103.lr.ph.split.us:                     ; preds = %.preheader103.lr.ph
-  %24 = icmp ugt i32 %4, 3
+  %24 = icmp samesign ugt i32 %4, 3
   %wide.trip.count207 = zext nneg i32 %6 to i64
   br i1 %24, label %.preheader103.lr.ph.split.us.split.us, label %.preheader103.lr.ph.split.us.split
 
@@ -2133,7 +2133,7 @@ define hidden void @mlib_c_ImageLookUp_U16_U8(ptr nocapture noundef readonly %0,
   br i1 %10, label %.preheader103.lr.ph.split.us, label %.loopexit
 
 .preheader103.lr.ph.split.us:                     ; preds = %.preheader103.lr.ph
-  %22 = icmp ugt i32 %4, 3
+  %22 = icmp samesign ugt i32 %4, 3
   %wide.trip.count203 = zext nneg i32 %6 to i64
   br i1 %22, label %.preheader103.lr.ph.split.us.split.us, label %.preheader103.lr.ph.split.us.split
 
@@ -2438,7 +2438,7 @@ define hidden void @mlib_c_ImageLookUp_S32_U8(ptr nocapture noundef readonly %0,
   br i1 %10, label %.preheader103.lr.ph.split.us, label %.loopexit
 
 .preheader103.lr.ph.split.us:                     ; preds = %.preheader103.lr.ph
-  %24 = icmp ugt i32 %4, 3
+  %24 = icmp samesign ugt i32 %4, 3
   %wide.trip.count207 = zext nneg i32 %6 to i64
   br i1 %24, label %.preheader103.lr.ph.split.us.split.us, label %.preheader103.lr.ph.split.us.split
 
@@ -2730,7 +2730,7 @@ define hidden void @mlib_c_ImageLookUp_U8_S16(ptr noundef %0, i32 noundef %1, pt
   br i1 %15, label %.preheader960.lr.ph.split.us, label %.loopexit
 
 .preheader960.lr.ph.split.us:                     ; preds = %.preheader960.lr.ph
-  %23 = icmp ugt i32 %4, 3
+  %23 = icmp samesign ugt i32 %4, 3
   %wide.trip.count1302 = zext nneg i32 %6 to i64
   br i1 %23, label %.preheader960.lr.ph.split.us.split.us, label %.preheader960.lr.ph.split.us.split
 
@@ -4598,7 +4598,7 @@ define hidden void @mlib_c_ImageLookUp_S16_S16(ptr nocapture noundef readonly %0
   br i1 %10, label %.preheader103.lr.ph.split.us, label %.loopexit
 
 .preheader103.lr.ph.split.us:                     ; preds = %.preheader103.lr.ph
-  %24 = icmp ugt i32 %4, 3
+  %24 = icmp samesign ugt i32 %4, 3
   %wide.trip.count207 = zext nneg i32 %6 to i64
   br i1 %24, label %.preheader103.lr.ph.split.us.split.us, label %.preheader103.lr.ph.split.us.split
 
@@ -4894,7 +4894,7 @@ define hidden void @mlib_c_ImageLookUp_U16_S16(ptr nocapture noundef readonly %0
   br i1 %10, label %.preheader103.lr.ph.split.us, label %.loopexit
 
 .preheader103.lr.ph.split.us:                     ; preds = %.preheader103.lr.ph
-  %22 = icmp ugt i32 %4, 3
+  %22 = icmp samesign ugt i32 %4, 3
   %wide.trip.count203 = zext nneg i32 %6 to i64
   br i1 %22, label %.preheader103.lr.ph.split.us.split.us, label %.preheader103.lr.ph.split.us.split
 
@@ -5199,7 +5199,7 @@ define hidden void @mlib_c_ImageLookUp_S32_S16(ptr nocapture noundef readonly %0
   br i1 %10, label %.preheader103.lr.ph.split.us, label %.loopexit
 
 .preheader103.lr.ph.split.us:                     ; preds = %.preheader103.lr.ph
-  %24 = icmp ugt i32 %4, 3
+  %24 = icmp samesign ugt i32 %4, 3
   %wide.trip.count207 = zext nneg i32 %6 to i64
   br i1 %24, label %.preheader103.lr.ph.split.us.split.us, label %.preheader103.lr.ph.split.us.split
 
@@ -5504,7 +5504,7 @@ define hidden void @mlib_c_ImageLookUp_S16_U16(ptr nocapture noundef readonly %0
   br i1 %10, label %.preheader103.lr.ph.split.us, label %.loopexit
 
 .preheader103.lr.ph.split.us:                     ; preds = %.preheader103.lr.ph
-  %24 = icmp ugt i32 %4, 3
+  %24 = icmp samesign ugt i32 %4, 3
   %wide.trip.count207 = zext nneg i32 %6 to i64
   br i1 %24, label %.preheader103.lr.ph.split.us.split.us, label %.preheader103.lr.ph.split.us.split
 
@@ -5800,7 +5800,7 @@ define hidden void @mlib_c_ImageLookUp_U16_U16(ptr nocapture noundef readonly %0
   br i1 %10, label %.preheader103.lr.ph.split.us, label %.loopexit
 
 .preheader103.lr.ph.split.us:                     ; preds = %.preheader103.lr.ph
-  %22 = icmp ugt i32 %4, 3
+  %22 = icmp samesign ugt i32 %4, 3
   %wide.trip.count203 = zext nneg i32 %6 to i64
   br i1 %22, label %.preheader103.lr.ph.split.us.split.us, label %.preheader103.lr.ph.split.us.split
 
@@ -6105,7 +6105,7 @@ define hidden void @mlib_c_ImageLookUp_S32_U16(ptr nocapture noundef readonly %0
   br i1 %10, label %.preheader103.lr.ph.split.us, label %.loopexit
 
 .preheader103.lr.ph.split.us:                     ; preds = %.preheader103.lr.ph
-  %24 = icmp ugt i32 %4, 3
+  %24 = icmp samesign ugt i32 %4, 3
   %wide.trip.count207 = zext nneg i32 %6 to i64
   br i1 %24, label %.preheader103.lr.ph.split.us.split.us, label %.preheader103.lr.ph.split.us.split
 
@@ -6397,7 +6397,7 @@ define hidden void @mlib_c_ImageLookUp_U8_S32(ptr noundef %0, i32 noundef %1, pt
   br i1 %15, label %.preheader586.lr.ph.split.us, label %.loopexit
 
 .preheader586.lr.ph.split.us:                     ; preds = %.preheader586.lr.ph
-  %23 = icmp ugt i32 %4, 3
+  %23 = icmp samesign ugt i32 %4, 3
   %wide.trip.count834 = zext nneg i32 %6 to i64
   br i1 %23, label %.preheader586.lr.ph.split.us.split.us, label %.preheader586.lr.ph.split.us.split
 
@@ -7546,7 +7546,7 @@ define hidden void @mlib_c_ImageLookUp_S16_S32(ptr nocapture noundef readonly %0
   br i1 %10, label %.preheader103.lr.ph.split.us, label %.loopexit
 
 .preheader103.lr.ph.split.us:                     ; preds = %.preheader103.lr.ph
-  %24 = icmp ugt i32 %4, 3
+  %24 = icmp samesign ugt i32 %4, 3
   %wide.trip.count207 = zext nneg i32 %6 to i64
   br i1 %24, label %.preheader103.lr.ph.split.us.split.us, label %.preheader103.lr.ph.split.us.split
 
@@ -7842,7 +7842,7 @@ define hidden void @mlib_c_ImageLookUp_U16_S32(ptr nocapture noundef readonly %0
   br i1 %10, label %.preheader103.lr.ph.split.us, label %.loopexit
 
 .preheader103.lr.ph.split.us:                     ; preds = %.preheader103.lr.ph
-  %22 = icmp ugt i32 %4, 3
+  %22 = icmp samesign ugt i32 %4, 3
   %wide.trip.count203 = zext nneg i32 %6 to i64
   br i1 %22, label %.preheader103.lr.ph.split.us.split.us, label %.preheader103.lr.ph.split.us.split
 
@@ -8147,7 +8147,7 @@ define hidden void @mlib_c_ImageLookUp_S32_S32(ptr nocapture noundef readonly %0
   br i1 %10, label %.preheader103.lr.ph.split.us, label %.loopexit
 
 .preheader103.lr.ph.split.us:                     ; preds = %.preheader103.lr.ph
-  %24 = icmp ugt i32 %4, 3
+  %24 = icmp samesign ugt i32 %4, 3
   %wide.trip.count207 = zext nneg i32 %6 to i64
   br i1 %24, label %.preheader103.lr.ph.split.us.split.us, label %.preheader103.lr.ph.split.us.split
 
@@ -8444,7 +8444,7 @@ define hidden void @mlib_c_ImageLookUpSI_U8_U8(ptr noundef readonly %0, i32 noun
   br i1 %19, label %.preheader529.lr.ph.split.us, label %.loopexit
 
 .preheader529.lr.ph.split.us:                     ; preds = %.preheader529.lr.ph
-  %27 = icmp ugt i32 %4, 3
+  %27 = icmp samesign ugt i32 %4, 3
   %wide.trip.count806 = zext nneg i32 %6 to i64
   br i1 %27, label %.preheader529.lr.ph.split.us.split.us, label %.preheader529.lr.ph.split.us.split
 
@@ -9512,7 +9512,7 @@ define hidden void @mlib_c_ImageLookUpSI_S16_U8(ptr nocapture noundef readonly %
   br i1 %11, label %.preheader399.lr.ph.split.us, label %.loopexit
 
 .preheader399.lr.ph.split.us:                     ; preds = %.preheader399.lr.ph
-  %28 = icmp ugt i32 %4, 3
+  %28 = icmp samesign ugt i32 %4, 3
   %wide.trip.count595 = zext nneg i32 %6 to i64
   br i1 %28, label %.preheader399.lr.ph.split.us.split.us, label %.preheader399.lr.ph.split.us.split
 
@@ -10290,7 +10290,7 @@ define hidden void @mlib_c_ImageLookUpSI_U16_U8(ptr nocapture noundef readonly %
   br i1 %11, label %.preheader399.lr.ph.split.us, label %.loopexit
 
 .preheader399.lr.ph.split.us:                     ; preds = %.preheader399.lr.ph
-  %26 = icmp ugt i32 %4, 3
+  %26 = icmp samesign ugt i32 %4, 3
   %wide.trip.count591 = zext nneg i32 %6 to i64
   br i1 %26, label %.preheader399.lr.ph.split.us.split.us, label %.preheader399.lr.ph.split.us.split
 
@@ -11070,7 +11070,7 @@ define hidden void @mlib_c_ImageLookUpSI_S32_U8(ptr nocapture noundef readonly %
   br i1 %10, label %.preheader96.lr.ph.split.us, label %.loopexit
 
 .preheader96.lr.ph.split.us:                      ; preds = %.preheader96.lr.ph
-  %24 = icmp ugt i32 %4, 3
+  %24 = icmp samesign ugt i32 %4, 3
   %wide.trip.count200 = zext nneg i32 %6 to i64
   br i1 %24, label %.preheader96.lr.ph.split.us.split.us, label %.preheader96.lr.ph.split.us.split
 
@@ -11362,7 +11362,7 @@ define hidden void @mlib_c_ImageLookUpSI_U8_S16(ptr nocapture noundef readonly %
   br i1 %18, label %.preheader508.lr.ph.split.us, label %.loopexit
 
 .preheader508.lr.ph.split.us:                     ; preds = %.preheader508.lr.ph
-  %26 = icmp ugt i32 %4, 3
+  %26 = icmp samesign ugt i32 %4, 3
   %wide.trip.count770 = zext nneg i32 %6 to i64
   br i1 %26, label %.preheader508.lr.ph.split.us.split.us, label %.preheader508.lr.ph.split.us.split
 
@@ -12379,7 +12379,7 @@ define hidden void @mlib_c_ImageLookUpSI_S16_S16(ptr nocapture noundef readonly 
   br i1 %10, label %.preheader96.lr.ph.split.us, label %.loopexit
 
 .preheader96.lr.ph.split.us:                      ; preds = %.preheader96.lr.ph
-  %24 = icmp ugt i32 %4, 3
+  %24 = icmp samesign ugt i32 %4, 3
   %wide.trip.count200 = zext nneg i32 %6 to i64
   br i1 %24, label %.preheader96.lr.ph.split.us.split.us, label %.preheader96.lr.ph.split.us.split
 
@@ -12671,7 +12671,7 @@ define hidden void @mlib_c_ImageLookUpSI_U16_S16(ptr nocapture noundef readonly 
   br i1 %10, label %.preheader96.lr.ph.split.us, label %.loopexit
 
 .preheader96.lr.ph.split.us:                      ; preds = %.preheader96.lr.ph
-  %22 = icmp ugt i32 %4, 3
+  %22 = icmp samesign ugt i32 %4, 3
   %wide.trip.count196 = zext nneg i32 %6 to i64
   br i1 %22, label %.preheader96.lr.ph.split.us.split.us, label %.preheader96.lr.ph.split.us.split
 
@@ -12972,7 +12972,7 @@ define hidden void @mlib_c_ImageLookUpSI_S32_S16(ptr nocapture noundef readonly 
   br i1 %10, label %.preheader96.lr.ph.split.us, label %.loopexit
 
 .preheader96.lr.ph.split.us:                      ; preds = %.preheader96.lr.ph
-  %24 = icmp ugt i32 %4, 3
+  %24 = icmp samesign ugt i32 %4, 3
   %wide.trip.count200 = zext nneg i32 %6 to i64
   br i1 %24, label %.preheader96.lr.ph.split.us.split.us, label %.preheader96.lr.ph.split.us.split
 
@@ -13273,7 +13273,7 @@ define hidden void @mlib_c_ImageLookUpSI_S16_U16(ptr nocapture noundef readonly 
   br i1 %10, label %.preheader96.lr.ph.split.us, label %.loopexit
 
 .preheader96.lr.ph.split.us:                      ; preds = %.preheader96.lr.ph
-  %24 = icmp ugt i32 %4, 3
+  %24 = icmp samesign ugt i32 %4, 3
   %wide.trip.count200 = zext nneg i32 %6 to i64
   br i1 %24, label %.preheader96.lr.ph.split.us.split.us, label %.preheader96.lr.ph.split.us.split
 
@@ -13565,7 +13565,7 @@ define hidden void @mlib_c_ImageLookUpSI_U16_U16(ptr nocapture noundef readonly 
   br i1 %10, label %.preheader96.lr.ph.split.us, label %.loopexit
 
 .preheader96.lr.ph.split.us:                      ; preds = %.preheader96.lr.ph
-  %22 = icmp ugt i32 %4, 3
+  %22 = icmp samesign ugt i32 %4, 3
   %wide.trip.count196 = zext nneg i32 %6 to i64
   br i1 %22, label %.preheader96.lr.ph.split.us.split.us, label %.preheader96.lr.ph.split.us.split
 
@@ -13866,7 +13866,7 @@ define hidden void @mlib_c_ImageLookUpSI_S32_U16(ptr nocapture noundef readonly 
   br i1 %10, label %.preheader96.lr.ph.split.us, label %.loopexit
 
 .preheader96.lr.ph.split.us:                      ; preds = %.preheader96.lr.ph
-  %24 = icmp ugt i32 %4, 3
+  %24 = icmp samesign ugt i32 %4, 3
   %wide.trip.count200 = zext nneg i32 %6 to i64
   br i1 %24, label %.preheader96.lr.ph.split.us.split.us, label %.preheader96.lr.ph.split.us.split
 
@@ -14153,7 +14153,7 @@ define hidden void @mlib_c_ImageLookUpSI_U8_S32(ptr noundef %0, i32 noundef %1, 
   br i1 %14, label %.preheader583.lr.ph.split.us, label %.loopexit
 
 .preheader583.lr.ph.split.us:                     ; preds = %.preheader583.lr.ph
-  %22 = icmp ugt i32 %4, 3
+  %22 = icmp samesign ugt i32 %4, 3
   %wide.trip.count822 = zext nneg i32 %6 to i64
   br i1 %22, label %.preheader583.lr.ph.split.us.split.us, label %.preheader583.lr.ph.split.us.split
 
@@ -15209,7 +15209,7 @@ define hidden void @mlib_c_ImageLookUpSI_S16_S32(ptr nocapture noundef readonly 
   br i1 %10, label %.preheader96.lr.ph.split.us, label %.loopexit
 
 .preheader96.lr.ph.split.us:                      ; preds = %.preheader96.lr.ph
-  %24 = icmp ugt i32 %4, 3
+  %24 = icmp samesign ugt i32 %4, 3
   %wide.trip.count200 = zext nneg i32 %6 to i64
   br i1 %24, label %.preheader96.lr.ph.split.us.split.us, label %.preheader96.lr.ph.split.us.split
 
@@ -15501,7 +15501,7 @@ define hidden void @mlib_c_ImageLookUpSI_U16_S32(ptr nocapture noundef readonly 
   br i1 %10, label %.preheader96.lr.ph.split.us, label %.loopexit
 
 .preheader96.lr.ph.split.us:                      ; preds = %.preheader96.lr.ph
-  %22 = icmp ugt i32 %4, 3
+  %22 = icmp samesign ugt i32 %4, 3
   %wide.trip.count196 = zext nneg i32 %6 to i64
   br i1 %22, label %.preheader96.lr.ph.split.us.split.us, label %.preheader96.lr.ph.split.us.split
 
@@ -15802,7 +15802,7 @@ define hidden void @mlib_c_ImageLookUpSI_S32_S32(ptr nocapture noundef readonly 
   br i1 %10, label %.preheader96.lr.ph.split.us, label %.loopexit
 
 .preheader96.lr.ph.split.us:                      ; preds = %.preheader96.lr.ph
-  %24 = icmp ugt i32 %4, 3
+  %24 = icmp samesign ugt i32 %4, 3
   %wide.trip.count200 = zext nneg i32 %6 to i64
   br i1 %24, label %.preheader96.lr.ph.split.us.split.us, label %.preheader96.lr.ph.split.us.split
 

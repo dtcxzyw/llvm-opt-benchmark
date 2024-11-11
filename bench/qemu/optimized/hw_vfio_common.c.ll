@@ -1190,7 +1190,7 @@ if.end:                                           ; preds = %entry
 
 if.end.i:                                         ; preds = %if.end
   %sub.i28.i = add nsw i128 %coerce15.sroa.0.0.insert.insert.i, -1
-  %cmp.i34.i = icmp ult i128 %sub.i28.i, 18446744073709551616
+  %cmp.i34.i = icmp samesign ult i128 %sub.i28.i, 18446744073709551616
   br i1 %cmp.i34.i, label %if.end10, label %if.else.i.i
 
 if.else.i.i:                                      ; preds = %if.end.i
@@ -1642,7 +1642,7 @@ if.end29:                                         ; preds = %for.inc, %if.then2,
 
 if.end.i:                                         ; preds = %if.end29
   %sub.i28.i = add nsw i128 %coerce15.sroa.0.0.insert.insert.i, -1
-  %cmp.i34.i = icmp ult i128 %sub.i28.i, 18446744073709551616
+  %cmp.i34.i = icmp samesign ult i128 %sub.i28.i, 18446744073709551616
   br i1 %cmp.i34.i, label %if.end32, label %if.else.i.i
 
 if.else.i.i:                                      ; preds = %if.end.i
@@ -3855,7 +3855,7 @@ lor.lhs.false:                                    ; preds = %entry
 
 if.end.i:                                         ; preds = %lor.lhs.false
   %sub.i28.i = add nsw i128 %coerce15.sroa.0.0.insert.insert.i, -1
-  %cmp.i34.i = icmp ult i128 %sub.i28.i, 18446744073709551616
+  %cmp.i34.i = icmp samesign ult i128 %sub.i28.i, 18446744073709551616
   br i1 %cmp.i34.i, label %if.end, label %if.else.i.i
 
 if.else.i.i:                                      ; preds = %if.end.i

@@ -317,7 +317,7 @@ sub_1:                                            ; preds = %sub_0
   br i1 %or.cond.i, label %Curl_cidr6_match.exit.thread, label %105
 
 105:                                              ; preds = %102
-  %.not19.i = icmp ult i32 %95, 8
+  %.not19.i = icmp samesign ult i32 %95, 8
   br i1 %.not19.i, label %108, label %106
 
 106:                                              ; preds = %105

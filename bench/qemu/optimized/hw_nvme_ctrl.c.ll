@@ -10189,7 +10189,7 @@ out.i.i:                                          ; preds = %nvme_ns.exit.i.i, %
 
 if.end14.i:                                       ; preds = %if.end.i
   %49 = add nsw i32 %32, -257
-  %or.cond.i.i59 = icmp ult i32 %49, -256
+  %or.cond.i.i59 = icmp samesign ult i32 %49, -256
   br i1 %or.cond.i.i59, label %if.then55, label %nvme_ns.exit.i
 
 nvme_ns.exit.i:                                   ; preds = %if.end14.i
@@ -12590,7 +12590,7 @@ sw.bb42.i:                                        ; preds = %sw.epilog.i317
 
 if.end45.i323:                                    ; preds = %sw.bb42.i
   %373 = add nsw i32 %.fr133.i, -257
-  %or.cond.i72.i = icmp ult i32 %373, -256
+  %or.cond.i72.i = icmp samesign ult i32 %373, -256
   br i1 %or.cond.i72.i, label %nvme_get_feature.exit, label %nvme_ns.exit78.i
 
 nvme_ns.exit78.i:                                 ; preds = %if.end45.i323
@@ -12666,7 +12666,7 @@ sw.bb89.i:                                        ; preds = %sw.epilog.i317
 
 if.end92.i:                                       ; preds = %sw.bb89.i
   %384 = add nsw i32 %.fr133.i, -257
-  %or.cond.i90.i = icmp ult i32 %384, -256
+  %or.cond.i90.i = icmp samesign ult i32 %384, -256
   br i1 %or.cond.i90.i, label %nvme_get_feature.exit, label %nvme_ns.exit96.i
 
 nvme_ns.exit96.i:                                 ; preds = %if.end92.i
@@ -12932,7 +12932,7 @@ if.end.i226:                                      ; preds = %trace_pci_nvme_ns_a
   %431 = load ptr, ptr %subsys.i, align 8
   %tobool.i.i227 = icmp eq ptr %431, null
   %432 = add nsw i32 %419, -257
-  %433 = icmp ult i32 %432, -256
+  %433 = icmp samesign ult i32 %432, -256
   %or.cond1.i.i = or i1 %433, %tobool.i.i227
   br i1 %or.cond1.i.i, label %nvme_ns_attachment.exit, label %nvme_subsys_ns.exit.i
 

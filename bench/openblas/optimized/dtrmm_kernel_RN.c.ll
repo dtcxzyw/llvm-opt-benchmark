@@ -88,7 +88,7 @@ define noundef i32 @dtrmm_kernel_RN(i64 noundef %0, i64 noundef %1, i64 noundef 
   %64 = add nsw i64 %63, 10
   store i64 %64, ptr %13, align 8, !tbaa !7
   %65 = add nsw i64 %43, -12
-  %66 = icmp ugt i64 %43, 23
+  %66 = icmp samesign ugt i64 %43, 23
   br i1 %66, label %36, label %.loopexit26, !llvm.loop !10
 
 .loopexit25:                                      ; preds = %77, %.loopexit26
@@ -138,7 +138,7 @@ define noundef i32 @dtrmm_kernel_RN(i64 noundef %0, i64 noundef %1, i64 noundef 
   %105 = add nsw i64 %104, 8
   store i64 %105, ptr %13, align 8, !tbaa !7
   %106 = add nsw i64 %84, -10
-  %107 = icmp ugt i64 %84, 19
+  %107 = icmp samesign ugt i64 %84, 19
   br i1 %107, label %77, label %.loopexit25, !llvm.loop !14
 
 .loopexit24:                                      ; preds = %.preheader, %.loopexit25
@@ -192,7 +192,7 @@ define noundef i32 @dtrmm_kernel_RN(i64 noundef %0, i64 noundef %1, i64 noundef 
   %147 = add nsw i64 %146, 6
   store i64 %147, ptr %13, align 8, !tbaa !7
   %148 = add nsw i64 %126, -8
-  %149 = icmp ugt i64 %126, 15
+  %149 = icmp samesign ugt i64 %126, 15
   br i1 %149, label %.preheader, label %.loopexit24, !llvm.loop !16
 
 .loopexit23:                                      ; preds = %162, %.loopexit24
@@ -246,7 +246,7 @@ define noundef i32 @dtrmm_kernel_RN(i64 noundef %0, i64 noundef %1, i64 noundef 
   %190 = add nsw i64 %189, 4
   store i64 %190, ptr %13, align 8, !tbaa !7
   %191 = add nsw i64 %169, -6
-  %192 = icmp ugt i64 %169, 11
+  %192 = icmp samesign ugt i64 %169, 11
   br i1 %192, label %162, label %.loopexit23, !llvm.loop !18
 
 .loopexit22:                                      ; preds = %204, %.loopexit23
@@ -299,7 +299,7 @@ define noundef i32 @dtrmm_kernel_RN(i64 noundef %0, i64 noundef %1, i64 noundef 
   %232 = add nsw i64 %231, 2
   store i64 %232, ptr %13, align 8, !tbaa !7
   %233 = add nsw i64 %211, -4
-  %234 = icmp ugt i64 %211, 7
+  %234 = icmp samesign ugt i64 %211, 7
   br i1 %234, label %204, label %.loopexit22, !llvm.loop !20
 
 235:                                              ; preds = %235, %202
@@ -333,7 +333,7 @@ define noundef i32 @dtrmm_kernel_RN(i64 noundef %0, i64 noundef %1, i64 noundef 
   %260 = sub nsw i64 %203, %254
   %261 = getelementptr inbounds double, ptr %250, i64 %260
   %262 = add nsw i64 %241, -2
-  %263 = icmp ugt i64 %241, 3
+  %263 = icmp samesign ugt i64 %241, 3
   br i1 %263, label %235, label %.loopexit, !llvm.loop !22
 
 .loopexit:                                        ; preds = %235, %.loopexit22

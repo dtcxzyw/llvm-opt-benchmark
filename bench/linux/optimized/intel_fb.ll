@@ -1785,7 +1785,7 @@ define dso_local i32 @intel_surf_alignment(ptr nocapture noundef readonly %0, i3
   br i1 %123, label %124, label %135
 
 124:                                              ; preds = %119
-  %125 = icmp ugt i16 %117, 3
+  %125 = icmp samesign ugt i16 %117, 3
   %126 = select i1 %125, i32 4096, i32 0
   br label %135
 

@@ -3850,7 +3850,7 @@ _ZN9QtPrivate17QForeachContainerI5QListIP19_recent_item_statusEED2Ev.exit: ; pre
   br label %339
 
 339:                                              ; preds = %335, %333
-  %340 = icmp ugt i32 %.0240, 1
+  %340 = icmp samesign ugt i32 %.0240, 1
   br i1 %340, label %.lr.ph241, label %.critedge, !llvm.loop !10
 
 .critedge:                                        ; preds = %.lr.ph241, %339, %.preheader

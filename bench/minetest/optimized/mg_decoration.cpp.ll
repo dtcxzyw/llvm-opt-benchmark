@@ -2305,7 +2305,7 @@ for.body.lr.ph:                                   ; preds = %if.then96
 
 for.body.us.preheader:                            ; preds = %for.body.lr.ph
   %xtraiter243 = and i32 %conv101, 3
-  %34 = icmp ult i16 %cond, 4
+  %34 = icmp samesign ult i16 %cond, 4
   br i1 %34, label %return.loopexit240.unr-lcssa, label %for.body.us.preheader.new
 
 for.body.us.preheader.new:                        ; preds = %for.body.us.preheader
@@ -2384,7 +2384,7 @@ for.body123.lr.ph:                                ; preds = %if.else116
 
 for.body123.us.preheader:                         ; preds = %for.body123.lr.ph
   %xtraiter = and i32 %conv101, 3
-  %48 = icmp ult i16 %cond, 4
+  %48 = icmp samesign ult i16 %cond, 4
   br i1 %48, label %return.loopexit242.unr-lcssa, label %for.body123.us.preheader.new
 
 for.body123.us.preheader.new:                     ; preds = %for.body123.us.preheader

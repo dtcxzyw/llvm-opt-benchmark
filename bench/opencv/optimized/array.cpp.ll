@@ -680,7 +680,7 @@ define void @cvCreateData(ptr noundef %0) local_unnamed_addr #0 personality ptr 
   %152 = sext i32 %151 to i64
   %153 = mul nsw i64 %152, %150
   %spec.select = tail call i64 @llvm.umax.i64(i64 %.1115, i64 %153)
-  %154 = icmp ugt i64 %indvars.iv, 1
+  %154 = icmp samesign ugt i64 %indvars.iv, 1
   br i1 %154, label %.lr.ph, label %.loopexit, !llvm.loop !4
 
 .loopexit:                                        ; preds = %.lr.ph, %142, %135
@@ -1324,7 +1324,7 @@ define nonnull ptr @cvInitMatNDHeader(ptr noundef returned writeonly %0, i32 nou
   %86 = load i32, ptr %63, align 4
   %87 = sext i32 %86 to i64
   %88 = mul nsw i64 %.04466, %87
-  %89 = icmp ugt i64 %indvars.iv, 1
+  %89 = icmp samesign ugt i64 %indvars.iv, 1
   br i1 %89, label %62, label %._crit_edge, !llvm.loop !6
 
 ._crit_edge:                                      ; preds = %83
@@ -6641,7 +6641,7 @@ define ptr @cvPtr1D(ptr noundef %0, i32 noundef %1, ptr noundef %2) local_unname
 141:                                              ; preds = %.lr.ph157, %133
   %142 = phi i32 [ %134, %133 ], [ %130, %.lr.ph157 ]
   %.2 = phi ptr [ %140, %133 ], [ %.1154, %.lr.ph157 ]
-  %143 = icmp ugt i64 %indvars.iv166, 1
+  %143 = icmp samesign ugt i64 %indvars.iv166, 1
   br i1 %143, label %.lr.ph157, label %.loopexit, !llvm.loop !38
 
 144:                                              ; preds = %.critedge
@@ -6674,7 +6674,7 @@ define ptr @cvPtr1D(ptr noundef %0, i32 noundef %1, ptr noundef %2) local_unname
   %.recomposed172 = srem i32 %154, %156
   %159 = getelementptr inbounds [32 x i32], ptr %9, i64 0, i64 %indvars.iv.next
   store i32 %.recomposed172, ptr %159, align 4
-  %160 = icmp ugt i64 %indvars.iv, 1
+  %160 = icmp samesign ugt i64 %indvars.iv, 1
   br i1 %160, label %153, label %._crit_edge, !llvm.loop !39
 
 ._crit_edge:                                      ; preds = %153, %.preheader
@@ -11777,7 +11777,7 @@ define void @cvSetImageROI(ptr noundef %0, i64 %1, i64 %2) local_unnamed_addr #0
 
 29:                                               ; preds = %25
   %30 = add nsw i32 %.sroa.26.8.extract.trunc, %.sroa.8.0.extract.trunc
-  %31 = icmp ugt i64 %2, 4294967295
+  %31 = icmp samesign ugt i64 %2, 4294967295
   %32 = zext i1 %31 to i32
   %.not26 = icmp slt i32 %30, %32
   br i1 %.not26, label %33, label %40
@@ -12353,7 +12353,7 @@ define { i64, double } @cvCheckTermCriteria(i64 %0, double %1, double noundef %2
 
 33:                                               ; preds = %24, %22
   %.sroa.2.0 = phi i32 [ %3, %22 ], [ %.sroa.5.0.extract.trunc, %24 ]
-  %.not19 = icmp ult i32 %.sroa.0.0.extract.trunc, 2
+  %.not19 = icmp samesign ult i32 %.sroa.0.0.extract.trunc, 2
   br i1 %.not19, label %43, label %34
 
 34:                                               ; preds = %33

@@ -1441,7 +1441,7 @@ define dso_local ptr @__napi_alloc_skb(ptr nocapture noundef readonly %0, i32 no
 
 17:                                               ; preds = %12, %15
   %18 = phi i32 [ %16, %15 ], [ %2, %12 ]
-  %19 = icmp ult i32 %4, 705
+  %19 = icmp samesign ult i32 %4, 705
   br i1 %19, label %20, label %52
 
 20:                                               ; preds = %17
@@ -14396,7 +14396,7 @@ define dso_local i32 @skb_cow_data(ptr noundef %0, i32 noundef %1, ptr nocapture
   %35 = getelementptr i8, ptr %30, i64 %.idx
   %36 = load i32, ptr %35, align 8
   %37 = add i32 %36, %33
-  %38 = icmp ugt i64 %32, 1
+  %38 = icmp samesign ugt i64 %32, 1
   br i1 %38, label %31, label %.loopexit9, !llvm.loop !106
 
 .loopexit9:                                       ; preds = %31, %20

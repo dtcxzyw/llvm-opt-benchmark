@@ -29162,11 +29162,11 @@ _ZNK2cv7MatExprcvNS_3MatEEv.exit:                 ; preds = %161
   %218 = load float, ptr %217, align 4
   %219 = insertelement <4 x float> poison, float %218, i64 0
   %220 = call noundef i32 @llvm.x86.sse.cvtss2si(<4 x float> %219)
-  %221 = icmp ult i32 %216, %153
+  %221 = icmp samesign ult i32 %216, %153
   %222 = or i32 %220, %216
   %223 = icmp sgt i32 %222, -1
   %or.cond255.not270 = select i1 %223, i1 %221, i1 false
-  %224 = icmp ult i32 %220, %155
+  %224 = icmp samesign ult i32 %220, %155
   %or.cond256 = select i1 %or.cond255.not270, i1 %224, i1 false
   br i1 %or.cond256, label %227, label %.critedge
 

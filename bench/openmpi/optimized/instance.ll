@@ -2492,7 +2492,7 @@ define range(i32 -5, 1) i32 @ompi_instance_get_nth_pset(ptr nocapture noundef re
 13:                                               ; preds = %10
   %14 = load i32, ptr %2, align 4
   %15 = icmp eq i32 %14, 0
-  %16 = icmp ult i32 %1, 3
+  %16 = icmp samesign ult i32 %1, 3
   br i1 %15, label %17, label %24
 
 17:                                               ; preds = %13

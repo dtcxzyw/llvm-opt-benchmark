@@ -709,7 +709,7 @@ if.end313:                                        ; preds = %if.then307
 if.then315:                                       ; preds = %if.end313
   %conv317 = zext nneg i32 %call308 to i64
   %div134 = lshr i64 %conv317, 1
-  %cmp319279.not = icmp ult i32 %call308, 2
+  %cmp319279.not = icmp samesign ult i32 %call308, 2
   br i1 %cmp319279.not, label %if.end345, label %for.body321
 
 for.body321:                                      ; preds = %if.then315, %for.body321

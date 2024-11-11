@@ -4752,7 +4752,7 @@ define noundef zeroext i1 @_ZN8UatModel7moveRowEii(ptr noundef nonnull align 8 d
   br i1 %.not, label %25, label %.critedge
 
 25:                                               ; preds = %18
-  %26 = icmp ult i32 %1, %2
+  %26 = icmp samesign ult i32 %1, %2
   %27 = zext i1 %26 to i32
   %28 = add nuw nsw i32 %2, %27
   store i32 -1, ptr %6, align 8

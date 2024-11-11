@@ -4348,7 +4348,7 @@ if.end36:                                         ; preds = %lor.lhs.false.i
   br i1 %cmp37, label %return, label %while.cond.preheader
 
 while.cond.preheader:                             ; preds = %if.end36
-  %cmp.i.i150156 = icmp ult i64 %tmp.sroa.7.0.copyload.i, 3
+  %cmp.i.i150156 = icmp samesign ult i64 %tmp.sroa.7.0.copyload.i, 3
   br i1 %cmp.i.i150156, label %while.end.thread, label %while.body.lr.ph.preheader
 
 while.body.lr.ph.preheader:                       ; preds = %while.cond.preheader

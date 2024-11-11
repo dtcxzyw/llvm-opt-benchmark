@@ -1645,7 +1645,7 @@ if.then1:                                         ; preds = %if.else
   br label %return
 
 if.else2:                                         ; preds = %if.else
-  %cmp3 = icmp ugt i32 %0, 65535
+  %cmp3 = icmp samesign ugt i32 %0, 65535
   br i1 %cmp3, label %if.then4, label %if.end6
 
 if.then4:                                         ; preds = %if.else2

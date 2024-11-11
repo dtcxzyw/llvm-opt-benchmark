@@ -437,7 +437,7 @@ if.end13.i:                                       ; preds = %for.body9.i72
   br label %for.inc.i
 
 for.inc.i:                                        ; preds = %if.end13.i, %for.body9.i72
-  %cmp.i = icmp ugt i32 %i.013.in.i, 1
+  %cmp.i = icmp samesign ugt i32 %i.013.in.i, 1
   br i1 %cmp.i, label %for.body9.i72, label %for.inc14.i, !llvm.loop !7
 
 for.inc14.i:                                      ; preds = %for.inc.i, %if.end.i67
@@ -488,7 +488,7 @@ if.end13.i99:                                     ; preds = %for.body9.i92
   br label %for.inc.i97
 
 for.inc.i97:                                      ; preds = %if.end13.i99, %for.body9.i92
-  %cmp.i98 = icmp ugt i32 %i.013.in.i93, 1
+  %cmp.i98 = icmp samesign ugt i32 %i.013.in.i93, 1
   br i1 %cmp.i98, label %for.body9.i92, label %for.inc14.i88, !llvm.loop !7
 
 for.inc14.i88:                                    ; preds = %for.inc.i97, %if.end.i85
@@ -615,7 +615,7 @@ if.end13:                                         ; preds = %for.body9
   br label %for.inc
 
 for.inc:                                          ; preds = %for.body9, %if.end13
-  %cmp = icmp ugt i32 %i.013.in, 1
+  %cmp = icmp samesign ugt i32 %i.013.in, 1
   br i1 %cmp, label %for.body9, label %for.inc14, !llvm.loop !7
 
 for.inc14:                                        ; preds = %for.inc, %if.end
@@ -2149,7 +2149,7 @@ for.body.i.i.i.i.i.i.i.i.i.i:                     ; preds = %for.body.i.i.i.i.i.
   store ptr %5, ptr %__result.addr.06.i.i.i.i.i.i.i.i.i.i, align 8
   %incdec.ptr.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__result.addr.06.i.i.i.i.i.i.i.i.i.i, i64 8
   %dec.i.i.i.i.i.i.i.i.i.i = add nsw i64 %__n.07.i.i.i.i.i.i.i.i.i.i, -1
-  %cmp.i.i.i.i.i.i.i.i.i.i = icmp ugt i64 %__n.07.i.i.i.i.i.i.i.i.i.i, 1
+  %cmp.i.i.i.i.i.i.i.i.i.i = icmp samesign ugt i64 %__n.07.i.i.i.i.i.i.i.i.i.i, 1
   br i1 %cmp.i.i.i.i.i.i.i.i.i.i, label %for.body.i.i.i.i.i.i.i.i.i.i, label %_ZN4llvh23SmallVectorTemplateBaseIPN6hermes10BasicBlockELb1EE18uninitialized_copyISt16reverse_iteratorIN9__gnu_cxx17__normal_iteratorIPS3_St6vectorIS3_SaIS3_EEEEES9_EEvT_SF_T0_.exit.loopexit.i.i, !llvm.loop !37
 
 _ZN4llvh23SmallVectorTemplateBaseIPN6hermes10BasicBlockELb1EE18uninitialized_copyISt16reverse_iteratorIN9__gnu_cxx17__normal_iteratorIPS3_St6vectorIS3_SaIS3_EEEEES9_EEvT_SF_T0_.exit.loopexit.i.i: ; preds = %for.body.i.i.i.i.i.i.i.i.i.i

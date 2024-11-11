@@ -174,7 +174,7 @@ define dso_local range(i16 0, 512) i16 @_ZN4llvm5MachO13PackedVersion7parse64ENS
   br i1 %18, label %56, label %19
 
 19:                                               ; preds = %16
-  %20 = icmp ugt i64 %17, 65535
+  %20 = icmp samesign ugt i64 %17, 65535
   br i1 %20, label %21, label %22
 
 21:                                               ; preds = %19
@@ -221,7 +221,7 @@ define dso_local range(i16 0, 512) i16 @_ZN4llvm5MachO13PackedVersion7parse64ENS
   br label %56
 
 37:                                               ; preds = %32
-  %38 = icmp ugt i64 %33, 255
+  %38 = icmp samesign ugt i64 %33, 255
   br i1 %38, label %39, label %40
 
 39:                                               ; preds = %37

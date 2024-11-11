@@ -870,7 +870,7 @@ sw.bb2:                                           ; preds = %entry
   br i1 %cmp, label %return, label %if.end
 
 if.end:                                           ; preds = %sw.bb2
-  %cmp3 = icmp ugt i32 %arg, 16
+  %cmp3 = icmp samesign ugt i32 %arg, 16
   br i1 %cmp3, label %land.lhs.true, label %if.end18
 
 land.lhs.true:                                    ; preds = %if.end
@@ -1587,7 +1587,7 @@ if.then11:                                        ; preds = %if.end9
 
 if.end12:                                         ; preds = %if.end9
   %div24 = lshr exact i64 %in_len, 3
-  %cmp13 = icmp ult i64 %in_len, 16
+  %cmp13 = icmp samesign ult i64 %in_len, 16
   br i1 %cmp13, label %if.then15, label %if.end16
 
 if.then15:                                        ; preds = %if.end12
@@ -1724,7 +1724,7 @@ if.then11:                                        ; preds = %if.end9
   br label %return
 
 if.end12:                                         ; preds = %if.end9
-  %cmp13 = icmp ult i64 %in_len, 24
+  %cmp13 = icmp samesign ult i64 %in_len, 24
   br i1 %cmp13, label %if.then14, label %if.end15
 
 if.then14:                                        ; preds = %if.end12

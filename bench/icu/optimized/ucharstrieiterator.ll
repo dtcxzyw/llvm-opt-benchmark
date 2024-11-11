@@ -517,7 +517,7 @@ if.else3.i:                                       ; preds = %if.else.i56
   br label %if.end49
 
 if.else46:                                        ; preds = %if.else39
-  %cmp.i60 = icmp ult i16 %21, 16448
+  %cmp.i60 = icmp samesign ult i16 %21, 16448
   br i1 %cmp.i60, label %if.then.i68, label %if.else.i61
 
 if.then.i68:                                      ; preds = %if.else46
@@ -526,7 +526,7 @@ if.then.i68:                                      ; preds = %if.else46
   br label %lor.lhs.false
 
 if.else.i61:                                      ; preds = %if.else46
-  %cmp1.i62 = icmp ult i16 %21, 32704
+  %cmp1.i62 = icmp samesign ult i16 %21, 32704
   br i1 %cmp1.i62, label %if.then2.i64, label %if.else4.i
 
 if.then2.i64:                                     ; preds = %if.else.i61
@@ -840,7 +840,7 @@ _ZN6icu_7510UCharsTrie11jumpByDeltaEPKDs.exit:    ; preds = %_ZN6icu_759UVector3
   %delta.0.i = phi i32 [ %or.i, %if.then2.i44 ], [ %or9.i, %if.else.i43 ], [ %conv.i, %_ZN6icu_759UVector3210addElementEiR10UErrorCode.exit37 ]
   %idx.ext.i = sext i32 %delta.0.i to i64
   %add.ptr11.i = getelementptr inbounds i16, ptr %pos.addr.0.i40, i64 %idx.ext.i
-  %cmp = icmp ugt i32 %length.addr.0109, 11
+  %cmp = icmp samesign ugt i32 %length.addr.0109, 11
   br i1 %cmp, label %while.body, label %while.end, !llvm.loop !7
 
 while.end:                                        ; preds = %_ZN6icu_7510UCharsTrie11jumpByDeltaEPKDs.exit, %entry

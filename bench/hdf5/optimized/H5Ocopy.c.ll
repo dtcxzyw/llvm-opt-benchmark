@@ -1689,7 +1689,7 @@ H5O__copy_search_comm_dt.exit:                    ; preds = %.thread73.i, %221
   br label %.thread533.thread.sink.split
 
 656:                                              ; preds = %650
-  %657 = icmp ugt i64 %.0449.lcssa, 65535
+  %657 = icmp samesign ugt i64 %.0449.lcssa, 65535
   br i1 %657, label %658, label %660
 
 658:                                              ; preds = %656
@@ -1697,7 +1697,7 @@ H5O__copy_search_comm_dt.exit:                    ; preds = %.thread73.i, %221
   br label %.thread533.thread.sink.split
 
 660:                                              ; preds = %656
-  %661 = icmp ugt i64 %.0449.lcssa, 255
+  %661 = icmp samesign ugt i64 %.0449.lcssa, 255
   br i1 %661, label %662, label %664
 
 662:                                              ; preds = %660
@@ -1705,7 +1705,7 @@ H5O__copy_search_comm_dt.exit:                    ; preds = %.thread73.i, %221
   br label %.thread533.thread.sink.split
 
 664:                                              ; preds = %660
-  %665 = icmp ult i64 %.0449.lcssa, 22
+  %665 = icmp samesign ult i64 %.0449.lcssa, 22
   br i1 %665, label %669, label %.thread533
 
 .thread708:                                       ; preds = %._crit_edge646

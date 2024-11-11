@@ -1423,7 +1423,7 @@ define internal noundef range(i64 -14, 2147483648) i64 @snd_info_text_entry_writ
   %32 = getelementptr inbounds i8, ptr %31, i64 16
   %33 = load i32, ptr %32, align 8
   %34 = zext i32 %33 to i64
-  %35 = icmp ugt i64 %19, %34
+  %35 = icmp samesign ugt i64 %19, %34
   br i1 %35, label %36, label %44
 
 36:                                               ; preds = %30

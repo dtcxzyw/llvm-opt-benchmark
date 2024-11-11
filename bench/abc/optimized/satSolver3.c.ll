@@ -6362,7 +6362,7 @@ sat_solver3_progress.exit184.i:                   ; preds = %._crit_edge.loopexi
   br i1 %.not63.i.i, label %1284, label %.preheader.i189.i
 
 .preheader.i189.i:                                ; preds = %1239
-  %1247 = icmp ugt i32 %.val62.i.i, 2
+  %1247 = icmp samesign ugt i32 %.val62.i.i, 2
   %1248 = sext i32 %1244 to i64
   br i1 %1247, label %.lr.ph.i192.i, label %._crit_edge.i190.i
 

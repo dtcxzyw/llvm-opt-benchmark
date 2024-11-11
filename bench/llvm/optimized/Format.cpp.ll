@@ -7472,7 +7472,7 @@ _ZN5clang6format15isClangFormatOnEN4llvm9StringRefE.exit: ; preds = %_ZNK4llvm9S
   br i1 %105, label %_ZN5clang6format16isClangFormatOffEN4llvm9StringRefE.exit.thread153.thread187, label %_ZNK4llvm9StringRef11starts_withES0_.exit
 
 _ZN5clang6format15isClangFormatOnEN4llvm9StringRefE.exit.thread: ; preds = %_ZN4llvmeqENS_9StringRefES0_.exit.thread15.i.i95
-  %.not.i106 = icmp ult i64 %.sroa.228.0.copyload, 2
+  %.not.i106 = icmp samesign ult i64 %.sroa.228.0.copyload, 2
   br i1 %.not.i106, label %_ZN5clang6format16isClangFormatOffEN4llvm9StringRefE.exit.thread153, label %_ZNK4llvm9StringRef11starts_withES0_.exit
 
 _ZNK4llvm9StringRef11starts_withES0_.exit:        ; preds = %_ZN5clang6format15isClangFormatOnEN4llvm9StringRefE.exit, %_ZNK4llvm9StringRef11starts_withES0_.exit.i.i97, %_ZNK4llvm9StringRef11starts_withES0_.exit.i.thread.i104, %_ZNK4llvm9StringRef11starts_withES0_.exit.i.i97.thread, %_ZNK4llvm9StringRef11starts_withES0_.exit.i.i97.thread175, %_ZN5clang6format15isClangFormatOnEN4llvm9StringRefE.exit.thread
@@ -9034,7 +9034,7 @@ _ZN4llvm15SmallVectorImplIjE7reserveEm.exit.i68:  ; preds = %228, %_ZN5clang6for
   %232 = add nuw i32 %.sroa.05.08.i.i.i.i.i.i.i.i.i, 1
   %233 = getelementptr inbounds i8, ptr %.049.i.i.i.i.i.i.i.i.i, i64 4
   %234 = add nsw i64 %.010.i.i.i.i.i.i.i.i.i, -1
-  %235 = icmp ugt i64 %.010.i.i.i.i.i.i.i.i.i, 1
+  %235 = icmp samesign ugt i64 %.010.i.i.i.i.i.i.i.i.i, 1
   br i1 %235, label %.lr.ph.i.i.i.i.i.i.i.i.i, label %_ZN4llvm15SmallVectorImplIjE6appendINS_6detail15SafeIntIteratorIjLb0EEEvEEvT_S6_.exit, !llvm.loop !60
 
 _ZN4llvm15SmallVectorImplIjE6appendINS_6detail15SafeIntIteratorIjLb0EEEvEEvT_S6_.exit: ; preds = %.lr.ph.i.i.i.i.i.i.i.i.i, %_ZN4llvm15SmallVectorImplIjE7reserveEm.exit.i68
@@ -17412,7 +17412,7 @@ _ZN4llvm15SmallVectorImplIjE7reserveEm.exit:      ; preds = %3, %9
   %16 = add i64 %.sroa.05.08.i.i.i.i.i.i.i.i, 1
   %17 = getelementptr inbounds i8, ptr %.049.i.i.i.i.i.i.i.i, i64 4
   %18 = add nsw i64 %.010.i.i.i.i.i.i.i.i, -1
-  %19 = icmp ugt i64 %.010.i.i.i.i.i.i.i.i, 1
+  %19 = icmp samesign ugt i64 %.010.i.i.i.i.i.i.i.i, 1
   br i1 %19, label %.lr.ph.i.i.i.i.i.i.i.i, label %_ZN4llvm23SmallVectorTemplateBaseIjLb1EE18uninitialized_copyINS_6detail15SafeIntIteratorIjLb0EEEPjEEvT_S7_T0_.exit, !llvm.loop !60
 
 _ZN4llvm23SmallVectorTemplateBaseIjLb1EE18uninitialized_copyINS_6detail15SafeIntIteratorIjLb0EEEPjEEvT_S7_T0_.exit: ; preds = %.lr.ph.i.i.i.i.i.i.i.i, %_ZN4llvm15SmallVectorImplIjE7reserveEm.exit
@@ -24685,7 +24685,7 @@ _ZNSt12_Vector_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE
   %40 = getelementptr inbounds i8, ptr %.0910.i.i.i.i.i, i64 32
   %41 = getelementptr inbounds i8, ptr %.0811.i.i.i.i.i, i64 32
   %42 = add nsw i64 %.012.i.i.i.i.i, -1
-  %43 = icmp ugt i64 %.012.i.i.i.i.i, 1
+  %43 = icmp samesign ugt i64 %.012.i.i.i.i.i, 1
   br i1 %43, label %.lr.ph.i.i.i.i.i16, label %_ZSt4copyIPKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPS5_ET0_T_SA_S9_.exit.loopexit, !llvm.loop !498
 
 _ZSt4copyIPKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPS5_ET0_T_SA_S9_.exit.loopexit: ; preds = %.lr.ph.i.i.i.i.i16
@@ -24723,7 +24723,7 @@ _ZSt7advanceIPKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEmEvRT_T0_.exi
   %49 = getelementptr inbounds i8, ptr %.0910.i.i.i.i.i22, i64 32
   %50 = getelementptr inbounds i8, ptr %.0811.i.i.i.i.i21, i64 32
   %51 = add nsw i64 %.012.i.i.i.i.i20, -1
-  %52 = icmp ugt i64 %.012.i.i.i.i.i20, 1
+  %52 = icmp samesign ugt i64 %.012.i.i.i.i.i20, 1
   br i1 %52, label %.lr.ph.i.i.i.i.i19, label %_ZSt4copyIPKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPS5_ET0_T_SA_S9_.exit23.loopexit, !llvm.loop !498
 
 _ZSt4copyIPKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPS5_ET0_T_SA_S9_.exit23.loopexit: ; preds = %.lr.ph.i.i.i.i.i19
@@ -24951,7 +24951,7 @@ _ZNSt12_Vector_baseIN5clang7tooling12IncludeStyle15IncludeCategoryESaIS3_EE13_M_
   %45 = getelementptr inbounds i8, ptr %.0910.i.i.i.i.i, i64 48
   %46 = getelementptr inbounds i8, ptr %.0811.i.i.i.i.i, i64 48
   %47 = add nsw i64 %.012.i.i.i.i.i, -1
-  %48 = icmp ugt i64 %.012.i.i.i.i.i, 1
+  %48 = icmp samesign ugt i64 %.012.i.i.i.i.i, 1
   br i1 %48, label %.lr.ph.i.i.i.i.i16, label %_ZSt4copyIPKN5clang7tooling12IncludeStyle15IncludeCategoryEPS3_ET0_T_S8_S7_.exit.loopexit, !llvm.loop !501
 
 _ZSt4copyIPKN5clang7tooling12IncludeStyle15IncludeCategoryEPS3_ET0_T_S8_S7_.exit.loopexit: ; preds = %.lr.ph.i.i.i.i.i16
@@ -24995,7 +24995,7 @@ _ZSt7advanceIPKN5clang7tooling12IncludeStyle15IncludeCategoryEmEvRT_T0_.exit: ; 
   %56 = getelementptr inbounds i8, ptr %.0910.i.i.i.i.i23, i64 48
   %57 = getelementptr inbounds i8, ptr %.0811.i.i.i.i.i22, i64 48
   %58 = add nsw i64 %.012.i.i.i.i.i21, -1
-  %59 = icmp ugt i64 %.012.i.i.i.i.i21, 1
+  %59 = icmp samesign ugt i64 %.012.i.i.i.i.i21, 1
   br i1 %59, label %.lr.ph.i.i.i.i.i20, label %_ZSt4copyIPKN5clang7tooling12IncludeStyle15IncludeCategoryEPS3_ET0_T_S8_S7_.exit24.loopexit, !llvm.loop !501
 
 _ZSt4copyIPKN5clang7tooling12IncludeStyle15IncludeCategoryEPS3_ET0_T_S8_S7_.exit24.loopexit: ; preds = %.lr.ph.i.i.i.i.i20
@@ -25144,7 +25144,7 @@ _ZNSt12_Vector_baseIN5clang6format11FormatStyle15RawStringFormatESaIS3_EE13_M_de
   %53 = getelementptr inbounds i8, ptr %.0910.i.i.i.i.i, i64 120
   %54 = getelementptr inbounds i8, ptr %.0811.i.i.i.i.i, i64 120
   %55 = add nsw i64 %.012.i.i.i.i.i, -1
-  %56 = icmp ugt i64 %.012.i.i.i.i.i, 1
+  %56 = icmp samesign ugt i64 %.012.i.i.i.i.i, 1
   br i1 %56, label %.lr.ph.i.i.i.i.i16, label %_ZSt4copyIPKN5clang6format11FormatStyle15RawStringFormatEPS3_ET0_T_S8_S7_.exit.loopexit, !llvm.loop !503
 
 _ZSt4copyIPKN5clang6format11FormatStyle15RawStringFormatEPS3_ET0_T_S8_S7_.exit.loopexit: ; preds = %.lr.ph.i.i.i.i.i16
@@ -25198,7 +25198,7 @@ _ZSt7advanceIPKN5clang6format11FormatStyle15RawStringFormatEmEvRT_T0_.exit: ; pr
   %74 = getelementptr inbounds i8, ptr %.0910.i.i.i.i.i23, i64 120
   %75 = getelementptr inbounds i8, ptr %.0811.i.i.i.i.i22, i64 120
   %76 = add nsw i64 %.012.i.i.i.i.i21, -1
-  %77 = icmp ugt i64 %.012.i.i.i.i.i21, 1
+  %77 = icmp samesign ugt i64 %.012.i.i.i.i.i21, 1
   br i1 %77, label %.lr.ph.i.i.i.i.i20, label %_ZSt4copyIPKN5clang6format11FormatStyle15RawStringFormatEPS3_ET0_T_S8_S7_.exit24.loopexit, !llvm.loop !503
 
 _ZSt4copyIPKN5clang6format11FormatStyle15RawStringFormatEPS3_ET0_T_S8_S7_.exit24.loopexit: ; preds = %.lr.ph.i.i.i.i.i20
@@ -25333,7 +25333,7 @@ _ZNSt12_Vector_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE
   %43 = getelementptr inbounds i8, ptr %.0910.i.i.i.i.i, i64 32
   %44 = getelementptr inbounds i8, ptr %.0811.i.i.i.i.i, i64 32
   %45 = add nsw i64 %.012.i.i.i.i.i, -1
-  %46 = icmp ugt i64 %.012.i.i.i.i.i, 1
+  %46 = icmp samesign ugt i64 %.012.i.i.i.i.i, 1
   br i1 %46, label %.lr.ph.i.i.i.i.i25, label %_ZSt4copyIN9__gnu_cxx17__normal_iteratorIPKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt6vectorIS7_SaIS7_EEEENS1_IPS7_SC_EEET0_T_SH_SG_.exit.loopexit, !llvm.loop !498
 
 _ZSt4copyIN9__gnu_cxx17__normal_iteratorIPKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt6vectorIS7_SaIS7_EEEENS1_IPS7_SC_EEET0_T_SH_SG_.exit.loopexit: ; preds = %.lr.ph.i.i.i.i.i25
@@ -25373,7 +25373,7 @@ _ZSt4copyIN9__gnu_cxx17__normal_iteratorIPKNSt7__cxx1112basic_stringIcSt11char_t
   %55 = getelementptr inbounds i8, ptr %.0910.i.i.i.i.i33, i64 32
   %56 = getelementptr inbounds i8, ptr %.0811.i.i.i.i.i32, i64 32
   %57 = add nsw i64 %.012.i.i.i.i.i31, -1
-  %58 = icmp ugt i64 %.012.i.i.i.i.i31, 1
+  %58 = icmp samesign ugt i64 %.012.i.i.i.i.i31, 1
   br i1 %58, label %.lr.ph.i.i.i.i.i30, label %_ZSt4copyIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES6_ET0_T_S8_S7_.exit.loopexit, !llvm.loop !505
 
 _ZSt4copyIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES6_ET0_T_S8_S7_.exit.loopexit: ; preds = %.lr.ph.i.i.i.i.i30
@@ -42445,7 +42445,7 @@ _ZNSt12_Vector_baseIN5clang6format11FormatStyle15RawStringFormatESaIS3_EE13_M_de
   %56 = getelementptr inbounds i8, ptr %.0910.i.i.i.i.i, i64 120
   %57 = getelementptr inbounds i8, ptr %.0811.i.i.i.i.i, i64 120
   %58 = add nsw i64 %.012.i.i.i.i.i, -1
-  %59 = icmp ugt i64 %.012.i.i.i.i.i, 1
+  %59 = icmp samesign ugt i64 %.012.i.i.i.i.i, 1
   br i1 %59, label %.lr.ph.i.i.i.i.i25, label %_ZSt4copyIN9__gnu_cxx17__normal_iteratorIPKN5clang6format11FormatStyle15RawStringFormatESt6vectorIS5_SaIS5_EEEENS1_IPS5_SA_EEET0_T_SF_SE_.exit.loopexit, !llvm.loop !503
 
 _ZSt4copyIN9__gnu_cxx17__normal_iteratorIPKN5clang6format11FormatStyle15RawStringFormatESt6vectorIS5_SaIS5_EEEENS1_IPS5_SA_EEET0_T_SF_SE_.exit.loopexit: ; preds = %.lr.ph.i.i.i.i.i25
@@ -42501,7 +42501,7 @@ _ZSt4copyIN9__gnu_cxx17__normal_iteratorIPKN5clang6format11FormatStyle15RawStrin
   %80 = getelementptr inbounds i8, ptr %.0910.i.i.i.i.i34, i64 120
   %81 = getelementptr inbounds i8, ptr %.0811.i.i.i.i.i33, i64 120
   %82 = add nsw i64 %.012.i.i.i.i.i32, -1
-  %83 = icmp ugt i64 %.012.i.i.i.i.i32, 1
+  %83 = icmp samesign ugt i64 %.012.i.i.i.i.i32, 1
   br i1 %83, label %.lr.ph.i.i.i.i.i31, label %_ZSt4copyIPN5clang6format11FormatStyle15RawStringFormatES4_ET0_T_S6_S5_.exit.loopexit, !llvm.loop !529
 
 _ZSt4copyIPN5clang6format11FormatStyle15RawStringFormatES4_ET0_T_S6_S5_.exit.loopexit: ; preds = %.lr.ph.i.i.i.i.i31
@@ -42658,7 +42658,7 @@ _ZNSt12_Vector_baseIN5clang7tooling12IncludeStyle15IncludeCategoryESaIS3_EE13_M_
   %48 = getelementptr inbounds i8, ptr %.0910.i.i.i.i.i, i64 48
   %49 = getelementptr inbounds i8, ptr %.0811.i.i.i.i.i, i64 48
   %50 = add nsw i64 %.012.i.i.i.i.i, -1
-  %51 = icmp ugt i64 %.012.i.i.i.i.i, 1
+  %51 = icmp samesign ugt i64 %.012.i.i.i.i.i, 1
   br i1 %51, label %.lr.ph.i.i.i.i.i25, label %_ZSt4copyIN9__gnu_cxx17__normal_iteratorIPKN5clang7tooling12IncludeStyle15IncludeCategoryESt6vectorIS5_SaIS5_EEEENS1_IPS5_SA_EEET0_T_SF_SE_.exit.loopexit, !llvm.loop !501
 
 _ZSt4copyIN9__gnu_cxx17__normal_iteratorIPKN5clang7tooling12IncludeStyle15IncludeCategoryESt6vectorIS5_SaIS5_EEEENS1_IPS5_SA_EEET0_T_SF_SE_.exit.loopexit: ; preds = %.lr.ph.i.i.i.i.i25
@@ -42704,7 +42704,7 @@ _ZSt4copyIN9__gnu_cxx17__normal_iteratorIPKN5clang7tooling12IncludeStyle15Includ
   %62 = getelementptr inbounds i8, ptr %.0910.i.i.i.i.i34, i64 48
   %63 = getelementptr inbounds i8, ptr %.0811.i.i.i.i.i33, i64 48
   %64 = add nsw i64 %.012.i.i.i.i.i32, -1
-  %65 = icmp ugt i64 %.012.i.i.i.i.i32, 1
+  %65 = icmp samesign ugt i64 %.012.i.i.i.i.i32, 1
   br i1 %65, label %.lr.ph.i.i.i.i.i31, label %_ZSt4copyIPN5clang7tooling12IncludeStyle15IncludeCategoryES4_ET0_T_S6_S5_.exit.loopexit, !llvm.loop !532
 
 _ZSt4copyIPN5clang7tooling12IncludeStyle15IncludeCategoryES4_ET0_T_S6_S5_.exit.loopexit: ; preds = %.lr.ph.i.i.i.i.i31
@@ -42821,7 +42821,7 @@ _ZSt22__uninitialized_move_aIPN5clang6format11FormatStyleES3_SaIS2_EET0_T_S6_S5_
   %35 = getelementptr inbounds i8, ptr %.069.i.i.i.i.i, i64 -936
   %36 = call noundef nonnull align 8 dereferenceable(936) ptr @_ZN5clang6format11FormatStyleaSEOS1_(ptr noundef nonnull align 8 dereferenceable(936) %35, ptr noundef nonnull align 8 dereferenceable(936) %34) #27
   %37 = add nsw i64 %.010.i.i.i.i.i, -1
-  %38 = icmp ugt i64 %.010.i.i.i.i.i, 1
+  %38 = icmp samesign ugt i64 %.010.i.i.i.i.i, 1
   br i1 %38, label %.lr.ph.i.i.i.i.i50, label %_ZSt13move_backwardIPN5clang6format11FormatStyleES3_ET0_T_S5_S4_.exit, !llvm.loop !535
 
 _ZSt13move_backwardIPN5clang6format11FormatStyleES3_ET0_T_S5_S4_.exit: ; preds = %.lr.ph.i.i.i.i.i50, %_ZSt22__uninitialized_move_aIPN5clang6format11FormatStyleES3_SaIS2_EET0_T_S6_S5_RT1_.exit

@@ -1018,7 +1018,7 @@ define void @process(ptr nocapture noundef readnone %0, ptr nocapture noundef re
 739:                                              ; preds = %.loopexit45
   %740 = sext i32 %269 to i64
   %741 = sub nsw i64 256, %740
-  %742 = icmp ult i64 %741, 32
+  %742 = icmp samesign ult i64 %741, 32
   br i1 %742, label %.preheader117, label %743
 
 .preheader117:                                    ; preds = %768, %739

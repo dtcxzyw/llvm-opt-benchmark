@@ -1459,43 +1459,43 @@ entry:
   br i1 %or.cond, label %if.end65, label %if.else
 
 if.else:                                          ; preds = %entry
-  %cmp3 = icmp ult i32 %h, 32
+  %cmp3 = icmp samesign ult i32 %h, 32
   br i1 %cmp3, label %if.end65, label %if.else5
 
 if.else5:                                         ; preds = %if.else
-  %cmp8 = icmp ult i32 %h, 53
+  %cmp8 = icmp samesign ult i32 %h, 53
   br i1 %cmp8, label %if.end65, label %if.else10
 
 if.else10:                                        ; preds = %if.else5
-  %cmp13 = icmp ult i32 %h, 74
+  %cmp13 = icmp samesign ult i32 %h, 74
   br i1 %cmp13, label %if.end65, label %if.else15
 
 if.else15:                                        ; preds = %if.else10
-  %cmp18 = icmp ult i32 %h, 96
+  %cmp18 = icmp samesign ult i32 %h, 96
   br i1 %cmp18, label %if.end65, label %if.else20
 
 if.else20:                                        ; preds = %if.else15
-  %cmp23 = icmp ult i32 %h, 117
+  %cmp23 = icmp samesign ult i32 %h, 117
   br i1 %cmp23, label %if.end65, label %if.else25
 
 if.else25:                                        ; preds = %if.else20
-  %cmp28 = icmp ult i32 %h, 138
+  %cmp28 = icmp samesign ult i32 %h, 138
   br i1 %cmp28, label %if.end65, label %if.else30
 
 if.else30:                                        ; preds = %if.else25
-  %cmp33 = icmp ult i32 %h, 159
+  %cmp33 = icmp samesign ult i32 %h, 159
   br i1 %cmp33, label %if.end65, label %if.else35
 
 if.else35:                                        ; preds = %if.else30
-  %cmp38 = icmp ult i32 %h, 181
+  %cmp38 = icmp samesign ult i32 %h, 181
   br i1 %cmp38, label %if.end65, label %if.else40
 
 if.else40:                                        ; preds = %if.else35
-  %cmp43 = icmp ult i32 %h, 202
+  %cmp43 = icmp samesign ult i32 %h, 202
   br i1 %cmp43, label %if.end65, label %if.else45
 
 if.else45:                                        ; preds = %if.else40
-  %cmp48 = icmp ult i32 %h, 223
+  %cmp48 = icmp samesign ult i32 %h, 223
   %spec.select = select i1 %cmp48, i8 77, i8 70
   br label %if.end65
 
@@ -1511,31 +1511,31 @@ entry:
   br i1 %cmp, label %if.end28, label %if.else
 
 if.else:                                          ; preds = %entry
-  %cmp1 = icmp ult i32 %l, 48
+  %cmp1 = icmp samesign ult i32 %l, 48
   br i1 %cmp1, label %if.end28, label %if.else3
 
 if.else3:                                         ; preds = %if.else
-  %cmp4 = icmp ult i32 %l, 80
+  %cmp4 = icmp samesign ult i32 %l, 80
   br i1 %cmp4, label %if.end28, label %if.else6
 
 if.else6:                                         ; preds = %if.else3
-  %cmp7 = icmp ult i32 %l, 112
+  %cmp7 = icmp samesign ult i32 %l, 112
   br i1 %cmp7, label %if.end28, label %if.else9
 
 if.else9:                                         ; preds = %if.else6
-  %cmp10 = icmp ult i32 %l, 144
+  %cmp10 = icmp samesign ult i32 %l, 144
   br i1 %cmp10, label %if.end28, label %if.else12
 
 if.else12:                                        ; preds = %if.else9
-  %cmp13 = icmp ult i32 %l, 176
+  %cmp13 = icmp samesign ult i32 %l, 176
   br i1 %cmp13, label %if.end28, label %if.else15
 
 if.else15:                                        ; preds = %if.else12
-  %cmp16 = icmp ult i32 %l, 208
+  %cmp16 = icmp samesign ult i32 %l, 208
   br i1 %cmp16, label %if.end28, label %if.else18
 
 if.else18:                                        ; preds = %if.else15
-  %cmp19 = icmp ult i32 %l, 240
+  %cmp19 = icmp samesign ult i32 %l, 240
   %. = select i1 %cmp19, i8 61, i8 35
   br label %if.end28
 
@@ -1723,31 +1723,31 @@ if.else:                                          ; preds = %_Z8RGBtoHSLhhhPhS_S
   br i1 %cmp.i62, label %return, label %if.else.i63
 
 if.else.i63:                                      ; preds = %if.else
-  %cmp1.i = icmp ult i32 %add4.i59, 48
+  %cmp1.i = icmp samesign ult i32 %add4.i59, 48
   br i1 %cmp1.i, label %return, label %if.else3.i
 
 if.else3.i:                                       ; preds = %if.else.i63
-  %cmp4.i = icmp ult i32 %add4.i59, 80
+  %cmp4.i = icmp samesign ult i32 %add4.i59, 80
   br i1 %cmp4.i, label %return, label %if.else6.i
 
 if.else6.i:                                       ; preds = %if.else3.i
-  %cmp7.i = icmp ult i32 %add4.i59, 112
+  %cmp7.i = icmp samesign ult i32 %add4.i59, 112
   br i1 %cmp7.i, label %return, label %if.else9.i
 
 if.else9.i:                                       ; preds = %if.else6.i
-  %cmp10.i = icmp ult i32 %add4.i59, 144
+  %cmp10.i = icmp samesign ult i32 %add4.i59, 144
   br i1 %cmp10.i, label %return, label %if.else12.i
 
 if.else12.i:                                      ; preds = %if.else9.i
-  %cmp13.i64 = icmp ult i32 %add4.i59, 176
+  %cmp13.i64 = icmp samesign ult i32 %add4.i59, 176
   br i1 %cmp13.i64, label %return, label %if.else15.i65
 
 if.else15.i65:                                    ; preds = %if.else12.i
-  %cmp16.i = icmp ult i32 %add4.i59, 208
+  %cmp16.i = icmp samesign ult i32 %add4.i59, 208
   br i1 %cmp16.i, label %return, label %if.else18.i
 
 if.else18.i:                                      ; preds = %if.else15.i65
-  %cmp19.i = icmp ult i32 %add4.i59, 240
+  %cmp19.i = icmp samesign ult i32 %add4.i59, 240
   %..i = select i1 %cmp19.i, i8 61, i8 35
   br label %return
 
@@ -1883,15 +1883,15 @@ if.else9.i108:                                    ; preds = %if.else6.i106
   br i1 %cmp10.i109, label %return, label %if.else12.i110
 
 if.else12.i110:                                   ; preds = %if.else9.i108
-  %cmp13.i111 = icmp ult i8 %spec.select161169175, -80
+  %cmp13.i111 = icmp samesign ult i8 %spec.select161169175, -80
   br i1 %cmp13.i111, label %return, label %if.else15.i112
 
 if.else15.i112:                                   ; preds = %if.else12.i110
-  %cmp16.i113 = icmp ult i8 %spec.select161169175, -48
+  %cmp16.i113 = icmp samesign ult i8 %spec.select161169175, -48
   br i1 %cmp16.i113, label %return, label %if.else18.i114
 
 if.else18.i114:                                   ; preds = %if.else15.i112
-  %cmp19.i115 = icmp ult i8 %spec.select161169175, -16
+  %cmp19.i115 = icmp samesign ult i8 %spec.select161169175, -16
   %..i116 = select i1 %cmp19.i115, i8 61, i8 35
   br label %return
 
@@ -2636,31 +2636,31 @@ if.else.i:                                        ; preds = %_Z8RGBtoHSLhhhPhS_S
   br i1 %cmp.i62.i, label %invoke.cont66, label %if.else.i63.i
 
 if.else.i63.i:                                    ; preds = %if.else.i
-  %cmp1.i.i = icmp ult i32 %add4.i59.i, 48
+  %cmp1.i.i = icmp samesign ult i32 %add4.i59.i, 48
   br i1 %cmp1.i.i, label %invoke.cont66, label %if.else3.i.i
 
 if.else3.i.i:                                     ; preds = %if.else.i63.i
-  %cmp4.i.i = icmp ult i32 %add4.i59.i, 80
+  %cmp4.i.i = icmp samesign ult i32 %add4.i59.i, 80
   br i1 %cmp4.i.i, label %invoke.cont66, label %if.else6.i.i
 
 if.else6.i.i:                                     ; preds = %if.else3.i.i
-  %cmp7.i.i = icmp ult i32 %add4.i59.i, 112
+  %cmp7.i.i = icmp samesign ult i32 %add4.i59.i, 112
   br i1 %cmp7.i.i, label %invoke.cont66, label %if.else9.i.i
 
 if.else9.i.i:                                     ; preds = %if.else6.i.i
-  %cmp10.i.i = icmp ult i32 %add4.i59.i, 144
+  %cmp10.i.i = icmp samesign ult i32 %add4.i59.i, 144
   br i1 %cmp10.i.i, label %invoke.cont66, label %if.else12.i.i
 
 if.else12.i.i:                                    ; preds = %if.else9.i.i
-  %cmp13.i64.i = icmp ult i32 %add4.i59.i, 176
+  %cmp13.i64.i = icmp samesign ult i32 %add4.i59.i, 176
   br i1 %cmp13.i64.i, label %invoke.cont66, label %if.else15.i65.i
 
 if.else15.i65.i:                                  ; preds = %if.else12.i.i
-  %cmp16.i.i = icmp ult i32 %add4.i59.i, 208
+  %cmp16.i.i = icmp samesign ult i32 %add4.i59.i, 208
   br i1 %cmp16.i.i, label %invoke.cont66, label %if.else18.i.i
 
 if.else18.i.i:                                    ; preds = %if.else15.i65.i
-  %cmp19.i.i = icmp ult i32 %add4.i59.i, 240
+  %cmp19.i.i = icmp samesign ult i32 %add4.i59.i, 240
   %..i.i = select i1 %cmp19.i.i, i8 61, i8 35
   br label %invoke.cont66
 

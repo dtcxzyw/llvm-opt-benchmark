@@ -1205,7 +1205,7 @@ lor.lhs.false.i355.lor.lhs.false.i.thread_crit_edge: ; preds = %lor.lhs.false.i3
 
 lor.lhs.false.i:                                  ; preds = %lor.lhs.false.i355
   %add.ptr.i361 = getelementptr inbounds i8, ptr %32, i64 8
-  %cmp2.i = icmp ult i32 %27, 3
+  %cmp2.i = icmp samesign ult i32 %27, 3
   br i1 %cmp2.i, label %lor.lhs.false.i.if.then.i_crit_edge, label %if.end.i
 
 lor.lhs.false.i.if.then.i_crit_edge:              ; preds = %lor.lhs.false.i
@@ -6450,7 +6450,7 @@ if.end77:                                         ; preds = %if.end64
   br i1 %cmp, label %return, label %if.end79
 
 if.end79:                                         ; preds = %if.end77
-  %cmp80 = icmp ult i64 %42, 16385
+  %cmp80 = icmp samesign ult i64 %42, 16385
   br i1 %cmp80, label %land.end, label %if.else
 
 land.end:                                         ; preds = %if.end79
@@ -6932,7 +6932,7 @@ if.end90:                                         ; preds = %lor.rhs
   br i1 %cmp91, label %return, label %if.end93
 
 if.end93:                                         ; preds = %if.end90
-  %cmp94 = icmp ult i64 %43, 16385
+  %cmp94 = icmp samesign ult i64 %43, 16385
   br i1 %cmp94, label %land.end, label %if.else
 
 land.end:                                         ; preds = %if.end93
@@ -7403,7 +7403,7 @@ if.end77:                                         ; preds = %if.end64
   br i1 %cmp, label %return, label %if.end79
 
 if.end79:                                         ; preds = %if.end77
-  %cmp80 = icmp ult i64 %42, 16385
+  %cmp80 = icmp samesign ult i64 %42, 16385
   br i1 %cmp80, label %land.end, label %if.else
 
 land.end:                                         ; preds = %if.end79
@@ -7874,7 +7874,7 @@ if.end77:                                         ; preds = %if.end64
   br i1 %cmp, label %return, label %if.end79
 
 if.end79:                                         ; preds = %if.end77
-  %cmp80 = icmp ult i64 %42, 16385
+  %cmp80 = icmp samesign ult i64 %42, 16385
   br i1 %cmp80, label %land.end, label %if.else
 
 land.end:                                         ; preds = %if.end79

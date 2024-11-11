@@ -2938,7 +2938,7 @@ _ZNSt6vectorIN3gmx11BasicVectorIfEESaIS2_EED2Ev.exit58: ; preds = %_ZNSt6vectorI
   %156 = getelementptr inbounds i8, ptr %.058.i.i.i.i.i, i64 4
   %157 = getelementptr inbounds i8, ptr %.sroa.0.07.i.i.i.i.i, i64 4
   %158 = add nsw i64 %.09.i.i.i.i.i, -1
-  %159 = icmp ugt i64 %.09.i.i.i.i.i, 1
+  %159 = icmp samesign ugt i64 %.09.i.i.i.i.i, 1
   br i1 %159, label %.lr.ph.i.i.i.i.i, label %_ZSt4copyIN9__gnu_cxx17__normal_iteratorIPfSt6vectorIfSaIfEEEEN3gmx12ArrayRefIterIfEEET0_T_SB_SA_.exit, !llvm.loop !9
 
 _ZSt4copyIN9__gnu_cxx17__normal_iteratorIPfSt6vectorIfSaIfEEEEN3gmx12ArrayRefIterIfEEET0_T_SB_SA_.exit: ; preds = %.lr.ph.i.i.i.i.i, %.preheader

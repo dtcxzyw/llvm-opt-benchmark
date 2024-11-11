@@ -7882,8 +7882,8 @@ _ZNSt13unordered_mapIPKciN12_GLOBAL__N_18str_hashENS2_6str_eqESaISt4pairIKS1_iEE
   %790 = lshr exact i64 %789, 3
   %791 = trunc i64 %790 to i32
   %792 = icmp sgt i32 %791, 3
-  %793 = icmp ult i32 %779, 400
-  %or.cond = and i1 %793, %792
+  %793 = icmp samesign ult i32 %779, 400
+  %or.cond = select i1 %792, i1 %793, i1 false
   br i1 %or.cond, label %794, label %811
 
 794:                                              ; preds = %781

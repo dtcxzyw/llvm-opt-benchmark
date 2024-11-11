@@ -1328,7 +1328,7 @@ define internal fastcc void @intel_virt_detect_pch(ptr noundef %0, ptr nocapture
 23:                                               ; preds = %19
   %24 = and i64 %21, 536870912
   %25 = icmp ne i64 %24, 0
-  %26 = icmp ugt i32 %20, 1073741823
+  %26 = icmp samesign ugt i32 %20, 1073741823
   %27 = or i1 %26, %25
   br i1 %27, label %.thread, label %28
 

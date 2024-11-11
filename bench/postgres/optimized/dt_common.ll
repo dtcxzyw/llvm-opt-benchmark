@@ -2878,7 +2878,7 @@ j2date.exit377:                                   ; preds = %532, %535
   br label %604
 
 600:                                              ; preds = %594
-  %601 = icmp ult i32 %596, 100
+  %601 = icmp samesign ult i32 %596, 100
   br i1 %601, label %602, label %604
 
 602:                                              ; preds = %600
@@ -3482,7 +3482,7 @@ DecodeSpecial.exit:                               ; preds = %78, %63
   br label %.loopexit
 
 136:                                              ; preds = %130
-  %137 = icmp ult i32 %132, 100
+  %137 = icmp samesign ult i32 %132, 100
   br i1 %137, label %138, label %.loopexit
 
 138:                                              ; preds = %136

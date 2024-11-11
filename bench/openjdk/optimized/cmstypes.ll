@@ -1748,7 +1748,7 @@ define internal range(i32 0, 2) i32 @Type_ParametricCurve_Write(ptr nocapture no
   br i1 %or.cond, label %.loopexit.sink.split, label %13
 
 13:                                               ; preds = %4
-  %14 = icmp ugt i32 %8, 5
+  %14 = icmp samesign ugt i32 %8, 5
   br i1 %14, label %.loopexit.sink.split, label %15
 
 15:                                               ; preds = %13
@@ -6248,7 +6248,7 @@ ReadOneElem.exit.us.i:                            ; preds = %74, %72
   br label %ReadOneElem.exit40.us.i
 
 ReadOneElem.exit40.us.i:                          ; preds = %83, %81
-  %85 = icmp ult i32 %.063.us.i, 24
+  %85 = icmp samesign ult i32 %.063.us.i, 24
   br i1 %85, label %.thread99, label %86
 
 86:                                               ; preds = %ReadOneElem.exit40.us.i
@@ -6278,7 +6278,7 @@ ReadOneElem.exit45.us.i:                          ; preds = %95, %93
   br i1 %48, label %97, label %ReadOneElem.exit50.us.i
 
 97:                                               ; preds = %ReadOneElem.exit45.us.i
-  %98 = icmp ult i32 %87, 8
+  %98 = icmp samesign ult i32 %87, 8
   br i1 %98, label %.thread99, label %99
 
 99:                                               ; preds = %97
@@ -8870,7 +8870,7 @@ Type_Curve_Write.exit:                            ; preds = %42, %48
   br i1 %or.cond.i, label %.loopexit.sink.split.i, label %63
 
 63:                                               ; preds = %53
-  %64 = icmp ugt i32 %58, 5
+  %64 = icmp samesign ugt i32 %58, 5
   br i1 %64, label %.loopexit.sink.split.i, label %65
 
 65:                                               ; preds = %63
@@ -11258,7 +11258,7 @@ define internal range(i32 1668641398, 1885434466) i32 @DecideCurveType(double no
   br i1 %12, label %15, label %13
 
 13:                                               ; preds = %7
-  %14 = icmp ugt i32 %11, 5
+  %14 = icmp samesign ugt i32 %11, 5
   %. = select i1 %14, i32 1668641398, i32 1885434465
   br label %15
 

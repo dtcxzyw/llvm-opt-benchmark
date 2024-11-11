@@ -1154,7 +1154,7 @@ if.then2:                                         ; preds = %if.end
   br label %return
 
 if.end3:                                          ; preds = %if.end
-  %cmp4 = icmp ult i32 %k, 33
+  %cmp4 = icmp samesign ult i32 %k, 33
   br i1 %cmp4, label %if.then5, label %if.end8
 
 if.then5:                                         ; preds = %if.end3

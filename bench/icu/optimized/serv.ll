@@ -1899,7 +1899,7 @@ for.body:                                         ; preds = %if.then9, %for.body
   %vfn = getelementptr inbounds i8, ptr %vtable, i64 32
   %9 = load ptr, ptr %vfn, align 8
   tail call void %9(ptr noundef nonnull align 8 dereferenceable(8) %call14, ptr noundef nonnull align 8 dereferenceable(88) %8, ptr noundef nonnull align 4 dereferenceable(4) %status)
-  %cmp12 = icmp ugt i32 %pos.014, 1
+  %cmp12 = icmp samesign ugt i32 %pos.014, 1
   br i1 %cmp12, label %for.body, label %for.end.loopexit, !llvm.loop !9
 
 for.end.loopexit:                                 ; preds = %for.body

@@ -1431,7 +1431,7 @@ _ZNK12Transduction7ManUtilIN6NewBdd3ManEjLj4294967295EE6UpdateERjj.exit76: ; pre
   %363 = load i32, ptr %361, align 4
   store i32 %363, ptr %355, align 4
   store i32 %362, ptr %361, align 4
-  %364 = icmp ugt i64 %indvars.iv.i, 2
+  %364 = icmp samesign ugt i64 %indvars.iv.i, 2
   br i1 %364, label %.lr.ph.i, label %_ZN12Transduction12TransductionIN6NewBdd3ManENS1_5ParamEjLj4294967295EE10ShufflePisEi.exit, !llvm.loop !10
 
 _ZN12Transduction12TransductionIN6NewBdd3ManENS1_5ParamEjLj4294967295EE10ShufflePisEi.exit: ; preds = %.lr.ph.i, %344, %._crit_edge102
@@ -1935,7 +1935,7 @@ _ZSt8distanceISt16reverse_iteratorISt14_List_iteratorIiEEENSt15iterator_traitsIT
 186:                                              ; preds = %.lr.ph303
   %187 = add i32 %169, 1
   %188 = zext i32 %187 to i64
-  %189 = icmp ugt i64 %178, %188
+  %189 = icmp samesign ugt i64 %178, %188
   br i1 %189, label %190, label %194
 
 190:                                              ; preds = %186
@@ -6821,7 +6821,7 @@ _ZNK12Transduction7ManUtilIN5NewTt3ManEjLj4294967295EE6UpdateERjj.exit71: ; pred
   %338 = load i32, ptr %336, align 4
   store i32 %338, ptr %330, align 4
   store i32 %337, ptr %336, align 4
-  %339 = icmp ugt i64 %indvars.iv.i, 2
+  %339 = icmp samesign ugt i64 %indvars.iv.i, 2
   br i1 %339, label %.lr.ph.i, label %_ZN12Transduction12TransductionIN5NewTt3ManENS1_5ParamEjLj4294967295EE10ShufflePisEi.exit, !llvm.loop !57
 
 _ZN12Transduction12TransductionIN5NewTt3ManENS1_5ParamEjLj4294967295EE10ShufflePisEi.exit: ; preds = %.lr.ph.i, %319, %._crit_edge97
@@ -7323,7 +7323,7 @@ _ZSt8distanceISt16reverse_iteratorISt14_List_iteratorIiEEENSt15iterator_traitsIT
 186:                                              ; preds = %.lr.ph303
   %187 = add i32 %169, 1
   %188 = zext i32 %187 to i64
-  %189 = icmp ugt i64 %178, %188
+  %189 = icmp samesign ugt i64 %178, %188
   br i1 %189, label %190, label %194
 
 190:                                              ; preds = %186
@@ -14691,7 +14691,7 @@ define linkonce_odr void @_ZN12Transduction12TransductionIN6NewBdd3ManENS1_5Para
 71:                                               ; preds = %.lr.ph95
   %72 = add i32 %54, 1
   %73 = zext i32 %72 to i64
-  %74 = icmp ugt i64 %63, %73
+  %74 = icmp samesign ugt i64 %63, %73
   br i1 %74, label %75, label %79
 
 75:                                               ; preds = %71
@@ -20047,7 +20047,7 @@ _ZSt6fill_nIPtmtET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i: ; preds = %.noexc
   %.2123 = phi i32 [ %.1131227, %100 ], [ %.1122223, %107 ]
   %.2115 = phi i32 [ %81, %100 ], [ %.1114224, %107 ]
   %.2 = phi i32 [ %106, %100 ], [ %.1226, %107 ]
-  %110 = icmp ugt i32 %.1131227.in, 1
+  %110 = icmp samesign ugt i32 %.1131227.in, 1
   br i1 %110, label %.lr.ph228, label %.loopexit191, !llvm.loop !156
 
 .loopexit191:                                     ; preds = %109, %107, %.preheader190, %77
@@ -22149,7 +22149,7 @@ define linkonce_odr void @_ZN12Transduction12TransductionIN6NewBdd3ManENS1_5Para
 22:                                               ; preds = %3
   %23 = add i32 %2, 1
   %24 = zext i32 %23 to i64
-  %25 = icmp ugt i64 %14, %24
+  %25 = icmp samesign ugt i64 %14, %24
   br i1 %25, label %26, label %30
 
 26:                                               ; preds = %22
@@ -33185,7 +33185,7 @@ _ZNSt12_Vector_baseISt6vectorIiSaIiEESaIS2_EE13_M_deallocateEPS2_m.exit: ; preds
   %38 = getelementptr inbounds i8, ptr %.0910.i.i.i.i.i, i64 24
   %39 = getelementptr inbounds i8, ptr %.0811.i.i.i.i.i, i64 24
   %40 = add nsw i64 %.012.i.i.i.i.i, -1
-  %41 = icmp ugt i64 %.012.i.i.i.i.i, 1
+  %41 = icmp samesign ugt i64 %.012.i.i.i.i.i, 1
   br i1 %41, label %.lr.ph.i.i.i.i.i, label %_ZSt4copyIN9__gnu_cxx17__normal_iteratorIPKSt6vectorIiSaIiEES2_IS4_SaIS4_EEEENS1_IPS4_S8_EEET0_T_SD_SC_.exit.loopexit, !llvm.loop !218
 
 _ZSt4copyIN9__gnu_cxx17__normal_iteratorIPKSt6vectorIiSaIiEES2_IS4_SaIS4_EEEENS1_IPS4_S8_EEET0_T_SD_SC_.exit.loopexit: ; preds = %.lr.ph.i.i.i.i.i
@@ -33236,7 +33236,7 @@ _ZSt8_DestroyISt6vectorIiSaIiEEEvPT_.exit.i.i.i28: ; preds = %46, %.lr.ph.i.i.i2
   %52 = getelementptr inbounds i8, ptr %.0910.i.i.i.i.i35, i64 24
   %53 = getelementptr inbounds i8, ptr %.0811.i.i.i.i.i34, i64 24
   %54 = add nsw i64 %.012.i.i.i.i.i33, -1
-  %55 = icmp ugt i64 %.012.i.i.i.i.i33, 1
+  %55 = icmp samesign ugt i64 %.012.i.i.i.i.i33, 1
   br i1 %55, label %.lr.ph.i.i.i.i.i32, label %_ZSt4copyIPSt6vectorIiSaIiEES3_ET0_T_S5_S4_.exit.loopexit, !llvm.loop !220
 
 _ZSt4copyIPSt6vectorIiSaIiEES3_ET0_T_S5_S4_.exit.loopexit: ; preds = %.lr.ph.i.i.i.i.i32
@@ -33507,7 +33507,7 @@ _ZNK12Transduction7ManUtilIN6NewBdd3ManEjLj4294967295EE6DelVecERSt6vectorIjSaIjE
   br label %_ZNSt6vectorIS_IjSaIjEESaIS1_EE6resizeEm.exit
 
 68:                                               ; preds = %._crit_edge
-  %69 = icmp ult i64 %.pre-phi42, %.lcssa20
+  %69 = icmp samesign ult i64 %.pre-phi42, %.lcssa20
   br i1 %69, label %70, label %_ZNSt6vectorIS_IjSaIjEESaIS1_EE6resizeEm.exit
 
 70:                                               ; preds = %68
@@ -39841,7 +39841,7 @@ define linkonce_odr void @_ZN12Transduction12TransductionIN5NewTt3ManENS1_5Param
 71:                                               ; preds = %.lr.ph95
   %72 = add i32 %54, 1
   %73 = zext i32 %72 to i64
-  %74 = icmp ugt i64 %63, %73
+  %74 = icmp samesign ugt i64 %63, %73
   br i1 %74, label %75, label %79
 
 75:                                               ; preds = %71
@@ -42682,7 +42682,7 @@ define linkonce_odr void @_ZN12Transduction12TransductionIN5NewTt3ManENS1_5Param
 22:                                               ; preds = %3
   %23 = add i32 %2, 1
   %24 = zext i32 %23 to i64
-  %25 = icmp ugt i64 %14, %24
+  %25 = icmp samesign ugt i64 %14, %24
   br i1 %25, label %26, label %30
 
 26:                                               ; preds = %22
@@ -52456,7 +52456,7 @@ _ZNK12Transduction7ManUtilIN5NewTt3ManEjLj4294967295EE6DelVecERSt6vectorIjSaIjEE
   br label %_ZNSt6vectorIS_IjSaIjEESaIS1_EE6resizeEm.exit
 
 68:                                               ; preds = %._crit_edge
-  %69 = icmp ult i64 %.pre-phi42, %.lcssa20
+  %69 = icmp samesign ult i64 %.pre-phi42, %.lcssa20
   br i1 %69, label %70, label %_ZNSt6vectorIS_IjSaIjEESaIS1_EE6resizeEm.exit
 
 70:                                               ; preds = %68

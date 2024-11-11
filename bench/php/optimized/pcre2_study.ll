@@ -202,7 +202,7 @@ define hidden range(i32 0, 4) i32 @_pcre2_study_8(ptr noundef %0) local_unnamed_
 80:                                               ; preds = %78, %76, %74, %72, %70, %68, %66, %65
   %.077.us = phi i32 [ %.07699.us, %65 ], [ %67, %66 ], [ %69, %68 ], [ %71, %70 ], [ %73, %72 ], [ %75, %74 ], [ %77, %76 ], [ %79, %78 ]
   %.077.frozen.us = freeze i32 %.077.us
-  %81 = icmp ugt i32 %.077.frozen.us, 127
+  %81 = icmp samesign ugt i32 %.077.frozen.us, 127
   br i1 %81, label %.loopexit, label %82
 
 82:                                               ; preds = %80
@@ -2819,7 +2819,7 @@ define internal fastcc i32 @find_minlength(ptr noundef %0, ptr noundef %1, ptr n
 
 449:                                              ; preds = %447
   %450 = udiv i32 2147483647, %.3
-  %451 = icmp ult i32 %450, %.0342
+  %451 = icmp samesign ult i32 %450, %.0342
   br i1 %451, label %.backedge, label %452
 
 452:                                              ; preds = %449, %447

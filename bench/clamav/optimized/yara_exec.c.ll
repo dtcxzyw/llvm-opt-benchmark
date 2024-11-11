@@ -1377,7 +1377,7 @@ define i32 @yr_execute_code(ptr nocapture noundef readonly %0, ptr nocapture nou
   %709 = getelementptr inbounds i8, ptr %707, i64 4
   %710 = load i32, ptr %709, align 4
   %711 = zext i32 %710 to i64
-  %.not566 = icmp ugt i64 %683, %711
+  %.not566 = icmp samesign ugt i64 %683, %711
   br i1 %.not566, label %719, label %712
 
 712:                                              ; preds = %708

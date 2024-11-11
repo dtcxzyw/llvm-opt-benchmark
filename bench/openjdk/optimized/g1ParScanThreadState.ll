@@ -1632,7 +1632,7 @@ _ZN20G1ParScanThreadState11do_oop_evacI9narrowOopEEvPT_.exit48: ; preds = %368, 
   %453 = load volatile i32, ptr %452, align 4
   %454 = sub i32 %451, %453
   %455 = and i32 %454, 131071
-  %.not = icmp ugt i32 %455, %1
+  %.not = icmp samesign ugt i32 %455, %1
   br i1 %.not, label %.lr.ph100, label %_ZN16GenericTaskQueueI11ScannerTaskL8MEMFLAGS5ELj131072EE14pop_local_slowEjN14TaskQueueSuperILj131072ELS1_5EE3AgeE.exit, !llvm.loop !12
 
 _ZN16GenericTaskQueueI11ScannerTaskL8MEMFLAGS5ELj131072EE14pop_local_slowEjN14TaskQueueSuperILj131072ELS1_5EE3AgeE.exit: ; preds = %_ZN20G1ParScanThreadState11do_oop_evacI9narrowOopEEvPT_.exit48, %_ZN5StackI11ScannerTaskL8MEMFLAGS5EE3popEv.exit.preheader, %._crit_edge.i

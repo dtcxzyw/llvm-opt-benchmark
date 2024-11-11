@@ -1253,7 +1253,7 @@ define dso_local noundef range(i32 -14, 1) i32 @drm_gem_objects_lookup(ptr nound
   br i1 %16, label %49, label %17
 
 17:                                               ; preds = %13
-  %18 = icmp ugt i32 %2, 536870911
+  %18 = icmp samesign ugt i32 %2, 536870911
   br i1 %18, label %19, label %20, !prof !13
 
 19:                                               ; preds = %17

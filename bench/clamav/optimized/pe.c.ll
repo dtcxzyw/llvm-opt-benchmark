@@ -955,7 +955,7 @@ define i32 @cli_rawaddr(i32 noundef %0, ptr nocapture noundef readonly %1, i16 n
   br i1 %or.cond, label %22, label %20
 
 20:                                               ; preds = %.lr.ph, %16
-  %21 = icmp ult i64 %indvars.iv, 2
+  %21 = icmp samesign ult i64 %indvars.iv, 2
   br i1 %21, label %.critedge, label %.lr.ph
 
 22:                                               ; preds = %16
@@ -1041,7 +1041,7 @@ define void @findres(i32 noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef
   br i1 %or.cond.i, label %41, label %39
 
 39:                                               ; preds = %35, %.lr.ph.i
-  %40 = icmp ult i64 %indvars.iv.i, 2
+  %40 = icmp samesign ult i64 %indvars.iv.i, 2
   br i1 %40, label %cli_rawaddr.exit, label %.lr.ph.i
 
 41:                                               ; preds = %35
@@ -1162,7 +1162,7 @@ cli_rawaddr.exit:                                 ; preds = %39, %26, %29, %41
   br i1 %or.cond.i117, label %104, label %102
 
 102:                                              ; preds = %98, %.lr.ph.i112
-  %103 = icmp ult i64 %indvars.iv.i113, 2
+  %103 = icmp samesign ult i64 %indvars.iv.i113, 2
   br i1 %103, label %cli_rawaddr.exit123, label %.lr.ph.i112
 
 104:                                              ; preds = %98
@@ -1283,7 +1283,7 @@ cli_rawaddr.exit123:                              ; preds = %102, %89, %92, %104
   br i1 %or.cond.i132, label %167, label %165
 
 165:                                              ; preds = %161, %.lr.ph.i127
-  %166 = icmp ult i64 %indvars.iv.i128, 2
+  %166 = icmp samesign ult i64 %indvars.iv.i128, 2
   br i1 %166, label %cli_rawaddr.exit138, label %.lr.ph.i127
 
 167:                                              ; preds = %161
@@ -9199,7 +9199,7 @@ thread-pre-split:                                 ; preds = %695
   %848 = load i32, ptr %847, align 1
   %.not766 = icmp eq i32 %848, -17890115
   %849 = add nsw i32 %839, -92
-  %850 = icmp ugt i32 %849, 6
+  %850 = icmp samesign ugt i32 %849, 6
   %or.cond958 = select i1 %.not766, i1 %850, i1 false
   br i1 %or.cond958, label %.lr.ph937.preheader, label %.loopexit906
 
@@ -9246,7 +9246,7 @@ thread-pre-split:                                 ; preds = %695
 
 869:                                              ; preds = %867
   %870 = add nsw i32 %854, -36
-  %871 = icmp ugt i32 %870, 6
+  %871 = icmp samesign ugt i32 %870, 6
   br i1 %871, label %.lr.ph951, label %.loopexit906
 
 .lr.ph951:                                        ; preds = %869
@@ -9269,7 +9269,7 @@ thread-pre-split:                                 ; preds = %695
 
 882:                                              ; preds = %874
   %883 = add nsw i32 %876, -24
-  %884 = icmp ult i32 %883, 7
+  %884 = icmp samesign ult i32 %883, 7
   br i1 %884, label %._crit_edge944, label %.lr.ph943.preheader
 
 .lr.ph943.preheader:                              ; preds = %882
@@ -9728,7 +9728,7 @@ define internal fastcc void @cli_parseres_special(i32 noundef %0, i32 noundef %1
   br i1 %or.cond.i, label %30, label %28
 
 28:                                               ; preds = %24, %.lr.ph.i
-  %29 = icmp ult i64 %indvars.iv.i, 2
+  %29 = icmp samesign ult i64 %indvars.iv.i, 2
   br i1 %29, label %cli_rawaddr.exit, label %.lr.ph.i
 
 30:                                               ; preds = %24
@@ -9887,7 +9887,7 @@ cli_rawaddr.exit:                                 ; preds = %28, %16, %18, %30
   br i1 %or.cond.i114, label %cli_rawaddr.exit120.thread147, label %104
 
 104:                                              ; preds = %100, %.lr.ph.i109
-  %105 = icmp ult i64 %indvars.iv.i110, 2
+  %105 = icmp samesign ult i64 %indvars.iv.i110, 2
   br i1 %105, label %.thread, label %.lr.ph.i109
 
 cli_rawaddr.exit120.thread147:                    ; preds = %100
@@ -9955,7 +9955,7 @@ cli_rawaddr.exit120:                              ; preds = %88
   br i1 %or.cond.i127, label %140, label %138
 
 138:                                              ; preds = %134, %.lr.ph.i122
-  %139 = icmp ult i64 %indvars.iv.i123, 2
+  %139 = icmp samesign ult i64 %indvars.iv.i123, 2
   br i1 %139, label %cli_rawaddr.exit133.thread, label %.lr.ph.i122
 
 140:                                              ; preds = %134
@@ -10552,7 +10552,7 @@ define i32 @cli_check_auth_header(ptr noundef %0, ptr noundef %1) local_unnamed_
 
 72:                                               ; preds = %69, %64
   %.0120 = phi i32 [ 3, %64 ], [ 2, %69 ]
-  %or.cond206.not = icmp ugt i64 %39, %62
+  %or.cond206.not = icmp samesign ugt i64 %39, %62
   br i1 %or.cond206.not, label %73, label %.thread.thread
 
 73:                                               ; preds = %72
@@ -10566,7 +10566,7 @@ define i32 @cli_check_auth_header(ptr noundef %0, ptr noundef %1) local_unnamed_
 
 fmap_readn.exit:                                  ; preds = %73
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %3, ptr nonnull align 1 %77, i64 %spec.select.i, i1 false)
-  %.not164 = icmp ugt i64 %74, 7
+  %.not164 = icmp samesign ugt i64 %74, 7
   br i1 %.not164, label %78, label %.thread.thread
 
 78:                                               ; preds = %fmap_readn.exit
@@ -11173,7 +11173,7 @@ define internal fastcc range(i32 0, 27) i32 @hash_imptbl(ptr nocapture noundef r
   br i1 %or.cond.i, label %cli_rawaddr.exit.thread131, label %36
 
 36:                                               ; preds = %32, %.lr.ph.i
-  %37 = icmp ult i64 %indvars.iv.i, 2
+  %37 = icmp samesign ult i64 %indvars.iv.i, 2
   br i1 %37, label %cli_rawaddr.exit.thread, label %.lr.ph.i
 
 cli_rawaddr.exit.thread131:                       ; preds = %32
@@ -11312,7 +11312,7 @@ cli_rawaddr.exit.thread:                          ; preds = %36, %26, %46, %cli_
   br i1 %or.cond.i104, label %cli_rawaddr.exit110.thread139, label %103
 
 103:                                              ; preds = %99, %.lr.ph.i99
-  %104 = icmp ult i64 %indvars.iv.i100, 2
+  %104 = icmp samesign ult i64 %indvars.iv.i100, 2
   br i1 %104, label %cli_rawaddr.exit110.thread, label %.lr.ph.i99
 
 cli_rawaddr.exit110.thread139:                    ; preds = %99
@@ -11409,7 +11409,7 @@ cli_rawaddr.exit110.thread:                       ; preds = %93, %113, %cli_rawa
   br i1 %or.cond.i.i, label %147, label %145
 
 145:                                              ; preds = %141, %.lr.ph.i.i
-  %146 = icmp ult i64 %indvars.iv.i.i, 2
+  %146 = icmp samesign ult i64 %indvars.iv.i.i, 2
   br i1 %146, label %cli_rawaddr.exit.thread.i, label %.lr.ph.i.i
 
 147:                                              ; preds = %141
@@ -11466,7 +11466,7 @@ cli_rawaddr.exit.thread.thread.i:                 ; preds = %135
   br i1 %or.cond.i254.i, label %171, label %169
 
 169:                                              ; preds = %165, %.lr.ph.i249.i
-  %170 = icmp ult i64 %indvars.iv.i250.i, 2
+  %170 = icmp samesign ult i64 %indvars.iv.i250.i, 2
   br i1 %170, label %cli_rawaddr.exit260.thread14.i, label %.lr.ph.i249.i
 
 171:                                              ; preds = %165
@@ -11599,7 +11599,7 @@ fmap_readn.exit.i:                                ; preds = %191
   br i1 %or.cond.i270.i, label %220, label %218
 
 218:                                              ; preds = %214, %.lr.ph.i265.i
-  %219 = icmp ult i64 %indvars.iv.i266.i, 2
+  %219 = icmp samesign ult i64 %indvars.iv.i266.i, 2
   br i1 %219, label %cli_rawaddr.exit276.i, label %.lr.ph.i265.i
 
 220:                                              ; preds = %214
@@ -11876,7 +11876,7 @@ fmap_readn.exit283.i:                             ; preds = %313
   br i1 %or.cond.i290.i, label %cli_rawaddr.exit296.thread38.i, label %339
 
 339:                                              ; preds = %335, %.lr.ph.i285.i
-  %340 = icmp ult i64 %indvars.iv.i286.i, 2
+  %340 = icmp samesign ult i64 %indvars.iv.i286.i, 2
   br i1 %340, label %.thread44.i, label %.lr.ph.i285.i
 
 cli_rawaddr.exit296.thread38.i:                   ; preds = %335

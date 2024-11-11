@@ -603,7 +603,7 @@ define hidden ptr @cmsBuildSegmentedToneCurve(ptr noundef %0, i32 noundef %1, pt
   br label %_cmsQuickSaturateWord.exit
 
 76:                                               ; preds = %40, %35
-  %77 = icmp ugt i64 %indvars.iv.i, 1
+  %77 = icmp samesign ugt i64 %indvars.iv.i, 1
   br i1 %77, label %35, label %EvalSegmentedFn.exit.thread, !llvm.loop !13
 
 EvalSegmentedFn.exit.thread:                      ; preds = %76, %27
@@ -1225,7 +1225,7 @@ GetParametricCurveByType.exit:                    ; preds = %27, %6, %2
   br i1 %or.cond61.i, label %83, label %GetInterval.exit
 
 83:                                               ; preds = %78, %73
-  %84 = icmp ugt i64 %indvars.iv21.i, 1
+  %84 = icmp samesign ugt i64 %indvars.iv21.i, 1
   br i1 %84, label %.lr.ph12.i, label %GetInterval.exit.thread, !llvm.loop !17
 
 .lr.ph.i60:                                       ; preds = %.preheader1.i, %98
@@ -1469,7 +1469,7 @@ _cmsQuickSaturateWord.exit:                       ; preds = %11, %15, %17
   br label %EvalSegmentedFn.exit
 
 75:                                               ; preds = %38, %34
-  %76 = icmp ugt i64 %indvars.iv.i, 1
+  %76 = icmp samesign ugt i64 %indvars.iv.i, 1
   br i1 %76, label %34, label %EvalSegmentedFn.exit, !llvm.loop !13
 
 EvalSegmentedFn.exit:                             ; preds = %75, %29, %71, %74
@@ -1938,7 +1938,7 @@ cmsIsToneCurveLinear.exit:                        ; preds = %.lr.ph.i
   %284 = tail call float @llvm.fmuladd.f32(float %283, float %282, float %278)
   store float %284, ptr %270, align 4
   %indvars.iv.next225.i = add nsw i64 %indvars.iv224.i, -1
-  %285 = icmp ugt i64 %indvars.iv224.i, 1
+  %285 = icmp samesign ugt i64 %indvars.iv224.i, 1
   br i1 %285, label %.lr.ph222.i, label %.thread.i, !llvm.loop !23
 
 286:                                              ; preds = %._crit_edge

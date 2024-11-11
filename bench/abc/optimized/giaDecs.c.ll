@@ -1297,7 +1297,7 @@ define i32 @Gia_ManEvalSolutionOne(ptr nocapture noundef readnone %0, ptr nocapt
   br i1 %16, label %17, label %.thread
 
 17:                                               ; preds = %7
-  %18 = icmp ult i32 %.val, 7
+  %18 = icmp samesign ult i32 %.val, 7
   %19 = add nsw i32 %.val, -6
   %20 = shl nuw i32 1, %19
   %21 = select i1 %18, i32 1, i32 %20

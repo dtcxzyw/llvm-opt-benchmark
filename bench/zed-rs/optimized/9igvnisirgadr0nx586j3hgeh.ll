@@ -3362,7 +3362,7 @@ define hidden void @"_ZN59_$LT$der..length..Length$u20$as$u20$der..decode..Decod
   br label %45
 
 19:                                               ; preds = %13
-  %20 = icmp ult i8 %10, -123
+  %20 = icmp samesign ult i8 %10, -123
   br i1 %20, label %22, label %21
 
 21:                                               ; preds = %19
@@ -3407,7 +3407,7 @@ define hidden void @"_ZN59_$LT$der..length..Length$u20$as$u20$der..decode..Decod
   %32 = add nsw i32 %.sroa.084.0.lcssa218221226, -65536
   %or.cond2.i = icmp ult i32 %32, 16711680
   %spec.select.i = select i1 %or.cond2.i, i8 -125, i8 -124
-  %spec.select5.i = icmp ugt i32 %.sroa.084.0.lcssa218221226, 65535
+  %spec.select5.i = icmp samesign ugt i32 %.sroa.084.0.lcssa218221226, 65535
   br label %_ZN3der6length6Length13initial_octet17h9ee421196ad7b448E.exit
 
 _ZN3der6length6Length13initial_octet17h9ee421196ad7b448E.exit: ; preds = %28, %30, %.thread223
@@ -3544,7 +3544,7 @@ define hidden void @"_ZN59_$LT$der..length..Length$u20$as$u20$der..decode..Decod
   br label %45
 
 19:                                               ; preds = %13
-  %20 = icmp ult i8 %10, -123
+  %20 = icmp samesign ult i8 %10, -123
   br i1 %20, label %22, label %21
 
 21:                                               ; preds = %19
@@ -3589,7 +3589,7 @@ define hidden void @"_ZN59_$LT$der..length..Length$u20$as$u20$der..decode..Decod
   %32 = add nsw i32 %.sroa.084.0.lcssa218221226, -65536
   %or.cond2.i = icmp ult i32 %32, 16711680
   %spec.select.i = select i1 %or.cond2.i, i8 -125, i8 -124
-  %spec.select5.i = icmp ugt i32 %.sroa.084.0.lcssa218221226, 65535
+  %spec.select5.i = icmp samesign ugt i32 %.sroa.084.0.lcssa218221226, 65535
   br label %_ZN3der6length6Length13initial_octet17h9ee421196ad7b448E.exit
 
 _ZN3der6length6Length13initial_octet17h9ee421196ad7b448E.exit: ; preds = %28, %30, %.thread223
@@ -3726,7 +3726,7 @@ define hidden void @"_ZN59_$LT$der..length..Length$u20$as$u20$der..decode..Decod
   br label %45
 
 19:                                               ; preds = %13
-  %20 = icmp ult i8 %10, -123
+  %20 = icmp samesign ult i8 %10, -123
   br i1 %20, label %22, label %21
 
 21:                                               ; preds = %19
@@ -3771,7 +3771,7 @@ define hidden void @"_ZN59_$LT$der..length..Length$u20$as$u20$der..decode..Decod
   %32 = add nsw i32 %.sroa.084.0.lcssa218221226, -65536
   %or.cond2.i = icmp ult i32 %32, 16711680
   %spec.select.i = select i1 %or.cond2.i, i8 -125, i8 -124
-  %spec.select5.i = icmp ugt i32 %.sroa.084.0.lcssa218221226, 65535
+  %spec.select5.i = icmp samesign ugt i32 %.sroa.084.0.lcssa218221226, 65535
   br label %_ZN3der6length6Length13initial_octet17h9ee421196ad7b448E.exit
 
 _ZN3der6length6Length13initial_octet17h9ee421196ad7b448E.exit: ; preds = %28, %30, %.thread223

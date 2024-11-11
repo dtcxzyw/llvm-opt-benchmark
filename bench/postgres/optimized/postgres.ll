@@ -2071,7 +2071,7 @@ define dso_local void @set_debug_options(i32 noundef %0, i32 noundef %1, i32 nou
 
 11:                                               ; preds = %10
   call void @SetConfigOption(ptr noundef nonnull @.str.44, ptr noundef nonnull @.str.45, i32 noundef %1, i32 noundef %2) #26
-  %12 = icmp ugt i32 %0, 2
+  %12 = icmp samesign ugt i32 %0, 2
   br i1 %12, label %13, label %.thread32
 
 13:                                               ; preds = %11
@@ -2081,7 +2081,7 @@ define dso_local void @set_debug_options(i32 noundef %0, i32 noundef %1, i32 nou
 
 14:                                               ; preds = %13
   call void @SetConfigOption(ptr noundef nonnull @.str.47, ptr noundef nonnull @.str.42, i32 noundef %1, i32 noundef %2) #26
-  %15 = icmp ugt i32 %0, 4
+  %15 = icmp samesign ugt i32 %0, 4
   br i1 %15, label %16, label %.thread32
 
 16:                                               ; preds = %14

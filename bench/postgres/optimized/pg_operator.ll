@@ -307,7 +307,7 @@ define internal fastcc zeroext i1 @validOperatorName(ptr noundef readonly %0) un
   br i1 %.not24, label %10, label %.thread
 
 10:                                               ; preds = %8
-  %11 = icmp ugt i64 %2, 1
+  %11 = icmp samesign ugt i64 %2, 1
   br i1 %11, label %12, label %sub_0
 
 12:                                               ; preds = %10

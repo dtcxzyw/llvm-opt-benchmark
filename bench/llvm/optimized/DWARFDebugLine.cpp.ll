@@ -844,7 +844,7 @@ _ZN4llvm11raw_ostreamlsEPKc.exit51:               ; preds = %86, %88
   br i1 %99, label %100, label %.loopexit
 
 100:                                              ; preds = %_ZN4llvm11raw_ostreamlsEPKc.exit51
-  %101 = icmp ugt i16 %97, 4
+  %101 = icmp samesign ugt i16 %97, 4
   br i1 %101, label %102, label %113
 
 102:                                              ; preds = %100

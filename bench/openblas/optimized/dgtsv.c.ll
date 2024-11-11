@@ -47,7 +47,7 @@ define void @dgtsv_(ptr nocapture noundef readonly %0, ptr nocapture noundef rea
 32:                                               ; preds = %30
   %33 = icmp eq i32 %20, 1
   %34 = add nsw i32 %17, -2
-  %35 = icmp ult i32 %17, 3
+  %35 = icmp samesign ult i32 %17, 3
   br i1 %33, label %36, label %147
 
 36:                                               ; preds = %32

@@ -14383,7 +14383,7 @@ _ZNSt12_Vector_baseIiSaIiEE11_M_allocateEm.exit.i.i: ; preds = %_ZNSt6vectorIiSa
   %13 = add i32 %.sroa.05.08.i.i.i.i.i.i.i.i.i.i, 1
   %.049.i.i.i.i.i.i.i.i.i.i.add = add nuw nsw i64 %.049.i.i.i.i.i.i.i.i.i.i.idx, 4
   %14 = add nsw i64 %.010.i.i.i.i.i.i.i.i.i.i, -1
-  %15 = icmp ugt i64 %.010.i.i.i.i.i.i.i.i.i.i, 1
+  %15 = icmp samesign ugt i64 %.010.i.i.i.i.i.i.i.i.i.i, 1
   br i1 %15, label %.lr.ph.i.i.i.i.i.i.i.i.i.i, label %16, !llvm.loop !318
 
 16:                                               ; preds = %.lr.ph.i.i.i.i.i.i.i.i.i.i
@@ -21657,7 +21657,7 @@ _ZN4llvm15SmallVectorImplISt4pairINS_9StringRefENS_13BitcodeModuleEEE12assignRem
   %32 = getelementptr inbounds i8, ptr %.0910.i.i.i.i.i, i64 80
   %33 = getelementptr inbounds i8, ptr %.0811.i.i.i.i.i, i64 80
   %34 = add nsw i64 %.012.i.i.i.i.i, -1
-  %35 = icmp ugt i64 %.012.i.i.i.i.i, 1
+  %35 = icmp samesign ugt i64 %.012.i.i.i.i.i, 1
   br i1 %35, label %.lr.ph.i.i.i.i.i, label %_ZSt4moveIPSt4pairIN4llvm9StringRefENS1_13BitcodeModuleEES5_ET0_T_S7_S6_.exit, !llvm.loop !672
 
 _ZSt4moveIPSt4pairIN4llvm9StringRefENS1_13BitcodeModuleEES5_ET0_T_S7_S6_.exit: ; preds = %.lr.ph.i.i.i.i.i, %25, %24
@@ -21705,7 +21705,7 @@ _ZSt4moveIPSt4pairIN4llvm9StringRefENS1_13BitcodeModuleEES5_ET0_T_S7_S6_.exit: ;
   %53 = getelementptr inbounds i8, ptr %.0910.i.i.i.i.i39, i64 80
   %54 = getelementptr inbounds i8, ptr %.0811.i.i.i.i.i38, i64 80
   %55 = add nsw i64 %.012.i.i.i.i.i37, -1
-  %56 = icmp ugt i64 %.012.i.i.i.i.i37, 1
+  %56 = icmp samesign ugt i64 %.012.i.i.i.i.i37, 1
   br i1 %56, label %.lr.ph.i.i.i.i.i36, label %_ZSt4moveIPSt4pairIN4llvm9StringRefENS1_13BitcodeModuleEES5_ET0_T_S7_S6_.exit40, !llvm.loop !672
 
 _ZSt4moveIPSt4pairIN4llvm9StringRefENS1_13BitcodeModuleEES5_ET0_T_S7_S6_.exit40: ; preds = %.lr.ph.i.i.i.i.i36, %47, %46, %42

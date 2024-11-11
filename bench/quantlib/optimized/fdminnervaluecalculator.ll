@@ -718,7 +718,7 @@ for.body:                                         ; preds = %for.body.lr.ph, %_Z
   br i1 %cmp.i.i.i.i, label %land.lhs.true.i.i.i.i, label %_ZNSt5dequeIbSaIbEEixEm.exit.thread98
 
 land.lhs.true.i.i.i.i:                            ; preds = %for.body
-  %cmp2.i.i.i.i = icmp ult i64 %add.i.i.i.i, 512
+  %cmp2.i.i.i.i = icmp samesign ult i64 %add.i.i.i.i, 512
   br i1 %cmp2.i.i.i.i, label %_ZNSt5dequeIbSaIbEEixEm.exit.thread, label %_ZNSt5dequeIbSaIbEEixEm.exit
 
 _ZNSt5dequeIbSaIbEEixEm.exit:                     ; preds = %land.lhs.true.i.i.i.i

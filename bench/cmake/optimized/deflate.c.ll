@@ -68,7 +68,7 @@ define dso_local range(i32 -6, 1) i32 @cm_zlib_deflateInit2_(ptr noundef %0, i32
   br i1 %31, label %32, label %36
 
 32:                                               ; preds = %29
-  %33 = icmp ult i32 %3, -15
+  %33 = icmp samesign ult i32 %3, -15
   br i1 %33, label %124, label %34
 
 34:                                               ; preds = %32
@@ -76,7 +76,7 @@ define dso_local range(i32 -6, 1) i32 @cm_zlib_deflateInit2_(ptr noundef %0, i32
   br label %40
 
 36:                                               ; preds = %29
-  %37 = icmp ugt i32 %3, 15
+  %37 = icmp samesign ugt i32 %3, 15
   br i1 %37, label %38, label %40
 
 38:                                               ; preds = %36
@@ -1757,7 +1757,7 @@ thread-pre-split:                                 ; preds = %100
   br i1 %114, label %119, label %115
 
 115:                                              ; preds = %111
-  %116 = icmp ult i32 %113, 6
+  %116 = icmp samesign ult i32 %113, 6
   br i1 %116, label %119, label %117
 
 117:                                              ; preds = %115

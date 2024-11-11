@@ -7011,7 +7011,7 @@ while.body.i.i664:                                ; preds = %while.body.i.i664, 
   br i1 %cmp.i11.i, label %while.body.i.i664, label %while.end.i.i655, !llvm.loop !20
 
 while.end.i.i655:                                 ; preds = %while.body.i.i664
-  %cmp7.i.i = icmp ugt i64 %__val.addr.032.i.i, 999
+  %cmp7.i.i = icmp samesign ugt i64 %__val.addr.032.i.i, 999
   br i1 %cmp7.i.i, label %if.then.i.i660, label %if.else.i.i657
 
 if.then.i.i660:                                   ; preds = %while.end.i.i655

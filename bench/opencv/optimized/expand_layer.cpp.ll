@@ -1720,7 +1720,7 @@ _ZNSt6vectorIiSaIiEEC2ERKS1_.exit.thread:         ; preds = %26
 
 45:                                               ; preds = %_ZNSt6vectorIiSaIiEEC2ERKS1_.exit
   %46 = load i32, ptr %29, align 4
-  %47 = icmp ult i64 %32, 4
+  %47 = icmp samesign ult i64 %32, 4
   br i1 %47, label %48, label %54
 
 48:                                               ; preds = %.thread158, %45

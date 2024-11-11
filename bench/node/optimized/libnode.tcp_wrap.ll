@@ -3982,7 +3982,7 @@ do.end25:                                         ; preds = %if.then14
   store i8 37, ptr %arrayidx26, align 1
   %sub27 = sub nuw nsw i64 62, %call16
   store i64 %sub27, ptr %scopeidlen, align 8
-  %cmp29 = icmp ugt i64 %call16, 45
+  %cmp29 = icmp samesign ugt i64 %call16, 45
   br i1 %cmp29, label %do.body35, label %do.end40
 
 do.body35:                                        ; preds = %do.end25

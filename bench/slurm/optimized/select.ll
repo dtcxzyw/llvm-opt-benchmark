@@ -1017,7 +1017,7 @@ select_get_plugin_id_pos.exit.thread:             ; preds = %select_get_plugin_i
   br label %.sink.split
 
 33:                                               ; preds = %3
-  %34 = icmp ugt i16 %2, 9983
+  %34 = icmp samesign ugt i16 %2, 9983
   br i1 %34, label %35, label %62
 
 35:                                               ; preds = %33
@@ -1485,7 +1485,7 @@ select_get_plugin_id_pos.exit.thread:             ; preds = %select_get_plugin_i
   br label %.sink.split
 
 33:                                               ; preds = %3
-  %34 = icmp ugt i16 %2, 9983
+  %34 = icmp samesign ugt i16 %2, 9983
   br i1 %34, label %35, label %62
 
 35:                                               ; preds = %33

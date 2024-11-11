@@ -375,7 +375,7 @@ define internal i64 @ReadTTFontFileFunc(ptr nocapture noundef readonly %0, i64 n
   %73 = getelementptr inbounds i8, ptr %6, i64 56
   %74 = load i32, ptr %73, align 8
   %75 = zext i32 %74 to i64
-  %.not113 = icmp ult i64 %1, %75
+  %.not113 = icmp samesign ult i64 %1, %75
   br i1 %.not113, label %89, label %76
 
 76:                                               ; preds = %72
@@ -384,7 +384,7 @@ define internal i64 @ReadTTFontFileFunc(ptr nocapture noundef readonly %0, i64 n
   %79 = add i32 %78, %74
   %80 = zext i32 %79 to i64
   %81 = add nuw nsw i64 %spec.select, %1
-  %.not114 = icmp ugt i64 %81, %80
+  %.not114 = icmp samesign ugt i64 %81, %80
   br i1 %.not114, label %89, label %82
 
 82:                                               ; preds = %76
@@ -401,7 +401,7 @@ define internal i64 @ReadTTFontFileFunc(ptr nocapture noundef readonly %0, i64 n
   %90 = trunc i64 %1 to i32
   store i32 %90, ptr %73, align 8
   %91 = add nuw nsw i64 %1, 1024
-  %92 = icmp ugt i64 %91, %20
+  %92 = icmp samesign ugt i64 %91, %20
   %93 = sub i32 %19, %90
   %94 = select i1 %92, i32 %93, i32 1024
   %95 = getelementptr inbounds i8, ptr %6, i64 60

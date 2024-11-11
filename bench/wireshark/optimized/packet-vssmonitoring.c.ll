@@ -104,7 +104,7 @@ define internal range(i32 0, 16) i32 @dissect_vssmonitoring(ptr noundef %0, ptr 
   br i1 %or.cond, label %14, label %69
 
 14:                                               ; preds = %12
-  %15 = icmp ult i32 %9, 8
+  %15 = icmp samesign ult i32 %9, 8
   br i1 %15, label %38, label %16
 
 16:                                               ; preds = %14

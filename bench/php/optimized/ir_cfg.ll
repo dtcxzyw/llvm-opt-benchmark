@@ -152,7 +152,7 @@ define hidden noundef i32 @ir_build_cfg(ptr noundef %0) local_unnamed_addr #0 {
   store i64 %82, ptr %80, align 8
   %83 = getelementptr inbounds i8, ptr %.0708814, i64 4
   %84 = add nsw i32 %.0711813, -1
-  %85 = icmp ugt i32 %.0711813, 1
+  %85 = icmp samesign ugt i32 %.0711813, 1
   br i1 %85, label %73, label %.loopexit783
 
 .loopexit783:                                     ; preds = %73, %61
@@ -844,7 +844,7 @@ ir_try_split_if.exit.thread:                      ; preds = %310, %314, %326, %3
   br i1 %switch.selectcmp.i.i, label %487, label %ir_optimize_merge.exit.thread
 
 480:                                              ; preds = %470
-  %481 = icmp ugt i8 %473, 6
+  %481 = icmp samesign ugt i8 %473, 6
   %482 = load i8, ptr %471, align 8
   %483 = and i8 %482, -4
   %484 = and i8 %482, -3
@@ -2025,7 +2025,7 @@ thread-pre-split:                                 ; preds = %955, %921, %919, %.
   store i32 %.2701903, ptr %1099, align 4
   %1100 = getelementptr inbounds i8, ptr %.0674899, i64 4
   %1101 = add nsw i32 %.2713897, -1
-  %1102 = icmp ugt i32 %.2713897, 1
+  %1102 = icmp samesign ugt i32 %.2713897, 1
   br i1 %1102, label %.lr.ph901, label %.loopexit775
 
 1103:                                             ; preds = %.lr.ph907
@@ -4804,7 +4804,7 @@ define internal fastcc zeroext i1 @ir_cmp_is_true(i32 noundef range(i32 0, 256) 
   br label %208
 
 20:                                               ; preds = %7
-  %21 = icmp ugt i8 %5, 6
+  %21 = icmp samesign ugt i8 %5, 6
   %22 = getelementptr inbounds i8, ptr %1, i64 8
   %23 = load i64, ptr %22, align 8
   %24 = getelementptr inbounds i8, ptr %2, i64 8
@@ -4820,7 +4820,7 @@ define internal fastcc zeroext i1 @ir_cmp_is_true(i32 noundef range(i32 0, 256) 
   br label %208
 
 30:                                               ; preds = %7
-  %31 = icmp ugt i8 %5, 6
+  %31 = icmp samesign ugt i8 %5, 6
   %32 = getelementptr inbounds i8, ptr %1, i64 8
   %33 = load i64, ptr %32, align 8
   %34 = getelementptr inbounds i8, ptr %2, i64 8
@@ -4836,7 +4836,7 @@ define internal fastcc zeroext i1 @ir_cmp_is_true(i32 noundef range(i32 0, 256) 
   br label %208
 
 40:                                               ; preds = %7
-  %41 = icmp ugt i8 %5, 6
+  %41 = icmp samesign ugt i8 %5, 6
   %42 = getelementptr inbounds i8, ptr %1, i64 8
   %43 = load i64, ptr %42, align 8
   %44 = getelementptr inbounds i8, ptr %2, i64 8
@@ -4852,7 +4852,7 @@ define internal fastcc zeroext i1 @ir_cmp_is_true(i32 noundef range(i32 0, 256) 
   br label %208
 
 50:                                               ; preds = %7
-  %51 = icmp ugt i8 %5, 6
+  %51 = icmp samesign ugt i8 %5, 6
   %52 = getelementptr inbounds i8, ptr %1, i64 8
   %53 = load i64, ptr %52, align 8
   %54 = getelementptr inbounds i8, ptr %2, i64 8

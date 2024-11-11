@@ -1990,7 +1990,7 @@ define void @Abc_NodeEdgeDsdPushOrdered(ptr nocapture noundef readonly %0, ptr n
 27:                                               ; preds = %14
   %28 = getelementptr inbounds i32, ptr %15, i64 %indvars.iv
   store i32 %17, ptr %28, align 4
-  %29 = icmp ugt i64 %indvars.iv, 1
+  %29 = icmp samesign ugt i64 %indvars.iv, 1
   br i1 %29, label %14, label %._crit_edge, !llvm.loop !19
 
 ._crit_edge.loopexit.split.loop.exit:             ; preds = %14
@@ -2201,7 +2201,7 @@ Vec_IntFree.exit:                                 ; preds = %.split.us, %78
 96:                                               ; preds = %84
   %97 = getelementptr inbounds i32, ptr %71, i64 %indvars.iv.i
   store i32 %86, ptr %97, align 4
-  %98 = icmp ugt i64 %indvars.iv.i, 1
+  %98 = icmp samesign ugt i64 %indvars.iv.i, 1
   br i1 %98, label %84, label %Abc_NodeEdgeDsdPushOrdered.exit, !llvm.loop !19
 
 ._crit_edge.loopexit.split.loop.exit.i:           ; preds = %84
@@ -2494,7 +2494,7 @@ Abc_NodeEdgeDsdPushOrdered.exit487.thread:        ; preds = %235
 254:                                              ; preds = %242
   %255 = getelementptr inbounds i32, ptr %.pre600, i64 %indvars.iv.i482
   store i32 %244, ptr %255, align 4
-  %256 = icmp ugt i64 %indvars.iv.i482, 1
+  %256 = icmp samesign ugt i64 %indvars.iv.i482, 1
   br i1 %256, label %242, label %Abc_NodeEdgeDsdPushOrdered.exit487, !llvm.loop !19
 
 ._crit_edge.loopexit.split.loop.exit.i486:        ; preds = %242
@@ -3195,7 +3195,7 @@ Abc_NodeEdgeDsdPushOrdered.exit519.thread:        ; preds = %627
 646:                                              ; preds = %634
   %647 = getelementptr inbounds i32, ptr %.pre598, i64 %indvars.iv.i514
   store i32 %636, ptr %647, align 4
-  %648 = icmp ugt i64 %indvars.iv.i514, 1
+  %648 = icmp samesign ugt i64 %indvars.iv.i514, 1
   br i1 %648, label %634, label %Abc_NodeEdgeDsdPushOrdered.exit519, !llvm.loop !19
 
 ._crit_edge.loopexit.split.loop.exit.i518:        ; preds = %634

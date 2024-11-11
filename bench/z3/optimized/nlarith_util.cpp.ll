@@ -29560,7 +29560,7 @@ _ZN10ref_vectorI3app11ast_managerE11element_refaSEPS0_.exit275: ; preds = %if.th
   br label %if.end
 
 if.end:                                           ; preds = %_ZN10ref_vectorI3app11ast_managerE11element_refaSEPS0_.exit275, %invoke.cont57
-  %cmp45 = icmp ugt i64 %indvars.iv451, 1
+  %cmp45 = icmp samesign ugt i64 %indvars.iv451, 1
   br i1 %cmp45, label %invoke.cont49, label %for.cond26.loopexit, !llvm.loop !63
 
 for.end82:                                        ; preds = %for.cond26.loopexit, %_ZN15ref_vector_coreI3app19ref_manager_wrapperIS0_11ast_managerEE9push_backEPS0_.exit, %for.cond26.preheader

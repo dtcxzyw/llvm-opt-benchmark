@@ -3564,7 +3564,7 @@ land.lhs.true.i94:                                ; preds = %for.body.i88
   br i1 %cmp10.i, label %get_describe_name.exit, label %for.inc.i92
 
 for.inc.i92:                                      ; preds = %land.lhs.true.i94, %for.body.i88
-  %cmp.not.i = icmp ult i64 %cp.0.idx.in16.i, 4
+  %cmp.not.i = icmp samesign ult i64 %cp.0.idx.in16.i, 4
   br i1 %cmp.not.i, label %if.end63, label %for.body.i88, !llvm.loop !32
 
 get_describe_name.exit:                           ; preds = %land.lhs.true.i94

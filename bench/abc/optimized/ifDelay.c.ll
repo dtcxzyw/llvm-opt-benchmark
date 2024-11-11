@@ -1592,7 +1592,7 @@ If_LogCreateAndXor.exit196:                       ; preds = %.Vec_IntGrow.exit10
   store i32 %292, ptr %349, align 4
   %350 = shl nsw i32 %345, 1
   store i32 %350, ptr %gep.i, align 4
-  %351 = icmp ugt i64 %indvars.iv.i126, 2
+  %351 = icmp samesign ugt i64 %indvars.iv.i126, 2
   br i1 %351, label %.lr.ph.i125, label %.thread.i141, !llvm.loop !21
 
 .split66:                                         ; preds = %._crit_edge.thread, %._crit_edge
@@ -1763,7 +1763,7 @@ If_LogCounterAddAig.exit138:                      ; preds = %.loopexit.i146, %.p
   %426 = load i32, ptr %gep.i165, align 4
   %427 = tail call fastcc i32 @If_LogCreateAndXor(ptr noundef nonnull %3, i32 noundef %425, i32 noundef %426, i32 noundef %5)
   store i32 %427, ptr %gep.i165, align 4
-  %428 = icmp ugt i64 %indvars.iv.i163, 2
+  %428 = icmp samesign ugt i64 %indvars.iv.i163, 2
   br i1 %428, label %.lr.ph.i162, label %If_LogCreateAndXorMulti.exit166, !llvm.loop !21
 
 If_LogCreateAndXorMulti.exit166:                  ; preds = %.lr.ph.i162, %.critedge.thread, %421

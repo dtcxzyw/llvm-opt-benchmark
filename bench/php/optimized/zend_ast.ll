@@ -5045,7 +5045,7 @@ define void @zend_ast_destroy(ptr noundef readonly %0) local_unnamed_addr #0 {
   br label %.loopexit
 
 25:                                               ; preds = %12
-  %.not75 = icmp ult i16 %2, 128
+  %.not75 = icmp samesign ult i16 %2, 128
   br i1 %.not75, label %36, label %26
 
 26:                                               ; preds = %25
@@ -5098,7 +5098,7 @@ define void @zend_ast_destroy(ptr noundef readonly %0) local_unnamed_addr #0 {
   br label %.loopexit
 
 50:                                               ; preds = %36
-  %51 = icmp ugt i16 %2, 66
+  %51 = icmp samesign ugt i16 %2, 66
   br i1 %51, label %52, label %.loopexit
 
 52:                                               ; preds = %50

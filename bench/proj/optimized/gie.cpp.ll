@@ -2447,7 +2447,7 @@ _ZL6columnPKci.exit100.i.i:                       ; preds = %621
 660:                                              ; preds = %648
   %661 = load i32, ptr getelementptr inbounds (i8, ptr @_ZL1T, i64 30132), align 4
   %662 = icmp eq i32 %661, 0
-  %663 = icmp ult i32 %658, 2
+  %663 = icmp samesign ult i32 %658, 2
   %or.cond.i.i33.i = and i1 %663, %662
   br i1 %or.cond.i.i33.i, label %664, label %669
 
@@ -2854,7 +2854,7 @@ _ZL20err_const_from_errnoi.exit111.i.i:           ; preds = %803, %810
 888:                                              ; preds = %879
   %889 = load i32, ptr getelementptr inbounds (i8, ptr @_ZL1T, i64 30132), align 4
   %890 = icmp eq i32 %889, 0
-  %891 = icmp ult i32 %886, 2
+  %891 = icmp samesign ult i32 %886, 2
   %or.cond.i112.i.i = and i1 %891, %890
   br i1 %or.cond.i112.i.i, label %892, label %897
 
@@ -3212,8 +3212,8 @@ _ZL11todeg_coordP8PJconsts12PJ_DIRECTION8PJ_COORD.exit.i.i: ; preds = %_ZL11tode
   %1039 = fmul double %.070.i.i, 1.000000e+03
   %1040 = load i32, ptr getelementptr inbounds (i8, ptr @_ZL1T, i64 30132), align 4
   %1041 = icmp eq i32 %1040, 0
-  %1042 = icmp ult i32 %1035, 2
-  %or.cond.i145.i.i = and i1 %1042, %1041
+  %1042 = icmp samesign ult i32 %1035, 2
+  %or.cond.i145.i.i = select i1 %1041, i1 %1042, i1 false
   br i1 %or.cond.i145.i.i, label %1043, label %1048
 
 1043:                                             ; preds = %1037
@@ -3481,7 +3481,7 @@ _ZL11torad_coordP8PJconsts12PJ_DIRECTION8PJ_COORD.exit.i.i: ; preds = %1165, %11
 1188:                                             ; preds = %1185
   %1189 = load i32, ptr getelementptr inbounds (i8, ptr @_ZL1T, i64 30132), align 4
   %1190 = icmp eq i32 %1189, 0
-  %1191 = icmp ult i32 %1186, 2
+  %1191 = icmp samesign ult i32 %1186, 2
   %or.cond4.i.i = and i1 %1191, %1190
   br i1 %or.cond4.i.i, label %1192, label %1197
 

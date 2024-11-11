@@ -1069,7 +1069,7 @@ sw.bb13.i.i:                                      ; preds = %do.body.i.i
   %38 = load i64, ptr %24, align 8
   %add.i.i = add i64 %38, %sub
   store i64 %add.i.i, ptr %24, align 8
-  %cmp1521.i.i = icmp ugt i64 %indvars.iv.i.i, 1
+  %cmp1521.i.i = icmp samesign ugt i64 %indvars.iv.i.i, 1
   br i1 %cmp1521.i.i, label %while.body.i.i, label %_ZN4absl13cord_internal12_GLOBAL__N_115StackOperationsILNS0_12CordRepBtree8EdgeTypeE0EE9PropagateEPS3_imNS3_8OpResultE.exit
 
 while.body.i.i:                                   ; preds = %sw.bb13.i.i, %while.body.i.i
@@ -1233,7 +1233,7 @@ do.body:                                          ; preds = %do.body, %_ZN4absl1
   store i64 0, ptr %4, align 8
   %refcount.i.i.i.i = getelementptr inbounds i8, ptr %call4.i.i, i64 8
   store i32 2, ptr %refcount.i.i.i.i, align 4
-  %cmp.i.i.i.i = icmp ult i64 %and.i.i.i.i, 513
+  %cmp.i.i.i.i = icmp samesign ult i64 %and.i.i.i.i, 513
   %.sink8.i.i.i.i = select i1 %cmp.i.i.i.i, i64 3, i64 6
   %.sink.i.i.i.i = select i1 %cmp.i.i.i.i, i64 2, i64 58
   %div36.i.i.i.i = lshr i64 %and.i.i.i.i, %.sink8.i.i.i.i
@@ -1315,7 +1315,7 @@ while.body:                                       ; preds = %while.body.lr.ph, %
   store i64 0, ptr %1, align 8
   %refcount.i.i.i.i = getelementptr inbounds i8, ptr %call4.i.i, i64 8
   store i32 2, ptr %refcount.i.i.i.i, align 4
-  %cmp.i.i.i.i = icmp ult i64 %and.i.i.i.i, 513
+  %cmp.i.i.i.i = icmp samesign ult i64 %and.i.i.i.i, 513
   %.sink8.i.i.i.i = select i1 %cmp.i.i.i.i, i64 3, i64 6
   %.sink.i.i.i.i = select i1 %cmp.i.i.i.i, i64 2, i64 58
   %div36.i.i.i.i = lshr i64 %and.i.i.i.i, %.sink8.i.i.i.i
@@ -1618,7 +1618,7 @@ sw.bb13.i.i:                                      ; preds = %do.body.i.i
   %37 = load i64, ptr %24, align 8
   %add.i.i = add i64 %37, %sub
   store i64 %add.i.i, ptr %24, align 8
-  %cmp1521.i.i = icmp ugt i64 %indvars.iv.i.i, 1
+  %cmp1521.i.i = icmp samesign ugt i64 %indvars.iv.i.i, 1
   br i1 %cmp1521.i.i, label %while.body.i.i, label %_ZN4absl13cord_internal12_GLOBAL__N_115StackOperationsILNS0_12CordRepBtree8EdgeTypeE1EE9PropagateEPS3_imNS3_8OpResultE.exit
 
 while.body.i.i:                                   ; preds = %sw.bb13.i.i, %while.body.i.i
@@ -1794,7 +1794,7 @@ _ZN4absl13cord_internal12_GLOBAL__N_17ConsumeILNS0_12CordRepBtree8EdgeTypeE1EEES
   store i64 0, ptr %4, align 8
   %refcount.i.i.i.i = getelementptr inbounds i8, ptr %call4.i.i, i64 8
   store i32 2, ptr %refcount.i.i.i.i, align 4
-  %cmp.i.i.i.i = icmp ult i64 %and.i.i.i.i, 513
+  %cmp.i.i.i.i = icmp samesign ult i64 %and.i.i.i.i, 513
   %.sink8.i.i.i.i = select i1 %cmp.i.i.i.i, i64 3, i64 6
   %.sink.i.i.i.i = select i1 %cmp.i.i.i.i, i64 2, i64 58
   %div36.i.i.i.i = lshr i64 %and.i.i.i.i, %.sink8.i.i.i.i
@@ -1876,7 +1876,7 @@ _ZN4absl13cord_internal12_GLOBAL__N_17ConsumeILNS0_12CordRepBtree8EdgeTypeE1EEES
   store i64 0, ptr %1, align 8
   %refcount.i.i.i.i = getelementptr inbounds i8, ptr %call4.i.i, i64 8
   store i32 2, ptr %refcount.i.i.i.i, align 4
-  %cmp.i.i.i.i = icmp ult i64 %and.i.i.i.i, 513
+  %cmp.i.i.i.i = icmp samesign ult i64 %and.i.i.i.i, 513
   %.sink8.i.i.i.i = select i1 %cmp.i.i.i.i, i64 3, i64 6
   %.sink.i.i.i.i = select i1 %cmp.i.i.i.i, i64 2, i64 58
   %div36.i.i.i.i = lshr i64 %and.i.i.i.i, %.sink8.i.i.i.i
@@ -2984,7 +2984,7 @@ do.body25:                                        ; preds = %if.end20
   br label %return
 
 if.end28:                                         ; preds = %if.end20
-  %cmp31.not = icmp ugt i8 %2, %3
+  %cmp31.not = icmp samesign ugt i8 %2, %3
   br i1 %cmp31.not, label %do.body33, label %if.end36
 
 do.body33:                                        ; preds = %if.end28
@@ -6550,7 +6550,7 @@ while.body40:                                     ; preds = %while.body40.prehea
   %26 = load i64, ptr %25, align 8
   %sub45 = sub i64 %26, %11
   store i64 %sub45, ptr %25, align 8
-  %cmp39 = icmp ugt i64 %indvars.iv108, 1
+  %cmp39 = icmp samesign ugt i64 %indvars.iv108, 1
   br i1 %cmp39, label %while.body40, label %while.cond47.preheader, !llvm.loop !52
 
 while.cond47.preheader:                           ; preds = %while.body40, %while.end33

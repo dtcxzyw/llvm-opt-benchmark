@@ -2585,7 +2585,7 @@ switch.early.test:                                ; preds = %180
 208:                                              ; preds = %191, %.thread
   %.sroa.10.1 = phi i64 [ %199, %.thread ], [ %183, %191 ]
   %.sroa.0307.1 = phi ptr [ %14, %.thread ], [ %181, %191 ]
-  %.not.i105 = icmp ult i64 %.sroa.10.1, 2
+  %.not.i105 = icmp samesign ult i64 %.sroa.10.1, 2
   br i1 %.not.i105, label %_ZNK4llvm9StringRef11starts_withES0_.exit.thread337, label %_ZNK4llvm9StringRef11starts_withES0_.exit
 
 _ZNK4llvm9StringRef11starts_withES0_.exit:        ; preds = %208
@@ -5633,7 +5633,7 @@ _ZNK4llvm9StringRef11starts_withES0_.exit30.thread.i: ; preds = %_ZNK4llvm9Strin
 _ZNK4llvm9StringRef11starts_withES0_.exit.thread.i: ; preds = %_ZNK4llvm9StringRef11starts_withES0_.exit.i
   %74 = getelementptr inbounds i8, ptr %66, i64 18
   %75 = add nsw i64 %69, -2
-  %.not.i34.i = icmp ult i64 %75, 2
+  %.not.i34.i = icmp samesign ult i64 %75, 2
   br i1 %.not.i34.i, label %_ZNK4llvm9StringRef9ends_withES0_.exit.thread21.i, label %_ZNK4llvm9StringRef9ends_withES0_.exit.i
 
 _ZNK4llvm9StringRef9ends_withES0_.exit.i:         ; preds = %_ZNK4llvm9StringRef11starts_withES0_.exit.thread.i
@@ -9680,7 +9680,7 @@ _ZN5clang17DiagnosticBuilderD2Ev.exit30:          ; preds = %.lr.ph.i.i.i.i.i20,
 65:                                               ; preds = %33
   %66 = and i64 %37, 4096
   %67 = icmp ne i64 %66, 0
-  %68 = icmp ugt i32 %34, 32767
+  %68 = icmp samesign ugt i32 %34, 32767
   %or.cond = and i1 %67, %68
   br i1 %or.cond, label %69, label %88
 

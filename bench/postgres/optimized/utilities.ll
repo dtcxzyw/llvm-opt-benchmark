@@ -172,7 +172,7 @@ define hidden range(i32 -1, 5) i32 @in_grouping_U(ptr nocapture noundef %0, ptr 
   %24 = load i8, ptr %23, align 1
   %25 = and i8 %24, 63
   %26 = zext nneg i8 %25 to i32
-  %27 = icmp ult i8 %16, -32
+  %27 = icmp samesign ult i8 %16, -32
   %28 = icmp eq i32 %21, %9
   %or.cond38.i = or i1 %28, %27
   br i1 %or.cond38.i, label %29, label %33
@@ -190,7 +190,7 @@ define hidden range(i32 -1, 5) i32 @in_grouping_U(ptr nocapture noundef %0, ptr 
   %37 = load i8, ptr %36, align 1
   %38 = and i8 %37, 63
   %39 = zext nneg i8 %38 to i32
-  %40 = icmp ult i8 %16, -16
+  %40 = icmp samesign ult i8 %16, -16
   %41 = icmp eq i32 %34, %9
   %or.cond39.i = or i1 %41, %40
   br i1 %or.cond39.i, label %42, label %48
@@ -394,7 +394,7 @@ define hidden range(i32 -1, 5) i32 @out_grouping_U(ptr nocapture noundef %0, ptr
   %24 = load i8, ptr %23, align 1
   %25 = and i8 %24, 63
   %26 = zext nneg i8 %25 to i32
-  %27 = icmp ult i8 %16, -32
+  %27 = icmp samesign ult i8 %16, -32
   %28 = icmp eq i32 %21, %9
   %or.cond38.i = or i1 %28, %27
   br i1 %or.cond38.i, label %29, label %33
@@ -412,7 +412,7 @@ define hidden range(i32 -1, 5) i32 @out_grouping_U(ptr nocapture noundef %0, ptr
   %37 = load i8, ptr %36, align 1
   %38 = and i8 %37, 63
   %39 = zext nneg i8 %38 to i32
-  %40 = icmp ult i8 %16, -16
+  %40 = icmp samesign ult i8 %16, -16
   %41 = icmp eq i32 %34, %9
   %or.cond39.i = or i1 %41, %40
   br i1 %or.cond39.i, label %42, label %48

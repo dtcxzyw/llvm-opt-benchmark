@@ -651,7 +651,7 @@ define range(i32 0, 2) i32 @CmdApplyAlias(ptr noundef %0, ptr nocapture noundef 
   %44 = load ptr, ptr %43, align 8
   %gep = getelementptr ptr, ptr %invariant.gep, i64 %indvars.iv.next
   store ptr %44, ptr %gep, align 8
-  %45 = icmp ugt i64 %indvars.iv, 2
+  %45 = icmp samesign ugt i64 %indvars.iv, 2
   br i1 %45, label %.lr.ph, label %.preheader153, !llvm.loop !12
 
 .loopexit:                                        ; preds = %.lr.ph166.preheader, %.preheader153, %28

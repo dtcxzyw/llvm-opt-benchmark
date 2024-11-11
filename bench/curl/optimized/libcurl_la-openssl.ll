@@ -2653,7 +2653,7 @@ if.end.i:                                         ; preds = %if.then.i, %cond.tr
   %9 = load i8, ptr %buf.addr.0.i, align 1
   %tobool.not.i = icmp eq i8 %9, 0
   %cmp8.i = icmp samesign ugt i64 %size.addr.0.i, 13
-  %or.cond = and i1 %cmp8.i, %tobool.not.i
+  %or.cond = select i1 %tobool.not.i, i1 %cmp8.i, i1 false
   br i1 %or.cond, label %if.then9.i, label %cond.end
 
 if.then9.i:                                       ; preds = %if.end.i
@@ -3477,7 +3477,7 @@ if.end.i:                                         ; preds = %if.then.i, %if.then
   %6 = load i8, ptr %buf.addr.0.i, align 1
   %tobool.not.i = icmp eq i8 %6, 0
   %cmp8.i = icmp samesign ugt i64 %size.addr.0.i, 13
-  %or.cond = and i1 %cmp8.i, %tobool.not.i
+  %or.cond = select i1 %tobool.not.i, i1 %cmp8.i, i1 false
   br i1 %or.cond, label %if.then9.i, label %if.end23
 
 if.then9.i:                                       ; preds = %if.end.i
@@ -3658,7 +3658,7 @@ if.end:                                           ; preds = %if.then, %entry
 if.then5:                                         ; preds = %if.end
   %tobool6.not = icmp eq i64 %error, 0
   %call7 = select i1 %tobool6.not, i64 8, i64 13
-  %cmp8 = icmp ult i64 %call7, %size.addr.0
+  %cmp8 = icmp samesign ult i64 %call7, %size.addr.0
   br i1 %cmp8, label %if.then9, label %if.end12
 
 if.then9:                                         ; preds = %if.then5

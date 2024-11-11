@@ -371,7 +371,7 @@ define internal i32 @dissect_cpfi(ptr noundef %0, ptr noundef %1, ptr noundef %2
   %.077.i = phi i32 [ 0, %78 ], [ %100, %84 ]
   %103 = load i32, ptr @cpfi_arrow_moves, align 4
   %.not82.i = icmp ne i32 %103, 0
-  %104 = icmp ult i32 %.077.i, %.0.i
+  %104 = icmp samesign ult i32 %.077.i, %.0.i
   %or.cond.i = select i1 %.not82.i, i1 %104, i1 false
   %storemerge84.i = select i1 %or.cond.i, ptr @dst_str, ptr @src_str
   %storemerge83.i = select i1 %or.cond.i, ptr @r_to_l_arrow, ptr @l_to_r_arrow

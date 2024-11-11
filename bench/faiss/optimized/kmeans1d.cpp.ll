@@ -1658,7 +1658,7 @@ _ZNKSt6vectorIfSaIfEE12_M_check_lenEmPKc.exit.i:  ; preds = %121
   %137 = getelementptr inbounds float, ptr %127, i64 %120
   store ptr %137, ptr %122, align 8
   store ptr %137, ptr %123, align 8
-  %138 = icmp ugt i64 %120, 1152921504606846975
+  %138 = icmp samesign ugt i64 %120, 1152921504606846975
   br i1 %138, label %139, label %_ZNKSt6vectorIlSaIlEE12_M_check_lenEmPKc.exit.i
 
 139:                                              ; preds = %134

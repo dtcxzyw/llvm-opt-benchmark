@@ -219,7 +219,7 @@ opal_datatype_span.exit.i:                        ; preds = %84, %81
 
 95:                                               ; preds = %92
   %96 = add nsw i32 %.val101.val, -1
-  %97 = icmp ult i32 %.val, %96
+  %97 = icmp samesign ult i32 %.val, %96
   br i1 %97, label %98, label %exscan_sched_linear.exit.thread128
 
 98:                                               ; preds = %95

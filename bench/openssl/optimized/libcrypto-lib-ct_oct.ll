@@ -128,7 +128,7 @@ if.end4:                                          ; preds = %if.end
   br i1 %cmp6, label %if.then8, label %if.else
 
 if.then8:                                         ; preds = %if.end4
-  %cmp9 = icmp ult i64 %len, 43
+  %cmp9 = icmp samesign ult i64 %len, 43
   br i1 %cmp9, label %err.sink.split, label %if.end12
 
 if.end12:                                         ; preds = %if.then8
@@ -200,7 +200,7 @@ if.end18:                                         ; preds = %if.end12
   %conv57 = zext i8 %12 to i64
   %or58 = or disjoint i64 %shl55, %conv57
   %add.ptr60 = getelementptr inbounds i8, ptr %1, i64 43
-  %cmp61 = icmp ult i64 %sub, %or58
+  %cmp61 = icmp samesign ult i64 %sub, %or58
   br i1 %cmp61, label %err.sink.split, label %if.end64
 
 if.end64:                                         ; preds = %if.end18
